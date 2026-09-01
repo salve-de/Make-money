@@ -1,0 +1,29 @@
+name: export-source
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/export-source.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare source snapshot
+        run: |
+          mkdir -p /tmp/goldmine-source
+          rsync -a --exclude='.git' --exclude='node_modules' ./ /tmp/goldmine-source/
+      - name: Upload source snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: goldmine-source
+          path: /tmp/goldmine-source
+          include-hidden-files: true
+          retention-days: 1
