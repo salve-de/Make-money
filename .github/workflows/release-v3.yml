@@ -1,0 +1,100 @@
+name: release-v3
+
+on:
+  push:
+    branches: [feat/perfect-polish]
+    paths:
+      - release/release-v3.trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-v3
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Apply deterministic integration patch
+        run: node scripts/finalize-v2.mjs
+
+      - name: Install and verify
+        run: |
+          npm ci --ignore-scripts
+          npm run verify
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check Edge Functions
+        run: |
+          for file in \
+            supabase/functions/url-preview/index.ts \
+            supabase/functions/stripe-checkout/index.ts \
+            supabase/functions/stripe-portal/index.ts \
+            supabase/functions/stripe-webhook/index.ts \
+            supabase/functions/newsletter-subscribe/index.ts \
+            supabase/functions/newsletter-confirm/index.ts \
+            supabase/functions/newsletter-unsubscribe/index.ts \
+            supabase/functions/send-digest/index.ts; do
+            deno check --no-config "$file"
+          done
+
+      - name: Browser asset smoke test
+        run: |
+          npm run dev > /tmp/goldmine-dev.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /tmp/index.html; then break; fi
+            sleep 1
+          done
+          grep -q 'src/v2/app.js' /tmp/index.html
+          grep -q 'styles/v2.css' /tmp/index.html
+          curl --fail --silent http://127.0.0.1:4173/src/v2/app.js | grep -q 'bootstrapCloud'
+          curl --fail --silent http://127.0.0.1:4173/manifest.webmanifest | grep -q 'GOLDMINE RADAR'
+
+      - name: Write release verification status
+        run: |
+          mkdir -p release
+          cat > release/v3-verification.json <<EOF
+          {
+            "status": "passed",
+            "commit": "${GITHUB_SHA}",
+            "run_id": "${GITHUB_RUN_ID}",
+            "verified_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "checks": ["node", "data", "sql", "edge", "deno", "static-smoke"]
+          }
+          EOF
+
+      - name: Commit integrated source and status
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "feat: release GOLDMINE RADAR v3 verified platform"
+            git push origin HEAD:feat/perfect-polish
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goldmine-radar-v3-verified-source
+          path: |
+            .
+            !node_modules
+            !.git
+          retention-days: 7
