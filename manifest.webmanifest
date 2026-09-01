@@ -1,0 +1,17 @@
+{
+  "name": "GOLDMINE RADAR",
+  "short_name": "GOLDMINE",
+  "description": "実際に金が動いた証拠から、次に狙える事業機会を発見する。",
+  "start_url": "./#/discover",
+  "display": "standalone",
+  "background_color": "#070a09",
+  "theme_color": "#070a09",
+  "icons": [
+    {
+      "src": "./assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
