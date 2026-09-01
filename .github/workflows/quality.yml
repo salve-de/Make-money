@@ -2,20 +2,59 @@ name: quality
 
 on:
   push:
-    branches: [main]
+    branches: [main, "feat/**"]
   pull_request:
+    branches: [main]
 
 permissions:
   contents: read
 
+concurrency:
+  group: quality-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  verify:
+  quality:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm install --ignore-scripts
-      - run: npm run verify
+
+      - name: Install
+        run: npm ci --ignore-scripts
+
+      - name: Validate application and data
+        run: npm run verify
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Type-check Supabase Edge Functions
+        run: |
+          deno check --no-config supabase/functions/url-preview/index.ts
+          deno check --no-config supabase/functions/stripe-checkout/index.ts
+          deno check --no-config supabase/functions/stripe-portal/index.ts
+          deno check --no-config supabase/functions/stripe-webhook/index.ts
+          deno check --no-config supabase/functions/newsletter-subscribe/index.ts
+          deno check --no-config supabase/functions/newsletter-confirm/index.ts
+          deno check --no-config supabase/functions/newsletter-unsubscribe/index.ts
+          deno check --no-config supabase/functions/send-digest/index.ts
+
+      - name: Static server smoke test
+        run: |
+          npm run dev > /tmp/goldmine-dev.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /tmp/goldmine-index.html; then break; fi
+            sleep 1
+          done
+          grep -q 'GOLDMINE RADAR' /tmp/goldmine-index.html
+          curl --fail --silent http://127.0.0.1:4173/src/v2/app.js | grep -q 'bootstrapCloud'
+          curl --fail --silent http://127.0.0.1:4173/styles/v2.css | grep -q 'prefers-reduced-motion'
