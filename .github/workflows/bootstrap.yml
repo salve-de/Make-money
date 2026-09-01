@@ -1,0 +1,44 @@
+name: Bootstrap GOLDMINE RADAR
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "bootstrap/**"
+      - ".github/workflows/bootstrap.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Expand repository
+        run: |
+          cat bootstrap/part-*.b64 | base64 --decode > /tmp/goldmine-project.tar.gz
+          echo "9e9ddfc6e1e92e4c66cd7375c9558848f345e56d94974c6fee8897c2ca5203c3  /tmp/goldmine-project.tar.gz" | sha256sum -c -
+          tar -xzf /tmp/goldmine-project.tar.gz -C .
+          rm -rf bootstrap
+          rm -f .github/workflows/bootstrap.yml
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify implementation
+        run: |
+          npm install --ignore-scripts
+          npm run verify
+
+      - name: Commit implementation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: implement GOLDMINE RADAR platform"
+          git push
