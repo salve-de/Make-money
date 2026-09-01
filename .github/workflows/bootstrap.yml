@@ -23,8 +23,7 @@ jobs:
           cat bootstrap/part-*.b64 | base64 --decode > /tmp/goldmine-project.tar.gz
           echo "9e9ddfc6e1e92e4c66cd7375c9558848f345e56d94974c6fee8897c2ca5203c3  /tmp/goldmine-project.tar.gz" | sha256sum -c -
           tar -xzf /tmp/goldmine-project.tar.gz -C .
-          rm -rf bootstrap
-          rm -f .github/workflows/bootstrap.yml
+          rm -f .github/workflows/quality.yml
 
       - uses: actions/setup-node@v4
         with:
