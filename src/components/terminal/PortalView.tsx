@@ -12,13 +12,29 @@ interface PortalViewProps {
   onSelectCompany: (id: string) => void;
   onNavigateToTerminal: () => void;
   onFilterTheme?: (tag: string) => void;
+  onOpenCollectionsList?: () => void;
+  onOpenCollectionDetail?: (collectionId: string) => void;
+  onOpenSignalsList?: () => void;
+  onOpenSignalDetail?: (signalId: string) => void;
+  onOpenLeaderboard?: () => void;
+  onOpenPostMortemArchive?: () => void;
+  onOpenPyramidDetail?: () => void;
+  onOpenSimulatorDetail?: () => void;
 }
 
 export const PortalView: React.FC<PortalViewProps> = ({
   companies,
   onSelectCompany,
   onNavigateToTerminal,
-  onFilterTheme
+  onFilterTheme,
+  onOpenCollectionsList,
+  onOpenCollectionDetail,
+  onOpenSignalsList,
+  onOpenSignalDetail,
+  onOpenLeaderboard,
+  onOpenPostMortemArchive,
+  onOpenPyramidDetail,
+  onOpenSimulatorDetail,
 }) => {
   const [selectedDossierId, setSelectedDossierId] = useState<string | null>(null);
   const soloOnlyList = companies.filter(c => c.scaleTier === 'SOLO_MICRO');
@@ -117,17 +133,30 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* ========================================================================= */}
         <section className="space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
-            <div>
+            <div 
+              onClick={onOpenLeaderboard}
+              className={`${onOpenLeaderboard ? 'cursor-pointer group' : ''}`}
+            >
               <div className="text-[10px] font-mono text-zinc-400 font-bold tracking-wider uppercase">
                 TOP EARNERS & HOT SIGNALS
               </div>
-              <h2 className="text-base sm:text-lg font-bold text-white mt-0.5">
-                今特に話題の急上昇・爆益リーダーボード TOP 5
+              <h2 className="text-base sm:text-lg font-bold text-white mt-0.5 group-hover:text-zinc-300 transition-colors flex items-center gap-1.5">
+                <span>今特に話題の急上昇・爆益リーダーボード TOP 5</span>
+                {onOpenLeaderboard && <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-300">→</span>}
               </h2>
             </div>
-            <span className="text-xs text-zinc-500 font-mono">
-              直近実績・Stripe実額検証済み
-            </span>
+            {onOpenLeaderboard ? (
+              <button
+                onClick={onOpenLeaderboard}
+                className="text-xs text-zinc-400 hover:text-white font-mono flex items-center gap-1 self-start sm:self-auto"
+              >
+                <span>リーダーボード全頭検査 →</span>
+              </button>
+            ) : (
+              <span className="text-xs text-zinc-500 font-mono">
+                直近実績・Stripe実額検証済み
+              </span>
+            )}
           </div>
 
           <div className="grid grid-cols-1 gap-2.5">
@@ -219,27 +248,43 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* ========================================================================= */}
         <section className="space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
-            <div className="flex items-center gap-2">
+            <div 
+              onClick={onOpenSignalsList}
+              className={`flex items-center gap-2 ${onOpenSignalsList ? 'cursor-pointer group' : ''}`}
+            >
               <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
                 MARKET SIGNALS
               </span>
-              <h2 className="text-base sm:text-lg font-bold text-white">
-                今週検知された「未開拓の市場シグナル・歪み」速報
+              <h2 className="text-base sm:text-lg font-bold text-white group-hover:text-zinc-300 transition-colors flex items-center gap-1.5">
+                <span>今週検知された「未開拓の市場シグナル・歪み」速報</span>
+                {onOpenSignalsList && <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-300">→</span>}
               </h2>
             </div>
-            <span className="text-xs text-zinc-500 font-mono">
-              まだ誰も手をつけていない参入余地
-            </span>
+            {onOpenSignalsList ? (
+              <button
+                onClick={onOpenSignalsList}
+                className="text-xs text-zinc-400 hover:text-white font-mono flex items-center gap-1 self-start sm:self-auto"
+              >
+                <span>市場シグナル一覧 →</span>
+              </button>
+            ) : (
+              <span className="text-xs text-zinc-500 font-mono">
+                まだ誰も手をつけていない参入余地
+              </span>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
             
-            <div className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 hover:border-zinc-700 transition-colors space-y-2.5">
+            <div 
+              onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-tiktok-shop-faceless') : null}
+              className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 hover:border-zinc-700 transition-all cursor-pointer space-y-2.5 group"
+            >
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-zinc-300 font-medium">需要急増 +380%</span>
                 <span className="text-[10px] font-mono text-zinc-500">競合: ほぼゼロ</span>
               </div>
-              <h3 className="font-bold text-sm text-white leading-snug">
+              <h3 className="font-bold text-sm text-white group-hover:text-zinc-200 transition-colors leading-snug">
                 TikTok Shop手元実演アフィリエイト（顔出し・声出し不要）
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed font-normal">
@@ -247,33 +292,39 @@ export const PortalView: React.FC<PortalViewProps> = ({
               </p>
               <div className="pt-2 border-t border-zinc-800/60 flex items-center justify-between text-[11px] font-mono">
                 <span className="text-zinc-500">想定参入元手: 1万円</span>
-                <span className="text-zinc-200 font-bold">月利 300万〜</span>
+                <span className="text-zinc-200 font-bold group-hover:text-white">月利 300万〜 →</span>
               </div>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 hover:border-zinc-700 transition-colors space-y-2.5">
+            <div 
+              onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-grant-ai-agent') : null}
+              className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 hover:border-zinc-700 transition-all cursor-pointer space-y-2.5 group"
+            >
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-zinc-300 font-medium">成約単価 50万円</span>
                 <span className="text-[10px] font-mono text-zinc-500">粗利率 95%</span>
               </div>
-              <h3 className="font-bold text-sm text-white leading-snug">
-                地方中小企業向け 助成金・補助金申請AI代行
+              <h3 className="font-bold text-sm text-white group-hover:text-zinc-200 transition-colors leading-snug">
+                地方中小企業向け 助成金・補助金AI申請代行
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed font-normal">
                 難解な公的申請書類を独自プロンプトで15分でドラフト作成。商工会議所周辺のIT弱小企業にコールド営業し、着手金ゼロ・成果報酬30%で独占。
               </p>
               <div className="pt-2 border-t border-zinc-800/60 flex items-center justify-between text-[11px] font-mono">
                 <span className="text-zinc-500">想定参入元手: 0円</span>
-                <span className="text-zinc-200 font-bold">月利 200万〜</span>
+                <span className="text-zinc-200 font-bold group-hover:text-white">月利 200万〜 →</span>
               </div>
             </div>
 
-            <div className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 hover:border-zinc-700 transition-colors space-y-2.5">
+            <div 
+              onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-oss-japanese-agent') : null}
+              className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 hover:border-zinc-700 transition-all cursor-pointer space-y-2.5 group"
+            >
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-mono text-zinc-300 font-medium">継続課金 LTV特大</span>
                 <span className="text-[10px] font-mono text-zinc-500">解約率 1%未満</span>
               </div>
-              <h3 className="font-bold text-sm text-white leading-snug">
+              <h3 className="font-bold text-sm text-white group-hover:text-zinc-200 transition-colors leading-snug">
                 海外オープンソースSaaSの日本語化・国内代理導入
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed font-normal">
@@ -281,7 +332,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
               </p>
               <div className="pt-2 border-t border-zinc-800/60 flex items-center justify-between text-[11px] font-mono">
                 <span className="text-zinc-500">想定参入元手: 0円</span>
-                <span className="text-zinc-200 font-bold">月利 150万〜</span>
+                <span className="text-zinc-200 font-bold group-hover:text-white">月利 150万〜 →</span>
               </div>
             </div>
 
@@ -289,27 +340,44 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ========================================================================= */}
-        {/* 4. 雑誌風大特集：人間の欲望を直撃する3大金塊コレクション */}
+        {/* 4. 雑誌風大特集：人間の欲望を直撃する3大コレクション */}
         {/* ========================================================================= */}
         <section className="space-y-4">
-          <div className="border-b border-zinc-800 pb-3">
-            <div className="text-[10px] font-mono text-zinc-400 font-bold tracking-wider uppercase">
-              SPECIAL DOSSIER COLLECTIONS
+          <div className="border-b border-zinc-800 pb-3 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <div 
+              onClick={onOpenCollectionsList}
+              className={`${onOpenCollectionsList ? 'cursor-pointer group' : ''}`}
+            >
+              <div className="text-[10px] font-mono text-zinc-400 font-bold tracking-wider uppercase">
+                SPECIAL DOSSIER COLLECTIONS
+              </div>
+              <h2 className="text-base sm:text-lg font-bold text-white mt-0.5 group-hover:text-zinc-300 transition-colors flex items-center gap-1.5">
+                <span>大特集：あいつらの「手口」を丸裸にする3大コレクション</span>
+                {onOpenCollectionsList && <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-300">→</span>}
+              </h2>
             </div>
-            <h2 className="text-base sm:text-lg font-bold text-white mt-0.5">
-              大特集：あいつらの「手口」を丸裸にする3大コレクション
-            </h2>
+            {onOpenCollectionsList && (
+              <button
+                onClick={onOpenCollectionsList}
+                className="text-xs text-zinc-400 hover:text-white font-mono flex items-center gap-1 self-start sm:self-auto"
+              >
+                <span>特集コレクション一覧 →</span>
+              </button>
+            )}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-3.5">
             
             {/* 特集01 */}
             <div className="p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 space-y-4 flex flex-col justify-between">
-              <div className="space-y-2">
+              <div 
+                onClick={() => onOpenCollectionDetail ? onOpenCollectionDetail('collection-passive') : setSelectedDossierId('collection-passive')}
+                className="space-y-2 cursor-pointer group"
+              >
                 <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
                   COLLECTION 01
                 </span>
-                <h3 className="text-sm font-bold text-white leading-snug">
+                <h3 className="text-sm font-bold text-white group-hover:text-zinc-200 transition-colors leading-snug">
                   【寝てる間に着金】完全自動・不労集金モデルの解剖
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed font-normal">
@@ -337,7 +405,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 </div>
 
                 <button
-                  onClick={() => setSelectedDossierId('collection-passive')}
+                  onClick={() => onOpenCollectionDetail ? onOpenCollectionDetail('collection-passive') : setSelectedDossierId('collection-passive')}
                   className="w-full py-2 px-3 rounded-md bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <span>大特集深掘りレポートを開く</span>
@@ -348,11 +416,14 @@ export const PortalView: React.FC<PortalViewProps> = ({
 
             {/* 特集02 */}
             <div className="p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 space-y-4 flex flex-col justify-between">
-              <div className="space-y-2">
+              <div 
+                onClick={() => onOpenCollectionDetail ? onOpenCollectionDetail('collection-ai') : setSelectedDossierId('collection-ai')}
+                className="space-y-2 cursor-pointer group"
+              >
                 <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
                   COLLECTION 02
                 </span>
-                <h3 className="text-sm font-bold text-white leading-snug">
+                <h3 className="text-sm font-bold text-white group-hover:text-zinc-200 transition-colors leading-snug">
                   【AI労働力搾取】コードを書かず、AIを24時間働かせて億を抜く
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed font-normal">
@@ -380,7 +451,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 </div>
 
                 <button
-                  onClick={() => setSelectedDossierId('collection-ai')}
+                  onClick={() => onOpenCollectionDetail ? onOpenCollectionDetail('collection-ai') : setSelectedDossierId('collection-ai')}
                   className="w-full py-2 px-3 rounded-md bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <span>大特集深掘りレポートを開く</span>
@@ -391,11 +462,14 @@ export const PortalView: React.FC<PortalViewProps> = ({
 
             {/* 特集03 */}
             <div className="p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 space-y-4 flex flex-col justify-between">
-              <div className="space-y-2">
+              <div 
+                onClick={() => onOpenCollectionDetail ? onOpenCollectionDetail('collection-local') : setSelectedDossierId('collection-local')}
+                className="space-y-2 cursor-pointer group"
+              >
                 <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
                   COLLECTION 03
                 </span>
-                <h3 className="text-sm font-bold text-white leading-snug">
+                <h3 className="text-sm font-bold text-white group-hover:text-zinc-200 transition-colors leading-snug">
                   【泥臭い地方の歪み】IT弱者の高齢現場を独占する実業DX
                 </h3>
                 <p className="text-xs text-zinc-400 leading-relaxed font-normal">
@@ -423,7 +497,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 </div>
 
                 <button
-                  onClick={() => setSelectedDossierId('collection-local')}
+                  onClick={() => onOpenCollectionDetail ? onOpenCollectionDetail('collection-local') : setSelectedDossierId('collection-local')}
                   className="w-full py-2 px-3 rounded-md bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <span>大特集深掘りレポートを開く</span>
@@ -442,17 +516,18 @@ export const PortalView: React.FC<PortalViewProps> = ({
           companies={companies}
           onSelectCompany={onSelectCompany}
           onNavigateToTerminal={onNavigateToTerminal}
+          onOpenSimulatorDetail={onOpenSimulatorDetail}
         />
 
         {/* ========================================================================= */}
         {/* 【新設】失敗の墓場：これに手を出した奴らは全員散った「参入禁止地雷市場」 */}
         {/* ========================================================================= */}
-        <PostMortemSection />
+        <PostMortemSection onOpenArchive={onOpenPostMortemArchive} />
 
         {/* ========================================================================= */}
         {/* 【新設】業界の食物連鎖：誰が誰から金を巻き上げているか（マネーフロー暴露ピラミッド） */}
         {/* ========================================================================= */}
-        <MoneyFlowPyramid />
+        <MoneyFlowPyramid onOpenDetail={onOpenPyramidDetail} />
 
         {/* ========================================================================= */}
         {/* 5. 全22社ハイライトグリッド（注目の事業解剖カード一覧） */}

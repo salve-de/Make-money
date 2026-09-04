@@ -15,6 +15,26 @@ import { OfferModal } from '@/components/terminal/OfferModal';
 import { ProModal } from '@/components/terminal/ProModal';
 import { InfrastructureToolkitModal } from '@/components/terminal/InfrastructureToolkitModal';
 import { SubmissionModal } from '@/components/terminal/SubmissionModal';
+import { SpecialCollectionsView } from '@/components/terminal/portal/sections/SpecialCollectionsView';
+import { CollectionDetailView } from '@/components/terminal/portal/sections/CollectionDetailView';
+import { MarketSignalsView } from '@/components/terminal/portal/sections/MarketSignalsView';
+import { SignalDetailView } from '@/components/terminal/portal/sections/SignalDetailView';
+import { LeaderboardView } from '@/components/terminal/portal/sections/LeaderboardView';
+import { PostMortemArchiveView } from '@/components/terminal/portal/sections/PostMortemArchiveView';
+import { PyramidDetailView } from '@/components/terminal/portal/sections/PyramidDetailView';
+import { SimulatorDetailView } from '@/components/terminal/portal/sections/SimulatorDetailView';
+
+export type MainViewType = 
+  | 'PORTAL'
+  | 'TERMINAL'
+  | 'COLLECTIONS_LIST'
+  | 'COLLECTION_DETAIL'
+  | 'SIGNALS_LIST'
+  | 'SIGNAL_DETAIL'
+  | 'LEADERBOARD'
+  | 'POST_MORTEM'
+  | 'PYRAMID'
+  | 'SIMULATOR';
 
 export default function Home() {
   // 選択中の銘柄ID
@@ -55,8 +75,12 @@ export default function Home() {
   const [isInfraOpen, setIsInfraOpen] = useState(false);
   const [isSubmissionOpen, setIsSubmissionOpen] = useState(false);
 
-  // メイン画面の表示モード（ポータル特集 ⇄ 専門分析台帳）
-  const [mainView, setMainView] = useState<'PORTAL' | 'TERMINAL'>('PORTAL');
+  // メイン画面の表示モード（ポータル特集 ⇄ 専門分析台帳 ⇄ 各セクション・個別詳細）
+  const [mainView, setMainView] = useState<MainViewType>('PORTAL');
+
+  // 選択中の特集コレクションID / シグナルID
+  const [activeCollectionId, setActiveCollectionId] = useState<string>('collection-passive');
+  const [activeSignalId, setActiveSignalId] = useState<string>('signal-tiktok-shop-faceless');
 
   // 多次元スクリーニング判定関数（外部調査に基づく完全判定ロジック）
   const matchesMultidimensional = (c: CompanyRecord, filter: TerminalFilterState) => {
@@ -312,8 +336,8 @@ export default function Home() {
         onChangeMainView={setMainView}
       />
 
-      {/* 2. メインコンテンツ（表の顔: ポータル特集 ⇄ 裏の顔: 専門分析台帳） */}
-      {mainView === 'PORTAL' ? (
+      {/* 2. メインコンテンツ（ポータル ⇄ 分析台帳 ⇄ 各種特集・個別詳細ページ） */}
+      {mainView === 'PORTAL' && (
         <PortalView
           companies={filteredCompanies}
           onSelectCompany={(id) => {
@@ -327,8 +351,126 @@ export default function Home() {
             else if (tag === '地方実業') setActivePreset('LOCAL_DX');
             else if (tag === '独占') setActivePreset('MEGA_MONOPOLY');
           }}
+          onOpenCollectionsList={() => setMainView('COLLECTIONS_LIST')}
+          onOpenCollectionDetail={(cid) => {
+            setActiveCollectionId(cid);
+            setMainView('COLLECTION_DETAIL');
+          }}
+          onOpenSignalsList={() => setMainView('SIGNALS_LIST')}
+          onOpenSignalDetail={(sid) => {
+            setActiveSignalId(sid);
+            setMainView('SIGNAL_DETAIL');
+          }}
+          onOpenLeaderboard={() => setMainView('LEADERBOARD')}
+          onOpenPostMortemArchive={() => setMainView('POST_MORTEM')}
+          onOpenPyramidDetail={() => setMainView('PYRAMID')}
+          onOpenSimulatorDetail={() => setMainView('SIMULATOR')}
         />
-      ) : (
+      )}
+
+      {/* 大特集コレクション一覧画面 */}
+      {mainView === 'COLLECTIONS_LIST' && (
+        <SpecialCollectionsView
+          companies={filteredCompanies}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+          onOpenDossier={(cid) => {
+            setActiveCollectionId(cid);
+            setMainView('COLLECTION_DETAIL');
+          }}
+          onBackToPortal={() => setMainView('PORTAL')}
+        />
+      )}
+
+      {/* 大特集コレクション個別詳細画面 */}
+      {mainView === 'COLLECTION_DETAIL' && (
+        <CollectionDetailView
+          collectionId={activeCollectionId}
+          companies={filteredCompanies}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+          onBackToCollectionsList={() => setMainView('COLLECTIONS_LIST')}
+          onBackToPortal={() => setMainView('PORTAL')}
+        />
+      )}
+
+      {/* 市場シグナル一覧画面 */}
+      {mainView === 'SIGNALS_LIST' && (
+        <MarketSignalsView
+          companies={filteredCompanies}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+          onSelectSignal={(sid) => {
+            setActiveSignalId(sid);
+            setMainView('SIGNAL_DETAIL');
+          }}
+          onBackToPortal={() => setMainView('PORTAL')}
+        />
+      )}
+
+      {/* 市場シグナル個別詳細画面 */}
+      {mainView === 'SIGNAL_DETAIL' && (
+        <SignalDetailView
+          signalId={activeSignalId}
+          companies={filteredCompanies}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+          onBackToSignalsList={() => setMainView('SIGNALS_LIST')}
+          onBackToPortal={() => setMainView('PORTAL')}
+        />
+      )}
+
+      {/* リーダーボード全頭検査画面 */}
+      {mainView === 'LEADERBOARD' && (
+        <LeaderboardView
+          companies={filteredCompanies}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+          onBackToPortal={() => setMainView('PORTAL')}
+        />
+      )}
+
+      {/* 参入禁止地雷市場アーカイブ画面 */}
+      {mainView === 'POST_MORTEM' && (
+        <PostMortemArchiveView
+          onBackToPortal={() => setMainView('PORTAL')}
+          onNavigateToSimulator={() => setMainView('SIMULATOR')}
+        />
+      )}
+
+      {/* 食物連鎖マネーフローピラミッド詳細画面 */}
+      {mainView === 'PYRAMID' && (
+        <PyramidDetailView
+          onBackToPortal={() => setMainView('PORTAL')}
+          onNavigateToTerminal={() => setMainView('TERMINAL')}
+        />
+      )}
+
+      {/* 勝率最大化ビジネス診断シミュレーター詳細画面 */}
+      {mainView === 'SIMULATOR' && (
+        <SimulatorDetailView
+          companies={filteredCompanies}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+          onNavigateToTerminal={() => setMainView('TERMINAL')}
+          onBackToPortal={() => setMainView('PORTAL')}
+        />
+      )}
+
+      {/* 分析台帳画面 */}
+      {mainView === 'TERMINAL' && (
         <div className="flex-1 flex overflow-hidden">
         {/* 左: 銘柄スクリーニング ＆ 候補リスト (幅336px〜384px) */}
         <CompanyListSidebar

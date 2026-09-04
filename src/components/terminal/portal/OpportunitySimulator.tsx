@@ -7,6 +7,7 @@ interface OpportunitySimulatorProps {
   companies: CompanyRecord[];
   onSelectCompany: (id: string) => void;
   onNavigateToTerminal: () => void;
+  onOpenSimulatorDetail?: () => void;
 }
 
 type CapitalLevel = 'ZERO' | 'LOW' | 'HIGH';
@@ -28,6 +29,7 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
   companies,
   onSelectCompany,
   onNavigateToTerminal,
+  onOpenSimulatorDetail,
 }) => {
   const [capital, setCapital] = useState<CapitalLevel>('ZERO');
   const [time, setTime] = useState<TimeCommitment>('WEEKEND');
@@ -63,26 +65,26 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
 
     if (capital === 'ZERO' && strength === 'FIELD') {
       return {
-        modelName: '不用品回収・特殊清掃の現場マッチング（仲介DX）',
-        badge: '即日現金化 / 元手ゼロ',
-        expectedMonthlyProfit: '40万〜120万円',
-        grossMargin: '50%〜60%',
-        timeToFirstRevenue: '3日〜7日',
-        rationale: '自分ではトラックも倉庫も持たず、チラシやジモティーで集客し、実際の作業は提携した地元の個人職人に70%で丸投げ。差額の30%を利ざやとして抜く無在庫仲介型。',
-        firstStepAction: '近隣の個人トラック運送業者・便利屋に「案件を回すので提携しないか」と電話をかける。',
-        suggestedCompanyId: 'local-clean-dx',
+        modelName: '空き家・空きガレージの転貸無人ストレージ',
+        badge: '地方特化 / 実業レバレッジ',
+        expectedMonthlyProfit: '30万〜100万円',
+        grossMargin: '70%〜80%',
+        timeToFirstRevenue: '30日〜45日',
+        rationale: '使われていない親族や知人の空き倉庫・車庫を「固定資産税分（月1万〜2万）」で借り、スマート南京錠を付けて月額5,000円で近隣住民へ貸し出す。初期費用ほぼゼロで毎月家賃が自動入金。',
+        firstStepAction: '実家の近所や知人で空いているガレージや物置がないか声をかける。',
+        suggestedCompanyId: 'niche-bolt-storage',
       };
     }
 
     if (capital === 'LOW' && strength === 'AI_PC') {
       return {
-        modelName: 'TikTok Shop 手元実演アフィリエイト（顔出し不要）',
-        badge: '爆発的バズ / 少額仕入れ',
-        expectedMonthlyProfit: '80万〜250万円',
-        grossMargin: '30%〜40%',
-        timeToFirstRevenue: '10日〜20日',
-        rationale: 'AmazonやAliExpressで月数万円分の便利ガジェットを仕入れ、スマホの手元だけで開封・実演する15秒動画を毎日3本投稿。動画がバズった瞬間に自動でアフィリエイト報酬が雪だるま式に積み上がります。',
-        firstStepAction: 'TikTokで現在急上昇中の物販実演アカウントを3つ特定し、カット割り構成を完全コピーする。',
+        modelName: '海外バズ動画の日本ローカライズ・特化メディア',
+        badge: '低元手×高収益',
+        expectedMonthlyProfit: '100万〜400万円',
+        grossMargin: '85%〜90%',
+        timeToFirstRevenue: '14日〜21日',
+        rationale: '海外の最新AIツールやガジェット情報を日本語で短尺動画・ニュースレター化。無料サンプルを獲得しながらTikTok Shopやアフィリエイト、純広告で収益化。',
+        firstStepAction: 'Beehiivでニュースレターを開設し、海外の急上昇ツールまとめを週2回配信する。',
         suggestedCompanyId: 'solo-boilerplate',
       };
     }
@@ -100,23 +102,36 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
       };
     }
 
-    if (capital === 'HIGH' || strength === 'FIELD') {
+    if (capital === 'HIGH' && strength === 'FIELD') {
       return {
-        modelName: '地方休眠不動産×スマートロック無人貸倉庫DX',
-        badge: '不労ストック型 / 資産形成',
-        expectedMonthlyProfit: '150万〜500万円',
+        modelName: '無人セルフストレージ（貸倉庫）の地方展開',
+        badge: '超高利回り実業',
+        expectedMonthlyProfit: '100万〜300万円',
         grossMargin: '60%〜75%',
-        timeToFirstRevenue: '30日〜60日',
-        rationale: '使われていない空き倉庫や古いガレージを格安で借り受け、スマートロックを設置して「24時間セルフ貸倉庫」に改装。LINE自動応答で無人集金し、月額5,000円〜2万円の家賃を毎月不労所得として回収。',
-        firstStepAction: '地元の不動産業者を回り「車庫や物置として放置されている空き物件」のオーナー情報を聞き出す。',
+        timeToFirstRevenue: '60日〜90日',
+        rationale: '地方の幹線道路沿いの土地または空き物件を安価に取得・借受し、コンテナを配置。遠隔スマートロックで完全無人運用し、継続賃料収入を確立。',
+        firstStepAction: '地方の遊休地オーナーにコンテナ設置の提案書を持ち込む。',
         suggestedCompanyId: 'niche-bolt-storage',
+      };
+    }
+
+    if (strength === 'FIELD') {
+      return {
+        modelName: '地方特化 外壁高圧洗浄・不用品回収のWeb集客DX',
+        badge: '高単価・低競合',
+        expectedMonthlyProfit: '100万〜500万円',
+        grossMargin: '55%〜65%',
+        timeToFirstRevenue: '14日〜30日',
+        rationale: 'ペラサイトとGoogleマップMEOで地域1位を獲り、実際の作業は地元の暇な職人に外注。自分は電話・LINE見積もりだけで中抜き利益を毎月手堅く回収。',
+        firstStepAction: '「市町村名 + 外壁洗浄」のLPをペライチやSTUDIOで1日で作成する。',
+        suggestedCompanyId: 'local-clean-dx',
       };
     }
 
     // デフォルト
     return {
-      modelName: 'ニッチ特化型マイクロSaaS / 有料ランキングメディア',
-      badge: '高利益率 / 不労所得',
+      modelName: 'ニッチB2B特化 マイクロSaaS・有料ディレクトリ',
+      badge: '高LTV・継続課金',
       expectedMonthlyProfit: '50万〜200万円',
       grossMargin: '90%',
       timeToFirstRevenue: '14日〜30日',
@@ -134,17 +149,30 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
       
       {/* 見出し */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
-        <div>
+        <div 
+          onClick={onOpenSimulatorDetail}
+          className={`${onOpenSimulatorDetail ? 'cursor-pointer group' : ''}`}
+        >
           <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider">
             OPPORTUNITY REVERSE FINDER
           </div>
-          <h2 className="text-base sm:text-lg font-bold text-white mt-0.5">
-            手札から逆引き：あなたの勝率最大化ビジネス診断シミュレーター
+          <h2 className="text-base sm:text-lg font-bold text-white mt-0.5 group-hover:text-zinc-300 transition-colors flex items-center gap-1.5">
+            <span>手札から逆引き：あなたの勝率最大化ビジネス診断シミュレーター</span>
+            {onOpenSimulatorDetail && <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-300">→</span>}
           </h2>
         </div>
-        <span className="text-xs text-zinc-500 font-mono">
-          ※ 資金・時間・得意武器を選択すると即座に最適解を算出
-        </span>
+        {onOpenSimulatorDetail ? (
+          <button
+            onClick={onOpenSimulatorDetail}
+            className="text-xs text-zinc-400 hover:text-white font-mono flex items-center gap-1 self-start sm:self-auto"
+          >
+            <span>シミュレーター詳細画面 →</span>
+          </button>
+        ) : (
+          <span className="text-xs text-zinc-500 font-mono">
+            ※ 資金・時間・得意武器を選択すると即座に最適解を算出
+          </span>
+        )}
       </div>
 
       {/* 選択コントローラー */}

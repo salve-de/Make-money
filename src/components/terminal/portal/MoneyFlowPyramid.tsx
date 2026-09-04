@@ -48,21 +48,38 @@ const PYRAMID_TIERS: TierData[] = [
   },
 ];
 
-export const MoneyFlowPyramid: React.FC = () => {
+interface MoneyFlowPyramidProps {
+  onOpenDetail?: () => void;
+}
+
+export const MoneyFlowPyramid: React.FC<MoneyFlowPyramidProps> = ({ onOpenDetail }) => {
   return (
     <section className="space-y-3">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
-        <div>
+        <div 
+          onClick={onOpenDetail}
+          className={`${onOpenDetail ? 'cursor-pointer group' : ''}`}
+        >
           <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider">
             CAPITAL ECOSYSTEM FOOD CHAIN
           </div>
-          <h2 className="text-base sm:text-lg font-bold text-white mt-0.5">
-            業界の食物連鎖：誰が誰から金を巻き上げているか（マネーフロー暴露ピラミッド）
+          <h2 className="text-base sm:text-lg font-bold text-white mt-0.5 group-hover:text-zinc-300 transition-colors flex items-center gap-1.5">
+            <span>業界の食物連鎖：誰が誰から金を巻き上げているか（マネーフロー暴露ピラミッド）</span>
+            {onOpenDetail && <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-300">→</span>}
           </h2>
         </div>
-        <span className="text-xs text-zinc-500 font-mono">
-          ※ 自分がどの階層にいるのかを直視せよ
-        </span>
+        {onOpenDetail ? (
+          <button
+            onClick={onOpenDetail}
+            className="text-xs text-zinc-400 hover:text-white font-mono flex items-center gap-1 self-start sm:self-auto"
+          >
+            <span>食物連鎖ピラミッド詳細 →</span>
+          </button>
+        ) : (
+          <span className="text-xs text-zinc-500 font-mono">
+            ※ 自分がどの階層にいるのかを直視せよ
+          </span>
+        )}
       </div>
 
       <div className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 space-y-2.5">

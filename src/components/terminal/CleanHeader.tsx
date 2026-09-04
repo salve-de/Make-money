@@ -10,8 +10,8 @@ interface CleanHeaderProps {
   onOpenInfrastructure: () => void;
   onOpenSubmission: () => void;
   totalCount: number;
-  mainView: 'PORTAL' | 'TERMINAL';
-  onChangeMainView: (view: 'PORTAL' | 'TERMINAL') => void;
+  mainView: string;
+  onChangeMainView: (view: any) => void;
 }
 
 export const CleanHeader: React.FC<CleanHeaderProps> = ({
@@ -46,7 +46,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           <button
             onClick={() => onChangeMainView('PORTAL')}
             className={`px-3 py-1 rounded-md font-bold transition-all ${
-              mainView === 'PORTAL'
+              mainView !== 'TERMINAL'
                 ? 'bg-zinc-200 text-black shadow-xs'
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}

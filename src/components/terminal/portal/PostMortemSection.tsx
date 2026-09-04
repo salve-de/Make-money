@@ -42,21 +42,38 @@ const TRAP_REPORTS: TrapReport[] = [
   },
 ];
 
-export const PostMortemSection: React.FC = () => {
+interface PostMortemSectionProps {
+  onOpenArchive?: () => void;
+}
+
+export const PostMortemSection: React.FC<PostMortemSectionProps> = ({ onOpenArchive }) => {
   return (
     <section className="space-y-3">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
-        <div className="flex items-center gap-2">
+        <div 
+          onClick={onOpenArchive}
+          className={`flex items-center gap-2 ${onOpenArchive ? 'cursor-pointer group' : ''}`}
+        >
           <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
             THE POST-MORTEM ARCHIVE
           </span>
-          <h2 className="text-base sm:text-lg font-bold text-white">
-            失敗の墓場：これに手を出した奴らは全員散った「参入禁止地雷市場」
+          <h2 className="text-base sm:text-lg font-bold text-white group-hover:text-zinc-300 transition-colors flex items-center gap-1.5">
+            <span>失敗の墓場：これに手を出した奴らは全員散った「参入禁止地雷市場」</span>
+            {onOpenArchive && <span className="text-xs font-mono text-zinc-500 group-hover:text-zinc-300">→</span>}
           </h2>
         </div>
-        <span className="text-xs text-zinc-500 font-mono">
-          ※ 表面的な儲け話に騙されないための防衛データ
-        </span>
+        {onOpenArchive ? (
+          <button
+            onClick={onOpenArchive}
+            className="text-xs text-zinc-400 hover:text-white font-mono flex items-center gap-1 self-start sm:self-auto"
+          >
+            <span>地雷市場アーカイブ全件 →</span>
+          </button>
+        ) : (
+          <span className="text-xs text-zinc-500 font-mono">
+            ※ 表面的な儲け話に騙されないための防衛データ
+          </span>
+        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
