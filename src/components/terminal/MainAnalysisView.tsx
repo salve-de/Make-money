@@ -6,18 +6,14 @@ import { StatistaDualView } from './StatistaDualView';
 
 interface MainAnalysisViewProps {
   company: CompanyRecord;
-  onDownloadCsv: () => void;
-  onDownloadExcel: () => void;
-  onOpenOfferModal: () => void;
-  onOpenProModal: () => void;
+  onOpenOfferModal?: () => void;
+  onOpenProModal?: () => void;
 }
 
 export type AnalysisTab = 'FINANCIALS' | 'OVERVIEW' | 'MOAT' | 'STACK' | 'COMPETITORS';
 
 export const MainAnalysisView: React.FC<MainAnalysisViewProps> = ({
   company,
-  onDownloadCsv,
-  onDownloadExcel,
   onOpenOfferModal,
   onOpenProModal
 }) => {
@@ -150,8 +146,6 @@ export const MainAnalysisView: React.FC<MainAnalysisViewProps> = ({
               financials={company.financials}
               companyName={company.japaneseName}
               actionHeadline={company.actionHeadline}
-              onDownloadCsv={onDownloadCsv}
-              onDownloadExcel={onDownloadExcel}
             />
 
             {/* ユニットエコノミクス分析カード */}

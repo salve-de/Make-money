@@ -7,16 +7,12 @@ interface StatistaDualViewProps {
   financials: FinancialPeriodRow[];
   companyName: string;
   actionHeadline: string;
-  onDownloadCsv: () => void;
-  onDownloadExcel: () => void;
 }
 
 export const StatistaDualView: React.FC<StatistaDualViewProps> = ({
   financials,
   companyName,
-  actionHeadline,
-  onDownloadCsv,
-  onDownloadExcel
+  actionHeadline
 }) => {
   const [viewMode, setViewMode] = useState<'CHART' | 'TABLE'>('CHART');
 
@@ -52,7 +48,7 @@ export const StatistaDualView: React.FC<StatistaDualViewProps> = ({
           <div className="h-6 bg-[#0B0C0E] p-0.5 rounded border border-white/[0.08] flex items-center">
             <button
               onClick={() => setViewMode('CHART')}
-              className={`px-2 h-full text-xs font-medium rounded transition-all ${
+              className={`px-2.5 h-full text-xs font-medium rounded transition-all ${
                 viewMode === 'CHART'
                   ? 'bg-zinc-800 text-zinc-100'
                   : 'text-zinc-400 hover:text-zinc-200'
@@ -62,28 +58,13 @@ export const StatistaDualView: React.FC<StatistaDualViewProps> = ({
             </button>
             <button
               onClick={() => setViewMode('TABLE')}
-              className={`px-2 h-full text-xs font-medium rounded transition-all ${
+              className={`px-2.5 h-full text-xs font-medium rounded transition-all ${
                 viewMode === 'TABLE'
                   ? 'bg-zinc-800 text-zinc-100'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
               生数値表
-            </button>
-          </div>
-
-          <div className="flex items-center gap-1 font-mono text-xs">
-            <button
-              onClick={onDownloadCsv}
-              className="h-6 px-2 bg-[#17191E] hover:bg-zinc-800 text-zinc-300 border border-white/10 rounded transition-colors"
-            >
-              CSV
-            </button>
-            <button
-              onClick={onDownloadExcel}
-              className="h-6 px-2 bg-[#17191E] hover:bg-zinc-800 text-zinc-300 border border-white/10 rounded transition-colors"
-            >
-              XLS
             </button>
           </div>
         </div>

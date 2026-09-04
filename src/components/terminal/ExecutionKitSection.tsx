@@ -5,12 +5,10 @@ import { CompanyRecord } from '@/types/terminal';
 
 interface ExecutionKitSectionProps {
   company: CompanyRecord;
-  onOpenProModal: () => void;
 }
 
 export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
-  company,
-  onOpenProModal,
+  company
 }) => {
   const [copiedType, setCopiedType] = useState<string | null>(null);
 
@@ -46,7 +44,7 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
             EXECUTION ARSENAL
           </span>
           <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
-            実弾兵器庫：明日からパクるための「コピペ実行キット」
+            実弾兵器庫：明日から実践するための「コピペ実行キット」
           </h2>
         </div>
         <span className="text-[11px] font-mono text-zinc-500">
@@ -114,54 +112,6 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
           </button>
         </div>
 
-      </div>
-
-      {/* PRO限定実弾枠（秘伝のタレ：すりガラス＋PRO課金CTA） */}
-      <div className="relative p-5 sm:p-6 rounded-lg bg-[#111319] border border-zinc-700 font-sans space-y-3 overflow-hidden shadow-lg">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/10 text-amber-300 border border-amber-500/30">
-              PRO EXCLUSIVE ASSETS
-            </span>
-            <span className="text-xs font-bold text-white">
-              秘伝のタレ：非公開の生データ・契約書ひな形・実戦プロンプト完全版
-            </span>
-          </div>
-          <span className="text-[10px] font-mono text-zinc-400">
-            月額 ¥3,980 で全件解放
-          </span>
-        </div>
-
-        {/* すりガラスプレビュー */}
-        <div className="relative py-2 select-none">
-          <div className="filter blur-[3.5px] opacity-30 text-zinc-400 font-mono text-xs leading-relaxed space-y-1">
-            <p>1. 【成約率42%】クライアントの警戒心を1秒で解く秘密の保証条項（返金・成果連動ひな形契約書）</p>
-            <p>2. 【APIコストを1/10に抑える】Replicate/OpenAI推論キャッシュの特殊プロキシ設定コード</p>
-            <p>3. 【Stripe凍結回避】物販・デジタルプロダクトでカード会社のチャージバックを防ぐ特定商取引法テンプレート</p>
-            <p>4. 【全22社 生損益計算書 CSV】エクセルで自由に編集できる財務レントゲン生データ全頭一覧</p>
-          </div>
-
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
-            <span className="text-xs font-mono font-bold text-amber-300 flex items-center gap-1.5 bg-black/80 px-3 py-1 rounded border border-amber-500/40">
-              <span>🔒</span>
-              <span>PRO会員限定：門外不出の実弾資産が保護されています</span>
-            </span>
-          </div>
-        </div>
-
-        {/* PRO CTAボタン */}
-        <div className="pt-3 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-zinc-400 text-center sm:text-left">
-            実弾キットを1つコピーして案件を獲得すれば、初月で年間費用の何倍もの元が取れます。
-          </p>
-          <button
-            onClick={onOpenProModal}
-            className="h-9 px-5 rounded-md bg-amber-400 hover:bg-amber-300 text-black font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shrink-0 shadow-md cursor-pointer"
-          >
-            <span>月額¥3,980で実弾キットを即時コピーする</span>
-            <span>→</span>
-          </button>
-        </div>
       </div>
     </section>
   );

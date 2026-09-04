@@ -10,11 +10,6 @@ import { ScreenerModal } from '@/components/terminal/ScreenerModal';
 import { CompanyListSidebar } from '@/components/terminal/CompanyListSidebar';
 import { ExecutiveDetailSheet } from '@/components/terminal/ExecutiveDetailSheet';
 import { PortalView } from '@/components/terminal/PortalView';
-import { ExportModal } from '@/components/terminal/ExportModal';
-import { OfferModal } from '@/components/terminal/OfferModal';
-import { ProModal } from '@/components/terminal/ProModal';
-import { InfrastructureToolkitModal } from '@/components/terminal/InfrastructureToolkitModal';
-import { SubmissionModal } from '@/components/terminal/SubmissionModal';
 import { SpecialCollectionsView } from '@/components/terminal/portal/sections/SpecialCollectionsView';
 import { CollectionDetailView } from '@/components/terminal/portal/sections/CollectionDetailView';
 import { MarketSignalsView } from '@/components/terminal/portal/sections/MarketSignalsView';
@@ -62,13 +57,6 @@ export default function Home() {
 
   // 検索クエリ
   const [searchQuery, setSearchQuery] = useState('');
-
-  // モーダル状態
-  const [isExportOpen, setIsExportOpen] = useState(false);
-  const [isOfferOpen, setIsOfferOpen] = useState(false);
-  const [isProOpen, setIsProOpen] = useState(false);
-  const [isInfraOpen, setIsInfraOpen] = useState(false);
-  const [isSubmissionOpen, setIsSubmissionOpen] = useState(false);
 
   // メイン画面の表示モード（ポータル特集 ⇄ 専門分析台帳 ⇄ 各セクション・個別詳細）
   const [mainView, setMainView] = useState<MainViewType>('PORTAL');
@@ -322,10 +310,6 @@ export default function Home() {
       <CleanHeader
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
-        onOpenExport={() => setIsExportOpen(true)}
-        onOpenProModal={() => setIsProOpen(true)}
-        onOpenInfrastructure={() => setIsInfraOpen(true)}
-        onOpenSubmission={() => setIsSubmissionOpen(true)}
         totalCount={TERMINAL_COMPANIES.length}
         mainView={mainView}
         onChangeMainView={setMainView}
@@ -479,10 +463,6 @@ export default function Home() {
         {currentCompany ? (
           <ExecutiveDetailSheet
             company={currentCompany}
-            onDownloadCsv={() => setIsExportOpen(true)}
-            onDownloadExcel={() => setIsExportOpen(true)}
-            onOpenOfferModal={() => setIsOfferOpen(true)}
-            onOpenProModal={() => setIsProOpen(true)}
           />
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2 font-sans">
@@ -512,7 +492,7 @@ export default function Home() {
       </div>
       )}
 
-      {/* モーダル群 */}
+      {/* 詳細絞り込みスクリーナーモーダル */}
       <ScreenerModal
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
@@ -525,34 +505,6 @@ export default function Home() {
         totalCount={TERMINAL_COMPANIES.length}
         filteredCount={filteredCompanies.length}
         matchingCompanies={filteredCompanies}
-      />
-
-      <ExportModal
-        isOpen={isExportOpen}
-        onClose={() => setIsExportOpen(false)}
-        companies={TERMINAL_COMPANIES}
-        currentCompany={currentCompany}
-      />
-
-      <OfferModal
-        isOpen={isOfferOpen}
-        onClose={() => setIsOfferOpen(false)}
-        company={currentCompany}
-      />
-
-      <ProModal
-        isOpen={isProOpen}
-        onClose={() => setIsProOpen(false)}
-      />
-
-      <InfrastructureToolkitModal
-        isOpen={isInfraOpen}
-        onClose={() => setIsInfraOpen(false)}
-      />
-
-      <SubmissionModal
-        isOpen={isSubmissionOpen}
-        onClose={() => setIsSubmissionOpen(false)}
       />
     </div>
   );

@@ -8,20 +8,12 @@ import { ExecutionKitSection } from './ExecutionKitSection';
 
 interface ExecutiveDetailSheetProps {
   company: CompanyRecord;
-  onDownloadCsv: () => void;
-  onDownloadExcel: () => void;
-  onOpenOfferModal: () => void;
-  onOpenProModal: () => void;
 }
 
-type DetailTab = 'ALL' | 'OVERVIEW' | 'FINANCIALS' | 'MOATS' | 'STRATEGY' | 'ARSENAL' | 'PRO';
+type DetailTab = 'ALL' | 'OVERVIEW' | 'FINANCIALS' | 'MOATS' | 'STRATEGY' | 'ARSENAL' | 'DEEP_DIVE';
 
 export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
-  company,
-  onDownloadCsv,
-  onDownloadExcel,
-  onOpenOfferModal,
-  onOpenProModal
+  company
 }) => {
   // アクティブタブ
   const [activeTab, setActiveTab] = useState<DetailTab>('ALL');
@@ -197,15 +189,15 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
             実弾兵器庫 (コピペ)
           </button>
           <button
-            onClick={() => setActiveTab('PRO')}
+            onClick={() => setActiveTab('DEEP_DIVE')}
             className={`px-3 py-2 border-b-2 font-medium transition-colors whitespace-nowrap flex items-center gap-1.5 ${
-              activeTab === 'PRO'
-                ? 'border-amber-400 text-amber-300 font-bold'
-                : 'border-transparent text-amber-400/80 hover:text-amber-300'
+              activeTab === 'DEEP_DIVE'
+                ? 'border-emerald-400 text-white font-bold'
+                : 'border-transparent text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
-            PRO詳細調査書
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            深層解剖調査書
           </button>
         </div>
 
@@ -618,8 +610,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
               financials={company.financials}
               companyName={company.japaneseName}
               actionHeadline={company.actionHeadline}
-              onDownloadCsv={onDownloadCsv}
-              onDownloadExcel={onDownloadExcel}
             />
           </div>
         </section>
@@ -1056,73 +1046,51 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
       {(activeTab === 'ALL' || activeTab === 'ARSENAL' || activeTab === 'STRATEGY') && (
         <ExecutionKitSection
           company={company}
-          onOpenProModal={onOpenProModal}
         />
       )}
 
       {/* ========================================================================= */}
-      {/* 【セクション５：PRO詳細分析レポート（有料会員限定リサーチ）】 */}
+      {/* 【セクション５：ビジネスモデル深層解剖調査書】 */}
       {/* ========================================================================= */}
-      {(activeTab === 'ALL' || activeTab === 'PRO') && (
+      {(activeTab === 'ALL' || activeTab === 'DEEP_DIVE') && (
         <section className="space-y-4 pt-2">
-          <div className="flex items-center justify-between border-b border-amber-500/30 pb-2">
+          <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/30">
-                PRO
+              <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-xs font-bold border border-white/10">
+                05
               </span>
               <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
-                PROリサーチレポート：ビジネスモデル完全解剖調査書
+                ビジネスモデル深層解剖調査書
               </h2>
             </div>
-            <span className="text-[11px] text-amber-400/80 hidden sm:inline">
-              PREMIUM RESEARCH REPORT
+            <span className="text-[11px] text-zinc-400 font-mono hidden sm:inline">
+              DEEP DIVE DOSSIER
             </span>
           </div>
 
-          <div className="relative p-5 sm:p-6 rounded-lg bg-[#12141A] border border-amber-500/30 font-sans space-y-4 shadow-sm overflow-hidden">
-            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-amber-300 font-bold flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zM10 9a2 2 0 114 0v2H10V9z" />
-                  </svg>
-                  <span>特別会員限定：非公開リサーチ分析</span>
-                </span>
-              </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-medium">
-                一部プレビュー公開
-              </span>
-            </div>
-
-            {/* 本文プレビュー */}
+          <div className="p-5 sm:p-6 rounded-lg bg-[#12141A] border border-white/[0.08] font-sans space-y-4 shadow-sm">
+            {/* 本文レポート */}
             <div className="space-y-3.5 text-xs">
               {/* 第1パート */}
-              <div className="p-3.5 bg-[#0B0C0E] rounded border border-white/[0.06] space-y-1.5">
+              <div className="p-4 bg-[#0B0C0E] rounded border border-white/[0.06] space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-amber-300 text-[11px] font-mono">
+                  <span className="font-bold text-emerald-400 text-xs font-mono">
                     PART 1：価格決定権と決済摩擦を最小化する設計
                   </span>
-                  <span className="text-[10px] font-mono text-zinc-500">収益化分析</span>
+                  <span className="text-[10px] font-mono text-zinc-500">収益化構造</span>
                 </div>
                 <p className="text-zinc-300 leading-relaxed">
                   {company.proDossier?.monetizationTrick.corePsychologicalTrigger || `${company.founderName || company.japaneseName}が突いたのは、顧客が抱える強烈な見栄と競合に負けたくない損失回避心理だった。`}
                 </p>
-                <div className="relative py-1 select-none">
-                  <div className="filter blur-[3px] opacity-40 text-zinc-400 font-mono text-[11px] leading-relaxed">
-                    {company.proDossier?.monetizationTrick.pricingPowerSecret || '定価を客自身に決めさせる独自の仕組みを導入。値引き要求を封殺し、即時決済により売掛金をゼロにする最短キャッシュフロー配線を構築した。'}
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold tracking-wider">
-                      PRO会員限定：価格決定権の構造設計を開示
-                    </span>
-                  </div>
+                <div className="p-2.5 rounded bg-[#141720] border border-white/5 text-zinc-300 font-mono text-[11px] leading-relaxed">
+                  {company.proDossier?.monetizationTrick.pricingPowerSecret || '定価を客自身に決めさせる独自の仕組みを導入。値引き要求を封殺し、即時決済により売掛金をゼロにする最短キャッシュフロー配線を構築した。'}
                 </div>
               </div>
 
               {/* 第2パート */}
-              <div className="p-3.5 bg-[#0B0C0E] rounded border border-white/[0.06] space-y-1.5">
+              <div className="p-4 bg-[#0B0C0E] rounded border border-white/[0.06] space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-amber-300 text-[11px] font-mono">
+                  <span className="font-bold text-emerald-400 text-xs font-mono">
                     PART 2：既存プレイヤーが参入できない構造的死角
                   </span>
                   <span className="text-[10px] font-mono text-zinc-500">市場分析</span>
@@ -1130,67 +1098,38 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
                 <p className="text-zinc-300 leading-relaxed">
                   {company.proDossier?.incumbentBlindspot.whyGiantsCantEnter || '大手企業がこの領域に参入すると、自社の既存利益やブランドを毀損する構造的ジレンマがあり手を出せない。'}
                 </p>
-                <div className="relative py-1 select-none">
-                  <div className="filter blur-[3px] opacity-40 text-zinc-400 font-mono text-[11px] leading-relaxed">
-                    {company.proDossier?.incumbentBlindspot.moatAgainstCopycats || '後発が真似しても潰されない安全地帯の正体は、大手が見落としている局所的ニッチと独自のディストリビューションにある。'}
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold tracking-wider">
-                      PRO会員限定：構造的死角と防御壁の証明
-                    </span>
-                  </div>
+                <div className="p-2.5 rounded bg-[#141720] border border-white/5 text-zinc-300 font-mono text-[11px] leading-relaxed">
+                  {company.proDossier?.incumbentBlindspot.moatAgainstCopycats || '後発が真似しても潰されない安全地帯の正体は、大手が見落としている局所的ニッチと独自のディストリビューションにある。'}
                 </div>
               </div>
 
               {/* 第3パート */}
-              <div className="p-3.5 bg-[#0B0C0E] rounded border border-white/[0.06] space-y-1.5">
+              <div className="p-4 bg-[#0B0C0E] rounded border border-white/[0.06] space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold text-amber-300 text-[11px] font-mono">
+                  <span className="font-bold text-emerald-400 text-xs font-mono">
                     PART 3：事業立ち上げ実行計画（7ステップ実装プロセス）
                   </span>
                   <span className="text-[10px] font-mono text-zinc-500">実装ロードマップ</span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5">
-                  <div className="p-2.5 bg-[#12141A] rounded border border-white/5">
-                    <span className="text-[10px] font-mono text-emerald-400 font-bold block mb-0.5">【STEP 1〜2：オファー策定】</span>
-                    <p className="text-zinc-300 text-[11px]">{company.proDossier?.sevenDayBlueprint.day1to2OfferSetup || '最小限のツールでオファーを構築し、成約画面を配線（※閲覧可能）'}</p>
+                  <div className="p-2.5 bg-[#141720] rounded border border-white/5 space-y-1">
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold block">【STEP 1〜2：オファー策定】</span>
+                    <p className="text-zinc-300 text-[11px]">{company.proDossier?.sevenDayBlueprint.day1to2OfferSetup || '最小限のツールでオファーを構築し、成約画面を配線'}</p>
                   </div>
-                  <div className="p-2.5 bg-[#12141A] rounded border border-white/5 relative select-none">
-                    <span className="text-[10px] font-mono text-zinc-500 font-bold block mb-0.5">【STEP 3〜4：決済開通】</span>
-                    <p className="text-zinc-400 text-[11px] filter blur-[2.5px]">{company.proDossier?.sevenDayBlueprint.day3to4CashflowPipe || '自動決済パイプラインと受発注の連動配線図'}</p>
-                    <span className="absolute inset-0 flex items-center justify-center text-[10px] font-mono text-amber-400 font-bold">PRO会員限定</span>
+                  <div className="p-2.5 bg-[#141720] rounded border border-white/5 space-y-1">
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold block">【STEP 3〜4：決済開通】</span>
+                    <p className="text-zinc-300 text-[11px]">{company.proDossier?.sevenDayBlueprint.day3to4CashflowPipe || '自動決済パイプラインと受発注の連動配線図'}</p>
                   </div>
-                  <div className="p-2.5 bg-[#12141A] rounded border border-white/5 relative select-none">
-                    <span className="text-[10px] font-mono text-zinc-500 font-bold block mb-0.5">【STEP 5〜6：初期顧客獲得】</span>
-                    <p className="text-zinc-400 text-[11px] filter blur-[2.5px]">{company.proDossier?.sevenDayBlueprint.day5to6FirstCustomers || '広告費ゼロで顧客を獲得する直接アプローチの文面実例'}</p>
-                    <span className="absolute inset-0 flex items-center justify-center text-[10px] font-mono text-amber-400 font-bold">PRO会員限定</span>
+                  <div className="p-2.5 bg-[#141720] rounded border border-white/5 space-y-1">
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold block">【STEP 5〜6：初期顧客獲得】</span>
+                    <p className="text-zinc-300 text-[11px]">{company.proDossier?.sevenDayBlueprint.day5to6FirstCustomers || '広告費ゼロで顧客を獲得する直接アプローチの文面実例'}</p>
                   </div>
-                  <div className="p-2.5 bg-[#12141A] rounded border border-white/5 relative select-none">
-                    <span className="text-[10px] font-mono text-zinc-500 font-bold block mb-0.5">【STEP 7：自動化基盤の完成】</span>
-                    <p className="text-zinc-400 text-[11px] filter blur-[2.5px]">{company.proDossier?.sevenDayBlueprint.day7AutomationEngine || '完全自動で集金を回す配線設定ファイル'}</p>
-                    <span className="absolute inset-0 flex items-center justify-center text-[10px] font-mono text-amber-400 font-bold">PRO会員限定</span>
+                  <div className="p-2.5 bg-[#141720] rounded border border-white/5 space-y-1">
+                    <span className="text-[10px] font-mono text-emerald-400 font-bold block">【STEP 7：自動化基盤の完成】</span>
+                    <p className="text-zinc-300 text-[11px]">{company.proDossier?.sevenDayBlueprint.day7AutomationEngine || '完全自動で集金を回す配線設定ファイル'}</p>
                   </div>
                 </div>
               </div>
-            </div>
-
-            {/* CTAフッター */}
-            <div className="pt-3 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 p-3 bg-gradient-to-r from-amber-500/10 to-transparent rounded-lg">
-              <div className="space-y-0.5 text-center sm:text-left">
-                <div className="text-xs sm:text-sm font-bold text-white">
-                  このビジネスモデルの完全解剖レポートを閲覧する
-                </div>
-                <p className="text-[11px] text-zinc-400">
-                  全銘柄の詳細分析・初期集客ログ・リスク回避実録が無制限で閲覧可能になります。
-                </p>
-              </div>
-
-              <button
-                onClick={onOpenProModal}
-                className="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-black font-bold text-xs rounded transition-colors shrink-0 cursor-pointer shadow"
-              >
-                PROプランで全文を読む →
-              </button>
             </div>
           </div>
         </section>
@@ -1261,19 +1200,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
               </table>
             </div>
 
-            {/* この環境を1分で複製するバンドル案内 */}
-            <div className="mt-4 pt-3 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2 text-zinc-400">
-                <span className="text-zinc-300 font-bold font-mono">STACK BUNDLE:</span>
-                <span>上記{company.tools.length}つのツールを配線することで、この事業の稼働パイプラインを再現可能</span>
-              </div>
-              <button
-                onClick={onOpenProModal}
-                className="px-3 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-white/10 font-medium text-xs flex items-center gap-1.5 transition-colors shrink-0"
-              >
-                <span>API配線マニュアル (PRO)</span>
-                <span className="text-[10px] text-zinc-400">→</span>
-              </button>
+            {/* この環境のツールスタック注記 */}
+            <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center gap-2 text-xs text-zinc-400">
+              <span className="text-zinc-300 font-bold font-mono">STACK BUNDLE:</span>
+              <span>上記{company.tools.length}つのツールを配線することで、この事業の稼働パイプラインを再現可能です。</span>
             </div>
           </div>
         </section>
