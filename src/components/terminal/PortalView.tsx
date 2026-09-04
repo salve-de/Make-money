@@ -14,6 +14,7 @@ interface PortalViewProps {
   onOpenSignalsList?: () => void;
   onOpenSignalDetail?: (signalId: string) => void;
   onOpenLeaderboard?: () => void;
+  onOpenIdeasVault?: () => void;
 }
 
 export const PortalView: React.FC<PortalViewProps> = ({
@@ -26,6 +27,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
   onOpenSignalsList,
   onOpenSignalDetail,
   onOpenLeaderboard,
+  onOpenIdeasVault,
 }) => {
   const [selectedDossierId, setSelectedDossierId] = useState<string | null>(null);
 
@@ -329,9 +331,18 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 金が唸る業界から個人が中抜き！合法的な受注・下請け逆転手口 TOP 4
               </h2>
             </div>
-            <span className="text-xs text-zinc-400 font-mono">
-              「ゼロから商品を作らず、金持ち業界の財布から抜く」
-            </span>
+            {onOpenIdeasVault ? (
+              <button
+                onClick={onOpenIdeasVault}
+                className="text-xs text-amber-300 hover:text-amber-100 font-mono flex items-center gap-1.5 self-start sm:self-auto bg-amber-950/70 hover:bg-amber-900/60 px-3 py-1 rounded-lg border border-amber-800/50 transition-colors shadow-xs"
+              >
+                <span>💡 実践アイデア台帳を開く →</span>
+              </button>
+            ) : (
+              <span className="text-xs text-zinc-400 font-mono">
+                「ゼロから商品を作らず、金持ち業界の財布から抜く」
+              </span>
+            )}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">

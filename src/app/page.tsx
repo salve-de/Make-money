@@ -15,10 +15,12 @@ import { CollectionDetailView } from '@/components/terminal/portal/sections/Coll
 import { MarketSignalsView } from '@/components/terminal/portal/sections/MarketSignalsView';
 import { SignalDetailView } from '@/components/terminal/portal/sections/SignalDetailView';
 import { LeaderboardView } from '@/components/terminal/portal/sections/LeaderboardView';
+import { IdeasVaultView } from '@/components/terminal/IdeasVaultView';
 import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
 
 export type MainViewType = 
   | 'PORTAL'
+  | 'IDEAS_VAULT'
   | 'TERMINAL'
   | 'COLLECTIONS_LIST'
   | 'COLLECTION_DETAIL'
@@ -349,6 +351,7 @@ export default function Home() {
             setMainView('SIGNAL_DETAIL');
           }}
           onOpenLeaderboard={() => setMainView('LEADERBOARD')}
+          onOpenIdeasVault={() => setMainView('IDEAS_VAULT')}
         />
       )}
 
@@ -421,6 +424,16 @@ export default function Home() {
             setMainView('TERMINAL');
           }}
           onBackToPortal={() => setMainView('PORTAL')}
+        />
+      )}
+
+      {/* 💡 実践ビジネスアイデア台帳画面 */}
+      {mainView === 'IDEAS_VAULT' && (
+        <IdeasVaultView
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
         />
       )}
 

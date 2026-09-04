@@ -38,12 +38,22 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           <button
             onClick={() => onChangeMainView('PORTAL')}
             className={`px-3 py-1 rounded-md font-bold transition-all ${
-              mainView !== 'TERMINAL'
+              mainView !== 'TERMINAL' && mainView !== 'IDEAS_VAULT'
                 ? 'bg-zinc-200 text-black shadow-xs'
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
             ポータル・特集
+          </button>
+          <button
+            onClick={() => onChangeMainView('IDEAS_VAULT')}
+            className={`px-3 py-1 rounded-md font-bold transition-all flex items-center gap-1.5 ${
+              mainView === 'IDEAS_VAULT'
+                ? 'bg-zinc-200 text-black shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            <span>💡 アイデア台帳</span>
           </button>
           <button
             onClick={() => onChangeMainView('TERMINAL')}
