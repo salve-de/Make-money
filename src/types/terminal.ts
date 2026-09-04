@@ -143,6 +143,14 @@ export interface CompanyRecord {
     howToProfit: string;           // 具体的にどう儲けるか
   }[];
 
+  // 盗むべきエッセンスから派生する具体的な新規ビジネスアイデア（即実践可能な横展開）
+  derivedBusinessIdeas?: {
+    title: string;                 // 例: '地方駅前激戦区の「今週の地域1番店」オークション看板'
+    targetNiche: string;           // 例: '地方都市の美容院・脱毛サロン・パーソナルジム'
+    executionSummary: string;      // 例: 'LINE公式アカウントとStripe決済だけで、毎週月曜に入札順位を更新して店舗へ案内'
+    estimatedMonthlyProfit: string;// 例: '月利30万〜80万円（3〜5店舗からの自動入金）'
+  }[];
+
   // 5. 即日仕掛けられる罠（カラクリ）のレシピ（難しい会計用語ゼロの直感算盤）
   trapRecipe?: {
     headline: string;              // 例: '地方店舗の見栄と嫉妬心を煽り、入札金で月15万円を丸儲けする罠'

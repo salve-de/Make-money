@@ -109,6 +109,25 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
     (company.first100CustomersStrategy?.exactAction
       ? `件名: 【ご提案】${company.japaneseName}の事例に基づく業務効率化のご相談\n\n突然のご連絡失礼いたします。株式会社〇〇の〇〇と申します。\n\n御社の最近の${company.tagline}に関する取り組みを拝見し、直接ご連絡いたしました。\n\n弊社では、${company.actionHeadline}の構造を応用し、初期費用0円・完全成果報酬にて業務の自動化および顧客獲得を支援しております。\n\nもしご興味がございましたら、15分ほどオンラインにて概要をご案内させていただけないでしょうか？\n\n何卒よろしくお願い申し上げます。`
       : `件名: 業務効率化およびコスト削減のご提案\n\n突然のご連絡失礼いたします。御社の業務フローを拝見し、ツール連携と自動化による工数削減のご提案をお送りいたしました。`);
+  // 派生ビジネスアイデアの抽出（明示データ or レシピ・参入戦略からの動的導出）
+  const derivedIdeas = company.derivedBusinessIdeas && company.derivedBusinessIdeas.length > 0
+    ? company.derivedBusinessIdeas
+    : [
+        {
+          title: company.entryStrategy?.actionableEntryRoute
+            ? `日本国内特化の「${company.japaneseName}」アンバンドル展開`
+            : `${company.japaneseName}の仕組みを応用したニッチ直販サービス`,
+          targetNiche: company.entryStrategy?.targetVictimOrNiche || '国内の特定中小企業・店舗オーナー',
+          executionSummary: company.entryStrategy?.actionableEntryRoute || `${company.actionHeadline}の構造を借り、国内の競合不在ニッチで直販展開する。`,
+          estimatedMonthlyProfit: company.entryStrategy?.estimatedEasyProfit || '月利50万〜150万円'
+        },
+        ...(company.personalizedRecipes || []).slice(0, 2).map((r) => ({
+          title: r.customConcept,
+          targetNiche: r.targetAudience.replace('あなた用', '特化型市場'),
+          executionSummary: r.howToProfit,
+          estimatedMonthlyProfit: '月利30万〜100万円'
+        }))
+      ];
 
   return (
     <div className="flex-1 bg-[#0B0C0E] overflow-y-auto p-5 lg:p-7 space-y-7 select-none font-sans text-zinc-100">
@@ -782,7 +801,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             <div className="lg:col-span-7 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-4 flex flex-col justify-between">
               
               {/* 参考にする部分・盗むべき思考法 */}
-              <div className="space-y-2">
+              <div className="space-y-3">
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
                   <h3 className="text-xs sm:text-sm font-bold text-white">
@@ -794,6 +813,41 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                     {company.successStory?.actionableSteal ||
                       `${company.japaneseName}の最大の特徴は、無駄な機能や組織の肥大化を排し、${company.actionHeadline}に全リソースを集中させた点にある。スモールビジネスが真似すべきは、自前で重いインフラを抱えず、直販と即時決済によって手残り利益を最大化する設計思考である。`}
                   </p>
+                </div>
+
+                {/* 💡 このエッセンスから派生する【即戦力ビジネスアイデア具体例】 */}
+                <div className="p-3.5 bg-[#0D1015] rounded-lg border border-emerald-500/20 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-emerald-400 font-bold font-mono text-xs">💡</span>
+                      <h4 className="text-xs font-bold text-emerald-300 font-mono tracking-wide">
+                        このエッセンスから派生する具体的ビジネスアイデア（即実践例）
+                      </h4>
+                    </div>
+                    <span className="text-[10px] font-mono text-zinc-500 hidden sm:inline">DERIVED BUSINESS IDEAS</span>
+                  </div>
+
+                  <div className="space-y-2">
+                    {derivedIdeas.map((idea, iIdx) => (
+                      <div key={iIdx} className="p-2.5 rounded bg-[#07080A] border border-white/5 space-y-1 font-sans text-xs">
+                        <div className="flex items-center justify-between gap-2 flex-wrap">
+                          <span className="font-bold text-white text-xs flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                            <span>{idea.title}</span>
+                          </span>
+                          <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-950/60 text-emerald-400 border border-emerald-800/40 shrink-0">
+                            想定手残り: {idea.estimatedMonthlyProfit}
+                          </span>
+                        </div>
+                        <div className="text-[11px] text-zinc-400">
+                          <span className="text-zinc-500 font-mono">ターゲット市場:</span> {idea.targetNiche}
+                        </div>
+                        <p className="text-zinc-300 text-[11px] leading-relaxed pt-0.5">
+                          <span className="text-emerald-400/80 font-mono font-semibold">実行手順:</span> {idea.executionSummary}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 

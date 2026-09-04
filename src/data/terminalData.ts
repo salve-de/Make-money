@@ -78,6 +78,26 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
         netTakeHome: '月15万円の丸儲け（作業時間ゼロで完全放置）'
       }
     },
+    derivedBusinessIdeas: [
+      {
+        title: '地方駅前・激戦区の「今週の地域1番店」オークション看板',
+        targetNiche: '地方都市（大宮・船橋・梅田等）の美容院・脱毛サロン・パーソナルジム',
+        executionSummary: '「今週、地域で1番露出されるおすすめ枠」を週単位オークション形式で販売。LINEとStripe決済だけで店舗オーナー同士を競わせ、競合の入札合戦で自動入金させる。',
+        estimatedMonthlyProfit: '月利30万〜80万円（競合3〜5店舗からの自動引き落とし）'
+      },
+      {
+        title: '国内インディー開発者・AIツールの「デイリー注目プロダクト」競売台帳',
+        targetNiche: '自作AIツールやSaaSを広めたい日本の個人開発者・副業エンジニア',
+        executionSummary: 'Product Huntの日本版として、毎日のトップ掲載枠を完全入札制で競売。Xでの自動告知ボットと連携し、開発者の宣伝欲・承認欲求を即時換金。',
+        estimatedMonthlyProfit: '月利20万〜50万円（初期費用0円、完全自動運用）'
+      },
+      {
+        title: '士業・コンサル向け「エリア限定・最優先相談枠」入札ディレクトリー',
+        targetNiche: '税理士、行政書士、社労士などの顧客獲得に飢えている地域士業事務所',
+        executionSummary: '「〇〇市でおすすめの相続税理士TOP3」などの特化ペラサイトを作成し、掲載順位を入札月額制で固定。相見積もりを嫌う士業に確約ポジションを売る。',
+        estimatedMonthlyProfit: '月利40万〜100万円（10事務所×月4〜10万円）'
+      }
+    ],
     entryStrategy: {
       lensType: 'SECOND_MOVER',
       lensLabel: '【後出しジャンケン枠】先駆者が放置した「日本語・地方店舗」のパイを合法的に強奪する',
@@ -526,6 +546,26 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
         netTakeHome: '【月44万7,000円の安定ストック】（キーエンスのブランド力を逆利用）'
       }
     },
+    derivedBusinessIdeas: [
+      {
+        title: '中古iPad×無料画像認識AIによる「零細町工場向け格安不良品検知」',
+        targetNiche: 'キーエンスの500万円の見積もりに絶望した全国の従業員5〜20名の町工場',
+        executionSummary: '中古iPadとスタンドを持参し、工場のライン横で即日デモ。「初期10万円＋月額1.5万円」で設置し、キーエンスの1/30の価格で即決契約を獲得。',
+        estimatedMonthlyProfit: '月利60万〜150万円（町工場40社との月額保守ストック）'
+      },
+      {
+        title: '地元製造業専門「2時間納品・緊急パーツ調達ランナー特急便」',
+        targetNiche: '「ラインが止まると1時間で数百万円の損害が出る」地元の工業団地・加工工場',
+        executionSummary: '月額3万円の基本顧問料で契約し、緊急部品の手配・即日持ち込みを代行。定価販売＋特急出動費で競合相見積もりをゼロにする。',
+        estimatedMonthlyProfit: '月利50万〜120万円（15社との月額契約＋緊急手配マージン）'
+      },
+      {
+        title: 'キーエンス式「即日実演デモ先行」による中小企業向けAI業務自動化直販',
+        targetNiche: 'バックオフィスの手作業（請求書処理・受発注管理）に苦しむ地域中小企業',
+        executionSummary: '事前に相手の実際の帳票を読み込ませたデモ画面を持参し、商談開始5分で実演。「気に入らなければ0円」の条件で定価50万円＋保守月5万円を受注。',
+        estimatedMonthlyProfit: '月利80万〜200万円（月2〜3件の成約＋累積保守）'
+      }
+    ],
     entryStrategy: {
       lensType: 'GIANT_CRUMBS',
       lensLabel: '【巨人の食べこぼし枠】キーエンスが高すぎて買えない「町工場の零細ライン」を拾う',
