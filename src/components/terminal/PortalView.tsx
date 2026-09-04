@@ -60,38 +60,33 @@ export const PortalView: React.FC<PortalViewProps> = ({
     <div className="flex-1 bg-[#08090B] overflow-y-auto select-none font-sans text-zinc-100">
       
       {/* ========================================================================= */}
-      {/* 1. 巨大ヒーローセクション（週刊誌の吊り広告のような圧倒的フック） */}
+      {/* 1. 巨大ヒーローセクション */}
       {/* ========================================================================= */}
-      <section className="border-b border-white/[0.08] bg-linear-to-b from-[#12141C] via-[#0B0C10] to-[#08090B] px-5 sm:px-8 py-10 lg:py-16">
+      <section className="border-b border-white/[0.08] bg-linear-to-b from-[#111319] via-[#0C0E13] to-[#090A0C] px-6 py-12 lg:py-16">
         <div className="max-w-6xl mx-auto space-y-6">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-mono font-bold flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>KIN-ROKOKU 独立調査台帳</span>
-            </span>
-            <span className="text-xs text-zinc-400 font-mono">
-              全22件の生損益通帳・Stripe実額検証済み
-            </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-bold">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>2026 最新高収益事業・生損益分析台帳</span>
           </div>
 
-          <div className="space-y-3 max-w-4xl">
+          <div className="space-y-3 max-w-3xl">
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-              あいつは一体、どこで・誰から・<br className="hidden sm:inline" />
-              どうやって大金を抜いているのか？
+              世の中で誰が・どうやって・<br className="hidden sm:inline" />
+              いくら儲けているかの冷徹な台帳。
             </h1>
-            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed font-normal max-w-3xl">
-              美談や綺麗事の起業ストーリーは1行もありません。3時間で作ったネタサイトで2,000万円を強奪した男から、古い地方倉庫をスマートロック化して資産150億を築いた男まで。<strong className="text-white font-bold">「誰の財布をどう開け、原価いくらで、どう集金したか」</strong>の生々しい通帳と骨組みだけを記録したリサーチプラットフォーム。
+            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed font-normal">
+              巨大独占企業から、完全1人で年商数十億円を抜くソロプレナーまで。美談や精神論を排除し、「誰からいくら奪い、原価いくらで、どう集客しているか」の生々しい通帳と骨組みだけを記録した情報プラットフォーム。
             </p>
           </div>
 
-          {/* クイック手札フィルターボタン */}
-          <div className="pt-2 flex items-center gap-2 flex-wrap text-xs">
-            <span className="text-zinc-500 font-mono text-xs">あなたの手札から逆引き:</span>
+          {/* クイックテーマセレクター */}
+          <div className="flex items-center gap-2 flex-wrap pt-2">
+            <span className="text-xs text-zinc-500 font-mono">注目の切り口:</span>
             {[
-              { label: '元手0円・完全1人', tag: '完全1人' },
-              { label: 'プログラミング不要・AIのみ', tag: '初期0円' },
-              { label: '寝ている間に着金・不労所得', tag: '完全1人' },
-              { label: '泥臭い地方実業・現場DX', tag: '地方実業' },
+              { label: '完全1人・年商億超え', tag: '完全1人' },
+              { label: '初期費用0円・AI無人化', tag: '初期0円' },
+              { label: '地方実業・現場DX', tag: '地方実業' },
+              { label: '利益率50%超・独占覇者', tag: '独占' },
             ].map((btn, idx) => (
               <button
                 key={idx}
@@ -99,16 +94,17 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   if (onFilterTheme) onFilterTheme(btn.tag);
                   onNavigateToTerminal();
                 }}
-                className="h-8 px-3 rounded-lg bg-[#141620] hover:bg-[#1C1F2D] border border-white/10 hover:border-emerald-500/30 text-zinc-300 hover:text-white transition-colors"
+                className="h-8 px-3.5 rounded-lg bg-[#14161F] hover:bg-[#1C1F2B] border border-white/10 hover:border-white/20 text-xs font-medium text-zinc-300 hover:text-white transition-colors"
               >
                 {btn.label}
               </button>
             ))}
             <button
               onClick={onNavigateToTerminal}
-              className="h-8 px-4 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-bold transition-colors ml-auto hidden sm:flex items-center gap-1.5"
+              className="h-8 px-4 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black text-xs font-bold transition-colors ml-auto hidden sm:flex items-center gap-1.5"
             >
-              <span>全22社台帳を開く →</span>
+              <span>全22社台帳を開く</span>
+              <span>→</span>
             </button>
           </div>
         </div>
@@ -123,14 +119,14 @@ export const PortalView: React.FC<PortalViewProps> = ({
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-white/[0.08] pb-3">
             <div>
               <div className="text-[10px] font-mono text-emerald-400 font-bold tracking-wider">
-                SOLO & MICRO EXPLOSIVE LEADERBOARD
+                TOP EARNERS & HOT SIGNALS
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-white mt-0.5">
-                今特に話題の「個人・超少人数」爆益リーダーボード TOP 5
+                今特に話題の急上昇・爆益リーダーボード TOP 5
               </h2>
             </div>
             <span className="text-xs text-zinc-500 font-mono">
-              ※ 大企業を排除した「個人〜少数精鋭」の実績順
+              直近実績・Stripe実額検証済み
             </span>
           </div>
 
@@ -468,14 +464,14 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 COMPLETE REGISTERED DOSSIERS
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-white mt-0.5">
-                全ビジネス解剖台帳カード一覧（全{companies.length}社）
+                全収録ビジネス解剖台帳（全{companies.length}社）
               </h2>
             </div>
             <button
               onClick={onNavigateToTerminal}
               className="text-xs text-emerald-400 hover:text-emerald-300 font-mono font-medium underline underline-offset-4"
             >
-              50軸条件スクリーナーを開く →
+              条件検索スクリーナーを開く →
             </button>
           </div>
 
