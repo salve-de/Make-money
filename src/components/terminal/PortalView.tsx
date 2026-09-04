@@ -116,6 +116,135 @@ export const PortalView: React.FC<PortalViewProps> = ({
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-10 space-y-14">
         
         {/* ========================================================================= */}
+        {/* 【キラー兵器①】地雷市場（死体） ⇄ 金脈市場（生者）の直接対比レーダー */}
+        {/* ========================================================================= */}
+        <section className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-950 text-rose-300 border border-rose-800/40 uppercase tracking-wider">
+                  GRAVEYARD VS GOLDMINE
+                </span>
+                <span className="text-[10px] font-mono text-zinc-500">直近市場検死・マネーフロー追跡</span>
+              </div>
+              <h2 className="text-base sm:text-lg font-bold text-white mt-1 flex items-center gap-2">
+                <span>参入即死の地雷市場 (死体) ⇄ いま金が流入する最新金脈 (生者)</span>
+              </h2>
+            </div>
+            <span className="text-xs text-zinc-400 font-mono">
+              「何を避けて、どこを攻めるべきか」の冷徹な対比
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            
+            {/* 左側：参入者が全滅している地雷市場（赤・警告） */}
+            <div className="p-4 sm:p-5 rounded-xl bg-[#140C0E] border border-rose-500/20 space-y-3.5">
+              <div className="flex items-center justify-between border-b border-rose-500/10 pb-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
+                  <h3 className="text-xs sm:text-sm font-bold text-rose-200">
+                    ⚠️ 今すぐ逃げろ！初心者が即死している落ち目・地雷市場
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono text-rose-400 font-bold bg-rose-950/80 px-2 py-0.5 rounded border border-rose-800/30">
+                  DEAD END
+                </span>
+              </div>
+
+              <div className="space-y-2.5 text-xs font-sans">
+                <div className="p-3 rounded-lg bg-[#0E0709] border border-rose-900/30 space-y-1">
+                  <div className="flex items-center justify-between text-rose-300 font-bold">
+                    <span>✕ AI美女・画像集のプラットフォーム直売</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-1.5 py-0.2 rounded border border-rose-800/40 text-rose-400">死亡率 99%</span>
+                  </div>
+                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                    <strong className="text-rose-400">死因:</strong> 各プラットフォームの規約厳罰化と生成コスト割れ。参入者が数万人に激増し、価格が100円以下に暴落して時給換算30円で全滅。
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-lg bg-[#0E0709] border border-rose-900/30 space-y-1">
+                  <div className="flex items-center justify-between text-rose-300 font-bold">
+                    <span>✕ 店舗せどり・国内物販転売</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-1.5 py-0.2 rounded border border-rose-800/40 text-rose-400">資金ショート多発</span>
+                  </div>
+                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                    <strong className="text-rose-400">死因:</strong> 家電量販店等の転売対策強化、配送料高騰、Amazonの真贋調査による売上凍結。売れない在庫の山を抱えてクレカ引き落とし不能に。
+                  </p>
+                </div>
+
+                <div className="p-3 rounded-lg bg-[#0E0709] border border-rose-900/30 space-y-1">
+                  <div className="flex items-center justify-between text-rose-300 font-bold">
+                    <span>✕ クラウドソーシング無差別Web制作受託</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-1.5 py-0.2 rounded border border-rose-800/40 text-rose-400">時給100円地獄</span>
+                  </div>
+                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                    <strong className="text-rose-400">死因:</strong> AIノーコードツールの一般化によりLP単価が1万円に崩壊。1件の案件に50人が群がる価格叩き合いで、300時間労働して手取り3万円の搾取地獄。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 右側：いま金が流入している最新金脈手口（緑・金脈） */}
+            <div className="p-4 sm:p-5 rounded-xl bg-[#0B1411] border border-emerald-500/20 space-y-3.5">
+              <div className="flex items-center justify-between border-b border-emerald-500/10 pb-2.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  <h3 className="text-xs sm:text-sm font-bold text-emerald-200">
+                    💰 今ここに金が流入！儲かる業界から吸い上げる最新手口
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/30">
+                  REAL CASHFLOW
+                </span>
+              </div>
+
+              <div className="space-y-2.5 text-xs font-sans">
+                <div 
+                  onClick={() => onSelectCompany('keyence-6861')}
+                  className="p-3 rounded-lg bg-[#070E0B] border border-emerald-900/30 hover:border-emerald-500/40 transition-colors cursor-pointer space-y-1 group"
+                >
+                  <div className="flex items-center justify-between text-emerald-300 font-bold">
+                    <span className="group-hover:text-emerald-200">〇 地方町工場への「iPad格安AI検査」直販</span>
+                    <span className="text-[10px] font-mono bg-emerald-950 px-1.5 py-0.2 rounded border border-emerald-800/40 text-emerald-400">月利60万〜150万</span>
+                  </div>
+                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                    <strong className="text-emerald-400">手口:</strong> キーエンスの500万円の見積もりに絶望した町工場長に、中古iPadで初期10万＋月1.5万円の不良品検知を直販。キーエンスのブランド力を逆利用。
+                  </p>
+                </div>
+
+                <div 
+                  onClick={() => onSelectCompany('solo-local-dx')}
+                  className="p-3 rounded-lg bg-[#070E0B] border border-emerald-900/30 hover:border-emerald-500/40 transition-colors cursor-pointer space-y-1 group"
+                >
+                  <div className="flex items-center justify-between text-emerald-300 font-bold">
+                    <span className="group-hover:text-emerald-200">〇 不用品回収・特殊清掃の「LINE自動集客」構築</span>
+                    <span className="text-[10px] font-mono bg-emerald-950 px-1.5 py-0.2 rounded border border-emerald-800/40 text-emerald-400">月利80万〜200万</span>
+                  </div>
+                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                    <strong className="text-emerald-400">手口:</strong> ネット集客ができない地元の職人に、LINE自動見積もりを作って客を流し中抜きマージンを回収。現場作業ゼロ、不労ストック化。
+                  </p>
+                </div>
+
+                <div 
+                  onClick={() => onSelectCompany('outbid-lol')}
+                  className="p-3 rounded-lg bg-[#070E0B] border border-emerald-900/30 hover:border-emerald-500/40 transition-colors cursor-pointer space-y-1 group"
+                >
+                  <div className="flex items-center justify-between text-emerald-300 font-bold">
+                    <span className="group-hover:text-emerald-200">〇 特定業界（クリニック・美容）の「入札型看板」</span>
+                    <span className="text-[10px] font-mono bg-emerald-950 px-1.5 py-0.2 rounded border border-emerald-800/40 text-emerald-400">月利30万〜80万</span>
+                  </div>
+                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                    <strong className="text-emerald-400">手口:</strong> 地域で一番目立つWeb推薦枠をオークション制で店舗同士に競わせる。ライバルに負けたくない見栄で入札額が勝手に吊り上がる自動集金。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
         {/* セクション①: 【最近話題・急上昇 TOP 5】 */}
         {/* ========================================================================= */}
         <section className="space-y-3">
