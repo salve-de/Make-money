@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 interface ProModalProps {
   isOpen: boolean;
@@ -8,7 +8,33 @@ interface ProModalProps {
 }
 
 export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
   if (!isOpen) return null;
+
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product: 'founding-pass' }),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.url) {
+        throw new Error(result.error || '決済画面を開始できませんでした');
+      }
+
+      window.location.assign(result.url);
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : '決済画面を開始できませんでした');
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-xs p-4 font-sans select-none">
@@ -47,10 +73,11 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
               </ul>
             </div>
             <button
-              onClick={onClose}
+              onClick={handleCheckout}
+              disabled={isLoading}
               className="w-full h-7 bg-[#20232C] hover:bg-zinc-700 text-zinc-200 text-xs font-medium rounded border border-white/10 transition-colors"
             >
-              申し込む
+              {isLoading ? '決済画面を準備中...' : '創刊版を購入する（¥1,980）'}
             </button>
           </div>
 
@@ -76,6 +103,12 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
             </button>
           </div>
         </div>
+
+        {errorMessage && (
+          <p className="mb-4 rounded border border-red-500/20 bg-red-500/10 p-2 text-center text-[11px] text-red-300">
+            {errorMessage}
+          </p>
+        )}
 
         <div className="text-center text-[10px] text-zinc-500 font-mono">
           契約後30日間の全額返金保証。いつでも解約可能です。

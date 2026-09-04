@@ -44,30 +44,30 @@ const TRAP_REPORTS: TrapReport[] = [
 
 export const PostMortemSection: React.FC = () => {
   return (
-    <section className="space-y-4">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-rose-500/20 pb-3">
+    <section className="space-y-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
         <div className="flex items-center gap-2">
-          <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">
+          <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
             THE POST-MORTEM ARCHIVE
           </span>
-          <h2 className="text-lg sm:text-xl font-bold text-white">
+          <h2 className="text-base sm:text-lg font-bold text-white">
             失敗の墓場：これに手を出した奴らは全員散った「参入禁止地雷市場」
           </h2>
         </div>
-        <span className="text-xs text-rose-400/80 font-mono">
+        <span className="text-xs text-zinc-500 font-mono">
           ※ 表面的な儲け話に騙されないための防衛データ
         </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
         {TRAP_REPORTS.map((t) => (
           <div
             key={t.id}
-            className="p-5 rounded-xl bg-[#140F12] border border-rose-500/20 hover:border-rose-500/40 transition-colors space-y-3 flex flex-col justify-between"
+            className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800/80 hover:border-zinc-700 transition-colors space-y-3 flex flex-col justify-between"
           >
             <div className="space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-mono font-bold text-rose-400 px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/20">
+                <span className="text-[10px] font-mono font-bold text-zinc-300 px-2 py-0.5 rounded bg-zinc-800 border border-zinc-700">
                   {t.badge}
                 </span>
                 <span className="text-[10px] font-mono text-zinc-500">{t.lossMetric}</span>
@@ -78,17 +78,17 @@ export const PostMortemSection: React.FC = () => {
               </h3>
 
               <div className="space-y-2 text-xs">
-                <div className="p-2.5 rounded bg-white/[0.02] border border-white/5 space-y-1">
-                  <span className="text-amber-400/90 font-mono text-[10px] font-bold block">
+                <div className="p-2.5 rounded-md bg-zinc-900/60 border border-zinc-800/60 space-y-1">
+                  <span className="text-zinc-400 font-mono text-[10px] font-bold block">
                     【表面的な甘い罠】
                   </span>
-                  <p className="text-zinc-400 leading-relaxed">
+                  <p className="text-zinc-400 leading-relaxed font-normal">
                     {t.allure}
                   </p>
                 </div>
 
-                <div className="p-2.5 rounded bg-rose-950/20 border border-rose-500/20 space-y-1">
-                  <span className="text-rose-400 font-mono text-[10px] font-bold block">
+                <div className="p-2.5 rounded-md bg-zinc-900/90 border border-zinc-800/80 space-y-1">
+                  <span className="text-zinc-300 font-mono text-[10px] font-bold block">
                     【現実の死因（なぜ即死するのか）】
                   </span>
                   <p className="text-zinc-300 leading-relaxed font-normal">
@@ -98,11 +98,11 @@ export const PostMortemSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-white/5 text-xs">
-              <span className="text-emerald-400 font-mono text-[10px] font-bold block">
+            <div className="pt-2.5 border-t border-zinc-800/60 text-xs">
+              <span className="text-zinc-400 font-mono text-[10px] font-bold block">
                 【生き残りの反転戦略】
               </span>
-              <p className="text-zinc-300 text-[11px] leading-relaxed mt-0.5 font-sans">
+              <p className="text-zinc-200 text-[11px] leading-relaxed mt-0.5 font-normal">
                 {t.counterStrategy}
               </p>
             </div>

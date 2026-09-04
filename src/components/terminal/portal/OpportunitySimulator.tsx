@@ -130,33 +130,33 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
   const matchedCompany = companies.find((c) => c.id === rec.suggestedCompanyId) || companies[0];
 
   return (
-    <section className="p-6 sm:p-8 rounded-2xl bg-linear-to-b from-[#11131C] to-[#0A0B0F] border border-white/10 space-y-6 shadow-xl">
+    <section className="p-5 sm:p-6 rounded-lg bg-[#0E1015] border border-zinc-800/80 space-y-5">
       
       {/* 見出し */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
         <div>
-          <div className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+          <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider">
             OPPORTUNITY REVERSE FINDER
           </div>
-          <h2 className="text-lg sm:text-xl font-bold text-white mt-0.5">
+          <h2 className="text-base sm:text-lg font-bold text-white mt-0.5">
             手札から逆引き：あなたの勝率最大化ビジネス診断シミュレーター
           </h2>
         </div>
-        <span className="text-xs text-zinc-400 font-mono">
+        <span className="text-xs text-zinc-500 font-mono">
           ※ 資金・時間・得意武器を選択すると即座に最適解を算出
         </span>
       </div>
 
       {/* 選択コントローラー */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
         
         {/* 1. 軍資金 */}
-        <div className="space-y-2">
-          <label className="text-xs font-mono text-zinc-400 font-bold flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+        <div className="space-y-1.5">
+          <label className="text-xs font-mono text-zinc-400 font-medium flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-zinc-400" />
             <span>1. 投入できる軍資金</span>
           </label>
-          <div className="grid grid-cols-3 gap-1.5">
+          <div className="grid grid-cols-3 gap-1">
             {[
               { id: 'ZERO', label: '0円 (元手ゼロ)' },
               { id: 'LOW', label: '10万円以下' },
@@ -165,10 +165,10 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
               <button
                 key={btn.id}
                 onClick={() => setCapital(btn.id as CapitalLevel)}
-                className={`py-2 px-1 text-center rounded-lg text-xs font-mono transition-all border ${
+                className={`py-2 px-1 text-center rounded text-xs font-mono transition-all border ${
                   capital === btn.id
-                    ? 'bg-emerald-500/20 border-emerald-500/40 text-emerald-300 font-bold shadow-sm'
-                    : 'bg-[#151722] border-white/5 text-zinc-400 hover:text-white hover:border-white/10'
+                    ? 'bg-zinc-800 border-zinc-600 text-white font-bold shadow-xs'
+                    : 'bg-zinc-900/80 border-zinc-800/80 text-zinc-400 hover:text-zinc-200'
                 }`}
               >
                 {btn.label}
@@ -178,12 +178,12 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
         </div>
 
         {/* 2. 稼働時間 */}
-        <div className="space-y-2">
-          <label className="text-xs font-mono text-zinc-400 font-bold flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+        <div className="space-y-1.5">
+          <label className="text-xs font-mono text-zinc-400 font-medium flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-zinc-400" />
             <span>2. 投下できる時間</span>
           </label>
-          <div className="grid grid-cols-3 gap-1.5">
+          <div className="grid grid-cols-3 gap-1">
             {[
               { id: 'WEEKEND', label: '週末5時間' },
               { id: 'NIGHTS', label: '平日夜20時間' },
@@ -192,10 +192,10 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
               <button
                 key={btn.id}
                 onClick={() => setTime(btn.id as TimeCommitment)}
-                className={`py-2 px-1 text-center rounded-lg text-xs font-mono transition-all border ${
+                className={`py-2 px-1 text-center rounded text-xs font-mono transition-all border ${
                   time === btn.id
-                    ? 'bg-indigo-500/20 border-indigo-500/40 text-indigo-300 font-bold shadow-sm'
-                    : 'bg-[#151722] border-white/5 text-zinc-400 hover:text-white hover:border-white/10'
+                    ? 'bg-zinc-800 border-zinc-600 text-white font-bold shadow-xs'
+                    : 'bg-zinc-900/80 border-zinc-800/80 text-zinc-400 hover:text-zinc-200'
                 }`}
               >
                 {btn.label}
@@ -205,12 +205,12 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
         </div>
 
         {/* 3. 得意武器 */}
-        <div className="space-y-2">
-          <label className="text-xs font-mono text-zinc-400 font-bold flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+        <div className="space-y-1.5">
+          <label className="text-xs font-mono text-zinc-400 font-medium flex items-center gap-1.5">
+            <span className="w-1 h-1 rounded-full bg-zinc-400" />
             <span>3. 頼りにする手札武器</span>
           </label>
-          <div className="grid grid-cols-3 gap-1.5">
+          <div className="grid grid-cols-3 gap-1">
             {[
               { id: 'AI_PC', label: 'AI・PC作業' },
               { id: 'SALES', label: '営業・対人' },
@@ -219,10 +219,10 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
               <button
                 key={btn.id}
                 onClick={() => setStrength(btn.id as StrengthType)}
-                className={`py-2 px-1 text-center rounded-lg text-xs font-mono transition-all border ${
+                className={`py-2 px-1 text-center rounded text-xs font-mono transition-all border ${
                   strength === btn.id
-                    ? 'bg-amber-500/20 border-amber-500/40 text-amber-300 font-bold shadow-sm'
-                    : 'bg-[#151722] border-white/5 text-zinc-400 hover:text-white hover:border-white/10'
+                    ? 'bg-zinc-800 border-zinc-600 text-white font-bold shadow-xs'
+                    : 'bg-zinc-900/80 border-zinc-800/80 text-zinc-400 hover:text-zinc-200'
                 }`}
               >
                 {btn.label}
@@ -234,35 +234,35 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
       </div>
 
       {/* 診断結果表示カード */}
-      <div className="p-5 sm:p-6 rounded-xl bg-[#0D0F16] border border-white/15 space-y-4">
+      <div className="p-4 sm:p-5 rounded-md bg-zinc-900/60 border border-zinc-800/80 space-y-3.5">
         
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-800/80 pb-2.5">
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
               {rec.badge}
             </span>
-            <h3 className="text-base sm:text-lg font-bold text-white">
+            <h3 className="text-sm sm:text-base font-bold text-white">
               推奨モデル: {rec.modelName}
             </h3>
           </div>
           <div className="flex items-center gap-4 text-xs font-mono">
-            <span className="text-zinc-400">期待月利: <strong className="text-emerald-400 text-sm">{rec.expectedMonthlyProfit}</strong></span>
-            <span className="text-zinc-400">粗利率: <strong className="text-white text-sm">{rec.grossMargin}</strong></span>
+            <span className="text-zinc-400">期待月利: <strong className="text-white text-sm font-mono tabular-nums">{rec.expectedMonthlyProfit}</strong></span>
+            <span className="text-zinc-400">粗利率: <strong className="text-white text-sm font-mono tabular-nums">{rec.grossMargin}</strong></span>
           </div>
         </div>
 
-        <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+        <p className="text-xs text-zinc-400 leading-relaxed font-normal">
           {rec.rationale}
         </p>
 
         {/* アクションガイドと参考企業 */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
           
-          <div className="p-4 rounded-lg bg-[#141622] border border-white/5 space-y-1.5">
-            <div className="text-[10px] font-mono text-amber-400 font-bold uppercase">
+          <div className="p-3.5 rounded bg-[#0E1015] border border-zinc-800/60 space-y-1">
+            <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase">
               明日取るべき最初のアクション（DAY 1）:
             </div>
-            <p className="text-xs text-white leading-relaxed font-bold">
+            <p className="text-xs text-zinc-200 leading-relaxed font-medium">
               {rec.firstStepAction}
             </p>
             <div className="text-[10px] font-mono text-zinc-500 pt-1">
@@ -272,21 +272,21 @@ export const OpportunitySimulator: React.FC<OpportunitySimulatorProps> = ({
 
           <div
             onClick={() => onSelectCompany(matchedCompany.id)}
-            className="p-4 rounded-lg bg-[#141622] hover:bg-[#1A1D2C] border border-white/5 hover:border-emerald-500/30 cursor-pointer transition-all flex items-center justify-between group"
+            className="p-3.5 rounded bg-[#0E1015] hover:bg-zinc-800/50 border border-zinc-800/60 hover:border-zinc-700 cursor-pointer transition-all flex items-center justify-between group"
           >
             <div className="space-y-1 min-w-0 pr-3">
-              <div className="text-[10px] font-mono text-emerald-400 font-bold uppercase">
+              <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase">
                 参考にするべき実在ビジネス台帳:
               </div>
-              <div className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors truncate">
+              <div className="text-xs font-bold text-white group-hover:text-zinc-200 transition-colors truncate">
                 {matchedCompany.japaneseName}
               </div>
-              <div className="text-[11px] text-zinc-400 line-clamp-1">
+              <div className="text-[11px] text-zinc-400 line-clamp-1 font-normal">
                 {matchedCompany.tagline}
               </div>
             </div>
-            <span className="px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold font-mono shrink-0 group-hover:bg-emerald-500 group-hover:text-black transition-colors">
-              解剖台帳を見る →
+            <span className="px-2.5 py-1 rounded bg-zinc-800 border border-zinc-700 text-zinc-300 text-xs font-medium font-mono shrink-0 group-hover:text-white transition-colors">
+              台帳を見る →
             </span>
           </div>
 

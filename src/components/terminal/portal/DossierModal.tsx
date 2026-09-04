@@ -6,7 +6,6 @@ import { CompanyRecord } from '../../../types/terminal';
 export interface DossierData {
   id: string;
   badge: string;
-  badgeColor: string;
   title: string;
   subtitle: string;
   leadParagraph: string;
@@ -37,7 +36,6 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
   'collection-passive': {
     id: 'collection-passive',
     badge: 'DOSSIER 01 / 不労集金',
-    badgeColor: 'border-emerald-500/30 bg-emerald-500/10 text-emerald-400',
     title: '【寝てる間に着金】完全自動・不労集金モデルの解剖',
     subtitle: '人を雇わず、在庫を持たず、一度作ればStripeが24時間鳴り止まない不労所得の骨組み',
     leadParagraph: '労働時間を切り売りする限り、富裕層にはなれません。この特集では、限界費用ゼロのデジタル資産（ソフトウェア、テンプレート、ランキング枠）を構築し、寝ている間に決済通知だけを受け取っているプレイヤーの「集金構造」を徹底解剖します。',
@@ -88,7 +86,6 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
   'collection-ai': {
     id: 'collection-ai',
     badge: 'DOSSIER 02 / AI労働力搾取',
-    badgeColor: 'border-indigo-500/30 bg-indigo-500/10 text-indigo-400',
     title: '【AI労働力搾取】コードを書かず、AIを24時間働かせて億を抜く',
     subtitle: '人間を1人も雇わず、推論APIを叩くだけで粗利80%を叩き出すソロプレナーの型',
     leadParagraph: '社員を雇う時代は終わりました。給与、社会保険、人間関係のトラブル。これら全ての経営リスクを排除し、24時間文句を言わずに稼働するAIモデルを「デジタル奴隷」として酷使し、巨額の利益を抜く最新アーキテクチャを暴露します。',
@@ -139,7 +136,6 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
   'collection-local': {
     id: 'collection-local',
     badge: 'DOSSIER 03 / 地方実業の歪み',
-    badgeColor: 'border-amber-500/30 bg-amber-500/10 text-amber-400',
     title: '【泥臭い地方の歪み】IT弱者の高齢現場を独占する実業DX',
     subtitle: '大手が参入できない地味で泥臭い現場。無人貸倉庫や外壁洗浄など、LINE自動化と職人外注で月利数百万円を抜く型',
     leadParagraph: '都会のキラキラしたITベンチャーがVCから資金を調達して赤字を垂れ流している横で、地方の地味な実業（貸倉庫、不用品回収、外壁洗浄）を買い叩き、スマートロックとLINEを突っ込むだけで年利30%超・資産数十億円を築く男たちがいます。その「勝てる土俵」の選び方を公開します。',
@@ -208,68 +204,68 @@ export const DossierModal: React.FC<DossierModalProps> = ({
   const relatedCompanies = companies.filter((c) => data.relatedCompanyIds.includes(c.id));
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md overflow-y-auto">
-      <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#0E1015] border border-white/15 rounded-2xl shadow-2xl flex flex-col overflow-hidden text-zinc-100">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-xs overflow-y-auto">
+      <div className="relative w-full max-w-4xl max-h-[90vh] bg-[#0E1015] border border-zinc-800 rounded-lg shadow-2xl flex flex-col overflow-hidden text-zinc-100">
         
         {/* ヘッダー */}
-        <div className="p-5 sm:p-6 border-b border-white/10 bg-[#141620] flex items-center justify-between shrink-0">
+        <div className="p-4 sm:p-5 border-b border-zinc-800 bg-[#12141A] flex items-center justify-between shrink-0">
           <div className="space-y-1">
-            <span className={`px-2.5 py-0.5 rounded text-[10px] font-mono font-bold border ${data.badgeColor}`}>
+            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700">
               {data.badge}
             </span>
-            <h2 className="text-lg sm:text-2xl font-bold text-white leading-tight">
+            <h2 className="text-base sm:text-xl font-bold text-white leading-tight">
               {data.title}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-lg bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center text-lg font-mono transition-colors"
+            className="w-8 h-8 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white flex items-center justify-center text-sm font-mono transition-colors"
           >
             ✕
           </button>
         </div>
 
         {/* スクロールコンテンツ */}
-        <div className="p-5 sm:p-8 overflow-y-auto space-y-8 font-sans">
+        <div className="p-5 sm:p-7 overflow-y-auto space-y-6 font-sans">
           
           {/* リード文 */}
-          <div className="p-4 sm:p-5 rounded-xl bg-white/[0.03] border border-white/5 space-y-2">
-            <div className="text-xs font-mono text-zinc-400 font-bold uppercase tracking-wider">
+          <div className="p-4 rounded-md bg-zinc-900/60 border border-zinc-800/80 space-y-1.5">
+            <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider">
               調査主旨・概要
             </div>
-            <p className="text-sm sm:text-base text-zinc-200 leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-normal">
               {data.leadParagraph}
             </p>
           </div>
 
           {/* 1. なぜ今このモデルが猛烈に儲かるのか */}
-          <section className="space-y-4">
-            <div className="border-b border-white/10 pb-2">
-              <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">MARKET GLITCH</span>
-              <h3 className="text-base sm:text-lg font-bold text-white">
+          <section className="space-y-3">
+            <div className="border-b border-zinc-800 pb-2">
+              <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase">MARKET GLITCH</span>
+              <h3 className="text-sm sm:text-base font-bold text-white">
                 1. なぜ今、このモデルが猛烈に儲かるのか？（市場の歪み）
               </h3>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {data.whyNow.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-[#11131A] border border-white/5 space-y-2">
-                  <div className="text-xs font-mono text-emerald-400 font-bold">理由 0{idx + 1}</div>
-                  <h4 className="text-sm font-bold text-white leading-snug">{item.heading}</h4>
-                  <p className="text-xs text-zinc-400 leading-relaxed">{item.description}</p>
+                <div key={idx} className="p-3.5 rounded-md bg-zinc-900/60 border border-zinc-800/60 space-y-1.5">
+                  <div className="text-[10px] font-mono text-zinc-400 font-bold">理由 0{idx + 1}</div>
+                  <h4 className="text-xs sm:text-sm font-bold text-white leading-snug">{item.heading}</h4>
+                  <p className="text-xs text-zinc-400 leading-relaxed font-normal">{item.description}</p>
                 </div>
               ))}
             </div>
           </section>
 
           {/* 2. 生々しい集金のカラクリ */}
-          <section className="space-y-4">
-            <div className="border-b border-white/10 pb-2">
-              <span className="text-[10px] font-mono text-amber-400 font-bold uppercase">MONEY FLOW ANATOMY</span>
-              <h3 className="text-base sm:text-lg font-bold text-white">
+          <section className="space-y-3">
+            <div className="border-b border-zinc-800 pb-2">
+              <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase">MONEY FLOW ANATOMY</span>
+              <h3 className="text-sm sm:text-base font-bold text-white">
                 2. 生々しい集金のカラクリ（誰の財布をどう開けるか）
               </h3>
             </div>
-            <div className="p-5 rounded-xl bg-[#121319] border border-amber-500/20 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+            <div className="p-4 rounded-md bg-zinc-900/60 border border-zinc-800/80 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
               <div className="space-y-1">
                 <span className="text-zinc-500 text-[10px]">① 狙われる獲物・客層:</span>
                 <p className="text-zinc-200 font-sans text-xs">{data.moneyFlow.victimOrBuyer}</p>
@@ -283,29 +279,29 @@ export const DossierModal: React.FC<DossierModalProps> = ({
                 <p className="text-zinc-200 font-sans text-xs">{data.moneyFlow.profitTrap}</p>
               </div>
               <div className="space-y-1">
-                <span className="text-emerald-500 font-bold text-[10px]">④ 創業者純手取り率:</span>
-                <p className="text-emerald-400 font-bold font-sans text-xs">{data.moneyFlow.takeHomeRate}</p>
+                <span className="text-zinc-400 font-bold text-[10px]">④ 創業者純手取り率:</span>
+                <p className="text-zinc-100 font-bold font-sans text-xs">{data.moneyFlow.takeHomeRate}</p>
               </div>
             </div>
           </section>
 
           {/* 3. 完コピ3ステップ行動手順書 */}
-          <section className="space-y-4">
-            <div className="border-b border-white/10 pb-2">
-              <span className="text-[10px] font-mono text-indigo-400 font-bold uppercase">ACTIONABLE PLAYBOOK</span>
-              <h3 className="text-base sm:text-lg font-bold text-white">
+          <section className="space-y-3">
+            <div className="border-b border-zinc-800 pb-2">
+              <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase">ACTIONABLE PLAYBOOK</span>
+              <h3 className="text-sm sm:text-base font-bold text-white">
                 3. もし明日から参入するなら？（完コピ3ステップ）
               </h3>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {data.stepByStepPlaybook.map((step, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-[#12141F] border border-white/5 flex flex-col sm:flex-row sm:items-start gap-3">
-                  <span className="px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-[11px] font-mono font-bold shrink-0">
+                <div key={idx} className="p-3.5 rounded-md bg-zinc-900/60 border border-zinc-800/60 flex flex-col sm:flex-row sm:items-start gap-3">
+                  <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 text-[10px] font-mono font-bold shrink-0">
                     {step.phase}
                   </span>
                   <div className="space-y-1 min-w-0">
-                    <h4 className="text-sm font-bold text-white">{step.action}</h4>
-                    <p className="text-xs text-zinc-300 leading-relaxed font-normal">{step.detail}</p>
+                    <h4 className="text-xs sm:text-sm font-bold text-white">{step.action}</h4>
+                    <p className="text-xs text-zinc-400 leading-relaxed font-normal">{step.detail}</p>
                   </div>
                 </div>
               ))}
@@ -313,19 +309,19 @@ export const DossierModal: React.FC<DossierModalProps> = ({
           </section>
 
           {/* 4. 推奨武器・ツールスタック */}
-          <section className="space-y-4">
-            <div className="border-b border-white/10 pb-2">
-              <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase">TECH STACK & WEAPONS</span>
-              <h3 className="text-base sm:text-lg font-bold text-white">
+          <section className="space-y-3">
+            <div className="border-b border-zinc-800 pb-2">
+              <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase">TECH STACK & WEAPONS</span>
+              <h3 className="text-sm sm:text-base font-bold text-white">
                 4. 実際に使われている武器・ツールスタック
               </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {data.recommendedTools.map((t, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-[#0F1117] border border-white/5 space-y-1">
+                <div key={idx} className="p-3 rounded-md bg-zinc-900/60 border border-zinc-800/60 space-y-1">
                   <div className="text-xs font-bold text-white">{t.name}</div>
-                  <div className="text-[11px] text-zinc-400">{t.role}</div>
-                  <div className="text-[10px] font-mono text-emerald-400 font-bold pt-1 border-t border-white/5">
+                  <div className="text-[11px] text-zinc-400 font-normal">{t.role}</div>
+                  <div className="text-[10px] font-mono text-zinc-300 font-medium pt-1 border-t border-zinc-800/60">
                     コスト: {t.cost}
                   </div>
                 </div>
@@ -334,10 +330,10 @@ export const DossierModal: React.FC<DossierModalProps> = ({
           </section>
 
           {/* 5. 関連する実在台帳ケーススタディ */}
-          <section className="space-y-4">
-            <div className="border-b border-white/10 pb-2">
-              <span className="text-[10px] font-mono text-zinc-500 font-bold uppercase">VERIFIED CASE STUDIES</span>
-              <h3 className="text-base sm:text-lg font-bold text-white">
+          <section className="space-y-3">
+            <div className="border-b border-zinc-800 pb-2">
+              <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase">VERIFIED CASE STUDIES</span>
+              <h3 className="text-sm sm:text-base font-bold text-white">
                 5. この特集に該当する実在ビジネス台帳（クリックで詳細閲覧）
               </h3>
             </div>
@@ -349,20 +345,20 @@ export const DossierModal: React.FC<DossierModalProps> = ({
                     onClose();
                     onSelectCompany(c.id);
                   }}
-                  className="p-4 rounded-xl bg-[#141722] hover:bg-[#1A1E2C] border border-white/10 hover:border-emerald-500/40 cursor-pointer transition-all space-y-2 group"
+                  className="p-3.5 rounded-md bg-zinc-900/60 hover:bg-zinc-800/80 border border-zinc-800/60 hover:border-zinc-700 cursor-pointer transition-all space-y-1.5 group"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-bold text-xs text-white group-hover:text-emerald-300 transition-colors">
+                    <span className="font-bold text-xs text-white group-hover:text-zinc-200 transition-colors">
                       {c.japaneseName}
                     </span>
-                    <span className="text-[10px] font-mono text-emerald-400 font-bold">
+                    <span className="text-[10px] font-mono text-zinc-400 group-hover:text-white">
                       詳細 →
                     </span>
                   </div>
-                  <p className="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed">
+                  <p className="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed font-normal">
                     {c.tagline}
                   </p>
-                  <div className="text-[10px] font-mono text-zinc-500 pt-1 border-t border-white/5">
+                  <div className="text-[10px] font-mono text-zinc-500 pt-1 border-t border-zinc-800/60">
                     月商: ¥{((c.passbookDetails?.monthlyGrossJpy || 10000000) / 10000).toLocaleString()}万円
                   </div>
                 </div>
@@ -373,13 +369,13 @@ export const DossierModal: React.FC<DossierModalProps> = ({
         </div>
 
         {/* フッター */}
-        <div className="p-4 sm:p-5 border-t border-white/10 bg-[#12141D] flex items-center justify-between shrink-0">
+        <div className="p-3.5 sm:p-4 border-t border-zinc-800 bg-[#12141A] flex items-center justify-between shrink-0">
           <span className="text-xs font-mono text-zinc-500">
             ※ 実在データ・公開推計に基づく独自調査レポート
           </span>
           <button
             onClick={onClose}
-            className="px-5 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-colors"
+            className="px-4 py-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-white font-medium text-xs transition-colors"
           >
             閉じる
           </button>
