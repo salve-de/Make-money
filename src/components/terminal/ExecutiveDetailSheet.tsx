@@ -7,7 +7,7 @@ interface ExecutiveDetailSheetProps {
   company: CompanyRecord;
 }
 
-type DetailTab = 'ALL' | 'FINANCIALS' | 'INFRASTRUCTURE' | 'TRACTION' | 'ENTRY_STRATEGY';
+type DetailTab = 'ALL' | 'TRICK' | 'FINANCIALS' | 'INFRASTRUCTURE' | 'STORY';
 
 export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ company }) => {
   const [activeTab, setActiveTab] = useState<DetailTab>('ALL');
@@ -48,10 +48,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
     switch (moat) {
       case 'PROCESS_POWER': return '組織プロセスパワー (模倣困難な業務執行体制)';
       case 'NETWORK_EFFECTS': return 'ネットワーク効果 (利用者の増加に伴う価値向上)';
-      case 'COUNTER_POSITIONING': return 'カウンターポジショニング (既存大手が構造上真似できない差別化)';
+      case 'COUNTER_POSITIONING': return 'カウンターポジショニング (大手が構造上真似できない差別化)';
       case 'SWITCHING_COSTS': return 'スイッチングコスト (顧客の乗り換え障壁)';
       case 'BRANDING': return 'ブランド価値 (第一想起と価格プレミアム)';
-      case 'CORNERED_RESOURCE': return '独占的資源 (特許・独自技術・独占契約)';
+      case 'CORNERED_RESOURCE': return '独占的資源 (特許・独自データ・独占契約)';
       case 'SCALE_ECONOMIES': return '規模の経済 (固定費分散と限界費用の極小化)';
     }
   };
@@ -100,6 +100,21 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
   // 武器庫（ツール）の月額コスト合計
   const totalMonthlyToolCost = (company.tools || []).reduce((acc, t) => acc + (t.monthlyCostJpy || 0), 0);
 
+  // 【種明かしデータの抽出（ポエムを排除した客観的構造）】
+  const trickPsychology = company.proDossier?.monetizationTrick.corePsychologicalTrigger ||
+    `顧客が抱える「競合より優位に立ちたい見栄」または「業務停止や機会損失の恐怖」に直結させ、対価の支払いを正当化させている。`;
+
+  const pricingSecret = company.proDossier?.monetizationTrick.pricingPowerSecret ||
+    company.pricingDesign?.pricingTiers ||
+    `相見積もりを拒絶し、即座に価値を実演・提供することで、定価販売と高い粗利を維持している。`;
+
+  const cashSpeed = company.proDossier?.monetizationTrick.cashflowVelocity ||
+    `Stripe等のカード即時決済または完全前払いにより、売掛金未回収リスクをゼロ化。`;
+
+  const whyIncumbentBlind = company.proDossier?.incumbentBlindspot.whyGiantsCantEnter ||
+    company.entryStrategy?.whyIncumbentCantWin ||
+    `既存大手は現在の高単価商流や中立性の看板に縛られているため、この特化モデルに参入すると自社の既存ビジネスを破壊するジレンマを抱えている。`;
+
   return (
     <div className="flex-1 bg-[#0B0C0E] overflow-y-auto p-5 lg:p-7 space-y-7 select-none font-sans text-zinc-100">
       
@@ -108,7 +123,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* ───────────────────────────────────────────────────────────── */}
       <div className="p-5 rounded-xl bg-[#111317] border border-white/[0.12] shadow-2xl relative overflow-hidden">
         <div className="absolute top-0 right-0 px-3 py-1 bg-emerald-500/10 border-b border-l border-emerald-500/20 text-[10px] font-mono text-emerald-400 font-bold tracking-wider">
-          STRATEGIC DOSSIER # {company.ticker}
+          DOSSIER # {company.ticker}
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mt-1">
@@ -127,7 +142,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               <span className="text-zinc-400 text-xs">{company.headquarters}</span>
               <span className="text-zinc-500 text-xs font-mono">•</span>
               <span className="text-emerald-400 text-xs font-mono font-semibold">
-                {company.verifiedStatus === 'VERIFIED_STRIPE' ? 'Stripe実額開示検証済' : '公的開示・決算検証済'}
+                {company.verifiedStatus === 'VERIFIED_STRIPE' ? 'Stripe実額検証済' : '公的開示検証済'}
               </span>
             </div>
 
@@ -164,16 +179,16 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【タブナビゲーション】4大統一フレーム切替 */}
+      {/* 【タブナビゲーション】4大種明かしフレーム切替 */}
       {/* ───────────────────────────────────────────────────────────── */}
       <div className="flex items-center justify-between border-b border-white/[0.08] pb-0 text-xs font-mono">
         <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
           {[
-            { id: 'ALL', label: '全編詳細レポート' },
-            { id: 'FINANCIALS', label: '01 損益構造 & 手残り' },
-            { id: 'INFRASTRUCTURE', label: '02 稼働インフラ & 武器庫' },
-            { id: 'TRACTION', label: '03 初動トラクション獲得手口' },
-            { id: 'ENTRY_STRATEGY', label: '04 市場の死角 & 参入戦略' },
+            { id: 'ALL', label: '全編解剖レポート' },
+            { id: 'TRICK', label: '01 集金のカラクリ & 大手の死角' },
+            { id: 'FINANCIALS', label: '02 実際の損益 & 純手残り' },
+            { id: 'INFRASTRUCTURE', label: '03 稼働インフラ & 武器庫' },
+            { id: 'STORY', label: '04 初動突破 & 創業者の背景' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -190,36 +205,189 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         </div>
 
         <div className="hidden md:flex items-center gap-2 text-zinc-500 text-[11px]">
-          <span>完全客観データ検証済</span>
+          <span>金儲けの種明かし図鑑</span>
         </div>
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* セクション01: 【損益構造 & 純手残りレントゲン】 */}
+      {/* 種明かし01: 【集金のカラクリ & なぜ大手は真似できないのか】 */}
       {/* ───────────────────────────────────────────────────────────── */}
-      {(activeTab === 'ALL' || activeTab === 'FINANCIALS') && (
+      {(activeTab === 'ALL' || activeTab === 'TRICK') && (
         <section className="space-y-5">
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-xs font-bold border border-white/10">
+              <span className="px-2 py-0.5 rounded bg-amber-950/80 text-amber-300 font-mono text-xs font-bold border border-amber-800/40">
                 01
               </span>
               <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
-                損益構造 & 純手残りレントゲン (Financial Architecture)
+                集金のカラクリ & 大手の死角 (The Monetization Trick & Blindspots)
               </h2>
             </div>
             <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-              REVENUE, MARGIN & VALUE CAPTURE
+              HOW THEY EXTRACT CASH & WHY GIANTS CANNOT ENTER
             </span>
-          </div>
-
-          <div className="text-xs text-zinc-300 font-normal leading-relaxed">
-            <strong className="text-emerald-400 font-mono font-semibold">【結論】</strong> {company.actionHeadline}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             
-            {/* 左: 損益流出ウォーターフォール（データが存在する場合のみ表示） */}
+            {/* 左: 集金のカラクリ（どうやって客の財布を開かせたか） */}
+            <div className="lg:col-span-6 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-400" />
+                  <h3 className="text-xs sm:text-sm font-bold text-white">
+                    集金のカラクリ（客のどんな欲を突いたのか？）
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono text-amber-400 font-bold bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/30">
+                  CASH MAGNET
+                </span>
+              </div>
+
+              <div className="space-y-3 text-xs font-sans">
+                {/* 突いた心理的急所 */}
+                <div className="p-3 bg-[#0A0C0E] rounded border border-white/5 space-y-1">
+                  <span className="text-[10px] font-mono text-amber-400 font-bold uppercase block">
+                    ① 突いた心理的急所（見栄・恐怖・焦燥の正体）
+                  </span>
+                  <p className="text-zinc-200 leading-relaxed">
+                    {trickPsychology}
+                  </p>
+                </div>
+
+                {/* 価格決定権の秘密 */}
+                <div className="p-3 bg-[#0A0C0E] rounded border border-white/5 space-y-1">
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase block">
+                    ② 価格決定権の秘密（なぜ値引きゼロで即決されるのか？）
+                  </span>
+                  <p className="text-zinc-300 leading-relaxed">
+                    {pricingSecret}
+                  </p>
+                </div>
+
+                {/* キャッシュ回収速度 */}
+                <div className="p-2.5 bg-[#0A0C0E] rounded border border-white/5 flex items-center justify-between font-mono text-[11px]">
+                  <span className="text-zinc-500 font-sans">キャッシュ回収速度:</span>
+                  <span className="text-emerald-400 font-bold">{cashSpeed}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* 右: なぜ大手は真似できないのか？（大手の死角） */}
+            <div className="lg:col-span-6 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                  <h3 className="text-xs sm:text-sm font-bold text-white">
+                    なぜ大手は真似できないのか？（大手の死角）
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono text-cyan-400 font-bold bg-cyan-950/40 px-2 py-0.5 rounded border border-cyan-800/30">
+                  GIANT'S DILEMMA
+                </span>
+              </div>
+
+              <div className="space-y-3 text-xs font-sans">
+                {/* 大手の看板・しがらみ・共食い恐怖 */}
+                <div className="p-3 bg-[#0B0E14] rounded border border-cyan-500/10 space-y-1">
+                  <span className="text-[10px] font-mono text-cyan-300 font-bold uppercase block">
+                    ① 大手が手を出せない構造的理由（看板・しがらみ・共食い恐怖）
+                  </span>
+                  <p className="text-zinc-200 leading-relaxed">
+                    {whyIncumbentBlind}
+                  </p>
+                </div>
+
+                {/* 防壁の正体 */}
+                <div className="p-3 bg-[#0A0C0E] rounded border border-white/5 space-y-1">
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase block">
+                    ② 防壁の正体（なぜ模倣されても潰れないか）
+                  </span>
+                  <p className="text-zinc-300 leading-relaxed">
+                    {company.coreMoatDescription}
+                  </p>
+                </div>
+
+                {/* 防壁分類バッジ */}
+                <div className="p-2.5 bg-[#0A0C0E] rounded border border-white/5 flex items-center justify-between font-mono text-[11px]">
+                  <span className="text-zinc-500 font-sans">主防壁分類:</span>
+                  <span className="text-cyan-400 font-bold">{getMoatPowerName(company.primaryMoat)}</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* 既存競合との対比ベンチマークテーブル（存在する場合のみ自動表示） */}
+          {company.competitors && company.competitors.length > 0 && (
+            <div className="p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-3">
+              <div className="flex items-center justify-between">
+                <div>
+                  <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-0.5">
+                    COMPETITOR BENCHMARK: 既存競合・大手との冷徹な対比
+                  </div>
+                  <h3 className="text-xs sm:text-sm font-bold text-white">
+                    既存の大手プレイヤーが抱える構造的弱点一覧
+                  </h3>
+                </div>
+                <span className="text-[10px] font-mono text-zinc-500 bg-zinc-900 px-2 py-0.5 rounded border border-white/5">
+                  対比データ検証済
+                </span>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-xs font-mono border-collapse">
+                  <thead>
+                    <tr className="text-zinc-500 border-b border-white/[0.08] text-[11px]">
+                      <th className="py-2 text-left font-medium">競合プレイヤー名</th>
+                      <th className="py-2 text-left font-medium">規模・上場区分</th>
+                      <th className="py-2 text-right font-medium">推定年間売上</th>
+                      <th className="py-2 text-right font-medium">営業利益率</th>
+                      <th className="py-2 text-left font-medium pl-4">競合の防壁・弱点</th>
+                      <th className="py-2 text-center font-medium">価格決定権</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/[0.04]">
+                    {company.competitors.map((comp, idx) => (
+                      <tr key={idx} className="hover:bg-white/[0.02] text-zinc-300">
+                        <td className="py-2 font-bold text-white text-left">{comp.name}</td>
+                        <td className="py-2 text-zinc-400 text-left font-sans">{comp.scaleLabel}</td>
+                        <td className="py-2 text-right font-mono">{formatShortAmount(comp.annualRevenueJpy)}</td>
+                        <td className="py-2 text-right font-mono text-amber-400">{comp.operatingMarginPercent}%</td>
+                        <td className="py-2 text-left text-zinc-300 font-sans pl-4 text-[11px]">{comp.moatSummary}</td>
+                        <td className="py-2 text-center font-sans text-zinc-400">{comp.pricingPower}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* 種明かし02: 【実際の損益 & 純手残りレントゲン】 */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      {(activeTab === 'ALL' || activeTab === 'FINANCIALS') && (
+        <section className="space-y-5 pt-2">
+          <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
+            <div className="flex items-center gap-2">
+              <span className="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 font-mono text-xs font-bold border border-emerald-800/40">
+                02
+              </span>
+              <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
+                実際の損益 & 純手残りレントゲン (Real Financials & Take-Home Cash)
+              </h2>
+            </div>
+            <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
+              REVENUE, COGS, OPEX & REAL TAKE-HOME
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+            
+            {/* 左: 損益流出ウォーターフォール */}
             {hasFinancialBreakdown ? (
               <div className="lg:col-span-7 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-4 flex flex-col justify-between">
                 <div>
@@ -227,7 +395,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                     PROFIT WATERFALL: 100円の売上に対する流出・手残り分解
                   </div>
                   <div className="text-xs font-bold text-zinc-200">
-                    原価・販管費が極小化され、現金を最大効率で残す構造
+                    原価・経費を極小化し、現金を最大効率で残す構造
                   </div>
                 </div>
 
@@ -294,7 +462,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
             )}
 
-            {/* 右: 事業の正体 & 収益化モデル */}
+            {/* 右: 事業スペック & 収益構造 */}
             <div className="lg:col-span-5 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] flex flex-col justify-between space-y-3">
               <div>
                 <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
@@ -336,7 +504,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
 
           </div>
 
-          {/* 下段（可変モジュール）: 通帳詳細（存在する場合のみ表示） */}
+          {/* 通帳レントゲン（データが存在する場合のみ表示） */}
           {company.passbookDetails && (
             <div className="p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-3">
               <div className="flex items-center justify-between">
@@ -385,21 +553,21 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       )}
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* セクション02: 【稼働インフラ & 武器庫】（ツールが存在する場合のみ表示） */}
+      {/* 種明かし03: 【稼働インフラ & 武器庫】（ツールがある場合のみ自動表示） */}
       {/* ───────────────────────────────────────────────────────────── */}
       {(activeTab === 'ALL' || activeTab === 'INFRASTRUCTURE') && company.tools && company.tools.length > 0 && (
         <section className="space-y-5 pt-2">
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-xs font-bold border border-white/10">
-                02
+                03
               </span>
               <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
                 稼働インフラ & 武器庫 (Operational Infrastructure & Tech Stack)
               </h2>
             </div>
             <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-              TOOLS, AUTOMATION & MONTHLY COST
+              TOOLS, EQUIPMENT & 7-DAY BLUEPRINT
             </span>
           </div>
 
@@ -422,7 +590,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
             </div>
 
-            {/* ツール一覧テーブル（自動アフィリエイト・公式導入リンク枠完備） */}
             <div className="overflow-x-auto">
               <table className="w-full text-xs font-mono border-collapse">
                 <thead>
@@ -533,27 +700,27 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       )}
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* セクション03: 【初動トラクション獲得手口】（商材メール全廃・ファクト純化） */}
+      {/* 種明かし04: 【初動突破 & 創業者の背景】 */}
       {/* ───────────────────────────────────────────────────────────── */}
-      {(activeTab === 'ALL' || activeTab === 'TRACTION') && (
+      {(activeTab === 'ALL' || activeTab === 'STORY') && (
         <section className="space-y-5 pt-2">
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-xs font-bold border border-white/10">
-                03
+                04
               </span>
               <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
-                初動トラクション獲得手口 (Initial Traction Breakthrough)
+                初動突破 & 創業者の背景 (Initial Traction & Founder Story)
               </h2>
             </div>
             <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-              ZERO-COST GO-TO-MARKET & HARD FAILURE LESSONS
+              ZERO-COST GO-TO-MARKET & FOUNDER ORIGINS
             </span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             
-            {/* 左: 泥臭い初動突破口の詳細 */}
+            {/* 左: 初動の泥臭い突破口 */}
             <div className="lg:col-span-7 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-4">
               <div>
                 <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
@@ -587,7 +754,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </div>
               </div>
 
-              {/* 初期にやらかした失敗と軌道修正（存在する場合のみ表示） */}
+              {/* 初期にやらかした失敗と軌道修正 */}
               {company.earlyFailureLesson && (
                 <div className="p-3.5 bg-[#171412] rounded border border-amber-500/20 space-y-1.5 text-xs">
                   <div className="flex items-center gap-1.5 text-amber-400 font-mono text-[11px] font-bold">
@@ -603,11 +770,11 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               )}
             </div>
 
-            {/* 右: 創業者背景 ＆ 発見した市場の歪み（客観的ファクト） */}
+            {/* 右: 創業者背景 ＆ 発見した市場の歪み */}
             <div className="lg:col-span-5 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] flex flex-col justify-between space-y-3">
               <div>
                 <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
-                  MARKET GLITCH: 発見された業界の盲点
+                  FOUNDER BACKGROUND & GLITCH: 創業の原点
                 </div>
                 <h4 className="text-xs font-bold text-zinc-200">
                   競合が見落としていた「歪み」と創業者の突破背景
@@ -642,173 +809,11 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
 
               <div className="text-[10px] font-mono text-zinc-500 text-right pt-2 border-t border-white/[0.06]">
-                FIRST-HAND EVIDENCE VERIFIED
+                FIRST-HAND EVIDENCE AUDITED
               </div>
             </div>
 
           </div>
-        </section>
-      )}
-
-      {/* ───────────────────────────────────────────────────────────── */}
-      {/* セクション04: 【市場の死角 & 参入戦略】（適当アイデア全廃・構造分析に純化） */}
-      {/* ───────────────────────────────────────────────────────────── */}
-      {(activeTab === 'ALL' || activeTab === 'ENTRY_STRATEGY') && (
-        <section className="space-y-5 pt-2">
-          <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-xs font-bold border border-white/10">
-                04
-              </span>
-              <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
-                市場の死角 & 参入戦略 (Market Blindspots & Competitive Dynamics)
-              </h2>
-            </div>
-            <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-              MOAT, WHITE SPACES & INCUMBENT DILEMMA
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            
-            {/* 左: 7つの堀（防壁）レーダーチャート */}
-            <div className="lg:col-span-5 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] flex flex-col justify-between space-y-3">
-              <div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-1">
-                  MOAT PROFILE: 競合を寄せ付けない防壁の幾何学
-                </div>
-                <h4 className="text-xs font-bold text-zinc-200">
-                  {getMoatPowerName(company.primaryMoat)}
-                </h4>
-              </div>
-
-              {/* レーダーチャート */}
-              <div className="flex items-center justify-center py-2">
-                <svg width="220" height="220" viewBox="0 0 220 220" className="overflow-visible font-mono text-[9px]">
-                  <polygon points={grid100} fill="none" stroke="#27272A" strokeWidth="1" />
-                  <polygon points={grid50} fill="none" stroke="#27272A" strokeWidth="0.8" strokeDasharray="2,2" />
-
-                  {axes.map((_, i) => {
-                    const { x, y } = getCoordinates(100, i);
-                    return <line key={i} x1={center} y1={center} x2={x} y2={y} stroke="#27272A" strokeWidth="0.8" />;
-                  })}
-
-                  <polygon points={polygonPoints} fill="#10B981" fillOpacity="0.18" stroke="#10B981" strokeWidth="1.5" />
-
-                  {axes.map((axis, i) => {
-                    const { x, y } = getCoordinates(axis.score, i);
-                    return <circle key={i} cx={x} cy={y} r="2.5" fill="#10B981" />;
-                  })}
-
-                  {axes.map((axis, i) => {
-                    const { x, y } = getCoordinates(116, i);
-                    return (
-                      <text key={i} x={x} y={y + 3} textAnchor="middle" fill="#A1A1AA" className="font-sans text-[8px]">
-                        {axis.label}
-                      </text>
-                    );
-                  })}
-                </svg>
-              </div>
-
-              <div className="p-3 bg-[#0A0C0E] rounded border border-white/5 text-xs font-sans space-y-1">
-                <span className="text-[10px] font-mono text-zinc-500 font-bold block">防壁の正体（なぜ模倣されても潰れないか）</span>
-                <p className="text-zinc-300 leading-relaxed">{company.coreMoatDescription}</p>
-              </div>
-            </div>
-
-            {/* 右: 既存大手が参入できない構造的ジレンマ ＆ 後発の空白地帯 */}
-            <div className="lg:col-span-7 p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-4 flex flex-col justify-between">
-              
-              {/* 大手・既存が手を出せない構造的理由 */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                  <h3 className="text-xs sm:text-sm font-bold text-white">
-                    既存大手・先行者が参入できない構造的ジレンマ（市場の死角）
-                  </h3>
-                </div>
-                <div className="p-3.5 bg-[#0B0C0E] rounded border border-white/5 text-xs text-zinc-300 leading-relaxed space-y-1.5 font-sans">
-                  <p>
-                    {company.entryStrategy?.whyIncumbentCantWin ||
-                      company.proDossier?.incumbentBlindspot.whyGiantsCantEnter ||
-                      `既存のプレイヤーは現在の規模・商流に最適化されているため、局所的なニッチ領域や直接対応には採算・組織上参入できない構造的ジレンマを抱えている。`}
-                  </p>
-                </div>
-              </div>
-
-              {/* 後発が攻め込める市場の空白領域 */}
-              <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <h3 className="text-xs sm:text-sm font-bold text-white">
-                    後発が狙える市場の空白領域（ホワイトスペース）
-                  </h3>
-                </div>
-                <div className="p-3.5 bg-[#0B0C0E] rounded border border-white/5 text-xs text-zinc-300 leading-relaxed space-y-2 font-sans">
-                  <p>
-                    {company.entryStrategy?.actionableEntryRoute ||
-                      company.entryStrategy?.targetVictimOrNiche ||
-                      `このモデルの提供価値を「特定業界の固有課題」や「日本語圏の商習慣」に特化してアンバンドル（一部機能の切り出し）することで、競合不在のポジションを確立可能。`}
-                  </p>
-                </div>
-              </div>
-
-              {/* 狙える利益規模（存在する場合のみ表示） */}
-              {company.entryStrategy?.estimatedEasyProfit && (
-                <div className="p-2.5 rounded bg-[#141720] border border-white/5 flex items-center justify-between text-xs font-mono text-zinc-400">
-                  <span>検証済み参入規模:</span>
-                  <span className="text-emerald-400 font-bold">
-                    {company.entryStrategy.estimatedEasyProfit}
-                  </span>
-                </div>
-              )}
-
-            </div>
-
-          </div>
-
-          {/* 競合他社との直接比較ベンチマーク（競合データがある場合のみ自動表示） */}
-          {company.competitors && company.competitors.length > 0 && (
-            <div className="p-4 sm:p-5 rounded-lg bg-[#121419] border border-white/[0.08] space-y-3">
-              <div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider mb-0.5">
-                  COMPETITOR BENCHMARK: 既存競合・大手との冷徹な対比
-                </div>
-                <h3 className="text-xs sm:text-sm font-bold text-white">
-                  なぜこのビジネスは既存の大手に食われずに利益を独占できるのか
-                </h3>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-xs font-mono border-collapse">
-                  <thead>
-                    <tr className="text-zinc-500 border-b border-white/[0.08] text-[11px]">
-                      <th className="py-2 text-left font-medium">競合プレイヤー名</th>
-                      <th className="py-2 text-left font-medium">規模・上場区分</th>
-                      <th className="py-2 text-right font-medium">推定年間売上</th>
-                      <th className="py-2 text-right font-medium">営業利益率</th>
-                      <th className="py-2 text-left font-medium pl-4">競合の防壁・弱点</th>
-                      <th className="py-2 text-center font-medium">価格決定権</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white/[0.04]">
-                    {company.competitors.map((comp, idx) => (
-                      <tr key={idx} className="hover:bg-white/[0.02] text-zinc-300">
-                        <td className="py-2 font-bold text-white text-left">{comp.name}</td>
-                        <td className="py-2 text-zinc-400 text-left font-sans">{comp.scaleLabel}</td>
-                        <td className="py-2 text-right font-mono">{formatShortAmount(comp.annualRevenueJpy)}</td>
-                        <td className="py-2 text-right font-mono text-amber-400">{comp.operatingMarginPercent}%</td>
-                        <td className="py-2 text-left text-zinc-300 font-sans pl-4 text-[11px]">{comp.moatSummary}</td>
-                        <td className="py-2 text-center font-sans text-zinc-400">{comp.pricingPower}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-
         </section>
       )}
 

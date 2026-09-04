@@ -100,11 +100,11 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ],
     entryStrategy: {
       lensType: 'SECOND_MOVER',
-      lensLabel: '【後出しジャンケン枠】先駆者が放置した「日本語・地方店舗」のパイを合法的に強奪する',
-      whyIncumbentCantWin: '先駆者のジョナサン氏はドイツ在住で英語圏のIT起業家しか見ていない。日本の商習慣やリアル店舗には言語と物理の壁で一生手を出せない。',
-      targetVictimOrNiche: '先駆者の存在を1ミリも知らない日本の地方駅前の激戦区（美容院・脱毛サロン・パーソナルジム）のオーナーたち。',
-      actionableEntryRoute: '先駆者の「オークション入札ルール」をそのまま真似し、日本語のLINEと決済リンクだけで「地域一番店ランキング」を開設して店舗へ直談判する。',
-      estimatedEasyProfit: '月利30万〜80万円（競合3〜5店舗からの自動入金）'
+      lensLabel: '【後出しジャンケン枠】既存大手が手を引いた「露骨な入札モデル」をニッチ市場で独占する',
+      whyIncumbentCantWin: 'ProductHunt等の既存大手が露骨なオークションをやると「中立性を捨てた拝金主義」と世界中から大炎上するため、ブランドの看板が邪魔をして構造上絶対に真似できない。',
+      targetVictimOrNiche: '自作プロダクトを目立たせたいインディー開発者、および特定バーティカル（士業・クリニック・美容サロン）の広告主層。',
+      actionableEntryRoute: '「1番金を払った者が1位」という単純透明なルールと即時Stripe決済のみを配線し、競合同士の負けず嫌いと見栄を入札合戦へと転換する。',
+      estimatedEasyProfit: '月利30万〜80万円（競合3〜5社からの自動引き落とし）'
     },
     financials: [
       { period: 'ローンチ初週', revenueJpy: 20000000, cogsJpy: 500, grossProfitJpy: 19999500, grossMarginPercent: 99.9, opexJpy: 600000, operatingProfitJpy: 19399500, operatingMarginPercent: 97.0, netIncomeJpy: 19399500, netMarginPercent: 97.0 }
