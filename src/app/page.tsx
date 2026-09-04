@@ -24,12 +24,10 @@ import { PostMortemArchiveView } from '@/components/terminal/portal/sections/Pos
 import { PyramidDetailView } from '@/components/terminal/portal/sections/PyramidDetailView';
 import { SimulatorDetailView } from '@/components/terminal/portal/sections/SimulatorDetailView';
 import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
-import { BusinessBattleView } from '@/components/terminal/BusinessBattleView';
 
 export type MainViewType = 
   | 'PORTAL'
   | 'TERMINAL'
-  | 'BATTLE'
   | 'COLLECTIONS_LIST'
   | 'COLLECTION_DETAIL'
   | 'SIGNALS_LIST'
@@ -371,7 +369,6 @@ export default function Home() {
           onOpenPostMortemArchive={() => setMainView('POST_MORTEM')}
           onOpenPyramidDetail={() => setMainView('PYRAMID')}
           onOpenSimulatorDetail={() => setMainView('SIMULATOR')}
-          onOpenBattle={() => setMainView('BATTLE')}
         />
       )}
 
@@ -473,19 +470,6 @@ export default function Home() {
           }}
           onNavigateToTerminal={() => setMainView('TERMINAL')}
           onBackToPortal={() => setMainView('PORTAL')}
-        />
-      )}
-
-      {/* 2社直接対決（ビジネスレントゲン・バトル）画面 */}
-      {mainView === 'BATTLE' && (
-        <BusinessBattleView
-          companies={TERMINAL_COMPANIES}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
-          onBackToPortal={() => setMainView('PORTAL')}
-          onOpenProModal={() => setIsProOpen(true)}
         />
       )}
 

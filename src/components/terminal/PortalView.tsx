@@ -20,7 +20,6 @@ interface PortalViewProps {
   onOpenPostMortemArchive?: () => void;
   onOpenPyramidDetail?: () => void;
   onOpenSimulatorDetail?: () => void;
-  onOpenBattle?: () => void;
 }
 
 export const PortalView: React.FC<PortalViewProps> = ({
@@ -36,7 +35,6 @@ export const PortalView: React.FC<PortalViewProps> = ({
   onOpenPostMortemArchive,
   onOpenPyramidDetail,
   onOpenSimulatorDetail,
-  onOpenBattle,
 }) => {
   const [selectedDossierId, setSelectedDossierId] = useState<string | null>(null);
   const soloOnlyList = companies.filter(c => c.scaleTier === 'SOLO_MICRO');
@@ -130,50 +128,6 @@ export const PortalView: React.FC<PortalViewProps> = ({
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-10 space-y-14">
         
-        {/* ========================================================================= */}
-        {/* 2社直接対決（ビジネスレントゲン・バトル）特設導線 */}
-        {/* ========================================================================= */}
-        <section 
-          onClick={onOpenBattle}
-          className="p-5 sm:p-6 rounded-xl bg-gradient-to-r from-[#12131A] via-[#161822] to-[#12131A] border border-white/10 hover:border-zinc-500/50 transition-all cursor-pointer group relative overflow-hidden"
-        >
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-rose-500/10 text-rose-400 border border-rose-500/20 uppercase tracking-wider flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
-                  <span>DIRECT BATTLE</span>
-                </span>
-                <span className="text-xs text-zinc-400 font-mono">生損益・集客経路・参入障壁（Moat）横並び検証</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-zinc-200 transition-colors">
-                2社直接対決：同じAI生成でも「アフィリエイト網」vs「X実況」どちらが勝つか？
-              </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed max-w-3xl">
-                HeadshotPro（月商4,500万円）とPhoto AI（月商3,800万円）など、似た市場で異なる戦略を採る2社をレントゲン写真のように横並び解剖。初期費用・粗利率・創業者手取り・堀の強度を1対1で徹底比較します。
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3 shrink-0">
-              <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-zinc-400 bg-black/40 px-3 py-2 rounded-lg border border-white/5">
-                <span className="text-zinc-300 font-bold">HeadshotPro</span>
-                <span className="text-rose-400 font-bold">VS</span>
-                <span className="text-zinc-300 font-bold">Photo AI</span>
-              </div>
-              <button 
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (onOpenBattle) onOpenBattle();
-                }}
-                className="h-9 px-4 rounded-lg bg-zinc-100 hover:bg-white text-zinc-900 text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 group-hover:scale-[1.02]"
-              >
-                <span>対決モードを開く</span>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-        </section>
-
         {/* ========================================================================= */}
         {/* 2. 【本物】個人・スモールビジネス爆益リーダーボード TOP 5 */}
         {/* ========================================================================= */}
