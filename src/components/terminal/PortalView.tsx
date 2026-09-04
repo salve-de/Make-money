@@ -245,6 +245,198 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ========================================================================= */}
+        {/* セクション: 【「儲かっている業界」から金を吸い上げる！個人の下請け・中抜き受注手口 TOP 4】 */}
+        {/* ========================================================================= */}
+        <section className="space-y-3.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-950/80 text-amber-300 border border-amber-800/40 uppercase tracking-wider">
+                  RICH CLIENT ARBITRAGE
+                </span>
+                <span className="text-[10px] font-mono text-zinc-500">スキル不要・金持ち企業への寄生モデル</span>
+              </div>
+              <h2 className="text-base sm:text-lg font-bold text-white mt-1">
+                金が唸る業界から個人が中抜き！合法的な受注・下請け逆転手口 TOP 4
+              </h2>
+            </div>
+            <span className="text-xs text-zinc-400 font-mono">
+              「ゼロから商品を作らず、金持ち業界の財布から抜く」
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+            {/* カード1: 美容クリニック・審美歯科 ✕ 入札型看板 */}
+            <div 
+              onClick={() => onSelectCompany('outbid-lol')}
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-amber-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+            >
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/30">
+                      標的: 美容クリニック・審美歯科
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500">客単価50万〜200万円</span>
+                </div>
+
+                <h3 className="font-bold text-sm text-white group-hover:text-amber-200 transition-colors leading-snug">
+                  地域No.1推薦メディアの「入札型オークション看板」設置
+                </h3>
+
+                <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
+                  <p>
+                    <strong className="text-zinc-200">業界の金回り:</strong> 自由診療で莫大な粗利を稼ぎ、広告費に月数百万円を投下。「競合他院より目立ちたい」という院長の見栄が常時沸騰。
+                  </p>
+                  <p>
+                    <strong className="text-amber-300">個人の手口:</strong> 地域限定の比較メディアを作り、最上位1枠をオークション制に。店舗同士を競わせることで、営業ゼロで月30万〜80万円の掲載料が自動入金。
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] text-zinc-500">元手: 0円</span>
+                  <span className="text-[11px] text-zinc-500">スキル不要</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] text-zinc-400">手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 30万〜80万円</span>
+                  <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
+                </div>
+              </div>
+            </div>
+
+            {/* カード2: 地方町工場・中小製造業 ✕ iPad格安AI検査 */}
+            <div 
+              onClick={() => onSelectCompany('keyence-6861')}
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-emerald-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+            >
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/30">
+                      標的: 地方町工場・金属加工
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500">検査員採用難・高齢化</span>
+                </div>
+
+                <h3 className="font-bold text-sm text-white group-hover:text-emerald-200 transition-colors leading-snug">
+                  キーエンスの死角を突く「中古iPad格安AI外観検査」直販
+                </h3>
+
+                <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
+                  <p>
+                    <strong className="text-zinc-200">業界の金回り:</strong> 目視検査の人手不足が致命的。キーエンスに相談するも「一式500万円＋専用配線」と言われて手が出せず絶望中。
+                  </p>
+                  <p>
+                    <strong className="text-emerald-300">個人の手口:</strong> 中古iPad（3万円）に市販ノーコードAIモデルを入れ、「初期15万円＋月1.5万円」で設置。キーエンスの高額見積もりを逆手に取って即決受注。
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] text-zinc-500">元手: 3万円</span>
+                  <span className="text-[11px] text-zinc-500">ノーコード</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] text-zinc-400">手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 60万〜150万円</span>
+                  <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
+                </div>
+              </div>
+            </div>
+
+            {/* カード3: 不用品回収・遺品整理 ✕ LINE自動見積もり＋送客中抜き */}
+            <div 
+              onClick={() => onSelectCompany('solo-local-dx')}
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-cyan-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+            >
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/30">
+                      標的: 不用品回収・遺品整理・特殊清掃
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500">案件単価20万〜80万円</span>
+                </div>
+
+                <h3 className="font-bold text-sm text-white group-hover:text-cyan-200 transition-colors leading-snug">
+                  LINE写真AI概算見積もりによる「完全不労・送客中抜き」
+                </h3>
+
+                <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
+                  <p>
+                    <strong className="text-zinc-200">業界の金回り:</strong> 粗利率80%以上の高収益ビジネスだが、現場の職人はネット集客が全くできずチラシや大手ポータルへの高額上納金に苦悶。
+                  </p>
+                  <p>
+                    <strong className="text-cyan-300">個人の手口:</strong> 「部屋の写真を送るだけで概算見積もりが出るLINE」を作り、地元の職人に1件2万〜5万円で流すだけ。汗を一切かかずに不労ストック化。
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] text-zinc-500">元手: 0円</span>
+                  <span className="text-[11px] text-zinc-500">作業ゼロ</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] text-zinc-400">手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 80万〜200万円</span>
+                  <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
+                </div>
+              </div>
+            </div>
+
+            {/* カード4: 中小企業・スタートアップ ✕ 助成金・補助金AIドラフト代行 */}
+            <div 
+              onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-grant-ai-agent') : null}
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-purple-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+            >
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/30">
+                      標的: 中小企業・店舗オーナー
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-mono text-zinc-500">給付額300万〜2000万円</span>
+                </div>
+
+                <h3 className="font-bold text-sm text-white group-hover:text-purple-200 transition-colors leading-snug">
+                  難解な公募要領を15分でドラフト化「補助金AI申請代行」
+                </h3>
+
+                <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
+                  <p>
+                    <strong className="text-zinc-200">業界の金回り:</strong> IT導入や設備刷新で巨額の補助金が出るが、申請書類が難解すぎて社長が断念。士業は着手金で20万円を要求して敬遠される。
+                  </p>
+                  <p>
+                    <strong className="text-purple-300">個人の手口:</strong> 申請要領をAIプロンプトに流し込んで15分でドラフトを作成。「着手金0円・採択時20%」を提示して中小企業から独占受注。1件採択で数十万〜数百万円。
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] text-zinc-500">元手: 0円</span>
+                  <span className="text-[11px] text-zinc-500">プロンプトのみ</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] text-zinc-400">手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 100万〜300万円</span>
+                  <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
         {/* セクション①: 【最近話題・急上昇 TOP 5】 */}
         {/* ========================================================================= */}
         <section className="space-y-3">
