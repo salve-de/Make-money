@@ -37,12 +37,65 @@
 
 ---
 
+## 🧭 これまでの戦略変遷（Strategic Chronicle）
+
+1.  **Phase 0: 迷走と敗北の解剖**:
+    *   大仰なMBA用語（アンバンドル等）を掲げながら、中身は「ジョナサンはドイツ人だから〜」という1行テキストのポエムだった。
+    *   商材屋ノイズ（営業メールコピペ、プロンプト、誰の役にも立たないCSV）を全切除。
+2.  **Phase 1: 「手品の種明かし図鑑」への大転換**:
+    *   努力の物語を完全抹殺し、「既存業界のどんなバグを突いてズルく勝ったか」の種明かしに特化。
+    *   4大種明かしフレーム（集金のカラクリ、損益レントゲン、稼働インフラ、初動突破）へ換装。
+3.  **Phase 2: 人間の深層心理から逆算した「3大キラー兵器」の実装**:
+    *   地雷市場 ⇄ 金脈市場直接対比レーダー（損失回避）
+    *   合法的なズル種明かしハイライト（怠惰・近道欲）
+    *   富裕業界中抜き受注手口TOP4（手札ゼロ・劣等感）
+4.  **Phase 3: 「AI臭い妄想」の撲滅と粒度整合性**:
+    *   最上部レーダーの粒度を市場ジャンルで完全対称化。
+    *   現場の生々しい対立構図（キーエンス500万 vs 個人20万等）を注入。
+5.  **Phase 4: 専用ページ「💡 アイデア台帳」の新設**:
+    *   ポータル・アイデア台帳・分析DBの三位一体ナビゲーションを確立。
+
+---
+
+## 📌 備忘録・絶対戒律（Memorandum & Taboos）
+
+*   **完全手作業ゼロの死守**: 運営者が手動で記事を書いたり営業したりする労働集約型は永久追放。すべて自動自販機型ソフトウェアとして完結させる。
+*   **AI妄想アイデアの掲載厳禁**: 掲載するアイデアは、必ず「実在する企業」「実在するツールの組み合わせ」「具体的な現場の対立金額」に裏打ちされたもののみとする。
+*   **git操作の不可逆制約**: `git restore` および `git reset` の使用は絶対厳禁。
+*   **言語統制の絶対勅令**: 思考・出力・ドキュメントは100%完全な日本語。
+
+---
+
 ## 📖 重要ドキュメント・マスター白書
 
-本プロジェクトのコア哲学、ユーザー心理分析、先行サービスの裏側、監査済みアイデア調書、およびロードマップは以下の白書にすべて永続記録されています：
-
-*   👉 **[PROJECT_MASTER_HISTORY_AND_STRATEGY.md](./docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md)**（戦略マスター白書・永続意思決定台帳）
+*   👉 **[PROJECT_MASTER_HISTORY_AND_STRATEGY.md](./docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md)**（戦略マスター白書・永続意思決定台帳 ＆ 備忘録）
 *   👉 **[PROJECT_CHARTER.md](./PROJECT_CHARTER.md)**（プロジェクト基本憲章・データパイプライン）
+
+---
+
+## 🔬 監査合格済み：4大ビジネスアイデア解剖調書
+
+本プラットフォームが「AI臭い妄想」を排し、現場の生々しい対立と実在ツールスタックに基づき採択した4大モデル：
+
+1. **【キーエンス逆利用型】地方町工場向け「中古iPad格安AI外観検査」**:
+   * キーエンスの「500万＋年保守100万」に絶望する町工場長へ、「中古iPad＋Google Teachable Machine」で「初期20万＋月1.5万」を提案。初期200万＋**月15万ストック**。
+2. **【虚栄心ハック型】実在Outbid.lolに学ぶ「地域No.1オークション推薦看板」**:
+   * 美容クリニックの激しい競合意識と広告費（クリック3,000円）を突き、地域推薦サイト最上位1枠の入札バトルを自動化。完全自動で**月利50万〜100万**。
+3. **【現場職人のIT音痴×客の電話恐怖】不用品・ゴミ屋敷「LINE写真送客中抜き」**:
+   * 粗利80%のゴミ屋敷市場。トラック親方のIT音痴と客の電話恐怖を「写真送るだけLINE」で解決し、親方へ紹介料横流し。作業着ゼロで**月利80万〜120万**。
+4. **【士業の着手金20万をゼロにする破壊的参入】補助金「AI申請書ドラフト代行」**:
+   * 士業の「着手金20万」を「完全0円・採択時20%」で破壊。Claude Projectに公募要領を食わせ20分でドラフト生成。1社採択で200万、**月利200万〜400万**。
+
+---
+
+## 🛠 技術スタック
+
+*   **Framework**: Next.js 16 (App Router, Turbopack)
+*   **Language**: TypeScript (Strict Mode)
+*   **Styling**: Tailwind CSS (金融端末調 Institutional Slate & Dark Navy モノトーン)
+*   **Data Models**: `src/types/terminal.ts` / `src/types/idea.ts`
+*   **Data Sources**: `src/data/terminalData.ts` / `src/data/ideasData.ts` / `src/data/portalSignals.ts`
+*   **Payments**: Stripe API (`/api/checkout`, `/api/webhooks/stripe`)
 
 ---
 
@@ -60,14 +113,3 @@ npm run build
 ```
 
 ブラウザで [http://localhost:3000](http://localhost:3000) を開いて確認します。
-
----
-
-## 🛠 技術スタック
-
-*   **Framework**: Next.js 16 (App Router, Turbopack)
-*   **Language**: TypeScript (Strict Mode)
-*   **Styling**: Tailwind CSS (金融端末調 Institutional Slate & Dark Navy モノトーン)
-*   **Data Models**: `src/types/terminal.ts` / `src/types/idea.ts`
-*   **Data Sources**: `src/data/terminalData.ts` / `src/data/ideasData.ts` / `src/data/portalSignals.ts`
-*   **Payments**: Stripe API (`/api/checkout`, `/api/webhooks/stripe`)
