@@ -37,6 +37,38 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
   onResetAll
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [scaleTab, setScaleTab] = useState<'ALL' | 'SOLO_SMALL' | 'MEGA_CORP'>('ALL');
+
+  // 規模別の件数計算
+  const soloSmallCompanies = companies.filter(
+    (c) => c.teamSize <= 5 || c.scaleTier === 'SOLO_MICRO' || c.scaleTier === 'NICHE_LEADER'
+  );
+  const megaCorpCompanies = companies.filter(
+    (c) => c.scaleTier === 'MEGA_CORP' || c.tags.includes('巨大独占')
+  );
+
+  // 規模タブ適用後の表示リスト
+  const displayedCompanies = companies.filter((c) => {
+    if (scaleTab === 'SOLO_SMALL') {
+      return c.teamSize <= 5 || c.scaleTier === 'SOLO_MICRO' || c.scaleTier === 'NICHE_LEADER';
+    }
+    if (scaleTab === 'MEGA_CORP') {
+      return c.scaleTier === 'MEGA_CORP' || c.tags.includes('巨大独占');
+    }
+    return true;
+  });
+
+  // タブ切り替えハンドラー（タブ内最初の企業を自動選択）
+  const handleScaleTabChange = (newTab: 'ALL' | 'SOLO_SMALL' | 'MEGA_CORP') => {
+    setScaleTab(newTab);
+    if (newTab === 'MEGA_CORP' && megaCorpCompanies.length > 0) {
+      const alreadyMega = megaCorpCompanies.some((c) => c.id === selectedCompanyId);
+      if (!alreadyMega) onSelectCompany(megaCorpCompanies[0].id);
+    } else if (newTab === 'SOLO_SMALL' && soloSmallCompanies.length > 0) {
+      const alreadySolo = soloSmallCompanies.some((c) => c.id === selectedCompanyId);
+      if (!alreadySolo) onSelectCompany(soloSmallCompanies[0].id);
+    }
+  };
 
   // 適用中の詳細フィルターバッジ
   const activeChips: { label: string; onRemove: () => void }[] = [];
@@ -93,7 +125,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
             <div className="text-xs font-bold text-zinc-100 flex items-center gap-1.5">
               <span>銘柄スクリーニング</span>
               <span className="text-[10px] font-mono text-zinc-400 font-normal">
-                ({companies.length}/{totalCount}社)
+                ({displayedCompanies.length}/{totalCount}社)
               </span>
             </div>
           </div>
@@ -118,6 +150,40 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
             title="候補一覧を折りたたむ"
           >
             ‹
+          </button>
+        </div>
+
+        {/* 規模切り替えタブ（個人・スモール ⇄ 大企業 ⇄ すべて） */}
+        <div className="grid grid-cols-3 gap-1 bg-[#0E1015] p-0.5 rounded-lg border border-white/5 text-[11px] font-mono">
+          <button
+            onClick={() => handleScaleTabChange('SOLO_SMALL')}
+            className={`py-1 rounded-md text-center font-bold transition-all ${
+              scaleTab === 'SOLO_SMALL'
+                ? 'bg-zinc-200 text-zinc-900 shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            個人・少人数 ({soloSmallCompanies.length})
+          </button>
+          <button
+            onClick={() => handleScaleTabChange('MEGA_CORP')}
+            className={`py-1 rounded-md text-center font-bold transition-all ${
+              scaleTab === 'MEGA_CORP'
+                ? 'bg-zinc-200 text-zinc-900 shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            大企業・独占 ({megaCorpCompanies.length})
+          </button>
+          <button
+            onClick={() => handleScaleTabChange('ALL')}
+            className={`py-1 rounded-md text-center font-medium transition-all ${
+              scaleTab === 'ALL'
+                ? 'bg-zinc-200 text-zinc-900 shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            すべて ({companies.length})
           </button>
         </div>
 
@@ -170,7 +236,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
 
       {/* 3. 【該当銘柄一覧リスト】 */}
       <div className="flex-1 overflow-y-auto divide-y divide-white/[0.04]">
-        {companies.length === 0 ? (
+        {displayedCompanies.length === 0 ? (
           <div className="p-8 text-center text-xs text-zinc-500 font-sans space-y-2">
             <div>該当するビジネスが見つかりません</div>
             <button
@@ -181,7 +247,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
             </button>
           </div>
         ) : (
-          companies.map((company) => {
+          displayedCompanies.map((company) => {
             const isSelected = company.id === selectedCompanyId;
             const latestFin = company.financials[company.financials.length - 1];
 
