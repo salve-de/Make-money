@@ -78,7 +78,7 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
       { name: 'Vercel + Supabase', role: '限界費用ゼロのサーバーインフラ', cost: '月額0円〜20ドル' },
       { name: 'Beehiiv / MailerLite', role: '顧客リストへの自動ステップ配信', cost: '月額0円〜50ドル' },
     ],
-    relatedCompanyIds: ['outbid-lol', 'solo-easlo', 'solo-boilerplate'],
+    relatedCompanyIds: ['outbid-lol', 'solo-easlo', 'solo-shipfast'],
   },
   'collection-ai': {
     id: 'collection-ai',

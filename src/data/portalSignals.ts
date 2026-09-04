@@ -184,6 +184,6 @@ export const PORTAL_SIGNALS: SignalDetailItem[] = [
       { name: 'Stripe Billing', role: '毎月の月額3万円自動クレジット引き落とし', cost: '手数料3.6%' },
     ],
     cautionRisk: 'OSSのライセンス（AGPLやMIT）を厳格に確認し、商用利用・SaaS提供が認められているライセンスのプロダクトのみを扱うこと。',
-    relatedCompanyIds: ['outbid-lol', 'solo-boilerplate', 'niche-bolt-storage'],
+    relatedCompanyIds: ['outbid-lol', 'solo-shipfast', 'niche-bolt-storage'],
   },
 ];

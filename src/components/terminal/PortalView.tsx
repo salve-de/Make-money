@@ -43,9 +43,9 @@ export const PortalView: React.FC<PortalViewProps> = ({
 
   // 2. 完全1人・個人開発で爆益モデル
   const soloDevCompanies = [
-    companies.find((c) => c.id === 'solo-easlo') || soloOnlyList[0],
-    companies.find((c) => c.id === 'solo-boilerplate') || soloOnlyList[1],
-    companies.find((c) => c.id === 'solo-headshotpro') || soloOnlyList[2],
+    companies.find((c) => c.id === 'solo-easlo'),
+    companies.find((c) => c.id === 'solo-shipfast'),
+    companies.find((c) => c.id === 'solo-headshotpro'),
   ].filter(Boolean) as CompanyRecord[];
 
   // 3. 地味だが手堅い地方実業・現場DX

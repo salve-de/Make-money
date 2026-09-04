@@ -72,7 +72,7 @@ const NEWS_TICKER_ITEMS: NewsTickerItem[] = [
     headline: 'Marc Lou氏、Next.js開発スターター（ShipFast）で初月4,000万円・Stripe売上公開始動',
     badge: '初月4,000万円',
     badgeType: 'SPEED',
-    companyId: 'solo-boilerplate'
+    companyId: 'solo-shipfast'
   },
   {
     category: '素材世界シェア首位',
