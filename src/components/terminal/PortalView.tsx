@@ -138,105 +138,174 @@ export const PortalView: React.FC<PortalViewProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             
-            {/* 左側：参入者が全滅している地雷市場（赤・警告） */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#140C0E] border border-rose-500/20 space-y-3.5">
-              <div className="flex items-center justify-between border-b border-rose-500/10 pb-2.5">
+            {/* 左側：参入者が全滅している地雷市場（赤・警告・検死調書） */}
+            <div className="p-4 sm:p-5 rounded-xl bg-[#130B0D] border border-rose-500/25 space-y-4">
+              <div className="flex items-center justify-between border-b border-rose-500/15 pb-2.5">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
                   <h3 className="text-xs sm:text-sm font-bold text-rose-200">
-                    ⚠️ 今すぐ逃げろ！初心者が即死している落ち目・地雷市場
+                    ⚠️ 初心者が即死している「落ち目・地雷市場」検死レポート
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-rose-400 font-bold bg-rose-950/80 px-2 py-0.5 rounded border border-rose-800/30">
-                  DEAD END
+                <span className="text-[10px] font-mono text-rose-400 font-bold bg-rose-950/90 px-2 py-0.5 rounded border border-rose-800/40">
+                  AUTOPSY REPORT
                 </span>
               </div>
 
-              <div className="space-y-2.5 text-xs font-sans">
-                <div className="p-3 rounded-lg bg-[#0E0709] border border-rose-900/30 space-y-1">
+              <div className="space-y-3 text-xs font-sans">
+                {/* 地雷1: AI美女・画像集 */}
+                <div className="p-3.5 rounded-lg bg-[#0C0608] border border-rose-900/40 space-y-2">
                   <div className="flex items-center justify-between text-rose-300 font-bold">
-                    <span>✕ AI美女・画像集のプラットフォーム直売</span>
-                    <span className="text-[10px] font-mono bg-rose-950 px-1.5 py-0.2 rounded border border-rose-800/40 text-rose-400">死亡率 99%</span>
+                    <span className="text-sm">✕ AI美女・グラビア画像集のプラットフォーム直売</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">死亡率 99.2%</span>
                   </div>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">
-                    <strong className="text-rose-400">死因:</strong> 各プラットフォームの規約厳罰化と生成コスト割れ。参入者が数万人に激増し、価格が100円以下に暴落して時給換算30円で全滅。
-                  </p>
+                  <div className="space-y-1 text-zinc-400 text-[11px] leading-relaxed">
+                    <div>
+                      <strong className="text-rose-400 font-mono">【即死の引き金】:</strong> 参入者が数万人に激増し、Kindle/FANZAで1冊100円の投げ売り合戦に突入。
+                    </div>
+                    <div>
+                      <strong className="text-rose-400 font-mono">【致命的死因】:</strong> 各社が「AI生成物の販売手数料引き上げ」や「一斉アカウントBAN」を発動。月数万円のGPU代を回収できず、電気代と時間を溶かして時給30円で全員討ち死に。
+                    </div>
+                    <div className="text-zinc-500 text-[10px] border-t border-rose-950/60 pt-1">
+                      💡 教訓: 参入障壁ゼロのデジタルデータ直売は、プラットフォームの規約1行で一夜にして蒸発する。
+                    </div>
+                  </div>
                 </div>
 
-                <div className="p-3 rounded-lg bg-[#0E0709] border border-rose-900/30 space-y-1">
+                {/* 地雷2: 店舗せどり */}
+                <div className="p-3.5 rounded-lg bg-[#0C0608] border border-rose-900/40 space-y-2">
                   <div className="flex items-center justify-between text-rose-300 font-bold">
-                    <span>✕ 店舗せどり・国内物販転売</span>
-                    <span className="text-[10px] font-mono bg-rose-950 px-1.5 py-0.2 rounded border border-rose-800/40 text-rose-400">資金ショート多発</span>
+                    <span className="text-sm">✕ 家電量販店・ドンキ等の国内店舗せどり（転売）</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">資金ショート多発</span>
                   </div>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">
-                    <strong className="text-rose-400">死因:</strong> 家電量販店等の転売対策強化、配送料高騰、Amazonの真贋調査による売上凍結。売れない在庫の山を抱えてクレカ引き落とし不能に。
-                  </p>
+                  <div className="space-y-1 text-zinc-400 text-[11px] leading-relaxed">
+                    <div>
+                      <strong className="text-rose-400 font-mono">【即死の引き金】:</strong> 店舗の購入制限・転売出禁が全国で厳格化。配送料高騰で利益幅が消滅。
+                    </div>
+                    <div>
+                      <strong className="text-rose-400 font-mono">【致命的死因】:</strong> Amazonの真贋調査発動で売上金が数ヶ月間強制凍結。クレジットカード限度額いっぱいに仕入れた在庫が部屋を埋め尽くし、翌月のカード引き落とし不能で破産者が続出。
+                    </div>
+                    <div className="text-zinc-500 text-[10px] border-t border-rose-950/60 pt-1">
+                      💡 教訓: 「物を持つビジネス」でキャッシュフローを舐めると、黒字のまま即死する。
+                    </div>
+                  </div>
                 </div>
 
-                <div className="p-3 rounded-lg bg-[#0E0709] border border-rose-900/30 space-y-1">
+                {/* 地雷3: 無差別Web制作受託 */}
+                <div className="p-3.5 rounded-lg bg-[#0C0608] border border-rose-900/40 space-y-2">
                   <div className="flex items-center justify-between text-rose-300 font-bold">
-                    <span>✕ クラウドソーシング無差別Web制作受託</span>
-                    <span className="text-[10px] font-mono bg-rose-950 px-1.5 py-0.2 rounded border border-rose-800/40 text-rose-400">時給100円地獄</span>
+                    <span className="text-sm">✕ クラウドソーシング無差別Web制作・LP受託</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">時給120円地獄</span>
                   </div>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">
-                    <strong className="text-rose-400">死因:</strong> AIノーコードツールの一般化によりLP単価が1万円に崩壊。1件の案件に50人が群がる価格叩き合いで、300時間労働して手取り3万円の搾取地獄。
-                  </p>
+                  <div className="space-y-1 text-zinc-400 text-[11px] leading-relaxed">
+                    <div>
+                      <strong className="text-rose-400 font-mono">【即死の引き金】:</strong> v0やCursor等のAIツール一般化で、クライアント自身がLPを即日作れる時代に。
+                    </div>
+                    <div>
+                      <strong className="text-rose-400 font-mono">【致命的死因】:</strong> 1件5,000円の案件にスクール卒業生60人が群がる価格崩壊。無限の修正指示に追われ、80時間働いて手取り5,000円の搾取地獄でメンタル崩壊。
+                    </div>
+                    <div className="text-zinc-500 text-[10px] border-t border-rose-950/60 pt-1">
+                      💡 教訓: 「誰でもできる受託労働」は、AIに代替される前に同業者の値引き競争で餓死する。
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* 右側：いま金が流入している最新金脈手口（緑・金脈） */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#0B1411] border border-emerald-500/20 space-y-3.5">
-              <div className="flex items-center justify-between border-b border-emerald-500/10 pb-2.5">
+            {/* 右側：いま金が流入している最新金脈手口（緑・金脈・種明かし台帳） */}
+            <div className="p-4 sm:p-5 rounded-xl bg-[#09130F] border border-emerald-500/25 space-y-4">
+              <div className="flex items-center justify-between border-b border-emerald-500/15 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                   <h3 className="text-xs sm:text-sm font-bold text-emerald-200">
-                    💰 今ここに金が流入！儲かる業界から吸い上げる最新手口
+                    💰 いま金が流入！「業界のバグ」を突いた生々しい種明かし
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/30">
-                  REAL CASHFLOW
+                <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/90 px-2 py-0.5 rounded border border-emerald-800/40">
+                  REAL MECHANISM
                 </span>
               </div>
 
-              <div className="space-y-2.5 text-xs font-sans">
+              <div className="space-y-3 text-xs font-sans">
+                {/* 金脈1: TikTok Shop手元実演 */}
                 <div 
-                  onClick={() => onSelectCompany('keyence-6861')}
-                  className="p-3 rounded-lg bg-[#070E0B] border border-emerald-900/30 hover:border-emerald-500/40 transition-colors cursor-pointer space-y-1 group"
+                  onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-tiktok-shop-faceless') : null}
+                  className="p-3.5 rounded-lg bg-[#050C09] border border-emerald-900/40 hover:border-emerald-500/50 transition-all cursor-pointer space-y-2 group"
                 >
                   <div className="flex items-center justify-between text-emerald-300 font-bold">
-                    <span className="group-hover:text-emerald-200">〇 地方町工場への「iPad格安AI検査」直販</span>
-                    <span className="text-[10px] font-mono bg-emerald-950 px-1.5 py-0.2 rounded border border-emerald-800/40 text-emerald-400">月利60万〜150万</span>
+                    <span className="text-sm group-hover:text-emerald-200">
+                      〇 顔出し・声出し不要「TikTok Shop手元実演アフィリエイト」
+                    </span>
+                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2">
+                      月利300万〜
+                    </span>
                   </div>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">
-                    <strong className="text-emerald-400">手口:</strong> キーエンスの500万円の見積もりに絶望した町工場長に、中古iPadで初期10万＋月1.5万円の不良品検知を直販。キーエンスのブランド力を逆利用。
-                  </p>
+                  <div className="space-y-1.5 text-zinc-400 text-[11px] leading-relaxed">
+                    <div>
+                      <strong className="text-zinc-200 font-mono">【突いたプラットフォームの歪み】:</strong> TikTokがEC強化のためShop付き動画を異常優遇（アルゴリズムが勝手に数百万再生へ拡散）。
+                    </div>
+                    <div>
+                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 米国・中国でバズった便利グッズを買い、手元だけで箱から出して動かす15秒動画を量産。広告費ゼロで初月月商2,200万円（利益率24%）。
+                    </div>
+                    <div className="text-emerald-400/90 text-[10px] font-mono border-t border-emerald-950/60 pt-1 flex items-center justify-between">
+                      <span>💰 純手残り: 元手1万円（サンプル代）から初月で数百万円の即金性</span>
+                      <span className="group-hover:translate-x-1 transition-transform">詳細を見る →</span>
+                    </div>
+                  </div>
                 </div>
 
+                {/* 金脈2: 海外オープンソースSaaS国内代理導入 */}
                 <div 
-                  onClick={() => onSelectCompany('solo-local-dx')}
-                  className="p-3 rounded-lg bg-[#070E0B] border border-emerald-900/30 hover:border-emerald-500/40 transition-colors cursor-pointer space-y-1 group"
+                  onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-oss-japanese-agent') : null}
+                  className="p-3.5 rounded-lg bg-[#050C09] border border-emerald-900/40 hover:border-emerald-500/50 transition-all cursor-pointer space-y-2 group"
                 >
                   <div className="flex items-center justify-between text-emerald-300 font-bold">
-                    <span className="group-hover:text-emerald-200">〇 不用品回収・特殊清掃の「LINE自動集客」構築</span>
-                    <span className="text-[10px] font-mono bg-emerald-950 px-1.5 py-0.2 rounded border border-emerald-800/40 text-emerald-400">月利80万〜200万</span>
+                    <span className="text-sm group-hover:text-emerald-200">
+                      〇 開発不要「海外オープンソースSaaSの日本語化＆代理導入保守」
+                    </span>
+                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2">
+                      月利150万〜
+                    </span>
                   </div>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">
-                    <strong className="text-emerald-400">手口:</strong> ネット集客ができない地元の職人に、LINE自動見積もりを作って客を流し中抜きマージンを回収。現場作業ゼロ、不労ストック化。
-                  </p>
+                  <div className="space-y-1.5 text-zinc-400 text-[11px] leading-relaxed">
+                    <div>
+                      <strong className="text-zinc-200 font-mono">【突いた言語・情報格差のバグ】:</strong> GitHub上の無料OSSツールが世界最高峰なのに、日本の企業は英語というだけで導入できず高額国産ツールに課金中。
+                    </div>
+                    <div>
+                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 無料OSSを日本語翻訳し、中小企業へ「月3万円の保守契約」でサーバー設置してあげるだけ。開発ゼロで解約率1%未満のストック収益化。
+                    </div>
+                    <div className="text-emerald-400/90 text-[10px] font-mono border-t border-emerald-950/60 pt-1 flex items-center justify-between">
+                      <span>💰 純手残り: 元手0円・開発ゼロで毎月150万円の安定チャリンチャリン</span>
+                      <span className="group-hover:translate-x-1 transition-transform">詳細を見る →</span>
+                    </div>
+                  </div>
                 </div>
 
+                {/* 金脈3: 実在 Outbid.lol オークション看板 */}
                 <div 
                   onClick={() => onSelectCompany('outbid-lol')}
-                  className="p-3 rounded-lg bg-[#070E0B] border border-emerald-900/30 hover:border-emerald-500/40 transition-colors cursor-pointer space-y-1 group"
+                  className="p-3.5 rounded-lg bg-[#050C09] border border-emerald-900/40 hover:border-emerald-500/50 transition-all cursor-pointer space-y-2 group"
                 >
                   <div className="flex items-center justify-between text-emerald-300 font-bold">
-                    <span className="group-hover:text-emerald-200">〇 特定業界（クリニック・美容）の「入札型看板」</span>
-                    <span className="text-[10px] font-mono bg-emerald-950 px-1.5 py-0.2 rounded border border-emerald-800/40 text-emerald-400">月利30万〜80万</span>
+                    <span className="text-sm group-hover:text-emerald-200">
+                      〇 実在 Outbid.lol：起業家の見栄を煽り48時間で200万円を強奪した手口
+                    </span>
+                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2">
+                      月利30万〜80万
+                    </span>
                   </div>
-                  <p className="text-zinc-400 text-[11px] leading-relaxed">
-                    <strong className="text-emerald-400">手口:</strong> 地域で一番目立つWeb推薦枠をオークション制で店舗同士に競わせる。ライバルに負けたくない見栄で入札額が勝手に吊り上がる自動集金。
-                  </p>
+                  <div className="space-y-1.5 text-zinc-400 text-[11px] leading-relaxed">
+                    <div>
+                      <strong className="text-zinc-200 font-mono">【突いた心理のバグ】:</strong> 通常の広告枠は誰も見ないが、「一番金を払った奴だけがトップに君臨できる」オークションルールにすると起業家のプライドの殴り合いが勃発。
+                    </div>
+                    <div>
+                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> Next.js＋Stripeでわずか3時間で構築。「1ドルでも上回られたら即消滅」の看板を公開。起業家同士が意地で勝手に入札合戦を展開。
+                    </div>
+                    <div className="text-emerald-400/90 text-[10px] font-mono border-t border-emerald-950/60 pt-1 flex items-center justify-between">
+                      <span>💰 純手残り: 運営作業ゼロ・完全自動で48時間で200万円超がStripe着金</span>
+                      <span className="group-hover:translate-x-1 transition-transform">詳細を見る →</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
