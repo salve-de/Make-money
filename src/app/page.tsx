@@ -315,8 +315,13 @@ export default function Home() {
         onChangeMainView={setMainView}
       />
 
-      {/* リアルタイム市場金融ティッカー（全画面共通） */}
-      <MarketLiveTicker />
+      {/* リアルタイム市場金融ティッカー（全画面共通・横に流れる速報ニュースフィード） */}
+      <MarketLiveTicker
+        onSelectCompany={(id) => {
+          setSelectedCompanyId(id);
+          setMainView('TERMINAL');
+        }}
+      />
 
       {/* 2. メインコンテンツ（ポータル ⇄ 分析台帳 ⇄ 各種特集・個別詳細ページ） */}
       {mainView === 'PORTAL' && (
