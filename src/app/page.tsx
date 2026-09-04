@@ -9,6 +9,7 @@ import { ActiveFilterChips } from '@/components/terminal/ActiveFilterChips';
 import { ScreenerModal } from '@/components/terminal/ScreenerModal';
 import { CompanyListSidebar } from '@/components/terminal/CompanyListSidebar';
 import { ExecutiveDetailSheet } from '@/components/terminal/ExecutiveDetailSheet';
+import { PortalView } from '@/components/terminal/PortalView';
 import { ExportModal } from '@/components/terminal/ExportModal';
 import { OfferModal } from '@/components/terminal/OfferModal';
 import { ProModal } from '@/components/terminal/ProModal';
@@ -53,6 +54,9 @@ export default function Home() {
   const [isProOpen, setIsProOpen] = useState(false);
   const [isInfraOpen, setIsInfraOpen] = useState(false);
   const [isSubmissionOpen, setIsSubmissionOpen] = useState(false);
+
+  // メイン画面の表示モード（ポータル特集 ⇄ 専門分析台帳）
+  const [mainView, setMainView] = useState<'PORTAL' | 'TERMINAL'>('PORTAL');
 
   // 多次元スクリーニング判定関数（外部調査に基づく完全判定ロジック）
   const matchesMultidimensional = (c: CompanyRecord, filter: TerminalFilterState) => {
@@ -304,10 +308,28 @@ export default function Home() {
         onOpenInfrastructure={() => setIsInfraOpen(true)}
         onOpenSubmission={() => setIsSubmissionOpen(true)}
         totalCount={TERMINAL_COMPANIES.length}
+        mainView={mainView}
+        onChangeMainView={setMainView}
       />
 
-      {/* 2. 最短直感の二分割金融端末（左: 銘柄選定・スクリーナー ⇄ 右: 完全詳細解剖シート） */}
-      <div className="flex-1 flex overflow-hidden">
+      {/* 2. メインコンテンツ（表の顔: ポータル特集 ⇄ 裏の顔: 専門分析台帳） */}
+      {mainView === 'PORTAL' ? (
+        <PortalView
+          companies={filteredCompanies}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+          onNavigateToTerminal={() => setMainView('TERMINAL')}
+          onFilterTheme={(tag) => {
+            if (tag === '完全1人') setActivePreset('SOLO_MILLION');
+            else if (tag === '初期0円') setActivePreset('ZERO_INVESTMENT');
+            else if (tag === '地方実業') setActivePreset('LOCAL_DX');
+            else if (tag === '独占') setActivePreset('MEGA_MONOPOLY');
+          }}
+        />
+      ) : (
+        <div className="flex-1 flex overflow-hidden">
         {/* 左: 銘柄スクリーニング ＆ 候補リスト (幅336px〜384px) */}
         <CompanyListSidebar
           companies={filteredCompanies}
@@ -380,6 +402,7 @@ export default function Home() {
           </div>
         )}
       </div>
+      )}
 
       {/* モーダル群 */}
       <ScreenerModal

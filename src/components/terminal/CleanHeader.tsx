@@ -10,6 +10,8 @@ interface CleanHeaderProps {
   onOpenInfrastructure: () => void;
   onOpenSubmission: () => void;
   totalCount: number;
+  mainView: 'PORTAL' | 'TERMINAL';
+  onChangeMainView: (view: 'PORTAL' | 'TERMINAL') => void;
 }
 
 export const CleanHeader: React.FC<CleanHeaderProps> = ({
@@ -19,21 +21,51 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
   onOpenProModal,
   onOpenInfrastructure,
   onOpenSubmission,
-  totalCount
+  totalCount,
+  mainView,
+  onChangeMainView
 }) => {
   return (
     <header className="h-12 bg-[#0C0D10] border-b border-white/[0.08] flex items-center justify-between px-5 shrink-0 select-none font-sans">
-      {/* 左ブランド */}
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <span className="font-mono font-bold text-sm text-zinc-100 tracking-wider uppercase">
-            KIN-KOROKU
+      {/* 左ブランド ＆ メインナビ */}
+      <div className="flex items-center gap-4">
+        <div 
+          onClick={() => onChangeMainView('PORTAL')}
+          className="flex items-center gap-2 cursor-pointer group"
+        >
+          <span className="font-mono font-bold text-sm text-zinc-100 group-hover:text-emerald-400 transition-colors tracking-wider uppercase">
+            KIN-ROKOKU
           </span>
           <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-white/5">
-            TERMINAL
+            PLATFORM
           </span>
         </div>
-        <div className="hidden md:flex items-center gap-2 text-xs text-zinc-500 pl-3 border-l border-white/[0.08]">
+
+        {/* メインビュー切替ナビゲーション */}
+        <div className="flex items-center gap-1 bg-[#14161C] p-0.5 rounded-lg border border-white/10 text-xs">
+          <button
+            onClick={() => onChangeMainView('PORTAL')}
+            className={`px-3 py-1 rounded-md font-bold transition-all ${
+              mainView === 'PORTAL'
+                ? 'bg-zinc-200 text-black shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            ポータル・特集
+          </button>
+          <button
+            onClick={() => onChangeMainView('TERMINAL')}
+            className={`px-3 py-1 rounded-md font-bold transition-all ${
+              mainView === 'TERMINAL'
+                ? 'bg-zinc-200 text-black shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            分析台帳
+          </button>
+        </div>
+
+        <div className="hidden xl:flex items-center gap-2 text-xs text-zinc-500 pl-3 border-l border-white/[0.08]">
           <span>高収益事業・財務分析台帳</span>
           <span>(収録: {totalCount}社)</span>
         </div>
