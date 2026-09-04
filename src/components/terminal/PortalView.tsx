@@ -344,22 +344,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/30">
-                      標的: 美容クリニック・審美歯科
+                      標的: 美容クリニック・審美歯科（客単価50万〜200万）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-zinc-500">客単価50万〜200万円</span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">粗利率90%</span>
                 </div>
 
                 <h3 className="font-bold text-sm text-white group-hover:text-amber-200 transition-colors leading-snug">
-                  地域No.1推薦メディアの「入札型オークション看板」設置
+                  院長の見栄と嫉妬心を煽る「地域No.1推薦メディアの入札型看板」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200">業界の金回り:</strong> 自由診療で莫大な粗利を稼ぎ、広告費に月数百万円を投下。「競合他院より目立ちたい」という院長の見栄が常時沸騰。
+                    <strong className="text-zinc-200 font-mono">【突いた心理のバグ】:</strong> 二重整形やインビザライン等で莫大に儲かる一方、Google広告で1クリック3,000円を溶かす激戦。「近隣のライバル医院より下に見られたくない」という院長のプライドが常時沸騰。
                   </p>
                   <p>
-                    <strong className="text-amber-300">個人の手口:</strong> 地域限定の比較メディアを作り、最上位1枠をオークション制に。店舗同士を競わせることで、営業ゼロで月30万〜80万円の掲載料が自動入金。
+                    <strong className="text-amber-300 font-mono">【仕掛けたズル（手口）】:</strong> 「地域名＋施術名」の推薦メディアを作り、最上位1枠だけをオークション制に。近隣5院に案内するだけで、院長同士が意地で入札額を吊り上げ、営業ゼロで毎月掲載料が自動入金。
                   </p>
                 </div>
               </div>
@@ -367,11 +367,11 @@ export const PortalView: React.FC<PortalViewProps> = ({
               <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-3">
                   <span className="text-[11px] text-zinc-500">元手: 0円</span>
-                  <span className="text-[11px] text-zinc-500">スキル不要</span>
+                  <span className="text-[11px] text-zinc-500">プログラミング不要</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 30万〜80万円</span>
+                  <span className="text-[10px] text-zinc-400">純手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 50万〜100万円</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>
@@ -386,34 +386,34 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/30">
-                      標的: 地方町工場・金属加工
+                      標的: 地方町工場・金属プレス（検査員採用難）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-zinc-500">検査員採用難・高齢化</span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">キーエンス逆利用</span>
                 </div>
 
                 <h3 className="font-bold text-sm text-white group-hover:text-emerald-200 transition-colors leading-snug">
-                  キーエンスの死角を突く「中古iPad格安AI外観検査」直販
+                  キーエンスの500万見積もりに絶望した工場長を狙う「中古iPad外観検査」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200">業界の金回り:</strong> 目視検査の人手不足が致命的。キーエンスに相談するも「一式500万円＋専用配線」と言われて手が出せず絶望中。
+                    <strong className="text-zinc-200 font-mono">【突いた業界のバグ】:</strong> キーエンス営業が町工場に「専用カメラ＋システムで一式500万＋年保守100万」を提示して去る。目視検査員（70代パート）の退職に怯える社長は高すぎて買えず絶望。
                   </p>
                   <p>
-                    <strong className="text-emerald-300">個人の手口:</strong> 中古iPad（3万円）に市販ノーコードAIモデルを入れ、「初期15万円＋月1.5万円」で設置。キーエンスの高額見積もりを逆手に取って即決受注。
+                    <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 中古iPad（3万円）に市販画像AIを入れ、「初期20万＋月1.5万円保守」で持ち込み。「500万」で金銭感覚が麻痺した社長は「20万ならダメ元で試す」と即決。
                   </p>
                 </div>
               </div>
 
               <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-3">
-                  <span className="text-[11px] text-zinc-500">元手: 3万円</span>
-                  <span className="text-[11px] text-zinc-500">ノーコード</span>
+                  <span className="text-[11px] text-zinc-500">元手: 3万円（iPad代）</span>
+                  <span className="text-[11px] text-zinc-500">ノーコードAI</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 60万〜150万円</span>
+                  <span className="text-[10px] text-zinc-400">純手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">初期200万＋月15万ストック</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>
@@ -428,22 +428,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/30">
-                      標的: 不用品回収・遺品整理・特殊清掃
+                      標的: 不用品回収・遺品整理（案件単価30万〜100万）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-zinc-500">案件単価20万〜80万円</span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">現場作業ゼロ</span>
                 </div>
 
                 <h3 className="font-bold text-sm text-white group-hover:text-cyan-200 transition-colors leading-snug">
-                  LINE写真AI概算見積もりによる「完全不労・送客中抜き」
+                  親方のIT音痴×客の電話恐怖を突く「LINE写真見積もり送客中抜き」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200">業界の金回り:</strong> 粗利率80%以上の高収益ビジネスだが、現場の職人はネット集客が全くできずチラシや大手ポータルへの高額上納金に苦悶。
+                    <strong className="text-zinc-200 font-mono">【突いた業界のバグ】:</strong> ゴミ屋敷は粗利80%のドル箱だが、現場の職人はネット集客が一切できない。一方、依頼主（女性・若年）は「部屋を見られるのが恥ずかしい・怒鳴られたくない」と電話を恐れる。
                   </p>
                   <p>
-                    <strong className="text-cyan-300">個人の手口:</strong> 「部屋の写真を送るだけで概算見積もりが出るLINE」を作り、地元の職人に1件2万〜5万円で流すだけ。汗を一切かかずに不労ストック化。
+                    <strong className="text-cyan-300 font-mono">【仕掛けたズル（手口）】:</strong> 「部屋の写真を送るだけで概算見積もりが出る公式LINE」を作り、集まった案件を地元の職人に「成約時に紹介料3〜5万円」で横流し。作業着も着ず完全中抜き。
                   </p>
                 </div>
               </div>
@@ -451,11 +451,11 @@ export const PortalView: React.FC<PortalViewProps> = ({
               <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-3">
                   <span className="text-[11px] text-zinc-500">元手: 0円</span>
-                  <span className="text-[11px] text-zinc-500">作業ゼロ</span>
+                  <span className="text-[11px] text-zinc-500">トラック不要</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 80万〜200万円</span>
+                  <span className="text-[10px] text-zinc-400">純手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月20件＝月利100万円</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>
@@ -470,22 +470,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/30">
-                      標的: 中小企業・店舗オーナー
+                      標的: 中小企業（給付額300万〜2000万円）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-zinc-500">給付額300万〜2000万円</span>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold">着手金ゼロで独占</span>
                 </div>
 
                 <h3 className="font-bold text-sm text-white group-hover:text-purple-200 transition-colors leading-snug">
-                  難解な公募要領を15分でドラフト化「補助金AI申請代行」
+                  士業の「着手金20万」を完全無力化する「補助金AI申請書ドラフト作成代行」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200">業界の金回り:</strong> IT導入や設備刷新で巨額の補助金が出るが、申請書類が難解すぎて社長が断念。士業は着手金で20万円を要求して敬遠される。
+                    <strong className="text-zinc-200 font-mono">【突いた業界のバグ】:</strong> ものづくり補助金等は100ページの難解公募要領で社長が挫折。士業に頼むと「着手金20万＋成功報酬15%」を取られ、不採択時のドブ捨て恐怖で依頼を躊躇。
                   </p>
                   <p>
-                    <strong className="text-purple-300">個人の手口:</strong> 申請要領をAIプロンプトに流し込んで15分でドラフトを作成。「着手金0円・採択時20%」を提示して中小企業から独占受注。1件採択で数十万〜数百万円。
+                    <strong className="text-purple-300 font-mono">【仕掛けたズル（手口）】:</strong> 公募要領PDFをAIに読み込ませ、申請要件を満たすドラフトを20分で自動生成。「着手金完全0円・採択時20%」を提示して中小企業から独占受注。
                   </p>
                 </div>
               </div>
@@ -496,8 +496,8 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   <span className="text-[11px] text-zinc-500">プロンプトのみ</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 100万〜300万円</span>
+                  <span className="text-[10px] text-zinc-400">純手残り:</span>
+                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">1件100万〜 / 月利200万〜</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>
