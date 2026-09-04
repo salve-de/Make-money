@@ -9,7 +9,6 @@ import { ActiveFilterChips } from '@/components/terminal/ActiveFilterChips';
 import { ScreenerModal } from '@/components/terminal/ScreenerModal';
 import { CompanyListSidebar } from '@/components/terminal/CompanyListSidebar';
 import { ExecutiveDetailSheet } from '@/components/terminal/ExecutiveDetailSheet';
-import { BusinessXraySheet } from '@/components/terminal/BusinessXraySheet';
 import { ExportModal } from '@/components/terminal/ExportModal';
 import { OfferModal } from '@/components/terminal/OfferModal';
 import { ProModal } from '@/components/terminal/ProModal';
@@ -54,9 +53,6 @@ export default function Home() {
   const [isProOpen, setIsProOpen] = useState(false);
   const [isInfraOpen, setIsInfraOpen] = useState(false);
   const [isSubmissionOpen, setIsSubmissionOpen] = useState(false);
-
-  // 表示モード切替（新・レントゲン解剖 ⇄ 旧・金融端末詳細）
-  const [viewMode, setViewMode] = useState<'XRAY' | 'TERMINAL'>('XRAY');
 
   // 多次元スクリーニング判定関数（外部調査に基づく完全判定ロジック）
   const matchesMultidimensional = (c: CompanyRecord, filter: TerminalFilterState) => {
@@ -351,56 +347,13 @@ export default function Home() {
 
         {/* 右: 広々とした詳細レントゲンシート (可変 flex-1) */}
         {currentCompany ? (
-          <div className="flex-1 flex flex-col min-w-0 bg-[#090A0C] overflow-hidden">
-            {/* 表示モード切替トグルバー（既存画面と新レントゲン画面の安全比較スイッチ） */}
-            <div className="px-5 py-2.5 bg-[#0D0E12] border-b border-white/[0.08] flex items-center justify-between shrink-0 font-sans">
-              <div className="flex items-center gap-2">
-                <span className="text-[11px] text-zinc-500 font-mono">VIEW MODE:</span>
-                <div className="inline-flex p-0.5 rounded-lg bg-[#15171E] border border-white/10">
-                  <button
-                    onClick={() => setViewMode('XRAY')}
-                    className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${
-                      viewMode === 'XRAY'
-                        ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shadow-xs'
-                        : 'text-zinc-400 hover:text-zinc-200'
-                    }`}
-                  >
-                    [稼ぎのレントゲン解剖 (新)]
-                  </button>
-                  <button
-                    onClick={() => setViewMode('TERMINAL')}
-                    className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${
-                      viewMode === 'TERMINAL'
-                        ? 'bg-zinc-700 text-white shadow-xs'
-                        : 'text-zinc-400 hover:text-zinc-200'
-                    }`}
-                  >
-                    [金融端末詳細 (旧)]
-                  </button>
-                </div>
-              </div>
-              <span className="text-[11px] font-mono text-zinc-500 hidden sm:inline">
-                {viewMode === 'XRAY' ? '通帳・武器・初動の骨組み特化' : '全編財務諸表・チャート・分析'}
-              </span>
-            </div>
-
-            {/* コンポーネント本体の出し分け */}
-            {viewMode === 'XRAY' ? (
-              <BusinessXraySheet
-                company={currentCompany}
-                onDownloadCsv={() => setIsExportOpen(true)}
-                onOpenProModal={() => setIsProOpen(true)}
-              />
-            ) : (
-              <ExecutiveDetailSheet
-                company={currentCompany}
-                onDownloadCsv={() => setIsExportOpen(true)}
-                onDownloadExcel={() => setIsExportOpen(true)}
-                onOpenOfferModal={() => setIsOfferOpen(true)}
-                onOpenProModal={() => setIsProOpen(true)}
-              />
-            )}
-          </div>
+          <ExecutiveDetailSheet
+            company={currentCompany}
+            onDownloadCsv={() => setIsExportOpen(true)}
+            onDownloadExcel={() => setIsExportOpen(true)}
+            onOpenOfferModal={() => setIsOfferOpen(true)}
+            onOpenProModal={() => setIsProOpen(true)}
+          />
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2 font-sans">
             <div>条件に一致するビジネスが見つかりませんでした</div>
