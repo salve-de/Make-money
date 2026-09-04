@@ -94,15 +94,15 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
   const getBadgeStyle = (type: NewsTickerItem['badgeType']) => {
     switch (type) {
       case 'RECORD':
-        return 'bg-rose-950/80 text-rose-300 border-rose-800/80';
+        return 'bg-zinc-800 text-white border-white/15';
       case 'PROFIT':
-        return 'bg-emerald-950/80 text-emerald-300 border-emerald-800/80';
+        return 'bg-zinc-800 text-emerald-300 border-emerald-500/20';
       case 'HOT':
-        return 'bg-amber-950/80 text-amber-300 border-amber-800/80';
+        return 'bg-zinc-800 text-zinc-200 border-white/10';
       case 'MONOPOLY':
-        return 'bg-indigo-950/80 text-indigo-300 border-indigo-800/80';
+        return 'bg-zinc-800 text-zinc-100 border-white/15';
       case 'SPEED':
-        return 'bg-cyan-950/80 text-cyan-300 border-cyan-800/80';
+        return 'bg-zinc-800 text-zinc-200 border-white/10';
     }
   };
 
@@ -110,9 +110,9 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
     <div className="h-7 bg-[#08090C] border-b border-white/[0.06] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
       {/* 左端固定：速報ラベル（パルスランプ付き） */}
       <div className="flex items-center gap-2 text-zinc-400 shrink-0 px-3.5 bg-[#08090C] z-10 border-r border-white/[0.08] h-full shadow-[2px_0_8px_rgba(0,0,0,0.6)]">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-        <span className="font-bold text-[10px] tracking-wider text-emerald-400 font-mono uppercase">
-          収益速報 FEED
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
+        <span className="font-bold text-[10px] tracking-wider text-zinc-300 font-mono uppercase">
+          MARKET INTELLIGENCE FEED
         </span>
       </div>
 

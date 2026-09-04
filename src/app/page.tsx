@@ -427,7 +427,7 @@ export default function Home() {
         />
       )}
 
-      {/* 💡 実践ビジネスアイデア台帳画面 */}
+      {/* 実践ビジネスアイデア台帳画面 */}
       {mainView === 'IDEAS_VAULT' && (
         <IdeasVaultView
           onSelectCompany={(id) => {

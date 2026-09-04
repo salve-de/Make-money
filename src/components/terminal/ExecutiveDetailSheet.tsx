@@ -196,33 +196,29 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【兵器②: 合法的なズル（盲点ハック）の種明かしハイライト】 */}
+      {/* 最上部兵器：合法的なズル（既存業界の盲点・バグ）種明かしハイライト */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#17140C] via-[#121419] to-[#0D1217] border border-amber-500/30 shadow-xl space-y-3.5">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-amber-500/15 pb-2.5">
+      <div className="p-4 sm:p-5 rounded-xl bg-[#0F1116] border border-white/10 shadow-sm space-y-3.5">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
           <div className="flex items-center gap-2">
-            <span className="flex h-2.5 w-2.5 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
-            </span>
-            <span className="text-xs sm:text-sm font-bold text-amber-200">
-              💡 このビジネスが突いた「合法的なズル（既存業界の盲点・バグ）」
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span className="text-xs sm:text-sm font-bold text-zinc-200 tracking-tight">
+              市場構造の盲点・裁定取引のメカニズム (Structural Arbitrage & Inefficiency)
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono text-zinc-400">個人の参入想定手残り:</span>
-            <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded border border-emerald-800/40">
+          <div className="flex items-center gap-2 font-mono">
+            <span className="text-[10px] text-zinc-500 uppercase">ESTIMATED NET CF:</span>
+            <span className="text-xs font-bold text-white bg-zinc-800 px-2.5 py-0.5 rounded border border-white/10 tabular-nums">
               {estimatedEasyProfit}
             </span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-          <div className="p-3.5 rounded-lg bg-[#0A0C0E]/90 border border-white/5 space-y-1.5">
+          <div className="p-3.5 rounded bg-[#0A0C0E] border border-white/5 space-y-1.5">
             <div className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-              <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider">
-                ① 突いた業界の構造的バグ・盲点
+              <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider">
+                1. 既存産業の構造的盲点・非効率性
               </span>
             </div>
             <p className="text-zinc-200 leading-relaxed font-sans text-xs">
@@ -604,8 +600,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   <span className="text-[10px] text-zinc-500 font-sans block">▲ 外注・委託費</span>
                   <span className="text-rose-400">-{formatShortAmount(company.passbookDetails.outsourcingJpy)}</span>
                 </div>
-                <div className="p-2.5 rounded bg-emerald-950/30 border border-emerald-500/20 space-y-0.5 text-emerald-400 font-bold">
-                  <span className="text-[10px] font-sans block">★ 創業者手取り</span>
+                <div className="p-2.5 rounded bg-zinc-800/80 border border-white/10 space-y-0.5 text-white font-bold">
+                  <span className="text-[10px] font-mono uppercase block text-zinc-400">FOUNDER NET TAKE-HOME</span>
                   <span className="text-sm">{formatShortAmount(company.passbookDetails.founderTakeHomeJpy)}</span>
                 </div>
                 <div className="p-2.5 rounded bg-[#0A0C0E] border border-white/5 space-y-0.5 text-zinc-500">
@@ -822,15 +818,15 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
 
               {/* 初期にやらかした失敗と軌道修正 */}
               {company.earlyFailureLesson && (
-                <div className="p-3.5 bg-[#171412] rounded border border-amber-500/20 space-y-1.5 text-xs">
-                  <div className="flex items-center gap-1.5 text-amber-400 font-mono text-[11px] font-bold">
-                    <span>⚠️ 初期の致命的失敗とドブ捨て金の実録（反面教師データ）</span>
+                <div className="p-3.5 bg-[#141210] rounded border border-white/10 space-y-1.5 text-xs">
+                  <div className="flex items-center gap-1.5 text-zinc-300 font-mono text-[11px] font-bold">
+                    <span>[FAIL-CASE AUDIT] 初期の重大な資本毀損・仮説検証の失敗記録</span>
                   </div>
                   <p className="text-zinc-300 leading-relaxed font-sans">
-                    <strong className="text-amber-300">{company.earlyFailureLesson.wastedMoneyOrTime}</strong>を浪費：{company.earlyFailureLesson.whatWentWrong}
+                    <strong className="text-white font-mono">{company.earlyFailureLesson.wastedMoneyOrTime}</strong>を損失：{company.earlyFailureLesson.whatWentWrong}
                   </p>
                   <p className="text-zinc-400 text-[11px] font-sans pt-1 border-t border-white/5">
-                    ➜ <strong className="text-zinc-200">軌道修正の瞬間:</strong> {company.earlyFailureLesson.pivotMoment}
+                    [PIVOT POINT]: <strong className="text-zinc-200">事業ピボットの転換点:</strong> {company.earlyFailureLesson.pivotMoment}
                   </p>
                 </div>
               )}
@@ -857,15 +853,15 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
 
                 {company.successStory?.marketGlitch && (
                   <div className="p-3 bg-[#0B0C0E] rounded border border-white/5 space-y-1">
-                    <span className="text-[10px] font-mono text-cyan-400 font-bold block">発見した市場の歪み（競合の死角）</span>
+                    <span className="text-[10px] font-mono text-zinc-400 font-bold block">発見した市場の歪み（競合の死角）</span>
                     <p className="text-zinc-300 leading-relaxed">{company.successStory.marketGlitch}</p>
                   </div>
                 )}
 
                 {company.proSecretInsight && (
-                  <div className="p-3 bg-[#0E1318] rounded border border-cyan-500/20 text-xs font-sans space-y-1">
-                    <div className="text-[10px] font-mono text-cyan-400 font-bold">
-                      💡 アナリスト・インサイト（裏側の構造）
+                  <div className="p-3 bg-[#0E1318] rounded border border-white/10 text-xs font-sans space-y-1">
+                    <div className="text-[10px] font-mono text-zinc-300 font-bold uppercase tracking-wider">
+                      ANALYST STRUCTURAL INSIGHT / 構造的インサイト
                     </div>
                     <p className="text-zinc-300 text-[11px] leading-relaxed">
                       {company.proSecretInsight}

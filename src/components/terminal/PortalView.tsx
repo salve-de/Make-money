@@ -140,91 +140,91 @@ export const PortalView: React.FC<PortalViewProps> = ({
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             
-            {/* 左側：参入者が全滅している地雷市場（赤・警告・検死調書） */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#130B0D] border border-rose-500/25 space-y-4">
+            {/* 左側：参入者が全滅している地雷市場（構造的衰退市場・資本毀損リスク検死） */}
+            <div className="p-4 sm:p-5 rounded-xl bg-[#120D0E] border border-rose-500/20 space-y-4">
               <div className="flex items-center justify-between border-b border-rose-500/15 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse" />
-                  <h3 className="text-xs sm:text-sm font-bold text-rose-200">
-                    ⚠️ 初心者が即死している「落ち目・地雷市場」検死レポート
+                  <span className="w-2 h-2 rounded-full bg-rose-500" />
+                  <h3 className="text-xs sm:text-sm font-bold text-rose-200 tracking-tight">
+                    構造的衰退市場・資本毀損リスク検死レポート
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-rose-400 font-bold bg-rose-950/90 px-2 py-0.5 rounded border border-rose-800/40">
-                  AUTOPSY REPORT
+                <span className="text-[10px] font-mono text-rose-400 font-bold bg-rose-950/80 px-2 py-0.5 rounded border border-rose-800/40 uppercase">
+                  CAPITAL DESTRUCTION AUTOPSY
                 </span>
               </div>
 
               <div className="space-y-3 text-xs font-sans">
                 {/* 地雷1: AI美女・画像集 */}
-                <div className="p-3.5 rounded-lg bg-[#0C0608] border border-rose-900/40 space-y-2">
+                <div className="p-3.5 rounded bg-[#0A0607] border border-rose-950/60 space-y-2">
                   <div className="flex items-center justify-between text-rose-300 font-bold">
-                    <span className="text-sm">✕ AI美女・グラビア画像集のプラットフォーム直売</span>
-                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">死亡率 99.2%</span>
+                    <span className="text-sm font-medium">生成AI画像・デジタルアセットの直売市場</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400 tabular-nums">参入者淘汰率 99.2%</span>
                   </div>
                   <div className="space-y-1 text-zinc-400 text-[11px] leading-relaxed">
                     <div>
-                      <strong className="text-rose-400 font-mono">【即死の引き金】:</strong> 参入者が数万人に激増し、Kindle/FANZAで1冊100円の投げ売り合戦に突入。
+                      <strong className="text-rose-400 font-mono">【構造的欠陥】:</strong> 参入障壁ゼロによる供給過多。プラットフォーム上での1冊100円投げ売り価格破壊が常態化。
                     </div>
                     <div>
-                      <strong className="text-rose-400 font-mono">【致命的死因】:</strong> 各社が「AI生成物の販売手数料引き上げ」や「一斉アカウントBAN」を発動。月数万円のGPU代を回収できず、電気代と時間を溶かして時給30円で全員討ち死に。
+                      <strong className="text-rose-400 font-mono">【致命的要因】:</strong> プラットフォーム側の規約改定（販売手数料引き上げ・アカウント一斉凍結）により収益が蒸発。GPUインフラ原価を回収できず完全赤字化。
                     </div>
-                    <div className="text-zinc-500 text-[10px] border-t border-rose-950/60 pt-1">
-                      💡 教訓: 参入障壁ゼロのデジタルデータ直売は、プラットフォームの規約1行で一夜にして蒸発する。
+                    <div className="text-zinc-500 text-[10px] font-mono border-t border-rose-950/60 pt-1">
+                      [ANALYST NOTE]: 参入障壁ゼロの均質化デジタルデータ直売は、プラットフォームの規約1行で事業継続性が消滅する。
                     </div>
                   </div>
                 </div>
 
                 {/* 地雷2: 店舗せどり */}
-                <div className="p-3.5 rounded-lg bg-[#0C0608] border border-rose-900/40 space-y-2">
+                <div className="p-3.5 rounded bg-[#0A0607] border border-rose-950/60 space-y-2">
                   <div className="flex items-center justify-between text-rose-300 font-bold">
-                    <span className="text-sm">✕ 家電量販店・ドンキ等の国内店舗せどり（転売）</span>
-                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">資金ショート多発</span>
+                    <span className="text-sm font-medium">国内リテール店舗アービトラージ（物販せどり）</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">キャッシュショート頻発</span>
                   </div>
                   <div className="space-y-1 text-zinc-400 text-[11px] leading-relaxed">
                     <div>
-                      <strong className="text-rose-400 font-mono">【即死の引き金】:</strong> 店舗の購入制限・転売出禁が全国で厳格化。配送料高騰で利益幅が消滅。
+                      <strong className="text-rose-400 font-mono">【構造的欠陥】:</strong> 小売店側の転売対策・購入制限の全国的厳格化、および物流コスト高騰によるマージン蒸発。
                     </div>
                     <div>
-                      <strong className="text-rose-400 font-mono">【致命的死因】:</strong> Amazonの真贋調査発動で売上金が数ヶ月間強制凍結。クレジットカード限度額いっぱいに仕入れた在庫が部屋を埋め尽くし、翌月のカード引き落とし不能で破産者が続出。
+                      <strong className="text-rose-400 font-mono">【致命的要因】:</strong> 大手ECモールの真贋調査発動に伴う売掛金凍結。カード枠限度まで仕入れた不良在庫を抱え、運転資金ショートによる破綻が多発。
                     </div>
-                    <div className="text-zinc-500 text-[10px] border-t border-rose-950/60 pt-1">
-                      💡 教訓: 「物を持つビジネス」でキャッシュフローを舐めると、黒字のまま即死する。
+                    <div className="text-zinc-500 text-[10px] font-mono border-t border-rose-950/60 pt-1">
+                      [ANALYST NOTE]: 「物理的在庫を持つスモールビジネス」において運転資本管理を誤ると、帳簿上黒字のまま資金ショートに至る。
                     </div>
                   </div>
                 </div>
 
                 {/* 地雷3: 無差別Web制作受託 */}
-                <div className="p-3.5 rounded-lg bg-[#0C0608] border border-rose-900/40 space-y-2">
+                <div className="p-3.5 rounded bg-[#0A0607] border border-rose-950/60 space-y-2">
                   <div className="flex items-center justify-between text-rose-300 font-bold">
-                    <span className="text-sm">✕ クラウドソーシング無差別Web制作・LP受託</span>
-                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">時給120円地獄</span>
+                    <span className="text-sm font-medium">クラウドソーシング無差別Web受託・LP制作</span>
+                    <span className="text-[10px] font-mono bg-rose-950 px-2 py-0.5 rounded border border-rose-800/50 text-rose-400">実質時給 100円未満</span>
                   </div>
                   <div className="space-y-1 text-zinc-400 text-[11px] leading-relaxed">
                     <div>
-                      <strong className="text-rose-400 font-mono">【即死の引き金】:</strong> v0やCursor等のAIツール一般化で、クライアント自身がLPを即日作れる時代に。
+                      <strong className="text-rose-400 font-mono">【構造的欠陥】:</strong> 生成AI（Cursor / v0等）の普及により、エンドクライアント自身の内製化が容易になり発注単価が急落。
                     </div>
                     <div>
-                      <strong className="text-rose-400 font-mono">【致命的死因】:</strong> 1件5,000円の案件にスクール卒業生60人が群がる価格崩壊。無限の修正指示に追われ、80時間働いて手取り5,000円の搾取地獄でメンタル崩壊。
+                      <strong className="text-rose-400 font-mono">【致命的要因】:</strong> 単価数千円のコモディティ案件に数百人が群がる過当競争。不採算案件の無限修正に忙殺され、事業拡大余力を完全に喪失。
                     </div>
-                    <div className="text-zinc-500 text-[10px] border-t border-rose-950/60 pt-1">
-                      💡 教訓: 「誰でもできる受託労働」は、AIに代替される前に同業者の値引き競争で餓死する。
+                    <div className="text-zinc-500 text-[10px] font-mono border-t border-rose-950/60 pt-1">
+                      [ANALYST NOTE]: 差別化要因のない単純受託労働は、AIによる自動化以前に同業者の値下げチキンレースによって自滅する。
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 右側：いま金が流入している最新金脈手口（緑・金脈・種明かし台帳） */}
-            <div className="p-4 sm:p-5 rounded-xl bg-[#09130F] border border-emerald-500/25 space-y-4">
+            {/* 右側：いま金が流入している最新金脈手口（資金流入フロンティア・構造的裁定取引） */}
+            <div className="p-4 sm:p-5 rounded-xl bg-[#09110E] border border-emerald-500/20 space-y-4">
               <div className="flex items-center justify-between border-b border-emerald-500/15 pb-2.5">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <h3 className="text-xs sm:text-sm font-bold text-emerald-200">
-                    💰 いま金が流入！「業界のバグ」を突いた生々しい種明かし
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <h3 className="text-xs sm:text-sm font-bold text-emerald-200 tracking-tight">
+                    資本流入フロンティア・構造的裁定取引のメカニズム
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/90 px-2 py-0.5 rounded border border-emerald-800/40">
-                  REAL MECHANISM
+                <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/40 uppercase">
+                  STRUCTURAL ARBITRAGE
                 </span>
               </div>
 
@@ -232,26 +232,26 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 {/* 金脈1: TikTok Shop手元実演 */}
                 <div 
                   onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-tiktok-shop-faceless') : null}
-                  className="p-3.5 rounded-lg bg-[#050C09] border border-emerald-900/40 hover:border-emerald-500/50 transition-all cursor-pointer space-y-2 group"
+                  className="p-3.5 rounded bg-[#040A07] border border-emerald-950/60 hover:border-emerald-500/40 transition-all cursor-pointer space-y-2 group"
                 >
                   <div className="flex items-center justify-between text-emerald-300 font-bold">
-                    <span className="text-sm group-hover:text-emerald-200">
-                      〇 顔出し・声出し不要「TikTok Shop手元実演アフィリエイト」
+                    <span className="text-sm font-medium group-hover:text-emerald-200">
+                      非属人的短尺実演・成果報酬型コマース (TikTok Shop)
                     </span>
-                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2">
-                      月利300万〜
+                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2 tabular-nums">
+                      営業利益率 24% / 月利300万〜
                     </span>
                   </div>
                   <div className="space-y-1.5 text-zinc-400 text-[11px] leading-relaxed">
                     <div>
-                      <strong className="text-zinc-200 font-mono">【突いたプラットフォームの歪み】:</strong> TikTokがEC強化のためShop付き動画を異常優遇（アルゴリズムが勝手に数百万再生へ拡散）。
+                      <strong className="text-zinc-200 font-mono">【プラットフォーム構造の歪み】:</strong> プラットフォーム側のEC強化方針に伴う、コマース導線付きショート動画へのアルゴリズム偏重配分。
                     </div>
                     <div>
-                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 米国・中国でバズった便利グッズを買い、手元だけで箱から出して動かす15秒動画を量産。広告費ゼロで初月月商2,200万円（利益率24%）。
+                      <strong className="text-emerald-300 font-mono">【実効参入メカニズム】:</strong> 海外検証済み商材の手元実演のみに特化した15秒規格化クリエイティブの量産。広告費ゼロでのオーガニック流入独占。
                     </div>
                     <div className="text-emerald-400/90 text-[10px] font-mono border-t border-emerald-950/60 pt-1 flex items-center justify-between">
-                      <span>💰 純手残り: 元手1万円（サンプル代）から初月で数百万円の即金性</span>
-                      <span className="group-hover:translate-x-1 transition-transform">詳細を見る →</span>
+                      <span>実効手残り: サンプル費用の最小投下から初月で数百万円規模の即時キャッシュイン</span>
+                      <span className="group-hover:translate-x-0.5 transition-transform">分析調書を開く →</span>
                     </div>
                   </div>
                 </div>
@@ -259,26 +259,26 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 {/* 金脈2: 海外オープンソースSaaS国内代理導入 */}
                 <div 
                   onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-oss-japanese-agent') : null}
-                  className="p-3.5 rounded-lg bg-[#050C09] border border-emerald-900/40 hover:border-emerald-500/50 transition-all cursor-pointer space-y-2 group"
+                  className="p-3.5 rounded bg-[#040A07] border border-emerald-950/60 hover:border-emerald-500/40 transition-all cursor-pointer space-y-2 group"
                 >
                   <div className="flex items-center justify-between text-emerald-300 font-bold">
-                    <span className="text-sm group-hover:text-emerald-200">
-                      〇 開発不要「海外オープンソースSaaSの日本語化＆代理導入保守」
+                    <span className="text-sm font-medium group-hover:text-emerald-200">
+                      海外OSS・バーティカルツールの国内導入支援・保守ストック
                     </span>
-                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2">
-                      月利150万〜
+                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2 tabular-nums">
+                      解約率 1%未満 / 月利150万ストック
                     </span>
                   </div>
                   <div className="space-y-1.5 text-zinc-400 text-[11px] leading-relaxed">
                     <div>
-                      <strong className="text-zinc-200 font-mono">【突いた言語・情報格差のバグ】:</strong> GitHub上の無料OSSツールが世界最高峰なのに、日本の企業は英語というだけで導入できず高額国産ツールに課金中。
+                      <strong className="text-zinc-200 font-mono">【言語・情報格差の歪み】:</strong> 高性能なグローバルオープンソースが存在する一方、国内中堅企業の英語・導入障壁による高額国産ベンダー依存。
                     </div>
                     <div>
-                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 無料OSSを日本語翻訳し、中小企業へ「月3万円の保守契約」でサーバー設置してあげるだけ。開発ゼロで解約率1%未満のストック収益化。
+                      <strong className="text-emerald-300 font-mono">【実効参入メカニズム】:</strong> 既存OSSのローカライズ設定とセキュアホスティング代行。自前開発ゼロで月額保守ストック契約を締結。
                     </div>
                     <div className="text-emerald-400/90 text-[10px] font-mono border-t border-emerald-950/60 pt-1 flex items-center justify-between">
-                      <span>💰 純手残り: 元手0円・開発ゼロで毎月150万円の安定チャリンチャリン</span>
-                      <span className="group-hover:translate-x-1 transition-transform">詳細を見る →</span>
+                      <span>実効手残り: 初期開発費0円・固定費ほぼゼロによる高営業利益率（約92%）</span>
+                      <span className="group-hover:translate-x-0.5 transition-transform">分析調書を開く →</span>
                     </div>
                   </div>
                 </div>
@@ -286,26 +286,26 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 {/* 金脈3: 富裕業界特化の現場DX・送客中抜き市場 */}
                 <div 
                   onClick={() => onSelectCompany('solo-local-dx')}
-                  className="p-3.5 rounded-lg bg-[#050C09] border border-emerald-900/40 hover:border-emerald-500/50 transition-all cursor-pointer space-y-2 group"
+                  className="p-3.5 rounded bg-[#040A07] border border-emerald-950/60 hover:border-emerald-500/40 transition-all cursor-pointer space-y-2 group"
                 >
                   <div className="flex items-center justify-between text-emerald-300 font-bold">
-                    <span className="text-sm group-hover:text-emerald-200">
-                      〇 労働ゼロ「高粗利業界（不用品・現場系）へのLINE自動送客中抜き」
+                    <span className="text-sm font-medium group-hover:text-emerald-200">
+                      高単価現場産業（特殊清掃・遺品整理等）へのLINE見積自動送客仲介
                     </span>
-                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2">
-                      月利80万〜200万
+                    <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2 tabular-nums">
+                      成約手数料 1件3万〜5万 / 月利120万
                     </span>
                   </div>
                   <div className="space-y-1.5 text-zinc-400 text-[11px] leading-relaxed">
                     <div>
-                      <strong className="text-zinc-200 font-mono">【突いた受託構造のバグ】:</strong> スクール生がクラウドソーシングの5,000円案件で消耗する中、ゴミ屋敷・不用品回収は粗利80%で1件30万〜100万円が動く超ドル箱。
+                      <strong className="text-zinc-200 font-mono">【産業構造の盲点】:</strong> 粗利益率80%超・案件単価数十万円のドル箱現場産業において、職人のWeb集客能力欠如と顧客の電話問い合わせ心理的障壁。
                     </div>
                     <div>
-                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 「写真を送るだけでAI概算見積もりが出るLINE」を作り、客の電話恐怖を解消。集まった案件をネット音痴な職人に流すだけで1件5万円中抜き。作業着ゼロ・現場ゼロ。
+                      <strong className="text-emerald-300 font-mono">【実効参入メカニズム】:</strong> 画像送信型LINE自動査定窓口を整備し、案件を提携事業者に送客して紹介フィーを中抜き。自らは作業着を着ず現場ゼロで完結。
                     </div>
                     <div className="text-emerald-400/90 text-[10px] font-mono border-t border-emerald-950/60 pt-1 flex items-center justify-between">
-                      <span>💰 純手残り: 誰でもできる下請け制作を捨て、富裕業界に寄生して月利100万円</span>
-                      <span className="group-hover:translate-x-1 transition-transform">詳細を見る →</span>
+                      <span>実効手残り: 労働集約型業務を完全に他社へアウトソースし、高利益率送客手数料のみを捕捉</span>
+                      <span className="group-hover:translate-x-0.5 transition-transform">分析調書を開く →</span>
                     </div>
                   </div>
                 </div>
@@ -316,31 +316,31 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ========================================================================= */}
-        {/* セクション: 【「儲かっている業界」から金を吸い上げる！個人の下請け・中抜き受注手口 TOP 4】 */}
+        {/* セクション: 【高単価産業の構造的余剰利益を獲得する実効アプローチ TOP 4】 */}
         {/* ========================================================================= */}
         <section className="space-y-3.5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-zinc-800 pb-3">
             <div>
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-950/80 text-amber-300 border border-amber-800/40 uppercase tracking-wider">
-                  RICH CLIENT ARBITRAGE
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-white/10 uppercase tracking-wider">
+                  HIGH-MARGIN INDUSTRY ARBITRAGE
                 </span>
-                <span className="text-[10px] font-mono text-zinc-500">スキル不要・金持ち企業への寄生モデル</span>
+                <span className="text-[10px] font-mono text-zinc-500">高収益産業の構造的盲点への寄生型アプローチ</span>
               </div>
               <h2 className="text-base sm:text-lg font-bold text-white mt-1">
-                金が唸る業界から個人が中抜き！合法的な受注・下請け逆転手口 TOP 4
+                高単価産業の構造的余剰利益を獲得する実効アプローチ TOP 4
               </h2>
             </div>
             {onOpenIdeasVault ? (
               <button
                 onClick={onOpenIdeasVault}
-                className="text-xs text-amber-300 hover:text-amber-100 font-mono flex items-center gap-1.5 self-start sm:self-auto bg-amber-950/70 hover:bg-amber-900/60 px-3 py-1 rounded-lg border border-amber-800/50 transition-colors shadow-xs"
+                className="text-xs text-zinc-300 hover:text-white font-mono flex items-center gap-1.5 self-start sm:self-auto bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded border border-white/10 transition-colors shadow-xs"
               >
-                <span>💡 実践アイデア台帳を開く →</span>
+                <span>実践アイデア台帳を開く →</span>
               </button>
             ) : (
               <span className="text-xs text-zinc-400 font-mono">
-                「ゼロから商品を作らず、金持ち業界の財布から抜く」
+                ゼロからの商品開発を排し、資本が潤沢な産業の余剰利益を中抜きするモデル
               </span>
             )}
           </div>
@@ -349,40 +349,40 @@ export const PortalView: React.FC<PortalViewProps> = ({
             {/* カード1: 美容クリニック・審美歯科 ✕ 入札型看板 */}
             <div 
               onClick={() => onSelectCompany('outbid-lol')}
-              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-amber-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800 hover:border-zinc-500 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-amber-950/60 text-amber-300 border border-amber-800/30">
-                      標的: 美容クリニック・審美歯科（客単価50万〜200万）
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-white/10">
+                      TARGET: 美容クリニック・審美歯科（客単価50万〜200万）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold">粗利率90%</span>
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold tabular-nums">粗利率 90%</span>
                 </div>
 
-                <h3 className="font-bold text-sm text-white group-hover:text-amber-200 transition-colors leading-snug">
-                  院長の見栄と嫉妬心を煽る「地域No.1推薦メディアの入札型看板」
+                <h3 className="font-bold text-sm text-white group-hover:text-zinc-200 transition-colors leading-snug">
+                  高単価医療機関の競合心理を活用した「地域特化メディア入札型トップ枠」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200 font-mono">【突いた心理のバグ】:</strong> 二重整形やインビザライン等で莫大に儲かる一方、Google広告で1クリック3,000円を溶かす激戦。「近隣のライバル医院より下に見られたくない」という院長のプライドが常時沸騰。
+                    <strong className="text-zinc-300 font-mono">【構造的歪み】:</strong> 自由診療の高い粗利益率に対し、リスティング広告（1クリック数千円）のCPAが高騰。競合他院との序列意識が極めて強く、露出順位への執着が常態化。
                   </p>
                   <p>
-                    <strong className="text-amber-300 font-mono">【仕掛けたズル（手口）】:</strong> 「地域名＋施術名」の推薦メディアを作り、最上位1枠だけをオークション制に。近隣5院に案内するだけで、院長同士が意地で入札額を吊り上げ、営業ゼロで毎月掲載料が自動入金。
+                    <strong className="text-zinc-300 font-mono">【実効参入メカニズム】:</strong> 地域・施術特化型比較枠の最上位1枠をオークション入札制として運用。院長間の競合入札により、個別営業工数ゼロで掲載料を自動獲得。
                   </p>
                 </div>
               </div>
 
-              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+              <div className="pt-2.5 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-3">
-                  <span className="text-[11px] text-zinc-500">元手: 0円</span>
-                  <span className="text-[11px] text-zinc-500">プログラミング不要</span>
+                  <span className="text-[11px] text-zinc-500">初期資本: 0円</span>
+                  <span className="text-[11px] text-zinc-500">開発工数: 最小</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">純手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月利 50万〜100万円</span>
+                  <span className="text-[10px] text-zinc-500">実効手残りCF:</span>
+                  <span className="font-bold text-white text-xs sm:text-sm tabular-nums">月利 50万〜100万円</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>
@@ -391,40 +391,40 @@ export const PortalView: React.FC<PortalViewProps> = ({
             {/* カード2: 地方町工場・中小製造業 ✕ iPad格安AI検査 */}
             <div 
               onClick={() => onSelectCompany('keyence-6861')}
-              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-emerald-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800 hover:border-zinc-500 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950/60 text-emerald-300 border border-emerald-800/30">
-                      標的: 地方町工場・金属プレス（検査員採用難）
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-white/10">
+                      TARGET: 地方製造業・金属加工（目視検査員不足）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold">キーエンス逆利用</span>
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold">キーエンス空白地帯</span>
                 </div>
 
-                <h3 className="font-bold text-sm text-white group-hover:text-emerald-200 transition-colors leading-snug">
-                  キーエンスの500万見積もりに絶望した工場長を狙う「中古iPad外観検査」
+                <h3 className="font-bold text-sm text-white group-hover:text-zinc-200 transition-colors leading-snug">
+                  大手FAベンダーの価格空白地帯を補足する「汎用タブレット型格安外観検査」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200 font-mono">【突いた業界のバグ】:</strong> キーエンス営業が町工場に「専用カメラ＋システムで一式500万＋年保守100万」を提示して去る。目視検査員（70代パート）の退職に怯える社長は高すぎて買えず絶望。
+                    <strong className="text-zinc-300 font-mono">【構造的歪み】:</strong> 大手FAメーカーの高額ライン（一式500万円＋保守年間100万円）に対し、高齢パート検査員の退職に直面する中小町工場は予算調達が物理的に不可能。
                   </p>
                   <p>
-                    <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 中古iPad（3万円）に市販画像AIを入れ、「初期20万＋月1.5万円保守」で持ち込み。「500万」で金銭感覚が麻痺した社長は「20万ならダメ元で試す」と即決。
+                    <strong className="text-zinc-300 font-mono">【実効参入メカニズム】:</strong> 中古タブレット端末と既存画像判定AIをパッケージ化し、「初期20万円＋月額1.5万円保守」で導入。500万円のアンカー効果により即時意思決定を獲得。
                   </p>
                 </div>
               </div>
 
-              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+              <div className="pt-2.5 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-3">
-                  <span className="text-[11px] text-zinc-500">元手: 3万円（iPad代）</span>
-                  <span className="text-[11px] text-zinc-500">ノーコードAI</span>
+                  <span className="text-[11px] text-zinc-500">初期資本: 3万円</span>
+                  <span className="text-[11px] text-zinc-500">ノーコード構成</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">純手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">初期200万＋月15万ストック</span>
+                  <span className="text-[10px] text-zinc-500">実効手残りCF:</span>
+                  <span className="font-bold text-white text-xs sm:text-sm tabular-nums">初期200万＋月15万ストック</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>
@@ -433,40 +433,40 @@ export const PortalView: React.FC<PortalViewProps> = ({
             {/* カード3: 不用品回収・遺品整理 ✕ LINE自動見積もり＋送客中抜き */}
             <div 
               onClick={() => onSelectCompany('solo-local-dx')}
-              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-cyan-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800 hover:border-zinc-500 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-cyan-950/60 text-cyan-300 border border-cyan-800/30">
-                      標的: 不用品回収・遺品整理（案件単価30万〜100万）
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-white/10">
+                      TARGET: 遺品整理・残置物撤去（案件単価30万〜100万）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold">現場作業ゼロ</span>
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold">現場作業ゼロ</span>
                 </div>
 
-                <h3 className="font-bold text-sm text-white group-hover:text-cyan-200 transition-colors leading-snug">
-                  親方のIT音痴×客の電話恐怖を突く「LINE写真見積もり送客中抜き」
+                <h3 className="font-bold text-sm text-white group-hover:text-zinc-200 transition-colors leading-snug">
+                  職人のWeb集客障壁と発注者の電話忌避を仲介する「LINE画像査定・送客手数料モデル」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200 font-mono">【突いた業界のバグ】:</strong> ゴミ屋敷は粗利80%のドル箱だが、現場の職人はネット集客が一切できない。一方、依頼主（女性・若年）は「部屋を見られるのが恥ずかしい・怒鳴られたくない」と電話を恐れる。
+                    <strong className="text-zinc-300 font-mono">【構造的歪み】:</strong> 粗利80%超の高収益分野である一方、現場職人のデジタルマーケティング能力が皆無。依頼主側も現地立ち会い・電話見積もりに強い心理的抵抗感。
                   </p>
                   <p>
-                    <strong className="text-cyan-300 font-mono">【仕掛けたズル（手口）】:</strong> 「部屋の写真を送るだけで概算見積もりが出る公式LINE」を作り、集まった案件を地元の職人に「成約時に紹介料3〜5万円」で横流し。作業着も着ず完全中抜き。
+                    <strong className="text-zinc-300 font-mono">【実効参入メカニズム】:</strong> 写真送付による概算即時見積もりLINE窓口を整備し、案件を提携事業者に送客して成約紹介料（1件3万〜5万円）を全自動中抜き。
                   </p>
                 </div>
               </div>
 
-              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+              <div className="pt-2.5 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-3">
-                  <span className="text-[11px] text-zinc-500">元手: 0円</span>
-                  <span className="text-[11px] text-zinc-500">トラック不要</span>
+                  <span className="text-[11px] text-zinc-500">初期資本: 0円</span>
+                  <span className="text-[11px] text-zinc-500">自社機材不要</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">純手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">月20件＝月利100万円</span>
+                  <span className="text-[10px] text-zinc-500">実効手残りCF:</span>
+                  <span className="font-bold text-white text-xs sm:text-sm tabular-nums">月20件＝月利 100万円</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>
@@ -475,40 +475,40 @@ export const PortalView: React.FC<PortalViewProps> = ({
             {/* カード4: 中小企業・スタートアップ ✕ 助成金・補助金AIドラフト代行 */}
             <div 
               onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-grant-ai-agent') : null}
-              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800/90 hover:border-purple-500/40 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
+              className="p-4 sm:p-5 rounded-xl bg-[#0E1015] hover:bg-[#13161F] border border-zinc-800 hover:border-zinc-500 transition-all cursor-pointer space-y-3 flex flex-col justify-between group"
             >
               <div className="space-y-2.5">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-purple-950/60 text-purple-300 border border-purple-800/30">
-                      標的: 中小企業（給付額300万〜2000万円）
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-white/10">
+                      TARGET: 中小企業公的補助金（受給額300万〜2000万円）
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-emerald-400 font-bold">着手金ゼロで独占</span>
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold">着手金ゼロ型参入</span>
                 </div>
 
-                <h3 className="font-bold text-sm text-white group-hover:text-purple-200 transition-colors leading-snug">
-                  士業の「着手金20万」を完全無力化する「補助金AI申請書ドラフト作成代行」
+                <h3 className="font-bold text-sm text-white group-hover:text-zinc-200 transition-colors leading-snug">
+                  士業の着手金参入障壁を解体する「公募要領特化LLM事業計画書ドラフト生成代行」
                 </h3>
 
                 <div className="space-y-1.5 text-xs text-zinc-400 leading-relaxed font-sans">
                   <p>
-                    <strong className="text-zinc-200 font-mono">【突いた業界のバグ】:</strong> ものづくり補助金等は100ページの難解公募要領で社長が挫折。士業に頼むと「着手金20万＋成功報酬15%」を取られ、不採択時のドブ捨て恐怖で依頼を躊躇。
+                    <strong className="text-zinc-300 font-mono">【構造的歪み】:</strong> 100ページに及ぶ公募要領により自力申請が困難。専門士業への依頼は「着手金20万＋成功報酬」が一般的で、不採択リスクによる潜在顧客の離脱が多発。
                   </p>
                   <p>
-                    <strong className="text-purple-300 font-mono">【仕掛けたズル（手口）】:</strong> 公募要領PDFをAIに読み込ませ、申請要件を満たすドラフトを20分で自動生成。「着手金完全0円・採択時20%」を提示して中小企業から独占受注。
+                    <strong className="text-zinc-300 font-mono">【実効参入メカニズム】:</strong> 公募要領と加点要件をインプットしたLLMワークフローにより初稿を短時間生成。「着手金0円・採択時成果報酬」の破格オファーで案件を独占獲得。
                   </p>
                 </div>
               </div>
 
-              <div className="pt-2.5 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono">
+              <div className="pt-2.5 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-3">
-                  <span className="text-[11px] text-zinc-500">元手: 0円</span>
-                  <span className="text-[11px] text-zinc-500">プロンプトのみ</span>
+                  <span className="text-[11px] text-zinc-500">初期資本: 0円</span>
+                  <span className="text-[11px] text-zinc-500">LLMプロンプト運用</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[10px] text-zinc-400">純手残り:</span>
-                  <span className="font-bold text-emerald-400 text-xs sm:text-sm">1件100万〜 / 月利200万〜</span>
+                  <span className="text-[10px] text-zinc-500">実効手残りCF:</span>
+                  <span className="font-bold text-white text-xs sm:text-sm tabular-nums">1件100万〜 / 月利 200万〜</span>
                   <span className="text-zinc-500 group-hover:text-white transition-colors pl-1">→</span>
                 </div>
               </div>

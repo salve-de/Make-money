@@ -53,7 +53,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
-            <span>💡 アイデア台帳</span>
+            <span>実践アイデア台帳</span>
           </button>
           <button
             onClick={() => onChangeMainView('TERMINAL')}

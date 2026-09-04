@@ -198,8 +198,12 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                   key={i}
                   className="px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-300 border border-white/10 flex items-center gap-1"
                 >
-                  {chip.label}
-                  <button onClick={chip.onRemove} className="hover:text-white font-mono leading-none">✕</button>
+                  <span>{chip.label}</span>
+                  <button onClick={chip.onRemove} className="hover:text-white leading-none p-0.5" aria-label="削除">
+                    <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
                 </span>
               ))}
             </div>

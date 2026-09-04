@@ -135,7 +135,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
       step1: '既存の有名ランキングや比較サイトの不満（サクラ・ステマ・不正）を1つ特定する。',
       step2: '「完全入札制（1番金を払った奴が1番上に載る）」という極限まで単純な1枚ペラサイトをテンプレートで立ち上げる。',
       step3: 'エックスで「金で順位を買うサイト作ったった」とネタとして放流し、承認欲求の強い小金持ち起業家に喧嘩を売る。',
-      copyPasteScript: 'No ads. No API keys. Just outbid your competitors to rank #1 and consider marketing done for today 🚀'
+      copyPasteScript: 'No ads. No API keys. Just outbid your competitors to rank #1 and consider marketing done for today.'
     },
     proDossier: {
       monetizationTrick: {
