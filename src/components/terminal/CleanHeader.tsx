@@ -46,7 +46,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           <button
             onClick={() => onChangeMainView('PORTAL')}
             className={`px-3 py-1 rounded-md font-bold transition-all ${
-              mainView !== 'TERMINAL'
+              mainView === 'PORTAL' || (mainView !== 'TERMINAL' && mainView !== 'BATTLE')
                 ? 'bg-zinc-200 text-black shadow-xs'
                 : 'text-zinc-400 hover:text-zinc-200'
             }`}
@@ -62,6 +62,17 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             }`}
           >
             分析台帳
+          </button>
+          <button
+            onClick={() => onChangeMainView('BATTLE')}
+            className={`px-3 py-1 rounded-md font-bold transition-all flex items-center gap-1.5 ${
+              mainView === 'BATTLE'
+                ? 'bg-zinc-200 text-black shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
+            <span>2社直接対決</span>
           </button>
         </div>
 

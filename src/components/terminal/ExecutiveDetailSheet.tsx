@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { CompanyRecord, MoatPower } from '../../types/terminal';
 import { StatistaDualView } from './StatistaDualView';
 import { ExecutiveVisualCharts } from './ExecutiveVisualCharts';
+import { ExecutionKitSection } from './ExecutionKitSection';
 
 interface ExecutiveDetailSheetProps {
   company: CompanyRecord;
@@ -13,7 +14,7 @@ interface ExecutiveDetailSheetProps {
   onOpenProModal: () => void;
 }
 
-type DetailTab = 'ALL' | 'OVERVIEW' | 'FINANCIALS' | 'MOATS' | 'STRATEGY' | 'PRO';
+type DetailTab = 'ALL' | 'OVERVIEW' | 'FINANCIALS' | 'MOATS' | 'STRATEGY' | 'ARSENAL' | 'PRO';
 
 export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
   company,
@@ -183,6 +184,17 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
             }`}
           >
             参入・事業化戦略
+          </button>
+          <button
+            onClick={() => setActiveTab('ARSENAL')}
+            className={`px-3 py-2 border-b-2 font-medium transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+              activeTab === 'ARSENAL'
+                ? 'border-emerald-400 text-white font-bold'
+                : 'border-transparent text-zinc-400 hover:text-zinc-200'
+            }`}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+            実弾兵器庫 (コピペ)
           </button>
           <button
             onClick={() => setActiveTab('PRO')}
@@ -1039,6 +1051,16 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
       )}
 
       {/* ========================================================================= */}
+      {/* 【実弾兵器庫：明日からパクるためのコピペ実行キット】 */}
+      {/* ========================================================================= */}
+      {(activeTab === 'ALL' || activeTab === 'ARSENAL' || activeTab === 'STRATEGY') && (
+        <ExecutionKitSection
+          company={company}
+          onOpenProModal={onOpenProModal}
+        />
+      )}
+
+      {/* ========================================================================= */}
       {/* 【セクション５：PRO詳細分析レポート（有料会員限定リサーチ）】 */}
       {/* ========================================================================= */}
       {(activeTab === 'ALL' || activeTab === 'PRO') && (
@@ -1203,12 +1225,16 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
                     <th className="py-2 text-right font-medium">月額費用</th>
                     <th className="py-2 text-left font-medium pl-4">役割・用途</th>
                     <th className="py-2 text-center font-medium">代替難易度</th>
+                    <th className="py-2 text-right font-medium pr-2">導入アクション</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/[0.04]">
                   {company.tools.map((t, idx) => (
                     <tr key={idx} className="hover:bg-white/[0.02] text-zinc-300">
-                      <td className="py-2.5 font-semibold text-zinc-100">{t.name}</td>
+                      <td className="py-2.5 font-semibold text-zinc-100 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
+                        <span>{t.name}</span>
+                      </td>
                       <td className="py-2.5 text-zinc-400">{t.category}</td>
                       <td className="py-2.5 text-right font-medium">{formatShortAmount(t.monthlyCostJpy)}/月</td>
                       <td className="py-2.5 text-zinc-300 pl-4 font-sans text-xs">{t.purpose}</td>
@@ -1217,10 +1243,37 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
                           {t.replacementDifficulty === 'HIGH' ? '困難' : t.replacementDifficulty === 'MEDIUM' ? '中程度' : '容易'}
                         </span>
                       </td>
+                      <td className="py-2.5 text-right pr-2">
+                        <a
+                          href={`https://www.google.com/search?q=${encodeURIComponent(t.name + ' 公式 導入')}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800/80 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-white/10 transition-colors"
+                          title={`${t.name}の公式導入ページを開く`}
+                        >
+                          <span>公式導入</span>
+                          <span className="text-zinc-500 text-[9px]">↗</span>
+                        </a>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            {/* この環境を1分で複製するバンドル案内 */}
+            <div className="mt-4 pt-3 border-t border-white/[0.06] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2 text-zinc-400">
+                <span className="text-zinc-300 font-bold font-mono">STACK BUNDLE:</span>
+                <span>上記{company.tools.length}つのツールを配線することで、この事業の稼働パイプラインを再現可能</span>
+              </div>
+              <button
+                onClick={onOpenProModal}
+                className="px-3 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-white/10 font-medium text-xs flex items-center gap-1.5 transition-colors shrink-0"
+              >
+                <span>API配線マニュアル (PRO)</span>
+                <span className="text-[10px] text-zinc-400">→</span>
+              </button>
             </div>
           </div>
         </section>
