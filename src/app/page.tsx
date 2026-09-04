@@ -20,9 +20,6 @@ import { CollectionDetailView } from '@/components/terminal/portal/sections/Coll
 import { MarketSignalsView } from '@/components/terminal/portal/sections/MarketSignalsView';
 import { SignalDetailView } from '@/components/terminal/portal/sections/SignalDetailView';
 import { LeaderboardView } from '@/components/terminal/portal/sections/LeaderboardView';
-import { PostMortemArchiveView } from '@/components/terminal/portal/sections/PostMortemArchiveView';
-import { PyramidDetailView } from '@/components/terminal/portal/sections/PyramidDetailView';
-import { SimulatorDetailView } from '@/components/terminal/portal/sections/SimulatorDetailView';
 import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
 
 export type MainViewType = 
@@ -32,10 +29,7 @@ export type MainViewType =
   | 'COLLECTION_DETAIL'
   | 'SIGNALS_LIST'
   | 'SIGNAL_DETAIL'
-  | 'LEADERBOARD'
-  | 'POST_MORTEM'
-  | 'PYRAMID'
-  | 'SIMULATOR';
+  | 'LEADERBOARD';
 
 export default function Home() {
   // 選択中の銘柄ID
@@ -366,9 +360,6 @@ export default function Home() {
             setMainView('SIGNAL_DETAIL');
           }}
           onOpenLeaderboard={() => setMainView('LEADERBOARD')}
-          onOpenPostMortemArchive={() => setMainView('POST_MORTEM')}
-          onOpenPyramidDetail={() => setMainView('PYRAMID')}
-          onOpenSimulatorDetail={() => setMainView('SIMULATOR')}
         />
       )}
 
@@ -440,35 +431,6 @@ export default function Home() {
             setSelectedCompanyId(id);
             setMainView('TERMINAL');
           }}
-          onBackToPortal={() => setMainView('PORTAL')}
-        />
-      )}
-
-      {/* 参入禁止地雷市場アーカイブ画面 */}
-      {mainView === 'POST_MORTEM' && (
-        <PostMortemArchiveView
-          onBackToPortal={() => setMainView('PORTAL')}
-          onNavigateToSimulator={() => setMainView('SIMULATOR')}
-        />
-      )}
-
-      {/* 食物連鎖マネーフローピラミッド詳細画面 */}
-      {mainView === 'PYRAMID' && (
-        <PyramidDetailView
-          onBackToPortal={() => setMainView('PORTAL')}
-          onNavigateToTerminal={() => setMainView('TERMINAL')}
-        />
-      )}
-
-      {/* 勝率最大化ビジネス診断シミュレーター詳細画面 */}
-      {mainView === 'SIMULATOR' && (
-        <SimulatorDetailView
-          companies={filteredCompanies}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
-          onNavigateToTerminal={() => setMainView('TERMINAL')}
           onBackToPortal={() => setMainView('PORTAL')}
         />
       )}
