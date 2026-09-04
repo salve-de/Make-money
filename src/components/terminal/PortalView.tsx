@@ -81,17 +81,18 @@ export const PortalView: React.FC<PortalViewProps> = ({
       <section className="border-b border-zinc-800/80 bg-[#0D0E12] px-6 py-10 lg:py-14">
         <div className="max-w-6xl mx-auto space-y-5">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-zinc-300 text-xs font-mono font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>2026 最新高収益事業・生損益分析台帳</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span>嘘・煽り・誇大広告を完全排除した日本初の一次情報台帳</span>
           </div>
 
           <div className="space-y-3 max-w-3xl">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
-              世の中で誰が・どうやって・<br className="hidden sm:inline" />
-              いくら儲けているかの冷徹な台帳。
+              稼いでいる個人の、<br className="hidden sm:inline" />
+              生々しい決算書と再現手順を全公開。
             </h1>
             <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
-              巨大独占企業から、完全1人で年商数十億円を抜くソロプレナーまで。美談や精神論を排除し、「誰からいくら奪い、原価いくらで、どう集客しているか」の生々しい通帳と骨組みだけを記録した情報プラットフォーム。
+              誰が・何を使って・初期費用いくらで・最初の客10人をどう集めて・今月いくら儲けているのか。<br className="hidden sm:inline" />
+              完全一人や少人数で月利100万円〜数千万円を叩き出す「本物のビジネス」だけを解剖・保管するオープン金庫。
             </p>
           </div>
 
