@@ -281,28 +281,28 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                {/* 金脈3: 実在 Outbid.lol オークション看板 */}
+                {/* 金脈3: 富裕業界特化の現場DX・送客中抜き市場 */}
                 <div 
-                  onClick={() => onSelectCompany('outbid-lol')}
+                  onClick={() => onSelectCompany('solo-local-dx')}
                   className="p-3.5 rounded-lg bg-[#050C09] border border-emerald-900/40 hover:border-emerald-500/50 transition-all cursor-pointer space-y-2 group"
                 >
                   <div className="flex items-center justify-between text-emerald-300 font-bold">
                     <span className="text-sm group-hover:text-emerald-200">
-                      〇 実在 Outbid.lol：起業家の見栄を煽り48時間で200万円を強奪した手口
+                      〇 労働ゼロ「高粗利業界（不用品・現場系）へのLINE自動送客中抜き」
                     </span>
                     <span className="text-[10px] font-mono bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800/50 text-emerald-400 shrink-0 ml-2">
-                      月利30万〜80万
+                      月利80万〜200万
                     </span>
                   </div>
                   <div className="space-y-1.5 text-zinc-400 text-[11px] leading-relaxed">
                     <div>
-                      <strong className="text-zinc-200 font-mono">【突いた心理のバグ】:</strong> 通常の広告枠は誰も見ないが、「一番金を払った奴だけがトップに君臨できる」オークションルールにすると起業家のプライドの殴り合いが勃発。
+                      <strong className="text-zinc-200 font-mono">【突いた受託構造のバグ】:</strong> スクール生がクラウドソーシングの5,000円案件で消耗する中、ゴミ屋敷・不用品回収は粗利80%で1件30万〜100万円が動く超ドル箱。
                     </div>
                     <div>
-                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> Next.js＋Stripeでわずか3時間で構築。「1ドルでも上回られたら即消滅」の看板を公開。起業家同士が意地で勝手に入札合戦を展開。
+                      <strong className="text-emerald-300 font-mono">【仕掛けたズル（手口）】:</strong> 「写真を送るだけでAI概算見積もりが出るLINE」を作り、客の電話恐怖を解消。集まった案件をネット音痴な職人に流すだけで1件5万円中抜き。作業着ゼロ・現場ゼロ。
                     </div>
                     <div className="text-emerald-400/90 text-[10px] font-mono border-t border-emerald-950/60 pt-1 flex items-center justify-between">
-                      <span>💰 純手残り: 運営作業ゼロ・完全自動で48時間で200万円超がStripe着金</span>
+                      <span>💰 純手残り: 誰でもできる下請け制作を捨て、富裕業界に寄生して月利100万円</span>
                       <span className="group-hover:translate-x-1 transition-transform">詳細を見る →</span>
                     </div>
                   </div>
