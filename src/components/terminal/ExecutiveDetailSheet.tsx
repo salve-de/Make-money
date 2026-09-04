@@ -115,6 +115,23 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
     company.entryStrategy?.whyIncumbentCantWin ||
     `既存大手は現在の高単価商流や中立性の看板に縛られているため、この特化モデルに参入すると自社の既存ビジネスを破壊するジレンマを抱えている。`;
 
+  // 【兵器②: 合法的なズル（盲点ハック）の抽出】
+  const glitchText = company.successStory?.marketGlitch ||
+    company.entryStrategy?.whyIncumbentCantWin ||
+    company.proDossier?.incumbentBlindspot.whyGiantsCantEnter ||
+    `既存プレイヤーが高額な導入費と長期契約を要求する中で、顧客が抱える「今すぐ安く試したい」という即応需要が完全に放置されていた盲点。`;
+
+  const trickText = company.entryStrategy?.actionableEntryRoute ||
+    company.trapRecipe?.trapMechanism ||
+    company.successStory?.breakthroughMoment ||
+    company.businessEssence?.monetizationWay ||
+    `競合の弱点・死角を突き、低コストな既存インフラを組み合わせて、労力ゼロ・高利益率で直販する仕組み。`;
+
+  const estimatedEasyProfit = company.entryStrategy?.estimatedEasyProfit ||
+    company.derivedBusinessIdeas?.[0]?.estimatedMonthlyProfit ||
+    company.trapRecipe?.pureProfitBreakdown?.netTakeHome ||
+    '月利50万〜150万円';
+
   return (
     <div className="flex-1 bg-[#0B0C0E] overflow-y-auto p-5 lg:p-7 space-y-7 select-none font-sans text-zinc-100">
       
@@ -174,6 +191,55 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </div>
               </>
             )}
+          </div>
+        </div>
+      </div>
+
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* 【兵器②: 合法的なズル（盲点ハック）の種明かしハイライト】 */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      <div className="p-4 sm:p-5 rounded-xl bg-gradient-to-r from-[#17140C] via-[#121419] to-[#0D1217] border border-amber-500/30 shadow-xl space-y-3.5">
+        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-amber-500/15 pb-2.5">
+          <div className="flex items-center gap-2">
+            <span className="flex h-2.5 w-2.5 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+            </span>
+            <span className="text-xs sm:text-sm font-bold text-amber-200">
+              💡 このビジネスが突いた「合法的なズル（既存業界の盲点・バグ）」
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-[10px] font-mono text-zinc-400">個人の参入想定手残り:</span>
+            <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/80 px-2.5 py-0.5 rounded border border-emerald-800/40">
+              {estimatedEasyProfit}
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div className="p-3.5 rounded-lg bg-[#0A0C0E]/90 border border-white/5 space-y-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+              <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider">
+                ① 突いた業界の構造的バグ・盲点
+              </span>
+            </div>
+            <p className="text-zinc-200 leading-relaxed font-sans text-xs">
+              {glitchText}
+            </p>
+          </div>
+
+          <div className="p-3.5 rounded-lg bg-[#0A0C0E]/90 border border-white/5 space-y-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+              <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                ② 楽に勝った抜け道・手口（カンニングポイント）
+              </span>
+            </div>
+            <p className="text-zinc-200 leading-relaxed font-sans text-xs">
+              {trickText}
+            </p>
           </div>
         </div>
       </div>
