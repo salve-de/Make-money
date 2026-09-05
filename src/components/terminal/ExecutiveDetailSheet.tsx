@@ -196,48 +196,68 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 最上部：構造的裁定（既存業界の盲点・非効率性）分析ハイライト */}
+      {/* 最上部：キースペック・スコアカード (Starter Story / PitchBook型) */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800 shadow-sm space-y-3.5">
-        <div className="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800 pb-2.5">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
-            <span className="text-xs sm:text-sm font-bold text-zinc-100 tracking-tight">
-              市場構造の盲点・裁定取引のメカニズム (Structural Arbitrage & Inefficiency)
-            </span>
-          </div>
-          <div className="flex items-center gap-2 font-mono">
-            <span className="text-[10px] text-zinc-400 font-bold uppercase">推計実効月利:</span>
-            <span className="text-xs font-bold text-white bg-zinc-800 px-2.5 py-0.5 rounded border border-zinc-700 tabular-nums">
-              {estimatedEasyProfit}
-            </span>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 font-mono text-xs">
+        <div className="p-3 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-1">
+          <div className="text-[10px] text-zinc-400 font-sans">直近月商実額</div>
+          <div className="text-sm sm:text-base font-bold text-white tabular-nums">
+            {rev > 0 ? formatShortAmount(Math.round(rev / 12)) : '非公開'}
           </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-          <div className="p-3.5 rounded-md bg-[#13161E] border border-zinc-800 space-y-1.5">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase tracking-wider">
-                1. 既存産業の構造的盲点・非効率性
-              </span>
-            </div>
-            <p className="text-zinc-300 leading-relaxed font-sans text-xs">
-              {glitchText}
-            </p>
+        <div className="p-3 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-1">
+          <div className="text-[10px] text-zinc-400 font-sans">実効手残り純利</div>
+          <div className="text-sm sm:text-base font-bold text-white tabular-nums">
+            {estimatedEasyProfit}
           </div>
-
-          <div className="p-3.5 rounded-md bg-[#13161E] border border-zinc-800 space-y-1.5">
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase tracking-wider">
-                2. 構造的裁定の突破口（参入優位性の源泉）
-              </span>
-            </div>
-            <p className="text-zinc-300 leading-relaxed font-sans text-xs">
-              {trickText}
-            </p>
+        </div>
+        <div className="p-3 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-1">
+          <div className="text-[10px] text-zinc-400 font-sans">営業利益率</div>
+          <div className="text-sm sm:text-base font-bold text-white tabular-nums">
+            {profitPercent}%
+          </div>
+        </div>
+        <div className="p-3 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-1">
+          <div className="text-[10px] text-zinc-400 font-sans">初期投下資本</div>
+          <div className="text-sm sm:text-base font-bold text-white tabular-nums">
+            {company.initialInvestmentJpy === 0 ? '¥0 (不要)' : `¥${Math.round(company.initialInvestmentJpy / 10000)}万円`}
+          </div>
+        </div>
+        <div className="p-3 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-1">
+          <div className="text-[10px] text-zinc-400 font-sans">週実働時間</div>
+          <div className="text-sm sm:text-base font-bold text-white tabular-nums">
+            {company.weeklyHours ? `週${company.weeklyHours}h` : '少人数'}
+          </div>
+        </div>
+        <div className="p-3 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-1">
+          <div className="text-[10px] text-zinc-400 font-sans">組織体制</div>
+          <div className="text-sm sm:text-base font-bold text-white">
+            {company.teamSize === 1 ? '完全1人' : `${company.teamSize}名`}
           </div>
         </div>
       </div>
+
+      {/* 構造的裁定の要約アコーディオン（文章の壁を解体・クリック展開式） */}
+      <details className="group rounded-lg bg-[#0E1015] border border-zinc-800 p-3.5 text-xs transition-all">
+        <summary className="flex items-center justify-between cursor-pointer font-bold text-zinc-300 hover:text-white select-none">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+            <span className="text-xs sm:text-sm">市場構造の盲点・裁定取引のメカニズム解説を開く</span>
+            <span className="text-[10px] font-mono text-zinc-500 font-normal">（クリックで展開）</span>
+          </div>
+          <span className="text-[10px] font-mono text-zinc-400 group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-3 mt-3 border-t border-zinc-800">
+          <div className="p-3.5 rounded bg-[#13161E] border border-zinc-800 space-y-1">
+            <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase">1. 既存産業の構造的盲点・非効率性</div>
+            <p className="text-zinc-300 leading-relaxed text-xs">{glitchText}</p>
+          </div>
+          <div className="p-3.5 rounded bg-[#13161E] border border-zinc-800 space-y-1">
+            <div className="text-[10px] font-mono text-zinc-400 font-bold uppercase">2. 構造的裁定の突破口</div>
+            <p className="text-zinc-300 leading-relaxed text-xs">{trickText}</p>
+          </div>
+        </div>
+      </details>
 
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【タブナビゲーション】4大解剖フレーム切替 */}
@@ -246,10 +266,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
           {[
             { id: 'ALL', label: '全編解剖レポート' },
-            { id: 'TRICK', label: '01 収益化メカニズム & 大手の死角' },
-            { id: 'FINANCIALS', label: '02 損益計算書 & 実効手残り純利' },
-            { id: 'INFRASTRUCTURE', label: '03 稼働インフラ & ツール構成' },
-            { id: 'STORY', label: '04 初動突破 & 創業者バックグラウンド' },
+            { id: 'FINANCIALS', label: '01 損益計算書 & 純手残り' },
+            { id: 'INFRASTRUCTURE', label: '02 稼働インフラ & ツール構成' },
+            { id: 'TRICK', label: '03 収益化メカニズム & 大手の死角' },
+            { id: 'STORY', label: '04 初動突破 & 創業者背景' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -271,14 +291,14 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 解剖01: 【収益化メカニズム & なぜ大手は真似できないのか】 */}
+      {/* 解剖01: 【収益化メカニズム & なぜ大手は真似できないのか】（アコーディオン式負荷ゼロ設計） */}
       {/* ───────────────────────────────────────────────────────────── */}
       {(activeTab === 'ALL' || activeTab === 'TRICK') && (
-        <section className="space-y-5">
+        <section className="space-y-4">
           <div className="flex items-center justify-between border-b border-zinc-800 pb-2">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 font-mono text-xs font-bold border border-zinc-700">
-                01
+                03
               </span>
               <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
                 収益化メカニズム & 大手の死角 (Monetization Mechanism & Blindspots)
@@ -289,93 +309,83 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             
-            {/* 左: 収益化メカニズム（顧客の支払動機と価格決定権） */}
-            <div className="lg:col-span-6 p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-4">
-              <div className="flex items-center justify-between">
+            {/* 左: 支払動機と価格決定権 */}
+            <details className="group p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-3 transition-all" open>
+              <summary className="flex items-center justify-between cursor-pointer select-none">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-white" />
                   <h3 className="text-xs sm:text-sm font-bold text-white">
-                    収益化メカニズム（顧客が対価を支払う本質的要因）
+                    顧客の支払動機 & 価格決定権の仕掛け
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-zinc-300 font-bold bg-zinc-800 px-2 py-0.5 rounded border border-zinc-700">
-                  CASH INFLOW
-                </span>
-              </div>
+                <span className="text-[10px] font-mono text-zinc-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
 
-              <div className="space-y-3 text-xs font-sans">
-                {/* 支払動機の心理的要因 */}
+              <div className="space-y-3 pt-2 text-xs font-sans">
                 <div className="p-3 bg-[#13161E] rounded-md border border-zinc-800 space-y-1">
-                  <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase block">
-                    1. 支払動機の心理的要因（競合優位欲・機会損失回避）
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase block">
+                    1. 支払動機の心理的要因
                   </span>
                   <p className="text-zinc-300 leading-relaxed">
                     {trickPsychology}
                   </p>
                 </div>
 
-                {/* 価格決定権の源泉 */}
                 <div className="p-3 bg-[#13161E] rounded-md border border-zinc-800 space-y-1">
-                  <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase block">
-                    2. 価格決定権の源泉（相見積もりを無力化する構造）
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase block">
+                    2. 価格決定権の源泉（相見積もり無力化）
                   </span>
                   <p className="text-zinc-300 leading-relaxed">
                     {pricingSecret}
                   </p>
                 </div>
 
-                {/* キャッシュ回収速度 */}
                 <div className="p-2.5 bg-[#13161E] rounded-md border border-zinc-800 flex items-center justify-between font-mono text-[11px]">
                   <span className="text-zinc-400 font-sans">キャッシュ回収速度:</span>
                   <span className="text-white font-bold">{cashSpeed}</span>
                 </div>
               </div>
-            </div>
+            </details>
 
-            {/* 右: なぜ大手は参入できないのか？（大手の死角） */}
-            <div className="lg:col-span-6 p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-4">
-              <div className="flex items-center justify-between">
+            {/* 右: 大手の参入障壁 */}
+            <details className="group p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-3 transition-all" open>
+              <summary className="flex items-center justify-between cursor-pointer select-none">
                 <div className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-white" />
                   <h3 className="text-xs sm:text-sm font-bold text-white">
-                    大手の参入障壁・構造的死角
+                    大手の構造的死角 & 参入障壁 (Moat)
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-zinc-300 font-bold bg-zinc-800 px-2 py-0.5 rounded border border-zinc-700">
-                  INCUMBENT DILEMMA
-                </span>
-              </div>
+                <span className="text-[10px] font-mono text-zinc-400 group-open:rotate-180 transition-transform">▼</span>
+              </summary>
 
-              <div className="space-y-3 text-xs font-sans">
-                {/* 大手の既存商流・カニバリゼーション制約 */}
+              <div className="space-y-3 pt-2 text-xs font-sans">
                 <div className="p-3 bg-[#13161E] rounded-md border border-zinc-800 space-y-1">
-                  <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase block">
-                    1. 大手が手を出せない構造的理由（既存商流・カニバリゼーション制約）
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase block">
+                    1. 大手が手を出せない構造的理由
                   </span>
                   <p className="text-zinc-300 leading-relaxed">
                     {whyIncumbentBlind}
                   </p>
                 </div>
 
-                {/* 参入障壁（Moat）の正体 */}
                 <div className="p-3 bg-[#13161E] rounded-md border border-zinc-800 space-y-1">
-                  <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase block">
-                    2. 参入障壁（Moat）の正体（模倣困難性の源泉）
+                  <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase block">
+                    2. 参入障壁（Moat）の正体
                   </span>
                   <p className="text-zinc-300 leading-relaxed">
                     {company.coreMoatDescription}
                   </p>
                 </div>
 
-                {/* 防壁分類バッジ */}
                 <div className="p-2.5 bg-[#13161E] rounded-md border border-zinc-800 flex items-center justify-between font-mono text-[11px]">
                   <span className="text-zinc-400 font-sans">主防壁分類:</span>
                   <span className="text-white font-bold">{getMoatPowerName(company.primaryMoat)}</span>
                 </div>
               </div>
-            </div>
+            </details>
 
           </div>
 

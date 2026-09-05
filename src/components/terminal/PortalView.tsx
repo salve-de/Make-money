@@ -79,9 +79,6 @@ export const PortalView: React.FC<PortalViewProps> = ({
             <h1 className="text-lg sm:text-xl font-bold text-white tracking-tight">
               誰が、どこで、どうやって利益を生み出しているのか。
             </h1>
-            <p className="text-xs text-zinc-400 leading-relaxed font-normal">
-              売上規模、粗利率、使用ツール、初期集客経路まで。スモールビジネスから高収益企業まで、利益を生み出す仕組みと実態を客観的に記録した情報台帳。
-            </p>
           </div>
 
           {/* 市場概況マクロインテリジェンス（3層サーフェス KPIタイル） */}
@@ -204,16 +201,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-500 font-mono shrink-0">• 構造要因:</span>
-                      <span>参入障壁ゼロによる供給過多。1冊100円投げ売り価格破壊が常態化。</span>
-                    </p>
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-500 font-mono shrink-0">• 警戒事項:</span>
-                      <span>販売プラットフォーム規約変更・アカウント一斉凍結により売上金が即時蒸発。</span>
-                    </p>
-                  </div>
+                  <details className="group/acc text-[11px] pt-1">
+                    <summary className="cursor-pointer text-zinc-500 hover:text-zinc-300 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                      <span>検死要因・リスク詳細</span>
+                      <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                    </summary>
+                    <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-500 font-mono shrink-0">• 構造要因:</span>
+                        <span>参入障壁ゼロによる供給過多。1冊100円投げ売り価格破壊が常態化。</span>
+                      </p>
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-500 font-mono shrink-0">• 警戒事項:</span>
+                        <span>販売プラットフォーム規約変更・アカウント一斉凍結により売上金が即時蒸発。</span>
+                      </p>
+                    </div>
+                  </details>
                 </div>
 
                 {/* 地雷2 */}
@@ -243,16 +246,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-500 font-mono shrink-0">• 構造要因:</span>
-                      <span>小売側の転売対策・購入制限厳格化および物流コスト高騰によるマージン圧迫。</span>
-                    </p>
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-500 font-mono shrink-0">• 警戒事項:</span>
-                      <span>ECモールの真贋調査発動に伴う売掛金凍結。カード枠限度までの仕入れによる運転資金破綻。</span>
-                    </p>
-                  </div>
+                  <details className="group/acc text-[11px] pt-1">
+                    <summary className="cursor-pointer text-zinc-500 hover:text-zinc-300 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                      <span>検死要因・リスク詳細</span>
+                      <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                    </summary>
+                    <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-500 font-mono shrink-0">• 構造要因:</span>
+                        <span>小売側の転売対策・購入制限厳格化および物流コスト高騰によるマージン圧迫。</span>
+                      </p>
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-500 font-mono shrink-0">• 警戒事項:</span>
+                        <span>ECモールの真贋調査発動に伴う売掛金凍結。カード枠限度までの仕入れによる運転資金破綻。</span>
+                      </p>
+                    </div>
+                  </details>
                 </div>
 
                 {/* 地雷3 */}
@@ -278,20 +287,26 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     </div>
                     <div className="p-1.5 rounded bg-[#12141C] space-y-0.5">
                       <div className="text-[9px] text-zinc-400">主要死因</div>
-                      <div className="text-[10px] font-bold text-zinc-300 truncate">AI内製化・チキンレース</div>
+                      <div className="text-[10px] font-bold text-zinc-300 truncate">AI内製化・消耗戦</div>
                     </div>
                   </div>
 
-                  <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-500 font-mono shrink-0">• 構造要因:</span>
-                      <span>ノーコード・AI普及に伴う発注者側の内製化と、コモディティ案件への数百人集中。</span>
-                    </p>
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-500 font-mono shrink-0">• 警戒事項:</span>
-                      <span>低単価案件における修正無制限拘束。差別化要因のない単純労働は消耗戦に帰結。</span>
-                    </p>
-                  </div>
+                  <details className="group/acc text-[11px] pt-1">
+                    <summary className="cursor-pointer text-zinc-500 hover:text-zinc-300 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                      <span>検死要因・リスク詳細</span>
+                      <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                    </summary>
+                    <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-500 font-mono shrink-0">• 構造要因:</span>
+                        <span>ノーコード・AI普及に伴う発注者側の内製化と、コモディティ案件への数百人集中。</span>
+                      </p>
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-500 font-mono shrink-0">• 警戒事項:</span>
+                        <span>低単価案件における修正無制限拘束。差別化要因のない単純労働は消耗戦に帰結。</span>
+                      </p>
+                    </div>
+                  </details>
                 </div>
               </div>
             </div>
@@ -341,16 +356,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-300 font-mono shrink-0">• 裁定要因:</span>
-                      <span>コマース強化方針に伴う、購入リンク付き動画へのアルゴリズム偏重配分。</span>
-                    </p>
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
-                      <span>検証済み商材の手元実演15秒クリエイティブ量産。広告費ゼロ・在庫ゼロでの即時現金化。</span>
-                    </p>
-                  </div>
+                  <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                    <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                      <span>裁定構造・実効手順</span>
+                      <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                    </summary>
+                    <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-300 font-mono shrink-0">• 裁定要因:</span>
+                        <span>コマース強化方針に伴う、購入リンク付き動画へのアルゴリズム偏重配分。</span>
+                      </p>
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
+                        <span>検証済み商材の手元実演15秒クリエイティブ量産。広告費ゼロ・在庫ゼロでの即時現金化。</span>
+                      </p>
+                    </div>
+                  </details>
                 </div>
 
                 {/* 金脈2 */}
@@ -383,16 +404,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-300 font-mono shrink-0">• 裁定要因:</span>
-                      <span>高性能な海外OSSの存在と、国内企業の言語障壁・導入躊躇による情報格差。</span>
-                    </p>
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
-                      <span>既存OSSのローカライズ設定とセキュアホスティング代行。自前開発ゼロで月額保守契約を積み上げ。</span>
-                    </p>
-                  </div>
+                  <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                    <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                      <span>裁定構造・実効手順</span>
+                      <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                    </summary>
+                    <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-300 font-mono shrink-0">• 裁定要因:</span>
+                        <span>高性能な海外OSSの存在と、国内企業の言語障壁・導入躊躇による情報格差。</span>
+                      </p>
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
+                        <span>既存OSSのローカライズ設定とセキュアホスティング代行。自前開発ゼロで月額保守契約を積み上げ。</span>
+                      </p>
+                    </div>
+                  </details>
                 </div>
 
                 {/* 金脈3 */}
@@ -425,16 +452,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     </div>
                   </div>
 
-                  <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-300 font-mono shrink-0">• 裁定要因:</span>
-                      <span>粗利80%超の高収益分野における現場職人のWeb集客欠如と、顧客の電話忌避障壁。</span>
-                    </p>
-                    <p className="flex items-start gap-1">
-                      <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
-                      <span>写真送付型LINE自動査定を整備し、案件を提携事業者に送客して紹介料を全自動捕捉。</span>
-                    </p>
-                  </div>
+                  <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                    <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                      <span>裁定構造・実効手順</span>
+                      <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                    </summary>
+                    <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-300 font-mono shrink-0">• 裁定要因:</span>
+                        <span>粗利80%超の高収益分野における現場職人のWeb集客欠如と、顧客の電話忌避障壁。</span>
+                      </p>
+                      <p className="flex items-start gap-1">
+                        <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
+                        <span>写真送付型LINE自動査定を整備し、案件を提携事業者に送客して紹介料を全自動捕捉。</span>
+                      </p>
+                    </div>
+                  </details>
                 </div>
               </div>
             </div>
@@ -500,16 +533,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
-                    <span>高粗利自由診療のリスティング広告CPA高騰と、近隣他院への強い序列意識。</span>
-                  </p>
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
-                    <span>比較枠の最上位1枠を入札オークション化。個別営業工数ゼロで掲載料を自動獲得。</span>
-                  </p>
-                </div>
+                <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                  <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                    <span>構造要因・実効手順</span>
+                    <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                  </summary>
+                  <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
+                      <span>高粗利自由診療のリスティング広告CPA高騰と、近隣他院への強い序列意識。</span>
+                    </p>
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
+                      <span>比較枠の最上位1枠を入札オークション化。個別営業工数ゼロで掲載料を自動獲得。</span>
+                    </p>
+                  </div>
+                </details>
               </div>
               <div className="pt-2 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                 <span className="text-zinc-500 text-[10px]">運用形態: 完全自動課金</span>
@@ -550,16 +589,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
-                    <span>大手FAの高額ライン（500万〜）に対し、目視検査員の高齢退職で困窮する中小町工場。</span>
-                  </p>
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
-                    <span>中古タブレットと画像判定AIを「初期20万＋月1.5万」で配置。大手価格との対比で即決獲得。</span>
-                  </p>
-                </div>
+                <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                  <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                    <span>構造要因・実効手順</span>
+                    <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                  </summary>
+                  <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
+                      <span>大手FAの高額ライン（500万〜）に対し、目視検査員の高齢退職で困窮する中小町工場。</span>
+                    </p>
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
+                      <span>中古タブレットと画像判定AIを「初期20万＋月1.5万」で配置。大手価格との対比で即決獲得。</span>
+                    </p>
+                  </div>
+                </details>
               </div>
               <div className="pt-2 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                 <span className="text-zinc-500 text-[10px]">技術スタック: 汎用タブレット＋Vision API</span>
@@ -600,16 +645,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
-                    <span>粗利80%超の高額分野における職人の集客不在と、依頼主の電話・現地立会忌避。</span>
-                  </p>
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
-                    <span>写真送付型LINE自動査定を整備し、案件を提携事業者に送客して紹介料を全自動捕捉。</span>
-                  </p>
-                </div>
+                <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                  <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                    <span>構造要因・実効手順</span>
+                    <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                  </summary>
+                  <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
+                      <span>粗利80%超の高額分野における職人の集客不在と、依頼主の電話・現地立会忌避。</span>
+                    </p>
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
+                      <span>写真送付型LINE自動査定を整備し、案件を提携事業者に送客して紹介料を全自動捕捉。</span>
+                    </p>
+                  </div>
+                </details>
               </div>
               <div className="pt-2 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                 <span className="text-zinc-500 text-[10px]">役割: 集客窓口に特化し施工は外注</span>
@@ -650,16 +701,22 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                <div className="text-[11px] text-zinc-400 leading-relaxed font-sans space-y-1">
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
-                    <span>100頁超の公募要領の読解困難と、士業の高額着手金（20万〜）による顧客離脱。</span>
-                  </p>
-                  <p className="flex items-start gap-1">
-                    <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
-                    <span>要領・加点要件を学習させたLLMパイプラインで初稿生成。「着手金0円・採択成果報酬」で独占。</span>
-                  </p>
-                </div>
+                <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                  <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                    <span>構造要因・実効手順</span>
+                    <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                  </summary>
+                  <div className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 space-y-1">
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 構造要因:</span>
+                      <span>100頁超の公募要領の読解困難と、士業の高額着手金（20万〜）による顧客離脱。</span>
+                    </p>
+                    <p className="flex items-start gap-1">
+                      <span className="text-zinc-300 font-mono shrink-0">• 実効手順:</span>
+                      <span>要領・加点要件を学習させたLLMパイプラインで初稿生成。「着手金0円・採択成果報酬」で独占。</span>
+                    </p>
+                  </div>
+                </details>
               </div>
               <div className="pt-2 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                 <span className="text-zinc-500 text-[10px]">差別化: 初稿作成工数を90%圧縮</span>
@@ -807,9 +864,9 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     <h3 className="font-bold text-sm text-white group-hover:text-zinc-100 transition-colors leading-snug">
                       {c.japaneseName}
                     </h3>
-                    <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                    <div className="text-[11px] text-zinc-400 truncate">
                       {c.businessEssence?.whatItDoes || c.tagline}
-                    </p>
+                    </div>
 
                     {/* 独立KPIブロック */}
                     <div className="grid grid-cols-2 gap-1.5 p-1.5 rounded bg-[#181B24] border border-zinc-750 font-mono">
@@ -823,11 +880,11 @@ export const PortalView: React.FC<PortalViewProps> = ({
                       </div>
                     </div>
 
-                    <div className="p-2.5 bg-[#12141C] rounded border border-zinc-800 text-[11px] space-y-0.5">
-                      <div className="text-[10px] font-mono text-zinc-400 font-bold">収益化構造:</div>
-                      <p className="text-zinc-300 line-clamp-2 leading-relaxed">
+                    <div className="px-2.5 py-1.5 bg-[#12141C] rounded border border-zinc-800 text-[11px] flex items-center justify-between">
+                      <span className="text-[10px] font-mono text-zinc-400">収益化:</span>
+                      <span className="text-zinc-300 font-mono text-[10px] truncate max-w-[160px]">
                         {c.businessEssence?.monetizationWay || 'Stripe決済・デジタル自動配信'}
-                      </p>
+                      </span>
                     </div>
                   </div>
 
@@ -902,9 +959,15 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                  無名便利グッズを輸入し手元だけで開封・実演する15秒動画を量産。広告費ゼロで初月月商2,200万円を達成するチームが台頭。
-                </p>
+                <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                  <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                    <span>市場歪み・検証背景</span>
+                    <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                  </summary>
+                  <p className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 text-xs leading-relaxed font-sans">
+                    無名便利グッズを輸入し手元だけで開封・実演する15秒動画を量産。広告費ゼロで初月月商2,200万円を達成するチームが台頭。
+                  </p>
+                </details>
               </div>
               <div className="pt-2 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                 <span className="text-zinc-500 text-[10px]">運用形態: 完全非属人</span>
@@ -945,9 +1008,15 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                  難解な公募要領を独自プロンプトで15分でドラフト作成。商工会議所周辺のIT弱小企業に着手金ゼロ・採択成果報酬で提案。
-                </p>
+                <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                  <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                    <span>市場歪み・検証背景</span>
+                    <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                  </summary>
+                  <p className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 text-xs leading-relaxed font-sans">
+                    難解な公募要領を独自プロンプトで15分でドラフト作成。商工会議所周辺のIT弱小企業に着手金ゼロ・採択成果報酬で提案。
+                  </p>
+                </details>
               </div>
               <div className="pt-2 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                 <span className="text-zinc-500 text-[10px]">提供価値: 着手金ゼロ型</span>
@@ -988,9 +1057,15 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
 
-                <p className="text-xs text-zinc-400 leading-relaxed font-sans">
-                  英語圏のOSS業務ツールを日本語にローカライズし、国内中小企業向けに月額3万円の保守契約で導入。開発ゼロでストック形成。
-                </p>
+                <details className="group/acc text-[11px] pt-1" onClick={(e) => e.stopPropagation()}>
+                  <summary className="cursor-pointer text-zinc-400 hover:text-zinc-200 font-mono text-[10px] flex items-center justify-between select-none list-none [&::-webkit-details-marker]:hidden">
+                    <span>市場歪み・検証背景</span>
+                    <span className="group-open/acc:rotate-180 transition-transform text-zinc-400 text-[9px]">▾</span>
+                  </summary>
+                  <p className="mt-2 p-2 rounded bg-[#0D0F14] border border-zinc-800 text-zinc-400 text-xs leading-relaxed font-sans">
+                    英語圏のOSS業務ツールを日本語にローカライズし、国内中小企業向けに月額3万円の保守契約で導入。開発ゼロでストック形成。
+                  </p>
+                </details>
               </div>
               <div className="pt-2 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
                 <span className="text-zinc-500 text-[10px]">参入障壁: 言語・設定代行</span>

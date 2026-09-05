@@ -112,92 +112,78 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* アイデアカードグリッド：端正な金融・データ端末調              */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* アイデアカードグリッド：Starter Story / Acquire.com型 データ主導UI */}
       {/* ───────────────────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {filteredIdeas.map((idea) => (
           <div
             key={idea.id}
             onClick={() => setSelectedIdea(idea)}
-            className="p-5 rounded-xl bg-[#101217] hover:bg-[#14161E] border border-white/[0.08] hover:border-zinc-500 transition-all cursor-pointer flex flex-col justify-between space-y-4 group shadow-sm"
+            className="p-5 rounded-lg bg-[#0E1015] hover:bg-[#13161E] border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer flex flex-col justify-between space-y-3.5 group shadow-sm"
           >
             <div className="space-y-3">
-              {/* 上部メタデータ */}
-              <div className="flex items-center justify-between gap-2 flex-wrap">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-800/80 text-zinc-300 border border-white/10">
+              {/* 上部：カテゴリバッジ & 所要期間 */}
+              <div className="flex items-center justify-between gap-2">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-200 border border-zinc-700">
                   {idea.categoryLabel}
                 </span>
 
-                <div className="flex items-center gap-1.5 font-mono text-[10px]">
-                  <span className="text-zinc-500">参入難易度:</span>
-                  <span className="text-zinc-300 font-medium">
-                    {idea.difficulty}
-                  </span>
-                  <span className="text-zinc-600">/</span>
-                  <span className="text-zinc-400">{idea.setupDays}</span>
-                </div>
+                <span className="text-[10px] font-mono text-zinc-400 px-1.5 py-0.5 rounded bg-zinc-850 border border-zinc-800">
+                  準備: {idea.setupDays}
+                </span>
               </div>
 
               {/* タイトル */}
-              <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-zinc-200 transition-colors leading-snug">
+              <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-zinc-100 transition-colors leading-snug">
                 {idea.title}
               </h3>
 
-              {/* 概要 */}
-              <p className="text-xs text-zinc-400 leading-relaxed font-normal">
+              {/* 1行要約 */}
+              <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed font-normal">
                 {idea.shortDescription}
               </p>
 
-              {/* 標的と歪み（コンサルティング対比枠） */}
-              <div className="space-y-2 pt-1 text-[11px] font-sans">
-                <div className="p-2.5 rounded bg-[#0A0C0F] border border-white/5 space-y-1">
-                  <div className="flex items-center gap-1.5 text-zinc-400">
-                    <span className="font-mono text-[10px] uppercase font-bold text-zinc-400 tracking-wider">TARGET MARKET（資金供給元）:</span>
-                  </div>
-                  <p className="text-zinc-300 text-[11px] leading-relaxed">
-                    {idea.targetMarket}
-                  </p>
+              {/* 【文章の壁を解体した4分割キースペック表】 */}
+              <div className="grid grid-cols-2 gap-1.5 p-1.5 rounded bg-[#181B24] border border-zinc-750 font-mono">
+                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
+                  <div className="text-[9px] text-zinc-400 font-sans">推計実効月利</div>
+                  <div className="text-xs sm:text-sm font-bold text-white tabular-nums">{idea.estimatedMonthlyProfit}</div>
                 </div>
-
-                <div className="p-2.5 rounded bg-[#0A0C0F] border border-white/5 space-y-1">
-                  <div className="flex items-center gap-1.5 text-zinc-400">
-                    <span className="font-mono text-[10px] uppercase font-bold text-zinc-400 tracking-wider">ARBITRAGE MECHANISM（裁定構造）:</span>
-                  </div>
-                  <p className="text-zinc-300 text-[11px] leading-relaxed">
-                    {idea.actionableSteps}
-                  </p>
+                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
+                  <div className="text-[9px] text-zinc-400 font-sans">初期投下資本</div>
+                  <div className="text-xs sm:text-sm font-bold text-white tabular-nums">{idea.initialCapital}</div>
+                </div>
+                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
+                  <div className="text-[9px] text-zinc-400 font-sans">参入難易度</div>
+                  <div className="text-[11px] font-bold text-zinc-200">{idea.difficulty}</div>
+                </div>
+                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
+                  <div className="text-[9px] text-zinc-400 font-sans">対象産業</div>
+                  <div className="text-[11px] font-bold text-zinc-200 truncate">{idea.targetMarket.split('（')[0]}</div>
                 </div>
               </div>
 
               {/* 使用ツールタグ */}
-              <div className="flex items-center gap-1 flex-wrap pt-1">
+              <div className="flex items-center gap-1 flex-wrap pt-0.5">
+                <span className="text-[10px] text-zinc-500 font-mono">武器:</span>
                 {idea.requiredTools.map((tool, idx) => (
-                  <span key={idx} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#171920] text-zinc-400 border border-white/5">
+                  <span key={idx} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#181B24] text-zinc-300 border border-zinc-750">
                     {tool}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* 下部：財務指標 ＆ 参照元リンク */}
-            <div className="pt-3 border-t border-white/[0.08] space-y-2 font-mono text-xs">
-              <div className="flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] text-zinc-500 block uppercase">INITIAL CAPITAL</span>
-                  <span className="text-zinc-300 font-bold tabular-nums">{idea.initialCapital}</span>
-                </div>
-                <div className="text-right">
-                  <span className="text-[10px] text-zinc-500 block uppercase">EXPECTED NET CASH FLOW</span>
-                  <span className="text-white font-bold text-xs sm:text-sm tabular-nums">{idea.estimatedMonthlyProfit}</span>
-                </div>
-              </div>
-
-              {idea.sourceCompanyId && (
-                <div className="flex items-center justify-between text-[11px] pt-1 text-zinc-500 group-hover:text-zinc-300">
-                  <span>実証元: {idea.sourceCompanyName}</span>
-                  <span className="text-zinc-300 group-hover:translate-x-0.5 transition-transform">詳細調書を開く →</span>
-                </div>
-              )}
+            {/* 下部：参照元リンク ＆ 開く導線 */}
+            <div className="pt-2.5 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
+              <span className="text-zinc-400 text-[11px]">
+                {idea.sourceCompanyName ? `実証: ${idea.sourceCompanyName}` : '独自検証モデル'}
+              </span>
+              <span className="text-zinc-300 group-hover:text-white transition-colors flex items-center gap-1 font-bold">
+                <span>詳細手順・裏側解説</span>
+                <span>→</span>
+              </span>
             </div>
           </div>
         ))}
