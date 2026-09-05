@@ -65,6 +65,7 @@ export interface CompanyRecord {
   name: string;
   japaneseName: string;
   tagline: string;
+  category?: string;
   scaleTier: ScaleTier;
   businessModel: BusinessModel;
   foundedYear: number;

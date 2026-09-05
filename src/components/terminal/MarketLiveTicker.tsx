@@ -92,16 +92,16 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
   const tickerItems = [...NEWS_TICKER_ITEMS, ...NEWS_TICKER_ITEMS];
 
   const getBadgeStyle = (_type: NewsTickerItem['badgeType']) => {
-    return 'bg-zinc-850 text-zinc-300 border-white/10';
+    return 'bg-emerald-50 text-emerald-700 border-emerald-200';
   };
 
   return (
-    <div className="h-7 bg-[#090A0D] border-b border-white/[0.08] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
+    <div className="h-7.5 bg-slate-50 border-b border-slate-200/80 flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
       {/* 左端固定：速報ラベル */}
-      <div className="flex items-center gap-2 text-zinc-400 shrink-0 px-3 bg-[#090A0D] z-10 border-r border-white/[0.08] h-full shadow-[2px_0_6px_rgba(0,0,0,0.5)]">
-        <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 shrink-0" />
-        <span className="font-bold text-[10px] tracking-widest text-zinc-300 font-mono uppercase">
-          INTELLIGENCE FEED
+      <div className="flex items-center gap-2 text-slate-700 shrink-0 px-3 bg-slate-100 z-10 border-r border-slate-200 h-full shadow-xs">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+        <span className="font-bold text-[10px] tracking-wider text-slate-800 font-mono uppercase">
+          MARKET FEED
         </span>
       </div>
 
@@ -116,30 +116,30 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
                   onSelectCompany(item.companyId);
                 }
               }}
-              className={`flex items-center gap-2.5 px-5 py-1 shrink-0 transition-colors ${
+              className={`flex items-center gap-2.5 px-4 py-1 shrink-0 transition-colors ${
                 item.companyId && onSelectCompany
-                  ? 'cursor-pointer hover:bg-white/[0.06]'
+                  ? 'cursor-pointer hover:bg-slate-100'
                   : ''
               }`}
               title={item.companyId ? 'クリックして詳細分析データを開く' : undefined}
             >
               {/* カテゴリタグ */}
-              <span className="text-[10px] px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-400 font-sans">
+              <span className="text-[10px] px-1.5 py-0.5 rounded bg-white text-slate-600 border border-slate-200 font-sans font-medium">
                 {item.category}
               </span>
 
               {/* ニュース見出し */}
-              <span className="text-zinc-200 font-sans text-xs">
+              <span className="text-slate-800 font-sans text-xs">
                 {item.headline}
               </span>
 
               {/* 実績バッジ */}
-              <span className={`text-[10px] px-1.5 py-0.2 rounded font-mono font-bold border ${getBadgeStyle(item.badgeType)}`}>
+              <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold border ${getBadgeStyle(item.badgeType)}`}>
                 {item.badge}
               </span>
 
               {/* 区切り点 */}
-              <span className="text-zinc-600 pl-3 select-none">/</span>
+              <span className="text-slate-300 pl-3 select-none">/</span>
             </div>
           ))}
         </div>

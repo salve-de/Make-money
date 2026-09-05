@@ -307,7 +307,7 @@ export default function Home() {
   };
 
   return (
-    <div className="h-screen w-screen bg-[#0E1013] text-zinc-100 flex flex-col font-sans overflow-hidden select-none">
+    <div className="h-screen w-screen bg-slate-50 text-slate-900 flex flex-col font-sans overflow-hidden select-none">
       {/* 1. 清潔な上部ヘッダー */}
       <CleanHeader
         searchQuery={searchQuery}

@@ -3,6 +3,9 @@
 import React, { useState, useMemo } from 'react';
 import { BUSINESS_IDEAS } from '@/data/ideasData';
 import { BusinessIdeaRecord, IdeaCategory } from '@/types/idea';
+import { SparklineChart } from '@/components/terminal/SparklineChart';
+import { CompanyLogo } from '@/components/terminal/CompanyLogo';
+import { ArrowRight, Search, X, CheckCircle2, Clock, Wrench } from 'lucide-react';
 
 interface IdeasVaultViewProps {
   onSelectCompany: (companyId: string) => void;
@@ -15,11 +18,11 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
 
   const categories: { id: IdeaCategory; label: string; count: number }[] = [
     { id: 'ALL', label: '全カテゴリ', count: BUSINESS_IDEAS.length },
-    { id: 'RICH_CLIENT', label: '高単価産業中抜き (High Margin B2B)', count: BUSINESS_IDEAS.filter(i => i.category === 'RICH_CLIENT').length },
-    { id: 'AI_TREND', label: 'AI活用・先端トレンド (AI & Trend Arbitrage)', count: BUSINESS_IDEAS.filter(i => i.category === 'AI_TREND').length },
-    { id: 'ZERO_CAPITAL', label: '初期資本ゼロ (Zero Capital Bootstrapping)', count: BUSINESS_IDEAS.filter(i => i.category === 'ZERO_CAPITAL').length },
-    { id: 'NO_CODE', label: 'ノーコード・非開発型 (No-Code Operations)', count: BUSINESS_IDEAS.filter(i => i.category === 'NO_CODE').length },
-    { id: 'PASSIVE_SOLO', label: 'ソロ運営・高純利益ストック (Solo Operator ARR)', count: BUSINESS_IDEAS.filter(i => i.category === 'PASSIVE_SOLO').length },
+    { id: 'RICH_CLIENT', label: '高単価産業中抜き', count: BUSINESS_IDEAS.filter(i => i.category === 'RICH_CLIENT').length },
+    { id: 'AI_TREND', label: 'AI先端トレンド', count: BUSINESS_IDEAS.filter(i => i.category === 'AI_TREND').length },
+    { id: 'ZERO_CAPITAL', label: '初期資本ゼロ', count: BUSINESS_IDEAS.filter(i => i.category === 'ZERO_CAPITAL').length },
+    { id: 'NO_CODE', label: 'ノーコード・非開発', count: BUSINESS_IDEAS.filter(i => i.category === 'NO_CODE').length },
+    { id: 'PASSIVE_SOLO', label: 'ソロ運営・高純利', count: BUSINESS_IDEAS.filter(i => i.category === 'PASSIVE_SOLO').length },
   ];
 
   const filteredIdeas = useMemo(() => {
@@ -40,33 +43,33 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="flex-1 bg-[#090A0D] overflow-y-auto p-4 sm:p-6 lg:p-8 space-y-6 select-none font-sans text-zinc-100">
+    <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-5 sm:p-7 lg:p-9 space-y-6 select-none font-sans text-slate-900">
       
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* ページヘッダー：マッキンゼー／PitchBook調                     */}
+      {/* ページヘッダー：Starter Story / Product Hunt 調               */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="border-b border-white/[0.08] pb-5 space-y-3">
+      <div className="border-b border-slate-200 pb-5 space-y-3.5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-white/10 uppercase tracking-widest">
-                OPERATIONAL ARSENAL & VAULT
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-900 text-white uppercase tracking-wider">
+                OPPORTUNITY VAULT
               </span>
-              <span className="text-xs font-mono text-zinc-500">
-                監査済み事業機会・実践手口台帳
+              <span className="text-xs font-mono text-slate-500">
+                実証済み事業機会・実践台帳
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-              実践ビジネスアイデア台帳
+            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+              実践ビジネス機会台帳
             </h1>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl font-normal leading-relaxed">
-              既存産業の構造的盲点（裁定機会）および高単価市場の死角を突いて、最小資本からキャッシュフローを創出する実効ビジネスモデル一覧。
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl font-normal leading-relaxed">
+              既存産業の構造的盲点・価格の歪みを突いて、最小資本からキャッシュフローを創出する実践モデル。
             </p>
           </div>
 
-          <div className="flex items-center gap-2.5 self-start sm:self-auto font-mono text-xs text-zinc-400 bg-[#12141A] px-3.5 py-2 rounded-lg border border-white/10">
-            <span className="w-1.5 h-1.5 rounded-full bg-zinc-300" />
-            <span>検証済みモデル数: <strong className="text-white font-bold tabular-nums">{filteredIdeas.length}</strong> 件</span>
+          <div className="flex items-center gap-2 self-start sm:self-auto font-mono text-xs text-slate-700 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span>検証済みモデル数: <strong className="text-slate-900 font-bold tabular-nums">{filteredIdeas.length}</strong> 件</span>
           </div>
         </div>
 
@@ -80,14 +83,14 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-3 py-1.5 rounded text-xs font-medium whitespace-nowrap transition-all border flex items-center gap-2 ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all border flex items-center gap-2 ${
                     isActive
-                      ? 'bg-zinc-200 text-black border-white shadow-xs font-bold'
-                      : 'bg-[#12141A] text-zinc-400 border-white/5 hover:border-white/20 hover:text-zinc-200'
+                      ? 'bg-slate-900 text-white border-slate-900 shadow-xs font-bold'
+                      : 'bg-white text-slate-600 border-slate-200 hover:border-slate-300 hover:text-slate-900 shadow-2xs'
                   }`}
                 >
                   <span>{cat.label}</span>
-                  <span className={`text-[10px] font-mono px-1 rounded tabular-nums ${isActive ? 'bg-black/10 text-black' : 'bg-zinc-800 text-zinc-500'}`}>
+                  <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full tabular-nums ${isActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-600'}`}>
                     {cat.count}
                   </span>
                 </button>
@@ -101,171 +104,163 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="キーワードで台帳を検索..."
-              className="w-full h-8 pl-8 pr-3 bg-[#12141A] border border-white/10 rounded text-xs text-zinc-200 placeholder:text-zinc-500 focus:outline-hidden focus:border-zinc-400 transition-colors font-sans"
+              placeholder="機会を絞り込み検索..."
+              className="w-full h-8.5 pl-8.5 pr-4 bg-white border border-slate-200 rounded-lg text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-slate-400 shadow-2xs font-sans"
             />
-            <svg className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
+            <Search className="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" />
           </div>
         </div>
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
+      {/* 高密度ディレクトリーテーブル：カード入れ子を完全全廃したクリーンな一覧行 */}
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* アイデアカードグリッド：Starter Story / Acquire.com型 データ主導UI */}
-      {/* ───────────────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-        {filteredIdeas.map((idea) => (
-          <div
-            key={idea.id}
-            onClick={() => setSelectedIdea(idea)}
-            className="p-5 rounded-lg bg-[#0E1015] hover:bg-[#13161E] border border-zinc-800 hover:border-zinc-700 transition-all cursor-pointer flex flex-col justify-between space-y-3.5 group shadow-sm"
-          >
-            <div className="space-y-3">
-              {/* 上部：カテゴリバッジ & 所要期間 */}
-              <div className="flex items-center justify-between gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-200 border border-zinc-700">
-                  {idea.categoryLabel}
-                </span>
+      <div className="bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
+        {/* テーブルヘッダー */}
+        <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+          <div className="col-span-4">実証モデル / 機会名称</div>
+          <div className="col-span-3">突くべき業界の歪み・盲点</div>
+          <div className="col-span-2 text-center">成長モメンタム</div>
+          <div className="col-span-2 text-right">推計実効月利</div>
+          <div className="col-span-1 text-center">初期日数</div>
+        </div>
 
-                <span className="text-[10px] font-mono text-zinc-400 px-1.5 py-0.5 rounded bg-zinc-850 border border-zinc-800">
-                  準備: {idea.setupDays}
-                </span>
-              </div>
-
-              {/* タイトル */}
-              <h3 className="text-sm sm:text-base font-bold text-white group-hover:text-zinc-100 transition-colors leading-snug">
-                {idea.title}
-              </h3>
-
-              {/* 1行要約 */}
-              <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed font-normal">
-                {idea.shortDescription}
-              </p>
-
-              {/* 【文章の壁を解体した4分割キースペック表】 */}
-              <div className="grid grid-cols-2 gap-1.5 p-1.5 rounded bg-[#181B24] border border-zinc-750 font-mono">
-                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
-                  <div className="text-[9px] text-zinc-400 font-sans">推計実効月利</div>
-                  <div className="text-xs sm:text-sm font-bold text-white tabular-nums">{idea.estimatedMonthlyProfit}</div>
-                </div>
-                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
-                  <div className="text-[9px] text-zinc-400 font-sans">初期投下資本</div>
-                  <div className="text-xs sm:text-sm font-bold text-white tabular-nums">{idea.initialCapital}</div>
-                </div>
-                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
-                  <div className="text-[9px] text-zinc-400 font-sans">参入難易度</div>
-                  <div className="text-[11px] font-bold text-zinc-200">{idea.difficulty}</div>
-                </div>
-                <div className="p-2 rounded bg-[#12141C] space-y-0.5">
-                  <div className="text-[9px] text-zinc-400 font-sans">対象産業</div>
-                  <div className="text-[11px] font-bold text-zinc-200 truncate">{idea.targetMarket.split('（')[0]}</div>
+        {/* テーブル行リスト */}
+        <div className="divide-y divide-slate-150">
+          {filteredIdeas.map((idea) => (
+            <div
+              key={idea.id}
+              onClick={() => setSelectedIdea(idea)}
+              className="px-5 py-4 hover:bg-slate-50/80 transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start md:items-center group"
+            >
+              {/* 列1: アイコン＋名称＋カテゴリ */}
+              <div className="col-span-4 flex items-center gap-3 min-w-0 w-full">
+                <CompanyLogo id={idea.id} size="md" />
+                <div className="min-w-0 flex-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-bold text-sm text-slate-900 group-hover:text-indigo-600 transition-colors">
+                      {idea.title}
+                    </span>
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-100 text-slate-700">
+                      {idea.categoryLabel}
+                    </span>
+                  </div>
+                  <div className="text-xs text-slate-500 truncate font-normal mt-0.5">
+                    {idea.targetMarket}
+                  </div>
                 </div>
               </div>
 
-              {/* 使用ツールタグ */}
-              <div className="flex items-center gap-1 flex-wrap pt-0.5">
-                <span className="text-[10px] text-zinc-500 font-mono">武器:</span>
-                {idea.requiredTools.map((tool, idx) => (
-                  <span key={idx} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#181B24] text-zinc-300 border border-zinc-750">
-                    {tool}
-                  </span>
-                ))}
+              {/* 列2: 突くべき市場の歪み */}
+              <div className="col-span-3 text-xs text-slate-600 line-clamp-2 md:line-clamp-1 font-normal">
+                {idea.glitchOrTrap}
+              </div>
+
+              {/* 列3: 成長波形スパークライン */}
+              <div className="col-span-2 hidden md:flex items-center justify-center">
+                <SparklineChart trend="up" width={72} height={24} />
+              </div>
+
+              {/* 列4: 推計実効月利 */}
+              <div className="col-span-2 flex md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto">
+                <span className="text-xs text-slate-400 md:hidden font-mono">推計月利:</span>
+                <span className="text-sm font-extrabold text-emerald-700 font-mono tabular-nums bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
+                  {idea.estimatedMonthlyProfit}
+                </span>
+              </div>
+
+              {/* 列5: 初期日数 ＆ 矢印 */}
+              <div className="col-span-1 hidden md:flex items-center justify-center gap-1 text-xs font-mono text-slate-500">
+                <span>{idea.setupDays}</span>
+                <ArrowRight size={13} className="text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-0.5 transition-all" />
               </div>
             </div>
-
-            {/* 下部：参照元リンク ＆ 開く導線 */}
-            <div className="pt-2.5 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
-              <span className="text-zinc-400 text-[11px]">
-                {idea.sourceCompanyName ? `実証: ${idea.sourceCompanyName}` : '独自検証モデル'}
-              </span>
-              <span className="text-zinc-300 group-hover:text-white transition-colors flex items-center gap-1 font-bold">
-                <span>詳細手順・裏側解説</span>
-                <span>→</span>
-              </span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* アイデア詳細モーダル：投資銀行・調査機関レポート調              */}
+      {/* アイデア詳細モーダル：白基調・美麗レポート                      */}
       {/* ───────────────────────────────────────────────────────────── */}
       {selectedIdea && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-[#12141A] border border-white/20 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 space-y-5 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-white/10 pb-3">
-              <div className="space-y-1">
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-white/10 uppercase font-bold tracking-wider">
-                  {selectedIdea.categoryLabel}
-                </span>
-                <h2 className="text-lg sm:text-xl font-bold text-white">
-                  {selectedIdea.title}
-                </h2>
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl">
+            <div className="flex items-start justify-between border-b border-slate-200 pb-4">
+              <div className="flex items-start gap-3">
+                <CompanyLogo id={selectedIdea.id} size="lg" />
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 uppercase font-bold tracking-wider">
+                    {selectedIdea.categoryLabel}
+                  </span>
+                  <h2 className="text-lg sm:text-xl font-bold text-slate-900">
+                    {selectedIdea.title}
+                  </h2>
+                </div>
               </div>
               <button
                 onClick={() => setSelectedIdea(null)}
-                className="w-8 h-8 rounded bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center text-sm font-mono transition-colors"
+                className="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 hover:bg-slate-200 flex items-center justify-center text-sm transition-colors"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <X size={16} />
               </button>
             </div>
 
             <div className="space-y-4 text-xs font-sans">
-              <div className="p-3.5 rounded bg-[#0B0D11] border border-white/5 space-y-1.5">
-                <div className="text-[10px] font-mono text-zinc-500 uppercase font-bold tracking-wider">事業モデル概要 (EXECUTIVE SUMMARY)</div>
-                <p className="text-zinc-200 text-sm leading-relaxed font-medium">
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                <div className="text-[10px] font-mono text-slate-500 uppercase font-bold tracking-wider">事業モデル概要 (EXECUTIVE SUMMARY)</div>
+                <p className="text-slate-900 text-sm leading-relaxed font-medium">
                   {selectedIdea.shortDescription}
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="p-3.5 rounded bg-[#0B0D11] border border-white/5 space-y-1">
-                  <div className="text-[10px] font-mono text-zinc-400 uppercase font-bold tracking-wider">1. 市場の構造的盲点・価格の歪み</div>
-                  <p className="text-zinc-300 leading-relaxed text-xs">
+              {/* 4大キースペック（入れ子箱を排除したフラットグリッド） */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 border-y border-slate-200 font-mono">
+                <div>
+                  <div className="text-[10px] text-slate-500 font-sans font-medium">推計実効月利</div>
+                  <div className="text-base font-extrabold text-emerald-700 tabular-nums mt-0.5">{selectedIdea.estimatedMonthlyProfit}</div>
+                </div>
+                <div>
+                  <div className="text-[10px] text-slate-500 font-sans font-medium">初期投下資本</div>
+                  <div className="text-base font-bold text-slate-900 tabular-nums mt-0.5">{selectedIdea.initialCapital}</div>
+                </div>
+                <div>
+                  <div className="text-[10px] text-slate-500 font-sans font-medium">参入難易度</div>
+                  <div className="text-base font-bold text-slate-800 mt-0.5">{selectedIdea.difficulty}</div>
+                </div>
+                <div>
+                  <div className="text-[10px] text-slate-500 font-sans font-medium">初動期間</div>
+                  <div className="text-base font-bold text-slate-800 mt-0.5">{selectedIdea.setupDays}</div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                <div className="space-y-1">
+                  <div className="text-[11px] font-mono text-slate-500 uppercase font-bold tracking-wider">1. 市場の構造的盲点・価格の歪み</div>
+                  <p className="text-slate-800 leading-relaxed text-xs font-normal">
                     {selectedIdea.glitchOrTrap}
                   </p>
                 </div>
 
-                <div className="p-3.5 rounded bg-[#0B0D11] border border-white/5 space-y-1">
-                  <div className="text-[10px] font-mono text-zinc-400 uppercase font-bold tracking-wider">2. 具体的参入プロトコル（現場手順）</div>
-                  <p className="text-zinc-300 leading-relaxed text-xs">
-                    {selectedIdea.actionableSteps}
+                <div className="space-y-1">
+                  <div className="text-[11px] font-mono text-slate-500 uppercase font-bold tracking-wider">2. 収益化・仕掛けのカラクリ</div>
+                  <p className="text-slate-800 leading-relaxed text-xs font-normal">
+                    {selectedIdea.shortDescription}
                   </p>
                 </div>
               </div>
 
-              <div className="p-4 rounded bg-[#0B0D11] border border-white/5 space-y-2">
-                <div className="text-[10px] font-mono text-zinc-400 uppercase font-bold tracking-wider">実稼働インフラ・必要ツールスタック</div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  {selectedIdea.requiredTools.map((t, i) => (
-                    <span key={i} className="px-2.5 py-1 rounded bg-[#171920] border border-white/10 text-xs font-mono text-zinc-200">
-                      {t}
-                    </span>
-                  ))}
+              {/* 初動実行手順 */}
+              <div className="space-y-2 pt-2 border-t border-slate-200">
+                <div className="text-[11px] font-mono text-slate-500 uppercase font-bold tracking-wider">
+                  3. 最初の100万円を作る初動ステップ (EXECUTION BLUEPRINT)
                 </div>
-              </div>
-
-              <div className="p-4 rounded bg-[#0B0D11] border border-white/5 grid grid-cols-3 gap-3 text-center font-mono">
-                <div>
-                  <div className="text-[10px] text-zinc-500 uppercase">INITIAL CAPITAL</div>
-                  <div className="text-sm font-bold text-white mt-0.5 tabular-nums">{selectedIdea.initialCapital}</div>
-                </div>
-                <div>
-                  <div className="text-[10px] text-zinc-500 uppercase">SETUP TIMELINE</div>
-                  <div className="text-sm font-bold text-white mt-0.5">{selectedIdea.setupDays}</div>
-                </div>
-                <div>
-                  <div className="text-[10px] text-zinc-400 uppercase">EXPECTED NET CF</div>
-                  <div className="text-sm font-bold text-white mt-0.5 tabular-nums">{selectedIdea.estimatedMonthlyProfit}</div>
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs leading-relaxed font-medium">
+                  {selectedIdea.actionableSteps}
                 </div>
               </div>
             </div>
 
-            <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-3">
+            <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
               {selectedIdea.sourceCompanyId ? (
                 <button
                   onClick={() => {
@@ -273,17 +268,17 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
                     setSelectedIdea(null);
                     onSelectCompany(cid);
                   }}
-                  className="px-4 py-2 rounded bg-white hover:bg-zinc-200 text-black font-bold text-xs font-mono transition-colors flex items-center gap-1.5 shadow-sm"
+                  className="px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all flex items-center gap-1.5 shadow-xs"
                 >
-                  <span>実証企業の詳細分析調書を開く →</span>
+                  <span>実証企業（{selectedIdea.sourceCompanyName}）の詳細財務諸表を閲覧</span>
+                  <ArrowRight size={14} />
                 </button>
               ) : (
-                <div />
+                <div className="text-xs text-slate-500 font-mono">独自検証レポート</div>
               )}
-
               <button
                 onClick={() => setSelectedIdea(null)}
-                className="px-4 py-2 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-medium transition-colors"
+                className="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition-colors"
               >
                 閉じる
               </button>

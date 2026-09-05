@@ -62,67 +62,67 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-xs p-4 font-sans select-none">
-      <div className="w-full max-w-md bg-[#13151A] border border-white/10 rounded-lg p-5 shadow-2xl">
-        <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] mb-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4 font-sans select-none">
+      <div className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-6 shadow-2xl space-y-5">
+        <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-bold text-zinc-100 uppercase tracking-wider">
+            <span className="font-mono text-xs font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 uppercase tracking-wider">
               EXPORT DATA
             </span>
-            <span className="text-[10px] font-mono text-zinc-500">財務台帳出力</span>
+            <span className="text-xs font-semibold text-slate-700">財務台帳出力</span>
           </div>
-          <button onClick={onClose} className="text-zinc-500 hover:text-zinc-300 text-xs font-mono">
+          <button onClick={onClose} className="text-slate-400 hover:text-slate-600 text-xs font-mono font-semibold">
             閉じる [ESC]
           </button>
         </div>
 
-        <div className="space-y-4 mb-6 text-xs">
+        <div className="space-y-4 text-xs">
           <div>
-            <label className="text-zinc-400 block mb-1.5 font-medium">出力対象</label>
+            <label className="text-slate-600 block mb-1.5 font-medium">出力対象</label>
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => setExportTarget('CURRENT')}
-                className={`p-2.5 rounded border text-left transition-all ${
+                className={`p-3 rounded-xl border text-left transition-all ${
                   exportTarget === 'CURRENT'
-                    ? 'bg-zinc-800 border-white/20 text-zinc-100'
-                    : 'bg-[#171920] border-white/5 text-zinc-400'
+                    ? 'bg-indigo-50/80 border-indigo-300 text-indigo-950 font-semibold'
+                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                 }`}
               >
-                <div className="font-semibold">{currentCompany?.japaneseName || '選択中銘柄'}</div>
-                <div className="text-[10px] text-zinc-500">単一銘柄の詳細財務諸表</div>
+                <div className="font-bold text-slate-900">{currentCompany?.japaneseName || '選択中銘柄'}</div>
+                <div className="text-[10px] text-slate-500 font-normal">単一銘柄の詳細財務諸表</div>
               </button>
 
               <button
                 onClick={() => setExportTarget('ALL')}
-                className={`p-2.5 rounded border text-left transition-all ${
+                className={`p-3 rounded-xl border text-left transition-all ${
                   exportTarget === 'ALL'
-                    ? 'bg-zinc-800 border-white/20 text-zinc-100'
-                    : 'bg-[#171920] border-white/5 text-zinc-400'
+                    ? 'bg-indigo-50/80 border-indigo-300 text-indigo-950 font-semibold'
+                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
                 }`}
               >
-                <div className="font-semibold">全{companies.length}社 一括台帳</div>
-                <div className="text-[10px] text-zinc-500">全社財務マトリクス</div>
+                <div className="font-bold text-slate-900">全{companies.length}社 一括台帳</div>
+                <div className="text-[10px] text-slate-500 font-normal">全社財務マトリクス</div>
               </button>
             </div>
           </div>
 
-          <div className="p-3 bg-[#0E1013] rounded border border-white/5 text-zinc-400 space-y-1 font-mono text-[11px]">
+          <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-slate-600 space-y-1 font-mono text-[11px]">
             <div>出力形式: カンマ区切り生データ (CSV / UTF-8 BOM付き)</div>
             <div>互換性: Microsoft Excel, Googleスプレッドシート完全対応</div>
           </div>
         </div>
 
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100">
           <button
             onClick={handleCopy}
-            className="h-7 px-3 rounded bg-[#1C1F26] hover:bg-zinc-700 text-zinc-300 text-xs border border-white/10 font-mono transition-colors"
+            className="h-9 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs border border-slate-200 font-mono font-medium transition-colors"
           >
             {copied ? 'コピー完了' : '文字列コピー'}
           </button>
 
           <button
             onClick={handleDownload}
-            className="h-7 px-3 rounded bg-zinc-100 hover:bg-white text-zinc-900 text-xs font-semibold font-sans transition-colors"
+            className="h-9 px-4 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold font-sans transition-colors shadow-xs"
           >
             CSVダウンロード
           </button>

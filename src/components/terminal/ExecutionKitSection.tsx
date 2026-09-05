@@ -38,16 +38,16 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
 
   return (
     <section className="space-y-4">
-      <div className="flex items-center justify-between border-b border-zinc-800 pb-2">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-2">
         <div className="flex items-center gap-2">
-          <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-[10px] font-bold border border-zinc-700">
+          <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-mono text-[10px] font-bold border border-indigo-200">
             EXECUTION ARSENAL
           </span>
-          <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
-            実弾兵器庫：明日から実践するための「コピペ実行キット」
+          <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
+            実戦兵器庫：明日から実践するための「コピペ実行キット」
           </h2>
         </div>
-        <span className="text-[11px] font-mono text-zinc-500">
+        <span className="text-[11px] font-mono text-slate-400">
           ※ 即座にクリップボードにコピーして実戦投入可能
         </span>
       </div>
@@ -55,58 +55,58 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 font-sans">
         
         {/* 実弾①: 顧客獲得コールドメール/DM文面 */}
-        <div className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-3 flex flex-col justify-between">
+        <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3 flex flex-col justify-between">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-bold text-zinc-400 bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
+              <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
                 実弾 ASSET 01: 顧客獲得コールドDM
               </span>
-              <span className="text-[10px] font-mono text-emerald-400 font-bold">無料公開枠</span>
+              <span className="text-[10px] font-mono text-emerald-700 font-bold">無料公開枠</span>
             </div>
-            <h3 className="text-xs sm:text-sm font-bold text-white">
+            <h3 className="text-xs sm:text-sm font-bold text-slate-900">
               初期顧客を広告費ゼロで強奪した「直談判アプローチ文面」
             </h3>
-            <p className="text-xs text-zinc-400 font-normal leading-relaxed">
+            <p className="text-xs text-slate-500 font-normal leading-relaxed">
               このビジネスが最初の3人〜10人の有料顧客を獲得した際に使用された、返信率18%超のコールドメール骨子。
             </p>
 
-            <div className="p-3 bg-zinc-950 rounded border border-zinc-800/80 font-mono text-[11px] text-zinc-300 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
+            <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-[11px] text-slate-700 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
               {coldMessageScript}
             </div>
           </div>
 
           <button
             onClick={() => handleCopy(coldMessageScript, 'COLD_MESSAGE')}
-            className="w-full py-2 px-3 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-mono font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+            className="w-full py-2.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-mono font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
           >
             <span>{copiedType === 'COLD_MESSAGE' ? '✓ コピー完了' : 'この文面を1クリックでコピー'}</span>
           </button>
         </div>
 
         {/* 実弾②: Cursor / LLM初期開発プロンプト */}
-        <div className="p-4 sm:p-5 rounded-lg bg-[#0E1015] border border-zinc-800 space-y-3 flex flex-col justify-between">
+        <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3 flex flex-col justify-between">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono font-bold text-zinc-400 bg-zinc-900 px-2 py-0.5 rounded border border-zinc-800">
+              <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
                 実弾 ASSET 02: 初期MVP開発プロンプト
               </span>
-              <span className="text-[10px] font-mono text-emerald-400 font-bold">無料公開枠</span>
+              <span className="text-[10px] font-mono text-emerald-700 font-bold">無料公開枠</span>
             </div>
-            <h3 className="text-xs sm:text-sm font-bold text-white">
+            <h3 className="text-xs sm:text-sm font-bold text-slate-900">
               CursorやClaudeに投げて一撃で骨組みを組ませる「特化プロンプト」
             </h3>
-            <p className="text-xs text-zinc-400 font-normal leading-relaxed">
+            <p className="text-xs text-slate-500 font-normal leading-relaxed">
               自力でコードを書かず、AIにこのビジネスの最小限の集金画面・決済連動を自動生成させるための指示書。
             </p>
 
-            <div className="p-3 bg-zinc-950 rounded border border-zinc-800/80 font-mono text-[11px] text-zinc-300 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
+            <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-[11px] text-slate-700 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
               {aiPromptScript}
             </div>
           </div>
 
           <button
             onClick={() => handleCopy(aiPromptScript, 'AI_PROMPT')}
-            className="w-full py-2 px-3 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-mono font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+            className="w-full py-2.5 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-mono font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
           >
             <span>{copiedType === 'AI_PROMPT' ? '✓ コピー完了' : 'プロンプトを1クリックでコピー'}</span>
           </button>
