@@ -139,7 +139,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* 【ヘッダー】企業エグゼクティブ・サマリーカード */}
       {/* ───────────────────────────────────────────────────────────── */}
       <div className="p-5 rounded-xl bg-[#111317] border border-white/[0.12] shadow-2xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 px-3 py-1 bg-emerald-500/10 border-b border-l border-emerald-500/20 text-[10px] font-mono text-emerald-400 font-bold tracking-wider">
+        <div className="absolute top-0 right-0 px-3 py-1 bg-zinc-800 border-b border-l border-zinc-700 text-[10px] font-mono text-zinc-300 font-bold tracking-wider">
           DOSSIER # {company.ticker}
         </div>
 
@@ -435,7 +435,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         <section className="space-y-5 pt-2">
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 font-mono text-xs font-bold border border-emerald-800/40">
+              <span className="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono text-xs font-bold border border-zinc-700">
                 02
               </span>
               <h2 className="text-sm sm:text-base font-bold text-white tracking-wide">
@@ -502,7 +502,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                     <div className="w-full h-4 bg-zinc-800 rounded-xs overflow-hidden p-0.5">
                       <div
                         style={{ width: `${profitPercent}%` }}
-                        className="h-full bg-emerald-500 rounded-xs transition-all"
+                        className="h-full bg-zinc-200 rounded-xs transition-all"
                       />
                     </div>
                   </div>
@@ -717,27 +717,27 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                 <div className="p-3.5 rounded bg-[#0A0C0E] border border-white/5 space-y-1">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 inline-block mb-1">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700 inline-block mb-1">
                     DAY 1 - 2
                   </span>
-                  <h4 className="text-xs font-bold text-zinc-200">餌の仕込み & オファー構築</h4>
+                  <h4 className="text-xs font-bold text-zinc-200">プロダクト設計 & オファー定義</h4>
                   <p className="text-[11px] text-zinc-400 leading-relaxed font-sans pt-1">
                     {company.proDossier.sevenDayBlueprint.day1to2OfferSetup}
                   </p>
                 </div>
 
                 <div className="p-3.5 rounded bg-[#0A0C0E] border border-white/5 space-y-1">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 inline-block mb-1">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700 inline-block mb-1">
                     DAY 3 - 4
                   </span>
-                  <h4 className="text-xs font-bold text-zinc-200">集金ラインの即時開通</h4>
+                  <h4 className="text-xs font-bold text-zinc-200">決済・契約インフラの即時開通</h4>
                   <p className="text-[11px] text-zinc-400 leading-relaxed font-sans pt-1">
                     {company.proDossier.sevenDayBlueprint.day3to4CashflowPipe}
                   </p>
                 </div>
 
                 <div className="p-3.5 rounded bg-[#0A0C0E] border border-white/5 space-y-1">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-950 text-emerald-300 border border-emerald-800/40 inline-block mb-1">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700 inline-block mb-1">
                     DAY 5 - 6
                   </span>
                   <h4 className="text-xs font-bold text-zinc-200">初期顧客の獲得（実証）</h4>
@@ -747,10 +747,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </div>
 
                 <div className="p-3.5 rounded bg-[#0A0C0E] border border-white/5 space-y-1">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-950 text-cyan-300 border border-cyan-800/40 inline-block mb-1">
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-zinc-800 text-zinc-300 border border-zinc-700 inline-block mb-1">
                     DAY 7
                   </span>
-                  <h4 className="text-xs font-bold text-zinc-200">自動配線・不労化の完成</h4>
+                  <h4 className="text-xs font-bold text-zinc-200">自律運用・自動化パイプラインの確立</h4>
                   <p className="text-[11px] text-zinc-400 leading-relaxed font-sans pt-1">
                     {company.proDossier.sevenDayBlueprint.day7AutomationEngine}
                   </p>

@@ -90,7 +90,7 @@ export const MainAnalysisView: React.FC<MainAnalysisViewProps> = ({
             {company.isForSale && (
               <button
                 onClick={onOpenOfferModal}
-                className="h-8 px-3 bg-emerald-600 hover:bg-emerald-500 text-black font-semibold text-xs rounded transition-colors"
+                className="h-8 px-3 bg-white hover:bg-zinc-200 text-black font-semibold text-xs rounded transition-colors"
               >
                 買収・出資打診
               </button>
@@ -264,7 +264,7 @@ export const MainAnalysisView: React.FC<MainAnalysisViewProps> = ({
                       <td className="py-2.5 text-zinc-300 pl-4 font-sans text-[11px]">{t.purpose}</td>
                       <td className="py-2.5 text-center">
                         <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${
-                          t.replacementDifficulty === 'HIGH' ? 'text-red-400 bg-red-500/10' : t.replacementDifficulty === 'MEDIUM' ? 'text-amber-400 bg-amber-500/10' : 'text-emerald-400 bg-emerald-500/10'
+                          t.replacementDifficulty === 'HIGH' ? 'text-zinc-100 bg-zinc-800 border border-zinc-700 font-semibold' : t.replacementDifficulty === 'MEDIUM' ? 'text-zinc-300 bg-zinc-850 border border-zinc-800' : 'text-zinc-400 bg-zinc-900 border border-zinc-800/80'
                         }`}>
                           {t.replacementDifficulty === 'HIGH' ? '極めて困難' : t.replacementDifficulty === 'MEDIUM' ? '中程度' : '即座に可能'}
                         </span>

@@ -65,7 +65,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
           </div>
 
           <div className="flex items-center gap-2.5 self-start sm:self-auto font-mono text-xs text-zinc-400 bg-[#12141A] px-3.5 py-2 rounded-lg border border-white/10">
-            <span className="w-2 h-2 rounded-full bg-emerald-500" />
+            <span className="w-1.5 h-1.5 rounded-full bg-zinc-300" />
             <span>検証済みモデル数: <strong className="text-white font-bold tabular-nums">{filteredIdeas.length}</strong> 件</span>
           </div>
         </div>

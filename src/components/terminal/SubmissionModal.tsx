@@ -53,7 +53,7 @@ export const SubmissionModal: React.FC<SubmissionModalProps> = ({
 
         {submitted ? (
           <div className="p-8 text-center space-y-4 font-sans">
-            <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto text-xl font-bold">
+            <div className="w-12 h-12 rounded-full bg-zinc-800 text-white border border-zinc-700 flex items-center justify-center mx-auto text-xl font-bold">
               ✓
             </div>
             <div className="space-y-1">

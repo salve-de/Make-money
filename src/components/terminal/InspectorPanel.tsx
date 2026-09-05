@@ -114,11 +114,11 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
       {/* 3. 買収・出資打診CTA */}
       {company.isForSale ? (
-        <div className="bg-gradient-to-b from-emerald-950/30 to-[#181B22] border border-emerald-500/30 rounded-lg p-3.5">
+        <div className="bg-[#181B22] border border-zinc-700/80 rounded-lg p-3.5">
           <div className="flex items-center gap-1.5 mb-1.5">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            <span className="text-xs font-bold text-emerald-300 font-mono">
-              事業売却・出資受付中
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-white"></span>
+            <span className="text-xs font-bold text-zinc-100 font-mono">
+              事業売却・出資打診 受付中
             </span>
           </div>
 
@@ -128,7 +128,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
           <button
             onClick={onOpenOfferModal}
-            className="w-full h-8 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs rounded transition-colors shadow-sm font-sans"
+            className="w-full h-8 bg-white hover:bg-zinc-200 text-black font-semibold text-xs rounded transition-colors shadow-sm font-sans"
           >
             買収意向表明書 (LOI) を送付
           </button>
@@ -145,7 +145,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
 
       {/* 4. 機関PROアップグレードCTA */}
       <div className="bg-[#181B22] border border-white/[0.08] rounded-lg p-3.5 mt-auto">
-        <span className="text-[10px] font-mono text-indigo-400 font-semibold uppercase block mb-1">
+        <span className="text-[10px] font-mono text-zinc-300 font-semibold uppercase block mb-1">
           機関契約PROプラン
         </span>
         <p className="text-[11px] text-zinc-400 mb-3 leading-relaxed">
@@ -153,7 +153,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
         </p>
         <button
           onClick={onOpenProModal}
-          className="w-full h-8 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold rounded transition-colors"
+          className="w-full h-8 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 border border-zinc-700 text-xs font-semibold rounded transition-colors"
         >
           月額プランを確認する
         </button>

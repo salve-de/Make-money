@@ -50,7 +50,7 @@ export const InfrastructureToolkitModal: React.FC<InfrastructureToolkitModalProp
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <span className="font-bold text-zinc-100 text-sm">{item.name}</span>
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-zinc-800 text-zinc-300 border border-zinc-700">
                       {item.badge}
                     </span>
                   </div>

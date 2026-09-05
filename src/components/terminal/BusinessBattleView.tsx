@@ -236,7 +236,7 @@ export const BusinessBattleView: React.FC<BusinessBattleViewProps> = ({
             {/* プレイヤーBヘッダー */}
             <div className="space-y-2 border-l border-zinc-800 pl-4">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-950/80 text-emerald-300 border border-emerald-800">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono bg-zinc-800 text-zinc-300 border border-zinc-700">
                   PLAYER B
                 </span>
                 <span className="text-[11px] font-mono text-zinc-500">
@@ -251,7 +251,7 @@ export const BusinessBattleView: React.FC<BusinessBattleViewProps> = ({
               </p>
               <button
                 onClick={() => onSelectCompany(compB.id)}
-                className="text-xs font-mono text-emerald-400 hover:text-emerald-300 underline underline-offset-4"
+                className="text-xs font-mono text-zinc-300 hover:text-white underline underline-offset-4"
               >
                 詳細台帳を見る →
               </button>

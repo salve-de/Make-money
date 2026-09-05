@@ -99,13 +99,13 @@ export const DesireFilterBar: React.FC<DesireFilterBarProps> = ({
             onClick={onOpenScreener}
             className={`h-6 px-2.5 rounded text-[11px] font-medium transition-all flex items-center gap-1 border ${
               hasActiveFilters
-                ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30 font-semibold'
+                ? 'bg-white text-black border-white font-semibold shadow-xs'
                 : 'bg-[#17191E] text-zinc-300 border-white/10 hover:bg-zinc-800'
             }`}
           >
             <span>多次元スクリーナー</span>
             {hasActiveFilters && (
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-900"></span>
             )}
           </button>
         </div>

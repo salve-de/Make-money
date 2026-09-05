@@ -15,7 +15,7 @@ export const MarketTicker: React.FC = () => {
   return (
     <div className="h-9 bg-[#121418] border-b border-white/[0.06] flex items-center px-3 overflow-x-auto text-[11px] select-none text-zinc-400 no-scrollbar whitespace-nowrap">
       <div className="flex items-center gap-2 pr-4 font-mono font-medium text-zinc-300 border-r border-white/[0.08] mr-3 shrink-0">
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-white"></span>
         <span>MARKET FEED</span>
       </div>
       <div className="flex items-center gap-6">
@@ -23,7 +23,7 @@ export const MarketTicker: React.FC = () => {
           <div key={idx} className="flex items-center gap-2 shrink-0">
             <span className="text-zinc-400">{item.label}:</span>
             <span className="font-mono text-zinc-200 font-semibold">{item.val}</span>
-            <span className={`font-mono text-[10px] px-1 py-0.5 rounded ${item.isUp ? 'text-emerald-400 bg-emerald-500/10' : 'text-zinc-400 bg-zinc-800'}`}>
+            <span className="font-mono text-[10px] px-1 py-0.5 rounded text-zinc-300 bg-zinc-800 border border-zinc-700">
               {item.change}
             </span>
           </div>

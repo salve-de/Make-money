@@ -123,8 +123,8 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
                 </div>
 
                 <div className="text-right">
-                  <div className="text-[10px] text-emerald-500/90 font-medium">創業者純手取り</div>
-                  <div className="text-sm font-bold text-emerald-400 tabular-nums">
+                  <div className="text-[10px] text-zinc-400 font-medium">創業者純手取り</div>
+                  <div className="text-sm font-bold text-white tabular-nums">
                     {formatShortAmount(founderTakeHome)}
                   </div>
                 </div>

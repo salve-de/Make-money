@@ -80,13 +80,13 @@ export const LeftRail: React.FC<LeftRailProps> = ({
                   : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-850'
               }`}
             >
-              {/* 左のアクティブバー（Discordスタイル） */}
+              {/* 左のアクティブバー */}
               {isActive && (
-                <span className="absolute left-0 top-2 bottom-2 w-0.5 bg-indigo-500 rounded-r"></span>
+                <span className="absolute left-0 top-2 bottom-2 w-0.5 bg-white rounded-r"></span>
               )}
               {item.icon}
               {item.badge !== undefined && item.badge > 0 && (
-                <span className="absolute -top-1 -right-1 bg-emerald-500 text-black text-[9px] font-mono font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 bg-zinc-200 text-black text-[9px] font-mono font-bold w-4 h-4 rounded-full flex items-center justify-center">
                   {item.badge}
                 </span>
               )}

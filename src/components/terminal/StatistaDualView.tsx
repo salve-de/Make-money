@@ -84,7 +84,7 @@ export const StatistaDualView: React.FC<StatistaDualViewProps> = ({
               <span>粗利益</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-sm bg-emerald-500"></span>
+              <span className="w-2 h-2 rounded-sm bg-white"></span>
               <span>営業利益</span>
             </div>
           </div>
@@ -123,7 +123,7 @@ export const StatistaDualView: React.FC<StatistaDualViewProps> = ({
                       {/* 営業利益バー */}
                       <div
                         style={{ height: `${opHeightPercent}%` }}
-                        className="w-3 bg-emerald-600/80 rounded-t group-hover:bg-emerald-500 transition-all relative flex justify-center"
+                        className="w-3 bg-white/90 rounded-t group-hover:bg-white transition-all relative flex justify-center"
                       >
                         <span className="opacity-0 group-hover:opacity-100 absolute -top-6 text-[10px] font-mono bg-black text-zinc-200 px-1.5 py-0.5 rounded border border-white/10 whitespace-nowrap z-10 transition-opacity">
                           営利: {formatYen(fin.operatingProfitJpy)} ({fin.operatingMarginPercent}%)

@@ -91,28 +91,17 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
   // 無限ループ用に配列を2重化
   const tickerItems = [...NEWS_TICKER_ITEMS, ...NEWS_TICKER_ITEMS];
 
-  const getBadgeStyle = (type: NewsTickerItem['badgeType']) => {
-    switch (type) {
-      case 'RECORD':
-        return 'bg-zinc-800 text-white border-white/15';
-      case 'PROFIT':
-        return 'bg-zinc-800 text-emerald-300 border-emerald-500/20';
-      case 'HOT':
-        return 'bg-zinc-800 text-zinc-200 border-white/10';
-      case 'MONOPOLY':
-        return 'bg-zinc-800 text-zinc-100 border-white/15';
-      case 'SPEED':
-        return 'bg-zinc-800 text-zinc-200 border-white/10';
-    }
+  const getBadgeStyle = (_type: NewsTickerItem['badgeType']) => {
+    return 'bg-zinc-850 text-zinc-300 border-white/10';
   };
 
   return (
-    <div className="h-7 bg-[#08090C] border-b border-white/[0.06] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
-      {/* 左端固定：速報ラベル（パルスランプ付き） */}
-      <div className="flex items-center gap-2 text-zinc-400 shrink-0 px-3.5 bg-[#08090C] z-10 border-r border-white/[0.08] h-full shadow-[2px_0_8px_rgba(0,0,0,0.6)]">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-        <span className="font-bold text-[10px] tracking-wider text-zinc-300 font-mono uppercase">
-          MARKET INTELLIGENCE FEED
+    <div className="h-7 bg-[#090A0D] border-b border-white/[0.08] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
+      {/* 左端固定：速報ラベル */}
+      <div className="flex items-center gap-2 text-zinc-400 shrink-0 px-3 bg-[#090A0D] z-10 border-r border-white/[0.08] h-full shadow-[2px_0_6px_rgba(0,0,0,0.5)]">
+        <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 shrink-0" />
+        <span className="font-bold text-[10px] tracking-widest text-zinc-300 font-mono uppercase">
+          INTELLIGENCE FEED
         </span>
       </div>
 

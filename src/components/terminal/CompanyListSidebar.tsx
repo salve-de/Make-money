@@ -119,7 +119,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
         {/* 見出し ＆ 多次元スクリーナー起動ボタン */}
         <div className="flex items-center justify-between gap-2">
           <div>
-            <div className="text-[9px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+            <div className="text-[9px] font-mono text-zinc-400 font-bold uppercase tracking-wider">
               CANDIDATE DIRECTORY
             </div>
             <div className="text-xs font-bold text-zinc-100 flex items-center gap-1.5">
@@ -134,12 +134,12 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
             onClick={onOpenScreener}
             className={`h-7 px-2.5 rounded text-[11px] font-bold flex items-center gap-1.5 transition-all shadow-xs ${
               hasActiveFilters
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 hover:bg-emerald-500/30'
+                ? 'bg-white text-black font-semibold border border-white hover:bg-zinc-200'
                 : 'bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-white/10'
             }`}
             title="50個の詳細条件で左リストを絞り込む"
           >
-            {hasActiveFilters && <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>}
+            {hasActiveFilters && <span className="w-1.5 h-1.5 rounded-full bg-zinc-900"></span>}
             <span>条件設定 (50軸)</span>
           </button>
           <button
@@ -192,7 +192,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
         {(activeChips.length > 0 || activePreset !== 'ALL') && (
           <div className="pt-1 border-t border-white/[0.04] flex items-center justify-between gap-1 text-[10px] font-mono">
             <div className="flex items-center gap-1 flex-wrap overflow-hidden">
-              <span className="text-emerald-400 shrink-0 font-semibold">● 絞込中:</span>
+              <span className="text-zinc-300 shrink-0 font-semibold">● 絞込中:</span>
               {activeChips.map((chip, i) => (
                 <span
                   key={i}
@@ -283,13 +283,13 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
             const getTierBadge = (tier: ScaleTier) => {
               switch (tier) {
                 case 'SOLO_MICRO':
-                  return { label: company.teamSize === 1 ? '完全1人' : `${company.teamSize}名精鋭`, color: 'text-emerald-400 border-emerald-500/30 bg-emerald-950/40' };
+                  return { label: company.teamSize === 1 ? '単独運営' : `${company.teamSize}名精鋭`, color: 'text-zinc-200 border-zinc-700 bg-zinc-800' };
                 case 'NICHE_LEADER':
-                  return { label: '中堅ニッチ', color: 'text-amber-400 border-amber-500/30 bg-amber-950/40' };
+                  return { label: '中堅ニッチ', color: 'text-zinc-300 border-zinc-700 bg-zinc-850' };
                 case 'SCALE_UP':
-                  return { label: '急成長新興', color: 'text-cyan-400 border-cyan-500/30 bg-cyan-950/40' };
+                  return { label: '急成長新興', color: 'text-zinc-200 border-zinc-700 bg-zinc-800' };
                 case 'MEGA_CORP':
-                  return { label: '巨大独占', color: 'text-indigo-400 border-indigo-500/30 bg-indigo-950/40' };
+                  return { label: '巨大独占', color: 'text-zinc-300 border-zinc-700 bg-zinc-850' };
               }
             };
 
@@ -301,7 +301,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 onClick={() => onSelectCompany(company.id)}
                 className={`px-3 py-2.5 cursor-pointer transition-all border-l-2 flex flex-col gap-1.5 ${
                   isSelected
-                    ? 'bg-[#181B22] border-emerald-400 text-zinc-100'
+                    ? 'bg-[#16181F] border-white text-zinc-100'
                     : 'hover:bg-zinc-850/40 border-transparent text-zinc-400 hover:text-zinc-200'
                 }`}
               >
@@ -325,7 +325,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 {/* 2行目: 創業者 / 稼働時間 ＆ 一言事業概要 */}
                 <div className="flex items-center gap-2 text-[11px] text-zinc-400 truncate">
                   {company.weeklyHours && company.weeklyHours <= 10 && (
-                    <span className="text-emerald-400/90 font-mono text-[10px] shrink-0 font-medium">
+                    <span className="text-zinc-300 font-mono text-[10px] shrink-0 font-medium">
                       週{company.weeklyHours}h
                     </span>
                   )}

@@ -89,18 +89,18 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                   </button>
                 </div>
 
-                {/* 集金のカラクリ概要プレビュー */}
+                {/* 構造分析概要プレビュー */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
                   <div className="p-3.5 rounded-md bg-zinc-900/60 border border-zinc-800/60 space-y-1">
-                    <span className="text-[10px] font-mono text-zinc-500 block">獲物・客層:</span>
+                    <span className="text-[10px] font-mono text-zinc-500 block">ターゲット顧客群:</span>
                     <p className="text-zinc-300 font-normal line-clamp-2">{col.moneyFlow.victimOrBuyer}</p>
                   </div>
                   <div className="p-3.5 rounded-md bg-zinc-900/60 border border-zinc-800/60 space-y-1">
-                    <span className="text-[10px] font-mono text-zinc-500 block">集金の罠:</span>
+                    <span className="text-[10px] font-mono text-zinc-500 block">課金・収益化メカニズム:</span>
                     <p className="text-zinc-300 font-normal line-clamp-2">{col.moneyFlow.profitTrap}</p>
                   </div>
                   <div className="p-3.5 rounded-md bg-zinc-900/60 border border-zinc-800/60 space-y-1">
-                    <span className="text-[10px] font-mono text-zinc-400 font-bold block">創業者純手取り:</span>
+                    <span className="text-[10px] font-mono text-zinc-400 font-bold block">実効手残り率:</span>
                     <p className="text-zinc-200 font-bold font-mono">{col.moneyFlow.takeHomeRate}</p>
                   </div>
                 </div>

@@ -148,15 +148,15 @@ export const ExecutiveVisualCharts: React.FC<ExecutiveVisualChartsProps> = ({ co
           {/* 最終手残り営業利益 */}
           <div className="pt-2 border-t border-white/[0.06]">
             <div className="flex justify-between text-xs mb-1">
-              <span className="text-emerald-400 font-bold font-sans">= 実質本業手残り利益</span>
-              <span className="text-emerald-400 font-bold text-sm">
+              <span className="text-zinc-200 font-bold font-sans">= 実質本業手残り利益</span>
+              <span className="text-zinc-100 font-bold text-sm font-mono">
                 +{profitPercent}% ({formatShortAmount(opProfit)})
               </span>
             </div>
             <div className="w-full h-4 bg-zinc-800 rounded-xs overflow-hidden p-0.5">
               <div
                 style={{ width: `${profitPercent}%` }}
-                className="h-full bg-emerald-500 rounded-xs transition-all"
+                className="h-full bg-zinc-200 rounded-xs transition-all"
               ></div>
             </div>
           </div>
