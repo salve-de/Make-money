@@ -14,6 +14,8 @@ Read the cross-project source of truth in this exact order:
 6. `salve-de/universal-foundation/registry/datasets/business-intelligence.v1.json`
 7. `salve-de/universal-foundation/registry/products/make-money.v1.json`
 8. `salve-de/universal-foundation/schemas/foundation/research-bundle.v1.schema.json`
+9. `salve-de/universal-foundation/schemas/foundation/planned-writes.v1.schema.json`
+10. `salve-de/universal-foundation/docs/R2_NEW_DATA_WRITE_RUNBOOK.md` only when the active task explicitly authorizes R2 writes
 
 Do not reconstruct these rules from chat history and do not invent a Make-Money-specific R2 layout.
 
@@ -35,6 +37,11 @@ Do not use GitHub as the object/data warehouse.
 
 Unless the active task explicitly authorizes writes, R2 work is read-only/local-preparation only.
 
-Normal authorized ingestion is create-only/no-overwrite. Do not Copy/Delete/Move/Rename/Overwrite, create buckets, change lifecycle/env/config/policies, or mutate legacy `universal` unless a separate explicit task authorizes the exact action.
+Every research run must first produce:
+
+- a schema-valid `research-bundle.v1`;
+- a schema-valid `planned-writes.v1` manifest.
+
+Normal authorized ingestion is create-only/no-overwrite and must follow the Foundation R2 write runbook. Do not Copy/Delete/Move/Rename/Overwrite, create buckets, change lifecycle/env/config/policies, or mutate legacy `universal` unless a separate explicit task authorizes the exact action.
 
 Unknown data/rights are valid stop conditions. Never fabricate missing revenue, founder, customer, pricing, team, distribution, workload, margin, or technology facts.
