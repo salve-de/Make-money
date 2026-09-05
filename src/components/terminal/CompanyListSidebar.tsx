@@ -301,8 +301,8 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 onClick={() => onSelectCompany(company.id)}
                 className={`px-3 py-2.5 cursor-pointer transition-all border-l-2 flex flex-col gap-1.5 ${
                   isSelected
-                    ? 'bg-[#16181F] border-white text-zinc-100'
-                    : 'hover:bg-zinc-850/40 border-transparent text-zinc-400 hover:text-zinc-200'
+                    ? 'bg-[#181B24] border-white text-white shadow-xs'
+                    : 'hover:bg-[#141720] border-transparent text-zinc-400 hover:text-zinc-200'
                 }`}
               >
                 {/* 1行目: 体制バッジ・企業名・直近収益規模 */}
@@ -316,7 +316,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                     </span>
                   </div>
                   {revenueLabel && (
-                    <span className="shrink-0 text-xs font-mono font-bold text-zinc-100 tabular-nums">
+                    <span className="shrink-0 text-[11px] font-mono font-bold text-white tabular-nums px-1.5 py-0.5 rounded bg-[#101216] border border-zinc-700/80">
                       {revenueLabel}
                     </span>
                   )}
@@ -325,7 +325,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 {/* 2行目: 創業者 / 稼働時間 ＆ 一言事業概要 */}
                 <div className="flex items-center gap-2 text-[11px] text-zinc-400 truncate">
                   {company.weeklyHours && company.weeklyHours <= 10 && (
-                    <span className="text-zinc-300 font-mono text-[10px] shrink-0 font-medium">
+                    <span className="text-zinc-300 font-mono text-[10px] shrink-0 font-medium px-1 py-0.2 rounded bg-zinc-800/80 border border-zinc-700">
                       週{company.weeklyHours}h
                     </span>
                   )}
