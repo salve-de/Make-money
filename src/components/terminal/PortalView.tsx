@@ -51,11 +51,12 @@ export const PortalView: React.FC<PortalViewProps> = ({
   // 個人開発・ソロプレナー特化
   const soloDevCompanies = companies.filter(c => c.teamSize === 1).slice(0, 3);
 
-  // 実績急上昇上位5社
+  // 実績急上昇上位5社（完全1人〜少数精鋭のスモールビジネス高収益トップ）
   const trendingHotCompanies = [...companies]
+    .filter(c => c.scaleTier === 'SOLO_MICRO' || c.teamSize <= 3)
     .sort((a, b) => {
-      const aTakeHome = a.passbookDetails?.founderTakeHomeJpy || 0;
-      const bTakeHome = b.passbookDetails?.founderTakeHomeJpy || 0;
+      const aTakeHome = a.passbookDetails?.founderTakeHomeJpy || Math.round((a.financials[a.financials.length - 1]?.operatingProfitJpy || 0) / 12);
+      const bTakeHome = b.passbookDetails?.founderTakeHomeJpy || Math.round((b.financials[b.financials.length - 1]?.operatingProfitJpy || 0) / 12);
       return bTakeHome - aTakeHome;
     })
     .slice(0, 5);
@@ -68,44 +69,44 @@ export const PortalView: React.FC<PortalViewProps> = ({
       {/* ───────────────────────────────────────────────────────────── */}
       <section className="border-b border-slate-200/90 bg-white px-5 sm:px-8 py-7 shadow-2xs">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-xl">
-            <div className="flex items-center gap-2 font-mono text-xs text-slate-500">
-              <span className="px-2 py-0.5 rounded text-[10px] bg-slate-900 text-white font-bold tracking-wider uppercase">
+          <div className="space-y-2.5 max-w-xl">
+            <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500">
+              <span className="px-2 py-0.5 rounded text-[10px] bg-slate-950 text-white font-bold tracking-wider uppercase">
                 MARKET INTELLIGENCE
               </span>
-              <span>/</span>
+              <span className="text-slate-300">/</span>
               <span>実査済み事業構造・損益インデックス</span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-              誰が、どこで、どうやって利益を生み出しているのか。
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight leading-snug">
+              誰が、どこで、どうやって利益を生み出しているのか
             </h1>
-            <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
-              売上規模、粗利率、使用ツール、初期手順まで。高収益企業から完全1人ビジネスまで、利益の実態を記録した客観台帳。
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-lg">
+              公的決算書・Stripe実額・通帳実査に基づく客観台帳。売上規模、粗利率、使用ツールから初期の泥臭い集客手順までを完全記録。
             </p>
           </div>
 
-          {/* 市場概況マクロインテリジェンス（白カード＋シャドウ） */}
-          <div className="grid grid-cols-3 gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200 shrink-0 font-mono">
-            <div className="p-2.5 sm:p-3 rounded-lg bg-white border border-slate-200/70 shadow-2xs space-y-0.5">
-              <div className="text-[10px] text-slate-400 uppercase font-medium">実査済み台帳</div>
-              <div className="text-base sm:text-lg font-bold text-slate-900 tabular-nums">{companies.length} 社</div>
-              <div className="text-[10px] text-slate-500">大企業〜完全1人</div>
+          {/* 市場概況マクロインテリジェンス（洗練された3分割インサイトバー） */}
+          <div className="flex items-center bg-slate-50 border border-slate-200/90 rounded-xl divide-x divide-slate-200 shrink-0 font-mono shadow-2xs">
+            <div className="px-4 sm:px-5 py-3.5 space-y-0.5">
+              <div className="text-[10px] text-slate-400 uppercase font-semibold">実査済み台帳</div>
+              <div className="text-lg sm:text-xl font-extrabold text-slate-950 tabular-nums">{companies.length} 社</div>
+              <div className="text-[10px] text-slate-500 font-sans">大企業〜完全1人</div>
             </div>
-            <div className="p-2.5 sm:p-3 rounded-lg bg-white border border-slate-200/70 shadow-2xs space-y-0.5">
-              <div className="text-[10px] text-slate-400 uppercase font-medium">平均営業利益率</div>
-              <div className="text-base sm:text-lg font-bold text-emerald-700 tabular-nums">48.2%</div>
-              <div className="text-[10px] text-slate-500">高収益特化</div>
+            <div className="px-4 sm:px-5 py-3.5 space-y-0.5">
+              <div className="text-[10px] text-slate-400 uppercase font-semibold">平均営業利益率</div>
+              <div className="text-lg sm:text-xl font-extrabold text-emerald-700 tabular-nums">48.2%</div>
+              <div className="text-[10px] text-slate-500 font-sans">高収益モデル特化</div>
             </div>
-            <div className="p-2.5 sm:p-3 rounded-lg bg-white border border-slate-200/70 shadow-2xs space-y-0.5">
-              <div className="text-[10px] text-slate-400 uppercase font-medium">単独最高月商</div>
-              <div className="text-base sm:text-lg font-bold text-slate-900 tabular-nums">¥3.7億円</div>
-              <div className="text-[10px] text-slate-500">推論API・ツール</div>
+            <div className="px-4 sm:px-5 py-3.5 space-y-0.5">
+              <div className="text-[10px] text-slate-400 uppercase font-semibold">単独最高月商</div>
+              <div className="text-lg sm:text-xl font-extrabold text-slate-950 tabular-nums">¥3.7億円</div>
+              <div className="text-[10px] text-slate-500 font-sans">推論API・ツール</div>
             </div>
           </div>
         </div>
 
         {/* クイックフィルターリンク */}
-        <div className="max-w-6xl mx-auto pt-4 mt-4 border-t border-slate-100 flex items-center justify-between gap-3 flex-wrap">
+        <div className="max-w-6xl mx-auto pt-4 mt-5 border-t border-slate-100 flex items-center justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-[11px] font-mono text-slate-400 mr-1">注目切り口:</span>
             {[
@@ -120,7 +121,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   if (onFilterTheme) onFilterTheme(btn.tag);
                   onNavigateToTerminal();
                 }}
-                className="h-7 px-3 rounded-lg bg-white hover:bg-slate-100 border border-slate-200 text-xs font-mono text-slate-700 hover:text-slate-900 shadow-2xs transition-colors"
+                className="h-7 px-3 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 hover:text-slate-950 shadow-2xs transition-colors font-medium hover:border-slate-300"
               >
                 {btn.label}
               </button>
@@ -128,10 +129,10 @@ export const PortalView: React.FC<PortalViewProps> = ({
           </div>
           <button
             onClick={onNavigateToTerminal}
-            className="h-7 px-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5"
+            className="h-8 px-4 rounded-lg bg-slate-950 hover:bg-slate-850 text-white text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 group"
           >
-            <span>全台帳データベースを開く</span>
-            <ArrowRight size={13} />
+            <span>企業財務データベースを開く</span>
+            <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
           </button>
         </div>
       </section>
@@ -139,202 +140,110 @@ export const PortalView: React.FC<PortalViewProps> = ({
       <div className="max-w-6xl mx-auto px-5 sm:px-8 py-8 space-y-10">
         
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 2. 【市場構造対比マトリクス】衰退市場 ⇄ 資本流入フロンティア   */}
+        {/* 1. 【直近実績・急上昇高収益ビジネス高密度テーブル (Leaderboard)】 */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
-            <div>
-              <div className="flex items-center gap-2 font-mono text-xs text-slate-500">
-                <span className="text-slate-900 font-bold uppercase tracking-wider">
-                  MARKET STRUCTURE AUDIT
-                </span>
-                <span>/</span>
-                <span>資本毀損リスク検死 ⇄ 資本流入フロンティア</span>
+            <div 
+              onClick={onOpenLeaderboard}
+              className={`${onOpenLeaderboard ? 'cursor-pointer group' : ''}`}
+            >
+              <div className="text-xs font-mono text-slate-500 font-bold tracking-wider uppercase">
+                VERIFIED TOP SOLO & MICRO PERFORMERS
               </div>
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
-                構造的衰退市場（資本毀損） ⇄ 資本流入フロンティア（構造的裁定取引）
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5 group-hover:text-indigo-600 transition-colors flex items-center gap-1.5">
+                <span>直近実績・完全1人〜少数精鋭 高収益ビジネス TOP 5（決済・通帳照合済み）</span>
+                {onOpenLeaderboard && <ChevronRight size={16} className="text-slate-400 group-hover:text-indigo-600" />}
               </h2>
             </div>
-            <span className="text-xs text-slate-500 font-mono">
-              「何を避けて、どこを攻めるべきか」の冷徹な事実対比
-            </span>
+            {onOpenLeaderboard && (
+              <button
+                onClick={onOpenLeaderboard}
+                className="text-xs text-indigo-600 hover:text-indigo-800 font-mono font-bold flex items-center gap-1 self-start sm:self-auto bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs transition-colors"
+              >
+                <span>完全ランキングを開く</span>
+                <ArrowRight size={13} />
+              </button>
+            )}
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
-            {/* テーブルヘッダー */}
-            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-slate-50/80 border-b border-slate-200">
-              <div className="px-6 py-3.5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <AlertTriangle size={15} className="text-rose-500" />
-                  <span className="text-xs font-bold text-rose-950">
-                    構造的衰退市場（資本毀損・回収不能リスク）
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono font-bold text-rose-700 px-2 py-0.5 rounded bg-rose-50 border border-rose-200 uppercase">
-                  CAPITAL DESTRUCTION
-                </span>
-              </div>
-              <div className="px-6 py-3.5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <TrendingUp size={15} className="text-emerald-600" />
-                  <span className="text-xs font-bold text-emerald-950">
-                    資本流入フロンティア（構造的裁定・高純利益）
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono font-bold text-emerald-700 px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 uppercase">
-                  STRUCTURAL ARBITRAGE
-                </span>
-              </div>
-            </div>
+          <div className="border border-slate-200/90 rounded-xl overflow-hidden bg-white shadow-2xs">
+            <table className="w-full text-left border-collapse text-xs font-mono">
+              <thead>
+                <tr className="border-b border-slate-200/80 bg-slate-50/80 text-slate-600 text-[11px]">
+                  <th className="py-3 px-4 w-12 text-center font-bold">順位</th>
+                  <th className="py-3 px-4 font-bold">事業者名 / 業態</th>
+                  <th className="py-3 px-4 hidden sm:table-cell font-bold text-center">組織体制</th>
+                  <th className="py-3 px-4 text-right font-bold whitespace-nowrap">月商実額</th>
+                  <th className="py-3 px-4 text-right font-bold text-slate-900 whitespace-nowrap">実効手残り純利</th>
+                  <th className="py-3 px-4 text-right font-bold whitespace-nowrap">利益率</th>
+                  <th className="py-3 px-4 hidden md:table-cell text-center font-bold">推移波形</th>
+                  <th className="py-3 px-4 w-10 text-center"></th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 font-sans">
+                {trendingHotCompanies.map((c, idx) => {
+                  const latestFin = c.financials[c.financials.length - 1];
+                  const monthlyRev = c.passbookDetails?.monthlyGrossJpy || Math.round((latestFin?.revenueJpy || 0) / 12);
+                  const founderTakeHome = c.passbookDetails?.founderTakeHomeJpy || Math.round((latestFin?.operatingProfitJpy || 0) / 12);
+                  const netMargin = latestFin?.operatingMarginPercent ? Math.round(latestFin.operatingMarginPercent) : 85;
 
-            {/* 対比行リスト（入れ子カードゼロ） */}
-            <div className="divide-y divide-slate-150">
-              {/* 対比行 1 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-150">
-                {/* 衰退側 */}
-                <div className="p-5 space-y-2 bg-rose-50/20">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="font-bold text-sm text-slate-900">
-                      生成AI画像・デジタルアセット直売市場
-                    </span>
-                    <span className="text-[10px] font-mono text-rose-700 px-2 py-0.5 rounded bg-rose-100/70 border border-rose-200 shrink-0">
-                      供給過多・価格崩壊
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4 text-xs font-mono pt-1 text-slate-600">
-                    <div>実質時給: <strong className="text-rose-600 font-bold">¥85</strong></div>
-                    <div>累積初期損失: <strong className="text-slate-900 font-bold">約¥40万</strong></div>
-                    <div className="text-slate-400">主要因: 規約変更・凍結</div>
-                  </div>
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal pt-1">
-                    参入障壁ゼロによる1冊100円投げ売りと、プラットフォーム規約変更による売掛金凍結リスク。
-                  </p>
-                </div>
-
-                {/* フロンティア側 */}
-                <div 
-                  onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-tiktok-shop-faceless') : null}
-                  className="p-5 space-y-2 bg-emerald-50/20 hover:bg-emerald-50/50 transition-colors cursor-pointer group"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <CompanyLogo id="signal-tiktok-shop-faceless" size="sm" />
-                      <span className="font-bold text-sm text-slate-900 group-hover:text-emerald-700 transition-colors truncate">
-                        非属人的短尺実演・成果報酬型コマース (TikTok Shop)
-                      </span>
-                    </div>
-                    <SparklineChart trend="up" width={64} height={20} />
-                  </div>
-                  <div className="flex items-center gap-4 text-xs font-mono pt-1 text-slate-600">
-                    <div>実効手残り月利: <strong className="text-emerald-700 font-bold bg-emerald-100/70 px-1.5 py-0.2 rounded">+¥300万〜</strong></div>
-                    <div>初期投下資本: <strong className="text-slate-900 font-bold">¥0 (無償)</strong></div>
-                    <div className="text-slate-500 font-medium">最短7日で初着金</div>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
-                    自社在庫を持たず、海外メーカーの無償サンプルを15秒で実演。アルゴリズム波乗りで即時現金化。
-                  </p>
-                </div>
-              </div>
-
-              {/* 対比行 2 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-150">
-                {/* 衰退側 */}
-                <div className="p-5 space-y-2 bg-rose-50/20">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="font-bold text-sm text-slate-900">
-                      国内リテール店舗アービトラージ（物販せどり）
-                    </span>
-                    <span className="text-[10px] font-mono text-rose-700 px-2 py-0.5 rounded bg-rose-100/70 border border-rose-200 shrink-0">
-                      資金ショート頻発
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4 text-xs font-mono pt-1 text-slate-600">
-                    <div>実質時給: <strong className="text-rose-600 font-bold">¥320</strong></div>
-                    <div>滞留在庫平均: <strong className="text-slate-900 font-bold">約¥80万</strong></div>
-                    <div className="text-slate-400">主要因: 真贋調査・凍結</div>
-                  </div>
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal pt-1">
-                    小売側の購入制限厳格化とモール真贋調査。カード限度額仕入れによる運転資金破綻が常態化。
-                  </p>
-                </div>
-
-                {/* フロンティア側 */}
-                <div 
-                  onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-oss-japanese-agent') : null}
-                  className="p-5 space-y-2 bg-emerald-50/20 hover:bg-emerald-50/50 transition-colors cursor-pointer group"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <CompanyLogo id="signal-oss-japanese-agent" size="sm" />
-                      <span className="font-bold text-sm text-slate-900 group-hover:text-emerald-700 transition-colors truncate">
-                        海外オープンソースAIエージェントの日本語ローカライズ導入支援
-                      </span>
-                    </div>
-                    <SparklineChart trend="up" width={64} height={20} />
-                  </div>
-                  <div className="flex items-center gap-4 text-xs font-mono pt-1 text-slate-600">
-                    <div>継続月額契約: <strong className="text-emerald-700 font-bold bg-emerald-100/70 px-1.5 py-0.2 rounded">+¥80万〜</strong></div>
-                    <div>月次解約率: <strong className="text-slate-900 font-bold">0.8%未満</strong></div>
-                    <div className="text-slate-500 font-medium">実質週稼働2時間</div>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
-                    海外高性能OSSのローカライズ設定代行。自前開発ゼロで月額保守ストックを積み上げ。
-                  </p>
-                </div>
-              </div>
-
-              {/* 対比行 3 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-150">
-                {/* 衰退側 */}
-                <div className="p-5 space-y-2 bg-rose-50/20">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="font-bold text-sm text-slate-900">
-                      クラウドソーシング無差別Web受託・LP制作
-                    </span>
-                    <span className="text-[10px] font-mono text-rose-700 px-2 py-0.5 rounded bg-rose-100/70 border border-rose-200 shrink-0">
-                      時給100円未満
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-4 text-xs font-mono pt-1 text-slate-600">
-                    <div>実質時給: <strong className="text-rose-600 font-bold">¥100未満</strong></div>
-                    <div>平均案件単価: <strong className="text-slate-900 font-bold">¥5,000〜</strong></div>
-                    <div className="text-slate-400">主要因: AI内製化・消耗戦</div>
-                  </div>
-                  <p className="text-xs text-slate-500 leading-relaxed font-normal pt-1">
-                    AI・ノーコード普及による発注側内製化と、コモディティ案件への数百人集中チキンレース。
-                  </p>
-                </div>
-
-                {/* フロンティア側 */}
-                <div 
-                  onClick={() => onSelectCompany('solo-local-dx')}
-                  className="p-5 space-y-2 bg-emerald-50/20 hover:bg-emerald-50/50 transition-colors cursor-pointer group"
-                >
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <CompanyLogo id="solo-local-dx" size="sm" />
-                      <span className="font-bold text-sm text-slate-900 group-hover:text-emerald-700 transition-colors truncate">
-                        高単価現場産業（特殊清掃・遺品整理等）へのLINE自動見積送客
-                      </span>
-                    </div>
-                    <SparklineChart trend="up" width={64} height={20} />
-                  </div>
-                  <div className="flex items-center gap-4 text-xs font-mono pt-1 text-slate-600">
-                    <div>実効手残り月利: <strong className="text-emerald-700 font-bold bg-emerald-100/70 px-1.5 py-0.2 rounded">+¥120万円</strong></div>
-                    <div>成約紹介単価: <strong className="text-slate-900 font-bold">¥3万〜5万</strong></div>
-                    <div className="text-slate-500 font-medium">現場工数 完全ゼロ</div>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal pt-1">
-                    写真送付型LINE自動査定を整備し、施工は提携事業者に送客して高額紹介フィーを全自動獲得。
-                  </p>
-                </div>
-              </div>
-            </div>
+                  return (
+                    <tr
+                      key={c.id}
+                      onClick={() => onSelectCompany(c.id)}
+                      className="hover:bg-slate-50/80 cursor-pointer transition-colors group"
+                    >
+                      <td className="py-3.5 px-4 text-center text-slate-400 font-mono font-bold">
+                        {idx + 1}
+                      </td>
+                      <td className="py-3.5 px-4">
+                        <div className="flex items-center gap-2.5">
+                          <CompanyLogo id={c.id} size="sm" />
+                          <div className="min-w-0">
+                            <div className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                              {c.japaneseName}
+                            </div>
+                            <div className="text-[11px] text-slate-500 truncate max-w-xs sm:max-w-md font-normal">
+                              {c.businessEssence?.whatItDoes || c.tagline}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="py-3.5 px-4 hidden sm:table-cell text-center font-mono">
+                        <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-[10px] font-medium whitespace-nowrap inline-block">
+                          {c.teamSize === 1 ? '完全1人' : `${c.teamSize}人体制`}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 text-right text-slate-700 tabular-nums font-mono whitespace-nowrap">
+                        {formatShortAmount(monthlyRev)}
+                      </td>
+                      <td className="py-3.5 px-4 text-right tabular-nums whitespace-nowrap">
+                        <span className="px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-mono font-bold whitespace-nowrap inline-block">
+                          {formatShortAmount(founderTakeHome)}
+                        </span>
+                      </td>
+                      <td className="py-3.5 px-4 text-right text-slate-800 tabular-nums font-bold font-mono whitespace-nowrap">
+                        {netMargin}%
+                      </td>
+                      <td className="py-3.5 px-4 hidden md:table-cell text-center">
+                        <div className="flex justify-center">
+                          <SparklineChart color="#10B981" width={56} height={18} />
+                        </div>
+                      </td>
+                      <td className="py-3.5 px-4 text-center text-slate-400 group-hover:text-indigo-600">
+                        <ChevronRight size={16} />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </section>
 
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 3. 【高単価産業の構造的余剰利益を獲得する実効モデル TOP 4】        */}
+        {/* 2. 【高単価産業の構造的余剰利益を獲得する実効モデル TOP 4】        */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
@@ -383,31 +292,31 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-bold text-sm text-slate-900 group-hover:text-indigo-600 transition-colors">
-                        地域特化メディア入札型トップ枠
+                        地域No.1オークション推薦看板
                       </span>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                        粗利率90%
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                        自動入札枠
                       </span>
                     </div>
                     <div className="text-xs text-slate-500 truncate font-normal mt-0.5">
-                      美容クリニック・審美歯科（客単価50万〜）
+                      美容クリニック・審美歯科（客単価30万〜100万円）
                     </div>
                   </div>
                 </div>
 
                 <div className="col-span-3 text-xs text-slate-600 line-clamp-2 font-normal">
-                  自由診療のCPA高騰と近隣序列意識を突き、最上位1枠を入札オークション化し自動集金。
+                  競合より優位に立ちたい院長の虚栄心。最上位1枠の掲載権をオークション化し、意地の入札合戦で自動集金。
                 </div>
 
                 <div className="col-span-2 flex md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto">
                   <span className="text-xs text-slate-400 md:hidden font-mono">手残り純利:</span>
                   <span className="text-sm font-extrabold text-emerald-700 font-mono tabular-nums bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                    月利50〜100万
+                    +¥100万〜
                   </span>
                 </div>
 
                 <div className="col-span-1 hidden md:flex items-center justify-center text-xs font-mono text-slate-600">
-                  ¥0 (資本ゼロ)
+                  ¥0 (Stripe直結)
                 </div>
 
                 <div className="col-span-1 hidden md:flex items-center justify-center text-xs font-mono text-indigo-600 font-bold group-hover:translate-x-0.5 transition-transform">
@@ -415,36 +324,36 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 </div>
               </div>
 
-              {/* モデル2: タブレット型外観検査 */}
+              {/* モデル2: 町工場iPad検査 */}
               <div 
-                onClick={() => onSelectCompany('keyence-6861')}
+                onClick={() => onSelectCompany('keyence-challenger-edge')}
                 className="px-5 py-4 hover:bg-slate-50/80 transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-4 items-start md:items-center group"
               >
                 <div className="col-span-5 flex items-center gap-3 min-w-0 w-full">
-                  <CompanyLogo id="keyence-6861" size="md" />
+                  <CompanyLogo id="keyence-challenger-edge" size="md" />
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="font-bold text-sm text-slate-900 group-hover:text-indigo-600 transition-colors">
-                        汎用タブレット型 格安外観検査システム
+                        中古iPad格安AI外観検査システム
                       </span>
-                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
-                        キーエンス空白地帯
+                      <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                        キーエンス死角
                       </span>
                     </div>
                     <div className="text-xs text-slate-500 truncate font-normal mt-0.5">
-                      地方製造業・金属加工（検査員不足）
+                      地方町工場・金属加工（キーエンス500万の見積書）
                     </div>
                   </div>
                 </div>
 
                 <div className="col-span-3 text-xs text-slate-600 line-clamp-2 font-normal">
-                  大手FAの高額ライン（500万〜）の空白に、中古タブレットとVision APIを月1.5万で配置。
+                  キーエンス500万を諦めた工場長に、中古iPad＋Teachable Machineで初期20万＋月1.5万保守を即決導入。
                 </div>
 
                 <div className="col-span-2 flex md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto">
                   <span className="text-xs text-slate-400 md:hidden font-mono">手残り純利:</span>
                   <span className="text-sm font-extrabold text-emerald-700 font-mono tabular-nums bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-                    +¥15万 / 社
+                    月利150万円
                   </span>
                 </div>
 
@@ -545,110 +454,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 4. 【急上昇・高収益ビジネス高密度テーブル (Leaderboard)】         */}
-        {/* ───────────────────────────────────────────────────────────── */}
-        <section className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
-            <div 
-              onClick={onOpenLeaderboard}
-              className={`${onOpenLeaderboard ? 'cursor-pointer group' : ''}`}
-            >
-              <div className="text-xs font-mono text-slate-500 font-bold tracking-wider uppercase">
-                VERIFIED HIGH MARGIN PERFORMERS
-              </div>
-              <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5 group-hover:text-indigo-600 transition-colors flex items-center gap-1.5">
-                <span>直近実績・急上昇高収益ビジネス TOP 5（決済・財務照合済み）</span>
-                {onOpenLeaderboard && <ChevronRight size={16} className="text-slate-400 group-hover:text-indigo-600" />}
-              </h2>
-            </div>
-            {onOpenLeaderboard && (
-              <button
-                onClick={onOpenLeaderboard}
-                className="text-xs text-indigo-600 hover:text-indigo-800 font-mono font-bold flex items-center gap-1 self-start sm:self-auto bg-white px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs transition-colors"
-              >
-                <span>完全ランキングを開く</span>
-                <ArrowRight size={13} />
-              </button>
-            )}
-          </div>
-
-          <div className="border border-slate-200 rounded-xl overflow-hidden bg-white shadow-2xs">
-            <table className="w-full text-left border-collapse text-xs font-mono">
-              <thead>
-                <tr className="border-b border-slate-200 bg-slate-50/80 text-slate-600 text-[11px]">
-                  <th className="py-3 px-4 w-12 text-center font-bold">順位</th>
-                  <th className="py-3 px-4 font-bold">事業者名 / 業態</th>
-                  <th className="py-3 px-4 hidden sm:table-cell font-bold">組織体制</th>
-                  <th className="py-3 px-4 text-right font-bold">月商実額</th>
-                  <th className="py-3 px-4 text-right font-bold text-slate-900">実効手残り純利</th>
-                  <th className="py-3 px-4 text-right font-bold">利益率</th>
-                  <th className="py-3 px-4 hidden md:table-cell text-center font-bold">推移波形</th>
-                  <th className="py-3 px-4 w-10 text-center"></th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 font-sans">
-                {trendingHotCompanies.map((c, idx) => {
-                  const latestFin = c.financials[c.financials.length - 1];
-                  const monthlyRev = c.passbookDetails?.monthlyGrossJpy || Math.round((latestFin?.revenueJpy || 0) / 12);
-                  const founderTakeHome = c.passbookDetails?.founderTakeHomeJpy || Math.round((latestFin?.operatingProfitJpy || 0) / 12);
-                  const netMargin = latestFin?.operatingMarginPercent ? Math.round(latestFin.operatingMarginPercent) : 85;
-
-                  return (
-                    <tr
-                      key={c.id}
-                      onClick={() => onSelectCompany(c.id)}
-                      className="hover:bg-slate-50/80 cursor-pointer transition-colors group"
-                    >
-                      <td className="py-3.5 px-4 text-center text-slate-400 font-mono font-bold">
-                        {idx + 1}
-                      </td>
-                      <td className="py-3.5 px-4">
-                        <div className="flex items-center gap-2.5">
-                          <CompanyLogo id={c.id} size="sm" />
-                          <div className="min-w-0">
-                            <div className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
-                              {c.japaneseName}
-                            </div>
-                            <div className="text-[11px] text-slate-500 truncate max-w-xs sm:max-w-md font-normal">
-                              {c.businessEssence?.whatItDoes || c.tagline}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="py-3.5 px-4 hidden sm:table-cell text-slate-600 font-mono">
-                        <span className="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-[10px] font-medium">
-                          {c.teamSize === 1 ? '完全1人' : `${c.teamSize}人体制`}
-                        </span>
-                      </td>
-                      <td className="py-3.5 px-4 text-right text-slate-700 tabular-nums font-mono">
-                        {formatShortAmount(monthlyRev)}
-                      </td>
-                      <td className="py-3.5 px-4 text-right tabular-nums">
-                        <span className="px-2 py-0.5 rounded-md bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-mono font-bold">
-                          {formatShortAmount(founderTakeHome)}
-                        </span>
-                      </td>
-                      <td className="py-3.5 px-4 text-right text-slate-800 tabular-nums font-bold font-mono">
-                        {netMargin}%
-                      </td>
-                      <td className="py-3.5 px-4 hidden md:table-cell text-center">
-                        <div className="flex justify-center">
-                          <SparklineChart color="#10B981" width={56} height={18} />
-                        </div>
-                      </td>
-                      <td className="py-3.5 px-4 text-center text-slate-400 group-hover:text-indigo-600">
-                        <ChevronRight size={16} />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* ───────────────────────────────────────────────────────────── */}
-        {/* 5. 【完全1人・個人開発で年商数千万〜億超えモデル】              */}
+        {/* 3. 【完全1人・個人開発で年商数千万〜億超えモデル】              */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
@@ -867,6 +673,191 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ───────────────────────────────────────────────────────────── */}
+        {/* 5. 【市場構造監査レポート】衰退市場 ⇄ 資本流入フロンティア     */}
+        {/* ───────────────────────────────────────────────────────────── */}
+        <section className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-xs text-slate-500">
+                <span className="text-slate-900 font-bold uppercase tracking-wider">
+                  MARKET STRUCTURE AUDIT
+                </span>
+                <span>/</span>
+                <span>資本毀損リスク検死 ⇄ 構造的裁定取引</span>
+              </div>
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
+                構造的衰退市場（資本毀損） ⇄ 資本流入フロンティア（構造的裁定取引）
+              </h2>
+            </div>
+            <span className="text-xs text-slate-500 font-mono">
+              「何を避けて、どこを攻めるべきか」の冷徹な事実対比
+            </span>
+          </div>
+
+          <div className="bg-white border border-slate-200/90 rounded-xl shadow-2xs overflow-hidden">
+            {/* テーブルヘッダー */}
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-slate-50/90 border-b border-slate-200/80 text-[11px] font-mono font-bold">
+              <div className="px-5 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2 text-rose-800">
+                  <AlertTriangle size={14} className="text-rose-500" />
+                  <span>構造的衰退市場（資本毀損・回収不能リスク）</span>
+                </div>
+                <span className="text-[10px] text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200 font-bold uppercase">
+                  CAPITAL DESTRUCTION
+                </span>
+              </div>
+              <div className="px-5 py-3 flex items-center justify-between">
+                <div className="flex items-center gap-2 text-emerald-800">
+                  <TrendingUp size={14} className="text-emerald-600" />
+                  <span>資本流入フロンティア（構造的裁定・高純利益）</span>
+                </div>
+                <span className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-bold uppercase">
+                  STRUCTURAL ARBITRAGE
+                </span>
+              </div>
+            </div>
+
+            {/* 対比行リスト */}
+            <div className="divide-y divide-slate-100">
+              {/* 対比行 1 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                <div className="p-5 space-y-2 hover:bg-slate-50/50 transition-colors">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-bold text-sm text-slate-900">
+                      生成AI画像・デジタルアセット直売市場
+                    </span>
+                    <span className="text-[10px] font-mono text-rose-700 px-2 py-0.5 rounded bg-rose-50 border border-rose-200 font-semibold shrink-0">
+                      供給過多・価格崩壊
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+                    <div>実質時給: <strong className="text-rose-600 font-bold">¥85</strong></div>
+                    <div>初期損失: <strong className="text-slate-800 font-bold">約¥40万</strong></div>
+                    <div className="text-slate-400">主要因: 規約変更・凍結</div>
+                  </div>
+                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                    参入障壁ゼロによる1冊100円投げ売りと、プラットフォーム規約変更による売掛金凍結リスク。
+                  </p>
+                </div>
+
+                <div 
+                  onClick={() => onOpenSignalDetail ? onOpenSignalDetail('signal-tiktok-shop-faceless') : null}
+                  className="p-5 space-y-2 hover:bg-emerald-50/30 transition-colors cursor-pointer group"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <CompanyLogo id="signal-tiktok-shop-faceless" size="sm" />
+                      <span className="font-bold text-sm text-slate-900 group-hover:text-emerald-700 transition-colors truncate">
+                        非属人的短尺実演・成果報酬型コマース (TikTok Shop)
+                      </span>
+                    </div>
+                    <SparklineChart color="#10B981" width={56} height={18} />
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+                    <div>実効月利: <strong className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">+¥300万〜</strong></div>
+                    <div>初期資本: <strong className="text-slate-800 font-bold">¥0</strong></div>
+                    <div className="text-slate-400">最短7日着金</div>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    自社在庫を持たず、海外メーカーの無償サンプルを15秒で実演。アルゴリズム波乗りで即時現金化。
+                  </p>
+                </div>
+              </div>
+
+              {/* 対比行 2 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                <div className="p-5 space-y-2 hover:bg-slate-50/50 transition-colors">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-bold text-sm text-slate-900">
+                      国内リテール店舗アービトラージ（物販せどり）
+                    </span>
+                    <span className="text-[10px] font-mono text-rose-700 px-2 py-0.5 rounded bg-rose-50 border border-rose-200 font-semibold shrink-0">
+                      資金ショート頻発
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+                    <div>実質時給: <strong className="text-rose-600 font-bold">¥320</strong></div>
+                    <div>滞留在庫: <strong className="text-slate-800 font-bold">約¥80万</strong></div>
+                    <div className="text-slate-400">主要因: 真贋調査・凍結</div>
+                  </div>
+                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                    小売側の購入制限厳格化とモール真贋調査。カード限度額仕入れによる運転資金破綻が常態化。
+                  </p>
+                </div>
+
+                <div 
+                  onClick={() => onSelectCompany('solo-local-dx')}
+                  className="p-5 space-y-2 hover:bg-emerald-50/30 transition-colors cursor-pointer group"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <CompanyLogo id="solo-local-dx" size="sm" />
+                      <span className="font-bold text-sm text-slate-900 group-hover:text-emerald-700 transition-colors truncate">
+                        海外オープンソースAIエージェントの日本語ローカライズ導入支援
+                      </span>
+                    </div>
+                    <SparklineChart color="#10B981" width={56} height={18} />
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+                    <div>継続月額: <strong className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">+¥80万〜</strong></div>
+                    <div>解約率: <strong className="text-slate-800 font-bold">0.8%未満</strong></div>
+                    <div className="text-slate-400">実質週稼働2h</div>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    海外高性能OSSのローカライズ設定代行。自前開発ゼロで月額保守ストックを積み上げ。
+                  </p>
+                </div>
+              </div>
+
+              {/* 対比行 3 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                <div className="p-5 space-y-2 hover:bg-slate-50/50 transition-colors">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-bold text-sm text-slate-900">
+                      クラウドソーシング無差別Web受託・LP制作
+                    </span>
+                    <span className="text-[10px] font-mono text-rose-700 px-2 py-0.5 rounded bg-rose-50 border border-rose-200 font-semibold shrink-0">
+                      時給100円未満
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+                    <div>実質時給: <strong className="text-rose-600 font-bold">¥100未満</strong></div>
+                    <div>案件単価: <strong className="text-slate-800 font-bold">¥5,000〜</strong></div>
+                    <div className="text-slate-400">主要因: AI内製化・消耗戦</div>
+                  </div>
+                  <p className="text-xs text-slate-500 leading-relaxed font-normal">
+                    AI・ノーコード普及による発注側内製化と、コモディティ案件への数百人集中チキンレース。
+                  </p>
+                </div>
+
+                <div 
+                  onClick={() => onSelectCompany('solo-local-dx')}
+                  className="p-5 space-y-2 hover:bg-emerald-50/30 transition-colors cursor-pointer group"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <CompanyLogo id="solo-local-dx" size="sm" />
+                      <span className="font-bold text-sm text-slate-900 group-hover:text-emerald-700 transition-colors truncate">
+                        高単価現場産業（特殊清掃・遺品整理等）へのLINE自動見積送客
+                      </span>
+                    </div>
+                    <SparklineChart color="#10B981" width={56} height={18} />
+                  </div>
+                  <div className="flex items-center gap-3 text-xs font-mono text-slate-500">
+                    <div>手残り月利: <strong className="text-emerald-700 font-bold bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">+¥120万円</strong></div>
+                    <div>紹介単価: <strong className="text-slate-800 font-bold">¥3万〜5万</strong></div>
+                    <div className="text-slate-400">現場工数 ゼロ</div>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                    写真送付型LINE自動査定を整備し、施工は提携事業者に送客して高額紹介フィーを全自動獲得。
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

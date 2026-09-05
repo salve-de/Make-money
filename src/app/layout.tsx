@@ -1,5 +1,18 @@
 import type { Metadata } from 'next';
+import { Inter, Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+});
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  variable: '--font-noto-sans-jp',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: '金鉱録（KIN-KOROKU） | 日本スモールビジネス一次情報金庫',
@@ -12,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className="dark h-full antialiased">
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100">{children}</body>
+    <html lang="ja" className={`h-full antialiased ${inter.variable} ${notoSansJP.variable}`}>
+      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans">{children}</body>
     </html>
   );
 }
