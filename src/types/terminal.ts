@@ -248,6 +248,52 @@ export interface CompanyRecord {
 
   // 特別会員限定の裏技・非公開インサイト
   proSecretInsight: string;
+
+  // ─────────────────────────────────────────────────────────────
+  // 9大事業レントゲン項目（読者が1文字も逃さず貪り読む究極の真実）
+  // ─────────────────────────────────────────────────────────────
+  // 7. 実働の正体（週稼働時間と業務の完全棚卸し）
+  founderWorkload?: {
+    weeklyHours: number;
+    founderTasks: string[];             // 本人がやること（意思決定・コア業務）
+    automatedOrDelegatedTasks: string[];// 外注・システムに丸投げしたこと（自動化）
+    liberationSummary: string;          // 労働からの解放度サマリー
+  };
+
+  // 3. 価格決定権のトリック（なぜその高単価で買わせられるのか）
+  pricingSecret?: {
+    anchorComparison: string;           // 顧客が「安い」と錯覚する比較アンカー
+    defenseReason: string;              // 他社が安売りしても価格競争に巻き込まれない防衛理由
+    priceTagExample: string;            // 価格設定の実例（例: '月額3万円 / 年額30万円'）
+  };
+
+  // 5. 集客の単一蛇口（新規客が湧き出る水門の特定）
+  trafficFaucet?: {
+    primaryChannel: string;             // 主力チャネル名
+    channelBreakdown: { channel: string; percentage: number }[]; // 流入比率
+    faucetMechanism: string;            // 客が勝手に集まる水門のからくり（バイラルループ・独占枠等）
+  };
+
+  // 6. 顧客の監禁構造（解約不能の罠・スイッチングコスト）
+  switchingCostTrap?: {
+    hostageData: string;                // 人質に取られているデータ・業務
+    abandonmentPain: string;            // 解約・他社乗り換えに伴う強烈な苦痛
+  };
+
+  // 8. アンフェア・アドバンテージの監査（隠されたズル・前提の白黒判定）
+  unfairAdvantageAudit?: {
+    codingSkillRequired: boolean;       // プログラミング能力が必須か
+    capitalRequirementLevel: 'ゼロ（0円）' | '極小（5万円以下）' | '中程度（100万円〜）';
+    preExistingAudienceOrNetwork: boolean; // 事前の知名度・コネ・リストがあったか
+    auditVerdict: string;               // 凡人が真似できるか否かの白黒判定
+  };
+
+  // 9. 事業の換金性（M&A売却マルチプルと出口査定額）
+  exitValuation?: {
+    estimatedMultiple: string;          // 推定売却倍率（例: 'ARRの3.5〜4.5倍'）
+    targetBuyer: string;                // 想定される買い手候補
+    estimatedValuationAmount: string;   // 推定買収査定額（例: '約1億8,000万円'）
+  };
 }
 
 export type WorkStyleFilter = 'ALL' | 'REMOTE_SOLO' | 'SMALL_TEAM' | 'LOCAL_REAL' | 'SALES_HIGH' | 'AUTOMATED_PASSIVE' | 'ENTERPRISE';
