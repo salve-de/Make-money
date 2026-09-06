@@ -15,8 +15,8 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: '金鉱録（KIN-KOROKU） | 日本スモールビジネス一次情報金庫',
-  description: '煽りゼロ。個人・少人数ビジネスのリアルな決算書・使用ツール・初期集客手順を完全公開する一次情報データベース。',
+  title: '金鉱録（KIN-KOROKU） | 金持ちになる人は、何を見ているのか。',
+  description: '誰が、どこで、どうやって利益を生み出しているのか。公的決算書・Stripe実績・通帳実査に基づく、スモールビジネス一次情報台帳。',
 };
 
 import { Providers } from './providers';

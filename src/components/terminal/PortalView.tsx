@@ -78,10 +78,10 @@ export const PortalView: React.FC<PortalViewProps> = ({
               <span>実査済み事業構造・損益インデックス</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight leading-snug">
-              誰が、どこで、どうやって利益を生み出しているのか
+              金持ちになる人は、何を見ているのか。
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-lg">
-              公的決算書・Stripe実額・通帳実査に基づく客観台帳。売上規模、粗利率、使用ツールから初期の泥臭い集客手順までを完全記録。
+              誰が、どこで、どうやって利益を生み出しているのか。公的決算書・Stripe実績・通帳実査に基づく、スモールビジネス一次情報台帳。
             </p>
           </div>
 
