@@ -16,7 +16,6 @@ import { SignalDetailView } from '@/components/terminal/portal/sections/SignalDe
 import { LeaderboardView } from '@/components/terminal/portal/sections/LeaderboardView';
 import { IdeasVaultView } from '@/components/terminal/IdeasVaultView';
 import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
-import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
 import { MainViewType, parseMainView } from '@/types/navigation';
 
 export default function Home() {
@@ -310,14 +309,6 @@ export default function Home() {
         onChangeMainView={setMainView}
       />
 
-      {/* リアルタイム市場金融ティッカー（全画面共通・横に流れる速報ニュースフィード） */}
-      <MarketLiveTicker
-        onSelectCompany={(id) => {
-          setSelectedCompanyId(id);
-          setMainView('TERMINAL');
-        }}
-      />
-
       {/* 2. メインコンテンツ（ポータル ⇄ 分析台帳 ⇄ 各種特集・個別詳細ページ） */}
       {mainView === 'PORTAL' && (
         <PortalView
@@ -333,16 +324,7 @@ export default function Home() {
             else if (tag === '地方実業') setActivePreset('LOCAL_DX');
             else if (tag === '独占') setActivePreset('MEGA_MONOPOLY');
           }}
-          onOpenCollectionsList={() => setMainView('COLLECTIONS_LIST')}
-          onOpenCollectionDetail={(cid) => {
-            setActiveCollectionId(cid);
-            setMainView('COLLECTION_DETAIL');
-          }}
           onOpenSignalsList={() => setMainView('SIGNALS_LIST')}
-          onOpenSignalDetail={(sid) => {
-            setActiveSignalId(sid);
-            setMainView('SIGNAL_DETAIL');
-          }}
           onOpenLeaderboard={() => setMainView('LEADERBOARD')}
           onOpenIdeasVault={() => setMainView('IDEAS_VAULT')}
           onOpenFinder={() => setMainView('FINDER')}

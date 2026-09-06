@@ -1,504 +1,228 @@
 'use client';
 
-import React from 'react';
+import React, { useMemo } from 'react';
+import { ArrowUpRight, Bell, Bookmark, ChevronRight, Filter, Search, SlidersHorizontal } from 'lucide-react';
 import { CompanyRecord } from '@/types/terminal';
-import { CompanyLogo } from '@/components/terminal/CompanyLogo';
-import { SparklineChart } from '@/components/terminal/SparklineChart';
-import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
-import { ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
 import { AuditStatusBadge } from '@/components/terminal/AuditStatusBadge';
+import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 
 interface PortalViewProps {
   companies: CompanyRecord[];
   onSelectCompany: (companyId: string) => void;
   onNavigateToTerminal: () => void;
   onFilterTheme?: (tag: string) => void;
-  onOpenCollectionsList?: () => void;
-  onOpenCollectionDetail?: (collectionId: string) => void;
   onOpenSignalsList?: () => void;
-  onOpenSignalDetail?: (signalId: string) => void;
   onOpenLeaderboard?: () => void;
   onOpenIdeasVault?: () => void;
   onOpenFinder?: () => void;
 }
+
+const formatJpy = (value: number | null | undefined) => {
+  if (value === null || value === undefined) return '—';
+  if (value >= 1_000_000_000_000) return `¥${(value / 1_000_000_000_000).toFixed(1)}兆`;
+  if (value >= 100_000_000) return `¥${Math.round(value / 100_000_000)}億`;
+  if (value >= 10_000) return `¥${Math.round(value / 10_000).toLocaleString()}万`;
+  return `¥${value.toLocaleString()}`;
+};
+
+const getLatestFinancials = (company: CompanyRecord) =>
+  company.financials[company.financials.length - 1];
+
+const getMonthlyRevenue = (company: CompanyRecord) => {
+  const measured = company.passbookDetails?.monthlyGrossJpy;
+  if (measured !== undefined) return { value: measured, basis: '実測' } as const;
+  const annual = getLatestFinancials(company)?.revenueJpy;
+  if (annual) return { value: Math.round(annual / 12), basis: '年商÷12換算' } as const;
+  return { value: null, basis: '未確認' } as const;
+};
 
 export const PortalView: React.FC<PortalViewProps> = ({
   companies,
   onSelectCompany,
   onNavigateToTerminal,
   onFilterTheme,
-  onOpenCollectionsList,
-  onOpenCollectionDetail,
   onOpenSignalsList,
-  onOpenSignalDetail,
   onOpenLeaderboard,
   onOpenIdeasVault,
-  onOpenFinder
+  onOpenFinder,
 }) => {
-  // 金額フォーマット関数
-  const formatShortAmount = (amountJpy: number): string => {
-    if (!amountJpy || amountJpy === 0) return '¥0';
-    if (amountJpy >= 100_000_000) {
-      const oku = (amountJpy / 100_000_000).toFixed(1);
-      return `¥${oku.replace('.0', '')}億円`;
-    }
-    if (amountJpy >= 10_000) {
-      const man = Math.round(amountJpy / 10_000);
-      return `¥${man.toLocaleString()}万円`;
-    }
-    return `¥${amountJpy.toLocaleString()}`;
-  };
+  const rankedCompanies = useMemo(() => {
+    return [...companies]
+      .sort((a, b) => {
+        const aProfit = a.passbookDetails?.founderTakeHomeJpy ?? getLatestFinancials(a)?.operatingProfitJpy ?? 0;
+        const bProfit = b.passbookDetails?.founderTakeHomeJpy ?? getLatestFinancials(b)?.operatingProfitJpy ?? 0;
+        return bProfit - aProfit;
+      })
+      .slice(0, 12);
+  }, [companies]);
 
-  // 個人開発・ソロプレナー特化
-  const soloDevCompanies = companies.filter(c => c.teamSize === 1).slice(0, 3);
+  const sourceCounts = useMemo(() => ({
+    audited: companies.filter((company) => company.verifiedStatus === 'AUDITED_PUBLIC').length,
+    payment: companies.filter((company) => company.verifiedStatus === 'VERIFIED_STRIPE').length,
+    estimated: companies.filter((company) => company.verifiedStatus === 'ESTIMATED_MODEL').length,
+  }), [companies]);
 
-  // 実績急上昇上位5社
-  const trendingHotCompanies = [...companies]
-    .filter(c => c.scaleTier === 'SOLO_MICRO' || c.teamSize <= 3)
-    .sort((a, b) => {
-      const aTakeHome = a.passbookDetails?.founderTakeHomeJpy || Math.round((a.financials[a.financials.length - 1]?.operatingProfitJpy || 0) / 12);
-      const bTakeHome = b.passbookDetails?.founderTakeHomeJpy || Math.round((b.financials[b.financials.length - 1]?.operatingProfitJpy || 0) / 12);
-      return bTakeHome - aTakeHome;
-    })
-    .slice(0, 5);
-
-  const soloCount = companies.filter(c => c.teamSize === 1).length;
-  const soloRatio = companies.length > 0 ? Math.round((soloCount / companies.length) * 100) : 0;
-  
-  // 指標は存在する値だけで集計し、年商換算を「実測」として表示しない。
-  const companiesWithMargin = companies.filter((company) => {
-    const latestFin = company.financials[company.financials.length - 1];
-    return latestFin?.operatingMarginPercent !== undefined;
-  });
-  const avgMargin = companiesWithMargin.length > 0
-    ? (
-        companiesWithMargin.reduce((sum, company) => {
-          const latestFin = company.financials[company.financials.length - 1];
-          return sum + (latestFin?.operatingMarginPercent ?? 0);
-        }, 0) / companiesWithMargin.length
-      ).toFixed(1)
-    : '—';
-
-  const measuredMonthlyRevenues = companies
-    .map((company) => company.passbookDetails?.monthlyGrossJpy)
-    .filter((revenue): revenue is number => revenue !== undefined && revenue > 0);
-  const maxMeasuredMonthlyRevenue = measuredMonthlyRevenues.length > 0
-    ? Math.max(...measuredMonthlyRevenues)
-    : null;
-  const formattedMaxRev = maxMeasuredMonthlyRevenue === null
-    ? '—'
-    : formatShortAmount(maxMeasuredMonthlyRevenue);
+  const topCompany = rankedCompanies[0];
+  const quickFilters = [
+    { label: '初期0円', tag: '初期0円' },
+    { label: '完全1人', tag: '完全1人' },
+    { label: '地方実業', tag: '地方実業' },
+    { label: '利益率50%超', tag: '独占' },
+  ];
 
   return (
-    <div className="flex-1 bg-white overflow-y-auto font-sans text-slate-900 select-none">
-      
-      {/* ───────────────────────────────────────────────────────────── */}
-      {/* 1. エグゼクティブ・サマリーボード（McKinsey / PitchBook 規格） */}
-      {/* ───────────────────────────────────────────────────────────── */}
-      <section className="border-b border-slate-200 bg-white px-5 sm:px-8 lg:px-10 py-6">
-        <div className="max-w-7xl mx-auto space-y-5">
-          {/* 上段：タイトル ＆ マクロ指標マトリクス */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500">
-                <span className="px-1.5 py-0.5 rounded text-[9px] bg-slate-950 text-white font-bold tracking-wider uppercase">
-                  MARKET INDEX
-                </span>
-                <span>公的決算・決済照合・市場推計を区分表示する高収益事業構造データベース</span>
+    <main className="min-h-0 flex-1 overflow-y-auto bg-[#f5f6f8] text-slate-950 font-sans">
+      <div className="mx-auto max-w-[1600px]">
+        <header className="border-b border-slate-200 bg-white px-5 py-5 sm:px-8">
+          <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-2 font-mono text-[10px] font-bold tracking-[0.18em] text-slate-500">
+                <span className="bg-slate-950 px-1.5 py-0.5 text-white">RADAR</span>
+                <span>CAPITAL FLOWS / LIVE WORKSPACE</span>
               </div>
-              <h1 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
-                高収益ビジネス 財務構造 ＆ 資本効率インデックス
-              </h1>
+              <h1 className="text-xl font-bold tracking-tight sm:text-2xl">いま見るべき金の流れ</h1>
+              <p className="mt-1 max-w-2xl text-xs leading-5 text-slate-500">
+                収益モデルの変化、検証可能な数字、次に深掘りする対象を一画面で判断する。
+              </p>
             </div>
 
-            {/* 4連マクロKPIマトリクス（1px境界線グリッド） */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 bg-slate-50 border border-slate-200 rounded-lg divide-x divide-y sm:divide-y-0 divide-slate-200 shrink-0 font-mono">
-              <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">収録モデル</div>
-                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{companies.length} 社</div>
-              </div>
-              <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">平均営業利益率</div>
-                <div className="text-base sm:text-lg font-bold text-emerald-700 tabular-nums">{avgMargin}%</div>
-              </div>
-              <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">最大実測月商</div>
-                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{formattedMaxRev}</div>
-              </div>
-              <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">完全1人比率</div>
-                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{soloRatio}%</div>
-              </div>
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <button type="button" onClick={onNavigateToTerminal} className="inline-flex h-8 items-center gap-1.5 border border-slate-950 bg-slate-950 px-3 font-semibold text-white hover:bg-slate-800">
+                <Search size={13} />
+                全件を探索
+              </button>
+              {onOpenSignalsList && (
+                <button type="button" onClick={onOpenSignalsList} className="inline-flex h-8 items-center gap-1.5 border border-slate-300 bg-white px-3 font-semibold text-slate-700 hover:border-slate-950 hover:text-slate-950">
+                  <Bell size={13} />
+                  変化を見る
+                </button>
+              )}
+              <span className="inline-flex h-8 items-center gap-1.5 border border-slate-200 px-2.5 font-mono text-[10px] text-slate-500">
+                <span className="h-1.5 w-1.5 bg-emerald-500" />
+                {companies.length}件を監視中
+              </span>
             </div>
           </div>
+        </header>
 
-          {/* 下段：クイック絞り込み ＆ 端末オープンボタン */}
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3 flex-wrap">
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="text-[11px] font-mono text-slate-400 mr-1">注目切り口:</span>
-              {[
-                { label: '完全1人・年商億超', tag: '完全1人' },
-                { label: '初期費用0円・AI無人化', tag: '初期0円' },
-                { label: '地方実業・現場DX', tag: '地方実業' },
-                { label: '利益率50%超・独占', tag: '独占' },
-              ].map((btn, idx) => (
+        <div className="grid border-b border-slate-200 bg-white sm:grid-cols-3">
+          <div className="border-b border-slate-200 px-5 py-3 sm:border-b-0 sm:border-r sm:px-8">
+            <div className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">収録 / 出典区分</div>
+            <div className="mt-1 flex flex-wrap items-center gap-3 font-mono text-xs tabular-nums">
+              <span>{companies.length}社</span>
+              <span className="text-emerald-700">有報 {sourceCounts.audited}</span>
+              <span className="text-slate-600">決済 {sourceCounts.payment}</span>
+              <span className="text-amber-700">推計 {sourceCounts.estimated}</span>
+            </div>
+          </div>
+          <div className="border-b border-slate-200 px-5 py-3 sm:border-b-0 sm:border-r sm:px-8">
+            <div className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">最優先で見る対象</div>
+            <div className="mt-1 flex items-center gap-2 text-sm font-bold">
+              {topCompany ? <><span className="truncate">{topCompany.japaneseName}</span><AuditStatusBadge status={topCompany.verifiedStatus} compact /></> : <span className="text-slate-400">対象なし</span>}
+            </div>
+          </div>
+          <div className="px-5 py-3 sm:px-8">
+            <div className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">クイック条件</div>
+            <div className="mt-1 flex flex-wrap gap-1.5">
+              {quickFilters.map((filter) => (
                 <button
-                  key={idx}
-                  onClick={() => {
-                    if (onFilterTheme) onFilterTheme(btn.tag);
-                    onNavigateToTerminal();
-                  }}
-                  className="h-6.5 px-2.5 rounded bg-white hover:bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 hover:text-slate-950 transition-colors font-medium cursor-pointer"
+                  type="button"
+                  key={filter.tag}
+                  onClick={() => { onFilterTheme?.(filter.tag); onNavigateToTerminal(); }}
+                  className="border border-slate-300 px-2 py-0.5 text-[10px] text-slate-600 hover:border-slate-950 hover:text-slate-950"
                 >
-                  {btn.label}
+                  {filter.label}
                 </button>
               ))}
             </div>
-            <button
-              onClick={onNavigateToTerminal}
-              className="h-7.5 px-3.5 rounded bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
-            >
-              <span>企業財務データベースを開く</span>
-              <ArrowRight size={12} />
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* メインコンテンツエリア（max-w-7xl 統一規格） */}
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-8 space-y-10">
-        
-        {/* ───────────────────────────────────────────────────────────── */}
-        {/* 2. 出典区分を併記した高収益ビジネス TOP 5 */}
-        {/* ───────────────────────────────────────────────────────────── */}
-        <section className="space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2.5">
-            <div 
-              onClick={onOpenLeaderboard}
-              className={`${onOpenLeaderboard ? 'cursor-pointer group' : ''}`}
-            >
-              <div className="text-[11px] font-mono text-slate-400 font-bold uppercase tracking-wider">
-                TOP MICRO PERFORMERS
-              </div>
-              <h2 className="text-base font-bold text-slate-950 mt-0.5 group-hover:text-slate-700 transition-colors flex items-center gap-1.5">
-                <span>高収益ビジネス TOP 5（出典区分を併記）</span>
-                {onOpenLeaderboard && <ChevronRight size={15} className="text-slate-400 group-hover:text-slate-950" />}
-              </h2>
-            </div>
-            {onOpenLeaderboard && (
-              <button
-                onClick={onOpenLeaderboard}
-                className="text-xs text-slate-700 hover:text-slate-950 font-mono font-semibold flex items-center gap-1 self-start sm:self-auto bg-white px-2.5 py-1 rounded border border-slate-200 hover:border-slate-300 transition-colors cursor-pointer"
-              >
-                <span>完全ランキング（全社）</span>
-                <ArrowRight size={12} />
-              </button>
-            )}
-          </div>
-
-          <div className="border border-slate-200 rounded-lg overflow-hidden bg-white">
-            <table className="w-full text-left border-collapse text-xs font-mono">
-              <thead>
-                <tr className="border-b border-slate-200 bg-slate-50/80 text-slate-500 text-[11px]">
-                  <th className="py-2.5 px-4 w-12 text-center font-bold">順位</th>
-                  <th className="py-2.5 px-4 font-bold">事業者 / モデル</th>
-                  <th className="py-2.5 px-4 hidden sm:table-cell font-bold text-center">組織体制</th>
-                  <th className="py-2.5 px-4 text-right font-bold whitespace-nowrap">月商（実測/換算）</th>
-                  <th className="py-2.5 px-4 text-right font-bold text-slate-900 whitespace-nowrap">実効手残り純利</th>
-                  <th className="py-2.5 px-4 text-right font-bold whitespace-nowrap">利益率</th>
-                  <th className="py-2.5 px-4 hidden md:table-cell text-center font-bold">推移</th>
-                  <th className="py-2.5 px-3 w-8 text-center"></th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 font-sans">
-                {trendingHotCompanies.map((c, idx) => {
-                  const latestFin = c.financials[c.financials.length - 1];
-                  const measuredMonthlyRev = c.passbookDetails?.monthlyGrossJpy;
-                  const monthlyRev = measuredMonthlyRev ?? Math.round((latestFin?.revenueJpy || 0) / 12);
-                  const founderTakeHome = c.passbookDetails?.founderTakeHomeJpy || Math.round((latestFin?.operatingProfitJpy || 0) / 12);
-                  const netMargin = latestFin?.operatingMarginPercent ?? 0;
-
-                  return (
-                    <tr
-                      key={c.id}
-                      onClick={() => onSelectCompany(c.id)}
-                      className="hover:bg-slate-50/80 cursor-pointer transition-colors group"
-                    >
-                      <td className="py-3 px-4 text-center text-slate-400 font-mono font-bold">
-                        {idx + 1}
-                      </td>
-                      <td className="py-3 px-4">
-                        <div className="flex items-center gap-2.5">
-                          <CompanyLogo id={c.id} size="sm" />
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-2 font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
-                              <span className="truncate">{c.japaneseName}</span>
-                              <AuditStatusBadge status={c.verifiedStatus} compact />
-                            </div>
-                            <div className="text-[11px] text-slate-500 truncate max-w-xs sm:max-w-md font-normal">
-                              {c.tagline}
-                            </div>
-                          </div>
-                        </div>
-                      </td>
-                      <td className="py-3 px-4 hidden sm:table-cell text-center font-mono">
-                        <span className="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] text-slate-600 font-medium whitespace-nowrap inline-block">
-                          {c.teamSize === 1 ? '完全1人' : `${c.teamSize}人体制`}
-                        </span>
-                      </td>
-                      <td className="py-3 px-4 text-right text-slate-600 tabular-nums font-mono whitespace-nowrap">
-                        {formatShortAmount(monthlyRev)}{measuredMonthlyRev === undefined ? ' 換算' : ''}
-                      </td>
-                      <td className="py-3 px-4 text-right tabular-nums whitespace-nowrap">
-                        <span className="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-mono font-bold whitespace-nowrap inline-block">
-                          {formatShortAmount(founderTakeHome)}
-                        </span>
-                      </td>
-                      <td className="py-3 px-4 text-right text-slate-900 tabular-nums font-bold font-mono whitespace-nowrap">
-                        {netMargin}%
-                      </td>
-                      <td className="py-3 px-4 hidden md:table-cell text-center">
-                        <div className="flex justify-center">
-                          <SparklineChart color="#10B981" width={52} height={16} />
-                        </div>
-                      </td>
-                      <td className="py-3 px-3 text-center text-slate-400 group-hover:text-slate-950">
-                        <ChevronRight size={14} />
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        {/* ───────────────────────────────────────────────────────────── */}
-        {/* 3. 【リソース適合診断・即時照合バナー（コンサル規格）】          */}
-        {/* ───────────────────────────────────────────────────────────── */}
-        <div 
-          onClick={() => (onOpenFinder ? onOpenFinder() : onOpenIdeasVault?.())}
-          className="p-5 border border-slate-200 rounded-lg bg-slate-50 hover:bg-slate-100/70 cursor-pointer transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 select-none group"
-        >
-          <div className="space-y-1 max-w-2xl">
-            <div className="flex items-center gap-2 font-mono text-[10px]">
-              <span className="px-1.5 py-0.2 rounded bg-slate-950 text-white font-bold uppercase tracking-wider">
-                DIAGNOSTIC
-              </span>
-              <span className="text-slate-500 font-semibold">
-                保有リソース（資本・時間・スキル・市場）から事業モデルを逆引き
-              </span>
-            </div>
-            <h3 className="text-base font-bold text-slate-950 group-hover:text-slate-800 transition-colors">
-              手札適合診断：実在22社の損益分岐点から、あなたの初期アプローチと価格決定権を算出
-            </h3>
-            <p className="text-xs text-slate-600 font-normal">
-              初期資本ゼロ・週末稼働から着手可能なモデルと、初日から使える営業文面・ツールスタックを提示します。
-            </p>
-          </div>
-
-          <div className="shrink-0 flex items-center">
-            <button
-              type="button"
-              className="px-4 py-2 bg-slate-950 group-hover:bg-slate-800 text-white font-mono text-xs font-bold rounded-md transition-colors flex items-center gap-2 cursor-pointer shadow-xs"
-            >
-              <Sparkles size={13} className="text-slate-300" />
-              <span>リソース適合診断を開く</span>
-              <ArrowRight size={13} />
-            </button>
           </div>
         </div>
 
-        {/* ───────────────────────────────────────────────────────────── */}
-        {/* 4. 【高単価産業の構造的余剰利益を獲得する実効モデル TOP 4】        */}
-        {/* ───────────────────────────────────────────────────────────── */}
-        <section className="space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2.5">
-            <div>
-              <div className="text-[11px] font-mono text-slate-400 font-bold uppercase tracking-wider">
-                HIGH-MARGIN ARBITRAGE
+        <div className="grid gap-px bg-slate-200 lg:grid-cols-[minmax(0,1fr)_320px]">
+          <section className="min-w-0 bg-white">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-8">
+              <div>
+                <div className="font-mono text-[10px] font-bold tracking-[0.16em] text-slate-400">OPPORTUNITY UNIVERSE</div>
+                <h2 className="mt-1 text-sm font-bold">収益構造の比較台帳</h2>
               </div>
-              <h2 className="text-base font-bold text-slate-950 mt-0.5">
-                高単価産業の構造的余剰利益を獲得する実効モデル TOP 4
-              </h2>
+              <div className="flex items-center gap-2 text-[11px]">
+                {onOpenFinder && <button type="button" onClick={onOpenFinder} className="inline-flex items-center gap-1 border border-slate-300 px-2.5 py-1.5 text-slate-600 hover:border-slate-950 hover:text-slate-950"><SlidersHorizontal size={12} />制約から探す</button>}
+                {onOpenLeaderboard && <button type="button" onClick={onOpenLeaderboard} className="inline-flex items-center gap-1 px-1.5 py-1.5 font-semibold text-slate-600 hover:text-slate-950">全ランキング<ArrowUpRight size={12} /></button>}
+              </div>
             </div>
-            {onOpenIdeasVault && (
-              <button
-                onClick={onOpenIdeasVault}
-                className="text-xs text-slate-700 hover:text-slate-950 font-semibold font-mono flex items-center gap-1 self-start sm:self-auto bg-white px-2.5 py-1 rounded border border-slate-200 hover:border-slate-300 transition-colors cursor-pointer"
-              >
-                <span>実践機会台帳を開く</span>
-                <ArrowRight size={12} />
+
+            <div className="overflow-x-auto">
+              <table className="w-full min-w-[780px] border-collapse text-left text-xs">
+                <caption className="sr-only">収益構造の比較台帳</caption>
+                <thead className="border-b border-slate-200 bg-slate-50 text-[10px] font-mono font-semibold text-slate-500">
+                  <tr>
+                    <th scope="col" className="px-5 py-2.5 font-semibold sm:px-8">事業 / 出典</th>
+                    <th scope="col" className="px-3 py-2.5 text-right font-semibold">月商</th>
+                    <th scope="col" className="px-3 py-2.5 text-right font-semibold">利益率</th>
+                    <th scope="col" className="px-3 py-2.5 text-right font-semibold">初期資本</th>
+                    <th scope="col" className="px-3 py-2.5 text-right font-semibold">人数</th>
+                    <th scope="col" className="px-5 py-2.5 text-right font-semibold sm:px-8">操作</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {rankedCompanies.map((company) => {
+                    const financials = getLatestFinancials(company);
+                    const monthly = getMonthlyRevenue(company);
+                    return (
+                      <tr key={company.id} className="group hover:bg-slate-50">
+                        <th scope="row" className="px-5 py-3 text-left font-normal sm:px-8">
+                          <button type="button" onClick={() => onSelectCompany(company.id)} className="flex min-w-0 items-center gap-2.5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-slate-950 focus-visible:outline-offset-2">
+                            <CompanyLogo id={company.id} size="sm" />
+                            <span className="min-w-0">
+                              <span className="flex items-center gap-2">
+                                <span className="truncate font-bold text-slate-950">{company.japaneseName}</span>
+                                <AuditStatusBadge status={company.verifiedStatus} compact />
+                              </span>
+                              <span className="mt-0.5 block max-w-[340px] truncate text-[11px] text-slate-500">{company.tagline}</span>
+                            </span>
+                          </button>
+                        </th>
+                        <td className="px-3 py-3 text-right font-mono tabular-nums text-slate-700">
+                          <span>{formatJpy(monthly.value)}</span>
+                          <span className="mt-0.5 block text-[9px] text-slate-400">{monthly.basis}</span>
+                        </td>
+                        <td className="px-3 py-3 text-right font-mono font-bold tabular-nums text-emerald-700">{financials?.operatingMarginPercent ?? '—'}{financials?.operatingMarginPercent !== undefined && '%'}</td>
+                        <td className="px-3 py-3 text-right font-mono tabular-nums text-slate-600">{formatJpy(company.initialInvestmentJpy)}</td>
+                        <td className="px-3 py-3 text-right font-mono tabular-nums text-slate-600">{company.teamSize}人</td>
+                        <td className="px-5 py-3 text-right sm:px-8">
+                          <button type="button" aria-label={`${company.japaneseName}の調査書を開く`} onClick={() => onSelectCompany(company.id)} className="inline-flex items-center gap-1 text-[11px] font-semibold text-slate-500 opacity-70 hover:text-slate-950 group-hover:opacity-100 focus-visible:opacity-100"><span className="hidden sm:inline">調査書</span><ChevronRight size={13} /></button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+              {rankedCompanies.length === 0 && (
+                <div className="px-5 py-16 text-center text-xs text-slate-500">条件に一致する機会はありません。条件を緩めて再検索してください。</div>
+              )}
+            </div>
+          </section>
+
+          <aside className="bg-[#fbfbfc]">
+            <div className="border-b border-slate-200 px-5 py-3">
+              <div className="font-mono text-[10px] font-bold tracking-[0.16em] text-slate-400">WORKBENCH</div>
+              <h2 className="mt-1 text-sm font-bold">次に取る操作</h2>
+            </div>
+            <div className="divide-y divide-slate-200">
+              <button type="button" onClick={onNavigateToTerminal} className="flex w-full items-start gap-3 px-5 py-4 text-left hover:bg-white">
+                <Search size={15} className="mt-0.5 text-slate-500" />
+                <span><span className="block text-xs font-bold">全件から探す</span><span className="mt-1 block text-[11px] leading-4 text-slate-500">50軸の条件と検索語で、候補を絞り込む</span></span>
               </button>
-            )}
-          </div>
-
-          <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
-            {/* テーブルヘッダー */}
-            <div className="hidden md:grid grid-cols-12 gap-4 px-5 py-2.5 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
-              <div className="col-span-5">実効モデル / 対象市場</div>
-              <div className="col-span-4">創業者の着眼点（隙間の正体）</div>
-              <div className="col-span-2 text-right">実効手残り月利</div>
-              <div className="col-span-1 text-center">詳細</div>
+              {onOpenIdeasVault && <button type="button" onClick={onOpenIdeasVault} className="flex w-full items-start gap-3 px-5 py-4 text-left hover:bg-white"><Bookmark size={15} className="mt-0.5 text-slate-500" /><span><span className="block text-xs font-bold">保存した機会を見る</span><span className="mt-1 block text-[11px] leading-4 text-slate-500">比較・メモ・実行アセットを一箇所で管理</span></span></button>}
+              {onOpenSignalsList && <button type="button" onClick={onOpenSignalsList} className="flex w-full items-start gap-3 px-5 py-4 text-left hover:bg-white"><Bell size={15} className="mt-0.5 text-slate-500" /><span><span className="block text-xs font-bold">市場シグナルを見る</span><span className="mt-1 block text-[11px] leading-4 text-slate-500">変化の理由と更新時刻を確認する</span></span></button>}
             </div>
-
-            {/* 一覧行リスト */}
-            <div className="divide-y divide-slate-100 text-xs">
-              {[
-                {
-                  companyId: 'outbid-lol',
-                  title: '地域No.1オークション推薦看板',
-                  target: '美容クリニック・審美歯科（客単価30万〜100万円）',
-                  insight: '最上位1枠の掲載権をオークション化し、競合より優位に立ちたい院長の虚栄心を入札合戦へ変換。',
-                  profit: '+¥100万〜',
-                  capital: '¥0 (Stripe直結)'
-                },
-                {
-                  companyId: 'keyence-challenger-edge',
-                  title: '中古iPad格安AI外観検査システム',
-                  target: '地方町工場・金属加工（キーエンス500万の見積書）',
-                  insight: '500万円の見積を断念した工場長に、中古iPad＋画像判定AIで初期20万＋月1.5万保守を即決導入。',
-                  profit: '月利150万円',
-                  capital: '¥3万 (中古端末)'
-                },
-                {
-                  companyId: 'solo-local-dx',
-                  title: 'LINE写真査定・提携施工業者送客モデル',
-                  target: '遺品整理・特殊清掃・外壁洗浄（単価30万〜）',
-                  insight: '粗利80%超の現場産業。LINE自動見積もりで一次受けし、提携職人に丸投げ送客して紹介料を獲得。',
-                  profit: '月利100万円',
-                  capital: '¥0 (機材不要)'
-                },
-                {
-                  companyId: 'solo-local-dx',
-                  title: '助成金・補助金LLMドラフト自動生成代行',
-                  target: '地方中小企業（IT導入補助金・省力化投資）',
-                  insight: '100頁超の公募要領を独自プロンプトで15分初稿生成。着手金ゼロ・採択成果報酬で受注。',
-                  profit: '+¥200万〜',
-                  capital: '¥0 (LLM運用)'
-                }
-              ].map((item, idx) => (
-                <div 
-                  key={idx}
-                  onClick={() => onSelectCompany(item.companyId)}
-                  className="px-5 py-3.5 hover:bg-slate-50/80 transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 items-start md:items-center group"
-                >
-                  <div className="col-span-5 flex items-center gap-2.5 min-w-0 w-full">
-                    <CompanyLogo id={item.companyId} size="sm" />
-                    <div className="min-w-0 flex-1">
-                      <div className="font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
-                        {item.title}
-                      </div>
-                      <div className="text-[11px] text-slate-500 truncate mt-0.5">
-                        {item.target}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-span-4 text-[11px] text-slate-600 line-clamp-2">
-                    {item.insight}
-                  </div>
-
-                  <div className="col-span-2 flex md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto">
-                    <span className="text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80 tabular-nums">
-                      {item.profit}
-                    </span>
-                    <span className="text-[10px] font-mono text-slate-400 mt-0.5 hidden md:block">
-                      初期 {item.capital}
-                    </span>
-                  </div>
-
-                  <div className="col-span-1 hidden md:flex items-center justify-center text-slate-400 group-hover:text-slate-950">
-                    <ChevronRight size={14} />
-                  </div>
-                </div>
-              ))}
+            <div className="border-t border-slate-200 px-5 py-4">
+              <div className="flex items-center gap-2 text-[10px] font-mono font-semibold text-slate-500"><Filter size={12} />出典の読み方</div>
+              <p className="mt-2 text-[11px] leading-5 text-slate-500">有報・決済・推計を混ぜず、数字の横に根拠を表示します。換算値には換算方法を明記します。</p>
             </div>
-          </div>
-        </section>
-
-        {/* ───────────────────────────────────────────────────────────── */}
-        {/* 5. 【完全1人・個人開発で年商数千万〜億超えモデル】              */}
-        {/* ───────────────────────────────────────────────────────────── */}
-        <section className="space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2.5">
-            <div>
-              <div className="text-[11px] font-mono text-slate-400 font-bold uppercase tracking-wider">
-                SOLO ARCHITECTURE
-              </div>
-              <h2 className="text-base font-bold text-slate-950 mt-0.5">
-                完全1人・従業員ゼロで年商数千万〜億を叩き出すモデル
-              </h2>
-            </div>
-            <span className="text-xs text-slate-500 font-mono">
-              オフィスなし・人件費ゼロ・APIとツールで自動化
-            </span>
-          </div>
-
-          <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
-            <div className="hidden md:grid grid-cols-12 gap-4 px-5 py-2.5 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
-              <div className="col-span-5">事業者 / 創業者</div>
-              <div className="col-span-4">自動化の仕掛け・事業の正体</div>
-              <div className="col-span-2 text-right">月商規模 / 純利益</div>
-              <div className="col-span-1 text-center">詳細</div>
-            </div>
-
-            <div className="divide-y divide-slate-100 text-xs">
-              {soloDevCompanies.map((c) => {
-                const latestFin = c.financials[c.financials.length - 1];
-                const monthlyRev = c.passbookDetails?.monthlyGrossJpy || Math.round((latestFin?.revenueJpy || 0) / 12);
-                const founderTakeHome = c.passbookDetails?.founderTakeHomeJpy || Math.round((latestFin?.operatingProfitJpy || 0) / 12);
-                const netMargin = latestFin?.operatingMarginPercent ? Math.round(latestFin.operatingMarginPercent) : 85;
-
-                return (
-                  <div
-                    key={c.id}
-                    onClick={() => onSelectCompany(c.id)}
-                    className="px-5 py-3.5 hover:bg-slate-50/80 transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 items-start md:items-center group"
-                  >
-                    <div className="col-span-5 flex items-center gap-2.5 min-w-0 w-full">
-                      <CompanyLogo id={c.id} size="sm" />
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-2">
-                          <span className="font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
-                            {c.japaneseName}
-                          </span>
-                          <span className="px-1.5 py-0.2 rounded bg-slate-100 text-[10px] font-mono text-slate-600">
-                            完全1人
-                          </span>
-                        </div>
-                        <div className="text-[11px] text-slate-500 truncate mt-0.5">
-                          {c.businessEssence?.whatItDoes || c.tagline}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-span-4 text-[11px] text-slate-600 line-clamp-2">
-                      {c.businessEssence?.monetizationWay || 'Stripe決済・デジタル自動配信・利益率高位維持'}
-                    </div>
-
-                    <div className="col-span-2 flex md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto">
-                      <span className="text-xs font-bold text-emerald-700 font-mono tabular-nums bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">
-                        {formatShortAmount(founderTakeHome)}
-                      </span>
-                      <span className="text-[10px] font-mono text-slate-400 mt-0.5 hidden md:block">
-                        月商 {formatShortAmount(monthlyRev)} ({netMargin}%)
-                      </span>
-                    </div>
-
-                    <div className="col-span-1 hidden md:flex items-center justify-center text-slate-400 group-hover:text-slate-950">
-                      <ChevronRight size={14} />
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* ニュースレターセクション */}
-        <WeeklyNewsletterSection />
+          </aside>
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
