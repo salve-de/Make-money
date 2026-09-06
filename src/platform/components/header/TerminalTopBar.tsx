@@ -45,8 +45,17 @@ export const TerminalTopBar: React.FC<TerminalTopBarProps> = ({
         </kbd>
       </button>
 
-      {/* 右側: 通貨切替 & PRO */}
+      {/* 右側: ガイド・通貨切替 & PRO */}
       <div className="flex items-center gap-2">
+        {/* ガイド・LPリンク */}
+        <a
+          href="/welcome"
+          className="hidden sm:flex items-center gap-1 text-[11px] font-mono bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] px-2 py-1 rounded text-zinc-400 hover:text-zinc-200 transition-colors"
+          title="端末概要・LPを見る"
+        >
+          <span>概要</span>
+        </a>
+
         {/* 通貨切替 */}
         <button
           onClick={onToggleCurrency}
@@ -65,3 +74,4 @@ export const TerminalTopBar: React.FC<TerminalTopBarProps> = ({
     </header>
   );
 };
+
