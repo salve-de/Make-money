@@ -51,6 +51,8 @@ Workers固有処理をアプリ全体へ広げず、ホスティング境界に�
 
 主要な関係は次を基本とする。
 
+共有収集では、出典の有無を保存の入口で必須にしない。出典がない候補は `UNVERIFIED` として保持し、出典・検証状態・取得日は別フィールドで扱う。利益、コスト、利益率、手取りは売上・GMV・資金調達と別の金額種別として扱う。
+
 - profiles
 - categories
 - opportunities
@@ -71,7 +73,7 @@ Workers固有処理をアプリ全体へ広げず、ホスティング境界に�
 - product_events
 - newsletter_subscriptions
 
-旧`supabase/` SQLは過去のデータモデル参考資産としてのみ扱う。必要なモデルをDrizzle schema/migrationへ移植し、Supabase固有API・Auth・Storage・Service Roleへの新規依存は作らない。
+旧`supabase/` SQLは過去のデータモデル参考資産としてのみ扱う。必要なモデルをDrizzle schema/migrationへ移植し、Supabase固有API・Auth・Storage・Service Roleへの新規依存は作らない。共有調査・根拠データの正規契約は `salve-de/universal-foundation` とする。
 
 ### Drizzle ORM
 
