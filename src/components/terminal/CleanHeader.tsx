@@ -85,7 +85,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             }`}
           >
             <Sparkles size={13} className={mainView === 'IDEAS_VAULT' ? 'text-emerald-600' : 'text-slate-400'} />
-            <span>実践機会台帳</span>
+            <span>実践機会台帳・手札診断</span>
           </button>
         </nav>
       </div>

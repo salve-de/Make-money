@@ -5,9 +5,8 @@ import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 import { SparklineChart } from '@/components/terminal/SparklineChart';
 import { DossierModal } from '@/components/terminal/portal/DossierModal';
-import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
 import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
-import { ArrowRight, TrendingUp, AlertTriangle, ShieldCheck, Zap, ExternalLink, ChevronRight } from 'lucide-react';
+import { ArrowRight, TrendingUp, AlertTriangle, ShieldCheck, Zap, ExternalLink, ChevronRight, Sparkles, Filter } from 'lucide-react';
 
 interface PortalViewProps {
   companies: CompanyRecord[];
@@ -250,9 +249,47 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 2. 【多次元・手札逆引き診断ファインダー (Diagnostic Matcher)】  */}
+        {/* 2. 【多次元・手札逆引き診断ファインダーへの短絡導線】          */}
         {/* ───────────────────────────────────────────────────────────── */}
-        <DiagnosticFinder onSelectCompany={onSelectCompany} />
+        <div 
+          onClick={() => onOpenIdeasVault?.()}
+          className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-slate-800 shadow-sm cursor-pointer group hover:border-indigo-500/60 transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 select-none"
+        >
+          <div className="space-y-2 max-w-2xl">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold border border-indigo-500/30">
+                MULTI-DIMENSIONAL SCREENER
+              </span>
+              <span className="text-[11px] font-mono text-emerald-400 font-bold">
+                実在22社・財務監査照合
+              </span>
+            </div>
+            <h3 className="text-base sm:text-lg font-black text-white group-hover:text-indigo-200 transition-colors">
+              あなたの手札条件（資本・時間・武器・市場）から、明日真似すべき実在モデルを即答照合
+            </h3>
+            <p className="text-xs text-slate-300 font-normal leading-relaxed">
+              AIの思いつき作文を完全排除。「実践機会台帳」にて、手元資金0円や副業から勝てる実在10モデルの適合度ランキング・現場3大ツール・DAY-1アクションを完全配備。
+            </p>
+            <div className="flex items-center gap-1.5 pt-1 flex-wrap font-mono text-[10px] text-slate-400">
+              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#元手0円</span>
+              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#週1-3h自販機</span>
+              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#ノーコードAPI</span>
+              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#町工場直販</span>
+              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#利益率80%超</span>
+            </div>
+          </div>
+
+          <div className="shrink-0 flex items-center justify-end">
+            <button
+              type="button"
+              className="px-5 py-2.5 rounded-xl bg-indigo-600 group-hover:bg-indigo-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer"
+            >
+              <Sparkles size={14} className="text-indigo-200" />
+              <span>実践機会台帳で手札診断を起動</span>
+              <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
+        </div>
 
         {/* ───────────────────────────────────────────────────────────── */}
         {/* 3. 【高単価産業の構造的余剰利益を獲得する実効モデル TOP 4】        */}

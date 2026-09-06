@@ -6,6 +6,7 @@ import { BusinessIdeaRecord, IdeaCategory } from '@/types/idea';
 import { SparklineChart } from '@/components/terminal/SparklineChart';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 import { ArrowRight, Search, X, CheckCircle2, Clock, Wrench } from 'lucide-react';
+import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
 
 interface IdeasVaultViewProps {
   onSelectCompany: (companyId: string) => void;
@@ -43,33 +44,38 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
   }, [selectedCategory, searchQuery]);
 
   return (
-    <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-5 sm:p-7 lg:p-9 space-y-6 select-none font-sans text-slate-900">
+    <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-5 sm:p-7 lg:p-9 space-y-8 select-none font-sans text-slate-900">
       
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* ページヘッダー：Starter Story / Product Hunt 調               */}
+      {/* 1. 多次元・手札逆引き事業ファインダー（専用スクリーナー）    */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="border-b border-slate-200 pb-5 space-y-3.5">
+      <DiagnosticFinder onSelectCompany={onSelectCompany} />
+
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* 2. 実践ビジネス機会アーカイブ一覧ヘッダー                    */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      <div className="border-t border-slate-200/80 pt-6 space-y-3.5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-900 text-white uppercase tracking-wider">
-                OPPORTUNITY VAULT
+                OPPORTUNITY ARCHIVE
               </span>
               <span className="text-xs font-mono text-slate-500">
-                実証済み事業機会・実践台帳
+                実証済み事業機会・全アーカイブ
               </span>
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-              実践ビジネス機会台帳
-            </h1>
+            <h2 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">
+              実践ビジネス機会台帳・全件リスト
+            </h2>
             <p className="text-xs sm:text-sm text-slate-600 max-w-2xl font-normal leading-relaxed">
-              既存産業の構造的盲点・価格の歪みを突いて、最小資本からキャッシュフローを創出する実践モデル。
+              既存産業の構造的盲点・価格の歪みを突いて、最小資本からキャッシュフローを創出する実践モデル一覧。
             </p>
           </div>
 
           <div className="flex items-center gap-2 self-start sm:self-auto font-mono text-xs text-slate-700 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            <span>検証済みモデル数: <strong className="text-slate-900 font-bold tabular-nums">{filteredIdeas.length}</strong> 件</span>
+            <span>検証済みアーカイブ数: <strong className="text-slate-900 font-bold tabular-nums">{filteredIdeas.length}</strong> 件</span>
           </div>
         </div>
 
