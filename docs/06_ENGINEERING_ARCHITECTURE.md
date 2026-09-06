@@ -1,8 +1,10 @@
 # 技術設計
 
-## 1. 現在の実装方針
+## 1. 状態の区別
 
-最初の価値検証を、外部APIやビルド環境に依存せず実行できる静的SPAとして実装した。
+現在の`main`は価値検証用の旧Vanilla JavaScript SPAであり、本番ターゲット構成とは異なる。
+
+### 現在の`main`
 
 - HTML + ES Modules
 - 独自CSS
@@ -11,29 +13,43 @@
 - Node標準サーバー・テスト
 - PWA Service Worker
 
-これにより、リポジトリを取得してすぐに全画面と主要操作を確認できる。
+### 本番ターゲット（2026-09-06 ユーザー決定）
 
-## 2. フロントの分離
+- Next.js + TypeScript
+- Cloudflare Workers
+- Neon PostgreSQL
+- Drizzle ORM
+- Firebase Auth
+- Stripe
+- Cloudflare R2（オブジェクト保存が必要な場合）
+- Google Cloud Run / Cloud Run Jobs（重い・長時間処理が必要な場合）
+- GitHub / GitHub Actions
+- 共有調査・根拠データは`salve-de/universal-foundation`
 
-### `src/data.js`
+**Supabase、Cloudflare Pages、Cloudflare Tunnelは通常の本番構成には採用しない。**
 
-画面が要求する正規化済みエンティティ。現在は体験用データ。
+## 2. Webアプリ
 
-### `src/core.js`
+本番アプリはNext.js App Router + TypeScriptを正とする。
 
-検索、正規化、スコア、フィルター、推薦、ルーティングなどDOMに依存しない関数。ユニットテスト対象。
+Cloudflare Workers上でNext.jsを動かすため、実装時点でCloudflareが正式に推奨する互換レイヤーを使用する。2026-09-06時点では`vinext`が推奨経路。
 
-### `src/app.js`
+- 動的なNext.js処理: Cloudflare Workers
+- HTML/CSS/JS/画像等: Workers Static Assets
+- Git連携の自動ビルド/公開: Workers Buildsを利用可能
+- 本番URL: Custom Domain
+- Pagesは新規本番ホストとして使わない
+- Tunnelは通常の公開経路として使わない
 
-ルートごとのレンダリング、イベント委譲、localStorage状態、投稿、共有、PWA登録。
+Workers固有処理をアプリ全体へ広げず、ホスティング境界に寄せる。
 
-### `styles/app.css`
+## 3. データ層
 
-色、余白、カード、表、モバイルナビ、フォーム、詳細画面。
+### Neon PostgreSQL
 
-## 3. 本番データ層
+本番のリレーショナルデータはNeon PostgreSQLへ置く。
 
-Supabase PostgreSQLへ次の関係を持つ。
+主要な関係は次を基本とする。
 
 - profiles
 - categories
@@ -55,38 +71,79 @@ Supabase PostgreSQLへ次の関係を持つ。
 - product_events
 - newsletter_subscriptions
 
-公開済みレコードは匿名読取可。投稿、保存、Claim、管理操作はRLSで分離する。
+旧`supabase/` SQLは過去のデータモデル参考資産としてのみ扱う。必要なモデルをDrizzle schema/migrationへ移植し、Supabase固有API・Auth・Storage・Service Roleへの新規依存は作らない。
 
-## 4. 本番接続方法
+### Drizzle ORM
 
-1. SQL migration適用
-2. `SUPABASE_URL` と `SUPABASE_ANON_KEY` をホスト環境へ設定
-3. 読取Adapterで公開Viewをフロント形式へ変換
-4. 未ログイン投稿は `submissions` へ、ログイン投稿は `submitted_by` 付きで保存
-5. 管理者が承認後、正規テーブルへ反映
-6. localStorageは未ログイン操作とオフラインキャッシュに残す
+- schemaをTypeScript側で管理する
+- migrationをレビュー可能な形で残す
+- 本番DB変更はアプリデプロイと無秩序に混ぜない
+- 必要カラムのみ取得し、不要な`SELECT *`を避ける
 
-## 5. 認証
+## 4. 認証・認可
 
-推奨はSupabase AuthのメールOTP。
+認証はFirebase Authを使用する。
 
-- 初回閲覧・検索・保存体験ではログインを要求しない
-- 端末内保存からクラウド同期する時にログインを求める
-- Claim、問い合わせ、公開コレクション、投稿履歴はログイン必須
-- 管理者権限は`profiles.role`とサーバー側検証を併用
+基本フロー:
 
-## 6. 検索
+```text
+Browser
+  -> Firebase Auth login
+  -> Firebase ID token
+  -> Next.js / Worker server boundary
+  -> token verification + user/role authorization
+  -> Neon query/mutation
+```
 
-初期はクライアント検索。データ増加後は以下へ移す。
+ブラウザへNeonの管理資格情報を渡さない。Firebaseでログインできることと、Neon上のデータを操作できることは別に判定する。
 
-- PostgreSQL generated `tsvector`
+- 初回閲覧・検索ではログインを要求しない
+- クラウド保存、Claim、投稿履歴等では必要に応じてログインを要求する
+- 管理者権限はサーバー側で検証する
+- Firebase UIDとアプリ内部ユーザーIDの対応を一意に管理する
+
+## 5. 決済
+
+Stripeを使用する。
+
+- Checkout / Subscription / Customer Portal等は必要な商品設計に合わせて採用
+- Webhookを本番の契約状態の更新元として扱う
+- クライアント自己申告だけで有料権限を付与しない
+- Webhookの署名検証・重複配送対策を行う
+
+## 6. オブジェクト/ファイル
+
+画像、添付、生成物などオブジェクト保存が必要になった場合はCloudflare R2を使う。
+
+共有可能な調査原典・研究データについてはMake-money独自のR2配置を作らず、`universal-foundation`のデータ契約とRunbookを正とする。
+
+## 7. 重い処理
+
+Cloudflare Workersへ次を押し込まない。
+
+- 長時間バッチ
+- 大量スクレイピング
+- ブラウザ自動化
+- 大きなPDF/画像処理
+- native依存処理
+- Pythonの方が自然な処理
+
+必要な場合だけCloud Run / Cloud Run Jobsへ分離する。
+
+## 8. 検索
+
+初期はPostgreSQL標準機能を優先する。
+
+- generated `tsvector`
 - `pg_trgm`による表記揺れ・部分一致
 - カテゴリー、地域、根拠、状態の複合index
-- 人気度ではなく検索適合度と信頼度を分ける
+- 人気度と検索適合度・信頼度を分離
 
-## 7. 分析イベント
+外部検索サービスは実データ量と性能測定で必要性が出るまで追加しない。
 
-最低限、次を`product_events`へ送る。
+## 9. 分析イベント
+
+最低限、次を`product_events`等へ記録する。
 
 - page_view
 - search
@@ -103,22 +160,32 @@ Supabase PostgreSQLへ次の関係を持つ。
 - claim_started / completed
 - pricing_viewed
 
-個人特定が不要なイベントは匿名セッションIDで扱う。
+個人特定が不要なイベントは匿名セッションで扱う。
 
-## 8. セキュリティ
+## 10. セキュリティ
 
-- Service Role Keyをブラウザへ置かない
-- RLSを無効にしない
-- URLはhttp/httpsのみ許可
-- ユーザー文字列はHTMLエスケープ
-- 管理処理をクライアントのrole表示だけで許可しない
-- 投稿・投票へレート制限とBot対策を追加
+- DB資格情報・Stripe secret・Firebase server credentialsをブラウザへ置かない
+- URLはhttp/httpsのみ許可し、外部取得はSSRF対策を行う
+- ユーザー入力は出力先に応じて適切にエスケープ/サニタイズ
+- 管理処理をクライアント表示だけで許可しない
+- 投稿・投票・ログイン・決済へ適切なレート制限/Bot対策
 - 外部リンクへ`noopener noreferrer`
-- CSP、Permissions-Policy、Referrer-Policyを配信側で設定
+- CSP、Permissions-Policy、Referrer-Policy等を設定
+- Firebase ID token / セッションをサーバー側で検証
+- Stripe Webhook署名を必ず検証
 
-## 9. 品質ゲート
+## 11. 品質ゲート
 
-- `npm run check` — 必須ファイル、ID、参照整合性、スコア範囲、危険URL
-- `npm test` — コアロジック
-- GitHub Actions — push / pull requestで自動実行
-- 本番前 — モバイル実機、キーボード操作、スクリーンリーダー、Lighthouse
+本番Next.js実装では最低限次を必須化する。
+
+- typecheck
+- lint
+- unit/integration tests
+- production build
+- Cloudflare Workers向けbuild/compatibility check
+- Firebase Auth -> server -> Neonの認証E2E
+- Stripe Webhookのテスト
+- モバイル実機・キーボード操作・主要アクセシビリティ
+- GitHub ActionsでPR/push時に自動検証
+
+実装チェックで問題が出ても、ユーザー決定なしにVercelやSupabaseへ自動的に戻してはならない。具体的な互換性問題を修正するか、阻害要因を明示する。
