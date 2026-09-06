@@ -99,7 +99,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
               )}
               <span className="inline-flex h-8 items-center gap-1.5 border border-slate-200 px-2.5 font-mono text-[10px] text-slate-500">
                 <span className="h-1.5 w-1.5 bg-emerald-500" />
-                {companies.length}件を監視中
+                {companies.length}件を収録
               </span>
             </div>
           </div>

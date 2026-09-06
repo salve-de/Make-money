@@ -33,6 +33,20 @@ After opening the product, a user must be able to answer:
 
 We borrow the workflow and information architecture, not a superficial dark theme or a fixed two-pane layout.
 
+## 2.1 Scale contract: 1,000-company universe
+
+The next ingestion phase is expected to add approximately 1,000 companies. The product must therefore treat the current 22 records as a sample, not as the layout or query model.
+
+- **RADAR never renders the whole universe.** It renders a freshness- and signal-ranked slice (target 12–24 rows) plus the total universe count.
+- **EXPLORE owns the full universe.** Search, facets, sort, column visibility, saved views, and zero-result recovery must remain usable at 1,000+ records.
+- **No eager dossier rendering.** A row renders summary fields only; financial history, source ledger, charts, and execution assets load when the dossier is opened.
+- **The list must have a bounded rendering strategy.** Use server-side/query pagination or windowed rendering before the 1,000-company import is accepted. A single unbounded `map()` over every rich row is not an acceptance implementation.
+- **Filter state is queryable and shareable.** Search text, facets, sort, page/cursor, and selected record belong to one URL-addressable state model.
+- **Ingestion must be deduplicated and evidence-aware.** Each record needs a stable ID, canonical name, source class, source URL, checked date, coverage status, and update history so new collection does not create duplicate or unverifiable rows.
+- **Performance acceptance.** Adding records must not increase the first-screen RADAR payload or visible row count. EXPLORE must preserve interaction responsiveness while filtering 1,000 records, and the mobile view must not become a horizontal spreadsheet.
+
+The scale plan is intentionally split: RADAR answers “what deserves attention now?”, while EXPLORE answers “show me the complete universe under these constraints.”
+
 ## 3. Product information architecture
 
 ### RADAR — current money flows
