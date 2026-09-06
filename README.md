@@ -19,6 +19,7 @@ GOLDMINE RADAR は、成功談を読むだけのメディアでも、AIが思い
 
 - [Make-Money収集要件](docs/08_COLLECTION_CONTRACT.md)
 - [Universal Foundationの共通収集基準](https://github.com/salve-de/universal-foundation/blob/main/docs/UNIVERSAL_COLLECTION_BASELINE.md)
+- [Universal Foundation完全化要件（PR #3）](https://github.com/salve-de/universal-foundation/blob/codex/universal-collection-contract-20260906/docs/UNIVERSAL_COMPLETION_REQUIREMENTS.md)
 
 ## 実装状態
 
