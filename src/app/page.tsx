@@ -18,6 +18,7 @@ import { LeaderboardView } from '@/components/terminal/portal/sections/Leaderboa
 import { IdeasVaultView } from '@/components/terminal/IdeasVaultView';
 import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
 import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
+import { ProModal } from '@/components/terminal/ProModal';
 
 export type MainViewType = 
   | 'PORTAL'
@@ -31,6 +32,41 @@ export type MainViewType =
   | 'LEADERBOARD';
 
 export default function Home() {
+  // PROモーダル開閉状態
+  const [isProModalOpen, setIsProModalOpen] = useState(false);
+
+  // ブックマーク一覧管理（ローカルストレージ ＋ /api/bookmarks 連携）
+  const [bookmarkedIds, setBookmarkedIds] = useState<string[]>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('kin_bookmarks');
+        return saved ? JSON.parse(saved) : [];
+      } catch {
+        return [];
+      }
+    }
+    return [];
+  });
+
+  const handleToggleBookmark = (companyId: string) => {
+    setBookmarkedIds((prev) => {
+      const next = prev.includes(companyId)
+        ? prev.filter((id) => id !== companyId)
+        : [...prev, companyId];
+      if (typeof window !== 'undefined') {
+        try {
+          localStorage.setItem('kin_bookmarks', JSON.stringify(next));
+        } catch {}
+      }
+      fetch('/api/bookmarks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemType: 'company', itemId: companyId }),
+      }).catch(() => {});
+      return next;
+    });
+  };
+
   // 選択中の銘柄ID
   const [selectedCompanyId, setSelectedCompanyId] = useState<string>(
     TERMINAL_COMPANIES[0]?.id || 'keyence-6861'
@@ -319,6 +355,7 @@ export default function Home() {
         totalCount={TERMINAL_COMPANIES.length}
         mainView={mainView}
         onChangeMainView={setMainView}
+        onOpenProModal={() => setIsProModalOpen(true)}
       />
 
       {/* リアルタイム市場金融ティッカー（全画面共通・横に流れる速報ニュースフィード） */}
@@ -494,12 +531,16 @@ export default function Home() {
           filter={screenerFilter}
           onRemoveFilter={handleRemoveFilter}
           onResetAll={handleResetAll}
+          bookmarkedIds={bookmarkedIds}
         />
 
         {/* 右: 財務構造・詳細分析シート (可変 flex-1) */}
         {currentCompany ? (
           <ExecutiveDetailSheet
             company={currentCompany}
+            onOpenProModal={() => setIsProModalOpen(true)}
+            isBookmarked={bookmarkedIds.includes(currentCompany.id)}
+            onToggleBookmark={handleToggleBookmark}
           />
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2 font-sans">
@@ -542,6 +583,12 @@ export default function Home() {
         totalCount={TERMINAL_COMPANIES.length}
         filteredCount={filteredCompanies.length}
         matchingCompanies={filteredCompanies}
+      />
+
+      {/* PROメンバーシップ決済モーダル */}
+      <ProModal
+        isOpen={isProModalOpen}
+        onClose={() => setIsProModalOpen(false)}
       />
     </div>
   );

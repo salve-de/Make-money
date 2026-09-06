@@ -4,15 +4,23 @@ import React, { useState } from 'react';
 import { CompanyRecord, MoatPower } from '../../types/terminal';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
-import { Check, ArrowRight, Lock, AlertTriangle, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
+import { Check, ArrowRight, Lock, AlertTriangle, ShieldCheck, Sparkles, ExternalLink, Bookmark } from 'lucide-react';
 
 interface ExecutiveDetailSheetProps {
   company: CompanyRecord;
+  onOpenProModal?: () => void;
+  isBookmarked?: boolean;
+  onToggleBookmark?: (companyId: string) => void;
 }
 
 type DetailTab = 'OVERVIEW' | 'FINANCIALS' | 'TRAFFIC' | 'TRACTION' | 'INFRASTRUCTURE' | 'ALL';
 
-export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ company }) => {
+export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ 
+  company,
+  onOpenProModal,
+  isBookmarked = false,
+  onToggleBookmark
+}) => {
   const [activeTab, setActiveTab] = useState<DetailTab>('OVERVIEW');
 
   const latestFin = company.financials && company.financials.length > 0
@@ -317,13 +325,28 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </span>
               </div>
 
-              <div className="flex items-baseline gap-3 flex-wrap">
+              <div className="flex items-center gap-3 flex-wrap">
                 <h1 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
                   {company.japaneseName}
                 </h1>
                 <span className="text-xs font-mono text-slate-500">
                   {company.founderName ? `創業者: ${company.founderName}` : `拠点: ${company.headquarters || '非公開'}`}
                 </span>
+                {onToggleBookmark && (
+                  <button
+                    type="button"
+                    onClick={() => onToggleBookmark(company.id)}
+                    className={`px-2.5 py-1 rounded-md text-xs font-mono font-semibold border transition-colors flex items-center gap-1.5 cursor-pointer ml-auto sm:ml-2 ${
+                      isBookmarked
+                        ? 'bg-amber-50 text-amber-900 border-amber-300'
+                        : 'bg-white text-slate-600 hover:text-slate-900 border-slate-200 hover:bg-slate-50'
+                    }`}
+                    title={isBookmarked ? 'ブックマーク解除' : 'ブックマークに保存'}
+                  >
+                    <Bookmark size={12} className={isBookmarked ? 'fill-amber-500 text-amber-500' : 'text-slate-400'} />
+                    <span>{isBookmarked ? '保存済み' : 'ブックマーク保存'}</span>
+                  </button>
+                )}
               </div>
 
               <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-3xl">
@@ -1254,6 +1277,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </div>
                 <button
                   type="button"
+                  onClick={onOpenProModal}
                   className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs font-mono tracking-wider transition-all shadow-md cursor-pointer"
                 >
                   PROプランで全実行アセットを取得する (月額 ¥9,800〜)

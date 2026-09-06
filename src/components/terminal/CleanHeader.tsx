@@ -11,6 +11,7 @@ interface CleanHeaderProps {
   totalCount: number;
   mainView: string;
   onChangeMainView: (view: any) => void;
+  onOpenProModal?: () => void;
 }
 
 export const CleanHeader: React.FC<CleanHeaderProps> = ({
@@ -18,7 +19,8 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
   onSearchChange,
   totalCount,
   mainView,
-  onChangeMainView
+  onChangeMainView,
+  onOpenProModal
 }) => {
   const isPortalActive = mainView === 'PORTAL' || mainView === 'COLLECTIONS_LIST' || mainView === 'COLLECTION_DETAIL' || mainView === 'SIGNALS_LIST' || mainView === 'SIGNAL_DETAIL' || mainView === 'LEADERBOARD';
 
@@ -124,14 +126,25 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           <span>社 実査済</span>
         </div>
 
+        {/* PROアンロックボタン */}
+        {onOpenProModal && (
+          <button
+            type="button"
+            onClick={onOpenProModal}
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-md transition-colors shrink-0 shadow-xs cursor-pointer"
+          >
+            <span>PRO</span>
+          </button>
+        )}
+
         {/* 認証・アカウントボタン */}
-        <UserNavButton />
+        <UserNavButton onOpenProModal={onOpenProModal} />
       </div>
     </header>
   );
 };
 
-function UserNavButton() {
+function UserNavButton({ onOpenProModal }: { onOpenProModal?: () => void }) {
   const { user, isPro, signOut, loading } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -21,6 +21,7 @@ interface CompanyListSidebarProps {
   filter: TerminalFilterState;
   onRemoveFilter: (key: keyof TerminalFilterState) => void;
   onResetAll: () => void;
+  bookmarkedIds?: string[];
 }
 
 export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
@@ -36,18 +37,20 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
   hasActiveFilters,
   filter,
   onRemoveFilter,
-  onResetAll
+  onResetAll,
+  bookmarkedIds = []
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [scaleTab, setScaleTab] = useState<'ALL' | 'SOLO_SMALL' | 'MEGA_CORP'>('ALL');
+  const [scaleTab, setScaleTab] = useState<'ALL' | 'SOLO_SMALL' | 'MEGA_CORP' | 'SAVED'>('ALL');
 
-  // 規模別の件数計算
+  // 規模別および保存済みの件数計算
   const soloSmallCompanies = companies.filter(
     (c) => c.teamSize <= 5 || c.scaleTier === 'SOLO_MICRO' || c.scaleTier === 'NICHE_LEADER'
   );
   const megaCorpCompanies = companies.filter(
     (c) => c.scaleTier === 'MEGA_CORP' || c.tags.includes('巨大独占')
   );
+  const savedCompanies = companies.filter((c) => bookmarkedIds.includes(c.id));
 
   // 規模タブ適用後の表示リスト
   const displayedCompanies = companies.filter((c) => {
@@ -57,10 +60,13 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
     if (scaleTab === 'MEGA_CORP') {
       return c.scaleTier === 'MEGA_CORP' || c.tags.includes('巨大独占');
     }
+    if (scaleTab === 'SAVED') {
+      return bookmarkedIds.includes(c.id);
+    }
     return true;
   });
 
-  const handleScaleTabChange = (newTab: 'ALL' | 'SOLO_SMALL' | 'MEGA_CORP') => {
+  const handleScaleTabChange = (newTab: 'ALL' | 'SOLO_SMALL' | 'MEGA_CORP' | 'SAVED') => {
     setScaleTab(newTab);
     if (newTab === 'MEGA_CORP' && megaCorpCompanies.length > 0) {
       const alreadyMega = megaCorpCompanies.some((c) => c.id === selectedCompanyId);
@@ -68,6 +74,9 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
     } else if (newTab === 'SOLO_SMALL' && soloSmallCompanies.length > 0) {
       const alreadySolo = soloSmallCompanies.some((c) => c.id === selectedCompanyId);
       if (!alreadySolo) onSelectCompany(soloSmallCompanies[0].id);
+    } else if (newTab === 'SAVED' && savedCompanies.length > 0) {
+      const alreadySaved = savedCompanies.some((c) => c.id === selectedCompanyId);
+      if (!alreadySaved) onSelectCompany(savedCompanies[0].id);
     }
   };
 
@@ -119,8 +128,8 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
               </div>
             </div>
 
-            {/* 3分割セグメント（個人・少人数 / 独占大企業 / 全件） */}
-            <div className="grid grid-cols-3 gap-1 bg-slate-200/60 p-0.5 rounded text-[11px] font-mono">
+            {/* 4分割セグメント（個人・少人数 / 独占大企業 / 保存済み / 全件） */}
+            <div className="grid grid-cols-4 gap-0.5 bg-slate-200/60 p-0.5 rounded text-[10px] font-mono">
               <button
                 type="button"
                 onClick={() => handleScaleTabChange('SOLO_SMALL')}
@@ -129,8 +138,9 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                     ? 'bg-white text-slate-950 font-bold shadow-xs'
                     : 'text-slate-500 hover:text-slate-900'
                 }`}
+                title="個人・少人数企業"
               >
-                個人・少人数 ({soloSmallCompanies.length})
+                個人 ({soloSmallCompanies.length})
               </button>
               <button
                 type="button"
@@ -140,8 +150,21 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                     ? 'bg-white text-slate-950 font-bold shadow-xs'
                     : 'text-slate-500 hover:text-slate-900'
                 }`}
+                title="巨大独占企業"
               >
-                大企業独占 ({megaCorpCompanies.length})
+                大企業 ({megaCorpCompanies.length})
+              </button>
+              <button
+                type="button"
+                onClick={() => handleScaleTabChange('SAVED')}
+                className={`py-1 text-center rounded transition-colors cursor-pointer ${
+                  scaleTab === 'SAVED'
+                    ? 'bg-amber-50 text-amber-950 font-bold shadow-xs border border-amber-300'
+                    : 'text-slate-500 hover:text-slate-900'
+                }`}
+                title="ブックマーク保存済み企業"
+              >
+                ★保存 ({savedCompanies.length})
               </button>
               <button
                 type="button"
@@ -151,6 +174,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                     ? 'bg-white text-slate-950 font-bold shadow-xs'
                     : 'text-slate-500 hover:text-slate-900'
                 }`}
+                title="全件"
               >
                 全件 ({companies.length})
               </button>

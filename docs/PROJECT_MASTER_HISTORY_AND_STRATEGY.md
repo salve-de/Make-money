@@ -741,5 +741,23 @@
     - **自律的整合・同期完了**:
       - `PROJECT_CHARTER.md`, `CLAUDE.md`, `AGENTS.md`, `README.md`, `docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md` を完全整合。
       - `npm run build` は通過、GitHubリモートリポジトリへ即時プッシュ（差分ゼロ維持）。
+22. **Phase 31: ゾンビコード23ファイルの完全切除 ＆ PRO決済・ブックマーク配管接続 ＆ 安全なPR分離（完了）**
+    - **背景・ユーザー指示**:
+      - 外部AIの「未接続機能・旧コンポーネントが放置されている」という痛烈な批判を監査。
+      - 指摘通り、初期の死にコンポーネント23ファイルが放置され、PROモーダルやブックマークAPIの配管が繋がっていない「ハリボテ」状態を確認。
+      - ユーザー指示：「お前は PRを作成して 今のを 上書きしないようにやれ」
+      - `main` を直接上書きせず、分離ブランチ `refactor/terminal-architecture-cleanup` を作成して安全に外科手術を断行。
+    - **外科手術の実績**:
+      1. **ゾンビコンポーネント23ファイルの完全切除**:
+         - `AptitudeDiagnosticModal`, `BusinessCard`, `BusinessDetailModal`, `FilterBar`, `Footer`, `Header`, `Hero`, `MaInquiryModal`, `ProSubscriptionModal`, `SubmissionModal` (x2), `BusinessBattleView`, `DirectorySidebar`, `ExecutionKitSection`, `ExecutiveVisualCharts`, `ExportModal`, `InfrastructureToolkitModal`, `InspectorPanel`, `LeftRail`, `MainAnalysisView`, `MarketTicker`, `OfferModal`, `TerminalHeader` を完全削除。
+      2. **PRO決済配管の完全開通**:
+         - `CleanHeader` にPROボタンを配置、`ExecutiveDetailSheet` の非公開アセットアンロックボタンと連動させ、`ProModal` から `/api/checkout` (Stripe) への決済導線を直結。
+      3. **ブックマーク（保存）配管の開通**:
+         - `ExecutiveDetailSheet` に「★ブックマーク保存」ボタンを設置。
+         - `CompanyListSidebar` に「★保存」タブを追加し、保存したビジネスだけを瞬時に絞り込み可能に。
+         - `localStorage` ＋ `/api/bookmarks` への非同期通信配管を開通。
+    - **検証・PR作成**:
+      - `npm run build` は Exit Code 0（エラーゼロ）で通過。
+      - GitHubへ新ブランチをプッシュし、Pull Request を作成。
 
 
