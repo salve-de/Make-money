@@ -74,9 +74,6 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <span>CAPITAL FLOWS / LIVE WORKSPACE</span>
               </div>
               <h1 className="text-xl font-bold tracking-tight sm:text-2xl">いま見るべき金の流れ</h1>
-              <p className="mt-1 max-w-2xl text-xs leading-5 text-slate-500">
-                収益モデルの変化、検証可能な数字、次に深掘りする対象を一画面で判断する。
-              </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2 text-xs">
