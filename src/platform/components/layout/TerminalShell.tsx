@@ -177,9 +177,10 @@ export const TerminalShell: React.FC = () => {
 
       {/* メインワークスペース (左ナビ + 中央データグリッド/特集ディープダイブ + 右リアルタイムインスペクター) */}
       <main className="flex-1 flex overflow-hidden relative pb-13 md:pb-0">
-        {/* 左サイドバー */}
+        {/* 左ナビゲーション (48px極薄アイコンレール) */}
         <TerminalSidebar
           workspaceMode={workspaceMode}
+          onSelectMode={setWorkspaceMode}
           activeTopicId={activeTopicId}
           onSelectTopic={(topicId) => {
             setWorkspaceMode('DEEP_DIVE');
@@ -191,9 +192,8 @@ export const TerminalShell: React.FC = () => {
             setCurrentFilter(f);
             setScreenerFilters(null);
           }}
-          collapsed={sidebarCollapsed}
-          onToggleCollapse={() => setSidebarCollapsed((prev) => !prev)}
           bookmarkCount={bookmarkedIds.size}
+          onOpenScreener={() => setIsScreenerOpen(true)}
         />
 
         {/* 中央メインエリア (特集ディープダイブ or 金融台帳グリッド) */}
@@ -250,6 +250,10 @@ export const TerminalShell: React.FC = () => {
             onPrevEntity={handlePrevEntity}
             onNextEntity={handleNextEntity}
             onOpenPro={() => setIsProModalOpen(true)}
+            onSelectTopic={(topicId) => {
+              setWorkspaceMode('DEEP_DIVE');
+              setActiveTopicId(topicId);
+            }}
           />
         )}
       </main>

@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { FinancialEntity } from '../../types/terminal';
+import { FinancialEntity, IntelligenceTopicId } from '../../types/terminal';
+import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { 
   X, 
   ExternalLink, 
@@ -17,7 +18,9 @@ import {
   Lock,
   KeyRound,
   Zap,
-  BarChart3
+  BarChart3,
+  ArrowUpRight,
+  FileText
 } from 'lucide-react';
 
 function parsePunchline(text: string): { punchline: string; detail: string } {
@@ -35,6 +38,7 @@ interface CompanyInspectorPaneProps {
   onPrevEntity?: () => void;
   onNextEntity?: () => void;
   onOpenPro?: () => void;
+  onSelectTopic?: (topicId: IntelligenceTopicId) => void;
   initialTab?: TabType;
 }
 
@@ -47,6 +51,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onPrevEntity,
   onNextEntity,
   onOpenPro,
+  onSelectTopic,
   initialTab = 'CORE',
 }) => {
   const searchParams = useSearchParams();
@@ -93,6 +98,11 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   const saasPct = Math.min(Math.round((entity.pnl.operatingExpenses.toolsAndSaaS / rev) * 100), 100);
   const otherPct = Math.min(Math.round((entity.pnl.operatingExpenses.other / rev) * 100), 100);
   const profitPct = Math.max(Math.round((entity.pnl.operatingProfit / rev) * 100), 0);
+
+  // 当該企業に紐づく特集レポートを検索
+  const relatedDossier = INTELLIGENCE_DOSSIERS.find((d) =>
+    d.targetEntityIds.includes(entity.id)
+  );
 
   return (
     <>
@@ -212,6 +222,37 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         {/* 【コンテンツゾーン: 明瞭なセクション区切り ＆ 高密度】 */}
         {/* ========================================================= */}
         <div className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans">
+          
+          {/* 特集インテリジェンスへの連動バナー */}
+          {relatedDossier && (
+            <div 
+              onClick={() => onSelectTopic && onSelectTopic(relatedDossier.id)}
+              className="border border-white/[0.08] hover:border-white/[0.2] rounded-md bg-[#0A0C12] p-3 flex items-center justify-between group cursor-pointer transition-all duration-150 shadow-sm"
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="p-1.5 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08] shrink-0">
+                  <FileText className="w-3.5 h-3.5" />
+                </span>
+                <div className="truncate">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider">
+                      関連特集インテリジェンス
+                    </span>
+                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.04] text-zinc-400">
+                      {relatedDossier.badge}
+                    </span>
+                  </div>
+                  <h3 className="text-xs font-medium text-white truncate group-hover:text-zinc-200 transition-colors">
+                    {relatedDossier.title}
+                  </h3>
+                </div>
+              </div>
+              <div className="flex items-center gap-1 font-mono text-[11px] text-zinc-400 group-hover:text-white shrink-0 pl-3">
+                <span className="hidden sm:inline">深層解剖を読む</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-white transition-colors" />
+              </div>
+            </div>
+          )}
           
           {/* ------------------------------------------------------- */}
           {/* TAB 1: 事業DNA (Core) */}
