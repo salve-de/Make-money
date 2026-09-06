@@ -434,7 +434,7 @@ export default function Home() {
 
       {/* リソース適合診断専用画面（完全単一独立ワークスペース） */}
       {mainView === 'FINDER' && (
-        <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-5 sm:p-7 lg:p-9 space-y-6 select-none font-sans text-slate-900">
+        <div className="flex-1 bg-white overflow-y-auto px-6 sm:px-10 lg:px-16 py-8 space-y-6 select-none font-sans text-slate-900">
           <DiagnosticFinder
             onSelectCompany={(id) => {
               setSelectedCompanyId(id);

@@ -32,7 +32,7 @@ export const StatistaDualView: React.FC<StatistaDualViewProps> = ({
   const maxRevenue = Math.max(...financials.map((f) => f.revenueJpy), 1);
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-xl p-5 select-none font-sans shadow-2xs">
+    <div className="border-y border-slate-200 bg-white py-5 select-none font-sans">
       {/* 上部ヘッダー ＆ 切替セグメントコントロール */}
       <div className="mb-4 pb-3 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>

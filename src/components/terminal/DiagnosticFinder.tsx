@@ -575,7 +575,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
   }, [selectedStrategyId, sortedStrategies]);
 
   return (
-    <section className="p-5 sm:p-6 rounded-lg bg-white border border-slate-200 shadow-2xs space-y-5 select-none">
+    <div className="space-y-6 select-none font-sans text-slate-900">
       {/* 1. ヘッダー見出し ＆ 手札資産査定ハイライト */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
         <div>
@@ -597,20 +597,20 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
         {/* 保有リソースの潜在市場価値 */}
         {activeStrategy && (
-          <div className="shrink-0 p-3 bg-slate-950 text-white rounded-lg border border-slate-800 flex items-center gap-4 font-mono shadow-2xs">
+          <div className="shrink-0 p-3 bg-slate-50 border border-slate-200 flex items-center gap-4 font-mono">
             <div className="space-y-0.5">
-              <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">
+              <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">
                 年間潜在創出価値
               </span>
-              <span className="text-base font-black text-emerald-400 tabular-nums">
+              <span className="text-base sm:text-lg font-black text-emerald-700 tabular-nums">
                 {activeStrategy.potentialAnnualProfitJpy}
               </span>
             </div>
-            <div className="border-l border-slate-800 pl-4 space-y-0.5">
-              <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">
+            <div className="border-l border-slate-200 pl-4 space-y-0.5">
+              <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">
                 最大適合スコア
               </span>
-              <span className="text-base font-black text-indigo-400 tabular-nums">
+              <span className="text-base sm:text-lg font-black text-indigo-700 tabular-nums">
                 {activeStrategy.bestFitScore}%
               </span>
             </div>
@@ -619,7 +619,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
       </div>
 
       {/* 2. 手札フィルター・セレクター (6軸) */}
-      <div className="p-4 bg-slate-50 rounded-lg border border-slate-200/80 space-y-3">
+      <div className="border-y border-slate-200 py-4 bg-slate-50/60 space-y-3">
         <div className="flex items-center justify-between text-xs font-mono text-slate-500 font-bold border-b border-slate-200/60 pb-2">
           <div className="flex items-center gap-1.5 text-slate-700">
             <SlidersHorizontal size={13} className="text-indigo-600" />
@@ -634,7 +634,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <select
               value={capital}
               onChange={(e) => setCapital(e.target.value as CapitalLevel)}
-              className="w-full h-8 px-2 bg-white border border-slate-200 rounded-lg text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-500 shadow-2xs"
+              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
             >
               <option value="ZERO">0円 (元手ゼロ)</option>
               <option value="MICRO">〜3万円 (ツール代)</option>
@@ -649,7 +649,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <select
               value={time}
               onChange={(e) => setTime(e.target.value as TimeCommitment)}
-              className="w-full h-8 px-2 bg-white border border-slate-200 rounded-lg text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-500 shadow-2xs"
+              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
             >
               <option value="ULTRA_LIGHT">週1〜3h (完全自動)</option>
               <option value="SIDE_JOB">週5〜10h (副業・週末)</option>
@@ -663,7 +663,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <select
               value={capability}
               onChange={(e) => setCapability(e.target.value as Capability)}
-              className="w-full h-8 px-2 bg-white border border-slate-200 rounded-lg text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-500 shadow-2xs"
+              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
             >
               <option value="NO_CODE_API">ノーコード / API配線</option>
               <option value="SALES_OUTBOUND">泥臭い直販・営業</option>
@@ -679,7 +679,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <select
               value={targetMarket}
               onChange={(e) => setTargetMarket(e.target.value as CustomerTarget)}
-              className="w-full h-8 px-2 bg-white border border-slate-200 rounded-lg text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-500 shadow-2xs"
+              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
             >
               <option value="B2B_CORP">法人 (経費・即決)</option>
               <option value="B2C_INDIVIDUAL">個人 (欲望・時短)</option>
@@ -693,7 +693,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <select
               value={cashSpeed}
               onChange={(e) => setCashSpeed(e.target.value as CashSpeed)}
-              className="w-full h-8 px-2 bg-white border border-slate-200 rounded-lg text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-500 shadow-2xs"
+              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
             >
               <option value="INSTANT_CASH">即金 (初日〜1週間)</option>
               <option value="LONG_STOCK">ストック (月額積上)</option>
@@ -706,7 +706,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <select
               value={targetProfit}
               onChange={(e) => setTargetProfit(e.target.value as TargetProfit)}
-              className="w-full h-8 px-2 bg-white border border-slate-200 rounded-lg text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-500 shadow-2xs"
+              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
             >
               <option value="TIER_30M">月利 30万〜50万</option>
               <option value="TIER_100M">月利 100万〜300万</option>
@@ -748,7 +748,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
       </div>
 
       {/* 4. 適合モデル 高密度インデックスシート（AI特有の浮いた3列カードを完全解体） */}
-      <div className="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-2xs">
+      <div className="border-y border-slate-200 bg-white overflow-hidden">
         {/* テーブルヘッダー */}
         <div className="hidden md:grid grid-cols-12 gap-3 px-4 py-2.5 bg-slate-50 border-b border-slate-200 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
           <div className="col-span-1 text-center">順位</div>
@@ -870,44 +870,44 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         </div>
       )}
 
-      {/* 5. 選択中モデルの実務実行アセット（フラットコックピット型） */}
+      {/* 5. 選択中モデルの実務実行ドシエ（ボーダーレス台帳型） */}
       {activeStrategy && (
-        <div className="rounded-lg bg-slate-950 text-white border border-slate-800 p-5 sm:p-6 space-y-5 shadow-xs">
+        <div className="border-t-2 border-slate-900 pt-6 space-y-6">
           {/* 上段：タイトルと財務サマリー */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
             <div className="space-y-1.5">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold border border-indigo-500/30 uppercase tracking-wider">
-                  ACTIVE MODEL
+              <div className="flex items-center gap-2 flex-wrap font-mono text-[10px]">
+                <span className="px-2 py-0.5 bg-slate-900 text-white font-bold uppercase tracking-wider">
+                  ACTIVE DOSSIER
                 </span>
-                <span className="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/20">
+                <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-bold border border-indigo-200">
                   {activeStrategy.badgeLabel}（適合度 {activeStrategy.bestFitScore}%）
                 </span>
-                <span className="text-xs font-mono text-slate-400">
+                <span className="text-slate-500">
                   実在検証元: {activeStrategy.founderReference}
                 </span>
               </div>
-              <h3 className="text-base sm:text-lg font-black text-white">
+              <h3 className="text-lg sm:text-xl font-black text-slate-950 tracking-tight">
                 {activeStrategy.title}
               </h3>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0 font-mono">
+            <div className="flex items-center gap-4 shrink-0 font-mono">
               <div className="text-right">
                 <span className="text-[9px] text-slate-400 block uppercase font-medium">想定月利</span>
-                <span className="text-sm font-black text-emerald-400 tabular-nums">
+                <span className="text-sm sm:text-base font-black text-emerald-700 tabular-nums">
                   {activeStrategy.monthlyRevenueEstimate.split('（')[0]}
                 </span>
               </div>
-              <div className="text-right pl-3.5 border-l border-slate-800">
+              <div className="text-right pl-4 border-l border-slate-200">
                 <span className="text-[9px] text-slate-400 block uppercase font-medium">粗利率</span>
-                <span className="text-sm font-black text-white tabular-nums">
+                <span className="text-sm sm:text-base font-black text-slate-900 tabular-nums">
                   {activeStrategy.profitMargin}%
                 </span>
               </div>
-              <div className="text-right pl-3.5 border-l border-slate-800">
+              <div className="text-right pl-4 border-l border-slate-200">
                 <span className="text-[9px] text-slate-400 block uppercase font-medium">初期費用</span>
-                <span className="text-sm font-black text-amber-400 tabular-nums">
+                <span className="text-sm sm:text-base font-black text-slate-900 tabular-nums">
                   {activeStrategy.initialInvestment}
                 </span>
               </div>
@@ -915,7 +915,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 <button
                   type="button"
                   onClick={() => onSelectCompany(activeStrategy.companyId)}
-                  className="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs font-bold rounded-lg transition-colors flex items-center gap-1.5 cursor-pointer border border-slate-700 ml-2"
+                  className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white font-mono text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer ml-2"
                 >
                   <span>企業財務DBで見る</span>
                   <ArrowRight size={12} />
@@ -924,24 +924,24 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             </div>
           </div>
 
-          {/* 実務アセット ＆ トーク（入れ子カードゼロのフラット2カラムグリッド） */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+          {/* 実務アセット ＆ トーク（ボーダーレス2カラム） */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 pt-2">
             {/* 左: 顧客開拓アプローチ実文面 */}
-            <div className="lg:col-span-7 space-y-3 flex flex-col justify-between">
-              <div className="space-y-2">
-                <div className="flex items-center justify-between gap-2">
+            <div className="lg:col-span-7 pb-6 lg:pb-0 lg:pr-8 space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100">
                   <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold border border-indigo-500/30 uppercase">
+                    <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-[10px] font-bold border border-indigo-200 uppercase">
                       OUTREACH ASSET
                     </span>
-                    <h4 className="text-xs sm:text-sm font-bold text-white">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">
                       {activeStrategy.readyToUseAsset.title}
                     </h4>
                   </div>
                   <button
                     type="button"
                     onClick={() => handleCopy(activeStrategy.readyToUseAsset.content, activeStrategy.id)}
-                    className="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0"
+                    className="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0"
                   >
                     {copiedKey === activeStrategy.id ? (
                       <>
@@ -957,42 +957,42 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                   </button>
                 </div>
                 
-                {/* テキストブロック（カードの入れ子ではなくコードブロック形式） */}
-                <div className="p-4 bg-slate-900/90 rounded-lg border border-slate-800 font-mono text-xs text-slate-200 whitespace-pre-wrap leading-relaxed select-text shadow-inner">
+                {/* コードブロック形式のクリーンなテキストエリア */}
+                <div className="p-4 bg-slate-50 border border-slate-200 font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed select-text">
                   {activeStrategy.readyToUseAsset.content}
                 </div>
               </div>
             </div>
 
-            {/* 右: 戦略的価格決定権 ＆ リスク要因 ＆ ツール（入れ子ゼロの定義セクション） */}
-            <div className="lg:col-span-5 space-y-4 flex flex-col justify-between">
+            {/* 右: 戦略的価格決定権 ＆ リスク要因 ＆ ツール */}
+            <div className="lg:col-span-5 pt-6 lg:pt-0 lg:pl-8 space-y-5">
               {/* 価格決定権と差別化ロジック */}
-              <div className="space-y-1.5 border-b border-slate-800/80 pb-3.5">
+              <div className="space-y-1.5 border-b border-slate-100 pb-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono uppercase font-bold text-indigo-400">
+                  <span className="text-[10px] font-mono uppercase font-bold text-indigo-700">
                     PRICING LOGIC
                   </span>
-                  <h4 className="text-xs font-bold text-slate-200">
+                  <h4 className="text-xs font-bold text-slate-900">
                     価格決定権の確立と差別化ロジック
                   </h4>
                 </div>
-                <p className="text-xs font-sans text-slate-300 leading-relaxed font-normal">
+                <p className="text-xs font-sans text-slate-700 leading-relaxed font-normal">
                   {activeStrategy.pricingScript}
                 </p>
               </div>
 
               {/* 参入初期のリスク要因 */}
-              <div className="space-y-1.5 border-b border-slate-800/80 pb-3.5">
-                <div className="flex items-center gap-2 text-rose-400">
+              <div className="space-y-1.5 border-b border-slate-100 pb-3">
+                <div className="flex items-center gap-2 text-rose-600">
                   <AlertTriangle size={13} />
-                  <span className="text-[10px] font-mono uppercase font-bold text-rose-400">
+                  <span className="text-[10px] font-mono uppercase font-bold text-rose-600">
                     KEY RISK FACTORS
                   </span>
-                  <h4 className="text-xs font-bold">
+                  <h4 className="text-xs font-bold text-rose-900">
                     参入初期に回避すべき主要リスク
                   </h4>
                 </div>
-                <p className="text-xs text-slate-300 leading-relaxed font-normal">
+                <p className="text-xs text-slate-700 leading-relaxed font-normal">
                   {activeStrategy.fatalTrapToAvoid}
                 </p>
               </div>
@@ -1004,7 +1004,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 </span>
                 <div className="flex items-center gap-1.5 flex-wrap font-mono text-[10px]">
                   {activeStrategy.threeKeyTools.map((t, idx) => (
-                    <span key={idx} className="px-2 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-800">
+                    <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200">
                       {t.name} <span className="text-slate-500">({t.role})</span>
                     </span>
                   ))}
@@ -1013,25 +1013,25 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             </div>
           </div>
 
-          {/* PRO会員限定解錠枠（フラットフッターバー） */}
-          <div className="pt-4 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-sans">
+          {/* PRO会員限定解錠枠（インラインフッターバー） */}
+          <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-sans">
             <div className="flex items-center gap-2.5 min-w-0">
-              <Lock size={14} className="text-amber-400 shrink-0" />
+              <Lock size={14} className="text-amber-600 shrink-0" />
               <div className="truncate">
-                <span className="font-mono text-amber-400 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
-                <span className="text-slate-200 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
-                <span className="text-slate-400 text-[11px] block mt-0.5">{activeStrategy.proUnlockPreview.description}</span>
+                <span className="font-mono text-amber-700 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
+                <span className="text-slate-900 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
+                <span className="text-slate-500 text-[11px] block mt-0.5">{activeStrategy.proUnlockPreview.description}</span>
               </div>
             </div>
             <button
               type="button"
-              className="px-3.5 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/30 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer"
+              className="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 font-mono text-xs font-bold border border-amber-300 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer"
             >
               PRO会員限定アセットを解錠
             </button>
           </div>
         </div>
       )}
-    </section>
+    </div>
   );
 };

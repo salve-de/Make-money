@@ -65,12 +65,12 @@ export const PortalView: React.FC<PortalViewProps> = ({
     .slice(0, 5);
 
   return (
-    <div className="flex-1 bg-[#F8FAFC] overflow-y-auto font-sans text-slate-900 select-none">
+    <div className="flex-1 bg-white overflow-y-auto font-sans text-slate-900 select-none">
       
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 1. ポータルヘッダー：Starter Story / Product Hunt 調          */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <section className="border-b border-slate-200/90 bg-white px-5 sm:px-8 py-7 shadow-2xs">
+      <section className="border-b border-slate-200 bg-white px-5 sm:px-8 lg:px-12 py-7">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div className="space-y-2.5 max-w-xl">
             <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500">
@@ -250,37 +250,37 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* ───────────────────────────────────────────────────────────── */}
         <div 
           onClick={() => (onOpenFinder ? onOpenFinder() : onOpenIdeasVault?.())}
-          className="p-5 sm:p-6 rounded-lg bg-slate-900 text-white border border-slate-800 shadow-2xs cursor-pointer group hover:border-slate-700 transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 select-none"
+          className="p-5 sm:p-6 border-y border-slate-200 bg-slate-50/80 cursor-pointer group hover:bg-slate-100/80 transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 select-none"
         >
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="px-2.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold border border-indigo-500/30">
+              <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-[10px] font-bold border border-indigo-200">
                 DIAGNOSTIC FINDER
               </span>
-              <span className="text-[11px] font-mono text-emerald-400 font-bold">
+              <span className="text-[11px] font-mono text-emerald-700 font-bold">
                 実在22社・財務監査照合
               </span>
             </div>
-            <h3 className="text-base sm:text-lg font-black text-white group-hover:text-indigo-200 transition-colors">
+            <h3 className="text-base sm:text-lg font-black text-slate-900 group-hover:text-indigo-600 transition-colors">
               保有リソース条件（資本・時間・スキル・市場）から、最適な事業モデルを即時照合
             </h3>
-            <p className="text-xs text-slate-300 font-normal leading-relaxed">
+            <p className="text-xs text-slate-600 font-normal leading-relaxed">
               初期資本や稼働時間に合わせた実在モデルの適合度スコア、初期アプローチ文面、価格決定権の設計ロジックを即座に提示します。
             </p>
-            <div className="flex items-center gap-1.5 pt-0.5 flex-wrap font-mono text-[10px] text-slate-400">
-              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#初期資本極小</span>
-              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#高稼働効率</span>
-              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#ノーコードAPI</span>
-              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#利益率80%超</span>
+            <div className="flex items-center gap-1.5 pt-0.5 flex-wrap font-mono text-[10px] text-slate-500">
+              <span className="bg-white px-2 py-0.5 border border-slate-200">#初期資本極小</span>
+              <span className="bg-white px-2 py-0.5 border border-slate-200">#高稼働効率</span>
+              <span className="bg-white px-2 py-0.5 border border-slate-200">#ノーコードAPI</span>
+              <span className="bg-white px-2 py-0.5 border border-slate-200">#利益率80%超</span>
             </div>
           </div>
 
           <div className="shrink-0 flex items-center justify-end">
             <button
               type="button"
-              className="px-5 py-2.5 rounded-xl bg-indigo-600 group-hover:bg-indigo-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer"
+              className="px-5 py-2.5 bg-slate-900 group-hover:bg-slate-800 text-white font-mono text-xs font-bold transition-all flex items-center gap-2 cursor-pointer shadow-xs"
             >
-              <Sparkles size={14} className="text-indigo-200" />
+              <Sparkles size={14} className="text-indigo-300" />
               <span>リソース適合診断を起動</span>
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </button>
@@ -315,7 +315,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
             )}
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
+          <div className="border-y border-slate-200 bg-white overflow-hidden">
             {/* テーブルヘッダー */}
             <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
               <div className="col-span-5">実効モデル / 対象高単価市場</div>
@@ -516,7 +516,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
             </span>
           </div>
 
-          <div className="bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
+          <div className="border-y border-slate-200 bg-white overflow-hidden">
             {/* テーブルヘッダー */}
             <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
               <div className="col-span-5">事業者 / 創業者体制</div>
@@ -615,7 +615,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
           </div>
 
           {/* 高密度ディレクトリーテーブル（カード入れ子完全撤廃） */}
-          <div className="bg-white border border-slate-200/80 rounded-xl overflow-hidden shadow-2xs">
+          <div className="border-y border-slate-200 bg-white overflow-hidden">
             {/* テーブルヘッダー */}
             <div className="hidden md:grid grid-cols-12 gap-3 px-4 py-2.5 bg-slate-50 border-b border-slate-200/80 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
               <div className="col-span-5">シグナル名称 & 検知カテゴリ</div>
@@ -744,7 +744,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
             </span>
           </div>
 
-          <div className="bg-white border border-slate-200/90 rounded-xl shadow-2xs overflow-hidden">
+          <div className="border-y border-slate-200 bg-white overflow-hidden">
             {/* テーブルヘッダー */}
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 bg-slate-50/90 border-b border-slate-200/80 text-[11px] font-mono font-bold">
               <div className="px-5 py-3 flex items-center justify-between">
@@ -915,7 +915,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* ───────────────────────────────────────────────────────────── */}
         {/* 8. 【全収録エンティティ財務台帳への遷移】                       */}
         {/* ───────────────────────────────────────────────────────────── */}
-        <section className="p-6 rounded-lg bg-white border border-slate-200 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <section className="p-6 bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div className="space-y-1">
             <div className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider">
               COMPREHENSIVE FINANCIAL DATABASE

@@ -134,9 +134,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
     company.businessEssence?.monetizationWay ||
     `競合の弱点・死角を分析し、低コストな既存インフラを組み合わせて、高利益率で直接販売・提供する仕組み。`;
 
-  // ─────────────────────────────────────────────────────────────
-  // 【事業構造詳細分析ロジック】
-  // ─────────────────────────────────────────────────────────────
   // 7. 実働の正体（週稼働時間と業務の完全棚卸し）
   const weeklyHours = company.founderWorkload?.weeklyHours || company.weeklyHours || (company.teamSize === 1 ? 3 : 35);
   const founderTasks = company.founderWorkload?.founderTasks || (
@@ -148,55 +145,52 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         ]
       : company.scaleTier === 'MEGA_CORP'
       ? [
-          '直販営業部隊の日報リアルタイム監査と高利益率案件の承認',
-          '粗利率80%を下回る値引き案件・競合相見積もりの即時却下',
-          '現場のボトルネックを特定する経営幹部との週次レビュー'
+          '全社戦略ポートフォリオ投資の配分決定',
+          '四半期取締役会でのグローバルリソース配分承認',
+          '次世代コア技術・M&Aターゲットの最終選定'
         ]
       : [
-          '主要クライアントとの月次戦略ミーティング（週2件）',
-          '新規獲得チャネルのROI監視と広告・パートナー施策の意思決定',
-          '外注先・業務委託スタッフへの業務差配と品質チェック'
+          '月次経営会議での重要KPI・ユニットエコノミクス監査',
+          '大口エンタープライズ顧客とのトップ商談・アライアンス締結',
+          '主要機能の開発ロードマップ策定とチーム採用'
         ]
   );
-  const automatedTasks = company.founderWorkload?.automatedOrDelegatedTasks || (
+  const automatedTasks: string[] = company.founderWorkload?.automatedOrDelegatedTasks || (
     company.teamSize === 1
       ? [
-          '顧客からの一般的な問い合わせはAIチャットおよび外部サポートが自動対応',
+          '顧客からの一般的な問い合わせはAIチャットおよびサポートが自動対応',
           '決済・領収書発行・返金処理・月額サブスク課金はStripeが完全自動実行',
           'サーバー負荷・インフラ監視はクラウドのオートスケール機能が自律維持'
         ]
       : company.scaleTier === 'MEGA_CORP'
       ? [
-          '代理店を全廃した自社直販ERPシステムによる即日出荷パイプライン',
-          '生産ラインの自動光学検査装置による不良品ゼロ化の自律稼働',
-          '特許網による模倣品・類似参入者の自動法務排除体制'
+          '直販営業の日常受発注・即日出荷ロジスティクスはERPシステムで全自動化',
+          '品質検査・不良品スクリーニングは自社センサーとAI判定ラインで24時間自走',
+          'グローバル決済・代金回収は金融EDIネットワークを通じて完全無人実行'
         ]
       : [
-          'リード獲得後の自動ステップLINE/メールによる事前教育と日程調整',
-          '定型業務（資料送付、請求管理、月次レポート生成）のZapier/Make自動化',
-          '現場作業・制作実務のクラウドソーシング・業務委託への体系的委託'
+          '新規リード獲得後の初回資料送付・事前日程調整はフォーム連携で自動化',
+          '日常の経理・請求書発行・消込処理は会計SaaSがAPI連携で自律実行',
+          '顧客オンボーディング・チュートリアルはプロダクト内ガイドが自動案内'
         ]
   );
   const liberationSummary = company.founderWorkload?.liberationSummary || (
     company.teamSize === 1
-      ? `週実働わずか${weeklyHours}時間。手作業・定型業務から解放され、システム連携と自動化パイプラインにより安定したキャッシュフローが自律創出される構造。`
+      ? 'ルーティン業務をSaaSとAPIに完全委任し、本人は重要意思決定と発信のみに専念する超高効率運用。'
       : company.scaleTier === 'MEGA_CORP'
-      ? `代理店を排した直販ルールと即日出荷体制により、経営陣が日々の価格交渉に忙殺されることなく、高収益の規律を自動維持。`
-      : `定型作業の90%を自動化・外注化し、創業者は戦略判断と重要意思決定のみに集中できる高効率体制。`
+      ? '圧倒的な組織プロセスと標準化により、属人性を極限まで排除したメガスケール自走システム。'
+      : '主要オペレーションを標準化・ツール化し、コアメンバーが事業成長に集中できる体制を構築。'
   );
 
-  // 3. 価格決定力と高付加価値の源泉
-  const pricingAnchor = company.pricingSecret?.anchorComparison || (
+  // 3. 価格決定権
+  const pricingMechanismText = company.pricingSecret?.defenseReason || (
     company.scaleTier === 'MEGA_CORP'
-      ? '「工場の製造ラインが1時間停止した場合の損害額（数千万円）」と比較させることで、数百万〜数千万円のセンサーを「実質無料の保険」と認識させて即決させる。'
-      : company.businessModel === 'MICRO_SAAS' || company.teamSize === 1
-      ? '「外部スタジオに全社員を呼ぶ数十万円の撮影費用と日程調整工数」と比較させ、数千円〜数万円の料金を「圧倒的なコスト削減」として合理的に知覚させ即決させる。'
-      : '「専任の正社員を1人雇用した場合の人件費（年間数百万円）」と比較させ、月額数万円〜十数万円の保守費用を極めて割安と知覚させる。'
+      ? '即日出荷と圧倒的な歩留まり向上効果を実証することで、顧客に価格交渉の余地を与えず高粗利を維持。'
+      : company.businessModel === 'MICRO_SAAS'
+      ? '導入直後から即座に成果・時間短縮が得られるため、月額課金に対する心理的抵抗が極めて低い。'
+      : '提供価値と代替手段の不在を背景に、競合との相見積もりを排除したプライシングを実現。'
   );
-  const pricingDefense = company.pricingSecret?.defenseReason || company.proDossier?.monetizationTrick.pricingPowerSecret || (
-    '相見積もりや価格競争を拒絶し、即座に現場の課題を解決する独自スピードと納品実績で定価販売を堅持している。'
-  );
-  const priceTag = company.pricingSecret?.priceTagExample || company.pricingDesign?.pricingTiers || (
+  const pricingTiersText = company.pricingSecret?.priceTagExample || company.pricingDesign?.pricingTiers || (
     company.scaleTier === 'MEGA_CORP' ? '平均数百万円〜数千万円（値引き交渉不可）' : '月額2,980円〜29,800円（事前カード決済）'
   );
 
@@ -276,26 +270,24 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
     '月利50万〜150万円';
 
   return (
-    <div className="flex-1 bg-slate-50 overflow-y-auto p-5 lg:p-7 space-y-6 select-none font-sans text-slate-800">
+    <div className="flex-1 bg-white overflow-y-auto px-6 sm:px-8 lg:px-12 py-8 space-y-8 select-none font-sans text-slate-800">
       
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【ヘッダー】企業エグゼクティブ・サマリーカード */}
+      {/* 【ヘッダー】エグゼクティブ・ドシエ表題（カード枠ゼロ・Sacra/FT型） */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="p-6 rounded-lg bg-white border border-slate-200 shadow-2xs relative overflow-hidden">
-        <div className="absolute top-0 right-0 px-3 py-1 bg-slate-100 border-b border-l border-slate-200 text-[10px] font-mono text-slate-500 font-bold tracking-wider rounded-bl-md">
-          DOSSIER # {company.ticker}
-        </div>
-
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div className="pb-6 border-b border-slate-200 relative">
+        <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
           <div className="flex items-start gap-4 min-w-0">
-            {/* 特大アプリアイコン */}
-            <div className="shrink-0 pt-0.5">
+            <div className="shrink-0 pt-1">
               <CompanyLogo company={company} size="lg" />
             </div>
 
-            <div className="space-y-1.5 min-w-0">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-2.5 py-0.5 rounded-md text-[10px] font-bold font-mono bg-indigo-50 text-indigo-700 border border-indigo-200/80">
+            <div className="space-y-2 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap font-mono text-[10px]">
+                <span className="px-2 py-0.5 bg-slate-100 text-slate-700 font-bold border border-slate-200">
+                  DOSSIER #{company.ticker}
+                </span>
+                <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-bold border border-indigo-200">
                   {company.scaleTier === 'SOLO_MICRO'
                     ? '完全1人運営'
                     : company.scaleTier === 'NICHE_LEADER'
@@ -304,19 +296,19 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                     ? '急成長新興'
                     : '巨大独占企業'}
                 </span>
-                <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono text-slate-600 bg-slate-100 border border-slate-200">
+                <span className="px-2 py-0.5 text-slate-600 bg-slate-50 border border-slate-200">
                   {company.businessModel}
                 </span>
-                <span className="text-[11px] font-mono text-slate-500">
+                <span className="text-slate-400">
                   {company.category || company.businessEssence?.whatItDoes}
                 </span>
               </div>
 
               <div className="flex items-baseline gap-3 flex-wrap">
-                <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                <h1 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
                   {company.japaneseName}
-                </h2>
-                <span className="text-xs font-mono text-slate-600">
+                </h1>
+                <span className="text-xs font-mono text-slate-500">
                   {company.founderName ? `創業者: ${company.founderName}` : `拠点: ${company.headquarters || '非公開'}`}
                 </span>
               </div>
@@ -328,55 +320,58 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           </div>
 
           {/* 右上：主要収益指標 */}
-          <div className="flex items-center gap-4 bg-slate-50 p-3.5 rounded-lg border border-slate-200 shrink-0">
+          <div className="flex items-center gap-5 pt-1 shrink-0 border-l border-slate-200 pl-6 lg:self-stretch justify-end">
             <div className="text-right">
-              <div className="text-[10px] font-mono text-slate-600">推定年間純利益</div>
-              <div className="text-xl sm:text-2xl font-black text-emerald-600 font-mono tabular-nums">
+              <div className="text-[10px] font-mono text-slate-400 uppercase font-semibold">推定年間純利益</div>
+              <div className="text-2xl sm:text-3xl font-black text-emerald-600 font-mono tabular-nums tracking-tight">
                 {rev > 0 ? formatShortAmount(Math.round(rev * (profitPercent / 100))) : '非公開'}
               </div>
+              <div className="text-[10px] font-mono text-slate-400 mt-0.5">
+                売上高: {rev > 0 ? formatShortAmount(rev) : '非公開'}
+              </div>
             </div>
-            <div className="w-16 h-7 opacity-85 pt-1">
-              <SparklineChart trend="UP" width={64} height={24} color="#10B981" />
+            <div className="w-16 h-8 opacity-90 pt-1">
+              <SparklineChart trend="UP" width={64} height={28} color="#10B981" />
             </div>
           </div>
         </div>
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 最上部：キースペック・スコアストリップ (PitchBook / Linear型 一体化プレート) */}
+      {/* キースペック・データリボン (金融端末・PitchBook型 インライン帯) */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="bg-white border border-slate-200 rounded-lg shadow-2xs overflow-hidden grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 font-mono text-xs">
-        <div className="p-3 sm:p-3.5 space-y-1">
+      <div className="border-y border-slate-200 bg-slate-50/70 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 font-mono text-xs">
+        <div className="p-3 sm:p-3.5 space-y-0.5">
           <div className="text-[10px] text-slate-500 font-sans font-medium">直近月商実額</div>
           <div className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
             {rev > 0 ? formatShortAmount(Math.round(rev / 12)) : '非公開'}
           </div>
         </div>
-        <div className="p-3 sm:p-3.5 space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-0.5">
           <div className="text-[10px] text-slate-500 font-sans font-medium">実効手残り純利</div>
           <div className="text-base sm:text-lg font-black text-emerald-600 tabular-nums">
             {estimatedEasyProfit}
           </div>
         </div>
-        <div className="p-3 sm:p-3.5 space-y-1 border-t sm:border-t-0">
+        <div className="p-3 sm:p-3.5 space-y-0.5 border-t sm:border-t-0">
           <div className="text-[10px] text-slate-500 font-sans font-medium">営業利益率</div>
           <div className="text-base sm:text-lg font-black text-indigo-600 tabular-nums">
             {profitPercent}%
           </div>
         </div>
-        <div className="p-3 sm:p-3.5 space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-0.5">
           <div className="text-[10px] text-slate-500 font-sans font-medium">初期投下資本</div>
           <div className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
             {company.initialInvestmentJpy === 0 ? '¥0 (不要)' : `¥${Math.round(company.initialInvestmentJpy / 10000)}万`}
           </div>
         </div>
-        <div className="p-3 sm:p-3.5 space-y-1 border-t lg:border-t-0">
+        <div className="p-3 sm:p-3.5 space-y-0.5 border-t lg:border-t-0">
           <div className="text-[10px] text-slate-500 font-sans font-medium">週実働時間</div>
           <div className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
             {company.weeklyHours ? `週${company.weeklyHours}h` : '少人数'}
           </div>
         </div>
-        <div className="p-3 sm:p-3.5 space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-0.5">
           <div className="text-[10px] text-slate-500 font-sans font-medium">組織体制</div>
           <div className="text-base sm:text-lg font-black text-slate-900">
             {company.teamSize === 1 ? '完全1人' : `${company.teamSize}名精鋭`}
@@ -385,9 +380,9 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【タブナビゲーション】最上部ダイレクト切替                     */}
+      {/* 【タブナビゲーション】スティッキーインラインバー               */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="flex items-center justify-between border-b border-slate-200 pb-0 text-xs font-mono sticky top-0 bg-[#F8FAFC]/95 backdrop-blur-xs z-10 pt-1">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-0 text-xs font-mono sticky top-0 bg-white/95 backdrop-blur-xs z-10 pt-1">
         <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
           {[
             { id: 'OVERVIEW', label: '概要サマリー' },
@@ -413,7 +408,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
 
         <div className="hidden lg:flex items-center gap-2 text-slate-400 text-[10px]">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          <span>高収益事業 構造・財務分析台帳</span>
+          <span>高収益事業 構造・財務監査台帳</span>
         </div>
       </div>
 
@@ -421,26 +416,26 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* 【概要サマリー：創業者の着眼ログ ＆ 24時間解剖】               */}
       {/* ───────────────────────────────────────────────────────────── */}
       {(activeTab === 'ALL' || activeTab === 'OVERVIEW') && (
-        <div className="space-y-4">
-          {/* 創業者の着眼ログ（入れ子ゼロのフラットグリッド） */}
-          <div className="rounded-xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-2xs space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-100 pb-3">
+        <div className="space-y-8">
+          {/* 創業者の着眼ログ（ボーダーレス台帳） */}
+          <section className="py-6 border-b border-slate-200 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-2 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
-                <span className="text-xs sm:text-sm font-black text-slate-900 font-sans">
+                <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                <h2 className="text-sm sm:text-base font-black text-slate-900 font-sans">
                   創業者の着眼点：何に着目し、どこに参入機会を見出したのか
-                </span>
+                </h2>
               </div>
-              <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200/80 self-start sm:self-auto">
+              <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200 self-start sm:self-auto">
                 OPPORTUNITY DISCOVERY
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-sans">
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 font-sans pt-2">
               {/* 1. 日常の観察 */}
-              <div className="space-y-1.5">
+              <div className="py-3 md:py-0 md:pr-6 space-y-1.5">
                 <div className="text-[11px] font-mono text-slate-700 font-black uppercase flex items-center gap-1.5">
-                  <span className="w-4 h-4 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center text-[10px] font-bold border border-slate-200">1</span>
+                  <span className="w-4 h-4 bg-slate-100 text-slate-700 flex items-center justify-center text-[10px] font-bold border border-slate-200">1</span>
                   <span>日常の観察・課題認識</span>
                 </div>
                 <p className="text-slate-700 leading-relaxed text-xs font-normal pt-1">
@@ -449,9 +444,9 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
 
               {/* 2. 業界の盲点・隙間 */}
-              <div className="space-y-1.5 md:border-l md:border-slate-100 md:pl-6">
+              <div className="py-3 md:py-0 md:px-6 space-y-1.5">
                 <div className="text-[11px] font-mono text-indigo-700 font-black uppercase flex items-center gap-1.5">
-                  <span className="w-4 h-4 rounded-full bg-indigo-50 text-indigo-700 flex items-center justify-center text-[10px] font-bold border border-indigo-200">2</span>
+                  <span className="w-4 h-4 bg-indigo-50 text-indigo-700 flex items-center justify-center text-[10px] font-bold border border-indigo-200">2</span>
                   <span>業界の盲点・構造的隙間</span>
                 </div>
                 <p className="text-slate-700 leading-relaxed text-xs font-normal pt-1">
@@ -460,9 +455,9 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
 
               {/* 3. 参入の一手 */}
-              <div className="space-y-1.5 md:border-l md:border-slate-100 md:pl-6">
+              <div className="py-3 md:py-0 md:pl-6 space-y-1.5">
                 <div className="text-[11px] font-mono text-emerald-700 font-black uppercase flex items-center gap-1.5">
-                  <span className="w-4 h-4 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-[10px] font-bold border border-emerald-200">3</span>
+                  <span className="w-4 h-4 bg-emerald-50 text-emerald-700 flex items-center justify-center text-[10px] font-bold border border-emerald-200">3</span>
                   <span>参入の一手・差別化要因</span>
                 </div>
                 <p className="text-slate-700 leading-relaxed text-xs font-normal pt-1">
@@ -470,36 +465,36 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* 実働の正体：創業者の24時間解剖（入れ子ゼロのフラット比較グリッド） */}
-          <div className="rounded-xl bg-white border border-slate-200/90 p-5 sm:p-6 shadow-2xs space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-100 pb-3">
+          {/* 実働の正体：創業者の24時間解剖（ボーダーレス台帳） */}
+          <section className="py-6 border-b border-slate-200 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-2 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
-                <span className="text-xs sm:text-sm font-black text-slate-900 font-sans">
+                <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                <h2 className="text-sm sm:text-base font-black text-slate-900 font-sans">
                   創業者・運営体制の業務構造（週実働時間と役割の棚卸し）
-                </span>
+                </h2>
               </div>
               <div className="flex items-center gap-2 self-start sm:self-auto">
-                <span className="text-[11px] font-mono text-emerald-800 font-black bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                <span className="text-[11px] font-mono text-emerald-800 font-black bg-emerald-50 px-2 py-0.5 border border-emerald-200">
                   週実働 {weeklyHours}時間
                 </span>
-                <span className="text-[10px] font-mono text-slate-500 font-bold bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                <span className="text-[10px] font-mono text-slate-500 font-bold bg-slate-100 px-2 py-0.5 border border-slate-200">
                   WORKLOAD AUDIT
                 </span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-sans">
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 font-sans pt-2">
               {/* 左: 本人が担う業務 */}
-              <div className="space-y-2.5">
+              <div className="py-3 md:py-0 md:pr-6 space-y-2.5">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                   <div className="text-[11px] font-mono text-indigo-900 font-black uppercase flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                    <span className="w-2 h-2 bg-indigo-600"></span>
                     <span>本人が担う業務（意思決定・中核業務）</span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                  <span className="text-[10px] font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 border border-indigo-200">
                     コア業務
                   </span>
                 </div>
@@ -514,13 +509,13 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
 
               {/* 右: 自動化・外部委託した業務 */}
-              <div className="space-y-2.5 md:border-l md:border-slate-100 md:pl-6">
+              <div className="py-3 md:py-0 md:pl-6 space-y-2.5">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                   <div className="text-[11px] font-mono text-slate-700 font-black uppercase flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-slate-500"></span>
+                    <span className="w-2 h-2 bg-slate-500"></span>
                     <span>自動化・外部委託した業務（プロセス自動化）</span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                  <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 border border-slate-200">
                     自動・外部委託
                   </span>
                 </div>
@@ -535,16 +530,16 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
             </div>
 
-            {/* 解放度サマリー（フラットバー） */}
+            {/* 解放度サマリー */}
             <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3 text-xs font-sans">
               <div className="flex items-center gap-2">
-                <span className="font-mono text-emerald-800 font-bold uppercase text-[10px] bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 shrink-0">
+                <span className="font-mono text-emerald-800 font-bold uppercase text-[10px] bg-emerald-50 px-2 py-0.5 border border-emerald-200 shrink-0">
                   業務効率性サマリー
                 </span>
                 <span className="text-slate-700 font-medium">{liberationSummary}</span>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       )}
 
@@ -552,10 +547,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* 解剖01: 【損益計算書 & 価格決定権・換金出口】                     */}
       {/* ───────────────────────────────────────────────────────────── */}
       {(activeTab === 'ALL' || activeTab === 'FINANCIALS') && (
-        <section className="space-y-5 pt-2">
+        <section className="py-6 border-b border-slate-200 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 font-mono text-xs font-bold border border-emerald-200">
+              <span className="px-2 py-0.5 bg-emerald-50 text-emerald-700 font-mono text-xs font-bold border border-emerald-200">
                 01
               </span>
               <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
@@ -567,10 +562,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 pt-2">
             {/* 左: 損益流出ウォーターフォール */}
             {hasFinancialBreakdown ? (
-              <div className="lg:col-span-7 p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4 flex flex-col justify-between">
+              <div className="lg:col-span-7 pb-6 lg:pb-0 lg:pr-8 space-y-5 flex flex-col justify-between">
                 <div>
                   <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1 font-bold">
                     PROFIT WATERFALL: 100円の売上に対する流出・手残り分解
@@ -586,8 +581,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                       <span className="text-slate-700 font-sans font-medium">総売上高 (100%)</span>
                       <span className="text-slate-900 font-black">{formatShortAmount(rev)}</span>
                     </div>
-                    <div className="w-full h-3 bg-slate-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-slate-800 w-full rounded-full" />
+                    <div className="w-full h-2 bg-slate-100 overflow-hidden">
+                      <div className="h-full bg-slate-800 w-full" />
                     </div>
                   </div>
 
@@ -596,218 +591,127 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                       <span className="text-slate-600 font-sans">- 原価 (製造・サーバー・仕入れ)</span>
                       <span className="text-slate-700 font-semibold">-{cogsPercent}% ({formatShortAmount(cogs)})</span>
                     </div>
-                    <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                      <div style={{ width: `${cogsPercent}%` }} className="h-full bg-rose-500 rounded-full" />
+                    <div className="w-full h-2 bg-slate-100 overflow-hidden">
+                      <div style={{ width: `${cogsPercent}%` }} className="h-full bg-rose-500" />
                     </div>
                   </div>
 
                   <div>
                     <div className="flex justify-between text-[11px] mb-1">
-                      <span className="text-slate-600 font-sans">- 販管費 (広告・決済・外注費)</span>
+                      <span className="text-slate-600 font-sans">- 販管費 (広告費・ツール・外注)</span>
                       <span className="text-slate-700 font-semibold">-{opexPercent}% ({formatShortAmount(opex)})</span>
                     </div>
-                    <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
-                      <div style={{ width: `${opexPercent}%` }} className="h-full bg-amber-500 rounded-full" />
+                    <div className="w-full h-2 bg-slate-100 overflow-hidden">
+                      <div style={{ width: `${opexPercent}%` }} className="h-full bg-amber-500" />
                     </div>
                   </div>
 
-                  <div className="pt-2 border-t border-slate-100">
+                  <div className="pt-2 border-t border-slate-200">
                     <div className="flex justify-between text-xs mb-1">
-                      <span className="text-slate-900 font-black font-sans">= 実質本業純手残り (営業利益)</span>
-                      <span className="text-emerald-700 font-black text-sm">
-                        +{profitPercent}% ({formatShortAmount(opProfit)})
-                      </span>
+                      <span className="text-emerald-800 font-bold font-sans">= 実効営業利益 (純手残り)</span>
+                      <span className="text-emerald-700 font-black">+{profitPercent}% ({formatShortAmount(opProfit)})</span>
                     </div>
-                    <div className="w-full h-4 bg-slate-100 rounded-full overflow-hidden p-0.5">
+                    <div className="w-full h-3 bg-slate-100 overflow-hidden p-0.5">
                       <div
                         style={{ width: `${profitPercent}%` }}
-                        className="h-full bg-emerald-500 rounded-full transition-all"
+                        className="h-full bg-emerald-500 transition-all"
                       />
                     </div>
                   </div>
                 </div>
+
+                <div className="text-[11px] font-mono text-slate-500 pt-1">
+                  ※ 公開決算資料および決済トランザクション照合データに基づく推計値
+                </div>
               </div>
             ) : (
-              <div className="lg:col-span-7 p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-center space-y-2">
-                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-bold">
-                  FINANCIAL OVERVIEW: 損益概観
-                </div>
-                <h3 className="text-sm font-bold text-slate-900">詳細財務諸表は非公開または順次検証中</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  公的決算書および市場推計モデルに基づき、主要指標のみを厳格に算定・検証しています。
+              <div className="lg:col-span-7 pb-6 lg:pb-0 lg:pr-8 flex flex-col justify-center space-y-2">
+                <div className="text-xs font-mono text-slate-400">FINANCIAL BREAKDOWN PENDING</div>
+                <p className="text-xs text-slate-600 font-sans">
+                  当該モデルは非公開資本のため、売上流出の内訳推計を継続監査中。
                 </p>
               </div>
             )}
 
-            {/* 右: 事業スペック & 収益構造 */}
-            <div className="lg:col-span-5 p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-4">
+            {/* 右: 想定売却価値・評価倍率（M&A Exit Valuation） */}
+            <div className="lg:col-span-5 pt-6 lg:pt-0 lg:pl-8 flex flex-col justify-between space-y-4">
               <div>
-                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1 font-bold">
-                  BUSINESS ESSENCE: 収益発生の力学
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                  <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-bold">
+                    M&A VALUATION: 想定売却価値
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 border border-indigo-200">
+                    EXIT VALUE
+                  </span>
                 </div>
-                <div className="text-xs font-bold text-slate-900">
-                  顧客セグメントと提供対価の構造
-                </div>
-              </div>
-
-              <div className="divide-y divide-slate-100 text-xs font-sans">
-                <div className="py-2.5 space-y-0.5">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase">事業概要</span>
-                  <p className="text-slate-800 font-medium">{company.businessEssence.whatItDoes}</p>
-                </div>
-
-                <div className="py-2.5 space-y-0.5">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase">対象顧客（ターゲット）</span>
-                  <p className="text-slate-700">{company.businessEssence.targetCustomer}</p>
-                </div>
-
-                <div className="py-2.5 space-y-0.5">
-                  <span className="text-[10px] font-mono text-emerald-800 font-bold uppercase">収益モデル（マネタイズ）</span>
-                  <p className="text-emerald-950 font-mono font-bold">{company.businessEssence.monetizationWay}</p>
+                <div className="text-xs font-bold text-slate-900 mt-2">
+                  第三者事業売却（M&A）における市場査定倍率
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 pt-3 border-t border-slate-100 text-xs font-mono">
-                <div>
-                  <span className="text-[10px] text-slate-500 block font-sans font-medium">運営体制</span>
-                  <span className="text-slate-900 font-black">{company.teamSize === 1 ? '完全1人体制' : `${company.teamSize}名体制`}</span>
+              <div className="space-y-3 font-sans text-xs">
+                <div className="flex items-baseline justify-between border-b border-slate-100 pb-2">
+                  <span className="text-slate-500">想定評価額:</span>
+                  <span className="text-xl font-black text-slate-900 font-mono tabular-nums">{exitAmount}</span>
                 </div>
-                <div>
-                  <span className="text-[10px] text-slate-500 block font-sans font-medium">初期立ち上げ資本</span>
-                  <span className="text-slate-900 font-black">{company.initialInvestmentJpy === 0 ? '0円 (自己資本不要)' : `¥${(company.initialInvestmentJpy / 10000).toLocaleString()}万`}</span>
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2 font-mono text-[11px]">
+                  <span className="text-slate-500 font-sans">評価マルチプル:</span>
+                  <span className="text-indigo-700 font-bold">{exitMultiple}</span>
                 </div>
+                <div className="space-y-1">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase font-semibold">想定買い手層:</span>
+                  <p className="text-slate-700 text-xs leading-relaxed font-normal">
+                    {exitBuyer}
+                  </p>
+                </div>
+              </div>
+
+              <div className="text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-100">
+                AUDITED AGAINST ACQUIRE.COM & PE BENCHMARKS
               </div>
             </div>
           </div>
 
-          {/* キャッシュフロー実査データ（月次収支の内訳） */}
-          {company.passbookDetails && (
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-                <div>
-                  <div className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">
-                    CASH FLOW AUDIT: 創業者手残り純利益・実査データ
-                  </div>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    月間総売上から決済手数料・インフラ費・税務引当を控除した実効手残り
-                  </h3>
-                </div>
-                <span className="text-[10px] font-mono text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-200 font-bold">
-                  {company.passbookDetails.bankStatementDate}
-                </span>
+          {/* 価格決定権とキャッシュ回収速度（ボーダーレス行） */}
+          <div className="pt-6 border-t border-slate-200 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-indigo-600" />
+                <h3 className="text-xs sm:text-sm font-bold text-slate-900">
+                  価格決定権の源泉と回収スピード（なぜ値引きなしで売れるのか）
+                </h3>
               </div>
-
-              {/* 入れ子カードを廃止し、等幅グリッド＋境界線で整然と配置 */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 font-mono text-xs">
-                <div className="py-2 sm:py-0 px-3 first:pl-0 space-y-0.5">
-                  <span className="text-[10px] text-slate-500 font-sans block font-medium">月間総売上（着金額）</span>
-                  <span className="text-slate-900 font-black text-sm">{formatShortAmount(company.passbookDetails.monthlyGrossJpy)}</span>
-                </div>
-                <div className="py-2 sm:py-0 px-3 space-y-0.5">
-                  <span className="text-[10px] text-slate-500 font-sans block font-medium">控除: 決済手数料</span>
-                  <span className="text-rose-600 font-semibold">{formatShortAmount(company.passbookDetails.paymentFeeJpy)}</span>
-                </div>
-                <div className="py-2 sm:py-0 px-3 space-y-0.5">
-                  <span className="text-[10px] text-slate-500 font-sans block font-medium">控除: ツール・サーバー費</span>
-                  <span className="text-amber-600 font-semibold">{formatShortAmount(company.passbookDetails.infraCostJpy)}</span>
-                </div>
-                <div className="py-2 sm:py-0 px-3 space-y-0.5">
-                  <span className="text-[10px] text-slate-500 font-sans block font-medium">控除: 外注・委託費</span>
-                  <span className="text-slate-600 font-semibold">{formatShortAmount(company.passbookDetails.outsourcingJpy)}</span>
-                </div>
-                <div className="py-2 sm:py-0 px-3 space-y-0.5 bg-emerald-50/50 rounded-sm">
-                  <span className="text-[10px] font-mono uppercase block text-emerald-800 font-bold">実効営業純利益</span>
-                  <span className="text-sm font-black text-emerald-950">{formatShortAmount(company.passbookDetails.founderTakeHomeJpy)}</span>
-                </div>
-                <div className="py-2 sm:py-0 px-3 last:pr-0 space-y-0.5 text-slate-500">
-                  <span className="text-[10px] font-sans block font-medium">税務引当プール</span>
-                  <span className="text-slate-700 font-medium">約 {formatShortAmount(company.passbookDetails.taxReserveJpy)}</span>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* 【3. 価格決定力 & 9. 事業の資産価値（M&A売却マルチプル）】 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* 3. 価格決定力と高付加価値の源泉 */}
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-600" />
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    3. 価格決定力と高付加価値の源泉（高単価維持の構造要因）
-                  </h3>
-                </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
-                  PRICING POWER
-                </span>
-              </div>
-
-              {/* 入れ子カードを廃止し、ディバイダーで整理 */}
-              <div className="divide-y divide-slate-100 text-xs font-sans">
-                <div className="py-2.5 space-y-1">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    顧客知覚価値の比較アンカー
-                  </span>
-                  <p className="text-slate-800 leading-relaxed font-medium">
-                    {pricingAnchor}
-                  </p>
-                </div>
-
-                <div className="py-2.5 space-y-1">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    価格競争を排除する防衛ロジック
-                  </span>
-                  <p className="text-slate-700 leading-relaxed font-medium">
-                    {pricingDefense}
-                  </p>
-                </div>
-
-                <div className="pt-2.5 flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-slate-500 font-sans font-medium">価格設定レンジ:</span>
-                  <span className="text-indigo-700 font-bold">{priceTag}</span>
-                </div>
-              </div>
+              <span className="text-[10px] font-mono text-slate-600 bg-slate-100 px-2 py-0.5 border border-slate-200 font-bold">
+                PRICING POWER
+              </span>
             </div>
 
-            {/* 9. 事業の資産価値・M&A売却マルチプル */}
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-600" />
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    9. 事業の資産価値・M&A売却マルチプル試算
-                  </h3>
-                </div>
-                <span className="text-[10px] font-mono text-emerald-800 font-bold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                  EXIT VALUATION
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-xs font-sans pt-2">
+              <div className="py-2.5 md:py-0 md:pr-6 space-y-1">
+                <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
+                  価格決定権のメカニズム
                 </span>
+                <p className="text-slate-800 leading-relaxed font-medium">
+                  {pricingMechanismText}
+                </p>
               </div>
 
-              {/* 入れ子カードを廃止し、ディバイダーで整理 */}
-              <div className="divide-y divide-slate-100 text-xs font-sans">
-                <div className="py-2.5 space-y-1">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    想定売却マルチプル (対EBITDA/売上倍率)
-                  </span>
-                  <p className="text-slate-800 leading-relaxed font-mono font-bold text-emerald-700">
-                    {exitMultiple}
-                  </p>
-                </div>
+              <div className="py-2.5 md:py-0 md:px-6 space-y-1">
+                <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
+                  標準単価帯・料金プラン
+                </span>
+                <p className="text-slate-700 leading-relaxed font-mono font-medium">
+                  {pricingTiersText}
+                </p>
+              </div>
 
-                <div className="py-2.5 space-y-1">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    想定される主要買い手属性
-                  </span>
-                  <p className="text-slate-700 leading-relaxed font-medium">
-                    {exitBuyer}
-                  </p>
-                </div>
-
-                <div className="pt-2.5 flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-slate-500 font-sans font-medium">推定買収査定額:</span>
-                  <span className="text-emerald-700 font-bold text-sm">{exitAmount}</span>
-                </div>
+              <div className="py-2.5 md:py-0 md:pl-6 space-y-1">
+                <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
+                  着金スピード・売掛金リスク
+                </span>
+                <p className="text-emerald-900 leading-relaxed font-mono font-bold">
+                  {cashSpeed}
+                </p>
               </div>
             </div>
           </div>
@@ -818,54 +722,52 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* 02: 【顧客獲得チャネル & スイッチングコスト】                    */}
       {/* ───────────────────────────────────────────────────────────── */}
       {(activeTab === 'ALL' || activeTab === 'TRAFFIC') && (
-        <section className="space-y-5 pt-2">
+        <section className="py-6 border-b border-slate-200 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
+              <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
                 02
               </span>
               <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
-                顧客獲得チャネル & スイッチングコスト (Acquisition Channels & Retention Moat)
+                顧客獲得チャネル & スイッチングコスト (Acquisition Faucet & Switching Cost)
               </h2>
             </div>
             <span className="text-[11px] font-mono text-slate-400 hidden sm:inline">
-              ACQUISITION CHANNELS, SWITCHING COSTS & RETENTION MOAT
+              ACQUISITION CHANNELS & HOSTAGE RETENTION TRAP
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* 5. 主要顧客獲得チャネル */}
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 pt-2">
+            {/* 顧客獲得の蛇口（集客の正体） */}
+            <div className="pb-6 lg:pb-0 lg:pr-8 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-600" />
+                  <span className="w-2 h-2 bg-indigo-600" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    5. 主要顧客獲得チャネル（持続的リード獲得基盤）
+                    顧客獲得チャネルの分解（集客の蛇口）
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
-                  TRAFFIC CHANNELS
+                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200">
+                  {primaryChannelName}
                 </span>
               </div>
 
-              {/* 入れ子カードを廃止し、ディバイダーで整理 */}
-              <div className="divide-y divide-slate-100 text-xs font-sans">
-                {/* チャネル比率バー */}
-                <div className="py-2.5 space-y-2">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    主要流入チャネルの構造比率
+              <div className="space-y-3 font-sans text-xs">
+                <div>
+                  <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block mb-1.5">
+                    チャネル別 流入構成比率
                   </span>
-                  <div className="space-y-1.5 font-mono">
+                  <div className="space-y-2">
                     {trafficBreakdown.map((tb, idx) => (
-                      <div key={idx} className="space-y-0.5">
-                        <div className="flex justify-between text-[11px]">
-                          <span className="text-slate-700 font-sans font-medium">{tb.channel}</span>
+                      <div key={idx} className="space-y-1">
+                        <div className="flex justify-between text-xs font-mono">
+                          <span className="text-slate-700">{tb.channel}</span>
                           <span className="text-slate-900 font-bold">{tb.percentage}%</span>
                         </div>
-                        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div className="w-full h-1.5 bg-slate-100 overflow-hidden">
                           <div
                             style={{ width: `${tb.percentage}%` }}
-                            className="h-full bg-indigo-600 rounded-full"
+                            className="h-full bg-indigo-600"
                           />
                         </div>
                       </div>
@@ -873,129 +775,59 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   </div>
                 </div>
 
-                <div className="py-2.5 space-y-1">
+                <div className="pt-2 border-t border-slate-100 space-y-1">
                   <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    高効率な顧客獲得メカニズム
+                    集客メカニズムの核心
                   </span>
-                  <p className="text-slate-800 leading-relaxed font-medium">
+                  <p className="text-slate-700 leading-relaxed font-normal">
                     {faucetMechanismText}
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* 6. 高スイッチングコスト設計 */}
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            {/* スイッチングコストと解約抑止構造 */}
+            <div className="pt-6 lg:pt-0 lg:pl-8 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-600" />
+                  <span className="w-2 h-2 bg-indigo-600" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    6. 高スイッチングコスト設計（解約抑止・継続率向上構造）
+                    スイッチングコストと解約抑止構造（離脱阻止の仕掛け）
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
-                  SWITCHING COSTS
+                <span className="text-[10px] font-mono text-slate-600 font-bold bg-slate-100 px-2 py-0.5 border border-slate-200">
+                  RETENTION TRAP
                 </span>
               </div>
 
-              {/* 入れ子カードを廃止し、ディバイダーで整理 */}
               <div className="divide-y divide-slate-100 text-xs font-sans">
-                <div className="py-2.5 space-y-1">
+                <div className="pb-3 space-y-1">
                   <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    システム上に蓄積される中核データ資産
+                    人質化している顧客資産・データ
                   </span>
                   <p className="text-slate-800 leading-relaxed font-medium">
                     {hostageDataText}
                   </p>
                 </div>
 
-                <div className="py-2.5 space-y-1">
+                <div className="pt-3 space-y-1">
                   <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                    移行に伴う業務中断リスク・再構築コスト
+                    解約時の顧客の心理的・業務的苦痛
                   </span>
-                  <p className="text-slate-700 leading-relaxed font-medium">
+                  <p className="text-slate-700 leading-relaxed font-normal">
                     {abandonmentPainText}
                   </p>
                 </div>
+              </div>
 
-                <div className="pt-2.5 flex items-center justify-between font-mono text-[11px]">
-                  <span className="text-slate-500 font-sans font-medium">主防壁分類:</span>
-                  <span className="text-slate-900 font-bold">{getMoatPowerName(company.primaryMoat)}</span>
-                </div>
+              <div className="pt-2 border-t border-slate-100 flex items-center justify-between font-mono text-[11px]">
+                <span className="text-slate-500 font-sans">月次解約率 (推定):</span>
+                <span className="text-emerald-700 font-bold font-mono">
+                  {company.monthlyChurnPercent ? `${company.monthlyChurnPercent}%以下` : '1.5%未満（極めて強固）'}
+                </span>
               </div>
             </div>
           </div>
-
-          {/* 大手の構造的死角 & 既存競合との対比ベンチマークテーブル */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-            <div className="flex items-center gap-2 border-b border-slate-100 pb-2.5">
-              <span className="w-2 h-2 rounded-full bg-slate-700" />
-              <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                大手企業の構造的死角 & 参入障壁（Moat）
-              </h3>
-            </div>
-            {/* 入れ子カードを廃止し、2カラムのディバイダーで整理 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100 text-xs font-sans">
-              <div className="py-2.5 md:py-0 md:pr-4 space-y-1">
-                <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                  大手が参入を見送る構造的理由
-                </span>
-                <p className="text-slate-700 leading-relaxed font-medium">{whyIncumbentBlind}</p>
-              </div>
-              <div className="py-2.5 md:py-0 md:pl-4 space-y-1">
-                <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
-                  後発参入者を阻む構造的優位性（Moat）
-                </span>
-                <p className="text-slate-700 leading-relaxed font-medium">{company.coreMoatDescription}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* 既存競合との対比ベンチマークテーブル */}
-          {company.competitors && company.competitors.length > 0 && (
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider mb-0.5">
-                    COMPETITOR BENCHMARK: 既存競合・大手との冷徹な対比
-                  </div>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    既存の大手プレイヤーが抱える構造的弱点一覧
-                  </h3>
-                </div>
-                <span className="text-[10px] font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200 font-bold">
-                  対比データ検証済
-                </span>
-              </div>
-
-              <div className="overflow-x-auto rounded-lg border border-slate-200">
-                <table className="w-full text-xs font-mono border-collapse">
-                  <thead>
-                    <tr className="text-slate-700 border-b border-slate-200 bg-slate-50 text-[11px]">
-                      <th className="py-2.5 px-3 text-left font-bold">競合事業者名</th>
-                      <th className="py-2.5 px-3 text-left font-bold">規模・上場区分</th>
-                      <th className="py-2.5 px-3 text-right font-bold">推定年間売上</th>
-                      <th className="py-2.5 px-3 text-right font-bold">営業利益率</th>
-                      <th className="py-2.5 px-3 text-left font-bold pl-4">競合の防壁・弱点</th>
-                      <th className="py-2.5 px-3 text-center font-bold">価格決定権</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100 bg-white">
-                    {company.competitors.map((comp, idx) => (
-                      <tr key={idx} className="hover:bg-slate-50 text-slate-700 transition-colors">
-                        <td className="py-2.5 px-3 font-bold text-slate-900 text-left">{comp.name}</td>
-                        <td className="py-2.5 px-3 text-slate-500 text-left font-sans">{comp.scaleLabel}</td>
-                        <td className="py-2.5 px-3 text-right font-mono text-slate-800">{formatShortAmount(comp.annualRevenueJpy)}</td>
-                        <td className="py-2.5 px-3 text-right font-mono text-emerald-600 font-bold">{comp.operatingMarginPercent}%</td>
-                        <td className="py-2.5 px-3 text-left text-slate-600 font-sans pl-4 text-[11px]">{comp.moatSummary}</td>
-                        <td className="py-2.5 px-3 text-center font-sans text-slate-600">{comp.pricingPower}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
         </section>
       )}
 
@@ -1003,10 +835,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* 03: 【初期トラクション獲得 & 参入障壁・競争優位性】              */}
       {/* ───────────────────────────────────────────────────────────── */}
       {(activeTab === 'ALL' || activeTab === 'TRACTION') && (
-        <section className="space-y-5 pt-2">
+        <section className="py-6 border-b border-slate-200 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
+              <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
                 03
               </span>
               <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
@@ -1018,22 +850,21 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            {/* 2. 初期トラクション獲得プロセス */}
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 pt-2">
+            {/* 初期トラクション獲得プロセス */}
+            <div className="pb-6 lg:pb-0 lg:pr-8 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-600" />
+                  <span className="w-2 h-2 bg-indigo-600" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    2. 初期トラクション獲得プロセス（実績ゼロからの初期10社開拓手法）
+                    初期トラクション獲得プロセス（実績ゼロからの初期10社開拓手法）
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200">
                   DAY-1 TRACTION
                 </span>
               </div>
 
-              {/* 入れ子カードを廃止し、ディバイダーで整理 */}
               <div className="divide-y divide-slate-100 text-xs font-sans">
                 <div className="py-2.5 space-y-1">
                   <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
@@ -1064,21 +895,20 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
             </div>
 
-            {/* 4. 購買決定を促す中核動機 */}
-            <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2.5">
+            {/* 購買決定を促す中核動機 */}
+            <div className="pt-6 lg:pt-0 lg:pl-8 space-y-4">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-600" />
+                  <span className="w-2 h-2 bg-indigo-600" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                    4. 購買決定を促す中核動機（意思決定要因と心理的背景）
+                    購買決定を促す中核動機（意思決定要因と心理的背景）
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
+                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200">
                   DECISION DRIVERS
                 </span>
               </div>
 
-              {/* 入れ子カードを廃止し、ディバイダーで整理 */}
               <div className="divide-y divide-slate-100 text-xs font-sans">
                 <div className="py-2.5 space-y-1">
                   <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
@@ -1106,29 +936,28 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             </div>
           </div>
 
-          {/* 8. 参入前提条件・再現性の客観監査 */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+          {/* 参入前提条件・再現性の客観監査 */}
+          <div className="pt-6 border-t border-slate-200 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-100">
               <div>
                 <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-0.5 font-bold">
                   STRUCTURAL ADVANTAGE AUDIT: 構造的参入優位性と再現性の監査
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-                  8. 参入前提条件・再現性の客観監査
+                  参入前提条件・再現性の客観監査
                 </h3>
               </div>
-              <span className="text-[10px] font-mono px-2.5 py-1 rounded bg-slate-100 text-slate-700 border border-slate-200 font-bold self-start sm:self-auto">
+              <span className="text-[10px] font-mono px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200 font-bold self-start sm:self-auto">
                 再現性検証済
               </span>
             </div>
 
-            {/* 4連判定バッジグリッド（枠線の重複を整理） */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 font-sans text-xs">
-              {/* 判定1: プログラミング */}
-              <div className="p-3 rounded-lg border border-slate-200 bg-slate-50/50 space-y-1.5">
+            {/* 4連判定帯（枠線の重複を排除したフラットマトリクス） */}
+            <div className="border border-slate-200 bg-slate-50/50 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 font-sans text-xs">
+              <div className="p-3.5 space-y-1.5">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono font-bold uppercase text-slate-500">開発スキル</span>
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                  <span className={`px-2 py-0.5 text-[10px] font-mono font-bold ${
                     !codingRequired ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'
                   }`}>
                     {!codingRequired ? 'コード不要' : '開発スキル必須'}
@@ -1141,11 +970,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
 
-              {/* 判定2: 必要資本 */}
-              <div className="p-3 rounded-lg border border-slate-200 bg-slate-50/50 space-y-1.5">
+              <div className="p-3.5 space-y-1.5">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono font-bold uppercase text-slate-500">初期必要資金</span>
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                  <span className={`px-2 py-0.5 text-[10px] font-mono font-bold ${
                     capitalLevel.includes('ゼロ') || capitalLevel.includes('極小') ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'
                   }`}>
                     {capitalLevel}
@@ -1158,11 +986,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
 
-              {/* 判定3: 既存コネ・知名度 */}
-              <div className="p-3 rounded-lg border border-slate-200 bg-slate-50/50 space-y-1.5">
+              <div className="p-3.5 space-y-1.5">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono font-bold uppercase text-slate-500">人脈・知名度依存</span>
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                  <span className={`px-2 py-0.5 text-[10px] font-mono font-bold ${
                     !preAudience ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
                   }`}>
                     {!preAudience ? 'コネ・知名度ゼロ' : '事前オーディエンス活用'}
@@ -1175,11 +1002,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
 
-              {/* 判定4: 特殊設備・法規制 */}
-              <div className="p-3 rounded-lg border border-slate-200 bg-slate-50/50 space-y-1.5">
+              <div className="p-3.5 space-y-1.5">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono font-bold uppercase text-slate-500">特殊設備・許認可</span>
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                  <span className={`px-2 py-0.5 text-[10px] font-mono font-bold ${
                     company.scaleTier !== 'MEGA_CORP' ? 'bg-emerald-100 text-emerald-800' : 'bg-slate-200 text-slate-700'
                   }`}>
                     {company.scaleTier !== 'MEGA_CORP' ? '市販ツールのみ' : '独自特許・設備あり'}
@@ -1193,7 +1019,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
             </div>
 
-            {/* 再現性・構造抽出の総括監査 */}
             <div className="pt-3 border-t border-slate-100 space-y-1">
               <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">
                 アナリストによる再現性・構造抽出の総括判定
@@ -1203,88 +1028,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </p>
             </div>
           </div>
-
-          {/* 初期失敗・軌道修正 ＆ 創業者背景 */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            {/* 左: 初期の重大な資本毀損・仮説検証の失敗記録 */}
-            <div className="lg:col-span-7 p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                <div>
-                  <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-0.5 font-bold">
-                    CAPITAL LOSS AUDIT: 初期の失敗記録
-                  </div>
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                    初期の資本投下・仮説検証における課題と教訓
-                  </h4>
-                </div>
-                <span className="text-[10px] font-mono text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 font-bold">
-                  参入リスク分析
-                </span>
-              </div>
-
-              {company.earlyFailureLesson ? (
-                <div className="divide-y divide-slate-100 text-xs font-sans">
-                  <div className="py-2 space-y-1">
-                    <span className="text-[10px] font-mono text-slate-500 font-bold uppercase block">初期の失敗要因</span>
-                    <p className="text-slate-700 leading-relaxed">
-                      <strong className="text-slate-900 font-mono font-bold">{company.earlyFailureLesson.wastedMoneyOrTime}</strong>を損失：{company.earlyFailureLesson.whatWentWrong}
-                    </p>
-                  </div>
-                  <div className="py-2 space-y-1">
-                    <span className="text-[10px] font-mono text-indigo-700 font-bold uppercase block">事業ピボットの転換点</span>
-                    <p className="text-slate-800 font-medium leading-relaxed">{company.earlyFailureLesson.pivotMoment}</p>
-                  </div>
-                </div>
-              ) : (
-                <div className="text-xs text-slate-600 leading-relaxed">
-                  初期の仮説検証において、想定顧客の購買意欲の低さや過剰な初期開発によるタイムロスを経験。直後に「事前決済が取れた機能のみを実装する」極限のリーン検証へと方針転換した。
-                </div>
-              )}
-            </div>
-
-            {/* 右: 創業者背景 ＆ 発見した市場の歪み */}
-            <div className="lg:col-span-5 p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-between space-y-4">
-              <div>
-                <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-0.5 font-bold">
-                  FOUNDER PROFILE & GLITCH: 創業の原点
-                </div>
-                <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                  市場の構造的歪みと創業の背景
-                </h4>
-              </div>
-
-              <div className="divide-y divide-slate-100 text-xs font-sans">
-                <div className="py-2 space-y-0.5">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold block">創業者プロフィール</span>
-                  <p className="text-slate-700 leading-relaxed font-medium">
-                    {company.successStory?.founderProfile || observationText}
-                  </p>
-                </div>
-
-                <div className="py-2 space-y-0.5">
-                  <span className="text-[10px] font-mono text-slate-500 font-bold block">発見した市場の歪み（盲点）</span>
-                  <p className="text-slate-700 leading-relaxed font-medium">
-                    {company.successStory?.marketGlitch || glitchText}
-                  </p>
-                </div>
-
-                {company.proSecretInsight && (
-                  <div className="py-2 space-y-0.5">
-                    <div className="text-[10px] font-mono text-indigo-700 font-bold uppercase tracking-wider">
-                      ANALYST STRUCTURAL INSIGHT / 構造的インサイト
-                    </div>
-                    <p className="text-slate-800 text-[11px] leading-relaxed font-medium">
-                      {company.proSecretInsight}
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              <div className="text-[10px] font-mono text-slate-400 text-right pt-2 border-t border-slate-100">
-                FIRST-HAND EVIDENCE AUDITED
-              </div>
-            </div>
-          </div>
         </section>
       )}
 
@@ -1292,10 +1035,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* 04: 【運用ツールスタック & 実行アセット】                        */}
       {/* ───────────────────────────────────────────────────────────── */}
       {(activeTab === 'ALL' || activeTab === 'INFRASTRUCTURE') && (
-        <section className="space-y-5 pt-2">
+        <section className="py-6 border-b border-slate-200 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
+              <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
                 04
               </span>
               <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
@@ -1308,8 +1051,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           </div>
 
           {/* ツール・設備一覧テーブル */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-100">
+          <div className="space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-100">
               <div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                   事業を自動化・稼働させている全ツール・設備一覧
@@ -1319,7 +1062,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
 
-              <div className="flex items-center gap-2 font-mono text-xs bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200 shrink-0">
+              <div className="flex items-center gap-2 font-mono text-xs bg-slate-50 px-3 py-1.5 border border-slate-200 shrink-0">
                 <span className="text-slate-500 font-sans">月間ツール固定費:</span>
                 <span className="text-slate-900 font-black">
                   {totalMonthlyToolCost === 0 ? '0円 (完全無料枠)' : `約 ¥${totalMonthlyToolCost.toLocaleString()}/月`}
@@ -1327,7 +1070,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
             </div>
 
-            <div className="overflow-x-auto rounded-lg border border-slate-200">
+            <div className="border border-slate-200">
               <table className="w-full text-xs font-mono border-collapse">
                 <thead>
                   <tr className="text-slate-700 border-b border-slate-200 bg-slate-50 text-[11px]">
@@ -1347,7 +1090,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   ]).map((tool, idx) => (
                     <tr key={idx} className="hover:bg-slate-50 text-slate-700 transition-colors">
                       <td className="py-2.5 px-3 font-bold text-slate-900 text-left flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
+                        <span className="w-1.5 h-1.5 bg-indigo-600" />
                         <span>{tool.name}</span>
                       </td>
                       <td className="py-2.5 px-3 text-slate-500 text-left font-sans">{tool.category}</td>
@@ -1356,7 +1099,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                         {tool.monthlyCostJpy === 0 ? '無料' : `¥${tool.monthlyCostJpy.toLocaleString()}`}
                       </td>
                       <td className="py-2.5 px-3 text-center">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-sans font-medium bg-slate-100 text-slate-700 border border-slate-200">
+                        <span className="px-2 py-0.5 text-[10px] font-sans font-medium bg-slate-100 text-slate-700 border border-slate-200">
                           {tool.replacementDifficulty === 'HIGH' ? '独自代替困難' : tool.replacementDifficulty === 'MEDIUM' ? '移行やや手薄' : '容易に代替可'}
                         </span>
                       </td>
@@ -1373,8 +1116,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           </div>
 
           {/* 7日間の具体的立ち上げ工程表 */}
-          <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div className="pt-6 border-t border-slate-200 space-y-4">
+            <div className="flex items-center justify-between pb-2 border-b border-slate-100">
               <div>
                 <div className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">
                   7-DAY EXECUTION BLUEPRINT: 立ち上げ工程表
@@ -1383,15 +1126,15 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   この収益モデルを立ち上げるための実戦スケジュール
                 </h3>
               </div>
-              <span className="text-[11px] font-mono text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200 font-bold">
+              <span className="text-[11px] font-mono text-indigo-700 bg-indigo-50 px-2 py-0.5 border border-indigo-200 font-bold">
                 所要期間: 7日間完結
               </span>
             </div>
 
-            {/* 入れ子カードを廃止し、4分割のディバイダーで整理 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-100 text-xs font-sans">
-              <div className="py-2.5 md:py-0 md:px-3 first:pl-0 space-y-1">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
+            {/* 4分割ディバイダーグリッド */}
+            <div className="border border-slate-200 bg-slate-50/40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-xs font-sans">
+              <div className="p-3.5 space-y-1">
+                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
                   DAY 1 - 2
                 </span>
                 <h4 className="text-xs font-bold text-slate-900">プロダクト設計 & オファー定義</h4>
@@ -1400,8 +1143,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
 
-              <div className="py-2.5 md:py-0 md:px-3 space-y-1">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
+              <div className="p-3.5 space-y-1">
+                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
                   DAY 3 - 4
                 </span>
                 <h4 className="text-xs font-bold text-slate-900">決済・契約インフラの開通</h4>
@@ -1410,8 +1153,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
 
-              <div className="py-2.5 md:py-0 md:px-3 space-y-1">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
+              <div className="p-3.5 space-y-1">
+                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
                   DAY 5 - 6
                 </span>
                 <h4 className="text-xs font-bold text-slate-900">初期顧客の獲得・検証</h4>
@@ -1420,8 +1163,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </p>
               </div>
 
-              <div className="py-2.5 md:py-0 md:px-3 last:pr-0 space-y-1">
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 inline-block mb-1">
+              <div className="p-3.5 space-y-1">
+                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 inline-block mb-1">
                   DAY 7
                 </span>
                 <h4 className="text-xs font-bold text-emerald-950">自律運用・自動化パイプライン確立</h4>
@@ -1432,11 +1175,11 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             </div>
           </div>
 
-          {/* 実戦導入アセットライブラリ（Paywall / すりガラス演出） */}
-          <div className="p-6 rounded-lg bg-gradient-to-b from-slate-900 to-slate-950 text-white border border-slate-800 shadow-xl relative overflow-hidden space-y-5">
+          {/* 実戦導入アセットライブラリ（Paywall） */}
+          <div className="mt-8 border border-slate-900 bg-slate-950 text-white p-6 relative overflow-hidden space-y-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/40">
+                <span className="px-2 py-0.5 bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/40">
                   PRO ACCESS REQUIRED
                 </span>
                 <span className="text-xs text-slate-400 font-mono">
@@ -1457,37 +1200,34 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </p>
             </div>
 
-            {/* すりガラスカード群 */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 relative">
-              {/* カード1: 実働プロンプト */}
-              <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 backdrop-blur-sm space-y-2 select-none filter blur-[1.5px] opacity-70">
+            {/* アセットリスト */}
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800 border border-slate-800 bg-slate-900/60 relative">
+              <div className="p-4 space-y-2 select-none filter blur-[1.5px] opacity-70">
                 <span className="text-[10px] font-mono text-indigo-400 font-bold uppercase">PROMPT / 実行コード</span>
                 <div className="text-xs font-bold text-white">自律運用用システムプロンプト</div>
-                <div className="text-[11px] font-mono text-slate-400 bg-slate-900/80 p-2 rounded">
+                <div className="text-[11px] font-mono text-slate-400 bg-slate-950/80 p-2 border border-slate-800">
                   System: You are an autonomous arbitrage analyst specialized in...
                 </div>
               </div>
 
-              {/* カード2: コールドDMスクリプト */}
-              <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 backdrop-blur-sm space-y-2 select-none filter blur-[1.5px] opacity-70">
+              <div className="p-4 space-y-2 select-none filter blur-[1.5px] opacity-70">
                 <span className="text-[10px] font-mono text-emerald-400 font-bold uppercase">OUTBOUND SCRIPT</span>
                 <div className="text-xs font-bold text-white">高返信率のアウトバウンドテンプレート</div>
-                <div className="text-[11px] font-mono text-slate-400 bg-slate-900/80 p-2 rounded">
+                <div className="text-[11px] font-mono text-slate-400 bg-slate-950/80 p-2 border border-slate-800">
                   件名: 業務プロセスの効率化に関するご提案...
                 </div>
               </div>
 
-              {/* カード3: 生データCSV */}
-              <div className="p-4 rounded-xl bg-slate-800/60 border border-slate-700/60 backdrop-blur-sm space-y-2 select-none filter blur-[1.5px] opacity-70">
+              <div className="p-4 space-y-2 select-none filter blur-[1.5px] opacity-70">
                 <span className="text-[10px] font-mono text-amber-400 font-bold uppercase">RAW DATA CSV</span>
                 <div className="text-xs font-bold text-white">競合仕入れ先・価格差マスターリスト</div>
-                <div className="text-[11px] font-mono text-slate-400 bg-slate-900/80 p-2 rounded">
+                <div className="text-[11px] font-mono text-slate-400 bg-slate-950/80 p-2 border border-slate-800">
                   ticker, supplier_cost, gross_margin, moat_power...
                 </div>
               </div>
 
               {/* Paywall ロックオーバーレイ */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/70 backdrop-blur-xs rounded-xl p-4 text-center space-y-3">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/80 backdrop-blur-xs p-4 text-center space-y-3">
                 <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-mono text-lg font-black">
                   <Lock size={18} className="text-amber-400" />
                 </div>
@@ -1501,7 +1241,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </div>
                 <button
                   type="button"
-                  className="px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs font-mono tracking-wider transition-all shadow-lg hover:shadow-emerald-500/25 active:scale-98 cursor-pointer"
+                  className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs font-mono tracking-wider transition-all shadow-md cursor-pointer"
                 >
                   PROプランで全実行アセットを取得する (月額 ¥9,800〜)
                 </button>
