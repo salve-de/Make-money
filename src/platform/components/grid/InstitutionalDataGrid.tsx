@@ -78,8 +78,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   onClick={() => onSelectEntity(entity.id)}
                   className={`cursor-pointer transition-colors ${
                     isSelected
-                      ? 'bg-white/[0.06]'
-                      : 'hover:bg-white/[0.02]'
+                      ? 'bg-white/[0.08] border-l-2 border-emerald-500'
+                      : 'hover:bg-white/[0.02] border-l-2 border-transparent'
                   }`}
                 >
                   {/* 社名・ティッカー */}
@@ -163,8 +163,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   onClick={() => onSelectEntity(entity.id)}
                   className={`cursor-pointer transition-colors ${
                     isSelected
-                      ? 'bg-white/[0.06]'
-                      : 'hover:bg-white/[0.02]'
+                      ? 'bg-white/[0.08] border-l-2 border-emerald-500'
+                      : 'hover:bg-white/[0.02] border-l-2 border-transparent'
                   }`}
                 >
                   {/* ティッカー・銘柄 */}
