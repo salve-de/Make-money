@@ -13,6 +13,13 @@ GOLDMINE RADAR は、成功談を読むだけのメディアでも、AIが思い
 
 表側は、見た瞬間に「こんな稼ぎ方があるのか」「まだ自分にも入口がある」と理解できる発見フィード。裏側は、金・需要・サービス・根拠の関係を蓄積する事業機会DBです。
 
+## データ収集の共通契約
+
+出典は信用状態を決める情報であって、候補を拾う入口の絶対条件ではありません。出典なしの候補も「未確認」「出典未取得」と明示して保存・表示し、後から根拠を追補します。利益は最優先で、売上、利益、コスト、利益率、手取りを別々の金額・期間として扱います。
+
+- [Make-Money収集要件](docs/08_COLLECTION_CONTRACT.md)
+- [Universal Foundationの共通収集基準](https://github.com/salve-de/universal-foundation/blob/main/docs/UNIVERSAL_COLLECTION_BASELINE.md)
+
 ## 実装状態
 
 `main` は現在、旧Vanilla JavaScript SPA実装です。これは既存の動作確認用実装であり、**本番ターゲット技術構成ではありません**。
@@ -108,10 +115,10 @@ npm run verify
 
 ## プロダクト原則
 
-1. **夢を先に見せ、根拠で信用させる。** 金額、人数、期間、入口を先に理解できるようにする。
+1. **夢を先に見せ、信頼状態を明示する。** 金額、人数、期間、入口、出典の有無を先に理解できるようにする。
 2. **資金調達、売上、利益、GMV、契約上限、推定を混同しない。**
 3. **広告と評価順位を分離する。** 有料掲載でオーガニック順位は上がらない。
-4. **投稿数より根拠品質を優先する。** ゴミ投稿で発見体験を壊さない。
+4. **投稿数よりデータ品質を優先する。** 出典なしの候補は捨てず未確認として分離し、ゴミ投稿で発見体験を壊さない。
 5. **情報ではなく接続を生む。** Money Signal → Opportunity → Demand → Service → Customer → 新しいMoney Signal の循環を作る。
 6. **重い入力を要求しない。** URL、保存、反応、数個の選択から価値を返す。
 
@@ -125,6 +132,7 @@ npm run verify
 - [投稿審査・運用](docs/05_OPERATIONS_MODERATION.md)
 - [技術設計](docs/06_ENGINEERING_ARCHITECTURE.md)
 - [公開ロードマップ](docs/07_LAUNCH_ROADMAP.md)
+- [データ収集契約](docs/08_COLLECTION_CONTRACT.md)
 
 ## 本番化に必要な外部設定
 
