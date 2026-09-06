@@ -126,6 +126,37 @@
      - 人数バッジや金額表示に `whitespace-nowrap` を適用し、表示崩れを完全解消。
      - 赤緑の市場対比ボードを画面下部へ移設し、赤緑ベタ塗りを排した洗練された「市場構造監査レポート」として再配置。
 
+### 10. Phase 9: 2026-09-06 GitHub HANDOFF準拠の技術スタック正式配備（Cloudflare Workers + Neon + Drizzle + Firebase + Stripe）
+- **ユーザーからの指示**:
+  - 「このプロジェクトの 技術スタックを 整えて GITHUBのHANDOFF 見てきて」
+- **GitHub HANDOFF（`salve-de/the-architects-handbook/projects/tech-stack/Make-money.md`）の確認と確定方針**:
+  1. **本番実行環境**: **Cloudflare Workers**（将来10〜100プロダクト運用時のトラフィック・Egress課金爆発と強制移行リスクを排除）
+  2. **リレーショナルDB**: **Neon Serverless PostgreSQL**（旧プランのSupabaseは明示的に不採用・完全排除）
+  3. **ORM**: **Drizzle ORM**（Edge/Workers完全互換、超軽量型安全）
+  4. **認証**: **Firebase Auth**（Workers環境では軽量JoseによるJWT検証でNode固有依存を排除）
+  5. **決済**: **Stripe**
+  6. **オブジェクトストレージ**: **Cloudflare R2**
+  7. **共通リサーチ連携**: **`salve-de/universal-foundation`**
+- **断行した外科的処置**:
+  1. **Gitリモートの正式接続**:
+     - `origin`（`https://github.com/salve-de/Make-money.git`）を追加し、リモートブランチ群と追跡可能に接続。
+  2. **Neon PostgreSQL + Drizzle ORM 基盤の完全整備**:
+     - `@neondatabase/serverless`, `drizzle-orm`, `drizzle-kit` を導入。
+     - `drizzle.config.ts` を配備。
+     - `src/db/schema.ts` に `users`（Stripe/PRO会員連携）、`businesses`（財務P&L台帳）、`businessIdeas`（実践台帳）、`marketSignals`、`savedItems`、`submissions`（Starter Story型自走申請）のスキーマを定義。
+     - `src/db/index.ts` に Neon Serverless クライアントを配備。
+  3. **Firebase Auth 基盤の完全整備**:
+     - `src/lib/firebase/client.ts`（クライアント側初期化）を配備。
+     - `src/lib/firebase/server.ts`（Workers/Edge環境でも安全に動作する `jose` ベースのJWTトークン検証関数）を配備。
+  4. **Cloudflare Workers 設定の配備**:
+     - `wrangler.jsonc`（`nodejs_compat` 有効）を配備。
+  5. **Next.js & 環境変数テンプレートの調律**:
+     - `next.config.ts` で `turbopack.root` を明示し、外部ロックファイルに関するワーニングを完全解消。
+     - `.env.example` に Neon, Firebase, Stripe, R2 の環境変数仕様を明記。
+     - `package.json` に `db:generate`, `db:push`, `db:studio`, `deploy:workers` を配備。
+  6. **品質検証**:
+     - `npm run build` は 427ms・エラーゼロ（Exit code 0）で通過。
+
 ---
 
 ## Ⅱ. 監査合格済み：4大ビジネスアイデア解剖調書
