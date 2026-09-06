@@ -15,6 +15,7 @@ import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveVi
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
+import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC = () => {
   const searchParams = useSearchParams();
@@ -84,6 +85,7 @@ export const TerminalShell: React.FC = () => {
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [isScreenerOpen, setIsScreenerOpen] = useState<boolean>(false);
+  const [isProModalOpen, setIsProModalOpen] = useState<boolean>(false);
   const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(null);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set(['ent_photoai', 'ent_keyence']));
 
@@ -170,6 +172,7 @@ export const TerminalShell: React.FC = () => {
         onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
         currency={currency}
         onToggleCurrency={() => setCurrency((prev) => (prev === 'JPY' ? 'USD' : 'JPY'))}
+        onOpenPro={() => setIsProModalOpen(true)}
       />
 
       {/* メインワークスペース (左ナビ + 中央データグリッド/特集ディープダイブ + 右リアルタイムインスペクター) */}
@@ -241,6 +244,7 @@ export const TerminalShell: React.FC = () => {
             currency={currency}
             onPrevEntity={handlePrevEntity}
             onNextEntity={handleNextEntity}
+            onOpenPro={() => setIsProModalOpen(true)}
           />
         )}
       </main>
@@ -273,6 +277,12 @@ export const TerminalShell: React.FC = () => {
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}
+      />
+
+      {/* PROメンバーシップ決済モーダル */}
+      <ProModal
+        isOpen={isProModalOpen}
+        onClose={() => setIsProModalOpen(false)}
       />
     </div>
   );

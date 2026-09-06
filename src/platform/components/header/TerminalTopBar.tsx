@@ -7,12 +7,14 @@ interface TerminalTopBarProps {
   onOpenCommandPalette: () => void;
   currency: 'JPY' | 'USD';
   onToggleCurrency: () => void;
+  onOpenPro?: () => void;
 }
 
 export const TerminalTopBar: React.FC<TerminalTopBarProps> = ({
   onOpenCommandPalette,
   currency,
   onToggleCurrency,
+  onOpenPro,
 }) => {
   return (
     <header className="h-11 w-full bg-[#08090C] border-b border-white/[0.06] flex items-center justify-between px-3 md:px-4 z-20 select-none">
@@ -67,7 +69,10 @@ export const TerminalTopBar: React.FC<TerminalTopBarProps> = ({
         </button>
 
         {/* PROボタン（落ち着いたシルバー/モノトーン） */}
-        <button className="text-xs font-medium px-2.5 py-1 rounded bg-white text-zinc-950 hover:bg-zinc-200 transition-colors shadow-sm">
+        <button 
+          onClick={onOpenPro}
+          className="text-xs font-medium px-2.5 py-1 rounded bg-white text-zinc-950 hover:bg-zinc-200 transition-colors shadow-sm"
+        >
           PRO
         </button>
       </div>
