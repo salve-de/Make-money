@@ -137,6 +137,15 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           </div>
         </div>
 
+        {/* 照射HUDステータスバー */}
+        <div className="px-3 py-1 bg-emerald-950/20 border-b border-emerald-500/20 flex items-center justify-between text-[10px] font-mono text-emerald-400/90">
+          <span className="flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            資本主義の解剖台帳：未公開P&L照射中
+          </span>
+          <span className="text-zinc-500 text-[9px]">RAW AUDIT</span>
+        </div>
+
         {/* タブ切り替え（モノトーン） */}
         <div className="flex items-center border-b border-white/[0.06] bg-[#07080A] text-[11px] font-sans">
           <button

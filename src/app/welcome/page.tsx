@@ -28,7 +28,7 @@ interface WeaponItem {
   distortion: string;
   example: string;
   margin: string;
-  query: string;
+  href: string;
 }
 
 const WEAPON_DOMAINS = [
@@ -47,9 +47,9 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
       code: '#01-A',
       name: 'CYA（保身・免責）プレミアム',
       distortion: '担当者の「ミスで解雇されたくない」恐怖を買い取り、機能価値の数十倍で定価販売',
-      example: 'Vanta / SOC2支援',
-      margin: '78.0%',
-      query: 'Vanta',
+      example: 'KEYENCE / 保険料込み独占価格',
+      margin: '54.0%',
+      href: '/?topic=direct_monopoly&entity=ent_keyence',
     },
     {
       code: '#01-B',
@@ -57,31 +57,31 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
       distortion: 'オープンソースやAPIを薄く包み、一般人の「設定するのが面倒」を消去して月額課金化',
       example: 'Photo AI',
       margin: '84.0%',
-      query: 'Photo AI',
+      href: '/?topic=solo_empire&entity=ent_photoai',
     },
     {
       code: '#01-C',
       name: 'ブラックボックスの脱神話化・仲介',
       distortion: '一生に数回しか買わず相場が不透明な市場で、定額パッケージ窓口を押さえ送客手数料中抜き',
-      example: '小さなお葬式 (ユニクエスト)',
-      margin: '32.0%',
-      query: '葬儀',
+      example: '地域特化・高圧洗浄DX',
+      margin: '48.3%',
+      href: '/?filter=SOLO&entity=ent_local_wash',
     },
     {
       code: '#01-D',
       name: '独自データの先回り（プロプライエタリ・クロール）',
       distortion: '登記・求人・調達ログを常時スクレイピングし、競合解約や予算消化の兆候を掴んで高確度送客',
-      example: 'Clay / Apollo',
-      margin: '68.0%',
-      query: 'Clay',
+      example: 'Clay×AI アウトバウンド代行',
+      margin: '65.0%',
+      href: '/?topic=b2b_outbound&entity=ent_clay_aaa',
     },
     {
       code: '#01-E',
       name: '地位ゲーム（Status Games）の独占',
       distortion: '意図的に供給を絞り、厳しい審査で「他者への序列誇示・選民思想」を高額サブスク化',
-      example: '会員制プライベートクラブ',
-      margin: '65.0%',
-      query: 'コミュニティ',
+      example: 'Easlo (Notion OS)',
+      margin: '98.6%',
+      href: '/?filter=ZERO_CAPITAL&entity=ent_easlo',
     },
   ],
   reg: [
@@ -89,41 +89,41 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
       code: '#02-A',
       name: '法的義務化の関所（Mandatory Compliance）',
       distortion: '電帳法・インボイス等「導入しないと違法」の施行期日に合わせ、営業努力ゼロで顧客を刈り取る',
-      example: 'クラウドサイン',
-      margin: '55.0%',
-      query: 'クラウドサイン',
+      example: 'KEYENCE / 製造基準独占',
+      margin: '54.0%',
+      href: '/?filter=MONOPOLY&entity=ent_keyence',
     },
     {
       code: '#02-B',
       name: '許認可・参入規制の城壁',
       distortion: '法律が新規参入を物理的に禁じている聖域（産廃・教習所・薬局）を保有・承継し無風独占',
-      example: '地方産廃中間処理',
-      margin: '38.0%',
-      query: '産廃',
+      example: '地域独占・設備認可モデル',
+      margin: '48.3%',
+      href: '/?filter=SOLO&entity=ent_local_wash',
     },
     {
       code: '#02-C',
       name: '公金・補助金の吸引ポンプ',
       distortion: '「実質国の金で導入可能」というキラーオファーで、申請代行と抱き合わせて高額一網打尽',
-      example: 'IT導入補助金DXベンダー',
-      margin: '45.0%',
-      query: 'DX',
+      example: '調達企業向け成果報酬代行',
+      margin: '65.0%',
+      href: '/?topic=b2b_outbound&entity=ent_clay_aaa',
     },
     {
       code: '#02-D',
       name: '審査落ち・信用弱者の囲い込み',
       distortion: '銀行が門前払いした層に対し、リスクを価格に転嫁して貸倒率を上回る超過マージンを確定',
-      example: '家賃保証 (Casa)',
-      margin: '34.0%',
-      query: '保証',
+      example: 'Stripe Payments',
+      margin: '30.0%',
+      href: '/?entity=ent_stripe',
     },
     {
       code: '#02-E',
       name: 'グレーゾーン先行逃げ切り',
       distortion: '法解釈が定まる前の隙間に突撃し、規制が動く前にユーザーを囲い込み既成事実化する',
-      example: '初期Uber / 暗号資産',
-      margin: '30.0%',
-      query: 'プラットフォーム',
+      example: 'HeadshotPro',
+      margin: '46.2%',
+      href: '/?topic=solo_empire&entity=ent_headshotpro',
     },
   ],
   time: [
@@ -131,9 +131,9 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
       code: '#03-A',
       name: 'ネガティブ・ワーキング・キャピタル',
       distortion: '顧客からは年払いで即前回収し外注は60日後払い。無借金・調達ゼロで顧客の現金で自己増殖',
-      example: '年間契約マイクロSaaS',
-      margin: '82.0%',
-      query: 'SaaS',
+      example: 'Easlo (完全先払いOS)',
+      margin: '98.6%',
+      href: '/?filter=ZERO_CAPITAL&entity=ent_easlo',
     },
     {
       code: '#03-B',
@@ -141,31 +141,31 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
       distortion: '工場停止や水漏れなど「今すぐ直さないと破滅する」状況を即解決し、値引きを拒絶して定価販売',
       example: 'KEYENCE (当日即発送)',
       margin: '54.0%',
-      query: 'KEYENCE',
+      href: '/?topic=direct_monopoly&entity=ent_keyence',
     },
     {
       code: '#03-C',
       name: 'タイムマシン経営（時間差移植）',
       distortion: '米国で急成長したモデルを日本市場に最適化移植し、市場検証リスクゼロで先行者利益を独占',
-      example: '国内バーティカルSaaS',
-      margin: '60.0%',
-      query: 'バーティカル',
+      example: 'HeadshotPro / 写真館代替',
+      margin: '46.2%',
+      href: '/?topic=solo_empire&entity=ent_headshotpro',
     },
     {
       code: '#03-D',
       name: '地理的・内外価格差アービトラージ',
       distortion: '国内では安価なコモディティを、円安や文化ギャップをテコに海外富裕層へ超高単価販売',
-      example: 'インバウンド特化高単価サービス',
-      margin: '48.0%',
-      query: 'インバウンド',
+      example: 'TLDR Newsletter (ドル建て広告)',
+      margin: '67.2%',
+      href: '/?topic=media_cashflow&entity=ent_tldr',
     },
     {
       code: '#03-E',
       name: 'マイクロ流動性の提供（叩き買い・再生）',
       distortion: '「今すぐ処分したい」後継者不在の町工場や余剰在庫を二束三文で即日買取し顧客リストを換金',
-      example: '事業再生型スモールM&A',
-      margin: '42.0%',
-      query: 'M&A',
+      example: 'クラフトウォッシュ (地域再生)',
+      margin: '48.3%',
+      href: '/?filter=SOLO&entity=ent_local_wash',
     },
   ],
   ecosystem: [
@@ -173,41 +173,41 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
       code: '#04-A',
       name: 'コバンザメ・プラットフォーム寄生',
       distortion: 'ShopifyやLINE等の巨大ストア内で公式が作らない隙間ツールを展開し、CACほぼゼロで億を抜く',
-      example: 'Lステップ (LINE特化マーケ)',
-      margin: '72.0%',
-      query: 'Lステップ',
+      example: 'Notion OS / Easlo',
+      margin: '98.6%',
+      href: '/?filter=ZERO_CAPITAL&entity=ent_easlo',
     },
     {
       code: '#04-B',
       name: '大手の死角（効率的規模・小池独占）',
       distortion: '市場規模が小さすぎて（年商5〜10億）上場企業が参入できないニッチ領域を1社で寡占',
-      example: '檀家管理システム / 墓石CAD',
-      margin: '64.0%',
-      query: 'ニッチ',
+      example: '地域限定・施工DX',
+      margin: '48.3%',
+      href: '/?filter=SOLO&entity=ent_local_wash',
     },
     {
       code: '#04-C',
       name: '巨人のアンバンドリング（単機能極限特化）',
       distortion: 'ExcelやJiraなど肥大化した巨大ツールから、特定職種が使う1機能だけを切り出して超高速化',
-      example: 'Linear (開発課題管理)',
-      margin: '75.0%',
-      query: 'Linear',
+      example: 'Photo AI (スタジオ機能切り出し)',
+      margin: '84.0%',
+      href: '/?topic=solo_empire&entity=ent_photoai',
     },
     {
       code: '#04-D',
       name: '関所・チョークポイント（通行税モデル）',
       distortion: 'プレイヤー同士を血みどろで競争させ、自身はその決済・受発注の出入り口で手数料を自動徴収',
-      example: 'Stripe / 仲介プラットフォーム',
-      margin: '40.0%',
-      query: 'Stripe',
+      example: 'Stripe (決済テイクレート)',
+      margin: '30.0%',
+      href: '/?filter=MONOPOLY&entity=ent_stripe',
     },
     {
       code: '#04-E',
       name: 'カウンターポジショニング（巨人の自爆トラップ）',
       distortion: '大手が真似すると既存の代理店網や本業売上を自ら破壊することになるため、手を出せない構造を突く',
-      example: '直販特化ファブレス',
-      margin: '58.0%',
-      query: '直販',
+      example: 'KEYENCE (完全直販特化)',
+      margin: '54.0%',
+      href: '/?topic=direct_monopoly&entity=ent_keyence',
     },
   ],
   operation: [
@@ -215,41 +215,41 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
       code: '#05-A',
       name: '労働の地理的裁定（グローバルBPO）',
       distortion: '国内定価で集金し、裏側の運用・監視・開発は月給数万円の海外英語ネイティブ部隊に委託し粗利総取り',
-      example: 'リモートCS・データ運用',
-      margin: '80.0%',
-      query: 'リモート',
+      example: 'TLDR (世界分散エディター)',
+      margin: '67.2%',
+      href: '/?topic=media_cashflow&entity=ent_tldr',
     },
     {
       code: '#05-B',
       name: 'AI/Webhookによる限界費用ゼロ工場',
       distortion: '表向きは職人の手作業に見せかけ、裏側はAPIとLLMを数珠繋ぎにして原価数十円・数秒で自動納品',
-      example: 'Clay×AI Outbound',
+      example: 'Clay×AI アウトバウンド代行',
       margin: '65.0%',
-      query: 'Clay',
+      href: '/?topic=b2b_outbound&entity=ent_clay_aaa',
     },
     {
       code: '#05-C',
       name: '汚い実業の近代化（Sweaty Startup）',
       distortion: 'ITエリートが嫌悪する解体・清掃・不用品回収に参入し、即時Web見積もりとカード決済で地域独占',
-      example: '1-800-GOT-JUNK?',
-      margin: '36.0%',
-      query: '清掃',
+      example: 'クラフトウォッシュ (高圧洗浄DX)',
+      margin: '48.3%',
+      href: '/?filter=SOLO&entity=ent_local_wash',
     },
     {
       code: '#05-D',
       name: 'プログラムによる数万URL量産（pSEO）',
       distortion: 'データベースから動的に比較・事例ページを何万URLも自動生成し、Google検索トラフィックを独占',
-      example: '比較・ディレクトリメディア',
-      margin: '88.0%',
-      query: 'メディア',
+      example: 'HeadshotPro (地域×職種pSEO)',
+      margin: '46.2%',
+      href: '/?topic=solo_empire&entity=ent_headshotpro',
     },
     {
       code: '#05-E',
       name: '業務フローの神経同化（スイッチング障壁）',
       distortion: '現場ルーティンと一体化させ、「社員の再教育コストの方が高い」として値上げを容認させる',
-      example: 'Bloomberg / 基幹SaaS',
-      margin: '62.0%',
-      query: 'Bloomberg',
+      example: 'KEYENCE (製造現場データ独占)',
+      margin: '54.0%',
+      href: '/?topic=direct_monopoly&entity=ent_keyence',
     },
   ],
 };
@@ -288,7 +288,7 @@ export default function WelcomePage() {
           )}
 
           <Link
-            href="/"
+            href="/?entity=ent_photoai"
             className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white hover:bg-zinc-200 text-black font-medium text-xs transition-colors cursor-pointer shadow-sm"
           >
             <span>端末を起動する</span>
@@ -317,7 +317,7 @@ export default function WelcomePage() {
         {/* 検索バー（端末直結） */}
         <div className="max-w-xl mx-auto mb-6">
           <Link
-            href="/?q=Photo+AI"
+            href="/?entity=ent_photoai&q=Photo+AI"
             className="flex items-center justify-between gap-2 p-2 sm:p-2.5 rounded-lg bg-zinc-900/90 border border-white/[0.12] hover:border-white/[0.25] text-left transition-all shadow-xl group cursor-pointer"
           >
             <div className="flex items-center gap-2.5 pl-2 text-xs sm:text-sm text-zinc-400">
@@ -336,7 +336,7 @@ export default function WelcomePage() {
         {/* CTA ボタングループ */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
           <Link
-            href="/"
+            href="/?entity=ent_photoai"
             className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded bg-white hover:bg-zinc-200 text-black font-semibold text-xs transition-colors cursor-pointer shadow-md"
           >
             <span>端末を起動する (無料)</span>
@@ -463,7 +463,7 @@ export default function WelcomePage() {
             {WEAPONS_BY_DOMAIN[activeDomain].map((weapon) => (
               <Link
                 key={weapon.code}
-                href={`/?q=${encodeURIComponent(weapon.query)}`}
+                href={weapon.href}
                 className="group flex flex-col md:flex-row md:items-center justify-between gap-3 p-4 hover:bg-white/[0.03] transition-colors cursor-pointer"
               >
                 {/* 左側：コード ＆ 手口名称 ＆ 歪みの本質 */}
@@ -508,10 +508,10 @@ export default function WelcomePage() {
           <div className="mt-6 flex items-center justify-between text-xs text-zinc-500 font-mono px-1">
             <span>※ 全25手口の完全データセット・財務レントゲンは端末に収録</span>
             <Link
-              href="/"
+              href="/?filter=HIGH_MARGIN&entity=ent_photoai"
               className="inline-flex items-center gap-1 text-zinc-400 hover:text-white transition-colors"
             >
-              <span>端末で全件スクリーニングする</span>
+              <span>端末で高利益率銘柄をスクリーニングする</span>
               <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
@@ -537,7 +537,7 @@ export default function WelcomePage() {
 
           <div className="pt-2">
             <Link
-              href="/"
+              href="/?entity=ent_photoai"
               className="inline-flex items-center gap-2 px-6 py-3 rounded bg-white hover:bg-zinc-200 text-black font-semibold text-xs transition-colors cursor-pointer shadow-md"
             >
               <span>端末を開いて検証済みデータを照合する (無料)</span>
@@ -550,7 +550,7 @@ export default function WelcomePage() {
       {/* 5. フッターセクション */}
       <footer className="border-t border-white/[0.06] py-10 px-4 md:px-8 text-center text-zinc-600 font-mono text-[11px]">
         <div className="flex flex-wrap items-center justify-center gap-4 mb-3">
-          <Link href="/" className="hover:text-zinc-400 transition-colors">
+          <Link href="/?entity=ent_photoai" className="hover:text-zinc-400 transition-colors">
             TERMINAL
           </Link>
           <span>•</span>
