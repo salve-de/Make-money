@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Copy, Check, Lock, AlertTriangle, ArrowRight, ChevronDown, ChevronUp, SlidersHorizontal, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Copy, Check, Lock, AlertTriangle, ArrowRight, SlidersHorizontal, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export type CapitalLevel = 'ZERO' | 'MICRO' | 'MID' | 'HIGH';
 export type TimeCommitment = 'ULTRA_LIGHT' | 'SIDE_JOB' | 'FULL_TIME';
@@ -65,8 +65,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
   const [sortBy, setSortBy] = useState<SortOption>('FIT_SCORE');
   // 選択中の詳細展開カードID
   const [selectedStrategyId, setSelectedStrategyId] = useState<string | null>(null);
-  // 全件展開表示フラグ
-  const [showAllMatches, setShowAllMatches] = useState(false);
+  // セレクター折りたたみトグル
+  const [isSelectorOpen, setIsSelectorOpen] = useState(true);
   // コピペ完了トースト用
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
@@ -344,7 +344,6 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
     const scoredList = rawList.map((item) => {
       let score = 50;
 
-      // 1. 投下資本
       if (capital === 'ZERO' && item.initialInvestment.includes('0円')) {
         score += 20;
       } else if (capital === 'MICRO' && (item.initialInvestment.includes('3万') || item.initialInvestment.includes('1万'))) {
@@ -353,7 +352,6 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         score += 15;
       }
 
-      // 2. 週実働コミット
       if (time === 'ULTRA_LIGHT' && item.tags.includes('完全無人化')) {
         score += 20;
       } else if (time === 'SIDE_JOB' && (item.tags.includes('副業可') || item.tags.includes('1人完結'))) {
@@ -362,7 +360,6 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         score += 15;
       }
 
-      // 3. 保有スキル
       let capScore = 0;
       if (capability === 'NO_CODE_API' && (item.tags.includes('API配線') || item.tags.includes('1人完結') || item.tags.includes('Next.js'))) {
         capScore = 20;
@@ -377,7 +374,6 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
       }
       score += capScore;
 
-      // 4. 顧客ターゲット
       let marketScore = 8;
       if (targetMarket === 'LOCAL_STORE' && (item.tags.includes('町工場') || item.tags.includes('現場DX') || item.tags.includes('町工場独占'))) {
         marketScore = 15;
@@ -388,14 +384,12 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
       }
       score += marketScore;
 
-      // 5. 収益化スピード
       if (cashSpeed === 'INSTANT_CASH' && (item.tags.includes('即金性最速') || item.timeframeToProfit.includes('初日') || item.timeframeToProfit.includes('48時間'))) {
         score += 15;
       } else if (cashSpeed === 'LONG_STOCK' && (item.tags.includes('月額ストック') || item.tags.includes('ストック広告'))) {
         score += 15;
       }
 
-      // 6. 目標月利
       if (targetProfit === 'TIER_500M') {
         score += item.monthlyProfitMinJpy >= 3500000 ? 15 : -5;
       } else if (targetProfit === 'TIER_100M') {
@@ -455,313 +449,252 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
   }, [selectedStrategyId, sortedStrategies]);
 
   return (
-    <div className="max-w-7xl mx-auto space-y-6 select-none font-sans text-slate-900 py-4">
-      {/* 1. ヘッダー見出し ＆ マクロ指標 */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5">
-        <div className="space-y-1">
-          <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500">
-            <span className="px-1.5 py-0.5 rounded text-[9px] bg-slate-950 text-white font-bold tracking-wider uppercase">
-              RESOURCE FINDER
-            </span>
-            <span>手札条件から事業モデルと実務実行アセットを即時算出</span>
-          </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
-            リソース適合型 実務実行アセット即時発行
-          </h1>
-        </div>
-
-        {/* 保有リソースの潜在市場価値 */}
-        {activeStrategy && (
-          <div className="shrink-0 flex items-center bg-slate-50 border border-slate-200 rounded-lg divide-x divide-slate-200 font-mono text-xs">
-            <div className="px-4 py-2 space-y-0.5">
-              <span className="text-[10px] text-slate-400 font-semibold uppercase block">年間潜在価値</span>
-              <span className="text-base font-bold text-emerald-700 tabular-nums">{activeStrategy.potentialAnnualProfitJpy}</span>
+    <div className="flex-1 flex overflow-hidden w-full h-full font-sans text-slate-900 select-none">
+      
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* 【左ペイン】6軸スクリーナー ＆ 適合モデル順位表 (幅340px〜380px) */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      <div className="w-84 lg:w-96 border-r border-slate-200 bg-slate-50/50 flex flex-col shrink-0 overflow-hidden">
+        
+        {/* 上部固定：条件セレクター */}
+        <div className="p-3 bg-slate-50 border-b border-slate-200 space-y-2">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold text-slate-700 uppercase tracking-wider">
+              <SlidersHorizontal size={11} className="text-slate-500" />
+              <span>RESOURCE SCREENER (6軸)</span>
             </div>
-            <div className="px-4 py-2 space-y-0.5">
-              <span className="text-[10px] text-slate-400 font-semibold uppercase block">最大適合スコア</span>
-              <span className="text-base font-bold text-slate-950 tabular-nums">{activeStrategy.bestFitScore}%</span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* 2. 手札リソース・マトリクスセレクター（Linear / Stripe 風インラインセグメント） */}
-      <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/60 space-y-3">
-        <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-700 border-b border-slate-200 pb-2">
-          <SlidersHorizontal size={13} className="text-slate-500" />
-          <span>リソース条件セレクター（6軸トグル）</span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3 text-xs">
-          {/* 1. 投下可能資本 */}
-          <div className="space-y-1.5">
-            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">1. 投下可能資本</span>
-            <div className="flex items-center gap-1 flex-wrap">
-              {[
-                { id: 'ZERO', label: '0円 (元手ゼロ)' },
-                { id: 'MICRO', label: '〜3万円' },
-                { id: 'MID', label: '10万〜50万' },
-                { id: 'HIGH', label: '100万円〜' }
-              ].map(opt => (
-                <button
-                  key={opt.id}
-                  onClick={() => setCapital(opt.id as CapitalLevel)}
-                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
-                    capital === opt.id
-                      ? 'bg-slate-950 text-white font-bold shadow-xs'
-                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 2. 週実働コミット */}
-          <div className="space-y-1.5">
-            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">2. 週実働コミット</span>
-            <div className="flex items-center gap-1 flex-wrap">
-              {[
-                { id: 'ULTRA_LIGHT', label: '週1〜3h (自動化)' },
-                { id: 'SIDE_JOB', label: '週5〜10h (副業)' },
-                { id: 'FULL_TIME', label: '週30h+ (専任)' }
-              ].map(opt => (
-                <button
-                  key={opt.id}
-                  onClick={() => setTime(opt.id as TimeCommitment)}
-                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
-                    time === opt.id
-                      ? 'bg-slate-950 text-white font-bold shadow-xs'
-                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 3. 保有スキル・武器 */}
-          <div className="space-y-1.5">
-            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">3. 保有スキル・武器</span>
-            <div className="flex items-center gap-1 flex-wrap">
-              {[
-                { id: 'NO_CODE_API', label: 'ノーコード / API' },
-                { id: 'SALES_OUTBOUND', label: '直販・営業' },
-                { id: 'CONTENT_MEDIA', label: '文章要約' },
-                { id: 'BIZ_EFFICIENCY', label: '業務改善' }
-              ].map(opt => (
-                <button
-                  key={opt.id}
-                  onClick={() => setCapability(opt.id as Capability)}
-                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
-                    capability === opt.id
-                      ? 'bg-slate-950 text-white font-bold shadow-xs'
-                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 4. 顧客ターゲット */}
-          <div className="space-y-1.5">
-            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">4. 顧客ターゲット</span>
-            <div className="flex items-center gap-1 flex-wrap">
-              {[
-                { id: 'B2B_CORP', label: '法人 (経費決済)' },
-                { id: 'B2C_INDIVIDUAL', label: '個人 (欲望・時短)' },
-                { id: 'LOCAL_STORE', label: '地方店舗・町工場' }
-              ].map(opt => (
-                <button
-                  key={opt.id}
-                  onClick={() => setTargetMarket(opt.id as CustomerTarget)}
-                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
-                    targetMarket === opt.id
-                      ? 'bg-slate-950 text-white font-bold shadow-xs'
-                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 5. 着金スピード */}
-          <div className="space-y-1.5">
-            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">5. 着金スピード</span>
-            <div className="flex items-center gap-1 flex-wrap">
-              {[
-                { id: 'INSTANT_CASH', label: '即金 (初日〜1週間)' },
-                { id: 'LONG_STOCK', label: 'ストック (月額積上)' }
-              ].map(opt => (
-                <button
-                  key={opt.id}
-                  onClick={() => setCashSpeed(opt.id as CashSpeed)}
-                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
-                    cashSpeed === opt.id
-                      ? 'bg-slate-950 text-white font-bold shadow-xs'
-                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* 6. 目標手残り月利 */}
-          <div className="space-y-1.5">
-            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">6. 目標手残り月利</span>
-            <div className="flex items-center gap-1 flex-wrap">
-              {[
-                { id: 'TIER_30M', label: '月利 30万〜' },
-                { id: 'TIER_100M', label: '月利 100万〜' },
-                { id: 'TIER_500M', label: '月利 500万円〜' }
-              ].map(opt => (
-                <button
-                  key={opt.id}
-                  onClick={() => setTargetProfit(opt.id as TargetProfit)}
-                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
-                    targetProfit === opt.id
-                      ? 'bg-slate-950 text-white font-bold shadow-xs'
-                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
-                  }`}
-                >
-                  {opt.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. 照合結果サマリー ＆ 並び替え */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 border-b border-slate-200 pb-2">
-        <div className="flex items-center gap-2">
-          <span className="font-mono text-xs font-bold text-slate-900">
-            適合モデル: <span className="text-slate-950 font-bold tabular-nums">{sortedStrategies.length}件</span> 検出
-          </span>
-        </div>
-
-        <div className="flex items-center gap-1.5 font-mono text-[11px]">
-          <span className="text-slate-400 text-[10px]">並び替え:</span>
-          {[
-            { id: 'FIT_SCORE', label: '適合度順' },
-            { id: 'PROFIT', label: '想定月利順' },
-            { id: 'MARGIN', label: '粗利益率順' },
-          ].map((s) => (
             <button
-              key={s.id}
               type="button"
-              onClick={() => setSortBy(s.id as SortOption)}
-              className={`px-2 py-0.5 rounded border text-[10px] transition-colors cursor-pointer ${
-                sortBy === s.id
-                  ? 'bg-slate-950 text-white border-slate-950 font-bold'
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
-              }`}
+              onClick={() => setIsSelectorOpen(!isSelectorOpen)}
+              className="text-[10px] font-mono text-slate-500 hover:text-slate-900 cursor-pointer"
             >
-              {s.label}
+              {isSelectorOpen ? '条件を縮小 ▲' : '条件を展開 ▼'}
             </button>
-          ))}
-        </div>
-      </div>
+          </div>
 
-      {/* 4. 適合モデル 高密度インデックスシート */}
-      <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
-        {/* テーブルヘッダー */}
-        <div className="hidden md:grid grid-cols-12 gap-3 px-4 py-2.5 bg-slate-50/80 border-b border-slate-200 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
-          <div className="col-span-1 text-center">順位</div>
-          <div className="col-span-2">適合スコア</div>
-          <div className="col-span-5">適合事業モデル / 実証元</div>
-          <div className="col-span-2 text-right">想定手残り月利</div>
-          <div className="col-span-1 text-right">粗利率</div>
-          <div className="col-span-1 text-center">状態</div>
+          {/* セレクター本体 */}
+          {isSelectorOpen && (
+            <div className="space-y-2 pt-1 border-t border-slate-200/80 text-[11px] font-mono">
+              {/* 1. 資本 */}
+              <div className="space-y-1">
+                <span className="text-[9px] text-slate-400 font-semibold uppercase block">1. 投下資本</span>
+                <div className="flex items-center gap-1 flex-wrap">
+                  {[
+                    { id: 'ZERO', label: '0円' },
+                    { id: 'MICRO', label: '〜3万' },
+                    { id: 'MID', label: '10〜50万' },
+                    { id: 'HIGH', label: '100万〜' }
+                  ].map(opt => (
+                    <button
+                      key={opt.id}
+                      onClick={() => setCapital(opt.id as CapitalLevel)}
+                      className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
+                        capital === opt.id
+                          ? 'bg-slate-950 text-white font-bold shadow-xs'
+                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* 2. 稼働 */}
+              <div className="space-y-1">
+                <span className="text-[9px] text-slate-400 font-semibold uppercase block">2. 週稼働コミット</span>
+                <div className="flex items-center gap-1 flex-wrap">
+                  {[
+                    { id: 'ULTRA_LIGHT', label: '週1〜3h' },
+                    { id: 'SIDE_JOB', label: '週5〜10h' },
+                    { id: 'FULL_TIME', label: '週30h+' }
+                  ].map(opt => (
+                    <button
+                      key={opt.id}
+                      onClick={() => setTime(opt.id as TimeCommitment)}
+                      className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
+                        time === opt.id
+                          ? 'bg-slate-950 text-white font-bold shadow-xs'
+                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* 3. スキル */}
+              <div className="space-y-1">
+                <span className="text-[9px] text-slate-400 font-semibold uppercase block">3. 保有スキル</span>
+                <div className="flex items-center gap-1 flex-wrap">
+                  {[
+                    { id: 'NO_CODE_API', label: 'ノーコード/API' },
+                    { id: 'SALES_OUTBOUND', label: '直販・営業' },
+                    { id: 'CONTENT_MEDIA', label: '文章要約' },
+                    { id: 'BIZ_EFFICIENCY', label: '業務改善' }
+                  ].map(opt => (
+                    <button
+                      key={opt.id}
+                      onClick={() => setCapability(opt.id as Capability)}
+                      className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
+                        capability === opt.id
+                          ? 'bg-slate-950 text-white font-bold shadow-xs'
+                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* 4. ターゲット */}
+              <div className="space-y-1">
+                <span className="text-[9px] text-slate-400 font-semibold uppercase block">4. ターゲット市場</span>
+                <div className="flex items-center gap-1 flex-wrap">
+                  {[
+                    { id: 'B2B_CORP', label: '法人(経費)' },
+                    { id: 'B2C_INDIVIDUAL', label: '個人(欲望)' },
+                    { id: 'LOCAL_STORE', label: '地方・町工場' }
+                  ].map(opt => (
+                    <button
+                      key={opt.id}
+                      onClick={() => setTargetMarket(opt.id as CustomerTarget)}
+                      className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
+                        targetMarket === opt.id
+                          ? 'bg-slate-950 text-white font-bold shadow-xs'
+                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* 5. 速度 & 6. 月利目標 */}
+              <div className="grid grid-cols-2 gap-2 pt-0.5">
+                <div className="space-y-1">
+                  <span className="text-[9px] text-slate-400 font-semibold uppercase block">5. 着金速度</span>
+                  <div className="flex items-center gap-1">
+                    {[
+                      { id: 'INSTANT_CASH', label: '即金' },
+                      { id: 'LONG_STOCK', label: 'ストック' }
+                    ].map(opt => (
+                      <button
+                        key={opt.id}
+                        onClick={() => setCashSpeed(opt.id as CashSpeed)}
+                        className={`h-5.5 px-1.5 text-[10px] rounded transition-colors cursor-pointer ${
+                          cashSpeed === opt.id
+                            ? 'bg-slate-950 text-white font-bold shadow-xs'
+                            : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <span className="text-[9px] text-slate-400 font-semibold uppercase block">6. 目標月利</span>
+                  <div className="flex items-center gap-1">
+                    {[
+                      { id: 'TIER_100M', label: '100万〜' },
+                      { id: 'TIER_500M', label: '500万〜' }
+                    ].map(opt => (
+                      <button
+                        key={opt.id}
+                        onClick={() => setTargetProfit(opt.id as TargetProfit)}
+                        className={`h-5.5 px-1.5 text-[10px] rounded transition-colors cursor-pointer ${
+                          targetProfit === opt.id
+                            ? 'bg-slate-950 text-white font-bold shadow-xs'
+                            : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                        }`}
+                      >
+                        {opt.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ソート＆検出件数バー */}
+          <div className="pt-2 border-t border-slate-200/80 flex items-center justify-between text-[10px] font-mono text-slate-500">
+            <span>適合: <strong className="text-slate-950 tabular-nums">{sortedStrategies.length}件</strong></span>
+            <div className="flex items-center gap-1">
+              {[
+                { id: 'FIT_SCORE', label: '適合度' },
+                { id: 'PROFIT', label: '月利' },
+                { id: 'MARGIN', label: '利益率' },
+              ].map((s) => (
+                <button
+                  key={s.id}
+                  type="button"
+                  onClick={() => setSortBy(s.id as SortOption)}
+                  className={`px-1.5 py-0.5 rounded transition-colors cursor-pointer ${
+                    sortBy === s.id
+                      ? 'bg-slate-950 text-white font-bold'
+                      : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        {/* データ行リスト */}
-        <div className="divide-y divide-slate-100">
-          {(showAllMatches ? sortedStrategies : sortedStrategies.slice(0, 4)).map((item, idx) => {
+        {/* リストカラムヘッダー */}
+        <div className="px-3 py-1.5 bg-slate-100/80 border-b border-slate-200 flex items-center justify-between text-[10px] text-slate-400 font-mono font-medium">
+          <span>適合モデル / スコア</span>
+          <span>想定月利</span>
+        </div>
+
+        {/* 適合モデル順位リスト */}
+        <div className="flex-1 overflow-y-auto divide-y divide-slate-100 text-xs">
+          {sortedStrategies.map((item, idx) => {
             const isSelected = activeStrategy?.id === item.id;
-
             return (
               <div
                 key={item.id}
                 onClick={() => setSelectedStrategyId(item.id)}
-                className={`px-4 py-3 cursor-pointer transition-all flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-3 items-start md:items-center ${
+                className={`px-3 py-2.5 cursor-pointer transition-colors border-l-3 flex items-center justify-between gap-2.5 ${
                   isSelected
-                    ? 'bg-slate-50 border-l-4 border-slate-950 font-medium'
-                    : 'hover:bg-slate-50/70 border-l-4 border-transparent'
+                    ? 'bg-slate-100 border-slate-950 text-slate-950 font-medium'
+                    : 'hover:bg-slate-50 border-transparent text-slate-700'
                 }`}
               >
-                {/* 順位 */}
-                <div className="col-span-1 hidden md:flex items-center justify-center">
-                  <span className={`w-5 h-5 rounded flex items-center justify-center font-mono text-[11px] font-bold ${
-                    idx === 0 ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-600'
-                  }`}>
-                    {idx + 1}
-                  </span>
-                </div>
-
-                {/* 適合度バー＆スコア */}
-                <div className="col-span-2 flex items-center gap-2 w-full">
-                  <span className="font-mono text-xs font-bold text-slate-950 tabular-nums shrink-0">
-                    {item.bestFitScore}%
-                  </span>
-                  <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden hidden sm:block">
-                    <div
-                      className="h-full rounded-full bg-slate-950 transition-all"
-                      style={{ width: `${item.bestFitScore}%` }}
-                    />
-                  </div>
-                </div>
-
-                {/* モデル名称 ＆ 実証元 */}
-                <div className="col-span-5 min-w-0 w-full">
-                  <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-slate-950 truncate">
+                <div className="min-w-0 flex-1 space-y-1">
+                  <div className="flex items-center gap-1.5">
+                    <span className={`w-4 h-4 rounded flex items-center justify-center font-mono text-[9px] font-bold ${
+                      idx === 0 ? 'bg-slate-950 text-white' : 'bg-slate-200 text-slate-700'
+                    }`}>
+                      {idx + 1}
+                    </span>
+                    <span className="text-xs font-bold truncate text-slate-950">
                       {item.title}
                     </span>
-                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 border border-slate-200 shrink-0">
-                      {item.badgeLabel}
-                    </span>
                   </div>
-                  <div className="text-[10px] font-mono text-slate-500 truncate mt-0.5">
-                    実在検証元: {item.founderReference}
+
+                  <div className="flex items-center gap-2 font-mono text-[10px]">
+                    <span className="font-bold text-slate-950 tabular-nums">
+                      適合 {item.bestFitScore}%
+                    </span>
+                    <span className="text-slate-400">|</span>
+                    <span className="text-slate-500">
+                      粗利 {item.profitMargin}%
+                    </span>
                   </div>
                 </div>
 
-                {/* 想定手残り月利 */}
-                <div className="col-span-2 text-left md:text-right font-mono">
-                  <span className="text-xs font-bold text-emerald-700 tabular-nums">
+                <div className="shrink-0 text-right font-mono">
+                  <span className="text-[10px] font-bold text-emerald-700 tabular-nums px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200/80 whitespace-nowrap block">
                     {item.monthlyRevenueEstimate.split('（')[0]}
                   </span>
-                </div>
-
-                {/* 粗利率 */}
-                <div className="col-span-1 text-left md:text-right font-mono">
-                  <span className="text-xs font-bold text-slate-700 tabular-nums">
-                    {item.profitMargin}%
-                  </span>
-                </div>
-
-                {/* アクション・状態 */}
-                <div className="col-span-1 flex items-center justify-end md:justify-center font-mono text-[10px] w-full md:w-auto">
-                  {isSelected ? (
-                    <span className="px-2 py-0.5 rounded bg-slate-950 text-white font-bold flex items-center gap-1 shadow-2xs">
-                      <Check size={11} className="stroke-[3]" />
-                      <span>展開中</span>
-                    </span>
-                  ) : (
-                    <span className="text-slate-400 group-hover:text-slate-600 flex items-center gap-0.5">
-                      <span>選択</span>
-                      <span>→</span>
-                    </span>
-                  )}
                 </div>
               </div>
             );
@@ -769,176 +702,161 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         </div>
       </div>
 
-      {/* 全件展開トグル */}
-      {sortedStrategies.length > 4 && (
-        <div className="flex justify-center">
-          <button
-            type="button"
-            onClick={() => setShowAllMatches(!showAllMatches)}
-            className="px-3 py-1 bg-white hover:bg-slate-50 text-slate-600 font-mono text-xs font-medium rounded border border-slate-200 transition-colors cursor-pointer flex items-center gap-1.5"
-          >
-            {showAllMatches ? (
-              <>
-                <ChevronUp size={12} />
-                <span>上位4件に縮小</span>
-              </>
-            ) : (
-              <>
-                <ChevronDown size={12} />
-                <span>すべての適合モデルを表示（全 {sortedStrategies.length} 件）</span>
-              </>
-            )}
-          </button>
-        </div>
-      )}
-
-      {/* 5. 選択中モデルの実務実行ドシエ（コンサルティング提案書規格） */}
-      {activeStrategy && (
-        <div className="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-xs">
-          {/* 上段ヘッダー：タイトルと財務サマリー */}
-          <div className="p-5 bg-slate-50/80 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 font-mono text-[10px]">
-                <span className="px-1.5 py-0.2 rounded bg-slate-950 text-white font-bold uppercase tracking-wider">
-                  EXECUTION DOSSIER
-                </span>
-                <span className="text-slate-500">
-                  {activeStrategy.badgeLabel}（適合度 {activeStrategy.bestFitScore}%） • {activeStrategy.founderReference}
-                </span>
-              </div>
-              <h2 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight">
-                {activeStrategy.title}
-              </h2>
-            </div>
-
-            <div className="flex items-center gap-4 shrink-0 font-mono">
-              <div className="text-right">
-                <span className="text-[9px] text-slate-400 block uppercase font-semibold">想定月利</span>
-                <span className="text-sm font-bold text-emerald-700 tabular-nums">
-                  {activeStrategy.monthlyRevenueEstimate.split('（')[0]}
-                </span>
-              </div>
-              <div className="text-right pl-3 border-l border-slate-200">
-                <span className="text-[9px] text-slate-400 block uppercase font-semibold">粗利率</span>
-                <span className="text-sm font-bold text-slate-950 tabular-nums">
-                  {activeStrategy.profitMargin}%
-                </span>
-              </div>
-              <div className="text-right pl-3 border-l border-slate-200">
-                <span className="text-[9px] text-slate-400 block uppercase font-semibold">初期資本</span>
-                <span className="text-sm font-bold text-slate-950 tabular-nums">
-                  {activeStrategy.initialInvestment}
-                </span>
-              </div>
-              {onSelectCompany && (
-                <button
-                  type="button"
-                  onClick={() => onSelectCompany(activeStrategy.companyId)}
-                  className="px-3 py-1.5 bg-slate-950 hover:bg-slate-850 text-white font-mono text-xs font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer ml-2"
-                >
-                  <span>企業財務DB</span>
-                  <ArrowRight size={11} />
-                </button>
-              )}
-            </div>
-          </div>
-
-          {/* 実務アセット ＆ トーク（2カラム構造） */}
-          <div className="p-5 grid grid-cols-1 lg:grid-cols-12 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 text-xs">
-            {/* 左: 顧客開拓アプローチ実文面 */}
-            <div className="lg:col-span-7 space-y-3">
-              <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
-                <div className="flex items-center gap-2">
-                  <span className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">
-                    OUTREACH ASSET
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* 【右ペイン】選択モデルの完全実務実行ドシエ (flex-1 可変)       */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      <div className="flex-1 h-full overflow-y-auto bg-white p-6 sm:p-8 space-y-6">
+        {activeStrategy ? (
+          <div className="space-y-6">
+            {/* 上段ヘッダー：タイトルと財務サマリー */}
+            <div className="p-5 bg-slate-50/80 border border-slate-200 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 font-mono text-[10px]">
+                  <span className="px-1.5 py-0.2 rounded bg-slate-950 text-white font-bold uppercase tracking-wider">
+                    EXECUTION DOSSIER
                   </span>
-                  <h3 className="text-xs font-bold text-slate-950">
-                    {activeStrategy.readyToUseAsset.title}
-                  </h3>
+                  <span className="text-slate-500">
+                    適合度 {activeStrategy.bestFitScore}% • {activeStrategy.founderReference}
+                  </span>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => handleCopy(activeStrategy.readyToUseAsset.content, activeStrategy.id)}
-                  className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white font-mono text-[11px] font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
-                >
-                  {copiedKey === activeStrategy.id ? (
-                    <>
-                      <Check size={11} className="text-emerald-300" />
-                      <span>コピー完了</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={11} />
-                      <span>文面をコピー</span>
-                    </>
-                  )}
-                </button>
+                <h2 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight">
+                  {activeStrategy.title}
+                </h2>
               </div>
-              
-              {/* コードブロック形式のテキストエリア */}
-              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed select-text">
-                {activeStrategy.readyToUseAsset.content}
+
+              <div className="flex items-center gap-4 shrink-0 font-mono text-xs">
+                <div className="text-right">
+                  <span className="text-[9px] text-slate-400 block uppercase font-semibold">想定月利</span>
+                  <span className="text-sm font-bold text-emerald-700 tabular-nums">
+                    {activeStrategy.monthlyRevenueEstimate.split('（')[0]}
+                  </span>
+                </div>
+                <div className="text-right pl-3 border-l border-slate-200">
+                  <span className="text-[9px] text-slate-400 block uppercase font-semibold">粗利率</span>
+                  <span className="text-sm font-bold text-slate-950 tabular-nums">
+                    {activeStrategy.profitMargin}%
+                  </span>
+                </div>
+                <div className="text-right pl-3 border-l border-slate-200">
+                  <span className="text-[9px] text-slate-400 block uppercase font-semibold">初期資本</span>
+                  <span className="text-sm font-bold text-slate-950 tabular-nums">
+                    {activeStrategy.initialInvestment}
+                  </span>
+                </div>
+                {onSelectCompany && (
+                  <button
+                    type="button"
+                    onClick={() => onSelectCompany(activeStrategy.companyId)}
+                    className="px-3 py-1.5 bg-slate-950 hover:bg-slate-800 text-white font-mono text-xs font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer ml-2"
+                  >
+                    <span>企業財務DB</span>
+                    <ArrowRight size={11} />
+                  </button>
+                )}
               </div>
             </div>
 
-            {/* 右: 戦略的価格決定権 ＆ リスク要因 ＆ ツール */}
-            <div className="lg:col-span-5 pt-5 lg:pt-0 lg:pl-6 space-y-4">
-              {/* 価格決定権ロジック */}
-              <div className="space-y-1 border-b border-slate-100 pb-3">
-                <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
-                  PRICING LOGIC
-                </span>
-                <p className="text-xs font-sans text-slate-800 leading-relaxed">
-                  {activeStrategy.pricingScript}
-                </p>
-              </div>
-
-              {/* 参入初期のリスク要因 */}
-              <div className="space-y-1 border-b border-slate-100 pb-3">
-                <div className="flex items-center gap-1.5 text-rose-700 font-bold">
-                  <AlertTriangle size={12} />
-                  <span className="text-[10px] font-mono uppercase">KEY RISK FACTORS</span>
-                </div>
-                <p className="text-xs font-sans text-slate-800 leading-relaxed">
-                  {activeStrategy.fatalTrapToAvoid}
-                </p>
-              </div>
-
-              {/* 主要ツールスタック */}
-              <div className="space-y-1.5">
-                <span className="text-[10px] font-mono text-slate-400 uppercase font-bold block">
-                  KEY TOOLS & INFRASTRUCTURE
-                </span>
-                <div className="flex items-center gap-1.5 flex-wrap font-mono text-[10px]">
-                  {activeStrategy.threeKeyTools.map((t, idx) => (
-                    <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">
-                      {t.name} <span className="text-slate-400">({t.role})</span>
+            {/* 実務アセット ＆ トーク（2カラム構造） */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 text-xs">
+              {/* 左: 顧客開拓アプローチ実文面 */}
+              <div className="lg:col-span-7 space-y-3">
+                <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                  <div className="flex items-center gap-2">
+                    <span className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">
+                      OUTREACH ASSET
                     </span>
-                  ))}
+                    <h3 className="text-xs font-bold text-slate-950">
+                      {activeStrategy.readyToUseAsset.title}
+                    </h3>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy(activeStrategy.readyToUseAsset.content, activeStrategy.id)}
+                    className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white font-mono text-[11px] font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
+                  >
+                    {copiedKey === activeStrategy.id ? (
+                      <>
+                        <Check size={11} className="text-emerald-300" />
+                        <span>コピー完了</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={11} />
+                        <span>文面をコピー</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+                
+                {/* コードブロック形式のテキストエリア */}
+                <div className="p-3.5 bg-slate-50 border border-slate-200 rounded font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed select-text">
+                  {activeStrategy.readyToUseAsset.content}
+                </div>
+              </div>
+
+              {/* 右: 戦略的価格決定権 ＆ リスク要因 ＆ ツール */}
+              <div className="lg:col-span-5 pt-5 lg:pt-0 lg:pl-6 space-y-4">
+                {/* 価格決定権ロジック */}
+                <div className="space-y-1 border-b border-slate-100 pb-3">
+                  <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
+                    PRICING LOGIC
+                  </span>
+                  <p className="text-xs font-sans text-slate-800 leading-relaxed">
+                    {activeStrategy.pricingScript}
+                  </p>
+                </div>
+
+                {/* 参入初期のリスク要因 */}
+                <div className="space-y-1 border-b border-slate-100 pb-3">
+                  <div className="flex items-center gap-1.5 text-rose-700 font-bold">
+                    <AlertTriangle size={12} />
+                    <span className="text-[10px] font-mono uppercase">KEY RISK FACTORS</span>
+                  </div>
+                  <p className="text-xs font-sans text-slate-800 leading-relaxed">
+                    {activeStrategy.fatalTrapToAvoid}
+                  </p>
+                </div>
+
+                {/* 主要ツールスタック */}
+                <div className="space-y-1.5">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase font-bold block">
+                    KEY TOOLS & INFRASTRUCTURE
+                  </span>
+                  <div className="flex items-center gap-1.5 flex-wrap font-mono text-[10px]">
+                    {activeStrategy.threeKeyTools.map((t, idx) => (
+                      <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">
+                        {t.name} <span className="text-slate-400">({t.role})</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* PRO会員限定解錠枠 */}
-          <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-            <div className="flex items-center gap-2.5 min-w-0">
-              <Lock size={13} className="text-amber-700 shrink-0" />
-              <div className="truncate">
-                <span className="font-mono text-amber-800 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
-                <span className="text-slate-950 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
-                <span className="text-slate-500 text-[11px] block mt-0.5">{activeStrategy.proUnlockPreview.description}</span>
+            {/* PRO会員限定解錠枠 */}
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <Lock size={13} className="text-amber-700 shrink-0" />
+                <div className="truncate">
+                  <span className="font-mono text-amber-800 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
+                  <span className="text-slate-950 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
+                  <span className="text-slate-500 text-[11px] block mt-0.5">{activeStrategy.proUnlockPreview.description}</span>
+                </div>
               </div>
+              <button
+                type="button"
+                className="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-900 font-mono text-xs font-semibold rounded border border-slate-300 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer shadow-xs"
+              >
+                PRO会員限定アセットを解錠
+              </button>
             </div>
-            <button
-              type="button"
-              className="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-900 font-mono text-xs font-semibold rounded border border-slate-300 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer shadow-xs"
-            >
-              PRO会員限定アセットを解錠
-            </button>
           </div>
-        </div>
-      )}
+        ) : (
+          <div className="h-full flex items-center justify-center text-slate-400 text-xs font-mono">
+            左ペインから適合モデルを選択してください
+          </div>
+        )}
+      </div>
     </div>
   );
 };

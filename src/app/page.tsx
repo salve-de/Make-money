@@ -432,9 +432,9 @@ export default function Home() {
         />
       )}
 
-      {/* リソース適合診断専用画面（完全単一独立ワークスペース） */}
+      {/* リソース適合診断専用画面（完全単一独立ワークスペース 左右2ペイン） */}
       {mainView === 'FINDER' && (
-        <div className="flex-1 bg-white overflow-y-auto px-5 sm:px-8 lg:px-10 py-4">
+        <div className="flex-1 flex overflow-hidden">
           <DiagnosticFinder
             onSelectCompany={(id) => {
               setSelectedCompanyId(id);
@@ -444,14 +444,16 @@ export default function Home() {
         </div>
       )}
 
-      {/* 実践ビジネスアイデア台帳画面 */}
+      {/* 実践ビジネスアイデア台帳画面（左右2ペイン） */}
       {mainView === 'IDEAS_VAULT' && (
-        <IdeasVaultView
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
-        />
+        <div className="flex-1 flex overflow-hidden">
+          <IdeasVaultView
+            onSelectCompany={(id) => {
+              setSelectedCompanyId(id);
+              setMainView('TERMINAL');
+            }}
+          />
+        </div>
       )}
 
       {/* 分析台帳画面 */}
