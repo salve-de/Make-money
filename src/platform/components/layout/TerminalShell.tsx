@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { INSTITUTIONAL_ENTITIES } from '../../data/mockLedgerData';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { FinancialEntity, GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
@@ -16,13 +17,27 @@ import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/Advanced
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
 
 export const TerminalShell: React.FC = () => {
+  const searchParams = useSearchParams();
+  const queryParam = searchParams?.get('q') || '';
+
   // 表示モード (LEDGER: 台帳 / DEEP_DIVE: 特集)
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>('LEDGER');
   const [activeTopicId, setActiveTopicId] = useState<IntelligenceTopicId>('solo_empire');
 
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>('ALL');
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [selectedEntityId, setSelectedEntityId] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState<string>(queryParam);
+  const [selectedEntityId, setSelectedEntityId] = useState<string | null>(
+    queryParam.toLowerCase().includes('photo') ? 'ent_photoai' : null
+  );
+
+  useEffect(() => {
+    if (queryParam) {
+      setSearchQuery(queryParam);
+      if (queryParam.toLowerCase().includes('photo')) {
+        setSelectedEntityId('ent_photoai');
+      }
+    }
+  }, [queryParam]);
   const [currency, setCurrency] = useState<'JPY' | 'USD'>('JPY');
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);

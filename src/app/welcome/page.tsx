@@ -60,31 +60,63 @@ export default function WelcomePage() {
       </header>
 
       {/* 2. HERO セクション */}
-      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 px-4 md:px-8 max-w-5xl mx-auto text-center">
-        {/* バッジ */}
-        <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-zinc-400 mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-          <span>CAPITAL ARBITRAGE INTELLIGENCE</span>
+      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 px-4 md:px-8 max-w-5xl mx-auto text-center">
+        {/* カテゴリ明言バッジ */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-zinc-300 mb-6">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="font-semibold text-white">【資本主義のカンニングペーパー】</span>
+          <span className="text-zinc-500 hidden sm:inline">|</span>
+          <span className="text-zinc-400 hidden sm:inline">世界中の高収益ビジネス「裏帳簿」検索エンジン</span>
         </div>
 
-        {/* H1 見出し */}
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-medium tracking-tight text-white mb-6 leading-tight sm:leading-snug max-w-4xl mx-auto">
-          誰が、誰から、どんな手口で<br className="hidden sm:inline" />いくら抜いたかを冷徹に暴く。
+        {/* H1 見出し（強烈な引き ＋ 道具の正体） */}
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-medium tracking-tight text-white mb-5 leading-tight sm:leading-snug max-w-4xl mx-auto">
+          誰が、どんな手口でいくら抜いたかを冷徹に暴く。<br />
+          <span className="text-zinc-400 font-normal text-xl sm:text-2xl md:text-3xl mt-1 block">
+            儲かっている会社の「裏帳簿」、すべて検索できます。
+          </span>
         </h1>
 
-        {/* リード文 */}
-        <p className="text-sm md:text-base text-zinc-400 leading-relaxed max-w-2xl mx-auto mb-10 font-sans">
-          世に溢れる「血のにじむ努力」や「崇高な理念」という欺瞞は、すべて後付けの煙幕に過ぎない。<br className="hidden sm:inline" />
-          現実に莫大な富を抜いている人間は、特別な天才ではなく、既存業界の<strong className="text-zinc-200 font-medium">「隙間（構造的歪み・価格差・制度のバグ）」</strong>に誰よりも早く気づき、アービトラージ（利ざや抜き）を仕掛けただけの人間である。
+        {/* リード文（文系経営者が1秒で理解できる平易な比喩） */}
+        <p className="text-xs sm:text-sm md:text-base text-zinc-300 leading-relaxed max-w-2xl mx-auto mb-8 font-sans">
+          努力や理念を語る前に、すでに現金を吐き出している先行者の手口をカンニングせよ。<br className="hidden sm:inline" />
+          月数千万円を抜く1人起業家から高収益企業の<strong className="text-white font-medium">「他人の財布のレントゲン写真（実際の売上・粗利率・使っているツール・営業文面）」</strong>を1秒で検索し、その型紙（隙間）をそのまま真似るための情報端末です。
         </p>
 
-        {/* CTA ボタングループ */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16">
+        {/* 0.5秒で理解させる検索バー（モック ➔ 端末へ直結） */}
+        <div className="max-w-xl mx-auto mb-6">
+          <Link
+            href="/?q=Photo+AI"
+            className="flex items-center justify-between gap-2 p-2 sm:p-2.5 rounded-lg bg-zinc-900/90 border border-white/[0.12] hover:border-white/[0.25] text-left transition-all shadow-xl group cursor-pointer"
+          >
+            <div className="flex items-center gap-2.5 pl-2 text-xs sm:text-sm text-zinc-400">
+              <span className="text-zinc-500 font-mono">🔍</span>
+              <span className="text-zinc-300 truncate">
+                例: <span className="text-white font-medium">Photo AI</span>、<span className="text-white font-medium">粗利80%</span>、<span className="text-white font-medium">1人</span>、<span className="text-white font-medium">AI営業代行</span> ...
+              </span>
+            </div>
+            <div className="flex items-center gap-1 px-3 py-1.5 rounded bg-white text-black font-semibold text-xs group-hover:bg-zinc-200 transition-colors shrink-0">
+              <span>検索する</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
+          </Link>
+          <div className="flex items-center justify-center gap-2 mt-2 text-[11px] font-mono text-zinc-500">
+            <span>人気検索:</span>
+            <Link href="/?q=1人" className="hover:text-zinc-300 underline underline-offset-2">#1人ビジネス</Link>
+            <span>•</span>
+            <Link href="/?q=粗利80" className="hover:text-zinc-300 underline underline-offset-2">#粗利80%超</Link>
+            <span>•</span>
+            <Link href="/?q=AI" className="hover:text-zinc-300 underline underline-offset-2">#AIアービトラージ</Link>
+          </div>
+        </div>
+
+        {/* CTA ボタングループ（検索バー直下・ファーストビュー必達） */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
           <Link
             href="/"
             className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded bg-white hover:bg-zinc-200 text-black font-semibold text-xs transition-colors cursor-pointer shadow-md"
           >
-            <span>端末を即時起動する (無料)</span>
+            <span>端末を起動して裏帳簿を見る (登録不要・無料)</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 
@@ -99,6 +131,33 @@ export default function WelcomePage() {
           )}
         </div>
 
+        {/* 1秒で直感できる 3ステップ利用フロー（コンパクト帯） */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl mx-auto mb-10 text-left">
+          <div className="p-3 rounded bg-white/[0.03] border border-white/[0.06]">
+            <div className="text-[10px] font-mono text-emerald-400 font-semibold mb-0.5">STEP 01【検索】</div>
+            <div className="text-xs font-medium text-white mb-0.5">実態を検索する</div>
+            <div className="text-[11px] text-zinc-400 leading-snug">
+              月1,000万超の1人起業家や粗利80%以上の高収益ビジネスを瞬時に絞り込み。
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-white/[0.03] border border-white/[0.06]">
+            <div className="text-[10px] font-mono text-emerald-400 font-semibold mb-0.5">STEP 02【盗む】</div>
+            <div className="text-xs font-medium text-white mb-0.5">手口をカンニング</div>
+            <div className="text-[11px] text-zinc-400 leading-snug">
+              損益の裏側（P&L）、ツール構成、実際の営業コールドDM文面を丸裸にする。
+            </div>
+          </div>
+
+          <div className="p-3 rounded bg-white/[0.03] border border-white/[0.06]">
+            <div className="text-[10px] font-mono text-emerald-400 font-semibold mb-0.5">STEP 03【真似る】</div>
+            <div className="text-xs font-medium text-white mb-0.5">そのまま自社に適用</div>
+            <div className="text-[11px] text-zinc-400 leading-snug">
+              ゼロから悩まず、すでに現金を吐き出している「儲けの型紙」を転用する。
+            </div>
+          </div>
+        </div>
+
         {/* 端末プレビュー・高精細フレーム */}
         <div className="relative rounded-lg border border-white/[0.08] bg-[#07080B] p-2 shadow-2xl overflow-hidden text-left">
           <div className="flex items-center justify-between px-3 py-2 border-b border-white/[0.06] text-[10px] font-mono text-zinc-500">
@@ -106,7 +165,7 @@ export default function WelcomePage() {
               <div className="w-2 h-2 rounded-full bg-zinc-700" />
               <div className="w-2 h-2 rounded-full bg-zinc-700" />
               <div className="w-2 h-2 rounded-full bg-zinc-700" />
-              <span className="ml-2 text-zinc-400 font-medium">LIVE TERMINAL VIEW</span>
+              <span className="ml-2 text-zinc-400 font-medium">実機プレビュー（損益・手口台帳）</span>
             </div>
             <span className="text-zinc-600">3-PANE FINANCIAL LEDGER</span>
           </div>
@@ -114,11 +173,11 @@ export default function WelcomePage() {
           {/* プレビューの中身（高密度ティッカー ＋ サンプル行） */}
           <div className="p-4 bg-[#060709] font-mono text-xs overflow-x-auto">
             <div className="grid grid-cols-6 gap-4 pb-2 border-b border-white/[0.06] text-[10px] text-zinc-500 uppercase tracking-wider">
-              <span>ENTITY</span>
-              <span className="text-right">REVENUE</span>
-              <span className="text-right">OP MARGIN</span>
-              <span>SCALE</span>
-              <span className="col-span-2">EXPLOITED GAP (突いた歪み)</span>
+              <span>企業 / 事業名</span>
+              <span className="text-right">推定売上</span>
+              <span className="text-right">営業利益率</span>
+              <span>組織規模</span>
+              <span className="col-span-2">突いた隙間（アービトラージの手口）</span>
             </div>
 
             <div className="divide-y divide-white/[0.04]">
@@ -170,14 +229,14 @@ export default function WelcomePage() {
               <div className="w-7 h-7 rounded bg-white/[0.06] flex items-center justify-center text-zinc-300">
                 <ShieldAlert className="w-4 h-4" />
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                01. INFORMATION GAP
+              <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                隙間 01 : 【情報の歪み】
               </div>
               <h3 className="text-sm font-medium text-white">
                 大手の「コンプラ麻痺」を突く
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
-                大企業の法務部門が生成AIの著作権とリスクを検証するのに1年費やしている間、オープンモデルのAPIを薄く包んだアプリを72時間で公開。比較記事アフィリエイターを30%還元でカルテル化し、市場を独占する。
+                大企業の法務部門が生成AIのリスクを検証するのに1年費やしている間、オープンモデルのAPIを薄く包んだアプリを72時間で公開。比較記事アフィリエイターを30%還元でカルテル化し、市場の現金を独占する。
               </p>
             </div>
 
@@ -186,14 +245,14 @@ export default function WelcomePage() {
               <div className="w-7 h-7 rounded bg-white/[0.06] flex items-center justify-center text-zinc-300">
                 <TrendingUp className="w-4 h-4" />
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                02. PRICE GAP
+              <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                隙間 02 : 【価格の歪み】
               </div>
               <h3 className="text-sm font-medium text-white">
                 原価数十円を「虚栄心」に換金する
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
-                Replicate APIの推論原価は1枚あたり数円に過ぎない。しかし「写真館に行くのが恥ずかしい人間の見栄」という感情の急所を突くことで、数千円〜数万円のサブスクとして売り抜け、粗利率84%を叩き出す。
+                APIの推論原価は1枚あたり数円に過ぎない。しかし「写真館に行くのが恥ずかしい人間の見栄」という感情の急所を突くことで、数千円〜数万円のサブスクとして売り抜け、粗利率84%を叩き出す。
               </p>
             </div>
 
@@ -202,11 +261,11 @@ export default function WelcomePage() {
               <div className="w-7 h-7 rounded bg-white/[0.06] flex items-center justify-center text-zinc-300">
                 <Cpu className="w-4 h-4" />
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-wider text-zinc-500">
-                03. STRUCTURAL GAP
+              <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-semibold">
+                隙間 03 : 【構造の歪み】
               </div>
               <h3 className="text-sm font-medium text-white">
-                VC調達企業の「CAC麻痺」を突く
+                VC調達企業の「コスト麻痺」を突く
               </h3>
               <p className="text-xs text-zinc-400 leading-relaxed">
                 数億円調達して商談数を増やせと投資家に詰められるSaaS企業に対し、「成果報酬型」でアポ獲得代行を提案。裏側はAPIとスクレイピングによる自動メール工場で回し、利益率65%を抜き去る。
@@ -219,18 +278,18 @@ export default function WelcomePage() {
       {/* 4. 読者への想起：「じゃあ、自分もこの隙間データを使えばそうなれる」 */}
       <section className="py-16 md:py-24 px-4 md:px-8 max-w-4xl mx-auto">
         <div className="p-6 md:p-10 rounded-lg bg-gradient-to-b from-white/[0.04] to-white/[0.01] border border-white/[0.08] text-center space-y-6">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-white/[0.06] text-[10px] font-mono text-zinc-300">
-            <span>THE REPLICATION ADVANTAGE</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+            <span>● 誰でも明日から再現可能な理由</span>
           </div>
 
           <h2 className="text-xl md:text-3xl font-medium text-white tracking-tight leading-snug">
             ゼロから悩むな。<br />
-            先行者が血を流して見つけた「隙間」をそのまま使え。
+            先行者が血を流して見つけた「型紙（隙間）」をそのまま使え。
           </h2>
 
           <p className="text-xs md:text-sm text-zinc-300 leading-relaxed max-w-2xl mx-auto">
-            ビジネスで勝つために、あなたが特別な才能を身につける必要はない。<br className="hidden sm:inline" />
-            世界中のトッププレイヤーがすでに検証し、現在進行形で莫大な現金を吐き出している<strong className="text-white font-medium">「歪みのレントゲン写真（損益計算書・ツール構成・コールドDM実文）」</strong>を、この端末から1秒でカンニングするだけだ。
+            あなたがやるべきことは、新しいアイデアを発明することではありません。<br className="hidden sm:inline" />
+            世界中のトッププレイヤーがすでに検証し、現実に現金を吐き出している<strong className="text-white font-medium">「他人の財布のレントゲン写真（損益計算書・ツール構成・集客DM文面）」</strong>をカンニングし、同じ仕組みを自分の得意な分野へスライド適用するだけです。
           </p>
 
           <div className="pt-2">
@@ -238,7 +297,7 @@ export default function WelcomePage() {
               href="/"
               className="inline-flex items-center gap-2 px-6 py-3 rounded bg-white hover:bg-zinc-200 text-black font-semibold text-xs transition-colors cursor-pointer shadow-md"
             >
-              <span>今すぐ端末で隙間データを検証する</span>
+              <span>端末を開いて「儲かる型紙」を検索する (無料)</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
