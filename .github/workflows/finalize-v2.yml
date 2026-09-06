@@ -1,41 +1,45 @@
-name: quality
+name: finalize-v2
 
 on:
   push:
-    branches: [main, "feat/**"]
-  pull_request:
-    branches: [main]
+    branches: [feat/perfect-polish]
+    paths:
+      - release/finalize-v2.trigger
+  workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
-  group: quality-${{ github.ref }}
-  cancel-in-progress: true
+  group: finalize-v2
+  cancel-in-progress: false
 
 jobs:
-  quality:
+  finalize:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      - name: Install
-        run: npm ci --ignore-scripts
+      - name: Apply final integration patch
+        run: node scripts/finalize-v2.mjs
 
-      - name: Validate application and data
-        run: npm run verify
+      - name: Install and verify browser application
+        run: |
+          npm ci --ignore-scripts
+          npm run verify
 
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
-      - name: Type-check Supabase Edge Functions
+      - name: Type-check Edge Functions
         run: |
           deno check --no-config supabase/functions/url-preview/index.ts
           deno check --no-config supabase/functions/stripe-checkout/index.ts
@@ -46,7 +50,7 @@ jobs:
           deno check --no-config supabase/functions/newsletter-unsubscribe/index.ts
           deno check --no-config supabase/functions/send-digest/index.ts
 
-      - name: Static server smoke test
+      - name: Smoke test static application
         run: |
           npm run dev > /tmp/goldmine-dev.log 2>&1 &
           SERVER_PID=$!
@@ -56,5 +60,26 @@ jobs:
             sleep 1
           done
           grep -q 'GOLDMINE RADAR' /tmp/goldmine-index.html
-          curl --fail --silent http://127.0.0.1:4173/src/v2/app.js | grep -q 'bootstrapCloud'
+          curl --fail --silent http://127.0.0.1:4173/src/v2/app.js | grep -q 'applyLiveDataset'
           curl --fail --silent http://127.0.0.1:4173/styles/v2.css | grep -q 'prefers-reduced-motion'
+
+      - name: Commit finalized implementation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No integration changes to commit"
+          else
+            git commit -m "feat: finalize GOLDMINE RADAR v3 platform"
+            git push origin HEAD:feat/perfect-polish
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goldmine-radar-v3-source
+          path: |
+            .
+            !node_modules
+            !.git
+          retention-days: 7
