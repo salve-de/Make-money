@@ -103,3 +103,13 @@ export const submissions = pgTable("submissions", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
   reviewedAt: timestamp("reviewed_at"),
 });
+
+// 週刊マネー速報（ニュースレター購読者）
+export const newsletterSubscribers = pgTable("newsletter_subscribers", {
+  id: serial("id").primaryKey(),
+  email: text("email").notNull().unique(),
+  source: text("source").default("web_portal").notNull(), // 'web_portal' | 'detail_sheet' | 'footer'
+  status: text("status").default("active").notNull(), // 'active' | 'unsubscribed'
+  subscribedAt: timestamp("subscribed_at").defaultNow().notNull(),
+});
+

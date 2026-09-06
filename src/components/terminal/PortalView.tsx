@@ -5,6 +5,8 @@ import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 import { SparklineChart } from '@/components/terminal/SparklineChart';
 import { DossierModal } from '@/components/terminal/portal/DossierModal';
+import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
+import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
 import { ArrowRight, TrendingUp, AlertTriangle, ShieldCheck, Zap, ExternalLink, ChevronRight } from 'lucide-react';
 
 interface PortalViewProps {
@@ -248,7 +250,12 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 2. 【高単価産業の構造的余剰利益を獲得する実効モデル TOP 4】        */}
+        {/* 2. 【多次元・手札逆引き診断ファインダー (Diagnostic Matcher)】  */}
+        {/* ───────────────────────────────────────────────────────────── */}
+        <DiagnosticFinder onSelectCompany={onSelectCompany} />
+
+        {/* ───────────────────────────────────────────────────────────── */}
+        {/* 3. 【高単価産業の構造的余剰利益を獲得する実効モデル TOP 4】        */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-3">
@@ -868,7 +875,12 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 7. 【全収録エンティティ解剖台帳への遷移】                       */}
+        {/* 7. 【週刊マネーレントゲン速報（ニュースレター購読水門）】        */}
+        {/* ───────────────────────────────────────────────────────────── */}
+        <WeeklyNewsletterSection />
+
+        {/* ───────────────────────────────────────────────────────────── */}
+        {/* 8. 【全収録エンティティ解剖台帳への遷移】                       */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div className="space-y-1">
