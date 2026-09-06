@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
-import { ArrowUpRight, Bell, Bookmark, ChevronRight, Filter, Search, SlidersHorizontal } from 'lucide-react';
+import { ArrowUpRight, Bell, Bookmark, ChevronRight, Search, SlidersHorizontal } from 'lucide-react';
 import { CompanyRecord } from '@/types/terminal';
 import { AuditStatusBadge } from '@/components/terminal/AuditStatusBadge';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
@@ -56,13 +56,6 @@ export const PortalView: React.FC<PortalViewProps> = ({
       .slice(0, 12);
   }, [companies]);
 
-  const sourceCounts = useMemo(() => ({
-    audited: companies.filter((company) => company.verifiedStatus === 'AUDITED_PUBLIC').length,
-    payment: companies.filter((company) => company.verifiedStatus === 'VERIFIED_STRIPE').length,
-    estimated: companies.filter((company) => company.verifiedStatus === 'ESTIMATED_MODEL').length,
-  }), [companies]);
-
-  const topCompany = rankedCompanies[0];
   const quickFilters = [
     { label: '初期0円', tag: '初期0円' },
     { label: '完全1人', tag: '完全1人' },
@@ -105,40 +98,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
           </div>
         </header>
 
-        <div className="grid border-b border-slate-200 bg-white sm:grid-cols-3">
-          <div className="border-b border-slate-200 px-5 py-3 sm:border-b-0 sm:border-r sm:px-8">
-            <div className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">収録 / 出典区分</div>
-            <div className="mt-1 flex flex-wrap items-center gap-3 font-mono text-xs tabular-nums">
-              <span>{companies.length}社</span>
-              <span className="text-emerald-700">有報 {sourceCounts.audited}</span>
-              <span className="text-slate-600">決済 {sourceCounts.payment}</span>
-              <span className="text-amber-700">推計 {sourceCounts.estimated}</span>
-            </div>
-          </div>
-          <div className="border-b border-slate-200 px-5 py-3 sm:border-b-0 sm:border-r sm:px-8">
-            <div className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">最優先で見る対象</div>
-            <div className="mt-1 flex items-center gap-2 text-sm font-bold">
-              {topCompany ? <><span className="truncate">{topCompany.japaneseName}</span><AuditStatusBadge status={topCompany.verifiedStatus} compact /></> : <span className="text-slate-400">対象なし</span>}
-            </div>
-          </div>
-          <div className="px-5 py-3 sm:px-8">
-            <div className="font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-400">クイック条件</div>
-            <div className="mt-1 flex flex-wrap gap-1.5">
-              {quickFilters.map((filter) => (
-                <button
-                  type="button"
-                  key={filter.tag}
-                  onClick={() => { onFilterTheme?.(filter.tag); onNavigateToTerminal(); }}
-                  className="border border-slate-300 px-2 py-0.5 text-[10px] text-slate-600 hover:border-slate-950 hover:text-slate-950"
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="grid gap-px bg-slate-200 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="bg-slate-200">
           <section className="min-w-0 bg-white">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-3 sm:px-8">
               <div>
@@ -146,8 +106,20 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <h2 className="mt-1 text-sm font-bold">収益構造の比較台帳</h2>
               </div>
               <div className="flex items-center gap-2 text-[11px]">
+                {quickFilters.map((filter) => (
+                  <button
+                    type="button"
+                    key={filter.tag}
+                    onClick={() => { onFilterTheme?.(filter.tag); onNavigateToTerminal(); }}
+                    className="hidden border border-slate-300 px-2 py-1.5 text-[10px] text-slate-600 hover:border-slate-950 hover:text-slate-950 sm:inline-flex"
+                  >
+                    {filter.label}
+                  </button>
+                ))}
                 {onOpenFinder && <button type="button" onClick={onOpenFinder} className="inline-flex items-center gap-1 border border-slate-300 px-2.5 py-1.5 text-slate-600 hover:border-slate-950 hover:text-slate-950"><SlidersHorizontal size={12} />制約から探す</button>}
                 {onOpenLeaderboard && <button type="button" onClick={onOpenLeaderboard} className="inline-flex items-center gap-1 px-1.5 py-1.5 font-semibold text-slate-600 hover:text-slate-950">全ランキング<ArrowUpRight size={12} /></button>}
+                {onOpenIdeasVault && <button type="button" aria-label="保存した機会" title="保存した機会" onClick={onOpenIdeasVault} className="inline-flex h-8 w-8 items-center justify-center border border-slate-300 text-slate-600 hover:border-slate-950 hover:text-slate-950"><Bookmark size={14} /></button>}
+                {onOpenSignalsList && <button type="button" aria-label="市場シグナル" title="市場シグナル" onClick={onOpenSignalsList} className="inline-flex h-8 w-8 items-center justify-center border border-slate-300 text-slate-600 hover:border-slate-950 hover:text-slate-950"><Bell size={14} /></button>}
               </div>
             </div>
 
@@ -202,25 +174,6 @@ export const PortalView: React.FC<PortalViewProps> = ({
               )}
             </div>
           </section>
-
-          <aside className="bg-[#fbfbfc]">
-            <div className="border-b border-slate-200 px-5 py-3">
-              <div className="font-mono text-[10px] font-bold tracking-[0.16em] text-slate-400">WORKBENCH</div>
-              <h2 className="mt-1 text-sm font-bold">次に取る操作</h2>
-            </div>
-            <div className="divide-y divide-slate-200">
-              <button type="button" onClick={onNavigateToTerminal} className="flex w-full items-start gap-3 px-5 py-4 text-left hover:bg-white">
-                <Search size={15} className="mt-0.5 text-slate-500" />
-                <span><span className="block text-xs font-bold">全件から探す</span><span className="mt-1 block text-[11px] leading-4 text-slate-500">50軸の条件と検索語で、候補を絞り込む</span></span>
-              </button>
-              {onOpenIdeasVault && <button type="button" onClick={onOpenIdeasVault} className="flex w-full items-start gap-3 px-5 py-4 text-left hover:bg-white"><Bookmark size={15} className="mt-0.5 text-slate-500" /><span><span className="block text-xs font-bold">保存した機会を見る</span><span className="mt-1 block text-[11px] leading-4 text-slate-500">比較・メモ・実行アセットを一箇所で管理</span></span></button>}
-              {onOpenSignalsList && <button type="button" onClick={onOpenSignalsList} className="flex w-full items-start gap-3 px-5 py-4 text-left hover:bg-white"><Bell size={15} className="mt-0.5 text-slate-500" /><span><span className="block text-xs font-bold">市場シグナルを見る</span><span className="mt-1 block text-[11px] leading-4 text-slate-500">変化の理由と更新時刻を確認する</span></span></button>}
-            </div>
-            <div className="border-t border-slate-200 px-5 py-4">
-              <div className="flex items-center gap-2 text-[10px] font-mono font-semibold text-slate-500"><Filter size={12} />出典の読み方</div>
-              <p className="mt-2 text-[11px] leading-5 text-slate-500">有報・決済・推計を混ぜず、数字の横に根拠を表示します。換算値には換算方法を明記します。</p>
-            </div>
-          </aside>
         </div>
       </div>
     </main>
