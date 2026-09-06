@@ -288,12 +288,13 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
             <button
               type="button"
               onClick={onBackToList}
-              className="flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white px-3 py-1.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white px-2.5 sm:px-3 py-1.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors cursor-pointer shrink-0"
             >
               <ArrowLeft size={13} />
-              <span>探索台帳に戻る [ESC]</span>
+              <span>探索台帳に戻る</span>
+              <span className="hidden sm:inline">[ESC]</span>
             </button>
-            <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-semibold">
+            <span className="hidden sm:inline text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-semibold truncate ml-2">
               EXECUTIVE AUDIT DOSSIER / 機関監査レポート
             </span>
           </div>
@@ -375,8 +376,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
           </div>
 
           {/* 右上：主要収益指標 */}
-          <div className="flex items-center gap-5 pt-1 shrink-0 border-l border-white/[0.08] pl-6 lg:self-stretch justify-end">
-            <div className="text-right">
+          <div className="flex items-center gap-4 sm:gap-5 pt-3 lg:pt-1 shrink-0 border-t lg:border-t-0 lg:border-l border-white/[0.08] pl-0 lg:pl-6 lg:self-stretch justify-between lg:justify-end">
+            <div className="text-left lg:text-right">
               <div className="text-[10px] font-mono text-zinc-500 uppercase font-semibold">推定年間純利益</div>
               <div className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono tabular-nums tracking-tight">
                 {rev > 0 ? formatShortAmount(Math.round(rev * (profitPercent / 100))) : '非公開'}
@@ -385,7 +386,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
                 売上高: {rev > 0 ? formatShortAmount(rev) : '非公開'}
               </div>
             </div>
-            <div className="w-16 h-8 opacity-90 pt-1">
+            <div className="w-16 h-8 opacity-90 pt-1 shrink-0">
               <SparklineChart trend="UP" width={64} height={28} color="#10B981" />
             </div>
           </div>

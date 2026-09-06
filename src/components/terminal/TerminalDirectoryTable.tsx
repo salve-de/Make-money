@@ -189,28 +189,147 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 2. 高密度データテーブル（Starter Story × PitchBook 型）       */}
+      {/* 2. 高密度データビュー（マルチデバイス完全最適化）             */}
       {/* ───────────────────────────────────────────────────────────── */}
       <div className="flex-1 overflow-auto">
-        <table className="w-full text-left border-collapse font-sans text-xs">
+        {/* ■ A. モバイル専用：高密度カードリスト表示 (md未満) */}
+        <div className="md:hidden divide-y divide-white/[0.06] bg-[#0B0E14]">
+          {sortedList.map((company, index) => {
+            const latestFin = company.financials[company.financials.length - 1];
+            const rev = latestFin?.revenueJpy || 0;
+            const monthlyRev = Math.round(rev / 12);
+            const opProfit = latestFin?.operatingProfitJpy || 0;
+            const netIncome = latestFin?.netIncomeJpy || opProfit;
+            const margin = latestFin?.operatingMarginPercent || 0;
+            const isMega = company.scaleTier === 'MEGA_CORP' || company.teamSize > 50;
+
+            let profitBadgeText = '';
+            if (isMega) {
+              profitBadgeText = `純利 ${formatAmount(netIncome)}/年`;
+            } else if (company.teamSize === 1 && netIncome >= 100_000_000) {
+              profitBadgeText = `手残り ${formatAmount(netIncome)}/年`;
+            } else if (company.entryStrategy?.estimatedEasyProfit) {
+              profitBadgeText = company.entryStrategy.estimatedEasyProfit;
+            } else if (company.derivedBusinessIdeas?.[0]?.estimatedMonthlyProfit) {
+              profitBadgeText = company.derivedBusinessIdeas[0].estimatedMonthlyProfit.split('（')[0];
+            } else if (netIncome > 0) {
+              const monthlyProfit = Math.round(netIncome / 12);
+              profitBadgeText = `月純利 ${formatAmount(monthlyProfit)}`;
+            } else {
+              profitBadgeText = `粗利 ${formatAmount(latestFin?.grossProfitJpy || 0)}`;
+            }
+
+            const glitch = company.successStory?.marketGlitch ||
+              company.businessEssence?.valueProposition ||
+              company.coreMoatDescription ||
+              company.actionHeadline ||
+              '既存プレイヤーの過剰価格と鈍重さを突いた即応モデル。';
+
+            return (
+              <div
+                key={company.id}
+                onClick={() => onSelectCompany(company.id)}
+                className="p-3.5 hover:bg-white/[0.04] transition-colors cursor-pointer space-y-2.5 active:bg-white/[0.06]"
+              >
+                {/* 1段目: ランク・ロゴ・企業名・バッジ */}
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="font-mono text-[10px] text-zinc-500 w-4 text-center shrink-0">
+                      {index + 1}
+                    </span>
+                    <CompanyLogo id={company.id} size="sm" />
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span className="font-bold text-xs text-white font-sans truncate">
+                          {company.japaneseName}
+                        </span>
+                        <span className={`text-[8px] font-mono px-1 py-0.2 rounded shrink-0 ${
+                          company.verifiedStatus === 'AUDITED_PUBLIC'
+                            ? 'bg-emerald-950/70 text-emerald-400 border border-emerald-800/60'
+                            : company.verifiedStatus === 'VERIFIED_STRIPE'
+                            ? 'bg-blue-950/70 text-blue-400 border border-blue-800/60'
+                            : 'bg-amber-950/70 text-amber-400 border border-amber-800/60'
+                        }`}>
+                          {company.verifiedStatus === 'AUDITED_PUBLIC' ? '有報' : company.verifiedStatus === 'VERIFIED_STRIPE' ? '決済' : '推計'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded border font-mono shrink-0 ${
+                    company.teamSize === 1
+                      ? 'bg-emerald-950/80 text-emerald-400 border-emerald-800/60 font-bold'
+                      : isMega
+                      ? 'bg-blue-950/80 text-blue-400 border-blue-800/60'
+                      : 'bg-white/[0.04] text-zinc-300 border-white/[0.08]'
+                  }`}>
+                    {company.teamSize === 1 ? '完全1人' : isMega ? '巨大独占' : `${company.teamSize}名`}
+                  </span>
+                </div>
+
+                {/* 2段目: 3連キースペックマトリクス（月商・手残り純利・利益率） */}
+                <div className="grid grid-cols-3 gap-2 bg-[#090C10] p-2 rounded border border-white/[0.06] text-center font-mono">
+                  <div className="space-y-0.5">
+                    <div className="text-[9px] text-zinc-500 font-sans">直近月商</div>
+                    <div className="text-[11px] font-bold text-zinc-200 tabular-nums truncate">
+                      {monthlyRev > 0 ? formatAmount(monthlyRev) : '非公開'}
+                    </div>
+                  </div>
+                  <div className="space-y-0.5 border-x border-white/[0.06] px-1">
+                    <div className="text-[9px] text-zinc-500 font-sans">実効手残り純利</div>
+                    <div className={`text-[10px] font-bold tabular-nums truncate ${
+                      profitBadgeText.includes('▲') || profitBadgeText.includes('-')
+                        ? 'text-rose-400'
+                        : 'text-emerald-400'
+                    }`}>
+                      {profitBadgeText}
+                    </div>
+                  </div>
+                  <div className="space-y-0.5">
+                    <div className="text-[9px] text-zinc-500 font-sans">営業利益率</div>
+                    <div className={`text-[11px] font-bold tabular-nums ${
+                      margin >= 80 ? 'text-emerald-400' : margin >= 50 ? 'text-emerald-300' : margin < 0 ? 'text-rose-400' : 'text-zinc-200'
+                    }`}>
+                      {margin}%
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3段目: 突いた盲点 ＆ 解剖ボタン */}
+                <div className="flex items-center justify-between gap-3 pt-0.5">
+                  <p className="text-[10px] text-zinc-400 font-sans line-clamp-1 flex-1">
+                    {glitch}
+                  </p>
+                  <span className="text-[10px] font-mono text-emerald-400 font-bold shrink-0 flex items-center gap-0.5">
+                    <span>解剖</span>
+                    <ChevronRight size={10} />
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* ■ B. デスクトップ＆タブレット専用：高密度データテーブル (md以上) */}
+        <table className="hidden md:table w-full text-left border-collapse font-sans text-xs">
           {/* テーブルヘッダー（固定・ソート可能） */}
           <thead className="bg-[#0F131C] text-[10px] font-mono text-zinc-400 uppercase tracking-wider sticky top-0 z-10 border-b border-white/[0.08]">
             <tr>
-              <th className="py-2.5 px-3 w-10 text-center">#</th>
-              <th className="py-2.5 px-3 min-w-[200px]">企業名 / 創業者 / モデル</th>
+              <th className="py-2.5 px-3 w-8 text-center">#</th>
+              <th className="py-2.5 px-3 min-w-[160px] lg:min-w-[200px]">企業名 / 創業者 / モデル</th>
               <th 
                 onClick={() => handleSort('REVENUE')}
-                className="py-2.5 px-3 text-right cursor-pointer hover:text-white"
+                className="py-2.5 px-3 text-right cursor-pointer hover:text-white whitespace-nowrap"
               >
                 <div className="flex items-center justify-end gap-1">
                   <span>直近月商 (年商)</span>
                   <ArrowUpDown size={10} className={sortField === 'REVENUE' ? 'text-emerald-400' : 'opacity-40'} />
                 </div>
               </th>
-              <th className="py-2.5 px-3 text-right">実効手残り純利 (月利)</th>
+              <th className="py-2.5 px-3 text-right whitespace-nowrap">実効手残り純利</th>
               <th 
                 onClick={() => handleSort('MARGIN')}
-                className="py-2.5 px-3 text-right cursor-pointer hover:text-white"
+                className="py-2.5 px-3 text-right cursor-pointer hover:text-white whitespace-nowrap"
               >
                 <div className="flex items-center justify-end gap-1">
                   <span>営業利益率</span>
@@ -219,7 +338,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
               </th>
               <th 
                 onClick={() => handleSort('INVEST')}
-                className="py-2.5 px-3 text-right cursor-pointer hover:text-white hidden md:table-cell"
+                className="py-2.5 px-3 text-right cursor-pointer hover:text-white hidden xl:table-cell whitespace-nowrap"
               >
                 <div className="flex items-center justify-end gap-1">
                   <span>初期投下資本</span>
@@ -228,17 +347,17 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
               </th>
               <th 
                 onClick={() => handleSort('TEAM')}
-                className="py-2.5 px-3 text-center cursor-pointer hover:text-white"
+                className="py-2.5 px-3 text-center cursor-pointer hover:text-white whitespace-nowrap"
               >
                 <div className="flex items-center justify-center gap-1">
                   <span>体制</span>
                   <ArrowUpDown size={10} className={sortField === 'TEAM' ? 'text-emerald-400' : 'opacity-40'} />
                 </div>
               </th>
-              <th className="py-2.5 px-3 text-center hidden lg:table-cell">週実働</th>
-              <th className="py-2.5 px-3 min-w-[180px] hidden xl:table-cell">突いた業界の盲点・バグ</th>
-              <th className="py-2.5 px-3 w-20 text-center">推移</th>
-              <th className="py-2.5 px-3 w-16 text-center">詳細</th>
+              <th className="py-2.5 px-3 text-center hidden 2xl:table-cell whitespace-nowrap">週実働</th>
+              <th className="py-2.5 px-3 min-w-[160px] hidden xl:table-cell whitespace-nowrap">突いた業界の盲点・バグ</th>
+              <th className="py-2.5 px-3 w-16 text-center whitespace-nowrap hidden lg:table-cell">推移</th>
+              <th className="py-2.5 px-3 w-16 text-center whitespace-nowrap">詳細</th>
             </tr>
           </thead>
 
@@ -289,7 +408,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                   </td>
 
                   {/* 企業名 / 創業者 / モデル */}
-                  <td className="py-3 px-3 min-w-[200px]">
+                  <td className="py-3 px-3 min-w-[160px] lg:min-w-[200px]">
                     <div className="flex items-center gap-2.5">
                       <CompanyLogo id={company.id} size="sm" />
                       <div className="min-w-0">
@@ -307,7 +426,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                             {company.verifiedStatus === 'AUDITED_PUBLIC' ? '有報' : company.verifiedStatus === 'VERIFIED_STRIPE' ? '決済' : '推計'}
                           </span>
                         </div>
-                        <div className="text-[10px] text-zinc-400 truncate mt-0.5 max-w-xs font-sans">
+                        <div className="text-[10px] text-zinc-400 truncate mt-0.5 max-w-[180px] lg:max-w-xs font-sans">
                           {company.tagline}
                         </div>
                       </div>
@@ -326,7 +445,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
 
                   {/* 実効手残り純利 */}
                   <td className="py-3 px-3 text-right whitespace-nowrap">
-                    <span className={`text-[11px] font-bold tabular-nums px-2 py-0.5 rounded inline-block max-w-[180px] truncate ${
+                    <span className={`text-[11px] font-bold tabular-nums px-2 py-0.5 rounded inline-block max-w-[160px] truncate ${
                       profitBadgeText.includes('▲') || profitBadgeText.includes('-')
                         ? 'text-rose-400 bg-rose-950/60 border border-rose-800/60'
                         : 'text-emerald-400 bg-emerald-950/60 border border-emerald-800/60'
@@ -343,7 +462,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                   </td>
 
                   {/* 初期投下資本 */}
-                  <td className="py-3 px-3 text-right text-xs text-zinc-300 tabular-nums hidden md:table-cell whitespace-nowrap">
+                  <td className="py-3 px-3 text-right text-xs text-zinc-300 tabular-nums hidden xl:table-cell whitespace-nowrap">
                     {company.initialInvestmentJpy === 0 ? '¥0 (不要)' : `¥${Math.round(company.initialInvestmentJpy / 10000)}万`}
                   </td>
 
@@ -361,7 +480,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                   </td>
 
                   {/* 週実働 */}
-                  <td className="py-3 px-3 text-center text-xs text-zinc-400 hidden lg:table-cell whitespace-nowrap">
+                  <td className="py-3 px-3 text-center text-xs text-zinc-400 hidden 2xl:table-cell whitespace-nowrap">
                     {company.weeklyHours ? `週${company.weeklyHours}h` : '少人数'}
                   </td>
 
@@ -371,7 +490,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                   </td>
 
                   {/* 推移 */}
-                  <td className="py-3 px-3 text-center whitespace-nowrap">
+                  <td className="py-3 px-3 text-center whitespace-nowrap hidden lg:table-cell">
                     <div className="w-14 h-5 mx-auto opacity-80">
                       <SparklineChart trend={margin >= 0 ? "UP" : "DOWN"} width={56} height={20} color={margin >= 0 ? "#10B981" : "#F43F5E"} />
                     </div>

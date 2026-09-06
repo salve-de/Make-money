@@ -25,13 +25,13 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
   const isPortalActive = mainView === 'PORTAL' || mainView === 'COLLECTIONS_LIST' || mainView === 'COLLECTION_DETAIL' || mainView === 'SIGNALS_LIST' || mainView === 'SIGNAL_DETAIL' || mainView === 'LEADERBOARD';
 
   return (
-    <header className="h-13 bg-[#0D1117] border-b border-white/[0.08] sticky top-0 z-40 flex items-center justify-between px-5 sm:px-6 shrink-0 select-none font-sans text-zinc-100">
+    <header className="h-13 bg-[#0D1117] border-b border-white/[0.08] sticky top-0 z-40 flex items-center justify-between px-3 sm:px-6 shrink-0 select-none font-sans text-zinc-100">
       {/* 左ブランド ＆ メインナビ */}
-      <div className="flex items-center gap-7">
+      <div className="flex items-center gap-2.5 sm:gap-7">
         {/* ブランドロゴ（Bloomberg / Linear 規格の冷徹なミニマリズム） */}
         <div 
           onClick={() => onChangeMainView('PORTAL')}
-          className="flex items-center gap-2.5 cursor-pointer group"
+          className="flex items-center gap-2 cursor-pointer group shrink-0"
         >
           <div className="w-7 h-7 rounded bg-zinc-900 border border-white/[0.12] flex items-center justify-center group-hover:border-zinc-500 transition-colors">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="text-zinc-200">
@@ -40,11 +40,11 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
               <circle cx="12" cy="18.5" r="2.5" fill="#10B981" />
             </svg>
           </div>
-          <div className="flex items-baseline gap-2">
+          <div className="flex items-baseline gap-1.5">
             <span className="font-bold text-sm text-zinc-100 tracking-tight">
               金鉱録
             </span>
-            <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase font-semibold">
+            <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase font-semibold hidden xs:inline">
               KIN-KOROKU
             </span>
           </div>
@@ -54,44 +54,44 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
         <div className="h-4 w-px bg-white/[0.08] hidden md:block" />
 
         {/* メインナビゲーション（世界標準: Explore ＆ Signals） */}
-        <nav className="hidden sm:flex items-center gap-1.5 text-xs font-sans">
+        <nav className="flex items-center gap-1 text-xs font-sans">
           <button
             onClick={() => onChangeMainView('TERMINAL')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+            className={`px-2 sm:px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1 sm:gap-1.5 cursor-pointer ${
               mainView === 'TERMINAL'
                 ? 'bg-white/[0.1] text-white font-bold border border-white/[0.14] shadow-xs'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
             }`}
           >
             <Database size={13} className={mainView === 'TERMINAL' ? 'text-emerald-400' : 'text-zinc-400'} />
-            <span>全頭台帳</span>
-            <span className="text-[10px] font-mono text-zinc-400">Explore</span>
+            <span className="text-[11px] sm:text-xs">台帳</span>
+            <span className="text-[10px] font-mono text-zinc-400 hidden sm:inline">Explore</span>
           </button>
           <button
             onClick={() => onChangeMainView('PORTAL')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
+            className={`px-2 sm:px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1 sm:gap-1.5 cursor-pointer ${
               isPortalActive
                 ? 'bg-white/[0.1] text-white font-bold border border-white/[0.14] shadow-xs'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
             }`}
           >
             <LayoutDashboard size={13} className={isPortalActive ? 'text-emerald-400' : 'text-zinc-400'} />
-            <span>市場シグナル</span>
-            <span className="text-[10px] font-mono text-zinc-400">Signals</span>
+            <span className="text-[11px] sm:text-xs">シグナル</span>
+            <span className="text-[10px] font-mono text-zinc-400 hidden sm:inline">Signals</span>
           </button>
         </nav>
       </div>
 
       {/* 中央〜右側検索バー ＆ 収録件数 ＆ 認証 */}
-      <div className="flex items-center gap-3 flex-1 max-w-md justify-end ml-4">
-        <div className="relative w-full max-w-xs">
+      <div className="flex items-center gap-2 sm:gap-3 flex-1 max-w-[200px] sm:max-w-md justify-end ml-2">
+        <div className="relative w-full max-w-[130px] sm:max-w-xs">
           <Search size={13} className="text-zinc-400 absolute left-2.5 top-2" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="銘柄・創業者・手法を瞬時検索..."
-            className="w-full h-7.5 pl-8 pr-12 bg-[#161B22] hover:bg-[#1C2128] focus:bg-[#1C2128] border border-white/[0.08] focus:border-zinc-500 rounded text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none transition-all font-sans"
+            placeholder="銘柄・手法を検索..."
+            className="w-full h-7.5 pl-7.5 pr-2 sm:pr-12 bg-[#161B22] hover:bg-[#1C2128] focus:bg-[#1C2128] border border-white/[0.08] focus:border-zinc-500 rounded text-[11px] sm:text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none transition-all font-sans"
           />
           <div className="absolute right-1.5 top-1.5 hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-white/[0.06] text-[9px] font-mono text-zinc-400 border border-white/[0.04]">
             <Command size={9} />
