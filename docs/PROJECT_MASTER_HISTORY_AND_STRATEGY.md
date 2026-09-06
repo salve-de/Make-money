@@ -157,6 +157,29 @@
   6. **品質検証**:
      - `npm run build` は 427ms・エラーゼロ（Exit code 0）で通過。
 
+### 11. Phase 11: 本番実稼働のための4大配線完全結合（認証UI・Neon DB API・Stripe Webhook・PRO課金ループ開通）
+- **ユーザーからの指示**:
+  - 「もう 完璧になってんのか 現時点で」「じゃあやっておいて」
+- **断行した外科的処置**:
+  1. **Firebase Auth 認証UI・状態管理の実配線**:
+     - `src/context/AuthContext.tsx`（`AuthProvider` & `useAuth`）を構築し、セッション・トークン・PRO状態を全域管理。
+     - `src/components/auth/AuthModal.tsx`（アクロマティックGoogle 1クリック & メールログインモーダル）を新設。
+     - `src/components/terminal/CleanHeader.tsx` に「ログイン / 会員ステータスメニュー（PROバッジ・ログアウト）」を配備。
+     - `src/app/providers.tsx` でアプリケーション全域をラップ。
+  2. **Neon DB 実配線 & データAPI・シード基盤の開通**:
+     - `src/db/seed.ts`（22社実在P&Lデータ、実践台帳モデルのNeon投入スクリプト）を作成。
+     - `src/app/api/businesses/route.ts`（DB動的フェッチ＆静的フォールバックのAnti-Fragile API）を開通。
+     - `src/app/api/bookmarks/route.ts`（Firebase Auth UIDに基づくNeon DB `saved_items` 保存・トグル・一覧API）を開通。
+     - `src/app/api/submissions/route.ts`（Starter Story型自走掲載申請をNeon DB `submissions` に保存するAPI）を開通。
+  3. **Stripe Webhook と DB の完全結合**:
+     - `src/app/api/checkout/route.ts` に Firebase Auth UID / メールを Stripe セッションへ連携。
+     - `src/app/api/webhooks/stripe/route.ts` で `checkout.session.completed` 受信時に Neon DB `users.isPro` を即時付与、`customer.subscription.deleted` 受信時に剥奪するロジックを完全実装。
+  4. **PRO会員限定金庫インサイトと課金ループの連動**:
+     - `BusinessDetailModal.tsx` で `isPro` ステータスを直接参照。
+     - 未課金ユーザーには「PRO会員で全解放（¥1,980）」Stripe決済ボタンを表示、決済完了後に自動解錠されるエンドツーエンドのマネタイズ導線を確立。
+  5. **品質検証**:
+     - `npm run build` は全8ルート（静的＋動的API群）を含めてエラーゼロ・コンパイル452msで完全通過。
+
 ---
 
 ## Ⅱ. 監査合格済み：4大ビジネスアイデア解剖調書

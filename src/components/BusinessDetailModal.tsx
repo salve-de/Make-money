@@ -24,6 +24,8 @@ import {
   Handshake,
 } from 'lucide-react';
 
+import { useAuth } from '@/context/AuthContext';
+
 interface BusinessDetailModalProps {
   item: BusinessItem | null;
   onClose: () => void;
@@ -35,7 +37,35 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
   onClose,
   onOpenMaInquiry,
 }) => {
-  const [isProUnlocked, setIsProUnlocked] = useState(false);
+  const { isPro, token } = useAuth();
+  const [demoUnlocked, setDemoUnlocked] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+
+  const isUnlocked = isPro || demoUnlocked;
+
+  const handleCheckout = async () => {
+    try {
+      setCheckoutLoading(true);
+      const headers: Record<string, string> = { "Content-Type": "application/json" };
+      if (token) headers["Authorization"] = `Bearer ${token}`;
+
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ product: "founding-pass" }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data.error || "決済セッションの作成に失敗しました");
+      }
+    } catch (e) {
+      alert("通信エラーが発生しました");
+    } finally {
+      setCheckoutLoading(false);
+    }
+  };
 
   if (!item) return null;
 
@@ -264,31 +294,56 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
                   特別会員（PRO）限定：深層金庫インサイト
                 </span>
               </div>
-              <button
-                onClick={() => setIsProUnlocked(!isProUnlocked)}
-                className="flex items-center gap-1.5 px-3 py-1 text-xs font-bold rounded-lg bg-amber-500 text-slate-950 hover:bg-amber-400 transition"
-              >
-                {isProUnlocked ? <Unlock className="w-3.5 h-3.5" /> : <Lock className="w-3.5 h-3.5" />}
-                <span>{isProUnlocked ? '再度施錠する' : '金庫を解錠して読む（デモ解錠）'}</span>
-              </button>
+              <div className="flex items-center gap-2">
+                {isPro ? (
+                  <span className="flex items-center gap-1 text-xs font-bold text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded-lg border border-emerald-500/30">
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    PRO会員 解錠済
+                  </span>
+                ) : (
+                  <>
+                    <button
+                      onClick={handleCheckout}
+                      disabled={checkoutLoading}
+                      className="flex items-center gap-1.5 px-3 py-1 text-xs font-bold rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 transition cursor-pointer disabled:opacity-50"
+                    >
+                      <Crown className="w-3.5 h-3.5" />
+                      <span>{checkoutLoading ? '処理中...' : 'PRO会員で全解放（¥1,980）'}</span>
+                    </button>
+                    <button
+                      onClick={() => setDemoUnlocked(!demoUnlocked)}
+                      className="text-[11px] text-zinc-400 hover:text-zinc-200 underline px-1 cursor-pointer"
+                    >
+                      {demoUnlocked ? '施錠' : 'デモ閲覧'}
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
 
             <div className="relative">
               {/* マスキングオーバーレイ */}
-              {!isProUnlocked && (
+              {!isUnlocked && (
                 <div className="absolute inset-0 z-10 backdrop-blur-md bg-slate-950/70 flex flex-col items-center justify-center p-6 text-center rounded-xl border border-amber-500/20">
                   <Lock className="w-8 h-8 text-amber-400 mb-2" />
                   <p className="text-sm font-bold text-white">
                     非公開プロンプト・裏技・本当の死因データは特別会員限定です
                   </p>
                   <p className="mt-1 text-xs text-slate-400 max-w-md">
-                    上の「金庫を解錠して読む」ボタンを押すと、この事例の秘密金庫データを今すぐ閲覧できます。
+                    PRO会員に登録すると、全事例の深層金庫インサイトと契約書ひな形・生データが即時解放されます。
                   </p>
+                  <button
+                    onClick={handleCheckout}
+                    disabled={checkoutLoading}
+                    className="mt-3 px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold rounded-lg transition shadow-lg cursor-pointer"
+                  >
+                    今すぐ全解放する（買い切り ¥1,980）
+                  </button>
                 </div>
               )}
 
               {/* 秘密インサイト本体 */}
-              <div className={`p-4 rounded-xl bg-slate-900/90 text-xs sm:text-sm text-slate-200 leading-relaxed font-sans ${!isProUnlocked ? 'filter blur-sm select-none' : ''}`}>
+              <div className={`p-4 rounded-xl bg-slate-900/90 text-xs sm:text-sm text-slate-200 leading-relaxed font-sans ${!isUnlocked ? 'filter blur-sm select-none' : ''}`}>
                 {item.proSecretInsight}
               </div>
             </div>

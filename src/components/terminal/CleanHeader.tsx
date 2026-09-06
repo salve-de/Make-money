@@ -112,7 +112,86 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           <span className="font-semibold text-slate-900 tabular-nums">{totalCount}</span>
           <span className="text-slate-400">社 照合済</span>
         </div>
+
+        {/* 認証・アカウントボタン */}
+        <UserNavButton />
       </div>
     </header>
   );
 };
+
+import { useState } from 'react';
+import { useAuth } from '@/context/AuthContext';
+import { AuthModal } from '@/components/auth/AuthModal';
+import { User as UserIcon, LogOut, ShieldCheck } from 'lucide-react';
+
+function UserNavButton() {
+  const { user, isPro, signOut, loading } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  if (loading && !user) {
+    return (
+      <button
+        disabled
+        className="px-3 py-1.5 text-xs font-semibold bg-slate-900/10 text-slate-400 rounded-lg shrink-0 cursor-default"
+      >
+        ログイン
+      </button>
+    );
+  }
+
+  if (!user) {
+    return (
+      <>
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="px-3 py-1.5 text-xs font-semibold bg-slate-950 hover:bg-slate-800 text-white rounded-lg transition-colors shrink-0 cursor-pointer shadow-2xs"
+        >
+          ログイン
+        </button>
+        <AuthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      </>
+    );
+  }
+
+  return (
+    <div className="relative shrink-0">
+      <button
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        className="flex items-center gap-1.5 py-1 px-2 rounded-lg hover:bg-slate-100 border border-slate-200/80 text-xs text-slate-800 transition-colors cursor-pointer"
+      >
+        <div className="w-5 h-5 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-bold">
+          {user.email ? user.email[0].toUpperCase() : 'U'}
+        </div>
+        {isPro && (
+          <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold bg-emerald-100 text-emerald-800 font-mono">
+            PRO
+          </span>
+        )}
+      </button>
+
+      {isMenuOpen && (
+        <div
+          className="absolute right-0 mt-1.5 w-48 bg-white border border-slate-200 rounded-xl shadow-lg p-1.5 z-50 text-xs font-sans animate-in fade-in slide-in-from-top-1"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <div className="px-2.5 py-1.5 border-b border-slate-100">
+            <p className="font-semibold text-slate-900 truncate">{user.email}</p>
+            <p className="text-[10px] text-slate-500 font-mono mt-0.5">
+              {isPro ? 'PRO 会員（全解放）' : '無料 会員'}
+            </p>
+          </div>
+          <button
+            onClick={() => signOut()}
+            className="w-full flex items-center gap-2 px-2.5 py-1.5 text-red-600 hover:bg-red-50 rounded-lg transition-colors text-left cursor-pointer mt-1 font-medium"
+          >
+            <LogOut size={13} />
+            <span>ログアウト</span>
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+

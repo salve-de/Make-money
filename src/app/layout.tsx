@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: '煽りゼロ。個人・少人数ビジネスのリアルな決算書・使用ツール・初期集客手順を完全公開する一次情報データベース。',
 };
 
+import { Providers } from './providers';
+
 export default function RootLayout({
   children,
 }: {
@@ -26,7 +28,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" className={`h-full antialiased ${inter.variable} ${notoSansJP.variable}`}>
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans">{children}</body>
+      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
