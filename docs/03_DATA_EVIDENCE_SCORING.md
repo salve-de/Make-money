@@ -26,10 +26,17 @@
 - period_start / period_end または signal_date
 - payer
 - receiver
-- source_type
-- source_url
-- observed / estimated
+- source_type（分かる場合）
+- source_url（分かる場合）
+- observed / estimated / reported / unknown
+- verification_status（SUPPORTED / CONFLICTED / UNVERIFIED 等）
 - collected_at
+
+## 1.1 出典なしの候補
+
+出典は収集・保存・表示の必須条件ではない。出典がない金額や事例は `UNVERIFIED` と「出典未取得」を付けて保持し、検証済みの数字・推薦根拠・成功保証としては扱わない。後から出典が得られた場合は、元の観測を消さずに追補する。
+
+利益は最優先の金額群とし、売上、粗利益、営業利益、純利益、利益率、コスト、個人手取りを別の金額種別・期間で保持する。利益が分からない場合は推測で埋めず、不明とする。
 
 ## 2. 根拠ランク
 
@@ -113,7 +120,8 @@
 
 ## 8. 品質チェック
 
-- 売上と利益を取り違えていないか
+- 売上、GMV、資金調達、利益を取り違えていないか
+- 粗利益、営業利益、純利益、手取りを取り違えていないか
 - 累計と単月を取り違えていないか
 - 契約上限と実支出を取り違えていないか
 - 通貨換算日があるか
