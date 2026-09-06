@@ -106,8 +106,8 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
       </div>
 
       {/* 横に滑らかに流れる無限ループコンテナ（ホバーで一時停止） */}
-      <div className="flex-1 overflow-hidden relative">
-        <div className="animate-ticker flex items-center">
+      <div className="flex-1 ticker-wrapper">
+        <div className="ticker-track flex items-center">
           {tickerItems.map((item, idx) => (
             <div
               key={idx}
@@ -116,9 +116,9 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
                   onSelectCompany(item.companyId);
                 }
               }}
-              className={`flex items-center gap-2.5 px-4 py-1 shrink-0 transition-colors ${
+              className={`flex items-center gap-2.5 px-4 py-1 shrink-0 ${
                 item.companyId && onSelectCompany
-                  ? 'cursor-pointer hover:bg-slate-100'
+                  ? 'cursor-pointer'
                   : ''
               }`}
               title={item.companyId ? 'クリックして詳細分析データを開く' : undefined}
