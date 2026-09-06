@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { FinancialEntity } from '../../types/terminal';
-import { Search, X, ShieldCheck, ChevronRight } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 
 interface GlobalCommandPaletteProps {
   isOpen: boolean;
@@ -31,7 +31,6 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
     }
   }, [isOpen]);
 
-  // ⌘K グローバルトリガー & ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
@@ -83,14 +82,14 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-24 px-4 bg-black/70 backdrop-blur-sm select-none">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-16 md:pt-24 px-4 bg-black/75 backdrop-blur-xs select-none">
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-xl bg-[#0C101A] border border-white/[0.15] rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[70vh]"
+        className="w-full max-w-xl bg-[#090A0D] border border-white/[0.08] rounded-lg shadow-2xl overflow-hidden flex flex-col max-h-[70vh]"
       >
         {/* 検索入力 */}
-        <div className="p-3 border-b border-white/[0.1] flex items-center gap-2 bg-[#080C14]">
-          <Search className="w-4 h-4 text-emerald-400 shrink-0" />
+        <div className="p-3 border-b border-white/[0.06] flex items-center gap-2 bg-[#07080A]">
+          <Search className="w-3.5 h-3.5 text-zinc-500 shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -101,18 +100,18 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
             }}
             onKeyDown={handleKeyDownList}
             placeholder="銘柄名、ティッカー、突いた盲点で即座にジャンプ..."
-            className="flex-1 bg-transparent text-sm text-white placeholder-slate-400 outline-none"
+            className="flex-1 bg-transparent text-sm text-white placeholder-zinc-600 outline-none"
           />
           <button
             onClick={onClose}
-            className="p-1 text-slate-400 hover:text-white"
+            className="p-1 text-zinc-500 hover:text-white"
           >
-            <X className="w-4 h-4" />
+            <X className="w-3.5 h-3.5" />
           </button>
         </div>
 
         {/* 検索結果リスト */}
-        <div className="flex-1 overflow-y-auto p-2 space-y-1">
+        <div className="flex-1 overflow-y-auto p-1.5 space-y-0.5">
           {filtered.map((item, idx) => {
             const isSelected = idx === selectedIndex;
             return (
@@ -125,32 +124,29 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
                 onMouseEnter={() => setSelectedIndex(idx)}
                 className={`p-2.5 rounded cursor-pointer flex items-center justify-between transition-colors ${
                   isSelected 
-                    ? 'bg-emerald-500/10 border border-emerald-500/30' 
-                    : 'hover:bg-white/[0.04]'
+                    ? 'bg-white/[0.08]' 
+                    : 'hover:bg-white/[0.03]'
                 }`}
               >
                 <div className="min-w-0 pr-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-1 py-0.2 rounded">
+                    <span className="text-[11px] font-mono text-zinc-500">
                       {item.ticker}
                     </span>
-                    <span className="text-xs font-bold text-white truncate">
+                    <span className="text-xs font-medium text-white truncate">
                       {item.name}
                     </span>
-                    {item.verifiedBadge && (
-                      <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
-                    )}
                   </div>
-                  <p className="text-[11px] text-slate-400 line-clamp-1 mt-0.5">
+                  <p className="text-[11px] text-zinc-400 line-clamp-1 mt-0.5 font-sans">
                     {item.strategy.blindspot}
                   </p>
                 </div>
 
                 <div className="text-right shrink-0 font-mono text-[11px]">
-                  <div className="font-bold text-white tabular-nums">
+                  <div className="text-white tabular-nums">
                     {formatMoney(item.pnl.monthlyRevenue)}
                   </div>
-                  <div className="text-emerald-400 text-[10px] tabular-nums">
+                  <div className="text-zinc-400 text-[10px] tabular-nums">
                     営利 {item.pnl.operatingMargin}%
                   </div>
                 </div>
@@ -159,20 +155,20 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
           })}
 
           {filtered.length === 0 && (
-            <div className="p-8 text-center text-xs text-slate-400 font-mono">
+            <div className="p-8 text-center text-xs text-zinc-600 font-mono">
               一致する銘柄が見つかりません
             </div>
           )}
         </div>
 
         {/* フッターショートカット */}
-        <div className="p-2 border-t border-white/[0.08] bg-[#080C14] text-[10px] font-mono text-slate-400 flex items-center justify-between px-3">
-          <div className="flex items-center gap-2">
-            <span>↑↓: 選択</span>
-            <span>ENTER: 確定</span>
-            <span>ESC: 閉じる</span>
+        <div className="p-2 border-t border-white/[0.06] bg-[#07080A] text-[10px] font-mono text-zinc-500 flex items-center justify-between px-3">
+          <div className="flex items-center gap-3">
+            <span>↑↓ 選択</span>
+            <span>ENTER 確定</span>
+            <span>ESC 閉じる</span>
           </div>
-          <span className="text-emerald-400 font-bold">{filtered.length} 銘柄</span>
+          <span className="text-zinc-400">{filtered.length} 銘柄</span>
         </div>
       </div>
     </div>

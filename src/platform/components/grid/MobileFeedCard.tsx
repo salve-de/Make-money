@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { FinancialEntity } from '../../types/terminal';
-import { ChevronRight, ShieldCheck, Bookmark } from 'lucide-react';
+import { ChevronRight, Bookmark } from 'lucide-react';
 
 interface MobileFeedCardProps {
   entity: FinancialEntity;
@@ -36,66 +36,66 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   return (
     <div
       onClick={onSelect}
-      className={`p-3 border-b border-white/[0.08] active:bg-white/[0.06] transition-colors cursor-pointer select-none ${
-        isSelected ? 'bg-emerald-500/[0.08] border-l-2 border-l-emerald-400' : 'bg-[#090D14]'
+      className={`p-3 border-b border-white/[0.05] active:bg-white/[0.04] transition-colors cursor-pointer select-none ${
+        isSelected ? 'bg-white/[0.04]' : 'bg-[#07080B]'
       }`}
     >
       {/* 1段目: ティッカー/社名 & 月商 */}
-      <div className="flex items-center justify-between gap-2 mb-1.5">
-        <div className="flex items-center gap-1.5 min-w-0">
-          <span className="font-mono text-[11px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/40 px-1 py-0.2 rounded shrink-0">
+      <div className="flex items-center justify-between gap-2 mb-1">
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="font-mono text-[11px] text-zinc-500 shrink-0">
             {entity.ticker}
           </span>
-          <span className="font-bold text-xs text-white truncate">
+          <span className="font-medium text-xs text-white truncate font-sans">
             {entity.name}
           </span>
-          {entity.verifiedBadge && (
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-          )}
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
           <div className="text-right">
-            <span className="text-[10px] text-slate-400 block font-mono">月商</span>
-            <span className="text-xs font-mono font-bold text-white tabular-nums">
+            <span className="text-[10px] text-zinc-500 font-mono mr-1">月商</span>
+            <span className="text-xs font-mono font-medium text-white tabular-nums">
               {formatMoney(entity.pnl.monthlyRevenue)}
             </span>
           </div>
           <button
             onClick={onToggleBookmark}
-            className="p-1 text-slate-400 hover:text-amber-400"
+            className="p-1 text-zinc-600 hover:text-zinc-300"
           >
-            <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-amber-400 fill-amber-400' : ''}`} />
+            <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
           </button>
         </div>
       </div>
 
       {/* 2段目: 突いた業界の盲点 */}
-      <p className="text-[11px] text-slate-400 line-clamp-1 mb-2">
-        <span className="text-amber-400/90 font-medium">【盲点】</span>
-        {entity.strategy.blindspot}
+      <p className="text-[11px] text-zinc-300 line-clamp-1 mb-1.5 font-sans">
+        <span className="text-amber-400/90 font-medium">急所: </span>
+        {entity.strategy.blindspot.replace(/^【(.*?)】.*/, '$1')}
       </p>
 
-      {/* 3段目: 純利益・利益率・体制バッジ & 解剖導線 */}
-      <div className="flex items-center justify-between text-[10px] font-mono">
-        <div className="flex items-center gap-2">
+      {/* 3段目: 純利益・利益率・体制・解剖 */}
+      <div className="flex items-center justify-between text-[11px] font-mono">
+        <div className="flex items-center gap-3">
           <div>
-            <span className="text-slate-400 mr-1">手残り:</span>
-            <span className="text-emerald-400 font-bold tabular-nums">
-              {formatMoney(entity.pnl.operatingProfit)}/月
+            <span className="text-zinc-500 text-[10px] mr-1">純利</span>
+            <span className="text-zinc-200 tabular-nums">
+              {formatMoney(entity.pnl.operatingProfit)}
             </span>
           </div>
-          <span className="text-emerald-300 bg-emerald-950/80 border border-emerald-800/50 px-1.5 py-0.2 rounded font-semibold tabular-nums">
-            粗利 {entity.pnl.grossMargin}% / 営利 {entity.pnl.operatingMargin}%
-          </span>
-          <span className="text-slate-400 bg-white/[0.06] px-1.5 py-0.2 rounded">
+          <div>
+            <span className="text-zinc-500 text-[10px] mr-1">営利</span>
+            <span className="text-emerald-400/90 tabular-nums">
+              {entity.pnl.operatingMargin}%
+            </span>
+          </div>
+          <span className="text-zinc-500 text-[10px]">
             {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize}人`}
           </span>
         </div>
 
-        <div className="flex items-center text-emerald-400 text-[11px] font-medium shrink-0">
+        <div className="flex items-center text-zinc-500 text-[11px] shrink-0">
           <span>解剖</span>
-          <ChevronRight className="w-3.5 h-3.5" />
+          <ChevronRight className="w-3 h-3 text-zinc-600" />
         </div>
       </div>
     </div>

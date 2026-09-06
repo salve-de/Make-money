@@ -3,7 +3,7 @@
 import React from 'react';
 import { FinancialEntity } from '../../types/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
-import { ShieldCheck, Bookmark, ChevronRight, TrendingUp } from 'lucide-react';
+import { Bookmark, ChevronRight } from 'lucide-react';
 
 interface InstitutionalDataGridProps {
   entities: FinancialEntity[];
@@ -35,9 +35,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-[#080C14] select-none">
+    <div className="flex-1 overflow-y-auto bg-[#07080B] select-none">
       {/* 1. モバイル（390px以下）: 親指最適化フィード */}
-      <div className="md:hidden divide-y divide-white/[0.08]">
+      <div className="md:hidden divide-y divide-white/[0.05]">
         {entities.map((entity) => (
           <MobileFeedCard
             key={entity.id}
@@ -50,8 +50,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
           />
         ))}
         {entities.length === 0 && (
-          <div className="p-8 text-center text-xs text-slate-400 font-mono">
-            NO MATCHING FINANCIAL ENTITIES
+          <div className="p-8 text-center text-xs text-zinc-600 font-mono">
+            該当する銘柄が見つかりません
           </div>
         )}
       </div>
@@ -60,15 +60,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
       <div className="hidden md:block xl:hidden w-full">
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
-            <tr className="border-b border-white/[0.1] bg-[#0A0E18] text-slate-400 text-[11px]">
-              <th className="w-[30%] py-2.5 px-3 font-medium">銘柄 / 企業名</th>
-              <th className="w-[18%] py-2.5 px-2 font-medium text-right">直近月商</th>
-              <th className="w-[20%] py-2.5 px-2 font-medium text-right">実効純利益</th>
-              <th className="w-[16%] py-2.5 px-2 font-medium text-center">営業利益率</th>
-              <th className="w-[16%] py-2.5 px-3 font-medium text-right">解剖</th>
+            <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
+              <th className="w-[32%] py-2 px-3 font-medium">銘柄 / 企業名</th>
+              <th className="w-[18%] py-2 px-2 font-medium text-right">直近月商</th>
+              <th className="w-[18%] py-2 px-2 font-medium text-right">実効純利益</th>
+              <th className="w-[16%] py-2 px-2 font-medium text-center">営業利益率</th>
+              <th className="w-[16%] py-2 px-3 font-medium text-right">解剖</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/[0.06]">
+          <tbody className="divide-y divide-white/[0.04]">
             {entities.map((entity) => {
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
@@ -78,41 +78,41 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   onClick={() => onSelectEntity(entity.id)}
                   className={`cursor-pointer transition-colors ${
                     isSelected
-                      ? 'bg-emerald-500/[0.12] border-l-2 border-l-emerald-400'
-                      : 'hover:bg-white/[0.04]'
+                      ? 'bg-white/[0.06]'
+                      : 'hover:bg-white/[0.02]'
                   }`}
                 >
                   {/* 社名・ティッカー */}
                   <td className="py-2.5 px-3 truncate">
-                    <div className="flex items-center gap-1.5 truncate">
+                    <div className="flex items-center gap-2 truncate">
                       <button
                         onClick={(e) => onToggleBookmark(entity.id, e)}
-                        className="text-slate-400 hover:text-amber-400 shrink-0"
+                        className="text-zinc-600 hover:text-zinc-300 shrink-0"
                       >
-                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-amber-400 fill-amber-400' : ''}`} />
+                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                       </button>
-                      <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/60 border border-emerald-800/40 px-1 py-0.2 rounded shrink-0">
+                      <span className="text-[11px] text-zinc-500 font-mono shrink-0">
                         {entity.ticker}
                       </span>
-                      <span className="font-bold text-white truncate font-sans">
+                      <span className="font-medium text-white truncate font-sans">
                         {entity.name}
                       </span>
                     </div>
                   </td>
 
                   {/* 月商 */}
-                  <td className="py-2.5 px-2 text-right font-bold text-white tabular-nums truncate">
+                  <td className="py-2.5 px-2 text-right text-white tabular-nums truncate">
                     {formatMoney(entity.pnl.monthlyRevenue)}
                   </td>
 
                   {/* 実効純利益 */}
-                  <td className="py-2.5 px-2 text-right font-bold text-emerald-400 tabular-nums truncate">
+                  <td className="py-2.5 px-2 text-right text-zinc-300 tabular-nums truncate">
                     {formatMoney(entity.pnl.operatingProfit)}
                   </td>
 
                   {/* 営業利益率 */}
                   <td className="py-2.5 px-2 text-center truncate">
-                    <span className="bg-emerald-950/60 border border-emerald-800/40 text-emerald-300 font-bold px-1.5 py-0.5 rounded text-[11px] tabular-nums">
+                    <span className="text-emerald-400/90 font-medium tabular-nums">
                       {entity.pnl.operatingMargin}%
                     </span>
                   </td>
@@ -124,10 +124,10 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         e.stopPropagation();
                         onSelectEntity(entity.id);
                       }}
-                      className="inline-flex items-center gap-1 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[11px] font-medium"
+                      className="inline-flex items-center gap-0.5 text-zinc-400 hover:text-white px-2 py-0.5 rounded text-[11px] font-sans transition-colors"
                     >
                       <span>解剖</span>
-                      <ChevronRight className="w-3 h-3" />
+                      <ChevronRight className="w-3 h-3 text-zinc-600" />
                     </button>
                   </td>
                 </tr>
@@ -141,19 +141,19 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
       <div className="hidden xl:block w-full">
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
-            <tr className="border-b border-white/[0.1] bg-[#0A0E18] text-slate-400 text-[11px]">
-              <th className="w-[20%] py-2.5 px-3 font-medium">ティッカー / 銘柄</th>
-              <th className="w-[12%] py-2.5 px-2 font-medium text-right">直近月商</th>
-              <th className="w-[12%] py-2.5 px-2 font-medium text-right">実効純利益</th>
-              <th className="w-[9%] py-2.5 px-2 font-medium text-center">粗利益率</th>
-              <th className="w-[9%] py-2.5 px-2 font-medium text-center">営業利益率</th>
-              <th className="w-[9%] py-2.5 px-2 font-medium text-right">初期資本</th>
-              <th className="w-[7%] py-2.5 px-2 font-medium text-center">体制</th>
-              <th className="w-[14%] py-2.5 px-2 font-medium">突いた盲点</th>
-              <th className="w-[7%] py-2.5 px-3 font-medium text-right">解剖</th>
+            <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
+              <th className="w-[20%] py-2 px-3 font-medium">ティッカー / 銘柄</th>
+              <th className="w-[12%] py-2 px-2 font-medium text-right">直近月商</th>
+              <th className="w-[12%] py-2 px-2 font-medium text-right">実効純利益</th>
+              <th className="w-[8%] py-2 px-2 font-medium text-center">粗利益率</th>
+              <th className="w-[9%] py-2 px-2 font-medium text-center">営業利益率</th>
+              <th className="w-[9%] py-2 px-2 font-medium text-right">初期資本</th>
+              <th className="w-[7%] py-2 px-2 font-medium text-center">体制</th>
+              <th className="w-[16%] py-2 px-2 font-medium">突いた盲点</th>
+              <th className="w-[7%] py-2 px-3 font-medium text-right">解剖</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-white/[0.06]">
+          <tbody className="divide-y divide-white/[0.04]">
             {entities.map((entity) => {
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
@@ -163,71 +163,62 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   onClick={() => onSelectEntity(entity.id)}
                   className={`cursor-pointer transition-colors ${
                     isSelected
-                      ? 'bg-emerald-500/[0.12] border-l-2 border-l-emerald-400'
-                      : 'hover:bg-white/[0.04]'
+                      ? 'bg-white/[0.06]'
+                      : 'hover:bg-white/[0.02]'
                   }`}
                 >
                   {/* ティッカー・銘柄 */}
                   <td className="py-2 px-3 truncate">
-                    <div className="flex items-center gap-1.5 truncate">
+                    <div className="flex items-center gap-2 truncate">
                       <button
                         onClick={(e) => onToggleBookmark(entity.id, e)}
-                        className="text-slate-400 hover:text-amber-400 shrink-0"
+                        className="text-zinc-600 hover:text-zinc-300 shrink-0"
                       >
-                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-amber-400 fill-amber-400' : ''}`} />
+                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                       </button>
-                      <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/60 border border-emerald-800/40 px-1 py-0.2 rounded shrink-0">
+                      <span className="text-[11px] text-zinc-500 font-mono shrink-0">
                         {entity.ticker}
                       </span>
-                      <span className="font-bold text-white truncate font-sans">
+                      <span className="font-medium text-white truncate font-sans">
                         {entity.name}
                       </span>
-                      {entity.verifiedBadge && (
-                        <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
-                      )}
                     </div>
                   </td>
 
                   {/* 月商 */}
-                  <td className="py-2 px-2 text-right font-bold text-white tabular-nums truncate">
+                  <td className="py-2 px-2 text-right text-white tabular-nums truncate">
                     {formatMoney(entity.pnl.monthlyRevenue)}
                   </td>
 
                   {/* 純利 */}
-                  <td className="py-2 px-2 text-right font-bold text-emerald-400 tabular-nums truncate">
+                  <td className="py-2 px-2 text-right text-zinc-300 tabular-nums truncate">
                     {formatMoney(entity.pnl.operatingProfit)}
                   </td>
 
                   {/* 粗利率 */}
-                  <td className="py-2 px-2 text-center tabular-nums text-slate-300">
+                  <td className="py-2 px-2 text-center tabular-nums text-zinc-400">
                     {entity.pnl.grossMargin}%
                   </td>
 
                   {/* 営業利益率 */}
                   <td className="py-2 px-2 text-center">
-                    <span className="bg-emerald-950/60 border border-emerald-800/40 text-emerald-300 font-bold px-1.5 py-0.2 rounded text-[11px] tabular-nums">
+                    <span className="text-emerald-400/90 font-medium tabular-nums">
                       {entity.pnl.operatingMargin}%
                     </span>
                   </td>
 
                   {/* 初期投下資本 */}
-                  <td className="py-2 px-2 text-right text-slate-400 tabular-nums truncate">
+                  <td className="py-2 px-2 text-right text-zinc-500 tabular-nums truncate">
                     {entity.operations.initialCapitalRequired === 0 ? '0円' : formatMoney(entity.operations.initialCapitalRequired)}
                   </td>
 
                   {/* 体制 */}
-                  <td className="py-2 px-2 text-center">
-                    <span className={`px-1.5 py-0.2 rounded text-[10px] font-sans ${
-                      entity.operations.teamSize === 1 
-                        ? 'bg-indigo-950/60 text-indigo-300 border border-indigo-800/40' 
-                        : 'bg-white/[0.06] text-slate-400'
-                    }`}>
-                      {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize}人`}
-                    </span>
+                  <td className="py-2 px-2 text-center text-zinc-500 text-[11px]">
+                    {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize}人`}
                   </td>
 
                   {/* 突いた盲点 */}
-                  <td className="py-2 px-2 text-slate-400 text-[11px] truncate font-sans" title={entity.strategy.blindspot}>
+                  <td className="py-2 px-2 text-zinc-400 text-[11px] truncate font-sans" title={entity.strategy.blindspot}>
                     {entity.strategy.blindspot}
                   </td>
 
@@ -238,10 +229,10 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         e.stopPropagation();
                         onSelectEntity(entity.id);
                       }}
-                      className="inline-flex items-center gap-0.5 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-0.5 rounded text-[11px] font-medium"
+                      className="inline-flex items-center gap-0.5 text-zinc-400 hover:text-white px-2 py-0.5 rounded text-[11px] font-sans transition-colors"
                     >
                       <span>解剖</span>
-                      <ChevronRight className="w-3 h-3" />
+                      <ChevronRight className="w-3 h-3 text-zinc-600" />
                     </button>
                   </td>
                 </tr>
