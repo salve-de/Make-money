@@ -879,6 +879,21 @@
       - `npm run build` エラーゼロ（Exit Code 0）。
       - 実機CDP撮影（`audit_verified_table.png`, `audit_verified_detail.png`）にて、オープンAIのマイナス純利表示・エヌビディア純利・全タブ・全ボタンの完全正常化を目視実証。
 
+27. **Phase 36: 市場シグナル・特集内モデルクリック時の「詳細監査レポート直行化」動線修正（完了）**
+    - **ユーザーからの痛烈な叱責**:
+      - 「市場シグナルの個別のモデル クリックで 台帳に飛ばされるのが意味不明。ふざけてる？」
+    - **根本原因の検死**:
+      - ポータル・市場シグナル・特集コレクション・リーダーボード等の各コンポーネントで、企業モデルをクリックした際のコールバック `onSelectCompany` が `setMainView('TERMINAL')` のみを呼び、`selectedCompanyDetailId` を設定していなかった。
+      - その結果、ユーザーが「このモデルの詳細を見たい」とクリックしたにもかかわらず、そのモデルの詳細ではなく「全銘柄一覧テーブルの先頭」に強制送還されるという極めて不条理な動線不全を引き起こしていた。
+    - **断行した外科手術**:
+      - `src/app/page.tsx` において、統合ハンドラー `handleOpenCompanyDetail = (id) => { setSelectedCompanyId(id); setSelectedCompanyDetailId(id); setMainView('TERMINAL'); }` を定義。
+      - ティッカー、ポータル、市場シグナル、特集コレクション、リーダーボード、ファインダー、アイデア台帳の全7箇所で `onSelectCompany` をこの直行ハンドラーへ完全置換。
+      - これにより、どこからモデルをクリックしても、0.1秒でそのモデルの「詳細監査レポート（P&L・着眼点・業務構造・Playbook）」が直接展開する王道動線へ正常化。
+    - **検証**:
+      - `npx tsc --noEmit` および `npm run build` 全ルート正常通過（Exit Code 0）。
+      - 実機CDPテスト（`test_01_signals_view.png` ➔ `test_02_model_clicked_detail.png`）により、「地域No.1オークション推薦看板」をクリックした瞬間に `outbid.lol` の詳細監査レポートが直接開くことを実証。
+
+
 
 
 

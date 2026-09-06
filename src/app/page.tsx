@@ -385,6 +385,13 @@ export default function Home() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [filteredCompanies, selectedCompanyId]);
 
+  // 企業モデル選択時に詳細監査レポートを直接開くハンドラー
+  const handleOpenCompanyDetail = (id: string) => {
+    setSelectedCompanyId(id);
+    setSelectedCompanyDetailId(id);
+    setMainView('TERMINAL');
+  };
+
   return (
     <div className="h-screen w-screen bg-[#0B0E14] text-zinc-100 flex flex-col font-sans overflow-hidden select-none">
       {/* 1. 清潔な上部ヘッダー */}
@@ -393,27 +400,29 @@ export default function Home() {
         onSearchChange={setSearchQuery}
         totalCount={TERMINAL_COMPANIES.length}
         mainView={mainView}
-        onChangeMainView={setMainView}
+        onChangeMainView={(view) => {
+          setMainView(view);
+          if (view === 'TERMINAL') {
+            setSelectedCompanyDetailId(null);
+          }
+        }}
         onOpenProModal={() => setIsProModalOpen(true)}
       />
 
       {/* リアルタイム市場金融ティッカー（全画面共通・横に流れる速報ニュースフィード） */}
       <MarketLiveTicker
-        onSelectCompany={(id) => {
-          setSelectedCompanyId(id);
-          setMainView('TERMINAL');
-        }}
+        onSelectCompany={handleOpenCompanyDetail}
       />
 
       {/* 2. メインコンテンツ（ポータル ⇄ 分析台帳 ⇄ 各種特集・個別詳細ページ） */}
       {mainView === 'PORTAL' && (
         <PortalView
           companies={filteredCompanies}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
+          onSelectCompany={handleOpenCompanyDetail}
+          onNavigateToTerminal={() => {
+            setSelectedCompanyDetailId(null);
             setMainView('TERMINAL');
           }}
-          onNavigateToTerminal={() => setMainView('TERMINAL')}
           onFilterTheme={(tag) => {
             if (tag === '完全1人') setActivePreset('SOLO_MILLION');
             else if (tag === '初期0円') setActivePreset('ZERO_INVESTMENT');
@@ -440,10 +449,7 @@ export default function Home() {
       {mainView === 'COLLECTIONS_LIST' && (
         <SpecialCollectionsView
           companies={filteredCompanies}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
+          onSelectCompany={handleOpenCompanyDetail}
           onOpenDossier={(cid) => {
             setActiveCollectionId(cid);
             setMainView('COLLECTION_DETAIL');
@@ -457,10 +463,7 @@ export default function Home() {
         <CollectionDetailView
           collectionId={activeCollectionId}
           companies={filteredCompanies}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
+          onSelectCompany={handleOpenCompanyDetail}
           onBackToCollectionsList={() => setMainView('COLLECTIONS_LIST')}
           onBackToPortal={() => setMainView('PORTAL')}
         />
@@ -470,10 +473,7 @@ export default function Home() {
       {mainView === 'SIGNALS_LIST' && (
         <MarketSignalsView
           companies={filteredCompanies}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
+          onSelectCompany={handleOpenCompanyDetail}
           onSelectSignal={(sid) => {
             setActiveSignalId(sid);
             setMainView('SIGNAL_DETAIL');
@@ -487,10 +487,7 @@ export default function Home() {
         <SignalDetailView
           signalId={activeSignalId}
           companies={filteredCompanies}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
+          onSelectCompany={handleOpenCompanyDetail}
           onBackToSignalsList={() => setMainView('SIGNALS_LIST')}
           onBackToPortal={() => setMainView('PORTAL')}
         />
@@ -500,10 +497,7 @@ export default function Home() {
       {mainView === 'LEADERBOARD' && (
         <LeaderboardView
           companies={filteredCompanies}
-          onSelectCompany={(id) => {
-            setSelectedCompanyId(id);
-            setMainView('TERMINAL');
-          }}
+          onSelectCompany={handleOpenCompanyDetail}
           onBackToPortal={() => setMainView('PORTAL')}
         />
       )}
@@ -512,10 +506,7 @@ export default function Home() {
       {mainView === 'FINDER' && (
         <div className="flex-1 flex overflow-hidden">
           <DiagnosticFinder
-            onSelectCompany={(id) => {
-              setSelectedCompanyId(id);
-              setMainView('TERMINAL');
-            }}
+            onSelectCompany={handleOpenCompanyDetail}
           />
         </div>
       )}
@@ -524,10 +515,7 @@ export default function Home() {
       {mainView === 'IDEAS_VAULT' && (
         <div className="flex-1 flex overflow-hidden">
           <IdeasVaultView
-            onSelectCompany={(id) => {
-              setSelectedCompanyId(id);
-              setMainView('TERMINAL');
-            }}
+            onSelectCompany={handleOpenCompanyDetail}
           />
         </div>
       )}
