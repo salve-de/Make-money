@@ -28,7 +28,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" className={`h-full antialiased ${inter.variable} ${notoSansJP.variable}`}>
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans">
+      <body className="min-h-full flex flex-col bg-[#0B0E14] text-zinc-100 font-sans">
         <Providers>{children}</Providers>
       </body>
     </html>

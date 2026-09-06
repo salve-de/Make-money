@@ -75,14 +75,14 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
             <button
               onClick={handleCheckout}
               disabled={isLoading}
-              className="w-full h-7 bg-[#20232C] hover:bg-zinc-700 text-zinc-200 text-xs font-medium rounded border border-white/10 transition-colors"
+              className="w-full h-7 bg-white/[0.08] hover:bg-white/[0.14] text-zinc-200 text-xs font-bold rounded border border-white/[0.1] transition-colors cursor-pointer"
             >
               {isLoading ? '決済画面を準備中...' : '創刊版を購入する（¥1,980）'}
             </button>
           </div>
 
           {/* 法人機関 */}
-          <div className="p-4 rounded bg-[#171920] border border-zinc-400/30 flex flex-col justify-between relative">
+          <div className="p-4 rounded bg-[#171920] border border-white/[0.12] flex flex-col justify-between relative">
             <div>
               <div className="text-xs font-bold text-zinc-200 mb-1">法人・投資ファンド</div>
               <div className="text-xl font-bold font-mono text-white mb-3">
@@ -97,7 +97,7 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
             </div>
             <button
               onClick={onClose}
-              className="w-full h-7 bg-zinc-100 hover:bg-white text-zinc-900 text-xs font-semibold rounded transition-colors shadow-sm"
+              className="w-full h-7 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 text-xs font-bold rounded transition-colors shadow-xs cursor-pointer font-mono"
             >
               法人契約を締結
             </button>

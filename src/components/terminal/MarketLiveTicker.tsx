@@ -91,9 +91,9 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
   const tickerItems = [...NEWS_TICKER_ITEMS, ...NEWS_TICKER_ITEMS];
 
   return (
-    <div className="h-7 bg-slate-50 border-b border-slate-200/90 flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
+    <div className="h-7 bg-[#090C10] border-b border-white/[0.08] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative text-zinc-300">
       {/* 左端固定：速報ラベル（Bloomberg Terminal Style） */}
-      <div className="bg-slate-950 text-white h-full px-3 flex items-center gap-1.5 shrink-0 z-10 border-r border-slate-900 font-bold tracking-wider text-[10px]">
+      <div className="bg-zinc-900 text-zinc-100 h-full px-3 flex items-center gap-1.5 shrink-0 z-10 border-r border-white/[0.1] font-bold tracking-wider text-[10px]">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
         <span>FLOW</span>
       </div>
@@ -104,18 +104,18 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
           <div
             key={idx}
             onClick={() => item.companyId && onSelectCompany?.(item.companyId)}
-            className="inline-flex items-center gap-2 mr-8 text-slate-600 hover:text-slate-950 cursor-pointer transition-colors group py-0.5"
+            className="inline-flex items-center gap-2 mr-8 text-zinc-400 hover:text-zinc-100 cursor-pointer transition-colors group py-0.5"
           >
-            <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+            <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">
               {item.category}
             </span>
-            <span className="text-slate-800 group-hover:text-slate-950 font-sans text-xs">
+            <span className="text-zinc-300 group-hover:text-white font-sans text-xs">
               {item.headline}
             </span>
-            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/80 tabular-nums">
+            <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/60 tabular-nums">
               {item.badge}
             </span>
-            <span className="text-slate-300 ml-4 font-normal">|</span>
+            <span className="text-zinc-800 ml-4 font-normal">|</span>
           </div>
         ))}
       </div>

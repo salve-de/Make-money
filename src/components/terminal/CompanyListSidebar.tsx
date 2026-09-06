@@ -81,27 +81,27 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
   };
 
   return (
-    <div className={`${isCollapsed ? 'w-10' : 'w-84 lg:w-92'} bg-white border-r border-slate-200 flex flex-col shrink-0 select-none overflow-hidden font-sans transition-[width] duration-200`}>
+    <div className={`${isCollapsed ? 'w-10' : 'w-84 lg:w-92'} bg-[#0D1117] border-r border-white/[0.08] flex flex-col shrink-0 select-none overflow-hidden font-sans transition-[width] duration-200`}>
       {isCollapsed ? (
-        <div className="flex h-full flex-col items-center bg-slate-50 py-3 border-r border-slate-200">
+        <div className="flex h-full flex-col items-center bg-[#090C10] py-3 border-r border-white/[0.08]">
           <button
             type="button"
             onClick={() => setIsCollapsed(false)}
-            className="flex h-6 w-6 items-center justify-center rounded border border-slate-200 bg-white text-xs leading-none text-slate-600 hover:bg-slate-100 hover:text-slate-900 cursor-pointer"
+            className="flex h-6 w-6 items-center justify-center rounded border border-white/[0.1] bg-white/[0.04] text-xs leading-none text-zinc-400 hover:bg-white/[0.08] hover:text-white cursor-pointer"
             aria-label="候補一覧を開く"
           >
             ›
           </button>
-          <span className="mt-4 text-[10px] font-mono tracking-widest text-slate-400 [writing-mode:vertical-rl]">
+          <span className="mt-4 text-[10px] font-mono tracking-widest text-zinc-500 [writing-mode:vertical-rl]">
             DIRECTORY
           </span>
         </div>
       ) : (
         <>
           {/* 1. スクリーナー頭部 */}
-          <div className="p-3 bg-slate-50 border-b border-slate-200 space-y-2">
+          <div className="p-3 bg-[#12161F] border-b border-white/[0.08] space-y-2">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+              <span className="font-mono text-[10px] text-zinc-400 font-bold uppercase tracking-wider">
                 DIRECTORY ({displayedCompanies.length}/{totalCount})
               </span>
               <div className="flex items-center gap-1.5">
@@ -110,8 +110,8 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                   onClick={onOpenScreener}
                   className={`h-6 px-2 rounded border text-[10px] font-mono font-medium transition-colors flex items-center gap-1 cursor-pointer ${
                     hasActiveFilters
-                      ? 'bg-slate-950 text-white border-slate-950 font-bold'
-                      : 'bg-white text-slate-600 border-slate-200 hover:text-slate-950 hover:bg-slate-100'
+                      ? 'bg-zinc-100 text-zinc-950 border-white font-bold shadow-xs'
+                      : 'bg-white/[0.05] text-zinc-300 border-white/[0.1] hover:text-white hover:bg-white/[0.08]'
                   }`}
                 >
                   <SlidersHorizontal size={10} />
@@ -120,7 +120,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 <button
                   type="button"
                   onClick={() => setIsCollapsed(true)}
-                  className="h-6 w-6 flex items-center justify-center rounded border border-slate-200 bg-white text-slate-400 hover:text-slate-800 cursor-pointer"
+                  className="h-6 w-6 flex items-center justify-center rounded border border-white/[0.1] bg-white/[0.04] text-zinc-400 hover:text-zinc-200 cursor-pointer"
                   title="サイドバーを閉じる"
                 >
                   ‹
@@ -129,14 +129,14 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
             </div>
 
             {/* 4分割セグメント（個人・少人数 / 独占大企業 / 保存済み / 全件） */}
-            <div className="grid grid-cols-4 gap-0.5 bg-slate-200/60 p-0.5 rounded text-[10px] font-mono">
+            <div className="grid grid-cols-4 gap-0.5 bg-black/40 p-0.5 rounded text-[10px] font-mono border border-white/[0.06]">
               <button
                 type="button"
                 onClick={() => handleScaleTabChange('SOLO_SMALL')}
                 className={`py-1 text-center rounded transition-colors cursor-pointer ${
                   scaleTab === 'SOLO_SMALL'
-                    ? 'bg-white text-slate-950 font-bold shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-white/[0.15] text-white font-bold shadow-xs border border-white/[0.1]'
+                    : 'text-zinc-400 hover:text-zinc-200'
                 }`}
                 title="個人・少人数企業"
               >
@@ -147,8 +147,8 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 onClick={() => handleScaleTabChange('MEGA_CORP')}
                 className={`py-1 text-center rounded transition-colors cursor-pointer ${
                   scaleTab === 'MEGA_CORP'
-                    ? 'bg-white text-slate-950 font-bold shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-white/[0.15] text-white font-bold shadow-xs border border-white/[0.1]'
+                    : 'text-zinc-400 hover:text-zinc-200'
                 }`}
                 title="巨大独占企業"
               >
@@ -159,8 +159,8 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 onClick={() => handleScaleTabChange('SAVED')}
                 className={`py-1 text-center rounded transition-colors cursor-pointer ${
                   scaleTab === 'SAVED'
-                    ? 'bg-amber-50 text-amber-950 font-bold shadow-xs border border-amber-300'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-amber-950/60 text-amber-300 font-bold shadow-xs border border-amber-600/60'
+                    : 'text-zinc-400 hover:text-zinc-200'
                 }`}
                 title="ブックマーク保存済み企業"
               >
@@ -171,8 +171,8 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 onClick={() => handleScaleTabChange('ALL')}
                 className={`py-1 text-center rounded transition-colors cursor-pointer ${
                   scaleTab === 'ALL'
-                    ? 'bg-white text-slate-950 font-bold shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900'
+                    ? 'bg-white/[0.15] text-white font-bold shadow-xs border border-white/[0.1]'
+                    : 'text-zinc-400 hover:text-zinc-200'
                 }`}
                 title="全件"
               >
@@ -181,12 +181,12 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
             </div>
 
             {/* ソートセレクター */}
-            <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 pt-0.5">
+            <div className="flex items-center justify-between text-[10px] font-mono text-zinc-400 pt-0.5">
               <span>並び替え:</span>
               <select
                 value={activeSort}
                 onChange={(e) => onSelectSort(e.target.value as SortOrder)}
-                className="bg-white text-slate-700 border border-slate-200 rounded px-1.5 py-0.5 text-[10px] font-medium focus:outline-none cursor-pointer"
+                className="bg-[#161B22] text-zinc-200 border border-white/[0.1] rounded px-1.5 py-0.5 text-[10px] font-medium focus:outline-none cursor-pointer"
               >
                 <option value="REVENUE_DESC">売上が大きい順</option>
                 <option value="MARGIN_DESC">利益率が高い順</option>
@@ -197,13 +197,13 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
           </div>
 
           {/* 2. リストヘッダー */}
-          <div className="px-3 py-1.5 bg-slate-100/80 border-b border-slate-200 flex items-center justify-between text-[10px] text-slate-400 font-mono font-medium">
+          <div className="px-3 py-1.5 bg-[#10141D] border-b border-white/[0.08] flex items-center justify-between text-[10px] text-zinc-500 font-mono font-medium">
             <span>企業名 / モデル</span>
             <span>収益規模</span>
           </div>
 
           {/* 3. 該当銘柄一覧リスト */}
-          <div className="flex-1 overflow-y-auto divide-y divide-slate-100 text-xs">
+          <div className="flex-1 overflow-y-auto divide-y divide-white/[0.04] text-xs">
             {displayedCompanies.map((company) => {
               const isSelected = company.id === selectedCompanyId;
               const latestFin = company.financials[company.financials.length - 1];
@@ -232,33 +232,33 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 <div
                   key={company.id}
                   onClick={() => onSelectCompany(company.id)}
-                  className={`px-3 py-2.5 cursor-pointer transition-colors border-l-3 flex items-center justify-between gap-2.5 ${
+                  className={`px-3 py-2.5 cursor-pointer transition-colors border-l-2 flex items-center justify-between gap-2.5 ${
                     isSelected
-                      ? 'bg-slate-100 border-slate-950 text-slate-950 font-medium'
-                      : 'hover:bg-slate-50 border-transparent text-slate-700'
+                      ? 'bg-white/[0.08] border-emerald-400 text-white font-medium'
+                      : 'hover:bg-white/[0.03] border-transparent text-zinc-300'
                   }`}
                 >
                   <div className="flex items-center gap-2 min-w-0 flex-1">
                     <CompanyLogo id={company.id} size="sm" />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-slate-100 text-slate-600 shrink-0">
+                        <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.06] shrink-0">
                           {getTierCode(company.scaleTier)}
                         </span>
                         <span className={`text-[8px] font-mono px-1 py-0.2 rounded shrink-0 ${
                           company.verifiedStatus === 'AUDITED_PUBLIC'
-                            ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                            ? 'bg-emerald-950/70 text-emerald-400 border border-emerald-800/60'
                             : company.verifiedStatus === 'VERIFIED_STRIPE'
-                            ? 'bg-slate-100 text-slate-800 border border-slate-200'
-                            : 'bg-amber-50 text-amber-800 border border-amber-200'
+                            ? 'bg-blue-950/70 text-blue-400 border border-blue-800/60'
+                            : 'bg-amber-950/70 text-amber-400 border border-amber-800/60'
                         }`}>
                           {company.verifiedStatus === 'AUDITED_PUBLIC' ? '有報' : company.verifiedStatus === 'VERIFIED_STRIPE' ? '決済' : '推計'}
                         </span>
-                        <span className="text-xs font-bold truncate text-slate-950">
+                        <span className="text-xs font-bold truncate text-zinc-100">
                           {company.japaneseName}
                         </span>
                       </div>
-                      <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                      <div className="text-[11px] text-zinc-400 truncate mt-0.5">
                         {company.tagline}
                       </div>
                     </div>
@@ -266,7 +266,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
 
                   <div className="shrink-0 flex flex-col items-end gap-1">
                     {revenueLabel && (
-                      <span className="text-[10px] font-mono font-bold text-emerald-700 tabular-nums px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200/80 whitespace-nowrap">
+                      <span className="text-[10px] font-mono font-bold text-emerald-400 tabular-nums px-1.5 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60 whitespace-nowrap">
                         {revenueLabel}
                       </span>
                     )}

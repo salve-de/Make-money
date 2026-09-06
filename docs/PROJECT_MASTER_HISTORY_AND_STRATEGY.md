@@ -760,4 +760,37 @@
       - `npm run build` は Exit Code 0（エラーゼロ）で通過。
       - GitHubへ新ブランチをプッシュし、Pull Request を作成。
 
+23. **Phase 32: 「全体的に根本的に醜い」の外科手術 ＆ Bloomberg Obsidian Dark規格への全画面完全統一（完了）**
+    - **ユーザーの痛烈な叫び**:
+      - 「で、レイアウトとか デザイン 変わった？」「全然 全体的に 根本的に 醜いんだけど」「やれ 根本的に 全部を変えるの？」「今何やってんの」「続けて」
+    - **根本原因の検死（なぜ「醜い」と感じられたのか？）**:
+      1. **白背景・パステルパーツの残存**:
+         - `DiagnosticFinder`（リソース適合診断）、`IdeasVaultView`（実践機会台帳）、`portal/sections/` の全5ファイル、および `ScreenerModal`（50軸条件）が、旧式の真っ白な背景（`bg-slate-50`, `bg-white`, `text-slate-900`）のまま放置されていた。
+         - これにより、黒いヘッダーからタブを切り替えた瞬間に、安っぽい無料ブログのような真っ白な画面が飛び出し、視覚的統一感が完全に破綻していた。
+      2. **浮き上がるパステルアイコン（CompanyLogo）のおもちゃ感**:
+         - 全画面で使われていた `CompanyLogo` が `bg-blue-50 border-blue-200` や `bg-emerald-50 border-emerald-200` といった淡いパステルの白枠四角だったため、漆黒の金融画面上で無数の「白い角丸四角」が浮き上がり、幼稚園のおもちゃ箱のようなチープさを醸し出していた。
+      3. **数字フォーマットの破綻（¥16312億円）**:
+         - `formatShortAmount` が1兆円以上の数値に対応しておらず、NVIDIA等の売上を「¥16312億円」という狂った表記で画面中央に誇らしげに出していた。
+      4. **要素の枠崩れと丸記号（●）**:
+         - キースペックグリッドの「実効手残り純利」が長文でセルを突き破り、高さがガタガタになっていた。またセクション見出しに丸記号が使われ、金融端末の緊張感を削いでいた。
+    - **断行した外科手術（Bloomberg Obsidian Dark規格への統一）**:
+      1. **全画面の完全漆黒金融端末化**:
+         - ベース色を `#0B0E14` (Obsidian Jet Black)、パネルを `#0D1117`、インセットを `#0F131C` / `#090C10` に統一。
+         - 境界線を 1px極細ヘアライン `border-white/[0.08]` に統一。
+         - 数字表記を `font-mono tabular-nums` に徹底。
+         - アクセントをエメラルド発光（`text-emerald-400 bg-emerald-950/70 border border-emerald-800/60`）に統一。
+      2. **対象コンポーネント全方位の完全改修**:
+         - `DiagnosticFinder.tsx`: 左6軸スクリーナー・右実行ドシエ・OUTREACH ASSET文面ブロック・PRO解錠枠を完全ダーク化。
+         - `IdeasVaultView.tsx`: 左ディレクトリ・右Playbookドシエ・4大数値ストリップ・歪み解剖・ツールスタック・DAY-1工程表を完全ダーク化。
+         - `CompanyLogo.tsx`: パステル白枠を全廃し、漆黒に沈む `bg-white/[0.04] border border-white/[0.08]` ＋ 控えめなシグナル発光色に換装。
+         - `PortalView.tsx`: 1兆円以上を「¥X.XX兆円」とするフォーマットを追加（最高月商「¥1.63兆円」へ正常化）。白ベタボタンを金融端末ボタンに換装。
+         - `portal/sections/` 5ファイル (`SpecialCollectionsView`, `CollectionDetailView`, `MarketSignalsView`, `SignalDetailView`, `LeaderboardView`): 全頭検査し白背景を完全撤廃。
+         - `ExecutiveDetailSheet.tsx`: 実効手残り純利に `truncate` と `min-w-0` を適用し枠崩れを完全防御。見出しの丸記号をシャープなスクエアインジケーター（■）へ換装。
+         - `ScreenerModal.tsx`: 旧式の白背景・青ボタンを完全撤廃し、漆黒の50軸スクリーニングコックピットへ全面換装。
+         - `ProModal.tsx`: 白ベタボタンを金融端末仕様のエメラルド・透過白ボタンへ換装。
+    - **検証**:
+      - `npx tsc --noEmit` エラーゼロ。
+      - 実画面キャプチャ（Portal, Terminal, Finder, Vault, ScreenerModal）を目視監査し、白背景・枠崩れ・おもちゃ感ゼロを確認。
+
+
 
