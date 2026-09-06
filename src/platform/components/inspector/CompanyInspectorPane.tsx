@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { FinancialEntity } from '../../types/terminal';
 import { 
   X, 
@@ -15,7 +16,8 @@ import {
   Layers, 
   Lock,
   KeyRound,
-  Zap
+  Zap,
+  BarChart3
 } from 'lucide-react';
 
 function parsePunchline(text: string): { punchline: string; detail: string } {
@@ -33,6 +35,7 @@ interface CompanyInspectorPaneProps {
   onPrevEntity?: () => void;
   onNextEntity?: () => void;
   onOpenPro?: () => void;
+  initialTab?: TabType;
 }
 
 type TabType = 'CORE' | 'FINANCIALS' | 'PLAYBOOK';
@@ -44,8 +47,18 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onPrevEntity,
   onNextEntity,
   onOpenPro,
+  initialTab = 'CORE',
 }) => {
-  const [activeTab, setActiveTab] = useState<TabType>('CORE');
+  const searchParams = useSearchParams();
+  const tabParam = searchParams?.get('tab')?.toUpperCase() as TabType | undefined;
+  const resolvedTab = tabParam === 'CORE' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK' ? tabParam : initialTab;
+  const [activeTab, setActiveTab] = useState<TabType>(resolvedTab);
+
+  useEffect(() => {
+    if (tabParam === 'CORE' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK') {
+      setActiveTab(tabParam);
+    }
+  }, [tabParam]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -89,126 +102,78 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         className="fixed inset-0 bg-black/60 backdrop-blur-xs z-30 md:hidden"
       />
 
-      <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:w-[450px] lg:w-[470px] bg-[#08090C] border-t md:border-t-0 md:border-l border-white/[0.06] z-40 flex flex-col shrink-0 select-none overflow-hidden shadow-2xl">
+      <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#08090C] border-t md:border-t-0 md:border-l border-white/[0.06] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
         
         {/* ========================================================= */}
-        {/* 【上部固定ゾーン 1: ヘッダー ＆ ナビゲーション】 */}
+        {/* 【上部極薄固定ヘッダー: 銘柄情報 ＆ アクション】 */}
         {/* ========================================================= */}
-        <div className="p-3 border-b border-white/[0.06] bg-[#07080B] flex items-center justify-between shrink-0">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="font-mono text-xs text-zinc-300 font-bold shrink-0 bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.08]">
-              {entity.ticker}
-            </span>
-            <div className="truncate">
-              <h2 className="text-xs font-bold text-white truncate font-sans">
-                {entity.name}
-              </h2>
-              <span className="text-[10px] text-zinc-500 font-mono block truncate">
-                {entity.legalEntity || entity.founder} ・ {entity.country}
+        <div className="border-b border-white/[0.06] bg-[#07080B] shrink-0">
+          <div className="p-3 flex items-center justify-between">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-mono text-xs text-zinc-300 font-bold shrink-0 bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.08]">
+                {entity.ticker}
               </span>
+              <div className="truncate">
+                <h2 className="text-xs font-bold text-white truncate font-sans">
+                  {entity.name}
+                </h2>
+                <span className="text-[10px] text-zinc-500 font-mono block truncate">
+                  {entity.legalEntity || entity.founder} ・ {entity.country}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1 shrink-0">
+              {/* J/K ナビゲーション */}
+              <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
+                <button
+                  onClick={onPrevEntity}
+                  disabled={!onPrevEntity}
+                  className="p-1 hover:text-white disabled:opacity-20 transition-colors"
+                  title="前銘柄 (K)"
+                >
+                  <ChevronLeft className="w-3.5 h-3.5" />
+                </button>
+                <kbd className="bg-white/[0.04] px-1 rounded text-zinc-500">J/K</kbd>
+                <button
+                  onClick={onNextEntity}
+                  disabled={!onNextEntity}
+                  className="p-1 hover:text-white disabled:opacity-20 transition-colors"
+                  title="次銘柄 (J)"
+                >
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* 外部リンク */}
+              <a
+                href={entity.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1 text-zinc-500 hover:text-white transition-colors"
+                title="公式サイトを開く"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+
+              {/* クローズボタン */}
+              <button
+                onClick={onClose}
+                className="p-1 text-zinc-500 hover:text-white transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 shrink-0">
-            {/* J/K ナビゲーション */}
-            <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
-              <button
-                onClick={onPrevEntity}
-                disabled={!onPrevEntity}
-                className="p-1 hover:text-white disabled:opacity-20 transition-colors"
-                title="前銘柄 (K)"
-              >
-                <ChevronLeft className="w-3.5 h-3.5" />
-              </button>
-              <kbd className="bg-white/[0.04] px-1 rounded text-zinc-500">J/K</kbd>
-              <button
-                onClick={onNextEntity}
-                disabled={!onNextEntity}
-                className="p-1 hover:text-white disabled:opacity-20 transition-colors"
-                title="次銘柄 (J)"
-              >
-                <ChevronRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-
-            {/* 外部リンク */}
-            <a
-              href={entity.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-1 text-zinc-500 hover:text-white transition-colors"
-              title="公式サイトを開く"
-            >
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-
-            {/* クローズボタン */}
-            <button
-              onClick={onClose}
-              className="p-1 text-zinc-500 hover:text-white transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
-        </div>
-
-        {/* ========================================================= */}
-        {/* 【上部固定ゾーン 2: 計器盤 Executive KPI Strip ＆ ウォーターフォール】 */}
-        {/* ========================================================= */}
-        <div className="bg-[#060709] border-b border-white/[0.06] p-3 space-y-2.5 shrink-0">
-          {/* タグライン */}
-          <div className="text-[11px] text-zinc-400 leading-snug font-sans truncate">
+          {/* タグライン（1行スマート表示） */}
+          <div className="px-3 pb-2 text-[11px] text-zinc-400 leading-snug font-sans truncate">
             {entity.tagline}
           </div>
-
-          {/* 4連コアKPI（カードではなく高密度1行ストリップ） */}
-          <div className="grid grid-cols-4 gap-2 font-mono py-1 border-y border-white/[0.04]">
-            <div>
-              <span className="text-[9px] text-zinc-500 block uppercase">月商 (Rev)</span>
-              <span className="text-xs font-bold text-white tabular-nums">
-                {formatMoney(entity.pnl.monthlyRevenue)}
-              </span>
-            </div>
-            <div>
-              <span className="text-[9px] text-zinc-500 block uppercase">純手残り (Net)</span>
-              <span className="text-xs font-bold text-emerald-400 tabular-nums">
-                {formatMoney(entity.pnl.operatingProfit)}
-              </span>
-            </div>
-            <div>
-              <span className="text-[9px] text-zinc-500 block uppercase">利益率 (Margin)</span>
-              <span className="text-xs font-bold text-emerald-400 tabular-nums">
-                {entity.pnl.operatingMargin}%
-              </span>
-            </div>
-            <div>
-              <span className="text-[9px] text-zinc-500 block uppercase">年成長率 (YoY)</span>
-              <span className="text-xs font-bold text-zinc-200 tabular-nums">
-                +{entity.growthRateYoY}%
-              </span>
-            </div>
-          </div>
-
-          {/* 損益流出ウォーターフォールバー (静謐な金融仕様) */}
-          <div className="space-y-1">
-            <div className="flex items-center justify-between text-[9px] font-mono">
-              <span className="text-zinc-500">損益流出分解 (100%基準)</span>
-              <span className="text-emerald-400 font-bold">手残り純利益 {profitPct}%</span>
-            </div>
-            <div className="w-full h-1.5 bg-black/60 rounded-xs overflow-hidden flex border border-white/[0.08]">
-              {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
-              {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className="bg-zinc-700" title={`推論/サーバー: ${serverPct}%`} />}
-              {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
-              {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
-              {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
-              {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
-              {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className="bg-emerald-500" title={`純利益: ${profitPct}%`} />}
-            </div>
-          </div>
         </div>
 
         {/* ========================================================= */}
-        {/* 【タブ切替バー: 3層特化 (ALL全廃)】 */}
+        {/* 【タブ切替バー: 3層特化 (CORE / FINANCIALS / PLAYBOOK)】 */}
         {/* ========================================================= */}
         <div className="flex items-center border-b border-white/[0.06] bg-[#07080A] text-[11px] font-sans shrink-0">
           <button
@@ -244,102 +209,134 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         </div>
 
         {/* ========================================================= */}
-        {/* 【下部コンテンツゾーン: スクロール最小・高密度テーブル】 */}
+        {/* 【コンテンツゾーン: 明瞭なセクション区切り ＆ 高密度】 */}
         {/* ========================================================= */}
-        <div className="flex-1 overflow-y-auto p-3.5 space-y-4 text-xs font-sans">
+        <div className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans">
           
           {/* ------------------------------------------------------- */}
           {/* TAB 1: 事業DNA (Core) */}
           {/* ------------------------------------------------------- */}
           {activeTab === 'CORE' && (
-            <div className="space-y-3.5">
-              {/* 事業の正体 (Key-Valueテーブル形式) */}
+            <div className="space-y-6">
+              {/* #01 事業の正体 */}
               {entity.essence && (
-                <div className="space-y-1.5">
-                  <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                    事業の正体・構造仕様 (Business DNA)
-                  </div>
-                  <div className="border border-white/[0.06] rounded bg-white/[0.01] divide-y divide-white/[0.04]">
-                    <div className="p-2 flex items-start gap-2">
-                      <span className="w-20 text-[10px] font-mono text-zinc-500 shrink-0">何屋か</span>
-                      <span className="text-zinc-200 text-[11px] leading-relaxed font-medium">{entity.essence.whatItDoes}</span>
+                <section className="space-y-2">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                        #01
+                      </span>
+                      <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                        事業の正体・構造仕様 (BUSINESS DNA)
+                      </span>
                     </div>
-                    <div className="p-2 flex items-start gap-2">
-                      <span className="w-20 text-[10px] font-mono text-zinc-500 shrink-0">誰の財布</span>
+                  </div>
+                  <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
+                    <div className="p-3 flex items-start gap-3">
+                      <span className="w-24 text-[10px] font-mono text-zinc-400 shrink-0 font-medium">何屋か</span>
+                      <span className="text-zinc-100 text-[11px] leading-relaxed font-medium">{entity.essence.whatItDoes}</span>
+                    </div>
+                    <div className="p-3 flex items-start gap-3">
+                      <span className="w-24 text-[10px] font-mono text-zinc-400 shrink-0 font-medium">誰の財布</span>
                       <span className="text-zinc-300 text-[11px] leading-relaxed">{entity.essence.targetCustomer}</span>
                     </div>
-                    <div className="p-2 flex items-start gap-2">
-                      <span className="w-20 text-[10px] font-mono text-zinc-500 shrink-0">切除する苦痛</span>
+                    <div className="p-3 flex items-start gap-3">
+                      <span className="w-24 text-[10px] font-mono text-zinc-400 shrink-0 font-medium">切除する苦痛</span>
                       <span className="text-zinc-300 text-[11px] leading-relaxed">{entity.essence.painRelief}</span>
                     </div>
                   </div>
-                </div>
+                </section>
               )}
 
-              {/* 突いた業界の盲点・不条理 */}
+              {/* #02 突いた業界の盲点 */}
               {(() => {
                 const { punchline, detail } = parsePunchline(entity.strategy.blindspot);
                 return (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-1 text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                      <TrendingUp className="w-3 h-3 text-zinc-400" />
-                      <span>突いた業界の盲点 (Market Glitch)</span>
+                  <section className="space-y-2">
+                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                          #02
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <TrendingUp className="w-3.5 h-3.5 text-zinc-400" />
+                          <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                            突いた業界の盲点 (MARKET GLITCH)
+                          </span>
+                        </div>
+                      </div>
                     </div>
-                    <div className="border border-white/[0.06] rounded bg-white/[0.01] p-2.5 space-y-1.5">
+                    <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3.5 space-y-2 shadow-sm">
                       {punchline && (
-                        <div className="text-white font-bold text-[11px] leading-snug border-l-2 border-white/40 pl-2">
+                        <div className="text-white font-bold text-xs leading-snug border-l-2 border-white/60 pl-2.5">
                           {punchline}
                         </div>
                       )}
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                      <p className="text-zinc-300 text-[11px] leading-relaxed">
                         {detail}
                       </p>
                     </div>
-                  </div>
+                  </section>
                 );
               })()}
 
-              {/* 参入障壁の正体 (Moat) */}
+              {/* #03 参入障壁の正体 */}
               {(() => {
                 const { punchline, detail } = parsePunchline(entity.strategy.moatDescription);
                 return (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                      <span className="flex items-center gap-1">
-                        <ShieldCheck className="w-3 h-3 text-zinc-400" />
-                        <span>参入障壁 (7 Powers Moat)</span>
-                      </span>
-                      <span className="bg-white/[0.04] text-zinc-400 border border-white/[0.08] px-1 py-0.2 rounded text-[9px]">
+                  <section className="space-y-2">
+                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                          #03
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
+                          <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                            参入障壁の正体 (7 POWERS MOAT)
+                          </span>
+                        </div>
+                      </div>
+                      <span className="bg-white/[0.06] text-zinc-300 border border-white/[0.1] px-1.5 py-0.5 rounded font-mono text-[10px]">
                         {entity.strategy.moatType}
                       </span>
                     </div>
-                    <div className="border border-white/[0.06] rounded bg-white/[0.01] p-2.5 space-y-1.5">
+                    <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3.5 space-y-2 shadow-sm">
                       {punchline && (
-                        <div className="text-white font-bold text-[11px] leading-snug border-l-2 border-white/40 pl-2">
+                        <div className="text-white font-bold text-xs leading-snug border-l-2 border-white/60 pl-2.5">
                           {punchline}
                         </div>
                       )}
-                      <p className="text-zinc-400 text-[11px] leading-relaxed">
+                      <p className="text-zinc-300 text-[11px] leading-relaxed">
                         {detail}
                       </p>
                     </div>
-                  </div>
+                  </section>
                 );
               })()}
 
-              {/* 大手が手を出せない理由 */}
+              {/* #04 大手が真似できない理由 */}
               {entity.strategy.incumbentDilemma && (
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-1 text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                    <Flame className="w-3 h-3 text-zinc-400" />
-                    <span>大手が構造上真似できない理由 (Incumbent Dilemma)</span>
+                <section className="space-y-2">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                        #04
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <Flame className="w-3.5 h-3.5 text-zinc-400" />
+                        <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                          大手が構造上真似できない理由 (INCUMBENT DILEMMA)
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="border border-white/[0.06] rounded bg-white/[0.01] p-2.5">
-                    <p className="text-zinc-400 text-[11px] leading-relaxed">
+                  <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3.5 shadow-sm">
+                    <p className="text-zinc-300 text-[11px] leading-relaxed">
                       {entity.strategy.incumbentDilemma}
                     </p>
                   </div>
-                </div>
+                </section>
               )}
             </div>
           )}
@@ -348,27 +345,98 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* TAB 2: 財務・武器庫 (Financials) */}
           {/* ------------------------------------------------------- */}
           {activeTab === 'FINANCIALS' && (
-            <div className="space-y-3.5">
-              {/* P&L 会計スプレッドシートテーブル */}
-              <div className="space-y-1.5 font-mono">
-                <div className="text-[10px] text-zinc-500 uppercase tracking-wider">
-                  月次損益実査テーブル (P&L Audit)
+            <div className="space-y-6">
+              {/* #01 財務計器盤 (4連KPI + ウォーターフォールバー) */}
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                      #01
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <BarChart3 className="w-3.5 h-3.5 text-zinc-400" />
+                      <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                        財務計器盤 (EXECUTIVE KPI & CASH FLOW)
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="border border-white/[0.06] rounded bg-white/[0.01] divide-y divide-white/[0.04] text-xs">
-                  <div className="p-2 flex justify-between items-center">
+
+                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3.5 space-y-3.5 shadow-sm">
+                  {/* 4連コアKPI */}
+                  <div className="grid grid-cols-4 gap-2 font-mono">
+                    <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                      <span className="text-[9px] text-zinc-500 block uppercase">月商 (Rev)</span>
+                      <span className="text-xs font-bold text-white tabular-nums">
+                        {formatMoney(entity.pnl.monthlyRevenue)}
+                      </span>
+                    </div>
+                    <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                      <span className="text-[9px] text-zinc-500 block uppercase">純手残り (Net)</span>
+                      <span className="text-xs font-bold text-emerald-400 tabular-nums">
+                        {formatMoney(entity.pnl.operatingProfit)}
+                      </span>
+                    </div>
+                    <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                      <span className="text-[9px] text-zinc-500 block uppercase">利益率 (Margin)</span>
+                      <span className="text-xs font-bold text-emerald-400 tabular-nums">
+                        {entity.pnl.operatingMargin}%
+                      </span>
+                    </div>
+                    <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                      <span className="text-[9px] text-zinc-500 block uppercase">年成長率 (YoY)</span>
+                      <span className="text-xs font-bold text-zinc-200 tabular-nums">
+                        +{entity.growthRateYoY}%
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 損益流出ウォーターフォールバー */}
+                  <div className="space-y-1.5 pt-1 border-t border-white/[0.04]">
+                    <div className="flex items-center justify-between text-[10px] font-mono">
+                      <span className="text-zinc-500">損益流出分解 (100%基準)</span>
+                      <span className="text-emerald-400 font-bold">手残り純利益 {profitPct}%</span>
+                    </div>
+                    <div className="w-full h-2 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.08]">
+                      {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
+                      {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className="bg-zinc-700" title={`推論/サーバー: ${serverPct}%`} />}
+                      {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
+                      {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
+                      {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
+                      {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
+                      {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className="bg-emerald-500" title={`純利益: ${profitPct}%`} />}
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* #02 P&L 会計スプレッドシートテーブル */}
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                      #02
+                    </span>
+                    <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                      月次損益実査テーブル (P&L AUDIT)
+                    </span>
+                  </div>
+                </div>
+                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] text-xs font-mono shadow-sm">
+                  <div className="p-2.5 flex justify-between items-center">
                     <span className="text-zinc-400">直近月商 (Gross Revenue)</span>
                     <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
                   </div>
-                  <div className="p-2 flex justify-between items-center text-[11px]">
+                  <div className="p-2.5 flex justify-between items-center text-[11px]">
                     <span className="text-zinc-500 pl-2">└ 売上原価 (COGS)</span>
                     <span className="text-zinc-400 tabular-nums">-{formatMoney(entity.pnl.cogs)}</span>
                   </div>
-                  <div className="p-2 flex justify-between items-center bg-white/[0.02]">
+                  <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
                     <span className="text-zinc-300 font-medium">粗利益 (Gross Profit: {entity.pnl.grossMargin}%)</span>
                     <span className="text-white font-medium tabular-nums">{formatMoney(entity.pnl.grossProfit)}</span>
                   </div>
-                  <div className="p-2 space-y-1 text-[11px] text-zinc-500">
-                    <div className="text-[10px] text-zinc-600 uppercase">販管費内訳 (OPEX)</div>
+                  <div className="p-2.5 space-y-1.5 text-[11px] text-zinc-500">
+                    <div className="text-[10px] text-zinc-600 uppercase font-bold">販管費内訳 (OPEX)</div>
                     <div className="flex justify-between pl-2">
                       <span>サーバー/推論API費</span>
                       <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.serverAndApi)}</span>
@@ -386,21 +454,28 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                       <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS)}</span>
                     </div>
                   </div>
-                  <div className="p-2 flex justify-between items-center border-t border-white/[0.08] bg-emerald-950/10">
+                  <div className="p-2.5 flex justify-between items-center border-t border-white/[0.08] bg-emerald-950/20">
                     <span className="text-white font-bold">営業利益 (純手残り: {entity.pnl.operatingMargin}%)</span>
                     <span className="text-emerald-400 font-bold tabular-nums text-xs">
                       {formatMoney(entity.pnl.operatingProfit)}/月
                     </span>
                   </div>
                 </div>
-              </div>
+              </section>
 
-              {/* 運用体制 ＆ 資本要件 */}
-              <div className="space-y-1.5">
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                  運用体制 ＆ 初期資本
+              {/* #03 運用体制 ＆ 資本要件 */}
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                      #03
+                    </span>
+                    <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                      運用体制 ＆ 初期資本 (OPERATIONS)
+                    </span>
+                  </div>
                 </div>
-                <div className="border border-white/[0.06] rounded bg-white/[0.01] grid grid-cols-3 divide-x divide-white/[0.04] p-2 font-mono text-center text-[10px]">
+                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] grid grid-cols-3 divide-x divide-white/[0.04] p-3 font-mono text-center text-[10px] shadow-sm">
                   <div>
                     <span className="text-zinc-500 block">人数</span>
                     <span className="text-white font-bold text-xs">{entity.operations.teamSize}人</span>
@@ -414,22 +489,31 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     <span className="text-emerald-400 font-bold text-xs">{entity.operations.automationLevel}%</span>
                   </div>
                 </div>
-              </div>
+              </section>
 
-              {/* 武器庫：ツールスタック (高密度行テーブル) */}
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                  <span className="flex items-center gap-1">
-                    <Wrench className="w-3 h-3 text-zinc-400" />
-                    <span>武器庫：ツールスタック ({entity.operations.toolStack.length}件)</span>
+              {/* #04 武器庫：ツールスタック */}
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                      #04
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <Wrench className="w-3.5 h-3.5 text-zinc-400" />
+                      <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                        武器庫：ツールスタック ({entity.operations.toolStack.length}件)
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-zinc-400 font-mono text-[10px]">
+                    月額計: {formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}
                   </span>
-                  <span>月額計: {formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}</span>
                 </div>
-                <div className="border border-white/[0.06] rounded bg-white/[0.01] divide-y divide-white/[0.04]">
+                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
                   {entity.operations.toolStack.map((tool, idx) => (
-                    <div key={idx} className="p-2 space-y-0.5">
+                    <div key={idx} className="p-2.5 space-y-1">
                       <div className="flex justify-between items-center text-[11px]">
-                        <div className="flex items-center gap-1.5">
+                        <div className="flex items-center gap-2">
                           <span className="text-white font-medium">{tool.name}</span>
                           <span className="text-zinc-500 text-[10px] font-mono">({tool.category})</span>
                         </div>
@@ -445,14 +529,14 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                         </div>
                       </div>
                       {tool.purpose && (
-                        <p className="text-[10px] text-zinc-500 leading-snug">
+                        <p className="text-[10px] text-zinc-400 leading-snug">
                           {tool.purpose}
                         </p>
                       )}
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
             </div>
           )}
 
@@ -460,52 +544,79 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* TAB 3: 実務Playbook (Tactics) */}
           {/* ------------------------------------------------------- */}
           {activeTab === 'PLAYBOOK' && (
-            <div className="space-y-3.5">
-              {/* 最初の100人を獲得した手順 */}
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1 text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                  <Users className="w-3 h-3 text-zinc-400" />
-                  <span>最初の100人を獲得した泥臭い手順</span>
+            <div className="space-y-6">
+              {/* #01 最初の100人を獲得した手順 */}
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                      #01
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <Users className="w-3.5 h-3.5 text-zinc-400" />
+                      <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                        最初の100人を獲得した泥臭い手順 (TRACTION)
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="border border-white/[0.06] rounded bg-white/[0.01] divide-y divide-white/[0.04]">
+                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
                   {entity.strategy.initialTraction.map((item, idx) => (
-                    <div key={idx} className="p-2 flex items-start gap-2 text-[11px] text-zinc-300">
-                      <span className="text-zinc-500 font-mono text-[10px] shrink-0">{idx + 1}.</span>
+                    <div key={idx} className="p-3 flex items-start gap-2.5 text-[11px] text-zinc-200">
+                      <span className="text-zinc-500 font-mono text-[10px] shrink-0 font-bold">{idx + 1}.</span>
                       <span className="leading-relaxed">{item}</span>
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
 
-              {/* 再現実行ステップ */}
-              <div className="space-y-1.5">
-                <div className="flex items-center gap-1 text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                  <Layers className="w-3 h-3 text-zinc-400" />
-                  <span>再現・実行 Playbook</span>
+              {/* #02 再現・実行ステップ */}
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                      #02
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <Layers className="w-3.5 h-3.5 text-zinc-400" />
+                      <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                        再現・実行 Playbook (ACTION PLAYBOOK)
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div className="border border-white/[0.06] rounded bg-white/[0.01] divide-y divide-white/[0.04]">
+                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
                   {entity.strategy.actionPlaybook.map((step, idx) => (
-                    <div key={idx} className="p-2 text-[11px] text-zinc-300 leading-relaxed">
+                    <div key={idx} className="p-3 text-[11px] text-zinc-200 leading-relaxed">
                       {step}
                     </div>
                   ))}
                 </div>
-              </div>
+              </section>
 
-              {/* 顧客獲得動線 (無料サマリー) */}
+              {/* #03 顧客獲得動線 */}
               {entity.acquisition && (
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 uppercase tracking-wider">
-                    <span className="flex items-center gap-1">
-                      <Zap className="w-3 h-3 text-zinc-400" />
-                      <span>顧客獲得動線</span>
+                <section className="space-y-2">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                        #03
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <Zap className="w-3.5 h-3.5 text-zinc-400" />
+                        <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                          顧客獲得動線 (ACQUISITION FUNNEL)
+                        </span>
+                      </div>
+                    </div>
+                    <span className="font-mono text-[10px] text-zinc-400">
+                      CAC: <strong className="text-emerald-400">{entity.acquisition.cacJpy === 0 ? '0円' : formatMoney(entity.acquisition.cacJpy)}</strong>
                     </span>
-                    <span>CAC: <strong className="text-emerald-400">{entity.acquisition.cacJpy === 0 ? '0円' : formatMoney(entity.acquisition.cacJpy)}</strong></span>
                   </div>
-                  <div className="border border-white/[0.06] rounded bg-white/[0.01] p-2 text-[11px] text-zinc-300">
+                  <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3 text-[11px] text-zinc-200 shadow-sm">
                     {entity.acquisition.primaryFunnel}
                   </div>
-                </div>
+                </section>
               )}
             </div>
           )}
@@ -513,13 +624,18 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* ========================================================= */}
           {/* 【単一 PRO Vault（黒金庫）】画面最下部に集約配置 */}
           {/* ========================================================= */}
-          <div className="relative border border-white/[0.08] rounded bg-[#0A0B0E] p-3 space-y-2 overflow-hidden shadow-xl mt-4">
-            <div className="flex items-center justify-between border-b border-white/[0.06] pb-1.5">
-              <div className="flex items-center gap-1.5">
-                <Lock className="w-3.5 h-3.5 text-zinc-400" />
-                <span className="text-[11px] font-mono font-bold text-zinc-200 uppercase tracking-wider">
-                  PRO VAULT: 実戦裏帳簿アセット
+          <div className="relative border border-white/[0.1] rounded-md bg-[#0A0B0E] p-3.5 space-y-2.5 overflow-hidden shadow-xl mt-6">
+            <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
+                  PRO
                 </span>
+                <div className="flex items-center gap-1.5">
+                  <Lock className="w-3.5 h-3.5 text-zinc-400" />
+                  <span className="text-[11px] font-mono font-bold text-zinc-200 uppercase tracking-wider">
+                    PRO VAULT: 実戦裏帳簿アセット
+                  </span>
+                </div>
               </div>
               <span className="text-[9px] font-mono text-zinc-500">
                 LOCKED ASSETS
@@ -527,7 +643,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </div>
 
             {/* すりガラス遮断エリア (課金トリガー ＆ コールドDM実文 ＆ 非公開ハック) */}
-            <div className="relative">
+            <div className="relative pt-1">
               <div className="filter blur-[2px] opacity-25 select-none pointer-events-none space-y-2 text-[10px] text-zinc-400 font-mono leading-relaxed">
                 <div>
                   <span className="text-zinc-300 font-bold block">【課金の心理トリガー】</span>

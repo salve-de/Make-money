@@ -212,7 +212,11 @@ export const TerminalShell: React.FC = () => {
             }}
           />
         ) : (
-          <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#07080B]">
+          <div className={`flex flex-col min-w-0 overflow-hidden bg-[#07080B] transition-all duration-150 ${
+            selectedEntity
+              ? 'w-full md:w-[440px] lg:w-[480px] xl:w-[520px] shrink-0 border-r border-white/[0.06]'
+              : 'flex-1'
+          }`}>
             <DataGridToolbar
               currentFilter={currentFilter}
               onSelectFilter={(f) => {
@@ -232,6 +236,7 @@ export const TerminalShell: React.FC = () => {
               currency={currency}
               bookmarkedIds={bookmarkedIds}
               onToggleBookmark={handleToggleBookmark}
+              isSplitView={Boolean(selectedEntity)}
             />
           </div>
         )}

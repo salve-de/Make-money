@@ -12,6 +12,7 @@ interface InstitutionalDataGridProps {
   currency: 'JPY' | 'USD';
   bookmarkedIds: Set<string>;
   onToggleBookmark: (id: string, e: React.MouseEvent) => void;
+  isSplitView?: boolean;
 }
 
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
@@ -21,6 +22,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   currency,
   bookmarkedIds,
   onToggleBookmark,
+  isSplitView = false,
 }) => {
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
@@ -56,8 +58,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         )}
       </div>
 
-      {/* 2. 狭小PC（1024px〜1279px: MacBook Air 13"等）: 厳選5カラム表 */}
-      <div className="hidden md:block xl:hidden w-full">
+      {/* 2. スプリット表示時（インスペクター展開時）または狭小PC: 厳選5カラム高密度表 */}
+      <div className={`hidden md:block ${isSplitView ? 'block' : 'xl:hidden'} w-full`}>
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
@@ -137,8 +139,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         </table>
       </div>
 
-      {/* 3. ワイドPC（1440px〜1920px+）: 9カラム超高密度金融台帳 */}
-      <div className="hidden xl:block w-full">
+      {/* 3. ワイドPC全画面表示時（インスペクター非表示時）: 9カラム超高密度金融台帳 */}
+      {!isSplitView && (
+        <div className="hidden xl:block w-full">
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
@@ -241,6 +244,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
           </tbody>
         </table>
       </div>
+      )}
     </div>
   );
 };
