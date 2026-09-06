@@ -16,6 +16,8 @@ Status: **Make-Moneyの収集・表示契約**
 
 共通データ項目の全体像は [Universal Foundationの収集基準](https://github.com/salve-de/universal-foundation/blob/main/docs/UNIVERSAL_COLLECTION_BASELINE.md) と [このプロジェクトのデータ収集契約](./08_COLLECTION_CONTRACT.md) を正とする。
 
+Universal Foundationの完全化条件は [UNIVERSAL_COMPLETION_REQUIREMENTS.md（PR #3）](https://github.com/salve-de/universal-foundation/blob/codex/universal-collection-contract-20260906/docs/UNIVERSAL_COMPLETION_REQUIREMENTS.md) に定義する。このプロジェクトはそのうち `business-opportunity.v1` の消費者であり、共通コアの所有者ではない。Make-Moneyで必要な利益・コスト・顧客・集客・運営負担はこの契約で優先し、会計諸表・市場データ・個人家計の完全なデータモデルはUniversal側の別拡張として扱う。
+
 ## 2. 全体として集める情報
 
 ### 主体
