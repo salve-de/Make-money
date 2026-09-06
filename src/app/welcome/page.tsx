@@ -60,30 +60,18 @@ export default function WelcomePage() {
       </header>
 
       {/* 2. HERO セクション */}
-      <section className="relative pt-12 pb-16 md:pt-20 md:pb-24 px-4 md:px-8 max-w-5xl mx-auto text-center">
-        {/* カテゴリ明言バッジ */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-zinc-300 mb-6">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-          <span className="font-semibold text-white">【資本主義のカンニングペーパー】</span>
-          <span className="text-zinc-500 hidden sm:inline">|</span>
-          <span className="text-zinc-400 hidden sm:inline">世界中の高収益ビジネス「裏帳簿」検索エンジン</span>
-        </div>
-
-        {/* H1 見出し（強烈な引き ＋ 道具の正体） */}
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-medium tracking-tight text-white mb-5 leading-tight sm:leading-snug max-w-4xl mx-auto">
-          誰が、どんな手口でいくら抜いたかを冷徹に暴く。<br />
-          <span className="text-zinc-400 font-normal text-xl sm:text-2xl md:text-3xl mt-1 block">
-            儲かっている会社の「裏帳簿」、すべて検索できます。
-          </span>
+      <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 px-4 md:px-8 max-w-5xl mx-auto text-center">
+        {/* H1 見出し（主砲のみ） */}
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-white mb-4 leading-tight">
+          誰が、どんな手口でいくら抜いたかを暴く。
         </h1>
 
-        {/* リード文（文系経営者が1秒で理解できる平易な比喩） */}
-        <p className="text-xs sm:text-sm md:text-base text-zinc-300 leading-relaxed max-w-2xl mx-auto mb-8 font-sans">
-          努力や理念を語る前に、すでに現金を吐き出している先行者の手口をカンニングせよ。<br className="hidden sm:inline" />
-          月数千万円を抜く1人起業家から高収益企業の<strong className="text-white font-medium">「他人の財布のレントゲン写真（実際の売上・粗利率・使っているツール・営業文面）」</strong>を1秒で検索し、その型紙（隙間）をそのまま真似るための情報端末です。
+        {/* サブリード（1行で道具の正体を定義） */}
+        <p className="text-sm sm:text-base md:text-lg text-zinc-400 max-w-2xl mx-auto mb-8 font-sans">
+          儲かっている会社の「裏帳簿（売上・粗利・手口）」を検索し、そのまま真似るだけの台帳。
         </p>
 
-        {/* 0.5秒で理解させる検索バー（モック ➔ 端末へ直結） */}
+        {/* 検索バー（端末直結） */}
         <div className="max-w-xl mx-auto mb-6">
           <Link
             href="/?q=Photo+AI"
@@ -92,31 +80,23 @@ export default function WelcomePage() {
             <div className="flex items-center gap-2.5 pl-2 text-xs sm:text-sm text-zinc-400">
               <span className="text-zinc-500 font-mono">🔍</span>
               <span className="text-zinc-300 truncate">
-                例: <span className="text-white font-medium">Photo AI</span>、<span className="text-white font-medium">粗利80%</span>、<span className="text-white font-medium">1人</span>、<span className="text-white font-medium">AI営業代行</span> ...
+                例: <span className="text-white font-medium">Photo AI</span>、<span className="text-white font-medium">粗利80%</span>、<span className="text-white font-medium">1人</span> ...
               </span>
             </div>
-            <div className="flex items-center gap-1 px-3 py-1.5 rounded bg-white text-black font-semibold text-xs group-hover:bg-zinc-200 transition-colors shrink-0">
+            <div className="flex items-center gap-1 px-3.5 py-1.5 rounded bg-white text-black font-semibold text-xs group-hover:bg-zinc-200 transition-colors shrink-0">
               <span>検索する</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>
-          <div className="flex items-center justify-center gap-2 mt-2 text-[11px] font-mono text-zinc-500">
-            <span>人気検索:</span>
-            <Link href="/?q=1人" className="hover:text-zinc-300 underline underline-offset-2">#1人ビジネス</Link>
-            <span>•</span>
-            <Link href="/?q=粗利80" className="hover:text-zinc-300 underline underline-offset-2">#粗利80%超</Link>
-            <span>•</span>
-            <Link href="/?q=AI" className="hover:text-zinc-300 underline underline-offset-2">#AIアービトラージ</Link>
-          </div>
         </div>
 
-        {/* CTA ボタングループ（検索バー直下・ファーストビュー必達） */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+        {/* CTA ボタングループ */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
           <Link
             href="/"
             className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 rounded bg-white hover:bg-zinc-200 text-black font-semibold text-xs transition-colors cursor-pointer shadow-md"
           >
-            <span>端末を起動して裏帳簿を見る (登録不要・無料)</span>
+            <span>端末を起動する (無料)</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
 
@@ -129,33 +109,6 @@ export default function WelcomePage() {
               <span>ログインしてみる</span>
             </button>
           )}
-        </div>
-
-        {/* 1秒で直感できる 3ステップ利用フロー（コンパクト帯） */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 max-w-3xl mx-auto mb-10 text-left">
-          <div className="p-3 rounded bg-white/[0.03] border border-white/[0.06]">
-            <div className="text-[10px] font-mono text-emerald-400 font-semibold mb-0.5">STEP 01【検索】</div>
-            <div className="text-xs font-medium text-white mb-0.5">実態を検索する</div>
-            <div className="text-[11px] text-zinc-400 leading-snug">
-              月1,000万超の1人起業家や粗利80%以上の高収益ビジネスを瞬時に絞り込み。
-            </div>
-          </div>
-
-          <div className="p-3 rounded bg-white/[0.03] border border-white/[0.06]">
-            <div className="text-[10px] font-mono text-emerald-400 font-semibold mb-0.5">STEP 02【盗む】</div>
-            <div className="text-xs font-medium text-white mb-0.5">手口をカンニング</div>
-            <div className="text-[11px] text-zinc-400 leading-snug">
-              損益の裏側（P&L）、ツール構成、実際の営業コールドDM文面を丸裸にする。
-            </div>
-          </div>
-
-          <div className="p-3 rounded bg-white/[0.03] border border-white/[0.06]">
-            <div className="text-[10px] font-mono text-emerald-400 font-semibold mb-0.5">STEP 03【真似る】</div>
-            <div className="text-xs font-medium text-white mb-0.5">そのまま自社に適用</div>
-            <div className="text-[11px] text-zinc-400 leading-snug">
-              ゼロから悩まず、すでに現金を吐き出している「儲けの型紙」を転用する。
-            </div>
-          </div>
         </div>
 
         {/* 端末プレビュー・高精細フレーム */}
