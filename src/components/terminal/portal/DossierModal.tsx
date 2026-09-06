@@ -156,7 +156,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
             <div className="border-b border-slate-200 pb-2">
               <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">VERIFIED CASE STUDIES</span>
               <h3 className="text-sm sm:text-base font-black text-slate-900">
-                5. 当該モデル該当企業・実践台帳ケーススタディ（クリックで詳細閲覧）
+                5. 当該モデル該当企業・実践台帳ケーススタディ
               </h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -193,8 +193,8 @@ export const DossierModal: React.FC<DossierModalProps> = ({
 
         {/* フッター */}
         <div className="p-4 border-t border-slate-200 bg-slate-50/80 flex items-center justify-between shrink-0">
-          <span className="text-xs font-mono text-slate-500">
-            ※ 実在データ・公開推計に基づく独自調査レポート
+          <span className="text-[11px] font-mono text-slate-400">
+            調査分析レポート (RESEARCH DOSSIER)
           </span>
           <button
             onClick={onClose}

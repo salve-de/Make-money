@@ -383,7 +383,7 @@ export const BusinessBattleView: React.FC<BusinessBattleViewProps> = ({
           {/* 対決フッターアクション */}
           <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-slate-500 font-sans text-center sm:text-left">
-              ※ 両社の非公開プロンプト、営業メール文面、生CSV比較はPROプランで全件解放。
+              非公開設定値および財務CSV比較はPROプランにて提供。
             </div>
             <button
               onClick={onOpenProModal}

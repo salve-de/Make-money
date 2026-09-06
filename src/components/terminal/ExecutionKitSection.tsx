@@ -45,12 +45,9 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
             EXECUTION ARSENAL
           </span>
           <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
-            実戦兵器庫：明日から実践するための「コピペ実行キット」
+            実務実行アセット：初期トラクション獲得アプローチキット
           </h2>
         </div>
-        <span className="text-[11px] font-mono text-slate-400">
-          ※ 即座にクリップボードにコピーして実戦投入可能
-        </span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 font-sans">
@@ -88,7 +85,7 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
             ) : (
               <>
                 <Copy size={14} />
-                <span>この文面を1クリックでコピー</span>
+                <span>文面をコピー</span>
               </>
             )}
           </button>
@@ -127,7 +124,7 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
             ) : (
               <>
                 <Copy size={14} />
-                <span>プロンプトを1クリックでコピー</span>
+                <span>プロンプトをコピー</span>
               </>
             )}
           </button>

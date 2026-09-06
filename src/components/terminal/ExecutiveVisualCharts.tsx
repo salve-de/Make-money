@@ -161,10 +161,6 @@ export const ExecutiveVisualCharts: React.FC<ExecutiveVisualChartsProps> = ({ co
             </div>
           </div>
         </div>
-
-        <div className="text-[10px] text-zinc-500 font-sans">
-          ※ 業界平均の利益率（約8〜12%）と比較し、手残り率が極めて異常な水準であることが直感的に把握できます。
-        </div>
       </div>
 
       {/* 2. 七つの堀（7 Powers）レーダーチャート図表 */}

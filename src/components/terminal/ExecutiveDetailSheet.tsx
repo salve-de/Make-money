@@ -633,10 +633,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                     </div>
                   </div>
                 </div>
-
-                <div className="text-[10px] text-slate-500 font-sans">
-                  ※ 業界平均利益率（約8〜12%）と比較し、手元に残る現金比率が極めて高い構造です。
-                </div>
               </div>
             ) : (
               <div className="lg:col-span-7 p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs flex flex-col justify-center space-y-2">

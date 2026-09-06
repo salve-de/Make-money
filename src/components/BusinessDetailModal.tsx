@@ -230,7 +230,6 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
                 <Cpu className="w-4 h-4 text-purple-400" />
                 この事業を再現するためのツールスタック一式
               </h3>
-              <span className="text-xs text-slate-400">※各ツールの月額費用と用途</span>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {item.tools.map((tool, idx) => (

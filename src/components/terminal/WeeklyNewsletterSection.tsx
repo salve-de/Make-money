@@ -68,7 +68,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
               <span>購読者数 1,420名（起業家・投資家）</span>
             </span>
             <span>•</span>
-            <span>解約は1クリックでいつでも可能</span>
+            <span>常時解約可能</span>
           </div>
         </div>
 
@@ -98,9 +98,6 @@ export const WeeklyNewsletterSection: React.FC = () => {
                   <p className="text-[11px] text-rose-400 font-sans">{errorMsg}</p>
                 )}
               </div>
-              <p className="text-[10px] text-slate-400 font-sans text-right">
-                ※ スパムや宣伝広告は一切送りません。
-              </p>
             </form>
           ) : (
             <div className="p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 space-y-2 font-sans text-xs">
@@ -176,7 +173,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
             </div>
 
             <div className="text-[11px] text-slate-400 border-t border-slate-800 pt-2 flex items-center justify-between">
-              <span>※ 実際のニュースレターでは、同様の最新未開拓事例が毎週月曜朝に完全無料配信されます。</span>
+              <span className="font-mono text-slate-500">WEEKLY MONDAY 08:00 JST</span>
               <span className="font-mono text-slate-500">NO SPAM GUARANTEE</span>
             </div>
           </div>

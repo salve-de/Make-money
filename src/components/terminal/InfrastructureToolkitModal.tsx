@@ -75,11 +75,8 @@ export const InfrastructureToolkitModal: React.FC<InfrastructureToolkitModalProp
             ))}
           </div>
 
-          <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-500 space-y-1">
-            <span className="font-bold text-slate-700">※ ご利用に関する留意点:</span>
-            <p>
-              各サービスへの申し込みは各社の公式安全通信により処理されます。提携プログラムに基づき、本サイトが手数料等の一部還元を受ける場合があります。
-            </p>
+          <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 text-[10px] text-slate-500 font-mono">
+            開示事項: 各サービスへの登録は公式窓口にて処理されます。提携プログラムに基づき手数料の還元を受ける場合があります。
           </div>
         </div>
 

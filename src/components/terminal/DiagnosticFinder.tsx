@@ -395,7 +395,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         whyFitsYourCards: 'プログラミングが一切できなくても、整理・構成力があれば即日参入可能。「タスク管理」「家計簿」「読書記録」などの美しいNotionワークスペースを設計し、Gumroad等で買い切り配布。',
         incumbentVsYou: {
           incumbentPain: 'Notionの白紙の画面を前にして、どう作ればいいか分からず挫折する初心者が世界中に溢れている。',
-          yourEdge: '1クリックで自分のNotionに複製できる「完成された美しいダッシュボード」を格安提供。'
+          yourEdge: '即座にNotionへ複製可能な「完成されたダッシュボード」を提供。'
         },
         threeKeyTools: [
           { name: 'Notion', role: 'テンプレートの制作と公開リンク発行' },
@@ -625,7 +625,6 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <SlidersHorizontal size={13} className="text-indigo-600" />
             <span>リソース条件セレクター（6軸入力）</span>
           </div>
-          <span className="text-[10px] text-slate-400 font-normal">※ 条件を変更すると即座に適合モデルと実行アセットが更新されます</span>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs font-sans">
@@ -723,9 +722,6 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
           <span className="font-mono text-xs font-bold text-slate-900">
             適合モデル: <span className="text-indigo-600 font-black">{sortedStrategies.length}件</span> 検出
           </span>
-          <span className="text-[11px] text-slate-500 hidden sm:inline">
-            （モデルを選択すると、下部の実行アセットが瞬時に切り替わります）
-          </span>
         </div>
 
         <div className="flex items-center gap-1.5 font-mono text-[11px]">
@@ -760,12 +756,17 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             <div
               key={item.id}
               onClick={() => setSelectedStrategyId(item.id)}
-              className={`p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between space-y-2.5 relative ${
+              className={`p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between space-y-2.5 relative group ${
                 isSelected
-                  ? 'border-indigo-600 bg-indigo-50/30 ring-1 ring-indigo-600 shadow-xs'
+                  ? 'border-indigo-600 bg-indigo-50/40 ring-2 ring-indigo-600 shadow-xs'
                   : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50'
               }`}
             >
+              {/* 選択中の直感接続ポインター（下向きキャレット） */}
+              {isSelected && (
+                <div className="hidden md:block absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-x-6 border-x-transparent border-t-6 border-t-indigo-600 z-10" />
+              )}
+
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between gap-1">
                   <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
@@ -806,12 +807,13 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
               </div>
 
               <div className="flex items-center justify-between text-[10px] font-mono pt-0.5">
-                <span className={`font-semibold ${isSelected ? 'text-indigo-600' : 'text-slate-400'}`}>
-                  {isSelected ? 'アセット表示中' : '選択してアセット表示'}
+                <span className={`font-bold flex items-center gap-1 ${isSelected ? 'text-indigo-600' : 'text-slate-400'}`}>
+                  {isSelected && <Check size={12} className="stroke-[3]" />}
+                  <span>{isSelected ? '展開中' : '選択'}</span>
                 </span>
-                <span className="text-indigo-600 font-bold flex items-center gap-0.5">
-                  <span>詳細</span>
-                  <span>→</span>
+                <span className={`font-bold flex items-center gap-0.5 ${isSelected ? 'text-indigo-600' : 'text-slate-400 group-hover:text-slate-600'}`}>
+                  <span>アセット</span>
+                  <span>↓</span>
                 </span>
               </div>
             </div>
@@ -849,6 +851,9 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
             <div className="space-y-1.5">
               <div className="flex items-center gap-2 flex-wrap">
+                <span className="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold border border-indigo-500/30 uppercase tracking-wider">
+                  ACTIVE MODEL
+                </span>
                 <span className="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/20">
                   {activeStrategy.badgeLabel}（適合度 {activeStrategy.bestFitScore}%）
                 </span>
@@ -930,10 +935,6 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 <div className="p-4 bg-slate-900/90 rounded-xl border border-slate-800 font-mono text-xs text-slate-200 whitespace-pre-wrap leading-relaxed select-text shadow-inner">
                   {activeStrategy.readyToUseAsset.content}
                 </div>
-              </div>
-
-              <div className="text-[10px] font-mono text-slate-400">
-                ※ 宛名やURLを差し替えてそのまま活用可能な検証済みのアプローチ実文面です。
               </div>
             </div>
 

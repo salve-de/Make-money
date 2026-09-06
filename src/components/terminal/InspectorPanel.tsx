@@ -76,7 +76,7 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
             {formatShortAmount(simulatedValuation)}
           </div>
           <div className="text-[9px] text-zinc-500 mt-0.5">
-            ※ 直近営業利益 {formatShortAmount(baseOperatingProfit)} × {currentMultiple.toFixed(1)}倍
+            （算定式: 直近営業利益 {formatShortAmount(baseOperatingProfit)} × {currentMultiple.toFixed(1)}倍）
           </div>
         </div>
       </div>
@@ -137,9 +137,6 @@ export const InspectorPanel: React.FC<InspectorPanelProps> = ({
         <div className="bg-[#181B22] border border-white/[0.08] rounded-lg p-3.5 text-xs text-zinc-400">
           <span className="text-[10px] font-mono text-zinc-500 uppercase block mb-1">売却ステータス</span>
           <div>非売却（上場・独立運用）</div>
-          <div className="text-[10px] text-zinc-500 mt-1">
-            ※ 機関投資家向けレポートの閲覧のみ可能です
-          </div>
         </div>
       )}
 

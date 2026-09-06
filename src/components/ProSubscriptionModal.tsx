@@ -117,7 +117,7 @@ export const ProSubscriptionModal: React.FC<ProSubscriptionModalProps> = ({
                 : '今すぐ月額プランでPRO金庫を解錠する（¥2,980/月）'}
             </button>
             <p className="mt-2 text-[11px] text-center text-slate-500">
-              ※いつでもワンクリックで解約可能・30日間全額返金保証
+              30日間全額返金保証 ・ いつでもマイページから即時解約可能
             </p>
           </div>
         ) : (

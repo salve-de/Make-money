@@ -117,7 +117,7 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                 <div className="space-y-3 pt-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-mono font-bold text-slate-700 uppercase">
-                      該当実在ビジネス事例（クリックで損益計算書・詳細台帳へ）
+                      該当実在企業 財務台帳アーカイブ
                     </span>
                     <span className="text-[11px] font-mono text-slate-500">
                       計{related.length}社 収録

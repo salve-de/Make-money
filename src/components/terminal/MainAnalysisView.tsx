@@ -330,8 +330,7 @@ export const MainAnalysisView: React.FC<MainAnalysisViewProps> = ({
             {company.proSecretInsight}
           </p>
 
-          <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-xs text-zinc-500">
-            <span>※ このデータは経営者・投資家限定の内部情報照合レポートです</span>
+          <div className="pt-2 border-t border-white/[0.06] flex items-center justify-end text-xs text-zinc-500">
             <button
               onClick={onOpenProModal}
               className="text-xs text-indigo-400 hover:text-indigo-300 font-mono font-medium underline"

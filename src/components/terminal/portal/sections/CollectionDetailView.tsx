@@ -171,7 +171,7 @@ export const CollectionDetailView: React.FC<CollectionDetailViewProps> = ({
           <div className="border-b border-slate-200 pb-2">
             <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">VERIFIED CASE STUDIES</span>
             <h2 className="text-base sm:text-lg font-bold text-slate-900">
-              5. この特集に該当する実在ビジネス台帳（クリックで詳細閲覧）
+              5. 当該特集 関連実在企業台帳アーカイブ
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
