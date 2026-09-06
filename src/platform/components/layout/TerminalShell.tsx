@@ -19,25 +19,67 @@ import { MobileBottomNav } from '../navigation/MobileBottomNav';
 export const TerminalShell: React.FC = () => {
   const searchParams = useSearchParams();
   const queryParam = searchParams?.get('q') || '';
+  const modeParam = searchParams?.get('mode') as WorkspaceMode | null;
+  const topicParam = searchParams?.get('topic') as IntelligenceTopicId | null;
+  const entityParam = searchParams?.get('entity');
+  const filterParam = searchParams?.get('filter') as GridFilterOption | null;
 
   // 表示モード (LEDGER: 台帳 / DEEP_DIVE: 特集)
-  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>('LEDGER');
-  const [activeTopicId, setActiveTopicId] = useState<IntelligenceTopicId>('solo_empire');
+  const initialMode: WorkspaceMode = modeParam === 'DEEP_DIVE' || topicParam ? 'DEEP_DIVE' : 'LEDGER';
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(initialMode);
 
-  const [currentFilter, setCurrentFilter] = useState<GridFilterOption>('ALL');
+  const initialTopic: IntelligenceTopicId =
+    topicParam && INTELLIGENCE_DOSSIERS.some((d) => d.id === topicParam)
+      ? topicParam
+      : 'solo_empire';
+  const [activeTopicId, setActiveTopicId] = useState<IntelligenceTopicId>(initialTopic);
+
+  const initialFilter: GridFilterOption = filterParam || 'ALL';
+  const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
-  const [selectedEntityId, setSelectedEntityId] = useState<string | null>(
-    queryParam.toLowerCase().includes('photo') ? 'ent_photoai' : null
-  );
+
+  // 認知負荷ゼロ・即時着火: entityParam指定があればそれ、なければPhoto AI（粗利84%ソロ企業）をデフォルト自動展開
+  const initialEntityId =
+    entityParam ||
+    (queryParam
+      ? INSTITUTIONAL_ENTITIES.find(
+          (e) =>
+            e.name.toLowerCase().includes(queryParam.toLowerCase()) ||
+            e.ticker.toLowerCase().includes(queryParam.toLowerCase())
+        )?.id || 'ent_photoai'
+      : 'ent_photoai');
+  const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
 
   useEffect(() => {
-    if (queryParam) {
+    if (modeParam) setWorkspaceMode(modeParam);
+    else if (topicParam) setWorkspaceMode('DEEP_DIVE');
+
+    if (topicParam && INTELLIGENCE_DOSSIERS.some((d) => d.id === topicParam)) {
+      setActiveTopicId(topicParam);
+    }
+
+    if (filterParam) {
+      setCurrentFilter(filterParam);
+    }
+
+    if (queryParam !== undefined) {
       setSearchQuery(queryParam);
-      if (queryParam.toLowerCase().includes('photo')) {
-        setSelectedEntityId('ent_photoai');
+    }
+
+    if (entityParam) {
+      setSelectedEntityId(entityParam);
+    } else if (queryParam) {
+      const matched = INSTITUTIONAL_ENTITIES.find(
+        (e) =>
+          e.name.toLowerCase().includes(queryParam.toLowerCase()) ||
+          e.ticker.toLowerCase().includes(queryParam.toLowerCase()) ||
+          e.strategy.blindspot.toLowerCase().includes(queryParam.toLowerCase())
+      );
+      if (matched) {
+        setSelectedEntityId(matched.id);
       }
     }
-  }, [queryParam]);
+  }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam]);
   const [currency, setCurrency] = useState<'JPY' | 'USD'>('JPY');
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);

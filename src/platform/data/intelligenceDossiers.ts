@@ -52,7 +52,7 @@ export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
       '「17時までの注文は当日発送」を物理的に担保する専用フルフィルメント拠点を構築。',
       '製品単体のスペックではなく「ダウンタイム削減・不良率削減の経済効果」で価格を正当化。',
     ],
-    targetEntityIds: ['ent_keyence', 'ent_mani'],
+    targetEntityIds: ['ent_keyence', 'ent_stripe'],
   },
   {
     id: 'b2b_outbound',
@@ -78,7 +78,7 @@ export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
       'その企業の競合導入先をスクレイピングし、失注理由を突く文面のコールドメールを生成。',
       '「商談が実施されなければ1円も頂きません」というリスクリバーサルで即日成約。',
     ],
-    targetEntityIds: ['ent_aaa_outbound', 'ent_local_dx'],
+    targetEntityIds: ['ent_clay_aaa', 'ent_local_wash'],
   },
   {
     id: 'media_cashflow',
@@ -103,6 +103,6 @@ export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
       '初期1,000人はRedditやHacker Newsでの有益な要約コメント投稿で獲得。',
       '読者が1万人を超えた段階で、同領域のSaaS企業に「1回5万円」のスポンサー枠を直接オファー。',
     ],
-    targetEntityIds: ['ent_tldr_newsletter', 'ent_notion_easlo'],
+    targetEntityIds: ['ent_tldr', 'ent_easlo'],
   },
 ];
