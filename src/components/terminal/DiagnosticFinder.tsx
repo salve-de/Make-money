@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Copy, Check, Lock, AlertTriangle, ArrowRight, ChevronDown, ChevronUp, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Copy, Check, Lock, AlertTriangle, ArrowRight, ChevronDown, ChevronUp, SlidersHorizontal, Sparkles, CheckCircle2 } from 'lucide-react';
 
 export type CapitalLevel = 'ZERO' | 'MICRO' | 'MID' | 'HIGH';
 export type TimeCommitment = 'ULTRA_LIGHT' | 'SIDE_JOB' | 'FULL_TIME';
@@ -24,7 +24,6 @@ export interface MatchedStrategy {
   initialInvestment: string;
   timeframeToProfit: string;
   bestFitScore: number;
-  // 1. 手札潜在価値
   potentialAnnualProfitJpy: string;
   effectiveHourlyRateJpy: string;
   whyFitsYourCards: string;
@@ -34,17 +33,13 @@ export interface MatchedStrategy {
   };
   threeKeyTools: Array<{ name: string; role: string }>;
   dayOneAction: string;
-  // 2. DAY-1 コピペ実務アセット
   readyToUseAsset: {
     title: string;
     type: string;
     content: string;
   };
-  // 3. 価格決定権トーク
   pricingScript: string;
-  // 4. 初心者が陥りがちな致命的参入リスク
   fatalTrapToAvoid: string;
-  // 5. PRO会員限定機密解錠予告
   proUnlockPreview: {
     headline: string;
     description: string;
@@ -98,55 +93,55 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         effectiveHourlyRateJpy: '¥115,000 / 時間',
         whyFitsYourCards: '手元資金ゼロ・週3時間の片手間で、無料ランキングの裏工作に不満を抱える起業家を巻き込み、一番金を払った者を1位にする単純ルールとStripe即時決済のみで最短着金可能。',
         incumbentVsYou: {
-          incumbentPain: 'ProductHunt等の無料ランキングサイトが「裏での自作自演・不正投票」で荒れ、起業家が不満を抱えている。',
-          yourEdge: '「最初から金で順位を買う」露骨なルールにし、起業家の負けず嫌いと承認欲求を入札合戦へ転換。'
+          incumbentPain: '無料投票サイト（Product Hunt等）の談合・自作自演に嫌気がさした起業家が、確実な露出枠を求めている。',
+          yourEdge: '「最高額入札者が即座に1位になる」という完全透明ルールで、起業家の意地とプライドを入札合戦へ昇華。'
         },
         threeKeyTools: [
-          { name: 'Stripe', role: 'カード即時決済と入金イベント検知' },
-          { name: 'Next.jsテンプレート', role: 'リーダーボード画面を1枚ペラで即時公開' },
-          { name: 'X（Twitter）', role: '入札額の変動を動画キャプチャで1行実況投稿' }
+          { name: 'Next.js / Tailwind', role: '3時間で実装可能な超軽量フロントエンド' },
+          { name: 'Stripe Checkout', role: '入札時のカード即時決済・ウェブフック連携' },
+          { name: 'Supabase', role: '入札履歴・ランキングのリアルタイム同期' }
         ],
-        dayOneAction: '「金で順位を買える露骨なサイトを作った」と1行動画をXに投稿し、直近で無料ランキングに不満を漏らしていた起業家3人にDMで直接投げ込む。',
+        dayOneAction: 'Xのインディー開発者コミュニティで「一番金を払った奴のプロダクトをトップに固定する実験サイト作った」とツイートする。',
         readyToUseAsset: {
-          title: '初日DM実文面（返信率38%・起業家直撃型）',
-          type: 'コールドDMテンプレート',
-          content: '〇〇さん、はじめまして。直近のProductHuntでの投票不正への抗議ポストを拝見し深く共感しました。\n\n「裏での工作を一切排除し、1番金を払った者が1位に載る完全透明なオークションランキング」を開発しました。\n現在初週の先行枠として、〇〇さんのプロダクトを初期入札枠（または特別露出枠）としてご案内可能です。\n画面はこちらです：[あなたのサイトURL]\nご興味あれば1分で掲載可能です。'
+          title: 'ローンチ即日バイラル告知ポスト文面',
+          type: 'X（Twitter）告知テンプレート',
+          content: '【実験】一番金を払った人が1位になるランキングサイトを作りました。\n\n裏での根回しや自作自演投票は一切なし。\nルールは1つ：現在の1位より1ドル多くStripeで払えば、その瞬間からあなたが1位です。\n現在の1位：〇〇（入札額：$150）\n\nあなたのプロダクトを今すぐ世界一目立たせる 👉 [URL]'
         },
-        pricingScript: '「定価はありません。一番露出価値を感じて入札した方が1位になります。価格交渉の余地は物理的にゼロです」',
-        fatalTrapToAvoid: '会員登録やログイン認証、細かい投票アルゴリズムを作り込んで数ヶ月浪費すること。決済ボタン1つのペラサイトで初日に公開しないと熱狂はゼロになる。',
+        pricingScript: '「価格は市場が決めます。1位の露出効果に価値を感じる競合がいる限り、入札額は自動的に吊り上がります」',
+        fatalTrapToAvoid: '複雑な多機能ポータルを作ろうとすること。機能が増えるほど開発が遅れ、ネタとしての鮮度とバイラル性が死ぬ。3時間で作れる単一機能に絞れ。',
         proUnlockPreview: {
-          headline: 'Stripe即時反映リーダーボードNext.js最小テンプレート（1ファイル完結コード）',
-          description: 'Webhookと連動してDBなしでも即時に入札順位をリアルタイム並び替える実動TypeScriptコード一式。'
+          headline: '48時間で2,000万円を生んだ「Stripe Webhook即時反映スクリプト」＆ 最短ローンチチェックリスト',
+          description: '入札発生からランキングDB更新、Xへの自動通知botまでを1枚のコードにまとめた実動実装アセット。'
         },
-        proSecretTip: '定価を決めずオークション形式にすることで、価格交渉の余地を物理的にゼロ化し、入札者の意地で単価が勝手に吊り上がる。',
-        tags: ['元手0円', '即金性最速', '1人完結', '承認欲求の活用']
+        proSecretTip: '初期入札が止まった時は、自分が所有する別プロダクトで少額入札を入れ、意図的に「抜かれた起業家の対抗心」を煽る。',
+        tags: ['即金性最速', '1人完結', '初期0円', 'API配線', '承認欲求の活用']
       },
       {
-        id: 'keyence-ipad-inspection',
-        companyId: 'keyence-japan',
-        title: 'キーエンス逆利用型 町工場向け格安iPad外観検査モデル',
-        founderReference: 'キーエンスの死角を突くエッジAIベンチャー実例',
-        monthlyRevenueEstimate: '月利100万〜300万円（ストック保守契約）',
-        monthlyProfitMinJpy: 2000000,
-        profitMargin: 78,
-        initialInvestment: '5万円（中古iPadと固定治具のみ）',
+        id: 'ipad-factory-inspection',
+        companyId: 'keyence-challenger-edge',
+        title: '中古iPad格安AI外観検査システム',
+        founderReference: '地方町工場特化AI外観検査（キーエンス対抗・月利150万）',
+        monthlyRevenueEstimate: '月利100万〜250万円（初期導入＋月額保守）',
+        monthlyProfitMinJpy: 1500000,
+        profitMargin: 82,
+        initialInvestment: '3万円（中古iPad端末代）',
         timeframeToProfit: '初回提案から14日',
-        potentialAnnualProfitJpy: '¥36,000,000',
-        effectiveHourlyRateJpy: '¥75,000 / 時間',
-        whyFitsYourCards: '営業・泥臭い折衝ができるなら最強。キーエンスが相手にしない「500万円未満の町工場」へ、中古iPadと画像認識AIを組み合わせた格安検査システムを直販し、月額保守を独占回収。',
+        potentialAnnualProfitJpy: '¥18,000,000',
+        effectiveHourlyRateJpy: '¥65,000 / 時間',
+        whyFitsYourCards: '地方町工場の高齢化と人手不足に直結。キーエンスの見積もり500万円に絶望した工場長に対し、中古iPad＋Teachable Machineで初期20万＋月1.5万保守を即決導入。',
         incumbentVsYou: {
-          incumbentPain: 'キーエンスの営業マンが町工場に「一式500万＋年保守100万」を提示。高齢パートの退職に怯える工場長が価格に絶望している。',
-          yourEdge: '「初期20万＋月額2万円」の10分の1以下の価格で、現場の目視検査を即日自動化。'
+          incumbentPain: 'キーエンス等の検査装置は一式500万〜1,000万円し、中小町工場では投資回収の目処が立たない。',
+          yourEdge: '中古iPadのカメラとクラウド画像判定AIを組み合わせ、10分の1以下の費用で「不良品の見逃し」をゼロ化。'
         },
         threeKeyTools: [
-          { name: '中古iPad (第9世代)', role: '製造ライン固定カメラおよび現場用端末' },
-          { name: 'Roboflow / YOLO', role: '無料枠で使えるノーコード傷・不良品検知モデル' },
-          { name: 'LINE公式アカウント', role: '不良検知時の工場長スマホへの即時写真通知' }
+          { name: '中古iPad (第8世代以降)', role: '製造ライン設置用の高精細カメラ兼端末' },
+          { name: 'Teachable Machine / Roboflow', role: 'ノーコードでのキズ・バリ画像判定モデル学習' },
+          { name: 'LINE Notify', role: '不良品検知時の現場責任者への即時画像アラート' }
         ],
-        dayOneAction: '地元の金属加工・プラスチック工場3社に電話し、「パートさんの目視検査をiPadで月2万円で自動化する実演デモをお持ちしてよろしいですか？」と工場長のアポを取る。',
+        dayOneAction: '地元の工業団地のプレス・金属加工会社5社に電話し、「キーエンスさんの半額以下でできるiPad検査の実機デモ」を申し込む。',
         readyToUseAsset: {
-          title: '町工場直電テレアポスクリプト（突破率42%）',
-          type: '電話用トークスクリプト',
+          title: '町工場向け 初期デモ獲得コールドコール台本',
+          type: '電話アプローチスクリプト',
           content: '「お世話になります、地元の中小製造ライン向けに格安画像検査を導入している〇〇と申します。工場長はいらっしゃいますでしょうか？\n\n（工場長に代わったら）\n工場長、お忙しいところ恐れ入ります。キーエンスさん等の検査機は一式500万以上して町工場では採算が合わないケースが多いかと存じます。\n弊社では中古iPadを活用し、初期20万円・月額2万円でパートさんの目視傷検査を自動化する実演を行っております。\n来週、工場長の机の上で10分だけ実機デモをお見せしたいのですが、火曜か水曜の午後はいかがでしょうか？」'
         },
         pricingScript: '「キーエンスさんの500万円と比較してください。10分の1以下の費用で、パート退職によるライン停止リスク（月数百万円の損害）を今日から防げます」',
@@ -258,260 +253,149 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         readyToUseAsset: {
           title: '資金調達スタートアップCEO宛て 成果報酬アポ代行提案',
           type: 'CEO直談判レター',
-          content: '〇〇株式会社 代表取締役 〇〇様\n\n先日の〇億円の資金調達、誠におめでとうございます。\n調達後の最優先課題である新規エンタープライズ顧客の獲得において、営業マンの採用・育成には数ヶ月を要するかと存じます。\n\n弊社ではClayとAIを用い、ターゲット企業の直近プレスリリース・求人要件を1行ずつ個別反映させたコールドメール代行を行っております。\n初期固定費は0円、アポが1件確定するごとに3万円のみ頂戴する「完全成果報酬」でお受け可能です。\n\n御社のターゲットとなる大手企業20社向けのパーソナライズ文面サンプルを作成しましたので、15分だけオンラインにてご覧いただけないでしょうか？'
+          content: '〇〇株式会社 代表取締役 〇〇様\n\nシリーズAラウンドの資金調達完了、誠におめでとうございます。事業拡大に伴うエンタープライズ顧客の開拓スピードが目下の最重要課題かと推察いたします。\n\n弊社では最新のAI自動リサーチを活用し、御社ターゲット企業の上場子会社・DX担当役員に特化した「超個別化アウトバウンド」を完全成果報酬型（商談獲得1件あたり〇万円）で受託しております。\n\n御社の競合事例と、実際にアポイントが獲得できた初回アプローチ文面サンプルを作成いたしました。15分だけオンラインで画面共有させていただけないでしょうか？'
         },
-        pricingScript: '「営業マンを1人正社員採用する費用（年収800万＋福利厚生＋採用フィー）と比較してください。アポが取れなければ費用ゼロ、リスクは完全にこちらが負います」',
-        fatalTrapToAvoid: '最初から月額50万円の固定コンサル契約を結ぼうとすること。実績がない段階では警戒される。必ず「アポ成果報酬（1件3万）」で潜り込み、後から月額固定へ移行せよ。',
+        pricingScript: '「営業代行会社に月60万円の固定費を払うリスクをゼロにできます。実際に決まった商談数に対してのみお支払いください」',
+        fatalTrapToAvoid: '固定費契約を最初から強要すること。スタートアップは固定費を嫌う。最初は「商談1件3万円の完全成果報酬」で入り、返信率を実証した後に月額保守50万円へ移行させよ。',
         proUnlockPreview: {
-          headline: '返信率35%を叩き出すClayデータ自動エンリッチメント・ワークフロー（JSON定義）',
-          description: '求人サイトとPR TIMESを自動巡回し、相手企業の課題を自動抽出してメール下書きを生成する設計図。'
+          headline: '返信率32%を叩き出したClayワークフローテンプレート ＆ アポ獲得自動化JSON',
+          description: 'PR TIMESの調達速報から企業URLを抽出し、役員名とパーソナライズ文章を10秒で生成する設定シート。'
         },
-        proSecretTip: '月額固定費ではなく「アポ1件獲得ごとに3万円」の成果報酬にすることで、相手の導入リスクをゼロにして即断即決させる。',
-        tags: ['高額成果報酬', 'B2B必須需要', 'AIデータ連携', '即日営業']
+        proSecretTip: '商談獲得後のクロージング支援まで巻き込み、顧客の年間契約金額の10%を追加レベニューシェアとして獲得する。',
+        tags: ['成果報酬型', '法人B2B', 'データ連携', '高単価']
       },
       {
-        id: 'pieter-photo-ai',
-        companyId: 'pieter-levels-photo-ai',
-        title: '完全一人運営 自撮りAI写真スタジオ・高自動化モデル',
-        founderReference: 'Photo AI（ピーター・レベルズ氏 / 1人で年商数十億円）',
-        monthlyRevenueEstimate: '月利300万〜1,500万円（月額サブスク）',
-        monthlyProfitMinJpy: 8000000,
-        profitMargin: 84,
-        initialInvestment: '1万円（GPUクラウド初期利用枠）',
-        timeframeToProfit: '公開後3週間',
-        potentialAnnualProfitJpy: '¥96,000,000',
-        effectiveHourlyRateJpy: '¥330,000 / 時間',
-        whyFitsYourCards: 'APIやスクリプトを自前で配線し、最小限の人的工数で高利益率モデルを構築したい人に最適。日常のスマホ写真を数枚投じるだけでSNS・マッチングアプリ用の美男美女写真を自動生成。',
-        incumbentVsYou: {
-          incumbentPain: '撮影スタジオに予約して数万円払い、数日待たないと仕上がらないタイムラグ。',
-          yourEdge: '撮影スタジオへの移動や日程調整を不要にし、数分で30パターンの高精度写真を生成する利便性の最大化。'
-        },
-        threeKeyTools: [
-          { name: 'Vultr GPUクラウド', role: '画像生成推論の高速バッチ処理基盤' },
-          { name: 'Stripe Billing', role: '月額3,980円の自動引き落としサブスクリプション' },
-          { name: 'Cloudflare', role: '大量写真の高速キャッシュ配信とトラフィック防御' }
-        ],
-        dayOneAction: '自作ツールの開発画面と「これ誰の写真に見える？」という生成ビフォーアフター動画をXに投稿し、興味を持った人へ手動で招待リンクを配る。',
-        readyToUseAsset: {
-          title: 'X（Twitter）バイラル着火用 ビフォーアフター投稿文面',
-          type: 'SNSバズ導線テンプレート',
-          content: '「写真スタジオに行くのダルすぎて、自撮り3枚からプロ撮影風写真を作るWebツールを昨晩作った。\nこれ、どっちが本物でどっちがAIか分かります？（画像2枚添付）\n\nマッチングアプリでいいね3倍になったので、無料で試したい人いたらリプ欄にリンク置いときます。」'
-        },
-        pricingScript: '「写真スタジオの3万円と比較してください。月額3,980円で、何百回でもプロ風の着せ替え・ロケーション撮影が自宅で完結します」',
-        fatalTrapToAvoid: '最初から複雑な会員機能や綺麗なUIを作ること。ピーター氏はプレーンなPHPとjQueryだけで年商数十億を作った。重要なのは画面の美しさではなく「生成画像のリアリティ」のみ。',
-        proUnlockPreview: {
-          headline: '離脱率を65%低減させる生成待機中アニメーションCSS ＆ GPU自動スケーリング設定',
-          description: 'キューの滞留数に応じてGPUコンテナを自動で起動・破棄し、月数百万円のクラウド費用を圧縮するコード。'
-        },
-        proSecretTip: '生成待機画面に「スタジオの現像中アニメーション」を挟むだけで、ユーザーの待機ストレスと途中解約率を激減させる。',
-        tags: ['高自動化型', '継続サブスク', '個人欲望直撃', 'ソロ開発']
-      },
-      {
-        id: 'local-exterior-wash',
-        companyId: 'local-dx-exterior-wash',
-        title: 'LINE自動見積もり型 地方実店舗・外壁高圧洗浄DXモデル',
-        founderReference: '地方特化型実業DX（月利250万円 / 利益率55%）',
-        monthlyRevenueEstimate: '月利100万〜250万円（高単価施工仲介）',
-        monthlyProfitMinJpy: 1800000,
-        profitMargin: 58,
-        initialInvestment: '2万円（LINE構築・地域ポスティング代）',
-        timeframeToProfit: '初週契約',
-        potentialAnnualProfitJpy: '¥22,000,000',
-        effectiveHourlyRateJpy: '¥62,000 / 時間',
-        whyFitsYourCards: '地域密着型かつ即応性の高い事業モデル。LINE公式アカウントに自宅外壁の写真を送るだけで概算見積もりが即時返信される仕組みを作り、地元の職人に施工委託。',
-        incumbentVsYou: {
-          incumbentPain: '昔ながらの工務店が見積もりに何日も待たせ、訪問営業で居座る不安。',
-          yourEdge: '写真1枚をLINEで送るだけで10秒で概算見積もり提示。現地立ち会い不要で即日完結。'
-        },
-        threeKeyTools: [
-          { name: 'Lステップ / LINE公式', role: '写真受信と自動見積もりロジックの配線' },
-          { name: 'Canva', role: '「外壁の黒ずみ・苔は放置すると壁材腐食」の警告チラシ制作' },
-          { name: '地元の個人塗装職人', role: '施工のみを請け負う提携パートナー（外注化）' }
-        ],
-        dayOneAction: '近隣の築10〜15年の戸建て密集地に「写真1枚で10秒見積もりLINE」のQRコード入りチラシを自ら50枚ポスティングする。',
-        readyToUseAsset: {
-          title: '築10年戸建て特化 恐怖訴求ポスティングチラシ文面',
-          type: 'チラシ・ポスティング原稿',
-          content: '【近隣にお住まいの皆様へ・外壁緊急点検のお知らせ】\n北側外壁の「緑の苔」や「黒ずみ」を放置していませんか？\n苔の根から酸性物質が分泌され、放置すると外壁材のひび割れ・雨漏り（修繕費100万円超）の原因となります。\n\n「訪問営業は断りにくい」というお声に応え、スマホで写真を撮ってLINEに送るだけで【10秒・完全匿名で概算見積もり】をお出しします。\nしつこい営業電話は一切ありません。今すぐQRコードから写真をお送りください。'
-        },
-        pricingScript: '「大手リフォーム会社の20万円の見積もりと比較してください。足場を組まない特殊高圧洗浄により、半額以下の8万円で即日ピカピカにします」',
-        fatalTrapToAvoid: '創業者が自ら高圧洗浄機を買って作業に従事すること。労働集約型となりスケーラビリティが失われる。「集客と見積もりLINE」の基盤を統括し、現場作業は地元の職人に日給2万円で委託せよ。',
-        proUnlockPreview: {
-          headline: '写真から外壁面積と洗浄単価を自動算出するLステップ分岐シナリオ設定ファイル',
-          description: '写真を送った顧客の成約率を45%まで引き上げるステップ配信メッセージと自動見積もり計算表。'
-        },
-        proSecretTip: '自身が現場作業に従事する必要はない。「集客・見積もり・顧客管理」を統括し、実作業は地元の職人に日給2万円で委託すれば、差額のマージンが安定した手残り純利益になる。',
-        tags: ['地方・実業', '写真即時見積', '外注レバレッジ', '即日着金']
-      },
-      {
-        id: 'marc-shipfast-boilerplate',
-        companyId: 'marc-lou-shipfast',
-        title: 'Next.jsボイラープレート型 開発時間短縮テンプレート販売モデル',
-        founderReference: 'ShipFast（マーク・ルー氏 / 1人で年商1.5億円）',
-        monthlyRevenueEstimate: '月利100万〜600万円（買い切りデジタル商品）',
-        monthlyProfitMinJpy: 4000000,
-        profitMargin: 94,
-        initialInvestment: '0円（手元のコードをまとめるのみ）',
-        timeframeToProfit: '公開初日',
-        potentialAnnualProfitJpy: '¥48,000,000',
-        effectiveHourlyRateJpy: '¥190,000 / 時間',
-        whyFitsYourCards: 'Web開発や設定の知見があるなら即効性最大。個人開発者が毎回苦労する「ログイン認証・Stripe決済・メール配信・SEOメタタグ」を最初から配線したコード型紙を買い切り2万円で販売。',
-        incumbentVsYou: {
-          incumbentPain: '新規アプリを作ろうとするたびに、StripeのAPI設定や認証画面で何日も浪費して挫折する。',
-          yourEdge: '「コマンド1発でクローンし、数時間で課金スタートできる」究極のショートカットを提供。'
-        },
-        threeKeyTools: [
-          { name: 'Next.js + Tailwind CSS', role: 'モダンで流用しやすいベースコード' },
-          { name: 'Lemon Squeezy / Stripe', role: '全世界からのデジタルコード即時ダウンロード決済' },
-          { name: 'GitHub Private Repo', role: '購入者へのリポジトリ自動アクセス権付与' }
-        ],
-        dayOneAction: '過去に自分が苦労して設定した認証・決済コードを1つのフォルダにまとめ、Xで「これ欲しい人いますか？」と画面スクショを投稿する。',
-        readyToUseAsset: {
-          title: '個人開発者向け X（Twitter）事前予約オファー文面',
-          type: '事前販売ローンチ投稿',
-          content: '「新しいSaaSを作るたびに、毎回Stripeの設定やNextAuthの認証で3日溶かすの本当に嫌になりません？\n\nログイン・決済・メール・SEO・DBが最初から全部繋がったNext.jsボイラープレートを作りました。\nターミナルで `git clone` して環境変数入れるだけで、今日中に有料課金アプリがローンチできます。\n\n先着20名限定で半額（¥9,800）でコード配ります。欲しい人いますか？ [購入リンク]」'
-        },
-        pricingScript: '「エンジニアの時給5,000円で換算してください。認証や決済の配線にかかる30時間（15万円相当）の苦痛が、買い切り2万円で今すぐ手に入ります」',
-        fatalTrapToAvoid: '機能を盛り込みすぎていつまでも公開しないこと。決済と認証さえ動けば十分。完璧を目指さず、手元の汚いコードをそのままパッケージ化して初日に売れ。',
-        proUnlockPreview: {
-          headline: 'Lemon Squeezy自動納品Webhook ＆ GitHubリポジトリ招待自動化スクリプト',
-          description: '決済完了と同時に顧客のGitHubアカウントへ招待メールを飛ばし、人間が1秒も介在せず全自動で売れるシステム。'
-        },
-        proSecretTip: 'コードを売るのではなく「アプリ立ち上げまでの数週間の苦痛と時間の節約」を売る。購入者に限定Discordコミュニティを付けることで定価を倍に吊り上げる。',
-        tags: ['原価完全ゼロ', '買い切り高単価', '全世界販売', '即日公開']
-      },
-      {
-        id: 'easlo-notion-assets',
-        companyId: 'easlo-notion-templates',
-        title: 'Notionテンプレート型 思考整理フォーマット自律運用モデル',
+        id: 'notion-template-minimal',
+        companyId: 'solo-easlo',
+        title: '思考整理フォーマット自律運用モデル（デジタル資産）',
         founderReference: 'Easlo（20歳ソロプレナー / 1人で年商1.1億円）',
-        monthlyRevenueEstimate: '月利50万〜300万円（完全自動ダウンロード）',
+        monthlyRevenueEstimate: '月利50万〜300万円（不労所得ストック）',
         monthlyProfitMinJpy: 2000000,
         profitMargin: 96,
-        initialInvestment: '0円（Notion無料アカウントのみ）',
-        timeframeToProfit: '初週',
-        potentialAnnualProfitJpy: '¥24,000,000',
-        effectiveHourlyRateJpy: '¥140,000 / 時間',
-        whyFitsYourCards: 'プログラミングが一切できなくても、整理・構成力があれば即日参入可能。「タスク管理」「家計簿」「読書記録」などの美しいNotionワークスペースを設計し、Gumroad等で買い切り配布。',
+        initialInvestment: '0円（Notion無料枠＋Gumroad）',
+        timeframeToProfit: '初月着金',
+        potentialAnnualProfitJpy: '¥26,000,000',
+        effectiveHourlyRateJpy: '¥145,000 / 時間',
+        whyFitsYourCards: 'プログラミング不要で今夜から作れる。原価は完全にゼロ。世界中のNotionユーザー向けに、デザイン性を極限まで高めたミニマルなタスク管理テンプレートをGumroadで直販。',
         incumbentVsYou: {
-          incumbentPain: 'Notionの白紙の画面を前にして、どう作ればいいか分からず挫折する初心者が世界中に溢れている。',
-          yourEdge: '即座にNotionへ複製可能な「完成されたダッシュボード」を提供。'
+          incumbentPain: '多機能すぎて使いこなせない複雑な管理ツールに挫折したユーザーが、美しい1枚の整理板を求めている。',
+          yourEdge: 'モノトーンの美しいUIと、迷わせない導線設計。買ったら1クリックで複製完了。'
         },
         threeKeyTools: [
-          { name: 'Notion', role: 'テンプレートの制作と公開リンク発行' },
-          { name: 'Gumroad', role: 'デジタルコンテンツの販売と自動メール配信' },
-          { name: 'X / Pinterest', role: 'モノトーンの美しい画面スクショ投稿によるオーガニック集客' }
+          { name: 'Notion', role: 'テンプレート本体の構築基盤（複製リンク配布）' },
+          { name: 'Gumroad / Lemon Squeezy', role: '決済・アフィリエイト・領収書自動化' },
+          { name: 'X / Pinterest', role: '製品スクリーンショットによるオーガニック拡散' }
         ],
-        dayOneAction: '自分が普段使っている最も整理されたNotionページを1つ選び、個人情報をダミーに差し替えて無料配布リンクをXに投稿する。',
+        dayOneAction: '自分が毎日使っているタスク管理Notionをモノトーンに整形し、短いGIF動画を添えてXで「無料配布します」と投稿する。',
         readyToUseAsset: {
-          title: 'Notion無料配布でメールリードを100件獲得する導線ポスト',
-          type: 'リードマグネット配布文面',
-          content: '「白紙のNotionを前にして途方に暮れている人へ。\n\n僕が2年かけて磨き上げた『人生の全タスク・習慣・目標を1画面で管理できるダッシュボード』を無料配布します。\n\n【受け取り方法】\n1. このポストをいいね＆リポスト\n2. 『テンプレ』とリプ\n3. DMで即座に複製リンクが届きます。\n（今夜24時までの限定配布です）」'
+          title: 'Notionテンプレート無料配布→有料アップセル導線文面',
+          type: 'SNSバイラル配布スクリプト',
+          content: '【無料配布】タスクに追われるのをやめるための、ミニマルNotionダッシュボードを作りました。\n\n・今日の最重要タスク3つだけを表示\n・無駄な通知・余計な機能を完全排除\n・モノトーンで集中力が途切れない\n\nリプ欄のリンクから1クリックで複製できます（無料）。\n※より詳細な「年商1億プロジェクト管理版（有料）」も同梱しています。'
         },
-        pricingScript: '「手作業で同じ構成を作るのにかかる20時間と、散らかった思考による機会損失を考えてください。4,980円で一生使える頭脳整理システムが手に入ります」',
-        fatalTrapToAvoid: '最初から有料で売ろうとすること。誰も無名なあなたのテンプレを有料で買わない。まず無料版を配って1,000人のメルマガリストを作り、後からPRO版を売るのが鉄則。',
+        pricingScript: '「一度買えば一生使えるデジタル資産です。月額サブスクのSaaSに毎年数万円払い続ける必要はありません」',
+        fatalTrapToAvoid: 'カラフルで派手な装飾を施すこと。高単価で買うビジネスマンは「モノトーンの引き締まったプロ用デザイン」を好む。色数を削れ。',
         proUnlockPreview: {
-          headline: '無料配布から3日後に有料PRO版（¥4,980）を自動購入させるステップメルマガ全5通',
-          description: '購入率12%を叩き出す、心理誘導に基づいたGumroad自動ステップメールの完全コピー原稿。'
+          headline: '年商1億Easloが採用しているGumroadアップセルファネル設定 ＆ モノトーンUIデザイン規律',
+          description: '無料版をダウンロードした読者の30%を有料パッケージへ誘導する自動ステップメール文章。'
         },
-        proSecretTip: 'まずは「無料版」を大量に配って数千人のメールアドレスをリスト化し、後から「フル機能の有料PRO版（4,980円）」をメルマガで自動提案して収益化する。',
-        tags: ['コード完全不要', 'デジタル資産', '初期0円', '意匠・デザイン価値']
+        proSecretTip: 'Notion系インフルエンサーに「50%のアフィリエイト報酬」を提示し、他人のフォロワー網を使って無課金集客する。',
+        tags: ['原価ゼロ', 'ノーコード', '不労所得', '意匠・デザイン価値']
       },
       {
-        id: 'tiktok-shop-faceless',
-        companyId: 'tiktok-faceless-commerce',
-        title: 'TikTok Shop手元実演アフィリエイトモデル（顔出し・声出し不要）',
-        founderReference: '国内・米国手元実演チーム（月商2,200万 / 利益率28%）',
-        monthlyRevenueEstimate: '月利80万〜400万円（成果報酬アフィリエイト）',
-        monthlyProfitMinJpy: 2500000,
-        profitMargin: 35,
-        initialInvestment: '1万円（百均便利グッズと卓上スマホスタンド）',
-        timeframeToProfit: '動画初バズから3日（7日以内）',
-        potentialAnnualProfitJpy: '¥30,000,000',
-        effectiveHourlyRateJpy: '¥55,000 / 時間',
-        whyFitsYourCards: 'スマホ1台とSNSの嗅覚があれば学歴・スキル不問。顔も声も出さず、手元だけで話題の便利グッズを開封・実演する15秒動画を量産。アルゴリズムの無料露出に乗せてTikTok Shopリンクで購買へと自然に誘導する。',
+        id: 'shipfast-boilerplate',
+        companyId: 'solo-shipfast',
+        title: 'Next.jsボイラープレート型 開発時間短縮テンプレート販売モデル',
+        founderReference: 'ShipFast（マーク・ルー氏 / 1人で年商1.5億円）',
+        monthlyRevenueEstimate: '月利100万〜600万円（Stripe直結）',
+        monthlyProfitMinJpy: 3000000,
+        profitMargin: 94,
+        initialInvestment: '1万円（ドメイン＋初期ホスティング）',
+        timeframeToProfit: 'ローンチ初月',
+        potentialAnnualProfitJpy: '¥45,000,000',
+        effectiveHourlyRateJpy: '¥180,000 / 時間',
+        whyFitsYourCards: 'Next.jsの開発経験があるなら最短。認証・Stripe決済・メール配信・SEOメタタグがあらかじめ設定されたスターターキットを販売し、開発者の「最初の1週間の面倒な作業」を丸ごと買い取る。',
         incumbentVsYou: {
-          incumbentPain: '長尺のYouTubeレビュー動画は見るのが面倒で、購入まで辿り着かない。',
-          yourEdge: '「開始2秒で驚きの手元実演」を見せ、画面下の買い物カゴアイコンをタップさせるだけで即座に購入完了。'
+          incumbentPain: '個人開発者が新しいアプリを作るたびに、認証や決済の配線に数週間を消費してモチベーションが尽きる。',
+          yourEdge: '「git cloneして数時間で課金開始できる」フルスタックのコードベースを買い切り提供。'
         },
         threeKeyTools: [
-          { name: 'CapCut', role: '手元動画の自動字幕・倍速編集・効果音挿入' },
-          { name: '卓上俯瞰スマホスタンド', role: '手元だけを綺麗に真上から撮影する器具' },
-          { name: 'TikTok Shop クリエイター登録', role: '無償サンプル提供プログラムと成果報酬獲得' }
+          { name: 'Next.js (App Router)', role: '高速でSEOに強いフルスタック基盤' },
+          { name: 'Stripe Webhooks', role: 'サブスク・買い切り決済の自動ハンドリング' },
+          { name: 'Tailwind CSS / DaisyUI', role: '即座に美しく立ち上がるUIコンポーネント' }
         ],
-        dayOneAction: '自宅にある「買ってよかった便利グッズ」を机の上に置き、スマホで15秒だけ使っている手元動画を撮ってCapCutで字幕を付けてTikTokに投稿する。',
+        dayOneAction: '自分が過去に作った認証・決済済みのリポジトリから不要なコードを削ぎ落とし、「ボイラープレート初版」としてGitHubにプライベート作成する。',
         readyToUseAsset: {
-          title: '開始2秒で指を止める15秒ショート動画スクリプト（完コピ用）',
-          type: '動画撮影台本・構成案',
-          content: '【0〜2秒（フック）】\n（机の上の汚れたキーボードに、謎のジェルを叩きつける手元映像）\n字幕：「もっと早く買えばよかった…」\n効果音：ドスッ\n\n【3〜8秒（驚きの実演）】\n（ジェルを剥がすと、ゴミが根こそぎ取れている映像）\n倍速：1.5倍速\n字幕：「キーボードの隙間のホコリ全部消えた」\n\n【9〜15秒（CTA）】\n（手元で丸めてケースに戻す）\n字幕：「今セールで〇〇円。左下の黄色いカゴから買えるよ」'
+          title: '開発者向け「ローンチまでの時間節約」ランディングページ見出し',
+          type: 'LPキャッチコピー',
+          content: '「また認証とStripe決済の設定で土日を潰すのですか？」\n\nShipFastは、Next.jsアプリを数時間で立ち上げ、最初の売上を上げるための開発ボイラープレートです。\n\n・Stripe決済設定済み\n・Supabase / NextAuth認証済み\n・Mailgunメール配信設定済み\n・SEO構造化データ設定済み\n\n面倒な下準備をスキップして、本質的なプロダクト開発だけに集中してください。'
         },
-        pricingScript: '「アフィリエイトのため価格交渉は不要。アルゴリズムの無料露出を高転換率でキャッシュ化する設計」',
-        fatalTrapToAvoid: '自分の顔や声を出して喋り始めること。視聴者はあなたに興味がない。「商品の異常な実演」だけを手元15秒で見せることだけに徹せよ。',
+        pricingScript: '「あなたの時給を計算してください。週末20時間をこの設定に費やすなら、$199のボイラープレートを買った方が圧倒的に安上がりです」',
+        fatalTrapToAvoid: '完璧なコードを書こうとしてリリースを遅らせること。初期は最低限の動く認証と決済だけで十分。機能追加は買い手の要望を聞きながらアップデートせよ。',
         proUnlockPreview: {
-          headline: '中国1688から仕入れ原価50円で輸入しTikTok Shopで利益率70%を達成する高需要商品リストTOP50',
-          description: '月間1,000万円以上売れているノーブランド便利グッズの具体的な商品名と仕入れ先URL一式。'
+          headline: 'マーク・ルー氏が公開した「初月4,000万円を叩き出したStripeコンバージョン特化LP構造」',
+          description: '購入ボタンの配置、カウントダウンタイマー、社会的証明（購入通知ポップアップ）の実装コード。'
         },
-        proSecretTip: 'クリエイター登録するとメーカーから無償でサンプル商品が届くため、仕入れ原価が完全にゼロになる。海外で100万回再生された動画の構成（画角・テンポ）をそのまま再現することで高い勝率を維持できる。',
-        tags: ['顔出し不要', 'スマホ1台', '即金バズ', '無償サンプル']
+        proSecretTip: 'Twitterで開発過程を毎日数字つきで実況（Build in Public）し、エンジニアからの信頼と認知を広告費ゼロで獲得する。',
+        tags: ['Next.js', '高粗利94%', '開発者向け', '買い切り高単価']
       }
     ];
 
-    // 各モデルに対するユーザー手札の合致度スコア計算（100点満点換算）
-    const scoredList: MatchedStrategy[] = rawList.map((item) => {
+    // ユーザーの手札条件に基づく多次元スコアリング計算
+    const scoredList = rawList.map((item) => {
       let score = 50;
 
-      // 1. 投下可能資本
-      if (item.initialInvestment.includes('0円') || item.initialInvestment.includes('300円')) {
-        score += capital === 'ZERO' ? 15 : capital === 'MICRO' ? 10 : 5;
-      } else if (item.initialInvestment.includes('1万円') || item.initialInvestment.includes('3万円') || item.initialInvestment.includes('5万円')) {
-        score += capital === 'MICRO' || capital === 'MID' ? 15 : capital === 'ZERO' ? -10 : 8;
-      } else {
-        score += capital === 'HIGH' || capital === 'MID' ? 15 : -15;
+      // 1. 投下資本
+      if (capital === 'ZERO' && item.initialInvestment.includes('0円')) {
+        score += 20;
+      } else if (capital === 'MICRO' && (item.initialInvestment.includes('3万') || item.initialInvestment.includes('1万'))) {
+        score += 20;
+      } else if (capital === 'MID' || capital === 'HIGH') {
+        score += 15;
       }
 
-      // 2. 週実働コミット時間
-      if (item.tags.includes('高自動化型') || item.tags.includes('朝5分習慣') || item.tags.includes('自律資産') || item.tags.includes('不労資産')) {
-        score += time === 'ULTRA_LIGHT' ? 15 : 10;
-      } else if (item.tags.includes('副業可') || item.tags.includes('即日着金')) {
-        score += time === 'SIDE_JOB' ? 15 : 10;
-      } else {
-        score += time === 'FULL_TIME' ? 15 : 5;
+      // 2. 週実働コミット
+      if (time === 'ULTRA_LIGHT' && item.tags.includes('完全無人化')) {
+        score += 20;
+      } else if (time === 'SIDE_JOB' && (item.tags.includes('副業可') || item.tags.includes('1人完結'))) {
+        score += 20;
+      } else if (time === 'FULL_TIME') {
+        score += 15;
       }
 
-      // 3. 手持ちスキル特性
+      // 3. 保有スキル
       let capScore = 0;
       if (capability === 'NO_CODE_API' && (item.tags.includes('API配線') || item.tags.includes('1人完結') || item.tags.includes('Next.js'))) {
         capScore = 20;
-      } else if (capability === 'SALES_OUTBOUND' && (item.tags.includes('町工場独占') || item.tags.includes('高単価直販') || item.tags.includes('即日営業'))) {
+      } else if (capability === 'SALES_OUTBOUND' && (item.tags.includes('町工場独占') || item.tags.includes('高単価直販'))) {
         capScore = 20;
-      } else if (capability === 'CONTENT_MEDIA' && (item.tags.includes('朝5分習慣') || item.tags.includes('原価ゼロ') || item.tags.includes('意匠・デザイン価値'))) {
+      } else if (capability === 'CONTENT_MEDIA' && (item.tags.includes('朝5分習慣') || item.tags.includes('原価ゼロ'))) {
         capScore = 20;
-      } else if (capability === 'VIDEO_CREATIVE' && (item.tags.includes('動画アフィリ') || item.tags.includes('手元実演') || item.tags.includes('ショート動画'))) {
+      } else if (capability === 'VIDEO_CREATIVE' && item.tags.includes('動画アフィリ')) {
         capScore = 20;
-      } else if (capability === 'BIZ_EFFICIENCY' && (item.tags.includes('現場DX') || item.tags.includes('町工場') || item.tags.includes('士業代替'))) {
+      } else if (capability === 'BIZ_EFFICIENCY' && (item.tags.includes('現場DX') || item.tags.includes('町工場'))) {
         capScore = 20;
       }
       score += capScore;
 
-      // 4. ターゲット市場合致度 (配点: 15点)
+      // 4. 顧客ターゲット
       let marketScore = 8;
-      if (targetMarket === 'LOCAL_STORE' && (item.tags.includes('町工場') || item.tags.includes('地方実業') || item.tags.includes('士業代替') || item.tags.includes('現場DX') || item.tags.includes('地方・実業') || item.tags.includes('町工場独占'))) {
+      if (targetMarket === 'LOCAL_STORE' && (item.tags.includes('町工場') || item.tags.includes('現場DX') || item.tags.includes('町工場独占'))) {
         marketScore = 15;
-      } else if (targetMarket === 'B2B_CORP' && (item.tags.includes('B2B直販') || item.tags.includes('受託自動化') || item.tags.includes('エンジニア向け'))) {
+      } else if (targetMarket === 'B2B_CORP' && (item.tags.includes('B2B直販') || item.tags.includes('法人B2B') || item.tags.includes('エンジニア向け'))) {
         marketScore = 15;
-      } else if (targetMarket === 'B2C_INDIVIDUAL' && (item.tags.includes('個人欲望直撃') || item.tags.includes('承認欲求の活用') || item.tags.includes('即金バズ') || item.tags.includes('デジタル資産'))) {
+      } else if (targetMarket === 'B2C_INDIVIDUAL' && (item.tags.includes('承認欲求の活用') || item.tags.includes('デジタル資産'))) {
         marketScore = 15;
       }
       score += marketScore;
 
       // 5. 収益化スピード
-      if (cashSpeed === 'INSTANT_CASH' && (item.tags.includes('即金性最速') || item.tags.includes('即日着金') || item.tags.includes('即金バズ') || item.timeframeToProfit.includes('初日') || item.timeframeToProfit.includes('48時間'))) {
+      if (cashSpeed === 'INSTANT_CASH' && (item.tags.includes('即金性最速') || item.timeframeToProfit.includes('初日') || item.timeframeToProfit.includes('48時間'))) {
         score += 15;
-      } else if (cashSpeed === 'LONG_STOCK' && (item.tags.includes('継続サブスク') || item.tags.includes('月額ストック') || item.tags.includes('ストック広告'))) {
+      } else if (cashSpeed === 'LONG_STOCK' && (item.tags.includes('月額ストック') || item.tags.includes('ストック広告'))) {
         score += 15;
       }
 
-      // 6. 目標手残り月利
+      // 6. 目標月利
       if (targetProfit === 'TIER_500M') {
         score += item.monthlyProfitMinJpy >= 3500000 ? 15 : -5;
       } else if (targetProfit === 'TIER_100M') {
@@ -525,7 +409,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
       return {
         ...item,
         bestFitScore: normalizedScore,
-        badgeType: 'PRIMARY',
+        badgeType: 'PRIMARY' as 'PRIMARY' | 'SECONDARY' | 'CONTRARIAN',
         badgeLabel: ''
       };
     });
@@ -534,15 +418,15 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
     if (scoredList.length > 0) {
       scoredList[0].badgeType = 'PRIMARY';
-      scoredList[0].badgeLabel = '最適適合モデル（推奨）';
+      scoredList[0].badgeLabel = '最適適合（推奨）';
     }
     if (scoredList.length > 1) {
       scoredList[1].badgeType = 'SECONDARY';
-      scoredList[1].badgeLabel = '高利益率・次点候補';
+      scoredList[1].badgeLabel = '高利益率・次点';
     }
     if (scoredList.length > 2) {
       scoredList[2].badgeType = 'CONTRARIAN';
-      scoredList[2].badgeLabel = '差別化・独自展開モデル';
+      scoredList[2].badgeLabel = '独自展開モデル';
     }
     for (let i = 3; i < scoredList.length; i++) {
       scoredList[i].badgeType = 'SECONDARY';
@@ -552,16 +436,12 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
     return scoredList;
   }, [capital, time, capability, targetMarket, cashSpeed, targetProfit]);
 
-  // 並び替え処理
+  // 並び替え
   const sortedStrategies = useMemo(() => {
     const arr = [...matchedStrategies];
-    if (sortBy === 'FIT_SCORE') {
-      return arr.sort((a, b) => b.bestFitScore - a.bestFitScore);
-    } else if (sortBy === 'PROFIT') {
-      return arr.sort((a, b) => b.monthlyProfitMinJpy - a.monthlyProfitMinJpy);
-    } else if (sortBy === 'MARGIN') {
-      return arr.sort((a, b) => b.profitMargin - a.profitMargin);
-    }
+    if (sortBy === 'FIT_SCORE') return arr.sort((a, b) => b.bestFitScore - a.bestFitScore);
+    if (sortBy === 'PROFIT') return arr.sort((a, b) => b.monthlyProfitMinJpy - a.monthlyProfitMinJpy);
+    if (sortBy === 'MARGIN') return arr.sort((a, b) => b.profitMargin - a.profitMargin);
     return arr;
   }, [matchedStrategies, sortBy]);
 
@@ -575,152 +455,196 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
   }, [selectedStrategyId, sortedStrategies]);
 
   return (
-    <div className="space-y-6 select-none font-sans text-slate-900">
-      {/* 1. ヘッダー見出し ＆ 手札資産査定ハイライト */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-slate-900 text-white uppercase tracking-wider">
-              DIAGNOSTIC FINDER
+    <div className="max-w-7xl mx-auto space-y-6 select-none font-sans text-slate-900 py-4">
+      {/* 1. ヘッダー見出し ＆ マクロ指標 */}
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200 pb-5">
+        <div className="space-y-1">
+          <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500">
+            <span className="px-1.5 py-0.5 rounded text-[9px] bg-slate-950 text-white font-bold tracking-wider uppercase">
+              RESOURCE FINDER
             </span>
-            <span className="text-xs font-mono text-slate-500">
-              リソース適合型 事業選定診断
-            </span>
+            <span>手札条件から事業モデルと実務実行アセットを即時算出</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight">
+          <h1 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
             リソース適合型 実務実行アセット即時発行
-          </h2>
-          <p className="text-xs text-slate-600 pt-0.5 max-w-2xl font-normal leading-relaxed">
-            保有資本・稼働時間・スキル・対象市場の条件から、最適な事業モデルと初期アプローチ文面、価格決定権の設計ロジックを提示します。
-          </p>
+          </h1>
         </div>
 
         {/* 保有リソースの潜在市場価値 */}
         {activeStrategy && (
-          <div className="shrink-0 p-3 bg-slate-50 border border-slate-200 flex items-center gap-4 font-mono">
-            <div className="space-y-0.5">
-              <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">
-                年間潜在創出価値
-              </span>
-              <span className="text-base sm:text-lg font-black text-emerald-700 tabular-nums">
-                {activeStrategy.potentialAnnualProfitJpy}
-              </span>
+          <div className="shrink-0 flex items-center bg-slate-50 border border-slate-200 rounded-lg divide-x divide-slate-200 font-mono text-xs">
+            <div className="px-4 py-2 space-y-0.5">
+              <span className="text-[10px] text-slate-400 font-semibold uppercase block">年間潜在価値</span>
+              <span className="text-base font-bold text-emerald-700 tabular-nums">{activeStrategy.potentialAnnualProfitJpy}</span>
             </div>
-            <div className="border-l border-slate-200 pl-4 space-y-0.5">
-              <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider block">
-                最大適合スコア
-              </span>
-              <span className="text-base sm:text-lg font-black text-indigo-700 tabular-nums">
-                {activeStrategy.bestFitScore}%
-              </span>
+            <div className="px-4 py-2 space-y-0.5">
+              <span className="text-[10px] text-slate-400 font-semibold uppercase block">最大適合スコア</span>
+              <span className="text-base font-bold text-slate-950 tabular-nums">{activeStrategy.bestFitScore}%</span>
             </div>
           </div>
         )}
       </div>
 
-      {/* 2. 手札フィルター・セレクター (6軸) */}
-      <div className="border-y border-slate-200 py-4 bg-slate-50/60 space-y-3">
-        <div className="flex items-center justify-between text-xs font-mono text-slate-500 font-bold border-b border-slate-200/60 pb-2">
-          <div className="flex items-center gap-1.5 text-slate-700">
-            <SlidersHorizontal size={13} className="text-indigo-600" />
-            <span>リソース条件セレクター（6軸入力）</span>
-          </div>
+      {/* 2. 手札リソース・マトリクスセレクター（Linear / Stripe 風インラインセグメント） */}
+      <div className="border border-slate-200 rounded-lg p-4 bg-slate-50/60 space-y-3">
+        <div className="flex items-center gap-1.5 font-mono text-xs font-bold text-slate-700 border-b border-slate-200 pb-2">
+          <SlidersHorizontal size={13} className="text-slate-500" />
+          <span>リソース条件セレクター（6軸トグル）</span>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs font-sans">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-3 text-xs">
           {/* 1. 投下可能資本 */}
-          <div className="space-y-1 font-mono">
-            <label className="text-[10px] text-slate-500 font-semibold block">1. 投下可能資本</label>
-            <select
-              value={capital}
-              onChange={(e) => setCapital(e.target.value as CapitalLevel)}
-              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
-            >
-              <option value="ZERO">0円 (元手ゼロ)</option>
-              <option value="MICRO">〜3万円 (ツール代)</option>
-              <option value="MID">10万〜50万円</option>
-              <option value="HIGH">100万円以上</option>
-            </select>
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">1. 投下可能資本</span>
+            <div className="flex items-center gap-1 flex-wrap">
+              {[
+                { id: 'ZERO', label: '0円 (元手ゼロ)' },
+                { id: 'MICRO', label: '〜3万円' },
+                { id: 'MID', label: '10万〜50万' },
+                { id: 'HIGH', label: '100万円〜' }
+              ].map(opt => (
+                <button
+                  key={opt.id}
+                  onClick={() => setCapital(opt.id as CapitalLevel)}
+                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
+                    capital === opt.id
+                      ? 'bg-slate-950 text-white font-bold shadow-xs'
+                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* 2. 週実働コミット */}
-          <div className="space-y-1 font-mono">
-            <label className="text-[10px] text-slate-500 font-semibold block">2. 週実働コミット</label>
-            <select
-              value={time}
-              onChange={(e) => setTime(e.target.value as TimeCommitment)}
-              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
-            >
-              <option value="ULTRA_LIGHT">週1〜3h (完全自動)</option>
-              <option value="SIDE_JOB">週5〜10h (副業・週末)</option>
-              <option value="FULL_TIME">週30h+ (専任・本業)</option>
-            </select>
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">2. 週実働コミット</span>
+            <div className="flex items-center gap-1 flex-wrap">
+              {[
+                { id: 'ULTRA_LIGHT', label: '週1〜3h (自動化)' },
+                { id: 'SIDE_JOB', label: '週5〜10h (副業)' },
+                { id: 'FULL_TIME', label: '週30h+ (専任)' }
+              ].map(opt => (
+                <button
+                  key={opt.id}
+                  onClick={() => setTime(opt.id as TimeCommitment)}
+                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
+                    time === opt.id
+                      ? 'bg-slate-950 text-white font-bold shadow-xs'
+                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* 3. 保有スキル・武器 */}
-          <div className="space-y-1 font-mono">
-            <label className="text-[10px] text-slate-500 font-semibold block">3. 保有スキル・武器</label>
-            <select
-              value={capability}
-              onChange={(e) => setCapability(e.target.value as Capability)}
-              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
-            >
-              <option value="NO_CODE_API">ノーコード / API配線</option>
-              <option value="SALES_OUTBOUND">泥臭い直販・営業</option>
-              <option value="CONTENT_MEDIA">文章要約・情報収集</option>
-              <option value="BIZ_EFFICIENCY">業務改善・データ</option>
-              <option value="VIDEO_CREATIVE">動画・SNS感覚</option>
-            </select>
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">3. 保有スキル・武器</span>
+            <div className="flex items-center gap-1 flex-wrap">
+              {[
+                { id: 'NO_CODE_API', label: 'ノーコード / API' },
+                { id: 'SALES_OUTBOUND', label: '直販・営業' },
+                { id: 'CONTENT_MEDIA', label: '文章要約' },
+                { id: 'BIZ_EFFICIENCY', label: '業務改善' }
+              ].map(opt => (
+                <button
+                  key={opt.id}
+                  onClick={() => setCapability(opt.id as Capability)}
+                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
+                    capability === opt.id
+                      ? 'bg-slate-950 text-white font-bold shadow-xs'
+                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* 4. 顧客ターゲット */}
-          <div className="space-y-1 font-mono">
-            <label className="text-[10px] text-slate-500 font-semibold block">4. 顧客ターゲット</label>
-            <select
-              value={targetMarket}
-              onChange={(e) => setTargetMarket(e.target.value as CustomerTarget)}
-              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
-            >
-              <option value="B2B_CORP">法人 (経費・即決)</option>
-              <option value="B2C_INDIVIDUAL">個人 (欲望・時短)</option>
-              <option value="LOCAL_STORE">地方店舗・町工場</option>
-            </select>
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">4. 顧客ターゲット</span>
+            <div className="flex items-center gap-1 flex-wrap">
+              {[
+                { id: 'B2B_CORP', label: '法人 (経費決済)' },
+                { id: 'B2C_INDIVIDUAL', label: '個人 (欲望・時短)' },
+                { id: 'LOCAL_STORE', label: '地方店舗・町工場' }
+              ].map(opt => (
+                <button
+                  key={opt.id}
+                  onClick={() => setTargetMarket(opt.id as CustomerTarget)}
+                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
+                    targetMarket === opt.id
+                      ? 'bg-slate-950 text-white font-bold shadow-xs'
+                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* 5. 着金スピード */}
-          <div className="space-y-1 font-mono">
-            <label className="text-[10px] text-slate-500 font-semibold block">5. 着金スピード</label>
-            <select
-              value={cashSpeed}
-              onChange={(e) => setCashSpeed(e.target.value as CashSpeed)}
-              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
-            >
-              <option value="INSTANT_CASH">即金 (初日〜1週間)</option>
-              <option value="LONG_STOCK">ストック (月額積上)</option>
-            </select>
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">5. 着金スピード</span>
+            <div className="flex items-center gap-1 flex-wrap">
+              {[
+                { id: 'INSTANT_CASH', label: '即金 (初日〜1週間)' },
+                { id: 'LONG_STOCK', label: 'ストック (月額積上)' }
+              ].map(opt => (
+                <button
+                  key={opt.id}
+                  onClick={() => setCashSpeed(opt.id as CashSpeed)}
+                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
+                    cashSpeed === opt.id
+                      ? 'bg-slate-950 text-white font-bold shadow-xs'
+                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* 6. 目標手残り月利 */}
-          <div className="space-y-1 font-mono">
-            <label className="text-[10px] text-slate-500 font-semibold block">6. 目標手残り月利</label>
-            <select
-              value={targetProfit}
-              onChange={(e) => setTargetProfit(e.target.value as TargetProfit)}
-              className="w-full h-8 px-2 bg-white border border-slate-300 text-[11px] text-slate-800 font-medium focus:outline-hidden focus:border-indigo-600"
-            >
-              <option value="TIER_30M">月利 30万〜50万</option>
-              <option value="TIER_100M">月利 100万〜300万</option>
-              <option value="TIER_500M">月利 500万円以上</option>
-            </select>
+          <div className="space-y-1.5">
+            <span className="text-[10px] font-mono text-slate-400 font-semibold uppercase block">6. 目標手残り月利</span>
+            <div className="flex items-center gap-1 flex-wrap">
+              {[
+                { id: 'TIER_30M', label: '月利 30万〜' },
+                { id: 'TIER_100M', label: '月利 100万〜' },
+                { id: 'TIER_500M', label: '月利 500万円〜' }
+              ].map(opt => (
+                <button
+                  key={opt.id}
+                  onClick={() => setTargetProfit(opt.id as TargetProfit)}
+                  className={`h-6.5 px-2.5 text-[11px] font-mono rounded transition-colors cursor-pointer ${
+                    targetProfit === opt.id
+                      ? 'bg-slate-950 text-white font-bold shadow-xs'
+                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       {/* 3. 照合結果サマリー ＆ 並び替え */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 border-t border-slate-100">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1 border-b border-slate-200 pb-2">
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs font-bold text-slate-900">
-            適合モデル: <span className="text-indigo-600 font-black">{sortedStrategies.length}件</span> 検出
+            適合モデル: <span className="text-slate-950 font-bold tabular-nums">{sortedStrategies.length}件</span> 検出
           </span>
         </div>
 
@@ -735,9 +659,9 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
               key={s.id}
               type="button"
               onClick={() => setSortBy(s.id as SortOption)}
-              className={`px-2.5 py-1 rounded-md border text-[10px] transition-colors cursor-pointer ${
+              className={`px-2 py-0.5 rounded border text-[10px] transition-colors cursor-pointer ${
                 sortBy === s.id
-                  ? 'bg-slate-900 text-white border-slate-900 font-bold'
+                  ? 'bg-slate-950 text-white border-slate-950 font-bold'
                   : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
               }`}
             >
@@ -747,13 +671,13 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         </div>
       </div>
 
-      {/* 4. 適合モデル 高密度インデックスシート（AI特有の浮いた3列カードを完全解体） */}
-      <div className="border-y border-slate-200 bg-white overflow-hidden">
+      {/* 4. 適合モデル 高密度インデックスシート */}
+      <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
         {/* テーブルヘッダー */}
-        <div className="hidden md:grid grid-cols-12 gap-3 px-4 py-2.5 bg-slate-50 border-b border-slate-200 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+        <div className="hidden md:grid grid-cols-12 gap-3 px-4 py-2.5 bg-slate-50/80 border-b border-slate-200 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
           <div className="col-span-1 text-center">順位</div>
           <div className="col-span-2">適合スコア</div>
-          <div className="col-span-5">適合事業モデル / 実在検証元</div>
+          <div className="col-span-5">適合事業モデル / 実証元</div>
           <div className="col-span-2 text-right">想定手残り月利</div>
           <div className="col-span-1 text-right">粗利率</div>
           <div className="col-span-1 text-center">状態</div>
@@ -770,14 +694,14 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 onClick={() => setSelectedStrategyId(item.id)}
                 className={`px-4 py-3 cursor-pointer transition-all flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-3 items-start md:items-center ${
                   isSelected
-                    ? 'bg-slate-50/90 border-l-4 border-indigo-600 font-medium'
-                    : 'hover:bg-slate-50/60 border-l-4 border-transparent'
+                    ? 'bg-slate-50 border-l-4 border-slate-950 font-medium'
+                    : 'hover:bg-slate-50/70 border-l-4 border-transparent'
                 }`}
               >
                 {/* 順位 */}
                 <div className="col-span-1 hidden md:flex items-center justify-center">
                   <span className={`w-5 h-5 rounded flex items-center justify-center font-mono text-[11px] font-bold ${
-                    idx === 0 ? 'bg-indigo-600 text-white' : idx === 1 ? 'bg-slate-200 text-slate-800' : 'text-slate-400'
+                    idx === 0 ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-600'
                   }`}>
                     {idx + 1}
                   </span>
@@ -785,14 +709,12 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
                 {/* 適合度バー＆スコア */}
                 <div className="col-span-2 flex items-center gap-2 w-full">
-                  <span className="font-mono text-xs font-bold text-slate-900 tabular-nums shrink-0">
+                  <span className="font-mono text-xs font-bold text-slate-950 tabular-nums shrink-0">
                     {item.bestFitScore}%
                   </span>
                   <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden hidden sm:block">
                     <div
-                      className={`h-full rounded-full transition-all ${
-                        idx === 0 ? 'bg-indigo-600' : 'bg-slate-400'
-                      }`}
+                      className="h-full rounded-full bg-slate-950 transition-all"
                       style={{ width: `${item.bestFitScore}%` }}
                     />
                   </div>
@@ -801,7 +723,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 {/* モデル名称 ＆ 実証元 */}
                 <div className="col-span-5 min-w-0 w-full">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-bold text-slate-900 truncate">
+                    <span className="text-xs font-bold text-slate-950 truncate">
                       {item.title}
                     </span>
                     <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 border border-slate-200 shrink-0">
@@ -830,7 +752,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 {/* アクション・状態 */}
                 <div className="col-span-1 flex items-center justify-end md:justify-center font-mono text-[10px] w-full md:w-auto">
                   {isSelected ? (
-                    <span className="px-2 py-0.5 rounded bg-indigo-600 text-white font-bold flex items-center gap-1 shadow-2xs">
+                    <span className="px-2 py-0.5 rounded bg-slate-950 text-white font-bold flex items-center gap-1 shadow-2xs">
                       <Check size={11} className="stroke-[3]" />
                       <span>展開中</span>
                     </span>
@@ -853,16 +775,16 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
           <button
             type="button"
             onClick={() => setShowAllMatches(!showAllMatches)}
-            className="px-3.5 py-1.5 bg-white hover:bg-slate-50 text-slate-600 font-mono text-xs font-medium rounded-lg border border-slate-200 transition-colors cursor-pointer flex items-center gap-1.5 shadow-2xs"
+            className="px-3 py-1 bg-white hover:bg-slate-50 text-slate-600 font-mono text-xs font-medium rounded border border-slate-200 transition-colors cursor-pointer flex items-center gap-1.5"
           >
             {showAllMatches ? (
               <>
-                <ChevronUp size={13} />
-                <span>上位4件の表示に縮小</span>
+                <ChevronUp size={12} />
+                <span>上位4件に縮小</span>
               </>
             ) : (
               <>
-                <ChevronDown size={13} />
+                <ChevronDown size={12} />
                 <span>すべての適合モデルを表示（全 {sortedStrategies.length} 件）</span>
               </>
             )}
@@ -870,44 +792,41 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         </div>
       )}
 
-      {/* 5. 選択中モデルの実務実行ドシエ（ボーダーレス台帳型） */}
+      {/* 5. 選択中モデルの実務実行ドシエ（コンサルティング提案書規格） */}
       {activeStrategy && (
-        <div className="border-t-2 border-slate-900 pt-6 space-y-6">
-          {/* 上段：タイトルと財務サマリー */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
-            <div className="space-y-1.5">
-              <div className="flex items-center gap-2 flex-wrap font-mono text-[10px]">
-                <span className="px-2 py-0.5 bg-slate-900 text-white font-bold uppercase tracking-wider">
-                  ACTIVE DOSSIER
-                </span>
-                <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-bold border border-indigo-200">
-                  {activeStrategy.badgeLabel}（適合度 {activeStrategy.bestFitScore}%）
+        <div className="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-xs">
+          {/* 上段ヘッダー：タイトルと財務サマリー */}
+          <div className="p-5 bg-slate-50/80 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="space-y-1">
+              <div className="flex items-center gap-2 font-mono text-[10px]">
+                <span className="px-1.5 py-0.2 rounded bg-slate-950 text-white font-bold uppercase tracking-wider">
+                  EXECUTION DOSSIER
                 </span>
                 <span className="text-slate-500">
-                  実在検証元: {activeStrategy.founderReference}
+                  {activeStrategy.badgeLabel}（適合度 {activeStrategy.bestFitScore}%） • {activeStrategy.founderReference}
                 </span>
               </div>
-              <h3 className="text-lg sm:text-xl font-black text-slate-950 tracking-tight">
+              <h2 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight">
                 {activeStrategy.title}
-              </h3>
+              </h2>
             </div>
 
             <div className="flex items-center gap-4 shrink-0 font-mono">
               <div className="text-right">
-                <span className="text-[9px] text-slate-400 block uppercase font-medium">想定月利</span>
-                <span className="text-sm sm:text-base font-black text-emerald-700 tabular-nums">
+                <span className="text-[9px] text-slate-400 block uppercase font-semibold">想定月利</span>
+                <span className="text-sm font-bold text-emerald-700 tabular-nums">
                   {activeStrategy.monthlyRevenueEstimate.split('（')[0]}
                 </span>
               </div>
-              <div className="text-right pl-4 border-l border-slate-200">
-                <span className="text-[9px] text-slate-400 block uppercase font-medium">粗利率</span>
-                <span className="text-sm sm:text-base font-black text-slate-900 tabular-nums">
+              <div className="text-right pl-3 border-l border-slate-200">
+                <span className="text-[9px] text-slate-400 block uppercase font-semibold">粗利率</span>
+                <span className="text-sm font-bold text-slate-950 tabular-nums">
                   {activeStrategy.profitMargin}%
                 </span>
               </div>
-              <div className="text-right pl-4 border-l border-slate-200">
-                <span className="text-[9px] text-slate-400 block uppercase font-medium">初期費用</span>
-                <span className="text-sm sm:text-base font-black text-slate-900 tabular-nums">
+              <div className="text-right pl-3 border-l border-slate-200">
+                <span className="text-[9px] text-slate-400 block uppercase font-semibold">初期資本</span>
+                <span className="text-sm font-bold text-slate-950 tabular-nums">
                   {activeStrategy.initialInvestment}
                 </span>
               </div>
@@ -915,84 +834,72 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 <button
                   type="button"
                   onClick={() => onSelectCompany(activeStrategy.companyId)}
-                  className="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white font-mono text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer ml-2"
+                  className="px-3 py-1.5 bg-slate-950 hover:bg-slate-850 text-white font-mono text-xs font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer ml-2"
                 >
-                  <span>企業財務DBで見る</span>
-                  <ArrowRight size={12} />
+                  <span>企業財務DB</span>
+                  <ArrowRight size={11} />
                 </button>
               )}
             </div>
           </div>
 
-          {/* 実務アセット ＆ トーク（ボーダーレス2カラム） */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 pt-2">
+          {/* 実務アセット ＆ トーク（2カラム構造） */}
+          <div className="p-5 grid grid-cols-1 lg:grid-cols-12 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 text-xs">
             {/* 左: 顧客開拓アプローチ実文面 */}
-            <div className="lg:col-span-7 pb-6 lg:pb-0 lg:pr-8 space-y-4">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-[10px] font-bold border border-indigo-200 uppercase">
-                      OUTREACH ASSET
-                    </span>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-900">
-                      {activeStrategy.readyToUseAsset.title}
-                    </h4>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={() => handleCopy(activeStrategy.readyToUseAsset.content, activeStrategy.id)}
-                    className="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0"
-                  >
-                    {copiedKey === activeStrategy.id ? (
-                      <>
-                        <Check size={13} className="text-emerald-300" />
-                        <span>コピー完了</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy size={13} />
-                        <span>文面をコピー</span>
-                      </>
-                    )}
-                  </button>
+            <div className="lg:col-span-7 space-y-3">
+              <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                <div className="flex items-center gap-2">
+                  <span className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">
+                    OUTREACH ASSET
+                  </span>
+                  <h3 className="text-xs font-bold text-slate-950">
+                    {activeStrategy.readyToUseAsset.title}
+                  </h3>
                 </div>
-                
-                {/* コードブロック形式のクリーンなテキストエリア */}
-                <div className="p-4 bg-slate-50 border border-slate-200 font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed select-text">
-                  {activeStrategy.readyToUseAsset.content}
-                </div>
+                <button
+                  type="button"
+                  onClick={() => handleCopy(activeStrategy.readyToUseAsset.content, activeStrategy.id)}
+                  className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white font-mono text-[11px] font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
+                >
+                  {copiedKey === activeStrategy.id ? (
+                    <>
+                      <Check size={11} className="text-emerald-300" />
+                      <span>コピー完了</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={11} />
+                      <span>文面をコピー</span>
+                    </>
+                  )}
+                </button>
+              </div>
+              
+              {/* コードブロック形式のテキストエリア */}
+              <div className="p-3.5 bg-slate-50 border border-slate-200 rounded font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed select-text">
+                {activeStrategy.readyToUseAsset.content}
               </div>
             </div>
 
             {/* 右: 戦略的価格決定権 ＆ リスク要因 ＆ ツール */}
-            <div className="lg:col-span-5 pt-6 lg:pt-0 lg:pl-8 space-y-5">
-              {/* 価格決定権と差別化ロジック */}
-              <div className="space-y-1.5 border-b border-slate-100 pb-3">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono uppercase font-bold text-indigo-700">
-                    PRICING LOGIC
-                  </span>
-                  <h4 className="text-xs font-bold text-slate-900">
-                    価格決定権の確立と差別化ロジック
-                  </h4>
-                </div>
-                <p className="text-xs font-sans text-slate-700 leading-relaxed font-normal">
+            <div className="lg:col-span-5 pt-5 lg:pt-0 lg:pl-6 space-y-4">
+              {/* 価格決定権ロジック */}
+              <div className="space-y-1 border-b border-slate-100 pb-3">
+                <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
+                  PRICING LOGIC
+                </span>
+                <p className="text-xs font-sans text-slate-800 leading-relaxed">
                   {activeStrategy.pricingScript}
                 </p>
               </div>
 
               {/* 参入初期のリスク要因 */}
-              <div className="space-y-1.5 border-b border-slate-100 pb-3">
-                <div className="flex items-center gap-2 text-rose-600">
-                  <AlertTriangle size={13} />
-                  <span className="text-[10px] font-mono uppercase font-bold text-rose-600">
-                    KEY RISK FACTORS
-                  </span>
-                  <h4 className="text-xs font-bold text-rose-900">
-                    参入初期に回避すべき主要リスク
-                  </h4>
+              <div className="space-y-1 border-b border-slate-100 pb-3">
+                <div className="flex items-center gap-1.5 text-rose-700 font-bold">
+                  <AlertTriangle size={12} />
+                  <span className="text-[10px] font-mono uppercase">KEY RISK FACTORS</span>
                 </div>
-                <p className="text-xs text-slate-700 leading-relaxed font-normal">
+                <p className="text-xs font-sans text-slate-800 leading-relaxed">
                   {activeStrategy.fatalTrapToAvoid}
                 </p>
               </div>
@@ -1004,8 +911,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 </span>
                 <div className="flex items-center gap-1.5 flex-wrap font-mono text-[10px]">
                   {activeStrategy.threeKeyTools.map((t, idx) => (
-                    <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-700 border border-slate-200">
-                      {t.name} <span className="text-slate-500">({t.role})</span>
+                    <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">
+                      {t.name} <span className="text-slate-400">({t.role})</span>
                     </span>
                   ))}
                 </div>
@@ -1013,19 +920,19 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             </div>
           </div>
 
-          {/* PRO会員限定解錠枠（インラインフッターバー） */}
-          <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-sans">
+          {/* PRO会員限定解錠枠 */}
+          <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2.5 min-w-0">
-              <Lock size={14} className="text-amber-600 shrink-0" />
+              <Lock size={13} className="text-amber-700 shrink-0" />
               <div className="truncate">
-                <span className="font-mono text-amber-700 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
-                <span className="text-slate-900 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
+                <span className="font-mono text-amber-800 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
+                <span className="text-slate-950 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
                 <span className="text-slate-500 text-[11px] block mt-0.5">{activeStrategy.proUnlockPreview.description}</span>
               </div>
             </div>
             <button
               type="button"
-              className="px-3 py-1.5 bg-amber-50 hover:bg-amber-100 text-amber-900 font-mono text-xs font-bold border border-amber-300 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer"
+              className="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-900 font-mono text-xs font-semibold rounded border border-slate-300 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer shadow-xs"
             >
               PRO会員限定アセットを解錠
             </button>

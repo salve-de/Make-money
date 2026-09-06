@@ -12,72 +12,72 @@ interface NewsTickerItem {
 
 const NEWS_TICKER_ITEMS: NewsTickerItem[] = [
   {
-    category: '速報・爆速ローンチ',
-    headline: '3時間で作ったLeaderboard（outbid.lol）が公開48時間で利益2,000万円突破',
-    badge: '48時間で2,000万',
+    category: 'SPEED LAUNCH',
+    headline: 'outbid.lol: 3時間構築の順位オークションが公開48時間で利益2,000万円突破',
+    badge: '利益 ¥2,000万 / 48h',
     badgeType: 'RECORD',
     companyId: 'outbid-lol'
   },
   {
-    category: '完全1人開発',
-    headline: 'Pieter Levels氏、従業員ゼロで年商45億円・純利益率84%を維持中（Photo AI / Nomad List）',
-    badge: '年商45億円・利益率84%',
+    category: 'SOLO ARCHITECT',
+    headline: 'Photo AI / Nomad List: Pieter Levels氏、完全1人運営で年商45億円・純利益率84%',
+    badge: '年商 ¥45億 (純利 84%)',
     badgeType: 'PROFIT',
     companyId: 'solo-photoai'
   },
   {
-    category: 'AIツール爆益',
-    headline: 'Danny Postma氏、AI証明写真（HeadshotPro）で月商4,500万円・アフィリエイト30%還元で急拡大',
-    badge: '月商4,500万円',
+    category: 'AI WRAPPER',
+    headline: 'HeadshotPro: Danny Postma氏、AI証明写真で月商4,500万円・アフィリエイト30%還元',
+    badge: '月商 ¥4,500万',
     badgeType: 'HOT',
     companyId: 'solo-headshotpro'
   },
   {
-    category: '市場の歪み',
-    headline: 'TikTok Shop×顔出しなし物販チーム、台本自動生成で月商2,200万円（利益率24%）',
-    badge: '月商2,200万円',
+    category: 'MARKET ARBITRAGE',
+    headline: 'TikTok Shop物販実演: 台本自動生成×無償サンプルで月商2,200万円・利益率24%',
+    badge: '月商 ¥2,200万',
     badgeType: 'HOT',
     companyId: 'tiktok-shop-faceless'
   },
   {
-    category: '地味だが爆益',
-    headline: '地方の空き地×無人セルフストレージDX、初期投資回収後に月利3,200万円の純現金パイプライン',
-    badge: '月利3,200万円',
+    category: 'LOCAL DX',
+    headline: '無人セルフストレージDX: 初期投資回収後に月利3,200万円の純現金パイプライン',
+    badge: '月利 ¥3,200万',
     badgeType: 'PROFIT',
     companyId: 'local-self-storage'
   },
   {
-    category: '巨大独占の堀',
-    headline: 'キーエンス、代理店ゼロの直販営業モデルで営業利益率54.1%・平均年収2,200万円',
-    badge: '営業利益率54.1%',
+    category: 'GLOBAL MONOPOLY',
+    headline: 'キーエンス: 代理店ゼロ直販体制により営業利益率54.1%・平均年収2,200万円',
+    badge: '営業利益率 54.1%',
     badgeType: 'MONOPOLY',
     companyId: 'keyence-6861'
   },
   {
-    category: 'デジタルアセット収益',
-    headline: 'Easlo氏、完全1人でNotionテンプレート販売により年商1.1億円・利益率95%を達成',
-    badge: '年商1.1億円・利益率95%',
+    category: 'DIGITAL ASSET',
+    headline: 'Easlo: Notionテンプレート販売により完全1人で年商1.1億円・利益率95%',
+    badge: '年商 ¥1.1億 (純利 95%)',
     badgeType: 'PROFIT',
     companyId: 'solo-easlo'
   },
   {
-    category: '手堅い地方DX',
-    headline: '害虫駆除×LINE自動見積もり、職人ネットワーク化により1人運営で月商450万円・利益率55%',
-    badge: '利益率55%',
+    category: 'LOCAL BLUE-COLLAR',
+    headline: '害虫駆除×LINE自動見積もり: 職人ネットワーク化により月商450万円・利益率55%',
+    badge: '利益率 55%',
     badgeType: 'PROFIT',
     companyId: 'local-pest-control'
   },
   {
-    category: '開発ボイラープレート',
-    headline: 'Marc Lou氏、Next.js開発スターター（ShipFast）で初月4,000万円・Stripe売上公開始動',
-    badge: '初月4,000万円',
+    category: 'BOILERPLATE',
+    headline: 'ShipFast: Marc Lou氏、Next.js開発スターターで初月4,000万円・Stripe公開',
+    badge: '初月 ¥4,000万',
     badgeType: 'SPEED',
     companyId: 'solo-shipfast'
   },
   {
-    category: '素材世界シェア首位',
-    headline: '信越化学工業、半導体シリコンウェハー世界首位独占により営業利益率32.4%を記録',
-    badge: '営業利益率32.4%',
+    category: 'SILICON DOMINANCE',
+    headline: '信越化学工業: 半導体シリコンウェハー世界首位により営業利益率32.4%',
+    badge: '営業利益率 32.4%',
     badgeType: 'MONOPOLY',
     companyId: 'shinetsu-4063'
   }
@@ -88,61 +88,36 @@ interface MarketLiveTickerProps {
 }
 
 export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectCompany }) => {
-  // 無限ループ用に配列を2重化
   const tickerItems = [...NEWS_TICKER_ITEMS, ...NEWS_TICKER_ITEMS];
 
-  const getBadgeStyle = (_type: NewsTickerItem['badgeType']) => {
-    return 'bg-emerald-50 text-emerald-700 border-emerald-200';
-  };
-
   return (
-    <div className="h-7.5 bg-slate-50 border-b border-slate-200/80 flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
-      {/* 左端固定：速報ラベル */}
-      <div className="flex items-center gap-2 text-slate-700 shrink-0 px-3 bg-slate-100 z-10 border-r border-slate-200 h-full shadow-xs">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
-        <span className="font-bold text-[10px] tracking-wider text-slate-800 font-mono uppercase">
-          MARKET FEED
-        </span>
+    <div className="h-7 bg-slate-50 border-b border-slate-200/90 flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative">
+      {/* 左端固定：速報ラベル（Bloomberg Terminal Style） */}
+      <div className="bg-slate-950 text-white h-full px-3 flex items-center gap-1.5 shrink-0 z-10 border-r border-slate-900 font-bold tracking-wider text-[10px]">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>FLOW</span>
       </div>
 
-      {/* 横に滑らかに流れる無限ループコンテナ（ホバーで一時停止） */}
-      <div className="flex-1 ticker-wrapper">
-        <div className="ticker-track flex items-center">
-          {tickerItems.map((item, idx) => (
-            <div
-              key={idx}
-              onClick={() => {
-                if (item.companyId && onSelectCompany) {
-                  onSelectCompany(item.companyId);
-                }
-              }}
-              className={`flex items-center gap-2.5 px-4 py-1 shrink-0 ${
-                item.companyId && onSelectCompany
-                  ? 'cursor-pointer'
-                  : ''
-              }`}
-              title={item.companyId ? 'クリックして詳細分析データを開く' : undefined}
-            >
-              {/* カテゴリタグ */}
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-white text-slate-600 border border-slate-200 font-sans font-medium">
-                {item.category}
-              </span>
-
-              {/* ニュース見出し */}
-              <span className="text-slate-800 font-sans text-xs">
-                {item.headline}
-              </span>
-
-              {/* 実績バッジ */}
-              <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono font-bold border ${getBadgeStyle(item.badgeType)}`}>
-                {item.badge}
-              </span>
-
-              {/* 区切り点 */}
-              <span className="text-slate-300 pl-3 select-none">/</span>
-            </div>
-          ))}
-        </div>
+      {/* スクロールストリップ */}
+      <div className="flex items-center whitespace-nowrap animate-ticker overflow-hidden pl-2">
+        {tickerItems.map((item, idx) => (
+          <div
+            key={idx}
+            onClick={() => item.companyId && onSelectCompany?.(item.companyId)}
+            className="inline-flex items-center gap-2 mr-8 text-slate-600 hover:text-slate-950 cursor-pointer transition-colors group py-0.5"
+          >
+            <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">
+              {item.category}
+            </span>
+            <span className="text-slate-800 group-hover:text-slate-950 font-sans text-xs">
+              {item.headline}
+            </span>
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200/80 tabular-nums">
+              {item.badge}
+            </span>
+            <span className="text-slate-300 ml-4 font-normal">|</span>
+          </div>
+        ))}
       </div>
     </div>
   );

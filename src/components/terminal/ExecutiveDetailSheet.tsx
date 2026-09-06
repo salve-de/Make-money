@@ -287,7 +287,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 <span className="px-2 py-0.5 bg-slate-100 text-slate-700 font-bold border border-slate-200">
                   DOSSIER #{company.ticker}
                 </span>
-                <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-bold border border-indigo-200">
+                <span className="px-2 py-0.5 bg-slate-100 text-slate-700 font-bold border border-slate-200">
                   {company.scaleTier === 'SOLO_MICRO'
                     ? '完全1人運営'
                     : company.scaleTier === 'NICHE_LEADER'
@@ -355,7 +355,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         </div>
         <div className="p-3 sm:p-3.5 space-y-0.5 border-t sm:border-t-0">
           <div className="text-[10px] text-slate-500 font-sans font-medium">営業利益率</div>
-          <div className="text-base sm:text-lg font-black text-indigo-600 tabular-nums">
+          <div className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
             {profitPercent}%
           </div>
         </div>
@@ -397,7 +397,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               onClick={() => setActiveTab(tab.id as DetailTab)}
               className={`px-3.5 py-2.5 border-b-2 font-bold transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === tab.id
-                  ? 'border-indigo-600 text-indigo-600 font-black'
+                  ? 'border-slate-950 text-slate-950 font-bold'
                   : 'border-transparent text-slate-500 hover:text-slate-900'
               }`}
             >
@@ -421,12 +421,12 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           <section className="py-6 border-b border-slate-200 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 pb-2 border-b border-slate-100">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                <span className="w-2 h-2 rounded-full bg-slate-950"></span>
                 <h2 className="text-sm sm:text-base font-black text-slate-900 font-sans">
                   創業者の着眼点：何に着目し、どこに参入機会を見出したのか
                 </h2>
               </div>
-              <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200 self-start sm:self-auto">
+              <span className="text-[10px] font-mono text-slate-900 font-bold bg-slate-100 px-2 py-0.5 border border-slate-200 self-start sm:self-auto">
                 OPPORTUNITY DISCOVERY
               </span>
             </div>
@@ -445,8 +445,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
 
               {/* 2. 業界の盲点・隙間 */}
               <div className="py-3 md:py-0 md:px-6 space-y-1.5">
-                <div className="text-[11px] font-mono text-indigo-700 font-black uppercase flex items-center gap-1.5">
-                  <span className="w-4 h-4 bg-indigo-50 text-indigo-700 flex items-center justify-center text-[10px] font-bold border border-indigo-200">2</span>
+                <div className="text-[11px] font-mono text-slate-900 font-black uppercase flex items-center gap-1.5">
+                  <span className="w-4 h-4 bg-slate-100 text-slate-900 flex items-center justify-center text-[10px] font-bold border border-slate-200">2</span>
                   <span>業界の盲点・構造的隙間</span>
                 </div>
                 <p className="text-slate-700 leading-relaxed text-xs font-normal pt-1">
@@ -490,18 +490,18 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               {/* 左: 本人が担う業務 */}
               <div className="py-3 md:py-0 md:pr-6 space-y-2.5">
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2">
-                  <div className="text-[11px] font-mono text-indigo-900 font-black uppercase flex items-center gap-1.5">
-                    <span className="w-2 h-2 bg-indigo-600"></span>
+                  <div className="text-[11px] font-mono text-slate-950 font-black uppercase flex items-center gap-1.5">
+                    <span className="w-2 h-2 bg-slate-950"></span>
                     <span>本人が担う業務（意思決定・中核業務）</span>
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 border border-indigo-200">
+                  <span className="text-[10px] font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-200">
                     コア業務
                   </span>
                 </div>
                 <ul className="space-y-2 text-xs text-slate-700">
                   {founderTasks.map((task, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <Check size={13} className="text-indigo-600 shrink-0 mt-0.5" />
+                      <Check size={13} className="text-slate-900 shrink-0 mt-0.5" />
                       <span className="leading-relaxed">{task}</span>
                     </li>
                   ))}
@@ -640,7 +640,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider font-bold">
                     M&A VALUATION: 想定売却価値
                   </div>
-                  <span className="text-[10px] font-mono font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 border border-indigo-200">
+                  <span className="text-[10px] font-mono font-bold text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-200">
                     EXIT VALUE
                   </span>
                 </div>
@@ -656,7 +656,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 </div>
                 <div className="flex items-center justify-between border-b border-slate-100 pb-2 font-mono text-[11px]">
                   <span className="text-slate-500 font-sans">評価マルチプル:</span>
-                  <span className="text-indigo-700 font-bold">{exitMultiple}</span>
+                  <span className="text-slate-900 font-bold">{exitMultiple}</span>
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-mono text-slate-400 uppercase font-semibold">想定買い手層:</span>
@@ -676,7 +676,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           <div className="pt-6 border-t border-slate-200 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-indigo-600" />
+                <span className="w-2 h-2 bg-slate-950" />
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                   価格決定権の源泉と回収スピード（なぜ値引きなしで売れるのか）
                 </h3>
@@ -725,7 +725,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         <section className="py-6 border-b border-slate-200 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
+              <span className="px-2 py-0.5 bg-slate-100 text-slate-900 font-mono text-xs font-bold border border-slate-200">
                 02
               </span>
               <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
@@ -742,12 +742,12 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             <div className="pb-6 lg:pb-0 lg:pr-8 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-indigo-600" />
+                  <span className="w-2 h-2 bg-slate-950" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                     顧客獲得チャネルの分解（集客の蛇口）
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200">
+                <span className="text-[10px] font-mono text-slate-900 font-bold bg-slate-100 px-2 py-0.5 border border-slate-200">
                   {primaryChannelName}
                 </span>
               </div>
@@ -767,7 +767,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                         <div className="w-full h-1.5 bg-slate-100 overflow-hidden">
                           <div
                             style={{ width: `${tb.percentage}%` }}
-                            className="h-full bg-indigo-600"
+                            className="h-full bg-slate-950"
                           />
                         </div>
                       </div>
@@ -790,7 +790,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             <div className="pt-6 lg:pt-0 lg:pl-8 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-indigo-600" />
+                  <span className="w-2 h-2 bg-slate-950" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                     スイッチングコストと解約抑止構造（離脱阻止の仕掛け）
                   </h3>
@@ -838,7 +838,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         <section className="py-6 border-b border-slate-200 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
+              <span className="px-2 py-0.5 bg-slate-100 text-slate-900 font-mono text-xs font-bold border border-slate-200">
                 03
               </span>
               <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
@@ -855,12 +855,12 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             <div className="pb-6 lg:pb-0 lg:pr-8 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-indigo-600" />
+                  <span className="w-2 h-2 bg-slate-950" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                     初期トラクション獲得プロセス（実績ゼロからの初期10社開拓手法）
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200">
+                <span className="text-[10px] font-mono text-slate-900 font-bold bg-slate-100 px-2 py-0.5 border border-slate-200">
                   DAY-1 TRACTION
                 </span>
               </div>
@@ -899,12 +899,12 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             <div className="pt-6 lg:pt-0 lg:pl-8 space-y-4">
               <div className="flex items-center justify-between border-b border-slate-100 pb-2">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 bg-indigo-600" />
+                  <span className="w-2 h-2 bg-slate-950" />
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900">
                     購買決定を促す中核動機（意思決定要因と心理的背景）
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 border border-indigo-200">
+                <span className="text-[10px] font-mono text-slate-900 font-bold bg-slate-100 px-2 py-0.5 border border-slate-200">
                   DECISION DRIVERS
                 </span>
               </div>
@@ -1038,7 +1038,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         <section className="py-6 border-b border-slate-200 space-y-6">
           <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 font-mono text-xs font-bold border border-indigo-200">
+              <span className="px-2 py-0.5 bg-slate-100 text-slate-900 font-mono text-xs font-bold border border-slate-200">
                 04
               </span>
               <h2 className="text-sm sm:text-base font-black text-slate-900 tracking-wide">
@@ -1090,7 +1090,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   ]).map((tool, idx) => (
                     <tr key={idx} className="hover:bg-slate-50 text-slate-700 transition-colors">
                       <td className="py-2.5 px-3 font-bold text-slate-900 text-left flex items-center gap-2">
-                        <span className="w-1.5 h-1.5 bg-indigo-600" />
+                        <span className="w-1.5 h-1.5 bg-slate-950" />
                         <span>{tool.name}</span>
                       </td>
                       <td className="py-2.5 px-3 text-slate-500 text-left font-sans">{tool.category}</td>
@@ -1126,7 +1126,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   この収益モデルを立ち上げるための実戦スケジュール
                 </h3>
               </div>
-              <span className="text-[11px] font-mono text-indigo-700 bg-indigo-50 px-2 py-0.5 border border-indigo-200 font-bold">
+              <span className="text-[11px] font-mono text-slate-900 bg-slate-100 px-2 py-0.5 border border-slate-200 font-bold">
                 所要期間: 7日間完結
               </span>
             </div>
@@ -1134,7 +1134,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             {/* 4分割ディバイダーグリッド */}
             <div className="border border-slate-200 bg-slate-50/40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-xs font-sans">
               <div className="p-3.5 space-y-1">
-                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
+                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 inline-block mb-1">
                   DAY 1 - 2
                 </span>
                 <h4 className="text-xs font-bold text-slate-900">プロダクト設計 & オファー定義</h4>
@@ -1144,7 +1144,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
 
               <div className="p-3.5 space-y-1">
-                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
+                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 inline-block mb-1">
                   DAY 3 - 4
                 </span>
                 <h4 className="text-xs font-bold text-slate-900">決済・契約インフラの開通</h4>
@@ -1154,7 +1154,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               </div>
 
               <div className="p-3.5 space-y-1">
-                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200 inline-block mb-1">
+                <span className="px-2 py-0.5 text-[10px] font-mono font-bold bg-slate-100 text-slate-700 border border-slate-200 inline-block mb-1">
                   DAY 5 - 6
                 </span>
                 <h4 className="text-xs font-bold text-slate-900">初期顧客の獲得・検証</h4>
@@ -1203,7 +1203,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
             {/* アセットリスト */}
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800 border border-slate-800 bg-slate-900/60 relative">
               <div className="p-4 space-y-2 select-none filter blur-[1.5px] opacity-70">
-                <span className="text-[10px] font-mono text-indigo-400 font-bold uppercase">PROMPT / 実行コード</span>
+                <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">PROMPT / 実行コード</span>
                 <div className="text-xs font-bold text-white">自律運用用システムプロンプト</div>
                 <div className="text-[11px] font-mono text-slate-400 bg-slate-950/80 p-2 border border-slate-800">
                   System: You are an autonomous arbitrage analyst specialized in...
