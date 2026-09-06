@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { TERMINAL_COMPANIES } from '@/data/terminalData';
 import { CompanyRecord, TerminalFilterState } from '@/types/terminal';
 import { CleanHeader } from '@/components/terminal/CleanHeader';
@@ -9,6 +9,7 @@ import { ActiveFilterChips } from '@/components/terminal/ActiveFilterChips';
 import { ScreenerModal } from '@/components/terminal/ScreenerModal';
 import { CompanyListSidebar } from '@/components/terminal/CompanyListSidebar';
 import { ExecutiveDetailSheet } from '@/components/terminal/ExecutiveDetailSheet';
+import { PlaybookInspector } from '@/components/terminal/PlaybookInspector';
 import { PortalView } from '@/components/terminal/PortalView';
 import { SpecialCollectionsView } from '@/components/terminal/portal/sections/SpecialCollectionsView';
 import { CollectionDetailView } from '@/components/terminal/portal/sections/CollectionDetailView';
@@ -98,8 +99,8 @@ export default function Home() {
   // 検索クエリ
   const [searchQuery, setSearchQuery] = useState('');
 
-  // メイン画面の表示モード（ポータル特集 ⇄ 専門分析台帳 ⇄ 各セクション・個別詳細）
-  const [mainView, setMainView] = useState<MainViewType>('PORTAL');
+  // メイン画面の表示モード（デフォルトは世界標準3ペイン端末 TERMINAL）
+  const [mainView, setMainView] = useState<MainViewType>('TERMINAL');
 
   // 選択中の特集コレクションID / シグナルID
   const [activeCollectionId, setActiveCollectionId] = useState<string>('collection-passive');
@@ -346,6 +347,41 @@ export default function Home() {
     });
   };
 
+  // キーボードナビゲーション（J: 次の企業, K: 前の企業, 1〜4: ビュー切り替え）
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // フォーム入力中はショートカットを無効化
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes((e.target as HTMLElement)?.tagName)) {
+        return;
+      }
+
+      if (e.key === 'j' || e.key === 'J' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        const currentIndex = filteredCompanies.findIndex((c) => c.id === selectedCompanyId);
+        if (currentIndex < filteredCompanies.length - 1) {
+          setSelectedCompanyId(filteredCompanies[currentIndex + 1].id);
+        }
+      } else if (e.key === 'k' || e.key === 'K' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        const currentIndex = filteredCompanies.findIndex((c) => c.id === selectedCompanyId);
+        if (currentIndex > 0) {
+          setSelectedCompanyId(filteredCompanies[currentIndex - 1].id);
+        }
+      } else if (e.key === '1') {
+        setMainView('PORTAL');
+      } else if (e.key === '2') {
+        setMainView('TERMINAL');
+      } else if (e.key === '3') {
+        setMainView('FINDER');
+      } else if (e.key === '4') {
+        setMainView('IDEAS_VAULT');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [filteredCompanies, selectedCompanyId]);
+
   return (
     <div className="h-screen w-screen bg-[#0B0E14] text-zinc-100 flex flex-col font-sans overflow-hidden select-none">
       {/* 1. 清潔な上部ヘッダー */}
@@ -493,81 +529,88 @@ export default function Home() {
         </div>
       )}
 
-      {/* 分析台帳画面 */}
+      {/* 企業財務監査コックピット（世界標準 3ペイン：左ディレクトリ ⇄ 中央損益レントゲン ⇄ 右Playbookインスペクター） */}
       {mainView === 'TERMINAL' && (
-        <div className="flex-1 flex overflow-hidden">
-        {/* 左: 銘柄スクリーニング ＆ 候補リスト (幅336px〜384px) */}
-        <CompanyListSidebar
-          companies={filteredCompanies}
-          totalCount={TERMINAL_COMPANIES.length}
-          selectedCompanyId={currentCompany?.id || ''}
-          onSelectCompany={(id) => setSelectedCompanyId(id)}
-          activePreset={activePreset}
-          onSelectPreset={(p) => {
-            setActivePreset(p);
-            const first = TERMINAL_COMPANIES.find((c) => {
-              if (p === 'SOLO_MILLION') return c.teamSize <= 2;
-              if (p === 'ZERO_INVESTMENT') return c.initialInvestmentJpy <= 50000;
-              if (p === 'AI_SAAS') return c.tags.includes('AIツール') || c.tags.includes('小型SaaS');
-              if (p === 'LOCAL_DX') return c.businessModel === 'LOCAL_DX';
-              if (p === 'MEGA_MONOPOLY') return c.scaleTier === 'MEGA_CORP';
-              if (p === 'FOR_SALE') return c.isForSale;
-              return true;
-            });
-            if (first) setSelectedCompanyId(first.id);
-          }}
-          activeSort={activeSort}
-          onSelectSort={(s) => setActiveSort(s)}
-          onOpenScreener={() => setIsScreenerOpen(true)}
-          hasActiveFilters={
-            screenerFilter.workStyle !== 'ALL' ||
-            screenerFilter.ambitionScale !== 'ALL' ||
-            screenerFilter.margin !== 'ALL' ||
-            screenerFilter.capital !== 'ALL' ||
-            screenerFilter.businessModelCategory !== 'ALL' ||
-            screenerFilter.moat !== 'ALL' ||
-            screenerFilter.acquisitionChannel !== 'ALL'
-          }
-          filter={screenerFilter}
-          onRemoveFilter={handleRemoveFilter}
-          onResetAll={handleResetAll}
-          bookmarkedIds={bookmarkedIds}
-        />
-
-        {/* 右: 財務構造・詳細分析シート (可変 flex-1) */}
-        {currentCompany ? (
-          <ExecutiveDetailSheet
-            company={currentCompany}
-            onOpenProModal={() => setIsProModalOpen(true)}
-            isBookmarked={bookmarkedIds.includes(currentCompany.id)}
-            onToggleBookmark={handleToggleBookmark}
+        <div className="flex-1 flex overflow-hidden min-h-0">
+          {/* 左ペイン: 高密度ディレクトリ ＆ 常設クイックファセット (280px〜320px) */}
+          <CompanyListSidebar
+            companies={filteredCompanies}
+            totalCount={TERMINAL_COMPANIES.length}
+            selectedCompanyId={currentCompany?.id || ''}
+            onSelectCompany={(id) => setSelectedCompanyId(id)}
+            activePreset={activePreset}
+            onSelectPreset={(p) => {
+              setActivePreset(p);
+              const first = TERMINAL_COMPANIES.find((c) => {
+                if (p === 'SOLO_MILLION') return c.teamSize <= 2;
+                if (p === 'ZERO_INVESTMENT') return c.initialInvestmentJpy <= 50000;
+                if (p === 'AI_SAAS') return c.tags.includes('AIツール') || c.tags.includes('小型SaaS');
+                if (p === 'LOCAL_DX') return c.businessModel === 'LOCAL_DX';
+                if (p === 'MEGA_MONOPOLY') return c.scaleTier === 'MEGA_CORP';
+                if (p === 'FOR_SALE') return c.isForSale;
+                return true;
+              });
+              if (first) setSelectedCompanyId(first.id);
+            }}
+            activeSort={activeSort}
+            onSelectSort={(s) => setActiveSort(s)}
+            onOpenScreener={() => setIsScreenerOpen(true)}
+            hasActiveFilters={
+              screenerFilter.workStyle !== 'ALL' ||
+              screenerFilter.ambitionScale !== 'ALL' ||
+              screenerFilter.margin !== 'ALL' ||
+              screenerFilter.capital !== 'ALL' ||
+              screenerFilter.businessModelCategory !== 'ALL' ||
+              screenerFilter.moat !== 'ALL' ||
+              screenerFilter.acquisitionChannel !== 'ALL'
+            }
+            filter={screenerFilter}
+            onRemoveFilter={handleRemoveFilter}
+            onResetAll={handleResetAll}
+            bookmarkedIds={bookmarkedIds}
           />
-        ) : (
-          <div className="flex-1 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2 font-sans">
-            <div>条件に一致するビジネスが見つかりませんでした</div>
-            <button
-              onClick={() => {
-                setActivePreset('ALL');
-                setScreenerFilter({
-                  keyword: '',
-                  desireCategory: 'ALL',
-                  workStyle: 'ALL',
-                  ambitionScale: 'ALL',
-                  margin: 'ALL',
-                  capital: 'ALL',
-                  businessModelCategory: 'ALL',
-                  moat: 'ALL',
-                  acquisitionChannel: 'ALL',
-                  sortBy: 'revenueDesc'
-                });
-              }}
-              className="text-xs text-zinc-400 hover:text-zinc-200 underline underline-offset-4"
-            >
-              条件をすべて解除して一覧に戻る
-            </button>
-          </div>
-        )}
-      </div>
+
+          {/* 中央ペイン: 財務構造・詳細分析シート (可変 flex-1) */}
+          {currentCompany ? (
+            <>
+              <ExecutiveDetailSheet
+                company={currentCompany}
+                onOpenProModal={() => setIsProModalOpen(true)}
+                isBookmarked={bookmarkedIds.includes(currentCompany.id)}
+                onToggleBookmark={handleToggleBookmark}
+              />
+              {/* 右ペイン: 生々しいズル（Playbook）インスペクター (350px〜380px) */}
+              <PlaybookInspector
+                company={currentCompany}
+                onOpenProModal={() => setIsProModalOpen(true)}
+              />
+            </>
+          ) : (
+            <div className="flex-1 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2 font-sans">
+              <div>条件に一致するビジネスが見つかりませんでした</div>
+              <button
+                onClick={() => {
+                  setActivePreset('ALL');
+                  setScreenerFilter({
+                    keyword: '',
+                    desireCategory: 'ALL',
+                    workStyle: 'ALL',
+                    ambitionScale: 'ALL',
+                    margin: 'ALL',
+                    capital: 'ALL',
+                    businessModelCategory: 'ALL',
+                    moat: 'ALL',
+                    acquisitionChannel: 'ALL',
+                    sortBy: 'revenueDesc'
+                  });
+                }}
+                className="text-xs text-zinc-400 hover:text-zinc-200 underline underline-offset-4"
+              >
+                条件をすべて解除して一覧に戻る
+              </button>
+            </div>
+          )}
+        </div>
       )}
 
       {/* 詳細絞り込みスクリーナーモーダル */}

@@ -278,7 +278,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
     '月利50万〜150万円';
 
   return (
-    <div className="flex-1 bg-[#0B0E14] overflow-y-auto px-6 sm:px-8 lg:px-12 py-8 space-y-8 select-none font-sans text-zinc-200">
+    <div className="flex-1 bg-[#0B0E14] overflow-y-auto px-5 sm:px-6 py-5 space-y-6 select-none font-sans text-zinc-200 min-w-0">
       
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【ヘッダー】エグゼクティブ・ドシエ表題（カード枠ゼロ・Sacra/FT型） */}

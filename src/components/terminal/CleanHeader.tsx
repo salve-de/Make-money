@@ -53,11 +53,11 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
         {/* 垂直セパレーター */}
         <div className="h-4 w-px bg-white/[0.08] hidden md:block" />
 
-        {/* メインビュー切替ナビゲーション（高密度セグメント） */}
+        {/* メインビュー切替ナビゲーション（高密度セグメント ＆ ショートカット表示） */}
         <nav className="hidden sm:flex items-center gap-1 text-xs font-sans">
           <button
             onClick={() => onChangeMainView('PORTAL')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
               isPortalActive
                 ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
@@ -65,10 +65,11 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           >
             <LayoutDashboard size={13} className={isPortalActive ? 'text-white' : 'text-zinc-400'} />
             <span>市場インテリジェンス</span>
+            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">1</span>
           </button>
           <button
             onClick={() => onChangeMainView('TERMINAL')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
               mainView === 'TERMINAL'
                 ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
@@ -76,10 +77,11 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           >
             <Database size={13} className={mainView === 'TERMINAL' ? 'text-white' : 'text-zinc-400'} />
             <span>企業財務データベース</span>
+            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">2</span>
           </button>
           <button
             onClick={() => onChangeMainView('FINDER')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
               mainView === 'FINDER'
                 ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
@@ -87,10 +89,11 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           >
             <Sparkles size={13} className={mainView === 'FINDER' ? 'text-white' : 'text-zinc-400'} />
             <span>リソース適合診断</span>
+            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">3</span>
           </button>
           <button
             onClick={() => onChangeMainView('IDEAS_VAULT')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
               mainView === 'IDEAS_VAULT'
                 ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
@@ -98,6 +101,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           >
             <Command size={13} className={mainView === 'IDEAS_VAULT' ? 'text-white' : 'text-zinc-400'} />
             <span>実践機会台帳</span>
+            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">4</span>
           </button>
         </nav>
       </div>
