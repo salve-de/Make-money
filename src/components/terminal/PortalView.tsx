@@ -204,8 +204,13 @@ export const PortalView: React.FC<PortalViewProps> = ({
                             <div className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                               {c.japaneseName}
                             </div>
-                            <div className="text-[11px] text-slate-500 truncate max-w-xs sm:max-w-md font-normal">
-                              {c.businessEssence?.whatItDoes || c.tagline}
+                            <div className="text-[11px] text-slate-600 truncate max-w-xs sm:max-w-md font-normal flex items-center gap-1.5 mt-0.5">
+                              <span className="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/80 shrink-0">
+                                着眼した隙間
+                              </span>
+                              <span className="truncate text-slate-700 font-medium">
+                                {c.successStory?.marketGlitch || c.businessEssence?.valueProposition || c.tagline}
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -253,7 +258,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   HIGH-MARGIN INDUSTRY ARBITRAGE
                 </span>
                 <span>/</span>
-                <span>高収益産業の構造的盲点への寄生型アプローチ</span>
+                <span>創業者が目につけた高単価産業の隙間と参入機会</span>
               </div>
               <h2 className="text-base sm:text-lg font-bold text-slate-900 mt-0.5">
                 高単価産業の構造的余剰利益を獲得する実効モデル TOP 4
@@ -274,7 +279,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
             {/* テーブルヘッダー */}
             <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
               <div className="col-span-5">実効モデル / 対象高単価市場</div>
-              <div className="col-span-3">突くべき構造的盲点・仕掛け</div>
+              <div className="col-span-3">創業者の着眼点：どこに隙を見出したか</div>
               <div className="col-span-2 text-right">実効手残り月利</div>
               <div className="col-span-1 text-center">初期資本</div>
               <div className="col-span-1 text-center">詳細</div>

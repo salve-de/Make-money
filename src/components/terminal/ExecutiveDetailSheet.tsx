@@ -117,7 +117,11 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
     company.entryStrategy?.whyIncumbentCantWin ||
     `既存大手は現在の高単価商流や中立性の看板に縛られているため、この特化モデルに参入すると自社の既存ビジネスを破壊するジレンマを抱えている。`;
 
-  // 【兵器②: 合法的なズル（盲点ハック）の抽出】
+  // 【兵器②: 創業者の着眼ログ（何を見て、どこに隙を見出し、どう突いたか）】
+  const observationText = company.successStory?.founderProfile ||
+    (company.businessEssence ? `${company.businessEssence.targetCustomer}が抱える「${company.businessEssence.valueProposition}」という未充足の不満や、高額すぎる業界常識を日常的に観測。` : null) ||
+    `「既存サービスは高額かつ複雑すぎて一般人や中小企業が手を出せない」という現場の不満・日常の歪みを観測。`;
+
   const glitchText = company.successStory?.marketGlitch ||
     company.entryStrategy?.whyIncumbentCantWin ||
     company.proDossier?.incumbentBlindspot.whyGiantsCantEnter ||
@@ -145,8 +149,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           DOSSIER # {company.ticker}
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 mt-1">
-          <div className="flex items-start gap-4 max-w-3xl">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="flex items-start gap-4 min-w-0">
             {/* 特大アプリアイコン */}
             <div className="shrink-0 pt-0.5">
               <CompanyLogo company={company} size="lg" />
@@ -250,26 +254,55 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
         </div>
       </div>
 
-      {/* 構造的裁定の要約（アコーディオン完全全廃・一目で理解できる2カラム設計） */}
-      <div className="rounded-xl bg-white border border-slate-200/90 p-4 shadow-2xs space-y-3">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
-          <span className="text-xs sm:text-sm font-bold text-slate-900">市場構造の盲点 & 構造的突破口（なぜこれで大儲けできるのか）</span>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="p-3.5 rounded-lg bg-rose-50/60 border border-rose-200/70 space-y-1.5">
-            <div className="text-[10px] font-mono text-rose-700 font-black uppercase flex items-center gap-1.5">
-              <span>●</span>
-              <span>1. 既存産業の構造的盲点・非効率性</span>
-            </div>
-            <p className="text-slate-700 leading-relaxed text-xs">{glitchText}</p>
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* 【創業者の着眼ログ：何を見て、どこに隙を見出して参入したのか】     */}
+      {/* 読者が「あぁ、ここを見て参入したのか！勉強になる！」と唸る3段レントゲン */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      <div className="rounded-xl bg-white border border-slate-200/90 p-5 shadow-2xs space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-100 pb-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-indigo-600 animate-pulse"></span>
+            <span className="text-xs sm:text-sm font-black text-slate-900 font-sans">
+              創業者の着眼ログ：何を見て、どこに隙（参入機会）を見出したのか
+            </span>
           </div>
-          <div className="p-3.5 rounded-lg bg-emerald-50/60 border border-emerald-200/70 space-y-1.5">
-            <div className="text-[10px] font-mono text-emerald-700 font-black uppercase flex items-center gap-1.5">
-              <span>●</span>
-              <span>2. 構造的裁定の突破口・仕掛け</span>
+          <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200/80 self-start sm:self-auto">
+            OPPORTUNITY DISCOVERY X-RAY
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 font-sans">
+          {/* 1. 日常の観察（何を見たのか） */}
+          <div className="p-4 rounded-xl bg-slate-50/90 border border-slate-200/90 space-y-2">
+            <div className="text-[11px] font-mono text-slate-700 font-black uppercase flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center text-[10px] font-bold">1</span>
+              <span>日常の観察（何を見たのか）</span>
             </div>
-            <p className="text-slate-700 leading-relaxed text-xs">{trickText}</p>
+            <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
+              {observationText}
+            </p>
+          </div>
+
+          {/* 2. 業界の隙間・バグ（どこに隙があったのか） */}
+          <div className="p-4 rounded-xl bg-rose-50/50 border border-rose-200/80 space-y-2">
+            <div className="text-[11px] font-mono text-rose-700 font-black uppercase flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center text-[10px] font-bold">2</span>
+              <span>業界の盲点・隙間（どこに隙があったか）</span>
+            </div>
+            <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
+              {glitchText}
+            </p>
+          </div>
+
+          {/* 3. 参入の一手（どう突いて勝ったのか） */}
+          <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
+            <div className="text-[11px] font-mono text-emerald-700 font-black uppercase flex items-center gap-1.5">
+              <span className="w-4 h-4 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center text-[10px] font-bold">3</span>
+              <span>参入の一手（どう突いて勝ったか）</span>
+            </div>
+            <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
+              {trickText}
+            </p>
           </div>
         </div>
       </div>
