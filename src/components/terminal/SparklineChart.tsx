@@ -33,7 +33,8 @@ export const SparklineChart: React.FC<SparklineChartProps> = ({
     .join(' ');
 
   const areaPoints = `2,${height} ${points} ${width - 2},${height}`;
-  const gradId = `grad-${color.replace('#', '')}-${Math.floor(Math.random() * 10000)}`;
+  const rawId = React.useId();
+  const gradId = `grad-${color.replace('#', '')}-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
 
   return (
     <div className="flex items-center gap-1.5 shrink-0 select-none">
