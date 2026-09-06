@@ -57,12 +57,12 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           <button
             onClick={() => onChangeMainView('PORTAL')}
             className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
-              mainView !== 'TERMINAL' && mainView !== 'IDEAS_VAULT'
+              mainView !== 'TERMINAL' && mainView !== 'IDEAS_VAULT' && mainView !== 'FINDER'
                 ? 'bg-white text-slate-950 shadow-2xs font-bold'
                 : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/50'
             }`}
           >
-            <LayoutDashboard size={13} className={mainView !== 'TERMINAL' && mainView !== 'IDEAS_VAULT' ? 'text-slate-950' : 'text-slate-400'} />
+            <LayoutDashboard size={13} className={mainView !== 'TERMINAL' && mainView !== 'IDEAS_VAULT' && mainView !== 'FINDER' ? 'text-slate-950' : 'text-slate-400'} />
             <span>市場インテリジェンス</span>
           </button>
           <button
@@ -77,6 +77,17 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             <span>企業財務データベース</span>
           </button>
           <button
+            onClick={() => onChangeMainView('FINDER')}
+            className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
+              mainView === 'FINDER'
+                ? 'bg-white text-indigo-950 shadow-2xs font-bold ring-1 ring-indigo-500/30'
+                : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/50'
+            }`}
+          >
+            <Sparkles size={13} className={mainView === 'FINDER' ? 'text-indigo-600' : 'text-slate-400'} />
+            <span className={mainView === 'FINDER' ? 'text-indigo-900 font-bold' : ''}>手札逆引きカンペ診断</span>
+          </button>
+          <button
             onClick={() => onChangeMainView('IDEAS_VAULT')}
             className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
               mainView === 'IDEAS_VAULT'
@@ -84,8 +95,8 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
                 : 'text-slate-600 hover:text-slate-950 hover:bg-slate-200/50'
             }`}
           >
-            <Sparkles size={13} className={mainView === 'IDEAS_VAULT' ? 'text-emerald-600' : 'text-slate-400'} />
-            <span>実践機会台帳・手札診断</span>
+            <Command size={13} className={mainView === 'IDEAS_VAULT' ? 'text-emerald-600' : 'text-slate-400'} />
+            <span>実践機会台帳</span>
           </button>
         </nav>
       </div>

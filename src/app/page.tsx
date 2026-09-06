@@ -16,10 +16,12 @@ import { MarketSignalsView } from '@/components/terminal/portal/sections/MarketS
 import { SignalDetailView } from '@/components/terminal/portal/sections/SignalDetailView';
 import { LeaderboardView } from '@/components/terminal/portal/sections/LeaderboardView';
 import { IdeasVaultView } from '@/components/terminal/IdeasVaultView';
+import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
 import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
 
 export type MainViewType = 
   | 'PORTAL'
+  | 'FINDER'
   | 'IDEAS_VAULT'
   | 'TERMINAL'
   | 'COLLECTIONS_LIST'
@@ -352,6 +354,7 @@ export default function Home() {
           }}
           onOpenLeaderboard={() => setMainView('LEADERBOARD')}
           onOpenIdeasVault={() => setMainView('IDEAS_VAULT')}
+          onOpenFinder={() => setMainView('FINDER')}
         />
       )}
 
@@ -425,6 +428,18 @@ export default function Home() {
           }}
           onBackToPortal={() => setMainView('PORTAL')}
         />
+      )}
+
+      {/* 手札逆引きカンペ診断専用画面（完全単一独立ワークスペース） */}
+      {mainView === 'FINDER' && (
+        <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-5 sm:p-7 lg:p-9 space-y-6 select-none font-sans text-slate-900">
+          <DiagnosticFinder
+            onSelectCompany={(id) => {
+              setSelectedCompanyId(id);
+              setMainView('TERMINAL');
+            }}
+          />
+        </div>
       )}
 
       {/* 実践ビジネスアイデア台帳画面 */}

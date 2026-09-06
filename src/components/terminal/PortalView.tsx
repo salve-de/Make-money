@@ -19,6 +19,7 @@ interface PortalViewProps {
   onOpenSignalDetail?: (signalId: string) => void;
   onOpenLeaderboard?: () => void;
   onOpenIdeasVault?: () => void;
+  onOpenFinder?: () => void;
 }
 
 export const PortalView: React.FC<PortalViewProps> = ({
@@ -31,7 +32,8 @@ export const PortalView: React.FC<PortalViewProps> = ({
   onOpenSignalsList,
   onOpenSignalDetail,
   onOpenLeaderboard,
-  onOpenIdeasVault
+  onOpenIdeasVault,
+  onOpenFinder
 }) => {
   const [selectedDossierId, setSelectedDossierId] = useState<string | null>(null);
 
@@ -252,7 +254,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* 2. 【多次元・手札逆引き診断ファインダーへの短絡導線】          */}
         {/* ───────────────────────────────────────────────────────────── */}
         <div 
-          onClick={() => onOpenIdeasVault?.()}
+          onClick={() => (onOpenFinder ? onOpenFinder() : onOpenIdeasVault?.())}
           className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-slate-800 shadow-sm cursor-pointer group hover:border-indigo-500/60 transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 select-none"
         >
           <div className="space-y-2 max-w-2xl">
