@@ -1019,6 +1019,15 @@
       - `npm run build` 全ルート正常ビルド（Exit Code 0）。
       - 実機CDP撮影監査（`v3_minimal_01_mobile.png`, `v3_minimal_02_laptop_1024.png`, `v3_minimal_03_desktop_1440.png`, `v3_minimal_04_desktop_split.png`, `v3_minimal_05_desktop_1920.png`）にて、AIゴテゴテ感が完全に消滅し、12時間見続けても疲れない静謐なプロ用金融端末となったことを目視実証。
 
+33. **Phase 42: 不要なCSVダウンロード機能の完全切除（完了）**
+    - **ユーザー指示**:
+      - 「てかCSVDL消せ いらねえ」
+    - **断行した外科手術**:
+      - `DataGridToolbar.tsx` から CSVエクスポートボタン・アイコンおよび関連 props を完全削除。
+      - `TerminalShell.tsx` から CSV生成・ダウンロードロジック（`handleExportCsv`）を完全消去。
+    - **検証**:
+      - `npx tsc --noEmit` エラーゼロ通過。ツールバーの横幅がさらにスッキリと整理され、視認性が向上。
+
 
 
 

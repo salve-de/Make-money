@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Download, SlidersHorizontal, Search, X } from 'lucide-react';
+import { SlidersHorizontal, Search, X } from 'lucide-react';
 import { GridFilterOption } from '../../types/terminal';
 
 interface DataGridToolbarProps {
@@ -10,7 +10,6 @@ interface DataGridToolbarProps {
   searchQuery: string;
   onSearchChange: (q: string) => void;
   totalCount: number;
-  onExportCsv: () => void;
   onOpenScreener: () => void;
 }
 
@@ -20,7 +19,6 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   searchQuery,
   onSearchChange,
   totalCount,
-  onExportCsv,
   onOpenScreener,
 }) => {
   const chips: { id: GridFilterOption; label: string }[] = [
@@ -59,21 +57,11 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           {/* 50軸詳細スクリーナー */}
           <button
             onClick={onOpenScreener}
-            className="flex items-center gap-1.5 text-xs bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] text-zinc-300 px-2 py-1 rounded transition-colors"
+            className="flex items-center gap-1.5 text-xs bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] text-zinc-300 px-2.5 py-1 rounded transition-colors"
           >
             <SlidersHorizontal className="w-3 h-3 text-zinc-400" />
             <span className="hidden sm:inline">50軸スクリーナー</span>
             <span className="sm:hidden">絞込</span>
-          </button>
-
-          {/* CSVエクスポート */}
-          <button
-            onClick={onExportCsv}
-            className="flex items-center gap-1 text-xs bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] text-zinc-400 hover:text-zinc-200 px-2 py-1 rounded transition-colors"
-            title="CSV形式でダウンロード"
-          >
-            <Download className="w-3 h-3 text-zinc-500" />
-            <span className="hidden sm:inline">CSV</span>
           </button>
         </div>
       </div>

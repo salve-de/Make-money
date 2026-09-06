@@ -83,21 +83,6 @@ export const TerminalShell: React.FC = () => {
     }
   }, [selectedEntityId, filteredEntities]);
 
-  const handleExportCsv = useCallback(() => {
-    const headers = ['Ticker,Name,Revenue(JPY),OperatingProfit(JPY),OperatingMargin(%),TeamSize,Blindspot'];
-    const rows = filteredEntities.map((e) =>
-      `"${e.ticker}","${e.name}",${e.pnl.monthlyRevenue},${e.pnl.operatingProfit},${e.pnl.operatingMargin},${e.operations.teamSize},"${e.strategy.blindspot.replace(/"/g, '""')}"`
-    );
-    const blob = new Blob([[...headers, ...rows].join('\n')], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', `kin_koroku_ledger_${new Date().toISOString().slice(0, 10)}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  }, [filteredEntities]);
-
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#060709] text-zinc-100 font-sans">
       {/* 最上部: リアルタイム市場ティッカー */}
@@ -135,7 +120,6 @@ export const TerminalShell: React.FC = () => {
             searchQuery={searchQuery}
             onSearchChange={setSearchQuery}
             totalCount={filteredEntities.length}
-            onExportCsv={handleExportCsv}
             onOpenScreener={() => setIsScreenerOpen(true)}
           />
 
