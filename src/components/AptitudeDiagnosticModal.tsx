@@ -160,7 +160,7 @@ export const AptitudeDiagnosticModal: React.FC<AptitudeDiagnosticModalProps> = (
                     onClose();
                     onSelectBusiness(biz);
                   }}
-                  className="p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-400/50 cursor-pointer transition flex items-center justify-between gap-4 group"
+                  className="p-4 rounded-lg bg-slate-950 border border-slate-800 hover:border-amber-400/50 cursor-pointer transition flex items-center justify-between gap-4 group"
                 >
                   <div className="flex items-center gap-3">
                     <span className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-300 font-mono font-bold flex items-center justify-center text-xs">

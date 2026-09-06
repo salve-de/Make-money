@@ -575,7 +575,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
   }, [selectedStrategyId, sortedStrategies]);
 
   return (
-    <section className="p-5 sm:p-7 rounded-2xl bg-white border border-slate-200 shadow-xs space-y-6 select-none">
+    <section className="p-5 sm:p-6 rounded-lg bg-white border border-slate-200 shadow-2xs space-y-5 select-none">
       {/* 1. ヘッダー見出し ＆ 手札資産査定ハイライト */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-200/80 pb-5">
         <div>
@@ -597,7 +597,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
         {/* 保有リソースの潜在市場価値 */}
         {activeStrategy && (
-          <div className="shrink-0 p-3 bg-slate-950 text-white rounded-xl border border-slate-800 flex items-center gap-4 font-mono shadow-xs">
+          <div className="shrink-0 p-3 bg-slate-950 text-white rounded-lg border border-slate-800 flex items-center gap-4 font-mono shadow-2xs">
             <div className="space-y-0.5">
               <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">
                 年間潜在創出価値
@@ -606,20 +606,20 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 {activeStrategy.potentialAnnualProfitJpy}
               </span>
             </div>
-            <div className="pl-3.5 border-l border-slate-800 space-y-0.5">
+            <div className="border-l border-slate-800 pl-4 space-y-0.5">
               <span className="text-[9px] text-slate-400 font-bold uppercase tracking-wider block">
-                換算実効時給
+                最大適合スコア
               </span>
-              <span className="text-sm font-bold text-amber-400 tabular-nums">
-                {activeStrategy.effectiveHourlyRateJpy}
+              <span className="text-base font-black text-indigo-400 tabular-nums">
+                {activeStrategy.bestFitScore}%
               </span>
             </div>
           </div>
         )}
       </div>
 
-      {/* 2. 6次元コンパクトコントロールバー（コックピット型入力） */}
-      <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-3">
+      {/* 2. 手札フィルター・セレクター (6軸) */}
+      <div className="p-4 bg-slate-50 rounded-lg border border-slate-200/80 space-y-3">
         <div className="flex items-center justify-between text-xs font-mono text-slate-500 font-bold border-b border-slate-200/60 pb-2">
           <div className="flex items-center gap-1.5 text-slate-700">
             <SlidersHorizontal size={13} className="text-indigo-600" />
@@ -747,82 +747,108 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         </div>
       </div>
 
-      {/* 4. 適合候補カードグリッド（上位3件） */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-        {(showAllMatches ? sortedStrategies : sortedStrategies.slice(0, 3)).map((item, idx) => {
-          const isSelected = activeStrategy?.id === item.id;
+      {/* 4. 適合モデル 高密度インデックスシート（AI特有の浮いた3列カードを完全解体） */}
+      <div className="border border-slate-200 rounded-lg bg-white overflow-hidden shadow-2xs">
+        {/* テーブルヘッダー */}
+        <div className="hidden md:grid grid-cols-12 gap-3 px-4 py-2.5 bg-slate-50 border-b border-slate-200 text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+          <div className="col-span-1 text-center">順位</div>
+          <div className="col-span-2">適合スコア</div>
+          <div className="col-span-5">適合事業モデル / 実在検証元</div>
+          <div className="col-span-2 text-right">想定手残り月利</div>
+          <div className="col-span-1 text-right">粗利率</div>
+          <div className="col-span-1 text-center">状態</div>
+        </div>
 
-          return (
-            <div
-              key={item.id}
-              onClick={() => setSelectedStrategyId(item.id)}
-              className={`p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between space-y-2.5 relative group ${
-                isSelected
-                  ? 'border-indigo-600 bg-indigo-50/40 ring-2 ring-indigo-600 shadow-xs'
-                  : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50'
-              }`}
-            >
-              {/* 選択中の直感接続ポインター（下向きキャレット） */}
-              {isSelected && (
-                <div className="hidden md:block absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-x-6 border-x-transparent border-t-6 border-t-indigo-600 z-10" />
-              )}
+        {/* データ行リスト */}
+        <div className="divide-y divide-slate-100">
+          {(showAllMatches ? sortedStrategies : sortedStrategies.slice(0, 4)).map((item, idx) => {
+            const isSelected = activeStrategy?.id === item.id;
 
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between gap-1">
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                    idx === 0
-                      ? 'bg-indigo-600 text-white'
-                      : idx === 1
-                      ? 'bg-emerald-100 text-emerald-800'
-                      : 'bg-slate-100 text-slate-700'
+            return (
+              <div
+                key={item.id}
+                onClick={() => setSelectedStrategyId(item.id)}
+                className={`px-4 py-3 cursor-pointer transition-all flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-3 items-start md:items-center ${
+                  isSelected
+                    ? 'bg-slate-50/90 border-l-4 border-indigo-600 font-medium'
+                    : 'hover:bg-slate-50/60 border-l-4 border-transparent'
+                }`}
+              >
+                {/* 順位 */}
+                <div className="col-span-1 hidden md:flex items-center justify-center">
+                  <span className={`w-5 h-5 rounded flex items-center justify-center font-mono text-[11px] font-bold ${
+                    idx === 0 ? 'bg-indigo-600 text-white' : idx === 1 ? 'bg-slate-200 text-slate-800' : 'text-slate-400'
                   }`}>
-                    {item.badgeLabel}
-                  </span>
-                  <span className="font-mono text-xs font-black text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200/60 tabular-nums">
-                    適合度 {item.bestFitScore}%
+                    {idx + 1}
                   </span>
                 </div>
 
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug line-clamp-2">
-                  {item.title}
-                </h3>
-                <p className="text-[10px] font-mono text-slate-500 truncate">
-                  参照: {item.founderReference}
-                </p>
-              </div>
+                {/* 適合度バー＆スコア */}
+                <div className="col-span-2 flex items-center gap-2 w-full">
+                  <span className="font-mono text-xs font-bold text-slate-900 tabular-nums shrink-0">
+                    {item.bestFitScore}%
+                  </span>
+                  <div className="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden hidden sm:block">
+                    <div
+                      className={`h-full rounded-full transition-all ${
+                        idx === 0 ? 'bg-indigo-600' : 'bg-slate-400'
+                      }`}
+                      style={{ width: `${item.bestFitScore}%` }}
+                    />
+                  </div>
+                </div>
 
-              <div className="grid grid-cols-2 gap-2 py-1.5 border-y border-slate-100 font-mono text-[11px]">
-                <div>
-                  <span className="text-[9px] text-slate-400 block">想定手残り月利</span>
-                  <span className="font-bold text-emerald-700 text-xs truncate block tabular-nums">
+                {/* モデル名称 ＆ 実証元 */}
+                <div className="col-span-5 min-w-0 w-full">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold text-slate-900 truncate">
+                      {item.title}
+                    </span>
+                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-100 text-slate-600 border border-slate-200 shrink-0">
+                      {item.badgeLabel}
+                    </span>
+                  </div>
+                  <div className="text-[10px] font-mono text-slate-500 truncate mt-0.5">
+                    実在検証元: {item.founderReference}
+                  </div>
+                </div>
+
+                {/* 想定手残り月利 */}
+                <div className="col-span-2 text-left md:text-right font-mono">
+                  <span className="text-xs font-bold text-emerald-700 tabular-nums">
                     {item.monthlyRevenueEstimate.split('（')[0]}
                   </span>
                 </div>
-                <div className="pl-2 border-l border-slate-100">
-                  <span className="text-[9px] text-slate-400 block">粗利益率</span>
-                  <span className="font-bold text-slate-900 text-xs tabular-nums">
+
+                {/* 粗利率 */}
+                <div className="col-span-1 text-left md:text-right font-mono">
+                  <span className="text-xs font-bold text-slate-700 tabular-nums">
                     {item.profitMargin}%
                   </span>
                 </div>
-              </div>
 
-              <div className="flex items-center justify-between text-[10px] font-mono pt-0.5">
-                <span className={`font-bold flex items-center gap-1 ${isSelected ? 'text-indigo-600' : 'text-slate-400'}`}>
-                  {isSelected && <Check size={12} className="stroke-[3]" />}
-                  <span>{isSelected ? '展開中' : '選択'}</span>
-                </span>
-                <span className={`font-bold flex items-center gap-0.5 ${isSelected ? 'text-indigo-600' : 'text-slate-400 group-hover:text-slate-600'}`}>
-                  <span>アセット</span>
-                  <span>↓</span>
-                </span>
+                {/* アクション・状態 */}
+                <div className="col-span-1 flex items-center justify-end md:justify-center font-mono text-[10px] w-full md:w-auto">
+                  {isSelected ? (
+                    <span className="px-2 py-0.5 rounded bg-indigo-600 text-white font-bold flex items-center gap-1 shadow-2xs">
+                      <Check size={11} className="stroke-[3]" />
+                      <span>展開中</span>
+                    </span>
+                  ) : (
+                    <span className="text-slate-400 group-hover:text-slate-600 flex items-center gap-0.5">
+                      <span>選択</span>
+                      <span>→</span>
+                    </span>
+                  )}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
 
       {/* 全件展開トグル */}
-      {sortedStrategies.length > 3 && (
+      {sortedStrategies.length > 4 && (
         <div className="flex justify-center">
           <button
             type="button"
@@ -832,7 +858,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             {showAllMatches ? (
               <>
                 <ChevronUp size={13} />
-                <span>上位3件の表示に縮小</span>
+                <span>上位4件の表示に縮小</span>
               </>
             ) : (
               <>
@@ -846,7 +872,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
       {/* 5. 選択中モデルの実務実行アセット（フラットコックピット型） */}
       {activeStrategy && (
-        <div className="rounded-2xl bg-slate-950 text-white border border-slate-800 p-6 sm:p-7 space-y-6 shadow-sm">
+        <div className="rounded-lg bg-slate-950 text-white border border-slate-800 p-5 sm:p-6 space-y-5 shadow-xs">
           {/* 上段：タイトルと財務サマリー */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
             <div className="space-y-1.5">
@@ -932,7 +958,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 </div>
                 
                 {/* テキストブロック（カードの入れ子ではなくコードブロック形式） */}
-                <div className="p-4 bg-slate-900/90 rounded-xl border border-slate-800 font-mono text-xs text-slate-200 whitespace-pre-wrap leading-relaxed select-text shadow-inner">
+                <div className="p-4 bg-slate-900/90 rounded-lg border border-slate-800 font-mono text-xs text-slate-200 whitespace-pre-wrap leading-relaxed select-text shadow-inner">
                   {activeStrategy.readyToUseAsset.content}
                 </div>
               </div>

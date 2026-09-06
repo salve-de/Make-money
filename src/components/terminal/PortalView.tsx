@@ -250,7 +250,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* ───────────────────────────────────────────────────────────── */}
         <div 
           onClick={() => (onOpenFinder ? onOpenFinder() : onOpenIdeasVault?.())}
-          className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-slate-800 shadow-sm cursor-pointer group hover:border-indigo-500/60 transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 select-none"
+          className="p-5 sm:p-6 rounded-lg bg-slate-900 text-white border border-slate-800 shadow-2xs cursor-pointer group hover:border-slate-700 transition-all flex flex-col md:flex-row md:items-center justify-between gap-5 select-none"
         >
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2">
@@ -915,7 +915,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* ───────────────────────────────────────────────────────────── */}
         {/* 8. 【全収録エンティティ財務台帳への遷移】                       */}
         {/* ───────────────────────────────────────────────────────────── */}
-        <section className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <section className="p-6 rounded-lg bg-white border border-slate-200 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div className="space-y-1">
             <div className="text-xs font-mono text-slate-500 font-bold uppercase tracking-wider">
               COMPREHENSIVE FINANCIAL DATABASE
@@ -930,7 +930,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
 
           <button
             onClick={onNavigateToTerminal}
-            className="h-10 px-5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2 shrink-0"
+            className="h-10 px-5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition-all shadow-xs flex items-center justify-center gap-2 shrink-0"
           >
             <span>企業財務データベースを開く</span>
             <ArrowRight size={14} />

@@ -34,7 +34,7 @@ export const OfferModal: React.FC<OfferModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4 font-sans select-none animate-in fade-in duration-150">
-      <div className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-6 shadow-2xl space-y-5">
+      <div className="w-full max-w-md bg-white border border-slate-200 rounded-xl p-6 shadow-2xl space-y-5">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 uppercase tracking-wider">
@@ -56,7 +56,7 @@ export const OfferModal: React.FC<OfferModalProps> = ({
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 text-xs font-sans">
-            <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 space-y-1">
+            <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 space-y-1">
               <div className="text-slate-600">対象事業: <span className="text-slate-900 font-bold">{company.japaneseName}</span></div>
               <div className="text-slate-600">希望売却価額: <span className="font-mono text-indigo-600 font-bold">¥{(company.askingPriceJpy || company.estimatedValuationJpy).toLocaleString()}</span></div>
             </div>

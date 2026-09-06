@@ -45,7 +45,7 @@ export const SubmissionModal: React.FC<SubmissionModalProps> = ({ isOpen, onClos
               {/* 特急掲載 */}
               <div
                 onClick={() => setTier('vip')}
-                className={`p-4 rounded-2xl border-2 cursor-pointer transition relative ${
+                className={`p-4 rounded-lg border-2 cursor-pointer transition relative ${
                   tier === 'vip'
                     ? 'border-amber-400 bg-amber-400/5 shadow-lg shadow-amber-500/10'
                     : 'border-slate-800 bg-slate-950/50 hover:border-slate-700'
@@ -69,7 +69,7 @@ export const SubmissionModal: React.FC<SubmissionModalProps> = ({ isOpen, onClos
               {/* 無料審査 */}
               <div
                 onClick={() => setTier('free')}
-                className={`p-4 rounded-2xl border-2 cursor-pointer transition ${
+                className={`p-4 rounded-lg border-2 cursor-pointer transition ${
                   tier === 'free'
                     ? 'border-blue-400 bg-blue-400/5'
                     : 'border-slate-800 bg-slate-950/50 hover:border-slate-700'

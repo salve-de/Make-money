@@ -26,7 +26,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/40 backdrop-blur-xs overflow-y-auto">
-      <div className="relative w-full max-w-4xl max-h-[90vh] bg-white border border-slate-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden text-slate-800">
+      <div className="relative w-full max-w-4xl max-h-[90vh] bg-white border border-slate-200 rounded-xl shadow-2xl flex flex-col overflow-hidden text-slate-800">
         
         {/* ヘッダー */}
         <div className="p-4 sm:p-5 border-b border-slate-200 bg-slate-50/80 flex items-center justify-between shrink-0">
@@ -51,7 +51,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
         <div className="p-5 sm:p-7 overflow-y-auto space-y-6 font-sans">
           
           {/* リード文 */}
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5 shadow-2xs">
+          <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 space-y-1.5 shadow-2xs">
             <div className="text-[10px] font-mono text-slate-500 font-bold uppercase tracking-wider">
               調査主旨・概要
             </div>
@@ -70,7 +70,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {data.whyNow.map((item, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/80 space-y-1.5 shadow-2xs">
+                <div key={idx} className="p-3.5 rounded-lg bg-slate-50/80 border border-slate-200/80 space-y-1.5 shadow-2xs">
                   <div className="text-[10px] font-mono text-indigo-600 font-bold">要点 0{idx + 1}</div>
                   <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">{item.heading}</h4>
                   <p className="text-xs text-slate-600 leading-relaxed font-normal">{item.description}</p>
@@ -87,7 +87,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
                 2. 収益化メカニズム・資金移動の構造（顧客の対価支払動機と利ざや）
               </h3>
             </div>
-            <div className="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono shadow-2xs">
+            <div className="p-4 rounded-lg bg-slate-50/80 border border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono shadow-2xs">
               <div className="space-y-1">
                 <span className="text-slate-500 text-[10px] font-sans font-medium">① ターゲット顧客層・需要主体:</span>
                 <p className="text-slate-800 font-sans text-xs font-medium">{data.moneyFlow.victimOrBuyer}</p>
@@ -117,7 +117,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
             </div>
             <div className="space-y-2.5">
               {data.stepByStepPlaybook.map((step, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-slate-50/80 border border-slate-200/80 flex flex-col sm:flex-row sm:items-start gap-3 shadow-2xs">
+                <div key={idx} className="p-4 rounded-lg bg-slate-50/80 border border-slate-200/80 flex flex-col sm:flex-row sm:items-start gap-3 shadow-2xs">
                   <span className="px-2.5 py-0.5 rounded-md bg-indigo-100 text-indigo-800 border border-indigo-200 text-[10px] font-mono font-bold shrink-0">
                     {step.phase}
                   </span>
@@ -140,7 +140,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {data.recommendedTools.map((t, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-slate-50/80 border border-slate-200/80 space-y-1 shadow-2xs">
+                <div key={idx} className="p-3.5 rounded-lg bg-slate-50/80 border border-slate-200/80 space-y-1 shadow-2xs">
                   <div className="text-xs font-bold text-slate-900">{t.name}</div>
                   <div className="text-[11px] text-slate-500 font-normal">{t.role}</div>
                   <div className="text-[10px] font-mono text-slate-700 font-medium pt-1 border-t border-slate-200">
@@ -167,7 +167,7 @@ export const DossierModal: React.FC<DossierModalProps> = ({
                     onClose();
                     onSelectCompany(c.id);
                   }}
-                  className="p-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 cursor-pointer transition-all space-y-2 shadow-2xs group"
+                  className="p-4 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 hover:border-slate-300 cursor-pointer transition-all space-y-2 shadow-2xs group"
                 >
                   <div className="flex items-center gap-2.5">
                     <CompanyLogo company={c} size="sm" />

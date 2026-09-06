@@ -112,7 +112,7 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
           </div>
 
           {/* 創業者情報バー */}
-          <div className="flex flex-wrap items-center gap-4 p-4 rounded-2xl bg-slate-950/60 border border-slate-800">
+          <div className="flex flex-wrap items-center gap-4 p-4 rounded-lg bg-slate-950/60 border border-slate-800">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={item.founderAvatar}
@@ -148,7 +148,7 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
               <DollarSign className="w-4 h-4 text-emerald-400" />
               月間損益計算書（P&L）詳細分析
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950 rounded-lg p-4 border border-slate-800 text-center">
               <div className="p-2">
                 <span className="text-xs text-slate-400 block">月商（総売上）</span>
                 <span className="text-xl font-black text-emerald-400 font-mono">
@@ -285,7 +285,7 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
           </div>
 
           {/* PRO限定・秘密金庫エリア（マスキング＆解錠体験） */}
-          <div className="relative rounded-2xl overflow-hidden border-2 border-amber-500/30 bg-gradient-to-br from-amber-950/20 via-slate-950 to-slate-950 p-6">
+          <div className="relative rounded-lg overflow-hidden border border-amber-500/30 bg-gradient-to-br from-amber-950/20 via-slate-950 to-slate-950 p-6">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <Crown className="w-5 h-5 text-amber-400" />

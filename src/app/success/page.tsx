@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function SuccessPage() {
   return (
     <main className="min-h-screen bg-slate-50 px-6 py-20 text-slate-900 font-sans flex items-center justify-center">
-      <div className="mx-auto max-w-lg rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-lg space-y-4">
+      <div className="mx-auto max-w-lg rounded-xl border border-slate-200 bg-white p-8 text-center shadow-lg space-y-4">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200">
           PAYMENT COMPLETE
         </div>

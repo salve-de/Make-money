@@ -14,7 +14,7 @@ export const BusinessCard: React.FC<BusinessCardProps> = ({ item, onSelect }) =>
   return (
     <div
       onClick={() => onSelect(item)}
-      className="group relative bg-slate-900/70 hover:bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-5 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-amber-500/10 cursor-pointer flex flex-col justify-between"
+      className="group relative bg-slate-900/70 hover:bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-lg p-5 transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer flex flex-col justify-between"
     >
       <div>
         {/* 上部バッジ列 */}

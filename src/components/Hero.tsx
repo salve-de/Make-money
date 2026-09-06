@@ -40,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ keyword, onKeywordChange, onQuickSel
 
         {/* 検索バー */}
         <div className="mt-8 max-w-2xl mx-auto">
-          <div className="relative flex items-center shadow-2xl rounded-2xl border border-slate-700 bg-slate-900/90 focus-within:border-amber-400/80 focus-within:ring-2 focus-within:ring-amber-400/20 transition">
+          <div className="relative flex items-center shadow-xl rounded-xl border border-slate-700 bg-slate-900/90 focus-within:border-amber-400/80 focus-within:ring-2 focus-within:ring-amber-400/20 transition">
             <Search className="w-5 h-5 text-slate-400 ml-4 shrink-0" />
             <input
               type="text"

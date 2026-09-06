@@ -42,7 +42,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
   };
 
   return (
-    <section className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 text-white border border-slate-800 shadow-xl space-y-6">
+    <section className="p-6 sm:p-8 rounded-lg bg-slate-950 text-white border border-slate-800 shadow-2xs space-y-6">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div className="space-y-2 max-w-2xl">
           <div className="flex items-center gap-2">
@@ -100,7 +100,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
               </div>
             </form>
           ) : (
-            <div className="p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 space-y-2 font-sans text-xs">
+            <div className="p-4 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 space-y-2 font-sans text-xs">
               <div className="flex items-center gap-2 font-bold text-white text-sm">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 <span>購読登録が完了しました</span>

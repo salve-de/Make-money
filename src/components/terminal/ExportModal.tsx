@@ -63,7 +63,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4 font-sans select-none">
-      <div className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-6 shadow-2xl space-y-5">
+      <div className="w-full max-w-md bg-white border border-slate-200 rounded-xl p-6 shadow-2xl space-y-5">
         <div className="flex items-center justify-between pb-3 border-b border-slate-100">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 uppercase tracking-wider">
@@ -82,7 +82,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
             <div className="grid grid-cols-2 gap-2">
               <button
                 onClick={() => setExportTarget('CURRENT')}
-                className={`p-3 rounded-xl border text-left transition-all ${
+                className={`p-3 rounded-lg border text-left transition-all ${
                   exportTarget === 'CURRENT'
                     ? 'bg-indigo-50/80 border-indigo-300 text-indigo-950 font-semibold'
                     : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
@@ -94,7 +94,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
 
               <button
                 onClick={() => setExportTarget('ALL')}
-                className={`p-3 rounded-xl border text-left transition-all ${
+                className={`p-3 rounded-lg border text-left transition-all ${
                   exportTarget === 'ALL'
                     ? 'bg-indigo-50/80 border-indigo-300 text-indigo-950 font-semibold'
                     : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
@@ -106,7 +106,7 @@ export const ExportModal: React.FC<ExportModalProps> = ({
             </div>
           </div>
 
-          <div className="p-3.5 bg-slate-50 rounded-xl border border-slate-200 text-slate-600 space-y-1 font-mono text-[11px]">
+          <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 text-slate-600 space-y-1 font-mono text-[11px]">
             <div>出力形式: カンマ区切り生データ (CSV / UTF-8 BOM付き)</div>
             <div>互換性: Microsoft Excel, Googleスプレッドシート完全対応</div>
           </div>

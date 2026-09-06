@@ -17,7 +17,7 @@ export const InfrastructureToolkitModal: React.FC<InfrastructureToolkitModalProp
 
   return (
     <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-150">
+      <div className="bg-white border border-slate-200 rounded-xl w-full max-w-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-150">
         {/* ヘッダー */}
         <div className="px-6 py-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
           <div>
@@ -46,7 +46,7 @@ export const InfrastructureToolkitModal: React.FC<InfrastructureToolkitModalProp
             {AFFILIATE_CONFIG.map((item) => (
               <div
                 key={item.id}
-                className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all flex flex-col justify-between space-y-3"
+                className="p-4 rounded-lg bg-slate-50 border border-slate-200 hover:border-indigo-300 hover:shadow-2xs transition-all flex flex-col justify-between space-y-3"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-1.5">

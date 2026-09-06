@@ -520,5 +520,32 @@
       - `npm run build` は全ルートにおいて Exit Code 0（エラーゼロ）で通過。
       - 実機スクリーンショット（`audit_03_finder.png`）により、説明文が一切ないにもかかわらずカードとパネルの接続関係が一目でわかる端正なデザインを確認完了。
 
-
-
+14. **Phase 23: AI Slop（AI臭いデザインの指紋）の完全駆逐 ＆ ダサいカードUIの解体・高密度インデックスシート（Tabular Row Sheet）化 ＆ 一流金融端末水準の秩序確立（完了）**
+    - **背景・ユーザー指示の核心**:
+      - 「あと まだAIっぽくて お話にならない とにかく AIっぽさをなくせ コンサルとして」
+      - 「AIっぽいデザインや 要件を 全部調べて 駆逐しろ」
+      - 「あと カード表示も すごく ダサい」
+      - 「とにかく 見やすい 美しい 認知的負荷が高くないように作れ ただし スカスカだと 何もないサイトだという印象を受けるので それもダメだ」
+      - 「とにかく デザインレイアウト UIUXについて 学んでからやれ」
+    - **学術・実務リサーチによるAI Slop（AI特有のダサいデザイン）の指紋特定**:
+      1. **過剰な巨大角丸（rounded-2xl / 16px〜24px超）**: AI生成UIが頻発するふにゃふにゃしたカード境界。
+      2. **安易な3列フィーチャーカードグリッド（Icon + Title + Text）**: 浮遊する四角い箱をポコポコ並べるだけの短絡的レイアウト。余白過多でスカスカに見えるか、逆に窮屈に見える。
+      3. **多色ピル型バッジ・ネオングラデーション**: 色彩秩序の欠如による安っぽさ・AI玩具感。
+      4. **プロ用UI（Linear, Stripe, Bloomberg, PitchBook）の絶対作法**:
+         - 四角いカードを並べるのをやめ、1枚のクリーンなサーフェス上に微細な1pxディバイダーで区切られた「高密度インデックスシート（Tabular Row Sheet）」を敷く。
+         - 角丸はシャープな8px〜12px（`rounded-lg` / `rounded-xl`）で引き締め、文字と等幅数字（`font-mono tabular-nums`）のベースラインをミリ単位で整流する。
+    - **断行した外科的処置**:
+      1. **巨大角丸（`rounded-2xl`）の完全全廃（残存0件達成）**:
+         - プロジェクト全域（`DiagnosticFinder.tsx`, `ExecutiveDetailSheet.tsx`, `PortalView.tsx`, `IdeasVaultView.tsx`, `ScreenerModal.tsx`, `ExportModal.tsx`, `OfferModal.tsx`, `InfrastructureToolkitModal.tsx`, `DossierModal.tsx`, `WeeklyNewsletterSection.tsx`, `finder/page.tsx` 等）から `rounded-2xl` を完全切除し、プロ仕様の `rounded-lg`（8px）および `rounded-xl`（12px）へ引き締め。
+      2. **手札診断（`DiagnosticFinder.tsx`）のダサい3列カード解体 ➔ 高密度インデックスシート化**:
+         - 浮遊する3列カード（`grid-cols-1 md:grid-cols-3`）を完全撤廃。
+         - 順位（Rank）、適合スコア（Progress bar）、適合事業モデル / 実在検証元、想定手残り月利、粗利率、展開中バッジが1行に整然と並ぶ「高密度インデックスシート（Linear/PitchBook型）」へ置換。
+         - 1クリックで選択行のアセットが下部の実務実行シートと直結連動。
+      3. **企業財務詳細（`ExecutiveDetailSheet.tsx`）のバラバラなKPIカード ➔ ソリッドなデータストリップ化**:
+         - 6個の独立した四角いカードを撤廃し、1本のクリーンな一体化プレート（`divide-x divide-slate-200`）へ統合。情報密度と端正な品格を両立。
+      4. **モーダル・ポップアップ群のソリッド化**:
+         - 二重枠線や過剰なドロップシャドウを排除し、`rounded-xl` と薄いヘアライン境界線によるプロ金融仕様へ調律。
+    - **検証・稼働確認**:
+      - `grep_search` による `rounded-2xl` の残存監査で「0件」を確認。
+      - `npm run build` を実行し、全ルートにおいて Exit Code 0（TypeScript型エラーゼロ）で通過。
+      - ヘッドレスBraveによる実画面キャプチャ（全4画面）を再取得し、3列カードの消滅、高密度インデックスシートの美しさ、スカスカ感ゼロのプロ用情報端末の質感を完全目視確認。

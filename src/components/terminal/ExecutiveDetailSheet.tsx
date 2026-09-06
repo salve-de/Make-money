@@ -281,8 +281,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【ヘッダー】企業エグゼクティブ・サマリーカード */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm relative overflow-hidden">
-        <div className="absolute top-0 right-0 px-3.5 py-1 bg-slate-100 border-b border-l border-slate-200 text-[10px] font-mono text-slate-500 font-bold tracking-wider rounded-bl-lg">
+      <div className="p-6 rounded-lg bg-white border border-slate-200 shadow-2xs relative overflow-hidden">
+        <div className="absolute top-0 right-0 px-3 py-1 bg-slate-100 border-b border-l border-slate-200 text-[10px] font-mono text-slate-500 font-bold tracking-wider rounded-bl-md">
           DOSSIER # {company.ticker}
         </div>
 
@@ -304,44 +304,37 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                     ? '急成長新興'
                     : '巨大独占企業'}
                 </span>
-                <span className="text-slate-300 text-xs font-mono">•</span>
-                <span className="text-slate-500 text-xs font-medium">{company.headquarters}</span>
-                <span className="text-slate-300 text-xs font-mono">•</span>
-                <span className="text-emerald-700 text-xs font-mono font-bold px-2 py-0.5 rounded-md bg-emerald-50 border border-emerald-200">
-                  {company.verifiedStatus === 'VERIFIED_STRIPE' ? 'Stripe実額照合済' : '公的開示照合済'}
+                <span className="px-2.5 py-0.5 rounded-md text-[10px] font-mono text-slate-600 bg-slate-100 border border-slate-200">
+                  {company.businessModel}
+                </span>
+                <span className="text-[11px] font-mono text-slate-500">
+                  {company.category || company.businessEssence?.whatItDoes}
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                {company.japaneseName}
-              </h1>
+              <div className="flex items-baseline gap-3 flex-wrap">
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                  {company.japaneseName}
+                </h2>
+                <span className="text-xs font-mono text-slate-600">
+                  {company.founderName ? `創業者: ${company.founderName}` : `拠点: ${company.headquarters || '非公開'}`}
+                </span>
+              </div>
 
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-3xl">
                 {company.tagline}
               </p>
             </div>
           </div>
 
-          {/* 右上：収益規模メーター & Sparkline */}
-          <div className="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 shrink-0">
+          {/* 右上：主要収益指標 */}
+          <div className="flex items-center gap-4 bg-slate-50 p-3.5 rounded-lg border border-slate-200 shrink-0">
             <div className="text-right">
-              <div className="text-[10px] font-mono text-slate-500 font-bold uppercase">直近収益規模</div>
-              <div className="text-xl sm:text-2xl font-black font-mono text-slate-900 tabular-nums">
-                {rev > 0 ? formatShortAmount(rev) : '非公開・推計中'}
+              <div className="text-[10px] font-mono text-slate-600">推定年間純利益</div>
+              <div className="text-xl sm:text-2xl font-black text-emerald-600 font-mono tabular-nums">
+                {rev > 0 ? formatShortAmount(Math.round(rev * (profitPercent / 100))) : '非公開'}
               </div>
             </div>
-            {profitPercent > 0 && (
-              <>
-                <div className="h-9 w-px bg-slate-200" />
-                <div className="text-right">
-                  <div className="text-[10px] font-mono text-slate-500 font-bold uppercase">営業利益率</div>
-                  <div className="text-xl sm:text-2xl font-black font-mono text-emerald-600 tabular-nums">
-                    {profitPercent}%
-                  </div>
-                </div>
-              </>
-            )}
-            <div className="h-9 w-px bg-slate-200" />
             <div className="w-16 h-7 opacity-85 pt-1">
               <SparklineChart trend="UP" width={64} height={24} color="#10B981" />
             </div>
@@ -350,40 +343,40 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 最上部：キースペック・スコアカード (Starter Story / PitchBook型) */}
+      {/* 最上部：キースペック・スコアストリップ (PitchBook / Linear型 一体化プレート) */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 font-mono text-xs">
-        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
+      <div className="bg-white border border-slate-200 rounded-lg shadow-2xs overflow-hidden grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 font-mono text-xs">
+        <div className="p-3 sm:p-3.5 space-y-1">
           <div className="text-[10px] text-slate-500 font-sans font-medium">直近月商実額</div>
           <div className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
             {rev > 0 ? formatShortAmount(Math.round(rev / 12)) : '非公開'}
           </div>
         </div>
-        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-1">
           <div className="text-[10px] text-slate-500 font-sans font-medium">実効手残り純利</div>
           <div className="text-base sm:text-lg font-black text-emerald-600 tabular-nums">
             {estimatedEasyProfit}
           </div>
         </div>
-        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-1 border-t sm:border-t-0">
           <div className="text-[10px] text-slate-500 font-sans font-medium">営業利益率</div>
           <div className="text-base sm:text-lg font-black text-indigo-600 tabular-nums">
             {profitPercent}%
           </div>
         </div>
-        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-1">
           <div className="text-[10px] text-slate-500 font-sans font-medium">初期投下資本</div>
           <div className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
             {company.initialInvestmentJpy === 0 ? '¥0 (不要)' : `¥${Math.round(company.initialInvestmentJpy / 10000)}万`}
           </div>
         </div>
-        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-1 border-t lg:border-t-0">
           <div className="text-[10px] text-slate-500 font-sans font-medium">週実働時間</div>
           <div className="text-base sm:text-lg font-black text-slate-900 tabular-nums">
             {company.weeklyHours ? `週${company.weeklyHours}h` : '少人数'}
           </div>
         </div>
-        <div className="p-3.5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-1">
+        <div className="p-3 sm:p-3.5 space-y-1">
           <div className="text-[10px] text-slate-500 font-sans font-medium">組織体制</div>
           <div className="text-base sm:text-lg font-black text-slate-900">
             {company.teamSize === 1 ? '完全1人' : `${company.teamSize}名精鋭`}
@@ -1440,7 +1433,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           </div>
 
           {/* 実戦導入アセットライブラリ（Paywall / すりガラス演出） */}
-          <div className="p-6 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 text-white border border-slate-800 shadow-xl relative overflow-hidden space-y-5">
+          <div className="p-6 rounded-lg bg-gradient-to-b from-slate-900 to-slate-950 text-white border border-slate-800 shadow-xl relative overflow-hidden space-y-5">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-xs font-bold border border-amber-500/40">

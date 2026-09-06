@@ -67,7 +67,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
             </p>
           </div>
 
-          <div className="flex items-center gap-2 self-start sm:self-auto font-mono text-xs text-slate-700 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-2xs">
+          <div className="flex items-center gap-2 self-start sm:self-auto font-mono text-xs text-slate-700 bg-white px-3.5 py-2 rounded-lg border border-slate-200 shadow-2xs">
             <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span>検証済みアーカイブ数: <strong className="text-slate-900 font-bold tabular-nums">{filteredIdeas.length}</strong> 件</span>
           </div>
@@ -115,7 +115,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 高密度ディレクトリーテーブル：カード入れ子を完全全廃したクリーンな一覧行 */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="bg-white border border-slate-200 rounded-xl shadow-xs overflow-hidden">
+      <div className="bg-white border border-slate-200 rounded-lg shadow-xs overflow-hidden">
         {/* テーブルヘッダー */}
         <div className="hidden md:grid grid-cols-12 gap-4 px-6 py-3 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
           <div className="col-span-4">実証モデル / 機会名称</div>
@@ -184,7 +184,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
       {/* ───────────────────────────────────────────────────────────── */}
       {selectedIdea && (
         <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl">
+          <div className="bg-white border border-slate-200 rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 space-y-6 shadow-2xl">
             <div className="flex items-start justify-between border-b border-slate-200 pb-4">
               <div className="flex items-start gap-3">
                 <CompanyLogo id={selectedIdea.id} size="lg" />
