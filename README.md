@@ -13,7 +13,27 @@ GOLDMINE RADAR は、成功談を読むだけのメディアでも、AIが思い
 
 表側は、見た瞬間に「こんな稼ぎ方があるのか」「まだ自分にも入口がある」と理解できる発見フィード。裏側は、金・需要・サービス・根拠の関係を蓄積する事業機会DBです。
 
-## 現在実装されているもの
+## 実装状態
+
+`main` は現在、旧Vanilla JavaScript SPA実装です。これは既存の動作確認用実装であり、**本番ターゲット技術構成ではありません**。
+
+本番ターゲットは2026-09-06に次で確定しました。
+
+- **App:** Next.js + TypeScript
+- **Web runtime / hosting:** Cloudflare Workers
+- **Next.js on Workers:** Cloudflareが現時点で推奨する互換レイヤーを使用（現在は `vinext`）
+- **Database:** Neon PostgreSQL
+- **ORM / schema:** Drizzle ORM
+- **Authentication:** Firebase Auth
+- **Payments:** Stripe
+- **Object/file storage:** Cloudflare R2（必要な場合）
+- **Heavy/long-running jobs:** Google Cloud Run / Cloud Run Jobs（必要な場合）
+- **Source / CI:** GitHub / GitHub Actions
+- **Shared research/evidence:** `salve-de/universal-foundation`
+
+**Supabaseは本番構成では使用しません。Cloudflare Pages / Tunnelも通常の本番配信経路には使用しません。**
+
+## 現在の旧mainで確認できる機能
 
 ### 発見と調査
 
@@ -44,20 +64,9 @@ GOLDMINE RADAR は、成功談を読むだけのメディアでも、AIが思い
 - 閲覧、注目、関連需要、発見経路の分析UI
 - 未確認情報と確認済み情報の明確な分離
 
-### 運用・品質
+## 旧mainの起動
 
-- モバイル、タブレット、デスクトップ対応
-- PWA manifest と Service Worker
-- localStorageによる操作・投稿データの永続化
-- 入力エスケープと基本的なXSS対策
-- Node標準テストランナーによるユニットテスト
-- 参照整合性・必須ファイル・危険URLの静的検証
-- GitHub ActionsによるCI
-- 本番移行用Supabaseスキーマ、RLS、集計View
-
-## 起動
-
-外部依存はありません。Node.js 20以上を使います。
+現在の`main`はNode.js 20以上で起動できます。
 
 ```bash
 npm run dev
@@ -65,51 +74,37 @@ npm run dev
 
 ブラウザで `http://localhost:4173` を開きます。
 
-検証は次です。
-
 ```bash
 npm run verify
 ```
 
 ## デモデータについて
 
-現在のフロントには、UIとロジックを確認するための**明示された体験用データ**が入っています。数字を実在する確定実績として表示するものではありません。本番公開時は、管理画面またはETLから検証済みデータをSupabaseへ投入し、`DEMO_MODE` を解除します。
+現在の旧フロントには、UIとロジックを確認するための**明示された体験用データ**が入っています。数字を実在する確定実績として表示するものではありません。
+
+本番では、検証済みの構造化データをNeon PostgreSQLへ反映し、共有可能な調査・根拠データは`universal-foundation`の契約に従います。
 
 ## 技術構成
 
-| 層 | 現在 | 本番移行 |
+| 層 | 現在の`main` | 本番ターゲット |
 |---|---|---|
-| UI | Vanilla JavaScript SPA | そのまま利用可能 |
-| CSS | 独自レスポンシブCSS | デザイントークンとして継続 |
-| ルーティング | Hash routing | 静的ホスティング対応 |
-| ローカル状態 | localStorage | 未ログイン体験・キャッシュ |
-| 本番DB | SQLスキーマ実装済み | Supabase PostgreSQL |
-| 認証 | ローカル体験 | Supabase Auth |
-| 投稿審査 | UI・状態設計 | submissions + moderation |
-| 検索 | クライアント全文検索 | PostgreSQL FTS / pg_trgmへ拡張 |
-| 配信 | 任意の静的ホスト | GitHub Pages / Cloudflare Pages等 |
+| App | Vanilla JavaScript SPA | Next.js + TypeScript |
+| Routing | Hash routing | Next.js App Router |
+| Web runtime | Node標準のローカル静的サーバー | Cloudflare Workers |
+| Static assets | ローカル静的配信 | Workers Static Assets |
+| DB | デモ/localStorage中心 | Neon PostgreSQL |
+| ORM | なし | Drizzle ORM |
+| Auth | ローカル体験 | Firebase Auth |
+| Payments | 未接続 | Stripe |
+| Object storage | なし | Cloudflare R2（必要時） |
+| Heavy jobs | なし | Cloud Run / Jobs（必要時） |
+| CI | GitHub Actions | GitHub Actions |
 
-## ディレクトリ
+## 旧Supabase資産について
 
-```text
-.
-├── index.html
-├── src/
-│   ├── app.js          # 画面、イベント、ローカル状態、ルーティング
-│   ├── core.js         # 検索、評価、比較、整形の純粋関数
-│   └── data.js         # 体験用の構造化データ
-├── styles/app.css      # UI全体
-├── assets/
-├── scripts/
-│   ├── dev.mjs         # 静的開発サーバー
-│   └── check.mjs       # データ・ファイル検証
-├── tests/core.test.mjs
-├── supabase/
-│   ├── migrations/001_initial_schema.sql
-│   └── seed.sql
-├── docs/
-└── .github/workflows/quality.yml
-```
+`supabase/` ディレクトリとSupabase向けSQLは**過去の設計資産**です。本番採用方針ではありません。
+
+本番実装時は、必要なデータモデルだけをNeon + Drizzle向けに移植し、Supabase Auth / Storage / Service Role / Supabase固有RLSへの新規依存は追加しません。
 
 ## プロダクト原則
 
@@ -133,14 +128,14 @@ npm run verify
 
 ## 本番化に必要な外部設定
 
-コードは外部アカウントなしでも動作します。複数ユーザーで共有される本番サービスにする際は、次だけが必要です。
-
-1. Supabaseプロジェクト作成
-2. `supabase/migrations/001_initial_schema.sql` の適用
-3. Authのメールログイン設定
-4. URL・Anon Keyのランタイム設定
-5. 初期データの検証・投入
-6. プライバシーポリシー、利用規約、問い合わせ先の事業者情報への差し替え
+1. Cloudflare Workersプロジェクト・Custom Domain設定
+2. Neon PostgreSQL作成とDrizzle migration適用
+3. Firebase Auth設定
+4. Stripe本番設定・Webhook設定
+5. R2が必要な機能だけR2バケット/権限設定
+6. 重いバッチが必要な場合だけCloud Run / Jobs設定
+7. 初期データの検証・投入
+8. プライバシーポリシー、利用規約、問い合わせ先の事業者情報への差し替え
 
 ## ライセンス
 
