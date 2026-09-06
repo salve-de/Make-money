@@ -1,0 +1,26 @@
+name: repair-tooling
+on:
+  push:
+    branches: [fix/integrate-v3-20260906]
+    paths: [.github/workflows/repair-tooling.yml]
+permissions:
+  contents: read
+jobs:
+  tooling:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download pinned test dependencies
+        run: |
+          mkdir -p /tmp/repair-tooling
+          cd /tmp/repair-tooling
+          npm pack @electric-sql/pglite@0.3.14
+          curl --fail --location --output deno.zip https://github.com/denoland/deno/releases/download/v2.2.12/deno-x86_64-unknown-linux-gnu.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: repair-tooling
+          path: /tmp/repair-tooling
+          retention-days: 1
