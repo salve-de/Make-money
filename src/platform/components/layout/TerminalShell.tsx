@@ -193,7 +193,6 @@ export const TerminalShell: React.FC = () => {
             setScreenerFilters(null);
           }}
           bookmarkCount={bookmarkedIds.size}
-          onOpenScreener={() => setIsScreenerOpen(true)}
         />
 
         {/* 中央メインエリア (特集ディープダイブ or 金融台帳グリッド) */}
@@ -202,7 +201,12 @@ export const TerminalShell: React.FC = () => {
             dossier={activeDossier}
             targetEntities={deepDiveEntities}
             selectedEntityId={selectedEntityId}
-            onSelectEntity={setSelectedEntityId}
+            onSelectEntity={(id) => {
+              setSelectedEntityId(id);
+              if (id) {
+                setWorkspaceMode('LEDGER');
+              }
+            }}
             currency={currency}
             bookmarkedIds={bookmarkedIds}
             onToggleBookmark={handleToggleBookmark}
@@ -227,6 +231,8 @@ export const TerminalShell: React.FC = () => {
               onSearchChange={setSearchQuery}
               totalCount={filteredEntities.length}
               onOpenScreener={() => setIsScreenerOpen(true)}
+              screenerFilters={screenerFilters}
+              onResetScreener={() => setScreenerFilters(null)}
             />
 
             <InstitutionalDataGrid
@@ -241,8 +247,8 @@ export const TerminalShell: React.FC = () => {
           </div>
         )}
 
-        {/* 右リアルタイム解剖インスペクター */}
-        {selectedEntity && (
+        {/* 右リアルタイム解剖インスペクター (全銘柄台帳モード時のみ表示) */}
+        {workspaceMode === 'LEDGER' && selectedEntity && (
           <CompanyInspectorPane
             entity={selectedEntity}
             onClose={() => setSelectedEntityId(null)}
