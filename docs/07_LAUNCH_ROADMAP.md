@@ -34,13 +34,14 @@
 - 100件以上のMoney Signal
 - 100–300件の既存サービス
 - 30件以上の未充足需要
-- 各Opportunityへ最低2件の根拠
+- 検証済みOpportunityへ最低2件の根拠
+- 出典なしの候補は `UNVERIFIED` として収集・表示し、検証済みOpportunityとは分ける
 - 共有可能な調査・根拠データは`universal-foundation`の契約を正とする
 
 ### 品質
 
 - 体験用数字をすべて削除またはデモ表示へ限定
-- URL、調査日、金額タイプ、Evidence gradeを確認
+- URL（ある場合）、調査日、金額タイプ、Evidence gradeまたは未確認状態を確認
 - 成功例だけでなく失敗・撤退も追加
 - Next.js production build成功
 - Cloudflare Workers compatibility/build成功
