@@ -1,11 +1,10 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { TERMINAL_COMPANIES } from '@/data/terminalData';
 import { CompanyRecord, TerminalFilterState } from '@/types/terminal';
 import { CleanHeader } from '@/components/terminal/CleanHeader';
-import { DesireFilterBar, DesirePreset, SortOrder } from '@/components/terminal/DesireFilterBar';
-import { ActiveFilterChips } from '@/components/terminal/ActiveFilterChips';
+import { DesirePreset, SortOrder } from '@/components/terminal/DesireFilterBar';
 import { ScreenerModal } from '@/components/terminal/ScreenerModal';
 import { CompanyListSidebar } from '@/components/terminal/CompanyListSidebar';
 import { ExecutiveDetailSheet } from '@/components/terminal/ExecutiveDetailSheet';
@@ -18,17 +17,7 @@ import { LeaderboardView } from '@/components/terminal/portal/sections/Leaderboa
 import { IdeasVaultView } from '@/components/terminal/IdeasVaultView';
 import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
 import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
-
-export type MainViewType = 
-  | 'PORTAL'
-  | 'FINDER'
-  | 'IDEAS_VAULT'
-  | 'TERMINAL'
-  | 'COLLECTIONS_LIST'
-  | 'COLLECTION_DETAIL'
-  | 'SIGNALS_LIST'
-  | 'SIGNAL_DETAIL'
-  | 'LEADERBOARD';
+import { MainViewType, parseMainView } from '@/types/navigation';
 
 export default function Home() {
   // 選択中の銘柄ID
@@ -63,7 +52,27 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
 
   // メイン画面の表示モード（ポータル特集 ⇄ 専門分析台帳 ⇄ 各セクション・個別詳細）
-  const [mainView, setMainView] = useState<MainViewType>('PORTAL');
+  const [mainView, setMainViewState] = useState<MainViewType>('PORTAL');
+
+  useEffect(() => {
+    const syncViewFromUrl = () => {
+      setMainViewState(parseMainView(new URLSearchParams(window.location.search).get('view')));
+    };
+
+    syncViewFromUrl();
+    window.addEventListener('popstate', syncViewFromUrl);
+    return () => window.removeEventListener('popstate', syncViewFromUrl);
+  }, []);
+
+  const setMainView = useCallback((view: MainViewType) => {
+    setMainViewState(view);
+    if (typeof window === 'undefined') return;
+
+    const url = new URL(window.location.href);
+    if (view === 'PORTAL') url.searchParams.delete('view');
+    else url.searchParams.set('view', view);
+    window.history.pushState({}, '', url);
+  }, []);
 
   // 選択中の特集コレクションID / シグナルID
   const [activeCollectionId, setActiveCollectionId] = useState<string>('collection-passive');
@@ -228,26 +237,6 @@ export default function Home() {
         case 'FOR_SALE':
           if (!c.isForSale) return false;
           break;
-        // 【新設: 希望の手札フィルター】
-        case 'SKILL_ZERO' as any:
-          if (c.handFilters?.includes('SKILL_ZERO')) return true;
-          if (c.tags.includes('地方実業') || c.tags.includes('完全1人') || c.businessModel === 'LOCAL_DX') return true;
-          return false;
-        case 'ZERO_CAPITAL' as any:
-          if (c.handFilters?.includes('ZERO_CAPITAL') || c.initialInvestmentJpy <= 30000 || c.tags.includes('初期0円')) return true;
-          return false;
-        case 'NO_AUDIENCE' as any:
-          if (c.handFilters?.includes('NO_AUDIENCE') || c.tags.includes('直販モデル') || c.tags.includes('地方実業')) return true;
-          return false;
-        case 'SECOND_MOVER' as any:
-          if (c.entryStrategy?.lensType === 'SECOND_MOVER' || c.scaleTier === 'SOLO_MICRO') return true;
-          return false;
-        case 'GIANT_CRUMBS' as any:
-          if (c.entryStrategy?.lensType === 'GIANT_CRUMBS' || c.scaleTier === 'MEGA_CORP' || c.scaleTier === 'SCALE_UP') return true;
-          return false;
-        case 'PASSIVE' as any:
-          if (c.handFilters?.includes('PASSIVE') || c.tags.includes('週5時間労働') || c.tags.includes('高粗利ストック') || c.tags.includes('自律収益') || c.tags.includes('不労所得') || c.tags.includes('月利900万')) return true;
-          return false;
         case 'ALL':
         default:
           break;
@@ -288,7 +277,7 @@ export default function Home() {
   const handleRemoveFilter = (key: keyof TerminalFilterState) => {
     setScreenerFilter((prev) => ({
       ...prev,
-      [key]: 'ALL'
+      [key]: key === 'keyword' ? '' : 'ALL'
     }));
   };
 
@@ -465,24 +454,13 @@ export default function Home() {
           totalCount={TERMINAL_COMPANIES.length}
           selectedCompanyId={currentCompany?.id || ''}
           onSelectCompany={(id) => setSelectedCompanyId(id)}
-          activePreset={activePreset}
-          onSelectPreset={(p) => {
-            setActivePreset(p);
-            const first = TERMINAL_COMPANIES.find((c) => {
-              if (p === 'SOLO_MILLION') return c.teamSize <= 2;
-              if (p === 'ZERO_INVESTMENT') return c.initialInvestmentJpy <= 50000;
-              if (p === 'AI_SAAS') return c.tags.includes('AIツール') || c.tags.includes('小型SaaS');
-              if (p === 'LOCAL_DX') return c.businessModel === 'LOCAL_DX';
-              if (p === 'MEGA_MONOPOLY') return c.scaleTier === 'MEGA_CORP';
-              if (p === 'FOR_SALE') return c.isForSale;
-              return true;
-            });
-            if (first) setSelectedCompanyId(first.id);
-          }}
           activeSort={activeSort}
           onSelectSort={(s) => setActiveSort(s)}
           onOpenScreener={() => setIsScreenerOpen(true)}
           hasActiveFilters={
+            activePreset !== 'ALL' ||
+            screenerFilter.keyword.trim() !== '' ||
+            screenerFilter.desireCategory !== 'ALL' ||
             screenerFilter.workStyle !== 'ALL' ||
             screenerFilter.ambitionScale !== 'ALL' ||
             screenerFilter.margin !== 'ALL' ||
@@ -505,21 +483,7 @@ export default function Home() {
           <div className="flex-1 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2 font-sans">
             <div>条件に一致するビジネスが見つかりませんでした</div>
             <button
-              onClick={() => {
-                setActivePreset('ALL');
-                setScreenerFilter({
-                  keyword: '',
-                  desireCategory: 'ALL',
-                  workStyle: 'ALL',
-                  ambitionScale: 'ALL',
-                  margin: 'ALL',
-                  capital: 'ALL',
-                  businessModelCategory: 'ALL',
-                  moat: 'ALL',
-                  acquisitionChannel: 'ALL',
-                  sortBy: 'revenueDesc'
-                });
-              }}
+              onClick={handleResetAll}
               className="text-xs text-zinc-400 hover:text-zinc-200 underline underline-offset-4"
             >
               条件をすべて解除して一覧に戻る

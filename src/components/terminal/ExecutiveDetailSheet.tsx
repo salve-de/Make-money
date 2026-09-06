@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { CompanyRecord, MoatPower } from '../../types/terminal';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
+import { AuditStatusBadge } from './AuditStatusBadge';
 import { Check, ArrowRight, Lock, AlertTriangle, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 
 interface ExecutiveDetailSheetProps {
@@ -287,19 +288,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                 <span className="px-2 py-0.5 bg-slate-100 text-slate-700 font-bold border border-slate-200">
                   DOSSIER #{company.ticker}
                 </span>
-                <span className={`px-2 py-0.5 font-bold border ${
-                  company.verifiedStatus === 'AUDITED_PUBLIC'
-                    ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                    : company.verifiedStatus === 'VERIFIED_STRIPE'
-                    ? 'bg-slate-100 text-slate-900 border-slate-300'
-                    : 'bg-amber-50 text-amber-800 border-amber-200'
-                }`}>
-                  {company.verifiedStatus === 'AUDITED_PUBLIC'
-                    ? '有報・公的決算照合'
-                    : company.verifiedStatus === 'VERIFIED_STRIPE'
-                    ? 'Stripe・通帳照合'
-                    : '市場調査推計モデル'}
-                </span>
+                <AuditStatusBadge status={company.verifiedStatus} />
                 <span className="px-2 py-0.5 bg-slate-100 text-slate-700 font-bold border border-slate-200">
                   {company.scaleTier === 'SOLO_MICRO'
                     ? '完全1人運営'

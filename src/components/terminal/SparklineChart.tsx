@@ -18,6 +18,8 @@ export const SparklineChart: React.FC<SparklineChartProps> = ({
   height = 24,
   growthRate,
 }) => {
+  const rawId = React.useId();
+
   if (!data || data.length < 2) return null;
 
   const min = Math.min(...data);
@@ -33,7 +35,6 @@ export const SparklineChart: React.FC<SparklineChartProps> = ({
     .join(' ');
 
   const areaPoints = `2,${height} ${points} ${width - 2},${height}`;
-  const rawId = React.useId();
   const gradId = `grad-${color.replace('#', '')}-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
 
   return (

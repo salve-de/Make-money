@@ -24,7 +24,7 @@ interface CompanyLogoProps {
   id?: string;
   name?: string;
   category?: string;
-  company?: { id?: string; name?: string; japaneseName?: string; category?: string; [key: string]: any };
+  company?: { id?: string; name?: string; japaneseName?: string; category?: string };
   size?: 'sm' | 'md' | 'lg';
 }
 
@@ -57,7 +57,6 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
   size = 'md'
 }) => {
   const targetId = id || company?.id || '';
-  const targetName = name || company?.japaneseName || company?.name || '';
   const meta = COLOR_MAP[targetId] || {
     bg: 'bg-slate-100',
     text: 'text-slate-700',
@@ -82,7 +81,7 @@ export const CompanyLogo: React.FC<CompanyLogoProps> = ({
   return (
     <div
       className={`${sizeClasses} ${meta.bg} ${meta.text} ${meta.border} border shrink-0 flex items-center justify-center font-bold font-sans shadow-2xs select-none`}
-      title={name}
+      title={name || company?.japaneseName || company?.name || ''}
     >
       <Icon size={iconSizes} strokeWidth={2.2} />
     </div>

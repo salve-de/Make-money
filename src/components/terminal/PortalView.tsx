@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 import { SparklineChart } from '@/components/terminal/SparklineChart';
 import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
-import { ArrowRight, ChevronRight, Sparkles, Filter, Database, TrendingUp, Layers, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
+import { AuditStatusBadge } from '@/components/terminal/AuditStatusBadge';
 
 interface PortalViewProps {
   companies: CompanyRecord[];
@@ -64,27 +65,29 @@ export const PortalView: React.FC<PortalViewProps> = ({
   const soloCount = companies.filter(c => c.teamSize === 1).length;
   const soloRatio = companies.length > 0 ? Math.round((soloCount / companies.length) * 100) : 0;
   
-  // 動的指標計算（ゼロ除算防御）
-  const avgMargin = companies.length > 0
+  // 指標は存在する値だけで集計し、年商換算を「実測」として表示しない。
+  const companiesWithMargin = companies.filter((company) => {
+    const latestFin = company.financials[company.financials.length - 1];
+    return latestFin?.operatingMarginPercent !== undefined;
+  });
+  const avgMargin = companiesWithMargin.length > 0
     ? (
-        companies.reduce((sum, c) => {
-          const latestFin = c.financials && c.financials.length > 0 ? c.financials[c.financials.length - 1] : null;
-          return sum + (latestFin?.operatingMarginPercent || 0);
-        }, 0) / companies.length
+        companiesWithMargin.reduce((sum, company) => {
+          const latestFin = company.financials[company.financials.length - 1];
+          return sum + (latestFin?.operatingMarginPercent ?? 0);
+        }, 0) / companiesWithMargin.length
       ).toFixed(1)
-    : '0.0';
+    : '—';
 
-  const maxMonthlyRevenue = companies.length > 0
-    ? Math.max(
-        ...companies.map(c => {
-          const latestFin = c.financials && c.financials.length > 0 ? c.financials[c.financials.length - 1] : null;
-          const monthlyFromAnnual = latestFin ? Math.round(latestFin.revenueJpy / 12) : 0;
-          return c.passbookDetails?.monthlyGrossJpy || monthlyFromAnnual || 0;
-        })
-      )
-    : 0;
-
-  const formattedMaxRev = formatShortAmount(maxMonthlyRevenue);
+  const measuredMonthlyRevenues = companies
+    .map((company) => company.passbookDetails?.monthlyGrossJpy)
+    .filter((revenue): revenue is number => revenue !== undefined && revenue > 0);
+  const maxMeasuredMonthlyRevenue = measuredMonthlyRevenues.length > 0
+    ? Math.max(...measuredMonthlyRevenues)
+    : null;
+  const formattedMaxRev = maxMeasuredMonthlyRevenue === null
+    ? '—'
+    : formatShortAmount(maxMeasuredMonthlyRevenue);
 
   return (
     <div className="flex-1 bg-white overflow-y-auto font-sans text-slate-900 select-none">
@@ -101,7 +104,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <span className="px-1.5 py-0.5 rounded text-[9px] bg-slate-950 text-white font-bold tracking-wider uppercase">
                   MARKET INDEX
                 </span>
-                <span>公的決算書・決済明細照合済み 高収益事業構造データベース</span>
+                <span>公的決算・決済照合・市場推計を区分表示する高収益事業構造データベース</span>
               </div>
               <h1 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
                 高収益ビジネス 財務構造 ＆ 資本効率インデックス
@@ -111,7 +114,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
             {/* 4連マクロKPIマトリクス（1px境界線グリッド） */}
             <div className="grid grid-cols-2 sm:grid-cols-4 bg-slate-50 border border-slate-200 rounded-lg divide-x divide-y sm:divide-y-0 divide-slate-200 shrink-0 font-mono">
               <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">実査台帳</div>
+                <div className="text-[10px] text-slate-400 uppercase font-semibold">収録モデル</div>
                 <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{companies.length} 社</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
@@ -119,7 +122,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <div className="text-base sm:text-lg font-bold text-emerald-700 tabular-nums">{avgMargin}%</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">単独最高月商</div>
+                <div className="text-[10px] text-slate-400 uppercase font-semibold">最大実測月商</div>
                 <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{formattedMaxRev}</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
@@ -166,7 +169,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-8 space-y-10">
         
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 2. 【実査済み高収益ビジネス TOP 5（通帳・決済照合）】           */}
+        {/* 2. 出典区分を併記した高収益ビジネス TOP 5 */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2.5">
@@ -178,7 +181,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 TOP MICRO PERFORMERS
               </div>
               <h2 className="text-base font-bold text-slate-950 mt-0.5 group-hover:text-slate-700 transition-colors flex items-center gap-1.5">
-                <span>実査済み高収益ビジネス TOP 5（通帳・決済明細照合）</span>
+                <span>高収益ビジネス TOP 5（出典区分を併記）</span>
                 {onOpenLeaderboard && <ChevronRight size={15} className="text-slate-400 group-hover:text-slate-950" />}
               </h2>
             </div>
@@ -200,7 +203,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   <th className="py-2.5 px-4 w-12 text-center font-bold">順位</th>
                   <th className="py-2.5 px-4 font-bold">事業者 / モデル</th>
                   <th className="py-2.5 px-4 hidden sm:table-cell font-bold text-center">組織体制</th>
-                  <th className="py-2.5 px-4 text-right font-bold whitespace-nowrap">月商実績</th>
+                  <th className="py-2.5 px-4 text-right font-bold whitespace-nowrap">月商（実測/換算）</th>
                   <th className="py-2.5 px-4 text-right font-bold text-slate-900 whitespace-nowrap">実効手残り純利</th>
                   <th className="py-2.5 px-4 text-right font-bold whitespace-nowrap">利益率</th>
                   <th className="py-2.5 px-4 hidden md:table-cell text-center font-bold">推移</th>
@@ -210,9 +213,10 @@ export const PortalView: React.FC<PortalViewProps> = ({
               <tbody className="divide-y divide-slate-100 font-sans">
                 {trendingHotCompanies.map((c, idx) => {
                   const latestFin = c.financials[c.financials.length - 1];
-                  const monthlyRev = c.passbookDetails?.monthlyGrossJpy || Math.round((latestFin?.revenueJpy || 0) / 12);
+                  const measuredMonthlyRev = c.passbookDetails?.monthlyGrossJpy;
+                  const monthlyRev = measuredMonthlyRev ?? Math.round((latestFin?.revenueJpy || 0) / 12);
                   const founderTakeHome = c.passbookDetails?.founderTakeHomeJpy || Math.round((latestFin?.operatingProfitJpy || 0) / 12);
-                  const netMargin = latestFin?.operatingMarginPercent ? Math.round(latestFin.operatingMarginPercent) : 85;
+                  const netMargin = latestFin?.operatingMarginPercent ?? 0;
 
                   return (
                     <tr
@@ -227,8 +231,9 @@ export const PortalView: React.FC<PortalViewProps> = ({
                         <div className="flex items-center gap-2.5">
                           <CompanyLogo id={c.id} size="sm" />
                           <div className="min-w-0">
-                            <div className="font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
-                              {c.japaneseName}
+                            <div className="flex items-center gap-2 font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
+                              <span className="truncate">{c.japaneseName}</span>
+                              <AuditStatusBadge status={c.verifiedStatus} compact />
                             </div>
                             <div className="text-[11px] text-slate-500 truncate max-w-xs sm:max-w-md font-normal">
                               {c.tagline}
@@ -242,7 +247,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                         </span>
                       </td>
                       <td className="py-3 px-4 text-right text-slate-600 tabular-nums font-mono whitespace-nowrap">
-                        {formatShortAmount(monthlyRev)}
+                        {formatShortAmount(monthlyRev)}{measuredMonthlyRev === undefined ? ' 換算' : ''}
                       </td>
                       <td className="py-3 px-4 text-right tabular-nums whitespace-nowrap">
                         <span className="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-mono font-bold whitespace-nowrap inline-block">

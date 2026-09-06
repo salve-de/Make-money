@@ -2,18 +2,17 @@
 
 import React, { useState } from 'react';
 import { CompanyRecord, ScaleTier, TerminalFilterState } from '../../types/terminal';
-import { DesirePreset, SortOrder } from './DesireFilterBar';
+import { SortOrder } from './DesireFilterBar';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
-import { SlidersHorizontal, ChevronRight, X } from 'lucide-react';
+import { SlidersHorizontal } from 'lucide-react';
+import { AuditStatusBadge } from './AuditStatusBadge';
 
 interface CompanyListSidebarProps {
   companies: CompanyRecord[];
   totalCount: number;
   selectedCompanyId: string;
   onSelectCompany: (id: string) => void;
-  activePreset: DesirePreset;
-  onSelectPreset: (preset: DesirePreset) => void;
   activeSort: SortOrder;
   onSelectSort: (sort: SortOrder) => void;
   onOpenScreener: () => void;
@@ -28,8 +27,6 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
   totalCount,
   selectedCompanyId,
   onSelectCompany,
-  activePreset,
-  onSelectPreset,
   activeSort,
   onSelectSort,
   onOpenScreener,
@@ -40,6 +37,21 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [scaleTab, setScaleTab] = useState<'ALL' | 'SOLO_SMALL' | 'MEGA_CORP'>('ALL');
+
+  const filterLabels: Partial<Record<keyof TerminalFilterState, string>> = {
+    keyword: '検索語',
+    desireCategory: '欲望',
+    workStyle: '働き方',
+    ambitionScale: '規模',
+    margin: '利益率',
+    capital: '元手',
+    businessModelCategory: 'モデル',
+    moat: '堀',
+    acquisitionChannel: '集客',
+  };
+
+  const activeFilterEntries = (Object.entries(filter) as Array<[keyof TerminalFilterState, string]>)
+    .filter(([key, value]) => key !== 'sortBy' && value !== 'ALL' && value !== '');
 
   // 規模別の件数計算
   const soloSmallCompanies = companies.filter(
@@ -170,6 +182,30 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                 <option value="INVEST_ASC">初期投資が少ない順</option>
               </select>
             </div>
+
+            {hasActiveFilters && (
+              <div className="flex flex-wrap items-center gap-1 border-t border-slate-200 pt-2">
+                {activeFilterEntries.map(([key, value]) => (
+                  <button
+                    type="button"
+                    key={key}
+                    onClick={() => onRemoveFilter(key)}
+                    className="inline-flex max-w-full items-center gap-1 rounded border border-slate-300 bg-white px-1.5 py-0.5 text-[10px] text-slate-600 hover:border-slate-950 hover:text-slate-950"
+                    aria-label={`${filterLabels[key] ?? key}の条件を解除`}
+                  >
+                    <span className="truncate">{filterLabels[key] ?? key}: {value}</span>
+                    <span aria-hidden="true">×</span>
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  onClick={onResetAll}
+                  className="ml-auto text-[10px] font-semibold text-slate-500 underline underline-offset-2 hover:text-slate-950"
+                >
+                  全解除
+                </button>
+              </div>
+            )}
           </div>
 
           {/* 2. リストヘッダー */}
@@ -205,10 +241,12 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
               };
 
               return (
-                <div
+                <button
+                  type="button"
                   key={company.id}
                   onClick={() => onSelectCompany(company.id)}
-                  className={`px-3 py-2.5 cursor-pointer transition-colors border-l-3 flex items-center justify-between gap-2.5 ${
+                  aria-pressed={isSelected}
+                  className={`w-full text-left px-3 py-2.5 cursor-pointer transition-colors border-l-3 flex items-center justify-between gap-2.5 ${
                     isSelected
                       ? 'bg-slate-100 border-slate-950 text-slate-950 font-medium'
                       : 'hover:bg-slate-50 border-transparent text-slate-700'
@@ -221,15 +259,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                         <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-slate-100 text-slate-600 shrink-0">
                           {getTierCode(company.scaleTier)}
                         </span>
-                        <span className={`text-[8px] font-mono px-1 py-0.2 rounded shrink-0 ${
-                          company.verifiedStatus === 'AUDITED_PUBLIC'
-                            ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
-                            : company.verifiedStatus === 'VERIFIED_STRIPE'
-                            ? 'bg-slate-100 text-slate-800 border border-slate-200'
-                            : 'bg-amber-50 text-amber-800 border border-amber-200'
-                        }`}>
-                          {company.verifiedStatus === 'AUDITED_PUBLIC' ? '有報' : company.verifiedStatus === 'VERIFIED_STRIPE' ? '決済' : '推計'}
-                        </span>
+                        <AuditStatusBadge status={company.verifiedStatus} compact />
                         <span className="text-xs font-bold truncate text-slate-950">
                           {company.japaneseName}
                         </span>
@@ -250,7 +280,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                       <SparklineChart trend="UP" width={40} height={14} color="#10B981" />
                     </div>
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>

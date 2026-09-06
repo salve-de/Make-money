@@ -1,16 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LayoutDashboard, Database, Sparkles, Search, Command, LogOut, User as UserIcon } from 'lucide-react';
+import { LayoutDashboard, Database, Sparkles, Search, Command, LogOut } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { AuthModal } from '@/components/auth/AuthModal';
+import { MainViewType } from '@/types/navigation';
 
 interface CleanHeaderProps {
   searchQuery: string;
   onSearchChange: (q: string) => void;
   totalCount: number;
-  mainView: string;
-  onChangeMainView: (view: any) => void;
+  mainView: MainViewType;
+  onChangeMainView: (view: MainViewType) => void;
 }
 
 export const CleanHeader: React.FC<CleanHeaderProps> = ({
@@ -27,9 +28,11 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
       {/* 左ブランド ＆ メインナビ */}
       <div className="flex items-center gap-7">
         {/* ブランドロゴ（Linear / Stripe 規格の端正なミニマリズム） */}
-        <div 
+        <button
+          type="button"
           onClick={() => onChangeMainView('PORTAL')}
-          className="flex items-center gap-2.5 cursor-pointer group"
+          aria-label="市場ポータルへ戻る"
+          className="flex items-center gap-2.5 cursor-pointer group shrink-0 text-left"
         >
           <div className="w-7 h-7 rounded-md bg-slate-950 flex items-center justify-center shadow-xs group-hover:bg-slate-800 transition-colors">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="text-white">
@@ -46,15 +49,17 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
               KIN-KOROKU
             </span>
           </div>
-        </div>
+        </button>
 
         {/* 垂直セパレーター */}
         <div className="h-4 w-px bg-slate-200 hidden md:block" />
 
         {/* メインビュー切替ナビゲーション（フラット・セグメント） */}
-        <nav className="hidden sm:flex items-center gap-1 text-xs font-sans">
+        <nav aria-label="主要画面" className="flex items-center gap-1 text-xs font-sans max-w-[42vw] overflow-x-auto no-scrollbar">
           <button
+            type="button"
             onClick={() => onChangeMainView('PORTAL')}
+            aria-current={isPortalActive ? 'page' : undefined}
             className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
               isPortalActive
                 ? 'bg-slate-100 text-slate-950 font-bold'
@@ -62,10 +67,13 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             }`}
           >
             <LayoutDashboard size={13} className={isPortalActive ? 'text-slate-950' : 'text-slate-400'} />
-            <span>市場インテリジェンス</span>
+            <span className="hidden md:inline">市場インテリジェンス</span>
+            <span className="md:hidden">市場</span>
           </button>
           <button
+            type="button"
             onClick={() => onChangeMainView('TERMINAL')}
+            aria-current={mainView === 'TERMINAL' ? 'page' : undefined}
             className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
               mainView === 'TERMINAL'
                 ? 'bg-slate-100 text-slate-950 font-bold'
@@ -73,10 +81,13 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             }`}
           >
             <Database size={13} className={mainView === 'TERMINAL' ? 'text-slate-950' : 'text-slate-400'} />
-            <span>企業財務データベース</span>
+            <span className="hidden md:inline">企業財務データベース</span>
+            <span className="md:hidden">企業DB</span>
           </button>
           <button
+            type="button"
             onClick={() => onChangeMainView('FINDER')}
+            aria-current={mainView === 'FINDER' ? 'page' : undefined}
             className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
               mainView === 'FINDER'
                 ? 'bg-slate-100 text-slate-950 font-bold'
@@ -84,10 +95,13 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             }`}
           >
             <Sparkles size={13} className={mainView === 'FINDER' ? 'text-slate-950' : 'text-slate-400'} />
-            <span>リソース適合診断</span>
+            <span className="hidden md:inline">リソース適合診断</span>
+            <span className="md:hidden">武器検索</span>
           </button>
           <button
+            type="button"
             onClick={() => onChangeMainView('IDEAS_VAULT')}
+            aria-current={mainView === 'IDEAS_VAULT' ? 'page' : undefined}
             className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
               mainView === 'IDEAS_VAULT'
                 ? 'bg-slate-100 text-slate-950 font-bold'
@@ -95,7 +109,8 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             }`}
           >
             <Command size={13} className={mainView === 'IDEAS_VAULT' ? 'text-slate-950' : 'text-slate-400'} />
-            <span>実践機会台帳</span>
+            <span className="hidden md:inline">実践機会台帳</span>
+            <span className="md:hidden">武器庫</span>
           </button>
         </nav>
       </div>
