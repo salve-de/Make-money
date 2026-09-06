@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
-import { Database, UserCheck, SlidersHorizontal, Bookmark } from 'lucide-react';
-import { GridFilterOption } from '../../types/terminal';
+import { Database, UserCheck, SlidersHorizontal, Bookmark, FileText } from 'lucide-react';
+import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface MobileBottomNavProps {
+  workspaceMode: WorkspaceMode;
+  onSelectMode: (mode: WorkspaceMode) => void;
   currentFilter: GridFilterOption;
   onSelectFilter: (f: GridFilterOption) => void;
   onOpenScreener: () => void;
@@ -12,6 +14,8 @@ interface MobileBottomNavProps {
 }
 
 export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
+  workspaceMode,
+  onSelectMode,
   currentFilter,
   onSelectFilter,
   onOpenScreener,
@@ -21,20 +25,37 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     <nav className="md:hidden fixed bottom-0 inset-x-0 h-13 bg-[#07080B]/95 backdrop-blur-md border-t border-white/[0.06] z-30 flex items-center justify-around px-2 pb-[env(safe-area-inset-bottom)] select-none">
       {/* 全件台帳 */}
       <button
-        onClick={() => onSelectFilter('ALL')}
+        onClick={() => {
+          onSelectMode('LEDGER');
+          onSelectFilter('ALL');
+        }}
         className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
-          currentFilter === 'ALL' ? 'text-white font-medium' : 'text-zinc-500'
+          workspaceMode === 'LEDGER' && currentFilter === 'ALL' ? 'text-white font-medium' : 'text-zinc-500'
         }`}
       >
         <Database className="w-3.5 h-3.5 mb-0.5" />
         <span>全台帳</span>
       </button>
 
+      {/* 特集・深層解剖 */}
+      <button
+        onClick={() => onSelectMode('DEEP_DIVE')}
+        className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
+          workspaceMode === 'DEEP_DIVE' ? 'text-white font-medium' : 'text-zinc-500'
+        }`}
+      >
+        <FileText className="w-3.5 h-3.5 mb-0.5" />
+        <span>特集</span>
+      </button>
+
       {/* 完全1人 */}
       <button
-        onClick={() => onSelectFilter('SOLO')}
+        onClick={() => {
+          onSelectMode('LEDGER');
+          onSelectFilter('SOLO');
+        }}
         className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
-          currentFilter === 'SOLO' ? 'text-white font-medium' : 'text-zinc-500'
+          workspaceMode === 'LEDGER' && currentFilter === 'SOLO' ? 'text-white font-medium' : 'text-zinc-500'
         }`}
       >
         <UserCheck className="w-3.5 h-3.5 mb-0.5" />
@@ -52,9 +73,12 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 
       {/* 保存した台帳 */}
       <button
-        onClick={() => onSelectFilter('BOOKMARKED')}
+        onClick={() => {
+          onSelectMode('LEDGER');
+          onSelectFilter('BOOKMARKED');
+        }}
         className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors relative ${
-          currentFilter === 'BOOKMARKED' ? 'text-white font-medium' : 'text-zinc-500'
+          workspaceMode === 'LEDGER' && currentFilter === 'BOOKMARKED' ? 'text-white font-medium' : 'text-zinc-500'
         }`}
       >
         <Bookmark className="w-3.5 h-3.5 mb-0.5" />
@@ -66,3 +90,4 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     </nav>
   );
 };
+

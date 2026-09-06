@@ -1051,7 +1051,22 @@
          - 上部に「手口のレントゲン解説（構造分析・参入の急所）」が高密度タイポグラフィで展開。
          - その直下に**「本特集の分析対象企業群のリアルタイム財務台帳テーブル」が最初から埋め込まれて表示**される。
       3. **右インスペクター（Company Inspector）の完全同期**:
-         - 特集記事内の企業名をクリックすると、スクロール位置を保持したまま右ペインが開き、P&L・手口・ツール構成が即座に表示される。
+35. **Phase 44: 特集×財務台帳「インテリジェンス・レンズ」の完全実装 ＆ 3ペイン端末同期（完了）**
+    - **実施内容**:
+      1. **特集マスターデータ層の新設 (`src/platform/data/intelligenceDossiers.ts`)**:
+         - 4大セクター（粗利85%ソロプレナー、キーエンス型直販独占、B2Bコールドアウトバウンド、700万人日刊レター）の深層解剖データ（歪み・P&Lレントゲン・プレイブック・対象企業ID）を定義。
+      2. **特集ディープダイブ・ビューの新設 (`src/platform/components/intelligence/IntelligenceDeepDiveView.tsx`)**:
+         - 上部にアナリスト深層解剖レポート、下部に抽出された対象企業のリアルタイム財務台帳（`InstitutionalDataGrid`）を一体化配置。
+         - 「このセクター条件でスクリーナーを全画面起動」ボタンを常設。
+      3. **左サイドバーの2段構造化 (`TerminalSidebar.tsx`)**:
+         - `MARKET INTELLIGENCE`（特集4選）と `FINANCIAL LEDGER`（台帳7分類）を完全分離しつつ1クリックでレンズを切り替え。
+      4. **全体シェルとボトムナビの同期 (`TerminalShell.tsx`, `MobileBottomNav.tsx`)**:
+         - モバイルボトムナビに「特集」タブを新設し、スマホでも瞬時にアクセス可能化。
+         - 特集内の埋め込み台帳行をクリックした際、右ペイン（`CompanyInspectorPane`）がシームレスに展開し、財務諸表・コールドDM実文を即座に検証可能。
+    - **検証**:
+      - `npx tsc --noEmit` エラーゼロ通過。
+      - `npm run build` Next.js Turbopack 本番ビルド正常完了（Exit Code 0）。
+      - 実機CDP撮影監査（`v4_lens_01_ledger.png`, `v4_lens_02_deepdive.png`, `v4_lens_03_deepdive_inspector.png`, `v4_lens_05_mobile_pure_deepdive.png`）にて、静謐なプロ用端末デザインのまま特集と思考・台帳・カルテが完全に一体化したことを実証。
 
 
 

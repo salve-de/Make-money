@@ -84,3 +84,29 @@ export type GridFilterOption =
   | 'MONOPOLY'
   | 'AI_NATIVE'
   | 'BOOKMARKED';
+
+export type WorkspaceMode = 'LEDGER' | 'DEEP_DIVE';
+
+export type IntelligenceTopicId = 
+  | 'solo_empire'
+  | 'direct_monopoly'
+  | 'b2b_outbound'
+  | 'media_cashflow';
+
+export interface IntelligenceDossier {
+  id: IntelligenceTopicId;
+  title: string;
+  badge: string;
+  publishedDate: string;
+  readTime: string;
+  punchline: string;
+  macroArbitrage: string; // 市場の構造的歪み・大手の死角
+  costStructureTeardown: {
+    title: string;
+    description: string;
+    breakdownItems: { label: string; percentage: number; amountNote: string }[];
+  };
+  operationalPlaybook: string[]; // 参入・実行の急所ステップ
+  targetEntityIds: string[]; // 本特集の対象企業IDリスト
+}
+

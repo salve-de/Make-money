@@ -1,0 +1,108 @@
+import { IntelligenceDossier } from '../types/terminal';
+
+export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
+  {
+    id: 'solo_empire',
+    title: '粗利85%超・完全1人AIマイクロSaaS帝国のAPI仕入れ構造と大手の死角',
+    badge: 'SOLO / AI NATIVE',
+    publishedDate: '2026.03.01',
+    readTime: '4 MIN READ',
+    punchline: '大手が稟議と法的リスクで固まる中、Replicate等の推論APIを薄くラッピングし、比較記事アフィリエイターを30%還元でカルテル化して年商数億円を完全1人で抜き去る手口。',
+    macroArbitrage: '大企業の法務・コンプライアンス部門が「肖像権」「著作権」「学習データ元の責任」を検証するのに12ヶ月費やしている間、オープンソースモデル（Stable Diffusion / FLUX）のAPIをただ叩くだけのNext.jsアプリを72時間で公開。広告費を一切使わず、SEOの「Best AI Headshot Generator」等のキーワードを占拠するアフィリエイターに売上の30%を恒久キックバックすることで、後発の参入余地を物理的に封殺している。',
+    costStructureTeardown: {
+      title: '月商4,500万円におけるリアル原価・販管費分解',
+      description: '物理オフィスゼロ、社員ゼロ。売上の84%が創業者の個人口座に純手残りとして着金する冷徹なP&L。',
+      breakdownItems: [
+        { label: '推論API原価 (Replicate / RunPod)', percentage: 8.5, amountNote: '約382万円 / 月' },
+        { label: '決済手数料 (Stripe / Lemon Squeezy)', percentage: 4.5, amountNote: '約202万円 / 月' },
+        { label: 'アフィリエイト報酬 (比較記事カルテル)', percentage: 2.0, amountNote: '約90万円 / 月' },
+        { label: 'インフラ・SaaS (Vercel, Supabase等)', percentage: 0.8, amountNote: '約36万円 / 月' },
+        { label: '創業者 実効純利益（手残り）', percentage: 84.2, amountNote: '約3,790万円 / 月' },
+      ],
+    },
+    operationalPlaybook: [
+      'オープンソース画像モデルのAPI（Replicate）にパラメータ最適化したプロンプトを固定する。',
+      'Next.js + Tailwind + Stripeで72時間以内に決済完了型MVPを構築・ローンチ。',
+      'Google検索1位〜10位の比較記事ブロガー上位30人にDMを送り、報酬率35%の専用アフィリエイトリンクを配布。',
+      '自らは顧客対応を行わず、AIボット（Intercom / Crisp）とFAQ動画で完全自動化。',
+    ],
+    targetEntityIds: ['ent_photoai', 'ent_headshotpro'],
+  },
+  {
+    id: 'direct_monopoly',
+    title: '直販即日発送・粗利82%のキーエンス型独占モデルをスモール市場に移植する技術',
+    badge: 'MONOPOLY / PROCESS POWER',
+    publishedDate: '2026.02.20',
+    readTime: '5 MIN READ',
+    punchline: '代理店を完全排除して顧客の生データを直取りし、当日発送物流と圧倒的価格決定権で営業利益率50%超を叩き出す「プロセス・パワー」の構造。',
+    macroArbitrage: '多くのメーカーが「卸売・代理店網」に依存してマージンを抜かれ、顧客の本当の不満データを見失っている中、マニーやキーエンスは完全直販・直販指導部隊を組織。競合が相見積もりで値引き競争に巻き込まれる中、「今夜届かなければ工場ラインが止まり1時間1000万の損が出る」という現場の恐怖を握ることで、定価販売・即日発送の絶対独占を成立させている。',
+    costStructureTeardown: {
+      title: '売上高1兆円におけるP&L構造（キーエンス基準）',
+      description: '工場を持たないファブレス体制により、粗利率82%・営業利益率54%という製造業の常識を破壊する数字を実現。',
+      breakdownItems: [
+        { label: '製造原価 (完全外部委託ファブレス)', percentage: 18.0, amountNote: '約1,800億円' },
+        { label: '人件費 (平均年収2,200万円・直販営業部隊)', percentage: 15.0, amountNote: '約1,500億円' },
+        { label: '物流・当日発送インフラ費', percentage: 5.5, amountNote: '約550億円' },
+        { label: '研究開発費 (新製品の7割が世界初)', percentage: 7.5, amountNote: '約750億円' },
+        { label: '営業利益', percentage: 54.0, amountNote: '約5,400億円' },
+      ],
+    },
+    operationalPlaybook: [
+      '流通代理店を通さず、自社Web・電話・直販営業でのみ見積もりを受け付ける。',
+      '「17時までの注文は当日発送」を物理的に担保する専用フルフィルメント拠点を構築。',
+      '製品単体のスペックではなく「ダウンタイム削減・不良率削減の経済効果」で価格を正当化。',
+    ],
+    targetEntityIds: ['ent_keyence', 'ent_mani'],
+  },
+  {
+    id: 'b2b_outbound',
+    title: 'VC調達企業のCAC麻痺を突く！Clay×AIコールドアウトバウンド代行の中抜き構造',
+    badge: 'B2B ARBITRAGE / CASHFLOW',
+    publishedDate: '2026.02.10',
+    readTime: '3 MIN READ',
+    punchline: '採用単価300万の営業マンを雇えないSaaS企業に対し、完全成果報酬で月5件のアポを提供して月額800万を抜き去る労働解放モデル。',
+    macroArbitrage: '数億円のシリーズAを調達したSaaS企業は「商談数を増やせ」と投資家から詰められるが、営業マンの採用と立ち上げには6ヶ月かかる。ここに「アポ1件獲得ごとに15万円〜25万円」の完全成果報酬型オファーを持ち込む。裏側ではClayとInstantlyを連携させた送信インフラで1万通の超パーソナライズメールを自動送信し、人件費ゼロで利益率65%を抜く。',
+    costStructureTeardown: {
+      title: '月商800万円（成果報酬型クライアント8社）のP&L',
+      description: 'クライアントには高級コンサルティングの顔をして接し、裏側はAPIとスクレイピングによる完全自動化工場。',
+      breakdownItems: [
+        { label: 'データ抽出・スクレイピング (Clay, Apollo)', percentage: 8.0, amountNote: '約64万円 / 月' },
+        { label: '送信ドメイン・インフラ (Instantly, Google Workspace)', percentage: 6.0, amountNote: '約48万円 / 月' },
+        { label: 'LLMプロンプト推論費 (OpenAI API)', percentage: 3.5, amountNote: '約28万円 / 月' },
+        { label: '案件ディレクション外注費', percentage: 17.5, amountNote: '約140万円 / 月' },
+        { label: '営業利益（手残り）', percentage: 65.0, amountNote: '約520万円 / 月' },
+      ],
+    },
+    operationalPlaybook: [
+      'Crunchbase / INITIALで「直近3ヶ月で1億円以上調達したB2B SaaS」を自動抽出。',
+      'その企業の競合導入先をスクレイピングし、失注理由を突く文面のコールドメールを生成。',
+      '「商談が実施されなければ1円も頂きません」というリスクリバーサルで即日成約。',
+    ],
+    targetEntityIds: ['ent_aaa_outbound', 'ent_local_dx'],
+  },
+  {
+    id: 'media_cashflow',
+    title: 'AWS SESとNotionだけで回す！700万人日刊ニュースレターの広告枠独占構造',
+    badge: 'CONTENT MEDIA / ZERO CAPITAL',
+    publishedDate: '2026.01.25',
+    readTime: '4 MIN READ',
+    punchline: 'ソーシャルメディアのアルゴリズム変動に怯える大手テック企業に「開封率40%の確定メール枠」を高額販売するストック型現金マシーン。',
+    macroArbitrage: 'XやGoogleのアルゴリズム変更でPVが乱高下する中、メールボックスという「個人の私的空間」に直接届く日刊レターは、B2Bマーケターにとって最も費用対効果が高い広告出稿先となる。制作コストは1日1本のキュレーション（要約）のみであり、配信コストはAWS SESで1通あたり0.01円以下。1日1枠450万円の広告枠が数ヶ月先まで完売する。',
+    costStructureTeardown: {
+      title: '年商15億円（TLDR基準）のP&Lレントゲン',
+      description: '原価ほぼゼロ。広告主からの前受金でキャッシュフローが常に潤沢なデジタル・メディア独占モデル。',
+      breakdownItems: [
+        { label: 'メール配信インフラ (AWS SES)', percentage: 2.5, amountNote: '約3,750万円 / 年' },
+        { label: 'キュレーション編集者人件費 (世界分散)', percentage: 12.0, amountNote: '約1億8,000万円 / 年' },
+        { label: '広告営業・管理ツール費', percentage: 3.5, amountNote: '約5,250万円 / 年' },
+        { label: '純利益（手残り）', percentage: 82.0, amountNote: '約12億3,000万円 / 年' },
+      ],
+    },
+    operationalPlaybook: [
+      '特定ジャンル（AI、テック、Crypto）の最重要ニュース3本を「5分で読める箇条書き」に要約。',
+      '初期1,000人はRedditやHacker Newsでの有益な要約コメント投稿で獲得。',
+      '読者が1万人を超えた段階で、同領域のSaaS企業に「1回5万円」のスポンサー枠を直接オファー。',
+    ],
+    targetEntityIds: ['ent_tldr_newsletter', 'ent_notion_easlo'],
+  },
+];

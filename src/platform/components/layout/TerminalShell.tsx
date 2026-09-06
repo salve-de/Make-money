@@ -2,18 +2,24 @@
 
 import React, { useState, useMemo, useCallback } from 'react';
 import { INSTITUTIONAL_ENTITIES } from '../../data/mockLedgerData';
-import { FinancialEntity, GridFilterOption } from '../../types/terminal';
+import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
+import { FinancialEntity, GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
 import { TerminalTopBar } from '../header/TerminalTopBar';
 import { TerminalSidebar } from '../navigation/TerminalSidebar';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '../inspector/CompanyInspectorPane';
+import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
 
 export const TerminalShell: React.FC = () => {
+  // 表示モード (LEDGER: 台帳 / DEEP_DIVE: 特集)
+  const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>('LEDGER');
+  const [activeTopicId, setActiveTopicId] = useState<IntelligenceTopicId>('solo_empire');
+
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(null);
@@ -34,6 +40,17 @@ export const TerminalShell: React.FC = () => {
     });
   }, []);
 
+  // アクティブな特集レポート
+  const activeDossier = useMemo(() => {
+    return INTELLIGENCE_DOSSIERS.find((d) => d.id === activeTopicId) || INTELLIGENCE_DOSSIERS[0];
+  }, [activeTopicId]);
+
+  // 特集に紐づく対象企業群
+  const deepDiveEntities = useMemo(() => {
+    return INSTITUTIONAL_ENTITIES.filter((entity) => activeDossier.targetEntityIds.includes(entity.id));
+  }, [activeDossier]);
+
+  // 全台帳モードでのフィルタリング
   const filteredEntities = useMemo(() => {
     return INSTITUTIONAL_ENTITIES.filter((entity) => {
       if (currentFilter === 'SOLO' && entity.scale !== 'SOLO') return false;
@@ -63,25 +80,28 @@ export const TerminalShell: React.FC = () => {
     });
   }, [currentFilter, screenerFilters, searchQuery, bookmarkedIds]);
 
+  // 現在選択中の企業エンティティ
   const selectedEntity = useMemo(() => {
     return INSTITUTIONAL_ENTITIES.find((e) => e.id === selectedEntityId) || null;
   }, [selectedEntityId]);
 
   const handlePrevEntity = useCallback(() => {
-    if (!selectedEntityId || filteredEntities.length === 0) return;
-    const currentIndex = filteredEntities.findIndex((e) => e.id === selectedEntityId);
+    const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
+    if (!selectedEntityId || list.length === 0) return;
+    const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
     if (currentIndex > 0) {
-      setSelectedEntityId(filteredEntities[currentIndex - 1].id);
+      setSelectedEntityId(list[currentIndex - 1].id);
     }
-  }, [selectedEntityId, filteredEntities]);
+  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities]);
 
   const handleNextEntity = useCallback(() => {
-    if (!selectedEntityId || filteredEntities.length === 0) return;
-    const currentIndex = filteredEntities.findIndex((e) => e.id === selectedEntityId);
-    if (currentIndex >= 0 && currentIndex < filteredEntities.length - 1) {
-      setSelectedEntityId(filteredEntities[currentIndex + 1].id);
+    const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
+    if (!selectedEntityId || list.length === 0) return;
+    const currentIndex = list.findIndex((e) => e.id === selectedEntityId);
+    if (currentIndex >= 0 && currentIndex < list.length - 1) {
+      setSelectedEntityId(list[currentIndex + 1].id);
     }
-  }, [selectedEntityId, filteredEntities]);
+  }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities]);
 
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#060709] text-zinc-100 font-sans">
@@ -95,12 +115,19 @@ export const TerminalShell: React.FC = () => {
         onToggleCurrency={() => setCurrency((prev) => (prev === 'JPY' ? 'USD' : 'JPY'))}
       />
 
-      {/* メインワークスペース (左ナビ + 中央データグリッド + 右リアルタイムインスペクター) */}
+      {/* メインワークスペース (左ナビ + 中央データグリッド/特集ディープダイブ + 右リアルタイムインスペクター) */}
       <main className="flex-1 flex overflow-hidden relative pb-13 md:pb-0">
         {/* 左サイドバー */}
         <TerminalSidebar
+          workspaceMode={workspaceMode}
+          activeTopicId={activeTopicId}
+          onSelectTopic={(topicId) => {
+            setWorkspaceMode('DEEP_DIVE');
+            setActiveTopicId(topicId);
+          }}
           currentFilter={currentFilter}
           onSelectFilter={(f) => {
+            setWorkspaceMode('LEDGER');
             setCurrentFilter(f);
             setScreenerFilters(null);
           }}
@@ -109,29 +136,45 @@ export const TerminalShell: React.FC = () => {
           bookmarkCount={bookmarkedIds.size}
         />
 
-        {/* 中央メインエリア */}
-        <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#07080B]">
-          <DataGridToolbar
-            currentFilter={currentFilter}
-            onSelectFilter={(f) => {
-              setCurrentFilter(f);
-              setScreenerFilters(null);
-            }}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            totalCount={filteredEntities.length}
-            onOpenScreener={() => setIsScreenerOpen(true)}
-          />
-
-          <InstitutionalDataGrid
-            entities={filteredEntities}
+        {/* 中央メインエリア (特集ディープダイブ or 金融台帳グリッド) */}
+        {workspaceMode === 'DEEP_DIVE' ? (
+          <IntelligenceDeepDiveView
+            dossier={activeDossier}
+            targetEntities={deepDiveEntities}
             selectedEntityId={selectedEntityId}
             onSelectEntity={setSelectedEntityId}
             currency={currency}
             bookmarkedIds={bookmarkedIds}
             onToggleBookmark={handleToggleBookmark}
+            onLaunchScreenerForDossier={() => {
+              setWorkspaceMode('LEDGER');
+              setIsScreenerOpen(true);
+            }}
           />
-        </div>
+        ) : (
+          <div className="flex-1 flex flex-col min-w-0 overflow-hidden bg-[#07080B]">
+            <DataGridToolbar
+              currentFilter={currentFilter}
+              onSelectFilter={(f) => {
+                setCurrentFilter(f);
+                setScreenerFilters(null);
+              }}
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              totalCount={filteredEntities.length}
+              onOpenScreener={() => setIsScreenerOpen(true)}
+            />
+
+            <InstitutionalDataGrid
+              entities={filteredEntities}
+              selectedEntityId={selectedEntityId}
+              onSelectEntity={setSelectedEntityId}
+              currency={currency}
+              bookmarkedIds={bookmarkedIds}
+              onToggleBookmark={handleToggleBookmark}
+            />
+          </div>
+        )}
 
         {/* 右リアルタイム解剖インスペクター */}
         {selectedEntity && (
@@ -147,8 +190,11 @@ export const TerminalShell: React.FC = () => {
 
       {/* スマホ最下部固定ボトムナビ */}
       <MobileBottomNav
+        workspaceMode={workspaceMode}
+        onSelectMode={(mode) => setWorkspaceMode(mode)}
         currentFilter={currentFilter}
         onSelectFilter={(f) => {
+          setWorkspaceMode('LEDGER');
           setCurrentFilter(f);
           setScreenerFilters(null);
         }}
@@ -174,3 +220,4 @@ export const TerminalShell: React.FC = () => {
     </div>
   );
 };
+
