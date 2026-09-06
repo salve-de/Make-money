@@ -953,4 +953,8 @@
 
 
 
+## 2026-09-06 Codex / PR #10: 3000参照の3020端末UI再構築
 
+作業場所: /private/tmp/make-money-zero-based、codex/zero-based-terminal-redesign。mainおよび3000は未変更。
+共通スタイルを再作成し、直接条件・利益額付き台帳・検索を保持した企業分析を実装。サーバー検索APIとページ分割、保存検索、比較、モバイル専用一覧を構成。
+TypeScript、対象Lint、webpack build、合成1000件の検索ソート試験成功。Safari PC主要操作確認済み。390px修正後の再検証、全画面の受入、認証・決済検証は未完了。完成・本番反映とは扱わずPR上のレビュー候補として保存する。

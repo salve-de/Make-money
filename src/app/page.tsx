@@ -1,5 +1,5 @@
-import { MakeMoneyTerminal } from '@/components/rebuild/MakeMoneyTerminal';
+import Workspace from '@/components/workspace/Workspace';
 
 export default function Home() {
-  return <MakeMoneyTerminal />;
+  return <Workspace />;
 }
