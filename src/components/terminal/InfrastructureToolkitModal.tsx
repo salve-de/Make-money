@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { AFFILIATE_CONFIG } from '../../config/affiliateLinks';
+import { X } from 'lucide-react';
 
 interface InfrastructureToolkitModalProps {
   isOpen: boolean;
@@ -15,8 +16,8 @@ export const InfrastructureToolkitModal: React.FC<InfrastructureToolkitModalProp
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-xs p-4 font-sans select-none animate-in fade-in duration-150">
-      <div className="w-full max-w-2xl bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+    <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
+      <div className="bg-white border border-slate-200 rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-150">
         {/* ヘッダー */}
         <div className="px-6 py-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
           <div>
@@ -29,9 +30,9 @@ export const InfrastructureToolkitModal: React.FC<InfrastructureToolkitModalProp
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-600 text-lg leading-none p-1 transition-colors"
+            className="w-7 h-7 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-100 flex items-center justify-center transition-colors"
           >
-            ✕
+            <X size={16} />
           </button>
         </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { X } from 'lucide-react';
 import {
   TerminalFilterState,
   WorkStyleFilter,
@@ -202,9 +203,10 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-700 text-xl p-1 leading-none transition-colors cursor-pointer"
+            className="text-slate-400 hover:text-slate-700 p-1 leading-none transition-colors cursor-pointer"
+            aria-label="閉じる"
           >
-            ✕
+            <X size={16} />
           </button>
         </div>
 

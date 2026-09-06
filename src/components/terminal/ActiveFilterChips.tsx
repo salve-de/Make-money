@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { X } from 'lucide-react';
 import { TerminalFilterState } from '../../types/terminal';
 import { DesirePreset } from './DesireFilterBar';
 
@@ -194,10 +195,11 @@ export const ActiveFilterChips: React.FC<ActiveFilterChipsProps> = ({
             <span className="text-zinc-100">{chip.label}</span>
             <button
               onClick={chip.onRemove}
-              className="text-zinc-400 hover:text-white font-mono text-xs ml-0.5 leading-none"
+              className="text-zinc-400 hover:text-white ml-0.5 leading-none flex items-center justify-center cursor-pointer"
               title="この条件を解除"
+              aria-label="条件を解除"
             >
-              ✕
+              <X size={10} />
             </button>
           </div>
         ))}

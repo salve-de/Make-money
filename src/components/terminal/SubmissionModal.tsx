@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { X, Check } from 'lucide-react';
 
 interface SubmissionModalProps {
   isOpen: boolean;
@@ -45,16 +46,17 @@ export const SubmissionModal: React.FC<SubmissionModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="text-zinc-400 hover:text-zinc-200 text-lg leading-none p-1 transition-colors"
+            className="text-zinc-400 hover:text-zinc-200 p-1 transition-colors cursor-pointer"
+            aria-label="閉じる"
           >
-            ✕
+            <X size={18} />
           </button>
         </div>
 
         {submitted ? (
           <div className="p-8 text-center space-y-4 font-sans">
-            <div className="w-12 h-12 rounded-full bg-zinc-800 text-white border border-zinc-700 flex items-center justify-center mx-auto text-xl font-bold">
-              ✓
+            <div className="w-12 h-12 rounded-full bg-zinc-800 text-emerald-400 border border-zinc-700 flex items-center justify-center mx-auto">
+              <Check size={24} />
             </div>
             <div className="space-y-1">
               <h3 className="text-base font-bold text-white">掲載審査の受付を完了しました</h3>

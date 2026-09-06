@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
 import { CompanyRecord } from '@/types/terminal';
 
 interface ExecutionKitSectionProps {
@@ -79,7 +80,17 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
             onClick={() => handleCopy(coldMessageScript, 'COLD_MESSAGE')}
             className="w-full py-2.5 px-3 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-mono font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
           >
-            <span>{copiedType === 'COLD_MESSAGE' ? '✓ コピー完了' : 'この文面を1クリックでコピー'}</span>
+            {copiedType === 'COLD_MESSAGE' ? (
+              <>
+                <Check size={14} className="text-emerald-400" />
+                <span>コピー完了</span>
+              </>
+            ) : (
+              <>
+                <Copy size={14} />
+                <span>この文面を1クリックでコピー</span>
+              </>
+            )}
           </button>
         </div>
 
@@ -108,7 +119,17 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
             onClick={() => handleCopy(aiPromptScript, 'AI_PROMPT')}
             className="w-full py-2.5 px-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-mono font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
           >
-            <span>{copiedType === 'AI_PROMPT' ? '✓ コピー完了' : 'プロンプトを1クリックでコピー'}</span>
+            {copiedType === 'AI_PROMPT' ? (
+              <>
+                <Check size={14} className="text-emerald-300" />
+                <span>コピー完了</span>
+              </>
+            ) : (
+              <>
+                <Copy size={14} />
+                <span>プロンプトを1クリックでコピー</span>
+              </>
+            )}
           </button>
         </div>
 

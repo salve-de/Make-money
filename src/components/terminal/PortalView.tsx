@@ -207,13 +207,8 @@ export const PortalView: React.FC<PortalViewProps> = ({
                             <div className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
                               {c.japaneseName}
                             </div>
-                            <div className="text-[11px] text-slate-600 truncate max-w-xs sm:max-w-md font-normal flex items-center gap-1.5 mt-0.5">
-                              <span className="px-1.5 py-0.2 rounded text-[9px] font-mono font-bold bg-indigo-50 text-indigo-700 border border-indigo-200/80 shrink-0">
-                                着眼した隙間
-                              </span>
-                              <span className="truncate text-slate-700 font-medium">
-                                {c.successStory?.marketGlitch || c.businessEssence?.valueProposition || c.tagline}
-                              </span>
+                            <div className="text-[11px] text-slate-500 truncate max-w-xs sm:max-w-md font-normal mt-0.5">
+                              {c.tagline}
                             </div>
                           </div>
                         </div>
@@ -260,7 +255,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-2">
               <span className="px-2.5 py-0.5 rounded-md bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold border border-indigo-500/30">
-                MULTI-DIMENSIONAL SCREENER
+                DIAGNOSTIC FINDER
               </span>
               <span className="text-[11px] font-mono text-emerald-400 font-bold">
                 実在22社・財務監査照合
@@ -270,13 +265,12 @@ export const PortalView: React.FC<PortalViewProps> = ({
               あなたの手札条件（資本・時間・武器・市場）から、明日真似すべき実在モデルを即答照合
             </h3>
             <p className="text-xs text-slate-300 font-normal leading-relaxed">
-              AIの思いつき作文を完全排除。「実践機会台帳」にて、手元資金0円や副業から勝てる実在10モデルの適合度ランキング・現場3大ツール・DAY-1アクションを完全配備。
+              手元資金0円や副業から勝てる実在10モデルの適合度ランキング・返信率30%超のDM文面・相見積もり封殺トークを即座に発行します。
             </p>
-            <div className="flex items-center gap-1.5 pt-1 flex-wrap font-mono text-[10px] text-slate-400">
+            <div className="flex items-center gap-1.5 pt-0.5 flex-wrap font-mono text-[10px] text-slate-400">
               <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#元手0円</span>
               <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#週1-3h自販機</span>
               <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#ノーコードAPI</span>
-              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#町工場直販</span>
               <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#利益率80%超</span>
             </div>
           </div>
@@ -287,7 +281,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
               className="px-5 py-2.5 rounded-xl bg-indigo-600 group-hover:bg-indigo-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer"
             >
               <Sparkles size={14} className="text-indigo-200" />
-              <span>実践機会台帳で手札診断を起動</span>
+              <span>手札逆引きカンペ診断を起動</span>
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>

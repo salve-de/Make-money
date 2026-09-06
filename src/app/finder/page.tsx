@@ -7,6 +7,7 @@ import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
 import { ExecutiveDetailSheet } from '@/components/terminal/ExecutiveDetailSheet';
 import { TERMINAL_COMPANIES } from '@/data/terminalData';
 import { MarketLiveTicker } from '@/components/terminal/MarketLiveTicker';
+import { X } from 'lucide-react';
 
 export default function FinderPage() {
   const router = useRouter();
@@ -48,9 +49,10 @@ export default function FinderPage() {
               <button
                 type="button"
                 onClick={() => setSelectedCompanyId(null)}
-                className="px-3 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold font-mono transition-colors cursor-pointer"
+                className="px-3 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold font-mono transition-colors cursor-pointer flex items-center gap-1"
               >
-                ✕ 閉じる
+                <X size={13} />
+                <span>閉じる</span>
               </button>
             </div>
             <div className="p-6">

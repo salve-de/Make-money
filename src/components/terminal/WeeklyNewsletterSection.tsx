@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 export const WeeklyNewsletterSection: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -126,8 +127,18 @@ export const WeeklyNewsletterSection: React.FC = () => {
             <span className="text-emerald-400 font-bold">SAMPLE:</span>
             <span>【直近速報サンプル】米29歳が48時間で2,000万円を叩き出したネタ系オークションの損益解剖</span>
           </span>
-          <span className="text-slate-500 text-[11px]">
-            {showSample ? '▲ レポートを閉じる' : '▼ サンプルを開封して読む'}
+          <span className="text-slate-500 text-[11px] flex items-center gap-1">
+            {showSample ? (
+              <>
+                <ChevronUp size={13} />
+                <span>レポートを閉じる</span>
+              </>
+            ) : (
+              <>
+                <ChevronDown size={13} />
+                <span>サンプルを開封して読む</span>
+              </>
+            )}
           </span>
         </button>
 

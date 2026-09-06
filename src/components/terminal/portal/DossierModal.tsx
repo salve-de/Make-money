@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { X } from 'lucide-react';
 import { CompanyRecord } from '../../../types/terminal';
 import { DOSSIER_COLLECTIONS, DossierData } from '../../../data/portalDossiers';
 import { CompanyLogo } from '../CompanyLogo';
@@ -39,9 +40,10 @@ export const DossierModal: React.FC<DossierModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center text-sm font-mono transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+            aria-label="閉じる"
           >
-            ✕
+            <X size={15} />
           </button>
         </div>
 

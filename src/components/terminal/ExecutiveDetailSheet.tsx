@@ -4,15 +4,16 @@ import React, { useState } from 'react';
 import { CompanyRecord, MoatPower } from '../../types/terminal';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
+import { Check, ArrowRight, Lock, AlertTriangle, ShieldCheck, Sparkles, ExternalLink } from 'lucide-react';
 
 interface ExecutiveDetailSheetProps {
   company: CompanyRecord;
 }
 
-type DetailTab = 'ALL' | 'FINANCIALS' | 'TRAFFIC' | 'TRACTION' | 'INFRASTRUCTURE';
+type DetailTab = 'OVERVIEW' | 'FINANCIALS' | 'TRAFFIC' | 'TRACTION' | 'INFRASTRUCTURE' | 'ALL';
 
 export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ company }) => {
-  const [activeTab, setActiveTab] = useState<DetailTab>('ALL');
+  const [activeTab, setActiveTab] = useState<DetailTab>('OVERVIEW');
 
   const latestFin = company.financials && company.financials.length > 0
     ? company.financials[company.financials.length - 1]
@@ -391,151 +392,22 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
       </div>
 
       {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【創業者の着眼ログ：何を見て、どこに隙を見出して参入したのか】     */}
-      {/* 読者が「あぁ、ここを見て参入したのか！勉強になる！」と唸る3段レントゲン */}
+      {/* 【タブナビゲーション】最上部ダイレクト切替                     */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="rounded-xl bg-white border border-slate-200/90 p-5 shadow-2xs space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-100 pb-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-indigo-600 animate-pulse"></span>
-            <span className="text-xs sm:text-sm font-black text-slate-900 font-sans">
-              創業者の着眼ログ：何を見て、どこに隙（参入機会）を見出したのか
-            </span>
-          </div>
-          <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200/80 self-start sm:self-auto">
-            OPPORTUNITY DISCOVERY X-RAY
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 font-sans">
-          {/* 1. 日常の観察（何を見たのか） */}
-          <div className="p-4 rounded-xl bg-slate-50/90 border border-slate-200/90 space-y-2">
-            <div className="text-[11px] font-mono text-slate-700 font-black uppercase flex items-center gap-1.5">
-              <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center text-[10px] font-bold">1</span>
-              <span>日常の観察（何を見たのか）</span>
-            </div>
-            <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
-              {observationText}
-            </p>
-          </div>
-
-          {/* 2. 業界の隙間・バグ（どこに隙があったのか） */}
-          <div className="p-4 rounded-xl bg-rose-50/50 border border-rose-200/80 space-y-2">
-            <div className="text-[11px] font-mono text-rose-700 font-black uppercase flex items-center gap-1.5">
-              <span className="w-4 h-4 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center text-[10px] font-bold">2</span>
-              <span>業界の盲点・隙間（どこに隙があったか）</span>
-            </div>
-            <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
-              {glitchText}
-            </p>
-          </div>
-
-          {/* 3. 参入の一手（どう突いて勝ったのか） */}
-          <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
-            <div className="text-[11px] font-mono text-emerald-700 font-black uppercase flex items-center gap-1.5">
-              <span className="w-4 h-4 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center text-[10px] font-bold">3</span>
-              <span>参入の一手（どう突いて勝ったか）</span>
-            </div>
-            <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
-              {trickText}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【7. 実働の正体：創業者の24時間解剖（週実働 ○時間 ＆ 業務棚卸し）】 */}
-      {/* 読者が「えっ、月商数千万で本人は週3時間これしかやってないの？」と唸る */}
-      {/* ───────────────────────────────────────────────────────────── */}
-      <div className="rounded-xl bg-white border border-slate-200/90 p-5 shadow-2xs space-y-4">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-100 pb-3">
-          <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
-            <span className="text-xs sm:text-sm font-black text-slate-900 font-sans">
-              実働の正体：創業者の24時間解剖（週実働と業務の完全棚卸し）
-            </span>
-          </div>
-          <div className="flex items-center gap-2 self-start sm:self-auto">
-            <span className="text-[11px] font-mono text-emerald-800 font-black bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
-              週実働 {weeklyHours}時間
-            </span>
-            <span className="text-[10px] font-mono text-slate-500 font-bold bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-              WORKLOAD AUDIT
-            </span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans">
-          {/* 左: 本人がやること（意思決定・コア業務） */}
-          <div className="p-4 rounded-xl bg-indigo-50/40 border border-indigo-200/70 space-y-2.5">
-            <div className="flex items-center justify-between border-b border-indigo-100 pb-1.5">
-              <div className="text-[11px] font-mono text-indigo-900 font-black uppercase flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
-                <span>本人がやること（意思決定・コア業務のみ）</span>
-              </div>
-              <span className="text-[10px] font-mono font-bold text-indigo-700 bg-white px-2 py-0.5 rounded border border-indigo-200">
-                本人の手作業
-              </span>
-            </div>
-            <ul className="space-y-1.5 text-xs text-slate-800">
-              {founderTasks.map((task, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-indigo-600 font-mono font-bold shrink-0">✔</span>
-                  <span className="leading-relaxed">{task}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* 右: 外注・システムに丸投げしたこと（自動化・放置のからくり） */}
-          <div className="p-4 rounded-xl bg-slate-50/90 border border-slate-200/90 space-y-2.5">
-            <div className="flex items-center justify-between border-b border-slate-200 pb-1.5">
-              <div className="text-[11px] font-mono text-slate-700 font-black uppercase flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-slate-500"></span>
-                <span>外注・システムに丸投げしたこと（放置の配管）</span>
-              </div>
-              <span className="text-[10px] font-mono font-bold text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200">
-                自動・外部委託
-              </span>
-            </div>
-            <ul className="space-y-1.5 text-xs text-slate-700">
-              {automatedTasks.map((task, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="text-slate-400 font-mono font-bold shrink-0">➔</span>
-                  <span className="leading-relaxed">{task}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* 解放度サマリー */}
-        <div className="p-3 bg-emerald-50/60 rounded-lg border border-emerald-200/60 flex items-center justify-between gap-3 text-xs font-sans">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-emerald-800 font-bold uppercase text-[10px] bg-white px-2 py-0.5 rounded border border-emerald-200 shrink-0">
-              労働からの解放度
-            </span>
-            <span className="text-emerald-950 font-medium">{liberationSummary}</span>
-          </div>
-        </div>
-      </div>
-
-      {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【タブナビゲーション】9大事業レントゲン 4大専門タブ切替 */}
-      {/* ───────────────────────────────────────────────────────────── */}
-      <div className="flex items-center justify-between border-b border-slate-200 pb-0 text-xs font-mono">
+      <div className="flex items-center justify-between border-b border-slate-200 pb-0 text-xs font-mono sticky top-0 bg-[#F8FAFC]/95 backdrop-blur-xs z-10 pt-1">
         <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
           {[
-            { id: 'ALL', label: '全編解剖レポート' },
+            { id: 'OVERVIEW', label: '概要サマリー' },
             { id: 'FINANCIALS', label: '01 損益・価格決定権 & 換金出口' },
             { id: 'TRAFFIC', label: '02 集客蛇口 & 顧客監禁構造' },
             { id: 'TRACTION', label: '03 初動強奪 & アンフェア監査' },
-            { id: 'INFRASTRUCTURE', label: '04 稼働インフラ & 武器庫' },
+            { id: 'INFRASTRUCTURE', label: '04 稼働インフラ & 地雷リスク' },
+            { id: 'ALL', label: '全編表示' },
           ].map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as DetailTab)}
-              className={`px-3.5 py-2.5 border-b-2 font-bold transition-colors whitespace-nowrap ${
+              className={`px-3.5 py-2.5 border-b-2 font-bold transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === tab.id
                   ? 'border-indigo-600 text-indigo-600 font-black'
                   : 'border-transparent text-slate-500 hover:text-slate-900'
@@ -550,6 +422,137 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
           <span>高収益事業レントゲン台帳</span>
         </div>
       </div>
+
+      {/* ───────────────────────────────────────────────────────────── */}
+      {/* 【概要サマリー：創業者の着眼ログ ＆ 24時間解剖】               */}
+      {/* ───────────────────────────────────────────────────────────── */}
+      {(activeTab === 'ALL' || activeTab === 'OVERVIEW') && (
+        <div className="space-y-4">
+          {/* 創業者の着眼ログ */}
+          <div className="rounded-xl bg-white border border-slate-200/90 p-5 shadow-2xs space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-indigo-600"></span>
+                <span className="text-xs sm:text-sm font-black text-slate-900 font-sans">
+                  創業者の着眼ログ：何を見て、どこに隙（参入機会）を見出したのか
+                </span>
+              </div>
+              <span className="text-[10px] font-mono text-indigo-700 font-bold bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200/80 self-start sm:self-auto">
+                OPPORTUNITY DISCOVERY X-RAY
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 font-sans">
+              {/* 1. 日常の観察（何を見たのか） */}
+              <div className="p-4 rounded-xl bg-slate-50/90 border border-slate-200/90 space-y-2">
+                <div className="text-[11px] font-mono text-slate-700 font-black uppercase flex items-center gap-1.5">
+                  <span className="w-4 h-4 rounded-full bg-slate-200 text-slate-800 flex items-center justify-center text-[10px] font-bold">1</span>
+                  <span>日常の観察（何を見たのか）</span>
+                </div>
+                <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
+                  {observationText}
+                </p>
+              </div>
+
+              {/* 2. 業界の隙間・バグ（どこに隙があったのか） */}
+              <div className="p-4 rounded-xl bg-rose-50/50 border border-rose-200/80 space-y-2">
+                <div className="text-[11px] font-mono text-rose-700 font-black uppercase flex items-center gap-1.5">
+                  <span className="w-4 h-4 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center text-[10px] font-bold">2</span>
+                  <span>業界の盲点・隙間（どこに隙があったか）</span>
+                </div>
+                <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
+                  {glitchText}
+                </p>
+              </div>
+
+              {/* 3. 参入の一手（どう突いて勝ったのか） */}
+              <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-200/80 space-y-2">
+                <div className="text-[11px] font-mono text-emerald-700 font-black uppercase flex items-center gap-1.5">
+                  <span className="w-4 h-4 rounded-full bg-emerald-200 text-emerald-800 flex items-center justify-center text-[10px] font-bold">3</span>
+                  <span>参入の一手（どう突いて勝ったか）</span>
+                </div>
+                <p className="text-slate-800 leading-relaxed text-xs font-normal pt-0.5">
+                  {trickText}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 実働の正体：創業者の24時間解剖 */}
+          <div className="rounded-xl bg-white border border-slate-200/90 p-5 shadow-2xs space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-slate-100 pb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600"></span>
+                <span className="text-xs sm:text-sm font-black text-slate-900 font-sans">
+                  実働の正体：創業者の24時間解剖（週実働と業務の完全棚卸し）
+                </span>
+              </div>
+              <div className="flex items-center gap-2 self-start sm:self-auto">
+                <span className="text-[11px] font-mono text-emerald-800 font-black bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                  週実働 {weeklyHours}時間
+                </span>
+                <span className="text-[10px] font-mono text-slate-500 font-bold bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                  WORKLOAD AUDIT
+                </span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 font-sans">
+              {/* 左: 本人がやること */}
+              <div className="p-4 rounded-xl bg-indigo-50/40 border border-indigo-200/70 space-y-2.5">
+                <div className="flex items-center justify-between border-b border-indigo-100 pb-1.5">
+                  <div className="text-[11px] font-mono text-indigo-900 font-black uppercase flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                    <span>本人がやること（意思決定・コア業務のみ）</span>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-indigo-700 bg-white px-2 py-0.5 rounded border border-indigo-200">
+                    本人の手作業
+                  </span>
+                </div>
+                <ul className="space-y-1.5 text-xs text-slate-800">
+                  {founderTasks.map((task, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <Check size={13} className="text-indigo-600 shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{task}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* 右: 外注・システムに丸投げしたこと */}
+              <div className="p-4 rounded-xl bg-slate-50/90 border border-slate-200/90 space-y-2.5">
+                <div className="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                  <div className="text-[11px] font-mono text-slate-700 font-black uppercase flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-slate-500"></span>
+                    <span>外注・システムに丸投げしたこと（放置の配管）</span>
+                  </div>
+                  <span className="text-[10px] font-mono font-bold text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200">
+                    自動・外部委託
+                  </span>
+                </div>
+                <ul className="space-y-1.5 text-xs text-slate-700">
+                  {automatedTasks.map((task, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <ArrowRight size={13} className="text-slate-400 shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{task}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* 解放度サマリー */}
+            <div className="p-3 bg-emerald-50/60 rounded-lg border border-emerald-200/60 flex items-center justify-between gap-3 text-xs font-sans">
+              <div className="flex items-center gap-2">
+                <span className="font-mono text-emerald-800 font-bold uppercase text-[10px] bg-white px-2 py-0.5 rounded border border-emerald-200 shrink-0">
+                  労働からの解放度
+                </span>
+                <span className="text-emerald-950 font-medium">{liberationSummary}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 解剖01: 【損益計算書 & 価格決定権・換金出口】                     */}
@@ -710,15 +713,15 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   <span className="text-slate-900 font-black">{formatShortAmount(company.passbookDetails.monthlyGrossJpy)}</span>
                 </div>
                 <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 space-y-0.5">
-                  <span className="text-[10px] text-slate-500 font-sans block font-medium">▲ 決済手数料</span>
+                  <span className="text-[10px] text-slate-500 font-sans block font-medium">控除: 決済手数料</span>
                   <span className="text-rose-600 font-semibold">-{formatShortAmount(company.passbookDetails.paymentFeeJpy)}</span>
                 </div>
                 <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 space-y-0.5">
-                  <span className="text-[10px] text-slate-500 font-sans block font-medium">▲ ツール・インフラ費</span>
+                  <span className="text-[10px] text-slate-500 font-sans block font-medium">控除: ツール・インフラ費</span>
                   <span className="text-amber-600 font-semibold">-{formatShortAmount(company.passbookDetails.infraCostJpy)}</span>
                 </div>
                 <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 space-y-0.5">
-                  <span className="text-[10px] text-slate-500 font-sans block font-medium">▲ 外注・委託費</span>
+                  <span className="text-[10px] text-slate-500 font-sans block font-medium">控除: 外注・委託費</span>
                   <span className="text-slate-600 font-semibold">-{formatShortAmount(company.passbookDetails.outsourcingJpy)}</span>
                 </div>
                 <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 space-y-0.5 text-emerald-950 font-bold">
@@ -726,14 +729,14 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
                   <span className="text-sm font-black">{formatShortAmount(company.passbookDetails.founderTakeHomeJpy)}</span>
                 </div>
                 <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 space-y-0.5 text-slate-500">
-                  <span className="text-[10px] font-sans block font-medium">※ 税金引当プール</span>
+                  <span className="text-[10px] font-sans block font-medium">注記: 税金引当プール</span>
                   <span className="text-slate-700 font-medium">約 {formatShortAmount(company.passbookDetails.taxReserveJpy)}</span>
                 </div>
               </div>
             </div>
           )}
 
-          {/* ★新設: 【3. 価格決定権のトリック & 9. 事業の換金性（M&A出口）】 */}
+          {/* 【3. 価格決定権のトリック & 9. 事業の換金性（M&A出口）】 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* 3. 価格決定権のトリック */}
             <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3">
@@ -1492,7 +1495,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({ comp
               {/* Paywall ロックオーバーレイ */}
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/70 backdrop-blur-xs rounded-xl p-4 text-center space-y-3">
                 <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-mono text-lg font-black">
-                  🔒
+                  <Lock size={18} className="text-amber-400" />
                 </div>
                 <div className="space-y-1 max-w-md">
                   <div className="text-sm font-black text-white">
