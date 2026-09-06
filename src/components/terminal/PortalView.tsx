@@ -62,7 +62,29 @@ export const PortalView: React.FC<PortalViewProps> = ({
     .slice(0, 5);
 
   const soloCount = companies.filter(c => c.teamSize === 1).length;
-  const soloRatio = Math.round((soloCount / companies.length) * 100);
+  const soloRatio = companies.length > 0 ? Math.round((soloCount / companies.length) * 100) : 0;
+  
+  // 動的指標計算（ゼロ除算防御）
+  const avgMargin = companies.length > 0
+    ? (
+        companies.reduce((sum, c) => {
+          const latestFin = c.financials && c.financials.length > 0 ? c.financials[c.financials.length - 1] : null;
+          return sum + (latestFin?.operatingMarginPercent || 0);
+        }, 0) / companies.length
+      ).toFixed(1)
+    : '0.0';
+
+  const maxMonthlyRevenue = companies.length > 0
+    ? Math.max(
+        ...companies.map(c => {
+          const latestFin = c.financials && c.financials.length > 0 ? c.financials[c.financials.length - 1] : null;
+          const monthlyFromAnnual = latestFin ? Math.round(latestFin.revenueJpy / 12) : 0;
+          return c.passbookDetails?.monthlyGrossJpy || monthlyFromAnnual || 0;
+        })
+      )
+    : 0;
+
+  const formattedMaxRev = formatShortAmount(maxMonthlyRevenue);
 
   return (
     <div className="flex-1 bg-white overflow-y-auto font-sans text-slate-900 select-none">
@@ -94,11 +116,11 @@ export const PortalView: React.FC<PortalViewProps> = ({
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
                 <div className="text-[10px] text-slate-400 uppercase font-semibold">平均営業利益率</div>
-                <div className="text-base sm:text-lg font-bold text-emerald-700 tabular-nums">48.2%</div>
+                <div className="text-base sm:text-lg font-bold text-emerald-700 tabular-nums">{avgMargin}%</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
                 <div className="text-[10px] text-slate-400 uppercase font-semibold">単独最高月商</div>
-                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">¥3.7億円</div>
+                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{formattedMaxRev}</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
                 <div className="text-[10px] text-slate-400 uppercase font-semibold">完全1人比率</div>

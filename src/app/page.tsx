@@ -278,10 +278,10 @@ export default function Home() {
     });
   }, [searchQuery, activePreset, activeSort, screenerFilter]);
 
-  // 現在選択中の企業レコード
+  // 現在選択中の企業レコード（該当ゼロ時はnull）
   const currentCompany = useMemo(() => {
     const found = filteredCompanies.find((c) => c.id === selectedCompanyId);
-    return found || filteredCompanies[0] || TERMINAL_COMPANIES[0];
+    return found || filteredCompanies[0] || null;
   }, [selectedCompanyId, filteredCompanies]);
 
   // 条件個別解除ハンドラー

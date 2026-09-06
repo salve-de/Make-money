@@ -57,7 +57,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
   const activeIdea = useMemo(() => {
     const found = filteredIdeas.find(i => i.id === selectedIdeaId);
     if (found) return found;
-    return filteredIdeas[0] || BUSINESS_IDEAS[0];
+    return filteredIdeas[0] || null;
   }, [selectedIdeaId, filteredIdeas]);
 
   return (

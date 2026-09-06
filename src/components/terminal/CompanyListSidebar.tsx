@@ -221,6 +221,15 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                         <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-slate-100 text-slate-600 shrink-0">
                           {getTierCode(company.scaleTier)}
                         </span>
+                        <span className={`text-[8px] font-mono px-1 py-0.2 rounded shrink-0 ${
+                          company.verifiedStatus === 'AUDITED_PUBLIC'
+                            ? 'bg-emerald-50 text-emerald-800 border border-emerald-200'
+                            : company.verifiedStatus === 'VERIFIED_STRIPE'
+                            ? 'bg-slate-100 text-slate-800 border border-slate-200'
+                            : 'bg-amber-50 text-amber-800 border border-amber-200'
+                        }`}>
+                          {company.verifiedStatus === 'AUDITED_PUBLIC' ? '有報' : company.verifiedStatus === 'VERIFIED_STRIPE' ? '決済' : '推計'}
+                        </span>
                         <span className="text-xs font-bold truncate text-slate-950">
                           {company.japaneseName}
                         </span>
