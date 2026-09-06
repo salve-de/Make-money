@@ -15,7 +15,7 @@ import { MarketSignalsView } from '@/components/terminal/portal/sections/MarketS
 import { SignalDetailView } from '@/components/terminal/portal/sections/SignalDetailView';
 import { LeaderboardView } from '@/components/terminal/portal/sections/LeaderboardView';
 import { IdeasVaultView } from '@/components/terminal/IdeasVaultView';
-import { DiagnosticFinder } from '@/components/terminal/DiagnosticFinder';
+import { ExploreView } from '@/components/terminal/ExploreView';
 import { MainViewType, parseMainView } from '@/types/navigation';
 
 export default function Home() {
@@ -403,21 +403,21 @@ export default function Home() {
         />
       )}
 
-      {/* リソース適合診断専用画面（完全単一独立ワークスペース 左右2ペイン） */}
+      {/* 全件探索画面（1,000社以上を前提にした検索・比較ワークスペース） */}
       {mainView === 'FINDER' && (
-        <div className="flex-1 flex overflow-hidden">
-          <DiagnosticFinder
-            onSelectCompany={(id) => {
-              setSelectedCompanyId(id);
-              setMainView('TERMINAL');
-            }}
-          />
-        </div>
+        <ExploreView
+          companies={filteredCompanies}
+          totalCount={TERMINAL_COMPANIES.length}
+          onSelectCompany={(id) => {
+            setSelectedCompanyId(id);
+            setMainView('TERMINAL');
+          }}
+        />
       )}
 
       {/* 実践ビジネスアイデア台帳画面（左右2ペイン） */}
       {mainView === 'IDEAS_VAULT' && (
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex min-h-0 flex-1 overflow-hidden">
           <IdeasVaultView
             onSelectCompany={(id) => {
               setSelectedCompanyId(id);
@@ -429,7 +429,7 @@ export default function Home() {
 
       {/* 分析台帳画面 */}
       {mainView === 'TERMINAL' && (
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
         {/* 左: 銘柄スクリーニング ＆ 候補リスト (幅336px〜384px) */}
         <CompanyListSidebar
           companies={filteredCompanies}

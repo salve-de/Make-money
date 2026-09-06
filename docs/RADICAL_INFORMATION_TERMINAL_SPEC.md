@@ -126,6 +126,10 @@ The user's saved opportunities, saved searches, comparisons, notes, alerts, and 
 - simple filters can update instantly; multi-axis filters use Apply
 - table sorting lives in column headers; global actions live in the table toolbar
 - advanced detail is progressively disclosed, but the path to it is obvious
+- primary surfaces do not spend space on instructional paragraphs; data labels, familiar icons, column alignment, and state changes carry the meaning
+- desktop, compact desktop, and mobile are separate compositions: do not merely shrink the desktop canvas
+- at compact widths, lower-priority columns collapse before the main action becomes unreachable
+- on mobile, a record becomes a labeled vertical row and the primary action stays in the first viewport
 
 ## 6. Data contract for evidence
 

@@ -84,7 +84,7 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
   };
 
   return (
-    <div className={`${isCollapsed ? 'w-10' : 'w-84 lg:w-92'} bg-white border-r border-slate-200 flex flex-col shrink-0 select-none overflow-hidden font-sans transition-[width] duration-200`}>
+    <div className={`${isCollapsed ? 'h-full w-10' : 'h-[42vh] w-full border-b lg:h-auto lg:w-84 lg:border-b-0 lg:border-r lg:w-92'} bg-white border-slate-200 flex flex-col shrink-0 select-none overflow-hidden font-sans transition-[width] duration-200`}>
       {isCollapsed ? (
         <div className="flex h-full flex-col items-center bg-slate-50 py-3 border-r border-slate-200">
           <button

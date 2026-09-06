@@ -66,7 +66,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【左ペイン】カテゴリ・検索 ＆ 機会一覧台帳 (幅340px〜380px) */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="w-84 lg:w-96 border-r border-slate-200 bg-slate-50/50 flex flex-col shrink-0 overflow-hidden">
+      <div className="h-[40vh] w-full border-b border-slate-200 bg-slate-50/50 flex flex-col shrink-0 overflow-hidden lg:h-auto lg:w-84 lg:border-b-0 lg:border-r lg:w-96">
         
         {/* 上部固定：ヘッダー ＆ 検索 */}
         <div className="p-3 bg-slate-50 border-b border-slate-200 space-y-2.5">
@@ -168,7 +168,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【右ペイン】選択した機会の完全実務実行Playbookドシエ (flex-1) */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="flex-1 h-full overflow-y-auto bg-white p-6 sm:p-8 space-y-6">
+      <div className="min-w-0 flex-1 h-full overflow-y-auto bg-white p-5 sm:p-8 space-y-6">
         {activeIdea ? (
           <div className="max-w-4xl mx-auto space-y-6">
             
