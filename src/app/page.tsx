@@ -372,13 +372,10 @@ export default function Home() {
           setSelectedCompanyId(filteredCompanies[currentIndex - 1].id);
         }
       } else if (e.key === '1') {
-        setMainView('PORTAL');
-      } else if (e.key === '2') {
         setMainView('TERMINAL');
-      } else if (e.key === '3') {
-        setMainView('FINDER');
-      } else if (e.key === '4') {
-        setMainView('IDEAS_VAULT');
+        setSelectedCompanyDetailId(null);
+      } else if (e.key === '2') {
+        setMainView('PORTAL');
       } else if (e.key === 'Escape') {
         setSelectedCompanyDetailId(null);
       }

@@ -53,55 +53,31 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
         {/* 垂直セパレーター */}
         <div className="h-4 w-px bg-white/[0.08] hidden md:block" />
 
-        {/* メインビュー切替ナビゲーション（高密度セグメント ＆ ショートカット表示） */}
-        <nav className="hidden sm:flex items-center gap-1 text-xs font-sans">
-          <button
-            onClick={() => onChangeMainView('PORTAL')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-              isPortalActive
-                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
-            }`}
-          >
-            <LayoutDashboard size={13} className={isPortalActive ? 'text-white' : 'text-zinc-400'} />
-            <span>市場インテリジェンス</span>
-            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">1</span>
-          </button>
+        {/* メインナビゲーション（世界標準: Explore ＆ Signals） */}
+        <nav className="hidden sm:flex items-center gap-1.5 text-xs font-sans">
           <button
             onClick={() => onChangeMainView('TERMINAL')}
             className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
               mainView === 'TERMINAL'
-                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
+                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.14] shadow-xs'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
             }`}
           >
-            <Database size={13} className={mainView === 'TERMINAL' ? 'text-white' : 'text-zinc-400'} />
-            <span>企業財務データベース</span>
-            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">2</span>
+            <Database size={13} className={mainView === 'TERMINAL' ? 'text-emerald-400' : 'text-zinc-400'} />
+            <span>全頭台帳</span>
+            <span className="text-[10px] font-mono text-zinc-400">Explore</span>
           </button>
           <button
-            onClick={() => onChangeMainView('FINDER')}
+            onClick={() => onChangeMainView('PORTAL')}
             className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-              mainView === 'FINDER'
-                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
+              isPortalActive
+                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.14] shadow-xs'
                 : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
             }`}
           >
-            <Sparkles size={13} className={mainView === 'FINDER' ? 'text-white' : 'text-zinc-400'} />
-            <span>リソース適合診断</span>
-            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">3</span>
-          </button>
-          <button
-            onClick={() => onChangeMainView('IDEAS_VAULT')}
-            className={`px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
-              mainView === 'IDEAS_VAULT'
-                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.12]'
-                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
-            }`}
-          >
-            <Command size={13} className={mainView === 'IDEAS_VAULT' ? 'text-white' : 'text-zinc-400'} />
-            <span>実践機会台帳</span>
-            <span className="text-[9px] font-mono opacity-40 px-1 py-0.2 rounded bg-white/[0.06]">4</span>
+            <LayoutDashboard size={13} className={isPortalActive ? 'text-emerald-400' : 'text-zinc-400'} />
+            <span>市場シグナル</span>
+            <span className="text-[10px] font-mono text-zinc-400">Signals</span>
           </button>
         </nav>
       </div>
@@ -114,7 +90,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="企業名、モデル、手法で瞬時検索..."
+            placeholder="銘柄・創業者・手法を瞬時検索..."
             className="w-full h-7.5 pl-8 pr-12 bg-[#161B22] hover:bg-[#1C2128] focus:bg-[#1C2128] border border-white/[0.08] focus:border-zinc-500 rounded text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none transition-all font-sans"
           />
           <div className="absolute right-1.5 top-1.5 hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-white/[0.06] text-[9px] font-mono text-zinc-400 border border-white/[0.04]">
@@ -123,19 +99,19 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
           </div>
         </div>
 
-        {/* 機関ステータス表示 */}
+        {/* 実査社数バッジ */}
         <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono text-zinc-400 shrink-0 bg-white/[0.03] px-2.5 py-1 rounded border border-white/[0.08]">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
           <span className="font-bold text-zinc-200 tabular-nums">{totalCount}</span>
           <span>社 実査済</span>
         </div>
 
-        {/* PROアンロックボタン */}
+        {/* PROアンロックボタン（金融端末インスティテューショナル仕様） */}
         {onOpenProModal && (
           <button
             type="button"
             onClick={onOpenProModal}
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 text-xs font-mono font-bold bg-amber-400 hover:bg-amber-300 text-black rounded transition-colors shrink-0 cursor-pointer shadow-xs"
+            className="hidden sm:flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-emerald-500 hover:bg-emerald-400 text-zinc-950 rounded transition-colors shrink-0 cursor-pointer shadow-xs border border-emerald-400/80"
           >
             <span>PRO</span>
           </button>
@@ -169,7 +145,7 @@ function UserNavButton({ onOpenProModal }: { onOpenProModal?: () => void }) {
       <>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="px-3 py-1 text-xs font-semibold bg-zinc-100 hover:bg-white text-zinc-950 rounded transition-colors shrink-0 cursor-pointer shadow-xs"
+          className="px-3 py-1 text-xs font-semibold bg-white/[0.08] hover:bg-white/[0.14] text-zinc-200 border border-white/[0.12] rounded transition-colors shrink-0 cursor-pointer shadow-xs"
         >
           ログイン
         </button>

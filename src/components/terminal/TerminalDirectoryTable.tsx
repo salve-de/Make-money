@@ -99,12 +99,15 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
     }
   };
 
-  // 金額フォーマット
+  // 金額フォーマット（マイナス対応）
   const formatAmount = (jpy: number) => {
-    if (jpy >= 1_000_000_000_000) return `¥${(jpy / 1_000_000_000_000).toFixed(2)}兆`;
-    if (jpy >= 100_000_000) return `¥${Math.round(jpy / 100_000_000)}億`;
-    if (jpy >= 10_000) return `¥${Math.round(jpy / 10000)}万`;
-    return `¥${jpy}`;
+    const isNegative = jpy < 0;
+    const abs = Math.abs(jpy);
+    const prefix = isNegative ? '▲¥' : '¥';
+    if (abs >= 1_000_000_000_000) return `${prefix}${(abs / 1_000_000_000_000).toFixed(2)}兆`;
+    if (abs >= 100_000_000) return `${prefix}${Math.round(abs / 100_000_000)}億`;
+    if (abs >= 10_000) return `${prefix}${Math.round(abs / 10000)}万`;
+    return `${prefix}${abs}`;
   };
 
   return (
@@ -245,15 +248,33 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
               const latestFin = company.financials[company.financials.length - 1];
               const rev = latestFin?.revenueJpy || 0;
               const monthlyRev = Math.round(rev / 12);
+              const opProfit = latestFin?.operatingProfitJpy || 0;
+              const netIncome = latestFin?.netIncomeJpy || opProfit;
               const margin = latestFin?.operatingMarginPercent || 0;
-              const isBookmarked = bookmarkedIds.includes(company.id);
+              const isMega = company.scaleTier === 'MEGA_CORP' || company.teamSize > 50;
 
-              const easyProfit = company.entryStrategy?.estimatedEasyProfit ||
-                company.derivedBusinessIdeas?.[0]?.estimatedMonthlyProfit ||
-                '月利50万〜150万円';
+              // 実効手残り純利（大企業は当期純利益・年額/月額、スモールは手残り月利・年利）
+              let profitBadgeText = '';
+              if (isMega) {
+                profitBadgeText = `純利 ${formatAmount(netIncome)}/年`;
+              } else if (company.teamSize === 1 && netIncome >= 100_000_000) {
+                profitBadgeText = `手残り ${formatAmount(netIncome)}/年`;
+              } else if (company.entryStrategy?.estimatedEasyProfit) {
+                profitBadgeText = company.entryStrategy.estimatedEasyProfit;
+              } else if (company.derivedBusinessIdeas?.[0]?.estimatedMonthlyProfit) {
+                profitBadgeText = company.derivedBusinessIdeas[0].estimatedMonthlyProfit.split('（')[0];
+              } else if (netIncome > 0) {
+                const monthlyProfit = Math.round(netIncome / 12);
+                profitBadgeText = `月純利 ${formatAmount(monthlyProfit)}`;
+              } else {
+                profitBadgeText = `粗利 ${formatAmount(latestFin?.grossProfitJpy || 0)}`;
+              }
 
+              // 突いた業界の盲点・バグ（固有の着眼点を優先抽出）
               const glitch = company.successStory?.marketGlitch ||
-                company.entryStrategy?.whyIncumbentCantWin ||
+                company.businessEssence?.valueProposition ||
+                company.coreMoatDescription ||
+                company.actionHeadline ||
                 '既存プレイヤーの過剰価格と鈍重さを突いた即応モデル。';
 
               return (
@@ -263,20 +284,20 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                   className="hover:bg-white/[0.04] transition-colors cursor-pointer group"
                 >
                   {/* # ランク */}
-                  <td className="py-3 px-3 text-center text-[11px] text-zinc-500">
+                  <td className="py-3 px-3 text-center text-[11px] text-zinc-500 whitespace-nowrap">
                     {index + 1}
                   </td>
 
                   {/* 企業名 / 創業者 / モデル */}
-                  <td className="py-3 px-3">
+                  <td className="py-3 px-3 min-w-[200px]">
                     <div className="flex items-center gap-2.5">
                       <CompanyLogo id={company.id} size="sm" />
                       <div className="min-w-0">
                         <div className="flex items-center gap-1.5 flex-wrap">
-                          <span className="font-bold text-xs text-white group-hover:text-emerald-400 transition-colors font-sans">
+                          <span className="font-bold text-xs text-white group-hover:text-emerald-400 transition-colors font-sans truncate">
                             {company.japaneseName}
                           </span>
-                          <span className={`text-[8px] font-mono px-1 py-0.2 rounded ${
+                          <span className={`text-[8px] font-mono px-1 py-0.2 rounded shrink-0 ${
                             company.verifiedStatus === 'AUDITED_PUBLIC'
                               ? 'bg-emerald-950/70 text-emerald-400 border border-emerald-800/60'
                               : company.verifiedStatus === 'VERIFIED_STRIPE'
@@ -294,7 +315,7 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                   </td>
 
                   {/* 直近月商 (年商) */}
-                  <td className="py-3 px-3 text-right">
+                  <td className="py-3 px-3 text-right whitespace-nowrap">
                     <div className="text-xs font-bold text-white tabular-nums">
                       {monthlyRev > 0 ? formatAmount(monthlyRev) : '非公開'}
                     </div>
@@ -303,64 +324,68 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
                     </div>
                   </td>
 
-                  {/* 実効手残り純利 (月利) */}
-                  <td className="py-3 px-3 text-right">
-                    <span className="text-[11px] font-bold text-emerald-400 tabular-nums px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60 inline-block">
-                      {easyProfit}
+                  {/* 実効手残り純利 */}
+                  <td className="py-3 px-3 text-right whitespace-nowrap">
+                    <span className={`text-[11px] font-bold tabular-nums px-2 py-0.5 rounded inline-block max-w-[180px] truncate ${
+                      profitBadgeText.includes('▲') || profitBadgeText.includes('-')
+                        ? 'text-rose-400 bg-rose-950/60 border border-rose-800/60'
+                        : 'text-emerald-400 bg-emerald-950/60 border border-emerald-800/60'
+                    }`} title={profitBadgeText}>
+                      {profitBadgeText}
                     </span>
                   </td>
 
                   {/* 営業利益率 */}
-                  <td className="py-3 px-3 text-right">
-                    <span className={`text-xs font-bold tabular-nums ${margin >= 80 ? 'text-emerald-400' : margin >= 50 ? 'text-emerald-300' : 'text-zinc-200'}`}>
+                  <td className="py-3 px-3 text-right whitespace-nowrap">
+                    <span className={`text-xs font-bold tabular-nums ${margin >= 80 ? 'text-emerald-400' : margin >= 50 ? 'text-emerald-300' : margin < 0 ? 'text-rose-400' : 'text-zinc-200'}`}>
                       {margin}%
                     </span>
                   </td>
 
                   {/* 初期投下資本 */}
-                  <td className="py-3 px-3 text-right text-xs text-zinc-300 tabular-nums hidden md:table-cell">
+                  <td className="py-3 px-3 text-right text-xs text-zinc-300 tabular-nums hidden md:table-cell whitespace-nowrap">
                     {company.initialInvestmentJpy === 0 ? '¥0 (不要)' : `¥${Math.round(company.initialInvestmentJpy / 10000)}万`}
                   </td>
 
                   {/* 体制 */}
-                  <td className="py-3 px-3 text-center">
+                  <td className="py-3 px-3 text-center whitespace-nowrap">
                     <span className={`text-[10px] px-1.5 py-0.5 rounded border font-mono ${
                       company.teamSize === 1
                         ? 'bg-emerald-950/80 text-emerald-400 border-emerald-800/60 font-bold'
-                        : company.scaleTier === 'MEGA_CORP'
+                        : isMega
                         ? 'bg-blue-950/80 text-blue-400 border-blue-800/60'
                         : 'bg-white/[0.04] text-zinc-300 border-white/[0.08]'
                     }`}>
-                      {company.teamSize === 1 ? '完全1人' : company.scaleTier === 'MEGA_CORP' ? '独占大企業' : `${company.teamSize}名`}
+                      {company.teamSize === 1 ? '完全1人' : isMega ? '巨大独占' : `${company.teamSize}名`}
                     </span>
                   </td>
 
                   {/* 週実働 */}
-                  <td className="py-3 px-3 text-center text-xs text-zinc-400 hidden lg:table-cell">
+                  <td className="py-3 px-3 text-center text-xs text-zinc-400 hidden lg:table-cell whitespace-nowrap">
                     {company.weeklyHours ? `週${company.weeklyHours}h` : '少人数'}
                   </td>
 
                   {/* 突いた業界の盲点・バグ */}
-                  <td className="py-3 px-3 text-xs text-zinc-400 font-sans hidden xl:table-cell max-w-xs truncate" title={glitch}>
+                  <td className="py-3 px-3 text-xs text-zinc-400 font-sans hidden xl:table-cell max-w-sm truncate" title={glitch}>
                     {glitch}
                   </td>
 
                   {/* 推移 */}
-                  <td className="py-3 px-3 text-center">
+                  <td className="py-3 px-3 text-center whitespace-nowrap">
                     <div className="w-14 h-5 mx-auto opacity-80">
-                      <SparklineChart trend="UP" width={56} height={20} color="#10B981" />
+                      <SparklineChart trend={margin >= 0 ? "UP" : "DOWN"} width={56} height={20} color={margin >= 0 ? "#10B981" : "#F43F5E"} />
                     </div>
                   </td>
 
                   {/* 詳細を開く */}
-                  <td className="py-3 px-3 text-center">
+                  <td className="py-3 px-3 text-center whitespace-nowrap">
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         onSelectCompany(company.id);
                       }}
-                      className="px-2 py-1 rounded bg-white/[0.06] group-hover:bg-emerald-500 group-hover:text-zinc-950 text-zinc-300 text-[10px] font-mono font-bold transition-all flex items-center justify-center gap-0.5 cursor-pointer mx-auto"
+                      className="px-2.5 py-1 rounded bg-white/[0.06] hover:bg-emerald-500 hover:text-zinc-950 text-zinc-300 text-[10px] font-mono font-bold transition-all flex items-center justify-center gap-0.5 cursor-pointer mx-auto border border-white/[0.08] hover:border-emerald-400"
                     >
                       <span>解剖</span>
                       <ChevronRight size={11} />

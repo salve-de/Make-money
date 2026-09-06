@@ -288,10 +288,10 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
             <button
               type="button"
               onClick={onBackToList}
-              className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white px-3 py-1.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors cursor-pointer"
+              className="flex items-center gap-1.5 text-xs font-mono text-zinc-300 hover:text-white px-3 py-1.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors cursor-pointer"
             >
               <ArrowLeft size={13} />
-              <span>← 全銘柄一覧テーブルに戻る</span>
+              <span>探索台帳に戻る [ESC]</span>
             </button>
             <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-semibold">
               EXECUTIVE AUDIT DOSSIER / 機関監査レポート
@@ -404,8 +404,14 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
         </div>
         <div className="p-3 sm:p-3.5 space-y-0.5 min-w-0">
           <div className="text-[10px] text-zinc-500 font-sans font-medium">実効手残り純利</div>
-          <div className="text-base sm:text-lg font-black text-emerald-400 tabular-nums truncate" title={estimatedEasyProfit}>
-            {estimatedEasyProfit}
+          <div className="text-base sm:text-lg font-black text-emerald-400 tabular-nums truncate" title={
+            company.scaleTier === 'MEGA_CORP' || company.teamSize > 50
+              ? `純利 ${formatShortAmount(latestFin?.netIncomeJpy || latestFin?.operatingProfitJpy || 0)}/年`
+              : estimatedEasyProfit
+          }>
+            {company.scaleTier === 'MEGA_CORP' || company.teamSize > 50
+              ? `純利 ${formatShortAmount(latestFin?.netIncomeJpy || latestFin?.operatingProfitJpy || 0)}`
+              : estimatedEasyProfit}
           </div>
         </div>
         <div className="p-3 sm:p-3.5 space-y-0.5 border-t sm:border-t-0">
@@ -429,7 +435,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
         <div className="p-3 sm:p-3.5 space-y-0.5">
           <div className="text-[10px] text-zinc-500 font-sans font-medium">組織体制</div>
           <div className="text-base sm:text-lg font-black text-zinc-100">
-            {company.teamSize === 1 ? '完全1人' : `${company.teamSize}名精鋭`}
+            {company.teamSize === 1 ? '完全1人' : company.scaleTier === 'MEGA_CORP' ? '巨大独占' : `${company.teamSize}名`}
           </div>
         </div>
       </div>
@@ -437,14 +443,14 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【タブナビゲーション】スティッキーインラインバー               */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="flex items-center justify-between border-b border-white/[0.08] pb-0 text-xs font-mono sticky top-0 bg-[#0B0E14]/95 backdrop-blur-xs z-10 pt-1">
+      <div className="flex items-center border-b border-white/[0.08] pb-0 text-xs font-mono sticky top-0 bg-[#0B0E14]/95 backdrop-blur-xs z-10 pt-1">
         <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
           {[
             { id: 'OVERVIEW', label: '概要サマリー' },
-            { id: 'FINANCIALS', label: '01 損益構造・価格戦略 & 評価倍率' },
-            { id: 'TRAFFIC', label: '02 顧客獲得チャネル & スイッチングコスト' },
-            { id: 'TRACTION', label: '03 初期トラクション & 参入障壁・競争優位性' },
-            { id: 'INFRASTRUCTURE', label: '04 運用ツールスタック & 参入リスク要因' },
+            { id: 'FINANCIALS', label: '01 損益・財務' },
+            { id: 'TRAFFIC', label: '02 顧客獲得・導線' },
+            { id: 'TRACTION', label: '03 参入障壁・堀' },
+            { id: 'INFRASTRUCTURE', label: '04 実践Playbook' },
             { id: 'ALL', label: '全編表示' },
           ].map((tab) => (
             <button
@@ -459,11 +465,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
               {tab.label}
             </button>
           ))}
-        </div>
-
-        <div className="hidden lg:flex items-center gap-2 text-zinc-500 text-[10px]">
-          <span className="w-1.5 h-1.5 bg-emerald-400"></span>
-          <span>高収益事業 構造・財務監査台帳</span>
         </div>
       </div>
 
