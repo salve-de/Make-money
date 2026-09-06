@@ -10,6 +10,7 @@ import { ScreenerModal } from '@/components/terminal/ScreenerModal';
 import { CompanyListSidebar } from '@/components/terminal/CompanyListSidebar';
 import { ExecutiveDetailSheet } from '@/components/terminal/ExecutiveDetailSheet';
 import { PlaybookInspector } from '@/components/terminal/PlaybookInspector';
+import { TerminalDirectoryTable } from '@/components/terminal/TerminalDirectoryTable';
 import { PortalView } from '@/components/terminal/PortalView';
 import { SpecialCollectionsView } from '@/components/terminal/portal/sections/SpecialCollectionsView';
 import { CollectionDetailView } from '@/components/terminal/portal/sections/CollectionDetailView';
@@ -72,6 +73,9 @@ export default function Home() {
   const [selectedCompanyId, setSelectedCompanyId] = useState<string>(
     TERMINAL_COMPANIES[0]?.id || 'keyence-6861'
   );
+
+  // 詳細レポート表示中の企業ID（nullなら全銘柄テーブル一覧を表示）
+  const [selectedCompanyDetailId, setSelectedCompanyDetailId] = useState<string | null>(null);
 
   // ユーザーの欲望別クイックプリセット
   const [activePreset, setActivePreset] = useState<DesirePreset>('ALL');
@@ -375,6 +379,8 @@ export default function Home() {
         setMainView('FINDER');
       } else if (e.key === '4') {
         setMainView('IDEAS_VAULT');
+      } else if (e.key === 'Escape') {
+        setSelectedCompanyDetailId(null);
       }
     };
 
@@ -529,86 +535,31 @@ export default function Home() {
         </div>
       )}
 
-      {/* 企業財務監査コックピット（世界標準 3ペイン：左ディレクトリ ⇄ 中央損益レントゲン ⇄ 右Playbookインスペクター） */}
+      {/* 企業財務データベース（Starter Story / PitchBook / Sacra 規格） */}
       {mainView === 'TERMINAL' && (
         <div className="flex-1 flex overflow-hidden min-h-0">
-          {/* 左ペイン: 高密度ディレクトリ ＆ 常設クイックファセット (280px〜320px) */}
-          <CompanyListSidebar
-            companies={filteredCompanies}
-            totalCount={TERMINAL_COMPANIES.length}
-            selectedCompanyId={currentCompany?.id || ''}
-            onSelectCompany={(id) => setSelectedCompanyId(id)}
-            activePreset={activePreset}
-            onSelectPreset={(p) => {
-              setActivePreset(p);
-              const first = TERMINAL_COMPANIES.find((c) => {
-                if (p === 'SOLO_MILLION') return c.teamSize <= 2;
-                if (p === 'ZERO_INVESTMENT') return c.initialInvestmentJpy <= 50000;
-                if (p === 'AI_SAAS') return c.tags.includes('AIツール') || c.tags.includes('小型SaaS');
-                if (p === 'LOCAL_DX') return c.businessModel === 'LOCAL_DX';
-                if (p === 'MEGA_MONOPOLY') return c.scaleTier === 'MEGA_CORP';
-                if (p === 'FOR_SALE') return c.isForSale;
-                return true;
-              });
-              if (first) setSelectedCompanyId(first.id);
-            }}
-            activeSort={activeSort}
-            onSelectSort={(s) => setActiveSort(s)}
-            onOpenScreener={() => setIsScreenerOpen(true)}
-            hasActiveFilters={
-              screenerFilter.workStyle !== 'ALL' ||
-              screenerFilter.ambitionScale !== 'ALL' ||
-              screenerFilter.margin !== 'ALL' ||
-              screenerFilter.capital !== 'ALL' ||
-              screenerFilter.businessModelCategory !== 'ALL' ||
-              screenerFilter.moat !== 'ALL' ||
-              screenerFilter.acquisitionChannel !== 'ALL'
-            }
-            filter={screenerFilter}
-            onRemoveFilter={handleRemoveFilter}
-            onResetAll={handleResetAll}
-            bookmarkedIds={bookmarkedIds}
-          />
-
-          {/* 中央ペイン: 財務構造・詳細分析シート (可変 flex-1) */}
-          {currentCompany ? (
-            <>
-              <ExecutiveDetailSheet
-                company={currentCompany}
-                onOpenProModal={() => setIsProModalOpen(true)}
-                isBookmarked={bookmarkedIds.includes(currentCompany.id)}
-                onToggleBookmark={handleToggleBookmark}
-              />
-              {/* 右ペイン: 生々しいズル（Playbook）インスペクター (350px〜380px) */}
-              <PlaybookInspector
-                company={currentCompany}
-                onOpenProModal={() => setIsProModalOpen(true)}
-              />
-            </>
+          {selectedCompanyDetailId ? (
+            /* 詳細監査レポート画面（Sacra / PitchBook型：広々とした可読性MAXレイアウト） */
+            <ExecutiveDetailSheet
+              company={
+                TERMINAL_COMPANIES.find((c) => c.id === selectedCompanyDetailId) ||
+                TERMINAL_COMPANIES[0]
+              }
+              onOpenProModal={() => setIsProModalOpen(true)}
+              isBookmarked={bookmarkedIds.includes(selectedCompanyDetailId)}
+              onToggleBookmark={handleToggleBookmark}
+              onBackToList={() => setSelectedCompanyDetailId(null)}
+            />
           ) : (
-            <div className="flex-1 flex flex-col items-center justify-center text-zinc-500 text-xs gap-2 font-sans">
-              <div>条件に一致するビジネスが見つかりませんでした</div>
-              <button
-                onClick={() => {
-                  setActivePreset('ALL');
-                  setScreenerFilter({
-                    keyword: '',
-                    desireCategory: 'ALL',
-                    workStyle: 'ALL',
-                    ambitionScale: 'ALL',
-                    margin: 'ALL',
-                    capital: 'ALL',
-                    businessModelCategory: 'ALL',
-                    moat: 'ALL',
-                    acquisitionChannel: 'ALL',
-                    sortBy: 'revenueDesc'
-                  });
-                }}
-                className="text-xs text-zinc-400 hover:text-zinc-200 underline underline-offset-4"
-              >
-                条件をすべて解除して一覧に戻る
-              </button>
-            </div>
+            /* 全銘柄・高密度ディレクトリーテーブル（Starter Story / PitchBook型：全画面データグリッド） */
+            <TerminalDirectoryTable
+              companies={filteredCompanies}
+              totalCount={TERMINAL_COMPANIES.length}
+              onSelectCompany={(id) => setSelectedCompanyDetailId(id)}
+              onOpenScreener={() => setIsScreenerOpen(true)}
+              bookmarkedIds={bookmarkedIds}
+              onToggleBookmark={handleToggleBookmark}
+            />
           )}
         </div>
       )}

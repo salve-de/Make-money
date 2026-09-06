@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import { CompanyRecord, MoatPower } from '../../types/terminal';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
-import { Check, ArrowRight, Lock, AlertTriangle, ShieldCheck, Sparkles, ExternalLink, Bookmark } from 'lucide-react';
+import { Check, ArrowRight, ArrowLeft, Lock, AlertTriangle, ShieldCheck, Sparkles, ExternalLink, Bookmark } from 'lucide-react';
 
 interface ExecutiveDetailSheetProps {
   company: CompanyRecord;
   onOpenProModal?: () => void;
   isBookmarked?: boolean;
   onToggleBookmark?: (companyId: string) => void;
+  onBackToList?: () => void;
 }
 
 type DetailTab = 'OVERVIEW' | 'FINANCIALS' | 'TRAFFIC' | 'TRACTION' | 'INFRASTRUCTURE' | 'ALL';
@@ -19,7 +20,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
   company,
   onOpenProModal,
   isBookmarked = false,
-  onToggleBookmark
+  onToggleBookmark,
+  onBackToList
 }) => {
   const [activeTab, setActiveTab] = useState<DetailTab>('OVERVIEW');
 
@@ -278,11 +280,28 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
     '月利50万〜150万円';
 
   return (
-    <div className="flex-1 bg-[#0B0E14] overflow-y-auto px-5 sm:px-6 py-5 space-y-6 select-none font-sans text-zinc-200 min-w-0">
+    <div className="flex-1 bg-[#0B0E14] overflow-y-auto px-5 sm:px-8 lg:px-12 py-6 select-none font-sans text-zinc-200 min-w-0">
+      <div className="max-w-5xl mx-auto space-y-6">
+        {/* 戻るボタン（一覧テーブルへの復帰） */}
+        {onBackToList && (
+          <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <button
+              type="button"
+              onClick={onBackToList}
+              className="flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white px-3 py-1.5 rounded bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] transition-colors cursor-pointer"
+            >
+              <ArrowLeft size={13} />
+              <span>← 全銘柄一覧テーブルに戻る</span>
+            </button>
+            <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider font-semibold">
+              EXECUTIVE AUDIT DOSSIER / 機関監査レポート
+            </span>
+          </div>
+        )}
       
-      {/* ───────────────────────────────────────────────────────────── */}
-      {/* 【ヘッダー】エグゼクティブ・ドシエ表題（カード枠ゼロ・Sacra/FT型） */}
-      {/* ───────────────────────────────────────────────────────────── */}
+        {/* ───────────────────────────────────────────────────────────── */}
+        {/* 【ヘッダー】エグゼクティブ・ドシエ表題（カード枠ゼロ・Sacra/FT型） */}
+        {/* ───────────────────────────────────────────────────────────── */}
       <div className="pb-6 border-b border-white/[0.08] relative">
         <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
           <div className="flex items-start gap-4 min-w-0">
@@ -1288,6 +1307,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
         </section>
       )}
 
+      </div>
     </div>
   );
 };
