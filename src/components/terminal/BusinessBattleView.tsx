@@ -35,7 +35,7 @@ const PRESET_BATTLES: PresetBattle[] = [
     theme: '代理店排除の超直販 vs 素材・製造プロセスの完全独占',
     companyAId: 'keyence-6861',
     companyBId: 'shinetsu-4063',
-    keyDisputePoint: '人件費を惜しまず直販部隊で利益率54%を叩き出すキーエンスと、半導体シリコンウェハーで世界シェア首位を守る信越化学。資本主義の頂点に君臨する2大巨頭の損益レントゲン比較。',
+    keyDisputePoint: '人件費を惜しまず直販部隊で利益率54%を叩き出すキーエンスと、半導体シリコンウェハーで世界シェア首位を守る信越化学。資本主義の頂点に君臨する2大巨頭の財務・損益構造の比較。',
   },
   {
     id: 'battle-instant-speed',
@@ -101,7 +101,7 @@ export const BusinessBattleView: React.FC<BusinessBattleViewProps> = ({
               <span>ポータル・トップに戻る</span>
             </button>
             <span className="text-slate-300">/</span>
-            <span className="text-slate-700 font-medium">2社レントゲン直接対決</span>
+            <span className="text-slate-700 font-medium">2社財務構造直接比較</span>
           </div>
 
           <div className="space-y-2">
@@ -109,11 +109,11 @@ export const BusinessBattleView: React.FC<BusinessBattleViewProps> = ({
               HEAD-TO-HEAD BATTLE
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-              2社レントゲン直接対決：どっちが儲かり、どこで差がついたか
+              2社財務・収益構造比較：利益率の格差と競争優位性の分岐点
             </h1>
             <p className="text-xs sm:text-sm text-slate-500 max-w-3xl leading-relaxed font-normal">
-              1社ずつ見るだけでは分からない「利益率の格差」「集客チャネルの勝敗」「原価の分かれ目」を横並びで直接激突。
-              黄金カードを選択するか、自由に対決相手を選んでビジネス構造を丸裸にせよ。
+              1社ずつ見るだけでは分からない「利益率の格差」「集客チャネルの相違」「コスト構造の分岐点」を横並びで直接比較。
+              主要シナリオを選択するか、自由に2社を選択してビジネスモデルの構造的相違を分析できます。
             </p>
           </div>
         </div>

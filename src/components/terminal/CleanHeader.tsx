@@ -44,7 +44,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
               </span>
             </div>
             <span className="text-[9px] font-mono text-slate-400 -mt-0.5">
-              スモールビジネス一次情報金庫
+              高収益スモールビジネス財務データベース
             </span>
           </div>
         </div>
@@ -85,7 +85,7 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
             }`}
           >
             <Sparkles size={13} className={mainView === 'FINDER' ? 'text-indigo-600' : 'text-slate-400'} />
-            <span className={mainView === 'FINDER' ? 'text-indigo-900 font-bold' : ''}>手札逆引きカンペ診断</span>
+            <span className={mainView === 'FINDER' ? 'text-indigo-900 font-bold' : ''}>リソース適合診断</span>
           </button>
           <button
             onClick={() => onChangeMainView('IDEAS_VAULT')}

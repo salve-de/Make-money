@@ -18,7 +18,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
 
   const categories: { id: IdeaCategory; label: string; count: number }[] = [
     { id: 'ALL', label: '全カテゴリ', count: BUSINESS_IDEAS.length },
-    { id: 'RICH_CLIENT', label: '高単価産業中抜き', count: BUSINESS_IDEAS.filter(i => i.category === 'RICH_CLIENT').length },
+    { id: 'RICH_CLIENT', label: '高単価産業マッチング', count: BUSINESS_IDEAS.filter(i => i.category === 'RICH_CLIENT').length },
     { id: 'AI_TREND', label: 'AI先端トレンド', count: BUSINESS_IDEAS.filter(i => i.category === 'AI_TREND').length },
     { id: 'ZERO_CAPITAL', label: '初期資本ゼロ', count: BUSINESS_IDEAS.filter(i => i.category === 'ZERO_CAPITAL').length },
     { id: 'NO_CODE', label: 'ノーコード・非開発', count: BUSINESS_IDEAS.filter(i => i.category === 'NO_CODE').length },
@@ -206,7 +206,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
             </div>
 
             <div className="space-y-4 text-xs font-sans">
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+              <div className="border-l-2 border-slate-900 pl-3.5 py-1 space-y-1">
                 <div className="text-[10px] font-mono text-slate-500 uppercase font-bold tracking-wider">事業モデル概要 (EXECUTIVE SUMMARY)</div>
                 <p className="text-slate-900 text-sm leading-relaxed font-medium">
                   {selectedIdea.shortDescription}
@@ -254,7 +254,7 @@ export const IdeasVaultView: React.FC<IdeasVaultViewProps> = ({ onSelectCompany 
                 <div className="text-[11px] font-mono text-slate-500 uppercase font-bold tracking-wider">
                   3. 最初の100万円を作る初動ステップ (EXECUTION BLUEPRINT)
                 </div>
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 text-xs leading-relaxed font-medium">
+                <div className="border-l-2 border-emerald-600 pl-3.5 py-1 text-slate-800 text-xs leading-relaxed font-normal">
                   {selectedIdea.actionableSteps}
                 </div>
               </div>

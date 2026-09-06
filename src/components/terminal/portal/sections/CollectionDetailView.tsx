@@ -91,40 +91,40 @@ export const CollectionDetailView: React.FC<CollectionDetailViewProps> = ({
           </div>
         </div>
 
-        {/* 2. 生々しい集金のカラクリ */}
+        {/* 2. 収益発生メカニズム */}
         <div className="space-y-3">
           <div className="border-b border-slate-200 pb-2">
             <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">MONEY FLOW ANATOMY</span>
             <h2 className="text-base sm:text-lg font-bold text-slate-900">
-              2. 生々しい集金のカラクリ（誰の財布をどう開けるか）
+              2. 収益発生メカニズム（顧客提供価値とキャッシュフロー構造）
             </h2>
           </div>
           <div className="p-5 rounded-xl bg-white border border-slate-200 shadow-xs grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
             <div className="space-y-1">
-              <span className="text-slate-500 text-[10px] block">① 狙われる獲物・客層:</span>
+              <span className="text-slate-500 text-[10px] block">① 対象顧客セグメント:</span>
               <p className="text-slate-800 font-sans text-xs font-normal">{data.moneyFlow.victimOrBuyer}</p>
             </div>
             <div className="space-y-1">
-              <span className="text-slate-500 text-[10px] block">② 食いつかせる撒き餌:</span>
+              <span className="text-slate-500 text-[10px] block">② 初期フック（リード獲得オファー）:</span>
               <p className="text-slate-800 font-sans text-xs font-normal">{data.moneyFlow.bait}</p>
             </div>
             <div className="space-y-1">
-              <span className="text-slate-500 text-[10px] block">③ 集金の罠（課金のツボ）:</span>
+              <span className="text-slate-500 text-[10px] block">③ 課金・収益化ポイント:</span>
               <p className="text-slate-800 font-sans text-xs font-normal">{data.moneyFlow.profitTrap}</p>
             </div>
             <div className="space-y-1 bg-emerald-50/70 p-2.5 rounded-lg border border-emerald-200">
-              <span className="text-emerald-800 font-bold text-[10px] block">④ 創業者純手取り率:</span>
+              <span className="text-emerald-800 font-bold text-[10px] block">④ 実効営業利益率:</span>
               <p className="text-emerald-700 font-bold font-sans text-sm">{data.moneyFlow.takeHomeRate}</p>
             </div>
           </div>
         </div>
 
-        {/* 3. 完コピ3ステップ行動手順書 */}
+        {/* 3. 参入ロードマップ */}
         <div className="space-y-3">
           <div className="border-b border-slate-200 pb-2">
             <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">ACTIONABLE PLAYBOOK</span>
             <h2 className="text-base sm:text-lg font-bold text-slate-900">
-              3. もし明日から参入するなら？（完コピ3ステップ行動手順書）
+              3. 実務展開ロードマップ（参入3ステップ工程表）
             </h2>
           </div>
           <div className="space-y-3">
@@ -145,12 +145,12 @@ export const CollectionDetailView: React.FC<CollectionDetailViewProps> = ({
           </div>
         </div>
 
-        {/* 4. 推奨武器・ツールスタック */}
+        {/* 4. 中核ツールスタック */}
         <div className="space-y-3">
           <div className="border-b border-slate-200 pb-2">
-            <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">TECH STACK & WEAPONS</span>
+            <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">TECH STACK</span>
             <h2 className="text-base sm:text-lg font-bold text-slate-900">
-              4. 実際に使われている武器・ツールスタック
+              4. 運用に使用されている中核ツールスタック
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

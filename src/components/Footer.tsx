@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
               <span className="text-base font-extrabold tracking-tight">金鉱録. 一次情報金庫</span>
             </div>
             <p className="text-[11px] text-slate-400 leading-relaxed">
-              煽りや誇大広告を完全排除し、個人の生々しい決算書・ツール・初期集客手順を公開する日本初のオープンインサイトデータベース。
+              誇大広告を排し、検証された財務諸表・使用ツール・初期獲得戦略を体系化した高収益事業データベース。
             </p>
             <div className="flex items-center gap-1.5 text-emerald-400 text-[11px]">
               <ShieldCheck className="w-4 h-4" />

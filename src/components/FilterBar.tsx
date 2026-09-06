@@ -118,15 +118,15 @@ export const FilterBar: React.FC<FilterBarProps> = ({
 
           {/* 自動化度 */}
           <div>
-            <label className="block text-[11px] text-slate-400 font-medium mb-1">自動化・不労度</label>
+            <label className="block text-[11px] text-slate-400 font-medium mb-1">運用自動化レベル</label>
             <select
               value={filter.automationLevel}
               onChange={(e) => onChange('automationLevel', e.target.value)}
-              aria-label="自動化・不労度"
+              aria-label="運用自動化レベル"
               className="w-full bg-slate-800/90 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-amber-400 cursor-pointer"
             >
               <option value="">すべての自動化レベル</option>
-              <option value="完全不労型">完全不労型（放置度90%）</option>
+              <option value="自律稼働型">自律稼働型（自動化率90%以上）</option>
               <option value="半自動型">半自動型（週数時間の保守）</option>
               <option value="プレイヤー実稼働型">プレイヤー実稼働型</option>
             </select>

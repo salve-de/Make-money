@@ -55,11 +55,11 @@ export const WeeklyNewsletterSection: React.FC = () => {
           </div>
 
           <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
-            週刊マネーレントゲン速報
+            週刊事業財務インサイト速報
           </h2>
 
           <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            世界中で「先週もっとも儲かったスモールビジネス」と「日本未上陸の構造的隙間」を、公的決算書・Stripe実査データに基づいて1通だけお届けします。AIの作文や情報商材ノイズを完全排除した一次情報速報です。
+            世界中で「先週もっとも高収益を達成したスモールビジネス」と「日本未上陸の構造的機会」を、公的決算書・決済実査データに基づいて1通だけお届けします。推測や煽りを排除した一次情報速報です。
           </p>
 
           <div className="flex items-center gap-4 text-[11px] font-mono text-slate-400 pt-1 flex-wrap">
@@ -109,7 +109,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
                 <span>購読登録が完了しました</span>
               </div>
               <p className="text-[11px] text-slate-300 leading-relaxed">
-                毎週月曜朝8時に最新のマネーレントゲン速報が届きます。下部に最新号のサンプルレポートを開封しました。
+                毎週月曜朝8時に最新の事業財務インサイト速報が届きます。下部に最新号のサンプルレポートを開封しました。
               </p>
             </div>
           )}
@@ -125,7 +125,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
         >
           <span className="flex items-center gap-2">
             <span className="text-emerald-400 font-bold">SAMPLE:</span>
-            <span>【直近速報サンプル】米29歳が48時間で2,000万円を叩き出したネタ系オークションの損益解剖</span>
+            <span>【直近速報サンプル】米29歳開発者が48時間で2,000万円の売上を達成した入札型サービスの収益解剖</span>
           </span>
           <span className="text-slate-500 text-[11px] flex items-center gap-1">
             {showSample ? (
@@ -170,8 +170,8 @@ export const WeeklyNewsletterSection: React.FC = () => {
                 <span className="text-emerald-400 font-black">¥280 (ドメイン代のみ)</span>
               </div>
               <div className="p-2.5 bg-slate-950 rounded border border-slate-800">
-                <span className="text-slate-500 block text-[9px]">突いた心理の急所</span>
-                <span className="text-amber-400 font-sans font-bold">起業家の序列承認欲求</span>
+                <span className="text-slate-500 block text-[9px]">捉えた中核ニーズ</span>
+                <span className="text-amber-400 font-sans font-bold">事業者の認知・比較優位性の証明</span>
               </div>
             </div>
 

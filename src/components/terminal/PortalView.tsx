@@ -78,13 +78,13 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 MARKET INTELLIGENCE
               </span>
               <span className="text-slate-300">/</span>
-              <span>実査済み事業構造・損益インデックス</span>
+              <span>実査済み事業構造・財務インデックス</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight leading-snug">
-              金持ちになる人は、何を見ているのか。
+              高収益事業の構造と、実証された資本効率。
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-lg">
-              誰が、どこで、どうやって利益を生み出しているのか。公的決算書・Stripe実績・通帳実査に基づく、スモールビジネス一次情報台帳。
+              誰が、どこで、どうやって利益を生み出しているのか。公的決算書・決済データ・一次情報に基づく、高収益スモールビジネス財務データベース。
             </p>
           </div>
 
@@ -262,14 +262,14 @@ export const PortalView: React.FC<PortalViewProps> = ({
               </span>
             </div>
             <h3 className="text-base sm:text-lg font-black text-white group-hover:text-indigo-200 transition-colors">
-              あなたの手札条件（資本・時間・武器・市場）から、明日真似すべき実在モデルを即答照合
+              保有リソース条件（資本・時間・スキル・市場）から、最適な事業モデルを即時照合
             </h3>
             <p className="text-xs text-slate-300 font-normal leading-relaxed">
-              手元資金0円や副業から勝てる実在10モデルの適合度ランキング・返信率30%超のDM文面・相見積もり封殺トークを即座に発行します。
+              初期資本や稼働時間に合わせた実在モデルの適合度スコア、初期アプローチ文面、価格決定権の設計ロジックを即座に提示します。
             </p>
             <div className="flex items-center gap-1.5 pt-0.5 flex-wrap font-mono text-[10px] text-slate-400">
-              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#元手0円</span>
-              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#週1-3h自販機</span>
+              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#初期資本極小</span>
+              <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#高稼働効率</span>
               <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#ノーコードAPI</span>
               <span className="bg-slate-800 px-2 py-0.5 rounded border border-slate-700">#利益率80%超</span>
             </div>
@@ -281,7 +281,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
               className="px-5 py-2.5 rounded-xl bg-indigo-600 group-hover:bg-indigo-500 text-white font-mono text-xs font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer"
             >
               <Sparkles size={14} className="text-indigo-200" />
-              <span>手札逆引きカンペ診断を起動</span>
+              <span>リソース適合診断を起動</span>
               <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>
@@ -908,12 +908,12 @@ export const PortalView: React.FC<PortalViewProps> = ({
         </section>
 
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 7. 【週刊マネーレントゲン速報（ニュースレター購読水門）】        */}
+        {/* 7. 【週刊事業財務インサイト速報】                              */}
         {/* ───────────────────────────────────────────────────────────── */}
         <WeeklyNewsletterSection />
 
         {/* ───────────────────────────────────────────────────────────── */}
-        {/* 8. 【全収録エンティティ解剖台帳への遷移】                       */}
+        {/* 8. 【全収録エンティティ財務台帳への遷移】                       */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="p-6 rounded-2xl bg-white border border-slate-200 shadow-2xs flex flex-col sm:flex-row sm:items-center justify-between gap-5">
           <div className="space-y-1">
@@ -924,7 +924,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
               全{companies.length}社の財務諸表・使用ツール・参入戦略台帳
             </h3>
             <p className="text-xs text-slate-500 max-w-2xl leading-relaxed">
-              作業体制（完全1人/少人数）、初期費用、粗利率、ビジネスモデルで多次元スクリーニング可能。各社の損益計算書・通帳レントゲン・使用ツールを網羅。
+              作業体制（完全1人/少人数）、初期費用、粗利率、ビジネスモデルで多次元スクリーニング可能。各社の損益計算書・キャッシュフロー実査データ・使用ツールを網羅。
             </p>
           </div>
 

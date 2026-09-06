@@ -169,10 +169,10 @@ export const SignalDetailView: React.FC<SignalDetailViewProps> = ({
           </div>
         </div>
 
-        {/* 注意事項・地雷回避 */}
+        {/* 参入リスク要因と防衛策 */}
         <div className="p-5 rounded-xl bg-amber-50/60 border border-amber-200/80 space-y-1">
           <span className="text-[10px] font-mono text-amber-800 font-bold uppercase">
-            防衛警告：初心者が陥りがちな落とし穴
+            参入リスク要因：事前に考慮すべき構造的障壁
           </span>
           <p className="text-xs text-amber-900/90 leading-relaxed font-normal">
             {signal.cautionRisk}

@@ -43,7 +43,7 @@ export const ProSubscriptionModal: React.FC<ProSubscriptionModalProps> = ({
               すべての非公開財務・プロンプト・CSV出力を完全解錠
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-slate-400">
-              月利100万円超えの個人ビジネスが実際に使っている裏技・非公開設定値・失敗ログをすべて手に入れて、あなたの起業を1年ショートカットします。
+              高収益を達成している事業者が実際に運用している非公開設定値・運用ナレッジ・撤退分析ログを体系的に取得し、事業立ち上げの試行錯誤期間を大幅に短縮します。
             </p>
 
             {/* 月払い / 年払い切替 */}
@@ -80,7 +80,7 @@ export const ProSubscriptionModal: React.FC<ProSubscriptionModalProps> = ({
               <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex gap-2.5">
                 <Check className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                 <div>
-                  <strong className="text-white block">非公開プロンプト・裏技の全開放</strong>
+                  <strong className="text-white block">非公開プロンプト・実務運用ナレッジの全開放</strong>
                   <span className="text-slate-400 text-[11px]">各事例が実際に使っているAI指示文全文や自動化レシピ。</span>
                 </div>
               </div>

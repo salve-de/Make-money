@@ -146,7 +146,7 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
           <div>
             <h3 className="text-base font-bold text-white flex items-center gap-2 mb-3">
               <DollarSign className="w-4 h-4 text-emerald-400" />
-              生々しい月間損益計算書（P&L）実録
+              月間損益計算書（P&L）詳細分析
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950 rounded-2xl p-4 border border-slate-800 text-center">
               <div className="p-2">
@@ -327,7 +327,7 @@ export const BusinessDetailModal: React.FC<BusinessDetailModalProps> = ({
                 <div className="absolute inset-0 z-10 backdrop-blur-md bg-slate-950/70 flex flex-col items-center justify-center p-6 text-center rounded-xl border border-amber-500/20">
                   <Lock className="w-8 h-8 text-amber-400 mb-2" />
                   <p className="text-sm font-bold text-white">
-                    非公開プロンプト・裏技・本当の死因データは特別会員限定です
+                    非公開プロンプト・実務運用ナレッジ・事業撤退要因分析は特別会員限定です
                   </p>
                   <p className="mt-1 text-xs text-slate-400 max-w-md">
                     PRO会員に登録すると、全事例の深層金庫インサイトと契約書ひな形・生データが即時解放されます。

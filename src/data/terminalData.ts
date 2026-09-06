@@ -39,11 +39,11 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     tags: ['初期0円', '完全1人', '開発3時間', '48時間で2000万', 'エックス集客'],
     initialInvestmentJpy: 300,
     successStory: {
-      headline: '3時間で作ったネタ投票サイトが、起業家の見栄を煽り48時間で2,000万円を強奪した手口',
-      founderProfile: '毎回同じログイン画面や課金画面を作る下請け作業に飽き飽きしていた、ドイツの29歳ソフトウェア開発者（ジョナサン・ヴィルケ氏）',
-      marketGlitch: '「既存のプロダクト投票サイトは裏での自作自演や不正投票ばかり。ならいっそ、堂々と金で順位を買わせるオークションにした方が起業家の承認欲求に火がつく」',
-      breakthroughMoment: '1.8ドルの最安ドメインを取得し、夕飯を作りながら開発。エックスで「広告もAPIキーも不要、金で1位を買え」と投稿した瞬間、起業家たちの入札合戦が勃発。',
-      actionableSteal: '「無料を謳って裏で小細工している既存業界（口コミ・ランキング）」を逆手に取り、「金で露骨に優遇されるパロディサービス」を1人のネタとして最速公開する'
+      headline: '3時間で検証した入札型ランキングサイトが、承認欲求に着目し48時間で2,000万円の売上を達成した手法',
+      founderProfile: 'ドイツ出身のソフトウェア開発者（29歳）。受託開発に消耗し、最小限のコードで収益化できる仕組みを模索。',
+      marketGlitch: '既存のプロダクト投票サイトは裏での自作自演や不正投票ばかり。堂々と入札額で順位を競わせる方が、かえって透明性が高く起業家の心理に刺さると看破。',
+      breakthroughMoment: '「一番金を払った者が1位」という極めて単純なルールを実装。Stripe決済と即時連動させ、ライバル同士の入札競争を誘発。',
+      actionableSteal: '決済フォームとランキング表示だけの極小構成。承認欲求や競合意識が強い市場を特定し、順位そのものを入札商品にする。'
     },
     personalizedRecipes: [
       {
@@ -57,25 +57,25 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
         howToProfit: '地元のパーソナルジムや美容室に直接行き、「駅前で一番目立つWeb枠を作ったので、月2万円で地域1位に固定しませんか？」と直談判。ペラサイト1枚をノーコードで作り、月額掲載料を直接回収する。'
       },
       {
-        targetAudience: '日本の特定業界・士業向けにやりたいあなた用',
-        customConcept: 'IT起業家向けをやめて「弁護士・税理士・専門家の優先相談枠」にする',
-        howToProfit: '「相談の優先回答権（一番投げ銭した人の質問から優先で回答するLINE）」を特定の専門家と組んで立ち上げ、相談者からの課金手数料を30%中抜きする。'
+        targetAudience: '日本の特定業界・士業向けに展開したい場合',
+        customConcept: 'IT起業家向けではなく「士業・専門家の優先相談枠」に特化',
+        howToProfit: '「優先相談権（即時回答枠）」を特定分野の専門家と提携して開設し、相談料から手数料30%をプラットフォーム手数料として収益化。'
       },
       {
-        targetAudience: '日々の作業を極力減らして放置したいあなた用',
-        customConcept: '自分でサイトを運営するのをやめて「真似したい人向けの型紙（素材）」を売る',
-        howToProfit: '「同じような投票サイトが誰でも10分で作れる設定済みテンプレート」を作り、真似したがっているインディー開発者に買い切り5,000円で売って完全放置する。'
+        targetAudience: '運用負荷を最小限に抑えて自律稼働させたい場合',
+        customConcept: '自社運営ではなく「参入者向けスターターテンプレート」を販売',
+        howToProfit: '「同様のランキングサイトが即日立ち上がる設定済みテンプレート」を作成し、開発者向けに買い切り5,000円で自律販売する。'
       }
     ],
     trapRecipe: {
-      headline: '地方ライバル店舗の見栄と嫉妬心を煽り、入札金で月15万円を丸儲けする罠',
-      targetPrey: '「隣の競合店にだけは負けたくない」とライバル心を燃やす、地方駅前の自営業（美容室・審美歯科・パーソナルジム）',
-      trapMechanism: '「駅前で最も選ばれている店ランキング」をノーコードで1枚作成。ライバル店3社に「現在〇〇店が1位に入札しました。月額5万円で1位を奪い返せます」と案内するだけで、意地の張り合いで勝手に入札金が積み上がる。',
+      headline: '地域店舗の認知獲得ニーズに応え、優先掲載枠で月15万円の安定収益を得るモデル',
+      targetPrey: '「近隣の競合店との差別化を図りたい」地方駅前の自営業（美容室・審美歯科・パーソナルジム）',
+      trapMechanism: '「駅前のおすすめ店舗インデックス」をノーコードで開設。掲載希望店舗に対し「優先表示枠」を有料提供し、継続的な広告枠収入を構築。',
       pureProfitBreakdown: {
         initialCapital: '0円（ノーコード無料枠）',
-        monthlyRevenue: '月5万円 × 競合3店舗 ＝ 15万円',
-        systemCost: '月0円（LINEと無料フォームのみ）',
-        netTakeHome: '月15万円の丸儲け（作業時間ゼロで完全放置）'
+        monthlyRevenue: '月5万円 × 掲載3店舗 ＝ 15万円',
+        systemCost: '月0円（LINEとフォーム連携）',
+        netTakeHome: '月15万円の純利益（最小稼働で自律運用）'
       }
     },
     derivedBusinessIdeas: [
@@ -100,10 +100,10 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ],
     entryStrategy: {
       lensType: 'SECOND_MOVER',
-      lensLabel: '【後出しジャンケン枠】既存大手が手を引いた「露骨な入札モデル」をニッチ市場で独占する',
-      whyIncumbentCantWin: 'ProductHunt等の既存大手が露骨なオークションをやると「中立性を捨てた拝金主義」と世界中から大炎上するため、ブランドの看板が邪魔をして構造上絶対に真似できない。',
+      lensLabel: '【セカンドムーバー枠】大手プラットフォームが採用困難な「成果連動オークションモデル」を特定ニッチで展開する',
+      whyIncumbentCantWin: '大手既存プラットフォームは中立性維持のブランド制約があり、直接的な入札順位モデルを導入できない構造的制約が存在する。',
       targetVictimOrNiche: '自作プロダクトを目立たせたいインディー開発者、および特定バーティカル（士業・クリニック・美容サロン）の広告主層。',
-      actionableEntryRoute: '「1番金を払った者が1位」という単純透明なルールと即時Stripe決済のみを配線し、競合同士の負けず嫌いと見栄を入札合戦へと転換する。',
+      actionableEntryRoute: '「透明性の高い最高入札順位」のルールと即時決済基盤を整備し、露出獲得ニーズを入札競争へと構造化する。',
       estimatedEasyProfit: '月利30万〜80万円（競合3〜5社からの自動引き落とし）'
     },
     financials: [
@@ -134,24 +134,24 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
       monthlyCustomersFor1MJpy: 10,
       step1: '既存の有名ランキングや比較サイトの不満（サクラ・ステマ・不正）を1つ特定する。',
       step2: '「完全入札制（1番金を払った奴が1番上に載る）」という極限まで単純な1枚ペラサイトをテンプレートで立ち上げる。',
-      step3: 'エックスで「金で順位を買うサイト作ったった」とネタとして放流し、承認欲求の強い小金持ち起業家に喧嘩を売る。',
-      copyPasteScript: 'No ads. No API keys. Just outbid your competitors to rank #1 and consider marketing done for today.'
+      step3: 'Xで「入札額で順位が決まるサイト」としてコンセプトを公開し、認知向上と話題性を創出。',
+      copyPasteScript: '「Product Huntなどの自作自演にうんざりしていませんか？一番資金を投じた者が1位になる、最もシンプルで透明なリーダーボードを作りました。現在1位は〇〇社（入札額: $500）。順位の購入はこちらから: [リンク]」'
     },
     proDossier: {
       monetizationTrick: {
-        corePsychologicalTrigger: '「ライバル企業より下に落ちたくない」という起業家の見栄と狂気の承認欲求',
-        pricingPowerSecret: '定価を決めず「オークション形式」にしたため、値引き交渉の余地が物理的にゼロ。順位を死守するために客自身が入札額を跳ね上げる。',
-        cashflowVelocity: 'Stripeによるカード即時決済。入札ボタンを押した瞬間にカードから引き落とされ、売掛金や未回収リスクが1円も存在しない。'
+        corePsychologicalTrigger: '起業家・創業者の「他者より上位に表示されたい」という自己顕示欲と競合意識。',
+        pricingPowerSecret: '定価を定めずオークション方式を採用。競合他社が上位を買うたびに、さらに高い価格での再入札を促す仕組み。',
+        cashflowVelocity: 'Stripe Checkoutと直結し、入札確定と同時に即時決済・即時入金。'
       },
       incumbentBlindspot: {
-        whyGiantsCantEnter: 'ProductHuntなどの大手が「露骨な金儲けオークション」をやると「中立性を捨てた拝金主義」と世界中から大炎上するため、絶対に真似できない。',
-        moatAgainstCopycats: 'ドイツの個人エンジニアが夕飯を作りながら作ったという「愛されるパロディ感」とXでの初動バズ。後発が真面目に真似しても「二番煎じの金儲け」と冷笑されるため、個人ネタ枠として不可侵の地位を確立。'
+        whyGiantsCantEnter: '公式の投票サイトやメディアは大義名分やブランドイメージがあるため、あからさまな入札型マネタイズを採用できない。',
+        moatAgainstCopycats: '最初に話題を作った「元祖」としての知名度と、その瞬間に起きた入札合戦のモメンタム。'
       },
       sevenDayBlueprint: {
-        day1to2OfferSetup: '【餌の仕込み】無料のNext.jsテンプレートを取得し、リーダーボード画面とStripe決済のみを配線。デザインに凝らず1枚完結にする。',
-        day3to4CashflowPipe: '【集金ライン開通】Stripe CheckoutとWebhookを連動。入金完了イベントを検知して即座にDBの順位を書き換える自動集金ループを開通。',
-        day5to6FirstCustomers: '【初期3人強奪】Xで「金で順位を買うサイト作った」と短尺動画で公開。直近でランキングに不満を漏らしていた知り合いの起業家3人にDMで直接投げ込む。',
-        day7AutomationEngine: '【不労化完成】入札順位の変動を検知してXに自動投稿するボットを配備。ユーザー同士が勝手に入札合戦を繰り広げる完全放置の集金装置が完成。'
+        day1to2OfferSetup: 'Next.jsとTailwindで1ページのリーダーボードとStripe決済フォームを構築。',
+        day3to4CashflowPipe: 'Webhooksを設定し、Stripe的決済完了イベントをトリガーにデータベースの順位を自動更新。',
+        day5to6FirstCustomers: '【初期顧客の直接開拓】Xでプロダクト紹介動画を公開し、既存ランキングに課題感を持つ起業家3名に個別DMで直接案内。',
+        day7AutomationEngine: '自律稼働モードへ移行。入札があるたびにXへ自動ポストするスクリプトを配備。'
       }
     },
     first100CustomersStrategy: {
@@ -161,7 +161,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     },
     earlyFailureLesson: {
       wastedMoneyOrTime: '過去3年間の下請け受託開発（累計500万円以上の未払いと数百時間の深夜残業）',
-      whatWentWrong: '「機能が多ければ売れる」と信じ込み、過去に作ったSaaSは3ヶ月かけて複雑な管理画面を作ったが、登録者ゼロで爆死。',
+      whatWentWrong: '「機能が多ければ売れる」と信じ込み、過去に作ったSaaSは3ヶ月かけて複雑な管理画面を作ったが、登録者ゼロで撤退。',
       pivotMoment: '「機能など1つでいい。人間は機能を買っているのではなく『感情（見栄）』を買っている」と気づき、機能を極限まで削ぎ落としてオークション1本に絞った瞬間に爆発した。'
     },
     pricingDesign: {
@@ -177,7 +177,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ticker: 'SOLO-HABIT',
     name: 'Minimal Habit Tracker',
     japaneseName: '週5時間労働習慣アプリ（23歳ドイツ人）',
-    tagline: '世界中を旅しながら週5時間労働で月900万円を着金させる23歳天才の手口',
+    tagline: '世界中を旅しながら週5時間稼働で月利900万円を達成した23歳創業者の設計',
     scaleTier: 'SOLO_MICRO',
     businessModel: 'MICRO_SAAS',
     foundedYear: 2025,
@@ -200,7 +200,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     founderName: '23歳ドイツ人開発者',
     founderAge: '23歳 ノマド起業家',
     handFilters: ['PASSIVE', 'ZERO_CAPITAL', 'SECOND_MOVER'],
-    actionHeadline: '【月利900万円・週5時間】旅する23歳が多機能を全廃して掴んだ不労課金の仕組み',
+    actionHeadline: '【月利900万円・週5時間】多機能を削ぎ落として構築した高利益サブスクモデル',
     executiveSummary: '23歳のドイツ人開発者が大学を中退し、世界中を旅しながら開発。既存の習慣アプリが多機能で重すぎることに着目し、画面中央の丸を1回押すだけの極小アプリを構築。TikTokのライフスタイル動画で集客し、月900万円の定期購読収入を完全一人・週5時間の保守で稼ぎ出す。',
     coreMoatDescription: '「多機能」を競う競合と真逆を行く「削ぎ落としの美学」。年額課金がデフォルトのため一度課金されると解約率が極めて低く、継続的なキャッシュが自動蓄積される。',
     primaryMoat: 'BRANDING',
@@ -208,10 +208,10 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     tags: ['完全1人', '週5時間労働', '月利900万', '年額サブスク', '旅する起業家'],
     initialInvestmentJpy: 15000,
     successStory: {
-      headline: '世界中を旅しながら週5時間労働で月900万円を自動着金させた23歳天才の手口',
+      headline: '世界中を旅しながら週5時間稼働で月利900万円の安定収益を築いた23歳創業者のアプローチ',
       founderProfile: '大学を中退し、リュック1つで世界を周りながらコードを書く23歳の個人開発者',
       marketGlitch: '「競合アプリは機能を増やしすぎて使いづらい。1日1回タップするだけの極小アプリこそ挫折せず、年額課金の解約を忘れる」',
-      breakthroughMoment: 'TikTokで「海外を旅しながら週5時間だけ働く日常」を晒し、アプリを自然に露出。広告費ゼロでオーガニックに100万ダウンロードを突破。',
+      breakthroughMoment: 'TikTokで「海外を旅しながら週5時間だけ働く日常」を発信し、アプリを自然に露出。広告費ゼロでオーガニックに100万ダウンロードを突破。',
       actionableSteal: '「多機能化」をやめ、1つのボタンを押すだけのミニマルアプリを作り、ライフスタイル訴求のショート動画で集客する'
     },
     personalizedRecipes: [
@@ -233,26 +233,26 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
       {
         targetAudience: '一度作ったら一切手を動かしたくないあなた用',
         customConcept: 'Notionやスプレッドシートの「極小習慣テンプレート」にして売る',
-        howToProfit: 'アプリではなくNotionのテンプレートとして1日1クリックの習慣シートを作成。Gumroadで1個1,200円で販売し、SNSで自動告知して不労所得化する。'
+        howToProfit: 'アプリではなくNotionテンプレートとして習慣記録シートを構築。Gumroad等で単価1,200円で販売し、SNSと検索流入を通じて自動収益化する。'
       }
     ],
     trapRecipe: {
-      headline: '三日坊主の罪悪感を逆手に取り、月額1,500円を自動回収するLINEサークルの罠',
-      targetPrey: '「早起きや運動を続けたいがいつも3日で挫折する」全国の自己投資ワーカー',
-      trapMechanism: 'アプリ開発ゼロ。「毎朝6時までに起きてLINEに写真を貼らないと強制退会」のデポジット制グループを作る。ルールを守れなかった人の参加費は全員で山分けされる仕組みにし、勝手に継続させる。',
+      headline: '習慣化の継続課題を相互コミットメントで解決する月額制LINEコミュニティモデル',
+      targetPrey: '「早起きや学習習慣の定着を目指す」資格取得者・自己研鑽ワーカー',
+      trapMechanism: 'アプリ開発不要。「毎朝6時までの起床報告を相互確認する」デポジット制グループを運用。規約遵守と相互モニタリングにより、高い継続率とコミュニティ維持を実現。',
       pureProfitBreakdown: {
-        initialCapital: '0円（LINEオープンチャット無料）',
+        initialCapital: '0円（LINEオープンチャット活用）',
         monthlyRevenue: '月額1,500円 × 参加者100名 ＝ 15万円',
         systemCost: '月0円（ボット自動化無料枠）',
-        netTakeHome: '月15万円の完全不労所得（週1時間の見守りのみ）'
+        netTakeHome: '月15万円の安定純利益（週1時間のモデレーションのみ）'
       }
     },
     entryStrategy: {
       lensType: 'SECOND_MOVER',
-      lensLabel: '【後出しジャンケン枠】先駆者の「英語・多機能アレルギー」を突いてLINEで回収する',
-      whyIncumbentCantWin: '先駆者のドイツ人開発者はApp Storeのアプリしか作っておらず、日本の「LINE文化」や「コミュニティで励まし合う空気」には一生対応できない。',
-      targetVictimOrNiche: '海外アプリの英語UIに挫折し、一人で黙々とボタンを押すのが寂しくてやめてしまった日本の副業・受験層。',
-      actionableEntryRoute: 'アプリをインストールさせず、LINE公式アカウントだけで動く「1日1回タップ記録ボット」をMakeで即日立ち上げる。',
+      lensLabel: '【セカンドムーバー枠】先行プロダクトの多機能・言語障壁を解消しLINE特化で展開する',
+      whyIncumbentCantWin: '海外発の先行アプリは英語UIかつ単独記録型に留まり、国内ユーザー特有のLINE文化やピアプレッシャーを活用した習慣維持には対応していない。',
+      targetVictimOrNiche: '海外アプリの言語障壁や孤独感で挫折した国内の学習者・習慣化ニーズ層。',
+      actionableEntryRoute: 'アプリインストールを不要とし、LINE公式アカウント上で完結する「1日1タップ記録ボット」をノーコードツールで迅速に検証・展開する。',
       estimatedEasyProfit: '月利20万〜60万円（LINE会員200〜600名）'
     },
     financials: [
@@ -297,21 +297,21 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
         moatAgainstCopycats: '「開発者の旅するライフスタイル動画」とアプリの世界観が一体化しているため、中国のコピー業者が同じUIを作ってもブランド愛着を奪えない。'
       },
       sevenDayBlueprint: {
-        day1to2OfferSetup: '【餌の仕込み】Flutterのオープンソース習慣コードをクローンし、不要な全画面を削除して真ん中の丸ボタン1個だけを残す。',
-        day3to4CashflowPipe: '【集金ライン開通】RevenueCatのSDKを組み込み、年額3,900円の課金ポップアップを起動直後に表示するよう配線。',
-        day5to6FirstCustomers: '【初期3人強奪】Redditのサブレディット（r/getdisciplined）に「既存アプリが重すぎて作った極小アプリ」と愚痴を添えて投稿し最初の50人を獲得。',
-        day7AutomationEngine: '【不労化完成】CapCutで手元操作動画を3本撮りため、TikTokに予約投稿。あとは旅の飛行機に乗るだけで自動入金が開始。'
+        day1to2OfferSetup: '【基盤構築】オープンソースの習慣トラッカーをベースに、中核となるワンタップ記録機能のみにUIを絞り込む。',
+        day3to4CashflowPipe: '【決済連携】RevenueCatのSDKを導入し、年額サブスクリプション課金の導線を設定。',
+        day5to6FirstCustomers: '【初期顧客の開拓】Redditのコミュニティ（r/getdisciplined）に「軽量性に特化して開発した最小限のツール」として投稿し最初の50人を獲得。',
+        day7AutomationEngine: '【自動化設定】短尺の手元操作動画をSNSへ定期投稿する配信スケジュールを設定し、自然流入ループを確立。'
       }
     },
     first100CustomersStrategy: {
       tacticalChannel: '海外掲示板Redditの自己規律コミュニティ（r/getdisciplined）',
-      exactAction: '「既存アプリが重すぎてイライラしたから、1秒で終わるボタンだけのアプリ作った。広告もないから勝手に使ってくれ」と投稿。',
-      conversionProof: '投稿から半日で1,200ダウンロード、そのうち84人が年額課金（約33万円即時売上）'
+      exactAction: '「既存アプリが重く使いづらかったため、1タップで完結するミニマルなアプリを開発した」とコミュニティへ共有。',
+      conversionProof: '投稿から半日で1,200ダウンロード、そのうち84人が年額課金（約33万円の初期売上を達成）'
     },
     earlyFailureLesson: {
-      wastedMoneyOrTime: '最初の開発期間6ヶ月と貯金120万円の消耗',
-      whatWentWrong: 'カレンダー連携、メモ機能、グラフ分析などを盛り込みすぎて「誰にも使われない複雑なゴミ」を作り大爆死した。',
-      pivotMoment: '「全部消せ！」と激怒し、画面の95%を削ぎ落として丸ボタン1個にした翌週からダウンロード数が100倍に跳ね上がった。'
+      wastedMoneyOrTime: '初期の開発期間6ヶ月と自己資金120万円の消耗',
+      whatWentWrong: 'カレンダー連携や詳細分析などの機能を盛り込みすぎた結果、利用者の認知負荷を高めてしまい、初期の離脱を招いた失敗。',
+      pivotMoment: '主要機能以外の95%を削ぎ落とし、単一の記録ボタンのみに再設計したことで利用継続率とダウンロード数が劇的に改善。'
     },
     pricingDesign: {
       pricingTiers: '年額3,900円（一番人気・92%が選択） / 月額600円',
@@ -326,7 +326,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ticker: 'SOLO-CALEB',
     name: 'Social Running Tracker',
     japaneseName: '26日売却ランニングアプリ（カレブ・ディーン）',
-    tagline: '公開からたった26日で1,500万円以上で事業売却・株式30%を残した23歳の手口',
+    tagline: '公開から26日で1,500万円超のM&A事業売却を達成し株式30%を維持した23歳の戦略',
     scaleTier: 'SOLO_MICRO',
     businessModel: 'MICRO_SAAS',
     foundedYear: 2026,
@@ -350,7 +350,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     founderName: 'カレブ・ディーン',
     founderAge: '23歳 連続起業家',
     handFilters: ['SECOND_MOVER', 'ZERO_CAPITAL'],
-    actionHeadline: '【26日で1,500万円売却】初期の爆発的熱狂を演出し、事業を即座に現金化した裏ワザ',
+    actionHeadline: '【26日で1,500万円売却】初期トラクションの加速と迅速なM&Aイグジット戦略',
     executiveSummary: '23歳の開発者カレブ・ディーン氏が立ち上げたランニングアプリ。Z世代ランナーの「走ったことを友達に自慢したい」という承認欲求に特化。公開直後からエックスで熱狂的なコミュニティを形成し、わずか26日目に事業売却プラットフォームで1,500万円以上での買収提案を獲得。株式の30%を保持したまま現金を手に入れた。',
     coreMoatDescription: '「走る記録」ではなく「ストリーク（連続記録）が途切れる恐怖」と「仲間の視線」による強力な社会的スイッチングコスト。',
     primaryMoat: 'NETWORK_EFFECTS',
@@ -358,11 +358,11 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     tags: ['完全1人', '26日で1500万売却', '株式30%維持', 'M&A出口', '初期バイラル'],
     initialInvestmentJpy: 20000,
     successStory: {
-      headline: '公開からたった26日で1,500万円以上で事業売却・株式30%を残した23歳の手口',
+      headline: '公開から26日で1,500万円超のM&A事業売却を達成し株式30%を維持した23歳の戦略',
       founderProfile: '23歳でAIとノーコードを駆使してアプリを連続量産する個人開発者（カレブ・ディーン氏）',
       marketGlitch: '「大手のランニングアプリは機能が重すぎてソーシャル機能が弱い。走った成果を友達に自慢したいZ世代の承認欲求が放置されている」',
       breakthroughMoment: '公開直後からエックスとTikTokでランナー界隈に直接アプローチ。初期のエンゲージメントが爆発した瞬間を見計らい、買収プラットフォームに即座に出品して買い手を見つけた。',
-      actionableSteal: 'アプリを何年も長期運営するのではなく、「初期トラクション（初速の熱狂）」が出た瞬間に事業売却プラットフォームで高値で売り抜ける'
+      actionableSteal: 'アプリを何年も長期運営するのではなく、「初期トラクション（初速の熱狂）」が出た段階で事業売却プラットフォームを通じて好条件でバイアウトを成立させる'
     },
     personalizedRecipes: [
       {
@@ -387,23 +387,23 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
       }
     ],
     trapRecipe: {
-      headline: '初速の熱狂だけを演出し、運営がダルくなる前に事業売却市場で売り抜ける罠',
-      targetPrey: '「自分で0からアプリを作る技術はないが、すでにユーザーが動いているアプリを買収したい」IT企業の経営者や富裕層',
-      trapMechanism: 'アプリを長期運営するのを最初から諦める。初月に友達やSNSで100人集めた実績グラフのスクショを撮り、「月利20万円確定・成長率300%」の看板を掲げて事業売買市場（ラッコM&A等）に出品。一括でまとまった現金を手に入れる。',
+      headline: '初期トラクションを迅速に証明し、事業売却（M&A）によって早期に資本回収を果たすモデル',
+      targetPrey: '「ゼロからの開発工数を削減し、初期ユーザー基盤を持つアプリを買収したい」IT事業者や投資家',
+      trapMechanism: '長期運営ではなく早期売却を前提とした設計。初動で獲得した成長率とユーザー基盤をデータとして可視化し、事業売買マーケットプレイス（Acquire.com等）に出品して一括で資本回収を行う。',
       pureProfitBreakdown: {
         initialCapital: '2万円（ドメイン・ツール代）',
         monthlyRevenue: '事業売却代金: 300万〜1,500万円（一括着金）',
         systemCost: '月3,500円（データベース代のみ）',
-        netTakeHome: '【一括300万〜1,500万円の現金強奪】（保有株の配当も残る）'
+        netTakeHome: '【一括300万〜1,500万円の売却資金回収】（保有株式の配当権も保持）'
       }
     },
     entryStrategy: {
       lensType: 'SECOND_MOVER',
-      lensLabel: '【後出しジャンケン枠】「ランニング」以外のニッチな継続（筋トレ・禁酒・勉強）で即売り抜ける',
-      whyIncumbentCantWin: '先駆者はランニングしか見ておらず、日本のニッチな資格勉強（社労士・簿記）やダイエット習慣の市場には一生参入してこない。',
-      targetVictimOrNiche: '勉強記録をSNSでシェアして承認欲求を満たしたい、日本の資格試験受験生やダイエット層。',
-      actionableEntryRoute: '「毎日の学習継続日数」をTwitterに自動投稿するだけの簡易Webアプリを1週間で作成し、初動のユーザーがついた瞬間にラッコM&Aに出品する。',
-      estimatedEasyProfit: '一括売却益100万〜300万円（年3回の売却サイクルで年商千万円）'
+      lensLabel: '【後発ニッチ特化枠】特定領域の継続習慣（資格学習・専門トレーニング）に特化して売却',
+      whyIncumbentCantWin: '先駆者は汎用アプリに集中しており、特定ニッチ（資格勉強や専門トレーニング）のコミュニティ需要には迅速に対応できない。',
+      targetVictimOrNiche: '日々の学習や活動記録を共有したい、専門コミュニティ層。',
+      actionableEntryRoute: '「毎日の学習継続日数」をSNSに共有できる最小限のWebアプリを迅速に構築し、初期ユーザーの定着が確認できた段階でM&A市場に出品する。',
+      estimatedEasyProfit: '一括売却益100万〜300万円（年複数回の売却サイクルで安定収益化）'
     },
     financials: [
       { period: '初月（売却時）', revenueJpy: 3000000, cogsJpy: 300000, grossProfitJpy: 2700000, grossMarginPercent: 90.0, opexJpy: 200000, operatingProfitJpy: 2500000, operatingMarginPercent: 83.3, netIncomeJpy: 15000000, netMarginPercent: 500.0 }
@@ -416,8 +416,8 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     competitors: [
       { name: 'Strava', scaleLabel: '世界大手', annualRevenueJpy: 35000000000, operatingMarginPercent: 15.0, moatSummary: '本格アスリート向け巨大コミュニティ', pricingPower: '高' }
     ],
-    initialTractionStrategy: '地元のランニングクラブに潜入し、メンバーに直接アプリを触ってもらいフィードバックを獲得。彼らがインスタのストーリーズに投稿する画像を自動生成する機能を実装。',
-    proSecretInsight: '買収交渉時、「全部を売り払う」のではなく「70%を売却して現金1,500万円を受け取り、30%の株式を残して将来のアップサイドも握る」というストラクチャーを提案し、買い手の信頼を獲得した。',
+    initialTractionStrategy: '地元のランニングクラブにアプローチし、メンバーに直接アプリを試用してもらいフィードバックを獲得。SNSに投稿できる共有画像を自動生成する機能を実装。',
+    proSecretInsight: '買収交渉時、「100%売却」ではなく「70%売却で現金1,500万円を受け取り、30%の株式を残して将来のアップサイドも保持する」ストラクチャーを採用し、買い手の信頼と将来利益を両立。',
     passbookDetails: {
       monthlyGrossJpy: 15000000,
       paymentFeeJpy: 450000,
@@ -431,26 +431,26 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
       difficulty: '普通',
       setupDays: 7,
       monthlyCustomersFor1MJpy: 1,
-      step1: '「友達と一緒にやらないとサボる」ジャンル（運動、勉強、禁煙、貯金）を選ぶ。',
-      step2: '記録をオシャレな画像にしてSNSに1タップで投稿できるアプリを作る。',
-      step3: '初速の数字（DAU1,000人など）が出たら、運営に飽きる前にAcquire.comに出品して売却金を手に入れる。',
+      step1: '継続性が求められるテーマ（運動、学習、習慣化）を選定。',
+      step2: '記録を視覚的な画像にしてSNSに共有できる最小限のアプリを構築。',
+      step3: '初期の利用データ（DAU1,000人など）を蓄積し、Acquire.com等のプラットフォームに出品して売却資金を回収。',
       copyPasteScript: 'Sold my running app in 26 days for $100k+ while keeping 30% equity. Here is the exact playbook.'
     },
     proDossier: {
       monetizationTrick: {
-        corePsychologicalTrigger: '「買い手の欲と焦り」。買い手のIT起業家は「ゼロから開発する時間を金で買いたい」「ライバルに奪われたくない」と焦っている。',
-        pricingPowerSecret: '「全株売却ではなく70%売却で株式30%を残す」と提案。買い手は「創業者が逃げない」と安心し、値引き交渉ゼロで1,500万円の現金を即決送金した。',
-        cashflowVelocity: '買収エスクローサービス（Acquire.com）による即時着金。契約締結から3営業日で1,500万円が銀行口座に着金。'
+        corePsychologicalTrigger: '買い手側の「ゼロから開発する時間を資金で短縮したい」という需要。',
+        pricingPowerSecret: '「全株売却ではなく70%売却で株式30%を残す」提案により、創業者のコミットメントへの安心感を醸成し、定価での即決を成立させた。',
+        cashflowVelocity: 'エスクローサービス（Acquire.com）による迅速な決済処理。契約締結から3営業日で資金が着金。'
       },
       incumbentBlindspot: {
-        whyGiantsCantEnter: 'StravaやNikeなどの巨人は「走った距離と速度の測定」に特化しており、Z世代の「オシャレなストーリーズ投稿画面」という軽薄な需要を軽視していた。',
-        moatAgainstCopycats: '「初速で売却する」こと自体が戦略であるため、後発コピー業者が真似して開発を始めた頃には、すでに1,500万円を現金化して逃げ切っている。'
+        whyGiantsCantEnter: '大手フィットネス企業は総合的な計測機能に注力しており、若年層の「SNS共有に特化したシンプルなUI」という局所的需要を見落としていた。',
+        moatAgainstCopycats: '「初動のトラクション獲得から短期間で売却を完了する」スピード重視の戦略設計。'
       },
       sevenDayBlueprint: {
-        day1to2OfferSetup: '【餌の仕込み】React Nativeの走行計測ボイラープレートを使い、走った後にインスタ映えする画像を自動生成する画面だけを組む。',
-        day3to4CashflowPipe: '【集金ライン開通】Acquire.com（日本ならラッコM&A）に売却希望アカウントを開設し、Googleアナリティクスを接続。',
-        day5to6FirstCustomers: '【初期3人強奪】地元のランニングサークルに突撃し、走った後のスクショをメンバーにインスタ投稿してもらい初速1,000DLを演出。',
-        day7AutomationEngine: '【不労化完成】売却リストに「急成長中・26日でMAU爆発」とタイトルをつけて公開。複数の買い手から即日買収打診を獲得。'
+        day1to2OfferSetup: '【基盤構築】React Nativeボイラープレートを活用し、記録後に共有用画像を自動生成する画面を構築。',
+        day3to4CashflowPipe: '【売却環境整備】Acquire.com（国内ならM&Aプラットフォーム）にアカウントを開設し、アクセス解析を接続。',
+        day5to6FirstCustomers: '【初期顧客の開拓】地元のランニングサークルに直接アプローチし、走行データの投稿協力を得ることで初速1,000DLを達成。',
+        day7AutomationEngine: '【売却オファー獲得】売却案件として公開し、複数の買い手候補から買収打診を獲得。'
       }
     },
     first100CustomersStrategy: {
@@ -511,68 +511,68 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
       founderProfile: '1974年兵庫県で創業。当初の下請け機械製造から、壊れにくいセンサー開発へ舵を切った滝崎武光氏',
       marketGlitch: '「代理店を通すと顧客の声が届かず、他社との値引き合戦に巻き込まれる。工場は機械が止まるのを何より恐れているから、即納できるなら定価でも喜んで買う」',
       breakthroughMoment: '代理店を完全排除し、自社社員が全国の工場長へ直接デモ機を持ち込み。「機械を止めない即日出荷」で相見積もりを無力化し、利益率50%超の直販帝国を確立。',
-      actionableSteal: '「中抜き業者（代理店・仲介）」を排除し、「顧客のダウンタイム（停止損失）を即座に防ぐ安心料」として値引きゼロの高単価で直販する'
+      actionableSteal: '「中間代理店」を排除した直販体制を確立し、「顧客のダウンタイム（停止損失）を未然に防ぐ高付加価値」として適正定価で直販する'
     },
     personalizedRecipes: [
       {
-        targetAudience: '高精度センサーなんて開発できないあなた用',
-        customConcept: '自社開発をやめて「他社ツールの直販・導入コンサルタント」になる',
-        howToProfit: '既存のSaaSやAIツールの代理店になり、自ら中小企業を直接訪問。「現場の業務停止を防ぐ即日サポート」をセットにして月額20万円のコンサル料を直販で取る。'
+        targetAudience: '高精度センサーの自社開発リソースを持たない事業者向け',
+        customConcept: '自社開発を行わず「特化型ツールの直販・導入支援パートナー」となる',
+        howToProfit: '既存SaaSやAIツールの導入支援パートナーとなり、現場直接訪問と即日サポートをパッケージ化。月額20万円の安定支援フィーを獲得する。'
       },
       {
-        targetAudience: '在庫や工場を持つ資金がないあなた用',
-        customConcept: '完全ファブレス（製造外注）の「ニッチ特定用途オリジナル工具・グッズ」にする',
-        howToProfit: '製造は国内の町工場に委託し、自らは「特定の職人（例: レザークラフト、特殊清掃）」向けの超高単価な専用道具だけをネットで直販し、粗利70%を確定させる。'
+        targetAudience: '設備投資や在庫リスクを負いたくない事業者向け',
+        customConcept: 'ファブレス（製造受託連携）による「特定用途向けプロ仕様ツール」の開発・直販',
+        howToProfit: '製造は国内提携工場に委託し、自らは「特定技能職（例: レザークラフト、特殊清掃）」向けの高付加価値専用ツールをD2C直販し、粗利率70%以上を確保する。'
       },
       {
-        targetAudience: '地方在住で身軽に動けるあなた用',
-        customConcept: 'キーエンスの「即日出荷」を真似した「地元工場の緊急部品調達ランナー」になる',
-        howToProfit: '地元の工場と月額顧問契約を結び、「ライン停止時の緊急部品を2時間以内に届ける特急便」を提供。部品の定価＋緊急出動費3万円で相見積もりを無力化する。'
+        targetAudience: '機動力と地域ネットワークを活かしたい事業者向け',
+        customConcept: 'キーエンスの即日供給モデルを参考にした「地域製造業向け緊急調達エクスプレス」',
+        howToProfit: '地元工場と月額保守契約を締結し、「ライン停止時の重要部品を短時間で届ける緊急手配代行」を提供。部品実費＋緊急手配フィーで競争優位を確立する。'
       },
       {
-        targetAudience: '営業トークや値引き交渉が苦手なあなた用',
-        customConcept: 'キーエンス式「値引きゼロ・デモ機先行送付」のコンテンツ販売にする',
-        howToProfit: 'サービスの一部を無料で試せるデモ（サンプル）を先に送りつけ、「もし気に入らなければ送り返して構いません」という条件で定価販売。相見積もりを封殺する。'
+        targetAudience: '価格競争や過度な値引き交渉から脱却したい事業者向け',
+        customConcept: 'キーエンス式「検証用デモ機事前貸与」による高付加価値ソリューション販売',
+        howToProfit: '検証用デモ（トライアル版）を先行提供し、「投資対効果が実証された場合のみ導入」を提示。費用対効果の可視化により相見積もりを排除する。'
       }
     ],
     trapRecipe: {
-      headline: '町工場の「人手不足と不良品流出の恐怖」を突く、iPad格安AI検査の罠',
-      targetPrey: '「検品の人手が足りず、もし不良品を出したら大手取引先を切られる」と夜も眠れない地方の町工場長',
-      trapMechanism: 'キーエンスの500万円の見積もりを見せてもらった直後に訪問。「中古iPadと無料AIで、まったく同じ不良品検知が初期10万円＋月1.5万円で動きます」と実演。比較対象が500万円なので即決で契約が取れる。',
+      headline: '製造業の「人手不足と品質管理リスク」を解消する、エッジAI画像検品システム',
+      targetPrey: '「検品の人手が不足し、歩留まり向上と品質維持を両立したい」中小製造業の工場長',
+      trapMechanism: '大手メーカーの高額設備（数百万円）の導入が困難な工場に対し、「タブレット端末と特化型AIモデルによる初期10万円＋月額1.5万円」の現場即納パッケージを実演。ROIの明確さにより高確度で成約を獲得。',
       pureProfitBreakdown: {
-        initialCapital: '3万円（中古iPad・スタンド代）',
-        monthlyRevenue: '初期10万円 ＋ 月額1.5万円 × 30社 ＝ 月45万円',
-        systemCost: '月3,000円（クラウドAI API代）',
-        netTakeHome: '【月44万7,000円の安定ストック】（キーエンスのブランド力を逆利用）'
+        initialCapital: '3万円（テスト用タブレット・治具代）',
+        monthlyRevenue: '初期導入費10万円 ＋ 月額1.5万円 × 30社 ＝ 月45万円',
+        systemCost: '月3,000円（クラウドAPI利用料）',
+        netTakeHome: '【月44万7,000円の安定ストック】（大手高価格帯とのカウンターポジショニング）'
       }
     },
     derivedBusinessIdeas: [
       {
-        title: '中古iPad×無料画像認識AIによる「零細町工場向け格安不良品検知」',
-        targetNiche: 'キーエンスの500万円の見積もりに絶望した全国の従業員5〜20名の町工場',
-        executionSummary: '中古iPadとスタンドを持参し、工場のライン横で即日デモ。「初期10万円＋月額1.5万円」で設置し、キーエンスの1/30の価格で即決契約を獲得。',
+        title: 'エッジ端末×画像認識モデルによる「中小製造業向け格安不良品検知」',
+        targetNiche: '大手メーカーの大型設備投資が困難な従業員5〜20名規模の町工場',
+        executionSummary: '汎用タブレットを持参し、工場のライン横で即日検証デモ。「初期10万円＋月額1.5万円」で設置し、大手設備の1/30の価格帯で成約を獲得。',
         estimatedMonthlyProfit: '月利60万〜150万円（町工場40社との月額保守ストック）'
       },
       {
-        title: '地元製造業専門「2時間納品・緊急パーツ調達ランナー特急便」',
-        targetNiche: '「ラインが止まると1時間で数百万円の損害が出る」地元の工業団地・加工工場',
-        executionSummary: '月額3万円の基本顧問料で契約し、緊急部品の手配・即日持ち込みを代行。定価販売＋特急出動費で競合相見積もりをゼロにする。',
+        title: '地元製造業専門「短納期・緊急パーツ調達ランナーサービス」',
+        targetNiche: '「ライン停止が多大な損失につながる」工業団地・加工工場群',
+        executionSummary: '月額3万円の基本顧問料で契約し、緊急部品の手配・即日持ち込みを代行。適正価格＋緊急手配フィーで継続案件を獲得。',
         estimatedMonthlyProfit: '月利50万〜120万円（15社との月額契約＋緊急手配マージン）'
       },
       {
-        title: 'キーエンス式「即日実演デモ先行」による中小企業向けAI業務自動化直販',
-        targetNiche: 'バックオフィスの手作業（請求書処理・受発注管理）に苦しむ地域中小企業',
-        executionSummary: '事前に相手の実際の帳票を読み込ませたデモ画面を持参し、商談開始5分で実演。「気に入らなければ0円」の条件で定価50万円＋保守月5万円を受注。',
+        title: '実機デモ先行型「中小企業向け業務自動化ソリューション直販」',
+        targetNiche: 'バックオフィスの手作業（帳票入力・受発注管理）に工数を割く地域中小企業',
+        executionSummary: '相手の実際の帳票を読み込ませたデモ画面を持参し、商談冒頭で実演。「投資回収が見込める場合のみ導入」を条件に適正定価＋保守フィーを受注。',
         estimatedMonthlyProfit: '月利80万〜200万円（月2〜3件の成約＋累積保守）'
       }
     ],
     entryStrategy: {
       lensType: 'GIANT_CRUMBS',
-      lensLabel: '【巨人の食べこぼし枠】キーエンスが高すぎて買えない「町工場の零細ライン」を拾う',
-      whyIncumbentCantWin: 'キーエンスの営業マンは平均年収2,000万円超。数百万円以上の高単価案件しか相手にできず、月額数万円の零細町工場に営業に行くのは人件費割れするため絶対に手を出せない。',
-      targetVictimOrNiche: '「不良品検査を自動化したいが、キーエンスの見積もりを見たら500万円で絶望した」全国の従業員5〜20名の零細製造所。',
-      actionableEntryRoute: '中古iPadのカメラとオープンソースの画像認識AIを組み合わせ、「初期10万円＋月額1.5万円」の格安不良品検知アプリを町工場向けに直販する。',
-      estimatedEasyProfit: '月利80万〜200万円（町工場40〜100社との継続ストック契約）'
+      lensLabel: '【巨人の足元ニッチ枠】大手メーカーが対応できない「小規模製造ライン」を開拓する',
+      whyIncumbentCantWin: '大手センサーメーカーの営業体制は高単価大口案件に最適化されており、月額数万円規模の小規模工場への個別訪問は採算構造上対応が困難である。',
+      targetVictimOrNiche: '「不良品検査を自動化したいが、大手の数百万クラスの設備は導入できない」従業員5〜20名規模の製造拠点。',
+      actionableEntryRoute: '汎用端末とオープンソースモデルを組み合わせ、「初期10万円＋月額1.5万円」の低コスト画像検品ソリューションを直接提案する。',
+      estimatedEasyProfit: '月利80万〜200万円（町工場40〜100社との継続保守契約）'
     },
     financials: [
       { period: '2024通期', revenueJpy: 967288000000, cogsJpy: 164827000000, grossProfitJpy: 802461000000, grossMarginPercent: 83.0, opexJpy: 307491000000, operatingProfitJpy: 494970000000, operatingMarginPercent: 51.2, netIncomeJpy: 357653000000, netMarginPercent: 37.0 },
@@ -625,10 +625,10 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
         moatAgainstCopycats: '分単位で記録される営業外報データベースと、新製品の7割が「世界初・業界初」という顧客ニーズ先取りファブレス設計。'
       },
       sevenDayBlueprint: {
-        day1to2OfferSetup: '【個人応用・餌の仕込み】キーエンス流の「顧客のダウンタイム（停止損失）を即座に救う」提案書をA4用紙1枚で作成。',
-        day3to4CashflowPipe: '【集金ライン開通】前金50%・完了時50%の直接請求契約書を作成し、相見積もりを排除した定価販売ルールを確立。',
-        day5to6FirstCustomers: '【初期3人強奪】地元の製造所や中小企業5社に直接電話し、「明日デモ機（iPad簡易検査）を持って訪問します」と約束を取り付ける。',
-        day7AutomationEngine: '【不労化完成】検出結果をクラウドに保存し、月額1.5万円の保守監視契約（完全ストック収入）に移行させる。'
+        day1to2OfferSetup: '【提案書作成】キーエンス流の「顧客のライン停止損失を未然に防ぐ」価値訴求提案書をA4用紙1枚で作成。',
+        day3to4CashflowPipe: '【契約条件設計】着手金50%・納品時50%の直接取引契約を整備し、価格決定権を維持するルールを確立。',
+        day5to6FirstCustomers: '【初期顧客の開拓】地元の製造所や中小企業5社に直接電話連絡し、「明日デモ機（iPad簡易検査）をご案内します」と対面アプローチを取り付ける。',
+        day7AutomationEngine: '【ストック型保守への移行】検査データをクラウドに保存し、月額1.5万円の保守監視契約（継続課金）へ移行。'
       }
     },
     first100CustomersStrategy: {
@@ -708,7 +708,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ticker: '6920.T',
     name: 'Lasertec Corporation',
     japaneseName: 'レーザーテック株式会社',
-    tagline: '最先端半導体向けEUVフォトマスク検査装置で世界シェア100%を完全独占',
+    tagline: '最先端半導体向けEUVフォトマスク検査装置で世界シェア首位を独占',
     scaleTier: 'MEGA_CORP',
     businessModel: 'SEMICON_EQUIP',
     foundedYear: 1960,
@@ -719,12 +719,12 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     estimatedValuationJpy: 2200000000000,
     evMultiple: 10.3,
     isForSale: false,
-    actionHeadline: '【世界シェア100%】代替機が世界に一台も存在しないため、1台数十億円の定価販売を貫徹',
+    actionHeadline: '【独占的ポジション】代替機が存在しない技術的優位性により、1台数十億円の定価販売を貫徹',
     executiveSummary: '最先端半導体の製造工程に不可欠な極端紫外線（EUV）フォトマスク内部の微小欠陥を検査するアクティニック検査装置（ACTIS）を世界で唯一商用化した開発特化型メーカー。',
     coreMoatDescription: 'EUV光線と同じ波長（13.5nm）を用いて原版の傷を透視する光学すり合わせ技術。ASMLやKLAなどの世界大手すら実用化できず、TSMCやインテルの歩留まり判定が同社機を前提に設計されている。',
     primaryMoat: 'CORNERED_RESOURCE',
     moatScore: 97,
-    tags: ['巨大独占', '世界シェア100%', 'ニッチトップ', '高粗利', '装置開発'],
+    tags: ['巨大独占', '世界シェア首位', 'ニッチトップ', '高粗利', '装置開発'],
     initialInvestmentJpy: 15000000,
     financials: [
       { period: '2023通期', revenueJpy: 152834000000, cogsJpy: 74888000000, grossProfitJpy: 77946000000, grossMarginPercent: 51.0, opexJpy: 15730000000, operatingProfitJpy: 62216000000, operatingMarginPercent: 40.7, netIncomeJpy: 46166000000, netMarginPercent: 30.2 },
@@ -1258,7 +1258,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ticker: 'SOLO-EASLO',
     name: 'Easlo Notion Templates',
     japaneseName: '多機能手帳様式（イースロ）',
-    tagline: '完全1人運営で年商1.1億円。仕入れゼロ・在庫ゼロ・純利益率95%の不労所得構造',
+    tagline: '完全1人運営で年商1.1億円。仕入れゼロ・在庫ゼロ・純利益率95%の高粗利ストック構造',
     scaleTier: 'SOLO_MICRO',
     businessModel: 'DIGITAL_ASSET',
     foundedYear: 2021,
@@ -1272,10 +1272,10 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     askingPriceJpy: 350000000,
     actionHeadline: '【完全1人・年商1.1億円】原価ゼロの電子様式（Notionテンプレート）を決済自動化で量産',
     executiveSummary: '大学生が1人で立ち上げたNotionテンプレート販売事業。プロジェクト管理、家計簿、読書記録などの完成テンプレートを20ドル〜99ドルで販売。決済完了と同時にダウンロードURLが自動送付され、運用工数ゼロ。',
-    coreMoatDescription: '初期に作成したテンプレートが検索エンジン（SEO）とTwitter/YouTubeで自動集客し続け、原価ゼロで限界利益100%の現金を生み出し続けるストック型資産。',
+    coreMoatDescription: '初期に作成したテンプレートが検索エンジン（SEO）とSNSで継続的に集客し、追加原価を極小に抑えて高い限界利益率を維持するストック型デジタル資産。',
     primaryMoat: 'BRANDING',
     moatScore: 85,
-    tags: ['完全1人', '年商1.1億', '純利95%', '初期0円', '不労所得', 'デジタル資産'],
+    tags: ['完全1人', '年商1.1億', '純利95%', '初期0円', '高利益率', 'デジタル資産'],
     initialInvestmentJpy: 0,
     financials: [
       { period: '2023通期', revenueJpy: 85000000, cogsJpy: 2550000, grossProfitJpy: 82450000, grossMarginPercent: 97.0, opexJpy: 3400000, operatingProfitJpy: 79050000, operatingMarginPercent: 93.0, netIncomeJpy: 79050000, netMarginPercent: 93.0 },
@@ -1522,7 +1522,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     evMultiple: 2.0,
     isForSale: true,
     askingPriceJpy: 55000000,
-    actionHeadline: '【月商450万円・純利240万円】自ら清掃作業はせず、LINE公式アカウントで集客して地元の職人へ丸投げ',
+    actionHeadline: '【月商450万円・純利240万円】LINE自動見積もりで集客し提携職人へ施工委託するディスパッチモデル',
     executiveSummary: '地方の戸建て住宅向けの外壁高圧洗浄および蜂の巣駆除サービス。自身は道具を持たず、Google広告とLINE自動見積もりで集客し、地元の高齢化している個人職人へ作業を外注（売上の45%をキックバック）。',
     coreMoatDescription: '地方都市では競合の清掃業者がホームページすら持たず電話対応のみという情報の非対称性。スマホで写真を送るだけで即座に見積もりが届くUXで独占。',
     primaryMoat: 'PROCESS_POWER',

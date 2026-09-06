@@ -63,14 +63,14 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
         detail: '誰も使わない汎用ツールではなく「不動産業者専用の見積もり計算機」「デザイナー専用の請求書テンプレ」など、対象を1業種に絞ってv0やCursorで即日構築。',
       },
       {
-        phase: 'STEP 2: 撒き餌と初期集客（所要: 1週間）',
-        action: 'X、ProductHunt、Redditで「完全無料配布」して認知を爆発させる',
-        detail: '最初は1円も取らずに無料配布し、メールアドレスやSNSフォローを獲得。見込み客リストが100人を超えた瞬間に有料アップデートをアナウンス。',
+        phase: 'STEP 2: リード獲得と初期認知（所要: 1週間）',
+        action: 'X、ProductHunt、コミュニティで「無料版（フリーミアム）」を公開し認知を拡大',
+        detail: 'まずは無料提供を通じてユーザー接点とフィードバックを獲得。初期ユーザーが100名を超えた段階で有料高機能プランへ移行を案内。',
       },
       {
-        phase: 'STEP 3: 集金の自動化（所要: 継続）',
-        action: 'Stripeを接続し、寝ている間の通知を待つだけの状態にする',
-        detail: 'サポートはFAQとAIチャットボットに丸投げし、問い合わせ対応の手間を完全にゼロ化。あとは週1回のコンテンツ追加やSNS予約投稿のみで口座残高を増やす。',
+        phase: 'STEP 3: 収益フローの自動化（所要: 継続）',
+        action: 'Stripe等の決済インフラを接続し、自律的な課金・アカウント発行体制を確立',
+        detail: '問い合わせ対応をFAQおよびAIチャットボットで自動化し、人的運用負荷を最小化。週次の改善とコンテンツ更新のみで安定稼働を維持。',
       },
     ],
     recommendedTools: [
@@ -132,7 +132,7 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
   },
   'collection-local': {
     id: 'collection-local',
-    badge: 'RESEARCH 03 / レガシー現場DX・送客中抜き',
+    badge: 'RESEARCH 03 / レガシー現場DX・送客マージン',
     title: '非IT型ローカル産業のデジタル近代化・構造的余剰利益の獲得モデル',
     subtitle: '大手資本の参入障壁が存在する地域密着・現場産業。LINE自動化と職人ネットワークによる高収益オペレーション',
     leadParagraph: '過当競争のWeb受託や汎用SaaS市場を離れ、地元のレガシー産業（無人貸倉庫、特殊清掃、外壁洗浄）において、スマート解錠やLINE自動見積もりを導入することで圧倒的な地域シェアを確保する実業モデルを解明します。',
@@ -153,7 +153,7 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
     moneyFlow: {
       victimOrBuyer: '収納スペース不足に悩む地域住民、緊急の清掃・修繕を要する住宅・店舗オーナー',
       bait: '「初期費用透明化・スマホ写真による即時自動見積もり完了」のフリクションレス体験',
-      profitTrap: '月額定額保管料（口座引き落とし）または高粗利施工案件の紹介中抜きフィー',
+      profitTrap: '月額定額保管料（口座引き落とし）または高粗利施工案件の送客仲介フィー',
       takeHomeRate: '実効手残り率 40%〜65%（外注職人費控除後も高水準なキャッシュフローが残存）',
     },
     stepByStepPlaybook: [

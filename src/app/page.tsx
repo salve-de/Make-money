@@ -94,6 +94,8 @@ export default function Home() {
       if (!isSales) return false;
     } else if (filter.workStyle === 'AUTOMATED_PASSIVE') {
       const isPassive =
+        c.tags.includes('自律収益') ||
+        c.tags.includes('高粗利ストック') ||
         c.tags.includes('不労所得') ||
         c.tags.includes('無人') ||
         c.tags.includes('月利3200万') ||
@@ -244,7 +246,7 @@ export default function Home() {
           if (c.entryStrategy?.lensType === 'GIANT_CRUMBS' || c.scaleTier === 'MEGA_CORP' || c.scaleTier === 'SCALE_UP') return true;
           return false;
         case 'PASSIVE' as any:
-          if (c.handFilters?.includes('PASSIVE') || c.tags.includes('週5時間労働') || c.tags.includes('不労所得') || c.tags.includes('月利900万')) return true;
+          if (c.handFilters?.includes('PASSIVE') || c.tags.includes('週5時間労働') || c.tags.includes('高粗利ストック') || c.tags.includes('自律収益') || c.tags.includes('不労所得') || c.tags.includes('月利900万')) return true;
           return false;
         case 'ALL':
         default:
@@ -430,7 +432,7 @@ export default function Home() {
         />
       )}
 
-      {/* 手札逆引きカンペ診断専用画面（完全単一独立ワークスペース） */}
+      {/* リソース適合診断専用画面（完全単一独立ワークスペース） */}
       {mainView === 'FINDER' && (
         <div className="flex-1 bg-[#F8FAFC] overflow-y-auto p-5 sm:p-7 lg:p-9 space-y-6 select-none font-sans text-slate-900">
           <DiagnosticFinder
@@ -492,7 +494,7 @@ export default function Home() {
           onResetAll={handleResetAll}
         />
 
-        {/* 右: 広々とした詳細レントゲンシート (可変 flex-1) */}
+        {/* 右: 財務構造・詳細分析シート (可変 flex-1) */}
         {currentCompany ? (
           <ExecutiveDetailSheet
             company={currentCompany}

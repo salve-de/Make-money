@@ -24,7 +24,7 @@ export type SkillRequired =
   | '個別営業' 
   | '発信力';
 
-export type AutomationLevel = '完全不労型' | '半自動型' | 'プレイヤー実稼働型';
+export type AutomationLevel = '自律稼働型' | '半自動型' | 'プレイヤー実稼働型';
 
 export interface ToolItem {
   name: string;

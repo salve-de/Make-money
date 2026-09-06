@@ -92,7 +92,7 @@ export const MaInquiryModal: React.FC<MaInquiryModalProps> = ({
                   <select className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-emerald-400">
                     <option>自社既存事業とのシナジー</option>
                     <option>個人での独立・引き継ぎ</option>
-                    <option>完全委託・不労投資</option>
+                    <option>自律運用・外部委託</option>
                   </select>
                 </div>
               </div>

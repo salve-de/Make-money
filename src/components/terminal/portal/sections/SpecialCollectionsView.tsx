@@ -43,11 +43,11 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
               SPECIAL DOSSIER ARCHIVE
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              大特集：あいつらの「手口」を丸裸にする3大コレクション
+              特集分析：高収益ビジネスモデルを体系解剖する3大アーキテクチャ
             </h1>
             <p className="text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed font-normal">
-              世の中で莫大な利益を上げているプレイヤーの手口を「不労集金」「AI労働力搾取」「地方実業の歪み」の3つの型に体系化。
-              各コレクションの詳細な市場の歪み、集金構造、行動手順書（Playbook）を完全公開。
+              高い資本効率と利益率を実証したビジネスモデルを「自律稼働SaaS」「AI推論高付加価値化」「地方実業DX」の3類型に体系化。
+              各事業モデルの市場環境、収益構造、実戦立ち上げロードマップを詳細解説。
             </p>
           </div>
         </div>
@@ -89,26 +89,26 @@ export const SpecialCollectionsView: React.FC<SpecialCollectionsViewProps> = ({
                     <SparklineChart trend="up" width={80} height={28} />
                     <button
                       onClick={() => onOpenDossier(col.id)}
-                      className="h-9 px-4 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+                      className="h-9 px-4 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs cursor-pointer"
                     >
-                      <span>深掘りレポートを開く</span>
+                      <span>詳細レポートを開く</span>
                       <span>→</span>
                     </button>
                   </div>
                 </div>
 
-                {/* 構造分析概要プレビュー */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1">
+                {/* 構造分析概要プレビュー（入れ子カードを廃止し、ディバイダーで整理） */}
+                <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100 text-xs py-2 border-b border-slate-100">
+                  <div className="py-2 md:py-0 md:pr-4 space-y-1">
                     <span className="text-[10px] font-mono text-slate-500 font-semibold block">ターゲット顧客群:</span>
                     <p className="text-slate-800 font-normal line-clamp-2">{col.moneyFlow.victimOrBuyer}</p>
                   </div>
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="py-2 md:py-0 md:px-4 space-y-1">
                     <span className="text-[10px] font-mono text-slate-500 font-semibold block">課金・収益化メカニズム:</span>
                     <p className="text-slate-800 font-normal line-clamp-2">{col.moneyFlow.profitTrap}</p>
                   </div>
-                  <div className="p-3.5 rounded-lg bg-emerald-50/70 border border-emerald-200 space-y-1">
-                    <span className="text-[10px] font-mono text-emerald-700 font-bold block">実効手残り率:</span>
+                  <div className="py-2 md:py-0 md:pl-4 space-y-1">
+                    <span className="text-[10px] font-mono text-emerald-800 font-bold block">実効手残り率:</span>
                     <p className="text-emerald-700 font-bold font-mono text-sm">{col.moneyFlow.takeHomeRate}</p>
                   </div>
                 </div>

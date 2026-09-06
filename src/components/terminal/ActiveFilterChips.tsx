@@ -66,7 +66,7 @@ export const ActiveFilterChips: React.FC<ActiveFilterChipsProps> = ({
       SMALL_TEAM: '2〜5人少数精鋭',
       LOCAL_REAL: '地方実業現場',
       SALES_HIGH: '営業勝負(直販)',
-      AUTOMATED_PASSIVE: '不労無人化',
+      AUTOMATED_PASSIVE: '自律稼働化',
       ENTERPRISE: '大規模組織'
     };
     chips.push({

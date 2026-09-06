@@ -55,23 +55,23 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 font-sans">
         
-        {/* 実弾①: 顧客獲得コールドメール/DM文面 */}
+        {/* 実務実行①: 顧客獲得コールドメール/DM文面 */}
         <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3 flex flex-col justify-between">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
-                実弾 ASSET 01: 顧客獲得コールドDM
+                実行 ASSET 01: 顧客開拓アプローチ
               </span>
               <span className="text-[10px] font-mono text-emerald-700 font-bold">無料公開枠</span>
             </div>
             <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-              初期顧客を広告費ゼロで強奪した「直談判アプローチ文面」
+              初期顧客を広告費ゼロで直接開拓した「アプローチ文面」
             </h3>
             <p className="text-xs text-slate-500 font-normal leading-relaxed">
-              このビジネスが最初の3人〜10人の有料顧客を獲得した際に使用された、返信率18%超のコールドメール骨子。
+              このビジネスが初期の有料顧客を獲得した際に使用された、返信率18%超のコールドメール骨子。
             </p>
 
-            <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-[11px] text-slate-700 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
+            <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200/80 font-mono text-[11px] text-slate-700 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
               {coldMessageScript}
             </div>
           </div>
@@ -94,23 +94,23 @@ export const ExecutionKitSection: React.FC<ExecutionKitSectionProps> = ({
           </button>
         </div>
 
-        {/* 実弾②: Cursor / LLM初期開発プロンプト */}
+        {/* 実務実行②: Cursor / LLM初期開発プロンプト */}
         <div className="p-5 rounded-xl bg-white border border-slate-200/90 shadow-2xs space-y-3 flex flex-col justify-between">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">
-                実弾 ASSET 02: 初期MVP開発プロンプト
+                実行 ASSET 02: 初期MVP開発指示書
               </span>
               <span className="text-[10px] font-mono text-emerald-700 font-bold">無料公開枠</span>
             </div>
             <h3 className="text-xs sm:text-sm font-bold text-slate-900">
-              CursorやClaudeに投げて一撃で骨組みを組ませる「特化プロンプト」
+              LLMに指示して最小限の骨組みを生成する「特化プロンプト」
             </h3>
             <p className="text-xs text-slate-500 font-normal leading-relaxed">
-              自力でコードを書かず、AIにこのビジネスの最小限の集金画面・決済連動を自動生成させるための指示書。
+              最小限の集金画面・決済連動を自動生成させるための要件定義指示書。
             </p>
 
-            <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200 font-mono text-[11px] text-slate-700 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
+            <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200/80 font-mono text-[11px] text-slate-700 leading-relaxed max-h-40 overflow-y-auto whitespace-pre-wrap">
               {aiPromptScript}
             </div>
           </div>

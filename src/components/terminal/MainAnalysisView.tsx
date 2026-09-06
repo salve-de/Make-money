@@ -42,7 +42,7 @@ export const MainAnalysisView: React.FC<MainAnalysisViewProps> = ({
   };
 
   const tabs: { id: AnalysisTab; label: string }[] = [
-    { id: 'FINANCIALS', label: '損益計算書 (財務レントゲン)' },
+    { id: 'FINANCIALS', label: '損益計算書 (財務諸表分析)' },
     { id: 'OVERVIEW', label: '事業概要 (ビジネスモデル)' },
     { id: 'MOAT', label: '参入障壁 (七つの堀)' },
     { id: 'STACK', label: '使用道具・設備 (技術スタック)' },
@@ -320,10 +320,10 @@ export const MainAnalysisView: React.FC<MainAnalysisViewProps> = ({
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
               </svg>
               <span className="text-xs font-mono font-semibold text-amber-400 uppercase tracking-wider">
-                機関PRO限定 非公開運用インサイト・裏技台帳
+                機関PRO限定 非公開運用インサイト・実務プレイブック
               </span>
             </div>
-            <span className="text-[10px] font-mono text-zinc-500">極秘情報</span>
+            <span className="text-[10px] font-mono text-zinc-500">限定開示</span>
           </div>
 
           <p className="text-xs text-zinc-300 mb-3 font-sans">

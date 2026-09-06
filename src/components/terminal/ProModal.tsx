@@ -66,8 +66,8 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
                 ¥9,800<span className="text-xs font-normal text-zinc-500">/月</span>
               </div>
               <ul className="space-y-1.5 text-[11px] text-zinc-400 mb-4 font-mono">
-                <li>- 全19社の生々しい損益計算書</li>
-                <li>- 非公開インサイト・裏技台帳</li>
+                <li>- 全19社の詳細損益計算書（P&L）</li>
+                <li>- 非公開事業構築インサイト台帳</li>
                 <li>- CSV生データ無制限出力</li>
                 <li>- 週次モメンタム速報</li>
               </ul>

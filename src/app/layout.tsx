@@ -15,8 +15,8 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: '金鉱録（KIN-KOROKU） | 金持ちになる人は、何を見ているのか。',
-  description: '誰が、どこで、どうやって利益を生み出しているのか。公的決算書・Stripe実績・通帳実査に基づく、スモールビジネス一次情報台帳。',
+  title: 'KIN-KOROKU | 高収益スモールビジネス財務・構造データベース',
+  description: '誰が、どこで、どうやって利益を生み出しているのか。公的決算書・決済データ・一次情報に基づく、高収益事業の財務構造データベース。',
 };
 
 import { Providers } from './providers';

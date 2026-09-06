@@ -2,8 +2,8 @@ export type IdeaCategory =
   | 'ALL'
   | 'ZERO_CAPITAL'   // 元手ゼロ・初期費用なし
   | 'NO_CODE'        // スキル不要・ノーコード
-  | 'RICH_CLIENT'    // 富裕業界への寄生・中抜き
-  | 'PASSIVE_SOLO'   // 完全1人・不労ストック
+  | 'RICH_CLIENT'    // 高単価産業マッチング・送客
+  | 'PASSIVE_SOLO'   // 完全1人・自律型ストック
   | 'AI_TREND';      // 最新AI・プラットフォーム波乗り
 
 export type IdeaDifficulty = '極めて容易' | '普通' | '要特訓';
@@ -14,9 +14,9 @@ export interface BusinessIdeaRecord {
   shortDescription: string;
   category: IdeaCategory;
   categoryLabel: string;
-  targetMarket: string;        // 誰の財布から抜くか（標的）
-  glitchOrTrap: string;        // 突く業界の歪み・盲点
-  actionableSteps: string;     // 具体的な仕掛け・現場手順
+  targetMarket: string;        // ターゲット顧客層
+  glitchOrTrap: string;        // 参入機会・業界の構造的課題
+  actionableSteps: string;     // 具体的な立ち上げ・実行手順
   requiredTools: string[];     // 使用する無料・格安ツール
   estimatedMonthlyProfit: string; // 期待月利（例: '月利50万〜150万円'）
   initialCapital: string;      // かかる元手（例: '0円'）

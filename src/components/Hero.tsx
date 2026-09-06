@@ -26,7 +26,7 @@ export const Hero: React.FC<HeroProps> = ({ keyword, onKeywordChange, onQuickSel
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight sm:leading-tight">
           稼いでいる個人の、<br className="hidden sm:inline" />
           <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 bg-clip-text text-transparent">
-            生々しい決算書と再現手順
+            財務諸表と実証された参入戦略
           </span>
           を全公開。
         </h1>
@@ -79,10 +79,10 @@ export const Hero: React.FC<HeroProps> = ({ keyword, onKeywordChange, onQuickSel
             月商3,000万円超
           </button>
           <button
-            onClick={() => onQuickSelect('automation', '完全不労型')}
+            onClick={() => onQuickSelect('automation', '自律稼働型')}
             className="px-2.5 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 hover:border-blue-400/50 hover:text-blue-300 transition"
           >
-            完全不労型（放置度90%）
+            自律稼働型（自動化率90%以上）
           </button>
           <button
             onClick={() => onQuickSelect('skill', '完全ノーコード')}

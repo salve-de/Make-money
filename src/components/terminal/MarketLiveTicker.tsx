@@ -54,7 +54,7 @@ const NEWS_TICKER_ITEMS: NewsTickerItem[] = [
     companyId: 'keyence-6861'
   },
   {
-    category: 'テンプレート不労所得',
+    category: 'デジタルアセット収益',
     headline: 'Easlo氏、完全1人でNotionテンプレート販売により年商1.1億円・利益率95%を達成',
     badge: '年商1.1億円・利益率95%',
     badgeType: 'PROFIT',

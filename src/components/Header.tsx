@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
                 一次情報金庫
               </span>
             </div>
-            <p className="text-[11px] text-slate-400 font-medium">個人・スモールビジネス生々しい収益公認台帳</p>
+            <p className="text-[11px] text-slate-400 font-medium">高収益スモールビジネス財務・構造データベース</p>
           </div>
         </div>
 

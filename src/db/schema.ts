@@ -28,7 +28,7 @@ export const businesses = pgTable("businesses", {
   annualRevenue: text("annual_revenue"),
   moatType: text("moat_type"), // 'スイッチングコスト', 'ネットワーク効果', etc.
   summary: text("summary").notNull(),
-  // 生々しい財務内訳（ウォーターフォール・原価・API費等）
+  // 詳細な財務諸表内訳（ウォーターフォール・原価・インフラ費等）
   financials: jsonb("financials").$type<{
     grossMargin?: number;
     operatingMargin?: number;
@@ -37,9 +37,9 @@ export const businesses = pgTable("businesses", {
     marketingCost?: number;
     waterfallBreakdown?: Array<{ label: string; amount: number; percentage: number }>;
   }>(),
-  // 稼働インフラ・武器庫ツール
+  // 稼働インフラ・主要ツールスタック
   tools: jsonb("tools").$type<Array<{ name: string; category: string; monthlyCost: number }>>(),
-  // 初動集客手順と泥臭い実録
+  // 初期トラクション獲得手順と実録
   initialTraction: jsonb("initial_traction").$type<{
     first100UsersMethod: string;
     keyChannel: string;

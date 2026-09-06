@@ -7,10 +7,10 @@ export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
     title: 'キーエンスの死角を突く「地方町工場向け中古iPad格安外観検査」',
     shortDescription: 'キーエンスの500万円見積もりに絶望した町工場長に、中古iPadと無料画像AIを初期20万＋月1.5万で直販する。',
     category: 'RICH_CLIENT',
-    categoryLabel: '高単価産業中抜き',
-    targetMarket: '自動車部品・金属プレスの地方町工場（目視検査員の高齢退職に怯える社長）',
-    glitchOrTrap: 'キーエンスの営業が「一式500万＋年保守100万」を提示して去るため、社長の金銭感覚が麻痺し「20万」が激安に見える。',
-    actionableSteps: 'イオシスで中古iPad（3万円）を調達。GoogleのTeachable Machineで良品・不良品の画像を50枚学習させ、iPadカメラでリアルタイム判定するWebアプリを設置。キーエンスの見積書を見せてもらい「うちなら1/25でやります」と提案。',
+    categoryLabel: '高単価産業マッチング',
+    targetMarket: '自動車部品・金属プレスの地方町工場（目視検査員の高齢退職に悩む経営層）',
+    glitchOrTrap: '大手センサーメーカーの高額見積もり（一式数百万円）に対し、小規模製造ラインに適した必要十分な低コストソリューションが存在しない市場構造。',
+    actionableSteps: '中古iPadと画像認識AI（Teachable Machine等）を組み合わせ、現場の良品・不良品判定Webアプリを構築。大手設備の1/20以下のコストパフォーマンスで直接提案。',
     requiredTools: ['中古iPad（3万円）', 'Google Teachable Machine（無料）', 'HTML/JS判定画面', '固定用アーム'],
     estimatedMonthlyProfit: '初期200万 ＋ 毎月15万円ストック',
     initialCapital: '3万円（iPad代）',
@@ -21,18 +21,18 @@ export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
     isHotTrending: true,
   },
 
-  // 2. 富裕業界寄生・不用品回収LINE中抜き
+  // 2. 高単価産業マッチング・不用品回収LINE送客モデル
   {
     id: 'idea-junk-line-broker',
-    title: 'トラック親方のIT音痴×客の電話恐怖を突く「不用品・ゴミ屋敷LINE送客中抜き」',
-    shortDescription: '粗利80%の現場職人に、LINE公式アカウントで集めた汚部屋の見積もり案件を1件5万円で横流しする。作業着ゼロ・現場ゼロ。',
+    title: '不用品回収業の集客課題と顧客の即時見積もりニーズを繋ぐ「LINE送客プラットフォーム」',
+    shortDescription: 'LINE公式アカウントで自動受付した不用品回収案件を提携事業者に送客し、1件3〜5万円の送客マージンを獲得する。現場作業・設備投資ゼロ。',
     category: 'RICH_CLIENT',
-    categoryLabel: '高単価産業中抜き',
-    targetMarket: '不用品回収・遺品整理・特殊清掃の個人親方 ＆ 片付けに悩む20〜30代女性',
-    glitchOrTrap: '親方はネット広告が打てず大手ポータルに搾取されている。客は「部屋を見られるのが恥ずかしい・怒鳴られたくない」と電話を恐れている。',
-    actionableSteps: '「写真を送るだけでAIが3秒で概算見積もり」が出るLINE公式アカウントを作成。Instagramや地元掲示板で露出。集まった案件の住所と写真を地域の親方にLINEし、「成約時に紹介料3〜5万円」を徴収。',
+    categoryLabel: '高単価産業マッチング',
+    targetMarket: '不用品回収・遺品整理の個人事業者 ＆ 手軽に見積もりを取りたい引越し・片付け検討層',
+    glitchOrTrap: '現場事業者はWebマーケティングに工数を割けず、顧客は電話での相見積もりや対面見積もりに心理的負担を感じている。',
+    actionableSteps: '「写真を送信するだけで概算見積もり」を案内するLINE公式アカウントを開設。地元SNS広告や掲示板で周知し、受領した案件情報を近隣提携事業者へ送客して成約手数料を収受。',
     requiredTools: ['LINE公式アカウント（無料）', 'Claude API / Dify（概算自動計算）', 'Canva（リッチメニュー作成）'],
-    estimatedMonthlyProfit: '月利 80万〜200万円（月20件中抜き）',
+    estimatedMonthlyProfit: '月利 80万〜200万円（月20件送客）',
     initialCapital: '0円',
     setupDays: '1〜2日',
     difficulty: '極めて容易',
@@ -41,18 +41,18 @@ export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
     isHotTrending: true,
   },
 
-  // 3. 富裕業界寄生・美容クリニック入札型看板
+  // 3. 高単価産業マッチング・美容クリニック入札型メディア
   {
     id: 'idea-clinic-auction-board',
-    title: '院長の見栄と嫉妬心を煽る「地域No.1推薦メディアの入札型オークション看板」',
-    shortDescription: '客単価100万の美容クリニックの院長同士に、Web最上位枠をオークション制で競わせる。ライバルに負けたくない見栄で入札額が勝手に吊り上がる。',
+    title: '地域密着型クリニック向け「露出順位オークション型ポータルメディア」',
+    shortDescription: '高単価自由診療クリニック向けに、ポータル最上位枠を入札型オークションで販売。露出獲得競争を通じて安定的広告収益を確立。',
     category: 'RICH_CLIENT',
-    categoryLabel: '高単価産業中抜き',
+    categoryLabel: '高単価産業マッチング',
     targetMarket: '自由診療クリニック・審美歯科・自費パーソナルジムの経営者',
-    glitchOrTrap: '客単価数十万〜数百万円で粗利90%。Google広告で1クリック3,000円を溶かす激戦。「近隣のライバルより下に見られたくない」プライドが沸騰。',
-    actionableSteps: '「地域名＋施術名（例: 横浜 美容皮膚科）」の推薦まとめメディアを作成。最上位1枠だけをオークション制にし、近隣5院に案内メール送信。「来月の1位入札受付中」と伝えるだけで院長同士が入札合戦を展開。',
+    glitchOrTrap: '高客単価かつ高い粗利率を誇る領域であり、リスティング広告の入札単価が高騰。地域内での最上位露出に対して高い投資意欲が存在する。',
+    actionableSteps: '「地域名＋施術名」の特化型比較ポータルを構築。最上位枠をオークション制とし、近隣クリニックに入札案内を提供。定期更新の入札型広告モデルを確立。',
     requiredTools: ['Astro / Next.js（無料テンプレート）', 'Stripe Checkout（決済）', 'Vercel（無料ホスティング）'],
-    estimatedMonthlyProfit: '月利 50万〜100万円（自動入金）',
+    estimatedMonthlyProfit: '月利 50万〜100万円（自動決済）',
     initialCapital: '0円',
     setupDays: '3日',
     difficulty: '普通',
@@ -61,13 +61,13 @@ export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
     isHotTrending: true,
   },
 
-  // 4. 富裕業界寄生・助成金補助金AIドラフト
+  // 4. 高単価産業マッチング・助成金補助金AIドラフト
   {
     id: 'idea-grant-ai-agent',
-    title: '士業の着手金20万を完全無力化する「補助金・助成金AI申請書ドラフト作成代行」',
-    shortDescription: '100ページの難解な公募要領をAIで瞬時にドラフト化。「着手金完全0円・採択時20%」で中小企業から独占受注する。',
+    title: '申請初期コストを最適化する「補助金・助成金AI申請書ドラフト作成支援」',
+    shortDescription: '膨大な公募要領をAIで体系的にドラフト化。「着手金ゼロ・採択時成功報酬」で中小企業の申請ハードルを大幅に削減。',
     category: 'RICH_CLIENT',
-    categoryLabel: '高単価産業中抜き',
+    categoryLabel: '高単価産業マッチング',
     targetMarket: '設備投資やIT化を検討する中小企業・飲食店・町工場',
     glitchOrTrap: '国から数百万円〜数千万円出るが書類が難解。士業は着手金20万を要求するため不採択時のドブ捨て恐怖で8割の企業が断念している。',
     actionableSteps: '公募要領PDFをClaude Projectに読み込ませる。社長に買いたい機械のパンフ写真を送らせ、加点項目を全網羅した事業計画書を20分で生成。「着手金0円、採択時のみ20%」を提示して契約。',
@@ -114,16 +114,16 @@ export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
     difficulty: '普通',
   },
 
-  // 7. 元手ゼロ・LINE朝活ペナルティサークル
+  // 7. 初期資本ゼロ・LINE朝活コミットメントコミュニティ
   {
     id: 'idea-line-penalty-habit',
-    title: '三日坊主の罪悪感を逆手に取る「朝活デポジットLINEサークル」',
-    shortDescription: 'アプリ開発ゼロ。「朝6時までに起きないと参加費没収」のデポジット制LINEグループを作り、月額会費を自動回収する。',
+    title: '習慣化継続を支援する「相互コミットメント型LINEコミュニティ」',
+    shortDescription: 'アプリ開発不要。「毎朝6時までの活動報告」を相互確認するデポジット制グループを運用し、月額会費モデルを構築する。',
     category: 'ZERO_CAPITAL',
     categoryLabel: '初期資本ゼロ',
-    targetMarket: '早起きや資格勉強を継続したいが3日で挫折する社会人・受験生',
-    glitchOrTrap: '人間は「得をしたい欲」より「損を避けたい恐怖」の方が3倍強い。ペナルティを設けることで強制的に継続し、解約しなくなる。',
-    actionableSteps: 'LINEオープンチャットを開設。「毎朝6時までに起床写真を投稿。月2回サボったら参加費全額没収で全員に山分け」というルールを設定。月額1,500円のサブスク（Stripe）で参加者を募る。',
+    targetMarket: '早起きや資格勉強を継続したいが単独では挫折しやすい社会人・受験生',
+    glitchOrTrap: '自己管理のみでは継続が困難な領域において、少額のデポジットとグループ内の相互確認ルールを設けることで高い継続率が担保される。',
+    actionableSteps: 'LINEオープンチャットを開設。「毎朝6時までに活動報告。未達時のデポジットプール配分」ルールを設定。月額1,500円のサブスク（Stripe）で参加者を募る。',
     requiredTools: ['LINEオープンチャット（無料）', 'Stripeサブスクリンク（無料）', 'X / Threads告知'],
     estimatedMonthlyProfit: '月利 15万〜45万円（参加者100〜300名）',
     initialCapital: '0円',
@@ -152,11 +152,11 @@ export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
     sourceCompanyName: 'Easlo (Notion帝国)',
   },
 
-  // 9. 完全1人・不労ストック・特化型日刊ニュースレター
+  // 9. 完全1人・自律型ストック・特化型日刊ニュースレター
   {
     id: 'idea-niche-daily-curation',
-    title: '広告主が喉から手が出るほど欲しい「特定ニッチ業界の日刊キュレーション手紙」',
-    shortDescription: '医師・法務・AIエンジニア等の高単価読者だけを1,000人集め、業界ツール企業から1通5万円の純広告枠を埋め尽くす。',
+    title: '広告主が求める「特定ニッチ専門職向け日刊キュレーションレター」',
+    shortDescription: '医師・法務・AIエンジニア等の高単価読者を組織化し、特定業界SaaS企業からのスポンサー広告枠を安定販売。',
     category: 'PASSIVE_SOLO',
     categoryLabel: 'ソロ高純利益ストック',
     targetMarket: '可処分所得の高い専門職（医師、弁護士、エンジニア、EC事業者）',
@@ -171,16 +171,16 @@ export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
     sourceCompanyName: 'TLDR Newsletter (Dan Ni)',
   },
 
-  // 10. 完全1人・不労ストック・地域密着の無人高圧洗浄
+  // 10. 完全1人・自律型ストック・地域密着の現場マッチング
   {
     id: 'idea-local-pressure-wash',
     title: '機材は職人にレンタル「戸建て外壁・駐車場の高圧洗浄LINEマッチング」',
-    shortDescription: '黒ずんだ戸建て擁壁や駐車場の写真をLINEで送らせ自動見積もり。洗車職人に道具ごと現場を丸投げして1件1.5万円中抜き。',
+    shortDescription: '戸建て擁壁や駐車場の写真をLINEで送らせ自動概算見積もり。地元の専門職人へ施工を委託し、1件1.5万円のマージンを確保。',
     category: 'PASSIVE_SOLO',
     categoryLabel: 'ソロ高純利益ストック',
     targetMarket: '築10〜20年の戸建てに住む50〜70代の持ち家オーナー',
-    glitchOrTrap: '外壁塗装（100万円〜）は高すぎて手が出ないが、黒ずみ汚れは気になっている。高圧洗浄なら2〜3万円でピカピカになり即決される。',
-    actionableSteps: '「駐車場の黒ずみ・コケを3万円で高圧洗浄」の簡易LPとチラシを作成。近隣の洗車屋や便利屋に「現場1件あたり2万円払うので作業してほしい」と提携。1件あたり1万円〜1.5万円を完全無労力で中抜き。',
+    glitchOrTrap: '外壁塗装（100万円〜）は高額で意思決定が重いが、黒ずみ汚れの洗浄なら2〜3万円で解決でき即決されやすい。',
+    actionableSteps: '「駐車場の黒ずみ・コケを3万円で高圧洗浄」の簡易LPとチラシを作成。近隣の施工事業者と「案件1件あたり2万円で施工委託」の提携を締結。差額の1万円〜1.5万円を仲介マージンとして確保。',
     requiredTools: ['Canva（チラシ作成）', 'LINE公式アカウント（無料）', 'ポスティング（1枚3円）'],
     estimatedMonthlyProfit: '月利 40万〜120万円（月40件仲介）',
     initialCapital: '1万円（チラシ印刷代）',

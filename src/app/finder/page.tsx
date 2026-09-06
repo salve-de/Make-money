@@ -38,13 +38,13 @@ export default function FinderPage() {
         />
       </main>
 
-      {/* 詳細レントゲンシート（モーダル展開） */}
+      {/* 事業詳細分析シート（モーダル展開） */}
       {selectedCompany && (
         <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-150">
           <div className="bg-white rounded-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 relative">
             <div className="sticky top-0 z-10 bg-white/95 backdrop-blur-md px-6 py-3 border-b border-slate-200 flex items-center justify-between">
               <span className="text-xs font-mono font-bold text-slate-500 uppercase">
-                事業完全レントゲンシート
+                事業詳細・財務構造分析シート
               </span>
               <button
                 type="button"
