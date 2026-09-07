@@ -41,6 +41,8 @@ interface CompanyInspectorPaneProps {
   onOpenPro?: () => void;
   onSelectTopic?: (topicId: IntelligenceTopicId) => void;
   initialTab?: TabType;
+  activeTag?: string | null;
+  onSelectTag?: (tag: string | null) => void;
 }
 
 type TabType = 'CORE' | 'FINANCIALS' | 'PLAYBOOK';
@@ -54,6 +56,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onOpenPro,
   onSelectTopic,
   initialTab = 'CORE',
+  activeTag,
+  onSelectTag,
 }) => {
   const searchParams = useSearchParams();
   const tabParam = searchParams?.get('tab')?.toUpperCase() as TabType | undefined;
@@ -178,9 +182,34 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           </div>
 
           {/* タグライン（1行スマート表示） */}
-          <div className="px-3 pb-2 text-[11px] text-zinc-400 leading-snug font-sans truncate">
+          <div className="px-3 pb-1.5 text-[11px] text-zinc-400 leading-snug font-sans truncate">
             {entity.tagline}
           </div>
+
+          {/* 探索タグ（クリックで左一覧を瞬時に同分類に絞り込み） */}
+          {entity.tags && entity.tags.length > 0 && (
+            <div className="px-3 pb-2.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+              <span className="text-[9px] font-mono text-zinc-600 shrink-0">TAGS:</span>
+              {entity.tags.map((tag) => {
+                const isActive = activeTag === tag;
+                return (
+                  <button
+                    key={tag}
+                    onClick={() => onSelectTag && onSelectTag(isActive ? null : tag)}
+                    title={`「#${tag}」で左一覧を絞り込み`}
+                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer ${
+                      isActive
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-xs'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.08]'
+                    }`}
+                  >
+                    <span>#{tag}</span>
+                    {isActive && <X className="w-2.5 h-2.5 text-emerald-400" />}
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* ========================================================= */}

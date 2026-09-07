@@ -15,6 +15,7 @@ export interface ScreenerFilterState {
   minMargin: number;
   maxCapital: number | null;
   moats: MoatType[];
+  selectedTags?: string[];
 }
 
 export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({

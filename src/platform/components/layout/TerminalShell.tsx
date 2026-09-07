@@ -88,6 +88,7 @@ export const TerminalShell: React.FC = () => {
   const [isProModalOpen, setIsProModalOpen] = useState<boolean>(false);
   const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(null);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set(['ent_photoai', 'ent_keyence']));
+  const [activeTag, setActiveTag] = useState<string | null>(null);
 
   const handleToggleBookmark = useCallback((id: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -109,6 +110,18 @@ export const TerminalShell: React.FC = () => {
     return INSTITUTIONAL_ENTITIES.filter((entity) => activeDossier.targetEntityIds.includes(entity.id));
   }, [activeDossier]);
 
+  // 全タグ一覧および件数集計
+  const { availableTags, tagCounts } = useMemo(() => {
+    const counts: Record<string, number> = {};
+    INSTITUTIONAL_ENTITIES.forEach((e) => {
+      (e.tags || []).forEach((t) => {
+        counts[t] = (counts[t] || 0) + 1;
+      });
+    });
+    const tags = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
+    return { availableTags: tags, tagCounts: counts };
+  }, []);
+
   // 全台帳モードでのフィルタリング
   const filteredEntities = useMemo(() => {
     return INSTITUTIONAL_ENTITIES.filter((entity) => {
@@ -118,6 +131,9 @@ export const TerminalShell: React.FC = () => {
       if (currentFilter === 'MONOPOLY' && entity.scale !== 'ENTERPRISE') return false;
       if (currentFilter === 'AI_NATIVE' && entity.sector !== 'AI_AUTOMATION') return false;
       if (currentFilter === 'BOOKMARKED' && !bookmarkedIds.has(entity.id)) return false;
+
+      // タグフィルタ
+      if (activeTag && !(entity.tags || []).includes(activeTag)) return false;
 
       if (screenerFilters) {
         if (screenerFilters.scales.length > 0 && !screenerFilters.scales.includes(entity.scale)) return false;
@@ -132,12 +148,13 @@ export const TerminalShell: React.FC = () => {
         const matchTicker = entity.ticker.toLowerCase().includes(q);
         const matchBlindspot = entity.strategy.blindspot.toLowerCase().includes(q);
         const matchFounder = entity.founder.toLowerCase().includes(q);
-        if (!matchName && !matchTicker && !matchBlindspot && !matchFounder) return false;
+        const matchTag = (entity.tags || []).some((t) => t.toLowerCase().includes(q));
+        if (!matchName && !matchTicker && !matchBlindspot && !matchFounder && !matchTag) return false;
       }
 
       return true;
     });
-  }, [currentFilter, screenerFilters, searchQuery, bookmarkedIds]);
+  }, [currentFilter, activeTag, screenerFilters, searchQuery, bookmarkedIds]);
 
   // 現在選択中の企業エンティティ
   const selectedEntity = useMemo(() => {
@@ -238,6 +255,10 @@ export const TerminalShell: React.FC = () => {
               onOpenScreener={() => setIsScreenerOpen(true)}
               screenerFilters={screenerFilters}
               onResetScreener={() => setScreenerFilters(null)}
+              activeTag={activeTag}
+              onSelectTag={setActiveTag}
+              availableTags={availableTags}
+              tagCounts={tagCounts}
             />
 
             <InstitutionalDataGrid
@@ -265,6 +286,8 @@ export const TerminalShell: React.FC = () => {
               setWorkspaceMode('DEEP_DIVE');
               setActiveTopicId(topicId);
             }}
+            activeTag={activeTag}
+            onSelectTag={setActiveTag}
           />
         )}
       </main>

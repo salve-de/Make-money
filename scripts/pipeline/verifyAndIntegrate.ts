@@ -34,6 +34,7 @@ export function verifyAndIntegrate(dossier: ExtractedDossier): FinancialEntity {
     architecturePattern: dossier.moneyFlow.pricingModel,
     pipelineStack: dossier.operations.toolStack.map(t => t.name).join(' × ') || 'N/A',
     targetPainWallet: dossier.moneyFlow.payer,
+    tags: [dossier.entity.sector, dossier.entity.teamSize === 1 ? '完全1人' : '少数精鋭', '検証中リード'],
     pnl: {
       monthlyRevenue: dossier.moneyFlow.monthlyRevenueJpy,
       cogs: Math.round(dossier.moneyFlow.monthlyRevenueJpy * (1 - dossier.moneyFlow.grossMarginPercent / 100)),
