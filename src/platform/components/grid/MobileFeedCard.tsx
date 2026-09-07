@@ -47,9 +47,6 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
       {/* 1段目: ティッカー/社名/型 & 月商 */}
       <div className="flex items-center justify-between gap-2 mb-1">
         <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
-          <span className="font-mono text-[10px] text-zinc-500 shrink-0">
-            {entity.ticker}
-          </span>
           <span className="font-medium text-xs text-white truncate font-sans">
             {entity.name}
           </span>

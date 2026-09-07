@@ -97,11 +97,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                       </button>
                       <div className="min-w-0 flex-1">
-                        {/* 1段目: ティッカー + 社名 + 型バッジ */}
+                        {/* 1段目: 社名 + 型バッジ */}
                         <div className="flex items-center gap-1.5 min-w-0">
-                          <span className="text-[10px] text-zinc-500 font-mono shrink-0">
-                            {entity.ticker}
-                          </span>
                           <span className="font-semibold text-xs text-white truncate font-sans">
                             {entity.name}
                           </span>
@@ -171,7 +168,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         : 'hover:bg-white/[0.03] border-l-2 border-transparent'
                     }`}
                   >
-                    {/* 1. 銘柄名 ＋ ティッカー（絶対に省略されない20%幅） */}
+                    {/* 1. 銘柄名・サービス名（絶対に省略されない20%幅） */}
                     <td className="py-2.5 px-3 align-middle">
                       <div className="flex items-center gap-2 min-w-0">
                         <button
@@ -181,9 +178,6 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                           <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                         </button>
                         <div className="flex items-center gap-1.5 min-w-0">
-                          <span className="text-[10px] text-zinc-500 font-mono shrink-0">
-                            {entity.ticker}
-                          </span>
                           <span className="font-semibold text-xs text-white truncate font-sans group-hover:text-emerald-300 transition-colors">
                             {entity.name}
                           </span>
