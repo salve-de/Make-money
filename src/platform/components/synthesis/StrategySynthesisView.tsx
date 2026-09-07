@@ -65,7 +65,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
     {
       id: 'init_1',
       role: 'assistant',
-      content: '【金融・事業アナリスト待機中】\n裏帳簿データ（実在企業のP&L・手口・盲点）およびあなたが保存した銘柄・アナリストメモを読み込み完了。左ペインから対象銘柄と考察を選択して「独自アイデアを合成」を実行するか、直接下の入力欄から冷徹な壁打ちを開始せよ。',
+      content: '実在企業の裏帳簿データ（P&L・手口・盲点）と、あなたが保存した銘柄・メモをスタンバイしました。\n\nいま頭にあるアイデア、業界の違和感、あるいは気になっている疑問など、何でも気軽にぶつけてください。否定せず、どうすれば勝てるか一緒に具体化していきましょう。',
       timestamp: new Date().toISOString(),
       suggestedActionPrompts: [
         '初期100人の集客を元手0円で完結させる具体的な手順は？',
