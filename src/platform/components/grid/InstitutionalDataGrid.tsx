@@ -143,148 +143,98 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         </table>
       </div>
 
-      {/* 3. ワイドPC全画面表示時（インスペクター非表示時）: 9カラム超高密度金融台帳 */}
+      {/* 3. ワイドPC全画面表示時（インスペクター非表示時）: 【Institutional 高密度スプレッドシート（h-10 整列美）】 */}
       {!isSplitView && (
         <div className="hidden xl:block w-full">
-        <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
-          <thead>
-            <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[22%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
-              <th className="w-[7%] py-2 px-2 font-medium">構造の型</th>
-              <th className="w-[22%] py-2 px-2 font-medium">現場の配管 (スタック)</th>
-              <th className="w-[24%] py-2 px-2 font-medium">人質にした財布・痛み</th>
-              <th className="w-[12%] py-2 px-2 font-medium text-right">月商 / 実効純利</th>
-              <th className="w-[7%] py-2 px-2 font-medium text-right">利益率 / 体制</th>
-              <th className="w-[6%] py-2 px-2 font-medium text-right">初期資本</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-white/[0.04]">
-            {entities.map((entity) => {
-              const isSelected = selectedEntityId === entity.id;
-              const isBookmarked = bookmarkedIds.has(entity.id);
-              return (
-                <tr
-                  key={entity.id}
-                  onClick={() => onSelectEntity(entity.id)}
-                  className={`cursor-pointer transition-colors ${
-                    isSelected
-                      ? 'bg-white/[0.08] border-l-2 border-emerald-500'
-                      : 'hover:bg-white/[0.02] border-l-2 border-transparent'
-                  }`}
-                >
-                  {/* ティッカー・銘柄・急所ワンライナー */}
-                  <td className="py-2.5 px-3">
-                    <div className="flex items-start gap-2 min-w-0">
-                      <button
-                        onClick={(e) => onToggleBookmark(entity.id, e)}
-                        className="text-zinc-600 hover:text-zinc-300 shrink-0 mt-0.5"
-                      >
-                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
-                      </button>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-1.5 truncate">
+          <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
+            <thead>
+              <tr className="border-b border-white/[0.08] bg-[#090A0D] text-zinc-500 text-[11px] h-8">
+                <th className="w-[18%] py-2 px-3 font-medium">銘柄 / 構造の型</th>
+                <th className="w-[28%] py-2 px-3 font-medium">歪みの手口（急所）</th>
+                <th className="w-[18%] py-2 px-3 font-medium">現場の配管 (スタック)</th>
+                <th className="w-[16%] py-2 px-3 font-medium">人質にした財布・痛み</th>
+                <th className="w-[8%] py-2 px-2 font-medium text-right">月商</th>
+                <th className="w-[8%] py-2 px-2 font-medium text-right">実効純利</th>
+                <th className="w-[4%] py-2 px-3 font-medium text-right">体制</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/[0.04]">
+              {entities.map((entity) => {
+                const isSelected = selectedEntityId === entity.id;
+                const isBookmarked = bookmarkedIds.has(entity.id);
+                return (
+                  <tr
+                    key={entity.id}
+                    onClick={() => onSelectEntity(entity.id)}
+                    className={`cursor-pointer transition-colors h-11 ${
+                      isSelected
+                        ? 'bg-white/[0.08] border-l-2 border-emerald-500'
+                        : 'hover:bg-white/[0.02] border-l-2 border-transparent'
+                    }`}
+                  >
+                    {/* 1. 銘柄 ＋ ティッカー ＋ 型バッジ */}
+                    <td className="py-2 px-3 align-middle">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <button
+                          onClick={(e) => onToggleBookmark(entity.id, e)}
+                          className="text-zinc-600 hover:text-zinc-300 shrink-0"
+                        >
+                          <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
+                        </button>
+                        <div className="flex items-center gap-1.5 min-w-0 truncate">
                           <span className="text-[10px] text-zinc-500 font-mono shrink-0">
                             {entity.ticker}
                           </span>
-                          <span className="font-medium text-xs text-white truncate font-sans">
+                          <span className="font-semibold text-xs text-white truncate font-sans">
                             {entity.name}
                           </span>
+                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                            {entity.architecturePattern}
+                          </span>
                         </div>
-                        <div 
-                          className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-1 line-clamp-2"
-                          title={entity.tagline}
-                        >
-                          {entity.tagline}
-                        </div>
-                        {/* 特徴タグ（クリックで即時トグル・複数選択対応） */}
-                        {entity.tags && entity.tags.length > 0 && (
-                          <div 
-                            className="flex items-center gap-1.5 overflow-x-auto scrollbar-none mt-2 pt-1 border-t border-white/[0.04]"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            {entity.tags.map((tag) => {
-                              const isActive = activeTags.includes(tag);
-                              return (
-                                <button
-                                  key={tag}
-                                  type="button"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    if (onToggleTag) onToggleTag(tag);
-                                  }}
-                                  title={`「#${tag}」で絞り込み（個別詳細は開きません）`}
-                                  className={`inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded transition-all shrink-0 cursor-pointer border ${
-                                    isActive
-                                      ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
-                                      : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
-                                  }`}
-                                >
-                                  <span className="text-zinc-500 group-hover:text-zinc-400">#</span>
-                                  <span>{tag}</span>
-                                  {isActive && <span className="text-emerald-400 text-[10px] font-bold">✓</span>}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        )}
                       </div>
-                    </div>
-                  </td>
+                    </td>
 
-                  {/* 構造の型 */}
-                  <td className="py-2.5 px-2 align-middle">
-                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 inline-block shrink-0" title={entity.architecturePattern}>
-                      {entity.architecturePattern}
-                    </span>
-                  </td>
+                    {/* 2. 歪みの手口（1行スニペット） */}
+                    <td className="py-2 px-3 align-middle font-sans text-xs text-zinc-300 truncate" title={entity.tagline}>
+                      {entity.tagline}
+                    </td>
 
-                  {/* 現場の配管 */}
-                  <td className="py-2.5 px-2 align-middle font-mono text-[11px] text-zinc-300">
-                    <div className="bg-white/[0.03] px-2 py-1 rounded border border-white/[0.05] line-clamp-2 leading-snug break-all" title={entity.pipelineStack}>
+                    {/* 3. 現場の配管（枠線なし、等幅でスッキリ整列） */}
+                    <td className="py-2 px-3 align-middle font-mono text-[11px] text-zinc-400 truncate" title={entity.pipelineStack}>
                       {entity.pipelineStack}
-                    </div>
-                  </td>
+                    </td>
 
-                  {/* 人質にした財布・痛み */}
-                  <td className="py-2.5 px-2 align-middle text-[11px] text-zinc-300 font-sans">
-                    <div className="bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04] line-clamp-2 leading-snug break-all" title={entity.targetPainWallet}>
+                    {/* 4. 人質にした財布・痛み（枠線なし、自然なテキスト） */}
+                    <td className="py-2 px-3 align-middle font-sans text-[11px] text-zinc-400 truncate" title={entity.targetPainWallet}>
                       {entity.targetPainWallet}
-                    </div>
-                  </td>
+                    </td>
 
-                  {/* 月商 / 実効純利益（上下2段組） */}
-                  <td className="py-2.5 px-2 text-right tabular-nums align-middle">
-                    <div className="text-white text-xs font-medium">
-                      <span className="text-[9px] text-zinc-500 mr-1 font-mono">月</span>
+                    {/* 5. 月商 */}
+                    <td className="py-2 px-2 text-right tabular-nums align-middle font-mono text-xs font-semibold text-white">
                       {formatMoney(entity.pnl.monthlyRevenue)}
-                    </div>
-                    <div className="text-zinc-400 text-[10px] mt-0.5">
-                      <span className="text-[9px] text-zinc-500 mr-1 font-mono">純</span>
-                      {formatMoney(entity.pnl.operatingProfit)}
-                    </div>
-                  </td>
+                    </td>
 
-                  {/* 利益率 / 体制（上下2段組） */}
-                  <td className="py-2.5 px-2 text-right tabular-nums align-middle">
-                    <div className="text-emerald-400/90 font-medium text-xs">
-                      {entity.pnl.operatingMargin}%
-                    </div>
-                    <div className="text-zinc-500 text-[10px] mt-0.5 font-sans">
-                      {entity.operations.teamSize === 1 ? '完全1人' : `${entity.operations.teamSize}人`}
-                    </div>
-                  </td>
+                    {/* 6. 実効純利 ＋ 利益率 */}
+                    <td className="py-2 px-2 text-right tabular-nums align-middle font-mono text-xs">
+                      <div className="text-zinc-200">
+                        {formatMoney(entity.pnl.operatingProfit)}
+                      </div>
+                      <div className="text-[10px] text-emerald-400 font-medium">
+                        {entity.pnl.operatingMargin}%
+                      </div>
+                    </td>
 
-                  {/* 初期投下資本 */}
-                  <td className="py-2.5 px-2 text-right text-zinc-500 tabular-nums truncate align-middle">
-                    {entity.operations.initialCapitalRequired === 0 ? '0円' : formatMoney(entity.operations.initialCapitalRequired)}
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+                    {/* 7. 体制 */}
+                    <td className="py-2 px-3 text-right tabular-nums align-middle font-sans text-[10px] text-zinc-500 truncate">
+                      {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize}人`}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
