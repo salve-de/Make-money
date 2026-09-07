@@ -15,12 +15,14 @@ import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView
 import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
+import { useViewHistory } from '../../hooks/useViewHistory';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
 import { ProModal } from '../../../components/terminal/ProModal';
 
 export const TerminalShell: React.FC = () => {
+  const { viewedEntityIds, recordView } = useViewHistory();
   const searchParams = useSearchParams();
   const queryParam = searchParams?.get('q') || '';
   const modeParam = searchParams?.get('mode') as WorkspaceMode | null;
@@ -88,6 +90,13 @@ export const TerminalShell: React.FC = () => {
       }
     }
   }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam]);
+
+  // 閲覧履歴の自動追跡（開いた銘柄を蓄積）
+  useEffect(() => {
+    if (selectedEntityId) {
+      recordView(selectedEntityId);
+    }
+  }, [selectedEntityId, recordView]);
   const [currency, setCurrency] = useState<'JPY' | 'USD'>('JPY');
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
@@ -247,6 +256,7 @@ export const TerminalShell: React.FC = () => {
           <StrategySynthesisView
             allEntities={INSTITUTIONAL_ENTITIES}
             bookmarkedIds={bookmarkedIds}
+            viewedEntityIds={viewedEntityIds}
             notes={notes}
             onSaveNote={saveNote}
             currency={currency}

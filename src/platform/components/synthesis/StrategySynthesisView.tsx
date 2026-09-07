@@ -16,12 +16,15 @@ import {
   Cpu,
   Bookmark,
   Globe,
-  ExternalLink
+  ExternalLink,
+  Sparkles
 } from 'lucide-react';
+import { buildUserInterestProfile, UserInterestProfile } from '../../utils/userProfile';
 
 interface StrategySynthesisViewProps {
   allEntities: FinancialEntity[];
   bookmarkedIds: Set<string>;
+  viewedEntityIds?: string[];
   notes: Record<string, { entityId: string; content: string; updatedAt: string }>;
   onSaveNote: (entityId: string, content: string) => void;
   currency: 'JPY' | 'USD';
@@ -31,12 +34,18 @@ interface StrategySynthesisViewProps {
 export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
   allEntities,
   bookmarkedIds,
+  viewedEntityIds = [],
   notes,
   onSaveNote,
   currency,
   initialContextEntityId,
 }) => {
   const [conversationId] = useState<string>(() => `conv_${Date.now()}`);
+
+  // ユーザーの保存銘柄 ＆ 閲覧履歴から「好み・関心傾向」を自動プロファイリング
+  const userProfile = useMemo<UserInterestProfile>(() => {
+    return buildUserInterestProfile(allEntities, bookmarkedIds, viewedEntityIds);
+  }, [allEntities, bookmarkedIds, viewedEntityIds]);
 
   // 保存銘柄（もし保存がなければ代表的3社をデフォルト表示）
   const savedEntities = useMemo(() => {
@@ -120,6 +129,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
           action: 'SYNTHESIZE',
           selectedEntityIds: Array.from(selectedEntityIds),
           notes,
+          userProfile,
         }),
       });
       const data = await res.json();
@@ -132,7 +142,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
           {
             id: `msg_${Date.now()}`,
             role: 'assistant',
-            content: `【多次元アイデア合成完了】\n選択された${selectedEntityIds.size}銘柄の財務構造とあなたのアナリストメモを交差させ、3つの別次元アプローチ（本能ハック型／構造胴元型／逆張り型）を抽出した。「アイデア調書」タブにて損益見込・ツール構成・初動手順を確認せよ。`,
+            content: `【多次元アイデア合成完了】\n選択された${selectedEntityIds.size}銘柄の財務構造と、あなたの閲覧・保存傾向（${userProfile.profileSummary.slice(0, 50)}...）を掛け合わせ、3つの別次元アプローチ（本能ハック型／構造胴元型／逆張り型）を抽出しました。「アイデア調書」タブにて損益見込・ツール構成・初動手順を確認してください。`,
             timestamp: new Date().toISOString(),
             suggestedActionPrompts: [
               'この中で一番初期費用が安く初動が速いアイデアはどれか？',
@@ -177,6 +187,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
           contextEntityId: activeEditingEntityId,
           synthesizedIdeas,
           notes,
+          userProfile,
         }),
       });
       const data = await res.json();
@@ -227,6 +238,22 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
           <span className="font-mono text-[10px] text-zinc-500">
             {selectedEntityIds.size} / {savedEntities.length} 選択中
           </span>
+        </div>
+
+        {/* ユーザー関心プロファイル（AI学習済みの好み・蓄積データ） */}
+        <div className="px-3 py-2 bg-[#0A0C11] border-b border-white/[0.05] space-y-1 shrink-0">
+          <div className="flex items-center justify-between text-[10px] font-mono">
+            <span className="text-zinc-300 flex items-center gap-1.5">
+              <Sparkles className="w-3 h-3 text-amber-400" />
+              <span>AI学習済みプロファイル (あなたの好み):</span>
+            </span>
+            <span className="text-emerald-400 font-bold">
+              保存 {userProfile.bookmarkedCount}社 / 閲覧 {userProfile.viewedCount}社
+            </span>
+          </div>
+          <p className="text-[10px] text-zinc-400 line-clamp-2 leading-relaxed font-sans">
+            {userProfile.profileSummary}
+          </p>
         </div>
 
         {/* 銘柄一覧 ＆ メモ入力 */}

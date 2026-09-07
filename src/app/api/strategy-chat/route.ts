@@ -6,10 +6,22 @@ import { desc } from 'drizzle-orm';
 
 export const dynamic = 'force-dynamic';
 
+interface UserProfilePayload {
+  bookmarkedCount?: number;
+  viewedCount?: number;
+  preferredSectors?: string[];
+  preferredScales?: string[];
+  averageProfitMargin?: number;
+  topTools?: string[];
+  topMoats?: string[];
+  profileSummary?: string;
+}
+
 interface SynthesisPayload {
   action: 'SYNTHESIZE';
   selectedEntityIds: string[];
   notes: Record<string, { content: string; updatedAt: string }>;
+  userProfile?: UserProfilePayload;
 }
 
 interface ChatPayload {
@@ -19,6 +31,7 @@ interface ChatPayload {
   contextEntityId?: string;
   synthesizedIdeas?: SynthesizedIdea[];
   notes?: Record<string, { content: string; updatedAt: string }>;
+  userProfile?: UserProfilePayload;
 }
 
 // =========================================================================
@@ -27,7 +40,8 @@ interface ChatPayload {
 // =========================================================================
 function generateFallbackSynthesis(
   selectedEntityIds: string[],
-  notes: Record<string, { content: string; updatedAt: string }>
+  notes: Record<string, { content: string; updatedAt: string }>,
+  userProfile?: UserProfilePayload
 ): SynthesizedIdea[] {
   const chosenEntities = INSTITUTIONAL_ENTITIES.filter((e) =>
     selectedEntityIds.includes(e.id)
@@ -125,10 +139,12 @@ function generateFallbackSynthesis(
 function generateFallbackChatResponse(
   userQuery: string,
   contextEntityId?: string,
-  notes?: Record<string, { content: string; updatedAt: string }>
+  notes?: Record<string, { content: string; updatedAt: string }>,
+  userProfile?: UserProfilePayload
 ): { content: string; suggestedActionPrompts: string[] } {
   const entity = INSTITUTIONAL_ENTITIES.find((e) => e.id === contextEntityId) || INSTITUTIONAL_ENTITIES[0];
   const userNote = contextEntityId && notes ? notes[contextEntityId]?.content : '';
+  const profileHint = userProfile?.profileSummary ? `\n\n【あなたの関心傾向】: ${userProfile.profileSummary}` : '';
 
   const q = userQuery.toLowerCase();
 
@@ -279,6 +295,9 @@ ${JSON.stringify(entitiesData.map(e => ({ name: e.name, ticker: e.ticker, profit
 【ユーザーのアナリストメモ（考察）】:
 ${JSON.stringify(notes, null, 2)}
 
+【ユーザーの好み・関心プロファイル（保存・閲覧履歴より自動算出）】:
+${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデルに関心'}
+
 【出力要件】:
 以下の3つの次元でアイデアをJSON配列として返してください。Markdownコードブロックは不要、純粋なJSONのみ。
 1. SAVANNA_INSTINCT (本能ハック型): 顧客の損失回避・怠惰・虚栄心を突く即効モデル
@@ -339,7 +358,7 @@ ${JSON.stringify(notes, null, 2)}
       }
 
       // フォールバック推論エンジン
-      const ideas = generateFallbackSynthesis(selectedEntityIds, notes);
+      const ideas = generateFallbackSynthesis(selectedEntityIds, notes, payload.userProfile);
       return NextResponse.json({ success: true, ideas, engine: 'fallback_internal' });
     }
 
@@ -390,6 +409,9 @@ ${entity ? JSON.stringify({ name: entity.name, pnl: entity.pnl, moat: entity.str
 
 【DBおよび直近から蓄積されたアナリストメモ（ユーザーの視点）】:
 ${allNotesContext || '特記事項なし'}
+
+【ユーザーの好み・関心プロファイル（保存・閲覧履歴より自動算出）】:
+${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデルに関心'}
 
 【これまでの対話履歴】:
 ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
@@ -447,7 +469,7 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
       }
 
       // フォールバック推論エンジン
-      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId, notes);
+      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId, notes, payload.userProfile);
       const assistantMsg: StrategyChatMessage = {
         id: `msg_${Date.now()}`,
         role: 'assistant',
