@@ -77,7 +77,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
             </button>
             {/* ツールチップ */}
             <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
-              稼ぎの型 ＆ アイデア (Playbook)
+              市場の歪み ＆ トレンド (Anomalies)
             </div>
           </div>
 

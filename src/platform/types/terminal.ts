@@ -159,7 +159,40 @@ export type GridFilterOption =
   | 'AI_NATIVE'
   | 'BOOKMARKED';
 
-export type WorkspaceMode = 'LEDGER' | 'ARCHETYPES' | 'RADAR' | 'SYNTHESIS' | 'DEEP_DIVE';
+export type WorkspaceMode = 
+  | 'LEDGER' 
+  | 'ARCHETYPES' 
+  | 'RADAR' 
+  | 'SYNTHESIS' 
+  | 'DEEP_DIVE';
+
+// ─── 市場の歪み・急上昇トレンド（Market Anomaly & Trend） ───
+export type AnomalyCategory = 
+  | 'COST_COLLAPSE'       // 原価破壊 (0.3円API vs 高額手作業)
+  | 'REGULATORY_FORCE'    // 法改正・義務化 (罰則恐怖による強制需要)
+  | 'SUCCESSION_VACUUM'   // 承継空白・職人高齢化 (大手が相手にしないニッチ)
+  | 'PLATFORM_PARASITE'   // 巨大PFの規約改定・隙間 (アルゴリズムの歪み)
+  | 'STATUS_ARBITRAGE';   // 社会的地位・虚栄の歪み (面談羞恥心・ステータス)
+
+export interface MarketAnomaly {
+  id: string;
+  category: AnomalyCategory;
+  categoryLabel: string;
+  title: string;
+  subtitle: string;
+  signalBadge: string;        // 例: '+380% 急上昇', '法改正まであと90日'
+  isHot?: boolean;
+  heatScore: number;          // 0 - 100
+  updatedAt: string;          // 逐一更新の証 (例: '2026-03-01')
+  targetPainWallet: string;   // 狙う痛みの財布 (サバンナOS)
+  incumbentTrap: string;      // 大手・既存産業の自爆構造 (カニバリズム障壁)
+  trendingPlaybook: string;   // いま現場で流行っている抜き方・手口
+  techStack: string[];        // 実際の構築ツール・原価配管
+  expectedRevenue: string;    // 想定月商レンジ
+  netMarginPercent: number;   // 実効手残り純利率 (%)
+  proofEntityIds: string[];   // 裏付け実在銘柄ID群 (LEDGER直通)
+  guerrillaTractionLog: string; // 初動突破の客観事実ログ
+}
 
 // 具体的ビジネスアイデア（子のアイテム）
 export interface ActionableIdea {

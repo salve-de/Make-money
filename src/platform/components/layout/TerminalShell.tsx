@@ -270,6 +270,10 @@ export const TerminalShell: React.FC = () => {
               setSelectedEntityId(entityId);
               setWorkspaceMode('LEDGER');
             }}
+            onOpenSynthesisWithEntity={(entityId) => {
+              setSelectedEntityId(entityId);
+              setWorkspaceMode('SYNTHESIS');
+            }}
           />
         ) : (
           <div className={`flex flex-col min-w-0 overflow-hidden bg-[#07080B] transition-all duration-150 ${

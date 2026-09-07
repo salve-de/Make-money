@@ -37,7 +37,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <span>全台帳</span>
       </button>
 
-      {/* 稼ぎの型 */}
+      {/* 市場の歪み */}
       <button
         onClick={() => onSelectMode('ARCHETYPES')}
         className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
@@ -45,7 +45,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         }`}
       >
         <Layers className="w-3.5 h-3.5 mb-0.5" />
-        <span>稼ぎの型</span>
+        <span>市場の歪み</span>
       </button>
 
       {/* 独自アイデア合成・壁打ち */}
