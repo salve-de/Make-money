@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Search, Globe } from 'lucide-react';
+import { Search, Globe, KeyRound } from 'lucide-react';
 
 interface TerminalTopBarProps {
   onOpenCommandPalette: () => void;
@@ -17,63 +17,53 @@ export const TerminalTopBar: React.FC<TerminalTopBarProps> = ({
   onOpenPro,
 }) => {
   return (
-    <header className="h-11 w-full bg-[#08090C] border-b border-white/[0.06] flex items-center justify-between px-3 md:px-4 z-20 select-none">
-      {/* 左ロゴ & システム表示 */}
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <span className="text-white font-mono font-semibold text-xs tracking-wider">
-            KIN-KOROKU
-          </span>
-          <span className="text-[10px] font-mono text-zinc-500 bg-white/[0.04] border border-white/[0.06] px-1.5 py-0.2 rounded">
-            v2.0
-          </span>
-          <span className="hidden lg:inline text-[11px] text-zinc-500 font-sans pl-1">
-            高収益事業・財務構造端末
-          </span>
+    <header className="h-[30px] w-full bg-[#07080A] border-b border-white/[0.06] flex items-center justify-between px-3 z-20 select-none text-[11px] font-mono">
+      {/* 左ロゴ & 金融ステータス */}
+      <div className="flex items-center gap-2.5 shrink-0">
+        <span className="text-white font-bold tracking-wider text-[11px]">
+          KIN-KOROKU
+        </span>
+        <div className="flex items-center gap-1 text-[9px] text-zinc-500 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
+          <span className="text-zinc-400 font-bold">LIVE</span>
         </div>
       </div>
 
-      {/* 中央: ⌘K コマンドパレットトリガー */}
+      {/* 中央: ⌘K プロ用超薄型インライン検索 */}
       <button
         onClick={onOpenCommandPalette}
-        className="flex items-center gap-2 bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/[0.12] transition-colors rounded px-2.5 py-1 text-xs text-zinc-400 w-48 md:w-80 justify-between group"
+        className="flex items-center gap-2 bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.05] hover:border-white/[0.1] transition-all rounded px-2 h-[22px] text-zinc-400 w-48 md:w-80 justify-between group cursor-pointer"
+        title="全銘柄・手口・数値を検索 (⌘K)"
       >
-        <div className="flex items-center gap-2 truncate">
-          <Search className="w-3.5 h-3.5 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
-          <span className="truncate text-zinc-400">銘柄・手口・利益率を検索...</span>
+        <div className="flex items-center gap-1.5 truncate">
+          <Search className="w-3 h-3 text-zinc-600 group-hover:text-zinc-400 transition-colors" />
+          <span className="truncate text-[10px] text-zinc-500 group-hover:text-zinc-400">銘柄・手口・裏帳簿を検索...</span>
         </div>
-        <kbd className="hidden sm:inline-flex items-center gap-0.5 font-mono text-[10px] bg-white/[0.04] border border-white/[0.08] px-1.5 py-0.5 rounded text-zinc-400">
+        <kbd className="hidden sm:inline-flex items-center text-[9px] bg-white/[0.04] border border-white/[0.06] px-1 rounded text-zinc-500 font-mono">
           ⌘K
         </kbd>
       </button>
 
-      {/* 右側: ガイド・通貨切替 & PRO */}
-      <div className="flex items-center gap-2">
-        {/* ガイド・LPリンク */}
-        <a
-          href="/welcome"
-          className="hidden sm:flex items-center gap-1 text-[11px] font-mono bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] px-2 py-1 rounded text-zinc-400 hover:text-zinc-200 transition-colors"
-          title="端末概要・LPを見る"
-        >
-          <span>概要</span>
-        </a>
-
-        {/* 通貨切替 */}
+      {/* 右側: 通貨切替 & PROアンロック */}
+      <div className="flex items-center gap-1.5 shrink-0">
+        {/* 通貨切替（極薄トグル） */}
         <button
           onClick={onToggleCurrency}
-          className="flex items-center gap-1 text-[11px] font-mono bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] px-2 py-1 rounded text-zinc-400 hover:text-zinc-200 transition-colors"
-          title="表示通貨の切り替え"
+          className="flex items-center gap-1 text-[10px] h-[22px] bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.05] px-1.5 rounded text-zinc-400 hover:text-zinc-200 transition-colors cursor-pointer"
+          title="表示通貨の切り替え (JPY / USD)"
         >
-          <Globe className="w-3 h-3 text-zinc-500" />
+          <Globe className="w-2.5 h-2.5 text-zinc-500" />
           <span>{currency}</span>
         </button>
 
-        {/* PROボタン（落ち着いたシルバー/モノトーン） */}
+        {/* PROボタン（プロ端末に調和する高品位シルバー） */}
         <button 
           onClick={onOpenPro}
-          className="text-xs font-medium px-2.5 py-1 rounded bg-white text-zinc-950 hover:bg-zinc-200 transition-colors shadow-sm"
+          className="flex items-center gap-1 text-[10px] font-bold h-[22px] px-2 rounded bg-white text-zinc-950 hover:bg-zinc-200 transition-colors shadow-xs cursor-pointer"
+          title="PROプランで全裏帳簿を解錠"
         >
-          PRO
+          <KeyRound className="w-2.5 h-2.5" />
+          <span>PRO</span>
         </button>
       </div>
     </header>
