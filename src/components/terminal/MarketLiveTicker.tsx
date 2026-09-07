@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface NewsTickerItem {
   category: string;
@@ -88,24 +88,75 @@ interface MarketLiveTickerProps {
 }
 
 export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectCompany }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const isPausedRef = useRef(false);
+  const offsetRef = useRef(0);
+
   const tickerItems = [...NEWS_TICKER_ITEMS, ...NEWS_TICKER_ITEMS];
 
+  useEffect(() => {
+    let animationFrameId: number;
+    let lastTimestamp: number | null = null;
+    const PIXELS_PER_SECOND = 55;
+
+    const animate = (timestamp: number) => {
+      if (lastTimestamp === null) {
+        lastTimestamp = timestamp;
+      }
+      const elapsed = (timestamp - lastTimestamp) / 1000;
+      lastTimestamp = timestamp;
+
+      if (!isPausedRef.current && trackRef.current) {
+        offsetRef.current += PIXELS_PER_SECOND * elapsed;
+        const halfWidth = trackRef.current.scrollWidth / 2;
+        if (halfWidth > 0 && offsetRef.current >= halfWidth) {
+          offsetRef.current -= halfWidth;
+        }
+        trackRef.current.style.transform = `translate3d(-${offsetRef.current}px, 0, 0)`;
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
+
   return (
-    <div className="h-7 bg-[#05070A] border-b border-white/[0.06] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative text-zinc-300 z-20">
+    <div
+      className="h-7 bg-[#05070A] border-b border-white/[0.06] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative text-zinc-300 z-20"
+      onMouseEnter={() => {
+        isPausedRef.current = true;
+      }}
+      onMouseLeave={() => {
+        isPausedRef.current = false;
+      }}
+    >
       {/* 左端固定：速報ラベル */}
       <div className="bg-[#090C10] text-zinc-200 h-full px-3 flex items-center gap-1.5 shrink-0 z-30 border-r border-white/[0.08] font-bold tracking-wider text-[10px] shadow-[4px_0_12px_rgba(0,0,0,0.6)]">
         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
         <span className="text-zinc-200 font-mono tracking-wider">MARKET LIVE</span>
       </div>
 
-      {/* スクロールストリップ（ホバーで静止） */}
-      <div className="flex-1 ticker-wrapper h-full flex items-center overflow-hidden">
-        <div className="ticker-track flex items-center pl-3">
+      {/* スクロールストリップ（ホバーでミリ秒単位その場完全静止） */}
+      <div
+        ref={containerRef}
+        className="flex-1 h-full flex items-center overflow-hidden relative"
+      >
+        <div
+          ref={trackRef}
+          className="flex items-center pl-3 will-change-transform"
+          style={{ transform: 'translate3d(0, 0, 0)' }}
+        >
           {tickerItems.map((item, idx) => (
             <div
               key={idx}
               onClick={() => item.companyId && onSelectCompany?.(item.companyId)}
-              className={`inline-flex items-center gap-2 px-2.5 py-0.5 mr-3 rounded border border-white/[0.06] bg-white/[0.02] transition-colors shrink-0 ${
+              className={`inline-flex items-center gap-2 px-2.5 py-0.5 mr-3 rounded border border-white/[0.06] bg-white/[0.02] shrink-0 ${
                 item.companyId && onSelectCompany
                   ? 'cursor-pointer hover:bg-white/[0.07] hover:border-white/[0.15] text-zinc-200'
                   : 'text-zinc-400'
