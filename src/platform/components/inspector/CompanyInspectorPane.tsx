@@ -20,7 +20,8 @@ import {
   Zap,
   BarChart3,
   ArrowUpRight,
-  FileText
+  FileText,
+  Crosshair
 } from 'lucide-react';
 
 function parsePunchline(text: string): { punchline: string; detail: string } {
@@ -586,6 +587,74 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* ------------------------------------------------------- */}
           {activeTab === 'PLAYBOOK' && (
             <div className="space-y-6">
+              {/* #00 資本主義の裏帳簿：初期突破の手口と裏原価 (EXPOSURE AUDIT) */}
+              {entity.exposureAudit && (
+                <section className="space-y-2">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[9px] font-bold text-zinc-300 bg-white/[0.08] border border-white/[0.12] px-1.5 py-0.5 rounded">
+                        AUDIT
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <Crosshair className="w-3.5 h-3.5 text-zinc-300" />
+                        <span className="font-mono text-[11px] font-bold text-zinc-100 uppercase tracking-wider">
+                          資本主義の裏帳簿：初期突破の手口と裏原価 (EXPOSURE AUDIT)
+                        </span>
+                      </div>
+                    </div>
+                    <span className="font-mono text-[9px] text-zinc-500">
+                      FACT CHECKED
+                    </span>
+                  </div>
+
+                  <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] text-xs font-sans shadow-sm">
+                    {/* ① 初期ゲリラ戦・自演ログ */}
+                    <div className="p-3 space-y-1">
+                      <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
+                        <span className="text-zinc-500">01.</span>
+                        <span className="text-zinc-200">初期ゲリラ戦・自演集客ログ (GUERRILLA TRACTION)</span>
+                      </div>
+                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                        {entity.exposureAudit.guerrillaTraction}
+                      </p>
+                    </div>
+
+                    {/* ② プラットフォーム規約の盲点ハック */}
+                    <div className="p-3 space-y-1">
+                      <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
+                        <span className="text-zinc-500">02.</span>
+                        <span className="text-zinc-200">プラットフォーム規約の盲点ハック (PLATFORM GLITCH)</span>
+                      </div>
+                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                        {entity.exposureAudit.platformGlitch}
+                      </p>
+                    </div>
+
+                    {/* ③ 死線とピボット魚拓 */}
+                    <div className="p-3 space-y-1">
+                      <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
+                        <span className="text-zinc-500">03.</span>
+                        <span className="text-zinc-200">死線とピボットの魚拓比較 (PIVOT SNAPSHOT)</span>
+                      </div>
+                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                        {entity.exposureAudit.pivotSnapshot}
+                      </p>
+                    </div>
+
+                    {/* ④ 表向き隠された裏原価 */}
+                    <div className="p-3 space-y-1">
+                      <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
+                        <span className="text-zinc-500">04.</span>
+                        <span className="text-zinc-200">裏ツール構成と現物原価のレントゲン (HIDDEN COST & API)</span>
+                      </div>
+                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                        {entity.exposureAudit.hiddenStackCost}
+                      </p>
+                    </div>
+                  </div>
+                </section>
+              )}
+
               {/* #01 最初の100人を獲得した手順 */}
               <section className="space-y-2">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">

@@ -109,14 +109,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         >
                           {entity.tagline}
                         </div>
-                        <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 mt-1.5 truncate">
-                          <div className="flex items-center gap-1 truncate text-zinc-300 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]" title={entity.pipelineStack}>
-                            <span className="text-zinc-500 text-[9px]">配管</span>
-                            <span className="truncate">{entity.pipelineStack}</span>
+                        <div className="mt-1.5 space-y-1 text-[10px]">
+                          <div className="flex items-start gap-1.5 text-zinc-300 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]" title={entity.pipelineStack}>
+                            <span className="text-zinc-500 text-[9px] shrink-0 font-mono mt-0.5">配管</span>
+                            <span className="font-mono line-clamp-1 break-all">{entity.pipelineStack}</span>
                           </div>
-                          <div className="flex items-center gap-1 truncate text-zinc-400 bg-white/[0.02] px-1.5 py-0.5 rounded border border-white/[0.04]" title={entity.targetPainWallet}>
-                            <span className="text-zinc-600 text-[9px]">人質</span>
-                            <span className="truncate font-sans">{entity.targetPainWallet}</span>
+                          <div className="flex items-start gap-1.5 text-zinc-400 bg-white/[0.02] px-1.5 py-0.5 rounded border border-white/[0.04]" title={entity.targetPainWallet}>
+                            <span className="text-zinc-600 text-[9px] shrink-0 font-mono mt-0.5">人質</span>
+                            <span className="font-sans line-clamp-1 break-all">{entity.targetPainWallet}</span>
                           </div>
                         </div>
                       </div>
@@ -157,15 +157,13 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[21%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
-              <th className="w-[10%] py-2 px-2 font-medium">構造の型</th>
-              <th className="w-[15%] py-2 px-2 font-medium">現場の配管 (スタック)</th>
-              <th className="w-[17%] py-2 px-2 font-medium">人質にした財布・痛み</th>
-              <th className="w-[9%] py-2 px-2 font-medium text-right">直近月商</th>
-              <th className="w-[9%] py-2 px-2 font-medium text-right">実効純利益</th>
-              <th className="w-[7%] py-2 px-2 font-medium text-center">営業利益率</th>
+              <th className="w-[22%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
+              <th className="w-[7%] py-2 px-2 font-medium">構造の型</th>
+              <th className="w-[22%] py-2 px-2 font-medium">現場の配管 (スタック)</th>
+              <th className="w-[24%] py-2 px-2 font-medium">人質にした財布・痛み</th>
+              <th className="w-[12%] py-2 px-2 font-medium text-right">月商 / 実効純利</th>
+              <th className="w-[7%] py-2 px-2 font-medium text-right">利益率 / 体制</th>
               <th className="w-[6%] py-2 px-2 font-medium text-right">初期資本</th>
-              <th className="w-[6%] py-2 px-2 font-medium text-center">体制</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
@@ -212,50 +210,50 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
 
                   {/* 構造の型 */}
                   <td className="py-2.5 px-2 align-middle">
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 inline-block truncate max-w-full" title={entity.architecturePattern}>
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 inline-block shrink-0" title={entity.architecturePattern}>
                       {entity.architecturePattern}
                     </span>
                   </td>
 
                   {/* 現場の配管 */}
-                  <td className="py-2.5 px-2 align-middle font-mono text-[11px] text-zinc-300 truncate" title={entity.pipelineStack}>
-                    <div className="bg-white/[0.03] px-2 py-1 rounded border border-white/[0.05] truncate">
+                  <td className="py-2.5 px-2 align-middle font-mono text-[11px] text-zinc-300">
+                    <div className="bg-white/[0.03] px-2 py-1 rounded border border-white/[0.05] line-clamp-2 leading-snug break-all" title={entity.pipelineStack}>
                       {entity.pipelineStack}
                     </div>
                   </td>
 
                   {/* 人質にした財布・痛み */}
-                  <td className="py-2.5 px-2 align-middle text-[11px] text-zinc-300 truncate font-sans" title={entity.targetPainWallet}>
-                    <div className="bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04] truncate">
+                  <td className="py-2.5 px-2 align-middle text-[11px] text-zinc-300 font-sans">
+                    <div className="bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04] line-clamp-2 leading-snug break-all" title={entity.targetPainWallet}>
                       {entity.targetPainWallet}
                     </div>
                   </td>
 
-                  {/* 月商 */}
-                  <td className="py-2.5 px-2 text-right text-white tabular-nums truncate align-middle">
-                    {formatMoney(entity.pnl.monthlyRevenue)}
+                  {/* 月商 / 実効純利益（上下2段組） */}
+                  <td className="py-2.5 px-2 text-right tabular-nums align-middle">
+                    <div className="text-white text-xs font-medium">
+                      <span className="text-[9px] text-zinc-500 mr-1 font-mono">月</span>
+                      {formatMoney(entity.pnl.monthlyRevenue)}
+                    </div>
+                    <div className="text-zinc-400 text-[10px] mt-0.5">
+                      <span className="text-[9px] text-zinc-500 mr-1 font-mono">純</span>
+                      {formatMoney(entity.pnl.operatingProfit)}
+                    </div>
                   </td>
 
-                  {/* 純利 */}
-                  <td className="py-2.5 px-2 text-right text-zinc-300 tabular-nums truncate align-middle">
-                    {formatMoney(entity.pnl.operatingProfit)}
-                  </td>
-
-                  {/* 営業利益率 */}
-                  <td className="py-2.5 px-2 text-center align-middle">
-                    <span className="text-emerald-400/90 font-medium tabular-nums">
+                  {/* 利益率 / 体制（上下2段組） */}
+                  <td className="py-2.5 px-2 text-right tabular-nums align-middle">
+                    <div className="text-emerald-400/90 font-medium text-xs">
                       {entity.pnl.operatingMargin}%
-                    </span>
+                    </div>
+                    <div className="text-zinc-500 text-[10px] mt-0.5 font-sans">
+                      {entity.operations.teamSize === 1 ? '完全1人' : `${entity.operations.teamSize}人`}
+                    </div>
                   </td>
 
                   {/* 初期投下資本 */}
                   <td className="py-2.5 px-2 text-right text-zinc-500 tabular-nums truncate align-middle">
                     {entity.operations.initialCapitalRequired === 0 ? '0円' : formatMoney(entity.operations.initialCapitalRequired)}
-                  </td>
-
-                  {/* 体制 */}
-                  <td className="py-2.5 px-2 text-center text-zinc-400 text-[11px] align-middle font-mono">
-                    {entity.operations.teamSize === 1 ? '完全1人' : `${entity.operations.teamSize}人`}
                   </td>
                 </tr>
               );

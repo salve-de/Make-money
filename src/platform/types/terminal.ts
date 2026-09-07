@@ -111,6 +111,13 @@ export interface StrategicDossier {
   coldOutreachTemplate?: string; // コールドDM実文
 }
 
+export interface ExposureAuditDossier {
+  guerrillaTraction: string; // ① 初期の泥臭いゲリラ戦・自演の客観事実ログ
+  platformGlitch: string; // ② プラットフォーム・規約の盲点ハック（審査すり抜け・トラフィック横取り）
+  pivotSnapshot: string; // ③ 死線とピボット魚拓（当初何を売って爆死し、どこを変えて跳ねたか）
+  hiddenStackCost: string; // ④ 表向き隠された裏原価・現物API構造
+}
+
 export interface FinancialEntity {
   id: string;
   ticker: string; // 例: "KEYENCE", "STRIPE", "PHOTOAI"
@@ -131,6 +138,7 @@ export interface FinancialEntity {
   acquisition?: AcquisitionDossier;
   essence?: BusinessEssence;
   meta?: MetaArchitectureDossier;
+  exposureAudit?: ExposureAuditDossier; // 資本主義の裏帳簿：客観事実の暴露レントゲン
   isBookmarked?: boolean;
 
   // 資本主義の裏帳簿：知的興奮・探索3大トリガー

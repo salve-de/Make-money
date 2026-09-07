@@ -76,14 +76,14 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
       </p>
 
       {/* 3段目: 現場の配管 ＆ 人質にした財布 */}
-      <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 mb-2 truncate">
-        <div className="flex items-center gap-1 truncate text-zinc-300 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]">
-          <span className="text-zinc-500 text-[9px]">配管</span>
-          <span className="truncate">{entity.pipelineStack}</span>
+      <div className="space-y-1 text-[10px] mb-2">
+        <div className="flex items-start gap-1.5 text-zinc-300 bg-white/[0.03] px-2 py-1 rounded border border-white/[0.05]" title={entity.pipelineStack}>
+          <span className="text-zinc-500 text-[9px] shrink-0 font-mono mt-0.5">配管</span>
+          <span className="font-mono line-clamp-1 break-all">{entity.pipelineStack}</span>
         </div>
-        <div className="flex items-center gap-1 truncate text-zinc-400 bg-white/[0.02] px-1.5 py-0.5 rounded border border-white/[0.04]">
-          <span className="text-zinc-600 text-[9px]">人質</span>
-          <span className="truncate font-sans">{entity.targetPainWallet}</span>
+        <div className="flex items-start gap-1.5 text-zinc-400 bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04]" title={entity.targetPainWallet}>
+          <span className="text-zinc-600 text-[9px] shrink-0 font-mono mt-0.5">人質</span>
+          <span className="font-sans line-clamp-1 break-all">{entity.targetPainWallet}</span>
         </div>
       </div>
 

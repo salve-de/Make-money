@@ -14,7 +14,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://www.keyence.co.jp',
     verifiedBadge: true,
     growthRateYoY: 14.8,
-    architecturePattern: '直販要塞・相見積もり殺し',
+    architecturePattern: '直販要塞',
     pipelineStack: '内製SFA × 即日物流網 × ファブレス生産委託',
     targetPainWallet: '工場長の保身（ライン停止・歩留まり悪化の恐怖）',
     essence: {
@@ -106,6 +106,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         workingCapitalStrategy: '無借金経営。毎年数千億円の営業CFが積み上がり、手元現金は1兆円超の安全地帯。',
       },
     },
+    exposureAudit: {
+      guerrillaTraction: '創業初期、創業者がカバンに自動線材切断機を詰めて全国の町工場へアポなし突撃。油まみれの職人の横に張り付き、現場の歩留まりロスをその場で手計算して即日注文書にサインさせた直販ゲリラ戦。',
+      platformGlitch: '「代理店を挟むと値引き競争で疲弊する」商慣習を完全拒否。全製品定価・値引きゼロ・即日納品を貫き、製造ライン停止損害（数千万円）の恐怖を人質に購買部ではなく工場長へ直談判して相見積もりを粉砕。',
+      pivotSnapshot: '下請け製造で2度の倒産危機を経験。「自社工場を持つと固定費で死ぬ」と悟り、工場を全廃してファブレス化。「粗利80%超の直販センサー」に全リソースをピボットした瞬間に高収益体質へ激変。',
+      hiddenStackCost: 'センサーの物理製造原価率はわずか18%（協力工場へ委託）。売上の54%が純粋な営業利益として残り、その巨額利益の約3分の1を高額賞与として社員へ配分し、分単位の行動管理を自発的に回す人間エンジン。',
+    },
   },
   {
     id: 'ent_stripe',
@@ -120,7 +126,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://stripe.com',
     verifiedBadge: true,
     growthRateYoY: 28.5,
-    architecturePattern: 'API寄生・決済通行税',
+    architecturePattern: 'API寄生',
     pipelineStack: 'API 7行 × Ruby × 国際銀行ゲートウェイ',
     targetPainWallet: '開発者の怠惰（数ヶ月かかる銀行稟議の完全回避）',
     essence: {
@@ -211,6 +217,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         workingCapitalStrategy: '顧客の売上成長に伴って自社の売上が自動増殖する「インターネット経済の通行税」モデル。',
       },
     },
+    exposureAudit: {
+      guerrillaTraction: '伝説の「Collison Installation」。YCの起業家仲間に「決済試してよ」と持ちかけ、相手が「後で試す」と返信した瞬間に「今ラップトップ貸して」とその場で相手のMacを開かせ、勝手に7行のコードを貼り付けて決済を即時開通させた強硬初期ゲリラ戦。',
+      platformGlitch: '米国大手銀行の「加盟店審査に数ヶ月かける」官僚主義を逆手にハック。Stripe自身が銀行との包括リスクを肩代わりし、開発者には審査なしで即日テスト環境を解放。競合（PayPalやAuthorize.Net）を置き去りにした。',
+      pivotSnapshot: '「/dev/payments」として開発者向けにひっそりリリース。銀行から「詐欺の温床になる」と拒絶され続けたが、YC同期スタートアップへ草の根浸透させ、彼らの事業成長に伴い決済通行税（2.9% + 30¢）が自動膨張。',
+      hiddenStackCost: '決済API自体の粗利率は約30%（Visa/Masterや銀行への上納金が原価の大半）。決済は客を囲い込む撒き餌であり、Atlas（法人設立 $500）、Radar（不正検知）、Billing（定期課金手数料0.5%）など原価ゼロの付帯SaaSで純利を吸い上げる構造。',
+    },
   },
   {
     id: 'ent_photoai',
@@ -225,7 +237,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://photoai.com',
     verifiedBadge: true,
     growthRateYoY: 185.0,
-    architecturePattern: 'APIラッパー・自撮り特化',
+    architecturePattern: 'API包装',
     pipelineStack: 'Replicate API × Hetzner × Stripe',
     targetPainWallet: '個人の見栄（写真館スタジオの羞恥心・数万円回避）',
     essence: {
@@ -318,6 +330,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         workingCapitalStrategy: '借金・VC調達完全ゼロ。PHP単一ファイル＋サーバーレス構成により、固定費月数万円で月1,500万円以上の純利を創業者個人口座に着金。',
       },
     },
+    exposureAudit: {
+      guerrillaTraction: '創業者がX（旧Twitter）上で自分自身をAIで美男美女化した画像を毎日大量投下し、著名インフルエンサーの顔写真をAI生成してメンション爆撃。さらにRedditのAIサブレディット（r/StableDiffusion等）に別アカウントで「このツールで作った」と自演投稿して初動トラフィックを強奪。',
+      platformGlitch: 'AppleのApp StoreがAI生成画像の類似性審査でアプリを弾きまくっていた隙を突き、ネイティブアプリを完全無視。Webブラウザ完結のPWA型LPで展開し、審査待ち時間ゼロで日次デプロイ・即時課金を強行。',
+      pivotSnapshot: '当初は「アバター生成（ゲーム風AI画像）」としてリリースしたが、客が1回で飽きることに直面。即座に「LinkedIn用・履歴書用のビジネス宣材写真」へオファーを絞り込み、写真館の1.5万円と恥ずかしさを嫌う層へ刺した瞬間に月商1,800万円を突破。',
+      hiddenStackCost: '自社AIモデルはゼロ。裏側はオープンソースのStable Diffusion + Dreamboothを、Hetznerの月額格安GPUサーバー（月3万円程度）とReplicate API（従量課金）で回すだけのラッパー。月商1,800万円に対してサーバー原価は約250万円、従業員0人（完全1人）で粗利86%を達成。',
+    },
   },
   {
     id: 'ent_headshotpro',
@@ -332,7 +350,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://www.headshotpro.com',
     verifiedBadge: true,
     growthRateYoY: 120.0,
-    architecturePattern: 'B2B受託包装・30%紹介網',
+    architecturePattern: '30%紹介網',
     pipelineStack: 'Stable Diffusion × Stripe × 成果報酬アフィリエイト',
     targetPainWallet: 'リモート企業人事（退職・採用時の顔写真更新コスト）',
     essence: {
@@ -423,6 +441,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         workingCapitalStrategy: 'リモートチーム3名のみで年商5.4億円を運用。利益率46%の超高効率キャッシュフロー。',
       },
     },
+    exposureAudit: {
+      guerrillaTraction: '自作のAIヘッドショットをLinkedInに投稿し、リモートワークで社員写真がバラバラな企業の経営者へ直接コールドメッセージ。さらに「AI headshot」関連のSEOキーワードを網羅したLPをプログラマティックSEOで数百ページ量産し、初期からGoogle検索トラフィックを面で制圧。',
+      platformGlitch: '競合が個人向け（B2C）で買い切り1回数千円の価格消耗戦をしていた隙を突き、「企業向けチーム一括パック（1人$39〜、10人で$390）」を最速で投入。会社のコーポレートカード（経費枠）を使わせることで、個人の財布の躊躇を完全無効化。',
+      pivotSnapshot: '当初は個人向けのペットAI写真ツールなどを乱発していたが、B2CのChurnの高さとクレーマー対応で疲弊。B2Bチームプランに全リソースを集中した瞬間に、クレーム激減・一括前金入金で月商3,800万円に急拡大。',
+      hiddenStackCost: 'インフラはReplicate + AstriaのAPIをRESTで叩くだけ。画像生成の原価は1人あたり約$3〜$5程度で、販売価格$39に対して原価率10〜13%。チームは創業者と数名のフィリピン人サポート外注のみで粗利率70%を維持。',
+    },
   },
   {
     id: 'ent_tldr',
@@ -437,7 +461,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://tldr.tech',
     verifiedBadge: true,
     growthRateYoY: 65.0,
-    architecturePattern: '要約メディア・広告枠秒速完売',
+    architecturePattern: '要約メディア',
     pipelineStack: 'Beehiiv × ニュース要約 × 直販スポンサー枠',
     targetPainWallet: 'テック企業の宣伝費（700万人エンジニア露出の独占）',
     essence: {
@@ -529,6 +553,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         workingCapitalStrategy: 'オフィスゼロ、記者数名のみで年商15億円・純利益10億円（利益率67.2%）を達成する究極のメディアキャッシュマシーン。',
       },
     },
+    exposureAudit: {
+      guerrillaTraction: 'Redditのテック系サブレディット（r/programming, r/webdev等）の毎日のトップ投稿を手動要約し、Reddit内のコメント欄に「毎朝こういうまとめを配信してる」と地道にリンクを貼って初期数千人の購読者を自力で獲得。',
+      platformGlitch: '各SNS（X, LinkedIn, Reddit）が「外部リンク付き投稿の露出を冷遇するアルゴリズム」にシフトした隙を突き、プラットフォームの外部誘導規制を受けない「Eメール（ニュースレター）」に全読者資産を退避・監禁。',
+      pivotSnapshot: '当初はソフトウェアエンジニア向けの短いまとめ1本からスタート。購読者が10万人を超えた段階で「AI版」「Crypto版」「WebDev版」と同一フォーマットでスピンオフを乱発し、広告主へのバンドル販売で広告単価を急伸させた。',
+      hiddenStackCost: '配信インフラはBeehiiv / AWS SES。原価はサーバー代月数十万円と要約ライターの外注費のみ。1枠450万円のスポンサー枠が半年先まで埋まっており、月商4,500万円・営業利益率80%のキャッシュマシーン。',
+    },
   },
   {
     id: 'ent_easlo',
@@ -543,7 +573,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://easlo.co',
     verifiedBadge: true,
     growthRateYoY: 85.0,
-    architecturePattern: 'テンプレ販売・無料逆手',
+    architecturePattern: 'テンプレ販売',
     pipelineStack: 'Notion × Gumroad × X (Twitter)',
     targetPainWallet: 'Notion挫折組（多機能すぎて組めない時間の買い取り）',
     essence: {
@@ -634,6 +664,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         workingCapitalStrategy: '初期資本ゼロ、完全1人、月間ツール費数千円。月商950万円に対して月純利937万円（純利益率98.6%）の極限形。',
       },
     },
+    exposureAudit: {
+      guerrillaTraction: 'Twitter（現X）でNotionのショートカット術や整理動画を毎日3本投稿。Notionの操作に困っているユーザーのリプライを見つけては、無料テンプレートを直接リプ欄に差し出して初動ファン5万人を囲い込み。',
+      platformGlitch: 'Notion公式が「自由度が高すぎて、初心者が白紙の画面を見て挫折する」という構造的欠陥をハック。公式がカバーできない「学生用ダッシュボード」「個人家計簿」など生活密着型テンプレを先回りして量産。',
+      pivotSnapshot: '当初はGumroadで完全無料配布。客が自発的に$5〜$10のチップを払う現象に気づき有料化。バンドル（全テンプレまとめ売りパック $129）を投入した瞬間に年商1億円を突破。',
+      hiddenStackCost: '決済はGumroad、商品はNotionの「複製リンク」を送るだけ。仕入れ原価0円、サーバー原価0円、配送費0円。粗利率98%で、売上のほぼ全額が創業者の手元口座へ直下。',
+    },
   },
   {
     id: 'ent_clay_aaa',
@@ -648,7 +684,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://apexoutbound.example.com',
     verifiedBadge: true,
     growthRateYoY: 310.0,
-    architecturePattern: 'AIスクレイピング・アポ中抜き',
+    architecturePattern: 'AI営業代行',
     pipelineStack: 'Clay × Make × OpenAI API × Smartlead',
     targetPainWallet: 'VC調達直後SaaS（新規商談枯渇の焦燥・営業人件費）',
     essence: {
@@ -740,6 +776,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         workingCapitalStrategy: '完全1人＋外注プログラマー1名で月商800万円・純利520万円を叩き出す超高収益B2Bエージェンシーモデル。',
       },
     },
+    exposureAudit: {
+      guerrillaTraction: 'ターゲット企業の役員に対し、ClayとChatGPTで自動作成した「相手の直近の投稿や採用求人を深層分析した超個別化コールドメール」を1日数百件送信。「このメール自体が、弊社のAI自動化システムから送られています」という現物デモを営業フックにした奇襲。',
+      platformGlitch: 'LinkedInの「週100件接続制限」をハック。複数プロファイルを暖機（ウォームアップ）するツールと、Sales Navigatorからメールアドレスを自動抽出するAPI（Findymail/Enrichment）を直結し、規約制限を迂回してリードを自動収集。',
+      pivotSnapshot: '当初は「AIコンサルティング」として時間単価で請け負っていたが、客の要望が無限に膨らみ疲弊。即座に「月額固定の自動アポイント獲得パイプライン構築（月額$5,000〜）」の製品化サービス（Productized Service）に切り替え、労働集約から脱却。',
+      hiddenStackCost: '主力ツールはClay ($349/月) + Make/Zapier ($100/月) + OpenAI API (従量数万円) + Smartlead ($100/月)。ツール原価は月10万円以下、受注単価は月100万円〜。完全1人または海外外注1名で純利益率70%超。',
+    },
   },
   {
     id: 'ent_local_wash',
@@ -754,7 +796,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     url: 'https://craftwash-demo.jp',
     verifiedBadge: true,
     growthRateYoY: 95.0,
-    architecturePattern: 'LINE写真見積もり・職人丸投げ',
+    architecturePattern: '職人丸投げ',
     pipelineStack: 'LINE公式 × Google MEO × 提携職人ネットワーク',
     targetPainWallet: '戸建て家主（訪問リフォーム業者のボッタクリ恐怖）',
     essence: {
@@ -844,6 +886,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         incrementalMargin: '店舗・事務所・自社トラックゼロ。固定費がほぼないため、施工案件数に比例して営業利益が積み上がる（利益率48.3%）。',
         workingCapitalStrategy: '完全無店舗型DX。チラシ配布とLINE自動化のみで月商450万円・純手残り218万円を安定創出。',
       },
+    },
+    exposureAudit: {
+      guerrillaTraction: '創業者自身は高圧洗浄機を持たず、ジモティーで「腕はあるが仕事がない個人清掃職人」に直談判して提携。Googleマイビジネス（MEO）で地域キーワード（「外壁洗浄 〇〇市」）に特化したLPを自作し、電話が入った瞬間に職人へ外注。',
+      platformGlitch: '大手リフォーム会社が「現地調査から見積もり提出まで1週間かかる」という鈍重さをハック。LINE公式アカウントに「外壁の写真と平米数を送るだけで30分以内に概算見積もり自動返信」する導線を組み、客が相見積もりを取る前に即日成約を確定。',
+      pivotSnapshot: '当初は自身で作業を請け負おうとして肉体労働の限界に直面。即座に「集客・見積もり・決済」のみを自社が握り、実作業を地域の一人親方へ50%で丸投げする「プラットフォーム胴元モデル」へ転換。',
+      hiddenStackCost: '事務所なし、機材保有ゼロ（職人持ち込み）、従業員0人。ツールはLINE公式 + Make + Stripe + Squarespace（月額1.5万円程度）。売上450万円に対し、職人外注費200万円、純利225万円（利益率50%）。',
     },
   },
 ];
