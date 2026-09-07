@@ -159,7 +159,34 @@ export type GridFilterOption =
   | 'AI_NATIVE'
   | 'BOOKMARKED';
 
-export type WorkspaceMode = 'LEDGER' | 'RADAR' | 'SYNTHESIS' | 'DEEP_DIVE';
+export type WorkspaceMode = 'LEDGER' | 'ARCHETYPES' | 'RADAR' | 'SYNTHESIS' | 'DEEP_DIVE';
+
+// 具体的ビジネスアイデア（子のアイテム）
+export interface ActionableIdea {
+  id: string;
+  title: string; // アイデア見出し
+  tagline: string; // 急所ワンライナー
+  projectedMonthlyRevenue: string; // 想定月商（例: "月商 4,500万円"）
+  projectedNetProfit: string; // 実効純利益（手残り）（例: "月 3,790万円"）
+  profitMargin: number; // 粗利率・利益率 %（例: 84）
+  targetPainWallet: string; // 人質にした痛みの財布
+  pipelineStack: string; // 現場の配管・使用ツール構成
+  incumbentBlindspot: string; // 大手の自爆構造（なぜ大手が手を出せないか）
+  guerrillaTraction: string; // 初動0➔1突破の泥臭い事実ログ
+  targetEntityIds: string[]; // 関連する実例銘柄IDリスト
+  difficulty: 'EASY' | 'MEDIUM' | 'HARD'; // 参入難易度
+}
+
+// 稼ぎの型・戦術スタイル（親セクション）
+export interface BusinessArchetype {
+  id: string;
+  badge: string; // 例: "社員ゼロ / 粗利80%+"
+  title: string; // 例: "完全1人・ソロプレナー自律稼働"
+  description: string; // なぜこの型が最強なのか（構造の急所）
+  avgNetMargin: number; // 平均実効手残り率 %
+  iconName: string; // アイコン識別子
+  ideas: ActionableIdea[]; // 配下の具体的アイデア群
+}
 
 // マネーフロー動向レーダー：急上昇トレンド
 export interface MoneyFlowTrend {

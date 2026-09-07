@@ -3,7 +3,7 @@
 import React from 'react';
 import { 
   Database, 
-  TrendingUp, 
+  Layers, 
   Bookmark, 
   Activity,
   Cpu,
@@ -40,9 +40,9 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
         {/* 区切り線 */}
         <div className="w-6 border-t border-white/[0.06]" />
 
-        {/* ナビゲーションレールアイテム */}
-        <div className="flex flex-col items-center gap-1.5 w-full px-1.5">
-          {/* 1. 財務台帳 (LEDGER) */}
+        {/* ナビゲーションアイコン群 */}
+        <div className="flex flex-col items-center gap-2 w-full">
+          {/* 1. 全銘柄 財務台帳 (LEDGER) */}
           <div className="relative group w-full flex justify-center">
             <button
               onClick={() => {
@@ -63,21 +63,21 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
             </div>
           </div>
 
-          {/* 2. マネーフロー動向レーダー (RADAR) */}
+          {/* 2. 稼ぎの型 ＆ 具体的アイデア展開 (ARCHETYPES) */}
           <div className="relative group w-full flex justify-center">
             <button
-              onClick={() => onSelectMode('RADAR')}
+              onClick={() => onSelectMode('ARCHETYPES')}
               className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
-                workspaceMode === 'RADAR'
+                workspaceMode === 'ARCHETYPES'
                   ? 'bg-white/[0.1] text-white border border-white/[0.15]'
                   : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04]'
               }`}
             >
-              <TrendingUp className="w-4 h-4" />
+              <Layers className="w-4 h-4" />
             </button>
             {/* ツールチップ */}
             <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
-              マネーフロー動向レーダー (Radar)
+              稼ぎの型 ＆ アイデア (Playbook)
             </div>
           </div>
 

@@ -13,6 +13,7 @@ import { CompanyInspectorPane } from '../inspector/CompanyInspectorPane';
 import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
 import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView';
 import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
+import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { useViewHistory } from '../../hooks/useViewHistory';
@@ -262,8 +263,8 @@ export const TerminalShell: React.FC = () => {
             currency={currency}
             initialContextEntityId={selectedEntityId}
           />
-        ) : (workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
-          <MoneyFlowRadarView
+        ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
+          <TacticalArchetypesView
             allEntities={INSTITUTIONAL_ENTITIES}
             onOpenEntityInLedger={(entityId) => {
               setSelectedEntityId(entityId);
