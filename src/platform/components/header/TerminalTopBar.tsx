@@ -18,15 +18,11 @@ export const TerminalTopBar: React.FC<TerminalTopBarProps> = ({
 }) => {
   return (
     <header className="h-[30px] w-full bg-[#07080A] border-b border-white/[0.06] flex items-center justify-between px-3 z-20 select-none text-[11px] font-mono">
-      {/* 左ロゴ & 金融ステータス */}
-      <div className="flex items-center gap-2.5 shrink-0">
+      {/* 左: システム識別 */}
+      <div className="flex items-center shrink-0">
         <span className="text-white font-bold tracking-wider text-[11px]">
           KIN-KOROKU
         </span>
-        <div className="flex items-center gap-1 text-[9px] text-zinc-500 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
-          <span className="text-zinc-400 font-bold">LIVE</span>
-        </div>
       </div>
 
       {/* 中央: ⌘K プロ用超薄型インライン検索 */}
