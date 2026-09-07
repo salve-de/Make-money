@@ -80,10 +80,14 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="銘柄名・手口・タグ・創業者を検索..."
-            className="w-full bg-[#050608] border border-white/[0.06] focus:border-white/[0.15] rounded pl-8 pr-7 py-1 text-zinc-200 placeholder-zinc-600 outline-none text-xs transition-colors"
+            placeholder="銘柄名・手口・タグ・裏帳簿を検索..."
+            className="w-full bg-[#050608] border border-white/[0.06] focus:border-white/[0.15] rounded pl-8 pr-12 py-1 text-zinc-200 placeholder-zinc-600 outline-none text-xs transition-colors"
           />
-          {searchQuery && (
+          {!searchQuery ? (
+            <kbd className="hidden sm:inline-flex items-center absolute right-2 top-1/2 -translate-y-1/2 text-[9px] bg-white/[0.04] border border-white/[0.06] px-1 rounded text-zinc-500 font-mono pointer-events-none">
+              ⌘K
+            </kbd>
+          ) : (
             <button
               onClick={() => onSearchChange('')}
               className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 cursor-pointer"

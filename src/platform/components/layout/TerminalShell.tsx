@@ -6,7 +6,6 @@ import { INSTITUTIONAL_ENTITIES } from '../../data/mockLedgerData';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { FinancialEntity, GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
-import { TerminalTopBar } from '../header/TerminalTopBar';
 import { TerminalSidebar } from '../navigation/TerminalSidebar';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
@@ -94,6 +93,18 @@ export const TerminalShell: React.FC = () => {
   const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(null);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set(['ent_photoai', 'ent_keyence']));
   const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  // ⌘K グローバル検索ショートカット
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const handleToggleBookmark = useCallback((id: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -191,20 +202,12 @@ export const TerminalShell: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#060709] text-zinc-100 font-sans">
-      {/* 最上部: リアルタイム市場ティッカー */}
+      {/* 最上部: リアルタイム市場ティッカー（KIN-KOROKUロゴ一体型） */}
       <MarketTickerStrip
         onSelectEntity={(id) => {
           setSelectedEntityId(id);
           setWorkspaceMode('LEDGER');
         }}
-      />
-
-      {/* 極薄コントロールヘッダー */}
-      <TerminalTopBar
-        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
-        currency={currency}
-        onToggleCurrency={() => setCurrency((prev) => (prev === 'JPY' ? 'USD' : 'JPY'))}
-        onOpenPro={() => setIsProModalOpen(true)}
       />
 
       {/* メインワークスペース (左ナビ + 中央データグリッド/特集ディープダイブ + 右リアルタイムインスペクター) */}
@@ -225,6 +228,7 @@ export const TerminalShell: React.FC = () => {
             setScreenerFilters(null);
           }}
           bookmarkCount={bookmarkedIds.size}
+          onOpenPro={() => setIsProModalOpen(true)}
         />
 
         {/* 中央メインエリア (独自アイデア合成/壁打ち or 特集ディープダイブ or 金融台帳グリッド) */}

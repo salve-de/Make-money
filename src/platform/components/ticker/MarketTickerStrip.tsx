@@ -172,10 +172,16 @@ export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEn
         isPausedRef.current = false;
       }}
     >
-      {/* 左端固定バッジ: MARKET LIVE */}
-      <div className="bg-[#090C10] text-zinc-200 h-full px-3 flex items-center gap-1.5 shrink-0 z-30 border-r border-white/[0.08] font-bold tracking-wider text-[10px] shadow-[4px_0_12px_rgba(0,0,0,0.6)]">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-        <span className="text-zinc-200 font-mono tracking-wider">MARKET LIVE</span>
+      {/* 左端固定バッジ: KIN-KOROKU ＋ MARKET LIVE */}
+      <div className="bg-[#07080A] text-zinc-200 h-full px-3 flex items-center gap-2.5 shrink-0 z-30 border-r border-white/[0.08] font-bold tracking-wider text-[10px] shadow-[4px_0_12px_rgba(0,0,0,0.6)]">
+        <span className="text-white font-mono font-bold tracking-widest text-[11px]">
+          KIN-KOROKU
+        </span>
+        <span className="w-px h-3 bg-white/[0.15]" />
+        <div className="flex items-center gap-1.5 text-zinc-400">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+          <span className="font-mono text-[9px] tracking-wider text-zinc-400">MARKET LIVE</span>
+        </div>
       </div>
 
       {/* 横に滑らかに流れるコンテナ（ホバーでピクセル単位でその場完全静止） */}

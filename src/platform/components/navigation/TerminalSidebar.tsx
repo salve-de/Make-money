@@ -6,7 +6,8 @@ import {
   FileText, 
   Bookmark, 
   Activity,
-  Cpu
+  Cpu,
+  KeyRound
 } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 
@@ -18,6 +19,7 @@ interface TerminalSidebarProps {
   currentFilter: GridFilterOption;
   onSelectFilter: (filter: GridFilterOption) => void;
   bookmarkCount: number;
+  onOpenPro?: () => void;
 }
 
 export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
@@ -26,6 +28,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
   currentFilter,
   onSelectFilter,
   bookmarkCount,
+  onOpenPro,
 }) => {
   return (
     <aside className="hidden md:flex flex-col items-center justify-between w-12 bg-[#07080B] border-r border-white/[0.06] py-3 z-20 select-none shrink-0">
@@ -121,14 +124,27 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
               保存した銘柄 ({bookmarkCount})
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* 下部ステータス */}
-      <div className="flex flex-col items-center gap-2">
-        <span className="text-[9px] font-mono text-zinc-600 tracking-tighter">
-          v2.5
-        </span>
+          {/* 区切り線 */}
+          <div className="w-5 border-t border-white/[0.08] my-1" />
+
+          {/* 5. PROアンロック */}
+          {onOpenPro && (
+            <div className="relative group w-full flex justify-center">
+              <button
+                onClick={onOpenPro}
+                className="w-9 h-9 flex items-center justify-center rounded-md bg-white text-zinc-950 hover:bg-zinc-200 transition-all shadow-md cursor-pointer group-hover:scale-105"
+                title="PROプランで全裏帳簿を解錠"
+              >
+                <KeyRound className="w-4 h-4" />
+              </button>
+              {/* ツールチップ */}
+              <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
+                PROプランで全裏帳簿を解錠
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </aside>
   );
