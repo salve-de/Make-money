@@ -893,7 +893,97 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </div>
           )}
 
-        </div>
+          {/* ------------------------------------------------------- */}
+          {/* TAB 4: 考察ノート ＆ AI壁打ち (NOTES) */}
+          {/* ------------------------------------------------------- */}
+          {activeTab === 'NOTES' && (
+            <div className="space-y-5">
+              <div className="border border-white/[0.08] rounded-md bg-[#0A0B10] p-4 space-y-3 shadow-lg">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+                  <div className="flex items-center gap-2">
+                    <Edit3 className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="font-mono text-xs font-bold text-white tracking-wider">
+                      ANALYST_FIELD_NOTES: 極秘考察メモ
+                    </span>
+                  </div>
+                  {analystNote && (
+                    <span className="font-mono text-[10px] text-emerald-400/90 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">
+                      自動保存済
+                    </span>
+                  )}
+                </div>
+
+                <p className="text-[11px] text-zinc-400 leading-relaxed font-sans">
+                  {entity.name}の盲点・手口・原価構造から着想を得た独自の転用アイデアや、別市場へのスライド仮説を記録してください。このメモはAIとの壁打ちや独自アイデア創出の着火剤として読み込まれます。
+                </p>
+
+                <textarea
+                  rows={5}
+                  value={analystNote}
+                  onChange={(e) => onSaveAnalystNote && onSaveAnalystNote(entity.id, e.target.value)}
+                  placeholder="例: このAPIラッパーの構造を士業の契約書レビューに応用できないか？ 初期の自演集客（Reddit）の代わりにXやnoteを活用し、初期100人を集める..."
+                  className="w-full bg-[#060709] border border-white/[0.1] focus:border-white/[0.25] rounded p-3 text-xs font-mono text-zinc-100 placeholder-zinc-600 focus:outline-none transition-colors resize-none leading-relaxed"
+                />
+
+                <div className="flex flex-col sm:flex-row items-center gap-2 pt-1">
+                  {onOpenSynthesisWithEntity && (
+                    <button
+                      onClick={() => onOpenSynthesisWithEntity(entity.id)}
+                      className="w-full sm:flex-1 py-2 px-3 rounded bg-white/[0.08] hover:bg-white/[0.15] border border-white/[0.12] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md active:scale-[0.99]"
+                    >
+                      <Bot className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>この銘柄のデータでAIと壁打ちする</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* 銘柄の着眼点サマリー */}
+              <div className="border border-white/[0.06] rounded bg-white/[0.02] p-3 space-y-2">
+                <span className="font-mono text-[10px] text-zinc-500 block uppercase">
+                  考察の武器（この銘柄のキーデータ）
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono">
+                  <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
+                    <span className="text-zinc-500 block text-[9px]">人質にした財布</span>
+                    <span className="text-zinc-200">{entity.targetPainWallet || '顧客の恐怖・怠惰'}</span>
+                  </div>
+                  <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
+                    <span className="text-zinc-500 block text-[9px]">初動集客の泥臭い手口</span>
+                    <span className="text-zinc-200">{entity.strategy.initialTraction[0]}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* 全タブ共通: 最下部のアナリストクイックメモ */}
+          {activeTab !== 'NOTES' && (
+            <div className="border-t border-white/[0.06] pt-4 mt-6">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="font-mono text-[10px] text-zinc-500 flex items-center gap-1">
+                  <Edit3 className="w-3 h-3 text-zinc-400" />
+                  アナリスト考察メモ（クリックして追記）
+                </span>
+                {onOpenSynthesisWithEntity && (
+                  <button
+                    onClick={() => onOpenSynthesisWithEntity(entity.id)}
+                    className="font-mono text-[10px] text-emerald-400 hover:text-emerald-300 transition-colors inline-flex items-center gap-1"
+                  >
+                    <Bot className="w-3 h-3" />
+                    AIと壁打ち
+                  </button>
+                )}
+              </div>
+              <textarea
+                rows={2}
+                value={analystNote}
+                onChange={(e) => onSaveAnalystNote && onSaveAnalystNote(entity.id, e.target.value)}
+                placeholder="この銘柄の転用メモ・着眼点を記録（自動保存）..."
+                className="w-full bg-[#060709] border border-white/[0.06] focus:border-white/[0.2] rounded p-2 text-[11px] font-mono text-zinc-300 placeholder-zinc-600 focus:outline-none transition-colors resize-none leading-relaxed"
+              />
+            </div>
+          )}
       </aside>
     </>
   );
