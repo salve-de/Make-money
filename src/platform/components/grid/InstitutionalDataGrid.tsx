@@ -140,18 +140,16 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         </table>
       </div>
 
-      {/* 3. ワイドPC全画面表示時（インスペクター非表示時）: 【Bloomberg型 純化スプレッドシート（文字切れゼロ・完全水平垂直整列）】 */}
+      {/* 3. ワイドPC全画面表示時（インスペクター非表示時）: 【Bloomberg型 2段組純化スプレッドシート】 */}
       {!isSplitView && (
         <div className="hidden xl:block w-full">
           <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
             <thead>
               <tr className="border-b border-white/[0.08] bg-[#090A0D] text-zinc-500 text-[11px] h-9">
-                <th className="w-[20%] py-2.5 px-3 font-medium">銘柄名</th>
-                <th className="w-[10%] py-2.5 px-2 font-medium">構造の型</th>
-                <th className="w-[42%] py-2.5 px-3 font-medium">歪みの手口（急所ワンライナー）</th>
-                <th className="w-[11%] py-2.5 px-3 font-medium text-right">月商</th>
-                <th className="w-[11%] py-2.5 px-3 font-medium text-right">実効純利 (率)</th>
-                <th className="w-[6%] py-2.5 px-3 font-medium text-right">体制</th>
+                <th className="w-[58%] py-2.5 px-4 font-medium">銘柄 / 歪みの手口</th>
+                <th className="w-[14%] py-2.5 px-3 font-medium text-right">月商</th>
+                <th className="w-[18%] py-2.5 px-3 font-medium text-right">実効純利 (率)</th>
+                <th className="w-[10%] py-2.5 px-3 font-medium text-right">体制</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
@@ -162,49 +160,48 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   <tr
                     key={entity.id}
                     onClick={() => onSelectEntity(entity.id)}
-                    className={`cursor-pointer transition-colors h-12 group ${
+                    className={`cursor-pointer transition-colors group ${
                       isSelected
                         ? 'bg-white/[0.08] border-l-2 border-emerald-500'
                         : 'hover:bg-white/[0.03] border-l-2 border-transparent'
                     }`}
                   >
-                    {/* 1. 銘柄名・サービス名（絶対に省略されない20%幅） */}
-                    <td className="py-2.5 px-3 align-middle">
-                      <div className="flex items-center gap-2 min-w-0">
+                    {/* 1. 銘柄名 ＆ 歪みの手口（2段組: 58%の広大幅） */}
+                    <td className="py-2.5 px-4 align-middle">
+                      <div className="flex items-start gap-2.5 min-w-0">
                         <button
                           onClick={(e) => onToggleBookmark(entity.id, e)}
-                          className="text-zinc-600 hover:text-zinc-300 shrink-0 cursor-pointer"
+                          className="text-zinc-600 hover:text-zinc-300 shrink-0 cursor-pointer mt-0.5"
                         >
                           <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                         </button>
-                        <div className="flex items-center gap-1.5 min-w-0">
-                          <span className="font-semibold text-xs text-white truncate font-sans group-hover:text-emerald-300 transition-colors">
-                            {entity.name}
-                          </span>
+                        <div className="min-w-0 flex-1">
+                          {/* 1段目: 社名 + 型バッジ */}
+                          <div className="flex items-center gap-2 min-w-0">
+                            <span className="font-semibold text-xs text-white truncate font-sans group-hover:text-emerald-300 transition-colors">
+                              {entity.name}
+                            </span>
+                            <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                              {entity.architecturePattern}
+                            </span>
+                          </div>
+                          {/* 2段目: 歪みの手口（ワンライナー） */}
+                          <div 
+                            className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-0.5 line-clamp-1 truncate group-hover:text-zinc-300 transition-colors"
+                            title={entity.tagline}
+                          >
+                            {entity.tagline}
+                          </div>
                         </div>
                       </div>
                     </td>
 
-                    {/* 2. 構造の型（バッジが窮屈にならず綺麗に収まる10%幅） */}
-                    <td className="py-2.5 px-2 align-middle">
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 inline-block shrink-0">
-                        {entity.architecturePattern}
-                      </span>
-                    </td>
-
-                    {/* 3. 歪みの手口（42%の広大な幅を与え、省略なしで読ませる急所ワンライナー） */}
-                    <td className="py-2.5 px-3 align-middle font-sans text-xs text-zinc-200 tracking-tight leading-snug">
-                      <div className="line-clamp-1 group-hover:text-white transition-colors" title={entity.tagline}>
-                        {entity.tagline}
-                      </div>
-                    </td>
-
-                    {/* 4. 月商（白文字・等幅） */}
+                    {/* 2. 月商（白文字・等幅） */}
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs font-bold text-white">
                       {formatMoney(entity.pnl.monthlyRevenue)}
                     </td>
 
-                    {/* 5. 実効純利 ＋ 利益率 */}
+                    {/* 3. 実効純利 ＋ 利益率 */}
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs">
                       <span className="text-zinc-200 font-medium">
                         {formatMoney(entity.pnl.operatingProfit)}
@@ -214,7 +211,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       </span>
                     </td>
 
-                    {/* 6. 体制（数字が切れない6%幅） */}
+                    {/* 4. 体制 */}
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs text-zinc-400">
                       {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize.toLocaleString()}人`}
                     </td>
