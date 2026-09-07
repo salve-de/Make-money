@@ -91,9 +91,13 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         </div>
       </div>
 
-      {/* 4段目: 当該銘柄の特徴タグ（横スクロール対応） */}
+      {/* 4段目: 当該銘柄の特徴タグ（絞り込みトリガーボタン列: 行クリックとは独立した操作であることを明示） */}
       {entity.tags && entity.tags.length > 0 && (
-        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-1 mb-1.5">
+        <div 
+          className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-1.5 mb-1.5 border-t border-white/[0.04]"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <span className="text-[9px] font-mono text-zinc-500 shrink-0">絞込:</span>
           {entity.tags.map((tag) => {
             const isActive = activeTag === tag;
             return (
@@ -101,16 +105,20 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
                 key={tag}
                 type="button"
                 onClick={(e) => {
+                  e.preventDefault();
                   e.stopPropagation();
                   if (onSelectTag) onSelectTag(isActive ? null : tag);
                 }}
-                className={`text-[9px] font-mono px-2 py-0.5 rounded transition-colors shrink-0 border ${
+                title={`「#${tag}」で一覧を絞り込み（個別詳細は開きません）`}
+                className={`inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded transition-all shrink-0 cursor-pointer border ${
                   isActive
-                    ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
-                    : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                    ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
+                    : 'bg-zinc-900/90 text-zinc-300 active:bg-zinc-800 border-zinc-700/60 shadow-xs'
                 }`}
               >
-                #{tag}
+                <span className="text-zinc-500">#</span>
+                <span>{tag}</span>
+                {isActive && <span className="text-emerald-400 text-[10px] font-bold">✓</span>}
               </button>
             );
           })}

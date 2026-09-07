@@ -126,9 +126,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                           </div>
                         </div>
 
-                        {/* 特徴タグ（横スクロール対応） */}
+                        {/* 特徴タグ（絞り込みトリガーボタン列: 行クリックとは独立した操作であることを明示） */}
                         {entity.tags && entity.tags.length > 0 && (
-                          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none mt-1.5 pt-0.5">
+                          <div 
+                            className="flex items-center gap-1.5 overflow-x-auto scrollbar-none mt-2 pt-1 border-t border-white/[0.04]"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span className="text-[9px] font-mono text-zinc-500 shrink-0 flex items-center gap-0.5">
+                              絞込:
+                            </span>
                             {entity.tags.map((tag) => {
                               const isActive = activeTag === tag;
                               return (
@@ -136,16 +142,20 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                                   key={tag}
                                   type="button"
                                   onClick={(e) => {
+                                    e.preventDefault();
                                     e.stopPropagation();
                                     if (onSelectTag) onSelectTag(isActive ? null : tag);
                                   }}
-                                  className={`text-[9px] font-mono px-1.5 py-0.2 rounded transition-colors shrink-0 border ${
+                                  title={`「#${tag}」で一覧を絞り込み（個別詳細は開きません）`}
+                                  className={`inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded transition-all shrink-0 cursor-pointer border ${
                                     isActive
-                                      ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
-                                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                                      ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
+                                      : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
                                   }`}
                                 >
-                                  #{tag}
+                                  <span className="text-zinc-500 group-hover:text-zinc-400">#</span>
+                                  <span>{tag}</span>
+                                  {isActive && <span className="text-emerald-400 text-[10px] font-bold">✓</span>}
                                 </button>
                               );
                             })}
@@ -236,9 +246,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         >
                           {entity.tagline}
                         </div>
-                        {/* 特徴タグ（横スクロール対応） */}
+                        {/* 特徴タグ（絞り込みトリガーボタン列: 行クリックとは独立した操作であることを明示） */}
                         {entity.tags && entity.tags.length > 0 && (
-                          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none mt-1.5 pt-0.5">
+                          <div 
+                            className="flex items-center gap-1.5 overflow-x-auto scrollbar-none mt-2 pt-1 border-t border-white/[0.04]"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <span className="text-[9px] font-mono text-zinc-500 shrink-0 flex items-center gap-0.5">
+                              絞込:
+                            </span>
                             {entity.tags.map((tag) => {
                               const isActive = activeTag === tag;
                               return (
@@ -246,16 +262,20 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                                   key={tag}
                                   type="button"
                                   onClick={(e) => {
+                                    e.preventDefault();
                                     e.stopPropagation();
                                     if (onSelectTag) onSelectTag(isActive ? null : tag);
                                   }}
-                                  className={`text-[9px] font-mono px-1.5 py-0.2 rounded transition-colors shrink-0 border ${
+                                  title={`「#${tag}」で一覧を絞り込み（個別詳細は開きません）`}
+                                  className={`inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded transition-all shrink-0 cursor-pointer border ${
                                     isActive
-                                      ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
-                                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                                      ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
+                                      : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
                                   }`}
                                 >
-                                  #{tag}
+                                  <span className="text-zinc-500 group-hover:text-zinc-400">#</span>
+                                  <span>{tag}</span>
+                                  {isActive && <span className="text-emerald-400 text-[10px] font-bold">✓</span>}
                                 </button>
                               );
                             })}

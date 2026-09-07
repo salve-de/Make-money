@@ -207,25 +207,33 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             {entity.tagline}
           </div>
 
-          {/* 探索タグ（クリックで左一覧を瞬時に同分類に絞り込み） */}
+          {/* 探索タグ（クリックで左一覧を瞬時に同分類に絞り込むフィルターボタン） */}
           {entity.tags && entity.tags.length > 0 && (
             <div className="px-3 pb-2.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
-              <span className="text-[9px] font-mono text-zinc-600 shrink-0">TAGS:</span>
+              <span className="text-[9px] font-mono text-zinc-500 shrink-0">絞込:</span>
               {entity.tags.map((tag) => {
                 const isActive = activeTag === tag;
                 return (
                   <button
                     key={tag}
-                    onClick={() => onSelectTag && onSelectTag(isActive ? null : tag)}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      if (onSelectTag) onSelectTag(isActive ? null : tag);
+                    }}
                     title={`「#${tag}」で左一覧を絞り込み`}
-                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer ${
+                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer border ${
                       isActive
-                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-xs'
-                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.08]'
+                        ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
+                        : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
                     }`}
                   >
-                    <span>#{tag}</span>
-                    {isActive && <X className="w-2.5 h-2.5 text-emerald-400" />}
+                    <span className="text-zinc-500">#</span>
+                    <span>{tag}</span>
+                    {isActive ? (
+                      <X className="w-2.5 h-2.5 text-emerald-400" />
+                    ) : null}
                   </button>
                 );
               })}
