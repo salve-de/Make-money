@@ -132,6 +132,11 @@ export interface FinancialEntity {
   essence?: BusinessEssence;
   meta?: MetaArchitectureDossier;
   isBookmarked?: boolean;
+
+  // 資本主義の裏帳簿：知的興奮・探索3大トリガー
+  architecturePattern: string; // 構造の型（例: "直販要塞・相見積もり殺し", "APIラッパー・自撮り特化", "水門寄生・決済通行税", "テンプレ販売・無料逆手"）
+  pipelineStack: string; // 現場の配管・主要ツール（例: "Replicate API × Hetzner × Stripe", "Clay × Make × OpenAI"）
+  targetPainWallet: string; // 人質にした財布・痛み（例: "個人の見栄（写真館スタジオの羞恥心回避）", "工場長の保身（ライン停止恐怖）"）
 }
 
 export type GridFilterOption = 

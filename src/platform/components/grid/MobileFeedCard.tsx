@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { FinancialEntity } from '../../types/terminal';
-import { ChevronRight, Bookmark } from 'lucide-react';
+import { Bookmark } from 'lucide-react';
 
 interface MobileFeedCardProps {
   entity: FinancialEntity;
@@ -37,23 +37,26 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
     <div
       onClick={onSelect}
       className={`p-3 border-b border-white/[0.05] active:bg-white/[0.04] transition-colors cursor-pointer select-none ${
-        isSelected ? 'bg-white/[0.04]' : 'bg-[#07080B]'
+        isSelected ? 'bg-white/[0.06] border-l-2 border-emerald-500' : 'bg-[#07080B]'
       }`}
     >
-      {/* 1段目: ティッカー/社名 & 月商 */}
+      {/* 1段目: ティッカー/社名/型 & 月商 */}
       <div className="flex items-center justify-between gap-2 mb-1">
-        <div className="flex items-center gap-2 min-w-0">
-          <span className="font-mono text-[11px] text-zinc-500 shrink-0">
+        <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
+          <span className="font-mono text-[10px] text-zinc-500 shrink-0">
             {entity.ticker}
           </span>
           <span className="font-medium text-xs text-white truncate font-sans">
             {entity.name}
           </span>
+          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+            {entity.architecturePattern}
+          </span>
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
           <div className="text-right">
-            <span className="text-[10px] text-zinc-500 font-mono mr-1">月商</span>
+            <span className="text-[9px] text-zinc-500 font-mono mr-1">月商</span>
             <span className="text-xs font-mono font-medium text-white tabular-nums">
               {formatMoney(entity.pnl.monthlyRevenue)}
             </span>
@@ -68,34 +71,41 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
       </div>
 
       {/* 2段目: 歪みの手口（キラー・ワンライナー） */}
-      <p className="text-[11px] text-zinc-400 line-clamp-1 mb-1.5 font-sans tracking-tight leading-tight" title={entity.tagline}>
+      <p className="text-[11px] text-zinc-300 line-clamp-2 mb-1.5 font-sans tracking-tight leading-snug" title={entity.tagline}>
         {entity.tagline}
       </p>
 
-      {/* 3段目: 純利益・利益率・体制・解剖 */}
-      <div className="flex items-center justify-between text-[11px] font-mono">
+      {/* 3段目: 現場の配管 ＆ 人質にした財布 */}
+      <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 mb-2 truncate">
+        <div className="flex items-center gap-1 truncate text-zinc-300 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]">
+          <span className="text-zinc-500 text-[9px]">配管</span>
+          <span className="truncate">{entity.pipelineStack}</span>
+        </div>
+        <div className="flex items-center gap-1 truncate text-zinc-400 bg-white/[0.02] px-1.5 py-0.5 rounded border border-white/[0.04]">
+          <span className="text-zinc-600 text-[9px]">人質</span>
+          <span className="truncate font-sans">{entity.targetPainWallet}</span>
+        </div>
+      </div>
+
+      {/* 4段目: 純利益・利益率・体制 */}
+      <div className="flex items-center justify-between text-[11px] font-mono pt-1 border-t border-white/[0.03]">
         <div className="flex items-center gap-3">
           <div>
             <span className="text-zinc-500 text-[10px] mr-1">純利</span>
-            <span className="text-zinc-200 tabular-nums">
+            <span className="text-zinc-200 tabular-nums font-medium">
               {formatMoney(entity.pnl.operatingProfit)}
             </span>
           </div>
           <div>
             <span className="text-zinc-500 text-[10px] mr-1">営利</span>
-            <span className="text-emerald-400/90 tabular-nums">
+            <span className="text-emerald-400/90 tabular-nums font-medium">
               {entity.pnl.operatingMargin}%
             </span>
           </div>
-          <span className="text-zinc-500 text-[10px]">
-            {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize}人`}
-          </span>
         </div>
-
-        <div className="flex items-center text-zinc-500 text-[11px] shrink-0">
-          <span>解剖</span>
-          <ChevronRight className="w-3 h-3 text-zinc-600" />
-        </div>
+        <span className="text-zinc-500 text-[10px] font-sans">
+          {entity.operations.teamSize === 1 ? '完全1人' : `${entity.operations.teamSize}人`}
+        </span>
       </div>
     </div>
   );

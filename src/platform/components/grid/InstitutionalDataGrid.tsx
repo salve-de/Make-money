@@ -63,9 +63,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[64%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
-              <th className="w-[22%] py-2 px-2 font-medium text-right">月商 / 実効純利</th>
-              <th className="w-[14%] py-2 px-3 font-medium text-right">営業利益率</th>
+              <th className="w-[66%] py-2 px-3 font-medium">銘柄 / 構造の型 ＆ 現場の配管</th>
+              <th className="w-[20%] py-2 px-2 font-medium text-right">月商 / 実効純利</th>
+              <th className="w-[14%] py-2 px-3 font-medium text-right">利益率 / 体制</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
@@ -82,7 +82,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       : 'hover:bg-white/[0.02] border-l-2 border-transparent'
                   }`}
                 >
-                  {/* 社名・ティッカー・急所ワンライナー（最大2行表示） */}
+                  {/* 社名・ティッカー・構造の型・配管・人質 */}
                   <td className="py-2.5 px-3">
                     <div className="flex items-start gap-2 min-w-0">
                       <button
@@ -92,19 +92,32 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                       </button>
                       <div className="min-w-0 flex-1">
-                        <div className="flex items-center gap-1.5 truncate">
+                        <div className="flex items-center gap-1.5 flex-wrap">
                           <span className="text-[10px] text-zinc-500 font-mono shrink-0">
                             {entity.ticker}
                           </span>
                           <span className="font-medium text-xs text-white truncate font-sans">
                             {entity.name}
                           </span>
+                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                            {entity.architecturePattern}
+                          </span>
                         </div>
                         <div 
-                          className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-1 line-clamp-2"
+                          className="text-[11px] text-zinc-300 font-sans tracking-tight leading-snug mt-1 line-clamp-2"
                           title={entity.tagline}
                         >
                           {entity.tagline}
+                        </div>
+                        <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 mt-1.5 truncate">
+                          <div className="flex items-center gap-1 truncate text-zinc-300 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]" title={entity.pipelineStack}>
+                            <span className="text-zinc-500 text-[9px]">配管</span>
+                            <span className="truncate">{entity.pipelineStack}</span>
+                          </div>
+                          <div className="flex items-center gap-1 truncate text-zinc-400 bg-white/[0.02] px-1.5 py-0.5 rounded border border-white/[0.04]" title={entity.targetPainWallet}>
+                            <span className="text-zinc-600 text-[9px]">人質</span>
+                            <span className="truncate font-sans">{entity.targetPainWallet}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -122,11 +135,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     </div>
                   </td>
 
-                  {/* 営業利益率 */}
-                  <td className="py-2.5 px-3 text-right truncate align-middle">
-                    <span className="text-emerald-400/90 font-medium tabular-nums text-xs">
+                  {/* 営業利益率 ＆ 体制 */}
+                  <td className="py-2.5 px-3 text-right truncate align-middle tabular-nums">
+                    <div className="text-emerald-400/90 font-medium text-xs">
                       {entity.pnl.operatingMargin}%
-                    </span>
+                    </div>
+                    <div className="text-zinc-500 text-[10px] mt-0.5 font-sans">
+                      {entity.operations.teamSize === 1 ? '完全1人' : `${entity.operations.teamSize}人`}
+                    </div>
                   </td>
                 </tr>
               );
@@ -141,14 +157,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[28%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
-              <th className="w-[11%] py-2 px-2 font-medium text-right">直近月商</th>
-              <th className="w-[11%] py-2 px-2 font-medium text-right">実効純利益</th>
-              <th className="w-[8%] py-2 px-2 font-medium text-center">粗利益率</th>
-              <th className="w-[8%] py-2 px-2 font-medium text-center">営業利益率</th>
-              <th className="w-[8%] py-2 px-2 font-medium text-right">初期資本</th>
+              <th className="w-[21%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
+              <th className="w-[10%] py-2 px-2 font-medium">構造の型</th>
+              <th className="w-[15%] py-2 px-2 font-medium">現場の配管 (スタック)</th>
+              <th className="w-[17%] py-2 px-2 font-medium">人質にした財布・痛み</th>
+              <th className="w-[9%] py-2 px-2 font-medium text-right">直近月商</th>
+              <th className="w-[9%] py-2 px-2 font-medium text-right">実効純利益</th>
+              <th className="w-[7%] py-2 px-2 font-medium text-center">営業利益率</th>
+              <th className="w-[6%] py-2 px-2 font-medium text-right">初期資本</th>
               <th className="w-[6%] py-2 px-2 font-medium text-center">体制</th>
-              <th className="w-[20%] py-2 px-3 font-medium">突いた盲点</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
@@ -193,6 +210,27 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     </div>
                   </td>
 
+                  {/* 構造の型 */}
+                  <td className="py-2.5 px-2 align-middle">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 inline-block truncate max-w-full" title={entity.architecturePattern}>
+                      {entity.architecturePattern}
+                    </span>
+                  </td>
+
+                  {/* 現場の配管 */}
+                  <td className="py-2.5 px-2 align-middle font-mono text-[11px] text-zinc-300 truncate" title={entity.pipelineStack}>
+                    <div className="bg-white/[0.03] px-2 py-1 rounded border border-white/[0.05] truncate">
+                      {entity.pipelineStack}
+                    </div>
+                  </td>
+
+                  {/* 人質にした財布・痛み */}
+                  <td className="py-2.5 px-2 align-middle text-[11px] text-zinc-300 truncate font-sans" title={entity.targetPainWallet}>
+                    <div className="bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04] truncate">
+                      {entity.targetPainWallet}
+                    </div>
+                  </td>
+
                   {/* 月商 */}
                   <td className="py-2.5 px-2 text-right text-white tabular-nums truncate align-middle">
                     {formatMoney(entity.pnl.monthlyRevenue)}
@@ -201,11 +239,6 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   {/* 純利 */}
                   <td className="py-2.5 px-2 text-right text-zinc-300 tabular-nums truncate align-middle">
                     {formatMoney(entity.pnl.operatingProfit)}
-                  </td>
-
-                  {/* 粗利率 */}
-                  <td className="py-2.5 px-2 text-center tabular-nums text-zinc-400 align-middle">
-                    {entity.pnl.grossMargin}%
                   </td>
 
                   {/* 営業利益率 */}
@@ -221,13 +254,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   </td>
 
                   {/* 体制 */}
-                  <td className="py-2.5 px-2 text-center text-zinc-500 text-[11px] align-middle">
-                    {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize}人`}
-                  </td>
-
-                  {/* 突いた盲点 */}
-                  <td className="py-2.5 px-3 text-zinc-400 text-[11px] truncate font-sans align-middle" title={entity.strategy.blindspot}>
-                    {entity.strategy.blindspot}
+                  <td className="py-2.5 px-2 text-center text-zinc-400 text-[11px] align-middle font-mono">
+                    {entity.operations.teamSize === 1 ? '完全1人' : `${entity.operations.teamSize}人`}
                   </td>
                 </tr>
               );
