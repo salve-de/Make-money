@@ -11,8 +11,8 @@ interface MobileFeedCardProps {
   currency: 'JPY' | 'USD';
   onToggleBookmark: (e: React.MouseEvent) => void;
   isBookmarked: boolean;
-  activeTag?: string | null;
-  onSelectTag?: (tag: string | null) => void;
+  activeTags?: string[];
+  onToggleTag?: (tag: string | null) => void;
 }
 
 export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
@@ -22,8 +22,8 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   currency,
   onToggleBookmark,
   isBookmarked,
-  activeTag,
-  onSelectTag,
+  activeTags = [],
+  onToggleTag,
 }) => {
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
@@ -59,47 +59,45 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         </div>
 
         <div className="flex items-center gap-2 shrink-0">
-          <div className="text-right">
-            <span className="text-[9px] text-zinc-500 font-mono mr-1">月商</span>
-            <span className="text-xs font-mono font-medium text-white tabular-nums">
-              {formatMoney(entity.pnl.monthlyRevenue)}
-            </span>
-          </div>
           <button
             onClick={onToggleBookmark}
-            className="p-1 text-zinc-600 hover:text-zinc-300"
+            className="text-zinc-600 hover:text-zinc-300 p-0.5"
           >
             <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
           </button>
+          <div className="text-right font-mono">
+            <span className="text-white text-xs font-medium">
+              {formatMoney(entity.pnl.monthlyRevenue)}
+            </span>
+          </div>
         </div>
       </div>
 
-      {/* 2段目: 歪みの手口（キラー・ワンライナー） */}
-      <p className="text-[11px] text-zinc-300 line-clamp-2 mb-1.5 font-sans tracking-tight leading-snug" title={entity.tagline}>
+      {/* 2段目: 歪みの手口（タグライン） */}
+      <p className="text-[11px] text-zinc-300 font-sans tracking-tight leading-snug line-clamp-2 mb-1.5">
         {entity.tagline}
       </p>
 
-      {/* 3段目: 現場の配管 ＆ 人質にした財布 */}
-      <div className="space-y-1 text-[10px] mb-2">
-        <div className="flex items-start gap-1.5 text-zinc-300 bg-white/[0.03] px-2 py-1 rounded border border-white/[0.05]" title={entity.pipelineStack}>
+      {/* 3段目: 配管 & 人質スタック */}
+      <div className="space-y-1 mb-1.5 text-[10px]">
+        <div className="flex items-start gap-1.5 text-zinc-300 bg-white/[0.03] px-1.5 py-0.5 rounded border border-white/[0.05]">
           <span className="text-zinc-500 text-[9px] shrink-0 font-mono mt-0.5">配管</span>
           <span className="font-mono line-clamp-1 break-all">{entity.pipelineStack}</span>
         </div>
-        <div className="flex items-start gap-1.5 text-zinc-400 bg-white/[0.02] px-2 py-1 rounded border border-white/[0.04]" title={entity.targetPainWallet}>
+        <div className="flex items-start gap-1.5 text-zinc-400 bg-white/[0.02] px-1.5 py-0.5 rounded border border-white/[0.04]">
           <span className="text-zinc-600 text-[9px] shrink-0 font-mono mt-0.5">人質</span>
           <span className="font-sans line-clamp-1 break-all">{entity.targetPainWallet}</span>
         </div>
       </div>
 
-      {/* 4段目: 当該銘柄の特徴タグ（絞り込みトリガーボタン列: 行クリックとは独立した操作であることを明示） */}
+      {/* 4段目: 当該銘柄の特徴タグ（クリックで即時トグル・複数選択対応） */}
       {entity.tags && entity.tags.length > 0 && (
         <div 
           className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-1.5 mb-1.5 border-t border-white/[0.04]"
           onClick={(e) => e.stopPropagation()}
         >
-          <span className="text-[9px] font-mono text-zinc-500 shrink-0">絞込:</span>
           {entity.tags.map((tag) => {
-            const isActive = activeTag === tag;
+            const isActive = activeTags.includes(tag);
             return (
               <button
                 key={tag}
@@ -107,9 +105,9 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
-                  if (onSelectTag) onSelectTag(isActive ? null : tag);
+                  if (onToggleTag) onToggleTag(tag);
                 }}
-                title={`「#${tag}」で一覧を絞り込み（個別詳細は開きません）`}
+                title={`「#${tag}」で絞り込み（個別詳細は開きません）`}
                 className={`inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded transition-all shrink-0 cursor-pointer border ${
                   isActive
                     ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'

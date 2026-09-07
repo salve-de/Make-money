@@ -92,7 +92,18 @@ export const TerminalShell: React.FC = () => {
   const [isProModalOpen, setIsProModalOpen] = useState<boolean>(false);
   const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(null);
   const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set(['ent_photoai', 'ent_keyence']));
-  const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [activeTags, setActiveTags] = useState<string[]>([]);
+
+  // 複数タグのトグルハンドラー
+  const handleToggleTag = useCallback((tag: string | null) => {
+    if (!tag) {
+      setActiveTags([]);
+      return;
+    }
+    setActiveTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  }, []);
 
   // ⌘K グローバル検索ショートカット
   useEffect(() => {
@@ -148,8 +159,12 @@ export const TerminalShell: React.FC = () => {
       if (currentFilter === 'AI_NATIVE' && entity.sector !== 'AI_AUTOMATION') return false;
       if (currentFilter === 'BOOKMARKED' && !bookmarkedIds.has(entity.id)) return false;
 
-      // タグフィルタ
-      if (activeTag && !(entity.tags || []).includes(activeTag)) return false;
+      // 複数タグフィルタ（選択された全タグを含むAND一致）
+      if (activeTags.length > 0) {
+        const entityTags = entity.tags || [];
+        const hasAllTags = activeTags.every((t) => entityTags.includes(t));
+        if (!hasAllTags) return false;
+      }
 
       if (screenerFilters) {
         if (screenerFilters.scales.length > 0 && !screenerFilters.scales.includes(entity.scale)) return false;
@@ -175,7 +190,7 @@ export const TerminalShell: React.FC = () => {
 
       return true;
     });
-  }, [currentFilter, activeTag, screenerFilters, searchQuery, bookmarkedIds]);
+  }, [currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
 
   // 現在選択中の企業エンティティ
   const selectedEntity = useMemo(() => {
@@ -201,8 +216,8 @@ export const TerminalShell: React.FC = () => {
   }, [selectedEntityId, workspaceMode, deepDiveEntities, filteredEntities]);
 
   return (
-    <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#060709] text-zinc-100 font-sans">
-      {/* 最上部: リアルタイム市場ティッカー（KIN-KOROKUロゴ一体型） */}
+    <div className="flex flex-col h-screen w-screen bg-[#07080B] text-zinc-100 overflow-hidden font-sans">
+      {/* 統合ヘッダー ＆ リアルタイム市況ティッカー */}
       <MarketTickerStrip
         onSelectEntity={(id) => {
           setSelectedEntityId(id);
@@ -210,28 +225,24 @@ export const TerminalShell: React.FC = () => {
         }}
       />
 
-      {/* メインワークスペース (左ナビ + 中央データグリッド/特集ディープダイブ + 右リアルタイムインスペクター) */}
-      <main className="flex-1 flex overflow-hidden relative pb-13 md:pb-0">
-        {/* 左ナビゲーション (48px極薄アイコンレール) */}
+      {/* メインエリア */}
+      <main className="flex-1 flex overflow-hidden relative">
+        {/* 左サイドバー */}
         <TerminalSidebar
           workspaceMode={workspaceMode}
-          onSelectMode={setWorkspaceMode}
+          onSelectMode={(mode) => setWorkspaceMode(mode)}
+          currentFilter={currentFilter}
+          onSelectFilter={(f) => setCurrentFilter(f)}
+          bookmarkCount={bookmarkedIds.size}
           activeTopicId={activeTopicId}
           onSelectTopic={(topicId) => {
-            setWorkspaceMode('DEEP_DIVE');
             setActiveTopicId(topicId);
+            setWorkspaceMode('DEEP_DIVE');
           }}
-          currentFilter={currentFilter}
-          onSelectFilter={(f) => {
-            setWorkspaceMode('LEDGER');
-            setCurrentFilter(f);
-            setScreenerFilters(null);
-          }}
-          bookmarkCount={bookmarkedIds.size}
           onOpenPro={() => setIsProModalOpen(true)}
         />
 
-        {/* 中央メインエリア (独自アイデア合成/壁打ち or 特集ディープダイブ or 金融台帳グリッド) */}
+        {/* 画面モードに応じたコンテンツレンダリング */}
         {workspaceMode === 'SYNTHESIS' ? (
           <StrategySynthesisView
             allEntities={INSTITUTIONAL_ENTITIES}
@@ -273,8 +284,8 @@ export const TerminalShell: React.FC = () => {
               onOpenScreener={() => setIsScreenerOpen(true)}
               screenerFilters={screenerFilters}
               onResetScreener={() => setScreenerFilters(null)}
-              activeTag={activeTag}
-              onSelectTag={setActiveTag}
+              activeTags={activeTags}
+              onToggleTag={handleToggleTag}
             />
 
             <InstitutionalDataGrid
@@ -285,8 +296,8 @@ export const TerminalShell: React.FC = () => {
               bookmarkedIds={bookmarkedIds}
               onToggleBookmark={handleToggleBookmark}
               isSplitView={Boolean(selectedEntity)}
-              activeTag={activeTag}
-              onSelectTag={setActiveTag}
+              activeTags={activeTags}
+              onToggleTag={handleToggleTag}
             />
           </div>
         )}
@@ -304,8 +315,8 @@ export const TerminalShell: React.FC = () => {
               setWorkspaceMode('DEEP_DIVE');
               setActiveTopicId(topicId);
             }}
-            activeTag={activeTag}
-            onSelectTag={setActiveTag}
+            activeTags={activeTags}
+            onToggleTag={handleToggleTag}
             analystNote={getNote(selectedEntity.id)}
             onSaveAnalystNote={saveNote}
             onOpenSynthesisWithEntity={(id) => {

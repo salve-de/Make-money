@@ -11,8 +11,8 @@ interface DataGridToolbarProps {
   onOpenScreener: () => void;
   screenerFilters?: ScreenerFilterState | null;
   onResetScreener?: () => void;
-  activeTag?: string | null;
-  onSelectTag?: (tag: string | null) => void;
+  activeTags?: string[];
+  onToggleTag?: (tag: string | null) => void;
 }
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
@@ -22,8 +22,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   onOpenScreener,
   screenerFilters,
   onResetScreener,
-  activeTag,
-  onSelectTag,
+  activeTags = [],
+  onToggleTag,
 }) => {
   // スクリーナーの適用条件数を計算
   const activeScreenerCount = React.useMemo(() => {
@@ -97,22 +97,23 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           )}
         </div>
 
-        {/* 3. 右側: 選択中タグ解除バッジ & 件数表示 */}
-        <div className="flex items-center gap-2 shrink-0 ml-auto">
-          {/* 選択中タグ表示バッジ (ワンクリック解除可能) */}
-          {activeTag && onSelectTag && (
+        {/* 3. 右側: 複数選択中タグ解除バッジ & 件数表示 */}
+        <div className="flex items-center gap-1.5 shrink-0 ml-auto overflow-x-auto scrollbar-none max-w-xs">
+          {/* 選択中タグ一覧バッジ (各タグをワンクリックで個別解除可能) */}
+          {activeTags.map((tag) => (
             <button
-              onClick={() => onSelectTag(null)}
-              className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors cursor-pointer"
-              title="タグ絞り込みを解除"
+              key={tag}
+              onClick={() => onToggleTag && onToggleTag(tag)}
+              className="inline-flex items-center gap-1 text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors cursor-pointer shrink-0"
+              title={`#${tag} を解除`}
             >
-              <span>#{activeTag}</span>
-              <X className="w-3 h-3 text-emerald-400" />
+              <span>#{tag}</span>
+              <X className="w-2.5 h-2.5 text-emerald-400" />
             </button>
-          )}
+          ))}
 
           {/* 件数表示 */}
-          <div className="font-mono text-zinc-500 text-[11px] pl-1 border-l border-white/[0.06]">
+          <div className="font-mono text-zinc-500 text-[11px] pl-1 border-l border-white/[0.06] shrink-0">
             <span className="text-zinc-200 font-medium tabular-nums">{totalCount}</span> 件
           </div>
         </div>

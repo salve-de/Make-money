@@ -44,8 +44,8 @@ interface CompanyInspectorPaneProps {
   onOpenPro?: () => void;
   onSelectTopic?: (topicId: IntelligenceTopicId) => void;
   initialTab?: TabType;
-  activeTag?: string | null;
-  onSelectTag?: (tag: string | null) => void;
+  activeTags?: string[];
+  onToggleTag?: (tag: string | null) => void;
   analystNote?: string;
   onSaveAnalystNote?: (entityId: string, note: string) => void;
   onOpenSynthesisWithEntity?: (entityId: string) => void;
@@ -62,8 +62,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onOpenPro,
   onSelectTopic,
   initialTab = 'CORE',
-  activeTag,
-  onSelectTag,
+  activeTags = [],
+  onToggleTag,
   analystNote = '',
   onSaveAnalystNote,
   onOpenSynthesisWithEntity,
@@ -207,12 +207,11 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             {entity.tagline}
           </div>
 
-          {/* 探索タグ（クリックで左一覧を瞬時に同分類に絞り込むフィルターボタン） */}
+          {/* 探索タグ（クリックで左一覧を即時トグル・複数選択対応） */}
           {entity.tags && entity.tags.length > 0 && (
             <div className="px-3 pb-2.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
-              <span className="text-[9px] font-mono text-zinc-500 shrink-0">絞込:</span>
               {entity.tags.map((tag) => {
-                const isActive = activeTag === tag;
+                const isActive = activeTags.includes(tag);
                 return (
                   <button
                     key={tag}
@@ -220,7 +219,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      if (onSelectTag) onSelectTag(isActive ? null : tag);
+                      if (onToggleTag) onToggleTag(tag);
                     }}
                     title={`「#${tag}」で左一覧を絞り込み`}
                     className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer border ${

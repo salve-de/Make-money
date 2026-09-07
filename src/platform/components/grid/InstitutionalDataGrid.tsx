@@ -13,8 +13,8 @@ interface InstitutionalDataGridProps {
   bookmarkedIds: Set<string>;
   onToggleBookmark: (id: string, e: React.MouseEvent) => void;
   isSplitView?: boolean;
-  activeTag?: string | null;
-  onSelectTag?: (tag: string | null) => void;
+  activeTags?: string[];
+  onToggleTag?: (tag: string | null) => void;
 }
 
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
@@ -25,8 +25,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   bookmarkedIds,
   onToggleBookmark,
   isSplitView = false,
-  activeTag,
-  onSelectTag,
+  activeTags = [],
+  onToggleTag,
 }) => {
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
@@ -53,8 +53,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             currency={currency}
             isBookmarked={bookmarkedIds.has(entity.id)}
             onToggleBookmark={(e) => onToggleBookmark(entity.id, e)}
-            activeTag={activeTag}
-            onSelectTag={onSelectTag}
+            activeTags={activeTags}
+            onToggleTag={onToggleTag}
           />
         ))}
         {entities.length === 0 && (
@@ -126,17 +126,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                           </div>
                         </div>
 
-                        {/* 特徴タグ（絞り込みトリガーボタン列: 行クリックとは独立した操作であることを明示） */}
+                        {/* 特徴タグ（クリックで即時トグル・複数選択対応） */}
                         {entity.tags && entity.tags.length > 0 && (
                           <div 
                             className="flex items-center gap-1.5 overflow-x-auto scrollbar-none mt-2 pt-1 border-t border-white/[0.04]"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <span className="text-[9px] font-mono text-zinc-500 shrink-0 flex items-center gap-0.5">
-                              絞込:
-                            </span>
                             {entity.tags.map((tag) => {
-                              const isActive = activeTag === tag;
+                              const isActive = activeTags.includes(tag);
                               return (
                                 <button
                                   key={tag}
@@ -144,9 +141,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                                   onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
-                                    if (onSelectTag) onSelectTag(isActive ? null : tag);
+                                    if (onToggleTag) onToggleTag(tag);
                                   }}
-                                  title={`「#${tag}」で一覧を絞り込み（個別詳細は開きません）`}
+                                  title={`「#${tag}」で絞り込み（個別詳細は開きません）`}
                                   className={`inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded transition-all shrink-0 cursor-pointer border ${
                                     isActive
                                       ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
@@ -246,17 +243,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         >
                           {entity.tagline}
                         </div>
-                        {/* 特徴タグ（絞り込みトリガーボタン列: 行クリックとは独立した操作であることを明示） */}
+                        {/* 特徴タグ（クリックで即時トグル・複数選択対応） */}
                         {entity.tags && entity.tags.length > 0 && (
                           <div 
                             className="flex items-center gap-1.5 overflow-x-auto scrollbar-none mt-2 pt-1 border-t border-white/[0.04]"
                             onClick={(e) => e.stopPropagation()}
                           >
-                            <span className="text-[9px] font-mono text-zinc-500 shrink-0 flex items-center gap-0.5">
-                              絞込:
-                            </span>
                             {entity.tags.map((tag) => {
-                              const isActive = activeTag === tag;
+                              const isActive = activeTags.includes(tag);
                               return (
                                 <button
                                   key={tag}
@@ -264,9 +258,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                                   onClick={(e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
-                                    if (onSelectTag) onSelectTag(isActive ? null : tag);
+                                    if (onToggleTag) onToggleTag(tag);
                                   }}
-                                  title={`「#${tag}」で一覧を絞り込み（個別詳細は開きません）`}
+                                  title={`「#${tag}」で絞り込み（個別詳細は開きません）`}
                                   className={`inline-flex items-center gap-1 text-[10px] font-mono px-2 py-0.5 rounded transition-all shrink-0 cursor-pointer border ${
                                     isActive
                                       ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
