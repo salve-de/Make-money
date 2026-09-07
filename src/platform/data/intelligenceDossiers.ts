@@ -8,6 +8,13 @@ export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
     publishedDate: '2026.03.01',
     readTime: '4 MIN READ',
     punchline: '大手が稟議と法的リスクで固まる中、Replicate等の推論APIを薄くラッピングし、比較記事アフィリエイターを30%還元でカルテル化して年商数億円を完全1人で抜き去る手口。',
+    highlightMetric: { label: '創業者 実効純利益率', value: '84.2%' },
+    moneyFlow: {
+      payer: '写真館スタジオに行くのが億劫・恥ずかしい個人やフリーランス（見栄と怠惰の財布）',
+      takeMethod: '月額サブスク / 単発生成チケットの即時クレジットカード全額前金集金',
+      costCogs: '推論API原価(8.5%) ＋ 決済手数料(4.5%) ＋ アフィリ還元(2%) ＝ 原価約15%',
+      netRetained: '売上の84.2%（月商4,500万中 約3,790万）が創業者の個人口座に着金',
+    },
     macroArbitrage: '大企業の法務・コンプライアンス部門が「肖像権」「著作権」「学習データ元の責任」を検証するのに12ヶ月費やしている間、オープンソースモデル（Stable Diffusion / FLUX）のAPIをただ叩くだけのNext.jsアプリを72時間で公開。広告費を一切使わず、SEOの「Best AI Headshot Generator」等のキーワードを占拠するアフィリエイターに売上の30%を恒久キックバックすることで、後発の参入余地を物理的に封殺している。',
     costStructureTeardown: {
       title: '月商4,500万円におけるリアル原価・販管費分解',
@@ -35,6 +42,13 @@ export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
     publishedDate: '2026.02.20',
     readTime: '5 MIN READ',
     punchline: '代理店を完全排除して顧客の生データを直取りし、当日発送物流と圧倒的価格決定権で営業利益率50%超を叩き出す「プロセス・パワー」の構造。',
+    highlightMetric: { label: '営業利益率（製造業異次元）', value: '54.0%' },
+    moneyFlow: {
+      payer: '1分ラインが止まれば数百万円の損が出る工場長・生産技術部長（保身と恐怖の財布）',
+      takeMethod: '代理店を排除した完全直販見積もり ＆ 定価・即日発送の絶対価格決定権',
+      costCogs: '完全外部委託のファブレス製造原価(18%) ＋ 物流インフラ(5.5%)',
+      netRetained: '営業利益率54%（売上1兆円中 5,400億円超の現金が自社へ直噴射）',
+    },
     macroArbitrage: '多くのメーカーが「卸売・代理店網」に依存してマージンを抜かれ、顧客の本当の不満データを見失っている中、マニーやキーエンスは完全直販・直販指導部隊を組織。競合が相見積もりで値引き競争に巻き込まれる中、「今夜届かなければ工場ラインが止まり1時間1000万の損が出る」という現場の恐怖を握ることで、定価販売・即日発送の絶対独占を成立させている。',
     costStructureTeardown: {
       title: '売上高1兆円におけるP&L構造（キーエンス基準）',
@@ -61,6 +75,13 @@ export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
     publishedDate: '2026.02.10',
     readTime: '3 MIN READ',
     punchline: '採用単価300万の営業マンを雇えないSaaS企業に対し、完全成果報酬で月5件のアポを提供して月額800万を抜き去る労働解放モデル。',
+    highlightMetric: { label: '完全成果報酬 営業利益率', value: '65.0%' },
+    moneyFlow: {
+      payer: '「商談数を増やせ」と投資家に詰められているVC調達済みSaaS創業者（焦燥の財布）',
+      takeMethod: '「アポ成約1件15万〜25万」のリスクリバーサル完全成果報酬型オファー',
+      costCogs: 'スクレイピングAPI(8%) ＋ 送信ドメイン(6%) ＋ GPT推論(3.5%) ＝ 原価約17.5%',
+      netRetained: '月商800万中、520万が自動化ラインの手残り純益（営業利益率65%）',
+    },
     macroArbitrage: '数億円のシリーズAを調達したSaaS企業は「商談数を増やせ」と投資家から詰められるが、営業マンの採用と立ち上げには6ヶ月かかる。ここに「アポ1件獲得ごとに15万円〜25万円」の完全成果報酬型オファーを持ち込む。裏側ではClayとInstantlyを連携させた送信インフラで1万通の超パーソナライズメールを自動送信し、人件費ゼロで利益率65%を抜く。',
     costStructureTeardown: {
       title: '月商800万円（成果報酬型クライアント8社）のP&L',
@@ -87,6 +108,13 @@ export const INTELLIGENCE_DOSSIERS: IntelligenceDossier[] = [
     publishedDate: '2026.01.25',
     readTime: '4 MIN READ',
     punchline: 'ソーシャルメディアのアルゴリズム変動に怯える大手テック企業に「開封率40%の確定メール枠」を高額販売するストック型現金マシーン。',
+    highlightMetric: { label: '前金ストック 実効純利益率', value: '82.0%' },
+    moneyFlow: {
+      payer: 'SNS広告のCPA高騰に苦しむテック企業・B2B SaaSマーケティング部（顧客獲得の財布）',
+      takeMethod: '「開封率40%・700万人日刊枠」を3ヶ月分全額前金で一括独占枠販売',
+      costCogs: 'AWS SES配信コスト(2.5%) ＋ キュレーション外注人件費(12%) ＝ 原価約14.5%',
+      netRetained: '年商15億円中、12.3億円が自己資本・無借金の純手残りキャッシュフロー',
+    },
     macroArbitrage: 'XやGoogleのアルゴリズム変更でPVが乱高下する中、メールボックスという「個人の私的空間」に直接届く日刊レターは、B2Bマーケターにとって最も費用対効果が高い広告出稿先となる。制作コストは1日1本のキュレーション（要約）のみであり、配信コストはAWS SESで1通あたり0.01円以下。1日1枠450万円の広告枠が数ヶ月先まで完売する。',
     costStructureTeardown: {
       title: '年商15億円（TLDR基準）のP&Lレントゲン',

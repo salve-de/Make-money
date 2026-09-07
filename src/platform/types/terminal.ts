@@ -167,6 +167,13 @@ export type IntelligenceTopicId =
   | 'b2b_outbound'
   | 'media_cashflow';
 
+export interface IntelligenceMoneyFlow {
+  payer: string; // 誰の財布（人質にした痛み）
+  takeMethod: string; // 集金・中抜きの仕掛け（前金・アフィリ・独占直販等）
+  costCogs: string; // 仕入れ原価・流出先（推論API、ファブレス委託、配信インフラ等）
+  netRetained: string; // 創業者口座への手残り率・純利益
+}
+
 export interface IntelligenceDossier {
   id: IntelligenceTopicId;
   title: string;
@@ -175,6 +182,8 @@ export interface IntelligenceDossier {
   readTime: string;
   punchline: string;
   macroArbitrage: string; // 市場の構造的歪み・大手の死角
+  moneyFlow?: IntelligenceMoneyFlow; // マネーフロー構造（資金移動レントゲン）
+  highlightMetric?: { label: string; value: string }; // 最重要数値（例: 実効手残り 84.2%）
   costStructureTeardown: {
     title: string;
     description: string;
