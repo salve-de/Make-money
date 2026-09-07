@@ -81,6 +81,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       ],
       coldOutreachTemplate: '【貴社〇〇工場の歩留まり改善に関するご提案】突然のご連絡失礼いたします。同業他社様で月間〇〇時間のライン停止損失をゼロにした「非接触センサーによる事前検知モデル」の実機デモ機を、明日午前中にお持ちして30分でテスト可能です。費用は一切発生いたしません。',
     },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: 'オムロン・三菱・パナは既存の巨大代理店網に依存しており、キーエンスのように直販化すると全代理店からボイコットされ本業数千億円が蒸発するため直販体制を作れない。',
+        scaleMismatchReason: '「営業利益率80%超が狙える案件のみ開発着手」という狂気の規律は大手の社内政治・開発リソース配分では稟議が通らない。',
+        decisionSpeedAdvantage: '即日デモ機持参・即日テスト・当日出荷率99.9%という物理物流と現場コンサル営業の密結合は、官僚的大手には模倣不可能。',
+      },
+      pricingPower: {
+        anchorComparison: '「数十万円のセンサー代」ではなく「1時間の製造ライン停止損失（数千万円）」と比較させることで、定価の5〜10倍の価格を正当化。',
+        lossAversionTrigger: '「他社の安い代替品を使ってラインが止まったら担当者のクビが飛ぶ」という工場責任者の保身・免責心理。',
+        budgetCategory: '工場の設備投資・保全修繕予算（減価償却費枠・緊急保全枠）。相見積もりを取らずに即断即決される枠。',
+      },
+      lockInMechanism: {
+        dataHostage: '全国7万工場の製造トラブル履歴と過去のカスタマイズ設定データがキーエンスのSFAに独占蓄積。',
+        workflowIntegration: '工場の治具やPLC（制御装置）プログラムがキーエンス仕様で設計され、他社製への交換はライン全面停止を意味するため物理的に不可能。',
+        switchingFriction: '代替品テストのためのライン停止コストと、品質事故リスクの責任が担当者に降りかかるため、誰も乗り換えを言い出せない。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '自社工場を持たないファブレス（製造は協力工場へ外注し支払は遅め）× 顧客への即納・翌月直接回収。',
+        incrementalMargin: '売上原価率わずか18%。固定費を回収した後の売上増は、営業利益へダイレクトに直下（営業利益率54%）。',
+        workingCapitalStrategy: '無借金経営。毎年数千億円の営業CFが積み上がり、手元現金は1兆円超の安全地帯。',
+      },
+    },
   },
   {
     id: 'ent_stripe',
@@ -160,6 +182,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         'Step 2: 意思決定者ではなく、現場の実装者（開発者）に熱狂される無料ツール・ドキュメントを配る',
         'Step 3: 取引量に応じた従量課金（2.9% + 30¢）で、顧客の成長と自社の売上を完全に連動させる',
       ],
+    },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: '既存の大手決済代行・銀行は対面営業と紙の契約書による高額導入費・月額固定費ビジネスに依存しており、Web上で7行で即時導入できる無料APIへの移行が自壊を招くため不可能。',
+        scaleMismatchReason: '創業初期の個人開発者や無名スタートアップという「月商数万円のスモール市場」は、大手金融機関の営業ノルマ上相手にできない。',
+        decisionSpeedAdvantage: '「今夜プロダクトをローンチしたい」開発者に対し、即時アカウント発行・即時テスト環境提供というスピードで金融機関を無力化。',
+      },
+      pricingPower: {
+        anchorComparison: '金融機関との数ヶ月の審査・契約交渉コストと、決済エンジニアの年収（数千万円）と比較させ、テイクレート2.9%+30¢を「最も安い初期投資」と認識させる。',
+        lossAversionTrigger: '「決済が落ちて売上を逃す機会損失」「カード不正利用によるチャージバック損害」をRadar（AI不正検知）で防ぐ安心感。',
+        budgetCategory: '売上からの天引き（自動控除）。顧客の銀行口座から請求書で支払わせるのではなく、取引時に抜くため支払い痛覚がゼロ。',
+      },
+      lockInMechanism: {
+        dataHostage: '顧客企業の全決済履歴、クレジットカードトークン、サブスク契約情報がStripeインフラ内に蓄積され、他社移行には膨大なセキュリティ監査が必要。',
+        workflowIntegration: '請求書発行、税計算（Stripe Tax）、不正検知、顧客ポータルまで業務全体がStripeエコシステムに深く依存。',
+        switchingFriction: '決済基盤の乗り換えはコードの全面書き直しと顧客のカード再登録を伴い、チャーン（解約）が大量発生するため経営陣が拒絶する。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '取引成立の瞬間にテイクレートを自動天引きするため売掛金・未回収リスクが実質ゼロ。',
+        incrementalMargin: 'ソフトウェアによる自動処理のため、決済取扱高が1兆円増えても追加の運用人件費はほぼゼロ（限界利益率90%超）。',
+        workingCapitalStrategy: '顧客の売上成長に伴って自社の売上が自動増殖する「インターネット経済の通行税」モデル。',
+      },
     },
   },
   {
@@ -243,6 +287,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       ],
       coldOutreachTemplate: '【ポートレート写真のアップデートについて】突然のご連絡失礼します。貴殿のLinkedInプロフィール写真について、スタジオ撮影なしで3分でハリウッド級のライティングに補正するAIパイプラインを作成しました。サンプルを3枚無償生成しましたのでご確認ください。',
     },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: 'Adobeや大手写真館はディープフェイクや肖像権訴訟のリスクを極度に恐れ、社内法務がグラビアや自撮り特化AIのリリースを100%通せない。',
+        scaleMismatchReason: '年商2億円規模はAdobeにとって「稟議書の印刷代」以下であり、開発リソースを割り当てるインセンティブがゼロ。',
+        decisionSpeedAdvantage: 'オープンソース（Stable Diffusion/FLUX）の進化を察知した当日にコードを書き、72時間で世界最速ローンチする個人開発者の圧倒的機動性。',
+      },
+      pricingPower: {
+        anchorComparison: '「プロ写真館での撮影費用（3〜5万円＋予約・移動・ポーズをとる恥ずかしさ）」と比較させ、月額29ドル（約4,300円）を「10分の1以下の破格」と錯覚させて即決させる。',
+        lossAversionTrigger: '「マッチングアプリやSNSでダサい写真を使って異性や取引先にナメられる」という現代人の見栄とコンプレックス。',
+        budgetCategory: '個人の可処分所得・見栄の自己投資枠。少額サブスクのため解約忘れ（チャーン遅延）が自動発生。',
+      },
+      lockInMechanism: {
+        dataHostage: 'ユーザーが自撮り30枚をアップロードして生成した「独自AI顔モデル（LoRA）」はPhoto AI内に閉じ込められており、他社へのエクスポート不可。',
+        workflowIntegration: 'SNSアイコン、マッチングアプリ写真、ビジネス宣材写真の更新ルーティンとして定着。',
+        switchingFriction: '他社に乗り換えるには再度大量の写真を集めてアップロードし、学習完了まで数十分待つ苦痛が発生するため離脱を躊躇する。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: 'Stripe年払いで現金を即時一括回収し、Replicate/RunPodのGPU推論代は翌月末払い（CCCマイナス45日）。',
+        incrementalMargin: '顧客が1人増えても増える原価は推論API代数十円のみ。粗利88%・営業利益率84%という驚異の現金化速度。',
+        workingCapitalStrategy: '借金・VC調達完全ゼロ。PHP単一ファイル＋サーバーレス構成により、固定費月数万円で月1,500万円以上の純利を創業者個人口座に着金。',
+      },
+    },
   },
   {
     id: 'ent_headshotpro',
@@ -322,6 +388,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         'Step 2: 広告費を自前で溶かさず、業界最大級のアフィリエイト還元率を設定して軍隊に売らせる',
         'Step 3: チーム単位（10人〜100人）の一括決済プランを用意し、客単価を10倍に引き上げる',
       ],
+    },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: '大手写真館や派遣フォトグラファー仲介会社は提携カメラマンの手前、自らAI写真に参入すると既存ビジネスを破壊するため参入不能。',
+        scaleMismatchReason: '法人B2B向けのヘッドショット特化という狭いバーティカルは、大手総合求人ポータルやSaaS企業にはニッチすぎて投資対効果が合わない。',
+        decisionSpeedAdvantage: '比較記事アフィリエイターへの30%キックバックカルテルを即断即決し、SEO上位を独占。',
+      },
+      pricingPower: {
+        anchorComparison: '全社員の出社・スタジオ撮影日程調整（人事の数百時間の工数＋撮影費用数十万円）と比較させ、1人3,000円〜で完了する法人プランを「人事の神ツール」として決済させる。',
+        lossAversionTrigger: 'WebサイトやLinkedInで社員の顔写真のトーンがバラバラで「会社が胡散臭く見える」というブランディングの信用毀損恐怖。',
+        budgetCategory: '企業の人事・採用・総務経費枠。会社のコーポレートカードで一括決済されるため価格感応度が極めて低い。',
+      },
+      lockInMechanism: {
+        dataHostage: '企業ごとの写真レタッチ基準・背景色プリセット・承認フローがシステム内に保存。',
+        workflowIntegration: '新入社員が入社した際、Slack招待と同時に「HeadshotProでアイコン写真を生成する」という入社オンボーディング規定に組み込まれる。',
+        switchingFriction: '全社員のアイコンのトーン＆マナーを統一しているため、他社ツールへ乗り換えると全員の写真を撮り直す必要が生じる。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '成果報酬型アフィリエイトのため、売上が発生した時のみ費用が発生。事前の広告宣伝費リスクがゼロ。',
+        incrementalMargin: '法人一括購入（50人〜200人枠）の前払いにより、売上が一気に数十万〜数百万円単位でキャッシュイン。粗利率70%。',
+        workingCapitalStrategy: 'リモートチーム3名のみで年商5.4億円を運用。利益率46%の超高効率キャッシュフロー。',
+      },
     },
   },
   {
@@ -404,6 +492,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       ],
       coldOutreachTemplate: '【貴社エンジニア採用/SaaSのプロモーションについて】TLDR発行人のDanです。現在、シニアエンジニア・CTOを含む約700万人が購読しております。来月、開発者向け枠に1枠のみ空きが出ましたので、貴社プロダクトのご案内をお送りできます。ご興味ございますでしょうか？',
     },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: 'TechCrunchやWIRED等の大手ITメディアは記者数十人を抱え、長文記事とPVバナー広告に依存。エンジニアが好む「要点短文ダイジェスト」を配信すると自社PVが激減するため真似できない。',
+        scaleMismatchReason: 'メールマガジンという古典的メディアは、VCが出資するような「次世代テックプラットフォーム」の文脈に乗らず大手メディア企業が軽視。',
+        decisionSpeedAdvantage: 'アルゴリズム変動に左右されないメール受信トレイ（インボックス）をいち早く占有し、毎日休まず配信する継続性。',
+      },
+      pricingPower: {
+        anchorComparison: 'エンジニア1名採用に200〜300万円払っている大手テック企業の採用費と比較させ、700万人の開発者に一斉リーチできる広告枠を1枠100万円超で即決販売。',
+        lossAversionTrigger: '「自社のSaaSや求人が競合に埋もれて技術者に認知されない」というエンジニア採用難の恐怖。',
+        budgetCategory: 'テック企業・VC出資スタートアップの採用広報・B2Bマーケティング予算（数千万円枠）。',
+      },
+      lockInMechanism: {
+        dataHostage: '過去のスポンサー企業のCTR・開封率データ、および700万人の読者セグメントリスト。',
+        workflowIntegration: '世界中のテック系ビジネスパーソンの「朝一番のニュースチェック」という日常の生活習慣（Habit）に完全に同化。',
+        switchingFriction: 'メールボックスの朝のルーティンは可処分時間が限られており、一度定着した購読習慣は他メディアに奪われにくい。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: 'スポンサー料はすべて「前払い一括請求」。未回収リスクゼロで現金を先取り。',
+        incrementalMargin: '読者が100万人から700万人に増えても、メール配信インフラ費が微増するだけでコンテンツ制作費は一定（限界利益率80%超）。',
+        workingCapitalStrategy: 'オフィスゼロ、記者数名のみで年商15億円・純利益10億円（利益率67.2%）を達成する究極のメディアキャッシュマシーン。',
+      },
+    },
   },
   {
     id: 'ent_easlo',
@@ -483,6 +593,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         'Step 2: 無料の最小限テンプレートを配布してメルマガ読者を数十万人集める',
         'Step 3: 上位互換のオールインワンパックを有料化し、完全自動ステップメールで売り続ける',
       ],
+    },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: '大手SaaSやコンサルティング会社は人件費が高すぎて、1本数千円のNotionテンプレート販売というミクロビジネスには物理的に参入できない。',
+        scaleMismatchReason: '個人向けの生産性テンプレート市場は、企業が組織的に取り組むには小さすぎて稟議が一瞬で却下される。',
+        decisionSpeedAdvantage: 'Notionの新機能アップデートやXのトレンドに合わせて、数時間でテンプレートを作成・公開できる個人の身軽さ。',
+      },
+      pricingPower: {
+        anchorComparison: 'AsanaやJira等のプロジェクト管理ツールの月額サブスク（年間数十万円）と比較させ、一生使える買い切り数千円〜2万円を「圧倒的コスパ」と錯覚させる。',
+        lossAversionTrigger: '「タスクや目標管理が散乱して時間を浪費している」という自己管理への焦燥感と罪悪感。',
+        budgetCategory: '個人の自己啓発・スキルアップ・仕事効率化の自己投資枠。',
+      },
+      lockInMechanism: {
+        dataHostage: '日々のタスク、読書記録、個人プロジェクト、財務ログがNotion内に蓄積され、他テンプレートへの乗り換えコストが莫大化。',
+        workflowIntegration: 'PCを開いた時のブラウザ初期画面（ダッシュボード）として毎日閲覧・更新される生活基盤。',
+        switchingFriction: '過去数ヶ月〜数年分の個人データを移し替える作業が面倒すぎて、一度設定したら永久に使い続ける。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: 'Gumroad経由で即時決済・即時入金。売掛金・在庫・原価が物理的に完全ゼロ。',
+        incrementalMargin: 'デジタルファイルのダウンロード販売のため、1個売れても1万個売れても追加コストゼロ（限界利益率99%超）。',
+        workingCapitalStrategy: '初期資本ゼロ、完全1人、月間ツール費数千円。月商950万円に対して月純利937万円（純利益率98.6%）の極限形。',
+      },
     },
   },
   {
@@ -565,6 +697,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       ],
       coldOutreachTemplate: '【貴社のSeries A調達と営業チーム拡大について】〇〇様、先日の調達おめでとうございます。急拡大フェーズで直面する「SDR採用コストと立ち上がり遅延」を回避するため、来月貴社のカレンダーに商談を15件流し込みます。アポが成立しなかった場合は費用ゼロです。水曜14時にお話し可能でしょうか？',
     },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: '既存の営業代行会社（テレアポ部隊数十人）は固定人件費を抱えており、「AIで月1万件のパーソナライズメールを自動送信する」モデルに転換すると自社社員が全員不要になり倒産するため参入不能。',
+        scaleMismatchReason: 'ClayやInstantlyを組み合わせた最新のAIオートメーションは現場のエンジニアリング力が必要であり、旧態依然としたコールセンター型企業には技術がない。',
+        decisionSpeedAdvantage: '顧客の商談アポを最短3日で獲得開始する圧倒的なセットアップスピード。',
+      },
+      pricingPower: {
+        anchorComparison: '営業マン1人を正社員採用するコスト（年収600万円＋社保＋求人媒体費）と比較させ、「初期構築費50万円＋月額30万円＋成果報酬」を「営業1人雇うより遥かに安く大量のアポが獲れる」と即断させる。',
+        lossAversionTrigger: '「競合に先を越されてパイを奪われる」「営業パイプラインが枯渇して今期の売上目標に未達になる」経営者の焦燥感。',
+        budgetCategory: '企業の営業・マーケティング投資枠（正社員採用枠の代替）。',
+      },
+      lockInMechanism: {
+        dataHostage: '自社向けに最適化されたターゲットリスト（数万件のプロファイル）と過去の返信率ログ。',
+        workflowIntegration: '顧客企業のSalesforce/HubSpotにアポが自動で同期され、営業チームの日常パイプラインの命綱となる。',
+        switchingFriction: '解約した瞬間に新規アポの流入が完全ストップするため、成果が出ている限り契約解除のリスクが極めて低い。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '初期構築費と月額フィーはすべて「前払い請求」。APIやツール実費は顧客クレジットカードから直接決済。',
+        incrementalMargin: '一度ワークフローを構築すれば運用はAIボットが自動実行するため、顧客が増えても人件費が増えない（営業利益率65%）。',
+        workingCapitalStrategy: '完全1人＋外注プログラマー1名で月商800万円・純利520万円を叩き出す超高収益B2Bエージェンシーモデル。',
+      },
+    },
   },
   {
     id: 'ent_local_wash',
@@ -644,6 +798,28 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         'Step 2: LINE公式アカウントに見積もりシミュレーターを構築し、Google MEOで地域1位を狙う',
         'Step 3: 現場写真を送ってもらって成約させ、差額マージン（40〜50%）を手残りとして自動回収する',
       ],
+    },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: '大手リフォーム会社やハウスメーカーは単価数百万円の塗装工事が本業であり、単価数万円の高圧洗浄は利益が出ず現場職人の手間になるため手を出さない。',
+        scaleMismatchReason: '地域密着のニッチ清掃案件は、全国展開する上場企業には商圏が狭すぎてスケールメリットが効かない。',
+        decisionSpeedAdvantage: 'LINE公式アカウントによる即日見積もり・翌日施工という地域の圧倒的スピード感。',
+      },
+      pricingPower: {
+        anchorComparison: '「外壁塗装の全面塗り替え（150万〜200万円）」と比較させ、「高圧バイオ洗浄（3.8万円〜）」を「将来の百万円の補修を防ぐ格安の予防保全」として買わせる。',
+        lossAversionTrigger: '「外壁のコケや黒ずみを放置するとカビが根を張り、外壁材が腐食して莫大な修繕費がかかる」という住宅所有者の資産劣化恐怖。',
+        budgetCategory: '戸建て住宅の日常維持管理費・修繕積立金枠。',
+      },
+      lockInMechanism: {
+        dataHostage: '地域の戸建て住宅カルテ（外壁材の種類、過去施工日、次回おすすめ洗浄時期）のデータベース。',
+        workflowIntegration: 'LINE公式アカウントによる年1回の定期点検案内とお正月・梅雨前のリマインド。',
+        switchingFriction: '地域の顔が見える職人との信頼関係とLINEでの手軽なやり取りにより、わざわざ他社を探す動機がゼロ。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '施工当日に現金またはPayPay・カードで即時集金。職人への外注費は月末締め翌月末払い（手元現金が常に先行）。',
+        incrementalMargin: '店舗・事務所・自社トラックゼロ。固定費がほぼないため、施工案件数に比例して営業利益が積み上がる（利益率48.3%）。',
+        workingCapitalStrategy: '完全無店舗型DX。チラシ配布とLINE自動化のみで月商450万円・純手残り218万円を安定創出。',
+      },
     },
   },
 ];

@@ -663,58 +663,103 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           )}
 
           {/* ========================================================= */}
-          {/* 【単一 PRO Vault（黒金庫）】画面最下部に集約配置 */}
+          {/* 【PRO EXCLUSIVE: ビジネスモデル構造解剖（4大メタ分析）】 */}
           {/* ========================================================= */}
-          <div className="relative border border-white/[0.1] rounded-md bg-[#0A0B0E] p-3.5 space-y-2.5 overflow-hidden shadow-xl mt-6">
-            <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[9px] font-bold text-zinc-400 bg-white/[0.06] border border-white/[0.08] px-1.5 py-0.5 rounded">
-                  PRO
-                </span>
-                <div className="flex items-center gap-1.5">
-                  <Lock className="w-3.5 h-3.5 text-zinc-400" />
-                  <span className="text-[11px] font-mono font-bold text-zinc-200 uppercase tracking-wider">
-                    PRO VAULT: 実戦裏帳簿アセット
+          {entity.meta && (
+            <div className="relative border border-white/[0.1] rounded-md bg-[#0A0B0E] p-3.5 space-y-3 overflow-hidden shadow-2xl mt-6">
+              {/* ヘッダー */}
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
+                <div className="flex items-center gap-2">
+                  <span className="font-mono text-[9px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-1.5 py-0.5 rounded">
+                    PRO
                   </span>
+                  <div className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-zinc-300" />
+                    <span className="text-[11px] font-mono font-bold text-zinc-100 uppercase tracking-wider">
+                      ビジネスモデル構造解剖 (META-ARCHITECTURE)
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <span className="text-[9px] font-mono text-zinc-500">
-                LOCKED ASSETS
-              </span>
-            </div>
-
-            {/* すりガラス遮断エリア (課金トリガー ＆ コールドDM実文 ＆ 非公開ハック) */}
-            <div className="relative pt-1">
-              <div className="filter blur-[2px] opacity-25 select-none pointer-events-none space-y-2 text-[10px] text-zinc-400 font-mono leading-relaxed">
-                <div>
-                  <span className="text-zinc-300 font-bold block">【課金の心理トリガー】</span>
-                  {entity.pricing?.psychologicalTrigger || '顧客が抗えずに金を払う深層心理トリガー'}
-                </div>
-                <div>
-                  <span className="text-zinc-300 font-bold block">【成約コールドDM実文】</span>
-                  {entity.strategy.coldOutreachTemplate || '件名: 〇〇様、先日の調達おめでとうございます...'}
-                </div>
-                <div>
-                  <span className="text-zinc-300 font-bold block">【現場の非公開ハック】</span>
-                  {entity.strategy.secretInsight || 'GPUサーバーレス推論の待機コストを完全ゼロにする独自バッチ構成'}
-                </div>
+                <span className="text-[9px] font-mono text-zinc-500">
+                  INSTITUTIONAL AUDIT
+                </span>
               </div>
 
-              {/* 中央解錠ゲートウェイ */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 rounded gap-2 p-3 text-center">
-                <div className="flex items-center gap-1.5 text-xs font-medium text-white">
-                  <KeyRound className="w-3.5 h-3.5 text-zinc-300" />
-                  <span>成約DM実文 ＆ 課金トリガー ＆ 非公開ハック</span>
+              {/* 4大メタ分析モジュール群 (すりガラス遮断) */}
+              <div className="relative pt-1">
+                <div className="filter blur-[2.5px] opacity-25 select-none pointer-events-none space-y-3 text-xs font-sans">
+                  {/* #01 大手の構造的ジレンマ */}
+                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
+                      <span className="text-zinc-500">01.</span>
+                      <span>大手の構造的ジレンマ (INCUMBENT DILEMMA)</span>
+                    </div>
+                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-300 font-mono">共食い障壁:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
+                      <div><strong className="text-zinc-300 font-mono">規模の制約:</strong> {entity.meta.incumbentDilemma.scaleMismatchReason}</div>
+                      <div><strong className="text-zinc-300 font-mono">速度優位性:</strong> {entity.meta.incumbentDilemma.decisionSpeedAdvantage}</div>
+                    </div>
+                  </div>
+
+                  {/* #02 価格決定権とアンカリング */}
+                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
+                      <span className="text-zinc-500">02.</span>
+                      <span>価格決定権とアンカリング (PRICING POWER & ANCHORING)</span>
+                    </div>
+                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-300 font-mono">比較対象:</strong> {entity.meta.pricingPower.anchorComparison}</div>
+                      <div><strong className="text-zinc-300 font-mono">損失回避:</strong> {entity.meta.pricingPower.lossAversionTrigger}</div>
+                      <div><strong className="text-zinc-300 font-mono">狙う予算枠:</strong> {entity.meta.pricingPower.budgetCategory}</div>
+                    </div>
+                  </div>
+
+                  {/* #03 不可逆スイッチングコスト */}
+                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
+                      <span className="text-zinc-500">03.</span>
+                      <span>不可逆スイッチングコスト (SWITCHING GRAVITY)</span>
+                    </div>
+                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-300 font-mono">データ人質:</strong> {entity.meta.lockInMechanism.dataHostage}</div>
+                      <div><strong className="text-zinc-300 font-mono">業務埋込:</strong> {entity.meta.lockInMechanism.workflowIntegration}</div>
+                      <div><strong className="text-zinc-300 font-mono">離脱摩擦:</strong> {entity.meta.lockInMechanism.switchingFriction}</div>
+                    </div>
+                  </div>
+
+                  {/* #04 資本効率とキャッシュ幾何学 */}
+                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
+                      <span className="text-zinc-500">04.</span>
+                      <span>資本効率とキャッシュ幾何学 (CAPITAL EFFICIENCY)</span>
+                    </div>
+                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-300 font-mono">資金回収:</strong> {entity.meta.capitalEfficiency.cashConversionCycle}</div>
+                      <div><strong className="text-zinc-300 font-mono">限界利益:</strong> {entity.meta.capitalEfficiency.incrementalMargin}</div>
+                      <div><strong className="text-zinc-300 font-mono">増殖機構:</strong> {entity.meta.capitalEfficiency.workingCapitalStrategy}</div>
+                    </div>
+                  </div>
                 </div>
-                <button
-                  onClick={onOpenPro}
-                  className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-1.5 rounded transition-colors shadow-2xl"
-                >
-                  PROプランで全アセットを解錠 (¥1,980〜)
-                </button>
+
+                {/* 中央解錠ゲートウェイ */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/65 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
+                  <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-white">
+                    <KeyRound className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>大手の自爆構造 ＆ 価格決定権 ＆ 不可逆ロックインの完全解剖</span>
+                  </div>
+                  <p className="text-[11px] text-zinc-400 max-w-sm font-sans leading-normal">
+                    プロ投資家・事業家が監査する「なぜ競合が真似できず、客が辞めないのか」の4大構造レポートを解錠
+                  </p>
+                  <button
+                    onClick={onOpenPro}
+                    className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-1.5 rounded transition-colors shadow-2xl"
+                  >
+                    PROプランで構造解剖を全量解錠 (¥1,980〜)
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
         </div>
       </aside>

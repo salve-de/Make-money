@@ -73,6 +73,33 @@ export interface BusinessEssence {
   painRelief: string; // 切除する苦痛・恐怖
 }
 
+export interface MetaArchitectureDossier {
+  // 1. 大手の構造的ジレンマ (なぜ大企業は真似できないのか)
+  incumbentDilemma: {
+    cannibalizationBarrier: string; // 既存事業・リレーションとの共食い恐怖
+    scaleMismatchReason: string; // 規模が小さすぎて大手の稟議に通らない理由
+    decisionSpeedAdvantage: string; // 意思決定・現場実行スピードの非対称性
+  };
+  // 2. 価格決定権とアンカリング (なぜ客が値切らずに喜んで払うか)
+  pricingPower: {
+    anchorComparison: string; // 比較対象のすり替え (例: 「写真館の3万円」と比較させる)
+    lossAversionTrigger: string; // 損失回避の急所 (例: 「ライン停止の数千万円損害」)
+    budgetCategory: string; // どの予算枠を狙っているか (例: 「個人の見栄」「法人の経費精算枠」)
+  };
+  // 3. 不可逆スイッチングコスト (なぜ客は解約できないのか)
+  lockInMechanism: {
+    dataHostage: string; // データ蓄積による移行不能化
+    workflowIntegration: string; // 業務ルーティン・神経回路への埋め込み
+    switchingFriction: string; // 他社へ乗り換えた際の痛みの実態
+  };
+  // 4. 資本効率とキャッシュ幾何学 (なぜ借金なしで現金が残り続けるのか)
+  capitalEfficiency: {
+    cashConversionCycle: string; // 前払い集金と後払い仕入れのキャッシュサイクル
+    incrementalMargin: string; // 限界利益率の高さ (固定費回収後の利益直下)
+    workingCapitalStrategy: string; // 外部調達・借金不要の自己増殖メカニズム
+  };
+}
+
 export interface StrategicDossier {
   blindspot: string; // 突いた業界の盲点・不条理
   moatType: MoatType;
@@ -103,6 +130,7 @@ export interface FinancialEntity {
   pricing?: PricingDossier;
   acquisition?: AcquisitionDossier;
   essence?: BusinessEssence;
+  meta?: MetaArchitectureDossier;
   isBookmarked?: boolean;
 }
 
