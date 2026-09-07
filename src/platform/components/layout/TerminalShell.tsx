@@ -11,6 +11,7 @@ import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '../inspector/CompanyInspectorPane';
 import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
+import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
@@ -33,11 +34,12 @@ export const TerminalShell: React.FC = () => {
   const initialMode: WorkspaceMode = modeParam || (topicParam ? 'DEEP_DIVE' : 'LEDGER');
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(initialMode);
 
-  const initialTopic: IntelligenceTopicId =
+  // 特集トピックID (nullの場合は特集カタログ一覧を表示)
+  const initialTopic: IntelligenceTopicId | null =
     topicParam && INTELLIGENCE_DOSSIERS.some((d) => d.id === topicParam)
       ? topicParam
-      : 'solo_empire';
-  const [activeTopicId, setActiveTopicId] = useState<IntelligenceTopicId>(initialTopic);
+      : null;
+  const [activeTopicId, setActiveTopicId] = useState<IntelligenceTopicId | null>(initialTopic);
 
   const initialFilter: GridFilterOption = filterParam || 'ALL';
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
@@ -127,13 +129,15 @@ export const TerminalShell: React.FC = () => {
     });
   }, []);
 
-  // アクティブな特集レポート
+  // アクティブな特集レポート (nullの場合はカタログ一覧)
   const activeDossier = useMemo(() => {
-    return INTELLIGENCE_DOSSIERS.find((d) => d.id === activeTopicId) || INTELLIGENCE_DOSSIERS[0];
+    if (!activeTopicId) return null;
+    return INTELLIGENCE_DOSSIERS.find((d) => d.id === activeTopicId) || null;
   }, [activeTopicId]);
 
   // 特集に紐づく対象企業群
   const deepDiveEntities = useMemo(() => {
+    if (!activeDossier) return [];
     return INSTITUTIONAL_ENTITIES.filter((entity) => activeDossier.targetEntityIds.includes(entity.id));
   }, [activeDossier]);
 
@@ -230,7 +234,12 @@ export const TerminalShell: React.FC = () => {
         {/* 左サイドバー */}
         <TerminalSidebar
           workspaceMode={workspaceMode}
-          onSelectMode={(mode) => setWorkspaceMode(mode)}
+          onSelectMode={(mode) => {
+            setWorkspaceMode(mode);
+            if (mode === 'DEEP_DIVE') {
+              setActiveTopicId(null);
+            }
+          }}
           currentFilter={currentFilter}
           onSelectFilter={(f) => setCurrentFilter(f)}
           bookmarkCount={bookmarkedIds.size}
@@ -253,24 +262,26 @@ export const TerminalShell: React.FC = () => {
             initialContextEntityId={selectedEntityId}
           />
         ) : workspaceMode === 'DEEP_DIVE' ? (
-          <IntelligenceDeepDiveView
-            dossier={activeDossier}
-            targetEntities={deepDiveEntities}
-            selectedEntityId={selectedEntityId}
-            onSelectEntity={(id) => {
-              setSelectedEntityId(id);
-              if (id) {
+          activeTopicId && activeDossier ? (
+            <IntelligenceDeepDiveView
+              dossier={activeDossier}
+              allDossiers={INTELLIGENCE_DOSSIERS}
+              targetEntities={deepDiveEntities}
+              onBackToCatalog={() => setActiveTopicId(null)}
+              onSelectDossier={(id) => setActiveTopicId(id)}
+              onOpenEntityInLedger={(entityId) => {
+                setSelectedEntityId(entityId);
                 setWorkspaceMode('LEDGER');
-              }
-            }}
-            currency={currency}
-            bookmarkedIds={bookmarkedIds}
-            onToggleBookmark={handleToggleBookmark}
-            onLaunchScreenerForDossier={() => {
-              setWorkspaceMode('LEDGER');
-              setIsScreenerOpen(true);
-            }}
-          />
+              }}
+              currency={currency}
+            />
+          ) : (
+            <IntelligenceCatalogView
+              dossiers={INTELLIGENCE_DOSSIERS}
+              allEntities={INSTITUTIONAL_ENTITIES}
+              onSelectDossier={(id) => setActiveTopicId(id)}
+            />
+          )
         ) : (
           <div className={`flex flex-col min-w-0 overflow-hidden bg-[#07080B] transition-all duration-150 ${
             selectedEntity
@@ -330,7 +341,12 @@ export const TerminalShell: React.FC = () => {
       {/* スマホ最下部固定ボトムナビ */}
       <MobileBottomNav
         workspaceMode={workspaceMode}
-        onSelectMode={(mode) => setWorkspaceMode(mode)}
+        onSelectMode={(mode) => {
+          setWorkspaceMode(mode);
+          if (mode === 'DEEP_DIVE') {
+            setActiveTopicId(null);
+          }
+        }}
         currentFilter={currentFilter}
         onSelectFilter={(f) => {
           setWorkspaceMode('LEDGER');

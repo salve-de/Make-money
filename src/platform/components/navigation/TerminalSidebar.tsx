@@ -14,8 +14,8 @@ import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../type
 interface TerminalSidebarProps {
   workspaceMode: WorkspaceMode;
   onSelectMode: (mode: WorkspaceMode) => void;
-  activeTopicId: IntelligenceTopicId;
-  onSelectTopic: (topicId: IntelligenceTopicId) => void;
+  activeTopicId?: IntelligenceTopicId | null;
+  onSelectTopic?: (topicId: IntelligenceTopicId) => void;
   currentFilter: GridFilterOption;
   onSelectFilter: (filter: GridFilterOption) => void;
   bookmarkCount: number;
