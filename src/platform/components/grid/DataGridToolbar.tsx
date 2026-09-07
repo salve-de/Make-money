@@ -41,9 +41,40 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
 
   return (
     <div className="bg-[#08090C] border-b border-white/[0.06] px-3 py-2 select-none">
-      <div className="flex items-center justify-between gap-2 text-xs">
-        {/* 左側: 検索窓 */}
-        <div className="relative flex-1 max-w-sm">
+      <div className="flex items-center gap-2 text-xs">
+        {/* 1. 50軸詳細スクリーニングボタン（左端固定：インスペクター開閉時も位置が1ミリもブレない） */}
+        <div className="flex items-center gap-1 shrink-0">
+          <button
+            onClick={onOpenScreener}
+            className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded transition-colors border cursor-pointer ${
+              hasActiveScreener
+                ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300 font-medium'
+                : 'bg-white/[0.03] hover:bg-white/[0.06] border-white/[0.08] text-zinc-300 hover:text-white'
+            }`}
+            title="50軸の条件で詳細スクリーニング"
+          >
+            <SlidersHorizontal className={`w-3 h-3 ${hasActiveScreener ? 'text-emerald-400' : 'text-zinc-400'}`} />
+            <span>50軸スクリーニング</span>
+            {hasActiveScreener && (
+              <span className="text-[10px] font-mono px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-300 ml-0.5">
+                {activeScreenerCount}
+              </span>
+            )}
+          </button>
+
+          {hasActiveScreener && onResetScreener && (
+            <button
+              onClick={onResetScreener}
+              className="p-1 rounded text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04] transition-colors cursor-pointer"
+              title="スクリーナー条件を解除"
+            >
+              <X className="w-3 h-3" />
+            </button>
+          )}
+        </div>
+
+        {/* 2. 検索窓（スクリーナーボタンの直後に固定配置、残余幅に合わせて伸縮） */}
+        <div className="relative flex-1 min-w-[140px] max-w-sm">
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-zinc-600" />
           <input
             type="text"
@@ -55,57 +86,26 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
           {searchQuery && (
             <button
               onClick={() => onSearchChange('')}
-              className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300"
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
 
-        {/* 右側: 50軸スクリーナーボタン & 件数 & アクティブタグ解除 */}
-        <div className="flex items-center gap-2 shrink-0">
+        {/* 3. 右側: 選択中タグ解除バッジ & 件数表示 */}
+        <div className="flex items-center gap-2 shrink-0 ml-auto">
           {/* 選択中タグ表示バッジ (ワンクリック解除可能) */}
           {activeTag && onSelectTag && (
             <button
               onClick={() => onSelectTag(null)}
-              className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors"
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2 py-1 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/20 transition-colors cursor-pointer"
               title="タグ絞り込みを解除"
             >
               <span>#{activeTag}</span>
               <X className="w-3 h-3 text-emerald-400" />
             </button>
           )}
-
-          {/* 50軸詳細スクリーニングボタン */}
-          <div className="flex items-center gap-1">
-            <button
-              onClick={onOpenScreener}
-              className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded transition-colors border ${
-                hasActiveScreener
-                  ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300 font-medium'
-                  : 'bg-white/[0.03] hover:bg-white/[0.06] border-white/[0.08] text-zinc-300 hover:text-white'
-              }`}
-              title="50軸の条件で詳細スクリーニング"
-            >
-              <SlidersHorizontal className={`w-3 h-3 ${hasActiveScreener ? 'text-emerald-400' : 'text-zinc-400'}`} />
-              <span>50軸スクリーニング</span>
-              {hasActiveScreener && (
-                <span className="text-[10px] font-mono px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-300 ml-0.5">
-                  {activeScreenerCount}
-                </span>
-              )}
-            </button>
-
-            {hasActiveScreener && onResetScreener && (
-              <button
-                onClick={onResetScreener}
-                className="p-1 rounded text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04] transition-colors"
-                title="スクリーナー条件を解除"
-              >
-                <X className="w-3 h-3" />
-              </button>
-            )}
-          </div>
 
           {/* 件数表示 */}
           <div className="font-mono text-zinc-500 text-[11px] pl-1 border-l border-white/[0.06]">
