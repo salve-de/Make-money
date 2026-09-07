@@ -165,7 +165,12 @@ export const TerminalShell: React.FC = () => {
   return (
     <div className="flex flex-col h-screen w-screen overflow-hidden bg-[#060709] text-zinc-100 font-sans">
       {/* 最上部: リアルタイム市場ティッカー */}
-      <MarketTickerStrip />
+      <MarketTickerStrip
+        onSelectEntity={(id) => {
+          setSelectedEntityId(id);
+          setWorkspaceMode('LEDGER');
+        }}
+      />
 
       {/* 極薄コントロールヘッダー */}
       <TerminalTopBar

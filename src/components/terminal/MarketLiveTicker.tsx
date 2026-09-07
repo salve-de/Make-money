@@ -91,33 +91,38 @@ export const MarketLiveTicker: React.FC<MarketLiveTickerProps> = ({ onSelectComp
   const tickerItems = [...NEWS_TICKER_ITEMS, ...NEWS_TICKER_ITEMS];
 
   return (
-    <div className="h-7 bg-[#090C10] border-b border-white/[0.08] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative text-zinc-300">
-      {/* 左端固定：速報ラベル（Bloomberg Terminal Style） */}
-      <div className="bg-zinc-900 text-zinc-100 h-full px-3 flex items-center gap-1.5 shrink-0 z-10 border-r border-white/[0.1] font-bold tracking-wider text-[10px]">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span>FLOW</span>
+    <div className="h-7 bg-[#05070A] border-b border-white/[0.06] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative text-zinc-300 z-20">
+      {/* 左端固定：速報ラベル */}
+      <div className="bg-[#090C10] text-zinc-200 h-full px-3 flex items-center gap-1.5 shrink-0 z-30 border-r border-white/[0.08] font-bold tracking-wider text-[10px] shadow-[4px_0_12px_rgba(0,0,0,0.6)]">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+        <span className="text-zinc-200 font-mono tracking-wider">MARKET LIVE</span>
       </div>
 
-      {/* スクロールストリップ */}
-      <div className="flex items-center whitespace-nowrap animate-ticker overflow-hidden pl-2">
-        {tickerItems.map((item, idx) => (
-          <div
-            key={idx}
-            onClick={() => item.companyId && onSelectCompany?.(item.companyId)}
-            className="inline-flex items-center gap-2 mr-8 text-zinc-400 hover:text-zinc-100 cursor-pointer transition-colors group py-0.5"
-          >
-            <span className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">
-              {item.category}
-            </span>
-            <span className="text-zinc-300 group-hover:text-white font-sans text-xs">
-              {item.headline}
-            </span>
-            <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/60 tabular-nums">
-              {item.badge}
-            </span>
-            <span className="text-zinc-800 ml-4 font-normal">|</span>
-          </div>
-        ))}
+      {/* スクロールストリップ（ホバーで静止） */}
+      <div className="flex-1 ticker-wrapper h-full flex items-center overflow-hidden">
+        <div className="ticker-track flex items-center pl-3">
+          {tickerItems.map((item, idx) => (
+            <div
+              key={idx}
+              onClick={() => item.companyId && onSelectCompany?.(item.companyId)}
+              className={`inline-flex items-center gap-2 px-2.5 py-0.5 mr-3 rounded border border-white/[0.06] bg-white/[0.02] transition-colors shrink-0 ${
+                item.companyId && onSelectCompany
+                  ? 'cursor-pointer hover:bg-white/[0.07] hover:border-white/[0.15] text-zinc-200'
+                  : 'text-zinc-400'
+              }`}
+            >
+              <span className="text-[9px] font-sans font-semibold tracking-wider text-zinc-400 bg-zinc-800/60 px-1.5 py-0.2 rounded border border-white/[0.04]">
+                {item.category}
+              </span>
+              <span className="text-zinc-200 hover:text-white font-sans text-xs">
+                {item.headline}
+              </span>
+              <span className="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-800/60 tabular-nums">
+                {item.badge}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
