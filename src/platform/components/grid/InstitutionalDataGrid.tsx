@@ -3,7 +3,7 @@
 import React from 'react';
 import { FinancialEntity } from '../../types/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
-import { Bookmark, ChevronRight } from 'lucide-react';
+import { Bookmark } from 'lucide-react';
 
 interface InstitutionalDataGridProps {
   entities: FinancialEntity[];
@@ -63,10 +63,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[60%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
-              <th className="w-[18%] py-2 px-2 font-medium text-right">月商 / 実効純利</th>
-              <th className="w-[12%] py-2 px-2 font-medium text-center">営業利益率</th>
-              <th className="w-[10%] py-2 px-3 font-medium text-right">解剖</th>
+              <th className="w-[64%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
+              <th className="w-[22%] py-2 px-2 font-medium text-right">月商 / 実効純利</th>
+              <th className="w-[14%] py-2 px-3 font-medium text-right">営業利益率</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
@@ -124,24 +123,10 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   </td>
 
                   {/* 営業利益率 */}
-                  <td className="py-2.5 px-2 text-center truncate align-middle">
+                  <td className="py-2.5 px-3 text-right truncate align-middle">
                     <span className="text-emerald-400/90 font-medium tabular-nums text-xs">
                       {entity.pnl.operatingMargin}%
                     </span>
-                  </td>
-
-                  {/* 解剖ボタン */}
-                  <td className="py-2.5 px-3 text-right align-middle">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectEntity(entity.id);
-                      }}
-                      className="inline-flex items-center gap-0.5 text-zinc-400 hover:text-white px-2 py-0.5 rounded text-[11px] font-sans transition-colors"
-                    >
-                      <span>解剖</span>
-                      <ChevronRight className="w-3 h-3 text-zinc-600" />
-                    </button>
                   </td>
                 </tr>
               );
@@ -156,15 +141,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[26%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
+              <th className="w-[28%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
               <th className="w-[11%] py-2 px-2 font-medium text-right">直近月商</th>
               <th className="w-[11%] py-2 px-2 font-medium text-right">実効純利益</th>
               <th className="w-[8%] py-2 px-2 font-medium text-center">粗利益率</th>
               <th className="w-[8%] py-2 px-2 font-medium text-center">営業利益率</th>
               <th className="w-[8%] py-2 px-2 font-medium text-right">初期資本</th>
               <th className="w-[6%] py-2 px-2 font-medium text-center">体制</th>
-              <th className="w-[15%] py-2 px-2 font-medium">突いた盲点</th>
-              <th className="w-[7%] py-2 px-3 font-medium text-right">解剖</th>
+              <th className="w-[20%] py-2 px-3 font-medium">突いた盲点</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
@@ -242,22 +226,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   </td>
 
                   {/* 突いた盲点 */}
-                  <td className="py-2.5 px-2 text-zinc-400 text-[11px] truncate font-sans align-middle" title={entity.strategy.blindspot}>
+                  <td className="py-2.5 px-3 text-zinc-400 text-[11px] truncate font-sans align-middle" title={entity.strategy.blindspot}>
                     {entity.strategy.blindspot}
-                  </td>
-
-                  {/* 解剖ボタン */}
-                  <td className="py-2.5 px-3 text-right align-middle">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onSelectEntity(entity.id);
-                      }}
-                      className="inline-flex items-center gap-0.5 text-zinc-400 hover:text-white px-2 py-0.5 rounded text-[11px] font-sans transition-colors"
-                    >
-                      <span>解剖</span>
-                      <ChevronRight className="w-3 h-3 text-zinc-600" />
-                    </button>
                   </td>
                 </tr>
               );
