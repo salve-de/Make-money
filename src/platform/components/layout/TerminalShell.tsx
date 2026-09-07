@@ -140,6 +140,11 @@ export const TerminalShell: React.FC = () => {
         if (screenerFilters.minMargin > 0 && entity.pnl.operatingMargin < screenerFilters.minMargin) return false;
         if (screenerFilters.maxCapital !== null && entity.operations.initialCapitalRequired > screenerFilters.maxCapital) return false;
         if (screenerFilters.moats.length > 0 && !screenerFilters.moats.includes(entity.strategy.moatType)) return false;
+        if (screenerFilters.selectedTags && screenerFilters.selectedTags.length > 0) {
+          const entityTags = entity.tags || [];
+          const hasSelectedTag = screenerFilters.selectedTags.some((t) => entityTags.includes(t));
+          if (!hasSelectedTag) return false;
+        }
       }
 
       if (searchQuery.trim()) {
@@ -199,7 +204,7 @@ export const TerminalShell: React.FC = () => {
 
       {/* メインワークスペース (左ナビ + 中央データグリッド/特集ディープダイブ + 右リアルタイムインスペクター) */}
       <main className="flex-1 flex overflow-hidden relative pb-13 md:pb-0">
-        {/* 左ナビゲーション (48px極薄アイコンレール) */}
+        {/* 左ナビゲーション (48px極薄アイコンレール + 縦スクロールタグ探索カラム) */}
         <TerminalSidebar
           workspaceMode={workspaceMode}
           onSelectMode={setWorkspaceMode}
@@ -215,6 +220,10 @@ export const TerminalShell: React.FC = () => {
             setScreenerFilters(null);
           }}
           bookmarkCount={bookmarkedIds.size}
+          availableTags={availableTags}
+          tagCounts={tagCounts}
+          activeTag={activeTag}
+          onSelectTag={setActiveTag}
         />
 
         {/* 中央メインエリア (特集ディープダイブ or 金融台帳グリッド) */}
@@ -244,11 +253,6 @@ export const TerminalShell: React.FC = () => {
               : 'flex-1'
           }`}>
             <DataGridToolbar
-              currentFilter={currentFilter}
-              onSelectFilter={(f) => {
-                setCurrentFilter(f);
-                setScreenerFilters(null);
-              }}
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
               totalCount={filteredEntities.length}
@@ -257,8 +261,6 @@ export const TerminalShell: React.FC = () => {
               onResetScreener={() => setScreenerFilters(null)}
               activeTag={activeTag}
               onSelectTag={setActiveTag}
-              availableTags={availableTags}
-              tagCounts={tagCounts}
             />
 
             <InstitutionalDataGrid
@@ -320,6 +322,8 @@ export const TerminalShell: React.FC = () => {
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}
+        availableTags={availableTags}
+        initialFilters={screenerFilters}
       />
 
       {/* PROメンバーシップ決済モーダル */}

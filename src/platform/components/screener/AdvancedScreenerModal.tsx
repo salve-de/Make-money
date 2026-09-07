@@ -8,6 +8,8 @@ interface AdvancedScreenerModalProps {
   isOpen: boolean;
   onClose: () => void;
   onApplyFilters: (filters: ScreenerFilterState) => void;
+  availableTags?: string[];
+  initialFilters?: ScreenerFilterState | null;
 }
 
 export interface ScreenerFilterState {
@@ -22,11 +24,31 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   isOpen,
   onClose,
   onApplyFilters,
+  availableTags = [],
+  initialFilters,
 }) => {
-  const [scales, setScales] = useState<BusinessScale[]>([]);
-  const [minMargin, setMinMargin] = useState<number>(0);
-  const [maxCapital, setMaxCapital] = useState<number | null>(null);
-  const [moats, setMoats] = useState<MoatType[]>([]);
+  const [scales, setScales] = useState<BusinessScale[]>(initialFilters?.scales || []);
+  const [minMargin, setMinMargin] = useState<number>(initialFilters?.minMargin || 0);
+  const [maxCapital, setMaxCapital] = useState<number | null>(initialFilters?.maxCapital ?? null);
+  const [moats, setMoats] = useState<MoatType[]>(initialFilters?.moats || []);
+  const [selectedTags, setSelectedTags] = useState<string[]>(initialFilters?.selectedTags || []);
+
+  // initialFilters同期
+  React.useEffect(() => {
+    if (initialFilters) {
+      setScales(initialFilters.scales || []);
+      setMinMargin(initialFilters.minMargin || 0);
+      setMaxCapital(initialFilters.maxCapital ?? null);
+      setMoats(initialFilters.moats || []);
+      setSelectedTags(initialFilters.selectedTags || []);
+    } else {
+      setScales([]);
+      setMinMargin(0);
+      setMaxCapital(null);
+      setMoats([]);
+      setSelectedTags([]);
+    }
+  }, [initialFilters, isOpen]);
 
   if (!isOpen) return null;
 
@@ -38,15 +60,20 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
     setMoats((prev) => prev.includes(m) ? prev.filter((x) => x !== m) : [...prev, m]);
   };
 
+  const toggleTag = (t: string) => {
+    setSelectedTags((prev) => prev.includes(t) ? prev.filter((x) => x !== t) : [...prev, t]);
+  };
+
   const handleReset = () => {
     setScales([]);
     setMinMargin(0);
     setMaxCapital(null);
     setMoats([]);
+    setSelectedTags([]);
   };
 
   const handleApply = () => {
-    onApplyFilters({ scales, minMargin, maxCapital, moats });
+    onApplyFilters({ scales, minMargin, maxCapital, moats, selectedTags });
     onClose();
   };
 
@@ -173,6 +200,42 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
               ))}
             </div>
           </div>
+
+          {/* 特徴タグ (TAGS) */}
+          {availableTags.length > 0 && (
+            <div className="space-y-1.5">
+              <div className="flex justify-between items-center">
+                <label className="text-[11px] font-medium text-zinc-400 font-mono">
+                  特徴タグ (TAGS)
+                </label>
+                {selectedTags.length > 0 && (
+                  <span className="font-mono text-[10px] text-emerald-400">
+                    {selectedTags.length}件 選択中
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto p-1 bg-white/[0.01] rounded border border-white/[0.04]">
+                {availableTags.map((tag) => {
+                  const isSelected = selectedTags.includes(tag);
+                  return (
+                    <button
+                      key={tag}
+                      type="button"
+                      onClick={() => toggleTag(tag)}
+                      className={`text-[11px] font-mono px-2 py-1 rounded transition-colors border flex items-center gap-1 ${
+                        isSelected
+                          ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
+                          : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                      }`}
+                    >
+                      <span>#{tag}</span>
+                      {isSelected && <Check className="w-2.5 h-2.5 text-emerald-400" />}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
 
         {/* フッター */}
