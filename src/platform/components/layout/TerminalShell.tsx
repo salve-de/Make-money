@@ -204,7 +204,7 @@ export const TerminalShell: React.FC = () => {
 
       {/* メインワークスペース (左ナビ + 中央データグリッド/特集ディープダイブ + 右リアルタイムインスペクター) */}
       <main className="flex-1 flex overflow-hidden relative pb-13 md:pb-0">
-        {/* 左ナビゲーション (48px極薄アイコンレール + 縦スクロールタグ探索カラム) */}
+        {/* 左ナビゲーション (48px極薄アイコンレール) */}
         <TerminalSidebar
           workspaceMode={workspaceMode}
           onSelectMode={setWorkspaceMode}
@@ -220,10 +220,6 @@ export const TerminalShell: React.FC = () => {
             setScreenerFilters(null);
           }}
           bookmarkCount={bookmarkedIds.size}
-          availableTags={availableTags}
-          tagCounts={tagCounts}
-          activeTag={activeTag}
-          onSelectTag={setActiveTag}
         />
 
         {/* 中央メインエリア (特集ディープダイブ or 金融台帳グリッド) */}
@@ -271,6 +267,8 @@ export const TerminalShell: React.FC = () => {
               bookmarkedIds={bookmarkedIds}
               onToggleBookmark={handleToggleBookmark}
               isSplitView={Boolean(selectedEntity)}
+              activeTag={activeTag}
+              onSelectTag={setActiveTag}
             />
           </div>
         )}

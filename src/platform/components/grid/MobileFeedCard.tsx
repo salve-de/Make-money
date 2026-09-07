@@ -11,6 +11,8 @@ interface MobileFeedCardProps {
   currency: 'JPY' | 'USD';
   onToggleBookmark: (e: React.MouseEvent) => void;
   isBookmarked: boolean;
+  activeTag?: string | null;
+  onSelectTag?: (tag: string | null) => void;
 }
 
 export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
@@ -20,6 +22,8 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   currency,
   onToggleBookmark,
   isBookmarked,
+  activeTag,
+  onSelectTag,
 }) => {
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
@@ -86,6 +90,32 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           <span className="font-sans line-clamp-1 break-all">{entity.targetPainWallet}</span>
         </div>
       </div>
+
+      {/* 4段目: 当該銘柄の特徴タグ（横スクロール対応） */}
+      {entity.tags && entity.tags.length > 0 && (
+        <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-1 mb-1.5">
+          {entity.tags.map((tag) => {
+            const isActive = activeTag === tag;
+            return (
+              <button
+                key={tag}
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (onSelectTag) onSelectTag(isActive ? null : tag);
+                }}
+                className={`text-[9px] font-mono px-2 py-0.5 rounded transition-colors shrink-0 border ${
+                  isActive
+                    ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
+                    : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                }`}
+              >
+                #{tag}
+              </button>
+            );
+          })}
+        </div>
+      )}
 
       {/* 4段目: 純利益・利益率・体制 */}
       <div className="flex items-center justify-between text-[11px] font-mono pt-1 border-t border-white/[0.03]">

@@ -9,6 +9,7 @@ interface AdvancedScreenerModalProps {
   onClose: () => void;
   onApplyFilters: (filters: ScreenerFilterState) => void;
   availableTags?: string[];
+  tagCounts?: Record<string, number>;
   initialFilters?: ScreenerFilterState | null;
 }
 
@@ -25,6 +26,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   onClose,
   onApplyFilters,
   availableTags = [],
+  tagCounts = {},
   initialFilters,
 }) => {
   const [scales, setScales] = useState<BusinessScale[]>(initialFilters?.scales || []);
@@ -201,35 +203,53 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
             </div>
           </div>
 
-          {/* 特徴タグ (TAGS) */}
+          {/* 特徴タグ (TAGS - 複数選択可能) */}
           {availableTags.length > 0 && (
             <div className="space-y-1.5">
               <div className="flex justify-between items-center">
-                <label className="text-[11px] font-medium text-zinc-400 font-mono">
-                  特徴タグ (TAGS)
-                </label>
+                <div className="flex items-center gap-1.5">
+                  <label className="text-[11px] font-medium text-zinc-400 font-mono">
+                    特徴タグ (TAGS・複数選択可)
+                  </label>
+                  {selectedTags.length > 0 && (
+                    <span className="font-mono text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-semibold">
+                      {selectedTags.length}個 選択中
+                    </span>
+                  )}
+                </div>
                 {selectedTags.length > 0 && (
-                  <span className="font-mono text-[10px] text-emerald-400">
-                    {selectedTags.length}件 選択中
-                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedTags([])}
+                    className="text-[10px] font-mono text-zinc-500 hover:text-zinc-300 transition-colors"
+                  >
+                    タグ全解除
+                  </button>
                 )}
               </div>
-              <div className="flex flex-wrap gap-1.5 max-h-32 overflow-y-auto p-1 bg-white/[0.01] rounded border border-white/[0.04]">
+              <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1.5 bg-white/[0.01] rounded border border-white/[0.04]">
                 {availableTags.map((tag) => {
                   const isSelected = selectedTags.includes(tag);
+                  const count = tagCounts[tag];
                   return (
                     <button
                       key={tag}
                       type="button"
                       onClick={() => toggleTag(tag)}
-                      className={`text-[11px] font-mono px-2 py-1 rounded transition-colors border flex items-center gap-1 ${
+                      className={`text-[11px] font-mono px-2 py-1 rounded transition-all border flex items-center gap-1.5 ${
                         isSelected
-                          ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
+                          ? 'bg-emerald-500/20 text-emerald-300 font-semibold border-emerald-500/50 shadow-xs ring-1 ring-emerald-500/30'
                           : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
                       }`}
+                      title={`#${tag}${count ? ` (${count}件)` : ''}`}
                     >
                       <span>#{tag}</span>
-                      {isSelected && <Check className="w-2.5 h-2.5 text-emerald-400" />}
+                      {count !== undefined && (
+                        <span className={`text-[9px] tabular-nums ${isSelected ? 'text-emerald-400' : 'text-zinc-600'}`}>
+                          {count}
+                        </span>
+                      )}
+                      {isSelected && <Check className="w-2.5 h-2.5 text-emerald-400 shrink-0" />}
                     </button>
                   );
                 })}

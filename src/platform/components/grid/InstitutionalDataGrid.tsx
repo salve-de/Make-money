@@ -13,6 +13,8 @@ interface InstitutionalDataGridProps {
   bookmarkedIds: Set<string>;
   onToggleBookmark: (id: string, e: React.MouseEvent) => void;
   isSplitView?: boolean;
+  activeTag?: string | null;
+  onSelectTag?: (tag: string | null) => void;
 }
 
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
@@ -23,6 +25,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   bookmarkedIds,
   onToggleBookmark,
   isSplitView = false,
+  activeTag,
+  onSelectTag,
 }) => {
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
@@ -49,6 +53,8 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             currency={currency}
             isBookmarked={bookmarkedIds.has(entity.id)}
             onToggleBookmark={(e) => onToggleBookmark(entity.id, e)}
+            activeTag={activeTag}
+            onSelectTag={onSelectTag}
           />
         ))}
         {entities.length === 0 && (
@@ -119,6 +125,32 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                             <span className="font-sans line-clamp-1 break-all">{entity.targetPainWallet}</span>
                           </div>
                         </div>
+
+                        {/* 特徴タグ（横スクロール対応） */}
+                        {entity.tags && entity.tags.length > 0 && (
+                          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none mt-1.5 pt-0.5">
+                            {entity.tags.map((tag) => {
+                              const isActive = activeTag === tag;
+                              return (
+                                <button
+                                  key={tag}
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (onSelectTag) onSelectTag(isActive ? null : tag);
+                                  }}
+                                  className={`text-[9px] font-mono px-1.5 py-0.2 rounded transition-colors shrink-0 border ${
+                                    isActive
+                                      ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
+                                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                                  }`}
+                                >
+                                  #{tag}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </td>
@@ -204,6 +236,31 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         >
                           {entity.tagline}
                         </div>
+                        {/* 特徴タグ（横スクロール対応） */}
+                        {entity.tags && entity.tags.length > 0 && (
+                          <div className="flex items-center gap-1 overflow-x-auto scrollbar-none mt-1.5 pt-0.5">
+                            {entity.tags.map((tag) => {
+                              const isActive = activeTag === tag;
+                              return (
+                                <button
+                                  key={tag}
+                                  type="button"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    if (onSelectTag) onSelectTag(isActive ? null : tag);
+                                  }}
+                                  className={`text-[9px] font-mono px-1.5 py-0.2 rounded transition-colors shrink-0 border ${
+                                    isActive
+                                      ? 'bg-emerald-500/20 text-emerald-300 font-medium border-emerald-500/40 shadow-xs'
+                                      : 'bg-white/[0.02] border-white/[0.05] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05]'
+                                  }`}
+                                >
+                                  #{tag}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </td>

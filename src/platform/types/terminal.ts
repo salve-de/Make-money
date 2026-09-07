@@ -159,7 +159,7 @@ export type GridFilterOption =
   | 'AI_NATIVE'
   | 'BOOKMARKED';
 
-export type WorkspaceMode = 'LEDGER' | 'DEEP_DIVE';
+export type WorkspaceMode = 'LEDGER' | 'DEEP_DIVE' | 'SYNTHESIS';
 
 export type IntelligenceTopicId = 
   | 'solo_empire'
@@ -182,5 +182,38 @@ export interface IntelligenceDossier {
   };
   operationalPlaybook: string[]; // 参入・実行の急所ステップ
   targetEntityIds: string[]; // 本特集の対象企業IDリスト
+}
+
+// ユーザー独自のアナリスト考察メモ
+export interface AnalystNote {
+  entityId: string;
+  content: string;
+  updatedAt: string;
+}
+
+// 独自アイデア合成（多次元解析）モデル
+export interface SynthesizedIdea {
+  id: string;
+  dimension: 'SAVANNA_INSTINCT' | 'META_ARCHITECT' | 'CONTRARIAN_BLINDSPOT';
+  dimensionLabel: string; // "本能ハック型（サバンナOS）" | "構造・胴元型（メタ・アーキテクチャ）" | "逆張り・盲点型（コペルニクス的転回）"
+  title: string;
+  targetPainWallet: string; // 人質にする財布・痛みの実態
+  structuralArbitrage: string; // 突く市場の歪み・大手の死角
+  projectedMonthlyProfitJpy: number; // 想定月次純利益
+  operatingMargin: number; // 想定営業利益率 %
+  requiredTools: { name: string; monthlyCostJpy: number; purpose: string }[];
+  first100TractionPlaybook: string[]; // 初動100人獲得の泥臭い手順
+  sourceEntityIds: string[]; // 着想元となった保存企業ID
+  userNoteInspiration: string; // ユーザーのどのメモが着火剤になったか
+}
+
+// 戦略壁打ちチャットメッセージ
+export interface StrategyChatMessage {
+  id: string;
+  role: 'user' | 'assistant' | 'system';
+  content: string;
+  timestamp: string;
+  contextEntityId?: string; // 特定銘柄に関する壁打ちの場合
+  suggestedActionPrompts?: string[]; // 次に深掘りすべき冷徹な問い
 }
 
