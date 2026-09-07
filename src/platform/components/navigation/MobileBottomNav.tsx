@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Database, UserCheck, SlidersHorizontal, Bookmark, FileText } from 'lucide-react';
+import { Database, UserCheck, SlidersHorizontal, Bookmark, FileText, Cpu } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface MobileBottomNavProps {
@@ -48,18 +48,15 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <span>特集</span>
       </button>
 
-      {/* 完全1人 */}
+      {/* 独自アイデア合成・壁打ち */}
       <button
-        onClick={() => {
-          onSelectMode('LEDGER');
-          onSelectFilter('SOLO');
-        }}
+        onClick={() => onSelectMode('SYNTHESIS')}
         className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
-          workspaceMode === 'LEDGER' && currentFilter === 'SOLO' ? 'text-white font-medium' : 'text-zinc-500'
+          workspaceMode === 'SYNTHESIS' ? 'text-emerald-400 font-medium' : 'text-zinc-500'
         }`}
       >
-        <UserCheck className="w-3.5 h-3.5 mb-0.5" />
-        <span>ソロ</span>
+        <Cpu className="w-3.5 h-3.5 mb-0.5 text-emerald-400" />
+        <span>壁打ち</span>
       </button>
 
       {/* 50軸スクリーナー */}

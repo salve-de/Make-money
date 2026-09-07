@@ -12,6 +12,8 @@ import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '../inspector/CompanyInspectorPane';
 import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
+import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
+import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
@@ -25,8 +27,11 @@ export const TerminalShell: React.FC = () => {
   const entityParam = searchParams?.get('entity');
   const filterParam = searchParams?.get('filter') as GridFilterOption | null;
 
-  // 表示モード (LEDGER: 台帳 / DEEP_DIVE: 特集)
-  const initialMode: WorkspaceMode = modeParam === 'DEEP_DIVE' || topicParam ? 'DEEP_DIVE' : 'LEDGER';
+  // アナリスト考察メモの永続化フック
+  const { notes, getNote, saveNote } = useAnalystNotes();
+
+  // 表示モード (LEDGER: 台帳 / DEEP_DIVE: 特集 / SYNTHESIS: 戦略壁打ち＆独自アイデア合成)
+  const initialMode: WorkspaceMode = modeParam || (topicParam ? 'DEEP_DIVE' : 'LEDGER');
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(initialMode);
 
   const initialTopic: IntelligenceTopicId =

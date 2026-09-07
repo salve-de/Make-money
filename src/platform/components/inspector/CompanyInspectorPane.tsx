@@ -984,6 +984,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               />
             </div>
           )}
+        </div>
       </aside>
     </>
   );

@@ -5,7 +5,8 @@ import {
   Database, 
   FileText, 
   Bookmark, 
-  Activity
+  Activity,
+  Cpu
 } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 
@@ -79,7 +80,25 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
             </div>
           </div>
 
-          {/* 3. 保存した銘柄 (WATCHLIST) */}
+          {/* 3. 独自アイデア創出 ＆ 戦略壁打ち (SYNTHESIS) */}
+          <div className="relative group w-full flex justify-center">
+            <button
+              onClick={() => onSelectMode('SYNTHESIS')}
+              className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
+                workspaceMode === 'SYNTHESIS'
+                  ? 'bg-white/[0.1] text-white border border-white/[0.15]'
+                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04]'
+              }`}
+            >
+              <Cpu className="w-4 h-4 text-emerald-400" />
+            </button>
+            {/* ツールチップ */}
+            <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
+              戦略壁打ち ＆ アイデア合成 (Synthesis)
+            </div>
+          </div>
+
+          {/* 4. 保存した銘柄 (WATCHLIST) */}
           <div className="relative group w-full flex justify-center">
             <button
               onClick={() => {
