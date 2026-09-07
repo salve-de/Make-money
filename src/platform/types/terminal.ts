@@ -257,5 +257,7 @@ export interface StrategyChatMessage {
   timestamp: string;
   contextEntityId?: string; // 特定銘柄に関する壁打ちの場合
   suggestedActionPrompts?: string[]; // 次に深掘りすべき冷徹な問い
+  sources?: Array<{ title: string; url: string }>; // リアルタイムGoogle検索で参照したWeb元情報
+  isSearchUsed?: boolean; // リアルタイム検索AIが稼働したか
 }
 

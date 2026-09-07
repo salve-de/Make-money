@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import { SynthesizedIdea, StrategyChatMessage } from '@/platform/types/terminal';
+import { db, analystNotes, chatMessages, synthesizedIdeas } from '@/db';
+import { desc } from 'drizzle-orm';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,6 +14,7 @@ interface SynthesisPayload {
 
 interface ChatPayload {
   action: 'CHAT';
+  conversationId?: string;
   messages: Array<{ role: 'user' | 'assistant'; content: string }>;
   contextEntityId?: string;
   synthesizedIdeas?: SynthesizedIdea[];
@@ -177,21 +180,39 @@ function generateFallbackChatResponse(
   return { content: reply, suggestedActionPrompts: prompts };
 }
 
+interface GeminiApiResponse {
+  text: string;
+  sources?: Array<{ title: string; url: string }>;
+}
+
 // =========================================================================
 // Gemini API による高度推論（APIキー存在時）
+// 最安運用: 必要時のみ Google Search Grounding を有効化
 // =========================================================================
-async function callGeminiApi(prompt: string, apiKey: string): Promise<string> {
+async function callGeminiApi(
+  prompt: string,
+  apiKey: string,
+  enableSearch: boolean = false
+): Promise<GeminiApiResponse> {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
+  
+  const requestBody: Record<string, unknown> = {
+    contents: [{ parts: [{ text: prompt }] }],
+    generationConfig: {
+      temperature: 0.3,
+      maxOutputTokens: 2048,
+    },
+  };
+
+  // リアルタイム検索AIが必要な場合のみGoogle検索ツールを有効化（完全無料枠運用・最安化）
+  if (enableSearch) {
+    requestBody.tools = [{ googleSearch: {} }];
+  }
+
   const resp = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      contents: [{ parts: [{ text: prompt }] }],
-      generationConfig: {
-        temperature: 0.3,
-        maxOutputTokens: 2048,
-      },
-    }),
+    body: JSON.stringify(requestBody),
   });
 
   if (!resp.ok) {
@@ -199,7 +220,38 @@ async function callGeminiApi(prompt: string, apiKey: string): Promise<string> {
   }
 
   const data = await resp.json();
-  return data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const candidate = data.candidates?.[0];
+  const text = candidate?.content?.parts?.[0]?.text || '';
+
+  // Google Search Grounding の参照元（URL・タイトル）の抽出
+  const sources: Array<{ title: string; url: string }> = [];
+  const groundingChunks = candidate?.groundingMetadata?.groundingChunks;
+  if (Array.isArray(groundingChunks)) {
+    for (const chunk of groundingChunks) {
+      if (chunk?.web?.uri) {
+        sources.push({
+          title: chunk.web.title || chunk.web.uri,
+          url: chunk.web.uri,
+        });
+      }
+    }
+  }
+
+  return { text, sources: sources.length > 0 ? sources : undefined };
+}
+
+/**
+ * リアルタイム検索の必要性を判定する最安防衛フィルター
+ * ユーザーが最新トレンドや競合調査を求めている場合のみ検索をONにし、通信コストと遅延を極小化
+ */
+function shouldEnableLiveSearch(query: string): boolean {
+  const q = query.toLowerCase();
+  const searchKeywords = [
+    '最新', '今', 'いま', 'トレンド', '競合', '調査', '検索', '最近', 'ググ',
+    'sns', 'twitter', 'xで', 'reddit', '相場', '価格', 'ニュース', 'リリース',
+    '評判', '事例', 'いくら', '儲かって', '現状', '市場'
+  ];
+  return searchKeywords.some((keyword) => q.includes(keyword));
 }
 
 export async function POST(req: NextRequest) {
@@ -252,9 +304,33 @@ ${JSON.stringify(notes, null, 2)}
 ]
 `;
           const rawResponse = await callGeminiApi(prompt, apiKey);
-          const cleanJson = rawResponse.replace(/```json/g, '').replace(/```/g, '').trim();
+          const cleanJson = rawResponse.text.replace(/```json/g, '').replace(/```/g, '').trim();
           const parsed = JSON.parse(cleanJson);
           if (Array.isArray(parsed) && parsed.length > 0) {
+            // Neon DBが利用可能な場合は非同期で永続化
+            if (db) {
+              try {
+                for (const idea of parsed) {
+                  db.insert(synthesizedIdeas).values({
+                    id: idea.id || `idea_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
+                    userId: 'guest',
+                    dimension: idea.dimension,
+                    dimensionLabel: idea.dimensionLabel,
+                    title: idea.title,
+                    targetPainWallet: idea.targetPainWallet,
+                    structuralArbitrage: idea.structuralArbitrage,
+                    projectedMonthlyProfitJpy: idea.projectedMonthlyProfitJpy || 0,
+                    operatingMargin: idea.operatingMargin || 0,
+                    requiredTools: idea.requiredTools || [],
+                    first100TractionPlaybook: idea.first100TractionPlaybook || [],
+                    sourceEntityIds: idea.sourceEntityIds || [],
+                    userNoteInspiration: idea.userNoteInspiration || null,
+                  }).catch((err) => console.warn('Neon synthesized idea insert warning:', err));
+                }
+              } catch (dbErr) {
+                console.warn('Neon DB async sync failed:', dbErr);
+              }
+            }
             return NextResponse.json({ success: true, ideas: parsed, engine: 'gemini' });
           }
         } catch (geminiErr) {
@@ -270,12 +346,33 @@ ${JSON.stringify(notes, null, 2)}
     // 2. 対話壁打ちリクエスト (CHAT)
     if (body.action === 'CHAT') {
       const payload = body as ChatPayload;
-      const { messages, contextEntityId, notes } = payload;
+      const { messages, contextEntityId, notes, conversationId } = payload;
       const lastUserMessage = messages[messages.length - 1]?.content || '';
+
+      // リアルタイム検索の要否を自動判定（最安運用: 必要な時のみGoogle検索を発動）
+      const enableSearch = shouldEnableLiveSearch(lastUserMessage);
+
+      // Neon DBから過去の蓄積メモを抽出（DB接続時）
+      let dbAccumulatedNotes: string = '';
+      if (db) {
+        try {
+          const fetchedNotes = await db.select().from(analystNotes).limit(20);
+          if (fetchedNotes && fetchedNotes.length > 0) {
+            dbAccumulatedNotes = fetchedNotes
+              .map((n) => `[銘柄: ${n.entityId}]: ${n.content}`)
+              .join('\n');
+          }
+        } catch (dbReadErr) {
+          console.warn('Neon DB notes query skipped:', dbReadErr);
+        }
+      }
 
       if (apiKey) {
         try {
           const entity = INSTITUTIONAL_ENTITIES.find((e) => e.id === contextEntityId);
+          const clientNote = contextEntityId && notes ? notes[contextEntityId]?.content || '' : '';
+          const allNotesContext = [clientNote, dbAccumulatedNotes].filter(Boolean).join('\n\n');
+
           const prompt = `
 あなたは世界最高峰の頭脳を持つ、頼もしい事業パートナーです。
 難しいカタカナ用語（ROI、LTV、セグメント等）や小難しい熟語は一切使わず、誰でも1秒でわかる平易な日本語で、曖昧に濁さずズバッと核心を言い切ってください。
@@ -286,20 +383,21 @@ ${JSON.stringify(notes, null, 2)}
 3. ユーザーの発言を受け取ったら、即座に「その着眼点がなぜ素晴らしいのか」を平易な言葉で言語化し、一段深い視点や具体的な突破口を足して、1歩進めたボールを打ち返してください。
 4. メガネをクイクイさせて「リスクがあります」「慎重に」と冷や水を浴びせる減点パトロールは厳禁です。どうやれば手堅く勝てるかの活路を力強く示してください。
 5. 「【結論: ...】」などのロボット定型句は不要です。頼りがいと確信に満ちたプロフェッショナルとして自然に対話してください。
+${enableSearch ? '6. Google検索から得られた最新の市場・競合・トレンド情報を自然に織り交ぜて回答してください。' : ''}
 
 【あなたの手元にある裏帳簿データ（参考実例）】:
 ${entity ? JSON.stringify({ name: entity.name, pnl: entity.pnl, moat: entity.strategy.moatDescription, traction: entity.strategy.initialTraction, stack: entity.operations.toolStack, painWallet: entity.targetPainWallet }) : '全銘柄データ保有'}
 
-【ユーザーのアナリストメモ】:
-${contextEntityId && notes ? notes[contextEntityId]?.content || '' : ''}
+【DBおよび直近から蓄積されたアナリストメモ（ユーザーの視点）】:
+${allNotesContext || '特記事項なし'}
 
 【これまでの対話履歴】:
 ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
 
 回答の最後に、次に深掘りできる自然な問いや選択肢を「PROMPTS:」に続けて3行（改行区切り）で示してください。
 `;
-          const rawResponse = await callGeminiApi(prompt, apiKey);
-          const parts = rawResponse.split('PROMPTS:');
+          const rawResponse = await callGeminiApi(prompt, apiKey, enableSearch);
+          const parts = rawResponse.text.split('PROMPTS:');
           const replyContent = parts[0].trim();
           const promptLines = parts[1]
             ? parts[1].split('\n').map(l => l.replace(/^[0-9\.\-\*\s]+/, '').trim()).filter(Boolean)
@@ -309,16 +407,38 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
                 'このビジネスモデルの月額固定費を1万円以下に抑える配管構成は？'
               ];
 
+          const assistantMsg: StrategyChatMessage = {
+            id: `msg_${Date.now()}`,
+            role: 'assistant',
+            content: replyContent,
+            timestamp: new Date().toISOString(),
+            contextEntityId,
+            suggestedActionPrompts: promptLines.slice(0, 3),
+            sources: rawResponse.sources,
+            isSearchUsed: enableSearch && Boolean(rawResponse.sources && rawResponse.sources.length > 0),
+          };
+
+          // Neon DBへ非同期で対話ログを蓄積
+          if (db) {
+            try {
+              const activeConvId = conversationId || `conv_session_${Date.now()}`;
+              db.insert(chatMessages).values({
+                id: assistantMsg.id,
+                conversationId: activeConvId,
+                role: 'assistant',
+                content: assistantMsg.content,
+                contextEntityId: contextEntityId || null,
+                suggestedPrompts: assistantMsg.suggestedActionPrompts || null,
+                sources: assistantMsg.sources || null,
+              }).catch((e) => console.warn('Neon chat message insert warning:', e));
+            } catch (dbSaveErr) {
+              console.warn('Neon DB message save skipped:', dbSaveErr);
+            }
+          }
+
           return NextResponse.json({
             success: true,
-            message: {
-              id: `msg_${Date.now()}`,
-              role: 'assistant',
-              content: replyContent,
-              timestamp: new Date().toISOString(),
-              contextEntityId,
-              suggestedActionPrompts: promptLines.slice(0, 3),
-            },
+            message: assistantMsg,
             engine: 'gemini',
           });
         } catch (geminiErr) {

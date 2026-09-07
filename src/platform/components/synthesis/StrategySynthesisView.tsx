@@ -14,7 +14,9 @@ import {
   FileText,
   Activity,
   Cpu,
-  Bookmark
+  Bookmark,
+  Globe,
+  ExternalLink
 } from 'lucide-react';
 
 interface StrategySynthesisViewProps {
@@ -34,6 +36,8 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
   currency,
   initialContextEntityId,
 }) => {
+  const [conversationId] = useState<string>(() => `conv_${Date.now()}`);
+
   // 保存銘柄（もし保存がなければ代表的3社をデフォルト表示）
   const savedEntities = useMemo(() => {
     const list = allEntities.filter((e) => bookmarkedIds.has(e.id));
@@ -168,6 +172,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           action: 'CHAT',
+          conversationId,
           messages: [...chatMessages, userMsg].map((m) => ({ role: m.role, content: m.content })),
           contextEntityId: activeEditingEntityId,
           synthesizedIdeas,
@@ -557,6 +562,30 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                         >
                           {msg.content}
                         </div>
+
+                        {/* リアルタイムGoogle検索の参照元（Grounding Sources） */}
+                        {isAssistant && msg.sources && msg.sources.length > 0 && (
+                          <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
+                            <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400">
+                              <Globe className="w-3 h-3 text-emerald-400" />
+                              <span>リアルタイムWeb検索による参照ソース:</span>
+                            </div>
+                            <div className="flex flex-wrap gap-1.5">
+                              {msg.sources.map((src, sIdx) => (
+                                <a
+                                  key={sIdx}
+                                  href={src.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 text-[10px] font-mono text-zinc-300 hover:text-emerald-400 bg-white/[0.03] hover:bg-white/[0.08] px-2 py-0.5 rounded border border-white/[0.06] transition-colors truncate max-w-[280px]"
+                                >
+                                  <span className="truncate">{src.title}</span>
+                                  <ExternalLink className="w-2.5 h-2.5 shrink-0 text-zinc-500" />
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
 
                         {/* サジェストプロンプト */}
                         {isAssistant && msg.suggestedActionPrompts && msg.suggestedActionPrompts.length > 0 && (
