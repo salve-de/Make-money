@@ -58,16 +58,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         )}
       </div>
 
-      {/* 2. スプリット表示時（インスペクター展開時）または狭小PC: 厳選5カラム高密度表 */}
+      {/* 2. スプリット表示時（インスペクター展開時）または狭小PC: 厳選4カラム高密度表 */}
       <div className={`hidden md:block ${isSplitView ? 'block' : 'xl:hidden'} w-full`}>
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[44%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
-              <th className="w-[15%] py-2 px-2 font-medium text-right">直近月商</th>
-              <th className="w-[15%] py-2 px-2 font-medium text-right">実効純利益</th>
-              <th className="w-[13%] py-2 px-2 font-medium text-center">営業利益率</th>
-              <th className="w-[13%] py-2 px-3 font-medium text-right">解剖</th>
+              <th className="w-[60%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
+              <th className="w-[18%] py-2 px-2 font-medium text-right">月商 / 実効純利</th>
+              <th className="w-[12%] py-2 px-2 font-medium text-center">営業利益率</th>
+              <th className="w-[10%] py-2 px-3 font-medium text-right">解剖</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
@@ -84,7 +83,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       : 'hover:bg-white/[0.02] border-l-2 border-transparent'
                   }`}
                 >
-                  {/* 社名・ティッカー・急所ワンライナー */}
+                  {/* 社名・ティッカー・急所ワンライナー（最大2行表示） */}
                   <td className="py-2.5 px-3">
                     <div className="flex items-start gap-2 min-w-0">
                       <button
@@ -103,7 +102,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                           </span>
                         </div>
                         <div 
-                          className="text-[11px] text-zinc-400 truncate font-sans tracking-tight leading-tight mt-0.5"
+                          className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-1 line-clamp-2"
                           title={entity.tagline}
                         >
                           {entity.tagline}
@@ -112,19 +111,21 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     </div>
                   </td>
 
-                  {/* 月商 */}
-                  <td className="py-2.5 px-2 text-right text-white tabular-nums truncate align-middle">
-                    {formatMoney(entity.pnl.monthlyRevenue)}
-                  </td>
-
-                  {/* 実効純利益 */}
-                  <td className="py-2.5 px-2 text-right text-zinc-300 tabular-nums truncate align-middle">
-                    {formatMoney(entity.pnl.operatingProfit)}
+                  {/* 月商 / 実効純利益（上下2段組） */}
+                  <td className="py-2.5 px-2 text-right tabular-nums align-middle">
+                    <div className="text-white text-xs font-medium">
+                      <span className="text-[9px] text-zinc-500 mr-1 font-mono">月</span>
+                      {formatMoney(entity.pnl.monthlyRevenue)}
+                    </div>
+                    <div className="text-zinc-400 text-[10px] mt-0.5">
+                      <span className="text-[9px] text-zinc-500 mr-1 font-mono">純</span>
+                      {formatMoney(entity.pnl.operatingProfit)}
+                    </div>
                   </td>
 
                   {/* 営業利益率 */}
                   <td className="py-2.5 px-2 text-center truncate align-middle">
-                    <span className="text-emerald-400/90 font-medium tabular-nums">
+                    <span className="text-emerald-400/90 font-medium tabular-nums text-xs">
                       {entity.pnl.operatingMargin}%
                     </span>
                   </td>
@@ -199,7 +200,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                           </span>
                         </div>
                         <div 
-                          className="text-[11px] text-zinc-400 truncate font-sans tracking-tight leading-tight mt-0.5"
+                          className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-1 line-clamp-2"
                           title={entity.tagline}
                         >
                           {entity.tagline}
