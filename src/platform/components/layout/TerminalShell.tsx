@@ -227,8 +227,17 @@ export const TerminalShell: React.FC = () => {
           bookmarkCount={bookmarkedIds.size}
         />
 
-        {/* 中央メインエリア (特集ディープダイブ or 金融台帳グリッド) */}
-        {workspaceMode === 'DEEP_DIVE' ? (
+        {/* 中央メインエリア (独自アイデア合成/壁打ち or 特集ディープダイブ or 金融台帳グリッド) */}
+        {workspaceMode === 'SYNTHESIS' ? (
+          <StrategySynthesisView
+            allEntities={INSTITUTIONAL_ENTITIES}
+            bookmarkedIds={bookmarkedIds}
+            notes={notes}
+            onSaveNote={saveNote}
+            currency={currency}
+            initialContextEntityId={selectedEntityId}
+          />
+        ) : workspaceMode === 'DEEP_DIVE' ? (
           <IntelligenceDeepDiveView
             dossier={activeDossier}
             targetEntities={deepDiveEntities}
@@ -293,6 +302,12 @@ export const TerminalShell: React.FC = () => {
             }}
             activeTag={activeTag}
             onSelectTag={setActiveTag}
+            analystNote={getNote(selectedEntity.id)}
+            onSaveAnalystNote={saveNote}
+            onOpenSynthesisWithEntity={(id) => {
+              setSelectedEntityId(id);
+              setWorkspaceMode('SYNTHESIS');
+            }}
           />
         )}
       </main>
