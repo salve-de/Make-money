@@ -17,6 +17,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: '直販要塞',
     pipelineStack: '内製SFA × 即日物流網 × ファブレス生産委託',
     targetPainWallet: '工場長の保身（ライン停止・歩留まり悪化の恐怖）',
+    tags: ['直販独占', '相見積もり拒否', 'B2B製造', '損失回避', 'ファブレス', '利益率50%超'],
     essence: {
       whatItDoes: '工場の歩留まり改善・FA（工場自動化）センサーの直販企画製造（ファブレス）',
       targetCustomer: '製造業各社の工場長・生産技術部門・品質管理責任者',
@@ -129,6 +130,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: 'API寄生',
     pipelineStack: 'API 7行 × Ruby × 国際銀行ゲートウェイ',
     targetPainWallet: '開発者の怠惰（数ヶ月かかる銀行稟議の完全回避）',
+    tags: ['API寄生', '通行税モデル', 'Fintech', '開発者特化', 'B2B', '低解約率'],
     essence: {
       whatItDoes: 'Web・モバイル決済インフラAPIおよびグローバル金融OS',
       targetCustomer: 'スタートアップ、個人開発者、SaaS事業者、Eコマース企業',
@@ -240,6 +242,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: 'API包装',
     pipelineStack: 'Replicate API × Hetzner × Stripe',
     targetPainWallet: '個人の見栄（写真館スタジオの羞恥心・数万円回避）',
+    tags: ['完全1人', 'API包装', '利益率80%超', '個人開発', 'SNSバイラル', '初期費用0円'],
     essence: {
       whatItDoes: '自撮り写真からスタジオ品質のプロ宣材写真を大量生成するAIスタジオ',
       targetCustomer: 'LinkedIn利用者、フリーランス、起業家、マッチングアプリ登録者',
@@ -353,6 +356,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: '30%紹介網',
     pipelineStack: 'Stable Diffusion × Stripe × 成果報酬アフィリエイト',
     targetPainWallet: 'リモート企業人事（退職・採用時の顔写真更新コスト）',
+    tags: ['完全1人', '30%紹介網', 'B2B', 'AI写真', '個人開発', 'リモート人事'],
     essence: {
       whatItDoes: 'リモート企業向けチーム全員の統一宣材顔写真AI生成プラットフォーム',
       targetCustomer: 'リモートワーク企業のHR/人事担当者、役員、マーケティング責任者',
@@ -464,6 +468,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: '要約メディア',
     pipelineStack: 'Beehiiv × ニュース要約 × 直販スポンサー枠',
     targetPainWallet: 'テック企業の宣伝費（700万人エンジニア露出の独占）',
+    tags: ['要約メディア', '広告モデル', 'キュレーション', '少数精鋭', '利益率60%超', 'B2B'],
     essence: {
       whatItDoes: 'テック・AI・開発の最重要ニュースを毎朝5分で読める日刊キュレーションメール',
       targetCustomer: 'ソフトウェアエンジニア、CTO、テック系投資家（全世界700万人）',
@@ -576,6 +581,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: 'テンプレ販売',
     pipelineStack: 'Notion × Gumroad × X (Twitter)',
     targetPainWallet: 'Notion挫折組（多機能すぎて組めない時間の買い取り）',
+    tags: ['完全1人', 'テンプレ販売', 'Notion', '初期費用0円', '利益率90%超', '個人開発'],
     essence: {
       whatItDoes: '個人・フリーランス向けのNotion業務管理テンプレート＆ダッシュボード販売',
       targetCustomer: '生産性を上げたいナレッジワーカー、フリーランス、起業家、学生',
@@ -687,6 +693,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: 'AI営業代行',
     pipelineStack: 'Clay × Make × OpenAI API × Smartlead',
     targetPainWallet: 'VC調達直後SaaS（新規商談枯渇の焦燥・営業人件費）',
+    tags: ['AI営業代行', '成果報酬', 'B2B', '少数精鋭', 'スクレイピング', '高粗利'],
     essence: {
       whatItDoes: 'シリーズA調達直後のSaaSに特化した、AI個別最適化コールドメール営業代行',
       targetCustomer: 'VC調達直後のSaaS企業CEO、CRO、営業管轄役員',
@@ -799,6 +806,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     architecturePattern: '職人丸投げ',
     pipelineStack: 'LINE公式 × Google MEO × 提携職人ネットワーク',
     targetPainWallet: '戸建て家主（訪問リフォーム業者のボッタクリ恐怖）',
+    tags: ['完全1人', '職人丸投げ', 'LINE集客', '地域DX', '中抜きモデル', '無店舗型'],
     essence: {
       whatItDoes: '外壁・屋根の高圧洗浄をLINE写真1枚で10秒見積もりし、提携職人を派遣する無店舗型元請け',
       targetCustomer: '築10年以上の戸建て住宅オーナー（40〜70代）',

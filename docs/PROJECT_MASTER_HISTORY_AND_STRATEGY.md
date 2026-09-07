@@ -1481,6 +1481,21 @@
   3. **スプリット画面（2枚目） ＆ モバイルカード：配管・人質の上下2段スタック化**:
      - 横並び共倒れを廃止し、上段に「配管」、下段に「人質」を独立配置。スマホや狭小画面でも全文がスムーズに読めるよう最適化。
 
-
-
-
+### 32. Phase 32: 客観事実暴露データの完全実装 ＆ データ収集実動パイプライン（Intelligence Factory）の初配備
+- **検死された病巣と意思決定（ユーザーの承認）**:
+  - 「【暴露と指南の絶対境界線（確定ルール）】 これ 反映する場合 何を出せるようになる？ 確認をして」
+  - 「てか このプロジェクト 実際にデータを 収集する場合 どうする？ なにを どのように集める それは GITHUBとか HANDOFFとか なんかに 書いてある？ それで十分か？」「いいね 全部出して」
+  - 読者への悪事の指南（情報商材化）を徹底排除した上で、「あいつが実際に使った初期の泥臭い手口・不正すれすれの事実」を客観的レントゲン写真として100%全開で掲載する方針を確定。
+  - また、仕様書（`DATA_COLLECTION_CONTRACT.md` / `PROJECT_CHARTER.md`）に留まっていたデータ収集パイプラインを、実動する実行可能TypeScriptスクリプト群として配備。
+- **断行した外科的改革**:
+  1. **型定義の拡張と客観事実暴露データの全8銘柄完全注入 (`src/platform/types/terminal.ts`, `src/platform/data/mockLedgerData.ts`)**:
+     - `ExposureAuditDossier` を新設（①初期ゲリラ戦・自演ログ、②規約盲点ハック、③死線とピボット魚拓、④裏ツール構成と現物原価レントゲン）。
+     - キーエンス、Stripe、Photo AI、HeadshotPro、TLDR、Easlo、Clay×AAA、地域特化高圧洗浄DXの全8銘柄に生データを完全充填。
+  2. **詳細インスペクターへの専用モジュール配備 (`src/platform/components/inspector/CompanyInspectorPane.tsx`)**:
+     - 実務Playbookタブの最上段に `AUDIT [Crosshair] 資本主義の裏帳簿：初期突破の手口と裏原価 (EXPOSURE AUDIT)` を新設。プロ端末に相応しい無彩色・高密度デザインで展開。
+  3. **データ収集実動パイプライン（Intelligence Factory）のコード配備 (`scripts/pipeline/`)**:
+     - `scoutSignals.ts`（Stage 1: シグナル探索）
+     - `extractDossier.ts`（Stage 2: A〜G項目および客観事実暴露の構造化抽出）
+     - `verifyAndIntegrate.ts`（Stage 3: 出典と信頼度格付け、台帳エンティティ統合）
+     - `runPipeline.ts`（Master Runner: ワンストップ実行エンジン）
+     - テスト実行（`npx tsx scripts/pipeline/runPipeline.ts`）を完遂し、ノイズからのシグナル検知、抽出、信頼度格付け（REPORTED/UNVERIFIED/VERIFIED）、台帳統合の自走ループを確立。
