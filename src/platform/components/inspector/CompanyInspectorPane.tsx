@@ -663,7 +663,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           )}
 
           {/* ========================================================= */}
-          {/* 【PRO EXCLUSIVE: ビジネスモデル構造解剖（4大メタ分析）】 */}
+          {/* 【PRO EXCLUSIVE: 儲かり続ける4つの裏構造】 */}
           {/* ========================================================= */}
           {entity.meta && (
             <div className="relative border border-white/[0.1] rounded-md bg-[#0A0B0E] p-3.5 space-y-3 overflow-hidden shadow-2xl mt-6">
@@ -676,85 +676,85 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   <div className="flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-zinc-300" />
                     <span className="text-[11px] font-mono font-bold text-zinc-100 uppercase tracking-wider">
-                      ビジネスモデル構造解剖 (META-ARCHITECTURE)
+                      独占と暴利を生む4つの裏構造 (CORE MECHANISM)
                     </span>
                   </div>
                 </div>
                 <span className="text-[9px] font-mono text-zinc-500">
-                  INSTITUTIONAL AUDIT
+                  DEEP AUDIT
                 </span>
               </div>
 
               {/* 4大メタ分析モジュール群 (すりガラス遮断) */}
               <div className="relative pt-1">
                 <div className="filter blur-[2.5px] opacity-25 select-none pointer-events-none space-y-3 text-xs font-sans">
-                  {/* #01 大手の構造的ジレンマ */}
+                  {/* #01 なぜ大手が手を出せないのか */}
                   <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
                       <span className="text-zinc-500">01.</span>
-                      <span>大手の構造的ジレンマ (INCUMBENT DILEMMA)</span>
+                      <span>なぜ大手が手を出せないのか（大手の自縛・参入拒絶）</span>
                     </div>
                     <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">共食い障壁:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
-                      <div><strong className="text-zinc-300 font-mono">規模の制約:</strong> {entity.meta.incumbentDilemma.scaleMismatchReason}</div>
-                      <div><strong className="text-zinc-300 font-mono">速度優位性:</strong> {entity.meta.incumbentDilemma.decisionSpeedAdvantage}</div>
+                      <div><strong className="text-zinc-300 font-mono">大手の自爆（カニバリ）:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
+                      <div><strong className="text-zinc-300 font-mono">大企業病（美味い隙間）:</strong> {entity.meta.incumbentDilemma.scaleMismatchReason}</div>
+                      <div><strong className="text-zinc-300 font-mono">即決の奇襲（速度の差）:</strong> {entity.meta.incumbentDilemma.decisionSpeedAdvantage}</div>
                     </div>
                   </div>
 
-                  {/* #02 価格決定権とアンカリング */}
+                  {/* #02 なぜ暴利でも客が群がるのか */}
                   <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
                       <span className="text-zinc-500">02.</span>
-                      <span>価格決定権とアンカリング (PRICING POWER & ANCHORING)</span>
+                      <span>なぜ暴利でも客が群がるのか（値切らせない急所）</span>
                     </div>
                     <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">比較対象:</strong> {entity.meta.pricingPower.anchorComparison}</div>
-                      <div><strong className="text-zinc-300 font-mono">損失回避:</strong> {entity.meta.pricingPower.lossAversionTrigger}</div>
-                      <div><strong className="text-zinc-300 font-mono">狙う予算枠:</strong> {entity.meta.pricingPower.budgetCategory}</div>
+                      <div><strong className="text-zinc-300 font-mono">錯覚の比較軸（アンカー）:</strong> {entity.meta.pricingPower.anchorComparison}</div>
+                      <div><strong className="text-zinc-300 font-mono">人質の急所（恐怖のツボ）:</strong> {entity.meta.pricingPower.lossAversionTrigger}</div>
+                      <div><strong className="text-zinc-300 font-mono">痛まない財布（会社の経費）:</strong> {entity.meta.pricingPower.budgetCategory}</div>
                     </div>
                   </div>
 
-                  {/* #03 不可逆スイッチングコスト */}
+                  {/* #03 なぜ客が一生辞められないのか */}
                   <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
                       <span className="text-zinc-500">03.</span>
-                      <span>不可逆スイッチングコスト (SWITCHING GRAVITY)</span>
+                      <span>なぜ客が一生辞められないのか（乗り換えの監禁構造）</span>
                     </div>
                     <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">データ人質:</strong> {entity.meta.lockInMechanism.dataHostage}</div>
-                      <div><strong className="text-zinc-300 font-mono">業務埋込:</strong> {entity.meta.lockInMechanism.workflowIntegration}</div>
-                      <div><strong className="text-zinc-300 font-mono">離脱摩擦:</strong> {entity.meta.lockInMechanism.switchingFriction}</div>
+                      <div><strong className="text-zinc-300 font-mono">データの監禁（人質化）:</strong> {entity.meta.lockInMechanism.dataHostage}</div>
+                      <div><strong className="text-zinc-300 font-mono">業務への寄生（日常化）:</strong> {entity.meta.lockInMechanism.workflowIntegration}</div>
+                      <div><strong className="text-zinc-300 font-mono">解約の激痛（乗り換え罰）:</strong> {entity.meta.lockInMechanism.switchingFriction}</div>
                     </div>
                   </div>
 
-                  {/* #04 資本効率とキャッシュ幾何学 */}
+                  {/* #04 なぜ無借金で現金が膨らみ続けるのか */}
                   <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
                       <span className="text-zinc-500">04.</span>
-                      <span>資本効率とキャッシュ幾何学 (CAPITAL EFFICIENCY)</span>
+                      <span>なぜ無借金で現金が膨らみ続けるのか（前金・暴利のカラクリ）</span>
                     </div>
                     <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">資金回収:</strong> {entity.meta.capitalEfficiency.cashConversionCycle}</div>
-                      <div><strong className="text-zinc-300 font-mono">限界利益:</strong> {entity.meta.capitalEfficiency.incrementalMargin}</div>
-                      <div><strong className="text-zinc-300 font-mono">増殖機構:</strong> {entity.meta.capitalEfficiency.workingCapitalStrategy}</div>
+                      <div><strong className="text-zinc-300 font-mono">前金総取り（客の金で拡大）:</strong> {entity.meta.capitalEfficiency.cashConversionCycle}</div>
+                      <div><strong className="text-zinc-300 font-mono">原価ゼロの限界利益:</strong> {entity.meta.capitalEfficiency.incrementalMargin}</div>
+                      <div><strong className="text-zinc-300 font-mono">現金の自動蓄積（無借金増殖）:</strong> {entity.meta.capitalEfficiency.workingCapitalStrategy}</div>
                     </div>
                   </div>
                 </div>
 
                 {/* 中央解錠ゲートウェイ */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/65 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
-                  <div className="flex items-center gap-1.5 text-xs font-mono font-medium text-white">
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
+                  <div className="flex items-center gap-1.5 text-xs font-medium text-white">
                     <KeyRound className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>大手の自爆構造 ＆ 価格決定権 ＆ 不可逆ロックインの完全解剖</span>
+                    <span>大手が手を出せず、客が一生逃げられない「4大独占構造」</span>
                   </div>
                   <p className="text-[11px] text-zinc-400 max-w-sm font-sans leading-normal">
-                    プロ投資家・事業家が監査する「なぜ競合が真似できず、客が辞めないのか」の4大構造レポートを解錠
+                    暴利でも客が群がるカラクリ、他社へ乗り換え不能にする罠、前金で手元に金が残る裏帳簿をすべて公開
                   </p>
                   <button
                     onClick={onOpenPro}
                     className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-1.5 rounded transition-colors shadow-2xl"
                   >
-                    PROプランで構造解剖を全量解錠 (¥1,980〜)
+                    PROプランで独占の裏帳簿をすべて暴く (¥1,980〜)
                   </button>
                 </div>
               </div>
