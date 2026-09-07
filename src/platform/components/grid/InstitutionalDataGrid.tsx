@@ -63,11 +63,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[32%] py-2 px-3 font-medium">銘柄 / 企業名</th>
-              <th className="w-[18%] py-2 px-2 font-medium text-right">直近月商</th>
-              <th className="w-[18%] py-2 px-2 font-medium text-right">実効純利益</th>
-              <th className="w-[16%] py-2 px-2 font-medium text-center">営業利益率</th>
-              <th className="w-[16%] py-2 px-3 font-medium text-right">解剖</th>
+              <th className="w-[44%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
+              <th className="w-[15%] py-2 px-2 font-medium text-right">直近月商</th>
+              <th className="w-[15%] py-2 px-2 font-medium text-right">実効純利益</th>
+              <th className="w-[13%] py-2 px-2 font-medium text-center">営業利益率</th>
+              <th className="w-[13%] py-2 px-3 font-medium text-right">解剖</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
@@ -84,43 +84,53 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       : 'hover:bg-white/[0.02] border-l-2 border-transparent'
                   }`}
                 >
-                  {/* 社名・ティッカー */}
-                  <td className="py-2.5 px-3 truncate">
-                    <div className="flex items-center gap-2 truncate">
+                  {/* 社名・ティッカー・急所ワンライナー */}
+                  <td className="py-2.5 px-3">
+                    <div className="flex items-start gap-2 min-w-0">
                       <button
                         onClick={(e) => onToggleBookmark(entity.id, e)}
-                        className="text-zinc-600 hover:text-zinc-300 shrink-0"
+                        className="text-zinc-600 hover:text-zinc-300 shrink-0 mt-0.5"
                       >
                         <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                       </button>
-                      <span className="text-[11px] text-zinc-500 font-mono shrink-0">
-                        {entity.ticker}
-                      </span>
-                      <span className="font-medium text-white truncate font-sans">
-                        {entity.name}
-                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 truncate">
+                          <span className="text-[10px] text-zinc-500 font-mono shrink-0">
+                            {entity.ticker}
+                          </span>
+                          <span className="font-medium text-xs text-white truncate font-sans">
+                            {entity.name}
+                          </span>
+                        </div>
+                        <div 
+                          className="text-[11px] text-zinc-400 truncate font-sans tracking-tight leading-tight mt-0.5"
+                          title={entity.tagline}
+                        >
+                          {entity.tagline}
+                        </div>
+                      </div>
                     </div>
                   </td>
 
                   {/* 月商 */}
-                  <td className="py-2.5 px-2 text-right text-white tabular-nums truncate">
+                  <td className="py-2.5 px-2 text-right text-white tabular-nums truncate align-middle">
                     {formatMoney(entity.pnl.monthlyRevenue)}
                   </td>
 
                   {/* 実効純利益 */}
-                  <td className="py-2.5 px-2 text-right text-zinc-300 tabular-nums truncate">
+                  <td className="py-2.5 px-2 text-right text-zinc-300 tabular-nums truncate align-middle">
                     {formatMoney(entity.pnl.operatingProfit)}
                   </td>
 
                   {/* 営業利益率 */}
-                  <td className="py-2.5 px-2 text-center truncate">
+                  <td className="py-2.5 px-2 text-center truncate align-middle">
                     <span className="text-emerald-400/90 font-medium tabular-nums">
                       {entity.pnl.operatingMargin}%
                     </span>
                   </td>
 
                   {/* 解剖ボタン */}
-                  <td className="py-2.5 px-3 text-right">
+                  <td className="py-2.5 px-3 text-right align-middle">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -145,14 +155,14 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
         <table className="w-full table-fixed border-collapse text-left font-mono text-xs">
           <thead>
             <tr className="border-b border-white/[0.06] bg-[#090A0D] text-zinc-500 text-[11px]">
-              <th className="w-[20%] py-2 px-3 font-medium">ティッカー / 銘柄</th>
-              <th className="w-[12%] py-2 px-2 font-medium text-right">直近月商</th>
-              <th className="w-[12%] py-2 px-2 font-medium text-right">実効純利益</th>
+              <th className="w-[26%] py-2 px-3 font-medium">銘柄 / 歪みの手口</th>
+              <th className="w-[11%] py-2 px-2 font-medium text-right">直近月商</th>
+              <th className="w-[11%] py-2 px-2 font-medium text-right">実効純利益</th>
               <th className="w-[8%] py-2 px-2 font-medium text-center">粗利益率</th>
-              <th className="w-[9%] py-2 px-2 font-medium text-center">営業利益率</th>
-              <th className="w-[9%] py-2 px-2 font-medium text-right">初期資本</th>
-              <th className="w-[7%] py-2 px-2 font-medium text-center">体制</th>
-              <th className="w-[16%] py-2 px-2 font-medium">突いた盲点</th>
+              <th className="w-[8%] py-2 px-2 font-medium text-center">営業利益率</th>
+              <th className="w-[8%] py-2 px-2 font-medium text-right">初期資本</th>
+              <th className="w-[6%] py-2 px-2 font-medium text-center">体制</th>
+              <th className="w-[15%] py-2 px-2 font-medium">突いた盲点</th>
               <th className="w-[7%] py-2 px-3 font-medium text-right">解剖</th>
             </tr>
           </thead>
@@ -170,63 +180,73 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       : 'hover:bg-white/[0.02] border-l-2 border-transparent'
                   }`}
                 >
-                  {/* ティッカー・銘柄 */}
-                  <td className="py-2 px-3 truncate">
-                    <div className="flex items-center gap-2 truncate">
+                  {/* ティッカー・銘柄・急所ワンライナー */}
+                  <td className="py-2.5 px-3">
+                    <div className="flex items-start gap-2 min-w-0">
                       <button
                         onClick={(e) => onToggleBookmark(entity.id, e)}
-                        className="text-zinc-600 hover:text-zinc-300 shrink-0"
+                        className="text-zinc-600 hover:text-zinc-300 shrink-0 mt-0.5"
                       >
                         <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
                       </button>
-                      <span className="text-[11px] text-zinc-500 font-mono shrink-0">
-                        {entity.ticker}
-                      </span>
-                      <span className="font-medium text-white truncate font-sans">
-                        {entity.name}
-                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5 truncate">
+                          <span className="text-[10px] text-zinc-500 font-mono shrink-0">
+                            {entity.ticker}
+                          </span>
+                          <span className="font-medium text-xs text-white truncate font-sans">
+                            {entity.name}
+                          </span>
+                        </div>
+                        <div 
+                          className="text-[11px] text-zinc-400 truncate font-sans tracking-tight leading-tight mt-0.5"
+                          title={entity.tagline}
+                        >
+                          {entity.tagline}
+                        </div>
+                      </div>
                     </div>
                   </td>
 
                   {/* 月商 */}
-                  <td className="py-2 px-2 text-right text-white tabular-nums truncate">
+                  <td className="py-2.5 px-2 text-right text-white tabular-nums truncate align-middle">
                     {formatMoney(entity.pnl.monthlyRevenue)}
                   </td>
 
                   {/* 純利 */}
-                  <td className="py-2 px-2 text-right text-zinc-300 tabular-nums truncate">
+                  <td className="py-2.5 px-2 text-right text-zinc-300 tabular-nums truncate align-middle">
                     {formatMoney(entity.pnl.operatingProfit)}
                   </td>
 
                   {/* 粗利率 */}
-                  <td className="py-2 px-2 text-center tabular-nums text-zinc-400">
+                  <td className="py-2.5 px-2 text-center tabular-nums text-zinc-400 align-middle">
                     {entity.pnl.grossMargin}%
                   </td>
 
                   {/* 営業利益率 */}
-                  <td className="py-2 px-2 text-center">
+                  <td className="py-2.5 px-2 text-center align-middle">
                     <span className="text-emerald-400/90 font-medium tabular-nums">
                       {entity.pnl.operatingMargin}%
                     </span>
                   </td>
 
                   {/* 初期投下資本 */}
-                  <td className="py-2 px-2 text-right text-zinc-500 tabular-nums truncate">
+                  <td className="py-2.5 px-2 text-right text-zinc-500 tabular-nums truncate align-middle">
                     {entity.operations.initialCapitalRequired === 0 ? '0円' : formatMoney(entity.operations.initialCapitalRequired)}
                   </td>
 
                   {/* 体制 */}
-                  <td className="py-2 px-2 text-center text-zinc-500 text-[11px]">
+                  <td className="py-2.5 px-2 text-center text-zinc-500 text-[11px] align-middle">
                     {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize}人`}
                   </td>
 
                   {/* 突いた盲点 */}
-                  <td className="py-2 px-2 text-zinc-400 text-[11px] truncate font-sans" title={entity.strategy.blindspot}>
+                  <td className="py-2.5 px-2 text-zinc-400 text-[11px] truncate font-sans align-middle" title={entity.strategy.blindspot}>
                     {entity.strategy.blindspot}
                   </td>
 
                   {/* 解剖ボタン */}
-                  <td className="py-2 px-3 text-right">
+                  <td className="py-2.5 px-3 text-right align-middle">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();

@@ -67,10 +67,9 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         </div>
       </div>
 
-      {/* 2段目: 突いた業界の盲点 */}
-      <p className="text-[11px] text-zinc-300 line-clamp-1 mb-1.5 font-sans">
-        <span className="text-amber-400/90 font-medium">急所: </span>
-        {entity.strategy.blindspot.replace(/^【(.*?)】.*/, '$1')}
+      {/* 2段目: 歪みの手口（キラー・ワンライナー） */}
+      <p className="text-[11px] text-zinc-400 line-clamp-1 mb-1.5 font-sans tracking-tight leading-tight" title={entity.tagline}>
+        {entity.tagline}
       </p>
 
       {/* 3段目: 純利益・利益率・体制・解剖 */}
