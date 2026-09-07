@@ -159,7 +159,40 @@ export type GridFilterOption =
   | 'AI_NATIVE'
   | 'BOOKMARKED';
 
-export type WorkspaceMode = 'LEDGER' | 'DEEP_DIVE' | 'SYNTHESIS';
+export type WorkspaceMode = 'LEDGER' | 'RADAR' | 'SYNTHESIS' | 'DEEP_DIVE';
+
+// マネーフロー動向レーダー：急上昇トレンド
+export interface MoneyFlowTrend {
+  id: string;
+  badge: string;
+  title: string;
+  growthRateYoY: number;
+  avgMargin: number;
+  summary: string;
+  structuralBackground: string;
+  targetPainWallet: string;
+  representativeEntityIds: string[];
+  timestamp: string;
+}
+
+// マネーフロー動向レーダー：レッドオーシャン警戒アラート
+export interface RedOceanAlert {
+  id: string;
+  title: string;
+  marginDecline: string;
+  failureReason: string;
+  alternativePlay: string;
+}
+
+// マネーフロー動向レーダー：痛みの財布ヒートマップ
+export interface PainWalletHeatmap {
+  id: string;
+  sector: string;
+  targetPersona: string;
+  painTrigger: string;
+  budgetBehavior: string;
+  urgencyLevel: 'CRITICAL' | 'HIGH' | 'SURGING';
+}
 
 export type IntelligenceTopicId = 
   | 'solo_empire'

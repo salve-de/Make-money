@@ -12,6 +12,7 @@ import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '../inspector/CompanyInspectorPane';
 import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
 import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView';
+import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
@@ -30,8 +31,8 @@ export const TerminalShell: React.FC = () => {
   // アナリスト考察メモの永続化フック
   const { notes, getNote, saveNote } = useAnalystNotes();
 
-  // 表示モード (LEDGER: 台帳 / DEEP_DIVE: 特集 / SYNTHESIS: 戦略壁打ち＆独自アイデア合成)
-  const initialMode: WorkspaceMode = modeParam || (topicParam ? 'DEEP_DIVE' : 'LEDGER');
+  // 表示モード (LEDGER: 台帳 / RADAR: 動向レーダー / SYNTHESIS: 戦略壁打ち＆独自アイデア合成)
+  const initialMode: WorkspaceMode = modeParam || 'LEDGER';
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>(initialMode);
 
   // 特集トピックID (nullの場合は特集カタログ一覧を表示)
@@ -234,20 +235,10 @@ export const TerminalShell: React.FC = () => {
         {/* 左サイドバー */}
         <TerminalSidebar
           workspaceMode={workspaceMode}
-          onSelectMode={(mode) => {
-            setWorkspaceMode(mode);
-            if (mode === 'DEEP_DIVE') {
-              setActiveTopicId(null);
-            }
-          }}
+          onSelectMode={(mode) => setWorkspaceMode(mode)}
           currentFilter={currentFilter}
           onSelectFilter={(f) => setCurrentFilter(f)}
           bookmarkCount={bookmarkedIds.size}
-          activeTopicId={activeTopicId}
-          onSelectTopic={(topicId) => {
-            setActiveTopicId(topicId);
-            setWorkspaceMode('DEEP_DIVE');
-          }}
           onOpenPro={() => setIsProModalOpen(true)}
         />
 
@@ -261,27 +252,14 @@ export const TerminalShell: React.FC = () => {
             currency={currency}
             initialContextEntityId={selectedEntityId}
           />
-        ) : workspaceMode === 'DEEP_DIVE' ? (
-          activeTopicId && activeDossier ? (
-            <IntelligenceDeepDiveView
-              dossier={activeDossier}
-              allDossiers={INTELLIGENCE_DOSSIERS}
-              targetEntities={deepDiveEntities}
-              onBackToCatalog={() => setActiveTopicId(null)}
-              onSelectDossier={(id) => setActiveTopicId(id)}
-              onOpenEntityInLedger={(entityId) => {
-                setSelectedEntityId(entityId);
-                setWorkspaceMode('LEDGER');
-              }}
-              currency={currency}
-            />
-          ) : (
-            <IntelligenceCatalogView
-              dossiers={INTELLIGENCE_DOSSIERS}
-              allEntities={INSTITUTIONAL_ENTITIES}
-              onSelectDossier={(id) => setActiveTopicId(id)}
-            />
-          )
+        ) : (workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
+          <MoneyFlowRadarView
+            allEntities={INSTITUTIONAL_ENTITIES}
+            onOpenEntityInLedger={(entityId) => {
+              setSelectedEntityId(entityId);
+              setWorkspaceMode('LEDGER');
+            }}
+          />
         ) : (
           <div className={`flex flex-col min-w-0 overflow-hidden bg-[#07080B] transition-all duration-150 ${
             selectedEntity
@@ -322,9 +300,8 @@ export const TerminalShell: React.FC = () => {
             onPrevEntity={handlePrevEntity}
             onNextEntity={handleNextEntity}
             onOpenPro={() => setIsProModalOpen(true)}
-            onSelectTopic={(topicId) => {
-              setWorkspaceMode('DEEP_DIVE');
-              setActiveTopicId(topicId);
+            onSelectTopic={() => {
+              setWorkspaceMode('RADAR');
             }}
             activeTags={activeTags}
             onToggleTag={handleToggleTag}

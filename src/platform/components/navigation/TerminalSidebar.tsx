@@ -3,19 +3,17 @@
 import React from 'react';
 import { 
   Database, 
-  FileText, 
+  TrendingUp, 
   Bookmark, 
   Activity,
   Cpu,
   KeyRound
 } from 'lucide-react';
-import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
+import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface TerminalSidebarProps {
   workspaceMode: WorkspaceMode;
   onSelectMode: (mode: WorkspaceMode) => void;
-  activeTopicId?: IntelligenceTopicId | null;
-  onSelectTopic?: (topicId: IntelligenceTopicId) => void;
   currentFilter: GridFilterOption;
   onSelectFilter: (filter: GridFilterOption) => void;
   bookmarkCount: number;
@@ -65,21 +63,21 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
             </div>
           </div>
 
-          {/* 2. 特集インテリジェンス (DEEP_DIVE) */}
+          {/* 2. マネーフロー動向レーダー (RADAR) */}
           <div className="relative group w-full flex justify-center">
             <button
-              onClick={() => onSelectMode('DEEP_DIVE')}
+              onClick={() => onSelectMode('RADAR')}
               className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
-                workspaceMode === 'DEEP_DIVE'
+                workspaceMode === 'RADAR'
                   ? 'bg-white/[0.1] text-white border border-white/[0.15]'
                   : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04]'
               }`}
             >
-              <FileText className="w-4 h-4" />
+              <TrendingUp className="w-4 h-4" />
             </button>
             {/* ツールチップ */}
             <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
-              特集インテリジェンス (Intelligence)
+              マネーフロー動向レーダー (Radar)
             </div>
           </div>
 

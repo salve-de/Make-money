@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Database, UserCheck, SlidersHorizontal, Bookmark, FileText, Cpu } from 'lucide-react';
+import { Database, SlidersHorizontal, Bookmark, TrendingUp, Cpu } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface MobileBottomNavProps {
@@ -37,15 +37,15 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <span>全台帳</span>
       </button>
 
-      {/* 特集・深層解剖 */}
+      {/* 動向レーダー */}
       <button
-        onClick={() => onSelectMode('DEEP_DIVE')}
+        onClick={() => onSelectMode('RADAR')}
         className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
-          workspaceMode === 'DEEP_DIVE' ? 'text-white font-medium' : 'text-zinc-500'
+          workspaceMode === 'RADAR' ? 'text-white font-medium' : 'text-zinc-500'
         }`}
       >
-        <FileText className="w-3.5 h-3.5 mb-0.5" />
-        <span>特集</span>
+        <TrendingUp className="w-3.5 h-3.5 mb-0.5" />
+        <span>動向</span>
       </button>
 
       {/* 独自アイデア合成・壁打ち */}
