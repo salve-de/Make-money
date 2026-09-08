@@ -1,4 +1,5 @@
 /** Collection completeness is separate from permission to retain partial knowledge. */
+import { reconcileCollection } from './reconciliation';
 export const DIMENSIONS = [
   'identity', 'founders', 'location', 'status', 'team_history', 'timeline',
   'revenue', 'peak_revenue', 'mrr_arr', 'gmv', 'gross_profit', 'operating_profit',
@@ -43,6 +44,7 @@ export function assessCoverage(bundle: Record<string, unknown>) {
   if (!Array.isArray(bundle.money_signals)) throw new Error('money_signals array required for business collection');
   const records = ['entities', 'claims', 'metrics', 'money_signals', 'events', 'relationships', 'observations'];
   if (!records.some(field => Array.isArray(bundle[field]) && (bundle[field] as unknown[]).length)) throw new Error('Empty research is not a collection result');
-  return { status: pending.length ? 'PARTIAL' : 'ALL_DIMENSIONS_ATTEMPTED', pending,
-    note: 'Attempted coverage does not mean every fact is known or independently verified.' };
+  const reconciliation = reconcileCollection(bundle, DIMENSIONS);
+  return { status: pending.length ? 'PARTIAL' : reconciliation.status, pending, reconciliation,
+    note: 'Intake and storage do not prove completeness. Reconciliation covers declared requirements and inventoried sources, not all information on the internet.' };
 }

@@ -1,5 +1,13 @@
 # 「MAKEMONEYに必要なデータを集めてこい」の実行入口
 
+## 収集漏れの検査（必須）
+
+Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/business-case.v1.json` を読む。資料の見出し・表・全期間ごとの関連情報を棚卸しし、保存レコードへ結び付ける。あるのに未保存の情報は「不明」ではなくpending。画面外の関連情報も残す。
+
+`node --import tsx scripts/foundation-collect.ts requirements` で共通の細目と現コードの出力項目を取得する（FOUNDATION_REPO設定が必要）。`collection_audit.v1` 観測に細目、資料別抽出台帳、値照合、第二巡レビュー、未読候補、現コードhashを記録する。
+
+`node --import tsx scripts/foundation-collect.ts audit request.json audit-result.json` で不足を検査し、解消後は `ingest-complete` で保存する。通常のingestは部分保存用。旧ALL_DIMENSIONS_ATTEMPTED、項目数、R2成功だけでは収集完了を意味しない。監査なしはREVIEW_REQUIRED。どのAIもこの手順を省略しない。
+
 新規データだけを収集・保存する。既存 `universal`、EDINET、移行済みshadowの整理・変更はしない。
 
 ## 最初に読む
