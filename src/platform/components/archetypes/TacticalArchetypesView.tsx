@@ -2,30 +2,21 @@
 
 import React, { useState, useMemo } from 'react';
 import { FinancialEntity } from '../../types/terminal';
-import { MarketAnomaly, AnomalyCategory } from '../../types/terminal';
-import { MARKET_ANOMALIES, ANOMALY_CATEGORIES } from '../../data/marketAnomaliesData';
+import { MarketAnomaly } from '../../types/terminal';
+import { MARKET_ANOMALIES } from '../../data/marketAnomaliesData';
 import {
   TrendingUp,
-  AlertTriangle,
   Flame,
-  Clock,
   ArrowRight,
   ArrowLeft,
   Sparkles,
-  ExternalLink,
   Search,
-  SlidersHorizontal,
-  Layers,
-  ChevronRight,
   ShieldAlert,
   Zap,
-  CheckCircle2,
   X,
   Target,
   Wrench,
   BookOpen,
-  FileText,
-  BarChart3,
   Database,
 } from 'lucide-react';
 import { AffiliateToolList } from '../tools/AffiliateToolBadge';
@@ -43,8 +34,6 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
   onOpenSynthesisWithEntity,
   initialAnomalyId,
 }) => {
-  // 選択中のカテゴリ
-  const [selectedCategory, setSelectedCategory] = useState<AnomalyCategory | 'ALL'>('ALL');
   // 選択中の歪みID（初期値は指定されたID、または最初の1件）
   const [selectedAnomalyId, setSelectedAnomalyId] = useState<string>(
     initialAnomalyId || MARKET_ANOMALIES[0]?.id || ''
@@ -61,24 +50,21 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
     }
   }, [initialAnomalyId]);
 
-  // フィルタリング処理
+  // フィルタリング処理（カテゴリピル全廃・即時フリーワード検索に純化）
   const filteredAnomalies = useMemo(() => {
+    if (!searchQuery.trim()) return MARKET_ANOMALIES;
+    const q = searchQuery.toLowerCase();
     return MARKET_ANOMALIES.filter((item) => {
-      const matchCategory =
-        selectedCategory === 'ALL' || item.category === selectedCategory;
-      if (!matchCategory) return false;
-
-      if (!searchQuery.trim()) return true;
-      const q = searchQuery.toLowerCase();
       return (
         item.title.toLowerCase().includes(q) ||
         item.subtitle.toLowerCase().includes(q) ||
+        item.categoryLabel.toLowerCase().includes(q) ||
         item.targetPainWallet.toLowerCase().includes(q) ||
         item.incumbentTrap.toLowerCase().includes(q) ||
         item.trendingPlaybook.toLowerCase().includes(q)
       );
     });
-  }, [selectedCategory, searchQuery]);
+  }, [searchQuery]);
 
   // 現在選択中の歪みオブジェクト
   const activeAnomaly = useMemo(() => {
@@ -107,82 +93,40 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
 
   return (
     <div className="flex-1 flex flex-col min-w-0 bg-[#060709] text-zinc-100 overflow-hidden font-sans select-text">
-      {/* ─── 最上部 戦略HUDストリップ（全画面対応） ─── */}
-      <header className="border-b border-white/[0.06] bg-[#090A0E] px-3 sm:px-4 py-2.5 sm:py-3 shrink-0">
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5 sm:gap-3">
+      {/* ─── 最上部 戦略HUDストリップ（ピル完全切除・極薄プロ仕様） ─── */}
+      <header className="border-b border-white/[0.06] bg-[#090A0E] px-3 sm:px-4 py-2 shrink-0">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           {/* タイトルとコンセプト */}
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                <Flame className="w-3 h-3 text-emerald-400 animate-pulse" />
-                TRENDS & ANOMALIES RADAR
-              </span>
-              <span className="text-[10px] sm:text-[11px] font-mono text-zinc-500">
-                常時監視・逐一更新
-              </span>
-            </div>
-            <h1 className="text-xs sm:text-sm font-semibold text-white tracking-wide mt-0.5 flex flex-wrap items-center gap-1.5 sm:gap-2">
-              <span>市場の歪み ＆ トレンド速報</span>
-              <span className="text-[11px] sm:text-xs font-normal text-zinc-400">
-                ─ 大手の自爆と急上昇マネーフローを暴く戦略レーダー
-              </span>
+          <div className="flex items-center gap-2 min-w-0">
+            <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+              <Flame className="w-3 h-3 text-emerald-400 animate-pulse" />
+              TRENDS & ANOMALIES
+            </span>
+            <h1 className="text-xs sm:text-sm font-semibold text-white tracking-wide truncate">
+              市場の歪み ＆ トレンド速報
             </h1>
+            <span className="text-[10px] text-zinc-500 font-mono hidden md:inline shrink-0">
+              ({filteredAnomalies.length}件検知 / 平均手残り {avgMargin}%)
+            </span>
           </div>
 
-          {/* KPIストリップ（スマホでも横スクロール対応） */}
-          <div className="flex items-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-mono shrink-0 overflow-x-auto no-scrollbar py-0.5">
-            <div className="px-2 py-1 rounded bg-white/[0.02] border border-white/[0.05] shrink-0">
-              <span className="text-zinc-500 text-[9px] sm:text-[10px] block uppercase">検出歪み</span>
-              <span className="text-white font-bold">{MARKET_ANOMALIES.length}件</span>
+          {/* 検索窓 ＆ KPI */}
+          <div className="flex items-center gap-2 shrink-0">
+            <div className="relative w-full sm:w-56 md:w-64">
+              <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="歪み・手口・大手の弱点を検索..."
+                className="w-full bg-[#050608] border border-white/[0.08] focus:border-emerald-500/50 rounded pl-8 pr-3 py-1 text-xs text-zinc-200 placeholder-zinc-600 focus:outline-none transition-colors"
+              />
             </div>
-            <div className="px-2 py-1 rounded bg-white/[0.02] border border-white/[0.05] shrink-0">
-              <span className="text-zinc-500 text-[9px] sm:text-[10px] block uppercase">平均手残り純利</span>
-              <span className="text-emerald-400 font-bold">{avgMargin}%</span>
+            <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono text-zinc-500">
+              <span className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.05] text-rose-400 font-bold">
+                急上昇 {hotCount}件
+              </span>
             </div>
-            <div className="px-2 py-1 rounded bg-white/[0.02] border border-white/[0.05] shrink-0">
-              <span className="text-zinc-500 text-[9px] sm:text-[10px] block uppercase">急上昇シグナル</span>
-              <span className="text-rose-400 font-bold">{hotCount}件</span>
-            </div>
-            <div className="px-2 py-1 rounded bg-white/[0.02] border border-white/[0.05] shrink-0 hidden sm:block">
-              <span className="text-zinc-500 text-[9px] sm:text-[10px] block uppercase">最新検知</span>
-              <span className="text-cyan-400 font-bold">2026-03-05</span>
-            </div>
-          </div>
-        </div>
-
-        {/* カテゴリフィルター ＆ 検索バー */}
-        <div className="mt-2.5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2 pt-2 border-t border-white/[0.04]">
-          {/* カテゴリタブ（水平スクロール対応） */}
-          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5 -mx-1 px-1">
-            {ANOMALY_CATEGORIES.map((cat) => {
-              const isSelected = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-2 sm:px-2.5 py-1 rounded text-[11px] sm:text-xs font-mono whitespace-nowrap transition-all shrink-0 ${
-                    isSelected
-                      ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/40 shadow-sm shadow-emerald-950/50 font-semibold'
-                      : 'bg-white/[0.02] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.05] border border-white/[0.05]'
-                  }`}
-                  title={cat.description}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* 検索窓 */}
-          <div className="relative w-full md:w-60 lg:w-64 shrink-0">
-            <Search className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="歪み・手口・大手の弱点を検索..."
-              className="w-full bg-[#050608] border border-white/[0.08] focus:border-emerald-500/50 rounded pl-8 pr-3 py-1 text-xs text-zinc-200 placeholder-zinc-600 focus:outline-none transition-colors"
-            />
           </div>
         </div>
       </header>
