@@ -13,7 +13,8 @@
     "preview:workers": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy:workers": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload:workers": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "r2:with-secrets": "node scripts/with-r2-keychain-secrets.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",

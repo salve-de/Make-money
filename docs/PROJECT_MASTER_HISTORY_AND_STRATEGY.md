@@ -2175,3 +2175,19 @@
   - チープな煽りや不快な表現が完全に消え失せ、Bloomberg / Sacra 水準の品格と破壊力を両立したプロ用端末へと昇華。
   - ユーザーは1行思いつきを入れるだけで、実在企業の裏帳簿を根拠にした冷徹なデューデリジェンス結果を即座に得られるようになった。
 
+### 62. Phase 62: Make-Money専用R2資格情報の安全な実行時注入 ＆ 4バケット到達確認
+- **目的**:
+  - 新しく収集するUniversal Foundation / Make-Moneyデータを、このプロジェクトからCloudflare R2へ保存できる実接続を確立する。
+  - 既存の`universal`、既存`foundation-lake`、EDINETその他の既存オブジェクトは整理・移動・上書きせず、そのまま保持する。
+- **実施したこと**:
+  1. Cloudflare R2で新規バケット`foundation-raw`、`foundation-restricted`、`foundation-public`を作成。既存`foundation-lake`と合わせてFoundationの4バケットを使用可能にした。
+  2. `make-money-foundation-ingest`というプロジェクト専用のR2 APIトークンを作成し、権限を4つのFoundationバケットのObject Read & Writeに限定。既存バケットへの権限は付与していない。
+  3. 認証値をリポジトリ、`.env.local`、履歴へ書かず、macOS Keychainのプロジェクト専用項目へ保存。
+  4. `scripts/with-r2-keychain-secrets.mjs`と`npm run r2:with-secrets -- <command>`を追加し、Node.js実行時だけ環境変数へ注入する経路を追加。
+- **実接続の確認**:
+  - KeychainからアカウントID、Access Key ID、Secret Access Keyの3項目を値を表示せず読み出せることを確認。
+  - プロジェクト専用キーで4つのFoundationバケットへ`HeadBucket`できることを確認。
+  - この作業では既存バケットのオブジェクト変更、実データのPut、EDINETデータの整理は行っていない。
+- **現在の境界**:
+  - 新規データを収集し、既存キーと衝突しないbundleを作成した後、既存の取り込み経路からR2へPut・読み戻し検証を実行できる状態。
+  - 認証値のGitHubへの保存、既存`universal`への新規書き込み、既存データの再編成は引き続き禁止。

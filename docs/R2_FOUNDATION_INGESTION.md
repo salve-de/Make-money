@@ -14,6 +14,8 @@
 - Cloudflare Workers：`wrangler.jsonc` の4つのR2 bindingを使う。S3キーは不要。
 - Node.js（ローカル・別サーバー）：`CLOUDFLARE_R2_*` のS3互換資格情報を使う。
 
+ローカルMacでNode.js経路を使う場合、R2の秘密値はリポジトリや`.env.local`へ平文で保存しない。プロジェクト専用のmacOS Keychain項目から、`npm run r2:with-secrets -- <command>` 実行時だけ環境変数へ注入する。
+
 どちらの経路でも、同じ作成専用Put、全件Preflight、保存後の読み戻し検証を通る。
 
 ## 保存入口
