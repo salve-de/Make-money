@@ -2106,3 +2106,19 @@
   - 会社・人物・顧客・競合・プラットフォーム、行動と日付、売上・利益・費用・利益率・手取り、価格・MRR・ARR・GMV、顧客需要・集客・運営負担・技術・依存・失敗・撤退を、共通プリミティブと元bundleに保持する。
 - **未実行のこと**:
   - R2のSecret設定、バケット作成、実データのPut、legacy `universal` の変更は行っていない。
+
+### 59. Phase 59: R2実接続経路のWorkers binding対応 ＆ OpenNext配備入口の復旧
+- **目的**:
+  - 「収集したらR2へ入れる」を、S3資格情報があるNode.js実行だけでなく、Cloudflare Workersへ配備した本番実行でも成立させる。
+  - これまで `wrangler.jsonc` が参照していた `.open-next/worker.js` を実際に生成できる状態にする。
+- **追加した処置**:
+  1. `@opennextjs/cloudflare@1.20.6` を依存関係へ追加し、`open-next.config.ts`、Workers用preview/deploy/uploadスクリプトを配備。
+  2. `foundation-raw` / `foundation-lake` / `foundation-restricted` / `foundation-public` の4つを、それぞれ `FOUNDATION_R2_*` bindingとして `wrangler.jsonc` に定義。ローカルWorkers実行も `remote: true` とし、模擬R2の成功を実R2の成功と誤認しない。
+  3. `src/lib/storage/r2.ts` にWorkers R2 APIの `head` / `get` / `put` / `list` 経路を追加。S3互換経路との共通処理として、全件Preflight、作成専用Put、衝突停止、読み戻しSHA-256検証を維持。
+  4. `src/lib/runtime/cloudflare.ts` を追加し、Workers Secretの `FOUNDATION_INGEST_TOKEN` を取り込みAPIから参照可能にした。Node.jsでは `.env.local` の値を優先する。
+  5. OpenNextが呼ぶ本番ビルドを `next build --webpack` に固定し、`opennextjs-cloudflare build` と `wrangler deploy --dry-run` の両方でWorkers bundleと4つのR2 bindingが認識されることを確認。
+- **現時点の確認**:
+  - Next本体build、TypeScript、対象Lint、OpenNext bundle生成、Wrangler dry-runは成功。
+  - `.env.local` にR2資格情報は無く、WranglerのCloudflare認証は期限切れ。したがって、この作業中に実アカウントへのバケット作成・Workers配備・実データPutは実行していない。
+- **残る外部作業**:
+  - 対象Cloudflareアカウントで4バケットを作成済みにし、最小権限の認証またはWorkers Secretを設定してから、`npm run deploy:workers` と実データ1件のPut/read-back証明を行う。

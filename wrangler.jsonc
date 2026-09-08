@@ -2,12 +2,34 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "make-money-app",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2026-09-01",
+  "compatibility_date": "2026-09-08",
   "compatibility_flags": ["nodejs_compat"],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "r2_buckets": [
+    {
+      "binding": "FOUNDATION_R2_RAW",
+      "bucket_name": "foundation-raw",
+      "remote": true
+    },
+    {
+      "binding": "FOUNDATION_R2_LAKE",
+      "bucket_name": "foundation-lake",
+      "remote": true
+    },
+    {
+      "binding": "FOUNDATION_R2_RESTRICTED",
+      "bucket_name": "foundation-restricted",
+      "remote": true
+    },
+    {
+      "binding": "FOUNDATION_R2_PUBLIC",
+      "bucket_name": "foundation-public",
+      "remote": true
+    }
+  ],
   "vars": {
     "ENVIRONMENT": "production"
   }

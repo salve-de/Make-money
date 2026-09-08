@@ -1,5 +1,6 @@
 import { timingSafeEqual } from 'node:crypto';
 import { NextRequest, NextResponse } from 'next/server';
+import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
 import {
   FoundationBundleValidationError,
   FoundationIngestAuthorizationError,
@@ -36,7 +37,7 @@ function errorStatus(error: unknown): number {
 }
 
 export async function POST(request: NextRequest) {
-  const expectedToken = process.env.FOUNDATION_INGEST_TOKEN?.trim();
+  const expectedToken = await getRuntimeEnvValue('FOUNDATION_INGEST_TOKEN');
   if (!expectedToken) {
     return NextResponse.json(
       { error: 'Foundation ingestion is not configured on this server' },

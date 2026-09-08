@@ -9,6 +9,13 @@
 
 旧 `universal` には新規データを書かない。
 
+保存処理は実行環境に応じて自動で経路を選ぶ。
+
+- Cloudflare Workers：`wrangler.jsonc` の4つのR2 bindingを使う。S3キーは不要。
+- Node.js（ローカル・別サーバー）：`CLOUDFLARE_R2_*` のS3互換資格情報を使う。
+
+どちらの経路でも、同じ作成専用Put、全件Preflight、保存後の読み戻し検証を通る。
+
 ## 保存入口
 
 内部API:
@@ -59,8 +66,8 @@ Make-Money固有の情報は、専用の別形式に閉じ込めない。会社�
 ## 動作条件
 
 - `write_authorized` が `true` であること。
-- `FOUNDATION_INGEST_TOKEN` がサーバー側に設定されていること。
-- R2のアカウントID・Access Key・Secret Access Keyがサーバー側に設定されていること。
+- `FOUNDATION_INGEST_TOKEN` がサーバー側に設定されていること。WorkersではSecretとして設定する。
+- Node.js実行ではR2のアカウントID・Access Key・Secret Access Keyがサーバー側に設定されていること。Workers実行では不要で、R2 bindingを使う。
 - 対象バケットが事前に作成済みであること。
 - 既存キーは上書きしない。同じ内容は重複扱い、違う内容は衝突として停止する。
 - 既存キーの中身はSHA-256で比較する。メタデータだけを根拠に同一扱いしない。
@@ -78,3 +85,31 @@ FOUNDATION_R2_PUBLIC_BUCKET=foundation-public
 ```
 
 秘密情報は `.env.example` に値を入れず、実行環境のSecretとして設定する。
+
+## Cloudflare Workersへ配備する場合
+
+次の4バケットをCloudflareアカウント内に一度だけ作成し、対象アカウントへログインした状態で確認する。
+
+```bash
+npx wrangler r2 bucket create foundation-raw
+npx wrangler r2 bucket create foundation-lake
+npx wrangler r2 bucket create foundation-restricted
+npx wrangler r2 bucket create foundation-public
+npx wrangler r2 bucket list
+```
+
+取り込みAPIのトークンはソースへ書かず、次でWorkers Secretへ登録する。
+
+```bash
+npx wrangler secret put FOUNDATION_INGEST_TOKEN
+```
+
+配備・Workers実行経路の確認は次で行う。
+
+```bash
+npm run cf:typegen
+npm run preview:workers
+npm run deploy:workers
+```
+
+`wrangler.jsonc` の `remote: true` は、ローカルのWorkersプレビューでもローカル模擬R2へ誤保存せず、指定した実R2へ接続するための設定である。Cloudflareへログインしていない状態では成功扱いにしない。
