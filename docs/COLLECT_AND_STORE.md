@@ -1,45 +1,154 @@
 # 「MAKEMONEYに必要なデータを集めてこい」の実行入口
 
-## 収集漏れの検査（必須）
+## 0. 正本
 
-Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/business-case.v1.json` を読む。資料の見出し・表・全期間ごとの関連情報を棚卸しし、保存レコードへ結び付ける。あるのに未保存の情報は「不明」ではなくpending。画面外の関連情報も残す。
+最初に認証付きで `salve-de/universal-foundation` を取得し、次を順番に読む。
 
-`node --import tsx scripts/foundation-collect.ts requirements` で共通の細目と現コードの出力項目を取得する（FOUNDATION_REPO設定が必要）。`collection_audit.v1` 観測に細目、資料別抽出台帳、値照合、第二巡レビュー、未読候補、現コードhashを記録する。
+1. `AGENTS.md`
+2. `docs/LONG_HORIZON_DATA_ARCHITECTURE.md`
+3. `docs/UNIVERSAL_COLLECTION_BASELINE.md`
+4. `docs/R2_SELF_DESCRIBING_LAYOUT.md`
+5. `registry/collection/business-case.v2.json`
+6. `docs/AI_COLLECTION_AND_STORAGE_CONTRACT.md`
+7. `docs/MAKE_MONEY_AGENT_RUNBOOK.md`
+8. `docs/MAKE_MONEY_RESEARCH_REQUIREMENTS.md`
+9. 深い完全性を主張する場合のみ `registry/collection/business-case.v1.json` と `docs/COLLECTION_RECONCILIATION.md`
 
-`node --import tsx scripts/foundation-collect.ts audit request.json audit-result.json` で不足を検査し、解消後は `ingest-complete` で保存する。通常のingestは部分保存用。旧ALL_DIMENSIONS_ATTEMPTED、項目数、R2成功だけでは収集完了を意味しない。監査なしはREVIEW_REQUIRED。どのAIもこの手順を省略しない。
+Make-Moneyはconsumer。R2 pathやMake-Money UI schemaをUniversalの意味にしない。
 
-新規データだけを収集・保存する。既存 `universal`、EDINET、移行済みshadowの整理・変更はしない。
+## 1. 収集方針
 
-## 最初に読む
+91項目という数は保存構造でも上限でもない。
 
-認証付きで `salve-de/universal-foundation` を取得し、その `AGENTS.md` → `docs/UNIVERSAL_COLLECTION_BASELINE.md` → `docs/AI_COLLECTION_AND_STORAGE_CONTRACT.md` → `docs/MAKE_MONEY_AGENT_RUNBOOK.md` → `docs/MAKE_MONEY_RESEARCH_REQUIREMENTS.md` を読む。非公開リポジトリの404を不存在と断定しない。
+- **CAPTURE**: 面白い候補を見つけたら、深掘り前でも保存可能。
+- **CORE**: identity / people / product / customer-demand / pricing / money-economics / distribution / operations / technology / competition-market / timeline-outcomes / provenance-rights-uncertainty の12領域を広く確認。
+- **ENRICHED**: 価値の高い候補やMake-Money表示に必要な内容を追加調査。
+- **DEEP_RECONCILED**: 本当に「深く調べ切った」と主張するときだけ旧詳細チェックリストとsource reconciliationを完遂。
 
-収集対象はその共通要件と本プロジェクト要件の和集合。利益・費用・手残りを売上で代用しない。出典なしもUNVERIFIEDで保持し、推定・推論は区別する。追加情報は `observations` に観測者・時刻・取得経路とともに残す。
+資料内で発見した有用情報は、現在のUIや91項目に無くても捨てない。未知の概念はUniversal Journalへ入り、後から型を作る。
 
-## 実行
+## 2. 事実・Journal・Projection
 
-Node.jsとnpm、検索/ブラウザ、GitHub認証が必要。初回は `npm ci`。
+収集結果は次の順で扱う。
+
+```text
+Source / lead
+  -> raw evidence（権利が許す場合）
+  -> research-bundle.v1
+  -> Universal Journal (journal-entry.v1)
+  -> Entity / Claim / Metric / MoneySignal / Event / Relationship
+  -> derived intelligence
+  -> Make-Money view
+```
+
+利益・費用・手残りを売上で代用しない。出典なしはUNVERIFIEDとして保持。推定・推論は明示する。
+
+## 3. 調査bundleの準備・既存取り込み
 
 ```sh
 gh repo clone salve-de/universal-foundation /private/tmp/foundation-contract
 export FOUNDATION_REPO=/private/tmp/foundation-contract
+npm ci
 ```
 
-AI自身が検索・閲覧して事実を集め、正本schemaに沿う `request.json` を作る。`data/collection/buffer-2024.request.json` は実測した過去年度の部分収集例であり、新しい対象の数字として流用しない。旧 `scripts/pipeline/` は合成サンプルで、実収集には使わない。
+AI自身が検索・閲覧して `request.json` を作る。過去のBuffer fixtureを別企業の数値として流用しない。
 
-`collection_coverage` は `src/lib/foundation/coverage.ts` の全項目を含める。foundには実レコード参照、attempted_unavailable/unknownには実際の調査記録、not_applicableには理由を書く。未調査はnot_attempted。範囲外の追加観測も捨てない。
+既存Foundation取り込みの準備・保存:
 
 ```sh
 node --import tsx scripts/foundation-collect.ts prepare request.json plan.json
 npm run r2:with-secrets -- node --import tsx scripts/foundation-collect.ts ingest request.json receipt.json
 ```
 
-保存には依頼による権限と `write_authorized:true` が必要。`prepare` はネットワーク書込なし。`ingest` は正本schema、項目網羅、保存計画を検証し、条件付き新規作成と読戻しSHA照合を行う。receipt.jsonは実行前計画、receipt.json.result.jsonが成功結果。同一入力の再実行は別のローカルreceipt名を使い、同一R2内容を再作成しない。
+深い完了判定が必要な場合:
 
-## 認証の境界
+```sh
+node --import tsx scripts/foundation-collect.ts requirements
+node --import tsx scripts/foundation-collect.ts audit request.json audit-result.json
+npm run r2:with-secrets -- node --import tsx scripts/foundation-collect.ts ingest-complete request.json receipt.json
+```
 
-このMacではKeychainラッパーを使う。鍵を表示・GitHubへ登録しない。別マシンは許可済みのR2環境変数を安全な実行環境で渡し、直接nodeコマンドを実行する。GitHubを読めることだけでR2書込権限は得られない。認証できなければ準備成果物を保持し、保存成功と報告しない。
+`prepare`はR2を書かない。`ingest`は部分保存も許す。`ingest-complete`は深いreconciliation用。
 
-## 完了報告
+## 4. Universal Journalのmaterialize
 
-収集件数、各項目の未取得/未調査、出典状態、bucket/key、作成件数、読戻し一致数を示す。PARTIALは保存成功でも調査完了ではない。ALL_DIMENSIONS_ATTEMPTEDも全数値が判明した意味ではない。既存データの移動・上書き・削除は常に0。
+同じ`request.json`から、typed recordと自由観測をjournal-entry.v1へ変換する。
+
+書込前確認:
+
+```sh
+npm run foundation:journal:prepare -- request.json journal-plan.json
+```
+
+R2書込:
+
+```sh
+npm run r2:with-secrets -- npm run foundation:journal:ingest -- request.json journal-receipt.json
+```
+
+Journal writerは:
+
+- Entity / Claim / Metric / MoneySignal / Event / Relationship / observationsをJournal entryへ変換する;
+- `schemas/foundation/journal-entry.v1.schema.json`で検証する;
+- `foundation-lake/journal/v1/YYYY/MM/DD/<journal_id>.json`へcreate-onlyで保存する;
+- 既存同一内容は重複として扱う;
+- 同じkeyで別内容なら停止し、上書きしない;
+- 書込後にR2 readback/hash確認を行う。
+
+JournalはDerivedを事実として取り込まない。
+
+## 5. R2自身を自己説明可能にする
+
+Universalの`r2-descriptors/`には、各主要R2 prefixに置く`_README.v1.md`と`_manifest.v1.json`の正本テンプレートがある。
+
+まずplanだけ作る:
+
+```sh
+npm run foundation:r2-descriptors:prepare -- descriptors-plan.json
+```
+
+実際にR2へmaterializeする場合は、明示的なdescriptor書込承認も必要:
+
+```sh
+export FOUNDATION_DESCRIPTOR_WRITE_AUTHORIZED=true
+npm run r2:with-secrets -- npm run foundation:r2-descriptors:ingest -- descriptors-receipt.json
+```
+
+これにより、R2だけを見た将来のAIでも各bucket/prefixの目的、canonicality、schema、dataset ID、rebuild可否、write/delete policy、rights/security、consumer、GitHub正本を理解できる。
+
+説明ファイルも上書きしない。変更はv2等を新規追加する。
+
+## 6. 収集漏れ検査
+
+DEEP_RECONCILEDを主張するときだけ、詳細checklistとsource inventoryを必須にする。
+
+- 資料の見出し・表・全関連期間を棚卸しする。
+- 発見したのに未保存の情報はpending。
+- `collection_audit.v1`に資料別抽出台帳、値照合、第二巡レビュー、未読候補を残す。
+- productのDerived/表示用フィールドを、外部で必ず見つかるSource Factとして扱わない。
+
+CAPTURE/CORE/ENRICHEDの部分データは、有用ならそのまま保存してよい。ただし完了レベルを偽らない。
+
+## 7. 認証と既存データ境界
+
+このMacではKeychainラッパーを使う。鍵を表示・GitHubへ登録しない。GitHub閲覧権限だけではR2書込権限はない。
+
+**今回の新構造では既存 `universal`、EDINET、Investraderの既存shadow/production dataを整理・移動・上書き・削除しない。**
+
+後日、Universalの`docs/LEGACY_DATA_MIGRATION_CONTRACT.md`に従い、inventory -> map -> copy/rebuild -> verify -> shadow -> cutover -> retainの別作業で移行する。
+
+## 8. 完了報告
+
+最低限報告するもの:
+
+- collection tier;
+- source/unknown/conflict状態;
+- research bundle validation;
+- Journal entry数とvalidation;
+- typed record数;
+- planned R2 keys;
+- created / identical / conflict;
+- readback一致数;
+- descriptor materialization状態;
+- legacy `universal` / EDINET / Investrader mutation = 0;
+- delete / move / rename / overwrite = 0。
