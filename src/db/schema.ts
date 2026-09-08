@@ -113,3 +113,52 @@ export const newsletterSubscribers = pgTable("newsletter_subscribers", {
   subscribedAt: timestamp("subscribed_at").defaultNow().notNull(),
 });
 
+// ユーザーのアナリスト考察メモ（銘柄ごとの蓄積メモ・全件検索対応）
+export const analystNotes = pgTable("analyst_notes", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id"), // 未ログイン時は 'guest'
+  entityId: text("entity_id").notNull(), // 例: 'ent_photoai'
+  content: text("content").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+// AI戦略壁打ちスレッド
+export const chatConversations = pgTable("chat_conversations", {
+  id: text("id").primaryKey(),
+  userId: text("user_id"),
+  title: text("title"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+// AI戦略壁打ちメッセージ履歴（検索元URL・推論根拠付き）
+export const chatMessages = pgTable("chat_messages", {
+  id: text("id").primaryKey(),
+  conversationId: text("conversation_id").notNull(),
+  role: text("role").notNull(), // 'user' | 'assistant'
+  content: text("content").notNull(),
+  contextEntityId: text("context_entity_id"),
+  suggestedPrompts: jsonb("suggested_prompts").$type<string[]>(),
+  sources: jsonb("sources").$type<Array<{ title: string; url: string }>>(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// 合成ビジネスアイデア永続台帳
+export const synthesizedIdeas = pgTable("synthesized_ideas", {
+  id: text("id").primaryKey(),
+  userId: text("user_id"),
+  dimension: text("dimension").notNull(), // 'SAVANNA_INSTINCT' | 'META_ARCHITECT' | 'CONTRARIAN_BLINDSPOT'
+  dimensionLabel: text("dimension_label").notNull(),
+  title: text("title").notNull(),
+  targetPainWallet: text("target_pain_wallet").notNull(),
+  structuralArbitrage: text("structural_arbitrage").notNull(),
+  projectedMonthlyProfitJpy: integer("projected_monthly_profit_jpy").notNull(),
+  operatingMargin: integer("operating_margin").notNull(),
+  requiredTools: jsonb("required_tools").$type<Array<{ name: string; monthlyCostJpy: number; purpose: string }>>(),
+  first100TractionPlaybook: jsonb("first100_traction_playbook").$type<string[]>(),
+  sourceEntityIds: jsonb("source_entity_ids").$type<string[]>(),
+  userNoteInspiration: text("user_note_inspiration"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+

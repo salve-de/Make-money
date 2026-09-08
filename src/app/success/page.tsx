@@ -1,22 +1,38 @@
+'use client';
+
+import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { ShieldCheck, ArrowRight, KeyRound } from 'lucide-react';
 
 export default function SuccessPage() {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('kin_pro_unlocked', 'true');
+    }
+  }, []);
+
   return (
-    <main className="min-h-screen bg-slate-50 px-6 py-20 text-slate-900 font-sans flex items-center justify-center">
-      <div className="mx-auto max-w-lg rounded-xl border border-slate-200 bg-white p-8 text-center shadow-lg space-y-4">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200">
-          PAYMENT COMPLETE
+    <main className="min-h-screen bg-[#07080B] text-zinc-100 font-sans flex items-center justify-center p-4 select-none">
+      <div className="w-full max-w-md rounded-lg border border-white/[0.1] bg-[#0C0E14] p-6 text-center shadow-2xl space-y-4">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-800/40">
+          <ShieldCheck className="w-3.5 h-3.5" />
+          <span>PAYMENT_CONFIRMED: 解錠完了</span>
         </div>
-        <h1 className="text-2xl font-extrabold text-slate-900">創刊版の決済を受け付けました</h1>
-        <p className="text-sm leading-relaxed text-slate-600">
-          決済結果を確認しました。会員権限の保存は、WebhookとアカウントDBの接続後に有効化されます。
+        <h1 className="text-lg font-bold text-white font-sans">
+          金鉱録 PRO ライセンスを解放しました
+        </h1>
+        <p className="text-xs leading-relaxed text-zinc-400 font-sans">
+          創刊版（永久アクセス権）の決済が完了しました。全銘柄の「独占と暴利を生む4つの裏構造」および詳細損益計算書のすりガラスが即時解除されています。
         </p>
-        <div className="pt-2">
+
+        <div className="pt-3 border-t border-white/[0.06] flex flex-col gap-2">
           <Link
             href="/"
-            className="inline-flex h-10 items-center justify-center rounded-lg bg-indigo-600 hover:bg-indigo-700 px-6 text-sm font-bold text-white shadow-sm transition-colors"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded bg-white hover:bg-zinc-200 px-5 text-xs font-mono font-bold text-zinc-950 shadow-sm transition-colors cursor-pointer"
           >
-            台帳へ戻る
+            <KeyRound className="w-3.5 h-3.5 text-zinc-900" />
+            <span>全解錠された台帳へ戻る</span>
+            <ArrowRight className="w-3 h-3 text-zinc-900" />
           </Link>
         </div>
       </div>

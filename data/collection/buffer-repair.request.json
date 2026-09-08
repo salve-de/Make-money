@@ -1,0 +1,1109 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_buffer_reconciliation_20260908_03",
+    "purpose": "make_money",
+    "subject": {
+      "query": "Buffer: Make-Money current product fields plus all Universal Foundation business research dimensions",
+      "candidate_name": "Buffer",
+      "candidate_domain": "buffer.com",
+      "notes": "Append-only repair of discovered omissions. New reconciliation inventory explicitly tracks remaining source reviews; not a claim of full-company completeness."
+    },
+    "agent": {
+      "name": "Codex"
+    },
+    "retrieved_at": "2026-09-08T14:08:49Z",
+    "sources": [
+      {
+        "source_id": "src.buffer.shareholders",
+        "provider_name": "Buffer",
+        "source_type": "company_shareholder_update",
+        "canonical_url": "https://buffer.com/shareholders/december-2024",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "access_notes": "Public financial facts and original paraphrase only; no source body copied."
+      },
+      {
+        "source_id": "src.buffer.share25",
+        "provider_name": "Buffer",
+        "source_type": "operator_report",
+        "canonical_url": "https://buffer.com/resources/7th-profit-share/",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "access_notes": "Bibliographic metadata, public business numbers and concise original paraphrases only. No raw article republication authorization inferred."
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_a762737d63cb5d4257671427",
+        "source_id": "src.buffer.shareholders",
+        "source_url": "https://buffer.com/shareholders/december-2024",
+        "source_title": "December 2024 shareholder update",
+        "source_type": "company_shareholder_update",
+        "publisher_or_speaker": "Joel Gascoigne",
+        "published_at": "2025-01-31T00:00:00Z",
+        "retrieved_at": "2026-09-08T00:00:00Z",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "raw_storage": {
+          "status": "metadata_only",
+          "bucket": null,
+          "key": null,
+          "content_type": null,
+          "content_sha256": null,
+          "bytes": null
+        },
+        "summary": "Buffer reports 2024 revenue of $18.6M and annual net profit of $202,459. December MRR is $1,677,220; team size 73. The top table and annual summary contain different ARR/customer totals; preserve both rather than silently reconcile.",
+        "rights_policy_id": null
+      },
+      {
+        "evidence_id": "ev_3d7df465bd41f3a89fb1da8a",
+        "source_id": "src.buffer.share25",
+        "source_url": "https://buffer.com/resources/7th-profit-share/",
+        "source_title": "Our 7th Profit Share: Behind the $377,005 We Distributed",
+        "source_type": "operator_report",
+        "publisher_or_speaker": "Jenny Terry",
+        "published_at": "2026-02-04T00:00:00Z",
+        "retrieved_at": "2026-09-08T13:43:39Z",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "raw_storage": {
+          "status": "metadata_only",
+          "bucket": null,
+          "key": null,
+          "content_type": null,
+          "content_sha256": null,
+          "bytes": null
+        },
+        "summary": "2017–2025 net-income series, bonus pool and internal numeric inconsistencies."
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "entity_type": "company",
+        "canonical_name": "Buffer",
+        "aliases": [],
+        "canonical_identifier": "domain:buffer.com",
+        "domain": "buffer.com",
+        "status": null,
+        "observed_at": "2026-09-08T00:00:00Z",
+        "evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ]
+      }
+    ],
+    "claims": [],
+    "metrics": [
+      {
+        "metric_id": "mt_65e354a8bcb58d50c63d468f",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 2513367,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2025-01-01T00:00:00Z",
+        "period_end": "2025-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "More precise later annual operator disclosure; not independently audited.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_b48d22b98def9a347c21170c",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_margin",
+        "value": 11.189417683198291,
+        "unit": "%",
+        "currency": null,
+        "period_start": "2025-01-01T00:00:00Z",
+        "period_end": "2025-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "2513367 / 22462000 * 100; rounded revenue denominator.",
+        "scope": "Buffer company",
+        "origin_type": "estimated",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a",
+          "ev_ca987fe2938ae49ffd667d8c"
+        ]
+      },
+      {
+        "metric_id": "mt_3f8c64756b771bd38874392b",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 156244,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Later history differs from earlier 2024 disclosure 202459; reason unestablished.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "CONFLICTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_6b30e280465048054935f169",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 1418604,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2017-01-01T00:00:00Z",
+        "period_end": "2017-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Historical net-income series from February 2026 operator report.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_88de965e10f4a4f4f76b9a8a",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 3418352,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2018-01-01T00:00:00Z",
+        "period_end": "2018-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Historical net-income series from February 2026 operator report.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_d420bc9293b481148c5f9352",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 2392409,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2019-01-01T00:00:00Z",
+        "period_end": "2019-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Historical net-income series from February 2026 operator report.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_9bfc87576dba579e9f077029",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 1940828,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2020-01-01T00:00:00Z",
+        "period_end": "2020-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Historical net-income series from February 2026 operator report.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_81eade1b64090c8d9a7aa21c",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 216557,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2021-01-01T00:00:00Z",
+        "period_end": "2021-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Historical net-income series from February 2026 operator report.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_bb53bc15ce8731bd9c55d5a4",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": -1109745,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2022-01-01T00:00:00Z",
+        "period_end": "2022-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Historical net-income series from February 2026 operator report.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_1fad5438b33af3bb6c3e78f4",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": -743936,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2023-01-01T00:00:00Z",
+        "period_end": "2023-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Historical net-income series from February 2026 operator report.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_7ee366b6e4fac06a8a96061e",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 377005,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2025-01-01T00:00:00Z",
+        "period_end": "2025-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "FY25 bonus pool; paid a few weeks before 2026-02-04, exact settlement date not stated.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_9830d81e56d2848eeef854ad",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 30369,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "FY24 employee pool, not founder-only distributions.",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_3f08f393f37b03f95abed9c8",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 300000,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2017-01-01T00:00:00Z",
+        "period_end": "2017-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual employee profit-share pool; zero explicitly reported for loss years. Payment settlement date unknown.",
+        "scope": "Buffer employees aggregate; not founder-only net take-home",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_d89d0cb40fadd9ed7c04b5ba",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 394997,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2018-01-01T00:00:00Z",
+        "period_end": "2018-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual employee profit-share pool; zero explicitly reported for loss years. Payment settlement date unknown.",
+        "scope": "Buffer employees aggregate; not founder-only net take-home",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_061338980d2d7585bda15059",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 368051,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2019-01-01T00:00:00Z",
+        "period_end": "2019-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual employee profit-share pool; zero explicitly reported for loss years. Payment settlement date unknown.",
+        "scope": "Buffer employees aggregate; not founder-only net take-home",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_194427e52d902825359b0c7f",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 243047,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2020-01-01T00:00:00Z",
+        "period_end": "2020-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual employee profit-share pool; zero explicitly reported for loss years. Payment settlement date unknown.",
+        "scope": "Buffer employees aggregate; not founder-only net take-home",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_05de8724c9d8a47b58d4d24f",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 89828,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2021-01-01T00:00:00Z",
+        "period_end": "2021-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual employee profit-share pool; zero explicitly reported for loss years. Payment settlement date unknown.",
+        "scope": "Buffer employees aggregate; not founder-only net take-home",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_fb2e65a8eb173028cf1af4c8",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 0,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2022-01-01T00:00:00Z",
+        "period_end": "2022-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual employee profit-share pool; zero explicitly reported for loss years. Payment settlement date unknown.",
+        "scope": "Buffer employees aggregate; not founder-only net take-home",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      },
+      {
+        "metric_id": "mt_2fe676a831fbbbd65b0529c8",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "employee_profit_share",
+        "value": 0,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2023-01-01T00:00:00Z",
+        "period_end": "2023-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual employee profit-share pool; zero explicitly reported for loss years. Payment settlement date unknown.",
+        "scope": "Buffer employees aggregate; not founder-only net take-home",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ]
+      }
+    ],
+    "money_signals": [
+      {
+        "money_signal_id": "ms_3f08f393f37b03f95abed9c8",
+        "payer_entity_id": "ent_company_895ab08e769c3c944f65",
+        "receiver_entity_id": null,
+        "purpose": "Annual employee profit-share pool for 2017",
+        "money_type": "employee_profit_share",
+        "amount": 300000,
+        "currency": "USD",
+        "unit": "USD",
+        "period_start": "2017-01-01T00:00:00Z",
+        "period_end": "2017-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual allocation, not independently verified bank transfer; zero means no pool.",
+        "scope": "Buffer employee group, recipients unspecified",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "amount_label": "Annual employee profit-share pool for 2017"
+      },
+      {
+        "money_signal_id": "ms_d89d0cb40fadd9ed7c04b5ba",
+        "payer_entity_id": "ent_company_895ab08e769c3c944f65",
+        "receiver_entity_id": null,
+        "purpose": "Annual employee profit-share pool for 2018",
+        "money_type": "employee_profit_share",
+        "amount": 394997,
+        "currency": "USD",
+        "unit": "USD",
+        "period_start": "2018-01-01T00:00:00Z",
+        "period_end": "2018-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual allocation, not independently verified bank transfer; zero means no pool.",
+        "scope": "Buffer employee group, recipients unspecified",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "amount_label": "Annual employee profit-share pool for 2018"
+      },
+      {
+        "money_signal_id": "ms_061338980d2d7585bda15059",
+        "payer_entity_id": "ent_company_895ab08e769c3c944f65",
+        "receiver_entity_id": null,
+        "purpose": "Annual employee profit-share pool for 2019",
+        "money_type": "employee_profit_share",
+        "amount": 368051,
+        "currency": "USD",
+        "unit": "USD",
+        "period_start": "2019-01-01T00:00:00Z",
+        "period_end": "2019-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual allocation, not independently verified bank transfer; zero means no pool.",
+        "scope": "Buffer employee group, recipients unspecified",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "amount_label": "Annual employee profit-share pool for 2019"
+      },
+      {
+        "money_signal_id": "ms_194427e52d902825359b0c7f",
+        "payer_entity_id": "ent_company_895ab08e769c3c944f65",
+        "receiver_entity_id": null,
+        "purpose": "Annual employee profit-share pool for 2020",
+        "money_type": "employee_profit_share",
+        "amount": 243047,
+        "currency": "USD",
+        "unit": "USD",
+        "period_start": "2020-01-01T00:00:00Z",
+        "period_end": "2020-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual allocation, not independently verified bank transfer; zero means no pool.",
+        "scope": "Buffer employee group, recipients unspecified",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "amount_label": "Annual employee profit-share pool for 2020"
+      },
+      {
+        "money_signal_id": "ms_05de8724c9d8a47b58d4d24f",
+        "payer_entity_id": "ent_company_895ab08e769c3c944f65",
+        "receiver_entity_id": null,
+        "purpose": "Annual employee profit-share pool for 2021",
+        "money_type": "employee_profit_share",
+        "amount": 89828,
+        "currency": "USD",
+        "unit": "USD",
+        "period_start": "2021-01-01T00:00:00Z",
+        "period_end": "2021-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual allocation, not independently verified bank transfer; zero means no pool.",
+        "scope": "Buffer employee group, recipients unspecified",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "amount_label": "Annual employee profit-share pool for 2021"
+      },
+      {
+        "money_signal_id": "ms_fb2e65a8eb173028cf1af4c8",
+        "payer_entity_id": "ent_company_895ab08e769c3c944f65",
+        "receiver_entity_id": null,
+        "purpose": "Annual employee profit-share pool for 2022",
+        "money_type": "employee_profit_share",
+        "amount": 0,
+        "currency": "USD",
+        "unit": "USD",
+        "period_start": "2022-01-01T00:00:00Z",
+        "period_end": "2022-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual allocation, not independently verified bank transfer; zero means no pool.",
+        "scope": "Buffer employee group, recipients unspecified",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "amount_label": "Annual employee profit-share pool for 2022"
+      },
+      {
+        "money_signal_id": "ms_2fe676a831fbbbd65b0529c8",
+        "payer_entity_id": "ent_company_895ab08e769c3c944f65",
+        "receiver_entity_id": null,
+        "purpose": "Annual employee profit-share pool for 2023",
+        "money_type": "employee_profit_share",
+        "amount": 0,
+        "currency": "USD",
+        "unit": "USD",
+        "period_start": "2023-01-01T00:00:00Z",
+        "period_end": "2023-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "Annual allocation, not independently verified bank transfer; zero means no pool.",
+        "scope": "Buffer employee group, recipients unspecified",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "amount_label": "Annual employee profit-share pool for 2023"
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [],
+    "observations": [
+      {
+        "origin_type": "reported",
+        "verification_status": "CONFLICTED",
+        "observed_at": "2026-09-08T14:08:49Z",
+        "collection_channel": "Second-pass reading of official profit-share article",
+        "observer": "Codex",
+        "text": "Retain distribution formula and published average without silently resolving arithmetic discrepancy.",
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "profit_share_percent": 15,
+        "equal_weight_percent": 40,
+        "salary_weight_percent": 40,
+        "tenure_weight_percent": 20,
+        "participants_2025": 75,
+        "average_reported_usd": 5095,
+        "average_computed_usd": 5026.733333333334,
+        "payment_timing": "A few weeks before2026-02-04; exact date unavailable."
+      },
+      {
+        "origin_type": "observed",
+        "verification_status": "UNVERIFIED",
+        "observed_at": "2026-09-08T14:08:49Z",
+        "observer": "Codex",
+        "collection_channel": "Collection audit",
+        "text": "This is a partial append repairing known missing profit-share rows. The earlier full research bundle remains retained under run_buffer_comprehensive_20260908_02. Full source/requirement reconciliation still pending.",
+        "prior_run_id": "run_buffer_comprehensive_20260908_02",
+        "remaining_source_reviews": 29
+      },
+      {
+        "origin_type": "observed",
+        "verification_status": "SUPPORTED",
+        "observed_at": "2026-09-08T14:08:49Z",
+        "observer": "Codex second pass",
+        "collection_channel": "Official article historical table versus saved metrics",
+        "text": "All2017–2025historical table rows, net income and employee pool, reconciled; unrelated article/footer material not asserted captured. Does not close full-company research.",
+        "evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "kind": "source_reconciliation.v1",
+        "source_url": "https://buffer.com/resources/7th-profit-share/",
+        "sections": [
+          "Our profit-sharing history2017–2025",
+          "Distribution formula and2025participants/average"
+        ],
+        "inventory": [
+          {
+            "year": "2025",
+            "metric_type": "net_profit",
+            "reported_value": 2513367,
+            "currency": "USD",
+            "retained_ref": "metrics/0",
+            "matched": true
+          },
+          {
+            "year": "2025",
+            "metric_type": "net_margin",
+            "reported_value": 11.189417683198291,
+            "currency": null,
+            "retained_ref": "metrics/1",
+            "matched": true
+          },
+          {
+            "year": "2024",
+            "metric_type": "net_profit",
+            "reported_value": 156244,
+            "currency": "USD",
+            "retained_ref": "metrics/2",
+            "matched": true
+          },
+          {
+            "year": "2017",
+            "metric_type": "net_profit",
+            "reported_value": 1418604,
+            "currency": "USD",
+            "retained_ref": "metrics/3",
+            "matched": true
+          },
+          {
+            "year": "2018",
+            "metric_type": "net_profit",
+            "reported_value": 3418352,
+            "currency": "USD",
+            "retained_ref": "metrics/4",
+            "matched": true
+          },
+          {
+            "year": "2019",
+            "metric_type": "net_profit",
+            "reported_value": 2392409,
+            "currency": "USD",
+            "retained_ref": "metrics/5",
+            "matched": true
+          },
+          {
+            "year": "2020",
+            "metric_type": "net_profit",
+            "reported_value": 1940828,
+            "currency": "USD",
+            "retained_ref": "metrics/6",
+            "matched": true
+          },
+          {
+            "year": "2021",
+            "metric_type": "net_profit",
+            "reported_value": 216557,
+            "currency": "USD",
+            "retained_ref": "metrics/7",
+            "matched": true
+          },
+          {
+            "year": "2022",
+            "metric_type": "net_profit",
+            "reported_value": -1109745,
+            "currency": "USD",
+            "retained_ref": "metrics/8",
+            "matched": true
+          },
+          {
+            "year": "2023",
+            "metric_type": "net_profit",
+            "reported_value": -743936,
+            "currency": "USD",
+            "retained_ref": "metrics/9",
+            "matched": true
+          },
+          {
+            "year": "2025",
+            "metric_type": "employee_profit_share",
+            "reported_value": 377005,
+            "currency": "USD",
+            "retained_ref": "metrics/10",
+            "matched": true
+          },
+          {
+            "year": "2024",
+            "metric_type": "employee_profit_share",
+            "reported_value": 30369,
+            "currency": "USD",
+            "retained_ref": "metrics/11",
+            "matched": true
+          },
+          {
+            "year": "2017",
+            "metric_type": "employee_profit_share",
+            "reported_value": 300000,
+            "currency": "USD",
+            "retained_ref": "metrics/12",
+            "matched": true
+          },
+          {
+            "year": "2018",
+            "metric_type": "employee_profit_share",
+            "reported_value": 394997,
+            "currency": "USD",
+            "retained_ref": "metrics/13",
+            "matched": true
+          },
+          {
+            "year": "2019",
+            "metric_type": "employee_profit_share",
+            "reported_value": 368051,
+            "currency": "USD",
+            "retained_ref": "metrics/14",
+            "matched": true
+          },
+          {
+            "year": "2020",
+            "metric_type": "employee_profit_share",
+            "reported_value": 243047,
+            "currency": "USD",
+            "retained_ref": "metrics/15",
+            "matched": true
+          },
+          {
+            "year": "2021",
+            "metric_type": "employee_profit_share",
+            "reported_value": 89828,
+            "currency": "USD",
+            "retained_ref": "metrics/16",
+            "matched": true
+          },
+          {
+            "year": "2022",
+            "metric_type": "employee_profit_share",
+            "reported_value": 0,
+            "currency": "USD",
+            "retained_ref": "metrics/17",
+            "matched": true
+          },
+          {
+            "year": "2023",
+            "metric_type": "employee_profit_share",
+            "reported_value": 0,
+            "currency": "USD",
+            "retained_ref": "metrics/18",
+            "matched": true
+          }
+        ],
+        "formula_ref": "observations/0"
+      }
+    ],
+    "quality": {
+      "unknowns": [
+        "Current founder after-tax take-home, personal dividends and individual secondary sale proceeds.",
+        "FY25 full cost waterfall: payroll, merchant fees, hosting/inference, ads, subcontracting, tools, tax, interest, depreciation; no audited operating profit.",
+        "Current exact tool invoices, product AI model/version, automation percentage, founder weekly hours and support ticket workload.",
+        "Absolute CAC and current marketing channel percentages; live churn period, cohort and LTV definition.",
+        "Initial founder cash invested; first10/100 paying-customer roster and acquisition attribution.",
+        "Lifetime cumulative revenue and true lifetime revenue peak through2026; no company-acquisition price established.",
+        "Domestic/geographic customer distribution, contract size by customer and direct measurement of buyer motivations.",
+        "2024 profit discrepancy,2025 growth basis and profit-share average discrepancy remain unresolved."
+      ],
+      "conflicts": [
+        "2024 net profit: earlier shareholder/profit-share article202459USD vs February2026 history156244USD. Reason unresolved; preserve both, no overwrite.",
+        "FY25 growth stated31%;22.462M vs prior18.6M implies20.7634%. Accounting comparison basis unresolved.",
+        "October2025 customers: table68001 vs prose67998; not silently reconciled.",
+        "Live Metrics ARR26.31M/MRR2.19M vs Open26.4M/2.2M. Different snapshot/rounding possible, unproven.",
+        "2025 bonus article377005/75=5026.7333, not reported average5095. Keep article values; denominator explanation unknown.",
+        "Historical cost dashboard salaries72.97% vs prose employee costs>80% operating expenses: denominator/year alignment unresolved."
+      ],
+      "warnings": [
+        "All fiscal financial figures are company/operator reports; audited accounts and private invoices were not obtained.",
+        "Dynamic dashboard period selectors were not exposed; current snapshots are not dated accounting periods.",
+        "This is a multi-person business, not proof of zero-capital solo automation.",
+        "Native USD retained. No unsupported JPY conversion or unknown-to-zero coercion.",
+        "No full article bodies, private customer records or credentials captured. Metadata and original paraphrases only.",
+        "All dimensions attempted is research coverage, not complete knowledge. Current product still consumes mock data; this run does not change application code.",
+        "Earlier ALL_DIMENSIONS_ATTEMPTED did not establish completeness. Second-pass source inventory has outstanding reviews; do not report complete."
+      ],
+      "schema_validation": "PASS"
+    },
+    "collection_coverage": [
+      {
+        "dimension": "identity",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "founders",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "location",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "status",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "team_history",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "timeline",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "revenue",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "peak_revenue",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "mrr_arr",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "gross_profit",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "net_profit",
+        "status": "found",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending.",
+        "record_refs": [
+          "metrics/0"
+        ]
+      },
+      {
+        "dimension": "costs",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "cost_breakdown",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "margin",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "pricing",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "pricing_history",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "refunds",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "retention_churn",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "funding",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "exit_value",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "payer_receiver_purpose",
+        "status": "found",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending.",
+        "record_refs": [
+          "money_signals/0"
+        ]
+      },
+      {
+        "dimension": "customers",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "customer_pain",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "substitutes",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "first_customers",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "initial_channel",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "breakout",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "current_channels",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "founder_background",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "prior_failures",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "workload",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "support_burden",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "outsourcing",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "automation",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "technology",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "competitors",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "dependencies",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "regulation",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "why_now",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "provenance_rights",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "conflicts",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "additional_observations",
+        "status": "found",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending.",
+        "record_refs": [
+          "observations/0"
+        ]
+      },
+      {
+        "dimension": "operating_profit",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "owner_take_home",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "capital_required",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "gmv",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "cumulative_revenue",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      },
+      {
+        "dimension": "pre_tax_profit_interest_tax",
+        "status": "not_attempted",
+        "note": "This repair does not re-assert full research coverage; prior bundle retained, source reconciliation pending."
+      }
+    ]
+  }
+}

@@ -449,24 +449,24 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
   }, [selectedStrategyId, sortedStrategies]);
 
   return (
-    <div className="flex-1 flex overflow-hidden w-full h-full font-sans text-slate-900 select-none">
+    <div className="flex-1 flex overflow-hidden w-full h-full font-sans text-zinc-100 select-none bg-[#0B0E14]">
       
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【左ペイン】6軸スクリーナー ＆ 適合モデル順位表 (幅340px〜380px) */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="w-84 lg:w-96 border-r border-slate-200 bg-slate-50/50 flex flex-col shrink-0 overflow-hidden">
+      <div className="w-84 lg:w-96 border-r border-white/[0.08] bg-[#0D1117] flex flex-col shrink-0 overflow-hidden">
         
         {/* 上部固定：条件セレクター */}
-        <div className="p-3 bg-slate-50 border-b border-slate-200 space-y-2">
+        <div className="p-3 bg-[#0D1117] border-b border-white/[0.08] space-y-2">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold text-slate-700 uppercase tracking-wider">
-              <SlidersHorizontal size={11} className="text-slate-500" />
+            <div className="flex items-center gap-1.5 font-mono text-[10px] font-bold text-zinc-300 uppercase tracking-wider">
+              <SlidersHorizontal size={11} className="text-zinc-500" />
               <span>RESOURCE SCREENER (6軸)</span>
             </div>
             <button
               type="button"
               onClick={() => setIsSelectorOpen(!isSelectorOpen)}
-              className="text-[10px] font-mono text-slate-500 hover:text-slate-900 cursor-pointer"
+              className="text-[10px] font-mono text-zinc-400 hover:text-zinc-200 cursor-pointer transition-colors"
             >
               {isSelectorOpen ? '条件を縮小 ▲' : '条件を展開 ▼'}
             </button>
@@ -474,10 +474,10 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
           {/* セレクター本体 */}
           {isSelectorOpen && (
-            <div className="space-y-2 pt-1 border-t border-slate-200/80 text-[11px] font-mono">
+            <div className="space-y-2 pt-1 border-t border-white/[0.08] text-[11px] font-mono">
               {/* 1. 資本 */}
               <div className="space-y-1">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase block">1. 投下資本</span>
+                <span className="text-[9px] text-zinc-400 font-semibold uppercase block">1. 投下資本</span>
                 <div className="flex items-center gap-1 flex-wrap">
                   {[
                     { id: 'ZERO', label: '0円' },
@@ -490,8 +490,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                       onClick={() => setCapital(opt.id as CapitalLevel)}
                       className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
                         capital === opt.id
-                          ? 'bg-slate-950 text-white font-bold shadow-xs'
-                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                          ? 'bg-white/[0.14] text-white font-bold border border-white/[0.25]'
+                          : 'bg-white/[0.03] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] border border-white/[0.06]'
                       }`}
                     >
                       {opt.label}
@@ -502,7 +502,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
               {/* 2. 稼働 */}
               <div className="space-y-1">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase block">2. 週稼働コミット</span>
+                <span className="text-[9px] text-zinc-400 font-semibold uppercase block">2. 週稼働コミット</span>
                 <div className="flex items-center gap-1 flex-wrap">
                   {[
                     { id: 'ULTRA_LIGHT', label: '週1〜3h' },
@@ -514,8 +514,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                       onClick={() => setTime(opt.id as TimeCommitment)}
                       className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
                         time === opt.id
-                          ? 'bg-slate-950 text-white font-bold shadow-xs'
-                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                          ? 'bg-white/[0.14] text-white font-bold border border-white/[0.25]'
+                          : 'bg-white/[0.03] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] border border-white/[0.06]'
                       }`}
                     >
                       {opt.label}
@@ -526,7 +526,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
               {/* 3. スキル */}
               <div className="space-y-1">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase block">3. 保有スキル</span>
+                <span className="text-[9px] text-zinc-400 font-semibold uppercase block">3. 保有スキル</span>
                 <div className="flex items-center gap-1 flex-wrap">
                   {[
                     { id: 'NO_CODE_API', label: 'ノーコード/API' },
@@ -539,8 +539,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                       onClick={() => setCapability(opt.id as Capability)}
                       className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
                         capability === opt.id
-                          ? 'bg-slate-950 text-white font-bold shadow-xs'
-                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                          ? 'bg-white/[0.14] text-white font-bold border border-white/[0.25]'
+                          : 'bg-white/[0.03] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] border border-white/[0.06]'
                       }`}
                     >
                       {opt.label}
@@ -551,7 +551,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
               {/* 4. ターゲット */}
               <div className="space-y-1">
-                <span className="text-[9px] text-slate-400 font-semibold uppercase block">4. ターゲット市場</span>
+                <span className="text-[9px] text-zinc-400 font-semibold uppercase block">4. ターゲット市場</span>
                 <div className="flex items-center gap-1 flex-wrap">
                   {[
                     { id: 'B2B_CORP', label: '法人(経費)' },
@@ -563,8 +563,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                       onClick={() => setTargetMarket(opt.id as CustomerTarget)}
                       className={`h-5.5 px-2 text-[10px] rounded transition-colors cursor-pointer ${
                         targetMarket === opt.id
-                          ? 'bg-slate-950 text-white font-bold shadow-xs'
-                          : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                          ? 'bg-white/[0.14] text-white font-bold border border-white/[0.25]'
+                          : 'bg-white/[0.03] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] border border-white/[0.06]'
                       }`}
                     >
                       {opt.label}
@@ -576,7 +576,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
               {/* 5. 速度 & 6. 月利目標 */}
               <div className="grid grid-cols-2 gap-2 pt-0.5">
                 <div className="space-y-1">
-                  <span className="text-[9px] text-slate-400 font-semibold uppercase block">5. 着金速度</span>
+                  <span className="text-[9px] text-zinc-400 font-semibold uppercase block">5. 着金速度</span>
                   <div className="flex items-center gap-1">
                     {[
                       { id: 'INSTANT_CASH', label: '即金' },
@@ -587,8 +587,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                         onClick={() => setCashSpeed(opt.id as CashSpeed)}
                         className={`h-5.5 px-1.5 text-[10px] rounded transition-colors cursor-pointer ${
                           cashSpeed === opt.id
-                            ? 'bg-slate-950 text-white font-bold shadow-xs'
-                            : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                            ? 'bg-white/[0.14] text-white font-bold border border-white/[0.25]'
+                            : 'bg-white/[0.03] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] border border-white/[0.06]'
                         }`}
                       >
                         {opt.label}
@@ -598,7 +598,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[9px] text-slate-400 font-semibold uppercase block">6. 目標月利</span>
+                  <span className="text-[9px] text-zinc-400 font-semibold uppercase block">6. 目標月利</span>
                   <div className="flex items-center gap-1">
                     {[
                       { id: 'TIER_100M', label: '100万〜' },
@@ -609,8 +609,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                         onClick={() => setTargetProfit(opt.id as TargetProfit)}
                         className={`h-5.5 px-1.5 text-[10px] rounded transition-colors cursor-pointer ${
                           targetProfit === opt.id
-                            ? 'bg-slate-950 text-white font-bold shadow-xs'
-                            : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-50'
+                            ? 'bg-white/[0.14] text-white font-bold border border-white/[0.25]'
+                            : 'bg-white/[0.03] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.06] border border-white/[0.06]'
                         }`}
                       >
                         {opt.label}
@@ -623,8 +623,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
           )}
 
           {/* ソート＆検出件数バー */}
-          <div className="pt-2 border-t border-slate-200/80 flex items-center justify-between text-[10px] font-mono text-slate-500">
-            <span>適合: <strong className="text-slate-950 tabular-nums">{sortedStrategies.length}件</strong></span>
+          <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] font-mono text-zinc-400">
+            <span>適合: <strong className="text-zinc-100 tabular-nums">{sortedStrategies.length}件</strong></span>
             <div className="flex items-center gap-1">
               {[
                 { id: 'FIT_SCORE', label: '適合度' },
@@ -637,8 +637,8 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                   onClick={() => setSortBy(s.id as SortOption)}
                   className={`px-1.5 py-0.5 rounded transition-colors cursor-pointer ${
                     sortBy === s.id
-                      ? 'bg-slate-950 text-white font-bold'
-                      : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                      ? 'bg-white/[0.14] text-white font-bold border border-white/[0.2]'
+                      : 'bg-white/[0.03] text-zinc-400 border border-white/[0.06] hover:bg-white/[0.06]'
                   }`}
                 >
                   {s.label}
@@ -649,50 +649,52 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
         </div>
 
         {/* リストカラムヘッダー */}
-        <div className="px-3 py-1.5 bg-slate-100/80 border-b border-slate-200 flex items-center justify-between text-[10px] text-slate-400 font-mono font-medium">
+        <div className="px-3 py-1.5 bg-[#090C10] border-b border-white/[0.08] flex items-center justify-between text-[10px] text-zinc-400 font-mono font-medium">
           <span>適合モデル / スコア</span>
           <span>想定月利</span>
         </div>
 
         {/* 適合モデル順位リスト */}
-        <div className="flex-1 overflow-y-auto divide-y divide-slate-100 text-xs">
+        <div className="flex-1 overflow-y-auto divide-y divide-white/[0.04] text-xs">
           {sortedStrategies.map((item, idx) => {
             const isSelected = activeStrategy?.id === item.id;
             return (
               <div
                 key={item.id}
                 onClick={() => setSelectedStrategyId(item.id)}
-                className={`px-3 py-2.5 cursor-pointer transition-colors border-l-3 flex items-center justify-between gap-2.5 ${
+                className={`px-3 py-2.5 cursor-pointer transition-colors border-l-2 flex items-center justify-between gap-2.5 ${
                   isSelected
-                    ? 'bg-slate-100 border-slate-950 text-slate-950 font-medium'
-                    : 'hover:bg-slate-50 border-transparent text-slate-700'
+                    ? 'bg-white/[0.08] border-emerald-500 text-white font-medium'
+                    : 'hover:bg-white/[0.03] border-transparent text-zinc-300'
                 }`}
               >
                 <div className="min-w-0 flex-1 space-y-1">
                   <div className="flex items-center gap-1.5">
-                    <span className={`w-4 h-4 rounded flex items-center justify-center font-mono text-[9px] font-bold ${
-                      idx === 0 ? 'bg-slate-950 text-white' : 'bg-slate-200 text-slate-700'
+                    <span className={`w-4 h-4 rounded-sm flex items-center justify-center font-mono text-[9px] font-bold ${
+                      idx === 0 
+                        ? 'bg-emerald-950 text-emerald-300 border border-emerald-800/60' 
+                        : 'bg-white/[0.06] text-zinc-400 border border-white/[0.08]'
                     }`}>
                       {idx + 1}
                     </span>
-                    <span className="text-xs font-bold truncate text-slate-950">
+                    <span className="text-xs font-bold truncate text-zinc-100">
                       {item.title}
                     </span>
                   </div>
 
                   <div className="flex items-center gap-2 font-mono text-[10px]">
-                    <span className="font-bold text-slate-950 tabular-nums">
+                    <span className="font-bold text-zinc-200 tabular-nums">
                       適合 {item.bestFitScore}%
                     </span>
-                    <span className="text-slate-400">|</span>
-                    <span className="text-slate-500">
+                    <span className="text-zinc-600">|</span>
+                    <span className="text-zinc-400">
                       粗利 {item.profitMargin}%
                     </span>
                   </div>
                 </div>
 
                 <div className="shrink-0 text-right font-mono">
-                  <span className="text-[10px] font-bold text-emerald-700 tabular-nums px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200/80 whitespace-nowrap block">
+                  <span className="text-[10px] font-bold text-emerald-400 tabular-nums px-1.5 py-0.5 rounded bg-emerald-950/70 border border-emerald-800/60 whitespace-nowrap block">
                     {item.monthlyRevenueEstimate.split('（')[0]}
                   </span>
                 </div>
@@ -705,41 +707,41 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 【右ペイン】選択モデルの完全実務実行ドシエ (flex-1 可変)       */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <div className="flex-1 h-full overflow-y-auto bg-white p-6 sm:p-8 space-y-6">
+      <div className="flex-1 h-full overflow-y-auto bg-[#0B0E14] p-6 sm:p-8 space-y-6">
         {activeStrategy ? (
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-5xl">
             {/* 上段ヘッダー：タイトルと財務サマリー */}
-            <div className="p-5 bg-slate-50/80 border border-slate-200 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="p-5 bg-[#0F131C] border border-white/[0.08] rounded flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="space-y-1">
                 <div className="flex items-center gap-2 font-mono text-[10px]">
-                  <span className="px-1.5 py-0.2 rounded bg-slate-950 text-white font-bold uppercase tracking-wider">
+                  <span className="px-1.5 py-0.5 rounded bg-white/[0.1] text-zinc-200 border border-white/[0.15] font-bold uppercase tracking-wider">
                     EXECUTION DOSSIER
                   </span>
-                  <span className="text-slate-500">
+                  <span className="text-zinc-400">
                     適合度 {activeStrategy.bestFitScore}% • {activeStrategy.founderReference}
                   </span>
                 </div>
-                <h2 className="text-base sm:text-lg font-bold text-slate-950 tracking-tight">
+                <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
                   {activeStrategy.title}
                 </h2>
               </div>
 
               <div className="flex items-center gap-4 shrink-0 font-mono text-xs">
                 <div className="text-right">
-                  <span className="text-[9px] text-slate-400 block uppercase font-semibold">想定月利</span>
-                  <span className="text-sm font-bold text-emerald-700 tabular-nums">
+                  <span className="text-[9px] text-zinc-400 block uppercase font-semibold">想定月利</span>
+                  <span className="text-sm font-bold text-emerald-400 tabular-nums">
                     {activeStrategy.monthlyRevenueEstimate.split('（')[0]}
                   </span>
                 </div>
-                <div className="text-right pl-3 border-l border-slate-200">
-                  <span className="text-[9px] text-slate-400 block uppercase font-semibold">粗利率</span>
-                  <span className="text-sm font-bold text-slate-950 tabular-nums">
+                <div className="text-right pl-3 border-l border-white/[0.08]">
+                  <span className="text-[9px] text-zinc-400 block uppercase font-semibold">粗利率</span>
+                  <span className="text-sm font-bold text-zinc-100 tabular-nums">
                     {activeStrategy.profitMargin}%
                   </span>
                 </div>
-                <div className="text-right pl-3 border-l border-slate-200">
-                  <span className="text-[9px] text-slate-400 block uppercase font-semibold">初期資本</span>
-                  <span className="text-sm font-bold text-slate-950 tabular-nums">
+                <div className="text-right pl-3 border-l border-white/[0.08]">
+                  <span className="text-[9px] text-zinc-400 block uppercase font-semibold">初期資本</span>
+                  <span className="text-sm font-bold text-zinc-100 tabular-nums">
                     {activeStrategy.initialInvestment}
                   </span>
                 </div>
@@ -747,7 +749,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                   <button
                     type="button"
                     onClick={() => onSelectCompany(activeStrategy.companyId)}
-                    className="px-3 py-1.5 bg-slate-950 hover:bg-slate-800 text-white font-mono text-xs font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer ml-2"
+                    className="px-3 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-mono text-xs font-semibold rounded border border-white/[0.1] transition-colors flex items-center gap-1.5 cursor-pointer ml-2"
                   >
                     <span>企業財務DB</span>
                     <ArrowRight size={11} />
@@ -757,26 +759,26 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             </div>
 
             {/* 実務アセット ＆ トーク（2カラム構造） */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 text-xs">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-white/[0.08] text-xs">
               {/* 左: 顧客開拓アプローチ実文面 */}
               <div className="lg:col-span-7 space-y-3">
-                <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-2">
+                <div className="flex items-center justify-between gap-2 border-b border-white/[0.08] pb-2">
                   <div className="flex items-center gap-2">
-                    <span className="px-1.5 py-0.2 rounded bg-slate-100 text-slate-700 font-mono text-[10px] font-bold">
+                    <span className="px-1.5 py-0.5 rounded bg-white/[0.08] text-zinc-300 font-mono text-[10px] font-bold border border-white/[0.08]">
                       OUTREACH ASSET
                     </span>
-                    <h3 className="text-xs font-bold text-slate-950">
+                    <h3 className="text-xs font-bold text-zinc-100">
                       {activeStrategy.readyToUseAsset.title}
                     </h3>
                   </div>
                   <button
                     type="button"
                     onClick={() => handleCopy(activeStrategy.readyToUseAsset.content, activeStrategy.id)}
-                    className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white font-mono text-[11px] font-semibold rounded transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
+                    className="px-2.5 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-mono text-[11px] font-semibold rounded border border-white/[0.1] transition-colors flex items-center gap-1.5 cursor-pointer shrink-0"
                   >
                     {copiedKey === activeStrategy.id ? (
                       <>
-                        <Check size={11} className="text-emerald-300" />
+                        <Check size={11} className="text-emerald-400" />
                         <span>コピー完了</span>
                       </>
                     ) : (
@@ -789,7 +791,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
                 </div>
                 
                 {/* コードブロック形式のテキストエリア */}
-                <div className="p-3.5 bg-slate-50 border border-slate-200 rounded font-mono text-xs text-slate-800 whitespace-pre-wrap leading-relaxed select-text">
+                <div className="p-3.5 bg-[#090C10] border border-white/[0.08] rounded font-mono text-xs text-zinc-200 whitespace-pre-wrap leading-relaxed select-text">
                   {activeStrategy.readyToUseAsset.content}
                 </div>
               </div>
@@ -797,35 +799,35 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
               {/* 右: 戦略的価格決定権 ＆ リスク要因 ＆ ツール */}
               <div className="lg:col-span-5 pt-5 lg:pt-0 lg:pl-6 space-y-4">
                 {/* 価格決定権ロジック */}
-                <div className="space-y-1 border-b border-slate-100 pb-3">
-                  <span className="text-[10px] font-mono uppercase font-bold text-slate-500 block">
+                <div className="space-y-1 border-b border-white/[0.08] pb-3">
+                  <span className="text-[10px] font-mono uppercase font-bold text-zinc-400 block">
                     PRICING LOGIC
                   </span>
-                  <p className="text-xs font-sans text-slate-800 leading-relaxed">
+                  <p className="text-xs font-sans text-zinc-300 leading-relaxed">
                     {activeStrategy.pricingScript}
                   </p>
                 </div>
 
                 {/* 参入初期のリスク要因 */}
-                <div className="space-y-1 border-b border-slate-100 pb-3">
-                  <div className="flex items-center gap-1.5 text-rose-700 font-bold">
+                <div className="space-y-1 border-b border-white/[0.08] pb-3">
+                  <div className="flex items-center gap-1.5 text-rose-400 font-bold">
                     <AlertTriangle size={12} />
                     <span className="text-[10px] font-mono uppercase">KEY RISK FACTORS</span>
                   </div>
-                  <p className="text-xs font-sans text-slate-800 leading-relaxed">
+                  <p className="text-xs font-sans text-zinc-300 leading-relaxed">
                     {activeStrategy.fatalTrapToAvoid}
                   </p>
                 </div>
 
                 {/* 主要ツールスタック */}
                 <div className="space-y-1.5">
-                  <span className="text-[10px] font-mono text-slate-400 uppercase font-bold block">
+                  <span className="text-[10px] font-mono text-zinc-400 uppercase font-bold block">
                     KEY TOOLS & INFRASTRUCTURE
                   </span>
                   <div className="flex items-center gap-1.5 flex-wrap font-mono text-[10px]">
                     {activeStrategy.threeKeyTools.map((t, idx) => (
-                      <span key={idx} className="px-2 py-0.5 bg-slate-100 text-slate-700 rounded border border-slate-200">
-                        {t.name} <span className="text-slate-400">({t.role})</span>
+                      <span key={idx} className="px-2 py-0.5 bg-white/[0.04] text-zinc-300 rounded border border-white/[0.08]">
+                        {t.name} <span className="text-zinc-400">({t.role})</span>
                       </span>
                     ))}
                   </div>
@@ -834,25 +836,25 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
             </div>
 
             {/* PRO会員限定解錠枠 */}
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+            <div className="p-4 bg-[#0F131C] border border-amber-500/30 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2.5 min-w-0">
-                <Lock size={13} className="text-amber-700 shrink-0" />
+                <Lock size={13} className="text-amber-400 shrink-0" />
                 <div className="truncate">
-                  <span className="font-mono text-amber-800 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
-                  <span className="text-slate-950 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
-                  <span className="text-slate-500 text-[11px] block mt-0.5">{activeStrategy.proUnlockPreview.description}</span>
+                  <span className="font-mono text-amber-400 font-bold mr-2 text-[10px] uppercase">PRO UNLOCK</span>
+                  <span className="text-zinc-100 font-bold text-xs">{activeStrategy.proUnlockPreview.headline}</span>
+                  <span className="text-zinc-400 text-[11px] block mt-0.5">{activeStrategy.proUnlockPreview.description}</span>
                 </div>
               </div>
               <button
                 type="button"
-                className="px-3 py-1.5 bg-white hover:bg-slate-100 text-slate-900 font-mono text-xs font-semibold rounded border border-slate-300 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer shadow-xs"
+                className="px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-mono text-xs font-semibold rounded border border-amber-500/30 transition-colors whitespace-nowrap self-start sm:self-auto cursor-pointer"
               >
                 PRO会員限定アセットを解錠
               </button>
             </div>
           </div>
         ) : (
-          <div className="h-full flex items-center justify-center text-slate-400 text-xs font-mono">
+          <div className="h-full flex items-center justify-center text-zinc-400 text-xs font-mono">
             左ペインから適合モデルを選択してください
           </div>
         )}

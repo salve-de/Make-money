@@ -11,6 +11,7 @@ interface CleanHeaderProps {
   totalCount: number;
   mainView: string;
   onChangeMainView: (view: any) => void;
+  onOpenProModal?: () => void;
 }
 
 export const CleanHeader: React.FC<CleanHeaderProps> = ({
@@ -18,120 +19,112 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
   onSearchChange,
   totalCount,
   mainView,
-  onChangeMainView
+  onChangeMainView,
+  onOpenProModal
 }) => {
   const isPortalActive = mainView === 'PORTAL' || mainView === 'COLLECTIONS_LIST' || mainView === 'COLLECTION_DETAIL' || mainView === 'SIGNALS_LIST' || mainView === 'SIGNAL_DETAIL' || mainView === 'LEADERBOARD';
 
   return (
-    <header className="h-13 bg-white border-b border-slate-200/90 sticky top-0 z-40 flex items-center justify-between px-5 sm:px-6 shrink-0 select-none font-sans">
+    <header className="h-13 bg-[#0D1117] border-b border-white/[0.08] sticky top-0 z-40 flex items-center justify-between px-3 sm:px-6 shrink-0 select-none font-sans text-zinc-100">
       {/* 左ブランド ＆ メインナビ */}
-      <div className="flex items-center gap-7">
-        {/* ブランドロゴ（Linear / Stripe 規格の端正なミニマリズム） */}
+      <div className="flex items-center gap-2.5 sm:gap-7">
+        {/* ブランドロゴ（Bloomberg / Linear 規格の冷徹なミニマリズム） */}
         <div 
           onClick={() => onChangeMainView('PORTAL')}
-          className="flex items-center gap-2.5 cursor-pointer group"
+          className="flex items-center gap-2 cursor-pointer group shrink-0"
         >
-          <div className="w-7 h-7 rounded-md bg-slate-950 flex items-center justify-center shadow-xs group-hover:bg-slate-800 transition-colors">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="text-white">
+          <div className="w-7 h-7 rounded bg-zinc-900 border border-white/[0.12] flex items-center justify-center group-hover:border-zinc-500 transition-colors">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" className="text-zinc-200">
               <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3H4V6z" fill="currentColor" fillOpacity="0.9" />
               <path d="M4 11h16v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4z" fill="currentColor" fillOpacity="0.5" />
               <circle cx="12" cy="18.5" r="2.5" fill="#10B981" />
             </svg>
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="font-extrabold text-sm text-slate-950 tracking-tight">
+          <div className="flex items-baseline gap-1.5">
+            <span className="font-bold text-sm text-zinc-100 tracking-tight">
               金鉱録
             </span>
-            <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase font-semibold">
+            <span className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase font-semibold hidden xs:inline">
               KIN-KOROKU
             </span>
           </div>
         </div>
 
         {/* 垂直セパレーター */}
-        <div className="h-4 w-px bg-slate-200 hidden md:block" />
+        <div className="h-4 w-px bg-white/[0.08] hidden md:block" />
 
-        {/* メインビュー切替ナビゲーション（フラット・セグメント） */}
-        <nav className="hidden sm:flex items-center gap-1 text-xs font-sans">
-          <button
-            onClick={() => onChangeMainView('PORTAL')}
-            className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
-              isPortalActive
-                ? 'bg-slate-100 text-slate-950 font-bold'
-                : 'text-slate-500 hover:text-slate-950 hover:bg-slate-50'
-            }`}
-          >
-            <LayoutDashboard size={13} className={isPortalActive ? 'text-slate-950' : 'text-slate-400'} />
-            <span>市場インテリジェンス</span>
-          </button>
+        {/* メインナビゲーション（世界標準: Explore ＆ Signals） */}
+        <nav className="flex items-center gap-1 text-xs font-sans">
           <button
             onClick={() => onChangeMainView('TERMINAL')}
-            className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
+            className={`px-2 sm:px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1 sm:gap-1.5 cursor-pointer ${
               mainView === 'TERMINAL'
-                ? 'bg-slate-100 text-slate-950 font-bold'
-                : 'text-slate-500 hover:text-slate-950 hover:bg-slate-50'
+                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.14] shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
             }`}
           >
-            <Database size={13} className={mainView === 'TERMINAL' ? 'text-slate-950' : 'text-slate-400'} />
-            <span>企業財務データベース</span>
+            <Database size={13} className={mainView === 'TERMINAL' ? 'text-emerald-400' : 'text-zinc-400'} />
+            <span className="text-[11px] sm:text-xs">台帳</span>
+            <span className="text-[10px] font-mono text-zinc-400 hidden sm:inline">Explore</span>
           </button>
           <button
-            onClick={() => onChangeMainView('FINDER')}
-            className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
-              mainView === 'FINDER'
-                ? 'bg-slate-100 text-slate-950 font-bold'
-                : 'text-slate-500 hover:text-slate-950 hover:bg-slate-50'
+            onClick={() => onChangeMainView('PORTAL')}
+            className={`px-2 sm:px-3 py-1.5 rounded font-semibold transition-all flex items-center gap-1 sm:gap-1.5 cursor-pointer ${
+              isPortalActive
+                ? 'bg-white/[0.1] text-white font-bold border border-white/[0.14] shadow-xs'
+                : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.04] border border-transparent'
             }`}
           >
-            <Sparkles size={13} className={mainView === 'FINDER' ? 'text-slate-950' : 'text-slate-400'} />
-            <span>リソース適合診断</span>
-          </button>
-          <button
-            onClick={() => onChangeMainView('IDEAS_VAULT')}
-            className={`px-3 py-1.5 rounded-md font-semibold transition-all flex items-center gap-1.5 ${
-              mainView === 'IDEAS_VAULT'
-                ? 'bg-slate-100 text-slate-950 font-bold'
-                : 'text-slate-500 hover:text-slate-950 hover:bg-slate-50'
-            }`}
-          >
-            <Command size={13} className={mainView === 'IDEAS_VAULT' ? 'text-slate-950' : 'text-slate-400'} />
-            <span>実践機会台帳</span>
+            <LayoutDashboard size={13} className={isPortalActive ? 'text-emerald-400' : 'text-zinc-400'} />
+            <span className="text-[11px] sm:text-xs">シグナル</span>
+            <span className="text-[10px] font-mono text-zinc-400 hidden sm:inline">Signals</span>
           </button>
         </nav>
       </div>
 
       {/* 中央〜右側検索バー ＆ 収録件数 ＆ 認証 */}
-      <div className="flex items-center gap-3 flex-1 max-w-md justify-end ml-4">
-        <div className="relative w-full max-w-xs">
-          <Search size={13} className="text-slate-400 absolute left-2.5 top-2" />
+      <div className="flex items-center gap-2 sm:gap-3 flex-1 max-w-[200px] sm:max-w-md justify-end ml-2">
+        <div className="relative w-full max-w-[130px] sm:max-w-xs">
+          <Search size={13} className="text-zinc-400 absolute left-2.5 top-2" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="企業名、モデル、手法で瞬時検索..."
-            className="w-full h-7.5 pl-8 pr-12 bg-slate-50 hover:bg-slate-100/70 focus:bg-white border border-slate-200 focus:border-slate-900 rounded-md text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none transition-all font-sans"
+            placeholder="銘柄・手法を検索..."
+            className="w-full h-7.5 pl-7.5 pr-2 sm:pr-12 bg-[#161B22] hover:bg-[#1C2128] focus:bg-[#1C2128] border border-white/[0.08] focus:border-zinc-500 rounded text-[11px] sm:text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none transition-all font-sans"
           />
-          <div className="absolute right-1.5 top-1.5 hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-slate-200/60 text-[9px] font-mono text-slate-500">
+          <div className="absolute right-1.5 top-1.5 hidden sm:flex items-center gap-0.5 px-1.5 py-0.5 rounded bg-white/[0.06] text-[9px] font-mono text-zinc-400 border border-white/[0.04]">
             <Command size={9} />
             <span>K</span>
           </div>
         </div>
 
-        {/* 機関ステータス表示 */}
-        <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono text-slate-500 shrink-0 bg-slate-50 px-2.5 py-1 rounded-md border border-slate-200">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-          <span className="font-bold text-slate-900 tabular-nums">{totalCount}</span>
+        {/* 実査社数バッジ */}
+        <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono text-zinc-400 shrink-0 bg-white/[0.03] px-2.5 py-1 rounded border border-white/[0.08]">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span className="font-bold text-zinc-200 tabular-nums">{totalCount}</span>
           <span>社 実査済</span>
         </div>
 
+        {/* PROアンロックボタン（金融端末インスティテューショナル仕様） */}
+        {onOpenProModal && (
+          <button
+            type="button"
+            onClick={onOpenProModal}
+            className="hidden sm:flex items-center gap-1 px-2.5 py-1 text-xs font-mono font-bold bg-emerald-500 hover:bg-emerald-400 text-zinc-950 rounded transition-colors shrink-0 cursor-pointer shadow-xs border border-emerald-400/80"
+          >
+            <span>PRO</span>
+          </button>
+        )}
+
         {/* 認証・アカウントボタン */}
-        <UserNavButton />
+        <UserNavButton onOpenProModal={onOpenProModal} />
       </div>
     </header>
   );
 };
 
-function UserNavButton() {
+function UserNavButton({ onOpenProModal }: { onOpenProModal?: () => void }) {
   const { user, isPro, signOut, loading } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -140,7 +133,7 @@ function UserNavButton() {
     return (
       <button
         disabled
-        className="px-2.5 py-1 text-xs font-medium bg-slate-100 text-slate-400 rounded-md shrink-0 cursor-default"
+        className="px-2.5 py-1 text-xs font-medium bg-white/[0.04] text-zinc-500 rounded shrink-0 cursor-default border border-white/[0.06]"
       >
         ログイン
       </button>
@@ -152,7 +145,7 @@ function UserNavButton() {
       <>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="px-3 py-1 text-xs font-semibold bg-slate-950 hover:bg-slate-800 text-white rounded-md transition-colors shrink-0 cursor-pointer shadow-xs"
+          className="px-3 py-1 text-xs font-semibold bg-white/[0.08] hover:bg-white/[0.14] text-zinc-200 border border-white/[0.12] rounded transition-colors shrink-0 cursor-pointer shadow-xs"
         >
           ログイン
         </button>
@@ -165,13 +158,13 @@ function UserNavButton() {
     <div className="relative shrink-0">
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="flex items-center gap-1.5 py-1 px-2 rounded-md hover:bg-slate-100 border border-slate-200 text-xs text-slate-800 transition-colors cursor-pointer"
+        className="flex items-center gap-1.5 py-1 px-2 rounded hover:bg-white/[0.06] border border-white/[0.1] text-xs text-zinc-200 transition-colors cursor-pointer bg-white/[0.03]"
       >
-        <div className="w-4.5 h-4.5 rounded bg-slate-900 text-white flex items-center justify-center text-[10px] font-bold">
+        <div className="w-4.5 h-4.5 rounded bg-zinc-800 text-zinc-200 flex items-center justify-center text-[10px] font-bold border border-white/[0.1]">
           {user.email ? user.email[0].toUpperCase() : 'U'}
         </div>
         {isPro && (
-          <span className="px-1 py-0.2 rounded text-[9px] font-bold bg-emerald-100 text-emerald-800 font-mono">
+          <span className="px-1 py-0.2 rounded text-[9px] font-bold bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-mono">
             PRO
           </span>
         )}
@@ -179,18 +172,18 @@ function UserNavButton() {
 
       {isMenuOpen && (
         <div
-          className="absolute right-0 mt-1.5 w-48 bg-white border border-slate-200 rounded-lg shadow-md p-1 z-50 text-xs font-sans"
+          className="absolute right-0 mt-1.5 w-48 bg-[#161B22] border border-white/[0.12] rounded-lg shadow-xl p-1 z-50 text-xs font-sans"
           onClick={() => setIsMenuOpen(false)}
         >
-          <div className="px-2.5 py-1.5 border-b border-slate-100">
-            <p className="font-semibold text-slate-900 truncate">{user.email}</p>
-            <p className="text-[10px] text-slate-500 font-mono mt-0.5">
+          <div className="px-2.5 py-1.5 border-b border-white/[0.08]">
+            <p className="font-semibold text-zinc-100 truncate">{user.email}</p>
+            <p className="text-[10px] text-zinc-400 font-mono mt-0.5">
               {isPro ? 'PRO 機関ライセンス' : '無料 一般ライセンス'}
             </p>
           </div>
           <button
             onClick={() => signOut()}
-            className="w-full flex items-center gap-2 px-2.5 py-1.5 text-red-600 hover:bg-red-50 rounded-md transition-colors text-left cursor-pointer mt-1 font-medium"
+            className="w-full flex items-center gap-2 px-2.5 py-1.5 text-rose-400 hover:bg-rose-950/40 rounded transition-colors text-left cursor-pointer mt-1 font-medium"
           >
             <LogOut size={12} />
             <span>ログアウト</span>

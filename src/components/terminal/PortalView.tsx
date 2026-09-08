@@ -34,9 +34,13 @@ export const PortalView: React.FC<PortalViewProps> = ({
   onOpenIdeasVault,
   onOpenFinder
 }) => {
-  // 金額フォーマット関数
+  // 金額フォーマット関数（兆円・億円・万円の厳密フォーマット）
   const formatShortAmount = (amountJpy: number): string => {
     if (!amountJpy || amountJpy === 0) return '¥0';
+    if (amountJpy >= 1_000_000_000_000) {
+      const cho = (amountJpy / 1_000_000_000_000).toFixed(2);
+      return `¥${cho.replace('.00', '')}兆円`;
+    }
     if (amountJpy >= 100_000_000) {
       const oku = (amountJpy / 100_000_000).toFixed(1);
       return `¥${oku.replace('.0', '')}億円`;
@@ -45,7 +49,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
       const man = Math.round(amountJpy / 10_000);
       return `¥${man.toLocaleString()}万円`;
     }
-    return `¥${amountJpy.toLocaleString()}`;
+    return `¥${amountJpy.toLocaleString()}円`;
   };
 
   // 個人開発・ソロプレナー特化
@@ -87,52 +91,52 @@ export const PortalView: React.FC<PortalViewProps> = ({
   const formattedMaxRev = formatShortAmount(maxMonthlyRevenue);
 
   return (
-    <div className="flex-1 bg-white overflow-y-auto font-sans text-slate-900 select-none">
+    <div className="flex-1 bg-[#0B0E14] overflow-y-auto font-sans text-zinc-100 select-none">
       
       {/* ───────────────────────────────────────────────────────────── */}
       {/* 1. エグゼクティブ・サマリーボード（McKinsey / PitchBook 規格） */}
       {/* ───────────────────────────────────────────────────────────── */}
-      <section className="border-b border-slate-200 bg-white px-5 sm:px-8 lg:px-10 py-6">
+      <section className="border-b border-white/[0.08] bg-[#0D1117] px-5 sm:px-8 lg:px-10 py-6">
         <div className="max-w-7xl mx-auto space-y-5">
           {/* 上段：タイトル ＆ マクロ指標マトリクス */}
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5">
             <div className="space-y-1">
-              <div className="flex items-center gap-2 font-mono text-[11px] text-slate-500">
-                <span className="px-1.5 py-0.5 rounded text-[9px] bg-slate-950 text-white font-bold tracking-wider uppercase">
+              <div className="flex items-center gap-2 font-mono text-[11px] text-zinc-400">
+                <span className="px-1.5 py-0.5 rounded text-[9px] bg-white/[0.1] text-zinc-200 border border-white/[0.12] font-bold tracking-wider uppercase">
                   MARKET INDEX
                 </span>
                 <span>公的決算書・決済明細照合済み 高収益事業構造データベース</span>
               </div>
-              <h1 className="text-xl sm:text-2xl font-bold text-slate-950 tracking-tight">
+              <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                 高収益ビジネス 財務構造 ＆ 資本効率インデックス
               </h1>
             </div>
 
             {/* 4連マクロKPIマトリクス（1px境界線グリッド） */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 bg-slate-50 border border-slate-200 rounded-lg divide-x divide-y sm:divide-y-0 divide-slate-200 shrink-0 font-mono">
+            <div className="grid grid-cols-2 sm:grid-cols-4 bg-[#121620] border border-white/[0.08] rounded divide-x divide-y sm:divide-y-0 divide-white/[0.08] shrink-0 font-mono">
               <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">実査台帳</div>
-                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{companies.length} 社</div>
+                <div className="text-[10px] text-zinc-500 uppercase font-semibold">実査台帳</div>
+                <div className="text-base sm:text-lg font-bold text-zinc-100 tabular-nums">{companies.length} 社</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">平均営業利益率</div>
-                <div className="text-base sm:text-lg font-bold text-emerald-700 tabular-nums">{avgMargin}%</div>
+                <div className="text-[10px] text-zinc-500 uppercase font-semibold">平均営業利益率</div>
+                <div className="text-base sm:text-lg font-bold text-emerald-400 tabular-nums">{avgMargin}%</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">単独最高月商</div>
-                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{formattedMaxRev}</div>
+                <div className="text-[10px] text-zinc-500 uppercase font-semibold">単独最高月商</div>
+                <div className="text-base sm:text-lg font-bold text-zinc-100 tabular-nums">{formattedMaxRev}</div>
               </div>
               <div className="px-4 py-2.5 space-y-0.5">
-                <div className="text-[10px] text-slate-400 uppercase font-semibold">完全1人比率</div>
-                <div className="text-base sm:text-lg font-bold text-slate-950 tabular-nums">{soloRatio}%</div>
+                <div className="text-[10px] text-zinc-500 uppercase font-semibold">完全1人比率</div>
+                <div className="text-base sm:text-lg font-bold text-zinc-100 tabular-nums">{soloRatio}%</div>
               </div>
             </div>
           </div>
 
           {/* 下段：クイック絞り込み ＆ 端末オープンボタン */}
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3 flex-wrap">
+          <div className="pt-3 border-t border-white/[0.06] flex items-center justify-between gap-3 flex-wrap">
             <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="text-[11px] font-mono text-slate-400 mr-1">注目切り口:</span>
+              <span className="text-[11px] font-mono text-zinc-500 mr-1">注目切り口:</span>
               {[
                 { label: '完全1人・年商億超', tag: '完全1人' },
                 { label: '初期費用0円・AI無人化', tag: '初期0円' },
@@ -145,7 +149,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     if (onFilterTheme) onFilterTheme(btn.tag);
                     onNavigateToTerminal();
                   }}
-                  className="h-6.5 px-2.5 rounded bg-white hover:bg-slate-50 border border-slate-200 text-xs font-mono text-slate-700 hover:text-slate-950 transition-colors font-medium cursor-pointer"
+                  className="h-6.5 px-2.5 rounded bg-white/[0.05] hover:bg-white/[0.08] border border-white/[0.1] text-xs font-mono text-zinc-300 hover:text-white transition-colors font-medium cursor-pointer"
                 >
                   {btn.label}
                 </button>
@@ -153,10 +157,10 @@ export const PortalView: React.FC<PortalViewProps> = ({
             </div>
             <button
               onClick={onNavigateToTerminal}
-              className="h-7.5 px-3.5 rounded bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
+              className="h-7.5 px-3.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-100 text-xs font-mono font-semibold transition-colors flex items-center gap-1.5 cursor-pointer border border-white/[0.12] hover:border-zinc-500"
             >
               <span>企業財務データベースを開く</span>
-              <ArrowRight size={12} />
+              <ArrowRight size={12} className="text-zinc-400" />
             </button>
           </div>
         </div>
@@ -169,23 +173,23 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* 2. 【実査済み高収益ビジネス TOP 5（通帳・決済照合）】           */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-white/[0.08] pb-2.5">
             <div 
               onClick={onOpenLeaderboard}
               className={`${onOpenLeaderboard ? 'cursor-pointer group' : ''}`}
             >
-              <div className="text-[11px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+              <div className="text-[11px] font-mono text-zinc-500 font-bold uppercase tracking-wider">
                 TOP MICRO PERFORMERS
               </div>
-              <h2 className="text-base font-bold text-slate-950 mt-0.5 group-hover:text-slate-700 transition-colors flex items-center gap-1.5">
+              <h2 className="text-base font-bold text-zinc-100 mt-0.5 group-hover:text-white transition-colors flex items-center gap-1.5">
                 <span>実査済み高収益ビジネス TOP 5（通帳・決済明細照合）</span>
-                {onOpenLeaderboard && <ChevronRight size={15} className="text-slate-400 group-hover:text-slate-950" />}
+                {onOpenLeaderboard && <ChevronRight size={15} className="text-zinc-500 group-hover:text-zinc-200" />}
               </h2>
             </div>
             {onOpenLeaderboard && (
               <button
                 onClick={onOpenLeaderboard}
-                className="text-xs text-slate-700 hover:text-slate-950 font-mono font-semibold flex items-center gap-1 self-start sm:self-auto bg-white px-2.5 py-1 rounded border border-slate-200 hover:border-slate-300 transition-colors cursor-pointer"
+                className="text-xs text-zinc-300 hover:text-white font-mono font-semibold flex items-center gap-1 self-start sm:self-auto bg-white/[0.05] px-2.5 py-1 rounded border border-white/[0.1] hover:bg-white/[0.08] transition-colors cursor-pointer"
               >
                 <span>完全ランキング（全社）</span>
                 <ArrowRight size={12} />
@@ -193,21 +197,21 @@ export const PortalView: React.FC<PortalViewProps> = ({
             )}
           </div>
 
-          <div className="border border-slate-200 rounded-lg overflow-hidden bg-white">
+          <div className="border border-white/[0.08] rounded overflow-hidden bg-[#0D1117]">
             <table className="w-full text-left border-collapse text-xs font-mono">
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50/80 text-slate-500 text-[11px]">
+                <tr className="border-b border-white/[0.08] bg-[#121620] text-zinc-400 text-[11px]">
                   <th className="py-2.5 px-4 w-12 text-center font-bold">順位</th>
                   <th className="py-2.5 px-4 font-bold">事業者 / モデル</th>
                   <th className="py-2.5 px-4 hidden sm:table-cell font-bold text-center">組織体制</th>
                   <th className="py-2.5 px-4 text-right font-bold whitespace-nowrap">月商実績</th>
-                  <th className="py-2.5 px-4 text-right font-bold text-slate-900 whitespace-nowrap">実効手残り純利</th>
+                  <th className="py-2.5 px-4 text-right font-bold text-zinc-200 whitespace-nowrap">実効手残り純利</th>
                   <th className="py-2.5 px-4 text-right font-bold whitespace-nowrap">利益率</th>
                   <th className="py-2.5 px-4 hidden md:table-cell text-center font-bold">推移</th>
                   <th className="py-2.5 px-3 w-8 text-center"></th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 font-sans">
+              <tbody className="divide-y divide-white/[0.04] font-sans">
                 {trendingHotCompanies.map((c, idx) => {
                   const latestFin = c.financials[c.financials.length - 1];
                   const monthlyRev = c.passbookDetails?.monthlyGrossJpy || Math.round((latestFin?.revenueJpy || 0) / 12);
@@ -218,38 +222,38 @@ export const PortalView: React.FC<PortalViewProps> = ({
                     <tr
                       key={c.id}
                       onClick={() => onSelectCompany(c.id)}
-                      className="hover:bg-slate-50/80 cursor-pointer transition-colors group"
+                      className="hover:bg-white/[0.03] cursor-pointer transition-colors group"
                     >
-                      <td className="py-3 px-4 text-center text-slate-400 font-mono font-bold">
+                      <td className="py-3 px-4 text-center text-zinc-500 font-mono font-bold">
                         {idx + 1}
                       </td>
                       <td className="py-3 px-4">
                         <div className="flex items-center gap-2.5">
                           <CompanyLogo id={c.id} size="sm" />
                           <div className="min-w-0">
-                            <div className="font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
+                            <div className="font-bold text-zinc-100 group-hover:text-white transition-colors">
                               {c.japaneseName}
                             </div>
-                            <div className="text-[11px] text-slate-500 truncate max-w-xs sm:max-w-md font-normal">
+                            <div className="text-[11px] text-zinc-400 truncate max-w-xs sm:max-w-md font-normal">
                               {c.tagline}
                             </div>
                           </div>
                         </div>
                       </td>
                       <td className="py-3 px-4 hidden sm:table-cell text-center font-mono">
-                        <span className="px-1.5 py-0.5 rounded bg-slate-100 text-[10px] text-slate-600 font-medium whitespace-nowrap inline-block">
+                        <span className="px-1.5 py-0.5 rounded bg-white/[0.06] border border-white/[0.06] text-[10px] text-zinc-300 font-medium whitespace-nowrap inline-block">
                           {c.teamSize === 1 ? '完全1人' : `${c.teamSize}人体制`}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-right text-slate-600 tabular-nums font-mono whitespace-nowrap">
+                      <td className="py-3 px-4 text-right text-zinc-300 tabular-nums font-mono whitespace-nowrap">
                         {formatShortAmount(monthlyRev)}
                       </td>
                       <td className="py-3 px-4 text-right tabular-nums whitespace-nowrap">
-                        <span className="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200/80 text-emerald-700 font-mono font-bold whitespace-nowrap inline-block">
+                        <span className="px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-800/60 text-emerald-400 font-mono font-bold whitespace-nowrap inline-block">
                           {formatShortAmount(founderTakeHome)}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-right text-slate-900 tabular-nums font-bold font-mono whitespace-nowrap">
+                      <td className="py-3 px-4 text-right text-zinc-100 tabular-nums font-bold font-mono whitespace-nowrap">
                         {netMargin}%
                       </td>
                       <td className="py-3 px-4 hidden md:table-cell text-center">
@@ -257,7 +261,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
                           <SparklineChart color="#10B981" width={52} height={16} />
                         </div>
                       </td>
-                      <td className="py-3 px-3 text-center text-slate-400 group-hover:text-slate-950">
+                      <td className="py-3 px-3 text-center text-zinc-500 group-hover:text-zinc-200">
                         <ChevronRight size={14} />
                       </td>
                     </tr>
@@ -273,21 +277,21 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* ───────────────────────────────────────────────────────────── */}
         <div 
           onClick={() => (onOpenFinder ? onOpenFinder() : onOpenIdeasVault?.())}
-          className="p-5 border border-slate-200 rounded-lg bg-slate-50 hover:bg-slate-100/70 cursor-pointer transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 select-none group"
+          className="p-5 border border-white/[0.08] rounded bg-[#0F131C] hover:bg-[#141924] cursor-pointer transition-all flex flex-col md:flex-row md:items-center justify-between gap-4 select-none group"
         >
           <div className="space-y-1 max-w-2xl">
             <div className="flex items-center gap-2 font-mono text-[10px]">
-              <span className="px-1.5 py-0.2 rounded bg-slate-950 text-white font-bold uppercase tracking-wider">
+              <span className="px-1.5 py-0.2 rounded bg-white/[0.1] text-zinc-200 border border-white/[0.12] font-bold uppercase tracking-wider">
                 DIAGNOSTIC
               </span>
-              <span className="text-slate-500 font-semibold">
+              <span className="text-zinc-400 font-semibold">
                 保有リソース（資本・時間・スキル・市場）から事業モデルを逆引き
               </span>
             </div>
-            <h3 className="text-base font-bold text-slate-950 group-hover:text-slate-800 transition-colors">
+            <h3 className="text-base font-bold text-zinc-100 group-hover:text-white transition-colors">
               手札適合診断：実在22社の損益分岐点から、あなたの初期アプローチと価格決定権を算出
             </h3>
-            <p className="text-xs text-slate-600 font-normal">
+            <p className="text-xs text-zinc-400 font-normal">
               初期資本ゼロ・週末稼働から着手可能なモデルと、初日から使える営業文面・ツールスタックを提示します。
             </p>
           </div>
@@ -295,11 +299,11 @@ export const PortalView: React.FC<PortalViewProps> = ({
           <div className="shrink-0 flex items-center">
             <button
               type="button"
-              className="px-4 py-2 bg-slate-950 group-hover:bg-slate-800 text-white font-mono text-xs font-bold rounded-md transition-colors flex items-center gap-2 cursor-pointer shadow-xs"
+              className="px-4 py-2 bg-emerald-950/70 group-hover:bg-emerald-900/80 text-emerald-300 font-mono text-xs font-bold rounded transition-colors flex items-center gap-2 cursor-pointer border border-emerald-800/60 shadow-xs"
             >
-              <Sparkles size={13} className="text-slate-300" />
+              <Sparkles size={13} className="text-emerald-400" />
               <span>リソース適合診断を開く</span>
-              <ArrowRight size={13} />
+              <ArrowRight size={13} className="text-emerald-400" />
             </button>
           </div>
         </div>
@@ -308,19 +312,19 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* 4. 【高単価産業の構造的余剰利益を獲得する実効モデル TOP 4】        */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-white/[0.08] pb-2.5">
             <div>
-              <div className="text-[11px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+              <div className="text-[11px] font-mono text-zinc-500 font-bold uppercase tracking-wider">
                 HIGH-MARGIN ARBITRAGE
               </div>
-              <h2 className="text-base font-bold text-slate-950 mt-0.5">
+              <h2 className="text-base font-bold text-zinc-100 mt-0.5">
                 高単価産業の構造的余剰利益を獲得する実効モデル TOP 4
               </h2>
             </div>
             {onOpenIdeasVault && (
               <button
                 onClick={onOpenIdeasVault}
-                className="text-xs text-slate-700 hover:text-slate-950 font-semibold font-mono flex items-center gap-1 self-start sm:self-auto bg-white px-2.5 py-1 rounded border border-slate-200 hover:border-slate-300 transition-colors cursor-pointer"
+                className="text-xs text-zinc-300 hover:text-white font-semibold font-mono flex items-center gap-1 self-start sm:self-auto bg-white/[0.05] px-2.5 py-1 rounded border border-white/[0.1] hover:bg-white/[0.08] transition-colors cursor-pointer"
               >
                 <span>実践機会台帳を開く</span>
                 <ArrowRight size={12} />
@@ -328,9 +332,9 @@ export const PortalView: React.FC<PortalViewProps> = ({
             )}
           </div>
 
-          <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
+          <div className="border border-white/[0.08] rounded bg-[#0D1117] overflow-hidden">
             {/* テーブルヘッダー */}
-            <div className="hidden md:grid grid-cols-12 gap-4 px-5 py-2.5 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+            <div className="hidden md:grid grid-cols-12 gap-4 px-5 py-2.5 bg-[#121620] border-b border-white/[0.08] text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-wider">
               <div className="col-span-5">実効モデル / 対象市場</div>
               <div className="col-span-4">創業者の着眼点（隙間の正体）</div>
               <div className="col-span-2 text-right">実効手残り月利</div>
@@ -338,7 +342,7 @@ export const PortalView: React.FC<PortalViewProps> = ({
             </div>
 
             {/* 一覧行リスト */}
-            <div className="divide-y divide-slate-100 text-xs">
+            <div className="divide-y divide-white/[0.04] text-xs">
               {[
                 {
                   companyId: 'outbid-lol',
@@ -376,34 +380,34 @@ export const PortalView: React.FC<PortalViewProps> = ({
                 <div 
                   key={idx}
                   onClick={() => onSelectCompany(item.companyId)}
-                  className="px-5 py-3.5 hover:bg-slate-50/80 transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 items-start md:items-center group"
+                  className="px-5 py-3.5 hover:bg-white/[0.03] transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 items-start md:items-center group"
                 >
                   <div className="col-span-5 flex items-center gap-2.5 min-w-0 w-full">
                     <CompanyLogo id={item.companyId} size="sm" />
                     <div className="min-w-0 flex-1">
-                      <div className="font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
+                      <div className="font-bold text-zinc-100 group-hover:text-white transition-colors">
                         {item.title}
                       </div>
-                      <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                      <div className="text-[11px] text-zinc-400 truncate mt-0.5">
                         {item.target}
                       </div>
                     </div>
                   </div>
 
-                  <div className="col-span-4 text-[11px] text-slate-600 line-clamp-2">
+                  <div className="col-span-4 text-[11px] text-zinc-300 line-clamp-2">
                     {item.insight}
                   </div>
 
                   <div className="col-span-2 flex md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto">
-                    <span className="text-[11px] font-mono font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80 tabular-nums">
+                    <span className="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-950/70 px-2 py-0.5 rounded border border-emerald-800/60 tabular-nums">
                       {item.profit}
                     </span>
-                    <span className="text-[10px] font-mono text-slate-400 mt-0.5 hidden md:block">
+                    <span className="text-[10px] font-mono text-zinc-500 mt-0.5 hidden md:block">
                       初期 {item.capital}
                     </span>
                   </div>
 
-                  <div className="col-span-1 hidden md:flex items-center justify-center text-slate-400 group-hover:text-slate-950">
+                  <div className="col-span-1 hidden md:flex items-center justify-center text-zinc-500 group-hover:text-zinc-200">
                     <ChevronRight size={14} />
                   </div>
                 </div>
@@ -416,29 +420,29 @@ export const PortalView: React.FC<PortalViewProps> = ({
         {/* 5. 【完全1人・個人開発で年商数千万〜億超えモデル】              */}
         {/* ───────────────────────────────────────────────────────────── */}
         <section className="space-y-3">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-200 pb-2.5">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-white/[0.08] pb-2.5">
             <div>
-              <div className="text-[11px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+              <div className="text-[11px] font-mono text-zinc-500 font-bold uppercase tracking-wider">
                 SOLO ARCHITECTURE
               </div>
-              <h2 className="text-base font-bold text-slate-950 mt-0.5">
+              <h2 className="text-base font-bold text-zinc-100 mt-0.5">
                 完全1人・従業員ゼロで年商数千万〜億を叩き出すモデル
               </h2>
             </div>
-            <span className="text-xs text-slate-500 font-mono">
+            <span className="text-xs text-zinc-400 font-mono">
               オフィスなし・人件費ゼロ・APIとツールで自動化
             </span>
           </div>
 
-          <div className="border border-slate-200 rounded-lg bg-white overflow-hidden">
-            <div className="hidden md:grid grid-cols-12 gap-4 px-5 py-2.5 bg-slate-50/80 border-b border-slate-200 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+          <div className="border border-white/[0.08] rounded bg-[#0D1117] overflow-hidden">
+            <div className="hidden md:grid grid-cols-12 gap-4 px-5 py-2.5 bg-[#121620] border-b border-white/[0.08] text-[11px] font-mono font-bold text-zinc-400 uppercase tracking-wider">
               <div className="col-span-5">事業者 / 創業者</div>
               <div className="col-span-4">自動化の仕掛け・事業の正体</div>
               <div className="col-span-2 text-right">月商規模 / 純利益</div>
               <div className="col-span-1 text-center">詳細</div>
             </div>
 
-            <div className="divide-y divide-slate-100 text-xs">
+            <div className="divide-y divide-white/[0.04] text-xs">
               {soloDevCompanies.map((c) => {
                 const latestFin = c.financials[c.financials.length - 1];
                 const monthlyRev = c.passbookDetails?.monthlyGrossJpy || Math.round((latestFin?.revenueJpy || 0) / 12);
@@ -449,39 +453,39 @@ export const PortalView: React.FC<PortalViewProps> = ({
                   <div
                     key={c.id}
                     onClick={() => onSelectCompany(c.id)}
-                    className="px-5 py-3.5 hover:bg-slate-50/80 transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 items-start md:items-center group"
+                    className="px-5 py-3.5 hover:bg-white/[0.03] transition-colors cursor-pointer flex flex-col md:grid md:grid-cols-12 gap-2 md:gap-4 items-start md:items-center group"
                   >
                     <div className="col-span-5 flex items-center gap-2.5 min-w-0 w-full">
                       <CompanyLogo id={c.id} size="sm" />
                       <div className="min-w-0 flex-1">
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-slate-950 group-hover:text-slate-700 transition-colors">
+                          <span className="font-bold text-zinc-100 group-hover:text-white transition-colors">
                             {c.japaneseName}
                           </span>
-                          <span className="px-1.5 py-0.2 rounded bg-slate-100 text-[10px] font-mono text-slate-600">
+                          <span className="px-1.5 py-0.2 rounded bg-white/[0.06] border border-white/[0.06] text-[10px] font-mono text-zinc-300">
                             完全1人
                           </span>
                         </div>
-                        <div className="text-[11px] text-slate-500 truncate mt-0.5">
+                        <div className="text-[11px] text-zinc-400 truncate mt-0.5">
                           {c.businessEssence?.whatItDoes || c.tagline}
                         </div>
                       </div>
                     </div>
 
-                    <div className="col-span-4 text-[11px] text-slate-600 line-clamp-2">
+                    <div className="col-span-4 text-[11px] text-zinc-300 line-clamp-2">
                       {c.businessEssence?.monetizationWay || 'Stripe決済・デジタル自動配信・利益率高位維持'}
                     </div>
 
                     <div className="col-span-2 flex md:flex-col items-center md:items-end justify-between md:justify-center w-full md:w-auto">
-                      <span className="text-xs font-bold text-emerald-700 font-mono tabular-nums bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">
+                      <span className="text-xs font-bold text-emerald-400 font-mono tabular-nums bg-emerald-950/70 px-2 py-0.5 rounded border border-emerald-800/60">
                         {formatShortAmount(founderTakeHome)}
                       </span>
-                      <span className="text-[10px] font-mono text-slate-400 mt-0.5 hidden md:block">
+                      <span className="text-[10px] font-mono text-zinc-500 mt-0.5 hidden md:block">
                         月商 {formatShortAmount(monthlyRev)} ({netMargin}%)
                       </span>
                     </div>
 
-                    <div className="col-span-1 hidden md:flex items-center justify-center text-slate-400 group-hover:text-slate-950">
+                    <div className="col-span-1 hidden md:flex items-center justify-center text-zinc-500 group-hover:text-zinc-200">
                       <ChevronRight size={14} />
                     </div>
                   </div>
