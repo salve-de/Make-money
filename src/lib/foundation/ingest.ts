@@ -128,6 +128,7 @@ export type PlannedWriteLogicalRole =
   | 'entity'
   | 'claim'
   | 'metric'
+  | 'money_signal'
   | 'event'
   | 'relationship'
   | 'research_bundle'
@@ -960,6 +961,7 @@ function plannedWriteRole(role: string): PlannedWriteLogicalRole {
     'entity',
     'claim',
     'metric',
+    'money_signal',
     'event',
     'relationship',
     'research_bundle',

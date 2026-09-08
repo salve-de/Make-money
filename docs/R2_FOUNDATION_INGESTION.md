@@ -20,6 +20,27 @@
 
 ## 保存入口
 
+## 別AIが1事例を保存する実行入口
+
+このリポジトリを読んだAIは、見つかった情報だけで1事例のbundleを作り、次の1コマンドを実行する。全項目が埋まるまで保存を止めない。取れなかったものは `unknown`、推定したものは `estimated`、分析は `inferred` としてbundleに残す。
+
+```bash
+npm run foundation:r2 -- data/collection/<case>.request.json data/collection/<case>.receipt.json
+```
+
+入力はUniversal Foundationの `research-bundle.v1` を包んだ次の形にする。
+
+```json
+{
+  "write_authorized": true,
+  "bundle": { "schema_version": "research-bundle.v1", "purpose": "make_money" }
+}
+```
+
+`bundle` の完全な必須構造はUniversal Foundationの正本schemaに従う。1社1ファイルに限定せず、会社固有の追加情報は `observations` に保持する。`metrics` では売上、粗利益、営業利益、純利益、費用、手取り、価格、期間、通貨を別レコードにし、会社利益を個人手取りへ置き換えない。推定値は計算式・前提・幅を本文に残す。出典がない候補も破棄せず、`unknown` / `UNVERIFIED` として保存する。
+
+このコマンドは、構造検証、全キーの作成専用Preflight、R2への新規Put、保存後のSHA-256・バイト数読み戻し確認を行う。同じキー・同じ内容は `exists_identical`、同じキー・別内容は衝突として停止する。既存R2・EDINET・`universal` のオブジェクトを更新・移動・削除しない。認証値はGitHubにないため、Macではプロジェクト専用Keychainから自動注入される。
+
 内部API:
 
 ```text
