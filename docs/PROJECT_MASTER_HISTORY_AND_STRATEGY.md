@@ -2254,3 +2254,29 @@
 - **自律的ガバナンス完遂**:
   - GitHub上の最高憲法群（`AGENTS.md`, `PROJECT_CHARTER.md`, `CLAUDE.md`, マスター白書）へ一斉反映・同期完了。
 
+### 65. Phase 65: 高収益実在ビジネス4事例（ShipFast, Carrd, PDF.ai, Midjourney）の一次情報徹底調査 ＆ 取得可否完全棚卸しログの保存（完了）
+- **検死された課題 ＆ ユーザーの絶対指針**:
+  - 「もっとたくさん 調べてきて そして 保存して」
+  - 画面にコード反映する前段階として、「実際に画面に出す想定の生々しい項目（売上、利益、ツール代、手残り、大手の自爆、痛みの財布、初動ログ）を本気で集めようとしたら、現実のWebから何が取れて、何が絶対に取れなかったのか」を複数事例で検証・保存する要求。
+- **徹底調査した世界最高峰の4大実在事例**:
+  1. **ShipFast (Marc Lou)**:
+     - 完全1人 / 年商1億円超（5ヶ月で約3,750万円） / 利益率95% / Next.js SaaSボイラープレート。
+     - 取れたもの: 売上、利益率、価格（$169-$299）、Tech Stack（Next.js, Tailwind, Stripe, Supabase, Resend）、初動ゲリラ（X動画バズ、事前フォロワー構築）、痛みの財布（認証・決済配管の挫折・怠惰）、大手の自爆（大手スクール・受託が高額請求を守るため数万円テンプレを出せない）。
+     - 取れなかったもの: 個人の税引後最終手取り現金、Stripe・Vercelの月額実費領収書。
+  2. **Carrd (AJ / @ajlkn)**:
+     - 完全1人 / 年商3億円〜3.5億円 ($2M+ ARR) / 広告費完全0円 / 利益率90%以上 / 1枚LP作成ツール。
+     - 取れたもの: 売上、価格（年額$9-$49）、Tech Stack（Vanilla JS, PHP, Cloudflare, AWS, Stripe）、初動ゲリラ（無料版「Made with Carrd」バイラルループ）、痛みの財布（WordPress/Webflowの複雑さへの怠惰）、大手の自爆（Webflowが高単価を守るため年額$19を出せない）。
+     - 取れなかったもの: AJ本人の銀行通帳残高、AWS月額請求書の内訳実額。
+  3. **PDF.ai (Damon Chen)**:
+     - 完全1人 / 年商約9,000万円 ($591k) / ピーク月商900万円 / AIドキュメントチャット。
+     - 取れたもの: 売上、ドメイン「PDF.ai」を$10,000で取得した手口、初期$99買い切り（Lifetime Deal）で3ヶ月で450万円の前金総取り、Tech Stack（OpenAI API, LangChain, Pinecone, Next.js, Stripe）、中国移住による「ドル建て売上×超低生活費」での手残り極大化、大手の自爆（Adobe Acrobatの高額包括サブスク自縛）。
+     - 取れなかったもの: OpenAI APIトークン消費実費領収書、初期自己資金内訳。
+  4. **Midjourney (David Holz)**:
+     - 極小組織（初期11人・現在も数十人） / 年商約750億円 ($500M ARR) / 外部資金調達完全ゼロ（自己資本100%）。
+     - 取れたもの: 売上、利益（半年で黒字化）、Tech Stack（Discord Bot API, TPU, AWS, Stripe）、初動ゲリラ（Discordサーバー寄生・オープン生成による社会的証明バイラルループ）、痛みの財布（デザイン外注のコスト・時間・苦痛）、大手の自爆（Adobe/Gettyの著作権利権とストックフォト自縛）。
+     - 取れなかったもの: GPU計算インフラの正確な月額請求書、David Holz個人の通帳額。
+- **成果物の永続保存 ＆ 自律同期**:
+  - 詳細調査レポートを [`data/collection/case-studies-deep-research-20260909.md`](file:///Users/satoushinya/project/Make-Money/data/collection/case-studies-deep-research-20260909.md) に作成・保存。
+  - Git コミット ＆ リモートリポジトリ（GitHub）への即時プッシュを自律完遂。
+
+
