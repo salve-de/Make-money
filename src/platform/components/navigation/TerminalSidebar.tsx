@@ -4,6 +4,7 @@ import React from 'react';
 import { 
   Database, 
   Layers, 
+  TrendingUp,
   Bookmark, 
   Activity,
   Cpu,
@@ -63,7 +64,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
             </div>
           </div>
 
-          {/* 2. 稼ぎの型 ＆ 具体的アイデア展開 (ARCHETYPES) */}
+          {/* 2. トレンド ＆ 稼ぎの歪みレーダー (ARCHETYPES/TRENDS) */}
           <div className="relative group w-full flex justify-center">
             <button
               onClick={() => onSelectMode('ARCHETYPES')}
@@ -73,11 +74,11 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
                   : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04]'
               }`}
             >
-              <Layers className="w-4 h-4" />
+              <TrendingUp className="w-4 h-4 text-emerald-400" />
             </button>
             {/* ツールチップ */}
             <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
-              市場の歪み ＆ トレンド (Anomalies)
+              トレンド ＆ 稼ぎの歪み (Trends & Anomalies)
             </div>
           </div>
 

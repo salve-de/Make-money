@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { FinancialEntity, IntelligenceTopicId } from '../../types/terminal';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
+import { MARKET_ANOMALIES } from '../../data/marketAnomaliesData';
 import { 
   X, 
   ExternalLink, 
@@ -20,6 +21,7 @@ import {
   Zap,
   BarChart3,
   ArrowUpRight,
+  ArrowRight,
   FileText,
   Crosshair,
   Bot,
@@ -45,6 +47,7 @@ interface CompanyInspectorPaneProps {
   onNextEntity?: () => void;
   onOpenPro?: () => void;
   onSelectTopic?: (topicId: IntelligenceTopicId) => void;
+  onOpenAnomaly?: (anomalyId: string) => void;
   initialTab?: TabType;
   activeTags?: string[];
   onToggleTag?: (tag: string | null) => void;
@@ -64,6 +67,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onNextEntity,
   onOpenPro,
   onSelectTopic,
+  onOpenAnomaly,
   initialTab = 'CORE',
   activeTags = [],
   onToggleTag,
@@ -120,6 +124,11 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   // 当該企業に紐づく特集レポートを検索
   const relatedDossier = INTELLIGENCE_DOSSIERS.find((d) =>
     d.targetEntityIds.includes(entity.id)
+  );
+
+  // 当該企業が実証している市場の歪み・トレンドを検索
+  const relatedAnomaly = MARKET_ANOMALIES.find((a) =>
+    a.proofEntityIds.includes(entity.id)
   );
 
   return (
@@ -207,9 +216,34 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           </div>
 
           {/* タグライン（1行スマート表示） */}
-          <div className="px-3 pb-1.5 text-[11px] text-zinc-400 leading-snug font-sans truncate">
+          <div className="px-3 pb-1 text-[11px] text-zinc-400 leading-snug font-sans truncate">
             {entity.tagline}
           </div>
+
+          {/* 突いている市場の歪み（逆方向ワームホール） */}
+          {relatedAnomaly && (
+            <div className="px-3 pb-2">
+              <button
+                type="button"
+                onClick={() => onOpenAnomaly && onOpenAnomaly(relatedAnomaly.id)}
+                className="w-full text-left px-2 py-1 rounded bg-emerald-950/20 hover:bg-emerald-950/40 border border-emerald-500/25 hover:border-emerald-500/40 transition-colors flex items-center justify-between group cursor-pointer"
+                title="この企業が実証している市場の歪み・トレンドカルテを開く"
+              >
+                <div className="flex items-center gap-1.5 min-w-0 truncate">
+                  <TrendingUp className="w-3 h-3 text-emerald-400 shrink-0" />
+                  <span className="text-[10px] font-mono text-zinc-400 shrink-0">市場の歪み:</span>
+                  <span className="text-[10px] font-mono font-bold text-white truncate">{relatedAnomaly.title}</span>
+                  <span className="text-[9px] font-mono px-1 rounded bg-emerald-500/15 text-emerald-300 font-bold shrink-0">
+                    {relatedAnomaly.growthRate}
+                  </span>
+                </div>
+                <div className="flex items-center gap-0.5 text-[10px] font-mono text-emerald-400 shrink-0 pl-1 group-hover:text-emerald-300">
+                  <span>解剖</span>
+                  <ArrowRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </button>
+            </div>
+          )}
 
           {/* 探索タグ（クリックで左一覧を即時トグル・複数選択対応） */}
           {entity.tags && entity.tags.length > 0 && (
@@ -296,8 +330,45 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         {/* ========================================================= */}
         {/* 【コンテンツゾーン: 明瞭なセクション区切り ＆ 高密度】 */}
         {/* ========================================================= */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 sm:space-y-6 text-xs font-sans">
           
+          {/* 市場の歪み・トレンドへの直通バナー（ワームホール） */}
+          {relatedAnomaly && (
+            <div 
+              onClick={() => onOpenAnomaly && onOpenAnomaly(relatedAnomaly.id)}
+              className="border border-emerald-500/25 hover:border-emerald-500/50 rounded-md bg-[#080E0B] p-3 flex items-center justify-between group cursor-pointer transition-all duration-150 shadow-xs"
+            >
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="p-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                  <TrendingUp className="w-3.5 h-3.5" />
+                </span>
+                <div className="truncate">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[9px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                      実証している市場の歪み
+                    </span>
+                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-emerald-500/15 text-emerald-300 font-bold">
+                      {relatedAnomaly.growthRate}
+                    </span>
+                    <span className="text-[9px] font-mono text-zinc-500 hidden sm:inline">
+                      手残り {relatedAnomaly.netMarginPercent}%
+                    </span>
+                  </div>
+                  <h3 className="text-xs font-bold text-white truncate group-hover:text-emerald-300 transition-colors">
+                    {relatedAnomaly.title}
+                  </h3>
+                  <p className="text-[10px] text-zinc-400 truncate mt-0.5 font-sans">
+                    {relatedAnomaly.subtitle}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1 font-mono text-[11px] text-emerald-400 group-hover:text-emerald-300 shrink-0 pl-2">
+                <span className="hidden sm:inline">歪みカルテを解剖</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </div>
+          )}
+
           {/* 特集インテリジェンスへの連動バナー */}
           {relatedDossier && (
             <div 

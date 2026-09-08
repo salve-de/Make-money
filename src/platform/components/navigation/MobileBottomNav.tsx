@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Database, SlidersHorizontal, Bookmark, Layers, Cpu } from 'lucide-react';
+import { Database, SlidersHorizontal, Bookmark, Layers, Cpu, TrendingUp } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface MobileBottomNavProps {
@@ -37,15 +37,15 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <span>全台帳</span>
       </button>
 
-      {/* 市場の歪み */}
+      {/* トレンド ＆ 歪み */}
       <button
         onClick={() => onSelectMode('ARCHETYPES')}
         className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
           workspaceMode === 'ARCHETYPES' ? 'text-white font-medium' : 'text-zinc-500'
         }`}
       >
-        <Layers className="w-3.5 h-3.5 mb-0.5" />
-        <span>市場の歪み</span>
+        <TrendingUp className="w-3.5 h-3.5 mb-0.5 text-emerald-400" />
+        <span>トレンド</span>
       </button>
 
       {/* 独自アイデア合成・壁打ち */}

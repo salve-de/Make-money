@@ -15,8 +15,6 @@ import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView
 import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
-import { MarketAnomalyLensStrip } from '../anomalies/MarketAnomalyLensStrip';
-import { MARKET_ANOMALIES } from '../../data/marketAnomaliesData';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { useViewHistory } from '../../hooks/useViewHistory';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
@@ -63,7 +61,7 @@ export const TerminalShell: React.FC = () => {
         )?.id || 'ent_photoai'
       : 'ent_photoai');
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
-  // 市場の歪み（Market Anomaly）レンズの選択ステート
+  // 市場の歪み（Market Anomaly）選択ステート
   const [selectedAnomalyId, setSelectedAnomalyId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -222,17 +220,9 @@ export const TerminalShell: React.FC = () => {
         if (!matchName && !matchTicker && !matchBlindspot && !matchFounder && !matchTag) return false;
       }
 
-      // 市場の歪みレンズによる絞り込み（該当する裏付け実在銘柄のみ抽出）
-      if (selectedAnomalyId) {
-        const anomaly = MARKET_ANOMALIES.find((a) => a.id === selectedAnomalyId);
-        if (anomaly && !anomaly.proofEntityIds.includes(entity.id)) {
-          return false;
-        }
-      }
-
       return true;
     });
-  }, [currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds, selectedAnomalyId]);
+  }, [currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
 
   // 現在選択中の企業エンティティ
   const selectedEntity = useMemo(() => {
@@ -272,19 +262,9 @@ export const TerminalShell: React.FC = () => {
         {/* 左サイドバー */}
         <TerminalSidebar
           workspaceMode={workspaceMode}
-          onSelectMode={(mode) => {
-            if (mode === 'ARCHETYPES') {
-              setWorkspaceMode('LEDGER');
-              setSelectedAnomalyId((prev) => prev || MARKET_ANOMALIES[0]?.id || null);
-            } else {
-              setWorkspaceMode(mode);
-            }
-          }}
+          onSelectMode={(mode) => setWorkspaceMode(mode)}
           currentFilter={currentFilter}
-          onSelectFilter={(f) => {
-            setCurrentFilter(f);
-            setSelectedAnomalyId(null);
-          }}
+          onSelectFilter={(f) => setCurrentFilter(f)}
           bookmarkCount={bookmarkedIds.size}
           onOpenPro={() => setIsProModalOpen(true)}
         />
@@ -300,9 +280,10 @@ export const TerminalShell: React.FC = () => {
             currency={currency}
             initialContextEntityId={selectedEntityId}
           />
-        ) : (workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
+        ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
           <TacticalArchetypesView
             allEntities={INSTITUTIONAL_ENTITIES}
+            initialAnomalyId={selectedAnomalyId}
             onOpenEntityInLedger={(entityId) => {
               setSelectedEntityId(entityId);
               setWorkspaceMode('LEDGER');
@@ -318,16 +299,6 @@ export const TerminalShell: React.FC = () => {
               ? 'w-full md:w-[440px] lg:w-[480px] xl:w-[520px] shrink-0 border-r border-white/[0.06]'
               : 'flex-1'
           }`}>
-            {/* 市場の歪み ＆ トレンドレンズ（最上位ストリップ） */}
-            <MarketAnomalyLensStrip
-              selectedAnomalyId={selectedAnomalyId}
-              onSelectAnomaly={setSelectedAnomalyId}
-              onOpenSynthesisWithEntity={(entityId) => {
-                setSelectedEntityId(entityId);
-                setWorkspaceMode('SYNTHESIS');
-              }}
-            />
-
             <DataGridToolbar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
@@ -365,6 +336,10 @@ export const TerminalShell: React.FC = () => {
             onSelectTopic={() => {
               setWorkspaceMode('RADAR');
             }}
+            onOpenAnomaly={(anomalyId) => {
+              setSelectedAnomalyId(anomalyId);
+              setWorkspaceMode('ARCHETYPES');
+            }}
             activeTags={activeTags}
             onToggleTag={handleToggleTag}
             analystNote={getNote(selectedEntity.id)}
@@ -382,12 +357,7 @@ export const TerminalShell: React.FC = () => {
       <MobileBottomNav
         workspaceMode={workspaceMode}
         onSelectMode={(mode) => {
-          if (mode === 'ARCHETYPES') {
-            setWorkspaceMode('LEDGER');
-            setSelectedAnomalyId((prev) => prev || MARKET_ANOMALIES[0]?.id || null);
-          } else {
-            setWorkspaceMode(mode);
-          }
+          setWorkspaceMode(mode);
           if (mode === 'DEEP_DIVE') {
             setActiveTopicId(null);
           }
@@ -397,7 +367,6 @@ export const TerminalShell: React.FC = () => {
           setWorkspaceMode('LEDGER');
           setCurrentFilter(f);
           setScreenerFilters(null);
-          setSelectedAnomalyId(null);
         }}
         onOpenScreener={() => setIsScreenerOpen(true)}
         bookmarkCount={bookmarkedIds.size}

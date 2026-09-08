@@ -181,6 +181,8 @@ export interface MarketAnomaly {
   title: string;
   subtitle: string;
   signalBadge: string;        // 例: '+380% 急上昇', '法改正まであと90日'
+  growthRate?: string;        // 例: '+380%', '+520%'
+  signalData?: string;        // 予兆の客観データ（検索急増、法改正日程、現場の価格差等）
   isHot?: boolean;
   heatScore: number;          // 0 - 100
   updatedAt: string;          // 逐一更新の証 (例: '2026-03-01')
