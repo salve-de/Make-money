@@ -2072,5 +2072,26 @@
   - 「DBと変わらん」という違和感が完全に消滅。
   - 「いま資本主義のどこに穴が空いているか（トレンド）」と「誰がいくら抜いたか（通帳）」が1画面でコンマ1秒で直結する、世界最高峰の金融・事業情報端末へと昇華。
 
+### 57. Phase 57: Universal Foundationデータを実際にR2へ保存する取り込み経路の配備
+- **目的**:
+  - 収集したMake-Moneyの調査データを、説明だけで終わらせず、Universal Foundationの共通データとしてR2へ保存できる状態にする。
+  - Make-Money専用の `make-money-assets` 保存を新規データの正規経路にせず、`foundation-raw` / `foundation-lake` / `foundation-restricted` の役割分離を実装へ反映する。
+- **断行した外科的処置**:
+  1. **R2クライアントの実保存化 (`src/lib/storage/r2.ts`)**:
+     - 未設定時のモック成功を廃止し、R2認証が無ければ明確に失敗するよう変更。
+     - `HeadBucket`、`HeadObject`、`PutObject` を使い、既存キーを上書きしない作成専用保存を配備。
+     - `foundation-sha256` を保存メタデータへ付与し、同一内容は重複扱い、異なる内容は衝突停止。
+  2. **Foundation取り込みエンジン (`src/lib/foundation/ingest.ts`)**:
+     - `research-bundle.v1` の必須構造・ID・品質状態を検査。
+     - 会社、主張、指標、MoneySignal、イベント、関係、調査bundle、派生知能をRegistryのdataset IDとキー規則へ変換。
+     - 権利状態が許可された証拠原文だけを `foundation-raw` または `foundation-restricted` へ保存。
+  3. **内部保存API (`src/app/api/foundation/ingest/route.ts`)**:
+     - `FOUNDATION_INGEST_TOKEN` を要求し、一般利用者が任意データをR2へ書けないようにした。
+     - `write_authorized=true` を要求し、未設定・未承認・衝突を成功扱いしない。
+  4. **運用契約の記録 (`docs/R2_FOUNDATION_INGESTION.md`, `.env.example`)**:
+     - R2の役割、環境変数、リクエスト形式、旧 `universal` を触らない境界を記録。
+- **現在の境界**:
+  - コード上の保存経路は配備したが、実際のR2書き込みには実行環境へSecretと対象バケットを設定する必要がある。
+  - 秘密情報はGitHubへ保存しない。
 
 
