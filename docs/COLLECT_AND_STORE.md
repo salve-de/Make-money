@@ -1,5 +1,11 @@
 # 新規収集・R2保存の入口
 
+## 収集完了の新しい必須検査
+
+Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/business-case.v1.json` を必ず読む。共通91細目と、現在のMake-Moneyコードの台帳・レーダー・分析等9契約の出力項目を生成し、資料内で見つけた全ての関連情報（表の過去年分も含む）を保存レコードと照合する。画面に出さない情報も保持する。
+
+実装ブランチで `foundation-collect.ts requirements` → 調査・資料別抽出台帳作成 → `audit` → `ingest-complete` を実行。未読資料・未保存値・値の不一致・古いコードhashが残れば完了にしない。部分保存は通常ingestで許可する。旧ALL_DIMENSIONS_ATTEMPTEDやR2保存成功は全収集の証明ではない。
+
 この入口はmainに置く。検証済みの収集実装は `codex/collection-handoff-20260908`（初回実証コミット `9a23717`）にある。無関係なアプリ改修をmainへ混ぜないため分離している。
 
 1. 認証付きで `salve-de/universal-foundation` のmainを読む。AGENTS、UNIVERSAL_COLLECTION_BASELINE、AI_COLLECTION_AND_STORAGE_CONTRACT、MAKE_MONEY_AGENT_RUNBOOK、MAKE_MONEY_RESEARCH_REQUIREMENTSが正本。
