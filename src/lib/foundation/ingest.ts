@@ -1,9 +1,12 @@
 import {
   getFoundationBucket,
+  preflightR2Object,
   putR2ObjectCreateOnly,
   sha256Hex,
   type FoundationBucketRole,
+  type R2PreflightResult,
   type R2WriteResult,
+  R2ObjectConflictError,
 } from '@/lib/storage/r2';
 
 type JsonObject = Record<string, unknown>;
@@ -53,6 +56,31 @@ const DATASET_IDS = {
 
 const MAX_RAW_BYTES = 10 * 1024 * 1024;
 
+const ORIGIN_TYPES = new Set(['reported', 'observed', 'estimated', 'inferred', 'unknown']);
+const VERIFICATION_STATUSES = new Set([
+  'SUPPORTED',
+  'CONFLICTED',
+  'UNVERIFIED',
+  'SUPERSEDED',
+  'RETRACTED',
+]);
+const SOURCE_STRENGTHS = new Set(['S', 'A', 'B', 'C', 'D', 'E', 'F', 'UNRATED']);
+const RIGHTS_STATUSES = new Set([
+  'allowed_private_raw',
+  'restricted_private_raw',
+  'metadata_only',
+  'blocked',
+  'pending_review',
+]);
+const RAW_STORAGE_STATUSES = new Set([
+  'captured',
+  'restricted',
+  'metadata_only',
+  'blocked',
+  'not_attempted',
+  'planned',
+]);
+
 export interface ResearchBundle extends JsonObject {
   schema_version: 'research-bundle.v1';
   run_id: string;
@@ -92,6 +120,55 @@ export interface FoundationIngestRequest {
   raw_evidence?: unknown;
 }
 
+export type PlannedWriteLogicalRole =
+  | 'raw_payload'
+  | 'raw_manifest'
+  | 'restricted_payload'
+  | 'restricted_manifest'
+  | 'entity'
+  | 'claim'
+  | 'metric'
+  | 'event'
+  | 'relationship'
+  | 'research_bundle'
+  | 'derived_intelligence';
+
+export type PlannedWritePreflightStatus =
+  | 'NOT_CHECKED'
+  | 'ABSENT'
+  | 'EXISTS_IDENTICAL'
+  | 'EXISTS_CONFLICT'
+  | 'BUCKET_MISSING';
+
+export interface PlannedWriteObject {
+  logical_role: PlannedWriteLogicalRole;
+  dataset_id: string | null;
+  bucket: string;
+  key: string;
+  content_sha256: string;
+  bytes: number;
+  content_type: string;
+  create_only: true;
+  source_evidence_ids: string[];
+  local_path: null;
+  preflight_status: PlannedWritePreflightStatus;
+}
+
+export interface PlannedWritesManifest {
+  schema_version: 'planned-writes.v1';
+  run_id: string;
+  write_authorized: boolean;
+  objects: PlannedWriteObject[];
+  forbidden_operations: [
+    'CopyObject',
+    'DeleteObject',
+    'Move',
+    'Rename',
+    'Overwrite',
+    'LegacyUniversalMutation'
+  ];
+}
+
 export interface IngestedObjectReport {
   logical_role: string;
   dataset_id: string | null;
@@ -100,15 +177,36 @@ export interface IngestedObjectReport {
   status: R2WriteResult['status'];
   bytes: number;
   sha256: string;
+  source_evidence_ids: string[];
+  readback: R2WriteResult['readback'];
 }
 
 export interface FoundationIngestReport {
   run_id: string;
+  write_authorized: true;
+  schema_validation: 'PASS';
+  planned_writes: PlannedWritesManifest;
   objects: IngestedObjectReport[];
   counts: {
     planned: number;
     created: number;
     exists_identical: number;
+  };
+  provider_calls: {
+    head_bucket: number;
+    get_object: number;
+    put_object: number;
+  };
+  readback_verified: number;
+  mutation_counts: {
+    put_object: number;
+    copy_object: 0;
+    delete_object: 0;
+    move: 0;
+    rename: 0;
+    overwrite: 0;
+    legacy_universal: 0;
+    bucket_or_config: 0;
   };
 }
 
@@ -139,6 +237,7 @@ interface PlannedFoundationObject {
   body: Uint8Array | string;
   contentType: string;
   metadata: Record<string, string>;
+  sourceEvidenceIds: string[];
 }
 
 function isObject(value: unknown): value is JsonObject {
@@ -150,25 +249,330 @@ function getString(value: JsonObject, key: string): string | null {
 }
 
 function isDateTime(value: unknown): value is string {
-  return typeof value === 'string' && !Number.isNaN(Date.parse(value));
+  return (
+    typeof value === 'string' &&
+    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value) &&
+    !Number.isNaN(Date.parse(value))
+  );
 }
 
-function validateRecordIds(
-  records: JsonObject[],
-  field: keyof typeof ID_PATTERNS,
-  label: string,
+function addRequiredString(record: JsonObject, key: string, path: string, issues: string[]): void {
+  if (!getString(record, key)) issues.push(`${path}.${key} is required`);
+}
+
+function addString(record: JsonObject, key: string, path: string, issues: string[]): void {
+  if (typeof record[key] !== 'string') issues.push(`${path}.${key} must be a string`);
+}
+
+function addRequiredStringOrNull(record: JsonObject, key: string, path: string, issues: string[]): void {
+  if (!(key in record)) {
+    issues.push(`${path}.${key} is required`);
+    return;
+  }
+  addStringOrNull(record, key, path, issues);
+}
+
+function addRequiredNullableDateTime(
+  record: JsonObject,
+  key: string,
+  path: string,
   issues: string[]
 ): void {
-  const pattern = ID_PATTERNS[field];
+  if (!(key in record)) {
+    issues.push(`${path}.${key} is required`);
+    return;
+  }
+  addNullableDateTime(record, key, path, issues);
+}
+
+function addStringOrNull(record: JsonObject, key: string, path: string, issues: string[]): void {
+  if (record[key] !== undefined && record[key] !== null && typeof record[key] !== 'string') {
+    issues.push(`${path}.${key} must be a string or null`);
+  }
+}
+
+function addNullableDateTime(record: JsonObject, key: string, path: string, issues: string[]): void {
+  if (record[key] !== undefined && record[key] !== null && !isDateTime(record[key])) {
+    issues.push(`${path}.${key} must be an ISO date-time or null`);
+  }
+}
+
+function addArrayOfStrings(
+  record: JsonObject,
+  key: string,
+  path: string,
+  issues: string[],
+  minItems = 0
+): void {
+  const value = record[key];
+  if (!Array.isArray(value) || value.some((item) => typeof item !== 'string')) {
+    issues.push(`${path}.${key} must be an array of strings`);
+    return;
+  }
+  if (value.length < minItems) issues.push(`${path}.${key} must contain at least ${minItems} item(s)`);
+}
+
+function addEnum(
+  record: JsonObject,
+  key: string,
+  path: string,
+  allowed: Set<string>,
+  issues: string[]
+): void {
+  if (typeof record[key] !== 'string' || !allowed.has(record[key])) {
+    issues.push(`${path}.${key} has an unsupported value`);
+  }
+}
+
+function addConfidence(record: JsonObject, path: string, issues: string[]): void {
+  if (typeof record.confidence !== 'number' || record.confidence < 0 || record.confidence > 1) {
+    issues.push(`${path}.confidence must be a number between 0 and 1`);
+  }
+}
+
+function addUrl(record: JsonObject, key: string, path: string, issues: string[]): void {
+  const value = record[key];
+  if (typeof value !== 'string') {
+    issues.push(`${path}.${key} must be a URL`);
+    return;
+  }
+  try {
+    new URL(value);
+  } catch {
+    issues.push(`${path}.${key} must be a URL`);
+  }
+}
+
+function addRawStorage(record: JsonObject, path: string, issues: string[]): void {
+  const rawStorage = record.raw_storage;
+  if (!isObject(rawStorage)) {
+    issues.push(`${path}.raw_storage must be an object`);
+    return;
+  }
+  addEnum(rawStorage, 'status', `${path}.raw_storage`, RAW_STORAGE_STATUSES, issues);
+  addStringOrNull(rawStorage, 'bucket', `${path}.raw_storage`, issues);
+  addStringOrNull(rawStorage, 'key', `${path}.raw_storage`, issues);
+  addStringOrNull(rawStorage, 'content_type', `${path}.raw_storage`, issues);
+  addStringOrNull(rawStorage, 'content_sha256', `${path}.raw_storage`, issues);
+  if (
+    rawStorage.content_sha256 !== undefined &&
+    rawStorage.content_sha256 !== null &&
+    (typeof rawStorage.content_sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(rawStorage.content_sha256))
+  ) {
+    issues.push(`${path}.raw_storage.content_sha256 must be a SHA-256 hex string or null`);
+  }
+  if (
+    rawStorage.bytes !== undefined &&
+    rawStorage.bytes !== null &&
+    (!Number.isInteger(rawStorage.bytes) || (rawStorage.bytes as number) < 0)
+  ) {
+    issues.push(`${path}.raw_storage.bytes must be a non-negative integer or null`);
+  }
+}
+
+function validateSources(records: JsonObject[], issues: string[]): void {
   records.forEach((record, index) => {
-    const value = getString(record, field);
-    if (!value) {
-      issues.push(`${label}[${index}].${field} is required`);
-      return;
+    const path = `sources[${index}]`;
+    const sourceId = getString(record, 'source_id');
+    if (!sourceId || !ID_PATTERNS.source_id.test(sourceId)) issues.push(`${path}.source_id is invalid`);
+    addRequiredString(record, 'provider_name', path, issues);
+    addRequiredString(record, 'source_type', path, issues);
+    addUrl(record, 'canonical_url', path, issues);
+    addEnum(record, 'source_strength', path, SOURCE_STRENGTHS, issues);
+    addEnum(record, 'rights_status', path, RIGHTS_STATUSES, issues);
+    addStringOrNull(record, 'rights_policy_id', path, issues);
+    addStringOrNull(record, 'access_notes', path, issues);
+  });
+}
+
+function validateEvidence(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `evidence[${index}]`;
+    const evidenceId = getString(record, 'evidence_id');
+    if (!evidenceId || !ID_PATTERNS.evidence_id.test(evidenceId)) issues.push(`${path}.evidence_id is invalid`);
+    const sourceId = getString(record, 'source_id');
+    if (!sourceId || !ID_PATTERNS.source_id.test(sourceId)) issues.push(`${path}.source_id is invalid`);
+    addUrl(record, 'source_url', path, issues);
+    addString(record, 'source_title', path, issues);
+    addString(record, 'source_type', path, issues);
+    addRequiredStringOrNull(record, 'publisher_or_speaker', path, issues);
+    addRequiredNullableDateTime(record, 'published_at', path, issues);
+    if (!isDateTime(record.retrieved_at)) issues.push(`${path}.retrieved_at must be an ISO date-time`);
+    addEnum(record, 'source_strength', path, SOURCE_STRENGTHS, issues);
+    addEnum(record, 'rights_status', path, RIGHTS_STATUSES, issues);
+    addRawStorage(record, path, issues);
+    addString(record, 'summary', path, issues);
+    if (record.extracted_facts !== undefined) addArrayOfStrings(record, 'extracted_facts', path, issues);
+    addStringOrNull(record, 'rights_policy_id', path, issues);
+  });
+}
+
+function validateEntities(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `entities[${index}]`;
+    const entityId = getString(record, 'entity_id');
+    if (!entityId || !ID_PATTERNS.entity_id.test(entityId)) issues.push(`${path}.entity_id is invalid`);
+    addRequiredString(record, 'entity_type', path, issues);
+    addRequiredString(record, 'canonical_name', path, issues);
+    addArrayOfStrings(record, 'aliases', path, issues);
+    addRequiredStringOrNull(record, 'canonical_identifier', path, issues);
+    addStringOrNull(record, 'domain', path, issues);
+    addRequiredStringOrNull(record, 'status', path, issues);
+    if (!isDateTime(record.observed_at)) issues.push(`${path}.observed_at must be an ISO date-time`);
+    if (record.evidence_ids !== undefined) addArrayOfStrings(record, 'evidence_ids', path, issues);
+  });
+}
+
+function validateClaims(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `claims[${index}]`;
+    const claimId = getString(record, 'claim_id');
+    if (!claimId || !ID_PATTERNS.claim_id.test(claimId)) issues.push(`${path}.claim_id is invalid`);
+    addArrayOfStrings(record, 'entity_ids', path, issues, 1);
+    addRequiredString(record, 'statement', path, issues);
+    addEnum(record, 'origin_type', path, ORIGIN_TYPES, issues);
+    addEnum(record, 'verification_status', path, VERIFICATION_STATUSES, issues);
+    addConfidence(record, path, issues);
+    addArrayOfStrings(record, 'evidence_ids', path, issues);
+    if (record.verification_status === 'SUPPORTED' && Array.isArray(record.evidence_ids) && record.evidence_ids.length === 0) {
+      issues.push(`${path}.evidence_ids is required for SUPPORTED claims`);
     }
-    if (!pattern.test(value)) {
-      issues.push(`${label}[${index}].${field} has an invalid format`);
+    addNullableDateTime(record, 'occurred_at', path, issues);
+    addNullableDateTime(record, 'valid_from', path, issues);
+    addNullableDateTime(record, 'valid_to', path, issues);
+    if (record.supersedes !== undefined) addArrayOfStrings(record, 'supersedes', path, issues);
+    if (record.superseded_by !== undefined) addArrayOfStrings(record, 'superseded_by', path, issues);
+  });
+}
+
+function addMetricValue(record: JsonObject, path: string, issues: string[]): void {
+  const value = record.value;
+  if (
+    !(
+      (typeof value === 'number' && Number.isFinite(value)) ||
+      (typeof value === 'string' && value.trim().length > 0)
+    )
+  ) {
+    issues.push(`${path}.value must be a finite number or non-empty string`);
+  }
+}
+
+function validateMetrics(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `metrics[${index}]`;
+    const metricId = getString(record, 'metric_id');
+    if (!metricId || !ID_PATTERNS.metric_id.test(metricId)) issues.push(`${path}.metric_id is invalid`);
+    addRequiredString(record, 'entity_id', path, issues);
+    addRequiredString(record, 'metric_type', path, issues);
+    addMetricValue(record, path, issues);
+    addRequiredStringOrNull(record, 'unit', path, issues);
+    addRequiredStringOrNull(record, 'currency', path, issues);
+    addRequiredNullableDateTime(record, 'period_start', path, issues);
+    addRequiredNullableDateTime(record, 'period_end', path, issues);
+    addRequiredNullableDateTime(record, 'point_in_time', path, issues);
+    addRequiredStringOrNull(record, 'basis', path, issues);
+    addRequiredStringOrNull(record, 'scope', path, issues);
+    addEnum(record, 'origin_type', path, ORIGIN_TYPES, issues);
+    addConfidence(record, path, issues);
+    addArrayOfStrings(record, 'evidence_ids', path, issues);
+    if (record.verification_status !== undefined) addEnum(record, 'verification_status', path, VERIFICATION_STATUSES, issues);
+    if (record.verification_status === 'SUPPORTED' && Array.isArray(record.evidence_ids) && record.evidence_ids.length === 0) {
+      issues.push(`${path}.evidence_ids is required for SUPPORTED metrics`);
     }
+  });
+}
+
+function validateMoneySignals(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `money_signals[${index}]`;
+    const moneySignalId = getString(record, 'money_signal_id');
+    if (!moneySignalId || !ID_PATTERNS.money_signal_id.test(moneySignalId)) {
+      issues.push(`${path}.money_signal_id is invalid`);
+    }
+    addRequiredStringOrNull(record, 'payer_entity_id', path, issues);
+    addRequiredStringOrNull(record, 'receiver_entity_id', path, issues);
+    addRequiredString(record, 'purpose', path, issues);
+    addRequiredString(record, 'money_type', path, issues);
+    const amount = record.amount;
+    if (
+      amount !== null &&
+      !(
+        (typeof amount === 'number' && Number.isFinite(amount)) ||
+        (typeof amount === 'string' && amount.trim().length > 0)
+      )
+    ) {
+      issues.push(`${path}.amount must be a finite number, non-empty string, or null`);
+    }
+    addRequiredStringOrNull(record, 'currency', path, issues);
+    addRequiredStringOrNull(record, 'unit', path, issues);
+    addRequiredStringOrNull(record, 'amount_label', path, issues);
+    addRequiredNullableDateTime(record, 'period_start', path, issues);
+    addRequiredNullableDateTime(record, 'period_end', path, issues);
+    addRequiredNullableDateTime(record, 'point_in_time', path, issues);
+    addRequiredStringOrNull(record, 'basis', path, issues);
+    addRequiredStringOrNull(record, 'scope', path, issues);
+    addEnum(record, 'origin_type', path, ORIGIN_TYPES, issues);
+    addEnum(record, 'verification_status', path, VERIFICATION_STATUSES, issues);
+    addConfidence(record, path, issues);
+    addArrayOfStrings(record, 'evidence_ids', path, issues);
+    if (record.verification_status === 'SUPPORTED' && Array.isArray(record.evidence_ids) && record.evidence_ids.length === 0) {
+      issues.push(`${path}.evidence_ids is required for SUPPORTED money signals`);
+    }
+  });
+}
+
+function validateEvents(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `events[${index}]`;
+    const eventId = getString(record, 'event_id');
+    if (!eventId || !ID_PATTERNS.event_id.test(eventId)) issues.push(`${path}.event_id is invalid`);
+    addArrayOfStrings(record, 'entity_ids', path, issues, 1);
+    addRequiredString(record, 'event_type', path, issues);
+    addRequiredNullableDateTime(record, 'occurred_at', path, issues);
+    addRequiredString(record, 'description', path, issues);
+    addEnum(record, 'verification_status', path, VERIFICATION_STATUSES, issues);
+    addConfidence(record, path, issues);
+    addArrayOfStrings(record, 'evidence_ids', path, issues);
+    if (record.verification_status === 'SUPPORTED' && Array.isArray(record.evidence_ids) && record.evidence_ids.length === 0) {
+      issues.push(`${path}.evidence_ids is required for SUPPORTED events`);
+    }
+  });
+}
+
+function validateRelationships(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `relationships[${index}]`;
+    const relationshipId = getString(record, 'relationship_id');
+    if (!relationshipId || !ID_PATTERNS.relationship_id.test(relationshipId)) {
+      issues.push(`${path}.relationship_id is invalid`);
+    }
+    addRequiredString(record, 'subject_entity_id', path, issues);
+    addRequiredString(record, 'predicate', path, issues);
+    addRequiredString(record, 'object', path, issues);
+    addNullableDateTime(record, 'valid_from', path, issues);
+    addNullableDateTime(record, 'valid_to', path, issues);
+    addEnum(record, 'verification_status', path, VERIFICATION_STATUSES, issues);
+    addConfidence(record, path, issues);
+    addArrayOfStrings(record, 'evidence_ids', path, issues);
+    if (record.verification_status === 'SUPPORTED' && Array.isArray(record.evidence_ids) && record.evidence_ids.length === 0) {
+      issues.push(`${path}.evidence_ids is required for SUPPORTED relationships`);
+    }
+  });
+}
+
+function validateDerived(records: JsonObject[], issues: string[]): void {
+  records.forEach((record, index) => {
+    const path = `derived[${index}]`;
+    const derivedId = getString(record, 'derived_id');
+    if (!derivedId || !ID_PATTERNS.derived_id.test(derivedId)) issues.push(`${path}.derived_id is invalid`);
+    addRequiredString(record, 'derived_type', path, issues);
+    addString(record, 'text', path, issues);
+    if (record.origin_type !== 'inferred') issues.push(`${path}.origin_type must be inferred`);
+    addConfidence(record, path, issues);
+    addArrayOfStrings(record, 'supporting_claim_ids', path, issues);
+    addArrayOfStrings(record, 'supporting_evidence_ids', path, issues);
+    addStringOrNull(record, 'model', path, issues);
+    addNullableDateTime(record, 'created_at', path, issues);
   });
 }
 
@@ -231,13 +635,15 @@ export function validateResearchBundle(input: unknown): ResearchBundle {
     }
   }
 
-  if (Array.isArray(input.entities)) validateRecordIds(input.entities.filter(isObject), 'entity_id', 'entities', issues);
-  if (Array.isArray(input.claims)) validateRecordIds(input.claims.filter(isObject), 'claim_id', 'claims', issues);
-  if (Array.isArray(input.metrics)) validateRecordIds(input.metrics.filter(isObject), 'metric_id', 'metrics', issues);
-  if (Array.isArray(moneySignals)) validateRecordIds(moneySignals.filter(isObject), 'money_signal_id', 'money_signals', issues);
-  if (Array.isArray(input.events)) validateRecordIds(input.events.filter(isObject), 'event_id', 'events', issues);
-  if (Array.isArray(input.relationships)) validateRecordIds(input.relationships.filter(isObject), 'relationship_id', 'relationships', issues);
-  if (Array.isArray(input.derived)) validateRecordIds(input.derived.filter(isObject), 'derived_id', 'derived', issues);
+  if (Array.isArray(input.sources)) validateSources(input.sources.filter(isObject), issues);
+  if (Array.isArray(input.evidence)) validateEvidence(input.evidence.filter(isObject), issues);
+  if (Array.isArray(input.entities)) validateEntities(input.entities.filter(isObject), issues);
+  if (Array.isArray(input.claims)) validateClaims(input.claims.filter(isObject), issues);
+  if (Array.isArray(input.metrics)) validateMetrics(input.metrics.filter(isObject), issues);
+  if (Array.isArray(moneySignals)) validateMoneySignals(moneySignals.filter(isObject), issues);
+  if (Array.isArray(input.events)) validateEvents(input.events.filter(isObject), issues);
+  if (Array.isArray(input.relationships)) validateRelationships(input.relationships.filter(isObject), issues);
+  if (Array.isArray(input.derived)) validateDerived(input.derived.filter(isObject), issues);
 
   if (issues.length > 0) {
     throw new FoundationBundleValidationError(issues);
@@ -291,6 +697,12 @@ function parseRawEvidence(input: unknown, bundle: ResearchBundle): RawEvidenceIn
   const evidenceIds = new Set(
     bundle.evidence.map((item) => getString(item, 'evidence_id')).filter((value): value is string => Boolean(value))
   );
+  const evidenceById = new Map(
+    bundle.evidence
+      .map((item) => [getString(item, 'evidence_id'), item] as const)
+      .filter((entry): entry is readonly [string, JsonObject] => Boolean(entry[0]))
+  );
+  const seenEvidenceIds = new Set<string>();
   const parsed: RawEvidenceInput[] = [];
 
   input.forEach((item, index) => {
@@ -311,6 +723,9 @@ function parseRawEvidence(input: unknown, bundle: ResearchBundle): RawEvidenceIn
     if (!evidenceIds.has(evidenceId)) {
       throw new FoundationBundleValidationError([`raw_evidence[${index}] is not present in bundle.evidence`]);
     }
+    if (seenEvidenceIds.has(evidenceId)) {
+      throw new FoundationBundleValidationError([`raw_evidence[${index}].evidence_id is duplicated`]);
+    }
     if (!bodyBase64) {
       throw new FoundationBundleValidationError([`raw_evidence[${index}].body_base64 is required`]);
     }
@@ -323,7 +738,22 @@ function parseRawEvidence(input: unknown, bundle: ResearchBundle): RawEvidenceIn
       ]);
     }
 
+    const bundleEvidence = evidenceById.get(evidenceId);
+    const bundleSourceId = bundleEvidence ? getString(bundleEvidence, 'source_id') : null;
+    const bundleRightsStatus = bundleEvidence ? getString(bundleEvidence, 'rights_status') : null;
+    if (bundleSourceId !== sourceId) {
+      throw new FoundationBundleValidationError([
+        `raw_evidence[${index}].source_id does not match bundle.evidence[${evidenceId}]`,
+      ]);
+    }
+    if (bundleRightsStatus !== rightsStatus) {
+      throw new FoundationBundleValidationError([
+        `raw_evidence[${index}].rights_status does not match bundle.evidence[${evidenceId}]`,
+      ]);
+    }
+
     encodeBase64(bodyBase64);
+    seenEvidenceIds.add(evidenceId);
     parsed.push({
       evidence_id: evidenceId,
       source_id: sourceId,
@@ -350,13 +780,21 @@ function metadata(runId: string, datasetId: string | null, schemaVersion: string
   };
 }
 
+function recordEvidenceIds(record: JsonObject): string[] {
+  return Array.isArray(record.evidence_ids)
+    ? record.evidence_ids.filter((value): value is string => typeof value === 'string')
+    : [];
+}
+
 function normalizedObject(
   role: string,
   datasetId: string,
   bucketRole: FoundationBucketRole,
   key: string,
   body: unknown,
-  runId: string
+  runId: string,
+  sourceEvidenceIds: string[] = [],
+  schemaVersion = 'v1'
 ): PlannedFoundationObject {
   return {
     logicalRole: role,
@@ -366,7 +804,8 @@ function normalizedObject(
     key,
     body: jsonBytes(body),
     contentType: 'application/json; charset=utf-8',
-    metadata: metadata(runId, datasetId, 'v1'),
+    metadata: metadata(runId, datasetId, schemaVersion),
+    sourceEvidenceIds,
   };
 }
 
@@ -408,6 +847,7 @@ async function rawObjects(
       body,
       contentType: evidence.content_type,
       metadata: metadata(runId, null, 'raw-evidence.v1'),
+      sourceEvidenceIds: [evidence.evidence_id],
     });
     planned.push({
       logicalRole: evidence.rights_status === 'restricted_private_raw' ? 'restricted_manifest' : 'raw_manifest',
@@ -418,6 +858,7 @@ async function rawObjects(
       body: jsonBytes(manifest),
       contentType: 'application/json; charset=utf-8',
       metadata: metadata(runId, null, 'raw-evidence.v1'),
+      sourceEvidenceIds: [evidence.evidence_id],
     });
   }
 
@@ -438,7 +879,8 @@ async function buildPlan(bundle: ResearchBundle, rawEvidence: RawEvidenceInput[]
           'lake',
           `datasets/${DATASET_IDS.entities}/v1/entities/${id}.json`,
           record,
-          bundle.run_id
+          bundle.run_id,
+          recordEvidenceIds(record)
         )
       );
     }
@@ -465,7 +907,8 @@ async function buildPlan(bundle: ResearchBundle, rawEvidence: RawEvidenceInput[]
           'lake',
           `datasets/${datasetId}/v1/year=${parts.year}/month=${parts.month}/${id}.json`,
           record,
-          bundle.run_id
+          bundle.run_id,
+          recordEvidenceIds(record)
         )
       );
     }
@@ -479,7 +922,11 @@ async function buildPlan(bundle: ResearchBundle, rawEvidence: RawEvidenceInput[]
       'lake',
       `datasets/${DATASET_IDS.research_bundle}/v1/${bundleParts.year}/${bundleParts.month}/${bundleParts.day}/${bundle.run_id}.json`,
       bundle,
-      bundle.run_id
+      bundle.run_id,
+      bundle.evidence
+        .map((record) => getString(record, 'evidence_id'))
+        .filter((value): value is string => Boolean(value)),
+      'research-bundle.v1'
     )
   );
 
@@ -491,12 +938,80 @@ async function buildPlan(bundle: ResearchBundle, rawEvidence: RawEvidenceInput[]
         'lake',
         `datasets/${DATASET_IDS.intelligence}/v1/${bundleParts.year}/${bundleParts.month}/${bundleParts.day}/${bundle.run_id}.json`,
         bundle.derived,
-        bundle.run_id
+        bundle.run_id,
+        bundle.derived.flatMap(recordEvidenceIds)
       )
     );
   }
 
   return planned;
+}
+
+function bodyBytes(body: Uint8Array | string): Uint8Array {
+  return typeof body === 'string' ? new TextEncoder().encode(body) : body;
+}
+
+function plannedWriteRole(role: string): PlannedWriteLogicalRole {
+  const allowed: PlannedWriteLogicalRole[] = [
+    'raw_payload',
+    'raw_manifest',
+    'restricted_payload',
+    'restricted_manifest',
+    'entity',
+    'claim',
+    'metric',
+    'event',
+    'relationship',
+    'research_bundle',
+    'derived_intelligence',
+  ];
+  if (!allowed.includes(role as PlannedWriteLogicalRole)) {
+    throw new FoundationBundleValidationError([`unsupported planned write role: ${role}`]);
+  }
+  return role as PlannedWriteLogicalRole;
+}
+
+async function buildPlannedWrites(
+  plan: PlannedFoundationObject[],
+  runId: string,
+  writeAuthorized: boolean
+): Promise<PlannedWritesManifest> {
+  const objects: PlannedWriteObject[] = [];
+  for (const item of plan) {
+    const body = bodyBytes(item.body);
+    objects.push({
+      logical_role: plannedWriteRole(item.logicalRole),
+      dataset_id: item.datasetId,
+      bucket: item.bucket,
+      key: item.key,
+      content_sha256: await sha256Hex(body),
+      bytes: body.byteLength,
+      content_type: item.contentType,
+      create_only: true,
+      source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
+      local_path: null,
+      preflight_status: 'NOT_CHECKED',
+    });
+  }
+
+  return {
+    schema_version: 'planned-writes.v1',
+    run_id: runId,
+    write_authorized: writeAuthorized,
+    objects,
+    forbidden_operations: [
+      'CopyObject',
+      'DeleteObject',
+      'Move',
+      'Rename',
+      'Overwrite',
+      'LegacyUniversalMutation',
+    ],
+  };
+}
+
+function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
+  return status;
 }
 
 export async function ingestFoundationResearch(
@@ -509,7 +1024,29 @@ export async function ingestFoundationResearch(
   const bundle = validateResearchBundle(request.bundle);
   const rawEvidence = parseRawEvidence(request.raw_evidence, bundle);
   const plan = await buildPlan(bundle, rawEvidence);
+  const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
+
+  for (let index = 0; index < plan.length; index += 1) {
+    const item = plan[index];
+    const preflight = await preflightR2Object({
+      bucket: item.bucket,
+      key: item.key,
+      body: item.body,
+      contentType: item.contentType,
+      metadata: item.metadata,
+    });
+    plannedWrites.objects[index].preflight_status = preflightStatus(preflight.status);
+    if (preflight.status === 'EXISTS_CONFLICT') {
+      throw new R2ObjectConflictError(preflight.bucket, preflight.key);
+    }
+  }
+
   const results: IngestedObjectReport[] = [];
+  const providerCalls = {
+    head_bucket: plan.length,
+    get_object: plan.length,
+    put_object: 0,
+  };
 
   for (const item of plan) {
     const result = await putR2ObjectCreateOnly({
@@ -527,16 +1064,42 @@ export async function ingestFoundationResearch(
       status: result.status,
       bytes: result.bytes,
       sha256: result.sha256,
+      source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
+      readback: result.readback,
     });
+    providerCalls.head_bucket += result.provider_calls.head_bucket;
+    providerCalls.get_object += result.provider_calls.get_object;
+    providerCalls.put_object += result.provider_calls.put_object;
   }
 
   return {
     run_id: bundle.run_id,
+    write_authorized: true,
+    schema_validation: 'PASS',
+    planned_writes: {
+      ...plannedWrites,
+      run_id: bundle.run_id,
+      write_authorized: true,
+    },
     objects: results,
     counts: {
       planned: plan.length,
       created: results.filter((item) => item.status === 'CREATED').length,
       exists_identical: results.filter((item) => item.status === 'EXISTS_IDENTICAL').length,
+    },
+    provider_calls: providerCalls,
+    readback_verified: results.filter(
+      (item) => item.readback.bytes_match && item.readback.sha256_match
+    ).length,
+    mutation_counts: {
+      put_object: providerCalls.put_object,
+      copy_object: 0,
+      delete_object: 0,
+      move: 0,
+      rename: 0,
+      overwrite: 0,
+      legacy_universal: 0,
+      bucket_or_config: 0,
     },
   };
 }

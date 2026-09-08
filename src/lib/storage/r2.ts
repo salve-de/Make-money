@@ -22,6 +22,15 @@ export interface R2WriteResult {
   key: string;
   bytes: number;
   sha256: string;
+  readback: {
+    bytes_match: boolean;
+    sha256_match: boolean;
+  };
+  provider_calls: {
+    head_bucket: number;
+    get_object: number;
+    put_object: number;
+  };
 }
 
 export interface R2ObjectHead {
@@ -31,6 +40,19 @@ export interface R2ObjectHead {
   metadata?: Record<string, string>;
   etag?: string;
   lastModified?: Date;
+}
+
+export interface R2ObjectRead extends R2ObjectHead {
+  exists: true;
+  body: Uint8Array;
+}
+
+export interface R2PreflightResult {
+  status: 'ABSENT' | 'EXISTS_IDENTICAL' | 'EXISTS_CONFLICT';
+  bucket: string;
+  key: string;
+  bytes: number;
+  sha256: string;
 }
 
 interface R2Credentials {
@@ -54,6 +76,28 @@ export class R2ObjectConflictError extends Error {
   constructor(readonly bucket: string, readonly key: string) {
     super(`R2 object already exists with different content: ${bucket}/${key}`);
     this.name = 'R2ObjectConflictError';
+  }
+}
+
+export class R2BucketMissingError extends Error {
+  readonly code = 'R2_BUCKET_MISSING';
+
+  constructor(readonly bucket: string) {
+    super(`R2 bucket does not exist or is not reachable: ${bucket}`);
+    this.name = 'R2BucketMissingError';
+  }
+}
+
+export class R2ReadbackVerificationError extends Error {
+  readonly code = 'R2_READBACK_MISMATCH';
+
+  constructor(
+    readonly bucket: string,
+    readonly key: string,
+    message: string
+  ) {
+    super(`R2 read-back verification failed for ${bucket}/${key}: ${message}`);
+    this.name = 'R2ReadbackVerificationError';
   }
 }
 
@@ -172,8 +216,16 @@ export async function assertR2BucketAvailable(bucket: string): Promise<void> {
   if (!normalizedBucket) {
     throw new R2ConfigurationError('An exact R2 bucket name is required');
   }
+  if (normalizedBucket === 'universal') {
+    throw new R2ConfigurationError('Legacy universal cannot be a Foundation R2 target');
+  }
 
-  await createR2Client().send(new HeadBucketCommand({ Bucket: normalizedBucket }));
+  try {
+    await createR2Client().send(new HeadBucketCommand({ Bucket: normalizedBucket }));
+  } catch (error) {
+    if (isNotFoundError(error)) throw new R2BucketMissingError(normalizedBucket);
+    throw error;
+  }
 }
 
 export async function headR2Object(bucket: string, key: string): Promise<R2ObjectHead> {
@@ -203,6 +255,65 @@ export async function headR2Object(bucket: string, key: string): Promise<R2Objec
   }
 }
 
+export async function readR2Object(bucket: string, key: string): Promise<R2ObjectRead | null> {
+  const normalizedBucket = bucket.trim();
+  const normalizedKey = key.trim();
+  if (!normalizedBucket || !normalizedKey) {
+    throw new R2ConfigurationError('An exact R2 bucket and key are required');
+  }
+
+  try {
+    const response = await createR2Client().send(
+      new GetObjectCommand({ Bucket: normalizedBucket, Key: normalizedKey })
+    );
+    if (!response.Body) {
+      throw new R2ReadbackVerificationError(normalizedBucket, normalizedKey, 'object body was empty');
+    }
+    const body = await response.Body.transformToByteArray();
+    return {
+      exists: true,
+      body,
+      contentLength: response.ContentLength,
+      contentType: response.ContentType,
+      metadata: response.Metadata,
+      etag: response.ETag,
+      lastModified: response.LastModified,
+    };
+  } catch (error) {
+    if (isNotFoundError(error)) return null;
+    throw error;
+  }
+}
+
+export async function preflightR2Object(input: R2ObjectInput): Promise<R2PreflightResult> {
+  const bucket = input.bucket.trim();
+  const key = input.key.trim();
+  if (!bucket || !key) {
+    throw new R2ConfigurationError('An exact R2 bucket and key are required');
+  }
+  if (bucket === 'universal') {
+    throw new R2ConfigurationError('Legacy universal cannot be a Foundation R2 target');
+  }
+
+  const body = toBytes(input.body);
+  const sha256 = await sha256Hex(body);
+  await assertR2BucketAvailable(bucket);
+
+  const existing = await readR2Object(bucket, key);
+  if (!existing) {
+    return { status: 'ABSENT', bucket, key, bytes: body.byteLength, sha256 };
+  }
+
+  const existingSha256 = await sha256Hex(existing.body);
+  return {
+    status: existingSha256 === sha256 ? 'EXISTS_IDENTICAL' : 'EXISTS_CONFLICT',
+    bucket,
+    key,
+    bytes: body.byteLength,
+    sha256,
+  };
+}
+
 /**
  * Foundationの通常取り込み用。既存キーを上書きせず、新規キーだけ作成する。
  * 同じSHA-256を持つ既存オブジェクトは重複として扱い、別内容の衝突は停止する。
@@ -221,14 +332,19 @@ export async function putR2ObjectCreateOnly(input: R2ObjectInput): Promise<R2Wri
   const sha256 = await sha256Hex(body);
   const client = createR2Client();
 
-  await assertR2BucketAvailable(bucket);
-
-  const existing = await headR2Object(bucket, key);
-  if (existing.exists) {
-    const existingSha = existing.metadata?.['foundation-sha256']?.toLowerCase();
-    if (existingSha === sha256) {
-      return { status: 'EXISTS_IDENTICAL', bucket, key, bytes: body.byteLength, sha256 };
-    }
+  const preflight = await preflightR2Object(input);
+  if (preflight.status === 'EXISTS_IDENTICAL') {
+    return {
+      status: 'EXISTS_IDENTICAL',
+      bucket,
+      key,
+      bytes: body.byteLength,
+      sha256,
+      readback: { bytes_match: true, sha256_match: true },
+      provider_calls: { head_bucket: 1, get_object: 1, put_object: 0 },
+    };
+  }
+  if (preflight.status === 'EXISTS_CONFLICT') {
     throw new R2ObjectConflictError(bucket, key);
   }
 
@@ -254,7 +370,30 @@ export async function putR2ObjectCreateOnly(input: R2ObjectInput): Promise<R2Wri
     throw error;
   }
 
-  return { status: 'CREATED', bucket, key, bytes: body.byteLength, sha256 };
+  const readback = await readR2Object(bucket, key);
+  if (!readback) {
+    throw new R2ReadbackVerificationError(bucket, key, 'object was not found after PutObject');
+  }
+  const readbackSha256 = await sha256Hex(readback.body);
+  const bytesMatch = readback.body.byteLength === body.byteLength;
+  const sha256Match = readbackSha256 === sha256;
+  if (!bytesMatch || !sha256Match) {
+    throw new R2ReadbackVerificationError(
+      bucket,
+      key,
+      `bytes_match=${bytesMatch}, sha256_match=${sha256Match}`
+    );
+  }
+
+  return {
+    status: 'CREATED',
+    bucket,
+    key,
+    bytes: body.byteLength,
+    sha256,
+    readback: { bytes_match: bytesMatch, sha256_match: sha256Match },
+    provider_calls: { head_bucket: 1, get_object: 2, put_object: 1 },
+  };
 }
 
 /**
@@ -277,14 +416,6 @@ export async function getFromR2(
   key: string,
   bucket = getFoundationBucket('lake')
 ): Promise<string | null> {
-  try {
-    const response = await createR2Client().send(
-      new GetObjectCommand({ Bucket: bucket, Key: key })
-    );
-    if (!response.Body) return null;
-    return await response.Body.transformToString();
-  } catch (error) {
-    if (isNotFoundError(error)) return null;
-    throw error;
-  }
+  const object = await readR2Object(bucket, key);
+  return object ? new TextDecoder().decode(object.body) : null;
 }

@@ -52,6 +52,10 @@ Content-Type: application/json
 
 `bundle` はUniversal Foundationの `research-bundle.v1` に適合している必要がある。`raw_evidence` を渡す場合は、Base64の原文と権利状態を指定する。`allowed_private_raw` は `foundation-raw`、`restricted_private_raw` は `foundation-restricted` に保存する。
 
+Make-Money固有の情報は、専用の別形式に閉じ込めない。会社・人物・顧客・競合・プラットフォームは `entities` / `relationships`、誰がいつ何をしたかは `events`、売上・利益・費用・利益率・手取り・価格・MRR・ARR・GMV等は意味と期間を持つ `metrics`、誰から誰へ何のためにいくら動いたかは `money_signals`、その他の説明・未確認情報は `claims` と元の `research-bundle` に保持する。現在のMake-Moneyが使わない追加情報も、bundle内の元データを捨てない。
+
+投入前に内部で `planned-writes.v1` を生成し、全オブジェクトのバケット・キー・SHA-256・サイズ・Content-Type・出典Evidence IDを確定する。全キーを先に確認し、衝突があればPutせず停止する。新規Put後は対象オブジェクトを読み戻してバイト数とSHA-256を確認し、APIレスポンスの `planned_writes`、`provider_calls`、`readback_verified`、`mutation_counts` に記録する。
+
 ## 動作条件
 
 - `write_authorized` が `true` であること。
@@ -59,6 +63,9 @@ Content-Type: application/json
 - R2のアカウントID・Access Key・Secret Access Keyがサーバー側に設定されていること。
 - 対象バケットが事前に作成済みであること。
 - 既存キーは上書きしない。同じ内容は重複扱い、違う内容は衝突として停止する。
+- 既存キーの中身はSHA-256で比較する。メタデータだけを根拠に同一扱いしない。
+- 全オブジェクトを先にPreflightし、衝突があるRunでは一つもPutしない。
+- Put後にGetObjectでバイト数とSHA-256を検証する。
 - R2未設定時にモック成功を返さない。
 
 ## 対象バケット環境変数

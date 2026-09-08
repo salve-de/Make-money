@@ -7,6 +7,7 @@ import {
   type FoundationIngestRequest,
 } from '@/lib/foundation/ingest';
 import {
+  R2BucketMissingError,
   R2ConfigurationError,
   R2ObjectConflictError,
 } from '@/lib/storage/r2';
@@ -29,6 +30,7 @@ function errorStatus(error: unknown): number {
   if (error instanceof FoundationBundleValidationError) return 422;
   if (error instanceof FoundationIngestAuthorizationError) return 403;
   if (error instanceof R2ObjectConflictError) return 409;
+  if (error instanceof R2BucketMissingError) return 503;
   if (error instanceof R2ConfigurationError) return 503;
   return 502;
 }

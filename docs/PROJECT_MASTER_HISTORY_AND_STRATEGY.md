@@ -2094,4 +2094,15 @@
   - コード上の保存経路は配備したが、実際のR2書き込みには実行環境へSecretと対象バケットを設定する必要がある。
   - 秘密情報はGitHubへ保存しない。
 
-
+### 58. Phase 58: Universal Foundationの全共通データを投入前検証・作成後検証まで接続
+- **目的**:
+  - Make-Moneyの利益・費用だけに閉じず、Universal Foundationが定義するSource / Evidence / Entity / Claim / Metric / MoneySignal / Event / Relationship / Derivedを、同じresearch bundleからR2へ保存できる状態にする。
+- **追加した処置**:
+  1. Universalの現行 `research-bundle.v1` に合わせ、Source、Evidence、各共通レコードの必須フィールド、ID、日時、金額、期間、信頼状態、権利状態を投入前に検証。
+  2. `planned-writes.v1` を内部生成し、全キー・SHA-256・サイズ・出典Evidence IDを記録。全件Preflight後にのみPutすることで、後半の衝突による途中書きを防止。
+  3. 既存オブジェクトは本文SHA-256で比較し、同一なら重複、相違なら停止。新規Put後はGetObjectでバイト数とSHA-256を確認。
+  4. 実行レポートにplanned writes、Provider呼出し数、Put件数、読み戻し検証数、非破壊操作カウントを返す。
+- **保持するMake-Money情報**:
+  - 会社・人物・顧客・競合・プラットフォーム、行動と日付、売上・利益・費用・利益率・手取り、価格・MRR・ARR・GMV、顧客需要・集客・運営負担・技術・依存・失敗・撤退を、共通プリミティブと元bundleに保持する。
+- **未実行のこと**:
+  - R2のSecret設定、バケット作成、実データのPut、legacy `universal` の変更は行っていない。
