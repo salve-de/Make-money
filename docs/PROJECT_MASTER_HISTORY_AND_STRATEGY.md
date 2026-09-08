@@ -1,4 +1,10 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
+
+## 2026-09-08 新規収集からR2保存までの実証
+
+`docs/COLLECT_AND_STORE.md` をAI向け入口として追加。Universalのschema検証、46項目の調査状態、未分類観測の保持、money_signal保存の不具合修正、旧合成pipelineの誤実行防止を実装。
+
+Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/bytes一致6件。再実行は新規0・同一6件。証明は `data/collection/buffer-2024.saved.json` と `buffer-2024.repeat.json`。既存R2/EDINETの移動・削除・上書き0。全項目調査完了ではなくPARTIALを維持。4テストと `tsc --noEmit` PASS。認証がない別端末は準備までで、保存成功とは扱わない。
 （事業収益化プラットフォーム 戦略マスター白書・永続意思決定台帳 ＆ 備忘録）
 
 ---

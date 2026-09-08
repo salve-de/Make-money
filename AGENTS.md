@@ -1,5 +1,9 @@
 <!-- BEGIN:nextjs-agent-rules -->
 
+## 新規データ収集の入口
+
+「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず `docs/COLLECT_AND_STORE.md` を読み、Universal正本と本プロジェクト要件の両方を満たす。既存R2/EDINETは変更しない。合成サンプルの旧pipelineは使わない。
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.

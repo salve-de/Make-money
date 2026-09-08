@@ -15,6 +15,7 @@ import { extractDossierFromSignal } from './extractDossier';
 import { verifyAndIntegrate } from './verifyAndIntegrate';
 
 async function main() {
+  throw new Error('This legacy runner contains synthetic fixtures, not live research. Follow docs/COLLECT_AND_STORE.md and scripts/foundation-collect.ts.');
   console.log('=============================================================');
   console.log('KIN-KOROKU INTELLIGENCE FACTORY: DATA PIPELINE RUNNER');
   console.log('準拠: docs/DATA_COLLECTION_CONTRACT.md & PROJECT_CHARTER.md');

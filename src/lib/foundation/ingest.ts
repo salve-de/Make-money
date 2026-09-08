@@ -10,6 +10,7 @@ import {
 } from '@/lib/storage/r2';
 
 type JsonObject = Record<string, unknown>;
+import { assessCoverage } from './coverage';
 
 const PURPOSES = new Set([
   'make_money',
@@ -128,6 +129,7 @@ export type PlannedWriteLogicalRole =
   | 'entity'
   | 'claim'
   | 'metric'
+  | 'money_signal'
   | 'event'
   | 'relationship'
   | 'research_bundle'
@@ -649,6 +651,8 @@ export function validateResearchBundle(input: unknown): ResearchBundle {
     throw new FoundationBundleValidationError(issues);
   }
 
+  if (input.purpose === 'make_money') assessCoverage(input);
+
   return input as ResearchBundle;
 }
 
@@ -960,6 +964,7 @@ function plannedWriteRole(role: string): PlannedWriteLogicalRole {
     'entity',
     'claim',
     'metric',
+    'money_signal',
     'event',
     'relationship',
     'research_bundle',
@@ -1012,6 +1017,13 @@ async function buildPlannedWrites(
 
 function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
   return status;
+}
+
+/** Offline validation and immutable write plan; never contacts R2. */
+export async function prepareFoundationResearch(bundleInput: unknown, rawInput?: unknown) {
+  const bundle = validateResearchBundle(bundleInput);
+  const raw = parseRawEvidence(rawInput, bundle);
+  return buildPlannedWrites(await buildPlan(bundle, raw), bundle.run_id, false);
 }
 
 export async function ingestFoundationResearch(
