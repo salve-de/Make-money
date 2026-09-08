@@ -119,5 +119,14 @@ AIエージェントが生成するすべての画面コピー、見出し、ボ
    - すべての企業が同一のフォーマットに収まる必要はない。Bufferのように「全社員給与公開」の事例もあれば、Photo AIのように「完全1人API包装」の事例もある。
    - それぞれの企業の「最も金が抜けている急所・特異点」に合わせて、柔軟かつ迅速に事例・市場の歪みを取り込め。
 
-詳細規律は [`CLAUDE.md`](./CLAUDE.md) および [`PROJECT_CHARTER.md`](./PROJECT_CHARTER.md) を参照せよ。
+### 新規データをR2へ入れるとき
 
+取れた情報だけで1事例のbundleを作り、欠損で収集を止めず、次の入口を使う。詳細は [`docs/R2_FOUNDATION_INGESTION.md`](./docs/R2_FOUNDATION_INGESTION.md) にある。
+
+```bash
+npm run foundation:r2 -- data/collection/<case>.request.json data/collection/<case>.receipt.json
+```
+
+Macのプロジェクト専用KeychainからR2認証を一時注入する。GitHubに秘密値は置かない。保存は新規作成専用で、既存R2・EDINET・`universal` の上書き・移動・削除は禁止。同じ内容は重複扱い、違う内容は停止する。
+
+詳細規律は [`CLAUDE.md`](./CLAUDE.md) および [`PROJECT_CHARTER.md`](./PROJECT_CHARTER.md) を参照せよ。
