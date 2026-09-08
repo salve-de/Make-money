@@ -2122,3 +2122,26 @@
   - `.env.local` にR2資格情報は無く、WranglerのCloudflare認証は期限切れ。したがって、この作業中に実アカウントへのバケット作成・Workers配備・実データPutは実行していない。
 - **残る外部作業**:
   - 対象Cloudflareアカウントで4バケットを作成済みにし、最小権限の認証またはWorkers Secretを設定してから、`npm run deploy:workers` と実データ1件のPut/read-back証明を行う。
+
+### 60. Phase 60: すりガラスPRO解錠配管の完全接続 ＆ ツールアフィリエイトリンク化 ＆ 景品表示法PR表記の完備（完了）
+- **目的・意思決定**:
+  - ユーザーからの直接指示「すりがらすはやっておいて、ツール名アフィリンクにして、あとこれはアフィですってやっておかないとだからやっておいて」「3のコピーはまだやらないで」に基づき、換金配管とPRO解錠を完全接続。
+- **断行した外科的処置**:
+  1. **すりガラスPRO解錠ステートの接続 (`CompanyInspectorPane.tsx`, `TerminalShell.tsx`, `src/app/success/page.tsx`)**:
+     - `CompanyInspectorPaneProps` に `isPro?: boolean` を追加。
+     - `isPro` が `true` の場合、従来の固定モザイク（`filter blur-[2.5px]`）を解除し、中央の解錠オーバーレイ（ボタン）を非表示にして「PRO UNLOCKED: 機関解錠済」を表示。
+     - `TerminalShell.tsx` にて `useAuth().isPro` と `localStorage` の `kin_pro_unlocked` を合算した `isProUnlocked` を `CompanyInspectorPane` に受け渡し。
+     - `src/app/success/page.tsx` をクライアントコンポーネントへ換装し、決済完了時に `localStorage.setItem('kin_pro_unlocked', 'true')` を書き込み、ダーク金融テーマに調律。
+  2. **主要SaaS・AIツールのアフィリエイト設定マスター新設 (`src/platform/config/toolAffiliates.ts`)**:
+     - Flux.1, Replicate, Make, Cursor, Supabase, STUDIO, Carrd, Stripe, Dify, LINE API, AWS 等の公式/提携URL、カテゴリ、説明文を集中定義。
+  3. **景品表示法（ステマ規制）準拠コンポーネントの新設 (`src/platform/components/tools/AffiliateToolBadge.tsx`)**:
+     - `AffiliateToolBadge`: ツール名をクリック可能な外部リンク（`target="_blank" rel="noopener noreferrer sponsored"`）として描画し、`PR` バッジを付与。
+     - `AffiliateToolList`: ツール群を一覧表示し、「※掲載ツールリンクにはアフィリエイト広告（提携リンク）が含まれており、紹介料が発生する場合があります」という注記を明記。
+  4. **各画面への配備 (`CompanyInspectorPane.tsx`, `MarketAnomalyLensStrip.tsx`, `TacticalArchetypesView.tsx`)**:
+     - 銘柄インスペクターのツールスタック（武器庫）、市場の歪み展開ドロワーの現場配管、Archetypesビューの構築ツールにアフィリリンクとステマ規制注記を配備。
+- **検証 ＆ 自律同期**:
+  - `npm run build` 全ルート正常通過（Exit Code 0、型エラーゼロ）。
+  - リモートリポジトリ（GitHub）への即時コミット・プッシュを自律完遂。
+- **達成されたユーザー体験**:
+  - Stripe決済完了後（またはPRO会員）に「独占と暴利を生む4つの裏構造」が瞬時に解錠される。
+  - 記載されたツール（Make, Replicate, Cursor等）をユーザーがクリックして契約でき、景品表示法上のステマ規制も完全にクリアしたプロ用インフラが完成。

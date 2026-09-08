@@ -23,6 +23,7 @@ import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
 import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/AdvancedScreenerModal';
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
 import { ProModal } from '../../../components/terminal/ProModal';
+import { useAuth } from '../../../context/AuthContext';
 
 export const TerminalShell: React.FC = () => {
   const { viewedEntityIds, recordView } = useViewHistory();
@@ -102,6 +103,20 @@ export const TerminalShell: React.FC = () => {
       recordView(selectedEntityId);
     }
   }, [selectedEntityId, recordView]);
+  const { isPro: authIsPro } = useAuth();
+  const [isLocalProUnlocked, setIsLocalProUnlocked] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const local = localStorage.getItem('kin_pro_unlocked');
+      if (local === 'true') {
+        setIsLocalProUnlocked(true);
+      }
+    }
+  }, []);
+
+  const isProUnlocked = Boolean(authIsPro || isLocalProUnlocked);
+
   const [currency, setCurrency] = useState<'JPY' | 'USD'>('JPY');
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
@@ -358,6 +373,7 @@ export const TerminalShell: React.FC = () => {
               setSelectedEntityId(id);
               setWorkspaceMode('SYNTHESIS');
             }}
+            isPro={isProUnlocked}
           />
         )}
       </main>

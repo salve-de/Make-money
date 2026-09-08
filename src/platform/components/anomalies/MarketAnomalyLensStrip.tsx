@@ -16,6 +16,7 @@ import {
   ArrowRight,
   Filter,
 } from 'lucide-react';
+import { AffiliateToolList } from '../tools/AffiliateToolBadge';
 
 interface MarketAnomalyLensStripProps {
   selectedAnomalyId: string | null;
@@ -169,17 +170,20 @@ export const MarketAnomalyLensStrip: React.FC<MarketAnomalyLensStripProps> = ({
                     {activeAnomaly.trendingPlaybook}
                   </p>
                 </div>
-                <div className="flex items-center justify-between pt-1 border-t border-white/[0.04] text-[10px] font-mono">
-                  <span className="text-zinc-500">配管: {activeAnomaly.techStack[0]}</span>
-                  {activeAnomaly.proofEntityIds[0] && onOpenSynthesisWithEntity && (
-                    <button
-                      onClick={() => onOpenSynthesisWithEntity(activeAnomaly.proofEntityIds[0])}
-                      className="text-emerald-400 hover:text-emerald-300 flex items-center gap-1"
-                    >
-                      <span>AI壁打ちへ転送</span>
-                      <ArrowRight className="w-2.5 h-2.5" />
-                    </button>
-                  )}
+                <div className="pt-2 border-t border-white/[0.06] space-y-1.5">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-mono text-zinc-400 font-medium">現場の配管ツール (Tech Stack):</span>
+                    {activeAnomaly.proofEntityIds[0] && onOpenSynthesisWithEntity && (
+                      <button
+                        onClick={() => onOpenSynthesisWithEntity(activeAnomaly.proofEntityIds[0])}
+                        className="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 text-[10px] font-mono cursor-pointer"
+                      >
+                        <span>AI壁打ちへ転送</span>
+                        <ArrowRight className="w-2.5 h-2.5" />
+                      </button>
+                    )}
+                  </div>
+                  <AffiliateToolList tools={activeAnomaly.techStack} showDisclosure={true} />
                 </div>
               </div>
             </div>

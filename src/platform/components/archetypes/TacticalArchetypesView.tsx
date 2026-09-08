@@ -24,6 +24,7 @@ import {
   Wrench,
   BookOpen,
 } from 'lucide-react';
+import { AffiliateToolList } from '../tools/AffiliateToolBadge';
 
 interface TacticalArchetypesViewProps {
   allEntities: FinancialEntity[];
@@ -427,15 +428,8 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
           <Wrench className="w-4 h-4 text-zinc-400" />
           <span>実際の構築ツール・原価配管 (Tech Stack)</span>
         </div>
-        <div className="flex flex-wrap gap-2 pl-6 pt-1">
-          {anomaly.techStack.map((tool, idx) => (
-            <span
-              key={idx}
-              className="px-2.5 py-1 rounded bg-[#07080B] text-xs font-mono text-zinc-300 border border-white/[0.08]"
-            >
-              {tool}
-            </span>
-          ))}
+        <div className="pl-6 pt-1">
+          <AffiliateToolList tools={anomaly.techStack} showDisclosure={true} />
         </div>
       </div>
 

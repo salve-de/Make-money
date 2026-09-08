@@ -26,6 +26,8 @@ import {
   Cpu,
   Edit3
 } from 'lucide-react';
+import { AffiliateToolBadge, AffiliateToolList } from '../tools/AffiliateToolBadge';
+import { findToolAffiliate } from '../../config/toolAffiliates';
 
 function parsePunchline(text: string): { punchline: string; detail: string } {
   const match = text.match(/^【(.*?)】([\s\S]*)$/);
@@ -49,6 +51,7 @@ interface CompanyInspectorPaneProps {
   analystNote?: string;
   onSaveAnalystNote?: (entityId: string, note: string) => void;
   onOpenSynthesisWithEntity?: (entityId: string) => void;
+  isPro?: boolean;
 }
 
 type TabType = 'CORE' | 'FINANCIALS' | 'PLAYBOOK' | 'NOTES';
@@ -67,6 +70,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   analystNote = '',
   onSaveAnalystNote,
   onOpenSynthesisWithEntity,
+  isPro = false,
 }) => {
   const searchParams = useSearchParams();
   const tabParam = searchParams?.get('tab')?.toUpperCase() as TabType | undefined;
@@ -622,31 +626,52 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   </span>
                 </div>
                 <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
-                  {entity.operations.toolStack.map((tool, idx) => (
-                    <div key={idx} className="p-2.5 space-y-1">
-                      <div className="flex justify-between items-center text-[11px]">
-                        <div className="flex items-center gap-2">
-                          <span className="text-white font-medium">{tool.name}</span>
-                          <span className="text-zinc-500 text-[10px] font-mono">({tool.category})</span>
+                  {entity.operations.toolStack.map((tool, idx) => {
+                    const aff = findToolAffiliate(tool.name);
+                    const targetUrl = tool.url || aff?.url;
+                    return (
+                      <div key={idx} className="p-2.5 space-y-1">
+                        <div className="flex justify-between items-center text-[11px]">
+                          <div className="flex items-center gap-2">
+                            {targetUrl ? (
+                              <a
+                                href={targetUrl}
+                                target="_blank"
+                                rel="noopener noreferrer sponsored"
+                                className="inline-flex items-center gap-1.5 text-white font-medium hover:text-emerald-300 transition-colors group cursor-pointer"
+                              >
+                                <span>{tool.name}</span>
+                                <ExternalLink className="w-2.5 h-2.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+                                {aff?.isAffiliate && (
+                                  <span className="text-[8px] font-sans font-bold px-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                                    PR
+                                  </span>
+                                )}
+                              </a>
+                            ) : (
+                              <span className="text-white font-medium">{tool.name}</span>
+                            )}
+                            <span className="text-zinc-500 text-[10px] font-mono">({tool.category})</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-zinc-400 font-mono text-[10px] tabular-nums">
+                              {formatMoney(tool.monthlyCost)}/月
+                            </span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-zinc-400 font-mono text-[10px] tabular-nums">
-                            {formatMoney(tool.monthlyCost)}/月
-                          </span>
-                          {tool.url && (
-                            <a href={tool.url} target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-white transition-colors">
-                              <ExternalLink className="w-3 h-3" />
-                            </a>
-                          )}
-                        </div>
+                        {tool.purpose && (
+                          <p className="text-[10px] text-zinc-400 leading-snug">
+                            {tool.purpose}
+                          </p>
+                        )}
                       </div>
-                      {tool.purpose && (
-                        <p className="text-[10px] text-zinc-400 leading-snug">
-                          {tool.purpose}
-                        </p>
-                      )}
-                    </div>
-                  ))}
+                    );
+                  })}
+                  {/* 景品表示法ステマ規制注記 */}
+                  <div className="p-2 bg-white/[0.01] flex items-center gap-1 text-[9px] font-mono text-zinc-500">
+                    <ShieldCheck className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
+                    <span>※掲載ツールリンクには提携アフィリエイト広告が含まれており、紹介料が発生する場合があります。</span>
+                  </div>
                 </div>
               </section>
             </div>
@@ -819,14 +844,21 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     </span>
                   </div>
                 </div>
-                <span className="text-[9px] font-mono text-zinc-500">
-                  DEEP AUDIT
-                </span>
+                {isPro ? (
+                  <span className="font-mono text-[9px] text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded flex items-center gap-1 font-bold">
+                    <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                    UNLOCKED: 機関解錠済
+                  </span>
+                ) : (
+                  <span className="text-[9px] font-mono text-zinc-500">
+                    DEEP AUDIT
+                  </span>
+                )}
               </div>
 
-              {/* 4大メタ分析モジュール群 (すりガラス遮断) */}
+              {/* 4大メタ分析モジュール群 (isProで解錠/すりガラス切り替え) */}
               <div className="relative pt-1">
-                <div className="filter blur-[2.5px] opacity-25 select-none pointer-events-none space-y-3 text-xs font-sans">
+                <div className={isPro ? "space-y-3 text-xs font-sans text-zinc-100" : "filter blur-[2.5px] opacity-25 select-none pointer-events-none space-y-3 text-xs font-sans"}>
                   {/* #01 なぜ大手が手を出せないのか */}
                   <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
@@ -880,22 +912,24 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   </div>
                 </div>
 
-                {/* 中央解錠ゲートウェイ */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
-                  <div className="flex items-center gap-1.5 text-xs font-medium text-white">
-                    <KeyRound className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>大手が手を出せず、客が一生逃げられない「4大独占構造」</span>
+                {/* 中央解錠ゲートウェイ (未解錠時のみ表示) */}
+                {!isPro && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-white">
+                      <KeyRound className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>大手が手を出せず、客が一生逃げられない「4大独占構造」</span>
+                    </div>
+                    <p className="text-[11px] text-zinc-400 max-w-sm font-sans leading-normal">
+                      暴利でも客が群がるカラクリ、他社へ乗り換え不能にする罠、前金で手元に金が残る裏帳簿をすべて公開
+                    </p>
+                    <button
+                      onClick={onOpenPro}
+                      className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-1.5 rounded transition-colors shadow-2xl cursor-pointer"
+                    >
+                      PROプランで独占の裏帳簿をすべて暴く (¥1,980〜)
+                    </button>
                   </div>
-                  <p className="text-[11px] text-zinc-400 max-w-sm font-sans leading-normal">
-                    暴利でも客が群がるカラクリ、他社へ乗り換え不能にする罠、前金で手元に金が残る裏帳簿をすべて公開
-                  </p>
-                  <button
-                    onClick={onOpenPro}
-                    className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-1.5 rounded transition-colors shadow-2xl"
-                  >
-                    PROプランで独占の裏帳簿をすべて暴く (¥1,980〜)
-                  </button>
-                </div>
+                )}
               </div>
             </div>
           )}
