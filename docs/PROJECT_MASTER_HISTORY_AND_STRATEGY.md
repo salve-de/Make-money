@@ -1,5 +1,13 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-08 Bufferの全調査項目を追補・R2新規保存
+
+ユーザーの実収集依頼により、部分収集済みBufferを深掘り。30根拠記録、9主体、23主張、56数値、11資金フロー、9イベント、8関係、12派生分析、10追加観測を保存。48調査項目の調査状態に加え、実コードFinancialEntityの76項目との対応を機械照合（不足0）。全数値の判明という意味ではなく、個人手取り・現在の詳細原価等は調査内容付き不明として保持。
+
+2025年売上22,462,000USD、詳細純利益2,513,367USD、従業員利益分配377,005USDを取得。2024利益の公式資料間の不一致、2025成長率の基準差、競合の低価格プランという反証も保存。会社純利益を個人手取りにしない。
+
+成果物: `data/collection/buffer-comprehensive-20260908.md` / `.request.json` / `.plan.json` / `.saved.json`。`foundation-lake`へ新規115件、同一既存3件をスキップ、118件SHA/bytes一致。既存R2/EDINET/shadowの移動・削除・上書き0、設定変更0。原文本文コピー0（根拠メタデータはbundle内）。UIのmock参照・本番表示は変更していない。
+
 ## 2026-09-08 新規収集からR2保存までの実証
 
 `docs/COLLECT_AND_STORE.md` をAI向け入口として追加。Universalのschema検証、46項目の調査状態、未分類観測の保持、money_signal保存の不具合修正、旧合成pipelineの誤実行防止を実装。

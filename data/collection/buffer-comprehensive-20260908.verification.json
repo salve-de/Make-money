@@ -1,0 +1,64 @@
+{
+  "run_id": "run_buffer_comprehensive_20260908_02",
+  "checked_at": "2026-09-08 13:55:40 UTC",
+  "canonical_schema": "PASS (independent Ajv2020 check plus prepare and ingest)",
+  "planned_write_schema": "PASS",
+  "typescript_no_emit": "PASS",
+  "record_references": "PASS",
+  "financial_entity_fields": {
+    "financial_entity_field_coverage": "PASS",
+    "expected": 76,
+    "mapped": 76,
+    "missing": [],
+    "extra": []
+  },
+  "immutable_previous_entity": "byte-equivalent JSON retained",
+  "numeric_checks": {
+    "gross_profit_october": 1661132,
+    "cogs_october": 325868,
+    "net_margin_2025_percent": 11.189417683198291,
+    "profitshare_average_calculated": 5026.733333333334,
+    "reported_average": 5095,
+    "status": "Conflicting reported average preserved, not reconciled"
+  },
+  "collection_tests": {
+    "passed": 4,
+    "failed": 0
+  },
+  "r2": {
+    "counts": {
+      "planned": 118,
+      "created": 115,
+      "exists_identical": 3
+    },
+    "readback_verified": 118,
+    "provider_calls": {
+      "head_bucket": 236,
+      "get_object": 351,
+      "put_object": 115
+    },
+    "mutations": {
+      "put_object": 115,
+      "copy_object": 0,
+      "delete_object": 0,
+      "move": 0,
+      "rename": 0,
+      "overwrite": 0,
+      "legacy_universal": 0,
+      "bucket_or_config": 0
+    }
+  },
+  "dry_run_issues_resolved": [
+    "Initial identifier serialization failed schema; corrected locally before provider operations.",
+    "Ingest-specific PASS flag required; standalone canonical schema/ref validation actually passed before flag changed."
+  ],
+  "not_verified": [
+    "Independent financial audit and private invoices",
+    "Founder personal net receipts",
+    "App UI consumption/deployment",
+    "Whole-market completeness",
+    "Raw article body archival"
+  ],
+  "provenance": "Research performed via public web pages, source links in bundle; per-fetch timestamps unavailable so consolidation timestamp is disclosed.",
+  "scope": "One Buffer dossier. Existing datasets untouched."
+}
