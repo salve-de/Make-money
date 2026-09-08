@@ -1,4 +1,8 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
+
+## 2026-09-08 新規収集入口をmainへ登録
+
+`docs/COLLECT_AND_STORE.md` とAGENTS/READMEから、検証済み収集実装ブランチ `codex/collection-handoff-20260908` へ接続。Universal mainに共通収集追記を反映。R2新規6件の保存/読戻しと同一再実行スキップを確認。既存データの変更は0。実装の無関係なアプリ改修はmainへ統合していない。
 （事業収益化プラットフォーム 戦略マスター白書・永続意思決定台帳 ＆ 備忘録）
 
 ---
@@ -741,5 +745,4 @@
     - **自律的整合・同期完了**:
       - `PROJECT_CHARTER.md`, `CLAUDE.md`, `AGENTS.md`, `README.md`, `docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md` を完全整合。
       - `npm run build` は通過、GitHubリモートリポジトリへ即時プッシュ（差分ゼロ維持）。
-
 

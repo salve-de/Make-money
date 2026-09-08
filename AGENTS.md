@@ -8,6 +8,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+## 新規データ収集の入口
+
+「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず `docs/COLLECT_AND_STORE.md` を読む。Universal共通要件とプロジェクト要件の両方を収集する。既存R2/EDINETは一切変更しない。mainの旧pipelineは合成サンプルであり実収集には使用禁止。
+
 # 【絶対指針】プロジェクト北極星 ＆ AIエージェント行動規範
 
 本リポジトリで作業する全てのAIエージェントは、以下を最高憲法として遵守せよ。

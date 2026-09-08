@@ -1,5 +1,7 @@
 # 金鉱録 (KIN-ROKOKU / Universal Business Foundation)
 
+新規データ収集を依頼されたAIは、最初に [収集・R2保存の入口](docs/COLLECT_AND_STORE.md) を読むこと。
+
 > **【絶対北極星（The Ultimate North Star）】**  
 > **「世に溢れる『努力・理念・綺麗事』という欺瞞の煙幕を完全に焼き払い、**  
 > **世界中の『生々しい金儲けの事実と手口（資本主義の裏帳簿）』を冷徹に白日の下に晒し続けることで、**  
