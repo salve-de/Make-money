@@ -56,7 +56,7 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         }`}
       >
         <Cpu className="w-3.5 h-3.5 mb-0.5 text-emerald-400" />
-        <span>壁打ち</span>
+        <span>事業精査</span>
       </button>
 
       {/* 50軸スクリーナー */}

@@ -214,7 +214,7 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
           {[
             { id: 'OVERVIEW', label: '01 概要着眼' },
             { id: 'FINANCIALS', label: '02 損益P&L' },
-            { id: 'WEAPONS', label: '03 武器庫(ツール)' },
+            { id: 'WEAPONS', label: '03 稼働ツール' },
             { id: 'PLAYBOOK', label: '04 集客手口' }
           ].map((t) => (
             <button
@@ -321,7 +321,7 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
           {activeTab === 'WEAPONS' && (
             <div className="space-y-4">
               <div className="text-[11px] font-mono text-emerald-400 font-bold tracking-wider uppercase">
-                武器庫（実際に稼働しているSaaS・API・ツール棚卸し）
+                稼働インフラ（実際に稼働しているSaaS・API・ツール棚卸し）
               </div>
 
               <div className="space-y-2">

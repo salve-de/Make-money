@@ -266,7 +266,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 : 'text-zinc-500 border-transparent hover:text-zinc-300'
             }`}
           >
-            財務・武器庫
+            財務・稼働インフラ
           </button>
           <button
             onClick={() => setActiveTab('PLAYBOOK')}
@@ -607,7 +607,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 </div>
               </section>
 
-              {/* #04 武器庫：ツールスタック */}
+              {/* #04 稼働インフラ：現場配管ツール */}
               <section className="space-y-2">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                   <div className="flex items-center gap-2">
@@ -617,7 +617,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     <div className="flex items-center gap-1.5">
                       <Wrench className="w-3.5 h-3.5 text-zinc-400" />
                       <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
-                        武器庫：ツールスタック ({entity.operations.toolStack.length}件)
+                        稼働インフラ：現場配管ツール ({entity.operations.toolStack.length}件)
                       </span>
                     </div>
                   </div>

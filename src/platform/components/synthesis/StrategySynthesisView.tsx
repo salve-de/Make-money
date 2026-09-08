@@ -78,16 +78,17 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
     {
       id: 'init_1',
       role: 'assistant',
-      content: '実在企業の裏帳簿データ（売上・手残り・稼ぎの手口）と、あなたが保存した銘柄やメモをスタンバイしました。\n\nいま考えているアイデアや疑問、何でもぶつけてください。難しい言葉は使わず、どうすれば手堅く勝てるか、一緒に形にしていきましょう。',
+      content: '実在企業の裏帳簿データ（売上原価・手残り率・現場ツール・大手の盲点）をスタンバイしました。\n\nいま考えている事業アイデア（例: ○○業界向けSaaS、○○の自動化代行など）を1行投げてみてください。大手の自爆構造に巻き込まれないか、利益率80%を叩き出す勝ち筋、月数千円で組める最小稼働インフラを冷徹に検証します。',
       timestamp: new Date().toISOString(),
       suggestedActionPrompts: [
-        '広告費ゼロで最初の3人のお客さんを捕まえる手順は？',
-        '月額の固定費をほぼゼロに抑える一番ラクなツールの組み合わせは？',
-        '後から真似されてもお客さんが逃げない仕組みはどう作る？'
+        '町工場の受発注・紙図面をLINEとOCRで自動化する代行モデル',
+        '士業向けに契約書の定型チェックをAPIラッピングで提供するマイクロSaaS',
+        '不動産会社向けに図面をノーコードで自動補正するツール'
       ],
     }
   ]);
   const [chatInput, setChatInput] = useState<string>('');
+  const [ideaInput, setIdeaInput] = useState<string>('');
   const [isChatSending, setIsChatSending] = useState<boolean>(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -316,7 +317,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                   <div className="flex items-center justify-between text-[10px] font-mono text-zinc-500 mb-1">
                     <span className="flex items-center gap-1">
                       <FileText className="w-3 h-3 text-zinc-400" />
-                      あなたの独自考察・転用メモ
+                      独自考察メモ（任意・空欄でも照合可能）
                     </span>
                     {currentNote && (
                       <span className="text-emerald-400/80 text-[9px]">保存済</span>
@@ -378,7 +379,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                   : 'text-zinc-500 hover:text-zinc-300'
               }`}
             >
-              戦略壁打ちチャット
+              事業デューデリジェンス＆戦略壁打ち
             </button>
           </div>
 
@@ -389,6 +390,61 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
               <span>({activeEntity.name})</span>
             </div>
           )}
+        </div>
+
+        {/* 事業アイデア即時検証バー（全タブ共通フロントドア） */}
+        <div className="bg-[#090A0F] border-b border-white/[0.08] p-3 shrink-0">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (ideaInput.trim()) {
+                setActiveConsoleTab('CHAT');
+                handleSendMessage(ideaInput.trim());
+                setIdeaInput('');
+              }
+            }}
+            className="flex flex-col sm:flex-row gap-2"
+          >
+            <div className="relative flex-1">
+              <input
+                type="text"
+                value={ideaInput}
+                onChange={(e) => setIdeaInput(e.target.value)}
+                placeholder="事業アイデアを1行で投げる（例: 町工場の受発注をLINE自動化、士業向け契約書チェッカー）..."
+                className="w-full bg-[#060709] border border-white/[0.12] focus:border-white/[0.3] rounded py-2 pl-3 pr-3 text-xs font-mono text-white placeholder-zinc-500 focus:outline-none transition-colors"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={!ideaInput.trim() || isChatSending}
+              className="py-2 px-4 rounded bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-mono text-xs font-bold transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-1.5 shrink-0 cursor-pointer"
+            >
+              <Cpu className="w-3.5 h-3.5 text-emerald-400" />
+              <span>事業性を冷徹に精査</span>
+            </button>
+          </form>
+
+          {/* クイック着火プロンプト */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pt-2 scrollbar-none text-[10px] font-mono text-zinc-400">
+            <span className="shrink-0 text-zinc-500">クイック検証:</span>
+            {[
+              '町工場の受発注・紙図面をLINEとOCRで自動化する受託モデル',
+              '士業向けに契約書の定型チェックをAPIラッピングで提供するマイクロSaaS',
+              '不動産会社向けに図面をノーコードで自動補正する特化ツール',
+            ].map((pText, pIdx) => (
+              <button
+                key={pIdx}
+                type="button"
+                onClick={() => {
+                  setActiveConsoleTab('CHAT');
+                  handleSendMessage(pText);
+                }}
+                className="shrink-0 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.06] hover:border-white/[0.15] px-2 py-0.5 rounded text-zinc-400 hover:text-zinc-200 transition-colors cursor-pointer truncate max-w-[240px]"
+              >
+                {pText}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* タブコンテンツ */}
@@ -408,7 +464,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                     独自アイデアは未生成です
                   </h3>
                   <p className="text-xs text-zinc-400 leading-relaxed font-sans mb-6">
-                    左ペインの保存銘柄にチェックを入れ、考察メモを入力して「独自アイデアを合成」を実行してください。サバンナOS・メタ構造・逆張りの3次元から即時抽出されます。
+                    上部の検証バーから事業アイデアを1行投げるか、左ペインの保存銘柄を選んで「独自アイデアを合成」を実行してください。本能ハック・構造胴元・逆張りの3次元から即時抽出されます。
                   </p>
                   <button
                     onClick={handleSynthesize}
@@ -476,7 +532,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
                         <div className="bg-[#060709] p-3 rounded border border-white/[0.04]">
                           <span className="font-mono text-[10px] text-zinc-500 block mb-1">
-                            人質にする財布・痛みの実態
+                            痛みの財布（切実な保身・損失回避コスト）
                           </span>
                           <p className="text-zinc-300 text-[11px] leading-relaxed">
                             {idea.targetPainWallet}
@@ -484,7 +540,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                         </div>
                         <div className="bg-[#060709] p-3 rounded border border-white/[0.04]">
                           <span className="font-mono text-[10px] text-zinc-500 block mb-1">
-                            突く市場の歪み・大手の自爆死角
+                            突く市場の歪み・大手の自爆（カニバリズム障壁）
                           </span>
                           <p className="text-zinc-300 text-[11px] leading-relaxed">
                             {idea.structuralArbitrage}
@@ -495,7 +551,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                       {/* 推奨ツールスタック */}
                       <div>
                         <span className="font-mono text-[10px] text-zinc-500 block mb-1.5">
-                          最小稼働インフラ・配管構成
+                          最小稼働インフラ（現場配管ツール）
                         </span>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                           {idea.requiredTools.map((tool, tIdx) => (
@@ -513,10 +569,10 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                         </div>
                       </div>
 
-                      {/* 初動100人泥臭い手順 */}
+                      {/* 初動100人実録手順 */}
                       <div>
                         <span className="font-mono text-[10px] text-zinc-500 block mb-1.5">
-                          初動100人獲得の客観的ゲリラ戦法
+                          初動100人獲得の客観的実録ステップ
                         </span>
                         <ul className="space-y-1 text-[11px] text-zinc-400 font-sans">
                           {idea.first100TractionPlaybook.map((step, sIdx) => (
@@ -533,13 +589,13 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                       {/* アクションボタン: 壁打ちに送る */}
                       <div className="pt-2 border-t border-white/[0.04] flex items-center justify-between">
                         <span className="text-[10px] font-mono text-zinc-500 truncate">
-                          着火剤メモ: {idea.userNoteInspiration || '保存銘柄データ'}
+                          着眼点: {idea.userNoteInspiration || '保存銘柄データ'}
                         </span>
                         <button
                           onClick={() => handleDrilldownIdea(idea)}
                           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] text-xs font-mono text-white transition-colors cursor-pointer"
                         >
-                          <span>このアイデアを壁打ちする</span>
+                          <span>このアイデアを精査・壁打ちする</span>
                           <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
                         </button>
                       </div>
