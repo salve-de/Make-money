@@ -1,10 +1,8 @@
 import {
   getFoundationBucket,
-  preflightR2Object,
   putR2ObjectCreateOnly,
   sha256Hex,
   type FoundationBucketRole,
-  type R2PreflightResult,
   type R2WriteResult,
   R2ObjectConflictError,
 } from '@/lib/storage/r2';
@@ -121,11 +119,17 @@ export interface FoundationIngestRequest {
   raw_evidence?: unknown;
 }
 
+export interface FoundationJournalIngestRequest {
+  write_authorized: true;
+  journal_plan: unknown;
+}
+
 export type PlannedWriteLogicalRole =
   | 'raw_payload'
   | 'raw_manifest'
   | 'restricted_payload'
   | 'restricted_manifest'
+  | 'journal_entry'
   | 'entity'
   | 'claim'
   | 'metric'
@@ -961,6 +965,7 @@ function plannedWriteRole(role: string): PlannedWriteLogicalRole {
     'raw_manifest',
     'restricted_payload',
     'restricted_manifest',
+    'journal_entry',
     'entity',
     'claim',
     'metric',
@@ -1015,8 +1020,26 @@ async function buildPlannedWrites(
   };
 }
 
-function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
-  return status;
+async function mapWithConcurrency<T, R>(
+  items: readonly T[],
+  concurrency: number,
+  worker: (item: T, index: number) => Promise<R>
+): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let nextIndex = 0;
+  const workerCount = Math.min(Math.max(1, concurrency), items.length);
+
+  await Promise.all(
+    Array.from({ length: workerCount }, async () => {
+      while (true) {
+        const index = nextIndex++;
+        if (index >= items.length) return;
+        results[index] = await worker(items[index], index);
+      }
+    })
+  );
+
+  return results;
 }
 
 /** Offline validation and immutable write plan; never contacts R2. */
@@ -1038,29 +1061,17 @@ export async function ingestFoundationResearch(
   const plan = await buildPlan(bundle, rawEvidence);
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
 
-  for (let index = 0; index < plan.length; index += 1) {
-    const item = plan[index];
-    const preflight = await preflightR2Object({
-      bucket: item.bucket,
-      key: item.key,
-      body: item.body,
-      contentType: item.contentType,
-      metadata: item.metadata,
-    });
-    plannedWrites.objects[index].preflight_status = preflightStatus(preflight.status);
-    if (preflight.status === 'EXISTS_CONFLICT') {
-      throw new R2ObjectConflictError(preflight.bucket, preflight.key);
-    }
-  }
-
-  const results: IngestedObjectReport[] = [];
   const providerCalls = {
-    head_bucket: plan.length,
-    get_object: plan.length,
+    head_bucket: 0,
+    get_object: 0,
     put_object: 0,
   };
 
-  for (const item of plan) {
+  // putR2ObjectCreateOnly performs the preflight, conditional create-only write,
+  // and readback verification as one immutable per-object operation. Keeping
+  // that barrier inside the existing writer avoids a redundant second preflight
+  // and stays below the Worker per-invocation R2 API limit.
+  const results = await mapWithConcurrency(plan, 1, async (item, index) => {
     const result = await putR2ObjectCreateOnly({
       bucket: item.bucket,
       key: item.key,
@@ -1068,7 +1079,8 @@ export async function ingestFoundationResearch(
       contentType: item.contentType,
       metadata: item.metadata,
     });
-    results.push({
+    plannedWrites.objects[index].preflight_status = result.status === 'CREATED' ? 'ABSENT' : 'EXISTS_IDENTICAL';
+    return {
       logical_role: item.logicalRole,
       dataset_id: item.datasetId,
       bucket: result.bucket,
@@ -1078,7 +1090,11 @@ export async function ingestFoundationResearch(
       sha256: result.sha256,
       source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
       readback: result.readback,
-    });
+      provider_calls: result.provider_calls,
+    };
+  });
+
+  for (const result of results) {
     providerCalls.head_bucket += result.provider_calls.head_bucket;
     providerCalls.get_object += result.provider_calls.get_object;
     providerCalls.put_object += result.provider_calls.put_object;
@@ -1093,7 +1109,186 @@ export async function ingestFoundationResearch(
       run_id: bundle.run_id,
       write_authorized: true,
     },
-    objects: results,
+    objects: results.map(({ provider_calls: _providerCalls, ...report }) => report),
+    counts: {
+      planned: plan.length,
+      created: results.filter((item) => item.status === 'CREATED').length,
+      exists_identical: results.filter((item) => item.status === 'EXISTS_IDENTICAL').length,
+    },
+    provider_calls: providerCalls,
+    readback_verified: results.filter(
+      (item) => item.readback.bytes_match && item.readback.sha256_match
+    ).length,
+    mutation_counts: {
+      put_object: providerCalls.put_object,
+      copy_object: 0,
+      delete_object: 0,
+      move: 0,
+      rename: 0,
+      overwrite: 0,
+      legacy_universal: 0,
+      bucket_or_config: 0,
+    },
+  };
+}
+
+interface JournalPlanObjectInput extends JsonObject {
+  logical_role: 'journal_entry';
+  dataset_id: 'ds.foundation.journal.core';
+  bucket: string;
+  key: string;
+  content_sha256: string;
+  bytes: number;
+  content_type: string;
+  create_only: true;
+  source_evidence_ids: string[];
+}
+
+function journalIdFromKey(key: string): string | null {
+  const match = /^journal\/v1\/\d{4}\/\d{2}\/\d{2}\/(jr_[a-f0-9]{24})\.json$/.exec(key);
+  return match?.[1] || null;
+}
+
+async function buildJournalPlan(input: unknown): Promise<{
+  runId: string;
+  plan: PlannedFoundationObject[];
+}> {
+  if (!isObject(input)) {
+    throw new FoundationBundleValidationError(['journal_plan must be an object']);
+  }
+  const plannedWrites = input.planned_writes;
+  const entries = input.entries;
+  if (!isObject(plannedWrites) || !Array.isArray(plannedWrites.objects) || !Array.isArray(entries)) {
+    throw new FoundationBundleValidationError(['journal_plan.entries and journal_plan.planned_writes.objects are required']);
+  }
+  if (plannedWrites.schema_version !== 'planned-writes.v1') {
+    throw new FoundationBundleValidationError(['journal_plan.planned_writes.schema_version must be planned-writes.v1']);
+  }
+
+  const entryById = new Map<string, JsonObject>();
+  for (const [index, entry] of entries.entries()) {
+    if (!isObject(entry) || entry.schema_version !== 'journal-entry.v1') {
+      throw new FoundationBundleValidationError([`journal_plan.entries[${index}] must be journal-entry.v1`]);
+    }
+    const journalId = getString(entry, 'journal_id');
+    if (!journalId || !/^jr_[a-f0-9]{24}$/.test(journalId) || entryById.has(journalId)) {
+      throw new FoundationBundleValidationError([`journal_plan.entries[${index}].journal_id is invalid or duplicated`]);
+    }
+    if (!isDateTime(entry.recorded_at)) {
+      throw new FoundationBundleValidationError([`journal_plan.entries[${index}].recorded_at must be an ISO date-time`]);
+    }
+    entryById.set(journalId, entry);
+  }
+
+  const bucket = getFoundationBucket('lake');
+  const plan: PlannedFoundationObject[] = [];
+  const seenKeys = new Set<string>();
+  for (const [index, rawObject] of (plannedWrites.objects as unknown[]).entries()) {
+    if (!isObject(rawObject)) throw new FoundationBundleValidationError([`journal_plan.planned_writes.objects[${index}] must be an object`]);
+    const object = rawObject as JournalPlanObjectInput;
+    const key = getString(object, 'key');
+    const journalId = key ? journalIdFromKey(key) : null;
+    const entry = journalId ? entryById.get(journalId) : undefined;
+    if (
+      object.logical_role !== 'journal_entry' ||
+      object.dataset_id !== 'ds.foundation.journal.core' ||
+      object.bucket !== bucket ||
+      !key ||
+      !journalId ||
+      !entry ||
+      seenKeys.has(key) ||
+      object.create_only !== true ||
+      object.content_type !== 'application/json; charset=utf-8' ||
+      typeof object.content_sha256 !== 'string' ||
+      !/^[a-f0-9]{64}$/.test(object.content_sha256) ||
+      !Number.isInteger(object.bytes) ||
+      object.bytes < 0 ||
+      !Array.isArray(object.source_evidence_ids) ||
+      object.source_evidence_ids.some((value) => typeof value !== 'string')
+    ) {
+      throw new FoundationBundleValidationError([`journal_plan.planned_writes.objects[${index}] is invalid`]);
+    }
+    const body = jsonBytes(entry);
+    const bodyByteLength = bodyBytes(body).byteLength;
+    const bodyHash = await sha256Hex(body);
+    if (object.bytes !== bodyByteLength || object.content_sha256 !== bodyHash) {
+      throw new FoundationBundleValidationError([`journal_plan.planned_writes.objects[${index}] hash/byte plan does not match its journal entry`]);
+    }
+    seenKeys.add(key);
+    const provenance = isObject(entry.provenance) ? entry.provenance : {};
+    const runId = getString(provenance, 'run_id') || 'run_unknown';
+    plan.push({
+      logicalRole: 'journal_entry',
+      datasetId: 'ds.foundation.journal.core',
+      bucketRole: 'lake',
+      bucket,
+      key,
+      body,
+      contentType: object.content_type,
+      metadata: metadata(runId, 'ds.foundation.journal.core', 'journal-entry.v1'),
+      sourceEvidenceIds: [...new Set(object.source_evidence_ids)],
+    });
+  }
+  if (plan.length !== entries.length) {
+    throw new FoundationBundleValidationError(['journal_plan entries and planned journal objects must have a one-to-one count']);
+  }
+  const firstEntry = isObject(entries[0]) ? entries[0] : null;
+  const firstProvenance = firstEntry && isObject(firstEntry.provenance) ? firstEntry.provenance : null;
+  const runId = getString(plannedWrites, 'run_id') || `${getString(firstProvenance || {}, 'run_id') || 'run_unknown'}.journal`;
+  return { runId, plan };
+}
+
+/**
+ * Ingest an already schema-validated journal-entry.v1 plan through the same
+ * Foundation route and the same create-only/readback R2 writer as bundles.
+ * The journal plan is prepared and validated offline by foundation-journal.ts.
+ */
+export async function ingestFoundationJournal(
+  request: FoundationJournalIngestRequest
+): Promise<FoundationIngestReport> {
+  if (!isObject(request) || request.write_authorized !== true) {
+    throw new FoundationIngestAuthorizationError();
+  }
+  const { runId, plan } = await buildJournalPlan(request.journal_plan);
+  const plannedWrites = await buildPlannedWrites(plan, runId, true);
+  const providerCalls = { head_bucket: 0, get_object: 0, put_object: 0 };
+  const results = await mapWithConcurrency(plan, 1, async (item, index) => {
+    const result = await putR2ObjectCreateOnly({
+      bucket: item.bucket,
+      key: item.key,
+      body: item.body,
+      contentType: item.contentType,
+      metadata: item.metadata,
+    });
+    plannedWrites.objects[index].preflight_status = result.status === 'CREATED' ? 'ABSENT' : 'EXISTS_IDENTICAL';
+    return {
+      logical_role: item.logicalRole,
+      dataset_id: item.datasetId,
+      bucket: result.bucket,
+      key: result.key,
+      status: result.status,
+      bytes: result.bytes,
+      sha256: result.sha256,
+      source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
+      readback: result.readback,
+      provider_calls: result.provider_calls,
+    };
+  });
+  for (const result of results) {
+    providerCalls.head_bucket += result.provider_calls.head_bucket;
+    providerCalls.get_object += result.provider_calls.get_object;
+    providerCalls.put_object += result.provider_calls.put_object;
+  }
+  return {
+    run_id: runId,
+    write_authorized: true,
+    schema_validation: 'PASS',
+    planned_writes: {
+      ...plannedWrites,
+      run_id: runId,
+      write_authorized: true,
+    },
+    objects: results.map(({ provider_calls: _providerCalls, ...report }) => report),
     counts: {
       planned: plan.length,
       created: results.filter((item) => item.status === 'CREATED').length,

@@ -4,8 +4,10 @@ import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
 import {
   FoundationBundleValidationError,
   FoundationIngestAuthorizationError,
+  ingestFoundationJournal,
   ingestFoundationResearch,
   type FoundationIngestRequest,
+  type FoundationJournalIngestRequest,
 } from '@/lib/foundation/ingest';
 import {
   R2BucketMissingError,
@@ -56,8 +58,10 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body = (await request.json()) as FoundationIngestRequest;
-    const report = await ingestFoundationResearch(body);
+    const body = (await request.json()) as FoundationIngestRequest | FoundationJournalIngestRequest;
+    const report = body && typeof body === 'object' && 'journal_plan' in body
+      ? await ingestFoundationJournal(body as FoundationJournalIngestRequest)
+      : await ingestFoundationResearch(body as FoundationIngestRequest);
     return NextResponse.json({ success: true, ...report });
   } catch (error) {
     console.error('Foundation ingestion failed:', error);
