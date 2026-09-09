@@ -4,6 +4,8 @@
 
 「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず `docs/COLLECT_AND_STORE.md` を読み、Universal正本と本プロジェクト要件の両方を満たす。既存R2/EDINETは変更しない。合成サンプルの旧pipelineは使わない。
 
+この入口で「一次情報だけ」「画面にある項目だけ」「91項目だけ」と判断してはならない。公式・創業者・インタビュー/build-in-public・公開アーカイブ・信頼できる二次情報・市場面/レビュー・顧客/コミュニティ・公開シグナル・失敗/ピボット・source-less leadを該当する範囲で調べ、12領域、4大禁忌、5大暗黒パラメータ、3大死角、範囲外の有用観測まで既存のbundle/Journalへ保存する。見つからない、到達不能、未調査、非該当、不明を区別し、既存のUniversal schema/R2保存方式を作り替えない。
+
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.

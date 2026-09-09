@@ -9,6 +9,8 @@
 
 旧 `universal` には新規データを書かない。
 
+R2だけを見て復旧するAIは、最初に対象prefixの `_README.vN.md` と `_manifest.vN.json` を読み、その `owner_repository` / `authoritative_sources` に従ってUniversal Foundationの契約へ戻る。事例の調査範囲は一次情報だけではなく、公式・創業者・アーカイブ・二次報道・市場面・顧客/コミュニティ・公開シグナル・失敗/ピボット・source-less leadの全レーンであり、12領域、4大禁忌、5大暗黒パラメータ、3大死角、範囲外の有用観測を含む。これは既存schema/R2方式を変更する指示ではなく、既存bundle/Journalへ漏れなく格納するための復旧案内である。
+
 保存処理は実行環境に応じて自動で経路を選ぶ。
 
 - Cloudflare Workers：`wrangler.jsonc` の4つのR2 bindingを使う。S3キーは不要。

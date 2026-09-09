@@ -16,6 +16,14 @@
 
 Make-Moneyはconsumer。R2 pathやMake-Money UI schemaをUniversalの意味にしない。
 
+### 0.1 どのAIでも同じ範囲を読むためのhandoff不変条件
+
+この入口に来たAIは、一次情報だけ、現在の画面項目だけ、または過去の91項目だけに調査範囲を狭めない。一次・公式を優先しつつ、創業者インタビュー／build-in-public、公開アーカイブ、信頼できる二次報道、マーケットプレイス／ディレクトリ／アプリストア／Product Hunt／比較・レビュー、顧客・コミュニティ・フォーラム・Issueの公開記録、公開トラフィック／検索／技術／求人／連携／紹介シグナル、失敗・終了・買収・ピボット記録、source-less leadまで、該当する全レーンを確認する。
+
+対象はUniversalの `business-case.v2` にある12領域（identity / people / product / customer_and_demand / pricing / money_and_economics / distribution / operations / technology / competition_and_market / timeline_and_outcomes / provenance_rights_and_uncertainty）と、4大禁忌、5大暗黒パラメータ、3大死角、さらに事例の勝因・金の流れ・運営実態を理解するうえで有用な範囲外の観測である。各領域・情報源レーンは、見つかったかだけでなく `found` / `attempted_unavailable` / `not_attempted` / `not_applicable` / `unknown` を残す。一次でない情報も捨てず、既存のsource/truth/evidenceフィールドと `observations` / Journalで強さと不確実性を分ける。
+
+大量バッチはCAPTURE/CORE/ENRICHEDの段階で保存してよいが、DEEP_RECONCILEDとは呼ばない。発見できなかった項目を捏造せず、推定は式・前提付きで `estimated`、未確認は `UNVERIFIED` / `unknown` として保持する。
+
 ## 1. 収集方針
 
 91項目という数は保存構造でも上限でもない。

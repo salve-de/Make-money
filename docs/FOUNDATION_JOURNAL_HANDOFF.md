@@ -60,3 +60,7 @@ Authorized data ingestion uses the existing `r2:with-secrets` wrapper and requir
 ## 91-item rule
 
 The old detailed business checklist is useful for DEEP research only. It is not the Foundation schema and not the maximum set of information that may be stored. Use `registry/collection/business-case.v2.json` for the tiered policy and preserve additional findings in Journal.
+
+## Source breadth invariant
+
+Primary/official evidence is preferred, but it is not an exclusive gate. A complete intake checks the relevant first-party records, founder interviews/build-in-public, public archives, reputable secondary reporting, marketplaces/directories/reviews, public customer/community/forum/issue records, public traffic/technology/distribution signals, failure/pivot/shutdown history, and source-less leads. Cover all 12 `business-case.v2` domains, the four taboo dimensions, five dark parameters, three blindspots, and any useful observation outside the current fields. Preserve source strength, truth state, uncertainty, and coverage status with the existing bundle/Journal contracts; do not create a new schema for this rule.
