@@ -12,6 +12,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず `docs/COLLECT_AND_STORE.md` を読む。Universal共通要件とプロジェクト要件の両方を収集する。既存R2/EDINETは一切変更しない。mainの旧pipelineは合成サンプルであり実収集には使用禁止。
 
+収集対象の完全な項目表は [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](docs/MAKE_MONEY_COLLECTION_SCOPE.md) に固定している。全AIは入口文書と併せてこの目録を読み、9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、お金のウォーターフォール、未知値、Journal系譜、R2配置、完了報告を漏れなく扱うこと。
+
 # 【絶対指針】プロジェクト北極星 ＆ AIエージェント行動規範
 
 本リポジトリで作業する全てのAIエージェントは、以下を最高憲法として遵守せよ。

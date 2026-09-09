@@ -2,6 +2,8 @@
 
 新規データ収集を依頼されたAIは、最初に [収集・R2保存の入口](docs/COLLECT_AND_STORE.md) を読むこと。
 
+何を集めるかの完全な目録は [Make-Money / business-case 収集対象の完全目録](docs/MAKE_MONEY_COLLECTION_SCOPE.md) に固定している。GitHubとR2だけを渡されたAIも、入口文書・この目録・Universal Foundationの正本を突き合わせてから収集を開始すること。
+
 > **【絶対北極星（The Ultimate North Star）】**  
 > **「世に溢れる『努力・理念・綺麗事』という欺瞞の煙幕を完全に焼き払い、**  
 > **世界中の『生々しい金儲けの事実と手口（資本主義の裏帳簿）』を冷徹に白日の下に晒し続けることで、**  
