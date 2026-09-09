@@ -6,6 +6,8 @@ const inputDir = resolve(process.argv[2] || 'data/collection/journal_shards_2026
 const endpoint = process.argv[3] || 'http://127.0.0.1:8790/api/foundation/ingest';
 const token = process.env.FOUNDATION_LOCAL_INGEST_TOKEN?.trim();
 const maxAttempts = Math.max(1, Math.min(6, Number(process.argv[4] || 6)));
+const startShard = Math.max(1, Number(process.argv[5] || 1));
+const endShard = Math.max(startShard, Number(process.argv[6] || Number.MAX_SAFE_INTEGER));
 if (!token) throw new Error('FOUNDATION_LOCAL_INGEST_TOKEN is required');
 const authToken: string = token;
 
@@ -67,7 +69,7 @@ async function ingestOne(name: string): Promise<JsonObject> {
 }
 
 async function main(): Promise<void> {
-  const names = (await (await import('node:fs/promises')).readdir(inputDir)).filter((name) => name.endsWith('.journal-plan.json')).sort();
+  const names = (await (await import('node:fs/promises')).readdir(inputDir)).filter((name) => name.endsWith('.journal-plan.json')).sort().slice(startShard - 1, endShard);
   for (const name of names) console.log(JSON.stringify(await ingestOne(name)));
   console.log(JSON.stringify({ input_dir: inputDir, total: names.length }));
 }

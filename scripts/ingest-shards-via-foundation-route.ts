@@ -8,6 +8,8 @@ const endpoint = process.argv[3] || 'http://127.0.0.1:8790/api/foundation/ingest
 const token = process.env.FOUNDATION_LOCAL_INGEST_TOKEN?.trim();
 const concurrency = Math.max(1, Math.min(4, Number(process.argv[4] || 3)));
 const maxAttempts = Math.max(1, Math.min(6, Number(process.argv[5] || 5)));
+const startShard = Math.max(1, Number(process.argv[6] || 1));
+const endShard = Math.max(startShard, Number(process.argv[7] || Number.MAX_SAFE_INTEGER));
 
 if (!token) throw new Error('FOUNDATION_LOCAL_INGEST_TOKEN is required');
 const authToken: string = token;
@@ -121,7 +123,8 @@ async function main(): Promise<void> {
   const manifest = JSON.parse(await readFile(resolve(inputDir, 'manifest.json'), 'utf8')) as JsonObject;
   const requestFiles = (manifest.shards as JsonObject[])
     .map((shard) => String(shard.path).split(/[\\/]/).pop() || '')
-    .filter((name) => name.endsWith('.request.json'));
+    .filter((name) => name.endsWith('.request.json'))
+    .slice(startShard - 1, endShard);
   let cursor = 0;
   const results: JsonObject[] = [];
   async function worker(): Promise<void> {
