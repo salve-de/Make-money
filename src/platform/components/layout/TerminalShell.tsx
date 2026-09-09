@@ -24,6 +24,12 @@ import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/Advanced
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
 import { ProModal } from '../../../components/terminal/ProModal';
 import { useAuth } from '../../../context/AuthContext';
+import type {
+  FoundationBusinessCase,
+  FoundationEntitySummary,
+} from '@/lib/foundation/business-reader';
+import { FoundationDataGrid } from '../foundation/FoundationDataGrid';
+import { FoundationInspectorPane } from '../foundation/FoundationInspectorPane';
 
 export const TerminalShell: React.FC = () => {
   const { viewedEntityIds, recordView } = useViewHistory();
@@ -52,6 +58,17 @@ export const TerminalShell: React.FC = () => {
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
 
+  // Foundation/R2のEntity一覧は100件単位で遅延取得する。既存の静的
+  // FinancialEntity台帳とは別stateにして、未確認の値を既存銘柄へ混ぜない。
+  const [foundationEntities, setFoundationEntities] = useState<FoundationEntitySummary[]>([]);
+  const [foundationCursor, setFoundationCursor] = useState<string | null>(null);
+  const [foundationHasMore, setFoundationHasMore] = useState(false);
+  const [foundationLoading, setFoundationLoading] = useState(true);
+  const [foundationSource, setFoundationSource] = useState<'loading' | 'r2_lake' | 'static' | 'unavailable'>('loading');
+  const [selectedFoundationId, setSelectedFoundationId] = useState<string | null>(null);
+  const [foundationDetail, setFoundationDetail] = useState<FoundationBusinessCase | null>(null);
+  const [foundationDetailLoading, setFoundationDetailLoading] = useState(false);
+
   // 認知負荷ゼロ・即時着火: entityParam指定があればそれ、なければPhoto AI（粗利84%ソロ企業）をデフォルト自動展開
   const initialEntityId =
     entityParam ||
@@ -65,6 +82,102 @@ export const TerminalShell: React.FC = () => {
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
   // 市場の歪み（Market Anomaly）レンズの選択ステート
   const [selectedAnomalyId, setSelectedAnomalyId] = useState<string | null>(null);
+
+  const loadFoundationPage = useCallback(async (cursor?: string, append = false) => {
+    setFoundationLoading(true);
+    try {
+      const query = new URLSearchParams({ limit: '100' });
+      if (cursor) query.set('cursor', cursor);
+      const response = await fetch(`/api/businesses?${query.toString()}`, { cache: 'no-store' });
+      const payload = (await response.json()) as {
+        source?: string;
+        data?: unknown;
+        nextCursor?: string | null;
+        hasMore?: boolean;
+      };
+
+      const rows = Array.isArray(payload.data)
+        ? payload.data.filter((value): value is FoundationEntitySummary => {
+            if (!value || typeof value !== 'object') return false;
+            const candidate = value as Partial<FoundationEntitySummary>;
+            return typeof candidate.id === 'string' && typeof candidate.name === 'string';
+          })
+        : [];
+
+      if (payload.source === 'r2_lake') {
+        setFoundationSource('r2_lake');
+        setFoundationEntities((previous) => {
+          if (!append) return rows;
+          const merged = new Map(previous.map((item) => [item.id, item]));
+          rows.forEach((item) => merged.set(item.id, item));
+          return Array.from(merged.values());
+        });
+        setFoundationCursor(payload.nextCursor || null);
+        setFoundationHasMore(payload.hasMore === true);
+        setSelectedFoundationId((previous) => {
+          if (previous) return previous;
+          if (entityParam && /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityParam)) return entityParam;
+          return null;
+        });
+      } else if (!append) {
+        setFoundationSource(payload.source === 'unavailable' ? 'unavailable' : 'static');
+        setFoundationEntities([]);
+        setFoundationCursor(null);
+        setFoundationHasMore(false);
+      }
+    } catch (error) {
+      if (!append) {
+        setFoundationSource('unavailable');
+        setFoundationEntities([]);
+        setFoundationCursor(null);
+        setFoundationHasMore(false);
+      }
+      console.warn('[TerminalShell] Foundation Entity load failed:', error);
+    } finally {
+      setFoundationLoading(false);
+    }
+  }, [entityParam]);
+
+  useEffect(() => {
+    void Promise.resolve().then(() => loadFoundationPage());
+  }, [loadFoundationPage]);
+
+  const handleLoadMoreFoundation = useCallback(() => {
+    if (!foundationCursor || foundationLoading) return;
+    void loadFoundationPage(foundationCursor, true);
+  }, [foundationCursor, foundationLoading, loadFoundationPage]);
+
+  useEffect(() => {
+    if (foundationSource !== 'r2_lake' || !selectedFoundationId) {
+      return;
+    }
+
+    let cancelled = false;
+    const loadFoundationDetail = async () => {
+      await Promise.resolve();
+      if (cancelled) return;
+      setFoundationDetailLoading(true);
+      try {
+        const response = await fetch(`/api/businesses?entity_id=${encodeURIComponent(selectedFoundationId)}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = (await response.json()) as { source?: string; data?: FoundationBusinessCase | null };
+        if (!cancelled && payload.source === 'r2_lake' && payload.data) setFoundationDetail(payload.data);
+      } catch (error) {
+        if (!cancelled) console.warn('[TerminalShell] Foundation detail load failed:', error);
+      } finally {
+        if (!cancelled) setFoundationDetailLoading(false);
+      }
+    };
+    void loadFoundationDetail();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [foundationSource, selectedFoundationId]);
+
+  useEffect(() => {
+    if (selectedFoundationId) recordView(selectedFoundationId);
+  }, [selectedFoundationId, recordView]);
 
   useEffect(() => {
     if (modeParam) setWorkspaceMode(modeParam);
@@ -239,6 +352,41 @@ export const TerminalShell: React.FC = () => {
     return INSTITUTIONAL_ENTITIES.find((e) => e.id === selectedEntityId) || null;
   }, [selectedEntityId]);
 
+  const filteredFoundationEntities = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return foundationEntities.filter((entity) => {
+      if (currentFilter === 'BOOKMARKED' && !bookmarkedIds.has(entity.id)) return false;
+      if (!query) return true;
+      return [
+        entity.name,
+        entity.id,
+        entity.entityType,
+        entity.domain || '',
+        entity.status,
+        ...entity.aliases,
+      ].some((value) => value.toLowerCase().includes(query));
+    });
+  }, [foundationEntities, searchQuery, currentFilter, bookmarkedIds]);
+
+  const selectedFoundationEntity = useMemo(() => {
+    const listedEntity = foundationEntities.find((entity) => entity.id === selectedFoundationId);
+    if (listedEntity) return listedEntity;
+    if (foundationDetail && foundationDetail.id === selectedFoundationId) return foundationDetail;
+    return null;
+  }, [foundationDetail, foundationEntities, selectedFoundationId]);
+
+  const handlePrevFoundationEntity = useCallback(() => {
+    const index = filteredFoundationEntities.findIndex((entity) => entity.id === selectedFoundationId);
+    if (index > 0) setSelectedFoundationId(filteredFoundationEntities[index - 1].id);
+  }, [filteredFoundationEntities, selectedFoundationId]);
+
+  const handleNextFoundationEntity = useCallback(() => {
+    const index = filteredFoundationEntities.findIndex((entity) => entity.id === selectedFoundationId);
+    if (index >= 0 && index < filteredFoundationEntities.length - 1) {
+      setSelectedFoundationId(filteredFoundationEntities[index + 1].id);
+    }
+  }, [filteredFoundationEntities, selectedFoundationId]);
+
   const handlePrevEntity = useCallback(() => {
     const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
     if (!selectedEntityId || list.length === 0) return;
@@ -314,47 +462,90 @@ export const TerminalShell: React.FC = () => {
           />
         ) : (
           <div className={`flex flex-col min-w-0 overflow-hidden bg-[#07080B] transition-all duration-150 ${
-            selectedEntity
+            (foundationSource === 'r2_lake' ? Boolean(selectedFoundationEntity) : Boolean(selectedEntity))
               ? 'w-full md:w-[440px] lg:w-[480px] xl:w-[520px] shrink-0 border-r border-white/[0.06]'
               : 'flex-1'
           }`}>
-            {/* 市場の歪み ＆ トレンドレンズ（最上位ストリップ） */}
-            <MarketAnomalyLensStrip
-              selectedAnomalyId={selectedAnomalyId}
-              onSelectAnomaly={setSelectedAnomalyId}
-              onOpenSynthesisWithEntity={(entityId) => {
-                setSelectedEntityId(entityId);
-                setWorkspaceMode('SYNTHESIS');
-              }}
-            />
+            {foundationSource === 'r2_lake' ? (
+              <>
+                <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] bg-[#090A0D] px-3 py-1.5 text-[10px] font-mono">
+                  <span className="text-emerald-300">R2 LAKE · Foundation Entity</span>
+                  <span className="text-zinc-500">読み込み済み {foundationEntities.length}件{foundationHasMore ? ' · 続きあり' : ''}</span>
+                </div>
+                <DataGridToolbar
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                  totalCount={filteredFoundationEntities.length}
+                  onOpenScreener={() => setIsScreenerOpen(true)}
+                  screenerFilters={null}
+                  onResetScreener={() => undefined}
+                  activeTags={[]}
+                  onToggleTag={undefined}
+                />
+                <FoundationDataGrid
+                  entities={filteredFoundationEntities}
+                  selectedEntityId={selectedFoundationId}
+                  onSelectEntity={setSelectedFoundationId}
+                  bookmarkedIds={bookmarkedIds}
+                  onToggleBookmark={handleToggleBookmark}
+                  hasMore={foundationHasMore}
+                  isLoadingMore={foundationLoading}
+                  onLoadMore={handleLoadMoreFoundation}
+                  isSplitView={Boolean(selectedFoundationEntity)}
+                />
+              </>
+            ) : (
+              <>
+                {/* 市場の歪み ＆ トレンドレンズ（最上位ストリップ） */}
+                <MarketAnomalyLensStrip
+                  selectedAnomalyId={selectedAnomalyId}
+                  onSelectAnomaly={setSelectedAnomalyId}
+                  onOpenSynthesisWithEntity={(entityId) => {
+                    setSelectedEntityId(entityId);
+                    setWorkspaceMode('SYNTHESIS');
+                  }}
+                />
 
-            <DataGridToolbar
-              searchQuery={searchQuery}
-              onSearchChange={setSearchQuery}
-              totalCount={filteredEntities.length}
-              onOpenScreener={() => setIsScreenerOpen(true)}
-              screenerFilters={screenerFilters}
-              onResetScreener={() => setScreenerFilters(null)}
-              activeTags={activeTags}
-              onToggleTag={handleToggleTag}
-            />
+                <DataGridToolbar
+                  searchQuery={searchQuery}
+                  onSearchChange={setSearchQuery}
+                  totalCount={filteredEntities.length}
+                  onOpenScreener={() => setIsScreenerOpen(true)}
+                  screenerFilters={screenerFilters}
+                  onResetScreener={() => setScreenerFilters(null)}
+                  activeTags={activeTags}
+                  onToggleTag={handleToggleTag}
+                />
 
-            <InstitutionalDataGrid
-              entities={filteredEntities}
-              selectedEntityId={selectedEntityId}
-              onSelectEntity={setSelectedEntityId}
-              currency={currency}
-              bookmarkedIds={bookmarkedIds}
-              onToggleBookmark={handleToggleBookmark}
-              isSplitView={Boolean(selectedEntity)}
-              activeTags={activeTags}
-              onToggleTag={handleToggleTag}
-            />
+                <InstitutionalDataGrid
+                  entities={filteredEntities}
+                  selectedEntityId={selectedEntityId}
+                  onSelectEntity={setSelectedEntityId}
+                  currency={currency}
+                  bookmarkedIds={bookmarkedIds}
+                  onToggleBookmark={handleToggleBookmark}
+                  isSplitView={Boolean(selectedEntity)}
+                  activeTags={activeTags}
+                  onToggleTag={handleToggleTag}
+                />
+              </>
+            )}
           </div>
         )}
 
         {/* 右リアルタイム解剖インスペクター (全銘柄台帳モード時のみ表示) */}
-        {workspaceMode === 'LEDGER' && selectedEntity && (
+        {workspaceMode === 'LEDGER' && foundationSource === 'r2_lake' && selectedFoundationEntity && (
+          <FoundationInspectorPane
+            entity={selectedFoundationEntity}
+            detail={foundationDetail?.id === selectedFoundationId ? foundationDetail : null}
+            detailLoading={foundationDetailLoading}
+            onClose={() => setSelectedFoundationId(null)}
+            onPrevEntity={handlePrevFoundationEntity}
+            onNextEntity={handleNextFoundationEntity}
+          />
+        )}
+
+        {workspaceMode === 'LEDGER' && foundationSource !== 'r2_lake' && selectedEntity && (
           <CompanyInspectorPane
             entity={selectedEntity}
             onClose={() => setSelectedEntityId(null)}

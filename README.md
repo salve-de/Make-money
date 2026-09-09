@@ -165,6 +165,8 @@ WORLD (世界中のノイズ・一次情報)
 
 ※ 収集契約の詳細ルールは [`docs/DATA_COLLECTION_CONTRACT.md`](./docs/DATA_COLLECTION_CONTRACT.md) を参照。
 
+Foundation R2に保存済みの事例を台帳画面へ読み取る経路は、[`docs/FOUNDATION_UI_READ_PATH.md`](./docs/FOUNDATION_UI_READ_PATH.md) に定義する。UIは既存Entityとresearch-bundleを読み取るだけで、画面用の新しいR2 indexや保存形式を作らない。
+
 ---
 
 ## 4. 自走型データエンジン ＆ 4重マネタイズ構造
