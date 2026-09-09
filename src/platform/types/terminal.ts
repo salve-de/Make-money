@@ -316,6 +316,7 @@ export type IntelligenceTopicId =
   | 'solo_empire'
   | 'direct_monopoly'
   | 'b2b_outbound'
+  | 'privacy_saas'
   | 'media_cashflow';
 
 export interface IntelligenceMoneyFlow {
