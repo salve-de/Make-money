@@ -2293,4 +2293,36 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   - 詳細調査レポートを [`data/collection/case-studies-deep-research-20260909.md`](file:///Users/satoushinya/project/Make-Money/data/collection/case-studies-deep-research-20260909.md) に作成・保存。
   - Git コミット ＆ リモートリポジトリ（GitHub）への即時プッシュを自律完遂。
 
+### 66. Phase 66: 実在事例第1弾（ShipFast / Marc Lou）のUniversal Foundation R2保存 ＆ 読戻しSHA-256検証の完全成功（完了）
+- **検死された課題 ＆ ユーザーの絶対命令**:
+  - 「じゃあ一つ 事例をやれ R2に保存しろ」
+  - 調査・仕様整備フェーズを完了し、Universal Foundation正本規約（`R2_SAVE_COMMAND_CONTRACT.md`）およびMake-Money側保存ランタイムに従い、実際の高収益ビジネス事例（ShipFast）をCloudflare R2（`foundation-lake`）に保存・検証する命令。
+- **断行した外科的改革 ＆ 成果**:
+  1. **完全準拠のResearch Bundle構築 (`data/collection/shipfast-2026.request.json`)**:
+     - `schema_version: 'research-bundle.v1'`, `purpose: 'make_money'`.
+     - 確定ファクト（5ヶ月売上$250k、ピーク月商$60k、利益率95%、価格$169-$299、Next.js+Tailwind+Stripe+Supabase+Resendスタック、X自虐動画バズによる初動突破）と、推論（痛みの財布、大手の自爆カニバリズム障壁、Stripe決済手数料2.9%）を厳密分離。
+     - 46次元の `collection_coverage`（DIMENSIONS全域網羅、取得値には `record_refs`、非公開値には `attempts` 探索ログ記録）を完備。
+     - Ajv2020 による正本スキーマ検証を完全パス。
+  2. **Universal Journal（`foundation-lake/journal/`）への28件作成・読戻し検証**:
+     - `scripts/foundation-journal.ts ingest` を実行。
+     - 28件の観測・ファクト・関係性を `journal-entry.v1` として作成専用（create-only）でPut。
+     - 全28件の即時読戻し・SHA-256照合に完全成功（`journal_entries: 28, created: 28, identical: 0`）。
+  3. **型定義データセット・バンドル・推論知性（`foundation-lake/datasets/`）への27件作成・読戻し検証**:
+     - `scripts/foundation-collect.ts ingest` を実行。
+     - Entities: 5件 (`ds.business.entities.core`)
+     - Claims: 5件 (`ds.business.claims.core`)
+     - Metrics: 8件 (`ds.business.metrics.core`)
+     - Money Signals: 2件 (`ds.business.money-signals.core`)
+     - Events: 2件 (`ds.business.events.core`)
+     - Relationships: 3件 (`ds.business.relationships.core`)
+     - Research Bundle: 1件 (`ds.business.research-bundles.derived`)
+     - Derived Intelligence: 1件 (`ds.business.intelligence.derived`)
+     - 全27オブジェクトの事前Preflight（衝突ゼロ）を経て作成専用Putを実行し、全件読戻しSHA-256照合に完全成功（`planned: 27, created: 27, readback_verified: 27`）。
+  4. **既存データ不変の絶対防壁（Zero Mutation）**:
+     - 既存のEDINET、Investrader、legacy `universal` への更新・移動・削除は完全ゼロ（`copy_object: 0, delete_object: 0, move: 0, overwrite: 0, legacy_universal: 0`）。
+  5. **機密情報の完全隔離（Zero Exposure）**:
+     - macOS Keychainから一時注入する `npm run r2:with-secrets` 経由で実行し、Git・コードベース・平文環境変数への認証情報露出を完全ゼロで防護。
+- **自律的ガバナンス完遂**:
+  - マスター白書への記録、Git コミット、リモートリポジトリ（GitHub）への即時プッシュを自律完遂。
+
 
