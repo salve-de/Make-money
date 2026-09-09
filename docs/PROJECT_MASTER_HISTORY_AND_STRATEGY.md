@@ -2477,3 +2477,29 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   5. **自律的Git同期・差分ゼロ原則の完遂**:
      - コミットおよびリモートリポジトリ（GitHub `refactor/terminal-architecture-cleanup`）への即時プッシュを自律完遂。
 
+### 75. Phase 75: 時系列・賞味期限インテリジェンス（Temporal Radar）の全社配備 ＆「いつの事例か・今も勝てるか」の客観判定（完了）
+- **検死された本質的論点 ＆ ユーザーの痛烈な指導**:
+  - 「あとこれ いつの事例とか いつ のデータとか いつ作ったプロダクトの事例なのかとか 全部記録している？ これがあれば、あとで ここら辺の時期は これで勝ててたけど、今は無理とか 今流行りで稼げるのはこれとか データと根拠で示せる」
+  - 過去の事例をそのまま提示するだけでは、「今この瞬間に挑戦しようとする読者」が罠にハマる（例: 2010年代のBufferのようにTwitter APIが無料・安価だった時代のモデルを今真似ると月数百万円のAPI費で即死する、2014年のNomad Listのように10年分のSEOとコミュニティ堀がある場所に丸腰で突撃する等）。
+  - 「いつローンチされたのか（創業年）」「いつのデータなのか（観測期）」「なぜその時代に勝てたのか（時代背景）」「今同じ手口をやるとどうなるか（現在の再現性・賞味期限判定）」を、客観的ファクトとデータで峻別して提示するインテリジェンスが不可欠であった。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **型定義の配備 (`src/platform/types/terminal.ts`)**:
+     - `ViabilityStatus`（`ACTIVE_PLAYBOOK` / `RISING_WAVE` / `MATURED_MOAT` / `HISTORICAL_WINDOW` / `EVOLVING_BARRIER`）を新設。
+     - `TemporalIntelligence`（`foundedYear`, `initialTractionPeriod`, `dataSnapshotPeriod`, `viabilityStatus`, `viabilityLabel`, `eraContext`, `currentViabilityAnalysis`）を定義し、`FinancialEntity` に配備。
+  2. **データ層への全13銘柄完全注入 (`src/platform/data/mockLedgerData.ts`)**:
+     - 全13銘柄（Keyence, Stripe, ShipFast, Photo AI, Nomad List, Plausible, Simple Analytics, Transistor, Liinks, Buffer, HeadshotPro, TLDR, Easlo）に対し、R2底引き網データ（events/metrics/observations）から抽出した正確な時系列メタデータおよびタイムライン（`timelineEvents`）を100%注入。
+     - 客観的判定の例：
+       - `Plausible` / `Simple Analytics`: 【ACTIVE_PLAYBOOK（現在もそのまま有効）】GA4のUI改悪とEU GDPR規制強化の追い風が続いており、プライバシー特化の需要は今なお拡大中。
+       - `Transistor`: 【ACTIVE_PLAYBOOK（現在もそのまま有効）】番組数無制限・固定月額モデルとRSS配管ロックインは今も強力。
+       - `Liinks`: 【ACTIVE_PLAYBOOK（現在もそのまま有効）】InstagramプロフィールURL未設定アカウントへの手作業DMゲリラは、プラットフォームが変わっても常に有効な初動ハック。
+       - `ShipFast`: 【RISING_WAVE（急上昇トレンド最盛期）】Next.jsボイラープレート販売は最盛期だが、模倣者が激増したため「個人のXでのビルド・イン・パブリック動画力」が必須化。
+       - `Nomad List`: 【MATURED_MOAT（先行者堀により後発困難）】2014年ローンチ。10年分のSEO資産と既存メンバーのSlackコミュニティによるネットワーク効果が完成しており、同じ機能の掲示板を作っても後発は勝てない。
+       - `Buffer`: 【HISTORICAL_WINDOW（時代限定の特異点・現在は再現不能）】2010年ローンチ。当時はTwitter APIが安価で競合皆無だったが、現在はX APIが高額化（月数十万〜数百万円）しており、今同じモデルを立ち上げるとAPI原価で即死する。
+       - `Photo AI`: 【EVOLVING_BARRIER（技術進化により特化が必要）】2022年ローンチ。画像生成AIモデル（Midjourney v6, Flux等）の進化により、汎用的な自撮りツールは差別化が急速に困難化。B2B人事や特定ポーズなど極狭用途への特化が必須。
+       - `Easlo`: 【EVOLVING_BARRIER（技術進化により特化が必要）】2021年ローンチ。Notionテンプレート市場が飽和したため、汎用ダッシュボードではなく特定士業や企業業務フローに特化したテンプレートでなければ売れない。
+  3. **UIフロントエンドへの高密度可視化配備**:
+     - `UniversalIntelligenceStream.tsx`: 最上位に「時系列インテリジェンス ＆ 手口の賞味期限 (TEMPORAL RADAR)」ブロックを常設。創業年、観測データ時期、賞味期限判定バッジ、時代背景、現在の再現性分析、および重要タイムライン（TIMELINE MILESTONES）を全量描画。
+     - `CompanyInspectorPane.tsx`: ヘッダー部に「📅 2018年ローンチ ｜ データ基準: 2024-2026年 ｜ ● 現在も有効」バッジを即時表示。
+     - `InstitutionalDataGrid.tsx`: 一覧グリッド（スプリット・ワイド両面）の銘柄名横にローンチ年バッジ（例: `2018年`）を表示し、一目で時代感が伝わるよう最適化。
+  4. **品質検証 ＆ GitHubリモート即時プッシュ完遂**:
+     - `npx tsc --noEmit` エラーゼロ、Next.js 16.3.4 webpack本番ビルド完全通過。自律的Git同期・差分ゼロ原則を完遂。

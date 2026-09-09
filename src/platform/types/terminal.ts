@@ -161,6 +161,23 @@ export interface UniversalCoverageItem {
   attempts?: string[];
 }
 
+export type ViabilityStatus = 
+  | 'ACTIVE_PLAYBOOK'      // 現在もそのまま有効（法規制や構造的隙間が継続中）
+  | 'RISING_WAVE'          // 急上昇トレンド中（いま参入余地がある最前線）
+  | 'MATURED_MOAT'         // 先行者が堀を完成させており後発模倣は困難（歴史的教訓）
+  | 'HISTORICAL_WINDOW'    // 当時の規約・API穴による特異点（現在は塞がれ再現不可）
+  | 'EVOLVING_BARRIER';    // 技術進化により要求水準が上昇（特化が必要）
+
+export interface TemporalIntelligence {
+  foundedYear: number;               // 創業・ローンチ年（例: 2014, 2018, 2023）
+  initialTractionPeriod: string;     // 初動突破時期（例: "2018年Q3", "2023年秋"）
+  dataSnapshotPeriod: string;        // 財務データの観測基準時期（例: "2024年通期 / 2026年最新推計"）
+  viabilityStatus: ViabilityStatus;  // 現在の再現性・賞味期限ステータス
+  viabilityLabel: string;            // 日本語ラベル（例: "現在も有効", "先行者堀により後発困難", "規約改定で穴消滅"）
+  eraContext: string;                // なぜその時代・時期に勝てたのかの構造的背景
+  currentViabilityAnalysis: string;  // 「今同じことをやるとどうなるか」の冷徹な判定と根拠
+}
+
 export interface UniversalEvent {
   eventType: string;
   occurredAt: string;
@@ -199,6 +216,7 @@ export interface FinancialEntity {
   tags: string[]; // 例: ["完全1人", "API包装", "利益率80%超", "B2B", "初期費用0円"]
 
   // 【Layer 2 & Layer 3: 3層ハイブリッドUI完全表示保障用フィールド】
+  temporal?: TemporalIntelligence; // 時系列インテリジェンス（創業年、データ時期、現時点での賞味期限判定）
   dynamicMoats?: DynamicMoats; // Layer 2: 動的特異点ブロック（データが存在する項目のみ展開）
   observationsStream?: UniversalObservation[]; // Layer 3: 万能救済ストリーム（型に収まらない全データ）
   timelineEvents?: UniversalEvent[]; // 重要タイムライン・マイルストーン

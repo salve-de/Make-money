@@ -105,6 +105,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                           <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                             {entity.architecturePattern}
                           </span>
+                          {entity.temporal && (
+                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-cyan-950/40 text-cyan-400 border border-cyan-500/30 shrink-0">
+                              {entity.temporal.foundedYear}年
+                            </span>
+                          )}
                         </div>
                         {/* 2段目: 歪みの手口（1行スニペット） */}
                         <div 
@@ -184,6 +189,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                             <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                               {entity.architecturePattern}
                             </span>
+                            {entity.temporal && (
+                              <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-cyan-950/40 text-cyan-400 border border-cyan-500/30 shrink-0">
+                                {entity.temporal.foundedYear}年
+                              </span>
+                            )}
                           </div>
                           {/* 2段目: 歪みの手口（ワンライナー） */}
                           <div 

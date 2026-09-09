@@ -26,6 +26,7 @@ import {
   Crosshair,
   Bot,
   Cpu,
+  Clock,
   Edit3
 } from 'lucide-react';
 import { AffiliateToolBadge, AffiliateToolList } from '../tools/AffiliateToolBadge';
@@ -220,6 +221,30 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           <div className="px-3 pb-1 text-[11px] text-zinc-400 leading-snug font-sans truncate">
             {entity.tagline}
           </div>
+
+          {/* 時系列 ＆ 賞味期限バッジ（ヘッダーインフォ） */}
+          {entity.temporal && (
+            <div className="px-3 pb-1.5 flex items-center gap-2 text-[10px] font-mono flex-wrap">
+              <span className="text-zinc-400 flex items-center gap-1">
+                <Clock className="w-3 h-3 text-cyan-400" />
+                <span>{entity.temporal.foundedYear}年ローンチ ({entity.temporal.initialTractionPeriod})</span>
+              </span>
+              <span className="text-zinc-600">|</span>
+              <span className="text-zinc-400">
+                データ基準: <span className="text-zinc-300 font-bold">{entity.temporal.dataSnapshotPeriod}</span>
+              </span>
+              <span className="text-zinc-600">|</span>
+              <span className={`px-1.5 py-0.2 rounded font-bold border ${
+                entity.temporal.viabilityStatus === 'ACTIVE_PLAYBOOK' ? 'text-emerald-400 border-emerald-500/30 bg-emerald-950/30' :
+                entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'text-cyan-400 border-cyan-500/30 bg-cyan-950/30' :
+                entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'text-amber-400 border-amber-500/30 bg-amber-950/30' :
+                entity.temporal.viabilityStatus === 'HISTORICAL_WINDOW' ? 'text-red-400 border-red-500/30 bg-red-950/30' :
+                'text-purple-400 border-purple-500/30 bg-purple-950/30'
+              }`}>
+                ● {entity.temporal.viabilityLabel}
+              </span>
+            </div>
+          )}
 
           {/* 突いている市場の歪み（逆方向ワームホール） */}
           {relatedAnomaly && (

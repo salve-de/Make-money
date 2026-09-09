@@ -121,6 +121,94 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           <span>合法的金融リサーチのみ収録</span>
         </div>
       </div>
+      {/* ========================================================= */}
+      {/* 時系列インテリジェンス ＆ 手口の賞味期限（Temporal Radar） */}
+      {/* ========================================================= */}
+      {entity.temporal && (
+        <section className="space-y-2.5 border border-white/[0.08] rounded-md bg-[#0A0C10] p-4">
+          <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-[9px] font-bold text-cyan-400 bg-cyan-950/40 border border-cyan-500/30 px-1.5 py-0.5 rounded flex items-center gap-1">
+                <Clock className="w-2.5 h-2.5" />
+                TEMPORAL
+              </span>
+              <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+                時系列インテリジェンス ＆ 手口の賞味期限
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
+                entity.temporal.viabilityStatus === 'ACTIVE_PLAYBOOK' ? 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40' :
+                entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'bg-cyan-950/40 text-cyan-300 border-cyan-500/40 animate-pulse' :
+                entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'bg-amber-950/40 text-amber-300 border-amber-500/40' :
+                entity.temporal.viabilityStatus === 'HISTORICAL_WINDOW' ? 'bg-red-950/40 text-red-300 border-red-500/40' :
+                'bg-purple-950/40 text-purple-300 border-purple-500/40'
+              }`}>
+                ● {entity.temporal.viabilityLabel}
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 text-[10px] font-mono py-1">
+            <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
+              <span className="text-zinc-500 block">創業・ローンチ時期</span>
+              <span className="text-zinc-200 font-bold text-[11px]">{entity.temporal.foundedYear}年 ({entity.temporal.initialTractionPeriod})</span>
+            </div>
+            <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
+              <span className="text-zinc-500 block">データ観測基準時期</span>
+              <span className="text-zinc-200 font-bold text-[11px]">{entity.temporal.dataSnapshotPeriod}</span>
+            </div>
+            <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
+              <span className="text-zinc-500 block">現在の再現性判定</span>
+              <span className="text-emerald-400 font-bold text-[11px]">{entity.temporal.viabilityLabel}</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 pt-1 text-[11px]">
+            <div className="bg-white/[0.01] border border-white/[0.04] p-2.5 rounded space-y-1">
+              <span className="font-mono text-[10px] text-zinc-400 font-bold flex items-center gap-1">
+                <History className="w-3 h-3 text-cyan-400" />
+                なぜその時期・時代に勝てたのか（構造的背景）:
+              </span>
+              <p className="text-zinc-300 leading-relaxed text-[11px]">
+                {entity.temporal.eraContext}
+              </p>
+            </div>
+            <div className="bg-white/[0.01] border border-white/[0.04] p-2.5 rounded space-y-1">
+              <span className="font-mono text-[10px] text-zinc-400 font-bold flex items-center gap-1">
+                <AlertCircle className="w-3 h-3 text-amber-400" />
+                今から同じ手口で勝てるか？（冷徹な根拠判定）:
+              </span>
+              <p className="text-zinc-300 leading-relaxed text-[11px]">
+                {entity.temporal.currentViabilityAnalysis}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ========================================================= */}
+      {/* 重要タイムライン・特異点ログ */}
+      {/* ========================================================= */}
+      {timelineEvents && timelineEvents.length > 0 && (
+        <section className="space-y-2 border border-white/[0.08] rounded-md bg-[#0A0C10] p-3.5">
+          <div className="flex items-center gap-2 border-b border-white/[0.06] pb-1.5">
+            <History className="w-3.5 h-3.5 text-zinc-400" />
+            <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
+              重要タイムライン・特異点ログ (TIMELINE MILESTONES)
+            </span>
+          </div>
+          <div className="space-y-2 pt-1 font-mono text-[11px]">
+            {timelineEvents.map((evt, idx) => (
+              <div key={idx} className="flex items-start gap-2.5 text-zinc-300 border-l-2 border-zinc-700 pl-2.5 py-0.5">
+                <span className="text-[10px] text-cyan-400 shrink-0 font-bold">{evt.occurredAt || '時期不詳'}</span>
+                <span className="text-zinc-500">|</span>
+                <span className="text-[11px] leading-relaxed text-zinc-300">{evt.description}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* ========================================================= */}
       {/* Layer 2: 【動的特異点ブロック】（型がある武器・急所） */}
