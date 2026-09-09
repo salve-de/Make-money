@@ -1,9 +1,5 @@
 <!-- BEGIN:nextjs-agent-rules -->
 
-## 新規データ収集の入口
-
-「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず `docs/COLLECT_AND_STORE.md` を読み、Universal正本と本プロジェクト要件の両方を満たす。既存R2/EDINETは変更しない。合成サンプルの旧pipelineは使わない。
-
 # This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
@@ -122,6 +118,28 @@ AIエージェントが生成するすべての画面コピー、見出し、ボ
 3. **固定観念の粉砕（柔軟な事例取り込み）**:
    - すべての企業が同一のフォーマットに収まる必要はない。Bufferのように「全社員給与公開」の事例もあれば、Photo AIのように「完全1人API包装」の事例もある。
    - それぞれの企業の「最も金が抜けている急所・特異点」に合わせて、柔軟かつ迅速に事例・市場の歪みを取り込め。
+
+## 6. 全網羅収集 ＆ 限定排除プロトコル（Universal Vacuum Protocol ＆ 決定版ワンライナー指示文）
+AI/調査エージェントが「チェックリストや型枠に囚われて収集を限定する」「利益や手取りが非公開だからと調査を止める」知能退行（優等生病）を永久に撲滅する絶対プロトコル。
+
+### 【AIへの決定版ワンライナー指示文（コピペ用）】
+どのAI・エージェント（Codex、別チャット等）にデータ収集を命令する場合でも、以下の1行を投げれば、言い訳ゼロで4大禁忌データ＋手残り逆算＋R2保存まで全自動で完遂する：
+
+> `salve-de/universal-foundation` の `docs/MAKE_MONEY_AGENT_RUNBOOK.md` および `AGENTS.md` を最高憲法として厳守し、対象ビジネス（[会社名/クエリ]）の資本主義の裏帳簿データを収集・R2保存せよ。優等生病（「利益や手取りが非公開だから取れない」という事なかれ主義）を厳禁とし、公知ファクト（売上・価格・社員数・ツール）からStripe決済手数料（2.9%）やインフラ相場を逆算して実効利益率・創業者手残りを必ず推計値（`estimated`）として算出せよ。さらに4大禁忌データ（①初期ゲリラ突破手口、②大手の自爆カニバリズム障壁、③痛みの財布、④通帳着金損益レントゲン）を完全網羅し、`research-bundle.v1` 準拠の `data/collection/<case>.request.json` を生成して `npm run foundation:r2` まで完遂せよ。
+
+### 【全網羅収集の4大絶対ルール】
+1. **項目の限定・足切り禁止（No Closed Allow-List）**:
+   - 既存スキーマや46次元・91項目のリストは「最低限の通過点」であり上限ではない。初期ゲリラ手口、裏ツールの組み合わせ、大手の参入障壁、炎上・ピボットの魚拓、特定プラットフォームへの寄生構造など、金儲け・事業分析に有益な情報は1文字も捨てずに `observations` および `Universal Journal` へ全量呑み込め。
+2. **非公開での停止禁止（Mandatory Reverse Engineering）**:
+   - 未上場企業や個人開発者が通帳や確定申告書をネットに晒すはずがない。「利益や手取りが非公開だから取れませんでした」と手を止める行為はAIの知能退行（怠惰）とみなす。
+   - 公知の確定ファクト（売上、価格、社員数、使用ツール）を骨格とし、業界標準相場（Stripe決済手数料2.9%、インフラ費、人件費等）から実効純利益・創業者手残りを必ずアナリスト推計（`origin_type: 'estimated'`）として逆算補完せよ。
+3. **4大禁忌データの強制取得（4 Taboo Data Dimensions）**:
+   - ① **初動突破の客観ログ（泥臭い初期ゲリラ戦）**: 最初の100人を仕留めた実録（X自虐動画、Reddit自演、ToS隙間ハック、「Made with X」強制広告等）。
+   - ② **大手の自爆構造（カニバリズム障壁）**: 大手が認知していながら既存の高単価事業を守るために手を出せない死角。
+   - ③ **人質にした痛みの財布（サバンナOS）**: 顧客が理性を失って即決する感情の急所（怠惰・保身恐怖・設定挫折）。
+   - ④ **通帳着金の実額レントゲン（損益ウォーターフォール）**: 売上から原価・決済手数料・ツール代を引いた創業者個人の手残り現金実額。
+4. **多プロジェクト永続互換（Cross-Project Reusability）**:
+   - Make-Moneyだけでなく、将来の投資判断（Investrader）、事業アイデア創出（Idea Spark）、自動化システム（GOLDMINE）にもそのまま転用できるよう、企業体（Entity）、人物、技術スタック、資金移動（MoneySignal）、イベント（Event）を完全なデータグラフとして保存せよ。
 
 ### 新規データをR2へ入れるとき
 
