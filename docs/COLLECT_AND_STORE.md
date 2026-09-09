@@ -1,5 +1,11 @@
 # 新規収集・R2保存の入口
 
+## 0. 収集対象の完全目録（必読）
+
+項目の取りこぼしを防ぐため、まず [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md) を読む。そこに9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、財務・手残り推計、未知値の状態、Journal/R2配置、完了報告の必須項目を全て列挙している。この入口文書は保存手順、完全目録は調査内容を定義する。
+
+Universal側の同名正本は [`universal-foundation/docs/MAKE_MONEY_COLLECTION_SCOPE.md`](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md)。内容が違えばUniversal Foundation mainを上位正本として修正し、差分を残さない。
+
 ## 収集完了の新しい必須検査
 
 Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/business-case.v1.json` を必ず読む。共通91細目と、現在のMake-Moneyコードの台帳・レーダー・分析等9契約の出力項目を生成し、資料内で見つけた全ての関連情報（表の過去年分も含む）を保存レコードと照合する。画面に出さない情報も保持する。
@@ -12,6 +18,8 @@ Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/busine
 2. このリポジトリの `codex/collection-handoff-20260908` を別の作業場所へ取得し、同ブランチの `docs/COLLECT_AND_STORE.md` を読む。既存の作業場所を強制切替・破棄しない。
 3. AI自身が検索して新規データを集める。Universal共通要件とMAKEMONEY要件の和集合を対象とし、利益・費用・個人手残りを売上で代用しない。出典なしはUNVERIFIEDとして保持。追加観測も捨てない。
 4. 同ブランチのCLIで正本schemaと全項目の調査状態を検証し、R2へ新規保存する。全項目を調査していない場合はPARTIALとして報告する。
+
+5. 収集対象は画面に現在表示される項目だけではない。12領域、9情報源レーン、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、過去時点、失敗・閉鎖・ピボット、出典未回収の手掛かり、既存項目外の観測を調べる。見つからなかったものも `attempted_unavailable`、まだ見ていないものも `not_attempted` として保存する。
 
 検索/ブラウザ、Node/npm、非公開UniversalへのGitHub認証、R2認証が必要。このMacは既存Keychainラッパーを利用できる。別環境には安全に許可済み認証を渡す必要があり、GitHub閲覧だけではR2書込権限は付かない。
 
@@ -33,5 +41,7 @@ Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/busine
 6. 出典がない有用な候補は捨てず `UNVERIFIED` として保持する。ただし未確認の数字をverified、ランキング根拠、成功保証に昇格しない。
 7. 各runはschema/audit/ingest-complete/readback/hash/dedupe結果を残す。100件という件数だけでは完了としない。
 8. R2認証がない実行環境では、validated research bundleとplanned write manifestまで作って停止する。legacy `universal` へ代替保存しない。
+
+9. Journalは後回しにしない。収集と同じrunの`journal-entry.v1`を計画し、許可された既存経路で保存し、Journal件数・schema検証・readbackを完了報告に含める。descriptorの更新も、データ本体とは別の明示的な新規create-only書込みとして扱う。
 
 この収集workstreamはNeon、D1、R2 SQLを必要としない。R2 serving/indexの最適化やInvestraderのDB撤去は別作業として進める。
