@@ -1,7 +1,14 @@
 import { readFile, writeFile, access, readdir } from 'node:fs/promises';
 import { basename, dirname, resolve } from 'node:path';
 
-type JsonObject = Record<string, any>;
+type JsonObject = Record<string, unknown>;
+type ApiResponse = JsonObject & {
+  success?: boolean;
+  schema_validation?: string;
+  readback_verified?: number;
+  counts?: { planned?: number; [key: string]: unknown };
+  error?: string;
+};
 
 const inputDir = resolve(process.argv[2] || 'data/collection/shards_20260909_04d');
 const endpoint = process.argv[3] || 'http://127.0.0.1:8790/api/foundation/ingest';
@@ -18,7 +25,11 @@ function sleep(ms: number): Promise<void> {
   return new Promise((resolveSleep) => setTimeout(resolveSleep, ms));
 }
 
-function isSuccessful(response: JsonObject | null, status: number): boolean {
+function isObject(value: unknown): value is JsonObject {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isSuccessful(response: ApiResponse | null, status: number): boolean {
   return status === 200 && response?.success === true && response?.schema_validation === 'PASS' &&
     response?.readback_verified === response?.counts?.planned;
 }
@@ -48,8 +59,8 @@ async function ingestOne(requestFile: string): Promise<JsonObject> {
   for (const existingPath of await receiptFiles(receiptPath)) {
     try {
       const existing = JSON.parse(await readFile(existingPath, 'utf8')) as JsonObject;
-      const existingResponse = existing.response || existing;
-      const existingStatus = Number(existing.http_status || 200);
+      const existingResponse = isObject(existing.response) ? existing.response as ApiResponse : existing as ApiResponse;
+      const existingStatus = Number(existing.http_status ?? 200);
       if (isSuccessful(existingResponse, existingStatus)) {
         return { request_file: requestFile, status: 'SKIPPED_EXISTING_SUCCESS', http_status: existingStatus };
       }
@@ -60,7 +71,7 @@ async function ingestOne(requestFile: string): Promise<JsonObject> {
 
   const body = await readFile(requestPath);
   let lastStatus = 0;
-  let lastResponse: JsonObject | null = null;
+  let lastResponse: ApiResponse | null = null;
   let lastError: string | null = null;
   let attemptsUsed = 0;
 
@@ -77,7 +88,7 @@ async function ingestOne(requestFile: string): Promise<JsonObject> {
         signal: AbortSignal.timeout(600_000),
       });
       const text = await response.text();
-      let parsed: JsonObject | null = null;
+      let parsed: ApiResponse | null = null;
       try {
         parsed = JSON.parse(text) as JsonObject;
       } catch {

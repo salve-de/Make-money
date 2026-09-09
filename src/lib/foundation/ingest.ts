@@ -4,7 +4,6 @@ import {
   sha256Hex,
   type FoundationBucketRole,
   type R2WriteResult,
-  R2ObjectConflictError,
 } from '@/lib/storage/r2';
 
 type JsonObject = Record<string, unknown>;
@@ -1109,7 +1108,11 @@ export async function ingestFoundationResearch(
       run_id: bundle.run_id,
       write_authorized: true,
     },
-    objects: results.map(({ provider_calls: _providerCalls, ...report }) => report),
+    objects: results.map((result) => {
+      const { provider_calls, ...report } = result;
+      void provider_calls;
+      return report;
+    }),
     counts: {
       planned: plan.length,
       created: results.filter((item) => item.status === 'CREATED').length,
@@ -1288,7 +1291,11 @@ export async function ingestFoundationJournal(
       run_id: runId,
       write_authorized: true,
     },
-    objects: results.map(({ provider_calls: _providerCalls, ...report }) => report),
+    objects: results.map((result) => {
+      const { provider_calls, ...report } = result;
+      void provider_calls;
+      return report;
+    }),
     counts: {
       planned: plan.length,
       created: results.filter((item) => item.status === 'CREATED').length,

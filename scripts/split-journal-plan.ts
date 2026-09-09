@@ -1,14 +1,18 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-type JsonObject = Record<string, any>;
+type JsonObject = Record<string, unknown>;
+type JournalPlan = {
+  entries?: JsonObject[];
+  planned_writes?: JsonObject & { objects?: JsonObject[] };
+};
 
 const inputPath = resolve(process.argv[2] || 'data/collection/run_make_money_1000_bottomtrawl_20260909_03b.journal-plan.json');
 const outputDir = resolve(process.argv[3] || 'data/collection/journal_shards_20260909_03b');
 const chunkSize = Math.max(1, Math.min(100, Number(process.argv[4] || 100)));
 
 async function main(): Promise<void> {
-  const input = JSON.parse(await readFile(inputPath, 'utf8')) as JsonObject;
+  const input = JSON.parse(await readFile(inputPath, 'utf8')) as JournalPlan;
   const entries = Array.isArray(input.entries) ? input.entries : [];
   const objects = input.planned_writes?.objects;
   if (!Array.isArray(objects) || entries.length !== objects.length || entries.length === 0) {

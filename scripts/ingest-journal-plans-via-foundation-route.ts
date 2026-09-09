@@ -1,7 +1,14 @@
 import { readFile, writeFile, access, readdir } from 'node:fs/promises';
 import { basename, dirname, resolve } from 'node:path';
 
-type JsonObject = Record<string, any>;
+type JsonObject = Record<string, unknown>;
+type ApiResponse = JsonObject & {
+  success?: boolean;
+  schema_validation?: string;
+  readback_verified?: number;
+  counts?: { planned?: number; [key: string]: unknown };
+  error?: string;
+};
 const inputDir = resolve(process.argv[2] || 'data/collection/journal_shards_20260909_04d');
 const endpoint = process.argv[3] || 'http://127.0.0.1:8790/api/foundation/ingest';
 const token = process.env.FOUNDATION_LOCAL_INGEST_TOKEN?.trim();
@@ -13,7 +20,10 @@ const authToken: string = token;
 
 function sleep(ms: number): Promise<void> { return new Promise((resolveSleep) => setTimeout(resolveSleep, ms)); }
 function retryable(status: number): boolean { return [408, 425, 429, 500, 502, 503, 504].includes(status); }
-function success(response: JsonObject | null, status: number): boolean {
+function isObject(value: unknown): value is JsonObject {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+function success(response: ApiResponse | null, status: number): boolean {
   return status === 200 && response?.success === true && response?.schema_validation === 'PASS' && response?.readback_verified === response?.counts?.planned;
 }
 async function exists(path: string): Promise<boolean> { try { await access(path); return true; } catch { return false; } }
@@ -29,15 +39,15 @@ async function ingestOne(name: string): Promise<JsonObject> {
   for (const existingPath of await receiptFiles(receiptPath)) {
     try {
       const existing = JSON.parse(await readFile(existingPath, 'utf8')) as JsonObject;
-      const response = existing.response || existing;
-      const status = Number(existing.http_status || 200);
+      const response = isObject(existing.response) ? existing.response as ApiResponse : existing as ApiResponse;
+      const status = Number(existing.http_status ?? 200);
       if (success(response, status)) return { request_file: name, status: 'SKIPPED_EXISTING_SUCCESS', http_status: status };
     } catch { /* retry with the immutable create-only route */ }
   }
   const plan = JSON.parse(await readFile(inputPath, 'utf8')) as JsonObject;
   const body = Buffer.from(JSON.stringify({ write_authorized: true, journal_plan: plan }) + '\n');
   let lastStatus = 0;
-  let lastResponse: JsonObject | null = null;
+  let lastResponse: ApiResponse | null = null;
   let lastError: string | null = null;
   let attemptsUsed = 0;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
