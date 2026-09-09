@@ -4,6 +4,10 @@
 
 この文書は [Universal Foundationの同名正本](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md) と同じ内容をMake-Money側にも置いたものです。内容が食い違う場合はUniversal Foundationのmainを上位正本とし、差分を放置しないでください。
 
+## 0. 横断再利用の境界
+
+ここで集める事例は、Make-Moneyの記事専用素材ではなく、Foundationの共通資産です。出典付きの事実、過去時点のスナップショット、金の流れ、運営制約、調査状態、出典・権利・未知を残し、Make-Money、Idea Spark、GOLDMINE、Investrader、今後の新規プロジェクトが同じ記録を再利用できるようにします。ランキング、物語、画面ラベル、行動提案などのプロジェクト固有の表現は、元の事実を書き換えず、再生成可能なderived / serving viewとして扱います。将来のAIは、安定したIDと明示的な出典を使って既存のEntity / Claim / Metric / MoneySignal / Event / Relationship / observation / Journalを選び、各プロジェクト独自のViewを作ります。複数プロジェクトで使える観測は、特定プロダクト前提に埋め込まず、既存フィールド・observations・Journalのまま保持します。
+
 ## 1. 絶対に止めてはいけない調査範囲
 
 各事例について、単なる会社紹介ではなく、次を一体として調べて保存します。
