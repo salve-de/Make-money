@@ -1,9 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { FinancialEntity } from '../../types/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
 import { Bookmark } from 'lucide-react';
+
+const PAGE_SIZE = 100;
 
 interface InstitutionalDataGridProps {
   entities: FinancialEntity[];
@@ -28,6 +30,36 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   activeTags = [],
   onToggleTag,
 }) => {
+  const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
+  const observerTargetRef = useRef<HTMLDivElement>(null);
+
+  // フィルタや検索で entities が変更された場合は表示件数を初期化
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [entities]);
+
+  // 1000件スケール耐性: 初期100件から段階的にDOM展開するプログレッシブ・ウィンドウイング
+  const visibleEntities = useMemo(() => {
+    return entities.slice(0, visibleCount);
+  }, [entities, visibleCount]);
+
+  useEffect(() => {
+    const target = observerTargetRef.current;
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, entities.length));
+        }
+      },
+      { threshold: 0.1, rootMargin: '300px' }
+    );
+    observer.observe(target);
+    return () => {
+      observer.unobserve(target);
+    };
+  }, [entities.length]);
+
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
       const usd = Math.round(yen / 150);
@@ -44,7 +76,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     <div className="flex-1 overflow-y-auto bg-[#07080B] select-none">
       {/* 1. モバイル（390px以下）: 親指最適化フィード */}
       <div className="md:hidden divide-y divide-white/[0.05]">
-        {entities.map((entity) => (
+        {visibleEntities.map((entity) => (
           <MobileFeedCard
             key={entity.id}
             entity={entity}
@@ -74,7 +106,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             </tr>
           </thead>
           <tbody className="divide-y divide-white/[0.04]">
-            {entities.map((entity) => {
+            {visibleEntities.map((entity) => {
               const isSelected = selectedEntityId === entity.id;
               const isBookmarked = bookmarkedIds.has(entity.id);
               return (
@@ -158,7 +190,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.04]">
-              {entities.map((entity) => {
+              {visibleEntities.map((entity) => {
                 const isSelected = selectedEntityId === entity.id;
                 const isBookmarked = bookmarkedIds.has(entity.id);
                 return (
@@ -230,6 +262,13 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               })}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {/* 1000件スケール時・無限スクロール感知トリガー */}
+      {visibleCount < entities.length && (
+        <div ref={observerTargetRef} className="py-4 text-center text-[10px] text-zinc-500 font-mono">
+          読み込み中... ({visibleCount} / {entities.length}件)
         </div>
       )}
     </div>

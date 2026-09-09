@@ -50,11 +50,41 @@ export const TerminalShell: React.FC = () => {
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
 
+  // エンティティ動的ステート（初期値: 静的マスターデータ、マウント後にAPIから1000件スケールで動的補完）
+  const [entities, setEntities] = useState<FinancialEntity[]>(INSTITUTIONAL_ENTITIES);
+
+  // R2 / APIからの最新全件エンティティ動的ロード（1000件スケール対応）
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/api/businesses')
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((resJson: unknown) => {
+        const payload = resJson as { data?: FinancialEntity[] } | FinancialEntity[];
+        const items = Array.isArray(payload)
+          ? payload
+          : Array.isArray(payload?.data)
+          ? payload.data
+          : [];
+        if (isMounted && items.length > 0) {
+          setEntities(items);
+        }
+      })
+      .catch((err) => {
+        console.warn('[TerminalShell] Failed to fetch /api/businesses, falling back to static entities:', err);
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   // 認知負荷ゼロ・即時着火: entityParam指定があればそれ、なければPhoto AI（粗利84%ソロ企業）をデフォルト自動展開
   const initialEntityId =
     entityParam ||
     (queryParam
-      ? INSTITUTIONAL_ENTITIES.find(
+      ? entities.find(
           (e) =>
             e.name.toLowerCase().includes(queryParam.toLowerCase()) ||
             e.ticker.toLowerCase().includes(queryParam.toLowerCase())
@@ -83,7 +113,7 @@ export const TerminalShell: React.FC = () => {
     if (entityParam) {
       setSelectedEntityId(entityParam);
     } else if (queryParam) {
-      const matched = INSTITUTIONAL_ENTITIES.find(
+      const matched = entities.find(
         (e) =>
           e.name.toLowerCase().includes(queryParam.toLowerCase()) ||
           e.ticker.toLowerCase().includes(queryParam.toLowerCase()) ||
@@ -93,7 +123,7 @@ export const TerminalShell: React.FC = () => {
         setSelectedEntityId(matched.id);
       }
     }
-  }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam]);
+  }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam, entities]);
 
   // 閲覧履歴の自動追跡（開いた銘柄を蓄積）
   useEffect(() => {
@@ -166,24 +196,24 @@ export const TerminalShell: React.FC = () => {
   // 特集に紐づく対象企業群
   const deepDiveEntities = useMemo(() => {
     if (!activeDossier) return [];
-    return INSTITUTIONAL_ENTITIES.filter((entity) => activeDossier.targetEntityIds.includes(entity.id));
-  }, [activeDossier]);
+    return entities.filter((entity) => activeDossier.targetEntityIds.includes(entity.id));
+  }, [activeDossier, entities]);
 
   // 全タグ一覧および件数集計
   const { availableTags, tagCounts } = useMemo(() => {
     const counts: Record<string, number> = {};
-    INSTITUTIONAL_ENTITIES.forEach((e) => {
+    entities.forEach((e) => {
       (e.tags || []).forEach((t) => {
         counts[t] = (counts[t] || 0) + 1;
       });
     });
     const tags = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
     return { availableTags: tags, tagCounts: counts };
-  }, []);
+  }, [entities]);
 
   // 全台帳モードでのフィルタリング
   const filteredEntities = useMemo(() => {
-    return INSTITUTIONAL_ENTITIES.filter((entity) => {
+    return entities.filter((entity) => {
       if (currentFilter === 'SOLO' && entity.scale !== 'SOLO') return false;
       if (currentFilter === 'HIGH_MARGIN' && entity.pnl.operatingMargin < 50) return false;
       if (currentFilter === 'ZERO_CAPITAL' && entity.operations.initialCapitalRequired > 0) return false;
@@ -222,12 +252,12 @@ export const TerminalShell: React.FC = () => {
 
       return true;
     });
-  }, [currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
+  }, [entities, currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
 
   // 現在選択中の企業エンティティ
   const selectedEntity = useMemo(() => {
-    return INSTITUTIONAL_ENTITIES.find((e) => e.id === selectedEntityId) || null;
-  }, [selectedEntityId]);
+    return entities.find((e) => e.id === selectedEntityId) || null;
+  }, [entities, selectedEntityId]);
 
   const handlePrevEntity = useCallback(() => {
     const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
@@ -272,7 +302,7 @@ export const TerminalShell: React.FC = () => {
         {/* 画面モードに応じたコンテンツレンダリング */}
         {workspaceMode === 'SYNTHESIS' ? (
           <StrategySynthesisView
-            allEntities={INSTITUTIONAL_ENTITIES}
+            allEntities={entities}
             bookmarkedIds={bookmarkedIds}
             viewedEntityIds={viewedEntityIds}
             notes={notes}
@@ -282,7 +312,7 @@ export const TerminalShell: React.FC = () => {
           />
         ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
           <TacticalArchetypesView
-            allEntities={INSTITUTIONAL_ENTITIES}
+            allEntities={entities}
             initialAnomalyId={selectedAnomalyId}
             onOpenEntityInLedger={(entityId) => {
               setSelectedEntityId(entityId);
@@ -376,7 +406,7 @@ export const TerminalShell: React.FC = () => {
       <GlobalCommandPalette
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
-        entities={INSTITUTIONAL_ENTITIES}
+        entities={entities}
         onSelectEntity={setSelectedEntityId}
         currency={currency}
       />
