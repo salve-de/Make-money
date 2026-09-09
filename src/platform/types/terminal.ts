@@ -118,6 +118,55 @@ export interface ExposureAuditDossier {
   hiddenStackCost: string; // ④ 表向き隠された裏原価・現物API構造
 }
 
+// 【Layer 2: 動的特異点ブロック型】（データが存在する項目だけ自動展開）
+export interface DynamicMoats {
+  parasiteHost?: {
+    hostName: string; // 宿主（例: "Shopify", "Chrome Web Store", "X (Twitter)"）
+    detail: string; // どのように寄生し、トラフィックや顧客を横取りしているか
+  };
+  dataHostage?: {
+    lockInFactor: string; // 人質資産（例: "過去5年分の業務データ", "社内API連携"）
+    detail: string; // 解約すると会社が死ぬ仕掛け
+  };
+  affiliateBribery?: {
+    commissionRate: string; // 還元率（例: "売上の30%永久還元"）
+    detail: string; // 他人の強欲を走らせる紹介配管
+  };
+  upfrontCash?: {
+    cashCycle: string; // キャッシュ幾何学（例: "年払い一括前金 ＋ 原価月割り後払い"）
+    detail: string; // 客の現金を使って事業を拡大する無元手拡大の仕掛け
+  };
+  pivotGraveyard?: {
+    failedAttempts: string[]; // 過去に爆死させたプロダクト群
+    breakthroughSecret: string; // 何を変えた瞬間に当たったかの境界線
+  };
+}
+
+// 【Layer 3: 万能救済ストリーム型】（型に収まらない全観測データを1文字も捨てずにカード化）
+export interface UniversalObservation {
+  id?: string;
+  category: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
+  categoryLabel: string; // 例: "市場の歪み", "大手の自爆", "サバンナOSの急所", "現場の泥臭い工夫", "調査限界"
+  text: string;
+  originType?: 'observed' | 'inferred' | 'reported' | 'estimated';
+  verificationStatus?: 'SUPPORTED' | 'UNVERIFIED' | 'REFUTED';
+  sourceUrl?: string;
+  observedAt?: string;
+}
+
+export interface UniversalCoverageItem {
+  dimension: string;
+  status: 'found' | 'attempted_unavailable' | 'not_applicable';
+  note?: string;
+  attempts?: string[];
+}
+
+export interface UniversalEvent {
+  eventType: string;
+  occurredAt: string;
+  description: string;
+}
+
 export interface FinancialEntity {
   id: string;
   ticker: string; // 例: "KEYENCE", "STRIPE", "PHOTOAI"
@@ -148,6 +197,13 @@ export interface FinancialEntity {
 
   // 多次元探索・スクリーニングタグ
   tags: string[]; // 例: ["完全1人", "API包装", "利益率80%超", "B2B", "初期費用0円"]
+
+  // 【Layer 2 & Layer 3: 3層ハイブリッドUI完全表示保障用フィールド】
+  dynamicMoats?: DynamicMoats; // Layer 2: 動的特異点ブロック（データが存在する項目のみ展開）
+  observationsStream?: UniversalObservation[]; // Layer 3: 万能救済ストリーム（型に収まらない全データ）
+  timelineEvents?: UniversalEvent[]; // 重要タイムライン・マイルストーン
+  coverageAudit?: UniversalCoverageItem[]; // 監査カバレッジ・調査試行ログ
+  unknownsNotes?: string[]; // 調査限界・非公開要素の明記
 }
 
 export type GridFilterOption = 

@@ -30,6 +30,7 @@ import {
 } from 'lucide-react';
 import { AffiliateToolBadge, AffiliateToolList } from '../tools/AffiliateToolBadge';
 import { findToolAffiliate } from '../../config/toolAffiliates';
+import { UniversalIntelligenceStream } from './UniversalIntelligenceStream';
 
 function parsePunchline(text: string): { punchline: string; detail: string } {
   const match = text.match(/^【(.*?)】([\s\S]*)$/);
@@ -57,7 +58,7 @@ interface CompanyInspectorPaneProps {
   isPro?: boolean;
 }
 
-type TabType = 'CORE' | 'FINANCIALS' | 'PLAYBOOK' | 'NOTES';
+type TabType = 'CORE' | 'STREAM' | 'FINANCIALS' | 'PLAYBOOK' | 'NOTES';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   entity,
@@ -78,11 +79,11 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 }) => {
   const searchParams = useSearchParams();
   const tabParam = searchParams?.get('tab')?.toUpperCase() as TabType | undefined;
-  const resolvedTab = tabParam === 'CORE' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK' || tabParam === 'NOTES' ? tabParam : initialTab;
+  const resolvedTab = tabParam === 'CORE' || tabParam === 'STREAM' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK' || tabParam === 'NOTES' ? tabParam : initialTab;
   const [activeTab, setActiveTab] = useState<TabType>(resolvedTab);
 
   useEffect(() => {
-    if (tabParam === 'CORE' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK') {
+    if (tabParam === 'CORE' || tabParam === 'STREAM' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK' || tabParam === 'NOTES') {
       setActiveTab(tabParam);
     }
   }, [tabParam]);
@@ -279,7 +280,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         </div>
 
         {/* ========================================================= */}
-        {/* 【タブ切替バー: 4層特化 (CORE / FINANCIALS / PLAYBOOK / NOTES)】 */}
+        {/* 【タブ切替バー: 5層特化 (CORE / STREAM / FINANCIALS / PLAYBOOK / NOTES)】 */}
         {/* ========================================================= */}
         <div className="flex items-center border-b border-white/[0.06] bg-[#07080A] text-[11px] font-sans shrink-0">
           <button
@@ -293,6 +294,21 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             事業DNA (Core)
           </button>
           <button
+            onClick={() => setActiveTab('STREAM')}
+            className={`flex-1 py-2 text-center transition-colors border-b-2 relative ${
+              activeTab === 'STREAM'
+                ? 'text-emerald-400 border-emerald-400 font-bold bg-emerald-950/20'
+                : 'text-zinc-500 border-transparent hover:text-zinc-300'
+            }`}
+          >
+            全量インテリジェンス (Stream)
+            {entity.observationsStream && entity.observationsStream.length > 0 && (
+              <span className="ml-1 px-1 py-0.2 rounded text-[9px] font-mono bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                {entity.observationsStream.length}
+              </span>
+            )}
+          </button>
+          <button
             onClick={() => setActiveTab('FINANCIALS')}
             className={`flex-1 py-2 text-center transition-colors border-b-2 ${
               activeTab === 'FINANCIALS'
@@ -300,7 +316,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 : 'text-zinc-500 border-transparent hover:text-zinc-300'
             }`}
           >
-            財務・稼働インフラ
+            財務・稼働
           </button>
           <button
             onClick={() => setActiveTab('PLAYBOOK')}
@@ -310,7 +326,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 : 'text-zinc-500 border-transparent hover:text-zinc-300'
             }`}
           >
-            実務Playbook
+            Playbook
           </button>
           <button
             onClick={() => setActiveTab('NOTES')}
@@ -525,6 +541,40 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   </div>
                 </section>
               )}
+
+              {/* 全量インテリジェンスストリームへの案内バナー */}
+              <div 
+                onClick={() => setActiveTab('STREAM')}
+                className="border border-emerald-500/25 hover:border-emerald-500/50 rounded-md bg-[#080E0B] p-3 flex items-center justify-between group cursor-pointer transition-all duration-150 shadow-xs"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="p-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+                    <Zap className="w-3.5 h-3.5" />
+                  </span>
+                  <div className="truncate">
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                        3層ハイブリッド完全表示保障
+                      </span>
+                      {entity.observationsStream && entity.observationsStream.length > 0 && (
+                        <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-emerald-500/15 text-emerald-300 font-bold">
+                          {entity.observationsStream.length}件の生データ
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-xs font-bold text-white truncate group-hover:text-emerald-300 transition-colors">
+                      動的特異点 ＆ 万能救済ストリームを開く
+                    </h4>
+                    <p className="text-[10px] text-zinc-400 truncate mt-0.5 font-sans">
+                      画一フレームで切り捨てられない生々しい裏帳簿・観測ログを全量閲覧
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1 font-mono text-[11px] text-emerald-400 group-hover:text-emerald-300 shrink-0 pl-2">
+                  <span className="hidden sm:inline">全量表示</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                </div>
+              </div>
             </div>
           )}
 

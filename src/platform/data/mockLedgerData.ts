@@ -227,6 +227,184 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     },
   },
   {
+    id: 'ent_shipfast',
+    ticker: 'SHIPFAST',
+    name: 'ShipFast',
+    legalEntity: 'Marc Lou Solo Ventures',
+    tagline: '開発者が最も挫折するStripe決済・認証の配管を事前構築し、完全1人で累計25万ドル（約3,700万円・手残り約90%）を抜いたNext.jsボイラープレート',
+    sector: 'NICHE_SAAS',
+    scale: 'SOLO',
+    founder: 'Marc Lou (@marc_louvion)',
+    country: 'FR',
+    url: 'https://shipfa.st',
+    verifiedBadge: true,
+    growthRateYoY: 340.0,
+    architecturePattern: 'テンプレ直販・即断買い切り',
+    pipelineStack: 'Next.js 14 × Stripe × NextAuth × Tailwind',
+    targetPainWallet: '開発者の認知疲労（2〜4週間かかる決済・認証の配管挫折）',
+    tags: ['完全1人', '買い切り型', '利益率90%超', '個人開発', 'SNSバイラル', '初期費用0円'],
+    essence: {
+      whatItDoes: 'SaaS開発に必要なNext.jsテンプレート・Stripe決済・認証・メール送信の事前統合コードベース販売',
+      targetCustomer: '個人開発者、ソロプレナー、新規SaaSを素早く立ち上げたいエンジニア',
+      painRelief: 'コア機能以外の「決済・ログイン・メール設定」に2〜4週間浪費してローンチ前に力尽きる苦痛',
+    },
+    pricing: {
+      model: '一括買い切り（Lifetime License）',
+      pricePoint: '$169〜$299（約2.5万〜4.5万円）',
+      psychologicalTrigger: '損失回避と時間圧縮（「数週間の面倒な配管作業を2万円でスキップできる」という極限の怠惰肯定）',
+      estimatedLtvJpy: 35000,
+      churnRate: '0%（買い切りのため解約なし）',
+    },
+    acquisition: {
+      cacJpy: 0,
+      primaryFunnel: 'Xでの自虐・ローンチショート動画 ➔ 公式LP ➔ Stripe Checkout ➔ GitHubレポジトリ招待',
+      tactics: [
+        '自室で踊りながらプロダクトをローンチするユーモア動画',
+        'Stripe売上ダッシュボードの完全リアルタイム公開（Build in Public）',
+        '「Made with ShipFast」バッジによる購入者プロダクトからの二次流入',
+      ],
+    },
+    pnl: {
+      monthlyRevenue: 6000000, // 月商約600万円 ($40,000)
+      cogs: 240000, // Stripe決済手数料 (2.9% + $0.30)
+      grossProfit: 5760000,
+      grossMargin: 96.0,
+      operatingExpenses: {
+        serverAndApi: 25000, // Vercel / ドメイン代
+        advertising: 0,
+        subcontracting: 0,
+        toolsAndSaaS: 45000, // Resend, Supabase
+        other: 80000,
+      },
+      operatingProfit: 5610000, // 実効手残り純利益 (約93%)
+      operatingMargin: 93.5,
+      estimatedAnnualNetProfit: 67000000, // 推定年商約7,000万円・純利約6,700万円
+    },
+    operations: {
+      teamSize: 1,
+      weeklyHours: 15,
+      initialCapitalRequired: 5000, // ドメイン代のみ
+      automationLevel: 98,
+      primaryChannels: ['X (旧Twitter) オーガニック動画', 'Indie Hackers / Starter Story', '購入者フッター被リンク'],
+      toolStack: [
+        { name: 'Next.js 14 (App Router)', category: 'フレームワーク', monthlyCost: 0, purpose: 'コアプロダクト本体のコードベース', replacementDifficulty: 'HIGH', url: 'https://nextjs.org' },
+        { name: 'Stripe', category: '決済', monthlyCost: 174000, purpose: 'グローバル即時決済とGitHub自動アクセス権付与', replacementDifficulty: 'HIGH', url: 'https://stripe.com' },
+        { name: 'Vercel', category: 'ホスティング', monthlyCost: 3000, purpose: 'LPの高速配信とグローバルEdgeデプロイ', replacementDifficulty: 'LOW', url: 'https://vercel.com' },
+        { name: 'Resend', category: 'メール配信', monthlyCost: 3000, purpose: '購入者への領収書とウェルカムメール自動配信', replacementDifficulty: 'LOW', url: 'https://resend.com' },
+      ],
+    },
+    strategy: {
+      blindspot: '【「誰もが作りたがるが、誰もが途中で挫折する」決済・認証の配管工事を売る】エンジニアは「素晴らしいアイデア」を形にしたいのであって、StripeのWebhookデバッグやNextAuthのOAuth設定を何日もやりたいわけではない。この「最も退屈で挫折率90%の初期配管」をパッケージ化し、即断即決価格で売り抜いた。',
+      moatType: 'BRAND_PRESTIGE',
+      moatDescription: '【Marc Lou個人のX求心力 ✕ 爆速出荷の象徴的ブランド】競合がどれだけコードを模倣しても、「Marc Louが実際に使って年商数千万円を叩き出している本物のコードベース」という文脈と信頼を奪えない。',
+      incumbentDilemma: '大手プログラミングスクールや受託開発企業は、数十万円〜数百万円の契約を維持するために「開発の難しさ」を演出する必要があり、$199の買い切り即納テンプレを売ることは自らの高単価ビジネスを破壊する。',
+      secretInsight: 'サブスクリプション（月額課金）にせず「買い切り」にしたことで、買い手の購入ハードルが極限まで下がり、リリース初速でバイラルが最大化した。さらに、一度買ったユーザーが自ら「ShipFastでリリースした」とXで宣伝してくれるため、広告費ゼロで永久に新規が流入する。',
+      initialTraction: [
+        '過去に作った数十個のボイラープレート用コードを1つに集約',
+        'Xで「今夜新しいボイラープレートを出す」と予告ショート動画を投稿',
+        'ローンチから数時間で数十本が売れ、その売上スクショを即時Build in public投稿して二次拡散',
+      ],
+      actionPlaybook: [
+        'Step 1: 自分が普段SaaSを作る際に毎回書いている共通モジュール（認証・決済・メール・UI）を抽出する',
+        'Step 2: 1行の設定変更で即座にStripeとSupabaseが繋がる極限まで抽象化したリポジトリを作る',
+        'Step 3: X上で「これを使って週末でローンチした事例」を動画で見せ、買い切り型で即時現金化する',
+      ],
+    },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: '大手開発受託企業は数百万円の工数請求が利益源であり、2万円の即納テンプレは自社売上を殺すため絶対に参入できない。',
+        scaleMismatchReason: '個人向けデジタルテンプレート販売は、大企業にとっては市場規模が小さすぎて役員稟議が通らない。',
+        decisionSpeedAdvantage: 'Next.jsの新機能（Server Actions等）が出た瞬間に1日でボイラープレートを改修・動画発信できる個人の即時性。',
+      },
+      pricingPower: {
+        anchorComparison: '「受託開発の外注費（数十万〜数百万円）」や「エンジニアの人件費（月50万円）」と比較させることで、2.5万円の買い切りを「実質無料レベルの投資」と直感認知させる。',
+        lossAversionTrigger: '「初期設定で2週間悩んでアイデアの熱が冷め、挫折する」という機会損失の恐怖。',
+        budgetCategory: '個人の自己投資枠・起業初期準備金（クレジットカードで即決可能な枠）。',
+      },
+      lockInMechanism: {
+        dataHostage: '購入したコードベース上で自社のSaaSプロダクトが本番稼働するため、他社テンプレに乗り換える動機がゼロになる。',
+        workflowIntegration: 'Marc Louが配布する追加アップデートやコミュニティDiscordへのアクセス権。',
+        switchingFriction: '一度使い慣れたNext.jsボイラープレートのディレクトリ構造が、その開発者のデフォルト開発環境になる。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '100%前金即時集金。商品原価ゼロのため、Stripe着金＝手元現金純利益。',
+        incrementalMargin: '追加コピーの限界費用は完全ゼロ（99%）。',
+        workingCapitalStrategy: '借金・資本調達ゼロ。完全自己資金0円から初月数万ドルを着金させ、その現金で生活・拡大。',
+      },
+    },
+    exposureAudit: {
+      guerrillaTraction: '広告宣伝費ゼロ。Marc Lou自身が自室でラフに撮ったダンス動画や制作タイムラプスをXへ連投。優等生的なプロモーションを焼き払い、「個人が本気で遊んで稼いでいる」リアリティを武器に初週で数万ドルを即時回収。',
+      platformGlitch: 'Xのアルゴリズムが「動画付き・引用リツイート・Build in Public（生々しい売上数字の開示）」を異常なリーチで優遇する仕様をハック。他人のバズツイートのリプライ欄で的確な自虐動画を投下してトラフィックを強奪。',
+      pivotSnapshot: '過去にHabit Tracker、Twitter分析ツールなど複数プロダクトを連続で爆死させていた。その際「毎回同じ認証と決済を書くのが嫌すぎる」という自身の強烈な不満をそのまま切り出して販売した特異点で突如大爆発。',
+      hiddenStackCost: '月間サーバー代はVercelの$20プランのみ。メールはResend無料枠〜数ドル。Stripe決済手数料約2.9%以外の原価がほぼ存在せず、売上600万円に対して月間固定費は2万円以下。実効手残り率は93%超。',
+    },
+    // 【Layer 2: 動的特異点ブロック】
+    dynamicMoats: {
+      parasiteHost: {
+        hostName: 'X (旧Twitter) & Next.jsエコシステム',
+        detail: 'Next.jsとSaaS開発に関するX上の熱狂的な議論に自虐動画で寄生。個人開発者が「よしSaaSを作ろう」と思い立った最初の瞬間にタイムラインで直撃する。',
+      },
+      dataHostage: {
+        lockInFactor: '本番稼働プロダクトのコアコード',
+        detail: 'ShipFastを土台に本番SaaSをローンチした開発者は、基盤コードを置き換えることが実質不可能なため、2作目・3作目もShipFastを使い続ける。',
+      },
+      affiliateBribery: {
+        commissionRate: '売上の25%アフィリエイト還元',
+        detail: '購入した開発者が自身のXやブログで「ShipFastでローンチした」とレビューし、紹介リンク経由で毎月数百万円が自律的に売れ続ける共犯者配管。',
+      },
+      upfrontCash: {
+        cashCycle: '100%買い切り前金総取り（$169〜$299）',
+        detail: 'サブスクの解約リスクを排除し、購入時に全額前金回収。原価ゼロのため着金したキャッシュを即座に手残り現金としてプール。',
+      },
+      pivotGraveyard: {
+        failedAttempts: ['Habit Trackerアプリ', 'Twitter分析ツール', 'Gamified Todoアプリ'],
+        breakthroughSecret: '「自分が使うツール」を開発する過程で生じる最大のペイン（Stripe・OAuth設定の泥沼）そのものを商品化した瞬間に当たった。',
+      },
+    },
+    // 【Layer 3: 万能救済ストリーム】
+    observationsStream: [
+      {
+        category: 'SAVANNAH_PAIN',
+        categoryLabel: 'サバンナOSの急所',
+        text: '開発者はコア機能以外の「Stripe決済、NextAuth認証、DNSメール設定」に2〜4週間を浪費してローンチ前に力尽きる（損失回避・認知疲労）。ShipFastはこの即時苦痛切除で1秒即決させる。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'INCUMBENT_DILEMMA',
+        categoryLabel: '大手の自爆',
+        text: '大手受託開発会社やプログラミングスクールは、数百万円の開発受託や月額数十万円の学費モデルを自ら破壊（カニバリ）するため、$199の買い切りコードを絶対に販売できない。',
+        originType: 'inferred',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'FOUNDER_HACK',
+        categoryLabel: '現場の泥臭い工夫',
+        text: '初期の製品デモは完成品ではなく「キーボードを叩いてStripe決済が通るだけの10秒動画」をXに投稿して反響を検証。数時間で数百いいねがついたのを確認してから夜通しでコードを整えて即日発売した。',
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'TECH_VERIFICATION',
+        categoryLabel: '技術スタック照合',
+        text: 'フロントエンド: Next.js 14 (App Router) + Tailwind CSS + DaisyUI。認証: NextAuth.js。DB: MongoDB / Supabase。メール: Resend / Mailgun。決済: Stripe。月間固定費$150未満。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'RESEARCH_LIMIT',
+        categoryLabel: '調査限界・非公開',
+        text: 'Marc Lou個人の税引後銀行振込額およびStripe内部手数料明細は非公開。公知の売上実績、Stripe標準2.9%+$0.30、インフラ相場から純手残り92%と推計（Estimated）。',
+        originType: 'estimated',
+        verificationStatus: 'UNVERIFIED',
+      },
+    ],
+    unknownsNotes: [
+      'Marc Lou個人の税引後手残り現金実額はフランス/海外の税制上非公開。',
+      '月ごとのStripeチャージバック・返金率の詳細は非公開（規約上デジタル製品のため返金拒否が基本）。',
+    ],
+  },
+  {
     id: 'ent_photoai',
     ticker: 'PHOTOAI',
     name: 'Photo AI',
@@ -339,6 +517,406 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       pivotSnapshot: '当初は「アバター生成（ゲーム風AI画像）」としてリリースしたが、客が1回で飽きることに直面。即座に「LinkedIn用・履歴書用のビジネス宣材写真」へオファーを絞り込み、写真館の1.5万円と恥ずかしさを嫌う層へ刺した瞬間に月商1,800万円を突破。',
       hiddenStackCost: '自社AIモデルはゼロ。裏側はオープンソースのStable Diffusion + Dreamboothを、Hetznerの月額格安GPUサーバー（月3万円程度）とReplicate API（従量課金）で回すだけのラッパー。月商1,800万円に対してサーバー原価は約250万円、従業員0人（完全1人）で粗利86%を達成。',
     },
+    // 【Layer 2: 動的特異点ブロック】
+    dynamicMoats: {
+      parasiteHost: {
+        hostName: 'Replicate API & Stable Diffusion',
+        detail: '自社で高価なH100/A100 GPUクラスターを一切保有せず、ReplicateのAPIに推論処理を全量丸投げ。ユーザーが課金した時のみAPIを叩くため、待機固定費が完全ゼロ。',
+      },
+      dataHostage: {
+        lockInFactor: 'ユーザーごとの学習済み微調整モデル（Lora）',
+        detail: '一度自撮り写真をアップロードして自分の顔モデルを生成させると、そのモデルがサーバー上に残り続けるため、「別のポーズや服装」が欲しくなった際に他社へ乗り換えずにリピート課金する。',
+      },
+      upfrontCash: {
+        cashCycle: 'サブスク前金回収（月額$29〜$99）',
+        detail: '生成画像数に月間上限を設け、使わなかった枠は翌月に繰り越さないことで、限界原価ゼロのまま毎月一定額の現金が手元に残り続ける。',
+      },
+      pivotGraveyard: {
+        failedAttempts: ['アバター生成アプリ', 'アニメ調アイコン生成', 'ゲームキャラAIジェネレーター'],
+        breakthroughSecret: '「面白いだけのオモチャ画像」は1回で解約されるが、「LinkedInや履歴書で自分がカッコよく見える宣材写真」という社会的ステータス・見栄に特化した瞬間にLTVが跳ね上がった。',
+      },
+    },
+    // 【Layer 3: 万能救済ストリーム】
+    observationsStream: [
+      {
+        category: 'SAVANNAH_PAIN',
+        categoryLabel: 'サバンナOSの急所',
+        text: '人間が写真スタジオに行く最大の障壁は「カメラマンの前でポーズを取る羞恥心」と「数万円の出費」である。自撮り3枚を自室でアップロードするだけでプロ級の宣材が手に入る体験は、虚栄心と怠惰の急所を直撃する。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'INCUMBENT_DILEMMA',
+        categoryLabel: '大手の自爆',
+        text: '老舗写真館や商業撮影スタジオは、スタジオ家賃とプロカメラマンの人件費を抱えているため、1回数十円のAI価格破壊に追随することは自社売上の自爆を意味する。指をくわえてシェアを奪われるしかない。',
+        originType: 'inferred',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'FOUNDER_HACK',
+        categoryLabel: '現場の泥臭い工夫',
+        text: '生成待ち時間（約40秒）の離脱を防ぐため、「カメラマンがファインダーを覗いてシャッターを切るようなアニメーション演出」をCSSだけで実装。体感時間を錯覚させて離脱率を65%低減させた。',
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'TECH_VERIFICATION',
+        categoryLabel: '技術スタック照合',
+        text: '最新のモダンフレームワークを使わず、PHP単一ファイル + SQLite + Hetznerの月額格安Linuxサーバーで運用。複雑なNode/K8s基盤を完全排除した外科医的ミニマリズム。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'RESEARCH_LIMIT',
+        categoryLabel: '調査限界・非公開',
+        text: 'Replicate APIの月間請求書の内訳（GPU秒単位の課金ログ）は非公開。Pieter Levelsが公開した月商ダッシュボードおよび推論単価相場から手残り率84%と算出。',
+        originType: 'estimated',
+        verificationStatus: 'UNVERIFIED',
+      },
+    ],
+    unknownsNotes: [
+      'オランダLevels.io BVの法人税引後手残り個人の私的資産額は非公開。',
+      '月間解約率（Churn）は公称約14.5%だが、新規流入数がそれを上回り続けている。',
+    ],
+  },
+  {
+    id: 'ent_nomadlist',
+    ticker: 'NOMADLIST',
+    name: 'Nomad List',
+    legalEntity: 'Levels.io BV',
+    tagline: '世界中の都市の物価・Wi-Fi速度・気候データをクローリングし、デジタルノマドの孤立と見栄をコミュニティに監禁して完全1人で月商350万円抜く手口',
+    sector: 'CONTENT_MEDIA',
+    scale: 'SOLO',
+    founder: 'Pieter Levels (@levelsio)',
+    country: 'NL',
+    url: 'https://nomadlist.com',
+    verifiedBadge: true,
+    growthRateYoY: 25.0,
+    architecturePattern: 'DB関所・ライフタイム囲い込み',
+    pipelineStack: 'PHP × SQLite × Hetzner × Stripe',
+    targetPainWallet: 'デジタルノマドの孤独（現地コミュニティ難民）と情報収集コスト',
+    tags: ['完全1人', 'データベース型', 'コミュニティ監禁', '買い切り型', '初期費用0円'],
+    essence: {
+      whatItDoes: '全世界数千都市の生活コスト・インターネット速度・治安・気候データベースおよびノマド交流プラットフォーム',
+      targetCustomer: 'リモートワーカー、フリーランス、世界を旅しながら働くデジタルノマド',
+      painRelief: '「現地に着いたらWi-Fiが遅くて仕事にならない」「治安が悪くて危険」という渡航失敗の恐怖と、旅先での孤独',
+    },
+    pricing: {
+      model: 'ライフタイム買い切り（Lifetime Membership）',
+      pricePoint: '$99〜$299（時期により変動）',
+      psychologicalTrigger: '社会的所属欲求（「世界中の優秀なノマドと繋がっている」序列感と排除恐怖の回避）',
+      estimatedLtvJpy: 30000,
+      churnRate: '0%（ライフタイム課金）',
+    },
+    acquisition: {
+      cacJpy: 0,
+      primaryFunnel: '「Best places to live for digital nomads」等でのGoogle SEO上位独占 ➔ 都市ランキング閲覧 ➔ Slack/Discord参加での課金ゲートウェイ',
+      tactics: [
+        '全都市の数値をプログラマティックSEOで自動数万ページ展開',
+        'Xでのリアルタイム都市ランキングや移住トレンドの自動bot発信',
+        'メンバー限定Slack/Discordの口コミ拡散',
+      ],
+    },
+    pnl: {
+      monthlyRevenue: 3800000, // 月商約380万円 ($25k)
+      cogs: 120000, // Stripe決済手数料 (2.9% + $0.30)
+      grossProfit: 3680000,
+      grossMargin: 96.8,
+      operatingExpenses: {
+        serverAndApi: 30000, // Hetzner月額サーバー代
+        advertising: 0,
+        subcontracting: 0,
+        toolsAndSaaS: 20000,
+        other: 50000,
+      },
+      operatingProfit: 3580000, // 実効手残り純利益 (約94%)
+      operatingMargin: 94.2,
+      estimatedAnnualNetProfit: 43000000, // 推定年間純利約4,300万円
+    },
+    operations: {
+      teamSize: 1,
+      weeklyHours: 8,
+      initialCapitalRequired: 0,
+      automationLevel: 99,
+      primaryChannels: ['Programmatic SEO (数万都市ページ)', 'X (旧Twitter) オーガニック発信', 'コミュニティ口コミ'],
+      toolStack: [
+        { name: 'PHP + Vanilla JS (No Framework)', category: '基幹', monthlyCost: 0, purpose: '依存関係ゼロの高速Webレンダリング', replacementDifficulty: 'HIGH', url: 'https://php.net' },
+        { name: 'SQLite', category: 'DB', monthlyCost: 0, purpose: '超軽量・高耐久な単一ファイルデータベース', replacementDifficulty: 'HIGH', url: 'https://sqlite.org' },
+        { name: 'Hetzner Dedicated Server', category: 'サーバー', monthlyCost: 15000, purpose: '月数百万人規模のアクセスを1台で捌くドイツ格安物理サーバー', replacementDifficulty: 'LOW', url: 'https://hetzner.com' },
+        { name: 'Stripe', category: '決済', monthlyCost: 110000, purpose: '世界中からのライフタイム会費自動集金', replacementDifficulty: 'HIGH', url: 'https://stripe.com' },
+      ],
+    },
+    strategy: {
+      blindspot: '【「情報はネット上に散らばっているが、誰も一覧化していない」都市データを1つのスプレッドシートに束ねた】世界中の生活費やWi-Fi情報はブログに散在していたが、比較不能だった。これを1枚の公開スプレッドシートから始め、ランキング化してトラフィックを独占した。',
+      moatType: 'NETWORK_EFFECT',
+      moatDescription: '【10年かけて蓄積された都市口コミデータ ✕ 3万人超のノマド有料会員網】競合がスクレイピングで都市データを盗んでも、会員同士の交流ログ・現地ミートアップ・治安レビューの生身のネットワーク効果は模倣できない。',
+      incumbentDilemma: 'Lonely PlanetやTripadvisorなどの旅行大手は「短期観光客向けホテル・ツアー広告」がビジネスモデルの柱であり、数ヶ月滞在するノマド向けの月額家賃やWi-Fi速度に特化することは自社収益と競合する。',
+      secretInsight: '最初はGoogle Docsのスプレッドシートを公開しただけで、コードすら書いていなかった。バズってから夜通しでHTML化し、有料コミュニティ（Slack）を付けた瞬間にキャッシュマシン化。',
+      initialTraction: [
+        'Twitterで「デジタルノマドに最適な都市ランキング」のGoogleスプレッドシートを共有',
+        'Product Huntで1位を獲得し、初日で数万PVを獲得',
+        'Slackへの招待を有料化（$5 ➔ $10 ➔ $99と値上げ）して即座に課金検証完了',
+      ],
+      actionPlaybook: [
+        'Step 1: 特定のライフスタイル層が欲しがる「分散した数値データ」を1つのスプレッドシートにまとめる',
+        'Step 2: プログラマティックSEOで都市名・国名の個別ページを数千ページ自動生成して検索をジャックする',
+        'Step 3: 閲覧は一部無料で見せ、コミュニティ参加と詳細データフィルターを有料ライフタイム課金にする',
+      ],
+    },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: '旅行代理店・Booking.comはホテル仲介手数料が利益源であり、安宿やコワーキングの口コミを前面に出すことは手数料単価を下げるため手を出せない。',
+        scaleMismatchReason: 'ノマド市場は大手にはニッチすぎて社内稟議が通らない。',
+        decisionSpeedAdvantage: 'Pieter Levelsがタイやバリのカフェから即日コードをプッシュする1人開発の速度。',
+      },
+      pricingPower: {
+        anchorComparison: '「海外移住で治安の悪い部屋を借りて数ヶ月分の家賃をドブに捨てる損失（数十万円）」と比較させることで、$99〜$299の会員費を安い保険と認識させる。',
+        lossAversionTrigger: '異国の地で孤立する恐怖、ネット環境の悪い部屋を引いて仕事が止まる損失。',
+        budgetCategory: '海外渡航準備費用・自己投資枠。',
+      },
+      lockInMechanism: {
+        dataHostage: '自分の旅行履歴、訪れた都市のログ、コミュニティ内の評判スコア。',
+        workflowIntegration: '都市を移動するたびにNomad Listを開いて次の目的地を決める習慣。',
+        switchingFriction: '同種の競合コミュニティに他のノマド仲間がいないため、他へ移る理由がない。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '100%前金買い切り。在庫原価ゼロ。',
+        incrementalMargin: 'ユーザーが1人増えても増えるサーバー代はほぼゼロ（99%）。',
+        workingCapitalStrategy: '創業から現在まで外部調達ゼロ。得た利益を次のプロダクト（Photo AI等）の初期実験費に再投資。',
+      },
+    },
+    exposureAudit: {
+      guerrillaTraction: '初期はRedditのr/digitalnomadに自作スプレッドシートを投稿し、現地の生々しいWi-Fi実測値を募ってコミュニティと共創。批判的なコメントにも自虐ユーモアで返しファン化。',
+      platformGlitch: 'Googleのアルゴリズムが「数値データが多く、更新頻度が高い都市比較テーブル」を地域検索で最上位に固定する癖を突き、数千都市のプログラマティックSEOで検索結果を独占。',
+      pivotSnapshot: '当初は単なる都市一覧表だったが、ユーザー同士が「いまバンコクにいる人いる？」と尋ね始めたのを見て即座に有料Slackを設立。無料メディアから有料コミュニティへ舵を切ったことで永続キャッシュフローが確立。',
+      hiddenStackCost: '月商350万円に対して月間インフラ費用はHetzner物理サーバー1台の約1.5万円のみ。Stripe手数料約11万円を引いた後の手残り現金は約340万円（実効手残り率約94%）。',
+    },
+    // 【Layer 2: 動的特異点ブロック】
+    dynamicMoats: {
+      parasiteHost: {
+        hostName: 'Google Search & Digital Nomadトレンド',
+        detail: '「Cost of living in [City]」「Best places for remote workers」という世界中のロングテール検索ワードを数千の自動生成ページで独占。Googleの検索流入を無料で全量横取りする。',
+      },
+      dataHostage: {
+        lockInFactor: '世界中のノマド3万人による現地口コミ＆コミュニティ履歴',
+        detail: '会員が投稿したコワーキングWi-Fi実測値や治安情報が独占資産化。新規参入者がサイトを真似しても、この10年分のリアルタイム現地情報は再現不能。',
+      },
+      upfrontCash: {
+        cashCycle: 'ライフタイム一括前払い（$99〜$299）',
+        detail: '月額サブスクの解約防止に悩むのをやめ、入会時に一生分の前金を回収。原価ゼロのため現金が常に先行して銀行口座にプールされる。',
+      },
+      pivotGraveyard: {
+        failedAttempts: ['Tubalr (YouTube音楽プレイリスト)', 'Go Fucking Do It (罰金制タスク管理)'],
+        breakthroughSecret: '自らがノマドとして世界を放浪する中で感じた「次の街のWi-Fiと治安が分からない」という切実なペインを1枚の表にした瞬間に世界規模で当たった。',
+      },
+    },
+    // 【Layer 3: 万能救済ストリーム】
+    observationsStream: [
+      {
+        category: 'SAVANNAH_PAIN',
+        categoryLabel: 'サバンナOSの急所',
+        text: '異国の地で一人取り残される「孤立恐怖（社会的排除の痛み）」と「詐欺物件を引く損失」を人質にする。会員限定チャットに入れる権利と確実な現地データで即決させる。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'FOUNDER_HACK',
+        categoryLabel: '現場の泥臭い工夫',
+        text: '初期はAPIやクローラーを使わず、Pieter自身がTripAdvisorやWikipedia、Speedtestの数字を手作業でGoogle Docsにコピペして数十都市の表を埋めた。',
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'TECH_VERIFICATION',
+        categoryLabel: '技術スタック照合',
+        text: 'フロント・バックエンド共に純粋なPHPとVanilla JS。ビルドステップやWebpackは一切なし。サーバー上でファイルを直接編集して保存するだけで即本番反映。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'RESEARCH_LIMIT',
+        categoryLabel: '調査限界・非公開',
+        text: 'オランダ法人の決算書原本および個人の私的銀行口座引き出し額は非公開。公開ダッシュボードとStripe 2.9%+$0.30、Hetzner実費から月間手残り推計 $22,872〜$25,913 を算出。',
+        originType: 'estimated',
+        verificationStatus: 'UNVERIFIED',
+      },
+    ],
+    unknownsNotes: [
+      'ライフタイム会員の長期アクティブ率（登録後1年以上経過したユーザーのログイン頻度）は非公開。',
+    ],
+  },
+  {
+    id: 'ent_plausible',
+    ticker: 'PLAUSIBLE',
+    name: 'Plausible Analytics',
+    legalEntity: 'Plausible Insights OÜ',
+    tagline: 'Google AnalyticsのUI複雑怪奇さとGDPRプライバシー違反への憎悪を突き、オープンソース2人体制で月商1,100万円・利益率90%抜く手口',
+    sector: 'NICHE_SAAS',
+    scale: 'SMALL_TEAM',
+    founder: 'Marko Saric & Uku Taht',
+    country: 'EE',
+    url: 'https://plausible.io',
+    verifiedBadge: true,
+    growthRateYoY: 85.0,
+    architecturePattern: 'アンチGoogle・反逆ブランディング',
+    pipelineStack: 'Elixir × ClickHouse × Tailwind × Stripe',
+    targetPainWallet: '企業の法務・Web担当者（クッキー同意バナーとGoogle Analyticsの複雑怪奇さ）',
+    tags: ['少人数精鋭', 'B2B SaaS', 'プライバシー特化', 'アンチ巨人', '利益率80%超'],
+    essence: {
+      whatItDoes: 'Cookie不要・GDPR完全準拠・1画面で直感理解できる超軽量Webアクセス解析SaaS',
+      targetCustomer: 'プライバシーを重視する欧州/グローバル企業、開発者、ミニマリストWebマスター',
+      painRelief: 'Google Analytics (GA4) の使いにくさ、サイトを重くするCookie同意バナー、欧州データ保護法（GDPR）違反の罰金恐怖',
+    },
+    pricing: {
+      model: '月額/年額従量サブスクリプション（月間PV課金）',
+      pricePoint: '$9/月〜$169/月（PV数に応じて拡張）',
+      psychologicalTrigger: '恐怖切除と認知負荷ゼロ（「Cookieバナーを消せて違法リスクがゼロになる」法令遵守と美しさ）',
+      estimatedLtvJpy: 85000,
+      churnRate: '2.8%/月',
+    },
+    acquisition: {
+      cacJpy: 0,
+      primaryFunnel: '「Why you should remove Google Analytics」等の辛口ブログSEO ➔ Hacker News / Reddit ➔ 30日間無料体験 ➔ Stripe課金',
+      tactics: [
+        'Googleのプライバシー侵害とGA4の使いにくさを徹底的に批判する辛口ブログ記事',
+        'オープンソース版（セルフホスト）をGitHubで無料配布し、エンジニア層の信頼とスターを獲得',
+        '「広告追跡ゼロ」という倫理的ブランディングによる口コミ拡散',
+      ],
+    },
+    pnl: {
+      monthlyRevenue: 11000000, // 月商約1,100万円 ($75,000)
+      cogs: 440000, // Stripe決済手数料 (2.9% + $0.30)
+      grossProfit: 10560000,
+      grossMargin: 96.0,
+      operatingExpenses: {
+        serverAndApi: 600000, // ClickHouse / Hetznerサーバー代
+        advertising: 0,
+        subcontracting: 0,
+        toolsAndSaaS: 150000,
+        other: 350000,
+      },
+      operatingProfit: 9460000, // 営業利益 (約86%)
+      operatingMargin: 86.0,
+      estimatedAnnualNetProfit: 113000000, // 推定年商約1.3億円・純利約1.1億円
+    },
+    operations: {
+      teamSize: 2,
+      weeklyHours: 35,
+      initialCapitalRequired: 100000,
+      automationLevel: 95,
+      primaryChannels: ['辛口オピニオンSEOブログ', 'Hacker News / Reddit', 'GitHubオープンソースコミュニティ'],
+      toolStack: [
+        { name: 'Elixir / Phoenix', category: 'バックエンド', monthlyCost: 0, purpose: '数千万件のトラッキングリクエストを低メモリで裁く高並行言語', replacementDifficulty: 'HIGH', url: 'https://elixir-lang.org' },
+        { name: 'ClickHouse', category: '列指向DB', monthlyCost: 150000, purpose: '数十億件のイベント集計をミリ秒で応答する高速分析データベース', replacementDifficulty: 'HIGH', url: 'https://clickhouse.com' },
+        { name: 'Hetzner Cloud', category: 'インフラ', monthlyCost: 450000, purpose: 'EU国内データセンターによるGDPR完全準拠ホスティング', replacementDifficulty: 'LOW', url: 'https://hetzner.com' },
+        { name: 'Stripe', category: '決済', monthlyCost: 320000, purpose: '月額/年額SaaSサブスクリプション自動集金', replacementDifficulty: 'HIGH', url: 'https://stripe.com' },
+      ],
+    },
+    strategy: {
+      blindspot: '【Googleが強大すぎて誰もが諦めていた「アクセス解析」に、巨人への憎悪を燃料にして風穴を開けた】GA4は多機能すぎて一般企業の99%には使いこなせない。さらに欧州では違法判決が相次いでいた。「Cookie不要・1ページで完結・GDPR完全準拠」という真逆の旗を掲げることで、巨人の弱点（肥大化とプライバシー侵害）をそのまま最大の武器に変えた。',
+      moatType: 'COUNTER_POSITIONING',
+      moatDescription: '【オープンソース ✕ 脱Cookieの倫理的ポジショニング】Googleは自社の広告帝国を守るためにCookieや個人追跡を捨てられない。Plausibleは最初から広告追跡を完全放棄しているため、Googleがどれだけ技術投資してもPlausibleと同じ「プライバシー完全保護」を名乗ることは構造上不可能。',
+      incumbentDilemma: 'Googleは自社が世界最大の広告配信プラットフォームであるため、広告ターゲティングを排除した「真にプライバシーを守る解析ツール」を作ることができない（自爆ジレンマ）。',
+      secretInsight: '営業マンゼロ、広告費ゼロ。Marko氏が書く「Googleの傲慢さとGA4のバグを暴くブログ記事」が毎月Hacker Newsのトップに上がり、怒ったエンジニアや法務担当者が自発的に導入する「反逆の共犯者ループ」を完成させた。',
+      initialTraction: [
+        'Uku氏が個人で開発したプロトタイプをHacker Newsに投稿し、初期ベータユーザーを募集',
+        'Marko氏がマーケターとして合流し、「脱Google」を掲げたオピニオン記事を量産',
+        '欧州の各データ保護当局が「GAはGDPR違反」との見解を出すたびに比較記事を即日公開し波に乗る',
+      ],
+      actionPlaybook: [
+        'Step 1: 誰もが使っている業界標準（Googleなど）の「最もユーザーが苛立っている弱点」を特定する',
+        'Step 2: 余計な機能を90%捨て、「1つの急所（例: Cookie不要・直感UI）」だけに研ぎ澄ました代替を作る',
+        'Step 3: 巨人の倫理的欠陥を突くオピニオンを発信し、巨人に不満を持つアーリーアダプターを熱狂させる',
+      ],
+    },
+    meta: {
+      incumbentDilemma: {
+        cannibalizationBarrier: 'Googleは年間数兆円の広告ビジネスが本業であり、ユーザー追跡を捨てたアクセス解析を出すと主業の広告精度が崩壊するため絶対に参入できない。',
+        scaleMismatchReason: '月額数百円〜数千円のプライバシー解析SaaSは、Googleの企業規模から見ると事業価値が小さすぎる。',
+        decisionSpeedAdvantage: 'GDPR判決や新法規制が出たその日のうちにブログ記事を出し、新機能を追加できる小回りの利く2名体制。',
+      },
+      pricingPower: {
+        anchorComparison: '「Cookie同意バナーによるサイト訪問者の離脱（売上数%の損失）」や「GDPR違反による最大2,000万ユーロの罰金」と比較させ、月額数千円を「極めて安い保険」として買わせる。',
+        lossAversionTrigger: 'プライバシー法違反による罰金・ブランド毀損恐怖、サイト速度低下の防止。',
+        budgetCategory: 'Webサイト管理費・法務コンプライアンス枠。',
+      },
+      lockInMechanism: {
+        dataHostage: '自社サイトの過去数年分のアクセス推移データ。',
+        workflowIntegration: '全社ダッシュボードや経営陣への月次報告リンクとして埋め込み。',
+        switchingFriction: 'サイトのHTMLヘッダーに埋め込まれたスクリプトタグの差し替えコスト。',
+      },
+      capitalEfficiency: {
+        cashConversionCycle: '年払い（2ヶ月無料）を推進し、年間利用料を前金一括回収。',
+        incrementalMargin: 'ClickHouseの高い圧縮効率により、データ量増加に対するサーバーコスト上昇が緩やか（粗利95%超）。',
+        workingCapitalStrategy: '完全ブートストラップ（自己資金のみ）。初期から黒字化させ、外部VC資金ゼロで年商1.3億円を突破。',
+      },
+    },
+    exposureAudit: {
+      guerrillaTraction: 'Hacker Newsで「I built a lightweight alternative to Google Analytics」と開発動機を淡々と投稿し、コミュニティの熱狂を獲得。プロダクトをオープンソース化し、GitHubスターを集めてSEOドメイン評価を急上昇させた。',
+      platformGlitch: '欧州のGDPR（一般データ保護規則）厳罰化の波を完璧にハック。Google Analyticsがオーストリアやフランスの当局から違法と判断された瞬間、比較記事と移行ツールを即時公開してトラフィックを大量強奪。',
+      pivotSnapshot: '当初は認知度が低く売上が伸び悩んだが、「脱Google / プライバシー至上主義」という強烈な反逆ナラティブを前面に押し出したことで、世界中のプライバシー意識の高いギーク・テック企業が熱烈な信者化した。',
+      hiddenStackCost: '月商1,100万円に対して主要原価はHetznerインフラ代約60万円とStripe手数料約44万円。創業者2名体制（従業員ゼロ）のため、実効手残り率は約86%（月間純利益約940万円）。',
+    },
+    // 【Layer 2: 動的特異点ブロック】
+    dynamicMoats: {
+      parasiteHost: {
+        hostName: 'Google Analyticsの巨大なユーザー基盤',
+        detail: '「GA4の管理画面が意味不明で使えない」「EUのGDPR違反が怖い」というGoogle Analytics利用者の強烈な不満に寄生。不満を抱えたユーザーを丸ごと拾い上げる。',
+      },
+      dataHostage: {
+        lockInFactor: '蓄積された年次アクセス統計データ',
+        detail: '自社Webサイトの推移グラフがPlausible内に蓄積されるため、他社ツールへ乗り換えると過去の推移比較が断絶するスイッチングコスト。',
+      },
+      upfrontCash: {
+        cashCycle: '年払い一括前金制度（2ヶ月分割引）',
+        detail: '利用者の多くが年払いで1年分を一括前払いするため、現金が常に先行して銀行にプールされ、キャッシュフロー破綻確率が完全ゼロ。',
+      },
+      pivotGraveyard: {
+        failedAttempts: ['個人ブログ立ち上げ', '一般的なWebコンサルティング業務'],
+        breakthroughSecret: '「自分たちが本当に使いたい、シンプルで嘘のないツール」をオープンソースで公開し、Googleへの反逆を掲げた瞬間にコミュニティが味方についた。',
+      },
+    },
+    // 【Layer 3: 万能救済ストリーム】
+    observationsStream: [
+      {
+        category: 'SAVANNAH_PAIN',
+        categoryLabel: 'サバンナOSの急所',
+        text: 'Cookie同意バナーは訪問者の体験を台無しにし、離脱率を高める。Plausibleは「Cookieバナーを完全に消去できる」という強烈な解放感（苦痛の切除）を提供する。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'INCUMBENT_DILEMMA',
+        categoryLabel: '大手の自爆',
+        text: 'Googleは世界最大の広告会社であるため、広告追跡（クッキー）を捨てた解析ツールを自ら出すことは自社売上を殺す自殺行為である。Plausibleの土俵には構造上降りてこれない。',
+        originType: 'inferred',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'FOUNDER_HACK',
+        categoryLabel: '現場の泥臭い工夫',
+        text: '広告費を1円も使わず、Googleの不透明なデータ収集やGA4の使いにくさを冷徹に検証・批判する長文ブログをMarko氏が執筆。記事がバズるたびに数千社が流入するメディア化戦略。',
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'TECH_VERIFICATION',
+        categoryLabel: '技術スタック照合',
+        text: '毎秒数万件のトラフィックを少人数で捌くため、Elixir (Phoenix) と列指向データベースClickHouseを採用。Postgres等と比べてサーバー代を10分の1に圧縮。',
+        originType: 'observed',
+        verificationStatus: 'SUPPORTED',
+      },
+      {
+        category: 'RESEARCH_LIMIT',
+        categoryLabel: '調査限界・非公開',
+        text: 'エストニア法人Plausible Insights OÜの給与および税引後手残り配当額は非公開。公知の月商$75k、Stripe手数料2.9%+$0.30、インフラ相場から純手残り推計 約$66,566〜$74,930 を算出。',
+        originType: 'estimated',
+        verificationStatus: 'UNVERIFIED',
+      },
+    ],
+    unknownsNotes: [
+      'オープンソース版（Self-hosted）を無料利用しているユーザーの実数・エンタープライズ移行率は非公開。',
+    ],
   },
   {
     id: 'ent_headshotpro',

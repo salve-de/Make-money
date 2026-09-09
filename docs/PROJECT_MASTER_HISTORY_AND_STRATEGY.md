@@ -2432,3 +2432,24 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   3. **全リポジトリ・全正典への一斉同期 ＆ GitHubリモート即時プッシュ完遂**:
      - 正本リポジトリ（`salve-de/universal-foundation`）: `AGENTS.md`（セクション3.0.2）、`docs/MAKE_MONEY_AGENT_RUNBOOK.md`（セクション4.2）を改定しリモート（GitHub `main`）へプッシュ完了（コミット `683399f`）。
      - 本リポジトリ（`salve-de/Make-Money`）: `AGENTS.md`（セクション2.1, 4, 6）、`CLAUDE.md`（セクション2.0.1, 2.2, 2.5）、`README.md`（セクション2）、本マスター白書を改定し、Git コミット ＆ リモートリポジトリ（GitHub `refactor/terminal-architecture-cleanup`）への即時プッシュを自律完遂。
+
+### 73. Phase 73: 3層ハイブリッドUIフロントエンド完全実装 ＆ 新規4銘柄（ShipFast/PhotoAI/NomadList/Plausible）開通（完了）
+- **検死された本質的論点 ＆ ユーザーの絶対指導**:
+  - 「やれ やって俺に 確認を取れ」
+  - 「これ 確認して これで大丈夫？ 揃った？ 必要な情報を」「それで実際の銘柄も最後に見せて どれを見ればいいか」
+  - ルール策定に留まらず、実際にWeb画面上で「Layer 1（固定Core）＋ Layer 2（動的特異点）＋ Layer 3（万能救済ストリーム）」を完璧にレンダリングするフロントエンドコンポーネントを配備し、R2で収集された実データを1文字も欠落させずに表示させる命令。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **型定義の拡張 (`terminal.ts`)**:
+     - `DynamicMoats`, `UniversalObservation`, `UniversalCoverageItem`, `UniversalEvent` を新設し、`FinancialEntity` に配備。
+  2. **万能救済ストリームUIの新設 (`UniversalIntelligenceStream.tsx`)**:
+     - 宿主ハック・人質資産・紹介賄賂網・前金総取り・ピボット魚拓が存在する項目だけが自動展開する「動的特異点ブロック（Layer 2）」を実装。
+     - 型に収まらないあらゆる観測メモ・生々しい手口・調査限界をカード化して全量描画する「万能救済ストリーム（Layer 3）」を実装。
+  3. **インスペクターへの統合 (`CompanyInspectorPane.tsx`)**:
+     - 新タブ「全量インテリジェンス (STREAM)」を新設。生データ件数バッジ付きでワンクリック展開可能に。
+  4. **実データの拡充 (`mockLedgerData.ts`)**:
+     - `ShipFast` (`ent_shipfast`): 月商約600万円・手残り93%・完全1人。
+     - `Photo AI` (`ent_photoai`): 月商1,800万円・手残り84%・完全1人。
+     - `Nomad List` (`ent_nomadlist`): 月商350万円・手残り94%・完全1人。
+     - `Plausible` (`ent_plausible`): 月商1,100万円・手残り86%・2名体制。
+  5. **品質検証 ＆ GitHubリモート即時プッシュ完遂**:
+     - `npx tsc --noEmit` エラーゼロ、Next.js 開発サーバー（`http://localhost:3000`）でのHTTP 200レンダリングを確認し、リモートへプッシュ完了。
