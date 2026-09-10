@@ -1,3 +1,5 @@
+> **2026-09-10 現行契約**: [HANDOFF](../HANDOFF.md)、[既存データからUIへの実行・編集契約](EXISTING_DATA_TO_UI.md)、[Foundation統合契約](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md)を先に読む。既存情報の結合・再抽出を先に行い、読者価値を増やす不足を追加調査する。全項目の完全性検査はDEEP_RECONCILEDを主張するときに適用し、有益な部分事例を排除しない。保存成功と公開品質は別。以下の旧説明より本契約を優先する。
+
 # 新規収集・R2保存の入口
 
 ## 0. 収集対象の完全目録（必読）
@@ -6,9 +8,9 @@
 
 Universal側の同名正本は [`universal-foundation/docs/MAKE_MONEY_COLLECTION_SCOPE.md`](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md)。内容が違えばUniversal Foundation mainを上位正本として修正し、差分を残さない。
 
-## 収集完了の新しい必須検査
+## DEEP_RECONCILEDを主張する場合の検査
 
-Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/business-case.v1.json` を必ず読む。共通91細目と、現在のMake-Moneyコードの台帳・レーダー・分析等9契約の出力項目を生成し、資料内で見つけた全ての関連情報（表の過去年分も含む）を保存レコードと照合する。画面に出さない情報も保持する。
+DEEP_RECONCILEDを主張する場合にUniversalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/business-case.v1.json` を読む。宣言した調査範囲の資料・関連期間・抽出値を照合し、画面に出さない有用情報も保持する。CAPTURE/CORE/ENRICHEDの保存や有益な部分事例の表示に、全91細目の充足を要求しない。
 
 実装ブランチで `foundation-collect.ts requirements` → 調査・資料別抽出台帳作成 → `audit` → `ingest-complete` を実行。未読資料・未保存値・値の不一致・古いコードhashが残れば完了にしない。部分保存は通常ingestで許可する。旧ALL_DIMENSIONS_ATTEMPTEDやR2保存成功は全収集の証明ではない。
 
@@ -17,7 +19,7 @@ Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/busine
 1. 認証付きで `salve-de/universal-foundation` のmainを読む。AGENTS、UNIVERSAL_COLLECTION_BASELINE、AI_COLLECTION_AND_STORAGE_CONTRACT、MAKE_MONEY_AGENT_RUNBOOK、MAKE_MONEY_RESEARCH_REQUIREMENTSが正本。
 2. このリポジトリの `codex/collection-handoff-20260908` を別の作業場所へ取得し、同ブランチの `docs/COLLECT_AND_STORE.md` を読む。既存の作業場所を強制切替・破棄しない。
 3. AI自身が検索して新規データを集める。Universal共通要件とMAKEMONEY要件の和集合を対象とし、利益・費用・個人手残りを売上で代用しない。出典なしはUNVERIFIEDとして保持。追加観測も捨てない。
-4. 同ブランチのCLIで正本schemaと全項目の調査状態を検証し、R2へ新規保存する。全項目を調査していない場合はPARTIALとして報告する。
+4. 同ブランチのCLIで正本schemaと宣言した収集段階・調査状態を検証し、許可されたR2新規保存を行う。未調査・未知・非該当を区別し、実際のCAPTURE/CORE/ENRICHED/DEEP_RECONCILED段階を報告する。
 
 5. 収集対象は画面に現在表示される項目だけではない。12領域、9情報源レーン、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、過去時点、失敗・閉鎖・ピボット、出典未回収の手掛かり、既存項目外の観測を調べる。見つからなかったものも `attempted_unavailable`、まだ見ていないものも `not_attempted` として保存する。
 
@@ -39,7 +41,7 @@ Universalの `docs/COLLECTION_RECONCILIATION.md` と `registry/collection/busine
 4. 可能ならagentごとに候補リストとrun IDを分ける。同一主体を再取得してもstable ID/create-only/dedupeで安全に扱える設計を維持するが、無駄な重複調査は避ける。
 5. 新規R2保存はcreate-only。既存 `universal`、EDINET、Investrader shadow、既存Foundation objectを移動・上書き・削除しない。
 6. 出典がない有用な候補は捨てず `UNVERIFIED` として保持する。ただし未確認の数字をverified、ランキング根拠、成功保証に昇格しない。
-7. 各runはschema/audit/ingest-complete/readback/hash/dedupe結果を残す。100件という件数だけでは完了としない。
+7. 各runはschema/ingest/readback/hash/dedupe結果を残す。DEEP_RECONCILEDを主張する場合のみaudit/ingest-completeも完遂する。件数だけでは公開品質や深掘り完了としない。
 8. R2認証がない実行環境では、validated research bundleとplanned write manifestまで作って停止する。legacy `universal` へ代替保存しない。
 
 9. Journalは後回しにしない。収集と同じrunの`journal-entry.v1`を計画し、許可された既存経路で保存し、Journal件数・schema検証・readbackを完了報告に含める。descriptorの更新も、データ本体とは別の明示的な新規create-only書込みとして扱う。
