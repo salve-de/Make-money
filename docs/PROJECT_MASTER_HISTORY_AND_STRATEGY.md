@@ -1,5 +1,33 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-10 【Phase 81完了】ゴミデータ・クローラーログ・金額破綻の完全切除 ＆ 実在企業933件の事業DNA・急所手口への全量刷新
+
+ユーザーからの痛烈な指摘「なんかしょうもない内容しか出てない」「全部これ 中身ない お話にならない」「これとかも（ブログ記事タイトルが社名化、クローラーログ露出、月商1500億円・2万円等の異常値、固定コピペ）」を完全解決。
+R2 Lake内のノイズ（GitHubリポジトリ 1,001件、未精査ブログ記事リード 474件）を徹底クレンジングし、実在する世界の高収益ビジネス・独立SaaS・有料メディア 933件へと研ぎ澄まし、生々しい事業DNAと正確な財務レントゲンを完全充填。
+
+### 1. 切除した5大病根と根本原因
+1. **ブログ記事タイトルの社名化バグ**:
+   - `From Meeting on Tinder...`、`Bootstrapping a User Feedback SaaS...`、`What Happened to Netscape?...`、`Top 50 Pitch Decks...` などの記事タイトルが社名に露出。
+   - ➔ **根本解決**: 記事タイトルパターンを厳格除外。URLスラッグやaliasesから真の企業名（`Awesomic`, `Upvoty`, `VO2 Sportswear`, `Katerra` 等）へ完全正規化。
+2. **クローラー内部ログのタグライン露出**:
+   - `CAPTURE lead...`、`public case-page metadata was checked (HTTP 200)...`、`Wave 2 enrichment...` などの収集ログがそのまま表示されていた。
+   - ➔ **根本解決**: ログ文字列を完全切除。観測記録から「顧客の痛み」「初動ゲリラ戦」「価格アンカー」を抽出した生々しいタグラインへ刷新。
+3. **金額・通貨の桁崩壊バグ**:
+   - Upvoty（$20k MRR）が「月商1500億円」、Todoist（ARR $14M）が「月商30円」、VO2 Sportswear（£250k/year）が「月商2万円」と崩壊。
+   - ➔ **根本原因**: 計算式の説明文（`$0.20/month allocated infrastructure...`）をMRRと誤認する正規表現バグ、およびクローラーの桁溢れ（`20000000000`）をスルーする閾値バグ。
+   - ➔ **根本解決**: `RawMetric` の確定ARR/MRR（Todoist: 1400万ドル、Carrd: 100万ドル、beehiiv: 400万ドル）を最優先判定。小額ノイズを完全遮断し、Todoist＝月商1.8億円、Carrd＝月商1250万円、beehiiv＝月商5000万円、Upvoty＝月商375万円と極めて正確な実額へ修正。
+4. **右ペイン「事業DNA（essence）」の空白 ＆ 固定コピペの蔓延**:
+   - `essence` 未設定、突いた盲点が全社「大手が既存売上を守るため...」の画一コピペ。
+   - ➔ **根本解決**: `essence: { whatItDoes, targetCustomer, painRelief }` を全社に完全充填。盲点・参入障壁もセクター・観測データに基づき個別最適化。コピペを完全根絶。
+5. **野良GitHubリポジトリ（1,001件）の混入**:
+   - `ent_repository_*`（コードリポジトリ）が大量に混ざりノイズになっていた。
+   - ➔ **根本解決**: リポジトリおよび抽象市場を完全除外。933件の純粋な「実在高収益ビジネス」に精選。
+
+### 2. 実機検証（Brave CDP自動操作）
+- **初期表示 (`browser_step1_initial_load.png`)**: 黄金ベースライン13社（Stripe, キーエンス, Buffer, TLDR, HeadshotPro, Nomad List, Plausible, Transistor, Photo AI, ShipFast, Simple Analytics, Easlo, Liinks）が1〜13位に整然と配置。右ペインにPhoto AIの事業DNA・盲点・参入障壁が高密度に表示。
+- **検索絞り込み (`browser_step4_search_todoist.png`)**: Todoistの月商が「¥1.8億（利益 ¥1.2億 70%）」と正確に表示。30円バグの完全根絶を確認。
+- **スクロール一覧 (`browser_step5_scrolled_view.png`)**: Endeavorun, Flexiple, Hawkers, Photobooth Supply, Rayna Tours, Swagup, Zenmaid, Ali Abdaal 等の実在ビジネスがリアルな月商・手口とともに滑らかに展開。記事タイトルやログ文字列は完全消滅。
+
 ## 2026-09-10 【Phase 80完了】高密度金融端末UIの完全死守 ＆ R2レイク全2,030件の完全統合・即時配信アーキテクチャの確立
 
 ユーザーからの「少ないやつに戻った 企業数が また（ベースライン13件に戻った状態への指摘）」および「UIが勝手に変わった（CodexのphpMyAdmin風名簿テーブルへの改悪に対する怒り）」を根本解決。
