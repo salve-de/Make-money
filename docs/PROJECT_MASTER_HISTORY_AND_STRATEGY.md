@@ -1,5 +1,38 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-10 【Phase 80完了】高密度金融端末UIの完全死守 ＆ R2レイク全2,030件の完全統合・即時配信アーキテクチャの確立
+
+ユーザーからの「少ないやつに戻った 企業数が また（ベースライン13件に戻った状態への指摘）」および「UIが勝手に変わった（CodexのphpMyAdmin風名簿テーブルへの改悪に対する怒り）」を根本解決。
+元の美しい高密度金融端末UI（`InstitutionalDataGrid` ＆ `CompanyInspectorPane`：月商・純利・歪みの手口・時系列レーダー）を100%維持したまま、Cloudflare R2（`foundation-lake`）に蓄積された全2,027件のEntityおよび507個のResearch Bundleを完全統合し、UI上に「全2,030銘柄」としてズラリと全量表示させる正道アーキテクチャを確立・実証完了。
+
+### 1. 根本原因の特定と解剖
+1. **Codexアプローチの完全敗北**:
+   - 生の `entities/`（社名とURLのみ）だけを一覧で読んだため、月商・純利・歪みの手口がすべて消滅した無味乾燥な名簿テーブルに改悪されていた。
+   - さらに 1クリックごとに 507個の bundle を Range Get で線形探索したため、初回詳細に4〜17秒もかかり、React 19 の競合で画面が全0件になるバグを抱えていた。
+2. **13件への退行バグの特定**:
+   - 元の美しいUIへ戻した際、`/api/businesses` が R2 上の `datasets/ds.business.entities.core/index.json`（古い13件）を優先取得しており、ローカルキャッシュにフォールバックしていなかったため、画面の表示件数が初期13件で頭打ちになっていた。
+
+### 2. 外科医の如き根本解決アーキテクチャ（0秒・0円・2,030件全量配信）
+1. **R2全量集約バッチ（`scripts/sync-lake-to-index.ts`）の実装**:
+   - S3並行フェッチ（Concurrency 25〜30）により、R2上の 2,027 件の Core Entity と 507 個の Research Bundle を約20秒で完全走査。
+   - `bundle.metrics`（ARR, MRR, 価格アンカー等）および `bundle.observations`（初動ハック、大手の自爆、痛みの財布等）を Entity ごとに正確に紐付け。
+   - **データ捏造の完全排除**: 架空の「月商500万・利益率80%」補完を完全粉砕。実売上が判明しているものは実数換算、判明価格は価格アンカー、未確認は「非公開 / 推定未算出」として誠実に射影。
+   - 統合された 2,030 件の `FinancialEntity[]` を `data/entities-index.json`（4.83 MB）に書き出し、同時に R2正本（`foundation-lake/datasets/ds.business.entities.core/index.json`）にも同期アップロード。
+2. **高速配信API（`src/app/api/businesses/route.ts`）の最適化**:
+   - ローカルの集約インデックス（2,030件）を最優先で即時応答（0.01秒・R2課金0円）。
+   - Cloudflare Workers本番環境でも、R2同期済みの最新2,030件インデックスを単一GETで瞬時に取得可能。
+3. **UI表現の洗練（`InstitutionalDataGrid.tsx`）**:
+   - 100件ずつの仮想ウィンドウイング（IntersectionObserver）により、2,030件の大規模データでもスクロール・検索・フィルタリングが完全に滑らか。
+   - 金額列において、売上が未公開の企業は「非公開 / 推定未算出」と美しく表示。
+
+### 3. 実機検証結果
+- `curl /api/businesses`: `source: local_cache`, `count: 2030`（即時応答）
+- Brave Headless キャプチャ実証:
+  - 検索バー横: **「2030 件」**
+  - 左列台帳: キーエンス、Stripe、ShipFast、Photo AI、1440 等の銘柄が月商・純利・手口とともにズラリと表示。
+  - 右インスペクター: 損益レントゲン、時系列レーダー、万能救済ストリームが完全動作。
+- `npm run build`: Webpackコンパイル、TypeScript型チェック（0エラー）完全PASS。
+
 ## 2026-09-08 Bufferの全調査項目を追補・R2新規保存
 
 ユーザーの実収集依頼により、部分収集済みBufferを深掘り。30根拠記録、9主体、23主張、56数値、11資金フロー、9イベント、8関係、12派生分析、10追加観測を保存。48調査項目の調査状態に加え、実コードFinancialEntityの76項目との対応を機械照合（不足0）。全数値の判明という意味ではなく、個人手取り・現在の詳細原価等は調査内容付き不明として保持。

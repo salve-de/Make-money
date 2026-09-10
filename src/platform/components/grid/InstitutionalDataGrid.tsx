@@ -61,6 +61,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   }, [entities.length]);
 
   const formatMoney = (yen: number) => {
+    if (!yen || yen <= 0) return '非公開';
     if (currency === 'USD') {
       const usd = Math.round(yen / 150);
       if (usd >= 1000000) return `$${(usd / 1000000).toFixed(1)}M`;
@@ -156,19 +157,32 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
 
                   {/* 右: 2段組（上段: 月商 / 下段: 純利 + 利益率） */}
                   <td className="py-2.5 px-3 text-right tabular-nums align-middle">
-                    {/* 1段目: 月商 */}
-                    <div className="text-white text-xs font-semibold">
-                      {formatMoney(entity.pnl.monthlyRevenue)}
-                    </div>
-                    {/* 2段目: 純利 + 利益率 */}
-                    <div className="flex items-center justify-end gap-1.5 text-[10px] mt-0.5">
-                      <span className="text-zinc-400">
-                        {formatMoney(entity.pnl.operatingProfit)}
-                      </span>
-                      <span className="text-emerald-400 font-medium">
-                        ({entity.pnl.operatingMargin}%)
-                      </span>
-                    </div>
+                    {entity.pnl.monthlyRevenue > 0 ? (
+                      <>
+                        {/* 1段目: 月商 */}
+                        <div className="text-white text-xs font-semibold">
+                          {formatMoney(entity.pnl.monthlyRevenue)}
+                        </div>
+                        {/* 2段目: 純利 + 利益率 */}
+                        <div className="flex items-center justify-end gap-1.5 text-[10px] mt-0.5">
+                          <span className="text-zinc-400">
+                            {formatMoney(entity.pnl.operatingProfit)}
+                          </span>
+                          <span className="text-emerald-400 font-medium">
+                            ({entity.pnl.operatingMargin}%)
+                          </span>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="text-zinc-500 text-xs">
+                          非公開
+                        </div>
+                        <div className="text-[10px] text-zinc-600 mt-0.5">
+                          推定未算出
+                        </div>
+                      </>
+                    )}
                   </td>
                 </tr>
               );
@@ -239,18 +253,34 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     </td>
 
                     {/* 2. 月商（白文字・等幅） */}
-                    <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs font-bold text-white">
-                      {formatMoney(entity.pnl.monthlyRevenue)}
+                    <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs">
+                      {entity.pnl.monthlyRevenue > 0 ? (
+                        <span className="font-bold text-white">
+                          {formatMoney(entity.pnl.monthlyRevenue)}
+                        </span>
+                      ) : (
+                        <span className="text-zinc-500 font-normal">
+                          非公開
+                        </span>
+                      )}
                     </td>
 
                     {/* 3. 実効純利 ＋ 利益率 */}
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs">
-                      <span className="text-zinc-200 font-medium">
-                        {formatMoney(entity.pnl.operatingProfit)}
-                      </span>
-                      <span className="text-emerald-400 font-semibold ml-1.5 text-[11px]">
-                        ({entity.pnl.operatingMargin}%)
-                      </span>
+                      {entity.pnl.monthlyRevenue > 0 ? (
+                        <>
+                          <span className="text-zinc-200 font-medium">
+                            {formatMoney(entity.pnl.operatingProfit)}
+                          </span>
+                          <span className="text-emerald-400 font-semibold ml-1.5 text-[11px]">
+                            ({entity.pnl.operatingMargin}%)
+                          </span>
+                        </>
+                      ) : (
+                        <span className="text-zinc-600 font-normal">
+                          推定未算出
+                        </span>
+                      )}
                     </td>
 
                     {/* 4. 体制 */}

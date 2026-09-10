@@ -16,7 +16,7 @@
     "cf:typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "r2:with-secrets": "node scripts/with-r2-keychain-secrets.mjs",
     "foundation:r2": "node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/foundation-collect.ts ingest",
-    "foundation:index": "node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/generate-entities-index.ts",
+    "foundation:index": "node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/sync-lake-to-index.ts",
     "foundation:journal:prepare": "node --import tsx scripts/foundation-journal.ts prepare",
     "foundation:journal:ingest": "node --import tsx scripts/foundation-journal.ts ingest",
     "foundation:r2-descriptors:prepare": "node --import tsx scripts/foundation-r2-descriptors.ts prepare",

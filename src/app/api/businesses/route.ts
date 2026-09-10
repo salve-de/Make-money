@@ -8,7 +8,26 @@ import { FinancialEntity } from "@/platform/types/terminal";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  // 1. R2上の集約インデックス (datasets/ds.business.entities.core/index.json) からの取得を試行
+  // 1. ローカルの集約インデックス (data/entities-index.json) からの取得を最優先
+  try {
+    const localIndexPath = resolve(process.cwd(), "data/entities-index.json");
+    const localContent = await readFile(localIndexPath, "utf8");
+    const parsed = JSON.parse(localContent) as FinancialEntity[];
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      return NextResponse.json(
+        { source: "local_cache", count: parsed.length, data: parsed },
+        {
+          headers: {
+            "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+          },
+        }
+      );
+    }
+  } catch {
+    // ローカルインデックス未生成時はR2へフォールバック
+  }
+
+  // 2. R2上の集約インデックス (datasets/ds.business.entities.core/index.json) からの取得を試行
   try {
     const r2IndexRaw = await getFromR2("datasets/ds.business.entities.core/index.json");
     if (r2IndexRaw) {
@@ -25,26 +44,7 @@ export async function GET() {
       }
     }
   } catch {
-    // R2未接続または取得エラー時はローカルキャッシュへフォールバック
-  }
-
-  // 2. ローカルの集約インデックス (data/entities-index.json) からの取得を試行
-  try {
-    const localIndexPath = resolve(process.cwd(), "data/entities-index.json");
-    const localContent = await readFile(localIndexPath, "utf8");
-    const parsed = JSON.parse(localContent) as FinancialEntity[];
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      return NextResponse.json(
-        { source: "local_cache", count: parsed.length, data: parsed },
-        {
-          headers: {
-            "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          },
-        }
-      );
-    }
-  } catch {
-    // ローカルインデックス未生成時はマスター静的データへ
+    // R2未接続または取得エラー時はマスター静的データへフォールバック
   }
 
   // 3. 静的確定マスターデータからの即時応答 (フォールバック)

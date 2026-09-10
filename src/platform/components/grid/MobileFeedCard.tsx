@@ -26,6 +26,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   onToggleTag,
 }) => {
   const formatMoney = (yen: number) => {
+    if (!yen || yen <= 0) return '非公開';
     if (currency === 'USD') {
       const usd = Math.round(yen / 150);
       if (usd >= 1000000) return `$${(usd / 1000000).toFixed(1)}M`;
