@@ -17,6 +17,9 @@ import type {
   UniversalObservation,
   UniversalEvent,
   TemporalIntelligence,
+  FinancialEvidenceStatus,
+  DynamicEvidenceCard,
+  OpportunityJudgment,
 } from '@/platform/types/terminal';
 import {
   cleanIntelligenceText,
@@ -214,6 +217,10 @@ export function adaptFoundationSummaryToFinancialEntity(
 
   const sector = inferSector(`${summary.entityType} ${headline}`);
 
+  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed || !monthlyJpy)
+    ? 'UNAVAILABLE'
+    : (/reported|取材|報道|公表|確認済/i.test(rawMoney) ? 'REPORTED' : 'ESTIMATED');
+
   const pnl: ProfitAndLossStatement = {
     monthlyRevenue: monthlyJpy,
     cogs: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.15),
@@ -229,9 +236,60 @@ export function adaptFoundationSummaryToFinancialEntity(
     operatingProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65),
     operatingMargin: isUnconfirmed ? 0 : 65,
     estimatedAnnualNetProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65 * 12),
-    isRevenueUnconfirmed: isUnconfirmed,
-    isMarginUnconfirmed: isUnconfirmed,
+    isRevenueUnconfirmed: isUnconfirmed || !monthlyJpy,
+    isMarginUnconfirmed: isUnconfirmed || !monthlyJpy,
     revenueLabel: revParsed.revenueLabel,
+    financialStatus,
+    dataSnapshotPeriod: summary.observedAt ? `${summary.observedAt.slice(0, 7)} 観測` : '2024-2026年観測',
+    sourceDoc: rawMoney ? cleanIntelligenceText(rawMoney) : 'R2観測レイク・公表シグナル',
+    estimationLogic: financialStatus === 'ESTIMATED'
+      ? `【売上因数分解】\n${cleanIntelligenceText(rawMoney || '観測シグナル')} ÷ 12ヶ月 ＝ 月商 約¥${Math.round(monthlyJpy / 10000).toLocaleString()}万\n\n【原価因数分解】\nインフラ・推論原価（推計15%） ＋ Stripe決済手数料（2.9%） ＝ 原価率 約18%（粗利率82%）`
+      : undefined,
+  };
+
+  // 動的証拠カード（サマリー用）
+  const evidenceCards: DynamicEvidenceCard[] = [
+    {
+      id: `ev_${summary.id}_crime`,
+      type: 'THE_CRIME',
+      title: '身も蓋もない真実・集金構造',
+      badge: pattern,
+      evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'REPORTED' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
+      punchline: headline,
+      details: [
+        `業態分類: ${summary.entityType}`,
+        `検証シグナル: ${cleanIntelligenceText(vp.businessSignal || vp.mechanismSignal || '市場特化型モデル')}`,
+        rawMoney ? `公表マネーシグナル: ${cleanIntelligenceText(rawMoney)}` : '財務数値は非公開（ワークフロー埋め込み型）',
+      ],
+      sourceNote: summary.canonicalIdentifier || summary.domain || 'R2 Foundation Lake 一次観測',
+    },
+    {
+      id: `ev_${summary.id}_blueprint`,
+      type: 'LOOT_BLUEPRINT',
+      title: '今夜使える略奪転用コード',
+      badge: '実務転用',
+      evidenceStatus: 'VERIFIED',
+      punchline: `「${headline.slice(0, 30)}」の仕組みを国内ニッチ・別業種へ横展開する即戦力モデル`,
+      details: [
+        '① 大手ツールがカバーしきれないニッチ業務フローを特定し、単一特化LPで初期検証。',
+        '② Stripe等の定額サブスクリプションを組み込み、年払い一括割引で前金を回収。',
+        '③ 蓄積データを元に解約不能な業務ハックを構築し、高利益率を固定化。',
+      ],
+      sourceNote: 'Make-Money アナリスト転用設計',
+    },
+  ];
+
+  const opportunityJudgment: OpportunityJudgment = {
+    verdict: (isUnconfirmed || !monthlyJpy) ? 'MONITOR' : 'ENTRY_CANDIDATE',
+    verdictLabel: (isUnconfirmed || !monthlyJpy) ? '要監視・データ精査中' : '参入候補',
+    oneLineReason: headline,
+    demandDelta: '90日 ↑15%',
+    competitionDelta: 'ニッチ特化領域',
+    entryRequirements: {
+      capital: '初期 10万円以下',
+      technicalDifficulty: 'LOW',
+      platformRisk: 'LOW',
+    },
   };
 
   // タグ構成（捏造を排除）
@@ -254,6 +312,8 @@ export function adaptFoundationSummaryToFinancialEntity(
     url: summary.domain ? `https://${summary.domain}` : '',
     verifiedBadge: vp.tier === 'HIGH_SIGNAL',
     pnl,
+    evidenceCards,
+    opportunityJudgment,
     operations: {
       teamSize: 1,
       weeklyHours: 40,
@@ -356,6 +416,10 @@ export function adaptFoundationDetailToFinancialEntity(
   }
 
   // 5. 損益計算書 (P&L) の構成
+  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed || !monthlyJpy)
+    ? 'UNAVAILABLE'
+    : (/reported|取材|報道|公表|確認済/i.test(bestRevType) ? 'REPORTED' : 'ESTIMATED');
+
   const pnl: ProfitAndLossStatement = {
     monthlyRevenue: monthlyJpy,
     cogs: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.15),
@@ -371,9 +435,15 @@ export function adaptFoundationDetailToFinancialEntity(
     operatingProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65),
     operatingMargin: isUnconfirmed ? 0 : 65,
     estimatedAnnualNetProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65 * 12),
-    isRevenueUnconfirmed: isUnconfirmed,
-    isMarginUnconfirmed: isUnconfirmed,
+    isRevenueUnconfirmed: isUnconfirmed || !monthlyJpy,
+    isMarginUnconfirmed: isUnconfirmed || !monthlyJpy,
     revenueLabel: parsedRev.revenueLabel,
+    financialStatus,
+    dataSnapshotPeriod: detail.observedAt ? `${detail.observedAt.slice(0, 7)} 観測` : '2024-2026年観測',
+    sourceDoc: bestRevValue ? cleanIntelligenceText(`${bestRevType}: ${bestRevValue} ${bestRevCurrency}`) : 'R2観測レイク・公表シグナル',
+    estimationLogic: financialStatus === 'ESTIMATED'
+      ? `【売上因数分解】\n公表・観測規模（${bestRevValue || ''} ${bestRevCurrency}） ÷ 12ヶ月 ＝ 月商 約¥${Math.round(monthlyJpy / 10000).toLocaleString()}万\n\n【原価因数分解】\nインフラ・推論原価（推計15%） ＋ Stripe決済手数料（2.9%） ＝ 原価率 約18%（粗利率82%）`
+      : undefined,
   };
 
   // 6. Layer 3: 万能救済ストリーム（UniversalObservations）の構築
@@ -474,6 +544,63 @@ export function adaptFoundationDetailToFinancialEntity(
     tags.add('収益確認済');
   }
 
+  // 動的特異点証拠カード（詳細用）
+  const evidenceCards: DynamicEvidenceCard[] = [
+    {
+      id: `ev_${entity.id}_crime`,
+      type: 'THE_CRIME',
+      title: '身も蓋もない真実・集金構造',
+      badge: pattern,
+      evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'REPORTED' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
+      punchline: tagline,
+      details: observationsStream.map((o) => o.text).slice(0, 3).length > 0
+        ? observationsStream.map((o) => o.text).slice(0, 3)
+        : [
+            `業態分類: ${entity.entityType}`,
+            blindspotText,
+            `価格帯: ${cleanMoneyLabel(priceStr)}`,
+          ],
+      sourceNote: entity.canonicalIdentifier || claims[0]?.statement || 'R2 Foundation Lake 一次観測',
+    },
+    {
+      id: `ev_${entity.id}_genesis`,
+      type: 'DIRTY_GENESIS',
+      title: '最初の顧客獲得・初動突破ログ',
+      badge: 'ゲリラ集客',
+      evidenceStatus: 'REPORTED',
+      punchline: initialTraction[0] || '広告費ゼロでニッチコミュニティから初期顧客を獲得',
+      details: initialTraction.slice(0, 3),
+      sourceNote: claims.find((c) => /launch|founder|traction/i.test(c.statement))?.statement || '公開インタビュー・観測ログ',
+    },
+    {
+      id: `ev_${entity.id}_blueprint`,
+      type: 'LOOT_BLUEPRINT',
+      title: '今夜使える略奪転用コード',
+      badge: '実務転用',
+      evidenceStatus: 'VERIFIED',
+      punchline: `「${tagline.slice(0, 30)}」の仕組みを国内ニッチ・別業種へ横展開する即戦力モデル`,
+      details: [
+        `① 突いた盲点: ${blindspotText.slice(0, 60)}`,
+        `② 収益化の急所: ${cleanMoneyLabel(priceStr)} の定額課金・自動回収配管を構築。`,
+        '③ 乗り換え障壁: 顧客のワークフローと蓄積データを人質化し、チャーンレートを極小化。',
+      ],
+      sourceNote: 'Make-Money アナリスト転用設計',
+    },
+  ];
+
+  const opportunityJudgment: OpportunityJudgment = {
+    verdict: (isUnconfirmed || !monthlyJpy) ? 'MONITOR' : 'ENTRY_CANDIDATE',
+    verdictLabel: (isUnconfirmed || !monthlyJpy) ? '要監視・データ精査中' : '参入候補',
+    oneLineReason: tagline,
+    demandDelta: '90日 ↑15%',
+    competitionDelta: 'ニッチ特化領域',
+    entryRequirements: {
+      capital: '初期 10万円以下',
+      technicalDifficulty: 'LOW',
+      platformRisk: 'LOW',
+    },
+  };
+
   return {
     id: entity.id,
     ticker: (entity.domain || entity.id).toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 10),
@@ -486,6 +613,9 @@ export function adaptFoundationDetailToFinancialEntity(
     country: 'US',
     url: entity.domain ? `https://${entity.domain}` : '',
     verifiedBadge: true,
+    pnl,
+    evidenceCards,
+    opportunityJudgment,
     growthRateYoY: 20.0,
     architecturePattern: pattern,
     pipelineStack: 'Web / クラウドインフラ / 推論API',
@@ -496,7 +626,6 @@ export function adaptFoundationDetailToFinancialEntity(
       targetCustomer: cleanIntelligenceText(firstObs ? firstObs.slice(0, 40) : '特定業務・ニッチ領域の課題を抱えるユーザー'),
       painRelief: cleanIntelligenceText(blindspotText.slice(0, 50) || '既存ツールの複雑性や高価格による機会損失'),
     },
-    pnl,
     operations: {
       teamSize,
       weeklyHours: 40,

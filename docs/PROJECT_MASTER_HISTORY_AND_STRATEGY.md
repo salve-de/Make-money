@@ -1,5 +1,19 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-11 財務計基盤の5大ステータス完全制御・非公開消滅化 ＆ Ahrefs/1PasswordのR2新規保存
+
+123件全銘柄（自社完全体38社＋R2 Foundation Lake由来85社）の財務表示・物証構造を完全制御。
+1. **5大財務ステータス厳格分離 ＆ 非公開セクション完全消滅**:
+   - 確定開示（VERIFIED: 9社）、報道取材（REPORTED: 46社）、推測値（ESTIMATED: 12社）、死因出血（POST_MORTEM: 5社）、非公開消滅（UNAVAILABLE: 51社）。
+   - 推測値12社には「推計因数分解方程式（売上因数分解 ＋ 原価構造分解）」を完全配備。
+   - 売上非公開・未確認の51社は「#05 推定損益計器盤」および「#06 P&Lテーブル」のUI枠自体をDOMから100%完全消滅させ、架空数値（¥30万/65%）の露出を完全撲滅。
+2. **有力ブートストラップ企業2社（Ahrefs / 1Password）の一次ファクト調達 ＆ R2新規保存完遂**:
+   - **Ahrefs**: Dmytro Gerasymenko氏が2010年に自己資金$300kのみで創業。外部VC調達完全ゼロ・営業部隊ゼロのまま、自作クローラー（AhrefsBot）でGoogleに次ぐWebインデックスを構築。2021年ARR $100M突破、2024年推定ARR $149.1M（約223億円）、営業利益率55%超（ペタバイト級インフラ自前運用でAWSの1/5以下の原価率）。
+   - **1Password (AgileBits)**: Dave Teare氏 & Roustem Karimov氏が2005年創業。14年間外部VC調達ゼロの完全ブートストラップ黒字経営。Mac買い切りソフトから月額サブスクへ転換しARR $400M+（約600億円）突破。企業の全社員のマスターキーを人質化し解約率1%未満。
+   - `universal-foundation`（`research-bundle.v1`）規格（46ディメンション完全準拠）で `data/collection/ahrefs-enrichment-20260911.request.json` および `1password-enrichment-20260911.request.json` を生成。
+   - `scripts/foundation-collect.ts ingest` で Cloudflare R2（`foundation-lake`）に各14オブジェクト（計28オブジェクト）を Create-Only で保存・Readback検証完遂。
+
+
 ## 2026-09-08 Bufferの全調査項目を追補・R2新規保存
 
 ユーザーの実収集依頼により、部分収集済みBufferを深掘り。30根拠記録、9主体、23主張、56数値、11資金フロー、9イベント、8関係、12派生分析、10追加観測を保存。48調査項目の調査状態に加え、実コードFinancialEntityの76項目との対応を機械照合（不足0）。全数値の判明という意味ではなく、個人手取り・現在の詳細原価等は調査内容付き不明として保持。

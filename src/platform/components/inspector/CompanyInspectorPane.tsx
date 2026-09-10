@@ -163,7 +163,9 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   const isFinancialUnavailable = 
     !entity.pnl ||
     financialStatus === 'UNAVAILABLE' ||
-    (entity.pnl.isRevenueUnconfirmed && !entity.pnl.monthlyRevenue);
+    entity.pnl.isRevenueUnconfirmed ||
+    !entity.pnl.monthlyRevenue ||
+    entity.pnl.monthlyRevenue === 0;
 
   // 財務ステータス別のバッジ・タイトル・タグ設定
   const getFinancialBadgeMeta = () => {
