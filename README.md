@@ -1,3 +1,5 @@
+> **2026-09-10 現行契約**: [HANDOFF](./HANDOFF.md) と [既存データからUIへの実行・編集契約](./docs/EXISTING_DATA_TO_UI.md) を先に読む。収集の正本は [Foundation統合契約](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md)。既存データの活用・不足の追加調査・Stripe基準の凝縮表示・会社ごとの任意セクションを実行する。この契約は下記の旧記述と衝突する場合に優先し、全項目強制補完・根拠のない手取り実額・速度/成果の保証・独断のUI変更を認めない。
+
 # 金鉱録 (KIN-ROKOKU / Universal Business Foundation)
 
 > **契約の入口**: 収集・R2保存・再利用・事実/推定・UI投影の統合正本は、[FoundationのBUSINESS_RESEARCH_AND_R2_CONTRACT.md](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md)です。このREADMEの北極星・画面史・物語表現はプロダクト方針であり、収集範囲や保存方式を上書きしません。収集前にFoundation契約、[`docs/COLLECT_AND_STORE.md`](docs/COLLECT_AND_STORE.md)、[`docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md`](docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md)を読むこと。
