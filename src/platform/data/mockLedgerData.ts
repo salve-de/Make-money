@@ -176,8 +176,8 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HOLD",
       "verdictLabel": "先行者堀・保留",
-      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
-      "demandDelta": "年 +15%",
+      "oneLineReason": "直販独占と顧客密着SFAにより相見積もりを完全拒否。正面突破は不可能",
+      "demandDelta": "年 +14%",
       "competitionDelta": "独占固定",
       "entryRequirements": {
         "capital": "巨額資本",
@@ -354,8 +354,8 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HOLD",
       "verdictLabel": "先行者堀・保留",
-      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
-      "demandDelta": "年 +15%",
+      "oneLineReason": "金融ライセンスと世界中の開発者標準SDKを制覇。決済ゲートウェイの正面突破は不可能",
+      "demandDelta": "年 +22%",
       "competitionDelta": "独占固定",
       "entryRequirements": {
         "capital": "巨額資本",
@@ -615,9 +615,9 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "oneLineReason": "コード販売自体の模倣は容易だが、X自虐動画マーケティングのエンタメ引力が参入障壁",
       "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "competitionDelta": "競合激増 (模倣多数)",
       "entryRequirements": {
         "capital": "0円〜",
         "technicalDifficulty": "LOW",
@@ -853,11 +853,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "MONITOR",
       "verdictLabel": "要監視",
-      "oneLineReason": "需要急伸中だが、モデルコモディティ化と競合参入が激化",
-      "demandDelta": "90日 ↑54%",
-      "competitionDelta": "競合激増 (月+10社)",
+      "oneLineReason": "他人の画像推論API依存。自前モデルの差別化が難しく、プロンプト流出や競合乱立で消耗戦",
+      "demandDelta": "90日 ↑40%",
+      "competitionDelta": "競合激増 (月+15社)",
       "entryRequirements": {
-        "capital": "",
+        "capital": "5万円〜",
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "MEDIUM"
       }
@@ -1109,11 +1109,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "10年分の都市データ蓄積とコミュニティ人質化により、総合ノマド名簿の単なる模倣は無力",
+      "demandDelta": "90日 ↑15%",
+      "competitionDelta": "独占固定",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "10万円〜",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -1368,8 +1368,8 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
+      "oneLineReason": "GA4の複雑さとCookie同意バナーへの嫌悪を救済。プライバシー配慮のシンプル解析は日本市場でも参入余地あり",
+      "demandDelta": "90日 ↑25%",
       "competitionDelta": "競合 +2社 (緩やか)",
       "entryRequirements": {
         "capital": "0円〜",
@@ -1622,11 +1622,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "複数ポッドキャスト追加料金なしの定額制が強固。特定業種向け社内音声配信なら参入余地あり",
+      "demandDelta": "90日 ↑12%",
+      "competitionDelta": "競合 +1社",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "10万円〜",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -1876,9 +1876,9 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "Linktreeの多機能肥大化に疲れた層をInstagram直結UIで獲得。特定SNS特化なら即日参入可能",
+      "demandDelta": "90日 ↑18%",
+      "competitionDelta": "競合多数",
       "entryRequirements": {
         "capital": "0円〜",
         "technicalDifficulty": "LOW",
@@ -2135,11 +2135,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "SNS予約投稿の元祖。主要PFのAPI制限リスクがあるが、ThreadsやBluesky等新興PF特化なら活路あり",
+      "demandDelta": "年 +10%",
+      "competitionDelta": "競合固定",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "50万円〜",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -2314,11 +2314,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "MONITOR",
       "verdictLabel": "要監視",
-      "oneLineReason": "需要急伸中だが、モデルコモディティ化と競合参入が激化",
-      "demandDelta": "90日 ↑54%",
-      "competitionDelta": "競合激増 (月+10社)",
+      "oneLineReason": "法人社員証・LinkedIn用AI顔写真で一時急伸したが、自社モデルを持たないAPIラッパーのため差別化難",
+      "demandDelta": "90日 ↑30%",
+      "competitionDelta": "競合激増",
       "entryRequirements": {
-        "capital": "",
+        "capital": "10万円〜",
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "MEDIUM"
       }
@@ -2972,7 +2972,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HOLD",
       "verdictLabel": "先行者堀・保留",
-      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "oneLineReason": "「水」をパンク缶ビールとして売るブランディングの特異点。飲料流通網と巨額マーケティングの壁大",
       "demandDelta": "年 +15%",
       "competitionDelta": "独占固定",
       "entryRequirements": {
@@ -3096,11 +3096,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "日々の実代謝量を逆算する独自アルゴリズムが熱狂的支持。カロリー計算アプリの不満層に参入余地あり",
+      "demandDelta": "90日 ↑30%",
+      "competitionDelta": "競合 +1社 (独自路線)",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "50万円〜",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -3214,11 +3214,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "15分要約音声の著作権・ライセンス許諾とナレーター録音原価が先行蓄積されており、後発模倣は高コスト",
+      "demandDelta": "年 +12%",
+      "competitionDelta": "固定",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "5,000万円〜",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -3332,8 +3332,8 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HOLD",
       "verdictLabel": "先行者堀・保留",
-      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
-      "demandDelta": "年 +15%",
+      "oneLineReason": "ドイツの老舗刃物工場を自社買収してジレットに対抗した製造要塞。カミソリD2Cへの後発参入は困難",
+      "demandDelta": "年 +10%",
       "competitionDelta": "独占固定",
       "entryRequirements": {
         "capital": "巨額資本",
@@ -3383,10 +3383,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 11,
+      "weeklyHours": 50,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 92,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -3460,11 +3460,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "MONITOR",
       "verdictLabel": "要監視",
-      "oneLineReason": "需要急伸中だが、モデルコモディティ化と競合参入が激化",
-      "demandDelta": "90日 ↑54%",
-      "competitionDelta": "競合激増 (月+10社)",
+      "oneLineReason": "GPU推論API原価が高く、オープンソース(SD/Flux)との差別化が困難",
+      "demandDelta": "90日 ↑45%",
+      "competitionDelta": "競合激増 (オープンソース台頭)",
       "entryRequirements": {
-        "capital": "",
+        "capital": "1,000万円 (GPU)",
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "MEDIUM"
       }
@@ -3511,10 +3511,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 1,
+      "weeklyHours": 20,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 98,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -3588,11 +3588,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "年額の破壊価格と先行者SEOが強固だが、特化型LPビルダーなら参入余地あり",
+      "demandDelta": "90日 ↑12%",
+      "competitionDelta": "競合 +1社 (安定的)",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "10万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -3639,10 +3639,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 8,
+      "weeklyHours": 30,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 90,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -3716,11 +3716,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "手数料10%改定でクリエイターの不満が滞留しており、低手数料特化で奪取余地あり",
+      "demandDelta": "90日 ↑18%",
+      "competitionDelta": "競合 +3社 (手数料戦争)",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "50万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -3767,10 +3767,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 60,
+      "weeklyHours": 32,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 85,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -3844,11 +3844,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "クラウド脱却・買い切りONCEモデルは自前運用力が必要だが、高単価ニッチSaaSで再現可能",
+      "demandDelta": "年 +8%",
+      "competitionDelta": "固定 (Jira/Asana二極化)",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "100万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -3895,10 +3895,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
+      "teamSize": 45,
       "weeklyHours": 40,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 88,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -3972,11 +3972,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "UI/UXの極限の美しさと0.05秒同期の技術ハードルが高く、同質模倣は困難",
+      "demandDelta": "90日 ↑35%",
+      "competitionDelta": "先行独占",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "300万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -4023,7 +4023,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
+      "teamSize": 500,
       "weeklyHours": 40,
       "initialCapitalRequired": 0,
       "automationLevel": 80,
@@ -4100,11 +4100,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "莫大なコミュニティ資産とAPI連携エコシステムが完成しており、正面突破は困難",
+      "demandDelta": "年 +18%",
+      "competitionDelta": "独占固定",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "巨額資本",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -4151,10 +4151,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 35,
+      "weeklyHours": 45,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 85,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -4228,11 +4228,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "メルマガ広告ネットワークの先行利得が大きいが、業界特化の有料レター基盤なら参入可能",
+      "demandDelta": "90日 ↑28%",
+      "competitionDelta": "競合 +2社 (Substack等)",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "100万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -4279,10 +4279,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 85,
+      "weeklyHours": 38,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 88,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -4356,11 +4356,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "ブロガー・クリエイター特化配管が強固だが、中小企業向けの直感自動化なら参入余地あり",
+      "demandDelta": "年 +14%",
+      "competitionDelta": "安定",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "200万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -4407,10 +4407,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
+      "teamSize": 1800,
       "weeklyHours": 40,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 82,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -4484,7 +4484,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HOLD",
       "verdictLabel": "先行者堀・保留",
-      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "oneLineReason": "Shopify等の購買データ連携と上場エンタープライズ営業が完成しており、後発正面突破は困難",
       "demandDelta": "年 +15%",
       "competitionDelta": "独占固定",
       "entryRequirements": {
@@ -4535,10 +4535,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
+      "teamSize": 650,
       "weeklyHours": 40,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 75,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -4612,11 +4612,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "ハードウェア製造とエリートアスリート独占契約の堀が深く、資本なしの後発は困難",
+      "demandDelta": "年 +20%",
+      "competitionDelta": "独占固定",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "巨額資本",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -4663,10 +4663,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
+      "teamSize": 350,
       "weeklyHours": 40,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 70,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -4740,8 +4740,8 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HOLD",
       "verdictLabel": "先行者堀・保留",
-      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
-      "demandDelta": "年 +15%",
+      "oneLineReason": "年間数百億円のポッドキャスト広告買い占めによりブランド認知が固定化されており後発困難",
+      "demandDelta": "年 +12%",
       "competitionDelta": "独占固定",
       "entryRequirements": {
         "capital": "巨額資本",
@@ -4791,10 +4791,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
+      "teamSize": 800,
       "weeklyHours": 40,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 72,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -4868,11 +4868,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "超小型チタンリング製造特許とアルゴリズムの先行堀により、ハードウェア参入障壁極大",
+      "demandDelta": "年 +25%",
+      "competitionDelta": "独占固定 (Apple/Samsung参入)",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "巨額資本",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -4919,10 +4919,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 20,
+      "weeklyHours": 35,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 94,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -4996,11 +4996,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "月額の超格安Shopifyレビューアプリとして独占。特定国（日本等）向けローカライズなら参入余地あり",
+      "demandDelta": "90日 ↑16%",
+      "competitionDelta": "競合緩やか",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "30万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -5047,10 +5047,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 30,
+      "weeklyHours": 35,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 92,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -5124,11 +5124,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "写真自撮りレビューと自動インセンティブ配管が定着。他モール（BASE/STORES等）向けなら展開可能",
+      "demandDelta": "90日 ↑15%",
+      "competitionDelta": "競合 +1社",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "50万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -5175,10 +5175,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 8,
+      "weeklyHours": 30,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 95,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -5252,11 +5252,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "Stripeアナリティクスは競合多いが、国内決済（SBペイメント/GMO等）特化なら高単価で参入余地あり",
+      "demandDelta": "90日 ↑10%",
+      "competitionDelta": "競合 +2社",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "20万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -5303,10 +5303,10 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
+      "teamSize": 25,
+      "weeklyHours": 35,
       "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "automationLevel": 90,
       "primaryChannels": [
         "Twitter",
         "Product Hunt",
@@ -5380,11 +5380,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "ENTRY_CANDIDATE",
       "verdictLabel": "参入候補",
-      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
-      "demandDelta": "90日 ↑22%",
-      "competitionDelta": "競合 +2社 (緩やか)",
+      "oneLineReason": "PagerDutyの高額さに怒るSaaS向けに急成長。インシデント管理＋電話自動発信のニッチなら参入可能",
+      "demandDelta": "90日 ↑30%",
+      "competitionDelta": "競合 +1社",
       "entryRequirements": {
-        "capital": "0円〜",
+        "capital": "100万円",
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
@@ -5510,11 +5510,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HAZARD_REJECT",
       "verdictLabel": "地雷・爆死",
-      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
-      "demandDelta": "90日 ↓65%",
-      "competitionDelta": "大手参入により消滅",
+      "oneLineReason": "OpenAIのAPIにプロンプトを被せただけの薄いラッパー。本家ChatGPTの月直販で一撃即死した典型地雷",
+      "demandDelta": "90日 ↓70%",
+      "competitionDelta": "本家直販により消滅",
       "entryRequirements": {
-        "capital": "初期 k+",
+        "capital": "数千万円〜",
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
@@ -5640,11 +5640,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HAZARD_REJECT",
       "verdictLabel": "地雷・爆死",
-      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
-      "demandDelta": "90日 ↓65%",
-      "competitionDelta": "大手参入により消滅",
+      "oneLineReason": "機能（音声ルーム）をアプリと誤認。Twitter Spacesがボタン1つで真似して既存ユーザーを奪い即死した地雷",
+      "demandDelta": "90日 ↓85%",
+      "competitionDelta": "既存SNSの模倣で消滅",
       "entryRequirements": {
-        "capital": "初期 k+",
+        "capital": "数億円〜",
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
@@ -5770,11 +5770,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HAZARD_REJECT",
       "verdictLabel": "地雷・爆死",
-      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
-      "demandDelta": "90日 ↓65%",
-      "competitionDelta": "大手参入により消滅",
+      "oneLineReason": "2,000億円でプロの10分ドラマを作りスマホのスクショすら禁止。無料TikTokとSNS文化を見落として半年で爆死した地雷",
+      "demandDelta": "90日 ↓95%",
+      "competitionDelta": "無料UGCに圧殺",
       "entryRequirements": {
-        "capital": "初期 k+",
+        "capital": "2,000億円",
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
@@ -5900,11 +5900,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HAZARD_REJECT",
       "verdictLabel": "地雷・爆死",
-      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
-      "demandDelta": "90日 ↓65%",
-      "competitionDelta": "大手参入により消滅",
+      "oneLineReason": "「誰もリアル会場に戻らない」というコロナ幻影で時価1兆円。対面回帰で解約殺到、20億円で身売りされた一過性需要の地雷",
+      "demandDelta": "90日 ↓80%",
+      "competitionDelta": "Zoom/Teams代替",
       "entryRequirements": {
-        "capital": "初期 k+",
+        "capital": "数千億円",
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
@@ -6030,11 +6030,11 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "opportunityJudgment": {
       "verdict": "HAZARD_REJECT",
       "verdictLabel": "地雷・爆死",
-      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
-      "demandDelta": "90日 ↓65%",
-      "competitionDelta": "大手参入により消滅",
+      "oneLineReason": "ソフト無料・保険手数料中抜きの天才モデルを、受講偽装マクロ等の違法営業で暴走させ規制当局に射殺された地雷",
+      "demandDelta": "90日 ↓60%",
+      "competitionDelta": "当局調査により失脚",
       "entryRequirements": {
-        "capital": "初期 k+",
+        "capital": "数百億円",
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
