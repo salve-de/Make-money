@@ -1,7 +1,6 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { S3Client, ListObjectsV2Command, GetObjectCommand } from '@aws-sdk/client-s3';
-import { INSTITUTIONAL_ENTITIES } from '../src/platform/data/mockLedgerData';
 import { FinancialEntity, UniversalObservation, UniversalEvent, ViabilityStatus } from '../src/platform/types/terminal';
 
 interface RawCoreEntity {
@@ -52,6 +51,7 @@ interface RawBundle {
   metrics?: RawMetric[];
   observations?: RawObservation[];
   events?: Array<{ event_type?: string; occurred_at?: string; description?: string }>;
+  fullFinancialEntity?: FinancialEntity;
 }
 
 const BUCKET = 'foundation-lake';
@@ -214,17 +214,20 @@ async function main() {
   console.log('=== [5/5] Projecting to FinancialEntity ===');
   const finalEntitiesMap = new Map<string, FinancialEntity>();
 
-  // (A) まずベースラインの最高品質静的銘柄（13件）を最優先で登録
-  for (const baseline of INSTITUTIONAL_ENTITIES) {
-    finalEntitiesMap.set(baseline.id, baseline);
+  // (A) R2 bundleに格納されている検証済み完全エンティティを登録
+  for (const bundle of allBundles) {
+    if (bundle?.fullFinancialEntity && bundle.fullFinancialEntity.id) {
+      finalEntitiesMap.set(bundle.fullFinancialEntity.id, bundle.fullFinancialEntity);
+    }
   }
+  console.log(`Loaded ${finalEntitiesMap.size} verified rich entities directly from R2 bundles.`);
 
-  // (B) R2から取得したエンティティをマッピング
+  // (B) R2から取得したその他のコアエンティティをマッピング
   for (const [entityId, core] of rawEntitiesMap.entries()) {
     const rawName = core.canonical_name?.trim();
     if (!rawName || rawName.toLowerCase() === 'unknown entity') continue;
 
-    // 既に静的13銘柄と同一のものはスキップ
+    // 既に完全データが存在するものはスキップ
     const isAlreadyPresent = Array.from(finalEntitiesMap.values()).some(
       (e) => e.name.toLowerCase() === rawName.toLowerCase() || e.id === entityId
     );

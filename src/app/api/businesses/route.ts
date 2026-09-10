@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { INSTITUTIONAL_ENTITIES } from "@/platform/data/mockLedgerData";
 import { getFromR2 } from "@/lib/storage/r2";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
@@ -44,15 +43,15 @@ export async function GET() {
       }
     }
   } catch {
-    // R2未接続または取得エラー時はマスター静的データへフォールバック
+    // R2未接続または取得エラー時
   }
 
-  // 3. 静的確定マスターデータからの即時応答 (フォールバック)
+  // 3. データ未到達時の空応答
   return NextResponse.json(
-    { source: "static_master", count: INSTITUTIONAL_ENTITIES.length, data: INSTITUTIONAL_ENTITIES },
+    { source: "empty", count: 0, data: [] },
     {
       headers: {
-        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        "Cache-Control": "no-store",
       },
     }
   );

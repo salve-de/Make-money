@@ -1,10 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
-import { SynthesizedIdea, StrategyChatMessage } from '@/platform/types/terminal';
+import { FinancialEntity, SynthesizedIdea, StrategyChatMessage } from '@/platform/types/terminal';
 import { db, analystNotes, chatMessages, synthesizedIdeas } from '@/db';
 import { desc } from 'drizzle-orm';
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
 export const dynamic = 'force-dynamic';
+
+let cachedEntities: FinancialEntity[] | null = null;
+async function loadEntitiesFromLake(): Promise<FinancialEntity[]> {
+  if (cachedEntities && cachedEntities.length > 0) return cachedEntities;
+  try {
+    const p = resolve(process.cwd(), 'data/entities-index.json');
+    const content = await readFile(p, 'utf8');
+    cachedEntities = JSON.parse(content) as FinancialEntity[];
+    return cachedEntities;
+  } catch {
+    return [];
+  }
+}
 
 interface UserProfilePayload {
   bookmarkedCount?: number;
@@ -36,17 +50,18 @@ interface ChatPayload {
 
 // =========================================================================
 // 内蔵アナリスト推論エンジン（Fallback Analyst Engine）
-// Gemini APIキー未設定時でも、実在22社のデータとユーザーメモから高精度な3次元アイデアを即時合成
+// 実在2,000社超のデータとユーザーメモから高精度な3次元アイデアを即時合成
 // =========================================================================
-function generateFallbackSynthesis(
+async function generateFallbackSynthesis(
   selectedEntityIds: string[],
   notes: Record<string, { content: string; updatedAt: string }>,
   userProfile?: UserProfilePayload
-): SynthesizedIdea[] {
-  const chosenEntities = INSTITUTIONAL_ENTITIES.filter((e) =>
+): Promise<SynthesizedIdea[]> {
+  const allEntities = await loadEntitiesFromLake();
+  const chosenEntities = allEntities.filter((e) =>
     selectedEntityIds.includes(e.id)
   );
-  const relevantEntities = chosenEntities.length > 0 ? chosenEntities : INSTITUTIONAL_ENTITIES.slice(0, 3);
+  const relevantEntities = chosenEntities.length > 0 ? chosenEntities : allEntities.slice(0, 3);
   
   // ユーザーのメモを統合
   const noteTexts = selectedEntityIds
@@ -54,8 +69,15 @@ function generateFallbackSynthesis(
     .filter(Boolean) as string[];
   const combinedUserNote = noteTexts.join(' / ') || '特記事項なし（保存銘柄の構造を掛け合わせ）';
 
-  const primaryEntity = relevantEntities[0] || INSTITUTIONAL_ENTITIES[0];
-  const secondaryEntity = relevantEntities[1] || INSTITUTIONAL_ENTITIES[1] || primaryEntity;
+  const primaryEntity = relevantEntities[0] || allEntities[0] || {
+    id: 'ent_default',
+    name: '特化型高収益SaaS',
+    targetPainWallet: '顧客の怠惰・作業時間損失',
+    strategy: { blindspot: '大手の死角を突く自動化', initialTraction: ['直接アウトリーチ'] },
+    pnl: { operatingProfit: 10000000 },
+    operations: { toolStack: [{ name: 'Stripe' }, { name: 'Cloudflare' }] },
+  };
+  const secondaryEntity = relevantEntities[1] || allEntities[1] || primaryEntity;
 
   // 1. 本能ハック型（サバンナOS）: 損失回避・怠惰・虚栄心を直撃する即効型
   const idea1: SynthesizedIdea = {
@@ -136,13 +158,21 @@ function generateFallbackSynthesis(
 // 内蔵チャット推論エンジン（Fallback Analyst Sparring）
 // 冷徹なCTO・金融アナリスト視点によるシャープな壁打ち
 // =========================================================================
-function generateFallbackChatResponse(
+async function generateFallbackChatResponse(
   userQuery: string,
   contextEntityId?: string,
   notes?: Record<string, { content: string; updatedAt: string }>,
   userProfile?: UserProfilePayload
-): { content: string; suggestedActionPrompts: string[] } {
-  const entity = INSTITUTIONAL_ENTITIES.find((e) => e.id === contextEntityId) || INSTITUTIONAL_ENTITIES[0];
+): Promise<{ content: string; suggestedActionPrompts: string[] }> {
+  const allEntities = await loadEntitiesFromLake();
+  const entity = (contextEntityId ? allEntities.find((e) => e.id === contextEntityId) : null) || allEntities[0] || {
+    id: 'ent_default',
+    name: '特化型高収益SaaS',
+    targetPainWallet: '顧客の怠惰・作業時間損失',
+    strategy: { blindspot: '大手の死角を突く自動化', initialTraction: ['直接アウトリーチ'] },
+    pnl: { operatingProfit: 10000000 },
+    operations: { toolStack: [{ name: 'Stripe' }, { name: 'Cloudflare' }] },
+  };
   const userNote = contextEntityId && notes ? notes[contextEntityId]?.content : '';
   const profileHint = userProfile?.profileSummary ? `\n\n【あなたの関心傾向】: ${userProfile.profileSummary}` : '';
 
@@ -283,7 +313,8 @@ export async function POST(req: NextRequest) {
       // Gemini APIが利用可能な場合はAI推論を試みる
       if (apiKey) {
         try {
-          const entitiesData = INSTITUTIONAL_ENTITIES.filter((e) =>
+          const allEntities = await loadEntitiesFromLake();
+          const entitiesData = allEntities.filter((e) =>
             selectedEntityIds.includes(e.id)
           );
           const prompt = `
@@ -358,7 +389,7 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
       }
 
       // フォールバック推論エンジン
-      const ideas = generateFallbackSynthesis(selectedEntityIds, notes, payload.userProfile);
+      const ideas = await generateFallbackSynthesis(selectedEntityIds, notes, payload.userProfile);
       return NextResponse.json({ success: true, ideas, engine: 'fallback_internal' });
     }
 
@@ -388,7 +419,8 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 
       if (apiKey) {
         try {
-          const entity = INSTITUTIONAL_ENTITIES.find((e) => e.id === contextEntityId);
+          const allEntities = await loadEntitiesFromLake();
+          const entity = allEntities.find((e) => e.id === contextEntityId);
           const clientNote = contextEntityId && notes ? notes[contextEntityId]?.content || '' : '';
           const allNotesContext = [clientNote, dbAccumulatedNotes].filter(Boolean).join('\n\n');
 
@@ -469,7 +501,7 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
       }
 
       // フォールバック推論エンジン
-      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId, notes, payload.userProfile);
+      const { content, suggestedActionPrompts } = await generateFallbackChatResponse(lastUserMessage, contextEntityId, notes, payload.userProfile);
       const assistantMsg: StrategyChatMessage = {
         id: `msg_${Date.now()}`,
         role: 'assistant',

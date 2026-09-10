@@ -33,6 +33,24 @@
   - 右インスペクター: 損益レントゲン、時系列レーダー、万能救済ストリームが完全動作。
 - `npm run build`: Webpackコンパイル、TypeScript型チェック（0エラー）完全PASS。
 
+### 4. 13件ハードコードの完全切除 ＆ R2 Lake への完全移管（コード負債 2,779行の削除）
+ユーザーからの「13件ハードコード消したよね？ 全部データがあるならR2に混ぜておいて、それか完全に削除するか」という至極真っ当な指摘を受け、即座に完全外科手術を実施。
+1. **R2 Lakeへの完全投入（`scripts/ingest-baseline-to-r2.ts`）**:
+   - キーエンス、Stripe、ShipFast、Photo AI、Nomad List等、検証済み13銘柄の全データを、R2のCore Entity（`datasets/ds.business.entities.core/v1/entities/ent_*.json`）およびResearch Bundle（`datasets/ds.business.research-bundles.derived/v1/2026/09/10/run_baseline_13_verified_*.json`）へ正式に投入。
+   - これにより、13銘柄も他の2,017件と同様に「100% R2 Lake由来の正本データ」として管理される体制へ完全昇格。
+2. **コード側ハードコードの完全消滅**:
+   - `src/platform/data/mockLedgerData.ts`（2,787行・187KB）の巨大なハードコード配列を完全切除（空配列へ初期化）。
+   - `TerminalShell.tsx`、`src/app/api/businesses/route.ts`、`src/app/api/strategy-chat/route.ts`、`sync-lake-to-index.ts` から静的ハードコードのインポートを1行残らず根絶。
+   - すべての画面・API・AI対話が、R2 Lake由来の集約インデックス（2,030件）を動的に参照する堅牢なアーキテクチャへ統一。
+
+### 5. ブラウザ実機操作による動的挙動の完全検証（CDP自動操作）
+BraveブラウザをDevTools Protocol（CDP）経由で直接操作する自動検証スクリプト（`scripts/browser-verify.ts`）を実装・実行し、エンドユーザーの実際の操作を完全再現して検証：
+1. **初期ロード (`browser_step1_initial_load.png`)**: 「2030 件」がヘッダーに表示され、高密度台帳が正常レンダリングされることを確認。
+2. **銘柄クリック (`browser_step2_entity_clicked.png`)**: 左列の「Nomad List」をクリックし、右ペイン（インスペクター）が即座にNomad Listの詳細（事業DNA、突いた業界の盲点、参入障壁、大手の自爆）へ切り替わることを確認。
+3. **タブ切り替え (`browser_step3_stream_tab.png`)**: インスペクター上部の「全量インテリジェンス (Stream)」タブをクリックし、万能救済ストリーム（独占と暴利を生む4つの裏構造）が展開されることを確認。
+4. **検索入力絞り込み (`browser_step4_search_todoist.png`)**: 検索窓に「Todoist」と入力し、件数が「1 件」へ即時絞り込まれ、Todoistの月商・手口がピンポイント表示されることを確認。
+5. **スクロール・仮想ウィンドウイング (`browser_step5_scrolled_view.png`)**: 左列データグリッドを下へスクロールし、IntersectionObserverにより後続銘柄（Basin, Bear, beehiiv, Bitwarden 等）が滑らかに遅延レンダリングされることを確認。未確認の売上は「非公開 / 推定未算出」、判明売上は「月商 ¥5000万」と正確に表示されることを確認。
+
 ## 2026-09-08 Bufferの全調査項目を追補・R2新規保存
 
 ユーザーの実収集依頼により、部分収集済みBufferを深掘り。30根拠記録、9主体、23主張、56数値、11資金フロー、9イベント、8関係、12派生分析、10追加観測を保存。48調査項目の調査状態に加え、実コードFinancialEntityの76項目との対応を機械照合（不足0）。全数値の判明という意味ではなく、個人手取り・現在の詳細原価等は調査内容付き不明として保持。

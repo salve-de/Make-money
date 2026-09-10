@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { INSTITUTIONAL_ENTITIES } from '../../data/mockLedgerData';
+
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { FinancialEntity, GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
@@ -50,8 +50,8 @@ export const TerminalShell: React.FC = () => {
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
 
-  // エンティティ動的ステート（初期値: 静的マスターデータ、マウント後にAPIから1000件スケールで動的補完）
-  const [entities, setEntities] = useState<FinancialEntity[]>(INSTITUTIONAL_ENTITIES);
+// エンティティ動的ステート（マウント時にAPIからR2レイク全量を即時ロード）
+  const [entities, setEntities] = useState<FinancialEntity[]>([]);
 
   // R2 / APIからの最新全件エンティティ動的ロード（1000件スケール対応）
   useEffect(() => {
