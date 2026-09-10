@@ -6,6 +6,8 @@ If you are an AI with no prior chat context, use this file as the Make-Money run
 
 The semantic authority is `salve-de/universal-foundation`. Read its `AGENTS.md` first. This repository is only an implementation/consumer.
 
+For the integrated purpose, MECE collection scope, evidence/truth rules, R2 placement, cross-project reuse, flexible product-view boundary, and completion rules, also read `universal-foundation/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md` before using this runtime handoff.
+
 ## Goal
 
 New business/company/solo-developer research must be preserved so it can be reused by future products without being limited by Make-Money's current UI or a fixed checklist count.

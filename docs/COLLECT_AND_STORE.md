@@ -5,16 +5,17 @@
 最初に認証付きで `salve-de/universal-foundation` を取得し、次を順番に読む。
 
 1. `AGENTS.md`
-2. `docs/LONG_HORIZON_DATA_ARCHITECTURE.md`
-3. `docs/UNIVERSAL_COLLECTION_BASELINE.md`
-4. `docs/R2_SELF_DESCRIBING_LAYOUT.md`
-5. `registry/collection/business-case.v2.json`
-6. `docs/AI_COLLECTION_AND_STORAGE_CONTRACT.md`
-7. `docs/MAKE_MONEY_AGENT_RUNBOOK.md`
-8. `docs/MAKE_MONEY_RESEARCH_REQUIREMENTS.md`
-9. 深い完全性を主張する場合のみ `registry/collection/business-case.v1.json` と `docs/COLLECTION_RECONCILIATION.md`
+2. `docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md`
+3. `docs/LONG_HORIZON_DATA_ARCHITECTURE.md`
+4. `docs/UNIVERSAL_COLLECTION_BASELINE.md`
+5. `docs/R2_SELF_DESCRIBING_LAYOUT.md`
+6. `registry/collection/business-case.v2.json`
+7. `docs/AI_COLLECTION_AND_STORAGE_CONTRACT.md`
+8. `docs/MAKE_MONEY_AGENT_RUNBOOK.md`
+9. `docs/MAKE_MONEY_RESEARCH_REQUIREMENTS.md`
+10. 深い完全性を主張する場合のみ `registry/collection/business-case.v1.json` と `docs/COLLECTION_RECONCILIATION.md`
 
-Make-Moneyはconsumer。R2 pathやMake-Money UI schemaをUniversalの意味にしない。
+Make-Moneyはconsumer。このファイルは実行入口であり、R2 pathやMake-Money UI schemaをUniversalの意味にしない。収集範囲、保存境界、事実/推定、柔軟な表示、完了条件はFoundationの統合契約に従う。
 
 ### 0.1 どのAIでも同じ範囲を読むためのhandoff不変条件
 
@@ -132,7 +133,7 @@ DEEP_RECONCILEDを主張するときだけ、詳細checklistとsource inventory�
 
 - 資料の見出し・表・全関連期間を棚卸しする。
 - 発見したのに未保存の情報はpending。
-- `collection_audit.v1`に資料別抽出台帳、値照合、第二巡レビュー、未読候補を残す。
+- 新規の詳細監査は`collection_audit.v2`の意味で資料別抽出台帳、値照合、第二巡レビュー、未読候補を残す。既存の`collection_audit.v1`は後方互換の読み取り対象であり、新規仕様の正本ではない。
 - productのDerived/表示用フィールドを、外部で必ず見つかるSource Factとして扱わない。
 
 CAPTURE/CORE/ENRICHEDの部分データは、有用ならそのまま保存してよい。ただし完了レベルを偽らない。

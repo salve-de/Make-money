@@ -6,6 +6,8 @@
 
 全プロジェクト共通の正本は [Universal Foundationの収集基準](https://github.com/salve-de/universal-foundation/blob/main/docs/UNIVERSAL_COLLECTION_BASELINE.md) とし、この文書ではMake-Moneyでの表示・運用へ落とし込む。
 
+全体の目的、MECEな収集範囲、証拠・真実性、R2配置、再利用、柔軟なproduct view、配信、完了条件は、Foundationの統合契約 [`BUSINESS_RESEARCH_AND_R2_CONTRACT.md`](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md) を正本とする。この文書はMake-Money consumer側の補足であり、独自の収集範囲や保存方式を定義しない。
+
 ### 情報源の範囲（一次情報だけに限定しない）
 
 一次・公式情報は優先するが、それだけを採用条件にはしない。公式／創業者の発言、インタビュー・build-in-public、公開アーカイブ、信頼できる報道・調査、マーケットプレイス・ディレクトリ・アプリストア・Product Hunt・比較・レビュー、顧客・コミュニティ・フォーラム・Issue、公開トラフィック／検索／技術／求人／連携／紹介シグナル、失敗・終了・買収・ピボットの記録、source-less leadを、事例ごとに該当する範囲で確認する。二次情報やコミュニティ情報は一次情報と同じ確度として扱わず、既存のsource/truth/evidenceの項目で強さ・不確実性・相反を残す。
@@ -82,6 +84,8 @@ Make-Moneyでは、候補を拾う入口を狭めない。最低限、分かる�
 5. 顧客、価格、最初の顧客獲得経路
 6. 使用ツール、運営負担、競合・依存、失敗・撤退リスク
 7. 出典の有無と信頼状態
+
+表示は固定された全項目表ではない。全事例に共通する身元・時点・信頼状態を最低限表示し、価格、顧客、初動獲得、損益、コスト、依存、ロックイン、ピボット、Playbook等は、既存レコードと証拠が存在する事例で追加表示する。型にない有用な観測はUniversal Journal/`observations`から探索可能にし、欠損を汎用文や架空の数値で埋めない。新しいセクションは、Foundationの正本を変更せず、consumer側の再構築可能なprojectionとして追加する。
 
 出典なしの事例も一覧・詳細に出せる。ただしカードと詳細の両方に「未確認」「出典未取得」を表示し、確定値のような色・文言・ランキング根拠にしない。Hook、4 STAGES、Buyer Psychology、Moat、Opportunityは、収集した事実から作る派生情報として別管理する。
 
