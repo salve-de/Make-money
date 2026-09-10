@@ -2,6 +2,7 @@ import {
   GetObjectCommand,
   HeadBucketCommand,
   HeadObjectCommand,
+  ListObjectsV2Command,
   PutObjectCommand,
   S3Client,
 } from '@aws-sdk/client-s3';
@@ -46,6 +47,19 @@ export interface R2ObjectHead {
 export interface R2ObjectRead extends R2ObjectHead {
   exists: true;
   body: Uint8Array;
+}
+
+export interface R2ListObject {
+  key: string;
+  size?: number;
+  etag?: string;
+  lastModified?: Date;
+}
+
+export interface R2ListResult {
+  objects: R2ListObject[];
+  truncated: boolean;
+  cursor?: string;
 }
 
 export interface R2PreflightResult {
@@ -134,9 +148,28 @@ interface R2WorkerObject {
   arrayBuffer?: () => Promise<ArrayBuffer>;
 }
 
+export interface R2ByteRange {
+  offset: number;
+  length: number;
+}
+
+interface R2WorkerListObject {
+  key?: string;
+  size?: number;
+  etag?: string;
+  httpEtag?: string;
+  uploaded?: Date;
+}
+
+interface R2WorkerListResult {
+  objects?: R2WorkerListObject[];
+  truncated?: boolean;
+  cursor?: string;
+}
+
 interface R2WorkerBinding {
   head(key: string): Promise<R2WorkerObject | null>;
-  get(key: string): Promise<R2WorkerObject | null>;
+  get(key: string, options?: { range?: R2ByteRange }): Promise<R2WorkerObject | null>;
   put(
     key: string,
     value: Uint8Array,
@@ -146,7 +179,7 @@ interface R2WorkerBinding {
       customMetadata?: Record<string, string>;
     }
   ): Promise<R2WorkerObject | null>;
-  list(options?: { limit?: number }): Promise<unknown>;
+  list(options?: { limit?: number; prefix?: string; cursor?: string }): Promise<unknown>;
 }
 
 type R2Backend =
@@ -306,9 +339,10 @@ function workerObjectToHead(
 async function readWorkerObject(
   binding: R2WorkerBinding,
   bucket: string,
-  key: string
+  key: string,
+  range?: R2ByteRange
 ): Promise<R2ObjectRead | null> {
-  const response = await binding.get(key);
+  const response = await binding.get(key, range ? { range } : undefined);
   if (!response) return null;
 
   let body: Uint8Array;
@@ -348,11 +382,12 @@ async function assertR2BucketAvailableWithBackend(
 async function readR2ObjectWithBackend(
   bucket: string,
   key: string,
-  backend: R2Backend
+  backend: R2Backend,
+  range?: R2ByteRange
 ): Promise<R2ObjectRead | null> {
   if (backend.kind === 'binding') {
     try {
-      return await readWorkerObject(backend.binding, bucket, key);
+      return await readWorkerObject(backend.binding, bucket, key, range);
     } catch (error) {
       if (isNotFoundError(error)) return null;
       throw error;
@@ -361,7 +396,13 @@ async function readR2ObjectWithBackend(
 
   try {
     const response = await backend.client.send(
-      new GetObjectCommand({ Bucket: bucket, Key: key })
+      new GetObjectCommand({
+        Bucket: bucket,
+        Key: key,
+        ...(range
+          ? { Range: `bytes=${range.offset}-${range.offset + range.length - 1}` }
+          : {}),
+      })
     );
     if (!response.Body) {
       throw new R2ReadbackVerificationError(bucket, key, 'object body was empty');
@@ -440,6 +481,120 @@ export async function readR2Object(bucket: string, key: string): Promise<R2Objec
 
   const backend = await resolveR2Backend(normalizedBucket);
   return readR2ObjectWithBackend(normalizedBucket, normalizedKey, backend);
+}
+
+/**
+ * Read a byte range from an existing object. This is a read-only optimization
+ * for locating records inside immutable Foundation bundles.
+ */
+export async function readR2ObjectRange(
+  bucket: string,
+  key: string,
+  range: R2ByteRange
+): Promise<R2ObjectRead | null> {
+  const normalizedBucket = bucket.trim();
+  const normalizedKey = key.trim();
+  if (
+    !normalizedBucket ||
+    !normalizedKey ||
+    !Number.isInteger(range.offset) ||
+    range.offset < 0 ||
+    !Number.isInteger(range.length) ||
+    range.length < 1
+  ) {
+    throw new R2ConfigurationError('An exact R2 bucket, key, and valid byte range are required');
+  }
+
+  const backend = await resolveR2Backend(normalizedBucket);
+  return readR2ObjectWithBackend(normalizedBucket, normalizedKey, backend, range);
+}
+
+function normalizeListObject(value: unknown): R2ListObject | null {
+  if (!value || typeof value !== 'object') return null;
+  const candidate = value as R2WorkerListObject;
+  if (typeof candidate.key !== 'string' || !candidate.key.trim()) return null;
+  return {
+    key: candidate.key,
+    ...(typeof candidate.size === 'number' ? { size: candidate.size } : {}),
+    ...(typeof candidate.etag === 'string' || typeof candidate.httpEtag === 'string'
+      ? { etag: candidate.httpEtag || candidate.etag }
+      : {}),
+    ...(candidate.uploaded instanceof Date ? { lastModified: candidate.uploaded } : {}),
+  };
+}
+
+/**
+ * List an existing Foundation prefix without creating an index or changing
+ * the R2 layout. Callers must continue while `truncated` is true; an R2 list
+ * response may contain fewer objects than the requested limit.
+ */
+export async function listR2Objects(input: {
+  bucket?: string;
+  prefix?: string;
+  cursor?: string;
+  limit?: number;
+} = {}): Promise<R2ListResult> {
+  const bucket = (input.bucket || getFoundationBucket('lake')).trim();
+  const prefix = input.prefix?.trim() || '';
+  const limit = Math.min(Math.max(1, Math.floor(input.limit ?? 100)), 1000);
+
+  if (!bucket) throw new R2ConfigurationError('An exact R2 bucket is required');
+  if (bucket === 'universal') {
+    throw new R2ConfigurationError('Legacy universal cannot be a Foundation R2 target');
+  }
+
+  const backend = await resolveR2Backend(bucket);
+  if (backend.kind === 'binding') {
+    try {
+      const raw = (await backend.binding.list({
+        limit,
+        ...(prefix ? { prefix } : {}),
+        ...(input.cursor ? { cursor: input.cursor } : {}),
+      })) as R2WorkerListResult;
+      const objects = Array.isArray(raw?.objects)
+        ? raw.objects
+            .map(normalizeListObject)
+            .filter((item): item is R2ListObject => Boolean(item))
+        : [];
+      return {
+        objects,
+        truncated: raw?.truncated === true,
+        ...(typeof raw?.cursor === 'string' && raw.cursor ? { cursor: raw.cursor } : {}),
+      };
+    } catch (error) {
+      if (isNotFoundError(error)) throw new R2BucketMissingError(bucket);
+      throw error;
+    }
+  }
+
+  try {
+    const response = await backend.client.send(
+      new ListObjectsV2Command({
+        Bucket: bucket,
+        ...(prefix ? { Prefix: prefix } : {}),
+        ...(input.cursor ? { ContinuationToken: input.cursor } : {}),
+        MaxKeys: limit,
+      })
+    );
+    const objects = (response.Contents || [])
+      .map((item) =>
+        normalizeListObject({
+          key: item.Key,
+          size: item.Size,
+          etag: item.ETag,
+          uploaded: item.LastModified,
+        })
+      )
+      .filter((item): item is R2ListObject => Boolean(item));
+    return {
+      objects,
+      truncated: response.IsTruncated === true,
+      ...(response.NextContinuationToken ? { cursor: response.NextContinuationToken } : {}),
+    };
+  } catch (error) {
+    if (isNotFoundError(error)) throw new R2BucketMissingError(bucket);
+    throw error;
+  }
 }
 
 export async function preflightR2Object(input: R2ObjectInput): Promise<R2PreflightResult> {

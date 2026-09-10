@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { INSTITUTIONAL_ENTITIES } from '../../data/mockLedgerData';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
@@ -10,6 +10,8 @@ import { TerminalSidebar } from '../navigation/TerminalSidebar';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '../inspector/CompanyInspectorPane';
+import { FoundationDataGrid } from '../foundation/FoundationDataGrid';
+import { FoundationInspectorPane } from '../foundation/FoundationInspectorPane';
 import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
 import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView';
 import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
@@ -22,6 +24,7 @@ import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/Advanced
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
 import { ProModal } from '../../../components/terminal/ProModal';
 import { useAuth } from '../../../context/AuthContext';
+import type { FoundationBusinessCase, FoundationEntityPage, FoundationEntitySummary } from '@/lib/foundation/business-reader';
 
 export const TerminalShell: React.FC = () => {
   const { viewedEntityIds, recordView } = useViewHistory();
@@ -50,35 +53,85 @@ export const TerminalShell: React.FC = () => {
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
 
-  // エンティティ動的ステート（初期値: 静的マスターデータ、マウント後にAPIから1000件スケールで動的補完）
+  // 既存UI（SYNTHESIS/RADAR等）が使う静的ビュー用ステート。
   const [entities, setEntities] = useState<FinancialEntity[]>(INSTITUTIONAL_ENTITIES);
 
-  // R2 / APIからの最新全件エンティティ動的ロード（1000件スケール対応）
-  useEffect(() => {
-    let isMounted = true;
-    fetch('/api/businesses')
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
-      .then((resJson: unknown) => {
-        const payload = resJson as { data?: FinancialEntity[] } | FinancialEntity[];
-        const items = Array.isArray(payload)
-          ? payload
-          : Array.isArray(payload?.data)
-          ? payload.data
-          : [];
-        if (isMounted && items.length > 0) {
-          setEntities(items);
+  // Foundation Lakeは正本を直接読む。UI用の短期ステートであり、R2へindexを書き戻さない。
+  const [foundationRows, setFoundationRows] = useState<FoundationEntitySummary[]>([]);
+  const [foundationCursor, setFoundationCursor] = useState<string | null>(null);
+  const [foundationHasMore, setFoundationHasMore] = useState(false);
+  const [foundationLoading, setFoundationLoading] = useState(false);
+  const [foundationMode, setFoundationMode] = useState(false);
+  const foundationLoadingRef = useRef(false);
+  const [foundationDetail, setFoundationDetail] = useState<FoundationBusinessCase | null>(null);
+  const [foundationDetailId, setFoundationDetailId] = useState<string | null>(null);
+  const [foundationDetailLoading, setFoundationDetailLoading] = useState(false);
+  const [foundationDetailError, setFoundationDetailError] = useState<string | null>(null);
+  const foundationDetailCache = useRef(new Map<string, FoundationBusinessCase>());
+
+  const mergeFoundationRows = useCallback((incoming: FoundationEntitySummary[], replace = false) => {
+    setFoundationRows((current) => {
+      const next = replace ? [] : [...current];
+      const seen = new Set(next.map((item) => item.id));
+      for (const item of incoming) {
+        if (!seen.has(item.id)) {
+          next.push(item);
+          seen.add(item.id);
         }
-      })
-      .catch((err) => {
-        console.warn('[TerminalShell] Failed to fetch /api/businesses, falling back to static entities:', err);
-      });
-    return () => {
-      isMounted = false;
-    };
+      }
+      return next;
+    });
   }, []);
+
+  const loadFoundationPage = useCallback(async (cursor?: string, signal?: AbortSignal): Promise<FoundationEntityPage | null> => {
+    if (foundationLoadingRef.current) return null;
+    foundationLoadingRef.current = true;
+    setFoundationLoading(true);
+    try {
+      const params = new URLSearchParams({ limit: '100' });
+      if (cursor) params.set('cursor', cursor);
+      const res = await fetch(`/api/businesses?${params.toString()}`, { signal });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const payload = (await res.json()) as {
+        source?: string;
+        data?: unknown;
+        nextCursor?: string | null;
+        hasMore?: boolean;
+      };
+
+      if (payload.source !== 'foundation_lake') {
+        if (!cursor && Array.isArray(payload.data) && payload.data.length > 0) {
+          setFoundationMode(false);
+          setEntities(payload.data as FinancialEntity[]);
+        }
+        return null;
+      }
+
+      const page: FoundationEntityPage = {
+        data: Array.isArray(payload.data) ? (payload.data as FoundationEntitySummary[]) : [],
+        nextCursor: payload.nextCursor || null,
+        hasMore: payload.hasMore === true,
+      };
+      setFoundationMode(true);
+      mergeFoundationRows(page.data, !cursor);
+      setFoundationCursor(page.nextCursor);
+      setFoundationHasMore(page.hasMore);
+      return page;
+    } finally {
+      foundationLoadingRef.current = false;
+      setFoundationLoading(false);
+    }
+  }, [mergeFoundationRows]);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    void loadFoundationPage(undefined, controller.signal).catch((error) => {
+      if ((error as { name?: string })?.name !== 'AbortError') {
+        console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
+      }
+    });
+    return () => controller.abort();
+  }, [loadFoundationPage]);
 
   // 認知負荷ゼロ・即時着火: entityParam指定があればそれ、なければPhoto AI（粗利84%ソロ企業）をデフォルト自動展開
   const initialEntityId =
@@ -91,6 +144,7 @@ export const TerminalShell: React.FC = () => {
         )?.id || 'ent_photoai'
       : 'ent_photoai');
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
+  const [selectedFoundationId, setSelectedFoundationId] = useState<string | null>(entityParam);
   // 市場の歪み（Market Anomaly）選択ステート
   const [selectedAnomalyId, setSelectedAnomalyId] = useState<string | null>(null);
 
@@ -112,6 +166,7 @@ export const TerminalShell: React.FC = () => {
 
     if (entityParam) {
       setSelectedEntityId(entityParam);
+      setSelectedFoundationId(entityParam);
     } else if (queryParam) {
       const matched = entities.find(
         (e) =>
@@ -131,6 +186,44 @@ export const TerminalShell: React.FC = () => {
       recordView(selectedEntityId);
     }
   }, [selectedEntityId, recordView]);
+
+  const loadFoundationDetail = useCallback(async (entityId: string, signal: AbortSignal) => {
+    setFoundationDetailLoading(true);
+    setFoundationDetailError(null);
+    const cached = foundationDetailCache.current.get(entityId);
+    if (cached) {
+      setFoundationDetail(cached);
+      setFoundationDetailId(entityId);
+      setFoundationDetailLoading(false);
+      return;
+    }
+
+    try {
+      const res = await fetch(`/api/businesses?entity_id=${encodeURIComponent(entityId)}`, { signal });
+      const payload = (await res.json()) as { source?: string; data?: FoundationBusinessCase };
+      if (!res.ok || payload.source !== 'foundation_lake' || !payload.data) {
+        throw new Error(`Foundation detail unavailable (HTTP ${res.status})`);
+      }
+      foundationDetailCache.current.set(entityId, payload.data);
+      setFoundationDetail(payload.data);
+      setFoundationDetailId(entityId);
+    } catch (error) {
+      if ((error as { name?: string })?.name !== 'AbortError') {
+        setFoundationDetailId(entityId);
+        setFoundationDetailError('このentityに紐づく詳細データを取得できませんでした。未確認のままです。');
+      }
+    } finally {
+      if (!signal.aborted) setFoundationDetailLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!foundationMode || !selectedFoundationId) return;
+    const controller = new AbortController();
+    void loadFoundationDetail(selectedFoundationId, controller.signal);
+    return () => controller.abort();
+  }, [foundationMode, loadFoundationDetail, selectedFoundationId]);
+
   const { isPro: authIsPro } = useAuth();
   const [isLocalProUnlocked, setIsLocalProUnlocked] = useState<boolean>(false);
 
@@ -211,6 +304,22 @@ export const TerminalShell: React.FC = () => {
     return { availableTags: tags, tagCounts: counts };
   }, [entities]);
 
+  const filteredFoundationRows = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return foundationRows;
+    return foundationRows.filter((entity) =>
+      [
+        entity.id,
+        entity.name,
+        entity.entityType,
+        entity.domain || '',
+        entity.canonicalIdentifier || '',
+        entity.status,
+        ...entity.aliases,
+      ].some((value) => value.toLowerCase().includes(query))
+    );
+  }, [foundationRows, searchQuery]);
+
   // 全台帳モードでのフィルタリング
   const filteredEntities = useMemo(() => {
     return entities.filter((entity) => {
@@ -256,8 +365,21 @@ export const TerminalShell: React.FC = () => {
 
   // 現在選択中の企業エンティティ
   const selectedEntity = useMemo(() => {
+    if (foundationMode && workspaceMode === 'LEDGER') return null;
     return entities.find((e) => e.id === selectedEntityId) || null;
-  }, [entities, selectedEntityId]);
+  }, [entities, foundationMode, selectedEntityId, workspaceMode]);
+
+  const selectedFoundationSummary = useMemo(() => {
+    if (!foundationMode || !selectedFoundationId) return null;
+    return foundationRows.find((entity) => entity.id === selectedFoundationId) || null;
+  }, [foundationMode, foundationRows, selectedFoundationId]);
+
+  const handleLoadMoreFoundation = useCallback(() => {
+    if (!foundationHasMore || foundationLoading || !foundationCursor) return;
+    void loadFoundationPage(foundationCursor).catch((error) => {
+      console.warn('[TerminalShell] Additional Foundation page read failed:', error);
+    });
+  }, [foundationCursor, foundationHasMore, foundationLoading, loadFoundationPage]);
 
   const handlePrevEntity = useCallback(() => {
     const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
@@ -282,6 +404,8 @@ export const TerminalShell: React.FC = () => {
       {/* 統合ヘッダー ＆ リアルタイム市況ティッカー */}
       <MarketTickerStrip
         onSelectEntity={(id) => {
+          setFoundationMode(false);
+          setSelectedFoundationId(null);
           setSelectedEntityId(id);
           setWorkspaceMode('LEDGER');
         }}
@@ -315,24 +439,28 @@ export const TerminalShell: React.FC = () => {
             allEntities={entities}
             initialAnomalyId={selectedAnomalyId}
             onOpenEntityInLedger={(entityId) => {
+              setFoundationMode(false);
+              setSelectedFoundationId(null);
               setSelectedEntityId(entityId);
               setWorkspaceMode('LEDGER');
             }}
             onOpenSynthesisWithEntity={(entityId) => {
+              setFoundationMode(false);
+              setSelectedFoundationId(null);
               setSelectedEntityId(entityId);
               setWorkspaceMode('SYNTHESIS');
             }}
           />
         ) : (
           <div className={`flex flex-col min-w-0 overflow-hidden bg-[#07080B] transition-all duration-150 ${
-            selectedEntity
+            selectedEntity || selectedFoundationSummary
               ? 'w-full md:w-[440px] lg:w-[480px] xl:w-[520px] shrink-0 border-r border-white/[0.06]'
               : 'flex-1'
           }`}>
             <DataGridToolbar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
-              totalCount={filteredEntities.length}
+              totalCount={foundationMode ? filteredFoundationRows.length : filteredEntities.length}
               onOpenScreener={() => setIsScreenerOpen(true)}
               screenerFilters={screenerFilters}
               onResetScreener={() => setScreenerFilters(null)}
@@ -340,22 +468,44 @@ export const TerminalShell: React.FC = () => {
               onToggleTag={handleToggleTag}
             />
 
-            <InstitutionalDataGrid
-              entities={filteredEntities}
-              selectedEntityId={selectedEntityId}
-              onSelectEntity={setSelectedEntityId}
-              currency={currency}
-              bookmarkedIds={bookmarkedIds}
-              onToggleBookmark={handleToggleBookmark}
-              isSplitView={Boolean(selectedEntity)}
-              activeTags={activeTags}
-              onToggleTag={handleToggleTag}
-            />
+            {foundationMode ? (
+              <FoundationDataGrid
+                rows={filteredFoundationRows}
+                selectedEntityId={selectedFoundationId}
+                onSelectEntity={(id) => {
+                  setSelectedFoundationId(id);
+                  setSelectedEntityId(null);
+                }}
+                onLoadMore={handleLoadMoreFoundation}
+                hasMore={foundationHasMore}
+                isLoading={foundationLoading}
+              />
+            ) : (
+              <InstitutionalDataGrid
+                entities={filteredEntities}
+                selectedEntityId={selectedEntityId}
+                onSelectEntity={setSelectedEntityId}
+                currency={currency}
+                bookmarkedIds={bookmarkedIds}
+                onToggleBookmark={handleToggleBookmark}
+                isSplitView={Boolean(selectedEntity)}
+                activeTags={activeTags}
+                onToggleTag={handleToggleTag}
+              />
+            )}
           </div>
         )}
 
         {/* 右リアルタイム解剖インスペクター (全銘柄台帳モード時のみ表示) */}
-        {workspaceMode === 'LEDGER' && selectedEntity && (
+        {workspaceMode === 'LEDGER' && foundationMode && selectedFoundationId && (
+          <FoundationInspectorPane
+            entity={foundationDetailId === selectedFoundationId ? foundationDetail : null}
+            loading={foundationDetailLoading}
+            error={foundationDetailId === selectedFoundationId ? foundationDetailError : null}
+            onClose={() => setSelectedFoundationId(null)}
+          />
+        )}
+        {workspaceMode === 'LEDGER' && !foundationMode && selectedEntity && (
           <CompanyInspectorPane
             entity={selectedEntity}
             onClose={() => setSelectedEntityId(null)}
@@ -407,7 +557,11 @@ export const TerminalShell: React.FC = () => {
         isOpen={isCommandPaletteOpen}
         onClose={() => setIsCommandPaletteOpen(false)}
         entities={entities}
-        onSelectEntity={setSelectedEntityId}
+        onSelectEntity={(id) => {
+          setFoundationMode(false);
+          setSelectedFoundationId(null);
+          setSelectedEntityId(id);
+        }}
         currency={currency}
       />
 

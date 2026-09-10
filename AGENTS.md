@@ -130,6 +130,14 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
    - **違法行為やすれすれのスパム手法、法的グレーゾーンを推奨・指南・マニュアル化することは厳禁である**。
    - 取り扱うのは「合法的な客観的金融リサーチ・事実ログ（その企業が実際にどう工夫し、大手の死角や市場の歪みを突いたか）」に限定し、読者に悪事を唆す情報商材的要素を1文字たりとも混入させるな。
 
+### 2.2 Foundation R2からUIへ出すときの正本境界
+
+- Make-Moneyはconsumerであり、`foundation-lake` の登録済み `entities` / `research-bundles` を読み取るだけにする。現在の実装仕様は [`docs/FOUNDATION_UI_READ_PATH.md`](./docs/FOUNDATION_UI_READ_PATH.md) を参照する。
+- 一覧はEntity prefixをR2 Listのcursorでページングし、画面は100件単位で段階描画する。詳細は選択時だけbyte range探索し、対象候補のbundle本体を読む。毎回の全件本体取得は禁止する。
+- `datasets/ds.business.entities.core/index.json` のようなMake-Money独自root indexを作成・上書きしない。UI用の整形は読み取り時の一時projectionに限定し、Foundationの新schemaや新しい正本を作らない。
+- R2の正本に存在しない売上・利益・人数・創業年などを0や仮値で埋めない。値がなければ`未確認`、推計・推論・報告・観測はorigin/status/evidenceを分けて表示する。
+- 現行のUI read pathはPUT/DELETEを呼ばない。10万件級で検索・集計が必要になった場合だけ、Foundationの既存registry/view契約を確認し、別途明示承認されたversioned serving viewまたは分析経路を検討する。
+
 ## 3. コピーライティング・言語統制憲条（瞬時の直感理解 ＆ 急所を抉る強い言葉）
 AIエージェントが生成するすべての画面コピー、見出し、ボタン、分析レポートの文言は、以下の二原則を同時に満たさなければならない。
 

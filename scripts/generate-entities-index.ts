@@ -1,6 +1,5 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { INSTITUTIONAL_ENTITIES } from '../src/platform/data/mockLedgerData';
 import { projectBundleToFinancialEntity } from '../src/lib/foundation/projector';
 import { FinancialEntity } from '../src/platform/types/terminal';
@@ -79,44 +78,11 @@ async function main() {
   console.log(`Successfully generated index file: ${outputPath} (${(Buffer.byteLength(JSON.stringify(allEntities)) / 1024).toFixed(1)} KB)`);
 
   // 4. サマリー表示
-  console.log('=== [4/5] Done. Sample entities: ===');
+  console.log('=== [4/4] Done. Sample entities: ===');
   allEntities.slice(0, 5).forEach((e, idx) => {
     console.log(`  ${idx + 1}. [${e.ticker}] ${e.name} - 月商: ¥${e.pnl.monthlyRevenue.toLocaleString()} (${e.temporal?.viabilityLabel || '判定未'})`);
   });
-
-  // 5. R2への同期アップロード (環境変数が利用可能または--upload-r2指定時)
-  const shouldUploadR2 = process.argv.includes('--upload-r2') || (
-    process.env.CLOUDFLARE_R2_ACCOUNT_ID &&
-    process.env.CLOUDFLARE_R2_ACCESS_KEY_ID &&
-    process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY
-  );
-
-  if (shouldUploadR2) {
-    const accountId = process.env.CLOUDFLARE_R2_ACCOUNT_ID;
-    const accessKeyId = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
-    const secretAccessKey = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
-    const bucket = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'foundation-lake';
-    const key = 'datasets/ds.business.entities.core/index.json';
-
-    if (accountId && accessKeyId && secretAccessKey) {
-      console.log(`=== [5/5] Uploading index to Cloudflare R2 (${bucket}/${key}) ===`);
-      const s3 = new S3Client({
-        region: 'auto',
-        endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
-        credentials: { accessKeyId, secretAccessKey },
-      });
-      const bodyStr = JSON.stringify(allEntities);
-      await s3.send(
-        new PutObjectCommand({
-          Bucket: bucket,
-          Key: key,
-          Body: Buffer.from(bodyStr, 'utf8'),
-          ContentType: 'application/json; charset=utf-8',
-        })
-      );
-      console.log(`Successfully synced entities index to R2: ${bucket}/${key}`);
-    }
-  }
+  console.log('R2同期は行いません。このコマンドはローカル表示キャッシュの生成専用です。');
 }
 
 main().catch((err) => {
