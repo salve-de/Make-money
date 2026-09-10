@@ -604,6 +604,15 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           )}
 
           {/* ------------------------------------------------------- */}
+          {/* TAB: 全量インテリジェンス (Stream: Layer 2特異点 ＆ Layer 3万能救済) */}
+          {/* ------------------------------------------------------- */}
+          {activeTab === 'STREAM' && (
+            <div className="space-y-6">
+              <UniversalIntelligenceStream entity={entity} currency={currency} />
+            </div>
+          )}
+
+          {/* ------------------------------------------------------- */}
           {/* TAB 2: 財務・武器庫 (Financials) */}
           {/* ------------------------------------------------------- */}
           {activeTab === 'FINANCIALS' && (

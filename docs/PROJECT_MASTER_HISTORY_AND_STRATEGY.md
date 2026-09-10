@@ -2553,3 +2553,28 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   - `npm run foundation:index` 成功（R2への同期完了）。
   - `npm run build` Next.js 16.3.4 webpack 本番ビルド完全通過。
   - 実際の `/api/businesses` の結合テストにて `source: r2_lake, count: 13` を確認。
+
+### 78. Phase 78: PR 15仮設UIによる乗っ取りの完全切除 ＆ ブルームバーグ高密度UIへの1000事例完全統合・サニタイズ配備（完了）
+- **検死された本質的論点 ＆ ユーザーの痛烈な指導**:
+  - 「てか勝手に UI変えられてるの 腹立つんだが さっきのPRに」
+  - 「よし 全部直してくれ で、データも正常に出るようにして」
+  - PR 15（Codex作成の `codex/dynamic-dossier-20260910`）が、既存の完成されたブルームバーグUI（`InstitutionalDataGrid` ＆ `CompanyInspectorPane`）を無視し、仮設の安っぽい画面（`FoundationDataGrid` ＆ `FoundationInspectorPane`）でトップ画面を勝手に乗っ取っていた。
+  - さらに、R2から取得したクローラーの生データ（英語の定型文 `is presented as...`, `A public interview describes...`）がそのまま露出したり、数値パースの不備で年商15億円のニュースレター（1440）が月商1万円と誤表示されるなど、データ表示品質が破綻していた。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **仮設UIによる乗っ取りコードの完全切除 (`TerminalShell.tsx`)**:
+     - `foundationMode` による仮設UI（`FoundationDataGrid` / `FoundationInspectorPane`）へのすり替えを完全切除。
+     - 台帳は常に最高峰の `InstitutionalDataGrid`、右ドシエは常に `CompanyInspectorPane` を描画するように一本化。
+  2. **汎用アダプター層の新設 (`src/lib/foundation/foundation-adapter.ts`)**:
+     - `adaptFoundationSummaryToFinancialEntity`: R2サマリー（`FoundationValueSummary`）を台帳用 `FinancialEntity` へ変換。英語ログを排除し、業態・タグ・概算P&Lを生成。
+     - `adaptFoundationDetailToFinancialEntity`: R2詳細（`FoundationBusinessCase`）を完全版 `FinancialEntity` へ変換。`metrics`, `claims`, `events`, `observations` を Layer 3 `observationsStream`（万能救済ストリーム）へ全量展開。
+     - `parseRevenueToMonthlyJpy`: 「年間広告枠ランレート約1,000万ドル（約15億円）」等の文字列から単位（M, 億円等）を正確に認識し、月商1.3億円・営利8,125万円を正確算出。
+  3. **クローラー英語生ログのサニタイザー配備 (`src/lib/foundation/text-cleaner.ts`)**:
+     - `A public interview describes...`、`The interview reports...`、`product/tool/platform` 等の英語クローラー定型文を検知し、日本語のビジネス急所表現へ自動置換・正規化。
+  4. **詳細ドシエのStreamタブ描画バグ修正 (`CompanyInspectorPane.tsx`)**:
+     - `activeTab === 'STREAM'` 時に `UniversalIntelligenceStream` を描画するJSX分岐を追加。Layer 2動的特異点とLayer 3万能救済ストリームが全量カード表示されることを確認。
+  5. **R2企業の動的ハイドレーション機構配備 (`TerminalShell.tsx`)**:
+     - R2企業（1440, Ahrefs等）をクリックした際、`/api/businesses?entity_id=${id}` を自動フェッチして `detailedEntities` にキャッシュし、インスペクターを完全版へと自動昇華。
+  6. **品質検証 ＆ 実機スクリーンショット確認**:
+     - Safari実機にて、トップ画面でキーエンス・Photo AIが最上段に並び、R2の1440も正常な数値（月商 ¥1.3億 / 利益 ¥8125万）とStreamカードで表示されることを確認。
+     - `npx tsc --noEmit` エラーゼロ。
+

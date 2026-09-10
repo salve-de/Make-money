@@ -9,6 +9,12 @@ import type {
   FoundationObservation,
   FoundationRelationship,
 } from '@/lib/foundation/business-reader';
+import {
+  cleanIntelligenceText,
+  cleanMetricLabel,
+  formatHumanMoney,
+  cleanMoneyLabel,
+} from './text-cleaner';
 
 /**
  * Read-time UI projection only.
@@ -226,15 +232,13 @@ function chooseText(records: TextRecord[], terms: string[], excludeFinancial = f
   const selected = candidates.find((item) => hasTerm(item.text, terms)) || candidates[0];
   if (!selected) return null;
   const prefix = selected.originType === 'inferred' ? '推論: ' : '';
-  return compact(`${prefix}${selected.text}`);
+  const cleaned = cleanIntelligenceText(selected.text);
+  return compact(`${prefix}${cleaned}`);
 }
 
 function valueText(value: number | string | null, currency: string | null, unit: string | null): string | null {
   if (value === null || value === '') return null;
-  const suffix = currency && unit && unit.toLocaleLowerCase().includes(currency.toLocaleLowerCase())
-    ? unit
-    : [currency, unit].filter(Boolean).join(' ');
-  return `${value}${suffix ? ` ${suffix}` : ''}`;
+  return formatHumanMoney(value, currency, unit);
 }
 
 function periodText(item: { periodStart?: string | null; periodEnd?: string | null; pointInTime?: string | null }): string | null {
@@ -247,28 +251,33 @@ function periodText(item: { periodStart?: string | null; periodEnd?: string | nu
 }
 
 function metricText(item: FoundationMetricSignal): TextRecord & { isMoney: boolean } {
-  const amount = valueText(item.value, item.currency, item.unit);
+  const label = cleanMetricLabel(item.metricType);
+  const amount = formatHumanMoney(item.value, item.currency, item.unit);
+  const statusStr = item.verificationStatus === 'SUPPORTED' ? '確認済' : item.verificationStatus === 'UNVERIFIED' ? '未確認' : item.verificationStatus || '';
   return {
-    text: `${item.metricType}${amount ? `: ${amount}` : ''}${periodText(item) ? ` (${periodText(item)})` : ''} ・ ${item.originType}/${item.verificationStatus}`,
+    text: `${label}: ${amount}${periodText(item) ? ` (${periodText(item)})` : ''}${statusStr ? ` ・ ${statusStr}` : ''}`,
     evidenceIds: item.evidenceIds,
     verificationStatus: item.verificationStatus,
     confidence: item.confidence,
     originType: item.originType,
     date: periodText(item),
-    isMoney: Boolean(amount) && hasTerm(item.metricType, MONEY_TERMS),
+    isMoney: Boolean(item.value) && hasTerm(item.metricType, MONEY_TERMS),
   };
 }
 
 function moneyText(item: FoundationMoneySignal): TextRecord & { isMoney: boolean } {
-  const amount = item.amountLabel || valueText(item.amount, item.currency, item.unit);
+  const label = cleanMetricLabel(item.moneyType);
+  const amount = formatHumanMoney(item.amount, item.currency, item.unit, item.amountLabel);
+  const purpose = item.purpose ? cleanIntelligenceText(item.purpose) : '';
+  const statusStr = item.verificationStatus === 'SUPPORTED' ? '確認済' : item.verificationStatus === 'UNVERIFIED' ? '未確認' : item.verificationStatus || '';
   return {
-    text: `${item.moneyType}${amount ? `: ${amount}` : ''}${item.purpose ? ` ・ ${item.purpose}` : ''}${periodText(item) ? ` (${periodText(item)})` : ''} ・ ${item.originType}/${item.verificationStatus}`,
+    text: `${label}: ${amount}${purpose ? ` (${purpose})` : ''}${periodText(item) ? ` [${periodText(item)}]` : ''}${statusStr ? ` ・ ${statusStr}` : ''}`,
     evidenceIds: item.evidenceIds,
     verificationStatus: item.verificationStatus,
     confidence: item.confidence,
     originType: item.originType,
     date: periodText(item),
-    isMoney: Boolean(amount),
+    isMoney: Boolean(item.amount || item.amountLabel),
   };
 }
 

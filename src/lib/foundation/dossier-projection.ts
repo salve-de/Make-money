@@ -9,6 +9,12 @@ import type {
   FoundationRelationship,
   FoundationVerificationStatus,
 } from '@/lib/foundation/business-reader';
+import {
+  cleanIntelligenceText,
+  cleanMetricLabel,
+  formatHumanMoney,
+  cleanMoneyLabel,
+} from './text-cleaner';
 
 export type DossierCaseLevel = 'FULL_DOSSIER' | 'FOCUSED_CASE' | 'SIGNAL' | 'RELATED_ENTITY';
 export type DossierSection = 'CORE' | 'FINANCIALS' | 'PLAYBOOK' | 'RISK';
@@ -184,30 +190,12 @@ function formatNumber(value: number): string {
 }
 
 function formatMetric(item: FoundationMetricSignal): string {
-  const numeric = numericValue(item.value);
-  if (numeric === null) return item.value === null ? '未確認' : String(item.value);
-
-  const unit = normalized(item.unit);
-  const type = normalized(item.metricType);
-  if ((unit === 'ratio' || unit.includes('ratio')) && (type.includes('margin') || type.includes('rate'))) {
-    return `${formatNumber(numeric * 100)}%`;
-  }
-  if (unit === '%' || unit.includes('percent')) return `${formatNumber(numeric)}%`;
-
-  const amount = formatNumber(numeric);
-  if (item.currency) return `${item.currency} ${amount}`;
-  if (item.unit) return `${amount} ${item.unit}`;
-  return amount;
+  if (item.value === null || item.value === undefined) return '未確認';
+  return formatHumanMoney(item.value, item.currency, item.unit);
 }
 
 function formatMoneySignal(item: FoundationMoneySignal): string {
-  if (item.amountLabel) return item.amountLabel;
-  const numeric = numericValue(item.amount);
-  if (numeric !== null) {
-    const amount = formatNumber(numeric);
-    return item.currency ? `${item.currency} ${amount}` : item.unit ? `${amount} ${item.unit}` : amount;
-  }
-  return item.amount === null ? '金額未確認' : String(item.amount);
+  return formatHumanMoney(item.amount, item.currency, item.unit, item.amountLabel);
 }
 
 function statusRank(status: FoundationVerificationStatus | string | undefined): number {
@@ -240,7 +228,7 @@ function rowFromMetric(item: FoundationMetricSignal): DossierRow {
   const period = metricDate(item)?.slice(0, 10);
   const noteParts = [period, item.basis, item.scope].filter(Boolean);
   return {
-    label: humanize(item.metricType),
+    label: cleanMetricLabel(item.metricType),
     value: formatMetric(item),
     note: noteParts.join(' ・ ') || undefined,
     originType: item.originType,
@@ -252,7 +240,7 @@ function rowFromMetric(item: FoundationMetricSignal): DossierRow {
 function rowFromClaim(label: string, item: FoundationClaim): DossierRow {
   return {
     label,
-    value: compact(item.statement),
+    value: compact(cleanIntelligenceText(item.statement)),
     note: item.occurredAt ? item.occurredAt.slice(0, 10) : undefined,
     originType: item.originType,
     verificationStatus: item.verificationStatus,
@@ -262,8 +250,8 @@ function rowFromClaim(label: string, item: FoundationClaim): DossierRow {
 
 function rowFromEvent(item: FoundationEvent): DossierRow {
   return {
-    label: item.occurredAt ? item.occurredAt.slice(0, 10) : humanize(item.eventType),
-    value: compact(item.description),
+    label: item.occurredAt ? item.occurredAt.slice(0, 10) : cleanMetricLabel(item.eventType),
+    value: compact(cleanIntelligenceText(item.description)),
     originType: 'event',
     verificationStatus: item.verificationStatus,
     evidenceIds: item.evidenceIds,
@@ -272,9 +260,9 @@ function rowFromEvent(item: FoundationEvent): DossierRow {
 
 function rowFromDerived(item: FoundationDerivedRecord): DossierRow {
   return {
-    label: humanize(item.type),
-    value: compact(item.text),
-    note: typeof item.confidence === 'number' ? `confidence ${item.confidence}` : undefined,
+    label: cleanMetricLabel(item.type),
+    value: compact(cleanIntelligenceText(item.text)),
+    note: typeof item.confidence === 'number' ? `確信度 ${item.confidence}` : undefined,
     originType: item.originType,
     verificationStatus: 'ANALYSIS',
     evidenceIds: item.supportingEvidenceIds,
@@ -283,8 +271,8 @@ function rowFromDerived(item: FoundationDerivedRecord): DossierRow {
 
 function rowFromObservation(item: FoundationObservation): DossierRow {
   return {
-    label: item.kind ? humanize(item.kind) : 'Observation',
-    value: compact(item.text),
+    label: item.kind ? cleanMetricLabel(item.kind) : '観測事実',
+    value: compact(cleanIntelligenceText(item.text)),
     note: item.observedAt ? item.observedAt.slice(0, 10) : undefined,
     originType: item.originType,
     verificationStatus: item.verificationStatus,
@@ -294,8 +282,8 @@ function rowFromObservation(item: FoundationObservation): DossierRow {
 
 function rowFromRelationship(item: FoundationRelationship): DossierRow {
   return {
-    label: humanize(item.predicate),
-    value: item.object || '関連先ID未確認',
+    label: cleanMetricLabel(item.predicate),
+    value: cleanIntelligenceText(item.object || '関連先ID未確認'),
     note: item.validFrom ? item.validFrom.slice(0, 10) : undefined,
     originType: 'relationship',
     verificationStatus: item.verificationStatus,
@@ -808,10 +796,11 @@ function evidenceCount(entity: FoundationBusinessCase): number {
 
 function headlineFor(entity: FoundationBusinessCase): string {
   const hook = entity.derived.find((item) => normalized(item.type) === 'hook');
-  if (hook) return compact(hook.text, 190);
+  if (hook) return compact(cleanIntelligenceText(hook.text), 190);
   const businessClaim = pickBusinessClaim(entity);
-  if (businessClaim) return compact(businessClaim.statement, 190);
-  return entity.valueProfile.businessSignal || entity.valueProfile.painSignal || entity.name;
+  if (businessClaim) return compact(cleanIntelligenceText(businessClaim.statement), 190);
+  const fallback = entity.valueProfile.businessSignal || entity.valueProfile.painSignal || entity.name;
+  return compact(cleanIntelligenceText(fallback), 190);
 }
 
 function caseLevelFor(moduleCount: number, evidence: number): DossierCaseLevel {

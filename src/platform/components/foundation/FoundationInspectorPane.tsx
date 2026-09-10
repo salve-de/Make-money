@@ -16,6 +16,12 @@ import {
   type DossierModule,
   type DossierRow,
 } from '@/lib/foundation/dossier-projection';
+import {
+  humanizeVerificationStatus,
+  cleanMetricLabel,
+  cleanIntelligenceText,
+  formatHumanMoney,
+} from '@/lib/foundation/text-cleaner';
 
 interface FoundationInspectorPaneProps {
   entity: FoundationBusinessCase | null;
@@ -52,26 +58,54 @@ function Badge({
   return <span className={`inline-flex items-center rounded border px-1.5 py-0.5 text-[9px] font-mono ${classes}`}>{children}</span>;
 }
 
-function statusTone(status?: string): 'emerald' | 'amber' | 'red' | 'zinc' {
+function statusTone(status?: string): 'cyan' | 'emerald' | 'amber' | 'red' | 'zinc' {
   if (status === 'SUPPORTED') return 'emerald';
   if (status === 'CONFLICTED') return 'red';
-  if (status === 'UNVERIFIED' || status === 'ANALYSIS') return 'amber';
+  if (status === 'UNVERIFIED') return 'amber';
+  if (status === 'ANALYSIS') return 'cyan';
   return 'zinc';
 }
 
+function caseLevelBadge(level: string) {
+  switch (level) {
+    case 'FULL_DOSSIER':
+      return { label: '完全解剖ドシエ', tone: 'emerald' as const };
+    case 'FOCUSED_CASE':
+      return { label: '重点事例ドシエ', tone: 'cyan' as const };
+    default:
+      return { label: 'シグナル観測中', tone: 'zinc' as const };
+  }
+}
+
+function originTypeLabel(origin?: string): string {
+  if (!origin) return '';
+  switch (origin) {
+    case 'reported': return '公表値';
+    case 'calculated': return '逆算値';
+    case 'inferred': return '推計';
+    case 'observed': return '観測値';
+    case 'event': return 'イベント';
+    case 'relationship': return '関係性';
+    default: return origin;
+  }
+}
+
 function Row({ row }: { row: DossierRow }) {
+  const statusInfo = humanizeVerificationStatus(row.verificationStatus);
+  const cleanVal = cleanIntelligenceText(row.value);
+  const cleanNt = row.note ? cleanIntelligenceText(row.note) : undefined;
   return (
     <div className="border-b border-white/[0.04] px-3 py-2.5 last:border-b-0">
       <div className="flex items-start gap-3">
-        <div className="w-28 shrink-0 font-mono text-[10px] text-zinc-500">{row.label}</div>
+        <div className="w-28 shrink-0 font-sans text-[11px] font-medium text-zinc-400">{row.label}</div>
         <div className="min-w-0 flex-1">
-          <div className="text-[11px] leading-relaxed text-zinc-200">{row.value}</div>
-          {(row.note || row.originType || row.verificationStatus || row.evidenceIds.length > 0) && (
+          <div className="font-sans text-[11px] leading-relaxed text-zinc-100">{cleanVal}</div>
+          {(cleanNt || row.originType || row.verificationStatus || row.evidenceIds.length > 0) && (
             <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-              {row.originType && <Badge>{row.originType}</Badge>}
-              {row.verificationStatus && <Badge tone={statusTone(row.verificationStatus)}>{row.verificationStatus}</Badge>}
-              {row.evidenceIds.length > 0 && <span className="font-mono text-[9px] text-zinc-600">evidence {row.evidenceIds.length}</span>}
-              {row.note && <span className="text-[9px] text-zinc-600">{row.note}</span>}
+              {row.originType && <Badge tone="zinc">{originTypeLabel(row.originType)}</Badge>}
+              {row.verificationStatus && <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>}
+              {row.evidenceIds.length > 0 && <span className="font-mono text-[9px] text-zinc-600">根拠 {row.evidenceIds.length}件</span>}
+              {cleanNt && <span className="font-sans text-[9px] text-zinc-500">{cleanNt}</span>}
             </div>
           )}
         </div>
@@ -94,14 +128,14 @@ function ModuleCard({ module, index }: { module: DossierModule; index: number })
           </div>
         </div>
         <div className="flex shrink-0 items-center gap-1.5">
-          {module.analysis && <Badge tone="amber">ANALYSIS</Badge>}
-          {module.evidenceIds.length > 0 && <span className="font-mono text-[9px] text-zinc-600">EV {module.evidenceIds.length}</span>}
+          {module.analysis && <Badge tone="amber">分析</Badge>}
+          {module.evidenceIds.length > 0 && <span className="font-mono text-[9px] text-zinc-600">根拠 {module.evidenceIds.length}件</span>}
         </div>
       </div>
       <div className="overflow-hidden rounded-md border border-white/[0.08] bg-[#0A0C10] shadow-sm">
-        {module.summary && <div className="border-b border-white/[0.05] px-3 py-2.5 text-[11px] font-medium leading-relaxed text-white">{module.summary}</div>}
+        {module.summary && <div className="border-b border-white/[0.05] px-3 py-2.5 text-[11px] font-medium leading-relaxed text-white">{cleanIntelligenceText(module.summary)}</div>}
         {module.body.map((text, bodyIndex) => (
-          <p key={bodyIndex} className="border-b border-white/[0.04] px-3 py-2.5 text-[11px] leading-relaxed text-zinc-300">{text}</p>
+          <p key={bodyIndex} className="border-b border-white/[0.04] px-3 py-2.5 text-[11px] leading-relaxed text-zinc-300">{cleanIntelligenceText(text)}</p>
         ))}
         {module.rows.map((row, rowIndex) => <Row key={`${module.id}-${rowIndex}`} row={row} />)}
       </div>
@@ -118,67 +152,96 @@ function EmptyModules({ text }: { text: string }) {
 }
 
 function RawClaim({ item }: { item: FoundationClaim }) {
+  const statusInfo = humanizeVerificationStatus(item.verificationStatus);
+  const cleanStatement = cleanIntelligenceText(item.statement);
   return (
     <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2.5">
-      <div className="flex flex-wrap gap-1"><Badge>{item.originType}</Badge><Badge tone={statusTone(item.verificationStatus)}>{item.verificationStatus}</Badge></div>
-      <div className="mt-2 text-[11px] leading-relaxed text-zinc-300">{item.statement}</div>
-      <div className="mt-1.5 font-mono text-[9px] text-zinc-600">{dateValue(item.occurredAt)} ・ evidence {item.evidenceIds.length}</div>
+      <div className="flex flex-wrap items-center gap-1">
+        <Badge tone="zinc">{originTypeLabel(item.originType)}</Badge>
+        <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>
+      </div>
+      <div className="mt-2 font-sans text-[11px] leading-relaxed text-zinc-300">{cleanStatement}</div>
+      <div className="mt-1.5 font-mono text-[9px] text-zinc-600">{dateValue(item.occurredAt)} ・ 根拠 {item.evidenceIds.length}件</div>
     </div>
   );
 }
 
 function RawEvent({ item }: { item: FoundationEvent }) {
+  const statusInfo = humanizeVerificationStatus(item.verificationStatus);
+  const cleanDesc = cleanIntelligenceText(item.description);
   return (
     <div className="border-l border-cyan-500/30 pl-3">
-      <div className="flex flex-wrap gap-1"><Badge tone="cyan">{item.eventType}</Badge><Badge tone={statusTone(item.verificationStatus)}>{item.verificationStatus}</Badge></div>
-      <div className="mt-1.5 text-[11px] leading-relaxed text-zinc-300">{item.description}</div>
-      <div className="mt-1 font-mono text-[9px] text-zinc-600">{dateValue(item.occurredAt)} ・ evidence {item.evidenceIds.length}</div>
+      <div className="flex flex-wrap items-center gap-1">
+        <Badge tone="cyan">{item.eventType}</Badge>
+        <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>
+      </div>
+      <div className="mt-1.5 font-sans text-[11px] leading-relaxed text-zinc-300">{cleanDesc}</div>
+      <div className="mt-1 font-mono text-[9px] text-zinc-600">{dateValue(item.occurredAt)} ・ 根拠 {item.evidenceIds.length}件</div>
     </div>
   );
 }
 
 function RawObservation({ item }: { item: FoundationObservation }) {
+  const statusInfo = humanizeVerificationStatus(item.verificationStatus);
+  const cleanText = cleanIntelligenceText(item.text);
   return (
     <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2.5">
-      <div className="flex flex-wrap gap-1"><Badge>{item.kind || 'OBSERVATION'}</Badge><Badge>{item.originType}</Badge><Badge tone={statusTone(item.verificationStatus)}>{item.verificationStatus}</Badge></div>
-      <div className="mt-2 text-[11px] leading-relaxed text-zinc-300">{item.text}</div>
-      <div className="mt-1.5 font-mono text-[9px] text-zinc-600">{dateValue(item.observedAt)} ・ evidence {item.evidenceIds.length}</div>
+      <div className="flex flex-wrap items-center gap-1">
+        <Badge tone="zinc">{item.kind || '観測'}</Badge>
+        <Badge tone="zinc">{originTypeLabel(item.originType)}</Badge>
+        <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>
+      </div>
+      <div className="mt-2 font-sans text-[11px] leading-relaxed text-zinc-300">{cleanText}</div>
+      <div className="mt-1.5 font-mono text-[9px] text-zinc-600">{dateValue(item.observedAt)} ・ 根拠 {item.evidenceIds.length}件</div>
     </div>
   );
 }
 
 function RawRelationship({ item }: { item: FoundationRelationship }) {
+  const statusInfo = humanizeVerificationStatus(item.verificationStatus);
   return (
     <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2.5">
       <div className="font-mono text-[10px] font-bold text-cyan-300">{item.predicate}</div>
       <div className="mt-1 text-[11px] text-zinc-300">{display(item.object)}</div>
-      <div className="mt-1 font-mono text-[9px] text-zinc-600">{item.verificationStatus} ・ evidence {item.evidenceIds.length}</div>
+      <div className="mt-1 font-mono text-[9px] text-zinc-600">{statusInfo.label} ・ 根拠 {item.evidenceIds.length}件</div>
     </div>
   );
 }
 
 function RawMetric({ item }: { item: FoundationMetricSignal }) {
+  const statusInfo = humanizeVerificationStatus(item.verificationStatus);
+  const label = cleanMetricLabel(item.metricType);
+  const money = item.currency ? formatHumanMoney(item.value, item.currency, item.unit) : `${display(item.value)} ${display(item.unit)}`;
   return (
     <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2.5">
       <div className="flex items-start justify-between gap-3">
-        <span className="text-[11px] text-zinc-300">{item.metricType}</span>
-        <span className="shrink-0 font-mono text-xs font-bold text-emerald-300">{display(item.value)} {display(item.currency || item.unit)}</span>
+        <span className="font-sans text-[11px] font-medium text-zinc-300">{label}</span>
+        <span className="shrink-0 font-mono text-xs font-bold text-emerald-300">{money}</span>
       </div>
-      <div className="mt-1.5 flex flex-wrap gap-1"><Badge>{item.originType}</Badge><Badge tone={statusTone(item.verificationStatus)}>{item.verificationStatus}</Badge></div>
-      <div className="mt-1.5 text-[9px] leading-relaxed text-zinc-600">{display(item.basis)} ・ evidence {item.evidenceIds.length}</div>
+      <div className="mt-1.5 flex flex-wrap items-center gap-1">
+        <Badge tone="zinc">{originTypeLabel(item.originType)}</Badge>
+        <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>
+      </div>
+      <div className="mt-1.5 font-sans text-[9px] leading-relaxed text-zinc-600">{cleanIntelligenceText(display(item.basis))} ・ 根拠 {item.evidenceIds.length}件</div>
     </div>
   );
 }
 
 function RawMoney({ item }: { item: FoundationMoneySignal }) {
+  const statusInfo = humanizeVerificationStatus(item.verificationStatus);
+  const money = formatHumanMoney(item.amount, item.currency, undefined, item.amountLabel);
+  const label = cleanMetricLabel(item.moneyType);
   return (
     <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2.5">
       <div className="flex items-start justify-between gap-3">
-        <span className="text-[11px] text-zinc-300">{item.moneyType}</span>
-        <span className="shrink-0 font-mono text-xs font-bold text-amber-300">{display(item.amountLabel || item.amount)}</span>
+        <span className="font-sans text-[11px] font-medium text-zinc-300">{label}</span>
+        <span className="shrink-0 font-mono text-xs font-bold text-amber-300">{money}</span>
       </div>
-      <div className="mt-1 text-[10px] leading-relaxed text-zinc-500">{display(item.purpose)}</div>
-      <div className="mt-1.5 flex flex-wrap gap-1"><Badge>{item.originType}</Badge><Badge tone={statusTone(item.verificationStatus)}>{item.verificationStatus}</Badge></div>
+      <div className="mt-1 font-sans text-[10px] leading-relaxed text-zinc-500">{cleanIntelligenceText(display(item.purpose))}</div>
+      <div className="mt-1.5 flex flex-wrap items-center gap-1">
+        <Badge tone="zinc">{originTypeLabel(item.originType)}</Badge>
+        <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>
+      </div>
     </div>
   );
 }
@@ -192,6 +255,8 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
   const financialModules = dossier?.modules.filter((item) => item.section === 'FINANCIALS') || [];
   const playbookModules = dossier?.modules.filter((item) => item.section === 'PLAYBOOK') || [];
 
+  const caseLevel = dossier ? caseLevelBadge(dossier.caseLevel) : null;
+
   return (
     <>
       <div onClick={onClose} className="fixed inset-0 z-30 bg-black/60 backdrop-blur-xs md:hidden" />
@@ -200,10 +265,10 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
           <div className="flex items-start justify-between gap-3 p-3 pb-2">
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-1.5">
-                <Badge tone="emerald">FOUNDATION</Badge>
-                {entity && <Badge tone="cyan">{entity.entityType}</Badge>}
-                {dossier && <Badge tone={dossier.caseLevel === 'FULL_DOSSIER' ? 'emerald' : dossier.caseLevel === 'FOCUSED_CASE' ? 'cyan' : 'zinc'}>{dossier.caseLevel}</Badge>}
-                {dossier && dossier.conflictedCount > 0 && <Badge tone="red">CONFLICT {dossier.conflictedCount}</Badge>}
+                <Badge tone="emerald">裏帳簿インテリジェンス</Badge>
+                {entity && <Badge tone="cyan">{cleanIntelligenceText(entity.entityType)}</Badge>}
+                {caseLevel && <Badge tone={caseLevel.tone}>{caseLevel.label}</Badge>}
+                {dossier && dossier.conflictedCount > 0 && <Badge tone="red">要確認 {dossier.conflictedCount}件</Badge>}
               </div>
               <h2 className="mt-2 truncate text-sm font-bold text-white">{entity?.name || (loading ? '読み込み中...' : '未選択')}</h2>
               {dossier && <p className="mt-1 text-[11px] leading-snug text-zinc-300">{dossier.headline}</p>}
@@ -222,28 +287,34 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
           {entity && dossier && (
             <div className="px-3 pb-2">
               <div className="flex flex-wrap items-center gap-1.5 font-mono text-[9px] text-zinc-600">
-                <span>observed {dateValue(entity.observedAt)}</span>
+                <span>観測年月: {dateValue(entity.observedAt)}</span>
                 <span>・</span>
-                <span>evidence {dossier.evidenceCount}</span>
+                <span>根拠: {dossier.evidenceCount}件</span>
                 <span>・</span>
-                <span>modules {dossier.modules.length}</span>
+                <span>分析: {dossier.modules.length}モジュール</span>
                 {dossier.strongestSignal && <><span>・</span><strong className="text-emerald-300">{dossier.strongestSignalLabel}: {dossier.strongestSignal}</strong></>}
               </div>
               <div className="mt-1.5 flex gap-1 overflow-x-auto scrollbar-none">
-                {dossier.tags.map((tag) => <Badge key={tag}>{tag}</Badge>)}
+                {dossier.tags.map((tag) => <Badge key={tag}>{cleanIntelligenceText(tag)}</Badge>)}
               </div>
             </div>
           )}
 
           <div className="flex border-t border-white/[0.05] text-[10px] font-mono">
-            {(['CORE', 'FINANCIALS', 'PLAYBOOK', 'STREAM', 'EVIDENCE'] as Tab[]).map((tab) => (
+            {([
+              { id: 'CORE', label: '基本・急所' },
+              { id: 'FINANCIALS', label: '財務・収益' },
+              { id: 'PLAYBOOK', label: '攻略手口' },
+              { id: 'STREAM', label: '時系列・観測' },
+              { id: 'EVIDENCE', label: '検証データ' },
+            ] as Array<{ id: Tab; label: string }>).map((tab) => (
               <button
-                key={tab}
+                key={tab.id}
                 type="button"
-                onClick={() => setActiveTab(tab)}
-                className={`flex-1 border-b-2 px-1 py-2 transition-colors ${activeTab === tab ? 'border-emerald-400 bg-emerald-950/15 text-white' : 'border-transparent text-zinc-600 hover:text-zinc-300'}`}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex-1 border-b-2 px-1 py-2 transition-colors ${activeTab === tab.id ? 'border-emerald-400 bg-emerald-950/15 text-white font-bold' : 'border-transparent text-zinc-600 hover:text-zinc-300'}`}
               >
-                {tab === 'CORE' ? 'CORE' : tab === 'FINANCIALS' ? '財務' : tab === 'PLAYBOOK' ? 'PLAYBOOK' : tab === 'STREAM' ? 'STREAM' : '根拠'}
+                {tab.label}
               </button>
             ))}
           </div>
