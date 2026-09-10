@@ -47,13 +47,28 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
 
   if (!isOpen) return null;
 
-  const filtered = entities.filter(
-    (e) =>
-      e.name.toLowerCase().includes(query.toLowerCase()) ||
-      e.ticker.toLowerCase().includes(query.toLowerCase()) ||
-      e.strategy.blindspot.toLowerCase().includes(query.toLowerCase()) ||
-      e.founder.toLowerCase().includes(query.toLowerCase())
-  );
+  const q = query.trim().toLowerCase();
+  const qNoSpace = q.replace(/\s+/g, '');
+  const filtered = entities.filter((e) => {
+    if (!q) return true;
+    const nameNorm = e.name.toLowerCase();
+    const nameNoSpace = nameNorm.replace(/\s+/g, '');
+    const tickerNorm = e.ticker.toLowerCase();
+    const founderNorm = (e.founder || '').toLowerCase();
+    const taglineNorm = (e.tagline || '').toLowerCase();
+    const blindspotNorm = (e.strategy?.blindspot || '').toLowerCase();
+    const tagsNorm = (e.tags || []).join(' ').toLowerCase();
+
+    return (
+      nameNorm.includes(q) ||
+      nameNoSpace.includes(qNoSpace) ||
+      tickerNorm.includes(q) ||
+      founderNorm.includes(q) ||
+      taglineNorm.includes(q) ||
+      blindspotNorm.includes(q) ||
+      tagsNorm.includes(q)
+    );
+  });
 
   const handleKeyDownList = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {

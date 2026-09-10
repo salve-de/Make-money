@@ -95,7 +95,18 @@ export const TerminalShell: React.FC = () => {
       const idMatch = coreIds.has(e.id.toLowerCase());
       const norm = normalize(e.name);
       const nameMatch = coreNames.has(norm) || (aliasMatches[norm] && coreNames.has(aliasMatches[norm]));
-      return !idMatch && !nameMatch;
+      if (idMatch || nameMatch) return false;
+
+      // 【最高憲条・完全排除】「わからんやつは出す必要すらない。表示できないやつは出さない」
+      // 1. 売上が非公開・未確認（0円や未確認フラグ）のものは一覧から完全除外
+      const isUnconfirmed = e.pnl.isRevenueUnconfirmed || !e.pnl.monthlyRevenue || e.pnl.monthlyRevenue <= 0;
+      if (isUnconfirmed) return false;
+
+      // 2. タグラインが未精錬のAI定型句・プレースホルダーのものは一覧から完全除外
+      const isGenericTagline = /モデル・公開観測データ|事業観測データ|公開一次資料に基づく|独自ポジショニングによる高収益特化型ビジネスモデル|事業モデル・公開情報観測データ|情報一元管理のプロダクト/i.test(e.tagline);
+      if (isGenericTagline) return false;
+
+      return true;
     });
     return [...coreEntities, ...r2Filtered];
   }, [coreEntities, foundationEntities]);
@@ -352,13 +363,15 @@ export const TerminalShell: React.FC = () => {
       }
 
       if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const matchName = entity.name.toLowerCase().includes(q);
+        const q = searchQuery.toLowerCase().trim();
+        const qNoSpace = q.replace(/\s+/g, '');
+        const matchName = entity.name.toLowerCase().includes(q) || entity.name.toLowerCase().replace(/\s+/g, '').includes(qNoSpace);
         const matchTicker = entity.ticker.toLowerCase().includes(q);
-        const matchBlindspot = entity.strategy.blindspot.toLowerCase().includes(q);
-        const matchFounder = entity.founder.toLowerCase().includes(q);
+        const matchTagline = (entity.tagline || '').toLowerCase().includes(q);
+        const matchBlindspot = (entity.strategy?.blindspot || '').toLowerCase().includes(q);
+        const matchFounder = (entity.founder || '').toLowerCase().includes(q);
         const matchTag = (entity.tags || []).some((t) => t.toLowerCase().includes(q));
-        if (!matchName && !matchTicker && !matchBlindspot && !matchFounder && !matchTag) return false;
+        if (!matchName && !matchTicker && !matchTagline && !matchBlindspot && !matchFounder && !matchTag) return false;
       }
 
       return true;

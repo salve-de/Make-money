@@ -1,5 +1,6 @@
 import { FinancialEntity } from '../types/terminal';
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES } from './additionalInstitutionalEntities';
+import { ADDITIONAL_INSTITUTIONAL_ENTITIES_2 } from './additionalInstitutionalEntities2';
 
 export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
   {
@@ -7621,5 +7622,6 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     }
   },
   ...ADDITIONAL_INSTITUTIONAL_ENTITIES,
+  ...ADDITIONAL_INSTITUTIONAL_ENTITIES_2,
 ];
 
