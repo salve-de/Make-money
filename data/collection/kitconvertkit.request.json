@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_kitconvertkit_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Kit (旧 ConvertKit)",
+      "candidate_domain": "kit.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_kitconvertkit_primary",
+        "url": "https://kit.com",
+        "title": "Kit (旧 ConvertKit) Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_kitconvertkit_pnl",
+        "source_id": "src_kitconvertkit_primary",
+        "snippet": "Monthly Revenue: 500000000, Margin: 30%, Gross: 88%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
+        "entity_type": "business",
+        "canonical_name": "Kit (旧 ConvertKit)",
+        "domain": "kit.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_kitconvertkit_tagline",
+        "entity_id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
+        "attribute": "tagline",
+        "value": "「Mailchimpの複雑な設定に頭を抱える」プロのブロガー・著者を自動化配管で救い、VCの金を拒絶して年商60億円・利益率30%超を叩き出すクリエイター給水塔",
+        "evidence_ids": [
+          "ev_kitconvertkit_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_kitconvertkit_revenue",
+        "entity_id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
+        "name": "monthly_revenue_jpy",
+        "value": 500000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_kitconvertkit_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_kitconvertkit_dossier",
+        "entity_id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "月商数十万円で死にかけていた時、競合Mailchimpからの手動データ移行を創業者自らタダで代行するゲリラ営業で這い上がり、年商60億円のキャッシュマシーンを築いた手口",
+            "section01_dna": {
+              "businessType": "クリエイター・個人事業主特化型のEメールマーケティングおよびファン関係管理SaaS",
+              "targetWallet": "オンラインビジネスを営むインフルエンサー、作家、教育者の月額ツール予算（月額$29〜$500+）",
+              "painRelief": "「リストごとに二重課金されるMailchimpの不条理」と「複雑すぎて動かないステップメールの不満」を切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「タグベースの単一リスト管理」と「Mailchimpからの無料移行作業代行（Concierge Migration）」",
+              "analysis": "1. 当時の業界標準だったMailchimpは「リストごとに別々に課金」され、同じ読者が2つのリストにいると二重請求される悪法を採用していた。ConvertKitは「1読者＝1カウント」のタグ管理を導入して不条理を粉砕。\n2. 「乗り換えたいが過去の読者データとステップメールの移行が面倒でできない」という最大のペインに対し、創業者自らが「無料で全データを移行してあげる」と直接DMで提案。\n3. 年間一括前払いを集中的に提案し、VCから資金調達することなくキャッシュフローを自己生成して拡大。"
+            },
+            "section03_moatPowers": {
+              "headline": "【不可逆のスイッチングコスト（複雑な自動化シナリオの定着） ✕ クリエイターコミュニティの深い信頼】",
+              "analysis": "1. 読者が教材を購入した後の「7日間のステップメール」「購入者タグに応じた条件分岐」「解約防止シーケンス」などの配管が組まれると、他社ツールへの移行は売上蒸発リスクを伴うため不可能に。\n2. 創業者Nathan Barryが自社の売上・利益・失敗ログを10年以上にわたり「Baremetrics」等で全世界にフルオープン（Open Startups）にし、圧倒的信者層を獲得。\n3. 「Creator Network」機能により、メルマガ発行者同士がお互いのリストを紹介し合う自走型トラフィック獲得ループを確立。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "MailchimpやInfusionsoftは多機能な大企業CRMへと迷走し、個人のプロクリエイターが求めるシンプルな文章中心のメルマガ配信を軽視した",
+              "analysis": "大手はHTML装飾メールやEC連携に注力し、動作が重く設定が複雑化。ConvertKitは「テキスト中心のシンプルなメールこそが最も開封され、売上につながる」というクリエイターの実利に絞り込み、大手の死角を突いた。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のNathan Barryが、自身のブログ読者に対して「6ヶ月で月商$5,000のSaaSを作る」という『The Web App Challenge』を公開宣言。初期の数年間は月商数十万円で停滞し廃業寸前に追い込まれたが、「プロブロガー専門ツール」としてポジショニングを絞り込み、著名ブロガー（Pat Flynn等）に「移行作業を全部俺がタダでやる」と直談判して大口顧客を次々と口説き落とした。",
+            "platformGlitch": "アフィリエイト報酬を「毎月30%の生涯継続コミッション」に設定。トップクリエイターたちが「自分が稼ぐために」必死でConvertKitを自分のファンに推薦するインセンティブの連鎖を構築。",
+            "pivotSnapshot": "2024年にブランド名を「Kit」へとリブランドし、単なるメルマガ配信から「次世代クリエイターのための総合OS」へと拡張。",
+            "hiddenCostStructure": "最大の技術的壁である「迷惑メールフォルダ行き」を防ぐ専任のメール配信スペシャリスト部隊を内製化し、配信到達率を最高の堀として維持。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「自分の大切なファンリストが、ツールのバグや迷惑メール判定で届かなくなる恐怖」。稼いでいるプロほど、月数万円のツール代をケチるよりも到達率と安定性を最優先する。",
+            "marketDistortion": "「クリエイターはお金を持っていない」という業界の偏見を打ち破り、年間数百万円を稼ぐトップクリエイター層だけを狙い撃ちにして極めて高いLTVを実現。",
+            "userResentment": "無料プランの制限や、リスト数が増えた際の上位プランへの自動スケールによる請求額の急増に驚くユーザーがいる点。"
+          },
+          "temporal": {
+            "foundedYear": 2013,
+            "initialTractionPeriod": "2015年 (Concierge Migrationによる急成長)",
+            "dataSnapshotPeriod": "2023-2026年 (ARR $40M超・Kitリブランド期)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "ブログから個人メディア、ポッドキャストへとクリエイターが進化する過程で不可欠な収益基盤として定着。",
+            "currentViabilityAnalysis": "10年以上黒字成長を維持しており、自社株買い戻しと配当による極めて健全な資本主義の勝者モデル。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

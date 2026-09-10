@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_zenefits_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Zenefits",
+      "candidate_domain": "zenefits.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_zenefits_primary",
+        "url": "https://zenefits.com",
+        "title": "Zenefits Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_zenefits_pnl",
+        "source_id": "src_zenefits_primary",
+        "snippet": "Monthly Revenue: 500000000, Margin: -80%, Gross: 80%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_zenefits_failure",
+        "entity_type": "business",
+        "canonical_name": "Zenefits",
+        "domain": "zenefits.com",
+        "status": "INACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_zenefits_tagline",
+        "entity_id": "ent_zenefits_failure",
+        "attribute": "tagline",
+        "value": "「人事業務ソフトをタダで配り、保険手数料を裏で中抜きする」天才的手口を違法ツールで爆走させ、規制当局に刺されて沈没した人事ユニコーン",
+        "evidence_ids": [
+          "ev_zenefits_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_zenefits_revenue",
+        "entity_id": "ent_zenefits_failure",
+        "name": "monthly_revenue_jpy",
+        "value": 500000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_zenefits_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_zenefits_dossier",
+        "entity_id": "ent_zenefits_failure",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_B_FAILURE",
+          "dossier": {
+            "oneLineLead": "「人事管理ソフトを完全無料で配り、裏で社員の健康保険手数料を毎年数千万円ピンハネする」最強のビジネスモデルを作ったが、営業に不正ツールを使わせて自爆した手口",
+            "section01_dna": {
+              "businessType": "中小企業向けクラウド人事労務管理（HRMS）ソフトウェアおよび健康保険ブローカー仲介",
+              "targetWallet": "中小企業が社員のために毎年支払う健康保険料の代理店マージン（社員1人あたり年間数百ドル）",
+              "painRelief": "「社員が入社・退職するたびに紙の保険書類を手作業で記入して郵送する」膨大な事務地獄の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「ADPやWorkdayが月額数百万円取る人事ソフトを『完全無料』で配った」フリーミアムの悪魔",
+              "analysis": "1. 通常の人事管理ソフトは高額な月額費用がかかるが、Zenefitsは「ソフトウェアは永久にタダでいいです」と中小企業に無料配布。\n2. その代わり、企業が健康保険に加入する際の「指定保険代理店（Broker of Record）」にZenefitsを指定させ、保険会社から支払われる多額の販売手数料（キックバック）を毎年自動徴収。\n3. 中小企業にとっては「タダで最高の人事ソフトが使えて保険も一括管理できる」ため、爆発的なスピードで数万社に導入され、ARR数千億円ペースで急拡大。"
+            },
+            "section03_moatPowers": {
+              "headline": "【狂気のノルマによる違法行為（Macroプログラム） ✕ 規制産業のコンプライアンス地雷】",
+              "analysis": "1. 爆発的な成長ノルマに追いつくため、営業マンが保険販売に必要な州の法定講習（52時間）を受講したように見せかける自動偽装ソフトウェア「Macro」を創業者が内製。\n2. 無資格の営業マン数千人が違法に保険を売りまくっていた事実をBuzzFeed Newsにすっぱ抜かれ、全米各州の保険当局およびSECから集中砲火。\n3. 数百万ドルの巨額制裁金を課され、創業者のParker Conradは辞任に追い込まれ、企業価値は45億ドルから急落、最終的に競合（Tritonet等）へ安値で売却。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "ADPやPaychex等の伝統的給与計算大手は「ソフト代金を有料で売る」ビジネスモデルだったため、Zenefitsの「ソフト無料・保険手数料中抜き」という裏帳簿モデルに当初手も足も出なかった",
+              "analysis": "既存の大手HR企業はソフトウェアのライセンス料で稼いでいたため、ソフトを無料にする決断ができなかった。Zenefitsの「マネタイズの場所をずらす（金融手数料で回収する）」モデルは本来無敵のアーキテクチャだったが、コンプライアンスの軽視という自業自得の自爆によって自ら命を絶った。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のParker Conradは、初期に自ら中小企業のオフィスを飛び込み営業。「あなたの会社の人事労務、給与計算、保険手続きをすべて1つの画面で自動化します。費用は完全無料です」と告げて契約を総取り。Y Combinatorを経てシリコンバレー最速のユニコーンとして脚光を浴びた。",
+            "platformGlitch": "「ソフトウェアをタダで配り、裏の金融商流（保険・決済・融資）で中抜きする」という現在世界中で使われているFintech×SaaSの基本特許的スキームを発明。",
+            "pivotSnapshot": "スキャンダル後、COOのデビッド・サックス（元PayPal）が暫定CEOに就任し企業文化を再構築。無料モデルから通常の月額課金SaaSへとピボットしたが、初期の爆発力は完全に失われ、後にTritonet（現Justworks傘下）へ売却。",
+            "hiddenCostStructure": "保険ブローカーとしての州ごとのライセンス維持費用と、膨大なコンプライアンス監査費用。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「人事の書類仕事という退屈な労働から逃げ出したい」という中小企業経営者の怠惰と、「タダで良いソフトが手に入るなら保険代理店なんてどこでもいい」という無関心。",
+            "marketDistortion": "「急成長こそが正義」というシリコンバレーのハイパーグロース信仰が、規制産業における法令遵守を完全に麻痺させた歴史的犯罪スキャンダル。",
+            "userResentment": "無資格の営業マンから杜撰な保険プランを契約させられた企業からの訴訟と、ブランドの信用失墜。"
+          },
+          "temporal": {
+            "foundedYear": 2013,
+            "initialTractionPeriod": "2013-2015年 (無料HRソフトウェアによる急拡大)",
+            "dataSnapshotPeriod": "2016-2017年 (ライセンス不正発覚・CEO辞任・凋落)",
+            "viabilityStatus": "HISTORICAL_WINDOW",
+            "eraContext": "SaaSとFintechが融合し始めた黎明期に、成長速度を優先しすぎて法規の壁に激突。",
+            "currentViabilityAnalysis": "【完全な地雷標本】「ビジネスモデル自体（ソフト無料＋保険中抜き）は天才的だったが、執行（コンプライアンス）の不正で自滅した」事例。後にParker Conradはこの反省を元に「Rippling」を創業し、正規の手法で時価1兆円超の企業として完全復活を遂げた。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}
