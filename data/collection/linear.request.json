@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_linear_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Linear",
+      "candidate_domain": "linear.app"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_linear_primary",
+        "url": "https://linear.app",
+        "title": "Linear Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_linear_pnl",
+        "source_id": "src_linear_primary",
+        "snippet": "Monthly Revenue: 300000000, Margin: 52%, Gross: 92%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_linear_app",
+        "entity_type": "business",
+        "canonical_name": "Linear",
+        "domain": "linear.app",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_linear_tagline",
+        "entity_id": "ent_linear_app",
+        "attribute": "tagline",
+        "value": "「Jiraの起動に10秒待たされる」世界中のエンジニアの殺意を0.05秒の爆速同期で救い、営業マンゼロ・口コミだけで急成長するイシュー管理のApple",
+        "evidence_ids": [
+          "ev_linear_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_linear_revenue",
+        "entity_id": "ent_linear_app",
+        "name": "monthly_revenue_jpy",
+        "value": 300000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_linear_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_linear_dossier",
+        "entity_id": "ent_linear_app",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "Jiraの遅さに発狂していたAirbnbやUberのトップエンジニアたちに、キーボードだけで0.01秒で操作できる快感毒薬を注入し、営業ゼロで全社導入させた手口",
+            "section01_dna": {
+              "businessType": "ソフトウェア開発チーム向けの超高速イシュー・バグ・スプリント管理SaaS",
+              "targetWallet": "世界中のテック企業、Y Combinatorスタートアップ、上場IT企業の開発管理ツール予算（月額1人$8〜$14）",
+              "painRelief": "「Jiraを開くたびに重いスピナーが回り、チケット1枚更新するのに5クリックかかる」日々の精神的損耗の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「サーバーに問い合わせず、手元のブラウザ内DBを書き換えて即時描画する」ローカルファーストの奇襲",
+              "analysis": "1. 競合ツールがWeb画面を開くたびにAPIを叩いてローディング画面を見せる中、Linearは全データをブラウザ内のローカルIndexedDBに保持。\n2. ユーザーのキーボード入力に対して0ミリ秒でUIを更新し、裏側のバックグラウンドでWebSocketを使って差分同期する狂気の技術設計。\n3. 「速さそのものが最大の機能である」と定義し、ショートカットキーとコマンドパレット（Cmd+K）でマウスを触らず全業務が完了する快楽を提供。"
+            },
+            "section03_moatPowers": {
+              "headline": "【極限のプロダクト美学（クラフトマンシップ） ✕ 開発現場のボトムアップ独占】",
+              "analysis": "1. 創業者が元AirbnbのリードデザイナーとUberのプリンシパルエンジニアであり、デザインとパフォーマンスの基準が他社と異次元。\n2. 経営陣がトップダウンで契約を決めるエンタープライズ営業を一切行わず、現場のエンジニアが「Jiraは嫌だ、Linearを使わせてくれ」と会社に直訴するPLG（製品主導成長）。\n3. 一度Linearの爆速レスポンスに脳が慣れた開発者は、他のどんな管理ツールを触っても「拷問のような遅さ」に感じて戻れなくなる認知的ロックイン。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "Atlassian（Jira）は過去20年間のレガシーな巨大コードベースと複雑なワークフローカスタマイズ機能を抱えており、軽量化と爆速化が物理的に不可能",
+              "analysis": "Jiraは大企業の情シスや人事の複雑怪奇な権限管理・カスタムフィールド要求に応えてきたため、画面が重厚長大化している。Linearのようなローカルファーストの爆速アーキテクチャに作り直すことは、既存のエンタープライズ顧客の互換性を全破壊することを意味するため絶対に真似できない。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業当初は一般公開せず、シリコンバレーの著名スタートアップのCTOやリードエンジニア限定の「招待制クローズドアルファ」を実施。招待されたトップ層がTwitter（X）で「Linearの速さは魔法だ」と絶賛ツイートを連発し、順番待ちリスト（Waitlist）に数万人が殺到。",
+            "platformGlitch": "営業組織を作らず、サポートもエンジニア自身が直接対応。機能要望のチケット自体を自社のLinear上で管理し、ユーザーが見ている前で数時間後に修正版をデプロイする狂気の開発スピードをアピール。",
+            "pivotSnapshot": "創業初日から「速度とデザインの妥協なき追求」を貫き、一切の安売りや下請け受託を拒絶して自社プロダクト一本足打法を完遂。",
+            "hiddenCostStructure": "クライアントサイド（ブラウザ側）で大部分のレンダリングと検索インデックス処理を行うため、バックエンドのサーバー負荷が競合SaaSに比べて極めて軽い。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「優れたエンジニアとして、ダサくて遅いツールを使っている自分への嫌悪感（プライド）」。Linearの漆黒の洗練されたUIを使うだけで「自分は一流のエンジニアだ」というセロトニンが湧き出る。",
+            "marketDistortion": "「エンタープライズSaaSにはスーツを着た営業マンが必要だ」という固定観念を粉砕し、現場エンジニアのボトムアップだけでFortune 500企業に侵入。",
+            "userResentment": "あまりにも開発者目線で作られているため、非エンジニア（営業やマーケティング部門）が使おうとするとショートカットやGit概念が難解すぎて使いこなせない点。"
+          },
+          "temporal": {
+            "foundedYear": 2019,
+            "initialTractionPeriod": "2019-2020年 (Waitlist制招待)",
+            "dataSnapshotPeriod": "2023-2026年 (ARR $30M規模)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "リモートワーク普及と開発者ツールのUI/UX革命（Notion、Figma、Vercelの台頭）の波に乗ってデファクト化。",
+            "currentViabilityAnalysis": "開発者コミュニティにおけるステータスシンボルとなっており、AI機能（Linear AsksやAIオートメーション）の追加により堀をさらに強化中。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

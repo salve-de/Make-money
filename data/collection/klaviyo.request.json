@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_klaviyo_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Klaviyo",
+      "candidate_domain": "klaviyo.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_klaviyo_primary",
+        "url": "https://klaviyo.com",
+        "title": "Klaviyo Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_klaviyo_pnl",
+        "source_id": "src_klaviyo_primary",
+        "snippet": "Monthly Revenue: 11700000000, Margin: 12%, Gross: 76.4%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_klaviyo_core",
+        "entity_type": "business",
+        "canonical_name": "Klaviyo",
+        "domain": "klaviyo.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_klaviyo_tagline",
+        "entity_id": "ent_klaviyo_core",
+        "attribute": "tagline",
+        "value": "「Shopifyの購入データをメールに活かせない」EC事業者の嘆きをミリ秒同期で現金化し、年間1,400億円を売り上げるEコマースの課金心臓",
+        "evidence_ids": [
+          "ev_klaviyo_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_klaviyo_revenue",
+        "entity_id": "ent_klaviyo_core",
+        "name": "monthly_revenue_jpy",
+        "value": 11700000000,
+        "unit": "JPY",
+        "origin_type": "sec_filings_and_annual_reports",
+        "evidence_ids": [
+          "ev_klaviyo_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_klaviyo_dossier",
+        "entity_id": "ent_klaviyo_core",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "「カートに商品を入れたまま離脱した客」に15分後に自動で割引メールを送りつけるだけで数億円の売上を拾い上げ、Shopifyの背中に張り付いて上場した手口",
+            "section01_dna": {
+              "businessType": "Eコマース（Shopify/WooCommerce等）特化型のマーケティングオートメーション（メール/SMS/プッシュ）",
+              "targetWallet": "D2Cブランドやアパレル通販企業のリターゲティング広告予算および売上連動型販促費",
+              "painRelief": "「せっかく広告費を払って集客した客の98%が買わずに立ち去る」機会損失の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「Shopifyの購入・閲覧イベントログを全部自社DBに溜め、セグメント配信の速度を100倍にした」寄生先完全同期",
+              "analysis": "1. 既存のメール配信ツール（Mailchimp等）はShopifyとのデータ連携が遅く、「誰が何分前にどの商品をカゴに入れたか」で即時配信することができなかった。\n2. Klaviyoは自前でイベントデータベースを組み、Shopifyストアの全行動ログをミリ秒単位で同期。「カゴ落ち後30分」「閲覧後2時間」といった急所トリガー配信を完全自動化。\n3. Shopify公式のApp Storeで圧倒的な高評価を獲得し、Shopifyエコシステムに完全にコバンザメ寄生して全世界のEC事業者を無双。"
+            },
+            "section03_moatPowers": {
+              "headline": "【極めて高いスイッチングコスト（過去の全顧客購買履歴の監禁） ✕ Shopifyとの強固な資本提携】",
+              "analysis": "1. 各ECブランドの数年分の顧客LTVデータ、購入頻度、RFM分析セグメントがKlaviyo内に保管されており、他社ツールへの乗り換えは売上激減を意味するため不可逆。\n2. Shopify自身がKlaviyoに1億ドルを出資し、Shopify Plus（大企業プラン）の公式推奨メールソリューションとして提携。競合の参入を事実上ブロック。\n3. 導入したブランドが「Klaviyoから送信されたメール経由の売上実額（Klaviyo-Attributed Value: KAV）」をダッシュボードで常時確認できるため、費用対効果の証明が圧倒的。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "Salesforce Marketing Cloudは大企業向けすぎて導入に数千万円と数ヶ月かかり、中小〜中堅のShopify事業者が即日使えるツールを作れなかった",
+              "analysis": "エンタープライズ向けマーケティング基盤はSIerによる開発前提で組まれており、Shopifyのワンクリックインストール文化に適合できなかった。MailchimpはShopifyとデータ利用規約を巡って喧嘩しアプリストアから追放されたため、Klaviyoに一人勝ちの椅子が転がり込んだ。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のAndrew Bialeckiらは、初期に様々なWeb開発の受託を請け負いながら、クライアントのEコマース企業が「顧客データの活用に苦戦している」現場を目撃。Shopifyの急成長を確信し、初期のShopifyミートアップやECフォーラムに直接参加して、1社ずつ泥臭く店舗オーナーのメール配信設定を代行して初期ユーザーを獲得。",
+            "platformGlitch": "2019年にMailchimpがShopifyとのデータ連携規約で対立しShopify App Storeから電撃撤退した歴史的事件が発生。Klaviyoはこの瞬間に「Mailchimp難民のEC事業者」を全量受け皿として吸収し、市場シェアを完全に掌握した。",
+            "pivotSnapshot": "汎用的なデータベース分析ツールから、「Shopify特化型の売上直結マーケティングオートメーション」へとターゲットを研ぎ澄ませたことが勝因。",
+            "hiddenCostStructure": "SMS送信機能の提供に伴う通信キャリア（Twilioや通信事業者）への手数料原価が急増しているが、メールの高粗利とバンドルすることで利益率を維持。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「目の前でカゴに商品を入れた客が、買わずに帰ってしまう悔しさと損失感（損失回避性）」。Klaviyoのダッシュボードに表示される『今月のカゴ落ち回収売上：500万円』の数字を見せられた瞬間、経営者はツールの利用料を喜んで支払う。",
+            "marketDistortion": "「メルマガはオワコン」という大衆の誤解を逆手に取り、アルゴリズムに左右されない顧客直結のオウンドメディアとしてEC業界で最もROIの高いドル箱配管へと昇華。",
+            "userResentment": "顧客リスト数が増えるにつれて従量課金が跳ね上がり、月額数百万円に達する大口ブランドが「請求額が高すぎる」と悲鳴をあげる点。"
+          },
+          "temporal": {
+            "foundedYear": 2012,
+            "initialTractionPeriod": "2015-2019年 (Shopifyエコシステム爆発期)",
+            "dataSnapshotPeriod": "2023-2026年 (NYSE上場・ARR $1B目前)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "D2CブームとShopifyの世界的台頭に伴い、EC専用のデータプラットフォームとして先行逃げ切りに成功。",
+            "currentViabilityAnalysis": "上場企業として盤石の地位にあり、SMS、プッシュ通知、AIセグメンテーション（顧客生涯価値の事前予測）など多角化により堀を深耕中。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

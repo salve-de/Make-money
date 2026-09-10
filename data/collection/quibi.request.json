@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_quibi_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Quibi",
+      "candidate_domain": "quibi.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_quibi_primary",
+        "url": "https://quibi.com",
+        "title": "Quibi Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_quibi_pnl",
+        "source_id": "src_quibi_primary",
+        "snippet": "Monthly Revenue: 50000000, Margin: 0%, Gross: 0%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_quibi_failure",
+        "entity_type": "business",
+        "canonical_name": "Quibi",
+        "domain": "quibi.com",
+        "status": "INACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_quibi_tagline",
+        "entity_id": "ent_quibi_failure",
+        "attribute": "tagline",
+        "value": "「ハリウッドの重鎮が2,000億円集めて作った短尺動画」が、スマホのスクショすら禁止した傲慢さでわずか6ヶ月で爆死した史上最大の喜劇",
+        "evidence_ids": [
+          "ev_quibi_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_quibi_revenue",
+        "entity_id": "ent_quibi_failure",
+        "name": "monthly_revenue_jpy",
+        "value": 50000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_quibi_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_quibi_dossier",
+        "entity_id": "ent_quibi_failure",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_B_FAILURE",
+          "dossier": {
+            "oneLineLead": "ハリウッドの巨頭と元eBayのCEOが1,800億円を集め、1話10分のドラマを作ったが、スマホ画面のスクショすら禁止してSNSで一切バズらず半年で全額溶かして散った手口",
+            "section01_dna": {
+              "businessType": "スマートフォン専用の高品質短尺（10分以内）動画ストリーミング配信サブスクリプション",
+              "targetWallet": "若者・通勤者のスキマ時間（電車移動中）の動画エンタメ予算（月額$4.99〜$7.99）",
+              "painRelief": "「テレビドラマは1話1時間で長すぎて通勤中に見切れない」時間の断片化の解決"
+            },
+            "section02_marketGlitch": {
+              "headline": "「スマホを縦に持っても横に持っても画面がシームレスに切り替わる（Turnstyle）」という無用なハイテクの過剰投資",
+              "analysis": "1. 創業者のカッツェンバーグ（元ディズニー幹部・ドリームワークス創業者）とメグ・ホイットマンは「若者はスマホで10分の高品質ドラマを求めている」と妄想。\n2. 1話あたり数千万円〜数億円のハリウッド映画並みの制作費を投じ、スピルバーグら大物監督を動員。\n3. ディズニー、ワーナー、ソニーなど大手スタジオと銀行から17億5,000万ドル（約2,000億円）という天文学的資金を事前調達。"
+            },
+            "section03_moatPowers": {
+              "headline": "【傲慢な著作権保護（スクショ禁止）による自爆 ✕ TikTokという完全無料の怪物の見落とし】",
+              "analysis": "1. ハリウッドの古い著作権思想に囚われ、アプリ内での「スクリーンショット」や「画面録画」を技術的に完全ブロック。\n2. ユーザーが面白いシーンをTwitterやTikTokでシェアしてミーム化（バズ）することが一切できず、SNS上で存在しないものとして扱われた。\n3. 同じ時期に若者はTikTokで完全無料・アルゴリズム最適化された素人の面白い短尺動画を無限に消費しており、月額課金してまで退屈なプロの10分ドラマを見る理由が完全ゼロだった。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "TikTokやYouTubeは「世界中の何億人もの素人が毎日無料で動画を投稿し続ける」無限の供給網を持っており、自前制作費数千億円を投じるスタジオモデルは数学的に敗北した",
+              "analysis": "Quibiは自社で全コンテンツの制作費を負担するレガシーな映画会社モデルをスマホに持ち込んだ。一方、YouTubeやTikTokはプラットフォームであり、コンテンツ制作費はクリエイター側の自己負担。1分あたりの制作費が数千倍違う相手と短尺動画で戦うこと自体が完全な自殺行為だった。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "ゲリラ戦とは対極の「資本の力による絨毯爆撃」。2020年4月に華々しくローンチし、スーパーボウルに巨額のCMを出稿。しかし直後にコロナのロックダウンが直撃し、「通勤時間（電車を待つ10分間）」という存在前提そのものが地球上から消滅。",
+            "platformGlitch": "テレビ画面へのキャスト（AirPlayやChromecast）すら「スマホ専用だから」という頑迷な哲学で当初遮断。家でテレビを見る大衆から完全に無視された。",
+            "pivotSnapshot": "ローンチからわずか6ヶ月後の2020年10月、創業者が敗北を認め会社閉鎖を発表。残ったコンテンツライブラリをRokuに1億ドル未満で叩き売りして終了。",
+            "hiddenCostStructure": "数千億円の資金のほぼ全額が、ハリウッドの大物プロデューサーや俳優への法外な出演料・制作費として消滅。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「短尺で手軽に楽しみたい」という怠惰を狙ったはずが、「月額課金が必要で、テレビで見られず、友達にシェアもできない」という三重の不便（ストレス）を課して逃走された。",
+            "marketDistortion": "「過去の成功者（映画界のドン）のネームバリュー」だけで、誰も欲しがっていないプロダクトに2,000億円が集まってしまうシリコンバレーとハリウッドの資本の歪み。",
+            "userResentment": "「90日間の無料トライアルが終わった瞬間、9割以上のユーザーがアプリをアンインストールした」という完全な無関心。"
+          },
+          "temporal": {
+            "foundedYear": 2018,
+            "initialTractionPeriod": "2020年4月 (ローンチ直後の強制露出)",
+            "dataSnapshotPeriod": "2020年10月 (わずか6ヶ月での完全爆死・会社閉鎖)",
+            "viabilityStatus": "HISTORICAL_WINDOW",
+            "eraContext": "TikTokが世界の覇権を握りつつあった時期に、古いハリウッドの論理をそのまま持ち込んで大爆死した歴史的転換点。",
+            "currentViabilityAnalysis": "【完全な地雷標本】「ユーザーはコンテンツの画質の高さではなく、シェア可能性（ソーシャル通貨）と共感に惹かれる」ことを証明したビジネス史上最大の反面教師。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

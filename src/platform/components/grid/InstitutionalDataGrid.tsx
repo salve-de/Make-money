@@ -135,14 +135,22 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                             {entity.name}
                           </span>
                           <span 
-                            className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0 max-w-[85px] truncate"
+                            className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[85px] truncate ${
+                              entity.architecturePattern?.startsWith('地雷:')
+                                ? 'bg-red-950/40 text-red-400 border-red-500/40 font-bold'
+                                : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                            }`}
                             title={entity.architecturePattern}
                           >
                             {entity.architecturePattern}
                           </span>
                           {entity.temporal && (
-                            <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-cyan-950/40 text-cyan-400 border border-cyan-500/30 shrink-0">
-                              {entity.temporal.foundedYear}年
+                            <span className={`text-[9px] font-mono px-1 py-0.2 rounded border shrink-0 ${
+                              entity.architecturePattern?.startsWith('地雷:')
+                                ? 'bg-red-950/50 text-red-300 border-red-500/40 font-bold'
+                                : 'bg-cyan-950/40 text-cyan-400 border border-cyan-500/30'
+                            }`}>
+                              {entity.architecturePattern?.startsWith('地雷:') ? '● 爆死' : `${entity.temporal.foundedYear}年`}
                             </span>
                           )}
                         </div>
@@ -236,14 +244,22 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                               {entity.name}
                             </span>
                             <span 
-                              className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0 max-w-[100px] truncate"
+                              className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[100px] truncate ${
+                                entity.architecturePattern?.startsWith('地雷:')
+                                  ? 'bg-red-950/40 text-red-400 border-red-500/40 font-bold'
+                                  : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                              }`}
                               title={entity.architecturePattern}
                             >
                               {entity.architecturePattern}
                             </span>
                             {entity.temporal && (
-                              <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-cyan-950/40 text-cyan-400 border border-cyan-500/30 shrink-0">
-                                {entity.temporal.foundedYear}年
+                              <span className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 ${
+                                entity.architecturePattern?.startsWith('地雷:')
+                                  ? 'bg-red-950/50 text-red-300 border-red-500/40 font-bold'
+                                  : 'bg-cyan-950/40 text-cyan-400 border border-cyan-500/30'
+                              }`}>
+                                {entity.architecturePattern?.startsWith('地雷:') ? '● 爆死・転落' : `${entity.temporal.foundedYear}年`}
                               </span>
                             )}
                           </div>

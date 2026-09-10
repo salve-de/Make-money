@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_gumroad_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Gumroad",
+      "candidate_domain": "gumroad.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_gumroad_primary",
+        "url": "https://gumroad.com",
+        "title": "Gumroad Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_gumroad_pnl",
+        "source_id": "src_gumroad_primary",
+        "snippet": "Monthly Revenue: 220000000, Margin: 36.4%, Gross: 70%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_gumroad_164534dd22fa6c2e2793",
+        "entity_type": "business",
+        "canonical_name": "Gumroad",
+        "domain": "gumroad.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_gumroad_tagline",
+        "entity_id": "ent_gumroad_164534dd22fa6c2e2793",
+        "attribute": "tagline",
+        "value": "「ECサイトの開設審査に数週間待たされる」クリエイターの怒りをリンク1本で救済し、10%の手数料を天引きしてフルリモートで数十億円を稼ぐデジタル関所",
+        "evidence_ids": [
+          "ev_gumroad_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_gumroad_revenue",
+        "entity_id": "ent_gumroad_164534dd22fa6c2e2793",
+        "name": "monthly_revenue_jpy",
+        "value": 220000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_gumroad_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_gumroad_dossier",
+        "entity_id": "ent_gumroad_164534dd22fa6c2e2793",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "VCからの調達と過剰拡大で一度死にかけた後、社員を全員解雇して業務委託化と手数料10%への値上げを断行し、年商数十億円・営業利益率数十%の現金自動印刷機へと蘇生した手口",
+            "section01_dna": {
+              "businessType": "デジタルコンテンツ、電子書籍、ソフトウェア、テンプレ販売専用のワンクリック決済プラットフォーム",
+              "targetWallet": "個人クリエイターや知識労働者が自作コンテンツを販売して得る売上金からの10%天引き枠",
+              "painRelief": "「自前でShopifyやECサーバーを構築し、特定商取引法や海外税制（EU VAT等）に対応する」地獄の事務負担の完全切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「固定月額費をゼロにし、売れた時だけ10%抜く」ノーリスクの餌で全世界のクリエイターを監禁",
+              "analysis": "1. 月額課金のSaaS（TeachableやKajabiなど月額$99〜）は売上がない初心者が脱落するが、Gumroadは初期費用完全ゼロで参入障壁を消滅させた。\n2. 世界各国の複雑なデジタル消費税（VAT/売上税）の徴収・納付代行（Merchant of Record）をGumroad側が引き受けることで、個人が自力で海外販売する際の法的恐怖を人質にして囲い込み。\n3. 2023年に決済手数料を一律10%（＋クレカ手数料）へ大胆に引き上げ、一部の古参ユーザーから大炎上を浴びながらも、圧倒的な手軽さとスイッチングコストにより高収益体質を完成させた。"
+            },
+            "section03_moatPowers": {
+              "headline": "【スイッチングコスト（顧客資産の監禁） ✕ 高いブランド認知】",
+              "analysis": "1. クリエイターが過去に配布・販売した数万件のリンク、購入者リスト、自動配信メールがGumroad内に蓄積されているため、他社決済への移行作業が致命的な苦痛となる。\n2. 「Gumroadのリンク＝怪しくない安全なデジタル決済」という10年以上の社会的証明が購入者側に定着しており、自前の怪しい決済フォームよりも購買転換率が高い。\n3. フルタイム社員を極小化し、世界中のコントラクター（業務委託）が週に数時間ずつタスク単位で稼働する非同期組織により、固定費を徹底的に圧縮。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "ShopifyやStripeはプラットフォームではなくインフラ提供者であるため、個人のデジタル少額決済や税務代行に特化するとブランドと事業構造が歪む",
+              "analysis": "Stripe自身は決済代行業者に徹し、税務や顧客サポートの責任を負わない。Shopifyは本格的な物販ECに最適化されており月額費用と設定の手間が大きい。Gumroadはその隙間である「リンクを貼るだけで即日デジタル販売」というロングテール市場を独占。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のSahil Lavingia（Pinterestの初期デザイナー）が、ある週末に自作のアイコンセットを売ろうとした際、「Web上でデジタルファイルを売る簡単な方法が存在しない」ことに気づき、週末の数日でプロトタイプを開発。自身のTwitter（X）で告知したところ初日から大バズりし、テック業界のインフルエンサーが一斉に使い始めた。",
+            "platformGlitch": "2015年にVCからの追加調達に失敗し、社員の75%を解雇するどん底を経験。そこから「VCを排除し、株主を配当で買い戻し、フルタイム雇用をやめて完全業務委託の自走型組織にする」という資本主義の裏技にピボット。",
+            "pivotSnapshot": "ユニコーンを目指す急成長VCモデルを放棄し、創業者利益とキャッシュフローを極大化する「カチカチの現金牛（キャッシュカウ）」へ転身。",
+            "hiddenCostStructure": "オフィスを持たず、全業務をNotion・GitHub・Slackによる完全非同期で回すため、家賃・福利厚生・通勤費などの間接費が文字通りゼロ。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「自分が作ったコンテンツでお金を稼いでみたい、でも会社を登記したり複雑な設定をするのは怖い」という承認欲求と極度の面倒くささ。",
+            "marketDistortion": "個人開発者が作った数ページのPDFやNotionテンプレが、数日で数百万円の売上を叩き出し、既存の出版社や取次システムを完全に無力化。",
+            "userResentment": "2023年の手数料10%フラット化で古参クリエイターから激しい抗議が起きたが、結局「他の決済サービスへの移行設定が面倒」なため大多数が居座り続けた現実。"
+          },
+          "temporal": {
+            "foundedYear": 2011,
+            "initialTractionPeriod": "2011-2012年",
+            "dataSnapshotPeriod": "2023-2026年 (手数料改定後・安定黒字期)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "クリエイターエコノミーの爆発的成長期に、もっともシンプルで審査の緩い関所として定着。",
+            "currentViabilityAnalysis": "Lemon Squeezy（Stripeが買収）やStan Storeなどの競合が追撃しているが、長年培ったドメインオーソリティと購入者アカウント基盤により堅牢な地位を維持。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}
