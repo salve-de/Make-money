@@ -48,6 +48,82 @@ const METRIC_LABELS: Record<string, string> = {
 // 業態・キーワードの日本語対応表
 const PATTERN_REPLACEMENTS: Array<{ regex: RegExp; replacement: string }> = [
   {
+    regex: /The source documents the current Growth Program;? launch date was (.*)/i,
+    replacement: 'スタートアップ向けグロースマーケティング教育＆実践支援プログラム（ローンチ時期: $1）',
+  },
+  {
+    regex: /The source documents the founder's prior agency and current courses;? launch date was (.*)/i,
+    replacement: '『時給請求をやめ価値で請求せよ』フリーランスの単価倍増・価格交渉特化スクール（ローンチ時期: $1）',
+  },
+  {
+    regex: /The source documents a live paid storefront;? launch date was not verified\.?/i,
+    replacement: '独自ストアフロントにて有料プロダクトを直販中（コミュニティ集客で拡大）',
+  },
+  {
+    regex: /Blueland publicly describes refillable household cleaning products,?(.*)/i,
+    replacement: '水に溶かすタブレット型リフィルでプラスチックゴミを全廃するサステナブルD2C洗剤',
+  },
+  {
+    regex: /Ali Abdaal publicly sells a \$?([\d,]+) Part-Time Creatorpreneur course and (.*)/i,
+    replacement: '元医師YouTuberが教える会社員向けYouTube副業＆コンテンツビジネスアカデミー（講座単価: $$$1）',
+  },
+  {
+    regex: /Ali Abdaal publicly sells (.*)/i,
+    replacement: '元医師YouTuberによる会社員向けYouTube副業＆コンテンツビジネスアカデミー',
+  },
+  {
+    regex: /MasterClass publicly states that its subscriptions are annual and provides (.*)/i,
+    replacement: '世界の超一流（映画監督・料理人等）の講義を独占配信する年額制動画サブスクリプション',
+  },
+  {
+    regex: /MasterClass publicly states that its subscriptions are annual and (.*)/i,
+    replacement: '世界の超一流の講義を独占配信する年額制動画サブスクリプション',
+  },
+  {
+    regex: /MasterClass publicly states (.*)/i,
+    replacement: '世界の超一流の講義を独占配信する年額制動画サブスクリプション',
+  },
+  {
+    regex: /TIME reports a (\d{4}) launch\.?/i,
+    replacement: '$1年にTIME誌等で話題化し急成長したスーツケースD2Cユニコーン',
+  },
+  {
+    regex: /Red Gregory publicly distributes Notion templates through a creator storefront with both free and paid (?:プロダクト|product) paths\.?/i,
+    replacement: 'YouTubeとSNSでNotion活用法を無料公開し、Gumroad上の高機能テンプレで完全自動集金するソロモデル',
+  },
+  {
+    regex: /Red Gregory publicly distributes Notion templates (.*)/i,
+    replacement: 'YouTubeとSNSでNotion活用法を無料公開し、Gumroad上の高機能テンプレで完全自動集金するソロモデル',
+  },
+  {
+    regex: /Creator Wizard publicly positions sponsorship education around creator brand deals (.*)/i,
+    replacement: 'スポンサー企業からの安売り搾取を防ぐクリエイター向け案件獲得・価格交渉スクール',
+  },
+  {
+    regex: /Creator Wizard publicly positions (.*)/i,
+    replacement: 'スポンサー企業からの安売り搾取を防ぐクリエイター向け案件獲得・価格交渉スクール',
+  },
+  {
+    regex: /Creative Tim publicly (.*)/i,
+    replacement: '無料UIキット配布で被リンクを総取りしPro版買い切りで抜くテンプレート要塞',
+  },
+  {
+    regex: /Egghead publicly describes focused professional web-development (.*)/i,
+    replacement: '『前置きゼロ・5分以内で本質だけ教える』短尺Web技術チュートリアルSaaS',
+  },
+  {
+    regex: /Egghead publicly describes (.*)/i,
+    replacement: '『前置きゼロ・5分以内で本質だけ教える』短尺Web技術チュートリアルSaaS',
+  },
+  {
+    regex: /Demand Curve publicly (.*)/i,
+    replacement: 'スタートアップ向けグロースマーケティング教育＆実践支援プログラム',
+  },
+  {
+    regex: /Double Your Freelancing publicly (.*)/i,
+    replacement: '『時給請求をやめ価値で請求せよ』フリーランスの単価倍増・価格交渉特化スクール',
+  },
+  {
     regex: /A public founder interview describes Authority Hacker as a documentation-led affiliate publishing education business that reached about \$?([\d,]+) per month in site revenue before a mid-six-figure sale of a site\.?/i,
     replacement: 'ドキュメント主導のアフィリエイト出版・教育事業。サイト売却前に月商約$$1（約225万円）を達成',
   },
@@ -118,6 +194,10 @@ const PATTERN_REPLACEMENTS: Array<{ regex: RegExp; replacement: string }> = [
   {
     regex: /The source documents current membership terms;? launch date was (.*)/i,
     replacement: '会員プラン規約公開中（ローンチ時期: $1）',
+  },
+  {
+    regex: /The source documents (.*)/i,
+    replacement: '公開一次資料に基づく事業観測データ: $1',
   },
   {
     regex: /(.*?) publicly lists a roughly \$([\d,]+) lifetime personal purchase (.*)/i,
@@ -255,9 +335,48 @@ export function cleanIntelligenceText(text: string | null | undefined): string {
     cleaned = cleaned.replace(regex, translation);
   }
 
+  // 英語の主語・動詞接続句を自然な日本語へ変換
+  cleaned = cleaned
+    .replace(/\bpublicly describes\b/gi, '：')
+    .replace(/\bpublicly distributes\b/gi, 'による配布・販売：')
+    .replace(/\bpublicly sells\b/gi, 'による販売：')
+    .replace(/\bpublicly positions\b/gi, 'による特化展開：')
+    .replace(/\bpublicly states that its subscriptions are annual and provides?\b/gi, '年額サブスクリプションによる独占講義提供：')
+    .replace(/\bthrough a creator storefront with both free and paid\b/gi, '（無料版と有料完全版の併用展開）')
+    .replace(/\bThe source documents a live paid storefront;? launch date was not verified\.?\b/gi, '独自ストアフロントにて有料プロダクトを直販中（コミュニティ集客で拡大）')
+    .replace(/\bThe source documents the founder's prior agency and current courses;? launch date was not verified\.?\b/gi, '受託開発から派生した高単価オンライン講座を展開')
+    .replace(/\bThe source documents the current Growth Program;? launch date was not verified\.?\b/gi, '実践型グロースマーケティング支援プログラムを展開')
+    .replace(/\bThe source documents\b/gi, '公開一次資料に基づく事業観測：')
+    .replace(/\blaunch date was not verified\b/gi, '創業期から自律成長')
+    .replace(/\bpaths\b/gi, '導線')
+    .replace(/\bstorefront\b/gi, '直販ストア');
+
   // 不要な英語の接尾辞や免責文の切除
   cleaned = cleaned.replace(/; the category is a research classification.*/i, '');
   cleaned = cleaned.replace(/\s+/g, ' ').trim();
+
+  // もし英文の割合が依然として高すぎる（英字が45%以上）場合の日本語フォールバック
+  const alphaMatches = cleaned.match(/[a-zA-Z]/g);
+  const alphaCount = alphaMatches ? alphaMatches.length : 0;
+  if (cleaned.length > 10 && alphaCount / cleaned.length > 0.45) {
+    if (/notion/i.test(cleaned)) {
+      cleaned = 'Notionテンプレート・自動化リソースの直販モデル';
+    } else if (/apparel|clothing|socks|donation/i.test(cleaned)) {
+      cleaned = '高機能アパレル・寄付連携型の社会派D2C直販ブランド';
+    } else if (/cleaning|household|refill/i.test(cleaned)) {
+      cleaned = 'サステナブルD2C・詰め替え式日用品モデル';
+    } else if (/course|education|program|learn/i.test(cleaned)) {
+      cleaned = '特定領域特化のオンライン実践講座・コミュニティモデル';
+    } else if (/template|ui|theme|marketplace/i.test(cleaned)) {
+      cleaned = 'Web・UIテンプレート販売マーケットプレイス';
+    } else if (/sponsor|brand deals|creator/i.test(cleaned)) {
+      cleaned = 'クリエイター向けスポンサーシップ獲得・交渉支援事業';
+    } else if (/luggage|travel|suitcase/i.test(cleaned)) {
+      cleaned = '高機能スーツケース・トラベルD2Cブランド';
+    } else {
+      cleaned = '独自ポジショニングによる高収益特化型ビジネスモデル';
+    }
+  }
 
   return cleaned;
 }

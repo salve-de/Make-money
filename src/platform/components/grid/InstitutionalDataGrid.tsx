@@ -305,7 +305,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
 
                     {/* 4. 体制 */}
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs text-zinc-400">
-                      {entity.operations.teamSize === 1 ? '1人' : `${entity.operations.teamSize.toLocaleString()}人`}
+                      {(entity.operations?.teamSize ?? 1) === 1 ? '1人' : `${(entity.operations?.teamSize ?? 1).toLocaleString()}人`}
                     </td>
                   </tr>
                 );

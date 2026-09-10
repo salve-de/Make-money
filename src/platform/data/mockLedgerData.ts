@@ -1,4 +1,5 @@
 import { FinancialEntity } from '../types/terminal';
+import { ADDITIONAL_INSTITUTIONAL_ENTITIES } from './additionalInstitutionalEntities';
 
 export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
   {
@@ -7618,5 +7619,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "platformRisk": "CRITICAL"
       }
     }
-  }
+  },
+  ...ADDITIONAL_INSTITUTIONAL_ENTITIES,
 ];
+

@@ -122,10 +122,11 @@ export function parseRevenueToMonthlyJpy(
     return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
   }
 
-  // プラン価格のみの場合（例: "Published Entry Price: $57 / 月" や "月額 2.99"）
-  if (/プラン価格|Entry Price|starting|per_user|月額\s*[\d.]+/i.test(str) && !/revenue|売上|annual/i.test(str)) {
-    const priceMatch = str.match(/(\$[\d.]+|[\d.]+\s*円|¥[\d,]+)/);
-    const label = priceMatch ? `プラン: ${priceMatch[1]}/月〜` : 'プラン価格あり';
+  // 単発講座・商品単価やプラン価格のみの場合（例: "$799 Part-Time Creatorpreneur course" や "月額 2.99"）
+  if (/\$(?:[\d,]+)\s*(?:Part-Time|course|program|plan|fee|license|tier|per_user)/i.test(str) ||
+      (/プラン価格|Entry Price|starting|per_user|月額\s*[\d.]+/i.test(str) && !/revenue|売上|annual/i.test(str))) {
+    const priceMatch = str.match(/(\$[\d,.]+|[\d.]+\s*円|¥[\d,]+)/);
+    const label = priceMatch ? `単価: ${priceMatch[1]}` : 'プラン価格あり';
     return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: label };
   }
 
@@ -171,15 +172,24 @@ export function parseRevenueToMonthlyJpy(
   }
 
   // 3. 生の大きな数字（例: 15000 USD_per_month や 10000000）
-  const rawNumMatch = str.match(/(\d{4,})/);
-  if (rawNumMatch) {
-    const rawVal = parseFloat(rawNumMatch[1]);
-    const rate = /JPY|円/i.test(str) ? 1 : 150;
-    const totalJpy = rawVal * rate;
-    return {
-      monthlyJpy: isMonthlyContext ? Math.round(totalJpy) : Math.round(totalJpy / 12),
-      isUnconfirmed: false,
-    };
+  // 【厳格ガード】売上文脈（revenue, ARR, MRR, 売上, 年商, 月商, sales, run rate）がない単なる数値や、
+  // 西暦年（1900〜2099）は絶対に売上とみなさない！
+  const hasRevenueContext = /revenue|arr|mrr|売上|年商|月商|sales|run\s*rate|gmv|turnover/i.test(str) ||
+    (metricType ? /revenue|arr|mrr|売上|年商|月商|sales/i.test(metricType) : false);
+
+  if (hasRevenueContext) {
+    // 西暦年（例: 2015, 2020）や日付を消去してから数値を抽出
+    const strippedStr = str.replace(/\b(?:19|20)\d{2}\b/g, '').replace(/\d{4}-\d{2}-\d{2}/g, '');
+    const rawNumMatch = strippedStr.match(/(\d{4,})/);
+    if (rawNumMatch) {
+      const rawVal = parseFloat(rawNumMatch[1]);
+      const rate = /JPY|円/i.test(str) ? 1 : 150;
+      const totalJpy = rawVal * rate;
+      return {
+        monthlyJpy: isMonthlyContext ? Math.round(totalJpy) : Math.round(totalJpy / 12),
+        isUnconfirmed: false,
+      };
+    }
   }
 
   return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
@@ -207,8 +217,12 @@ export function adaptFoundationSummaryToFinancialEntity(
 
   // タグラインのクレンジング（英語文章を排除）
   let headline = cleanIntelligenceText(vp.businessSignal || vp.mechanismSignal || summary.name);
+  const alphaMatches = headline.match(/[a-zA-Z]/g);
+  if (alphaMatches && alphaMatches.length / headline.length > 0.45) {
+    headline = `${summary.name}の${pattern}モデル・公開観測データ`;
+  }
   if (!headline || headline === '創業者・運営者: ' || /^創業者・運営者:[^a-zA-Z0-9\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf]/.test(headline)) {
-    headline = `${summary.name}の事業モデル・公開情報観測データ`;
+    headline = `${summary.name}の${pattern}モデル・公開観測データ`;
   }
   // もしタグラインが単なる「創業者・運営者: X」だけなら社名と業態を付与
   if (/^創業者・運営者:\s*[^/]+$/.test(headline)) {
@@ -269,7 +283,12 @@ export function adaptFoundationSummaryToFinancialEntity(
       title: '今夜使える略奪転用コード',
       badge: '実務転用',
       evidenceStatus: 'VERIFIED',
-      punchline: `「${headline.slice(0, 30)}」の仕組みを国内ニッチ・別業種へ横展開する即戦力モデル`,
+      punchline: (() => {
+        const target = headline.replace(/[。、].*$/, '').trim().slice(0, 25);
+        return target.length > 5 && !/^[a-zA-Z\s]+$/.test(target)
+          ? `「${target}」の仕組みを国内ニッチへ横展開する即戦力モデル`
+          : `『${summary.name}』の${pattern}モデルを国内ニッチへ横展開する即戦力設計図`;
+      })(),
       details: [
         '① 大手ツールがカバーしきれないニッチ業務フローを特定し、単一特化LPで初期検証。',
         '② Stripe等の定額サブスクリプションを組み込み、年払い一括割引で前金を回収。',
@@ -514,6 +533,10 @@ export function adaptFoundationDetailToFinancialEntity(
   if (/^創業者・運営者:/.test(tagline) && claims[2]?.statement) {
     tagline = cleanIntelligenceText(claims[2].statement);
   }
+  const alphaMatches = tagline.match(/[a-zA-Z]/g);
+  if (alphaMatches && alphaMatches.length / tagline.length > 0.45) {
+    tagline = `${entity.name}の特化型事業モデル・公開情報観測データ`;
+  }
 
   // 10. 4〜8文字の日本語型バッジ
   const pattern = inferArchitecturePattern(entity.entityType, `${tagline} ${firstClaim}`);
@@ -578,7 +601,12 @@ export function adaptFoundationDetailToFinancialEntity(
       title: '今夜使える略奪転用コード',
       badge: '実務転用',
       evidenceStatus: 'VERIFIED',
-      punchline: `「${tagline.slice(0, 30)}」の仕組みを国内ニッチ・別業種へ横展開する即戦力モデル`,
+      punchline: (() => {
+        const cleanTag = cleanIntelligenceText(tagline).replace(/[。、].*$/, '').trim().slice(0, 25);
+        return cleanTag.length > 5 && !/^[a-zA-Z\s]+$/.test(cleanTag)
+          ? `「${cleanTag}」の仕組みを国内ニッチへ横展開する即戦力モデル`
+          : `『${entity.name}』の${pattern}モデルを国内ニッチへ横展開する即戦力設計図`;
+      })(),
       details: [
         `① 突いた盲点: ${blindspotText.slice(0, 60)}`,
         `② 収益化の急所: ${cleanMoneyLabel(priceStr)} の定額課金・自動回収配管を構築。`,

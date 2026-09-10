@@ -80,11 +80,21 @@ export const TerminalShell: React.FC = () => {
 
   // 全エンティティの統合 (自社完全体銘柄を先頭に、R2銘柄とシームレスに結合)
   const entities = useMemo(() => {
+    const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
     const coreIds = new Set(coreEntities.map((e) => e.id.toLowerCase()));
-    const coreNames = new Set(coreEntities.map((e) => e.name.toLowerCase().trim()));
+    const coreNames = new Set(coreEntities.map((e) => normalize(e.name)));
+    // 特殊エイリアスマッピング（R2の名前 ➔ coreName）
+    const aliasMatches: Record<string, string> = {
+      'aliabdaal': 'aliabdaalcourses',
+      'aliabdaalcourses': 'aliabdaal',
+      'eggheadio': 'egghead',
+      'egghead': 'eggheadio',
+    };
+
     const r2Filtered = foundationEntities.filter((e) => {
       const idMatch = coreIds.has(e.id.toLowerCase());
-      const nameMatch = coreNames.has(e.name.toLowerCase().trim());
+      const norm = normalize(e.name);
+      const nameMatch = coreNames.has(norm) || (aliasMatches[norm] && coreNames.has(aliasMatches[norm]));
       return !idMatch && !nameMatch;
     });
     return [...coreEntities, ...r2Filtered];

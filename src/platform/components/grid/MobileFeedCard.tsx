@@ -101,7 +101,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           </div>
         </div>
         <span className="text-zinc-500 text-[10px] font-sans">
-          {entity.operations.teamSize === 1 ? '完全1人' : `${entity.operations.teamSize}人`}
+          {(entity.operations?.teamSize ?? 1) === 1 ? '完全1人' : `${entity.operations?.teamSize ?? 1}人`}
         </span>
       </div>
     </div>
