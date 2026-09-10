@@ -856,79 +856,75 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </div>
             </section>
 
-            {/* 稼働インフラ：現場配管ツール */}
-            <section className="space-y-2">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                      : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
-                  }`}>
-                    #08
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <Wrench className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-300' : 'text-zinc-200'
-                    }`}>
-                      {isHazardMode ? `首を絞めた依存ツール ＆ API構成 (${entity.operations.toolStack.length}件)` : `稼働インフラ：現場配管ツール (${entity.operations.toolStack.length}件)`}
+            {/* 稼働インフラ：現場配管ツール（※失敗・地雷モード時はツールのネガティブキャンペーン・訴訟リスク防止のため完全非表示） */}
+            {!isHazardMode && (
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border text-zinc-400 bg-white/[0.06] border-white/[0.08]">
+                      #08
                     </span>
+                    <div className="flex items-center gap-1.5">
+                      <Wrench className="w-3.5 h-3.5 text-zinc-400" />
+                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-200">
+                        稼働インフラ：現場配管ツール ({entity.operations.toolStack.length}件)
+                      </span>
+                    </div>
+                  </div>
+                  <span className="text-zinc-400 font-mono text-[10px]">
+                    月額計: {formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}
+                  </span>
+                </div>
+                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
+                  {entity.operations.toolStack.map((tool, idx) => {
+                    const aff = findToolAffiliate(tool.name);
+                    const targetUrl = tool.url || aff?.url;
+                    return (
+                      <div key={idx} className="p-2.5 space-y-1">
+                        <div className="flex justify-between items-center text-[11px]">
+                          <div className="flex items-center gap-2">
+                            {targetUrl ? (
+                              <a
+                                href={targetUrl}
+                                target="_blank"
+                                rel="noopener noreferrer sponsored"
+                                className="inline-flex items-center gap-1.5 text-white font-medium hover:text-emerald-300 transition-colors group cursor-pointer"
+                              >
+                                <span>{tool.name}</span>
+                                <ExternalLink className="w-2.5 h-2.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+                                {aff?.isAffiliate && (
+                                  <span className="text-[8px] font-sans font-bold px-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                                    PR
+                                  </span>
+                                )}
+                              </a>
+                            ) : (
+                              <span className="text-white font-medium">{tool.name}</span>
+                            )}
+                            <span className="text-zinc-500 text-[10px] font-mono">({tool.category})</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-zinc-400 font-mono text-[10px] tabular-nums">
+                              {formatMoney(tool.monthlyCost)}/月
+                            </span>
+                          </div>
+                        </div>
+                        {tool.purpose && (
+                          <p className="text-[10px] text-zinc-400 leading-snug">
+                            {tool.purpose}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  })}
+                  {/* 景品表示法ステマ規制注記 */}
+                  <div className="p-2 bg-white/[0.01] flex items-center gap-1 text-[9px] font-mono text-zinc-500">
+                    <ShieldCheck className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
+                    <span>※掲載ツールリンクには提携アフィリエイト広告が含まれており、紹介料が発生する場合があります。</span>
                   </div>
                 </div>
-                <span className="text-zinc-400 font-mono text-[10px]">
-                  月額計: {formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}
-                </span>
-              </div>
-              <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
-                {entity.operations.toolStack.map((tool, idx) => {
-                  const aff = findToolAffiliate(tool.name);
-                  const targetUrl = tool.url || aff?.url;
-                  return (
-                    <div key={idx} className="p-2.5 space-y-1">
-                      <div className="flex justify-between items-center text-[11px]">
-                        <div className="flex items-center gap-2">
-                          {targetUrl ? (
-                            <a
-                              href={targetUrl}
-                              target="_blank"
-                              rel="noopener noreferrer sponsored"
-                              className="inline-flex items-center gap-1.5 text-white font-medium hover:text-emerald-300 transition-colors group cursor-pointer"
-                            >
-                              <span>{tool.name}</span>
-                              <ExternalLink className="w-2.5 h-2.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
-                              {aff?.isAffiliate && (
-                                <span className="text-[8px] font-sans font-bold px-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                                  PR
-                                </span>
-                              )}
-                            </a>
-                          ) : (
-                            <span className="text-white font-medium">{tool.name}</span>
-                          )}
-                          <span className="text-zinc-500 text-[10px] font-mono">({tool.category})</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-zinc-400 font-mono text-[10px] tabular-nums">
-                            {formatMoney(tool.monthlyCost)}/月
-                          </span>
-                        </div>
-                      </div>
-                      {tool.purpose && (
-                        <p className="text-[10px] text-zinc-400 leading-snug">
-                          {tool.purpose}
-                        </p>
-                      )}
-                    </div>
-                  );
-                })}
-                {/* 景品表示法ステマ規制注記 */}
-                <div className="p-2 bg-white/[0.01] flex items-center gap-1 text-[9px] font-mono text-zinc-500">
-                  <ShieldCheck className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
-                  <span>※掲載ツールリンクには提携アフィリエイト広告が含まれており、紹介料が発生する場合があります。</span>
-                </div>
-              </div>
-            </section>
+              </section>
+            )}
           </div>
 
           {/* ------------------------------------------------------- */}
