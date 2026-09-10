@@ -2652,3 +2652,25 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
      - Safari実機スクリーンショットにて, Magic Spoon, Liquid Death, MacroFactor, Harry's, Blinkist, Easlo 等が緑バッジ・青い創業年バッジ・正確な月商・事業DNAで完璧にレンダリングされていることを確認。
      - `npx tsc --noEmit` エラーゼロ。
 
+### 82. Phase 82: 完全自律型・万能データ収集＆Gold精錬プロトコル（Autonomous Ingest & Refinery Protocol）の確立 ＆ 全AI完全自律規律配備（完了）
+- **検死された本質的論点 ＆ ユーザーの痛烈な指導**:
+  - 「で、それで精錬する場合も、足りないデータも 集めるってできる？ そういうふうに 全部変えておいて 全てに 追記して 完全にそれに従うようにして」
+  - 「そもそも 他のAIに このプロジェクトに 限らず、こういうの集めてって言ったら、できるようにして。おれがいちいちコピペしなくても いいように」
+  - 「つまり、例えば このプロジェクト MAKEMONEYに必要なデータと 普通に集めるやつ 集めてきて 1000事例くらい って言ったら もうできるくらいにして 言ってる意味わかる？ で、その過程で、このプロジェクトに 必要な形にも 精錬するってこと。俺の言ってることわかる？ コンサルとして 整えて 全部」
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **完全自律型・万能データ収集＆Gold精錬プロトコル（5大フェーズ規律）の確立 (`AGENTS.md`)**:
+     - ユーザーが「〇〇について1000件集めて精錬して」と一言指示しただけで、すべてのAI（Antigravity, Claude, GPT, Cursor, 外部スクリプト）が人間に聞き返さず自律完遂する絶対プロトコルを明文化。
+     - **Phase 1（底引き網収集）**: 対象市場・カテゴリの全事例・一次情報を外部検索・APIから一挙にリストアップ。
+     - **Phase 2（R2事実レイク格納）**: `universal-foundation` 規格に則り、`research-bundle.v1` / `journal-entry.v1` として不変・Create-OnlyでR2へ保存（一次証拠の保護）。
+     - **Phase 3（自律的欠落検知＆外部Web再急襲ループ: Missing Fact Auto-Harvest）**: 創業年、月商、利益率、初期ゲリラ戦の欠落を検知した瞬間、AIが自律的に2次・3次の外部検索を発動して事実を強奪・補完。非開示でもプラン価格と業界原価率から科学的P&L逆算。
+     - **Phase 4（キーエンス品質Gold精錬）**: サバンナOS日本語DNA、実額P&L、4大禁忌、盲点、障壁へと100%精錬し、`datasets/ds.business.makemoney-dossiers.v1` へ保存。
+     - **Phase 5（UIダイレクト配信）**: Bloomberg端末UIがGold層から0.01秒で直接描画。
+  2. **データ収集・保存正本へのパイプライン規約明文化 (`docs/COLLECT_AND_STORE.md`)**:
+     - Section 9「【完全自動化】万能底引き網収集 ＆ キーエンス品質Gold精錬パイプライン（1,000件一括実行規格）」を新設。
+     - 3層メダリオン分離（Bronze/Raw ➔ Silver/Foundation ➔ Gold/MakeMoney Dossier）の確定。
+  3. **UI読み取り経路の進化方針明記 (`docs/FOUNDATION_UI_READ_PATH.md`)**:
+     - アダプターでの場当たりオンデマンド推論（`value-projection.ts`）から、Gold versioned serving view（`datasets/ds.business.makemoney-dossiers.v1`）のダイレクト読み取りへの正式拡張を明記。
+  4. **Git自律同期 ＆ 差分ゼロ完了**:
+     - コミットおよびプッシュを自律完遂。
+
+

@@ -88,6 +88,33 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - `data/collection/<case>.request.json` を生成し、`npm run foundation:r2` でR2へ保存。
   - 画面の動的ハイライトUIへ直結。
 
+### 【超重要】完全自律型・万能データ収集＆Gold精錬プロトコル（Autonomous Ingest & Refinery Protocol）
+**ユーザーがいちいち細かくコピペや条件指示を出さなくても、「〇〇について1000件集めて精錬して」「MAKEMONEYに必要なデータと普通に集めるやつ集めてきて」と一言言っただけで、全てのAI（Antigravity, Claude, GPT, Cursor, 外部スクリプト・サブエージェント）が完全に自律連携し、以下の5大フェーズを自律完遂せよ：**
+
+1. **Phase 1: 底引き網収集（Raw / Bronze層）**:
+   - ユーザーに「どれを集めますか？」と聞き返すな。対象カテゴリ・市場（例: ソロプレナー、AIマイクロSaaS、高単価D2C、Newsletter、マーケットプレイス等）の全企業・事例を外部検索・APIから一挙にリストアップ。
+   - 一次情報（公式サイト、インタビュー、Crunchbase、SEC、Reddit、Product Hunt、Xログ）から生の事実・数値を網羅調達。
+2. **Phase 2: R2事実レイク格納（Silver / Foundation Lake層）**:
+   - `universal-foundation` 規格に則り、`research-bundle.v1` および `journal-entry.v1` としてR2へ Create-Only（不変・追記専用）で保存。
+   - 客観的事実（誰が何を言ったか、一次証拠URL）を永久保護し、事実と解釈を分離。
+3. **Phase 3: 自律的欠落検知 ＆ 外部Web再急襲ループ（Missing Fact Auto-Harvest）**:
+   - **「取得元に書いてなかったから未確認」「売上非公開だから諦める」はAIの完全失格である。**
+   - 創業年、正確な月商、実効営業利益率、創業者個人の手残り、初期ゲリラ戦ログ、Tech Stackが欠落している場合、AIは自律的に2次・3次の深掘り外部Web検索を発動せよ：
+     - 創業年欠落 ➔ `"<企業名>" founded year OR "started in" OR domain whois` で即時特定。
+     - 売上欠落 ➔ `"<企業名>" revenue OR MRR OR ARR OR "Stripe" OR "pricing"` で創業者インタビューやXポスト魚拓を急襲。
+     - それでも公開数字がない場合 ➔ 単品プラン価格 × 推定アクティブ顧客規模 × 業界原価率（Stripe 2.9% + 推論API + インフラ）から科学的にP&Lウォーターフォールを逆算し、`origin_type: 'estimated'` として創業者手残りを算出。
+4. **Phase 4: キーエンス品質Gold精錬（Gold / Serving View層）**:
+   - 収集・補完された事実を、Make-Moneyが要求する【キーエンス品質の完全体裏帳簿JSON（Dossier）】へと一括精製：
+     - ① サバンナOS直撃の日本語DNA（英語ログ・クローラー定型文を完全切除）
+     - ② 4〜8文字の日本語型バッジ（`高単価D2C`, `逆張り缶飲料`, `代謝自動逆算` 等）
+     - ③ 検証済み実額P&L（架空の「¥30万 65%」を完全追放し、正確な月商と利益率）
+     - ④ 4大禁忌データ（泥臭い初期ゲリラ戦、通帳着金実額、大手の自爆構造、人質にした痛みの財布）
+     - ⑤ 盲点と障壁（競合が手を出せない構造的理由）
+   - 精製されたGoldデータを `datasets/ds.business.makemoney-dossiers.v1`（またはローカル完成版インデックス）へ保存。
+5. **Phase 5: 画面（Bloomberg端末UI）即時反映 ＆ 実機検証**:
+   - UIはGoldデータをダイレクトに0.01秒で描画。
+   - ブラウザ実機で確認し、社名欠落・英語生ログ・架空数値・表示崩れが完全ゼロであることを実証。
+
 ## 1. 厳禁事項（AIの知能退行・リーンスタートアップ病の禁止）
 1. ❌ **「7日間の仮説検証計画・起業ワークシート」の作成禁止**:
    - 読者は宿題（作業）をしに来ているのではない。宿題を課した瞬間に離脱する。

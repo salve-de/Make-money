@@ -152,3 +152,43 @@ CAPTURE/CORE/ENRICHEDの部分データは、有用ならそのまま保存し�
 - descriptor materialization状態;
 - legacy `universal` / EDINET / Investrader mutation = 0;
 - delete / move / rename / overwrite = 0。
+
+## 9. 【完全自動化】万能底引き網収集 ＆ キーエンス品質Gold精錬パイプライン（1,000件一括実行規格）
+
+ユーザーが「MAKEMONEYに必要なデータと普通に集めるやつ集めてきて 1000事例くらい」と一言指示した際、全てのAIが完全に自律連携して実行する標準プロトコル。
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│ Phase 1: 底引き網収集（Raw / Bronze）                                   │
+│  └ 対象市場の全事例を外部Web・APIから網羅調達                            │
+├────────────────────────────────────────────────────────────────────────┤
+│ Phase 2: R2事実レイク格納（Silver / Foundation Lake）                    │
+│  └ research-bundle.v1 / journal-entry.v1 を Create-Only で不変保存      │
+├────────────────────────────────────────────────────────────────────────┤
+│ Phase 3: 自律的欠落補完ループ（Missing Fact Auto-Harvest）               │
+│  └ 創業年・売上・利益率・初期ゲリラ戦の欠落を検知し外部Webから自律追跡   │
+├────────────────────────────────────────────────────────────────────────┤
+│ Phase 4: キーエンス品質Gold精錬（Gold / Serving View）                   │
+│  └ サバンナOS日本語DNA・実額P&L・4大禁忌・盲点・障壁へと100%精錬         │
+│  └ R2 `datasets/ds.business.makemoney-dossiers.v1` へ保存              │
+├────────────────────────────────────────────────────────────────────────┤
+│ Phase 5: UIダイレクト配信                                               │
+│  └ Make-Money Bloomberg端末UIがGold層から0.01秒で直接描画               │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+### 9.1 欠落データの自律再急襲（Missing Fact Auto-Harvest）
+- **「元データに書いてなかった」による未確認放置・途中停止を厳禁とする。**
+- Silverデータ作成時およびGold精錬時に、以下の必須項目が欠落している場合、AIは即座に2次・3次の外部検索を発動する：
+  1. **創業年（foundedYear）**: `"<社名>" founded OR "launched in" OR "started in"` で即時特定。
+  2. **実額P&L（月商・営業利益率・創業者手残り）**:
+     - `"<社名>" revenue OR MRR OR ARR OR "Stripe" OR "pricing"` で創業者インタビューやXポスト魚拓を急襲。
+     - 公開数値が非開示の場合：単品プラン価格 × 推定アクティブ顧客規模 × 業界標準原価率（決済手数料2.9%+$0.30、推論API代、インフラ費）から科学的にP&Lウォーターフォールを逆算し、`origin_type: 'estimated'` として創業者個人の手残り現金実額を算出。
+  3. **初期ゲリラ戦ログ（客観事実）**:
+     - 最初の100人を仕留めたX自虐動画、Reddit自演、ToS隙間ハック、Cold Email等の客観ログを魚拓・フォーラムから特定。
+
+### 9.2 Gold層（Serving View）の保存規律
+- **物理配置**: `datasets/ds.business.makemoney-dossiers.v1/entities/<entity_id>.json`
+- **保存性質**: Foundationの正本契約に則り、versioned serving view として Create-Only で保存。
+- **UIとの結合**: Make-Money UIは、このGoldデータセットを読み込むことで、画面側での場当たり推論（英語ログ混入、架空数値捏造、創業年脱落）を完全ゼロ化する。
+
