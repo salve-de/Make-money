@@ -1,0 +1,238 @@
+name: Patch Dossier Reader
+
+on:
+  push:
+    branches:
+      - codex/dynamic-dossier-20260910
+
+permissions:
+  contents: write
+
+jobs:
+  patch-and-validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Apply targeted reader and projection fixes
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          reader_path = Path('src/lib/foundation/business-reader.ts')
+          reader = reader_path.read_text()
+          old_reader = '''function recordMentionsEntity(value: JsonObject, entityId: string): boolean {
+            return stringValue(value, 'entity_id') === entityId ||
+              stringArray(value, 'entity_ids').includes(entityId) ||
+              stringValue(value, 'payer_entity_id') === entityId ||
+              stringValue(value, 'receiver_entity_id') === entityId ||
+              stringValue(value, 'subject_entity_id') === entityId ||
+              stringValue(value, 'object_entity_id') === entityId;
+          }
+
+          function filteredRecords(bundle: JsonObject, key: string, entityId: string): JsonObject[] {
+            const values = bundle[key];
+            return Array.isArray(values)
+              ? values.map(objectValue).filter((value): value is JsonObject => Boolean(value && recordMentionsEntity(value, entityId)))
+              : [];
+          }
+          '''
+          new_reader = '''function recordMentionsEntity(value: JsonObject, entityId: string): boolean {
+            return stringValue(value, 'entity_id') === entityId ||
+              stringArray(value, 'entity_ids').includes(entityId) ||
+              stringValue(value, 'payer_entity_id') === entityId ||
+              stringValue(value, 'receiver_entity_id') === entityId ||
+              stringValue(value, 'subject_entity_id') === entityId ||
+              stringValue(value, 'object_entity_id') === entityId;
+          }
+
+          function recordHasExplicitEntityReference(value: JsonObject): boolean {
+            return Boolean(
+              stringValue(value, 'entity_id') ||
+              stringArray(value, 'entity_ids').length > 0 ||
+              stringValue(value, 'payer_entity_id') ||
+              stringValue(value, 'receiver_entity_id') ||
+              stringValue(value, 'subject_entity_id') ||
+              stringValue(value, 'object_entity_id')
+            );
+          }
+
+          function bundlePrimaryEntityId(bundle: JsonObject): string | null {
+            const subject = objectValue(bundle.subject);
+            const candidateDomain = subject ? stringValue(subject, 'candidate_domain') : null;
+            const candidateName = subject ? stringValue(subject, 'candidate_name') : null;
+            const values = Array.isArray(bundle.entities)
+              ? bundle.entities.map(objectValue).filter((value): value is JsonObject => Boolean(value))
+              : [];
+
+            const exact = values.find((value) => {
+              const domain = stringValue(value, 'domain');
+              const identifier = stringValue(value, 'canonical_identifier');
+              const name = stringValue(value, 'canonical_name');
+              return Boolean(
+                (candidateDomain && (domain === candidateDomain || identifier?.endsWith(candidateDomain))) ||
+                (candidateName && name?.toLocaleLowerCase() === candidateName.toLocaleLowerCase())
+              );
+            });
+            return exact ? stringValue(exact, 'entity_id') : null;
+          }
+
+          function filteredRecords(bundle: JsonObject, key: string, entityId: string): JsonObject[] {
+            const values = bundle[key];
+            if (!Array.isArray(values)) return [];
+
+            // Older research bundles legitimately contain bundle-scoped observations/derived
+            // without entity_id. They belong to the bundle's explicit primary subject; do not
+            // discard them, and do not leak them onto related entities in the same bundle.
+            const allowBundleScoped =
+              (key === 'observations' || key === 'derived') &&
+              bundlePrimaryEntityId(bundle) === entityId;
+
+            return values
+              .map(objectValue)
+              .filter((value): value is JsonObject => Boolean(
+                value && (
+                  recordMentionsEntity(value, entityId) ||
+                  (allowBundleScoped && !recordHasExplicitEntityReference(value))
+                )
+              ));
+          }
+          '''
+          if old_reader in reader:
+              reader = reader.replace(old_reader, new_reader)
+              reader_path.write_text(reader)
+          elif 'function recordHasExplicitEntityReference' not in reader:
+              raise SystemExit('business-reader target block not found')
+
+          projector_path = Path('src/lib/foundation/dossier-projection.ts')
+          projector = projector_path.read_text()
+          old_format = '''  if (item.currency) return `${item.currency} ${amount}`;
+            if (item.unit && !item.unit.toLocaleLowerCase().includes((item.currency || '').toLocaleLowerCase())) {
+              return `${amount} ${item.unit}`;
+            }
+            return amount;
+          '''
+          new_format = '''  if (item.currency) return `${item.currency} ${amount}`;
+            if (item.unit) return `${amount} ${item.unit}`;
+            return amount;
+          '''
+          if old_format in projector:
+              projector = projector.replace(old_format, new_format)
+
+          insertion_point = 'function buildDerivedModule(\n'
+          transferable = '''function buildTransferableMechanism(entity: FoundationBusinessCase): DossierModule | null {
+            const rows: DossierRow[] = [];
+
+            const business = pickBusinessClaim(entity);
+            if (business && business.evidenceIds.length > 0) {
+              rows.push({ ...rowFromClaim('商品化点', business), label: '商品化点' });
+            }
+
+            const distribution = entity.claims.find((item) =>
+              item.verificationStatus === 'SUPPORTED' &&
+              item.evidenceIds.length > 0 &&
+              includesAny(item.statement, DISTRIBUTION_TERMS)
+            );
+            if (distribution) {
+              rows.push({ ...rowFromClaim('集客配管', distribution), label: '集客配管' });
+            }
+
+            const pricing = entity.metrics
+              .filter((item) => item.verificationStatus === 'SUPPORTED' && item.evidenceIds.length > 0 && includesAny(item.metricType, ['price', 'pricing', 'subscription_price']))
+              .sort((left, right) => metricScore(right) - metricScore(left))[0];
+            if (pricing) {
+              rows.push({ ...rowFromMetric(pricing), label: '課金構造' });
+            }
+
+            const money = entity.moneySignals.find((item) =>
+              item.verificationStatus === 'SUPPORTED' && item.evidenceIds.length > 0
+            );
+            if (money) {
+              rows.push({
+                label: '金の流れ',
+                value: formatMoneySignal(money),
+                note: money.purpose ? compact(money.purpose, 150) : money.basis || undefined,
+                originType: money.originType,
+                verificationStatus: money.verificationStatus,
+                evidenceIds: money.evidenceIds,
+              });
+            }
+
+            const platform = entity.relationships.find((item) =>
+              item.verificationStatus === 'SUPPORTED' &&
+              item.evidenceIds.length > 0 &&
+              includesAny(item.predicate, PLATFORM_TERMS)
+            );
+            if (platform) {
+              rows.push({ ...rowFromRelationship(platform), label: '外部レバー' });
+            }
+
+            const analyticalPain = entity.derived.find((item) =>
+              item.supportingEvidenceIds.length > 0 && includesAny(item.type, ['pain', 'wallet', 'stage_glitch', 'buyer_psychology'])
+            );
+            if (analyticalPain) {
+              rows.push({ ...rowFromDerived(analyticalPain), label: '分析された急所' });
+            }
+
+            if (rows.length < 2) return null;
+            return makeModule({
+              id: 'transferable-mechanism',
+              kind: 'TRANSFERABLE_MECHANISM',
+              section: 'PLAYBOOK',
+              title: '転用候補になる構造部品',
+              eyebrow: 'STEAL THIS',
+              summary: '根拠がある構造部品だけを並べる。因果関係や再現性そのものは別途検証が必要。',
+              rows: rows.slice(0, 6),
+              body: [],
+              importance: 96,
+              analysis: true,
+            });
+          }
+
+          '''
+          if 'function buildTransferableMechanism' not in projector:
+              if insertion_point not in projector:
+                  raise SystemExit('dossier projection insertion point not found')
+              projector = projector.replace(insertion_point, transferable + insertion_point, 1)
+
+          old_call = '''    buildDerivedModule(entity, {
+              id: 'transferable-mechanism',
+              kind: 'TRANSFERABLE_MECHANISM',
+              section: 'PLAYBOOK',
+              title: '転用できる儲けの構造',
+              eyebrow: 'STEAL THIS',
+              terms: ['stage_money_machine', 'white_space', 'capital_efficiency', 'stage_glitch', 'buyer_psychology'],
+              importance: 96,
+            }),
+          '''
+          if old_call in projector:
+              projector = projector.replace(old_call, '    buildTransferableMechanism(entity),\n', 1)
+          elif '    buildTransferableMechanism(entity),' not in projector:
+              raise SystemExit('transferable module call not found')
+
+          projector_path.write_text(projector)
+          PY
+      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm exec tsc --noEmit
+      - run: pnpm run build
+      - name: Commit validated patch if needed
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No patch changes required"
+            exit 0
+          fi
+          git config user.name "sato"
+          git config user.email "sato.business.0117@gmail.com"
+          git add src/lib/foundation/business-reader.ts src/lib/foundation/dossier-projection.ts
+          git commit -m "fix: preserve bundle-scoped dossier intelligence"
+          git push origin HEAD:codex/dynamic-dossier-20260910
