@@ -29,10 +29,11 @@ import {
   Clock,
   Edit3,
   Skull,
-  AlertTriangle
+  AlertTriangle,
+  Shield
 } from 'lucide-react';
 import { AffiliateToolBadge, AffiliateToolList } from '../tools/AffiliateToolBadge';
-import { findToolAffiliate } from '../../config/toolAffiliates';
+import { findToolAffiliate, HAZARD_DEFENSE_SHIELDS, TOOL_AFFILIATES } from '../../config/toolAffiliates';
 import { UniversalIntelligenceStream } from './UniversalIntelligenceStream';
 import { cleanIntelligenceText } from '@/lib/foundation/text-cleaner';
 
@@ -856,7 +857,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </div>
             </section>
 
-            {/* 稼働インフラ：現場配管ツール（※失敗・地雷モード時はツールのネガティブキャンペーン・訴訟リスク防止のため完全非表示） */}
+            {/* 稼働インフラ：現場配管ツール（通常時） */}
             {!isHazardMode && (
               <section className="space-y-2">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
@@ -925,6 +926,115 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 </div>
               </section>
             )}
+
+            {/* 地雷・失敗事例専用：【即死回避】防壁インフラ ＆ 避難先ツール（PR） */}
+            {isHazardMode && (() => {
+              // 企業の失敗要因に応じた防壁ソリューションを選択（デフォルトはAPI_DEPENDENCYまたはBURN_RATE_COLLAPSE）
+              const textLower = (
+                (entity.tagline || '') + ' ' +
+                (entity.opportunityJudgment?.oneLineReason || '') + ' ' +
+                (entity.essence?.whatItDoes || '') + ' ' +
+                (entity.essence?.painRelief || '') + ' ' +
+                (entity.strategy?.blindspot || '') + ' ' +
+                (entity.exposureAudit?.pivotSnapshot || '') + ' ' +
+                entity.tags.join(' ')
+              ).toLowerCase();
+              let shieldKey = 'API_DEPENDENCY';
+              if (textLower.includes('サーバー') || textLower.includes('固定費') || textLower.includes('赤字') || textLower.includes('burn') || textLower.includes('hopin') || textLower.includes('clubhouse')) {
+                shieldKey = 'BURN_RATE_COLLAPSE';
+              } else if (textLower.includes('sns') || textLower.includes('twitter') || textLower.includes('ban') || textLower.includes('集客')) {
+                shieldKey = 'ALGORITHM_DEATH';
+              }
+              const shield = HAZARD_DEFENSE_SHIELDS[shieldKey] || HAZARD_DEFENSE_SHIELDS['API_DEPENDENCY'];
+
+              return (
+                <section className="space-y-2.5">
+                  <div className="flex items-center justify-between border-b border-red-500/20 pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border text-red-400 bg-red-950/50 border-red-500/40">
+                        #08
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <Shield className="w-3.5 h-3.5 text-amber-400" />
+                        <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-amber-300">
+                          {shield.title}
+                        </span>
+                      </div>
+                    </div>
+                    <span className="text-zinc-500 font-mono text-[9px]">
+                      損失回避・防御盾
+                    </span>
+                  </div>
+
+                  <div className="border border-amber-500/30 rounded-md bg-[#0F0A0A] p-3 space-y-3 shadow-md">
+                    <div className="bg-red-950/30 border border-red-500/20 rounded p-2.5 space-y-1">
+                      <div className="flex items-center gap-1.5 text-red-400 text-[10px] font-mono font-bold">
+                        <AlertTriangle className="w-3 h-3" />
+                        <span>踏んだら即死する構造的死角</span>
+                      </div>
+                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans">
+                        {shield.fatalRisk}
+                      </p>
+                    </div>
+
+                    <div className="bg-amber-950/20 border border-amber-500/20 rounded p-2.5 space-y-1">
+                      <div className="flex items-center gap-1.5 text-amber-400 text-[10px] font-mono font-bold">
+                        <ShieldCheck className="w-3 h-3" />
+                        <span>生存のための防壁アプローチ</span>
+                      </div>
+                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans">
+                        {shield.shieldApproach}
+                      </p>
+                    </div>
+
+                    <div className="space-y-2 pt-1">
+                      <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider block">
+                        推奨・避難先インフラスタック（検証済み代替ツール）
+                      </span>
+                      <div className="space-y-1.5">
+                        {shield.recommendedTools.map((t, idx) => {
+                          const affMeta = TOOL_AFFILIATES[t.affiliateKey];
+                          const targetUrl = affMeta?.url || '#';
+                          return (
+                            <a
+                              key={idx}
+                              href={targetUrl}
+                              target="_blank"
+                              rel="noopener noreferrer sponsored"
+                              className="block p-2.5 rounded bg-black/40 hover:bg-black/70 border border-white/[0.08] hover:border-amber-500/50 transition-all group cursor-pointer"
+                            >
+                              <div className="flex items-center justify-between text-xs mb-1">
+                                <div className="flex items-center gap-2">
+                                  <span className="text-white font-bold group-hover:text-amber-300 transition-colors">
+                                    {t.name}
+                                  </span>
+                                  <span className="text-[9px] font-mono text-amber-400/90 bg-amber-950/60 px-1.5 py-0.2 rounded border border-amber-800/40">
+                                    {t.role}
+                                  </span>
+                                  <span className="text-[8px] font-sans font-bold px-1 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+                                    PR
+                                  </span>
+                                </div>
+                                <ExternalLink className="w-3 h-3 text-zinc-500 group-hover:text-amber-400 transition-colors" />
+                              </div>
+                              <p className="text-[10px] text-zinc-400 group-hover:text-zinc-300 leading-snug">
+                                {t.whyShield}
+                              </p>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* 景表法ステマ規制注記 */}
+                    <div className="pt-1 flex items-center gap-1 text-[9px] font-mono text-zinc-500">
+                      <ShieldCheck className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
+                      <span>※掲載ツールリンクには提携アフィリエイト広告が含まれており、紹介料が発生する場合があります。</span>
+                    </div>
+                  </div>
+                </section>
+              );
+            })()}
           </div>
 
           {/* ------------------------------------------------------- */}
