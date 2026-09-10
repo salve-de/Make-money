@@ -48,6 +48,22 @@ const METRIC_LABELS: Record<string, string> = {
 // 業態・キーワードの日本語対応表
 const PATTERN_REPLACEMENTS: Array<{ regex: RegExp; replacement: string }> = [
   {
+    regex: /A public founder interview describes Authority Hacker as a documentation-led affiliate publishing education business that reached about \$?([\d,]+) per month in site revenue before a mid-six-figure sale of a site\.?/i,
+    replacement: 'ドキュメント主導のアフィリエイト出版・教育事業。サイト売却前に月商約$$1（約225万円）を達成',
+  },
+  {
+    regex: /The interview describes a mid-six-figure sale of an affiliate site\/business\.?/i,
+    replacement: 'アフィリエイト事業を数十万ドル（数千万円〜1億円規模）で売却したイグジット実績',
+  },
+  {
+    regex: /A public founder interview describes (.*?) as a[n]? (.*)/i,
+    replacement: '$1の創業者インタビュー: $2',
+  },
+  {
+    regex: /A public founder interview describes (.*?) as (.*)/i,
+    replacement: '$1: $2',
+  },
+  {
     regex: /is presented as a[n]? (.*?) (product|platform|tool|service|newsroom) on the checked official URL;? the category is a research classification and money-path details are.*/i,
     replacement: '$1の$2',
   },
@@ -84,12 +100,72 @@ const PATTERN_REPLACEMENTS: Array<{ regex: RegExp; replacement: string }> = [
     replacement: '公開インタビュー情報: $2',
   },
   {
+    regex: /(.*?) is publicly described as a[n]? (.*)/i,
+    replacement: '$1: $2',
+  },
+  {
+    regex: /公開ページ上で(.*?)は(.*?)として提供され[、,]?\s*(.*)/i,
+    replacement: '$1: $2（$3）',
+  },
+  {
+    regex: /operates_as:\s*(.*)/i,
+    replacement: '事業形態: $1',
+  },
+  {
+    regex: /The source presents the founder origin but does not provide a precise (.*)/i,
+    replacement: '創業背景は公開されているが詳細な$1は非公開',
+  },
+  {
+    regex: /The source documents current membership terms;? launch date was (.*)/i,
+    replacement: '会員プラン規約公開中（ローンチ時期: $1）',
+  },
+  {
+    regex: /(.*?) publicly lists a roughly \$([\d,]+) lifetime personal purchase (.*)/i,
+    replacement: '$1: 約$$$2の個人向け永久ライセンス買い切り販売（$3）',
+  },
+  {
+    regex: /(.*?) publicly lists a \$([\d.]+)-per-month (.*)/i,
+    replacement: '$1: 月額$$$2の$3サブスクリプション',
+  },
+  {
+    regex: /(.*?) publicly reports more than ([\d,]+) learners and says (.*)/i,
+    replacement: '$1: 受講者数$2人以上を達成（$3）',
+  },
+  {
+    regex: /(.*?) publicly offers a recurring membership with (.*)/i,
+    replacement: '$1: $2の定期会員制メンバーシップを提供',
+  },
+  {
+    regex: /(.*?) says it began in (\d{4}) with a group of friends and built a (.*)/i,
+    replacement: '$1: $2年に友人グループと創業し、$3を構築',
+  },
+  {
+    regex: /(.*?) publicly differentiates a free limited tier from Premium (.*)/i,
+    replacement: '$1: 無料制限版とPremium完全版（$2）を差別化提供',
+  },
+  {
+    regex: /(.*?) publicly offers enhanced Notion project resources;? current price was not visible (.*)/i,
+    replacement: '$1: 高度なNotionプロジェクト用リソースを提供（料金は個別確認要）',
+  },
+  {
+    regex: /(.*?) publicly offers (.*)/i,
+    replacement: '$1: $2を提供',
+  },
+  {
+    regex: /(.*?) publicly reports (.*)/i,
+    replacement: '$1: $2を公表',
+  },
+  {
+    regex: /(.*?) publicly lists (.*)/i,
+    replacement: '$1: $2を公開',
+  },
+  {
     regex: /金額シグナルとして、公開情報は (.*?) USD_annual_revenue を示す。/i,
     replacement: '公開情報による年間広告売上シグナル: $10.0M (約15億円)',
   },
   {
-    regex: /公開情報から確認できる主な収益化経路は newsletter advertising and sponsorships。/i,
-    replacement: '主な収益化経路: ニュースレター広告枠販売およびスポンサーシップ',
+    regex: /公開情報から確認できる主な収益化経路は (.*?)。/i,
+    replacement: '主な収益化経路: $1',
   },
   {
     regex: /現在の価格・課金条件は今回の公開確認では確定できない。/g,
@@ -99,13 +175,44 @@ const PATTERN_REPLACEMENTS: Array<{ regex: RegExp; replacement: string }> = [
 
 // 英語のIT/ビジネス用語を自然な日本語に置換する辞書
 const TERM_TRANSLATIONS: Array<[RegExp, string]> = [
+  [/Notion template directory and marketplace/gi, 'Notionテンプレート一覧およびマーケットプレイス'],
+  [/Notion template marketplace/gi, 'Notionテンプレート販売マーケットプレイス'],
+  [/direct-to-consumer performance apparel/gi, 'D2C高機能アパレルブランド'],
+  [/enhanced Notion project resources/gi, 'Notionプロジェクト用高度テンプレート資産'],
+  [/current price was not visible in the retrieved evidence/gi, '料金は非公開または要問合せ'],
+  [/lifetime personal purchase/gi, '個人向け永久ライセンス買い切り'],
+  [/recurring membership/gi, '定期課金メンバーシップ'],
+  [/quarterly packs/gi, '四半期定期お届け'],
+  [/direct-to-consumer/gi, 'D2C（直販）'],
+  [/performance apparel/gi, '高機能アパレル'],
+  [/documentation-led affiliate publishing education business/gi, 'ドキュメント主導のアフィリエイト出版・教育事業'],
+  [/affiliate sites, courses and education products/gi, 'アフィリエイトサイト群、オンライン講座、教育コンテンツ販売'],
+  [/automated AI article writer/gi, 'AIによる記事自動生成ツール'],
+  [/voice-to-polished-text app/gi, '音声を洗練された文章へ変換するAIアプリ'],
+  [/AI-assisted scheduling and execution-management/gi, 'AIによるスケジュール支援およびタスク実行管理'],
+  [/AI browser and GTM automation/gi, 'AIブラウザ自動化および営業・マーケ支援ツール'],
+  [/subscription metricsのプロダクト/gi, 'SaaS財務メトリクス分析プラットフォーム'],
+  [/project and team operationsのプロダクト/gi, 'プロジェクト・チーム業務管理プラットフォーム'],
+  [/form backend operationsのプロダクト/gi, 'フォームバックエンド・通知連携ツール'],
+  [/credit-based monthly plans/gi, 'クレジット制の月額サブスクリプション'],
+  [/free trial\/Prime subscription/gi, '無料試用および有料Primeサブスクリプション'],
+  [/monthly or annual subscription with word allowanceの課金面が示されている/gi, '文字数制限付きの月額/年額サブスクリプション課金'],
+  [/Course prices not normalized/gi, '講座価格は非公開または個別設定'],
+  [/offers_deployment_path: Astro managed cloud または self-managed/gi, 'マネージドクラウドまたはセルフホスト導入に対応'],
+  [/公開情報上の顧客認識は「(.*?)」/gi, '顧客の課題認識: 「$1」'],
+  [/ai_product_or_data_business/gi, 'AI・データ自動化プロダクト'],
+  [/business_product/gi, 'B2B業務ソフトウェア'],
+  [/creator_media_education/gi, 'クリエイター教育・コンテンツ販売'],
+  [/paid_newsletter_media/gi, '有料ニュースレター'],
+  [/newsletter_media/gi, 'ニュースレターメディア'],
+  [/podcast_media/gi, 'ポッドキャストメディア'],
+  [/podcast_ad_marketplace/gi, 'ポッドキャスト広告枠マーケットプレイス'],
   [/SEO and marketing operations/gi, 'SEO・競合被リンク分析'],
   [/password and credential operations/gi, 'パスワード・認証情報一元管理'],
   [/startup acquisition marketplace/gi, 'スモールM&A・事業売買仲介プラットフォーム'],
   [/independent technology and internet newsroom/gi, '独立系テック・ネット調査報道メディア'],
   [/project and work management/gi, 'プロジェクト進捗・タスク管理SaaS'],
   [/podcast network/gi, 'ポッドキャスト番組配信ネットワーク'],
-  [/business_product/gi, 'B2B SaaSプロダクト'],
   [/open-source automation/gi, 'オープンソース型ワークフロー自動化ツール'],
   [/daily-newsletter/gi, '日刊ニュースレター'],
   [/\bproduct\b/gi, 'プロダクト'],

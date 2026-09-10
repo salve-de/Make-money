@@ -47,10 +47,13 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
       {/* 1段目: ティッカー/社名/型 & 月商 */}
       <div className="flex items-center justify-between gap-2 mb-1">
         <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
-          <span className="font-medium text-xs text-white truncate font-sans">
+          <span className="font-medium text-xs text-white truncate font-sans shrink min-w-0">
             {entity.name}
           </span>
-          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
+          <span 
+            className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0 max-w-[85px] truncate"
+            title={entity.architecturePattern}
+          >
             {entity.architecturePattern}
           </span>
         </div>
@@ -63,9 +66,15 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
             <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
           </button>
           <div className="text-right font-mono">
-            <span className="text-white text-xs font-medium">
-              {formatMoney(entity.pnl.monthlyRevenue)}
-            </span>
+            {entity.pnl.isRevenueUnconfirmed ? (
+              <span className="text-zinc-500 text-[10px] font-normal">
+                {entity.pnl.revenueLabel || '非公開'}
+              </span>
+            ) : (
+              <span className="text-white text-xs font-medium">
+                {formatMoney(entity.pnl.monthlyRevenue)}
+              </span>
+            )}
           </div>
         </div>
       </div>
@@ -81,13 +90,13 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           <div>
             <span className="text-zinc-500 text-[10px] mr-1">純利</span>
             <span className="text-zinc-200 tabular-nums font-medium">
-              {formatMoney(entity.pnl.operatingProfit)}
+              {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed ? '--' : formatMoney(entity.pnl.operatingProfit)}
             </span>
           </div>
           <div>
             <span className="text-zinc-500 text-[10px] mr-1">営利</span>
             <span className="text-emerald-400 font-medium tabular-nums">
-              {entity.pnl.operatingMargin}%
+              {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed ? '--%' : `${entity.pnl.operatingMargin}%`}
             </span>
           </div>
         </div>

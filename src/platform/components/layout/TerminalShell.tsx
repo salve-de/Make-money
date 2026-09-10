@@ -151,8 +151,8 @@ export const TerminalShell: React.FC = () => {
           (e) =>
             e.name.toLowerCase().includes(queryParam.toLowerCase()) ||
             e.ticker.toLowerCase().includes(queryParam.toLowerCase())
-        )?.id || 'ent_photoai'
-      : 'ent_photoai');
+        )?.id || 'ent_keyence'
+      : 'ent_keyence');
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
   // 市場の歪み（Market Anomaly）選択ステート
   const [selectedAnomalyId, setSelectedAnomalyId] = useState<string | null>(null);

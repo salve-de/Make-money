@@ -32,6 +32,7 @@ import {
 import { AffiliateToolBadge, AffiliateToolList } from '../tools/AffiliateToolBadge';
 import { findToolAffiliate } from '../../config/toolAffiliates';
 import { UniversalIntelligenceStream } from './UniversalIntelligenceStream';
+import { cleanIntelligenceText } from '@/lib/foundation/text-cleaner';
 
 function parsePunchline(text: string): { punchline: string; detail: string } {
   const match = text.match(/^【(.*?)】([\s\S]*)$/);
@@ -218,8 +219,11 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           </div>
 
           {/* タグライン（1行スマート表示） */}
-          <div className="px-3 pb-1 text-[11px] text-zinc-400 leading-snug font-sans truncate">
-            {entity.tagline}
+          <div 
+            className="px-3 pb-1 text-[11px] text-zinc-400 leading-snug font-sans truncate"
+            title={cleanIntelligenceText(entity.tagline)}
+          >
+            {cleanIntelligenceText(entity.tagline)}
           </div>
 
           {/* 時系列 ＆ 賞味期限バッジ（ヘッダーインフォ） */}
@@ -639,45 +643,57 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
                       <span className="text-[9px] text-zinc-500 block uppercase">月商 (Rev)</span>
                       <span className="text-xs font-bold text-white tabular-nums">
-                        {formatMoney(entity.pnl.monthlyRevenue)}
+                        {entity.pnl.isRevenueUnconfirmed
+                          ? (entity.pnl.revenueLabel || '非公開')
+                          : formatMoney(entity.pnl.monthlyRevenue)}
                       </span>
                     </div>
                     <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
                       <span className="text-[9px] text-zinc-500 block uppercase">純手残り (Net)</span>
                       <span className="text-xs font-bold text-emerald-400 tabular-nums">
-                        {formatMoney(entity.pnl.operatingProfit)}
+                        {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed
+                          ? '非公開'
+                          : formatMoney(entity.pnl.operatingProfit)}
                       </span>
                     </div>
                     <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
                       <span className="text-[9px] text-zinc-500 block uppercase">利益率 (Margin)</span>
                       <span className="text-xs font-bold text-emerald-400 tabular-nums">
-                        {entity.pnl.operatingMargin}%
+                        {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed
+                          ? '--%'
+                          : `${entity.pnl.operatingMargin}%`}
                       </span>
                     </div>
                     <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
                       <span className="text-[9px] text-zinc-500 block uppercase">年成長率 (YoY)</span>
                       <span className="text-xs font-bold text-zinc-200 tabular-nums">
-                        +{entity.growthRateYoY}%
+                        {entity.pnl.isRevenueUnconfirmed ? '観測中' : `+${entity.growthRateYoY}%`}
                       </span>
                     </div>
                   </div>
 
                   {/* 損益流出ウォーターフォールバー */}
-                  <div className="space-y-1.5 pt-1 border-t border-white/[0.04]">
-                    <div className="flex items-center justify-between text-[10px] font-mono">
-                      <span className="text-zinc-500">損益流出分解 (100%基準)</span>
-                      <span className="text-emerald-400 font-bold">手残り純利益 {profitPct}%</span>
+                  {entity.pnl.isRevenueUnconfirmed ? (
+                    <div className="pt-2 text-[10px] text-zinc-500 font-mono text-center border-t border-white/[0.04]">
+                      ※ 公開一次情報では月次損益の内訳は未確定です（全量インテリジェンスStreamの観測ログを参照）
                     </div>
-                    <div className="w-full h-2 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.08]">
-                      {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
-                      {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className="bg-zinc-700" title={`推論/サーバー: ${serverPct}%`} />}
-                      {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
-                      {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
-                      {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
-                      {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
-                      {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className="bg-emerald-500" title={`純利益: ${profitPct}%`} />}
+                  ) : (
+                    <div className="space-y-1.5 pt-1 border-t border-white/[0.04]">
+                      <div className="flex items-center justify-between text-[10px] font-mono">
+                        <span className="text-zinc-500">損益流出分解 (100%基準)</span>
+                        <span className="text-emerald-400 font-bold">手残り純利益 {profitPct}%</span>
+                      </div>
+                      <div className="w-full h-2 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.08]">
+                        {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
+                        {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className="bg-zinc-700" title={`推論/サーバー: ${serverPct}%`} />}
+                        {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
+                        {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
+                        {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
+                        {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
+                        {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className="bg-emerald-500" title={`純利益: ${profitPct}%`} />}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </section>
 
@@ -693,45 +709,54 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     </span>
                   </div>
                 </div>
-                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] text-xs font-mono shadow-sm">
-                  <div className="p-2.5 flex justify-between items-center">
-                    <span className="text-zinc-400">直近月商 (Gross Revenue)</span>
-                    <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
+                {entity.pnl.isRevenueUnconfirmed ? (
+                  <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-4 text-center font-mono text-[11px] text-zinc-500 space-y-1">
+                    <p className="text-zinc-400">本銘柄の確定財務（売上・粗利・販管費）は非公開・未確認です。</p>
+                    <p className="text-zinc-600 text-[10px]">
+                      ※ 公開プラン価格（{entity.pricing?.pricePoint || '要問合せ'}）および「全量インテリジェンス (Stream)」タブに観測事実を蓄積中
+                    </p>
                   </div>
-                  <div className="p-2.5 flex justify-between items-center text-[11px]">
-                    <span className="text-zinc-500 pl-2">└ 売上原価 (COGS)</span>
-                    <span className="text-zinc-400 tabular-nums">-{formatMoney(entity.pnl.cogs)}</span>
-                  </div>
-                  <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
-                    <span className="text-zinc-300 font-medium">粗利益 (Gross Profit: {entity.pnl.grossMargin}%)</span>
-                    <span className="text-white font-medium tabular-nums">{formatMoney(entity.pnl.grossProfit)}</span>
-                  </div>
-                  <div className="p-2.5 space-y-1.5 text-[11px] text-zinc-500">
-                    <div className="text-[10px] text-zinc-600 uppercase font-bold">販管費内訳 (OPEX)</div>
-                    <div className="flex justify-between pl-2">
-                      <span>サーバー/推論API費</span>
-                      <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.serverAndApi)}</span>
+                ) : (
+                  <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] text-xs font-mono shadow-sm">
+                    <div className="p-2.5 flex justify-between items-center">
+                      <span className="text-zinc-400">直近月商 (Gross Revenue)</span>
+                      <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
                     </div>
-                    <div className="flex justify-between pl-2">
-                      <span>広告宣伝費</span>
-                      <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.advertising)}</span>
+                    <div className="p-2.5 flex justify-between items-center text-[11px]">
+                      <span className="text-zinc-500 pl-2">└ 売上原価 (COGS)</span>
+                      <span className="text-zinc-400 tabular-nums">-{formatMoney(entity.pnl.cogs)}</span>
                     </div>
-                    <div className="flex justify-between pl-2">
-                      <span>外注・委託費</span>
-                      <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.subcontracting)}</span>
+                    <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
+                      <span className="text-zinc-300 font-medium">粗利益 (Gross Profit: {entity.pnl.grossMargin}%)</span>
+                      <span className="text-white font-medium tabular-nums">{formatMoney(entity.pnl.grossProfit)}</span>
                     </div>
-                    <div className="flex justify-between pl-2">
-                      <span>ツール・SaaS費</span>
-                      <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS)}</span>
+                    <div className="p-2.5 space-y-1.5 text-[11px] text-zinc-500">
+                      <div className="text-[10px] text-zinc-600 uppercase font-bold">販管費内訳 (OPEX)</div>
+                      <div className="flex justify-between pl-2">
+                        <span>サーバー/推論API費</span>
+                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.serverAndApi)}</span>
+                      </div>
+                      <div className="flex justify-between pl-2">
+                        <span>広告宣伝費</span>
+                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.advertising)}</span>
+                      </div>
+                      <div className="flex justify-between pl-2">
+                        <span>外注・委託費</span>
+                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.subcontracting)}</span>
+                      </div>
+                      <div className="flex justify-between pl-2">
+                        <span>ツール・SaaS費</span>
+                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS)}</span>
+                      </div>
+                    </div>
+                    <div className="p-2.5 flex justify-between items-center border-t border-white/[0.08] bg-emerald-950/20">
+                      <span className="text-white font-bold">営業利益 (純手残り: {entity.pnl.operatingMargin}%)</span>
+                      <span className="text-emerald-400 font-bold tabular-nums text-xs">
+                        {formatMoney(entity.pnl.operatingProfit)}/月
+                      </span>
                     </div>
                   </div>
-                  <div className="p-2.5 flex justify-between items-center border-t border-white/[0.08] bg-emerald-950/20">
-                    <span className="text-white font-bold">営業利益 (純手残り: {entity.pnl.operatingMargin}%)</span>
-                    <span className="text-emerald-400 font-bold tabular-nums text-xs">
-                      {formatMoney(entity.pnl.operatingProfit)}/月
-                    </span>
-                  </div>
-                </div>
+                )}
               </section>
 
               {/* #03 運用体制 ＆ 資本要件 */}

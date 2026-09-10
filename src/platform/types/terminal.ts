@@ -33,6 +33,9 @@ export interface ProfitAndLossStatement {
   operatingProfit: number; // 営業利益
   operatingMargin: number; // 営業利益率 %
   estimatedAnnualNetProfit: number; // 推定年間純利益
+  isRevenueUnconfirmed?: boolean; // 一次情報で売上未確認の場合 true（架空0円の捏造を防止）
+  isMarginUnconfirmed?: boolean; // 利益率未確認の場合 true
+  revenueLabel?: string; // 表示用カスタムラベル（例: "プラン: $57/月〜", "売上非公開"）
 }
 
 export interface ToolStackItem {

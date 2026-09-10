@@ -2782,5 +2782,235 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "description": "完全1人で年商8,000万円・原価ほぼゼロで自走"
       }
     ]
+  },
+  {
+    "id": "ent_acquirecom_4e8247fa7bf75d8b8584",
+    "ticker": "ACQUIRE",
+    "name": "Acquire.com (旧 MicroAcquire)",
+    "legalEntity": "Acquire.com, Inc.",
+    "tagline": "開発に飽きた個人開発者の焦燥を突き、数千万円のSaaS売買を完全オンライン化。買い手年会費と成約手数料の二重取りで月商6,000万円抜く手口",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Andrew Gazdecki (アンドリュー・ガズデッキ)",
+    "country": "US",
+    "url": "https://acquire.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 85.0,
+    "architecturePattern": "案件仲介PF",
+    "pipelineStack": "Stripe Billing × DocuSign API × Twitter/LinkedIn DM",
+    "targetPainWallet": "起業家・ファンドの買収予算（新規開発・PMF期間のショートカット欲求）",
+    "tags": [
+      "案件仲介PF",
+      "手数料ビジネス",
+      "前金総取り",
+      "B2B",
+      "利益率70%超",
+      "少数精鋭",
+      "エスクロー"
+    ],
+    "essence": {
+      "whatItDoes": "売上数百万〜数千万円の個人・マイクロSaaSと、それを買収したい起業家・ファンドを直結させる完全オンラインM&Aプラットフォーム",
+      "targetCustomer": "新規事業のゼロイチ立ち上げ期間を買収でショートカットしたい起業家・個人投資家・PEファンド",
+      "painRelief": "数ヶ月で作ったがグロースできず現金化したい個人開発者の焦燥と、大手M&A仲介（最低手数料数千万円）に相手にされない門前払いリスク"
+    },
+    "pricing": {
+      "model": "買い手プレミアム年会費（前金総取り） ＋ 売買成約手数料（4%〜8%）",
+      "pricePoint": "買い手会員: 年間 $390〜$780 / 成約手数料: 売却額の4%〜8%",
+      "psychologicalTrigger": "「掘り出し物の黒字SaaSを他のバイヤーに先を越されて奪われる」損失回避恐怖（FOMO）",
+      "estimatedLtvJpy": 1500000,
+      "churnRate": "15%/年"
+    },
+    "acquisition": {
+      "cacJpy": 45000,
+      "primaryFunnel": "Twitter/LinkedInで売却案件の財務数字チラ見せ ➔ DMでの個別買い手誘導 ➔ プレミアム会員登録",
+      "tactics": [
+        "「月商100万、利益率85%のSaaSが売りに出ました」数字暴露ツイート",
+        "売り手掲載完全無料による案件の絶対独占",
+        "売却成約時の創業者インタビュー・ポッドキャスト拡散"
+      ]
+    },
+    "pnl": {
+      "monthlyRevenue": 60000000,
+      "cogs": 6000000,
+      "grossProfit": 54000000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 3000000,
+        "advertising": 4000000,
+        "subcontracting": 3000000,
+        "toolsAndSaaS": 2000000,
+        "other": 6000000
+      },
+      "operatingProfit": 42000000,
+      "operatingMargin": 70,
+      "estimatedAnnualNetProfit": 504000000
+    },
+    "operations": {
+      "teamSize": 15,
+      "weeklyHours": 35,
+      "initialCapitalRequired": 1000000,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "Twitter/X 創業者個人アカウント",
+        "LinkedIn 創業者発信",
+        "ニュースレター (MicroAcquire News)"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe Billing",
+          "category": "決済",
+          "monthlyCost": 150000,
+          "purpose": "買い手プレミアム会員（年額$390〜$780）の自動課金と更新管理",
+          "replacementDifficulty": "HIGH",
+          "url": "https://stripe.com"
+        },
+        {
+          "name": "Plaid API",
+          "category": "金融連携",
+          "monthlyCost": 80000,
+          "purpose": "売り手SaaSの銀行口座・Stripe売上実額の自動検証（粉飾防止）",
+          "replacementDifficulty": "HIGH",
+          "url": "https://plaid.com"
+        },
+        {
+          "name": "DocuSign API",
+          "category": "法務契約",
+          "monthlyCost": 120000,
+          "purpose": "買い手が案件詳細を見るための秘密保持契約（NDA）のワンクリック自動締結",
+          "replacementDifficulty": "MEDIUM",
+          "url": "https://docusign.com"
+        },
+        {
+          "name": "Escrow.com API",
+          "category": "エスクロー決済",
+          "monthlyCost": 200000,
+          "purpose": "買収代金の一時預かりとコード・ドメイン移転完了後の自動送金",
+          "replacementDifficulty": "HIGH",
+          "url": "https://escrow.com"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【大手M&A仲介が手数料割れで見捨てた「数千万円の小規模SaaS」の独占】既存の投資銀行や仲介会社は数億円規模の大型ディールしか相手にしない。そこに目をつけ、審査・NDA・財務連携を完全自動化することで、限界費用ゼロで大量のマイクロディールを捌く胴元ポジションを確立。",
+      "moatType": "NETWORK_EFFECT",
+      "moatDescription": "【30万人超の審査済みバイヤーコミュニティ】「ここに載せれば即座に複数の買い手からオファーが入る」流動性の独占により、売り手が他のプラットフォームに浮気できない絶対的ネットワーク効果を形成。",
+      "incumbentDilemma": "既存のM&Aアドバイザリー会社は高額な人件費（バンカー）を抱えているため、手数料数百万円の小規模ディールを扱うと即座に赤字になり参入不能。",
+      "secretInsight": "「売り手完全無料」で案件を集め、「買い手」から閲覧料（年会費）と成約手数料を搾り取る構造。案件が集まれば買い手は課金せざるを得ず、成約しなくても年会費だけで年間数億円のキャッシュが確約される。",
+      "initialTraction": [
+        "2020年ローンチ直後、創業者AndrewがTwitterで「売却したいSaaS開発者はいませんか？無料で買い手を探します」とツイートし、初期30件の案件を手作業で確保",
+        "集まった案件の数字（MRR、利益率）をモザイク付きでXに投稿し、買い手を一気に数百人集客",
+        "最初の売却事例を徹底的にストーリー化してnote・ブログ・Xでバズらせ、案件の自然流入ループを完成"
+      ],
+      "actionPlaybook": [
+        "Step 1: 売り手完全無料で案件を囲い込み、買い手の注目（トラフィック）を独占する",
+        "Step 2: 案件のURL・詳細閲覧に「買い手年会費」を課金し、売買成約前から前金を総取りする",
+        "Step 3: エスクローとDocuSignで決済までプラットフォーム内に監禁し、成約手数料4%〜8%を自動控除"
+      ]
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "大手M&A仲介は高単価アドバイザリー報酬を守るため、安価なオンライン完結型プラットフォームを作ると自社の既存ビジネスを共食いする。",
+        "scaleMismatchReason": "ディール規模が小さすぎるため、大企業の組織コストでは採算が合わない。",
+        "decisionSpeedAdvantage": "NDAから財務データ開示まで数秒で完了する圧倒的なオンライン即時性。"
+      },
+      "pricingPower": {
+        "anchorComparison": "「ゼロからエンジニアを雇って1年開発する人件費（数千万円）」と比較させ、数千万円の完成済み黒字SaaS買収を「時間とリスクを最も安く買う方法」と認識させる。",
+        "lossAversionTrigger": "「優良な独占案件が、自分が迷っている間に他のバイヤーに即日買収されてしまう」焦燥と嫉妬。",
+        "budgetCategory": "起業家の自己資本投資枠 ＆ PEファンドの買収投資予算。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "過去の売却希望案件データベースと、30万人を超える事前審査済み買い手の信用スコア。",
+        "workflowIntegration": "買収検討時のNDA締結、財務データ精査、チャット交渉、エスクロー決済まで全工程をプラットフォーム上で完結。",
+        "switchingFriction": "他社プラットフォームに出品しても買い手の数が1/10以下なため、売却期間が数ヶ月〜数年伸びる。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "買い手プレミアム年会費（$390〜$780）は1年分前金一括回収。成約手数料もエスクロー完了時に即時天引き。",
+        "incrementalMargin": "マッチング・契約・決済がAPI自動化されているため、取引量が増えても限界費用はほぼゼロ。",
+        "workingCapitalStrategy": "運転資金ゼロで年間数億円の前金キャッシュがストックされ、広告費やエンジニア人件費に先行投資可能。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者のAndrew Gazdeckiは、前社Bizness Appsを売却した直後、個人開発者が作ったSaaSを売る場所がないことに着目。最初の100件のディールはプラットフォームのコードすら書かず、スプレッドシートとTwitter DMだけで手動マッチングして売買を成立させた。",
+      "platformGlitch": "買い手審査において「年収・自己資金証明」を提出させ、冷やかしを排除する大義名分を掲げつつ、その審査通過者に対して年額$390〜$780の有料プラン（Platinum Buyer）を提示して前金を合法的に搾取。",
+      "pivotSnapshot": "当初は無料の売買掲示板（MicroAcquire）としてスタートしたが、冷やかし買い手が売り手の機密情報やソースコードを盗み見る問題が多発。無料公開を即時廃止し、「身元確認＋前金有料会員のみ詳細閲覧可能」に舵を切ったことで、収益性と安全性が同時に爆発した。",
+      "hiddenStackCost": "売買の仲介実務はAIとDocuSignで自動化されているため、成約案件が増えても人件費がほとんど増えない。売上の70%以上が創業者と極小チームの純手残り現金となる。"
+    },
+    "dynamicMoats": {
+      "upfrontCash": {
+        "cashCycle": "買い手年会費の前金総取り ＋ エスクロー成約手数料の自動中抜き",
+        "detail": "売り手出品完全無料により優良SaaS案件を囲い込み、詳細を見たい買い手から年間$390〜$780を前金回収。さらに売買成立時にエスクロー経由で4%〜8%の手数料を自動天引きする二重課金構造。"
+      },
+      "dataHostage": {
+        "lockInFactor": "30万人の審査済み買い手プールとPlaid連携済み財務データ",
+        "detail": "サイト外での直接取引（中抜き逃れ）を防ぐため、PlaidによるStripe売上検証とNDA締結、Escrow.comによる決済送金をプラットフォームに完全内包。外で取引する方がリスクが高くなる設計。"
+      }
+    },
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020年〜2021年 (コロナ禍のマイクロSaaSブーム)",
+      "dataSnapshotPeriod": "2024-2026年 観測データ",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀（特化バーティカルなら参入余地あり）",
+      "eraContext": "個人開発者（インディーハッカー）とマイクロSaaSの急増期に、売却の公式インフラとして参入。",
+      "currentViabilityAnalysis": "総合売買所としてのAcquire.comは30万人の買い手ネットワークにより後発参入が極めて困難だが、「Shopifyアプリ専門」「AIラッパー専門」「日本国内マイクロSaaS専門」などのバーティカル特化であれば、同等の手数料・前金モデルで勝てる余地あり。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2020年",
+        "eventType": "launch",
+        "description": "創業者AndrewがTwitterで「SaaS売却を手伝います」と投稿しMicroAcquireを創業"
+      },
+      {
+        "occurredAt": "2021年",
+        "eventType": "traction",
+        "description": "買い手審査制を導入し、年会費有料プラン（Platinum）を開始して前金回収モデルを確立"
+      },
+      {
+        "occurredAt": "2022年",
+        "eventType": "rebrand",
+        "description": "MicroAcquireからAcquire.comへリブランディング。小規模から中規模ディールまで拡大"
+      },
+      {
+        "occurredAt": "2024-2026年",
+        "eventType": "current",
+        "description": "累計売却取扱高数億ドル・月商約6,000万円・営利70%の少数精鋭要塞として君臨"
+      }
+    ],
+    "observationsStream": [
+      {
+        "id": "obs_acq_1",
+        "category": "FOUNDER_HACK",
+        "categoryLabel": "初動ゲリラ戦の事実",
+        "text": "創業者のAndrew Gazdeckiは、前社Bizness Appsを売却した直後、個人開発者が作ったSaaSを売る場所がないことに着目。最初の100件のディールはプラットフォームのコードすら書かず、スプレッドシートとTwitter DMだけで手動マッチングして売買を成立させた。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2020-05"
+      },
+      {
+        "id": "obs_acq_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪みと急所",
+        "text": "大手M&A仲介会社は手数料が合わないため「売上数千万円未満のSaaS」を完全に無視していた。その死角を突き、審査とNDA締結を自動化して大量の小規模案件を独占した。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED"
+      },
+      {
+        "id": "obs_acq_3",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "稼ぎの配管（二重課金）",
+        "text": "売り手出品完全無料により案件を囲い込み、詳細を見たい買い手から年間$390〜$780を前金回収。さらに売買成立時にエスクロー経由で4%〜8%の手数料を自動天引きする二重課金構造。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2024-01"
+      },
+      {
+        "id": "obs_acq_4",
+        "category": "INCUMBENT_DILEMMA",
+        "categoryLabel": "大手の自爆構造",
+        "text": "大手M&A仲介は高単価アドバイザリー報酬（数千万円）を守るため、安価なオンライン完結型プラットフォームを作ると自社の既存ビジネスを共食いするため参入できない。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED"
+      }
+    ]
   }
 ];
