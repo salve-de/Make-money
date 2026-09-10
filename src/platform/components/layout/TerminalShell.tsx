@@ -78,10 +78,15 @@ export const TerminalShell: React.FC = () => {
     return foundationRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
   }, [foundationRows]);
 
-  // 全エンティティの統合 (自社8社を先頭に、R2の1000社がシームレスに結合)
+  // 全エンティティの統合 (自社完全体銘柄を先頭に、R2銘柄とシームレスに結合)
   const entities = useMemo(() => {
-    const seen = new Set(coreEntities.map((e) => e.id));
-    const r2Filtered = foundationEntities.filter((e) => !seen.has(e.id));
+    const coreIds = new Set(coreEntities.map((e) => e.id.toLowerCase()));
+    const coreNames = new Set(coreEntities.map((e) => e.name.toLowerCase().trim()));
+    const r2Filtered = foundationEntities.filter((e) => {
+      const idMatch = coreIds.has(e.id.toLowerCase());
+      const nameMatch = coreNames.has(e.name.toLowerCase().trim());
+      return !idMatch && !nameMatch;
+    });
     return [...coreEntities, ...r2Filtered];
   }, [coreEntities, foundationEntities]);
 

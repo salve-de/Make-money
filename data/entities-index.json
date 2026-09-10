@@ -2612,9 +2612,9 @@
     ]
   },
   {
-    "id": "ent_easlo",
+    "id": "ent_case06_5989aec929273dd2a579",
     "ticker": "EASLO",
-    "name": "Easlo (Notion テンプレート販売)",
+    "name": "Easlo",
     "legalEntity": "Easlo Enterprise",
     "tagline": "他人の無料ソフトNotionのテンプレを並べ、Twitterでスクショを貼るだけで完全1人で年商8,000万円・原価ゼロで抜く手口",
     "sector": "NICHE_SAAS",
@@ -9712,1047 +9712,1370 @@
   },
   {
     "id": "ent_case06_5989aec929273dd2a579",
-    "ticker": "EASLOCO",
+    "ticker": "EASLO",
     "name": "Easlo",
-    "tagline": "Easloの事業モデル・公開情報観測データ",
+    "legalEntity": "Easlo Enterprise",
+    "tagline": "他人の無料ソフトNotionのテンプレを並べ、Twitterでスクショを貼るだけで完全1人で年商8,000万円・原価ゼロで抜く手口",
     "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
-    "country": "US",
+    "scale": "SOLO",
+    "founder": "Jason Chin (Easlo)",
+    "country": "SG",
     "url": "https://easlo.co",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "案件仲介PF",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 85,
+    "architecturePattern": "テンプレ販売・無料逆手",
+    "pipelineStack": "Notion × Gumroad/Stripe × X (Twitter) × Product Hunt",
+    "targetPainWallet": "ホワイトカラーの自己規律・生産性欲求（タスク管理の挫折と整理欲）",
     "tags": [
-      "案件仲介PF",
-      "SaaS・ツール"
+      "完全1人",
+      "原価ゼロ",
+      "Notionテンプレ",
+      "Gumroad",
+      "デジタル商品",
+      "利益率95%超"
     ],
     "essence": {
-      "whatItDoes": "Easloの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "Notion上で動作する、タスク管理・財務トラッカー・習慣化ダッシュボードテンプレートの企画・販売",
+      "targetCustomer": "学生、個人事業主、フリーランス、Notionを使いこなしたいホワイトカラー層",
+      "painRelief": "「Notionを使い始めたいが白紙すぎて何から作ればいいかわからない」というセットアップの挫折"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "買い切りデジタルダウンロード（Pay once, duplicate forever）",
+      "pricePoint": "$19 〜 $129 / テンプレ (複数パックは$199)",
+      "psychologicalTrigger": "現状維持バイアスと怠惰（「数千円払うだけで、プロが何十時間もかけて作った完璧な整理システムが自分のものになる」快感）",
+      "estimatedLtvJpy": 9500,
+      "churnRate": "0% (買い切りのため解約なし)"
+    },
+    "acquisition": {
+      "cacJpy": 0,
+      "primaryFunnel": "X（Twitter）でのミニマルな白黒Notionダッシュボード画像投稿 ➔ 無料配布によるメアド獲得 ➔ 有料版へのアップセル",
+      "tactics": [
+        "「RT＆リプした人に無料で配布します」によるXアルゴリズムの徹底ハック",
+        "Product Huntで新しいテンプレを出すたびに「Product of the Day」を獲得",
+        "Gumroadのアフィリエイト機能を使い、他のNotionインフルエンサーに20%で売らせる"
+      ]
     },
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 6500000,
+      "cogs": 325000,
+      "grossProfit": 6175000,
+      "grossMargin": 95,
       "operatingExpenses": {
         "serverAndApi": 0,
         "advertising": 0,
         "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "toolsAndSaaS": 50000,
+        "other": 25000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
+      "operatingProfit": 6100000,
+      "operatingMargin": 93.8,
+      "estimatedAnnualNetProfit": 73200000
     },
     "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
+      "teamSize": 1,
+      "weeklyHours": 10,
+      "initialCapitalRequired": 0,
+      "automationLevel": 98,
       "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
+        "X（Twitter）でのミニマルデザイン画像投稿",
+        "Product Huntローンチ",
+        "Gumroadストアフロント"
       ],
-      "toolStack": []
+      "toolStack": [
+        {
+          "name": "Notion",
+          "category": "制作基盤",
+          "monthlyCost": 1500,
+          "purpose": "テンプレートの設計・複製リンクの発行",
+          "replacementDifficulty": "HIGH",
+          "url": "https://notion.so"
+        },
+        {
+          "name": "Gumroad / Lemon Squeezy",
+          "category": "決済・配信",
+          "monthlyCost": 0,
+          "purpose": "デジタル成果物の決済と自動ダウンロードリンク送付",
+          "replacementDifficulty": "LOW",
+          "url": "https://gumroad.com"
+        },
+        {
+          "name": "ConvertKit (Kit)",
+          "category": "メルマガ",
+          "monthlyCost": 15000,
+          "purpose": "無料配布で獲得した数万人のリストへの新作テンプレ自動案内",
+          "replacementDifficulty": "LOW",
+          "url": "https://kit.com"
+        }
+      ]
     },
     "strategy": {
-      "blindspot": "Easloが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
+      "blindspot": "【「Notionは自由度が高すぎて誰も使いこなせない」という公式の最大の欠陥を商品化】Notion公式は「何でもできるレゴブロック」として宣伝するが、一般ユーザーは真っ白なキャンバスを前に絶望する。「完成した家」を格安で売ることで、Notionの爆発的普及の波に完全タダ乗りした。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "【白黒ミニマリズムの統一デザインとXフォロワー数十万人の信用】Notionテンプレ自体は誰でも複製可能だが、Easloというアカウントが持つ「最も洗練されたミニマルなデザイン」という記号的ブランドは他者が模倣できない。",
+      "incumbentDilemma": "Notion公式はプラットフォームの自由度を売る立場上、特定の業種や個人に最適化された完成版テンプレを自ら量産して販売することはできない。",
+      "secretInsight": "「無料版でリストを取り、有料版で刈り取る」二段構え。シンプルなタスク管理テンプレを「無料（$0）」で配り、数十万人の見込み客メアドを獲得。そのリストに対して高単価な「Second Brain（人生管理システム $129）」を流すだけで、新商品ローンチ即日で数百万円の現金が着金する。",
       "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
+        "当時20歳の学生だったJasonが、自分の勉強管理用に作ったNotionの画面スクショをTwitterに投稿",
+        "「このテンプレ欲しい人いますか？」とリプライを募ったところ大反響",
+        "Gumroadで$0設定で無料配布を開始し、数週間で数万人のフォロワーを獲得"
       ],
       "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+        "Step 1: 流行しているノーコード・SaaS（Notion, Airtable, Figma等）の「設定の面倒さ」を特定する",
+        "Step 2: 余計な装飾を削ぎ落としたミニマルな完成版テンプレを作り、スクショをSNSでバズらせる",
+        "Step 3: 無料配布でメアドを集め、高単価なオールインワン型ダッシュボードを買い切り販売する"
       ]
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "Notion公式が自ら有料テンプレを直販すると、世界中のテンプレクリエイターのエコシステムを破壊するため公式は参入不能。",
+        "scaleMismatchReason": "テンプレ販売というマイクロビジネスは、企業組織を維持するための売上規模として小さすぎて大手が参入できない。",
+        "decisionSpeedAdvantage": "Notionの新機能（ボタン機能や計算式2.0）が出た当日にテンプレを改修して即日再販する身軽さ。"
+      },
+      "pricingPower": {
+        "anchorComparison": "「専用のタスク管理・業務管理SaaS（月額数千円×一生涯）」と比較させ、$40〜$100の買い切りを「一生使える最安のツール」と認識させる。",
+        "lossAversionTrigger": "「タスクを忘れて仕事で信用を失う」「目標管理ができずに今年も成長できない」自己実現の停滞恐怖。",
+        "budgetCategory": "個人の自己啓発・学習投資枠。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "ユーザーが毎日Notionに入力した日々のタスク、日記、読書メモ、目標データ。",
+        "workflowIntegration": "朝起きてPCを開いた瞬間に最初にチェックする「Second Brain」ダッシュボード。",
+        "switchingFriction": "別の管理ツールに乗り換えると、過去の全メモやタスクを移行するのに数十時間かかる。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "デジタル商品のダウンロード販売。仕入れゼロ、在庫ゼロ、即時Gumroad着金。",
+        "incrementalMargin": "1ダウンロード追加される限界費用は完全0円（限界利益率100%）。売上がそのまま純利。",
+        "workingCapitalStrategy": "完全1人運営。事務所なし、サーバー代なし。年間8,000万円の売上のうち7,000万円以上が個人の可処分所得へ。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "Twitterで「Notionのタスク管理テンプレ作りました。欲しい人はRT＆フォローしてくれたらDMで送ります」という giveaway 投稿を毎週連発。Twitterの拡散アルゴリズムをハックし、広告費ゼロでフォロワーを20万人まで急拡大させた。",
+      "platformGlitch": "Notionの「ページ共有・複製（Duplicate）」機能を悪用…ではなく合法ハック。サーバーを契約してWebアプリを開発することなく、Notionの公開リンクをGumroadで販売するだけで、月商数百万円の自動販売機を構築。",
+      "pivotSnapshot": "元々は普通の大学生でデザインやプログラミングの専門教育を受けていなかったが、Notionの白黒ミニマリズムに特化することで「デザイナー」としての権威性を獲得。複雑な機能をあえて作らないことでサポート工数をゼロにした。",
+      "hiddenStackCost": "決済はGumroad、商品はNotionの「複製リンク」を送るだけ。仕入れ原価0円、サーバー原価0円、配送費0円。粗利率98%で、売上のほぼ全額が創業者の手元口座へ直下。"
     },
     "temporal": {
       "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+      "initialTractionPeriod": "2021年春",
+      "dataSnapshotPeriod": "2023年〜2026年推計",
+      "viabilityStatus": "EVOLVING_BARRIER",
+      "viabilityLabel": "競争激化（ブランドとフォロワー必須）",
+      "eraContext": "Notionの世界的大流行期。公式の「白紙すぎて使えない」欠陥を白黒ミニマルテンプレで補完し、Twitterの無料配布で爆発拡大。",
+      "currentViabilityAnalysis": "Notionテンプレ販売は現在市場が飽和。新規参入で単にテンプレを並べるだけでは売れず、Easloのような数十万フォロワーか、特定業務（税理士特化、歯科医院特化など）への超バーティカル化が必須。"
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "timelineEvents": [
+      {
+        "occurredAt": "2021年",
+        "eventType": "launch",
+        "description": "当時20歳の学生がTwitterでNotion画面スクショを無料配布しフォロワー急増"
+      },
+      {
+        "occurredAt": "2022年",
+        "eventType": "monetization",
+        "description": "Gumroadで有料Second Brainダッシュボードを発売し初日で数百万円着金"
+      },
+      {
+        "occurredAt": "2024-2026年",
+        "eventType": "current",
+        "description": "完全1人で年商8,000万円・原価ほぼゼロで自走"
+      }
+    ]
   },
   {
     "id": "ent_case06_5bce9cf106978a50512d",
     "ticker": "MAGICSPOON",
     "name": "Magic Spoon",
-    "tagline": "Magic Spoonの事業モデル・公開情報観測データ",
+    "legalEntity": "Magic Spoon Inc.",
+    "tagline": "「子供の頃好きだったシリアルを食べたいが糖質が怖い」大人の罪悪感を突き、高タンパク・1箱1500円の暴利シリアルをポッドキャスト広告爆撃で年商150億円抜いた手口",
     "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
+    "scale": "SCALEUP",
+    "founder": "Gabi Lewis & Greg Sewitz",
     "country": "US",
     "url": "https://magicspoon.com",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "直販サブスク",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 65,
+    "architecturePattern": "高単価D2C",
+    "pipelineStack": "Shopify Plus × ポッドキャスト広告 × コ・パッカー委託製造",
+    "targetPainWallet": "ミレニアル世代の健康罪悪感（ジャンクフードへの渇望と肥満への恐怖）",
     "tags": [
-      "直販サブスク",
-      "SaaS・ツール"
+      "高単価D2C",
+      "罪悪感切除",
+      "ポッドキャスト広告",
+      "年商150億超",
+      "委託製造"
     ],
     "essence": {
-      "whatItDoes": "Magic Spoonの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "低糖質・高タンパクな大人向けシリアルの企画およびD2Cサブスク直販",
+      "targetCustomer": "健康や体型を気にする20〜40代のミレニアル富裕層",
+      "painRelief": "「甘いシリアルを食べたいが太りたくない」という自制心と罪悪感の葛藤"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "4箱セット一括販売・定期購入サブスクリプション",
+      "pricePoint": "1箱あたり約$10（4箱セット$39〜）※一般シリアルの約3倍",
+      "psychologicalTrigger": "罪悪感の免除と郷愁（「子供の頃の至福を太らずに味わえるなら1食数百円は安い」自己投資バイアス）",
+      "estimatedLtvJpy": 28000,
+      "churnRate": "4.2%/月"
     },
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
-    },
-    "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
-      "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
-      ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Magic Spoonが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+    "acquisition": {
+      "cacJpy": 4500,
+      "primaryFunnel": "健康系・コメディ系ポッドキャストでの創業者生読み広告 ➔ インフルエンサーレビュー動画 ➔ Shopifyで4箱まとめ買い",
+      "tactics": [
+        "ポッドキャストホストに実食させ「本当に子供の頃の味だ」と叫ばせる音声生読み広告枠の買い占め"
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "pnl": {
+      "monthlyRevenue": 1250000000,
+      "cogs": 562500000,
+      "grossProfit": 687500000,
+      "grossMargin": 55,
+      "operatingExpenses": {
+        "serverAndApi": 15000000,
+        "advertising": 350000000,
+        "subcontracting": 50000000,
+        "toolsAndSaaS": 20000000,
+        "other": 40000000
+      },
+      "operatingProfit": 212500000,
+      "operatingMargin": 17,
+      "estimatedAnnualNetProfit": 2550000000
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "operations": {
+      "teamSize": 45,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 10000000,
+      "automationLevel": 75,
+      "primaryChannels": [
+        "ポッドキャスト広告",
+        "TikTok/Instagram動画",
+        "Target等の全米小売棚"
+      ],
+      "toolStack": [
+        {
+          "name": "Shopify Plus",
+          "category": "コマース基幹",
+          "monthlyCost": 350000,
+          "purpose": "高負荷トラフィック耐性とチェックアウト自動化"
+        },
+        {
+          "name": "Klaviyo",
+          "category": "メールCRM",
+          "monthlyCost": 450000,
+          "purpose": "定期購入離脱防止と再購入トリガー配信"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "ケロッグ等の大手シリアルメーカーが「低価格・子供向け・大量生産」に囚われ、1箱10ドルの高価格帯を作れなかった死角",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "「罪悪感のない贅沢」という大人向けシリアルのカテゴリ定義と、ポッドキャスト市場における圧倒的な音声認知の独占",
+      "initialTraction": [
+        "Exo（コオロギバー）売却済みの共同創業者が、有名ポッドキャスター数百人に手紙付きで製品を無償送付し、熱狂的な推薦を獲得"
+      ],
+      "actionPlaybook": [
+        "① 既存ジャンルの「子供向け」商品を特定",
+        "② 成分（タンパク質・糖質ゼロ）を再定義して単価を3倍に設定",
+        "③ 音声メディアでまとめ買いを直販"
+      ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "初期はケロッグ等に相手にされず委託工場に断られ続けたが、プロトタイプを有名ポッドキャスターのスタジオへ直接持ち込み、放送中に無理やり食べさせて初期1万箱を即完売させた。",
+      "platformGlitch": "大手食品会社が「棚割りの争奪戦」でスーパーに高額なリベートを払っている隙に、ShopifyとD2C定期便で全量直販し顧客データと粗利を100%手元に保持。",
+      "pivotSnapshot": "創業者は以前コオロギ粉末プロテインバー「Exo」を立ち上げて話題になったが「虫を食べる心理的抵抗」を越えられず売却。その反省から「誰もが子供の頃から愛しているシリアル」へピボットし大爆発。",
+      "hiddenStackCost": "シリアル自体の製造はすべて外部のコ・パッカー工場へ丸投げ。自社で工場を持たず、ブランドとマーケティング配管だけに資本を集中させるファブレスD2C。"
+    },
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2019年春",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀確立（D2C広告費高騰）",
+      "eraContext": "ポッドキャスト広告がまだ安価で、D2Cブームの最盛期。低糖質（ケト）ブームとミレニアル世代の購買力上昇が合致。",
+      "currentViabilityAnalysis": "現在Meta広告やポッドキャスト広告単価が高騰しており、同様の食品D2Cを純粋なWeb直販だけで立ち上げるのはCACが合わず困難。Targetなどの大手小売チェーンへの進出が必須。"
+    }
   },
   {
     "id": "ent_case06_5bdd9fde83a0b085e9a9",
     "ticker": "REDGREGORY",
     "name": "Red Gregory",
-    "tagline": "Red Gregoryの事業モデル・公開情報観測データ",
+    "legalEntity": "Red Gregory Studio",
+    "tagline": "「複雑なNotion関数を組めない」初心者の挫折を突き、YouTubeで超高度な関数ロジックを無償解説してGumroad有料パックへ誘導し完全1人で月商200万円抜く手口",
     "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
+    "scale": "SOLO",
+    "founder": "Red Gregory",
     "country": "US",
     "url": "https://redgregory.com",
     "verifiedBadge": true,
     "growthRateYoY": 25,
-    "architecturePattern": "直販サブスク",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "architecturePattern": "関数テンプレ",
+    "pipelineStack": "YouTube技術解説 × Gumroad × Notion Formulas 2.0 × 個人ブログ",
+    "targetPainWallet": "Notionヘビーユーザーの技術的挫折（複雑な計算式・自動化が作れない苦痛）",
     "tags": [
-      "直販サブスク",
-      "SaaS・ツール"
+      "完全1人",
+      "原価ゼロ",
+      "関数特化",
+      "YouTube集客",
+      "利益率95%超"
     ],
     "essence": {
-      "whatItDoes": "Red Gregoryの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "Notionの高度な関数（Formulas 2.0）やリレーションを活用した、ギミック満載の専門テンプレート企画・販売",
+      "targetCustomer": "Notionで高度な進捗バー、自動計算式、習慣トラッカーを作りたいギーク・個人開発者層",
+      "painRelief": "「プログラミング知識がないと組めない複雑なNotion関数」の前で立ち尽くす挫折感"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "無料オープンテンプレート ＋ Gumroad有料アドバンスドパック（買い切り）",
+      "pricePoint": "無料配布 〜 $10 〜 $49 / テンプレ",
+      "psychologicalTrigger": "知的好奇心の充足とコピー＆ペーストの怠惰（「自分で何日も悩む関数が、数百円〜数千円で丸ごと手に入る」極限のタイパ）",
+      "estimatedLtvJpy": 6500
     },
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
-    },
-    "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
-      "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
-      ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Red Gregoryが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+    "acquisition": {
+      "cacJpy": 50,
+      "primaryFunnel": "YouTubeで「Notionの最新関数解説」「動く進捗バーの作り方」動画を投稿 ➔ 概要欄からGumroadへ誘導 ➔ 有料版購入",
+      "tactics": [
+        "関数コードをブログで全文無料公開し、コピーする手間さえ惜しむ層に完成版テンプレートをワンクリック購入させる"
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "pnl": {
+      "monthlyRevenue": 2000000,
+      "cogs": 100000,
+      "grossProfit": 1900000,
+      "grossMargin": 95,
+      "operatingExpenses": {
+        "serverAndApi": 30000,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 50000,
+        "other": 0
+      },
+      "operatingProfit": 1820000,
+      "operatingMargin": 91,
+      "estimatedAnnualNetProfit": 21840000
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "operations": {
+      "teamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 0,
+      "automationLevel": 98,
+      "primaryChannels": [
+        "YouTube「Red Gregory」チャンネル",
+        "Gumroadストアフロント",
+        "公式ブログ（SEO技術記事）"
+      ],
+      "toolStack": [
+        {
+          "name": "Gumroad",
+          "category": "デジタル販売",
+          "monthlyCost": 20000,
+          "purpose": "決済とデジタルファイル自動送付"
+        },
+        {
+          "name": "Notion",
+          "category": "プロダクト本体",
+          "monthlyCost": 0,
+          "purpose": "テンプレート本体のホスティング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "世のNotionテンプレ制作者が「見た目の綺麗さ・ライフスタイル」ばかり追求していたのに対し、「プログラミング的な関数の凄さ・自動計算」というオタク層の急所に超特化した点",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "Notion公式のアップデート（Formulas 2.0等）を即座に世界最速で解読・解説する圧倒的な技術的権威性",
+      "initialTraction": [
+        "Redditの r/Notion 板で誰にも解けなかった関数の質問に、エレガントな数式を回答し続けたことで一躍有名人に"
+      ],
+      "actionPlaybook": [
+        "① プラットフォームの新機能（数式、API）に最速でオタク的に習熟",
+        "② 解答を無償でバラまいて技術的信頼を獲得",
+        "③ 面倒な設定済みの完成版をGumroadで販売"
+      ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "顔出しを一切せず、アバターとNotion画面のキャプチャ動画だけでYouTubeを運営。初期はRedditの質問箱に張り付き、他人の関数のバグを無料で直しまくることで信用を獲得した。",
+      "platformGlitch": "Notionの「数式プロパティ」をプログラム言語のように駆使。誰も思いつかなかったゲーム（Notion上で動くチェスやRPG風ステータス画面）を作りTwitterでバイラルさせた。",
+      "pivotSnapshot": "最初は普通のメモ用テンプレを出していたが競合だらけで埋もれたため、「関数とロジックに特化する」と決めてから売上が急増。完全なブルーオーシャンを独占。",
+      "hiddenStackCost": "固定費ゼロ。自宅のMac1台と無料の録画ソフトのみ。月商200万円の9割以上が純利益として残る究極のソロプレナー。"
+    },
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020年秋",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（Formulas 2.0で再加速）",
+      "eraContext": "Notionが単なるメモ帳からリレーショナルDBへと進化し、関数の複雑性が急上昇した時期。",
+      "currentViabilityAnalysis": "NotionがFormulas 2.0をローンチしたことでさらに高度な関数が組めるようになり、一般ユーザーの自作がより困難になったため、技術解説テンプレの需要はむしろ拡大。"
+    }
   },
   {
     "id": "ent_case06_5d6250204b25adce3a8b",
-    "ticker": "MACROFACTO",
+    "ticker": "MACROFACTOR",
     "name": "MacroFactor",
-    "tagline": "MacroFactorの事業モデル・公開情報観測データ",
+    "legalEntity": "Stronger By Science Technologies LLC",
+    "tagline": "「カロリー計算しても痩せない」ダイエッターの停滞期絶望を突き、体重変動から日々の実代謝量を逆算する毎週自動リバランス機能でブートストラップ月商8,000万円抜く手口",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
+    "founder": "Greg Nuckols, Cory Davis, Jeff Nippard, Rebecca Kekelishvili, Lyndsey Nuckols",
     "country": "US",
-    "url": "https://macrofactorapp.com",
+    "url": "https://macrofactor.com",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "直販サブスク",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 90,
+    "architecturePattern": "代謝自動逆算",
+    "pipelineStack": "Flutter × Pythonアルゴリズムエンジン × 自社食品データベース",
+    "targetPainWallet": "筋トレ愛好家・ダイエッターの停滞期恐怖（「食事制限を守っているのに体重が落ちない」不条理な苦痛）",
     "tags": [
-      "直販サブスク",
-      "SaaS・ツール"
+      "ブートストラップ",
+      "アルゴリズム特化",
+      "VC調達ゼロ",
+      "利益率70%超",
+      "完全サブスク"
     ],
     "essence": {
-      "whatItDoes": "MacroFactorの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "ユーザーの実体重と摂取カロリーから「日々の消費エネルギー（TDEE）」を動的に逆算するスマート食事記録アプリ",
+      "targetCustomer": "ボディビルダー、筋トレ中級〜上級者、厳密に減量・増量を行いたいフィットネス層",
+      "painRelief": "計算通りに食事制限しても代謝が落ちて減量が止まる停滞期の絶望と、アプリから「目標未達」と責められる精神的ストレス"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "完全有料サブスクリプション（無料プラン・広告・データ販売一切なし）",
+      "pricePoint": "$11.99/月 または $71.99/年",
+      "psychologicalTrigger": "自己効力感の回復と安心（「アプリが自分の代謝の変化を自動で看破して修正してくれる」絶対の信頼）",
+      "estimatedLtvJpy": 22000,
+      "churnRate": "3.1%/月"
+    },
+    "acquisition": {
+      "cacJpy": 800,
+      "primaryFunnel": "YouTube筋トレ科学系インフルエンサー（Jeff Nippard等）の実践レビュー ➔ 7日間無料トライアル ➔ 年額サブスク前払い",
+      "tactics": [
+        "創業メンバー自身が数百万人の登録者を持つ筋トレ界のトップYouTuber/研究者であり、自身のYouTube動画でアルゴリズムの優位性を解説"
+      ]
     },
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 80000000,
+      "cogs": 8000000,
+      "grossProfit": 72000000,
+      "grossMargin": 90,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 3000000,
+        "advertising": 5000000,
+        "subcontracting": 4000000,
+        "toolsAndSaaS": 2000000,
+        "other": 2000000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
+      "operatingProfit": 56000000,
+      "operatingMargin": 70,
+      "estimatedAnnualNetProfit": 672000000
     },
     "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
+      "teamSize": 5,
+      "weeklyHours": 35,
+      "initialCapitalRequired": 500000,
+      "automationLevel": 90,
       "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
+        "YouTube科学系筋トレ解説",
+        "Stronger By Scienceポッドキャスト",
+        "Reddit r/MacroFactorコミュニティ"
       ],
-      "toolStack": []
+      "toolStack": [
+        {
+          "name": "Flutter",
+          "category": "アプリ開発",
+          "monthlyCost": 0,
+          "purpose": "iOS/Android単一コードベース開発"
+        },
+        {
+          "name": "PostgreSQL / AWS",
+          "category": "DB・インフラ",
+          "monthlyCost": 350000,
+          "purpose": "50万人分の体重・食事時系列データと代謝推定計算"
+        }
+      ]
     },
     "strategy": {
-      "blindspot": "MacroFactorが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
+      "blindspot": "MyFitnessPal等の大手アプリが「静的な基礎代謝計算式」を使い、ユーザーが痩せないと「お前の努力不足」と責める設計になっていた死角",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "大手アプリは「無料版で広告を大量に出し、食品データを売り飛ばす」ビジネスモデルのため、完全有料・広告なし・倫理的アルゴリズムのMacroFactorに追随できない",
       "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
+        "Greg Nuckolsのメルマガ読者とJeff NippardのYouTubeチャンネルで事前登録を募り、初日に数万ダウンロードを獲得"
       ],
       "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+        "① 業界大手が広告収益のために改悪したアプリを特定",
+        "② 最も熱狂的なオタク層が喜ぶ「アルゴリズムの透明性」を実装",
+        "③ 完全有料で広告を排除"
       ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "初期はGoogleスプレッドシート上で複雑なマクロ関数を組み、筋トレ仲間に「適応型TDEEスプレッドシート」として無料配布。そのシートがReddit筋トレ板で数万回複製されファン基盤を形成した後にアプリ化した。",
+      "platformGlitch": "MyFitnessPalが無料ユーザーのバーコードスキャン機能を有料化して大炎上した瞬間に、MacroFactorは「爆速バーコードスキャン＆広告ゼロ」をアピールして競合から有料会員を大量強奪した。",
+      "pivotSnapshot": "単なるカロリー計算アプリではなく「遵守判定を一切しない（Adherence Neutral）」哲学を打ち立てた。食べ過ぎてもアプリが赤字で怒らず淡々と翌週のカロリーを再計算する機能がダイエッターの罪悪感を切除した。",
+      "hiddenStackCost": "VCからの資金調達は完全ゼロ（ブートストラップ）。5人の共同創業者が平等に株式を保有し、年間数億円の利益を配当として吸い上げる高収益キャッシュマシーン。"
     },
     "temporal": {
       "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
+      "initialTractionPeriod": "2021年9月",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
       "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
-    },
-    "observationsStream": [],
-    "timelineEvents": []
+      "viabilityLabel": "現在も高成長・優位性維持",
+      "eraContext": "大手フィットネスアプリが過剰な広告と買収で使いにくくなり、科学的エビデンスを重視するフィットネス層が代替を求めていた時期。",
+      "currentViabilityAnalysis": "現在もアプリストアの健康カテゴリで高評価を維持。大手による機能模倣はあるが、「科学者チームへのコミュニティの信頼」という人的・ブランド堀が強固。"
+    }
   },
   {
     "id": "ent_case06_64a935c0321718ed9860",
-    "ticker": "CREATORWIZ",
+    "ticker": "CREATORWIZARD",
     "name": "Creator Wizard",
-    "tagline": "Creator Wizardの事業モデル・公開情報観測データ",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
+    "legalEntity": "Creator Wizard LLC",
+    "tagline": "「フォロワーがいても企業案件で買い叩かれる」クリエイターの搾取恐怖を突き、元代理店オーナーが教える『スポンサー料逆提案テンプレ』で月商1,200万円抜く手口",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SOLO",
+    "founder": "Justin Moore",
     "country": "US",
     "url": "https://creatorwizard.com",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "教育コンテンツ",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 45,
+    "architecturePattern": "案件交渉術",
+    "pipelineStack": "Substack × ConvertKit × コホート型講座 × Notionテンプレ",
+    "targetPainWallet": "インフルエンサー・YouTuberの収益不安定恐怖と安売り搾取のトラウマ",
     "tags": [
-      "教育コンテンツ",
-      "SaaS・ツール"
+      "完全少人数",
+      "高単価講座",
+      "スポンサー交渉",
+      "利益率80%超",
+      "元代理店インサイト"
     ],
     "essence": {
-      "whatItDoes": "Creator Wizardの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "クリエイター向けに、企業スポンサーシップ（企業案件）の獲得・価格交渉・提案書作成を教える実践型スクール・ツールの運営",
+      "targetCustomer": "登録者1万人〜数十万人のYouTuber、ポッドキャスター、ニュースレター執筆者",
+      "painRelief": "「企業から数万円で買い叩かれる」「案件の断り方や値段の吊り上げ方がわからない」というビジネス弱者クリエイターの無力感"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "コホート型講座（Brand Deal Wizard）＋ 自習型教材 ＋ VIPコーチング",
+      "pricePoint": "自習コース $497 / ライブコホート $1,497 〜 $2,997",
+      "psychologicalTrigger": "投資回収の絶対的確信（「1回の企業案件で100万円上乗せできれば、30万円の受講料など1発で元が取れる」強欲のレバレッジ）",
+      "estimatedLtvJpy": 180000
+    },
+    "acquisition": {
+      "cacJpy": 2500,
+      "primaryFunnel": "YouTube/Xでの「企業案件メールのダメな返信例 vs プロの返信例」添削動画 ➔ 週刊メルマガ登録 ➔ コホート講座募集",
+      "tactics": [
+        "企業から実際に届いた失礼なオファーメールを晒し、「こう返せばギャラが3倍になる」実文を無料で見せて講座へ誘導"
+      ]
     },
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 12000000,
+      "cogs": 600000,
+      "grossProfit": 11400000,
+      "grossMargin": 95,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
+        "serverAndApi": 200000,
+        "advertising": 500000,
+        "subcontracting": 800000,
+        "toolsAndSaaS": 300000,
         "other": 0
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
+      "operatingProfit": 9600000,
+      "operatingMargin": 80,
+      "estimatedAnnualNetProfit": 115200000
     },
     "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
+      "teamSize": 2,
+      "weeklyHours": 25,
       "initialCapitalRequired": 100000,
       "automationLevel": 85,
       "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
+        "週刊スポンサー案件ニュースレター",
+        "YouTube/TikTok添削ショート動画",
+        "著書『Sponsor Magnet』"
       ],
-      "toolStack": []
+      "toolStack": [
+        {
+          "name": "ConvertKit",
+          "category": "メール配信CRM",
+          "monthlyCost": 40000,
+          "purpose": "クリエイター向けメルマガとローンチ自動化"
+        },
+        {
+          "name": "Circle.so",
+          "category": "受講生コミュニティ",
+          "monthlyCost": 30000,
+          "purpose": "案件相談・提案書レビュー限定フォーラム"
+        }
+      ]
     },
     "strategy": {
-      "blindspot": "Creator Wizardが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
+      "blindspot": "世のクリエイター向けスクールが「フォロワーの増やし方（再生数の伸ばし方）」ばかり教え、「集めたフォロワーを企業にどう高く売るか（換金実務）」を誰も教えていなかった死角",
+      "moatType": "CORNERED_RESOURCE",
+      "moatDescription": "7年間インフルエンサー代理店を経営し、数億円の予算を配分してきた「発注側（企業側）の裏の心理と予算上限」を知り尽くした情報非対称性",
       "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
+        "妻とともにYouTuberとして400万ドル以上の案件を獲得した実績と、代理店時代の知見を掛け合わせ、仲間内クリエイターの案件を代理添削したことから開始"
       ],
       "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+        "① 「技術はあるが金儲けが下手な職人集団（クリエイター）」を特定",
+        "② 相手側の財布（企業の広告宣伝費枠）をハックする交渉テンプレートを作成",
+        "③ 高単価講座で売る"
       ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "Justin Mooreは元々インフルエンサー代理店を経営していたが、企業の「いかに無知なYouTuberを安く買い叩くか」という裏会議に嫌気が差し、クリエイター側に寝返って『企業の手口と予算枠をすべてバラす』逆張りポジションを構築した。",
+      "platformGlitch": "「YouTubeの再生数」を売るのをやめさせ、「企業のマーケティング課題を解決するパッケージ提案」にすり替えることで、登録者数千人の弱小チャンネルでも数百万円の協賛金を引っ張る裏技を伝授。",
+      "pivotSnapshot": "当初は単発の相談コンサルだったが、4週間の短期集中コホート講座「Brand Deal Wizard」にパッケージ化したことで、受講者同士が案件情報を共有し合うコミュニティ価値が生まれ価格を3倍に引き上げた。",
+      "hiddenStackCost": "妻との実質2人運営。オフィス不要、在庫不要、仕入れゼロ。年間1億円以上の現金が個人の可処分所得へ。"
     },
     "temporal": {
       "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
+      "initialTractionPeriod": "2021年6月",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
       "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
-    },
-    "observationsStream": [],
-    "timelineEvents": []
+      "viabilityLabel": "現在も極めて需要旺盛",
+      "eraContext": "アドセンス広告収入の低下に伴い、クリエイターが「企業タイアップ案件」に依存せざるを得なくなったクリエイターエコノミー成熟期。",
+      "currentViabilityAnalysis": "企業のマーケティング予算がMeta/Google広告からインフルエンサーへの直接スポンサーシップへシフトしているため、交渉スキルの需要は右肩上がりで拡大中。"
+    }
   },
   {
     "id": "ent_case06_659613136a4282de3246",
-    "ticker": "CREATIVETI",
+    "ticker": "CREATIVETIM",
     "name": "Creative Tim",
-    "tagline": "Creative Timの事業モデル・公開情報観測データ",
+    "legalEntity": "Creative Tim SRL",
+    "tagline": "「エンジニアは画面デザインができない・納期に追われている」現場の苦痛を突き、GitHubに無料UIテンプレをばら撒いて有料版へ誘導し原価ゼロで月商3,750万円抜く手口",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
-    "country": "US",
+    "founder": "Alexandru Paduraru & Cristina Conacel",
+    "country": "RO",
     "url": "https://creative-tim.com",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "案件仲介PF",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 20,
+    "architecturePattern": "UIキット販売",
+    "pipelineStack": "GitHub OSS配布 × Bootstrap/React/Tailwind × Stripe決済",
+    "targetPainWallet": "Web開発者・SIerの納期プレッシャーとデザイン能力不足（管理画面を作る手間の削減）",
     "tags": [
-      "案件仲介PF",
-      "SaaS・ツール"
+      "ブートストラップ",
+      "原価ゼロ",
+      "UIキット",
+      "GitHub集客",
+      "利益率75%超"
     ],
     "essence": {
-      "whatItDoes": "Creative Timの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "Bootstrap、React、Vue、Tailwind等で組まれた管理画面（ダッシュボード）テンプレート・UIキットの企画・販売",
+      "targetCustomer": "バックエンドエンジニア、受託開発会社、社内ツールを爆速で作りたいスタートアップ",
+      "painRelief": "「デザインセンスがないのに管理画面を作らねばならず、工数が溶けて納期に間に合わない」という開発現場の地獄"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "無料オープンソース版 ＋ 商用PROライセンス（買い切りまたは年間サブスク）",
+      "pricePoint": "単体ライセンス $69 〜 $149 / 全製品アクセスパス $299〜$399",
+      "psychologicalTrigger": "時間の圧倒的圧縮（「数万円払うだけでフロントエンド開発の300時間が浮く」ROIの絶対的正当化）",
+      "estimatedLtvJpy": 45000,
+      "churnRate": "買い切り主体のため極小"
     },
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
-    },
-    "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
-      "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
-      ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Creative Timが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+    "acquisition": {
+      "cacJpy": 200,
+      "primaryFunnel": "GitHubで無料版UIキット（MITライセンス）を配布 ➔ Google検索「bootstrap dashboard」でSEO上位独占 ➔ PRO版へ誘導",
+      "tactics": [
+        "GitHubスターを数万集めることで開発者の信頼を獲得し、ドキュメントの最下部に「PRO版なら30個の画面が追加」とアップセル案内"
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "pnl": {
+      "monthlyRevenue": 37500000,
+      "cogs": 1875000,
+      "grossProfit": 35625000,
+      "grossMargin": 95,
+      "operatingExpenses": {
+        "serverAndApi": 1500000,
+        "advertising": 2000000,
+        "subcontracting": 3500000,
+        "toolsAndSaaS": 500000,
+        "other": 2000000
+      },
+      "operatingProfit": 28125000,
+      "operatingMargin": 75,
+      "estimatedAnnualNetProfit": 337500000
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "operations": {
+      "teamSize": 10,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "GitHubリポジトリ（累計数万スター）",
+        "オーガニックSEO検索",
+        "Product Hunt"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済基盤",
+          "monthlyCost": 110000,
+          "purpose": "世界中からのライセンス販売決済"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "ホスティング",
+          "monthlyCost": 80000,
+          "purpose": "デモサイトの高速プレビュー配信"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "大手テーマ販売サイト（ThemeForest等）が「何でも屋」で雑多だったのに対し、「開発者目線のクリーンなダッシュボードUI」に超特化した点",
+      "moatType": "SCALE_ECONOMIES",
+      "moatDescription": "累計200万ダウンロードとGitHub上の強大なSEOバックリンク資産",
+      "initialTraction": [
+        "ルーマニアのWeb受託会社時代に作った「Get Shit Done Kit」を無料公開したところ、Hacker NewsとProduct Huntで大バズりし創業"
+      ],
+      "actionPlaybook": [
+        "① バックエンド開発者が最も面倒くさがるUI（管理画面）を作る",
+        "② 最小限の無料版をGitHubに置いてスターを集める",
+        "③ 完成版PROキットを有料販売"
+      ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業当初、受託開発の仕事が途切れて倒産寸前だったAlexは、自社の過去コードを整理して「Get Shit Done Kit」としてGitHubに無料放流。これが一夜にして世界中で使われ、有料版への問い合わせが殺到した。",
+      "platformGlitch": "オープンソースという「善意のコミュニティ」の皮を被りながら、GitHubスターを極限まで集めてGoogle検索のドメインパワーをカンストさせ、無料集客装置を完成させた。",
+      "pivotSnapshot": "当初は単発のWeb制作受託だったが「時間を売る労働」の限界を悟り、コードのデジタル資産販売（テンプレート）へ完全ピボット。ルーマニア拠点の低固定費で年商数億円を達成。",
+      "hiddenStackCost": "完全自己資本（ブートストラップ）。ルーマニアの優秀なデザイナー・開発者約10名の体制で、年間約3.3億円の手残り利益を生み出し続ける。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013年秋",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（Tailwind/Next.jsへ適応）",
+      "eraContext": "Bootstrap全盛期からReact/Tailwindへの技術変遷の波に乗り続けた息の長いモデル。",
+      "currentViabilityAnalysis": "AIコード生成（v0やBolt等）が登場した現在でも、「企業の業務システムで破綻しない検証済みUIコンポーネント群」としての需要は堅調。"
+    }
   },
   {
     "id": "ent_case06_67a6586e2f30a21c8576",
-    "ticker": "LIQUIDDEAT",
+    "ticker": "LIQUIDDEATH",
     "name": "Liquid Death",
-    "tagline": "Liquid Deathの事業モデル・公開情報観測データ",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
+    "legalEntity": "Liquid Death Mountain Water Inc.",
+    "tagline": "「水など誰も気にしていない」盲点を突き、ビール缶にドクロを描いて『渇きを殺せ』と煽り、原価数円の湧水を年商500億円売りさばく手口",
+    "sector": "MONOPOLY_MFG",
+    "scale": "ENTERPRISE",
+    "founder": "Mike Cessario",
     "country": "US",
     "url": "https://liquiddeath.com",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "直販サブスク",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 55,
+    "architecturePattern": "逆張り缶飲料",
+    "pipelineStack": "オーストリア湧水OEM × ヘヴィメタル調バイラル動画 × 全米量販流通",
+    "targetPainWallet": "若者・音楽ファンの虚栄心と反骨心（「ペットボトルの水を飲むのがダサい」羞恥心と脱プラ環境意識）",
     "tags": [
-      "直販サブスク",
-      "SaaS・ツール"
+      "逆張り",
+      "原価数円",
+      "バイラル動画",
+      "年商500億超",
+      "ビール缶水"
     ],
     "essence": {
-      "whatItDoes": "Liquid Deathの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "ビール用アルミ缶に詰めた天然湧水・フレーバーウォーターの製造・販売",
+      "targetCustomer": "パンクロック・スケーター・フェス参加者、アルコールを飲まない若者、健康志向層",
+      "painRelief": "「バーやライブハウスで水やソフトドリンクを飲んでいるとシラフでダサく見られる」という社会的同調圧力と恥"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "量販店卸売 ＋ 公式ECまとめ買い・定期購入",
+      "pricePoint": "1本 $1.99 〜 $2.49（500ml缶）",
+      "psychologicalTrigger": "アイデンティティの誇示（「水を飲んでいるだけなのに、パンクロッカーのように尖って見える」自己演出欲求）",
+      "estimatedLtvJpy": 18000
     },
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 3500000000,
+      "cogs": 1750000000,
+      "grossProfit": 1750000000,
+      "grossMargin": 50,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 20000000,
+        "advertising": 900000000,
+        "subcontracting": 80000000,
+        "toolsAndSaaS": 20000000,
+        "other": 100000000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
+      "operatingProfit": 630000000,
+      "operatingMargin": 18,
+      "estimatedAnnualNetProfit": 7560000000
     },
     "operations": {
-      "teamSize": 3,
+      "teamSize": 120,
       "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
+      "initialCapitalRequired": 3000000,
+      "automationLevel": 65,
       "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
+        "過激バイラル動画",
+        "Whole Foods / Target流通",
+        "音楽フェス独占提供"
       ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Liquid Deathが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+      "toolStack": [
+        {
+          "name": "Shopify Plus",
+          "category": "コマース基幹",
+          "monthlyCost": 350000,
+          "purpose": "アパレルおよびグッズ・水の公式販売"
+        }
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "strategy": {
+      "blindspot": "「水は健康的で爽やかでなければならない」という常識を完全逆張りし、エナジードリンクやビールの世界観を水に持ち込んだ点",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "熱狂的なカルトファンコミュニティ（ファンがタトゥーを彫るレベル）と、アルミ缶による脱プラスチックの大義名分",
+      "initialTraction": [
+        "3Dモックアップの缶画像と1本数万円の自作動画だけでFacebook広告をテストし、注文が殺到してから慌ててオーストリアのボトラーに発注"
+      ],
+      "actionPlaybook": [
+        "① 最も退屈でコモディティ化した日用品を探す",
+        "② そのカテゴリの真逆のペルソナ（過激・パンク）を被せる",
+        "③ 缶にして環境倫理を免罪符にする"
+      ]
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "exposureAudit": {
+      "guerrillaTraction": "会社設立当初、製品の現物は1本も存在しなかった。創業者Mikeは実物を作らずに「架空の缶」の動画を撮り、Facebookに数千円の広告を出してバズらせ、4ヶ月で10万件以上の予約とWhole Foodsバイヤーからの問い合わせを強奪した。",
+      "platformGlitch": "飲料大手がテレビCMに数億円投じる中、自社でヘヴィメタルのアルバムを作ってSpotifyに配信したり、アンチコメントをデスボイスで歌う動画を無料拡散させ、広告費効率を数倍に跳ね上げた。",
+      "pivotSnapshot": "元Netflixのクリエイティブディレクターだった創業者は、ロックフェスでバンドマンがモンスターエナジーの缶の中に水を入れて飲んでいた光景を目撃。「誰も水でクールになりたがっていない」ことに気付き創業。",
+      "hiddenStackCost": "中身はオーストリアのアルプス山脈の湧水。中身の原価は数セントだが、アルミ缶代と輸送費がコストの大半。ブランド力で通常ミネラルウォーターの2倍の価格で販売。"
+    },
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2019年春",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "巨大ブランド堀確立",
+      "eraContext": "脱プラスチック運動の高まりと、SNSでの過激コンテンツのアルゴリズム優遇が重なった奇跡的タイミング。",
+      "currentViabilityAnalysis": "飲料市場でのブランド認知と全米量販棚（Target, Walmart等）を完全に抑えており、評価額14億ドル（約2,100億円）に到達。後発が同じ「尖った水」を出しても二番煎じとして無力化される。"
+    }
   },
   {
     "id": "ent_case06_67ee7501e9f6e00f31b5",
-    "ticker": "BLINKISTCO",
+    "ticker": "BLINKIST",
     "name": "Blinkist",
-    "tagline": "Blinkistの事業モデル・公開情報観測データ",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
-    "country": "US",
+    "legalEntity": "Blinkist (Blinks Labs GmbH)",
+    "tagline": "「積読の罪悪感と知識欲」に苛まれるビジネスマンの知的虚栄心を突き、15分濃縮要約サブスクで年商50億円抜いて300億円でイグジットした手口",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SCALEUP",
+    "founder": "Holger Seim, Niklas Jansen, Sebastian Klein, Tobias Balling",
+    "country": "DE",
     "url": "https://blinkist.com",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "直販サブスク",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 35,
+    "architecturePattern": "要約サブスク",
+    "pipelineStack": "内製要約ライター網 × 音声ナレーション × モバイルアプリ課金",
+    "targetPainWallet": "多忙なビジネスマンの知的焦燥と自己投資欲（本を読む時間がない罪悪感）",
     "tags": [
-      "直販サブスク",
-      "SaaS・ツール"
+      "要約サブスク",
+      "知的虚栄心",
+      "年額前金",
+      "イグジット実績",
+      "音声メディア"
     ],
     "essence": {
-      "whatItDoes": "Blinkistの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "ビジネス書・教養書の重要エッセンスを15分のテキストおよび音声で配信するマイクロラーニングアプリ",
+      "targetCustomer": "通勤時間や隙間時間に知識をインプットしたいビジネスパーソン・経営者",
+      "painRelief": "「本を買っても読まずに積読してしまう」罪悪感と、周囲の会話についていけなくなる知的孤立の恐怖"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "年額一括前払いサブスクリプション（7日間無料トライアル後自動課金）",
+      "pricePoint": "年額約$99 / 月額約$14.99",
+      "psychologicalTrigger": "知的虚栄心の満腹感（「年間何百冊も本を読んだ気になれる」手軽な自己満足と時間節約）",
+      "estimatedLtvJpy": 24000,
+      "churnRate": "5.5%/月"
     },
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
-    },
-    "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
-      "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
-      ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Blinkistが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+    "acquisition": {
+      "cacJpy": 5500,
+      "primaryFunnel": "Facebook / Instagramでの「知っておくべきビジネス書5選」インフィード広告 ➔ 7日間無料トライアル ➔ 年額自動決済",
+      "tactics": [
+        "本の内容の最もスキャンダラス・衝撃的な一節を切り取ったカルーセル広告による衝動インストール誘導"
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "pnl": {
+      "monthlyRevenue": 450000000,
+      "cogs": 90000000,
+      "grossProfit": 360000000,
+      "grossMargin": 80,
+      "operatingExpenses": {
+        "serverAndApi": 15000000,
+        "advertising": 160000000,
+        "subcontracting": 35000000,
+        "toolsAndSaaS": 10000000,
+        "other": 18500000
+      },
+      "operatingProfit": 121500000,
+      "operatingMargin": 27,
+      "estimatedAnnualNetProfit": 1458000000
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "operations": {
+      "teamSize": 150,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "SNSインフィード広告",
+        "App Store SEO",
+        "B2B企業研修パッケージ"
+      ],
+      "toolStack": [
+        {
+          "name": "Contentful",
+          "category": "ヘッドレスCMS",
+          "monthlyCost": 250000,
+          "purpose": "数千冊の書籍要約コンテンツの多言語一元配信"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "出版社が「本は1冊丸ごと読ませるもの」という固定観念に縛られ、要約やエッセンスだけの切り売りを自らできなかった死角",
+      "moatType": "SCALE_ECONOMIES",
+      "moatDescription": "7,000タイトルを超える著作権クリア済みの要約ライブラリとプロ声優による音声録音資産",
+      "initialTraction": [
+        "ベルリンの学生起業家4人が、自分たちが読んだ本のメモをPDFにして友人に配り、熱狂的な需要を確かめてからアプリ化"
+      ],
+      "actionPlaybook": [
+        "① ベストセラー書籍のコアメッセージを3〜5個に凝縮",
+        "② 15分で聴けるプロ音声を作成",
+        "③ 年額前金でキャッシュを回収し広告へ再投資"
+      ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "初期はドイツのスタートアップアクセラレーターに参加しつつ、大学図書館で有名ビジネス書を手作業で要約してHTML化。学生や若手コンサルタントに直接DMして会員を集めた。",
+      "platformGlitch": "AppleのApp Store無料トライアルのオプトアウト型課金を最大活用。トライアル登録者の解約忘れと高い継続率により年額キャッシュを一括先取り。",
+      "pivotSnapshot": "当初は単なるテキスト要約アプリだったが、ユーザーの多くが「画面を見る時間さえない」と判明。プロのナレーターによる音声オーディオ版を導入した瞬間に利用率とLTVが3倍に跳ねた。",
+      "hiddenStackCost": "2023年にオーストラリアの教育プラットフォームGo1に約2億ユーロ（約300億円）で売却。要約ライターとナレーターの外注ネットワークが最大の原価。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013年秋",
+      "dataSnapshotPeriod": "2023年イグジット時推計",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "AI要約台頭により転換期",
+      "eraContext": "スマートフォンとAirPodsの普及期。通勤中の「耳の可処分時間」を奪い合うオーディオブック市場の黎明期。",
+      "currentViabilityAnalysis": "LLM（ChatGPT等）による無料・瞬時の要約が普及したため、今から単純なテキスト要約アプリを立ち上げるのは無謀。プロナレーターによる演出やB2B組織研修への特化が必須。"
+    }
   },
   {
     "id": "ent_case06_6d7a96e8fda07beec3be",
-    "ticker": "EGGHEADIO",
+    "ticker": "EGGHEAD",
     "name": "Egghead",
-    "tagline": "Eggheadの事業モデル・公開情報観測データ",
-    "sector": "NICHE_SAAS",
+    "legalEntity": "Egghead LLC",
+    "tagline": "「30分の講義を見る暇がない」現役エンジニアの極限の怠惰とタイパ欲求を突き、前置きゼロ・3分動画に特化してブートストラップ月商7,000万円抜く手口",
+    "sector": "CONTENT_MEDIA",
     "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
+    "founder": "John Lindquist & Joel Hooks",
     "country": "US",
     "url": "https://egghead.io",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "教育コンテンツ",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 20,
+    "architecturePattern": "濃縮コード解説",
+    "pipelineStack": "内製レッスン録画システム × 講師レベニューシェア × 年額サブスク",
+    "targetPainWallet": "フロントエンド開発者の技術陳腐化恐怖（新フレームワークのキャッチアップ焦燥）",
     "tags": [
-      "教育コンテンツ",
-      "SaaS・ツール"
+      "ブートストラップ",
+      "前置きゼロ",
+      "タイパ特化",
+      "年商8億超",
+      "教育サブスク"
     ],
     "essence": {
-      "whatItDoes": "Eggheadの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "現役トップエンジニアによる、2〜5分の「挨拶・前置きゼロ」超短尺プログラミング動画学習プラットフォーム",
+      "targetCustomer": "最新のJavaScript/React/TypeScript等を最速で習得したいプロの開発者",
+      "painRelief": "「YouTubeの30分の冗長な動画にイライラする」「長い講義を見る時間が取れない」という多忙なエンジニアの苦痛"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "年額一括前払いサブスクリプション（企業向け一括ライセンスあり）",
+      "pricePoint": "年額約 $250 〜 $350 / 人",
+      "psychologicalTrigger": "タイパ（時間対効果）の最大化（「3分で動くコードが理解できるなら、月数千円など開発者の時給1時間分にも満たない」合理化）",
+      "estimatedLtvJpy": 65000,
+      "churnRate": "4.0%/月"
     },
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
-    },
-    "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
-      "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
-      ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Eggheadが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+    "acquisition": {
+      "cacJpy": 1200,
+      "primaryFunnel": "Twitterや技術ブログでの無料ショートTips動画共有 ➔ コア講座の閲覧制限 ➔ 年額サブスク購入",
+      "tactics": [
+        "「挨拶も自己紹介も省き、最初の1秒からコードを書き始める」動画スタイルでエンジニアの圧倒的称賛を獲得"
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "pnl": {
+      "monthlyRevenue": 70000000,
+      "cogs": 21000000,
+      "grossProfit": 49000000,
+      "grossMargin": 70,
+      "operatingExpenses": {
+        "serverAndApi": 3500000,
+        "advertising": 3000000,
+        "subcontracting": 7000000,
+        "toolsAndSaaS": 1500000,
+        "other": 2000000
+      },
+      "operatingProfit": 32000000,
+      "operatingMargin": 45,
+      "estimatedAnnualNetProfit": 384000000
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "operations": {
+      "teamSize": 12,
+      "weeklyHours": 35,
+      "initialCapitalRequired": 200000,
+      "automationLevel": 80,
+      "primaryChannels": [
+        "技術者Twitter/Xでの口コミ",
+        "オープンソースライブラリ公式ドキュメントからのリンク",
+        "企業研修福利厚生枠"
+      ],
+      "toolStack": [
+        {
+          "name": "Mux",
+          "category": "動画配信インフラ",
+          "monthlyCost": 400000,
+          "purpose": "超低遅延・高画質コード画面ストリーミング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "UdemyやCourseraなどの教育巨頭が「20時間の大型講義」ばかり作り、多忙な現役エンジニアが求めていた「数分で急所だけ知る」形式を無視していた死角",
+      "moatType": "PROCESS_POWER",
+      "moatDescription": "「前置きを1秒でも入れたらボツ」という徹底した動画品質編集プロトコルと、トップOSS開発者たちとの排他的ネットワーク",
+      "initialTraction": [
+        "John LindquistがAngularJS初期の短い解説動画を個人でYouTubeに投稿し、GoogleのAngularチーム公認となったことから急拡大"
+      ],
+      "actionPlaybook": [
+        "① 学びたいが時間がないプロの領域を特定",
+        "② すべての冗長な要素（挨拶、講釈）を削ぎ落とした最短フォーマットを規定",
+        "③ 業界の実力者を巻き込み利益分配"
+      ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者のJoel Hooksは元々3Dアニメーターから30代でプログラミングに転身した苦労人。既存の長ったらしいチュートリアルへの憤りから「結論ファースト」の短尺動画だけをキュレーションして創業した。",
+      "platformGlitch": "各OSSフレームワーク（React, Redux等）の作者本人（Dan Abramovなど）を口説き、公式チュートリアル動画を独占制作させることで、フレームワークの普及と同時に会員を自動流入させた。",
+      "pivotSnapshot": "最初は個人の動画販売サイトだったが、講師への高額レベニューシェア（売上の30〜40%を還元）モデルを導入したことで、世界最高峰のエンジニアが勝手に講義を量産してくれる自走構造を確立。",
+      "hiddenStackCost": "VC資金調達なしの完全ブートストラップ。ARR約560万ドル（約8.4億円）を少人数チームで叩き出し続ける。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013年夏",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（短尺教育のデファクト）",
+      "eraContext": "フロントエンド開発の急激な複雑化（Angular, Reactの台頭）期に、学習曲線の急激な立ち上がりを短尺動画で救済。",
+      "currentViabilityAnalysis": "YouTubeの長尺解説やAIチャットボットとの競争はあるが、「プロが編集したノイズゼロの3分動画」という知覚価値はエンジニア層に依然として極めて高く評価されている。"
+    }
   },
   {
     "id": "ent_case06_7334fb44ac55769d7531",
-    "ticker": "NOTIONEVER",
+    "ticker": "NOTIONEVERYTHING",
     "name": "Notion Everything",
-    "tagline": "Notion Everythingの事業モデル・公開情報観測データ",
+    "legalEntity": "Notion Everything SAS",
+    "tagline": "「Notionで稼ぎたいが集客力ゼロ」な無名クリエイターの焦燥を突き、門前町のようなマーケットプレイスに囲い込んで販売手数料30%を自動でピンハネする手口",
     "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
-    "country": "US",
+    "scale": "SOLO",
+    "founder": "Valentin Geffroy & Quentin Villard",
+    "country": "FR",
     "url": "https://notioneverything.com",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "案件仲介PF",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 40,
+    "architecturePattern": "テンプレ関所",
+    "pipelineStack": "Webflow × Stripe × Notion API × アフィリエイト配管",
+    "targetPainWallet": "無名テンプレート制作者の集客不能な焦燥（Twitterフォロワーがおらず売れない絶望）",
     "tags": [
-      "案件仲介PF",
-      "SaaS・ツール"
+      "関所ビジネス",
+      "プラットフォーム寄生",
+      "原価ゼロ",
+      "手数料総取り",
+      "完全ノーコード"
     ],
     "essence": {
-      "whatItDoes": "Notion Everythingの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "Notionテンプレートの審査・キュレーション型マーケットプレイスおよびクリエイター集客基盤の運営",
+      "targetCustomer": "Notionテンプレートを買いたい一般ユーザー ＆ 自作テンプレを売りたい無名クリエイター",
+      "painRelief": "「自力でTwitter発信しても1個も売れない」クリエイターの絶望と、「公式ギャラリーが雑多でどれが良いかわからない」購入者の迷い"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "テンプレート販売手数料（20〜30%）＋ 有料掲載プロモーション枠 ＋ スポンサーシップ",
+      "pricePoint": "手数料率 20%〜30% / 有料掲載枠 数十ドル〜数百ドル",
+      "psychologicalTrigger": "集客の代行依存（「30%取られても、自分で集客できないなら売上の70%が手に入る方が100倍マシ」という胴元への隷属）",
+      "estimatedLtvJpy": 8500
+    },
+    "acquisition": {
+      "cacJpy": 150,
+      "primaryFunnel": "「best notion templates for students / project management」等のロングテールSEO ➔ 厳選テンプレ一覧 ➔ Stripe決済",
+      "tactics": [
+        "全クリエイターに「Notion Everythingに掲載されました！」とSNSで自慢告知させ、他人のフォロワーから逆リンクとトラフィックを吸い上げる"
+      ]
     },
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 5000000,
+      "cogs": 250000,
+      "grossProfit": 4750000,
+      "grossMargin": 95,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
+        "serverAndApi": 150000,
+        "advertising": 200000,
+        "subcontracting": 100000,
+        "toolsAndSaaS": 100000,
         "other": 0
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
+      "operatingProfit": 4200000,
+      "operatingMargin": 84,
+      "estimatedAnnualNetProfit": 50400000
     },
     "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
+      "teamSize": 2,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 50000,
+      "automationLevel": 95,
       "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
+        "Notionテンプレート検索オーガニックSEO",
+        "クリエイター自身の自発的SNS宣伝",
+        "週刊Notionレター"
       ],
-      "toolStack": []
+      "toolStack": [
+        {
+          "name": "Webflow",
+          "category": "ノーコードサイト",
+          "monthlyCost": 40000,
+          "purpose": "高品位デザインとCMS自動連携"
+        },
+        {
+          "name": "Stripe Connect",
+          "category": "決済・送金",
+          "monthlyCost": 0,
+          "purpose": "クリエイターへの手数料天引き自動送金"
+        }
+      ]
     },
     "strategy": {
-      "blindspot": "Notion Everythingが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
+      "blindspot": "Notion公式のテンプレートギャラリーが審査が甘く検索しづらかった隙に、「プロが実際に使って厳選した最高峰テンプレだけを置く」キュレーションの関所を作った点",
+      "moatType": "NETWORK_EFFECT",
+      "moatDescription": "月間30万PVの購入意欲の高いトラフィックと、4万本以上の販売実績による「クリエイターが集まる門前町」の地位",
       "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
+        "ValentinがWebflowでシンプルなディレクトリサイトを数日で組み、Twitterの有名Notion制作者100人に「あなたのテンプレを無料で特集させてほしい」とDMして在庫を確保"
       ],
       "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+        "① 急拡大しているSaaSの「二次創作（テンプレ・プラグイン）」市場を特定",
+        "② Webflowで美しいディレクトリを作る",
+        "③ クリエイターをタダで集めて後から手数料を取る"
       ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者は自分自身では1つも高機能なNotionテンプレを作っていない。他人が血眼で何十時間もかけて作ったテンプレートを整理して並べただけで、月間数十万PVの巨大な関所を築き上げた。",
+      "platformGlitch": "「被リンク製造マシーン」の構築。クリエイターを採用した際に専用のバッジ（Featured on Notion Everything）を渡し、クリエイター自身の個人ブログやポートフォリオに貼らせることで、Googleの被リンク評価を無料で荒稼ぎした。",
+      "pivotSnapshot": "最初は単なる無料紹介リンク集（アフィリエイト）だったが、購入完了までを自社サイト内で完結させるStripe Connect決済を導入した瞬間に、手数料30%を自動徴収するモンスターPFへ進化した。",
+      "hiddenStackCost": "フルリモート・2人運営。月間の固定費はWebflowとドメイン代の数万円程度。売上の84%が営業利益として創業者の懐に入る。"
     },
     "temporal": {
       "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
+      "initialTractionPeriod": "2021年春",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
       "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
-    },
-    "observationsStream": [],
-    "timelineEvents": []
+      "viabilityLabel": "現在も安定稼働（他SaaSへ横展開可能）",
+      "eraContext": "Notionが世界的なブームとなり、個人がNotionテンプレで生計を立てる「Notionクリエイター経済圏」が成立した瞬間。",
+      "currentViabilityAnalysis": "Notion公式もマーケットプレイスを強化しているが、外部の厳選ディレクトリとしての地位は確立。同様の手口はAirtableやFigma、Cursor等の他エコシステムでも再現可能。"
+    }
   },
   {
     "id": "ent_case06_7590e69f49bb1c7e8ac7",
-    "ticker": "HARRYSCOM",
+    "ticker": "HARRYS",
     "name": "Harry's",
-    "tagline": "Harry'sの事業モデル・公開情報観測データ",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
+    "legalEntity": "Harry's Inc.",
+    "tagline": "「薬局で替刃1個500円もふんだくられる」P&Gジレット独占への怨嗟を突き、ドイツの老舗刃物工場を逆買収して半額直販定期便で年商1,200億円抜く手口",
+    "sector": "MONOPOLY_MFG",
+    "scale": "ENTERPRISE",
+    "founder": "Andy Katz-Mayfield & Jeff Raider",
     "country": "US",
     "url": "https://harrys.com",
     "verifiedBadge": true,
     "growthRateYoY": 25,
-    "architecturePattern": "直販サブスク",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "architecturePattern": "垂直統合替刃",
+    "pipelineStack": "ドイツ自社刃物工場 × D2C定期サブスク × Walmart/Target量販展開",
+    "targetPainWallet": "成人男性の理不尽な消耗品支出（大手カミソリの暴利価格に対する激しい不満）",
     "tags": [
-      "直販サブスク",
-      "SaaS・ツール"
+      "垂直統合",
+      "工場買収",
+      "反独占D2C",
+      "年商1200億超",
+      "定期便"
     ],
     "essence": {
-      "whatItDoes": "Harry'sの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "人間工学に基づいた高品質カミソリ・シェービングケア用品の企画・製造および定期配送サブスク",
+      "targetCustomer": "大手ジレットの替刃価格に辟易している20〜50代の男性層",
+      "painRelief": "薬局の鍵付き防犯ケースから店員を呼んで高額な替刃を買わされる屈辱と出費"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "初回お試しセット（送料のみ）➔ 自動替刃定期配送（いつでも解約可能）",
+      "pricePoint": "替刃1個あたり約$2（大手の半額以下）",
+      "psychologicalTrigger": "公平感と反抗心（「大企業の暴利から解放された賢い消費者」というアイデンティティ）",
+      "estimatedLtvJpy": 35000,
+      "churnRate": "3.8%/月"
     },
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
-    },
-    "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 85,
-      "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
-      ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Harry'sが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+    "acquisition": {
+      "cacJpy": 3200,
+      "primaryFunnel": "ローンチ前のバイラル紹介プログラム（友達紹介で無料カミソリ進呈）➔ 初回トライアルセット申込",
+      "tactics": [
+        "ローンチ前に「友達を紹介するほど豪華な商品がもらえる」キャンペーンを打ち、1週間で10万件のメアドを獲得"
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "pnl": {
+      "monthlyRevenue": 10000000000,
+      "cogs": 4000000000,
+      "grossProfit": 6000000000,
+      "grossMargin": 60,
+      "operatingExpenses": {
+        "serverAndApi": 50000000,
+        "advertising": 2500000000,
+        "subcontracting": 300000000,
+        "toolsAndSaaS": 50000000,
+        "other": 1100000000
+      },
+      "operatingProfit": 2000000000,
+      "operatingMargin": 20,
+      "estimatedAnnualNetProfit": 24000000000
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "operations": {
+      "teamSize": 600,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 20000000,
+      "automationLevel": 80,
+      "primaryChannels": [
+        "D2C公式サブスク",
+        "Walmart / Target等の全米棚",
+        "ポッドキャスト広告"
+      ],
+      "toolStack": [
+        {
+          "name": "自社カスタムスタック",
+          "category": "基幹EC",
+          "monthlyCost": 1500000,
+          "purpose": "数百万人の定期配送スケジュールと決済自動化"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "P&Gジレットが70%の独占シェアにあぐらをかき、中間マージンと広告費を乗せた暴利価格を消費者に押し付けていた死角",
+      "moatType": "PROCESS_POWER",
+      "moatDescription": "ドイツの老舗刃物工場Feintechnik（1920年創業）を1億ドルで自社買収したことによる、競合が真似できない高品質・低コスト製造能力",
+      "initialTraction": [
+        "Warby Parker共同創業者Jeff Raiderの知見を活かし、ローンチ前紹介キャンペーンで10万人の予約客を初日前に確保"
+      ],
+      "actionPlaybook": [
+        "① 大手独占で粗利率が高すぎる日用品を特定",
+        "② 製造元（工場）を直接押さえて中間マージンを切除",
+        "③ 定期便でLTVを極大化"
+      ]
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "共同創業者のAndyが薬局でカミソリを買おうとした際、鍵付きケースを開けてもらうのに10分待たされ、替刃4個で25ドル取られた怒りから事業を着想。初期はドイツの工場に何度も通い詰め信頼を勝ち取った。",
+      "platformGlitch": "大手が薬局の棚を独占している障壁を、D2C（自社通販）というインターネット直販バイパスで完全無力化。",
+      "pivotSnapshot": "当初は単なるカミソリ通販だったが、ジレットに対抗するためには「刃の品質」で絶対に負けられないと判断。外部調達をやめ、ドイツの老舗工場を1億ドルで逆買収する大勝負に出て堀を完成させた。",
+      "hiddenStackCost": "2024年売上8.35億ドル（約1,250億円）。評価額約2,000億円のユニコーンとなり、現在はボディウォッシュや女性用ブランド（Flamingo）へ横展開。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013年春",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "巨大垂直統合堀確立",
+      "eraContext": "Warby ParkerやDollar Shave Clubと並ぶ、第一次D2Cディスラプションの黄金期。",
+      "currentViabilityAnalysis": "製造工場の買収と全米量販流通を押さえており、後発の参入障壁は極めて高い。現在挑戦するなら日用品ではなくB2B特殊工具や医療用消耗品などのニッチ垂直統合が活路。"
+    }
   },
   {
     "id": "ent_case06_76716d1fcbd132cc5384",
-    "ticker": "FSBLOG",
+    "ticker": "FARNAMSTREET",
     "name": "Farnam Street",
-    "tagline": "Farnam Streetの事業モデル・公開情報観測データ",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "創業者情報未確認",
-    "country": "US",
+    "legalEntity": "Farnam Street Media Inc.",
+    "tagline": "「浅薄なノウハウで判断を誤り破滅する」投資家・経営者の恐怖を突き、元スパイが説く『思考の型』で年額前払い会費を総取りし原価ゼロで月商7,500万円抜く手口",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SOLO",
+    "founder": "Shane Parrish",
+    "country": "CA",
     "url": "https://fs.blog",
     "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "教育コンテンツ",
-    "pipelineStack": "Web / クラウドインフラ / 推論API",
-    "targetPainWallet": "特定業務における手作業の工数と認知負荷の削減",
+    "growthRateYoY": 30,
+    "architecturePattern": "思考モデルPF",
+    "pipelineStack": "WordPress × Substack/Ghost × The Knowledge Projectポッドキャスト",
+    "targetPainWallet": "経営者・投資家・知性派ビジネスマンの意思決定の失敗恐怖と知的特権階級意識",
     "tags": [
-      "教育コンテンツ",
-      "SaaS・ツール"
+      "完全少人数",
+      "原価ゼロ",
+      "思考モデル",
+      "前金総取り",
+      "利益率80%超"
     ],
     "essence": {
-      "whatItDoes": "Farnam Streetの事業モデル・公開情報観測データ",
-      "targetCustomer": "特定業務・ニッチ領域の課題を抱える法人・個人",
-      "painRelief": "既存ツールの複雑性や高価格による機会損失の切除"
+      "whatItDoes": "ウォーレン・バフェットやチャーリー・マンガー流の「メンタルモデル（思考の型）」を解説する高級知性メディア・会員制コミュニティ",
+      "targetCustomer": "ヘッジファンドマネージャー、起業家、大企業幹部、知的生活を重視する富裕層",
+      "painRelief": "「感情や認知バイアスで重大な判断を誤り、資産やキャリアを失う」ことへの深い恐怖"
     },
     "pricing": {
-      "model": "月額サブスクリプション / 年間前払い",
-      "pricePoint": "売上非公開",
-      "psychologicalTrigger": "損失回避と作業時間の圧倒的圧縮"
+      "model": "年額一括前払い会員制コミュニティ（FS Learning Community）＋ スポンサー広告枠",
+      "pricePoint": "年額 $249 〜 $499 / 人",
+      "psychologicalTrigger": "知的優越感と防衛本能（「世界トップの知性をインストールして、愚かな決断を避けられる」免罪符）",
+      "estimatedLtvJpy": 120000,
+      "churnRate": "1.8%/月"
+    },
+    "acquisition": {
+      "cacJpy": 300,
+      "primaryFunnel": "週刊メルマガ「Brain Food（読者70万人）」の無料購読 ➔ ポッドキャスト深掘り ➔ 年額有料コミュニティへアップセル",
+      "tactics": [
+        "ウォーレン・バフェットの株主総会の知恵やノーベル賞学者の思考法を圧倒的に分かりやすく体系化して信頼を獲得"
+      ]
     },
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 75000000,
+      "cogs": 3750000,
+      "grossProfit": 71250000,
+      "grossMargin": 95,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 1500000,
+        "advertising": 2000000,
+        "subcontracting": 5000000,
+        "toolsAndSaaS": 800000,
+        "other": 1950000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "revenueLabel": "売上非公開"
+      "operatingProfit": 60000000,
+      "operatingMargin": 80,
+      "estimatedAnnualNetProfit": 720000000
     },
     "operations": {
-      "teamSize": 3,
-      "weeklyHours": 40,
+      "teamSize": 4,
+      "weeklyHours": 30,
       "initialCapitalRequired": 100000,
       "automationLevel": 85,
       "primaryChannels": [
-        "オーガニック検索",
-        "口コミ・紹介",
-        "SNS発信"
+        "週刊Brain Foodニュースレター（読者70万人）",
+        "The Knowledge Projectポッドキャスト",
+        "著書『Clear Thinking』"
       ],
-      "toolStack": []
-    },
-    "strategy": {
-      "blindspot": "Farnam Streetが突いた既存大手の硬直化と特化型ポジショニング",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "顧客データと業務ワークフローの定着による強固な乗り換え障壁",
-      "initialTraction": [
-        "初期ターゲットへの泥臭いSNS・コミュニティでの直接アプローチ",
-        "無料・安価なベータ版配布による初期ユーザーの獲得",
-        "口コミと紹介によるオーガニックな顧客基盤の拡大"
-      ],
-      "actionPlaybook": [
-        "特定ニッチの痛みを特定し、最小限の機能で最速ローンチ",
-        "SNSやコミュニティで泥臭く初期ユーザーを直接獲得",
-        "年間契約と自動化により高利益率のキャッシュフローを確立"
+      "toolStack": [
+        {
+          "name": "Ghost / WordPress",
+          "category": "パブリッシング",
+          "monthlyCost": 50000,
+          "purpose": "会員制ゲートウェイと高品位タイポグラフィ配信"
+        },
+        {
+          "name": "Circle.so",
+          "category": "コミュニティ",
+          "monthlyCost": 40000,
+          "purpose": "年額会員専用の非公開議論フォーラム"
+        }
       ]
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021年ローンチ期",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効 (実証済み)",
-      "eraContext": "プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル",
-      "currentViabilityAnalysis": "先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能"
+    "strategy": {
+      "blindspot": "ビジネスメディアが「最新のニュースやゴシップ（賞味期限の短い情報）」ばかり追いかけ、「100年後も変わらない思考の基本原理」を体系化していなかった死角",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "元カナダ情報機関員という異色の経歴と、ウォール街やシリコンバレーのエリート層に深く浸透した知性の権威性",
+      "initialTraction": [
+        "情報機関勤務時代に匿名ブログとして開設。チャーリー・マンガーの『格子状のメンタルモデル』を実践的に解読しエリート読者を獲得"
+      ],
+      "actionPlaybook": [
+        "① 賞味期限のない本質的テーマ（意思決定、認知バイアス）に特化",
+        "② 無料の週刊レターで圧倒的な知性を示し70万人集客",
+        "③ 年額前金コミュニティで現金を固定化"
+      ]
     },
-    "observationsStream": [],
-    "timelineEvents": []
+    "exposureAudit": {
+      "guerrillaTraction": "Shane Parrishは元カナダのトップ秘密情報機関（CSE）のサイバー防衛幹部。最高機密のプレッシャーの中で『どうすれば意思決定でミスをしないか』を自問自答した個人的な学習ノートをブログに匿名公開したのが始まり。",
+      "platformGlitch": "「情報の消費」ではなく「意思決定の訓練」として位置付けることで、読者企業の経費精算枠（自己投資・研修費）を合法的に狙い撃ち。",
+      "pivotSnapshot": "無料ブログから「FS Learning Community」を有料化した際、安売りせず年額前金制を採用。参加者の質を高めることでコミュニティ自体を高級知性サロンへと昇華させた。",
+      "hiddenStackCost": "オフィスなし、従業員は実質3〜4名のリモート体制。仕入れ原価ほぼゼロで、年商数億円のうち80%以上が利益として残る。"
+    },
+    "temporal": {
+      "foundedYear": 2009,
+      "initialTractionPeriod": "2013年会員化",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も極めて強固",
+      "eraContext": "情報過多社会における「ノイズからシグナルを抽出する」キュレーション需要の高まり。",
+      "currentViabilityAnalysis": "AI時代において一般的な知識の価値が暴落する一方、「人間がどう決断するか（メンタルモデル）」の権威性の価値はさらに上昇中。書籍『Clear Thinking』の世界的ヒットで堀が盤石化。"
+    }
   },
   {
     "id": "ent_case06_8b2018bd0f3346cd4b8d",
