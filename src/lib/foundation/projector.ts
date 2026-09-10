@@ -8,7 +8,7 @@ import {
   UniversalEvent,
   DynamicMoats,
   TemporalIntelligence,
-} from '@/platform/types/terminal';
+} from '../../platform/types/terminal';
 
 interface RawBundleEntity {
   entity_id?: string;
