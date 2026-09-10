@@ -99,6 +99,7 @@ export const TerminalShell: React.FC = () => {
         hasMore?: boolean;
       };
 
+      console.log('[TerminalShell] API returned source:', payload.source, 'count:', Array.isArray(payload.data) ? payload.data.length : 0);
       if (payload.source !== 'foundation_lake') {
         if (!cursor && Array.isArray(payload.data) && payload.data.length > 0) {
           setFoundationMode(false);
@@ -112,6 +113,7 @@ export const TerminalShell: React.FC = () => {
         nextCursor: payload.nextCursor || null,
         hasMore: payload.hasMore === true,
       };
+      console.log('[TerminalShell] Switching to foundationMode=true with rows:', page.data.length);
       setFoundationMode(true);
       mergeFoundationRows(page.data, !cursor);
       setFoundationCursor(page.nextCursor);
@@ -124,14 +126,41 @@ export const TerminalShell: React.FC = () => {
   }, [mergeFoundationRows]);
 
   useEffect(() => {
-    const controller = new AbortController();
-    void loadFoundationPage(undefined, controller.signal).catch((error) => {
-      if ((error as { name?: string })?.name !== 'AbortError') {
-        console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
+    let isMounted = true;
+    const fetchPage = async () => {
+      try {
+        const res = await fetch('/api/businesses?limit=100');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const payload = (await res.json()) as {
+          source?: string;
+          data?: unknown;
+          nextCursor?: string | null;
+          hasMore?: boolean;
+        };
+
+        if (!isMounted) return;
+
+        if (payload.source === 'foundation_lake' && Array.isArray(payload.data)) {
+          console.log('[TerminalShell] Loaded foundation entities:', payload.data.length);
+          setFoundationRows(payload.data as FoundationEntitySummary[]);
+          setFoundationCursor(payload.nextCursor || null);
+          setFoundationHasMore(payload.hasMore === true);
+          setFoundationMode(true);
+        } else if (Array.isArray(payload.data) && payload.data.length > 0) {
+          setFoundationMode(false);
+          setEntities(payload.data as FinancialEntity[]);
+        }
+      } catch (err) {
+        console.warn('[TerminalShell] Initial fetch failed, keeping fallback:', err);
       }
-    });
-    return () => controller.abort();
-  }, [loadFoundationPage]);
+    };
+
+    fetchPage();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // 認知負荷ゼロ・即時着火: entityParam指定があればそれ、なければPhoto AI（粗利84%ソロ企業）をデフォルト自動展開
   const initialEntityId =
