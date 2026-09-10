@@ -161,13 +161,14 @@ export interface DynamicMoats {
 // 【Layer 3: 万能救済ストリーム型】（型に収まらない全観測データを1文字も捨てずにカード化）
 export interface UniversalObservation {
   id?: string;
-  category: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
-  categoryLabel: string; // 例: "市場の歪み", "大手の自爆", "サバンナOSの急所", "現場の泥臭い工夫", "調査限界"
+  category?: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
+  categoryLabel?: string; // 例: "市場の歪み", "大手の自爆", "サバンナOSの急所", "現場の泥臭い工夫", "調査限界"
   text: string;
   originType?: 'observed' | 'inferred' | 'reported' | 'estimated';
   verificationStatus?: 'SUPPORTED' | 'UNVERIFIED' | 'REFUTED';
   sourceUrl?: string;
   observedAt?: string;
+  author?: string;
 }
 
 export interface UniversalCoverageItem {
