@@ -35,6 +35,7 @@ import {
 import { AffiliateToolBadge, AffiliateToolList } from '../tools/AffiliateToolBadge';
 import { findToolAffiliate, HAZARD_DEFENSE_SHIELDS, TOOL_AFFILIATES } from '../../config/toolAffiliates';
 import { UniversalIntelligenceStream } from './UniversalIntelligenceStream';
+import { DynamicEvidenceDeck } from './DynamicEvidenceDeck';
 import { cleanIntelligenceText } from '@/lib/foundation/text-cleaner';
 
 function parsePunchline(text: string): { punchline: string; detail: string } {
@@ -133,6 +134,9 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     entity.tags?.some(t => t.includes('地雷') || t.includes('失敗') || t.includes('爆死')) ||
     entity.architecturePattern?.includes('地雷') ||
     (entity.growthRateYoY !== undefined && entity.growthRateYoY < -30);
+
+  // 動的証拠カード（Dynamic Evidence Registry）の有無判定
+  const hasEvidenceCards = Boolean(entity.evidenceCards && entity.evidenceCards.length > 0);
 
   return (
     <>
@@ -467,9 +471,40 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </div>
           )}
           
+          {/* ========================================================= */}
+          {/* 【動的証拠保全デッキ (DYNAMIC EVIDENCE DECK)】 */}
+          {/* ========================================================= */}
+          {hasEvidenceCards && (
+            <div className="space-y-6">
+              <section className="space-y-2">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                  <div className="flex items-center gap-2">
+                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+                      isHazardMode
+                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
+                        : 'text-emerald-400 bg-emerald-950/40 border-emerald-500/30'
+                    }`}>
+                      FORENSIC DOSSIER
+                    </span>
+                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
+                      isHazardMode ? 'text-red-300' : 'text-zinc-100'
+                    }`}>
+                      {isHazardMode ? '致命的特異点・死因物証保全ファイル' : '特異点物証 ＆ 金抜きの急所ファイル'}
+                    </span>
+                  </div>
+                  <span className="font-mono text-[9px] text-zinc-500">
+                    {entity.evidenceCards!.length}件の特異点事実
+                  </span>
+                </div>
+                <DynamicEvidenceDeck cards={entity.evidenceCards!} isHazardMode={isHazardMode} />
+              </section>
+            </div>
+          )}
+
           {/* ------------------------------------------------------- */}
-          {/* #01〜#04: 事業DNA ＆ 構造的優位性 / 致命的欠陥 */}
+          {/* #01〜#04: 事業DNA ＆ 構造的優位性 / 致命的欠陥 (フォールバック) */}
           {/* ------------------------------------------------------- */}
+          {!hasEvidenceCards && (
           <div className="space-y-6">
             {/* #01 事業の正体 / 事業の罠 */}
             {entity.essence && (
@@ -646,6 +681,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </section>
             )}
           </div>
+          )}
 
           {/* ------------------------------------------------------- */}
           {/* #05〜#08: 財務レントゲン / 出血・逆流レントゲン */}
@@ -839,10 +875,18 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   </span>
                 </div>
               </div>
-              <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] grid grid-cols-3 divide-x divide-white/[0.04] p-3 font-mono text-center text-[10px] shadow-sm">
+              <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] grid grid-cols-4 divide-x divide-white/[0.04] p-3 font-mono text-center text-[10px] shadow-sm">
                 <div>
-                  <span className="text-zinc-500 block">{isHazardMode ? 'ピーク時人数' : '人数'}</span>
-                  <span className="text-white font-bold text-xs">{entity.operations.teamSize}人</span>
+                  <span className="text-emerald-400 block font-bold">立ち上げ初期</span>
+                  <span className="text-white font-bold text-xs">
+                    {entity.operations.initialTeamSize ?? (entity.scale === 'SOLO' ? 1 : entity.scale === 'SMALL_TEAM' ? 2 : 2)}人
+                  </span>
+                </div>
+                <div>
+                  <span className="text-zinc-500 block">{isHazardMode ? 'ピーク時 (破滅前)' : '現在 (スケール後)'}</span>
+                  <span className={`font-bold text-xs ${isHazardMode ? 'text-red-400' : 'text-zinc-300'}`}>
+                    {entity.operations.currentTeamSize ?? entity.operations.teamSize}人
+                  </span>
                 </div>
                 <div>
                   <span className="text-zinc-500 block">週実働</span>
@@ -1042,8 +1086,9 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           </div>
 
           {/* ------------------------------------------------------- */}
-          {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル */}
+          {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
           {/* ------------------------------------------------------- */}
+          {!hasEvidenceCards && (
           <div className="space-y-6 pt-2 border-t border-white/[0.06]">
             {/* 資本主義の裏帳簿：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
             {entity.exposureAudit && (
@@ -1231,11 +1276,12 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </section>
             )}
           </div>
+          )}
 
           {/* ========================================================= */}
-          {/* 【PRO EXCLUSIVE: 儲かり続ける4つの裏構造 / 崩壊を招いた4つの構造的死因】 */}
+          {/* 【PRO EXCLUSIVE: 儲かり続ける4つの裏構造 / 崩壊を招いた4つの構造的死因 (フォールバック)】 */}
           {/* ========================================================= */}
-          {entity.meta && (
+          {!hasEvidenceCards && entity.meta && (
             <div className={`relative border rounded-md bg-[#0A0B0E] p-3.5 space-y-3 overflow-hidden shadow-2xl mt-6 ${
               isHazardMode ? 'border-red-500/30' : 'border-white/[0.1]'
             }`}>

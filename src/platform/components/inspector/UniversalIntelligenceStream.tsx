@@ -331,28 +331,9 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 </p>
               </div>
             )}
-
-            {/* 暴露レントゲン（初期ゲリラ実録） */}
-            {exposureAudit?.guerrillaTraction && (
-              <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3.5 space-y-1.5">
-                <div className="flex items-center justify-between text-[11px] font-mono">
-                  <span className="text-zinc-400 font-bold flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-zinc-300" />
-                    初期ゲリラ戦の客観事実ログ（最初の100人を仕留めた実録）
-                  </span>
-                  <span className="text-[9px] font-mono px-1 rounded bg-white/[0.06] text-zinc-400">
-                    合法的ログ
-                  </span>
-                </div>
-                <p className="text-zinc-300 text-[11px] leading-relaxed pl-3 border-l border-white/20">
-                  {exposureAudit.guerrillaTraction}
-                </p>
-              </div>
-            )}
           </div>
         </section>
       )}
-
       {/* ========================================================= */}
       {/* Layer 3: 【万能救済ストリーム】（型に収まらない全データ） */}
       {/* observations / Universal Journal の内容を高密度カードとして1文字も捨てずに全量描画 */}

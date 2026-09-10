@@ -48,7 +48,9 @@ export interface ToolStackItem {
 }
 
 export interface OperatingFramework {
-  teamSize: number; // 人数 (1 = 完全1人)
+  teamSize: number; // 人数 (互換性用)
+  initialTeamSize?: number; // 立ち上げ初期の人数 (1 = 完全1人)
+  currentTeamSize?: number; // 現在の人数 (スケール後)
   weeklyHours: number; // 週稼働時間
   initialCapitalRequired: number; // 初期投下資本 (0 = 0円)
   automationLevel: number; // 1-100%
@@ -206,6 +208,32 @@ export interface UniversalEvent {
   description: string;
 }
 
+// 【動的証拠カード体系（Dynamic Evidence Registry）】
+export type DynamicEvidenceCardType = 
+  | 'THE_CRIME'           // ① 身も蓋もない一行の真実（誰から・いくら・どうやって抜いたか）
+  | 'SMOKING_GUN'         // ② その会社固有の生々しい現物証拠（実際のDM文面、スクショ禁止コード、広告クリエイティブ、裏原価率等）
+  | 'DIRTY_GENESIS'       // ③ 最初の100人を仕留めた初期ゲリラ・自演・泥臭い突破ログ
+  | 'ASYMMETRIC_LEVERAGE' // ④ 固定費ゼロ・限界費用ゼロで現金を吸い上げる構造（P&L・手残りレントゲン）
+  | 'INCUMBENT_TRAP'      // ⑤ 大手がカニバリ・メンツで指をくわえて見逃すしかない死角
+  | 'FATAL_BLEED'         // ⑥ 地雷・失敗企業専用：資金炎上・即死の生々しい検死解剖
+  | 'LOOT_BLUEPRINT'      // ⑦ この手口を今夜別業界に持ち込むならどう組むかの転用コード
+  | 'UNKNOWN_AUDIT';      // ⑧ 取れなかった事実・調査限界の冷徹な開示
+
+export type EvidenceStatus = 'VERIFIED' | 'REPORTED' | 'ESTIMATED' | 'UNKNOWN';
+
+export interface DynamicEvidenceCard {
+  id: string;
+  type: DynamicEvidenceCardType;
+  title: string;
+  badge?: string;
+  evidenceStatus: EvidenceStatus;
+  punchline: string; // 1行で脳汁が出る急所・結論
+  details?: string[]; // 生々しい客観事実・物証の箇条書き
+  metrics?: { label: string; value: string; isHighlight?: boolean }[]; // 強烈な数字（原価18%, 1人で年商2億等）
+  codeSnippet?: string; // 実際のコード、DM文面、プロンプト等の現物テキスト
+  sourceNote?: string; // 一次情報源（SEC提出書類, 創業者X魚拓, Stripeダッシュボード等）
+}
+
 export interface FinancialEntity {
   id: string;
   ticker: string; // 例: "KEYENCE", "STRIPE", "PHOTOAI"
@@ -237,6 +265,9 @@ export interface FinancialEntity {
 
   // 多次元探索・スクリーニングタグ
   tags: string[]; // 例: ["完全1人", "API包装", "利益率80%超", "B2B", "初期費用0円"]
+
+  // 【動的証拠保全カード配列（Dynamic Evidence Registry）】
+  evidenceCards?: DynamicEvidenceCard[]; // 企業固有の存在する特異点事実カードのみを動的に召喚
 
   // 【Layer 2 & Layer 3: 3層ハイブリッドUI完全表示保障用フィールド】
   temporal?: TemporalIntelligence; // 時系列インテリジェンス（創業年、データ時期、現時点での賞味期限判定）

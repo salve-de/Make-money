@@ -2738,3 +2738,42 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
      - 見出しの反転、危険ツールの自動非表示化、および「【即死回避】防壁インフラ・避難先代替ツール（PR）」の自動展開仕様を完全同期。
   3. **Git自律同期 ＆ 差分ゼロ完了**:
      - `git commit` および `git push` を自律完遂。
+
+### 89. Phase 89: 同一画面内テキスト重複の根絶 ＆ 運用体制「初期人数／現在人数」二重軸化（完了）
+- **検死された本質的論点 ＆ ユーザーの痛烈な指導**:
+  - 「なんか 自己免疫疾患 みたいな文章 何回も 見たいんだけど おなじ 事例で」
+  - 「てか 人数は 立ち上げ初期と 今の人数とかにして。なぜなら ここを見にくるユーザーは 俺でもできるとか 少人数で立ち上げた 再現性 とかを求めているから。だから俺でもできるかも」
+- **根本原因の検死**:
+  1. **テキスト重複の二重病巣**:
+     - `mockLedgerData.ts` の21社において、`strategy.initialTraction`（最初の100人を獲得した泥臭い手順）と `exposureAudit.guerrillaTraction`（初期ゲリラ戦・自演集客ログ）が同一文章で使い回されていた。
+     - さらに `UniversalIntelligenceStream.tsx`（#13 万能救済ストリーム）のLayer 2内でも `exposureAudit.guerrillaTraction` が再度レンダリングされており、同一画面上で全く同じ文章が3回繰り返されるという知覚価値崩壊を引き起こしていた。
+  2. **人数表示の心理的課題**:
+     - 運用体制（#07）が「現在のスケール後の人数（数百〜数千人）」のみを単一表示していたため、読者に「大企業じゃないと無理」「自分には再現できない」という絶望感・心理的摩擦を与えていた。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **同一画面内テキスト重複の完全撲滅**:
+     - `UniversalIntelligenceStream.tsx` のLayer 2から `exposureAudit.guerrillaTraction` の重複描画ブロックを切除。
+     - `mockLedgerData.ts` の全38社について、`exposureAudit.guerrillaTraction`（裏工作・生々しい初期自演ログ）と `strategy.initialTraction`（顧客獲得の具体的な3段階アクション手順）を完全に固有化・別視点に書き分け（Hopinの自己免疫疾患等の重複を完全ゼロ化）。
+  2. **運用体制（#07）の二重軸化（初期人数 ＆ 現在/ピーク人数）**:
+     - `OperatingFramework` 型に `initialTeamSize`（立ち上げ初期人数）と `currentTeamSize`（現在/ピーク人数）を正式配備。
+     - 全38社において、立ち上げ初期人数をエメラルドグリーンで「1人」「2人」と強調表示し、読者に「最初は完全1人だったのか、これなら俺でもできる」という心理的許可と再現性の確信を1秒で直感理解させるUIへ再設計。
+  3. **ビルド検証 ＆ 差分ゼロ保証**:
+     - `npm run build` PASS（型エラー0件、静的ページ生成100%成功）。
+
+### 90. Phase 90: 全38社動的証拠カード（Dynamic Evidence Registry）アーキテクチャ完全適用 ＆ 画一枠撤廃（完了）
+- **検死された本質的論点 ＆ ユーザーの痛烈な指導**:
+  - 「全部にそれを適応できるわけじゃないからどうすんの。これはずっと俺言ってるよね」
+  - 「んじゃあ 今ある事例全部に対してやってみて できる？ なお上書きしないで PRとしてできる？ GITHUB」
+  - 企業ごとに持っている武器、死んだ原因、初期のズル、データが全く異なる（LiinksにコールドDMはあるが死因はない。Quibiは2,000億溶かしてスクショ禁止で即死した死因はあるがコールドDMはない）。14個の画一的な固定枠（#01〜#14）を全社に強制すると、データがない会社で空欄になるか、AIが適当なポエムや嘘を捏造してしまい、知覚価値が崩壊していた。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **動的証拠カード型体系（`terminal.ts`）の配備**:
+     - `DynamicEvidenceCardType`（`THE_CRIME`, `SMOKING_GUN`, `DIRTY_GENESIS`, `ASYMMETRIC_LEVERAGE`, `INCUMBENT_TRAP`, `FATAL_BLEED`, `LOOT_BLUEPRINT`, `UNKNOWN_AUDIT`）を新設。
+     - 証拠ステータス（`VERIFIED` [一次確証] / `REPORTED` [創業者公言] / `ESTIMATED` [業界推計] / `UNKNOWN` [非公開]）を完全制度化。
+  2. **動的カードレンダラー（`DynamicEvidenceDeck.tsx`）の新設 ＆ 固定枠撤廃**:
+     - 存在するカードのみを専用UIで動的に召喚する `DynamicEvidenceDeck` を新規配備。
+     - `CompanyInspectorPane.tsx` を改修し、画一固定枠（#01〜#04, #09〜#13等）を撤廃。`evidenceCards` を最優先で描画し、全社共通の「財務計器盤・P&L実額」および「運用体制（初期人数vs現在人数）・ツール構成」と美しく統合。
+  3. **全38社への特異点証拠カード完全注入（`mockLedgerData.ts`）**:
+     - キーエンス（原価18%直販要塞・外報監視）、Stripe（初期7行JS・コリソンインストール）、ShipFast（ボイラープレート買い切り）、Photo AI（推論API原価$0.14）、Nomad List（スプレッドシート課金化）、Liinks（Linktree炎上コールドDM実文）、Midjourney（Discord完全寄生11人で300億）、Carrd（完全1人で利益率95%）、そして地雷4社（Quibiのスクショ禁止自滅、Hopinのリアル回帰投げ売り、Zenefitsの違法マクロスクショ、ClubhouseのSpaces圧殺）など、全38社にそれぞれの「最もヤバい特異点事実」をカード化して完全配備。
+  4. **完全なブランチ分離 ＆ GitHub PR運用**:
+     - `main` ブランチを一切上書き破壊せず、専用フィーチャーブランチ `feat/dynamic-evidence-registry-architecture` 上で完遂。
+     - `npm run build` PASS（型エラー0件、全ページ静的生成成功）を担保。
+
