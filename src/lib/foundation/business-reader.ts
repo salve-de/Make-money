@@ -6,6 +6,10 @@ import {
   type R2ListObject,
 } from '@/lib/storage/r2';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
+import {
+  buildFoundationValueProfile,
+  type FoundationValueProfile,
+} from '@/lib/foundation/value-projection';
 
 type JsonObject = Record<string, unknown>;
 
@@ -27,6 +31,14 @@ export interface FoundationEntitySummary {
   status: string;
   observedAt: string | null;
   evidenceIds: string[];
+}
+
+/**
+ * Application-only list projection. It is calculated from existing bundle
+ * records at read time and is never persisted as a Foundation object.
+ */
+export interface FoundationValueSummary extends FoundationEntitySummary {
+  valueProfile: FoundationValueProfile;
 }
 
 export interface FoundationMetricSignal {
@@ -129,12 +141,19 @@ export interface FoundationBusinessCase extends FoundationEntitySummary {
   relationships: FoundationRelationship[];
   observations: FoundationObservation[];
   derived: FoundationDerivedRecord[];
+  valueProfile: FoundationValueProfile;
   bundlesScanned: number;
   bundleObjectsListed: number;
 }
 
 export interface FoundationEntityPage {
   data: FoundationEntitySummary[];
+  nextCursor: string | null;
+  hasMore: boolean;
+}
+
+export interface FoundationValuePage {
+  data: FoundationValueSummary[];
   nextCursor: string | null;
   hasMore: boolean;
 }
@@ -150,8 +169,11 @@ const MAX_BUNDLE_LIST_PAGES = 128;
 // A larger bounded fan-out keeps a cold detail read responsive without
 // issuing an unbounded burst against R2.
 const BUNDLE_SCAN_BATCH_SIZE = 96;
-const MAX_PROBE_CACHE_ENTRIES = 512;
+// Keep the lightweight probe metadata wider than the current lake while
+// still bounding isolate memory. Full JSON bodies use a much smaller cache.
+const MAX_PROBE_CACHE_ENTRIES = 4096;
 const MAX_BUNDLE_CACHE_ENTRIES = 160;
+const BUNDLE_LIST_TTL_MS = 5 * 60 * 1000;
 
 function objectValue(value: unknown): JsonObject | null {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -516,8 +538,19 @@ function cachedProbe(key: string): Promise<BundleProbe | null> {
 }
 
 function probeContainsEntity(probe: BundleProbe | null, entityId: string): boolean | null {
-  if (!probe) return false;
+  // A failed range probe is unknown, not a negative match. Reading the
+  // candidate is safer than silently hiding a valid Foundation record.
+  if (!probe) return null;
   if (probe.knownEntityIds.has(entityId)) return true;
+  if (probe.entitiesArrayPresent) return false;
+  return probe.typedArraysComplete ? false : null;
+}
+
+function probeContainsAnyEntity(probe: BundleProbe | null, entityIds: Set<string>): boolean | null {
+  if (!probe) return null;
+  for (const entityId of entityIds) {
+    if (probe.knownEntityIds.has(entityId)) return true;
+  }
   if (probe.entitiesArrayPresent) return false;
   return probe.typedArraysComplete ? false : null;
 }
@@ -554,11 +587,14 @@ async function fetchBundleObjects(): Promise<R2ListObject[]> {
 }
 
 let bundleObjectsPromise: Promise<R2ListObject[]> | undefined;
+let bundleObjectsExpiresAt = 0;
 
 function listBundleObjects(): Promise<R2ListObject[]> {
-  if (!bundleObjectsPromise) {
+  if (!bundleObjectsPromise || bundleObjectsExpiresAt <= Date.now()) {
+    bundleObjectsExpiresAt = Date.now() + BUNDLE_LIST_TTL_MS;
     bundleObjectsPromise = fetchBundleObjects().catch((error) => {
       bundleObjectsPromise = undefined;
+      bundleObjectsExpiresAt = 0;
       throw error;
     });
   }
@@ -573,6 +609,18 @@ interface FoundationRecordAccumulator {
   relationships: FoundationRelationship[];
   observations: FoundationObservation[];
   derived: FoundationDerivedRecord[];
+}
+
+function createRecordAccumulator(): FoundationRecordAccumulator {
+  return {
+    claims: [],
+    metrics: [],
+    moneySignals: [],
+    events: [],
+    relationships: [],
+    observations: [],
+    derived: [],
+  };
 }
 
 function collectBundleRecords(bundle: JsonObject, entityId: string, target: FoundationRecordAccumulator): void {
@@ -590,15 +638,7 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
   const entity = normalizeSummary((await readJsonObject(entityKey(entityId))) || {});
   if (!entity) return null;
 
-  const records: FoundationRecordAccumulator = {
-    claims: [],
-    metrics: [],
-    moneySignals: [],
-    events: [],
-    relationships: [],
-    observations: [],
-    derived: [],
-  };
+  const records = createRecordAccumulator();
   const bundleObjects = await listBundleObjects();
   let bundlesScanned = 0;
 
@@ -618,7 +658,59 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
   return {
     ...entity,
     ...records,
+    valueProfile: buildFoundationValueProfile(entity, records),
     bundlesScanned,
     bundleObjectsListed: bundleObjects.length,
+  };
+}
+
+/**
+ * Enrich one paginated entity page with useful signals from the immutable
+ * research bundles. The scan uses cached byte-range probes and only reads a
+ * full bundle when the probe cannot rule the page out. This keeps the list
+ * useful without turning every browser request into a full-lake download.
+ */
+export async function readFoundationValuePage(options: {
+  cursor?: string;
+  limit?: number;
+} = {}): Promise<FoundationValuePage> {
+  const page = await readEntityPage(options.cursor, Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100));
+  if (page.data.length === 0) {
+    return { data: [], nextCursor: page.nextCursor, hasMore: page.hasMore };
+  }
+
+  const summaries = page.data;
+  const entityIds = new Set(summaries.map((summary) => summary.id));
+  const recordsByEntity = new Map<string, FoundationRecordAccumulator>(
+    summaries.map((summary) => [summary.id, createRecordAccumulator()])
+  );
+  const bundleObjects = await listBundleObjects();
+
+  for (let index = 0; index < bundleObjects.length; index += BUNDLE_SCAN_BATCH_SIZE) {
+    const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
+    const probes = await Promise.all(batch.map((item) => cachedProbe(item.key)));
+    const candidateKeys = batch
+      .filter((_, batchIndex) => probeContainsAnyEntity(probes[batchIndex], entityIds) !== false)
+      .map((item) => item.key);
+    const bundles = await Promise.all(candidateKeys.map((key) => cachedBundle(key)));
+
+    for (const bundle of bundles) {
+      if (!bundle) continue;
+      for (const entityId of entityIds) {
+        if (bundleContainsEntity(bundle, entityId)) {
+          const target = recordsByEntity.get(entityId);
+          if (target) collectBundleRecords(bundle, entityId, target);
+        }
+      }
+    }
+  }
+
+  return {
+    data: summaries.map((summary) => ({
+      ...summary,
+      valueProfile: buildFoundationValueProfile(summary, recordsByEntity.get(summary.id) || createRecordAccumulator()),
+    })),
+    nextCursor: page.nextCursor,
+    hasMore: page.hasMore,
   };
 }

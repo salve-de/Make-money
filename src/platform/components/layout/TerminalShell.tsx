@@ -24,7 +24,11 @@ import { AdvancedScreenerModal, ScreenerFilterState } from '../screener/Advanced
 import { MobileBottomNav } from '../navigation/MobileBottomNav';
 import { ProModal } from '../../../components/terminal/ProModal';
 import { useAuth } from '../../../context/AuthContext';
-import type { FoundationBusinessCase, FoundationEntityPage, FoundationEntitySummary } from '@/lib/foundation/business-reader';
+import type {
+  FoundationBusinessCase,
+  FoundationValuePage,
+  FoundationValueSummary,
+} from '@/lib/foundation/business-reader';
 
 export const TerminalShell: React.FC = () => {
   const { viewedEntityIds, recordView } = useViewHistory();
@@ -57,7 +61,7 @@ export const TerminalShell: React.FC = () => {
   const [entities, setEntities] = useState<FinancialEntity[]>(INSTITUTIONAL_ENTITIES);
 
   // Foundation Lakeは正本を直接読む。UI用の短期ステートであり、R2へindexを書き戻さない。
-  const [foundationRows, setFoundationRows] = useState<FoundationEntitySummary[]>([]);
+  const [foundationRows, setFoundationRows] = useState<FoundationValueSummary[]>([]);
   const [foundationCursor, setFoundationCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
   const [foundationLoading, setFoundationLoading] = useState(false);
@@ -69,7 +73,7 @@ export const TerminalShell: React.FC = () => {
   const [foundationDetailError, setFoundationDetailError] = useState<string | null>(null);
   const foundationDetailCache = useRef(new Map<string, FoundationBusinessCase>());
 
-  const mergeFoundationRows = useCallback((incoming: FoundationEntitySummary[], replace = false) => {
+  const mergeFoundationRows = useCallback((incoming: FoundationValueSummary[], replace = false) => {
     setFoundationRows((current) => {
       const next = replace ? [] : [...current];
       const seen = new Set(next.map((item) => item.id));
@@ -83,7 +87,7 @@ export const TerminalShell: React.FC = () => {
     });
   }, []);
 
-  const loadFoundationPage = useCallback(async (cursor?: string, signal?: AbortSignal): Promise<FoundationEntityPage | null> => {
+  const loadFoundationPage = useCallback(async (cursor?: string, signal?: AbortSignal): Promise<FoundationValuePage | null> => {
     if (foundationLoadingRef.current) return null;
     foundationLoadingRef.current = true;
     setFoundationLoading(true);
@@ -107,8 +111,8 @@ export const TerminalShell: React.FC = () => {
         return null;
       }
 
-      const page: FoundationEntityPage = {
-        data: Array.isArray(payload.data) ? (payload.data as FoundationEntitySummary[]) : [],
+      const page: FoundationValuePage = {
+        data: Array.isArray(payload.data) ? (payload.data as FoundationValueSummary[]) : [],
         nextCursor: payload.nextCursor || null,
         hasMore: payload.hasMore === true,
       };
@@ -316,6 +320,12 @@ export const TerminalShell: React.FC = () => {
         entity.canonicalIdentifier || '',
         entity.status,
         ...entity.aliases,
+        entity.valueProfile.businessSignal || '',
+        entity.valueProfile.painSignal || '',
+        entity.valueProfile.moneySignal || '',
+        entity.valueProfile.tractionSignal || '',
+        entity.valueProfile.mechanismSignal || '',
+        ...entity.valueProfile.labels,
       ].some((value) => value.toLowerCase().includes(query))
     );
   }, [foundationRows, searchQuery]);

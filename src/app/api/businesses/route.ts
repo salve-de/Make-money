@@ -4,9 +4,9 @@ import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import {
   readFoundationBusinessCase,
-  readFoundationEntityPage,
+  readFoundationValuePage,
   type FoundationBusinessCase,
-  type FoundationEntityPage,
+  type FoundationValuePage,
 } from '@/lib/foundation/business-reader';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import type { FinancialEntity } from '@/platform/types/terminal';
@@ -24,7 +24,7 @@ type CacheEntry<T> = {
   value: T | Promise<T>;
 };
 
-const pageCache = new Map<string, CacheEntry<FoundationEntityPage>>();
+const pageCache = new Map<string, CacheEntry<FoundationValuePage>>();
 const detailCache = new Map<string, CacheEntry<FoundationBusinessCase>>();
 
 async function readCached<T>(
@@ -121,7 +121,7 @@ export async function GET(request: Request) {
       cacheKey,
       PAGE_TTL_MS,
       MAX_PAGE_CACHE_ENTRIES,
-      () => readFoundationEntityPage({ cursor, limit })
+      () => readFoundationValuePage({ cursor, limit })
     );
     if (page.data.length > 0 || page.hasMore) {
       return response({

@@ -12,6 +12,7 @@ import type {
   FoundationObservation,
   FoundationRelationship,
 } from '@/lib/foundation/business-reader';
+import type { FoundationValueProfile } from '@/lib/foundation/value-projection';
 
 interface FoundationInspectorPaneProps {
   entity: FoundationBusinessCase | null;
@@ -51,6 +52,48 @@ function Section({ title, count, children }: { title: string; count: number; chi
         <span className="font-mono text-[10px] text-zinc-600">{count}</span>
       </div>
       {count > 0 ? children : <div className="text-[11px] text-zinc-600">記録なし / 未確認</div>}
+    </section>
+  );
+}
+
+function ValueSummary({ profile }: { profile: FoundationValueProfile }) {
+  const tone = profile.tier === 'HIGH_SIGNAL' ? 'emerald' : profile.tier === 'USEFUL' ? 'cyan' : 'amber';
+  const signalRows: Array<[string, string | null]> = [
+    ['事業 / 顧客課題', profile.businessSignal || profile.painSignal],
+    ['価格 / 財務', profile.moneySignal],
+    ['初動 / 成長', profile.tractionSignal],
+    ['収益化 / 仕組み', profile.mechanismSignal],
+    ['時系列', profile.timeSignal],
+  ];
+  const rows = signalRows.filter((row): row is [string, string] => Boolean(row[1]));
+
+  return (
+    <section className="border-b border-white/[0.06] bg-white/[0.015] px-4 py-3">
+      <div className="flex items-center justify-between gap-3">
+        <div>
+          <div className="text-[10px] uppercase tracking-[0.18em] text-zinc-600">VALUE SNAPSHOT</div>
+          <div className="mt-1 text-[11px] text-zinc-500">bundleに実際にある信号だけを要約</div>
+        </div>
+        <div className="flex items-center gap-1.5">
+          <Badge tone={tone}>{profile.tier}</Badge>
+          <span className="font-mono text-[10px] text-zinc-500">coverage {profile.score}/10</span>
+        </div>
+      </div>
+      {rows.length > 0 ? (
+        <div className="mt-3 space-y-2">
+          {rows.map(([label, value]) => (
+            <div key={label} className="rounded border border-white/[0.06] bg-white/[0.02] p-2">
+              <div className="text-[10px] text-zinc-600">{label}</div>
+              <div className="mt-1 text-[11px] leading-relaxed text-zinc-200">{value}</div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="mt-3 text-[11px] text-zinc-600">事業・価格・初動に使える記録がまだありません。候補として保持しています。</div>
+      )}
+      <div className="mt-2 text-[10px] text-zinc-600">
+        {profile.labels.length > 0 ? profile.labels.join(' ・ ') : '表示信号なし'} ・ evidence {profile.counts.evidence}
+      </div>
     </section>
   );
 }
@@ -168,6 +211,7 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
                 <Badge tone="emerald">FOUNDATION LAKE</Badge>
                 <Badge>READ-ONLY</Badge>
                 {entity && <Badge tone="cyan">{entity.entityType}</Badge>}
+                {entity && <Badge tone={entity.valueProfile.tier === 'HIGH_SIGNAL' ? 'emerald' : entity.valueProfile.tier === 'USEFUL' ? 'cyan' : 'amber'}>{entity.valueProfile.tier}</Badge>}
               </div>
               <h2 className="mt-2 truncate font-sans text-base font-bold text-white">{entity?.name || (loading ? '読み込み中...' : '未選択')}</h2>
               {entity && <div className="mt-1 truncate font-mono text-[10px] text-zinc-600">{entity.id}</div>}
@@ -189,6 +233,7 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
           {error && <div className="m-4 rounded border border-red-500/20 bg-red-950/20 p-3 text-xs text-red-300">{error}</div>}
           {entity && !loading && !error && (
             <>
+              <ValueSummary profile={entity.valueProfile} />
               <Section title="IDENTITY" count={1}>
                 <div className="space-y-0.5">
                   <MetaLine label="canonical" value={display(entity.canonicalIdentifier)} />
