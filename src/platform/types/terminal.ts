@@ -181,6 +181,25 @@ export interface TemporalIntelligence {
   currentViabilityAnalysis: string;  // 「今同じことをやるとどうなるか」の冷徹な判定と根拠
 }
 
+export type VerdictStatus = 
+  | 'ENTRY_CANDIDATE'   // 参入候補（現在も利益の窓が開いている）
+  | 'MONITOR'           // 監視（需要あるが競争激化中 / シグナル注視）
+  | 'HOLD'              // 保留（先行者の堀が完成 / 参入障壁高）
+  | 'HAZARD_REJECT';    // 危険・地雷（プラットフォーム変更・API原価等で爆死）
+
+export interface OpportunityJudgment {
+  verdict: VerdictStatus;
+  verdictLabel: string;             // 例: "参入候補", "要監視", "保留", "地雷・爆死"
+  oneLineReason: string;            // 「だから何？」を1行で言い切る結論
+  demandDelta: string;              // 例: "90日 ↑18%", "年 +65%", "急伸"
+  competitionDelta: string;         // 例: "競合 +3社/四半期", "大手参入で激化", "空白地帯"
+  entryRequirements: {
+    capital: string;                // 例: "初期 $500", "0円"
+    technicalDifficulty: 'LOW' | 'MEDIUM' | 'HIGH';
+    platformRisk: 'LOW' | 'MEDIUM' | 'CRITICAL';
+  };
+}
+
 export interface UniversalEvent {
   eventType: string;
   occurredAt: string;
@@ -209,6 +228,7 @@ export interface FinancialEntity {
   meta?: MetaArchitectureDossier;
   exposureAudit?: ExposureAuditDossier; // 資本主義の裏帳簿：客観事実の暴露レントゲン
   isBookmarked?: boolean;
+  opportunityJudgment?: OpportunityJudgment; // 【即時意思決定】参入候補/監視/地雷判定 ＆ 需要競争Delta
 
   // 資本主義の裏帳簿：知的興奮・探索3大トリガー
   architecturePattern: string; // 構造の型（例: "直販要塞・相見積もり殺し", "APIラッパー・自撮り特化", "水門寄生・決済通行税", "テンプレ販売・無料逆手"）

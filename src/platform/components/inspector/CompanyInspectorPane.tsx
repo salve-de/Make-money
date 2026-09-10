@@ -218,6 +218,42 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </div>
           </div>
 
+          {/* 【即時意思決定: 最終判定 ＆ 需要・競争ベクトル】 */}
+          {entity.opportunityJudgment ? (
+            <div className="mx-3 mt-2 mb-1 p-2 rounded border bg-[#06080A] flex flex-col gap-1.5 shadow-xs border-white/[0.08]">
+              <div className="flex items-center justify-between gap-2 flex-wrap">
+                <div className="flex items-center gap-1.5">
+                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider border ${
+                    entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
+                      ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
+                      : entity.opportunityJudgment.verdict === 'MONITOR'
+                      ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
+                      : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
+                      ? 'bg-red-950/40 text-red-400 border-red-500/50'
+                      : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+                  }`}>
+                    判定: {entity.opportunityJudgment.verdictLabel}
+                  </span>
+                  <span className="text-[10px] font-sans text-zinc-300 font-medium">
+                    {entity.opportunityJudgment.oneLineReason}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-[10px] font-mono shrink-0">
+                  <span className="text-zinc-400">需要: <strong className="text-emerald-400">{entity.opportunityJudgment.demandDelta}</strong></span>
+                  <span className="text-zinc-600">|</span>
+                  <span className="text-zinc-400">競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 text-[9px] font-mono text-zinc-400 border-t border-white/[0.04] pt-1">
+                <span>初期資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
+                <span>・</span>
+                <span>開発難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
+                <span>・</span>
+                <span>PF依存度: <strong className={entity.opportunityJudgment.entryRequirements.platformRisk === 'CRITICAL' ? 'text-red-400 font-bold' : 'text-zinc-200'}>{entity.opportunityJudgment.entryRequirements.platformRisk}</strong></span>
+              </div>
+            </div>
+          ) : null}
+
           {/* タグライン（1行スマート表示） */}
           <div 
             className="px-3 pb-1 text-[11px] text-zinc-400 leading-snug font-sans truncate"

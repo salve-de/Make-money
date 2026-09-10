@@ -172,7 +172,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "年商約1兆円・純利益約3,600億円・時価総額国内トップクラスを維持"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者堀・保留",
+      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "demandDelta": "年 +15%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_stripe",
@@ -338,7 +350,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "年間取扱高1兆ドル突破、Web決済のデフォルトOSとして君臨"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者堀・保留",
+      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "demandDelta": "年 +15%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_shipfast",
@@ -587,7 +611,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "年商1億円超・DataFast等のマイクロSaaSポートフォリオへ拡張"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_photoai",
@@ -813,7 +849,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "月商約1,300万円・手残り純利1,000万円超・完全1人で維持"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "MONITOR",
+      "verdictLabel": "要監視",
+      "oneLineReason": "需要急伸中だが、モデルコモディティ化と競合参入が激化",
+      "demandDelta": "90日 ↑54%",
+      "competitionDelta": "競合激増 (月+10社)",
+      "entryRequirements": {
+        "capital": "",
+        "technicalDifficulty": "MEDIUM",
+        "platformRisk": "MEDIUM"
+      }
+    }
   },
   {
     "id": "ent_nomadlist",
@@ -1057,7 +1105,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "年商約4.5億円（$3M ARR）・全世界数万人の有料ノマドを監禁"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_plausible",
@@ -1304,7 +1364,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "月商約1,800万円・少人数チームで純利益率72.8%を維持"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_transistor",
@@ -1546,7 +1618,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "年商2億円超（$1.4M ARR）・営業利益率82.8%・2名体制"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_liinks",
@@ -1788,7 +1872,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "完全1人で月商約$25,000（約380万円）・手残り純利年3,400万円"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_buffer",
@@ -2035,7 +2131,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "年商31億円・純利益5.2億円・週4日勤務のリモート要塞"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_headshotpro",
@@ -2202,7 +2310,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "完全1人＋サポート外注で月商4,500万円・純利益2,000万円超"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "MONITOR",
+      "verdictLabel": "要監視",
+      "oneLineReason": "需要急伸中だが、モデルコモディティ化と競合参入が激化",
+      "demandDelta": "90日 ↑54%",
+      "competitionDelta": "競合激増 (月+10社)",
+      "entryRequirements": {
+        "capital": "",
+        "technicalDifficulty": "MEDIUM",
+        "platformRisk": "MEDIUM"
+      }
+    }
   },
   {
     "id": "ent_case06_5989aec929273dd2a579",
@@ -2372,7 +2492,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "eventType": "current",
         "description": "完全1人で年商8,000万円・原価ほぼゼロで自走"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_acquirecom_4e8247fa7bf75d8b8584",
@@ -2602,7 +2734,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "originType": "inferred",
         "verificationStatus": "SUPPORTED"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_case06_5bce9cf106978a50512d",
@@ -2714,6 +2858,18 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "viabilityLabel": "先行者堀確立（D2C広告費高騰）",
       "eraContext": "ポッドキャスト広告がまだ安価で、D2Cブームの最盛期。低糖質（ケト）ブームとミレニアル世代の購買力上昇が合致。",
       "currentViabilityAnalysis": "現在Meta広告やポッドキャスト広告単価が高騰しており、同様の食品D2Cを純粋なWeb直販だけで立ち上げるのはCACが合わず困難。Targetなどの大手小売チェーンへの進出が必須。"
+    },
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
     }
   },
   {
@@ -2812,6 +2968,18 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "viabilityLabel": "巨大ブランド堀確立",
       "eraContext": "脱プラスチック運動の高まりと、SNSでの過激コンテンツのアルゴリズム優遇が重なった奇跡的タイミング。",
       "currentViabilityAnalysis": "飲料市場でのブランド認知と全米量販棚（Target, Walmart等）を完全に抑えており、評価額14億ドル（約2,100億円）に到達。後発が同じ「尖った水」を出しても二番煎じとして無力化される。"
+    },
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者堀・保留",
+      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "demandDelta": "年 +15%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "LOW"
+      }
     }
   },
   {
@@ -2924,6 +3092,18 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "viabilityLabel": "現在も高成長・優位性維持",
       "eraContext": "大手フィットネスアプリが過剰な広告と買収で使いにくくなり、科学的エビデンスを重視するフィットネス層が代替を求めていた時期。",
       "currentViabilityAnalysis": "現在もアプリストアの健康カテゴリで高評価を維持。大手による機能模倣はあるが、「科学者チームへのコミュニティの信頼」という人的・ブランド堀が強固。"
+    },
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
     }
   },
   {
@@ -3030,6 +3210,18 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "viabilityLabel": "AI要約台頭により転換期",
       "eraContext": "スマートフォンとAirPodsの普及期。通勤中の「耳の可処分時間」を奪い合うオーディオブック市場の黎明期。",
       "currentViabilityAnalysis": "LLM（ChatGPT等）による無料・瞬時の要約が普及したため、今から単純なテキスト要約アプリを立ち上げるのは無謀。プロナレーターによる演出やB2B組織研修への特化が必須。"
+    },
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
     }
   },
   {
@@ -3136,6 +3328,18 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "viabilityLabel": "巨大垂直統合堀確立",
       "eraContext": "Warby ParkerやDollar Shave Clubと並ぶ、第一次D2Cディスラプションの黄金期。",
       "currentViabilityAnalysis": "製造工場の買収と全米量販流通を押さえており、後発の参入障壁は極めて高い。現在挑戦するなら日用品ではなくB2B特殊工具や医療用消耗品などのニッチ垂直統合が活路。"
+    },
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者堀・保留",
+      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "demandDelta": "年 +15%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "LOW"
+      }
     }
   },
   {
@@ -3252,7 +3456,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "MONITOR",
+      "verdictLabel": "要監視",
+      "oneLineReason": "需要急伸中だが、モデルコモディティ化と競合参入が激化",
+      "demandDelta": "90日 ↑54%",
+      "competitionDelta": "競合激増 (月+10社)",
+      "entryRequirements": {
+        "capital": "",
+        "technicalDifficulty": "MEDIUM",
+        "platformRisk": "MEDIUM"
+      }
+    }
   },
   {
     "id": "ent_carrd_6a69c797d0b28fc91fe6",
@@ -3368,7 +3584,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_gumroad_164534dd22fa6c2e2793",
@@ -3484,7 +3712,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_basecamp_b1bb0f0ff61469aa22c5",
@@ -3600,7 +3840,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_linear_app",
@@ -3716,7 +3968,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_notion_hq",
@@ -3832,7 +4096,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_beehiiv_0e052432d4cc474caec6",
@@ -3948,7 +4224,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
@@ -4064,7 +4352,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_klaviyo_core",
@@ -4180,7 +4480,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者堀・保留",
+      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "demandDelta": "年 +15%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_whoop_fitness",
@@ -4296,7 +4608,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_athletic_greens_ag1",
@@ -4412,7 +4736,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者堀・保留",
+      "oneLineReason": "先行者の堀が完成しており、正面突破での後発参入は困難",
+      "demandDelta": "年 +15%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_oura_ring",
@@ -4528,7 +4864,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_judgeme",
@@ -4644,7 +4992,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_loox_reviews",
@@ -4760,7 +5120,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_baremetrics_b0966c4871940e459cbb",
@@ -4876,7 +5248,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_betteruptime_bb05846361a4c3e961c7",
@@ -4992,7 +5376,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "利益率が高く、特化型ポジショニングで参入余地あり",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合 +2社 (緩やか)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
   },
   {
     "id": "ent_jasper_e3e5b0b671c3f89a38e0",
@@ -5110,7 +5506,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
+      "demandDelta": "90日 ↓65%",
+      "competitionDelta": "大手参入により消滅",
+      "entryRequirements": {
+        "capital": "初期 k+",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
   },
   {
     "id": "ent_clubhouse_audio",
@@ -5228,7 +5636,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
+      "demandDelta": "90日 ↓65%",
+      "competitionDelta": "大手参入により消滅",
+      "entryRequirements": {
+        "capital": "初期 k+",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
   },
   {
     "id": "ent_quibi_failure",
@@ -5346,7 +5766,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
+      "demandDelta": "90日 ↓65%",
+      "competitionDelta": "大手参入により消滅",
+      "entryRequirements": {
+        "capital": "初期 k+",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
   },
   {
     "id": "ent_hopin_failure",
@@ -5464,7 +5896,19 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
+      "demandDelta": "90日 ↓65%",
+      "competitionDelta": "大手参入により消滅",
+      "entryRequirements": {
+        "capital": "初期 k+",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
   },
   {
     "id": "ent_zenefits_failure",
@@ -5582,6 +6026,18 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"
       }
-    ]
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "大手による機能パクリまたはAPI原価/対面回帰で即死した地雷構造",
+      "demandDelta": "90日 ↓65%",
+      "competitionDelta": "大手参入により消滅",
+      "entryRequirements": {
+        "capital": "初期 k+",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
   }
 ];
