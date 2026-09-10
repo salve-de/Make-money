@@ -196,9 +196,7 @@ function formatMetric(item: FoundationMetricSignal): string {
 
   const amount = formatNumber(numeric);
   if (item.currency) return `${item.currency} ${amount}`;
-  if (item.unit && !item.unit.toLocaleLowerCase().includes((item.currency || '').toLocaleLowerCase())) {
-    return `${amount} ${item.unit}`;
-  }
+  if (item.unit) return `${amount} ${item.unit}`;
   return amount;
 }
 
@@ -637,6 +635,76 @@ function buildPlatformDependency(entity: FoundationBusinessCase): DossierModule 
   });
 }
 
+function buildTransferableMechanism(entity: FoundationBusinessCase): DossierModule | null {
+  const rows: DossierRow[] = [];
+
+  const business = pickBusinessClaim(entity);
+  if (business && business.evidenceIds.length > 0) {
+    rows.push({ ...rowFromClaim('商品化点', business), label: '商品化点' });
+  }
+
+  const distribution = entity.claims.find((item) =>
+    item.verificationStatus === 'SUPPORTED' &&
+    item.evidenceIds.length > 0 &&
+    includesAny(item.statement, DISTRIBUTION_TERMS)
+  );
+  if (distribution) {
+    rows.push({ ...rowFromClaim('集客配管', distribution), label: '集客配管' });
+  }
+
+  const pricing = entity.metrics
+    .filter((item) => item.verificationStatus === 'SUPPORTED' && item.evidenceIds.length > 0 && includesAny(item.metricType, ['price', 'pricing', 'subscription_price']))
+    .sort((left, right) => metricScore(right) - metricScore(left))[0];
+  if (pricing) {
+    rows.push({ ...rowFromMetric(pricing), label: '課金構造' });
+  }
+
+  const money = entity.moneySignals.find((item) =>
+    item.verificationStatus === 'SUPPORTED' && item.evidenceIds.length > 0
+  );
+  if (money) {
+    rows.push({
+      label: '金の流れ',
+      value: formatMoneySignal(money),
+      note: money.purpose ? compact(money.purpose, 150) : money.basis || undefined,
+      originType: money.originType,
+      verificationStatus: money.verificationStatus,
+      evidenceIds: money.evidenceIds,
+    });
+  }
+
+  const platform = entity.relationships.find((item) =>
+    item.verificationStatus === 'SUPPORTED' &&
+    item.evidenceIds.length > 0 &&
+    includesAny(item.predicate, PLATFORM_TERMS)
+  );
+  if (platform) {
+    rows.push({ ...rowFromRelationship(platform), label: '外部レバー' });
+  }
+
+  const analyticalPain = entity.derived.find((item) =>
+    item.supportingEvidenceIds.length > 0 &&
+    includesAny(item.type, ['pain', 'wallet', 'stage_glitch', 'buyer_psychology'])
+  );
+  if (analyticalPain) {
+    rows.push({ ...rowFromDerived(analyticalPain), label: '分析された急所' });
+  }
+
+  if (rows.length < 2) return null;
+  return makeModule({
+    id: 'transferable-mechanism',
+    kind: 'TRANSFERABLE_MECHANISM',
+    section: 'PLAYBOOK',
+    title: '転用候補になる構造部品',
+    eyebrow: 'STEAL THIS',
+    summary: '根拠がある構造部品だけを並べる。因果関係や再現性そのものは別途検証が必要。',
+    rows: rows.slice(0, 6),
+    body: [],
+    importance: 96,
+    analysis: true,
+  });
+}
+
 function buildDerivedModule(
   entity: FoundationBusinessCase,
   options: {
@@ -783,15 +851,7 @@ export function buildFoundationDossierProjection(entity: FoundationBusinessCase)
       terms: ['moat', 'incumbent_dilemma', 'competitive_cannibalization_barrier', 'lock_in'],
       importance: 86,
     }),
-    buildDerivedModule(entity, {
-      id: 'transferable-mechanism',
-      kind: 'TRANSFERABLE_MECHANISM',
-      section: 'PLAYBOOK',
-      title: '転用できる儲けの構造',
-      eyebrow: 'STEAL THIS',
-      terms: ['stage_money_machine', 'white_space', 'capital_efficiency', 'stage_glitch', 'buyer_psychology'],
-      importance: 96,
-    }),
+    buildTransferableMechanism(entity),
     buildDerivedModule(entity, {
       id: 'reality-check',
       kind: 'REALITY_CHECK',

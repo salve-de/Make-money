@@ -328,11 +328,53 @@ function recordMentionsEntity(value: JsonObject, entityId: string): boolean {
     stringValue(value, 'object_entity_id') === entityId;
 }
 
+function recordHasExplicitEntityReference(value: JsonObject): boolean {
+  return Boolean(
+    stringValue(value, 'entity_id') ||
+    stringArray(value, 'entity_ids').length > 0 ||
+    stringValue(value, 'payer_entity_id') ||
+    stringValue(value, 'receiver_entity_id') ||
+    stringValue(value, 'subject_entity_id') ||
+    stringValue(value, 'object_entity_id')
+  );
+}
+
+function bundlePrimaryEntityId(bundle: JsonObject): string | null {
+  const subject = objectValue(bundle.subject);
+  const candidateDomain = subject ? stringValue(subject, 'candidate_domain') : null;
+  const candidateName = subject ? stringValue(subject, 'candidate_name') : null;
+  const values = Array.isArray(bundle.entities)
+    ? bundle.entities.map(objectValue).filter((value): value is JsonObject => Boolean(value))
+    : [];
+
+  const exact = values.find((value) => {
+    const domain = stringValue(value, 'domain');
+    const identifier = stringValue(value, 'canonical_identifier');
+    const name = stringValue(value, 'canonical_name');
+    return Boolean(
+      (candidateDomain && (domain === candidateDomain || identifier?.endsWith(candidateDomain))) ||
+      (candidateName && name?.toLocaleLowerCase() === candidateName.toLocaleLowerCase())
+    );
+  });
+  return exact ? stringValue(exact, 'entity_id') : null;
+}
+
 function filteredRecords(bundle: JsonObject, key: string, entityId: string): JsonObject[] {
   const values = bundle[key];
-  return Array.isArray(values)
-    ? values.map(objectValue).filter((value): value is JsonObject => Boolean(value && recordMentionsEntity(value, entityId)))
-    : [];
+  if (!Array.isArray(values)) return [];
+
+  const allowBundleScoped =
+    (key === 'observations' || key === 'derived') &&
+    bundlePrimaryEntityId(bundle) === entityId;
+
+  return values
+    .map(objectValue)
+    .filter((value): value is JsonObject => Boolean(
+      value && (
+        recordMentionsEntity(value, entityId) ||
+        (allowBundleScoped && !recordHasExplicitEntityReference(value))
+      )
+    ));
 }
 
 function normalizeMetric(value: JsonObject): FoundationMetricSignal | null {
