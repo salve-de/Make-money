@@ -218,6 +218,50 @@ export const HAZARD_DEFENSE_SHIELDS: Record<string, HazardShieldSolution> = {
       },
     ],
   },
+  'HEAVY_CAPITAL_MEDIA': {
+    title: '【無元手防壁】巨額制作費・コンテンツ自爆を防ぐUGC ＆ ノーコード配信基盤',
+    fatalRisk: 'Quibiのように巨額の自前制作費（2,000億円）を抱えると、無料のUGC（TikTok/YouTube）やシェア文化（スクショ）に一撃で圧殺される。',
+    shieldApproach: 'コンテンツ制作費を自社で抱え込まず、最小原価・コミュニティ共創・軽量LPで市場需要を高速テストせよ。',
+    recommendedTools: [
+      {
+        name: 'Carrd',
+        affiliateKey: 'carrd',
+        role: '制作費ゼロ・即日需要テストLP',
+        whyShield: '数億円のアプリ開発費を投じる前に、数百円のLPで事前予約・前金を集めて需要を検証。',
+      },
+      {
+        name: 'Cloudflare Workers / R2',
+        affiliateKey: 'cloudflare',
+        role: '転送量課金ゼロ・超低コスト配信ストレージ',
+        whyShield: '高額な専用配信インフラを自作せず、グローバル分散エッジで原価を極小化。',
+      },
+      {
+        name: 'beehiiv',
+        affiliateKey: 'beehiiv',
+        role: 'スクショ・転載歓迎のバイラル配信配管',
+        whyShield: 'クローズドな有料アプリに閉じ込めず、読者が勝手にSNSで拡散する自走メディアを構築。',
+      },
+    ],
+  },
+  'REGULATORY_COMPLIANCE': {
+    title: '【適法防壁】法令違反・グレーゾーン自爆を防ぐ公式API ＆ 監査配管',
+    fatalRisk: 'Zenefitsのように違法マクロや無資格営業に手を染めると、規制当局の調査一発で時価数千億円が吹き飛ぶ。',
+    shieldApproach: '裏口の違法チートを排し、公式API・認証・監査ログが担保された堅牢なエンタープライズ基盤を採用せよ。',
+    recommendedTools: [
+      {
+        name: 'Supabase',
+        affiliateKey: 'supabase',
+        role: '行レベルセキュリティ（RLS）＆ 厳格監査ログ',
+        whyShield: '法規制に準拠した厳格なアクセス制御と暗号化をデフォルトで担保。',
+      },
+      {
+        name: 'Stripe',
+        affiliateKey: 'stripe',
+        role: '金融法・KYC・本人確認の完全準拠配管',
+        whyShield: '独自決済のコンプライアンス違反リスクをゼロにし、グローバル金融規制を丸投げ。',
+      },
+    ],
+  },
 };
 
 /**

@@ -5433,14 +5433,14 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "teamSize": 300,
+      "weeklyHours": 60,
+      "initialCapitalRequired": 18000000000,
+      "automationLevel": 35,
       "primaryChannels": [
-        "Twitter",
-        "Product Hunt",
-        "Word of Mouth"
+        "Facebook / YouTube Ads",
+        "Affiliate Army (30% Recurring)",
+        "SEO Arbitrage"
       ],
       "toolStack": []
     },
@@ -5563,14 +5563,14 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "teamSize": 120,
+      "weeklyHours": 60,
+      "initialCapitalRequired": 15000000000,
+      "automationLevel": 30,
       "primaryChannels": [
-        "Twitter",
-        "Product Hunt",
-        "Word of Mouth"
+        "Celebrity Audio Rooms",
+        "Invite Scarcity",
+        "Twitter Virality"
       ],
       "toolStack": []
     },
@@ -5693,14 +5693,14 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "teamSize": 250,
+      "weeklyHours": 60,
+      "initialCapitalRequired": 200000000000,
+      "automationLevel": 15,
       "primaryChannels": [
-        "Twitter",
-        "Product Hunt",
-        "Word of Mouth"
+        "TV CM (Super Bowl)",
+        "Hollywood PR",
+        "Celebrity Campaigns"
       ],
       "toolStack": []
     },
@@ -5823,14 +5823,14 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "teamSize": 1000,
+      "weeklyHours": 70,
+      "initialCapitalRequired": 150000000000,
+      "automationLevel": 20,
       "primaryChannels": [
-        "Twitter",
-        "Product Hunt",
-        "Word of Mouth"
+        "Inbound PR",
+        "Enterprise Sales",
+        "Conferences"
       ],
       "toolStack": []
     },
@@ -5953,14 +5953,14 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "isRevenueUnconfirmed": false
     },
     "operations": {
-      "teamSize": 5,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 80,
+      "teamSize": 1600,
+      "weeklyHours": 80,
+      "initialCapitalRequired": 60000000000,
+      "automationLevel": 15,
       "primaryChannels": [
-        "Twitter",
-        "Product Hunt",
-        "Word of Mouth"
+        "Cold Calling",
+        "Inside Sales Army",
+        "Inbound Free HR"
       ],
       "toolStack": []
     },

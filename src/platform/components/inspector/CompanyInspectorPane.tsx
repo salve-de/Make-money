@@ -940,7 +940,11 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 entity.tags.join(' ')
               ).toLowerCase();
               let shieldKey = 'API_DEPENDENCY';
-              if (textLower.includes('サーバー') || textLower.includes('固定費') || textLower.includes('赤字') || textLower.includes('burn') || textLower.includes('hopin') || textLower.includes('clubhouse')) {
+              if (textLower.includes('quibi') || textLower.includes('動画') || textLower.includes('制作費') || textLower.includes('スクショ') || textLower.includes('ハリウッド') || textLower.includes('tiktok')) {
+                shieldKey = 'HEAVY_CAPITAL_MEDIA';
+              } else if (textLower.includes('zenefits') || textLower.includes('保険法') || textLower.includes('違法') || textLower.includes('コンプライアンス') || textLower.includes('規制当局')) {
+                shieldKey = 'REGULATORY_COMPLIANCE';
+              } else if (textLower.includes('サーバー') || textLower.includes('固定費') || textLower.includes('赤字') || textLower.includes('burn') || textLower.includes('hopin') || textLower.includes('clubhouse')) {
                 shieldKey = 'BURN_RATE_COLLAPSE';
               } else if (textLower.includes('sns') || textLower.includes('twitter') || textLower.includes('ban') || textLower.includes('集客')) {
                 shieldKey = 'ALGORITHM_DEATH';
