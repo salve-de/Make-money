@@ -2673,4 +2673,17 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   4. **Git自律同期 ＆ 差分ゼロ完了**:
      - コミットおよびプッシュを自律完遂。
 
+### 83. Phase 83: 全AI共通『HANDOFF.md』新設 ＆ Universal Foundation連携ハンドオフ完全同期（完了）
+- **検死された本質的論点 ＆ ユーザーの痛烈な指導**:
+  - 「AGENTMDってか GITHUBとか R2に書いておけよ てか UNIVERSUL DATITION? とか HANDOFFにはかかない？ これは不要？」
+  - ユーザーの指摘は100%正鵠を射ており、過去のチャットログを持たない別セッション・別モデル（Claude, Cursor, ChatGPT等）がリポジトリを開いた際、`HANDOFF.md` が存在しなければ自律行動の起点を喪失する致命的欠陥を検死。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **ルート直下への全AI共通『HANDOFF.md』新設**:
+     - 北極星、正本境界（Universal Foundation ＝ データ基盤 / Make-Money ＝ キーエンス品質精錬・UI）、R2メダリオン3層構造、一言で動く完全自律5大フェーズ、欠落再急襲（Missing Fact Auto-Harvest）、絶対遵守規律を1枚に凝縮して明文化。
+  2. **『docs/FOUNDATION_JOURNAL_HANDOFF.md』の耐久フロー完全同期**:
+     - Universal Foundation（`salve-de/universal-foundation`）とMake-Moneyの接続ハンドオフにおいて、Bronze/Silver層から Missing Fact Auto-Harvest を経て Keyence-quality Gold Refinery（`datasets/ds.business.makemoney-dossiers.v1`）へ至る耐久フローを同期。
+  3. **Git自律同期 ＆ 差分ゼロ完了**:
+     - コミットおよびプッシュを自律完遂。
+
+
 

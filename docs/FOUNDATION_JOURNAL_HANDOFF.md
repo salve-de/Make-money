@@ -14,11 +14,13 @@ The durable flow is:
 
 ```text
 raw evidence / source-less lead
- -> research-bundle.v1
- -> Universal Journal
- -> typed projections
- -> derived intelligence
- -> Make-Money view
+ -> research-bundle.v1 (Foundation Lake: Bronze/Silver)
+ -> Universal Journal (journal-entry.v1)
+ -> typed projections (Entity, Claim, Metric, Event)
+ -> Missing Fact Auto-Harvest (Autonomous secondary web search loop for missing year, P&L, traction)
+ -> Keyence-quality Gold Refinery
+ -> versioned serving view (datasets/ds.business.makemoney-dossiers.v1)
+ -> Make-Money Bloomberg terminal view (direct 0.01s render)
 ```
 
 ## Commands
