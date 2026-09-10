@@ -18,6 +18,13 @@ export type MoatType =
   | 'BRAND_PRESTIGE'
   | 'PROCESS_POWER';
 
+export type FinancialEvidenceStatus = 
+  | 'VERIFIED'      // 確定開示（決算短信、有報、SEC、創業者Stripeダッシュボード公開実額）
+  | 'REPORTED'      // 報道・外部調査（TechCrunch, Forbes, The Information, 創業者インタビュー・発言）
+  | 'ESTIMATED'     // 逆算推測（単価 × 推定規模 × 業界原価率・推計方程式明記）
+  | 'POST_MORTEM'   // 死因出血逆算（破滅・清算企業の総調達額・残額・解散ログからの出血逆算）
+  | 'UNAVAILABLE';  // 情報なし・推測不可（セクション自体をDOMから完全消滅・非表示）
+
 export interface ProfitAndLossStatement {
   monthlyRevenue: number; // 単位: 円
   cogs: number; // 売上原価
@@ -36,6 +43,10 @@ export interface ProfitAndLossStatement {
   isRevenueUnconfirmed?: boolean; // 一次情報で売上未確認の場合 true（架空0円の捏造を防止）
   isMarginUnconfirmed?: boolean; // 利益率未確認の場合 true
   revenueLabel?: string; // 表示用カスタムラベル（例: "プラン: $57/月〜", "売上非公開"）
+  financialStatus?: FinancialEvidenceStatus; // 財務証拠ステータス
+  dataSnapshotPeriod?: string; // 観測基準時期（例: "2024年3月期通期", "2022年ピーク時", "2024年最新Stripe魚拓"）
+  sourceDoc?: string; // 一次情報源・出典（例: "2024年有価証券報告書", "TechCrunch報道", "公式Open Dashboard"）
+  estimationLogic?: string; // 推計因数分解（計算方程式。例: "年$19プラン × 推定12万件 ÷ 12ヶ月 ＝ 月商 約¥2,850万"）
 }
 
 export interface ToolStackItem {

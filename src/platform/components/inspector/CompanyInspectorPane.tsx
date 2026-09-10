@@ -30,7 +30,8 @@ import {
   Edit3,
   Skull,
   AlertTriangle,
-  Shield
+  Shield,
+  Calculator
 } from 'lucide-react';
 import { AffiliateToolBadge, AffiliateToolList } from '../tools/AffiliateToolBadge';
 import { findToolAffiliate, HAZARD_DEFENSE_SHIELDS, TOOL_AFFILIATES } from '../../config/toolAffiliates';
@@ -94,6 +95,19 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose, onNextEntity, onPrevEntity]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const targetSection = params.get('section');
+    if (targetSection === 'financial') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById('section-financial');
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+      return () => clearTimeout(timer);
+    }
+  }, [entity?.id]);
+
   if (!entity) return null;
 
   const formatMoney = (yen: number) => {
@@ -134,6 +148,67 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     entity.tags?.some(t => t.includes('地雷') || t.includes('失敗') || t.includes('爆死')) ||
     entity.architecturePattern?.includes('地雷') ||
     (entity.growthRateYoY !== undefined && entity.growthRateYoY < -30);
+
+  // 財務証拠ステータスの判定（VERIFIED / REPORTED / ESTIMATED / POST_MORTEM / UNAVAILABLE）
+  const financialStatus = entity.pnl?.financialStatus || (
+    isHazardMode ? 'POST_MORTEM' :
+    ['ent_keyence', 'ent_klaviyo_core', 'ent_buffer', 'ent_plausible', 'ent_shipfast', 'ent_photoai', 'ent_nomadlist', 'ent_transistor', 'ent_baremetrics_b0966c4871940e459cbb'].includes(entity.id)
+      ? 'VERIFIED'
+      : ['ent_case06_67a6586e2f30a21c8576', 'ent_notion_hq', 'ent_midjourney_239b8ccc522504fb757b', 'ent_basecamp_b1bb0f0ff61469aa22c5', 'ent_gumroad_164534dd22fa6c2e2793', 'ent_linear_app', 'ent_beehiiv_0e052432d4cc474caec6', 'ent_kitformerlyconvertkit_05168bc6971293b6d3ab', 'ent_whoop_fitness', 'ent_athletic_greens_ag1', 'ent_oura_ring', 'ent_case06_7590e69f49bb1c7e8ac7'].includes(entity.id)
+      ? 'REPORTED'
+      : 'ESTIMATED'
+  );
+
+  // 財務データ欠損（完全消滅・非表示）ガード
+  const isFinancialUnavailable = 
+    !entity.pnl ||
+    financialStatus === 'UNAVAILABLE' ||
+    (entity.pnl.isRevenueUnconfirmed && !entity.pnl.monthlyRevenue);
+
+  // 財務ステータス別のバッジ・タイトル・タグ設定
+  const getFinancialBadgeMeta = () => {
+    switch (financialStatus) {
+      case 'VERIFIED':
+        return {
+          badgeClass: 'text-emerald-400 bg-emerald-950/40 border-emerald-500/30',
+          iconColor: 'text-emerald-400',
+          titleColor: 'text-emerald-300',
+          title: '財務計器盤 (EXECUTIVE AUDIT & CASH FLOW)',
+          tagClass: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
+          tagLabel: '確定開示 (VERIFIED)',
+        };
+      case 'REPORTED':
+        return {
+          badgeClass: 'text-cyan-400 bg-cyan-950/40 border-cyan-500/30',
+          iconColor: 'text-cyan-400',
+          titleColor: 'text-cyan-300',
+          title: '報道・取材損益計器盤 (REPORTED CASH FLOW)',
+          tagClass: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
+          tagLabel: '報道・取材 (REPORTED)',
+        };
+      case 'POST_MORTEM':
+        return {
+          badgeClass: 'text-red-400 bg-red-950/40 border-red-500/30',
+          iconColor: 'text-red-400',
+          titleColor: 'text-red-300',
+          title: '出血・逆流レントゲン (BURN RATE & CASH DRAIN)',
+          tagClass: 'bg-red-950/50 text-red-300 border-red-500/40',
+          tagLabel: '死因出血逆算 (POST-MORTEM)',
+        };
+      case 'ESTIMATED':
+      default:
+        return {
+          badgeClass: 'text-amber-400 bg-amber-950/40 border-amber-500/30',
+          iconColor: 'text-amber-400',
+          titleColor: 'text-amber-300',
+          title: '推定損益計器盤 (ESTIMATED CASH FLOW)',
+          tagClass: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+          tagLabel: '推測値 (ESTIMATED)',
+        };
+    }
+  };
+
+  const financialBadgeMeta = getFinancialBadgeMeta();
 
   // 動的証拠カード（Dynamic Evidence Registry）の有無判定
   const hasEvidenceCards = Boolean(entity.evidenceCards && entity.evidenceCards.length > 0);
@@ -687,175 +762,209 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* #05〜#08: 財務レントゲン / 出血・逆流レントゲン */}
           {/* ------------------------------------------------------- */}
           <div className="space-y-6 pt-2 border-t border-white/[0.06]">
-            {/* 財務計器盤 (4連KPI + ウォーターフォールバー) */}
-            <section className="space-y-2">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                      : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
-                  }`}>
-                    #05
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <BarChart3 className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-300' : 'text-zinc-200'
-                    }`}>
-                      {isHazardMode ? '出血・逆流レントゲン (BURN RATE & CASH DRAIN)' : '財務計器盤 (EXECUTIVE KPI & CASH FLOW)'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className={`border rounded-md bg-[#0A0C10] p-3.5 space-y-3.5 shadow-sm ${
-                isHazardMode ? 'border-red-500/20' : 'border-white/[0.08]'
-              }`}>
-                {/* 4連コアKPI */}
-                <div className="grid grid-cols-4 gap-2 font-mono">
-                  <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                    <span className="text-[9px] text-zinc-500 block uppercase">{isHazardMode ? '月商 (ピーク/現行)' : '月商 (Rev)'}</span>
-                    <span className="text-xs font-bold text-white tabular-nums">
-                      {entity.pnl.isRevenueUnconfirmed
-                        ? (entity.pnl.revenueLabel || '非公開')
-                        : formatMoney(entity.pnl.monthlyRevenue)}
-                    </span>
-                  </div>
-                  <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                    <span className="text-[9px] text-zinc-500 block uppercase">{isHazardMode ? '純損失/手残り' : '純手残り (Net)'}</span>
-                    <span className={`text-xs font-bold tabular-nums ${
-                      isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
-                    }`}>
-                      {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed
-                        ? '非公開'
-                        : formatMoney(entity.pnl.operatingProfit)}
-                    </span>
-                  </div>
-                  <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                    <span className="text-[9px] text-zinc-500 block uppercase">{isHazardMode ? '赤字/利益率' : '利益率 (Margin)'}</span>
-                    <span className={`text-xs font-bold tabular-nums ${
-                      isHazardMode || entity.pnl.operatingMargin < 0 ? 'text-red-400' : 'text-emerald-400'
-                    }`}>
-                      {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed
-                        ? '--%'
-                        : `${entity.pnl.operatingMargin}%`}
-                    </span>
-                  </div>
-                  <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                    <span className="text-[9px] text-zinc-500 block uppercase">年成長率 (YoY)</span>
-                    <span className={`text-xs font-bold tabular-nums ${
-                      entity.growthRateYoY < 0 ? 'text-red-400' : 'text-zinc-200'
-                    }`}>
-                      {entity.pnl.isRevenueUnconfirmed ? '観測中' : `${entity.growthRateYoY > 0 ? '+' : ''}${entity.growthRateYoY}%`}
-                    </span>
-                  </div>
-                </div>
-
-                {/* 損益流出ウォーターフォールバー */}
-                {entity.pnl.isRevenueUnconfirmed ? (
-                  <div className="pt-2 text-[10px] text-zinc-500 font-mono text-center border-t border-white/[0.04]">
-                    ※ 公開一次情報では月次損益の内訳は未確定です（全量インテリジェンスStreamの観測ログを参照）
-                  </div>
-                ) : (
-                  <div className="space-y-1.5 pt-1 border-t border-white/[0.04]">
-                    <div className="flex items-center justify-between text-[10px] font-mono">
-                      <span className="text-zinc-500">{isHazardMode ? '資本流出・出血分解 (100%基準)' : '損益流出分解 (100%基準)'}</span>
-                      <span className={`font-bold ${isHazardMode || profitPct === 0 ? 'text-red-400' : 'text-emerald-400'}`}>
-                        {isHazardMode ? `純手残り ${profitPct}% (出血状態)` : `手残り純利益 ${profitPct}%`}
+            {/* 財務計器盤 ＆ 月次損益テーブル（データ欠損・UNAVAILABLE時は完全非表示） */}
+            {!isFinancialUnavailable && (
+              <>
+                {/* 財務計器盤 (4連KPI + ウォーターフォールバー) */}
+                <section id="section-financial" className="space-y-2 scroll-mt-4">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+                        financialBadgeMeta.badgeClass
+                      }`}>
+                        #05
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <BarChart3 className={`w-3.5 h-3.5 ${financialBadgeMeta.iconColor}`} />
+                        <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
+                          financialBadgeMeta.titleColor
+                        }`}>
+                          {financialBadgeMeta.title}
+                        </span>
+                      </div>
+                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${financialBadgeMeta.tagClass}`}>
+                        {financialBadgeMeta.tagLabel}
                       </span>
                     </div>
-                    <div className="w-full h-2 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.08]">
-                      {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
-                      {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className={isHazardMode ? "bg-red-800" : "bg-zinc-700"} title={`推論/サーバー: ${serverPct}%`} />}
-                      {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
-                      {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
-                      {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
-                      {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
-                      {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className={isHazardMode ? "bg-red-500" : "bg-emerald-500"} title={`純利益: ${profitPct}%`} />}
+                    {/* 右側：観測時期 ＆ 出典 */}
+                    <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-500">
+                      {entity.pnl.dataSnapshotPeriod && (
+                        <span className="flex items-center gap-1 text-zinc-400">
+                          <Clock className="w-2.5 h-2.5 text-zinc-500" />
+                          {entity.pnl.dataSnapshotPeriod}
+                        </span>
+                      )}
+                      {entity.pnl.sourceDoc && (
+                        <span className="hidden sm:inline px-1.5 py-0.2 rounded bg-white/[0.03] border border-white/[0.06] text-zinc-400">
+                          {entity.pnl.sourceDoc}
+                        </span>
+                      )}
                     </div>
                   </div>
-                )}
-              </div>
-            </section>
 
-            {/* P&L 会計スプレッドシートテーブル */}
-            <section className="space-y-2">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                      : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+                  <div className={`border rounded-md bg-[#0A0C10] p-3.5 space-y-3.5 shadow-sm ${
+                    isHazardMode ? 'border-red-500/20' : 'border-white/[0.08]'
                   }`}>
-                    #06
-                  </span>
-                  <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                    isHazardMode ? 'text-red-300' : 'text-zinc-200'
+                    {/* 4連コアKPI */}
+                    <div className="grid grid-cols-4 gap-2 font-mono">
+                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                        <span className="text-[9px] text-zinc-500 block uppercase">
+                          {financialStatus === 'ESTIMATED' ? '推定月商 (Rev)' : isHazardMode ? '月商 (ピーク/現行)' : '月商 (Rev)'}
+                        </span>
+                        <span className="text-xs font-bold text-white tabular-nums">
+                          {formatMoney(entity.pnl.monthlyRevenue)}
+                        </span>
+                      </div>
+                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                        <span className="text-[9px] text-zinc-500 block uppercase">
+                          {financialStatus === 'ESTIMATED' ? '推定手残り (Net)' : isHazardMode ? '純損失/手残り' : '純手残り (Net)'}
+                        </span>
+                        <span className={`text-xs font-bold tabular-nums ${
+                          isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
+                        }`}>
+                          {formatMoney(entity.pnl.operatingProfit)}
+                        </span>
+                      </div>
+                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                        <span className="text-[9px] text-zinc-500 block uppercase">
+                          {financialStatus === 'ESTIMATED' ? '推定利益率' : isHazardMode ? '赤字/利益率' : '利益率 (Margin)'}
+                        </span>
+                        <span className={`text-xs font-bold tabular-nums ${
+                          isHazardMode || entity.pnl.operatingMargin < 0 ? 'text-red-400' : 'text-emerald-400'
+                        }`}>
+                          {entity.pnl.operatingMargin}%
+                        </span>
+                      </div>
+                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                        <span className="text-[9px] text-zinc-500 block uppercase">年成長率 (YoY)</span>
+                        <span className={`text-xs font-bold tabular-nums ${
+                          entity.growthRateYoY < 0 ? 'text-red-400' : 'text-zinc-200'
+                        }`}>
+                          {`${entity.growthRateYoY > 0 ? '+' : ''}${entity.growthRateYoY}%`}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* 損益流出ウォーターフォールバー */}
+                    <div className="space-y-1.5 pt-1 border-t border-white/[0.04]">
+                      <div className="flex items-center justify-between text-[10px] font-mono">
+                        <span className="text-zinc-500">
+                          {financialStatus === 'ESTIMATED' ? '損益分解モデル (100%基準)' : isHazardMode ? '資本流出・出血分解 (100%基準)' : '損益流出分解 (100%基準)'}
+                        </span>
+                        <span className={`font-bold ${isHazardMode || profitPct === 0 ? 'text-red-400' : 'text-emerald-400'}`}>
+                          {isHazardMode ? `純手残り ${profitPct}% (出血状態)` : `手残り純利益 ${profitPct}%`}
+                        </span>
+                      </div>
+                      <div className="w-full h-2 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.08]">
+                        {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
+                        {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className={isHazardMode ? "bg-red-800" : "bg-zinc-700"} title={`推論/サーバー: ${serverPct}%`} />}
+                        {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
+                        {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
+                        {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
+                        {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
+                        {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className={isHazardMode ? "bg-red-500" : "bg-emerald-500"} title={`純利益: ${profitPct}%`} />}
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                {/* P&L 会計スプレッドシートテーブル */}
+                <section className="space-y-2">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+                    <div className="flex items-center gap-2">
+                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${financialBadgeMeta.badgeClass}`}>
+                        #06
+                      </span>
+                      <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${financialBadgeMeta.titleColor}`}>
+                        {financialStatus === 'ESTIMATED'
+                          ? '推定損益構造モデル (P&L ESTIMATION MODEL)'
+                          : financialStatus === 'REPORTED'
+                          ? '報道・取材損益テーブル (P&L REPORTED AUDIT)'
+                          : isHazardMode
+                          ? '月次損益出血テーブル (P&L AUTOPSY)'
+                          : '確定財務実査テーブル (P&L AUDIT)'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* 推計因数分解方程式ボックス（ESTIMATED時のみ表示） */}
+                  {financialStatus === 'ESTIMATED' && entity.pnl.estimationLogic && (
+                    <div className="p-3 rounded-md bg-[#0F0D07] border border-amber-500/30 space-y-1.5 shadow-sm">
+                      <div className="flex items-center gap-1.5 text-amber-400 text-[10px] font-mono font-bold">
+                        <Calculator className="w-3.5 h-3.5 text-amber-400" />
+                        <span>推計因数分解方程式 (REVERSE-ENGINEERED EQUATION)</span>
+                      </div>
+                      <div className="font-mono text-[11px] text-amber-200/90 leading-relaxed bg-black/50 p-2.5 rounded border border-amber-500/20 whitespace-pre-line">
+                        {entity.pnl.estimationLogic}
+                      </div>
+                      <div className="text-[9px] font-mono text-zinc-500">
+                        ※ 公開プラン単価・観測ユーザー規模・業界標準原価率からリバースエンジニアリングした科学的推計方程式です。
+                      </div>
+                    </div>
+                  )}
+
+                  <div className={`border rounded-md bg-[#0A0C10] divide-y text-xs font-mono shadow-sm ${
+                    isHazardMode ? 'border-red-500/20 divide-red-500/10' : 'border-white/[0.08] divide-white/[0.04]'
                   }`}>
-                    {isHazardMode ? '月次損益出血テーブル (P&L AUTOPSY)' : '月次損益実査テーブル (P&L AUDIT)'}
-                  </span>
-                </div>
-              </div>
-              {entity.pnl.isRevenueUnconfirmed ? (
-                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-4 text-center font-mono text-[11px] text-zinc-500 space-y-1">
-                  <p className="text-zinc-400">本銘柄の確定財務（売上・粗利・販管費）は非公開・未確認です。</p>
-                  <p className="text-zinc-600 text-[10px]">
-                    ※ 公開プラン価格（{entity.pricing?.pricePoint || '要問合せ'}）および下部の証拠Streamに観測事実を蓄積中
-                  </p>
-                </div>
-              ) : (
-                <div className={`border rounded-md bg-[#0A0C10] divide-y text-xs font-mono shadow-sm ${
-                  isHazardMode ? 'border-red-500/20 divide-red-500/10' : 'border-white/[0.08] divide-white/[0.04]'
-                }`}>
-                  <div className="p-2.5 flex justify-between items-center">
-                    <span className="text-zinc-400">{isHazardMode ? '直近/ピーク月商' : '直近月商 (Gross Revenue)'}</span>
-                    <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
-                  </div>
-                  <div className="p-2.5 flex justify-between items-center text-[11px]">
-                    <span className="text-zinc-500 pl-2">└ 売上原価 (COGS)</span>
-                    <span className="text-zinc-400 tabular-nums">-{formatMoney(entity.pnl.cogs)}</span>
-                  </div>
-                  <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
-                    <span className="text-zinc-300 font-medium">粗利益 (Gross Profit: {entity.pnl.grossMargin}%)</span>
-                    <span className="text-white font-medium tabular-nums">{formatMoney(entity.pnl.grossProfit)}</span>
-                  </div>
-                  <div className="p-2.5 space-y-1.5 text-[11px] text-zinc-500">
-                    <div className="text-[10px] text-zinc-600 uppercase font-bold">販管費内訳 (OPEX)</div>
-                    <div className="flex justify-between pl-2">
-                      <span>サーバー/推論API費</span>
-                      <span className={`tabular-nums ${isHazardMode ? 'text-red-300' : ''}`}>{formatMoney(entity.pnl.operatingExpenses.serverAndApi)}</span>
+                    <div className="p-2.5 flex justify-between items-center">
+                      <span className="text-zinc-400">
+                        {financialStatus === 'ESTIMATED' ? '推定月商 (Gross Revenue)' : isHazardMode ? '直近/ピーク月商' : '直近月商 (Gross Revenue)'}
+                      </span>
+                      <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
                     </div>
-                    <div className="flex justify-between pl-2">
-                      <span>広告宣伝費</span>
-                      <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.advertising)}</span>
+                    <div className="p-2.5 flex justify-between items-center text-[11px]">
+                      <span className="text-zinc-500 pl-2">└ 売上原価 (COGS)</span>
+                      <span className="text-zinc-400 tabular-nums">-{formatMoney(entity.pnl.cogs)}</span>
                     </div>
-                    <div className="flex justify-between pl-2">
-                      <span>外注・委託費</span>
-                      <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.subcontracting)}</span>
+                    <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
+                      <span className="text-zinc-300 font-medium">粗利益 (Gross Profit: {entity.pnl.grossMargin}%)</span>
+                      <span className="text-white font-medium tabular-nums">{formatMoney(entity.pnl.grossProfit)}</span>
                     </div>
-                    <div className="flex justify-between pl-2">
-                      <span>ツール・SaaS費</span>
-                      <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS)}</span>
+
+                    {/* 販管費内訳 (OPEX) */}
+                    <div className="p-2.5 space-y-1.5 text-[11px] text-zinc-500">
+                      <div className="flex items-center justify-between text-[10px] text-zinc-600 uppercase font-bold">
+                        <span>販管費内訳 (OPEX)</span>
+                        {financialStatus === 'ESTIMATED' && (
+                          <span className="text-amber-500/80 font-normal">※業界標準比率に基づく推定配分</span>
+                        )}
+                      </div>
+                      <div className="flex justify-between pl-2">
+                        <span>サーバー/推論API費</span>
+                        <span className={`tabular-nums ${isHazardMode ? 'text-red-300' : ''}`}>{formatMoney(entity.pnl.operatingExpenses.serverAndApi)}</span>
+                      </div>
+                      <div className="flex justify-between pl-2">
+                        <span>広告宣伝費</span>
+                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.advertising)}</span>
+                      </div>
+                      <div className="flex justify-between pl-2">
+                        <span>外注・委託費</span>
+                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.subcontracting)}</span>
+                      </div>
+                      <div className="flex justify-between pl-2">
+                        <span>ツール・SaaS費</span>
+                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS)}</span>
+                      </div>
                     </div>
-                  </div>
-                  <div className={`p-2.5 flex justify-between items-center border-t ${
-                    isHazardMode || entity.pnl.operatingProfit < 0
-                      ? 'bg-red-950/30 border-red-500/30'
-                      : 'bg-emerald-950/20 border-white/[0.08]'
-                  }`}>
-                    <span className="text-white font-bold">
-                      {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業赤字 (純流出)' : '営業利益 (純手残り)'} ({entity.pnl.operatingMargin}%)
-                    </span>
-                    <span className={`font-bold tabular-nums text-xs ${
-                      isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
+
+                    <div className={`p-2.5 flex justify-between items-center border-t ${
+                      isHazardMode || entity.pnl.operatingProfit < 0
+                        ? 'bg-red-950/30 border-red-500/30'
+                        : 'bg-emerald-950/20 border-white/[0.08]'
                     }`}>
-                      {formatMoney(entity.pnl.operatingProfit)}/月
-                    </span>
+                      <span className="text-white font-bold">
+                        {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業赤字 (純流出)' : '営業利益 (純手残り)'} ({entity.pnl.operatingMargin}%)
+                      </span>
+                      <span className={`font-bold tabular-nums text-xs ${
+                        isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
+                      }`}>
+                        {formatMoney(entity.pnl.operatingProfit)}/月
+                      </span>
+                    </div>
                   </div>
-                </div>
-              )}
-            </section>
+                </section>
+              </>
+            )}
 
             {/* 運用体制 ＆ 資本要件 */}
             <section className="space-y-2">
@@ -901,8 +1010,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </div>
             </section>
 
-            {/* 稼働インフラ：現場配管ツール（通常時） */}
-            {!isHazardMode && (
+            {/* 稼働インフラ：現場配管ツール（通常時・データが存在する場合のみ表示） */}
+            {!isHazardMode && entity.operations?.toolStack && entity.operations.toolStack.length > 0 && (
               <section className="space-y-2">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                   <div className="flex items-center gap-2">
