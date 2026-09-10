@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { FinancialEntity, IntelligenceTopicId } from '../../types/terminal';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
@@ -82,6 +82,13 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   const tabParam = searchParams?.get('tab')?.toUpperCase() as TabType | undefined;
   const resolvedTab = tabParam === 'CORE' || tabParam === 'STREAM' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK' || tabParam === 'NOTES' ? tabParam : initialTab;
   const [activeTab, setActiveTab] = useState<TabType>(resolvedTab);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [entity?.id, activeTab]);
 
   useEffect(() => {
     if (tabParam === 'CORE' || tabParam === 'STREAM' || tabParam === 'FINANCIALS' || tabParam === 'PLAYBOOK' || tabParam === 'NOTES') {
@@ -371,7 +378,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         {/* ========================================================= */}
         {/* 【コンテンツゾーン: 明瞭なセクション区切り ＆ 高密度】 */}
         {/* ========================================================= */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 sm:space-y-6 text-xs font-sans">
+        <div ref={scrollContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 sm:space-y-6 text-xs font-sans">
           
           {/* 市場の歪み・トレンドへの直通バナー（ワームホール） */}
           {relatedAnomaly && (

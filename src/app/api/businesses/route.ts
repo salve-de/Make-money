@@ -17,7 +17,7 @@ export async function GET() {
         { source: "local_cache", count: parsed.length, data: parsed },
         {
           headers: {
-            "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+            "Cache-Control": "no-store, no-cache, must-revalidate",
           },
         }
       );
@@ -36,7 +36,7 @@ export async function GET() {
           { source: "r2_lake", count: parsed.length, data: parsed },
           {
             headers: {
-              "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+              "Cache-Control": "no-store, no-cache, must-revalidate",
             },
           }
         );
