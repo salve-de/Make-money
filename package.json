@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build --webpack && node scripts/architecture/check-paid-bundle.mjs",
-    "start": "next start",
+    "start": "node scripts/start-standalone.mjs",
     "lint": "eslint && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs",
     "preview:workers": "pnpm workers:build && opennextjs-cloudflare preview",
     "deploy:preflight": "node scripts/architecture/check-deploy-config.mjs",
