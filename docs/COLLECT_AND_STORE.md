@@ -1,5 +1,12 @@
 # 「MAKEMONEYに必要なデータを集めてこい」の実行入口
 
+## 収集対象の完全目録
+
+
+項目の取りこぼしを防ぐため、まず [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md) を読む。そこに9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、財務・手残り推計、未知値の状態、Journal/R2配置、完了報告の必須項目を全て列挙している。この入口文書は保存手順、完全目録は調査内容を定義する。
+
+Universal側の同名正本は [`universal-foundation/docs/MAKE_MONEY_COLLECTION_SCOPE.md`](https://github.com/salve-de/universal-foundation/blob/main/docs/MAKE_MONEY_COLLECTION_SCOPE.md)。内容が違えばUniversal Foundation mainを上位正本として修正し、差分を残さない。
+
 ## 0. 正本
 
 最初に認証付きで `salve-de/universal-foundation` を取得し、次を順番に読む。
@@ -48,7 +55,7 @@ Source / lead
 ```sh
 gh repo clone salve-de/universal-foundation /private/tmp/foundation-contract
 export FOUNDATION_REPO=/private/tmp/foundation-contract
-npm ci
+pnpm install --frozen-lockfile
 ```
 
 AI自身が検索・閲覧して `request.json` を作る。過去のBuffer fixtureを別企業の数値として流用しない。
@@ -192,3 +199,23 @@ CAPTURE/CORE/ENRICHEDの部分データは、有用ならそのまま保存し�
 - **保存性質**: Foundationの正本契約に則り、versioned serving view として Create-Only で保存。
 - **UIとの結合**: Make-Money UIは、このGoldデータセットを読み込むことで、画面側での場当たり推論（英語ログ混入、架空数値捏造、創業年脱落）を完全ゼロ化する。
 
+
+## 並行収集の境界（main側の収集規則を統合）
+
+
+事例を100件程度まで並行収集してよい。InvestraderのR2-first / Neon撤去作業とは独立したworkstreamとして扱い、収集のために新しいDB・新しいR2レイアウト・新しいMake-Money専用真実スキーマを作らない。
+
+並行収集するAI/agentは次を守る。
+
+1. `salve-de/universal-foundation` のmainを最上位正本とし、`research-bundle.v1`、stable ID、Universal Journal/typed projections、evidence/rights/uncertainty規則を使う。
+2. 実際の保存は本ブランチに取り込まれた検証済み収集CLIを使う。自由記述の調査結果から直接R2や画面用JSONへ書かない。
+3. Universal共通要件 + Make-Money研究要件の和集合を調査する。画面に今出さない事実も捨てない。Hook、4 STAGES、Money Machine、Moat、Opportunity等はFoundationの事実ではなくderived outputとして保持する。
+4. 可能ならagentごとに候補リストとrun IDを分ける。同一主体を再取得してもstable ID/create-only/dedupeで安全に扱える設計を維持するが、無駄な重複調査は避ける。
+5. 新規R2保存はcreate-only。既存 `universal`、EDINET、Investrader shadow、既存Foundation objectを移動・上書き・削除しない。
+6. 出典がない有用な候補は捨てず `UNVERIFIED` として保持する。ただし未確認の数字をverified、ランキング根拠、成功保証に昇格しない。
+7. 各runはschema/audit/ingest-complete/readback/hash/dedupe結果を残す。100件という件数だけでは完了としない。
+8. R2認証がない実行環境では、validated research bundleとplanned write manifestまで作って停止する。legacy `universal` へ代替保存しない。
+
+9. Journalは後回しにしない。収集と同じrunの`journal-entry.v1`を計画し、許可された既存経路で保存し、Journal件数・schema検証・readbackを完了報告に含める。descriptorの更新も、データ本体とは別の明示的な新規create-only書込みとして扱う。
+
+この収集workstreamはNeon、D1、R2 SQLを必要としない。R2 serving/indexの最適化やInvestraderのDB撤去は別作業として進める。

@@ -111,6 +111,10 @@
 `docs/COLLECT_AND_STORE.md` をAI向け入口として追加。Universalのschema検証、46項目の調査状態、未分類観測の保持、money_signal保存の不具合修正、旧合成pipelineの誤実行防止を実装。
 
 Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/bytes一致6件。再実行は新規0・同一6件。証明は `data/collection/buffer-2024.saved.json` と `buffer-2024.repeat.json`。既存R2/EDINETの移動・削除・上書き0。全項目調査完了ではなくPARTIALを維持。4テストと `tsc --noEmit` PASS。認証がない別端末は準備までで、保存成功とは扱わない。
+
+## 2026-09-08 新規収集入口をmainへ登録
+
+`docs/COLLECT_AND_STORE.md` とAGENTS/READMEから、検証済み収集実装ブランチ `codex/collection-handoff-20260908` へ接続。Universal mainに共通収集追記を反映。R2新規6件の保存/読戻しと同一再実行スキップを確認。既存データの変更は0。実装の無関係なアプリ改修はmainへ統合していない。
 （事業収益化プラットフォーム 戦略マスター白書・永続意思決定台帳 ＆ 備忘録）
 
 ---
@@ -3168,7 +3172,6 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   4. **ビルド検証 ＆ Git完全同期**:
      - `npm run build` PASS（全9ルート合格、エラーゼロ）。
      - 本白書への記録・コミット・プッシュを自律完遂。
-
 
 
 

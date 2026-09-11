@@ -13,6 +13,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 保存先・ファイル配置・責務・設計理由・他プロジェクトへの適用は [データとコードの置き場所](docs/architecture/STORAGE.md) を正本とする。D1へユーザーと決済状態、非公開R2へ添付・原本・バックアップを置く。Neonを新規の実行時依存にしない。移行途中の実装を完成形と誤認せず、同文書の現在地と実コードを確認する。保存先や境界を変えたら、関連するschema/migration・テスト・この正本を同じ変更で更新する。
 
 
+## 新規データ収集の入口
+
+「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず `docs/COLLECT_AND_STORE.md` を読む。Universal共通要件とプロジェクト要件の両方を収集する。既存R2/EDINETは一切変更しない。mainの旧pipelineは合成サンプルであり実収集には使用禁止。
+
+収集対象の完全な項目表は [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](docs/MAKE_MONEY_COLLECTION_SCOPE.md) に固定している。全AIは入口文書と併せてこの目録を読み、9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、お金のウォーターフォール、未知値、Journal系譜、R2配置、完了報告を漏れなく扱うこと。
+
 # 【絶対指針】プロジェクト北極星 ＆ AIエージェント行動規範
 
 本リポジトリで作業する全てのAIエージェントは、以下を最高憲法として遵守せよ。

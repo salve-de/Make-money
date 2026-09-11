@@ -6,6 +6,8 @@
 
 全プロジェクト共通の正本は [Universal Foundationの収集基準](https://github.com/salve-de/universal-foundation/blob/main/docs/UNIVERSAL_COLLECTION_BASELINE.md) とし、この文書ではMake-Moneyでの表示・運用へ落とし込む。
 
+何を調査対象にするかは、共通基準に加えて [Make-Money / business-case 収集対象の完全目録](./MAKE_MONEY_COLLECTION_SCOPE.md) で固定する。9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、手残りのウォーターフォール、未知値の状態を省略しない。画面に未表示の事実も捨てない。
+
 ## 1. 収集と信頼度を分離する
 
 出典の有無を、収集・保存・表示の絶対条件にしない。出典が見つからない情報も候補として保存し、後から根拠を追加できる状態にする。
