@@ -28,7 +28,7 @@ function readKeychain(service) {
 
 const command = process.argv.slice(2);
 if (command.length === 0) {
-  console.error('Usage: npm run r2:with-secrets -- <command> [args...]');
+  console.error('Usage: pnpm r2:with-secrets -- <command> [args...]');
   process.exit(64);
 }
 

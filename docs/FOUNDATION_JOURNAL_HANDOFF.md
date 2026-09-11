@@ -40,13 +40,13 @@ node --import tsx scripts/foundation-collect.ts prepare request.json core-plan.j
 Prepare Journal write plan:
 
 ```sh
-npm run foundation:journal:prepare -- request.json journal-plan.json
+pnpm foundation:journal:prepare -- request.json journal-plan.json
 ```
 
 Prepare R2 self-description objects:
 
 ```sh
-npm run foundation:r2-descriptors:prepare -- descriptor-plan.json
+pnpm foundation:r2-descriptors:prepare -- descriptor-plan.json
 ```
 
 Authorized data ingestion uses the existing `r2:with-secrets` wrapper and requires `write_authorized:true` in the request. Descriptor materialization additionally requires `FOUNDATION_DESCRIPTOR_WRITE_AUTHORIZED=true`.

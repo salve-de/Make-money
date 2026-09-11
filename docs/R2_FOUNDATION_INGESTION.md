@@ -14,7 +14,7 @@
 - Cloudflare Workers：`wrangler.jsonc` の4つのR2 bindingを使う。S3キーは不要。
 - Node.js（ローカル・別サーバー）：`CLOUDFLARE_R2_*` のS3互換資格情報を使う。
 
-ローカルMacでNode.js経路を使う場合、R2の秘密値はリポジトリや`.env.local`へ平文で保存しない。プロジェクト専用のmacOS Keychain項目から、`npm run r2:with-secrets -- <command>` 実行時だけ環境変数へ注入する。
+ローカルMacでNode.js経路を使う場合、R2の秘密値はリポジトリや`.env.local`へ平文で保存しない。プロジェクト専用のmacOS Keychain項目から、`pnpm r2:with-secrets -- <command>` 実行時だけ環境変数へ注入する。
 
 どちらの経路でも、同じ作成専用Put、全件Preflight、保存後の読み戻し検証を通る。
 
@@ -25,7 +25,7 @@
 このリポジトリを読んだAIは、見つかった情報だけで1事例のbundleを作り、次の1コマンドを実行する。全項目が埋まるまで保存を止めない。取れなかったものは `unknown`、推定したものは `estimated`、分析は `inferred` としてbundleに残す。
 
 ```bash
-npm run foundation:r2 -- data/collection/<case>.request.json data/collection/<case>.receipt.json
+pnpm foundation:r2 -- data/collection/<case>.request.json data/collection/<case>.receipt.json
 ```
 
 入力はUniversal Foundationの `research-bundle.v1` を包んだ次の形にする。
@@ -114,25 +114,25 @@ FOUNDATION_R2_PUBLIC_BUCKET=foundation-public
 次の4バケットをCloudflareアカウント内に一度だけ作成し、対象アカウントへログインした状態で確認する。
 
 ```bash
-npx wrangler r2 bucket create foundation-raw
-npx wrangler r2 bucket create foundation-lake
-npx wrangler r2 bucket create foundation-restricted
-npx wrangler r2 bucket create foundation-public
-npx wrangler r2 bucket list
+pnpm exec wrangler r2 bucket create foundation-raw
+pnpm exec wrangler r2 bucket create foundation-lake
+pnpm exec wrangler r2 bucket create foundation-restricted
+pnpm exec wrangler r2 bucket create foundation-public
+pnpm exec wrangler r2 bucket list
 ```
 
 取り込みAPIのトークンはソースへ書かず、次でWorkers Secretへ登録する。
 
 ```bash
-npx wrangler secret put FOUNDATION_INGEST_TOKEN
+pnpm exec wrangler secret put FOUNDATION_INGEST_TOKEN
 ```
 
 配備・Workers実行経路の確認は次で行う。
 
 ```bash
-npm run cf:typegen
-npm run preview:workers
-npm run deploy:workers
+pnpm cf:typegen
+pnpm preview:workers
+pnpm deploy:workers
 ```
 
 `wrangler.jsonc` の `remote: true` は、ローカルのWorkersプレビューでもローカル模擬R2へ誤保存せず、指定した実R2へ接続するための設定である。Cloudflareへログインしていない状態では成功扱いにしない。

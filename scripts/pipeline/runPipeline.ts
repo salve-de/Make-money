@@ -2,7 +2,7 @@
  * KIN-KOROKU データ収集パイプライン - MASTER RUNNER
  * 
  * 実行方法:
- *   npx tsx scripts/pipeline/runPipeline.ts
+ *   pnpm exec tsx scripts/pipeline/runPipeline.ts
  * 
  * 処理フロー:
  *   1. SCOUT: シグナルリードの検知・収集

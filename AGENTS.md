@@ -377,6 +377,8 @@ shared/ （機能に依存しない共通型・ユーティリティ・基盤UI�
 - **固定セクション（Header, 基本情報, 主要財務P&L等）**: 通常の明示的Composition（親コンポーネント内でJSXタグとして直感的に並べる）。可読性と保守性を最大化。
 - **動的セクション（企業ごとに種類・数が変わる特異点事実・Evidence Cards等）**: Typed Registryパターン（キーとComponentのマップ）。親のコードを汚さずに新カードを追加できる開放閉鎖原則（OCP）を達成。
 
+Company Inspectorのプレーンな`J`/`K`銘柄切替ショートカットとその案内は廃止済みであり、再導入しない。キーボード操作は検索用の`⌘K`とInspectorを閉じる`Escape`だけを現行契約とし、変更時はPlaywrightで文字入力が選択企業を変えないことを確認する。
+
 ### 4. 外部データ・AI生成物の境界Runtime検証（Runtime Schema Validation）
 - TypeScriptの型はビルド時に消滅するため、Web収集、R2、外部API、AI生成JSONを型注釈だけで信用することを厳禁とする。
 - 外部入力は入口（Boundary）でRuntime Schemaを検証してから内部型へ流し込む。Worker実行時は`@cfworker/json-schema`（`eval`/`new Function`不要）を使い、AJVはNode専用のschema生成・収集CLIに限定する。

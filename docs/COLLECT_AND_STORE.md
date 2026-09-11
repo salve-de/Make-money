@@ -64,7 +64,7 @@ AI自身が検索・閲覧して `request.json` を作る。過去のBuffer fixt
 
 ```sh
 node --import tsx scripts/foundation-collect.ts prepare request.json plan.json
-npm run r2:with-secrets -- node --import tsx scripts/foundation-collect.ts ingest request.json receipt.json
+pnpm r2:with-secrets -- node --import tsx scripts/foundation-collect.ts ingest request.json receipt.json
 ```
 
 深い完了判定が必要な場合:
@@ -72,7 +72,7 @@ npm run r2:with-secrets -- node --import tsx scripts/foundation-collect.ts inges
 ```sh
 node --import tsx scripts/foundation-collect.ts requirements
 node --import tsx scripts/foundation-collect.ts audit request.json audit-result.json
-npm run r2:with-secrets -- node --import tsx scripts/foundation-collect.ts ingest-complete request.json receipt.json
+pnpm r2:with-secrets -- node --import tsx scripts/foundation-collect.ts ingest-complete request.json receipt.json
 ```
 
 `prepare`はR2を書かない。`ingest`は部分保存も許す。`ingest-complete`は深いreconciliation用。
@@ -84,13 +84,13 @@ npm run r2:with-secrets -- node --import tsx scripts/foundation-collect.ts inges
 書込前確認:
 
 ```sh
-npm run foundation:journal:prepare -- request.json journal-plan.json
+pnpm foundation:journal:prepare -- request.json journal-plan.json
 ```
 
 R2書込:
 
 ```sh
-npm run r2:with-secrets -- npm run foundation:journal:ingest -- request.json journal-receipt.json
+pnpm r2:with-secrets -- pnpm foundation:journal:ingest -- request.json journal-receipt.json
 ```
 
 Journal writerは:
@@ -111,14 +111,14 @@ Universalの`r2-descriptors/`には、各主要R2 prefixに置く`_README.v1.md`
 まずplanだけ作る:
 
 ```sh
-npm run foundation:r2-descriptors:prepare -- descriptors-plan.json
+pnpm foundation:r2-descriptors:prepare -- descriptors-plan.json
 ```
 
 実際にR2へmaterializeする場合は、明示的なdescriptor書込承認も必要:
 
 ```sh
 export FOUNDATION_DESCRIPTOR_WRITE_AUTHORIZED=true
-npm run r2:with-secrets -- npm run foundation:r2-descriptors:ingest -- descriptors-receipt.json
+pnpm r2:with-secrets -- pnpm foundation:r2-descriptors:ingest -- descriptors-receipt.json
 ```
 
 これにより、R2だけを見た将来のAIでも各bucket/prefixの目的、canonicality、schema、dataset ID、rebuild可否、write/delete policy、rights/security、consumer、GitHub正本を理解できる。

@@ -8,4 +8,4 @@ This is a PARTIAL repair, not a completed Buffer investigation. The other 29 evi
 
 The Universal profile now names 91 required dimensions, and Make-Money extracts fields from nine current consumer type roots. Source item inventories must reconcile to saved values. Unknown/source-less observations remain eligible for intake. Only `ingest-complete` enforces completion; ordinary `ingest` deliberately retains partial findings.
 
-Verification: 10 collection/reconciliation tests passed; `npx tsc --noEmit` passed. The prior comprehensive bundle fails the new audit. This does not guarantee that any AI discovers every source or inventories every fact honestly. Other projects require their own current-code field adapters.
+Verification: 10 collection/reconciliation tests passed; `pnpm typecheck` passed. The prior comprehensive bundle fails the new audit. This does not guarantee that any AI discovers every source or inventories every fact honestly. Other projects require their own current-code field adapters.
