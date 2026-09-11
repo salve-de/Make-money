@@ -41,7 +41,12 @@ test('conflicting financials explain the discrepancy instead of showing a verifi
   await page.getByRole('row').filter({ hasText: 'Acquire.com' }).click();
   await expect(page.getByRole('heading', { name: 'Acquire.com (旧 MicroAcquire)', exact: true })).toBeVisible();
   await expect(page.getByText('金額・費用の裏付けは未確認。').first()).toBeVisible();
-  await expect(page.locator('#section-financial')).toHaveCount(0);
+  await page.getByRole('button', { name: '財務P&L 未確認' }).click();
+  const financials = page.locator('#section-financial');
+  await expect(financials).toBeInViewport();
+  await expect(financials).toContainText('財務データは未確認');
+  await expect(financials.getByRole('table')).toHaveCount(0);
+  await expect(financials).not.toContainText('¥0');
 });
 
 test('an old duplicate entity URL still opens its canonical company', async ({ page }) => {

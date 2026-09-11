@@ -14,13 +14,18 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
           {/* ------------------------------------------------------- */}
           {/* #05〜#07: 財務レントゲン / 出血・逆流レントゲン */}
           {/* ------------------------------------------------------- */}
-          <div className="space-y-8">
+          <div id="section-financial" className="space-y-8 scroll-mt-4">
+              {isFinancialUnavailable && (
+                <section className="rounded-lg border border-white/[0.12] bg-[#0E131F] p-4 space-y-2">
+                  <h3 className="font-bold text-zinc-200">財務データは未確認</h3>
+                  <p className="text-zinc-400">月商・営業利益を裏付ける情報が不足しているため、損益計算を表示していません。確認できた数値と対象期間は特異物証を参照してください。</p>
+                </section>
+              )}
               {/* 財務計器盤 ＆ 月次損益テーブル（データ欠損・UNAVAILABLE時は完全非表示） */}
               {!isFinancialUnavailable && (
                 <>
                   {/* 財務計器盤 (4連KPI + ウォーターフォールバー) */}
                   <div
-                    id="section-financial"
                     className={`rounded-lg overflow-hidden border shadow-xl ${
                       isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
                     } scroll-mt-4`}
@@ -132,7 +137,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                           {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
                           {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
                           {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
-                          {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className={isHazardMode ? "bg-red-500" : "bg-emerald-500"} title={`純利益: ${profitPct}%`} />}
+                          {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className={isHazardMode ? "bg-red-500" : "bg-emerald-500"} title={`営業利益: ${profitPct}%`} />}
                         </div>
                       </div>}
                     </div>

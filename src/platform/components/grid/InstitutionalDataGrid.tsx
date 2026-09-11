@@ -167,7 +167,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     </div>
                   </td>
 
-                  {/* 右: 2段組（上段: 月商 / 下段: 純利 + 利益率） */}
+                  {/* 右: 2段組（上段: 月商 / 下段: 営業利益 + 利益率） */}
                   <td className="py-2.5 px-3 text-right tabular-nums align-middle">
                     {/* 1段目: 月商 */}
                     <div className="text-xs font-semibold">
@@ -181,7 +181,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         </span>
                       )}
                     </div>
-                    {/* 2段目: 純利 + 利益率 */}
+                    {/* 2段目: 営業利益 + 利益率 */}
                     <div className="flex items-center justify-end gap-1.5 text-[10px] mt-0.5 font-mono">
                       {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed ? (
                         <span className="text-zinc-600">--</span>
@@ -212,7 +212,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
               <tr className="border-b border-white/[0.08] bg-[#090A0D] text-zinc-500 text-[11px] h-9">
                 <th className="w-[58%] py-2.5 px-4 font-medium">銘柄 / 歪みの手口</th>
                 <th className="w-[14%] py-2.5 px-3 font-medium text-right">月商</th>
-                <th className="w-[18%] py-2.5 px-3 font-medium text-right">実効純利 (率)</th>
+                <th className="w-[18%] py-2.5 px-3 font-medium text-right">営業利益 (率)</th>
                 <th className="w-[10%] py-2.5 px-3 font-medium text-right">体制</th>
               </tr>
             </thead>
@@ -289,7 +289,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                       )}
                     </td>
 
-                    {/* 3. 実効純利 ＋ 利益率 */}
+                    {/* 3. 実効営業利益 ＋ 利益率 */}
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs">
                       {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed ? (
                         <span className="text-zinc-600">--</span>

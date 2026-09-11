@@ -84,17 +84,17 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
         {entity.tagline}
       </p>
 
-      {/* 3段目: 純利益・利益率・体制 */}
+      {/* 3段目: 営業利益・利益率・体制 */}
       <div className="flex items-center justify-between text-[11px] font-mono pt-1.5 border-t border-white/[0.04]">
         <div className="flex items-center gap-3">
           <div>
-            <span className="text-zinc-500 text-[10px] mr-1">純利</span>
+            <span className="text-zinc-500 text-[10px] mr-1">営業利益</span>
             <span className="text-zinc-200 tabular-nums font-medium">
               {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed ? '--' : formatMoney(entity.pnl.operatingProfit)}
             </span>
           </div>
           <div>
-            <span className="text-zinc-500 text-[10px] mr-1">営利</span>
+            <span className="text-zinc-500 text-[10px] mr-1">利益率</span>
             <span className="text-emerald-400 font-medium tabular-nums">
               {entity.pnl.isRevenueUnconfirmed || entity.pnl.isMarginUnconfirmed ? '--%' : `${entity.pnl.operatingMargin}%`}
             </span>

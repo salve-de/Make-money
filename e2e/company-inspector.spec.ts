@@ -171,3 +171,16 @@ test('remote revenue-only detail leaves profit unknown and does not invent a wat
   await expect(financials).not.toContainText('100%基準');
   expect(errors).toEqual([]);
 });
+
+
+test('unconfirmed financials have an honest label and a working navigation target', async ({ page }) => {
+  await page.goto('/?entity=ent_photoai');
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+  const jump = page.getByRole('button', { name: '財務P&L 未確認' });
+  await expect(jump).toBeVisible();
+  await jump.click();
+  const section = page.locator('#section-financial');
+  await expect(section).toBeInViewport();
+  await expect(section).toContainText('財務データは未確認');
+  await expect(section).not.toContainText('¥0');
+});

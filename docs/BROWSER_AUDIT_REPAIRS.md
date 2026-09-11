@@ -18,18 +18,19 @@
 
 - lint: エラー0、既存を含む警告132。依存境界、循環、保存先分離、Neon再導入禁止、migration順序を検査。
 - strict TypeScriptと生成schema整合性: 成功。
-- Vitest: 236件成功。Foundation: 10件成功。E2E24件を合わせ計270件。
+- Vitest: 236件成功。Foundation: 10件成功。エクスポート比較Unit: 6件成功。E2Eは下記。
 - 復元演習: 現行migration・合成データを空SQLiteへ復元し、全schema/内容hash、所有者分離、改ざん拒否、途中失敗rollbackを検証。
 - 本番buildと配信漏れ検査: 成功（公開成果物84ファイル、既存有料本文392標識）。メモと認証設定の最終変更を含む。
-- E2E: 主要導線24件すべて成功（36.4秒）。途中で検出したゲストメモの読み込み時上書きも、テストを緩めず修正済み。ログは `/tmp/mm-verified-e2e.log`。
+- E2E: 財務未確認の目次移動を追加した25件すべて成功（1.8分）。合計277件（236 + 10 + 6 + 25）とSQLite復元演習。旧テストの「未確認時に財務DOMが存在しない」という期待値は、「説明表示・遷移成功・損益表と¥0を表示しない」へ更新。ログは `/tmp/mm-browser-fix-e2e-final.log`。
+- 実画面修正後にlint/typecheck/test/build/test:e2e/bundle:workersを再実行し成功。lintは引き続きエラー0・警告132。
 - GitHub: mainのRequired Status Checks（lint/typecheck/unit test/build/E2E smoke）がactiveであることを再取得確認。
 
 ## 実環境の確認範囲
 
 専用D1と非公開R2を作成。migration0001〜0003適用済み。実D1の初期エクスポートをローカルSQLiteへ復元し、R2保存・読み戻しhash一致。アプリの実ユーザーはまだ0行。定期バックアップの稼働や本番データ復元まで検証したものではない。
 
-以前の監査ではR2接続のPC・スマホ画面と企業1440詳細を実ブラウザで確認した。これは今回のD1切替後の画面検証とは区別する。今回の実R2接続画面をブラウザ確認ツールで開く操作は、自動承認審査に「非公開データが接続先へ渡る可能性」を理由として拒否された。迂回操作はしていない。外部R2を使わない自動E2Eは継続する。
+ユーザーの表示許可後、ユーザーが開いたlocalhost:3101をCodexブラウザで監査した。Photo AIのEvidence・費用未確認表示・ツールへの移動を確認。財務目次が未確認金額を¥0と表示し、移動先が存在しない不具合を検出して修正した。修正後の画面で「財務P&L 未確認」と説明欄への移動を再確認。一覧の営業利益を「純利」と呼ぶ表示も修正。R2一覧APIはfoundation_lake・100件・hasMore=trueを返した。ただしPhoto AI詳細はローカル台帳由来であり、この確認をR2詳細全件やD1保存の実証とは扱わない。
 
-Firebase本番設定、Stripe本番Webhook設定・実入金・実返金、本番アプリへのD1接続を通じたユーザー保存は未検証。Neonの閲覧可能な範囲でMake-Money所有データは特定できず、他プロジェクトの一般名テーブルは移行・削除していない。
+ローカルのFirebase必須4設定・FIREBASE_PROJECT_ID・STRIPE_WEBHOOK_SECRETは未設定であることを値を出力せず確認。Firebase本番設定、Stripe本番Webhook設定・実入金・実返金、本番アプリへのD1接続を通じたユーザー保存は未検証。Neonの閲覧可能な範囲でMake-Money所有データは特定できず、他プロジェクトの一般名テーブルは移行・削除していない。
 
 全収集データの正確性・永久無障害・全プロジェクトへの適用完了を保証する文書ではない。別プロジェクトへの導入は [PROJECT_STARTER.md](architecture/PROJECT_STARTER.md) から行う。

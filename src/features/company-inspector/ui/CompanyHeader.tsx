@@ -11,7 +11,7 @@ X
 
 import type { InspectorSectionProps } from '../model/section-props';
 
-export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, activeTags = [], onToggleTag, analystNote, onOpenSynthesisWithEntity, isScrolled, scrollToSection, formatMoney, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode'>) {
+export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, activeTags = [], onToggleTag, analystNote, onOpenSynthesisWithEntity, isScrolled, scrollToSection, formatMoney, isHazardMode, isFinancialUnavailable }: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable'>) {
   return <>
         <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
           isScrolled
@@ -194,7 +194,7 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
             >
               <span>財務P&L</span>
               <span className="text-[9px] text-zinc-500 font-normal">
-                {formatMoney(entity.pnl.monthlyRevenue)}
+                {isFinancialUnavailable ? '未確認' : formatMoney(entity.pnl.monthlyRevenue)}
               </span>
             </button>
 
