@@ -1,3 +1,4 @@
+import { parseFinancialEntities } from '@/shared/financial-entity-schema';
 import React from 'react';
 import { readFile } from 'fs/promises';
 import { resolve } from 'path';
@@ -12,9 +13,9 @@ async function getEntities(): Promise<FinancialEntity[]> {
   try {
     const localPath = resolve(process.cwd(), 'data/entities-index.json');
     const content = await readFile(localPath, 'utf8');
-    const parsed = JSON.parse(content);
+    const parsed = parseFinancialEntities(JSON.parse(content));
     if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed as FinancialEntity[];
+      return parsed;
     }
   } catch (error) {
     console.warn('[PlaybookPage] Failed to read entities-index.json, fallback to mock data:', error);

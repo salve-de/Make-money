@@ -24,7 +24,7 @@ interface CompanyLogoProps {
   id?: string;
   name?: string;
   category?: string;
-  company?: { id?: string; name?: string; japaneseName?: string; category?: string; [key: string]: any };
+  company?: { id?: string; name?: string; japaneseName?: string; category?: string };
   size?: 'sm' | 'md' | 'lg';
 }
 

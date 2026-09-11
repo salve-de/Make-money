@@ -435,7 +435,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
             <div className="bg-[#0A0709] border border-rose-500/25 rounded-lg p-4 sm:p-5">
               <div className="flex items-center gap-2 text-rose-400 text-xs font-mono font-semibold tracking-wider uppercase mb-1">
                 <AlertTriangle className="w-3.5 h-3.5 text-rose-400 animate-bounce" />
-                <span>This Week's Shelf-Life Downgrade Alerts</span>
+                <span>This Week&apos;s Shelf-Life Downgrade Alerts</span>
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
                 先週まで動いていた手法の「即死判定格下げアラート」

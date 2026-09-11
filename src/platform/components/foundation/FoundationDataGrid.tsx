@@ -64,9 +64,11 @@ export const FoundationDataGrid: React.FC<FoundationDataGridProps> = ({
   const observerTargetRef = useRef<HTMLDivElement>(null);
   const visibleRows = useMemo(() => rows.slice(0, visibleCount), [rows, visibleCount]);
 
-  useEffect(() => {
+  const [previousRows, setPreviousRows] = useState(rows);
+  if (previousRows !== rows) {
+    setPreviousRows(rows);
     setVisibleCount(PAGE_SIZE);
-  }, [rows]);
+  }
 
   useEffect(() => {
     const target = observerTargetRef.current;

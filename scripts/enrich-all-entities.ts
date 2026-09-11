@@ -1,3 +1,4 @@
+import type { ListObjectsV2CommandOutput } from '@aws-sdk/client-s3';
 import { S3Client, ListObjectsV2Command, GetObjectCommand } from '@aws-sdk/client-s3';
 import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -18,12 +19,30 @@ const s3 = new S3Client({
 const BUCKET = 'foundation-lake';
 const PREFIX = 'datasets/ds.business.entities.core/v1/entities/';
 
-async function streamToString(stream: any): Promise<string> {
-  const chunks: Buffer[] = [];
-  for await (const chunk of stream) {
-    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
-  }
-  return Buffer.concat(chunks).toString('utf8');
+// Input shape consumed by this legacy enrichment projection.
+interface EnrichmentEvidence {
+  id: string;
+  statement: string;
+  text: string;
+  originType?: NonNullable<FinancialEntity['observationsStream']>[number]['originType'];
+  verificationStatus?: NonNullable<FinancialEntity['observationsStream']>[number]['verificationStatus'];
+  observedAt?: string;
+  occurredAt?: string;
+}
+interface EnrichmentInput {
+  entity_id: string;
+  id: string;
+  canonicalIdentifier: string;
+  canonical_name?: string;
+  name?: string;
+  domain?: string;
+  entity_type?: string;
+  entityType?: string;
+  claims?: EnrichmentEvidence[];
+  observations?: EnrichmentEvidence[];
+  events?: { eventType: string; occurredAt?: string; description: string }[];
+  metrics?: { metricType: string; value: string | number; currency?: string }[];
+  moneySignals?: { moneyType: string; amount: string | number; currency?: string }[];
 }
 
 function inferSector(text: string): SectorCategory {
@@ -37,7 +56,7 @@ function inferSector(text: string): SectorCategory {
   return 'NICHE_SAAS';
 }
 
-function enrichEntity(raw: any, existingBase?: FinancialEntity): FinancialEntity {
+function enrichEntity(raw: EnrichmentInput, existingBase?: FinancialEntity): FinancialEntity {
   if (existingBase) return existingBase;
 
   const id = raw.entity_id || raw.id || raw.canonicalIdentifier;
@@ -56,8 +75,8 @@ function enrichEntity(raw: any, existingBase?: FinancialEntity): FinancialEntity
   const firstObs = observations[0]?.text ? cleanIntelligenceText(observations[0].text) : '';
   const pattern = inferArchitecturePattern(entityType, `${firstClaim} ${firstObs}`);
 
-  const revMetric = metrics.find((m: any) => /revenue|arr|sales/i.test(m.metricType));
-  const revMoney = moneySignals.find((m: any) => /revenue|arr|sales/i.test(m.moneyType));
+  const revMetric = metrics.find((m) => /revenue|arr|sales/i.test(m.metricType));
+  const revMoney = moneySignals.find((m) => /revenue|arr|sales/i.test(m.moneyType));
   const bestRev = revMetric?.value || revMoney?.amount;
   const parsedRev = parseRevenueToMonthlyJpy(bestRev, revMetric?.currency || revMoney?.currency, revMetric?.metricType || revMoney?.moneyType);
 
@@ -97,7 +116,7 @@ function enrichEntity(raw: any, existingBase?: FinancialEntity): FinancialEntity
     revenueLabel: parsedRev.revenueLabel,
   };
 
-  const launchEvent = events.find((e: any) => /launch|founded/i.test(e.eventType));
+  const launchEvent = events.find((e) => /launch|founded/i.test(e.eventType));
   const foundedYear = launchEvent?.occurredAt ? parseInt(launchEvent.occurredAt.slice(0, 4), 10) : 2021;
 
   const tags = new Set<string>();
@@ -166,7 +185,7 @@ function enrichEntity(raw: any, existingBase?: FinancialEntity): FinancialEntity
       currentViabilityAnalysis: '先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能',
     },
     observationsStream: [
-      ...observations.map((o: any) => ({
+      ...observations.map((o) => ({
         id: o.id,
         category: 'MARKET_DISTORTION' as const,
         categoryLabel: '現場観測事実',
@@ -175,7 +194,7 @@ function enrichEntity(raw: any, existingBase?: FinancialEntity): FinancialEntity
         verificationStatus: o.verificationStatus || 'SUPPORTED',
         observedAt: o.observedAt,
       })),
-      ...claims.map((c: any) => ({
+      ...claims.map((c) => ({
         id: c.id,
         category: 'FOUNDER_HACK' as const,
         categoryLabel: '公表ファクト・裏帳簿',
@@ -185,7 +204,7 @@ function enrichEntity(raw: any, existingBase?: FinancialEntity): FinancialEntity
         observedAt: c.occurredAt,
       })),
     ],
-    timelineEvents: events.map((ev: any) => ({
+    timelineEvents: events.map((ev) => ({
       eventType: ev.eventType,
       occurredAt: ev.occurredAt || '時期未確認',
       description: cleanIntelligenceText(ev.description),
@@ -206,7 +225,7 @@ async function main() {
   let continuationToken: string | undefined = undefined;
 
   do {
-    const listRes: any = await s3.send(new ListObjectsV2Command({
+    const listRes: ListObjectsV2CommandOutput = await s3.send(new ListObjectsV2Command({
       Bucket: BUCKET,
       Prefix: PREFIX,
       ContinuationToken: continuationToken,
@@ -235,7 +254,7 @@ async function main() {
           Key: key,
         }));
         if (!getRes.Body) return null;
-        const rawJson = await streamToString(getRes.Body);
+        const rawJson = await getRes.Body.transformToString();
         const parsed = JSON.parse(rawJson);
         const entityId = parsed.entity_id || parsed.id || parsed.canonicalIdentifier;
         return enrichEntity(parsed, existingMap.get(entityId));

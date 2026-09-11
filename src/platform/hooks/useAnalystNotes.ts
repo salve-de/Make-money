@@ -34,6 +34,8 @@ export function useAnalystNotes() {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
+        // Restore browser storage after hydration; server rendering cannot read localStorage.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setNotes(parsed);
       } else {
         // 初期サンプルを投入

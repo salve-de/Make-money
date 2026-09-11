@@ -10,7 +10,7 @@ interface CleanHeaderProps {
   onSearchChange: (q: string) => void;
   totalCount: number;
   mainView: string;
-  onChangeMainView: (view: any) => void;
+  onChangeMainView: (view: 'PORTAL' | 'TERMINAL') => void;
   onOpenProModal?: () => void;
 }
 

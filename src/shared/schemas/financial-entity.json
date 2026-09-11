@@ -1,0 +1,952 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/FinancialEntity",
+  "definitions": {
+    "FinancialEntity": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "legalEntity": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "sector": {
+          "$ref": "#/definitions/SectorCategory"
+        },
+        "scale": {
+          "$ref": "#/definitions/BusinessScale"
+        },
+        "founder": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "verifiedBadge": {
+          "type": "boolean"
+        },
+        "pnl": {
+          "$ref": "#/definitions/ProfitAndLossStatement"
+        },
+        "operations": {
+          "$ref": "#/definitions/OperatingFramework"
+        },
+        "strategy": {
+          "$ref": "#/definitions/StrategicDossier"
+        },
+        "growthRateYoY": {
+          "type": "number"
+        },
+        "pricing": {
+          "$ref": "#/definitions/PricingDossier"
+        },
+        "acquisition": {
+          "$ref": "#/definitions/AcquisitionDossier"
+        },
+        "essence": {
+          "$ref": "#/definitions/BusinessEssence"
+        },
+        "meta": {
+          "$ref": "#/definitions/MetaArchitectureDossier"
+        },
+        "exposureAudit": {
+          "$ref": "#/definitions/ExposureAuditDossier"
+        },
+        "isBookmarked": {
+          "type": "boolean"
+        },
+        "opportunityJudgment": {
+          "$ref": "#/definitions/OpportunityJudgment"
+        },
+        "architecturePattern": {
+          "type": "string"
+        },
+        "pipelineStack": {
+          "type": "string"
+        },
+        "targetPainWallet": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidenceCards": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DynamicEvidenceCard"
+          }
+        },
+        "temporal": {
+          "$ref": "#/definitions/TemporalIntelligence"
+        },
+        "dynamicMoats": {
+          "$ref": "#/definitions/DynamicMoats"
+        },
+        "observationsStream": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UniversalObservation"
+          }
+        },
+        "timelineEvents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UniversalEvent"
+          }
+        },
+        "coverageAudit": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UniversalCoverageItem"
+          }
+        },
+        "unknownsNotes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "ticker",
+        "name",
+        "tagline",
+        "sector",
+        "scale",
+        "founder",
+        "country",
+        "url",
+        "verifiedBadge",
+        "pnl",
+        "operations",
+        "strategy",
+        "growthRateYoY",
+        "architecturePattern",
+        "pipelineStack",
+        "targetPainWallet",
+        "tags"
+      ]
+    },
+    "SectorCategory": {
+      "type": "string",
+      "enum": [
+        "AI_AUTOMATION",
+        "NICHE_SAAS",
+        "MONOPOLY_MFG",
+        "CONTENT_MEDIA",
+        "PHYSICAL_ASSET",
+        "FINTECH_INFRA",
+        "LOCAL_SERVICES"
+      ]
+    },
+    "BusinessScale": {
+      "type": "string",
+      "enum": [
+        "SOLO",
+        "SMALL_TEAM",
+        "SCALEUP",
+        "ENTERPRISE"
+      ]
+    },
+    "ProfitAndLossStatement": {
+      "type": "object",
+      "properties": {
+        "monthlyRevenue": {
+          "type": "number"
+        },
+        "cogs": {
+          "type": "number"
+        },
+        "grossProfit": {
+          "type": "number"
+        },
+        "grossMargin": {
+          "type": "number"
+        },
+        "operatingExpenses": {
+          "type": "object",
+          "properties": {
+            "serverAndApi": {
+              "type": "number"
+            },
+            "advertising": {
+              "type": "number"
+            },
+            "subcontracting": {
+              "type": "number"
+            },
+            "toolsAndSaaS": {
+              "type": "number"
+            },
+            "other": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "serverAndApi",
+            "advertising",
+            "subcontracting",
+            "toolsAndSaaS",
+            "other"
+          ]
+        },
+        "operatingProfit": {
+          "type": "number"
+        },
+        "operatingMargin": {
+          "type": "number"
+        },
+        "estimatedAnnualNetProfit": {
+          "type": "number"
+        },
+        "isRevenueUnconfirmed": {
+          "type": "boolean"
+        },
+        "isMarginUnconfirmed": {
+          "type": "boolean"
+        },
+        "revenueLabel": {
+          "type": "string"
+        },
+        "financialStatus": {
+          "$ref": "#/definitions/FinancialEvidenceStatus"
+        },
+        "dataSnapshotPeriod": {
+          "type": "string"
+        },
+        "sourceDoc": {
+          "type": "string"
+        },
+        "estimationLogic": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "monthlyRevenue",
+        "cogs",
+        "grossProfit",
+        "grossMargin",
+        "operatingExpenses",
+        "operatingProfit",
+        "operatingMargin",
+        "estimatedAnnualNetProfit"
+      ]
+    },
+    "FinancialEvidenceStatus": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "REPORTED",
+        "ESTIMATED",
+        "POST_MORTEM",
+        "UNAVAILABLE"
+      ]
+    },
+    "OperatingFramework": {
+      "type": "object",
+      "properties": {
+        "teamSize": {
+          "type": "number"
+        },
+        "initialTeamSize": {
+          "type": "number"
+        },
+        "currentTeamSize": {
+          "type": "number"
+        },
+        "weeklyHours": {
+          "type": "number"
+        },
+        "initialCapitalRequired": {
+          "type": "number"
+        },
+        "automationLevel": {
+          "type": "number"
+        },
+        "primaryChannels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "toolStack": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ToolStackItem"
+          }
+        }
+      },
+      "required": [
+        "teamSize",
+        "weeklyHours",
+        "initialCapitalRequired",
+        "automationLevel",
+        "primaryChannels",
+        "toolStack"
+      ]
+    },
+    "ToolStackItem": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "monthlyCost": {
+          "type": "number"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "replacementDifficulty": {
+          "type": "string",
+          "enum": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "category",
+        "monthlyCost"
+      ]
+    },
+    "StrategicDossier": {
+      "type": "object",
+      "properties": {
+        "blindspot": {
+          "type": "string"
+        },
+        "moatType": {
+          "$ref": "#/definitions/MoatType"
+        },
+        "moatDescription": {
+          "type": "string"
+        },
+        "incumbentDilemma": {
+          "type": "string"
+        },
+        "secretInsight": {
+          "type": "string"
+        },
+        "initialTraction": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "actionPlaybook": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "coldOutreachTemplate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "blindspot",
+        "moatType",
+        "moatDescription",
+        "initialTraction",
+        "actionPlaybook"
+      ]
+    },
+    "MoatType": {
+      "type": "string",
+      "enum": [
+        "COUNTER_POSITIONING",
+        "SWITCHING_COST",
+        "NETWORK_EFFECT",
+        "CORNERED_RESOURCE",
+        "SCALE_ECONOMIES",
+        "BRAND_PRESTIGE",
+        "PROCESS_POWER"
+      ]
+    },
+    "PricingDossier": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "pricePoint": {
+          "type": "string"
+        },
+        "psychologicalTrigger": {
+          "type": "string"
+        },
+        "estimatedLtvJpy": {
+          "type": "number"
+        },
+        "churnRate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "model",
+        "pricePoint",
+        "psychologicalTrigger"
+      ]
+    },
+    "AcquisitionDossier": {
+      "type": "object",
+      "properties": {
+        "cacJpy": {
+          "type": "number"
+        },
+        "primaryFunnel": {
+          "type": "string"
+        },
+        "tactics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "cacJpy",
+        "primaryFunnel",
+        "tactics"
+      ]
+    },
+    "BusinessEssence": {
+      "type": "object",
+      "properties": {
+        "whatItDoes": {
+          "type": "string"
+        },
+        "targetCustomer": {
+          "type": "string"
+        },
+        "painRelief": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "whatItDoes",
+        "targetCustomer",
+        "painRelief"
+      ]
+    },
+    "MetaArchitectureDossier": {
+      "type": "object",
+      "properties": {
+        "incumbentDilemma": {
+          "type": "object",
+          "properties": {
+            "cannibalizationBarrier": {
+              "type": "string"
+            },
+            "scaleMismatchReason": {
+              "type": "string"
+            },
+            "decisionSpeedAdvantage": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cannibalizationBarrier",
+            "scaleMismatchReason",
+            "decisionSpeedAdvantage"
+          ]
+        },
+        "pricingPower": {
+          "type": "object",
+          "properties": {
+            "anchorComparison": {
+              "type": "string"
+            },
+            "lossAversionTrigger": {
+              "type": "string"
+            },
+            "budgetCategory": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "anchorComparison",
+            "lossAversionTrigger",
+            "budgetCategory"
+          ]
+        },
+        "lockInMechanism": {
+          "type": "object",
+          "properties": {
+            "dataHostage": {
+              "type": "string"
+            },
+            "workflowIntegration": {
+              "type": "string"
+            },
+            "switchingFriction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "dataHostage",
+            "workflowIntegration",
+            "switchingFriction"
+          ]
+        },
+        "capitalEfficiency": {
+          "type": "object",
+          "properties": {
+            "cashConversionCycle": {
+              "type": "string"
+            },
+            "incrementalMargin": {
+              "type": "string"
+            },
+            "workingCapitalStrategy": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cashConversionCycle",
+            "incrementalMargin",
+            "workingCapitalStrategy"
+          ]
+        }
+      },
+      "required": [
+        "incumbentDilemma",
+        "pricingPower",
+        "lockInMechanism",
+        "capitalEfficiency"
+      ]
+    },
+    "ExposureAuditDossier": {
+      "type": "object",
+      "properties": {
+        "guerrillaTraction": {
+          "type": "string"
+        },
+        "platformGlitch": {
+          "type": "string"
+        },
+        "pivotSnapshot": {
+          "type": "string"
+        },
+        "hiddenStackCost": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "guerrillaTraction",
+        "platformGlitch",
+        "pivotSnapshot",
+        "hiddenStackCost"
+      ]
+    },
+    "OpportunityJudgment": {
+      "type": "object",
+      "properties": {
+        "verdict": {
+          "$ref": "#/definitions/VerdictStatus"
+        },
+        "verdictLabel": {
+          "type": "string"
+        },
+        "oneLineReason": {
+          "type": "string"
+        },
+        "demandDelta": {
+          "type": "string"
+        },
+        "competitionDelta": {
+          "type": "string"
+        },
+        "entryRequirements": {
+          "type": "object",
+          "properties": {
+            "capital": {
+              "type": "string"
+            },
+            "technicalDifficulty": {
+              "type": "string",
+              "enum": [
+                "LOW",
+                "MEDIUM",
+                "HIGH"
+              ]
+            },
+            "platformRisk": {
+              "type": "string",
+              "enum": [
+                "LOW",
+                "MEDIUM",
+                "CRITICAL"
+              ]
+            }
+          },
+          "required": [
+            "capital",
+            "technicalDifficulty",
+            "platformRisk"
+          ]
+        }
+      },
+      "required": [
+        "verdict",
+        "verdictLabel",
+        "oneLineReason",
+        "demandDelta",
+        "competitionDelta",
+        "entryRequirements"
+      ]
+    },
+    "VerdictStatus": {
+      "type": "string",
+      "enum": [
+        "ENTRY_CANDIDATE",
+        "MONITOR",
+        "HOLD",
+        "HAZARD_REJECT"
+      ]
+    },
+    "DynamicEvidenceCard": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/definitions/DynamicEvidenceCardType"
+        },
+        "title": {
+          "type": "string"
+        },
+        "badge": {
+          "type": "string"
+        },
+        "evidenceStatus": {
+          "$ref": "#/definitions/EvidenceStatus"
+        },
+        "punchline": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              },
+              "isHighlight": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "label",
+              "value"
+            ]
+          }
+        },
+        "codeSnippet": {
+          "type": "string"
+        },
+        "sourceNote": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "title",
+        "evidenceStatus",
+        "punchline"
+      ]
+    },
+    "DynamicEvidenceCardType": {
+      "type": "string",
+      "enum": [
+        "THE_CRIME",
+        "SMOKING_GUN",
+        "DIRTY_GENESIS",
+        "ASYMMETRIC_LEVERAGE",
+        "INCUMBENT_TRAP",
+        "FATAL_BLEED",
+        "LOOT_BLUEPRINT",
+        "UNKNOWN_AUDIT"
+      ]
+    },
+    "EvidenceStatus": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "REPORTED",
+        "ESTIMATED",
+        "POST_MORTEM",
+        "UNKNOWN"
+      ]
+    },
+    "TemporalIntelligence": {
+      "type": "object",
+      "properties": {
+        "foundedYear": {
+          "type": "number"
+        },
+        "initialTractionPeriod": {
+          "type": "string"
+        },
+        "dataSnapshotPeriod": {
+          "type": "string"
+        },
+        "viabilityStatus": {
+          "$ref": "#/definitions/ViabilityStatus"
+        },
+        "viabilityLabel": {
+          "type": "string"
+        },
+        "eraContext": {
+          "type": "string"
+        },
+        "currentViabilityAnalysis": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "foundedYear",
+        "initialTractionPeriod",
+        "dataSnapshotPeriod",
+        "viabilityStatus",
+        "viabilityLabel",
+        "eraContext",
+        "currentViabilityAnalysis"
+      ]
+    },
+    "ViabilityStatus": {
+      "type": "string",
+      "enum": [
+        "ACTIVE_PLAYBOOK",
+        "RISING_WAVE",
+        "MATURED_MOAT",
+        "HISTORICAL_WINDOW",
+        "EVOLVING_BARRIER"
+      ]
+    },
+    "DynamicMoats": {
+      "type": "object",
+      "properties": {
+        "parasiteHost": {
+          "type": "object",
+          "properties": {
+            "hostName": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "hostName",
+            "detail"
+          ]
+        },
+        "dataHostage": {
+          "type": "object",
+          "properties": {
+            "lockInFactor": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "lockInFactor",
+            "detail"
+          ]
+        },
+        "affiliateBribery": {
+          "type": "object",
+          "properties": {
+            "commissionRate": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "commissionRate",
+            "detail"
+          ]
+        },
+        "upfrontCash": {
+          "type": "object",
+          "properties": {
+            "cashCycle": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "cashCycle",
+            "detail"
+          ]
+        },
+        "pivotGraveyard": {
+          "type": "object",
+          "properties": {
+            "failedAttempts": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "breakthroughSecret": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "failedAttempts",
+            "breakthroughSecret"
+          ]
+        }
+      }
+    },
+    "UniversalObservation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "MARKET_DISTORTION",
+            "SAVANNAH_PAIN",
+            "INCUMBENT_DILEMMA",
+            "FOUNDER_HACK",
+            "FORUM_RAGE",
+            "TECH_VERIFICATION",
+            "RESEARCH_LIMIT"
+          ]
+        },
+        "categoryLabel": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "originType": {
+          "type": "string",
+          "enum": [
+            "observed",
+            "inferred",
+            "reported",
+            "estimated"
+          ]
+        },
+        "verificationStatus": {
+          "type": "string",
+          "enum": [
+            "SUPPORTED",
+            "UNVERIFIED",
+            "REFUTED"
+          ]
+        },
+        "sourceUrl": {
+          "type": "string"
+        },
+        "observedAt": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "text"
+      ]
+    },
+    "UniversalEvent": {
+      "type": "object",
+      "properties": {
+        "eventType": {
+          "type": "string"
+        },
+        "occurredAt": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "eventType",
+        "occurredAt",
+        "description"
+      ]
+    },
+    "UniversalCoverageItem": {
+      "type": "object",
+      "properties": {
+        "dimension": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "found",
+            "attempted_unavailable",
+            "not_applicable"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "attempts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "dimension",
+        "status"
+      ]
+    }
+  }
+}

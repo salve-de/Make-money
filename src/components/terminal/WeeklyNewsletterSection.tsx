@@ -34,8 +34,8 @@ export const WeeklyNewsletterSection: React.FC = () => {
 
       setSubscribed(true);
       setShowSample(true);
-    } catch (err: any) {
-      setErrorMsg(err.message || '通信エラーが発生しました');
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : '通信エラーが発生しました');
     } finally {
       setLoading(false);
     }

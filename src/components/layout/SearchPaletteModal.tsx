@@ -21,12 +21,19 @@ export const SearchPaletteModal: React.FC<SearchPaletteModalProps> = ({
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+  const [previousIsOpen, setPreviousIsOpen] = useState(isOpen);
+  if (previousIsOpen !== isOpen) {
+    setPreviousIsOpen(isOpen);
     if (isOpen) {
       setQuery('');
       setSelectedIndex(0);
-      setTimeout(() => inputRef.current?.focus(), 50);
     }
+  }
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const timeout = setTimeout(() => inputRef.current?.focus(), 50);
+    return () => clearTimeout(timeout);
   }, [isOpen]);
 
   // グローバル⌘Kキー監視

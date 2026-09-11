@@ -1,7 +1,7 @@
 import ts from 'typescript';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-export function productFields(file = 'src/platform/types/terminal.ts', root = 'FinancialEntity') {
+export function productFields(file = 'src/shared/terminal.ts', root = 'FinancialEntity') {
   const program = ts.createProgram([file], { strictNullChecks: true, noEmit: true });
   const source = program.getSourceFile(file);
   if (!source) throw new Error('Missing current product contract: ' + file);

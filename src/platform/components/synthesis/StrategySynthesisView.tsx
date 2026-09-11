@@ -166,6 +166,8 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
     if (!textToSend.trim() || isChatSending) return;
 
     const userMsg: StrategyChatMessage = {
+      // Event handler: the message ID is created when the user sends, never during render.
+      // eslint-disable-next-line react-hooks/purity
       id: `user_${Date.now()}`,
       role: 'user',
       content: textToSend.trim(),
