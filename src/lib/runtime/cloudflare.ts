@@ -1,23 +1,19 @@
 type CloudflareRuntimeEnv = Record<string, unknown>;
 
-let runtimeEnvPromise: Promise<CloudflareRuntimeEnv | null> | undefined;
-
 /**
  * OpenNext/Workersの実行時envを取得する。
  * Node.jsで直接起動した場合はCloudflareコンテキストが無いためnullを返す。
  */
 export async function getCloudflareRuntimeEnv(): Promise<CloudflareRuntimeEnv | null> {
-  runtimeEnvPromise ??= (async () => {
-    try {
-      const { getCloudflareContext } = await import('@opennextjs/cloudflare');
-      const context = await getCloudflareContext({ async: true });
-      return context.env as unknown as CloudflareRuntimeEnv;
-    } catch {
-      return null;
-    }
-  })();
-
-  return runtimeEnvPromise;
+  try {
+    const { getCloudflareContext } = await import('@opennextjs/cloudflare');
+    // Only use context installed by the Worker entrypoint or explicit dev setup.
+    // Async mode starts a Wrangler simulator in plain Node.js production.
+    const context = getCloudflareContext();
+    return context.env as unknown as CloudflareRuntimeEnv;
+  } catch {
+    return null;
+  }
 }
 
 /**

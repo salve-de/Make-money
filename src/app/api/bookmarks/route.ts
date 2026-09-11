@@ -3,6 +3,8 @@ import { verifyFirebaseIdToken } from "@/lib/firebase/server";
 import { db, savedItems } from "@/db";
 import { eq, and } from "drizzle-orm";
 
+import { parseBookmark, readInput } from "@/lib/api/input";
+
 export const dynamic = "force-dynamic";
 
 // ユーザーの保存済み一覧取得
@@ -19,7 +21,7 @@ export async function GET(req: NextRequest) {
   }
 
   if (!db) {
-    return NextResponse.json({ saved: [] });
+    return NextResponse.json({ error: "現在、保存済み一覧を取得できません" }, { status: 503 });
   }
 
   try {
@@ -47,16 +49,10 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid token" }, { status: 401 });
   }
 
-  const body = await req.json();
-  const { itemType, itemId } = body;
-
-  if (!itemType || !itemId) {
-    return NextResponse.json({ error: "Missing parameters" }, { status: 400 });
-  }
-
-  if (!db) {
-    return NextResponse.json({ success: true, saved: true, note: "Mock mode (No DB)" });
-  }
+  const input = await readInput(req, parseBookmark);
+  if (!input) return NextResponse.json({ error: "Invalid bookmark parameters" }, { status: 400 });
+  const { itemType, itemId } = input;
+  if (!db) return NextResponse.json({ error: "現在、ブックマークを保存できません" }, { status: 503 });
 
   try {
     const existing = await db

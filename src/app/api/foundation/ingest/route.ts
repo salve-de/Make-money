@@ -55,8 +55,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Request body is too large' }, { status: 413 });
   }
 
+  let body: FoundationIngestRequest;
   try {
-    const body = (await request.json()) as FoundationIngestRequest;
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON request body" }, { status: 400 });
+  }
+
+  try {
     const report = await ingestFoundationResearch(body);
     return NextResponse.json({ success: true, ...report });
   } catch (error) {

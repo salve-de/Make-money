@@ -55,15 +55,10 @@ export async function GET(req: NextRequest) {
       });
     } catch (dbError) {
       console.error("Neon DB query error in /api/user/me:", dbError);
+      return NextResponse.json({ error: "会員情報を取得できません" }, { status: 503 });
     }
   }
 
-  // DB未接続時のフォールバック応答
-  return NextResponse.json({
-    uid: verifiedUser.uid,
-    email: verifiedUser.email,
-    displayName: verifiedUser.name,
-    isPro: false,
-    role: "member",
-  });
+  // Missing persistence cannot establish whether a user has a paid membership.
+  return NextResponse.json({ error: "会員情報を取得できません" }, { status: 503 });
 }

@@ -2,32 +2,16 @@ import { NextRequest, NextResponse } from "next/server";
 import { db, newsletterSubscribers } from "@/db";
 import { eq } from "drizzle-orm";
 
+import { parseNewsletter, readInput } from "@/lib/api/input";
+
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
+  const input = await readInput(req, parseNewsletter);
+  if (!input) return NextResponse.json({ error: "有効なメールアドレスと送信元を入力してください" }, { status: 400 });
+  const { email: cleanEmail, source } = input;
+  if (!db) return NextResponse.json({ error: "現在、購読登録を保存できません" }, { status: 503 });
   try {
-    const body = await req.json();
-    const { email, source = "web_portal" } = body;
-
-    if (!email || typeof email !== "string" || !email.includes("@")) {
-      return NextResponse.json(
-        { error: "有効なメールアドレスを入力してください" },
-        { status: 400 }
-      );
-    }
-
-    const cleanEmail = email.trim().toLowerCase();
-
-    if (!db) {
-      // データベース未接続時の安全なフォールバック
-      return NextResponse.json({
-        success: true,
-        message: "週刊マネー速報の購読を完了しました（検証環境）",
-        subscriberId: 9999,
-        email: cleanEmail,
-      });
-    }
-
     // 重複チェック
     const existing = await db
       .select({ id: newsletterSubscribers.id })
@@ -52,6 +36,8 @@ export async function POST(req: NextRequest) {
         status: "active",
       })
       .returning({ id: newsletterSubscribers.id });
+
+    if (!inserted[0]) throw new Error("No subscriber persisted");
 
     return NextResponse.json({
       success: true,

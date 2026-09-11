@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { verifyFirebaseIdToken } from "@/lib/firebase/server";
 import { db, submissions } from "@/db";
 
+import { parseSubmission, readInput } from "@/lib/api/input";
+
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
@@ -15,47 +17,21 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  const body = await req.json();
-  const {
-    businessName,
-    url,
-    monthlyRevenue,
-    monthlyProfit,
-    toolsUsed,
-    acquisitionChannel,
-    proofScreenshotUrl,
-  } = body;
-
-  if (!businessName || !url || !monthlyRevenue || !monthlyProfit) {
-    return NextResponse.json(
-      { error: "必須項目（事業名、URL、月商、月利）が不足しています" },
-      { status: 400 }
-    );
-  }
-
-  if (!db) {
-    return NextResponse.json({
-      success: true,
-      message: "掲載申請を受理しました（検証環境）",
-      submissionId: 9999,
-    });
-  }
+  const input = await readInput(req, parseSubmission);
+  if (!input) return NextResponse.json({ error: "事業名、URL、月商、月利などの入力内容を確認してください" }, { status: 400 });
+  if (!db) return NextResponse.json({ error: "現在、申請を保存できません" }, { status: 503 });
 
   try {
     const inserted = await db
       .insert(submissions)
       .values({
         userId,
-        businessName,
-        url,
-        monthlyRevenue: Number(monthlyRevenue),
-        monthlyProfit: Number(monthlyProfit),
-        toolsUsed: toolsUsed || "",
-        acquisitionChannel: acquisitionChannel || "",
-        proofScreenshotUrl: proofScreenshotUrl || "",
+        ...input,
         status: "pending",
       })
       .returning({ id: submissions.id });
+
+    if (!inserted[0]) throw new Error("No submission persisted");
 
     return NextResponse.json({
       success: true,
