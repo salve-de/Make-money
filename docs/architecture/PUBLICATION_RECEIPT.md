@@ -41,3 +41,15 @@
 - 検証: 保存前に同一keyが存在しないことを確認。保存直後にGETし、全bytesとSHA-256の一致を確認。
 
 この記録は、実Workerの本番デプロイ、main統合、Stripe本番決済往復、実ユーザーデータ移行、production D1復元訓練の完了を意味しない。RPO/RTO、保持日数、定期バックアップ運用は別途実施する。
+
+## 2026-09-12 Worker実行時検証記録
+
+`codex/reliability-boundaries` のコミット `b9e3337b28e8a2555279a4fb66b6fd71b2d638f3` について、AJV実行時compileによるCloudflare Worker 500を修正し、ローカルworkerd＋Foundation R2 read bindingで一覧・詳細・ブラウザ描画を確認した。検証結果を秘密情報なしのreceiptとして、専用非公開R2へ新規keyで保存した。
+
+- GitHub Actions: run `34628857331`（PR #18、lint / typecheck / unit test / build / E2E smoke 全成功）
+- R2: `make-money-production-private/architecture/b9e3337/worker-runtime-verification.v1.json`
+- サイズ: 2,095 bytes
+- SHA-256: `cadb2a0956afb62af227974b5021598ab7218ef7aebbd522cf8d1247062aa82b`
+- 検証: 保存前GETで未存在を確認。保存直後にGETし、全bytes・SHA-256一致を確認。
+
+この記録は、本番deploy、main統合、Stripe本番往復、production D1復元訓練の完了を意味しない。リモートpreviewへのWorker資材アップロードは行っていない。
