@@ -1,9 +1,12 @@
+import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
+import { publicEntity, publicFoundationData } from '@/lib/company-access/public-entity';
+import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { parseFinancialEntities } from '@/shared/financial-entity-schema';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
+import { INSTITUTIONAL_ENTITIES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
   readFoundationBusinessCase,
   readFoundationValuePage,
@@ -68,7 +71,7 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
   try {
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
-    return parseFinancialEntities(parsed);
+    return parseFinancialEntities(parsed).map(reconcileFinancialEntity).map(normalizeFinancialEntity);
   } catch {
     return [];
   }
@@ -76,7 +79,7 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
 
 function findFallbackEntity(id: string, localEntities: FinancialEntity[]): FinancialEntity | null {
   return localEntities.find((entity) => entity.id === id) ||
-    INSTITUTIONAL_ENTITIES.find((entity) => entity.id === id) ||
+    findInstitutionalEntity(id) ||
     null;
 }
 
@@ -97,7 +100,7 @@ export async function GET(request: Request) {
         return response({
           source: 'foundation_lake',
           dataset_id: foundationDataset('researchBundles').datasetId,
-          data: parseFoundationBusinessCase(data),
+          data: publicFoundationData(parseFoundationBusinessCase(data)),
         });
       }
     } catch (error) {
@@ -106,7 +109,7 @@ export async function GET(request: Request) {
 
     const fallback = findFallbackEntity(entityId, await readLocalEntities());
     return fallback
-      ? response({ source: 'local_fallback', count: 1, data: fallback })
+      ? response({ source: 'local_fallback', count: 1, data: publicEntity(fallback) })
       : response({ error: 'Entity not found', entity_id: entityId }, 404);
   }
 
@@ -131,7 +134,7 @@ export async function GET(request: Request) {
         source: 'foundation_lake',
         dataset_id: foundationDataset('entities').datasetId,
         count: page.data.length,
-        data: page.data,
+        data: publicFoundationData(page.data),
         nextCursor: page.nextCursor,
         hasMore: page.hasMore,
       });
@@ -145,7 +148,7 @@ export async function GET(request: Request) {
   return response({
     source: localEntities.length > 0 ? 'local_fallback' : 'static_fallback',
     count: fallbackEntities.length,
-    data: fallbackEntities,
+    data: fallbackEntities.map(publicEntity),
     nextCursor: null,
     hasMore: false,
   });

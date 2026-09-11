@@ -49,12 +49,12 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
   const rev = latestFin?.revenueJpy || 0;
   const cogs = latestFin?.cogsJpy || 0;
   const opex = latestFin?.opexJpy || 0;
-  const opProfit = latestFin?.operatingProfitJpy || (rev - cogs - opex);
+  const opProfit = latestFin?.operatingProfitJpy ?? (rev - cogs - opex);
 
   const hasFinancialBreakdown = rev > 0;
   const cogsPercent = hasFinancialBreakdown ? Math.min(Math.round((cogs / rev) * 100), 100) : 0;
   const opexPercent = hasFinancialBreakdown ? Math.min(Math.round((opex / rev) * 100), 100) : 0;
-  const profitPercent = hasFinancialBreakdown ? Math.max(Math.round((opProfit / rev) * 100), 0) : (latestFin?.operatingMarginPercent || 0);
+  const profitPercent = hasFinancialBreakdown ? Math.round((opProfit / rev) * 100) : (latestFin?.operatingMarginPercent || 0);
 
   // 7つの堀レーダーチャート計算
   const getMoatPowerName = (moat: MoatPower) => {
@@ -398,9 +398,9 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
       {/* ───────────────────────────────────────────────────────────── */}
       <div className="border-y border-white/[0.08] bg-[#0F131C] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08] font-mono text-xs">
         <div className="p-3 sm:p-3.5 space-y-0.5">
-          <div className="text-[10px] text-zinc-500 font-sans font-medium">直近月商実額</div>
+          <div className="text-[10px] text-zinc-500 font-sans font-medium">記録売上（{latestFin?.period || '期間未確認'}）</div>
           <div className="text-base sm:text-lg font-black text-zinc-100 tabular-nums">
-            {rev > 0 ? formatShortAmount(Math.round(rev / 12)) : '非公開'}
+            {latestFin ? formatShortAmount(rev) : '未確認'}
           </div>
         </div>
         <div className="p-3 sm:p-3.5 space-y-0.5 min-w-0">
@@ -418,7 +418,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
         <div className="p-3 sm:p-3.5 space-y-0.5 border-t sm:border-t-0">
           <div className="text-[10px] text-zinc-500 font-sans font-medium">営業利益率</div>
           <div className="text-base sm:text-lg font-black text-zinc-100 tabular-nums">
-            {profitPercent}%
+            {hasFinancialBreakdown ? `${profitPercent}%` : '未確認'}
           </div>
         </div>
         <div className="p-3 sm:p-3.5 space-y-0.5">
@@ -666,11 +666,11 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
                   <div className="pt-2 border-t border-white/[0.08]">
                     <div className="flex justify-between text-xs mb-1">
                       <span className="text-emerald-400 font-bold font-sans">= 実効営業利益 (純手残り)</span>
-                      <span className="text-emerald-400 font-black">+{profitPercent}% ({formatShortAmount(opProfit)})</span>
+                      <span className="text-emerald-400 font-black">+{hasFinancialBreakdown ? `${profitPercent}%` : '未確認'} ({formatShortAmount(opProfit)})</span>
                     </div>
                     <div className="w-full h-3 bg-white/[0.08] overflow-hidden p-0.5">
                       <div
-                        style={{ width: `${profitPercent}%` }}
+                        style={{ width: `${hasFinancialBreakdown ? `${profitPercent}%` : '未確認'}` }}
                         className="h-full bg-emerald-400 transition-all"
                       />
                     </div>

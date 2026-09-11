@@ -26,6 +26,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   activeTags = [],
   onToggleTag,
   analystNote = '',
+  noteSaveStatus,
   onSaveAnalystNote,
   onOpenSynthesisWithEntity,
   isPro = false,
@@ -82,7 +83,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   if (!entity) return null;
 
   const model = buildInspectorModel(entity, currency);
-  const sectionProps = { entity, currency, onClose, onPrevEntity, onNextEntity, onOpenPro, onSelectTopic, onOpenAnomaly, activeTags, onToggleTag, analystNote, onSaveAnalystNote, onOpenSynthesisWithEntity, isPro, isScrolled, scrollToSection, ...model };
+  const sectionProps = { entity, currency, onClose, onPrevEntity, onNextEntity, onOpenPro, onSelectTopic, onOpenAnomaly, activeTags, onToggleTag, analystNote, noteSaveStatus, onSaveAnalystNote, onOpenSynthesisWithEntity, isPro, isScrolled, scrollToSection, ...model };
 
   return (
     <>

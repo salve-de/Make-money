@@ -1,40 +1,62 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ShieldCheck, ArrowRight, KeyRound } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
+import { FOUNDING_PASS } from '@/lib/payments/founding-pass';
 
 export default function SuccessPage() {
+  const { user, loading, refreshUserStatus } = useAuth();
+  const router = useRouter();
+  const [message, setMessage] = useState('決済情報を確認しています');
+  const [confirmedUserId, setConfirmedUserId] = useState<string | null>(null);
+  const confirmed = !loading && !!user && confirmedUserId === user.uid;
+  const [checking, setChecking] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('kin_pro_unlocked', 'true');
+    let cancelled = false;
+    async function check() {
+      setConfirmedUserId(null);
+      setChecking(false);
+      if (loading) { setMessage('ログイン状態を確認しています'); return; }
+      const sessionId = new URLSearchParams(window.location.search).get('session_id');
+      if (!sessionId) { setMessage('決済情報がありません。購入完了は確認できていません。'); return; }
+      if (!user) { setMessage('購入したアカウントでログインしてから、このページを再度開いてください。'); return; }
+      setChecking(true);
+
+      try {
+        const token = await user.getIdToken();
+        const response = await fetch('/api/checkout/status', {
+          method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+          body: JSON.stringify({ sessionId }),
+        });
+        const result = await response.json();
+        if (cancelled) return;
+        if (!response.ok) throw new Error(result.error || '決済情報を確認できません');
+        setConfirmedUserId(result.status === 'confirmed' ? user.uid : null);
+        setMessage(result.status === 'confirmed'
+          ? `${FOUNDING_PASS.name}の決済と会員権限を確認しました。`
+          : result.status === 'revoked' ? 'この決済は返金または異議申立てにより利用権を確認できません。'
+          : result.status === 'pending' ? '入金を確認しました。会員権限への反映を待っています。少し待って再確認してください。'
+          : '決済完了はまだ確認できていません。');
+      } catch (error) {
+        if (!cancelled) setMessage(error instanceof Error ? error.message : '決済情報を確認できません');
+      } finally { if (!cancelled) setChecking(false); }
     }
-  }, []);
+    void check();
+    return () => { cancelled = true; };
+  }, [user, loading, attempt]);
 
   return (
-    <main className="min-h-screen bg-[#07080B] text-zinc-100 font-sans flex items-center justify-center p-4 select-none">
-      <div className="w-full max-w-md rounded-lg border border-white/[0.1] bg-[#0C0E14] p-6 text-center shadow-2xl space-y-4">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-mono font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-800/40">
-          <ShieldCheck className="w-3.5 h-3.5" />
-          <span>PAYMENT_CONFIRMED: 解錠完了</span>
-        </div>
-        <h1 className="text-lg font-bold text-white font-sans">
-          金鉱録 PRO ライセンスを解放しました
-        </h1>
-        <p className="text-xs leading-relaxed text-zinc-400 font-sans">
-          創刊版（永久アクセス権）の決済が完了しました。全銘柄の「独占と暴利を生む4つの裏構造」および詳細損益計算書のすりガラスが即時解除されています。
-        </p>
-
-        <div className="pt-3 border-t border-white/[0.06] flex flex-col gap-2">
-          <Link
-            href="/"
-            className="inline-flex h-9 items-center justify-center gap-2 rounded bg-white hover:bg-zinc-200 px-5 text-xs font-mono font-bold text-zinc-950 shadow-sm transition-colors cursor-pointer"
-          >
-            <KeyRound className="w-3.5 h-3.5 text-zinc-900" />
-            <span>全解錠された台帳へ戻る</span>
-            <ArrowRight className="w-3 h-3 text-zinc-900" />
-          </Link>
-        </div>
+    <main className="min-h-screen bg-[#07080B] text-zinc-100 flex items-center justify-center p-4">
+      <div className="w-full max-w-md rounded-lg border border-white/10 bg-[#0C0E14] p-6 text-center space-y-4">
+        <h1 className="text-lg font-bold">{confirmed ? '決済とPRO会員権限を確認しました' : '決済状況の確認'}</h1>
+        <p role="status" className="text-xs leading-relaxed text-zinc-400">{message}</p>
+        {!confirmed && <button disabled={checking || loading} onClick={() => setAttempt((value) => value + 1)} className="rounded border border-white/20 p-2 text-xs disabled:opacity-50">{checking ? '確認中...' : '再確認する'}</button>}
+        <button onClick={async () => { await refreshUserStatus(); router.push('/'); }} className="block rounded bg-white px-5 py-2 text-xs font-bold text-zinc-950">台帳へ戻る</button>
+        <Link href="/welcome" className="block text-xs text-zinc-400">サービス案内</Link>
       </div>
     </main>
   );

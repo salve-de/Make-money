@@ -1,5 +1,7 @@
 # 金鉱録 (KIN-ROKOKU / Universal Business Foundation)
 
+開発・保存先の入口: [データとコードの置き場所](docs/architecture/STORAGE.md)。担当者・AIは変更前に参照してください。
+
 > **【絶対北極星（The Ultimate North Star）】**  
 > **「世に溢れる『努力・理念・綺麗事』という欺瞞の煙幕を完全に焼き払い、**  
 > **世界中の『生々しい金儲けの事実と手口（資本主義の裏帳簿）』を冷徹に白日の下に晒し続けることで、**  

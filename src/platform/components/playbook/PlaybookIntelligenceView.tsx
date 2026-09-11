@@ -6,7 +6,6 @@ import {
   TOOL_CATEGORIES,
   ToolCategoryKey,
   CategoryTrendRadar,
-  ToolTrendItem,
 } from '@/lib/intelligence/macro-aggregator';
 import {
   Wrench,
@@ -24,11 +23,8 @@ import {
   Mail,
   Code,
   Sparkles,
-  ChevronRight,
   ShieldCheck,
-  Clock,
   Radio,
-  ExternalLink,
 } from 'lucide-react';
 import Link from 'next/link';
 import { TradingViewMigrationChart } from '../charts/TradingViewMigrationChart';
@@ -113,13 +109,13 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
           {/* 週次ステータスアンカー */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 px-2.5 py-1 bg-cyan-500/10 border border-cyan-500/25 rounded">
-              <Radio className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+              <Radio className="w-3.5 h-3.5 text-cyan-400 " />
               <span className="text-[11px] font-mono font-bold text-cyan-400 tracking-wider">
-                WEEKLY RADAR / {data.weeklyMeta.weekLabel}
+                REFERENCE PLAYBOOK / {data.weeklyMeta.weekLabel}
               </span>
             </div>
             <h1 className="text-sm sm:text-base font-bold text-white tracking-tight flex items-center gap-2">
-              資本主義の週次動向・気象レーダー
+              事業・ツールの参考プレイブック
               <span className="text-xs text-zinc-400 font-normal hidden sm:inline font-mono">
                 / {data.weeklyMeta.sampleSizeLabel}
               </span>
@@ -129,19 +125,21 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
           {/* 直近差分メトリクスストリップ */}
           <div className="flex items-center gap-2 sm:gap-3 text-xs font-mono overflow-x-auto pb-1 lg:pb-0 scrollbar-none">
             <div className="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              <span className="text-emerald-300 font-bold">新規観測: +{data.weeklyMeta.newObservationsCount}件</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 " />
+              <span className="text-emerald-300 font-bold">参考観測例: {data.weeklyMeta.newObservationsCount}件</span>
             </div>
             <div className="flex items-center gap-1.5 bg-rose-500/10 border border-rose-500/20 px-2.5 py-1 rounded shrink-0">
               <AlertTriangle className="w-3 h-3 text-rose-400" />
-              <span className="text-rose-300 font-bold">即死降格: {data.weeklyMeta.downgradeAlertsCount}件</span>
+              <span className="text-rose-300 font-bold">見直し例: {data.weeklyMeta.downgradeAlertsCount}件</span>
             </div>
             <div className="flex items-center gap-1.5 bg-white/[0.03] border border-white/[0.06] px-2.5 py-1 rounded shrink-0">
-              <span className="text-zinc-500">最多乗り換え流入:</span>
+              <span className="text-zinc-500">乗り換え参考例:</span>
               <span className="text-cyan-400 font-semibold">{data.weeklyMeta.topRisingTool}</span>
             </div>
           </div>
         </div>
+
+        <p className="mt-2 text-xs text-amber-300" role="note">参考サンプル・一次証跡未確認。数値・費用・企業事例・判定は現在の実測や推奨ではありません。</p>
 
         {/* ─── 2. 5大ナレッジ切り替えタブ ─── */}
         <div className="flex items-center gap-1.5 mt-3 border-t border-white/[0.06] pt-2.5 overflow-x-auto scrollbar-none">
@@ -177,7 +175,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
             </span>
           </button>
 
-          {/* タブ3: 現在有効な稼ぎの型 */}
+          {/* タブ3: 稼ぎの型の参考例 */}
           <button
             onClick={() => setActiveTab('CURRENT_PLAYS')}
             className={`flex items-center gap-2 px-3.5 py-1.5 rounded-md text-xs font-medium transition-all shrink-0 cursor-pointer ${
@@ -187,7 +185,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
             }`}
           >
             <Flame className="w-3.5 h-3.5 text-emerald-400" />
-            <span>現在有効な稼ぎの型 (Active Plays)</span>
+            <span>稼ぎの型の参考例 (Active Plays)</span>
             <span className="px-1.5 py-0.2 text-[10px] font-mono rounded bg-emerald-400/20 text-emerald-300">
               略奪転用レシピ
             </span>
@@ -243,20 +241,20 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                 <div>
                   <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono font-semibold tracking-wider uppercase mb-1">
                     <TrendingUp className="w-3.5 h-3.5" />
-                    <span>Live Tech Stack Migration Radar</span>
+                    <span>Reference Tech Stack Comparison</span>
                   </div>
                   <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                    黒字ソロプレナー・新興企業が「今リアルタイムで何に乗り換えているか」
+                    ツール構成と乗り換えの参考例
                   </h2>
                   <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                    公式PRの宣伝文句を完全排除。実際に利益率70%超を叩き出す123社の公開HTTPヘッダー・DNS・創業者公開ログから機械検出した、真実の勢力図推移。
+                    以下の数値・推移は固定の参考サンプルです。観測証跡との照合は未完了で、現在の採用率や市場シェアを示しません。
                   </p>
                 </div>
 
                 <div className="bg-white/[0.03] border border-white/[0.06] rounded-md px-4 py-3 shrink-0">
-                  <div className="text-[11px] text-zinc-400 font-mono">観測標本（高収益・黒字企業）</div>
-                  <div className="text-lg font-mono font-bold text-cyan-400">123社 ヘッダー検証済</div>
-                  <div className="text-[10px] text-zinc-400 mt-0.5">※全ネットの死にサイト集計を排除</div>
+                  <div className="text-[11px] text-zinc-400 font-mono">データの確認状態</div>
+                  <div className="text-lg font-mono font-bold text-cyan-400">参考サンプル</div>
+                  <div className="text-[10px] text-zinc-400 mt-0.5">観測日・実測標本数は未確認</div>
                 </div>
               </div>
 
@@ -295,7 +293,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3">
                 <div>
                   <div className="text-xs font-mono text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
+                    <Radio className="w-3 h-3 text-cyan-400 " />
                     <span>TradingView Multi-Period Dynamics / 勢力図推移チャート</span>
                   </div>
                   <h3 className="text-base font-bold text-white tracking-tight mt-0.5">
@@ -304,7 +302,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono">
                   <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-[11px] font-bold">
-                    ✓ 123社ヘッダー実測
+                    参考推移・実測未確認
                   </span>
                   <span className="text-zinc-500 text-[11px] hidden sm:inline">
                     期間切替・クロスヘア連動
@@ -376,7 +374,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
 
                         {/* 検出方法バッジ（客観性の担保） */}
                         <div className="flex items-center gap-1 text-[10px] font-mono text-zinc-400 bg-white/[0.03] border border-white/[0.05] px-2 py-0.5 rounded w-fit mb-3">
-                          <CheckCircle2 className="w-2.5 h-2.5 text-emerald-400" />
+                          <AlertTriangle className="w-2.5 h-2.5 text-amber-400" />
                           <span>{tool.detectionMethod}</span>
                         </div>
 
@@ -390,7 +388,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
 
                         {/* 創業者公開発言・一次証拠 */}
                         <div className="space-y-1">
-                          <div className="text-[11px] font-mono text-zinc-400 font-semibold">【創業者公開ログ・一次証拠】</div>
+                          <div className="text-[11px] font-mono text-zinc-400 font-semibold">【未照合の参考記述・出典確認待ち】</div>
                           <p className="text-[11px] text-zinc-400 leading-relaxed italic border-l-2 border-zinc-700 pl-2.5">
                             {tool.proofQuote}
                           </p>
@@ -399,7 +397,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
 
                       {/* 採用している実在企業タグ */}
                       <div className="pt-3 border-t border-white/[0.06]">
-                        <div className="text-[10px] font-mono text-zinc-400 mb-1.5">裏付け採用企業（クリックで台帳へ）:</div>
+                        <div className="text-[10px] font-mono text-zinc-400 mb-1.5">関連企業例・採用未確認（クリックで台帳へ）:</div>
                         <div className="flex flex-wrap gap-1.5">
                           {tool.usedByEntities.map((ent) => (
                             <span
@@ -420,8 +418,8 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
 
             {/* ─── 法的免責・指称的使用声明（Nominative Fair Use） ─── */}
             <div className="mt-8 p-3.5 rounded bg-white/[0.02] border border-white/[0.05] text-[11px] font-mono text-zinc-400 leading-relaxed">
-              <span className="font-bold text-zinc-400 block mb-0.5">【客観的観測データおよび商標に関する免責事項】</span>
-              本インテリジェンスは、当端末が独自に観測・公開検証した高収益実在企業（123社）の公開HTTPヘッダー、DNSレコード、および創業者公表データに基づく統計です。各ツールの公式見解や全市場のシェアを示すものではありません。記載されている会社名、製品名、サービス名は各社の商標または登録商標であり、製品・サービスを特定するための必要最小限の言及（指称的使用）として引用しています。
+              <span className="font-bold text-zinc-400 block mb-0.5">【参考データの取り扱い】</span>
+              本画面は構成・比較のための固定の参考データです。数値、費用、推移、採用企業、手法の有効性はいずれも一次証跡との照合が未完了です。実測統計や現在の推奨を示すものではありません。記載されている会社名、製品名、サービス名は各社の商標または登録商標であり、製品・サービスを特定するための必要最小限の言及（指称的使用）として引用しています。
             </div>
           </div>
         )}
@@ -441,7 +439,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                 先週まで動いていた手法の「即死判定格下げアラート」
               </h2>
               <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                「昔稼げた手法」を今やると即座に資金が全焼する。プラットフォーム規約改定やAPI価格破壊により、今週【即死（HISTORICAL_WINDOW）】に落ちた手口のリアルタイム警告。
+                手法の有効性を見直すための参考事例。判定は固定サンプルであり、現在の規約・価格・有効性は未確認です。
               </p>
             </div>
 
@@ -584,7 +582,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
         )}
 
         {/* ═══════════════════════════════════════════════════════════════════
-            【タブ3】現在有効な稼ぎの型 (CURRENT_PLAYS)
+            【タブ3】稼ぎの型の参考例 (CURRENT_PLAYS)
            ═══════════════════════════════════════════════════════════════════ */}
         {activeTab === 'CURRENT_PLAYS' && (
           <div className="p-4 sm:p-6 max-w-7xl mx-auto space-y-6">
@@ -594,10 +592,10 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                 <span>Actionable Playbook Directory</span>
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                今リアルタイムで通用している「勝ちパターンの型（Playbook）」
+                事業の組み立てを考える参考プレイブック
               </h2>
               <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                現在進行形で月利数百万〜数千万円を抜いている「急所（痛みの財布）」と、今夜別業界で真似して稼ぐ3ステップ略奪転用手順。
+                顧客が支払う理由と事業の組み立て方の参考例。利益額や現在の有効性は未確認です。
               </p>
             </div>
 
@@ -702,10 +700,10 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                 <span>First 100 Customers Guerrilla Archives</span>
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-white tracking-tight">
-                泥臭い初期ゲリラ戦録（最初の100人を獲った客観事実ログ）
+                初動獲得の参考事例（一次証跡未確認）
               </h2>
               <p className="text-xs sm:text-sm text-zinc-400 mt-1">
-                「良い発信をすればファンが増える」という嘘を粉砕。創業者が友人のノートPCを奪い、自虐動画を晒し、断れない完成品を勝手に送りつけた初動突破の真実。
+                初期顧客の獲得方法を比較する参考資料です。企業との対応や記述内容は出典との照合が未完了です。
               </p>
             </div>
 

@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripeClient } from "@/lib/stripe";
+import { getRuntimeEnvValue } from "@/lib/runtime/cloudflare";
+import { assertPaymentStoreAvailable } from "@/lib/payments/entitlement";
+import { FOUNDING_PASS } from "@/lib/payments/founding-pass";
 import { verifyFirebaseIdToken } from "@/lib/firebase/server";
 
 export const dynamic = "force-dynamic";
-
-const FOUNDING_PASS_PRICE_JPY = 1980;
 
 export async function POST(request: Request) {
   try {
@@ -21,20 +22,25 @@ export async function POST(request: Request) {
       }
     }
 
+    if (!userId) return NextResponse.json({ error: "購入前にログインしてください" }, { status: 401 });
+    try { await assertPaymentStoreAvailable(); }
+    catch { return NextResponse.json({ error: "会員情報を保存できないため購入を開始できません" }, { status: 503 }); }
+
     const body = await request.json().catch(() => ({}));
 
-    if (body?.product !== "founding-pass") {
+    if (body?.product !== FOUNDING_PASS.id) {
       return NextResponse.json({ error: "Unknown product" }, { status: 400 });
     }
 
-    if (!stripe) {
+    const stripe = await getStripeClient();
+    if (!stripe || !await getRuntimeEnvValue("STRIPE_WEBHOOK_SECRET")) {
       return NextResponse.json(
         { error: "Stripe is not configured in this environment" },
         { status: 503 }
       );
     }
 
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || new URL(request.url).origin;
+    const appUrl = await getRuntimeEnvValue("NEXT_PUBLIC_APP_URL") || new URL(request.url).origin;
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       client_reference_id: userId || undefined,
@@ -44,17 +50,17 @@ export async function POST(request: Request) {
           price_data: {
             currency: "jpy",
             product_data: {
-              name: "金鉱録 KIN-KOROKU PRO 会員（永久アクセス権）",
-              description: "非公開生データ・契約書ひな形・一次情報完全解放パス",
+              name: FOUNDING_PASS.name,
+              description: "事業構造12項目の詳細分析へのアクセス（財務と出典は無料）",
             },
-            unit_amount: FOUNDING_PASS_PRICE_JPY,
+            unit_amount: FOUNDING_PASS.priceJpy,
           },
           quantity: 1,
         },
       ],
       customer_creation: "always",
       metadata: {
-        product: "founding-pass",
+        product: FOUNDING_PASS.id,
         userId: userId || "",
       },
       success_url: `${appUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
@@ -66,8 +72,8 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ url: session.url });
-  } catch (error) {
-    console.error("Stripe checkout session creation failed", error);
+  } catch {
+    console.error("Stripe checkout session creation failed");
     return NextResponse.json({ error: "決済画面を開始できませんでした" }, { status: 500 });
   }
 }

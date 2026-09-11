@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
+import { financialSnapshot, type SnapshotEntity } from '../../utils/financialSnapshot';
 
 export interface MarketTickerItem {
   category: string;
@@ -10,107 +11,24 @@ export interface MarketTickerItem {
   entityId?: string;
 }
 
-const TICKER_ITEMS: MarketTickerItem[] = [
-  {
-    category: '完全1人開発',
-    headline: 'Photo AI: Pieter Levels氏、従業員ゼロで年商45億円・純利益率84%を維持',
-    badge: '年商 ¥45億 (純利 84%)',
-    badgeType: 'PROFIT',
-    entityId: 'ent_photoai',
-  },
-  {
-    category: 'AIツール爆益',
-    headline: 'HeadshotPro: Danny Postma氏、AI証明写真で月商4,500万円・アフィリ30%還元',
-    badge: '月商 ¥4,500万',
-    badgeType: 'HOT',
-    entityId: 'ent_headshotpro',
-  },
-  {
-    category: '市場マクロ指標',
-    headline: '検証済み最高月商 (完全1人運営): ¥4,500万円',
-    badge: 'RECORD +12%',
-    badgeType: 'RECORD',
-  },
-  {
-    category: '巨大独占の堀',
-    headline: 'キーエンス: 代理店ゼロ直販体制により営業利益率54.0%・平均年収2,200万円',
-    badge: '営業利益率 54.0%',
-    badgeType: 'MONOPOLY',
-    entityId: 'ent_keyence',
-  },
-  {
-    category: 'テンプレート不労所得',
-    headline: 'Easlo: Notionテンプレート販売により完全1人で年商1.1億円・純利益率95%',
-    badge: '純利益率 95%',
-    badgeType: 'PROFIT',
-    entityId: 'ent_easlo',
-  },
-  {
-    category: '市場マクロ指標',
-    headline: 'ソロプレナー平均純手取り率: 84.2%',
-    badge: '+3.1% YoY',
-    badgeType: 'METRIC',
-  },
-  {
-    category: '決済インフラ独占',
-    headline: 'Stripe: コマース決済の関所を支配・年間流通総額150兆円・営業利益率42%',
-    badge: '流通額 ¥150兆',
-    badgeType: 'MONOPOLY',
-    entityId: 'ent_stripe',
-  },
-  {
-    category: '日刊ニュース要約',
-    headline: 'TLDR: 完全1人発・エンジニア日刊ニュースレターで年商10億円・純利85%',
-    badge: '年商 ¥10億 (純利 85%)',
-    badgeType: 'PROFIT',
-    entityId: 'ent_tldr',
-  },
-  {
-    category: '市場マクロ指標',
-    headline: 'AVG MICRO-SAAS MULTIPLE: 4.82x ARR',
-    badge: '+0.4x WoW',
-    badgeType: 'METRIC',
-  },
-  {
-    category: 'クッキーレス解析',
-    headline: 'Simple Analytics: GA4の複雑さと同意バナーの苦痛を突き、2人で月商750万円・利益率79%',
-    badge: '月商 ¥750万 (純利 79%)',
-    badgeType: 'SPEED',
-    entityId: 'ent_simpleanalytics',
-  },
-  {
-    category: '音声配信ホスティング',
-    headline: 'Transistor.fm: 番組数無制限ポッドキャスト配信で2人で年商2億円超・利益率82%',
-    badge: '年商 ¥2億 (純利 82%)',
-    badgeType: 'PROFIT',
-    entityId: 'ent_transistor',
-  },
-  {
-    category: '爆速ローンチ記録',
-    headline: 'outbid.lol: 3時間構築の順位オークションが公開48時間で利益2,000万円突破',
-    badge: '利益 ¥2,000万 / 48h',
-    badgeType: 'RECORD',
-  },
-  {
-    category: '市場マクロ指標',
-    headline: 'AI INFERENCE COST: 推論コスト年間 -38.5% 推移',
-    badge: '粗利拡大ブースター',
-    badgeType: 'METRIC',
-  },
-];
-
 interface MarketTickerStripProps {
+  entities: SnapshotEntity[];
+  sourceLabel: string;
   onSelectEntity?: (entityId: string) => void;
 }
 
-export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEntity }) => {
+export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEntity, entities, sourceLabel }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const isPausedRef = useRef(false);
   const offsetRef = useRef(0);
 
   // 無限ループ用に配列を2重化
-  const tickerItems = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  const items: MarketTickerItem[] = entities.slice(0, 12).map((entity) => {
+    const snapshot = financialSnapshot(entity);
+    return { category: '台帳', headline: `${entity.name}: 月商 ${snapshot.revenue} / 営業利益率 ${snapshot.margin}`, badge: snapshot.status, entityId: entity.id };
+  });
+  const tickerItems = [...items, ...items];
 
   useEffect(() => {
     let animationFrameId: number;
@@ -163,7 +81,7 @@ export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEn
 
   return (
     <aside
-      aria-label="リアルタイム市場指標ティッカー"
+      aria-label="台帳の財務サマリー"
       className="h-7 w-full bg-[#05070A] border-b border-white/[0.06] flex items-center overflow-hidden font-mono text-[11px] select-none shrink-0 relative text-zinc-300 z-20"
       onMouseEnter={() => {
         isPausedRef.current = true;
@@ -180,7 +98,7 @@ export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEn
         <span className="w-px h-3 bg-white/[0.15]" />
         <div className="flex items-center gap-1.5 text-zinc-400">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-          <span className="font-mono text-[9px] tracking-wider text-zinc-400">MARKET LIVE</span>
+          <span className="font-mono text-[9px] tracking-wider text-zinc-400">{sourceLabel}</span>
         </div>
       </div>
 

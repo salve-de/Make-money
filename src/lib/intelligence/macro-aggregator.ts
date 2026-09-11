@@ -75,7 +75,7 @@ export interface ToolTrendItem {
   trendDirection: 'UP' | 'DOWN' | 'FLAT';
   historyShares: number[]; // [35, 41, 46, 49.6] (2026.04, 06, 08, 09)
   estimatedCost: string;
-  detectionMethod: string; // 例: 'HTTPレスポンスヘッダー (server: cloudflare) 検証済'
+  detectionMethod: string; // 例: 'HTTPレスポンスヘッダー (server: cloudflare) （確認方法の例・証跡未確認）'
   whyMigrating: string; // 合理的乗り換え理由
   proofQuote: string; // 創業者公開発言・一次証拠
   usedByEntities: { id: string; name: string; ticker: string }[];
@@ -177,7 +177,8 @@ export interface GoldenStackRecipe {
 export interface MacroIntelligenceData {
   weeklyMeta: {
     weekLabel: string;
-    observedDate: string;
+    observedDate: string | null;
+    provenance: 'reference_sample';
     sampleSizeLabel: string;
     newObservationsCount: number;
     downgradeAlertsCount: number;
@@ -194,9 +195,10 @@ export interface MacroIntelligenceData {
 }
 
 export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIntelligenceData {
-  const totalCount = entities.length || 1;
+  // The curated examples below are not observations derived from the supplied entities.
+  void entities;
 
-  // 1. 各カテゴリの勢力図推移チャートデータ（直近12ヶ月・123社ヘッダー検証集計）
+  // 1. 各カテゴリの勢力図推移チャートデータ（参考サンプル・観測証跡未確認）
   const timeline = [
     '2025.10',
     '2025.11',
@@ -226,7 +228,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'UP',
           historyShares: [26.0, 28.5, 31.0, 34.2, 36.8, 39.5, 42.0, 44.1, 45.8, 47.2, 48.5, 49.6],
           estimatedCost: '月0円〜2,500円 (Workers無料枠大)',
-          detectionMethod: 'HTTPレスポンスヘッダー (server: cloudflare) 検証済',
+          detectionMethod: 'HTTPレスポンスヘッダー (server: cloudflare) （確認方法の例・証跡未確認）',
           whyMigrating: '世界200都市以上のエッジで静的ファイルを即座にキャッシュ。画像配信やトラフィック急増時の帯域幅課金がVercelの1/40以下に抑えられるため。',
           proofQuote: '創業者 Pieter Levels氏の公開ポスト: 「画像ホスティングの帯域コストが月数千ドルからCloudflare Workersで月数十ドルに激減した」',
           usedByEntities: [
@@ -242,7 +244,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'DOWN',
           historyShares: [44.5, 43.0, 41.2, 39.0, 37.1, 35.0, 33.2, 31.5, 29.9, 29.1, 28.8, 28.5],
           estimatedCost: '月$20 (Pro) ＋ 帯域幅従量課金',
-          detectionMethod: 'HTTPヘッダー (x-vercel-id) 検証済',
+          detectionMethod: 'HTTPヘッダー (x-vercel-id) （確認方法の例・証跡未確認）',
           whyMigrating: '開発体験（DX）は最高峰だが、アクセス急増時のServerless Functions実行時間やBandwidth課金の予期せぬ跳ね上がりを警戒し、黒字化後にCloudflareへ移行する傾向。',
           proofQuote: 'Hacker Newsでの議論: 「初期ローンチはVercelで最速公開し、PVが100万を超えた段階でCloudflareエッジへ切り替えるのが定石」',
           usedByEntities: [
@@ -257,7 +259,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'FLAT',
           historyShares: [13.5, 13.6, 13.8, 13.9, 14.0, 14.0, 14.1, 14.1, 14.0, 14.1, 14.1, 14.2],
           estimatedCost: '月5,000円〜2万円 (定額専有)',
-          detectionMethod: 'DNS CNAME / WHOIS IP範囲検証済',
+          detectionMethod: 'DNS CNAME / WHOIS IP範囲（確認方法の例・証跡未確認）',
           whyMigrating: '大量のデータ処理やClickHouseログ解析を行うSaaSにおいて、AWSの数分の一の価格で大容量CPU・メモリを独占できるHetznerへの回帰。',
           proofQuote: 'Plausible Analytics技術白書: 「Hetznerのベアメタルサーバーを採用することで、利益率72%超のインフラ基盤を格安で維持」',
           usedByEntities: [
@@ -295,7 +297,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'UP',
           historyShares: [11.0, 13.5, 16.0, 19.5, 23.0, 27.5, 31.0, 33.5, 35.2, 36.8, 37.5, 38.2],
           estimatedCost: '1,000トークンあたり0.1円〜',
-          detectionMethod: 'APIレスポンスメタデータ検証済',
+          detectionMethod: 'APIレスポンスメタデータ（確認方法の例・証跡未確認）',
           whyMigrating: '長文構造化データやコーディング生成における精度の高さから、B2B申請書類ドラフトや業務自動化でOpenAIからの乗り換えが急伸。',
           proofQuote: '助成金AI代行チーム運用ログ: 「複雑な公的書類のフォーマット準拠率がClaudeの方が圧倒的に高く、手戻り修正時間が1/3になった」',
           usedByEntities: [
@@ -309,7 +311,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'DOWN',
           historyShares: [56.0, 53.5, 50.0, 47.0, 44.5, 42.0, 39.8, 38.5, 37.5, 37.0, 36.8, 36.5],
           estimatedCost: '1,000トークンあたり0.02円〜',
-          detectionMethod: 'APIクライアント呼び出し検証済',
+          detectionMethod: 'APIクライアント呼び出し（確認方法の例・証跡未確認）',
           whyMigrating: '薄いラッパービジネスが本家ChatGPTに潰された教訓から、「汎用チャット」用途での利用は減少し、バックエンドの要約パイプライン下請けに特化。',
           proofQuote: 'Jasper.ai検死白書: 「OpenAIに依存したフロントは公式追従で即死する。裏方の要約エンジンとしてのみ使うのが鉄則」',
           usedByEntities: [
@@ -359,7 +361,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'UP',
           historyShares: [16.0, 17.2, 18.5, 19.8, 21.0, 22.0, 22.8, 23.2, 23.5, 23.7, 23.9, 24.0],
           estimatedCost: '月0円〜1,500円',
-          detectionMethod: 'キャッシュレスポンスヘッダー検証済',
+          detectionMethod: 'キャッシュレスポンスヘッダー（確認方法の例・証跡未確認）',
           whyMigrating: 'APIのレートリミット（不正乱用防止）とセッション管理。サーバーレス環境で接続数を食い潰さないUpstashが定着。',
           proofQuote: 'API防御ログ: 「Upstashのレートリミットを入れるだけで、悪意あるスクレイピングによる推論API破産を完全遮断できる」',
           usedByEntities: [
@@ -397,7 +399,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'UP',
           historyShares: [6.5, 8.0, 10.0, 12.0, 14.2, 16.0, 17.5, 18.8, 19.9, 20.5, 21.0, 21.4],
           estimatedCost: '取引額の 5.0% + 50¢',
-          detectionMethod: 'チェックアウトドメイン検証済',
+          detectionMethod: 'チェックアウトドメイン（確認方法の例・証跡未確認）',
           whyMigrating: 'EUのVAT（付加価値税）や各国の消費税納税義務をプラットフォーム側が代行してくれるため、個人開発者が法務・税務リスクを負わずに世界中に売れる。',
           proofQuote: 'Notionテンプレ開発者ログ: 「世界中から小額決済を受ける場合、税務申告で死ぬ。手数料が5%でもLemon Squeezyに任せるのが正解」',
           usedByEntities: [
@@ -419,7 +421,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'UP',
           historyShares: [40.0, 41.5, 43.0, 44.5, 45.5, 46.5, 47.2, 47.8, 48.2, 48.5, 48.7, 48.8],
           estimatedCost: '月$50〜$150',
-          detectionMethod: 'トラッキングスニペット検証済',
+          detectionMethod: 'トラッキングスニペット（確認方法の例・証跡未確認）',
           whyMigrating: '「登録後3日間未ログイン」などのユーザー行動をトリガーにした自動解約抑止メールにより、LTVを極大化できるため。',
           proofQuote: 'SaaSチャーン分析: 「ステップメールをただ送るのではなく、機能未利用ユーザーに即時チュートリアルを飛ばすことで解約率が30%低下」',
           usedByEntities: [
@@ -447,7 +449,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'FLAT',
           historyShares: [30.0, 29.5, 29.0, 28.5, 28.0, 27.6, 27.2, 27.0, 26.8, 26.6, 26.5, 26.5],
           estimatedCost: '月$29〜',
-          detectionMethod: 'フォーム埋め込みスクリプト検証済',
+          detectionMethod: 'フォーム埋め込みスクリプト（確認方法の例・証跡未確認）',
           whyMigrating: 'ニュースレター・メディア型ビジネスでは依然として高い開封率と有料課金連動を誇るが、アプリ連携SaaSではResendに押され気味。',
           proofQuote: 'メディア創業者ログ: 「日刊ニュースレターの読者リスト管理と有料スポンサー枠の販売には今もKitが最も堅牢」',
           usedByEntities: [
@@ -484,7 +486,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           trendDirection: 'UP',
           historyShares: [15.0, 16.5, 17.8, 19.0, 20.2, 21.0, 21.5, 21.8, 21.9, 22.0, 22.0, 22.0],
           estimatedCost: '年額 $19 (月換算 約250円)',
-          detectionMethod: 'HTTPヘッダー (carrd.co) 検証済',
+          detectionMethod: 'HTTPヘッダー (carrd.co) （確認方法の例・証跡未確認）',
           whyMigrating: '検証段階でコードを書く愚行を完全排除。月250円でカスタムドメインLPとStripe決済ボタンを埋め込み、初日に需要をテストできる。',
           proofQuote: 'Carrd成功事例: 「初速の検証に数週間かけるな。Carrdで今夜1時間で作ったLPでクレカが通るか確かめるのが最速の起業」',
           usedByEntities: [
@@ -926,9 +928,10 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
 
   return {
     weeklyMeta: {
-      weekLabel: '2026年9月 第2週 (Week 37)',
-      observedDate: '2026-09-11',
-      sampleSizeLabel: '高収益・黒字化新興企業 123社 (HTTPヘッダー・公開コード検証済)',
+      weekLabel: '参考サンプル',
+      observedDate: null,
+      provenance: 'reference_sample',
+      sampleSizeLabel: '固定の参考データ・実測標本数は未確認',
       newObservationsCount: 4,
       downgradeAlertsCount: 2,
       activePlaysCount: currentWaves.length,

@@ -47,6 +47,9 @@
         "strategy": {
           "$ref": "#/definitions/StrategicDossier"
         },
+        "isGrowthUnconfirmed": {
+          "type": "boolean"
+        },
         "growthRateYoY": {
           "type": "number"
         },
@@ -58,6 +61,9 @@
         },
         "essence": {
           "$ref": "#/definitions/BusinessEssence"
+        },
+        "hasPremiumAnalysis": {
+          "type": "boolean"
         },
         "meta": {
           "$ref": "#/definitions/MetaArchitectureDossier"
@@ -286,6 +292,9 @@
         "weeklyHours": {
           "type": "number"
         },
+        "isCapitalUnconfirmed": {
+          "type": "boolean"
+        },
         "initialCapitalRequired": {
           "type": "number"
         },
@@ -325,6 +334,9 @@
         },
         "monthlyCost": {
           "type": "number"
+        },
+        "isCostUnconfirmed": {
+          "type": "boolean"
         },
         "purpose": {
           "type": "string"

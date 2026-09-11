@@ -1,10 +1,10 @@
 import type { UserProfilePayload } from '@/shared/strategy';
 import { parseStrategyRequest, parseSynthesizedIdeas } from '@/shared/strategy-schema';
 import { NextRequest, NextResponse } from 'next/server';
-import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
+import { INSTITUTIONAL_ENTITIES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import { SynthesizedIdea, StrategyChatMessage } from '@/platform/types/terminal';
-import { db, analystNotes, chatMessages, synthesizedIdeas } from '@/db';
-import { desc } from 'drizzle-orm';
+import { queryD1, executeD1, batchD1 } from '@/lib/storage/d1';
+import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -67,7 +67,7 @@ function generateFallbackSynthesis(
     operatingMargin: 84,
     requiredTools: [
       { name: 'Stripe Connect', monthlyCostJpy: 0, purpose: '自動エスクロー送金・手数料中抜き' },
-      { name: 'Cloudflare Workers / Neon DB', monthlyCostJpy: 3500, purpose: '従量課金ゼロ・超低遅延データ管理' },
+      { name: 'Cloudflare Workers / D1', monthlyCostJpy: 3500, purpose: 'データ管理の参考構成（月額は仮の予算）' },
       { name: 'Airtable / Retool', monthlyCostJpy: 6000, purpose: '胴元用バックオフィス・監視コンソール' }
     ],
     first100TractionPlaybook: [
@@ -116,7 +116,7 @@ function generateFallbackChatResponse(
   notes?: Record<string, { content: string; updatedAt: string }>,
   userProfile?: UserProfilePayload
 ): { content: string; suggestedActionPrompts: string[] } {
-  const entity = INSTITUTIONAL_ENTITIES.find((e) => e.id === contextEntityId) || INSTITUTIONAL_ENTITIES[0];
+  const entity = findInstitutionalEntity(contextEntityId || '') || INSTITUTIONAL_ENTITIES[0];
   const userNote = contextEntityId && notes ? notes[contextEntityId]?.content : '';
   const profileHint = userProfile?.profileSummary ? `\n\n【あなたの関心傾向】: ${userProfile.profileSummary}` : '';
 
@@ -244,11 +244,30 @@ function shouldEnableLiveSearch(query: string): boolean {
   return searchKeywords.some((keyword) => q.includes(keyword));
 }
 
+async function persistIdeas(userId: string | null, ideas: SynthesizedIdea[]): Promise<boolean> {
+  if (!userId) return false;
+  try {
+    await batchD1(ideas.map((idea) => ({ sql: 'INSERT INTO synthesized_ideas(id,user_id,payload) VALUES(?,?,?) ON CONFLICT(user_id,id) DO NOTHING', params: [idea.id, userId, JSON.stringify(idea)] })));
+    return true;
+  } catch { return false; }
+}
+async function persistMessage(userId: string | null, conversationId: string | undefined, message: StrategyChatMessage): Promise<boolean> {
+  if (!userId) return false;
+  try {
+    const result = await executeD1('INSERT INTO chat_messages(id,user_id,conversation_id,role,content,context_entity_id,suggested_prompts,sources) VALUES(?,?,?,?,?,?,?,?)', [crypto.randomUUID(), userId, conversationId || crypto.randomUUID(), message.role, message.content, message.contextEntityId ?? null, JSON.stringify(message.suggestedActionPrompts ?? []), JSON.stringify(message.sources ?? [])]);
+    return result.changes === 1;
+  } catch { return false; }
+}
+
 export async function POST(req: NextRequest) {
   try {
     let body;
     try { body = parseStrategyRequest(await req.json()); }
     catch { return NextResponse.json({ error: 'Invalid strategy request' }, { status: 400 }); }
+    const auth = req.headers.get('authorization');
+    const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
+    if (auth && !user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const userId = user?.uid ?? null;
     const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
     // 1. アイデア合成リクエスト (SYNTHESIZE)
@@ -302,31 +321,8 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
           const cleanJson = rawResponse.text.replace(/```json/g, '').replace(/```/g, '').trim();
           const parsed = parseSynthesizedIdeas(JSON.parse(cleanJson));
           if (Array.isArray(parsed) && parsed.length > 0) {
-            // Neon DBが利用可能な場合は非同期で永続化
-            if (db) {
-              try {
-                for (const idea of parsed) {
-                  db.insert(synthesizedIdeas).values({
-                    id: idea.id || `idea_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-                    userId: 'guest',
-                    dimension: idea.dimension,
-                    dimensionLabel: idea.dimensionLabel,
-                    title: idea.title,
-                    targetPainWallet: idea.targetPainWallet,
-                    structuralArbitrage: idea.structuralArbitrage,
-                    projectedMonthlyProfitJpy: idea.projectedMonthlyProfitJpy || 0,
-                    operatingMargin: idea.operatingMargin || 0,
-                    requiredTools: idea.requiredTools || [],
-                    first100TractionPlaybook: idea.first100TractionPlaybook || [],
-                    sourceEntityIds: idea.sourceEntityIds || [],
-                    userNoteInspiration: idea.userNoteInspiration || null,
-                  }).catch((err) => console.warn('Neon synthesized idea insert warning:', err));
-                }
-              } catch (dbErr) {
-                console.warn('Neon DB async sync failed:', dbErr);
-              }
-            }
-            return NextResponse.json({ success: true, ideas: parsed, engine: 'gemini' });
+            const persisted = await persistIdeas(userId, parsed);
+            return NextResponse.json({ success: true, ideas: parsed, engine: 'gemini', persisted });
           }
         } catch (geminiErr) {
           console.warn('Gemini API synthesis failed, falling back to internal analyst engine:', geminiErr);
@@ -335,7 +331,7 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 
       // フォールバック推論エンジン
       const ideas = generateFallbackSynthesis(selectedEntityIds, notes, payload.userProfile);
-      return NextResponse.json({ success: true, ideas, engine: 'fallback_internal' });
+      return NextResponse.json({ success: true, ideas, engine: 'fallback_internal', persisted: await persistIdeas(userId, ideas) });
     }
 
     // 2. 対話壁打ちリクエスト (CHAT)
@@ -347,24 +343,22 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
       // リアルタイム検索の要否を自動判定（最安運用: 必要な時のみGoogle検索を発動）
       const enableSearch = shouldEnableLiveSearch(lastUserMessage);
 
-      // Neon DBから過去の蓄積メモを抽出（DB接続時）
-      let dbAccumulatedNotes: string = '';
-      if (db) {
+      // Only the authenticated owner's notes can enter their prompt.
+      let dbAccumulatedNotes = '';
+      if (userId) {
         try {
-          const fetchedNotes = await db.select().from(analystNotes).limit(20);
-          if (fetchedNotes && fetchedNotes.length > 0) {
-            dbAccumulatedNotes = fetchedNotes
-              .map((n) => `[銘柄: ${n.entityId}]: ${n.content}`)
-              .join('\n');
-          }
-        } catch (dbReadErr) {
-          console.warn('Neon DB notes query skipped:', dbReadErr);
-        }
+          const rows = await queryD1('SELECT entity_id,content FROM analyst_notes WHERE user_id=? ORDER BY updated_at DESC LIMIT 20', [userId], (raw) => {
+            const row = raw as Record<string, unknown>;
+            if (typeof row.entity_id !== 'string' || typeof row.content !== 'string') throw new Error('Invalid analyst note');
+            return { entityId: row.entity_id, content: row.content };
+          });
+          dbAccumulatedNotes = rows.map((note) => `[銘柄: ${note.entityId}]: ${note.content}`).join('\n');
+        } catch { /* User-supplied notes remain available if saved notes cannot be read. */ }
       }
 
       if (apiKey) {
         try {
-          const entity = INSTITUTIONAL_ENTITIES.find((e) => e.id === contextEntityId);
+          const entity = findInstitutionalEntity(contextEntityId || '');
           const clientNote = contextEntityId && notes ? notes[contextEntityId]?.content || '' : '';
           const allNotesContext = [clientNote, dbAccumulatedNotes].filter(Boolean).join('\n\n');
 
@@ -416,28 +410,13 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
             isSearchUsed: enableSearch && Boolean(rawResponse.sources && rawResponse.sources.length > 0),
           };
 
-          // Neon DBへ非同期で対話ログを蓄積
-          if (db) {
-            try {
-              const activeConvId = conversationId || `conv_session_${Date.now()}`;
-              db.insert(chatMessages).values({
-                id: assistantMsg.id,
-                conversationId: activeConvId,
-                role: 'assistant',
-                content: assistantMsg.content,
-                contextEntityId: contextEntityId || null,
-                suggestedPrompts: assistantMsg.suggestedActionPrompts || null,
-                sources: assistantMsg.sources || null,
-              }).catch((e) => console.warn('Neon chat message insert warning:', e));
-            } catch (dbSaveErr) {
-              console.warn('Neon DB message save skipped:', dbSaveErr);
-            }
-          }
+          const persisted = await persistMessage(userId, conversationId, assistantMsg);
 
           return NextResponse.json({
             success: true,
             message: assistantMsg,
             engine: 'gemini',
+            persisted,
           });
         } catch (geminiErr) {
           console.warn('Gemini API chat failed, falling back to internal analyst engine:', geminiErr);
@@ -455,7 +434,7 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
         suggestedActionPrompts,
       };
 
-      return NextResponse.json({ success: true, message: assistantMsg, engine: 'fallback_internal' });
+      return NextResponse.json({ success: true, message: assistantMsg, engine: 'fallback_internal', persisted: await persistMessage(userId, conversationId, assistantMsg) });
     }
 
     return NextResponse.json({ error: 'Invalid action' }, { status: 400 });

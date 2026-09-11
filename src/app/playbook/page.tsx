@@ -1,3 +1,5 @@
+import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
+import { publicEntity } from '@/lib/company-access/public-entity';
 import { parseFinancialEntities } from '@/shared/financial-entity-schema';
 import React from 'react';
 import { readFile } from 'fs/promises';
@@ -15,7 +17,7 @@ async function getEntities(): Promise<FinancialEntity[]> {
     const content = await readFile(localPath, 'utf8');
     const parsed = parseFinancialEntities(JSON.parse(content));
     if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed;
+      return parsed.map(reconcileFinancialEntity);
     }
   } catch (error) {
     console.warn('[PlaybookPage] Failed to read entities-index.json, fallback to mock data:', error);
@@ -25,7 +27,7 @@ async function getEntities(): Promise<FinancialEntity[]> {
 
 export default async function PlaybookPage() {
   const entities = await getEntities();
-  const macroData = aggregateMacroIntelligence(entities);
+  const macroData = aggregateMacroIntelligence(entities.map(publicEntity));
 
-  return <PlaybookClientShell macroData={macroData} />;
+  return <PlaybookClientShell macroData={macroData} entities={entities.map(publicEntity)} />;
 }

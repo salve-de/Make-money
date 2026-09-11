@@ -242,7 +242,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
           {/* ========================================================= */}
           {/* 【PRO EXCLUSIVE: 儲かり続ける4つの裏構造 / 崩壊を招いた4つの構造的死因 (フォールバック)】 */}
           {/* ========================================================= */}
-          {!hasEvidenceCards && entity.meta && (
+          {(entity.hasPremiumAnalysis || entity.meta) && (
             <div className={`relative rounded-lg overflow-hidden border shadow-2xl ${
               isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
             }`}>
@@ -274,7 +274,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     </h3>
                   </div>
                 </div>
-                {isPro ? (
+                {isPro && entity.meta ? (
                   <span className={`font-mono text-[10px] border px-2 py-0.5 rounded flex items-center gap-1 font-bold ${
                     isHazardMode
                       ? 'text-red-300 bg-red-950/60 border-red-800/60'
@@ -290,9 +290,10 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                 )}
               </div>
 
-              {/* 4大メタ分析モジュール群 (isProで解錠/すりガラス切り替え) */}
+              {/* サーバー取得済みのPRO本文だけを描画。未契約では本文をDOMへ入れない。 */}
               <div className="relative p-3.5 bg-[#0E131F]">
-                <div className={isPro ? "space-y-3 text-xs font-sans text-zinc-100" : "filter blur-[2.5px] opacity-25 select-none pointer-events-none space-y-3 text-xs font-sans"}>
+                {isPro && entity.meta && (
+                <div className="space-y-3 text-xs font-sans text-zinc-100">
                   {/* #01 なぜ大手が手を出せないのか / 大手による直接圧殺 */}
                   <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
@@ -346,9 +347,15 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   </div>
                 </div>
 
-                {/* 中央解錠ゲートウェイ (未解錠時のみ表示) */}
+                )}
+                {isPro && !entity.meta && (
+                  <p role="status" className="text-xs text-zinc-300 p-3">
+                    PRO分析を取得できていません。企業を選び直して再取得してください。
+                  </p>
+                )}
+                {/* 本文を含まない契約案内 */}
                 {!isPro && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
+                  <div className="flex flex-col items-center justify-center bg-black/80 rounded gap-2.5 p-4 text-center">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                       <KeyRound className={`w-4 h-4 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
                       <span>{isHazardMode ? '大手が一撃で圧殺し、資金が枯渇した「4大死因の裏帳簿」' : '大手が手を出せず、客が一生逃げられない「4大独占構造」'}</span>
@@ -362,7 +369,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       onClick={onOpenPro}
                       className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-2 rounded transition-colors shadow-2xl cursor-pointer"
                     >
-                      PROプランで独占の裏帳簿をすべて暴く (¥1,980〜)
+                      PROプランの内容を確認する
                     </button>
                   </div>
                 )}

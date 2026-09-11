@@ -1,3 +1,4 @@
+import { inspectFinancialIntegrity } from '@/shared/financial-integrity';
 import {
 BarChart3,
 Calculator,
@@ -7,6 +8,8 @@ Clock
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPct, subPct, saasPct, otherPct, profitPct, isHazardMode, financialStatus, isFinancialUnavailable, financialBadgeMeta }: Pick<InspectorSectionProps, 'entity' | 'formatMoney' | 'cogsPct' | 'serverPct' | 'adPct' | 'subPct' | 'saasPct' | 'otherPct' | 'profitPct' | 'isHazardMode' | 'financialStatus' | 'isFinancialUnavailable' | 'financialBadgeMeta'>) {
+  const integrity = inspectFinancialIntegrity(entity.pnl);
+  const hasConflict = integrity.profitConflict || integrity.grossConflict || integrity.marginConflict;
   return <>
           {/* ------------------------------------------------------- */}
           {/* #05〜#07: 財務レントゲン / 出血・逆流レントゲン */}
@@ -38,11 +41,11 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                           <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                             financialBadgeMeta.titleColor
                           }`}>
-                            {financialBadgeMeta.title}
+                            {hasConflict ? '財務データ照合待ち' : financialBadgeMeta.title}
                           </h3>
                         </div>
                         <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${financialBadgeMeta.tagClass}`}>
-                          {financialBadgeMeta.tagLabel}
+                          {hasConflict ? '要照合' : financialBadgeMeta.tagLabel}
                         </span>
                       </div>
                       {/* 右側：観測時期 ＆ 出典 */}
@@ -62,6 +65,16 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                     </div>
 
                     <div className="p-3.5 space-y-3.5 bg-[#0E131F]">
+                      {(integrity.profitConflict || integrity.grossConflict || integrity.marginConflict || integrity.marginUndefined) && (
+                        <div role="note" className="text-xs text-amber-300 border border-amber-500/30 rounded p-2">
+                          財務データ要照合：
+                          {integrity.profitConflict && <>記録の営業利益 {formatMoney(entity.pnl.operatingProfit)} と、粗利益−経費の計算値 {formatMoney(integrity.calculatedProfit)} が一致しません。 </>}
+                          {integrity.grossConflict && '売上−原価と粗利益が一致しません。 '}
+                          {integrity.marginConflict && '記録の利益率と売上・利益からの計算値が一致しません。 '}
+                          {integrity.marginUndefined && '売上ゼロまたは未確認のため利益率を計算できません。 '}
+                          元の記録を保持し、不整合のある指標は未確認として表示しています。
+                        </div>
+                      )}
                       {/* 4連コアKPI */}
                       <div className="grid grid-cols-4 gap-2.5 font-mono">
                         <div className="bg-[#141A28] p-2.5 rounded-md border border-white/[0.06]">
@@ -69,12 +82,12 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                             {financialStatus === 'ESTIMATED' ? '推定月商 (Rev)' : isHazardMode ? '月商 (ピーク/現行)' : '月商 (Rev)'}
                           </span>
                           <span className="text-xs font-bold text-white tabular-nums">
-                            {formatMoney(entity.pnl.monthlyRevenue)}
+                            {entity.pnl.isRevenueUnconfirmed ? (entity.pnl.revenueLabel || '未確認') : formatMoney(entity.pnl.monthlyRevenue)}
                           </span>
                         </div>
                         <div className="bg-[#141A28] p-2.5 rounded-md border border-white/[0.06]">
                           <span className="text-[9px] text-zinc-400 block uppercase font-semibold">
-                            {financialStatus === 'ESTIMATED' ? '推定手残り (Net)' : isHazardMode ? '純損失/手残り' : '純手残り (Net)'}
+                            {financialStatus === 'ESTIMATED' ? '推定営業利益 (税引前)' : '営業利益 (税引前)'}
                           </span>
                           <span className={`text-xs font-bold tabular-nums ${
                             isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
@@ -97,7 +110,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                           <span className={`text-xs font-bold tabular-nums ${
                             entity.growthRateYoY < 0 ? 'text-red-400' : 'text-zinc-200'
                           }`}>
-                            {`${entity.growthRateYoY > 0 ? '+' : ''}${entity.growthRateYoY}%`}
+                            {entity.isGrowthUnconfirmed ? '未確認' : `${entity.growthRateYoY > 0 ? '+' : ''}${entity.growthRateYoY}%`}
                           </span>
                         </div>
                       </div>
@@ -109,7 +122,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                             {financialStatus === 'ESTIMATED' ? '損益分解モデル (100%基準)' : isHazardMode ? '資本流出・出血分解 (100%基準)' : '損益流出分解 (100%基準)'}
                           </span>
                           <span className={`font-bold ${isHazardMode || profitPct === 0 ? 'text-red-400' : 'text-emerald-400'}`}>
-                            {isHazardMode ? `純手残り ${profitPct}% (出血状態)` : `手残り純利益 ${profitPct}%`}
+                            {`営業利益率 ${entity.pnl.operatingMargin}% (税引前)`}
                           </span>
                         </div>
                         <div className="w-full h-2.5 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.10]">
@@ -173,7 +186,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                           <span className="text-zinc-300">
                             {financialStatus === 'ESTIMATED' ? '推定月商 (Gross Revenue)' : isHazardMode ? '直近/ピーク月商' : '直近月商 (Gross Revenue)'}
                           </span>
-                          <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
+                          <span className="text-white font-bold tabular-nums">{entity.pnl.isRevenueUnconfirmed ? (entity.pnl.revenueLabel || '未確認') : formatMoney(entity.pnl.monthlyRevenue)}</span>
                         </div>
                         <div className="p-2.5 flex justify-between items-center text-[11px]">
                           <span className="text-zinc-400 pl-2">└ 売上原価 (COGS)</span>
@@ -208,6 +221,10 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                             <span>ツール・SaaS費</span>
                             <span className="tabular-nums text-zinc-300">{entity.pnl.isCostsUnconfirmed ? '未確認' : formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS) }</span>
                           </div>
+                          <div className="flex justify-between pl-2">
+                            <span>その他営業経費</span>
+                            <span className="tabular-nums text-zinc-300">{entity.pnl.isCostsUnconfirmed ? '未確認' : formatMoney(entity.pnl.operatingExpenses.other)}</span>
+                          </div>
                         </div>
 
                         <div className={`p-2.5 flex justify-between items-center border-t ${
@@ -216,7 +233,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                             : 'bg-emerald-950/20 border-white/[0.08]'
                         }`}>
                           <span className="text-white font-bold">
-                            {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業赤字 (純流出)' : '営業利益 (純手残り)'} ({entity.pnl.isMarginUnconfirmed ? '未確認' : `${entity.pnl.operatingMargin}%`})
+                            {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業赤字 (純流出)' : '営業利益 (税引前)'} ({entity.pnl.isMarginUnconfirmed ? '未確認' : `${entity.pnl.operatingMargin}%`})
                           </span>
                           <span className={`font-bold tabular-nums text-xs ${
                             isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'

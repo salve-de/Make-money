@@ -1,10 +1,12 @@
+import { reconcileFinancialEntity } from './financial-reconciliation';
+import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { FinancialEntity } from '../types/terminal';
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES } from './additionalInstitutionalEntities';
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES_2 } from './additionalInstitutionalEntities2';
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES_3 } from './additionalInstitutionalEntities3';
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES_4 } from './additionalInstitutionalEntities4';
 
-export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
+export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
   {
     "id": "ent_keyence",
     "ticker": "6861.T",
@@ -879,22 +881,22 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "type": "LOOT_BLUEPRINT",
         "title": "【略奪転用】自撮り写真の羞恥心を突き、他人の推論APIをラップして月商1,300万円抜くコード",
         "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "写真館に行く時間・費用・羞恥心を「自撮り写真をアップロードして待つだけ」に置き換え、Replicate API原価zsh.14をで売り飛ばす。",
+        "evidenceStatus": "UNKNOWN",
+        "punchline": "自撮り写真からプロフィール画像を生成するサービス構成の分析。API原価・販売単価は元記録が破損しているため未確認。",
         "details": [
-          "【Replicate/SD原価の極限圧縮】: 画像生成1枚あたりのAPI原価は約2円。客にはパック〜で課金し粗利率80%超を担保。",
+          "【原価・価格】: 元記録の金額が欠落しており、API原価・パック価格・粗利率は再確認が必要。",
           "【Tinder/LinkedIn特化の急所】: 「AI技術」を売るのではなく「マッチングアプリでモテる写真」「採用担当者に刺さる顔写真」という生々しい見栄を売る。",
           "【完全1人自動化】: サーバー管理からStripe決済、画像配送までサーバーレスで完全放置。創業者個人の手残りは月1,000万円超。"
         ],
-        "codeSnippet": "// Photo AI型・APIラッパー自動収益配管\n1. ユーザーが自撮り10枚をアップロード\n2. Replicate API (SDXL / LoRA) でファインチューニングジョブを発行（原価zsh.50）\n3. 生成完了後、WebフックでAWS S3に保存しダウンロードURLをメール送信\n4. Stripeからを自動徴収（手残り純利: 約）",
-        "sourceNote": "Pieter Levels 公開ダッシュボード・Xポスト"
+        "codeSnippet": "// Photo AI型・APIラッパー自動収益配管\n1. ユーザーが自撮り10枚をアップロード\n2. Replicate API (SDXL / LoRA) でファインチューニングジョブを発行（原価未確認）\n3. 生成完了後、WebフックでAWS S3に保存しダウンロードURLをメール送信\n4. 決済と配送を連携する（販売額・純利益は未確認）",
+        "sourceNote": "元記録: Pieter Levels 公開ダッシュボード・Xポスト。金額の破損を確認。一次情報との再照合は未完了。"
       },
       {
         "id": "ev_photoai_crime",
         "type": "THE_CRIME",
         "title": "写真館のスタジオ代3万円と羞恥心をReplicate APIで瞬殺",
         "badge": "API包装ソロプレナー",
-        "evidenceStatus": "VERIFIED",
+        "evidenceStatus": "UNKNOWN",
         "punchline": "Tinderのプロフィール写真やLinkedIn写真のために写真館に行く「3万円・移動・カメラマンの前での恥ずかしさ」をスマホ自撮りアップロードで切除。",
         "details": [
           "ユーザーが自撮り写真を数枚アップロードすると、Stable Diffusion / Flux のLoRA学習をバックエンドで回し、プロ品質の写真を生成。",
@@ -902,12 +904,12 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         ],
         "metrics": [
           {
-            "label": "月商",
+            "label": "旧記録の月商（時点未確認）",
             "value": "約¥1,800万",
             "isHighlight": true
           },
           {
-            "label": "営業利益率",
+            "label": "旧記録の利益率（時点未確認）",
             "value": "82%",
             "isHighlight": true
           },
@@ -920,7 +922,7 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
             "value": "約¥20"
           }
         ],
-        "sourceNote": "Pieter Levels 公開ダッシュボード ＆ インタビュー"
+        "sourceNote": "旧記録: Pieter Levels 公開ダッシュボード ＆ インタビュー。P&Lの月商1,300万円・77.3%と不一致。観測時点・出典の再照合まで比較や計算に使用しない。"
       },
       {
         "id": "ev_photoai_smoking_gun",
@@ -8691,3 +8693,18 @@ export const INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
   ...ADDITIONAL_INSTITUTIONAL_ENTITIES_3,
   ...ADDITIONAL_INSTITUTIONAL_ENTITIES_4,
 ];
+
+// Explicit identity reconciliation: retain source records and support saved legacy IDs.
+export const INSTITUTIONAL_ENTITY_ALIASES: Record<string, string> = {
+  ent_aliabdaal_d301c52084edf3d07884: 'ent_case06_4e20bb4ce764a811f8e4',
+  ent_business_72f423163f9c7ce9b932: 'ent_ahrefs_1cfda3ec4b2ab651bd2d',
+  ent_business_934a0e24c4543b1b174f: 'ent_1password_f08ccd0b403a1bf0dcdc',
+};
+export const INSTITUTIONAL_ENTITIES = SOURCE_INSTITUTIONAL_ENTITIES
+  .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
+  .map(reconcileFinancialEntity)
+  .map(normalizeFinancialEntity);
+
+export function findInstitutionalEntity(id: string): FinancialEntity | undefined {
+  return INSTITUTIONAL_ENTITIES.find((entity) => entity.id === (INSTITUTIONAL_ENTITY_ALIASES[id] ?? id));
+}

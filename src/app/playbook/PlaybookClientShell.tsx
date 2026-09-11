@@ -6,13 +6,14 @@ import { MacroIntelligenceData } from '@/lib/intelligence/macro-aggregator';
 import { PlaybookIntelligenceView } from '@/platform/components/playbook/PlaybookIntelligenceView';
 import { TerminalSidebar } from '@/platform/components/navigation/TerminalSidebar';
 import { MarketTickerStrip } from '@/platform/components/ticker/MarketTickerStrip';
-import { WorkspaceMode, GridFilterOption } from '@/platform/types/terminal';
+import { WorkspaceMode, GridFilterOption, FinancialEntity } from '@/platform/types/terminal';
 
 interface PlaybookClientShellProps {
   macroData: MacroIntelligenceData;
+  entities: FinancialEntity[];
 }
 
-export const PlaybookClientShell: React.FC<PlaybookClientShellProps> = ({ macroData }) => {
+export const PlaybookClientShell: React.FC<PlaybookClientShellProps> = ({ macroData, entities }) => {
   const router = useRouter();
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>('PLAYBOOK');
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>('ALL');
@@ -32,7 +33,7 @@ export const PlaybookClientShell: React.FC<PlaybookClientShellProps> = ({ macroD
   return (
     <div className="flex flex-col h-screen w-screen bg-[#060709] overflow-hidden">
       {/* 最上部 ティッカーストリップ */}
-      <MarketTickerStrip onSelectEntity={handleSelectEntity} />
+      <MarketTickerStrip entities={entities} sourceLabel="保存済み台帳" onSelectEntity={handleSelectEntity} />
 
       <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* 左側 固定ナビゲーションサイドバー */}

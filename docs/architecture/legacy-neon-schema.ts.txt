@@ -1,3 +1,4 @@
+// Historical migration inventory only. Not executable application code.
 import { pgTable, text, timestamp, integer, boolean, jsonb, serial } from "drizzle-orm/pg-core";
 
 // ユーザー・購読管理（Firebase Auth & Stripe連携）

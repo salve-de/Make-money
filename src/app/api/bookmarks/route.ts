@@ -1,88 +1,38 @@
-import { NextRequest, NextResponse } from "next/server";
-import { verifyFirebaseIdToken } from "@/lib/firebase/server";
-import { db, savedItems } from "@/db";
-import { eq, and } from "drizzle-orm";
+import { NextRequest, NextResponse } from 'next/server';
+import { verifyFirebaseIdToken } from '@/lib/firebase/server';
+import { parseBookmark, readInput } from '@/lib/api/input';
+import { queryD1 } from '@/lib/storage/d1';
 
-import { parseBookmark, readInput } from "@/lib/api/input";
-
-export const dynamic = "force-dynamic";
-
-// ユーザーの保存済み一覧取得
+export const dynamic = 'force-dynamic';
+const headers = { 'Cache-Control': 'private, no-store' };
+async function authenticated(req: NextRequest) {
+  const auth = req.headers.get('authorization');
+  return auth?.startsWith('Bearer ') ? verifyFirebaseIdToken(auth.slice(7)) : null;
+}
 export async function GET(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const token = authHeader.split("Bearer ")[1];
-  const user = await verifyFirebaseIdToken(token);
-  if (!user) {
-    return NextResponse.json({ error: "Invalid token" }, { status: 401 });
-  }
-
-  if (!db) {
-    return NextResponse.json({ error: "現在、保存済み一覧を取得できません" }, { status: 503 });
-  }
-
+  const user = await authenticated(req);
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers });
   try {
-    const items = await db
-      .select()
-      .from(savedItems)
-      .where(eq(savedItems.userId, user.uid));
-    return NextResponse.json({ saved: items });
-  } catch (err) {
-    console.error("Failed to get saved items:", err);
-    return NextResponse.json({ error: "DB Error" }, { status: 500 });
+    const saved = await queryD1('SELECT user_id AS userId,item_type AS itemType,item_id AS itemId,created_at AS createdAt FROM bookmarks WHERE user_id=? AND saved=1 ORDER BY created_at DESC', [user.uid], (row) => {
+      const value = row as Record<string, unknown>;
+      if (value.userId !== user.uid || !['business','idea','signal'].includes(String(value.itemType)) || typeof value.itemId !== 'string' || typeof value.createdAt !== 'string') throw new Error('Invalid saved record');
+      return value;
+    });
+    return NextResponse.json({ saved }, { headers });
+  } catch {
+    return NextResponse.json({ error: '現在、保存済み一覧を取得できません' }, { status: 503, headers });
   }
 }
-
-// アイテムの保存 / 保存解除（トグル）
 export async function POST(req: NextRequest) {
-  const authHeader = req.headers.get("authorization");
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
-  const token = authHeader.split("Bearer ")[1];
-  const user = await verifyFirebaseIdToken(token);
-  if (!user) {
-    return NextResponse.json({ error: "Invalid token" }, { status: 401 });
-  }
-
+  const user = await authenticated(req);
+  if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers });
   const input = await readInput(req, parseBookmark);
-  if (!input) return NextResponse.json({ error: "Invalid bookmark parameters" }, { status: 400 });
-  const { itemType, itemId } = input;
-  if (!db) return NextResponse.json({ error: "現在、ブックマークを保存できません" }, { status: 503 });
-
+  if (!input) return NextResponse.json({ error: 'Invalid bookmark parameters' }, { status: 400, headers });
   try {
-    const existing = await db
-      .select()
-      .from(savedItems)
-      .where(
-        and(
-          eq(savedItems.userId, user.uid),
-          eq(savedItems.itemType, itemType),
-          eq(savedItems.itemId, itemId)
-        )
-      );
-
-    if (existing.length > 0) {
-      // 既に保存されている場合は削除（トグル解除）
-      await db
-        .delete(savedItems)
-        .where(eq(savedItems.id, existing[0].id));
-      return NextResponse.json({ success: true, saved: false });
-    } else {
-      // 新規保存
-      await db.insert(savedItems).values({
-        userId: user.uid,
-        itemType,
-        itemId,
-      });
-      return NextResponse.json({ success: true, saved: true });
-    }
-  } catch (err) {
-    console.error("Failed to toggle bookmark:", err);
-    return NextResponse.json({ error: "DB Error" }, { status: 500 });
+    const rows = await queryD1('INSERT INTO bookmarks(user_id,item_type,item_id,saved) VALUES(?,?,?,1) ON CONFLICT(user_id,item_type,item_id) DO UPDATE SET saved=1-bookmarks.saved,updated_at=CURRENT_TIMESTAMP RETURNING saved', [user.uid, input.itemType, input.itemId]);
+    if (rows.length !== 1 || (rows[0].saved !== 0 && rows[0].saved !== 1)) throw new Error('Bookmark not saved');
+    return NextResponse.json({ success: true, saved: rows[0].saved === 1 }, { headers });
+  } catch {
+    return NextResponse.json({ error: 'ブックマークを保存できません。再度お試しください' }, { status: 503, headers });
   }
 }

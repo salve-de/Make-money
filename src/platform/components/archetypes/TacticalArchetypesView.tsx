@@ -19,7 +19,7 @@ import {
   BookOpen,
   Database,
 } from 'lucide-react';
-import { AffiliateToolList } from '../tools/AffiliateToolBadge';
+import { selectTrendResults } from './trend-results';
 
 interface TacticalArchetypesViewProps {
   allEntities: FinancialEntity[];
@@ -52,46 +52,16 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
     }
   }
 
-  // フィルタリング処理（カテゴリピル全廃・即時フリーワード検索に純化）
-  const filteredAnomalies = useMemo(() => {
-    if (!searchQuery.trim()) return MARKET_ANOMALIES;
-    const q = searchQuery.toLowerCase();
-    return MARKET_ANOMALIES.filter((item) => {
-      return (
-        item.title.toLowerCase().includes(q) ||
-        item.subtitle.toLowerCase().includes(q) ||
-        item.categoryLabel.toLowerCase().includes(q) ||
-        item.targetPainWallet.toLowerCase().includes(q) ||
-        item.incumbentTrap.toLowerCase().includes(q) ||
-        item.trendingPlaybook.toLowerCase().includes(q)
-      );
-    });
-  }, [searchQuery]);
-
-  // 現在選択中の歪みオブジェクト
-  const activeAnomaly = useMemo(() => {
-    return (
-      MARKET_ANOMALIES.find((a) => a.id === selectedAnomalyId) ||
-      filteredAnomalies[0] ||
-      MARKET_ANOMALIES[0]
-    );
-  }, [selectedAnomalyId, filteredAnomalies]);
+  const { filteredAnomalies, activeAnomaly, avgMargin, hotCount, latestUpdatedAt } = useMemo(
+    () => selectTrendResults(MARKET_ANOMALIES, searchQuery, selectedAnomalyId),
+    [searchQuery, selectedAnomalyId],
+  );
 
   // 選択中歪みの裏付け実在銘柄
   const matchedEntities = useMemo(() => {
     if (!activeAnomaly) return [];
     return allEntities.filter((ent) => activeAnomaly.proofEntityIds.includes(ent.id));
   }, [activeAnomaly, allEntities]);
-
-  // 全体メトリクス
-  const avgMargin = useMemo(() => {
-    const total = MARKET_ANOMALIES.reduce((acc, cur) => acc + cur.netMarginPercent, 0);
-    return (total / MARKET_ANOMALIES.length).toFixed(1);
-  }, []);
-
-  const hotCount = useMemo(() => {
-    return MARKET_ANOMALIES.filter((a) => a.isHot).length;
-  }, []);
 
   return (
     <div className="flex-1 flex flex-col min-w-0 bg-[#060709] text-zinc-100 overflow-hidden font-sans select-text">
@@ -101,14 +71,14 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
           {/* タイトルとコンセプト */}
           <div className="flex items-center gap-2 min-w-0">
             <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold tracking-wider uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
-              <Flame className="w-3 h-3 text-emerald-400 animate-pulse" />
+              <Flame className="w-3 h-3 text-emerald-400 " />
               TRENDS & ANOMALIES
             </span>
             <h1 className="text-xs sm:text-sm font-semibold text-white tracking-wide truncate">
-              市場の歪み ＆ トレンド速報
+              市場の歪み ＆ トレンド参考資料
             </h1>
             <span className="text-[10px] text-zinc-500 font-mono hidden md:inline shrink-0">
-              ({filteredAnomalies.length}件検知 / 平均手残り {avgMargin}%)
+              ({filteredAnomalies.length}件表示 / 参考利益率の平均 {avgMargin === null ? '—' : `${avgMargin}%`})
             </span>
           </div>
 
@@ -126,11 +96,14 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
             </div>
             <div className="hidden lg:flex items-center gap-1.5 text-[11px] font-mono text-zinc-500">
               <span className="px-2 py-0.5 rounded bg-white/[0.02] border border-white/[0.05] text-rose-400 font-bold">
-                急上昇 {hotCount}件
+                注目例 {hotCount}件
               </span>
             </div>
           </div>
         </div>
+        <p className="mt-2 text-xs text-amber-300" role="note">
+          固定の参考資料・一次証跡未確認。検索結果の資料更新日: {latestUpdatedAt ?? '該当なし'}。現在の有効性・数値は未確認です。
+        </p>
       </header>
 
       {/* ─── メイン領域: 2ペイン（左: 歪み一覧 / 右: 完全解剖カルテ） ─── */}
@@ -192,13 +165,13 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
                     {anomaly.subtitle}
                   </p>
 
-                  {/* フッター情報: 想定月商 ＆ 実効手残り純利 */}
+                  {/* フッター情報: 想定月商 ＆ 参考利益率 */}
                   <div className="flex items-center justify-between pt-1.5 border-t border-white/[0.04] text-[10px] font-mono">
                     <span className="text-zinc-500 truncate max-w-[180px] sm:max-w-[220px]">
                       {anomaly.expectedRevenue}
                     </span>
                     <div className="flex items-center gap-1 shrink-0">
-                      <span className="text-zinc-500">手残り:</span>
+                      <span className="text-zinc-500">参考利益率:</span>
                       <span className="text-emerald-400 font-bold">
                         {anomaly.netMarginPercent}%
                       </span>
@@ -322,6 +295,8 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
           {anomaly.subtitle}
         </p>
 
+<p className="mt-2 text-xs text-amber-300">参考資料・一次証跡未確認 / 資料更新日: {anomaly.updatedAt}</p>
+
         {/* 財務サマリーバー */}
         <div className="mt-3 sm:mt-4 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 p-2.5 sm:p-3 rounded-lg bg-[#0B0D13] border border-white/[0.06]">
           <div>
@@ -331,7 +306,7 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
             </span>
           </div>
           <div>
-            <span className="text-[9px] sm:text-[10px] font-mono text-zinc-500 uppercase block">実効手残り純利</span>
+            <span className="text-[9px] sm:text-[10px] font-mono text-zinc-500 uppercase block">参考利益率</span>
             <span className="text-xs sm:text-sm font-mono font-bold text-emerald-400 mt-0.5 block">
               {anomaly.netMarginPercent}%
             </span>
@@ -339,7 +314,7 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
           <div className="col-span-2 sm:col-span-1">
             <span className="text-[9px] sm:text-[10px] font-mono text-zinc-500 uppercase block">大手の対抗可能性</span>
             <span className="text-xs sm:text-sm font-mono font-bold text-rose-400 mt-0.5 block">
-              0% (構造的自縛)
+              未確認
             </span>
           </div>
         </div>

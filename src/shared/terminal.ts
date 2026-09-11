@@ -57,6 +57,7 @@ export interface ToolStackItem {
   name: string;
   category: string;
   monthlyCost: number;
+  isCostUnconfirmed?: boolean; // 月額原価未確認。0を実績として使わない
   purpose?: string;
   replacementDifficulty?: 'LOW' | 'MEDIUM' | 'HIGH';
   url?: string;
@@ -67,6 +68,7 @@ export interface OperatingFramework {
   initialTeamSize?: number; // 立ち上げ初期の人数 (1 = 完全1人)
   currentTeamSize?: number; // 現在の人数 (スケール後)
   weeklyHours: number; // 週稼働時間
+  isCapitalUnconfirmed?: boolean; // 初期資本未確認。ゼロ資本フィルターの対象外
   initialCapitalRequired: number; // 初期投下資本 (0 = 0円)
   automationLevel: number; // 1-100%
   primaryChannels: string[]; // 集客経路
@@ -265,10 +267,12 @@ export interface FinancialEntity {
   pnl: ProfitAndLossStatement;
   operations: OperatingFramework;
   strategy: StrategicDossier;
+  isGrowthUnconfirmed?: boolean; // 成長率未確認。0%として表示しない
   growthRateYoY: number; // 前年比成長率 %
   pricing?: PricingDossier;
   acquisition?: AcquisitionDossier;
   essence?: BusinessEssence;
+  hasPremiumAnalysis?: boolean;
   meta?: MetaArchitectureDossier;
   exposureAudit?: ExposureAuditDossier; // 資本主義の裏帳簿：客観事実の暴露レントゲン
   isBookmarked?: boolean;

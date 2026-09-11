@@ -2,8 +2,8 @@
 
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { parseCompanyAnalysis } from '@/lib/company-access/schema';
 import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/lib/foundation/schema';
-import { INSTITUTIONAL_ENTITIES } from '../../data/mockLedgerData';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { FinancialEntity, GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
@@ -34,7 +34,7 @@ import {
   adaptFoundationDetailToFinancialEntity,
 } from '@/lib/foundation/foundation-adapter';
 
-export const TerminalShell: React.FC = () => {
+export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entityAliases: Record<string, string>}> = ({initialEntities, entityAliases}) => {
   const { viewedEntityIds, recordView } = useViewHistory();
   const searchParams = useSearchParams();
   const queryParam = searchParams?.get('q') || '';
@@ -44,7 +44,7 @@ export const TerminalShell: React.FC = () => {
   const filterParam = searchParams?.get('filter') as GridFilterOption | null;
 
   // アナリスト考察メモの永続化フック
-  const { notes, getNote, saveNote } = useAnalystNotes();
+  const { notes, getNote, saveNote, getSaveStatus } = useAnalystNotes();
 
   // 表示モード (LEDGER: 台帳 / RADAR: 動向レーダー / SYNTHESIS: 戦略壁打ち＆独自アイデア合成)
   const initialMode: WorkspaceMode = modeParam || 'LEDGER';
@@ -62,9 +62,10 @@ export const TerminalShell: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
 
   // 1. 静的・自社重点事例（キーエンス、Photo AI、ShipFast等）
-  const coreEntities = INSTITUTIONAL_ENTITIES;
+  const coreEntities = initialEntities;
 
   // 2. Foundation Lake (R2) から取得したグローバル企業サマリー
+  const [dataSource, setDataSource] = useState('取得状態を確認中');
   const [foundationRows, setFoundationRows] = useState<FoundationValueSummary[]>([]);
   const [foundationCursor, setFoundationCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
@@ -142,6 +143,7 @@ export const TerminalShell: React.FC = () => {
       const res = await fetch(`/api/businesses?${params.toString()}`, { signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const page = parseFoundationPageResponse(await res.json());
+      setDataSource(page ? '保存済み台帳 + 外部取得データ' : '保存済み台帳（外部取得なし）');
       if (page) {
         mergeFoundationRows(page.data, !cursor);
         setFoundationCursor(page.nextCursor);
@@ -159,6 +161,7 @@ export const TerminalShell: React.FC = () => {
     const controller = new AbortController();
     void loadFoundationPage(undefined, controller.signal).catch((error) => {
       if ((error as { name?: string })?.name !== 'AbortError') {
+        setDataSource('保存済み台帳（外部取得に失敗）');
         console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
       }
     });
@@ -167,7 +170,7 @@ export const TerminalShell: React.FC = () => {
 
   // 認知負荷ゼロ・即時着火: entityParam指定があればそれ、なければPhoto AI（粗利84%ソロ企業）をデフォルト自動展開
   const initialEntityId =
-    entityParam ||
+    (entityParam ? entityAliases[entityParam] || entityParam : null) ||
     (queryParam
       ? entities.find(
           (e) =>
@@ -230,7 +233,7 @@ export const TerminalShell: React.FC = () => {
     }
 
     if (entityParam) {
-      setSelectedEntityId(entityParam);
+      setSelectedEntityId(entityAliases[entityParam] || entityParam);
     } else if (queryParam) {
       const matched = entities.find(
         (e) =>
@@ -251,21 +254,8 @@ export const TerminalShell: React.FC = () => {
     }
   }, [selectedEntityId, recordView]);
 
-  const { isPro: authIsPro } = useAuth();
-  const [isLocalProUnlocked, setIsLocalProUnlocked] = useState<boolean>(false);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const local = localStorage.getItem('kin_pro_unlocked');
-      if (local === 'true') {
-        // Hydrate the persisted local setting after SSR without a hydration mismatch.
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-        setIsLocalProUnlocked(true);
-      }
-    }
-  }, []);
-
-  const isProUnlocked = Boolean(authIsPro || isLocalProUnlocked);
+  const { isPro: authIsPro, token } = useAuth();
+  const isProUnlocked = authIsPro;
 
   const [currency, setCurrency] = useState<'JPY' | 'USD'>('JPY');
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
@@ -338,7 +328,7 @@ export const TerminalShell: React.FC = () => {
     return entities.filter((entity) => {
       if (currentFilter === 'SOLO' && entity.scale !== 'SOLO') return false;
       if (currentFilter === 'HIGH_MARGIN' && entity.pnl.operatingMargin < 50) return false;
-      if (currentFilter === 'ZERO_CAPITAL' && entity.operations.initialCapitalRequired > 0) return false;
+      if (currentFilter === 'ZERO_CAPITAL' && (entity.operations.isCapitalUnconfirmed || entity.operations.initialCapitalRequired > 0)) return false;
       if (currentFilter === 'MONOPOLY' && entity.scale !== 'ENTERPRISE') return false;
       if (currentFilter === 'AI_NATIVE' && entity.sector !== 'AI_AUTOMATION') return false;
       if (currentFilter === 'BOOKMARKED' && !bookmarkedIds.has(entity.id)) return false;
@@ -353,7 +343,7 @@ export const TerminalShell: React.FC = () => {
       if (screenerFilters) {
         if (screenerFilters.scales.length > 0 && !screenerFilters.scales.includes(entity.scale)) return false;
         if (screenerFilters.minMargin > 0 && entity.pnl.operatingMargin < screenerFilters.minMargin) return false;
-        if (screenerFilters.maxCapital !== null && entity.operations.initialCapitalRequired > screenerFilters.maxCapital) return false;
+        if (screenerFilters.maxCapital !== null && (entity.operations.isCapitalUnconfirmed || entity.operations.initialCapitalRequired > screenerFilters.maxCapital)) return false;
         if (screenerFilters.moats.length > 0 && !screenerFilters.moats.includes(entity.strategy.moatType)) return false;
         if (screenerFilters.selectedTags && screenerFilters.selectedTags.length > 0) {
           const entityTags = entity.tags || [];
@@ -379,11 +369,28 @@ export const TerminalShell: React.FC = () => {
   }, [entities, currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
 
   // 現在選択中の企業エンティティ (詳細版があれば詳細版、なければサマリー版)
+  const [analysis, setAnalysis] = useState<{ id: string; token: string; meta: NonNullable<FinancialEntity['meta']> } | null>(null);
+  useEffect(() => {
+    if (!authIsPro || !token || !selectedEntityId) return;
+    const controller = new AbortController();
+    void fetch(`/api/company-analysis?entity_id=${encodeURIComponent(selectedEntityId)}`, {
+      headers: { Authorization: `Bearer ${token}` }, cache: 'no-store', signal: controller.signal,
+    }).then(async (result) => {
+      if (!result.ok) return;
+      const body = await result.json();
+      const meta = parseCompanyAnalysis(body.meta);
+      if (!controller.signal.aborted && body.entityId === selectedEntityId) setAnalysis({ id: selectedEntityId, token, meta });
+    }).catch(() => { /* Never unlock on failed authorization or invalid data. */ });
+    return () => controller.abort();
+  }, [selectedEntityId, token, authIsPro]);
+
   const selectedEntity = useMemo(() => {
     if (!selectedEntityId) return null;
-    if (detailedEntities[selectedEntityId]) return detailedEntities[selectedEntityId];
-    return entities.find((e) => e.id === selectedEntityId) || null;
-  }, [selectedEntityId, detailedEntities, entities]);
+    const entity = detailedEntities[selectedEntityId] || entities.find((e) => e.id === selectedEntityId);
+    if (!entity) return null;
+    if (authIsPro && token && analysis?.token === token && analysis.id === selectedEntityId) return { ...entity, meta: analysis.meta };
+    return entity;
+  }, [selectedEntityId, detailedEntities, entities, authIsPro, token, analysis]);
 
   const handlePrevEntity = useCallback(() => {
     const list = workspaceMode === 'DEEP_DIVE' ? deepDiveEntities : filteredEntities;
@@ -407,6 +414,8 @@ export const TerminalShell: React.FC = () => {
     <div className="flex flex-col h-screen w-screen bg-[#07080B] text-zinc-100 overflow-hidden font-sans">
       {/* 統合ヘッダー ＆ リアルタイム市況ティッカー */}
       <MarketTickerStrip
+        entities={entities}
+        sourceLabel={dataSource}
         onSelectEntity={(id) => {
           setSelectedEntityId(id);
           setWorkspaceMode('LEDGER');
@@ -507,6 +516,7 @@ export const TerminalShell: React.FC = () => {
             activeTags={activeTags}
             onToggleTag={handleToggleTag}
             analystNote={getNote(selectedEntity.id)}
+            noteSaveStatus={getSaveStatus(selectedEntity.id)}
             onSaveAnalystNote={saveNote}
             onOpenSynthesisWithEntity={(id) => {
               setSelectedEntityId(id);

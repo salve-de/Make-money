@@ -35,15 +35,37 @@ export function findCycles(graph) {
   return cycles;
 }
 
+/** Premium source modules may be imported by servers and tests, never by a client graph. */
+export function findPaidClientImports(graph, clientEntries) {
+  const errors = [];
+  const paid = (file) => /^src\/platform\/data\/(mockLedgerData|additionalInstitutionalEntities\d*)\.ts$/.test(file) || file === 'data/entities-index.json';
+  for (const entry of clientEntries) {
+    const visited = new Set();
+    const visit = (file, trail) => {
+      if (visited.has(file)) return;
+      visited.add(file);
+      if (paid(file)) {
+        errors.push(`Paid source reached from client: ${[...trail, file].join(' -> ')}`);
+        return;
+      }
+      for (const target of graph.get(file) || []) visit(target, [...trail, file]);
+    };
+    visit(entry, []);
+  }
+  return errors;
+}
+
 /** @param {{ file: string, text: string }[]} probes In-memory regression fixtures. */
 export function checkBoundaries(probes = []) {
   const errors = [];
   const graph = new Map();
+  const clientEntries = [];
   const sources = new Map(probes.map(({ file, text }) => [path.resolve(root, file), text]));
   const files = [...parsed.fileNames, ...sources.keys()];
   for (const file of files.filter((f) => normalize(f).startsWith('src/'))) {
     const from = normalize(file);
     const source = ts.createSourceFile(file, sources.get(file) ?? ts.sys.readFile(file) ?? '', ts.ScriptTarget.Latest, true);
+    if (source.statements.some((statement) => ts.isExpressionStatement(statement) && ts.isStringLiteral(statement.expression) && statement.expression.text === 'use client')) clientEntries.push(from);
     const edges = [];
     function add(specifier, runtime) {
       const resolved = ts.resolveModuleName(specifier, file, parsed.options, ts.sys).resolvedModule;
@@ -76,6 +98,7 @@ export function checkBoundaries(probes = []) {
     }
     walk(source); graph.set(from, edges);
   }
+  errors.push(...findPaidClientImports(graph, clientEntries));
   for (const cycle of findCycles(graph)) errors.push(`Runtime import cycle: ${cycle.join(' -> ')}`);
   return errors;
 }

@@ -32,7 +32,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                     </div>
                   </div>
                   <span className="text-zinc-300 font-mono text-[11px] font-bold">
-                    月額計: {formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}
+                    月額計: {entity.operations.toolStack.some((tool) => tool.isCostUnconfirmed) ? '未確認' : formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}
                   </span>
                 </div>
                 <div className="divide-y divide-white/[0.06] bg-[#0E131F]">
@@ -65,7 +65,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="text-zinc-300 font-mono text-xs tabular-nums font-semibold">
-                              {formatMoney(tool.monthlyCost)}/月
+                              {tool.isCostUnconfirmed ? '費用未確認' : `${formatMoney(tool.monthlyCost)}/月`}
                             </span>
                           </div>
                         </div>

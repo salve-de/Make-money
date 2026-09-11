@@ -4,7 +4,7 @@
 
 ## 現在地
 
-2026-09-11: D1 + R2への移行を実装中。本番切替・実データ移行・復元試験の完了を意味しません。Neonは今後の実行時保存先として使用しません。旧実装が残っていても新規利用しないでください。既存データの移行は所有プロジェクトを確認し、原本を保全してから行います。
+2026-09-11: D1 + R2への移行を実装中。専用D1・非公開R2を作成し、D1 migration 0001〜0003を適用済み。設計文書はGitHub/R2保存・読み戻し確認済み（[保存記録](PUBLICATION_RECEIPT.md)）。本番切替・実データ移行・復元試験の完了を意味しません。Neonは今後の実行時保存先として使用しません。旧実装が残っていても新規利用しないでください。既存データの移行は所有プロジェクトを確認し、原本を保全してから行います。
 
 ## データをどこへ入れるか
 
@@ -71,7 +71,7 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 - 切替後の照合を終えるまで旧原本を削除しない。切戻し先、判断条件、責任者を記録する。
 - 個人情報は永久保持しない。保持期間・削除依頼・バックアップからの削除反映方針をデータ種別ごとに決める。
 
-D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
+D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。復元手順と合成データによる自動演習は [RECOVERY.md](RECOVERY.md) に記載します。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
 
 ## 検証と変更の記録
 
@@ -84,3 +84,5 @@ D1には容量等の上限があり、Time Travelにも保持期間がありま�
 - [収集契約](../DATA_COLLECTION_CONTRACT.md)
 - [財務照合](../FINANCIAL_RECONCILIATION.md)
 - [監査修正と検証](../BROWSER_AUDIT_REPAIRS.md)
+
+Nodeでの直接起動は明示したD1 REST設定の単文のみを扱います。複数SQLのtransactionが必要な処理はAPP_DB bindingが必須です。RESTで部分成功させるfallbackは行いません。

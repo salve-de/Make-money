@@ -5,7 +5,7 @@ Edit3
 
 import type { InspectorSectionProps } from '../model/section-props';
 
-export function AnalystNotes({ entity, analystNote, onSaveAnalystNote, onOpenSynthesisWithEntity, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'analystNote' | 'onSaveAnalystNote' | 'onOpenSynthesisWithEntity' | 'isHazardMode'>) {
+export function AnalystNotes({ entity, analystNote, noteSaveStatus, onSaveAnalystNote, onOpenSynthesisWithEntity, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'analystNote' | 'noteSaveStatus' | 'onSaveAnalystNote' | 'onOpenSynthesisWithEntity' | 'isHazardMode'>) {
   return <>
           {/* ------------------------------------------------------- */}
           {/* #14: アナリスト考察メモ ＆ AI壁打ち (FIELD NOTES) */}
@@ -35,13 +35,13 @@ export function AnalystNotes({ entity, analystNote, onSaveAnalystNote, onOpenSyn
                   </h3>
                 </div>
               </div>
-              {analystNote ? (
+              {noteSaveStatus ? (
                 <span className={`font-mono text-[10px] px-2 py-0.5 rounded border ${
                   isHazardMode
                     ? 'text-red-300 bg-red-950/60 border-red-800/40'
                     : 'text-zinc-300 bg-white/[0.06] border-white/[0.10]'
                 }`}>
-                  自動保存済
+                  {{ loading: '読み込み中', saved: 'アカウントに保存済み', local: 'このブラウザだけに保存', saving: '保存中', error: '未保存・再入力で再試行' }[noteSaveStatus]}
                 </span>
               ) : (
                 <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">

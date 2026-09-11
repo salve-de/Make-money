@@ -13,6 +13,7 @@ export interface CompanyInspectorPaneProps {
   activeTags?: string[];
   onToggleTag?: (tag: string | null) => void;
   analystNote?: string;
+  noteSaveStatus?: 'loading' | 'saved' | 'local' | 'saving' | 'error';
   onSaveAnalystNote?: (entityId: string, note: string) => void;
   onOpenSynthesisWithEntity?: (entityId: string) => void;
   isPro?: boolean;

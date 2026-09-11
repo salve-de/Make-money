@@ -261,10 +261,9 @@ async function getR2BindingForBucket(bucket: string): Promise<R2WorkerBinding | 
   const role = (Object.keys(FOUNDATION_BUCKET_DEFAULTS) as FoundationBucketRole[]).find(
     (candidateRole) => getFoundationBucket(candidateRole) === bucket
   );
-  if (!role) return null;
-
   const runtimeEnv = await getCloudflareRuntimeEnv();
-  const binding = runtimeEnv?.[FOUNDATION_BUCKET_BINDING_NAMES[role]];
+  const appBucket = await getRuntimeEnvValue('APP_R2_BUCKET');
+  const binding = bucket === appBucket ? runtimeEnv?.APP_R2 : role ? runtimeEnv?.[FOUNDATION_BUCKET_BINDING_NAMES[role]] : null;
   return isR2WorkerBinding(binding) ? binding : null;
 }
 

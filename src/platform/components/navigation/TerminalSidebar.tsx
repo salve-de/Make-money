@@ -47,6 +47,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
           {/* 1. 全銘柄 財務台帳 (LEDGER) */}
           <div className="relative group w-full flex justify-center">
             <button
+              aria-label="財務台帳"
               onClick={() => {
                 onSelectMode('LEDGER');
                 onSelectFilter(currentFilter === 'BOOKMARKED' ? 'ALL' : currentFilter);
@@ -68,6 +69,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
           {/* 2. 資本主義の動的攻略本 ＆ 用途別武器庫 (PLAYBOOK) */}
           <div className="relative group w-full flex justify-center">
             <button
+              aria-label="Playbook"
               onClick={() => onSelectMode('PLAYBOOK')}
               className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
                 workspaceMode === 'PLAYBOOK'
@@ -86,6 +88,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
           {/* 2. トレンド ＆ 稼ぎの歪みレーダー (ARCHETYPES/TRENDS) */}
           <div className="relative group w-full flex justify-center">
             <button
+              aria-label="Trends"
               onClick={() => onSelectMode('ARCHETYPES')}
               className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
                 workspaceMode === 'ARCHETYPES'
@@ -104,6 +107,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
           {/* 3. 独自アイデア創出 ＆ 戦略壁打ち (SYNTHESIS) */}
           <div className="relative group w-full flex justify-center">
             <button
+              aria-label="Synthesis"
               onClick={() => onSelectMode('SYNTHESIS')}
               className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
                 workspaceMode === 'SYNTHESIS'
@@ -122,6 +126,7 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
           {/* 4. 保存した銘柄 (WATCHLIST) */}
           <div className="relative group w-full flex justify-center">
             <button
+              aria-label="保存した銘柄"
               onClick={() => {
                 onSelectMode('LEDGER');
                 onSelectFilter('BOOKMARKED');

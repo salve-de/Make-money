@@ -46,12 +46,14 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/playbook');
-  await expect(page.getByRole('heading', { level: 1, name: /資本主義の週次動向・気象レーダー/ })).toBeVisible();
-  await expect(page.getByRole('heading', { name: /今リアルタイムで何に乗り換えているか/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
+  await expect(page.getByRole('heading', { name: /ツール構成と乗り換えの参考例/ })).toBeVisible();
+  await expect(page.getByRole('note')).toContainText('参考サンプル・一次証跡未確認');
+  await expect(page.getByText('123社 ヘッダー検証済', { exact: true })).toHaveCount(0);
   for (const [tab, heading] of [
     ['賞味期限アラート', '即死判定格下げアラート'],
-    ['現在有効な稼ぎの型', '勝ちパターンの型'],
-    ['初動突破ゲリラ戦録', '最初の100人を獲った客観事実ログ'],
+    ['稼ぎの型の参考例', '事業の組み立てを考える参考プレイブック'],
+    ['初動突破ゲリラ戦録', '初動獲得の参考事例'],
     ['黄金スタックレシピ', '黄金スタック構成レシピ'],
   ]) {
     await page.getByRole('button', { name: new RegExp(tab) }).click();
@@ -59,7 +61,7 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   }
   await page.goto('/macro');
   await expect(page).toHaveURL(/\/playbook$/);
-  await expect(page.getByRole('heading', { level: 1, name: /資本主義の週次動向・気象レーダー/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
   await page.getByRole('main').getByText('Photo AI', { exact: true }).first().click();
   await expect(page).toHaveURL(/entity=ent_photoai/);
   await expect(page.getByRole('heading', { level: 2, name: /Photo AI/ })).toBeVisible();
@@ -93,7 +95,7 @@ test('finder navigation reaches the current ledger and signals routes', async ({
   await page.goto('/finder');
   await page.getByRole('button', { name: 'シグナル Signals' }).click();
   await expect(page).toHaveURL(/\/playbook$/);
-  await expect(page.getByRole('heading', { level: 1, name: /資本主義の週次動向・気象レーダー/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
   await page.goto('/finder');
   await page.getByRole('button', { name: '台帳 Explore' }).click();
   await expect(page).toHaveURL(/mode=LEDGER/);

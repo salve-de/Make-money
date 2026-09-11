@@ -19,7 +19,7 @@ test('company list opens financials and evidence, then closes and reopens the in
   const financials = page.locator('#section-financial');
   await expect(financials).toBeInViewport();
   await expect(financials).toContainText('月商');
-  await expect(financials).toContainText('純手残り (Net)');
+  await expect(financials).toContainText('営業利益 (税引前)');
   await expect(financials).toContainText('¥800.0億');
   await expect(financials).toContainText('¥432.0億');
 
