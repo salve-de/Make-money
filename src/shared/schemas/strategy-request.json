@@ -189,7 +189,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 128
         },
         "dimension": {
           "type": "string",
@@ -200,22 +201,30 @@
           ]
         },
         "dimensionLabel": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 128
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 320
         },
         "targetPainWallet": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 2000
         },
         "structuralArbitrage": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 4000
         },
         "projectedMonthlyProfitJpy": {
-          "type": "number"
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000000000
         },
         "operatingMargin": {
-          "type": "number"
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
         },
         "requiredTools": {
           "type": "array",
@@ -238,22 +247,26 @@
               "purpose"
             ],
             "additionalProperties": false
-          }
+          },
+          "maxItems": 20
         },
         "first100TractionPlaybook": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "maxItems": 20
         },
         "sourceEntityIds": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "maxItems": 50
         },
         "userNoteInspiration": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 2000
         }
       },
       "required": [

@@ -1,18 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Noto_Sans_JP } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ['latin'],
-  variable: '--font-noto-sans-jp',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'KIN-KOROKU | 高収益スモールビジネス財務・構造データベース',
@@ -27,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja" className={`h-full antialiased ${inter.variable} ${notoSansJP.variable}`}>
+    <html lang="ja" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-[#0B0E14] text-zinc-100 font-sans">
         <Providers>{children}</Providers>
       </body>

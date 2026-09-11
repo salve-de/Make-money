@@ -12,7 +12,7 @@ import type { InspectorSectionProps } from '../model/section-props';
 export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'formatMoney' | 'isHazardMode'>) {
   return <>
             {/* 稼働インフラ：現場配管ツール（通常時・データが存在する場合のみ表示） */}
-            {!isHazardMode && entity.operations?.toolStack && entity.operations.toolStack.length > 0 && (
+            {!isHazardMode && entity.operations && (
               <div
                 id="section-tools"
                 className="rounded-lg overflow-hidden border border-white/[0.12] bg-[#0E131F] shadow-xl scroll-mt-4"
@@ -36,7 +36,9 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                   </span>
                 </div>
                 <div className="divide-y divide-white/[0.06] bg-[#0E131F]">
-                  {entity.operations.toolStack.map((tool, idx) => {
+                  {entity.operations.toolStack.length === 0 ? (
+                    <div className="p-3 text-[11px] font-mono text-zinc-500">実際のツール構成・月額原価は未確認</div>
+                  ) : entity.operations.toolStack.map((tool, idx) => {
                     const aff = findToolAffiliate(tool.name);
                     const targetUrl = tool.url || aff?.url;
                     return (

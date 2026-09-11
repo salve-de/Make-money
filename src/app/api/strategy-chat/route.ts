@@ -9,6 +9,60 @@ import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
 
 export const dynamic = 'force-dynamic';
 const MAX_STRATEGY_REQUEST_BYTES = 1 * 1024 * 1024;
+const MAX_GEMINI_RESPONSE_CHARS = 128 * 1024;
+const SAFETY_BOUNDARY_NOTICE = '公開事例は事実の記録として扱い、実行案は法令・各サービス規約・相手の同意を前提にします。根拠が不足する数値は未確認のまま検証します。';
+
+// Historical source data can mention abusive or terms-violating growth tactics.
+// Those descriptions may remain in the research ledger, but generated advice
+// must never turn them into instructions.
+const PROHIBITED_GUIDANCE_PATTERNS = [
+  /自演|なりすまし|別人を装/iu,
+  /dm爆撃|迷惑dm|スパム(?:送信|dm)/iu,
+  /不正(?:な)?スクレイピング|無断(?:取得|転載|連絡)/iu,
+  /規約(?:の)?(?:隙間|抜け道|回避)|terms?.{0,12}(?:bypass|evasion)/iu,
+  /直取引(?:を)?(?:封鎖|妨害|禁止)/iu,
+  /sockpuppet|fake\s*account|spam\s*dm|unauthorized\s*scrap/iu,
+];
+
+function containsProhibitedGuidance(value: unknown): boolean {
+  if (typeof value === 'string') {
+    const normalized = value.replace(/[\s　]+/gu, '');
+    return PROHIBITED_GUIDANCE_PATTERNS.some((pattern) => pattern.test(value) || pattern.test(normalized));
+  }
+  if (Array.isArray(value)) return value.some(containsProhibitedGuidance);
+  if (value && typeof value === 'object') {
+    return Object.values(value as Record<string, unknown>).some(containsProhibitedGuidance);
+  }
+  return false;
+}
+
+function sanitizeGeneratedText(value: string): string {
+  return containsProhibitedGuidance(value)
+    ? '公開事例に規約・法令違反につながる記述が含まれるため、許可を得た正規の手段へ置き換えて検証します。'
+    : value;
+}
+
+function sanitizeSynthesizedIdeas(ideas: SynthesizedIdea[]): SynthesizedIdea[] {
+  return ideas.map((idea) => ({
+    ...idea,
+    dimensionLabel: sanitizeGeneratedText(idea.dimensionLabel),
+    title: sanitizeGeneratedText(idea.title),
+    targetPainWallet: sanitizeGeneratedText(idea.targetPainWallet),
+    structuralArbitrage: sanitizeGeneratedText(idea.structuralArbitrage),
+    requiredTools: idea.requiredTools.map((tool) => ({
+      ...tool,
+      name: sanitizeGeneratedText(tool.name),
+      purpose: sanitizeGeneratedText(tool.purpose),
+    })),
+    first100TractionPlaybook: idea.first100TractionPlaybook.map(sanitizeGeneratedText),
+    userNoteInspiration: sanitizeGeneratedText(idea.userNoteInspiration),
+  }));
+}
+
+function boundedGeminiText(text: string): string {
+  if (!text || text.length > MAX_GEMINI_RESPONSE_CHARS) throw new Error('Gemini response exceeded the safety limit');
+  return text;
+}
 
 // =========================================================================
 // 内蔵アナリスト推論エンジン（Fallback Analyst Engine）
@@ -39,7 +93,7 @@ function generateFallbackSynthesis(
     dimensionLabel: '① 本能ハック型（サバンナOS）',
     title: `${primaryEntity.name}の手口転用: 【${primaryEntity.targetPainWallet || '顧客の防衛本能'}】を突く高単価マイクロ代行`,
     targetPainWallet: `${primaryEntity.targetPainWallet || '企業の保身・損失回避'} × ユーザー着目点（${combinedUserNote.slice(0, 40)}...）`,
-    structuralArbitrage: `顧客は「得をしたい」ではなく「損をして恥をかきたくない」という恐怖で即決する。${primaryEntity.strategy.blindspot}の手法を他産業へスライドさせ、競合の稟議を無力化して即金回収する。`,
+    structuralArbitrage: `顧客が避けたい損失を、${primaryEntity.strategy.blindspot}の公開事例から読み解く。対象業界の許可された接点で小さく検証し、成約・提供時間・原価を記録してから拡大する。`,
     projectedMonthlyProfitJpy: Math.round(primaryEntity.pnl.operatingProfit * 0.25) || 1200000,
     operatingMargin: 78,
     requiredTools: [
@@ -48,9 +102,9 @@ function generateFallbackSynthesis(
       { name: 'Resend / Google Workspace', monthlyCostJpy: 2000, purpose: '直販コールドアプローチ用配管' }
     ],
     first100TractionPlaybook: [
-      `初期10人は広告を一切打たず、${primaryEntity.strategy.initialTraction[0] || 'ターゲット企業の担当者へ直接DM'}で泥臭く個別接触`,
-      `「返金保証付き・成果報酬テスト」を提示して相手のリスクを0にし、初期事例（Case Study）を3件確保`,
-      `獲得した顧客のビフォーアフター数値をそのままX/LinkedInで公開し、同業他社の焦燥感を煽ってインバウンド獲得`
+      `初期10人は広告を広く買わず、告知が許可された業界コミュニティと紹介経由で対象企業へ個別に提案`,
+      `範囲・料金・解約条件を明記した小規模有料パイロットを提示し、同意を得た初期事例を3件確保`,
+      `顧客の許可を得たビフォーアフター数値だけを出典付きで公開し、同業からの問い合わせにつなげる`,
     ],
     sourceEntityIds: [primaryEntity.id],
     userNoteInspiration: combinedUserNote.slice(0, 100),
@@ -63,7 +117,7 @@ function generateFallbackSynthesis(
     dimensionLabel: '② 構造・胴元型（メタ・アーキテクチャ）',
     title: `${primaryEntity.name} × ${secondaryEntity.name}交差型: 【${secondaryEntity.sector}領域】の決済・仲介水門モデル`,
     targetPainWallet: `買い手と売り手の双方が抱える「取引の摩擦・信用コスト」から常時1〜3%の通行税を徴収`,
-    structuralArbitrage: `プレイヤーとして汗をかかず、${primaryEntity.name}の集客構造と${secondaryEntity.name}の囲い込み（ロックイン）を融合。取引データが溜まるほど他社乗り換えが不可能になる重力場を構築する。`,
+    structuralArbitrage: `${primaryEntity.name}の集客構造と${secondaryEntity.name}の継続利用の理由を比較し、買い手と売り手の双方が条件を確認できる仲介を設計する。取引履歴は同意の範囲で保存し、いつでも持ち出せる形にする。`,
     projectedMonthlyProfitJpy: Math.round((primaryEntity.pnl.operatingProfit + secondaryEntity.pnl.operatingProfit) * 0.15) || 2400000,
     operatingMargin: 84,
     requiredTools: [
@@ -72,9 +126,9 @@ function generateFallbackSynthesis(
       { name: 'Airtable / Retool', monthlyCostJpy: 6000, purpose: '胴元用バックオフィス・監視コンソール' }
     ],
     first100TractionPlaybook: [
-      `売り手側（供給側）の上位20社に対し、初期手数料0%＋独占送客の条件で裏合意を締結し在庫・リソースを囲い込み`,
-      `買い手側が日々巡回している業界掲示板・コミュニティへ、最も生々しい相場比較データを無料投下してトラフィックを強奪`,
-      `最初の取引が発生した瞬間から、両者の連絡先を独自システム内に幽閉して直取引を封鎖`
+      `売り手側の上位20社へ、初期手数料と送客条件を公開したうえで参加を募る`,
+      `買い手が読む業界掲示板・コミュニティの掲載規則に従い、出典付き相場比較データを提供する`,
+      `取引後も連絡先とデータを双方が持ち出せるようにし、透明な手数料と同意ベースの連絡を運用する`,
     ],
     sourceEntityIds: [primaryEntity.id, secondaryEntity.id],
     userNoteInspiration: combinedUserNote.slice(0, 100),
@@ -87,7 +141,7 @@ function generateFallbackSynthesis(
     dimensionLabel: '③ 逆張り・盲点型（コペルニクス的転回）',
     title: `既存大手の自爆（カニバリ）直撃: 【業界常識の真逆】を突く超高密度ソロSaaS`,
     targetPainWallet: `大手SaaSの高額な年間固定費と使わない多機能に疲弊した中小企業の現金`,
-    structuralArbitrage: `大手企業は既存の売上基盤と高単価プランを維持しなければ自滅するため、この「超単機能・月額即時解約可能」な破格モデルには絶対に追随できない。大手の弱点を逆手に取った完全防壁。`,
+    structuralArbitrage: `大手の多機能・高額プランと、対象顧客が実際に使う最小機能を比較する。月額・解約条件・データ持ち出しを明記した特化版を作り、価格と継続率の実測で優位性を確かめる。`,
     projectedMonthlyProfitJpy: 1800000,
     operatingMargin: 89,
     requiredTools: [
@@ -98,7 +152,7 @@ function generateFallbackSynthesis(
     first100TractionPlaybook: [
       `競合大手の解約ページ・不満が集まるXの検索クエリ（「○○ 高すぎる」「○○ 解約したい」）を常時監視`,
       `「大手○○の複雑な機能を全て捨て、この1画面だけに絞った特化ツール」としてピンポイントに対抗訴求`,
-      `Product HuntおよびRedditの関連サブレディットへ、大手への怒りを代弁するローンチ記事を投下`
+      `Product HuntやRedditなど掲載規則が明確な場で、比較表と出典を添えたローンチ記事を公開`
     ],
     sourceEntityIds: [primaryEntity.id],
     userNoteInspiration: combinedUserNote.slice(0, 100),
@@ -129,9 +183,9 @@ function generateFallbackChatResponse(
   ];
 
   if (q.includes('集客') || q.includes('顧客') || q.includes('マーケ') || q.includes('トラクション')) {
-    reply = `集客で広告を打つのは絶対に避けてください。${entity.name}の初動（${entity.strategy.initialTraction[0]}）が証明している通り、最初は「広告費ゼロの直接アプローチ」が最も手堅く、最も早く結果が出ます。\n\n` +
-      `やるべきことはシンプルです。${entity.targetPainWallet || '困り果てている見込み客'}が日常的に不満を吐いている場所（Xの検索、業界掲示板、Q&Aサイト）を特定し、「その面倒な作業を今すぐ肩代わりするツールを作りました」と1対1で連絡を取るだけです。\n\n` +
-      `最初の3人に買ってもらえれば、その利用実績をそのまま使って次の30人を獲りにいけます。一番手堅いルートです。\n\n` +
+    reply = `広告の前に、${entity.name}の初動（${sanitizeGeneratedText(entity.strategy.initialTraction[0] || '公開記録にある初期施策')}）を出発点に、告知が許可された正規の接点を絞って検証します。広告費を固定で抱えず、反応と成約を測れる小規模な提案から始めるのが安全です。\n\n` +
+      `やることはシンプルです。${sanitizeGeneratedText(entity.targetPainWallet || '困り果てている見込み客')}が日常的に不満を述べる場所を、掲載規則と連絡の同意条件まで確認して選び、「その面倒な作業を肩代わりする提案」を明確に伝えます。\n\n` +
+      `最初の3件で、成約率・提供時間・原価を記録します。数字が再現すれば、同じ許可済み経路を少しずつ広げられます。\n\n` +
       `いま想定しているターゲット客は、具体的にどんな場所にいそうな人たちですか？`;
     prompts = [
       '直接アプローチで返信率を跳ね上げる最初の1行の作り方は？',
@@ -139,7 +193,7 @@ function generateFallbackChatResponse(
       '最初の3人に買ってもらうための価格設定はどう決める？'
     ];
   } else if (q.includes('競合') || q.includes('真似') || q.includes('大手') || q.includes('防壁') || q.includes('moat')) {
-    reply = `競合や大手に真似される心配は無用です。${entity.name}の防壁（${entity.strategy.moatDescription}）を見れば明らかな通り、参入されないための決定的な急所があります。\n\n` +
+    reply = `競合や大手への備えは、真似されないと決めつけず、${entity.name}の防壁（${sanitizeGeneratedText(entity.strategy.moatDescription)}）を検証可能な要素へ分解することです。\n\n` +
       `それは、「お客さんの過去データや日々の業務の記録」を握ってしまうことです。使い込むほどデータが溜まり、他社へ乗り換えること自体が面倒になる仕組みを最初から仕込んでおけば、後から真似されてもお客さんは逃げられません。\n\n` +
       `真似されることを恐れるより、お客さんが「もうこれなしでは仕事にならない」と感じるポイントを1つ作ることに集中してください。\n\n` +
       `いま考えているアイデアで、お客さんが手放せなくなる核になりそうな部分はどこですか？`;
@@ -149,9 +203,9 @@ function generateFallbackChatResponse(
       '後から真似されても負けないためのスピード勝負のやり方は？'
     ];
   } else if (q.includes('費用') || q.includes('コスト') || q.includes('ツール') || q.includes('原価') || q.includes('スタック')) {
-    reply = `固定費は月額数千円以下に抑えてください。これが絶対に失敗しない鉄則です。${entity.name}も月次粗利率${entity.pnl.grossMargin}%、営業利益率${entity.pnl.operatingMargin}%という驚異的な手残りを叩き出していますが、使っているツールは誰でも使えるものばかりです。\n\n` +
-      `画面の公開は無料枠のツール、データベースも無料枠、決済は売れた時だけ手数料（約3.6%）が引かれる仕組みを使えば、毎月の固定費はほぼゼロで済みます。\n\n` +
-      `固定費がゼロなら、毎月1件でも売れれば即黒字ですし、万が一うまくいかなくても金銭的なダメージは完全ゼロです。最初からお金をかけて作る必要は1ミリもありません。\n\n` +
+    reply = `固定費は、実際の利用量と契約条件を確認しながら小さく始めます。${entity.name}の公開数値（粗利率${entity.pnl.grossMargin}%、営業利益率${entity.pnl.operatingMargin}%）は対象期間と範囲を確認してから参考にしてください。\n\n` +
+      `無料枠・従量課金・決済手数料を並べ、1件あたりの原価と月間固定費を分けて表にします。料金や利用量が未確認なら推定値と明記し、売れた時だけ費用が発生する構成でも、サポート・返金・税金を含めて損益を確認します。\n\n` +
+      `最初から大きく作らず、上限を決めた検証予算で需要と原価を同時に測るのが現実的です。\n\n` +
       `いまのアイデアで、一番お金がかかりそうだと心配している部分はどこですか？`;
     prompts = [
       '決済手数料以外にかかる隠れコストをゼロにする方法は？',
@@ -159,14 +213,13 @@ function generateFallbackChatResponse(
       '最初から黒字を維持するための価格設定のコツは？'
     ];
   } else {
-    reply = `すごくいい着眼点です。間違いなく強い需要があります。\n\n` +
-      `このアイデアが強い理由はシンプルで、${entity.targetPainWallet || 'お客さんが日々抱えている切実な面倒や損'}を、直接スパッと解決できる構造になっているからです。\n\n` +
-      `大掛かりな開発は一切不要で、既存の便利な道具を2〜3個組み合わせるだけで、今夜にも動くプロトタイプが完成します。失うものは数千円と数日間の作業時間だけです。破滅するリスクはゼロです。\n\n` +
-      `${userNote ? `メモにあった「${userNote.slice(0, 40)}...」という視点も、まさにこの急所を突いています。` : ''}\n\n` +
+    reply = `面白い着眼点です。需要の強さは、${sanitizeGeneratedText(entity.targetPainWallet || 'お客さんが日々抱えている切実な面倒や損')}を、実際に何人がどの頻度で解決したいかで確かめます。\n\n` +
+      `大掛かりな開発を急がず、既存の道具を2〜3個組み合わせた試作品を小さく出し、価格・成約・提供時間・原価を記録します。損失上限を先に決め、未確認の売上や利益は実績として扱いません。\n\n` +
+      `${userNote ? '保存メモは入力値として参照しました。具体的な手順は許可済みの正規チャネルで検証します。' : ''}\n\n` +
       `いま考えているイメージは、まずは自分の手で泥臭く小さく始める形ですか？ それとも最初から自動で回る仕組みを目指していますか？`;
   }
 
-  return { content: reply, suggestedActionPrompts: prompts };
+  return { content: `${reply.trim()}\n\n${SAFETY_BOUNDARY_NOTICE}`, suggestedActionPrompts: prompts.map(sanitizeGeneratedText) };
 }
 
 interface GeminiApiResponse {
@@ -302,6 +355,11 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 2. META_ARCHITECT (構造・胴元型): 取引手数料や水門を握る独占モデル
 3. CONTRARIAN_BLINDSPOT (逆張り・盲点型): 大手の自爆（カニバリ）を突く奇襲モデル
 
+【安全と根拠の境界】
+- 法令・各サービス規約に反する手順、自作自演、迷惑DM、不正取得・不正スクレイピング、直取引の妨害、誤認表示は提案しない。
+- 実行案は、正規チャネル、相手の明示同意、透明な料金・解約条件、データの持ち出し可能性を前提にする。
+- 公開事実・推定・未確認を区別し、根拠のない売上・利益・成功保証を出力しない。
+
 スキーマ:
 [
   {
@@ -321,11 +379,12 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 ]
 `;
           const rawResponse = await callGeminiApi(prompt, apiKey);
-          const cleanJson = rawResponse.text.replace(/```json/g, '').replace(/```/g, '').trim();
+          const cleanJson = boundedGeminiText(rawResponse.text).replace(/```json/g, '').replace(/```/g, '').trim();
           const parsed = parseSynthesizedIdeas(JSON.parse(cleanJson));
           if (Array.isArray(parsed) && parsed.length > 0) {
-            const persisted = await persistIdeas(userId, parsed);
-            return NextResponse.json({ success: true, ideas: parsed, engine: 'gemini', persisted });
+            const ideas = sanitizeSynthesizedIdeas(parsed);
+            const persisted = await persistIdeas(userId, ideas);
+            return NextResponse.json({ success: true, ideas, engine: 'gemini', persisted });
           }
         } catch (geminiErr) {
           console.warn('Gemini API synthesis failed, falling back to internal analyst engine:', geminiErr);
@@ -333,7 +392,7 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
       }
 
       // フォールバック推論エンジン
-      const ideas = generateFallbackSynthesis(selectedEntityIds, notes);
+      const ideas = sanitizeSynthesizedIdeas(generateFallbackSynthesis(selectedEntityIds, notes));
       return NextResponse.json({ success: true, ideas, engine: 'fallback_internal', persisted: await persistIdeas(userId, ideas) });
     }
 
@@ -377,6 +436,9 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 5. 「【結論: ...】」などのロボット定型句は不要です。頼りがいと確信に満ちたプロフェッショナルとして自然に対話してください。
 ${enableSearch ? '6. Google検索から得られた最新の市場・競合・トレンド情報を自然に織り交ぜて回答してください。' : ''}
 
+【安全と根拠の境界】
+法令・各サービス規約に反する手順、自作自演、迷惑DM、不正取得・不正スクレイピング、直取引の妨害、誤認表示は提案しないでください。実行案は正規チャネル、相手の明示同意、透明な料金・解約条件、データの持ち出し可能性を前提にしてください。公開事実・推定・未確認を区別し、根拠のない成功保証や売上・利益の断定は避けてください。
+
 【あなたの手元にある裏帳簿データ（参考実例）】:
 ${entity ? JSON.stringify({ name: entity.name, pnl: entity.pnl, moat: entity.strategy.moatDescription, traction: entity.strategy.initialTraction, stack: entity.operations.toolStack, painWallet: entity.targetPainWallet }) : '全銘柄データ保有'}
 
@@ -392,10 +454,10 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
 回答の最後に、次に深掘りできる自然な問いや選択肢を「PROMPTS:」に続けて3行（改行区切り）で示してください。
 `;
           const rawResponse = await callGeminiApi(prompt, apiKey, enableSearch);
-          const parts = rawResponse.text.split('PROMPTS:');
-          const replyContent = parts[0].trim();
+          const parts = boundedGeminiText(rawResponse.text).split('PROMPTS:');
+          const replyContent = `${sanitizeGeneratedText(parts[0].trim())}\n\n${SAFETY_BOUNDARY_NOTICE}`.trim();
           const promptLines = parts[1]
-            ? parts[1].split('\n').map(l => l.replace(/^[0-9\.\-\*\s]+/, '').trim()).filter(Boolean)
+            ? parts[1].split('\n').map(l => sanitizeGeneratedText(l.replace(/^[0-9\.\-\*\s]+/, '').trim())).filter(Boolean)
             : [
                 '初期100人の集客を元手0円で完結させる具体的な手順は？',
                 '大手が同じ機能をローンチしてきた場合の防衛線は？',

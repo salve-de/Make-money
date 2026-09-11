@@ -305,10 +305,12 @@ function isNotFoundError(error: unknown): boolean {
   const candidate = error as {
     name?: string;
     Code?: string;
+    status?: number;
     $metadata?: { httpStatusCode?: number };
   };
 
   return (
+    candidate.status === 404 ||
     candidate.$metadata?.httpStatusCode === 404 ||
     candidate.name === 'NotFound' ||
     candidate.name === 'NoSuchKey' ||

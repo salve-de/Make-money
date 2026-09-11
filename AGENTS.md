@@ -77,10 +77,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **時系列・賞味期限インテリジェンス（いつのデータか・今も勝てるかの客観判定）**:
   - 創業・ローンチ年（`foundedYear`）、初動獲得期（`initialTractionPeriod`）、データ観測期（`dataSnapshotPeriod`）。
   - 時代背景（`eraContext`: なぜその時代にその手口が通用したのかのマクロ・プラットフォーム・規制環境）。
-  - 現在の賞味期限・再現性5大判定（`viabilityStatus`: `ACTIVE_PLAYBOOK` 現在も有効 / `RISING_WAVE` 急上昇トレンド最盛期 / `MATURED_MOAT` 先行者堀で困難 / `HISTORICAL_WINDOW` 時代限定で現在は再現不能 / `EVOLVING_BARRIER` 技術進化で特化必須）。
+  - 現在の賞味期限・再現性5大判定（`viabilityStatus`: `ACTIVE_PLAYBOOK` 現在も有効 / `RISING_WAVE` 急上昇トレンド最盛期 / `MATURED_MOAT` 先行者堀で困難 / `HISTORICAL_WINDOW` 時代限定で現在は再現不能 / `EVOLVING_BARRIER` 技術進化で特化必須 / `UNKNOWN` 根拠未確認）。
   - 今やるとどうなるかの客観分析（`currentViabilityAnalysis`: API原価高騰、先行者SEO独占、競合模倣激増、モデルコモディティ化などデータ根拠による現在の勝敗判定）。
   - 主要タイムライン（`timelineEvents`: 創業、初動突破、転換点、規制変化等の年代別マイルストーン）。
-- **損益逆算（優等生病の禁止）**: 「非公開だから取れない」と手を止めるな。Stripe手数料（2.9% + $0.30）、インフラ原価、推論API代を業界相場から逆算し、実効純利益と創業者個人の手残り現金実額を必ず推計値（`origin_type: 'estimated'`）として算出。
+- **損益逆算（優等生病の禁止）**: 「非公開だから取れない」と手を止めるな。ただし、単価・顧客規模・期間・原価率を一次資料または明示した根拠で再現できる場合だけ、Stripe手数料（2.9% + $0.30）やインフラ原価を推計し、`origin_type: 'estimated'` と計算式を付ける。根拠が足りない場合は `UNAVAILABLE` / `未確認` とし、0円・仮の人数・仮の利益率で穴埋めしない。
 - **急所・手口（4大禁忌 ＆ 5大暗黒パラメータ）**:
   - ① 初動突破の客観ログ（最初の100人を仕留めたX自虐動画、Reddit自演、ToS隙間ハック等）
   - ② 大手の自爆構造（大手が自社売上を守るために手を出せないカニバリズム障壁）
@@ -109,18 +109,18 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 3. `name`: 企業・サービス正式名称
 4. `tagline`: サバンナOS直撃のタグライン（痛みの財布＋手口＋数字が1行で伝わる日本語）
 5. `sector`: 7大業種（`AI_AUTOMATION` / `NICHE_SAAS` / `MONOPOLY_MFG` / `CONTENT_MEDIA` / `PHYSICAL_ASSET` / `FINTECH_INFRA` / `LOCAL_SERVICES`）
-6. `scale`: 規模区分（`SOLO` 完全1人 / `SMALL_TEAM` 2〜10人 / `SCALEUP` 11〜50人 / `ENTERPRISE` 50人超）
+6. `scale`: 規模区分（`SOLO` 完全1人 / `SMALL_TEAM` 2〜10人 / `SCALEUP` 11〜50人 / `ENTERPRISE` 50人超 / `UNKNOWN` 根拠未確認）
 7. `founder`: 創業者名（実名）
 8. `country`: 国コード（ISO 2文字。`JP`, `US`, `UK`, `IE` 等）
 9. `url`: 公式サイトURL
 10. `temporal`: 時系列・賞味期限インテリジェンス（創業年、初動獲得期、データ観測期、賞味期限5大判定、時代背景、現在の勝敗判定）
 
 #### 2. P&L因数分解（円換算・Stripe手数料控除・創業者手残り）
-「非公開」で済ませるな。業界相場・価格・規模から科学的に逆算し、以下のP&Lウォーターフォールを円（JPY）で算出せよ：
+「非公開」で調査を止めるな。業界相場・価格・規模を根拠付きで再現できる場合だけ科学的に逆算し、以下のP&Lウォーターフォールを円（JPY）で算出せよ。根拠が不足する場合は `UNAVAILABLE` / `未確認` として0円や仮値を表示しない：
 - `monthlyRevenue`（月商） / `cogs`（売上原価） / `grossProfit`（粗利益） / `grossMargin`（粗利率%）
 - `operatingExpenses`: `serverAndApi`（推論・サーバー代）, `advertising`（広告費）, `subcontracting`（外注費）, `toolsAndSaaS`（SaaS利用料）, `other`（その他）
 - `operatingProfit`（営業利益） / `operatingMargin`（営業利益率%） / `estimatedAnnualNetProfit`（年間純利益）
-- `financialStatus`: `VERIFIED`（一次確認） / `REPORTED`（創業者公表） / `ESTIMATED`（科学的逆算推計） / `POST_MORTEM`（検死）
+- `financialStatus`: `VERIFIED`（一次確認） / `REPORTED`（創業者公表） / `ESTIMATED`（入力・期間・根拠を明記した逆算推計） / `POST_MORTEM`（検死） / `UNAVAILABLE`（根拠不足）
 
 #### 3. 動的証拠カード（特異点事実 ＆ 略奪転用方程式）
 最低2枚以上（うち `LOOT_BLUEPRINT` は全社100%必須）を配備せよ：
@@ -131,12 +131,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **`FATAL_BLEED`（死因出血検死解剖）**: 失敗企業における資金炎上・即死のメカニズム。
 
 #### 4. 現場配管ツール（`operations.toolStack`）
-空配列は厳禁。実際にその利益率・自動化を支えているツール群を月額原価付きで列挙せよ：
+実際に確認できたツール群だけを月額原価付きで列挙せよ。構成や費用が未確認なら空配列を許可し、`isCostUnconfirmed` 等のフラグと画面の `未確認` 表示で示す。空欄を埋めるためにStripe、Cloudflare等を推測で追加してはならない：
 - `name`（ツール名: Stripe, Next.js, Cloudflare等） / `category`（決済, インフラ等） / `monthlyCost`（月額円） / `purpose`（役割）
 
 #### 5. 資本主義の裏帳簿戦略（`strategy`）
 - `blindspot`: 既存大手が見落としている痛みの財布
-- `moatType`: 7大堀分類（`COUNTER_POSITIONING` 等）と構造的説明（`moatDescription`）
+- `moatType`: 7大堀分類（`COUNTER_POSITIONING` 等）または `UNKNOWN` と構造的説明（`moatDescription`）
 - `incumbentDilemma`: 大手が真似できない構造的理由
 - `secretInsight`: 創業者だけが知っている業界の裏の真実
 - `initialTraction`: 初動突破の具体的マイルストーン（3つ）
@@ -217,7 +217,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Make-Moneyはconsumerであり、`foundation-lake` の登録済み `entities` / `research-bundles` を読み取るだけにする。現在の実装仕様は [`docs/FOUNDATION_UI_READ_PATH.md`](./docs/FOUNDATION_UI_READ_PATH.md) を参照する。
 - 一覧はEntity prefixをR2 Listのcursorでページングし、画面は100件単位で段階描画する。詳細は選択時だけbyte range探索し、対象候補のbundle本体を読む。毎回の全件本体取得は禁止する。
 - `datasets/ds.business.entities.core/index.json` のようなMake-Money独自root indexを作成・上書きしない。UI用の整形は読み取り時の一時projectionに限定し、Foundationの新schemaや新しい正本を作らない。
-- R2の正本に存在しない売上・利益・人数・創業年などを0や仮値で埋めない。値がなければ`未確認`、推計・推論・報告・観測はorigin/status/evidenceを分けて表示する。
+- R2の正本に存在しない売上・利益・人数・創業年などを実績の0や仮値で埋めない。内部DTOの型互換で0を保持する場合は必ず`is*Unconfirmed`を併記し、画面・集計では`未確認`として扱う。推計・推論・報告・観測はorigin/status/evidenceを分けて表示する。
 - 現行のUI read pathはPUT/DELETEを呼ばない。10万件級で検索・集計が必要になった場合だけ、Foundationの既存registry/view契約を確認し、別途明示承認されたversioned serving viewまたは分析経路を検討する。
 
 ## 3. コピーライティング・言語統制憲条（瞬時の直感理解 ＆ 急所を抉る強い言葉）
@@ -257,8 +257,8 @@ AIエージェントが生成するすべての画面コピー、見出し、ボ
    - 「Web上に文字として落ちていないから表示できない」と決めつけて手を止めるのは、AIの知能退行（優等生病）である。
 2. **⭕ ファクト骨格 × 自社アナリスト逆算推論のハイブリッド統合**:
    - **外部収集（サブエージェント）の役割**: 会社名、創業者、商品、価格、売上、純利益、使用ツール、社員数、初期集客ログ、失敗歴などの「公知の確定ファクト（骨格）」を柔軟に拾う。
-   - **自社エンジン（裏帳簿フィルター）の役割**: Web上にない「決済手数料（Stripe 2.9%）」「インフラ費（ツール名・社員数からの業界相場推計）」「創業者手残り（給与＋純利益の持分比率）」は、自社の裏帳簿エンジンで柔軟に逆算（Estimate）して補完せよ。
-   - **表示の誠実性**: 確定値はそのまま表示し、逆算した損益には `[推定レントゲン (Estimated)]` と明記すれば、BloombergやPitchBookと同様に金融端末として完全に合法かつ最高峰の知覚価値を発揮する。
+   - **自社エンジン（裏帳簿フィルター）の役割**: Web上にない「決済手数料（Stripe 2.9%）」「インフラ費」「創業者手残り」は、単価・顧客規模・期間・原価率を資料または明示した仮定で再現できる場合だけ逆算（Estimate）して補完せよ。
+   - **表示の誠実性**: 確定値はそのまま表示し、再現可能な逆算だけに `[推定レントゲン (Estimated)]` と計算式を付ける。根拠が不足する値は `UNAVAILABLE` / `未確認` とし、0円・仮の人数・仮の利益率で補完しない。
 3. **固定観念の粉砕（柔軟な事例取り込み）**:
    - すべての企業が同一のフォーマットに収まる必要はない。Bufferのように「全社員給与公開」の事例もあれば、Photo AIのように「完全1人API包装」の事例もある。
    - それぞれの企業の「最も金が抜けている急所・特異点」に合わせて、柔軟かつ迅速に事例・市場の歪みを取り込め。
@@ -271,14 +271,14 @@ AI/調査エージェントが「チェックリストや型枠に囚われて�
 **ユーザーは長文プロンプトを絶対に打たない。**
 ユーザーが「〇〇調べて」と1言言った時、AI自身が内部で以下のプロトコルを自動適用し、外部サブエージェント（Codex等）に委託する場合もAIが自律的にこの指示文を生成して投げよ：
 
-> `salve-de/universal-foundation` の `docs/MAKE_MONEY_AGENT_RUNBOOK.md` および `AGENTS.md` を最高憲法として厳守し、対象ビジネス（[会社名/クエリ]）の資本主義の裏帳簿データを収集・R2保存せよ。優等生病（「利益や手取りが非公開だから取れない」という事なかれ主義）を厳禁とし、公知ファクト（売上・価格・社員数・ツール）からStripe決済手数料（2.9%）やインフラ相場を逆算して実効利益率・創業者手残りを必ず推計値（`estimated`）として算出せよ。さらに4大禁忌データ（初期ゲリラ、大手の自爆、痛みの財布、手残りレントゲン）、5大暗黒パラメータ（寄生宿主、データの監禁、賄賂紹介網、前金総取り、ピボット魚拓）、および時系列・賞味期限インテリジェンス（創業年、データ観測期、時代背景、現在の賞味期限5大判定、今やるとどうなるかの客観データ根拠、主要タイムライン）を完全網羅し、金儲け・事業分析に関わる必要な情報・関連文脈を一切限定せずに全量呑み込んだ `research-bundle.v1` 準拠の `data/collection/<case>.request.json` を生成して `npm run foundation:r2` まで完遂せよ。
+> `salve-de/universal-foundation` の `docs/MAKE_MONEY_AGENT_RUNBOOK.md` および `AGENTS.md` を最高憲法として厳守し、対象ビジネス（[会社名/クエリ]）の資本主義の裏帳簿データを収集・R2保存せよ。優等生病（「利益や手取りが非公開だから取れない」という事なかれ主義）を厳禁とし、公知ファクトを広く収集する。Stripe決済手数料やインフラ相場の逆算は、入力・期間・根拠を明示して再現できる場合だけ `estimated` として算出し、そうでなければ `UNAVAILABLE` / `未確認` のまま保存せよ。さらに4大禁忌データ（初期ゲリラ、大手の自爆、痛みの財布、手残りレントゲン）、5大暗黒パラメータ（寄生宿主、データの監禁、賄賂紹介網、前金総取り、ピボット魚拓）、および時系列・賞味期限インテリジェンス（創業年、データ観測期、時代背景、現在の賞味期限5大判定、今やるとどうなるかの客観データ根拠、主要タイムライン）を完全網羅し、金儲け・事業分析に関わる必要な情報・関連文脈を一切限定せずに全量呑み込んだ `research-bundle.v1` 準拠の `data/collection/<case>.request.json` を生成して `npm run foundation:r2` まで完遂せよ。
 
 ### 【全網羅収集の6大絶対ルール】
 1. **必要な情報・関連情報の底引き網全量調査（No Closed Allow-List）**:
    - 既存スキーマやチェックリストは「最低限の通過点」であり上限ではない。初期ゲリラ手口、裏ツールの組み合わせ、大手の参入障壁、炎上・ピボットの魚拓、特定プラットフォームへの寄生構造、ニッチなコミュニティでの怨嗟や解約理由など、金儲け・事業分析に有益な関連情報は1文字も捨てずに `observations` および `Universal Journal` へ全量呑み込め。
 2. **非公開での停止禁止（Mandatory Reverse Engineering）**:
    - 未上場企業や個人開発者が通帳や確定申告書をネットに晒すはずがない。「利益や手取りが非公開だから取れませんでした」と手を止める行為はAIの知能退行（怠惰）とみなす。
-   - 公知の確定ファクト（売上、価格、社員数、使用ツール）を骨格とし、業界標準相場（Stripe決済手数料2.9%、インフラ費、人件費等）から実効純利益・創業者手残りを必ずアナリスト推計（`origin_type: 'estimated'`）として逆算補完せよ。
+   - 公知の確定ファクト（売上、価格、社員数、使用ツール）を骨格とする。業界標準相場（Stripe決済手数料2.9%、インフラ費、人件費等）からの逆算は、入力・期間・根拠が揃う場合だけアナリスト推計（`origin_type: 'estimated'`）として補完し、揃わなければ `UNAVAILABLE` / `未確認` で残せ。
 3. **4大禁忌データ ＆ 5大暗黒パラメータの強制取得**:
    - **【4大禁忌データ】**:
      - ① **初動突破の客観ログ（泥臭い初期ゲリラ戦）**: 最初の100人を仕留めた実録（X自虐動画、Reddit自演、ToS隙間ハック、「Made with X」強制広告等）。
@@ -379,7 +379,7 @@ shared/ （機能に依存しない共通型・ユーティリティ・基盤UI�
 
 ### 4. 外部データ・AI生成物の境界Runtime検証（Runtime Schema Validation）
 - TypeScriptの型はビルド時に消滅するため、Web収集、R2、外部API、AI生成JSONを型注釈だけで信用することを厳禁とする。
-- 外部入力は入口（Boundary）において 既存AJV等のRuntime Schemaで検証してから内部型へ流し込め。
+- 外部入力は入口（Boundary）でRuntime Schemaを検証してから内部型へ流し込む。Worker実行時は`@cfworker/json-schema`（`eval`/`new Function`不要）を使い、AJVはNode専用のschema生成・収集CLIに限定する。
 
 ### 5. 二層テスト体系（Vitest × Playwright）
 テストは量ではなく「層」で分担せよ：

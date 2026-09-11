@@ -6,7 +6,7 @@ import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/fou
 import { NextResponse } from 'next/server';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { INSTITUTIONAL_ENTITIES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
+import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
   readFoundationBusinessCase,
   readFoundationValuePage,
@@ -23,6 +23,8 @@ const PAGE_TTL_MS = 30_000;
 const DETAIL_TTL_MS = 60_000;
 const MAX_PAGE_CACHE_ENTRIES = 32;
 const MAX_DETAIL_CACHE_ENTRIES = 128;
+const MAX_ENTITY_ID_LENGTH = 200;
+const MAX_R2_CURSOR_LENGTH = 2048;
 
 type CacheEntry<T> = {
   expiresAt: number;
@@ -71,7 +73,10 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
   try {
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
-    return parseFinancialEntities(parsed).map(reconcileFinancialEntity).map(normalizeFinancialEntity);
+    return parseFinancialEntities(parsed)
+      .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
+      .map(reconcileFinancialEntity)
+      .map(normalizeFinancialEntity);
   } catch {
     return [];
   }
@@ -83,9 +88,21 @@ function findFallbackEntity(id: string, localEntities: FinancialEntity[]): Finan
     null;
 }
 
+function logFoundationFailure(message: string, error: unknown): void {
+  // A local Next server intentionally has no R2 credentials. Keep that
+  // expected fallback quiet; provider and parsing failures remain visible.
+  if ((error as { code?: unknown })?.code !== 'R2_NOT_CONFIGURED') {
+    console.warn(message, error);
+  }
+}
+
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const entityId = url.searchParams.get('entity_id') || url.searchParams.get('entityId');
+
+  if (entityId && entityId.length > MAX_ENTITY_ID_LENGTH) {
+    return response({ error: 'Invalid entity' }, 400);
+  }
 
   if (entityId) {
     try {
@@ -104,7 +121,7 @@ export async function GET(request: Request) {
         });
       }
     } catch (error) {
-      console.warn('[businesses] Foundation detail read failed; using fallback:', error);
+      logFoundationFailure('[businesses] Foundation detail read failed; using fallback:', error);
     }
 
     const fallback = findFallbackEntity(entityId, await readLocalEntities());
@@ -118,6 +135,9 @@ export async function GET(request: Request) {
     ? Math.min(Math.max(Math.floor(requestedLimit), 1), 100)
     : 100;
   const cursor = url.searchParams.get('cursor') || undefined;
+  if (cursor && cursor.length > MAX_R2_CURSOR_LENGTH) {
+    return response({ error: 'Invalid cursor' }, 400);
+  }
   const cacheKey = `${limit}:${cursor || 'first'}`;
 
   try {
@@ -140,7 +160,7 @@ export async function GET(request: Request) {
       });
     }
   } catch (error) {
-    console.warn('[businesses] Foundation entity page read failed; using fallback:', error);
+    logFoundationFailure('[businesses] Foundation entity page read failed; using fallback:', error);
   }
 
   const localEntities = await readLocalEntities();
@@ -153,4 +173,3 @@ export async function GET(request: Request) {
     hasMore: false,
   });
 }
-

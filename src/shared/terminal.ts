@@ -1,4 +1,4 @@
-export type BusinessScale = 'SOLO' | 'SMALL_TEAM' | 'SCALEUP' | 'ENTERPRISE';
+export type BusinessScale = 'SOLO' | 'SMALL_TEAM' | 'SCALEUP' | 'ENTERPRISE' | 'UNKNOWN';
 
 export type SectorCategory =
   | 'AI_AUTOMATION'
@@ -16,14 +16,15 @@ export type MoatType =
   | 'CORNERED_RESOURCE'
   | 'SCALE_ECONOMIES'
   | 'BRAND_PRESTIGE'
-  | 'PROCESS_POWER';
+  | 'PROCESS_POWER'
+  | 'UNKNOWN';
 
 export type FinancialEvidenceStatus =
   | 'VERIFIED'      // 確定開示（決算短信、有報、SEC、創業者Stripeダッシュボード公開実額）
   | 'REPORTED'      // 報道・外部調査（TechCrunch, Forbes, The Information, 創業者インタビュー・発言）
   | 'ESTIMATED'     // 逆算推測（単価 × 推定規模 × 業界原価率・推計方程式明記）
   | 'POST_MORTEM'   // 死因出血逆算（破滅・清算企業の総調達額・残額・解散ログからの出血逆算）
-  | 'UNAVAILABLE';  // 情報なし・推測不可（セクション自体をDOMから完全消滅・非表示）
+  | 'UNAVAILABLE';  // 情報なし・推測不可（UIでは未確認と表示）
 
 export interface ProfitAndLossStatement {
   monthlyRevenue: number; // 単位: 円
@@ -65,12 +66,15 @@ export interface ToolStackItem {
 
 export interface OperatingFramework {
   teamSize: number; // 人数 (互換性用)
+  isTeamSizeUnconfirmed?: boolean; // 人数未確認。0/1を実績として扱わない
   initialTeamSize?: number; // 立ち上げ初期の人数 (1 = 完全1人)
   currentTeamSize?: number; // 現在の人数 (スケール後)
   weeklyHours: number; // 週稼働時間
+  isWeeklyHoursUnconfirmed?: boolean; // 週稼働時間未確認
   isCapitalUnconfirmed?: boolean; // 初期資本未確認。ゼロ資本フィルターの対象外
   initialCapitalRequired: number; // 初期投下資本 (0 = 0円)
   automationLevel: number; // 1-100%
+  isAutomationUnconfirmed?: boolean; // 自動化度未確認
   primaryChannels: string[]; // 集客経路
   toolStack: ToolStackItem[];
 }
@@ -170,7 +174,7 @@ export interface UniversalObservation {
   category?: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
   categoryLabel?: string; // 例: "市場の歪み", "大手の自爆", "サバンナOSの急所", "現場の泥臭い工夫", "調査限界"
   text: string;
-  originType?: 'observed' | 'inferred' | 'reported' | 'estimated';
+  originType?: 'observed' | 'inferred' | 'reported' | 'estimated' | 'unknown';
   verificationStatus?: 'SUPPORTED' | 'UNVERIFIED' | 'REFUTED';
   sourceUrl?: string;
   observedAt?: string;
@@ -189,7 +193,8 @@ export type ViabilityStatus =
   | 'RISING_WAVE'          // 急上昇トレンド中（いま参入余地がある最前線）
   | 'MATURED_MOAT'         // 先行者が堀を完成させており後発模倣は困難（歴史的教訓）
   | 'HISTORICAL_WINDOW'    // 当時の規約・API穴による特異点（現在は塞がれ再現不可）
-  | 'EVOLVING_BARRIER';    // 技術進化により要求水準が上昇（特化が必要）
+  | 'EVOLVING_BARRIER'     // 技術進化により要求水準が上昇（特化が必要）
+  | 'UNKNOWN';             // 根拠となる時系列・現在判定が未確認
 
 export interface TemporalIntelligence {
   foundedYear: number;               // 創業・ローンチ年（例: 2014, 2018, 2023）
@@ -215,8 +220,8 @@ export interface OpportunityJudgment {
   competitionDelta: string;         // 例: "競合 +3社/四半期", "大手参入で激化", "空白地帯"
   entryRequirements: {
     capital: string;                // 例: "初期 $500", "0円"
-    technicalDifficulty: 'LOW' | 'MEDIUM' | 'HIGH';
-    platformRisk: 'LOW' | 'MEDIUM' | 'CRITICAL';
+    technicalDifficulty: 'LOW' | 'MEDIUM' | 'HIGH' | 'UNKNOWN';
+    platformRisk: 'LOW' | 'MEDIUM' | 'CRITICAL' | 'UNKNOWN';
   };
 }
 
@@ -447,17 +452,28 @@ export interface AnalystNote {
 
 // 独自アイデア合成（多次元解析）モデル
 export interface SynthesizedIdea {
+  /** @maxLength 128 */
   id: string;
   dimension: 'SAVANNA_INSTINCT' | 'META_ARCHITECT' | 'CONTRARIAN_BLINDSPOT';
+  /** @maxLength 128 */
   dimensionLabel: string; // "本能ハック型（サバンナOS）" | "構造・胴元型（メタ・アーキテクチャ）" | "逆張り・盲点型（コペルニクス的転回）"
+  /** @maxLength 320 */
   title: string;
+  /** @maxLength 2000 */
   targetPainWallet: string; // 人質にする財布・痛みの実態
+  /** @maxLength 4000 */
   structuralArbitrage: string; // 突く市場の歪み・大手の死角
+  /** @minimum 0 @maximum 1000000000000 */
   projectedMonthlyProfitJpy: number; // 想定月次純利益
+  /** @minimum 0 @maximum 100 */
   operatingMargin: number; // 想定営業利益率 %
+  /** @maxItems 20 */
   requiredTools: { name: string; monthlyCostJpy: number; purpose: string }[];
+  /** @maxItems 20 */
   first100TractionPlaybook: string[]; // 初動100人獲得の泥臭い手順
+  /** @maxItems 50 */
   sourceEntityIds: string[]; // 着想元となった保存企業ID
+  /** @maxLength 2000 */
   userNoteInspiration: string; // ユーザーのどのメモが着火剤になったか
 }
 

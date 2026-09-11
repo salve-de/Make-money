@@ -39,46 +39,46 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
   );
 
   // カテゴリ別のバッジ配色・アイコン判定
-  const getCategoryBadge = (category: UniversalObservation['category']) => {
+  const getCategoryBadge = (category: UniversalObservation['category'], customLabel?: string) => {
     switch (category) {
       case 'INCUMBENT_DILEMMA':
         return {
-          label: '大手の自爆',
+          label: customLabel || '大手の自爆',
           border: 'border-red-500/30',
           bg: 'bg-red-950/20',
           text: 'text-red-300',
         };
       case 'SAVANNAH_PAIN':
         return {
-          label: 'サバンナOSの急所',
+          label: customLabel || 'サバンナOSの急所',
           border: 'border-amber-500/30',
           bg: 'bg-amber-950/20',
           text: 'text-amber-300',
         };
       case 'MARKET_DISTORTION':
         return {
-          label: '市場の歪み',
+          label: customLabel || '市場の歪み',
           border: 'border-emerald-500/30',
           bg: 'bg-emerald-950/20',
           text: 'text-emerald-300',
         };
       case 'FOUNDER_HACK':
         return {
-          label: '現場の泥臭い工夫',
+          label: customLabel || '現場の泥臭い工夫',
           border: 'border-blue-500/30',
           bg: 'bg-blue-950/20',
           text: 'text-blue-300',
         };
       case 'TECH_VERIFICATION':
         return {
-          label: '技術スタック照合',
+          label: customLabel || '技術スタック照合',
           border: 'border-purple-500/30',
           bg: 'bg-purple-950/20',
           text: 'text-purple-300',
         };
       case 'FORUM_RAGE':
         return {
-          label: '顧客の生の声・怨嗟',
+          label: customLabel || '顧客の生の声・怨嗟',
           border: 'border-orange-500/30',
           bg: 'bg-orange-950/20',
           text: 'text-orange-300',
@@ -86,7 +86,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       case 'RESEARCH_LIMIT':
       default:
         return {
-          label: '調査限界・非公開',
+          label: customLabel || '調査限界・非公開',
           border: 'border-zinc-700',
           bg: 'bg-zinc-900',
           text: 'text-zinc-400',
@@ -135,7 +135,8 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'bg-cyan-950/40 text-cyan-300 border-cyan-500/40 animate-pulse' :
                 entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'bg-amber-950/40 text-amber-300 border-amber-500/40' :
                 entity.temporal.viabilityStatus === 'HISTORICAL_WINDOW' ? 'bg-red-950/40 text-red-300 border-red-500/40' :
-                'bg-purple-950/40 text-purple-300 border-purple-500/40'
+                entity.temporal.viabilityStatus === 'EVOLVING_BARRIER' ? 'bg-purple-950/40 text-purple-300 border-purple-500/40' :
+                'bg-zinc-900 text-zinc-400 border-zinc-700'
               }`}>
                 ● {entity.temporal.viabilityLabel}
               </span>
@@ -145,7 +146,9 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           <div className="grid grid-cols-3 gap-2 text-[10px] font-mono py-1">
             <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
               <span className="text-zinc-500 block">創業・ローンチ時期</span>
-              <span className="text-zinc-200 font-bold text-[11px]">{entity.temporal.foundedYear}年 ({entity.temporal.initialTractionPeriod})</span>
+              <span className="text-zinc-200 font-bold text-[11px]">
+                {entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'} ({entity.temporal.initialTractionPeriod})
+              </span>
             </div>
             <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
               <span className="text-zinc-500 block">データ観測基準時期</span>
@@ -351,7 +354,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
         {observationsStream && observationsStream.length > 0 ? (
           <div className="space-y-2.5">
             {observationsStream.map((obs, idx) => {
-              const badge = getCategoryBadge(obs.category);
+              const badge = getCategoryBadge(obs.category, obs.categoryLabel);
               return (
                 <div
                   key={obs.id || idx}

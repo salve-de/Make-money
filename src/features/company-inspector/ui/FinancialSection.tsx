@@ -10,6 +10,9 @@ import type { InspectorSectionProps } from '../model/section-props';
 export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPct, subPct, saasPct, otherPct, profitPct, isHazardMode, financialStatus, isFinancialUnavailable, financialBadgeMeta }: Pick<InspectorSectionProps, 'entity' | 'formatMoney' | 'cogsPct' | 'serverPct' | 'adPct' | 'subPct' | 'saasPct' | 'otherPct' | 'profitPct' | 'isHazardMode' | 'financialStatus' | 'isFinancialUnavailable' | 'financialBadgeMeta'>) {
   const integrity = inspectFinancialIntegrity(entity.pnl);
   const hasConflict = integrity.profitConflict || integrity.grossConflict || integrity.marginConflict;
+  const teamSizeUnknown = Boolean(entity.operations.isTeamSizeUnconfirmed);
+  const weeklyHoursUnknown = Boolean(entity.operations.isWeeklyHoursUnconfirmed);
+  const automationUnknown = Boolean(entity.operations.isAutomationUnconfirmed);
   return <>
           {/* ------------------------------------------------------- */}
           {/* #05〜#07: 財務レントゲン / 出血・逆流レントゲン */}
@@ -282,24 +285,26 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                   <div className="border border-white/[0.08] rounded-md bg-[#111624] grid grid-cols-4 divide-x divide-white/[0.06] p-3 font-mono text-center text-[10px] shadow-sm">
                     <div>
                       <span className="text-emerald-400 block font-bold">立ち上げ初期</span>
-                      <span className="text-white font-bold text-xs">
-                        {entity.operations.initialTeamSize ?? (entity.scale === 'SOLO' ? 1 : entity.scale === 'SMALL_TEAM' ? 2 : 2)}人
+                      <span className={`font-bold text-xs ${teamSizeUnknown ? 'text-zinc-500' : 'text-white'}`}>
+                        {teamSizeUnknown ? '未確認' : `${entity.operations.initialTeamSize ?? (entity.scale === 'SOLO' ? 1 : entity.scale === 'SMALL_TEAM' ? 2 : 2)}人`}
                       </span>
                     </div>
                     <div>
                       <span className="text-zinc-400 block">{isHazardMode ? 'ピーク時 (破滅前)' : '現在 (スケール後)'}</span>
-                      <span className={`font-bold text-xs ${isHazardMode ? 'text-red-400' : 'text-zinc-200'}`}>
-                        {entity.operations.currentTeamSize ?? entity.operations.teamSize}人
+                      <span className={`font-bold text-xs ${teamSizeUnknown ? 'text-zinc-500' : isHazardMode ? 'text-red-400' : 'text-zinc-200'}`}>
+                        {teamSizeUnknown ? '未確認' : `${entity.operations.currentTeamSize ?? entity.operations.teamSize}人`}
                       </span>
                     </div>
                     <div>
                       <span className="text-zinc-400 block">週実働</span>
-                      <span className="text-white font-bold text-xs">{entity.operations.weeklyHours}h</span>
+                      <span className={`font-bold text-xs ${weeklyHoursUnknown ? 'text-zinc-500' : 'text-white'}`}>
+                        {weeklyHoursUnknown ? '未確認' : `${entity.operations.weeklyHours}h`}
+                      </span>
                     </div>
                     <div>
                       <span className="text-zinc-400 block">自動化度</span>
-                      <span className={`font-bold text-xs ${isHazardMode ? 'text-amber-400' : 'text-emerald-400'}`}>
-                        {entity.operations.automationLevel}%
+                      <span className={`font-bold text-xs ${automationUnknown ? 'text-zinc-500' : isHazardMode ? 'text-amber-400' : 'text-emerald-400'}`}>
+                        {automationUnknown ? '未確認' : `${entity.operations.automationLevel}%`}
                       </span>
                     </div>
                   </div>

@@ -157,7 +157,7 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
                         ? 'bg-red-950/40 text-red-400 border-red-500/30'
                         : 'bg-white/[0.06] text-zinc-200 border-white/[0.12]'
                     }`}>
-                      {entity.strategy.moatType}
+                      {entity.strategy.moatType === 'UNKNOWN' ? '未確認' : entity.strategy.moatType}
                     </span>
                   </div>
                   <div className="p-3.5 space-y-2.5 bg-[#0E131F]">

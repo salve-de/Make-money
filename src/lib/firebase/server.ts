@@ -27,9 +27,17 @@ export async function verifyFirebaseIdToken(
   // build-time value when the Worker binding is missing, or tokens from a
   // different Firebase project could be accepted after a deployment mistake.
   const runtimeEnv = await getCloudflareRuntimeEnv();
-  const projectId = runtimeEnv
-    ? (typeof runtimeEnv.FIREBASE_PROJECT_ID === 'string' ? runtimeEnv.FIREBASE_PROJECT_ID.trim() : undefined)
-    : await getRuntimeEnvValue("FIREBASE_PROJECT_ID") || await getRuntimeEnvValue("NEXT_PUBLIC_FIREBASE_PROJECT_ID");
+  const runtimeProjectId = runtimeEnv && typeof runtimeEnv.FIREBASE_PROJECT_ID === 'string'
+    ? runtimeEnv.FIREBASE_PROJECT_ID.trim()
+    : undefined;
+  // A public build value is only a development convenience. In production
+  // Node/Worker execution, an unavailable runtime context must not silently
+  // turn a public Firebase setting into an authentication authority.
+  const privateProjectId = await getRuntimeEnvValue("FIREBASE_PROJECT_ID");
+  const publicProjectId = process.env.NODE_ENV === 'production'
+    ? undefined
+    : await getRuntimeEnvValue("NEXT_PUBLIC_FIREBASE_PROJECT_ID");
+  const projectId = runtimeEnv ? runtimeProjectId : privateProjectId || publicProjectId;
   if (!projectId || !idToken || idToken.length > 16_384) return null;
 
   try {

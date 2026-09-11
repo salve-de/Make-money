@@ -17,6 +17,9 @@ interface InstitutionalDataGridProps {
   isSplitView?: boolean;
   activeTags?: string[];
   onToggleTag?: (tag: string | null) => void;
+  onLoadMore?: () => void;
+  hasMore?: boolean;
+  isLoadingMore?: boolean;
 }
 
 export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
@@ -29,6 +32,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   isSplitView = false,
   activeTags = [],
   onToggleTag,
+  onLoadMore,
+  hasMore = false,
+  isLoadingMore = false,
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const observerTargetRef = useRef<HTMLDivElement>(null);
@@ -50,7 +56,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     if (!target) return;
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting) {
+        if (entries[0]?.isIntersecting && !isLoadingMore) {
+          if (visibleCount >= entities.length && hasMore && onLoadMore) {
+            onLoadMore();
+            return;
+          }
           setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, entities.length));
         }
       },
@@ -60,7 +70,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     return () => {
       observer.unobserve(target);
     };
-  }, [entities.length]);
+  }, [entities.length, hasMore, isLoadingMore, onLoadMore, visibleCount]);
 
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {
@@ -152,7 +162,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                                 ? 'bg-red-950/50 text-red-300 border-red-500/40 font-bold'
                                 : 'bg-cyan-950/40 text-cyan-400 border border-cyan-500/30'
                             }`}>
-                              {entity.architecturePattern?.startsWith('地雷:') ? '● 爆死' : `${entity.temporal.foundedYear}年`}
+                              {entity.architecturePattern?.startsWith('地雷:')
+                                ? '● 爆死'
+                                : entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}
                             </span>
                           )}
                         </div>
@@ -261,7 +273,9 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                                   ? 'bg-red-950/50 text-red-300 border-red-500/40 font-bold'
                                   : 'bg-cyan-950/40 text-cyan-400 border border-cyan-500/30'
                               }`}>
-                                {entity.architecturePattern?.startsWith('地雷:') ? '● 爆死・転落' : `${entity.temporal.foundedYear}年`}
+                                {entity.architecturePattern?.startsWith('地雷:')
+                                  ? '● 爆死・転落'
+                                  : entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}
                               </span>
                             )}
                           </div>
@@ -307,7 +321,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
 
                     {/* 4. 体制 */}
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs text-zinc-400">
-                      {(entity.operations?.teamSize ?? 1) === 1 ? '1人' : `${(entity.operations?.teamSize ?? 1).toLocaleString()}人`}
+                      {entity.operations?.isTeamSizeUnconfirmed
+                        ? '未確認'
+                        : (entity.operations?.teamSize ?? 1) === 1
+                          ? '1人'
+                          : `${(entity.operations?.teamSize ?? 1).toLocaleString()}人`}
                     </td>
                   </tr>
                 );
@@ -318,9 +336,13 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
       )}
 
       {/* 1000件スケール時・無限スクロール感知トリガー */}
-      {visibleCount < entities.length && (
+      {(visibleCount < entities.length || hasMore) && (
         <div ref={observerTargetRef} className="py-4 text-center text-[10px] text-zinc-500 font-mono">
-          読み込み中... ({visibleCount} / {entities.length}件)
+          {isLoadingMore
+            ? `R2から追加取得中... (${entities.length}件)`
+            : visibleCount < entities.length
+              ? `表示を追加... (${visibleCount} / ${entities.length}件)`
+              : `R2から追加取得待ち... (${entities.length}件)`}
         </div>
       )}
     </div>

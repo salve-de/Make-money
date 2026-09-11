@@ -97,6 +97,15 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
           tagClass: 'bg-red-950/40 text-red-300 border-red-500/30',
           tagLabel: '死因出血逆算 (POST-MORTEM)',
         };
+      case 'UNAVAILABLE':
+        return {
+          badgeClass: 'text-zinc-500 bg-zinc-900 border-zinc-700',
+          iconColor: 'text-zinc-500',
+          titleColor: 'text-zinc-400',
+          title: '財務損益計器盤 (UNAVAILABLE)',
+          tagClass: 'bg-zinc-900 text-zinc-500 border-zinc-700',
+          tagLabel: '未確認 (UNAVAILABLE)',
+        };
       case 'ESTIMATED':
       default:
         return {

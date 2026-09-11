@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { parseSubmission, readInput } from '@/lib/api/input';
 import { executeD1 } from '@/lib/storage/d1';
+import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 
 export const dynamic = 'force-dynamic';
 export async function POST(req: NextRequest) {
@@ -11,6 +12,9 @@ export async function POST(req: NextRequest) {
   const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
   if (auth && !user) return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
   try {
+    if (!user && !await consumeRequestRateLimit(req, 'submission-create')) {
+      return NextResponse.json({ error: 'しばらく待ってから再試行してください' }, { status: 429 });
+    }
     const id = crypto.randomUUID();
     const saved = await executeD1('INSERT INTO submissions(id,user_id,business_name,url,monthly_revenue,monthly_profit,tools_used,acquisition_channel,proof_screenshot_url) VALUES(?,?,?,?,?,?,?,?,?)', [id, user?.uid ?? null, input.businessName, input.url, input.monthlyRevenue, input.monthlyProfit, input.toolsUsed, input.acquisitionChannel, input.proofScreenshotUrl]);
     if (saved.changes !== 1) throw new Error('Submission not persisted');

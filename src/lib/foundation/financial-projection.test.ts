@@ -26,6 +26,7 @@ describe('revenue normalization', () => {
   });
   it('does not invent FX rates or spread cumulative revenue over one year', () => {
     expect(parseRevenueToMonthlyJpy(12000, 'EUR', 'ARR').isUnconfirmed).toBe(true);
+    expect(parseRevenueToMonthlyJpy(12000, undefined, 'ARR').isUnconfirmed).toBe(true);
     expect(parseRevenueToMonthlyJpy(12000, 'JPY', 'cumulative_revenue').isUnconfirmed).toBe(true);
   });
 });
@@ -75,6 +76,41 @@ it('detail adapter selects MRR and keeps zero revenue separate from missing prof
   expect(zero.pnl).toMatchObject({ monthlyRevenue: 0, isRevenueUnconfirmed: false, isMarginUnconfirmed: true });
 });
 
+it('keeps absent detail facts explicitly unknown instead of inventing an operating profile', () => {
+  const summary: FoundationEntitySummary = { id: 'unknown', name: 'Unknown', entityType: 'business', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [] };
+  const empty = { claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [] };
+  const detail: FoundationBusinessCase = { ...summary, ...empty, valueProfile: buildFoundationValueProfile(summary, empty), bundlesScanned: 0, bundleObjectsListed: 0 };
+  const entity = adaptFoundationDetailToFinancialEntity(detail);
+
+  expect(entity.scale).toBe('UNKNOWN');
+  expect(entity.country).toBe('未確認');
+  expect(entity.verifiedBadge).toBe(false);
+  expect(entity.growthRateYoY).toBe(0);
+  expect(entity.isGrowthUnconfirmed).toBe(true);
+  expect(entity.operations).toMatchObject({
+    teamSize: 0,
+    isTeamSizeUnconfirmed: true,
+    weeklyHours: 0,
+    isWeeklyHoursUnconfirmed: true,
+    initialCapitalRequired: 0,
+    isCapitalUnconfirmed: true,
+    automationLevel: 0,
+    isAutomationUnconfirmed: true,
+    primaryChannels: [],
+    toolStack: [],
+  });
+  expect(entity.temporal).toMatchObject({ foundedYear: 0, viabilityStatus: 'UNKNOWN', dataSnapshotPeriod: '観測時期未確認' });
+  expect(entity.strategy.moatType).toBe('UNKNOWN');
+  expect(entity.evidenceCards?.map((card) => card.evidenceStatus)).toEqual(['UNKNOWN', 'UNKNOWN', 'ESTIMATED']);
+  expect(entity.dynamicMoats).toEqual({});
+  expect(entity.exposureAudit).toMatchObject({
+    guerrillaTraction: '初期顧客獲得は未確認',
+    platformGlitch: 'プラットフォーム施策は未確認',
+    pivotSnapshot: 'ピボット履歴は未確認',
+    hiddenStackCost: '原価内訳は未確認',
+  });
+});
+
 
 it('money labels do not strip magnitude or ranges into fabricated amounts', () => {
   expect(formatHumanMoney('$10M', 'USD')).toBe('$10M');
@@ -102,5 +138,45 @@ it('keeps a zero-revenue loss amount known without inventing a zero percent marg
   const revenue = metric('annual_revenue', 0);
   expect(projectProfitMetrics(0, revenue, [metric('operating_profit', -12000), metric('gross_profit', -12000)])).toMatchObject({
     operatingProfit: -1000, isOperatingProfitUnconfirmed: false, isMarginUnconfirmed: true, isGrossMarginUnconfirmed: true,
+  });
+});
+
+it('does not promote unsupported Foundation facts into confirmed adapter fields', () => {
+  const summary: FoundationEntitySummary = { id: 'unverified', name: 'Unverified', entityType: 'business', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [] };
+  const empty = { claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [] };
+  const detail: FoundationBusinessCase = {
+    ...summary,
+    ...empty,
+    metrics: [metric('mrr', 10000, { verificationStatus: 'UNVERIFIED', originType: 'reported' })],
+    events: [{
+      id: 'event-1', eventType: 'launch', occurredAt: '2024-01-01', description: '未確認のローンチ記録',
+      verificationStatus: 'UNVERIFIED', confidence: null, evidenceIds: [],
+    }],
+    relationships: [{
+      id: 'relationship-1', subjectEntityId: 'unverified', predicate: 'uses', object: '外部サービス',
+      validFrom: '2024-01-01', validTo: null, verificationStatus: 'UNVERIFIED', confidence: null, evidenceIds: [],
+    }],
+    observations: [{
+      id: 'observation-1', kind: null, text: '未確認の観測', originType: 'not-a-valid-origin', verificationStatus: 'unknown',
+      observedAt: null, collectionTier: null, collectionChannel: null, evidenceIds: [],
+    }],
+    valueProfile: buildFoundationValueProfile(summary, { ...empty, metrics: [metric('mrr', 10000, { verificationStatus: 'UNVERIFIED', originType: 'reported' })] }),
+    bundlesScanned: 1,
+    bundleObjectsListed: 1,
+  };
+  const entity = adaptFoundationDetailToFinancialEntity(detail);
+
+  expect(entity.pnl).toMatchObject({ monthlyRevenue: 0, isRevenueUnconfirmed: true, financialStatus: 'UNAVAILABLE' });
+  expect(entity.operations).toMatchObject({ teamSize: 0, isTeamSizeUnconfirmed: true });
+  expect(entity.observationsStream?.[0]).toMatchObject({ originType: 'unknown', verificationStatus: 'UNVERIFIED' });
+  expect(entity.observationsStream?.find((observation) => observation.id === 'mrr_metric')).toMatchObject({
+    category: 'RESEARCH_LIMIT', categoryLabel: '未検証財務候補', verificationStatus: 'UNVERIFIED',
+  });
+  expect(entity.timelineEvents).toEqual([]);
+  expect(entity.observationsStream?.find((observation) => observation.id === 'event-1_event')).toMatchObject({
+    category: 'RESEARCH_LIMIT', verificationStatus: 'UNVERIFIED', originType: 'unknown',
+  });
+  expect(entity.observationsStream?.find((observation) => observation.id === 'relationship-1_relationship')).toMatchObject({
+    category: 'RESEARCH_LIMIT', categoryLabel: '未検証関係候補', verificationStatus: 'UNVERIFIED', originType: 'unknown',
   });
 });

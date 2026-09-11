@@ -7,7 +7,7 @@
 
 ## 1. 収集の鉄則（サバンナOS ＆ 逆算義務）
 1. **優等生AI病の完全禁止（「非公開だから取れない」は即失格）**:
-   - 売上や利益が未公開の場合でも、「単価 × 推定アクティブ顧客数」から科学的に因数分解し、Stripe決済手数料（2.9% + $0.30）やインフラ原価を引いて実効純利益・創業者手残りを必ず算出せよ（`originType: 'estimated'`）。
+   - 売上や利益が未公開でも調査は続ける。ただし「単価 × 推定アクティブ顧客数」や原価の逆算は、入力・期間・出典・仮定を明示して再現できる場合だけ実施し、`originType: 'estimated'` と計算式を付ける。根拠が足りない値は `UNAVAILABLE` / `未確認` として残し、0円・仮の人数・仮の利益率で埋めない。
 2. **定型タグライン・英語クローラー生ログの撲滅**:
    - 「公開資料に基づく...」「〇〇は情報管理ツールです」といった無味乾燥な文章は知覚価値を殺す。「誰のどんな痛みの財布（保身・虚栄心・怠惰）を突いていくら抜いているか」の生々しい日本語で書け。
 3. **略奪転用方程式（LOOT_BLUEPRINT）の必須化**:
@@ -24,7 +24,7 @@
 | 3 | `name` | `string` | 文字列 | 企業・サービス正式名称 |
 | 4 | `tagline` | `string` | 日本語1行 | サバンナOS直撃のタグライン（痛みの財布＋手口＋数字） |
 | 5 | `sector` | `enum` | 7大カテゴリ | `'AI_AUTOMATION'` \| `'NICHE_SAAS'` \| `'MONOPOLY_MFG'` \| `'CONTENT_MEDIA'` \| `'PHYSICAL_ASSET'` \| `'FINTECH_INFRA'` \| `'LOCAL_SERVICES'` |
-| 6 | `scale` | `enum` | 4大区分 | `'SOLO'`（完全1人） \| `'SMALL_TEAM'`（2〜10人） \| `'SCALEUP'`（11〜50人） \| `'ENTERPRISE'`（50人超） |
+| 6 | `scale` | `enum` | 4大区分 + 未確認 | `'SOLO'`（完全1人） \| `'SMALL_TEAM'`（2〜10人） \| `'SCALEUP'`（11〜50人） \| `'ENTERPRISE'`（50人超） \| `'UNKNOWN'`（根拠未確認） |
 | 7 | `founder` | `string` | 人名 | 創業者名（複数名はカンマ区切り） |
 | 8 | `country` | `string` | ISO 2文字 | 国コード（`JP`, `US`, `UK`, `IE` 等） |
 | 9 | `url` | `string` | URL | 公式サイトURL |
@@ -53,7 +53,7 @@ pnl: {
   operatingProfit: number;        // 営業利益（円） = grossProfit - 経費合計
   operatingMargin: number;        // 営業利益率（%） = (operatingProfit / monthlyRevenue) * 100
   estimatedAnnualNetProfit: number;// 年間純利益推計（円）
-  financialStatus: 'VERIFIED' | 'REPORTED' | 'ESTIMATED' | 'POST_MORTEM';
+  financialStatus: 'VERIFIED' | 'REPORTED' | 'ESTIMATED' | 'POST_MORTEM' | 'UNAVAILABLE';
   dataSnapshotPeriod: string;     // 例: "2024年通期決算" / "2024年最新Stripe公開データ"
   sourceDoc: string;              // 一次情報源（例: "有価証券報告書", "創業者インタビュー", "公開ダッシュボード"）
   estimationLogic?: string;       // 推計時の計算式（例: "単価$29 × 顧客3,000人 × 150円 ＝ 月商 約¥1,300万"）
@@ -80,26 +80,38 @@ pnl: {
 ```typescript
 operations: {
   teamSize: number;               // 現在のチーム人数
-  initialTeamSize: number;        // 創業初期の人数（1 = 完全1人）
-  currentTeamSize: number;        // 現在の人数
-  weeklyHours: number;            // 週稼働時間（例: 15 = ほぼ不労, 40 = フルタイム）
-  initialCapitalRequired: number; // 初期投下資本（円。例: 50000 = 5万円）
-  automationLevel: number;        // 自動化レベル（1〜100%）
+  isTeamSizeUnconfirmed?: boolean;// 人数が未確認なら true。0を実績として扱わない
+  initialTeamSize?: number;       // 創業初期の人数（1 = 完全1人）
+  currentTeamSize?: number;       // 現在の人数
+  weeklyHours: number;            // 週稼働時間。未確認ならフラグを付ける
+  isWeeklyHoursUnconfirmed?: boolean;
+  initialCapitalRequired: number; // 初期投下資本（円）。未確認なら0とフラグを併用
+  isCapitalUnconfirmed?: boolean;
+  automationLevel: number;        // 自動化レベル（1〜100%）。未確認ならフラグを付ける
+  isAutomationUnconfirmed?: boolean;
   primaryChannels: string[];      // 主要集客経路（3つ）
-  toolStack: {                    // 現場配管ツール一覧（空配列厳禁）
+  toolStack: {                    // 現場配管ツール一覧（確認できたものだけ。未確認なら空配列）
     name: string;                 // ツール名（Stripe, AWS, Cloudflare, Next.js等）
     category: string;             // 用途カテゴリ（決済, インフラ, DB, メール等）
-    monthlyCost: number;          // 推定月額コスト（円）
+    monthlyCost: number;          // 根拠がある月額コスト（円）
+    isCostUnconfirmed?: boolean;  // 費用が未確認なら true。0円の実績と解釈しない
     purpose: string;              // 具体的な役割
   }[];
 }
 ```
 
+### 3.3.1 未確認値の境界契約
+
+- 外部資料にない値は、内部互換のため数値 `0` を保持する場合でも必ず `is*Unconfirmed: true` を付け、UI・集計・ランキングでは実績値として扱わない。
+- `scale`、`strategy.moatType`、`temporal.viabilityStatus` は根拠がない場合に `UNKNOWN` を使う。
+- `toolStack` と `primaryChannels` は確認できた項目だけを入れる。未確認を理由に架空のツール・費用・チャネルを追加しない。
+- `verifiedBadge` と `VERIFIED` は一次資料と期間・対象が一致する場合だけ付ける。推計は `ESTIMATED`、報告は `REPORTED`、根拠不足は `UNAVAILABLE` / `UNKNOWN` として、出典・計算式・確認日を残す。
+
 ### 3.4 資本主義の裏帳簿戦略 (`strategy`)
 ```typescript
 strategy: {
   blindspot: string;              // 既存大手・競合が見落としている盲点（痛みの財布直撃）
-  moatType: 'COUNTER_POSITIONING' | 'SWITCHING_COST' | 'NETWORK_EFFECT' | 'CORNERED_RESOURCE' | 'SCALE_ECONOMIES' | 'BRAND_PRESTIGE' | 'PROCESS_POWER';
+  moatType: 'COUNTER_POSITIONING' | 'SWITCHING_COST' | 'NETWORK_EFFECT' | 'CORNERED_RESOURCE' | 'SCALE_ECONOMIES' | 'BRAND_PRESTIGE' | 'PROCESS_POWER' | 'UNKNOWN';
   moatDescription: string;        // 堀の構造的説明
   incumbentDilemma: string;       // 大手が真似できない理由（カニバリズム障壁）
   secretInsight: string;          // 創業者だけが知っている業界の裏の真実
@@ -115,7 +127,7 @@ temporal: {
   foundedYear: number;            // 創業・ローンチ年（西暦4桁。例: 2021）
   initialTractionPeriod: string;  // 初動突破時期（例: "2021年春（Product Huntとデモ動画バイラル）"）
   dataSnapshotPeriod: string;     // 財務データの観測基準（例: "2024年通期推計"）
-  viabilityStatus: 'ACTIVE_PLAYBOOK' | 'RISING_WAVE' | 'MATURED_MOAT' | 'HISTORICAL_WINDOW' | 'EVOLVING_BARRIER';
+  viabilityStatus: 'ACTIVE_PLAYBOOK' | 'RISING_WAVE' | 'MATURED_MOAT' | 'HISTORICAL_WINDOW' | 'EVOLVING_BARRIER' | 'UNKNOWN';
   viabilityLabel: string;         // 日本語ラベル（例: "現在も有効", "先行者堀で堅牢", "トレンド最盛期"）
   eraContext: string;             // 当時なぜその手口が通用したのかの時代背景
   currentViabilityAnalysis: string;// 「今同じことをやるとどうなるか」の冷徹な客観分析

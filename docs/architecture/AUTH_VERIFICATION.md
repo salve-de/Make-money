@@ -11,7 +11,7 @@ Firebase Authentication `make-money-salve-prod` のメール・パスワード�
 - 1人目のトークンで `PUT /api/analyst-notes` が200。続くGETで保存本文が一致。
 - 2人目のトークンによるGETには1人目のメモが含まれない。
 - finallyで検証アカウント2件を削除。トークンとパスワードはログ・Git・R2へ保存しない。
-- D1 migration 0001〜0003は隔離ローカルDBに適用。本番D1とFoundation R2へ検証データを書かない。
+- D1 migration 0001〜0005は隔離ローカルDBに適用。本番D1とFoundation R2へ検証データを書かない。0004/0005は本番D1へ未適用で、適用前に対象IDとバックアップを確認する。
 
 ## 再実行時の条件
 
@@ -36,4 +36,4 @@ Googleログインの有効化・サポートメール設定と標準許可ド�
 
 ## 2026-09-12 再検証追補
 
-依存更新とAPI入力境界の追加後に、Vitest257件、Foundation11件、architecture6件、Python6件、E2E25件、Build、`pnpm audit --prod`、Workers秘密値スキャンを再実行して成功した。実ブラウザではPhoto AI詳細を表示し、J/K入力で企業が切り替わらないこととJ/K案内がないことを確認した。E2EはR2未設定時のfallbackを含むため、実R2読み取りや本番Workerの稼働証明ではない。
+依存更新、未確認値の明示、ニュースレター所有者・匿名解除トークン、匿名書込みレート制限、R2 bindingのreadback検査を含む作業ツリーで、Vitest274件、Foundation11件、architecture8件、Python6件、E2E25件、Build、`pnpm audit --prod`、Workers秘密値スキャン、Wrangler dry-runを再実行して成功した。実ブラウザではPhoto AI詳細を表示し、次銘柄遷移、J/K入力で企業が切り替わらないこと、Escapeで詳細を閉じられること、未確認の財務値が「未確認」と表示されることを確認した。E2EはR2未設定時のfallbackを含むため、実R2読み取りや本番Workerの稼働証明ではない。0004/0005は隔離ローカルD1と復元演習で確認済みだが、本番D1へは未適用である。

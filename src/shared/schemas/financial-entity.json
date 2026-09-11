@@ -168,7 +168,8 @@
         "SOLO",
         "SMALL_TEAM",
         "SCALEUP",
-        "ENTERPRISE"
+        "ENTERPRISE",
+        "UNKNOWN"
       ]
     },
     "ProfitAndLossStatement": {
@@ -283,6 +284,9 @@
         "teamSize": {
           "type": "number"
         },
+        "isTeamSizeUnconfirmed": {
+          "type": "boolean"
+        },
         "initialTeamSize": {
           "type": "number"
         },
@@ -292,6 +296,9 @@
         "weeklyHours": {
           "type": "number"
         },
+        "isWeeklyHoursUnconfirmed": {
+          "type": "boolean"
+        },
         "isCapitalUnconfirmed": {
           "type": "boolean"
         },
@@ -300,6 +307,9 @@
         },
         "automationLevel": {
           "type": "number"
+        },
+        "isAutomationUnconfirmed": {
+          "type": "boolean"
         },
         "primaryChannels": {
           "type": "array",
@@ -410,7 +420,8 @@
         "CORNERED_RESOURCE",
         "SCALE_ECONOMIES",
         "BRAND_PRESTIGE",
-        "PROCESS_POWER"
+        "PROCESS_POWER",
+        "UNKNOWN"
       ]
     },
     "PricingDossier": {
@@ -618,7 +629,8 @@
               "enum": [
                 "LOW",
                 "MEDIUM",
-                "HIGH"
+                "HIGH",
+                "UNKNOWN"
               ]
             },
             "platformRisk": {
@@ -626,7 +638,8 @@
               "enum": [
                 "LOW",
                 "MEDIUM",
-                "CRITICAL"
+                "CRITICAL",
+                "UNKNOWN"
               ]
             }
           },
@@ -783,7 +796,8 @@
         "RISING_WAVE",
         "MATURED_MOAT",
         "HISTORICAL_WINDOW",
-        "EVOLVING_BARRIER"
+        "EVOLVING_BARRIER",
+        "UNKNOWN"
       ]
     },
     "DynamicMoats": {
@@ -899,7 +913,8 @@
             "observed",
             "inferred",
             "reported",
-            "estimated"
+            "estimated",
+            "unknown"
           ]
         },
         "verificationStatus": {

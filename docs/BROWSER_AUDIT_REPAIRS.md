@@ -44,7 +44,7 @@
 - 実ブラウザで `http://127.0.0.1:3101/?entity=ent_photoai` を開き、Photo AIの社名、未確認の財務表示、Evidence、ツール、メモ欄を確認。J/Kを入力しても選択企業は変わらず、J/K案内は表示されない。
 - APIのJSON・署名付きテキスト本文を上限付きreaderへ統一し、直接の`request.json()` / `request.text()`を検査で禁止。未知フィールド、chunked本文、Stripe webhook本文の上限をテスト。
 - `pnpm audit --prod` は既知脆弱性0。AJVを8.18.0へ更新し、Workers経由のsharpを0.35.4へ固定。
-- 更新後の検査は Vitest257、Foundation11、architecture6、Python6、E2E25 が全て成功。Build、Workers配布物の秘密値スキャン、Wrangler dry-runも成功。
+- 更新後の検査は Vitest274、Foundation11、architecture8、Python6、E2E25 が全て成功。Build、Workers配布物の秘密値スキャン、Wrangler dry-run、`pnpm audit --prod`も成功。
 - E2EはR2資格情報を渡さないローカルfallbackであり、実R2全件のユーザー導線を証明しない。実Workerの本番デプロイ、Stripe本番往復、main統合は未実施。
 
 ## 2026-09-12 Worker実行時検証追補
@@ -53,3 +53,9 @@
 - アプリ境界のvalidatorを`@cfworker/json-schema`へ置換し、AJVはNode専用のschema生成・収集CLIに限定した。未定義の任意プロパティはJSON相当の検証 view で扱い、`NaN`/`Infinity`はJSON境界へ渡さない。
 - ローカルworkerd（Wrangler preview、Foundation R2 bindingはremote read）で一覧API`200`（`source: foundation_lake`、3件ページ）、実在R2 entityの詳細API`200`（`source: foundation_lake`、claims 5 / metrics 3 / moneySignals 1 / events 1）、企業画面`200`を確認。実ブラウザでもR2 entityの詳細画面を描画した。previewログに5xx・schema compile errorはない。
 - リモートpreview（外部Cloudflare previewへの資材アップロード）は自動審査で拒否されたため未実施。これは本番deployの証明ではない。Workers配布物のsecret scan・Wrangler dry-run・GitHub CIは別途成功している。
+
+## 2026-09-12 継続監査
+
+- Foundation projectionが根拠のない売上・人数・利益率・創業年・ツール構成を補わないよう、`UNKNOWN` / `未確認` と未確認フラグを追加した。一覧から未確認行を捨てず、財務・体制・ツール欄は明示的に未確認と表示する。
+- ニュースレターは認証UIDまたはハッシュ化解除トークンで所有者削除でき、匿名購読・投稿はD1の一方向ハッシュ窓でレート制限する。0004/0005はローカル復元演習で確認済みだが、本番D1へは未適用である。
+- 実ブラウザで次銘柄、J/K無効化、Escape閉じる、Photo AIの未確認財務表示を再確認した。R2資格情報なしのNext開発サーバーでは静的fallbackになるため、実R2の全件動作とは分けて扱う。

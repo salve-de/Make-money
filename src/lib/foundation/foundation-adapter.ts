@@ -70,13 +70,34 @@ function inferScale(headcount?: number | null, revenueUsd?: number | null): Busi
   if (headcount && headcount <= 50) return 'SCALEUP';
   if (revenueUsd && revenueUsd >= 50_000_000) return 'ENTERPRISE';
   if (revenueUsd && revenueUsd >= 5_000_000) return 'SCALEUP';
-  return 'SMALL_TEAM';
+  return 'UNKNOWN';
 }
 
 interface ParsedRevenueResult {
   monthlyJpy: number;
   isUnconfirmed: boolean;
   revenueLabel?: string;
+}
+
+type ObservationOrigin = NonNullable<UniversalObservation['originType']>;
+type ObservationStatus = NonNullable<UniversalObservation['verificationStatus']>;
+
+function normalizeObservationOrigin(value: string | null | undefined): ObservationOrigin {
+  const normalized = value?.trim().toLowerCase();
+  return normalized === 'observed' || normalized === 'inferred' || normalized === 'reported' || normalized === 'estimated' || normalized === 'unknown'
+    ? normalized
+    : 'unknown';
+}
+
+function normalizeObservationStatus(value: string | null | undefined): ObservationStatus {
+  const normalized = value?.trim().toUpperCase();
+  if (normalized === 'SUPPORTED') return 'SUPPORTED';
+  if (normalized === 'RETRACTED' || normalized === 'REFUTED') return 'REFUTED';
+  return 'UNVERIFIED';
+}
+
+function hasSupportedEvidence(value: { verificationStatus?: string } | undefined): boolean {
+  return value?.verificationStatus === 'SUPPORTED';
 }
 
 /**
@@ -93,7 +114,7 @@ export function parseRevenueToMonthlyJpy(
   if (value === null || value === undefined || value === '') return unknown;
   const text = String(value).trim();
   const context = `${metricType || ''} ${text}`;
-  if (/未確認|非公開|not asserted|unknown|cumulative|累計|quarter|四半期/i.test(context)) return unknown;
+  if (/未確認|非公開|not asserted|unknown|unverified|conflicted|retracted|refuted|superseded|撤回|反証|矛盾|cumulative|累計|quarter|四半期/i.test(context)) return unknown;
   if (/プラン価格|Entry Price|starting|per_user|course|program|plan|fee|license|tier/i.test(context) &&
       !/revenue|売上|sales|\bmrr\b|\barr\b/i.test(context)) {
     return { ...unknown, revenueLabel: 'プラン価格あり' };
@@ -102,7 +123,11 @@ export function parseRevenueToMonthlyJpy(
   // The existing projection uses USD 150 JPY as an explicit estimate. Never apply
   // that rate to a different currency for which no conversion rate is available.
   const currencyMarker = text.match(/\$|USD|¥|JPY|円/i)?.[0];
-  const cur = currencyMarker ? (/\$|USD/i.test(currencyMarker) ? 'USD' : 'JPY') : (currency || 'USD').toUpperCase();
+  const suppliedCurrency = currency?.trim().toUpperCase();
+  // A numeric value without a currency is not safe to convert. Never turn a
+  // missing unit into an implicit USD assumption at the application boundary.
+  if (!currencyMarker && !suppliedCurrency) return unknown;
+  const cur = currencyMarker ? (/\$|USD/i.test(currencyMarker) ? 'USD' : 'JPY') : (suppliedCurrency || '');
   if (!['JPY', 'USD', '円', '¥', '$'].includes(cur)) return unknown;
   const rate = ['JPY', '円', '¥'].includes(cur) ? 1 : 150;
   let amount: number;
@@ -187,7 +212,7 @@ export function adaptFoundationSummaryToFinancialEntity(
   const rawMoney = vp.moneySignal || '';
 
   // 金額シグナルからの売上推計
-  const revParsed = parseRevenueToMonthlyJpy(rawMoney, 'USD', 'annual');
+  const revParsed = parseRevenueToMonthlyJpy(rawMoney, null, 'annual');
   const monthlyJpy = revParsed.monthlyJpy;
   const isUnconfirmed = revParsed.isUnconfirmed;
 
@@ -223,7 +248,7 @@ export function adaptFoundationSummaryToFinancialEntity(
     isRevenueUnconfirmed: isUnconfirmed,
     revenueLabel: revParsed.revenueLabel,
     financialStatus,
-    dataSnapshotPeriod: summary.observedAt ? `${summary.observedAt.slice(0, 7)} 観測` : '2024-2026年観測',
+    dataSnapshotPeriod: summary.observedAt ? `${summary.observedAt.slice(0, 7)} 観測` : '観測時期未確認',
     sourceDoc: rawMoney ? cleanIntelligenceText(rawMoney) : 'R2観測レイク・公表シグナル',
     estimationLogic: undefined,
   };
@@ -235,12 +260,12 @@ export function adaptFoundationSummaryToFinancialEntity(
       type: 'THE_CRIME',
       title: '身も蓋もない真実・集金構造',
       badge: pattern,
-      evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'REPORTED' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
+      evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'UNKNOWN' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
       punchline: headline,
       details: [
         `業態分類: ${summary.entityType}`,
-        `検証シグナル: ${cleanIntelligenceText(vp.businessSignal || vp.mechanismSignal || '市場特化型モデル')}`,
-        rawMoney ? `公表マネーシグナル: ${cleanIntelligenceText(rawMoney)}` : '財務数値は非公開（ワークフロー埋め込み型）',
+        `検証シグナル: ${cleanIntelligenceText(vp.businessSignal || vp.mechanismSignal || '未確認')}`,
+        rawMoney ? `公表マネーシグナル: ${cleanIntelligenceText(rawMoney)}` : '財務数値は未確認',
       ],
       sourceNote: summary.canonicalIdentifier || summary.domain || 'R2 Foundation Lake 一次観測',
     },
@@ -249,7 +274,8 @@ export function adaptFoundationSummaryToFinancialEntity(
       type: 'LOOT_BLUEPRINT',
       title: '今夜使える略奪転用コード',
       badge: '実務転用',
-      evidenceStatus: 'VERIFIED',
+      // This is an analyst projection, not evidence about the source entity.
+      evidenceStatus: 'ESTIMATED',
       punchline: (() => {
         const target = headline.replace(/[。、].*$/, '').trim().slice(0, 25);
         return target.length > 5 && !/^[a-zA-Z\s]+$/.test(target)
@@ -269,12 +295,12 @@ export function adaptFoundationSummaryToFinancialEntity(
     verdict: (isUnconfirmed) ? 'MONITOR' : 'ENTRY_CANDIDATE',
     verdictLabel: (isUnconfirmed) ? '要監視・データ精査中' : '参入候補',
     oneLineReason: headline,
-    demandDelta: '90日 ↑15%',
-    competitionDelta: 'ニッチ特化領域',
+    demandDelta: '未確認',
+    competitionDelta: '未確認',
     entryRequirements: {
-      capital: '初期 10万円以下',
-      technicalDifficulty: 'LOW',
-      platformRisk: 'LOW',
+      capital: '未確認',
+      technicalDifficulty: 'UNKNOWN',
+      platformRisk: 'UNKNOWN',
     },
   };
 
@@ -293,32 +319,37 @@ export function adaptFoundationSummaryToFinancialEntity(
     tagline: headline,
     sector,
     scale: inferScale(null, monthlyJpy ? (monthlyJpy * 12) / 150 : null),
-    founder: '創業者情報あり (詳細参照)',
-    country: 'US',
+    founder: '創業者情報未確認',
+    country: '未確認',
     url: summary.domain ? `https://${summary.domain}` : '',
-    verifiedBadge: vp.tier === 'HIGH_SIGNAL',
+    verifiedBadge: false,
     pnl,
     evidenceCards,
     opportunityJudgment,
     operations: {
-      teamSize: 1,
-      weeklyHours: 40,
+      teamSize: 0,
+      isTeamSizeUnconfirmed: true,
+      weeklyHours: 0,
+      isWeeklyHoursUnconfirmed: true,
       initialCapitalRequired: 0,
-      automationLevel: 80,
-      primaryChannels: ['オーガニック検索 (SEO)', '口コミ・コミュニティ'],
+      isCapitalUnconfirmed: true,
+      automationLevel: 0,
+      isAutomationUnconfirmed: true,
+      primaryChannels: [],
       toolStack: [],
     },
     strategy: {
-      blindspot: cleanIntelligenceText(vp.painSignal || '市場の歪み・大手の死角'),
-      moatType: 'SWITCHING_COST',
-      moatDescription: cleanIntelligenceText(vp.mechanismSignal || '顧客ワークフローへの埋め込み'),
-      initialTraction: vp.tractionSignal ? [cleanIntelligenceText(vp.tractionSignal)] : [],
-      actionPlaybook: ['市場の不満・解約怨嗟を特定', '特化型最小ツールで初期顧客を獲得'],
+      blindspot: cleanIntelligenceText(vp.painSignal || '市場の盲点は未確認'),
+      moatType: 'UNKNOWN',
+      moatDescription: cleanIntelligenceText(vp.mechanismSignal || '参入障壁は未確認'),
+      initialTraction: vp.tractionSignal ? [cleanIntelligenceText(vp.tractionSignal)] : ['初動突破は未確認'],
+      actionPlaybook: ['公開記録の範囲では実行手順未確認'],
     },
-    growthRateYoY: 15.0,
+    growthRateYoY: 0,
+    isGrowthUnconfirmed: true,
     architecturePattern: pattern,
-    pipelineStack: 'Web / クラウドインフラ',
-    targetPainWallet: cleanIntelligenceText(vp.painSignal || '業務非効率・手作業の苦痛'),
+    pipelineStack: '技術構成未確認',
+    targetPainWallet: cleanIntelligenceText(vp.painSignal || '対象の痛みは未確認'),
     tags,
   };
 }
@@ -336,18 +367,21 @@ export function adaptFoundationDetailToFinancialEntity(
   const events = detail.events || [];
   const observations = detail.observations || [];
   const derived = detail.derived || [];
+  const relationships = detail.relationships || [];
 
   // 1. 売上・財務メトリクスの抽出
   const revMetric = metrics.find((m) =>
-    /revenue|mrr|arr|advertising_revenue|sales/i.test(m.metricType)
+    /revenue|mrr|arr|advertising_revenue|sales/i.test(m.metricType) &&
+    m.value !== null && hasSupportedEvidence(m)
   );
   const revMoney = moneySignals.find((m) =>
-    /revenue|mrr|arr|advertising_revenue|sales/i.test(m.moneyType)
+    /revenue|mrr|arr|advertising_revenue|sales/i.test(m.moneyType) &&
+    m.amount !== null && hasSupportedEvidence(m)
   );
 
   const hasMetricValue = revMetric?.value !== null && revMetric?.value !== undefined;
   const bestRevValue = hasMetricValue ? revMetric.value : revMoney?.amount;
-  const bestRevCurrency = (hasMetricValue ? revMetric.currency : revMoney?.currency) || 'USD';
+  const bestRevCurrency = hasMetricValue ? revMetric.currency : revMoney?.currency;
   const bestRevType = hasMetricValue ? `${revMetric.metricType} ${revMetric.unit || ''}` : `${revMoney?.moneyType || 'revenue'} ${revMoney?.unit || ''}`;
   
   const parsedRev = parseRevenueToMonthlyJpy(bestRevValue, bestRevCurrency, bestRevType);
@@ -356,30 +390,29 @@ export function adaptFoundationDetailToFinancialEntity(
 
   // 2. 創業者・チーム人数の抽出
   let founder = '創業者情報未確認';
-  let hasMultiFounder = false;
   for (const c of claims) {
     const s = c.statement || '';
-    if (s.includes('創業者') || /founder|built by/i.test(s)) {
+    if (hasSupportedEvidence(c) && (s.includes('創業者') || /founder|built by/i.test(s))) {
       founder = cleanIntelligenceText(s);
-      if (/and|&|、/i.test(founder)) hasMultiFounder = true;
       break;
     }
   }
   for (const o of observations) {
-    if (o.text && (o.text.includes('創業者') || /founder/i.test(o.text))) {
+    if (hasSupportedEvidence(o) && o.text && (o.text.includes('創業者') || /founder/i.test(o.text))) {
       founder = cleanIntelligenceText(o.text);
-      if (/and|&|、/i.test(founder)) hasMultiFounder = true;
       break;
     }
   }
-  const headcountMetric = metrics.find((m) => /headcount|team/i.test(m.metricType));
-  const teamSize = headcountMetric && typeof headcountMetric.value === 'number'
-    ? headcountMetric.value
-    : (hasMultiFounder ? 2 : 1);
+  const headcountMetric = metrics.find((m) =>
+    /headcount|team/i.test(m.metricType) && hasSupportedEvidence(m)
+  );
+  const hasTeamSize = typeof headcountMetric?.value === 'number' &&
+    Number.isFinite(headcountMetric.value) && headcountMetric.value > 0;
+  const teamSize = hasTeamSize ? Math.round(headcountMetric!.value as number) : 0;
 
   // 3. 価格体系の抽出
-  const priceMoney = moneySignals.find((m) => /price|subscription/i.test(m.moneyType));
-  const priceMetric = metrics.find((m) => /price|subscription/i.test(m.metricType));
+  const priceMoney = moneySignals.find((m) => /price|subscription/i.test(m.moneyType) && hasSupportedEvidence(m));
+  const priceMetric = metrics.find((m) => /price|subscription/i.test(m.metricType) && hasSupportedEvidence(m));
   const priceStr = priceMoney?.amountLabel ||
     (priceMoney ? formatHumanMoney(priceMoney.amount, priceMoney.currency) : '') ||
     (priceMetric ? `${cleanMetricLabel(priceMetric.metricType)}: ${priceMetric.value} ${priceMetric.currency || ''}` : '') ||
@@ -388,23 +421,22 @@ export function adaptFoundationDetailToFinancialEntity(
   // 4. 初動突破ログの抽出
   const initialTraction: string[] = [];
   for (const ev of events) {
-    if (/launch|founded|first|release/i.test(ev.eventType) || /ローンチ|創業/i.test(ev.description)) {
+    if (hasSupportedEvidence(ev) && (/launch|founded|first|release/i.test(ev.eventType) || /ローンチ|創業/i.test(ev.description))) {
       initialTraction.push(cleanIntelligenceText(`${ev.occurredAt ? ev.occurredAt.slice(0, 7) + ': ' : ''}${ev.description}`));
     }
   }
   for (const cl of claims) {
-    if (/launch|founded|subscribers|audience|traction/i.test(cl.statement)) {
+    if (hasSupportedEvidence(cl) && /launch|founded|subscribers|audience|traction/i.test(cl.statement)) {
       initialTraction.push(cleanIntelligenceText(cl.statement));
     }
   }
-  if (initialTraction.length === 0) {
-    initialTraction.push('初期トラクションは公開インタビュー・観測ログより構成中');
-  }
+  const hasTractionEvidence = initialTraction.length > 0;
+  if (!hasTractionEvidence) initialTraction.push('初動突破は未確認');
 
   // 5. 損益計算書 (P&L) の構成
-  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed)
+  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed || !revMetric && !revMoney)
     ? 'UNAVAILABLE'
-    : (/reported|取材|報道|公表|確認済/i.test(bestRevType) ? 'REPORTED' : 'ESTIMATED');
+    : (revMetric?.originType === 'reported' || revMoney?.originType === 'reported' ? 'REPORTED' : 'VERIFIED');
 
   const pnl: ProfitAndLossStatement = {
     monthlyRevenue: monthlyJpy,
@@ -412,8 +444,10 @@ export function adaptFoundationDetailToFinancialEntity(
     isRevenueUnconfirmed: isUnconfirmed,
     revenueLabel: parsedRev.revenueLabel,
     financialStatus,
-    dataSnapshotPeriod: detail.observedAt ? `${detail.observedAt.slice(0, 7)} 観測` : '2024-2026年観測',
-    sourceDoc: bestRevValue ? cleanIntelligenceText(`${bestRevType}: ${bestRevValue} ${bestRevCurrency}`) : 'R2観測レイク・公表シグナル',
+    dataSnapshotPeriod: detail.observedAt ? `${detail.observedAt.slice(0, 7)} 観測` : '観測時期未確認',
+    sourceDoc: bestRevValue !== null && bestRevValue !== undefined && bestRevValue !== ''
+      ? cleanIntelligenceText(`${bestRevType}: ${bestRevValue} ${bestRevCurrency}`)
+      : 'R2観測レイク・公表シグナル',
     estimationLogic: undefined,
   };
 
@@ -426,8 +460,8 @@ export function adaptFoundationDetailToFinancialEntity(
       category: 'MARKET_DISTORTION',
       categoryLabel: '現場観測事実',
       text: cleanIntelligenceText(obs.text),
-      originType: (obs.originType as 'observed' | 'inferred' | 'reported' | 'estimated') || 'observed',
-      verificationStatus: (obs.verificationStatus as 'SUPPORTED' | 'UNVERIFIED' | 'REFUTED') || 'SUPPORTED',
+      originType: normalizeObservationOrigin(obs.originType),
+      verificationStatus: normalizeObservationStatus(obs.verificationStatus),
       observedAt: obs.observedAt || undefined,
     });
   }
@@ -438,9 +472,52 @@ export function adaptFoundationDetailToFinancialEntity(
       category: 'FOUNDER_HACK',
       categoryLabel: '公表ファクト・裏帳簿',
       text: cleanIntelligenceText(cl.statement),
-      originType: (cl.originType as 'observed' | 'inferred' | 'reported' | 'estimated') || 'reported',
-      verificationStatus: (cl.verificationStatus as 'SUPPORTED' | 'UNVERIFIED' | 'REFUTED') || 'SUPPORTED',
+      originType: normalizeObservationOrigin(cl.originType),
+      verificationStatus: normalizeObservationStatus(cl.verificationStatus),
       observedAt: cl.occurredAt || undefined,
+    });
+  }
+
+  // Metrics and money signals are part of the Foundation record even when
+  // they cannot be used in the P&L (for example, a conflicting period or an
+  // unverified source). Keep every record visible in Layer 3 with its status
+  // instead of silently dropping it or promoting it into a confirmed field.
+  for (const metric of metrics) {
+    observationsStream.push({
+      id: `${metric.id}_metric`,
+      category: metric.verificationStatus === 'SUPPORTED' ? 'TECH_VERIFICATION' : 'RESEARCH_LIMIT',
+      categoryLabel: metric.verificationStatus === 'SUPPORTED' ? '財務・価格記録' : '未検証財務候補',
+      text: cleanIntelligenceText(`${cleanMetricLabel(metric.metricType)}: ${formatHumanMoney(metric.value, metric.currency, metric.unit)}${metric.periodStart || metric.periodEnd ? ` (${metric.periodStart || '?'}–${metric.periodEnd || '?'})` : ''}`),
+      originType: normalizeObservationOrigin(metric.originType),
+      verificationStatus: normalizeObservationStatus(metric.verificationStatus),
+      observedAt: metric.pointInTime || metric.periodEnd || metric.periodStart || undefined,
+    });
+  }
+
+  for (const money of moneySignals) {
+    observationsStream.push({
+      id: `${money.id}_money`,
+      category: money.verificationStatus === 'SUPPORTED' ? 'TECH_VERIFICATION' : 'RESEARCH_LIMIT',
+      categoryLabel: money.verificationStatus === 'SUPPORTED' ? '財務・価格記録' : '未検証財務候補',
+      text: cleanIntelligenceText(`${cleanMetricLabel(money.moneyType)}: ${formatHumanMoney(money.amount, money.currency, money.unit, money.amountLabel)}${money.periodStart || money.periodEnd ? ` (${money.periodStart || '?'}–${money.periodEnd || '?'})` : ''}`),
+      originType: normalizeObservationOrigin(money.originType),
+      verificationStatus: normalizeObservationStatus(money.verificationStatus),
+      observedAt: money.pointInTime || money.periodEnd || money.periodStart || undefined,
+    });
+  }
+
+  // Relationships are first-class Foundation records as well. They do not
+  // have an origin field, so keep them explicitly unknown and preserve their
+  // verification state instead of dropping them from the UI projection.
+  for (const relationship of relationships) {
+    observationsStream.push({
+      id: `${relationship.id}_relationship`,
+      category: relationship.verificationStatus === 'SUPPORTED' ? 'MARKET_DISTORTION' : 'RESEARCH_LIMIT',
+      categoryLabel: relationship.verificationStatus === 'SUPPORTED' ? '関係記録' : '未検証関係候補',
+      text: cleanIntelligenceText(`${relationship.predicate}: ${relationship.object || '対象未確認'}${relationship.validFrom || relationship.validTo ? ` (${relationship.validFrom || '?'}–${relationship.validTo || '?'})` : ''}`),
+      originType: 'unknown',
+      verificationStatus: normalizeObservationStatus(relationship.verificationStatus),
+      observedAt: relationship.validTo || relationship.validFrom || undefined,
     });
   }
 
@@ -451,36 +528,52 @@ export function adaptFoundationDetailToFinancialEntity(
       categoryLabel: '構造解剖インサイト',
       text: cleanIntelligenceText(dr.text),
       originType: 'inferred',
-      verificationStatus: 'SUPPORTED',
+      verificationStatus: 'UNVERIFIED',
     });
   }
 
   // 7. タイムラインイベント
-  const timelineEvents: UniversalEvent[] = events.map((ev) => ({
+  // Unsupported/conflicted events remain visible as explicitly unverified
+  // observations, while the timeline itself only renders supported facts.
+  const supportedEvents = events.filter(hasSupportedEvidence);
+  for (const ev of events) {
+    if (hasSupportedEvidence(ev)) continue;
+    observationsStream.push({
+      id: `${ev.id}_event`,
+      category: 'RESEARCH_LIMIT',
+      categoryLabel: '未検証タイムライン候補',
+      text: cleanIntelligenceText(`${ev.eventType}: ${ev.description}`),
+      originType: 'unknown',
+      verificationStatus: normalizeObservationStatus(ev.verificationStatus),
+      observedAt: ev.occurredAt || undefined,
+    });
+  }
+  const timelineEvents: UniversalEvent[] = supportedEvents.map((ev) => ({
     eventType: ev.eventType,
     occurredAt: ev.occurredAt || '時期未確認',
     description: cleanIntelligenceText(ev.description),
   }));
 
   // 8. 時系列インテリジェンス (Temporal)
-  const launchEvent = events.find((e) => /launch|founded/i.test(e.eventType));
-  const foundedYear = launchEvent?.occurredAt
-    ? parseInt(launchEvent.occurredAt.slice(0, 4), 10)
-    : 2020;
+  const launchEvent = supportedEvents.find((e) => /launch|founded/i.test(e.eventType));
+  const foundedYearMatch = launchEvent?.occurredAt?.match(/\b(?:19|20)\d{2}\b/);
+  const foundedYear = foundedYearMatch ? Number(foundedYearMatch[0]) : 0;
+  const hasFoundedYear = foundedYear > 0;
+  const observedPeriod = entity.observedAt ? `${entity.observedAt.slice(0, 7)} 観測` : '観測時期未確認';
 
   const temporal: TemporalIntelligence = {
-    foundedYear: isNaN(foundedYear) ? 2020 : foundedYear,
-    initialTractionPeriod: `${foundedYear}年ローンチ期`,
-    dataSnapshotPeriod: entity.observedAt ? `${entity.observedAt.slice(0, 7)} 観測` : '2024-2026年観測',
-    viabilityStatus: 'ACTIVE_PLAYBOOK',
-    viabilityLabel: '現在も有効 (実証済み)',
-    eraContext: 'プラットフォーム規約やAPI進化の歪みを突いて急拡大したモデル',
-    currentViabilityAnalysis: '先行者堀があるものの、特化型ニッチであれば同等の粗利構造を再現可能',
+    foundedYear,
+    initialTractionPeriod: hasFoundedYear ? `${foundedYear}年ローンチ期` : '初動時期未確認',
+    dataSnapshotPeriod: observedPeriod,
+    viabilityStatus: 'UNKNOWN',
+    viabilityLabel: '現在の再現性は未確認',
+    eraContext: '時代背景は未確認',
+    currentViabilityAnalysis: '現在の再現性を裏付ける比較資料は未確認',
   };
 
   // 9. 一言急所と概要（サニタイズ適用）
-  const firstClaim = claims[0]?.statement ? cleanIntelligenceText(claims[0].statement) : '';
-  const firstObs = observations[0]?.text ? cleanIntelligenceText(observations[0].text) : '';
+  const firstClaim = claims.find(hasSupportedEvidence)?.statement ? cleanIntelligenceText(claims.find(hasSupportedEvidence)!.statement) : '';
+  const firstObs = observations.find(hasSupportedEvidence)?.text ? cleanIntelligenceText(observations.find(hasSupportedEvidence)!.text) : '';
   let tagline = firstClaim || firstObs || `${entity.name}の事業モデル・公開情報観測データ`;
   if (/^創業者・運営者:/.test(tagline) && claims[2]?.statement) {
     tagline = cleanIntelligenceText(claims[2].statement);
@@ -494,21 +587,21 @@ export function adaptFoundationDetailToFinancialEntity(
   const pattern = inferArchitecturePattern(entity.entityType, `${tagline} ${firstClaim}`);
 
   // 11. 盲点と参入障壁（実在ファクトから抽出）
-  const revenuePathClaim = claims.find((c) => c.statement.includes('収益化経路') || /monetiz/i.test(c.statement));
+  const revenuePathClaim = claims.find((c) => hasSupportedEvidence(c) && (c.statement.includes('収益化経路') || /monetiz/i.test(c.statement)));
   const blindspotText = revenuePathClaim
     ? cleanIntelligenceText(revenuePathClaim.statement)
-    : (firstObs || `${entity.name}が突いた市場の非効率と特化型ポジショニング`);
+    : (firstObs || '市場の盲点は未確認');
 
-  const businessSaleEvent = events.find((e) => /sale|exit|買収|売却/i.test(e.description));
+  const businessSaleEvent = supportedEvents.find((e) => /sale|exit|買収|売却/i.test(e.description));
   const moatText = businessSaleEvent
     ? cleanIntelligenceText(businessSaleEvent.description)
-    : (firstClaim || '顧客データと業務ワークフローの定着による強固な乗り換え障壁');
+    : (firstClaim || '参入障壁は未確認');
 
   // 12. タグ構成（客観ファクトのみ、捏造厳禁）
   const tags = new Set<string>();
   if (headcountMetric && headcountMetric.value === 1) {
     tags.add('完全1人');
-  } else if (teamSize <= 5) {
+  } else if (hasTeamSize && teamSize <= 5) {
     tags.add('少数精鋭');
   }
   if (!isUnconfirmed && pnl.grossMargin >= 80) {
@@ -526,7 +619,7 @@ export function adaptFoundationDetailToFinancialEntity(
       type: 'THE_CRIME',
       title: '身も蓋もない真実・集金構造',
       badge: pattern,
-      evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'REPORTED' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
+      evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'UNKNOWN' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
       punchline: tagline,
       details: observationsStream.map((o) => o.text).slice(0, 3).length > 0
         ? observationsStream.map((o) => o.text).slice(0, 3)
@@ -542,8 +635,8 @@ export function adaptFoundationDetailToFinancialEntity(
       type: 'DIRTY_GENESIS',
       title: '最初の顧客獲得・初動突破ログ',
       badge: 'ゲリラ集客',
-      evidenceStatus: 'REPORTED',
-      punchline: initialTraction[0] || '広告費ゼロでニッチコミュニティから初期顧客を獲得',
+      evidenceStatus: hasTractionEvidence ? 'REPORTED' : 'UNKNOWN',
+      punchline: initialTraction[0] || '初動突破は未確認',
       details: initialTraction.slice(0, 3),
       sourceNote: claims.find((c) => /launch|founder|traction/i.test(c.statement))?.statement || '公開インタビュー・観測ログ',
     },
@@ -552,7 +645,7 @@ export function adaptFoundationDetailToFinancialEntity(
       type: 'LOOT_BLUEPRINT',
       title: '今夜使える略奪転用コード',
       badge: '実務転用',
-      evidenceStatus: 'VERIFIED',
+      evidenceStatus: 'ESTIMATED',
       punchline: (() => {
         const cleanTag = cleanIntelligenceText(tagline).replace(/[。、].*$/, '').trim().slice(0, 25);
         return cleanTag.length > 5 && !/^[a-zA-Z\s]+$/.test(cleanTag)
@@ -572,12 +665,12 @@ export function adaptFoundationDetailToFinancialEntity(
     verdict: (isUnconfirmed) ? 'MONITOR' : 'ENTRY_CANDIDATE',
     verdictLabel: (isUnconfirmed) ? '要監視・データ精査中' : '参入候補',
     oneLineReason: tagline,
-    demandDelta: '90日 ↑15%',
-    competitionDelta: 'ニッチ特化領域',
+    demandDelta: '未確認',
+    competitionDelta: '未確認',
     entryRequirements: {
-      capital: '初期 10万円以下',
-      technicalDifficulty: 'LOW',
-      platformRisk: 'LOW',
+      capital: '未確認',
+      technicalDifficulty: 'UNKNOWN',
+      platformRisk: 'UNKNOWN',
     },
   };
 
@@ -590,80 +683,55 @@ export function adaptFoundationDetailToFinancialEntity(
     sector: inferSector(tagline),
     scale: inferScale(teamSize, monthlyJpy ? (monthlyJpy * 12) / 150 : null),
     founder,
-    country: 'US',
+    country: '未確認',
     url: entity.domain ? `https://${entity.domain}` : '',
-    verifiedBadge: true,
+    verifiedBadge: false,
     pnl,
     evidenceCards,
     opportunityJudgment,
-    growthRateYoY: 20.0,
+    growthRateYoY: 0,
+    isGrowthUnconfirmed: true,
     architecturePattern: pattern,
-    pipelineStack: 'Web / クラウドインフラ / 推論API',
-    targetPainWallet: cleanIntelligenceText(firstObs ? firstObs.slice(0, 40) : '顧客の認知負荷・手作業の苦痛'),
+    pipelineStack: '技術構成未確認',
+    targetPainWallet: cleanIntelligenceText(firstObs ? firstObs.slice(0, 40) : '対象の痛みは未確認'),
     tags: Array.from(tags),
     essence: {
       whatItDoes: tagline,
-      targetCustomer: cleanIntelligenceText(firstObs ? firstObs.slice(0, 40) : '特定業務・ニッチ領域の課題を抱えるユーザー'),
-      painRelief: cleanIntelligenceText(blindspotText.slice(0, 50) || '既存ツールの複雑性や高価格による機会損失'),
+      targetCustomer: cleanIntelligenceText(firstObs ? firstObs.slice(0, 40) : '対象顧客は未確認'),
+      painRelief: cleanIntelligenceText(blindspotText.slice(0, 50) || '解消する痛みは未確認'),
     },
     operations: {
       teamSize,
-      weeklyHours: 40,
+      isTeamSizeUnconfirmed: !hasTeamSize,
+      weeklyHours: 0,
+      isWeeklyHoursUnconfirmed: true,
       initialCapitalRequired: 0,
-      automationLevel: 85,
-      primaryChannels: ['オーガニック検索', '口コミ・紹介', 'コミュニティ発信'],
-      toolStack: [
-        {
-          name: 'Stripe Billing',
-          category: '決済',
-          monthlyCost: 15000,
-          purpose: '月額・年額サブスクリプション決済の自動化',
-          replacementDifficulty: 'HIGH',
-        },
-        {
-          name: 'クラウド・エッジインフラ (Cloudflare / AWS)',
-          category: 'インフラ',
-          monthlyCost: 20000,
-          purpose: '全世界からのトラフィック処理とAPI配信',
-          replacementDifficulty: 'MEDIUM',
-        },
-      ],
+      isCapitalUnconfirmed: true,
+      automationLevel: 0,
+      isAutomationUnconfirmed: true,
+      primaryChannels: [],
+      toolStack: [],
     },
     strategy: {
       blindspot: blindspotText,
-      moatType: 'SWITCHING_COST',
+      moatType: 'UNKNOWN',
       moatDescription: moatText,
       initialTraction,
-      actionPlaybook: [
-        '初期ターゲットの特定と痛みの切除',
-        '泥臭いコミュニティ・SNSでの初期ユーザー獲得',
-        '年間契約・自動化による利益率極大化',
-      ],
+      actionPlaybook: ['公開記録の範囲では実行手順未確認'],
     },
     exposureAudit: {
-      guerrillaTraction: initialTraction[0] || `${entity.name}の創業初期は、広告費を使わずにSNSや開発者コミュニティでの直接アプローチにより初期ユーザーを獲得した。`,
-      platformGlitch: blindspotText || '既存大手がカバーしきれないニッチな業務フローやAPIの隙間を突いて急成長。',
-      pivotSnapshot: events.find((e) => /launch|pivot|release/i.test(e.eventType))?.description
-        ? cleanIntelligenceText(events.find((e) => /launch|pivot|release/i.test(e.eventType))!.description)
-        : '初期プロトタイプからユーザーの要望に合わせて機能を極限まで絞り込み、高収益モデルを確立。',
-      hiddenStackCost: isUnconfirmed
-        ? 'インフラ原価と決済手数料を最小化し、少数精鋭または完全自動で運用中。'
-        : `決済手数料（約3%）とサーバー費（売上の約5%）を除き、売上の約${pnl.operatingMargin}%が実効利益として残る構造。`,
+      guerrillaTraction: hasTractionEvidence ? initialTraction[0] : '初期顧客獲得は未確認',
+      platformGlitch: 'プラットフォーム施策は未確認',
+      pivotSnapshot: supportedEvents.find((e) => /launch|pivot|release/i.test(e.eventType))?.description
+        ? cleanIntelligenceText(supportedEvents.find((e) => /launch|pivot|release/i.test(e.eventType))!.description)
+        : 'ピボット履歴は未確認',
+      hiddenStackCost: '原価内訳は未確認',
     },
-    dynamicMoats: {
-      upfrontCash: {
-        cashCycle: '年払い一括前金 ＋ 原価月割り後払い',
-        detail: '年間契約で前金を回収し、キャッシュフロー先行で開発・改善を回す仕掛け。',
-      },
-      dataHostage: {
-        lockInFactor: 'ユーザー固有の設定と過去蓄積データ',
-        detail: '使い込むほどデータとワークフローが定着し、乗り換えコストが指数関数的に増大する設計。',
-      },
-    },
+    dynamicMoats: {},
     pricing: {
-      model: 'サブスクリプション / 広告枠販売',
+      model: priceStr === '価格体系は非公開または要問合せ' ? '価格モデル未確認' : '公開価格情報',
       pricePoint: cleanMoneyLabel(priceStr),
-      psychologicalTrigger: '損失回避と業務時間の圧倒的圧縮',
+      psychologicalTrigger: '未確認',
     },
     temporal,
     observationsStream,

@@ -1,14 +1,17 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 const state = vi.hoisted(() => ({ user: { uid: 'user-1' } as { uid: string } | null, query: vi.fn(), execute: vi.fn(), batch: vi.fn() }));
+const rateLimit = vi.hoisted(() => vi.fn(async () => true));
 vi.mock('@/lib/storage/d1', () => ({ queryD1: state.query, executeD1: state.execute, batchD1: state.batch }));
 vi.mock('@/lib/firebase/server', () => ({ verifyFirebaseIdToken: vi.fn(async () => state.user) }));
-import { POST as newsletter } from '@/app/api/newsletter/subscribe/route';
+vi.mock('@/lib/security/rate-limit', () => ({ consumeRequestRateLimit: rateLimit }));
+import { DELETE as unsubscribe, POST as newsletter } from '@/app/api/newsletter/subscribe/route';
 import { POST as submission } from '@/app/api/submissions/route';
 import { GET as listBookmarks, POST as bookmark } from '@/app/api/bookmarks/route';
 import { PUT as saveNote } from '@/app/api/analyst-notes/route';
 import { POST as strategy } from '@/app/api/strategy-chat/route';
 import { DELETE as deleteUser } from '@/app/api/user/me/route';
+import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 const validSubmission = { businessName: ' Example ', url: ' https://example.com ', monthlyRevenue: '100', monthlyProfit: 0 };
 const validBookmark = { itemType: 'business', itemId: ' entity-1 ' };
 function request(body: unknown, raw = false, auth = true) {
@@ -20,6 +23,7 @@ beforeEach(() => {
   state.execute.mockReset().mockRejectedValue(new Error('Unavailable'));
   state.batch.mockReset().mockRejectedValue(new Error('Unavailable'));
   vi.stubEnv('GEMINI_API_KEY', ''); vi.stubEnv('GOOGLE_GENERATIVE_AI_API_KEY', '');
+  rateLimit.mockReset().mockResolvedValue(true);
 });
 describe('D1 API persistence and input boundaries', () => {
   it('bounds analyst note requests and rejects unknown fields before storage', async () => {
@@ -38,13 +42,21 @@ describe('D1 API persistence and input boundaries', () => {
     });
   }
   it('normalizes newsletter input and deduplicates with a database unique constraint', async () => {
-    state.execute.mockResolvedValue({ changes: 1 }); state.query.mockResolvedValue([{ id: 'sub-1', email: 'test@example.com' }]);
-    expect(await (await newsletter(request({ email: ' TEST@Example.com ' }))).json()).toMatchObject({ subscriberId: 'sub-1' });
-    expect(state.execute).toHaveBeenCalledWith(expect.stringContaining('ON CONFLICT(email) DO NOTHING'), [expect.any(String), 'test@example.com', 'web_portal']);
+    state.execute.mockResolvedValue({ changes: 1 }); state.query.mockResolvedValue([{ id: 'sub-1', status: 'active' }]);
+    const response = await newsletter(request({ email: ' TEST@Example.com ' }));
+    expect(await response.json()).toMatchObject({ success: true, unsubscribeToken: expect.any(String) });
+    expect(state.execute).toHaveBeenCalledWith(expect.stringContaining('unsubscribe_token_hash'), [expect.any(String), 'test@example.com', 'web_portal', 'user-1', expect.any(String)]);
   });
   it('requires persisted newsletter readback', async () => {
     state.execute.mockResolvedValue({ changes: 1 }); state.query.mockResolvedValue([]);
     expect((await newsletter(request({ email: 'a@example.com' }))).status).toBe(503);
+  });
+  it('provides an anonymous newsletter deletion path without exposing subscriber identity', async () => {
+    state.execute.mockResolvedValue({ changes: 1 });
+    const response = await unsubscribe(request({ unsubscribeToken: 'token-that-is-long-enough' }, false, false));
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ success: true });
+    expect(state.execute).toHaveBeenCalledWith(expect.stringContaining('unsubscribe_token_hash'), [expect.any(String)]);
   });
   it.each([{ email: '@' }, { email: 'a@b.c', source: {} }, { email: 'a@b.c', source: ' ' }])('rejects newsletter fields %j', async (body) => { expect((await newsletter(request(body))).status).toBe(400); });
   it('rejects unknown newsletter fields and oversized bodies before storage', async () => {
@@ -61,6 +73,19 @@ describe('D1 API persistence and input boundaries', () => {
     state.execute.mockResolvedValue({ changes: 1 });
     expect((await submission(request(validSubmission, false, false))).status).toBe(200);
     state.user = null; expect((await submission(request(validSubmission))).status).toBe(401);
+  });
+  it('rejects invalid newsletter credentials before persistence', async () => {
+    state.user = null;
+    expect((await newsletter(request({ email: 'a@example.com' }))).status).toBe(401);
+    expect(state.execute).not.toHaveBeenCalled();
+  });
+  it('rate limits anonymous newsletter and submission writes', async () => {
+    state.user = null;
+    rateLimit.mockResolvedValue(false);
+    expect((await newsletter(request({ email: 'a@example.com' }, false, false))).status).toBe(429);
+    expect((await submission(request(validSubmission, false, false))).status).toBe(429);
+    expect(consumeRequestRateLimit).toHaveBeenCalledTimes(2);
+    expect(state.execute).not.toHaveBeenCalled();
   });
   it('does not claim a saved submission on zero changed rows', async () => { state.execute.mockResolvedValue({ changes: 0 }); expect((await submission(request(validSubmission))).status).toBe(503); });
   it.each([{ monthlyRevenue: 'NaN' }, { monthlyProfit: '' }, { monthlyProfit: true }, { monthlyProfit: 0.5 }, { monthlyRevenue: -1 }, { toolsUsed: [] }, { proofScreenshotUrl: 'javascript:alert(1)' }, { url: 'invalid' }])('rejects submission fields %j', async (fields) => { expect((await submission(request({ ...validSubmission, ...fields }))).status).toBe(400); });
@@ -86,6 +111,43 @@ describe('D1 API persistence and input boundaries', () => {
   });
 });
 describe('strategy owner isolation and honest persistence', () => {
+  it('keeps fallback advice within the legal and evidence boundary', async () => {
+    const response = await strategy(request({ action: 'CHAT', messages: [{ role: 'user', content: '集客の手順を教えて' }] }, false, false));
+    const body = await response.json();
+    expect(response.status).toBe(200);
+    expect(body.message.content).toContain('法令・各サービス規約');
+    expect(body.message.content).not.toMatch(/自演|なりすまし|DM爆撃|不正スクレイピング|直取引.{0,4}(封鎖|妨害|禁止)/iu);
+  });
+
+  it('returns schema-valid fallback synthesis without fabricated unsafe instructions', async () => {
+    const response = await strategy(request({ action: 'SYNTHESIZE', selectedEntityIds: [], notes: {} }, false, false));
+    const body = await response.json();
+    expect(response.status).toBe(200);
+    expect(body.ideas).toHaveLength(3);
+    expect(body.ideas.every((idea: { first100TractionPlaybook: string[] }) => idea.first100TractionPlaybook.every((step) => !/自演|なりすまし|不正スクレイピング|迷惑DM/iu.test(step)))).toBe(true);
+  });
+
+  it('sanitizes unsafe Gemini synthesis text before returning or persisting it', async () => {
+    vi.stubEnv('GEMINI_API_KEY', 'test-key');
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify({
+      candidates: [{ content: { parts: [{ text: JSON.stringify([{
+        id: 'idea-ai-1', dimension: 'SAVANNA_INSTINCT', dimensionLabel: '本能型', title: '検証案',
+        targetPainWallet: '確認したい痛み', structuralArbitrage: '公開情報から比較', projectedMonthlyProfitJpy: 1000,
+        operatingMargin: 10, requiredTools: [{ name: 'ツール', monthlyCostJpy: 0, purpose: '検証' }],
+        first100TractionPlaybook: ['自演アカウントで拡散する'], sourceEntityIds: ['ent_test'], userNoteInspiration: 'メモ',
+      }]) }] } }],
+    }), { status: 200, headers: { 'content-type': 'application/json' } }));
+    try {
+      const response = await strategy(request({ action: 'SYNTHESIZE', selectedEntityIds: [], notes: {} }, false, true));
+      const body = await response.json();
+      expect(response.status).toBe(200);
+      expect(body.engine).toBe('gemini');
+      expect(body.ideas[0].first100TractionPlaybook[0]).toContain('正規の手段');
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
   it('never reads another user notes or persists anonymous chat', async () => {
     const response = await strategy(request({ action: 'CHAT', messages: [{ role: 'user', content: 'test' }] }, false, false));
     expect(response.status).toBe(200); expect(await response.json()).toMatchObject({ persisted: false });
@@ -112,9 +174,12 @@ describe('strategy owner isolation and honest persistence', () => {
   it('deletes owned state and anonymizes retained payment facts atomically', async () => {
     state.batch.mockResolvedValue([]);
     state.query.mockResolvedValue([]);
-    expect((await deleteUser(request(null, false, true))).status).toBe(200);
+    const response = await deleteUser(request(null, false, true));
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({ scope: 'application_data' });
     expect(state.batch).toHaveBeenCalledWith(expect.arrayContaining([
       expect.objectContaining({ sql: expect.stringContaining('DELETE FROM bookmarks'), params: ['user-1'] }),
+      expect.objectContaining({ sql: expect.stringContaining('DELETE FROM newsletter_subscribers'), params: ['user-1'] }),
       expect.objectContaining({ sql: expect.stringContaining('json_remove'), params: ['user-1'] }),
       expect.objectContaining({ sql: expect.stringContaining('DELETE FROM users'), params: ['user-1'] }),
     ]));

@@ -8,6 +8,10 @@ const parseNewsletterShape = compileParser<{ email: string; source?: string }>({
   type: 'object', additionalProperties: false, required: ['email'],
   properties: { email: { type: 'string', minLength: 3, maxLength: 320, pattern: '\\S' }, source: { type: 'string', minLength: 1, maxLength: 120, pattern: '\\S' } },
 }, 'newsletter request');
+const parseNewsletterUnsubscribeShape = compileParser<{ unsubscribeToken: string }>({
+  type: 'object', additionalProperties: false, required: ['unsubscribeToken'],
+  properties: { unsubscribeToken: { type: 'string', minLength: 16, maxLength: 128, pattern: '^\\S+$' } },
+}, 'newsletter unsubscribe request');
 const parseSubmissionShape = compileParser<{
   businessName: string; url: string; monthlyRevenue: string | number; monthlyProfit: string | number;
   toolsUsed?: string; acquisitionChannel?: string; proofScreenshotUrl?: string;
@@ -82,6 +86,11 @@ export function parseNewsletter(input: unknown) {
   const email = data.email.trim().toLowerCase();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Invalid email');
   return { email, source: data.source?.trim() ?? 'web_portal' };
+}
+
+export function parseNewsletterUnsubscribe(input: unknown) {
+  const data = parseNewsletterUnsubscribeShape(input);
+  return { unsubscribeToken: data.unsubscribeToken.trim() };
 }
 
 export function parseSubmission(input: unknown) {

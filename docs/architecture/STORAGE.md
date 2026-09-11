@@ -6,6 +6,8 @@
 
 2026-09-11: D1 + R2への移行を実装中。専用D1・非公開R2を作成し、D1 migration 0001〜0003を適用済み。設計文書はGitHub/R2保存・読み戻し確認済み（[保存記録](PUBLICATION_RECEIPT.md)）。初期バックアップの隔離D1復元も確認済み。本番切替・利用者データの移行や復旧完了を意味しません。Neonは今後の実行時保存先として使用しません。旧実装が残っていても新規利用しないでください。既存データの移行は所有プロジェクトを確認し、原本を保全してから行います。
 
+2026-09-12: migration 0004（ニュースレター所有者・匿名解除トークンのハッシュ）と0005（匿名書込みの一時レート制限）を追加した。コードとオフライン復元演習では確認済みだが、本番D1への適用は未実施である。適用前に `pnpm db:migrate:remote` の対象IDを確認し、適用後にschemaとAPI読み戻しを行う。
+
 ## 認証環境の作成状況（2026-09-11）
 
 ユーザーの明示承認によりFirebaseプロジェクト `make-money-salve-prod`（Make-Money Production、project number `58988611995`）とWebアプリ `1:58988611995:web:8e69e3432164586d3ab93e` を新規作成した。既存Investraderの認証環境は変更していない。課金設定は追加していない。
@@ -20,6 +22,7 @@
 |---|---|---|---|
 | ログイン資格情報 | Firebase Authentication | 認証SDK。サーバーでトークン検証 | パスワードや認証処理を自作しない |
 | ユーザー設定、保存企業、投稿、会話 | プロジェクト専用D1 | 認証済みAPI → 所有者を限定したSQL。構造変更はSQL migration | 更新・検索・整合性制約が必要 |
+| ニュースレター購読 | プロジェクト専用D1 | 認証済みならUIDを紐付け、匿名なら解除トークンのハッシュだけを保存。解除APIで削除 | メール本文をAPI応答へ返さず、匿名でも本人が削除できる |
 | 決済イベント、購入・返金・利用権 | プロジェクト専用D1 | 署名検証済みStripe webhook → 重複排除・原子的更新 | 二重処理、順序逆転、返金後の権限残存を防ぐ |
 | 課金そのもの | Stripe | サーバーのみ。決済IDをD1で参照 | ブラウザの成功画面やlocalStorageは支払い証明にならない |
 | アプリ添付・大きな生成物 | プロジェクト専用の非公開R2 | サーバー経由。D1には所有者、object key、schema version、hash等の参照 | バイナリをDBへ詰め込まず、認可と内容を分離 |
@@ -29,7 +32,7 @@
 | 秘密鍵・APIトークン | ホストのsecret管理 | 環境ごとのsecret注入 | Git、R2本文、ブラウザへ入れない |
 | 一時キャッシュ | 再生成可能なキャッシュ | 消えても正本から再作成 | 権利やユーザー記録の正本にしない |
 
-Workersの配布物は `pnpm workers:build`（`bundle:workers`、`deploy:workers`、`upload:workers`から利用）を入口にする。このビルドはdotenvから公開設定だけを一時的に取り出し、秘密鍵・APIトークンをビルドへ渡さず、生成された `.open-next` を秘密値で照合する。Stripe/Gemini/R2/D1の秘密はCloudflare Worker secretまたは対象ホストのsecret管理へ実行時に注入する。直接 `opennextjs-cloudflare build` を本番配布手順に使わない。
+Workersの配布物は `pnpm workers:build`（`bundle:workers`、`deploy:workers`、`upload:workers`から利用）を入口にする。このビルドはdotenvから公開設定だけを一時的に取り出し、秘密鍵・APIトークンをビルドへ渡さず、生成された `.open-next` を秘密値で照合する。`deploy:workers` は公開Firebase設定だけでなく、`wrangler.jsonc` の専用Firebase project、APP_DB、APP_R2 bindingも事前検査する。Stripe/Gemini/R2/D1の秘密はCloudflare Worker secretまたは対象ホストのsecret管理へ実行時に注入する。直接 `opennextjs-cloudflare build` を本番配布手順に使わない。
 
 APIのリクエスト本文は`readJsonBody` / `readTextBody`でバイト上限を適用し、`Content-Length`がないchunked本文も上限を超えた時点で拒否する。routeへ直接`request.json()`や`request.text()`を追加するとarchitecture検査で失敗する。外部JSONは上限後にschema検証し、決済署名本文も検証前に上限を適用する。
 
@@ -85,7 +88,9 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 
 D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。復元手順と合成データによる自動演習は [RECOVERY.md](RECOVERY.md) に記載します。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
 
-アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、`users` 行をD1の一括処理で削除する。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
+アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、`users` 行をD1の一括処理で削除する。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
+
+匿名のニュースレター登録と掲載申請には、Cloudflareのクライアント識別子を一方向ハッシュ化したD1の時間窓カウンタを適用する。これは最低限のスパム抑制であり、WAF・Turnstile・分散攻撃への完全な防御を意味しない。実運用の閾値はトラフィックを観測して調整する。
 
 ## 検証と変更の記録
 

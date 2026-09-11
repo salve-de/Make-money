@@ -64,7 +64,11 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   // 2. Foundation Lake (R2) から取得したグローバル企業サマリー
   const [dataSource, setDataSource] = useState('取得状態を確認中');
   const [foundationRows, setFoundationRows] = useState<FoundationValueSummary[]>([]);
+  const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
+  const [foundationHasMore, setFoundationHasMore] = useState(false);
+  const [foundationLoading, setFoundationLoading] = useState(false);
   const foundationLoadingRef = useRef(false);
+  const foundationRequestedCursors = useRef(new Set<string>());
 
   // 3. 詳細フェッチ済みエンティティのキャッシュマップ (R2詳細 ➔ FinancialEntity)
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
@@ -75,12 +79,14 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     return foundationRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
   }, [foundationRows]);
 
-  // 全エンティティの統合 (自社完全体銘柄を先頭に、R2銘柄とシームレスに結合)
+  // 全エンティティの統合。Foundationに同じentity_idがある場合は、
+  // ローカルの旧スナップショットを一覧の正本として残さず、R2投影を優先する。
+  // R2でまだページングされていない対象だけは、読み取り不能時のローカル予備として残す。
   const entities = useMemo(() => {
     const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const coreIds = new Set(coreEntities.map((e) => e.id.toLowerCase()));
-    const coreNames = new Set(coreEntities.map((e) => normalize(e.name)));
-    // 特殊エイリアスマッピング（R2の名前 ➔ coreName）
+    const foundationById = new Map(foundationEntities.map((entity) => [entity.id.toLowerCase(), entity]));
+    const foundationByName = new Map(foundationEntities.map((entity) => [normalize(entity.name), entity]));
+    // 特殊エイリアスマッピング（R2の名前 ↔ coreName）
     const aliasMatches: Record<string, string> = {
       'aliabdaal': 'aliabdaalcourses',
       'aliabdaalcourses': 'aliabdaal',
@@ -88,24 +94,33 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       'egghead': 'eggheadio',
     };
 
-    const r2Filtered = foundationEntities.filter((e) => {
-      const idMatch = coreIds.has(e.id.toLowerCase());
-      const norm = normalize(e.name);
-      const nameMatch = coreNames.has(norm) || (aliasMatches[norm] && coreNames.has(aliasMatches[norm]));
-      if (idMatch || nameMatch) return false;
+    const seenIds = new Set<string>();
+    const seenNames = new Set<string>();
+    const merged: FinancialEntity[] = [];
+    for (const core of coreEntities) {
+      const coreName = normalize(core.name);
+      const replacement = foundationById.get(core.id.toLowerCase()) ||
+        foundationByName.get(coreName) ||
+        foundationByName.get(aliasMatches[coreName]);
+      const entity = replacement || core;
+      const normalizedName = normalize(entity.name);
+      if (seenIds.has(entity.id.toLowerCase()) || seenNames.has(normalizedName)) continue;
+      merged.push(entity);
+      seenIds.add(entity.id.toLowerCase());
+      seenNames.add(normalizedName);
+    }
 
-      // 【最高憲条・完全排除】「わからんやつは出す必要すらない。表示できないやつは出さない」
-      // 1. 売上が非公開・未確認（0円や未確認フラグ）のものは一覧から完全除外
-      const isUnconfirmed = e.pnl.isRevenueUnconfirmed || !e.pnl.monthlyRevenue || e.pnl.monthlyRevenue <= 0;
-      if (isUnconfirmed) return false;
-
-      // 2. タグラインが未精錬のAI定型句・プレースホルダーのものは一覧から完全除外
-      const isGenericTagline = /モデル・公開観測データ|事業観測データ|公開一次資料に基づく|独自ポジショニングによる高収益特化型ビジネスモデル|事業モデル・公開情報観測データ|情報一元管理のプロダクト/i.test(e.tagline);
-      if (isGenericTagline) return false;
-
-      return true;
-    });
-    return [...coreEntities, ...r2Filtered];
+    for (const foundation of foundationEntities) {
+      const normalizedName = normalize(foundation.name);
+      const aliasName = aliasMatches[normalizedName];
+      if (seenIds.has(foundation.id.toLowerCase()) || seenNames.has(normalizedName) || (aliasName && seenNames.has(aliasName))) continue;
+      // Foundationの正本に存在する行は、財務やタグラインが未確認でも一覧に残す。
+      // 欠損値はprojection/UI側で「未確認」と表示し、存在する記録を静かに捨てない。
+      merged.push(foundation);
+      seenIds.add(foundation.id.toLowerCase());
+      seenNames.add(normalizedName);
+    }
+    return merged;
   }, [coreEntities, foundationEntities]);
 
   // 資本主義の動的攻略本マクロ集計データ
@@ -129,23 +144,55 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
   const loadFoundationPage = useCallback(async (cursor?: string, signal?: AbortSignal): Promise<FoundationValuePage | null> => {
     if (cursor && foundationLoadingRef.current) return null;
+    if (!cursor) foundationRequestedCursors.current.clear();
     foundationLoadingRef.current = true;
+    setFoundationLoading(true);
     try {
       const params = new URLSearchParams({ limit: '100' });
       if (cursor) params.set('cursor', cursor);
       const res = await fetch(`/api/businesses?${params.toString()}`, { signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const page = parseFoundationPageResponse(await res.json());
-      setDataSource(page ? '保存済み台帳 + 外部取得データ' : '保存済み台帳（外部取得なし）');
+      const payload: unknown = await res.json();
+      const source = payload && typeof payload === 'object' && !Array.isArray(payload) && typeof (payload as { source?: unknown }).source === 'string'
+        ? (payload as { source: string }).source
+        : undefined;
+      const page = parseFoundationPageResponse(payload);
+      setDataSource(source === 'foundation_lake'
+        ? '保存済み台帳 + Foundation R2'
+        : source === 'local_fallback'
+          ? '保存済み台帳（ローカル予備）'
+          : source === 'static_fallback'
+            ? '保存済み台帳（静的予備）'
+            : '保存済み台帳（外部取得なし）');
       if (page) {
         mergeFoundationRows(page.data, !cursor);
+        const nextCursor = page.nextCursor && page.nextCursor !== cursor ? page.nextCursor : null;
+        setFoundationNextCursor(nextCursor);
+        setFoundationHasMore(page.hasMore && Boolean(nextCursor));
         return page;
       }
       return null;
     } finally {
       foundationLoadingRef.current = false;
+      setFoundationLoading(false);
     }
   }, [mergeFoundationRows]);
+
+  const loadMoreFoundation = useCallback(() => {
+    const cursor = foundationNextCursor;
+    if (!cursor || foundationLoadingRef.current) return;
+    if (foundationRequestedCursors.current.has(cursor)) {
+      setFoundationNextCursor(null);
+      setFoundationHasMore(false);
+      return;
+    }
+    foundationRequestedCursors.current.add(cursor);
+    void loadFoundationPage(cursor).catch((error) => {
+      setFoundationHasMore(false);
+      setDataSource('保存済み台帳（追加取得に失敗）');
+      console.warn('[TerminalShell] Additional Foundation page failed:', error);
+    });
+  }, [foundationNextCursor, loadFoundationPage]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -175,8 +222,10 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   // R2詳細読み込みロジック (選択されたエンティティがR2由来の場合に自動フェッチして完全版に昇華)
   useEffect(() => {
     if (!selectedEntityId) return;
-    // 自社重点8社の場合はローカルに完全データがあるためフェッチ不要
-    if (coreEntities.some((e) => e.id === selectedEntityId)) return;
+    // Foundationに同じIDが存在する対象は、ローカル旧スナップショットではなく
+    // R2詳細を読む。R2行がまだ到着していない間だけローカル予備を使う。
+    const foundationHasEntity = foundationRows.some((row) => row.id === selectedEntityId);
+    if (!foundationHasEntity && coreEntities.some((e) => e.id === selectedEntityId)) return;
     // 既に詳細取得済みまたは取得中ならスキップ
     if (detailedEntities[selectedEntityId] || detailFetchInProgress.current.has(selectedEntityId)) return;
 
@@ -202,7 +251,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       });
 
     return () => controller.abort();
-  }, [selectedEntityId, coreEntities, detailedEntities]);
+  }, [selectedEntityId, foundationRows, coreEntities, detailedEntities]);
 
   useEffect(() => {
     // URL changes must synchronize the existing user-controlled workspace state.
@@ -482,6 +531,9 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
               isSplitView={Boolean(selectedEntity)}
               activeTags={activeTags}
               onToggleTag={handleToggleTag}
+              onLoadMore={loadMoreFoundation}
+              hasMore={foundationHasMore}
+              isLoadingMore={foundationLoading}
             />
           </div>
         )}

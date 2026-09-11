@@ -50,11 +50,22 @@ describe('verifyFirebaseIdToken', () => {
 
   it('falls back to the public project value for explicit Node runs', async () => {
     mocks.getCloudflareRuntimeEnv.mockResolvedValue(null);
+    vi.stubEnv('NODE_ENV', 'test');
     mocks.getRuntimeEnvValue.mockImplementation(async (name: string) => (
       name === 'NEXT_PUBLIC_FIREBASE_PROJECT_ID' ? 'make-money-salve-prod' : undefined
     ));
     await expect(verifyFirebaseIdToken('signed-token')).resolves.toMatchObject({ uid: 'firebase-user-1' });
     expect(mocks.getRuntimeEnvValue).toHaveBeenCalledWith('NEXT_PUBLIC_FIREBASE_PROJECT_ID');
+  });
+
+  it('does not use a public build value as an authentication authority in production', async () => {
+    mocks.getCloudflareRuntimeEnv.mockResolvedValue(null);
+    vi.stubEnv('NODE_ENV', 'production');
+    mocks.getRuntimeEnvValue.mockImplementation(async (name: string) => (
+      name === 'NEXT_PUBLIC_FIREBASE_PROJECT_ID' ? 'make-money-salve-prod' : undefined
+    ));
+    await expect(verifyFirebaseIdToken('signed-token')).resolves.toBeNull();
+    expect(mocks.jwtVerify).not.toHaveBeenCalled();
   });
 
   it('fails closed when no project is configured', async () => {
