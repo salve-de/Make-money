@@ -31,6 +31,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import Link from 'next/link';
+import { TradingViewMigrationChart } from '../charts/TradingViewMigrationChart';
 
 export type PlaybookTabKey = 
   | 'TOOL_RADAR' 
@@ -321,76 +322,12 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                 </div>
               </div>
 
-              {/* チャート描画領域 */}
-              <div className="relative w-full h-56 sm:h-64 bg-[#050608] rounded border border-white/[0.04] p-4 flex flex-col justify-between">
-                {/* SVGグラフ */}
-                <svg className="w-full h-full overflow-visible" viewBox="0 0 500 180" preserveAspectRatio="none">
-                  {/* グリッドライン（横軸） */}
-                  {[0, 20, 40, 60, 80].map((val) => {
-                    const y = 160 - (val / 80) * 140;
-                    return (
-                      <g key={val}>
-                        <line x1="40" y1={y} x2="490" y2={y} stroke="rgba(255,255,255,0.05)" strokeDasharray="3 3" />
-                        <text x="32" y={y + 3} fill="#71717a" fontSize="10" fontFamily="monospace" textAnchor="end">
-                          {val}%
-                        </text>
-                      </g>
-                    );
-                  })}
-
-                  {/* ツールごとの折れ線とエリア */}
-                  {activeCategoryRadar.tools.map((t, idx) => {
-                    const color = toolLineColors[idx % toolLineColors.length];
-                    // 4つのデータポイントを X: 60, 190, 320, 450 に配置
-                    const points = t.historyShares.map((share, i) => {
-                      const x = 60 + i * 130;
-                      const y = 160 - (share / 80) * 140;
-                      return { x, y, share };
-                    });
-
-                    const pathD = points.reduce((acc, p, i) => {
-                      return i === 0 ? `M ${p.x} ${p.y}` : `${acc} L ${p.x} ${p.y}`;
-                    }, '');
-
-                    const areaD = `${pathD} L ${points[points.length - 1].x} 160 L ${points[0].x} 160 Z`;
-
-                    return (
-                      <g key={t.name}>
-                        {/* 塗りつぶしグラデーション */}
-                        <path d={areaD} fill={color.fill} />
-                        {/* 折れ線 */}
-                        <path d={pathD} fill="none" stroke={color.stroke} strokeWidth="2.5" strokeLinecap="round" />
-                        {/* ポイントマーカー */}
-                        {points.map((p, pi) => (
-                          <g key={pi}>
-                            <circle cx={p.x} cy={p.y} r="4" fill="#060709" stroke={color.stroke} strokeWidth="2" />
-                            <text
-                              x={p.x}
-                              y={p.y - 8}
-                              fill={color.stroke}
-                              fontSize="10"
-                              fontFamily="monospace"
-                              textAnchor="middle"
-                              fontWeight="bold"
-                            >
-                              {p.share}%
-                            </text>
-                          </g>
-                        ))}
-                      </g>
-                    );
-                  })}
-
-                  {/* X軸ラベル */}
-                  {activeCategoryRadar.timeline.map((label, i) => {
-                    const x = 60 + i * 130;
-                    return (
-                      <text key={label} x={x} y="176" fill="#a1a1aa" fontSize="10" fontFamily="monospace" textAnchor="middle">
-                        {label}
-                      </text>
-                    );
-                  })}
-                </svg>
+              {/* TradingView Lightweight-Charts 描画領域 */}
+              <div className="w-full rounded border border-white/[0.06] overflow-hidden bg-[#060709]">
+                <TradingViewMigrationChart
+                  timeline={activeCategoryRadar.timeline}
+                  tools={activeCategoryRadar.tools}
+                />
               </div>
 
               {/* チャート考察サマリー */}
