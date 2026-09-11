@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build --webpack && node scripts/architecture/check-paid-bundle.mjs",
     "start": "node scripts/start-standalone.mjs",
-    "lint": "eslint && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs",
+    "lint": "eslint --max-warnings=0 && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs",
     "preview:workers": "pnpm workers:build && opennextjs-cloudflare preview",
     "deploy:preflight": "node scripts/architecture/check-deploy-config.mjs",
     "deploy:workers": "pnpm deploy:preflight && pnpm workers:build && opennextjs-cloudflare deploy",
