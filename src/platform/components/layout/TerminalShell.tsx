@@ -67,6 +67,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
   const [foundationLoading, setFoundationLoading] = useState(false);
+  const [foundationInitialLoadComplete, setFoundationInitialLoadComplete] = useState(false);
   const foundationLoadingRef = useRef(false);
   const foundationRequestedCursors = useRef(new Set<string>());
 
@@ -201,6 +202,8 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         setDataSource('保存済み台帳（外部取得に失敗）');
         console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
       }
+    }).finally(() => {
+      if (!controller.signal.aborted) setFoundationInitialLoadComplete(true);
     });
     return () => controller.abort();
   }, [loadFoundationPage]);
@@ -224,6 +227,9 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     if (!selectedEntityId) return;
     // Foundationに同じIDが存在する対象は、ローカル旧スナップショットではなく
     // R2詳細を読む。R2行がまだ到着していない間だけローカル予備を使う。
+    // 一覧の初回取得前に詳細を始めると、一覧更新時のcleanupでAbortされた後に
+    // in-flightフラグだけが残り、再取得されない競合になるため、完了を待つ。
+    if (!foundationInitialLoadComplete) return;
     const foundationHasEntity = foundationRows.some((row) => row.id === selectedEntityId);
     if (!foundationHasEntity && coreEntities.some((e) => e.id === selectedEntityId)) return;
     // 既に詳細取得済みまたは取得中ならスキップ
@@ -251,7 +257,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       });
 
     return () => controller.abort();
-  }, [selectedEntityId, foundationRows, coreEntities, detailedEntities]);
+  }, [selectedEntityId, foundationRows, foundationInitialLoadComplete, coreEntities, detailedEntities]);
 
   useEffect(() => {
     // URL changes must synchronize the existing user-controlled workspace state.

@@ -71,3 +71,7 @@
 前項の「0004/0005は本番D1へ未適用」は適用前の監査時点の記録である。その後、本番D1 `07affd4c-cac4-4998-843c-b5881fccab5e`へ0004/0005を順序どおり適用した。適用前の全アプリテーブル0行を確認し、完全exportを非公開R2へcreate-only保存してbytes・SHA-256を読み戻した。適用後のmigration履歴、ニュースレター列・index、`request_rate_limits`表、同表0行を再取得して確認した。保存物のkey・hashは [PUBLICATION_RECEIPT.md](architecture/PUBLICATION_RECEIPT.md) と [RECOVERY.md](architecture/RECOVERY.md) に記録している。
 
 ブラウザのE2Eは引き続きローカルfallbackまたはローカルWorkerを対象にしており、本番Workerから実ユーザーの保存・読み戻しを証明しない。本番D1が空であるため、実ユーザーを使った本番認可・削除・復旧も未検証である。
+
+## 2026-09-12 Foundation詳細取得の競合修正
+
+Foundation一覧の初回取得中に詳細取得を始めると、一覧更新時のcleanupで詳細リクエストがAbortされ、進行中フラグだけが残って再取得されない競合を修正した。詳細取得は初回一覧の完了後に開始し、R2の詳細がsummaryへ置き換わらず最後まで表示されることを保証する。修正後にNext本番build、OpenNext Worker bundle、lint、strict typecheck、Vitest274、Foundation11、architecture8、Recovery6、preflight、`pnpm audit --prod`、Playwright25を再実行して全て成功した。
