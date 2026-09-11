@@ -26,7 +26,7 @@
 
 ## 増加時の段階的な拡張
 
-- 〜数千件: 現行のcursor一覧 + 選択時詳細 + 短期キャッシュ（今回のPreview実測は2,027 entities / 507 bundles）。
+- 〜数千件: 現行のcursor一覧 + 選択時詳細 + 短期キャッシュ。2026-09-11のPreview記録は2,027 entities / 507 bundles（過去スナップショット）。2026-09-12のR2 live readbackでは2,046 entities / 522 research bundles / 106 intelligence objects / 38,009 journal entriesを観測した。この件数は現在のR2 object inventoryであり、調査対象の完全性を保証するものではない。
 - 数千〜10万件: Foundationで許可された versioned serving view（`datasets/ds.business.makemoney-dossiers.v1/`）を、上流精錬バッチ（LLM＋外部検索欠落補完）により create-only で構築し、UIはその既存viewを直接読む。画面側での場当たり推論を完全排除し、キーエンス品質の表示純度とミリ秒レスポンスを両立する。root `LATEST` pointerや上書きは作らない。
 - 高度な検索・集計: 登録済みdataset/viewを基に、検索用サービスまたは分析経路（Typesense等）を追加する。UIの表示値を新たな事実正本にしない。
 

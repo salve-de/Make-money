@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CompanyRecord, ScaleTier, TerminalFilterState } from '../../types/terminal';
+import { CompanyRecord, TerminalFilterState } from '../../types/terminal';
 import { DesirePreset, SortOrder } from './DesireFilterBar';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
-import { SlidersHorizontal, ChevronRight, X, Bookmark, Search } from 'lucide-react';
+import { SlidersHorizontal, X, Search } from 'lucide-react';
 
 interface CompanyListSidebarProps {
   companies: CompanyRecord[];
@@ -29,15 +29,8 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
   totalCount,
   selectedCompanyId,
   onSelectCompany,
-  activePreset,
-  onSelectPreset,
-  activeSort,
-  onSelectSort,
   onOpenScreener,
   hasActiveFilters,
-  filter,
-  onRemoveFilter,
-  onResetAll,
   bookmarkedIds = []
 }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);

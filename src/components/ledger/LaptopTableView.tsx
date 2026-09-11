@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ChevronRight, ArrowUpDown, Bookmark } from 'lucide-react';
+import { ChevronRight, ArrowUpDown } from 'lucide-react';
 import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '../terminal/CompanyLogo';
 
@@ -19,8 +19,6 @@ export const LaptopTableView: React.FC<LaptopTableViewProps> = ({
   companies,
   onSelectCompany,
   selectedCompanyId,
-  bookmarkedIds,
-  onToggleBookmark,
   onSortByRevenue,
   onSortByMargin
 }) => {
@@ -68,7 +66,6 @@ export const LaptopTableView: React.FC<LaptopTableViewProps> = ({
           const margin = latestFin?.operatingMarginPercent || 0;
           const profit = latestFin?.netIncomeJpy || latestFin?.operatingProfitJpy || 0;
           const isSelected = selectedCompanyId === company.id;
-          const isBookmarked = bookmarkedIds.includes(company.id);
 
           return (
             <tr

@@ -1,10 +1,9 @@
 'use client';
 
 import React from 'react';
-import { ChevronRight, ArrowUpDown, Bookmark } from 'lucide-react';
+import { ChevronRight, ArrowUpDown } from 'lucide-react';
 import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '../terminal/CompanyLogo';
-import { SparklineChart } from '../terminal/SparklineChart';
 
 interface DesktopTableViewProps {
   companies: CompanyRecord[];
@@ -20,8 +19,6 @@ export const DesktopTableView: React.FC<DesktopTableViewProps> = ({
   companies,
   onSelectCompany,
   selectedCompanyId,
-  bookmarkedIds,
-  onToggleBookmark,
   onSortByRevenue,
   onSortByMargin
 }) => {
@@ -72,7 +69,6 @@ export const DesktopTableView: React.FC<DesktopTableViewProps> = ({
           const margin = latestFin?.operatingMarginPercent || 0;
           const profit = latestFin?.netIncomeJpy || latestFin?.operatingProfitJpy || 0;
           const isSelected = selectedCompanyId === company.id;
-          const isBookmarked = bookmarkedIds.includes(company.id);
 
           const glitch = company.successStory?.marketGlitch ||
             company.entryStrategy?.whyIncumbentCantWin ||

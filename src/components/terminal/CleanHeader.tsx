@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { LayoutDashboard, Database, Sparkles, Search, Command, LogOut, User as UserIcon } from 'lucide-react';
+import { LayoutDashboard, Database, Search, Command, LogOut } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { AuthModal } from '@/components/auth/AuthModal';
 
@@ -118,13 +118,13 @@ export const CleanHeader: React.FC<CleanHeaderProps> = ({
         )}
 
         {/* 認証・アカウントボタン */}
-        <UserNavButton onOpenProModal={onOpenProModal} />
+        <UserNavButton />
       </div>
     </header>
   );
 };
 
-function UserNavButton({ onOpenProModal }: { onOpenProModal?: () => void }) {
+function UserNavButton() {
   const { user, isPro, signOut, loading } = useAuth();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);

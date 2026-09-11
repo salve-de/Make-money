@@ -8,16 +8,13 @@ import {
   PAIN_WALLET_HEATMAPS,
 } from '../../data/moneyFlowRadarData';
 import {
-  TrendingUp,
   AlertTriangle,
   Flame,
   ShieldAlert,
   ArrowRight,
   Building2,
   Zap,
-  Clock,
   Sparkles,
-  Layers,
 } from 'lucide-react';
 
 interface MoneyFlowRadarViewProps {

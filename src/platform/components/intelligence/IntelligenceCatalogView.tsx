@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { IntelligenceDossier, IntelligenceTopicId, FinancialEntity } from '../../types/terminal';
-import { ShieldAlert, ArrowRight, Zap, TrendingUp, Sparkles, Building2 } from 'lucide-react';
+import { ArrowRight, Zap, TrendingUp, Building2 } from 'lucide-react';
 
 interface IntelligenceCatalogViewProps {
   dossiers: IntelligenceDossier[];

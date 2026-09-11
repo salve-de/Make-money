@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Search, X, ChevronRight, TrendingUp, Building2, User } from 'lucide-react';
+import { Search, X, ChevronRight } from 'lucide-react';
 import { CompanyRecord } from '@/types/terminal';
 
 interface SearchPaletteModalProps {

@@ -39,7 +39,8 @@
   "vars": {
     "ENVIRONMENT": "production",
     "PROJECT_ID": "make-money",
-    "APP_R2_BUCKET": "make-money-production-private"
+    "APP_R2_BUCKET": "make-money-production-private",
+    "FIREBASE_PROJECT_ID": "make-money-salve-prod"
   },
   "d1_databases": [
     {

@@ -27,7 +27,7 @@ async function send(statements: D1Statement[]): Promise<Result[]> {
   }
   // Only the Worker binding documents transactional batch semantics. Node REST stays single-statement.
   if (statements.length !== 1) throw new D1UnavailableError();
-  const [account, token, database] = await Promise.all(['CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_API_TOKEN', 'APP_D1_DATABASE_ID'].map(getRuntimeEnvValue));
+  const [account, token, database] = await Promise.all(['CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_API_TOKEN', 'APP_D1_DATABASE_ID'].map((name) => getRuntimeEnvValue(name)));
   if (!account || !token || !database) throw new D1UnavailableError();
   const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(account)}/d1/database/${encodeURIComponent(database)}/query`, {
     method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(statements[0]), cache: 'no-store', signal: AbortSignal.timeout(15_000),

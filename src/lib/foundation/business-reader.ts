@@ -1,5 +1,5 @@
 import {
-  getFoundationBucket,
+  getFoundationBucketAsync,
   getFromR2,
   listR2Objects,
   readR2ObjectRange,
@@ -160,7 +160,6 @@ export interface FoundationValuePage {
 
 const ENTITY_DATASET = foundationDataset('entities');
 const BUNDLE_DATASET = foundationDataset('researchBundles');
-const LAKE_BUCKET = getFoundationBucket(ENTITY_DATASET.bucketRole);
 const ENTITY_PREFIX = ENTITY_DATASET.prefix;
 const BUNDLE_PREFIX = BUNDLE_DATASET.prefix;
 const BUNDLE_PROBE_BYTES = 131072;
@@ -276,11 +275,11 @@ function parseArrayField(text: string, field: string): unknown[] | undefined {
 }
 
 async function readJsonObject(key: string): Promise<JsonObject | null> {
-  return parseObject(await getFromR2(key, LAKE_BUCKET));
+  return parseObject(await getFromR2(key, await getFoundationBucketAsync(ENTITY_DATASET.bucketRole)));
 }
 
 async function readJsonProbe(key: string): Promise<string | null> {
-  const object = await readR2ObjectRange(LAKE_BUCKET, key, {
+  const object = await readR2ObjectRange(await getFoundationBucketAsync(ENTITY_DATASET.bucketRole), key, {
     offset: 0,
     length: BUNDLE_PROBE_BYTES,
   });
@@ -292,8 +291,9 @@ function entityKey(id: string): string {
 }
 
 async function readEntityPage(cursor: string | undefined, limit: number): Promise<FoundationEntityPage> {
+  const lakeBucket = await getFoundationBucketAsync(ENTITY_DATASET.bucketRole);
   const page = await listR2Objects({
-    bucket: LAKE_BUCKET,
+    bucket: lakeBucket,
     prefix: ENTITY_PREFIX,
     cursor,
     limit,
@@ -612,11 +612,12 @@ function cachedBundle(key: string): Promise<JsonObject | null> {
 }
 
 async function fetchBundleObjects(): Promise<R2ListObject[]> {
+  const lakeBucket = await getFoundationBucketAsync(ENTITY_DATASET.bucketRole);
   const objects: R2ListObject[] = [];
   let cursor: string | undefined;
   for (let pageNumber = 0; pageNumber < MAX_BUNDLE_LIST_PAGES; pageNumber += 1) {
     const page = await listR2Objects({
-      bucket: LAKE_BUCKET,
+      bucket: lakeBucket,
       prefix: BUNDLE_PREFIX,
       cursor,
       limit: BUNDLE_LIST_LIMIT,

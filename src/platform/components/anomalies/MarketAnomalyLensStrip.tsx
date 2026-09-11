@@ -1,20 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MarketAnomaly } from '../../types/terminal';
 import { MARKET_ANOMALIES } from '../../data/marketAnomaliesData';
 import {
   Flame,
   Zap,
   ShieldAlert,
   Target,
-  Wrench,
   ChevronDown,
   ChevronUp,
   X,
-  Sparkles,
   ArrowRight,
-  Filter,
 } from 'lucide-react';
 import { AffiliateToolList } from '../tools/AffiliateToolBadge';
 

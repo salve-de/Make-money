@@ -59,6 +59,15 @@ beforeEach(() => {
 afterEach(() => { state.database?.close(); });
 
 describe('D1 and Stripe paid-account boundary', () => {
+  it('bounds checkout, status, and webhook request bodies', async () => {
+    const checkoutBody = JSON.stringify({ product: 'founding-pass', padding: 'x'.repeat(40_000) });
+    expect((await checkout(new NextRequest('http://localhost/api/checkout', { method: 'POST', headers: { authorization: 'Bearer valid' }, body: checkoutBody }))).status).toBe(413);
+    const statusBody = JSON.stringify({ sessionId: 'cs_test_123', padding: 'x'.repeat(40_000) });
+    expect((await status(new NextRequest('http://localhost/api/checkout/status', { method: 'POST', headers: { authorization: 'Bearer valid' }, body: statusBody }))).status).toBe(413);
+    const oversizedWebhook = new Request('http://localhost/api/webhooks/stripe', { method: 'POST', headers: { 'stripe-signature': 'test' }, body: 'x'.repeat(2 * 1024 * 1024 + 1) });
+    expect((await webhook(oversizedWebhook)).status).toBe(413);
+  });
+
   it('does not create anonymous or unavailable-persistence purchases', async () => {
     expect((await checkout(request({ product: 'founding-pass' }, false))).status).toBe(401);
     state.offline = true; expect((await checkout(request({ product: 'founding-pass' }))).status).toBe(503);

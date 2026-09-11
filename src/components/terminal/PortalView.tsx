@@ -1,11 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 import { SparklineChart } from '@/components/terminal/SparklineChart';
 import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
-import { ArrowRight, ChevronRight, Sparkles, Filter, Database, TrendingUp, Layers, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
 
 interface PortalViewProps {
   companies: CompanyRecord[];
@@ -26,10 +26,6 @@ export const PortalView: React.FC<PortalViewProps> = ({
   onSelectCompany,
   onNavigateToTerminal,
   onFilterTheme,
-  onOpenCollectionsList,
-  onOpenCollectionDetail,
-  onOpenSignalsList,
-  onOpenSignalDetail,
   onOpenLeaderboard,
   onOpenIdeasVault,
   onOpenFinder

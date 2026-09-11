@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Database, SlidersHorizontal, Bookmark, Layers, Cpu, TrendingUp, BookOpen } from 'lucide-react';
+import { Database, SlidersHorizontal, Bookmark, Cpu, TrendingUp, BookOpen } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface MobileBottomNavProps {
@@ -98,4 +98,3 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     </nav>
   );
 };
-

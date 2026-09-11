@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { Copy, Check, Lock, AlertTriangle, ArrowRight, SlidersHorizontal, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Copy, Check, Lock, AlertTriangle, ArrowRight, SlidersHorizontal } from 'lucide-react';
 
 export type CapitalLevel = 'ZERO' | 'MICRO' | 'MID' | 'HIGH';
 export type TimeCommitment = 'ULTRA_LIGHT' | 'SIDE_JOB' | 'FULL_TIME';

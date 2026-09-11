@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ExternalLink, ShieldCheck } from 'lucide-react';
-import { findToolAffiliate, ToolAffiliateMeta } from '../../config/toolAffiliates';
+import { findToolAffiliate } from '../../config/toolAffiliates';
 
 interface AffiliateToolBadgeProps {
   toolName: string;

@@ -11,7 +11,16 @@ const targets = [
   ['src/lib/foundation/business-reader.ts', 'FoundationBusinessCase', 'src/lib/foundation/schemas/business-case.json'],
 ];
 for (const [path, type, output] of targets) {
-  const schema = createGenerator({ path, type, tsconfig: 'tsconfig.json', additionalProperties: true, skipTypeCheck: true }).createSchema(type);
+  // Strategy requests cross an untrusted API boundary. Keep their object
+  // shapes closed while preserving the historical permissive schemas for
+  // consumer projections and Foundation records.
+  const schema = createGenerator({
+    path,
+    type,
+    tsconfig: 'tsconfig.json',
+    additionalProperties: path === 'src/shared/strategy.ts' ? false : true,
+    skipTypeCheck: true,
+  }).createSchema(type);
   const text = JSON.stringify(schema, null, 2) + '\n';
   if (process.argv.includes('--check')) {
     if (readFileSync(output, 'utf8') !== text) throw new Error(`Stale schema: ${output}; run pnpm schemas:generate`);

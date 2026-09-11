@@ -1,10 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, ArrowLeft, ArrowRight, ExternalLink, Bookmark, Check, Copy, ShieldCheck, Lock, AlertTriangle } from 'lucide-react';
+import { X, ArrowLeft, ArrowRight, Bookmark, Check, Copy, ShieldCheck } from 'lucide-react';
 import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '../terminal/CompanyLogo';
-import { SparklineChart } from '../terminal/SparklineChart';
 
 interface ExecutiveDossierDrawerProps {
   company: CompanyRecord | null;

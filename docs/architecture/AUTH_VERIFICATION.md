@@ -4,7 +4,7 @@
 
 ## 実際に通した経路
 
-Firebase Authentication `make-money-salve-prod` のメール・パスワード認証 → 実際の署名付きIDトークン → ビルド済みOpenNext Worker → `APP_DB` binding → 隔離ローカルD1。
+Firebase Authentication `make-money-salve-prod` のメール・パスワード認証 → 実際の署名付きIDトークン → `FIREBASE_PROJECT_ID` runtime bindingを使うビルド済みOpenNext Worker → `APP_DB` binding → 隔離ローカルD1。
 
 - ランダムな `example.invalid` メールとランダムパスワードで使い捨てアカウントを2件作成し、パスワードで再ログイン。メール送信は実施しない。
 - `GET /api/analyst-notes` は未認証・不正トークンで401。
@@ -24,6 +24,7 @@ Firebase Authentication `make-money-salve-prod` のメール・パスワード�
 - `pnpm test`: Vitest236件、Foundation10件、Python6件と復元検証が成功。
 - `pnpm build`: 成功。有料本文の配信漏れ検査84ファイル・392照合対象も成功。
 - `pnpm bundle:workers`: 成功。
+- Worker配布物のビルドは `pnpm workers:build` 経由に固定し、dotenvの秘密値をビルドへ渡さない。生成済み `.open-next` は秘密値スキャンを通過させる。秘密はCloudflareへ実行時に登録する。
 - `pnpm test:e2e`: Chromium25件成功。ここではR2未設定時のfallbackも検証しており、実R2全件監査を意味しない。
 - 同コミットのGitHub必須チェック5項目はすべて成功。実行ID `34612332462`。
 
@@ -31,4 +32,8 @@ Firebase Authentication `make-money-salve-prod` のメール・パスワード�
 
 ## 残る本番条件
 
-Googleログインの公開サポートメール、公開先の許可ドメイン、デプロイ先の環境設定、Stripe webhook署名秘密値と決済の往復検証、PR経由のmain統合、本番D1への保存・読み戻しが残る。ローカル結合検証と本番完了を区別する。
+Googleログインの有効化・サポートメール設定と標準許可ドメインは完了した。デプロイ先の環境設定、Stripe webhook署名秘密値と決済の往復検証、PR経由のmain統合、本番D1への保存・読み戻しが残る。ローカル結合検証と本番完了を区別する。
+
+## 2026-09-12 再検証追補
+
+依存更新とAPI入力境界の追加後に、Vitest257件、Foundation11件、architecture6件、Python6件、E2E25件、Build、`pnpm audit --prod`、Workers秘密値スキャンを再実行して成功した。実ブラウザではPhoto AI詳細を表示し、J/K入力で企業が切り替わらないこととJ/K案内がないことを確認した。E2EはR2未設定時のfallbackを含むため、実R2読み取りや本番Workerの稼働証明ではない。

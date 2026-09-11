@@ -1,12 +1,6 @@
 import type {
   FoundationBusinessCase,
-  FoundationClaim,
-  FoundationEvent,
   FoundationMetricSignal,
-  FoundationMoneySignal,
-  FoundationObservation,
-  FoundationDerivedRecord,
-  FoundationRelationship,
   FoundationValueSummary,
 } from '@/lib/foundation/business-reader';
 import type {
@@ -333,8 +327,7 @@ export function adaptFoundationSummaryToFinancialEntity(
  * FoundationBusinessCase（R2詳細バンドル）を完全版 FinancialEntity に変換
  */
 export function adaptFoundationDetailToFinancialEntity(
-  detail: FoundationBusinessCase,
-  baseSummary?: FinancialEntity
+  detail: FoundationBusinessCase
 ): FinancialEntity {
   const entity = detail;
   const metrics = detail.metrics || [];

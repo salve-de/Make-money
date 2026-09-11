@@ -19,7 +19,6 @@ interface UniversalIntelligenceStreamProps {
 
 export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamProps> = ({
   entity,
-  currency,
 }) => {
   const { dynamicMoats, observationsStream, timelineEvents, coverageAudit, unknownsNotes, exposureAudit } = entity;
 

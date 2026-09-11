@@ -4,16 +4,15 @@ import React from 'react';
 import { IntelligenceDossier, IntelligenceTopicId, FinancialEntity } from '../../types/terminal';
 import {
   ArrowLeft,
+  ExternalLink,
   ShieldAlert,
   Cpu,
   Sparkles,
   TrendingUp,
   Wallet,
-  ArrowRight,
   CreditCard,
   Building,
   CheckCircle2,
-  ExternalLink,
 } from 'lucide-react';
 
 interface IntelligenceDeepDiveViewProps {
@@ -38,12 +37,6 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
   onBackToCatalog,
   onSelectDossier,
   onOpenEntityInLedger,
-  currency,
-  selectedEntityId,
-  onSelectEntity,
-  bookmarkedIds,
-  onToggleBookmark,
-  onLaunchScreenerForDossier,
 }) => {
   return (
     <div className="flex-1 flex flex-col min-w-0 overflow-y-auto bg-[#060709] text-zinc-100">

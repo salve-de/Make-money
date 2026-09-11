@@ -20,13 +20,21 @@ export async function getCloudflareRuntimeEnv(): Promise<CloudflareRuntimeEnv | 
  * Node.jsの環境変数を優先し、Workersではbinding/secretのenvを読む。
  * 値そのものをログへ出さない前提で、サーバー専用の呼び出し元から使う。
  */
-export async function getRuntimeEnvValue(name: string): Promise<string | undefined> {
+export async function getRuntimeEnvValue(name: string, options: { runtimeFirst?: boolean } = {}): Promise<string | undefined> {
+  const readRuntimeValue = async (): Promise<string | undefined> => {
+    const runtimeEnv = await getCloudflareRuntimeEnv();
+    const runtimeValue = runtimeEnv?.[name];
+    return typeof runtimeValue === 'string' && runtimeValue.trim()
+      ? runtimeValue.trim()
+      : undefined;
+  };
+
+  if (options.runtimeFirst) {
+    const runtimeValue = await readRuntimeValue();
+    if (runtimeValue) return runtimeValue;
+  }
+
   const processValue = process.env[name]?.trim();
   if (processValue) return processValue;
-
-  const runtimeEnv = await getCloudflareRuntimeEnv();
-  const runtimeValue = runtimeEnv?.[name];
-  return typeof runtimeValue === 'string' && runtimeValue.trim()
-    ? runtimeValue.trim()
-    : undefined;
+  return readRuntimeValue();
 }

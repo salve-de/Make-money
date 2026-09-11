@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { SlidersHorizontal, Bookmark, Sparkles } from 'lucide-react';
+import { SlidersHorizontal } from 'lucide-react';
 
 export type LedgerQuickPreset = 'ALL' | 'SOLO' | 'HIGH_MARGIN' | 'LOW_CAPITAL' | 'GIANT' | 'AI_AUTO' | 'BOOKMARK';
 
@@ -19,7 +19,6 @@ export const QuickFacetFilterBar: React.FC<QuickFacetFilterBarProps> = ({
   activePreset,
   onSelectPreset,
   totalCount,
-  filteredCount,
   bookmarkCount,
   onOpenScreener,
   activeScreenerCount

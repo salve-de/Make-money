@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CompanyRecord, MoatPower } from '../../types/terminal';
+import { CompanyRecord } from '../../types/terminal';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
-import { Check, ArrowRight, ArrowLeft, Lock, AlertTriangle, ShieldCheck, Sparkles, ExternalLink, Bookmark } from 'lucide-react';
+import { Check, ArrowRight, ArrowLeft, Lock, Bookmark } from 'lucide-react';
 
 interface ExecutiveDetailSheetProps {
   company: CompanyRecord;
@@ -56,60 +56,6 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
   const opexPercent = hasFinancialBreakdown ? Math.min(Math.round((opex / rev) * 100), 100) : 0;
   const profitPercent = hasFinancialBreakdown ? Math.round((opProfit / rev) * 100) : (latestFin?.operatingMarginPercent || 0);
 
-  // 7つの堀レーダーチャート計算
-  const getMoatPowerName = (moat: MoatPower) => {
-    switch (moat) {
-      case 'PROCESS_POWER': return '組織プロセスパワー (模倣困難な業務執行体制)';
-      case 'NETWORK_EFFECTS': return 'ネットワーク効果 (利用者の増加に伴う価値向上)';
-      case 'COUNTER_POSITIONING': return 'カウンターポジショニング (大手が構造上真似できない差別化)';
-      case 'SWITCHING_COSTS': return 'スイッチングコスト (顧客の乗り換え障壁)';
-      case 'BRANDING': return 'ブランド価値 (第一想起と価格プレミアム)';
-      case 'CORNERED_RESOURCE': return '独占的資源 (特許・独自データ・独占契約)';
-      case 'SCALE_ECONOMIES': return '規模の経済 (固定費分散と限界費用の極小化)';
-    }
-  };
-
-  const moatScores = {
-    processPower: company.primaryMoat === 'PROCESS_POWER' ? company.moatScore : Math.max(company.moatScore - 25, 30),
-    networkEffects: company.primaryMoat === 'NETWORK_EFFECTS' ? company.moatScore : Math.max(company.moatScore - 35, 20),
-    counterPositioning: company.primaryMoat === 'COUNTER_POSITIONING' ? company.moatScore : Math.max(company.moatScore - 30, 25),
-    switchingCosts: company.primaryMoat === 'SWITCHING_COSTS' ? company.moatScore : Math.max(company.moatScore - 20, 35),
-    branding: company.primaryMoat === 'BRANDING' ? company.moatScore : Math.max(company.moatScore - 25, 30),
-    corneredResource: company.primaryMoat === 'CORNERED_RESOURCE' ? company.moatScore : Math.max(company.moatScore - 40, 15),
-    scaleEconomies: company.primaryMoat === 'SCALE_ECONOMIES' ? company.moatScore : Math.max(company.moatScore - 30, 25)
-  };
-
-  const center = 110;
-  const radius = 70;
-  const axes = [
-    { label: '組織プロセス', score: moatScores.processPower },
-    { label: 'ネットワーク', score: moatScores.networkEffects },
-    { label: '対抗ポジション', score: moatScores.counterPositioning },
-    { label: '乗換コスト', score: moatScores.switchingCosts },
-    { label: 'ブランド力', score: moatScores.branding },
-    { label: '独占資源', score: moatScores.corneredResource },
-    { label: '規模の経済', score: moatScores.scaleEconomies }
-  ];
-
-  const totalAxes = axes.length;
-  const getCoordinates = (score: number, index: number) => {
-    const angle = (Math.PI * 2 / totalAxes) * index - Math.PI / 2;
-    const r = (score / 100) * radius;
-    const x = center + r * Math.cos(angle);
-    const y = center + r * Math.sin(angle);
-    return { x, y };
-  };
-
-  const polygonPoints = axes
-    .map((axis, i) => {
-      const { x, y } = getCoordinates(axis.score, i);
-      return `${x.toFixed(1)},${y.toFixed(1)}`;
-    })
-    .join(' ');
-
-  const grid100 = axes.map((_, i) => `${getCoordinates(100, i).x.toFixed(1)},${getCoordinates(100, i).y.toFixed(1)}`).join(' ');
-  const grid50 = axes.map((_, i) => `${getCoordinates(50, i).x.toFixed(1)},${getCoordinates(50, i).y.toFixed(1)}`).join(' ');
-
   // 武器庫（ツール）の月額コスト合計
   const totalMonthlyToolCost = (company.tools || []).reduce((acc, t) => acc + (t.monthlyCostJpy || 0), 0);
 
@@ -117,16 +63,8 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
   const trickPsychology = company.proDossier?.monetizationTrick.corePsychologicalTrigger ||
     `顧客が抱える「競合より優位に立ちたい見栄」または「業務停止や機会損失の恐怖」に直結させ、対価の支払いを正当化させている。`;
 
-  const pricingSecret = company.proDossier?.monetizationTrick.pricingPowerSecret ||
-    company.pricingDesign?.pricingTiers ||
-    `相見積もりを拒絶し、即座に価値を実演・提供することで、定価販売と高い粗利を維持している。`;
-
   const cashSpeed = company.proDossier?.monetizationTrick.cashflowVelocity ||
     `Stripe等のカード即時決済または完全前払いにより、売掛金未回収リスクをゼロ化。`;
-
-  const whyIncumbentBlind = company.proDossier?.incumbentBlindspot.whyGiantsCantEnter ||
-    company.entryStrategy?.whyIncumbentCantWin ||
-    `既存大手は現在の高単価商流や中立性の看板に縛られているため、この特化モデルに参入すると自社の既存ビジネスを破壊するジレンマを抱えている。`;
 
   // 【1. 創業者の着眼ログ（何を見て、どこに隙を見出し、どう突いたか）】
   const observationText = company.successStory?.founderProfile ||

@@ -207,6 +207,16 @@ export function getFoundationBucket(role: FoundationBucketRole): string {
   return bucket;
 }
 
+/** Resolve a configured Foundation bucket after the Worker request context exists. */
+export async function getFoundationBucketAsync(role: FoundationBucketRole): Promise<string> {
+  const envKey = FOUNDATION_BUCKET_ENV_KEYS[role];
+  const bucket = await getRuntimeEnvValue(envKey, { runtimeFirst: true }) || FOUNDATION_BUCKET_DEFAULTS[role];
+  if (bucket === 'universal') {
+    throw new R2ConfigurationError('Legacy universal cannot be a Foundation R2 target');
+  }
+  return bucket;
+}
+
 export function isR2Configured(bucket = getFoundationBucket('lake')): boolean {
   return Boolean(
     readCredentials() &&
@@ -258,9 +268,12 @@ function isR2WorkerBinding(value: unknown): value is R2WorkerBinding {
 }
 
 async function getR2BindingForBucket(bucket: string): Promise<R2WorkerBinding | null> {
-  const role = (Object.keys(FOUNDATION_BUCKET_DEFAULTS) as FoundationBucketRole[]).find(
-    (candidateRole) => getFoundationBucket(candidateRole) === bucket
-  );
+  const roles = Object.keys(FOUNDATION_BUCKET_DEFAULTS) as FoundationBucketRole[];
+  const resolvedRoles = await Promise.all(roles.map(async (candidateRole) => ({
+    role: candidateRole,
+    bucket: await getFoundationBucketAsync(candidateRole),
+  })));
+  const role = resolvedRoles.find((candidate) => candidate.bucket === bucket)?.role;
   const runtimeEnv = await getCloudflareRuntimeEnv();
   const appBucket = await getRuntimeEnvValue('APP_R2_BUCKET');
   const binding = bucket === appBucket ? runtimeEnv?.APP_R2 : role ? runtimeEnv?.[FOUNDATION_BUCKET_BINDING_NAMES[role]] : null;

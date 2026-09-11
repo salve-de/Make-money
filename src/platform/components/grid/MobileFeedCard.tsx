@@ -22,8 +22,6 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
   currency,
   onToggleBookmark,
   isBookmarked,
-  activeTags = [],
-  onToggleTag,
 }) => {
   const formatMoney = (yen: number) => {
     if (currency === 'USD') {

@@ -2,21 +2,13 @@
 
 import React, { useState, useMemo } from 'react';
 import { BUSINESS_IDEAS } from '@/data/ideasData';
-import { BusinessIdeaRecord, IdeaCategory } from '@/types/idea';
+import { IdeaCategory } from '@/types/idea';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 import {
   ArrowRight,
   Search,
-  CheckCircle2,
-  Clock,
   Wrench,
-  ChevronRight,
-  Sparkles,
   Layers,
-  AlertCircle,
-  ExternalLink,
-  Target,
-  Zap
 } from 'lucide-react';
 
 interface IdeasVaultViewProps {

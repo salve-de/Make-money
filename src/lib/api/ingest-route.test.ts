@@ -29,3 +29,13 @@ it('preserves authorization before parsing JSON', async () => {
   expect(response.status).toBe(401);
   expect(ingest).not.toHaveBeenCalled();
 });
+
+it('rejects an oversized declared body before ingestion', async () => {
+  const response = await POST(new NextRequest('http://localhost/api/foundation/ingest', {
+    method: 'POST',
+    headers: { 'x-foundation-ingest-token': 'test-only-token', 'content-length': String(15 * 1024 * 1024 + 1) },
+    body: '{}',
+  }));
+  expect(response.status).toBe(413);
+  expect(ingest).not.toHaveBeenCalled();
+});

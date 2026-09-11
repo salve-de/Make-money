@@ -33,4 +33,16 @@
 
 ローカルのFirebase必須4設定・FIREBASE_PROJECT_ID・STRIPE_WEBHOOK_SECRETは未設定であることを値を出力せず確認。Firebase本番設定、Stripe本番Webhook設定・実入金・実返金、本番アプリへのD1接続を通じたユーザー保存は未検証。Neonの閲覧可能な範囲でMake-Money所有データは特定できず、他プロジェクトの一般名テーブルは移行・削除していない。
 
+## 2026-09-12 追補
+
+上記は2026-09-11時点の記録。専用Firebase `make-money-salve-prod` を初期化し、メール・パスワードとGoogleログインをコンソールで有効化した。認証設定APIからメール認証の有効状態と許可ドメインを読み戻し、実Firebaseの使い捨てアカウント2件でWorker→隔離D1の保存・読み戻し・所有者分離を確認した。専用SDK設定はGit管理対象外の `.env.local` のみへ接続。Stripe本番設定・実決済・本番D1・main統合・本番デプロイはこの追補でも未完了。
+
 全収集データの正確性・永久無障害・全プロジェクトへの適用完了を保証する文書ではない。別プロジェクトへの導入は [PROJECT_STARTER.md](architecture/PROJECT_STARTER.md) から行う。
+
+## 2026-09-12 再検証追補
+
+- 実ブラウザで `http://127.0.0.1:3101/?entity=ent_photoai` を開き、Photo AIの社名、未確認の財務表示、Evidence、ツール、メモ欄を確認。J/Kを入力しても選択企業は変わらず、J/K案内は表示されない。
+- APIのJSON・署名付きテキスト本文を上限付きreaderへ統一し、直接の`request.json()` / `request.text()`を検査で禁止。未知フィールド、chunked本文、Stripe webhook本文の上限をテスト。
+- `pnpm audit --prod` は既知脆弱性0。AJVを8.18.0へ更新し、Workers経由のsharpを0.35.4へ固定。
+- 更新後の検査は Vitest257、Foundation11、architecture6、Python6、E2E25 が全て成功。Build、Workers配布物の秘密値スキャン、Wrangler dry-runも成功。
+- E2EはR2資格情報を渡さないローカルfallbackであり、実R2全件のユーザー導線を証明しない。実Workerの本番デプロイ、Stripe本番往復、main統合は未実施。

@@ -58,14 +58,6 @@ function Badge({
   return <span className={`inline-flex items-center rounded border px-1.5 py-0.5 text-[9px] font-mono ${classes}`}>{children}</span>;
 }
 
-function statusTone(status?: string): 'cyan' | 'emerald' | 'amber' | 'red' | 'zinc' {
-  if (status === 'SUPPORTED') return 'emerald';
-  if (status === 'CONFLICTED') return 'red';
-  if (status === 'UNVERIFIED') return 'amber';
-  if (status === 'ANALYSIS') return 'cyan';
-  return 'zinc';
-}
-
 function caseLevelBadge(level: string) {
   switch (level) {
     case 'FULL_DOSSIER':

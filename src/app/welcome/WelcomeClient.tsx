@@ -4,14 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight,
-  ShieldAlert,
-  TrendingUp,
-  Cpu,
-  Layers,
-  CheckCircle2,
-  ExternalLink,
-  ChevronRight,
-  Database,
   Lock,
   Compass,
   Scale,

@@ -3,7 +3,6 @@
 import React from 'react';
 import { 
   Database, 
-  Layers, 
   TrendingUp,
   Bookmark, 
   Activity,

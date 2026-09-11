@@ -4,8 +4,10 @@ import { getRuntimeEnvValue } from "@/lib/runtime/cloudflare";
 import { assertPaymentStoreAvailable } from "@/lib/payments/entitlement";
 import { FOUNDING_PASS } from "@/lib/payments/founding-pass";
 import { verifyFirebaseIdToken } from "@/lib/firebase/server";
+import { readJsonBody, RequestBodyTooLargeError } from "@/lib/api/input";
 
 export const dynamic = "force-dynamic";
+const MAX_CHECKOUT_REQUEST_BYTES = 32 * 1024;
 
 export async function POST(request: Request) {
   try {
@@ -26,9 +28,14 @@ export async function POST(request: Request) {
     try { await assertPaymentStoreAvailable(); }
     catch { return NextResponse.json({ error: "会員情報を保存できないため購入を開始できません" }, { status: 503 }); }
 
-    const body = await request.json().catch(() => ({}));
+    let body: unknown;
+    try { body = await readJsonBody(request, MAX_CHECKOUT_REQUEST_BYTES); }
+    catch (error) {
+      if (error instanceof RequestBodyTooLargeError) return NextResponse.json({ error: "Checkout request is too large" }, { status: 413 });
+      return NextResponse.json({ error: "Invalid checkout request" }, { status: 400 });
+    }
 
-    if (body?.product !== FOUNDING_PASS.id) {
+    if (!body || typeof body !== "object" || Array.isArray(body) || (body as Record<string, unknown>).product !== FOUNDING_PASS.id) {
       return NextResponse.json({ error: "Unknown product" }, { status: 400 });
     }
 

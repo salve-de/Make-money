@@ -191,7 +191,11 @@ async function main() {
   const plan = {
     schema_version: 'planned-writes.v1', run_id: `${text(bundle.run_id) || 'run_unknown'}.journal`,
     write_authorized: mode === 'ingest',
-    objects: objects.map(({ body, ...x }) => x),
+    objects: objects.map((object) => {
+      const metadata = { ...object };
+      delete metadata.body;
+      return metadata;
+    }),
     forbidden_operations: ['CopyObject','DeleteObject','Move','Rename','Overwrite','LegacyUniversalMutation']
   };
   if (!validatePlan(plan)) throw new Error(JSON.stringify(validatePlan.errors));

@@ -13,7 +13,6 @@ import {
   cleanIntelligenceText,
   cleanMetricLabel,
   formatHumanMoney,
-  cleanMoneyLabel,
 } from './text-cleaner';
 
 export type DossierCaseLevel = 'FULL_DOSSIER' | 'FOCUSED_CASE' | 'SIGNAL' | 'RELATED_ENTITY';

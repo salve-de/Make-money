@@ -24,3 +24,8 @@ test('source-less claim is accepted only without a supported label', () => {
   b.claims[0].verification_status = 'SUPPORTED';
   assert.throws(() => validateResearchBundle(b), /SUPPORTED/);
 });
+test('rejects oversized nested bundle values before planning writes', () => {
+  const b = sample();
+  b.subject.query = 'x'.repeat(256_001);
+  assert.throws(() => validateResearchBundle(b), /exceeds 256000/);
+});

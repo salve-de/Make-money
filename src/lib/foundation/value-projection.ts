@@ -13,7 +13,6 @@ import {
   cleanIntelligenceText,
   cleanMetricLabel,
   formatHumanMoney,
-  cleanMoneyLabel,
 } from './text-cleaner';
 
 /**

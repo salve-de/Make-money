@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { CompanyRecord } from '../../types/terminal';
-import { Copy, Check, Lock, ShieldAlert, Zap, Target, Key, Terminal as TerminalIcon } from 'lucide-react';
+import { Copy, Check, Lock, Zap, Target, Key, Terminal as TerminalIcon } from 'lucide-react';
 
 interface PlaybookInspectorProps {
   company: CompanyRecord;

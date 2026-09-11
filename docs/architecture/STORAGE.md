@@ -10,7 +10,7 @@
 
 ユーザーの明示承認によりFirebaseプロジェクト `make-money-salve-prod`（Make-Money Production、project number `58988611995`）とWebアプリ `1:58988611995:web:8e69e3432164586d3ab93e` を新規作成した。既存Investraderの認証環境は変更していない。課金設定は追加していない。
 
-2026-09-12: 表示承認後にFirebase Authenticationを初期化し、メール・パスワード認証を有効化。認証設定APIでも `enabled: true` / `passwordRequired: true` を読み戻した。Spark無料プランを維持。専用SDK設定をGit管理対象外の `.env.local` に接続し、設定値はGit/R2本文へ保存しない。許可ドメインは `localhost` と専用Firebaseの標準ドメイン2件。Googleログインは公開するサポートメールが未指定のため未完了。
+2026-09-12: 表示承認後にFirebase Authenticationを初期化し、メール・パスワード認証とGoogleログインを有効化。認証設定APIでもメール認証の `enabled: true` / `passwordRequired: true` と許可ドメインを読み戻し、コンソールでGoogleのステータス有効を確認した。Google設定には専用プロジェクトのサポートメールを指定。Spark無料プランを維持。専用SDK設定をGit管理対象外の `.env.local` に接続し、設定値はGit/R2本文へ保存しない。許可ドメインは `localhost` と専用Firebaseの標準ドメイン2件。Workerの実行時検証は`wrangler.jsonc`の非秘密変数`FIREBASE_PROJECT_ID`を優先し、Nodeの明示実行だけ`NEXT_PUBLIC_FIREBASE_PROJECT_ID`へフォールバックする。
 
 実Firebaseで使い捨てアカウント2件を登録・メールログインし、ビルド済みOpenNext Workerから隔離したローカルD1へメモを保存・読み戻した。未認証・不正トークンの401、別ユーザーから対象メモが見えないことを確認。検証後に作成アカウント2件を削除した。本番D1は変更していない。この証拠は実認証とWorker/D1経路の結合検証であり、本番D1への切替・実利用者の移行・Googleログイン・Stripe決済の本番検証を意味しない。詳細は[認証・保存の検証記録](AUTH_VERIFICATION.md)。
 
@@ -28,6 +28,10 @@
 | 表示用の企業一覧・詳細 | 上記正本からのprojection | 読み取り時の変換、公開DTO | UI都合で第二の正本を作らない |
 | 秘密鍵・APIトークン | ホストのsecret管理 | 環境ごとのsecret注入 | Git、R2本文、ブラウザへ入れない |
 | 一時キャッシュ | 再生成可能なキャッシュ | 消えても正本から再作成 | 権利やユーザー記録の正本にしない |
+
+Workersの配布物は `pnpm workers:build`（`bundle:workers`、`deploy:workers`、`upload:workers`から利用）を入口にする。このビルドはdotenvから公開設定だけを一時的に取り出し、秘密鍵・APIトークンをビルドへ渡さず、生成された `.open-next` を秘密値で照合する。Stripe/Gemini/R2/D1の秘密はCloudflare Worker secretまたは対象ホストのsecret管理へ実行時に注入する。直接 `opennextjs-cloudflare build` を本番配布手順に使わない。
+
+APIのリクエスト本文は`readJsonBody` / `readTextBody`でバイト上限を適用し、`Content-Length`がないchunked本文も上限を超えた時点で拒否する。routeへ直接`request.json()`や`request.text()`を追加するとarchitecture検査で失敗する。外部JSONは上限後にschema検証し、決済署名本文も検証前に上限を適用する。
 
 R2は強整合でも、複数レコードをまとめたSQL transactionの代わりではありません。複数の更新を一緒に成功させる必要があるデータはD1へ置きます。[Cloudflareの保存先選択](https://developers.cloudflare.com/use-cases/web-apps/store-data/)、[R2整合性](https://developers.cloudflare.com/r2/reference/consistency/)、[D1 batch](https://developers.cloudflare.com/d1/worker-api/d1-database/)を参照。
 
@@ -62,7 +66,7 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 
 ## 複数プロジェクト・環境
 
-各プロジェクトのrepoにこの契約を持たせ、project IDとenvironmentを固定します。原則、D1、アプリ非公開R2、secret、migration履歴、バックアップはプロジェクト別・環境別です。開発環境から本番へ暗黙fallbackしません。認証も別プロジェクトを既定とし、共有するならissuer/audience・利用者の関連付けを明示します。
+各プロジェクトのrepoにこの契約を持たせ、project IDとenvironmentを固定します。原則、D1、アプリ非公開R2、secret、migration履歴、バックアップはプロジェクト別・環境別です。開発環境から本番へ暗黙fallbackしません。認証も別プロジェクトを既定とし、共有するならissuer/audience・利用者の関連付けを明示します。Workerのデプロイ入口は専用Firebaseの公開設定が揃わない場合に失敗させます。ローカル表示用の未設定ビルドを許しても、認証なしの配布物を成功扱いにしません。
 
 名前の例は `<project>-<environment>-app`（D1）、`<project>-<environment>-private`（R2）。例は作成済みリソースではありません。実際のID/bindingは各repoの`wrangler.jsonc`が正本です。メールアドレスや個人情報をobject keyに含めず、不透明IDを使います。
 
@@ -80,6 +84,8 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 - 個人情報は永久保持しない。保持期間・削除依頼・バックアップからの削除反映方針をデータ種別ごとに決める。
 
 D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。復元手順と合成データによる自動演習は [RECOVERY.md](RECOVERY.md) に記載します。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
+
+アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、`users` 行をD1の一括処理で削除する。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
 
 ## 検証と変更の記録
 

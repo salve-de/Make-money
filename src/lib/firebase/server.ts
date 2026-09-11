@@ -1,4 +1,5 @@
 import { createRemoteJWKSet, jwtVerify } from "jose";
+import { getCloudflareRuntimeEnv, getRuntimeEnvValue } from "@/lib/runtime/cloudflare";
 
 // Google Firebase Auth 公開JWKSエンドポイント
 const FIREBASE_JWKS_URL = new URL(
@@ -22,8 +23,14 @@ export interface VerifiedFirebaseToken {
 export async function verifyFirebaseIdToken(
   idToken: string
 ): Promise<VerifiedFirebaseToken | null> {
-  const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
-  if (!projectId || !idToken) return null;
+  // A live Worker context is authoritative. Never fall back to a public
+  // build-time value when the Worker binding is missing, or tokens from a
+  // different Firebase project could be accepted after a deployment mistake.
+  const runtimeEnv = await getCloudflareRuntimeEnv();
+  const projectId = runtimeEnv
+    ? (typeof runtimeEnv.FIREBASE_PROJECT_ID === 'string' ? runtimeEnv.FIREBASE_PROJECT_ID.trim() : undefined)
+    : await getRuntimeEnvValue("FIREBASE_PROJECT_ID") || await getRuntimeEnvValue("NEXT_PUBLIC_FIREBASE_PROJECT_ID");
+  if (!projectId || !idToken || idToken.length > 16_384) return null;
 
   try {
     const { payload } = await jwtVerify(idToken, jwks, {
@@ -31,7 +38,7 @@ export async function verifyFirebaseIdToken(
       audience: projectId,
     });
 
-    if (!payload.sub) return null;
+    if (typeof payload.sub !== 'string' || payload.sub.length === 0 || payload.sub.length > 128) return null;
 
     return {
       uid: payload.sub,

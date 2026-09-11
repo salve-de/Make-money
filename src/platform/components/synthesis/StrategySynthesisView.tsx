@@ -14,7 +14,6 @@ import {
   FileText,
   Activity,
   Cpu,
-  Bookmark,
   Globe,
   ExternalLink,
   Sparkles
@@ -497,7 +496,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                     </button>
                   </div>
 
-                  {synthesizedIdeas.map((idea, idx) => (
+                  {synthesizedIdeas.map((idea) => (
                     <div
                       key={idea.id}
                       className="bg-[#090A0E] border border-white/[0.08] rounded p-5 space-y-4 shadow-xl"

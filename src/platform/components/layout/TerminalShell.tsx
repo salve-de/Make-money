@@ -11,9 +11,6 @@ import { TerminalSidebar } from '../navigation/TerminalSidebar';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '@/features/company-inspector';
-import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
-import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView';
-import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { PlaybookIntelligenceView } from '../playbook/PlaybookIntelligenceView';
@@ -67,9 +64,6 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   // 2. Foundation Lake (R2) から取得したグローバル企業サマリー
   const [dataSource, setDataSource] = useState('取得状態を確認中');
   const [foundationRows, setFoundationRows] = useState<FoundationValueSummary[]>([]);
-  const [foundationCursor, setFoundationCursor] = useState<string | null>(null);
-  const [foundationHasMore, setFoundationHasMore] = useState(false);
-  const [foundationLoading, setFoundationLoading] = useState(false);
   const foundationLoadingRef = useRef(false);
 
   // 3. 詳細フェッチ済みエンティティのキャッシュマップ (R2詳細 ➔ FinancialEntity)
@@ -136,7 +130,6 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const loadFoundationPage = useCallback(async (cursor?: string, signal?: AbortSignal): Promise<FoundationValuePage | null> => {
     if (cursor && foundationLoadingRef.current) return null;
     foundationLoadingRef.current = true;
-    setFoundationLoading(true);
     try {
       const params = new URLSearchParams({ limit: '100' });
       if (cursor) params.set('cursor', cursor);
@@ -146,14 +139,11 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       setDataSource(page ? '保存済み台帳 + 外部取得データ' : '保存済み台帳（外部取得なし）');
       if (page) {
         mergeFoundationRows(page.data, !cursor);
-        setFoundationCursor(page.nextCursor);
-        setFoundationHasMore(page.hasMore);
         return page;
       }
       return null;
     } finally {
       foundationLoadingRef.current = false;
-      setFoundationLoading(false);
     }
   }, [mergeFoundationRows]);
 
@@ -245,7 +235,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         setSelectedEntityId(matched.id);
       }
     }
-  }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam, entities]);
+  }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam, entities, entityAliases]);
 
   // 閲覧履歴の自動追跡（開いた銘柄を蓄積）
   useEffect(() => {
@@ -257,8 +247,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const { isPro: authIsPro, token } = useAuth();
   const isProUnlocked = authIsPro;
 
-  const [currency, setCurrency] = useState<'JPY' | 'USD'>('JPY');
-  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
+  const [currency] = useState<'JPY' | 'USD'>('JPY');
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState<boolean>(false);
   const [isScreenerOpen, setIsScreenerOpen] = useState<boolean>(false);
   const [isProModalOpen, setIsProModalOpen] = useState<boolean>(false);
@@ -312,7 +301,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   }, [activeDossier, entities]);
 
   // 全タグ一覧および件数集計
-  const { availableTags, tagCounts } = useMemo(() => {
+  const { availableTags } = useMemo(() => {
     const counts: Record<string, number> = {};
     entities.forEach((e) => {
       (e.tags || []).forEach((t) => {
@@ -320,7 +309,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       });
     });
     const tags = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
-    return { availableTags: tags, tagCounts: counts };
+    return { availableTags: tags };
   }, [entities]);
 
   // 全台帳モードでのフィルタリング
@@ -573,4 +562,3 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     </div>
   );
 };
-

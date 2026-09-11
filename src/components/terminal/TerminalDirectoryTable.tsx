@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import { CompanyRecord, ScaleTier, TerminalFilterState } from '../../types/terminal';
+import { CompanyRecord } from '../../types/terminal';
 import { CompanyLogo } from './CompanyLogo';
 import { SparklineChart } from './SparklineChart';
 import { 
@@ -9,12 +9,6 @@ import {
   Search, 
   ArrowUpDown, 
   ChevronRight, 
-  Bookmark, 
-  Check, 
-  ShieldCheck, 
-  ExternalLink,
-  Zap,
-  TrendingUp,
   RotateCcw
 } from 'lucide-react';
 
@@ -36,7 +30,6 @@ export const TerminalDirectoryTable: React.FC<TerminalDirectoryTableProps> = ({
   onSelectCompany,
   onOpenScreener,
   bookmarkedIds,
-  onToggleBookmark
 }) => {
   const [activeFacet, setActiveFacet] = useState<QuickFacet>('ALL');
   const [searchQuery, setSearchQuery] = useState('');

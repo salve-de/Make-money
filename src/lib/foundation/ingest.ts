@@ -81,6 +81,12 @@ const RAW_STORAGE_STATUSES = new Set([
   'not_attempted',
   'planned',
 ]);
+const MAX_BUNDLE_STRING_CHARS = 256_000;
+const MAX_BUNDLE_ARRAY_ITEMS = 10_000;
+const MAX_BUNDLE_OBJECT_PROPERTIES = 256;
+const MAX_BUNDLE_NODES = 100_000;
+const MAX_RAW_EVIDENCE_ITEMS = 256;
+const MAX_RAW_BASE64_CHARS = Math.ceil((MAX_RAW_BYTES * 4) / 3) + 4;
 
 export interface ResearchBundle extends JsonObject {
   schema_version: 'research-bundle.v1';
@@ -244,6 +250,33 @@ interface PlannedFoundationObject {
 
 function isObject(value: unknown): value is JsonObject {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function validatePayloadBounds(value: unknown, path: string, issues: string[], state = { nodes: 0 }, depth = 0): void {
+  if (issues.length >= 20) return;
+  state.nodes += 1;
+  if (state.nodes > MAX_BUNDLE_NODES) {
+    issues.push(`bundle contains more than ${MAX_BUNDLE_NODES} values`);
+    return;
+  }
+  if (typeof value === 'string') {
+    if (value.length > MAX_BUNDLE_STRING_CHARS) issues.push(`${path} exceeds ${MAX_BUNDLE_STRING_CHARS} characters`);
+    return;
+  }
+  if (depth > 12) {
+    issues.push(`${path} is nested too deeply`);
+    return;
+  }
+  if (Array.isArray(value)) {
+    if (value.length > MAX_BUNDLE_ARRAY_ITEMS) issues.push(`${path} contains more than ${MAX_BUNDLE_ARRAY_ITEMS} items`);
+    value.slice(0, MAX_BUNDLE_ARRAY_ITEMS).forEach((item, index) => validatePayloadBounds(item, `${path}[${index}]`, issues, state, depth + 1));
+    return;
+  }
+  if (isObject(value)) {
+    const entries = Object.entries(value);
+    if (entries.length > MAX_BUNDLE_OBJECT_PROPERTIES) issues.push(`${path} contains more than ${MAX_BUNDLE_OBJECT_PROPERTIES} properties`);
+    entries.slice(0, MAX_BUNDLE_OBJECT_PROPERTIES).forEach(([key, item]) => validatePayloadBounds(item, `${path}.${key}`, issues, state, depth + 1));
+  }
 }
 
 function getString(value: JsonObject, key: string): string | null {
@@ -583,6 +616,7 @@ export function validateResearchBundle(input: unknown): ResearchBundle {
   if (!isObject(input)) {
     throw new FoundationBundleValidationError(['bundle must be a JSON object']);
   }
+  validatePayloadBounds(input, 'bundle', issues);
 
   if (input.schema_version !== 'research-bundle.v1') {
     issues.push('schema_version must be research-bundle.v1');
@@ -697,6 +731,9 @@ function parseRawEvidence(input: unknown, bundle: ResearchBundle): RawEvidenceIn
   if (!Array.isArray(input) || input.some((item) => !isObject(item))) {
     throw new FoundationBundleValidationError(['raw_evidence must be an array of objects']);
   }
+  if (input.length > MAX_RAW_EVIDENCE_ITEMS) {
+    throw new FoundationBundleValidationError([`raw_evidence may contain at most ${MAX_RAW_EVIDENCE_ITEMS} items`]);
+  }
 
   const evidenceIds = new Set(
     bundle.evidence.map((item) => getString(item, 'evidence_id')).filter((value): value is string => Boolean(value))
@@ -732,6 +769,9 @@ function parseRawEvidence(input: unknown, bundle: ResearchBundle): RawEvidenceIn
     }
     if (!bodyBase64) {
       throw new FoundationBundleValidationError([`raw_evidence[${index}].body_base64 is required`]);
+    }
+    if (bodyBase64.length > MAX_RAW_BASE64_CHARS) {
+      throw new FoundationBundleValidationError([`raw_evidence[${index}].body_base64 exceeds the raw evidence size limit`]);
     }
     if (!contentType || !extension || !/^[a-z0-9]+$/.test(extension)) {
       throw new FoundationBundleValidationError([`raw_evidence[${index}] content type or extension is invalid`]);

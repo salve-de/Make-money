@@ -1,5 +1,3 @@
-import { CompanyRecord } from '../types/terminal';
-
 export interface DossierData {
   id: string;
   badge: string;

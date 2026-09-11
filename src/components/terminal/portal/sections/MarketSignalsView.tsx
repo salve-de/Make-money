@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { PORTAL_SIGNALS, SignalDetailItem } from '@/data/portalSignals';
+import { PORTAL_SIGNALS } from '@/data/portalSignals';
 import { CompanyRecord } from '@/types/terminal';
 import { CompanyLogo } from '@/components/terminal/CompanyLogo';
 import { SparklineChart } from '@/components/terminal/SparklineChart';

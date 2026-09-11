@@ -1,12 +1,14 @@
-import type { UserProfilePayload } from '@/shared/strategy';
 import { parseStrategyRequest, parseSynthesizedIdeas } from '@/shared/strategy-schema';
 import { NextRequest, NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import { SynthesizedIdea, StrategyChatMessage } from '@/platform/types/terminal';
 import { queryD1, executeD1, batchD1 } from '@/lib/storage/d1';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
+import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
+import { getRuntimeEnvValue } from '@/lib/runtime/cloudflare';
 
 export const dynamic = 'force-dynamic';
+const MAX_STRATEGY_REQUEST_BYTES = 1 * 1024 * 1024;
 
 // =========================================================================
 // 内蔵アナリスト推論エンジン（Fallback Analyst Engine）
@@ -14,8 +16,7 @@ export const dynamic = 'force-dynamic';
 // =========================================================================
 function generateFallbackSynthesis(
   selectedEntityIds: string[],
-  notes: Record<string, { content: string; updatedAt: string }>,
-  userProfile?: UserProfilePayload
+  notes: Record<string, { content: string; updatedAt: string }>
 ): SynthesizedIdea[] {
   const chosenEntities = INSTITUTIONAL_ENTITIES.filter((e) =>
     selectedEntityIds.includes(e.id)
@@ -113,12 +114,10 @@ function generateFallbackSynthesis(
 function generateFallbackChatResponse(
   userQuery: string,
   contextEntityId?: string,
-  notes?: Record<string, { content: string; updatedAt: string }>,
-  userProfile?: UserProfilePayload
+  notes?: Record<string, { content: string; updatedAt: string }>
 ): { content: string; suggestedActionPrompts: string[] } {
   const entity = findInstitutionalEntity(contextEntityId || '') || INSTITUTIONAL_ENTITIES[0];
   const userNote = contextEntityId && notes ? notes[contextEntityId]?.content : '';
-  const profileHint = userProfile?.profileSummary ? `\n\n【あなたの関心傾向】: ${userProfile.profileSummary}` : '';
 
   const q = userQuery.toLowerCase();
 
@@ -262,13 +261,17 @@ async function persistMessage(userId: string | null, conversationId: string | un
 export async function POST(req: NextRequest) {
   try {
     let body;
-    try { body = parseStrategyRequest(await req.json()); }
-    catch { return NextResponse.json({ error: 'Invalid strategy request' }, { status: 400 }); }
+    try { body = parseStrategyRequest(await readJsonBody(req, MAX_STRATEGY_REQUEST_BYTES)); }
+    catch (error) {
+      if (error instanceof RequestBodyTooLargeError) return NextResponse.json({ error: 'Request body is too large' }, { status: 413 });
+      return NextResponse.json({ error: 'Invalid strategy request' }, { status: 400 });
+    }
     const auth = req.headers.get('authorization');
     const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
     if (auth && !user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     const userId = user?.uid ?? null;
-    const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+    const apiKey = await getRuntimeEnvValue('GEMINI_API_KEY') || await getRuntimeEnvValue('GOOGLE_GENERATIVE_AI_API_KEY');
+    if (apiKey && !user) return NextResponse.json({ error: 'Authentication is required for AI analysis' }, { status: 401 });
 
     // 1. アイデア合成リクエスト (SYNTHESIZE)
     if (body.action === 'SYNTHESIZE') {
@@ -330,7 +333,7 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
       }
 
       // フォールバック推論エンジン
-      const ideas = generateFallbackSynthesis(selectedEntityIds, notes, payload.userProfile);
+      const ideas = generateFallbackSynthesis(selectedEntityIds, notes);
       return NextResponse.json({ success: true, ideas, engine: 'fallback_internal', persisted: await persistIdeas(userId, ideas) });
     }
 
@@ -424,7 +427,7 @@ ${messages.map(m => `${m.role}: ${m.content}`).join('\n')}
       }
 
       // フォールバック推論エンジン
-      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId, notes, payload.userProfile);
+      const { content, suggestedActionPrompts } = generateFallbackChatResponse(lastUserMessage, contextEntityId, notes);
       const assistantMsg: StrategyChatMessage = {
         id: `msg_${Date.now()}`,
         role: 'assistant',

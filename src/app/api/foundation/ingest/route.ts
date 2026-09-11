@@ -12,6 +12,7 @@ import {
   R2ConfigurationError,
   R2ObjectConflictError,
 } from '@/lib/storage/r2';
+import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -50,15 +51,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
-  const contentLength = Number(request.headers.get('content-length') || 0);
-  if (contentLength > MAX_REQUEST_BYTES) {
-    return NextResponse.json({ error: 'Request body is too large' }, { status: 413 });
-  }
-
   let body: FoundationIngestRequest;
   try {
-    body = await request.json();
-  } catch {
+    body = await readJsonBody(request, MAX_REQUEST_BYTES) as FoundationIngestRequest;
+  } catch (error) {
+    if (error instanceof RequestBodyTooLargeError) {
+      return NextResponse.json({ error: 'Request body is too large' }, { status: 413 });
+    }
     return NextResponse.json({ error: "Invalid JSON request body" }, { status: 400 });
   }
 

@@ -1,7 +1,7 @@
 import { afterEach, expect, it, vi } from 'vitest';
 const state = vi.hoisted(() => ({ env: {} as Record<string, unknown> }));
 vi.mock('../runtime/cloudflare', () => ({ getCloudflareRuntimeEnv: async () => state.env, getRuntimeEnvValue: async (key: string) => state.env[key] }));
-import { readR2Object } from './r2';
+import { getFoundationBucketAsync, readR2Object } from './r2';
 afterEach(() => { state.env = {}; });
 it('resolves the private bucket name from Worker vars instead of a hardcoded former bucket', async () => {
   const get = vi.fn(async () => ({ arrayBuffer: async () => new TextEncoder().encode('private object').buffer }));
@@ -9,4 +9,9 @@ it('resolves the private bucket name from Worker vars instead of a hardcoded for
   const object = await readR2Object('make-money-production-private', 'attachments/example');
   expect(new TextDecoder().decode(object!.body)).toBe('private object');
   expect(get).toHaveBeenCalledOnce();
+});
+
+it('resolves a custom Foundation bucket from the request runtime binding', async () => {
+  state.env = { FOUNDATION_R2_LAKE_BUCKET: 'custom-foundation-lake' };
+  await expect(getFoundationBucketAsync('lake')).resolves.toBe('custom-foundation-lake');
 });

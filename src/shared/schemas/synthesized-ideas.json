@@ -59,7 +59,8 @@
               "name",
               "monthlyCostJpy",
               "purpose"
-            ]
+            ],
+            "additionalProperties": false
           }
         },
         "first100TractionPlaybook": {
@@ -91,7 +92,8 @@
         "first100TractionPlaybook",
         "sourceEntityIds",
         "userNoteInspiration"
-      ]
+      ],
+      "additionalProperties": false
     }
   }
 }

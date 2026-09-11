@@ -15,7 +15,8 @@
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "maxItems": 50
             },
             "notes": {
               "type": "object",
@@ -23,17 +24,21 @@
                 "type": "object",
                 "properties": {
                   "content": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 8000
                   },
                   "updatedAt": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 64
                   }
                 },
                 "required": [
                   "content",
                   "updatedAt"
-                ]
-              }
+                ],
+                "additionalProperties": false
+              },
+              "maxProperties": 50
             },
             "userProfile": {
               "$ref": "#/definitions/UserProfilePayload"
@@ -43,7 +48,8 @@
             "action",
             "selectedEntityIds",
             "notes"
-          ]
+          ],
+          "additionalProperties": false
         },
         {
           "type": "object",
@@ -53,7 +59,8 @@
               "const": "CHAT"
             },
             "conversationId": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 128
             },
             "messages": {
               "type": "array",
@@ -68,23 +75,28 @@
                     ]
                   },
                   "content": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 8000
                   }
                 },
                 "required": [
                   "role",
                   "content"
-                ]
-              }
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 50
             },
             "contextEntityId": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 128
             },
             "synthesizedIdeas": {
               "type": "array",
               "items": {
                 "$ref": "#/definitions/SynthesizedIdea"
-              }
+              },
+              "maxItems": 20
             },
             "notes": {
               "type": "object",
@@ -92,17 +104,21 @@
                 "type": "object",
                 "properties": {
                   "content": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 8000
                   },
                   "updatedAt": {
-                    "type": "string"
+                    "type": "string",
+                    "maxLength": 64
                   }
                 },
                 "required": [
                   "content",
                   "updatedAt"
-                ]
-              }
+                ],
+                "additionalProperties": false
+              },
+              "maxProperties": 50
             },
             "userProfile": {
               "$ref": "#/definitions/UserProfilePayload"
@@ -111,7 +127,8 @@
           "required": [
             "action",
             "messages"
-          ]
+          ],
+          "additionalProperties": false
         }
       ]
     },
@@ -119,42 +136,54 @@
       "type": "object",
       "properties": {
         "bookmarkedCount": {
-          "type": "number"
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000
         },
         "viewedCount": {
-          "type": "number"
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100000
         },
         "preferredSectors": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "maxItems": 20
         },
         "preferredScales": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "maxItems": 20
         },
         "averageProfitMargin": {
-          "type": "number"
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
         },
         "topTools": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "maxItems": 50
         },
         "topMoats": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "maxItems": 50
         },
         "profileSummary": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 2000
         }
-      }
+      },
+      "additionalProperties": false
     },
     "SynthesizedIdea": {
       "type": "object",
@@ -207,7 +236,8 @@
               "name",
               "monthlyCostJpy",
               "purpose"
-            ]
+            ],
+            "additionalProperties": false
           }
         },
         "first100TractionPlaybook": {
@@ -239,7 +269,8 @@
         "first100TractionPlaybook",
         "sourceEntityIds",
         "userNoteInspiration"
-      ]
+      ],
+      "additionalProperties": false
     }
   }
 }

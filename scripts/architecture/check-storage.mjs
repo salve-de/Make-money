@@ -18,6 +18,17 @@ export function checkStorageImports(file, text) {
   return errors;
 }
 
+export function checkStoragePackages(packageJson) {
+  const errors = [];
+  const dependencies = { ...(packageJson.dependencies || {}), ...(packageJson.devDependencies || {}), ...(packageJson.optionalDependencies || {}) };
+  for (const name of Object.keys(dependencies)) {
+    if (name.includes('@neondatabase/') || name === 'neon' || name.startsWith('drizzle-orm/neon')) {
+      errors.push(`package.json: obsolete Neon dependency ${name}`);
+    }
+  }
+  return errors;
+}
+
 export function checkStorageResources(config) {
   const errors = [];
   const project = String(config.name || '').replace(/-app$/, '');
@@ -27,6 +38,9 @@ export function checkStorageResources(config) {
   for (const [environment, entry] of environments) {
     const stage = entry.vars?.ENVIRONMENT || environment;
     if (environment !== 'production' && stage === 'production') errors.push(`${environment}: non-production environment cannot declare production`);
+    if (project === 'make-money' && environment === 'production' && entry.vars?.FIREBASE_PROJECT_ID !== 'make-money-salve-prod') {
+      errors.push('production: FIREBASE_PROJECT_ID must point to the dedicated Make-Money Firebase project');
+    }
     for (const [kind, binding, nameField, idField] of [
       ['d1_databases', 'APP_DB', 'database_name', 'database_id'],
       ['r2_buckets', 'APP_R2', 'bucket_name', 'bucket_name'],
@@ -63,6 +77,8 @@ export function checkMigrationOrder(files) {
 
 export function checkStorage() {
   const errors = [];
+  const packageJson = JSON.parse(readFileSync(path.join(root, 'package.json'), 'utf8'));
+  errors.push(...checkStoragePackages(packageJson));
   const config = ts.parseConfigFileTextToJson('wrangler.jsonc', readFileSync(path.join(root, 'wrangler.jsonc'), 'utf8'));
   if (config.error) errors.push('Wrangler JSON could not be parsed');
   else errors.push(...checkStorageResources(config.config));

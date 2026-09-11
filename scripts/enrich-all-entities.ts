@@ -258,7 +258,7 @@ async function main() {
         const parsed = JSON.parse(rawJson);
         const entityId = parsed.entity_id || parsed.id || parsed.canonicalIdentifier;
         return enrichEntity(parsed, existingMap.get(entityId));
-      } catch (err) {
+      } catch {
         return null;
       }
     });
