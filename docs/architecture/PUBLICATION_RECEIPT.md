@@ -95,3 +95,12 @@
 - SHA-256: `a1bede98fa4319592f34d6054f0f39d333eb4efb27af865664d789ce9f7069c3`
 - 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
 - 制限: GitHubへのpush、main統合、本番Workerデプロイ、本番D1への0004/0005適用、Neon実データ移行、production restoreは未実施・未検証。これらをこのレシートから完了扱いにしない。
+
+## 2026-09-12 pnpm案内統一の追補
+
+文書コミット `02087f7aea22ac57981cd04c1b5bb281c9012b55` で、AI向け入口文書の実行例をリポジトリ標準のpnpmへ統一した。コード検証は直前の `5146dfa779c1239909a624ba7b0c13f5405664c3` と同一である。
+
+- R2: `make-money-production-private/architecture/02087f7aea22ac57981cd04c1b5bb281c9012b55/verification-receipt.v1.json`
+- サイズ: 2,032 bytes
+- SHA-256: `0c33286594705e8a06f7b53db8e3bd86ae4239dd70e2f92a2f1577f98bcd1f95`
+- 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
