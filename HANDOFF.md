@@ -22,7 +22,7 @@
 │                              ▼ 【コマンド1発で保存】
 │                              │
 │ ③ 【不滅の金庫（Cloudflare R2: foundation-lake）】          │
-│   npm run foundation:r2 -- <case>.request.json <receipt>.json│
+│   pnpm foundation:r2 -- <case>.request.json <receipt>.json│
 │   （※客観的事実として永久保存。他プロジェクトでも一生使える）│
 │                              │
 │                              ▼ 【自動で画面が点灯】
@@ -66,7 +66,7 @@ AIは調査した結果を `research-bundle.v1` 形式のJSON（`data/collection
 
 ### 実行コマンド
 ```bash
-npm run foundation:r2 -- data/collection/<社名>.request.json data/collection/<社名>.receipt.json
+pnpm foundation:r2 -- data/collection/<社名>.request.json data/collection/<社名>.receipt.json
 ```
 
 ### 入力JSON（`<社名>.request.json`）の最小構成
@@ -131,5 +131,5 @@ Make-Moneyの画面は「全社に同じ項目を埋める会社図鑑」では�
 他のAI（Cursor, Claude, ChatGPT等）に依頼する際は、以下の**1行だけ**を投げればよい。他の説明は一切不要である。
 
 ```text
-HANDOFF.md を読め。それに従って [集めたいカテゴリ・業界] について事例を調査し、npm run foundation:r2 でR2へ保存しろ。
+HANDOFF.md を読め。それに従って [集めたいカテゴリ・業界] について事例を調査し、pnpm foundation:r2 でR2へ保存しろ。
 ```

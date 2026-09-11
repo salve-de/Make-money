@@ -96,7 +96,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - **【最重要・AI自律判断】必要と思った情報は枠外でも何でも記録せよ**:
   - 上記リストは思考の呼び水（チェックボックス）ではない。「これ以外は調べない」「型にないから書かない」はAIの完全失格である。創業者の思想、法規制の穴、業界の悪習、ユーザーの異常な使い方など、**AI自身が「このビジネスの勝因や金儲けの構造を解剖する上で必要・有益だ」と判断したことは、一切限定せずに全て調べ、1文字も捨てずに `observations` および `Universal Journal` へ記録せよ**。
 - **自律保存 ＆ 画面反映**:
-  - `data/collection/<case>.request.json` を生成し、`npm run foundation:r2` でR2へ保存。
+  - `data/collection/<case>.request.json` を生成し、`pnpm foundation:r2` でR2へ保存。
   - 画面の動的ハイライトUIへ直結。
 
 ### 【最高決定版】何を集めるか：キーエンス品質 黄金収集仕様（Golden Ingest Schema）
@@ -271,7 +271,7 @@ AI/調査エージェントが「チェックリストや型枠に囚われて�
 **ユーザーは長文プロンプトを絶対に打たない。**
 ユーザーが「〇〇調べて」と1言言った時、AI自身が内部で以下のプロトコルを自動適用し、外部サブエージェント（Codex等）に委託する場合もAIが自律的にこの指示文を生成して投げよ：
 
-> `salve-de/universal-foundation` の `docs/MAKE_MONEY_AGENT_RUNBOOK.md` および `AGENTS.md` を最高憲法として厳守し、対象ビジネス（[会社名/クエリ]）の資本主義の裏帳簿データを収集・R2保存せよ。優等生病（「利益や手取りが非公開だから取れない」という事なかれ主義）を厳禁とし、公知ファクトを広く収集する。Stripe決済手数料やインフラ相場の逆算は、入力・期間・根拠を明示して再現できる場合だけ `estimated` として算出し、そうでなければ `UNAVAILABLE` / `未確認` のまま保存せよ。さらに4大禁忌データ（初期ゲリラ、大手の自爆、痛みの財布、手残りレントゲン）、5大暗黒パラメータ（寄生宿主、データの監禁、賄賂紹介網、前金総取り、ピボット魚拓）、および時系列・賞味期限インテリジェンス（創業年、データ観測期、時代背景、現在の賞味期限5大判定、今やるとどうなるかの客観データ根拠、主要タイムライン）を完全網羅し、金儲け・事業分析に関わる必要な情報・関連文脈を一切限定せずに全量呑み込んだ `research-bundle.v1` 準拠の `data/collection/<case>.request.json` を生成して `npm run foundation:r2` まで完遂せよ。
+> `salve-de/universal-foundation` の `docs/MAKE_MONEY_AGENT_RUNBOOK.md` および `AGENTS.md` を最高憲法として厳守し、対象ビジネス（[会社名/クエリ]）の資本主義の裏帳簿データを収集・R2保存せよ。優等生病（「利益や手取りが非公開だから取れない」という事なかれ主義）を厳禁とし、公知ファクトを広く収集する。Stripe決済手数料やインフラ相場の逆算は、入力・期間・根拠を明示して再現できる場合だけ `estimated` として算出し、そうでなければ `UNAVAILABLE` / `未確認` のまま保存せよ。さらに4大禁忌データ（初期ゲリラ、大手の自爆、痛みの財布、手残りレントゲン）、5大暗黒パラメータ（寄生宿主、データの監禁、賄賂紹介網、前金総取り、ピボット魚拓）、および時系列・賞味期限インテリジェンス（創業年、データ観測期、時代背景、現在の賞味期限5大判定、今やるとどうなるかの客観データ根拠、主要タイムライン）を完全網羅し、金儲け・事業分析に関わる必要な情報・関連文脈を一切限定せずに全量呑み込んだ `research-bundle.v1` 準拠の `data/collection/<case>.request.json` を生成して `pnpm foundation:r2` まで完遂せよ。
 
 ### 【全網羅収集の6大絶対ルール】
 1. **必要な情報・関連情報の底引き網全量調査（No Closed Allow-List）**:
@@ -320,7 +320,7 @@ AIが「初回調査で完璧に取れないから諦める」「表層のWeb情
 取れた情報だけで1事例のbundleを作り、欠損で収集を止めず、次の入口を使う。詳細は [`docs/R2_FOUNDATION_INGESTION.md`](./docs/R2_FOUNDATION_INGESTION.md) にある。
 
 ```bash
-npm run foundation:r2 -- data/collection/<case>.request.json data/collection/<case>.receipt.json
+pnpm foundation:r2 -- data/collection/<case>.request.json data/collection/<case>.receipt.json
 ```
 
 Macのプロジェクト専用KeychainからR2認証を一時注入する。GitHubに秘密値は置かない。保存は新規作成専用で、既存R2・EDINET・`universal` の上書き・移動・削除は禁止。同じ内容は重複扱い、違う内容は停止する。
