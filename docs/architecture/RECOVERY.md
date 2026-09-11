@@ -99,6 +99,17 @@ R2は元bucketへ上書き復元せず、対象objectのkey・version相当の�
 
 Time Travel復元、実Stripeイベントの再同期、保持期間の自動運用、復旧時間目標の実測は未実施。初期DBはアプリデータ0行のため、本番ユーザーデータを持つDBの復旧実証と混同しない。
 
+## 2026-09-12 本番D1 migration適用と事前保全
+
+本番D1 `make-money-production-app`（ID `07affd4c-cac4-4998-843c-b5881fccab5e`）について、適用前に全アプリテーブルの行数が0であることを読み取り確認した。直前の完全exportを非公開R2へcreate-only保存し、保存直後のGETでbytesとSHA-256を照合した。
+
+- SQL: `backups/d1/2026-09-12-pre-0004-0005/schema.sql`、3,569 bytes、SHA-256 `ef0e120ef1eeb268a5119ff291743a53da0251d805d904f569c59d10cce6ea31`
+- manifest: `backups/d1/2026-09-12-pre-0004-0005/manifest.json`、884 bytes、SHA-256 `0683b09961068e3f33075ea7142f55e8b8d6c5bbac2d6cfb552474a64cc9ddfc`
+- 適用: migration `0004_newsletter_privacy.sql`、`0005_request_rate_limits.sql`を順序どおり適用
+- 読み戻し: `No migrations to apply`、`newsletter_subscribers`の`user_id`・`unsubscribe_token_hash`、所有者index・解除tokenのpartial unique index、`request_rate_limits`表と制約を確認。同表の行数は0。
+
+これは加算migrationの適用と空の本番D1のschema確認であり、利用者データの移行・本番アプリの保存導線・復旧訓練を意味しない。バックアップの保存記録は [PUBLICATION_RECEIPT.md](PUBLICATION_RECEIPT.md) にある。現在の本番migration状態は、実行前の古い記述ではなくこの追補と`wrangler d1 migrations list --remote`の読み取り結果を正本とする。
+
 ## 復元後のexportを機械比較する
 
 ```sh

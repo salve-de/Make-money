@@ -75,6 +75,19 @@
 - SHA-256: `907e43b5bfe1379dbde8a55de70014089c30710b7d7ff5b7acdb6682769953e7`
 - 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
 
+## 2026-09-12 本番D1 migration適用前の保全と読み戻し
+
+本番D1 `make-money-production-app`（ID `07affd4c-cac4-4998-843c-b5881fccab5e`）の0004/0005適用前に、全アプリテーブル0行を確認した完全exportを非公開R2へcreate-only保存した。保存直後のGETで双方のbytesとSHA-256が一致した。
+
+- R2 SQL: `make-money-production-private/backups/d1/2026-09-12-pre-0004-0005/schema.sql`
+- SQL: 3,569 bytes / SHA-256 `ef0e120ef1eeb268a5119ff291743a53da0251d805d904f569c59d10cce6ea31`
+- R2 manifest: `make-money-production-private/backups/d1/2026-09-12-pre-0004-0005/manifest.json`
+- manifest: 884 bytes / SHA-256 `0683b09961068e3f33075ea7142f55e8b8d6c5bbac2d6cfb552474a64cc9ddfc`
+- 適用結果: `0004_newsletter_privacy.sql`、`0005_request_rate_limits.sql`を本番D1へ順序どおり適用。`wrangler d1 migrations list APP_DB --remote`は`No migrations to apply`。
+- schema読み戻し: `newsletter_subscribers.user_id`、`unsubscribe_token_hash`、所有者index、解除tokenのpartial unique index、`request_rate_limits`表と制約を確認。同表は0行。
+
+この記録はschema変更と空DBの適用確認であり、本番Workerデプロイ、実ユーザーデータ移行、本番認証・決済往復、production restoreの完了を意味しない。復旧手順と制限は [RECOVERY.md](RECOVERY.md) を参照する。
+
 ## 2026-09-12 lint警告遮断後の最終レシート
 
 コードコミット `8d06ae0404a62196ed0f42cf2d96cd8fd396fb90` で、lintを`--max-warnings=0`へ固定した。現HEADでlint、typecheck、全Unit/Foundation/Architecture/Recovery、build、Workers bundle、preflight、依存監査、standalone E2E25件を再実行して成功した。

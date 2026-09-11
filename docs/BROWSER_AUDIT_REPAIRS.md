@@ -65,3 +65,9 @@
 - R2優先の重複解決を追加し、Foundation R2に同じentity IDがある場合はローカル旧スナップショットを一覧・詳細の正本にしないよう修正。R2 entity `1440`を実Worker経路で開き、画面のsourceがFoundation R2、Layer3観測が10件、売上は`¥1.3億`、営業利益・営業利益率は`未確認`であることを確認した。
 - Foundation一覧はR2 cursorページングを使い、追加ページを明示的に読み込む。異常cursorはAPIで400となる。R2に存在しないローカル予備はfallbackとして残し、未確認値を0円の実績として描画しない。
 - 検証レシートは非公開R2 `architecture/72c7dc7cfcf65a89159a085c354601a6cebf44ca/verification-receipt.v1.json` に保存済み（2,815 bytes、SHA-256 `7101e4350736c8a9800a86f5b109bc808dbd42566787d22faf08a1d2f2f97821`）。
+
+## 2026-09-12 本番D1 schema適用の追補
+
+前項の「0004/0005は本番D1へ未適用」は適用前の監査時点の記録である。その後、本番D1 `07affd4c-cac4-4998-843c-b5881fccab5e`へ0004/0005を順序どおり適用した。適用前の全アプリテーブル0行を確認し、完全exportを非公開R2へcreate-only保存してbytes・SHA-256を読み戻した。適用後のmigration履歴、ニュースレター列・index、`request_rate_limits`表、同表0行を再取得して確認した。保存物のkey・hashは [PUBLICATION_RECEIPT.md](architecture/PUBLICATION_RECEIPT.md) と [RECOVERY.md](architecture/RECOVERY.md) に記録している。
+
+ブラウザのE2Eは引き続きローカルfallbackまたはローカルWorkerを対象にしており、本番Workerから実ユーザーの保存・読み戻しを証明しない。本番D1が空であるため、実ユーザーを使った本番認可・削除・復旧も未検証である。
