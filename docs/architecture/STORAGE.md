@@ -58,7 +58,7 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 
 1. 正本を一つ決める。誰のデータか、誰が書けるか、削除・保持期間、機密性を決める。
 2. 上の表で保存先と担当コードを選ぶ。不明なデータを汎用JSON置き場へ投げ込まない。
-3. D1はmigration・制約・index、R2はversion付きschema・key規則を定義する。外部JSONはAJV等で検証する。
+3. D1はmigration・制約・index、R2はversion付きschema・key規則を定義する。外部JSONは境界で検証する。Worker実行時は`@cfworker/json-schema`（eval/new Function不要）を使い、AJVはNode専用のschema生成・収集CLIに限定する。
 4. 認証から得たユーザーIDで所有者を限定する。リクエスト内のuser IDを権限の根拠にしない。
 5. 重複、同時更新、途中失敗、削除を設計する。D1とR2を跨ぐ処理はDBにpending/ready等を記録し、再実行・照合で回復できるようにする。両者を一つのtransactionと呼ばない。
 6. 他ユーザーからの拒否、不正schema、重複イベント、途中失敗をテストする。保存後の読み戻しを確認する。

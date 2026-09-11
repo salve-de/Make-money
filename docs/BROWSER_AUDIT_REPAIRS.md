@@ -46,3 +46,10 @@
 - `pnpm audit --prod` は既知脆弱性0。AJVを8.18.0へ更新し、Workers経由のsharpを0.35.4へ固定。
 - 更新後の検査は Vitest257、Foundation11、architecture6、Python6、E2E25 が全て成功。Build、Workers配布物の秘密値スキャン、Wrangler dry-runも成功。
 - E2EはR2資格情報を渡さないローカルfallbackであり、実R2全件のユーザー導線を証明しない。実Workerの本番デプロイ、Stripe本番往復、main統合は未実施。
+
+## 2026-09-12 Worker実行時検証追補
+
+- 先行検査でCloudflare Workerの`eval`/`new Function`禁止により、AJVの実行時compileが一覧・詳細APIを500にする不具合を検出した。
+- アプリ境界のvalidatorを`@cfworker/json-schema`へ置換し、AJVはNode専用のschema生成・収集CLIに限定した。未定義の任意プロパティはJSON相当の検証 view で扱い、`NaN`/`Infinity`はJSON境界へ渡さない。
+- ローカルworkerd（Wrangler preview、Foundation R2 bindingはremote read）で一覧API`200`（`source: foundation_lake`、3件ページ）、実在R2 entityの詳細API`200`（`source: foundation_lake`、claims 5 / metrics 3 / moneySignals 1 / events 1）、企業画面`200`を確認。実ブラウザでもR2 entityの詳細画面を描画した。previewログに5xx・schema compile errorはない。
+- リモートpreview（外部Cloudflare previewへの資材アップロード）は自動審査で拒否されたため未実施。これは本番deployの証明ではない。Workers配布物のsecret scan・Wrangler dry-run・GitHub CIは別途成功している。
