@@ -117,4 +117,4 @@ R2から読み戻した初期SQLを、新規の `make-money-recovery-20260911`�
 
 ## 配布物の検証
 
-D1を使う本番配布物はCloudflare Worker。`pnpm build` の後に `pnpm bundle:workers` を実行し、Next.jsを再ビルドせずWorkerを生成する。この順序をCIの必須buildチェックへ組み込んだ。2026-09-11にOpenNextの完全ビルドでも生成成功を確認した。Worker生成成功はデプロイ・本番認証設定・ユーザー導線の成功を意味しない。
+D1を使う本番配布物はCloudflare Worker。`pnpm build` の後に `pnpm bundle:workers` を実行し、Next.jsを再ビルドせずWorkerを生成する。この順序をCIの必須buildチェックへ組み込んだ。`next.config.ts` は `output: "standalone"` を明示し、クリーン環境でもWorkerが必要とする成果物を生成する。古い `.next/standalone` の残存を成功条件にしない。2026-09-11にOpenNextの完全ビルドでも生成成功を確認した。Worker生成成功はデプロイ・本番認証設定・ユーザー導線の成功を意味しない。
