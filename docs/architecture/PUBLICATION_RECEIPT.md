@@ -85,3 +85,13 @@
 - SHA-256: `f626e6df2ec1696a69fe6f0f1098e8b51dcb96356b78848541ef03c1667b942d`
 - 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
 - 内容: コードコミット、文書コミット、lint/typecheck/unit274/Foundation11/architecture8/Python6/build/workers秘密値スキャン/deploy preflight/audit/E2E25、実WorkerのFoundation R2一覧・詳細・ブラウザ結果、GitHub push未実行と本番未検証の制限。
+
+## 2026-09-12 standalone start統一後の最終レシート
+
+コードコミット `5146dfa779c1239909a624ba7b0c13f5405664c3` で、`pnpm start` もPlaywrightと同じ `scripts/start-standalone.mjs` を起動するよう統一した。再ビルド、Workers build、lint、typecheck、unit/foundation/architecture/recovery、deploy preflight、audit、E2E25件を再実行して成功し、`pnpm start` の起動後にAPI応答を確認した。
+
+- R2: `make-money-production-private/architecture/5146dfa779c1239909a624ba7b0c13f5405664c3/verification-receipt.v1.json`
+- サイズ: 2,020 bytes
+- SHA-256: `a1bede98fa4319592f34d6054f0f39d333eb4efb27af865664d789ce9f7069c3`
+- 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
+- 制限: GitHubへのpush、main統合、本番Workerデプロイ、本番D1への0004/0005適用、Neon実データ移行、production restoreは未実施・未検証。これらをこのレシートから完了扱いにしない。
