@@ -10,7 +10,9 @@
 
 ユーザーの明示承認によりFirebaseプロジェクト `make-money-salve-prod`（Make-Money Production、project number `58988611995`）とWebアプリ `1:58988611995:web:8e69e3432164586d3ab93e` を新規作成した。既存Investraderの認証環境は変更していない。課金設定は追加していない。
 
-Firebase CLIでプロジェクト/Webアプリの作成成功とSDK設定取得を確認。SDK設定値はGit/R2本文へ保存しない。認証設定APIは `CONFIGURATION_NOT_FOUND` を返したため、ログイン可能とは扱わない。Firebaseコンソールの表示はブラウザツールの自動承認審査で拒否され、表示承認待ち。認証方式の有効化、許可ドメイン、アプリ環境変数の接続、実ログイン、D1保存・読み戻し、本番切替は未完了。
+2026-09-12: 表示承認後にFirebase Authenticationを初期化し、メール・パスワード認証を有効化。認証設定APIでも `enabled: true` / `passwordRequired: true` を読み戻した。Spark無料プランを維持。専用SDK設定をGit管理対象外の `.env.local` に接続し、設定値はGit/R2本文へ保存しない。許可ドメインは `localhost` と専用Firebaseの標準ドメイン2件。Googleログインは公開するサポートメールが未指定のため未完了。
+
+実Firebaseで使い捨てアカウント2件を登録・メールログインし、ビルド済みOpenNext Workerから隔離したローカルD1へメモを保存・読み戻した。未認証・不正トークンの401、別ユーザーから対象メモが見えないことを確認。検証後に作成アカウント2件を削除した。本番D1は変更していない。この証拠は実認証とWorker/D1経路の結合検証であり、本番D1への切替・実利用者の移行・Googleログイン・Stripe決済の本番検証を意味しない。詳細は[認証・保存の検証記録](AUTH_VERIFICATION.md)。
 
 ## データをどこへ入れるか
 
