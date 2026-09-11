@@ -8,6 +8,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 <!-- END:nextjs-agent-rules -->
 
+## 実装前の案内図
+
+保存先・ファイル配置・責務・設計理由・他プロジェクトへの適用は [データとコードの置き場所](docs/architecture/STORAGE.md) を正本とする。D1へユーザーと決済状態、非公開R2へ添付・原本・バックアップを置く。Neonを新規の実行時依存にしない。移行途中の実装を完成形と誤認せず、同文書の現在地と実コードを確認する。保存先や境界を変えたら、関連するschema/migration・テスト・この正本を同じ変更で更新する。
+
+
 # 【絶対指針】プロジェクト北極星 ＆ AIエージェント行動規範
 
 本リポジトリで作業する全てのAIエージェントは、以下を最高憲法として遵守せよ。
