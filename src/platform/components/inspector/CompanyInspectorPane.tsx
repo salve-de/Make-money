@@ -99,12 +99,12 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState<TabType>(() => resolveInitialTab(initialTab));
 
-  const handleTabChange = (tab: TabType) => {
-    setActiveTab(tab);
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTop = 0;
+  // セクション直通スクロールジャンプ
+  const scrollToSection = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -138,7 +138,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     const params = new URLSearchParams(window.location.search);
     const targetSection = params.get('section');
     if (targetSection === 'financial') {
-      setActiveTab('FINANCIALS');
       const timer = setTimeout(() => {
         const el = document.getElementById('section-financial');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -253,13 +252,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   // 動的証拠カード（Dynamic Evidence Registry）の有無判定
   const hasEvidenceCards = Boolean(entity.evidenceCards && entity.evidenceCards.length > 0);
-
-  // タブ別表示フラグ
-  const showEvidence = activeTab === 'EVIDENCE' || activeTab === 'ALL';
-  const showFinancials = activeTab === 'FINANCIALS' || activeTab === 'ALL';
-  const showPlaybook = activeTab === 'PLAYBOOK' || activeTab === 'ALL';
-  const showStream = activeTab === 'STREAM' || activeTab === 'ALL';
-  const showNotes = activeTab === 'NOTES' || activeTab === 'ALL';
 
   return (
     <>
@@ -434,33 +426,25 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             )}
           </div>
 
-          {/* 4. 金融端末仕様 タブバー（目的に応じて瞬時に切り替え ＆ 全量表示対応） */}
+          {/* 4. 金融端末仕様 目次ジャンプバー（ワンクリックで該当セクションへ直通スクロール） */}
           <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
             <button
-              onClick={() => handleTabChange('EVIDENCE')}
-              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
-                activeTab === 'EVIDENCE'
-                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
-              }`}
+              type="button"
+              onClick={() => scrollToSection('section-evidence')}
+              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
             >
               <span>特異物証</span>
               {entity.evidenceCards && entity.evidenceCards.length > 0 && (
-                <span className={`text-[9px] px-1 py-0.2 rounded font-bold ${
-                  activeTab === 'EVIDENCE' ? 'bg-white text-black' : 'bg-white/[0.06] text-zinc-400'
-                }`}>
+                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
                   {entity.evidenceCards.length}
                 </span>
               )}
             </button>
 
             <button
-              onClick={() => handleTabChange('FINANCIALS')}
-              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
-                activeTab === 'FINANCIALS'
-                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
-              }`}
+              type="button"
+              onClick={() => scrollToSection('section-financial')}
+              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
             >
               <span>財務P&L</span>
               <span className="text-[9px] text-zinc-500 font-normal">
@@ -468,58 +452,45 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </span>
             </button>
 
+            {!isHazardMode && (
+              <button
+                type="button"
+                onClick={() => scrollToSection('section-tools')}
+                className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
+              >
+                <span>配管ツール</span>
+              </button>
+            )}
+
             <button
-              onClick={() => handleTabChange('PLAYBOOK')}
-              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
-                activeTab === 'PLAYBOOK'
-                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
-              }`}
+              type="button"
+              onClick={() => scrollToSection('section-playbook')}
+              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
             >
               <span>{isHazardMode ? '死因検死' : '略奪手順'}</span>
             </button>
 
             <button
-              onClick={() => handleTabChange('STREAM')}
-              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
-                activeTab === 'STREAM'
-                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
-              }`}
+              type="button"
+              onClick={() => scrollToSection('section-stream')}
+              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
             >
               <span>全量ログ</span>
               {entity.observationsStream && entity.observationsStream.length > 0 && (
-                <span className={`text-[9px] px-1 py-0.2 rounded font-bold ${
-                  activeTab === 'STREAM' ? 'bg-white text-black' : 'bg-white/[0.06] text-zinc-400'
-                }`}>
+                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
                   {entity.observationsStream.length}
                 </span>
               )}
             </button>
 
             <button
-              onClick={() => handleTabChange('NOTES')}
-              className={`py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1 ${
-                activeTab === 'NOTES'
-                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
-                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
-              }`}
+              type="button"
+              onClick={() => scrollToSection('section-notes')}
+              className="py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
               title="極秘考察メモ"
             >
               <span>メモ</span>
               {analystNote && <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />}
-            </button>
-
-            <button
-              onClick={() => handleTabChange('ALL')}
-              className={`py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center text-[10px] ${
-                activeTab === 'ALL'
-                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
-                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.02] border-b-2 border-transparent'
-              }`}
-              title="全セクションを一括縦スクロールで表示"
-            >
-              <span>全表示</span>
             </button>
           </div>
         </div>
@@ -535,12 +506,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 上端潜り込みグラデーションシャドウ */}
           <div className="sticky top-0 -mt-4 -mx-4 h-3.5 bg-gradient-to-b from-[#040507] via-[#040507]/80 to-transparent pointer-events-none z-10" />
           
-          {/* ========================================================= */}
-          {/* 【タブ 1: 特異物証 ＆ DNA (EVIDENCE)】 */}
-          {/* ========================================================= */}
-          {showEvidence && (
-            <div className="space-y-4">
-              {/* 市場の歪み・トレンドへの直通バナー（冷徹な情報行） */}
+          {/* 市場の歪み・トレンドへの直通バナー（冷徹な情報行） */}
               {relatedAnomaly && (
             <div 
               onClick={() => onOpenAnomaly && onOpenAnomaly(relatedAnomaly.id)}
@@ -816,14 +782,11 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             )}
             </div>
           )}
-            </div>
-          )}
 
-          {/* ========================================================= */}
-          {/* 【タブ 2: 財務P&L ＆ 原価配管 (FINANCIALS)】 */}
-          {/* ========================================================= */}
-          {showFinancials && (
-            <div className={`space-y-6 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
+          {/* ------------------------------------------------------- */}
+          {/* #05〜#08: 財務レントゲン / 出血・逆流レントゲン */}
+          {/* ------------------------------------------------------- */}
+          <div className="space-y-6 pt-2 border-t border-white/[0.06]">
               {/* 財務計器盤 ＆ 月次損益テーブル（データ欠損・UNAVAILABLE時は完全非表示） */}
               {!isFinancialUnavailable && (
                 <>
@@ -1254,19 +1217,13 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 </section>
               );
             })()}
-            </div>
-          )}
+          </div>
 
-          {/* ========================================================= */}
-          {/* 【タブ 3: 略奪転用 Playbook (PLAYBOOK)】 */}
-          {/* ========================================================= */}
-          {showPlaybook && (
-            <div className={`space-y-6 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
-              {/* ------------------------------------------------------- */}
-              {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ (フォールバック) */}
-              {/* ------------------------------------------------------- */}
-              {!hasEvidenceCards && (
-                <div className="space-y-6">
+          {/* ------------------------------------------------------- */}
+          {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
+          {/* ------------------------------------------------------- */}
+          {!hasEvidenceCards && (
+          <div className="space-y-6 pt-2 border-t border-white/[0.06]">
             {/* 資本主義の裏帳簿：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
             {entity.exposureAudit && (
               <section className="space-y-2">
@@ -1580,15 +1537,12 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </div>
             </div>
           )}
-            </div>
-          )}
 
-          {/* ========================================================= */}
-          {/* 【タブ 4: 全量インテリジェンス (STREAM)】 */}
-          {/* ========================================================= */}
-          {showStream && (
-            <div className={`space-y-4 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
+          {/* ------------------------------------------------------- */}
+          {/* #13: 一次証拠 ＆ 万能救済ストリーム (EVIDENCE STREAM) */}
+          {/* ------------------------------------------------------- */}
+          <div id="section-stream" className="space-y-4 pt-2 border-t border-white/[0.06] scroll-mt-4">
+            <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                 <div className="flex items-center gap-2">
                   <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
                     isHazardMode 
@@ -1618,14 +1572,12 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </div>
 
               <UniversalIntelligenceStream entity={entity} currency={currency} />
-            </div>
-          )}
+          </div>
 
-          {/* ========================================================= */}
-          {/* 【タブ 5: アナリスト考察メモ ＆ AI壁打ち (NOTES)】 */}
-          {/* ========================================================= */}
-          {showNotes && (
-            <div className={`space-y-4 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
+          {/* ------------------------------------------------------- */}
+          {/* #14: アナリスト考察メモ ＆ AI壁打ち (FIELD NOTES) */}
+          {/* ------------------------------------------------------- */}
+          <div id="section-notes" className="space-y-4 pt-2 border-t border-white/[0.06] scroll-mt-4">
               <div className={`border rounded-md bg-[#0A0B10] p-4 space-y-3 shadow-lg ${
                 isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
               }`}>
@@ -1703,8 +1655,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   </div>
                 </div>
               </div>
-            </div>
-          )}
+          </div>
         </div>
       </aside>
     </>
