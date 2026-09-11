@@ -15,6 +15,8 @@ import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView
 import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
+import { PlaybookIntelligenceView } from '../playbook/PlaybookIntelligenceView';
+import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { useViewHistory } from '../../hooks/useViewHistory';
 import { GlobalCommandPalette } from '../command/GlobalCommandPalette';
@@ -110,6 +112,11 @@ export const TerminalShell: React.FC = () => {
     });
     return [...coreEntities, ...r2Filtered];
   }, [coreEntities, foundationEntities]);
+
+  // 資本主義の動的攻略本マクロ集計データ
+  const macroData = useMemo(() => {
+    return aggregateMacroIntelligence(entities);
+  }, [entities]);
 
   const mergeFoundationRows = useCallback((incoming: FoundationValueSummary[], replace = false) => {
     setFoundationRows((current) => {
@@ -426,7 +433,15 @@ export const TerminalShell: React.FC = () => {
         />
 
         {/* 画面モードに応じたコンテンツレンダリング */}
-        {workspaceMode === 'SYNTHESIS' ? (
+        {workspaceMode === 'PLAYBOOK' ? (
+          <PlaybookIntelligenceView
+            data={macroData}
+            onSelectEntity={(entityId) => {
+              setSelectedEntityId(entityId);
+              setWorkspaceMode('LEDGER');
+            }}
+          />
+        ) : workspaceMode === 'SYNTHESIS' ? (
           <StrategySynthesisView
             allEntities={entities}
             bookmarkedIds={bookmarkedIds}

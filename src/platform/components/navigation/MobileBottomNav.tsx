@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Database, SlidersHorizontal, Bookmark, Layers, Cpu, TrendingUp } from 'lucide-react';
+import { Database, SlidersHorizontal, Bookmark, Layers, Cpu, TrendingUp, BookOpen } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface MobileBottomNavProps {
@@ -35,6 +35,17 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
       >
         <Database className="w-3.5 h-3.5 mb-0.5" />
         <span>全台帳</span>
+      </button>
+
+      {/* 資本主義の動的攻略本 */}
+      <button
+        onClick={() => onSelectMode('PLAYBOOK')}
+        className={`flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono transition-colors ${
+          workspaceMode === 'PLAYBOOK' ? 'text-cyan-400 font-medium' : 'text-zinc-500'
+        }`}
+      >
+        <BookOpen className="w-3.5 h-3.5 mb-0.5 text-cyan-400" />
+        <span>攻略本</span>
       </button>
 
       {/* トレンド ＆ 歪み */}

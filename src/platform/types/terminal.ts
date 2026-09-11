@@ -301,6 +301,7 @@ export type GridFilterOption =
 
 export type WorkspaceMode = 
   | 'LEDGER' 
+  | 'PLAYBOOK'
   | 'ARCHETYPES' 
   | 'RADAR' 
   | 'SYNTHESIS' 

@@ -8,7 +8,8 @@ import {
   Bookmark, 
   Activity,
   Cpu,
-  KeyRound
+  KeyRound,
+  BookOpen
 } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
@@ -61,6 +62,24 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
             {/* ツールチップ */}
             <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
               全銘柄 財務台帳 (Ledger)
+            </div>
+          </div>
+
+          {/* 2. 資本主義の動的攻略本 ＆ 用途別武器庫 (PLAYBOOK) */}
+          <div className="relative group w-full flex justify-center">
+            <button
+              onClick={() => onSelectMode('PLAYBOOK')}
+              className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
+                workspaceMode === 'PLAYBOOK'
+                  ? 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/30'
+                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04]'
+              }`}
+            >
+              <BookOpen className="w-4 h-4 text-cyan-400" />
+            </button>
+            {/* ツールチップ */}
+            <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
+              動的攻略本 ＆ 用途別武器庫 (Playbook)
             </div>
           </div>
 
