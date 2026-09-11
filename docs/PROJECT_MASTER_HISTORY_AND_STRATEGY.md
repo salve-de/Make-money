@@ -2914,3 +2914,31 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   4. **ビルド検証 ＆ Safari実機実証 ＆ Git即時プッシュ**:
      - `npm run build` PASS、Safari実機にて Stripe を含む初期銘柄の右ペイン最上位に LOOT_BLUEPRINT が完全描画されることを実証。
      - GitHub リモートへ即時プッシュ完了（差分ゼロ保証）。
+
+### 96. Phase 96: 全リポジトリ・全ドキュメントへの「黄金収集仕様（Golden Ingest Schema）」永久刻印 ＆ 収集基準の完全同期（完了）
+- **検死された本質的論点 ＆ ユーザーの絶対指導**:
+  - 「で、結局 これまでの 内容からして、 何を集めるとか 完全になってるのか？ GITHUB R2とかの全ドキュメントに どこをどう見たって 全て集めるものは わかる？」
+  - 個別の概念文章やチェックリスト（4大禁忌、5大暗黒、時系列等）は存在していたが、外部AIやクローラースクリプトが「具体的にどのJSONフィールド名で、どんな型・単位・構造で出力すればよいか」という【完全体JSONスキーマ（Golden Ingest Schema）】が全ドキュメントで統一定義されていなかった。
+  - どのリポジトリ（Make-Money、Universal Foundation）、どのドキュメント（README、AGENTS、RUNBOOK、R2記述子）をどのAIが見ても、集めるべき全項目とそのJSON構造が1秒で100%過不足なく理解できる状態を確立。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **最高決定版仕様書 `docs/GOLDEN_INGEST_SCHEMA.md` の策定 ＆ 全リポジトリ配備**:
+     - ① 必須10大属性（身元骨格・時系列賞味期限）
+     - ② 検証済み実額P&L（円換算・Stripe決済手数料控除・販管費5大内訳・営業利益・創業者手残り）
+     - ③ 動的証拠カード（最低2枚、うちLOOT_BLUEPRINT略奪転用方程式は全社必須）
+     - ④ 現場配管ツール（`operations.toolStack`：月額コスト・役割）
+     - ⑤ 資本主義の裏帳簿戦略（`strategy`：痛みの財布、堀の分類、大手の自爆構造、初動マイルストーン、コールド営業文）
+     - ⑥ 時系列・賞味期限インテリジェンス（`temporal`：創業年、初動期、観測期、賞味期限5大判定、時代背景、現在の勝敗判定）
+     - ⑦ そのまま出力できる完全体JSONテンプレート
+     - これらを `Make-Money` および `universal-foundation` の双方に配備。
+  2. **GitHubリポジトリ（Make-Money）への刻印**:
+     - `AGENTS.md`: 収集仕様の最上位要約および `docs/GOLDEN_INGEST_SCHEMA.md` への直通リンクを刻印。
+     - `README.md`: データ収集・投入仕様（Golden Ingest Schema）を明記。
+  3. **GitHubリポジトリ（universal-foundation）への刻印 ＆ リモートプッシュ完了**:
+     - `AGENTS.md`: Read orderおよび「What to collect」の最上位に黄金収集仕様を配備。
+     - `README.md`: 運用チェーンおよびAIスタートガイドに黄金収集仕様を刻印。
+     - `docs/MAKE_MONEY_AGENT_RUNBOOK.md`: Read orderおよび必須調査次元（Section 4.0）に黄金収集仕様を注入。
+     - `r2-descriptors/foundation-lake/_README.v4.md`: R2記述子からも黄金収集スキーマへ直通リンク。
+     - `salve-de/universal-foundation` の `main` ブランチへ即時プッシュ完了（コミット `e9b9206`）。
+  4. **全方位完全同期の達成**:
+     - GitHub、R2記述子、全エージェント行動規範において、「何を・どのように・どのキー名で集めればよいか」が1文字の曖昧さもなく完全体として確立。
+

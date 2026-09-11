@@ -88,6 +88,50 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - `data/collection/<case>.request.json` を生成し、`npm run foundation:r2` でR2へ保存。
   - 画面の動的ハイライトUIへ直結。
 
+### 【最高決定版】何を集めるか：キーエンス品質 黄金収集仕様（Golden Ingest Schema）
+> **全AI・スクリプト共通の最高規範**: 詳細定義・完全体JSONテンプレートは [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md) を正本とする。何を集めるべきか迷った時は、本節および仕様書の完全体JSONを1文字も変えずに遵守せよ。
+
+#### 1. 必須10大属性（全社共通・完全網羅チェックリスト）
+すべての収集データは、以下の10属性を1つも欠落させてはならない：
+1. `id`: 一意のエンティティID（`ent_<company>_<hash>`）
+2. `ticker`: 4〜10文字のシンボル（例: `KEYENCE`, `GYM.SHRK`, `BRWS.AI`）
+3. `name`: 企業・サービス正式名称
+4. `tagline`: サバンナOS直撃のタグライン（痛みの財布＋手口＋数字が1行で伝わる日本語）
+5. `sector`: 7大業種（`AI_AUTOMATION` / `NICHE_SAAS` / `MONOPOLY_MFG` / `CONTENT_MEDIA` / `PHYSICAL_ASSET` / `FINTECH_INFRA` / `LOCAL_SERVICES`）
+6. `scale`: 規模区分（`SOLO` 完全1人 / `SMALL_TEAM` 2〜10人 / `SCALEUP` 11〜50人 / `ENTERPRISE` 50人超）
+7. `founder`: 創業者名（実名）
+8. `country`: 国コード（ISO 2文字。`JP`, `US`, `UK`, `IE` 等）
+9. `url`: 公式サイトURL
+10. `temporal`: 時系列・賞味期限インテリジェンス（創業年、初動獲得期、データ観測期、賞味期限5大判定、時代背景、現在の勝敗判定）
+
+#### 2. P&L因数分解（円換算・Stripe手数料控除・創業者手残り）
+「非公開」で済ませるな。業界相場・価格・規模から科学的に逆算し、以下のP&Lウォーターフォールを円（JPY）で算出せよ：
+- `monthlyRevenue`（月商） / `cogs`（売上原価） / `grossProfit`（粗利益） / `grossMargin`（粗利率%）
+- `operatingExpenses`: `serverAndApi`（推論・サーバー代）, `advertising`（広告費）, `subcontracting`（外注費）, `toolsAndSaaS`（SaaS利用料）, `other`（その他）
+- `operatingProfit`（営業利益） / `operatingMargin`（営業利益率%） / `estimatedAnnualNetProfit`（年間純利益）
+- `financialStatus`: `VERIFIED`（一次確認） / `REPORTED`（創業者公表） / `ESTIMATED`（科学的逆算推計） / `POST_MORTEM`（検死）
+
+#### 3. 動的証拠カード（特異点事実 ＆ 略奪転用方程式）
+最低2枚以上（うち `LOOT_BLUEPRINT` は全社100%必須）を配備せよ：
+- **`LOOT_BLUEPRINT`（略奪転用方程式）[必須]**: 「今夜別業界で同じズルを使って稼ぐならどう組むか」の3ステップ転用手順（`details`）と配管設計図・コードスニペット（`codeSnippet`）。
+- **`THE_CRIME`（身も蓋もない一行の真実）**: 誰から・いくら・どんな手口で抜いているかのレントゲン。
+- **`DIRTY_GENESIS`（初期ゲリラ戦ログ）**: 最初の100人を仕留めた泥臭い自演、手作業代行、Reddit潜入等の事実ログ。
+- **`INCUMBENT_TRAP`（大手の自爆構造）**: 大手が自社の高単価売上を守るために手を出せないカニバリズム障壁。
+- **`FATAL_BLEED`（死因出血検死解剖）**: 失敗企業における資金炎上・即死のメカニズム。
+
+#### 4. 現場配管ツール（`operations.toolStack`）
+空配列は厳禁。実際にその利益率・自動化を支えているツール群を月額原価付きで列挙せよ：
+- `name`（ツール名: Stripe, Next.js, Cloudflare等） / `category`（決済, インフラ等） / `monthlyCost`（月額円） / `purpose`（役割）
+
+#### 5. 資本主義の裏帳簿戦略（`strategy`）
+- `blindspot`: 既存大手が見落としている痛みの財布
+- `moatType`: 7大堀分類（`COUNTER_POSITIONING` 等）と構造的説明（`moatDescription`）
+- `incumbentDilemma`: 大手が真似できない構造的理由
+- `secretInsight`: 創業者だけが知っている業界の裏の真実
+- `initialTraction`: 初動突破の具体的マイルストーン（3つ）
+- `actionPlaybook`: 3ステップの実行手順
+- `coldOutreachTemplate`: 今夜そのまま送れるコールド営業・提案文テンプレート
+
 ### 【超重要】完全自律型・万能データ収集＆Gold精錬プロトコル（Autonomous Ingest & Refinery Protocol）
 **ユーザーがいちいち細かくコピペや条件指示を出さなくても、「〇〇について1000件集めて精錬して」「MAKEMONEYに必要なデータと普通に集めるやつ集めてきて」と一言言っただけで、全てのAI（Antigravity, Claude, GPT, Cursor, 外部スクリプト・サブエージェント）が完全に自律連携し、以下の5大フェーズを自律完遂せよ：**
 
