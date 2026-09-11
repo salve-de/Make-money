@@ -187,44 +187,44 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     !entity.pnl.monthlyRevenue ||
     entity.pnl.monthlyRevenue === 0;
 
-  // 財務ステータス別のバッジ・タイトル・タグ設定
+  // 財務ステータス別のバッジ・タイトル・タグ設定（冷徹モノトーン仕様）
   const getFinancialBadgeMeta = () => {
     switch (financialStatus) {
       case 'VERIFIED':
         return {
-          badgeClass: 'text-emerald-400 bg-emerald-950/40 border-emerald-500/30',
-          iconColor: 'text-emerald-400',
-          titleColor: 'text-emerald-300',
-          title: '財務計器盤 (EXECUTIVE AUDIT & CASH FLOW)',
-          tagClass: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
+          badgeClass: 'text-zinc-200 bg-white/[0.06] border-white/[0.12]',
+          iconColor: 'text-zinc-300',
+          titleColor: 'text-zinc-100',
+          title: '財務損益計器盤 (EXECUTIVE AUDIT & CASH FLOW)',
+          tagClass: 'bg-white/[0.04] text-zinc-300 border-white/[0.10]',
           tagLabel: '確定開示 (VERIFIED)',
         };
       case 'REPORTED':
         return {
-          badgeClass: 'text-cyan-400 bg-cyan-950/40 border-cyan-500/30',
-          iconColor: 'text-cyan-400',
-          titleColor: 'text-cyan-300',
+          badgeClass: 'text-zinc-300 bg-white/[0.04] border-white/[0.08]',
+          iconColor: 'text-zinc-400',
+          titleColor: 'text-zinc-200',
           title: '報道・取材損益計器盤 (REPORTED CASH FLOW)',
-          tagClass: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
+          tagClass: 'bg-white/[0.04] text-zinc-400 border-white/[0.08]',
           tagLabel: '報道・取材 (REPORTED)',
         };
       case 'POST_MORTEM':
         return {
-          badgeClass: 'text-red-400 bg-red-950/40 border-red-500/30',
+          badgeClass: 'text-red-400 bg-red-950/30 border-red-500/30',
           iconColor: 'text-red-400',
           titleColor: 'text-red-300',
           title: '出血・逆流レントゲン (BURN RATE & CASH DRAIN)',
-          tagClass: 'bg-red-950/50 text-red-300 border-red-500/40',
+          tagClass: 'bg-red-950/40 text-red-300 border-red-500/30',
           tagLabel: '死因出血逆算 (POST-MORTEM)',
         };
       case 'ESTIMATED':
       default:
         return {
-          badgeClass: 'text-amber-400 bg-amber-950/40 border-amber-500/30',
-          iconColor: 'text-amber-400',
-          titleColor: 'text-amber-300',
+          badgeClass: 'text-zinc-400 bg-white/[0.04] border-white/[0.08]',
+          iconColor: 'text-zinc-400',
+          titleColor: 'text-zinc-300',
           title: '推定損益計器盤 (ESTIMATED CASH FLOW)',
-          tagClass: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+          tagClass: 'bg-white/[0.04] text-zinc-400 border-white/[0.08]',
           tagLabel: '推測値 (ESTIMATED)',
         };
     }
@@ -246,21 +246,21 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
       <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#040507] border-t md:border-t-0 md:border-l border-white/[0.08] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
         
         {/* ========================================================= */}
-        {/* 【上部固定計器盤（PINNED EXECUTIVE HUD）: タグ常時配置 ＆ セクションジャンプタブ】 */}
+        {/* 【上部固定計器盤（PINNED EXECUTIVE HUD）: 冷徹モノトーン ＆ 高密度金融端末】 */}
         {/* ========================================================= */}
-        <div className={`shrink-0 z-30 transition-all duration-150 bg-[#090B12] border-b relative ${
+        <div className={`shrink-0 z-30 transition-all duration-150 bg-[#07090D] border-b relative ${
           isScrolled 
-            ? 'border-white/[0.18] shadow-[0_16px_36px_rgba(0,0,0,0.95)]' 
-            : 'border-white/[0.10] shadow-[0_8px_20px_rgba(0,0,0,0.7)]'
+            ? 'border-white/[0.16] shadow-[0_12px_28px_rgba(0,0,0,0.95)]' 
+            : 'border-white/[0.08]'
         }`}>
-          {/* 最上部アクセントライン */}
-          <div className="h-[2px] w-full bg-gradient-to-r from-emerald-500/80 via-cyan-500/60 to-transparent" />
+          {/* 最上部アクセントライン（冷徹な単色モノトーン） */}
+          <div className="h-[1px] w-full bg-white/[0.12]" />
 
           {/* 1. タイトル＆操作バー */}
           <div className="px-3 pt-2 pb-1.5 flex items-center justify-between gap-2 border-b border-white/[0.04]">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="font-mono text-[11px] text-zinc-200 font-bold shrink-0 bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.12] flex items-center gap-1">
-                <Pin className="w-2.5 h-2.5 text-cyan-400 shrink-0" />
+              <span className="font-mono text-[11px] text-zinc-200 font-bold shrink-0 bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.10] flex items-center gap-1">
+                <Pin className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
                 <span>{entity.ticker}</span>
               </span>
               <h2 className="text-xs sm:text-sm font-bold text-white truncate font-sans tracking-tight">
@@ -298,10 +298,10 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               {onOpenSynthesisWithEntity && (
                 <button
                   onClick={() => onOpenSynthesisWithEntity(entity.id)}
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer mr-1"
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/[0.05] hover:bg-white/[0.10] border border-white/[0.10] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer mr-1"
                   title="この銘柄の裏帳簿データでAIと壁打ちする"
                 >
-                  <Bot className="w-3 h-3 text-emerald-400" />
+                  <Bot className="w-3 h-3 text-zinc-300" />
                   <span className="hidden sm:inline">AI壁打ち</span>
                 </button>
               )}
@@ -330,16 +330,12 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
           {/* 2. 【即時意思決定: 判定 ＆ 需要・競争ベクトル】 */}
           {entity.opportunityJudgment && (
-            <div className="px-3 py-1.5 bg-[#06080D] border-b border-white/[0.04] flex items-center justify-between gap-2 flex-wrap text-[10px] font-mono">
+            <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 flex-wrap text-[10px] font-mono">
               <div className="flex items-center gap-1.5 min-w-0">
                 <span className={`px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
-                  entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
-                    ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
-                    : entity.opportunityJudgment.verdict === 'MONITOR'
-                    ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
-                    : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                    ? 'bg-red-950/40 text-red-400 border-red-500/50'
-                    : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+                  entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
+                    ? 'bg-red-950/40 text-red-400 border-red-500/40'
+                    : 'bg-white/[0.08] text-white border-white/[0.16]'
                 }`}>
                   判定: {entity.opportunityJudgment.verdictLabel}
                 </span>
@@ -349,7 +345,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </div>
 
               <div className="flex items-center gap-2 shrink-0">
-                <span className="text-zinc-400">需要: <strong className="text-emerald-400">{entity.opportunityJudgment.demandDelta}</strong></span>
+                <span className="text-zinc-400">需要: <strong className="text-zinc-200">{entity.opportunityJudgment.demandDelta}</strong></span>
                 <span className="text-zinc-600">|</span>
                 <span className="text-zinc-400">競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
                 <span className="text-zinc-600">|</span>
@@ -367,7 +363,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </div>
             {entity.temporal && (
               <div className="flex items-center gap-1.5 font-mono text-[9px] text-zinc-500 shrink-0">
-                <Clock className="w-2.5 h-2.5 text-cyan-400" />
+                <Clock className="w-2.5 h-2.5 text-zinc-500" />
                 <span>{entity.temporal.foundedYear}年</span>
                 <span>・</span>
                 <span className="text-zinc-400 font-semibold">{entity.temporal.viabilityLabel}</span>
@@ -375,9 +371,9 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             )}
           </div>
 
-          {/* 4. ★ユーザー絶対要望★ 探索タグ一覧（上部に常時配置・クリックで絞り込み） */}
+          {/* 4. ★ユーザー絶対要望★ 探索タグ一覧（上部に常時配置・白黒反転のプロ仕様） */}
           {entity.tags && entity.tags.length > 0 && (
-            <div className="px-3 py-1.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-[#080A10]">
+            <div className="px-3 py-1.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-[#05070B]">
               {entity.tags.map((tag) => {
                 const isActive = activeTags.includes(tag);
                 return (
@@ -392,14 +388,14 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     title={`「#${tag}」で左一覧を絞り込み`}
                     className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer border ${
                       isActive
-                        ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
-                        : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
+                        ? 'bg-white text-black font-bold border-white shadow-xs'
+                        : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 border-zinc-700/60 shadow-xs'
                     }`}
                   >
-                    <span className="text-zinc-500">#</span>
+                    <span className={isActive ? 'text-zinc-600' : 'text-zinc-500'}>#</span>
                     <span>{tag}</span>
                     {isActive ? (
-                      <X className="w-2.5 h-2.5 text-emerald-400" />
+                      <X className="w-2.5 h-2.5 text-black" />
                     ) : null}
                   </button>
                 );
@@ -407,14 +403,14 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </div>
           )}
 
-          {/* 5. ─── ★ 視覚的境界バー ＆ セクションジャンプタブ（BOUNDARY & SECTION TABS） ★ ─── */}
-          <div className="px-3 py-1 bg-[#0E121B] border-t border-white/[0.12] flex items-center justify-between text-[10px] font-mono">
+          {/* 5. ─── ★ 視覚的境界バー ＆ セクションジャンプタブ（冷徹なモノトーンレール） ★ ─── */}
+          <div className="px-3 py-1 bg-[#090C11] border-t border-white/[0.10] flex items-center justify-between text-[10px] font-mono">
             <div className="flex items-center gap-1 sm:gap-2">
-              <span className={`font-bold flex items-center gap-1 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`}>
-                <span className={`w-1.5 h-1.5 rounded-full ${isHazardMode ? 'bg-red-400' : 'bg-emerald-400'} animate-pulse`} />
-                {isHazardMode ? 'AUTOPSY' : 'DOSSIER'}
+              <span className={`font-bold flex items-center gap-1.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-200'}`}>
+                <span className={`w-1.5 h-1.5 rounded-full ${isHazardMode ? 'bg-red-400' : 'bg-zinc-400'}`} />
+                {isHazardMode ? 'AUTOPSY' : 'AUDIT DOSSIER'}
               </span>
-              <span className="text-zinc-600">|</span>
+              <span className="text-zinc-700">|</span>
               {/* セクションショートカットタブ */}
               <button
                 type="button"
@@ -422,7 +418,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   const el = document.getElementById('section-evidence');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1]"
               >
                 特異物証
               </button>
@@ -432,7 +428,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   const el = document.getElementById('section-financial');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1]"
               >
                 財務P&L
               </button>
@@ -443,7 +439,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     const el = document.getElementById('section-tools');
                     if (el) el.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                  className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1]"
                 >
                   配管ツール
                 </button>
@@ -454,7 +450,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                   const el = document.getElementById('section-playbook');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer hidden sm:inline"
+                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1] hidden sm:inline"
               >
                 {isHazardMode ? '死因検死' : '略奪手順'}
               </button>
@@ -467,7 +463,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 </span>
               )}
               {analystNote && (
-                <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 px-1 py-0.2 rounded border border-emerald-800/40">
+                <span className="text-[9px] font-mono text-zinc-300 bg-white/[0.06] px-1 py-0.2 rounded border border-white/[0.10]">
                   メモ有
                 </span>
               )}
@@ -476,73 +472,70 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         </div>
 
         {/* ========================================================= */}
-        {/* 【コンテンツゾーン: スクロールトレイ ＆ 高密度ストリーム】 */}
+        {/* 【コンテンツゾーン: スクロールトレイ ＆ 金融監査ストリーム】 */}
         {/* ========================================================= */}
         <div 
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-4 space-y-4 sm:space-y-5 text-xs font-sans bg-[#040507] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_rgba(4,5,7,1)]"
+          className="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans bg-[#040507] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(4,5,7,1)]"
         >
           {/* 上端潜り込みグラデーションシャドウ */}
           <div className="sticky top-0 -mt-4 -mx-4 h-3.5 bg-gradient-to-b from-[#040507] via-[#040507]/80 to-transparent pointer-events-none z-10" />
           
-          {/* 市場の歪み・トレンドへの直通バナー（ワームホール） */}
+          {/* 市場の歪み・トレンドへの直通バナー（冷徹な情報行） */}
           {relatedAnomaly && (
             <div 
               onClick={() => onOpenAnomaly && onOpenAnomaly(relatedAnomaly.id)}
-              className="border border-emerald-500/25 hover:border-emerald-500/50 rounded-md bg-[#080E0B] p-3 flex items-center justify-between group cursor-pointer transition-all duration-150 shadow-xs"
+              className="border border-white/[0.08] hover:border-white/[0.18] bg-[#07090E] p-2.5 flex items-center justify-between group cursor-pointer transition-all duration-150"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className="p-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
-                  <TrendingUp className="w-3.5 h-3.5" />
+                <span className="p-1 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08] shrink-0">
+                  <TrendingUp className="w-3.5 h-3.5 text-zinc-400" />
                 </span>
                 <div className="truncate">
                   <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
-                      実証している市場の歪み
+                    <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider font-semibold">
+                      実証中の市場の歪み
                     </span>
-                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-emerald-500/15 text-emerald-300 font-bold">
+                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.04] text-zinc-300 font-bold border border-white/[0.06]">
                       {relatedAnomaly.growthRate}
                     </span>
                     <span className="text-[9px] font-mono text-zinc-500 hidden sm:inline">
                       手残り {relatedAnomaly.netMarginPercent}%
                     </span>
                   </div>
-                  <h3 className="text-xs font-bold text-white truncate group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-xs font-bold text-white truncate group-hover:text-zinc-200 transition-colors">
                     {relatedAnomaly.title}
                   </h3>
-                  <p className="text-[10px] text-zinc-400 truncate mt-0.5 font-sans">
-                    {relatedAnomaly.subtitle}
-                  </p>
                 </div>
               </div>
-              <div className="flex items-center gap-1 font-mono text-[11px] text-emerald-400 group-hover:text-emerald-300 shrink-0 pl-2">
-                <span className="hidden sm:inline">歪みカルテを解剖</span>
+              <div className="flex items-center gap-1 font-mono text-[11px] text-zinc-400 group-hover:text-white shrink-0 pl-2">
+                <span className="hidden sm:inline">歪みカルテ</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </div>
           )}
 
-          {/* 特集インテリジェンスへの連動バナー */}
+          {/* 特集インテリジェンスへの連動バナー（冷徹な情報行） */}
           {relatedDossier && (
             <div 
               onClick={() => onSelectTopic && onSelectTopic(relatedDossier.id)}
-              className="border border-white/[0.08] hover:border-white/[0.2] rounded-md bg-[#0A0C12] p-3 flex items-center justify-between group cursor-pointer transition-all duration-150 shadow-sm"
+              className="border border-white/[0.08] hover:border-white/[0.18] bg-[#07090E] p-2.5 flex items-center justify-between group cursor-pointer transition-all duration-150"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className="p-1.5 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08] shrink-0">
-                  <FileText className="w-3.5 h-3.5" />
+                <span className="p-1 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08] shrink-0">
+                  <FileText className="w-3.5 h-3.5 text-zinc-400" />
                 </span>
                 <div className="truncate">
                   <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-wider">
+                    <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider font-semibold">
                       関連特集インテリジェンス
                     </span>
-                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.04] text-zinc-400">
+                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.06]">
                       {relatedDossier.badge}
                     </span>
                   </div>
-                  <h3 className="text-xs font-medium text-white truncate group-hover:text-zinc-200 transition-colors">
+                  <h3 className="text-xs font-bold text-white truncate group-hover:text-zinc-200 transition-colors">
                     {relatedDossier.title}
                   </h3>
                 </div>
@@ -565,7 +558,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
                       isHazardMode
                         ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                        : 'text-emerald-400 bg-emerald-950/40 border-emerald-500/30'
+                        : 'text-zinc-300 bg-white/[0.06] border-white/[0.10]'
                     }`}>
                       FORENSIC DOSSIER
                     </span>
