@@ -501,19 +501,19 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         <div 
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-4 space-y-4 text-xs font-sans bg-[#040507] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(4,5,7,1)]"
+          className="flex-1 overflow-y-auto p-4 space-y-8 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
         >
           {/* 上端潜り込みグラデーションシャドウ */}
-          <div className="sticky top-0 -mt-4 -mx-4 h-3.5 bg-gradient-to-b from-[#040507] via-[#040507]/80 to-transparent pointer-events-none z-10" />
+          <div className="sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10" />
           
           {/* 市場の歪み・トレンドへの直通バナー（冷徹な情報行） */}
-              {relatedAnomaly && (
+          {relatedAnomaly && (
             <div 
               onClick={() => onOpenAnomaly && onOpenAnomaly(relatedAnomaly.id)}
-              className="border border-white/[0.08] hover:border-white/[0.18] bg-[#07090E] p-2.5 flex items-center justify-between group cursor-pointer transition-all duration-150"
+              className="rounded-lg border border-white/[0.10] hover:border-white/[0.22] bg-[#0E131F] p-3 flex items-center justify-between group cursor-pointer transition-all duration-150 shadow-lg"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className="p-1 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08] shrink-0">
+                <span className="p-1 rounded bg-white/[0.06] text-zinc-300 border border-white/[0.10] shrink-0">
                   <TrendingUp className="w-3.5 h-3.5 text-zinc-400" />
                 </span>
                 <div className="truncate">
@@ -521,7 +521,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider font-semibold">
                       実証中の市場の歪み
                     </span>
-                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.04] text-zinc-300 font-bold border border-white/[0.06]">
+                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.06] text-zinc-300 font-bold border border-white/[0.08]">
                       {relatedAnomaly.growthRate}
                     </span>
                     <span className="text-[9px] font-mono text-zinc-500 hidden sm:inline">
@@ -544,10 +544,10 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {relatedDossier && (
             <div 
               onClick={() => onSelectTopic && onSelectTopic(relatedDossier.id)}
-              className="border border-white/[0.08] hover:border-white/[0.18] bg-[#07090E] p-2.5 flex items-center justify-between group cursor-pointer transition-all duration-150"
+              className="rounded-lg border border-white/[0.10] hover:border-white/[0.22] bg-[#0E131F] p-3 flex items-center justify-between group cursor-pointer transition-all duration-150 shadow-lg"
             >
               <div className="flex items-center gap-2.5 min-w-0">
-                <span className="p-1 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08] shrink-0">
+                <span className="p-1 rounded bg-white/[0.06] text-zinc-300 border border-white/[0.10] shrink-0">
                   <FileText className="w-3.5 h-3.5 text-zinc-400" />
                 </span>
                 <div className="truncate">
@@ -555,7 +555,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider font-semibold">
                       関連特集インテリジェンス
                     </span>
-                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.04] text-zinc-400 border border-white/[0.06]">
+                    <span className="text-[9px] font-mono px-1 py-0.2 rounded bg-white/[0.06] text-zinc-400 border border-white/[0.08]">
                       {relatedDossier.badge}
                     </span>
                   </div>
@@ -575,29 +575,47 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 【動的証拠保全デッキ (DYNAMIC EVIDENCE DECK)】 */}
           {/* ========================================================= */}
           {hasEvidenceCards && (
-            <div id="section-evidence" className="space-y-6 scroll-mt-4">
-              <section className="space-y-2">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                      isHazardMode
-                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                        : 'text-zinc-300 bg-white/[0.06] border-white/[0.10]'
-                    }`}>
-                      FORENSIC DOSSIER
-                    </span>
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-300' : 'text-zinc-100'
-                    }`}>
-                      {isHazardMode ? '致命的特異点・死因物証保全ファイル' : '特異点物証 ＆ 金抜きの急所ファイル'}
-                    </span>
-                  </div>
-                  <span className="font-mono text-[9px] text-zinc-500">
-                    {entity.evidenceCards!.length}件の特異点事実
+            <div 
+              id="section-evidence" 
+              className={`rounded-lg overflow-hidden border shadow-xl ${
+                isHazardMode 
+                  ? 'border-red-500/30 bg-[#0E131F]' 
+                  : 'border-white/[0.12] bg-[#0E131F]'
+              } scroll-mt-4`}
+            >
+              {/* セクション専用タイトルバー (Level 2: #141A29) */}
+              <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                isHazardMode 
+                  ? 'bg-red-950/40 border-red-500/30' 
+                  : 'bg-[#141A29] border-white/[0.08]'
+              }`}>
+                <div className="flex items-center gap-2.5">
+                  {/* 垂直アクセントバー (視覚の杭) */}
+                  <div className={`w-1 h-3.5 rounded-full ${
+                    isHazardMode 
+                      ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]' 
+                      : 'bg-zinc-300'
+                  }`} />
+                  <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                    isHazardMode
+                      ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                      : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                  }`}>
+                    DOSSIER
                   </span>
+                  <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                  }`}>
+                    {isHazardMode ? '致命的特異点・死因物証保全ファイル' : '特異点物証 ＆ 金抜きの急所ファイル'}
+                  </h3>
                 </div>
+                <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                  {entity.evidenceCards!.length}件の特異点事実
+                </span>
+              </div>
+              <div className="p-3 bg-[#0E131F]">
                 <DynamicEvidenceDeck cards={entity.evidenceCards!} isHazardMode={isHazardMode} />
-              </section>
+              </div>
             </div>
           )}
 
@@ -605,62 +623,75 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* #01〜#04: 事業DNA ＆ 構造的優位性 / 致命的欠陥 (フォールバック) */}
           {/* ------------------------------------------------------- */}
           {!hasEvidenceCards && (
-          <div className="space-y-6">
+          <div className="space-y-8">
             {/* #01 事業の正体 / 事業の罠 */}
             {entity.essence && (
-              <section className="space-y-2">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+              <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+              }`}>
+                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                }`}>
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
                       isHazardMode
-                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                        : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                     }`}>
                       #01
                     </span>
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-300' : 'text-zinc-200'
+                    <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                      isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
                       {isHazardMode ? '事業の罠・錯覚の前提 (FATAL ASSUMPTION)' : '事業の正体・構造仕様 (BUSINESS DNA)'}
-                    </span>
+                    </h3>
                   </div>
+                  <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                    CORE SPEC
+                  </span>
                 </div>
-                <div className={`border rounded-md bg-[#0A0C10] divide-y shadow-sm ${
-                  isHazardMode ? 'border-red-500/20 divide-red-500/10' : 'border-white/[0.08] divide-white/[0.04]'
+                <div className={`divide-y ${
+                  isHazardMode ? 'divide-red-500/10' : 'divide-white/[0.06]'
                 }`}>
-                  <div className="p-3 flex items-start gap-3">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-medium ${isHazardMode ? 'text-red-400/80' : 'text-zinc-400'}`}>
+                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
+                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
                       {isHazardMode ? '錯覚した事業' : '何屋か'}
                     </span>
-                    <span className="text-zinc-100 text-[11px] leading-relaxed font-medium">{entity.essence.whatItDoes}</span>
+                    <span className="text-zinc-100 text-xs leading-relaxed font-medium">{entity.essence.whatItDoes}</span>
                   </div>
-                  <div className="p-3 flex items-start gap-3">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-medium ${isHazardMode ? 'text-red-400/80' : 'text-zinc-400'}`}>
+                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
+                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
                       {isHazardMode ? '見誤った顧客' : '誰の財布'}
                     </span>
-                    <span className="text-zinc-300 text-[11px] leading-relaxed">{entity.essence.targetCustomer}</span>
+                    <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.targetCustomer}</span>
                   </div>
-                  <div className="p-3 flex items-start gap-3">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-medium ${isHazardMode ? 'text-red-400/80' : 'text-zinc-400'}`}>
+                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
+                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
                       {isHazardMode ? '消滅した需要' : '切除する苦痛'}
                     </span>
-                    <span className="text-zinc-300 text-[11px] leading-relaxed">{entity.essence.painRelief}</span>
+                    <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.painRelief}</span>
                   </div>
                 </div>
-              </section>
+              </div>
             )}
 
             {/* #02 突いた盲点 / 見落とした致命的死角 */}
             {(() => {
               const { punchline, detail } = parsePunchline(entity.strategy.blindspot);
               return (
-                <section className="space-y-2">
-                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+                <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                  isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+                }`}>
+                  <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                    isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                  }`}>
+                    <div className="flex items-center gap-2.5">
+                      <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                      <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
                         isHazardMode
-                          ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                          : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+                          ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                          : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                       }`}>
                         #02
                       </span>
@@ -670,29 +701,30 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                         ) : (
                           <TrendingUp className="w-3.5 h-3.5 text-zinc-400" />
                         )}
-                        <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                          isHazardMode ? 'text-red-300' : 'text-zinc-200'
+                        <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                          isHazardMode ? 'text-red-200' : 'text-zinc-100'
                         }`}>
                           {isHazardMode ? '見落とした致命的死角 (BLIND SPOT TRAP)' : '突いた業界の盲点 (MARKET GLITCH)'}
-                        </span>
+                        </h3>
                       </div>
                     </div>
+                    <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                      BLIND SPOT
+                    </span>
                   </div>
-                  <div className={`border rounded-md bg-[#0A0C10] p-3.5 space-y-2 shadow-sm ${
-                    isHazardMode ? 'border-red-500/20' : 'border-white/[0.08]'
-                  }`}>
+                  <div className="p-3.5 space-y-2.5 bg-[#0E131F]">
                     {punchline && (
-                      <div className={`font-bold text-xs leading-snug border-l-2 pl-2.5 ${
-                        isHazardMode ? 'text-red-200 border-red-500' : 'text-white border-white/60'
+                      <div className={`font-bold text-xs leading-snug border-l-2 pl-3 py-1 ${
+                        isHazardMode ? 'text-red-200 border-red-500 bg-red-950/20' : 'text-white border-zinc-400 bg-white/[0.02]'
                       }`}>
                         {punchline}
                       </div>
                     )}
-                    <p className="text-zinc-300 text-[11px] leading-relaxed">
+                    <p className="text-zinc-300 text-xs leading-relaxed">
                       {detail}
                     </p>
                   </div>
-                </section>
+                </div>
               );
             })()}
 
@@ -700,13 +732,18 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             {(() => {
               const { punchline, detail } = parsePunchline(entity.strategy.moatDescription);
               return (
-                <section className="space-y-2">
-                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+                <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                  isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+                }`}>
+                  <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                    isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                  }`}>
+                    <div className="flex items-center gap-2.5">
+                      <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                      <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
                         isHazardMode
-                          ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                          : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+                          ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                          : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                       }`}>
                         #03
                       </span>
@@ -716,361 +753,395 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                         ) : (
                           <ShieldCheck className="w-3.5 h-3.5 text-zinc-400" />
                         )}
-                        <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                          isHazardMode ? 'text-red-300' : 'text-zinc-200'
+                        <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                          isHazardMode ? 'text-red-200' : 'text-zinc-100'
                         }`}>
                           {isHazardMode ? '崩壊した見せかけの堀 (COLLAPSED MOAT)' : '参入障壁の正体 (7 POWERS MOAT)'}
-                        </span>
+                        </h3>
                       </div>
                     </div>
                     <span className={`border px-1.5 py-0.5 rounded font-mono text-[10px] ${
                       isHazardMode
                         ? 'bg-red-950/40 text-red-400 border-red-500/30'
-                        : 'bg-white/[0.06] text-zinc-300 border-white/[0.1]'
+                        : 'bg-white/[0.06] text-zinc-200 border-white/[0.12]'
                     }`}>
                       {entity.strategy.moatType}
                     </span>
                   </div>
-                  <div className={`border rounded-md bg-[#0A0C10] p-3.5 space-y-2 shadow-sm ${
-                    isHazardMode ? 'border-red-500/20' : 'border-white/[0.08]'
-                  }`}>
+                  <div className="p-3.5 space-y-2.5 bg-[#0E131F]">
                     {punchline && (
-                      <div className={`font-bold text-xs leading-snug border-l-2 pl-2.5 ${
-                        isHazardMode ? 'text-red-200 border-red-500' : 'text-white border-white/60'
+                      <div className={`font-bold text-xs leading-snug border-l-2 pl-3 py-1 ${
+                        isHazardMode ? 'text-red-200 border-red-500 bg-red-950/20' : 'text-white border-zinc-400 bg-white/[0.02]'
                       }`}>
                         {punchline}
                       </div>
                     )}
-                    <p className="text-zinc-300 text-[11px] leading-relaxed">
+                    <p className="text-zinc-300 text-xs leading-relaxed">
                       {detail}
                     </p>
                   </div>
-                </section>
+                </div>
               );
             })()}
 
             {/* #04 大手の自爆 / 大手に一撃で圧殺された理由 */}
             {entity.strategy.incumbentDilemma && (
-              <section className="space-y-2">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+              <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+              }`}>
+                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                }`}>
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
                       isHazardMode
-                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                        : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                     }`}>
                       #04
                     </span>
                     <div className="flex items-center gap-1.5">
                       <Flame className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                      <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                        isHazardMode ? 'text-red-300' : 'text-zinc-200'
+                      <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                        isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
                         {isHazardMode ? '大手に一撃で圧殺された理由 (KILLED BY INCUMBENTS)' : '大手が構造上真似できない理由 (INCUMBENT DILEMMA)'}
-                      </span>
+                      </h3>
                     </div>
                   </div>
+                  <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                    INCUMBENT TRAP
+                  </span>
                 </div>
-                <div className={`border rounded-md bg-[#0A0C10] p-3.5 shadow-sm ${
-                  isHazardMode ? 'border-red-500/20' : 'border-white/[0.08]'
-                }`}>
-                  <p className="text-zinc-300 text-[11px] leading-relaxed">
+                <div className="p-3.5 bg-[#0E131F]">
+                  <p className="text-zinc-300 text-xs leading-relaxed">
                     {entity.strategy.incumbentDilemma}
                   </p>
                 </div>
-              </section>
+              </div>
             )}
             </div>
           )}
 
           {/* ------------------------------------------------------- */}
-          {/* #05〜#08: 財務レントゲン / 出血・逆流レントゲン */}
+          {/* #05〜#07: 財務レントゲン / 出血・逆流レントゲン */}
           {/* ------------------------------------------------------- */}
-          <div className="space-y-6 pt-2 border-t border-white/[0.06]">
+          <div className="space-y-8">
               {/* 財務計器盤 ＆ 月次損益テーブル（データ欠損・UNAVAILABLE時は完全非表示） */}
               {!isFinancialUnavailable && (
                 <>
                   {/* 財務計器盤 (4連KPI + ウォーターフォールバー) */}
-                  <section id="section-financial" className="space-y-2 scroll-mt-4">
-                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                        financialBadgeMeta.badgeClass
-                      }`}>
-                        #05
-                      </span>
-                      <div className="flex items-center gap-1.5">
-                        <BarChart3 className={`w-3.5 h-3.5 ${financialBadgeMeta.iconColor}`} />
-                        <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                          financialBadgeMeta.titleColor
+                  <div 
+                    id="section-financial" 
+                    className={`rounded-lg overflow-hidden border shadow-xl ${
+                      isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+                    } scroll-mt-4`}
+                  >
+                    {/* セクション専用タイトルバー (Level 2: #141A29) */}
+                    <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                      isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                    }`}>
+                      <div className="flex items-center gap-2.5">
+                        <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                        <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                          financialBadgeMeta.badgeClass
                         }`}>
-                          {financialBadgeMeta.title}
+                          #05
+                        </span>
+                        <div className="flex items-center gap-1.5">
+                          <BarChart3 className={`w-3.5 h-3.5 ${financialBadgeMeta.iconColor}`} />
+                          <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                            financialBadgeMeta.titleColor
+                          }`}>
+                            {financialBadgeMeta.title}
+                          </h3>
+                        </div>
+                        <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${financialBadgeMeta.tagClass}`}>
+                          {financialBadgeMeta.tagLabel}
                         </span>
                       </div>
-                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${financialBadgeMeta.tagClass}`}>
-                        {financialBadgeMeta.tagLabel}
-                      </span>
-                    </div>
-                    {/* 右側：観測時期 ＆ 出典 */}
-                    <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-500">
-                      {entity.pnl.dataSnapshotPeriod && (
-                        <span className="flex items-center gap-1 text-zinc-400">
-                          <Clock className="w-2.5 h-2.5 text-zinc-500" />
-                          {entity.pnl.dataSnapshotPeriod}
-                        </span>
-                      )}
-                      {entity.pnl.sourceDoc && (
-                        <span className="hidden sm:inline px-1.5 py-0.2 rounded bg-white/[0.03] border border-white/[0.06] text-zinc-400">
-                          {entity.pnl.sourceDoc}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className={`border rounded-md bg-[#0A0C10] p-3.5 space-y-3.5 shadow-sm ${
-                    isHazardMode ? 'border-red-500/20' : 'border-white/[0.08]'
-                  }`}>
-                    {/* 4連コアKPI */}
-                    <div className="grid grid-cols-4 gap-2 font-mono">
-                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                        <span className="text-[9px] text-zinc-500 block uppercase">
-                          {financialStatus === 'ESTIMATED' ? '推定月商 (Rev)' : isHazardMode ? '月商 (ピーク/現行)' : '月商 (Rev)'}
-                        </span>
-                        <span className="text-xs font-bold text-white tabular-nums">
-                          {formatMoney(entity.pnl.monthlyRevenue)}
-                        </span>
-                      </div>
-                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                        <span className="text-[9px] text-zinc-500 block uppercase">
-                          {financialStatus === 'ESTIMATED' ? '推定手残り (Net)' : isHazardMode ? '純損失/手残り' : '純手残り (Net)'}
-                        </span>
-                        <span className={`text-xs font-bold tabular-nums ${
-                          isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
-                        }`}>
-                          {formatMoney(entity.pnl.operatingProfit)}
-                        </span>
-                      </div>
-                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                        <span className="text-[9px] text-zinc-500 block uppercase">
-                          {financialStatus === 'ESTIMATED' ? '推定利益率' : isHazardMode ? '赤字/利益率' : '利益率 (Margin)'}
-                        </span>
-                        <span className={`text-xs font-bold tabular-nums ${
-                          isHazardMode || entity.pnl.operatingMargin < 0 ? 'text-red-400' : 'text-emerald-400'
-                        }`}>
-                          {entity.pnl.operatingMargin}%
-                        </span>
-                      </div>
-                      <div className="bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                        <span className="text-[9px] text-zinc-500 block uppercase">年成長率 (YoY)</span>
-                        <span className={`text-xs font-bold tabular-nums ${
-                          entity.growthRateYoY < 0 ? 'text-red-400' : 'text-zinc-200'
-                        }`}>
-                          {`${entity.growthRateYoY > 0 ? '+' : ''}${entity.growthRateYoY}%`}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* 損益流出ウォーターフォールバー */}
-                    <div className="space-y-1.5 pt-1 border-t border-white/[0.04]">
-                      <div className="flex items-center justify-between text-[10px] font-mono">
-                        <span className="text-zinc-500">
-                          {financialStatus === 'ESTIMATED' ? '損益分解モデル (100%基準)' : isHazardMode ? '資本流出・出血分解 (100%基準)' : '損益流出分解 (100%基準)'}
-                        </span>
-                        <span className={`font-bold ${isHazardMode || profitPct === 0 ? 'text-red-400' : 'text-emerald-400'}`}>
-                          {isHazardMode ? `純手残り ${profitPct}% (出血状態)` : `手残り純利益 ${profitPct}%`}
-                        </span>
-                      </div>
-                      <div className="w-full h-2 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.08]">
-                        {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
-                        {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className={isHazardMode ? "bg-red-800" : "bg-zinc-700"} title={`推論/サーバー: ${serverPct}%`} />}
-                        {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
-                        {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
-                        {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
-                        {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
-                        {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className={isHazardMode ? "bg-red-500" : "bg-emerald-500"} title={`純利益: ${profitPct}%`} />}
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                {/* P&L 会計スプレッドシートテーブル */}
-                <section className="space-y-2">
-                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${financialBadgeMeta.badgeClass}`}>
-                        #06
-                      </span>
-                      <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${financialBadgeMeta.titleColor}`}>
-                        {financialStatus === 'ESTIMATED'
-                          ? '推定損益構造モデル (P&L ESTIMATION MODEL)'
-                          : financialStatus === 'REPORTED'
-                          ? '報道・取材損益テーブル (P&L REPORTED AUDIT)'
-                          : isHazardMode
-                          ? '月次損益出血テーブル (P&L AUTOPSY)'
-                          : '確定財務実査テーブル (P&L AUDIT)'}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* 推計因数分解方程式ボックス（ESTIMATED時のみ表示） */}
-                  {financialStatus === 'ESTIMATED' && entity.pnl.estimationLogic && (
-                    <div className="p-3 rounded-md bg-[#0F0D07] border border-amber-500/30 space-y-1.5 shadow-sm">
-                      <div className="flex items-center gap-1.5 text-amber-400 text-[10px] font-mono font-bold">
-                        <Calculator className="w-3.5 h-3.5 text-amber-400" />
-                        <span>推計因数分解方程式 (REVERSE-ENGINEERED EQUATION)</span>
-                      </div>
-                      <div className="font-mono text-[11px] text-amber-200/90 leading-relaxed bg-black/50 p-2.5 rounded border border-amber-500/20 whitespace-pre-line">
-                        {entity.pnl.estimationLogic}
-                      </div>
-                      <div className="text-[9px] font-mono text-zinc-500">
-                        ※ 公開プラン単価・観測ユーザー規模・業界標準原価率からリバースエンジニアリングした科学的推計方程式です。
-                      </div>
-                    </div>
-                  )}
-
-                  <div className={`border rounded-md bg-[#0A0C10] divide-y text-xs font-mono shadow-sm ${
-                    isHazardMode ? 'border-red-500/20 divide-red-500/10' : 'border-white/[0.08] divide-white/[0.04]'
-                  }`}>
-                    <div className="p-2.5 flex justify-between items-center">
-                      <span className="text-zinc-400">
-                        {financialStatus === 'ESTIMATED' ? '推定月商 (Gross Revenue)' : isHazardMode ? '直近/ピーク月商' : '直近月商 (Gross Revenue)'}
-                      </span>
-                      <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
-                    </div>
-                    <div className="p-2.5 flex justify-between items-center text-[11px]">
-                      <span className="text-zinc-500 pl-2">└ 売上原価 (COGS)</span>
-                      <span className="text-zinc-400 tabular-nums">-{formatMoney(entity.pnl.cogs)}</span>
-                    </div>
-                    <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
-                      <span className="text-zinc-300 font-medium">粗利益 (Gross Profit: {entity.pnl.grossMargin}%)</span>
-                      <span className="text-white font-medium tabular-nums">{formatMoney(entity.pnl.grossProfit)}</span>
-                    </div>
-
-                    {/* 販管費内訳 (OPEX) */}
-                    <div className="p-2.5 space-y-1.5 text-[11px] text-zinc-500">
-                      <div className="flex items-center justify-between text-[10px] text-zinc-600 uppercase font-bold">
-                        <span>販管費内訳 (OPEX)</span>
-                        {financialStatus === 'ESTIMATED' && (
-                          <span className="text-amber-500/80 font-normal">※業界標準比率に基づく推定配分</span>
+                      {/* 右側：観測時期 ＆ 出典 */}
+                      <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
+                        {entity.pnl.dataSnapshotPeriod && (
+                          <span className="flex items-center gap-1 text-zinc-400">
+                            <Clock className="w-2.5 h-2.5 text-zinc-500" />
+                            {entity.pnl.dataSnapshotPeriod}
+                          </span>
+                        )}
+                        {entity.pnl.sourceDoc && (
+                          <span className="hidden sm:inline px-1.5 py-0.2 rounded bg-white/[0.04] border border-white/[0.08] text-zinc-300">
+                            {entity.pnl.sourceDoc}
+                          </span>
                         )}
                       </div>
-                      <div className="flex justify-between pl-2">
-                        <span>サーバー/推論API費</span>
-                        <span className={`tabular-nums ${isHazardMode ? 'text-red-300' : ''}`}>{formatMoney(entity.pnl.operatingExpenses.serverAndApi)}</span>
+                    </div>
+
+                    <div className="p-3.5 space-y-3.5 bg-[#0E131F]">
+                      {/* 4連コアKPI */}
+                      <div className="grid grid-cols-4 gap-2.5 font-mono">
+                        <div className="bg-[#141A28] p-2.5 rounded-md border border-white/[0.06]">
+                          <span className="text-[9px] text-zinc-400 block uppercase font-semibold">
+                            {financialStatus === 'ESTIMATED' ? '推定月商 (Rev)' : isHazardMode ? '月商 (ピーク/現行)' : '月商 (Rev)'}
+                          </span>
+                          <span className="text-xs font-bold text-white tabular-nums">
+                            {formatMoney(entity.pnl.monthlyRevenue)}
+                          </span>
+                        </div>
+                        <div className="bg-[#141A28] p-2.5 rounded-md border border-white/[0.06]">
+                          <span className="text-[9px] text-zinc-400 block uppercase font-semibold">
+                            {financialStatus === 'ESTIMATED' ? '推定手残り (Net)' : isHazardMode ? '純損失/手残り' : '純手残り (Net)'}
+                          </span>
+                          <span className={`text-xs font-bold tabular-nums ${
+                            isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
+                          }`}>
+                            {formatMoney(entity.pnl.operatingProfit)}
+                          </span>
+                        </div>
+                        <div className="bg-[#141A28] p-2.5 rounded-md border border-white/[0.06]">
+                          <span className="text-[9px] text-zinc-400 block uppercase font-semibold">
+                            {financialStatus === 'ESTIMATED' ? '推定利益率' : isHazardMode ? '赤字/利益率' : '利益率 (Margin)'}
+                          </span>
+                          <span className={`text-xs font-bold tabular-nums ${
+                            isHazardMode || entity.pnl.operatingMargin < 0 ? 'text-red-400' : 'text-emerald-400'
+                          }`}>
+                            {entity.pnl.operatingMargin}%
+                          </span>
+                        </div>
+                        <div className="bg-[#141A28] p-2.5 rounded-md border border-white/[0.06]">
+                          <span className="text-[9px] text-zinc-400 block uppercase font-semibold">年成長率 (YoY)</span>
+                          <span className={`text-xs font-bold tabular-nums ${
+                            entity.growthRateYoY < 0 ? 'text-red-400' : 'text-zinc-200'
+                          }`}>
+                            {`${entity.growthRateYoY > 0 ? '+' : ''}${entity.growthRateYoY}%`}
+                          </span>
+                        </div>
                       </div>
-                      <div className="flex justify-between pl-2">
-                        <span>広告宣伝費</span>
-                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.advertising)}</span>
+
+                      {/* 損益流出ウォーターフォールバー */}
+                      <div className="space-y-1.5 pt-2 border-t border-white/[0.06]">
+                        <div className="flex items-center justify-between text-[10px] font-mono">
+                          <span className="text-zinc-400">
+                            {financialStatus === 'ESTIMATED' ? '損益分解モデル (100%基準)' : isHazardMode ? '資本流出・出血分解 (100%基準)' : '損益流出分解 (100%基準)'}
+                          </span>
+                          <span className={`font-bold ${isHazardMode || profitPct === 0 ? 'text-red-400' : 'text-emerald-400'}`}>
+                            {isHazardMode ? `純手残り ${profitPct}% (出血状態)` : `手残り純利益 ${profitPct}%`}
+                          </span>
+                        </div>
+                        <div className="w-full h-2.5 bg-black/80 rounded-xs overflow-hidden flex border border-white/[0.10]">
+                          {cogsPct > 0 && <div style={{ width: `${cogsPct}%` }} className="bg-zinc-600" title={`原価: ${cogsPct}%`} />}
+                          {serverPct > 0 && <div style={{ width: `${serverPct}%` }} className={isHazardMode ? "bg-red-800" : "bg-zinc-700"} title={`推論/サーバー: ${serverPct}%`} />}
+                          {adPct > 0 && <div style={{ width: `${adPct}%` }} className="bg-zinc-500" title={`広告: ${adPct}%`} />}
+                          {subPct > 0 && <div style={{ width: `${subPct}%` }} className="bg-zinc-700" title={`外注: ${subPct}%`} />}
+                          {saasPct > 0 && <div style={{ width: `${saasPct}%` }} className="bg-zinc-800" title={`ツール: ${saasPct}%`} />}
+                          {otherPct > 0 && <div style={{ width: `${otherPct}%` }} className="bg-zinc-800" title={`その他: ${otherPct}%`} />}
+                          {profitPct > 0 && <div style={{ width: `${profitPct}%` }} className={isHazardMode ? "bg-red-500" : "bg-emerald-500"} title={`純利益: ${profitPct}%`} />}
+                        </div>
                       </div>
-                      <div className="flex justify-between pl-2">
-                        <span>外注・委託費</span>
-                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.subcontracting)}</span>
-                      </div>
-                      <div className="flex justify-between pl-2">
-                        <span>ツール・SaaS費</span>
-                        <span className="tabular-nums">{formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS)}</span>
+                    </div>
+                  </div>
+
+                  {/* P&L 会計スプレッドシートテーブル */}
+                  <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                    isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+                  }`}>
+                    <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                      isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                    }`}>
+                      <div className="flex items-center gap-2.5">
+                        <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                        <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${financialBadgeMeta.badgeClass}`}>
+                          #06
+                        </span>
+                        <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${financialBadgeMeta.titleColor}`}>
+                          {financialStatus === 'ESTIMATED'
+                            ? '推定損益構造モデル (P&L ESTIMATION MODEL)'
+                            : financialStatus === 'REPORTED'
+                            ? '報道・取材損益テーブル (P&L REPORTED AUDIT)'
+                            : isHazardMode
+                            ? '月次損益出血テーブル (P&L AUTOPSY)'
+                            : '確定財務実査テーブル (P&L AUDIT)'}
+                        </h3>
                       </div>
                     </div>
 
-                    <div className={`p-2.5 flex justify-between items-center border-t ${
-                      isHazardMode || entity.pnl.operatingProfit < 0
-                        ? 'bg-red-950/30 border-red-500/30'
-                        : 'bg-emerald-950/20 border-white/[0.08]'
-                    }`}>
-                      <span className="text-white font-bold">
-                        {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業赤字 (純流出)' : '営業利益 (純手残り)'} ({entity.pnl.operatingMargin}%)
-                      </span>
-                      <span className={`font-bold tabular-nums text-xs ${
-                        isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
+                    <div className="p-3.5 space-y-3 bg-[#0E131F]">
+                      {/* 推計因数分解方程式ボックス（ESTIMATED時のみ表示） */}
+                      {financialStatus === 'ESTIMATED' && entity.pnl.estimationLogic && (
+                        <div className="p-3 rounded-md bg-[#13110A] border border-amber-500/30 space-y-1.5 shadow-sm">
+                          <div className="flex items-center gap-1.5 text-amber-400 text-[10px] font-mono font-bold">
+                            <Calculator className="w-3.5 h-3.5 text-amber-400" />
+                            <span>推計因数分解方程式 (REVERSE-ENGINEERED EQUATION)</span>
+                          </div>
+                          <div className="font-mono text-xs text-amber-200/90 leading-relaxed bg-black/60 p-2.5 rounded border border-amber-500/20 whitespace-pre-line">
+                            {entity.pnl.estimationLogic}
+                          </div>
+                          <div className="text-[9px] font-mono text-zinc-400">
+                            ※ 公開プラン単価・観測ユーザー規模・業界標準原価率からリバースエンジニアリングした科学的推計方程式です。
+                          </div>
+                        </div>
+                      )}
+
+                      <div className={`border rounded-md bg-[#111624] divide-y text-xs font-mono shadow-sm ${
+                        isHazardMode ? 'border-red-500/20 divide-red-500/10' : 'border-white/[0.08] divide-white/[0.06]'
                       }`}>
-                        {formatMoney(entity.pnl.operatingProfit)}/月
+                        <div className="p-2.5 flex justify-between items-center">
+                          <span className="text-zinc-300">
+                            {financialStatus === 'ESTIMATED' ? '推定月商 (Gross Revenue)' : isHazardMode ? '直近/ピーク月商' : '直近月商 (Gross Revenue)'}
+                          </span>
+                          <span className="text-white font-bold tabular-nums">{formatMoney(entity.pnl.monthlyRevenue)}</span>
+                        </div>
+                        <div className="p-2.5 flex justify-between items-center text-[11px]">
+                          <span className="text-zinc-400 pl-2">└ 売上原価 (COGS)</span>
+                          <span className="text-zinc-300 tabular-nums">-{formatMoney(entity.pnl.cogs)}</span>
+                        </div>
+                        <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
+                          <span className="text-zinc-200 font-medium">粗利益 (Gross Profit: {entity.pnl.grossMargin}%)</span>
+                          <span className="text-white font-medium tabular-nums">{formatMoney(entity.pnl.grossProfit)}</span>
+                        </div>
+
+                        {/* 販管費内訳 (OPEX) */}
+                        <div className="p-2.5 space-y-1.5 text-[11px] text-zinc-400">
+                          <div className="flex items-center justify-between text-[10px] text-zinc-500 uppercase font-bold">
+                            <span>販管費内訳 (OPEX)</span>
+                            {financialStatus === 'ESTIMATED' && (
+                              <span className="text-amber-400/90 font-normal">※業界標準比率に基づく推定配分</span>
+                            )}
+                          </div>
+                          <div className="flex justify-between pl-2">
+                            <span>サーバー/推論API費</span>
+                            <span className={`tabular-nums ${isHazardMode ? 'text-red-300' : 'text-zinc-300'}`}>{formatMoney(entity.pnl.operatingExpenses.serverAndApi)}</span>
+                          </div>
+                          <div className="flex justify-between pl-2">
+                            <span>広告宣伝費</span>
+                            <span className="tabular-nums text-zinc-300">{formatMoney(entity.pnl.operatingExpenses.advertising)}</span>
+                          </div>
+                          <div className="flex justify-between pl-2">
+                            <span>外注・委託費</span>
+                            <span className="tabular-nums text-zinc-300">{formatMoney(entity.pnl.operatingExpenses.subcontracting)}</span>
+                          </div>
+                          <div className="flex justify-between pl-2">
+                            <span>ツール・SaaS費</span>
+                            <span className="tabular-nums text-zinc-300">{formatMoney(entity.pnl.operatingExpenses.toolsAndSaaS)}</span>
+                          </div>
+                        </div>
+
+                        <div className={`p-2.5 flex justify-between items-center border-t ${
+                          isHazardMode || entity.pnl.operatingProfit < 0
+                            ? 'bg-red-950/30 border-red-500/30'
+                            : 'bg-emerald-950/20 border-white/[0.08]'
+                        }`}>
+                          <span className="text-white font-bold">
+                            {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業赤字 (純流出)' : '営業利益 (純手残り)'} ({entity.pnl.operatingMargin}%)
+                          </span>
+                          <span className={`font-bold tabular-nums text-xs ${
+                            isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
+                          }`}>
+                            {formatMoney(entity.pnl.operatingProfit)}/月
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+
+              {/* 運用体制 ＆ 資本要件 */}
+              <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+              }`}>
+                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                }`}>
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                      isHazardMode
+                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                    }`}>
+                      #07
+                    </span>
+                    <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                      isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                    }`}>
+                      {isHazardMode ? '過剰雇用 ＆ 固定費の罠 (OVERHIRING & BURN)' : '運用体制 ＆ 初期資本 (OPERATIONS)'}
+                    </h3>
+                  </div>
+                  <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                    EFFICIENCY
+                  </span>
+                </div>
+                <div className="p-3.5 bg-[#0E131F]">
+                  <div className="border border-white/[0.08] rounded-md bg-[#111624] grid grid-cols-4 divide-x divide-white/[0.06] p-3 font-mono text-center text-[10px] shadow-sm">
+                    <div>
+                      <span className="text-emerald-400 block font-bold">立ち上げ初期</span>
+                      <span className="text-white font-bold text-xs">
+                        {entity.operations.initialTeamSize ?? (entity.scale === 'SOLO' ? 1 : entity.scale === 'SMALL_TEAM' ? 2 : 2)}人
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-zinc-400 block">{isHazardMode ? 'ピーク時 (破滅前)' : '現在 (スケール後)'}</span>
+                      <span className={`font-bold text-xs ${isHazardMode ? 'text-red-400' : 'text-zinc-200'}`}>
+                        {entity.operations.currentTeamSize ?? entity.operations.teamSize}人
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-zinc-400 block">週実働</span>
+                      <span className="text-white font-bold text-xs">{entity.operations.weeklyHours}h</span>
+                    </div>
+                    <div>
+                      <span className="text-zinc-400 block">自動化度</span>
+                      <span className={`font-bold text-xs ${isHazardMode ? 'text-amber-400' : 'text-emerald-400'}`}>
+                        {entity.operations.automationLevel}%
                       </span>
                     </div>
                   </div>
-                </section>
-              </>
-            )}
-
-            {/* 運用体制 ＆ 資本要件 */}
-            <section className="space-y-2">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                      : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
-                  }`}>
-                    #07
-                  </span>
-                  <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                    isHazardMode ? 'text-red-300' : 'text-zinc-200'
-                  }`}>
-                    {isHazardMode ? '過剰雇用 ＆ 固定費の罠 (OVERHIRING & BURN)' : '運用体制 ＆ 初期資本 (OPERATIONS)'}
-                  </span>
                 </div>
               </div>
-              <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] grid grid-cols-4 divide-x divide-white/[0.04] p-3 font-mono text-center text-[10px] shadow-sm">
-                <div>
-                  <span className="text-emerald-400 block font-bold">立ち上げ初期</span>
-                  <span className="text-white font-bold text-xs">
-                    {entity.operations.initialTeamSize ?? (entity.scale === 'SOLO' ? 1 : entity.scale === 'SMALL_TEAM' ? 2 : 2)}人
-                  </span>
-                </div>
-                <div>
-                  <span className="text-zinc-500 block">{isHazardMode ? 'ピーク時 (破滅前)' : '現在 (スケール後)'}</span>
-                  <span className={`font-bold text-xs ${isHazardMode ? 'text-red-400' : 'text-zinc-300'}`}>
-                    {entity.operations.currentTeamSize ?? entity.operations.teamSize}人
-                  </span>
-                </div>
-                <div>
-                  <span className="text-zinc-500 block">週実働</span>
-                  <span className="text-white font-bold text-xs">{entity.operations.weeklyHours}h</span>
-                </div>
-                <div>
-                  <span className="text-zinc-500 block">自動化度</span>
-                  <span className={`font-bold text-xs ${isHazardMode ? 'text-amber-400' : 'text-emerald-400'}`}>
-                    {entity.operations.automationLevel}%
-                  </span>
-                </div>
-              </div>
-            </section>
+            </div>
 
             {/* 稼働インフラ：現場配管ツール（通常時・データが存在する場合のみ表示） */}
             {!isHazardMode && entity.operations?.toolStack && entity.operations.toolStack.length > 0 && (
-              <section id="section-tools" className="space-y-2 scroll-mt-4">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border text-zinc-400 bg-white/[0.06] border-white/[0.08]">
+              <div 
+                id="section-tools" 
+                className="rounded-lg overflow-hidden border border-white/[0.12] bg-[#0E131F] shadow-xl scroll-mt-4"
+              >
+                {/* セクション専用タイトルバー (Level 2: #141A29) */}
+                <div className="flex items-center justify-between px-3.5 py-2.5 bg-[#141A29] border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-1 h-3.5 rounded-full bg-zinc-300" />
+                    <span className="font-mono text-xs font-bold px-1.5 py-0.5 rounded border text-zinc-100 bg-white/[0.08] border-white/[0.14]">
                       #08
                     </span>
                     <div className="flex items-center gap-1.5">
-                      <Wrench className="w-3.5 h-3.5 text-zinc-400" />
-                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-zinc-200">
+                      <Wrench className="w-3.5 h-3.5 text-zinc-300" />
+                      <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-100">
                         稼働インフラ：現場配管ツール ({entity.operations.toolStack.length}件)
-                      </span>
+                      </h3>
                     </div>
                   </div>
-                  <span className="text-zinc-400 font-mono text-[10px]">
+                  <span className="text-zinc-300 font-mono text-[11px] font-bold">
                     月額計: {formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}
                   </span>
                 </div>
-                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
+                <div className="divide-y divide-white/[0.06] bg-[#0E131F]">
                   {entity.operations.toolStack.map((tool, idx) => {
                     const aff = findToolAffiliate(tool.name);
                     const targetUrl = tool.url || aff?.url;
                     return (
-                      <div key={idx} className="p-2.5 space-y-1">
-                        <div className="flex justify-between items-center text-[11px]">
+                      <div key={idx} className="p-3 space-y-1 hover:bg-white/[0.02] transition-colors">
+                        <div className="flex justify-between items-center text-xs">
                           <div className="flex items-center gap-2">
                             {targetUrl ? (
                               <a
                                 href={targetUrl}
                                 target="_blank"
                                 rel="noopener noreferrer sponsored"
-                                className="inline-flex items-center gap-1.5 text-white font-medium hover:text-emerald-300 transition-colors group cursor-pointer"
+                                className="inline-flex items-center gap-1.5 text-white font-bold hover:text-emerald-300 transition-colors group cursor-pointer"
                               >
                                 <span>{tool.name}</span>
-                                <ExternalLink className="w-2.5 h-2.5 text-zinc-500 group-hover:text-emerald-400 transition-colors" />
+                                <ExternalLink className="w-2.5 h-2.5 text-zinc-400 group-hover:text-emerald-400 transition-colors" />
                                 {aff?.isAffiliate && (
                                   <span className="text-[8px] font-sans font-bold px-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                                     PR
@@ -1078,18 +1149,18 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                                 )}
                               </a>
                             ) : (
-                              <span className="text-white font-medium">{tool.name}</span>
+                              <span className="text-white font-bold">{tool.name}</span>
                             )}
-                            <span className="text-zinc-500 text-[10px] font-mono">({tool.category})</span>
+                            <span className="text-zinc-400 text-[10px] font-mono">({tool.category})</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="text-zinc-400 font-mono text-[10px] tabular-nums">
+                            <span className="text-zinc-300 font-mono text-xs tabular-nums font-semibold">
                               {formatMoney(tool.monthlyCost)}/月
                             </span>
                           </div>
                         </div>
                         {tool.purpose && (
-                          <p className="text-[10px] text-zinc-400 leading-snug">
+                          <p className="text-[11px] text-zinc-300 leading-snug">
                             {tool.purpose}
                           </p>
                         )}
@@ -1097,12 +1168,12 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     );
                   })}
                   {/* 景品表示法ステマ規制注記 */}
-                  <div className="p-2 bg-white/[0.01] flex items-center gap-1 text-[9px] font-mono text-zinc-500">
-                    <ShieldCheck className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
+                  <div className="p-2.5 bg-white/[0.01] flex items-center gap-1.5 text-[9px] font-mono text-zinc-400">
+                    <ShieldCheck className="w-3 h-3 text-zinc-400 shrink-0" />
                     <span>※掲載ツールリンクには提携アフィリエイト広告が含まれており、紹介料が発生する場合があります。</span>
                   </div>
                 </div>
-              </section>
+              </div>
             )}
 
             {/* 地雷・失敗事例専用：【即死回避】防壁インフラ ＆ 避難先ツール（PR） */}
@@ -1130,50 +1201,54 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               const shield = HAZARD_DEFENSE_SHIELDS[shieldKey] || HAZARD_DEFENSE_SHIELDS['API_DEPENDENCY'];
 
               return (
-                <section className="space-y-2.5">
-                  <div className="flex items-center justify-between border-b border-red-500/20 pb-1.5">
-                    <div className="flex items-center gap-2">
-                      <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border text-red-400 bg-red-950/50 border-red-500/40">
+                <div 
+                  id="section-tools" 
+                  className="rounded-lg overflow-hidden border border-red-500/30 bg-[#0E131F] shadow-xl scroll-mt-4"
+                >
+                  <div className="flex items-center justify-between px-3.5 py-2.5 bg-red-950/40 border-b border-red-500/30">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-1 h-3.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]" />
+                      <span className="font-mono text-xs font-bold px-1.5 py-0.5 rounded border text-red-300 bg-red-900/40 border-red-500/40">
                         #08
                       </span>
                       <div className="flex items-center gap-1.5">
                         <Shield className="w-3.5 h-3.5 text-amber-400" />
-                        <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-amber-300">
+                        <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-amber-200">
                           {shield.title}
-                        </span>
+                        </h3>
                       </div>
                     </div>
-                    <span className="text-zinc-500 font-mono text-[9px]">
+                    <span className="text-red-300 font-mono text-[10px] bg-red-950/60 px-2 py-0.5 rounded border border-red-500/30">
                       損失回避・防御盾
                     </span>
                   </div>
 
-                  <div className="border border-amber-500/30 rounded-md bg-[#0F0A0A] p-3 space-y-3 shadow-md">
-                    <div className="bg-red-950/30 border border-red-500/20 rounded p-2.5 space-y-1">
-                      <div className="flex items-center gap-1.5 text-red-400 text-[10px] font-mono font-bold">
-                        <AlertTriangle className="w-3 h-3" />
+                  <div className="p-3.5 space-y-3 bg-[#0E131F]">
+                    <div className="bg-red-950/30 border border-red-500/30 rounded-md p-3 space-y-1">
+                      <div className="flex items-center gap-1.5 text-red-400 text-xs font-mono font-bold">
+                        <AlertTriangle className="w-3.5 h-3.5" />
                         <span>踏んだら即死する構造的死角</span>
                       </div>
-                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans">
+                      <p className="text-xs text-zinc-200 leading-relaxed font-sans">
                         {shield.fatalRisk}
                       </p>
                     </div>
 
-                    <div className="bg-amber-950/20 border border-amber-500/20 rounded p-2.5 space-y-1">
-                      <div className="flex items-center gap-1.5 text-amber-400 text-[10px] font-mono font-bold">
-                        <ShieldCheck className="w-3 h-3" />
+                    <div className="bg-amber-950/20 border border-amber-500/30 rounded-md p-3 space-y-1">
+                      <div className="flex items-center gap-1.5 text-amber-400 text-xs font-mono font-bold">
+                        <ShieldCheck className="w-3.5 h-3.5" />
                         <span>生存のための防壁アプローチ</span>
                       </div>
-                      <p className="text-[11px] text-zinc-300 leading-relaxed font-sans">
+                      <p className="text-xs text-zinc-200 leading-relaxed font-sans">
                         {shield.shieldApproach}
                       </p>
                     </div>
 
                     <div className="space-y-2 pt-1">
-                      <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase tracking-wider block">
+                      <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase tracking-wider block">
                         推奨・避難先インフラスタック（検証済み代替ツール）
                       </span>
-                      <div className="space-y-1.5">
+                      <div className="space-y-2">
                         {shield.recommendedTools.map((t, idx) => {
                           const affMeta = TOOL_AFFILIATES[t.affiliateKey];
                           const targetUrl = affMeta?.url || '#';
@@ -1183,23 +1258,23 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                               href={targetUrl}
                               target="_blank"
                               rel="noopener noreferrer sponsored"
-                              className="block p-2.5 rounded bg-black/40 hover:bg-black/70 border border-white/[0.08] hover:border-amber-500/50 transition-all group cursor-pointer"
+                              className="block p-3 rounded-md bg-[#13110A] hover:bg-[#1C1810] border border-amber-500/30 hover:border-amber-500/60 transition-all group cursor-pointer"
                             >
                               <div className="flex items-center justify-between text-xs mb-1">
                                 <div className="flex items-center gap-2">
                                   <span className="text-white font-bold group-hover:text-amber-300 transition-colors">
                                     {t.name}
                                   </span>
-                                  <span className="text-[9px] font-mono text-amber-400/90 bg-amber-950/60 px-1.5 py-0.2 rounded border border-amber-800/40">
+                                  <span className="text-[9px] font-mono text-amber-300 bg-amber-950/60 px-1.5 py-0.2 rounded border border-amber-700/50">
                                     {t.role}
                                   </span>
                                   <span className="text-[8px] font-sans font-bold px-1 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
                                     PR
                                   </span>
                                 </div>
-                                <ExternalLink className="w-3 h-3 text-zinc-500 group-hover:text-amber-400 transition-colors" />
+                                <ExternalLink className="w-3 h-3 text-zinc-400 group-hover:text-amber-400 transition-colors" />
                               </div>
-                              <p className="text-[10px] text-zinc-400 group-hover:text-zinc-300 leading-snug">
+                              <p className="text-[11px] text-zinc-300 group-hover:text-zinc-200 leading-snug">
                                 {t.whyShield}
                               </p>
                             </a>
@@ -1209,30 +1284,34 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     </div>
 
                     {/* 景表法ステマ規制注記 */}
-                    <div className="pt-1 flex items-center gap-1 text-[9px] font-mono text-zinc-500">
+                    <div className="pt-1 flex items-center gap-1 text-[9px] font-mono text-zinc-400">
                       <ShieldCheck className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
                       <span>※掲載ツールリンクには提携アフィリエイト広告が含まれており、紹介料が発生する場合があります。</span>
                     </div>
                   </div>
-                </section>
+                </div>
               );
             })()}
-          </div>
 
           {/* ------------------------------------------------------- */}
           {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
           {/* ------------------------------------------------------- */}
           {!hasEvidenceCards && (
-          <div className="space-y-6 pt-2 border-t border-white/[0.06]">
+          <div className="space-y-8">
             {/* 資本主義の裏帳簿：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
             {entity.exposureAudit && (
-              <section className="space-y-2">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+              <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+              }`}>
+                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                }`}>
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
                       isHazardMode
-                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                        : 'text-zinc-300 bg-white/[0.08] border-white/[0.12]'
+                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                     }`}>
                       #09
                     </span>
@@ -1242,173 +1321,201 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                       ) : (
                         <Crosshair className="w-3.5 h-3.5 text-zinc-300" />
                       )}
-                      <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                        isHazardMode ? 'text-red-300' : 'text-zinc-100'
+                      <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                        isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
                         {isHazardMode ? '資本主義の裏帳簿：致命的死因の客観ログ (POST-MORTEM AUTOPSY)' : '資本主義の裏帳簿：初期突破の手口と裏原価 (EXPOSURE AUDIT)'}
-                      </span>
+                      </h3>
                     </div>
                   </div>
-                  <span className={`font-mono text-[9px] ${isHazardMode ? 'text-red-400 font-bold' : 'text-zinc-500'}`}>
+                  <span className={`font-mono text-[10px] px-2 py-0.5 rounded border ${
+                    isHazardMode 
+                      ? 'text-red-300 bg-red-950/60 border-red-500/30 font-bold' 
+                      : 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
+                  }`}>
                     {isHazardMode ? 'FATAL CASUALTY' : 'FACT CHECKED'}
                   </span>
                 </div>
 
-                <div className={`border rounded-md bg-[#0A0C10] divide-y text-xs font-sans shadow-sm ${
-                  isHazardMode ? 'border-red-500/20 divide-red-500/10' : 'border-white/[0.08] divide-white/[0.04]'
+                <div className={`divide-y text-xs font-sans ${
+                  isHazardMode ? 'divide-red-500/10' : 'divide-white/[0.06]'
                 }`}>
                   {/* ① 初期ゲリラ戦・自演ログ / 初期錯覚トラクション */}
-                  <div className="p-3 space-y-1">
-                    <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
-                      <span className={isHazardMode ? 'text-red-500' : 'text-zinc-500'}>01.</span>
+                  <div className="p-3.5 space-y-1.5 bg-[#0E131F]">
+                    <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>01.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
                         {isHazardMode ? '初期の錯覚熱狂と自演トラクション (EUPHORIA TRACTION)' : '初期ゲリラ戦・自演集客ログ (GUERRILLA TRACTION)'}
                       </span>
                     </div>
-                    <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                    <p className="text-zinc-300 leading-relaxed font-sans pl-4">
                       {entity.exposureAudit.guerrillaTraction}
                     </p>
                   </div>
 
                   {/* ② プラットフォーム規約の盲点ハック / 致命的規約違反・依存 */}
-                  <div className="p-3 space-y-1">
-                    <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
-                      <span className={isHazardMode ? 'text-red-500' : 'text-zinc-500'}>02.</span>
+                  <div className="p-3.5 space-y-1.5 bg-[#0E131F]">
+                    <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>02.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
                         {isHazardMode ? 'プラットフォーム依存の死角と規約爆弾 (DEPENDENCY BOMB)' : 'プラットフォーム規約の盲点ハック (PLATFORM GLITCH)'}
                       </span>
                     </div>
-                    <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                    <p className="text-zinc-300 leading-relaxed font-sans pl-4">
                       {entity.exposureAudit.platformGlitch}
                     </p>
                   </div>
 
                   {/* ③ 死線とピボット魚拓 */}
-                  <div className="p-3 space-y-1">
-                    <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
-                      <span className={isHazardMode ? 'text-red-500' : 'text-zinc-500'}>03.</span>
+                  <div className="p-3.5 space-y-1.5 bg-[#0E131F]">
+                    <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>03.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
                         {isHazardMode ? '崩壊後の投げ売り・清算ピボット魚拓 (FIRE SALE & PIVOT)' : '死線とピボットの魚拓比較 (PIVOT SNAPSHOT)'}
                       </span>
                     </div>
-                    <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                    <p className="text-zinc-300 leading-relaxed font-sans pl-4">
                       {entity.exposureAudit.pivotSnapshot}
                     </p>
                   </div>
 
                   {/* ④ 表向き隠された裏原価 / 原価高騰と固定費出血 */}
-                  <div className="p-3 space-y-1">
-                    <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400 font-bold">
-                      <span className={isHazardMode ? 'text-red-500' : 'text-zinc-500'}>04.</span>
+                  <div className="p-3.5 space-y-1.5 bg-[#0E131F]">
+                    <div className="flex items-center gap-2 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>04.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
                         {isHazardMode ? '首を絞めたAPI原価・過剰固定費の出血ログ (FATAL EXPENSE)' : '裏ツール構成と現物原価のレントゲン (HIDDEN COST & API)'}
                       </span>
                     </div>
-                    <p className="text-[11px] text-zinc-300 leading-relaxed font-sans pl-4">
+                    <p className="text-zinc-300 leading-relaxed font-sans pl-4">
                       {entity.exposureAudit.hiddenStackCost}
                     </p>
                   </div>
                 </div>
-              </section>
+              </div>
             )}
 
           {/* 最初の100人を獲得した手順 / 熱狂の終焉 */}
-          <section className="space-y-2">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                      : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+          <div className={`rounded-lg overflow-hidden border shadow-xl ${
+            isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+          }`}>
+            <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+              isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+            }`}>
+              <div className="flex items-center gap-2.5">
+                <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                  isHazardMode
+                    ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                    : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                }`}>
+                  #10
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <Users className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                  <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    #10
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <Users className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-300' : 'text-zinc-200'
-                    }`}>
-                      {isHazardMode ? '初期熱狂の獲得と解約の引き金 (INITIAL RUSH & TRIGGER)' : '最初の100人を獲得した泥臭い手順 (TRACTION)'}
-                    </span>
-                  </div>
+                    {isHazardMode ? '初期熱狂の獲得と解約の引き金 (INITIAL RUSH & TRIGGER)' : '最初の100人を獲得した泥臭い手順 (TRACTION)'}
+                  </h3>
                 </div>
               </div>
-              <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] divide-y divide-white/[0.04] shadow-sm">
-                {entity.strategy.initialTraction.map((item, idx) => (
-                  <div key={idx} className="p-3 flex items-start gap-2.5 text-[11px] text-zinc-200">
-                    <span className={`font-mono text-[10px] shrink-0 font-bold ${isHazardMode ? 'text-red-500' : 'text-zinc-500'}`}>{idx + 1}.</span>
-                    <span className="leading-relaxed">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
+              <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                FIRST 100
+              </span>
+            </div>
+            <div className="divide-y divide-white/[0.06] bg-[#0E131F]">
+              {entity.strategy.initialTraction.map((item, idx) => (
+                <div key={idx} className="p-3.5 flex items-start gap-3 text-xs text-zinc-200">
+                  <span className={`font-mono text-xs shrink-0 font-bold ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>{idx + 1}.</span>
+                  <span className="leading-relaxed">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            {/* 再現・実行ステップ / 踏んではいけない地雷チェックリスト */}
-            <section id="section-playbook" className="space-y-2 scroll-mt-4">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                      : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+          {/* 再現・実行ステップ / 踏んではいけない地雷チェックリスト */}
+          <div 
+            id="section-playbook" 
+            className={`rounded-lg overflow-hidden border shadow-xl ${
+              isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+            } scroll-mt-4`}
+          >
+            <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+              isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+            }`}>
+              <div className="flex items-center gap-2.5">
+                <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                  isHazardMode
+                    ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                    : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                }`}>
+                  #11
+                </span>
+                <div className="flex items-center gap-1.5">
+                  {isHazardMode ? (
+                    <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
+                  ) : (
+                    <Layers className="w-3.5 h-3.5 text-zinc-400" />
+                  )}
+                  <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    #11
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    {isHazardMode ? (
-                      <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
-                    ) : (
-                      <Layers className="w-3.5 h-3.5 text-zinc-400" />
-                    )}
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-300' : 'text-zinc-200'
-                    }`}>
-                      {isHazardMode ? '踏んではいけない地雷チェックリスト (AVOIDANCE AUDIT)' : '再現・実行 Playbook (ACTION PLAYBOOK)'}
-                    </span>
-                  </div>
+                    {isHazardMode ? '踏んではいけない地雷チェックリスト (AVOIDANCE AUDIT)' : '再現・実行 Playbook (ACTION PLAYBOOK)'}
+                  </h3>
                 </div>
               </div>
-              <div className={`border rounded-md bg-[#0A0C10] divide-y shadow-sm ${
-                isHazardMode ? 'border-red-500/20 divide-red-500/10' : 'border-white/[0.08] divide-white/[0.04]'
+              <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                PLAYBOOK
+              </span>
+            </div>
+            <div className={`divide-y ${
+              isHazardMode ? 'divide-red-500/10' : 'divide-white/[0.06]'
+            } bg-[#0E131F]`}>
+              {entity.strategy.actionPlaybook.map((step, idx) => (
+                <div key={idx} className="p-3.5 text-xs text-zinc-200 leading-relaxed">
+                  {step}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 顧客獲得動線 / 崩壊した獲得動線 */}
+          {entity.acquisition && (
+            <div className={`rounded-lg overflow-hidden border shadow-xl ${
+              isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+            }`}>
+              <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
               }`}>
-                {entity.strategy.actionPlaybook.map((step, idx) => (
-                  <div key={idx} className="p-3 text-[11px] text-zinc-200 leading-relaxed">
-                    {step}
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* 顧客獲得動線 / 崩壊した獲得動線 */}
-            {entity.acquisition && (
-              <section className="space-y-2">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                      isHazardMode
-                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                        : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
-                    }`}>
-                      #12
-                    </span>
-                    <div className="flex items-center gap-1.5">
-                      <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                      <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                        isHazardMode ? 'text-red-300' : 'text-zinc-200'
-                      }`}>
-                        {isHazardMode ? '崩壊した集客動線とCAC高騰 (ACQUISITION COLLAPSE)' : '顧客獲得動線 (ACQUISITION FUNNEL)'}
-                      </span>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[10px] text-zinc-400">
-                    CAC: <strong className={isHazardMode ? 'text-red-400' : 'text-emerald-400'}>{entity.acquisition.cacJpy === 0 ? '0円' : formatMoney(entity.acquisition.cacJpy)}</strong>
+                <div className="flex items-center gap-2.5">
+                  <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                  <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                    isHazardMode
+                      ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                      : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                  }`}>
+                    #12
                   </span>
+                  <div className="flex items-center gap-1.5">
+                    <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                    <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                      isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                    }`}>
+                      {isHazardMode ? '崩壊した集客動線とCAC高騰 (ACQUISITION COLLAPSE)' : '顧客獲得動線 (ACQUISITION FUNNEL)'}
+                    </h3>
+                  </div>
                 </div>
-                <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3 text-[11px] text-zinc-200 shadow-sm">
-                  {entity.acquisition.primaryFunnel}
-                </div>
-              </section>
-            )}
+                <span className="font-mono text-[11px] text-zinc-300 font-bold">
+                  CAC: <strong className={isHazardMode ? 'text-red-400' : 'text-emerald-400'}>{entity.acquisition.cacJpy === 0 ? '0円' : formatMoney(entity.acquisition.cacJpy)}</strong>
+                </span>
+              </div>
+              <div className="p-3.5 text-xs text-zinc-200 bg-[#0E131F]">
+                {entity.acquisition.primaryFunnel}
+              </div>
+            </div>
+          )}
           </div>
           )}
 
@@ -1416,16 +1523,21 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 【PRO EXCLUSIVE: 儲かり続ける4つの裏構造 / 崩壊を招いた4つの構造的死因 (フォールバック)】 */}
           {/* ========================================================= */}
           {!hasEvidenceCards && entity.meta && (
-            <div className={`relative border rounded-md bg-[#0A0B0E] p-3.5 space-y-3 overflow-hidden shadow-2xl mt-6 ${
-              isHazardMode ? 'border-red-500/30' : 'border-white/[0.1]'
+            <div className={`relative rounded-lg overflow-hidden border shadow-2xl ${
+              isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
             }`}>
               {/* ヘッダー */}
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-2">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+              <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+              }`}>
+                <div className="flex items-center gap-2.5">
+                  <div className={`w-1 h-3.5 rounded-full ${
+                    isHazardMode ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]' : 'bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]'
+                  }`} />
+                  <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
                     isHazardMode 
-                      ? 'text-red-400 bg-red-950/60 border-red-800/60'
-                      : 'text-emerald-400 bg-emerald-950/60 border-emerald-800/60'
+                      ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                      : 'text-emerald-300 bg-emerald-950/60 border-emerald-500/40'
                   }`}>
                     PRO
                   </span>
@@ -1435,100 +1547,100 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                     ) : (
                       <ShieldCheck className="w-3.5 h-3.5 text-zinc-300" />
                     )}
-                    <span className={`text-[11px] font-mono font-bold uppercase tracking-wider ${
+                    <h3 className={`text-xs font-mono font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
                       {isHazardMode ? '崩壊と破滅を招いた4つの致命的バグ (FATAL MECHANISMS)' : '独占と暴利を生む4つの裏構造 (CORE MECHANISM)'}
-                    </span>
+                    </h3>
                   </div>
                 </div>
                 {isPro ? (
-                  <span className={`font-mono text-[9px] border px-2 py-0.5 rounded flex items-center gap-1 font-bold ${
+                  <span className={`font-mono text-[10px] border px-2 py-0.5 rounded flex items-center gap-1 font-bold ${
                     isHazardMode
-                      ? 'text-red-400 bg-red-950/60 border-red-800/60'
-                      : 'text-emerald-400 bg-emerald-950/60 border-emerald-800/60'
+                      ? 'text-red-300 bg-red-950/60 border-red-800/60'
+                      : 'text-emerald-300 bg-emerald-950/60 border-emerald-800/60'
                   }`}>
                     <ShieldCheck className="w-3 h-3" />
                     UNLOCKED: 機関解錠済
                   </span>
                 ) : (
-                  <span className="text-[9px] font-mono text-zinc-500">
+                  <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
                     DEEP AUDIT
                   </span>
                 )}
               </div>
 
               {/* 4大メタ分析モジュール群 (isProで解錠/すりガラス切り替え) */}
-              <div className="relative pt-1">
+              <div className="relative p-3.5 bg-[#0E131F]">
                 <div className={isPro ? "space-y-3 text-xs font-sans text-zinc-100" : "filter blur-[2.5px] opacity-25 select-none pointer-events-none space-y-3 text-xs font-sans"}>
                   {/* #01 なぜ大手が手を出せないのか / 大手による直接圧殺 */}
-                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
-                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
-                      <span className={isHazardMode ? "text-red-400" : "text-zinc-500"}>01.</span>
+                  <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>01.</span>
                       <span>{isHazardMode ? '大手の直接参入とカニバリズムの死角（一撃圧殺）' : 'なぜ大手が手を出せないのか（大手の自縛・参入拒絶）'}</span>
                     </div>
-                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">大手の自爆（カニバリ）:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
-                      <div><strong className="text-zinc-300 font-mono">大企業病（美味い隙間）:</strong> {entity.meta.incumbentDilemma.scaleMismatchReason}</div>
-                      <div><strong className="text-zinc-300 font-mono">即決の奇襲（速度の差）:</strong> {entity.meta.incumbentDilemma.decisionSpeedAdvantage}</div>
+                    <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-200 font-mono">大手の自爆（カニバリ）:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
+                      <div><strong className="text-zinc-200 font-mono">大企業病（美味い隙間）:</strong> {entity.meta.incumbentDilemma.scaleMismatchReason}</div>
+                      <div><strong className="text-zinc-200 font-mono">即決の奇襲（速度の差）:</strong> {entity.meta.incumbentDilemma.decisionSpeedAdvantage}</div>
                     </div>
                   </div>
 
                   {/* #02 なぜ暴利でも客が群がるのか / 値付けの破綻 */}
-                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
-                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
-                      <span className={isHazardMode ? "text-red-400" : "text-zinc-500"}>02.</span>
+                  <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>02.</span>
                       <span>{isHazardMode ? '無料モデルの罠と持続不能な価格破壊（収益化の死）' : 'なぜ暴利でも客が群がるのか（値切らせない急所）'}</span>
                     </div>
-                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">錯覚の比較軸（アンカー）:</strong> {entity.meta.pricingPower.anchorComparison}</div>
-                      <div><strong className="text-zinc-300 font-mono">人質の急所（恐怖のツボ）:</strong> {entity.meta.pricingPower.lossAversionTrigger}</div>
-                      <div><strong className="text-zinc-300 font-mono">痛まない財布（会社の経費）:</strong> {entity.meta.pricingPower.budgetCategory}</div>
+                    <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-200 font-mono">錯覚の比較軸（アンカー）:</strong> {entity.meta.pricingPower.anchorComparison}</div>
+                      <div><strong className="text-zinc-200 font-mono">人質の急所（恐怖のツボ）:</strong> {entity.meta.pricingPower.lossAversionTrigger}</div>
+                      <div><strong className="text-zinc-200 font-mono">痛まない財布（会社の経費）:</strong> {entity.meta.pricingPower.budgetCategory}</div>
                     </div>
                   </div>
 
                   {/* #03 なぜ客が一生辞められないのか / 顧客離脱の激痛 */}
-                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
-                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
-                      <span className={isHazardMode ? "text-red-400" : "text-zinc-500"}>03.</span>
+                  <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>03.</span>
                       <span>{isHazardMode ? '防御障壁の欠落と解約の津波（乗り換え自由の罠）' : 'なぜ客が一生辞められないのか（乗り換えの監禁構造）'}</span>
                     </div>
-                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">データの監禁（人質化）:</strong> {entity.meta.lockInMechanism.dataHostage}</div>
-                      <div><strong className="text-zinc-300 font-mono">業務への寄生（日常化）:</strong> {entity.meta.lockInMechanism.workflowIntegration}</div>
-                      <div><strong className="text-zinc-300 font-mono">解約の激痛（乗り換え罰）:</strong> {entity.meta.lockInMechanism.switchingFriction}</div>
+                    <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-200 font-mono">データの監禁（人質化）:</strong> {entity.meta.lockInMechanism.dataHostage}</div>
+                      <div><strong className="text-zinc-200 font-mono">業務への寄生（日常化）:</strong> {entity.meta.lockInMechanism.workflowIntegration}</div>
+                      <div><strong className="text-zinc-200 font-mono">解約の激痛（乗り換え罰）:</strong> {entity.meta.lockInMechanism.switchingFriction}</div>
                     </div>
                   </div>
 
                   {/* #04 なぜ無借金で現金が膨らみ続けるのか / 資金枯渇のカラクリ */}
-                  <div className="p-2.5 rounded bg-white/[0.02] border border-white/[0.06] space-y-1.5">
-                    <div className="flex items-center gap-2 text-zinc-300 font-mono text-[11px] font-bold">
-                      <span className={isHazardMode ? "text-red-400" : "text-zinc-500"}>04.</span>
+                  <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
+                    <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
+                      <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>04.</span>
                       <span>{isHazardMode ? '現金流出スパイラルと資本枯渇（破滅のカラクリ）' : 'なぜ無借金で現金が膨らみ続けるのか（前金・暴利のカラクリ）'}</span>
                     </div>
-                    <div className="space-y-1 text-[10px] text-zinc-400 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-300 font-mono">前金総取り（客の金で拡大）:</strong> {entity.meta.capitalEfficiency.cashConversionCycle}</div>
-                      <div><strong className="text-zinc-300 font-mono">原価ゼロの限界利益:</strong> {entity.meta.capitalEfficiency.incrementalMargin}</div>
-                      <div><strong className="text-zinc-300 font-mono">現金の自動蓄積（無借金増殖）:</strong> {entity.meta.capitalEfficiency.workingCapitalStrategy}</div>
+                    <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
+                      <div><strong className="text-zinc-200 font-mono">前金総取り（客の金で拡大）:</strong> {entity.meta.capitalEfficiency.cashConversionCycle}</div>
+                      <div><strong className="text-zinc-200 font-mono">原価ゼロの限界利益:</strong> {entity.meta.capitalEfficiency.incrementalMargin}</div>
+                      <div><strong className="text-zinc-200 font-mono">現金の自動蓄積（無借金増殖）:</strong> {entity.meta.capitalEfficiency.workingCapitalStrategy}</div>
                     </div>
                   </div>
                 </div>
 
                 {/* 中央解錠ゲートウェイ (未解錠時のみ表示) */}
                 {!isPro && (
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-white">
-                      <KeyRound className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 backdrop-blur-xs rounded gap-2.5 p-4 text-center">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-white">
+                      <KeyRound className={`w-4 h-4 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
                       <span>{isHazardMode ? '大手が一撃で圧殺し、資金が枯渇した「4大死因の裏帳簿」' : '大手が手を出せず、客が一生逃げられない「4大独占構造」'}</span>
                     </div>
-                    <p className="text-[11px] text-zinc-400 max-w-sm font-sans leading-normal">
+                    <p className="text-xs text-zinc-300 max-w-sm font-sans leading-normal">
                       {isHazardMode 
                         ? 'なぜ一瞬で模倣されたのか、どこで規制に刺されたのか、出血が止まらなくなった裏原価をすべて公開'
                         : '暴利でも客が群がるカラクリ、他社へ乗り換え不能にする罠、前金で手元に金が残る裏帳簿をすべて公開'}
                     </p>
                     <button
                       onClick={onOpenPro}
-                      className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-1.5 rounded transition-colors shadow-2xl cursor-pointer"
+                      className="text-xs font-mono font-bold text-zinc-950 bg-white hover:bg-zinc-200 px-4 py-2 rounded transition-colors shadow-2xl cursor-pointer"
                     >
                       PROプランで独占の裏帳簿をすべて暴く (¥1,980〜)
                     </button>
@@ -1541,120 +1653,138 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* ------------------------------------------------------- */}
           {/* #13: 一次証拠 ＆ 万能救済ストリーム (EVIDENCE STREAM) */}
           {/* ------------------------------------------------------- */}
-          <div id="section-stream" className="space-y-4 pt-2 border-t border-white/[0.06] scroll-mt-4">
-            <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-                <div className="flex items-center gap-2">
-                  <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode 
-                      ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                      : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+          <div 
+            id="section-stream" 
+            className={`rounded-lg overflow-hidden border shadow-xl ${
+              isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+            } scroll-mt-4`}
+          >
+            <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+              isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+            }`}>
+              <div className="flex items-center gap-2.5">
+                <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                  isHazardMode 
+                    ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                    : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                }`}>
+                  #13
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                  <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    #13
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-300' : 'text-zinc-100'
-                    }`}>
-                      {isHazardMode ? '死因一次証拠 ＆ 崩壊怨嗟ストリーム (CASUALTY STREAM)' : '一次証拠 ＆ 万能救済ストリーム (EVIDENCE STREAM)'}
-                    </span>
-                  </div>
+                    {isHazardMode ? '死因一次証拠 ＆ 崩壊怨嗟ストリーム (CASUALTY STREAM)' : '一次証拠 ＆ 万能救済ストリーム (EVIDENCE STREAM)'}
+                  </h3>
                 </div>
-                {entity.observationsStream && entity.observationsStream.length > 0 && (
-                  <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded font-bold border ${
-                    isHazardMode
-                      ? 'bg-red-950/40 text-red-300 border-red-500/30'
-                      : 'bg-white/[0.06] text-zinc-300 border-white/[0.10]'
-                  }`}>
-                    {entity.observationsStream.length}件の観測ログ
-                  </span>
-                )}
               </div>
+              {entity.observationsStream && entity.observationsStream.length > 0 && (
+                <span className={`text-[10px] font-mono px-2 py-0.5 rounded font-bold border ${
+                  isHazardMode
+                    ? 'bg-red-950/40 text-red-300 border-red-500/30'
+                    : 'bg-white/[0.06] text-zinc-300 border-white/[0.10]'
+                }`}>
+                  {entity.observationsStream.length}件の観測ログ
+                </span>
+              )}
+            </div>
 
+            <div className="p-3.5 bg-[#0E131F]">
               <UniversalIntelligenceStream entity={entity} currency={currency} />
+            </div>
           </div>
 
           {/* ------------------------------------------------------- */}
           {/* #14: アナリスト考察メモ ＆ AI壁打ち (FIELD NOTES) */}
           {/* ------------------------------------------------------- */}
-          <div id="section-notes" className="space-y-4 pt-2 border-t border-white/[0.06] scroll-mt-4">
-              <div className={`border rounded-md bg-[#0A0B10] p-4 space-y-3 shadow-lg ${
-                isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
-              }`}>
-                <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
-                  <div className="flex items-center gap-2">
-                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                      isHazardMode
-                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                        : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
-                    }`}>
-                      #14
-                    </span>
-                    <Edit3 className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                    <span className="font-mono text-xs font-bold text-white tracking-wider">
-                      {isHazardMode ? 'POST_MORTEM_NOTES: 死因検死・地雷回避メモ' : 'ANALYST_FIELD_NOTES: 極秘考察メモ'}
-                    </span>
-                  </div>
-                  {analystNote ? (
-                    <span className={`font-mono text-[10px] px-2 py-0.5 rounded border ${
-                      isHazardMode 
-                        ? 'text-red-300 bg-red-950/60 border-red-800/40'
-                        : 'text-zinc-300 bg-white/[0.06] border-white/[0.10]'
-                    }`}>
-                      自動保存済
-                    </span>
-                  ) : (
-                    <span className="font-mono text-[10px] text-zinc-500">
-                      未記録
-                    </span>
-                  )}
+          <div 
+            id="section-notes" 
+            className={`rounded-lg overflow-hidden border shadow-xl ${
+              isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+            } scroll-mt-4`}
+          >
+            <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+              isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+            }`}>
+              <div className="flex items-center gap-2.5">
+                <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                  isHazardMode
+                    ? 'text-red-400 bg-red-950/40 border-red-500/30'
+                    : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                }`}>
+                  #14
+                </span>
+                <div className="flex items-center gap-1.5">
+                  <Edit3 className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                  <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+                    {isHazardMode ? 'POST_MORTEM_NOTES: 死因検死・地雷回避メモ' : 'ANALYST_FIELD_NOTES: 極秘考察メモ'}
+                  </h3>
                 </div>
+              </div>
+              {analystNote ? (
+                <span className={`font-mono text-[10px] px-2 py-0.5 rounded border ${
+                  isHazardMode 
+                    ? 'text-red-300 bg-red-950/60 border-red-800/40'
+                    : 'text-zinc-300 bg-white/[0.06] border-white/[0.10]'
+                }`}>
+                  自動保存済
+                </span>
+              ) : (
+                <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                  未記録
+                </span>
+              )}
+            </div>
 
-                <p className="text-[11px] text-zinc-400 leading-relaxed font-sans">
-                  {isHazardMode 
-                    ? `${entity.name}が爆死・転落した真の死因を記録し、自分が同じ事業や似た構造で参入する際に『絶対に避けるべき地雷』を特定してください。AIとの壁打ちでこの地雷を迂回する防壁を検証できます。`
-                    : `${entity.name}の盲点・手口・原価構造から着想を得た独自の転用アイデアや、別市場へのスライド仮説を記録してください。このメモはAIとの壁打ちや独自アイデア創出の着火剤として読み込まれます。`}
-                </p>
+            <div className="p-3.5 space-y-3 bg-[#0E131F]">
+              <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+                {isHazardMode 
+                  ? `${entity.name}が爆死・転落した真の死因を記録し、自分が同じ事業や似た構造で参入する際に『絶対に避けるべき地雷』を特定してください。AIとの壁打ちでこの地雷を迂回する防壁を検証できます。`
+                  : `${entity.name}の盲点・手口・原価構造から着想を得た独自の転用アイデアや、別市場へのスライド仮説を記録してください。このメモはAIとの壁打ちや独自アイデア創出の着火剤として読み込まれます。`}
+              </p>
 
-                <textarea
-                  rows={4}
-                  value={analystNote}
-                  onChange={(e) => onSaveAnalystNote && onSaveAnalystNote(entity.id, e.target.value)}
-                  placeholder={isHazardMode 
-                    ? "例: なぜChatGPT登場でJasperは即死したのか？ OpenAIのAPIラッパーに留まらず、自前の独自データセットや業務フローの深い監禁（人質化）があれば生き残れたか？..."
-                    : "例: このAPIラッパーの構造を士業の契約書レビューに応用できないか？ 初期の自演集客（Reddit）の代わりにXやnoteを活用し、初期100人を集める..."}
-                  className="w-full bg-[#060709] border border-white/[0.1] focus:border-white/[0.25] rounded p-3 text-xs font-mono text-zinc-100 placeholder-zinc-600 focus:outline-none transition-colors resize-none leading-relaxed"
-                />
+              <textarea
+                rows={4}
+                value={analystNote}
+                onChange={(e) => onSaveAnalystNote && onSaveAnalystNote(entity.id, e.target.value)}
+                placeholder={isHazardMode 
+                  ? "例: なぜChatGPT登場でJasperは即死したのか？ OpenAIのAPIラッパーに留まらず、自前の独自データセットや業務フローの深い監禁（人質化）があれば生き残れたか？..."
+                  : "例: このAPIラッパーの構造を士業の契約書レビューに応用できないか？ 初期の自演集客（Reddit）の代わりにXやnoteを活用し、初期100人を集める..."}
+                className="w-full bg-[#141A28] border border-white/[0.12] focus:border-white/[0.28] rounded-md p-3 text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none transition-colors resize-none leading-relaxed font-sans"
+              />
 
-                <div className="flex flex-col sm:flex-row items-center gap-2 pt-1">
-                  {onOpenSynthesisWithEntity && (
-                    <button
-                      onClick={() => onOpenSynthesisWithEntity(entity.id)}
-                      className="w-full sm:flex-1 py-2 px-3 rounded bg-white/[0.08] hover:bg-white/[0.15] border border-white/[0.12] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md active:scale-[0.99]"
-                    >
-                      <Bot className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-300'}`} />
-                      <span>{isHazardMode ? 'この地雷の回避策をAIと壁打ちする' : 'この銘柄のデータでAIと壁打ちする'}</span>
-                    </button>
-                  )}
-                </div>
+              <div className="flex flex-col sm:flex-row items-center gap-2 pt-1">
+                {onOpenSynthesisWithEntity && (
+                  <button
+                    onClick={() => onOpenSynthesisWithEntity(entity.id)}
+                    className="w-full sm:flex-1 py-2 px-3 rounded-md bg-white/[0.08] hover:bg-white/[0.16] border border-white/[0.14] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md active:scale-[0.99]"
+                  >
+                    <Bot className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-300'}`} />
+                    <span>{isHazardMode ? 'この地雷の回避策をAIと壁打ちする' : 'この銘柄のデータでAIと壁打ちする'}</span>
+                  </button>
+                )}
               </div>
 
               {/* 銘柄の着眼点サマリー */}
-              <div className="border border-white/[0.06] rounded bg-white/[0.02] p-3 space-y-2">
-                <span className="font-mono text-[10px] text-zinc-500 block uppercase">
+              <div className="border border-white/[0.08] rounded-md bg-[#141A28] p-3 space-y-2">
+                <span className="font-mono text-[10px] text-zinc-400 block uppercase font-bold tracking-wider">
                   考察の武器（この銘柄のキーデータ）
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono">
-                  <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
-                    <span className="text-zinc-500 block text-[9px]">人質にした財布</span>
-                    <span className="text-zinc-200">{entity.targetPainWallet || '顧客の恐怖・怠惰'}</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+                  <div className="bg-[#0E131F] p-2.5 rounded border border-white/[0.06]">
+                    <span className="text-zinc-400 block text-[10px] font-semibold">人質にした財布</span>
+                    <span className="text-zinc-100 font-medium">{entity.targetPainWallet || '顧客の恐怖・怠惰'}</span>
                   </div>
-                  <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
-                    <span className="text-zinc-500 block text-[9px]">初動集客の泥臭い手口</span>
-                    <span className="text-zinc-200">{entity.strategy.initialTraction[0]}</span>
+                  <div className="bg-[#0E131F] p-2.5 rounded border border-white/[0.06]">
+                    <span className="text-zinc-400 block text-[10px] font-semibold">初動集客の泥臭い手口</span>
+                    <span className="text-zinc-100 font-medium">{entity.strategy.initialTraction[0]}</span>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </aside>
