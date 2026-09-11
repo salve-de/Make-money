@@ -139,7 +139,7 @@
 
 文書コミット `71037a7` で、`CLAUDE.md` と `README.md` の自律push指示を、明示承認・対象確認・remote/CI/Ruleset読み戻し必須の運用へ修正した。白書冒頭にも履歴と現行指示の区別を追記し、`STORAGE.md` のD1 migration記述を現行状態に揃えた。
 
-- 現HEAD: `71037a7`（`codex/reliability-boundaries`、作業ツリーclean、`git diff --check`成功）
+- 対象状態コミット: `71037a7`（`codex/reliability-boundaries`、このレシート作成前の作業ツリーclean、`git diff --check`成功）。この監査記録を含むコミットは `74c089d`。
 - 検査: lint（警告0）、typecheck、Vitest274、Foundation11、architecture8、Recovery6、Next build/Paid392、Workers build/secret scan、deploy preflight、`pnpm audit --prod`、Playwright Chromium25が成功。
 - 実ブラウザ: `http://127.0.0.1:3101/?entity=ent_photoai` を読み、Photo AIの未確認財務、Evidence、Layer 3、メモ、J/K案内の不在、⌘K検索とEscape閉じるを確認。
 - 読み戻し: 本番D1 `wrangler d1 migrations list APP_DB --remote` は `No migrations to apply`。GitHubの対象branchは `c3dcd48...`、mainは `aa4e64...`。現HEADはremote branchへ未pushで、現HEADのGitHub CI実行は主張しない。
