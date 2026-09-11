@@ -9,8 +9,9 @@ action. A second real dossier covers the hazard/loss presentation and dynamic ev
 These tests assert checked-in content as rendering regression checks; they do not
 independently verify the business claims. These two paths do not mock API responses.
 
-One boundary failure test intercepts the businesses response with malformed Foundation
-JSON and verifies it is rejected while the usable core company remains available.
+Boundary tests intercept the businesses response with malformed Foundation JSON and
+with a valid revenue-only company. They verify rejection preserves the core list,
+and missing profit remains unknown without a fabricated financial waterfall.
 An API test sends only an invalid strategy payload and requires HTTP 400, before
 AI generation or database writes. No test routes or production fixture changes are used.
 No R2, authentication, database, or payment credentials are needed in CI. Live R2
@@ -22,3 +23,10 @@ persistence across reload, and continued button-based navigation. Isolated brows
 contexts seed malformed note JSON (null, array, broken syntax, and a mixed valid/invalid
 map), then verify rendering, exact recovery backup, retained valid notes, and edited
 text after reload. No existing user browser storage is accessed.
+
+Navigation coverage also checks ledger search and screener apply/reset, note reload and
+company association, Playbook dataset tabs and company links, /macro redirect, and
+Finder filtering, financial sheet open/close, and ledger/signals navigation. Browser
+storage corruption cases seed only isolated Playwright contexts, preserving real user
+browser data. These smoke cases do not prove the accuracy of legacy Finder strategy
+estimates or static Playbook claims.

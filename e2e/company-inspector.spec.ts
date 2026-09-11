@@ -131,3 +131,43 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({
     expect(errors).toEqual([]);
   });
 }
+
+test('remote revenue-only detail leaves profit unknown and does not invent a waterfall', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  const summary = {
+    id: 'ent_smoke_revenue_only', name: '境界確認企業', entityType: 'company', aliases: [],
+    canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [],
+    valueProfile: {
+      tier: 'USEFUL', score: 40, labels: [], businessSignal: '企業向け契約管理を月額で提供する業務支援サービス',
+      painSignal: null, moneySignal: '$120000 annual revenue', tractionSignal: null,
+      mechanismSignal: null, timeSignal: null,
+      counts: { claims: 0, metrics: 1, moneySignals: 0, events: 0, observations: 0, derived: 0, evidence: 0 },
+    },
+  };
+  const detail = {
+    ...summary, claims: [], metrics: [{
+      id: 'metric_revenue', metricType: 'monthly_revenue', value: 120000, unit: 'JPY', currency: 'JPY',
+      periodStart: null, periodEnd: null, pointInTime: null, basis: null, scope: null,
+      originType: 'collected', verificationStatus: 'SUPPORTED', confidence: null, evidenceIds: [],
+    }], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0,
+  };
+  let detailReturned = false;
+  await page.route('**/api/businesses*', (route) => {
+    const isDetail = new URL(route.request().url()).searchParams.has('entity_id');
+    if (isDetail) detailReturned = true;
+    return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(isDetail
+      ? { source: 'foundation_lake', data: detail }
+      : { source: 'foundation_lake', data: [summary], hasMore: false, nextCursor: null }) });
+  });
+  await page.goto('/?entity=ent_smoke_revenue_only');
+  await expect.poll(() => detailReturned).toBe(true);
+  await expect(page.getByRole('heading', { name: '境界確認企業', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: /財務P&L/ }).click();
+  const financials = page.locator('#section-financial');
+  await expect(financials).toContainText('¥12万');
+  await expect(financials).toContainText('未確認');
+  await expect(financials).not.toContainText('¥0');
+  await expect(financials).not.toContainText('100%基準');
+  expect(errors).toEqual([]);
+});

@@ -49,10 +49,11 @@ export interface MatchedStrategy {
 }
 
 interface DiagnosticFinderProps {
+  searchQuery?: string;
   onSelectCompany?: (companyId: string) => void;
 }
 
-export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectCompany }) => {
+export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectCompany, searchQuery = '' }) => {
   // 6次元の入力手札
   const [capital, setCapital] = useState<CapitalLevel>('ZERO');
   const [time, setTime] = useState<TimeCommitment>('SIDE_JOB');
@@ -432,12 +433,16 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
 
   // 並び替え
   const sortedStrategies = useMemo(() => {
-    const arr = [...matchedStrategies];
+    const query = searchQuery.trim().toLowerCase();
+    const arr = matchedStrategies.filter((strategy) => !query ||
+      [strategy.title, strategy.companyId, strategy.founderReference, ...strategy.tags]
+        .some((value) => value.toLowerCase().includes(query))
+    );
     if (sortBy === 'FIT_SCORE') return arr.sort((a, b) => b.bestFitScore - a.bestFitScore);
     if (sortBy === 'PROFIT') return arr.sort((a, b) => b.monthlyProfitMinJpy - a.monthlyProfitMinJpy);
     if (sortBy === 'MARGIN') return arr.sort((a, b) => b.profitMargin - a.profitMargin);
     return arr;
-  }, [matchedStrategies, sortBy]);
+  }, [matchedStrategies, sortBy, searchQuery]);
 
   // アクティブ表示する戦略
   const activeStrategy = useMemo(() => {
@@ -855,7 +860,7 @@ export const DiagnosticFinder: React.FC<DiagnosticFinderProps> = ({ onSelectComp
           </div>
         ) : (
           <div className="h-full flex items-center justify-center text-zinc-400 text-xs font-mono">
-            左ペインから適合モデルを選択してください
+            {searchQuery.trim() ? '検索条件に一致するモデルが見つかりません' : '左ペインから適合モデルを選択してください'}
           </div>
         )}
       </div>
