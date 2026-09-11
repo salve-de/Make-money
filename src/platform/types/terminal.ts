@@ -231,7 +231,7 @@ export type DynamicEvidenceCardType =
   | 'LOOT_BLUEPRINT'      // ⑦ この手口を今夜別業界に持ち込むならどう組むかの転用コード
   | 'UNKNOWN_AUDIT';      // ⑧ 取れなかった事実・調査限界の冷徹な開示
 
-export type EvidenceStatus = 'VERIFIED' | 'REPORTED' | 'ESTIMATED' | 'UNKNOWN';
+export type EvidenceStatus = 'VERIFIED' | 'REPORTED' | 'ESTIMATED' | 'POST_MORTEM' | 'UNKNOWN';
 
 export interface DynamicEvidenceCard {
   id: string;
