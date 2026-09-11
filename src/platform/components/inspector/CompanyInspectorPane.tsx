@@ -66,7 +66,18 @@ interface CompanyInspectorPaneProps {
   isPro?: boolean;
 }
 
-type TabType = 'CORE' | 'STREAM' | 'FINANCIALS' | 'PLAYBOOK' | 'NOTES';
+export type TabType = 'EVIDENCE' | 'FINANCIALS' | 'PLAYBOOK' | 'STREAM' | 'NOTES' | 'ALL';
+
+const resolveInitialTab = (tab?: string): TabType => {
+  if (!tab) return 'EVIDENCE';
+  if (tab === 'CORE' || tab === 'EVIDENCE') return 'EVIDENCE';
+  if (tab === 'FINANCIALS') return 'FINANCIALS';
+  if (tab === 'PLAYBOOK') return 'PLAYBOOK';
+  if (tab === 'STREAM') return 'STREAM';
+  if (tab === 'NOTES') return 'NOTES';
+  if (tab === 'ALL') return 'ALL';
+  return 'EVIDENCE';
+};
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   entity,
@@ -88,6 +99,14 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeTab, setActiveTab] = useState<TabType>(() => resolveInitialTab(initialTab));
+
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab);
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  };
 
   // スクロール追従（固定ヘッダーの立体シャドウ強調）
   const handleScroll = () => {
@@ -104,7 +123,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     }
   }, [entity?.id]);
 
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -120,6 +138,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     const params = new URLSearchParams(window.location.search);
     const targetSection = params.get('section');
     if (targetSection === 'financial') {
+      setActiveTab('FINANCIALS');
       const timer = setTimeout(() => {
         const el = document.getElementById('section-financial');
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -235,6 +254,13 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   // 動的証拠カード（Dynamic Evidence Registry）の有無判定
   const hasEvidenceCards = Boolean(entity.evidenceCards && entity.evidenceCards.length > 0);
 
+  // タブ別表示フラグ
+  const showEvidence = activeTab === 'EVIDENCE' || activeTab === 'ALL';
+  const showFinancials = activeTab === 'FINANCIALS' || activeTab === 'ALL';
+  const showPlaybook = activeTab === 'PLAYBOOK' || activeTab === 'ALL';
+  const showStream = activeTab === 'STREAM' || activeTab === 'ALL';
+  const showNotes = activeTab === 'NOTES' || activeTab === 'ALL';
+
   return (
     <>
       {/* スマホ時バックドロップ */}
@@ -248,18 +274,18 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         {/* ========================================================= */}
         {/* 【上部固定計器盤（PINNED EXECUTIVE HUD）: 冷徹モノトーン ＆ 高密度金融端末】 */}
         {/* ========================================================= */}
-        <div className={`shrink-0 z-30 transition-all duration-150 bg-[#07090D] border-b relative ${
+        <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
           isScrolled 
-            ? 'border-white/[0.16] shadow-[0_12px_28px_rgba(0,0,0,0.95)]' 
-            : 'border-white/[0.08]'
+            ? 'border-white/[0.18] shadow-[0_12px_32px_rgba(0,0,0,0.95)]' 
+            : 'border-white/[0.10] shadow-[0_4px_16px_rgba(0,0,0,0.6)]'
         }`}>
-          {/* 最上部アクセントライン（冷徹な単色モノトーン） */}
-          <div className="h-[1px] w-full bg-white/[0.12]" />
+          {/* 最上部アクセントライン */}
+          <div className="h-[1px] w-full bg-white/[0.15]" />
 
-          {/* 1. タイトル＆操作バー */}
-          <div className="px-3 pt-2 pb-1.5 flex items-center justify-between gap-2 border-b border-white/[0.04]">
+          {/* 1. タイトル＆主要操作バー（1行統合） */}
+          <div className="px-3 py-2 flex items-center justify-between gap-2 border-b border-white/[0.04]">
             <div className="flex items-center gap-2 min-w-0">
-              <span className="font-mono text-[11px] text-zinc-200 font-bold shrink-0 bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.10] flex items-center gap-1">
+              <span className="font-mono text-[11px] text-white font-bold shrink-0 bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.12] flex items-center gap-1">
                 <Pin className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
                 <span>{entity.ticker}</span>
               </span>
@@ -269,6 +295,15 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               <span className="text-[10px] text-zinc-400 font-mono hidden md:inline truncate">
                 {entity.legalEntity || entity.founder} ・ {entity.country}
               </span>
+              {entity.opportunityJudgment && (
+                <span className={`hidden sm:inline-flex px-1.5 py-0.2 rounded text-[9px] font-mono font-bold tracking-wider border shrink-0 ${
+                  entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
+                    ? 'bg-red-950/40 text-red-400 border-red-500/40'
+                    : 'bg-white/[0.08] text-white border-white/[0.16]'
+                }`}>
+                  {entity.opportunityJudgment.verdictLabel}
+                </span>
+              )}
             </div>
 
             {/* 右側アクション */}
@@ -298,7 +333,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               {onOpenSynthesisWithEntity && (
                 <button
                   onClick={() => onOpenSynthesisWithEntity(entity.id)}
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/[0.05] hover:bg-white/[0.10] border border-white/[0.10] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer mr-1"
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer mr-1"
                   title="この銘柄の裏帳簿データでAIと壁打ちする"
                 >
                   <Bot className="w-3 h-3 text-zinc-300" />
@@ -328,53 +363,40 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </div>
           </div>
 
-          {/* 2. 【即時意思決定: 判定 ＆ 需要・競争ベクトル】 */}
-          {entity.opportunityJudgment && (
-            <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 flex-wrap text-[10px] font-mono">
-              <div className="flex items-center gap-1.5 min-w-0">
-                <span className={`px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
+          {/* 2. タグライン ＆ 4大意思決定ベクトル */}
+          <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 text-[10px] font-mono">
+            <div className="flex items-center gap-2 min-w-0 flex-1 truncate">
+              {entity.opportunityJudgment && (
+                <span className={`sm:hidden px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
                   entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
                     ? 'bg-red-950/40 text-red-400 border-red-500/40'
                     : 'bg-white/[0.08] text-white border-white/[0.16]'
                 }`}>
-                  判定: {entity.opportunityJudgment.verdictLabel}
+                  {entity.opportunityJudgment.verdictLabel}
                 </span>
-                <span className="text-zinc-300 font-sans truncate" title={entity.opportunityJudgment.oneLineReason}>
-                  {entity.opportunityJudgment.oneLineReason}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0">
-                <span className="text-zinc-400">需要: <strong className="text-zinc-200">{entity.opportunityJudgment.demandDelta}</strong></span>
-                <span className="text-zinc-600">|</span>
-                <span className="text-zinc-400">競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
-                <span className="text-zinc-600">|</span>
-                <span className="text-zinc-400">資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
-                <span className="text-zinc-600">|</span>
-                <span className="text-zinc-400">難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
-              </div>
+              )}
+              <span className="text-zinc-300 font-sans truncate" title={cleanIntelligenceText(entity.tagline)}>
+                {cleanIntelligenceText(entity.tagline)}
+              </span>
             </div>
-          )}
 
-          {/* 3. サバンナOSタグライン ＆ 時系列インテリジェンス */}
-          <div className="px-3 py-1 flex items-center justify-between gap-2 text-[10px] font-sans border-b border-white/[0.04]">
-            <div className="text-zinc-400 truncate flex-1" title={cleanIntelligenceText(entity.tagline)}>
-              {cleanIntelligenceText(entity.tagline)}
-            </div>
-            {entity.temporal && (
-              <div className="flex items-center gap-1.5 font-mono text-[9px] text-zinc-500 shrink-0">
-                <Clock className="w-2.5 h-2.5 text-zinc-500" />
-                <span>{entity.temporal.foundedYear}年</span>
-                <span>・</span>
-                <span className="text-zinc-400 font-semibold">{entity.temporal.viabilityLabel}</span>
+            {entity.opportunityJudgment && (
+              <div className="hidden sm:flex items-center gap-2 shrink-0 text-zinc-400">
+                <span>需要: <strong className="text-zinc-200">{entity.opportunityJudgment.demandDelta}</strong></span>
+                <span className="text-zinc-700">|</span>
+                <span>競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
+                <span className="text-zinc-700">|</span>
+                <span>資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
+                <span className="text-zinc-700">|</span>
+                <span>難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
               </div>
             )}
           </div>
 
-          {/* 4. ★ユーザー絶対要望★ 探索タグ一覧（上部に常時配置・白黒反転のプロ仕様） */}
-          {entity.tags && entity.tags.length > 0 && (
-            <div className="px-3 py-1.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-[#05070B]">
-              {entity.tags.map((tag) => {
+          {/* 3. 探索タグ一覧（上部に常時配置） ＆ 時系列インテリジェンス */}
+          <div className="px-3 py-1.5 flex items-center justify-between gap-2 bg-[#05070B] border-b border-white/[0.04]">
+            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none flex-1">
+              {entity.tags && entity.tags.length > 0 && entity.tags.map((tag) => {
                 const isActive = activeTags.includes(tag);
                 return (
                   <button
@@ -401,73 +423,104 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 );
               })}
             </div>
-          )}
 
-          {/* 5. ─── ★ 視覚的境界バー ＆ セクションジャンプタブ（冷徹なモノトーンレール） ★ ─── */}
-          <div className="px-3 py-1 bg-[#090C11] border-t border-white/[0.10] flex items-center justify-between text-[10px] font-mono">
-            <div className="flex items-center gap-1 sm:gap-2">
-              <span className={`font-bold flex items-center gap-1.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-200'}`}>
-                <span className={`w-1.5 h-1.5 rounded-full ${isHazardMode ? 'bg-red-400' : 'bg-zinc-400'}`} />
-                {isHazardMode ? 'AUTOPSY' : 'AUDIT DOSSIER'}
+            {entity.temporal && (
+              <div className="flex items-center gap-1.5 font-mono text-[9px] text-zinc-500 shrink-0 pl-2">
+                <Clock className="w-2.5 h-2.5 text-zinc-500" />
+                <span>{entity.temporal.foundedYear}年</span>
+                <span>・</span>
+                <span className="text-zinc-300 font-semibold">{entity.temporal.viabilityLabel}</span>
+              </div>
+            )}
+          </div>
+
+          {/* 4. 金融端末仕様 タブバー（目的に応じて瞬時に切り替え ＆ 全量表示対応） */}
+          <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
+            <button
+              onClick={() => handleTabChange('EVIDENCE')}
+              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
+                activeTab === 'EVIDENCE'
+                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
+              }`}
+            >
+              <span>特異物証</span>
+              {entity.evidenceCards && entity.evidenceCards.length > 0 && (
+                <span className={`text-[9px] px-1 py-0.2 rounded font-bold ${
+                  activeTab === 'EVIDENCE' ? 'bg-white text-black' : 'bg-white/[0.06] text-zinc-400'
+                }`}>
+                  {entity.evidenceCards.length}
+                </span>
+              )}
+            </button>
+
+            <button
+              onClick={() => handleTabChange('FINANCIALS')}
+              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
+                activeTab === 'FINANCIALS'
+                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
+              }`}
+            >
+              <span>財務P&L</span>
+              <span className="text-[9px] text-zinc-500 font-normal">
+                {formatMoney(entity.pnl.monthlyRevenue)}
               </span>
-              <span className="text-zinc-700">|</span>
-              {/* セクションショートカットタブ */}
-              <button
-                type="button"
-                onClick={() => {
-                  const el = document.getElementById('section-evidence');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1]"
-              >
-                特異物証
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  const el = document.getElementById('section-financial');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1]"
-              >
-                財務P&L
-              </button>
-              {!isHazardMode && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    const el = document.getElementById('section-tools');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1]"
-                >
-                  配管ツール
-                </button>
-              )}
-              <button
-                type="button"
-                onClick={() => {
-                  const el = document.getElementById('section-playbook');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer border border-transparent hover:border-white/[0.1] hidden sm:inline"
-              >
-                {isHazardMode ? '死因検死' : '略奪手順'}
-              </button>
-            </div>
+            </button>
 
-            <div className="flex items-center gap-1.5 text-zinc-500">
+            <button
+              onClick={() => handleTabChange('PLAYBOOK')}
+              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
+                activeTab === 'PLAYBOOK'
+                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
+              }`}
+            >
+              <span>{isHazardMode ? '死因検死' : '略奪手順'}</span>
+            </button>
+
+            <button
+              onClick={() => handleTabChange('STREAM')}
+              className={`flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1.5 ${
+                activeTab === 'STREAM'
+                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
+              }`}
+            >
+              <span>全量ログ</span>
               {entity.observationsStream && entity.observationsStream.length > 0 && (
-                <span className="text-[9px] font-mono text-zinc-400">
-                  物証 {entity.observationsStream.length}件
+                <span className={`text-[9px] px-1 py-0.2 rounded font-bold ${
+                  activeTab === 'STREAM' ? 'bg-white text-black' : 'bg-white/[0.06] text-zinc-400'
+                }`}>
+                  {entity.observationsStream.length}
                 </span>
               )}
-              {analystNote && (
-                <span className="text-[9px] font-mono text-zinc-300 bg-white/[0.06] px-1 py-0.2 rounded border border-white/[0.10]">
-                  メモ有
-                </span>
-              )}
-            </div>
+            </button>
+
+            <button
+              onClick={() => handleTabChange('NOTES')}
+              className={`py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center gap-1 ${
+                activeTab === 'NOTES'
+                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
+                  : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.02] border-b-2 border-transparent'
+              }`}
+              title="極秘考察メモ"
+            >
+              <span>メモ</span>
+              {analystNote && <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />}
+            </button>
+
+            <button
+              onClick={() => handleTabChange('ALL')}
+              className={`py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap flex items-center justify-center text-[10px] ${
+                activeTab === 'ALL'
+                  ? 'bg-white/[0.10] text-white font-bold border-b-2 border-white'
+                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.02] border-b-2 border-transparent'
+              }`}
+              title="全セクションを一括縦スクロールで表示"
+            >
+              <span>全表示</span>
+            </button>
           </div>
         </div>
 
@@ -482,8 +535,13 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 上端潜り込みグラデーションシャドウ */}
           <div className="sticky top-0 -mt-4 -mx-4 h-3.5 bg-gradient-to-b from-[#040507] via-[#040507]/80 to-transparent pointer-events-none z-10" />
           
-          {/* 市場の歪み・トレンドへの直通バナー（冷徹な情報行） */}
-          {relatedAnomaly && (
+          {/* ========================================================= */}
+          {/* 【タブ 1: 特異物証 ＆ DNA (EVIDENCE)】 */}
+          {/* ========================================================= */}
+          {showEvidence && (
+            <div className="space-y-4">
+              {/* 市場の歪み・トレンドへの直通バナー（冷徹な情報行） */}
+              {relatedAnomaly && (
             <div 
               onClick={() => onOpenAnomaly && onOpenAnomaly(relatedAnomaly.id)}
               className="border border-white/[0.08] hover:border-white/[0.18] bg-[#07090E] p-2.5 flex items-center justify-between group cursor-pointer transition-all duration-150"
@@ -756,18 +814,21 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 </div>
               </section>
             )}
-          </div>
+            </div>
+          )}
+            </div>
           )}
 
-          {/* ------------------------------------------------------- */}
-          {/* #05〜#08: 財務レントゲン / 出血・逆流レントゲン */}
-          {/* ------------------------------------------------------- */}
-          <div className="space-y-6 pt-2 border-t border-white/[0.06]">
-            {/* 財務計器盤 ＆ 月次損益テーブル（データ欠損・UNAVAILABLE時は完全非表示） */}
-            {!isFinancialUnavailable && (
-              <>
-                {/* 財務計器盤 (4連KPI + ウォーターフォールバー) */}
-                <section id="section-financial" className="space-y-2 scroll-mt-4">
+          {/* ========================================================= */}
+          {/* 【タブ 2: 財務P&L ＆ 原価配管 (FINANCIALS)】 */}
+          {/* ========================================================= */}
+          {showFinancials && (
+            <div className={`space-y-6 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
+              {/* 財務計器盤 ＆ 月次損益テーブル（データ欠損・UNAVAILABLE時は完全非表示） */}
+              {!isFinancialUnavailable && (
+                <>
+                  {/* 財務計器盤 (4連KPI + ウォーターフォールバー) */}
+                  <section id="section-financial" className="space-y-2 scroll-mt-4">
                   <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                     <div className="flex items-center gap-2">
                       <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
@@ -1193,13 +1254,19 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 </section>
               );
             })()}
-          </div>
+            </div>
+          )}
 
-          {/* ------------------------------------------------------- */}
-          {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
-          {/* ------------------------------------------------------- */}
-          {!hasEvidenceCards && (
-          <div className="space-y-6 pt-2 border-t border-white/[0.06]">
+          {/* ========================================================= */}
+          {/* 【タブ 3: 略奪転用 Playbook (PLAYBOOK)】 */}
+          {/* ========================================================= */}
+          {showPlaybook && (
+            <div className={`space-y-6 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
+              {/* ------------------------------------------------------- */}
+              {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ (フォールバック) */}
+              {/* ------------------------------------------------------- */}
+              {!hasEvidenceCards && (
+                <div className="space-y-6">
             {/* 資本主義の裏帳簿：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
             {entity.exposureAudit && (
               <section className="space-y-2">
@@ -1288,8 +1355,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </section>
             )}
 
-            {/* 最初の100人を獲得した手順 / 熱狂の終焉 */}
-            <section className="space-y-2">
+          {/* 最初の100人を獲得した手順 / 熱狂の終焉 */}
+          <section className="space-y-2">
               <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                 <div className="flex items-center gap-2">
                   <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
@@ -1513,125 +1580,131 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </div>
             </div>
           )}
-
-          {/* ------------------------------------------------------- */}
-          {/* #13: 一次証拠 ＆ 万能救済ストリーム (EVIDENCE STREAM) */}
-          {/* ------------------------------------------------------- */}
-          <div className="space-y-4 pt-2 border-t border-white/[0.06]">
-            <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
-              <div className="flex items-center gap-2">
-                <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                  isHazardMode 
-                    ? 'text-red-400 bg-red-950/40 border-red-500/30'
-                    : 'text-emerald-400 bg-emerald-950/40 border-emerald-500/30'
-                }`}>
-                  #13
-                </span>
-                <div className="flex items-center gap-1.5">
-                  <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-                  <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
-                    isHazardMode ? 'text-red-300' : 'text-zinc-100'
-                  }`}>
-                    {isHazardMode ? '死因一次証拠 ＆ 崩壊怨嗟ストリーム (CASUALTY STREAM)' : '一次証拠 ＆ 万能救済ストリーム (EVIDENCE STREAM)'}
-                  </span>
-                </div>
-              </div>
-              {entity.observationsStream && entity.observationsStream.length > 0 && (
-                <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded font-bold border ${
-                  isHazardMode
-                    ? 'bg-red-950/40 text-red-300 border-red-500/30'
-                    : 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30'
-                }`}>
-                  {entity.observationsStream.length}件の観測ログ
-                </span>
-              )}
             </div>
+          )}
 
-            <UniversalIntelligenceStream entity={entity} currency={currency} />
-          </div>
-
-          {/* ------------------------------------------------------- */}
-          {/* #14: アナリスト考察メモ ＆ AI壁打ち (FIELD NOTES) */}
-          {/* ------------------------------------------------------- */}
-          <div className="space-y-4 pt-2 border-t border-white/[0.06]">
-            <div className={`border rounded-md bg-[#0A0B10] p-4 space-y-3 shadow-lg ${
-              isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
-            }`}>
-              <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+          {/* ========================================================= */}
+          {/* 【タブ 4: 全量インテリジェンス (STREAM)】 */}
+          {/* ========================================================= */}
+          {showStream && (
+            <div className={`space-y-4 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                 <div className="flex items-center gap-2">
                   <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
+                    isHazardMode 
                       ? 'text-red-400 bg-red-950/40 border-red-500/30'
                       : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
                   }`}>
-                    #14
+                    #13
                   </span>
-                  <Edit3 className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-                  <span className="font-mono text-xs font-bold text-white tracking-wider">
-                    {isHazardMode ? 'POST_MORTEM_NOTES: 死因検死・地雷回避メモ' : 'ANALYST_FIELD_NOTES: 極秘考察メモ'}
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                    <span className={`font-mono text-[11px] font-bold uppercase tracking-wider ${
+                      isHazardMode ? 'text-red-300' : 'text-zinc-100'
+                    }`}>
+                      {isHazardMode ? '死因一次証拠 ＆ 崩壊怨嗟ストリーム (CASUALTY STREAM)' : '一次証拠 ＆ 万能救済ストリーム (EVIDENCE STREAM)'}
+                    </span>
+                  </div>
                 </div>
-                {analystNote ? (
-                  <span className={`font-mono text-[10px] px-2 py-0.5 rounded border ${
-                    isHazardMode 
-                      ? 'text-red-300 bg-red-950/60 border-red-800/40'
-                      : 'text-emerald-400/90 bg-emerald-950/60 border-emerald-800/40'
+                {entity.observationsStream && entity.observationsStream.length > 0 && (
+                  <span className={`text-[9px] font-mono px-1.5 py-0.5 rounded font-bold border ${
+                    isHazardMode
+                      ? 'bg-red-950/40 text-red-300 border-red-500/30'
+                      : 'bg-white/[0.06] text-zinc-300 border-white/[0.10]'
                   }`}>
-                    自動保存済
-                  </span>
-                ) : (
-                  <span className="font-mono text-[10px] text-zinc-500">
-                    未記録
+                    {entity.observationsStream.length}件の観測ログ
                   </span>
                 )}
               </div>
 
-              <p className="text-[11px] text-zinc-400 leading-relaxed font-sans">
-                {isHazardMode 
-                  ? `${entity.name}が爆死・転落した真の死因を記録し、自分が同じ事業や似た構造で参入する際に『絶対に避けるべき地雷』を特定してください。AIとの壁打ちでこの地雷を迂回する防壁を検証できます。`
-                  : `${entity.name}の盲点・手口・原価構造から着想を得た独自の転用アイデアや、別市場へのスライド仮説を記録してください。このメモはAIとの壁打ちや独自アイデア創出の着火剤として読み込まれます。`}
-              </p>
+              <UniversalIntelligenceStream entity={entity} currency={currency} />
+            </div>
+          )}
 
-              <textarea
-                rows={4}
-                value={analystNote}
-                onChange={(e) => onSaveAnalystNote && onSaveAnalystNote(entity.id, e.target.value)}
-                placeholder={isHazardMode 
-                  ? "例: なぜChatGPT登場でJasperは即死したのか？ OpenAIのAPIラッパーに留まらず、自前の独自データセットや業務フローの深い監禁（人質化）があれば生き残れたか？..."
-                  : "例: このAPIラッパーの構造を士業の契約書レビューに応用できないか？ 初期の自演集客（Reddit）の代わりにXやnoteを活用し、初期100人を集める..."}
-                className="w-full bg-[#060709] border border-white/[0.1] focus:border-white/[0.25] rounded p-3 text-xs font-mono text-zinc-100 placeholder-zinc-600 focus:outline-none transition-colors resize-none leading-relaxed"
-              />
+          {/* ========================================================= */}
+          {/* 【タブ 5: アナリスト考察メモ ＆ AI壁打ち (NOTES)】 */}
+          {/* ========================================================= */}
+          {showNotes && (
+            <div className={`space-y-4 ${activeTab === 'ALL' ? 'pt-4 border-t border-white/[0.08]' : ''}`}>
+              <div className={`border rounded-md bg-[#0A0B10] p-4 space-y-3 shadow-lg ${
+                isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+              }`}>
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+                  <div className="flex items-center gap-2">
+                    <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
+                      isHazardMode
+                        ? 'text-red-400 bg-red-950/40 border-red-500/30'
+                        : 'text-zinc-400 bg-white/[0.06] border-white/[0.08]'
+                    }`}>
+                      #14
+                    </span>
+                    <Edit3 className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                    <span className="font-mono text-xs font-bold text-white tracking-wider">
+                      {isHazardMode ? 'POST_MORTEM_NOTES: 死因検死・地雷回避メモ' : 'ANALYST_FIELD_NOTES: 極秘考察メモ'}
+                    </span>
+                  </div>
+                  {analystNote ? (
+                    <span className={`font-mono text-[10px] px-2 py-0.5 rounded border ${
+                      isHazardMode 
+                        ? 'text-red-300 bg-red-950/60 border-red-800/40'
+                        : 'text-zinc-300 bg-white/[0.06] border-white/[0.10]'
+                    }`}>
+                      自動保存済
+                    </span>
+                  ) : (
+                    <span className="font-mono text-[10px] text-zinc-500">
+                      未記録
+                    </span>
+                  )}
+                </div>
 
-              <div className="flex flex-col sm:flex-row items-center gap-2 pt-1">
-                {onOpenSynthesisWithEntity && (
-                  <button
-                    onClick={() => onOpenSynthesisWithEntity(entity.id)}
-                    className="w-full sm:flex-1 py-2 px-3 rounded bg-white/[0.08] hover:bg-white/[0.15] border border-white/[0.12] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md active:scale-[0.99]"
-                  >
-                    <Bot className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-                    <span>{isHazardMode ? 'この地雷の回避策をAIと壁打ちする' : 'この銘柄のデータでAIと壁打ちする'}</span>
-                  </button>
-                )}
+                <p className="text-[11px] text-zinc-400 leading-relaxed font-sans">
+                  {isHazardMode 
+                    ? `${entity.name}が爆死・転落した真の死因を記録し、自分が同じ事業や似た構造で参入する際に『絶対に避けるべき地雷』を特定してください。AIとの壁打ちでこの地雷を迂回する防壁を検証できます。`
+                    : `${entity.name}の盲点・手口・原価構造から着想を得た独自の転用アイデアや、別市場へのスライド仮説を記録してください。このメモはAIとの壁打ちや独自アイデア創出の着火剤として読み込まれます。`}
+                </p>
+
+                <textarea
+                  rows={4}
+                  value={analystNote}
+                  onChange={(e) => onSaveAnalystNote && onSaveAnalystNote(entity.id, e.target.value)}
+                  placeholder={isHazardMode 
+                    ? "例: なぜChatGPT登場でJasperは即死したのか？ OpenAIのAPIラッパーに留まらず、自前の独自データセットや業務フローの深い監禁（人質化）があれば生き残れたか？..."
+                    : "例: このAPIラッパーの構造を士業の契約書レビューに応用できないか？ 初期の自演集客（Reddit）の代わりにXやnoteを活用し、初期100人を集める..."}
+                  className="w-full bg-[#060709] border border-white/[0.1] focus:border-white/[0.25] rounded p-3 text-xs font-mono text-zinc-100 placeholder-zinc-600 focus:outline-none transition-colors resize-none leading-relaxed"
+                />
+
+                <div className="flex flex-col sm:flex-row items-center gap-2 pt-1">
+                  {onOpenSynthesisWithEntity && (
+                    <button
+                      onClick={() => onOpenSynthesisWithEntity(entity.id)}
+                      className="w-full sm:flex-1 py-2 px-3 rounded bg-white/[0.08] hover:bg-white/[0.15] border border-white/[0.12] text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md active:scale-[0.99]"
+                    >
+                      <Bot className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-300'}`} />
+                      <span>{isHazardMode ? 'この地雷の回避策をAIと壁打ちする' : 'この銘柄のデータでAIと壁打ちする'}</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* 銘柄の着眼点サマリー */}
+              <div className="border border-white/[0.06] rounded bg-white/[0.02] p-3 space-y-2">
+                <span className="font-mono text-[10px] text-zinc-500 block uppercase">
+                  考察の武器（この銘柄のキーデータ）
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono">
+                  <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
+                    <span className="text-zinc-500 block text-[9px]">人質にした財布</span>
+                    <span className="text-zinc-200">{entity.targetPainWallet || '顧客の恐怖・怠惰'}</span>
+                  </div>
+                  <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
+                    <span className="text-zinc-500 block text-[9px]">初動集客の泥臭い手口</span>
+                    <span className="text-zinc-200">{entity.strategy.initialTraction[0]}</span>
+                  </div>
+                </div>
               </div>
             </div>
-
-            {/* 銘柄の着眼点サマリー */}
-            <div className="border border-white/[0.06] rounded bg-white/[0.02] p-3 space-y-2">
-              <span className="font-mono text-[10px] text-zinc-500 block uppercase">
-                考察の武器（この銘柄のキーデータ）
-              </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-mono">
-                <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
-                  <span className="text-zinc-500 block text-[9px]">人質にした財布</span>
-                  <span className="text-zinc-200">{entity.targetPainWallet || '顧客の恐怖・怠惰'}</span>
-                </div>
-                <div className="bg-[#060709] p-2 rounded border border-white/[0.04]">
-                  <span className="text-zinc-500 block text-[9px]">初動集客の泥臭い手口</span>
-                  <span className="text-zinc-200">{entity.strategy.initialTraction[0]}</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </aside>
     </>
