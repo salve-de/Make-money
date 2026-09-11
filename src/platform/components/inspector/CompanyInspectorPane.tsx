@@ -246,59 +246,32 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
       <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#040507] border-t md:border-t-0 md:border-l border-white/[0.08] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
         
         {/* ========================================================= */}
-        {/* 【上部固定ツールバー（PINNED SLIM TOOLBAR）: 48pxスリム・視覚的境界 ＆ Elevation】 */}
+        {/* 【上部固定計器盤（PINNED EXECUTIVE HUD）: タグ常時配置 ＆ セクションジャンプタブ】 */}
         {/* ========================================================= */}
-        <div className={`shrink-0 z-30 transition-all duration-150 bg-[#090B10] border-b relative ${
+        <div className={`shrink-0 z-30 transition-all duration-150 bg-[#090B12] border-b relative ${
           isScrolled 
-            ? 'border-white/[0.16] shadow-[0_12px_28px_rgba(0,0,0,0.95)]' 
-            : 'border-white/[0.08]'
+            ? 'border-white/[0.18] shadow-[0_16px_36px_rgba(0,0,0,0.95)]' 
+            : 'border-white/[0.10] shadow-[0_8px_20px_rgba(0,0,0,0.7)]'
         }`}>
           {/* 最上部アクセントライン */}
-          <div className="h-[2px] w-full bg-gradient-to-r from-emerald-500/70 via-cyan-500/50 to-transparent" />
+          <div className="h-[2px] w-full bg-gradient-to-r from-emerald-500/80 via-cyan-500/60 to-transparent" />
 
-          {/* メインツールバー行 (高さ48px) */}
-          <div className="px-3 py-2 flex items-center justify-between gap-2">
-            {/* 左側: ティッカー ＋ 社名 ＋ 判定バッジ ＋ 主要KPI */}
+          {/* 1. タイトル＆操作バー */}
+          <div className="px-3 pt-2 pb-1.5 flex items-center justify-between gap-2 border-b border-white/[0.04]">
             <div className="flex items-center gap-2 min-w-0">
               <span className="font-mono text-[11px] text-zinc-200 font-bold shrink-0 bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.12] flex items-center gap-1">
                 <Pin className="w-2.5 h-2.5 text-cyan-400 shrink-0" />
                 <span>{entity.ticker}</span>
               </span>
-
               <h2 className="text-xs sm:text-sm font-bold text-white truncate font-sans tracking-tight">
                 {entity.name}
               </h2>
-
-              {/* コンパクト判定バッジ */}
-              {entity.opportunityJudgment && (
-                <span className={`hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono font-bold tracking-wider shrink-0 border ${
-                  entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
-                    ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
-                    : entity.opportunityJudgment.verdict === 'MONITOR'
-                    ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
-                    : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                    ? 'bg-red-950/40 text-red-400 border-red-500/50'
-                    : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
-                }`}>
-                  {entity.opportunityJudgment.verdictLabel}
-                </span>
-              )}
-
-              {/* 主要KPI（粗利率 ＆ 営業利益率） */}
-              {!isFinancialUnavailable && entity.pnl && (
-                <div className="hidden md:flex items-center gap-2 text-[10px] font-mono shrink-0 pl-1.5 border-l border-white/[0.08]">
-                  <span className="text-zinc-400">
-                    粗利 <strong className="text-white font-bold">{entity.pnl.grossMargin}%</strong>
-                  </span>
-                  <span className="text-zinc-600">/</span>
-                  <span className="text-zinc-400">
-                    手残り <strong className="text-emerald-400 font-bold">{entity.pnl.operatingMargin}%</strong>
-                  </span>
-                </div>
-              )}
+              <span className="text-[10px] text-zinc-400 font-mono hidden md:inline truncate">
+                {entity.legalEntity || entity.founder} ・ {entity.country}
+              </span>
             </div>
 
-            {/* 右側: アクション群 */}
+            {/* 右側アクション */}
             <div className="flex items-center gap-1 shrink-0">
               {/* J/K ナビゲーション */}
               <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
@@ -354,10 +327,156 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </button>
             </div>
           </div>
+
+          {/* 2. 【即時意思決定: 判定 ＆ 需要・競争ベクトル】 */}
+          {entity.opportunityJudgment && (
+            <div className="px-3 py-1.5 bg-[#06080D] border-b border-white/[0.04] flex items-center justify-between gap-2 flex-wrap text-[10px] font-mono">
+              <div className="flex items-center gap-1.5 min-w-0">
+                <span className={`px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
+                  entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
+                    ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
+                    : entity.opportunityJudgment.verdict === 'MONITOR'
+                    ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
+                    : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
+                    ? 'bg-red-950/40 text-red-400 border-red-500/50'
+                    : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+                }`}>
+                  判定: {entity.opportunityJudgment.verdictLabel}
+                </span>
+                <span className="text-zinc-300 font-sans truncate" title={entity.opportunityJudgment.oneLineReason}>
+                  {entity.opportunityJudgment.oneLineReason}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-zinc-400">需要: <strong className="text-emerald-400">{entity.opportunityJudgment.demandDelta}</strong></span>
+                <span className="text-zinc-600">|</span>
+                <span className="text-zinc-400">競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
+                <span className="text-zinc-600">|</span>
+                <span className="text-zinc-400">資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
+                <span className="text-zinc-600">|</span>
+                <span className="text-zinc-400">難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
+              </div>
+            </div>
+          )}
+
+          {/* 3. サバンナOSタグライン ＆ 時系列インテリジェンス */}
+          <div className="px-3 py-1 flex items-center justify-between gap-2 text-[10px] font-sans border-b border-white/[0.04]">
+            <div className="text-zinc-400 truncate flex-1" title={cleanIntelligenceText(entity.tagline)}>
+              {cleanIntelligenceText(entity.tagline)}
+            </div>
+            {entity.temporal && (
+              <div className="flex items-center gap-1.5 font-mono text-[9px] text-zinc-500 shrink-0">
+                <Clock className="w-2.5 h-2.5 text-cyan-400" />
+                <span>{entity.temporal.foundedYear}年</span>
+                <span>・</span>
+                <span className="text-zinc-400 font-semibold">{entity.temporal.viabilityLabel}</span>
+              </div>
+            )}
+          </div>
+
+          {/* 4. ★ユーザー絶対要望★ 探索タグ一覧（上部に常時配置・クリックで絞り込み） */}
+          {entity.tags && entity.tags.length > 0 && (
+            <div className="px-3 py-1.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none bg-[#080A10]">
+              {entity.tags.map((tag) => {
+                const isActive = activeTags.includes(tag);
+                return (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      if (onToggleTag) onToggleTag(tag);
+                    }}
+                    title={`「#${tag}」で左一覧を絞り込み`}
+                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer border ${
+                      isActive
+                        ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
+                        : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
+                    }`}
+                  >
+                    <span className="text-zinc-500">#</span>
+                    <span>{tag}</span>
+                    {isActive ? (
+                      <X className="w-2.5 h-2.5 text-emerald-400" />
+                    ) : null}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+
+          {/* 5. ─── ★ 視覚的境界バー ＆ セクションジャンプタブ（BOUNDARY & SECTION TABS） ★ ─── */}
+          <div className="px-3 py-1 bg-[#0E121B] border-t border-white/[0.12] flex items-center justify-between text-[10px] font-mono">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <span className={`font-bold flex items-center gap-1 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`}>
+                <span className={`w-1.5 h-1.5 rounded-full ${isHazardMode ? 'bg-red-400' : 'bg-emerald-400'} animate-pulse`} />
+                {isHazardMode ? 'AUTOPSY' : 'DOSSIER'}
+              </span>
+              <span className="text-zinc-600">|</span>
+              {/* セクションショートカットタブ */}
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('section-evidence');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer"
+              >
+                特異物証
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('section-financial');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer"
+              >
+                財務P&L
+              </button>
+              {!isHazardMode && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById('section-tools');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer"
+                >
+                  配管ツール
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => {
+                  const el = document.getElementById('section-playbook');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-1.5 py-0.5 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white transition-colors cursor-pointer hidden sm:inline"
+              >
+                {isHazardMode ? '死因検死' : '略奪手順'}
+              </button>
+            </div>
+
+            <div className="flex items-center gap-1.5 text-zinc-500">
+              {entity.observationsStream && entity.observationsStream.length > 0 && (
+                <span className="text-[9px] font-mono text-zinc-400">
+                  物証 {entity.observationsStream.length}件
+                </span>
+              )}
+              {analystNote && (
+                <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/60 px-1 py-0.2 rounded border border-emerald-800/40">
+                  メモ有
+                </span>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* ========================================================= */}
-        {/* 【コンテンツゾーン: スクロールトレイ ＆ 高密度ストリーム（画面の93%がスクロール可能）】 */}
+        {/* 【コンテンツゾーン: スクロールトレイ ＆ 高密度ストリーム】 */}
         {/* ========================================================= */}
         <div 
           ref={scrollContainerRef}
@@ -366,143 +485,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         >
           {/* 上端潜り込みグラデーションシャドウ */}
           <div className="sticky top-0 -mt-4 -mx-4 h-3.5 bg-gradient-to-b from-[#040507] via-[#040507]/80 to-transparent pointer-events-none z-10" />
-
-          {/* ─── ★ エグゼクティブ・ドキュメントヘッダー（スクロール本文先頭） ─── */}
-          <div className="space-y-3 pb-3 border-b border-white/[0.08]">
-            {/* 企業法規・創業者・国籍 */}
-            <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-              <span>{entity.legalEntity || entity.founder} ・ {entity.country}</span>
-              {entity.founder && (
-                <span className="text-zinc-500">創業者: <strong className="text-zinc-300">{entity.founder}</strong></span>
-              )}
-            </div>
-
-            {/* 【即時意思決定: 最終判定 ＆ 需要・競争ベクトル】 */}
-            {entity.opportunityJudgment && (
-              <div className="p-3 rounded-lg border bg-[#080A10] flex flex-col gap-2 shadow-xs border-white/[0.08]">
-                <div className="flex items-center justify-between gap-2 flex-wrap">
-                  <div className="flex items-center gap-2">
-                    <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider border ${
-                      entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
-                        ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
-                        : entity.opportunityJudgment.verdict === 'MONITOR'
-                        ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
-                        : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                        ? 'bg-red-950/40 text-red-400 border-red-500/50'
-                        : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
-                    }`}>
-                      判定: {entity.opportunityJudgment.verdictLabel}
-                    </span>
-                    <span className="text-xs font-sans text-zinc-200 font-medium">
-                      {entity.opportunityJudgment.oneLineReason}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2 text-[10px] font-mono shrink-0">
-                    <span className="text-zinc-400">需要: <strong className="text-emerald-400">{entity.opportunityJudgment.demandDelta}</strong></span>
-                    <span className="text-zinc-600">|</span>
-                    <span className="text-zinc-400">競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 border-t border-white/[0.04] pt-2 flex-wrap">
-                  <span>初期資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
-                  <span>・</span>
-                  <span>開発難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
-                  <span>・</span>
-                  <span>PF依存度: <strong className={entity.opportunityJudgment.entryRequirements.platformRisk === 'CRITICAL' ? 'text-red-400 font-bold' : 'text-zinc-200'}>{entity.opportunityJudgment.entryRequirements.platformRisk}</strong></span>
-                </div>
-              </div>
-            )}
-
-            {/* サバンナOSタグライン（全行表示・カットオフなし） */}
-            <div className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans bg-white/[0.02] p-2.5 rounded-lg border border-white/[0.05]">
-              {cleanIntelligenceText(entity.tagline)}
-            </div>
-
-            {/* 時系列 ＆ 賞味期限インテリジェンス */}
-            {entity.temporal && (
-              <div className="flex items-center gap-2 text-[10px] font-mono flex-wrap">
-                <span className="text-zinc-400 flex items-center gap-1">
-                  <Clock className="w-3 h-3 text-cyan-400" />
-                  <span>{entity.temporal.foundedYear}年ローンチ ({entity.temporal.initialTractionPeriod})</span>
-                </span>
-                <span className="text-zinc-600">|</span>
-                <span className="text-zinc-400">
-                  データ基準: <span className="text-zinc-300 font-bold">{entity.temporal.dataSnapshotPeriod}</span>
-                </span>
-                <span className="text-zinc-600">|</span>
-                <span className={`px-1.5 py-0.5 rounded font-bold border ${
-                  entity.temporal.viabilityStatus === 'ACTIVE_PLAYBOOK' ? 'text-emerald-400 border-emerald-500/30 bg-emerald-950/30' :
-                  entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'text-cyan-400 border-cyan-500/30 bg-cyan-950/30' :
-                  entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'text-amber-400 border-amber-500/30 bg-amber-950/30' :
-                  entity.temporal.viabilityStatus === 'HISTORICAL_WINDOW' ? 'text-red-400 border-red-500/30 bg-red-950/30' :
-                  'text-purple-400 border-purple-500/30 bg-purple-950/30'
-                }`}>
-                  ● {entity.temporal.viabilityLabel}
-                </span>
-              </div>
-            )}
-
-            {/* 探索タグ群 */}
-            {entity.tags && entity.tags.length > 0 && (
-              <div className="flex items-center gap-1.5 flex-wrap pt-0.5">
-                {entity.tags.map((tag) => {
-                  const isActive = activeTags.includes(tag);
-                  return (
-                    <button
-                      key={tag}
-                      type="button"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        if (onToggleTag) onToggleTag(tag);
-                      }}
-                      title={`「#${tag}」で左一覧を絞り込み`}
-                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer border ${
-                        isActive
-                          ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
-                          : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
-                      }`}
-                    >
-                      <span className="text-zinc-500">#</span>
-                      <span>{tag}</span>
-                      {isActive ? (
-                        <X className="w-2.5 h-2.5 text-emerald-400" />
-                      ) : null}
-                    </button>
-                  );
-                })}
-              </div>
-            )}
-
-            {/* セクションガイドバー（DEEP-DIVE STRIP） */}
-            <div className={`flex items-center justify-between px-2.5 py-1.5 rounded text-[10px] font-mono ${
-              isHazardMode 
-                ? 'bg-red-950/20 text-red-300 border border-red-500/20' 
-                : 'bg-white/[0.03] text-zinc-400 border border-white/[0.05]'
-            }`}>
-              <div className="flex items-center gap-2">
-                <span className={isHazardMode ? 'text-red-400 font-bold' : 'text-emerald-400 font-bold'}>
-                  {isHazardMode ? '● POST-MORTEM' : '● CASE DEEP-DIVE'}
-                </span>
-                <span>|</span>
-                <span className="text-zinc-400">
-                  {isHazardMode ? '死因判定 ➔ 致命的死角 ➔ 出血 ➔ 崩壊ログ' : '判定 ➔ 構造 ➔ 財務 ➔ Playbook ➔ 証拠'}
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                {entity.observationsStream && entity.observationsStream.length > 0 && (
-                  <span className="text-[9px] font-mono text-zinc-400">
-                    物証 {entity.observationsStream.length}件
-                  </span>
-                )}
-                {analystNote && (
-                  <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/50 px-1 py-0.2 rounded border border-emerald-800/40">
-                    メモ有
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
           
           {/* 市場の歪み・トレンドへの直通バナー（ワームホール） */}
           {relatedAnomaly && (
@@ -576,7 +558,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 【動的証拠保全デッキ (DYNAMIC EVIDENCE DECK)】 */}
           {/* ========================================================= */}
           {hasEvidenceCards && (
-            <div className="space-y-6">
+            <div id="section-evidence" className="space-y-6 scroll-mt-4">
               <section className="space-y-2">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                   <div className="flex items-center gap-2">
@@ -1038,7 +1020,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
             {/* 稼働インフラ：現場配管ツール（通常時・データが存在する場合のみ表示） */}
             {!isHazardMode && entity.operations?.toolStack && entity.operations.toolStack.length > 0 && (
-              <section className="space-y-2">
+              <section id="section-tools" className="space-y-2 scroll-mt-4">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                   <div className="flex items-center gap-2">
                     <span className="font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border text-zinc-400 bg-white/[0.06] border-white/[0.08]">
@@ -1345,7 +1327,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
             </section>
 
             {/* 再現・実行ステップ / 踏んではいけない地雷チェックリスト */}
-            <section className="space-y-2">
+            <section id="section-playbook" className="space-y-2 scroll-mt-4">
               <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
                 <div className="flex items-center gap-2">
                   <span className={`font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border ${
