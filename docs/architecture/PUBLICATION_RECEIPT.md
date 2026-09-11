@@ -75,6 +75,12 @@
 - SHA-256: `907e43b5bfe1379dbde8a55de70014089c30710b7d7ff5b7acdb6682769953e7`
 - 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
 
+## 2026-09-12 Foundation詳細取得の競合修正と現HEAD検証
+
+コードコミット `e2e3071` で、Foundation一覧の初回取得中に詳細フェッチがAbortされて再取得されない競合を修正した。初回一覧の完了を詳細取得の開始条件にし、summary表示が最後まで残るケースを防いだ。文書・コードを含む現HEADで、lint（警告0）、strict typecheck、Vitest274、Foundation11、architecture8、Recovery6、Next build、Paid本文検査、OpenNext Worker bundle/secret scan、deploy preflight、`pnpm audit --prod`、Playwright25を再実行して成功した。実ブラウザでも`http://127.0.0.1:3101/?entity=ent_photoai`を読み、Photo AIの未確認財務、Evidence、Layer 3、メモ、J/K案内の不在を確認した。
+
+この検証状態に対する追加R2レシートは自動審査で拒否されたため作成していない。既存の検証レシートとGit管理の監査記録を正本として併読する。GitHubへのpush、main統合、本番Workerデプロイ、Stripe本番往復、実ユーザーデータ復元はこの記録から完了扱いにしない。
+
 ## 2026-09-12 本番D1 migration適用前の保全と読み戻し
 
 本番D1 `make-money-production-app`（ID `07affd4c-cac4-4998-843c-b5881fccab5e`）の0004/0005適用前に、全アプリテーブル0行を確認した完全exportを非公開R2へcreate-only保存した。保存直後のGETで双方のbytesとSHA-256が一致した。
