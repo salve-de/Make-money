@@ -36,16 +36,18 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
   const [activeTab, setActiveTab] = useState<DossierTab>('OVERVIEW');
   const [isCopied, setIsCopied] = useState(false);
 
-  // ESCキーで閉じる、J/Kキーで前後の銘柄に移動
+  // ESCキーで閉じる、上下矢印で前後の銘柄に移動
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault();
         onClose();
-      } else if (e.key === 'j' || e.key === 'ArrowDown') {
+      } else if (e.target instanceof HTMLElement && (e.target.isContentEditable || e.target.closest('input, textarea, select'))) {
+        return;
+      } else if (e.key === 'ArrowDown') {
         if (onNext && hasNext) onNext();
-      } else if (e.key === 'k' || e.key === 'ArrowUp') {
+      } else if (e.key === 'ArrowUp') {
         if (onPrev && hasPrev) onPrev();
       }
     };
@@ -102,7 +104,7 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
                 disabled={!hasPrev}
                 onClick={onPrev}
                 className="p-1 text-zinc-400 hover:text-white disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
-                title="前の銘柄 [K]"
+                title="前の銘柄"
               >
                 <ArrowLeft size={13} />
               </button>
@@ -110,7 +112,7 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
                 disabled={!hasNext}
                 onClick={onNext}
                 className="p-1 text-zinc-400 hover:text-white disabled:opacity-30 cursor-pointer disabled:cursor-not-allowed"
-                title="次の銘柄 [J]"
+                title="次の銘柄"
               >
                 <ArrowRight size={13} />
               </button>

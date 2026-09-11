@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { AnalystNote } from '../types/terminal';
 
-const STORAGE_KEY = 'make_money_analyst_notes_v1';
+import { ANALYST_NOTES_STORAGE_KEY, decodeAnalystNotes, persistAnalystNotes } from './analyst-notes-storage';
 
 // 初期デフォルトメモ（ユーザーが最初に開いた時にも世界観と使い方が1秒で理解できるサンプル）
 const INITIAL_SAMPLE_NOTES: Record<string, AnalystNote> = {
@@ -31,14 +31,16 @@ export function useAnalystNotes() {
   // 初回マウント時にlocalStorageから復元
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
-        const parsed = JSON.parse(stored);
+      const stored = localStorage.getItem(ANALYST_NOTES_STORAGE_KEY);
+      if (stored !== null) {
+        const { notes: parsed } = decodeAnalystNotes(stored);
+        // Restore browser storage after hydration; server rendering cannot read localStorage.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setNotes(parsed);
       } else {
         // 初期サンプルを投入
         setNotes(INITIAL_SAMPLE_NOTES);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_SAMPLE_NOTES));
+        persistAnalystNotes(localStorage, INITIAL_SAMPLE_NOTES);
       }
     } catch (e) {
       console.error('Failed to load analyst notes:', e);
@@ -60,7 +62,7 @@ export function useAnalystNotes() {
         },
       };
       try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+        persistAnalystNotes(localStorage, updated);
       } catch (e) {
         console.error('Failed to persist analyst note:', e);
       }

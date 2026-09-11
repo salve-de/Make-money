@@ -223,7 +223,6 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
           <div className="px-3 py-1 bg-[#10141D] border-b border-white/[0.08] flex items-center justify-between text-[10px] text-zinc-500 font-mono">
             <span>銘柄 / モデル</span>
             <div className="flex items-center gap-2">
-              <span className="text-[9px] text-zinc-600 font-sans">移動: [J/K]</span>
               <span>収益規模</span>
             </div>
           </div>

@@ -1,0 +1,245 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/StrategyRequest",
+  "definitions": {
+    "StrategyRequest": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "SYNTHESIZE"
+            },
+            "selectedEntityIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "notes": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "updatedAt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "updatedAt"
+                ]
+              }
+            },
+            "userProfile": {
+              "$ref": "#/definitions/UserProfilePayload"
+            }
+          },
+          "required": [
+            "action",
+            "selectedEntityIds",
+            "notes"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "CHAT"
+            },
+            "conversationId": {
+              "type": "string"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "user",
+                      "assistant"
+                    ]
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "role",
+                  "content"
+                ]
+              }
+            },
+            "contextEntityId": {
+              "type": "string"
+            },
+            "synthesizedIdeas": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SynthesizedIdea"
+              }
+            },
+            "notes": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "content": {
+                    "type": "string"
+                  },
+                  "updatedAt": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "updatedAt"
+                ]
+              }
+            },
+            "userProfile": {
+              "$ref": "#/definitions/UserProfilePayload"
+            }
+          },
+          "required": [
+            "action",
+            "messages"
+          ]
+        }
+      ]
+    },
+    "UserProfilePayload": {
+      "type": "object",
+      "properties": {
+        "bookmarkedCount": {
+          "type": "number"
+        },
+        "viewedCount": {
+          "type": "number"
+        },
+        "preferredSectors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preferredScales": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "averageProfitMargin": {
+          "type": "number"
+        },
+        "topTools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topMoats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "profileSummary": {
+          "type": "string"
+        }
+      }
+    },
+    "SynthesizedIdea": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "dimension": {
+          "type": "string",
+          "enum": [
+            "SAVANNA_INSTINCT",
+            "META_ARCHITECT",
+            "CONTRARIAN_BLINDSPOT"
+          ]
+        },
+        "dimensionLabel": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "targetPainWallet": {
+          "type": "string"
+        },
+        "structuralArbitrage": {
+          "type": "string"
+        },
+        "projectedMonthlyProfitJpy": {
+          "type": "number"
+        },
+        "operatingMargin": {
+          "type": "number"
+        },
+        "requiredTools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "monthlyCostJpy": {
+                "type": "number"
+              },
+              "purpose": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "monthlyCostJpy",
+              "purpose"
+            ]
+          }
+        },
+        "first100TractionPlaybook": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceEntityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userNoteInspiration": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "dimension",
+        "dimensionLabel",
+        "title",
+        "targetPainWallet",
+        "structuralArbitrage",
+        "projectedMonthlyProfitJpy",
+        "operatingMargin",
+        "requiredTools",
+        "first100TractionPlaybook",
+        "sourceEntityIds",
+        "userNoteInspiration"
+      ]
+    }
+  }
+}

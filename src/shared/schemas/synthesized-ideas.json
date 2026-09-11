@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/SynthesizedIdeas",
+  "definitions": {
+    "SynthesizedIdeas": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SynthesizedIdea"
+      }
+    },
+    "SynthesizedIdea": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "dimension": {
+          "type": "string",
+          "enum": [
+            "SAVANNA_INSTINCT",
+            "META_ARCHITECT",
+            "CONTRARIAN_BLINDSPOT"
+          ]
+        },
+        "dimensionLabel": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "targetPainWallet": {
+          "type": "string"
+        },
+        "structuralArbitrage": {
+          "type": "string"
+        },
+        "projectedMonthlyProfitJpy": {
+          "type": "number"
+        },
+        "operatingMargin": {
+          "type": "number"
+        },
+        "requiredTools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "monthlyCostJpy": {
+                "type": "number"
+              },
+              "purpose": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "monthlyCostJpy",
+              "purpose"
+            ]
+          }
+        },
+        "first100TractionPlaybook": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sourceEntityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "userNoteInspiration": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "dimension",
+        "dimensionLabel",
+        "title",
+        "targetPainWallet",
+        "structuralArbitrage",
+        "projectedMonthlyProfitJpy",
+        "operatingMargin",
+        "requiredTools",
+        "first100TractionPlaybook",
+        "sourceEntityIds",
+        "userNoteInspiration"
+      ]
+    }
+  }
+}

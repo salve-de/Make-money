@@ -43,12 +43,14 @@ export const TacticalArchetypesView: React.FC<TacticalArchetypesViewProps> = ({
   const [isMobileDetailOpen, setIsMobileDetailOpen] = useState(Boolean(initialAnomalyId));
 
   // 外部からの initialAnomalyId 変更に追従
-  React.useEffect(() => {
+  const [previousInitialAnomalyId, setPreviousInitialAnomalyId] = useState(initialAnomalyId);
+  if (previousInitialAnomalyId !== initialAnomalyId) {
+    setPreviousInitialAnomalyId(initialAnomalyId);
     if (initialAnomalyId) {
       setSelectedAnomalyId(initialAnomalyId);
       setIsMobileDetailOpen(true);
     }
-  }, [initialAnomalyId]);
+  }
 
   // フィルタリング処理（カテゴリピル全廃・即時フリーワード検索に純化）
   const filteredAnomalies = useMemo(() => {

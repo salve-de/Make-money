@@ -36,7 +36,9 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
   const [selectedTags, setSelectedTags] = useState<string[]>(initialFilters?.selectedTags || []);
 
   // initialFilters同期
-  React.useEffect(() => {
+  const [previousInputs, setPreviousInputs] = useState({ initialFilters, isOpen });
+  if (previousInputs.initialFilters !== initialFilters || previousInputs.isOpen !== isOpen) {
+    setPreviousInputs({ initialFilters, isOpen });
     if (initialFilters) {
       setScales(initialFilters.scales || []);
       setMinMargin(initialFilters.minMargin || 0);
@@ -50,7 +52,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
       setMoats([]);
       setSelectedTags([]);
     }
-  }, [initialFilters, isOpen]);
+  }
 
   if (!isOpen) return null;
 

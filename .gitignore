@@ -53,3 +53,8 @@ scratch/
 # cloudflare wrangler
 .wrangler/
 
+
+# Playwright reports and traces
+/playwright-report/
+/test-results/
+/blob-report/

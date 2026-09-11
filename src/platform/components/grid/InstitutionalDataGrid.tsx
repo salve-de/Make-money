@@ -34,9 +34,11 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   const observerTargetRef = useRef<HTMLDivElement>(null);
 
   // フィルタや検索で entities が変更された場合は表示件数を初期化
-  useEffect(() => {
+  const [previousRows, setPreviousRows] = useState(entities);
+  if (previousRows !== entities) {
+    setPreviousRows(entities);
     setVisibleCount(PAGE_SIZE);
-  }, [entities]);
+  }
 
   // 1000件スケール耐性: 初期100件から段階的にDOM展開するプログレッシブ・ウィンドウイング
   const visibleEntities = useMemo(() => {

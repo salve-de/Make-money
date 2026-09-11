@@ -1,26 +1,14 @@
 'use client';
 
-import React from 'react';
-import { 
-  DynamicEvidenceCard, 
-  DynamicEvidenceCardType, 
-  EvidenceStatus 
-} from '../../types/terminal';
-import { 
-  KeyRound, 
-  Flame, 
-  Crosshair, 
-  TrendingUp, 
-  ShieldCheck, 
-  Skull, 
-  Wrench, 
-  Lock, 
-  AlertTriangle,
-  CheckCircle2,
-  HelpCircle,
-  FileCode,
-  Sparkles
+import {
+DynamicEvidenceCard,
+DynamicEvidenceCardType,
+EvidenceStatus
+} from '@/shared/terminal';
+import {
+FileCode
 } from 'lucide-react';
+import React from 'react';
 
 interface DynamicEvidenceDeckProps {
   cards: DynamicEvidenceCard[];
@@ -61,26 +49,22 @@ function renderEvidenceBadge(status: EvidenceStatus) {
   }
 }
 
-// カード種別のラベル定義（余計な配色は完全排除・モノトーン統一）
+// Only data-dependent card kinds use a registry; fixed inspector sections use JSX.
+type EvidenceKind = { label: string; hazardLabel?: string };
+export const evidenceRegistry = {
+  THE_CRIME: { label: '金抜きの本質', hazardLabel: '致命的錯覚の前提' },
+  SMOKING_GUN: { label: '現場の現物証拠' },
+  DIRTY_GENESIS: { label: '初期ゲリラ戦実録' },
+  ASYMMETRIC_LEVERAGE: { label: '非対称損益実額' },
+  INCUMBENT_TRAP: { label: '大手の自爆死角' },
+  FATAL_BLEED: { label: '死因検死解剖ログ' },
+  LOOT_BLUEPRINT: { label: '略奪転用コード' },
+  UNKNOWN_AUDIT: { label: '調査限界開示' },
+} satisfies Record<DynamicEvidenceCardType, EvidenceKind>;
+
 function getCardLabel(type: DynamicEvidenceCardType, isHazard?: boolean): string {
-  switch (type) {
-    case 'THE_CRIME':
-      return isHazard ? '致命的錯覚の前提' : '金抜きの本質';
-    case 'SMOKING_GUN':
-      return '現場の現物証拠';
-    case 'DIRTY_GENESIS':
-      return '初期ゲリラ戦実録';
-    case 'ASYMMETRIC_LEVERAGE':
-      return '非対称損益実額';
-    case 'INCUMBENT_TRAP':
-      return '大手の自爆死角';
-    case 'FATAL_BLEED':
-      return '死因検死解剖ログ';
-    case 'LOOT_BLUEPRINT':
-      return '略奪転用コード';
-    case 'UNKNOWN_AUDIT':
-      return '調査限界開示';
-  }
+  const kind: EvidenceKind = evidenceRegistry[type];
+  return (isHazard && kind.hazardLabel) || kind.label;
 }
 
 export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
@@ -95,7 +79,7 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
         const label = getCardLabel(card.type, isHazardMode);
 
         return (
-          <article 
+          <article
             key={card.id || `card-${idx}`}
             className="rounded-lg overflow-hidden border border-white/[0.10] bg-[#111624] shadow-lg transition-colors"
           >

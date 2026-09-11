@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/lib/foundation/schema';
 import { INSTITUTIONAL_ENTITIES } from '../../data/mockLedgerData';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { FinancialEntity, GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
@@ -9,7 +10,7 @@ import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
 import { TerminalSidebar } from '../navigation/TerminalSidebar';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
-import { CompanyInspectorPane } from '../inspector/CompanyInspectorPane';
+import { CompanyInspectorPane } from '@/features/company-inspector';
 import { IntelligenceDeepDiveView } from '../intelligence/IntelligenceDeepDiveView';
 import { IntelligenceCatalogView } from '../intelligence/IntelligenceCatalogView';
 import { MoneyFlowRadarView } from '../radar/MoneyFlowRadarView';
@@ -25,7 +26,6 @@ import { MobileBottomNav } from '../navigation/MobileBottomNav';
 import { ProModal } from '../../../components/terminal/ProModal';
 import { useAuth } from '../../../context/AuthContext';
 import type {
-  FoundationBusinessCase,
   FoundationValuePage,
   FoundationValueSummary,
 } from '@/lib/foundation/business-reader';
@@ -141,19 +141,8 @@ export const TerminalShell: React.FC = () => {
       if (cursor) params.set('cursor', cursor);
       const res = await fetch(`/api/businesses?${params.toString()}`, { signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const payload = (await res.json()) as {
-        source?: string;
-        data?: unknown;
-        nextCursor?: string | null;
-        hasMore?: boolean;
-      };
-
-      if (payload.source === 'foundation_lake' && Array.isArray(payload.data)) {
-        const page: FoundationValuePage = {
-          data: payload.data as FoundationValueSummary[],
-          nextCursor: payload.nextCursor || null,
-          hasMore: payload.hasMore === true,
-        };
+      const page = parseFoundationPageResponse(await res.json());
+      if (page) {
         mergeFoundationRows(page.data, !cursor);
         setFoundationCursor(page.nextCursor);
         setFoundationHasMore(page.hasMore);
@@ -204,9 +193,9 @@ export const TerminalShell: React.FC = () => {
     void fetch(`/api/businesses?entity_id=${encodeURIComponent(selectedEntityId)}`, { signal: controller.signal })
       .then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const payload = (await res.json()) as { source?: string; data?: FoundationBusinessCase };
-        if (payload.data && payload.source === 'foundation_lake') {
-          const adapted = adaptFoundationDetailToFinancialEntity(payload.data);
+        const detail = parseFoundationDetailResponse(await res.json());
+        if (detail) {
+          const adapted = adaptFoundationDetailToFinancialEntity(detail);
           setDetailedEntities((prev) => ({ ...prev, [selectedEntityId]: adapted }));
         }
       })
@@ -223,6 +212,8 @@ export const TerminalShell: React.FC = () => {
   }, [selectedEntityId, coreEntities, detailedEntities]);
 
   useEffect(() => {
+    // URL changes must synchronize the existing user-controlled workspace state.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (modeParam) setWorkspaceMode(modeParam);
     else if (topicParam) setWorkspaceMode('DEEP_DIVE');
 
@@ -267,6 +258,8 @@ export const TerminalShell: React.FC = () => {
     if (typeof window !== 'undefined') {
       const local = localStorage.getItem('kin_pro_unlocked');
       if (local === 'true') {
+        // Hydrate the persisted local setting after SSR without a hydration mismatch.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setIsLocalProUnlocked(true);
       }
     }

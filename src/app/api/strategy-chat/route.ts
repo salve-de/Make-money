@@ -1,3 +1,5 @@
+import type { UserProfilePayload } from '@/shared/strategy';
+import { parseStrategyRequest, parseSynthesizedIdeas } from '@/shared/strategy-schema';
 import { NextRequest, NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import { SynthesizedIdea, StrategyChatMessage } from '@/platform/types/terminal';
@@ -5,34 +7,6 @@ import { db, analystNotes, chatMessages, synthesizedIdeas } from '@/db';
 import { desc } from 'drizzle-orm';
 
 export const dynamic = 'force-dynamic';
-
-interface UserProfilePayload {
-  bookmarkedCount?: number;
-  viewedCount?: number;
-  preferredSectors?: string[];
-  preferredScales?: string[];
-  averageProfitMargin?: number;
-  topTools?: string[];
-  topMoats?: string[];
-  profileSummary?: string;
-}
-
-interface SynthesisPayload {
-  action: 'SYNTHESIZE';
-  selectedEntityIds: string[];
-  notes: Record<string, { content: string; updatedAt: string }>;
-  userProfile?: UserProfilePayload;
-}
-
-interface ChatPayload {
-  action: 'CHAT';
-  conversationId?: string;
-  messages: Array<{ role: 'user' | 'assistant'; content: string }>;
-  contextEntityId?: string;
-  synthesizedIdeas?: SynthesizedIdea[];
-  notes?: Record<string, { content: string; updatedAt: string }>;
-  userProfile?: UserProfilePayload;
-}
 
 // =========================================================================
 // 内蔵アナリスト推論エンジン（Fallback Analyst Engine）
@@ -272,12 +246,14 @@ function shouldEnableLiveSearch(query: string): boolean {
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json();
+    let body;
+    try { body = parseStrategyRequest(await req.json()); }
+    catch { return NextResponse.json({ error: 'Invalid strategy request' }, { status: 400 }); }
     const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
     // 1. アイデア合成リクエスト (SYNTHESIZE)
     if (body.action === 'SYNTHESIZE') {
-      const payload = body as SynthesisPayload;
+      const payload = body;
       const { selectedEntityIds, notes } = payload;
 
       // Gemini APIが利用可能な場合はAI推論を試みる
@@ -324,7 +300,7 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 `;
           const rawResponse = await callGeminiApi(prompt, apiKey);
           const cleanJson = rawResponse.text.replace(/```json/g, '').replace(/```/g, '').trim();
-          const parsed = JSON.parse(cleanJson);
+          const parsed = parseSynthesizedIdeas(JSON.parse(cleanJson));
           if (Array.isArray(parsed) && parsed.length > 0) {
             // Neon DBが利用可能な場合は非同期で永続化
             if (db) {
@@ -364,7 +340,7 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 
     // 2. 対話壁打ちリクエスト (CHAT)
     if (body.action === 'CHAT') {
-      const payload = body as ChatPayload;
+      const payload = body;
       const { messages, contextEntityId, notes, conversationId } = payload;
       const lastUserMessage = messages[messages.length - 1]?.content || '';
 

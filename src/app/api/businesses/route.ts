@@ -1,3 +1,5 @@
+import { parseFinancialEntities } from '@/shared/financial-entity-schema';
+import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -66,7 +68,7 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
   try {
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
-    return Array.isArray(parsed) ? (parsed as FinancialEntity[]) : [];
+    return parseFinancialEntities(parsed);
   } catch {
     return [];
   }
@@ -95,7 +97,7 @@ export async function GET(request: Request) {
         return response({
           source: 'foundation_lake',
           dataset_id: foundationDataset('researchBundles').datasetId,
-          data,
+          data: parseFoundationBusinessCase(data),
         });
       }
     } catch (error) {
@@ -123,6 +125,7 @@ export async function GET(request: Request) {
       MAX_PAGE_CACHE_ENTRIES,
       () => readFoundationValuePage({ cursor, limit })
     );
+    parseFoundationValuePage(page);
     if (page.data.length > 0 || page.hasMore) {
       return response({
         source: 'foundation_lake',

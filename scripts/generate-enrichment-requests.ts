@@ -15,7 +15,7 @@ function makeId(prefix: string, seed: string): string {
   return `${prefix}_${hash.slice(0, 24)}`;
 }
 
-function buildCoverage(overrides: Record<string, any>) {
+function buildCoverage(overrides: Record<string, Record<string, unknown>>) {
   const defaultCoverage = [
     { dimension: 'identity', status: 'found', note: 'Company identity and canonical domain documented.', record_refs: ['entities/0'] },
     { dimension: 'founders', status: 'found', note: 'Founders documented.', record_refs: ['entities/1'] },
@@ -759,7 +759,7 @@ function build1PasswordBundle() {
   };
 }
 
-async function validateAndSave(bundle: any, filename: string) {
+async function validateAndSave(bundle: Record<string, unknown>, filename: string) {
   const ajv = new Ajv2020({ allErrors: true, strict: false });
   addFormats(ajv);
 

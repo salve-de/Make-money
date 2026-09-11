@@ -1,22 +1,16 @@
 'use client';
 
-import React from 'react';
-import { FinancialEntity, UniversalObservation } from '../../types/terminal';
-import { 
-  ShieldAlert, 
-  Sparkles, 
-  Flame, 
-  ExternalLink, 
-  History, 
-  Zap, 
-  Cpu, 
-  Users, 
-  AlertCircle,
-  HelpCircle,
-  Clock,
-  CheckCircle2,
-  FileQuestion
+import { FinancialEntity,UniversalObservation } from '@/shared/terminal';
+import {
+AlertCircle,
+CheckCircle2,
+Clock,
+HelpCircle,
+History,
+Sparkles,
+Zap
 } from 'lucide-react';
+import React from 'react';
 
 interface UniversalIntelligenceStreamProps {
   entity: FinancialEntity;
@@ -360,7 +354,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
             {observationsStream.map((obs, idx) => {
               const badge = getCategoryBadge(obs.category);
               return (
-                <div 
+                <div
                   key={obs.id || idx}
                   className="border border-white/[0.06] hover:border-white/[0.15] rounded-md bg-[#0A0C10] p-3.5 space-y-2 transition-all shadow-xs"
                 >

@@ -24,7 +24,7 @@ export function verifyAndIntegrate(dossier: ExtractedDossier): FinancialEntity {
     ticker: dossier.entity.name.toUpperCase().slice(0, 8),
     name: dossier.entity.name,
     tagline: `【${dossier.evidenceVerification.reliabilityRating}】${dossier.exposureAudit.guerrillaTraction.slice(0, 45)}...`,
-    sector: (dossier.entity.sector as any) || 'AI_AUTOMATION',
+    sector: (dossier.entity.sector as FinancialEntity['sector']) || 'AI_AUTOMATION',
     scale: dossier.entity.teamSize === 1 ? 'SOLO' : 'SMALL_TEAM',
     founder: dossier.entity.founder,
     country: dossier.entity.country,
