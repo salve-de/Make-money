@@ -110,6 +110,8 @@ Time Travel復元、実Stripeイベントの再同期、保持期間の自動運
 
 これは加算migrationの適用と空の本番D1のschema確認であり、利用者データの移行・本番アプリの保存導線・復旧訓練を意味しない。バックアップの保存記録は [PUBLICATION_RECEIPT.md](PUBLICATION_RECEIPT.md) にある。現在の本番migration状態は、実行前の古い記述ではなくこの追補と`wrangler d1 migrations list --remote`の読み取り結果を正本とする。
 
+機械可読の監査記録は [2026-09-12-production-d1-migrations.json](recovery-evidence/2026-09-12-production-d1-migrations.json) に保存する。
+
 ## 復元後のexportを機械比較する
 
 ```sh

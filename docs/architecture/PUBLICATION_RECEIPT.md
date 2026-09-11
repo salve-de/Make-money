@@ -88,6 +88,8 @@
 
 この記録はschema変更と空DBの適用確認であり、本番Workerデプロイ、実ユーザーデータ移行、本番認証・決済往復、production restoreの完了を意味しない。復旧手順と制限は [RECOVERY.md](RECOVERY.md) を参照する。
 
+機械可読の監査記録は [2026-09-12-production-d1-migrations.json](recovery-evidence/2026-09-12-production-d1-migrations.json) に保存する。追加のR2レシートは自動審査により作成していないため、このファイルと既存R2 backup objectを併読する。
+
 ## 2026-09-12 lint警告遮断後の最終レシート
 
 コードコミット `8d06ae0404a62196ed0f42cf2d96cd8fd396fb90` で、lintを`--max-warnings=0`へ固定した。現HEADでlint、typecheck、全Unit/Foundation/Architecture/Recovery、build、Workers bundle、preflight、依存監査、standalone E2E25件を再実行して成功した。
