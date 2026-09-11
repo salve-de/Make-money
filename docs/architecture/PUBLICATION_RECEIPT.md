@@ -74,6 +74,15 @@
 - サイズ: 3,661 bytes
 - SHA-256: `907e43b5bfe1379dbde8a55de70014089c30710b7d7ff5b7acdb6682769953e7`
 - 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
+
+## 2026-09-12 lint警告遮断後の最終レシート
+
+コードコミット `8d06ae0404a62196ed0f42cf2d96cd8fd396fb90` で、lintを`--max-warnings=0`へ固定した。現HEADでlint、typecheck、全Unit/Foundation/Architecture/Recovery、build、Workers bundle、preflight、依存監査、standalone E2E25件を再実行して成功した。
+
+- R2: `make-money-production-private/architecture/8d06ae0404a62196ed0f42cf2d96cd8fd396fb90/verification-receipt.v1.json`
+- サイズ: 2,044 bytes
+- SHA-256: `799b5b26564e778432825426c673084ce1f791b3f65e16f9c87759f5afe24c62`
+- 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
 - 文書: 前回の検証文書コミット `58cbeadab8dcc46c7001e0210ed895edb9b110d0` を含む。今回の追記コミットはこのレシートの保存後に作成する。
 
 ## 2026-09-12 最終状態レシート
