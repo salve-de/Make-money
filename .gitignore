@@ -58,3 +58,6 @@ scratch/
 /playwright-report/
 /test-results/
 /blob-report/
+
+# Python recovery verification cache
+__pycache__/

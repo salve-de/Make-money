@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "D1 export schema and all rows",
+  "backup_sha256": "ef0e120ef1eeb268a5119ff291743a53da0251d805d904f569c59d10cce6ea31",
+  "restored_export_sha256": "ef0e120ef1eeb268a5119ff291743a53da0251d805d904f569c59d10cce6ea31",
+  "counts": {
+    "analyst_notes": 0,
+    "bookmarks": 0,
+    "chat_messages": 0,
+    "d1_migrations": 3,
+    "newsletter_subscribers": 0,
+    "payment_events": 0,
+    "submissions": 0,
+    "synthesized_ideas": 0,
+    "users": 0
+  },
+  "logical_sha256": "31c320f2e4d393b15c9db5d5b530a2488e0e3af24a3d7d3aebe5af9635a50829",
+  "observed_at": "2026-09-11",
+  "source_database": "07affd4c-cac4-4998-843c-b5881fccab5e",
+  "restore_database": "d8baf384-5233-46a2-ab6a-371e5cc5e020",
+  "restore_database_name": "make-money-recovery-20260911",
+  "source_backup": "make-money-production-private/backups/d1/2026-09-11-initial/schema.sql",
+  "restore_target_empty_before_import": true,
+  "application_binding_changed": false,
+  "scope_limitation": "Initial schema and migration history only; all application tables contain zero rows. No live user recovery, application login, payment replay or cutover verified.",
+  "resource_disposition": "Isolated restored D1 retained, not connected to the application."
+}

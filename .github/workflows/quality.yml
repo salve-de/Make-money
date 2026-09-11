@@ -30,7 +30,7 @@ jobs:
           - name: unit test
             command: pnpm test
           - name: build
-            command: pnpm build
+            command: pnpm build && pnpm bundle:workers
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4

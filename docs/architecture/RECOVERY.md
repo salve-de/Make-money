@@ -35,7 +35,7 @@ Python 3標準ライブラリのSQLiteを使用し、追加パッケージ・外
 
 ## 本番D1のバックアップを取得する手順
 
-以下は承認された運用時に実行する手順。今回の実装では実行していない。export中はDBリクエストがブロックされ得るため、書き込み停止・メンテナンス窓を決める。Webhook受信の再送・再処理計画も記録する。[Cloudflare公式のimport/export仕様](https://developers.cloudflare.com/d1/best-practices/import-export-data/)
+以下は運用時の手順。2026-09-11に初期D1のexport・R2保存・読み戻しとローカル復元を実施済み。対象とハッシュは [保存記録](PUBLICATION_RECEIPT.md) を参照。export中はDBリクエストがブロックされ得るため、書き込み停止・メンテナンス窓を決める。Webhook受信の再送・再処理計画も記録する。[Cloudflare公式のimport/export仕様](https://developers.cloudflare.com/d1/best-practices/import-export-data/)
 
 ```sh
 umask 077
@@ -45,7 +45,7 @@ shasum -a 256 "$recovery_dir/app.sql" > "$recovery_dir/app.sql.sha256"
 ```
 
 - exportの成功終了とファイルサイズを確認。生成SQLを公開せず、対象DB ID、取得時刻、Git SHA、migrationハッシュ、全テーブル件数を非公開の実行記録へ残す。
-- バックアップを暗号化された組織のバックアップ保管先へ移し、保管後のbytes/hashを読み戻して照合する。このリポジトリはバックアップ保存先・保持期間の運用設定まで自動化していない。
+- バックアップを暗号化された組織のバックアップ保管先へ移し、保管後のbytes/hashを読み戻して照合する。このプロジェクトの保管先は専用非公開R2。定期実行・保持期間の運用設定はまだ自動化していない。
 - DBの永続化確認と独立したバックアップは別。DBを作成しただけでバックアップ済みとはしない。
 
 ## 空の別D1へ復元・検証する手順
@@ -93,8 +93,28 @@ SQLiteの`.dump`をD1へ持ち込む場合はD1互換化が別途必要。Cloudf
 
 D1 Time Travelは別の復旧手段であり、長期保管する独立バックアップの代わりにはしない。保持範囲・利用可能なbookmarkはアカウントの実状態と[公式Time Travel仕様](https://developers.cloudflare.com/d1/reference/time-travel/)を確認する。ここでは本番にTime Travel restoreを実行していない。
 
-R2は元bucketへ上書き復元せず、対象objectのkey・version相当の識別子・metadata・SHA-256を一覧化し、別の専用bucketまたは衝突しない復旧prefixでbytesを読み戻して比較する。DBとR2を同じ復旧時点に揃え、DBから参照する全objectの存在を確認してから切り替える。この文書はR2の実バックアップ・復旧を実施済みとは主張しない。
+R2は元bucketへ上書き復元せず、対象objectのkey・version相当の識別子・metadata・SHA-256を一覧化し、別の専用bucketまたは衝突しない復旧prefixでbytesを読み戻して比較する。DBとR2を同じ復旧時点に揃え、DBから参照する全objectの存在を確認してから切り替える。初期D1バックアップのR2保存・読み戻しは実施済み。アプリ添付の実データ復元まで実施したものではない。
 
 ## 未実施
 
-実D1 export、実D1への復元、Time Travel復元、実R2バックアップ・復元、実Stripeイベントの再同期、保持期間の自動運用、復旧時間目標の実測は未実施。今回の合格証拠はローカルのmigration・合成データ・dump/restore/rollbackだけ。
+Time Travel復元、実Stripeイベントの再同期、保持期間の自動運用、復旧時間目標の実測は未実施。初期DBはアプリデータ0行のため、本番ユーザーデータを持つDBの復旧実証と混同しない。
+
+## 復元後のexportを機械比較する
+
+```sh
+python3 scripts/architecture/compare-d1-exports.py "$recovery_dir/app.sql" "$recovery_dir/restored.sql" --expected-sha256 "manifestに記録した元SQLのSHA-256"
+```
+
+原本のhashを検証してから、二つのexportを隔離したメモリDBへ読み込む。全schemaと全行のハッシュ・件数を比較し、件数が同じでも所有者や内容が異なれば失敗する。外部DBのATTACHを拒否し、レコード本文は出力しない。対象SQLは信頼できるバックアップに限定する。schema定義の表現が変わった場合も安全側に失敗するため、手動で元と先の差を確認し、期待ハッシュを書き換えて成功させない。
+
+比較器の回帰テストも `pnpm test:recovery` に含める。保存と復元の実データはGitへ入れず、合否・対象・件数・ハッシュだけを記録する。
+
+## 2026-09-11 実クラウド復元の証拠
+
+R2から読み戻した初期SQLを、新規の `make-money-recovery-20260911`（ID `d8baf384-5233-46a2-ab6a-371e5cc5e020`）へ復元。投入前に本番IDと異なること、アプリテーブル0個を確認した。復元後のD1 exportを元SQLと比較し、schema・全行内容ハッシュが一致。SQLファイル自体のSHA-256も一致した。
+
+[機械可読の実行証拠](recovery-evidence/2026-09-11-initial-d1.json)。アプリ8テーブルは0行、migration履歴のみ3行の初期バックアップであり、利用者がいる本番DBやログイン・決済再同期の復旧証明ではない。復元先はアプリへ接続せず、隔離して残してある。本番bindingは変更していない。
+
+## 配布物の検証
+
+D1を使う本番配布物はCloudflare Worker。`pnpm build` の後に `pnpm bundle:workers` を実行し、Next.jsを再ビルドせずWorkerを生成する。この順序をCIの必須buildチェックへ組み込んだ。2026-09-11にOpenNextの完全ビルドでも生成成功を確認した。Worker生成成功はデプロイ・本番認証設定・ユーザー導線の成功を意味しない。

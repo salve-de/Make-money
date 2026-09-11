@@ -26,7 +26,8 @@
     "schemas:check": "node scripts/architecture/generate-schemas.mjs --check",
     "db:migrate:local": "wrangler d1 migrations apply APP_DB --local",
     "db:migrate:remote": "wrangler d1 migrations apply APP_DB --remote",
-    "test:recovery": "python3 scripts/architecture/verify-d1-recovery.py"
+    "test:recovery": "python3 scripts/architecture/verify-d1-recovery.py && python3 -m unittest discover -s scripts/architecture -p 'test_*.py'",
+    "bundle:workers": "opennextjs-cloudflare build --skipNextBuild"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",

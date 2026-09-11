@@ -25,7 +25,7 @@ def inventory(connection):
         quoted = '"' + name.replace('"', '""') + '"'
         rows = connection.execute("SELECT * FROM " + quoted).fetchall()
         # Sort full serialized records so restore is independent of insertion/physical-page order.
-        contents[name] = sorted(json.dumps(row, ensure_ascii=False, default=lambda b: b.hex()) for row in rows)
+        contents[name] = sorted(json.dumps(row, ensure_ascii=False, default=lambda b: {'sqlite_blob_hex': b.hex()}) for row in rows)
     canonical = json.dumps({"schema": schema, "rows": contents}, ensure_ascii=False, sort_keys=True).encode()
     return {"counts": {name: len(rows) for name, rows in contents.items()}, "logical_sha256": sha256(canonical)}
 

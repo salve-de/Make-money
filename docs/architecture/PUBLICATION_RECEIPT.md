@@ -27,5 +27,5 @@
 - migrations: 0001〜0003適用済み。users/payment_eventsほかアプリ8テーブルは全て0行。移行済みユーザーがいるとは意味しない。
 - R2: `make-money-production-private/backups/d1/2026-09-11-initial/schema.sql` と同prefixの`manifest.json`
 - SQL: 3,569 bytes / SHA-256 `ef0e120ef1eeb268a5119ff291743a53da0251d805d904f569c59d10cce6ea31`
-- 検証: 実D1からエクスポート → 空のローカルSQLiteへ復元 → integrity/FK検査・migration3件・全アプリテーブル0行を確認。R2へ保存後GETし全bytes/hash一致。クラウドD1への復元は未実施。
+- 検証: 実D1からエクスポート → 空のローカルSQLiteへ復元 → integrity/FK検査・migration3件・全アプリテーブル0行を確認。R2へ保存後GETし全bytes/hash一致。その後、空の隔離D1へ復元し再exportのschema・全行内容hash一致も確認。[クラウド復元証拠](recovery-evidence/2026-09-11-initial-d1.json)。
 - バケットのr2.dev公開URLは無効とAPIで確認。
