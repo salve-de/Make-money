@@ -3,6 +3,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 
 // Consumer validation only: these schemas are never written to Foundation/R2.
 const targets = [
+  ['src/shared/terminal.ts', 'AnalystNote', 'src/shared/schemas/analyst-note.json'],
   ['src/shared/strategy.ts', 'StrategyRequest', 'src/shared/schemas/strategy-request.json'],
   ['src/shared/strategy.ts', 'SynthesizedIdeas', 'src/shared/schemas/synthesized-ideas.json'],
   ['src/shared/terminal.ts', 'FinancialEntity', 'src/shared/schemas/financial-entity.json'],

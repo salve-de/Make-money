@@ -16,3 +16,9 @@ AI generation or database writes. No test routes or production fixture changes a
 No R2, authentication, database, or payment credentials are needed in CI. Live R2
 availability, authenticated billing, and remote data correctness are separate tests.
 Failures retain screenshots and traces in test-results/ and playwright-report/.
+
+Note regressions cover plain j/k/J/K outside fields and inside the analyst textarea,
+persistence across reload, and continued button-based navigation. Isolated browser
+contexts seed malformed note JSON (null, array, broken syntax, and a mixed valid/invalid
+map), then verify rendering, exact recovery backup, retained valid notes, and edited
+text after reload. No existing user browser storage is accessed.

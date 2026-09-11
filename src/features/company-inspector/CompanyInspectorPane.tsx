@@ -61,12 +61,10 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
-      if ((e.key === 'j' || e.key === 'J') && onNextEntity) onNextEntity();
-      if ((e.key === 'k' || e.key === 'K') && onPrevEntity) onPrevEntity();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose, onNextEntity, onPrevEntity]);
+  }, [onClose]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;

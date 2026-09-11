@@ -23,6 +23,7 @@ it('rejects private type queries, relative paths and template literal imports', 
     "const load = () => import(`@/features/company-inspector/ui/FinancialSection`);",
     "export { FinancialSection } from '../features/company-inspector/ui/FinancialSection';",
     "const load = (name: string) => import(name);",
+    "const target = '@/features/company-inspector/ui/FinancialSection'; const section = require(target);",
   ]) {
     expect(checkBoundaries([{ file: 'src/app/boundary-probe.ts', text }]).length).toBeGreaterThan(0);
   }

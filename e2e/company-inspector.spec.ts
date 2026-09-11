@@ -71,3 +71,63 @@ test('strategy API rejects malformed input before processing', async ({ request 
   expect(response.status()).toBe(400);
   expect(await response.json()).toEqual({ error: 'Invalid strategy request' });
 });
+
+test('J/K never switches companies, including while writing and reloading a note', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/');
+  const heading = page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true });
+  await expect(heading).toBeVisible();
+  await page.getByRole('button', { name: 'メモ', exact: true }).click();
+  const note = page.locator('#section-notes textarea');
+  await note.fill('');
+  await note.pressSequentially('jkJK memo');
+  await expect(heading).toBeVisible();
+  await expect(note).toHaveValue('jkJK memo');
+  await heading.click();
+  for (const key of ['j', 'k', 'J', 'K']) await page.keyboard.press(key);
+  await expect(heading).toBeVisible();
+  await expect(page.locator('kbd').filter({ hasText: 'J/K' })).toHaveCount(0);
+  await page.reload();
+  await expect(heading).toBeVisible();
+  await page.getByRole('button', { name: 'メモ', exact: true }).click();
+  await expect(note).toHaveValue('jkJK memo');
+  await page.getByTitle('次銘柄', { exact: true }).click();
+  await expect(heading).toHaveCount(0);
+  expect(errors).toEqual([]);
+});
+
+for (const raw of ['null', '[]', '{broken', JSON.stringify({
+  ent_keyence: { content: 42 },
+  ent_photoai: { entityId: 'ent_photoai', content: '正常な既存メモ', updatedAt: '2026-09-11T00:00:00Z' },
+})]) {
+  test(`damaged note storage is recoverable without losing original data: ${raw.slice(0, 28)}`, async ({ page }) => {
+    const storageKey = 'make_money_analyst_notes_v1';
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
+    await page.addInitScript(({ storageKey, raw }) => {
+      if (!sessionStorage.getItem('notes-test-seeded')) {
+        localStorage.setItem(storageKey, raw);
+        sessionStorage.setItem('notes-test-seeded', 'true');
+      }
+    }, { storageKey, raw });
+    await page.goto('/');
+    await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'メモ', exact: true }).click();
+    const note = page.locator('#section-notes textarea');
+    await expect(note).toHaveValue('');
+    expect(await page.evaluate((key) => localStorage.getItem(key), storageKey)).toBe(raw);
+    await note.fill('復旧後のメモ jkJK');
+    const stored = await page.evaluate((key) => ({
+      notes: JSON.parse(localStorage.getItem(key) || '{}'),
+      backups: Object.keys(localStorage).filter((k) => k.startsWith(`${key}.recovery.`)).map((k) => localStorage.getItem(k)),
+    }), storageKey);
+    expect(stored.backups).toEqual([raw]);
+    if (raw.includes('ent_photoai')) expect(stored.notes.ent_photoai.content).toBe('正常な既存メモ');
+    await page.reload();
+    await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+    await page.getByRole('button', { name: 'メモ', exact: true }).click();
+    await expect(note).toHaveValue('復旧後のメモ jkJK');
+    expect(errors).toEqual([]);
+  });
+}

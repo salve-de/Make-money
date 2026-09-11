@@ -47,22 +47,21 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
 
             {/* 右側アクション */}
             <div className="flex items-center gap-1 shrink-0">
-              {/* J/K ナビゲーション */}
+              {/* 銘柄ナビゲーション */}
               <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
                 <button
                   onClick={onPrevEntity}
                   disabled={!onPrevEntity}
                   className="p-1 hover:text-white disabled:opacity-20 transition-colors cursor-pointer"
-                  title="前銘柄 (K)"
+                  title="前銘柄"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
-                <kbd className="bg-white/[0.04] px-1 rounded text-zinc-500">J/K</kbd>
                 <button
                   onClick={onNextEntity}
                   disabled={!onNextEntity}
                   className="p-1 hover:text-white disabled:opacity-20 transition-colors cursor-pointer"
-                  title="次銘柄 (J)"
+                  title="次銘柄"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>

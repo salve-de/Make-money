@@ -41,3 +41,9 @@ Work started at 02fb23e on feat/dynamic-evidence-registry-architecture, with 163
 - GitHub push/PR was rejected by automatic approval review. The changed-code secret-pattern scan found no matches and no data/.env/key changes, but explicit public-upload approval is still required.
 - No PR was created, no GitHub CI run is claimed, and main Ruleset remains unapplied until the workflow can be published and verified. The prepared main rule requires all five GitHub Actions checks, up-to-date PRs, no direct push, and no bypass actors.
 - No production deployment, R2/DB writes, main merge, branch deletion or recurring automation was performed. Local test server is owned and stopped by Playwright.
+
+## Follow-up regression repair (2026-09-11)
+
+The completion audit found two retained legacy defects that the original four smoke tests did not cover: typing j/k navigated away from a note, and malformed local note JSON crashed the application. Plain J/K navigation and its hints have now been removed from both inspector implementations. Note records are schema-validated individually; valid records survive alongside invalid ones. On the next edit, the exact malformed original is backed up in same-origin localStorage before replacement; failed backup never overwrites the original.
+
+Verification after repair: `pnpm lint` (0 errors, 140 existing warnings), `pnpm typecheck` including schema consistency, 30 Vitest + 10 Foundation tests, `pnpm build`, and all 9 Playwright tests passed. The added browser cases exercise typing, no-focus key presses, reload, malformed JSON/null/arrays, retention of a valid note alongside a bad note, and recovery-backup readback. Computed require calls are also rejected by the boundary checker. These local results do not prove GitHub rules are active; remote completion remains a separate gate.
