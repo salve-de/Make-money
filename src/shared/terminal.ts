@@ -41,7 +41,11 @@ export interface ProfitAndLossStatement {
   operatingMargin: number; // 営業利益率 %
   estimatedAnnualNetProfit: number; // 推定年間純利益
   isRevenueUnconfirmed?: boolean; // 一次情報で売上未確認の場合 true（架空0円の捏造を防止）
+  isOperatingProfitUnconfirmed?: boolean; // 営業利益額未確認の場合 true
   isMarginUnconfirmed?: boolean; // 利益率未確認の場合 true
+  isGrossMarginUnconfirmed?: boolean;
+  isCostsUnconfirmed?: boolean;
+  isNetProfitUnconfirmed?: boolean;
   revenueLabel?: string; // 表示用カスタムラベル（例: "プラン: $57/月〜", "売上非公開"）
   financialStatus?: FinancialEvidenceStatus; // 財務証拠ステータス
   dataSnapshotPeriod?: string; // 観測基準時期（例: "2024年3月期通期", "2022年ピーク時", "2024年最新Stripe魚拓"）

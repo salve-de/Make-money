@@ -241,7 +241,7 @@ const PATTERN_REPLACEMENTS: Array<{ regex: RegExp; replacement: string }> = [
   },
   {
     regex: /金額シグナルとして、公開情報は (.*?) USD_annual_revenue を示す。/i,
-    replacement: '公開情報による年間広告売上シグナル: $10.0M (約15億円)',
+    replacement: '公開情報による年間売上シグナル: $1 USD',
   },
   {
     regex: /公開情報から確認できる主な収益化経路は (.*?)。/i,
@@ -347,7 +347,7 @@ export function cleanIntelligenceText(text: string | null | undefined): string {
     .replace(/\bThe source documents the founder's prior agency and current courses;? launch date was not verified\.?\b/gi, '受託開発から派生した高単価オンライン講座を展開')
     .replace(/\bThe source documents the current Growth Program;? launch date was not verified\.?\b/gi, '実践型グロースマーケティング支援プログラムを展開')
     .replace(/\bThe source documents\b/gi, '公開一次資料に基づく事業観測：')
-    .replace(/\blaunch date was not verified\b/gi, '創業期から自律成長')
+    .replace(/\blaunch date was not verified\b/gi, 'ローンチ時期は未確認')
     .replace(/\bpaths\b/gi, '導線')
     .replace(/\bstorefront\b/gi, '直販ストア');
 
@@ -355,29 +355,7 @@ export function cleanIntelligenceText(text: string | null | undefined): string {
   cleaned = cleaned.replace(/; the category is a research classification.*/i, '');
   cleaned = cleaned.replace(/\s+/g, ' ').trim();
 
-  // もし英文の割合が依然として高すぎる（英字が45%以上）場合の日本語フォールバック
-  const alphaMatches = cleaned.match(/[a-zA-Z]/g);
-  const alphaCount = alphaMatches ? alphaMatches.length : 0;
-  if (cleaned.length > 10 && alphaCount / cleaned.length > 0.45) {
-    if (/notion/i.test(cleaned)) {
-      cleaned = 'Notionテンプレート・自動化リソースの直販モデル';
-    } else if (/apparel|clothing|socks|donation/i.test(cleaned)) {
-      cleaned = '高機能アパレル・寄付連携型の社会派D2C直販ブランド';
-    } else if (/cleaning|household|refill/i.test(cleaned)) {
-      cleaned = 'サステナブルD2C・詰め替え式日用品モデル';
-    } else if (/course|education|program|learn/i.test(cleaned)) {
-      cleaned = '特定領域特化のオンライン実践講座・コミュニティモデル';
-    } else if (/template|ui|theme|marketplace/i.test(cleaned)) {
-      cleaned = 'Web・UIテンプレート販売マーケットプレイス';
-    } else if (/sponsor|brand deals|creator/i.test(cleaned)) {
-      cleaned = 'クリエイター向けスポンサーシップ獲得・交渉支援事業';
-    } else if (/luggage|travel|suitcase/i.test(cleaned)) {
-      cleaned = '高機能スーツケース・トラベルD2Cブランド';
-    } else {
-      cleaned = '独自ポジショニングによる高収益特化型ビジネスモデル';
-    }
-  }
-
+  // Preserve unmatched source text: language alone is not evidence of a business model.
   return cleaned;
 }
 
@@ -401,9 +379,14 @@ export function formatHumanMoney(
     return '金額未確認';
   }
 
-  const num = typeof amount === 'number' ? amount : parseFloat(String(amount).replace(/[^0-9.-]+/g, ''));
-  if (isNaN(num)) {
-    return cleanMoneyLabel(String(amount));
+  // Keep authored labels (including magnitude suffixes and ranges) verbatim.
+  // Stripping non-digits would turn $10M into $10 and 10-20 into 10.
+  if (typeof amount === 'string' && !/^[-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?$/.test(amount.trim())) {
+    return cleanMoneyLabel(amount);
+  }
+  const num = typeof amount === 'number' ? amount : Number(amount.replaceAll(',', ''));
+  if (!Number.isFinite(num)) {
+    return '金額未確認';
   }
 
   const cur = (currency || 'USD').toUpperCase();

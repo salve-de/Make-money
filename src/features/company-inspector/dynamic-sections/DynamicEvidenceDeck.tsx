@@ -39,6 +39,13 @@ function renderEvidenceBadge(status: EvidenceStatus) {
           ESTIMATED
         </span>
       );
+    case 'POST_MORTEM':
+      return (
+        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-red-400">
+          <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
+          POST_MORTEM
+        </span>
+      );
     case 'UNKNOWN':
       return (
         <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-600">

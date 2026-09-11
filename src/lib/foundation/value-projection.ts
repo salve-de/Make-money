@@ -229,7 +229,7 @@ function chooseText(records: TextRecord[], terms: string[], excludeFinancial = f
       return rightMatch - leftMatch || recordWeight(right) - recordWeight(left);
     });
 
-  const selected = candidates.find((item) => hasTerm(item.text, terms)) || candidates[0];
+  const selected = candidates.find((item) => hasTerm(item.text, terms));
   if (!selected) return null;
   const prefix = selected.originType === 'inferred' ? '推論: ' : '';
   const cleaned = cleanIntelligenceText(selected.text);

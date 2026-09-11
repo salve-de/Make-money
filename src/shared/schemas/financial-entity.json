@@ -219,7 +219,19 @@
         "isRevenueUnconfirmed": {
           "type": "boolean"
         },
+        "isOperatingProfitUnconfirmed": {
+          "type": "boolean"
+        },
         "isMarginUnconfirmed": {
+          "type": "boolean"
+        },
+        "isGrossMarginUnconfirmed": {
+          "type": "boolean"
+        },
+        "isCostsUnconfirmed": {
+          "type": "boolean"
+        },
+        "isNetProfitUnconfirmed": {
           "type": "boolean"
         },
         "revenueLabel": {

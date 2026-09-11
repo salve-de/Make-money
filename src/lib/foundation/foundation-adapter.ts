@@ -95,104 +95,92 @@ export function parseRevenueToMonthlyJpy(
   currency?: string | null,
   metricType?: string
 ): ParsedRevenueResult {
-  if (!value) {
-    return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
+  const unknown: ParsedRevenueResult = { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
+  if (value === null || value === undefined || value === '') return unknown;
+  const text = String(value).trim();
+  const context = `${metricType || ''} ${text}`;
+  if (/未確認|非公開|not asserted|unknown|cumulative|累計|quarter|四半期/i.test(context)) return unknown;
+  if (/プラン価格|Entry Price|starting|per_user|course|program|plan|fee|license|tier/i.test(context) &&
+      !/revenue|売上|sales|\bmrr\b|\barr\b/i.test(context)) {
+    return { ...unknown, revenueLabel: 'プラン価格あり' };
   }
-
-  // 数値型の場合
+  const monthly = /monthly|month|mrr|月額|月商|月間/i.test(context);
+  // The existing projection uses USD 150 JPY as an explicit estimate. Never apply
+  // that rate to a different currency for which no conversion rate is available.
+  const currencyMarker = text.match(/\$|USD|¥|JPY|円/i)?.[0];
+  const cur = currencyMarker ? (/\$|USD/i.test(currencyMarker) ? 'USD' : 'JPY') : (currency || 'USD').toUpperCase();
+  if (!['JPY', 'USD', '円', '¥', '$'].includes(cur)) return unknown;
+  const rate = ['JPY', '円', '¥'].includes(cur) ? 1 : 150;
+  let amount: number;
   if (typeof value === 'number') {
-    if (value <= 0) return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
-    const rate = (currency || 'USD').toUpperCase() === 'JPY' ? 1 : 150;
-    const isMonthly = metricType ? /monthly|month|月額|月商/i.test(metricType) : false;
-    if (isMonthly) {
-      return { monthlyJpy: Math.round(value * rate), isUnconfirmed: false };
-    }
-    const isAnnual = metricType ? /annual|arr|year|年商/i.test(metricType) : true;
-    const annualJpy = value * rate;
-    return {
-      monthlyJpy: isAnnual ? Math.round(annualJpy / 12) : Math.round(annualJpy),
-      isUnconfirmed: false,
-    };
+    amount = value;
+  } else {
+    const hasRevenue = /revenue|arr|mrr|売上|年商|月商|sales|run\s*rate|turnover/i.test(context);
+    // Remove observation dates, not four-digit revenue amounts such as $2020.
+    const stripped = text.replace(/\b\d{4}-\d{2}-\d{2}\b/g, '').replace(/\b(?:in|as of)\s+(?:19|20)\d{2}\b/gi, '');
+    const explicitMoney = /\$|¥|円|USD|JPY/i.test(stripped);
+    if (!hasRevenue && !explicitMoney) return unknown;
+    // A range is not an exact observation. Do not silently pick one endpoint.
+    if (/\d[\d,.]*\s*(?:[kmb]|million|billion|thousand)?\s*[-–〜~]\s*\$?\d/i.test(stripped)) return unknown;
+    const matches = [...stripped.matchAll(/([-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)\s*(億|万|billion|million|thousand|[kmb]\b)?/gi)];
+    const currencyAmounts = matches.filter(candidate => {
+      const before = stripped.slice(0, candidate.index).trimEnd();
+      const after = stripped.slice(candidate.index + candidate[0].length).trimStart();
+      return /(?:\$|¥|USD|JPY)\s*$/i.test(before) || /^(?:円|USD|JPY)/i.test(after);
+    });
+    // Prefer the first explicitly denominated value, e.g. $10M (約15億円).
+    // Otherwise only an unambiguous single amount is safe to normalize.
+    const match = currencyAmounts[0] || (matches.length === 1 ? matches[0] : undefined);
+    if (!match) return unknown;
+    amount = Number(match[1].replaceAll(',', ''));
+    const unit = match[2]?.toLowerCase();
+    amount *= unit === '億' ? 100_000_000 : unit === '万' ? 10_000 : unit === 'b' || unit === 'billion' ? 1_000_000_000 : unit === 'm' || unit === 'million' ? 1_000_000 : unit === 'k' || unit === 'thousand' ? 1_000 : 1;
+
   }
+  if (!Number.isFinite(amount) || amount < 0) return unknown;
+  const monthlyJpy = Math.round(amount * rate / (monthly ? 1 : 12));
+  if (!Number.isFinite(monthlyJpy)) return unknown;
+  return { monthlyJpy, isUnconfirmed: false };
 
-  const str = String(value);
+}
 
-  // 金額未確認または価格情報のみの場合の検知
-  if (/金額未確認|未確認|not asserted|unknown/i.test(str)) {
-    return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
-  }
-
-  // 単発講座・商品単価やプラン価格のみの場合（例: "$799 Part-Time Creatorpreneur course" や "月額 2.99"）
-  if (/\$(?:[\d,]+)\s*(?:Part-Time|course|program|plan|fee|license|tier|per_user)/i.test(str) ||
-      (/プラン価格|Entry Price|starting|per_user|月額\s*[\d.]+/i.test(str) && !/revenue|売上|annual/i.test(str))) {
-    const priceMatch = str.match(/(\$[\d,.]+|[\d.]+\s*円|¥[\d,]+)/);
-    const label = priceMatch ? `単価: ${priceMatch[1]}` : 'プラン価格あり';
-    return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: label };
-  }
-
-  const isMonthlyContext = /monthly|per_month|月額|月商|monthly site revenue/i.test(str) ||
-    (metricType ? /monthly|month|月/i.test(metricType) : false);
-
-  // 1. 日本円パターン（億円・万円）
-  const okuMatch = str.match(/約?([\d.]+)\s*億円/);
-  if (okuMatch) {
-    const num = parseFloat(okuMatch[1]);
-    const totalJpy = num * 100_000_000;
-    return {
-      monthlyJpy: isMonthlyContext ? Math.round(totalJpy) : Math.round(totalJpy / 12),
-      isUnconfirmed: false,
-    };
-  }
-
-  const manMatch = str.match(/約?([\d.]+)\s*万円/);
-  if (manMatch) {
-    const num = parseFloat(manMatch[1]);
-    const totalJpy = num * 10_000;
-    return {
-      monthlyJpy: isMonthlyContext ? Math.round(totalJpy) : Math.round(totalJpy / 12),
-      isUnconfirmed: false,
-    };
-  }
-
-  // 2. ドルパターン ($10M, $15k 等)
-  const dollarMatch = str.match(/\$([\d.]+)\s*([MBk])/i);
-  if (dollarMatch) {
-    const num = parseFloat(dollarMatch[1]);
-    const unit = dollarMatch[2].toUpperCase();
-    let multiplier = 1;
-    if (unit === 'B') multiplier = 1_000_000_000;
-    else if (unit === 'M') multiplier = 1_000_000;
-    else if (unit === 'K') multiplier = 1_000;
-    const totalUsd = num * multiplier;
-    const totalJpy = totalUsd * 150;
-    return {
-      monthlyJpy: isMonthlyContext ? Math.round(totalJpy) : Math.round(totalJpy / 12),
-      isUnconfirmed: false,
-    };
-  }
-
-  // 3. 生の大きな数字（例: 15000 USD_per_month や 10000000）
-  // 【厳格ガード】売上文脈（revenue, ARR, MRR, 売上, 年商, 月商, sales, run rate）がない単なる数値や、
-  // 西暦年（1900〜2099）は絶対に売上とみなさない！
-  const hasRevenueContext = /revenue|arr|mrr|売上|年商|月商|sales|run\s*rate|gmv|turnover/i.test(str) ||
-    (metricType ? /revenue|arr|mrr|売上|年商|月商|sales/i.test(metricType) : false);
-
-  if (hasRevenueContext) {
-    // 西暦年（例: 2015, 2020）や日付を消去してから数値を抽出
-    const strippedStr = str.replace(/\b(?:19|20)\d{2}\b/g, '').replace(/\d{4}-\d{2}-\d{2}/g, '');
-    const rawNumMatch = strippedStr.match(/(\d{4,})/);
-    if (rawNumMatch) {
-      const rawVal = parseFloat(rawNumMatch[1]);
-      const rate = /JPY|円/i.test(str) ? 1 : 150;
-      const totalJpy = rawVal * rate;
-      return {
-        monthlyJpy: isMonthlyContext ? Math.round(totalJpy) : Math.round(totalJpy / 12),
-        isUnconfirmed: false,
-      };
-    }
-  }
-
-  return { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
+/** Project only supported, period-compatible financial records; zero is a value. */
+export function projectProfitMetrics(monthlyRevenue: number, revenue: FoundationMetricSignal | undefined, metrics: FoundationMetricSignal[]) {
+  const hasKnownRevenue = revenue !== undefined && !parseRevenueToMonthlyJpy(revenue.value, revenue.currency, `${revenue.metricType} ${revenue.unit || ''}`).isUnconfirmed;
+  const hasPeriod = hasKnownRevenue && Boolean(revenue?.periodStart && revenue?.periodEnd);
+  const compatible = metrics.filter(m => hasPeriod && m.verificationStatus === 'SUPPORTED' &&
+    m.basis === revenue?.basis && m.scope === revenue?.scope &&
+    m.periodStart === revenue?.periodStart && m.periodEnd === revenue?.periodEnd && m.pointInTime === revenue?.pointInTime);
+  const amount = (kind: string): number | undefined => {
+    const metric = compatible.find(m => m.metricType.replace(/^(annual|monthly)_/, '') === kind && m.currency === revenue?.currency);
+    if (!metric || typeof metric.value !== 'number' || !Number.isFinite(metric.value)) return undefined;
+    const parsed = parseRevenueToMonthlyJpy(Math.abs(metric.value), metric.currency, `${metric.metricType} ${metric.unit || ''}`);
+    return parsed.isUnconfirmed ? undefined : parsed.monthlyJpy * Math.sign(metric.value);
+  };
+  const margin = (kind: string): number | undefined => {
+    const metric = compatible.find(m => m.metricType === kind && /^(%|percent|percentage)$/i.test(m.unit || ''));
+    return typeof metric?.value === 'number' && Number.isFinite(metric.value) ? metric.value : undefined;
+  };
+  const grossProfit = amount('gross_profit');
+  const operatingProfit = amount('operating_profit');
+  const grossMargin = margin('gross_margin');
+  const operatingMargin = margin('operating_margin');
+  const netProfit = amount('net_profit');
+  const cogs = amount('cogs');
+  return {
+    cogs: cogs ?? 0,
+    grossProfit: grossProfit ?? (grossMargin !== undefined ? monthlyRevenue * grossMargin / 100 : 0),
+    grossMargin: grossMargin ?? (grossProfit !== undefined && monthlyRevenue > 0 ? grossProfit / monthlyRevenue * 100 : 0),
+    operatingProfit: operatingProfit ?? (operatingMargin !== undefined ? monthlyRevenue * operatingMargin / 100 : 0),
+    operatingMargin: operatingMargin ?? (operatingProfit !== undefined && monthlyRevenue > 0 ? operatingProfit / monthlyRevenue * 100 : 0),
+    estimatedAnnualNetProfit: netProfit !== undefined ? netProfit * 12 : 0,
+    operatingExpenses: { serverAndApi: 0, advertising: 0, subcontracting: 0, toolsAndSaaS: 0, other: 0 },
+    isOperatingProfitUnconfirmed: operatingProfit === undefined && operatingMargin === undefined,
+    isMarginUnconfirmed: operatingMargin === undefined && (operatingProfit === undefined || monthlyRevenue === 0),
+    isGrossMarginUnconfirmed: grossMargin === undefined && (grossProfit === undefined || monthlyRevenue === 0),
+    isCostsUnconfirmed: true,
+    isNetProfitUnconfirmed: netProfit === undefined,
+  };
 }
 
 /**
@@ -231,34 +219,19 @@ export function adaptFoundationSummaryToFinancialEntity(
 
   const sector = inferSector(`${summary.entityType} ${headline}`);
 
-  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed || !monthlyJpy)
+  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed)
     ? 'UNAVAILABLE'
     : (/reported|取材|報道|公表|確認済/i.test(rawMoney) ? 'REPORTED' : 'ESTIMATED');
 
   const pnl: ProfitAndLossStatement = {
     monthlyRevenue: monthlyJpy,
-    cogs: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.15),
-    grossProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.85),
-    grossMargin: isUnconfirmed ? 0 : 85,
-    operatingExpenses: {
-      serverAndApi: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.05),
-      advertising: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.05),
-      subcontracting: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.05),
-      toolsAndSaaS: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.02),
-      other: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.03),
-    },
-    operatingProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65),
-    operatingMargin: isUnconfirmed ? 0 : 65,
-    estimatedAnnualNetProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65 * 12),
-    isRevenueUnconfirmed: isUnconfirmed || !monthlyJpy,
-    isMarginUnconfirmed: isUnconfirmed || !monthlyJpy,
+    ...projectProfitMetrics(monthlyJpy, undefined, []),
+    isRevenueUnconfirmed: isUnconfirmed,
     revenueLabel: revParsed.revenueLabel,
     financialStatus,
     dataSnapshotPeriod: summary.observedAt ? `${summary.observedAt.slice(0, 7)} 観測` : '2024-2026年観測',
     sourceDoc: rawMoney ? cleanIntelligenceText(rawMoney) : 'R2観測レイク・公表シグナル',
-    estimationLogic: financialStatus === 'ESTIMATED'
-      ? `【売上因数分解】\n${cleanIntelligenceText(rawMoney || '観測シグナル')} ÷ 12ヶ月 ＝ 月商 約¥${Math.round(monthlyJpy / 10000).toLocaleString()}万\n\n【原価因数分解】\nインフラ・推論原価（推計15%） ＋ Stripe決済手数料（2.9%） ＝ 原価率 約18%（粗利率82%）`
-      : undefined,
+    estimationLogic: undefined,
   };
 
   // 動的証拠カード（サマリー用）
@@ -299,8 +272,8 @@ export function adaptFoundationSummaryToFinancialEntity(
   ];
 
   const opportunityJudgment: OpportunityJudgment = {
-    verdict: (isUnconfirmed || !monthlyJpy) ? 'MONITOR' : 'ENTRY_CANDIDATE',
-    verdictLabel: (isUnconfirmed || !monthlyJpy) ? '要監視・データ精査中' : '参入候補',
+    verdict: (isUnconfirmed) ? 'MONITOR' : 'ENTRY_CANDIDATE',
+    verdictLabel: (isUnconfirmed) ? '要監視・データ精査中' : '参入候補',
     oneLineReason: headline,
     demandDelta: '90日 ↑15%',
     competitionDelta: 'ニッチ特化領域',
@@ -373,15 +346,16 @@ export function adaptFoundationDetailToFinancialEntity(
 
   // 1. 売上・財務メトリクスの抽出
   const revMetric = metrics.find((m) =>
-    /revenue|arr|advertising_revenue|sales/i.test(m.metricType)
+    /revenue|mrr|arr|advertising_revenue|sales/i.test(m.metricType)
   );
   const revMoney = moneySignals.find((m) =>
-    /revenue|arr|advertising_revenue|sales/i.test(m.moneyType)
+    /revenue|mrr|arr|advertising_revenue|sales/i.test(m.moneyType)
   );
 
-  const bestRevValue = revMetric?.value || revMoney?.amount;
-  const bestRevCurrency = revMetric?.currency || revMoney?.currency || 'USD';
-  const bestRevType = revMetric?.metricType || revMoney?.moneyType || (revMetric?.unit ? revMetric.unit : 'revenue');
+  const hasMetricValue = revMetric?.value !== null && revMetric?.value !== undefined;
+  const bestRevValue = hasMetricValue ? revMetric.value : revMoney?.amount;
+  const bestRevCurrency = (hasMetricValue ? revMetric.currency : revMoney?.currency) || 'USD';
+  const bestRevType = hasMetricValue ? `${revMetric.metricType} ${revMetric.unit || ''}` : `${revMoney?.moneyType || 'revenue'} ${revMoney?.unit || ''}`;
   
   const parsedRev = parseRevenueToMonthlyJpy(bestRevValue, bestRevCurrency, bestRevType);
   const monthlyJpy = parsedRev.monthlyJpy;
@@ -435,34 +409,19 @@ export function adaptFoundationDetailToFinancialEntity(
   }
 
   // 5. 損益計算書 (P&L) の構成
-  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed || !monthlyJpy)
+  const financialStatus: FinancialEvidenceStatus = (isUnconfirmed)
     ? 'UNAVAILABLE'
     : (/reported|取材|報道|公表|確認済/i.test(bestRevType) ? 'REPORTED' : 'ESTIMATED');
 
   const pnl: ProfitAndLossStatement = {
     monthlyRevenue: monthlyJpy,
-    cogs: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.15),
-    grossProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.85),
-    grossMargin: isUnconfirmed ? 0 : 85,
-    operatingExpenses: {
-      serverAndApi: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.05),
-      advertising: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.05),
-      subcontracting: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.05),
-      toolsAndSaaS: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.02),
-      other: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.03),
-    },
-    operatingProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65),
-    operatingMargin: isUnconfirmed ? 0 : 65,
-    estimatedAnnualNetProfit: isUnconfirmed ? 0 : Math.round(monthlyJpy * 0.65 * 12),
-    isRevenueUnconfirmed: isUnconfirmed || !monthlyJpy,
-    isMarginUnconfirmed: isUnconfirmed || !monthlyJpy,
+    ...projectProfitMetrics(monthlyJpy, revMetric, metrics),
+    isRevenueUnconfirmed: isUnconfirmed,
     revenueLabel: parsedRev.revenueLabel,
     financialStatus,
     dataSnapshotPeriod: detail.observedAt ? `${detail.observedAt.slice(0, 7)} 観測` : '2024-2026年観測',
     sourceDoc: bestRevValue ? cleanIntelligenceText(`${bestRevType}: ${bestRevValue} ${bestRevCurrency}`) : 'R2観測レイク・公表シグナル',
-    estimationLogic: financialStatus === 'ESTIMATED'
-      ? `【売上因数分解】\n公表・観測規模（${bestRevValue || ''} ${bestRevCurrency}） ÷ 12ヶ月 ＝ 月商 約¥${Math.round(monthlyJpy / 10000).toLocaleString()}万\n\n【原価因数分解】\nインフラ・推論原価（推計15%） ＋ Stripe決済手数料（2.9%） ＝ 原価率 約18%（粗利率82%）`
-      : undefined,
+    estimationLogic: undefined,
   };
 
   // 6. Layer 3: 万能救済ストリーム（UniversalObservations）の構築
@@ -617,8 +576,8 @@ export function adaptFoundationDetailToFinancialEntity(
   ];
 
   const opportunityJudgment: OpportunityJudgment = {
-    verdict: (isUnconfirmed || !monthlyJpy) ? 'MONITOR' : 'ENTRY_CANDIDATE',
-    verdictLabel: (isUnconfirmed || !monthlyJpy) ? '要監視・データ精査中' : '参入候補',
+    verdict: (isUnconfirmed) ? 'MONITOR' : 'ENTRY_CANDIDATE',
+    verdictLabel: (isUnconfirmed) ? '要監視・データ精査中' : '参入候補',
     oneLineReason: tagline,
     demandDelta: '90日 ↑15%',
     competitionDelta: 'ニッチ特化領域',

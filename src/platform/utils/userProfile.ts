@@ -5,7 +5,7 @@ export interface UserInterestProfile {
   viewedCount: number;
   preferredSectors: string[];
   preferredScales: string[];
-  averageProfitMargin: number;
+  averageProfitMargin?: number;
   topTools: string[];
   topMoats: string[];
   profileSummary: string;
@@ -32,20 +32,6 @@ export function buildUserInterestProfile(
     entityWeights.set(id, (entityWeights.get(id) || 0) + 1);
   }
 
-  // もし閲覧・保存がまだ何もない場合は初期デフォルト
-  if (entityWeights.size === 0) {
-    return {
-      bookmarkedCount: 0,
-      viewedCount: 0,
-      preferredSectors: ['AI_AUTOMATION', 'NICHE_SAAS'],
-      preferredScales: ['SOLO (完全1人)'],
-      averageProfitMargin: 80,
-      topTools: ['Stripe', 'Next.js', 'Make'],
-      topMoats: ['大手の自爆死角', 'データ監禁'],
-      profileSummary: '高粗利・完全1人運営のマイクロビジネスに関心が高い初期状態。',
-    };
-  }
-
   const sectorCounts: Record<string, number> = {};
   const scaleCounts: Record<string, number> = {};
   const toolCounts: Record<string, number> = {};
@@ -64,8 +50,9 @@ export function buildUserInterestProfile(
     scaleCounts[entity.scale] = (scaleCounts[entity.scale] || 0) + weight;
 
     // 利益率
-    const margin = entity.pnl.operatingMargin ?? 0;
-    if (margin > 0) {
+    const margin = entity.pnl.operatingMargin;
+    if (!entity.pnl.isMarginUnconfirmed && entity.pnl.financialStatus !== 'UNAVAILABLE' &&
+        typeof margin === 'number' && Number.isFinite(margin)) {
       totalMargin += margin * weight;
       marginCount += weight;
     }
@@ -99,12 +86,17 @@ export function buildUserInterestProfile(
     .map(([m]) => m)
     .slice(0, 3);
 
-  const avgMargin = marginCount > 0 ? Math.round(totalMargin / marginCount) : 75;
+  const avgMargin = marginCount > 0 ? Math.round(totalMargin / marginCount) : undefined;
 
   const topSectorNames = sortedSectors.slice(0, 2).join('・');
-  const scaleName = sortedScales[0] === 'SOLO' ? '完全1人' : sortedScales[0] === 'SMALL_TEAM' ? '小規模チーム' : '少数精鋭';
-
-  const profileSummary = `このユーザーは【${scaleName}】体制かつ【平均粗利${avgMargin}%前後】の【${topSectorNames || '高収益事業'}】を好んで保存・閲覧しています。特に【${sortedTools.join(', ') || '主要API・決済'}】を活用した低固定費モデルや、【${sortedMoats.join(', ') || '参入防壁'}】の構造に強い関心を示しています。`;
+  const summaryParts = topSectorNames
+    ? [`保存・閲覧した銘柄の主な業種: ${topSectorNames}。`]
+    : [entityWeights.size === 0 ? '保存・閲覧履歴がないため、関心傾向は未確認です。' : '履歴に対応する銘柄データがないため、関心傾向は未確認です。'];
+  if (sortedScales.length > 0) summaryParts.push(`主な運営規模: ${sortedScales.slice(0, 2).join('・')}。`);
+  if (avgMargin !== undefined) summaryParts.push(`利益率を確認できた銘柄の加重平均営業利益率: ${avgMargin}%。`);
+  if (sortedTools.length > 0) summaryParts.push(`銘柄で使われる主なツール: ${sortedTools.join(', ')}。`);
+  if (sortedMoats.length > 0) summaryParts.push(`銘柄の主な参入障壁: ${sortedMoats.join(', ')}。`);
+  const profileSummary = summaryParts.join('');
 
   return {
     bookmarkedCount: bookmarkSet.size,

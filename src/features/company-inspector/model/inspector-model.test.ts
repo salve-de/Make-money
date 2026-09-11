@@ -23,6 +23,10 @@ describe('Inspector presentation calculations', () => {
     expect(model.cogsPct).toBeLessThanOrEqual(100);
     expect(Number.isFinite(model.serverPct)).toBe(true);
   });
+  it('displays an explicitly known zero revenue', () => {
+    const entity = { ...base, pnl: { ...base.pnl, monthlyRevenue: 0, isRevenueUnconfirmed: false, financialStatus: 'REPORTED' as const } };
+    expect(buildInspectorModel(entity, 'JPY').isFinancialUnavailable).toBe(false);
+  });
   it('keeps explicit financial evidence status for hazard cases', () => {
     const entity = { ...base, growthRateYoY: -31, pnl: { ...base.pnl, financialStatus: 'REPORTED' as const } };
     const model = buildInspectorModel(entity, 'JPY');

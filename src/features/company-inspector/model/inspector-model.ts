@@ -65,8 +65,7 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
     !entity.pnl ||
     financialStatus === 'UNAVAILABLE' ||
     entity.pnl.isRevenueUnconfirmed ||
-    !entity.pnl.monthlyRevenue ||
-    entity.pnl.monthlyRevenue === 0;
+    !Number.isFinite(entity.pnl.monthlyRevenue);
 
   // 財務ステータス別のバッジ・タイトル・タグ設定（冷徹モノトーン仕様）
   const getFinancialBadgeMeta = () => {
