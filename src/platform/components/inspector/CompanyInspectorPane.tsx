@@ -10,7 +10,6 @@ import {
   ExternalLink, 
   ChevronLeft, 
   ChevronRight, 
-  ChevronDown,
   Pin,
   TrendingUp, 
   ShieldCheck, 
@@ -105,12 +104,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     }
   }, [entity?.id]);
 
-  // 下部スクロール領域への誘導スクロール
-  const scrollToContent = () => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollBy({ top: 260, behavior: 'smooth' });
-    }
-  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -253,33 +246,59 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
       <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#040507] border-t md:border-t-0 md:border-l border-white/[0.08] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
         
         {/* ========================================================= */}
-        {/* 【上部固定コンソール（PINNED EXECUTIVE HUD）: 視覚的境界 ＆ Elevation】 */}
+        {/* 【上部固定ツールバー（PINNED SLIM TOOLBAR）: 48pxスリム・視覚的境界 ＆ Elevation】 */}
         {/* ========================================================= */}
-        <div className={`shrink-0 z-20 transition-all duration-200 bg-[#0B0D14] border-b relative ${
+        <div className={`shrink-0 z-30 transition-all duration-150 bg-[#090B10] border-b relative ${
           isScrolled 
-            ? 'border-emerald-500/40 shadow-[0_16px_36px_rgba(0,0,0,0.95)]' 
-            : 'border-white/[0.12] shadow-[0_10px_25px_rgba(0,0,0,0.7)]'
+            ? 'border-white/[0.16] shadow-[0_12px_28px_rgba(0,0,0,0.95)]' 
+            : 'border-white/[0.08]'
         }`}>
           {/* 最上部アクセントライン */}
-          <div className="h-[2px] w-full bg-gradient-to-r from-emerald-500/60 via-cyan-500/40 to-transparent" />
+          <div className="h-[2px] w-full bg-gradient-to-r from-emerald-500/70 via-cyan-500/50 to-transparent" />
 
-          {/* ヘッダー最上段（タイトル・ティッカー・アクション） */}
-          <div className="p-3 flex items-center justify-between gap-2 border-b border-white/[0.04] bg-[#0C0F17]">
+          {/* メインツールバー行 (高さ48px) */}
+          <div className="px-3 py-2 flex items-center justify-between gap-2">
+            {/* 左側: ティッカー ＋ 社名 ＋ 判定バッジ ＋ 主要KPI */}
             <div className="flex items-center gap-2 min-w-0">
-              <span className="font-mono text-xs text-zinc-200 font-bold shrink-0 bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.12] shadow-xs flex items-center gap-1.5" title="常時固定表示">
+              <span className="font-mono text-[11px] text-zinc-200 font-bold shrink-0 bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.12] flex items-center gap-1">
                 <Pin className="w-2.5 h-2.5 text-cyan-400 shrink-0" />
                 <span>{entity.ticker}</span>
               </span>
-              <div className="truncate">
-                <h2 className="text-xs sm:text-sm font-bold text-white truncate font-sans tracking-tight">
-                  {entity.name}
-                </h2>
-                <span className="text-[10px] text-zinc-400 font-mono block truncate">
-                  {entity.legalEntity || entity.founder} ・ {entity.country}
+
+              <h2 className="text-xs sm:text-sm font-bold text-white truncate font-sans tracking-tight">
+                {entity.name}
+              </h2>
+
+              {/* コンパクト判定バッジ */}
+              {entity.opportunityJudgment && (
+                <span className={`hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-mono font-bold tracking-wider shrink-0 border ${
+                  entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
+                    ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
+                    : entity.opportunityJudgment.verdict === 'MONITOR'
+                    ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
+                    : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
+                    ? 'bg-red-950/40 text-red-400 border-red-500/50'
+                    : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+                }`}>
+                  {entity.opportunityJudgment.verdictLabel}
                 </span>
-              </div>
+              )}
+
+              {/* 主要KPI（粗利率 ＆ 営業利益率） */}
+              {!isFinancialUnavailable && entity.pnl && (
+                <div className="hidden md:flex items-center gap-2 text-[10px] font-mono shrink-0 pl-1.5 border-l border-white/[0.08]">
+                  <span className="text-zinc-400">
+                    粗利 <strong className="text-white font-bold">{entity.pnl.grossMargin}%</strong>
+                  </span>
+                  <span className="text-zinc-600">/</span>
+                  <span className="text-zinc-400">
+                    手残り <strong className="text-emerald-400 font-bold">{entity.pnl.operatingMargin}%</strong>
+                  </span>
+                </div>
+              )}
             </div>
 
+            {/* 右側: アクション群 */}
             <div className="flex items-center gap-1 shrink-0">
               {/* J/K ナビゲーション */}
               <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
@@ -335,199 +354,155 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               </button>
             </div>
           </div>
-
-          {/* 【即時意思決定: 最終判定 ＆ 需要・競争ベクトル】 */}
-          {entity.opportunityJudgment ? (
-            <div className="mx-3 mt-2 mb-1 p-2 rounded border bg-[#07090E] flex flex-col gap-1.5 shadow-xs border-white/[0.08]">
-              <div className="flex items-center justify-between gap-2 flex-wrap">
-                <div className="flex items-center gap-1.5">
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider border ${
-                    entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
-                      ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
-                      : entity.opportunityJudgment.verdict === 'MONITOR'
-                      ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
-                      : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                      ? 'bg-red-950/40 text-red-400 border-red-500/50'
-                      : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
-                  }`}>
-                    判定: {entity.opportunityJudgment.verdictLabel}
-                  </span>
-                  <span className="text-[10px] font-sans text-zinc-300 font-medium">
-                    {entity.opportunityJudgment.oneLineReason}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 text-[10px] font-mono shrink-0">
-                  <span className="text-zinc-400">需要: <strong className="text-emerald-400">{entity.opportunityJudgment.demandDelta}</strong></span>
-                  <span className="text-zinc-600">|</span>
-                  <span className="text-zinc-400">競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 text-[9px] font-mono text-zinc-400 border-t border-white/[0.04] pt-1">
-                <span>初期資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
-                <span>・</span>
-                <span>開発難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
-                <span>・</span>
-                <span>PF依存度: <strong className={entity.opportunityJudgment.entryRequirements.platformRisk === 'CRITICAL' ? 'text-red-400 font-bold' : 'text-zinc-200'}>{entity.opportunityJudgment.entryRequirements.platformRisk}</strong></span>
-              </div>
-            </div>
-          ) : null}
-
-          {/* タグライン（1行スマート表示） */}
-          <div 
-            className="px-3 pb-1 text-[11px] text-zinc-400 leading-snug font-sans truncate"
-            title={cleanIntelligenceText(entity.tagline)}
-          >
-            {cleanIntelligenceText(entity.tagline)}
-          </div>
-
-          {/* 時系列 ＆ 賞味期限バッジ（ヘッダーインフォ） */}
-          {entity.temporal && (
-            <div className="px-3 pb-1.5 flex items-center gap-2 text-[10px] font-mono flex-wrap">
-              <span className="text-zinc-400 flex items-center gap-1">
-                <Clock className="w-3 h-3 text-cyan-400" />
-                <span>{entity.temporal.foundedYear}年ローンチ ({entity.temporal.initialTractionPeriod})</span>
-              </span>
-              <span className="text-zinc-600">|</span>
-              <span className="text-zinc-400">
-                データ基準: <span className="text-zinc-300 font-bold">{entity.temporal.dataSnapshotPeriod}</span>
-              </span>
-              <span className="text-zinc-600">|</span>
-              <span className={`px-1.5 py-0.2 rounded font-bold border ${
-                entity.temporal.viabilityStatus === 'ACTIVE_PLAYBOOK' ? 'text-emerald-400 border-emerald-500/30 bg-emerald-950/30' :
-                entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'text-cyan-400 border-cyan-500/30 bg-cyan-950/30' :
-                entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'text-amber-400 border-amber-500/30 bg-amber-950/30' :
-                entity.temporal.viabilityStatus === 'HISTORICAL_WINDOW' ? 'text-red-400 border-red-500/30 bg-red-950/30' :
-                'text-purple-400 border-purple-500/30 bg-purple-950/30'
-              }`}>
-                ● {entity.temporal.viabilityLabel}
-              </span>
-            </div>
-          )}
-
-          {/* 突いている市場の歪み（逆方向ワームホール） */}
-          {relatedAnomaly && (
-            <div className="px-3 pb-2">
-              <button
-                type="button"
-                onClick={() => onOpenAnomaly && onOpenAnomaly(relatedAnomaly.id)}
-                className="w-full text-left px-2 py-1 rounded bg-emerald-950/20 hover:bg-emerald-950/40 border border-emerald-500/25 hover:border-emerald-500/40 transition-colors flex items-center justify-between group cursor-pointer"
-                title="この企業が実証している市場の歪み・トレンドカルテを開く"
-              >
-                <div className="flex items-center gap-1.5 min-w-0 truncate">
-                  <TrendingUp className="w-3 h-3 text-emerald-400 shrink-0" />
-                  <span className="text-[10px] font-mono text-zinc-400 shrink-0">市場の歪み:</span>
-                  <span className="text-[10px] font-mono font-bold text-white truncate">{relatedAnomaly.title}</span>
-                  <span className="text-[9px] font-mono px-1 rounded bg-emerald-500/15 text-emerald-300 font-bold shrink-0">
-                    {relatedAnomaly.growthRate}
-                  </span>
-                </div>
-                <div className="flex items-center gap-0.5 text-[10px] font-mono text-emerald-400 shrink-0 pl-1 group-hover:text-emerald-300">
-                  <span>解剖</span>
-                  <ArrowRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </button>
-            </div>
-          )}
-
-          {/* 探索タグ（クリックで左一覧を即時トグル・複数選択対応） */}
-          {entity.tags && entity.tags.length > 0 && (
-            <div className="px-3 pb-2.5 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
-              {entity.tags.map((tag) => {
-                const isActive = activeTags.includes(tag);
-                return (
-                  <button
-                    key={tag}
-                    type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      if (onToggleTag) onToggleTag(tag);
-                    }}
-                    title={`「#${tag}」で左一覧を絞り込み`}
-                    className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer border ${
-                      isActive
-                        ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
-                        : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
-                    }`}
-                  >
-                    <span className="text-zinc-500">#</span>
-                    <span>{tag}</span>
-                    {isActive ? (
-                      <X className="w-2.5 h-2.5 text-emerald-400" />
-                    ) : null}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-
-          {/* ─── ★ 境界ストリップ ＆ スクロールガイド（BOUNDARY & SCROLL INDICATOR） ─── */}
-          <div className={`flex items-center justify-between px-3 py-1.5 border-t text-[10px] font-mono shrink-0 transition-colors ${
-            isHazardMode 
-              ? 'bg-red-950/30 border-red-500/25' 
-              : 'bg-[#080A10] border-white/[0.08]'
-          }`}>
-            <div className="flex items-center gap-2 text-zinc-400">
-              {isHazardMode ? (
-                <>
-                  <span className="text-red-400 font-bold flex items-center gap-1">
-                    <Skull className="w-3 h-3 text-red-400" />
-                    POST-MORTEM AUTOPSY
-                  </span>
-                  <span className="text-red-900">|</span>
-                  <span className="text-red-300/80">死因判定 ➔ 致命的死角 ➔ 出血 ➔ 崩壊ログ ➔ 怨嗟証拠</span>
-                </>
-              ) : (
-                <>
-                  <span className="text-emerald-400 font-bold flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    CASE DEEP-DIVE
-                  </span>
-                  <span>|</span>
-                  <span>判定 ➔ 構造 ➔ 財務 ➔ Playbook ➔ 証拠</span>
-                </>
-              )}
-            </div>
-
-            <div className="flex items-center gap-2">
-              {/* ミニマル下矢印アイコン（文字ゼロ） */}
-              <button
-                type="button"
-                onClick={scrollToContent}
-                className="p-1 rounded bg-white/[0.04] hover:bg-white/[0.08] text-zinc-400 hover:text-cyan-300 border border-white/[0.08] hover:border-cyan-500/30 transition-all cursor-pointer shadow-xs group"
-                title="下へスクロール"
-              >
-                <ChevronDown className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-y-0.5 transition-transform" />
-              </button>
-
-              {entity.observationsStream && entity.observationsStream.length > 0 && (
-                <span className={`text-[9px] font-mono px-1 py-0.2 rounded border ${
-                  isHazardMode 
-                    ? 'bg-red-950/40 text-red-300 border-red-500/30'
-                    : 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30'
-                }`}>
-                  {isHazardMode ? '死因証拠' : '証拠'} {entity.observationsStream.length}件
-                </span>
-              )}
-              {analystNote && (
-                <span className="text-[9px] font-mono text-emerald-400/90 bg-emerald-950/60 px-1 py-0.2 rounded border border-emerald-800/40">
-                  メモ有
-                </span>
-              )}
-            </div>
-          </div>
         </div>
 
         {/* ========================================================= */}
-        {/* 【コンテンツゾーン: スクロールトレイ ＆ 高密度ストリーム】 */}
+        {/* 【コンテンツゾーン: スクロールトレイ ＆ 高密度ストリーム（画面の93%がスクロール可能）】 */}
         {/* ========================================================= */}
         <div 
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-4 space-y-4 sm:space-y-6 text-xs font-sans bg-[#040507] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.25)_rgba(4,5,7,1)]"
+          className="flex-1 overflow-y-auto p-4 space-y-4 sm:space-y-5 text-xs font-sans bg-[#040507] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_rgba(4,5,7,1)]"
         >
-          {/* 上端潜り込みグラデーションシャドウ（文字ゼロ・純粋物理アフォーダンス） */}
-          <div className="sticky top-0 -mt-4 -mx-4 h-3.5 bg-gradient-to-b from-[#040507] via-[#040507]/70 to-transparent pointer-events-none z-10" />
+          {/* 上端潜り込みグラデーションシャドウ */}
+          <div className="sticky top-0 -mt-4 -mx-4 h-3.5 bg-gradient-to-b from-[#040507] via-[#040507]/80 to-transparent pointer-events-none z-10" />
+
+          {/* ─── ★ エグゼクティブ・ドキュメントヘッダー（スクロール本文先頭） ─── */}
+          <div className="space-y-3 pb-3 border-b border-white/[0.08]">
+            {/* 企業法規・創業者・国籍 */}
+            <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
+              <span>{entity.legalEntity || entity.founder} ・ {entity.country}</span>
+              {entity.founder && (
+                <span className="text-zinc-500">創業者: <strong className="text-zinc-300">{entity.founder}</strong></span>
+              )}
+            </div>
+
+            {/* 【即時意思決定: 最終判定 ＆ 需要・競争ベクトル】 */}
+            {entity.opportunityJudgment && (
+              <div className="p-3 rounded-lg border bg-[#080A10] flex flex-col gap-2 shadow-xs border-white/[0.08]">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
+                  <div className="flex items-center gap-2">
+                    <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold tracking-wider border ${
+                      entity.opportunityJudgment.verdict === 'ENTRY_CANDIDATE'
+                        ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
+                        : entity.opportunityJudgment.verdict === 'MONITOR'
+                        ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
+                        : entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
+                        ? 'bg-red-950/40 text-red-400 border-red-500/50'
+                        : 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+                    }`}>
+                      判定: {entity.opportunityJudgment.verdictLabel}
+                    </span>
+                    <span className="text-xs font-sans text-zinc-200 font-medium">
+                      {entity.opportunityJudgment.oneLineReason}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 text-[10px] font-mono shrink-0">
+                    <span className="text-zinc-400">需要: <strong className="text-emerald-400">{entity.opportunityJudgment.demandDelta}</strong></span>
+                    <span className="text-zinc-600">|</span>
+                    <span className="text-zinc-400">競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400 border-t border-white/[0.04] pt-2 flex-wrap">
+                  <span>初期資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
+                  <span>・</span>
+                  <span>開発難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
+                  <span>・</span>
+                  <span>PF依存度: <strong className={entity.opportunityJudgment.entryRequirements.platformRisk === 'CRITICAL' ? 'text-red-400 font-bold' : 'text-zinc-200'}>{entity.opportunityJudgment.entryRequirements.platformRisk}</strong></span>
+                </div>
+              </div>
+            )}
+
+            {/* サバンナOSタグライン（全行表示・カットオフなし） */}
+            <div className="text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans bg-white/[0.02] p-2.5 rounded-lg border border-white/[0.05]">
+              {cleanIntelligenceText(entity.tagline)}
+            </div>
+
+            {/* 時系列 ＆ 賞味期限インテリジェンス */}
+            {entity.temporal && (
+              <div className="flex items-center gap-2 text-[10px] font-mono flex-wrap">
+                <span className="text-zinc-400 flex items-center gap-1">
+                  <Clock className="w-3 h-3 text-cyan-400" />
+                  <span>{entity.temporal.foundedYear}年ローンチ ({entity.temporal.initialTractionPeriod})</span>
+                </span>
+                <span className="text-zinc-600">|</span>
+                <span className="text-zinc-400">
+                  データ基準: <span className="text-zinc-300 font-bold">{entity.temporal.dataSnapshotPeriod}</span>
+                </span>
+                <span className="text-zinc-600">|</span>
+                <span className={`px-1.5 py-0.5 rounded font-bold border ${
+                  entity.temporal.viabilityStatus === 'ACTIVE_PLAYBOOK' ? 'text-emerald-400 border-emerald-500/30 bg-emerald-950/30' :
+                  entity.temporal.viabilityStatus === 'RISING_WAVE' ? 'text-cyan-400 border-cyan-500/30 bg-cyan-950/30' :
+                  entity.temporal.viabilityStatus === 'MATURED_MOAT' ? 'text-amber-400 border-amber-500/30 bg-amber-950/30' :
+                  entity.temporal.viabilityStatus === 'HISTORICAL_WINDOW' ? 'text-red-400 border-red-500/30 bg-red-950/30' :
+                  'text-purple-400 border-purple-500/30 bg-purple-950/30'
+                }`}>
+                  ● {entity.temporal.viabilityLabel}
+                </span>
+              </div>
+            )}
+
+            {/* 探索タグ群 */}
+            {entity.tags && entity.tags.length > 0 && (
+              <div className="flex items-center gap-1.5 flex-wrap pt-0.5">
+                {entity.tags.map((tag) => {
+                  const isActive = activeTags.includes(tag);
+                  return (
+                    <button
+                      key={tag}
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (onToggleTag) onToggleTag(tag);
+                      }}
+                      title={`「#${tag}」で左一覧を絞り込み`}
+                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono transition-all shrink-0 cursor-pointer border ${
+                        isActive
+                          ? 'bg-emerald-500/25 text-emerald-300 font-semibold border-emerald-500/50 shadow-sm ring-1 ring-emerald-500/30'
+                          : 'bg-zinc-900/90 text-zinc-300 hover:text-white hover:bg-zinc-800 hover:border-zinc-500 border-zinc-700/60 shadow-xs'
+                      }`}
+                    >
+                      <span className="text-zinc-500">#</span>
+                      <span>{tag}</span>
+                      {isActive ? (
+                        <X className="w-2.5 h-2.5 text-emerald-400" />
+                      ) : null}
+                    </button>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* セクションガイドバー（DEEP-DIVE STRIP） */}
+            <div className={`flex items-center justify-between px-2.5 py-1.5 rounded text-[10px] font-mono ${
+              isHazardMode 
+                ? 'bg-red-950/20 text-red-300 border border-red-500/20' 
+                : 'bg-white/[0.03] text-zinc-400 border border-white/[0.05]'
+            }`}>
+              <div className="flex items-center gap-2">
+                <span className={isHazardMode ? 'text-red-400 font-bold' : 'text-emerald-400 font-bold'}>
+                  {isHazardMode ? '● POST-MORTEM' : '● CASE DEEP-DIVE'}
+                </span>
+                <span>|</span>
+                <span className="text-zinc-400">
+                  {isHazardMode ? '死因判定 ➔ 致命的死角 ➔ 出血 ➔ 崩壊ログ' : '判定 ➔ 構造 ➔ 財務 ➔ Playbook ➔ 証拠'}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                {entity.observationsStream && entity.observationsStream.length > 0 && (
+                  <span className="text-[9px] font-mono text-zinc-400">
+                    物証 {entity.observationsStream.length}件
+                  </span>
+                )}
+                {analystNote && (
+                  <span className="text-[9px] font-mono text-emerald-400 bg-emerald-950/50 px-1 py-0.2 rounded border border-emerald-800/40">
+                    メモ有
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
           
           {/* 市場の歪み・トレンドへの直通バナー（ワームホール） */}
           {relatedAnomaly && (
