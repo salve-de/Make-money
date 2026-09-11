@@ -29,3 +29,9 @@
 ## Closure state
 
 This worklog records the local verification state. Chat closure remains `review-required` until the branch is intentionally pushed and integrated, stale worktree registrations are removed with authority, and the external production items above are either completed and read back or explicitly deferred.
+
+## Closure follow-up (2026-09-12)
+
+- The verified commit was fast-forwarded into local `main` at `3d9d91e25a12980452c2f6781f415a57257cdd36`.
+- The two stale worktree registrations under `/private/tmp` were pruned after confirming their directories no longer existed. The repository now has one managed worktree and no untracked or uncommitted files.
+- GitHub `origin/main` remains at `6267f9140bf15a06cfdfb26833a9fa50ff4836ec`; local `main` is ahead because the external push was not authorized by the automatic review. Remote release and production recovery items remain explicitly unverified.
