@@ -295,30 +295,20 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/[0.06] pb-3">
                 <div>
                   <div className="text-xs font-mono text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <Radio className="w-3 h-3" />
-                    <span>6-Month Adoption Share Dynamics / 勢力図推移チャート</span>
+                    <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
+                    <span>TradingView Multi-Period Dynamics / 勢力図推移チャート</span>
                   </div>
                   <h3 className="text-base font-bold text-white tracking-tight mt-0.5">
-                    {activeCategoryMeta.label} における採用シェア推移（2026.04 〜 2026.09）
+                    {activeCategoryMeta.label} における採用シェア推移（2025.10 〜 2026.09）
                   </h3>
                 </div>
-                <div className="flex items-center gap-3 text-xs font-mono">
-                  {activeCategoryRadar.tools.map((t, idx) => (
-                    <div key={t.name} className="flex items-center gap-1.5">
-                      <span
-                        className="w-2.5 h-2.5 rounded-full"
-                        style={{ backgroundColor: toolLineColors[idx % toolLineColors.length].stroke }}
-                      />
-                      <span className="text-zinc-300 font-medium">{t.name.split(' ')[0]}</span>
-                      <span
-                        className={`text-[11px] font-bold ${
-                          t.deltaShare > 0 ? 'text-emerald-400' : t.deltaShare < 0 ? 'text-rose-400' : 'text-zinc-400'
-                        }`}
-                      >
-                        {t.deltaShare > 0 ? `+${t.deltaShare}%` : `${t.deltaShare}%`}
-                      </span>
-                    </div>
-                  ))}
+                <div className="flex items-center gap-2 text-xs font-mono">
+                  <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 text-[11px] font-bold">
+                    ✓ 123社ヘッダー実測
+                  </span>
+                  <span className="text-zinc-500 text-[11px] hidden sm:inline">
+                    期間切替・クロスヘア連動
+                  </span>
                 </div>
               </div>
 
