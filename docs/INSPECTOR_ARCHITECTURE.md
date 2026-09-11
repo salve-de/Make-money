@@ -1,6 +1,6 @@
 # Company Inspector responsibility audit
 
-Baseline: 02fb23e, CompanyInspectorPane.tsx 1,794 lines. No fetch or persistence is owned by the pane; TerminalShell owns API loading and note storage. Preserve classes, ordering, section IDs, tags, PRO gating and callbacks.
+Baseline: 02fb23e, CompanyInspectorPane.tsx 1,793 lines. No fetch or persistence is owned by the pane; TerminalShell owns API loading and note storage. Preserve classes, ordering, section IDs, tags, PRO gating and callbacks.
 
 | Responsibility | Destination | Dependency/state |
 | --- | --- | --- |
@@ -31,3 +31,13 @@ The tests protect existing formatting and evidence-status behavior; they do not 
 ## Integration boundary
 
 Work started at 02fb23e on feat/dynamic-evidence-registry-architecture, with 163 existing commits ahead and 7 behind live GitHub main (verified before PR creation). This change is isolated on codex/maintainable-inspector and reviewed against that starting branch. The pre-existing commits are not implicitly authorized for main integration. main Ruleset enforcement and PR adoption are separate evidence.
+
+## Verification snapshot (2026-09-11)
+
+- Local `pnpm lint`: passed, 0 errors / 140 pre-existing warnings remain. Architecture graph and negative probes pass.
+- `pnpm typecheck`: passed, including generated-schema consistency.
+- `pnpm test`: 19 Vitest tests and 10 existing Foundation tests passed.
+- `pnpm build` and `pnpm test:e2e`: passed against final regenerated schemas, 4 browser/API smoke tests, no page errors.
+- GitHub push/PR was rejected by automatic approval review. The changed-code secret-pattern scan found no matches and no data/.env/key changes, but explicit public-upload approval is still required.
+- No PR was created, no GitHub CI run is claimed, and main Ruleset remains unapplied until the workflow can be published and verified. The prepared main rule requires all five GitHub Actions checks, up-to-date PRs, no direct push, and no bypass actors.
+- No production deployment, R2/DB writes, main merge, branch deletion or recurring automation was performed. Local test server is owned and stopped by Playwright.

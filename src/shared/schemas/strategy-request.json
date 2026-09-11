@@ -36,45 +36,7 @@
               }
             },
             "userProfile": {
-              "type": "object",
-              "properties": {
-                "bookmarkedCount": {
-                  "type": "number"
-                },
-                "viewedCount": {
-                  "type": "number"
-                },
-                "preferredSectors": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "preferredScales": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "averageProfitMargin": {
-                  "type": "number"
-                },
-                "topTools": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "topMoats": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "profileSummary": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserProfilePayload"
             }
           },
           "required": [
@@ -143,45 +105,7 @@
               }
             },
             "userProfile": {
-              "type": "object",
-              "properties": {
-                "bookmarkedCount": {
-                  "type": "number"
-                },
-                "viewedCount": {
-                  "type": "number"
-                },
-                "preferredSectors": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "preferredScales": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "averageProfitMargin": {
-                  "type": "number"
-                },
-                "topTools": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "topMoats": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "profileSummary": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserProfilePayload"
             }
           },
           "required": [
@@ -190,6 +114,47 @@
           ]
         }
       ]
+    },
+    "UserProfilePayload": {
+      "type": "object",
+      "properties": {
+        "bookmarkedCount": {
+          "type": "number"
+        },
+        "viewedCount": {
+          "type": "number"
+        },
+        "preferredSectors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "preferredScales": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "averageProfitMargin": {
+          "type": "number"
+        },
+        "topTools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "topMoats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "profileSummary": {
+          "type": "string"
+        }
+      }
     },
     "SynthesizedIdea": {
       "type": "object",
