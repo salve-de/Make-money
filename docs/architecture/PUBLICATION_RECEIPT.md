@@ -29,3 +29,15 @@
 - SQL: 3,569 bytes / SHA-256 `ef0e120ef1eeb268a5119ff291743a53da0251d805d904f569c59d10cce6ea31`
 - 検証: 実D1からエクスポート → 空のローカルSQLiteへ復元 → integrity/FK検査・migration3件・全アプリテーブル0行を確認。R2へ保存後GETし全bytes/hash一致。その後、空の隔離D1へ復元し再exportのschema・全行内容hash一致も確認。[クラウド復元証拠](recovery-evidence/2026-09-11-initial-d1.json)。
 - バケットのr2.dev公開URLは無効とAPIで確認。
+
+## 2026-09-12 最終検査記録
+
+`codex/reliability-boundaries` のコミット `c38f1e76319dcf5543f37275587f376f2ecc8345` について、ローカル検査とGitHub Actionsの必須5チェック（lint / typecheck / unit test / build / E2E smoke）が成功した。検査結果の秘密情報を含まないreceiptを、同じ版の保管物として非公開R2へcreate-only保存した。
+
+- GitHub Actions: run `34625104370`（PR #18）
+- R2: `make-money-production-private/architecture/c38f1e7/verification-receipt.v1.json`
+- サイズ: 3,329 bytes
+- SHA-256: `807a283eea2534aac6e4c14b414dd637d7fc76f789b45871a57d7c8d2840b661`
+- 検証: 保存前に同一keyが存在しないことを確認。保存直後にGETし、全bytesとSHA-256の一致を確認。
+
+この記録は、実Workerの本番デプロイ、main統合、Stripe本番決済往復、実ユーザーデータ移行、production D1復元訓練の完了を意味しない。RPO/RTO、保持日数、定期バックアップ運用は別途実施する。
