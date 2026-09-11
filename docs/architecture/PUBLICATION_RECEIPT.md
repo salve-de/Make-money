@@ -66,6 +66,16 @@
 
 この記録は、GitHubへのpush、main統合、本番Workerデプロイ、本番D1への0004/0005適用、Neonの実データ移行、production backup/restoreの完了を意味しない。リモートpreviewへの資材アップロードは自動審査で拒否されたため行っていない。
 
+## 2026-09-12 standalone E2E修正後の最終レシート
+
+コードコミット `36703f8ddc9526cb79204cc14ff989b31bad3ec8` で、Next公式のstandalone server起動をPlaywrightに適用した。再ビルド、Workers build、lint、typecheck、unit/foundation/architecture/recovery、deploy preflight、audit、E2E25件を再実行して成功した。
+
+- R2: `make-money-production-private/architecture/36703f8ddc9526cb79204cc14ff989b31bad3ec8/verification-receipt.v1.json`
+- サイズ: 3,661 bytes
+- SHA-256: `907e43b5bfe1379dbde8a55de70014089c30710b7d7ff5b7acdb6682769953e7`
+- 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
+- 文書: 前回の検証文書コミット `58cbeadab8dcc46c7001e0210ed895edb9b110d0` を含む。今回の追記コミットはこのレシートの保存後に作成する。
+
 ## 2026-09-12 最終状態レシート
 
 文書コミット `96e715ea05fd0a99664020fbd9c5c1c25bbe7161` を含む最終検証状態を、非公開R2へ別keyで保存した。
