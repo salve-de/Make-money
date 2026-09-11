@@ -65,3 +65,13 @@
 - 検査: lint、typecheck、Vitest274、Foundation11、architecture8、Python6、build、Workers秘密値スキャン、deploy preflight、`pnpm audit --prod`、E2E25が成功。実ブラウザでR2 entity詳細とPhoto AIの未確認財務、J/K無効化を確認。
 
 この記録は、GitHubへのpush、main統合、本番Workerデプロイ、本番D1への0004/0005適用、Neonの実データ移行、production backup/restoreの完了を意味しない。リモートpreviewへの資材アップロードは自動審査で拒否されたため行っていない。
+
+## 2026-09-12 最終状態レシート
+
+文書コミット `96e715ea05fd0a99664020fbd9c5c1c25bbe7161` を含む最終検証状態を、非公開R2へ別keyで保存した。
+
+- R2: `make-money-production-private/architecture/96e715ea05fd0a99664020fbd9c5c1c25bbe7161/verification-receipt.v1.json`
+- サイズ: 3,661 bytes
+- SHA-256: `f626e6df2ec1696a69fe6f0f1098e8b51dcb96356b78848541ef03c1667b942d`
+- 検証: remote R2 bindingを持つ一時ローカルWorkerでCreate-Only保存し、直後のGETで全bytes・SHA-256一致を確認。
+- 内容: コードコミット、文書コミット、lint/typecheck/unit274/Foundation11/architecture8/Python6/build/workers秘密値スキャン/deploy preflight/audit/E2E25、実WorkerのFoundation R2一覧・詳細・ブラウザ結果、GitHub push未実行と本番未検証の制限。
