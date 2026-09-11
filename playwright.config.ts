@@ -17,7 +17,9 @@ export default defineConfig({
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 1000 } } }],
   webServer: {
-    command: `pnpm start --hostname 127.0.0.1 --port ${port}`,
+    // next.config.ts uses output: 'standalone'. Start the generated server
+    // directly so local and CI smoke tests exercise the same production shape.
+    command: `PORT=${port} HOSTNAME=127.0.0.1 node scripts/start-standalone.mjs`,
     url: baseURL,
     reuseExistingServer: false,
     timeout: 60_000,
