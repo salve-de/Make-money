@@ -53,3 +53,15 @@
 - 検証: 保存前GETで未存在を確認。保存直後にGETし、全bytes・SHA-256一致を確認。
 
 この記録は、本番deploy、main統合、Stripe本番往復、production D1復元訓練の完了を意味しない。リモートpreviewへのWorker資材アップロードは行っていない。
+
+## 2026-09-12 継続監査レシート
+
+`codex/reliability-boundaries` のコミット `72c7dc7cfcf65a89159a085c354601a6cebf44ca` について、R2優先の一覧・詳細投影、未確認値の表示、匿名書込み境界、全自動検査、実WorkerのFoundation R2読み取りを確認した。秘密情報を含まない検証レシートを、対象コミットを含む新しいkeyへCreate-Only保存した。
+
+- R2: `make-money-production-private/architecture/72c7dc7cfcf65a89159a085c354601a6cebf44ca/verification-receipt.v1.json`
+- サイズ: 2,815 bytes
+- SHA-256: `7101e4350736c8a9800a86f5b109bc808dbd42566787d22faf08a1d2f2f97821`
+- 検証: remote R2 bindingを持つ一時ローカルWorkerで保存し、直後にGETして全bytes・SHA-256一致を確認。S3互換Keychain経路は403（権限不足）であり、秘密値は出力・保存していない。
+- 検査: lint、typecheck、Vitest274、Foundation11、architecture8、Python6、build、Workers秘密値スキャン、deploy preflight、`pnpm audit --prod`、E2E25が成功。実ブラウザでR2 entity詳細とPhoto AIの未確認財務、J/K無効化を確認。
+
+この記録は、GitHubへのpush、main統合、本番Workerデプロイ、本番D1への0004/0005適用、Neonの実データ移行、production backup/restoreの完了を意味しない。リモートpreviewへの資材アップロードは自動審査で拒否されたため行っていない。

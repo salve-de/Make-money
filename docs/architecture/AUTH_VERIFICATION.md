@@ -37,3 +37,5 @@ Googleログインの有効化・サポートメール設定と標準許可ド�
 ## 2026-09-12 再検証追補
 
 依存更新、未確認値の明示、ニュースレター所有者・匿名解除トークン、匿名書込みレート制限、R2 bindingのreadback検査を含む作業ツリーで、Vitest274件、Foundation11件、architecture8件、Python6件、E2E25件、Build、`pnpm audit --prod`、Workers秘密値スキャン、Wrangler dry-runを再実行して成功した。実ブラウザではPhoto AI詳細を表示し、次銘柄遷移、J/K入力で企業が切り替わらないこと、Escapeで詳細を閉じられること、未確認の財務値が「未確認」と表示されることを確認した。E2EはR2未設定時のfallbackを含むため、実R2読み取りや本番Workerの稼働証明ではない。0004/0005は隔離ローカルD1と復元演習で確認済みだが、本番D1へは未適用である。
+
+継続監査では、Foundation R2の同一entity IDをローカル旧スナップショットより優先し、実Workerの一覧・詳細・ブラウザ描画で`source: foundation_lake`を確認した。検証レシートは非公開R2へCreate-Only保存し、保存直後のGETで全bytes・SHA-256一致を確認した（`72c7dc7cfcf65a89159a085c354601a6cebf44ca`、2,815 bytes、`7101e4350736c8a9800a86f5b109bc808dbd42566787d22faf08a1d2f2f97821`）。
