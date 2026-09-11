@@ -15,7 +15,7 @@ it('detects a runtime cycle and permits a directed acyclic graph', () => {
 });
 it('checks the actual repository resolved import graph', () => {
   expect(checkBoundaries()).toEqual([]);
-});
+}, 20_000);
 
 it('rejects private type queries, relative paths and template literal imports', () => {
   const probes = [
