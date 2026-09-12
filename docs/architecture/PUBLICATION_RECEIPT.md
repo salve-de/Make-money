@@ -173,3 +173,15 @@ Neon管理APIを読み取り専用で確認した結果、接続可能な所有�
 - 内容: local Vitest292 / Foundation11 / architecture11 / Recovery6、Playwright Chromium26、Workers build、依存監査、実ブラウザのPhoto AI未確認財務・Evidence・J/K無効・Escape終了・コンソールエラーなし、D1/R2/Neon境界、未検証の本番項目。
 
 このレシートは現HEADのコードとCI・ブラウザ検証、R2保全を証明する。Production Workerのデプロイ、Stripe本番往復、実ユーザーデータ移行、定期バックアップ/RPO/RTO運用、production restore、mainへのmergeは完了扱いにしない。
+
+## 2026-09-12 履歴訂正後の現行検証レシート
+
+コード・監査文書コミット `5993b06147c9465c46f0d41e03bb65e25316d177` を `origin/codex/reliability-boundaries` へpushし、GitHub Actions run `34694859638` の `lint`、`typecheck`、`unit test`、`build`、`E2E smoke` がすべて成功したことを読み戻した。履歴文書に残っていた未実装の5バケット/Curation/Dossier完了主張も現行監査で訂正した。
+
+- R2: `make-money-production-private/architecture/5993b06147c9465c46f0d41e03bb65e25316d177/verification-receipt.v1.json`
+- サイズ: 2,109 bytes
+- SHA-256: `4b6da477cb848e0f323d3abda8d54eeb316f4d6803305c3c5893e4af39b758a9`
+- 検証: Wranglerでキー未存在を事前確認してから非公開R2へCreate-Only保存し、直後のGETでアップロード元と読戻しのbytes/SHA-256が一致した。
+- 内容: 現行ローカル全検査、GitHub必須5チェック、実ブラウザのPhoto AI未確認財務/Evidence/J/K無効/Escape・再表示、D1・Foundation R2・非公開R2・Neon境界、未検証の本番項目。
+
+このレシートはmainへのmerge、本番Workerのデプロイ、Stripe本番往復、定期バックアップ/RPO/RTO、production restore、全レコード一次資料再監査を完了扱いにしない。後続の文書ポインタ変更はコードを変更しないため、このレシートの対象状態を変えない。

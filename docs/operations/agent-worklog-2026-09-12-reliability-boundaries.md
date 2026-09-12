@@ -78,3 +78,10 @@ The read-only Neon management inventory currently exposes one owned project, `In
 - The active `main-quality-gates` ruleset requires the same five contexts with strict status checks and no bypass actors. A branch-protection API endpoint returning 404 is expected because this repository uses the ruleset API for the protection policy.
 
 This is a code/CI/browser/R2 closure record. It does not certify production deployment, live payment, Neon migration, scheduled backup/RPO/RTO operation, production restore, or main integration. Static historical financial claims remain mechanically labeled but are not all independently rechecked against primary sources.
+
+## Current authoritative state after history correction (2026-09-12)
+
+- `5993b06147c9465c46f0d41e03bb65e25316d177` is the current pushed branch head after correcting historical documents that had incorrectly described unimplemented Foundation buckets, Curation Gate and Dossier Projector work as complete.
+- GitHub Actions run `34694859638` passed all required contexts (`lint`, `typecheck`, `unit test`, `build`, `E2E smoke`) for that head. PR #18 remains open and has not been merged into `main`; the active `main-quality-gates` ruleset remains the physical merge gate.
+- A private-R2 verification receipt was created only after a missing-key preflight and read back immediately: `make-money-production-private/architecture/5993b06147c9465c46f0d41e03bb65e25316d177/verification-receipt.v1.json` (2,109 bytes; SHA-256 `4b6da477cb848e0f323d3abda8d54eeb316f4d6803305c3c5893e4af39b758a9`).
+- The receipt and browser run prove the current checks and local fallback behavior; they do not prove a production Worker cutover, live Stripe roundtrip, scheduled backup/RPO/RTO, production restore, or live Foundation R2 rendering in the local browser.
