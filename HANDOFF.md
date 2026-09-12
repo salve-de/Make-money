@@ -18,7 +18,6 @@
    - **【絶対不可侵】**: `universal/data-assets/financials/`（EDINET正本領域）には1文字たりとも書き込むな・触れるな。
 4. **横断自律収集契約**: [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)
 
-## 2. 直近の推奨調査候補
-- **勝ち組要塞（高粗利・完全1人）**: ShipFast, Carrd, Formula Bot, Midjourney, PDF.ai 等
-- **地雷組検死（巨額炎上・即死・規約変更死）**: Humane Ai Pin, Fast 等
+- **勝ち組（業種・規模不問、構造的勝者）**: キーエンス（直販製造業）、Gymshark（D2Cアパレル）、マニー（ニッチ独占医療器具）、ShipFast（SaaSボイラープレート）、Carrd（軽量LPインフラ）、Formula Bot（業務痛みの財布）等
+- **地雷組検死（業種・規模不問、巨額炎上・即死・規約変更死）**: Humane Ai Pin（過熱即死ハードウェア）、Fast（180億調達・月商60万即死フィンテック）、Quibi（2,000億炎上短尺動画）等
 
