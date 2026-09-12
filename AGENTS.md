@@ -30,8 +30,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - **「地雷（負け）の方だけ集めて」** ➔ 地雷組検死（100%）に特化収集（業種・規模不問。巨額調達即死、規約変更死、固定費過多死、CAC高騰等、金が尽きた失敗・撤退の事実ログを柔軟に収集。`financialStatus: 'POST_MORTEM'`、`FATAL_BLEED` 100%必須）。
   - **「データ集めて」（指定なし）** ➔ デフォルトの勝ち7割・地雷3割の攻守混合ポートフォリオで柔軟に自走。
 - **枠組みによる限定の完全排除（柔軟自走原則）**:
-  - 「粗利〇〇%以上でなければならない」「1人でなければならない」といった狭小なフィルターは完全破棄。
-  - 現実に金が動いている生々しい事実・手口があるものは、形式に囚われず全て拾い上げよ。
+  - **【最高鉄則：収集項目と足切り条件の完全分離】**:
+    - 人数（社員規模）、粗利率、営業利益、URL、創業者、ツール構成など、**必要なデータは当然すべて徹底調査し、全量収集して記録する**。
+    - しかし、**いかなる数値や項目の有無も【収集の足切り条件（フィルター）】には絶対にしない**。
+    - 粗利が10%でも50%でも80%でも、社員が1人でも10人でも1万人でも、URLがあっても無くても、**「生々しい金儲けの事実と手口（裏帳簿）」または「失敗・撤退の事実ログ」があるものは、全て柔軟に拾い上げてデータを記録せよ**。
 - **EDINET正本領域（`universal/data-assets/financials/`）は完全不可侵**。一切書き込むな・触れるな。
 - 収集したWeb魚拓・PDF原本は `foundation-raw/blobs/sha256/<hash>` へ即時PUT（Create-Only、上書き禁止）。
 - 抽出した完全体JSONは `foundation-lake/journal-entry.v1/<id>.json` へ保存（追記専用）。
@@ -122,18 +124,18 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ### 【最高決定版】何を集めるか：キーエンス品質 黄金収集仕様（Golden Ingest Schema）
 > **全AI・スクリプト共通の最高規範**: 詳細定義・完全体JSONテンプレートは [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md) を正本とする。何を集めるべきか迷った時は、本節および仕様書の完全体JSONを1文字も変えずに遵守せよ。
 
-#### 1. 必須10大属性（全社共通・完全網羅チェックリスト）
-すべての収集データは、以下の10属性を1つも欠落させてはならない：
-1. `id`: 一意のエンティティID（`ent_<company>_<hash>`）
-2. `ticker`: 4〜10文字のシンボル（例: `KEYENCE`, `GYM.SHRK`, `BRWS.AI`）
-3. `name`: 企業・サービス正式名称
-4. `tagline`: サバンナOS直撃のタグライン（痛みの財布＋手口＋数字が1行で伝わる日本語）
-5. `sector`: 7大業種（`AI_AUTOMATION` / `NICHE_SAAS` / `MONOPOLY_MFG` / `CONTENT_MEDIA` / `PHYSICAL_ASSET` / `FINTECH_INFRA` / `LOCAL_SERVICES`）
-6. `scale`: 規模区分（`SOLO` 完全1人 / `SMALL_TEAM` 2〜10人 / `SCALEUP` 11〜50人 / `ENTERPRISE` 50人超 / `UNKNOWN` 根拠未確認）
-7. `founder`: 創業者名（実名）
-8. `country`: 国コード（ISO 2文字。`JP`, `US`, `UK`, `IE` 等）
-9. `url`: 公式サイトURL
-10. `temporal`: 時系列・賞味期限インテリジェンス（創業年、初動獲得期、データ観測期、賞味期限5大判定、時代背景、現在の勝敗判定）
+#### 1. 基本10属性（柔軟収集・項目欠落による足切り完全禁止）
+**【最高鉄則】: URLがなくたっていい。サイトが消滅していようが、オフラインビジネス（製造・下請け・店舗・商社）や匿名事業でURL・創業者名が存在しなかろうが全く問題ない。形式的な項目の欠落を理由にした足切り・収集破棄は永久に禁止する。金儲けや大爆死の生々しい事実・手口（裏帳簿）があれば、柔軟に全て拾い上げよ。**
+1. `id`: 一意のエンティティID（`ent_<company>_<hash>`）[必須]
+2. `ticker`: 4〜10文字のシンボル（例: `KEYENCE`, `GYM.SHRK`, `BRWS.AI`。なければIDから自動生成可）
+3. `name`: 企業・サービス・事業・手口の正式名称 [必須]
+4. `tagline`: サバンナOS直撃のタグライン（痛みの財布＋手口＋数字が1行で伝わる日本語） [必須]
+5. `sector`: 7大業種または任意カテゴリ（`AI_AUTOMATION` / `NICHE_SAAS` / `MONOPOLY_MFG` / `CONTENT_MEDIA` / `PHYSICAL_ASSET` / `FINTECH_INFRA` / `LOCAL_SERVICES` 等）
+6. `scale`: 規模区分（`SOLO` / `SMALL_TEAM` / `SCALEUP` / `ENTERPRISE` / `UNKNOWN`）
+7. `founder`: 創業者・仕掛け人（実名・組織名・匿名・不明いずれも可）
+8. `country`: 国コード（ISO 2文字。不明なら `JP` または `GLOBAL` 等）
+9. `url`: 公式サイトURL（**任意・なし可**。サイト消滅、非Web、下請け、オフライン等の場合は `null` または省略）
+10. `temporal`: 時系列・賞味期限インテリジェンス（創業年、初動期、観測期、時代背景、勝敗判定等。取れる範囲で記録）
 
 #### 2. P&L因数分解（円換算・Stripe手数料控除・創業者手残り）
 「非公開」で調査を止めるな。業界相場・価格・規模を根拠付きで再現できる場合だけ科学的に逆算し、以下のP&Lウォーターフォールを円（JPY）で算出せよ。根拠が不足する場合は `UNAVAILABLE` / `未確認` として0円や仮値を表示しない：

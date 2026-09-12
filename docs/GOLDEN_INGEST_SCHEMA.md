@@ -19,20 +19,24 @@
 
 ---
 
-## 2. 必須10大属性（全社共通・完全網羅チェックリスト）
+## 2. 基本10属性（柔軟収集・項目欠落による足切り完全禁止）
 
-| # | フィールド名 | 型 | 単位・形式 | 必須要件・収集基準 |
+> **【限定・足切りの完全排除原則】**:
+> **URLがなくたっていい。公式サイトが消滅していようが、オフラインビジネス（製造・下請け・店舗・商社等）や匿名事業でURL・創業者名が存在しなかろうが全く問題ない。**
+> 形式的な項目の欠落を理由にした足切り・収集破棄は永久に禁止する。金儲けや大爆死の生々しい事実・手口（裏帳簿）があれば、柔軟に全て拾い上げよ。
+
+| # | フィールド名 | 型 | 単位・形式 | 収集基準・柔軟性規定 |
 |---|---|---|---|---|
-| 1 | `id` | `string` | `ent_<company>_<hash>` | R2およびMake-Money内で一意のエンティティID |
-| 2 | `ticker` | `string` | `AAA.BBB` | 4〜10文字のシンボル（例: `KEYENCE`, `GYM.SHRK`, `BRWS.AI`） |
-| 3 | `name` | `string` | 文字列 | 企業・サービス正式名称 |
-| 4 | `tagline` | `string` | 日本語1行 | サバンナOS直撃のタグライン（痛みの財布＋手口＋数字） |
-| 5 | `sector` | `enum` | 7大カテゴリ | `'AI_AUTOMATION'` \| `'NICHE_SAAS'` \| `'MONOPOLY_MFG'` \| `'CONTENT_MEDIA'` \| `'PHYSICAL_ASSET'` \| `'FINTECH_INFRA'` \| `'LOCAL_SERVICES'` |
-| 6 | `scale` | `enum` | 4大区分 + 未確認 | `'SOLO'`（完全1人） \| `'SMALL_TEAM'`（2〜10人） \| `'SCALEUP'`（11〜50人） \| `'ENTERPRISE'`（50人超） \| `'UNKNOWN'`（根拠未確認） |
-| 7 | `founder` | `string` | 人名 | 創業者名（複数名はカンマ区切り） |
-| 8 | `country` | `string` | ISO 2文字 | 国コード（`JP`, `US`, `UK`, `IE` 等） |
-| 9 | `url` | `string` | URL | 公式サイトURL |
-| 10 | `temporal` | `object` | 年代・判定 | 創業年、初動突破時期、データ観測期、賞味期限判定 |
+| 1 | `id` | `string` | `ent_<name>_<hash>` | R2およびMake-Money内で一意のエンティティID [必須] |
+| 2 | `ticker` | `string` | `AAA.BBB` | 4〜10文字のシンボル（例: `KEYENCE`, `GYM.SHRK`。なければIDから自動生成可） |
+| 3 | `name` | `string` | 文字列 | 企業・サービス・事業・手口の正式名称 [必須] |
+| 4 | `tagline` | `string` | 日本語1行 | サバンナOS直撃のタグライン（痛みの財布＋手口＋数字） [必須] |
+| 5 | `sector` | `enum` | 7大カテゴリ | `'AI_AUTOMATION'` \| `'NICHE_SAAS'` \| `'MONOPOLY_MFG'` \| `'CONTENT_MEDIA'` \| `'PHYSICAL_ASSET'` \| `'FINTECH_INFRA'` \| `'LOCAL_SERVICES'`（大枠判定で可） |
+| 6 | `scale` | `enum` | 4大区分 + 未確認 | `'SOLO'` \| `'SMALL_TEAM'` \| `'SCALEUP'` \| `'ENTERPRISE'` \| `'UNKNOWN'` |
+| 7 | `founder` | `string` | 人名・組織名 | 創業者・仕掛け人名（**匿名・不明・組織名いずれも可**） |
+| 8 | `country` | `string` | ISO 2文字 | 国コード（`JP`, `US`, `UK`, `IE` 等。不明なら `JP` または `GLOBAL`） |
+| 9 | `url` | `string \| null` | URL | 公式サイトURL（**任意・なし可**。サイト消滅、非Web、下請け、オフライン等の場合は `null` または省略） |
+| 10 | `temporal` | `object` | 年代・判定 | 創業年、初動期、観測期、賞味期限判定（取れる範囲で記録） |
 
 ---
 
