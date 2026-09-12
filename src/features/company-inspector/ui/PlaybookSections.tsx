@@ -200,66 +200,41 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
             </div>
           </div>
 
-          {/* #12 顧客獲得動線 / 崩壊した獲得動線 */}
-          {(() => {
-            const channels = entity.operations?.primaryChannels || [];
-            const isOrganic = channels.some(c => c.includes('SEO') || c.includes('SNS') || c.includes('口コミ') || c.includes('コミュニティ') || c.includes('自虐') || c.includes('GitHub') || c.includes('X'));
-            const defaultFunnel = channels.length >= 2
-              ? `${channels.slice(0, 3).join(' ➔ ')} ➔ デモ/無料利用 ➔ 即時決済`
-              : (entity.strategy?.initialTraction?.[0] ? `${entity.strategy.initialTraction[0].slice(0, 40)} ➔ Stripe直販決済` : '特化コンテンツSEO / SNS発信 ➔ LP直行 ➔ 即断即決決済');
-            const acquisition = entity.acquisition || {
-              cacJpy: isOrganic || channels.length === 0 ? 0 : 45000,
-              primaryFunnel: defaultFunnel,
-              tactics: entity.strategy?.initialTraction || ['初期リードの直接囲い込み', '損失回避訴求による即決成約'],
-            };
-            return (
-              <div className={`rounded-lg overflow-hidden border shadow-xl ${
-                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+          {/* 顧客獲得動線 / 崩壊した獲得動線 */}
+          {entity.acquisition && (
+            <div className={`rounded-lg overflow-hidden border shadow-xl ${
+              isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+            }`}>
+              <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
               }`}>
-                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
-                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
-                }`}>
-                  <div className="flex items-center gap-2.5">
-                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
-                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
-                      isHazardMode
-                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
-                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
-                    }`}>
-                      #12
-                    </span>
-                    <div className="flex items-center gap-1.5">
-                      <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                      <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                        isHazardMode ? 'text-red-200' : 'text-zinc-100'
-                      }`}>
-                        {isHazardMode ? '崩壊した集客動線と獲得費高騰' : '顧客獲得動線'}
-                      </h3>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] text-zinc-300 font-bold">
-                    獲得単価 (CAC): <strong className={isHazardMode ? 'text-red-400' : 'text-emerald-400'}>{acquisition.cacJpy === 0 ? '0円' : formatMoney(acquisition.cacJpy)}</strong>
+                <div className="flex items-center gap-2.5">
+                  <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                  <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                    isHazardMode
+                      ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                      : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                  }`}>
+                    #12
                   </span>
-                </div>
-                <div className="p-3.5 text-xs text-zinc-200 bg-[#0E131F] space-y-2.5">
-                  <div className="leading-relaxed font-mono text-[11px] text-zinc-300 bg-white/[0.03] p-2.5 rounded border border-white/[0.06]">
-                    {acquisition.primaryFunnel}
+                  <div className="flex items-center gap-1.5">
+                    <Zap className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                    <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                      isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                    }`}>
+                      {isHazardMode ? '崩壊した集客動線と獲得費高騰' : '顧客獲得動線'}
+                    </h3>
                   </div>
-                  {acquisition.tactics && acquisition.tactics.length > 0 && (
-                    <div className="pt-2 border-t border-white/[0.06] space-y-1.5">
-                      <span className="text-[10px] font-mono text-zinc-400 block font-bold uppercase tracking-wider">具体的獲得ハック:</span>
-                      {acquisition.tactics.map((tactic, tIdx) => (
-                        <div key={tIdx} className="text-xs text-zinc-300 flex items-start gap-2">
-                          <span className="text-zinc-500 font-mono text-[10px] mt-0.5">▪</span>
-                          <span className="leading-relaxed">{tactic}</span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
+                <span className="font-mono text-[11px] text-zinc-300 font-bold">
+                  獲得単価 (CAC): <strong className={isHazardMode ? 'text-red-400' : 'text-emerald-400'}>{entity.acquisition.cacJpy === 0 ? '0円' : formatMoney(entity.acquisition.cacJpy)}</strong>
+                </span>
               </div>
-            );
-          })()}
+              <div className="p-3.5 text-xs text-zinc-200 bg-[#0E131F]">
+                {entity.acquisition.primaryFunnel}
+              </div>
+            </div>
+          )}
           </div>
 
           {/* ========================================================= */}

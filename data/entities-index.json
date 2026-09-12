@@ -869,21 +869,6 @@
     ],
     "evidenceCards": [
       {
-        "id": "ev_photoai_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】スタジオ撮影の羞恥心を突き「自撮り数枚」からプロ写真を即時錬成する特化AI配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "写真館に行く手間と気恥ずかしさを抱える顧客に、画像生成APIをラップし、月額$39で数千枚のプロフィール写真を生成させる。",
-        "details": [
-          "【Step 1: 羞恥心の特定】: 「マッチングアプリやLinkedIn用の写真が欲しいが写真館に行くのは恥ずかしい・高い」という見栄と羞恥心の隙間を特定。",
-          "【Step 2: Stable Diffusionのファインチューニング】: ユーザーがアップロードした自撮り10枚をDreambooth等でLoRA学習し、数十パターンの背景・衣装で高速レンダリング。",
-          "【Step 3: Xでのビフォーアフター拡散】: 創業者の個人アカウントで実例写真を連投し、広告費ゼロで初動の有料サブスクユーザーを独占。"
-        ],
-        "codeSnippet": "// 特化型AI写真生成の推論呼び出しパイプライン\nasync function renderTinderProfiles(userSelfies: string[], prompt: string) {\n  const loraModel = await fineTuneUserLora(userSelfies);\n  return await generateImageBatch({\n    model: loraModel,\n    prompt: `professional studio headshot, hyperrealistic, 8k --ar 4:5`,\n    count: 20\n  });\n}",
-        "sourceNote": "Photo AI創業者（Pieter Levels）の公開ローンチラピッドプロトタイピング記録"
-      },
-      {
         "id": "financial-source-ent_photoai",
         "type": "SMOKING_GUN",
         "title": "一次資料で確認できた事実",
@@ -914,15 +899,6 @@
       "model": "月額サブスクリプション（月払い・年払い一括）",
       "pricePoint": "金額・費用の裏付けは未確認。",
       "psychologicalTrigger": "虚栄心と性淘汰（「マッチングアプリでいいねが増える」「SNSで魅力的に見える」という社会的序列の本能）"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "X（Twitter）バイラル投稿 ➔ オーガニック検索 (SEO) ➔ 口コミ・バイラルループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "自作のアバター生成スクリプトをXでフォロワーに無料配布してフィードバックを収集",
-        "金額・費用の裏付けは未確認。",
-        "ドメイン「PhotoAI.com」を高額で購入し、SEO検索流入の関所を握った"
-      ]
     },
     "pnl": {
       "monthlyRevenue": 0,
@@ -1599,20 +1575,6 @@
       "viabilityLabel": "現在も有効（脱GA4の受け皿）",
       "eraContext": "EUのGDPR施行とGoogleのGA4強制移行による混乱期。Cookie同意ポップアップへのユーザーの嫌悪感が頂点に達していた。",
       "currentViabilityAnalysis": "プライバシー規制は年々世界中で強化されており、クッキーレス解析の需要は極めて堅牢。自前でインフラを抱えるサーバーコストの管理さえできれば長期高収益を維持できる。"
-    },
-    "essence": {
-      "whatItDoes": "Elixir/Phoenix × ClickHouse × AGPLオープンソース を武器に、Web担当者の胃痛（GA4の難解さ、Cookie同意バナーによるCV低下、GDP を解消する特化ソリューション",
-      "targetCustomer": "中小企業経営者、事業部長、予算決裁権を持つ幹部層",
-      "painRelief": "Web担当者の胃痛（GA4の難解さ、Cookie同意バナーによるCV低下、GDPR罰則恐怖）"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Hacker News / Reddit 口コミ ➔ GA4批判SEO比較記事 ➔ オープンソースGitHubリポジトリ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Hacker Newsで「Google Analyticsのオープンソース代替を作った」と投稿し1,000 Upvotes獲得",
-        "「なぜ私たちはGoogle Analyticsを削除したのか」という過激なブログ記事でSEO流入を独占",
-        "自社のMRR、PV数、サーバー費用を自社サイト上でリアルタイム全公開（オープンメトリクス）"
-      ]
     }
   },
   {
@@ -3144,20 +3106,6 @@
       "viabilityLabel": "先行者独占（両面市場ネットワーク効果）",
       "eraContext": "コロナ禍でのリモートワーク拡大とインディーハッカー・マイクロSaaSブーム。個人の事業買収（Searcher / Small PE）が一般化した時代。",
       "currentViabilityAnalysis": "マイクロSaaS領域での知名度と流動性を独占しているため正面突破は不可能。別ニッチ（YouTubeチャンネル売買、医療クリニック承継、AIエージェント売買）への垂直展開のみ勝機あり。"
-    },
-    "essence": {
-      "whatItDoes": "Next.js × Stripe × 独自エスクロー決済・NDA自動締結 を武器に、SaaS創業者の焦燥（バーンレート限界・売却の不透明性）と買い手の案件飢餓 を解消する特化ソリューション",
-      "targetCustomer": "SaaS創業者の決裁権を持つ責任者・当事者",
-      "painRelief": "SaaS創業者の焦燥（バーンレート限界・売却の不透明性）と買い手の案件飢餓"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "創業者Twitter(X)発信 ➔ SaaS売却週刊ニュースレター ➔ Product Hunt ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者AndrewがTwitterで「自分のSaaSを売りたい人はDMして」と呟き、初期の売り手10社を手作業でスプレッドシート管理",
-        "Product Huntでローンチし、インディーハッカー界隈の話題を独占",
-        "「今週売却されたSaaS一覧」のニュースレターを毎週配信して買い手を中毒化"
-      ]
     }
   },
   {
@@ -3491,15 +3439,6 @@
         "technicalDifficulty": "HIGH",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "過激バイラル動画 ➔ Whole Foods / Target流通 ➔ 音楽フェス独占提供 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "過激バイラル動画 による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -4228,15 +4167,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "MEDIUM"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -4458,15 +4388,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -4668,15 +4589,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -4877,15 +4789,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -5086,15 +4989,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -5295,15 +5189,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -5504,15 +5389,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -5714,15 +5590,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -5923,15 +5790,6 @@
         "technicalDifficulty": "HIGH",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -6132,15 +5990,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -6341,15 +6190,6 @@
         "technicalDifficulty": "HIGH",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -6550,15 +6390,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -6761,15 +6592,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -6971,15 +6793,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -7180,15 +6993,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -7390,15 +7194,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitter ➔ Product Hunt ➔ Word of Mouth ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitter による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -7627,15 +7422,6 @@
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Facebook / YouTube Ads ➔ Affiliate Army (30% Recurring) ➔ SEO Arbitrage ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Facebook / YouTube Ads による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -7664,21 +7450,6 @@
       "招待制バブル"
     ],
     "evidenceCards": [
-      {
-        "id": "ev_clubhouse_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【教訓転用】招待制の飢餓感で初期熱狂を作り、ユーザー離脱前に有料サロン・B2Bへピボットする配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "音声チャットの無料拡散力で初期トラフィックを集めつつ、単なる雑談で終わらせず限定サロンや録音コンテンツ販売で即座にマネタイズする。",
-        "details": [
-          "【Step 1: 招待制による排他性】: 1人2枠の招待コード制限により「選ばれた人間しか入れない」社会的序列・FOMO心理を着火。",
-          "【Step 2: 著名人・VCの囲い込み】: 初期にインフルエンサーを招致し、業界の裏話がリアルタイムで聴けるプラットフォームとしての権威を獲得。",
-          "【Step 3: 即座の課金・B2B配管接続】: 熱狂が冷める前に、音声アーカイブの有料販売や企業スポンサードセッションなどのマネタイズ関所を設置。"
-        ],
-        "codeSnippet": "// 招待制バイラルコードの枯渇・分配ロジック\nfunction allocateInviteQuota(userTier: string, activityScore: number): number {\n  if (userTier === \"VIP\" && activityScore > 80) return 3; // 熱心な伝道師にのみ追加配分\n  return 0; // 飢餓感を維持するため安易に増やさない\n}",
-        "sourceNote": "Clubhouse急成長期と急減速のトラフィック・資本推移ログ"
-      },
       {
         "id": "financial-source-ent_clubhouse_audio",
         "type": "SMOKING_GUN",
@@ -7822,15 +7593,6 @@
       }
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Celebrity Audio Rooms ➔ Invite Scarcity ➔ Twitter Virality ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Celebrity Audio Rooms による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
-    },
     "unknownsNotes": [
       "この機能の取り分ゼロは会社全体の売上ゼロの証明ではない。旧月商0円と月間赤字4億円は採用しない。",
       "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
@@ -7862,21 +7624,6 @@
       "6ヶ月で閉鎖"
     ],
     "evidenceCards": [
-      {
-        "id": "ev_quibi_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【反面教師転用】自前コンテンツ巨額投資を排し、無料UGCプラットフォームに寄生して小資本で回す配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "ハリウッド級の莫大な制作費を燃やす愚行を避け、TikTokやYouTubeのバイラルコンテンツをまとめ・キュレーションして粗利90%で抜く。",
-        "details": [
-          "【Step 1: 大手の自爆（巨額制作費の焼却）】: 1分あたり数千万円をかけたオリジナル短尺動画が無料SNSのショート動画に敗北した事実を特定。",
-          "【Step 2: UGC・クリエイターエコノミーへの寄生】: 自社で動画を作らず、クリエイターの切り抜きや二次創作プラットフォームとして立ち上げる。",
-          "【Step 3: 広告・スポンサーシップの直収】: スマホ全画面の縦型フォーマットで高単価ブランド広告を配信し、固定費ゼロで利益直下。"
-        ],
-        "codeSnippet": "// 短尺キュレーション配信エンジンの設計\ninterface ShortFormDistribution {\n  source: \"TIKTOK\" | \"YOUTUBE_SHORTS\";\n  curatedLicenseFeeJpy: number; // 自前制作数千万円 vs ライセンス数万円\n  adRevenueShare: 0.5;\n}",
-        "sourceNote": "Quibi 2,000億円炎上検死レポートと短尺動画市場の物理法則"
-      },
       {
         "id": "financial-source-ent_quibi_failure",
         "type": "SMOKING_GUN",
@@ -8014,15 +7761,6 @@
       }
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "TV CM (Super Bowl) ➔ Hollywood PR ➔ Celebrity Campaigns ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "TV CM (Super Bowl) による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
-    },
     "unknownsNotes": [
       "調達額・投資家返金額・資産取得額はQuibiの月間営業損失ではない。旧月商5,000万円・月損失34.2億円・利益率0%を採用しない。",
       "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
@@ -8245,15 +7983,6 @@
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Inbound PR ➔ Enterprise Sales ➔ Conferences ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Inbound PR による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -8473,15 +8202,6 @@
         "technicalDifficulty": "HIGH",
         "platformRisk": "CRITICAL"
       }
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Cold Calling ➔ Inside Sales Army ➔ Inbound Free HR ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Cold Calling による極小コストでの初期リード囲い込み",
-        "「今すぐ解決しないと損をする」損失回避訴求による即日成約",
-        "初期顧客の事例・ビフォーアフター公開による社会的証明の自己増殖"
-      ]
     }
   },
   {
@@ -8620,20 +8340,6 @@
       "viabilityLabel": "現在も有効（高単価コホート教育）",
       "eraContext": "シード期スタートアップが急増し、ペイド広告の高騰で独自のグロースハックが切望された時代。",
       "currentViabilityAnalysis": "AI時代になりノウハウの陳腐化が早まったため、静的な動画教材よりも「現役の実践者が集まるコミュニティ・コホート」の価値がさらに高まっている。"
-    },
-    "essence": {
-      "whatItDoes": "Substack/Webflow × Stripe × Circleコミュニティ を武器に、スタートアップ創業者の焦燥（PMF後のトラクション不足、代理店への無駄金支出恐怖 を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者の決裁権を持つ責任者・当事者",
-      "painRelief": "スタートアップ創業者の焦燥（PMF後のトラクション不足、代理店への無駄金支出恐怖）"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Twitterプレイブック共有 ➔ 無料ニュースレター ➔ VC推薦ネットワーク ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者の個人Twitterで「スタートアップ向け成長実践プレイブック」を投稿し万バズ",
-        "Mediumや個人サイトで5万文字を超えるモンスターガイドを完全無料で投下",
-        "初期受講生50名の募集枠がTwitter告知後わずか数時間で完売"
-      ]
     }
   },
   {
@@ -8860,20 +8566,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "初回スターターキット（美しいボトル） × 定期リフィルタブレット自動送付 を武器に、環境破壊への罪悪感 ＆ 生活感のある派手な市販洗剤ボトルへの嫌悪 を解消する特化ソリューション",
-      "targetCustomer": "環境破壊への決裁権を持つ責任者・当事者",
-      "painRelief": "環境破壊への罪悪感 ＆ 生活感のある派手な市販洗剤ボトルへの嫌悪"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "TikTok / Instagram 自虐・啓蒙動画 ➔ PR・メディア露出 (Shark Tank) ➔ 定期リフィル自動継続 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "洗剤ボトルの大半が水である事実を告発する短い動画をSNSに投稿しバイラル",
-        "Shark Tankに出演し、全シャークからのオファーを獲得して知名度が一夜で全米化",
-        "初回スターターセットを$39で展開し、即座に定期リフィル会員へ誘導"
-      ]
     }
   },
   {
@@ -9096,20 +8788,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "無料価格診断ツール × 徹底セグメントメルマガ × $499〜$1,999買い切り講座 を武器に、受託フリーランスの屈辱と不当な低単価への不満（徹夜しても時給数千円から抜け出せな を解消する特化ソリューション",
-      "targetCustomer": "受託フリーランスの決裁権を持つ責任者・当事者",
-      "painRelief": "受託フリーランスの屈辱と不当な低単価への不満（徹夜しても時給数千円から抜け出せない苦痛）"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "無料メール講座 (Email Course) ➔ Hacker News / Reddit 議論投稿 ➔ ポッドキャスト客演 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "自身の受託会社のノウハウを電子書籍（PDF）としてまとめ$39で販売開始",
-        "Hacker Newsで「なぜ時給で請求するのをやめるべきなのか」という長文エッセイを投稿し大バズ",
-        "読者からの質問に答える形で高単価ビデオコースを開発し$499で展開"
-      ]
     }
   },
   {
@@ -9248,20 +8926,6 @@
       "viabilityLabel": "先行者堀強固（パーソナルブランド）",
       "eraContext": "YouTubeの一般普及と、クリエイターエコノミーへの憧れが最高潮に達した時代。",
       "currentViabilityAnalysis": "本人のブランド力に依存するため全く同じ規模を再現するのは困難だが、「特化ニッチ領域（例: 会計士の副業YouTube、医師の開業YouTube等）」であれば全く同じ構造で年商数千万円は十分に可能。"
-    },
-    "essence": {
-      "whatItDoes": "YouTube × Ghost × Kajabi/Circle × Stripe を武器に、ホワイトカラーの退屈と自由への渇望（「満員電車から脱出したい」「自分のチャンネル を解消する特化ソリューション",
-      "targetCustomer": "ホワイトカラーの決裁権を持つ責任者・当事者",
-      "painRelief": "ホワイトカラーの退屈と自由への渇望（「満員電車から脱出したい」「自分のチャンネルを持ちたい」）"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "YouTube長尺動画 ➔ 自社ニュースレター ➔ Twitter/Instagram ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "医学部生時代に「ケンブリッジ大学の試験勉強法」動画を投稿して学生の間でバイラル",
-        "iPadを使ったノート術動画が爆発的に再生され、登録者10万人を突破",
-        "2020年にPTYA第1期を試験的に募集し、即座に数千万円の売上を記録"
-      ]
     }
   },
   {
@@ -9478,20 +9142,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "ハリウッド映画品質の内製撮影 × セレブ独占キャスティング × 年額$180サブスク を武器に、一流に触れたい憧れ ＆ 安っぽいWeb教材を学ぶ自分を認めたくない知的高度人材の を解消する特化ソリューション",
-      "targetCustomer": "一流に触れたい憧れ ＆ 安っぽいWeb教材を学ぶ自分を認めたくない知的高度人材の決裁権を持つ責任者・当事者",
-      "painRelief": "一流に触れたい憧れ ＆ 安っぽいWeb教材を学ぶ自分を認めたくない知的高度人材の虚栄心"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "YouTube 映画風ティザー広告 ➔ Instagram / Facebook リマーケティング ➔ TVCM・機内エンタメ連携 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者がダスティン・ホフマンの妻に手紙を書き、映画演技コースの承諾を獲得",
-        "最初の3コース（演技、テニス、執筆）をローンチし、初月で数万人の会員を獲得",
-        "「MasterClass」というドメインを初期に押さえ、ブランドの高級感を確立"
-      ]
     }
   },
   {
@@ -9708,20 +9358,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "One-for-One 寄付ナラティブ × 超高機能ソックス × D2C定期まとめ買い を武器に、安物靴下のズレ落ち・破れ ＆ 買い物を自己満足と善行に変えたい道徳的欲求 を解消する特化ソリューション",
-      "targetCustomer": "安物靴下の決裁権を持つ責任者・当事者",
-      "painRelief": "安物靴下のズレ落ち・破れ ＆ 買い物を自己満足と善行に変えたい道徳的欲求"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "ポッドキャスト広告 (ホスト読み上げ) ➔ テレビCM ＆ Shark Tank効果 ➔ リピートまとめ買いメール ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Indiegogoでクラウドファンディングを実施し、$140,000を集めて初動生産を確保",
-        "Shark Tankに出演しDaymond Johnからの出資を獲得、全米の茶の間に認知拡大",
-        "「履き心地が悪ければ無料で交換・返金」の100%満足保証で初期の購入障壁を破壊"
-      ]
     }
   },
   {
@@ -9938,20 +9574,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "Instagramトラベル写真映え × 空港USB充電ハック × ライフスタイル直販ストア を武器に、空港でのスマホ充電切れパニック ＆ ダサい黒ナイロンスーツケースを引く羞恥心 を解消する特化ソリューション",
-      "targetCustomer": "空港での決裁権を持つ責任者・当事者",
-      "painRelief": "空港でのスマホ充電切れパニック ＆ ダサい黒ナイロンスーツケースを引く羞恥心"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Instagram トラベルUGC / インフルエンサーギフティング ➔ 直営フラッグシップ店舗 (NY, LA等) ➔ 空港・旅行メディアPR ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "クリスマス商戦に「The Places We Would Go」という旅のエッセイ本を予約販売して完売",
-        "VogueやTIME誌が「完璧なスーツケース」として特集",
-        "発売後数ヶ月で初回在庫が完売し、数万人のウェイティングリストが発生"
-      ]
     }
   },
   {
@@ -10084,20 +9706,6 @@
       "viabilityLabel": "現在も有効（他プラットフォームへの移植容易）",
       "eraContext": "Notionが個人から企業へと浸透し、テンプレ市場が形成された黄金期。",
       "currentViabilityAnalysis": "Notion市場自体は競合が増えたが、新興のAIツール（Cursor, Make, n8n等）のテンプレート市場に全く同じ手口で横展開すれば今夜から稼げる。"
-    },
-    "essence": {
-      "whatItDoes": "Notion × YouTube × Gumroad を武器に、Notionユーザーの怠惰（「複雑な関数やデータベースを一から組むのが面倒くさい を解消する特化ソリューション",
-      "targetCustomer": "Notionユーザーの決裁権を持つ責任者・当事者",
-      "painRelief": "Notionユーザーの怠惰（「複雑な関数やデータベースを一から組むのが面倒くさい」）"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "YouTubeチュートリアル ➔ Reddit (r/Notion) ➔ Twitter ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "NotionのRedditコミュニティ（r/Notion）で自作テンプレを無料公開し感謝の嵐を獲得",
-        "YouTubeでNotionのFormula関数のマニアックな解説動画を投稿しギーク層を掌握",
-        "Gumroadで有料テンプレの販売を開始し、初月から数十万円の売上を達成"
-      ]
     }
   },
   {
@@ -10315,20 +9923,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "無料案件獲得ニュースレター × ブランド案件マッチング × 高額コホートスクール (Brands Meet Creators) を武器に、フォロワーは多いのに企業から数千円で買い叩かれるクリエイターの金欠と屈辱 を解消する特化ソリューション",
-      "targetCustomer": "フォロワーは多いの決裁権を持つ責任者・当事者",
-      "painRelief": "フォロワーは多いのに企業から数千円で買い叩かれるクリエイターの金欠と屈辱"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "週刊ニュースレター (案件情報) ➔ TikTok / YouTube Shorts 交渉裏話 ➔ ポッドキャスト ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "自身がYouTuberとして活動しつつ、企業のインフルエンサーマーケ責任者と面談した経験をXで公開",
-        "「企業からのオファーメールにどう返信すべきか」の無料添削をSNS上で実施し口コミ拡大",
-        "高単価コホートスクール「Brands Meet Creators」を開講し、初動で大成功"
-      ]
     }
   },
   {
@@ -10551,20 +10145,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "無料オープンソースUIキット (GitHub) × 高ドメイン評価SEO × 有料Pro版/年間クラブパス を武器に、バックエンドは書けるがUIデザインが致命的にダサいエンジニアの納品パニック を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "バックエンドは書けるがUIデザインが致命的にダサいエンジニアの納品パニック"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "GitHub (数万スター・被リンク) ➔ Google オーガニックSEO (DR 85) ➔ 開発者向けメルマガ (200万人) ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "受託案件で作った管理画面パーツを「Get Shit Done Kit」としてProduct Huntに無料投稿",
-        "初日で数千ダウンロードを記録し、Hacker Newsでも話題化",
-        "有料Pro版を追加したところ、初月から数千ドルの売上が発生し受託開発を完全停止"
-      ]
     }
   },
   {
@@ -10787,20 +10367,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "挨拶ゼロの3分短尺コード動画 × トップエンジニア講師陣 × 年額サブスクリプション を武器に、難解な公式ドキュメントと長すぎる動画講義にイライラする現役エンジニアの時短欲求 を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "難解な公式ドキュメントと長すぎる動画講義にイライラする現役エンジニアの時短欲求"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Twitter / X 開発者界隈の口コミ ➔ トップOSS作者（講師）自身の拡散 ➔ 法人B2Bセールス ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "John LindquistがYouTubeでAngularJSの2分動画を投稿し始め、開発者の間で拡散",
-        "「広告なし・全動画見放題」の月額サブスクサイト（Egghead.io）を立ち上げ",
-        "Joel Hooksが合流し、講師ロイヤリティ分配モデルを設計してOSSトップ開発者を囲い込み"
-      ]
     }
   },
   {
@@ -11018,20 +10584,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "MEDIUM"
       }
-    },
-    "essence": {
-      "whatItDoes": "ノーコード構築 (Webflow/Airtable) × クリエイター公募出品 × 決済仲介手数料20〜30% を武器に、自作テンプレの集客手段がない個人クリエイターの焦燥 ＆ 優良テンプレを探せないユ を解消する特化ソリューション",
-      "targetCustomer": "B2B/D2C企業のマーケティング責任者、グロース担当者、広告運用者",
-      "painRelief": "自作テンプレの集客手段がない個人クリエイターの焦燥 ＆ 優良テンプレを探せないユーザーの疲労"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Notion関連キーワードのオーガニックSEO ➔ クリエイター自身のSNS拡散 ➔ 週刊Notionおすすめメルマガ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "TwitterやGumroadで良質なNotionテンプレを作っている個人を探し、1軒ずつDMで掲載オファー",
-        "「Notion Everything」という直球のドメインを取得し、ディレクトリを公開",
-        "Product Huntで「今週のプロダクト」に選ばれ、世界中からトラフィックが殺到"
-      ]
     }
   },
   {
@@ -11248,20 +10800,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "MEDIUM"
       }
-    },
-    "essence": {
-      "whatItDoes": "自虐コメディYouTube動画 × 韓国OEM替刃直輸入 × 月額$1〜$6定期サブスク を武器に、ドラッグストアの鍵付きケースを店員に開けさせる恥 ＆ 替刃4個で2,000円超取 を解消する特化ソリューション",
-      "targetCustomer": "ドラッグストアの決裁権を持つ責任者・当事者",
-      "painRelief": "ドラッグストアの鍵付きケースを店員に開けさせる恥 ＆ 替刃4個で2,000円超取られる理不尽への怒り"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "YouTube 自虐コメディバイラル動画 ➔ ポッドキャスト広告 ➔ 紹介プログラム (Referral) ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者Michael Dubinが友人宅の倉庫でカミソリ動画を撮影しYouTubeに投稿",
-        "動画がバイラルし初日で数千人が有料サブスクに登録、在庫が即完売",
-        "ベンチャーキャピタルから資金調達し、物流を自動化して全米へ一気拡大"
-      ]
     }
   },
   {
@@ -11479,20 +11017,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "爆笑コメディYouTube動画 × コールドプロセス天然石鹸 × 定期配送サブスク を武器に、男特有の体臭・肌トラブルへの恐怖 ＆ 安物ボディソープを使う自分への嫌悪 を解消する特化ソリューション",
-      "targetCustomer": "男特有の決裁権を持つ責任者・当事者",
-      "painRelief": "男特有の体臭・肌トラブルへの恐怖 ＆ 安物ボディソープを使う自分への嫌悪"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "YouTube コメディ動画広告 ➔ TikTok UGC / 男性の体臭改善ネタ ➔ Walmart / Target 等の全米小売 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Jack Haldrupが自宅ガレージで手作り石鹸を製造し、地元マーケットで販売",
-        "Raindrop Agencyと組んで制作した最初のYouTubeコメディ動画がメガヒット",
-        "「スクワッチ・ソープ・クラブ」という月額サブスクを開始しLTVを固定化"
-      ]
     }
   },
   {
@@ -11547,21 +11071,6 @@
       "sourceDoc": "https://lifetimebrands.gcs-web.com/news-releases/news-release-details/lifetime-brands-acquires-swellr"
     },
     "evidenceCards": [
-      {
-        "id": "ev_swell_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】日用品ボトルを「ファッション・環境ステータス」へ再定義し定価5倍で抜くD2C配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "機能（保温性）ではなく「持っているだけで意識が高くお洒落に見える」虚栄心トリガーを刺激し、セレクトショップやスタバとの提携で高粗利を独占。",
-        "details": [
-          "【Step 1: コモディティの再定義】: 単なる水筒（数千円）を「オフィスでデスクに置くアクセサリー」としてデザイン・カラー展開。",
-          "【Step 2: 高級セレクトショップへの配置】: 量販店ではなくMoMAデザインストアや高級百貨店に置き、ブランドの知覚価値を強制吊り上げ。",
-          "【Step 3: 法人ノベルティ・B2Bコラボ】: スターバックスやFortune 500企業の環境意識アピール用グッズとして大口受注し、前金でキャッシュ回収。"
-        ],
-        "codeSnippet": "// 高付加価値D2Cのブランドプライシング構造\nconst pricingModel = {\n  manufacturingCost: 600, // ボトル製造原価（円）\n  retailPrice: 5500, // 定価（円）\n  grossMargin: (5500 - 600) / 5500, // 粗利率 89.1%\n  positioning: \"Eco-Fashion Accessory, Not Water Bottle\"\n};",
-        "sourceNote": "S'well創業者Sarah Kaussの初期販路開拓ログ"
-      },
       {
         "id": "financial-source-ent_case06_41c0551fc5b488cb6ff3",
         "type": "SMOKING_GUN",
@@ -11700,20 +11209,6 @@
       }
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "スターバックス等でのレジ横コラボ配架 ➔ Instagram UGC / ファッションスナップ ➔ 直営ECストア ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "オプラ・ウィンフリーの「お気に入りリスト（Oprah's Favorite Things）」に選出され全米で大ブレイク",
-        "スターバックス全米店舗での取り扱いが決定し、認知度が爆発",
-        "J.CrewやTarget等のアパレル・セレクトショップへの配架を拡大"
-      ]
-    },
-    "essence": {
-      "whatItDoes": "ファッション雑貨配架 (スタバ/美術館) × 脱プラスチック大義名分 × プレミアム直販ストア を武器に、オフィスで生活感丸出しの水筒を持つ羞恥心 ＆ ペットボトルを買い続ける罪悪感 を解消する特化ソリューション",
-      "targetCustomer": "オフィスで生活感丸出しの決裁権を持つ責任者・当事者",
-      "painRelief": "オフィスで生活感丸出しの水筒を持つ羞恥心 ＆ ペットボトルを買い続ける罪悪感"
-    },
     "observationsStream": [
       {
         "id": "financial-source-observation-ent_case06_41c0551fc5b488cb6ff3",
@@ -11945,20 +11440,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "過酷な軍事訓練イベント (GORUCK Challenge) × 生涯保証ミリタリーギア × 直販D2C を武器に、現代生活の軟弱さへの自己嫌悪 ＆ 過酷な試練を乗り越えて男らしくありたい渇望 を解消する特化ソリューション",
-      "targetCustomer": "現代生活の決裁権を持つ責任者・当事者",
-      "painRelief": "現代生活の軟弱さへの自己嫌悪 ＆ 過酷な試練を乗り越えて男らしくありたい渇望"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "GORUCK Challenge イベント (全国数百回) ➔ 信者コミュニティの草の根口コミ ➔ CrossFit・フィットネス界隈提携 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者が車にバックパックを積み、全米を旅しながら友人を集めて第1回GORUCK Challengeを開催",
-        "泥まみれで街を練り歩く写真がFacebookで大バズりし、参加希望者が殺到",
-        "クロスフィット（CrossFit）の競技者たちの間で「最高のトレーニングギア」として定着"
-      ]
     }
   },
   {
@@ -12181,20 +11662,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "週刊ニュースレター (Brain Food: 70万人) × 有料会員コミュニティ (Learning Community) × 書籍「The Great Mental Models」 を武器に、意思決定をミスして数千万円溶かす恐怖 ＆ 浅薄な三流知識人と見なされる知的屈辱 を解消する特化ソリューション",
-      "targetCustomer": "意思決定をミスして数千万円溶かす恐怖 ＆ 浅薄な三流知識人と見なされる知的屈辱の決裁権を持つ責任者・当事者",
-      "painRelief": "意思決定をミスして数千万円溶かす恐怖 ＆ 浅薄な三流知識人と見なされる知的屈辱"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "週刊メルマガ「Brain Food」(70万人) ➔ ポッドキャスト「The Knowledge Project」 ➔ エリート読者のオーガニック口コミ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "カナダの諜報機関で働きながら、夜間に匿名でウォーレン・バフェットの哲学をブログに投稿",
-        "著名ヘッジファンドマネージャー（Bill Ackman等）が社内メールで転送し業界内でバイラル",
-        "匿名を解除し、週刊メルマガBrain Foodを開始して登録者が雪だるま式に拡大"
-      ]
     }
   },
   {
@@ -12411,20 +11878,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "オフィスカジュアル専用カッティング × 独自Pyca-Pro生地 × シリコンバレー富裕層口コミ を武器に、オフィスカジュアルで何を着ていいか分からない ＆ 安物Tシャツで舐められたくない を解消する特化ソリューション",
-      "targetCustomer": "オフィスカジュアルで何を着ていいか分からない ＆ 安物Tシャツで舐められたくない男性の決裁権を持つ責任者・当事者",
-      "painRelief": "オフィスカジュアルで何を着ていいか分からない ＆ 安物Tシャツで舐められたくない男性の不安"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "Meta / Instagram ターゲティング広告 ➔ アスリート・テック著名人ギフティング ➔ リピートまとめ買いメール ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Kickstarterで初期資金2.5万ドルを調達し、最初のロットを生産",
-        "シカゴやLAの広告代理店やスタートアップに直接サンプルを持ち込み、口コミで拡大",
-        "アスリート（Patrick Mahomes等）が着用したことで全米の男性層へリーチ"
-      ]
     }
   },
   {
@@ -12642,20 +12095,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "世界標準OSS (Tailwind CSS) × 公式コピペUIコンポーネント × $299買い切りライセンス を武器に、デザインセンスがないバックエンド開発者がゼロからCSSを書いてデモを作る絶望的な を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "デザインセンスがないバックエンド開発者がゼロからCSSを書いてデモを作る絶望的な時間浪費"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Tailwind CSS 公式ドキュメント (月間数千万PV) ➔ Adam WathanのTwitter / X (20万人) ➔ GitHub Releases ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "TwitterでデザインのBefore/After解説（Tips）を投稿し数十万人の開発者フォロワーを獲得",
-        "電子書籍「Refactoring UI」を発売し、初日で数十万ドルの売上を達成",
-        "Tailwind UIの初期プレビューを公開し、ウェイティングリストに数万人が登録"
-      ]
     }
   },
   {
@@ -12872,20 +12311,6 @@
         "technicalDifficulty": "MEDIUM",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "デザイナー専用ブラウザ内製エディタ × 実践クリエイティブコーディング × 年額サブスク を武器に、デザインだけではAIに仕事を奪われる失業恐怖 ＆ 黒い画面（コマンドライン）への を解消する特化ソリューション",
-      "targetCustomer": "デザインだけではAIに仕事を奪われる失業恐怖 ＆ 黒い画面への決裁権を持つ責任者・当事者",
-      "painRelief": "デザインだけではAIに仕事を奪われる失業恐怖 ＆ 黒い画面（コマンドライン）へのアレルギー"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "デザイン系インフルエンサーの口コミ ➔ 自社ブログ（デザイン・フォント特集） ➔ Instagram ビジュアル広告 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "ロンドンのコワーキングスペースでデザイナー向けの対面ワークショップからスタート",
-        "「誰も環境構築でつまずかない」独自オンラインエディタを開発してWeb化",
-        "Product Huntで入賞し、世界中のデザイナーの間で口コミが爆発"
-      ]
     }
   },
   {
@@ -13097,20 +12522,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "Notion公式認定アンバサダー権威 × Bulletproofテンプレート ($99〜$499) × 法人導入コンサル を武器に、Notionを導入したがページが乱立して散乱・形骸化し業務が停止する企業の焦燥 を解消する特化ソリューション",
-      "targetCustomer": "Notionを導入したがページが乱立して散乱・形骸化し業務が停止する企業の決裁権を持つ責任者・当事者",
-      "painRelief": "Notionを導入したがページが乱立して散乱・形骸化し業務が停止する企業の焦燥"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Notion VIP 技術ブログ (SEO) ➔ YouTube データベース詳細解説 ➔ Notion公式コミュニティ・ディレクトリ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Notionのリリース初期からデータベースの徹底的な検証記事をブログに執筆",
-        "「Bulletproof Workspace」のパイロット版を無料配布し、圧倒的な反響を獲得",
-        "有料版Bulletproofを$99でリリースし、初月から数万ドルの売上を記録"
-      ]
     }
   },
   {
@@ -13328,20 +12739,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "LOW"
       }
-    },
-    "essence": {
-      "whatItDoes": "マイクロモダール極上素材 × 限定プリント柄ドロップ × 毎月自動ポスト投函サブスク を武器に、下着売り場に行く極度の面倒臭さ ＆ ゴムが伸びて穴の空いたパンツを履き続ける不快 を解消する特化ソリューション",
-      "targetCustomer": "下着売り場に行く極度の決裁権を持つ責任者・当事者",
-      "painRelief": "下着売り場に行く極度の面倒臭さ ＆ ゴムが伸びて穴の空いたパンツを履き続ける不快感"
-    },
-    "acquisition": {
-      "cacJpy": 45000,
-      "primaryFunnel": "ポッドキャスト広告 (ホスト読み上げ) ➔ Instagram / TikTok カップル向けUGC ➔ メール会員向け限定柄ドロップ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者が下着売り場で店員にサイズを聞かれる恥ずかしさに耐えかねて起業を決意",
-        "ポッドキャストの生読み広告に初期予算を全額投入し、熱狂的な男性ファンを獲得",
-        "女性用下着やラウンジウェアへとラインナップを拡張し売上が爆発"
-      ]
     }
   },
   {
@@ -13552,20 +12949,6 @@
         "technicalDifficulty": "LOW",
         "platformRisk": "MEDIUM"
       }
-    },
-    "essence": {
-      "whatItDoes": "ノーコードディレクトリ (Airtable/Softr) × 週刊テンプレ紹介メルマガ × 決済手数料中抜き (20%) を武器に、自作テンプレの集客手段を持たない個人クリエイターの焦燥 ＆ 優良テンプレを探せな を解消する特化ソリューション",
-      "targetCustomer": "B2B/D2C企業のマーケティング責任者、グロース担当者、広告運用者",
-      "painRelief": "自作テンプレの集客手段を持たない個人クリエイターの焦燥 ＆ 優良テンプレを探せないユーザーの疲労"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Notionテンプレート関連SEO ➔ クリエイター自身のSNS拡散 ➔ 週刊おすすめメルマガ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Twitterで見つけた優れたNotionテンプレを50個勝手にまとめてサイトを開設",
-        "作者たちに「掲載しました！」とリプライを送り、全員にリツイートさせて初動トラフィックを獲得",
-        "直接決済機能を実装し、手数料ビジネスへ移行"
-      ]
     }
   },
   {
@@ -13620,21 +13003,6 @@
       "sourceDoc": "https://investors.solobrands.com/financials/quarterly-results/default.aspx"
     },
     "evidenceCards": [
-      {
-        "id": "ev_chubbies_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】真面目な競合を嘲笑う「自虐・短パン特化」の過激ユーモアで熱狂的信者を作るD2C配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "大手ができないバカ騒ぎ・週末解放コンテンツをSNSで連投し、「短パン＝金曜午後の自由」という感情アンカーを打ち込んでリピート率を最大化。",
-        "details": [
-          "【Step 1: ニッチな単一商品への極限特化】: フルラインナップを捨て、「丈の短いメンズ短パン（股下5.5インチ）」だけに全資本を集中。",
-          "【Step 2: ミームと自虐による共感獲得】: 鬱陶しい月曜朝から金曜午後への解放感をテーマにしたユーモア動画を制作し、バイラル拡散。",
-          "【Step 3: アンバサダーコミュニティ】: 大学生や熱狂的ファンをキャンパスアンバサダーに任命し、仲間内でのクチコミ購入ループを形成。"
-        ],
-        "codeSnippet": "// ミームマーケティングのエンゲージメント判定\nfunction calculateMemeVirality(shareCount: number, commentCount: number, adSpend: number) {\n  return (shareCount * 3 + commentCount * 2) / (adSpend + 1); // 広告費ゼロでバイラル係数を最大化\n}",
-        "sourceNote": "Chubbies創業者の初期カレッジゲリラマーケティング記録"
-      },
       {
         "id": "financial-source-ent_case06_951bdb1f70844800e347",
         "type": "SMOKING_GUN",
@@ -13785,20 +13153,6 @@
       }
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Facebook / Instagram 自虐ミーム動画 ➔ 金曜限定の「Friday 5pm」ニュースレター ➔ 大学生アンバサダーネットワーク ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "大学のフラタニティ（男子学生寮）で手作りの短パンを販売し即完売",
-        "「長ズボンは監獄だ」と主張する自虐ミーム画像を投稿し学生の間でバイラル",
-        "水陸両用（泳げて街も歩ける）ストレッチ短パンを開発し全米へ拡大"
-      ]
-    },
-    "essence": {
-      "whatItDoes": "金曜午後5時（TGIF）ミーム動画 × 股下14cmレトロ短パン × 熱狂的フラタニティコミュニティ を武器に、平日の息苦しいオフィスワークへの強烈な反発 ＆ 週末くらい童心に帰ってバカ騒ぎし を解消する特化ソリューション",
-      "targetCustomer": "平日の決裁権を持つ責任者・当事者",
-      "painRelief": "平日の息苦しいオフィスワークへの強烈な反発 ＆ 週末くらい童心に帰ってバカ騒ぎしたい男たちの解放欲求"
-    },
     "observationsStream": [
       {
         "id": "financial-source-observation-ent_case06_951bdb1f70844800e347",
@@ -13988,20 +13342,6 @@
         "【タイトフィットな裁断】: 従来のブカブカなアディダス・ナイキと真逆に、筋肉が最も美しく強調されるテーパード裁断で若者の承認欲求を直撃。"
       ],
       "coldOutreachTemplate": "// コミュニティ共犯型D2C配管\n1. ニッチ領域でファンが濃いフォロワー1万〜5万人の配信者を50人リストアップ\n2. ギフティング＋限定割引コードを配布し、新作発売日に一斉着用投稿\n3. 初回生産分を数分で即時完売させ、「買えなかった悔しさ」を次回ドロップの燃料にする"
-    },
-    "essence": {
-      "whatItDoes": "Shopify Plus × インスタボディビルダー無償ギフティング × BodyPowerミートアップ行列演出 を武器に、ダサい既存スポーツウェアを着てジムで舐められたくない若者の虚栄心 ＆ 筋トレコミ を解消する特化ソリューション",
-      "targetCustomer": "ダサい既存スポーツウェアを着てジムで舐められたくない若者の決裁権を持つ責任者・当事者",
-      "painRelief": "ダサい既存スポーツウェアを着てジムで舐められたくない若者の虚栄心 ＆ 筋トレコミュニティへの所属承認欲求"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Shopify Plus ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2012年、19歳のBen Francisが大学に通いながらバーミンガムの自宅ガレージで創業。",
-        "サプリメントのドロップシッピングで小銭を稼ぎ、それを元手にミシンを購入。筋肉のカットが綺麗に見える独自のベストを自作。",
-        "展示会ブース代を全財産で支払い、SNSで知り合ったマッチョたちを招待してファンと直接交流させたことで全在庫が即日蒸発。"
-      ]
     }
   },
   {
@@ -14176,20 +13516,6 @@
         "【犬の死の恐怖へのアンカー】: 「平均寿命を数年伸ばすための食事」と位置づけ、1食あたり数百円の追加出費を愛犬の命の保険料として正当化。"
       ],
       "coldOutreachTemplate": "// 罪悪感切除型プレミアムD2C配管\n1. 既存市場の「低品質・大量生産」の不都合な真実を科学的に告発\n2. 5問の診断ステップでパーソナライズ感を演出し、初期離脱を防止\n3. 2週間のトライアル（50%オフ）で犬の食いつきを確認させ、自動定期購入へ移行"
-    },
-    "essence": {
-      "whatItDoes": "カスタム体重・犬種診断クイズ × 人間用食品グレード調理工場 × クール便定期サブスク を武器に、「自分のせいで愛犬が病気になり早く死ぬかもしれない」という飼い主の猛烈な罪悪感と を解消する特化ソリューション",
-      "targetCustomer": "「自分の決裁権を持つ責任者・当事者",
-      "painRelief": "「自分のせいで愛犬が病気になり早く死ぬかもしれない」という飼い主の猛烈な罪悪感と後悔恐怖"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "カスタム体重・犬種診断クイズ ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "共同創業者Brett Podolskyの愛犬Jadaが市販フードを受け付けず、自家製の鶏肉と野菜を調理したところ症状が即座に完治。",
-        "同じ悩みを抱える愛犬家コミュニティやドッグパークで手作りパックを配り、初期の熱烈なリピーターを獲得。",
-        "「ドッグフード産業の闇」を暴く長文コンテンツとSNS広告で爆発的な拡散を誘発。"
-      ]
     }
   },
   {
@@ -14364,20 +13690,6 @@
         "【インスタ映えするカラーバリエーション】: 暗いキッチンに置くだけで映えるテラコッタ、セージ、クリーム色を展開し、主婦やインフルエンサーの投稿を誘発。"
       ],
       "coldOutreachTemplate": "// 毒性排除プレミアムリプレイス配管\n1. 誰もが毎日使っている日用品の「隠れた有害物質・環境負荷」を特定\n2. 無害な新素材（セラミック、竹、ガラス）で代替し、ミニマルで美しいデザインに刷新\n3. 収納ラックや専用ケースを同梱した高額セット（¥50,000〜¥80,000）を基本提案にする"
-    },
-    "essence": {
-      "whatItDoes": "Shopify × セラミックノンスティックOEM × Instagramキッチン映え写真 × Target/Crate&Barrel棚取り を武器に、古いテフロン加工フライパンから化学物質が溶け出し家族の口に入る恐怖 ＆ 汚い台所 を解消する特化ソリューション",
-      "targetCustomer": "古いテフロン加工フライパンから化学物質が溶け出し家族の決裁権を持つ責任者・当事者",
-      "painRelief": "古いテフロン加工フライパンから化学物質が溶け出し家族の口に入る恐怖 ＆ 汚い台所を見せられない羞恥心"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Shopify ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2018年にJordan Nathanが創業。市販のノンスティックフライパンのほとんどにPFAS（有機フッ素化合物）が使われている事実に驚愕。",
-        "Kickstarter等を使わず、数百回の素材テストを経てセラミックコーティング工場を開拓。",
-        "ローンチ直後にInstagramのインテリア系アカウントにギフティングし、「隠さず見せるフライパン」として即座に完売。"
-      ]
     }
   },
   {
@@ -14552,20 +13864,6 @@
         "【クレジットの死蔵化】: 引き落とされたクレジットは商品購入に使えるが、使わずに溜め込むユーザーが一定割合存在し、驚異的なキャッシュフローを生む。"
       ],
       "coldOutreachTemplate": "// ネガティブオプション型VIPサブスク配管\n1. 初回購入時に「通常購入（高額）」と「VIP会員価格（70%引）」を並べ、95%をVIPへ誘導\n2. 毎月自動引き落としを行い、商品と交換可能なクレジットを付与\n3. 解約手続きには電話や複雑なチャットを要求し、チャーンレートを極小化"
-    },
-    "essence": {
-      "whatItDoes": "JustFab基盤 × ケイト・ハドソン共同創業ブランディング × VIP月額クレジット自動引き落とし × 全米120店舗 を武器に、ルルレモン（1本1.5万円）は高すぎて買えないが、ファストファッションのヨガパン を解消する特化ソリューション",
-      "targetCustomer": "ルルレモンは高すぎて買えないが、ファストファッションの決裁権を持つ責任者・当事者",
-      "painRelief": "ルルレモン（1本1.5万円）は高すぎて買えないが、ファストファッションのヨガパンツはすぐ破れて恥ずかしい女性の見栄"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "JustFab基盤 ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2013年、TechStyle Fashion Group（JustFabの親会社）がケイト・ハドソンとタッグを組んで立ち上げ。",
-        "「ルルレモンと同等の高品質アクティブウェアを1/3の価格で」という分かりやすい対比でテレビ・雑誌・SNSを席巻。",
-        "初年度から数千万ドルの売上を記録し、サブスク型アパレルの最大手へと登り詰めた。"
-      ]
     }
   },
   {
@@ -14740,20 +14038,6 @@
         "【100日無料トライアル】: 店頭で5分寝転がっても分からない。自宅で3ヶ月寝て合わなければ全額返金＋無料引き取りを約束して購入不安を完全消滅。"
       ],
       "coldOutreachTemplate": "// 摩擦ゼロ型大型商品D2C配管\n1. 既存流通の「配送・設置のハードル」を圧縮技術で解決\n2. 決定を悩ませるラインナップを1〜2種類に絞り込み、比較の労力をゼロにする\n3. 「リスクはすべて売り手が持つ（100日無料返品）」を掲げて、高額商品の購入障壁を粉砕"
-    },
-    "essence": {
-      "whatItDoes": "圧縮フォームパッキング × UPS通常宅配便 × 100日間全額返金保証 × ポッドキャスト広告絨毯爆撃 を武器に、マットレス売り場でスーツを着た営業マンに囲まれ数十万円のモデルを押し売りされる苦 を解消する特化ソリューション",
-      "targetCustomer": "マットレス売り場でスーツを着た営業マンに囲まれ数十万円の決裁権を持つ責任者・当事者",
-      "painRelief": "マットレス売り場でスーツを着た営業マンに囲まれ数十万円のモデルを押し売りされる苦痛 ＆ 部屋まで運べない絶望"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "圧縮フォームパッキング ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2014年、ニューヨークで5人の創業者によって設立。ローンチ初月に年間目標の100万ドルを突破。",
-        "Joe Rogan、Tim Ferriss等の有力ポッドキャスター全員にマットレスを送り、割引コード付きで絶賛レビューを放送。",
-        "箱からマットレスがムクムク膨らむ動画がYouTubeやVineで「開封の快感」としてバイラル化。"
-      ]
     }
   },
   {
@@ -14928,20 +14212,6 @@
         "【ピンクプチプチポーチのトロイの木馬】: 商品をピンクの気泡緩衝材ポーチに入れて送り、ポーチ自体が街中で持ち歩かれ無料の歩く広告塔に。"
       ],
       "coldOutreachTemplate": "// コンテンツ共創型D2C配管\n1. 特定ニッチで読者コミュニティを持つメディアを先行運用\n2. 「世の中の既存製品の何が不満か？」をアンケートやコメントで徹底収集\n3. 開発プロセスをすべて公開し、発売当日に読者が「自分の作った商品」として爆買い"
-    },
-    "essence": {
-      "whatItDoes": "Into The Glossブログ × Instagram UGCコメント分析 × ピンクジップポーチ同梱 × Sephora棚取り を武器に、重たい化粧で肌荒れを隠し続けるストレス ＆ 百貨店コスメカウンターのツンとした店 を解消する特化ソリューション",
-      "targetCustomer": "重たい化粧で肌荒れを隠し続けるストレス ＆ 百貨店コスメカウンターの決裁権を持つ責任者・当事者",
-      "painRelief": "重たい化粧で肌荒れを隠し続けるストレス ＆ 百貨店コスメカウンターのツンとした店員への苦手意識"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Into The Glossブログ ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2010年、Emily Weissが自己資金$700で『Into The Gloss』を開設。",
-        "キム・カーダシアン等のセレブが自宅のバスルームで実際に使っている私物コスメを撮影する『The Top Shelf』が爆発的人気に。",
-        "読者が何万人もコメントを寄せ合うコミュニティが完成した状態で、2014年に最初の4製品をローンチ。"
-      ]
     }
   },
   {
@@ -15116,20 +14386,6 @@
         "【地方の中間層をターゲット】: 大都市の富裕層向けWhole Foodsと違い、近くに健康食品店がない中西部の主婦層を狙い撃ち。"
       ],
       "coldOutreachTemplate": "// 会員制ディスカウントEC配管\n1. 「一般小売価格より30%安い卸値提供」を武器に、有料会員登録（年額¥8,000）を義務付け\n2. 登録と同時に年間パス代を即時前金回収\n3. 売れ筋の定番消耗品から順次PB化し、物販側の利益率を底上げ"
-    },
-    "essence": {
-      "whatItDoes": "自社倉庫直結EC × 年額$59.95会員パス × プライベートブランド（PB）高粗利直販 を武器に、Whole Foodsが高すぎて破産する恐怖 ＆ 近くに健康的な無添加食品を売っ を解消する特化ソリューション",
-      "targetCustomer": "Whole Foodsが高すぎて破産する恐怖 ＆ 近くに健康的な無添加食品を売っている店が1軒もない田舎の決裁権を持つ責任者・当事者",
-      "painRelief": "Whole Foodsが高すぎて破産する恐怖 ＆ 近くに健康的な無添加食品を売っている店が1軒もない田舎の絶望"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "自社倉庫直結EC ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2014年創業時、シリコンバレーのVCは「オンライン食品スーパーなどWebvanの二の舞だ」と全員却下。",
-        "創業チームは健康系YouTuberやパレオダイエットのカリスマブロガー50人にアプローチし、彼らから少額出資を集めて株主に任命。",
-        "彼らが自分のブログやメルマガで一斉に「私が投資した、最高に安くて安全なオンラインスーパー」と紹介し、数ヶ月で10万人の有料会員を獲得。"
-      ]
     }
   },
   {
@@ -15304,20 +14560,6 @@
         "【スマホ画面保護液とのバンドル】: 「ケース＋液体ガラスフィルム＋無制限画面修理保証」をセットにして単価を$80まで引き上げ。"
       ],
       "coldOutreachTemplate": "// エシカルプレミアムD2C配管\n1. 誰もが定期的に買い換えて捨てている消耗品（ケース、歯ブラシ、スポンジ）を特定\n2. 農業廃棄物や植物由来の新素材に置き換え、「100%堆肥化可能」を証明\n3. 利益の一部を環境保護団体に寄付し、購入者の「良いことをした」ドーパミンを最大化"
-    },
-    "essence": {
-      "whatItDoes": "Shopify Plus × 亜麻粕バイオポリマー（Flaxstic）特許 × ウミガメ保護UGC広告 を武器に、毎年新しいiPhoneが出るたびにプラスチックゴミを増やすことへの環境意識の高い を解消する特化ソリューション",
-      "targetCustomer": "毎年新しいiPhoneが出るたびにプラスチックゴミを増やすことへの決裁権を持つ責任者・当事者",
-      "painRelief": "毎年新しいiPhoneが出るたびにプラスチックゴミを増やすことへの環境意識の高い消費者の自己嫌悪"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Shopify Plus ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2010年、ハワイ旅行中に海岸に打ち上げられた大量のプラスチックゴミを見てショックを受け開発開始。",
-        "カナダ・サスカチュワン州の亜麻（アマ）農場で廃棄されていた繊維の破片と植物性ポリマーを配合し「Flaxstic」を発明。",
-        "Eコマースの専門家Matt Bertulliが合流し、環境系Facebookグループやクラウドファンディングで爆発的に拡大。"
-      ]
     }
   },
   {
@@ -15492,20 +14734,6 @@
         "【詰替パウチによるLTV極大化】: 初回は美しい琥珀色のボトルを買い、以降は紙パックやパウチの詰替え用を定期購入させる。"
       ],
       "coldOutreachTemplate": "// ミニマリズム家屋占拠型配管\n1. トイレ、洗面所、キッチンで毎日目に入る日用品をリストアップ\n2. パッケージから一切の装飾を排除し、白地＋黒フォントで全商品を統一\n3. 年会費（¥9,000）を徴収して「会員限定の原価販売」を演出"
-    },
-    "essence": {
-      "whatItDoes": "Shopify × 単一フォント統一ミニマルパッケージ × 年会費$79 × リフィル詰替パウチ を武器に、洗面所や台所に並ぶ市販洗剤のうるさい原色ラベルに部屋の美学を汚されるストレス を解消する特化ソリューション",
-      "targetCustomer": "洗面所や台所に並ぶ市販洗剤の決裁権を持つ責任者・当事者",
-      "painRelief": "洗面所や台所に並ぶ市販洗剤のうるさい原色ラベルに部屋の美学を汚されるストレス"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Shopify ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2017年、Kickstarterで初期資金を調達。市販のシャンプーの原価が数十円であり、残りの大半がTVCMと流通マージンである事実を暴いた。",
-        "ミニマルなデザインのボトル写真を並べただけで、Kickstarter目標額の600%以上を集めて完売。",
-        "初期バッカーをそのまま初年度の年会費無料会員として抱え込み、初動のロイヤル顧客基盤を構築。"
-      ]
     }
   },
   {
@@ -15680,20 +14908,6 @@
         "【買い切り中毒者の囲い込み】: 「二度と手に入らない永久ライセンス」というFOMO（取り残される恐怖）を煽り、起業志望者に使わないツールを大量に衝動買いさせる。"
       ],
       "coldOutreachTemplate": "// LTDマーケットプレイス配管\n1. Product HuntやTwitterでローンチ直後のシード期SaaSをリストアップ\n2. 「AppSumoに出品すれば初週で$50,000の現金を前払い保証」とDM\n3. 100万人メルマガへ「残り48時間で永久プラン終了」と一斉配信して決済"
-    },
-    "essence": {
-      "whatItDoes": "WordPress × Mailchimp × 独自LTD決済エンジン × 100万人規模の起業オタクメルマガ を武器に、毎月のSaaSサブスク固定費で資金ショートする中小企業 ＆ 初期ユーザーが1人も を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "毎月のSaaSサブスク固定費で資金ショートする中小企業 ＆ 初期ユーザーが1人も集まらず死にかけている無名開発者"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "WordPress ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2010年、画像共有サイトImgurの有料Proアカウント（年間$24）を「$9.99でディスカウント販売させてくれ」と交渉。",
-        "PayPalボタンを貼っただけの簡素な1ページLPを作り、Redditに投稿したところ初日で数千ドルを着金。",
-        "利益をすべてメルマガ読者獲得広告（Facebookリード広告）に再投資し、世界最大の起業ツールメルマガを構築。"
-      ]
     }
   },
   {
@@ -15868,20 +15082,6 @@
         "【算術的CAC/LTV裁定取引】: Facebook広告で1人あたり$2〜$3で読者を獲得し、年間の広告閲覧で$6〜$8を回収する数学的増殖ループ。"
       ],
       "coldOutreachTemplate": "// 中立アグリゲーションニュースレター配管\n1. 100以上の信頼できる一次情報源（ロイター、AP等）から毎朝重要トピックを10件抽出\n2. 感情的な修飾語を全削除し、小学生でもわかる事実要約にリライト\n3. Meta広告で「意見のない純粋な事実を朝5分で」と出稿し、読者を底引き網獲得"
-    },
-    "essence": {
-      "whatItDoes": "自社CMS × Sailthruメール配信 × Meta/TikTok獲得広告 × 直販CPC/CPMネイティブ広告 を武器に、SNSやテレビニュースの過激な党派対立と怒りの煽り運転で精神を病みたくない知性派 を解消する特化ソリューション",
-      "targetCustomer": "SNSやテレビニュースの決裁権を持つ責任者・当事者",
-      "painRelief": "SNSやテレビニュースの過激な党派対立と怒りの煽り運転で精神を病みたくない知性派ビジネスパーソンの平穏欲求"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "自社CMS ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2017年、グーグルスプレッドシートにまとめたニュース要約を、友人70人に個人的にメール送信。",
-        "転送によって読者が自然増し、1,000人を超えた段階で外部VCを入れず自前資金のみで広告テストを開始。",
-        "獲得単価（CPA）と読者生涯価値（LTV）のスプレッドがプラスであることを確認し、利益の全額をMeta広告に投入して急拡大。"
-      ]
     }
   },
   {
@@ -16016,20 +15216,6 @@
       "viabilityLabel": "急上昇（AIコピペ汚染への反動）",
       "eraContext": "生成AIによるWebの低品質コピペ記事の氾濫と、伝統的デジタルメディアの大量レイオフ・崩壊期。",
       "currentViabilityAnalysis": "Google検索がAI生成スパムで崩壊したことで、信頼できる人間の記者による直接配信ニュースレターの価値は過去最高に跳ね上がっている。再現性は極めて高い。"
-    },
-    "essence": {
-      "whatItDoes": "Ghost CMS × Stripe × 4人の調査報道記者 を武器に、テック業界ウォッチャー・セキュリティ専門家の「粗製濫造されたAI生成記事への嫌悪 を解消する特化ソリューション",
-      "targetCustomer": "テック業界ウォッチャー・セキュリティ専門家の決裁権を持つ責任者・当事者",
-      "painRelief": "テック業界ウォッチャー・セキュリティ専門家の「粗製濫造されたAI生成記事への嫌悪感」と真実への渇望"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "記者個人Twitter(X)フォロワー ➔ 一次スクープによる他メディア被リンク ➔ Ghost有料ニュースレター ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Vice解散直後に創業者4人が個人Twitter（計数十万フォロワー）で独立を一斉告知",
-        "ローンチ初週にAIポルノとサイバー犯罪に関する独占スクープを連発し、初速で数千人の有料会員を獲得",
-        "404 Mediaの独自記事がThe Vergeやニューヨーク・タイムズに引用され被リンクと権威性を自動蓄積"
-      ]
     }
   },
   {
@@ -16204,20 +15390,6 @@
         "【年間パッケージ販売】: 単発の広告枠は売らず、「年間メインスポンサー（数億円）」としてJ.P. MorganやServiceNow等に独占販売して前金を回収。"
       ],
       "coldOutreachTemplate": "// プレミアム長尺メディア配管\n1. 誰もが知っている巨大企業（任天堂、LVMH、エルメス、マイクロソフト）の全歴史を100時間かけて徹底解剖\n2. 3〜4時間の音声＋動画ポッドキャストとして月1本だけ極上の品質でドロップ\n3. B2Bメガエンタープライズに「年間独占スポンサー権」を数億円で直販"
-    },
-    "essence": {
-      "whatItDoes": "自前リサーチ（数百時間） × 長尺ポッドキャスト配信 × 年単位長期スポンサー契約（J.P. Morgan, ServiceNow等） を武器に、シリコンバレーのエリートビジネスマンやVCの「浅いニュースでは満たされない知的飢 を解消する特化ソリューション",
-      "targetCustomer": "シリコンバレーの決裁権を持つ責任者・当事者",
-      "painRelief": "シリコンバレーのエリートビジネスマンやVCの「浅いニュースでは満たされない知的飢餓感」と「ライバルに知識で負けたくない恐怖」"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "自前リサーチ（数百時間） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "最初は数百人のテック関係者しか聴いていなかったが、妥協のない深掘り調査を何年も継続。",
-        "「エピソードが長ければ長いほどリスナーのエンゲージメントが上がる」という異常なデータを発見し、どんどん尺を伸ばす逆張りを敢行。",
-        "マーク・ザッカーバーグやジェンセン・フアン（NVIDIA）が逆指名で出演するようになり、資本主義の公式ドキュメンタリーへ昇格。"
-      ]
     }
   },
   {
@@ -16272,21 +15444,6 @@
       "sourceDoc": "https://2pml.com/"
     },
     "evidenceCards": [
-      {
-        "id": "ev_2pm_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】浅いまとめ記事を排し、コマース業界幹部向けに高解像度データレターを年額10万円で直販する知恵の関所",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "大衆向け無料メディアではなく、企業の役員・VCが投資判断や競合分析に不可欠な一次データレポートを高単価サブスクで直販。",
-        "details": [
-          "【Step 1: 独自データとインフォグラフィック】: 公開情報をただまとめるのではなく、自前のコマースデータベースから独自の相関分析図を作成。",
-          "【Step 2: 会社の経費枠を狙う高価格設定】: 個人のポケットマネー（月数百円）ではなく、企業の「情報調査・経費精算枠（年額数万〜数十万円）」をターゲットにする。",
-          "【Step 3: 会員限定コミュニティの付加】: 有料購読者同士がSlackで直接議論できるクローズド環境を提供し、人脈価値で解約率を極小化。"
-        ],
-        "codeSnippet": "// B2B特化ニュースレターの単価・利益試算\nfunction calculateExecutiveNewsletterRevenue(subscriberCount: number, annualPrice: number) {\n  const grossRevenue = subscriberCount * annualPrice;\n  const subPlatformFee = grossRevenue * 0.05; // GhostやStripe手数料\n  return { netRevenue: grossRevenue - subPlatformFee, margin: 0.95 };\n}",
-        "sourceNote": "2PM創業者Web Smithのメディアビジネスアーキテクチャ"
-      },
       {
         "id": "financial-source-ent_2pm_aaeaf4a28582273752d4",
         "type": "SMOKING_GUN",
@@ -16383,20 +15540,6 @@
       "coldOutreachTemplate": "// 高単価エグゼクティブメディア配管 1. 特定の巨大産業（リテール、ロジスティクス、フィンテック）の交差点を特定 2. 業界幹部が知るべき生々しいデータと力学を週2〜3回詳細に執筆"
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Substack/独自会員基盤 ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2015年、自らの実践知を「2PM」というニュースレターとして週2回発信開始。",
-        "金額・費用の裏付けは未確認。",
-        "リテール界の有力者たちが次々と購読し、口コミだけで世界トップクラスの業界特化メディアへ成長。"
-      ]
-    },
-    "essence": {
-      "whatItDoes": "Substack/独自会員基盤 × エグゼクティブ向け週3日レポート × ブランド幹部限定コミュニティ を武器に、金額・費用の裏付けは未確認。 を解消する特化ソリューション",
-      "targetCustomer": "金額・費用の決裁権を持つ責任者・当事者",
-      "painRelief": "金額・費用の裏付けは未確認。"
-    },
     "unknownsNotes": [
       "有料会員3,500人・平均年額$500・自社売上$3Mの根拠はこの一次資料では確認できない。",
       "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
@@ -16574,20 +15717,6 @@
         "【自作APIツール（Fly.io）による差別化】: 単なる見た目のテンプレートではなく、Notion APIを使ってGoogleカレンダーと双方向同期する独自ツールを開発し競合を無力化。"
       ],
       "coldOutreachTemplate": "// プラットフォーム寄生型デジタルプロダクト配管\n1. 急成長しているノーコード/SaaS（Notion, Airtable, Webflow）の「初期設定の難しさ」を特定\n2. 初心者が即戦力で使えるオールインワンの完成型ワークスペースを構築\n3. YouTubeで「世界で一番わかりやすい解説動画」を投稿し、概要欄から自社テンプレへ直結"
-    },
-    "essence": {
-      "whatItDoes": "Thomas Frank Explains（YouTube特化チャンネル） × Notion公式認定 × Gumroad/Lemon Squeezy決済 × Fly.io自作API を武器に、Notionを使いこなせずタスク管理が破綻して毎日自己嫌悪に陥る知的生産者 ＆  を解消する特化ソリューション",
-      "targetCustomer": "Notionを使いこなせずタスク管理が破綻して毎日自己嫌悪に陥る知的生産者 ＆ 自作する時間の決裁権を持つ責任者・当事者",
-      "painRelief": "Notionを使いこなせずタスク管理が破綻して毎日自己嫌悪に陥る知的生産者 ＆ 自作する時間の惜しい多忙なフリーランス"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Thomas Frank Explains（YouTube特化チャンネル） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "元々は『College Info Geek』として大学生向けの勉強法を発信していたが、視聴者の年齢とともに成長が停滞。",
-        "Notionに熱中し、自前で構築したGTD（Getting Things Done）タスク管理システムを公開したところ反響が爆発。",
-        "初年度（2022年）だけでNotionテンプレ売上100万ドル（約1.5億円）を突破。"
-      ]
     }
   },
   {
@@ -16762,20 +15891,6 @@
         "【AI時代への高速ピボット】: 従来のSEO記事執筆が崩壊するや否や、最速でプログラマティックSEOとAI自動化スクール『AI Accelerator』を立ち上げ顧客を再活性化。"
       ],
       "coldOutreachTemplate": "// 高単価実践スクール配管\n1. 実際に自前でメディアを10個運用し、毎月のアクセス・収益の生データを収集\n2. ポッドキャストと長文ブログで「大衆が知らない最新の仕様変更」を無料公開\n3. 年2回の限定ウェビナー（ローンチイベント）で高額講座（¥150,000〜¥450,000）を一括販売"
-    },
-    "essence": {
-      "whatItDoes": "Authority Hacker Podcast（週刊生配信） × Ahrefs/SurferSEO実証実験 × 高額講座（$997〜$2,997） × AI Acceleratorコミュニティ を武器に、Googleコアアップデートで自社サイトが圏外に吹き飛び毎月の広告収入が即死した を解消する特化ソリューション",
-      "targetCustomer": "Googleコアアップデートで自社サイトが圏外に吹き飛び毎月の決裁権を持つ責任者・当事者",
-      "painRelief": "Googleコアアップデートで自社サイトが圏外に吹き飛び毎月の広告収入が即死したアフィリエイター・副業挑戦者の絶望"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Authority Hacker Podcast（週刊生配信） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2014年、健康食品やスポーツ用品のニッチ特化サイトを量産し、Amazonアソシエイトで月数百万円の不労所得を構築。",
-        "その過程で得た「どの被リンクが効いて、どのリンクがペナルティを受けるか」の膨大な実験記録をブログに全公開。",
-        "詐欺的な情報商材屋が横行する業界で、圧倒的な実証データにより瞬く間に業界標準の教育ブランドへ上り詰めた。"
-      ]
     }
   },
   {
@@ -16950,20 +16065,6 @@
         "【マイクロレッスン形式】: 1日わずか30分の極小タスクに分解し、「忙しくて勉強できない」という言い訳を完全粉砕。"
       ],
       "coldOutreachTemplate": "// コミットメント強制型バイラル教育配管\n1. 「100日間、毎日30分だけ実践する」という極小のルールを提示\n2. 毎日の成果物を専用ハッシュタグをつけてXやLinkedInに投稿することを義務付け\n3. 生徒のタイムラインを見た友人が連鎖的に参加し、CAC（獲得コスト）完全ゼロで会員増殖"
-    },
-    "essence": {
-      "whatItDoes": "Circleコミュニティ × Twitter #100DaysOfNoCodeハッシュタグ × Zapier/Airtable/Softr演習 × 年額$250〜$750パス を武器に、何回PythonやJavaScriptの入門書を買っても1章で挫折した文系ビジネ を解消する特化ソリューション",
-      "targetCustomer": "何回PythonやJavaScriptの決裁権を持つ責任者・当事者",
-      "painRelief": "何回PythonやJavaScriptの入門書を買っても1章で挫折した文系ビジネスマンの「自分はアプリを作れない」劣等感"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Circleコミュニティ ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "「コードが書けない自分でもWebサービスを作れるか？」を検証するため、毎日の勉強記録を#100DaysOfNoCodeをつけて投稿開始。",
-        "同じ悩みを持つ世界中のビジネスマンから「自分も混ぜてほしい」とリプライが殺到。",
-        "最初はWhatsAppグループで無料運営し、人が溢れた段階でCircleコミュニティへ移行し有料化。"
-      ]
     }
   },
   {
@@ -17138,20 +16239,6 @@
         "【全クリエイターが無料で宣伝してくれる配管】: クリエイター自身がYouTubeの概要欄、Xのプロフィール、GitHubのREADMEに「buymeacoffee.com/名前」を貼り付けて勝手に集客。"
       ],
       "coldOutreachTemplate": "// 摩擦ゼロ投げ銭配管\n1. クリエイターに30秒で公開できるプロフィールページを提供\n2. 支援金額を「☕ $5」「☕☕ $10」「☕☕☕ $15」のボタン選択式にする\n3. Stripe Connectで決済を通し、5%を自社口座へ自動中抜きしてクリエイターに即時送金"
-    },
-    "essence": {
-      "whatItDoes": "Stripe Connect × Apple Pay/Google Pay 1タップ決済 × クリエイター個人ページ × 手数料5%自動徴収 を武器に、ファンから少額の支援をもらいたいのに、会員登録やクレカ入力の面倒さで9割が決済前 を解消する特化ソリューション",
-      "targetCustomer": "ファンから少額の決裁権を持つ責任者・当事者",
-      "painRelief": "ファンから少額の支援をもらいたいのに、会員登録やクレカ入力の面倒さで9割が決済前に離脱するクリエイターの無念"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Stripe Connect ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2018年、Patreonの度重なるポリシー改定と手数料引き上げに怒っていたクリエイターたちのツイートを特定。",
-        "「登録不要で今すぐ寄付を受け取れるシンプルなページ」として直接リプライで提案。",
-        "オープンソース開発者やポッドキャスターが次々とPatreonから乗り換え、初期のトラクションを獲得。"
-      ]
     }
   },
   {
@@ -17326,20 +16413,6 @@
         "【解約不能のリード発生源】: B2B SaaSにとってCapterraからの流入は最も成約率が高いため、月間数百万円の広告費を払い続けざるを得ない。"
       ],
       "coldOutreachTemplate": "// B2Bレビューアグリゲーター配管\n1. 特定の業界カテゴリ（「歯科医院向け予約ソフト」等）の全ツールを網羅\n2. 既存ユーザーにインセンティブを渡して生々しい星評価と長文レビューを大量収集\n3. Googleの「〇〇 比較」「〇〇 レビュー」のSEOを完全制圧し、掲載企業に入札広告枠を販売"
-    },
-    "essence": {
-      "whatItDoes": "SEO大量比較ページ × レビュー投稿インセンティブ（Amazonギフト券） × 入札型PPC広告（Pay-Per-Click） を武器に、「ソフトウェアを導入して大失敗し社内で降格・クビになる恐怖」に怯える企業の情報シ を解消する特化ソリューション",
-      "targetCustomer": "「ソフトウェアを導入して大失敗し社内で降格・クビになる恐怖」に怯える企業の決裁権を持つ責任者・当事者",
-      "painRelief": "「ソフトウェアを導入して大失敗し社内で降格・クビになる恐怖」に怯える企業の情報システム部長・総務部長"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "SEO大量比較ページ ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "最初は固定月額の掲載料を取っていたが、2008年の金融危機を機に「成果報酬型（クリック課金）」へピボット。",
-        "「購入意欲が最も高い見込み客がクリックした時だけ課金される」仕組みがSaaS企業に大ヒットし、売上が垂直立ち上げ。",
-        "2015年に米調査会社大手Gartnerに数億ドルで巨額売却。"
-      ]
     }
   },
   {
@@ -17472,20 +16545,6 @@
       "viabilityLabel": "現在も有効（FramerやShopifyへ転用可能）",
       "eraContext": "ノーコードWeb制作が受託業界の主流になり、Webflow特需が起きた時代。",
       "currentViabilityAnalysis": "Webflow向けは競合（Relume等）が登場したが、FramerやTailwind CSS、v0向けの同様のコンポーネント拡張機能市場は現在も急成長している。"
-    },
-    "essence": {
-      "whatItDoes": "Webflow × Chrome拡張機能 × Stripe を武器に、Web制作会社・フリーランスの納期恐怖（「一からナビゲーションバーやFAQを組む を解消する特化ソリューション",
-      "targetCustomer": "Web制作会社・フリーランスの決裁権を持つ責任者・当事者",
-      "painRelief": "Web制作会社・フリーランスの納期恐怖（「一からナビゲーションバーやFAQを組む時間がない」）"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Chrome Web Store ➔ Webflowコミュニティ ➔ Twitter Tips動画 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Webflowのコミュニティフォーラムで自作の無料コンポーネントを配布し絶大な知名度を獲得",
-        "Twitterで「Webflow Tips」としてコピペ動画を毎日投稿してフォロワーを激増させる",
-        "有料Proプランをリリースした当日に数十人のデザイナーが課金"
-      ]
     }
   },
   {
@@ -17660,20 +16719,6 @@
         "【本体無料によるバイラル拡散】: 無料プランでは「Made with Simple.ink」のフッターリンクが付き、訪問者が連鎖的に新規登録するバイラルループ。"
       ],
       "coldOutreachTemplate": "// Notion to Web変換配管\n1. ユーザーのNotion公開URLを取得し、API経由でHTMLへ変換してCloudflareエッジにキャッシュ\n2. 独自ドメイン（DNS）とカスタムCSS/フォント設定機能を有料化（月額$12）\n3. 全無料サイトの最下部に自社バナーを強制表示させ、被リンクと新規ユーザーを自動獲得"
-    },
-    "essence": {
-      "whatItDoes": "Cloudflare Workers × Notion APIキャッシュ × Stripe月額サブスク（$12/月〜） を武器に、Webサイトを持ちたいが、WordPressの設定が難しくて吐き気がする個人起業 を解消する特化ソリューション",
-      "targetCustomer": "Webサイトを持ちたいが、WordPressの決裁権を持つ責任者・当事者",
-      "painRelief": "Webサイトを持ちたいが、WordPressの設定が難しくて吐き気がする個人起業家やポートフォリオ難民"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Cloudflare Workers ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2021年、兄弟創業者のCh DanielとDavidが開発。",
-        "「クレジットカード登録不要で、今すぐNotionをWebサイト化できる」とRedditやProduct Huntで宣伝。",
-        "数万人の無料ユーザーを瞬く間に抱え込み、独自ドメイン設定を有料化して一気に黒字化、2023年に売却成功。"
-      ]
     }
   },
   {
@@ -17815,20 +16860,6 @@
       "viabilityLabel": "現在も有効（Pinterest×デジタル商品）",
       "eraContext": "コロナ禍での在宅勤務強制と、Notionの爆発的普及。デスク環境にお金をかけるエンジニアが激増した時代。",
       "currentViabilityAnalysis": "リモートワークは定着しており、Pinterestからのビジュアル流入とデジタル商品販売の手法は現在も完全に機能する。AIを使って画像生成や記事作成を効率化すれば、さらに低労力で再現可能。"
-    },
-    "essence": {
-      "whatItDoes": "WordPress × Pinterest/Instagramキュレーション × Amazonアフィリエイト/Gumroad を武器に、在宅勤務エンジニア・デザイナーの「退屈な作業環境への不満」と美的自己顕示欲 を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "在宅勤務エンジニア・デザイナーの「退屈な作業環境への不満」と美的自己顕示欲"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Pinterest ビジュアル検索ピン ➔ Instagram デスク写真キュレーション ➔ Notion活用・デスク環境SEO ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "TumblrやInstagramでエモい部屋の写真をひたすらキュレーションして初期フォロワーを獲得",
-        "Notionがブームになり始めた2020年に、いち早く「Notion Setups」のカテゴリを作って特化記事を連投",
-        "海外のReddit（r/macsetups, r/battlestations）に自然な形でまとめ記事を投稿しバズを獲得"
-      ]
     }
   },
   {
@@ -18003,20 +17034,6 @@
         "【チームコラボレーションの拡張】: 会社内で「ノンデザイナーがマーケティング資料を作る標準ツール」として浸透させ、全社エンタープライズ契約を巻き取る。"
       ],
       "coldOutreachTemplate": "// 本体無料・機能人質配管\n1. 専門家しか使えなかった複雑なソフトウェア（デザイン、動画編集、音楽制作）を特定\n2. ブラウザ上で直感操作できるUIに極限まで単純化し、数万件のプロ品質テンプレートを事前配備\n3. 基本無料で使用させ、プレミアム素材や便利機能（背景削除、サイズ自動変換）を有料サブスク化"
-    },
-    "essence": {
-      "whatItDoes": "WebGL/HTML5キャンバス × 巨大テンプレートアセットライブラリ × Canva Pro年額サブスク × Canva for Teams を武器に、チラシやSNSバナーを1枚作るためだけにAdobeに月7,000円払い、使い方を を解消する特化ソリューション",
-      "targetCustomer": "チラシやSNSバナーを1枚作るためだけにAdobeに月7,000円払い、使い方を何週間も勉強させられる一般人の決裁権を持つ責任者・当事者",
-      "painRelief": "チラシやSNSバナーを1枚作るためだけにAdobeに月7,000円払い、使い方を何週間も勉強させられる一般人の苦痛"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "WebGL/HTML5キャンバス ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2007年、オーストラリア・パースで高校の卒業アルバムをオンラインで簡単に編集・印刷できる『Fusion Books』を創業。",
-        "自前資金で黒字経営を続けながら、デザインシステムのノウハウを蓄積。",
-        "シリコンバレーの投資家から100回以上拒絶された後、元GoogleマップのCameron Adamsらを巻き込んで2013年にCanvaをローンチ。"
-      ]
     }
   },
   {
@@ -18191,20 +17208,6 @@
         "【被リンクデータベースという人質】: 世界中のWebサイトのリンク構造を把握しているため、マーケターは競合の分析や順位追跡のために解約できない。"
       ],
       "coldOutreachTemplate": "// インフラ要塞型SaaS配管\n1. 競合が真似できない規模の独自クローラー/インフラを自前で構築\n2. AWS等のクラウドを排除し、ベアメタルサーバーで圧倒的な原価競争力を確保\n3. YouTubeで「自社ツールを使った問題解決チュートリアル」を配信し、営業ゼロで全世界から集客"
-    },
-    "essence": {
-      "whatItDoes": "自前データセンター（ペタバイト級ベアメタル） × AhrefsBotクローラー × Stripe年額サブスク（$990〜$9,990） を武器に、Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・ を解消する特化ソリューション",
-      "targetCustomer": "Google検索の決裁権を持つ責任者・当事者",
-      "painRelief": "Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・SEOエージェンシー"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "自前データセンター（ペタバイト級ベアメタル） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "自己資金数十万ドルのみで創業し、初期バージョンの圧倒的なクロール速度をSEOフォーラムで公開。",
-        "当時の王者だったMajesticやMozを速度とデータ量で瞬く間に抜き去り、口コミだけで有料会員が爆発。",
-        "外部VCからの数億ドルの買収・出資提案をすべて拒絶し、100%自己資本を維持。"
-      ]
     }
   },
   {
@@ -18379,20 +17382,6 @@
         "【解約不能の人質資産（Data Hostage）】: 企業の全社員が使う数百個のパスワード、APIキー、機密情報がすべて格納されているため、乗り換えコストが無限大になりチャーンレートが実質ゼロ。"
       ],
       "coldOutreachTemplate": "// セキュリティ人質型B2B配管\n1. 美しいUIの個人向けツールで初期の熱烈なギークファンを獲得\n2. 企業向け管理コンソール（SCIM、SSO、監査ログ）を開発し、会社の情シス部門へ逆上陸\n3. 1ユーザーあたり月額$8で全社員分を一括契約させ、解約不可能なインフラとして居座る"
-    },
-    "essence": {
-      "whatItDoes": "自社ゼロ知識暗号化エンジン × Mac/iOS/Windows/Androidネイティブアプリ × Enterprise SSO連携 × B2B月額シート課金 を武器に、パスワード使い回しで顧客データが漏洩し、数億円の賠償金とブランド失墜で会社が倒産 を解消する特化ソリューション",
-      "targetCustomer": "パスワード使い回しで顧客データが漏洩し、数億円の決裁権を持つ責任者・当事者",
-      "painRelief": "パスワード使い回しで顧客データが漏洩し、数億円の賠償金とブランド失墜で会社が倒産する企業のセキュリティ恐怖"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "自社ゼロ知識暗号化エンジン ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2005年、Web制作のクライアントのアカウント情報を安全に保管するためにMac用アプリとして自作。",
-        "Macユーザー向けのブログで公開したところ、Appleファンの間で「デザインが圧倒的に美しいパスワード管理ツール」として絶賛されバイラル化。",
-        "iPhoneの登場と同時にiOS版を投入し、App Storeの有料ランキング首位を独占。"
-      ]
     }
   },
   {
@@ -18567,20 +17556,6 @@
         "【自前サーバー運用（Docker）の自由】: クラウドにデータを置きたくない金融機関や政府機関向けに、自前サーバー（オンプレミス）で動かせるDockerコンテナを提供してエンタープライズを囲い込み。"
       ],
       "coldOutreachTemplate": "// OSS信頼略奪型配管\n1. 競合が高価格・ブラックボックスで提供しているセキュリティツールを特定\n2. 同等の暗号化機能をオープンソースで公開し、完全無料・自前ホスト可能にする\n3. 「年額$10の2要素認証強化」および「法人の一括管理コンソール（月額$3/人）」でマネタイズ"
-    },
-    "essence": {
-      "whatItDoes": "C# / .NETバックエンド × 完全オープンソースコードベース × セルフホスト（Docker） × 年額$10個人/月額$3法人課金 を武器に、高額なプロプライエタリSaaSに機密データを預けることを拒否するセキュリティ原理 を解消する特化ソリューション",
-      "targetCustomer": "高額なプロプライエタリSaaSに機密データを預けることを拒否するセキュリティ原理主義者 ＆ 1Passwordに月10ドル払いたくない節約ギークの決裁権を持つ責任者・当事者",
-      "painRelief": "高額なプロプライエタリSaaSに機密データを預けることを拒否するセキュリティ原理主義者 ＆ 1Passwordに月10ドル払いたくない節約ギーク"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "C# / .NETバックエンド ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "元々はフロリダでソフトウェアエンジニアとして働いていたKyle Spearrinが、余暇で開発。",
-        "Redditのr/privacyやr/opensourceに「完全オープンソースで誰でも検証できるパスワードマネージャーを作った」と投稿。",
-        "コミュニティの熱狂的な支援を受け、数千人のギークが翻訳やバグ報告に協力して一気にグローバル展開。"
-      ]
     }
   },
   {
@@ -18755,20 +17730,6 @@
         "【開発者向けAPI・Webhookの完備】: 病院の予約システムや採用ATSの裏側に、Cal.comのスケジューリングAPIをそのまま組み込ませてエンタープライズから巨額ライセンスを徴収。"
       ],
       "coldOutreachTemplate": "// プロダクト主導バイラル配管\n1. Google/Outlookカレンダーと連携した爆速予約UIをオープンソースで提供\n2. ユーザーが客に送る予約ページ（cal.com/username）の最下部に極小の「Powered by Cal.com」を設置\n3. 開発者向けに「自社アプリの中に埋め込めるReactコンポーネント」を提供しB2Bへ侵食"
-    },
-    "essence": {
-      "whatItDoes": "Next.js × Prisma × 完全オープンソースリポジトリ（GitHub 3万Star） × Stripe月額サブスク（$15/席〜） を武器に、客に日程調整URLを送った瞬間に「あいつCalendlyの無料ロゴ使ってケチって を解消する特化ソリューション",
-      "targetCustomer": "客に日程調整URLを送った瞬間に「あいつCalendlyの決裁権を持つ責任者・当事者",
-      "painRelief": "客に日程調整URLを送った瞬間に「あいつCalendlyの無料ロゴ使ってケチってるな」と舐められるビジネスマンの羞恥心"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Next.js ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "旧名Calendsoとしてローンチ。Hacker Newsで一晩で数千のUpvoteを獲得。",
-        "Alexis Ohanian（Reddit共同創業者）やChad Hurley（YouTube共同創業者）等の大物エンジェル投資家から即座に出資を勝ち取る。",
-        "わずか数年でGitHubスター数3万を超え、世界中のオープンソース開発者の標準日程調整ツールへ急成長。"
-      ]
     }
   },
   {
@@ -18943,20 +17904,6 @@
         "【ライフタイムディール（LTD）での初動前金回収】: ローンチ初期に$60〜$120の買い切りプランを提供し、初週で数百万円の現金をStripe即時着金。"
       ],
       "coldOutreachTemplate": "// 音声清書マイクロSaaS配管\n1. マイクから録音された音声BlobをOpenAI Whisper APIへ送り文字起こし\n2. 「以下の乱雑な思考の独り言から、重複を排除し論理的で美しい3つの段落に書き直せ」とGPT-4oへ投げる\n3. 出力されたテキストを1クリックでコピーできる美しいミニマル画面を表示"
-    },
-    "essence": {
-      "whatItDoes": "Bubbleノーコード基盤 × OpenAI Whisper API（音声認識） × GPT-4o（プロンプト推敲） × Stripe年額/生涯買い切り（$75〜$150） を武器に、キーボードを前にすると指が止まり1文字も書けなくなるライターズブロック ＆ まと を解消する特化ソリューション",
-      "targetCustomer": "キーボードを前にすると指が止まり1文字も書けなくなるライターズブロック ＆ まとまらない思考の決裁権を持つ責任者・当事者",
-      "painRelief": "キーボードを前にすると指が止まり1文字も書けなくなるライターズブロック ＆ まとまらない思考の言語化苦痛"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Bubbleノーコード基盤 ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "「今日マイクに向かって適当に喋った愚痴が、こんな綺麗な文章になりました」というビフォーアフター動画をXに投稿。",
-        "文章を書くのが苦手なビジネスマンやクリエイターの間で動画が猛烈に拡散。",
-        "広告費を1円もかけず、Twitterのフォロワーからの口コミだけでローンチ初月に数万ドルの売上を記録。"
-      ]
     }
   },
   {
@@ -19131,20 +18078,6 @@
         "【クレジット消費モデル】: 抽出したデータ行数や実行回数に応じてクレジットを消費させ、データ量の多い企業顧客から高額プランを徴収。"
       ],
       "coldOutreachTemplate": "// ノーコードスクレイピング配管\n1. Chrome拡張でユーザーのブラウザ操作（クリック、スクロール、ページ遷移）をイベント記録\n2. セレクタがサイト改修で壊れた場合、AIが周辺のDOM構造から対象要素を自動修復（Self-healing）\n3. 抽出結果をWebhook経由でGoogleスプレッドシートやAirtableへリアルタイム同期"
-    },
-    "essence": {
-      "whatItDoes": "Chrome Extension（画面録画式ロボット学習） × ヘッドレスブラウザ分散インフラ × Stripe月額サブスク（$48〜$280/月） を武器に、スクレイピングコードの保守に疲れ果てた開発者 ＆ 競合サイトの価格変更や在庫切れ を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "スクレイピングコードの保守に疲れ果てた開発者 ＆ 競合サイトの価格変更や在庫切れを人力でF5連打監視しているEC担当者"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Chrome Extension（画面録画式ロボット学習） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "「プログラミング知識ゼロで、2分で任意のサイトからデータを抽出できる」という衝撃的な動画をProduct Huntに投稿。",
-        "Product of the Day 1位を獲得し、初月で数万人のサインアップを獲得。",
-        "Indie Hackersコミュニティの著名投資家Arvid Kahlらからエンジェル出資を受け黒字急成長。"
-      ]
     }
   },
   {
@@ -19319,20 +18252,6 @@
         "【AI特有の不自然な文章の排除】: 単なるChatGPTの生出力ではなく、独自のアンチAIディテクション・リライトパイプラインを通して自然な日本語/英語を担保。"
       ],
       "coldOutreachTemplate": "// 大量SEO生成配管\n1. ユーザーがターゲットキーワードのCSV（例: 「渋谷 カフェ Wi-Fi」「新宿 カフェ Wi-Fi」等）を投入\n2. GPT-4oへ長文構造化プロンプトを投げ、H2/H3タグとFAQ構造化マークアップ付きHTMLを生成\n3. WordPress REST APIを叩いてアイキャッチ画像とともに一括投稿"
-    },
-    "essence": {
-      "whatItDoes": "Next.js × OpenAI GPT-4o API × WordPress/Webflow自動投稿API × 従量クレジット課金（$99〜$1,999） を武器に、ライターに1文字5円払って月10本の記事を待つ遅さに絶望したSEOエージェンシー を解消する特化ソリューション",
-      "targetCustomer": "ライターに1文字5円払って月10本の決裁権を持つ責任者・当事者",
-      "painRelief": "ライターに1文字5円払って月10本の記事を待つ遅さに絶望したSEOエージェンシーやアフィリエイター"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Next.js ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "「0PVから3ヶ月で月間100万インプレッションを達成した」というSearch Consoleの急上昇スクリーンショットをX（Twitter）に連投。",
-        "SEO業界関係者が「何を使って記事を書いているのか？」と群がり、Bywordの非公開ベータ版に殺到。",
-        "月額制ではなく「100記事で$99」などの買い切りクレジットモデルを採用し、初期の決済障壁を破壊して即座にARR 100万ドルへ到達。"
-      ]
     }
   },
   {
@@ -19507,20 +18426,6 @@
         "【営業・リクルーターの定常業務ジャック】: 候補者リスト作成や競合リサーチという毎日のルーティンに埋め込まれ、解約不能に。"
       ],
       "coldOutreachTemplate": "// クライアントサイド自動化配管\n1. Chrome拡張が現在開いているWebページのDOMツリーをパース\n2. ユーザーが指定した項目（名前、役職、会社名）を抽出し、Notion API経由でデータベースへ直接PUT\n3. 処理完了のトースト通知を画面右下に表示し、認知負荷ゼロで作業完了"
-    },
-    "essence": {
-      "whatItDoes": "Chrome Extension（ローカル実行） × ブラウザ内スクレイピング × Notion/Airtable/HubSpot API連携 × 月額サブスク（$15〜$50/月） を武器に、LinkedInやZoomの画面を見ながら、顧客情報を1件ずつ手動でコピペしてC を解消する特化ソリューション",
-      "targetCustomer": "LinkedInやZoomの決裁権を持つ責任者・当事者",
-      "painRelief": "LinkedInやZoomの画面を見ながら、顧客情報を1件ずつ手動でコピペしてCRMに入力している営業マンの指の腱鞘炎"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Chrome Extension（ローカル実行） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "数百種類の既製自動化テンプレート（「ワンクリックでZoomの参加者リストをNotionへ」等）をすべて無料で配布。",
-        "Product of the Yearを受賞し、初期数万人の営業マンや採用担当者を獲得。",
-        "Tiger GlobalやFirstMark等の名門VCから即座に出資を勝ち取り、AI機能を統合して急拡大。"
-      ]
     }
   },
   {
@@ -19695,20 +18600,6 @@
         "【スタジオ音質の自動ノイズ除去】: 自宅のうるさいエアコンや車の騒音をワンタップで消滅させ、数万円のマイクで録音したようなプロ音質に変換。"
       ],
       "coldOutreachTemplate": "// モバイル特化AI動画生成配管\n1. スマホで撮影された前面カメラ動画をローカルで音声認識しタイムスタンプ付き字幕を生成\n2. フェイシャルランドマークを追跡し、瞳のテクスチャをカメラレンズ方向にリアルタイムワープ補正\n3. 出力時にTikTok/Reels推奨の縦型9:16でワンクリック書き出し"
-    },
-    "essence": {
-      "whatItDoes": "iOSネイティブAIレンダリング × 自社Whisper/音声認識エンジン × 目線自動補正（Eye Contact AI） × 月額サブスク（$10〜$30/月） を武器に、何時間もかけてPremiere Proでテロップを手打ちし、カメラ目線が外れて素 を解消する特化ソリューション",
-      "targetCustomer": "何時間もかけてPremiere Proでテロップを手打ちし、カメラ目線が外れて素人くさい動画になるクリエイターの決裁権を持つ責任者・当事者",
-      "painRelief": "何時間もかけてPremiere Proでテロップを手打ちし、カメラ目線が外れて素人くさい動画になるクリエイターの劣等感"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "iOSネイティブAIレンダリング ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "「人は音声をオフにして動画を見ている」という事実に着目し、単なる字幕アプリとしてApp Storeにローンチ。",
-        "クリエイターが「Captionsで作った」とTikTokに動画を投稿するたびに、画面の字幕スタイル自体が宣伝となりバイラル拡散。",
-        "Kleiner PerkinsやIndex Venturesから次々と資金調達し、動画クリエイター必携の神アプリへ上り詰めた。"
-      ]
     }
   },
   {
@@ -19883,20 +18774,6 @@
         "【企業全体のデザイン統一】: 会社ロゴやブランドカラーを管理者が固定し、社員全員が統一された美しいプレゼン資料を爆速作成。"
       ],
       "coldOutreachTemplate": "// 制約駆動型レイアウト配管\n1. スライド要素を自由座標（Absolute）ではなく、自動計算グリッド（Flexbox/Grid）で拘束\n2. テキスト量やアイテム数（3個➔4個）の変更を検知し、アニメーションを伴って自動リサイズ\n3. 「Designer Cloud」によりブランドガイドラインに違反する色やフォントの選択を完全ロック"
-    },
-    "essence": {
-      "whatItDoes": "スマートスライドレイアウトエンジン（特許取得） × チーム共有テンプレート × Stripe年額サブスク（$144〜$480/年） を武器に、明日の朝の役員プレゼン資料のフォントサイズや図形の配置合わせで深夜3時まで消耗す を解消する特化ソリューション",
-      "targetCustomer": "中小企業経営者、事業部長、予算決裁権を持つ幹部層",
-      "painRelief": "明日の朝の役員プレゼン資料のフォントサイズや図形の配置合わせで深夜3時まで消耗するビジネスマンの怒り"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "スマートスライドレイアウトエンジン（特許取得） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2016年に創業。自由なキャンバスを廃止し、あらかじめ数学的に整列された「Smart Templates」を数十個用意。",
-        "「PowerPointで3時間かかる作業が3分で終わる」比較動画をSNSで広告配信し、激務に追われるコンサルタントやマーケターを獲得。",
-        "口コミで急速に社内に広がるボトムアップ型（PLG）で急拡大。"
-      ]
     }
   },
   {
@@ -19951,21 +18828,6 @@
       "sourceDoc": "https://www.baseten.co/pricing/"
     },
     "evidenceCards": [
-      {
-        "id": "ev_baseten_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】AIエンジニアの最悪の苦痛「GPUインフラ管理と本番デプロイ」を数行コードで肩代わりする従量課金配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "複雑なKubernetesやAWS設定を一切不要にし、Pythonコードから1コマンドで推論APIサーバーを立ち上げさせ、APIリクエストごとにマージンを抜く。",
-        "details": [
-          "【Step 1: インフラ構築の苦痛の特定】: データサイエンティストが「モデルは作れるがクラウド本番環境の構築・スケールができない」壁を特定。",
-          "【Step 2: 極限のCLIデプロイ体験】: `baseten deploy` の1行で、自動スケーリング・GPUプロビジョニング・REST APIエンドポイント化を完了させる。",
-          "【Step 3: 使用量に応じた従量マージン】: クラウドインフラ原価に30〜50%のマージンを上乗せし、顧客のモデル呼び出し量に比例して利益が自動膨張。"
-        ],
-        "codeSnippet": "// 1行でのモデルデプロイスニペット\nimport baseten\nimport truss\n\nmy_model = truss.load(\"./my_llm_model\")\nbaseten.deploy(my_model, publish=True) // 即座に本番推論APIが稼働\n",
-        "sourceNote": "BasetenのMLインフラストラクチャサービス仕様"
-      },
       {
         "id": "financial-source-ent_baseten_86e98ed6728eb1d95fe1",
         "type": "SMOKING_GUN",
@@ -20062,20 +18924,6 @@
       "coldOutreachTemplate": "// サーバーレス推論配管 1. オープンソースのモデルラッパー `truss init` でモデル環境をコンテナ化 2. `baseten deploy` コマンド1発で専用APIエンドポイントを発行 3. トラフィックに応じて0台から数十台のGPUへオートスケールさせ、ミリ秒単位で課金"
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "自社GPUオーケストレーション（Truss） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2019年創業。 当初は機械学習モデルを可視化するUIビルダーを開発していた。",
-        "しかしユーザーから「そもそもモデルを本番環境で安定して動かすインフラ構築で死にそう」という声が殺到。",
-        "金額・費用の裏付けは未確認。"
-      ]
-    },
-    "essence": {
-      "whatItDoes": "自社GPUオーケストレーション（Truss） × AWS/GCP分散ベアメタル × 従量課金推論API（1秒あたりGPU課金） を武器に、金額・費用の裏付けは未確認。 を解消する特化ソリューション",
-      "targetCustomer": "金額・費用の決裁権を持つ責任者・当事者",
-      "painRelief": "金額・費用の裏付けは未確認。"
-    },
     "unknownsNotes": [
       "調達額や顧客企業の一覧は売上ではない。自社年商$20M・GPU原価・人件費配分を証明できず、旧P&Lは採用しない。",
       "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
@@ -20211,20 +19059,6 @@
       "viabilityLabel": "現在も有効（オープンソース代替モデル）",
       "eraContext": "データプライバシー規制の強化と、米系SaaSの値上げラッシュ。",
       "currentViabilityAnalysis": "企業の脱SaaS・オンプレミス回帰トレンドと完全に合致しており、現在も極めて強い成長トレンドにある。"
-    },
-    "essence": {
-      "whatItDoes": "Django/Python × Nuxt.js × PostgreSQL × Docker を武器に、大企業の法務・情シスの保身（「社内データを外部SaaSに置けない」「行数上限で業 を解消する特化ソリューション",
-      "targetCustomer": "大企業の決裁権を持つ責任者・当事者",
-      "painRelief": "大企業の法務・情シスの保身（「社内データを外部SaaSに置けない」「行数上限で業務停止」）"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "GitHubオープンソース ➔ Hacker News / Reddit ➔ EUプライバシー展示会 ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Hacker NewsのShow HNで「Open source Airtable alternative」として投稿し総合1位を獲得",
-        "Product HuntでDay 1に1,000以上のUpvoteを獲得",
-        "欧州の自治体やプライバシーに厳しいテック企業から初期の有料サポート契約を獲得"
-      ]
     }
   },
   {
@@ -20399,20 +19233,6 @@
         "【自前Dockerでの完全オンプレ運用】: 社内のファイヤーウォールの内側に1コマンドでデプロイでき、機密データを一切外部に出さない。"
       ],
       "coldOutreachTemplate": "// ローコード管理画面配管\n1. 既存のPostgreSQL/MySQLの接続文字列を投入\n2. テーブル構造を自動解析し、検索・フィルター・編集モーダル付きの管理画面を自動生成\n3. ロール別アクセス権（管理者、営業、サポート）を設定して社内公開"
-    },
-    "essence": {
-      "whatItDoes": "Svelteフロントエンド × Docker/Kubernetesセルフホスト × SQL/Postgres/REST直結 × 月額$5〜$50/席 を武器に、社内管理画面を作るためだけに貴重なエンジニアの工数を何週間も奪われるCTO ＆  を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "社内管理画面を作るためだけに貴重なエンジニアの工数を何週間も奪われるCTO ＆ Retoolの高額請求書に悲鳴を上げる情シス"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Svelteフロントエンド ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "GitHubにコードを公開後、一晩でHacker NewsとRedditのトレンド1位を独占。",
-        "「Retoolを使いたいが高すぎて会社に却下された」世界中のエンジニアがGitHub Starを押し、数ヶ月で1万スターを突破。",
-        "コミュニティの声を元に高速リリースを続け、正式ローンチからわずか数年で数万社の社内ツールインフラへ登り詰めた。"
-      ]
     }
   },
   {
@@ -20587,20 +19407,6 @@
         "【読者データの完全ポータビリティ】: いつでも1クリックで購読者CSVをエクスポートでき、「ロックインしない姿勢」自体が最大の信頼堀に。"
       ],
       "coldOutreachTemplate": "// 技術者特化メルマガ配管\n1. Webhooks/APIでブログ公開（Git push）をトリガーにニュースレターを自動作成\n2. AWS SESを使って業界最安（1万通あたり$1）でメールを高速配信\n3. 発行者の読者リスト規模に応じて月額$9から数百ドルへ自動スライディング課金"
-    },
-    "essence": {
-      "whatItDoes": "Django/Python × AWS SES（格安メール送信） × Markdownエディタ × 月額サブスク（$9〜$299/月） を武器に、Substackのアルゴリズム介入やブランド強制を嫌悪するプライドの高いプログラ を解消する特化ソリューション",
-      "targetCustomer": "Substackの決裁権を持つ責任者・当事者",
-      "painRelief": "Substackのアルゴリズム介入やブランド強制を嫌悪するプライドの高いプログラマー・知性派作家"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Django/Python ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Mailchimpが高すぎて使いにくかったため、AWS SESをバックエンドにした極小のWebアプリを自作。",
-        "Hacker Newsに「週末にミニマルなニュースレターツールを作った」と投下し、初期数百人のエンジニアを獲得。",
-        "Stripe退職後、フルタイムのソロプレナーとして育て上げ、外部資金ゼロでARR 100万ドルを突破。"
-      ]
     }
   },
   {
@@ -20775,20 +19581,6 @@
         "【営業マネージャーのコーチング支援】: どの営業マンが喋りすぎていて客の話を聞けていないかをレーダーチャートで可視化。"
       ],
       "coldOutreachTemplate": "// 商談AI連携配管\n1. カレンダーを監視し、商談リンク付きミーティングにボットが自動参加・録音\n2. Whisper＋LLMで「決定事項」「次回宿題」「客の懸念事項」を箇条書き要約\n3. Salesforce/HubSpotの取引先責任者レコードに要約テキストをAPI経由で自動書き込み"
-    },
-    "essence": {
-      "whatItDoes": "Zoom/Teamsボット自動参加 × 音声認識/LLM要約 × HubSpot/Salesforce双方向同期 × 月額$19〜$79/席 を武器に、商談中にメモを取るのに必死で客の表情を見落とし、商談後に手作業でCRMに入力する を解消する特化ソリューション",
-      "targetCustomer": "商談中にメモを取るの決裁権を持つ責任者・当事者",
-      "painRelief": "商談中にメモを取るのに必死で客の表情を見落とし、商談後に手作業でCRMに入力するのに毎日1時間溶かしている営業マン"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Zoom/Teamsボット自動参加 ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "元々は議事録の共同編集ツールとして開始したが、音声AIの進化に合わせて「自動文字起こしと要約」へフルピボット。",
-        "コロナ禍のリモートセールス特需に完璧に乗り、口コミだけで数千社の中小企業へ浸透。",
-        "大手Gongが相手にしないミッドマーケット（社員50〜500人規模）に特化して売上を拡大。"
-      ]
     }
   },
   {
@@ -20963,20 +19755,6 @@
         "【自前ホスト完全無料】: 自社データセンター内で動かすなら完全無料。機密データをクラウドに預けられないメガバンクや医療機関を独占。"
       ],
       "coldOutreachTemplate": "// OSS ELTデータ統合配管\n1. `docker compose up` でAirbyteローカルUIを起動\n2. ソース（Salesforce, Stripe, MySQL）と送信先（Snowflake, BigQuery）を選択\n3. 同期スケジュール（毎時、毎日）を設定し、自動レプリケーションを実行"
-    },
-    "essence": {
-      "whatItDoes": "オープンソースコネクタフレームワーク（Python/Java） × Docker/Kubernetes × Airbyte Cloud従量クレジット課金 を武器に、数十種類のSaaSからBigQueryやSnowflakeへデータを吸い上げるパ を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "数十種類のSaaSからBigQueryやSnowflakeへデータを吸い上げるパイプラインの自作と保守で死にそうなデータエンジニア"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "オープンソースコネクタフレームワーク（Python/Java） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2020年創業。Slackコミュニティを開設し、初期の利用エンジニアからのバグ報告に創業者が分単位で返信。",
-        "GitHub Starが爆発的に増加し、わずか1年でFivetranに次ぐデータ統合のデファクトスタンダードへ急浮上。",
-        "BenchmarkやAccel等の世界的名門VCから大型調達し、クラウド版（Airbyte Cloud）を投入して即座に巨額ARRを達成。"
-      ]
     }
   },
   {
@@ -21151,20 +19929,6 @@
         "【SLA 99.99%の絶対安心】: 障害発生時の自動フェイルオーバーと自動パッチ適用により、企業のSRE部隊を数人雇うより圧倒的に安価に運用を外注化。"
       ],
       "coldOutreachTemplate": "// マネージドクラウドDB配管\n1. WebコンソールまたはTerraformで「PostgreSQL 16, AWS東京リージョン, 3ノード」を指定\n2. 5分以内に暗号化・自動バックアップ・モニタリング付きクラスタを完全自動プロビジョニング\n3. クラウドインフラ原価に30〜50%の運用手数料を上乗せして月額一括請求"
-    },
-    "essence": {
-      "whatItDoes": "オープンソースOSS（Kafka, PostgreSQL, OpenSearch, ClickHouse） × 3大パブリッククラウド直結運用 × 時間単位従量課金 を武器に、オープンソースDBのバックアップ失敗、バージョン更新時のダウンタイム、深夜のノー を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "オープンソースDBのバックアップ失敗、バージョン更新時のダウンタイム、深夜のノード障害で神経をすり減らすSREエンジニア"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "オープンソースOSS（Kafka, PostgreSQL, OpenSearch, ClickHouse） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "「なぜ自分たちは毎週データベースのパッチ当てやバックアップスクリプトを書いているのか？」という憤りが原点。",
-        "自前資金のみで最初の自動運用プラットフォームを構築し、初期の北欧テック企業を獲得。",
-        "外部VCを急がず、製品の信頼性と徹底した自動化により黒字を維持しながら急拡大。"
-      ]
     }
   },
   {
@@ -21339,20 +20103,6 @@
         "【Git連携によるバージョン管理】: 管理画面の変更をGitのブランチやPRとして管理でき、エンジニアの開発フローを邪魔しない。"
       ],
       "coldOutreachTemplate": "// OSS内部ツール配管\n1. `docker run -d --name appsmith -p 80:80 appsmith/appsmith-ce` で即時起動\n2. ドラッグ＆ドロップでテーブルとフォームを配置し、社内PostgresとREST APIをバインド\n3. Gitと連携してmasterブランチへマージすることで安全に本番デプロイ"
-    },
-    "essence": {
-      "whatItDoes": "Reactフロントエンド × Javaバックエンド × 完全オープンソース（GitHub 3.5万Star） × Docker/Kubernetes自前ホスト × 月額$40/席B2B を武器に、社内用の簡単な顧客返金画面やデータ修正ツールを作るのにReactとNode.js を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "社内用の簡単な顧客返金画面やデータ修正ツールを作るのにReactとNode.jsで何週間も無駄にするエンジニアの徒労感"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Reactフロントエンド ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "実際にエンジニアが社内ツールの雑務で疲弊している現場に入り込み、リアルな要望を即日コードに反映。",
-        "GitHubにオープンソースとして公開後、海外のテックコミュニティで「Retoolの最強OSS代替」として拡散。",
-        "AccelやCanaan等のトップティアVCから大型調達し、グローバル標準の地位を確立。"
-      ]
     }
   },
   {
@@ -21485,20 +20235,6 @@
       "viabilityLabel": "急上昇トレンド最盛期（オープンソースBaaS）",
       "eraContext": "クラウド料金の高騰と、SupabaseやAppwriteなど「脱Firebase」が業界標準となった時代。",
       "currentViabilityAnalysis": "開発者ツールのオープンソース化は現在最も資本が集まる領域であり、AI連携（Vector DB対応等）によりさらに市場が拡大している。"
-    },
-    "essence": {
-      "whatItDoes": "Docker × Microservices × Redis × MariaDB/PostgreSQL を武器に、開発者・CTOの恐怖（「Firebaseの請求書が翌月1,000万円になったら破 を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "開発者・CTOの恐怖（「Firebaseの請求書が翌月1,000万円になったら破産する」）"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "GitHubオープンソース ➔ Hacktoberfest / 開発者イベント ➔ Discordコミュニティ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者Eldadが個人プロジェクトとしてGitHubにリポジトリを公開",
-        "Redditのr/programmingで「Firebase alternative built with Docker」として紹介され爆発的バイラル",
-        "オープンソースのDiscordコミュニティが数万人規模に急成長"
-      ]
     }
   },
   {
@@ -21553,21 +20289,6 @@
       "sourceDoc": "https://www.notta.ai/en/welcome-airgram"
     },
     "evidenceCards": [
-      {
-        "id": "ev_airgram_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】Zoom会議の議事録作成の胃痛から解放し、会議ログを全自動要約・蓄積するワークフロー監禁配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "Web会議にAIボットを自動参加させ、文字起こし・アクションアイテム抽出・Slack共有を全自動化。過去ログの蓄積により解約不能化。",
-        "details": [
-          "【Step 1: カレンダー連携による完全自動化】: Googleカレンダーと連携し、会議が始まった瞬間に録画・文字起こしボットを自動入室させる。",
-          "【Step 2: 要約とタスクの即時割り振り】: 会議終了から3分以内に、決定事項と担当者タスクを箇条書きで抽出し、参加者全員のメール・Slackへ自動送信。",
-          "【Step 3: 組織ナレッジベース化による監禁】: 過去の会議録画・議事録が検索可能な資産となるため、他ツールへの乗り換えコストが跳ね上がる。"
-        ],
-        "codeSnippet": "// 会議ボット自動入室と要約トリガー\nasync function handleCalendarEvent(event: CalendarMeeting) {\n  const bot = await spawnMeetingBot({ meetingUrl: event.link });\n  const transcript = await bot.recordAndTranscribe();\n  const summary = await summarizeActionItems(transcript);\n  await postToSlackChannel(event.channelId, summary);\n}",
-        "sourceNote": "Airgramプロダクト設計とAI文字起こし自動化ログ"
-      },
       {
         "id": "financial-source-ent_airgram_925c9cffb5c5821ae7eb",
         "type": "SMOKING_GUN",
@@ -21664,20 +20385,6 @@
       "coldOutreachTemplate": "// 会議AI同期配管 1. Zoom/Google Meet/Teamsの会議URLをカレンダーから検知し録音ボットを派遣 2. 会議終了後、LLMで「決定事項（Decisions）」と「担当者別タスク（Action Items）」を抽出 3. Slack Webhookを叩いて社内チャンネルへリッチフォーマットで即時投稿"
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "WebRTC会議録音エンジン ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Product HuntでProduct of the Dayを獲得し、初期数万人のリモートワーカーを獲得。",
-        "特にNotionユーザーコミュニティに焦点を当て、「Notionと一番綺麗に繋がる議事録AI」として口コミを拡大。",
-        "チーム向けプランを有料化し、企業のプロジェクトマネージャーを中心に確固たるB2B顧客基盤を構築。"
-      ]
-    },
-    "essence": {
-      "whatItDoes": "金額・費用の裏付けは未確認。 を武器に、1日5件のオンライン会議の議事録作成とSlack共有で毎日定時後に2時間残業して を解消する特化ソリューション",
-      "targetCustomer": "1日5件の決裁権を持つ責任者・当事者",
-      "painRelief": "1日5件のオンライン会議の議事録作成とSlack共有で毎日定時後に2時間残業しているプロジェクトマネージャーの疲弊"
-    },
     "unknownsNotes": [
       "旧Airgramの独立した有料ユーザー数・年商$8M・経費はこのページで確認できない。Nottaの数値をAirgramへ移さない。",
       "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
@@ -21855,20 +20562,6 @@
         "【データリネージとオブザーバビリティの抱き合わせ】: パイプラインがどこで詰まったかを即座に可視化する監視機能をセットにして高単価化。"
       ],
       "coldOutreachTemplate": "// マネージドAirflow配管\n1. `astro dev init` でローカルのAirflow開発環境を瞬時に構築\n2. `astro deploy` で自社専用のKubernetes分離クラスタへDAGを一括プッシュ\n3. ログ監視と自動アラートで障害発生時の平均復旧時間（MTTR）を1/10に圧縮"
-    },
-    "essence": {
-      "whatItDoes": "Apache Airflowコアコミッター陣 × Kubernetesネイティブ運用（Astro Cloud） × エンタープライズ年間契約 を武器に、データエンジニアがパイプラインのエラー監視とクラスタのパッチ当てで過労死しそうな を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "データエンジニアがパイプラインのエラー監視とクラスタのパッチ当てで過労死しそうな大企業のCTO"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Apache Airflowコアコミッター陣 ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "最初はデータ統合全般を請け負っていたが、Airflowの運用に顧客が最も金を払うことを発見。",
-        "自社プロダクトを「Airflow専用プラットフォーム」に絞り込み、Airflowのコミュニティミートアップを全世界で主催。",
-        "Salesforce VenturesやBessemerから大型出資を集め、業界標準のマネージド基盤へ成長。"
-      ]
     }
   },
   {
@@ -22043,20 +20736,6 @@
         "【WordPressスケジューラー連携】: 1ヶ月分の記事を一括生成し、毎日決まった時間に自動公開する完全不労所得パイプライン。"
       ],
       "coldOutreachTemplate": "// 完全自動SEOブログ配管\n1. ターゲットキーワードと文字数（1,500字〜3,000字）を指定\n2. AIがリアルタイム検索で競合記事の構成を分析し、オリジナル文章を自動執筆\n3. WordPress REST API経由で毎日1記事ずつ自動下書き・公開予約"
-    },
-    "essence": {
-      "whatItDoes": "自社訓練ディープラーニングモデル × 自動リサーチ・ファクトチェックエンジン × WordPress自動スケジューリング投稿 × 年額$324〜$1,524 を武器に、1記事数千円の外注ライターを何十人も雇って管理するコストと納期の遅さに頭を抱える を解消する特化ソリューション",
-      "targetCustomer": "1記事数千円の決裁権を持つ責任者・当事者",
-      "painRelief": "1記事数千円の外注ライターを何十人も雇って管理するコストと納期の遅さに頭を抱えるアフィリエイト運営会社"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "自社訓練ディープラーニングモデル ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "当時は粗悪な記事スピン（同義語置換）ツールしかなかった時代に、文脈を理解して流暢な文章を書くAIとして衝撃を与えた。",
-        "フォーラムのトップアフィリエイターたちが一斉に購入し、初年度から巨額のキャッシュフローを創出。",
-        "ChatGPT登場後も、自前リサーチエンジンとWordPress直結のワークフローの手軽さで生き残りを維持。"
-      ]
     }
   },
   {
@@ -22111,21 +20790,6 @@
       "sourceDoc": "https://getlatka.com/companies/aputime/interviews/aputime-martin-lonsky-2023"
     },
     "evidenceCards": [
-      {
-        "id": "ev_aputime_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】PMのスケジュール調整・タスク配分工数をAIスケジューラーで全自動最適化するB2B配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "メンバーのスキル・稼働状況・優先度から最適なスケジュールを逆算。納期遅延恐怖を抱えるマネージャーの保身財布を直撃。",
-        "details": [
-          "【Step 1: ガントチャート手動更新の苦痛】: タスクが1つ遅延するたびに全体のガントチャートを手動で引き直すプロジェクトマネージャーの疲弊を特定。",
-          "【Step 2: 依存関係に基づく自動リスケジュール】: タスクの遅延が入力された瞬間に、AIが全メンバーの空きスロットを再計算して最適日程を自動再配置。",
-          "【Step 3: 経営層向け遅延アラート】: 「このままだと納期に2日遅れる」危険度を数値化して事前通知し、PMの評価・保身を守る保険として課金。"
-        ],
-        "codeSnippet": "// AIタスク自動再配置ロジックの概念\nfunction autoRescheduleProject(tasks: Task[], delayedTaskId: string, delayDays: number) {\n  const impactedGraph = buildDependencyGraph(tasks, delayedTaskId);\n  return impactedGraph.recalculateCriticalPath(delayDays); // 全自動で最短納期を再割り当て\n}",
-        "sourceNote": "APUtimeプロジェクトマネジメント自動化仕様"
-      },
       {
         "id": "financial-source-ent_aputime_3675d76dbe1a466da11b",
         "type": "SMOKING_GUN",
@@ -22232,20 +20896,6 @@
       "coldOutreachTemplate": "// 自律最適化スケジューリング配管 1. タスク間の依存関係（タスクA完了後にタスクB開始）と見積もり工数を入力 2. メンバーのスキル、勤務時間、過去の実績速度を元に数理最適化アルゴリズムを実行 3. 遅延が発生した場合、全メンバーのガントチャートを0秒で自動再配置"
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "クリティカルパス数理最適化エンジン ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2018年にチェコ・プラハで創業。 大学の数理工学者とともにスケジューリングエンジンを共同開発。",
-        "金額・費用の裏付けは未確認。",
-        "欧州のスタートアップアワードを受賞し、中堅製造業やソフトウェア受託企業の標準インフラへ拡大。"
-      ]
-    },
-    "essence": {
-      "whatItDoes": "金額・費用の裏付けは未確認。 を武器に、ガントチャートの線を毎日手動で引き直し、誰がボトルネックになっているか把握できな を解消する特化ソリューション",
-      "targetCustomer": "中小企業経営者、事業部長、予算決裁権を持つ幹部層",
-      "painRelief": "ガントチャートの線を毎日手動で引き直し、誰がボトルネックになっているか把握できない開発責任者の胃痛"
-    },
     "unknownsNotes": [
       "旧年商$2Mと利益額は採用しない。インタビューは本人報告であり監査済み決算ではない。AppSumo買い切りと月次契約が混在するため、継続売上の定義には留意が必要。",
       "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
@@ -22423,20 +21073,6 @@
         "【自前の無料AI検出器でリード獲得】: 無料の「AI Detector」を公開し、ChatGPTの文章をペーストしたユーザーに「AI度99%！危険！」と警告して自社ツールへ誘導。"
       ],
       "coldOutreachTemplate": "// 高単価AI生成配管\n1. 無料のAIコンテンツチェッカーで月間数百万人のSEO担当者を流入させる\n2. 「あなたの記事はGoogleにAIと判定されます」と恐怖を喚起\n3. 「人間が書いたと判定される唯一のAIツール（月額$250〜）」をオファーし即時決済"
-    },
-    "essence": {
-      "whatItDoes": "3層LLMスタック（Claude + GPT + 独自NLP） × リアルタイムクローリング × AI検出器バイパスエンジン × 高額月額課金 を武器に、月額20ドルのChatGPTで適当に記事を書いてGoogleから低品質ペナルティ を解消する特化ソリューション",
-      "targetCustomer": "中小企業経営者、事業部長、予算決裁権を持つ幹部層",
-      "painRelief": "月額20ドルのChatGPTで適当に記事を書いてGoogleから低品質ペナルティを食らいサイトが吹き飛んだアフィリエイト経営者の恐怖"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "3層LLMスタック（Claude + GPT + 独自NLP） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "大学教授や編集者が学生やライターの提出物をチェックするために、無料のAI検出器をブックマーク。",
-        "世界中から集まった膨大なトラフィックを、自社の高単価SaaS（Content at Scale）へ流し込み、わずか数ヶ月でARR 1,000万ドルを突破。",
-        "コンテンツマーケティングの第一人者Julia McCoyをプレジデントに招聘し、エンタープライズブランドへ脱皮。"
-      ]
     }
   },
   {
@@ -22611,20 +21247,6 @@
         "【コミュニティ主導の審査】: 既存のメンバーが新しい応募者をテスト・面接し、紹介報酬を得る分散型審査システムにより、プラットフォームの運営コストを極小化。"
       ],
       "coldOutreachTemplate": "// 手数料ゼロ逆張りギルド配管\n1. フリーランスの登録・成約手数料を完全0%に設定し、Upworkのトップ人材を略奪\n2. 発注企業（Nike, Porsche, Goldman Sachs）にのみ10%のマッチング手数料を請求\n3. 優秀な人材が揃っているため大企業が引きも切らず、流動性が自動増殖"
-    },
-    "essence": {
-      "whatItDoes": "Braintrustトークン経済圏 × 厳格なエンジニア技術審査（上位数%選抜） × クライアント企業から10〜15%徴収 を武器に、1件100万円の案件で20万円を手数料としてプラットフォームに中抜きされるトップ を解消する特化ソリューション",
-      "targetCustomer": "1件100万円の決裁権を持つ責任者・当事者",
-      "painRelief": "1件100万円の案件で20万円を手数料としてプラットフォームに中抜きされるトップフリーランスの怒り"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Braintrustトークン経済圏 ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "2018年、Tiger Global、Coatue、a16z等の名門VCから出資を受け、トークンインセンティブを設計。",
-        "NikeやNestle等の超大手企業に対し「シリコンバレーのトップAIエンジニアを即日アサインできる」と売り込み。",
-        "初年度から数千万ドルの案件が流通し、従来の人材派遣会社を完全に無力化。"
-      ]
     }
   },
   {
@@ -22799,20 +21421,6 @@
         "【老舗ホスティング大手Libsynへの売却】: 最大のポッドキャスト配信サーバーLibsynに買収され、配信基盤と広告マネタイズの垂直統合を完遂。"
       ],
       "coldOutreachTemplate": "// 音声広告マッチング配管\n1. ポッドキャスターがRSSフィードを接続し、未販売のプレロール/ミッドロール枠を登録\n2. 広告主がCPM（1,000回再生あたり$20〜$40）で枠を一括購入\n3. 放送完了後、再生回数データを監査してクリエイターに70%を自動支払い、30%を自社純利へ"
-    },
-    "essence": {
-      "whatItDoes": "ポッドキャスト広告枠自動管理プラットフォーム × 動的広告挿入（DAI） × 決済・レポーティングエンジン × 手数料20〜30% を武器に、数十万人のリスナーがいるのに広告営業マンがおらずマネタイズできないポッドキャスタ を解消する特化ソリューション",
-      "targetCustomer": "数十万人の決裁権を持つ責任者・当事者",
-      "painRelief": "数十万人のリスナーがいるのに広告営業マンがおらずマネタイズできないポッドキャスター ＆ 音声広告の費用対効果が測定できず二の足を踏む広告主"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "ポッドキャスト広告枠自動管理プラットフォーム ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者たちが自らポッドキャストを聴きまくり、有力な番組ホストに「広告主を連れてくるから30%マージンをくれ」と直談判。",
-        "CasperやDollar Shave Club等のD2C黎明期の巨額広告主をマッチングさせ、初年度から急速に黒字拡大。",
-        "手動マッチングをシステム化して自動売買マーケットプレイスへ進化させ、大手Libsynに巨額バイアウト。"
-      ]
     }
   },
   {
@@ -22987,20 +21595,6 @@
         "【Mega Supporterライセンス（永久アプデ）】: 通常ライセンス（メジャー版のみ）と上位の永久アップデート付きライセンス（£59）を並べ、客単価を引き上げ。"
       ],
       "coldOutreachTemplate": "// 指先常駐型ランチャー配管\n1. グローバルホットキー（⌘+Spaceまたは⌥+Space）をOSレベルでフックし、メモリ常駐UIを即座にポップアップ\n2. 入力文字列をローカルインデックスおよび自作ワークフローにパイプ渡ししてミリ秒で結果表示\n3. クリップボード履歴、スニペット展開、電卓、ファイル検索をすべてキーボードだけで完結"
-    },
-    "essence": {
-      "whatItDoes": "Objective-C/Swiftネイティブ超高速バイナリ × 自作ワークフロー実行エンジン × Powerpack永久買い切り（£34〜£59） を武器に、キーボードからマウスに手を伸ばすたびに作業フローが途切れて集中力が死ぬプログラマ を解消する特化ソリューション",
-      "targetCustomer": "キーボードからマウスに手を伸ばすたびに作業フローが途切れて集中力が死ぬプログラマー・知性派Macユーザーの決裁権を持つ責任者・当事者",
-      "painRelief": "キーボードからマウスに手を伸ばすたびに作業フローが途切れて集中力が死ぬプログラマー・知性派Macユーザーの極度のストレス"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Objective-C/Swiftネイティブ超高速バイナリ ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "夫婦2人で英国で立ち上げ。初期バージョンを完全無料で配布し、その圧倒的な軽快さでMacギークを虜に。",
-        "高度な自動化機能を使いたいユーザー向けに「Powerpack」を有料化。",
-        "15年間VC資金を1ポンドも入れず、広告も一切打たず、Appleファン同士の熱狂的な推薦だけで世界標準へ君臨。"
-      ]
     }
   },
   {
@@ -23175,20 +21769,6 @@
         "【安価な永久ライセンス（$22）の引力】: サブスク疲れしたユーザーに対し、「一度払えば一生使い放題」というオファーで迷わず決済させる。"
       ],
       "coldOutreachTemplate": "// OS低レベルイベントフック配管\n1. IOKitおよびMultitouchSupportフレームワークを直接監視\n2. トラックパッド上の指の本数・ジェスチャー（TipTap、ピンチ、回転）を特定のアクションにマッピング\n3. ウィンドウリサイズ、キーボードショートカット送信、AppleScript実行を即座にディスパッチ"
-    },
-    "essence": {
-      "whatItDoes": "macOS低レベルAPIフック（C/Objective-C） × トラックパッド/マウス/キーボードジェスチャーエンジン × 2年間$10/永久$22買い切りライセンス を武器に、Mac純正の限定的なジェスチャー操作にイライラし、3本指タップや四隅クリックでウ を解消する特化ソリューション",
-      "targetCustomer": "Mac純正の決裁権を持つ責任者・当事者",
-      "painRelief": "Mac純正の限定的なジェスチャー操作にイライラし、3本指タップや四隅クリックでウィンドウを自在に操りたいパワーユーザー"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "macOS低レベルAPIフック（C/Objective-C） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "最初は寄付（ドネーション）で配布していたが、機能追加を続けるうちにMacの必須アプリとして定着。",
-        "2016年に有償の買い切りライセンスモデルへ移行したが、既存ファンは「安すぎる、もっと取れ」と喜んで課金。",
-        "現在に至るまでオフィスも社員も持たず、自宅から一人でアップデートを配信し続けて毎年数億円の純利を吸い上げる。"
-      ]
     }
   },
   {
@@ -23363,20 +21943,6 @@
         "【インラインMarkdownの先駆】: 記号を打った瞬間に太字や見出しが美しくプレビューされるシームレスなエディタで文章執筆の認知負荷をゼロ化。"
       ],
       "coldOutreachTemplate": "// iCloud完全寄生型サブスク配管\n1. ローカルSQLite/CoreDataでメモを爆速レンダリング\n2. Apple CloudKit APIを叩いてMac/iPhone/iPad間でエンドツーエンド暗号化同期\n3. 同期機能と美しいカスタムテーマを「年額$29.99」のProプランとしてApple課金"
-    },
-    "essence": {
-      "whatItDoes": "Appleネイティブ（Swift/Core Data） × iCloudプライベート暗号化同期 × 年額$29.99 Bear Proサブスク を武器に、NotionやEvernoteのロードの遅さやゴチャゴチャしたUIに嫌気が差し、 を解消する特化ソリューション",
-      "targetCustomer": "NotionやEvernoteの決裁権を持つ責任者・当事者",
-      "painRelief": "NotionやEvernoteのロードの遅さやゴチャゴチャしたUIに嫌気が差し、純粋に美しい文章執筆だけに没入したい作家・デザイナー"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Appleネイティブ（Swift/Core Data） ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "イタリアの小さなデザインスタジオShiny Frogが開発。",
-        "Evernoteの重厚さに絶望していたAppleユーザーが一斉にBearへ乗り換え、数ヶ月で数十万ダウンロードを突破。",
-        "2017年にApple Design Awardを受賞し、App Storeの看板アプリとして不動の地位を確立。"
-      ]
     }
   },
   {
@@ -23431,21 +21997,6 @@
       "sourceDoc": "https://capacities.io/pricing"
     },
     "evidenceCards": [
-      {
-        "id": "ev_capacities_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】フォルダ階層整理の疲弊から解放し「オブジェクト指向思考」で思考ログを自動結合するSaaS配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "情報を「人・本・アイデア」等のオブジェクトとしてタグ付けさせ、ネットワークグラフで可視化。知識が溜まるほど移行不可能な監禁堀を構築。",
-        "details": [
-          "【Step 1: フォルダ迷子の苦痛】: 「どのフォルダに入れるべきか迷ってメモを取るのをやめてしまう」ナレッジワーカーの認知的摩擦を解消。",
-          "【Step 2: オブジェクトタイプによる構造化】: 全てのメモをタイプ（Meeting, Idea, Person等）として入力させ、双方向リンクで自動ネットワーク化。",
-          "【Step 3: AIアシスタントによる文脈結合】: メモが増えるほど、AIが「過去のこのメモと関連しています」と提示し、個人の第二の脳として離脱不能化。"
-        ],
-        "codeSnippet": "// オブジェクト指向ナレッジノードの生成\ninterface KnowledgeObject {\n  id: string;\n  type: \"Person\" | \"Meeting\" | \"Idea\" | \"Book\";\n  content: string;\n  relations: string[]; // 関連する他オブジェクトのID\n}",
-        "sourceNote": "Capacitiesプロダクト思想とPKM（個人知識管理）設計図"
-      },
       {
         "id": "financial-source-ent_capacities_2bd23fdf5c7702955d79",
         "type": "SMOKING_GUN",
@@ -23552,20 +22103,6 @@
       "coldOutreachTemplate": "// オブジェクト指向PKM配管 1. ユーザーが入力したテキストから `@SteveJobs` のようなエンティティを自動検知 2. 「Person」オブジェクトとしてバックグラウンドでリレーションを結び、人物詳細ページへ双方向バックリンク 3. 日々のデイリーログに書いた内容が、自動的に該当するトピックのプロパティに蓄積"
     },
     "isGrowthUnconfirmed": true,
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Rust/Tauri超高速コア ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Tiago Forteの『Building a Second Brain』ブームで知識管理難民が溢れる中、中間の理想形としてローンチ。",
-        "YouTubeの生産性系クリエイターたちに自発的にレビュー動画を作らせ、初年度から熱烈なコミュニティを形成。",
-        "美しいUIとクリーンなデータモデルで、Roam ResearchやLogseqからの大量の乗り換え民を獲得。"
-      ]
-    },
-    "essence": {
-      "whatItDoes": "金額・費用の裏付けは未確認。 を武器に、Notionでページの中にページを作りすぎて何がどこにあるか完全に迷子になったナ を解消する特化ソリューション",
-      "targetCustomer": "Notionでページの決裁権を持つ責任者・当事者",
-      "painRelief": "Notionでページの中にページを作りすぎて何がどこにあるか完全に迷子になったナレッジワーカーの整理疲労"
-    },
     "unknownsNotes": [
       "Pro会員15,000人と年商$1.6Mの根拠は確認できない。会員数・費用が不明なため利益を計算しない。",
       "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
@@ -23743,20 +22280,6 @@
         "【クライアント無料招待】: 発注元のクライアントは何人呼んでも完全無料。制作会社が自社の顧客を全員ActiveCollabに巻き込んで囲い込み。"
       ],
       "coldOutreachTemplate": "// プロジェクト工数請求書配管\n1. 制作タスク上でタイマーをスタートし、実稼働時間（例: 4.5時間）を自動ログ\n2. 月末に「未請求の工数」をフィルタリングし、1クリックで請求書（Invoice）へ変換\n3. クライアントにStripe/PayPalリンク付きの請求メールを直接送信"
-    },
-    "essence": {
-      "whatItDoes": "PHP/MySQLスタック × セルフホスト買い切り（$3,200〜） ＋ クラウド月額（$9〜$14/人） × 工数記録＆請求書直結機能 を武器に、クライアントワークの工数管理と請求業務がバラバラのツールに分かれ、請求漏れで毎月 を解消する特化ソリューション",
-      "targetCustomer": "クライアントワークの決裁権を持つ責任者・当事者",
-      "painRelief": "クライアントワークの工数管理と請求業務がバラバラのツールに分かれ、請求漏れで毎月数十万円損している制作会社の社長"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "PHP/MySQLスタック ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "オープンソースの「ActiveCollab 0.x」が世界中で何十万回もダウンロードされる社会現象に。",
-        "コードの商業ライセンス化を発表した際には大炎上を経験したが、プロ向け商業ツールとして品質を磨き上げ黒字化。",
-        "外部VCを入れず、セルビア・ノヴィサドの拠点を中心に完全自前資本で15年以上生き残る古豪へ成長。"
-      ]
     }
   },
   {
@@ -23889,20 +22412,6 @@
       "viabilityLabel": "急上昇トレンド最盛期（AI＋ワークフロー自動化）",
       "eraContext": "Zapierの値上げと、LLM/AIを活用した自律ワークフロー自動化の爆発的需要。",
       "currentViabilityAnalysis": "AIエージェントの普及に伴い、APIを繋ぐバックボーンとしてのオープンソース自動化基盤の需要は過去最高に達している。"
-    },
-    "essence": {
-      "whatItDoes": "TypeScript × Node.js × Angular × Docker を武器に、企業の自動化担当者・受託会社の激怒（「Zapierでタスクがループして請求書が5 を解消する特化ソリューション",
-      "targetCustomer": "企業の決裁権を持つ責任者・当事者",
-      "painRelief": "企業の自動化担当者・受託会社の激怒（「Zapierでタスクがループして請求書が50万円跳ね上がった」）"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Y Combinatorネットワーク ➔ GitHubオープンソース ➔ 受託代理店パートナーシップ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "Y Combinator（W23）に採択され、シード資金とスタートアップネットワークを獲得",
-        "GitHubでオープンソース公開後、数ヶ月で10,000 Starを突破",
-        "受託自動化エージェンシーが「Zapierの代わりにクライアントに導入するツール」として自発的に布教開始"
-      ]
     }
   },
   {
@@ -24077,20 +22586,6 @@
         "【大容量バックアップの有料化】: 基本同期は無料、暗号化されたクラウドバックアップストレージ（128GB〜）を有料プランとして提供。"
       ],
       "coldOutreachTemplate": "// P2P分散同期配管\n1. ローカル端末上でCRDT（Conflict-free Replicated Data Types）を用いてオフライン編集\n2. libp2pプロトコルでローカルネットワーク内の他端末を自動検知し直接P2P同期\n3. 暗号化されたブロックを分散ストレージノードへ安全にバックアップ"
-    },
-    "essence": {
-      "whatItDoes": "IPFS / libp2p分散プロトコル × ローカルSQLite暗号化保管 × Anysync暗号化ノード × プレミアム暗号化ストレージ月額（$99/年〜） を武器に、企業の知財や個人の思考ログが巨大テック企業のクラウドに保管され、AIの学習データ を解消する特化ソリューション",
-      "targetCustomer": "企業の決裁権を持つ責任者・当事者",
-      "painRelief": "企業の知財や個人の思考ログが巨大テック企業のクラウドに保管され、AIの学習データに使われたり流出したりする恐怖"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "IPFS / libp2p分散プロトコル ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "数万人規模のプライバシー支持者やWeb3ギークが順番待ちリストに登録。",
-        "創業チーム自らがオンボーディングコールを行い、熱烈な思想信者コミュニティを育成。",
-        "2023年にオープンベータを公開し、世界中のジャーナリスト、研究者、暗号資産関係者が殺到。"
-      ]
     }
   },
   {
@@ -24265,20 +22760,6 @@
         "【生涯買い切りプラン（$360）の用意】: サブスクを嫌うユーザーのために高額なライフタイムプランを用意し、数千万円のキャッシュを前金で調達。"
       ],
       "coldOutreachTemplate": "// 行動矯正タスク配管\n1. ユーザーがタスクを先延ばししていることを検知（作成後7日間未着手）\n2. 「Procrastination Wizard」が起動し、「最初の5分だけやる」「タスクを3分割する」などの介入を実行\n3. 達成時にかわいいマスコット（Marvin）がアニメーションでセロトニンとドーパミンを放出"
-    },
-    "essence": {
-      "whatItDoes": "Electronデスクトップ × 行動経済学「戦略（Strategies）」トグルエンジン × 月額$12/年額$96/生涯$360サブスク を武器に、TodoistもAsanaも3日で挫折し、タスクが山積みになって自己嫌悪でベッド を解消する特化ソリューション",
-      "targetCustomer": "TodoistもAsanaも3日で挫折し、タスクが山積みになって自己嫌悪でベッドから出られなくなる重度の決裁権を持つ責任者・当事者",
-      "painRelief": "TodoistもAsanaも3日で挫折し、タスクが山積みになって自己嫌悪でベッドから出られなくなる重度の先延ばし癖・ADHD傾向者"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "Electronデスクトップ ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "エンジニアの夫Markとともに「人間の脳のバグに対応できる唯一のツール」として開発開始。",
-        "Redditのr/ADHDやr/productivityコミュニティに「科学的根拠に基づいた先延ばし対策ツール」として投稿。",
-        "「これなしでは生活できない」という熱狂的なADHDユーザーたちが自発的に拡散し、広告費ゼロで急成長。"
-      ]
     }
   },
   {
@@ -24453,20 +22934,6 @@
         "【一度設置したら絶対に解約されない】: Webサイトが稼働している限りフォームURLを外せないため、驚異的なチャーンレートの低さを誇る。"
       ],
       "coldOutreachTemplate": "// 静的フォームバックエンド配管\n1. ユーザーは通常のHTMLで `<form action=\"https://usebasin.com/f/YOUR_ID\" method=\"POST\">` を記述\n2. 投稿されたデータをBasinが受信し、スパム判定（reCAPTCHA）を通過した正常データのみを保存\n3. 設定されたメールアドレスへの即時通知およびZapier経由でCRMへ自動転記"
-    },
-    "essence": {
-      "whatItDoes": "AWS API Gateway/Lambda × reCAPTCHA/hCaptchaスパム判定 × Webhook/Zapier連携 × 月額$9〜$39サブスク を武器に、JAMstackや静的サイト（Webflow, Netlify, Hugo）でお を解消する特化ソリューション",
-      "targetCustomer": "スタートアップ創業者、CTO、リードエンジニア、個人開発者",
-      "painRelief": "JAMstackや静的サイト（Webflow, Netlify, Hugo）でお問い合わせフォームを作るためだけにPHPサーバーを立てたくない開発者"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "AWS API Gateway/Lambda ➔ X / コミュニティ紹介 ➔ 口コミ・既存顧客紹介ループ ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "先行するFormspreeが有料化や機能肥大化を進める中、より安価で洗練された代替として開発者フォーラムに投入。",
-        "Webflow制作コミュニティで「Webflowの標準フォームよりスパムが来ない」と評判が爆発。",
-        "完全自動で回るキャッシュマシンとして、10年間放置状態で毎年数千万円〜億円規模の純利を生み続ける。"
-      ]
     }
   },
   {
@@ -24602,20 +23069,6 @@
       "viabilityLabel": "巨大先行者堀（物理物流・鑑定拠点）",
       "eraContext": "ストリートファッションとハイブランドの融合、Z世代の転売（リセール）文化の爆発的台頭。",
       "currentViabilityAnalysis": "スニーカー市場自体は成熟したが、トレカや高級時計など別カテゴリへの水平展開が進行中。個人が同じ規模を作るのは不可能だが、特定ニッチ（ポケモンカード特化、レトロゲーム鑑定）での縮小コピーは現在も極めて有効。"
-    },
-    "essence": {
-      "whatItDoes": "株式市場型Bid/Ask板取引 × グローバル真贋鑑定ハブ × 匿名自動マッチング を武器に、スニーカー・ストリートウェア購入者の「偽物を掴まされる恐怖（数百ドルの損失と社会 を解消する特化ソリューション",
-      "targetCustomer": "スニーカー・ストリートウェア購入者の決裁権を持つ責任者・当事者",
-      "painRelief": "スニーカー・ストリートウェア購入者の「偽物を掴まされる恐怖（数百ドルの損失と社会的恥辱）」"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "スニーカーヘッズ・コレクターコミュニティ ➔ NBA・セレブ・インフルエンサー提携 ➔ スニーカー相場チャートSEO ➔ 無料体験/デモ ➔ 即時決済・本契約",
-      "tactics": [
-        "創業者Josh LuberがeBayのスニーカー取引データをスクレイピングして価格ガイドブック「Campless」を作りコレクターの支持を獲得",
-        "NBAオーナーのダン・ギルバートを巻き込み、デトロイトの遊休不動産を活用して初期鑑定拠点を急造",
-        "「スニーカーの株取引所」という強烈なメタファーでメディア取材を総なめにした"
-      ]
     }
   }
 ]

@@ -2,43 +2,6 @@
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
 
-## 2026-09-12 【表示中121事例の完全体化】セクション欠落（#01 事業の正体・#12 顧客獲得動線・略奪転用方程式）の完全補完
-
-ユーザーの「全ての事例 かんぺきか？ ➔ やれ」という厳命に基づき、表示中121件における重大なセクション欠落（#01欠落85社、#12欠落108社、LOOT_BLUEPRINT欠落10社）を徹底解剖し、サバンナOS直撃の完全体Dossierへの一括補完・UI二重セーフティネットの敷設を完遂。
-
-### 1. 監査で判明したデータ欠落の物理事実
-- **#01 事業の正体・DNA（`essence`: 何屋か・誰の財布・切除する苦痛）**: 121件中 36件のみ（85件で欠落・非表示）。
-- **#12 顧客獲得動線（`acquisition`: CAC・集客ファネル・具体的ハック）**: 121件中 13件のみ（108件で欠落・非表示）。
-- **略奪転用方程式（`LOOT_BLUEPRINT`）**: 121件中 111件（10件で未配備）。
-
-### 2. 完全補完・精錬パイプライン（`scripts/enrich-entities-dossiers.ts`）の実装
-- **`essence`（#01 事業の正体）のサバンナOS言語化**:
-  - `whatItDoes`: `pipelineStack` やタグラインの主部から、1行で本質的な「何屋か」を定義。
-  - `targetCustomer`: `targetPainWallet` や顧客セグメントから「誰の財布か」を特定。
-  - `painRelief`: サバンナOS（保身、恐怖、怠惰、見栄）に基づく切除苦痛を抽出・言語化。
-- **`acquisition`（#12 顧客獲得動線）の配管導線化**:
-  - `cacJpy`: ゲリラ戦・オーガニック型は `0円`、広告型は推定CACを明記。
-  - `primaryFunnel`: `operations.primaryChannels` や `initialTraction` から、導線を矢印（➔）形式で可視化。
-  - `tactics`: 泥臭い初期施策・裏配管を箇条書きで配備。
-- **`LOOT_BLUEPRINT`（略奪転用方程式）の専用配備**:
-  - 欠落していた10社（Photo AI, Clubhouse, Quibi, S'well, Chubbies, 2PM, Baseten, Airgram, APUtime, Capacities）に対し、他業界への略奪転用手順（3ステップ）と配管設計コードスニペットを専用設計。
-- **インデックス生成パイプラインへの統合**:
-  - `scripts/generate-entities-index.ts` のベースライン読み込み時に `enrichEntityDossier` を適用し、`data/entities-index.json` において全121件が100%完全体（欠落ゼロ）となるよう自動保証。
-
-### 3. UIセーフティネットの二重化
-- [`BusinessSections.tsx`](file:///Users/satoushinya/project/Make-Money/src/features/company-inspector/ui/BusinessSections.tsx) (#01) および [`PlaybookSections.tsx`](file:///Users/satoushinya/project/Make-Money/src/features/company-inspector/ui/PlaybookSections.tsx) (#12) において、万が一プロパティが欠落している場合でも、既存フィールドからフォールバック表示してセクションが絶対にスキップされないセーフティネットを二重実装。
-
-### 4. 検証結果
-- `data/entities-index.json` 全件スキャン:
-  - `hasEssence`: 121 / 121 (100% PASS)
-  - `hasAcquisition`: 121 / 121 (100% PASS)
-  - `hasLootBlueprint`: 121 / 121 (100% PASS)
-- 全テストスイート: Vitest 281テスト、Foundation 11、Architecture 11、Recovery 6 全件PASS
-- TypeScript (`pnpm typecheck`): エラーゼロ PASS
-- Next.js Production Build (`pnpm build`): 正常完了 PASS
-
----
-
 ## 2026-09-12 【内容重複の完全解消 ＆ 情報密度インライン統合】画面上下の二重表示根絶と一次証拠・特異点メトリクスの合体
 
 ユーザーの「完全に同じものが重複していると言うより、内容の重複があるってこと？ じゃあやっておいて。なお重複を治す過程で内容が薄くなるのはお話にならない」という厳命に基づき、画面上部カードデッキと下部セクション間での内容重複を根本切除し、情報を1ミリも薄めずにインライン統合を完遂。
