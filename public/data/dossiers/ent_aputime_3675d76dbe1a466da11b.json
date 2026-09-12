@@ -1,0 +1,180 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_aputime_3675d76dbe1a466da11b",
+  "ticker": "APU.TIME",
+  "name": "APUtime",
+  "tagline": "CEOインタビューでは月次売上$50,000と顧客300社を確認。$600,000はこの月次売上を12倍した年換算であり、通期確定売上ではない。",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.645Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_aputime_3675d76dbe1a466da11b",
+    "ticker": "APU.TIME",
+    "name": "APUtime",
+    "legalEntity": "APUtime s.r.o.",
+    "tagline": "CEOインタビューでは月次売上$50,000と顧客300社を確認。$600,000はこの月次売上を12倍した年換算であり、通期確定売上ではない。",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Martin Laco, Jan Rezac",
+    "country": "CZ",
+    "url": "https://www.aputime.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "自律最適化スケジューラー",
+    "pipelineStack": "金額・費用の裏付けは未確認。",
+    "targetPainWallet": "ガントチャートの線を毎日手動で引き直し、誰がボトルネックになっているか把握できない開発責任者の胃痛",
+    "tags": [
+      "プロジェクト管理",
+      "年商3億",
+      "数理最適化",
+      "クリティカルパス",
+      "自律スケジューリング"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "REPORTED",
+      "revenueLabel": "2023年報告 $50,000/月",
+      "dataSnapshotPeriod": "2023年 CEO Martin Lonskyインタビュー（08:00〜12:54）",
+      "sourceDoc": "https://getlatka.com/companies/aputime/interviews/aputime-martin-lonsky-2023"
+    },
+    "evidenceCards": [
+      {
+        "id": "financial-source-ent_aputime_3675d76dbe1a466da11b",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "CEOインタビューでは月次売上$50,000と顧客300社を確認。$600,000はこの月次売上を12倍した年換算であり、通期確定売上ではない。",
+        "details": [
+          "旧年商$2Mと利益額は採用しない。インタビューは本人報告であり監査済み決算ではない。AppSumo買い切りと月次契約が混在するため、継続売上の定義には留意が必要。"
+        ],
+        "metrics": [
+          {
+            "label": "2023年取材時の月次売上（CEO報告・USD）",
+            "value": "$50,000"
+          },
+          {
+            "label": "月次売上×12の年換算（計算値）",
+            "value": "$600,000"
+          }
+        ],
+        "sourceNote": "2023年 CEO Martin Lonskyインタビュー（08:00〜12:54） / 確認日2026-09-11 / https://getlatka.com/companies/aputime/interviews/aputime-martin-lonsky-2023"
+      }
+    ],
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_aputime_3675d76dbe1a466da11b",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "CEOインタビューでは月次売上$50,000と顧客300社を確認。$600,000はこの月次売上を12倍した年換算であり、通期確定売上ではない。 旧年商$2Mと利益額は採用しない。インタビューは本人報告であり監査済み決算ではない。AppSumo買い切りと月次契約が混在するため、継続売上の定義には留意が必要。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://getlatka.com/companies/aputime/interviews/aputime-martin-lonsky-2023",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2018,
+      "initialTractionPeriod": "2019〜2021年（チェコ製造業・テック企業での実証実験とアワード受賞）",
+      "dataSnapshotPeriod": "2024年（業界推計）",
+      "eraContext": "リモートワーク下におけるプロジェクト進捗管理のブラックボックス化と自律AIの台頭",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "数理最適化アルゴリズムによるクリティカルパス自動計算の技術的障壁が高く、競合の安易な模倣を許さない。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "クリティカルパス数理最適化エンジン",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 0,
+          "purpose": "世界決済・月額課金・自動請求",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 0,
+          "purpose": "高可用性ホスティング・エッジ配信",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 0,
+          "purpose": "顧客データ・トランザクション保管",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 0,
+          "purpose": "自動オンボーディング・ナーチャリング",
+          "isCostUnconfirmed": true
+        }
+      ],
+      "isCapitalUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "金額・費用の裏付けは未確認。",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "自律最適化スケジューラーによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "AsanaやTrelloは「人間がカードを動かすこと」を前提としたホワイトボードのデジタル版。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、APUtimeは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2018年にチェコ・プラハで創業。 大学の数理工学者とともにスケジューリングエンジンを共同開発。",
+        "金額・費用の裏付けは未確認。",
+        "欧州のスタートアップアワードを受賞し、中堅製造業やソフトウェア受託企業の標準インフラへ拡大。"
+      ],
+      "actionPlaybook": [
+        "【決定麻痺の排除】: 社員にタスク一覧から選ばせるのをやめ、「あなたの次の仕事はこれ」と画面に1つだけ提示。",
+        "【ボトルネックの事前検知】: 「このタスクが3日遅れると、来月の納品が確実にコケる」というクリティカルパスを赤く警告。",
+        "【JiraやTrelloとの共存】: 既存のタスク管理ツールを捨てさせるのではなく、裏側に頭脳として接続するだけで機能するため導入摩擦がゼロ。"
+      ],
+      "coldOutreachTemplate": "// 自律最適化スケジューリング配管 1. タスク間の依存関係（タスクA完了後にタスクB開始）と見積もり工数を入力 2. メンバーのスキル、勤務時間、過去の実績速度を元に数理最適化アルゴリズムを実行 3. 遅延が発生した場合、全メンバーのガントチャートを0秒で自動再配置"
+    },
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "旧年商$2Mと利益額は採用しない。インタビューは本人報告であり監査済み決算ではない。AppSumo買い切りと月次契約が混在するため、継続売上の定義には留意が必要。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 1,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

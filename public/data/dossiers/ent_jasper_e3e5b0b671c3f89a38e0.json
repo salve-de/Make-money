@@ -1,0 +1,245 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_jasper_e3e5b0b671c3f89a38e0",
+  "ticker": "JASPERAI",
+  "name": "Jasper.ai (旧 Jarvis)",
+  "tagline": "「OpenAIの薄い皮を被って時価2,000億円」まで登り詰めた後、本家ChatGPTの無料公開で即死級の解約ラッシュを食らったラッパーSaaSの墓標",
+  "sector": "AI_AUTOMATION",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.635Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_jasper_e3e5b0b671c3f89a38e0",
+    "ticker": "JASPERAI",
+    "name": "Jasper.ai (旧 Jarvis)",
+    "legalEntity": "Dave Rogenmoser, John Phillip Morgan, Chris Schwarz",
+    "tagline": "「OpenAIの薄い皮を被って時価2,000億円」まで登り詰めた後、本家ChatGPTの無料公開で即死級の解約ラッシュを食らったラッパーSaaSの墓標",
+    "sector": "AI_AUTOMATION",
+    "scale": "SCALEUP",
+    "founder": "Dave Rogenmoser, John Phillip Morgan, Chris Schwarz",
+    "country": "US",
+    "url": "https://jasper.ai",
+    "verifiedBadge": true,
+    "growthRateYoY": -35,
+    "architecturePattern": "地雷:GPT-3 APIラッパー × マーケティングコピー自動生成",
+    "pipelineStack": "OpenAI GPT-3/GPT-4 API × Prompt Templates × Stripe × Facebook広告大量投下",
+    "targetPainWallet": "Webライター、アフィリエイター、SEOマーケターの記事量産・ブログ外注予算",
+    "tags": [
+      "地雷標本",
+      "失敗・転落",
+      "ラッパー崩壊",
+      "コモディティ化死",
+      "ChatGPTショック",
+      "大規模人員削減",
+      "堀のない技術"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_jasper_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】GPT-3 APIをマーケター向けプロンプト集でラップし、初期に年商100億を掻き集めたコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "OpenAIの生のプロンプト画面を使えないマーケターへ、「ブログ記事作成」「広告コピー作成」の特化UIを提供し、初期に年商100億円・評価額2,000億円まで駆け上がった元祖APIラッパー。",
+        "details": [
+          "【マーケティング現場のユースケース特化】: 白紙のチャット画面ではなく、「Facebook広告」「AIDAモデル」「SEO記事見出し」など50種類以上の事前定義フォームを用意。",
+          "【Facebookグループでの熱狂演出】: 「Jasperで書いた記事で売上が10倍になった」と投稿するユーザーをコミュニティで優遇し、バイラル増殖を加速。",
+          "【ChatGPT登場による大撃沈の教訓】: 本家OpenAIが無料のChatGPTを出した瞬間に差別化が蒸発。APIラッパーが生き残るには「顧客ワークフローへの深い埋め込み」が不可欠であるという生きた教訓。"
+        ],
+        "codeSnippet": "// Jasper型・プロンプトテンプレート配管\n1. ユーザーが「商品名」「ターゲット層」「トーン（例: 機知に富んだ）」を入力\n2. 裏側で最適化された長文システムプロンプトと結合してOpenAI APIへ送信\n3. 生成された複数のコピー案をカード形式で提示し、ワンクリックでコピー＆エディタ編集可能に",
+        "sourceNote": "Dave Rogenmoser 創業ストーリー・The Information"
+      },
+      {
+        "id": "ev_jasper_crime",
+        "type": "THE_CRIME",
+        "title": "OpenAI GPT-3 APIラッパーの先行者利益と急成長の幻影",
+        "badge": "APIラッパーの儚さ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "GPT-3 APIをマーケティング文コピーライティング特化のプロンプトで包装し、わずか1年でARR $80M（約120億円）まで急拡大。",
+        "details": [
+          "初期は「AIがブログ記事や広告文を自動生成してくれる」という魔法のツールとして月$49〜$99を課金。",
+          "自前モデルを持たず、OpenAIの推論APIに100%依存した構造。"
+        ],
+        "metrics": [
+          {
+            "label": "ピーク時ARR",
+            "value": "$80M (約¥120億)",
+            "isHighlight": true
+          },
+          {
+            "label": "調達額",
+            "value": "$125M (評価額 $1.5B)",
+            "isHighlight": true
+          }
+        ],
+        "sourceNote": "The Information ＆ Forbes"
+      },
+      {
+        "id": "ev_jasper_fatal_bleed",
+        "type": "FATAL_BLEED",
+        "title": "ChatGPT無料公開による存在価値消滅と大量レイオフの検死",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2022年11月、OpenAIがChatGPTを完全無料で一般公開した瞬間、月$49払ってJasperを使う理由が蒸発し、解約の津波で大出血。",
+        "details": [
+          "仕入れ先であるOpenAIが、Jasperのコア機能以上のチャットUIを無料（のちに月$20）で直接エンドユーザーに配り始めた。",
+          "解約率（Churn）が急増し、2023年半ばに社員の大量解雇（レイオフ）を実施、評価額も大幅減損へ転落。",
+          "【教訓】基盤APIの薄いラッパーは、プラットフォーム元がフロントエンドを出した瞬間に即死する。"
+        ],
+        "metrics": [
+          {
+            "label": "解約率急増",
+            "value": "業界警戒水準へ",
+            "isHighlight": true
+          },
+          {
+            "label": "レイオフ",
+            "value": "全社的大規模解雇",
+            "isHighlight": true
+          }
+        ],
+        "sourceNote": "TechCrunch & SEC Disclosures"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 600000000,
+      "cogs": 210000000,
+      "grossProfit": 390000000,
+      "grossMargin": 65,
+      "operatingExpenses": {
+        "serverAndApi": 50000000,
+        "advertising": 200000000,
+        "subcontracting": 30000000,
+        "toolsAndSaaS": 20000000,
+        "other": 350000000
+      },
+      "operatingProfit": -260000000,
+      "operatingMargin": -43.3,
+      "estimatedAnnualNetProfit": -3120000000,
+      "financialStatus": "POST_MORTEM",
+      "dataSnapshotPeriod": "2023年大量解雇・CEO交代時",
+      "sourceDoc": "TechCrunch解雇報道 ＆ GPT-4直撃後のARR急落ログ",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 300,
+      "initialTeamSize": 5,
+      "currentTeamSize": 300,
+      "weeklyHours": 60,
+      "initialCapitalRequired": 18000000000,
+      "automationLevel": 35,
+      "primaryChannels": [
+        "Facebook / YouTube Ads",
+        "Affiliate Army (30% Recurring)",
+        "SEO Arbitrage"
+      ],
+      "toolStack": [
+        {
+          "name": "OpenAI API (GPT-3/4)",
+          "category": "推論エンジン",
+          "monthlyCost": 85000000,
+          "purpose": "文章生成・プロンプト推論"
+        },
+        {
+          "name": "AWS / Kubernetes",
+          "category": "クラウド基盤",
+          "monthlyCost": 12000000,
+          "purpose": "エディタUI・プロジェクト管理基盤"
+        },
+        {
+          "name": "Stripe",
+          "category": "サブスク課金",
+          "monthlyCost": 22000000,
+          "purpose": "月額〜のクレジット自動課金"
+        },
+        {
+          "name": "Intercom",
+          "category": "CS・オンボーディング",
+          "monthlyCost": 1500000,
+          "purpose": "マーケター向けプロンプト活用チャットサポート"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「一般人がまだGPT-3の存在を知らなかった時期に、Facebook広告で魔法として売り抜けた」無知の裁定取引】 1. 2021年当時、OpenAIのGPT-3は一般人には敷居が高くAPI経由でしか触れなかった。Jasperはそこに使いやすいUIと「ブログ自動生成」という用途特化のプロンプトを着せて提供。\n2. FacebookやYouTube広告に巨額の広告費を注ぎ込み、「AIがあなたの代わりに数秒で長文記事を書く」という魔法のような演出で初期ユーザーとアフィリエイターを囲い込み。\n3. ARR（年間経常収益）がわずか1年で数千万円から100億円規模（$80M+）へと垂直立ち上げし、VCから時価評価15億ドル（約2,000億円）で1億2,500万ドルを調達。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【堀（Moat）が完全ゼロ ✕ API提供元（OpenAI）による直接市場奪取】】 1. 自社で基盤モデルを保有しておらず、競合がまったく同じOpenAI APIを叩けば翌日には同じクオリティの文章が生成できる完全な無防備状態。\n2. 2022年11月、OpenAIが「ChatGPT」を全世界に無料（後に月額$20）で一般公開した瞬間、ユーザーは「月額数十ドルも払ってJasperを使う理由がゼロであること」に気づいた。\n3. 顧客が雪崩を打って解約し、CAC（顧客獲得単価）がLTVを上回り、企業価値の大幅引き下げ（ダウンラウンド）と大規模な希望退職者解雇（レイオフ）に追い込まれた。",
+      "incumbentDilemma": "プラットフォームの胴元（OpenAI）が自らプレイヤーとして最安・最高品質の製品を市場に投下したため、下流のラッパー企業は即座に窒息死した: Jasperは自社の運命を100%他社（OpenAI）のAPIに依存していた。仕入れ元が自ら直販を開始し、しかも自社より優れたUIと圧倒的低価格（無料〜$20）で提供してきたため、対抗する手段が物理的に存在しなかった。",
+      "secretInsight": "OpenAIのAPIにプロンプトのガワを被せただけで月額数十ドルを取り年商100億円超を叩き出したが、OpenAI自身が月20ドルのChatGPTを出した瞬間に顧客が全員蒸発した手口",
+      "initialTraction": [
+        "創業者のDave Rogenmoserらは元々「Proof（Webサイトの閲覧者数をポップアップ表示するツール）」を運営していたが成長が頭打ちに。OpenAIのGPT-3ベータアクセス権を取得した瞬間に全リソースをピボットし、Facebookグループ「Jasper Nation」を作ってアフィリエイターたちに「これで月100万円稼げる」と熱狂を煽って初期数万人を一気に獲得。"
+      ],
+      "actionPlaybook": [
+        "「他人の技術（GPT-3）に自社ブランドのラベルを貼って売る」ホワイトラベル・ラッパーモデルの極限の成功と、その後の完全な崩壊。",
+        "売上が減ってもOpenAIへの月間数千万円〜数億円のAPI利用料支払いが重くのしかかり、キャッシュを急速に燃焼。"
+      ],
+      "coldOutreachTemplate": "【Jasper型・AIコピーライティングアプローチ】\n「広告コピーやブログ記事の執筆に、毎月数十時間の時間と外注費を費やしていませんか？\n弊社のAIツールなら、売れるマーケティングフレームワークに基づいた高コンバージョンなコピーを30秒で自動生成します。\n7日間の無料トライアルで効果を今すぐ実感してください。」"
+    },
+    "essence": {
+      "whatItDoes": "マーケティングコピー、ブログ記事、広告文を自動生成するGPTラッパーAIツール",
+      "targetCustomer": "オウンドメディア運営企業、SEO代理店、個人アフィリエイターのライティング外注予算（月額$49〜$499）",
+      "painRelief": "「1本2万円かかるSEO記事の外注費と、ライターが締め切りを守らないストレス」の切除"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者のDave Rogenmoserらは元々「Proof（Webサイトの閲覧者数をポップアップ表示するツール）」を運営していたが成長が頭打ちに。OpenAIのGPT-3ベータアクセス権を取得した瞬間に全リソースをピボットし、Facebookグループ「Jasper Nation」を作ってアフィリエイターたちに「これで月100万円稼げる」と熱狂を煽って初期数万人を一気に獲得。",
+      "platformGlitch": "「他人の技術（GPT-3）に自社ブランドのラベルを貼って売る」ホワイトラベル・ラッパーモデルの極限の成功と、その後の完全な崩壊。",
+      "pivotSnapshot": "ChatGPTショックの後、一般クリエイター向けを諦め、「大企業向けエンタープライズAIマーケティングプラットフォーム」へと必死のピボットを図るが、Microsoft CopilotやGoogle Workspaceに包囲され苦戦継続。",
+      "hiddenStackCost": "売上が減ってもOpenAIへの月間数千万円〜数億円のAPI利用料支払いが重くのしかかり、キャッシュを急速に燃焼。"
+    },
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2021-2022年中盤 (ChatGPT登場前のゴールドラッシュ)",
+      "dataSnapshotPeriod": "2023-2026年 (ChatGPTショック後の失速・再建期)",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "eraContext": "LLMの黎明期、一般人がまだプロンプトを直接扱えなかったわずか1年半の歴史的間隙（タイムマシン）だけで成立した打ち上げ花火。",
+      "currentViabilityAnalysis": "【完全な地雷標本】APIラッパーSaaSの典型的な死に様。独自のプロプライエタリ・データやワークフローの監禁がない「ガワだけSaaS」は、基盤モデル側の機能追加で一撃死する教科書的教訓。",
+      "viabilityLabel": "時代限定・再現不能"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_jasper_e3e5b0b671c3f89a38e0_1",
+        "category": "INCUMBENT_DILEMMA",
+        "categoryLabel": "大手の反撃・直接圧殺",
+        "text": "プラットフォームの胴元（OpenAI）が自らプレイヤーとして最安・最高品質の製品を市場に投下したため、下流のラッパー企業は即座に窒息死した: Jasperは自社の運命を100%他社（OpenAI）のAPIに依存していた。仕入れ元が自ら直販を開始し、しかも自社より優れたUIと圧倒的低価格（無料〜$20）で提供してきたため、対抗する手段が物理的に存在しなかった。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_jasper_e3e5b0b671c3f89a38e0_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "「AIを使っている」というバズワードだけで中身が空っぽのAPIラッパー企業にシリコンバレーのトップVC（Insight Partners等）が群がり、2,000億円のバブル評価をつけた市場の狂気。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_jasper_e3e5b0b671c3f89a38e0_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "崩壊の生ログ・解約怨嗟",
+        "text": "「ChatGPTを使えば月20ドル（あるいは無料）でできることを、なぜ今までJasperに毎月1万円以上も払っていたのか」というユーザーの激しい裏切られ感と一斉解約。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "OpenAIのAPIにプロンプトを被せただけの薄いラッパー。本家ChatGPTの月直販で一撃即死した典型地雷",
+      "demandDelta": "90日 ↓70%",
+      "competitionDelta": "本家直販により消滅",
+      "entryRequirements": {
+        "capital": "数千万円〜",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "POST_MORTEM",
+    "hasLootBlueprint": false
+  }
+}

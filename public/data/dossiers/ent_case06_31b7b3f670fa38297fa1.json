@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_31b7b3f670fa38297fa1",
+  "ticker": "GYM.SHRK",
+  "name": "Gymshark",
+  "tagline": "ピザ配達員の青年が手縫いミシン1台から創業し、初期Instagram筋トレ発信者への無償ギフティングだけで年商1,150億円・ユニコーンへ登り詰めたコミュニティD2Cの怪物",
+  "sector": "PHYSICAL_ASSET",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.639Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_31b7b3f670fa38297fa1",
+    "ticker": "GYM.SHRK",
+    "name": "Gymshark",
+    "legalEntity": "Gymshark Ltd",
+    "tagline": "ピザ配達員の青年が手縫いミシン1台から創業し、初期Instagram筋トレ発信者への無償ギフティングだけで年商1,150億円・ユニコーンへ登り詰めたコミュニティD2Cの怪物",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "ENTERPRISE",
+    "founder": "Ben Francis, Lewis Morgan",
+    "country": "UK",
+    "url": "https://www.gymshark.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 15,
+    "architecturePattern": "共犯者コミュニティ",
+    "pipelineStack": "Shopify Plus × インスタボディビルダー無償ギフティング × BodyPowerミートアップ行列演出",
+    "targetPainWallet": "ダサい既存スポーツウェアを着てジムで舐められたくない若者の虚栄心 ＆ 筋トレコミュニティへの所属承認欲求",
+    "tags": [
+      "フィットネスD2C",
+      "インフルエンサー元祖",
+      "コミュニティ熱狂",
+      "年商1000億超",
+      "UKユニコーン"
+    ],
+    "pnl": {
+      "monthlyRevenue": 9580000000,
+      "cogs": 3832000000,
+      "grossProfit": 5748000000,
+      "grossMargin": 60,
+      "operatingExpenses": {
+        "serverAndApi": 35000000,
+        "advertising": 3000000000,
+        "subcontracting": 800000000,
+        "toolsAndSaaS": 120000000,
+        "other": 976000000
+      },
+      "operatingProfit": 817000000,
+      "operatingMargin": 8.5,
+      "estimatedAnnualNetProfit": 9800000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年7月期 英国Companies House決算（年商£607.3M / EBITDA £51.7M）",
+      "sourceDoc": "Gymshark Annual Report & Accounts (FY2024) / Companies House UK",
+      "estimationLogic": "公式決算売上£607.3M（為替190円換算で年商約1,153億円 ➔ 月商約95.8億円）、調整後EBITDA £51.7M（約98億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_gym_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】大手が無視したマイクロインフルエンサーに服を配り、見栄を燃料にするコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "大手が巨額のTVCMやスーパースター契約に金を溶かす中、SNSの無名筋トレ発信者に商品を送り熱狂的な共犯者にする。",
+        "details": [
+          "【初期の無償ギフティング】: お金のないピザ屋時代、好きなYouTube筋トレ配信者（Lex Griffin等）に手紙付きで手縫いウェアを無償送付。彼らが動画で自発的に着用し爆発。",
+          "【リアルイベントでの行列ハック】: BodyPower展示会で極小ブースを取り、招待したインフルエンサーを目当てに何千人ものファンを行列させ「買えない熱狂」を演出。",
+          "【タイトフィットな裁断】: 従来のブカブカなアディダス・ナイキと真逆に、筋肉が最も美しく強調されるテーパード裁断で若者の承認欲求を直撃。"
+        ],
+        "codeSnippet": "// コミュニティ共犯型D2C配管\n1. ニッチ領域でファンが濃いフォロワー1万〜5万人の配信者を50人リストアップ\n2. ギフティング＋限定割引コードを配布し、新作発売日に一斉着用投稿\n3. 初回生産分を数分で即時完売させ、「買えなかった悔しさ」を次回ドロップの燃料にする",
+        "sourceNote": "Ben Francis 創業インタビューおよび公式ドキュメンタリー"
+      },
+      {
+        "id": "ev_gym_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：ピザハット深夜勤務とシルクスクリーン手刷り",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "夜はピザハットの配達員でガソリン代を稼ぎ、昼は祖母のミシンとスクリーン印刷機で自作。",
+        "details": [
+          "2012年、19歳のBen Francisが大学に通いながらバーミンガムの自宅ガレージで創業。",
+          "サプリメントのドロップシッピングで小銭を稼ぎ、それを元手にミシンを購入。筋肉のカットが綺麗に見える独自のベストを自作。",
+          "展示会ブース代を全財産で支払い、SNSで知り合ったマッチョたちを招待してファンと直接交流させたことで全在庫が即日蒸発。"
+        ],
+        "sourceNote": "BBC News \"How Ben Francis built a £1bn clothing brand\""
+      },
+      {
+        "id": "ev_gym_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：NikeやUnder Armourが真似できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "全スポーツ対応のマスブランドは、「ボディビルダー専用のタイトウェア」に特化できない。",
+        "details": [
+          "ナイキやアディダスはサッカーやバスケなど競技全般のマス市場を相手にするため、ニッチなジム中毒者向けの露出度が高いウェアはブランドイメージ上出せない。",
+          "大手は卸売（Foot Locker等）への流通マージンで縛られており、D2C直販で粗利60%を保持しながら熱狂コミュニティを囲い込むゲリラ戦法が取れなかった。"
+        ],
+        "sourceNote": "D2C Retail Analysis 2024"
+      },
+      {
+        "id": "ev_gym_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：ジムで「意識が低い素人」に見られたくない恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "フィットネス初心者がジムに入った瞬間に感じる「自分の身体や服への強烈な劣等感」。",
+        "details": [
+          "ジムという空間は動物的な序列と見栄が剥き出しになるサバンナ。",
+          "Gymsharkを着るだけで「ハードコアに鍛えている側の人間」というパスポートが得られるため、若者は定価$45のレギンスやTシャツを迷わず即決する。"
+        ],
+        "sourceNote": "Consumer Psychology in Fitness Retail"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-07",
+        "author": "Make-Money アナリスト",
+        "text": "年商£607M（約1,150億円）突破。D2Cからロンドン旗艦店やNY店舗などオムニチャネルへシフトしつつEBITDA約98億円を維持。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2012,
+      "initialTractionPeriod": "2012〜2014年（BodyPower ExpoとYouTubeギフティングによる初動爆発）",
+      "dataSnapshotPeriod": "2024年7月期（Companies House年次報告）",
+      "eraContext": "Instagram初期のアルゴリズム未成熟期で、インフルエンサーへの商品提供が桁違いのエンゲージメントを生んだ黄金時代",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "現在同様のインフルエンサーギフティングをゼロからやっても広告料高騰で爆死するが、Gymsharkは既に巨大なブランド堀と自社コミュニティを確立済み。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "Shopify Plus",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 306560000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 21000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【ダサい既存スポーツウェアを着てジムで舐められたくない若者の虚栄心 ＆ 筋トレコミュニティへの所属承認欲求を急所ハック】ピザ配達員の青年が手縫いミシン1台から創業し、初期Instagram筋トレ発信者への無償ギフティングだけで年商1,150億円・ユニコーンへ登り詰めたコミュニティD2Cの怪物",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "共犯者コミュニティによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "全スポーツ対応のマスブランドは、「ボディビルダー専用のタイトウェア」に特化できない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Gymsharkは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2012年、19歳のBen Francisが大学に通いながらバーミンガムの自宅ガレージで創業。",
+        "サプリメントのドロップシッピングで小銭を稼ぎ、それを元手にミシンを購入。筋肉のカットが綺麗に見える独自のベストを自作。",
+        "展示会ブース代を全財産で支払い、SNSで知り合ったマッチョたちを招待してファンと直接交流させたことで全在庫が即日蒸発。"
+      ],
+      "actionPlaybook": [
+        "【初期の無償ギフティング】: お金のないピザ屋時代、好きなYouTube筋トレ配信者（Lex Griffin等）に手紙付きで手縫いウェアを無償送付。彼らが動画で自発的に着用し爆発。",
+        "【リアルイベントでの行列ハック】: BodyPower展示会で極小ブースを取り、招待したインフルエンサーを目当てに何千人ものファンを行列させ「買えない熱狂」を演出。",
+        "【タイトフィットな裁断】: 従来のブカブカなアディダス・ナイキと真逆に、筋肉が最も美しく強調されるテーパード裁断で若者の承認欲求を直撃。"
+      ],
+      "coldOutreachTemplate": "// コミュニティ共犯型D2C配管\n1. ニッチ領域でファンが濃いフォロワー1万〜5万人の配信者を50人リストアップ\n2. ギフティング＋限定割引コードを配布し、新作発売日に一斉着用投稿\n3. 初回生産分を数分で即時完売させ、「買えなかった悔しさ」を次回ドロップの燃料にする"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

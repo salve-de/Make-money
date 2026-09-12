@@ -1,0 +1,183 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_7590e69f49bb1c7e8ac7",
+  "ticker": "HARRYS",
+  "name": "Harry's",
+  "tagline": "「薬局で替刃1個500円もふんだくられる」P&Gジレット独占への怨嗟を突き、ドイツの老舗刃物工場を逆買収して半額直販定期便で年商1,200億円抜く手口",
+  "sector": "MONOPOLY_MFG",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.632Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_7590e69f49bb1c7e8ac7",
+    "ticker": "HARRYS",
+    "name": "Harry's",
+    "legalEntity": "Harry's Inc.",
+    "tagline": "「薬局で替刃1個500円もふんだくられる」P&Gジレット独占への怨嗟を突き、ドイツの老舗刃物工場を逆買収して半額直販定期便で年商1,200億円抜く手口",
+    "sector": "MONOPOLY_MFG",
+    "scale": "ENTERPRISE",
+    "founder": "Andy Katz-Mayfield & Jeff Raider",
+    "country": "US",
+    "url": "https://harrys.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 25,
+    "architecturePattern": "垂直統合替刃",
+    "pipelineStack": "ドイツ自社刃物工場 × D2C定期サブスク × Walmart/Target量販展開",
+    "targetPainWallet": "成人男性の理不尽な消耗品支出（大手カミソリの暴利価格に対する激しい不満）",
+    "tags": [
+      "垂直統合",
+      "工場買収",
+      "反独占D2C",
+      "年商1200億超",
+      "定期便"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_harrys_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】ジレットの替刃ぼったくり（粗利90%）を告発し、直販サブスクで年商400億抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "ドラッグストアで鍵付きガラスケースに保管される高額なカミソリ替刃への怒りを突き、「ドイツの老舗工場買収＋シンプル直販サブスク」で年商400億円を掠め取る。",
+        "details": [
+          "【既存ボッタクリ構造の告発】: ジレットの「替刃4個で2,000円超」という理不尽な高価格を広告でユーモラスに批判し、大衆を味方につける。",
+          "【ドイツ老舗刃物工場の買収】: 調達を外注せず、100年の歴史を持つドイツ工場を1億ドルで自ら買収し、高品質・低コストの供給要塞を確立。",
+          "【初回お試しセット（〜）の撒き餌】: カミソリ本体＋替刃＋シェービングジェルを原価割れで配り、翌月からの定期替刃配送（月数ドル）でLTVを回収。"
+        ],
+        "codeSnippet": "// Harry's型・リバースエンジニアリングD2C配管\n1. 「カミソリ本体＋替刃2個＋ジェル」のトライアルセットをで提供\n2. 2週間後に替刃8個パック（）の定期配送プランへ自動移行\n3. カミソリからスキンケア、ボディウォッシュへクロスセルして顧客LTVを2.5倍へ拡大",
+        "sourceNote": "Harry's SEC提出資料・Andy Katz-Mayfieldインタビュー"
+      },
+      {
+        "id": "ev_harrys_crime",
+        "type": "THE_CRIME",
+        "title": "ジレットの80%粗利への反逆とドイツ刃物工場の直接買収",
+        "badge": "製造垂直統合D2C",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "替刃1個数百円というジレットの暴利に怒る男性に高品質カミソリを適正価格で直送。さらにドイツの100年老舗工場を直接買収してサプライチェーンを制圧。",
+        "details": [
+          "ローンチ前の紹介リファラルキャンペーン（友達を紹介すると無料ハンドル進呈）で1週間に10万件のメールアドレスを獲得。",
+          "自社工場買収により、競合D2Cが真似できない製造原価の圧縮と品質管理を実現。"
+        ],
+        "metrics": [
+          {
+            "label": "売上",
+            "value": "$500M+ (約¥750億)",
+            "isHighlight": true
+          },
+          {
+            "label": "初期事前登録",
+            "value": "100,000人 (ローンチ前)"
+          }
+        ],
+        "sourceNote": "Harry's S-1 Filing Draft & Forbes"
+      }
+    ],
+    "essence": {
+      "whatItDoes": "人間工学に基づいた高品質カミソリ・シェービングケア用品の企画・製造および定期配送サブスク",
+      "targetCustomer": "大手ジレットの替刃価格に辟易している20〜50代の男性層",
+      "painRelief": "薬局の鍵付き防犯ケースから店員を呼んで高額な替刃を買わされる屈辱と出費"
+    },
+    "pricing": {
+      "model": "初回お試しセット（送料のみ）➔ 自動替刃定期配送（いつでも解約可能）",
+      "pricePoint": "替刃1個あたり約$2（大手の半額以下）",
+      "psychologicalTrigger": "公平感と反抗心（「大企業の暴利から解放された賢い消費者」というアイデンティティ）",
+      "estimatedLtvJpy": 35000,
+      "churnRate": "3.8%/月"
+    },
+    "acquisition": {
+      "cacJpy": 3200,
+      "primaryFunnel": "ローンチ前のバイラル紹介プログラム（友達紹介で無料カミソリ進呈）➔ 初回トライアルセット申込",
+      "tactics": [
+        "ローンチ前に「友達を紹介するほど豪華な商品がもらえる」キャンペーンを打ち、1週間で10万件のメアドを獲得"
+      ]
+    },
+    "pnl": {
+      "monthlyRevenue": 10000000000,
+      "cogs": 4000000000,
+      "grossProfit": 6000000000,
+      "grossMargin": 60,
+      "operatingExpenses": {
+        "serverAndApi": 50000000,
+        "advertising": 2500000000,
+        "subcontracting": 300000000,
+        "toolsAndSaaS": 50000000,
+        "other": 1100000000
+      },
+      "operatingProfit": 2000000000,
+      "operatingMargin": 20,
+      "estimatedAnnualNetProfit": 24000000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "Edgewell買収合意時公表値",
+      "sourceDoc": "米国SEC届出開示資料 (年間売上約$800M)"
+    },
+    "operations": {
+      "teamSize": 600,
+      "initialTeamSize": 5,
+      "currentTeamSize": 600,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 20000000,
+      "automationLevel": 80,
+      "primaryChannels": [
+        "D2C公式サブスク",
+        "Walmart / Target等の全米棚",
+        "ポッドキャスト広告"
+      ],
+      "toolStack": [
+        {
+          "name": "自社カスタムスタック",
+          "category": "基幹EC",
+          "monthlyCost": 1500000,
+          "purpose": "数百万人の定期配送スケジュールと決済自動化"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "P&Gジレットが70%の独占シェアにあぐらをかき、中間マージンと広告費を乗せた暴利価格を消費者に押し付けていた死角",
+      "moatType": "PROCESS_POWER",
+      "moatDescription": "ドイツの老舗刃物工場Feintechnik（1920年創業）を1億ドルで自社買収したことによる、競合が真似できない高品質・低コスト製造能力",
+      "initialTraction": [
+        "Warby Parker共同創業者Jeff Raiderの知見を活かし、ローンチ前紹介キャンペーンで10万人の予約客を初日前に確保"
+      ],
+      "actionPlaybook": [
+        "① 大手独占で粗利率が高すぎる日用品を特定",
+        "② 製造元（工場）を直接押さえて中間マージンを切除",
+        "③ 定期便でLTVを極大化"
+      ],
+      "coldOutreachTemplate": "【Harry's型・価格破壊アプローチ】\n「毎月の消耗品に、ブランド料という名目の法外な金額を払い続けていませんか？\n弊社は中間マージンを完全カットし、最高品質のプロダクトを従来の半額以下で定期的にお届けします。\nまずは初回限定のトライアルセットをお試しください。」",
+      "incumbentDilemma": "既存大手は既存の高単価契約と自社マージンを守る構造的ジレンマ（カニバリズム障壁）があるため、軽量・特化型の本モデルには手を出せない。"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "共同創業者のAndyが薬局でカミソリを買おうとした際、鍵付きケースを開けてもらうのに10分待たされ、替刃4個で25ドル取られた怒りから事業を着想。初期はドイツの工場に何度も通い詰め信頼を勝ち取った。",
+      "platformGlitch": "大手が薬局の棚を独占している障壁を、D2C（自社通販）というインターネット直販バイパスで完全無力化。",
+      "pivotSnapshot": "当初は単なるカミソリ通販だったが、ジレットに対抗するためには「刃の品質」で絶対に負けられないと判断。外部調達をやめ、ドイツの老舗工場を1億ドルで逆買収する大勝負に出て堀を完成させた。",
+      "hiddenStackCost": "2024年売上8.35億ドル（約1,250億円）。評価額約2,000億円のユニコーンとなり、現在はボディウォッシュや女性用ブランド（Flamingo）へ横展開。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013年春",
+      "dataSnapshotPeriod": "2024年〜2026年最新推計",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "巨大垂直統合堀確立",
+      "eraContext": "Warby ParkerやDollar Shave Clubと並ぶ、第一次D2Cディスラプションの黄金期。",
+      "currentViabilityAnalysis": "製造工場の買収と全米量販流通を押さえており、後発の参入障壁は極めて高い。現在挑戦するなら日用品ではなくB2B特殊工具や医療用消耗品などのニッチ垂直統合が活路。"
+    },
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者堀・保留",
+      "oneLineReason": "ドイツの老舗刃物工場を自社買収してジレットに対抗した製造要塞。カミソリD2Cへの後発参入は困難",
+      "demandDelta": "年 +10%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

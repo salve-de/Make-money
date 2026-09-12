@@ -1,0 +1,249 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_headshotpro",
+  "ticker": "HEADSHOT",
+  "name": "HeadshotPro",
+  "tagline": "リモート企業の人事の見栄と経費を狙い、比較ブロガーに売上の30%をバラまいて完全1人で月商4,500万円抜く手口",
+  "sector": "AI_AUTOMATION",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.630Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_headshotpro",
+    "ticker": "HEADSHOT",
+    "name": "HeadshotPro",
+    "legalEntity": "Postma Innovations B.V.",
+    "tagline": "リモート企業の人事の見栄と経費を狙い、比較ブロガーに売上の30%をバラまいて完全1人で月商4,500万円抜く手口",
+    "sector": "AI_AUTOMATION",
+    "scale": "SOLO",
+    "founder": "Danny Postma",
+    "country": "NL",
+    "url": "https://www.headshotpro.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 120,
+    "architecturePattern": "30%紹介網",
+    "pipelineStack": "Stable Diffusion × Stripe × 成果報酬アフィリエイト",
+    "targetPainWallet": "リモート企業人事（退職・採用時の顔写真更新コスト）",
+    "tags": [
+      "完全1人",
+      "30%紹介網",
+      "B2B",
+      "AI写真",
+      "個人開発",
+      "リモート人事"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_headshotpro_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】リモート企業の人事部へ「スタジオ撮影費用の90%削減」を売り込む証明写真コード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "フルリモート企業の「社員全員の顔写真を揃えたいがスタジオに呼べない」悩みを突き、AI証明写真で年商5.4億円・手残り純利2億円超を叩き出す。",
+        "details": [
+          "【B2Bチームプランの設置】: 個人向けに加え、法人向け「チーム1人あたり〜」のバルク購入プランを用意し、1回の決済で数十万円を回収。",
+          "【アフィリエイト30%還元】: リモートワーク系ブロガーやAI比較インフルエンサーに売上の30%を恒久キックバックし、SEO上位枠を完全に独占。",
+          "【Stable Diffusion原価の徹底圧縮】: GPUサーバーを自社保有せず、Replicate等のサーバーレス推論を利用して固定費を完全ゼロ化。"
+        ],
+        "codeSnippet": "// HeadshotPro型・法人一括証明写真配管\n1. 人事担当者がチームメンバーのメールアドレスをCSVインポート\n2. 各社員へ自撮り写真アップロード依頼リンクが自動送信\n3. 自動生成された背景・服装統一プロフィール写真を人事管理画面に一括納品\n4. Stripe Corporate Invoiceで一括請求",
+        "sourceNote": "Danny Postma Xポスト・公式収益公開"
+      },
+      {
+        "id": "ev_headshotpro_crime",
+        "type": "THE_CRIME",
+        "title": "企業の全社員プロフィール写真をAI生成しスタジオ代を即座に削減",
+        "badge": "B2B一括AI生成",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "全社員をスタジオに集めてプロカメラマンに撮らせる数百万円のコストを、各自スマホの自撮りをアップさせるだけで1人$29で一括生成。",
+        "details": [
+          "企業のHRやマーケティング担当者が「リモートワークで社員の写真がバラバラ」という痛みを抱えている急所を直撃。",
+          "背景、照明、服装（スーツ等）を統一したヘッドショットを1社あたり数十万〜数百万円で一括受注。"
+        ],
+        "metrics": [
+          {
+            "label": "月商",
+            "value": "約¥4,500万",
+            "isHighlight": true
+          },
+          {
+            "label": "粗利率",
+            "value": "85%+",
+            "isHighlight": true
+          },
+          {
+            "label": "運営人数",
+            "value": "1人 (Danny Postma)"
+          }
+        ],
+        "sourceNote": "Danny Postma 公開インタビュー & X"
+      }
+    ],
+    "essence": {
+      "whatItDoes": "リモート企業向けチーム全員の統一宣材顔写真AI生成プラットフォーム",
+      "targetCustomer": "リモートワーク企業のHR/人事担当者、役員、マーケティング責任者",
+      "painRelief": "世界中に散らばる社員の顔写真の画質・背景のバラつきによるコーポレートイメージの毀損"
+    },
+    "pricing": {
+      "model": "チーム一括パック課金 ＋ 個人単発・サブスク",
+      "pricePoint": "チーム1パック $399〜$1,999 (個人は$39〜)",
+      "psychologicalTrigger": "社内政治と正当化（「会社の公式ブランディング」という名目で個人のポケットではなく会社の経費で即決）",
+      "estimatedLtvJpy": 85000,
+      "churnRate": "8.2%/月"
+    },
+    "acquisition": {
+      "cacJpy": 12000,
+      "primaryFunnel": "30%成果報酬アフィリエイターの比較記事 ➔ B2B専用LP ➔ 会社メールでの一括生成見積もり",
+      "tactics": [
+        "「AI Headshot おすすめ」上位全メディアへの30%永久報酬提供",
+        "職種×業界のプログラマティックSEOページ数万件の量産",
+        "人事向け「社内稟議用スライド資料」のワンクリックダウンロード"
+      ]
+    },
+    "pnl": {
+      "monthlyRevenue": 45000000,
+      "cogs": 9000000,
+      "grossProfit": 36000000,
+      "grossMargin": 80,
+      "operatingExpenses": {
+        "serverAndApi": 600000,
+        "advertising": 13500000,
+        "subcontracting": 400000,
+        "toolsAndSaaS": 500000,
+        "other": 200000
+      },
+      "operatingProfit": 20800000,
+      "operatingMargin": 46.2,
+      "estimatedAnnualNetProfit": 249600000,
+      "financialStatus": "ESTIMATED",
+      "dataSnapshotPeriod": "2024年観測推計",
+      "sourceDoc": "注文番号解析 ＆ AI推論原価逆算方程式",
+      "estimationLogic": "【売上因数分解】\n平均単価 $39（約¥5,800） × 月間推定7,700注文件数 ＝ 月商 約¥4,500万\n\n【原価因数分解】\nStable Diffusion推論API（1回約$0.80×20枚＝約$16） ＋ Stripe手数料（2.9%+$0.30） ＝ 原価率 約35%（粗利率65%）"
+    },
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 50000,
+      "automationLevel": 96,
+      "primaryChannels": [
+        "高額成果報酬アフィリエイト網 (30% Lifetime)",
+        "プログラマティックSEO (地域×職種×顔写真)",
+        "B2Bチーム一括導入"
+      ],
+      "toolStack": [
+        {
+          "name": "RunPod / Replicate (カスタムLoRA学習)",
+          "category": "GPU推論",
+          "monthlyCost": 8500000,
+          "purpose": "人物ごとにLoRAモデルを高速学習し高精度顔写真を自動レンダリング",
+          "replacementDifficulty": "MEDIUM"
+        },
+        {
+          "name": "Rewardful (アフィリエイトトラッキング)",
+          "category": "営業",
+          "monthlyCost": 150000,
+          "purpose": "世界中のテックブロガーへの30%成果報酬自動計算・送金",
+          "replacementDifficulty": "LOW"
+        },
+        {
+          "name": "Vercel + Next.js",
+          "category": "ホスティング",
+          "monthlyCost": 60000,
+          "purpose": "グローバル高速CDNでのB2B向け超高速ランディングページ運用",
+          "replacementDifficulty": "LOW"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【リモート企業の人事が抱える「社員の顔写真がバラバラで見栄えが悪い」社内政治の歪み】世界中に散らばるリモート社員をスタジオに集めるのは物理的に不可能。個人なら$20で躊躇するAI顔写真を、「会社の統一ブランディング」という大義名分で経理に1チーム$500〜$2,000のコーポレートカード決済を瞬時に切らせる。",
+      "moatType": "NETWORK_EFFECT",
+      "moatDescription": "【検索1位〜10位の比較記事を「30%永久キックバック」で完全カルテル化】「AI Headshot おすすめ」でヒットする有力アフィリエイター全員に売上の30%を生涯還元。競合が自前でSEO記事を書いても、すでに全アフィリエイターがHeadshotProを1位に推す経済的共犯関係が完成しており、検索流入を物理的に奪えない。",
+      "incumbentDilemma": "個人向けAI写真ツールは単価$20前後で激しい価格競争に巻き込まれているが、HeadshotProは「B2B向け・請求書払い対応・チーム一括管理」に振り切ることで、同じ推論モデルを使いながら5〜20倍の客単価を抜いている。",
+      "secretInsight": "競合が「個人」を集客しようとTikTokで踊っている間に、米国の有力テックメディアや「リモートワークおすすめツール」を執筆するアフィリエイターに直接DMを送り、業界最高峰の生涯マージン（30%）を提示。検索上位の全レビュー記事を自社推しで独占し、後発参入者のSEO流入を構造的に塞いだ。",
+      "initialTraction": [
+        "Redditのr/RemoteWorkやLinkedInで、チーム写真のバラつきに悩む人事マネージャーへ直接アプローチ",
+        "最初の10社に無料でお試し導入させ、BEFORE/AFTERの許可を得て事例LPを作成",
+        "Rewardfulを導入し、テック系インフルエンサーに個別DMで特別35%マージンを提示してレビューを依頼"
+      ],
+      "actionPlaybook": [
+        "Step 1: 個人向けで流行ったAI機能を「法人・人事向け（企業の統一道具）」へリパッケージする",
+        "Step 2: 広告費を自前で溶かさず、業界最大級のアフィリエイト還元率を設定して軍隊に売らせる",
+        "Step 3: チーム単位（10人〜100人）の一括決済プランを用意し、客単価を10倍に引き上げる"
+      ],
+      "coldOutreachTemplate": "【HeadshotPro型・法人人事アプローチ】\n「全国・世界に散らばるリモート社員のプロフィール写真がバラバラになっていませんか？\nスタジオ撮影に1人3万円かける必要はありません。スマホ自撮りを送るだけで、会社のコーポレートカラーに統一された最高品質の証明写真を即日納品します。\nまず1名分の無料トライアルをお試しください。」"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "大手写真館や派遣フォトグラファー仲介会社は提携カメラマンの手前、自らAI写真に参入すると既存ビジネスを破壊するため参入不能。",
+        "scaleMismatchReason": "法人B2B向けのヘッドショット特化という狭いバーティカルは、大手総合求人ポータルやSaaS企業にはニッチすぎて投資対効果が合わない。",
+        "decisionSpeedAdvantage": "比較記事アフィリエイターへの30%キックバックカルテルを即断即決し、SEO上位を独占。"
+      },
+      "pricingPower": {
+        "anchorComparison": "全社員の出社・スタジオ撮影日程調整（人事の数百時間の工数＋撮影費用数十万円）と比較させ、1人3,000円〜で完了する法人プランを「人事の神ツール」として決済させる。",
+        "lossAversionTrigger": "WebサイトやLinkedInで社員の顔写真のトーンがバラバラで「会社が胡散臭く見える」というブランディングの信用毀損恐怖。",
+        "budgetCategory": "企業の人事・採用・総務経費枠。会社のコーポレートカードで一括決済されるため価格感応度が極めて低い。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "企業ごとの写真レタッチ基準・背景色プリセット・承認フローがシステム内に保存。",
+        "workflowIntegration": "新入社員が入社した際、Slack招待と同時に「HeadshotProでアイコン写真を生成する」という入社オンボーディング規定に組み込まれる。",
+        "switchingFriction": "全社員のアイコンのトーン＆マナーを統一しているため、他社ツールへ乗り換えると全員の写真を撮り直す必要が生じる。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "成果報酬型アフィリエイトのため、売上が発生した時のみ費用が発生。事前の広告宣伝費リスクがゼロ。",
+        "incrementalMargin": "法人一括購入（50人〜200人枠）の前払いにより、売上が一気に数十万〜数百万円単位でキャッシュイン。粗利率70%。",
+        "workingCapitalStrategy": "リモートチーム3名のみで年商5.4億円を運用。利益率46%の超高効率キャッシュフロー。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "自作のAIヘッドショットをLinkedInに投稿し、リモートワークで社員写真がバラバラな企業の経営者へ直接コールドメッセージ。さらに「AI headshot」関連のSEOキーワードを網羅したLPをプログラマティックSEOで数百ページ量産し、初期からGoogle検索トラフィックを面で制圧。",
+      "platformGlitch": "競合が個人向け（B2C）で買い切り1回数千円の価格消耗戦をしていた隙を突き、「企業向けチーム一括パック（1人$39〜、10人で$390）」を最速で投入。会社のコーポレートカード（経費枠）を使わせることで、個人の財布の躊躇を完全無効化。",
+      "pivotSnapshot": "当初は個人向けのペットAI写真ツールなどを乱発していたが、B2CのChurnの高さとクレーマー対応で疲弊。B2Bチームプランに全リソースを集中した瞬間に、クレーム激減・一括前金入金で月商3,800万円に急拡大。",
+      "hiddenStackCost": "インフラはReplicate + AstriaのAPIをRESTで叩くだけ。画像生成の原価は1人あたり約$3〜$5程度で、販売価格$39に対して原価率10〜13%。チームは創業者と数名のフィリピン人サポート外注のみで粗利率70%を維持。"
+    },
+    "temporal": {
+      "foundedYear": 2023,
+      "initialTractionPeriod": "2023年春",
+      "dataSnapshotPeriod": "2024年〜2026年推計",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（B2Bチーム化＆30%紹介網）",
+      "eraContext": "リモートワーク普及とAI画像生成の爆発期。個人の自撮りではなく「リモート企業の人事の顔写真統一」という社内政治の財布にフォーカス。",
+      "currentViabilityAnalysis": "個人向けAI写真は無料化・価格破壊が進むが、「会社のコーポレートカードで一括決済させるB2Bパック」と「上位比較ブロガーへの30%還元カルテル」は今も強固に機能している。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2023年3月",
+        "eventType": "launch",
+        "description": "個人向けAI写真からB2B向けチーム顔写真生成へ特化してローンチ"
+      },
+      {
+        "occurredAt": "2023年6月",
+        "eventType": "affiliate_moat",
+        "description": "「AI Headshot」上位全アフィリエイターに30%生涯キックバックを提供しSEO独占"
+      },
+      {
+        "occurredAt": "2024-2026年",
+        "eventType": "current",
+        "description": "完全1人＋サポート外注で月商4,500万円・純利益2,000万円超"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "MONITOR",
+      "verdictLabel": "要監視",
+      "oneLineReason": "法人社員証・LinkedIn用AI顔写真で一時急伸したが、自社モデルを持たないAPIラッパーのため差別化難",
+      "demandDelta": "90日 ↑30%",
+      "competitionDelta": "競合激増",
+      "entryRequirements": {
+        "capital": "10万円〜",
+        "technicalDifficulty": "MEDIUM",
+        "platformRisk": "MEDIUM"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

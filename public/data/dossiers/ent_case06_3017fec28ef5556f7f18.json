@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_3017fec28ef5556f7f18",
+  "ticker": "FRMR.DOG",
+  "name": "The Farmer's Dog",
+  "tagline": "「市販の乾燥ドッグフードは発がん性の産業廃棄物肉だ」と愛犬家の罪悪感と死の恐怖を直撃し、人間用生肉・野菜定期便で年商1,800億円・月間利益15億円を叩き出すD2C帝国",
+  "sector": "PHYSICAL_ASSET",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.639Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_3017fec28ef5556f7f18",
+    "ticker": "FRMR.DOG",
+    "name": "The Farmer's Dog",
+    "legalEntity": "The Farmer's Dog, Inc.",
+    "tagline": "「市販の乾燥ドッグフードは発がん性の産業廃棄物肉だ」と愛犬家の罪悪感と死の恐怖を直撃し、人間用生肉・野菜定期便で年商1,800億円・月間利益15億円を叩き出すD2C帝国",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "ENTERPRISE",
+    "founder": "Brett Podolsky, Jonathan Regev",
+    "country": "US",
+    "url": "https://www.thefarmersdog.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 35,
+    "architecturePattern": "恐怖直撃サブスク",
+    "pipelineStack": "カスタム体重・犬種診断クイズ × 人間用食品グレード調理工場 × クール便定期サブスク",
+    "targetPainWallet": "「自分のせいで愛犬が病気になり早く死ぬかもしれない」という飼い主の猛烈な罪悪感と後悔恐怖",
+    "tags": [
+      "ペットフードD2C",
+      "年商1800億",
+      "罪悪感マーケ",
+      "サブスクEC",
+      "人間用食品基準"
+    ],
+    "pnl": {
+      "monthlyRevenue": 15000000000,
+      "cogs": 6000000000,
+      "grossProfit": 9000000000,
+      "grossMargin": 60,
+      "operatingExpenses": {
+        "serverAndApi": 50000000,
+        "advertising": 6000000000,
+        "subcontracting": 800000000,
+        "toolsAndSaaS": 150000000,
+        "other": 500000000
+      },
+      "operatingProfit": 1500000000,
+      "operatingMargin": 10,
+      "estimatedAnnualNetProfit": 18000000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年通期報道（年商$1.2B到達・月間利益$10M以上）",
+      "sourceDoc": "Bloomberg / PitchBook / Contrary Research 2024年取材レポート",
+      "estimationLogic": "年換算売上$1.2B（約1,800億円 ➔ 月商約150億円）、営業黒字月間$10M+（約15億円/月、年間約180億円の営業利益）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_tfd_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】既存ペットフードの「汚い裏側」を告発し、家族化感情をサブスク化するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「茶色い乾燥粒フードは人間なら一生食べられないジャンクフード」と定義し、フレッシュ冷凍便で囲い込む。",
+        "details": [
+          "【診断クイズによるパーソナライズ化】: 犬種、年齢、体重、アレルギーを入力させ「あなた専用の個別配合食」としてプレーンな肉野菜パックを提案。",
+          "【人間基準（Human-Grade）の対比】: 工場の残飯肉ではなく、USDA（米農務省）認可の人間が食べるキッチンで作られている実態を動画で対比。",
+          "【犬の死の恐怖へのアンカー】: 「平均寿命を数年伸ばすための食事」と位置づけ、1食あたり数百円の追加出費を愛犬の命の保険料として正当化。"
+        ],
+        "codeSnippet": "// 罪悪感切除型プレミアムD2C配管\n1. 既存市場の「低品質・大量生産」の不都合な真実を科学的に告発\n2. 5問の診断ステップでパーソナライズ感を演出し、初期離脱を防止\n3. 2週間のトライアル（50%オフ）で犬の食いつきを確認させ、自動定期購入へ移行",
+        "sourceNote": "Brett Podolsky 創業インタビュー"
+      },
+      {
+        "id": "ev_tfd_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：重度胃腸炎の愛犬Jadaの自炊ログ",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "市販フードで毎日嘔吐していた保護犬に獣医の助言で手作りご飯を作った実体験をドキュメンタリー化。",
+        "details": [
+          "共同創業者Brett Podolskyの愛犬Jadaが市販フードを受け付けず、自家製の鶏肉と野菜を調理したところ症状が即座に完治。",
+          "同じ悩みを抱える愛犬家コミュニティやドッグパークで手作りパックを配り、初期の熱烈なリピーターを獲得。",
+          "「ドッグフード産業の闇」を暴く長文コンテンツとSNS広告で爆発的な拡散を誘発。"
+        ],
+        "sourceNote": "The Farmer's Dog 創業ストーリー"
+      },
+      {
+        "id": "ev_tfd_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：PurinaやMars（ペディグリー）が真似できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "既存フード大手の利益の源泉は「常温で数年持つ安価な穀物・乾燥粒」であり、冷凍サプライチェーンを持てない。",
+        "details": [
+          "Purina等の既存巨人はスーパーの棚に常温で並べるビジネスモデルに最適化されており、冷凍冷蔵便の物流網を自前で組むと巨額の自爆赤字になる。",
+          "「生肉・フレッシュフードが良い」と認めた瞬間、自社の主力商品である数百億円規模のドライキブルの売上を全否定することになる。"
+        ],
+        "sourceNote": "Pet Industry Disruption Report"
+      },
+      {
+        "id": "ev_tfd_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：子供のいない共働き夫婦（DINKs）の愛犬溺愛予算",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "犬を「ペット」ではなく「我が子」として溺愛する世帯の無制限の医療・健康財布。",
+        "details": [
+          "月額1万〜3万円のドッグフード代は、通常のペット用品予算ではなく「家族の命と健康を守る聖域の予算」から支払われる。",
+          "犬が喜んで食べる姿を見ることで、飼い主自身が「良い親である」というセロトニンと自己満足を得るため、解約が極めて困難。"
+        ],
+        "sourceNote": "Pet Humanization Market Study"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-10",
+        "author": "Make-Money アナリスト",
+        "text": "年商$1.2B（約1,800億円）を突破し、月間営業利益$10M（約15億円）を叩き出すモンスターD2Cへ成長。スーパーボウルCMへの出稿などマスメディアへ進出しながらも黒字を拡大。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2014,
+      "initialTractionPeriod": "2014〜2016年（ドッグパークでの手配りと愛犬家クチコミ）",
+      "dataSnapshotPeriod": "2024年通期（Bloomberg/Contrary報道）",
+      "eraContext": "ペットの「人間化（Humanization）」トレンドとD2Cサブスクの台頭が完全に一致した波に乗った",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "冷凍クール便の独自サプライチェーンと巨額広告予算が強固な堀となっており、後発の参入は物流原価の壁で極めて困難。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "カスタム体重・犬種診断クイズ",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 480000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 30000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「自分のせいで愛犬が病気になり早く死ぬかもしれない」という飼い主の猛烈な罪悪感と後悔恐怖を急所ハック】「市販の乾燥ドッグフードは発がん性の産業廃棄物肉だ」と愛犬家の罪悪感と死の恐怖を直撃し、人間用生肉・野菜定期便で年商1,800億円・月間利益15億円を叩き出すD2C帝国",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "恐怖直撃サブスクによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "既存フード大手の利益の源泉は「常温で数年持つ安価な穀物・乾燥粒」であり、冷凍サプライチェーンを持てない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、The Farmer's Dogは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "共同創業者Brett Podolskyの愛犬Jadaが市販フードを受け付けず、自家製の鶏肉と野菜を調理したところ症状が即座に完治。",
+        "同じ悩みを抱える愛犬家コミュニティやドッグパークで手作りパックを配り、初期の熱烈なリピーターを獲得。",
+        "「ドッグフード産業の闇」を暴く長文コンテンツとSNS広告で爆発的な拡散を誘発。"
+      ],
+      "actionPlaybook": [
+        "【診断クイズによるパーソナライズ化】: 犬種、年齢、体重、アレルギーを入力させ「あなた専用の個別配合食」としてプレーンな肉野菜パックを提案。",
+        "【人間基準（Human-Grade）の対比】: 工場の残飯肉ではなく、USDA（米農務省）認可の人間が食べるキッチンで作られている実態を動画で対比。",
+        "【犬の死の恐怖へのアンカー】: 「平均寿命を数年伸ばすための食事」と位置づけ、1食あたり数百円の追加出費を愛犬の命の保険料として正当化。"
+      ],
+      "coldOutreachTemplate": "// 罪悪感切除型プレミアムD2C配管\n1. 既存市場の「低品質・大量生産」の不都合な真実を科学的に告発\n2. 5問の診断ステップでパーソナライズ感を演出し、初期離脱を防止\n3. 2週間のトライアル（50%オフ）で犬の食いつきを確認させ、自動定期購入へ移行"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

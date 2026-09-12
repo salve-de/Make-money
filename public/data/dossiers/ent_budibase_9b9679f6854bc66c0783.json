@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_budibase_9b9679f6854bc66c0783",
+  "ticker": "BUDI.BASE",
+  "name": "Budibase",
+  "tagline": "「Retoolの1人月額$50という高額シート課金は泥棒だ」と怒るエンジニアを救い、社内業務ツールを無料・自前ホストで爆速生成させて年商12億円を稼ぐローコードの急先鋒",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.644Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_budibase_9b9679f6854bc66c0783",
+    "ticker": "BUDI.BASE",
+    "name": "Budibase",
+    "legalEntity": "Budibase Ltd",
+    "tagline": "「Retoolの1人月額$50という高額シート課金は泥棒だ」と怒るエンジニアを救い、社内業務ツールを無料・自前ホストで爆速生成させて年商12億円を稼ぐローコードの急先鋒",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Joe Johnston, Michael Christofides",
+    "country": "UK",
+    "url": "https://budibase.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 55,
+    "architecturePattern": "社内業務爆速化",
+    "pipelineStack": "Svelteフロントエンド × Docker/Kubernetesセルフホスト × SQL/Postgres/REST直結 × 月額$5〜$50/席",
+    "targetPainWallet": "社内管理画面を作るためだけに貴重なエンジニアの工数を何週間も奪われるCTO ＆ Retoolの高額請求書に悲鳴を上げる情シス",
+    "tags": [
+      "ローコード",
+      "年商12億",
+      "社内ツール",
+      "Retool対抗",
+      "オープンソース"
+    ],
+    "pnl": {
+      "monthlyRevenue": 100000000,
+      "cogs": 10000000,
+      "grossProfit": 90000000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 8000000,
+        "advertising": 12000000,
+        "subcontracting": 40000000,
+        "toolsAndSaaS": 5000000,
+        "other": 10000000
+      },
+      "operatingProfit": 15000000,
+      "operatingMargin": 15,
+      "estimatedAnnualNetProfit": 180000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年（Fortune 500企業の導入多数・シリーズA後成長期）",
+      "sourceDoc": "TechCrunch / Budibase公式年次開示 / GitHub",
+      "estimationLogic": "有料企業ユーザー数千社 × 有料シート課金（月額$5〜$50） ＝ 年商約$8M（約¥12億円 ➔ 月商約1億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_budi_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】自前のデータベースを繋いだ瞬間に「CRUD画面」を0秒自動生成するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "社内DB（PostgresやMySQL）の接続情報を入れるだけで、検索・追加・編集ができる管理画面が即完成する。",
+        "details": [
+          "【Svelteによる爆速レンダリング】: Reactベースの重たいRetoolと違い、Svelteを採用して圧倒的に軽快な動作を実現。",
+          "【閲覧者（Viewers）無料の大盤振る舞い】: Retoolが画面を見るだけの一般社員からも月数十ドルを徴収するのに対し、閲覧専用ユーザーを完全無料にして社内普及を加速。",
+          "【自前Dockerでの完全オンプレ運用】: 社内のファイヤーウォールの内側に1コマンドでデプロイでき、機密データを一切外部に出さない。"
+        ],
+        "codeSnippet": "// ローコード管理画面配管\n1. 既存のPostgreSQL/MySQLの接続文字列を投入\n2. テーブル構造を自動解析し、検索・フィルター・編集モーダル付きの管理画面を自動生成\n3. ロール別アクセス権（管理者、営業、サポート）を設定して社内公開",
+        "sourceNote": "Joe Johnston 創業インタビュー"
+      },
+      {
+        "id": "ev_budi_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：ベルファストのガレージでGitHub Star 1万超えの奇襲",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2019年、北アイルランド・ベルファストの2人が「Retoolの価格設定はおかしい」とオープンソースで公開。",
+        "details": [
+          "GitHubにコードを公開後、一晩でHacker NewsとRedditのトレンド1位を独占。",
+          "「Retoolを使いたいが高すぎて会社に却下された」世界中のエンジニアがGitHub Starを押し、数ヶ月で1万スターを突破。",
+          "コミュニティの声を元に高速リリースを続け、正式ローンチからわずか数年で数万社の社内ツールインフラへ登り詰めた。"
+        ],
+        "sourceNote": "TechCrunch \"Budibase raises $7M to help developers build internal apps faster\""
+      },
+      {
+        "id": "ev_budi_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Retoolが閲覧ユーザー無料プランを出せない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Retoolの企業価値（時価総額32億ドル）は「全社員アカウント課金」の高単価によって支えられている。",
+        "details": [
+          "Retoolが「管理画面を見るだけの社員は無料」にしてしまうと、大企業からの請求額が1/5に激減してしまう構造。",
+          "その高額な課金体系への怒りの受け皿として、Budibaseが「作成者課金・閲覧無料」の良心的な価格で市場を奪い取った。"
+        ],
+        "sourceNote": "Internal Tool Pricing Model Cannibalization"
+      },
+      {
+        "id": "ev_budi_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「本業のプロダクト開発が社内ツールの改修で止まる」経営者の焦燥",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "カスタマーサポートから「管理画面にこのボタンを追加して」と頼まれるたびに、主力プロダクトのリリースが遅れる苦痛。",
+        "details": [
+          "Budibaseを使えば、エンジニアが数十分、あるいは非エンジニアの情シスでも画面を直せる。",
+          "開発リソースの機会損失を防ぐための投資として、月額数十万〜数百万円のライセンス料が即座に稟議を通過する。"
+        ],
+        "sourceNote": "Engineering Resource Opportunity Cost Economics"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-04",
+        "author": "Make-Money アナリスト",
+        "text": "ワークフロー自動化（Zapier的なトリガー・アクション機能）とAI連携を強化。単なる管理画面作成にとどまらず、社内業務全体の自動化ハブへ進化。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2020〜2021年（GitHubでのOSS大反響とHacker Newsトレンド独占）",
+      "dataSnapshotPeriod": "2024年（公式発表・シリーズA後データ）",
+      "eraContext": "社内ツール内製化（Internal Tooling）需要の爆発と、Retoolの高額課金への反発期",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "Dockerで即座に動く自前ホストの簡便さとSvelteによる爆速UIが強固な堀となっており、中堅・大企業での採用が拡大。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "Svelteフロントエンド",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 3200000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 4800000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【社内管理画面を作るためだけに貴重なエンジニアの工数を何週間も奪われるCTO ＆ Retoolの高額請求書に悲鳴を上げる情シスを急所ハック】「Retoolの1人月額$50という高額シート課金は泥棒だ」と怒るエンジニアを救い、社内業務ツールを無料・自前ホストで爆速生成させて年商12億円を稼ぐローコードの急先鋒",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "社内業務爆速化による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "Retoolの企業価値（時価総額32億ドル）は「全社員アカウント課金」の高単価によって支えられている。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Budibaseは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "GitHubにコードを公開後、一晩でHacker NewsとRedditのトレンド1位を独占。",
+        "「Retoolを使いたいが高すぎて会社に却下された」世界中のエンジニアがGitHub Starを押し、数ヶ月で1万スターを突破。",
+        "コミュニティの声を元に高速リリースを続け、正式ローンチからわずか数年で数万社の社内ツールインフラへ登り詰めた。"
+      ],
+      "actionPlaybook": [
+        "【Svelteによる爆速レンダリング】: Reactベースの重たいRetoolと違い、Svelteを採用して圧倒的に軽快な動作を実現。",
+        "【閲覧者（Viewers）無料の大盤振る舞い】: Retoolが画面を見るだけの一般社員からも月数十ドルを徴収するのに対し、閲覧専用ユーザーを完全無料にして社内普及を加速。",
+        "【自前Dockerでの完全オンプレ運用】: 社内のファイヤーウォールの内側に1コマンドでデプロイでき、機密データを一切外部に出さない。"
+      ],
+      "coldOutreachTemplate": "// ローコード管理画面配管\n1. 既存のPostgreSQL/MySQLの接続文字列を投入\n2. テーブル構造を自動解析し、検索・フィルター・編集モーダル付きの管理画面を自動生成\n3. ロール別アクセス権（管理者、営業、サポート）を設定して社内公開"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

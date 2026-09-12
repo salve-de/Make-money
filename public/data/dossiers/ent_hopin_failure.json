@@ -1,0 +1,236 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_hopin_failure",
+  "ticker": "HOPIN",
+  "name": "Hopin",
+  "tagline": "「もう誰もリアルの会場には集まらない」というコロナ特需の幻影で時価1.2兆円をつけた後、わずか20億円で身売りされたオンラインイベントの蜃気楼",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.635Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_hopin_failure",
+    "ticker": "HOPIN",
+    "name": "Hopin",
+    "legalEntity": "Johnny Boufarhat",
+    "tagline": "「もう誰もリアルの会場には集まらない」というコロナ特需の幻影で時価1.2兆円をつけた後、わずか20億円で身売りされたオンラインイベントの蜃気楼",
+    "sector": "NICHE_SAAS",
+    "scale": "SCALEUP",
+    "founder": "Johnny Boufarhat",
+    "country": "UK",
+    "url": "https://hopin.com",
+    "verifiedBadge": true,
+    "growthRateYoY": -75,
+    "architecturePattern": "地雷:大規模オンラインバーチャルカンファレンスプラットフォーム",
+    "pipelineStack": "WebRTC × AWS × ライブ配信配管 × ネットワーキングシャッフル",
+    "targetPainWallet": "世界中の大企業、カンファレンス主催者のリアル会場費・イベント運営予算",
+    "tags": [
+      "地雷標本",
+      "失敗・転落",
+      "コロナバブル崩壊",
+      "時価1兆円蒸発",
+      "投げ売り売却",
+      "清算",
+      "一過性需要"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_hopin_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【検死解剖】コロナ特需のオンラインイベントに過剰投資し、対面回帰で売上が90%蒸発した破滅ログ",
+        "badge": "死因出血検死解剖",
+        "evidenceStatus": "POST_MORTEM",
+        "punchline": "パンデミックの追い風で創業1年で評価額1兆円・ARR100億円を達成したが、特需を「不可逆の未来」と錯覚して巨額買収を乱発し、リアル回帰で資産を二束三文で投げ売りした。",
+        "details": [
+          "【一時的特需と構造変化の誤認】: 「誰も外に出られない」という一時的な異常事態を「人類の永続的オンライン化」と見誤り、固定費と人員を急拡大。",
+          "【対面回帰による解約ドミノ】: ワクチン普及と移動制限解除に伴い、企業の大型カンファレンスは即座に対面イベントへ回帰し、契約更新率が暴落。",
+          "【中核事業の投げ売り】: 最終的に中核のイベント事業をライバルのBizzabo等へ数十億円（評価額の1/100以下）で売却し、残骸を切り売りして撤退。"
+        ],
+        "codeSnippet": "// Hopinの死因方程式\n一時的パンデミック特需 × 過大評価（1兆円） - リアル回帰（解約率80%） ＝ 企業価値の99%蒸発\n※ プラットフォーム特需の波に乗った際は、固定費を増やさず「現金を抜いて次の不可逆な堀へ退避」させなければ死ぬ",
+        "sourceNote": "The Information「The Fall of Hopin」・TechCrunch"
+      },
+      {
+        "id": "ev_hopin_crime",
+        "type": "THE_CRIME",
+        "title": "コロナ特需で評価額1兆円まで駆け上がったオンラインイベントSaaS",
+        "badge": "一過性バブルの頂点",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "世界中の展示会やカンファレンスが中止された隙間を突き、「バーチャル展示会場・ネットワーキング」ツールとして評価額$7.75B（約1.1兆円）へ急騰。",
+        "details": [
+          "わずか2年でARR $100Mを達成し、シリコンバレー史上最速成長スタートアップともてはやされた。",
+          "調達した巨額マネーでStreamYardなどを買い漁り、急激に組織を拡大。"
+        ],
+        "metrics": [
+          {
+            "label": "ピーク時評価額",
+            "value": "$7.75B (約¥1.1兆円)",
+            "isHighlight": true
+          },
+          {
+            "label": "ピーク時ARR",
+            "value": "$100M+ (約¥150億)"
+          }
+        ],
+        "sourceNote": "Hopin プレスリリース & Financial Times"
+      },
+      {
+        "id": "ev_hopin_fatal_bleed",
+        "type": "FATAL_BLEED",
+        "title": "リアル回帰による解約津波とわずか$15Mでの投げ売り売却検死",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "パンデミック終了でリアルイベントが復活した瞬間、オンライン展示会の需要が全滅。解約が殺到し、主要事業をわずか$15Mで投げ売り売却。",
+        "details": [
+          "1兆円の企業価値がついた主要SaaS事業を、買収額の1/500以下の二値でRingCentralへ売却。",
+          "社員の80%以上を連続レイオフ。一過性のプラットフォーム特需を「永続する構造変化」と勘違いした典型的な死に様。"
+        ],
+        "metrics": [
+          {
+            "label": "売却額",
+            "value": "わずか$15M (評価額の1/500)",
+            "isHighlight": true
+          },
+          {
+            "label": "人員削減率",
+            "value": "80%以上解雇"
+          }
+        ],
+        "sourceNote": "Financial Times & TechCrunch"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 200000000,
+      "cogs": 80000000,
+      "grossProfit": 120000000,
+      "grossMargin": 60,
+      "operatingExpenses": {
+        "serverAndApi": 50000000,
+        "advertising": 50000000,
+        "subcontracting": 30000000,
+        "toolsAndSaaS": 20000000,
+        "other": 400000000
+      },
+      "operatingProfit": -430000000,
+      "operatingMargin": -215,
+      "estimatedAnnualNetProfit": -5160000000,
+      "financialStatus": "POST_MORTEM",
+      "dataSnapshotPeriod": "2023年主要事業売却時",
+      "sourceDoc": "評価額$7.75B ➔ $15M事業投げ売り清算ログからの逆算",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 1000,
+      "initialTeamSize": 5,
+      "currentTeamSize": 1000,
+      "weeklyHours": 70,
+      "initialCapitalRequired": 150000000000,
+      "automationLevel": 20,
+      "primaryChannels": [
+        "Inbound PR",
+        "Enterprise Sales",
+        "Conferences"
+      ],
+      "toolStack": [
+        {
+          "name": "Twilio WebRTC / TokBox",
+          "category": "ビデオ通話基盤",
+          "monthlyCost": 65000000,
+          "purpose": "多人数バーチャルカンファレンス配信"
+        },
+        {
+          "name": "AWS",
+          "category": "インフラ",
+          "monthlyCost": 30000000,
+          "purpose": "仮想ブース・ステージ・ネットワーキング管理"
+        },
+        {
+          "name": "Stripe",
+          "category": "決済",
+          "monthlyCost": 18000000,
+          "purpose": "チケット販売・エンタープライズ年間契約"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「地球上の全イベントが中止された数週間に、唯一まともに動くバーチャル会場として存在した」完全な棚ぼた】 1. 2020年3月、パンデミックにより世界中の展示会やカンファレンスが一夜にして全滅。代替ツールを探す主催者がHopinに殺到。\n2. Zoomでは不可能な「バーチャル展示ブース」「ランダムな1対1ビデオ雑談」をブラウザ完結で提供し、月商が数千万円から数億円へと爆発。\n3. a16z、Tiger Global等から10億ドル（約1,500億円）以上を調達し、創業わずか2年で評価額77億5,000万ドル（約1.2兆円）のヨーロッパ史上最速ユニコーンに登り詰めた。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【堀（Moat）が完全ゼロ ✕ 人類の強烈な『リアルで人と会いたい』肉体本能の復活】】 1. コロナ規制が解除された瞬間、人々は「パソコンの画面に向かって何時間もバーチャル展示会を見る拷問」を心底嫌悪し、リアルな会場へ一斉回帰。\n2. イベント主催者はオンラインイベントの開催を全停止。年額数千万円のエンタープライズ契約が更新時に全量キャンセルされる解約の津波が発生。\n3. Hopinが巨額の資金で買収した周辺企業（StreamYard等）以外、コアのイベント事業には何の参入障壁もなく、ZoomやTeamsのウェビナー機能で十分代替可能だった。",
+      "incumbentDilemma": "ZoomやMicrosoft Teams、Webexなどのビデオ会議巨人がウェビナー機能を強化し、企業はわざわざ別の高額イベント専用SaaSを契約する必要がなくなった: Hopinは「オンラインイベント」というニッチに特化していたが、平時にはその頻度は年に数回しかない。企業は日常業務で使っているZoomやTeamsの追加オプションで十分であり、Hopinの年額数千万円の高額ライセンスを維持する正当性が完全に消失した。",
+      "secretInsight": "ロックダウンで年商数十億円へとロケット成長し時価1兆円超をつけたが、世界が外出した瞬間に誰も画面を見なくなり、主力事業をわずか20億円で投げ売った手口",
+      "initialTraction": [
+        "創業者のJohnny Boufarhatは重度の自己免疫疾患を患い、何年間も自宅のベッドから出られない生活を送る中で「家から世界中のイベントに参加したい」とHopinを開発。パンデミックの直前にプロトタイプが完成していたという奇跡的なタイミングの一致で初期需要を総取り。"
+      ],
+      "actionPlaybook": [
+        "「二度と人類はリアルイベントに戻らない」という投資家の錯覚を利用し、狂乱のマルチプルで数十億ドルの現金を調達。創業者は評価額ピーク時に自身の保有株式の一部をセカンダリー売却し、個人として数十億円の現金を利確。",
+        "急速な成長に合わせて世界中で1,000人以上の社員を過剰雇用したため、売上が急停止した瞬間に月間数十億円の人件費固定費が首を絞めた。"
+      ],
+      "coldOutreachTemplate": "【検死教訓】外部環境の異常な追い風（バブル・特需）を自分の実力と錯覚するな。特需で得たキャッシュは人員拡大に溶かすのではなく、不可逆なアセット（データ・独自IP）へ再配分せよ。"
+    },
+    "essence": {
+      "whatItDoes": "バーチャル展示会、基調講演、1対1のスピードネットワーキングを統合したオンラインイベントSaaS",
+      "targetCustomer": "カンファレンス主催企業、テック展示会、企業株主総会のイベント開催予算（年額数百万円〜数千万円）",
+      "painRelief": "「コロナの渡航制限で何千人もの参加者をリアル会場に集められない」中止危機の切除"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者のJohnny Boufarhatは重度の自己免疫疾患を患い、何年間も自宅のベッドから出られない生活を送る中で「家から世界中のイベントに参加したい」とHopinを開発。パンデミックの直前にプロトタイプが完成していたという奇跡的なタイミングの一致で初期需要を総取り。",
+      "platformGlitch": "「二度と人類はリアルイベントに戻らない」という投資家の錯覚を利用し、狂乱のマルチプルで数十億ドルの現金を調達。創業者は評価額ピーク時に自身の保有株式の一部をセカンダリー売却し、個人として数十億円の現金を利確。",
+      "pivotSnapshot": "2023年8月、主力だったイベント事業とSession事業を、通信大手のRingCentralへわずか1,500万ドル（約22億円）の現金で叩き売り。残ったStreamYard事業も2024年にBending Spoonsへ売却され、英国法人は清算へ。",
+      "hiddenStackCost": "急速な成長に合わせて世界中で1,000人以上の社員を過剰雇用したため、売上が急停止した瞬間に月間数十億円の人件費固定費が首を絞めた。"
+    },
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2020-2021年 (パンデミックによる特需)",
+      "dataSnapshotPeriod": "2023-2024年 (時価1兆円蒸発・投げ売り売却・清算)",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "eraContext": "コロナ禍という歴史上唯一の異常事態が生み出し、正常化とともに吹き飛んだ徒花。",
+      "currentViabilityAnalysis": "【完全な地雷標本】「一時的な外部環境の追い風（Tailwind）」を「自社のプロダクトの堀（Moat）」だと勘違いした企業の悲惨な末路。環境が元に戻った瞬間にビジネスモデルごと蒸発する典型例。",
+      "viabilityLabel": "時代限定・再現不能"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_hopin_failure_1",
+        "category": "INCUMBENT_DILEMMA",
+        "categoryLabel": "大手の反撃・直接圧殺",
+        "text": "ZoomやMicrosoft Teams、Webexなどのビデオ会議巨人がウェビナー機能を強化し、企業はわざわざ別の高額イベント専用SaaSを契約する必要がなくなった: Hopinは「オンラインイベント」というニッチに特化していたが、平時にはその頻度は年に数回しかない。企業は日常業務で使っているZoomやTeamsの追加オプションで十分であり、Hopinの年額数千万円の高額ライセンスを維持する正当性が完全に消失した。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_hopin_failure_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "「非連続な一過性の外部環境（ロックダウン）」による特需を、「不可逆な構造的シフト」だと誤認したVC業界の典型的な集団催眠。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_hopin_failure_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "崩壊の生ログ・解約怨嗟",
+        "text": "「バーチャル展示ブースに誰も客が来ない」「画面の向こうで誰もリアクションしてくれない」という高額出展料を払ったスポンサー企業の深い虚無感。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "「誰もリアル会場に戻らない」というコロナ幻影で時価1兆円。対面回帰で解約殺到、20億円で身売りされた一過性需要の地雷",
+      "demandDelta": "90日 ↓80%",
+      "competitionDelta": "Zoom/Teams代替",
+      "entryRequirements": {
+        "capital": "数千億円",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "POST_MORTEM",
+    "hasLootBlueprint": false
+  }
+}

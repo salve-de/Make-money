@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_34177648949ad28ac68b",
+  "ticker": "CSPR.MATR",
+  "name": "Casper",
+  "tagline": "「マットレス屋のうさんくさい店員と値引き交渉したくない」という苦痛を切除し、箱に圧縮して届ける100日返品保証で年商600億円を築いたベッドインボックスの開拓者",
+  "sector": "PHYSICAL_ASSET",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.640Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_34177648949ad28ac68b",
+    "ticker": "CSPR.MATR",
+    "name": "Casper",
+    "legalEntity": "Casper Sleep Inc.",
+    "tagline": "「マットレス屋のうさんくさい店員と値引き交渉したくない」という苦痛を切除し、箱に圧縮して届ける100日返品保証で年商600億円を築いたベッドインボックスの開拓者",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "ENTERPRISE",
+    "founder": "Philip Krim, Neil Parikh, Luke Sherwin, Jeff Chapin, Gabe Flateman",
+    "country": "US",
+    "url": "https://casper.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 10,
+    "architecturePattern": "開拓者D2C",
+    "pipelineStack": "圧縮フォームパッキング × UPS通常宅配便 × 100日間全額返金保証 × ポッドキャスト広告絨毯爆撃",
+    "targetPainWallet": "マットレス売り場でスーツを着た営業マンに囲まれ数十万円のモデルを押し売りされる苦痛 ＆ 部屋まで運べない絶望",
+    "tags": [
+      "ベッドD2C",
+      "年商600億",
+      "ベッドインボックス",
+      "100日返金保証",
+      "ポッドキャスト広告"
+    ],
+    "pnl": {
+      "monthlyRevenue": 5000000000,
+      "cogs": 2450000000,
+      "grossProfit": 2550000000,
+      "grossMargin": 51,
+      "operatingExpenses": {
+        "serverAndApi": 25000000,
+        "advertising": 1800000000,
+        "subcontracting": 350000000,
+        "toolsAndSaaS": 75000000,
+        "other": 200000000
+      },
+      "operatingProfit": 100000000,
+      "operatingMargin": 2,
+      "estimatedAnnualNetProfit": 1200000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "非公開化（プライベートエクイティ買収）後2024年推定水準",
+      "sourceDoc": "Casper SEC上場廃止前ファイリングおよびPE買収後リポート",
+      "estimationLogic": "年商約$400M水準（約600億円 ➔ 月商約50億円）、返品率約10%・過酷な広告費をPE主導で合理化し微小黒字化"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_cspr_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】既存業界の「最悪な購買体験」を完全切除し、宅配便サイズに圧縮するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「怪しい店員、複雑な型番、高い配送費」を全廃し、1モデル・送料無料・箱入りで玄関に届ける。",
+        "details": [
+          "【選択肢の削減（決定麻痺の排除）】: 大手メーカーが数百種類もの微妙に違うマットレスで価格比較を邪魔するのに対し、「最高の1種類」だけを提示。",
+          "【冷蔵庫サイズの箱に圧縮】: 特殊な機械で真空圧縮し、通常のUPS宅配便でエレベーターや階段を通れるサイズにして配送コストを1/10に削減。",
+          "【100日無料トライアル】: 店頭で5分寝転がっても分からない。自宅で3ヶ月寝て合わなければ全額返金＋無料引き取りを約束して購入不安を完全消滅。"
+        ],
+        "codeSnippet": "// 摩擦ゼロ型大型商品D2C配管\n1. 既存流通の「配送・設置のハードル」を圧縮技術で解決\n2. 決定を悩ませるラインナップを1〜2種類に絞り込み、比較の労力をゼロにする\n3. 「リスクはすべて売り手が持つ（100日無料返品）」を掲げて、高額商品の購入障壁を粉砕",
+        "sourceNote": "Philip Krim 創業回顧録"
+      },
+      {
+        "id": "ev_cspr_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：ポッドキャスト広告枠の買い占めと初期黒字突破",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "当時は誰も見向きもしなかったポッドキャスト広告を格安で買い占め、パーソナリティに生の体験を語らせた。",
+        "details": [
+          "2014年、ニューヨークで5人の創業者によって設立。ローンチ初月に年間目標の100万ドルを突破。",
+          "Joe Rogan、Tim Ferriss等の有力ポッドキャスター全員にマットレスを送り、割引コード付きで絶賛レビューを放送。",
+          "箱からマットレスがムクムク膨らむ動画がYouTubeやVineで「開封の快感」としてバイラル化。"
+        ],
+        "sourceNote": "How Casper Disrupted the Mattress Industry"
+      },
+      {
+        "id": "ev_cspr_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：SealyやSimmonsが直販できなかった理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "既存メーカーは「Mattress Firm」などの巨大代理店チェーンに生殺与奪の権を握られていた。",
+        "details": [
+          "既存メーカーがネット直販を始めると、全米の販売代理店から「お前の商品はもう店頭から撤去する」とボイコットされる構造的ジレンマ。",
+          "店舗の家賃と店員の歩合給が乗った高価格（30万〜50万円）を維持しなければならず、10万円ポッキリのD2Cに価格競争で対抗できなかった。"
+        ],
+        "sourceNote": "Mattress Industry Distribution Dilemma"
+      },
+      {
+        "id": "ev_cspr_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：引越し当夜に「今日寝る場所がない」パニック",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "新居への引越し日にベッドが届かないことによる極限の疲労とストレス。",
+        "details": [
+          "従来の家具屋だと注文から配送まで2〜4週間かかるのが当たり前。",
+          "Casperは「今日頼めば最短翌日に箱で玄関に届く」ため、新生活の混乱に疲弊した都市生活者の緊急財布を独占した。"
+        ],
+        "sourceNote": "Urban Moving Consumer Psychology"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-06",
+        "author": "Make-Money アナリスト",
+        "text": "上場後の過剰なマーケティング赤字から非公開化を経て、Targetなどリテール卸と実店舗の採算重視へ舵を切り黒字化。競合乱立後のサバイバルモデルへ移行。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2014,
+      "initialTractionPeriod": "2014〜2016年（ポッドキャスト広告とアンボクシング動画による爆発的初動）",
+      "dataSnapshotPeriod": "2024年（PE主導の再建期推計）",
+      "eraContext": "D2Cの「中間業者排除」ナラティブが最も投資家と消費者に響いた2010年代半ば",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "時代限定モデル",
+      "currentViabilityAnalysis": "Google/Meta広告費の高騰と競合（Purple, Nectar等）の過密により、現在同じモデルを新規で立ち上げるのは広告原価負けするため困難。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "圧縮フォームパッキング",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 160000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 15000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【マットレス売り場でスーツを着た営業マンに囲まれ数十万円のモデルを押し売りされる苦痛 ＆ 部屋まで運べない絶望を急所ハック】「マットレス屋のうさんくさい店員と値引き交渉したくない」という苦痛を切除し、箱に圧縮して届ける100日返品保証で年商600億円を築いたベッドインボックスの開拓者",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "開拓者D2Cによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "既存メーカーは「Mattress Firm」などの巨大代理店チェーンに生殺与奪の権を握られていた。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Casperは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2014年、ニューヨークで5人の創業者によって設立。ローンチ初月に年間目標の100万ドルを突破。",
+        "Joe Rogan、Tim Ferriss等の有力ポッドキャスター全員にマットレスを送り、割引コード付きで絶賛レビューを放送。",
+        "箱からマットレスがムクムク膨らむ動画がYouTubeやVineで「開封の快感」としてバイラル化。"
+      ],
+      "actionPlaybook": [
+        "【選択肢の削減（決定麻痺の排除）】: 大手メーカーが数百種類もの微妙に違うマットレスで価格比較を邪魔するのに対し、「最高の1種類」だけを提示。",
+        "【冷蔵庫サイズの箱に圧縮】: 特殊な機械で真空圧縮し、通常のUPS宅配便でエレベーターや階段を通れるサイズにして配送コストを1/10に削減。",
+        "【100日無料トライアル】: 店頭で5分寝転がっても分からない。自宅で3ヶ月寝て合わなければ全額返金＋無料引き取りを約束して購入不安を完全消滅。"
+      ],
+      "coldOutreachTemplate": "// 摩擦ゼロ型大型商品D2C配管\n1. 既存流通の「配送・設置のハードル」を圧縮技術で解決\n2. 決定を悩ませるラインナップを1〜2種類に絞り込み、比較の労力をゼロにする\n3. 「リスクはすべて売り手が持つ（100日無料返品）」を掲げて、高額商品の購入障壁を粉砕"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

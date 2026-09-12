@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_articleforge_f10222b5315e883c9edd",
+  "ticker": "ARTC.FORG",
+  "name": "Article Forge",
+  "tagline": "ChatGPTが登場する何年も前から自社ディープラーニングで長文SEO記事を全自動生成し、アフィリエイターから年商15億円・粗利80%を10年間吸い上げ続けるAI記事生成の始祖",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.645Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_articleforge_f10222b5315e883c9edd",
+    "ticker": "ARTC.FORG",
+    "name": "Article Forge",
+    "legalEntity": "Glimpse Group, Inc.",
+    "tagline": "ChatGPTが登場する何年も前から自社ディープラーニングで長文SEO記事を全自動生成し、アフィリエイターから年商15億円・粗利80%を10年間吸い上げ続けるAI記事生成の始祖",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Alex Cardinell",
+    "country": "US",
+    "url": "https://www.articleforge.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 15,
+    "architecturePattern": "先行特化型AI生成",
+    "pipelineStack": "自社訓練ディープラーニングモデル × 自動リサーチ・ファクトチェックエンジン × WordPress自動スケジューリング投稿 × 年額$324〜$1,524",
+    "targetPainWallet": "1記事数千円の外注ライターを何十人も雇って管理するコストと納期の遅さに頭を抱えるアフィリエイト運営会社",
+    "tags": [
+      "AI記事生成",
+      "年商15億",
+      "10年連続黒字",
+      "自動リサーチ",
+      "アフィリエイトツール"
+    ],
+    "pnl": {
+      "monthlyRevenue": 125000000,
+      "cogs": 25000000,
+      "grossProfit": 100000000,
+      "grossMargin": 80,
+      "operatingExpenses": {
+        "serverAndApi": 15000000,
+        "advertising": 25000000,
+        "subcontracting": 30000000,
+        "toolsAndSaaS": 5000000,
+        "other": 10000000
+      },
+      "operatingProfit": 15000000,
+      "operatingMargin": 12,
+      "estimatedAnnualNetProfit": 180000000,
+      "financialStatus": "ESTIMATED",
+      "dataSnapshotPeriod": "2023〜2024年業界推定水準",
+      "sourceDoc": "Glimpse Group開示 / BlackHatWorld / Warrior Forum",
+      "estimationLogic": "有料購読者数万人 × 年額平均$500 ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_artf_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】キーワードを入れたら「リサーチから画像挿入・投稿まで完全放置」で完了させるコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "人間がプロンプトを考える手間すら省き、完全放置で毎月数百本のSEOブログを自動更新させる。",
+        "details": [
+          "【独自ディープラーニングによる先行優位】: OpenAIのAPIに依存せず、自社で10年間訓練してきた文章生成エンジンにより安定した低原価率を実現。",
+          "【自動ファクトチェックと画像挿入】: Web上のリアルタイム情報を検索して事実関係を確認し、関連する画像や動画を記事内に自動埋め込み。",
+          "【WordPressスケジューラー連携】: 1ヶ月分の記事を一括生成し、毎日決まった時間に自動公開する完全不労所得パイプライン。"
+        ],
+        "codeSnippet": "// 完全自動SEOブログ配管\n1. ターゲットキーワードと文字数（1,500字〜3,000字）を指定\n2. AIがリアルタイム検索で競合記事の構成を分析し、オリジナル文章を自動執筆\n3. WordPress REST API経由で毎日1記事ずつ自動下書き・公開予約",
+        "sourceNote": "Alex Cardinell 創業インタビュー"
+      },
+      {
+        "id": "ev_artf_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：SEOフォーラム（BlackHatWorld）でのデモ公開",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2015年、機械学習を専攻していたAlexが「人工知能が書いた記事」を海外フォーラムに投下。",
+        "details": [
+          "当時は粗悪な記事スピン（同義語置換）ツールしかなかった時代に、文脈を理解して流暢な文章を書くAIとして衝撃を与えた。",
+          "フォーラムのトップアフィリエイターたちが一斉に購入し、初年度から巨額のキャッシュフローを創出。",
+          "ChatGPT登場後も、自前リサーチエンジンとWordPress直結のワークフローの手軽さで生き残りを維持。"
+        ],
+        "sourceNote": "BlackHatWorld Article Forge Launch Archives"
+      },
+      {
+        "id": "ev_artf_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：ChatGPTが「完全自動投稿のWordPress連携」を提供しない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "OpenAIは「汎用チャットボット」であり、アフィリエイト特化の泥臭い自動化機能を作らない。",
+        "details": [
+          "ChatGPTでブログ記事を作るには、プロンプトを打ち、見出しを整え、画像を自前で探し、WordPressにコピペする人間作業が必要。",
+          "Article Forgeは「ボタン1つで投稿まで完了する怠惰の極致」を提供するため、作業工数をゼロにしたい専業アフィリエイターに選ばれ続けた。"
+        ],
+        "sourceNote": "General Purpose AI vs Specialized Workflow Automation"
+      },
+      {
+        "id": "ev_artf_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「外注ライターが急に音信不通になって更新が止まる」メディア運営者の絶望",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "クラウドワークス等でライターを採用・ディレクションする毎日の過酷な管理ストレス。",
+        "details": [
+          "Article Forgeは24時間365日文句も言わず、数分で長文記事を納品してくれる。",
+          "人間関係のストレスを消滅させるためのコストとして、年間数十万円のライセンスが自動更新される。"
+        ],
+        "sourceNote": "Content Outsourcing Friction and AI Replacement Motives"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-03",
+        "author": "Make-Money アナリスト",
+        "text": "長文生成モデルのバージョン5.0をリリース。AI検出器を回避する人間味のある言い回しと独自統計データの引用機能を強化。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2015,
+      "initialTractionPeriod": "2015〜2017年（BlackHatWorldフォーラムでの独占的プロモーション）",
+      "dataSnapshotPeriod": "2024年（業界推計）",
+      "eraContext": "ディープラーニング初期の自然言語処理とSEO自動化の黎明期",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "時代限定モデル",
+      "currentViabilityAnalysis": "ChatGPTやClaude等の汎用LLMが台頭したため新規参入は厳しいが、10年間蓄積した顧客基盤と完全自動投稿ワークフローで堅牢なキャッシュを維持。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "自社訓練ディープラーニングモデル",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 4000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 9000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【1記事数千円の外注ライターを何十人も雇って管理するコストと納期の遅さに頭を抱えるアフィリエイト運営会社を急所ハック】ChatGPTが登場する何年も前から自社ディープラーニングで長文SEO記事を全自動生成し、アフィリエイターから年商15億円・粗利80%を10年間吸い上げ続けるAI記事生成の始祖",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "先行特化型AI生成による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "OpenAIは「汎用チャットボット」であり、アフィリエイト特化の泥臭い自動化機能を作らない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Article Forgeは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "当時は粗悪な記事スピン（同義語置換）ツールしかなかった時代に、文脈を理解して流暢な文章を書くAIとして衝撃を与えた。",
+        "フォーラムのトップアフィリエイターたちが一斉に購入し、初年度から巨額のキャッシュフローを創出。",
+        "ChatGPT登場後も、自前リサーチエンジンとWordPress直結のワークフローの手軽さで生き残りを維持。"
+      ],
+      "actionPlaybook": [
+        "【独自ディープラーニングによる先行優位】: OpenAIのAPIに依存せず、自社で10年間訓練してきた文章生成エンジンにより安定した低原価率を実現。",
+        "【自動ファクトチェックと画像挿入】: Web上のリアルタイム情報を検索して事実関係を確認し、関連する画像や動画を記事内に自動埋め込み。",
+        "【WordPressスケジューラー連携】: 1ヶ月分の記事を一括生成し、毎日決まった時間に自動公開する完全不労所得パイプライン。"
+      ],
+      "coldOutreachTemplate": "// 完全自動SEOブログ配管\n1. ターゲットキーワードと文字数（1,500字〜3,000字）を指定\n2. AIがリアルタイム検索で競合記事の構成を分析し、オリジナル文章を自動執筆\n3. WordPress REST API経由で毎日1記事ずつ自動下書き・公開予約"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

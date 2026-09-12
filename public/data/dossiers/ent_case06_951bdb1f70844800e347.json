@@ -1,0 +1,236 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_951bdb1f70844800e347",
+  "ticker": "CHUB.SHRT",
+  "name": "Chubbies",
+  "tagline": "Solo Brandsのセグメント開示は売上$122.943M、売上原価$51.749M、セグメントEBITDA $22.411M。",
+  "sector": "PHYSICAL_ASSET",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.639Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_951bdb1f70844800e347",
+    "ticker": "CHUB.SHRT",
+    "name": "Chubbies",
+    "legalEntity": "Chubbies Shorts (Solo Brands)",
+    "tagline": "Solo Brandsのセグメント開示は売上$122.943M、売上原価$51.749M、セグメントEBITDA $22.411M。",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "SCALEUP",
+    "founder": "Tom Montgomery, Kyle Hency, Preston Rutherford, Rainer Castillo",
+    "country": "US",
+    "url": "https://www.chubbiesshorts.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "ステータスD2C",
+    "pipelineStack": "金曜午後5時（TGIF）ミーム動画 × 股下14cmレトロ短パン × 熱狂的フラタニティコミュニティ",
+    "targetPainWallet": "平日の息苦しいオフィスワークへの強烈な反発 ＆ 週末くらい童心に帰ってバカ騒ぎしたい男たちの解放欲求",
+    "tags": [
+      "メンズ短パンD2C",
+      "ミームマーケ",
+      "バイラルD2C",
+      "Solo Brands買収",
+      "粗利62%"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "REPORTED",
+      "revenueLabel": "2025年売上 $122.943M",
+      "dataSnapshotPeriod": "2025年通期 Chubbiesセグメント",
+      "sourceDoc": "https://investors.solobrands.com/financials/quarterly-results/default.aspx"
+    },
+    "evidenceCards": [
+      {
+        "id": "financial-source-ent_case06_951bdb1f70844800e347",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Solo Brandsのセグメント開示は売上$122.943M、売上原価$51.749M、セグメントEBITDA $22.411M。",
+        "details": [
+          "EBITDAを営業利益や個人手残りとして扱わない。円換算と月商平均化は行わない。旧2021年P&Lはこの2025年実績と混ぜない。"
+        ],
+        "metrics": [
+          {
+            "label": "2025年通期売上（USD）",
+            "value": "$122,943,000"
+          },
+          {
+            "label": "2025年通期売上原価（USD）",
+            "value": "$51,749,000"
+          },
+          {
+            "label": "2025年通期粗利益（売上−原価で算出）",
+            "value": "$71,194,000"
+          },
+          {
+            "label": "2025年通期セグメントEBITDA（営業利益ではない）",
+            "value": "$22,411,000"
+          }
+        ],
+        "sourceNote": "2025年通期 Chubbiesセグメント / 確認日2026-09-11 / https://investors.solobrands.com/financials/quarterly-results/default.aspx"
+      }
+    ],
+    "operations": {
+      "teamSize": 85,
+      "initialTeamSize": 4,
+      "currentTeamSize": 85,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 65,
+      "primaryChannels": [
+        "Facebook / Instagram 自虐ミーム動画",
+        "金曜限定の「Friday 5pm」ニュースレター",
+        "大学生アンバサダーネットワーク"
+      ],
+      "toolStack": [
+        {
+          "name": "Shopify Plus",
+          "category": "EC",
+          "monthlyCost": 0,
+          "purpose": "D2C直販ストア",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "Klaviyo",
+          "category": "CRM",
+          "monthlyCost": 0,
+          "purpose": "金曜夕方の爆笑メルマガ配信",
+          "isCostUnconfirmed": true
+        }
+      ],
+      "isCapitalUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【「男はスポーツのためではなく、バカ騒ぎのために短パンを履く」という真実】真面目なスポーツウェアではなく、「週末のパーティとビーチのためのギア」として短パンを再定義した。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "「週末の自由」の象徴としてのカルト的ブランドアイデンティティ。",
+      "incumbentDilemma": "大手が真似して短パンを作っても、Chubbiesのような「自虐的でバカなコメディ」を真似すると炎上リスクを恐れる法務や宣伝部に止められる。",
+      "secretInsight": "顧客に「Chubbiesを着て週末を楽しんでいる写真」を投稿させ、最高の写真をメルマガやSNSで紹介。 数万人の顧客が自発的な宣伝部隊となった。",
+      "initialTraction": [
+        "大学のフラタニティ（男子学生寮）で手作りの短パンを販売し即完売",
+        "「長ズボンは監獄だ」と主張する自虐ミーム画像を投稿し学生の間でバイラル",
+        "水陸両用（泳げて街も歩ける）ストレッチ短パンを開発し全米へ拡大"
+      ],
+      "actionPlaybook": [
+        "Step 1: 「平日の抑圧」から解放される瞬間のアイテム（部屋着、サウナハット、バーベキュー服等）を特定",
+        "Step 2: お行儀の良い大手には絶対に言えない「本音とユーモア」のブランドキャラクターを設計",
+        "Step 3: 自虐的なショート動画とミームで顧客を巻き込みD2C直販を展開"
+      ],
+      "coldOutreachTemplate": "【週末解放ウェア】長ズボンで過ごす退屈な毎日にサヨナラ。 金曜午後5時の解放感を纏う、究極のストレッチショーツのご案内です。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "真面目なスポーツブランドが「ビール腹の男の短パン」を売ると、アスリートからの信頼が損なわれる。",
+        "scaleMismatchReason": "初期は「短パン専業」という極小ニッチであり、大企業には参入価値がないと見捨てられた。",
+        "decisionSpeedAdvantage": "ネットミームのトレンドをその日のうちに自社の広告クリエイティブに反映。"
+      },
+      "pricingPower": {
+        "anchorComparison": "金額・費用の裏付けは未確認。",
+        "lossAversionTrigger": "「せっかくの週末なのに、地味で退屈な服を着て気分が上がらない」損耗感。",
+        "budgetCategory": "レジャー・エンタメ服飾費。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "好みの柄・股下サイズの購入履歴。",
+        "workflowIntegration": "金曜日の夜や週末の旅行には必ずChubbiesを履くルーティン。",
+        "switchingFriction": "真面目で地味な他社パンツを履くと「ノリの悪い奴」に見えるコミュニティ圧力。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "D2C前払い課金。 新柄ドロップ時の即時完売で在庫回転率が極めて高い。",
+        "incrementalMargin": "金額・費用の裏付けは未確認。",
+        "workingCapitalStrategy": "短パンからアロハシャツ、水着、ラウンジウェアへ拡大し2021年にSolo BrandsへExit。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "大学のキャンパスで泥臭く手売りし、Facebookミームで全米へ拡散。",
+      "platformGlitch": "「Facebookの初期オーガニックリーチ」を悪ふざけミームでハック。",
+      "pivotSnapshot": "金額・費用の裏付けは未確認。",
+      "hiddenStackCost": "シーズン在庫の管理とデジタル広告出稿費。"
+    },
+    "temporal": {
+      "foundedYear": 2011,
+      "initialTractionPeriod": "2011年〜2014年",
+      "dataSnapshotPeriod": "金額・費用の裏付けは未確認。",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "時代限定（ミームD2C黎明期・買収完了）",
+      "eraContext": "Facebookのミームマーケティングが最強の効果を発揮した時代。",
+      "currentViabilityAnalysis": "「平日の真面目さに反逆するユーモアD2C」は、TikTokやInstagram Reelsを使った現代のショート動画でも全く同じように再現可能。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2011年",
+        "eventType": "foundation",
+        "description": "スタンフォード大の4人により創業"
+      },
+      {
+        "occurredAt": "2013年",
+        "eventType": "viral",
+        "description": "金曜ミーム動画がバイラルし全米の大学で大ヒット"
+      },
+      {
+        "occurredAt": "2017年",
+        "eventType": "retail",
+        "description": "金額・費用の裏付けは未確認。"
+      },
+      {
+        "occurredAt": "2021年9月",
+        "eventType": "exit",
+        "description": "Solo Brands（焚火台Solo Stoveの親会社）により買収"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者買収完了",
+      "oneLineReason": "短パン自体は買収完了したが、「金曜日の解放感を祝うサウナ服や部屋着」なら日本国内で今すぐ勝てる。",
+      "demandDelta": "90日 →安定",
+      "competitionDelta": "大手が追随",
+      "entryRequirements": {
+        "capital": "金額・費用の裏付けは未確認。",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    },
+    "isGrowthUnconfirmed": true,
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_case06_951bdb1f70844800e347",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "Solo Brandsのセグメント開示は売上$122.943M、売上原価$51.749M、セグメントEBITDA $22.411M。 EBITDAを営業利益や個人手残りとして扱わない。円換算と月商平均化は行わない。旧2021年P&Lはこの2025年実績と混ぜない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://investors.solobrands.com/financials/quarterly-results/default.aspx",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "unknownsNotes": [
+      "EBITDAを営業利益や個人手残りとして扱わない。円換算と月商平均化は行わない。旧2021年P&Lはこの2025年実績と混ぜない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 1,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

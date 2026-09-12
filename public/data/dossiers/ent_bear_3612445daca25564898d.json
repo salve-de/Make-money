@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_bear_3612445daca25564898d",
+  "ticker": "BEAR.MEMO",
+  "name": "Bear",
+  "tagline": "「Notionの過剰なブロック管理やデータベースは息が詰まる」文章愛好家を救い、極限の美学とApple Design Award受賞のMarkdownメモで年商5億円を稼ぐ知性の隠れ家",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.646Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_bear_3612445daca25564898d",
+    "ticker": "BEAR.MEMO",
+    "name": "Bear",
+    "legalEntity": "Shiny Frog Ltd",
+    "tagline": "「Notionの過剰なブロック管理やデータベースは息が詰まる」文章愛好家を救い、極限の美学とApple Design Award受賞のMarkdownメモで年商5億円を稼ぐ知性の隠れ家",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Danilo Bonardi, Matteo Rattotti, Konstantin Erokhin",
+    "country": "IE",
+    "url": "https://bear.app",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "美学特化プライベートSaaS",
+    "pipelineStack": "Appleネイティブ（Swift/Core Data） × iCloudプライベート暗号化同期 × 年額$29.99 Bear Proサブスク",
+    "targetPainWallet": "NotionやEvernoteのロードの遅さやゴチャゴチャしたUIに嫌気が差し、純粋に美しい文章執筆だけに没入したい作家・デザイナー",
+    "tags": [
+      "メモアプリ",
+      "年商5億",
+      "Apple Design Award",
+      "Markdown美学",
+      "iCloud同期"
+    ],
+    "pnl": {
+      "monthlyRevenue": 41600000,
+      "cogs": 6240000,
+      "grossProfit": 35360000,
+      "grossMargin": 85,
+      "operatingExpenses": {
+        "serverAndApi": 500000,
+        "advertising": 0,
+        "subcontracting": 15000000,
+        "toolsAndSaaS": 1000000,
+        "other": 2260000
+      },
+      "operatingProfit": 16600000,
+      "operatingMargin": 39.9,
+      "estimatedAnnualNetProfit": 199200000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年（Bear 2.0大型アップデート後成長期）",
+      "sourceDoc": "GetLatka / Shiny Frog公式開示 / Apple App Store Showcase",
+      "estimationLogic": "有料Bear Pro会員数約10万〜12万人 × 年額$29.99 ＝ 年商約$3.3M（約¥5億円 ➔ 月商約4,160万円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_bear_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】自社サーバーを捨てて同期を「iCloud」に丸投げし、インフラ原価をゼロにするコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "ユーザーのデータはすべてユーザー自身のiCloudに保存させ、自社はサーバー代を払わずに年額サブスクだけを徴収する。",
+        "details": [
+          "【インフラコストの完全消滅】: 自社でDBサーバーを抱えず、Apple純正のCloudKit/iCloudで同期するため、ユーザーが何ギガバイト使ってもサーバー代がゼロ。",
+          "【タイポグラフィとテーマの極致】: 書くこと自体の快感を追求した美しいフォント、マージン、カラーテーマにより、「ここで書きたい」と思わせる感情のフックを構築。",
+          "【インラインMarkdownの先駆】: 記号を打った瞬間に太字や見出しが美しくプレビューされるシームレスなエディタで文章執筆の認知負荷をゼロ化。"
+        ],
+        "codeSnippet": "// iCloud完全寄生型サブスク配管\n1. ローカルSQLite/CoreDataでメモを爆速レンダリング\n2. Apple CloudKit APIを叩いてMac/iPhone/iPad間でエンドツーエンド暗号化同期\n3. 同期機能と美しいカスタムテーマを「年額$29.99」のProプランとしてApple課金",
+        "sourceNote": "Danilo Bonardi 創業インタビュー"
+      },
+      {
+        "id": "ev_bear_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：Evernoteの改悪炎上を突いた完璧なタイミングでのローンチ",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2016年、Evernoteが値上げと端末数制限で大炎上した瞬間に「美しく軽量なMarkdownメモ」として登壇。",
+        "details": [
+          "イタリアの小さなデザインスタジオShiny Frogが開発。",
+          "Evernoteの重厚さに絶望していたAppleユーザーが一斉にBearへ乗り換え、数ヶ月で数十万ダウンロードを突破。",
+          "2017年にApple Design Awardを受賞し、App Storeの看板アプリとして不動の地位を確立。"
+        ],
+        "sourceNote": "Apple Design Awards 2017 Hall of Fame"
+      },
+      {
+        "id": "ev_bear_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Notionが「軽快なネイティブアプリの美しさ」を真似できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "NotionはElectron/Webベースの多機能アプリであり、起動が遅くメモリを大量消費する。",
+        "details": [
+          "Notionはチームコラボレーションとデータベースに最適化されているため、起動してメモを1行書くまでに数秒のロード時間がかかる。",
+          "BearはSwiftで書かれた完全なネイティブアプリのため、アイコンをクリックした瞬間に0.1秒でカーソルが点滅し、思索の瞬間を逃さない。"
+        ],
+        "sourceNote": "Native vs Electron Architecture Economics"
+      },
+      {
+        "id": "ev_bear_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：騒がしい機能の洪水で「書くことへの集中」が削がれる作家の苦痛",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "AI機能やデータベース機能がピカピカ点滅する現代のツールに対する、静寂と美学への渇望。",
+        "details": [
+          "Bearの画面には余計なボタンが一切ない。真っ白な美しいキャンバスと洗練されたフォントだけが広がる。",
+          "「知的な瞑想空間」を手に入れるための費用として、年額30ドルなど端金に等しい。"
+        ],
+        "sourceNote": "Minimalist Writing Environment Psychology"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2023-11",
+        "author": "Make-Money アナリスト",
+        "text": "待望のBear 2.0をリリース。表（テーブル）機能やOCR機能、ネストされたタグ機能を大幅強化し、値上げ後も有料会員の離脱をほぼゼロに抑えてARPUを向上。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2016,
+      "initialTractionPeriod": "2016〜2017年（Evernote炎上時の乗り換え需要とApple Design Award受賞）",
+      "dataSnapshotPeriod": "2023〜2024年（Bear 2.0リリース後決算推計）",
+      "eraContext": "重厚なクラウドメモ（Evernote）の衰退と、ミニマルMarkdownブームの到来",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "数年分の日記や執筆データが蓄積された乗り換え不能の人質資産と、Appleエコシステムに愛されたブランドが鉄壁の堀。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "Appleネイティブ（Swift/Core Data）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 1331200,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 300000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【NotionやEvernoteのロードの遅さやゴチャゴチャしたUIに嫌気が差し、純粋に美しい文章執筆だけに没入したい作家・デザイナーを急所ハック】「Notionの過剰なブロック管理やデータベースは息が詰まる」文章愛好家を救い、極限の美学とApple Design Award受賞のMarkdownメモで年商5億円を稼ぐ知性の隠れ家",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "美学特化プライベートSaaSによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "NotionはElectron/Webベースの多機能アプリであり、起動が遅くメモリを大量消費する。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Bearは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "イタリアの小さなデザインスタジオShiny Frogが開発。",
+        "Evernoteの重厚さに絶望していたAppleユーザーが一斉にBearへ乗り換え、数ヶ月で数十万ダウンロードを突破。",
+        "2017年にApple Design Awardを受賞し、App Storeの看板アプリとして不動の地位を確立。"
+      ],
+      "actionPlaybook": [
+        "【インフラコストの完全消滅】: 自社でDBサーバーを抱えず、Apple純正のCloudKit/iCloudで同期するため、ユーザーが何ギガバイト使ってもサーバー代がゼロ。",
+        "【タイポグラフィとテーマの極致】: 書くこと自体の快感を追求した美しいフォント、マージン、カラーテーマにより、「ここで書きたい」と思わせる感情のフックを構築。",
+        "【インラインMarkdownの先駆】: 記号を打った瞬間に太字や見出しが美しくプレビューされるシームレスなエディタで文章執筆の認知負荷をゼロ化。"
+      ],
+      "coldOutreachTemplate": "// iCloud完全寄生型サブスク配管\n1. ローカルSQLite/CoreDataでメモを爆速レンダリング\n2. Apple CloudKit APIを叩いてMac/iPhone/iPad間でエンドツーエンド暗号化同期\n3. 同期機能と美しいカスタムテーマを「年額$29.99」のProプランとしてApple課金"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

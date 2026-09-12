@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_aiven_87d2cb2d9dec1040195b",
+  "ticker": "AIVN.CLOD",
+  "name": "Aiven",
+  "tagline": "「KafkaやPostgreSQLのクラスタ運用で深夜叩き起こされたくない」データ部門の激務を代行し、AWS/GCP/Azure上でオープンソースDBを全自動運用してARR 150億円を稼ぎ出すクラウドの土木王者",
+  "sector": "FINTECH_INFRA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.644Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_aiven_87d2cb2d9dec1040195b",
+    "ticker": "AIVN.CLOD",
+    "name": "Aiven",
+    "legalEntity": "Aiven Oy",
+    "tagline": "「KafkaやPostgreSQLのクラスタ運用で深夜叩き起こされたくない」データ部門の激務を代行し、AWS/GCP/Azure上でオープンソースDBを全自動運用してARR 150億円を稼ぎ出すクラウドの土木王者",
+    "sector": "FINTECH_INFRA",
+    "scale": "ENTERPRISE",
+    "founder": "Oskari Saarenmaa, Hannu Valtonen, Heikki Nousiainen, Mika Eloranta",
+    "country": "FI",
+    "url": "https://aiven.io",
+    "verifiedBadge": true,
+    "growthRateYoY": 35,
+    "architecturePattern": "マルチクラウド運用代行",
+    "pipelineStack": "オープンソースOSS（Kafka, PostgreSQL, OpenSearch, ClickHouse） × 3大パブリッククラウド直結運用 × 時間単位従量課金",
+    "targetPainWallet": "オープンソースDBのバックアップ失敗、バージョン更新時のダウンタイム、深夜のノード障害で神経をすり減らすSREエンジニア",
+    "tags": [
+      "マネージドDB",
+      "ARR 150億超",
+      "マルチクラウド",
+      "Kafka運用",
+      "フィンランド発ユニコーン"
+    ],
+    "pnl": {
+      "monthlyRevenue": 1250000000,
+      "cogs": 375000000,
+      "grossProfit": 875000000,
+      "grossMargin": 70,
+      "operatingExpenses": {
+        "serverAndApi": 125000000,
+        "advertising": 80000000,
+        "subcontracting": 400000000,
+        "toolsAndSaaS": 40000000,
+        "other": 105000000
+      },
+      "operatingProfit": 125000000,
+      "operatingMargin": 10,
+      "estimatedAnnualNetProfit": 1500000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2025年7月公式開示（ARR $100Mマイルストーン公式突破）",
+      "sourceDoc": "Aiven公式プレスリリース / TechCrunch / Bloomberg",
+      "estimationLogic": "エンタープライズ顧客数千社 × クラウドマネージドDB月額従量課金（数十万〜数百万円/社） ＝ ARR約$100M+（約¥150億円 ➔ 月商約12.5億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_aivn_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】3大クラウド（AWS/GCP/Azure）の上に座り、DB運用の面倒を丸ごと請け負って鞘を抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "AWSでもGCPでも同じ管理画面からKafkaやPostgresを1クリックで立ち上げさせ、インフラ代金にマージンを乗せて請求する。",
+        "details": [
+          "【マルチクラウドの自由】: 「AWSからGoogle Cloudへデータを移行したい」時も、Aivenならクラウド間のクラスタ同期が1クリックで完了。ベンダーロックインを完全消滅。",
+          "【純粋なオープンソースの提供】: クラウド大手がOSSを改変して囲い込むのに対し、Aivenは純粋なコミュニティ版OSSを提供し、コードの互換性を100%保証。",
+          "【SLA 99.99%の絶対安心】: 障害発生時の自動フェイルオーバーと自動パッチ適用により、企業のSRE部隊を数人雇うより圧倒的に安価に運用を外注化。"
+        ],
+        "codeSnippet": "// マネージドクラウドDB配管\n1. WebコンソールまたはTerraformで「PostgreSQL 16, AWS東京リージョン, 3ノード」を指定\n2. 5分以内に暗号化・自動バックアップ・モニタリング付きクラスタを完全自動プロビジョニング\n3. クラウドインフラ原価に30〜50%の運用手数料を上乗せして月額一括請求",
+        "sourceNote": "Oskari Saarenmaa 創業インタビュー"
+      },
+      {
+        "id": "ev_aivn_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：ヘルシンキのF-Secure出身エンジニア4名が自己資金で創業",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2016年、セキュリティ大手F-Secureでインフラ運用に疲弊した4人のフィンランド人が創業。",
+        "details": [
+          "「なぜ自分たちは毎週データベースのパッチ当てやバックアップスクリプトを書いているのか？」という憤りが原点。",
+          "自前資金のみで最初の自動運用プラットフォームを構築し、初期の北欧テック企業を獲得。",
+          "外部VCを急がず、製品の信頼性と徹底した自動化により黒字を維持しながら急拡大。"
+        ],
+        "sourceNote": "Aiven: From Bootstrapped Nordic Startup to $3B Cloud Behemoth"
+      },
+      {
+        "id": "ev_aivn_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：AWSやGoogleがマルチクラウドDBを提供できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "AWS（Amazon）は自社のクラウドに顧客を監禁したい（Lock-in）ため、他社クラウドとの連携を推進できない。",
+        "details": [
+          "AWS RDSはAWSの中でしか動かない。Google Cloud SQLはGoogleの中でしか動かない。",
+          "企業のCIOは「1つのクラウドに生殺与奪の権を握られたくない」と切望しており、中立的なマルチクラウド運用基盤であるAivenに巨大な需要が集中した。"
+        ],
+        "sourceNote": "Multi-Cloud Neutrality Arbitrage Economics"
+      },
+      {
+        "id": "ev_aivn_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：ブラックフライデーの深夜にデータベースがクラッシュする恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "ECサイトのセール初日にトラフィック過多でKafkaが詰まり、数億円の注文が消失する大惨事。",
+        "details": [
+          "Aivenに任せておけば、ピーク時の自動スケールと24時間365日の専任SRE監視が保証される。",
+          "数千万円の月額費用も、「システム全停止による倒産リスク」を回避する絶対不可欠な保険金。"
+        ],
+        "sourceNote": "Enterprise Infrastructure SLA Buying Psychology"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2025-07",
+        "author": "Make-Money アナリスト",
+        "text": "ARR 1億ドル（約150億円）の公式マイルストーンを突破。オープンソースへの継続的なコントリビューションを維持しながら、ClickHouse等の次世代分析DBへ対応を拡大。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2016,
+      "initialTractionPeriod": "2016〜2018年（ヘルシンキでの自己資金開発と北欧企業の初期獲得）",
+      "dataSnapshotPeriod": "2025年7月（公式ARR 1億ドル突破発表）",
+      "eraContext": "クラウドシフトの加速と、ビッグデータ基盤（Kafka, PostgreSQL）運用の専門化期",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "3大クラウドを横断する自動運用オーケストレーターの特許技術とエンタープライズ信頼実績が極めて堅固。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "オープンソースOSS（Kafka, PostgreSQL, OpenSearch, ClickHouse）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 40000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 75000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【オープンソースDBのバックアップ失敗、バージョン更新時のダウンタイム、深夜のノード障害で神経をすり減らすSREエンジニアを急所ハック】「KafkaやPostgreSQLのクラスタ運用で深夜叩き起こされたくない」データ部門の激務を代行し、AWS/GCP/Azure上でオープンソースDBを全自動運用してARR 150億円を稼ぎ出すクラウドの土木王者",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "マルチクラウド運用代行による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "AWS（Amazon）は自社のクラウドに顧客を監禁したい（Lock-in）ため、他社クラウドとの連携を推進できない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Aivenは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "「なぜ自分たちは毎週データベースのパッチ当てやバックアップスクリプトを書いているのか？」という憤りが原点。",
+        "自前資金のみで最初の自動運用プラットフォームを構築し、初期の北欧テック企業を獲得。",
+        "外部VCを急がず、製品の信頼性と徹底した自動化により黒字を維持しながら急拡大。"
+      ],
+      "actionPlaybook": [
+        "【マルチクラウドの自由】: 「AWSからGoogle Cloudへデータを移行したい」時も、Aivenならクラウド間のクラスタ同期が1クリックで完了。ベンダーロックインを完全消滅。",
+        "【純粋なオープンソースの提供】: クラウド大手がOSSを改変して囲い込むのに対し、Aivenは純粋なコミュニティ版OSSを提供し、コードの互換性を100%保証。",
+        "【SLA 99.99%の絶対安心】: 障害発生時の自動フェイルオーバーと自動パッチ適用により、企業のSRE部隊を数人雇うより圧倒的に安価に運用を外注化。"
+      ],
+      "coldOutreachTemplate": "// マネージドクラウドDB配管\n1. WebコンソールまたはTerraformで「PostgreSQL 16, AWS東京リージョン, 3ノード」を指定\n2. 5分以内に暗号化・自動バックアップ・モニタリング付きクラスタを完全自動プロビジョニング\n3. クラウドインフラ原価に30〜50%の運用手数料を上乗せして月額一括請求"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

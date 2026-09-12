@@ -1,0 +1,234 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_64a935c0321718ed9860",
+  "ticker": "CRTR.WZRD",
+  "name": "Creator Wizard",
+  "tagline": "7年間のインフルエンサー代理店経験を武器に、「ブランドからの買い叩きを撃滅し、スポンサー契約の単価を5倍にする交渉ピッチ」を直伝するブランドディール特化スクール",
+  "sector": "CONTENT_MEDIA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.636Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_64a935c0321718ed9860",
+    "ticker": "CRTR.WZRD",
+    "name": "Creator Wizard",
+    "legalEntity": "Creator Wizard LLC",
+    "tagline": "7年間のインフルエンサー代理店経験を武器に、「ブランドからの買い叩きを撃滅し、スポンサー契約の単価を5倍にする交渉ピッチ」を直伝するブランドディール特化スクール",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SOLO",
+    "founder": "Justin Moore (ジャスティン・ムーア)",
+    "country": "US",
+    "url": "https://www.creatorwizard.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 25,
+    "architecturePattern": "ソロ知恵要塞",
+    "pipelineStack": "無料案件獲得ニュースレター × ブランド案件マッチング × 高額コホートスクール (Brands Meet Creators)",
+    "targetPainWallet": "フォロワーは多いのに企業から数千円で買い叩かれるクリエイターの金欠と屈辱",
+    "tags": [
+      "スポンサー交渉",
+      "クリエイター支援",
+      "価格交渉術",
+      "コホート講座",
+      "粗利90%超"
+    ],
+    "pnl": {
+      "monthlyRevenue": 10000000,
+      "cogs": 600000,
+      "grossProfit": 9400000,
+      "grossMargin": 94,
+      "operatingExpenses": {
+        "serverAndApi": 150000,
+        "advertising": 300000,
+        "subcontracting": 800000,
+        "toolsAndSaaS": 450000,
+        "other": 500000
+      },
+      "operatingProfit": 7200000,
+      "operatingMargin": 72,
+      "estimatedAnnualNetProfit": 86400000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約$800k / 1.2億円規模）",
+      "sourceDoc": "創業者Justin Mooreポッドキャスト公開発言およびニュースレターレポート",
+      "estimationLogic": "実践スクール（$1,500〜$3,000）年間数百名受講 ＋ スポンサーシップ紹介 ＝ 年商約$800k（月商 約¥1,000万）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_creatorwizard_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】「企業の予算をバラす」ことでクリエイターを心酔させ、高額交渉術を売るコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「企業側が裏でいくら払う気があるか」を元エージェンシー社長の立場で暴露し、クリエイターから高額指導料を抜く。",
+        "details": [
+          "【業界の相場暴露】: 「企業は1投稿5万円で打診してくるが、実は予算200万円持っている」といった裏事情を赤裸々に公開。",
+          "【価格交渉ピッチテンプレートの提供】: 「ただの投稿枠」ではなく「2次利用権、メルマガ配信、独占期間」を抱き合わせて単価を跳ね上げる交渉メール台本を販売。",
+          "【無料スポンサーシップ案件速報】: ニュースレターで「今インフルエンサーを探している企業リスト」を無料配信し、読者を鷲掴みにする。"
+        ],
+        "codeSnippet": "// スポンサー単価5倍化ピッチテンプレート\n「企業から『1投稿いくらですか？』と聞かれたら絶対に単価を答えるな。\n『貴社の今回のキャンペーンの真のKPI（リード獲得か、認知か）を教えてください。貴社のゴールに合わせて、TikTok動画＋メール配信＋Webサイト2次利用権を組み合わせた3つの提案をご用意します』と返せ」",
+        "sourceNote": "Brands Meet Creators カリキュラム"
+      },
+      {
+        "id": "ev_creatorwizard_crime",
+        "type": "THE_CRIME",
+        "title": "インフルエンサー事務所の「中抜き構造」を逆手に取った交渉スクール",
+        "badge": "ソロ知恵要塞モデル",
+        "evidenceStatus": "REPORTED",
+        "punchline": "事務所に入っていないフリーのYouTuber・TikTokerへ「自力で企業から数百万円を毟り取る交渉術」を授け、年商1.2億円を創業者夫婦で独占。",
+        "details": [
+          "かつて自身がエージェンシーとして数億円のブランドディールを仲介した経験をそのまま教材化。",
+          "物販なし、オフィスなし。Zoomとメールマガジンだけで粗利94%を叩き出す。"
+        ],
+        "metrics": [
+          {
+            "label": "粗利率",
+            "value": "94%",
+            "isHighlight": true
+          },
+          {
+            "label": "営業利益率",
+            "value": "72%",
+            "isHighlight": true
+          },
+          {
+            "label": "単価引き上げ実績",
+            "value": "平均2.5倍〜5倍"
+          },
+          {
+            "label": "年間売上",
+            "value": "約1.2億円 ($800k)"
+          }
+        ]
+      },
+      {
+        "id": "ev_creatorwizard_incumbent_trap",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造: インフルエンサーキャスティング代理店のカニバリズム",
+        "evidenceStatus": "REPORTED",
+        "punchline": "キャスティング代理店は「クリエイターを安く買い叩いて企業から高額マージンを抜く」ことで儲かっているため、クリエイターに高い交渉術を教えると自社の首を絞めることになり絶対に参入できない。"
+      }
+    ],
+    "operations": {
+      "teamSize": 2,
+      "initialTeamSize": 1,
+      "currentTeamSize": 2,
+      "weeklyHours": 25,
+      "initialCapitalRequired": 100000,
+      "automationLevel": 80,
+      "primaryChannels": [
+        "週刊ニュースレター (案件情報)",
+        "TikTok / YouTube Shorts 交渉裏話",
+        "ポッドキャスト"
+      ],
+      "toolStack": [
+        {
+          "name": "ConvertKit",
+          "category": "メール配信",
+          "monthlyCost": 80000,
+          "purpose": "案件速報メールと講座ファネル"
+        },
+        {
+          "name": "Circle",
+          "category": "コミュニティ",
+          "monthlyCost": 40000,
+          "purpose": "受講生限定の交渉壁打ちフォーラム"
+        },
+        {
+          "name": "Stripe",
+          "category": "決済",
+          "monthlyCost": 350000,
+          "purpose": "受講料決済"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「フォロワー数が正義」と信じ込んでいるクリエイターの無知を突く】フォロワーが1万人でも、企業への提案の切り口（2次利用権や独占権の付与）次第で50万円〜100万円の案件が取れることを証明した。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "「クリエイター向けスポンサーシップ交渉といえばJustin Moore」という独占的ポジション。",
+      "incumbentDilemma": "MCNや大手芸能事務所は「所属クリエイターを囲い込んでマージン20〜30%を永久に抜く」モデルのため、個人を自立させる教育には手を出せない。",
+      "secretInsight": "週1回、企業が実際に募集している「スポンサーシップ公募案件」をまとめてメルマガで無料配信。これを見るためだけに数万人のクリエイターがメルマガを解除できなくなる。",
+      "initialTraction": [
+        "自身がYouTuberとして活動しつつ、企業のインフルエンサーマーケ責任者と面談した経験をXで公開",
+        "「企業からのオファーメールにどう返信すべきか」の無料添削をSNS上で実施し口コミ拡大",
+        "高単価コホートスクール「Brands Meet Creators」を開講し、初動で大成功"
+      ],
+      "actionPlaybook": [
+        "Step 1: 国内のインフルエンサー（YouTuber, Instagrammer等）向けに「企業案件で買い叩かれないための見積もり逆算シート」を作成",
+        "Step 2: 企業案件の公募情報をキュレーションしたメルマガでリストを集める",
+        "Step 3: 「単価倍増ピッチマスター講座」をコホート型（1回10万〜20万円）でローンチ"
+      ],
+      "coldOutreachTemplate": "【クリエイター様向け・企業案件無料査定】直近で企業から打診された案件の報酬額が適正か、元代理店目線で5分で診断・アドバイスします。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "代理店がこれを教えると、企業から「あそこの代理店を通すとインフルエンサーが高くなる」と切られる。",
+        "scaleMismatchReason": "クリエイター個別の交渉術指導は小規模なコホート教育に最適化されており、大手代理店の事業規模に合わない。",
+        "decisionSpeedAdvantage": "最新のTikTok・YouTube規約変更やブランドの予算動向をリアルタイムで教材に反映。"
+      },
+      "pricingPower": {
+        "anchorComparison": "「次の企業案件で単価が30万円から150万円に跳ね上がれば、受講料（20万円）は1案件で即座にペイする」という投資対効果。",
+        "lossAversionTrigger": "「本当は100万円もらえたはずの案件を、相場を知らないばかりに10万円で引き受けて大損している」機会損失の恐怖。",
+        "budgetCategory": "事業投資・スキルアップ経費。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "過去の企業別スポンサー予算データベースと、交渉成立事例アーカイブ。",
+        "workflowIntegration": "企業からオファーメールが来るたびにCreator Wizardの交渉テンプレートを開くワークフロー。",
+        "switchingFriction": "コミュニティ内で他のクリエイターと実際の案件相場を情報交換できる環境。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "受講料完全前払い。運転資金ゼロ。",
+        "incrementalMargin": "コホート講座のため追加の限界費用はほぼゼロ。粗利94%。",
+        "workingCapitalStrategy": "売上はほぼ全額が利益。手残り資金で自社メディアのSEOと動画制作を強化。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "TikTokで「この企業案件メール、あなたならいくらで受けますか？」というクイズ形式の動画でバイラルを獲得。",
+      "platformGlitch": "「代理店はクリエイターの味方ではない」という不都合な真実を暴き、クリエイター側の絶対的味方として君臨。",
+      "pivotSnapshot": "個別のコンサルティングから、スケーラブルなコホート型オンラインスクールへ昇華。",
+      "hiddenStackCost": "実質的な固定費はメール配信とコミュニティツールの数万円のみ。"
+    },
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020年〜2021年",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約$800k）",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急上昇トレンド（ブランドディール交渉・クリエイター支援）",
+      "eraContext": "インフルエンサー市場の急拡大に対し、広告主からの買い叩きや炎上トラブルが多発した時期。",
+      "currentViabilityAnalysis": "マイクロインフルエンサーが激増する日本市場において、「企業案件の価格交渉術と契約書の落とし穴」を教える事業は今最も需要が爆発している。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2020年",
+        "eventType": "foundation",
+        "description": "Justin Mooreにより創業、ニュースレター配信開始"
+      },
+      {
+        "occurredAt": "2021年",
+        "eventType": "launch",
+        "description": "Brands Meet Creators第1期を開講、即座に満席"
+      },
+      {
+        "occurredAt": "2023-2024年",
+        "eventType": "expansion",
+        "description": "年商$800k突破、クリエイター向けスポンサーシップ教育のNo.1ブランドへ"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "即座に略奪可能",
+      "oneLineReason": "日本国内のYouTuber・インスタグラマー向けに「企業案件で単価を3倍にする交渉ピッチ集」を作れば、今夜から売れる。",
+      "demandDelta": "90日 ↑30%",
+      "competitionDelta": "専門家が国内皆無",
+      "entryRequirements": {
+        "capital": "数万円",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

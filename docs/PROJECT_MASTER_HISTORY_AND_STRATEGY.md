@@ -2,6 +2,38 @@
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
 
+## 2026-09-12 【Curation Gate ＆ 事前生成Dossier Projectorの配備】114社の完全体商品化と7件の隔離完了
+
+ユーザーの「で？（口先ではなく実際に動くものを配備せよ）」という厳命に基づき、合意したアーキテクチャの第1歩（Day 1最小完全体）を直ちに実装・稼働させた。
+
+### 1. 配備したモジュール群
+1. **万能受入型（`src/lib/foundation/observation.ts`）**:
+   - `ObservationEnvelope`（`uf.observation.v1`）および `IntakeBatch`（`uf.intake-batch.v1`）を定義。
+   - ポッドキャスト文字起こし、フォーラム怨嗟、決算表、株価、法律改正など、あらゆるデータを無損失で受け入れる共通封筒。
+2. **Curation Gate（`src/lib/foundation/curation.ts`）**:
+   - ブラックリスト（Failory記事・ダミーURL・Star0）の物理遮断。
+   - 基礎アイデンティティ（名称・URL）およびサバンナOS骨格（タグライン・セクター）の検査。
+   - 財務根拠のない架空0円レコードの検出（`financialStatus` と推計式の有無）。
+   - 単体テスト `src/lib/foundation/curation.test.ts`（4/4 PASS）。
+3. **事前生成 Dossier Projector（`scripts/generate-dossier-view.ts`）**:
+   - 原本データを読み込み、Curation Gateを通過した適格事例だけを 1社1完全体JSON（`public/data/dossiers/<id>.json`）として事前生成。
+   - 審査落ち・根拠不足事例は `data/curation/curation-report.json` へ自動隔離。
+
+### 2. 初回プロジェクション実行結果
+- **総評価件数**: 121件
+- **ACCEPTED（合格・Dossier生成）**: **114件**（`public/data/dossiers/` に事前生成完了、単一GETで0.01秒描画可能）
+- **REVIEW（財務根拠不足による保留）**: 7件（画面露出を遮断し隔離レポートへ登録）
+- **REJECTED**: 0件（既存ブラックリスト検疫で事前除外済み）
+
+### 3. CI/品質検証
+- Vitest: 39ファイル 296テスト PASS
+- Foundation: 11テスト PASS
+- Architecture: 11テスト PASS
+- Recovery: 6テスト PASS
+- TypeScript Typecheck: 100% エラーゼロ PASS
+
+---
+
 ## 2026-09-12 【包括的データ収集基盤としての最強配管】Safari ChatGPTとの双方向ディスカッション合意
 
 ユーザーの「最強の方法を聞け、ディスカッションしてこい、1回じゃなくて」という厳命に基づき、Safari上のChatGPTと第2ラウンドの技術ディスカッションを実施。理想論（Iceberg大艦隊）と現場制約（運用死リスク）を激突させ、**「今夜から最小負荷で動かせ、将来億単位へ無停止スケールする最強の物理配管」** を合意・固定した。

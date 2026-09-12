@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_browseai_2ef74239e36bbf81739f",
+  "ticker": "BRWS.AI",
+  "name": "Browse AI",
+  "tagline": "「コードを1行も書かずにクリックするだけ」で任意のWebサイトをAPI化し、競合価格や求人データを自動監視してARR 6.8億円・完全黒字を叩き出すスクレイピングSaaS",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.643Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_browseai_2ef74239e36bbf81739f",
+    "ticker": "BRWS.AI",
+    "name": "Browse AI",
+    "legalEntity": "Browse AI Inc.",
+    "tagline": "「コードを1行も書かずにクリックするだけ」で任意のWebサイトをAPI化し、競合価格や求人データを自動監視してARR 6.8億円・完全黒字を叩き出すスクレイピングSaaS",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Arham Islam",
+    "country": "CA",
+    "url": "https://browse.ai",
+    "verifiedBadge": true,
+    "growthRateYoY": 50,
+    "architecturePattern": "ノーコードAPI化",
+    "pipelineStack": "Chrome Extension（画面録画式ロボット学習） × ヘッドレスブラウザ分散インフラ × Stripe月額サブスク（$48〜$280/月）",
+    "targetPainWallet": "スクレイピングコードの保守に疲れ果てた開発者 ＆ 競合サイトの価格変更や在庫切れを人力でF5連打監視しているEC担当者",
+    "tags": [
+      "Webスクレイピング",
+      "ARR 6.8億",
+      "ノーコードAPI",
+      "完全黒字",
+      "ブラウザ自動化"
+    ],
+    "pnl": {
+      "monthlyRevenue": 56000000,
+      "cogs": 8400000,
+      "grossProfit": 47600000,
+      "grossMargin": 85,
+      "operatingExpenses": {
+        "serverAndApi": 6000000,
+        "advertising": 8000000,
+        "subcontracting": 15000000,
+        "toolsAndSaaS": 3000000,
+        "other": 5600000
+      },
+      "operatingProfit": 10000000,
+      "operatingMargin": 17.9,
+      "estimatedAnnualNetProfit": 120000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024〜2025年報道（ARR $4.5M突破・黒字成長中）",
+      "sourceDoc": "Caplight / GetLatka / Vancouver Tech Journal取材",
+      "estimationLogic": "有料契約企業数約4,000社 × 平均月額$100 ＝ 年商約$4.5M（約¥6.8億円 ➔ 月商約5,600万円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_brw_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】ブラウザ拡張でクリックさせるだけでボットを自動生成し、従量課金するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "PythonのBeautifulSoupやPuppeteerの難解なコードを「画面クリック」に置き換えて課金する。",
+        "details": [
+          "【録画式ボット作成】: Chrome拡張を開いて「このテーブルを抽出」とクリックするだけで、AIが自動でセレクタを認識し定期監視ロボットを生成。",
+          "【CAPTCHAとIPブロックの自動迂回】: 個人開発者が最も苦しむCloudflareやCAPTCHAのブロックを、裏側の住宅用プロキシ網で完全自動すり抜け。",
+          "【クレジット消費モデル】: 抽出したデータ行数や実行回数に応じてクレジットを消費させ、データ量の多い企業顧客から高額プランを徴収。"
+        ],
+        "codeSnippet": "// ノーコードスクレイピング配管\n1. Chrome拡張でユーザーのブラウザ操作（クリック、スクロール、ページ遷移）をイベント記録\n2. セレクタがサイト改修で壊れた場合、AIが周辺のDOM構造から対象要素を自動修復（Self-healing）\n3. 抽出結果をWebhook経由でGoogleスプレッドシートやAirtableへリアルタイム同期",
+        "sourceNote": "Arham Islam 創業インタビュー"
+      },
+      {
+        "id": "ev_brw_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：Product Hunt年間最優秀プロダクト受賞と自作デモ動画",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2021年、2分で不動産サイトからデータを抜くデモ動画を公開し、非エンジニアの心を鷲掴み。",
+        "details": [
+          "「プログラミング知識ゼロで、2分で任意のサイトからデータを抽出できる」という衝撃的な動画をProduct Huntに投稿。",
+          "Product of the Day 1位を獲得し、初月で数万人のサインアップを獲得。",
+          "Indie Hackersコミュニティの著名投資家Arvid Kahlらからエンジェル出資を受け黒字急成長。"
+        ],
+        "sourceNote": "Product Hunt Golden Kitty Awards History"
+      },
+      {
+        "id": "ev_brw_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Octoparse等の既存ツールが「難解なWindowsソフト」に甘んじていた死角",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "古いスクレイピングツールは重たいWindows専用ソフトのインストールを要求し、Macユーザーを無視していた。",
+        "details": [
+          "既存ツールはXPathや正規表現の知識を要求する玄人向け仕様。",
+          "Browse AIは「ブラウザ拡張機能だけで完結する直感性」と「クラウド自動実行」に特化し、マーケターやリサーチャーの新規需要を独占。"
+        ],
+        "sourceNote": "Web Scraping SaaS Market Analysis"
+      },
+      {
+        "id": "ev_brw_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：サイト構造が変わるたびにスクレイピングコードが落ちるエンジニアの怒り",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "自前で組んだPythonスクリプトが、相手のHTMLクラス名変更で毎週エラー停止する無限の保守地獄。",
+        "details": [
+          "Browse AIの「自己修復AIセレクタ」を使えば、サイトがデザイン変更しても自動で追従してデータを抽出し続ける。",
+          "社内エンジニアの貴重な工数を守るため、月額数十ドルの支払いは「安すぎる外注費」として即決される。"
+        ],
+        "sourceNote": "Developer Maintenance Burden Economics"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-05",
+        "author": "Make-Money アナリスト",
+        "text": "自己修復セレクタとGoogle Sheets連携の強化により、解約率を低減。エンタープライズ向けの専用プロキシ・大量抽出プランを新設しARPUを引き上げ。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2021年（Product Huntローンチとバイラルデモ動画による初動突破）",
+      "dataSnapshotPeriod": "2024年（Caplight / Latka推計）",
+      "eraContext": "ノーコードブームと、データドリブンマーケティングのための競合監視需要の重なり",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "Webサイト側のスクレイピング対策（Cloudflare Turnstile等）が高度化する中、プロキシ網と自動迂回技術を抱えるインフラとしての価値が向上。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "Chrome Extension（画面録画式ロボット学習）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 1792000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 3600000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【スクレイピングコードの保守に疲れ果てた開発者 ＆ 競合サイトの価格変更や在庫切れを人力でF5連打監視しているEC担当者を急所ハック】「コードを1行も書かずにクリックするだけ」で任意のWebサイトをAPI化し、競合価格や求人データを自動監視してARR 6.8億円・完全黒字を叩き出すスクレイピングSaaS",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "ノーコードAPI化による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "古いスクレイピングツールは重たいWindows専用ソフトのインストールを要求し、Macユーザーを無視していた。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Browse AIは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "「プログラミング知識ゼロで、2分で任意のサイトからデータを抽出できる」という衝撃的な動画をProduct Huntに投稿。",
+        "Product of the Day 1位を獲得し、初月で数万人のサインアップを獲得。",
+        "Indie Hackersコミュニティの著名投資家Arvid Kahlらからエンジェル出資を受け黒字急成長。"
+      ],
+      "actionPlaybook": [
+        "【録画式ボット作成】: Chrome拡張を開いて「このテーブルを抽出」とクリックするだけで、AIが自動でセレクタを認識し定期監視ロボットを生成。",
+        "【CAPTCHAとIPブロックの自動迂回】: 個人開発者が最も苦しむCloudflareやCAPTCHAのブロックを、裏側の住宅用プロキシ網で完全自動すり抜け。",
+        "【クレジット消費モデル】: 抽出したデータ行数や実行回数に応じてクレジットを消費させ、データ量の多い企業顧客から高額プランを徴収。"
+      ],
+      "coldOutreachTemplate": "// ノーコードスクレイピング配管\n1. Chrome拡張でユーザーのブラウザ操作（クリック、スクロール、ページ遷移）をイベント記録\n2. セレクタがサイト改修で壊れた場合、AIが周辺のDOM構造から対象要素を自動修復（Self-healing）\n3. 抽出結果をWebhook経由でGoogleスプレッドシートやAirtableへリアルタイム同期"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

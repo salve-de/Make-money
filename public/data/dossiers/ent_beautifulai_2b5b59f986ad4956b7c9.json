@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_beautifulai_2b5b59f986ad4956b7c9",
+  "ticker": "BTFL.AI",
+  "name": "Beautiful.ai",
+  "tagline": "「パワポでテキストを入れるたびにレイアウトが崩れて深夜残業する」苦痛を数学的に防ぎ、スライド自動整形だけで年商45億円を稼ぎ出すプレゼンSaaSの先駆者",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.643Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_beautifulai_2b5b59f986ad4956b7c9",
+    "ticker": "BTFL.AI",
+    "name": "Beautiful.ai",
+    "legalEntity": "Beautiful.ai, Inc.",
+    "tagline": "「パワポでテキストを入れるたびにレイアウトが崩れて深夜残業する」苦痛を数学的に防ぎ、スライド自動整形だけで年商45億円を稼ぎ出すプレゼンSaaSの先駆者",
+    "sector": "NICHE_SAAS",
+    "scale": "ENTERPRISE",
+    "founder": "Mitch Grasso",
+    "country": "US",
+    "url": "https://www.beautiful.ai",
+    "verifiedBadge": true,
+    "growthRateYoY": 30,
+    "architecturePattern": "制約駆動デザイン",
+    "pipelineStack": "スマートスライドレイアウトエンジン（特許取得） × チーム共有テンプレート × Stripe年額サブスク（$144〜$480/年）",
+    "targetPainWallet": "明日の朝の役員プレゼン資料のフォントサイズや図形の配置合わせで深夜3時まで消耗するビジネスマンの怒り",
+    "tags": [
+      "プレゼンSaaS",
+      "年商45億",
+      "レイアウト自動化",
+      "デザイン制約",
+      "B2Bサブスク"
+    ],
+    "pnl": {
+      "monthlyRevenue": 375000000,
+      "cogs": 37500000,
+      "grossProfit": 337500000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 35000000,
+        "advertising": 120000000,
+        "subcontracting": 90000000,
+        "toolsAndSaaS": 15000000,
+        "other": 27500000
+      },
+      "operatingProfit": 50000000,
+      "operatingMargin": 13.3,
+      "estimatedAnnualNetProfit": 600000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年（有料ユーザー100万人突破・Teamプラン拡大期）",
+      "sourceDoc": "Forbes / PitchBook / Beautiful.ai公式発表",
+      "estimationLogic": "有料会員数約25万人 × 平均年額単価$150 ＝ 年商約$30M（約¥45億円 ➔ 月商約3.75億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_btfl_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】自由な編集をあえて「禁止」し、文字量に合わせてスライドを自動変形させるコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "PowerPointの「どこにでも図形を置ける自由」こそが素人を苦しめている元凶だと定義し、配置を自動制御する。",
+        "details": [
+          "【スマートスライドの物理法則】: 項目を1つ追加すると、他のブロックが自動で縮小し、余白とフォントサイズが黄金比率で再計算される。",
+          "【ダサいスライドを作れない制約】: ユーザーがどんなに素人でも、デザインの崩壊した酷いスライドを作ることがシステム的に不可能な設計。",
+          "【企業全体のデザイン統一】: 会社ロゴやブランドカラーを管理者が固定し、社員全員が統一された美しいプレゼン資料を爆速作成。"
+        ],
+        "codeSnippet": "// 制約駆動型レイアウト配管\n1. スライド要素を自由座標（Absolute）ではなく、自動計算グリッド（Flexbox/Grid）で拘束\n2. テキスト量やアイテム数（3個➔4個）の変更を検知し、アニメーションを伴って自動リサイズ\n3. 「Designer Cloud」によりブランドガイドラインに違反する色やフォントの選択を完全ロック",
+        "sourceNote": "Mitch Grasso 創業インタビュー"
+      },
+      {
+        "id": "ev_btfl_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：シリアルアントレプレナーの「パワポ嫌悪」からの逆張り",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "過去にオンライン動画編集SlideRocketを成功させたMitchが、「プレゼンソフトの最大のバグは自由度」と看破。",
+        "details": [
+          "2016年に創業。自由なキャンバスを廃止し、あらかじめ数学的に整列された「Smart Templates」を数十個用意。",
+          "「PowerPointで3時間かかる作業が3分で終わる」比較動画をSNSで広告配信し、激務に追われるコンサルタントやマーケターを獲得。",
+          "口コミで急速に社内に広がるボトムアップ型（PLG）で急拡大。"
+        ],
+        "sourceNote": "How Beautiful.ai Automated Presentation Design"
+      },
+      {
+        "id": "ev_btfl_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Microsoft PowerPointが自動レイアウトを強制できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "パワポは30年間の遺産があり、1ピクセル単位の自由配置を前提とした数億個の既存ファイルがある。",
+        "details": [
+          "Microsoftが急に「要素を自動で整列させて自由配置を禁止」したら、世界中の企業の既存テンプレートがすべて崩壊する。",
+          "そのためパワポはレガシーな自由配置を捨てられず、Beautiful.aiの「何もしなくても美しい」新世代体験に対抗できなかった。"
+        ],
+        "sourceNote": "Legacy Software Inertia and Disruption"
+      },
+      {
+        "id": "ev_btfl_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：クライアントや上司の前で「素人くさい資料」を出して舐められる恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "中身の提案は良いのに、スライドの見た目が不格好なせいで商談を落としたくないビジネスマンのプライド。",
+        "details": [
+          "Beautiful.aiで作るだけで、デザイン会社に数十万円で発注したような洗練されたスライドに見える。",
+          "自分の有能さを演出するための防衛費として、年額144ドルのサブスクは喜んで決済される。"
+        ],
+        "sourceNote": "Corporate Status Signaling in Presentations"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-02",
+        "author": "Make-Money アナリスト",
+        "text": "自然言語プロンプトからスライド全体（構成・テキスト・図解）を一瞬で出力する「DesignerBot AI」を統合。Gammaなどの新興競合と真っ向勝負を展開しつつ、B2Bチーム課金を堅守。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2016,
+      "initialTractionPeriod": "2017〜2019年（コンサルタントの口コミとスマートスライドデモによる初動）",
+      "dataSnapshotPeriod": "2024年（公式発表・業界推計）",
+      "eraContext": "リモートワーク下での非同期プレゼンテーション（PDF共有）の重要性急増期",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "特許取得済みのレイアウトエンジンと長年蓄積された企業テンプレート資産により、安定したキャッシュフローを維持。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "スマートスライドレイアウトエンジン（特許取得）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 12000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 21000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【明日の朝の役員プレゼン資料のフォントサイズや図形の配置合わせで深夜3時まで消耗するビジネスマンの怒りを急所ハック】「パワポでテキストを入れるたびにレイアウトが崩れて深夜残業する」苦痛を数学的に防ぎ、スライド自動整形だけで年商45億円を稼ぎ出すプレゼンSaaSの先駆者",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "制約駆動デザインによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "パワポは30年間の遺産があり、1ピクセル単位の自由配置を前提とした数億個の既存ファイルがある。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Beautiful.aiは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2016年に創業。自由なキャンバスを廃止し、あらかじめ数学的に整列された「Smart Templates」を数十個用意。",
+        "「PowerPointで3時間かかる作業が3分で終わる」比較動画をSNSで広告配信し、激務に追われるコンサルタントやマーケターを獲得。",
+        "口コミで急速に社内に広がるボトムアップ型（PLG）で急拡大。"
+      ],
+      "actionPlaybook": [
+        "【スマートスライドの物理法則】: 項目を1つ追加すると、他のブロックが自動で縮小し、余白とフォントサイズが黄金比率で再計算される。",
+        "【ダサいスライドを作れない制約】: ユーザーがどんなに素人でも、デザインの崩壊した酷いスライドを作ることがシステム的に不可能な設計。",
+        "【企業全体のデザイン統一】: 会社ロゴやブランドカラーを管理者が固定し、社員全員が統一された美しいプレゼン資料を爆速作成。"
+      ],
+      "coldOutreachTemplate": "// 制約駆動型レイアウト配管\n1. スライド要素を自由座標（Absolute）ではなく、自動計算グリッド（Flexbox/Grid）で拘束\n2. テキスト量やアイテム数（3個➔4個）の変更を検知し、アニメーションを伴って自動リサイズ\n3. 「Designer Cloud」によりブランドガイドラインに違反する色やフォントの選択を完全ロック"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

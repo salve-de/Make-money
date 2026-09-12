@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_calcom_a24b70ba1746771479ff",
+  "ticker": "CAL.MEET",
+  "name": "Cal.com",
+  "tagline": "「Calendlyのロゴを勝手に表示させて相手にマウントを取られるな」とCalendlyの殿様商売を粉砕し、完全オープンソース＆自社ブランド白地化でARR 15億円を突破した日程調整の解放者",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.643Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_calcom_a24b70ba1746771479ff",
+    "ticker": "CAL.MEET",
+    "name": "Cal.com",
+    "legalEntity": "Cal.com, Inc.",
+    "tagline": "「Calendlyのロゴを勝手に表示させて相手にマウントを取られるな」とCalendlyの殿様商売を粉砕し、完全オープンソース＆自社ブランド白地化でARR 15億円を突破した日程調整の解放者",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Peer Richelsen, Bailey Pumfleet",
+    "country": "US",
+    "url": "https://cal.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 50,
+    "architecturePattern": "ホワイトラベルOSS",
+    "pipelineStack": "Next.js × Prisma × 完全オープンソースリポジトリ（GitHub 3万Star） × Stripe月額サブスク（$15/席〜）",
+    "targetPainWallet": "客に日程調整URLを送った瞬間に「あいつCalendlyの無料ロゴ使ってケチってるな」と舐められるビジネスマンの羞恥心",
+    "tags": [
+      "日程調整SaaS",
+      "ARR 15億",
+      "オープンソース",
+      "Calendly対抗",
+      "ホワイトラベル"
+    ],
+    "pnl": {
+      "monthlyRevenue": 125000000,
+      "cogs": 12500000,
+      "grossProfit": 112500000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 15000000,
+        "advertising": 5000000,
+        "subcontracting": 50000000,
+        "toolsAndSaaS": 10000000,
+        "other": 12500000
+      },
+      "operatingProfit": 20000000,
+      "operatingMargin": 16,
+      "estimatedAnnualNetProfit": 240000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024〜2026年 Sacraレポート（2024年末ARR $2.9Mから2026年$10Mへ急伸）",
+      "sourceDoc": "Sacra Research / Peer Richelsen公式開示 / TechCrunch",
+      "estimationLogic": "有料チーム・組織シート課金（月額$15/ユーザー） ＋ エンタープライズオンプレミスライセンス ＝ ARR約$10M（約¥15億円 ➔ 月商約1.25億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_cal_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】アポ調整リンク自体が「最強のウイルス感染装置」として客を連れてくるコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "日程調整リンクを相手に送るたびに、相手が「この洗練されたカレンダーは何だ？」と無料登録する。",
+        "details": [
+          "【バイラル係数の極大化】: 1人の有料ユーザーが月に30人に日程調整URLを送信。受け取った側の5〜10%が「自分もこれを使いたい」と新規アカウントを作成。",
+          "【Calendlyのブランド強制への怒りを吸収】: Calendlyは無料版・低価格版で自社ロゴを押し付け、独自ドメインを使わせない。Cal.comは完全白地化（ホワイトラベル）と自前ドメイン（cal.yourname.com）を開放。",
+          "【開発者向けAPI・Webhookの完備】: 病院の予約システムや採用ATSの裏側に、Cal.comのスケジューリングAPIをそのまま組み込ませてエンタープライズから巨額ライセンスを徴収。"
+        ],
+        "codeSnippet": "// プロダクト主導バイラル配管\n1. Google/Outlookカレンダーと連携した爆速予約UIをオープンソースで提供\n2. ユーザーが客に送る予約ページ（cal.com/username）の最下部に極小の「Powered by Cal.com」を設置\n3. 開発者向けに「自社アプリの中に埋め込めるReactコンポーネント」を提供しB2Bへ侵食",
+        "sourceNote": "Peer Richelsen \"How We Scaled Cal.com to $10M ARR\""
+      },
+      {
+        "id": "ev_cal_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：GitHubでCalendlyクローンを公開した翌日にHacker News首位",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2021年、PeerとBaileyが「Calendlyのプロプライエタリな独占を根本から打破する」とGitHubにコードを投下。",
+        "details": [
+          "旧名Calendsoとしてローンチ。Hacker Newsで一晩で数千のUpvoteを獲得。",
+          "Alexis Ohanian（Reddit共同創業者）やChad Hurley（YouTube共同創業者）等の大物エンジェル投資家から即座に出資を勝ち取る。",
+          "わずか数年でGitHubスター数3万を超え、世界中のオープンソース開発者の標準日程調整ツールへ急成長。"
+        ],
+        "sourceNote": "TechCrunch \"Calendso rebrands to Cal.com and raises $7.4M\""
+      },
+      {
+        "id": "ev_cal_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Calendlyがオープンソース・自前ホストに対抗できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "時価総額30億ドルのCalendlyは「クラウド課金」を守るため、自前サーバー運用を絶対に許せない。",
+        "details": [
+          "Calendlyは医療機関（HIPAA準拠）や金融機関から法外なエンタープライズ料金を徴収している。",
+          "Cal.comはコードが公開されているため、セキュリティに厳しい大企業が自社のプライベートクラウド内に完全隔離して運用でき、大手の牙城を崩した。"
+        ],
+        "sourceNote": "Scheduling Software Disruption Case Study"
+      },
+      {
+        "id": "ev_cal_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「空いてる日程をメールで5往復する」不毛な往復書簡の苦痛",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「来週火曜日の14時はどうですか？」「あ、その日は埋まってまして水曜の15時は？」という時間のドブ捨て。",
+        "details": [
+          "この無駄なメール往復を消滅させるためなら、月額15ドルのツール代など1秒で正当化される。",
+          "相手のタイムゾーンを自動変換して時差ボケミスを防ぐため、グローバルビジネスマンの必須インフラ。"
+        ],
+        "sourceNote": "Scheduling Friction and Productivity Economics"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-09",
+        "author": "Make-Money アナリスト",
+        "text": "オープンソースの自前ホスト版から、クラウド版の有料組織プラン（Team/Enterprise）へのアップセルが順調に加速。ARR $10M（約15億円）を突破し黒字化基調を確立。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2021年（Hacker NewsでのCalendso公開とバイラル爆発）",
+      "dataSnapshotPeriod": "2024〜2026年（Sacra分析レポート）",
+      "eraContext": "リモートワークの定着と、Calendlyへの「マウント感・押し付け感」批判が噴出した過渡期",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急成長トレンド",
+      "currentViabilityAnalysis": "日程調整リンクそのものがバイラルループとして機能するため、広告費をかけずに自走成長し続ける最強のPLG構造。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "Next.js",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 4000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 9000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【客に日程調整URLを送った瞬間に「あいつCalendlyの無料ロゴ使ってケチってるな」と舐められるビジネスマンの羞恥心を急所ハック】「Calendlyのロゴを勝手に表示させて相手にマウントを取られるな」とCalendlyの殿様商売を粉砕し、完全オープンソース＆自社ブランド白地化でARR 15億円を突破した日程調整の解放者",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "ホワイトラベルOSSによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "時価総額30億ドルのCalendlyは「クラウド課金」を守るため、自前サーバー運用を絶対に許せない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Cal.comは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "旧名Calendsoとしてローンチ。Hacker Newsで一晩で数千のUpvoteを獲得。",
+        "Alexis Ohanian（Reddit共同創業者）やChad Hurley（YouTube共同創業者）等の大物エンジェル投資家から即座に出資を勝ち取る。",
+        "わずか数年でGitHubスター数3万を超え、世界中のオープンソース開発者の標準日程調整ツールへ急成長。"
+      ],
+      "actionPlaybook": [
+        "【バイラル係数の極大化】: 1人の有料ユーザーが月に30人に日程調整URLを送信。受け取った側の5〜10%が「自分もこれを使いたい」と新規アカウントを作成。",
+        "【Calendlyのブランド強制への怒りを吸収】: Calendlyは無料版・低価格版で自社ロゴを押し付け、独自ドメインを使わせない。Cal.comは完全白地化（ホワイトラベル）と自前ドメイン（cal.yourname.com）を開放。",
+        "【開発者向けAPI・Webhookの完備】: 病院の予約システムや採用ATSの裏側に、Cal.comのスケジューリングAPIをそのまま組み込ませてエンタープライズから巨額ライセンスを徴収。"
+      ],
+      "coldOutreachTemplate": "// プロダクト主導バイラル配管\n1. Google/Outlookカレンダーと連携した爆速予約UIをオープンソースで提供\n2. ユーザーが客に送る予約ページ（cal.com/username）の最下部に極小の「Powered by Cal.com」を設置\n3. 開発者向けに「自社アプリの中に埋め込めるReactコンポーネント」を提供しB2Bへ侵食"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

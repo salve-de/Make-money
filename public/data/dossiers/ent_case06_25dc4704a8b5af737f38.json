@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_25dc4704a8b5af737f38",
+  "ticker": "CRWY.COOK",
+  "name": "Caraway",
+  "tagline": "「テフロンフライパンを加熱すると有毒ガスが出る」とPFAS・PTFE発がん恐怖を煽り、セラミック塗装の美しい高額調理器具を年商1,200億円規模で売り抜くD2Cの急先鋒",
+  "sector": "PHYSICAL_ASSET",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.639Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_25dc4704a8b5af737f38",
+    "ticker": "CRWY.COOK",
+    "name": "Caraway",
+    "legalEntity": "Caraway Home Inc.",
+    "tagline": "「テフロンフライパンを加熱すると有毒ガスが出る」とPFAS・PTFE発がん恐怖を煽り、セラミック塗装の美しい高額調理器具を年商1,200億円規模で売り抜くD2Cの急先鋒",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "ENTERPRISE",
+    "founder": "Jordan Nathan",
+    "country": "US",
+    "url": "https://www.carawayhome.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 45,
+    "architecturePattern": "毒性告発D2C",
+    "pipelineStack": "Shopify × セラミックノンスティックOEM × Instagramキッチン映え写真 × Target/Crate&Barrel棚取り",
+    "targetPainWallet": "古いテフロン加工フライパンから化学物質が溶け出し家族の口に入る恐怖 ＆ 汚い台所を見せられない羞恥心",
+    "tags": [
+      "調理器具D2C",
+      "年商1200億推計",
+      "PFAS恐怖",
+      "キッチン美学",
+      "急成長D2C"
+    ],
+    "pnl": {
+      "monthlyRevenue": 10000000000,
+      "cogs": 3500000000,
+      "grossProfit": 6500000000,
+      "grossMargin": 65,
+      "operatingExpenses": {
+        "serverAndApi": 30000000,
+        "advertising": 4500000000,
+        "subcontracting": 500000000,
+        "toolsAndSaaS": 100000000,
+        "other": 570000000
+      },
+      "operatingProfit": 800000000,
+      "operatingMargin": 8,
+      "estimatedAnnualNetProfit": 9600000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年業界推定（年間売上$800M到達・過去4年で500%成長）",
+      "sourceDoc": "Forbes / Entrepreneur / Tedia Consulting 2024年調査レポート",
+      "estimationLogic": "推定年商$800M（約1,200億円 ➔ 月商約100億円）、Target・Crate&Barrelへの卸売およびShopify直販の合算規模"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_crwy_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】既存製品の「見えない毒性」を可視化し、デザイン性で高価格化するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "既存の黒いフライパンを「発がん性化学物質の温床」と位置づけ、安全でおしゃれなセラミック鍋をセット販売する。",
+        "details": [
+          "【毒性テフロンへの恐怖喚起】: 「テフロンの鍋を空焚きして有毒ガスで体調を崩した」という創業者の実体験から、PFAS/PTFEフリーを前面に訴求。",
+          "【セット販売による客単価爆発】: 単品売り（$95）ではなく、鍋4点＋マグネット収納スタンドのセット（$395〜$545）をメイン動線にしてAOV（平均注文単価）を極大化。",
+          "【インスタ映えするカラーバリエーション】: 暗いキッチンに置くだけで映えるテラコッタ、セージ、クリーム色を展開し、主婦やインフルエンサーの投稿を誘発。"
+        ],
+        "codeSnippet": "// 毒性排除プレミアムリプレイス配管\n1. 誰もが毎日使っている日用品の「隠れた有害物質・環境負荷」を特定\n2. 無害な新素材（セラミック、竹、ガラス）で代替し、ミニマルで美しいデザインに刷新\n3. 収納ラックや専用ケースを同梱した高額セット（¥50,000〜¥80,000）を基本提案にする",
+        "sourceNote": "Jordan Nathan 創業インタビュー"
+      },
+      {
+        "id": "ev_crwy_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：空焚きテフロン中毒事故から生まれた執念",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "以前勤めていたキッチン用品会社でフライパンを加熱しすぎてテフロン中毒にかかった恐怖が起点。",
+        "details": [
+          "2018年にJordan Nathanが創業。市販のノンスティックフライパンのほとんどにPFAS（有機フッ素化合物）が使われている事実に驚愕。",
+          "Kickstarter等を使わず、数百回の素材テストを経てセラミックコーティング工場を開拓。",
+          "ローンチ直後にInstagramのインテリア系アカウントにギフティングし、「隠さず見せるフライパン」として即座に完売。"
+        ],
+        "sourceNote": "Entrepreneur Magazine \"How Caraway Built a Cookware Empire\""
+      },
+      {
+        "id": "ev_crwy_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：T-falやCalphalonが手を出せない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "既存フライパン巨人は「安価なテフロン加工の量産ライン」に数千億円を投資しており、路線変更できない。",
+        "details": [
+          "T-falなどの既存ブランドはWalmartやスーパーで$20〜$30で売るビジネスモデル。セラミック塗装は製造コストが高く、安売り流通に乗らない。",
+          "「PFASは危険」と大手自ら宣伝すると、自社売上の80%以上を占める既存テフロン商品の訴訟リスクと売上蒸発を招くため沈黙するしかない。"
+        ],
+        "sourceNote": "Cookware Industry Structural Analysis"
+      },
+      {
+        "id": "ev_crwy_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：新築・引っ越し時の「おしゃれな生活を始めたい」虚栄心",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "新居のきれいなキッチンに、昔から使っている黒ずんだフライパンを置きたくない羞恥心。",
+        "details": [
+          "調理器具の買い替えは数年に一度のイベント。新築祝い、結婚祝い、引っ越しのタイミングで「どうせなら安全で最高に映えるものを一新したい」という感情が発火する。",
+          "5万円の出費も「家族の健康＋毎日の料理の幸福感」という大義名分で瞬時に正当化される。"
+        ],
+        "sourceNote": "Home Goods Purchasing Dynamics"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-11",
+        "author": "Make-Money アナリスト",
+        "text": "オンラインD2Cで培った強烈なブランド力をテコに、TargetやCrate & Barrelなどの全米大手リテールに逆上陸。年商推定$800M規模へ急拡大。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2018,
+      "initialTractionPeriod": "2019〜2020年（Instagramデザイン投稿とセット販売による初動突破）",
+      "dataSnapshotPeriod": "2024年通期（業界推計・メディア取材）",
+      "eraContext": "映画『ダーク・ウォーターズ』等でテフロン・PFASの毒性が社会問題化したタイミングと完全に合致",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急成長トレンド",
+      "currentViabilityAnalysis": "全米でPFAS規制が強まる法改正の追い風を受け、セラミック調理器具市場でトップシェアを独走。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "Shopify",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 320000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 18000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【古いテフロン加工フライパンから化学物質が溶け出し家族の口に入る恐怖 ＆ 汚い台所を見せられない羞恥心を急所ハック】「テフロンフライパンを加熱すると有毒ガスが出る」とPFAS・PTFE発がん恐怖を煽り、セラミック塗装の美しい高額調理器具を年商1,200億円規模で売り抜くD2Cの急先鋒",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "毒性告発D2Cによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "既存フライパン巨人は「安価なテフロン加工の量産ライン」に数千億円を投資しており、路線変更できない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Carawayは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2018年にJordan Nathanが創業。市販のノンスティックフライパンのほとんどにPFAS（有機フッ素化合物）が使われている事実に驚愕。",
+        "Kickstarter等を使わず、数百回の素材テストを経てセラミックコーティング工場を開拓。",
+        "ローンチ直後にInstagramのインテリア系アカウントにギフティングし、「隠さず見せるフライパン」として即座に完売。"
+      ],
+      "actionPlaybook": [
+        "【毒性テフロンへの恐怖喚起】: 「テフロンの鍋を空焚きして有毒ガスで体調を崩した」という創業者の実体験から、PFAS/PTFEフリーを前面に訴求。",
+        "【セット販売による客単価爆発】: 単品売り（$95）ではなく、鍋4点＋マグネット収納スタンドのセット（$395〜$545）をメイン動線にしてAOV（平均注文単価）を極大化。",
+        "【インスタ映えするカラーバリエーション】: 暗いキッチンに置くだけで映えるテラコッタ、セージ、クリーム色を展開し、主婦やインフルエンサーの投稿を誘発。"
+      ],
+      "coldOutreachTemplate": "// 毒性排除プレミアムリプレイス配管\n1. 誰もが毎日使っている日用品の「隠れた有害物質・環境負荷」を特定\n2. 無害な新素材（セラミック、竹、ガラス）で代替し、ミニマルで美しいデザインに刷新\n3. 収納ラックや専用ケースを同梱した高額セット（¥50,000〜¥80,000）を基本提案にする"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

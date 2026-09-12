@@ -1,0 +1,149 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_activepieces_e79ea75946468156aa9f",
+  "ticker": "ACTV.PIEC",
+  "name": "Activepieces",
+  "tagline": "「Zapierのタスク消費課金で毎月数十万溶ける」自動化担当者の怒りを突き、無制限セルフホスト可能なオープンソース自動化で年商4.5億円抜くZapierキラー",
+  "sector": "AI_AUTOMATION",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.646Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_activepieces_e79ea75946468156aa9f",
+    "ticker": "ACTV.PIEC",
+    "name": "Activepieces",
+    "tagline": "「Zapierのタスク消費課金で毎月数十万溶ける」自動化担当者の怒りを突き、無制限セルフホスト可能なオープンソース自動化で年商4.5億円抜くZapierキラー",
+    "sector": "AI_AUTOMATION",
+    "scale": "SMALL_TEAM",
+    "founder": "Mohammad AbuAboud, Ashraf Samhouri",
+    "country": "US",
+    "url": "https://www.activepieces.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 70,
+    "architecturePattern": "オープンソース（セルフホスト・無制限実行）＋Enterpriseクラウドサブスク",
+    "pipelineStack": "TypeScript × Node.js × Angular × Docker",
+    "targetPainWallet": "企業の自動化担当者・受託会社の激怒（「Zapierでタスクがループして請求書が50万円跳ね上がった」）",
+    "tags": [
+      "Zapierキラー",
+      "ワークフロー自動化",
+      "オープンソース",
+      "YC採択",
+      "AI自動化"
+    ],
+    "pnl": {
+      "monthlyRevenue": 37500000,
+      "cogs": 4500000,
+      "grossProfit": 33000000,
+      "grossMargin": 88,
+      "operatingExpenses": {
+        "serverAndApi": 2000000,
+        "advertising": 1000000,
+        "subcontracting": 15000000,
+        "toolsAndSaaS": 1500000,
+        "other": 2500000
+      },
+      "operatingProfit": 11000000,
+      "operatingMargin": 29.3,
+      "estimatedAnnualNetProfit": 132000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "Cloudサブスク＋Enterpriseオンプレライセンス（推計ARR $3M）",
+      "sourceDoc": "Activepieces公開料金・Enterpriseライセンスと既存収集カード（一次数値の突合は未完了）",
+      "estimationLogic": "入力: CloudサブスクとEnterpriseライセンスの推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約規模・原価・費用は推計で、実績P&Lではない。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_activepieces_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】メガツールの「不当なタスク課金モデル」を批判してオープンソース化し、受託会社を味方につける配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Zapierの高額課金に苦しむ代理店・フリーランスに「自分のサーバーで無制限に自動化を回せるツール」を渡し、彼らを自社の営業マン（共犯者）に仕立て上げる。",
+        "details": [
+          "【Step 1: Zapierの急所（タスク単価高すぎ問題）を突く】: 1タスクごとに数円〜十数円かかるZapierの不条理を徹底的に可視化。",
+          "【Step 2: TypeScriptで誰でもピース（連携機能）が作れる設計】: 外部開発者が自分の好きなサービス（Slack, Notion, ChatGPT等）のコネクタを簡単に自作できるオープンソースを公開。",
+          "【Step 3: 企業向けチーム機能・監査ログで課金】: 個人は無料で使い放題にし、受託会社や大企業がクライアントに提供する際に必要なマルチテナント機能を有料販売。"
+        ],
+        "codeSnippet": "// ActivepiecesのTypeScriptベースのカスタムアクション定義\nimport { createAction, Property } from \"@activepieces/pieces-framework\";\nexport const sendLootAlert = createAction({\n  name: \"send_loot_alert\",\n  displayName: \"Send Loot Alert\",\n  props: { message: Property.ShortText({ displayName: \"Alert Message\", required: true }) },\n  async run(context) { return { status: \"DISPATCHED\", payload: context.propsValue.message }; }\n});",
+        "sourceNote": "Activepieces公式料金ページおよびGitHub piecesリポジトリからの抽出"
+      },
+      {
+        "id": "ev_activepieces_crime",
+        "type": "THE_CRIME",
+        "title": "Zapierが10年以上かけて開拓した「ノーコード自動化市場」をTypeScriptオープンソースで獲得する手口",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「Zapierは高すぎる」という世界中の開発者の愚痴を吸い上げ、Y Combinatorの看板を使って一気にエンタープライズ顧客を奪い去る。",
+        "details": [
+          "自社開発者だけでなく、オープンソースコミュニティに「コネクタ（Piece）」を量産させることで、Zapierの最大の堀であった「連携アプリ数の多さ」を急速に無力化。",
+          "オンプレミスで動くため、医療や金融など「Zapierに顧客データを流すことが法律で禁じられている」業界を総取り。"
+        ]
+      }
+    ],
+    "operations": {
+      "teamSize": 12,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "Y Combinatorネットワーク",
+        "GitHubオープンソース",
+        "受託代理店パートナーシップ"
+      ],
+      "toolStack": [
+        {
+          "name": "GitHub",
+          "category": "コード基盤",
+          "monthlyCost": 35000,
+          "purpose": "1万Star超のオープンソースコミュニティ運営"
+        },
+        {
+          "name": "AWS / GCP",
+          "category": "クラウドインフラ",
+          "monthlyCost": 1500000,
+          "purpose": "Activepieces Cloudホスティング"
+        },
+        {
+          "name": "Stripe",
+          "category": "決済基盤",
+          "monthlyCost": 0,
+          "purpose": "月額プランおよび年額前払い決済"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "Zapierは「非エンジニア向けSaaS」として大成功したため、コードを書けるエンジニアが求める「セルフホストしたい」「TypeScriptで直接コネクタを書きたい」という開発者体験を完全に無視していた。",
+      "moatType": "NETWORK_EFFECT",
+      "moatDescription": "世界中の開発者が新しいAPIの「Piece（連携モジュール）」をオープンソースで勝手に開発してエコシステムに追加してくれるネットワーク効果。",
+      "incumbentDilemma": "Zapierがタスク無制限プランやセルフホスト版を出すと、数十億ドルのARRの根幹である「タスク消費従量課金」が自爆するため絶対に対抗できない。",
+      "secretInsight": "自動化ツールで最も重要なのは「ツール自体の機能」ではない。「どのサービスと繋がるか」であり、オープンソースはコネクタ開発を世界中に分散外注できる圧倒的なレバレッジである。",
+      "initialTraction": [
+        "Y Combinator（W23）に採択され、シード資金とスタートアップネットワークを獲得",
+        "GitHubでオープンソース公開後、数ヶ月で10,000 Starを突破",
+        "受託自動化エージェンシーが「Zapierの代わりにクライアントに導入するツール」として自発的に布教開始"
+      ],
+      "actionPlaybook": [
+        "Step 1: 既存のメガSaaS（Zapier, Make, Segment等）の「タスク従量課金」に不満を持つユーザーコミュニティを特定する",
+        "Step 2: モダンな技術スタック（TypeScript/Docker）でセルフホスト可能なオープンソースクローンを作る",
+        "Step 3: 外部開発者がプラグインを作れる仕組みを用意し、エコシステムの拡大を加速させる"
+      ],
+      "coldOutreachTemplate": "【Zapier利用料の80%削減・無制限タスク自動化の件】〇〇様、貴社で利用されているZapierのタスク制限を撤廃し、オンプレミスで安全に自動化を回せるActivepiecesのご案内です。"
+    },
+    "temporal": {
+      "foundedYear": 2022,
+      "initialTractionPeriod": "2022-2023年 (YC採択・オープンソースバイラル期)",
+      "dataSnapshotPeriod": "2024-2026年 (急成長Cloud・Enterprise期)",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急上昇トレンド最盛期（AI＋ワークフロー自動化）",
+      "eraContext": "Zapierの値上げと、LLM/AIを活用した自律ワークフロー自動化の爆発的需要。",
+      "currentViabilityAnalysis": "AIエージェントの普及に伴い、APIを繋ぐバックボーンとしてのオープンソース自動化基盤の需要は過去最高に達している。"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

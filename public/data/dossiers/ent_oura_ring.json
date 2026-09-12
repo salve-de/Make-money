@@ -1,0 +1,217 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_oura_ring",
+  "ticker": "OURARING",
+  "name": "Oura Ring",
+  "tagline": "「手首の時計は寝るとき邪魔」という時計嫌いの指にチタンの指輪をはめさせ、月額6ドルの課金と指輪代で時価1.6兆円を狙うスマートリングの覇者",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.634Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_oura_ring",
+    "ticker": "OURARING",
+    "name": "Oura Ring",
+    "legalEntity": "Petteri Lahtela, Kari Kivelä, Markku Koskela",
+    "tagline": "「手首の時計は寝るとき邪魔」という時計嫌いの指にチタンの指輪をはめさせ、月額6ドルの課金と指輪代で時価1.6兆円を狙うスマートリングの覇者",
+    "sector": "NICHE_SAAS",
+    "scale": "SCALEUP",
+    "founder": "Petteri Lahtela, Kari Kivelä, Markku Koskela",
+    "country": "FI",
+    "url": "https://ouraring.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 100,
+    "architecturePattern": "チタン製スマートリングハードウェア × 生体データ解析月額メンバーシップ",
+    "pipelineStack": "赤外線PPGセンサー × 体温センサー × 加速度計 × Bluetooth LE × AWSクラウド",
+    "targetPainWallet": "睡眠の質に悩む現代人、富裕層、プロアスリートの生体モニタリング予算",
+    "tags": [
+      "スマートリング",
+      "睡眠計測",
+      "指輪型ウェアラブル",
+      "サブスクリプション",
+      "時価1兆円超"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_oura_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】スマートウォッチの通知ストレスを嫌うエグゼクティブへ、指輪型睡眠計測で年商350億抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "腕に時計を巻いて寝る不快感と、日中の画面通知による集中妨害に疲弊したエグゼクティブへ、「画面のないチタンリング＋月額課金」で年商350億円を吸い上げる。",
+        "details": [
+          "【指先の動脈という科学的根拠】: 手首よりも指の動脈の方が生体シグナルを遥かに正確に検知できる医学的事実を全面に出し、Apple Watchを無力化。",
+          "【ステルス型ステータスシンボル】: 一見すると洗練された高級ジュエリーに見えるデザインで、シリコンバレーの経営者やセレブの指を独占。",
+          "【ハード売り切りから月額サブスク（.99）への大転換】: 3万円超の指輪本体を買わせた上で、アプリのデータ閲覧に月額課金を課す二重取りモデルを確立。"
+        ],
+        "codeSnippet": "// Oura型・指輪型生体計測配管\n1. チタン製リングの内側に赤外線PPGセンサー・温度センサー・3D加速度計を内蔵\n2. 睡眠ステージ、体温変動、安静時心拍数をBluetoothでスマホへ自動同期\n3. 「Sleep Score」「Readiness Score」として直感的に数値化\n4. 月額.99のメンバーシップ未加入時は基礎スコア以外の詳細グラフをマスキングして課金を強制",
+        "sourceNote": "Oura Health 財務レポート・Harpreet Raiインタビュー"
+      },
+      {
+        "id": "ev_oura_crime",
+        "type": "THE_CRIME",
+        "title": "スマートウォッチを嫌う富裕層のためのチタン睡眠ステータスシンボル",
+        "badge": "富裕層ステータスジュエリー",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "時計愛好家がロレックスを外さずに健康計測できる指輪としてポジショニングし、本体$299〜を売った上で月額$5.99のサブスクを徴収。",
+        "details": [
+          "コロナ禍のNBAバブルで全選手が装着し、体温変化から発症を事前検知できると話題になり世界的大ヒット。",
+          "シリコンバレーのVCや起業家の間で「昨夜の睡眠スコア」を競い合うステータスゲームを創出。"
+        ],
+        "metrics": [
+          {
+            "label": "累計販売数",
+            "value": "250万本+",
+            "isHighlight": true
+          },
+          {
+            "label": "評価額",
+            "value": "$5B+ (約¥7,500億)"
+          }
+        ],
+        "sourceNote": "Oura Health Oy プレスリリース"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 6250000000,
+      "cogs": 1875000000,
+      "grossProfit": 4375000000,
+      "grossMargin": 70,
+      "operatingExpenses": {
+        "serverAndApi": 300000000,
+        "advertising": 1500000000,
+        "subcontracting": 200000000,
+        "toolsAndSaaS": 100000000,
+        "other": 1800000000
+      },
+      "operatingProfit": 475000000,
+      "operatingMargin": 7.6,
+      "estimatedAnnualNetProfit": 5700000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年累積出荷報道",
+      "sourceDoc": "Bloomberg 報道 (累計250万台突破 / 年商約$500M)",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 800,
+      "initialTeamSize": 5,
+      "currentTeamSize": 800,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 72,
+      "primaryChannels": [
+        "Twitter",
+        "Product Hunt",
+        "Word of Mouth"
+      ],
+      "toolStack": [
+        {
+          "name": "AWS / Kubernetes",
+          "category": "クラウド基盤",
+          "monthlyCost": 6500000,
+          "purpose": "数百万リングの生体データ同期・分析"
+        },
+        {
+          "name": "Stripe / App Store In-App",
+          "category": "決済",
+          "monthlyCost": 7000000,
+          "purpose": "ハード購入および月額.99サブスク課金"
+        },
+        {
+          "name": "Bluetooth Low Energy",
+          "category": "近距離通信",
+          "monthlyCost": 0,
+          "purpose": "スマホアプリとの省電力データ同期"
+        },
+        {
+          "name": "Segment / Mixpanel",
+          "category": "プロダクト分析",
+          "monthlyCost": 1200000,
+          "purpose": "睡眠スコア確認頻度・機能エンゲージメント追跡"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「手首（時計）ではなく指（血管が極めて皮膚に近い部位）を選んだ」生理学的盲点】 1. AppleやFitbitが手首の陣取り合戦に血道を上げる中、指の動脈血管の方が心拍信号をより正確かつノイズレスに検知できる生理学的真実に着目。\n2. 指輪という「ジュエリー（装飾品）」の枠組みにテクノロジーを隠すことで、ガジェットオタクだけでなく女性層やファッション富裕層を取り込み。\n3. ハードウェアを300ドルで買わせた上で、過去データの閲覧と詳細分析に「月額$5.99のメンバーシップ課金」を後から導入し、利益率89%の経常収益ストリームを確立。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【指の超小型化技術（数々の特許） ✕ 女性の月経・排卵予測アルゴリズム独占】】 1. 超小型バッテリー、回路、センサーを指輪の厚み数ミリに収める極限の製造技術と特許網により、他社の模倣を長年ブロック。\n2. 皮膚温の微細な変動を夜間に計測することで、女性の月経周期や排卵日を自然言語で高精度予測する機能を備え、女性ユーザーの不可逆な定着を獲得。\n3. セレブやシリコンバレーの投資家、NBA選手が「指に光る黒い指輪」をつけている姿がオーガニックに拡散され、上流階級の象徴として定着。",
+      "incumbentDilemma": "Appleは自社のドル箱であるApple Watchの画面通知エコシステムを捨てるわけにいかず、Samsungは指輪型への参入に10年遅れた: Appleは年間数千億円を稼ぐApple Watchの売上とアプリストアをカニバリゼーション（共食い）するリスクを冒してまで指輪に特化できなかった。Samsungが「Galaxy Ring」で追撃してきたものの、Ouraはすでに500万人の睡眠データと特許要塞を築き上げていた。",
+      "secretInsight": "「時計をつけて寝るのは苦痛だ」という世界中の人々の指に300ドルの指輪をはめ、さらに月額6ドルの通行税を徴収して累計500万本以上を売り抜けた手口",
+      "initialTraction": [
+        "フィンランドのオウル（元Nokiaの技術者が集まる街）で創業。Kickstarterで初期プロトタイプを出品し、世界中の睡眠オタクから数億円の予約注文を集めて初期製造資金を確保。その後、英国のヘンリー王子やTwitter創業者のジャック・ドーシーが私物として愛用している姿が激写され、一気にグローバル現象化。"
+      ],
+      "actionPlaybook": [
+        "コロナ禍において「発熱する数日前にOura Ringが体温異常を検知した」という研究論文をいち早く発表。NBAのバブル（隔離施設）で全選手に配布され、感染予防デバイスとしての公認を獲得。",
+        "指のサイズは人によって千差万別なため、事前に「サイジングキット（プラスチックの見本指輪）」を全世界の購入者に郵送する物理物流費が重い初期コスト。"
+      ],
+      "coldOutreachTemplate": "【Oura型・ステルスヘルスアプローチ】\n「睡眠データを計測したいけれど、就寝中にスマートウォッチを腕に巻く違和感や通知に煩わされていませんか？\n弊社の超軽量チタンリングなら、画面も通知もなく、指にはめているだけで医療機器レベルの睡眠・回復データを自動計測します。\nエグゼクティブに選ばれる新しい健康管理をご体感ください。」"
+    },
+    "essence": {
+      "whatItDoes": "指輪型の高精度睡眠・体温・心拍数モニタリングハードウェアおよび専用解析アプリの月額サブスクリプション",
+      "targetCustomer": "世界中の健康志向層、睡眠負債に悩むビジネスマンの健康機器予算（本体$299〜$499 ＋ 月額$5.99）",
+      "painRelief": "「朝起きても疲れが取れていない」「スマートウォッチを手首につけて寝るとゴツゴツして眠れない」不快感の切除"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "フィンランドのオウル（元Nokiaの技術者が集まる街）で創業。Kickstarterで初期プロトタイプを出品し、世界中の睡眠オタクから数億円の予約注文を集めて初期製造資金を確保。その後、英国のヘンリー王子やTwitter創業者のジャック・ドーシーが私物として愛用している姿が激写され、一気にグローバル現象化。",
+      "platformGlitch": "コロナ禍において「発熱する数日前にOura Ringが体温異常を検知した」という研究論文をいち早く発表。NBAのバブル（隔離施設）で全選手に配布され、感染予防デバイスとしての公認を獲得。",
+      "pivotSnapshot": "単なるハードウェアの売り切りガジェットから、月額課金制（メンバーシップ制）のヘルスケアデータインフラへ転身。",
+      "hiddenStackCost": "指のサイズは人によって千差万別なため、事前に「サイジングキット（プラスチックの見本指輪）」を全世界の購入者に郵送する物理物流費が重い初期コスト。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2015-2018年 (Kickstarter〜セレブ拡散)",
+      "dataSnapshotPeriod": "2024-2026年 (年商$500M〜$1B、IPO準備期)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "eraContext": "Apple Watch疲れと、睡眠トラッキングへの世界的関心の高まりを完全に捉えて独走。",
+      "currentViabilityAnalysis": "累計500万本超を販売し、時価総額1.6兆円でのIPOを目指すスマートリングの絶対王者。Samsungの参入にも動じず高成長を維持。",
+      "viabilityLabel": "現在も有効"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_oura_ring_1",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "サバンナOSの急所",
+        "text": "「睡眠不足で寿命が縮む恐怖」と「自分の体を完璧に数値化している知的エリートに見られたい虚栄心」。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_oura_ring_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "「健康器具＝ダサい」という常識をチタン製ジュエリーへと昇華させ、高級百貨店グッチ（Gucci）との限定コラボモデルを13万円で完売させるラグジュアリー化。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_oura_ring_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "顧客の生の声・怨嗟",
+        "text": "高額な指輪本体代金を払ったにもかかわらず、月額6ドルの課金を止めるとただの睡眠スコアすら見られなくなるサブスク強要に対する初期ユーザーの猛反発。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "超小型チタンリング製造特許とアルゴリズムの先行堀により、ハードウェア参入障壁極大",
+      "demandDelta": "年 +25%",
+      "competitionDelta": "独占固定 (Apple/Samsung参入)",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_midjourney_239b8ccc522504fb757b",
+  "ticker": "MIDJOURN",
+  "name": "Midjourney",
+  "tagline": "「GPU推論代だけで月数億円溶ける」恐怖をDiscordの公開部屋に全員閉じ込めて逆手に取り、わずか11〜40人で年商450億円を抜く画像生成の黒船",
+  "sector": "AI_AUTOMATION",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.632Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_midjourney_239b8ccc522504fb757b",
+    "ticker": "MIDJOURN",
+    "name": "Midjourney",
+    "legalEntity": "David Holz (CEO / Founder)",
+    "tagline": "「GPU推論代だけで月数億円溶ける」恐怖をDiscordの公開部屋に全員閉じ込めて逆手に取り、わずか11〜40人で年商450億円を抜く画像生成の黒船",
+    "sector": "AI_AUTOMATION",
+    "scale": "SMALL_TEAM",
+    "founder": "David Holz (CEO / Founder)",
+    "country": "US",
+    "url": "https://midjourney.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 50,
+    "architecturePattern": "Discord寄生型 × レンダリングGPU直結SaaS",
+    "pipelineStack": "Discord Bot API × 自社チューニングDiffusion Model × クラウドGPUクラスタ (GCP / Oracle)",
+    "targetPainWallet": "デザイナー・ゲーム会社・広告代理店のクリエイティブ外注費と納期短縮の焦燥",
+    "tags": [
+      "AI画像生成",
+      "VC拒否",
+      "利益率70%超",
+      "Discord寄生",
+      "ソロプレナー拡張"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_midjourney_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】WebアプリUIを完全破棄し、Discordに完全寄生して11人で年商300億円抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Webサイトや自社アプリの開発を一切行わず、既存のDiscordサーバー上でボットを動かすだけで、社員11名・外部資本ゼロで年商300億円・純利100億円超を叩き出す。",
+        "details": [
+          "【Discordへの完全寄生】: ユーザー認証、コミュニティ管理、サーバー通知、UI描画をすべてDiscordに丸投げし、自社開発コストをゼロ化。",
+          "【公開生成の社会的証明】: 他のユーザーが呪文（プロンプト）を入力して美麗な画像が生成される過程を全員に見せることで、「自分もやってみたい」熱狂を自動増殖。",
+          "【商用利用権を人質にしたサブスク】: 月額〜のStripeサブスクを課金させなければ高解像度生成や商用利用ができないルールで現金を総取り。"
+        ],
+        "codeSnippet": "// Midjourney型・Discord寄生配管\n1. ユーザーがDiscordチャンネルで「/imagine prompt: ...」を入力\n2. ボットが推論クラスタ（自社GPUノード）へジョブを送信\n3. 60秒以内に4枚のプレビュー画像をDiscordメッセージとして返信\n4. アップスケール（U）やバリエーション（V）ボタンのクリックで追加クレジットを消費",
+        "sourceNote": "David Holz インタビュー・The Information"
+      },
+      {
+        "id": "ev_midjourney_crime",
+        "type": "THE_CRIME",
+        "title": "Webサイトなし・Discord完全寄生で11人で300億円売上",
+        "badge": "プラットフォーム完全寄生",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "自社Webアプリ・ユーザー管理・課金基盤を開発せず、DiscordのBotインターフェースに完全寄生することで、社員わずか11人で年間売上300億円超を叩き出す。",
+        "details": [
+          "ユーザーが生成した画像がDiscordチャンネル内にリアルタイムで流れるため、他人の神プロンプトと美麗画像が常に見えるバイラル閲覧ループ。",
+          "フロントエンド開発者を雇わず、全リソースを画像生成モデルの研究とGPUクラスタの確保に集中。"
+        ],
+        "metrics": [
+          {
+            "label": "年間売上",
+            "value": "$200M+ (約¥300億)",
+            "isHighlight": true
+          },
+          {
+            "label": "社員数",
+            "value": "わずか11人",
+            "isHighlight": true
+          },
+          {
+            "label": "1人当たり売上",
+            "value": "約¥27億円 (世界最高峰)"
+          },
+          {
+            "label": "外部資金調達",
+            "value": "$0 (完全ブートストラップ)"
+          }
+        ],
+        "sourceNote": "David Holz 公式発表 & The Information"
+      },
+      {
+        "id": "ev_midjourney_smoking_gun",
+        "type": "SMOKING_GUN",
+        "title": "Discord Botへのコマンド送信だけで完結する極限のUI省略",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "世界中のユーザーが `/imagine prompt:` と打つだけで月額$10〜$60が自動引き落としされる。",
+        "details": [
+          "Web画面を作らず、Discordのサーバー代・通信基盤にタダ乗りする極限のリーン設計。",
+          "他人の生成した画像とプロンプトがリアルタイムで流れるため、コミュニティ自体が最大の教材兼エンタメとして機能。"
+        ],
+        "codeSnippet": "/imagine prompt: a hyper-realistic cybernetic executive looking at multiple glowing financial charts in dark trading room, 8k, octane render --ar 16:9 --v 6.0",
+        "sourceNote": "Midjourney Discord Channel"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 3750000000,
+      "cogs": 937500000,
+      "grossProfit": 2812500000,
+      "grossMargin": 75,
+      "operatingExpenses": {
+        "serverAndApi": 375000000,
+        "advertising": 0,
+        "subcontracting": 150000000,
+        "toolsAndSaaS": 75000000,
+        "other": 150000000
+      },
+      "operatingProfit": 2062500000,
+      "operatingMargin": 55,
+      "estimatedAnnualNetProfit": 24750000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023年通期報道",
+      "sourceDoc": "The Information 報道 (売上$200M〜$300M / 完全自前ブートストラップ)",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 11,
+      "initialTeamSize": 1,
+      "currentTeamSize": 11,
+      "weeklyHours": 50,
+      "initialCapitalRequired": 0,
+      "automationLevel": 92,
+      "primaryChannels": [
+        "Twitter",
+        "Product Hunt",
+        "Word of Mouth"
+      ],
+      "toolStack": [
+        {
+          "name": "Discord API",
+          "category": "UI・コミュニティ",
+          "monthlyCost": 0,
+          "purpose": "チャットボットUI・ユーザー接点"
+        },
+        {
+          "name": "Google Cloud (GPU)",
+          "category": "推論インフラ",
+          "monthlyCost": 450000000,
+          "purpose": "A100/H100画像生成推論クラスタ"
+        },
+        {
+          "name": "Stripe",
+          "category": "決済",
+          "monthlyCost": 90000000,
+          "purpose": "月額サブスクリプション課金"
+        },
+        {
+          "name": "Cloudflare",
+          "category": "CDN・エッジ",
+          "monthlyCost": 3000000,
+          "purpose": "生成画像アセットのグローバル高速配信"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「Webサイトもアプリも作らず、既存チャットツールの部屋にBotを常駐させた」極限の横着】 1. 他社が専用Webフロントエンドやユーザー認証、決済ポータルの開発に数ヶ月・数億円溶かす中、Discordの無料チャットUIをそのまま操作画面として代用。\n2. 全ユーザーが他人の生成プロンプトと出力画像を強制的に目にする「公開ショールーム（オープンフィード）」にしたことで、プロンプトの集合知が自動爆発。\n3. 会員登録やクレデンシャル管理のインフラコストをDiscordに完全肩代わりさせ、自社開発リソースをAIモデルの絵画的クオリティ調整に100%集中させた。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【ネットワーク効果 ✕ 独自美的チューニング（プロプライエタリ・アセット）】】 1. 競合モデル（Stable DiffusionやDALL-E）が写真的な写実性に寄る中、「一目でMidjourneyと分かる絵画的・映画的トーン」のスタイル偏向を確立。\n2. 数千万人のDiscordコミュニティによる「Upvote / Downvote（高解像度化・バリエーション選択）」ログが毎日数億回フィードバックされ、強化学習の堀が不可逆化。\n3. 月額$10〜$60の課金者が解約しないよう、生成高速化枠（Fast GPU Hours）と商用利用権を人質にし、クリエイターのデイリー業務ワークフローに完全に定着。",
+      "incumbentDilemma": "AdobeやShutterstockは既存のストック写真著作権と高額ライセンス契約を守るため、野放図なスクレイピングと破壊的価格を出せなかった: 既存の画像ストック大手は契約クリエイターへのレベニューシェアと著作権訴訟リスクを極度に恐れ、モデル学習と機能提供が大幅に遅延。MidjourneyはVCも株主も入れない研究室体制のため、法規のグレーゾーンを突いて最速でユーザーを囲い込み、事実上の業界標準になった。",
+      "secretInsight": "VCの金を1円も入れず、Discordのチャット部屋にユーザーを放り込むだけで、デザイナーの数日間の残業を3秒に圧縮し年商450億円を手中に収めた手口",
+      "initialTraction": [
+        "初期はクローズドベータとしてDavid Holz本人がTwitter/Discordで著名デジタルアーティストやSFコミュニティに直接DMを送り、「自分の想像した世界を一瞬で絵にする体験」を招待制で配布。生成された神がかったアートワークがTwitter上に拡散され、招待コードの争奪戦が発生。"
+      ],
+      "actionPlaybook": [
+        "DiscordのBot APIとメッセージキューをそのままGUIとしてハック。サーバー管理・Push通知・コミュニティ形成のすべてをDiscord上で完結させ、Web開発費用を完全ゼロ化。",
+        "最大のコストはGoogle CloudおよびOracle CloudのGPUクラスタ利用料。ただし月額サブスクリプションの前金（Stripe決済）でキャッシュを先回収しているため、売掛金の焦げ付きリスクが完全ゼロ。"
+      ],
+      "coldOutreachTemplate": "【Midjourney型・UIゼロ寄生アプローチ】\n「高額なアプリ開発や複雑なログイン画面の構築は不要です。\nユーザーが日常的に使っているコミュニケーションツール内にボットを配置するだけで、本日中にAI自動化サービスをローンチできます。\nデモ環境のボットを貴社サーバーに追加してみませんか？」"
+    },
+    "essence": {
+      "whatItDoes": "Discordネイティブのテキストプロンプト式画像・ビジュアル生成AIサービス",
+      "targetCustomer": "広告制作会社、ゲーム開発スタジオ、Webデザイナーのグラフィック外注予算（月数十万〜数百万円枠）",
+      "painRelief": "「ラフデザイン1枚に外注費5万円・納期3日かかる」クリエイティブ制作の遅延・手戻り恐怖と高コスト"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "初期はクローズドベータとしてDavid Holz本人がTwitter/Discordで著名デジタルアーティストやSFコミュニティに直接DMを送り、「自分の想像した世界を一瞬で絵にする体験」を招待制で配布。生成された神がかったアートワークがTwitter上に拡散され、招待コードの争奪戦が発生。",
+      "platformGlitch": "DiscordのBot APIとメッセージキューをそのままGUIとしてハック。サーバー管理・Push通知・コミュニティ形成のすべてをDiscord上で完結させ、Web開発費用を完全ゼロ化。",
+      "pivotSnapshot": "元々はLeap Motion（手のジェスチャー認識デバイス）でハードウェアの限界とVCの干渉に苦しんだ創業者が、「外部資本を一切入れず、ソフトウェアと自前モデルのサブスクリプションだけで黒字化する」方針へ完全ピボット。",
+      "hiddenStackCost": "最大のコストはGoogle CloudおよびOracle CloudのGPUクラスタ利用料。ただし月額サブスクリプションの前金（Stripe決済）でキャッシュを先回収しているため、売掛金の焦げ付きリスクが完全ゼロ。"
+    },
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2022年中盤 (Discord Open Beta)",
+      "dataSnapshotPeriod": "2024-2026年 (ARR $300M〜$500M)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "eraContext": "Transformerモデルの進化と拡散モデル（Diffusion）の夜明け。OpenAIが一般向けチャットに注力していた隙間に画像特化で奇襲。",
+      "currentViabilityAnalysis": "WebUI版のリリースや動画生成への拡張を進めており、極少人数・高収益の牙城は依然として強固。ただしOpenAIやGoogleのマルチモーダル進化による侵食が長期的な対抗課題。",
+      "viabilityLabel": "現在も有効"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_midjourney_239b8ccc522504fb757b_1",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "サバンナOSの急所",
+        "text": "「絵を描けない劣等感」と「自分の頭の中の妄想を他人に自慢したい虚栄心」。1枚のプロンプトでプロ顔負けのアートが吐き出された瞬間にセロトニンが爆発し、課金を即決する。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_midjourney_239b8ccc522504fb757b_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "プロのイラストレーターに1枚5万円払っていた広告代理店が、月額60ドルのProプランで1日に1,000枚のラフを出し、外注費を99%削減。外注先クリエイターの市場を根底から破壊。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_midjourney_239b8ccc522504fb757b_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "顧客の生の声・怨嗟",
+        "text": "「生成した画像がすべてDiscordの全体部屋で全世界に晒される（非公開にするには追加の高額課金が必要）」というプライバシーの生殺与奪権を握られている点。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "MONITOR",
+      "verdictLabel": "要監視",
+      "oneLineReason": "GPU推論API原価が高く、オープンソース(SD/Flux)との差別化が困難",
+      "demandDelta": "90日 ↑45%",
+      "competitionDelta": "競合激増 (オープンソース台頭)",
+      "entryRequirements": {
+        "capital": "1,000万円 (GPU)",
+        "technicalDifficulty": "MEDIUM",
+        "platformRisk": "MEDIUM"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

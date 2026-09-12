@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_avoma_33c53ae90f8f117d810f",
+  "ticker": "AVOM.MEET",
+  "name": "Avoma",
+  "tagline": "「Gongは年間契約で数百万円取られるから手が出ない」中堅企業を狙い、商談の自動録画・文字起こし・CRM同期を低価格で提供して年商22億円を稼ぐAIミーティング要塞",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.644Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_avoma_33c53ae90f8f117d810f",
+    "ticker": "AVOM.MEET",
+    "name": "Avoma",
+    "legalEntity": "Avoma, Inc.",
+    "tagline": "「Gongは年間契約で数百万円取られるから手が出ない」中堅企業を狙い、商談の自動録画・文字起こし・CRM同期を低価格で提供して年商22億円を稼ぐAIミーティング要塞",
+    "sector": "NICHE_SAAS",
+    "scale": "ENTERPRISE",
+    "founder": "Aditya Kothadiya, Devendra Laulkar",
+    "country": "US",
+    "url": "https://www.avoma.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 50,
+    "architecturePattern": "商談インテリジェンス",
+    "pipelineStack": "Zoom/Teamsボット自動参加 × 音声認識/LLM要約 × HubSpot/Salesforce双方向同期 × 月額$19〜$79/席",
+    "targetPainWallet": "商談中にメモを取るのに必死で客の表情を見落とし、商談後に手作業でCRMに入力するのに毎日1時間溶かしている営業マン",
+    "tags": [
+      "商談AI",
+      "年商22億",
+      "Gong対抗",
+      "CRM自動同期",
+      "中堅企業特化"
+    ],
+    "pnl": {
+      "monthlyRevenue": 183000000,
+      "cogs": 27500000,
+      "grossProfit": 155500000,
+      "grossMargin": 85,
+      "operatingExpenses": {
+        "serverAndApi": 20000000,
+        "advertising": 35000000,
+        "subcontracting": 60000000,
+        "toolsAndSaaS": 10000000,
+        "other": 15500000
+      },
+      "operatingProfit": 15000000,
+      "operatingMargin": 8.2,
+      "estimatedAnnualNetProfit": 180000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年（有料企業顧客数千社・シリーズA後成長期）",
+      "sourceDoc": "TechCrunch / Sacra / Avoma公式発表",
+      "estimationLogic": "有料企業数千社 × 平均シート単価（月額$40〜$50） ＝ 年商約$15M（約¥22.5億円 ➔ 月商約1.83億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_avom_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】商談が終わった瞬間に「議事録」をSalesforceへ自動投入し、営業の残業をゼロにするコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Zoomの会話から「ネクストアクション」「予算感」「競合名」をAIが自動抽出し、CRMの該当フィールドに直接流し込む。",
+        "details": [
+          "【商談前・中・後の全自動化】: 商談前にアジェンダを自動共有、商談中にAIが議事録を作成、商談後にCRMへ自動保存の3段階配管。",
+          "【Gongの1/3の価格設定】: 年間一括契約と数万ドルの初期費用を要求する業界大手Gongに対し、月額制・クレジットカード払いで中堅企業を総取り。",
+          "【営業マネージャーのコーチング支援】: どの営業マンが喋りすぎていて客の話を聞けていないかをレーダーチャートで可視化。"
+        ],
+        "codeSnippet": "// 商談AI連携配管\n1. カレンダーを監視し、商談リンク付きミーティングにボットが自動参加・録音\n2. Whisper＋LLMで「決定事項」「次回宿題」「客の懸念事項」を箇条書き要約\n3. Salesforce/HubSpotの取引先責任者レコードに要約テキストをAPI経由で自動書き込み",
+        "sourceNote": "Aditya Kothadiya 創業インタビュー"
+      },
+      {
+        "id": "ev_avom_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：創業者が自身のリモート商談の苦痛から自作",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2017年、複数のスタートアップで営業を指揮していたAdityaが「商談メモのせいで商談に集中できない」と創業。",
+        "details": [
+          "元々は議事録の共同編集ツールとして開始したが、音声AIの進化に合わせて「自動文字起こしと要約」へフルピボット。",
+          "コロナ禍のリモートセールス特需に完璧に乗り、口コミだけで数千社の中小企業へ浸透。",
+          "大手Gongが相手にしないミッドマーケット（社員50〜500人規模）に特化して売上を拡大。"
+        ],
+        "sourceNote": "TechCrunch \"Avoma raises $12M to streamline meeting workflows\""
+      },
+      {
+        "id": "ev_avom_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：GongやChorusが中小企業向けの安価なプランを出せない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Gongは企業価値72億ドルのメガユニコーンであり、大企業エンタープライズ営業の重たい人件費を回収しなければならない。",
+        "details": [
+          "Gongは1社あたり最低でも年間150万〜300万円の契約しか受けない。",
+          "中堅・中小企業はGongを導入したくても門前払いされるため、Avomaがその広大な空白地帯を完全に独占できた。"
+        ],
+        "sourceNote": "Revenue Intelligence Market Segmentation"
+      },
+      {
+        "id": "ev_avom_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「営業マンが退職して過去の商談履歴がブラックボックスになる」経営者の恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "トップ営業マンが引き継ぎもせず急に辞め、重要なクライアントとの商談の経緯が一切分からなくなる大損害。",
+        "details": [
+          "Avomaがあれば、過去数年分の全商談の録音とAI要約がCRMに完全に保存されている。",
+          "「企業の知的財産を守る保険」として、営業組織の全員分のシートライセンスが即座に契約される。"
+        ],
+        "sourceNote": "Sales Knowledge Retention Psychology"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-05",
+        "author": "Make-Money アナリスト",
+        "text": "単なる商談録画から「成約率予測スコア」や「パイプラインヘルス分析」などの収益インテリジェンス領域へ拡張。中堅企業の営業DXプラットフォームとしての地位を固める。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2017,
+      "initialTractionPeriod": "2020〜2021年（コロナ禍のリモート営業爆発とZoom連携による急成長）",
+      "dataSnapshotPeriod": "2024年（公式発表・シリーズA後成長）",
+      "eraContext": "Zoom商談の一般化と、対面営業からインサイドセールスへの不可逆な構造変化期",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "CRMとの深い双方向同期と中堅企業特化の絶妙な価格設定により、高額なGongと格安ツールの中間で強固な堀を維持。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "Zoom/Teamsボット自動参加",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 5856000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 12000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【商談中にメモを取るのに必死で客の表情を見落とし、商談後に手作業でCRMに入力するのに毎日1時間溶かしている営業マンを急所ハック】「Gongは年間契約で数百万円取られるから手が出ない」中堅企業を狙い、商談の自動録画・文字起こし・CRM同期を低価格で提供して年商22億円を稼ぐAIミーティング要塞",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "商談インテリジェンスによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "Gongは企業価値72億ドルのメガユニコーンであり、大企業エンタープライズ営業の重たい人件費を回収しなければならない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Avomaは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "元々は議事録の共同編集ツールとして開始したが、音声AIの進化に合わせて「自動文字起こしと要約」へフルピボット。",
+        "コロナ禍のリモートセールス特需に完璧に乗り、口コミだけで数千社の中小企業へ浸透。",
+        "大手Gongが相手にしないミッドマーケット（社員50〜500人規模）に特化して売上を拡大。"
+      ],
+      "actionPlaybook": [
+        "【商談前・中・後の全自動化】: 商談前にアジェンダを自動共有、商談中にAIが議事録を作成、商談後にCRMへ自動保存の3段階配管。",
+        "【Gongの1/3の価格設定】: 年間一括契約と数万ドルの初期費用を要求する業界大手Gongに対し、月額制・クレジットカード払いで中堅企業を総取り。",
+        "【営業マネージャーのコーチング支援】: どの営業マンが喋りすぎていて客の話を聞けていないかをレーダーチャートで可視化。"
+      ],
+      "coldOutreachTemplate": "// 商談AI連携配管\n1. カレンダーを監視し、商談リンク付きミーティングにボットが自動参加・録音\n2. Whisper＋LLMで「決定事項」「次回宿題」「客の懸念事項」を箇条書き要約\n3. Salesforce/HubSpotの取引先責任者レコードに要約テキストをAPI経由で自動書き込み"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

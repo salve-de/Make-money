@@ -1,0 +1,239 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_48aab28b5130f39babb5",
+  "ticker": "DYF.RATE",
+  "name": "Double Your Freelancing",
+  "tagline": "「時給請求をやめ、顧客の売上増に連動した価値基準価格で請求せよ」というロジックで、受託フリーランスから高額教材・コミュニティ費をむしり取る価格革命エンジン",
+  "sector": "CONTENT_MEDIA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.635Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_48aab28b5130f39babb5",
+    "ticker": "DYF.RATE",
+    "name": "Double Your Freelancing",
+    "legalEntity": "Double Your Freelancing LLC",
+    "tagline": "「時給請求をやめ、顧客の売上増に連動した価値基準価格で請求せよ」というロジックで、受託フリーランスから高額教材・コミュニティ費をむしり取る価格革命エンジン",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SOLO",
+    "founder": "Brennan Dunn (ブレナン・ダン)",
+    "country": "US",
+    "url": "https://doubleyourfreelancing.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "ソロ知恵要塞",
+    "pipelineStack": "無料価格診断ツール × 徹底セグメントメルマガ × $499〜$1,999買い切り講座",
+    "targetPainWallet": "受託フリーランスの屈辱と不当な低単価への不満（徹夜しても時給数千円から抜け出せない苦痛）",
+    "tags": [
+      "フリーランス教育",
+      "価格交渉術",
+      "ソロプレナー",
+      "高粗利デジタル教材",
+      "利益率80%超"
+    ],
+    "pnl": {
+      "monthlyRevenue": 12500000,
+      "cogs": 625000,
+      "grossProfit": 11875000,
+      "grossMargin": 95,
+      "operatingExpenses": {
+        "serverAndApi": 150000,
+        "advertising": 500000,
+        "subcontracting": 800000,
+        "toolsAndSaaS": 650000,
+        "other": 300000
+      },
+      "operatingProfit": 9475000,
+      "operatingMargin": 75.8,
+      "estimatedAnnualNetProfit": 113700000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約$1M+規模）",
+      "sourceDoc": "創業者Brennan Dunn公開レポートおよび各種ポッドキャスト出演ログ",
+      "estimationLogic": "オンライン講座（$299〜$999）受講者年間約1,200名 ＋ コミュニティ会費 ＝ 年商約$1M（月商 約¥1,250万）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_dyf_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】「時給貧乏からの脱出」を煽り、価格決定権教材を売り抜くソロ教育コード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "受託業界（エンジニア、デザイナー、ライター、動画編集者）の「値上げ恐怖」を論理的に治療するテンプレを売り、粗利95%を達成。",
+        "details": [
+          "【時給請求の非人間性を攻撃】: 「時給で請求するのは、あなたが仕事を手早く終わらせるほど損をする狂気のシステムだ」と常識を破壊。",
+          "【価値提案型見積もりテンプレの提供】: 顧客に「このサイトを作れば売上が年間2,000万円増える。そのための投資として300万円は妥当ですね？」と言わせる台本を販売。",
+          "【メールパーソナライゼーションによる自動化】: 読者の職種（デザイナーかプログラマーか）ごとにメール本文を自動分岐させ、成約率を3倍化。"
+        ],
+        "codeSnippet": "// 価値基準価格（Value-Based Pricing）提案テンプレ\n「時給8,000円で見積もるのを今すぐやめよ。\n顧客の痛みの金額をヒアリングし、その10〜20%を固定フィーとして提示せよ。\n『このプロジェクトにより御社は年間1,500万円のコスト削減が見込めます。弊社の支援費用は300万円（成果想定の20%）です』」",
+        "sourceNote": "Double Your Freelancing 講座カリキュラム"
+      },
+      {
+        "id": "ev_dyf_crime",
+        "type": "THE_CRIME",
+        "title": "相見積もりで疲弊するフリーランスの「価格決定権の渇望」をハック",
+        "badge": "ソロ知恵要塞モデル",
+        "evidenceStatus": "REPORTED",
+        "punchline": "クラウドワークス等で買い叩かれて絶望している受託者の「下請け根性」を叩き直す講座を売り、年1億円超を創業者1人の手残りに変える。",
+        "details": [
+          "自らが受託開発エージェンシーを経営し、時給制から価値提案制に切り替えて売上を数倍にした一次体験をコンテンツ化。",
+          "物販在庫ゼロ、オフィスゼロ。StripeとWordPressだけで完結するソロ要塞。"
+        ],
+        "metrics": [
+          {
+            "label": "粗利率",
+            "value": "95%",
+            "isHighlight": true
+          },
+          {
+            "label": "営業利益率",
+            "value": "75.8%",
+            "isHighlight": true
+          },
+          {
+            "label": "受講生累計",
+            "value": "50,000名超"
+          },
+          {
+            "label": "創業者手残り",
+            "value": "年間約1億円"
+          }
+        ]
+      },
+      {
+        "id": "ev_dyf_incumbent_trap",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造: クラウドソーシング胴元（Upwork等）が絶対に教えられない「中抜き回避術」",
+        "evidenceStatus": "REPORTED",
+        "punchline": "クラウドソーシング大手は相見積もりによる低価格競争と手数料（10〜20%）で儲かるため、「フリーランスが自力で直営業して高単価を取る方法」を教える動機がゼロ。"
+      }
+    ],
+    "operations": {
+      "teamSize": 2,
+      "initialTeamSize": 1,
+      "currentTeamSize": 2,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 50000,
+      "automationLevel": 90,
+      "primaryChannels": [
+        "無料メール講座 (Email Course)",
+        "Hacker News / Reddit 議論投稿",
+        "ポッドキャスト客演"
+      ],
+      "toolStack": [
+        {
+          "name": "ConvertKit / RightMessage",
+          "category": "CRM/配信",
+          "monthlyCost": 80000,
+          "purpose": "動的パーソナライズメール配信"
+        },
+        {
+          "name": "WordPress + MemberPress",
+          "category": "LMS",
+          "monthlyCost": 30000,
+          "purpose": "会員制動画講座配信"
+        },
+        {
+          "name": "Stripe",
+          "category": "決済",
+          "monthlyCost": 400000,
+          "purpose": "講座代金の一括回収"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「技術力がないから稼げない」と勘違いしているフリーランスの盲点を突く】稼げない原因はコードやデザインの腕前ではなく「価格交渉のロジック」を知らないことにある。ここを特定して治療するだけで、顧客の単価が即座に2倍になるため受講料が瞬時に回収される。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "「フリーランスの価格交渉といえばBrennan Dunn」という10年以上にわたるオーガニックな業界第一人者の地位。",
+      "incumbentDilemma": "スクール大手（テックアカデミー等）は「プログラミング言語の習得」を教えることしかできず、営業や価格交渉という生々しいビジネススキルのカリキュラムを作れない。",
+      "secretInsight": "無料メルマガ登録時に「現在の時給」と「職種」を入力させ、時給が低い人には「時給請求の罠」、ある程度高い人には「エージェンシー化と外注化」のメールを自動で送り分ける。",
+      "initialTraction": [
+        "自身の受託会社のノウハウを電子書籍（PDF）としてまとめ$39で販売開始",
+        "Hacker Newsで「なぜ時給で請求するのをやめるべきなのか」という長文エッセイを投稿し大バズ",
+        "読者からの質問に答える形で高単価ビデオコースを開発し$499で展開"
+      ],
+      "actionPlaybook": [
+        "Step 1: 国内の特定職種（例: Shopify構築エンジニア、動画編集者）向けに「時給を倍にする見積もりテンプレート」を作成",
+        "Step 2: 7日間の無料メール講座（自動配信）で読者の「値上げへの恐怖」を論理的に破壊",
+        "Step 3: 最終日に3万〜10万円の「価格交渉完全パッケージ」を販売し、不労所得配管を固定化"
+      ],
+      "coldOutreachTemplate": "【フリーランス向け・単価無料診断】時給請求で限界を感じているエンジニア様へ。顧客に嫌われずに請求額を1.5〜2倍にする「価値提案型見積もりフォーマット」を無料プレゼントします。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "クラウドソーシング事業者がこれを教えると、登録者がプラットフォームを脱出して直接取引を始めてしまう。",
+        "scaleMismatchReason": "教材販売とコミュニティ運営は1〜2人のソロモデルに最適化されており、大企業の事業としては小さすぎる。",
+        "decisionSpeedAdvantage": "受講生からのフィードバックを即座に次のメールシーケンスや教材アップデートに反映。"
+      },
+      "pricingPower": {
+        "anchorComparison": "「次の案件で1回50万円アップすれば、教材代（5万円）は10倍になって返ってくる」という投資対効果の提示。",
+        "lossAversionTrigger": "「このまま一生、時給3,000円で安請け合いして過労死する」という将来への絶望感。",
+        "budgetCategory": "自己投資・スキルアップ経費枠。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "受講生限定コミュニティでの案件紹介や見積もりレビュー相談履歴。",
+        "workflowIntegration": "提供されるヒアリングシートや提案書スライドが、受託者の日常業務ツールとして定着。",
+        "switchingFriction": "一度この交渉術で高単価案件が取れると、元の時給請求に戻ることは心理的に不可能。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "教材販売のため原価ゼロ・前金100%。在庫リスクも売掛金未回収リスクも完全ゼロ。",
+        "incrementalMargin": "教材のデジタルダウンロードのため、販売数が10倍になっても追加コストはゼロ。",
+        "workingCapitalStrategy": "売上はほぼそのまま創業者個人の純利益。手元キャッシュの極大化。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "Hacker Newsや個人ブログで「時給請求の愚かさ」をデータとともに徹底的に論破した。",
+      "platformGlitch": "「フリーランス＝技術を磨くべき」という思考停止に対し、「ビジネススキル（価格決定権）を磨け」とポジショニングをずらした。",
+      "pivotSnapshot": "単なる電子書籍販売から、動的メールマーケティングツール（RightMessage）の開発へ発展させSaaS化も達成。",
+      "hiddenStackCost": "月々の固定費は数万円のSaaS代のみ。粗利率95%という驚異的な筋肉質。"
+    },
+    "temporal": {
+      "foundedYear": 2012,
+      "initialTractionPeriod": "2012年〜2014年",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約$1M規模）",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（価格交渉教材・ソロ知恵要塞）",
+      "eraContext": "リーマンショック以降フリーランスが急増し、クラウドソーシングによる買い叩きが社会問題化した時期に合致。",
+      "currentViabilityAnalysis": "AIによって単純な受託開発・制作の単価が暴落している現在こそ、「顧客のビジネス価値に連動した提案・交渉術」の価値は過去最高に跳ね上がっている。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2012年",
+        "eventType": "foundation",
+        "description": "電子書籍「Double Your Freelancing Rate」を出版"
+      },
+      {
+        "occurredAt": "2014年",
+        "eventType": "expansion",
+        "description": "アカデミー講座やカンファレンスを開催、年商$500k突破"
+      },
+      {
+        "occurredAt": "2018年",
+        "eventType": "software",
+        "description": "蓄積した知見からSaaS「RightMessage」をスピンアウト"
+      },
+      {
+        "occurredAt": "2024年",
+        "eventType": "steady",
+        "description": "累計受講生5万人、年商$1M（利益率75%超）の自動収益を維持"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "即座に略奪可能",
+      "oneLineReason": "「受託エンジニア・動画編集者の単価倍増スクール」は日本国内でも極めて需要が高く、今夜からコンテンツ作成に着手できる。",
+      "demandDelta": "90日 ↑20%",
+      "competitionDelta": "技術スクールばかりで価格交渉専門が不在",
+      "entryRequirements": {
+        "capital": "数万円",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

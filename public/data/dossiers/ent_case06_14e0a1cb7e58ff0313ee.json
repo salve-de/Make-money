@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_14e0a1cb7e58ff0313ee",
+  "ticker": "HNDR.NOCO",
+  "name": "100 Days of No Code",
+  "tagline": "「プログラミングを学ぶな、1日30分ツールを繋げ」と非エンジニアの挫折感を救済し、100日間の公開コミットメント習慣化で年商8,000万円を稼ぎ出すノーコード学習村",
+  "sector": "CONTENT_MEDIA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.641Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_14e0a1cb7e58ff0313ee",
+    "ticker": "HNDR.NOCO",
+    "name": "100 Days of No Code",
+    "legalEntity": "100 Days of No Code Ltd",
+    "tagline": "「プログラミングを学ぶな、1日30分ツールを繋げ」と非エンジニアの挫折感を救済し、100日間の公開コミットメント習慣化で年商8,000万円を稼ぎ出すノーコード学習村",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SOLO",
+    "founder": "Max Haining",
+    "country": "UK",
+    "url": "https://www.100daysofnocode.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 35,
+    "architecturePattern": "習慣化ハックコミュニティ",
+    "pipelineStack": "Circleコミュニティ × Twitter #100DaysOfNoCodeハッシュタグ × Zapier/Airtable/Softr演習 × 年額$250〜$750パス",
+    "targetPainWallet": "何回PythonやJavaScriptの入門書を買っても1章で挫折した文系ビジネスマンの「自分はアプリを作れない」劣等感",
+    "tags": [
+      "ノーコード教育",
+      "年商8000万",
+      "Twitterバイラル",
+      "コミュニティ課金",
+      "ソロプレナー"
+    ],
+    "pnl": {
+      "monthlyRevenue": 6600000,
+      "cogs": 300000,
+      "grossProfit": 6300000,
+      "grossMargin": 95.5,
+      "operatingExpenses": {
+        "serverAndApi": 100000,
+        "advertising": 0,
+        "subcontracting": 1200000,
+        "toolsAndSaaS": 300000,
+        "other": 400000
+      },
+      "operatingProfit": 4300000,
+      "operatingMargin": 65.2,
+      "estimatedAnnualNetProfit": 51600000,
+      "financialStatus": "ESTIMATED",
+      "dataSnapshotPeriod": "2023〜2024年（コミュニティ会員数約1,500名・ブートキャンプ年数回開催）",
+      "sourceDoc": "Max Haining X（Twitter）公開収益ログ・Indie Hackers取材",
+      "estimationLogic": "年間コミュニティ会員約1,000名（$250/年） ＋ 集中ブートキャンプ（$750）年3回 ＝ 年商約$550k（約¥8,000万円 ➔ 月商約660万円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_100d_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】生徒自身に「#100DaysOfNoCode」と毎日ツイートさせ、広告費ゼロで集客し続けるコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「毎日の学習記録をSNSで報告すること」を受講ルールにし、全受講生を無給の宣伝インフルエンサーにする。",
+        "details": [
+          "【公開コミットメントによる離脱防止】: 「Day 1/100: 今日はAirtableでDBを作った」と生徒が毎日Xに投稿。サボるとフォロワーにバレる恐怖で継続率が爆発。",
+          "【自走するUGCトラフィックループ】: 数千人の受講生が毎日同じハッシュタグで投稿するため、タイムラインを見た別の文系ビジネスマンが「自分もやってみたい」と自然流入。",
+          "【マイクロレッスン形式】: 1日わずか30分の極小タスクに分解し、「忙しくて勉強できない」という言い訳を完全粉砕。"
+        ],
+        "codeSnippet": "// コミットメント強制型バイラル教育配管\n1. 「100日間、毎日30分だけ実践する」という極小のルールを提示\n2. 毎日の成果物を専用ハッシュタグをつけてXやLinkedInに投稿することを義務付け\n3. 生徒のタイムラインを見た友人が連鎖的に参加し、CAC（獲得コスト）完全ゼロで会員増殖",
+        "sourceNote": "Max Haining 創業ストーリー"
+      },
+      {
+        "id": "ev_100d_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：ロックダウン中のロンドンで始めた個人チャレンジ",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2020年のコロナ隔離期間中、非エンジニアだったMax自身がノーコードを学ぶために立てたTwitterの誓い。",
+        "details": [
+          "「コードが書けない自分でもWebサービスを作れるか？」を検証するため、毎日の勉強記録を#100DaysOfNoCodeをつけて投稿開始。",
+          "同じ悩みを持つ世界中のビジネスマンから「自分も混ぜてほしい」とリプライが殺到。",
+          "最初はWhatsAppグループで無料運営し、人が溢れた段階でCircleコミュニティへ移行し有料化。"
+        ],
+        "sourceNote": "Indie Hackers \"How I Grew 100DaysOfNoCode to $50k MRR\""
+      },
+      {
+        "id": "ev_100d_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：伝統的プログラミングブートキャンプが真似できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "既存のプログラミングスクールは「1人100万円の学費」を取る重厚なカリキュラムに囚われている。",
+        "details": [
+          "CodecademyやGeneral Assemblyなどは「エンジニア転職」をゴールに設定しているため、数ヶ月〜1年の過酷な講義を組む。",
+          "大衆の9割は「自分のアイデアを形にする小さなWebアプリが作れればいいだけ」であり、100万円の学費もフルタイムの勉強時間も出せない。"
+        ],
+        "sourceNote": "Bootcamp Economics vs Micro-learning Communities"
+      },
+      {
+        "id": "ev_100d_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「エンジニアにアイデアをバカにされる」非技術者の屈辱",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "新規事業のアイデアがあっても、社内のエンジニアに「工数が足りない」「仕様が甘い」と一蹴される営業マンの怒り。",
+        "details": [
+          "ノーコードを身につければ、エンジニアにお願いすることなく今週末に自分で動くプロトタイプを作れる。",
+          "「自分で作れる人間になる」というセルフエスティームの向上欲求が、年額数万円の出費を即決させる。"
+        ],
+        "sourceNote": "No-Code Adoption Psychology in Enterprise"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-05",
+        "author": "Make-Money アナリスト",
+        "text": "ノーコード単体から「AIツール（v0, Cursor, Make）とノーコードの融合」へカリキュラムを拡大。法人向け社内DXブートキャンプの受注を開始し客単価を向上。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020〜2021年（コロナ隔離期のTwitterハッシュタグ運動から有料化）",
+      "dataSnapshotPeriod": "2024年（本人開示データ）",
+      "eraContext": "Bubble, Zapier, Webflowの台頭と「No-Code」ムーブメントの爆発期",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "AIコーディングが進化しても「非エンジニアが直感的に自動化を組む」需要は不変であり、習慣化コミュニティとしての参入障壁が高い。"
+    },
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 50000,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "Circleコミュニティ",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 211200,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 60000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【何回PythonやJavaScriptの入門書を買っても1章で挫折した文系ビジネスマンの「自分はアプリを作れない」劣等感を急所ハック】「プログラミングを学ぶな、1日30分ツールを繋げ」と非エンジニアの挫折感を救済し、100日間の公開コミットメント習慣化で年商8,000万円を稼ぎ出すノーコード学習村",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "習慣化ハックコミュニティによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "既存のプログラミングスクールは「1人100万円の学費」を取る重厚なカリキュラムに囚われている。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、100 Days of No Codeは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "「コードが書けない自分でもWebサービスを作れるか？」を検証するため、毎日の勉強記録を#100DaysOfNoCodeをつけて投稿開始。",
+        "同じ悩みを持つ世界中のビジネスマンから「自分も混ぜてほしい」とリプライが殺到。",
+        "最初はWhatsAppグループで無料運営し、人が溢れた段階でCircleコミュニティへ移行し有料化。"
+      ],
+      "actionPlaybook": [
+        "【公開コミットメントによる離脱防止】: 「Day 1/100: 今日はAirtableでDBを作った」と生徒が毎日Xに投稿。サボるとフォロワーにバレる恐怖で継続率が爆発。",
+        "【自走するUGCトラフィックループ】: 数千人の受講生が毎日同じハッシュタグで投稿するため、タイムラインを見た別の文系ビジネスマンが「自分もやってみたい」と自然流入。",
+        "【マイクロレッスン形式】: 1日わずか30分の極小タスクに分解し、「忙しくて勉強できない」という言い訳を完全粉砕。"
+      ],
+      "coldOutreachTemplate": "// コミットメント強制型バイラル教育配管\n1. 「100日間、毎日30分だけ実践する」という極小のルールを提示\n2. 毎日の成果物を専用ハッシュタグをつけてXやLinkedInに投稿することを義務付け\n3. 生徒のタイムラインを見た友人が連鎖的に参加し、CAC（獲得コスト）完全ゼロで会員増殖"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_5bdd9fde83a0b085e9a9",
+  "ticker": "RED.GREG",
+  "name": "Red Gregory",
+  "tagline": "「Notionを使いこなして仕事ができる風に見せたい」怠惰なナレッジワーカーにYouTube解説を投下し、100%デジタル原価ゼロのテンプレートで月手残り100万円を着金させるソロ配管",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.636Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_5bdd9fde83a0b085e9a9",
+    "ticker": "RED.GREG",
+    "name": "Red Gregory",
+    "tagline": "「Notionを使いこなして仕事ができる風に見せたい」怠惰なナレッジワーカーにYouTube解説を投下し、100%デジタル原価ゼロのテンプレートで月手残り100万円を着金させるソロ配管",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Red Gregory",
+    "country": "US",
+    "url": "https://redgregory.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 15,
+    "architecturePattern": "YouTube解説チュートリアル＋Gumroadデジタルテンプレート直販",
+    "pipelineStack": "Notion × YouTube × Gumroad",
+    "targetPainWallet": "Notionユーザーの怠惰（「複雑な関数やデータベースを一から組むのが面倒くさい」）",
+    "tags": [
+      "Notionテンプレート",
+      "完全個人開発",
+      "デジタル商品",
+      "Gumroad",
+      "原価ゼロ"
+    ],
+    "pnl": {
+      "monthlyRevenue": 1250000,
+      "cogs": 150000,
+      "grossProfit": 1100000,
+      "grossMargin": 88,
+      "operatingExpenses": {
+        "serverAndApi": 15000,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 35000,
+        "other": 50000
+      },
+      "operatingProfit": 1000000,
+      "operatingMargin": 80,
+      "estimatedAnnualNetProfit": 12000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "Gumroadデジタル直販（月商約125万円・手残り80%）",
+      "sourceDoc": "Red Gregory公開Gumroadストア・YouTube導線と既存収集カード（一次数値の突合は未完了）",
+      "estimationLogic": "入力: 公開テンプレート価格×推定販売件数。月商=平均単価×推定販売件数、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。販売件数と費用は推計で、実績P&Lではない。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_redgregory_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】流行ツールの複雑な関数を10分動画で解説し、概要欄で$20テンプレートを売る完全不労所得配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "在庫ゼロ、仕入れゼロ、配送ゼロ。Notionの複雑なDB設計を解説して「自分で作るのが面倒な人はこちらから$20で複製できます」と置くだけで勝手に売れる。",
+        "details": [
+          "【Step 1: 新機能・複雑関数の先回り解説】: Notionが新機能（Formula 2.0等）を出すたびに、世界一分かりやすいユースケース動画を即日投稿。",
+          "【Step 2: 無料版でリスト獲得＋有料版で回収】: 基本テンプレは無料配布してGumroadのフォロワーを増やし、高機能な業務管理テンプレを$19〜$49で販売。",
+          "【Step 3: 放置型デジタル自販機の完成】: 一度作った動画とテンプレートは数年間にわたって検索流入を生み続け、毎月100万円超が完全自動で口座に着金。"
+        ],
+        "codeSnippet": "// デジタル商品販売リンクの配管構成\nexport const notionProduct = {\n  platform: \"Gumroad\",\n  item: \"Client Projects & CRM Notion System\",\n  pricingTiers: [{ name: \"Personal\", price: 19 }, { name: \"Agency\", price: 49 }],\n  fulfillment: \"Instant redirect to Notion Duplicate URL\"\n};",
+        "sourceNote": "Red GregoryのGumroad公開ストアおよびYouTube動画群からの抽出"
+      },
+      {
+        "id": "ev_redgregory_crime",
+        "type": "THE_CRIME",
+        "title": "他人のプラットフォーム（Notion）のUI解説動画を作るだけで、労働ゼロで年1,200万円抜くコバンザメ",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Notion本社が何百億円かけて集めたユーザーの「使いこなせない」という挫折を拾い、1円も払わずにマネタイズする。",
+        "details": [
+          "社員ゼロ、外注ゼロ。自宅のMac1台だけで完結する極限の低リスク・高利益率。",
+          "Notionのアップデートごとに動画を作るだけで、公式アンバサダー的な権威を獲得。"
+        ]
+      }
+    ],
+    "operations": {
+      "teamSize": 1,
+      "weeklyHours": 10,
+      "initialCapitalRequired": 0,
+      "automationLevel": 95,
+      "primaryChannels": [
+        "YouTubeチュートリアル",
+        "Reddit (r/Notion)",
+        "Twitter"
+      ],
+      "toolStack": [
+        {
+          "name": "Notion",
+          "category": "製品基盤",
+          "monthlyCost": 1500,
+          "purpose": "テンプレート作成・自作システム"
+        },
+        {
+          "name": "Gumroad",
+          "category": "デジタル決済",
+          "monthlyCost": 0,
+          "purpose": "販売手数料10%のみで事前決済と即時配布"
+        },
+        {
+          "name": "ScreenFlow",
+          "category": "画面録画",
+          "monthlyCost": 3000,
+          "purpose": "チュートリアル動画の編集"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "Notion公式は「機能の説明」はするが、「実務で使える美しいテンプレ」の配布はユーザー任せにしており、一般ユーザーは設計に挫折していた。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "Notion界隈における圧倒的なチュートリアル動画の蓄積とSEO/YouTube検索上位独占。",
+      "incumbentDilemma": "大手制作会社やSaaS企業は「$20のテンプレート売り」などというスモールビジネスには人件費が見合わず絶対に参入できない。",
+      "secretInsight": "ユーザーは「Notionを使いこなしたい」のではなく、「Notionを使って仕事ができるエリートのような気分に浸りたい」だけである。",
+      "initialTraction": [
+        "NotionのRedditコミュニティ（r/Notion）で自作テンプレを無料公開し感謝の嵐を獲得",
+        "YouTubeでNotionのFormula関数のマニアックな解説動画を投稿しギーク層を掌握",
+        "Gumroadで有料テンプレの販売を開始し、初月から数十万円の売上を達成"
+      ],
+      "actionPlaybook": [
+        "Step 1: 今急速に伸びているSaaS（Notion, Airtable, Obsidian, Figma等）を特定する",
+        "Step 2: そのツールで「初心者が一番つまずく部分」を解決するテンプレートを開発する",
+        "Step 3: YouTubeで作り方を10分で解説し、概要欄にGumroadリンクを貼る"
+      ],
+      "coldOutreachTemplate": "【Notionテンプレートのご案内】〇〇様、業務管理をワンクリックで完了させるRed Gregory特製Notionテンプレートの最新アップデート版を配布中です。"
+    },
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020-2021年 (Notionブーム初期)",
+      "dataSnapshotPeriod": "2023-2026年 (安定不労所得期)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（他プラットフォームへの移植容易）",
+      "eraContext": "Notionが個人から企業へと浸透し、テンプレ市場が形成された黄金期。",
+      "currentViabilityAnalysis": "Notion市場自体は競合が増えたが、新興のAIツール（Cursor, Make, n8n等）のテンプレート市場に全く同じ手口で横展開すれば今夜から稼げる。"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_ahrefs_1cfda3ec4b2ab651bd2d",
+  "ticker": "AHRF.SEO",
+  "name": "Ahrefs",
+  "tagline": "自前のAhrefsBotで世界中のWebを24時間クロールし、VC資金ゼロ・営業マンゼロのまま年商225億円・利益率55%を叩き出すブートストラップSEO帝国の頂点",
+  "sector": "FINTECH_INFRA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.642Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_ahrefs_1cfda3ec4b2ab651bd2d",
+    "ticker": "AHRF.SEO",
+    "name": "Ahrefs",
+    "legalEntity": "Ahrefs Pte. Ltd.",
+    "tagline": "自前のAhrefsBotで世界中のWebを24時間クロールし、VC資金ゼロ・営業マンゼロのまま年商225億円・利益率55%を叩き出すブートストラップSEO帝国の頂点",
+    "sector": "FINTECH_INFRA",
+    "scale": "ENTERPRISE",
+    "founder": "Dmytro Gerasymenko",
+    "country": "SG",
+    "url": "https://ahrefs.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "自前インフラ要塞",
+    "pipelineStack": "自前データセンター（ペタバイト級ベアメタル） × AhrefsBotクローラー × Stripe年額サブスク（$990〜$9,990）",
+    "targetPainWallet": "Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・SEOエージェンシー",
+    "tags": [
+      "SEOインフラ",
+      "年商225億",
+      "完全ブートストラップ",
+      "営業マンゼロ",
+      "利益率55%超"
+    ],
+    "pnl": {
+      "monthlyRevenue": 1875000000,
+      "cogs": 281250000,
+      "grossProfit": 1593750000,
+      "grossMargin": 85,
+      "operatingExpenses": {
+        "serverAndApi": 150000000,
+        "advertising": 0,
+        "subcontracting": 350000000,
+        "toolsAndSaaS": 50000000,
+        "other": 62500000
+      },
+      "operatingProfit": 981250000,
+      "operatingMargin": 52.3,
+      "estimatedAnnualNetProfit": 11775000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年公開開示（ARR約$150M・自社データセンター運用）",
+      "sourceDoc": "Dmytro Gerasymenko X投稿 / Ahrefs公式ブログ / GetLatka",
+      "estimationLogic": "有料企業ユーザー約10万社 × 平均月額単価$125〜$150 ＝ 年商約$150M（約¥225億円 ➔ 月商約18.75億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_ahrf_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】AWSを使わず自前サーバーで原価を1/5にし、営業マンを1人も雇わずに売り抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Googleに次ぐ世界第2位のクローラーを自前運用し、SEOに関わる全企業から年数十万円の関所税を吸い上げる。",
+        "details": [
+          "【自前データセンターによる原価破壊】: AWSなどのクラウドを使えば月数十億円かかるペタバイト級データを、自前の物理サーバー（シンガポール等）で運用し原価率を激減。",
+          "【営業部隊完全ゼロの製品主導（PLG）】: 電話営業や商談を一切行わず、自社YouTubeのチュートリアルと無料Webmaster Toolsでエンジニアを直接有料化。",
+          "【被リンクデータベースという人質】: 世界中のWebサイトのリンク構造を把握しているため、マーケターは競合の分析や順位追跡のために解約できない。"
+        ],
+        "codeSnippet": "// インフラ要塞型SaaS配管\n1. 競合が真似できない規模の独自クローラー/インフラを自前で構築\n2. AWS等のクラウドを排除し、ベアメタルサーバーで圧倒的な原価競争力を確保\n3. YouTubeで「自社ツールを使った問題解決チュートリアル」を配信し、営業ゼロで全世界から集客",
+        "sourceNote": "Dmytro Gerasymenko \"Why Ahrefs Doesn't Use AWS\""
+      },
+      {
+        "id": "ev_ahrf_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：ウクライナの天才プログラマーがSEOフォーラムに投下したクローラー",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2010年、創業者Dmytroがウクライナで「既存のバックリンク調査ツールが遅すぎる」と自作開始。",
+        "details": [
+          "自己資金数十万ドルのみで創業し、初期バージョンの圧倒的なクロール速度をSEOフォーラムで公開。",
+          "当時の王者だったMajesticやMozを速度とデータ量で瞬く間に抜き去り、口コミだけで有料会員が爆発。",
+          "外部VCからの数億ドルの買収・出資提案をすべて拒絶し、100%自己資本を維持。"
+        ],
+        "sourceNote": "Ahrefs Company History and Founder Journey"
+      },
+      {
+        "id": "ev_ahrf_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：VC支援の競合（SEMrush等）が追随できない利益率構造",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "競合のSEMrushは上場企業として「巨額のマーケティング費と営業人件費」を投じている。",
+        "details": [
+          "SEMrushは売上の大半をGoogle広告やセールスチームに費やしているため、利益率が低い。",
+          "Ahrefsは広告費ゼロ・営業ゼロ・自前インフラのため、競合の半分のコストで同じインフラを運用でき、50%超の純利益をそのまま研究開発に再投資できる。"
+        ],
+        "sourceNote": "Ahrefs vs SEMrush Financial Comparison"
+      },
+      {
+        "id": "ev_ahrf_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：自社サイトの検索流入が落ちて会社が潰れる恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "SEOで毎月数千万円の売上を立てている企業の「順位下落の原因が分からない」パニック。",
+        "details": [
+          "競合がどんなキーワードでアクセスを奪っているか、どこのサイトから被リンクを得ているかを透視できる唯一のレーダー。",
+          "月額$99〜$999は、企業の生命線であるオーガニックトラフィックを守るための不可欠な軍事費。"
+        ],
+        "sourceNote": "SEO Tool Critical Dependency Study"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-08",
+        "author": "Make-Money アナリスト",
+        "text": "独自のWeb検索エンジン『Yep.com』の開発に6,000万ドルを投資。Googleの独占に挑みつつ、自前の巨大インデックスをテコにAI要約エンジンへ進化。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2010,
+      "initialTractionPeriod": "2010〜2012年（SEOフォーラムでのクローラー速度実証による初動）",
+      "dataSnapshotPeriod": "2024年（公式開示・推計）",
+      "eraContext": "Google検索アルゴリズムが被リンク（PageRank）を最も重視していたSEO黄金期",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "ペタバイト級のWebグラフデータと自前データセンターの参入障壁は極めて高く、ブートストラップSaaSの頂点に君臨。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "自前データセンター（ペタバイト級ベアメタル）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 60000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 90000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・SEOエージェンシーを急所ハック】自前のAhrefsBotで世界中のWebを24時間クロールし、VC資金ゼロ・営業マンゼロのまま年商225億円・利益率55%を叩き出すブートストラップSEO帝国の頂点",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "自前インフラ要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "競合のSEMrushは上場企業として「巨額のマーケティング費と営業人件費」を投じている。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Ahrefsは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "自己資金数十万ドルのみで創業し、初期バージョンの圧倒的なクロール速度をSEOフォーラムで公開。",
+        "当時の王者だったMajesticやMozを速度とデータ量で瞬く間に抜き去り、口コミだけで有料会員が爆発。",
+        "外部VCからの数億ドルの買収・出資提案をすべて拒絶し、100%自己資本を維持。"
+      ],
+      "actionPlaybook": [
+        "【自前データセンターによる原価破壊】: AWSなどのクラウドを使えば月数十億円かかるペタバイト級データを、自前の物理サーバー（シンガポール等）で運用し原価率を激減。",
+        "【営業部隊完全ゼロの製品主導（PLG）】: 電話営業や商談を一切行わず、自社YouTubeのチュートリアルと無料Webmaster Toolsでエンジニアを直接有料化。",
+        "【被リンクデータベースという人質】: 世界中のWebサイトのリンク構造を把握しているため、マーケターは競合の分析や順位追跡のために解約できない。"
+      ],
+      "coldOutreachTemplate": "// インフラ要塞型SaaS配管\n1. 競合が真似できない規模の独自クローラー/インフラを自前で構築\n2. AWS等のクラウドを排除し、ベアメタルサーバーで圧倒的な原価競争力を確保\n3. YouTubeで「自社ツールを使った問題解決チュートリアル」を配信し、営業ゼロで全世界から集客"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_bettertouchtool_04fae3e7568f6bb1cf7c",
+  "ticker": "BTT.TOOL",
+  "name": "BetterTouchTool",
+  "tagline": "「MacのトラックパッドとTouch Barを自由自在に魔改造したい」ギークの欲望を叶え、1人のドイツ人エンジニアが買い切りライセンスで年商3億円・粗利95%を稼ぎ続ける独占ユーティリティ",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.646Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_bettertouchtool_04fae3e7568f6bb1cf7c",
+    "ticker": "BTT.TOOL",
+    "name": "BetterTouchTool",
+    "legalEntity": "folivora.ai GmbH",
+    "tagline": "「MacのトラックパッドとTouch Barを自由自在に魔改造したい」ギークの欲望を叶え、1人のドイツ人エンジニアが買い切りライセンスで年商3億円・粗利95%を稼ぎ続ける独占ユーティリティ",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Andreas Hegenberg",
+    "country": "DE",
+    "url": "https://folivora.ai",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "入力デバイス魔改造",
+    "pipelineStack": "macOS低レベルAPIフック（C/Objective-C） × トラックパッド/マウス/キーボードジェスチャーエンジン × 2年間$10/永久$22買い切りライセンス",
+    "targetPainWallet": "Mac純正の限定的なジェスチャー操作にイライラし、3本指タップや四隅クリックでウィンドウを自在に操りたいパワーユーザー",
+    "tags": [
+      "Macツール",
+      "年商3億",
+      "完全1人開発",
+      "買い切りライセンス",
+      "トラックパッド魔改造"
+    ],
+    "pnl": {
+      "monthlyRevenue": 25000000,
+      "cogs": 1250000,
+      "grossProfit": 23750000,
+      "grossMargin": 95,
+      "operatingExpenses": {
+        "serverAndApi": 300000,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 200000,
+        "other": 500000
+      },
+      "operatingProfit": 22750000,
+      "operatingMargin": 91,
+      "estimatedAnnualNetProfit": 273000000,
+      "financialStatus": "ESTIMATED",
+      "dataSnapshotPeriod": "2023〜2024年ドイツ法人決算推計水準",
+      "sourceDoc": "folivora.ai公式フォーラム / Paddle Showcase / Hacker News",
+      "estimationLogic": "Macヘビーユーザー数十万人 × スタンダードライセンス（$10）/永久ライセンス（$22） ＝ 年商約$2M（約¥3億円 ➔ 月商約2,500万円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_btt_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】OSが公式サポートしない「ニッチすぎるジェスチャー」を全網羅し、買い切りで徴収するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「4本指スワイプでウィンドウを画面左半分にスナップ」などの変態的カスタマイズを可能にして熱狂的信者を作る。",
+        "details": [
+          "【OSの深層イベントを横取り】: macOSのマルチタッチフレームワークに深く潜り込み、指のミリ単位の接触面積や圧力をトリガーに変換。",
+          "【Touch Barの救世主】: Appleが見捨てたMacBook ProのTouch Barを、自分好みのウィジェット画面に改造できる唯一のツールとして一時代を制覇。",
+          "【安価な永久ライセンス（$22）の引力】: サブスク疲れしたユーザーに対し、「一度払えば一生使い放題」というオファーで迷わず決済させる。"
+        ],
+        "codeSnippet": "// OS低レベルイベントフック配管\n1. IOKitおよびMultitouchSupportフレームワークを直接監視\n2. トラックパッド上の指の本数・ジェスチャー（TipTap、ピンチ、回転）を特定のアクションにマッピング\n3. ウィンドウリサイズ、キーボードショートカット送信、AppleScript実行を即座にディスパッチ",
+        "sourceNote": "Andreas Hegenberg 開発者ログ"
+      },
+      {
+        "id": "ev_btt_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：学生時代のドネーションウェアから世界標準へ",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2009年、ドイツの大学生だったAndreasがMagic Mouseの使いにくさに耐えかねて自作。",
+        "details": [
+          "最初は寄付（ドネーション）で配布していたが、機能追加を続けるうちにMacの必須アプリとして定着。",
+          "2016年に有償の買い切りライセンスモデルへ移行したが、既存ファンは「安すぎる、もっと取れ」と喜んで課金。",
+          "現在に至るまでオフィスも社員も持たず、自宅から一人でアップデートを配信し続けて毎年数億円の純利を吸い上げる。"
+        ],
+        "sourceNote": "How Andreas Hegenberg Built BetterTouchTool"
+      },
+      {
+        "id": "ev_btt_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Appleが標準設定でジェスチャーを増やせない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Appleは「おばあちゃんでも迷わず使えるUI」を守るため、複雑な操作を標準設定に入れられない。",
+        "details": [
+          "Appleが「5本指クリックで特定のシェルスクリプトを実行」などの設定画面を作ったら、一般ユーザーが誤爆して大混乱に陥る。",
+          "その結果、Appleが切り捨てざるを得ない「自分の指先を極限まで最適化したい上位1%のプロ」をBetterTouchToolが丸ごと独占できた。"
+        ],
+        "sourceNote": "Apple Human Interface Guidelines vs Power User Friction"
+      },
+      {
+        "id": "ev_btt_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「他人のMacを使うと何も操作できなくなる」身体のハック",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "BTTのジェスチャーが手の筋肉に染み込みすぎて、普通のMacを触ると壊れているように感じる中毒性。",
+        "details": [
+          "新しいMacを買った瞬間、最初にインストールしないと仕事ができない身体に改造される。",
+          "「自分の身体の義肢」となっているため、乗り換えコストは無限大。ライセンス更新料など呼吸するように払われる。"
+        ],
+        "sourceNote": "Muscle Memory Lock-in Economics"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-04",
+        "author": "Make-Money アナリスト",
+        "text": "Mac miniやStudioの普及に伴い、Magic Mouseやトラックパッドだけでなく、サードパーティ製マウスやStream Deckとの連携機能を強化。1人開発ながら盤石のキャッシュマシン。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2009,
+      "initialTractionPeriod": "2009〜2011年（Magic Mouse登場時の初期ジェスチャー補完による爆発）",
+      "dataSnapshotPeriod": "2024年（ドイツ法人推計）",
+      "eraContext": "AppleがマルチタッチトラックパッドをMacBookの主力インターフェースに据えた黎明期",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "15年間のmacOSプライベートAPI解析の蓄積と極小の固定費により、後発が追随するインセンティブすら湧かない絶対の聖域。"
+    },
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 50000,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "macOS低レベルAPIフック（C/Objective-C）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 800000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 180000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【Mac純正の限定的なジェスチャー操作にイライラし、3本指タップや四隅クリックでウィンドウを自在に操りたいパワーユーザーを急所ハック】「MacのトラックパッドとTouch Barを自由自在に魔改造したい」ギークの欲望を叶え、1人のドイツ人エンジニアが買い切りライセンスで年商3億円・粗利95%を稼ぎ続ける独占ユーティリティ",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "入力デバイス魔改造による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "Appleは「おばあちゃんでも迷わず使えるUI」を守るため、複雑な操作を標準設定に入れられない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、BetterTouchToolは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "最初は寄付（ドネーション）で配布していたが、機能追加を続けるうちにMacの必須アプリとして定着。",
+        "2016年に有償の買い切りライセンスモデルへ移行したが、既存ファンは「安すぎる、もっと取れ」と喜んで課金。",
+        "現在に至るまでオフィスも社員も持たず、自宅から一人でアップデートを配信し続けて毎年数億円の純利を吸い上げる。"
+      ],
+      "actionPlaybook": [
+        "【OSの深層イベントを横取り】: macOSのマルチタッチフレームワークに深く潜り込み、指のミリ単位の接触面積や圧力をトリガーに変換。",
+        "【Touch Barの救世主】: Appleが見捨てたMacBook ProのTouch Barを、自分好みのウィジェット画面に改造できる唯一のツールとして一時代を制覇。",
+        "【安価な永久ライセンス（$22）の引力】: サブスク疲れしたユーザーに対し、「一度払えば一生使い放題」というオファーで迷わず決済させる。"
+      ],
+      "coldOutreachTemplate": "// OS低レベルイベントフック配管\n1. IOKitおよびMultitouchSupportフレームワークを直接監視\n2. トラックパッド上の指の本数・ジェスチャー（TipTap、ピンチ、回転）を特定のアクションにマッピング\n3. ウィンドウリサイズ、キーボードショートカット送信、AppleScript実行を即座にディスパッチ"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

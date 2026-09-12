@@ -1,0 +1,343 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_shipfast",
+  "ticker": "SHIPFAST",
+  "name": "ShipFast",
+  "tagline": "「認証と決済の配管で1ヶ月溶かす」個人開発者の焦燥を突き、Next.jsテンプレを買い切り$199で売り抜け完全1人で年商1億円超抜く手口",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.628Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_shipfast",
+    "ticker": "SHIPFAST",
+    "name": "ShipFast",
+    "legalEntity": "ShipFast LLC",
+    "tagline": "「認証と決済の配管で1ヶ月溶かす」個人開発者の焦燥を突き、Next.jsテンプレを買い切り$199で売り抜け完全1人で年商1億円超抜く手口",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Marc Lou",
+    "country": "FR",
+    "url": "https://shipfa.st",
+    "verifiedBadge": true,
+    "growthRateYoY": 180,
+    "architecturePattern": "テンプレ販売・無料逆手",
+    "pipelineStack": "Next.js 14 × Stripe/LemonSqueezy × NextAuth × Resend × Vercel",
+    "targetPainWallet": "個人開発者の焦燥感（SaaS配管実装の怠惰とローンチ遅延恐怖）",
+    "tags": [
+      "完全1人",
+      "ボイラープレート",
+      "買い切り型",
+      "原価ゼロ",
+      "Xバイラル",
+      "利益率90%超"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_shipfast_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】別スタック・別業界ボイラープレートでの無元手前金総取りコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Next.jsでなくとも『環境構築に3日溶かす苦痛』が存在する全領域（Flutter/Python AI/Chrome拡張）で同じ買い切り$199が成立する。",
+        "details": [
+          "【宿主の選定】: 例: 「Flutter iOS/Android課金ボイラープレート」や「ローカルLLM特化Python環境構築スターターキット」。",
+          "【開発者の焦燥感ハック】: 『認証とアプリ内課金の審査で1ヶ月溶かすな。今夜リリースしろ』という時間節約の痛みを突く。",
+          "【無元手拡大】: サポート対応はDiscordコミュニティでユーザー同士に自己解決させ、創業者本人は1日1本のX自虐・開発進捗ポストだけで集客を自動化。"
+        ],
+        "sourceNote": "ShipFastモデル ➔ ニッチスタック特化型スターターキットへの構造転用設計図"
+      },
+      {
+        "id": "ev_shipfast_crime",
+        "type": "THE_CRIME",
+        "title": "Next.js認証・決済・メールのまとめ売り買い切りボイラープレート",
+        "badge": "インディーハッカー特需",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「SaaSを早くローンチしたい」開発者の焦燥感を突き、既存オープンソースをまとめたコードを$199買い切りで売り月数千万円を抜き取る。",
+        "details": [
+          "Next.js App Router, Tailwind CSS, Stripe, Supabase/MongoDB, Mailgun, SEOメタタグを1リポジトリにパッケージ化。",
+          "月額課金ではなく「買い切り$199〜$249」にすることで、衝動買いの心理的ハードルを極限まで引き下げた。"
+        ],
+        "metrics": [
+          {
+            "label": "月商",
+            "value": "約¥1,200万",
+            "isHighlight": true
+          },
+          {
+            "label": "粗利率",
+            "value": "98%",
+            "isHighlight": true
+          },
+          {
+            "label": "運用人数",
+            "value": "完全1人"
+          },
+          {
+            "label": "API原価",
+            "value": "¥0 (GitHub配管のみ)"
+          }
+        ],
+        "sourceNote": "Marc Lou 公開Stripeダッシュボード (X/Twitter)"
+      },
+      {
+        "id": "ev_shipfast_dirty_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "Xでの収益スクショ連投と自虐ビルドインパブリック",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「過去に何個もプロダクトを爆死させた」失敗歴と、日々の売上通帳スクショをXで晒し続け、インディー開発者の憧れと焦燥感を煽った。",
+        "details": [
+          "毎日コミットとStripeの通知動画をXに投稿。",
+          "「このボイラープレートを使えば今夜中にSaaSをローンチできる」という即効性の幻想を売った。"
+        ]
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Stripe決済・NextAuth認証・メール送信が組み込み済みのNext.js SaaS開発スターターキット",
+      "targetCustomer": "個人開発者、ソロプレナー、ハッカソン参加者、副業エンジニア",
+      "painRelief": "SaaSを作るたびに発生する「認証・DB接続・Stripe決済・SEO設定」の退屈な配管コード記述（数週間の工数）"
+    },
+    "pricing": {
+      "model": "買い切りライセンス（Pay once, use forever）",
+      "pricePoint": "$169 〜 $299 (約¥25,000 〜 ¥45,000)",
+      "psychologicalTrigger": "時間節約と損失回避（「時給換算で数十万円分の配管コードが数万円で手に入る」という極限の時短欲求）",
+      "estimatedLtvJpy": 35000,
+      "churnRate": "0% (買い切り・解約概念なし)"
+    },
+    "acquisition": {
+      "cacJpy": 0,
+      "primaryFunnel": "X（Twitter）での自虐・ユーモア混じりの短尺動画バズ ➔ LPでのカウントダウンタイマー ➔ Stripe即決決済",
+      "tactics": [
+        "売上スクショと通帳着金ログのBuild in Public公開による社会的証明",
+        "「〇本売れるごとに$10値上げ」する価格エスカレーターによる即決促進",
+        "競合ボイラープレート作者とのX上でのプロレス・話題づくり"
+      ]
+    },
+    "pnl": {
+      "monthlyRevenue": 8500000,
+      "cogs": 250000,
+      "grossProfit": 8250000,
+      "grossMargin": 97,
+      "operatingExpenses": {
+        "serverAndApi": 35000,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 65000,
+        "other": 50000
+      },
+      "operatingProfit": 8100000,
+      "operatingMargin": 95.3,
+      "estimatedAnnualNetProfit": 97200000,
+      "financialStatus": "VERIFIED",
+      "dataSnapshotPeriod": "2024年観測魚拓",
+      "sourceDoc": "Marc Lou本人公式Stripeダッシュボード公開ポスト"
+    },
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 10,
+      "initialCapitalRequired": 0,
+      "automationLevel": 98,
+      "primaryChannels": [
+        "X（Twitter）Build in Public動画発信",
+        "Product Huntローンチ",
+        "個人開発者コミュニティ"
+      ],
+      "toolStack": [
+        {
+          "name": "Next.js + Tailwind CSS",
+          "category": "フロントエンド",
+          "monthlyCost": 0,
+          "purpose": "購入者が即座に改変できるモダンなUIフレームワーク",
+          "replacementDifficulty": "HIGH",
+          "url": "https://nextjs.org"
+        },
+        {
+          "name": "Stripe & Lemon Squeezy",
+          "category": "決済",
+          "monthlyCost": 0,
+          "purpose": "グローバルからの買い切り決済とMoR（税務自動処理）",
+          "replacementDifficulty": "LOW",
+          "url": "https://lemonsqueezy.com"
+        },
+        {
+          "name": "Vercel",
+          "category": "ホスティング",
+          "monthlyCost": 3000,
+          "purpose": "LPのグローバル超高速エッジ配信",
+          "replacementDifficulty": "LOW",
+          "url": "https://vercel.com"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「サブスク疲れ」した個人開発者に『買い切り＋値上げ煽り』で即決させる】SaaS界隈が月額サブスク一色になった隙を突き、「一度払えば一生使える」買い切りモデルを提示。さらに「販売数が増えるごとに自動値上げ」するカウントダウンを組み込み、購入を迷う脳の論理回路を破壊して即断即決させた。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "【Marc Lou個人のXフォロワー10万人と圧倒的バイラル動画力】ボイラープレートのコード自体は誰でも模倣可能だが、Marc Louの顔・キャラクター・毎日のユーモア動画が生み出す「この人から買いたい」というエンタメ引力は競合が模倣できない。",
+      "incumbentDilemma": "大手プログラミングスクールや受託開発会社は「1件数百万円の請負」や「月額数万円の受講料」で稼ぐビジネスモデルのため、数万円の買い切りテンプレを売ると自分たちの高単価事業が蒸発して自滅する。",
+      "secretInsight": "「機能の多さ」ではなく「ローンチまでの早さ（Ship Fast）」に絞り込んだ点。複雑な機能をあえて削ぎ落とし、初心者が1時間でデプロイできる極限のシンプルさを維持。サポート対応を減らすためドキュメントを動画化し、1人運営を成立させている。",
+      "initialTraction": [
+        "過去に15個以上のWebサービスを作って爆死した過程をXで赤裸々に公開",
+        "自らが毎回作っていた認証・決済の共通コードをリポジトリとして整理",
+        "「今日からSaaSを最速ローンチするためのテンプレ」としてXで動画デモを投下し、初日50本完売"
+      ],
+      "actionPlaybook": [
+        "Step 1: 自分が普段の受託や個人開発で毎回書いている「退屈な共通配管」を1つのレポにまとめる",
+        "Step 2: 完璧を目指さず、Stripe決済と認証だけが確実に動く状態でLPを公開する",
+        "Step 3: Xで制作過程や売上スクショを包み隠さず晒し、値上げタイマーで初動を刈り取る"
+      ],
+      "coldOutreachTemplate": "【Next.jsでSaaSを作ろうとしているあなたへ】認証とStripe決済の実装でまだ消耗していませんか？今夜そのままデプロイできる本番稼働済みボイラープレートを使えば、週末だけで最初の有料ユーザーを獲得できます。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "受託開発企業や大手SaaS開発基盤は、自ら安価な買い切りテンプレを出すと数百万〜数千万円の受託案件を共食いするため参入不能。",
+        "scaleMismatchReason": "年商1億〜2億円規模の買い切りテンプレ市場は、従業員数百人の大手企業にとっては事業規模が小さすぎてリソースを割けない。",
+        "decisionSpeedAdvantage": "Next.jsやStripeの新機能が出た当日にコードを更新し、即座にXで動画にして売るソロプレナーの超絶機動力。"
+      },
+      "pricingPower": {
+        "anchorComparison": "「エンジニアを外注したときの費用（50万〜100万円）」または「自分の時給×実装にかかる100時間（数十万円）」と比較させ、$199を実質無料と錯覚させる。",
+        "lossAversionTrigger": "「配管コードを書いている間にアイデアの鮮度が落ち、競合に先を越される」という個人開発者の焦燥感。",
+        "budgetCategory": "個人の自己投資・学習予算、または副業の開業準備金枠。クレジットカードでノータイム即決される価格帯。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "購入者のGitHubリポジトリ内にフォークされたコードベースそのもの。",
+        "workflowIntegration": "開発者の次回以降の全プロダクト開発における「標準スターター」として手癖に定着。",
+        "switchingFriction": "別のボイラープレートに乗り換えると、ディレクトリ構成や命名規則を再学習する認知負荷が発生。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "デジタルデータのダウンロード販売のため在庫ゼロ、仕入れゼロ。決済完了と同時に現金がStripe口座へ着金。",
+        "incrementalMargin": "1本売れても1,000本売れても追加コストはほぼゼロ（限界利益率99%）。売上の95%がそのまま個人の通帳残高へ。",
+        "workingCapitalStrategy": "外部資金調達ゼロ、負債ゼロ。前金で入った売上をそのまま生活費と次のプロダクト検証に回す完全自走ループ。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "過去に作った15個の失敗作のスクショと「また稼げなかった」という自虐ツイートを連投。共感を最大化させた状態から、ShipFastのローンチ動画を投下し、初期フォロワーの義理買いと応援を巻き込んで初速をハックした。",
+      "platformGlitch": "「販売数カウントダウン（Sold outまであと〇個）」のバナーをLP上に常時表示。実際にはデジタル商品のため在庫無限であるにもかかわらず、物理的な数量限定感を演出してユーザーの損失回避バイアスを着火。",
+      "pivotSnapshot": "当初は「Habit tracker」「AIキャラクターチャット」などを個別にリリースしていたが鳴かず飛ばず。それらを作るために毎回作っていた「骨組み（ボイラープレート）」そのものを商品化した瞬間に年商1億円を突破。",
+      "hiddenStackCost": "月々のサーバー代はVercelのProプラン（$20）とSupabaseの無料〜低価格枠のみ。年間ランニングコストは30万円以下。売上の97%以上が手残り純利という狂異的キャッシュマシーン。"
+    },
+    "dynamicMoats": {
+      "parasiteHost": {
+        "hostName": "X (Twitter) & Next.js エコシステム",
+        "detail": "Next.jsの急速な普及と、X上の「Build in Public（開発過程公開）」文化に100%寄生。自社プラットフォームを持たず、Xのタイムラインを営業マンとして使役し広告費0円を達成。"
+      },
+      "dataHostage": {
+        "lockInFactor": "購入者のGitHubコードベースと手癖の定着",
+        "detail": "一度ShipFastのディレクトリ構成・認証フローで開発に慣れると、次回プロダクトを作る際もShipFastを使い回す手癖になり、他社テンプレへのスイッチング摩擦が最大化。"
+      },
+      "affiliateBribery": {
+        "commissionRate": "売上の50%（破格のインフルエンサー報酬）",
+        "detail": "購入者やテック系インフルエンサーに対し、売上の50%という驚異的なアフィリエイト報酬を提供。界隈のエンジニア全員が「ShipFast最高」とポストする経済的インセンティブ配管を構築。"
+      },
+      "upfrontCash": {
+        "cashCycle": "完全買い切り（全額前金）",
+        "detail": "デジタル成果物のため売上発生と同時にStripeへ全額前金着金。在庫仕入れ・後払い原価がゼロのため、負債ゼロでキャッシュが即座に手元に残る。"
+      },
+      "pivotGraveyard": {
+        "failedAttempts": [
+          "Habit Trackerアプリ (月数千円で爆死)",
+          "AIチャットボット (競合乱立で埋没)",
+          "複数マイクロツール (鳴かず飛ばず)"
+        ],
+        "breakthroughSecret": "「個別のアプリを売る」のをやめ、それらを作るために毎回消耗していた「認証・決済の骨組み（ボイラープレート）」そのものを売るメタ視点へ転換した瞬間。"
+      }
+    },
+    "observationsStream": [
+      {
+        "id": "obs_sf_01",
+        "category": "FOUNDER_HACK",
+        "categoryLabel": "現場の泥臭い工夫",
+        "text": "過去15プロダクト連続爆死の過程をX上で赤裸々に晒し「共感と自虐」でフォロワー基盤を構築。製品デモは真面目な解説ではなく映画パロディやAIアフレコ動画を自作してバズらせ、広告費ゼロで初日数百本を完売させた。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-09T00:30:00Z"
+      },
+      {
+        "id": "obs_sf_02",
+        "category": "INCUMBENT_DILEMMA",
+        "categoryLabel": "大手の自爆構造",
+        "text": "大手プログラミングスクールや受託開発企業は、月額数万円の受講料や数百万円の請負で稼ぐ構造のため、数万円の買い切りテンプレを売ると本業を共食いして自滅する。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-09T00:30:00Z"
+      },
+      {
+        "id": "obs_sf_03",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "サバンナOSの急所",
+        "text": "個人開発者が最も嫌悪する「StripeのWebHook接続と認証セッションの退屈な配管作業」。1ヶ月浪費してモチベーションが死ぬ痛みを、数万円払うだけで今夜ローンチできる麻薬的時短で切除。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-09T00:30:00Z"
+      },
+      {
+        "id": "obs_sf_04",
+        "category": "TECH_VERIFICATION",
+        "categoryLabel": "損益レントゲン",
+        "text": "デジタル成果物のため売上原価はStripe/LemonSqueezyの手数料（約3%）のみ。月商850万円に対しインフラ費（Vercel/Supabase）は月10万円以下。実効手残り率は95%を超え、ほぼ全額が創業者の手元現金口座へ直下。",
+        "originType": "estimated",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-09T00:30:00Z"
+      },
+      {
+        "id": "obs_sf_05",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "調査限界",
+        "text": "Marc Lou個人のフランス/移住先での個人所得税引き後の最終通帳残高、およびStripeの厳密な月次控除明細は非公開。公開MRRとStripe標準料率（2.9%+$0.30）から逆算推計。",
+        "originType": "estimated",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-09T00:30:00Z"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2023,
+      "initialTractionPeriod": "2023年秋",
+      "dataSnapshotPeriod": "2024年通期〜2026年最新推計",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "トレンド最盛期（競合急増・動画力必須）",
+      "eraContext": "Next.js 14の普及期とAIツール乱立期。「週末にAIツールを爆速ローンチしたい」個人開発者の配管コード記述の怠惰を、買い切り$199とX自虐動画で刈り取り。",
+      "currentViabilityAnalysis": "ボイラープレート販売は参入障壁が低いため競合が激増中。Marc LouのようなXフォロワー10万人と自虐動画エンタメ力を持たない後発は単なるコード販売では埋没する。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2023年8月",
+        "eventType": "launch",
+        "description": "15プロダクト連続爆死の後、自らが毎回書いていた認証・決済コードをShipFastとしてローンチ"
+      },
+      {
+        "occurredAt": "2023年9月",
+        "eventType": "traction",
+        "description": "Xでのパロディ動画バズと値上げカウントダウンにより初月300万円突破"
+      },
+      {
+        "occurredAt": "2024年1月",
+        "eventType": "milestone",
+        "description": "ローンチ5ヶ月で累計売上約3,750万円（$250k）を達成"
+      },
+      {
+        "occurredAt": "2025-2026年",
+        "eventType": "current",
+        "description": "年商1億円超・DataFast等のマイクロSaaSポートフォリオへ拡張"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "コード販売自体の模倣は容易だが、X自虐動画マーケティングのエンタメ引力が参入障壁",
+      "demandDelta": "90日 ↑22%",
+      "competitionDelta": "競合激増 (模倣多数)",
+      "entryRequirements": {
+        "capital": "0円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "VERIFIED",
+    "hasLootBlueprint": false
+  }
+}

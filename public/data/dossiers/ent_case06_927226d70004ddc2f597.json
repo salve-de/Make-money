@@ -1,0 +1,228 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_927226d70004ddc2f597",
+  "ticker": "NTN.VIP",
+  "name": "Notion VIP",
+  "tagline": "Notion認定エキスパート第1号が「Bulletproof Workspace」という体系的構造メソッドを提唱し、高額テンプレ販売と企業向けNotion導入コンサルで抜く知恵の関所",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.638Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_927226d70004ddc2f597",
+    "ticker": "NTN.VIP",
+    "name": "Notion VIP",
+    "legalEntity": "Notion VIP (William Nutt)",
+    "tagline": "Notion認定エキスパート第1号が「Bulletproof Workspace」という体系的構造メソッドを提唱し、高額テンプレ販売と企業向けNotion導入コンサルで抜く知恵の関所",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "William Nutt (ウィリアム・ナット)",
+    "country": "US",
+    "url": "https://www.notion.vip",
+    "verifiedBadge": true,
+    "growthRateYoY": 18,
+    "architecturePattern": "ソロ知恵要塞",
+    "pipelineStack": "Notion公式認定アンバサダー権威 × Bulletproofテンプレート ($99〜$499) × 法人導入コンサル",
+    "targetPainWallet": "Notionを導入したがページが乱立して散乱・形骸化し業務が停止する企業の焦燥",
+    "tags": [
+      "Notion認定",
+      "高単価テンプレ",
+      "法人コンサル",
+      "ソロプレナー",
+      "粗利90%超"
+    ],
+    "pnl": {
+      "monthlyRevenue": 2500000,
+      "cogs": 125000,
+      "grossProfit": 2375000,
+      "grossMargin": 95,
+      "operatingExpenses": {
+        "serverAndApi": 20000,
+        "advertising": 0,
+        "subcontracting": 100000,
+        "toolsAndSaaS": 50000,
+        "other": 50000
+      },
+      "operatingProfit": 2155000,
+      "operatingMargin": 86.2,
+      "estimatedAnnualNetProfit": 25860000,
+      "financialStatus": "ESTIMATED",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約3,000万円規模）",
+      "sourceDoc": "William Nutt公開記事およびBulletproofテンプレート販売実績",
+      "estimationLogic": "高機能テンプレート（$99〜$499）月間約30〜50件販売 ＋ 企業向け導入コンサルティング ＝ 月商約¥250万（粗利95%）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_notionvip_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】ツールの「公式アーキテクチャ設計論」を名乗り、高額テンプレと受託を総取りするコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "安っぽい個人用テンプレを捨て、「企業が倒産しないためのデータ構造設計」という権威を纏って数万円〜数十万円で売る。",
+        "details": [
+          "【「防弾（Bulletproof）」という強烈な命名】: 「企業のNotionが崩壊しないための防弾ワークスペース」と名付け、経営陣に安心感を売る。",
+          "【公式認定の最速取得】: Notion認定コンサルタントの第1期生となり、公式Webサイトからの被リンクと推薦を獲得。",
+          "【テンプレ購入者からの法人コンサル獲得】: テンプレを買った企業経営者から「これを自社向けにカスタマイズしてほしい」と数十万円〜数百万円のコンサルを受注。"
+        ],
+        "codeSnippet": "// 権威アーキテクチャ型・高単価コンサル配管\n1. 急成長SaaSの「最も美しいデータベース設計思想」を体系化し、ブログで長文解説\n2. その思想を具現化した完成版テンプレートを$199〜$499の高価格で設置\n3. テンプレ購入企業から「導入支援（1回50万〜100万円）」を自動で引き出す",
+        "sourceNote": "Notion VIP ビジネスモデル分析"
+      },
+      {
+        "id": "ev_notionvip_crime",
+        "type": "THE_CRIME",
+        "title": "Notionの「使いこなせない企業」から数千万円を抜く権威ビジネス",
+        "badge": "ソロ知恵要塞モデル",
+        "evidenceStatus": "REPORTED",
+        "punchline": "「とりあえずNotionを入れてみたが社内がカオスになった」企業へ救世主として現れ、テンプレとコンサルで年商3,000万円を1人で回収。",
+        "details": [
+          "YouTubeとブログで最も緻密なNotion技術解説を公開し、世界中のパワーユーザーを信者化。",
+          "オフィスなし、固定費ほぼゼロの完全ソロモデル。"
+        ],
+        "metrics": [
+          {
+            "label": "粗利率",
+            "value": "95%",
+            "isHighlight": true
+          },
+          {
+            "label": "営業利益率",
+            "value": "86.2%",
+            "isHighlight": true
+          },
+          {
+            "label": "テンプレ単価",
+            "value": "$99〜$499"
+          },
+          {
+            "label": "社員数",
+            "value": "1名 (完全ソロ)"
+          }
+        ]
+      },
+      {
+        "id": "ev_notionvip_incumbent_trap",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造: 大手ITコンサル（アクセンチュア等）の単価ミスマッチ",
+        "evidenceStatus": "REPORTED",
+        "punchline": "大手コンサルは数千万円〜数億円のSAPやSalesforce導入しかやらないため、数十万〜数百万円のNotion基盤構築という中小・スタートアップの巨大な需要は完全に手付かずの空白地帯だった。"
+      }
+    ],
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 20000,
+      "automationLevel": 90,
+      "primaryChannels": [
+        "Notion VIP 技術ブログ (SEO)",
+        "YouTube データベース詳細解説",
+        "Notion公式コミュニティ・ディレクトリ"
+      ],
+      "toolStack": [
+        {
+          "name": "Webflow",
+          "category": "Webサイト",
+          "monthlyCost": 35000,
+          "purpose": "Notion VIPポータルサイト"
+        },
+        {
+          "name": "Gumroad / Lemon Squeezy",
+          "category": "決済",
+          "monthlyCost": 15000,
+          "purpose": "高額テンプレート決済"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「個人向けお小遣い稼ぎテンプレ」と一線を画すB2Bポジショニング】世のテンプレ屋が日記や習慣トラッカーを数ドルで売っている中、「エンタープライズの知識管理アーキテクチャ」に特化して客単価を100倍にした。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "Notion公式認定エキスパートとしての世界最高峰の技術的権威。",
+      "incumbentDilemma": "Notion公式は自社ツールのライセンス販売に集中しており、個別の顧客のデータベース設計をコンサルするリソースがない。",
+      "secretInsight": "「Bulletproof」の設計思想をすべてブログで無料公開。理屈が完璧であればあるほど、「自分たちで組むのは無理だから完成品を買おう」とテンプレが売れる逆説。",
+      "initialTraction": [
+        "Notionのリリース初期からデータベースの徹底的な検証記事をブログに執筆",
+        "「Bulletproof Workspace」のパイロット版を無料配布し、圧倒的な反響を獲得",
+        "有料版Bulletproofを$99でリリースし、初月から数万ドルの売上を記録"
+      ],
+      "actionPlaybook": [
+        "Step 1: 注目SaaS（例: Make, Airtable, HubSpot）の「最も堅牢な設計ルール」を言語化",
+        "Step 2: そのルールに名前を付け（例: 〇〇フレームワーク）、ブログとYouTubeで無料解説",
+        "Step 3: 完成版テンプレート（数万円）と個別導入コンサル（数十万円）をセットで展開"
+      ],
+      "coldOutreachTemplate": "【経営者様向け・社内Notion再構築】情報が散乱し使われなくなったNotionを、全社が迷わず動く一元化基盤へ2週間で再設計する「Bulletproof導入プログラム」のご案内です。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "一般のWeb制作会社がNotionコンサルをやろうとしても、専門性が低く顧客を納得させられない。",
+        "scaleMismatchReason": "1人で月商200万〜300万円を抜くビジネスは、組織にとっては小さすぎるが個人にとっては極上の不労所得。",
+        "decisionSpeedAdvantage": "Notionの新機能（関数2.0、サブアイテム等）を即座にBulletproofテンプレートへ統合。"
+      },
+      "pricingPower": {
+        "anchorComparison": "「社内システムをゼロから外注開発する費用（数百万円）」と比較させ、$299のテンプレを「タダ同然」に見せる。",
+        "lossAversionTrigger": "「社内ナレッジが散逸して新入社員がキャッチアップできず、業務が停滞する」コスト。",
+        "budgetCategory": "社内業務改善・ITツール費。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "企業の全ドキュメント、プロジェクト、タスクがBulletproofのデータ構造に依存。",
+        "workflowIntegration": "全社員が毎日Bulletproofのダッシュボードを開いて業務を遂行。",
+        "switchingFriction": "構造を変更すると社内リンクがすべて切れるため、一度導入したら永久解約不能。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "テンプレは即時前払い、コンサルも着手金50%前払い。キャッシュフロー完全優位。",
+        "incrementalMargin": "テンプレの複製コストは完全ゼロ。粗利率95%。",
+        "workingCapitalStrategy": "余剰資金で自社の学習コンテンツをさらに拡充。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "Notionの初期フォーラムで最も深い技術回答を連投して権威を確立。",
+      "platformGlitch": "「Notionは自由度が高すぎて逆にカオスになる」というUIの弱点を商品化。",
+      "pivotSnapshot": "単なるブログから、高単価テンプレと法人コンサルのハイブリッド要塞へ進化。",
+      "hiddenStackCost": "月々の固定費は数万円のみ。"
+    },
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2019年〜2021年",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約3,000万円）",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（公式認定権威・B2Bテンプレ）",
+      "eraContext": "世界中のスタートアップが社内WikiとしてNotionを導入し始めた時期。",
+      "currentViabilityAnalysis": "「AIツール（Make, n8n, Claude Projects）の社内標準アーキテクチャ設計論」として日本国内で今すぐ真似できる最強のポジショニング。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2019年",
+        "eventType": "foundation",
+        "description": "William NuttによりNotion VIP開設"
+      },
+      {
+        "occurredAt": "2020年",
+        "eventType": "launch",
+        "description": "Bulletproof Workspaceをリリース、B2B界隈でデファクト化"
+      },
+      {
+        "occurredAt": "2023-2024年",
+        "eventType": "steady",
+        "description": "年商3,000万円規模（利益率86%超）のソロ要塞を維持"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "即座に参入可能",
+      "oneLineReason": "日本国内の企業向けに「社内Notionの無秩序・形骸化を解消する防弾テンプレ（1社15万円）」を売れば即座に売れる。",
+      "demandDelta": "90日 ↑25%",
+      "competitionDelta": "個人用テンプレばかりで企業向けが不在",
+      "entryRequirements": {
+        "capital": "0円",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

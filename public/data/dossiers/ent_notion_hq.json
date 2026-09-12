@@ -1,0 +1,217 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_notion_hq",
+  "ticker": "NOTION",
+  "name": "Notion",
+  "tagline": "「散らばったドキュメントとWikiを探す時間のムダ」をブロック型レゴブロックで駆逐し、ユーザーに無料の布教部隊をやらせて時価1兆円を突破したワークスペース帝国",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.633Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_notion_hq",
+    "ticker": "NOTION",
+    "name": "Notion",
+    "legalEntity": "Ivan Zhao & Simon Last",
+    "tagline": "「散らばったドキュメントとWikiを探す時間のムダ」をブロック型レゴブロックで駆逐し、ユーザーに無料の布教部隊をやらせて時価1兆円を突破したワークスペース帝国",
+    "sector": "NICHE_SAAS",
+    "scale": "SCALEUP",
+    "founder": "Ivan Zhao & Simon Last",
+    "country": "US",
+    "url": "https://notion.so",
+    "verifiedBadge": true,
+    "growthRateYoY": 45,
+    "architecturePattern": "ブロック単位データモデル × リアルタイム共同編集ワークスペース",
+    "pipelineStack": "React × Node.js × PostgreSQL (シャーディング) × AWS × 自社AI基盤",
+    "targetPainWallet": "企業のナレッジ管理、社内Wiki、ドキュメントツールのライセンス予算",
+    "tags": [
+      "コミュニティ主導",
+      "レゴブロック型UI",
+      "高ARPU",
+      "テンプレート経済圏",
+      "ワークスペース独占"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_notion_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】バラバラの社内ツールを「レゴブロック」に統合し、アンバサダー熱狂でバイラル拡大するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "ドキュメント、Wiki、タスク管理、スプレッドシートが分散する非効率を「すべてがブロックでできたオールインワンワークスペース」で統一し評価額1兆円超の要塞を築く。",
+        "details": [
+          "【ツール散乱の苦痛解消】: Google Docs、Trello、Confluence、Airtableを1つの画面に統合し、情報の一元化という大義名分で稟議を通す。",
+          "【コミュニティとテンプレート経済】: ユーザーが自作テンプレートを販売・配布できるようにし、世界中の熱狂的ファンが勝手に布教する自走ループを構築。",
+          "【個人の無料から企業の高額契約へ】: 個人ユーザーが無料で使い込み、社内プロジェクトに持ち込むボトムアップ型営業で、大手企業の全社導入を無力化。"
+        ],
+        "codeSnippet": "// Notion型・ブロック指向データモデル配管\n1. すべてのテキスト、画像、表を「Page」または「Block」オブジェクトとして抽象化\n2. データベースのプロパティ（日付、タグ、リレーション）を自由にカスタム可能に設計\n3. 共同編集の変更差分をCRDT / OTアルゴリズムでリアルタイム同期",
+        "sourceNote": "Ivan Zhao 創業インタビュー・Forbes"
+      },
+      {
+        "id": "ev_notion_crime",
+        "type": "THE_CRIME",
+        "title": "全能ブロック型ワークスペースとテンプレート経済圏の胴元",
+        "badge": "エコシステム胴元",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "ドキュメント、Wiki、プロジェクト管理、データベースをレゴブロックのように組み立てさせ、世界中のインフルエンサーに自発的営業マンをやらせる。",
+        "details": [
+          "ユーザーが作ったテンプレートがTwitterやYouTubeで拡散され、Notion自身は広告費を払わずに新規ユーザーが雪だるま式に流入。",
+          "社内Wikiや業務ナレッジが蓄積されるため、他社ツールへの移行が不可能な「データ人質」状態を作り出す。"
+        ],
+        "metrics": [
+          {
+            "label": "評価額",
+            "value": "$10B (約¥1.5兆円)",
+            "isHighlight": true
+          },
+          {
+            "label": "ユーザー数",
+            "value": "3,000万人+"
+          }
+        ],
+        "sourceNote": "Forbes & Notion 公式開示"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 3750000000,
+      "cogs": 375000000,
+      "grossProfit": 3375000000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 200000000,
+        "advertising": 150000000,
+        "subcontracting": 100000000,
+        "toolsAndSaaS": 50000000,
+        "other": 1500000000
+      },
+      "operatingProfit": 1375000000,
+      "operatingMargin": 36.7,
+      "estimatedAnnualNetProfit": 16500000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年通期観測",
+      "sourceDoc": "Forbes / The Information 報道 (ARR $300M超)",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 500,
+      "initialTeamSize": 5,
+      "currentTeamSize": 500,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 80,
+      "primaryChannels": [
+        "Twitter",
+        "Product Hunt",
+        "Word of Mouth"
+      ],
+      "toolStack": [
+        {
+          "name": "AWS DynamoDB / RDS",
+          "category": "分散DB",
+          "monthlyCost": 25000000,
+          "purpose": "数億ページのブロックツリーデータ保管"
+        },
+        {
+          "name": "Cloudflare Workers",
+          "category": "エッジコンピューティング",
+          "monthlyCost": 8000000,
+          "purpose": "グローバルエッジでの権限検証・高速レンダリング"
+        },
+        {
+          "name": "Elasticsearch",
+          "category": "全文検索",
+          "monthlyCost": 6500000,
+          "purpose": "社内ワークスペース内の爆速インデックス検索"
+        },
+        {
+          "name": "Stripe Billing",
+          "category": "エンタープライズ課金",
+          "monthlyCost": 15000000,
+          "purpose": "シート課金・請求書払い自動化"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「白紙のキャンバスを渡し、信者たちにテンプレートを作らせてSNSで代理宣伝させる」布教の外部委託】 1. 競合ツールが「固定された入力フォーム」を提供する中、Notionはテキスト・トグル・表・カンバンを自由に組み合わせられる「レゴブロック」を提供。\n2. 世界中のインフルエンサーや整理オタクが自作NotionテンプレートをGumroad等で販売し始め、彼らが生活費を稼ぐために勝手にNotionの凄さをYouTubeやTwitterで宣伝。\n3. Notion公式はマーケティング費用を払うことなく、テンプレート制作者という「共犯者ネットワーク」によって新規ユーザーが雪崩を打って流入。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【巨大なスイッチングコスト（企業の全ナレッジ人質化） ✕ テンプレート生態系ネットワーク効果】】 1. 企業の議事録、マニュアル、タスク管理、顧客データベースがNotionのリレーショナルデータベースに蓄積されると、他ツールへの移行は全社的破壊を伴うため解約が不可能に。\n2. 「Notion Certified」という資格制度や地域コミュニティを公式認定し、ユーザーに社会的ステータスを与えることで強烈な帰属意識を醸成。\n3. Notion AIのいち早い統合により、過去に蓄積された社内ドキュメント全件を横断したQ&A検索を可能にし、情報資産の監禁度をさらに引き上げた。",
+      "incumbentDilemma": "Microsoft（Office/OneNote）やGoogle（Docs）は既存の「Word/Excelという印刷用紙メタファー」を捨てられず、自由なブロック型UIへ転換できなかった: WordやDocsは「A4用紙に印刷する」という1980年代のメタファーを引きずっており、データベースやカンバンとシームレスに結合できない。Microsoftが後追いで「Loop」を出したものの、Notionが既に築いたコミュニティとテンプレート文化の堀を崩すことはできなかった。",
+      "secretInsight": "一度倒産寸前まで追い込まれ京都に引きこもって作り直した後、テンプレート販売者を「Notionアンバサダー」に仕立て上げて勝手に布教させ、年商数百億円を築いた手口",
+      "initialTraction": [
+        "2015年に初期バージョンのコードが破綻して資金が尽きかけた際、創業者Ivan ZhaoとSimon Lastはサンフランシスコのオフィスを引き払い、物価の安い日本の京都に移住してプログラミングに没頭。完全再構築した「Notion 1.0/2.0」をProduct Huntで公開し、その圧倒的な美しさでProduct of the DayとGolden Kitty Awardを総なめにした。"
+      ],
+      "actionPlaybook": [
+        "「Product Huntのローンチハック」と「大学コミュニティへの無料配布（学割EDUプラン）」を徹底。学生時代にNotionに依存した若者が、就職したスタートアップや大企業で社内ツールとしてNotionを推薦するトロイの木馬戦略を展開。",
+        "大量のドキュメントと共同編集データを保持するPostgreSQLのシャーディング運用が最大の技術的負債だったが、内製のデータパイプライン移行により維持費をコントロール。"
+      ],
+      "coldOutreachTemplate": "【Notion型・ツール統合アプローチ】\n「社内の情報がSlack、スプレッドシート、各ツールのメモに散らばって迷子になっていませんか？\n弊社の統合ワークスペースなら、業務マニュアルもプロジェクト進捗も1つの画面で完璧に管理できます。\n他社ツールからの1クリック自動移行デモをお試しください。」"
+    },
+    "essence": {
+      "whatItDoes": "ドキュメント、データベース、プロジェクト管理、社内Wikiをブロック単位で結合できる万能ワークスペース",
+      "targetCustomer": "世界中のスタートアップから大企業までのナレッジ共有・コラボレーションSaaS予算（1席月額$10〜$20）",
+      "painRelief": "「Google Docs、Confluence、Trello、Evernoteに情報が分散して見つからない」社内情報断片化の地獄"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "2015年に初期バージョンのコードが破綻して資金が尽きかけた際、創業者Ivan ZhaoとSimon Lastはサンフランシスコのオフィスを引き払い、物価の安い日本の京都に移住してプログラミングに没頭。完全再構築した「Notion 1.0/2.0」をProduct Huntで公開し、その圧倒的な美しさでProduct of the DayとGolden Kitty Awardを総なめにした。",
+      "platformGlitch": "「Product Huntのローンチハック」と「大学コミュニティへの無料配布（学割EDUプラン）」を徹底。学生時代にNotionに依存した若者が、就職したスタートアップや大企業で社内ツールとしてNotionを推薦するトロイの木馬戦略を展開。",
+      "pivotSnapshot": "単なるメモアプリやドキュメントエディタから、「データベースとWikiが一体化したノーコード業務OS」へと舵を切ったことが最大の爆発点。",
+      "hiddenStackCost": "大量のドキュメントと共同編集データを保持するPostgreSQLのシャーディング運用が最大の技術的負債だったが、内製のデータパイプライン移行により維持費をコントロール。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2016-2018年 (京都での再構築〜2.0ローンチ)",
+      "dataSnapshotPeriod": "2023-2026年 (ARR $300M超・Notion AI期)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "eraContext": "リモートワークによる社内ナレッジの非同期共有需要の爆発期に、もっとも洗練されたUIとして君臨。",
+      "currentViabilityAnalysis": "世界中のスタートアップとクリエイターのデフォルトOSとなっており、エンタープライズ市場の深耕とNotion Calendar・Mail等の周辺領域侵食により堀を盤石化。",
+      "viabilityLabel": "現在も有効"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_notion_hq_1",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "サバンナOSの急所",
+        "text": "「自分の仕事や人生を完全に整理整頓・コントロール下に置いているという万能感（自己決定感）」。美しいダッシュボードを構築すること自体がドーパミンの源泉となる。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_notion_hq_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "企業の情シス部門を通さず、現場のチームや部署単位で勝手に導入され、気づいた時には全社データがNotionに移行して情シスが後追いでエンタープライズ契約を結ばざるを得なくなる下克上。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_notion_hq_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "顧客の生の声・怨嗟",
+        "text": "多機能すぎて自由度が高すぎるため、初心者が開くと「白紙すぎて何をしていいか分からず挫折する」という初期オンボーディングの壁。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "莫大なコミュニティ資産とAPI連携エコシステムが完成しており、正面突破は困難",
+      "demandDelta": "年 +18%",
+      "competitionDelta": "独占固定",
+      "entryRequirements": {
+        "capital": "巨額資本",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

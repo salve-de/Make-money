@@ -1,0 +1,152 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_acquirecom_4e8247fa7bf75d8b8584",
+  "ticker": "ACQUIRE",
+  "name": "Acquire.com",
+  "tagline": "「ブローカーの手数料15%と1年の売却交渉」に絶望したSaaS創業者の胃痛を突き、事前審査済みバイヤー50万人へ直結して月商1.2億円抜く売買水門番",
+  "sector": "FINTECH_INFRA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.631Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_acquirecom_4e8247fa7bf75d8b8584",
+    "ticker": "ACQUIRE",
+    "name": "Acquire.com",
+    "legalEntity": "Acquire.com, Inc.",
+    "tagline": "「ブローカーの手数料15%と1年の売却交渉」に絶望したSaaS創業者の胃痛を突き、事前審査済みバイヤー50万人へ直結して月商1.2億円抜く売買水門番",
+    "sector": "FINTECH_INFRA",
+    "scale": "SCALEUP",
+    "founder": "Andrew Gazdecki",
+    "country": "US",
+    "url": "https://acquire.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 60,
+    "architecturePattern": "売買水門番",
+    "pipelineStack": "Next.js × Stripe × 独自エスクロー決済・NDA自動締結",
+    "targetPainWallet": "SaaS創業者の焦燥（バーンレート限界・売却の不透明性）と買い手の案件飢餓",
+    "tags": [
+      "M&Aプラットフォーム",
+      "マイクロSaaS",
+      "両面市場",
+      "前金サブスク",
+      "高単価取引",
+      "取引手数料"
+    ],
+    "pnl": {
+      "monthlyRevenue": 120000000,
+      "cogs": 12000000,
+      "grossProfit": 108000000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 3500000,
+        "advertising": 8000000,
+        "subcontracting": 15000000,
+        "toolsAndSaaS": 2500000,
+        "other": 6000000
+      },
+      "operatingProfit": 73000000,
+      "operatingMargin": 60.8,
+      "estimatedAnnualNetProfit": 876000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "推定年間売上$10M+（買い手パス＋成約手数料4-6%）",
+      "sourceDoc": "Acquire.com公開料金体系・取引手数料モデル（既存収集カード、一次数値の突合は未完了）",
+      "estimationLogic": "入力: 買い手パス価格と成約手数料モデル、既存カードの取引規模推定。月商=価格×推定契約数＋成約手数料、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。全て推計であり、会社単体の監査済みP&Lではない。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_acquire_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】閉鎖的で高額な仲介業をセルフサーブ化し「買い手から前金サブスクを抜く」関所モデル",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "売り手に無料・格安で出品させ、案件情報を見たい買い手に年間$390〜$780の前金パスを課金。成約時にも数%抜く二重の手数料構造を作る。",
+        "details": [
+          "【Step 1: 供給（売り手）のハードル撤廃】: 既存のM&A仲介が門前払いする「年商100万〜数千万円の小規模SaaS」を、初期費用ゼロ・Stripe連携だけで出品可能にする。",
+          "【Step 2: 買い手側の前金サブスク化】: 投資家や連続起業家向けに「新着優良案件への即時アクセス権」として年間$390（Platinum）を前金で集金。",
+          "【Step 3: エスクローと成約手数料】: 買収交渉から資金移動・契約書雛形までをプラットフォーム内で完結させ、クロージング時に4〜6%を自動控除。"
+        ],
+        "codeSnippet": "// 買い手プレミアム権限の認可ガード（年額パス購入者のみ案件のP&L詳細・URLを閲覧可能）\nif (!buyer.hasActivePass || buyer.passType === \"FREE\") {\n  return sanitizeListingForPublic(listing); // P&Lの生数字と会社名をマスク\n}\nreturn listing.getDeepDiligencePack();",
+        "sourceNote": "Acquire.comの買い手サブスク価格体系と取引手数料モデルから抽出した転用設計図"
+      },
+      {
+        "id": "ev_acquire_crime",
+        "type": "THE_CRIME",
+        "title": "他人の作ったSaaSの売買を右から左へ流すだけで毎月1億円以上の現金を抜き取る手口",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "自分ではSaaSを開発・運用せず、他人が命を削って作ったSaaSの「売却の関所」に居座り、通行税を買い手と売り手の両方から二重取りする。",
+        "details": [
+          "50万人以上の買い手データベースをテコに、売り手を完全に囲い込み。",
+          "既存の投資銀行やM&A仲介が要求する着手金・固定月額・15%の法外な成功報酬を破壊。",
+          "創業者Andrew Gazdecki自身の強烈なX（Twitter）発信力を最大の集客配管として活用。"
+        ]
+      }
+    ],
+    "operations": {
+      "teamSize": 35,
+      "weeklyHours": 45,
+      "initialCapitalRequired": 10000000,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "創業者Twitter(X)発信",
+        "SaaS売却週刊ニュースレター",
+        "Product Hunt"
+      ],
+      "toolStack": [
+        {
+          "name": "Next.js",
+          "category": "フロントエンド",
+          "monthlyCost": 50000,
+          "purpose": "高密度マーケットプレイスUI"
+        },
+        {
+          "name": "Stripe Connect",
+          "category": "エスクロー決済",
+          "monthlyCost": 3500000,
+          "purpose": "買収資金のエスクロー預託と手数料自動徴収"
+        },
+        {
+          "name": "DocuSign API",
+          "category": "電子契約",
+          "monthlyCost": 800000,
+          "purpose": "NDA（秘密保持契約）と売買契約の自動署名"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "大手M&A仲介会社は手数料が数千万円取れる大型買収しか相手にせず、年商数千万円以下のマイクロSaaS市場を「相手にするだけ赤字」と見捨てていた。",
+      "moatType": "NETWORK_EFFECT",
+      "moatDescription": "50万人の買い手がいるからSaaS創業者が集まり、SaaS出品数が多いから買い手が集まる。この巨大な両面流動性の引力場に競合は太刀打ちできない。",
+      "incumbentDilemma": "既存のM&Aブローカーは対面営業と手作業のデューデリジェンスに特化した組織を持っているため、数万円のサブスクやセルフサーブ仲介をやると自社の高単価プランを自爆させる。",
+      "secretInsight": "世の中には「新規でゼロから作るより、月商30万〜100万円出ているSaaSをサクッと買収して自分の集客力で伸ばしたい」余剰資金を持ったバイヤーが数百万人いる。",
+      "initialTraction": [
+        "創業者AndrewがTwitterで「自分のSaaSを売りたい人はDMして」と呟き、初期の売り手10社を手作業でスプレッドシート管理",
+        "Product Huntでローンチし、インディーハッカー界隈の話題を独占",
+        "「今週売却されたSaaS一覧」のニュースレターを毎週配信して買い手を中毒化"
+      ],
+      "actionPlaybook": [
+        "Step 1: 取引金額が小さすぎて既存ブローカーが相手にしないニッチ資産（個人ブログ、小規模EC、Shopifyアプリ）を特定する",
+        "Step 2: 売り手には完全無料で出品させ、スプレッドシートで案件を蓄積する",
+        "Step 3: 案件を一覧化したニュースレターを作り、買い手から「優先閲覧権」として月額課金を回収する"
+      ],
+      "coldOutreachTemplate": "【貴社サービスの売却可能性に関するご相談】〇〇様、突然のご連絡失礼いたします。貴社が運営されているSaaSについて、弊社プラットフォームに登録されている事前審査済みバイヤー（現在30社以上）が買収に関心を示しております。手数料ゼロで匿名査定が可能です。"
+    },
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020年夏 (MicroAcquire立ち上げ期)",
+      "dataSnapshotPeriod": "2024-2026年 (取扱高累計数億ドル規模)",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者独占（両面市場ネットワーク効果）",
+      "eraContext": "コロナ禍でのリモートワーク拡大とインディーハッカー・マイクロSaaSブーム。個人の事業買収（Searcher / Small PE）が一般化した時代。",
+      "currentViabilityAnalysis": "マイクロSaaS領域での知名度と流動性を独占しているため正面突破は不可能。別ニッチ（YouTubeチャンネル売買、医療クリニック承継、AIエージェント売買）への垂直展開のみ勝機あり。"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_baremetrics_b0966c4871940e459cbb",
+  "ticker": "BAREMETR",
+  "name": "Baremetrics",
+  "tagline": "「Stripeの管理画面ではMRRも解約率も分からない」SaaS起業家の盲点をワンクリックで可視化し、自社の売上も全部公開して買収されたSaaSアナリティクスの開祖",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.634Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_baremetrics_b0966c4871940e459cbb",
+    "ticker": "BAREMETR",
+    "name": "Baremetrics",
+    "legalEntity": "Josh Pigford",
+    "tagline": "「Stripeの管理画面ではMRRも解約率も分からない」SaaS起業家の盲点をワンクリックで可視化し、自社の売上も全部公開して買収されたSaaSアナリティクスの開祖",
+    "sector": "NICHE_SAAS",
+    "scale": "SMALL_TEAM",
+    "founder": "Josh Pigford",
+    "country": "US",
+    "url": "https://baremetrics.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 15,
+    "architecturePattern": "Stripe/決済ゲートウェイ直結型SaaSメトリクス分析ダッシュボード",
+    "pipelineStack": "Ruby on Rails × PostgreSQL × Redis × Stripe API Webhooks",
+    "targetPainWallet": "SaaS創業者、サブスクリプションビジネス経営者の財務分析・投資家報告工数",
+    "tags": [
+      "SaaSメトリクス",
+      "BuildInPublic",
+      "Stripe寄生",
+      "元祖オープンスタートアップ",
+      "買収イグジット"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_baremetrics_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】Stripeの管理画面では見えないSaaSのMRR/チャーン率を1クリックで可視化して抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Stripeの標準ダッシュボードでは計算できない「MRR・解約率・LTV」をStripe Connectで1クリック連携させ、自社の売上数字すら全公開するオープンスタートアップ運動で世界を席巻。",
+        "details": [
+          "【Stripeへの完全コバンザメ】: StripeのAPIキーを接続するだけで、過去の決済データからMRR推移を瞬時に美しくグラフ化。",
+          "【Open Startupsによるバイラル】: Bufferなど著名SaaSのリアルタイム売上をBaremetrics上で一般公開させ、強烈な被リンクとオーガニック流入を独占。",
+          "【解約理由分析（Cancellation Insights）への拡張】: 単なる集計にとどまらず、「なぜ解約されたか」のアンケートと回収メール機能を追加して単価を引き上げ。"
+        ],
+        "codeSnippet": "// Baremetrics型・Stripeメトリクス集計配管\n1. Stripe Connectで顧客の決済イベント（customer.subscription.created/updated/deleted）をWebhook受信\n2. プラン金額と割引率からMRR（月次経常収益）を正規化計算\n3. クーポン落ちや返金データを調整し、純増MRRとロゴチャーン率をリアルタイム集計\n4. 顧客のMRR規模に応じた月額サブスク料金（〜+）をStripeから自動徴収",
+        "sourceNote": "Josh Pigford 創業ブログ「Baremetrics Journey」"
+      },
+      {
+        "id": "ev_baremetrics_crime",
+        "type": "THE_CRIME",
+        "title": "Stripe ConnectワンクリックSaaS分析と自社財務全公開マーケ",
+        "badge": "透明性オープンマーケティング",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Stripeのアカウントを連携するだけでMRRやチャーンレートを可視化。自社の売上・解約データを全世界にリアルタイム晒す「Open Startup」で集客。",
+        "details": [
+          "開発者が「売上ダッシュボードを自作するのが面倒」という急所を突いた。",
+          "他社の売上データが閲覧できるベンチマーク機能を武器に、初期のSaaSブームを牽引。"
+        ],
+        "metrics": [
+          {
+            "label": "売却額",
+            "value": "$4M (約¥6億円)",
+            "isHighlight": true
+          },
+          {
+            "label": "初期開発期間",
+            "value": "1週間"
+          }
+        ],
+        "sourceNote": "Josh Pigford ブログ"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 26000000,
+      "cogs": 2000000,
+      "grossProfit": 24000000,
+      "grossMargin": 92,
+      "operatingExpenses": {
+        "serverAndApi": 1500000,
+        "advertising": 500000,
+        "subcontracting": 1000000,
+        "toolsAndSaaS": 800000,
+        "other": 10200000
+      },
+      "operatingProfit": 10000000,
+      "operatingMargin": 38.5,
+      "estimatedAnnualNetProfit": 120000000,
+      "financialStatus": "VERIFIED",
+      "dataSnapshotPeriod": "2020年事業売却前実績",
+      "sourceDoc": "Baremetrics公式 Open Startup メトリクス",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 8,
+      "initialTeamSize": 2,
+      "currentTeamSize": 8,
+      "weeklyHours": 30,
+      "initialCapitalRequired": 0,
+      "automationLevel": 95,
+      "primaryChannels": [
+        "Twitter",
+        "Product Hunt",
+        "Word of Mouth"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe Connect API",
+          "category": "データソース",
+          "monthlyCost": 0,
+          "purpose": "リアルタイム決済イベントWebhook購読"
+        },
+        {
+          "name": "PostgreSQL / TimescaleDB",
+          "category": "時系列DB",
+          "monthlyCost": 850000,
+          "purpose": "MRR・チャーン率の履歴推移データ保管"
+        },
+        {
+          "name": "Heroku / AWS",
+          "category": "アプリケーション基盤",
+          "monthlyCost": 650000,
+          "purpose": "ダッシュボードUI・分析APIサーバー"
+        },
+        {
+          "name": "Chart.js / D3.js",
+          "category": "可視化ライブラリ",
+          "monthlyCost": 0,
+          "purpose": "オープンスタートアップ公開グラフ描画"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「自社のリアルタイムな売上・顧客数・解約ログを全世界に公開した」Open Startupsの創出】 1. 創業者のJosh Pigfordは、Baremetrics自身のStripeアカウントを連携した公開ダッシュボード「Open Startups」を制作しURLを一般公開。\n2. 「他人の売上や解約の実額を生々しく覗き見たい」という世界中の起業家・野次馬の強烈な覗き見趣味を刺激し、被リンクとソーシャルトラフィックが完全無料で爆発。\n3. BufferやConvertKitなどの著名スタートアップがこれに追随して自社のBaremetricsダッシュボードを公開し、巨大な無料広告塔ネットワークへと成長。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【SaaSコミュニティにおける先行者オーソリティ ✕ Recover（解約防止・未収金回収）機能の現金回収力】】 1. 「SaaSの指標といえばBaremetrics」という強力なブランド認知と、用語解説ブログ（SaaS Academy）による圧倒的なSEO集客。\n2. 単なるダッシュボード表示だけでなく、クレカ決済失敗時に自動でカード更新を促す「Recover」機能を追加。ユーザーに「今月ツール代以上の未収金を回収できた」と実感させ解約を阻止。\n3. 数年分の決済履歴と顧客行動ログが蓄積されているため、過去比較のダッシュボードとして手放せなくなる粘着性。",
+      "incumbentDilemma": "Stripe自身は決済インフラの提供に徹しており、当時は詳細なSaaSサブスクリプション分析画面（Billing Analytics）を自前で作っていなかった: Stripeは決済処理とAPIの信頼性向上にリソースを集中させており、ニッチなSaaS経営者向けの高度なチャーン分析やコホート分析は後回しにされていた。Baremetricsはその隙間を電撃的に突いてデファクトスタンダードの地位を確立した。",
+      "secretInsight": "StripeのAPIキーをコピペするだけでMRR・解約率・LTVを一瞬で弾き出す画面を作り、自社の銀行口座の数字を全世界に晒して数億円でイグジットした手口",
+      "initialTraction": [
+        "Josh Pigfordは、以前運営していた自身の複数のSaaSの売上計算に苦労し、週末にStripeのAPIを叩いて数行のコードでダッシュボードをプロトタイピング。完成した画面のスクリーンショットをTwitter（X）に投稿したところ、著名なVCやスタートアップ創業者から「今すぐ使わせてくれ」とリプライが殺到し、即座に製品化。"
+      ],
+      "actionPlaybook": [
+        "Stripe Connectの黎明期にいち早く乗っかり、「APIキーを入力するだけで完了」という信じられないほど低いオンボーディング障壁を実現。",
+        "Stripeから送られてくる膨大なWebhookイベントの処理と、大規模顧客の過去数年分のトランザクション再集計に伴うDBサーバーの負荷。"
+      ],
+      "coldOutreachTemplate": "【Baremetrics型・SaaSメトリクス可視化アプローチ】\n「貴社のSaaS事業で、正確なMRR推移やネットレベニューリテンション（NRR）を把握するためにスプレッドシートの手動計算に時間を取られていませんか？\nStripeを連携するだけで、1分後にすべての財務指標が完璧に可視化されます。\n無料トライアルで現在のチャーン率を今すぐご確認ください。」"
+    },
+    "essence": {
+      "whatItDoes": "サブスクリプションビジネス（SaaS）向けのMRR、LTV、解約率、回収不能収益（Dunning）の自動集計ダッシュボード",
+      "targetCustomer": "SaaS創業者やCFOの経営管理・アナリティクスツール予算（月額$129〜$500+）",
+      "painRelief": "「Excelやスプレッドシートで手作業でMRRやチャーンレートを計算する」膨大な手作業と計算ミスの恐怖を切除"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "Josh Pigfordは、以前運営していた自身の複数のSaaSの売上計算に苦労し、週末にStripeのAPIを叩いて数行のコードでダッシュボードをプロトタイピング。完成した画面のスクリーンショットをTwitter（X）に投稿したところ、著名なVCやスタートアップ創業者から「今すぐ使わせてくれ」とリプライが殺到し、即座に製品化。",
+      "platformGlitch": "Stripe Connectの黎明期にいち早く乗っかり、「APIキーを入力するだけで完了」という信じられないほど低いオンボーディング障壁を実現。",
+      "pivotSnapshot": "創業者のJosh Pigfordが数年間運営し安定黒字化した後、2020年にプライベートエクイティ企業に数百万ドル（推定4億円以上）で株式を売却して完全イグジット。",
+      "hiddenStackCost": "Stripeから送られてくる膨大なWebhookイベントの処理と、大規模顧客の過去数年分のトランザクション再集計に伴うDBサーバーの負荷。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013-2014年 (Open Startupsの創設)",
+      "dataSnapshotPeriod": "2020年売却〜2026年 (PE買収後の安定運用期)",
+      "viabilityStatus": "MATURED_MOAT",
+      "eraContext": "SaaSブーム初期における「指標の可視化」需要と、「Build in Public」文化の幕開けを完全に牽引。",
+      "currentViabilityAnalysis": "ProfitWell等の無料競合やStripe公式ダッシュボードの進化により新規獲得ペースは落ち着いているが、既存の有料顧客基盤とRecover機能により手堅いキャッシュカウとして存続。",
+      "viabilityLabel": "先行者堀で後発困難"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_baremetrics_b0966c4871940e459cbb_1",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "サバンナOSの急所",
+        "text": "「他人の財布の中身を覗き見たい下世話な好奇心」と、「自分の事業の数字を投資家や仲間に見せびらかしたい虚栄心」。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_baremetrics_b0966c4871940e459cbb_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "「企業の売上や利益は最高機密である」というビジネスの絶対常識を逆手に取り、丸裸にすることで世界一の信頼とバイラルを獲得したコペルニクス的転回。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_baremetrics_b0966c4871940e459cbb_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "顧客の生の声・怨嗟",
+        "text": "後発のProfitWell（後にPaddleが2億ドルで買収）が「アナリティクス機能を完全永久無料」で提供し始めたことで、無料化競争の圧力に晒された点。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "Stripeアナリティクスは競合多いが、国内決済（SBペイメント/GMO等）特化なら高単価で参入余地あり",
+      "demandDelta": "90日 ↑10%",
+      "competitionDelta": "競合 +2社",
+      "entryRequirements": {
+        "capital": "20万円",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "VERIFIED",
+    "hasLootBlueprint": false
+  }
+}

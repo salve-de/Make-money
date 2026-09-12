@@ -1,0 +1,184 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_67ee7501e9f6e00f31b5",
+  "ticker": "BLINKIST",
+  "name": "Blinkist",
+  "tagline": "「積読の罪悪感と知識欲」に苛まれるビジネスマンの知的虚栄心を突き、15分濃縮要約サブスクで年商50億円抜いて300億円でイグジットした手口",
+  "sector": "CONTENT_MEDIA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.631Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_67ee7501e9f6e00f31b5",
+    "ticker": "BLINKIST",
+    "name": "Blinkist",
+    "legalEntity": "Blinkist (Blinks Labs GmbH)",
+    "tagline": "「積読の罪悪感と知識欲」に苛まれるビジネスマンの知的虚栄心を突き、15分濃縮要約サブスクで年商50億円抜いて300億円でイグジットした手口",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SCALEUP",
+    "founder": "Holger Seim, Niklas Jansen, Sebastian Klein, Tobias Balling",
+    "country": "DE",
+    "url": "https://blinkist.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 35,
+    "architecturePattern": "要約サブスク",
+    "pipelineStack": "内製要約ライター網 × 音声ナレーション × モバイルアプリ課金",
+    "targetPainWallet": "多忙なビジネスマンの知的焦燥と自己投資欲（本を読む時間がない罪悪感）",
+    "tags": [
+      "要約サブスク",
+      "知的虚栄心",
+      "年額前金",
+      "イグジット実績",
+      "音声メディア"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_blinkist_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】「本を読まない罪悪感」を15分音声要約で切除し年商100億抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「ビジネス書を買っても積読してしまう」多忙な社会人の知的劣等感を、1冊15分の音声・テキスト要約で切除し年額のサブスクで年商100億円を吸い上げる。",
+        "details": [
+          "【通勤・散歩時間のマネタイズ】: スマホ画面を見なくても耳だけでインプットできる音声ナレーションを全要約に標準装備。",
+          "【読了コンプレックスの救済】: 「年間100冊読んだ」という知的ステータスを短時間で手に入れた気にさせる自己肯定感ハック。",
+          "【年額プラン一括課金ファネル】: 無料トライアル登録時に「年額一括（）」を初期選択させ、前金でキャッシュフローを最大化。"
+        ],
+        "codeSnippet": "// Blinkist型・マイクロラーニング配管\n1. ベストセラー書籍の重要概念を専門ライターが3〜5つの要点（Blink）に凝縮\n2. プロの声優・ナレーターによる高音質音声を同時収録\n3. 「朝の通勤15分で1冊読破」の訴求でMeta/TikTok広告から大量獲得\n4. 年払い一括決済で回収した現金を即座に次月の広告宣伝費へ再投資",
+        "sourceNote": "Blinkist決算開示・Holtzbrinck Venturesレポート"
+      },
+      {
+        "id": "ev_blinkist_crime",
+        "type": "THE_CRIME",
+        "title": "「本を読んだ気になって賢く見られたい」虚栄心の15分要約サブスク",
+        "badge": "虚栄心要約メディア",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "ビジネス書を読む時間がないビジネスパーソンの劣等感を突き、15分の音声・テキスト要約を年$99で定期購読させる。",
+        "details": [
+          "要約コンテンツは一度作成すれば限界費用ゼロで何百万人にも配信可能。",
+          "オーディオ機能を追加したことで、通勤中・ジム利用中の可処分時間を完全にハック。"
+        ],
+        "metrics": [
+          {
+            "label": "累計ユーザー",
+            "value": "2,500万人+",
+            "isHighlight": true
+          },
+          {
+            "label": "年商",
+            "value": "約¥65億"
+          }
+        ],
+        "sourceNote": "Blinkist Exit to Go1 プレスリリース"
+      }
+    ],
+    "essence": {
+      "whatItDoes": "ビジネス書・教養書の重要エッセンスを15分のテキストおよび音声で配信するマイクロラーニングアプリ",
+      "targetCustomer": "通勤時間や隙間時間に知識をインプットしたいビジネスパーソン・経営者",
+      "painRelief": "「本を買っても読まずに積読してしまう」罪悪感と、周囲の会話についていけなくなる知的孤立の恐怖"
+    },
+    "pricing": {
+      "model": "年額一括前払いサブスクリプション（7日間無料トライアル後自動課金）",
+      "pricePoint": "年額約$99 / 月額約$14.99",
+      "psychologicalTrigger": "知的虚栄心の満腹感（「年間何百冊も本を読んだ気になれる」手軽な自己満足と時間節約）",
+      "estimatedLtvJpy": 24000,
+      "churnRate": "5.5%/月"
+    },
+    "acquisition": {
+      "cacJpy": 5500,
+      "primaryFunnel": "Facebook / Instagramでの「知っておくべきビジネス書5選」インフィード広告 ➔ 7日間無料トライアル ➔ 年額自動決済",
+      "tactics": [
+        "本の内容の最もスキャンダラス・衝撃的な一節を切り取ったカルーセル広告による衝動インストール誘導"
+      ]
+    },
+    "pnl": {
+      "monthlyRevenue": 450000000,
+      "cogs": 90000000,
+      "grossProfit": 360000000,
+      "grossMargin": 80,
+      "operatingExpenses": {
+        "serverAndApi": 15000000,
+        "advertising": 160000000,
+        "subcontracting": 35000000,
+        "toolsAndSaaS": 10000000,
+        "other": 18500000
+      },
+      "operatingProfit": 121500000,
+      "operatingMargin": 27,
+      "estimatedAnnualNetProfit": 1458000000,
+      "financialStatus": "ESTIMATED",
+      "dataSnapshotPeriod": "2023年買収時推計",
+      "sourceDoc": "Go1による買収報道 ＆ サブスク会員数逆算",
+      "estimationLogic": "【売上因数分解】\n年額$99サブスク × 推定有料会員35万人 ÷ 12ヶ月 ＝ 月商 約¥4.5億\n\n【原価因数分解】\n音声ナレーション＋要約制作委託費 ＋ ストア手数料（約20%） ＝ 粗利率 約80%"
+    },
+    "operations": {
+      "teamSize": 150,
+      "initialTeamSize": 5,
+      "currentTeamSize": 150,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "SNSインフィード広告",
+        "App Store SEO",
+        "B2B企業研修パッケージ"
+      ],
+      "toolStack": [
+        {
+          "name": "Contentful",
+          "category": "ヘッドレスCMS",
+          "monthlyCost": 250000,
+          "purpose": "数千冊の書籍要約コンテンツの多言語一元配信"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "出版社が「本は1冊丸ごと読ませるもの」という固定観念に縛られ、要約やエッセンスだけの切り売りを自らできなかった死角",
+      "moatType": "SCALE_ECONOMIES",
+      "moatDescription": "7,000タイトルを超える著作権クリア済みの要約ライブラリとプロ声優による音声録音資産",
+      "initialTraction": [
+        "ベルリンの学生起業家4人が、自分たちが読んだ本のメモをPDFにして友人に配り、熱狂的な需要を確かめてからアプリ化"
+      ],
+      "actionPlaybook": [
+        "① ベストセラー書籍のコアメッセージを3〜5個に凝縮",
+        "② 15分で聴けるプロ音声を作成",
+        "③ 年額前金でキャッシュを回収し広告へ再投資"
+      ],
+      "coldOutreachTemplate": "【Blinkist型・知性ハックアプローチ】\n「読みたいビジネス書が山積みで、消化しきれずに焦っていませんか？\n弊社のサービスなら、世界の名著の核心部分をたった15分の音声でインプット可能です。\n通勤時間だけで毎月20冊分の知識が身につく特別体験プランをご案内します。」",
+      "incumbentDilemma": "既存大手は既存の高単価契約と自社マージンを守る構造的ジレンマ（カニバリズム障壁）があるため、軽量・特化型の本モデルには手を出せない。"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "初期はドイツのスタートアップアクセラレーターに参加しつつ、大学図書館で有名ビジネス書を手作業で要約してHTML化。学生や若手コンサルタントに直接DMして会員を集めた。",
+      "platformGlitch": "AppleのApp Store無料トライアルのオプトアウト型課金を最大活用。トライアル登録者の解約忘れと高い継続率により年額キャッシュを一括先取り。",
+      "pivotSnapshot": "当初は単なるテキスト要約アプリだったが、ユーザーの多くが「画面を見る時間さえない」と判明。プロのナレーターによる音声オーディオ版を導入した瞬間に利用率とLTVが3倍に跳ねた。",
+      "hiddenStackCost": "2023年にオーストラリアの教育プラットフォームGo1に約2億ユーロ（約300億円）で売却。要約ライターとナレーターの外注ネットワークが最大の原価。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013年秋",
+      "dataSnapshotPeriod": "2023年イグジット時推計",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "AI要約台頭により転換期",
+      "eraContext": "スマートフォンとAirPodsの普及期。通勤中の「耳の可処分時間」を奪い合うオーディオブック市場の黎明期。",
+      "currentViabilityAnalysis": "LLM（ChatGPT等）による無料・瞬時の要約が普及したため、今から単純なテキスト要約アプリを立ち上げるのは無謀。プロナレーターによる演出やB2B組織研修への特化が必須。"
+    },
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "15分要約音声の著作権・ライセンス許諾とナレーター録音原価が先行蓄積されており、後発模倣は高コスト",
+      "demandDelta": "年 +12%",
+      "competitionDelta": "固定",
+      "entryRequirements": {
+        "capital": "5,000万円〜",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

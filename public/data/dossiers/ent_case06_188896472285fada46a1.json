@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_188896472285fada46a1",
+  "ticker": "SMPL.INK",
+  "name": "Simple Ink",
+  "tagline": "「WordPressのサーバー管理もプラグイン更新も嫌悪する」ズボラなNotionユーザーを狙い、Notionページを1クリックでSEO爆速Webサイトに変えて年商2億円でバイアウトされたマイクロSaaS",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.642Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_188896472285fada46a1",
+    "ticker": "SMPL.INK",
+    "name": "Simple Ink",
+    "legalEntity": "Simple Ink Inc.",
+    "tagline": "「WordPressのサーバー管理もプラグイン更新も嫌悪する」ズボラなNotionユーザーを狙い、Notionページを1クリックでSEO爆速Webサイトに変えて年商2億円でバイアウトされたマイクロSaaS",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Ch Daniel, David",
+    "country": "UK",
+    "url": "https://simple.ink",
+    "verifiedBadge": true,
+    "growthRateYoY": 40,
+    "architecturePattern": "寄生型Webサイト化",
+    "pipelineStack": "Cloudflare Workers × Notion APIキャッシュ × Stripe月額サブスク（$12/月〜）",
+    "targetPainWallet": "Webサイトを持ちたいが、WordPressの設定が難しくて吐き気がする個人起業家やポートフォリオ難民",
+    "tags": [
+      "Notion to Website",
+      "年商2億",
+      "M&A売却",
+      "Cloudflare Workers",
+      "マイクロSaaS"
+    ],
+    "pnl": {
+      "monthlyRevenue": 16000000,
+      "cogs": 1200000,
+      "grossProfit": 14800000,
+      "grossMargin": 92.5,
+      "operatingExpenses": {
+        "serverAndApi": 500000,
+        "advertising": 0,
+        "subcontracting": 3000000,
+        "toolsAndSaaS": 500000,
+        "other": 800000
+      },
+      "operatingProfit": 10000000,
+      "operatingMargin": 62.5,
+      "estimatedAnnualNetProfit": 120000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023年M&A買収時水準",
+      "sourceDoc": "Ch Daniel公開インタビュー / Acquire.com買収開示",
+      "estimationLogic": "有料サイト数約10,000サイト × 平均月額$12 ＝ 年商約$1.3M（約¥2億円 ➔ 月商約1,600万円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_sink_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】世界一使いやすいNotionを「CMS（記事投稿画面）」に見立てて、ドメイン代と月額費を抜くコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Notionの共有リンクを貼り付けるだけで、独自ドメイン・高速表示・SEOタグ対応のWebサイトを即時生成する。",
+        "details": [
+          "【更新作業の認知負荷ゼロ】: サイトを更新したい時は、普段使い慣れたNotionのページに文字を打ち込むだけ。自動でWebサイト側に即時反映。",
+          "【プログラマティックSEOによる無料集客】: 「How to build a website with Notion for [職種]」という数千ページのSEO記事を自動生成し、Google検索から独占流入。",
+          "【本体無料によるバイラル拡散】: 無料プランでは「Made with Simple.ink」のフッターリンクが付き、訪問者が連鎖的に新規登録するバイラルループ。"
+        ],
+        "codeSnippet": "// Notion to Web変換配管\n1. ユーザーのNotion公開URLを取得し、API経由でHTMLへ変換してCloudflareエッジにキャッシュ\n2. 独自ドメイン（DNS）とカスタムCSS/フォント設定機能を有料化（月額$12）\n3. 全無料サイトの最下部に自社バナーを強制表示させ、被リンクと新規ユーザーを自動獲得",
+        "sourceNote": "Ch Daniel 創業インタビュー"
+      },
+      {
+        "id": "ev_sink_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：先行競合Super.soの盲点を突いた「本体無料・機能人質」戦略",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "先行者Super.soが月額$12の完全有料だった隙を突き、「完全無料プラン」を掲げてトラフィックを総取り。",
+        "details": [
+          "2021年、兄弟創業者のCh DanielとDavidが開発。",
+          "「クレジットカード登録不要で、今すぐNotionをWebサイト化できる」とRedditやProduct Huntで宣伝。",
+          "数万人の無料ユーザーを瞬く間に抱え込み、独自ドメイン設定を有料化して一気に黒字化、2023年に売却成功。"
+        ],
+        "sourceNote": "How We Built and Sold Simple.ink in 2 Years"
+      },
+      {
+        "id": "ev_sink_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：WordPressやWixが対抗できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "WordPressは「何千もの設定項目、プラグインの互換性問題、セキュリティパッチ」で肥大化しすぎた。",
+        "details": [
+          "WordPressのダッシュボードは素人にとって迷宮。",
+          "Simple.inkは「Notionで文章が書ける人間なら0秒でサイト運用できる」ため、学習コストの低さで伝統的CMSを完全に無力化した。"
+        ],
+        "sourceNote": "Headless CMS Disruption Analysis"
+      },
+      {
+        "id": "ev_sink_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「今週末までに自分のポートフォリオを公開したい」フリーランスの焦燥",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "案件に応募するために自分の実績サイトが必要なのに、サイト制作で何日も足止めを食らう焦り。",
+        "details": [
+          "すでにNotionにまとめている実績や職歴を、ボタン1つでそのままWebサイトとして公開できる。",
+          "月額1,800円の出費は、案件を獲得するための即効性のある投資として迷わず決済される。"
+        ],
+        "sourceNote": "Freelancer Portfolio Setup Urgency"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2023-10",
+        "author": "Make-Money アナリスト",
+        "text": "2023年に非公開企業へ買収完了。Cloudflare Workersを用いた極限の低インフラコスト設計により、バイアウト時まで利益率60%超を維持した教科書的マイクロSaaS。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2021〜2022年（Super.so対抗の本体無料とSEO記事大量生成による急成長）",
+      "dataSnapshotPeriod": "2023年（買収時データ）",
+      "eraContext": "Notionエコシステムの成熟と、マイクロSaaSブームの最高潮期",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "時代限定モデル",
+      "currentViabilityAnalysis": "Notion自身がサイト公開機能を強化しつつあるため、サードパーティのWebサイト化SaaSは特化機能（メンバーシップ、フォーム）を持たない限り新規参入は厳しい。"
+    },
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 50000,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "Cloudflare Workers",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 512000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 300000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【Webサイトを持ちたいが、WordPressの設定が難しくて吐き気がする個人起業家やポートフォリオ難民を急所ハック】「WordPressのサーバー管理もプラグイン更新も嫌悪する」ズボラなNotionユーザーを狙い、Notionページを1クリックでSEO爆速Webサイトに変えて年商2億円でバイアウトされたマイクロSaaS",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "寄生型Webサイト化による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "WordPressは「何千もの設定項目、プラグインの互換性問題、セキュリティパッチ」で肥大化しすぎた。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Simple Inkは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2021年、兄弟創業者のCh DanielとDavidが開発。",
+        "「クレジットカード登録不要で、今すぐNotionをWebサイト化できる」とRedditやProduct Huntで宣伝。",
+        "数万人の無料ユーザーを瞬く間に抱え込み、独自ドメイン設定を有料化して一気に黒字化、2023年に売却成功。"
+      ],
+      "actionPlaybook": [
+        "【更新作業の認知負荷ゼロ】: サイトを更新したい時は、普段使い慣れたNotionのページに文字を打ち込むだけ。自動でWebサイト側に即時反映。",
+        "【プログラマティックSEOによる無料集客】: 「How to build a website with Notion for [職種]」という数千ページのSEO記事を自動生成し、Google検索から独占流入。",
+        "【本体無料によるバイラル拡散】: 無料プランでは「Made with Simple.ink」のフッターリンクが付き、訪問者が連鎖的に新規登録するバイラルループ。"
+      ],
+      "coldOutreachTemplate": "// Notion to Web変換配管\n1. ユーザーのNotion公開URLを取得し、API経由でHTMLへ変換してCloudflareエッジにキャッシュ\n2. 独自ドメイン（DNS）とカスタムCSS/フォント設定機能を有料化（月額$12）\n3. 全無料サイトの最下部に自社バナーを強制表示させ、被リンクと新規ユーザーを自動獲得"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

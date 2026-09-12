@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_1440_80f77c7820bd7f120771",
+  "ticker": "JOIN.1440",
+  "name": "1440",
+  "tagline": "「政治的偏向と怒りの煽り記事に疲弊した」470万人の知性派読者を集め、中立な事実ログの配信だけで年商40億円・純利益率35%超を叩き出す日刊ニュースレターの王者",
+  "sector": "CONTENT_MEDIA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.640Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_1440_80f77c7820bd7f120771",
+    "ticker": "JOIN.1440",
+    "name": "1440",
+    "legalEntity": "1440 Media, LLC",
+    "tagline": "「政治的偏向と怒りの煽り記事に疲弊した」470万人の知性派読者を集め、中立な事実ログの配信だけで年商40億円・純利益率35%超を叩き出す日刊ニュースレターの王者",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SMALL_TEAM",
+    "founder": "Tim Huelskamp, Andrew Steigerwald, Bobby Lincoln",
+    "country": "US",
+    "url": "https://join1440.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 30,
+    "architecturePattern": "中立中抜きメディア",
+    "pipelineStack": "自社CMS × Sailthruメール配信 × Meta/TikTok獲得広告 × 直販CPC/CPMネイティブ広告",
+    "targetPainWallet": "SNSやテレビニュースの過激な党派対立と怒りの煽り運転で精神を病みたくない知性派ビジネスパーソンの平穏欲求",
+    "tags": [
+      "ニュースレター",
+      "年商40億",
+      "読者470万人",
+      "利益率35%超",
+      "ブートストラップ"
+    ],
+    "pnl": {
+      "monthlyRevenue": 337500000,
+      "cogs": 33750000,
+      "grossProfit": 303750000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 15000000,
+        "advertising": 120000000,
+        "subcontracting": 30000000,
+        "toolsAndSaaS": 12000000,
+        "other": 8000000
+      },
+      "operatingProfit": 118750000,
+      "operatingMargin": 35.2,
+      "estimatedAnnualNetProfit": 1425000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024〜2026年 取材報道（年商$27M到達・読者数470万人・第三者評価額$101M）",
+      "sourceDoc": "Axios / Business Insider / 1440公式開示",
+      "estimationLogic": "購読者数470万人 × 開封率約50% × 週6日配信 × ネイティブ広告スロット ＝ 年間$27M（約40.5億円 ➔ 月商約3.37億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_1440_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】既存メディアの「オピニオン・感情論」を全カットし、中立ファクトの要約で広告を総取りするコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「5分で世界が分かる中立な事実まとめ」を毎朝メールボックスに届け、大手ブランドの広告費を吸い上げる。",
+        "details": [
+          "【意見（Opinion）の完全排除】: 記者の思想や推測を1文字も入れず、「何が起きたか」の客観的事実と双方の視点だけを3〜5行で要約。",
+          "【広告主が喜ぶセーフ環境】: 炎上や政治的スキャンダルがないため、Fortune 500等の大手企業が安心して高単価（CPM $30〜$50）で出稿。",
+          "【算術的CAC/LTV裁定取引】: Facebook広告で1人あたり$2〜$3で読者を獲得し、年間の広告閲覧で$6〜$8を回収する数学的増殖ループ。"
+        ],
+        "codeSnippet": "// 中立アグリゲーションニュースレター配管\n1. 100以上の信頼できる一次情報源（ロイター、AP等）から毎朝重要トピックを10件抽出\n2. 感情的な修飾語を全削除し、小学生でもわかる事実要約にリライト\n3. Meta広告で「意見のない純粋な事実を朝5分で」と出稿し、読者を底引き網獲得",
+        "sourceNote": "Tim Huelskamp 講演「Building a $27M Bootstrap Newsletter」"
+      },
+      {
+        "id": "ev_1440_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：シカゴの友人70人に手動で送った朝刊メール",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "プライベートエクイティ出身のTimが、投資銀行員仲間の「朝忙しくてニュースを読む時間がない」苦痛から開始。",
+        "details": [
+          "2017年、グーグルスプレッドシートにまとめたニュース要約を、友人70人に個人的にメール送信。",
+          "転送によって読者が自然増し、1,000人を超えた段階で外部VCを入れず自前資金のみで広告テストを開始。",
+          "獲得単価（CPA）と読者生涯価値（LTV）のスプレッドがプラスであることを確認し、利益の全額をMeta広告に投入して急拡大。"
+        ],
+        "sourceNote": "Axios Media Trends Interview"
+      },
+      {
+        "id": "ev_1440_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：NYTやCNN、Fox Newsが中立になれない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "大手テレビ局や新聞は「読者を怒らせてクリックさせる」ことでPVと購読料を稼ぐビジネスモデル。",
+        "details": [
+          "CNNは左派を、Foxは右派を煽ることで熱烈な信者を獲得しているため、中立な事実だけを淡々と書くと既存読者が退屈して解約してしまう。",
+          "既存メディアが自縛している「怒りのPV争奪戦」の外側に、サイレントマジョリティである数千万人の「疲弊した知性派」が放置されていた。"
+        ],
+        "sourceNote": "Polarization in Digital Journalism Economics"
+      },
+      {
+        "id": "ev_1440_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：朝の会議で「昨日のニュースを知らない」と恥をかく恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "会社の重役やクライアントとの雑談で、世の中の動向に無知だと思われたくないビジネスパーソンの防衛本能。",
+        "details": [
+          "毎朝通勤中や始業前の5分間でメールを開くだけで、「世界の重要事項を網羅している」という安心感が得られる。",
+          "開封率50%以上という驚異的な粘着性を誇り、読者の朝のルーティンを人質化。"
+        ],
+        "sourceNote": "Morning Briefing Habit Loop Study"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-09",
+        "author": "Make-Money アナリスト",
+        "text": "読者数470万人を突破。ニュースレター単体からポッドキャストや動画ダイジェストへ拡張しつつも、15名の超少数精鋭チームで利益率35%超を維持。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2017,
+      "initialTractionPeriod": "2017〜2019年（友人70人からMeta広告ループによる急拡大期）",
+      "dataSnapshotPeriod": "2024年通期（公式・第三者評価開示）",
+      "eraContext": "米大統領選等に伴うメディアの極端な分極化とフェイクニュースへの不信感のピーク",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "AI時代において「一次情報の客観的キュレーション」の信頼価値は暴騰しており、極めて高収益なポジションを維持。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "自社CMS",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 10800000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 9000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【SNSやテレビニュースの過激な党派対立と怒りの煽り運転で精神を病みたくない知性派ビジネスパーソンの平穏欲求を急所ハック】「政治的偏向と怒りの煽り記事に疲弊した」470万人の知性派読者を集め、中立な事実ログの配信だけで年商40億円・純利益率35%超を叩き出す日刊ニュースレターの王者",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "中立中抜きメディアによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "大手テレビ局や新聞は「読者を怒らせてクリックさせる」ことでPVと購読料を稼ぐビジネスモデル。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、1440は『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2017年、グーグルスプレッドシートにまとめたニュース要約を、友人70人に個人的にメール送信。",
+        "転送によって読者が自然増し、1,000人を超えた段階で外部VCを入れず自前資金のみで広告テストを開始。",
+        "獲得単価（CPA）と読者生涯価値（LTV）のスプレッドがプラスであることを確認し、利益の全額をMeta広告に投入して急拡大。"
+      ],
+      "actionPlaybook": [
+        "【意見（Opinion）の完全排除】: 記者の思想や推測を1文字も入れず、「何が起きたか」の客観的事実と双方の視点だけを3〜5行で要約。",
+        "【広告主が喜ぶセーフ環境】: 炎上や政治的スキャンダルがないため、Fortune 500等の大手企業が安心して高単価（CPM $30〜$50）で出稿。",
+        "【算術的CAC/LTV裁定取引】: Facebook広告で1人あたり$2〜$3で読者を獲得し、年間の広告閲覧で$6〜$8を回収する数学的増殖ループ。"
+      ],
+      "coldOutreachTemplate": "// 中立アグリゲーションニュースレター配管\n1. 100以上の信頼できる一次情報源（ロイター、AP等）から毎朝重要トピックを10件抽出\n2. 感情的な修飾語を全削除し、小学生でもわかる事実要約にリライト\n3. Meta広告で「意見のない純粋な事実を朝5分で」と出稿し、読者を底引き網獲得"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

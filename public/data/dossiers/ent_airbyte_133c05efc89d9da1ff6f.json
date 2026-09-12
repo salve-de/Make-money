@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_airbyte_133c05efc89d9da1ff6f",
+  "ticker": "AIR.BYTE",
+  "name": "Airbyte",
+  "tagline": "「Fivetranの法外な行数従量課金で毎月数千万円請求される」データエンジニアを解放し、完全オープンソースでARR 180億円を叩き出すELTデータ統合の絶対基盤",
+  "sector": "FINTECH_INFRA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.644Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_airbyte_133c05efc89d9da1ff6f",
+    "ticker": "AIR.BYTE",
+    "name": "Airbyte",
+    "legalEntity": "Airbyte, Inc.",
+    "tagline": "「Fivetranの法外な行数従量課金で毎月数千万円請求される」データエンジニアを解放し、完全オープンソースでARR 180億円を叩き出すELTデータ統合の絶対基盤",
+    "sector": "FINTECH_INFRA",
+    "scale": "ENTERPRISE",
+    "founder": "Michel Tricot, John Lafleur",
+    "country": "US",
+    "url": "https://airbyte.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 70,
+    "architecturePattern": "OSSデータ配管",
+    "pipelineStack": "オープンソースコネクタフレームワーク（Python/Java） × Docker/Kubernetes × Airbyte Cloud従量クレジット課金",
+    "targetPainWallet": "数十種類のSaaSからBigQueryやSnowflakeへデータを吸い上げるパイプラインの自作と保守で死にそうなデータエンジニア",
+    "tags": [
+      "データ統合",
+      "ARR 180億",
+      "オープンソース",
+      "Fivetran対抗",
+      "ELTパイプライン"
+    ],
+    "pnl": {
+      "monthlyRevenue": 1500000000,
+      "cogs": 225000000,
+      "grossProfit": 1275000000,
+      "grossMargin": 85,
+      "operatingExpenses": {
+        "serverAndApi": 150000000,
+        "advertising": 80000000,
+        "subcontracting": 550000000,
+        "toolsAndSaaS": 45000000,
+        "other": 150000000
+      },
+      "operatingProfit": 300000000,
+      "operatingMargin": 20,
+      "estimatedAnnualNetProfit": 3600000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024〜2026年報道（ARR $120M超水準・企業価値$1.5B）",
+      "sourceDoc": "Fueler / TechCrunch / Sacra 2025年最新分析",
+      "estimationLogic": "有料企業顧客数千社 × Airbyte Cloudクレジット消費（月額数百ドル〜数万ドル） ＝ 年商約$120M（約¥180億円 ➔ 月商約15億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_abyt_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】コネクタ作成をオープンソース開発者にアウトソースし、クラウド同期で従量課金するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「世界中のマイナーなSaaSのAPIコネクタ」をコミュニティに無償で作らせ、Fivetranの独占を粉砕する。",
+        "details": [
+          "【Connector CDKによる開発者動員】: 誰でも数時間で新しいコネクタを作れる開発キット（CDK）を提供。コミュニティが勝手に300種類以上のコネクタを開発・保守。",
+          "【同期ボリュームではなくコンピュート時間課金】: Fivetranが「移動した行数（MAR）」で高額請求するのに対し、Airbyteは純粋なコンピューティング時間で課金し、大企業のコストを1/5に削減。",
+          "【自前ホスト完全無料】: 自社データセンター内で動かすなら完全無料。機密データをクラウドに預けられないメガバンクや医療機関を独占。"
+        ],
+        "codeSnippet": "// OSS ELTデータ統合配管\n1. `docker compose up` でAirbyteローカルUIを起動\n2. ソース（Salesforce, Stripe, MySQL）と送信先（Snowflake, BigQuery）を選択\n3. 同期スケジュール（毎時、毎日）を設定し、自動レプリケーションを実行",
+        "sourceNote": "Michel Tricot 創業インタビュー"
+      },
+      {
+        "id": "ev_abyt_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：創業者が最初の数千社のSlackサポートを24時間自前対応",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "元LiveRampのエンジニア2人が、「既存のデータ統合ツールがどれも極めて高額である」と憤慨しオープンソースで公開。",
+        "details": [
+          "2020年創業。Slackコミュニティを開設し、初期の利用エンジニアからのバグ報告に創業者が分単位で返信。",
+          "GitHub Starが爆発的に増加し、わずか1年でFivetranに次ぐデータ統合のデファクトスタンダードへ急浮上。",
+          "BenchmarkやAccel等の世界的名門VCから大型調達し、クラウド版（Airbyte Cloud）を投入して即座に巨額ARRを達成。"
+        ],
+        "sourceNote": "TechCrunch \"Airbyte raises $150M at $1.5B valuation\""
+      },
+      {
+        "id": "ev_abyt_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Fivetranがコネクタを自前開発し続けなければならない自縛",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Fivetranは自社の社員エンジニアだけでコネクタを開発しているため、世の中の無数のマイナーSaaSに対応できない。",
+        "details": [
+          "世の中には数千種類のSaaSがあるが、Fivetranが対応できるのは数百社のみ。",
+          "Airbyteは世界中のオープンソース開発者が勝手に自分の使いたいコネクタを追加してくれるため、カタログの網羅スピードで大手を圧倒した。"
+        ],
+        "sourceNote": "Open Source Community Scale vs Proprietary Development"
+      },
+      {
+        "id": "ev_abyt_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：月末に届くFivetranの数千万円の「行数オーバー請求書」への恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "データ同期量が少し増えただけで、想定予算を数倍オーバーする請求書が届き役員会で追及されるCTOの胃痛。",
+        "details": [
+          "Airbyte Cloudに移行すれば、コストが予測可能になり予算の暴発を防げる。",
+          "自前ホスト版ならインフラ実費だけで済むため、企業の財務防衛財布として必然的に採用される。"
+        ],
+        "sourceNote": "Cloud Data Cost Predictability Psychology"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-08",
+        "author": "Make-Money アナリスト",
+        "text": "GenAI向け機能（ベクトルDBへのデータ同期、RAGパイプライン統合）を最速投入。構造化データだけでなく非構造化ドキュメントのELT標準としてポジションを盤石化。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020〜2021年（Slackコミュニティでの創業者直接サポートとGitHubスター爆発）",
+      "dataSnapshotPeriod": "2024〜2025年（業界最新推計・Fuelerデータ）",
+      "eraContext": "モダンデータスタック（Snowflake, dbt）の爆発とFivetranの高額課金への反発期",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "300以上のコミュニティ保守コネクタ網とオープンソース標準の地位は、競合が逆立ちしても追いつけない巨大な堀。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "オープンソースコネクタフレームワーク（Python/Java）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 48000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 90000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【数十種類のSaaSからBigQueryやSnowflakeへデータを吸い上げるパイプラインの自作と保守で死にそうなデータエンジニアを急所ハック】「Fivetranの法外な行数従量課金で毎月数千万円請求される」データエンジニアを解放し、完全オープンソースでARR 180億円を叩き出すELTデータ統合の絶対基盤",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "OSSデータ配管による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "Fivetranは自社の社員エンジニアだけでコネクタを開発しているため、世の中の無数のマイナーSaaSに対応できない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Airbyteは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2020年創業。Slackコミュニティを開設し、初期の利用エンジニアからのバグ報告に創業者が分単位で返信。",
+        "GitHub Starが爆発的に増加し、わずか1年でFivetranに次ぐデータ統合のデファクトスタンダードへ急浮上。",
+        "BenchmarkやAccel等の世界的名門VCから大型調達し、クラウド版（Airbyte Cloud）を投入して即座に巨額ARRを達成。"
+      ],
+      "actionPlaybook": [
+        "【Connector CDKによる開発者動員】: 誰でも数時間で新しいコネクタを作れる開発キット（CDK）を提供。コミュニティが勝手に300種類以上のコネクタを開発・保守。",
+        "【同期ボリュームではなくコンピュート時間課金】: Fivetranが「移動した行数（MAR）」で高額請求するのに対し、Airbyteは純粋なコンピューティング時間で課金し、大企業のコストを1/5に削減。",
+        "【自前ホスト完全無料】: 自社データセンター内で動かすなら完全無料。機密データをクラウドに預けられないメガバンクや医療機関を独占。"
+      ],
+      "coldOutreachTemplate": "// OSS ELTデータ統合配管\n1. `docker compose up` でAirbyteローカルUIを起動\n2. ソース（Salesforce, Stripe, MySQL）と送信先（Snowflake, BigQuery）を選択\n3. 同期スケジュール（毎時、毎日）を設定し、自動レプリケーションを実行"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

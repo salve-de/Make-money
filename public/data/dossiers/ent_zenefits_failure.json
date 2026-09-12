@@ -1,0 +1,236 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_zenefits_failure",
+  "ticker": "ZENEFITS",
+  "name": "Zenefits",
+  "tagline": "「人事業務ソフトをタダで配り、保険手数料を裏で中抜きする」天才的手口を違法ツールで爆走させ、規制当局に刺されて沈没した人事ユニコーン",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.635Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_zenefits_failure",
+    "ticker": "ZENEFITS",
+    "name": "Zenefits",
+    "legalEntity": "Parker Conrad & Laks Srini",
+    "tagline": "「人事業務ソフトをタダで配り、保険手数料を裏で中抜きする」天才的手口を違法ツールで爆走させ、規制当局に刺されて沈没した人事ユニコーン",
+    "sector": "NICHE_SAAS",
+    "scale": "SCALEUP",
+    "founder": "Parker Conrad & Laks Srini",
+    "country": "US",
+    "url": "https://zenefits.com",
+    "verifiedBadge": true,
+    "growthRateYoY": -60,
+    "architecturePattern": "地雷:無料SaaS（HRMS）配給 × 健康保険ブローカー代理店手数料中抜き",
+    "pipelineStack": "Python × Django × Ember.js × 自作ライセンス試験偽装マクロ × 保険会社API",
+    "targetPainWallet": "中小企業の面倒な人事管理・福利厚生健康保険の加入手続き",
+    "tags": [
+      "地雷標本",
+      "失敗・転落",
+      "無料SaaS裏帳簿",
+      "コンプライアンス死",
+      "保険法違反",
+      "不正自動化マクロ",
+      "CEO解任"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_zenefits_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【事業破綻の解剖】保険仲介手数料の中抜きモデルを「違法営業マクロ」で暴走させ、当局に強制摘発された破滅ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「人事労務ソフトを完全無料にし、健康保険の仲介手数料で抜く」天才モデルを発明したが、無資格営業を自動化するマクロで不正を働いてSECと州当局に強制摘発・免許剥奪された。",
+        "details": [
+          "【初期の神がかり的成長】: 創業2年で評価額45億ドル（約6,000億円）に到達。給与計算・勤怠管理SaaSを100%無料で配り、全米の中小企業を総取り。利益はすべて「保険会社からの仲介バックマージン（年間数十万円/社）」で回収する完璧なビジネスモデルを構築。",
+          "【違法ショートカットの暴走】: 急激な成長目標を達成するため、本来52時間の法定オンライン講習が必要な保険ブローカー資格を「マクロを使って数分で履修偽装するスクリプト」を社内開発し営業マンに配布。数千件の無資格保険契約を不正販売していたことが発覚。",
+          "【規制当局の電撃介入と破滅】: カリフォルニア州保険局およびSECの捜査が入り、巨額の制裁金（100億円規模）とブローカー免許の剥奪、創業CEOパーカー・コンラッドの電撃辞任に追い込まれ、企業価値の90%以上が一夜にして消滅。"
+        ],
+        "codeSnippet": "// Zenefitsの破綻方程式\n「本体無料・裏キックバック」構造 ＋ 違法な営業ショートカット（資格偽装マクロ） ＝ 当局調査・免許剥奪・全資産喪失\n※ 規制産業の隙間を突く際は、「法律とコンプライアンスの防波堤」を最前線に置かなければ、成長した瞬間に国に強制排除される",
+        "sourceNote": "BuzzFeed News調査報道・SEC公式開示"
+      },
+      {
+        "id": "ev_zenefits_crime",
+        "type": "THE_CRIME",
+        "title": "人事労務SaaSを無料で配り保険手数料を中抜きする急成長モデル",
+        "badge": "無料バラマキ裏中抜き",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "中小企業に人事給与SaaSを「完全無料」で提供し、裏で従業員の健康保険契約を自社経由に切り替えさせて巨額の仲介マージンを独占中抜き。",
+        "details": [
+          "人事SaaSとして競合を圧倒的な「本体無料」構造で市場から駆逐し、保険ブローカーとして巨額の収益を上げる「本体無料・裏キックバック」構造。",
+          "シリコンバレー最速でユニコーン（評価額$4.5B、約6,500億円）へ到達。"
+        ],
+        "metrics": [
+          {
+            "label": "ピーク時評価額",
+            "value": "$4.5B (約¥6,500億)",
+            "isHighlight": true
+          },
+          {
+            "label": "ARR成長率",
+            "value": "前年比2,000%+"
+          }
+        ],
+        "sourceNote": "SEC & カリフォルニア州保険局 調査資料"
+      },
+      {
+        "id": "ev_zenefits_fatal_bleed",
+        "type": "FATAL_BLEED",
+        "title": "無資格営業マクロ「The Macro」の内部告発とCEO解任・巨額制裁金検死",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "営業マンが保険仲介に必要な52時間の法定講習をサボるため、ブラウザ自動マクロ「The Macro」を組織的に使用していたことが発覚し一発退場。",
+        "details": [
+          "創業CEO Parker Conradが自らマクロコードを書き、無資格の営業部隊に違法な保険営業をさせていた。",
+          "規制当局（SECおよび各州保険局）から巨額の制裁金を科され、CEOは即時辞任、企業価値は一夜にして暴落。",
+          "【教訓】金融・保険などの規制産業で、法律をショートカットする「技術的ごまかし」は露見した瞬間に事業ごと即死する。"
+        ],
+        "metrics": [
+          {
+            "label": "制裁金額",
+            "value": "数千万ドル (数十億円)",
+            "isHighlight": true
+          },
+          {
+            "label": "企業価値毀損",
+            "value": "半値以下へ減損"
+          }
+        ],
+        "sourceNote": "BuzzFeed News 内部告発スクープ & カリフォルニア州保険局処分書"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 500000000,
+      "cogs": 100000000,
+      "grossProfit": 400000000,
+      "grossMargin": 80,
+      "operatingExpenses": {
+        "serverAndApi": 30000000,
+        "advertising": 150000000,
+        "subcontracting": 50000000,
+        "toolsAndSaaS": 20000000,
+        "other": 550000000
+      },
+      "operatingProfit": -400000000,
+      "operatingMargin": -80,
+      "estimatedAnnualNetProfit": -4800000000,
+      "financialStatus": "POST_MORTEM",
+      "dataSnapshotPeriod": "2016年SEC罰金・CEO辞任時",
+      "sourceDoc": "SEC処分決定書 ＆ 保険当局公表ログからの出血逆算",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 1600,
+      "initialTeamSize": 5,
+      "currentTeamSize": 1600,
+      "weeklyHours": 80,
+      "initialCapitalRequired": 60000000000,
+      "automationLevel": 15,
+      "primaryChannels": [
+        "Cold Calling",
+        "Inside Sales Army",
+        "Inbound Free HR"
+      ],
+      "toolStack": [
+        {
+          "name": "Salesforce",
+          "category": "SFA・CRM",
+          "monthlyCost": 15000000,
+          "purpose": "電話営業部隊の商談管理"
+        },
+        {
+          "name": "AWS",
+          "category": "HR基盤",
+          "monthlyCost": 8000000,
+          "purpose": "給与計算・勤怠管理・保険ポータル"
+        },
+        {
+          "name": "保険ブローカー配管",
+          "category": "保険仲介",
+          "monthlyCost": 0,
+          "purpose": "健康保険プラン仲介手数料の自動受領"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「ADPやWorkdayが月額数百万円取る人事ソフトを『完全無料』で配った」本体無料・裏キックバックの悪魔】 1. 通常の人事管理ソフトは高額な月額費用がかかるが、Zenefitsは「ソフトウェアは永久にタダでいいです」と中小企業に無料配布。\n2. その代わり、企業が健康保険に加入する際の「指定保険代理店（Broker of Record）」にZenefitsを指定させ、保険会社から支払われる多額の販売手数料（キックバック）を毎年自動徴収。\n3. 中小企業にとっては「タダで最高の人事ソフトが使えて保険も一括管理できる」ため、爆発的なスピードで数万社に導入され、ARR数千億円ペースで急拡大。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【狂気のノルマによる違法行為（Macroプログラム） ✕ 規制産業のコンプライアンス地雷】】 1. 爆発的な成長ノルマに追いつくため、営業マンが保険販売に必要な州の法定講習（52時間）を受講したように見せかける自動偽装ソフトウェア「Macro」を創業者が内製。\n2. 無資格の営業マン数千人が違法に保険を売りまくっていた事実をBuzzFeed Newsにすっぱ抜かれ、全米各州の保険当局およびSECから集中砲火。\n3. 数百万ドルの巨額制裁金を課され、創業者のParker Conradは辞任に追い込まれ、企業価値は45億ドルから急落、最終的に競合（Tritonet等）へ安値で売却。",
+      "incumbentDilemma": "ADPやPaychex等の伝統的給与計算大手は「ソフト代金を有料で売る」ビジネスモデルだったため、Zenefitsの「ソフト無料・保険手数料中抜き」という裏帳簿モデルに当初手も足も出なかった: 既存の大手HR企業はソフトウェアのライセンス料で稼いでいたため、ソフトを無料にする決断ができなかった。Zenefitsの「マネタイズの場所をずらす（金融手数料で回収する）」モデルは本来無敵のアーキテクチャだったが、コンプライアンスの軽視という自業自得の自爆によって自ら命を絶った。",
+      "secretInsight": "「人事管理ソフトを完全無料で配り、裏で社員の健康保険手数料を毎年数千万円ピンハネする」最強のビジネスモデルを作ったが、営業に不正ツールを使わせて自爆した手口",
+      "initialTraction": [
+        "創業者のParker Conradは、初期に自ら中小企業のオフィスを飛び込み営業。「あなたの会社の人事労務、給与計算、保険手続きをすべて1つの画面で自動化します。費用は完全無料です」と告げて契約を総取り。Y Combinatorを経てシリコンバレー最速のユニコーンとして脚光を浴びた。"
+      ],
+      "actionPlaybook": [
+        "「ソフトウェアをタダで配り、裏の金融商流（保険・決済・融資）で中抜きする」という現在世界中で使われているFintech×SaaSの基本特許的スキームを発明。",
+        "保険ブローカーとしての州ごとのライセンス維持費用と、膨大なコンプライアンス監査費用。"
+      ],
+      "coldOutreachTemplate": "【検死教訓】合法的な市場の歪み（大手の死角）を突くことと、違法行為（法規違反・偽装）に手を染めることは全く異なる。コンプライアンスの境界を超えた瞬間、すべての富は没収される。"
+    },
+    "essence": {
+      "whatItDoes": "中小企業向けクラウド人事労務管理（HRMS）ソフトウェアおよび健康保険ブローカー仲介",
+      "targetCustomer": "中小企業が社員のために毎年支払う健康保険料の代理店マージン（社員1人あたり年間数百ドル）",
+      "painRelief": "「社員が入社・退職するたびに紙の保険書類を手作業で記入して郵送する」膨大な事務地獄の切除"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者のParker Conradは、初期に自ら中小企業のオフィスを飛び込み営業。「あなたの会社の人事労務、給与計算、保険手続きをすべて1つの画面で自動化します。費用は完全無料です」と告げて契約を総取り。Y Combinatorを経てシリコンバレー最速のユニコーンとして脚光を浴びた。",
+      "platformGlitch": "「ソフトウェアをタダで配り、裏の金融商流（保険・決済・融資）で中抜きする」という現在世界中で使われているFintech×SaaSの基本特許的スキームを発明。",
+      "pivotSnapshot": "スキャンダル後、COOのデビッド・サックス（元PayPal）が暫定CEOに就任し企業文化を再構築。無料モデルから通常の月額課金SaaSへとピボットしたが、初期の爆発力は完全に失われ、後にTritonet（現Justworks傘下）へ売却。",
+      "hiddenStackCost": "保険ブローカーとしての州ごとのライセンス維持費用と、膨大なコンプライアンス監査費用。"
+    },
+    "temporal": {
+      "foundedYear": 2013,
+      "initialTractionPeriod": "2013-2015年 (無料HRソフトウェアによる急拡大)",
+      "dataSnapshotPeriod": "2016-2017年 (ライセンス不正発覚・CEO辞任・凋落)",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "eraContext": "SaaSとFintechが融合し始めた黎明期に、成長速度を優先しすぎて法規の壁に激突。",
+      "currentViabilityAnalysis": "【完全な地雷標本】「ビジネスモデル自体（ソフト無料＋保険中抜き）は天才的だったが、執行（コンプライアンス）の不正で自滅した」事例。後にParker Conradはこの反省を元に「Rippling」を創業し、正規の手法で時価1兆円超の企業として完全復活を遂げた。",
+      "viabilityLabel": "時代限定・再現不能"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_zenefits_failure_1",
+        "category": "INCUMBENT_DILEMMA",
+        "categoryLabel": "大手の反撃・直接圧殺",
+        "text": "ADPやPaychex等の伝統的給与計算大手は「ソフト代金を有料で売る」ビジネスモデルだったため、Zenefitsの「ソフト無料・保険手数料中抜き」という裏帳簿モデルに当初手も足も出なかった: 既存の大手HR企業はソフトウェアのライセンス料で稼いでいたため、ソフトを無料にする決断ができなかった。Zenefitsの「マネタイズの場所をずらす（金融手数料で回収する）」モデルは本来無敵のアーキテクチャだったが、コンプライアンスの軽視という自業自得の自爆によって自ら命を絶った。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_zenefits_failure_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "「急成長こそが正義」というシリコンバレーのハイパーグロース信仰が、規制産業における法令遵守を完全に麻痺させた歴史的犯罪スキャンダル。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_zenefits_failure_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "崩壊の生ログ・解約怨嗟",
+        "text": "無資格の営業マンから杜撰な保険プランを契約させられた企業からの訴訟と、ブランドの信用失墜。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "ソフト無料・保険手数料中抜きの天才モデルを、受講偽装マクロ等の違法営業で暴走させ規制当局に強制摘発された地雷",
+      "demandDelta": "90日 ↓60%",
+      "competitionDelta": "当局調査により失脚",
+      "entryRequirements": {
+        "capital": "数百億円",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "POST_MORTEM",
+    "hasLootBlueprint": false
+  }
+}

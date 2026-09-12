@@ -1,0 +1,217 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_beehiiv_0e052432d4cc474caec6",
+  "ticker": "BEEHIIV",
+  "name": "beehiiv",
+  "tagline": "「広告主集めと読者獲得に消耗する」個人メルマガ配信者を広告網と紹介プログラムで武装させ、Substackから配信者を獲得して急成長するニュースレター兵器",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.633Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_beehiiv_0e052432d4cc474caec6",
+    "ticker": "BEEHIIV",
+    "name": "beehiiv",
+    "legalEntity": "Tyler Denk, Benjamin Hargett, Jacob Hurd",
+    "tagline": "「広告主集めと読者獲得に消耗する」個人メルマガ配信者を広告網と紹介プログラムで武装させ、Substackから配信者を獲得して急成長するニュースレター兵器",
+    "sector": "NICHE_SAAS",
+    "scale": "SCALEUP",
+    "founder": "Tyler Denk, Benjamin Hargett, Jacob Hurd",
+    "country": "US",
+    "url": "https://beehiiv.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 120,
+    "architecturePattern": "ニュースレターCMS × 内製広告アドネットワーク × 紹介プログラム",
+    "pipelineStack": "Next.js × Ruby on Rails × SendGrid / AWS SES × 内製Ad Network",
+    "targetPainWallet": "メディア企業、個人クリエイター、インフルエンサーのメルマガ配信・広告収益化予算",
+    "tags": [
+      "ニュースレター",
+      "Substackキラー",
+      "広告ネットワーク",
+      "紹介バイラル",
+      "高成長SaaS"
+    ],
+    "evidenceCards": [
+      {
+        "id": "ev_beehiiv_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】Substackの手数料10%を告発し、固定定額制と広告ネットワークでメディア収益を総取りするコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Substackが売上の10%を中抜きする理不尽を告発し、「月額固定制（）＋自社アドネットワークによる広告収益化」でニュースレター配信者を広く獲得する。",
+        "details": [
+          "【手数料10%に対する反乱】: 「購読者が増えるほどSubstackに罰金を払わされている」と大手配信者を煽り、固定料金プランで大量リプレイス。",
+          "【内製広告ネットワーク（Ad Network）】: 配信者が何もしなくても、beehiivが持ってきたスポンサー広告をメルマガに1クリックで挿入でき、自動で収益が振り込まれる仕掛け。",
+          "【ブースト機能による読者相互送客】: 他のメルマガ読者を1人紹介するごとに〜を稼げる「Boosts」機能を配備し、媒体同士の共犯ループを自走化。"
+        ],
+        "codeSnippet": "// beehiiv型・メディア収益化配管\n1. 配信者に有料購読者からの売上を100%還元（Stripe手数料のみ）\n2. beehiiv Ad Networkが広告主の案件をプラットフォーム内で一括プール\n3. 配信者が承認した広告のクリック数/インプレッションに応じてCPM/CPCで自動送金\n4. 読者獲得ブースト機能の手数料（20%）をbeehiivが純利として徴収",
+        "sourceNote": "Tyler Denk（Morning Brew出身）創業インタビュー"
+      },
+      {
+        "id": "ev_beehiiv_crime",
+        "type": "THE_CRIME",
+        "title": "Morning Brewの成長エンジンをパッケージ化したメルマガ配信要塞",
+        "badge": "グロースループSaaS",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "読者数急増でMailchimpの料金が爆発する痛みと、Substackの閉鎖性に不満を持つメディアに対し、リファラル・広告ネットワーク内蔵で月$49〜を課金。",
+        "details": [
+          "読者が友達を紹介すると特典がもらえるリファラルプログラムを標準搭載。",
+          "自社の広告ネットワーク「beehiiv Ad Network」でメルマガ発行者に広告案件を供給し、プラットフォーム手数料を中抜き。"
+        ],
+        "metrics": [
+          {
+            "label": "ARR",
+            "value": "$12M+ (約¥18億)",
+            "isHighlight": true
+          },
+          {
+            "label": "前年成長率",
+            "value": "300%+"
+          }
+        ],
+        "sourceNote": "Tyler Denk 公開ポスト & beehiiv ニュースレター"
+      }
+    ],
+    "pnl": {
+      "monthlyRevenue": 250000000,
+      "cogs": 50000000,
+      "grossProfit": 200000000,
+      "grossMargin": 80,
+      "operatingExpenses": {
+        "serverAndApi": 25000000,
+        "advertising": 30000000,
+        "subcontracting": 15000000,
+        "toolsAndSaaS": 10000000,
+        "other": 60000000
+      },
+      "operatingProfit": 60000000,
+      "operatingMargin": 24,
+      "estimatedAnnualNetProfit": 720000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年Series B調達時",
+      "sourceDoc": "TechCrunch / NEA出資公表データ (ARR $20M+)",
+      "isRevenueUnconfirmed": false
+    },
+    "operations": {
+      "teamSize": 35,
+      "initialTeamSize": 4,
+      "currentTeamSize": 35,
+      "weeklyHours": 45,
+      "initialCapitalRequired": 0,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "Twitter",
+        "Product Hunt",
+        "Word of Mouth"
+      ],
+      "toolStack": [
+        {
+          "name": "Amazon SES / SparkPost",
+          "category": "メールインフラ",
+          "monthlyCost": 3500000,
+          "purpose": "毎日数百万通のニュースレター到達保証配信"
+        },
+        {
+          "name": "Ruby on Rails",
+          "category": "Web基盤",
+          "monthlyCost": 500000,
+          "purpose": "CMS・エディタ・アナリティクスエンジン"
+        },
+        {
+          "name": "Stripe Connect",
+          "category": "決済・広告送金",
+          "monthlyCost": 4500000,
+          "purpose": "有料メルマガ決済・広告主からのプール金管理"
+        },
+        {
+          "name": "Redis",
+          "category": "キャッシュ・キュー",
+          "monthlyCost": 300000,
+          "purpose": "クリック・開封トラッキングの即時集計"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「Substackの10%手数料を批判し、固定月額制＋自社広告ネットワークで稼がせる」収益還元モデル】 1. Substackが有料購読売上から一律10%を徴収するのに対し、beehiivは「有料購読手数料0%（固定月額プランのみ）」で大口クリエイターの利益を保護。\n2. 自社で広告主を集めた「beehiiv Ad Network」を運営し、配信者はクリックやインプレッションに応じてボタン1つで広告をメルマガに挿入して現金化。\n3. 「メルマガ同士がお互いを紹介し合って読者を増やす（Recommendations）」ネットワーク機能をプラットフォーム内に組み込み、外部広告費ゼロで読者が倍増する仕組みを構築。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【両面市場のネットワーク効果（広告主 ✕ 配信者 ✕ 読者） ✕ 高い移転障壁】】 1. 配信者が増えるほど魅力的な広告主が集まり、広告主が集まるほど配信者の収益が増えてさらに配信者が流入するフライホイール。\n2. 読者のエンゲージメントデータ、配信到達率（Deliverability）の信用スコア、過去ログがプラットフォームに蓄積されるため、他社配信スタンドへの乗り換えが困難。\n3. 創業者自身がX上で狂気的な頻度で機能アップデートを公開し、競合が追いつけない開発スピード感を演出。",
+      "incumbentDilemma": "Mailchimpは旧態依然とした大企業向けCRMへと肥大化し、Substackは有料購読モデルの思想に縛られて広告配信と高度なアナリティクスを拒絶した: MailchimpはIntuitに買収されて価格が高騰し、個人クリエイターを見捨てた。Substackは「広告を排した純粋な有料読者モデル」という創業者思想に囚われていたため、無料メルマガの広告収益化という巨大なマス市場をbeehiivに完全に明け渡した。",
+      "secretInsight": "Morning Brewをゼロから年商数十億円のメディアに育てた創業チームが、その成長ノウハウをすべてコード化し、Substackから人気メルマガを大量に獲得して急成長した手口",
+      "initialTraction": [
+        "創業者のTyler Denkらは、朝刊ビジネスメール「Morning Brew」の初期エンジニア・プロダクト担当者。自らの実績を武器に、「Morning Brewを数千万人規模に育てた極秘ツール（紹介エンジンや広告管理システム）をそのまま提供する」という圧倒的オーソリティで初期ユーザーをTwitterから一本釣り。"
+      ],
+      "actionPlaybook": [
+        "Substackからの「1クリック移行ツール」を開発し、Substack利用者に「手数料10%で毎年何百万円も損していませんか？」と訴求して人気クリエイターを次々と引き抜き。",
+        "メール到達率（Spam判定回避）を維持するためのIPウォーミングとインフラ管理が裏の最大コストだが、大量送信スケールメリットで単価を極小化。"
+      ],
+      "coldOutreachTemplate": "【beehiiv型・配信プラットフォーム移行アプローチ】\n「ニュースレターの有料会員売上から、毎月10%もの手数料を引かれ続けていませんか？\n弊社なら、売上からの手数料中抜きは完全ゼロ。月額固定料金で配信でき、さらに自動広告ネットワークで新たな収入源も獲得できます。\n現在のリストをそのまま安全に移行するサポートを提供します。」"
+    },
+    "essence": {
+      "whatItDoes": "ニュースレター（メルマガ）作成・配信・成長分析・広告マネタイズ統合プラットフォーム",
+      "targetCustomer": "メディアパブリッシャー、ブロガー、企業マーケターのメール配信サーバー代および広告出稿予算",
+      "painRelief": "「メルマガを書いても読者が増えない」「広告主を自力で見つけられず収益化できない」マネタイズ難民の苦痛切除"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者のTyler Denkらは、朝刊ビジネスメール「Morning Brew」の初期エンジニア・プロダクト担当者。自らの実績を武器に、「Morning Brewを数千万人規模に育てた極秘ツール（紹介エンジンや広告管理システム）をそのまま提供する」という圧倒的オーソリティで初期ユーザーをTwitterから一本釣り。",
+      "platformGlitch": "Substackからの「1クリック移行ツール」を開発し、Substack利用者に「手数料10%で毎年何百万円も損していませんか？」と訴求して人気クリエイターを次々と引き抜き。",
+      "pivotSnapshot": "単なるメール送信ツールではなく、「メディアビジネスを自走させるマネタイズエンジン」へとポジショニングを昇華。",
+      "hiddenStackCost": "メール到達率（Spam判定回避）を維持するためのIPウォーミングとインフラ管理が裏の最大コストだが、大量送信スケールメリットで単価を極小化。"
+    },
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2021-2022年",
+      "dataSnapshotPeriod": "2023-2026年 (ARR $20M突破)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "eraContext": "ソーシャルメディアのアルゴリズム変動（TwitterのX化やFacebookのリンク冷遇）により、独自の読者リストを保有する重要性が最高潮に達した時期に台頭。",
+      "currentViabilityAnalysis": "ニュースレター市場における最も攻撃的な成長株であり、ポッドキャストやWebホスティング機能の統合により総合メディアSaaSへと進化中。",
+      "viabilityLabel": "現在も有効"
+    },
+    "observationsStream": [
+      {
+        "id": "obs_ent_beehiiv_0e052432d4cc474caec6_1",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "サバンナOSの急所",
+        "text": "「記事を書いても誰にも読まれない孤独と無力感」と「自分のメルマガでお金を稼ぎたい欲望」。紹介プログラムと広告網がその両方を即効で満たす。",
+        "originType": "inferred",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_beehiiv_0e052432d4cc474caec6_2",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "市場の歪み",
+        "text": "個人が発行するニッチな専門メルマガが、既存の地方新聞や業界紙以上の広告単価（CPM $50〜$100）を叩き出し、旧来メディアの広告枠を破壊。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      },
+      {
+        "id": "obs_ent_beehiiv_0e052432d4cc474caec6_3",
+        "category": "FORUM_RAGE",
+        "categoryLabel": "顧客の生の声・怨嗟",
+        "text": "Ad Networkの審査基準や、紹介プログラムの不正クリック対策によるアカウント制限で一部クリエイターが不満を持つ点。",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "observedAt": "2026-09-10"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "参入候補",
+      "oneLineReason": "メルマガ広告ネットワークの先行利得が大きいが、業界特化の有料レター基盤なら参入可能",
+      "demandDelta": "90日 ↑28%",
+      "competitionDelta": "競合 +2社 (Substack等)",
+      "entryRequirements": {
+        "capital": "100万円",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

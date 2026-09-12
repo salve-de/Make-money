@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_12515dc99150f4ad0b3c",
+  "ticker": "PBLC.GOOD",
+  "name": "Public Goods",
+  "tagline": "「ドラッグストアの派手なパッケージと化学薬品に囲まれたくない」という生活者を狙い、年会費$79でミニマルな無添加日用品を原価直販するホワイトラベルSaaS",
+  "sector": "PHYSICAL_ASSET",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.640Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_12515dc99150f4ad0b3c",
+    "ticker": "PBLC.GOOD",
+    "name": "Public Goods",
+    "legalEntity": "Public Goods, Inc.",
+    "tagline": "「ドラッグストアの派手なパッケージと化学薬品に囲まれたくない」という生活者を狙い、年会費$79でミニマルな無添加日用品を原価直販するホワイトラベルSaaS",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "SMALL_TEAM",
+    "founder": "Morgan Oliver-Allen, Michael Ferchak",
+    "country": "US",
+    "url": "https://publicgoods.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "ミニマル原価EC",
+    "pipelineStack": "Shopify × 単一フォント統一ミニマルパッケージ × 年会費$79 × リフィル詰替パウチ",
+    "targetPainWallet": "洗面所や台所に並ぶ市販洗剤のうるさい原色ラベルに部屋の美学を汚されるストレス",
+    "tags": [
+      "日用品D2C",
+      "年商75億",
+      "ミニマリズム",
+      "年会費モデル",
+      "サステナブルEC"
+    ],
+    "pnl": {
+      "monthlyRevenue": 625000000,
+      "cogs": 281000000,
+      "grossProfit": 344000000,
+      "grossMargin": 55,
+      "operatingExpenses": {
+        "serverAndApi": 8000000,
+        "advertising": 220000000,
+        "subcontracting": 40000000,
+        "toolsAndSaaS": 18000000,
+        "other": 38000000
+      },
+      "operatingProfit": 20000000,
+      "operatingMargin": 3.2,
+      "estimatedAnnualNetProfit": 240000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年（業界報道および企業開示）",
+      "sourceDoc": "Forbes / Fast Company / PitchBook 公開データ",
+      "estimationLogic": "有料会員数約20万人 × 年会費$79（約24億円の会費売上） ＋ 詰替パウチ物販 ＝ 年商約$50M（約¥75億円 ➔ 月商約6.25億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_pbg_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】すべての商品を「白地に黒文字」で統一し、無印良品のD2C版を構築するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "シャンプーからパスタ、トイレットペーパーまで全商品を同じミニマルデザインで揃えさせ、家中をジャックする。",
+        "details": [
+          "【部屋の統一感という麻薬】: 1つPublic Goodsのシャンプーを買うと、隣にある市販の派手なハンドソープが許せなくなり、全部Public Goodsで揃えたくなる。",
+          "【年会費$79のサンクコスト】: 会費を払っているため、「Amazonで買うよりPublic Goodsで買った方が元が取れる」と脳が勝手に解釈してリピート購入。",
+          "【詰替パウチによるLTV極大化】: 初回は美しい琥珀色のボトルを買い、以降は紙パックやパウチの詰替え用を定期購入させる。"
+        ],
+        "codeSnippet": "// ミニマリズム家屋占拠型配管\n1. トイレ、洗面所、キッチンで毎日目に入る日用品をリストアップ\n2. パッケージから一切の装飾を排除し、白地＋黒フォントで全商品を統一\n3. 年会費（¥9,000）を徴収して「会員限定の原価販売」を演出",
+        "sourceNote": "Morgan Oliver 創業インタビュー"
+      },
+      {
+        "id": "ev_pbg_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：Kickstarterでの「中間マージン告発」キャンペーン",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「大手P&GやUnileverがどれだけ過剰な広告費を商品代金に上乗せしているか」をグラフで暴露。",
+        "details": [
+          "2017年、Kickstarterで初期資金を調達。市販のシャンプーの原価が数十円であり、残りの大半がTVCMと流通マージンである事実を暴いた。",
+          "ミニマルなデザインのボトル写真を並べただけで、Kickstarter目標額の600%以上を集めて完売。",
+          "初期バッカーをそのまま初年度の年会費無料会員として抱え込み、初動のロイヤル顧客基盤を構築。"
+        ],
+        "sourceNote": "Kickstarter Public Goods Campaign History"
+      },
+      {
+        "id": "ev_pbg_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：P&Gや花王がミニマル単一ブランドにできない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "大手メーカーは「パンテーン」「アリエール」等、商品ごとに別々のブランド巨額広告を回している。",
+        "details": [
+          "スーパーの棚で目立つためには、蛍光色や巨大なロゴで派手に叫ぶパッケージにせざるを得ない。",
+          "家の中に置いたときにダサいという消費者の苦痛を知りながら、店舗の棚取り競争のために派手なパッケージをやめられない。"
+        ],
+        "sourceNote": "FMCG Packaging Dilemma Analysis"
+      },
+      {
+        "id": "ev_pbg_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：友人を家に招いた時の「生活感丸出し」への羞恥心",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "来客がトイレや洗面所を使った瞬間に目に入る、安っぽいドラッグストア商品の生活感。",
+        "details": [
+          "洗練されたデザイナーズマンションに住んでいる人間ほど、ドラッグストアの洗剤ボトルのダサさに耐えられない。",
+          "Public Goodsで統一することで「生活感のない洗練された暮らし」をアピールできるため、価格比較なしで買い続ける。"
+        ],
+        "sourceNote": "Aesthetic Living Consumption Study"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-03",
+        "author": "Make-Money アナリスト",
+        "text": "B2B卸売（ブティックホテルや高級コワーキングスペースのアメニティ導入）を急拡大。宿泊客がアメニティを使って気に入り、自宅用サブスクに登録するフライホイールが成立。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2017,
+      "initialTractionPeriod": "2017〜2019年（Kickstarterキャンペーンとホテルアメニティ導入）",
+      "dataSnapshotPeriod": "2024年（企業取材・業界レポート）",
+      "eraContext": "「無印良品」「Everlane」に代表される、ブランドロゴを排したノームコア・ミニマリズムの全盛期",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "B2Bホテル配管によるCAC（顧客獲得単価）ゼロの流入ルートを確立しており、極めて堅牢。"
+    },
+    "operations": {
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 300000,
+      "automationLevel": 70,
+      "primaryChannels": [
+        "Shopify",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 20000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 4800000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【洗面所や台所に並ぶ市販洗剤のうるさい原色ラベルに部屋の美学を汚されるストレスを急所ハック】「ドラッグストアの派手なパッケージと化学薬品に囲まれたくない」という生活者を狙い、年会費$79でミニマルな無添加日用品を原価直販するホワイトラベルSaaS",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "ミニマル原価ECによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "大手メーカーは「パンテーン」「アリエール」等、商品ごとに別々のブランド巨額広告を回している。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Public Goodsは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2017年、Kickstarterで初期資金を調達。市販のシャンプーの原価が数十円であり、残りの大半がTVCMと流通マージンである事実を暴いた。",
+        "ミニマルなデザインのボトル写真を並べただけで、Kickstarter目標額の600%以上を集めて完売。",
+        "初期バッカーをそのまま初年度の年会費無料会員として抱え込み、初動のロイヤル顧客基盤を構築。"
+      ],
+      "actionPlaybook": [
+        "【部屋の統一感という麻薬】: 1つPublic Goodsのシャンプーを買うと、隣にある市販の派手なハンドソープが許せなくなり、全部Public Goodsで揃えたくなる。",
+        "【年会費$79のサンクコスト】: 会費を払っているため、「Amazonで買うよりPublic Goodsで買った方が元が取れる」と脳が勝手に解釈してリピート購入。",
+        "【詰替パウチによるLTV極大化】: 初回は美しい琥珀色のボトルを買い、以降は紙パックやパウチの詰替え用を定期購入させる。"
+      ],
+      "coldOutreachTemplate": "// ミニマリズム家屋占拠型配管\n1. トイレ、洗面所、キッチンで毎日目に入る日用品をリストアップ\n2. パッケージから一切の装飾を排除し、白地＋黒フォントで全商品を統一\n3. 年会費（¥9,000）を徴収して「会員限定の原価販売」を演出"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

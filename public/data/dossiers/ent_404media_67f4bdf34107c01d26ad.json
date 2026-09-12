@@ -1,0 +1,151 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_404media_67f4bdf34107c01d26ad",
+  "ticker": "404MEDIA",
+  "name": "404 Media",
+  "tagline": "「他人のコピペSEO記事」が溢れるWebを嘲笑い、AIやハッキングの生々しい一次スクープだけを配信して読者直接課金で年商1.8億円抜く独立記者カルテル",
+  "sector": "CONTENT_MEDIA",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.641Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_404media_67f4bdf34107c01d26ad",
+    "ticker": "404MEDIA",
+    "name": "404 Media",
+    "legalEntity": "404 Media LLC",
+    "tagline": "「他人のコピペSEO記事」が溢れるWebを嘲笑い、AIやハッキングの生々しい一次スクープだけを配信して読者直接課金で年商1.8億円抜く独立記者カルテル",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SMALL_TEAM",
+    "founder": "Jason Koebler, Emanuel Maiberg, Samantha Cole, Joseph Cox",
+    "country": "US",
+    "url": "https://www.404media.co",
+    "verifiedBadge": true,
+    "growthRateYoY": 85,
+    "architecturePattern": "知恵の関所",
+    "pipelineStack": "Ghost CMS × Stripe × 4人の調査報道記者",
+    "targetPainWallet": "テック業界ウォッチャー・セキュリティ専門家の「粗製濫造されたAI生成記事への嫌悪感」と真実への渇望",
+    "tags": [
+      "独立系メディア",
+      "一次スクープ",
+      "有料サブスク",
+      "Ghost基盤",
+      "粗利90%",
+      "反広告"
+    ],
+    "pnl": {
+      "monthlyRevenue": 15000000,
+      "cogs": 1000000,
+      "grossProfit": 14000000,
+      "grossMargin": 93.3,
+      "operatingExpenses": {
+        "serverAndApi": 300000,
+        "advertising": 0,
+        "subcontracting": 800000,
+        "toolsAndSaaS": 400000,
+        "other": 500000
+      },
+      "operatingProfit": 12000000,
+      "operatingMargin": 80,
+      "estimatedAnnualNetProfit": 144000000,
+      "financialStatus": "REPORTED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "有料会員数万人・年商約$1M+（初年度黒字化達成）",
+      "sourceDoc": "404 Media公式開示・記者報告（初年度黒字化、有料サブスク会員数万人、年商約$1M+）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_404media_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】大手メディア崩壊の残骸から専門記者4人で独立し、広告ゼロ・読者課金で年商1億円抜く配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "広告バナーとSEOコピペに依存した大手メディアが自爆する中、「取材力のある4人」が読者直接課金（月$10）に絞ることで、固定費ゼロ・粗利90%の不沈艦を組む。",
+        "details": [
+          "【Step 1: 大手メディアの自爆の特定】: ViceやBuzzFeedがPV至上主義とVCマネーの暴走で破産した際、解雇された敏腕記者4人が即日結託。",
+          "【Step 2: 取材記事のペイウォール化】: 導入部と概要は一般公開してSNSで拡散させ、核心の調査証拠・内部資料・独自取材部分は月額$10の会員限定にする。",
+          "【Step 3: 広告完全排除のブランディング】: 広告主への忖度やバナーによる表示遅延を完全撤廃し、「独立したジャーナリズムを守る支援者」として読者の誇りに課金させる。"
+        ],
+        "codeSnippet": "// Ghost CMSの会員ティアによるペイウォール制御（一次取材スクープの有料読者限定化）\n{{#if @member.paid}}\n  {{content}} <!-- スクープ全文・内部リーク音声・告発資料 -->\n{{else}}\n  {{excerpt}} <!-- 導入部のみ表示 -->\n  <div class=\"paywall-cta\">404 Mediaの独自調査報道を支援するために月額$10で続きを読む</div>\n{{/if}}",
+        "sourceNote": "404 MediaのGhostプラットフォーム構成と公開財務報告から抽出した転用設計図"
+      },
+      {
+        "id": "ev_404media_crime",
+        "type": "THE_CRIME",
+        "title": "広告代理店と中間手数料マージンを完全切除し、読者からの直接会費だけで記者1人あたり年収2,000万円以上を手残りさせる構造",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "経営陣や営業マン、巨大オフィスを全廃し、4人の記者だけでGhost上に記事を投稿するだけで年間1億円以上の純利益を山分けする。",
+        "details": [
+          "元Vice（Motherboard）の看板記者が、会社が倒産した瞬間に自分たちの固定ファン読者をそのまま引き連れて独立。",
+          "AI犯罪、違法トラッキング、サイバー犯罪の一次リーク取材に絞り込み、他社が絶対に真似できない独自性を担保。",
+          "大口サポーター向けに年間$200〜$1,000の「パトロン支援枠」を設け、熱狂的ファンから高単価を回収。"
+        ]
+      }
+    ],
+    "operations": {
+      "teamSize": 4,
+      "weeklyHours": 50,
+      "initialCapitalRequired": 0,
+      "automationLevel": 75,
+      "primaryChannels": [
+        "記者個人Twitter(X)フォロワー",
+        "一次スクープによる他メディア被リンク",
+        "Ghost有料ニュースレター"
+      ],
+      "toolStack": [
+        {
+          "name": "Ghost(Pro)",
+          "category": "CMS/ニュースレター",
+          "monthlyCost": 40000,
+          "purpose": "オープンソースの有料サブスク配信基盤"
+        },
+        {
+          "name": "Stripe",
+          "category": "決済",
+          "monthlyCost": 450000,
+          "purpose": "定期購読課金の自動処理"
+        },
+        {
+          "name": "Signal / SecureDrop",
+          "category": "内部告発窓口",
+          "monthlyCost": 0,
+          "purpose": "ハッカー・内部関係者からの極秘情報受付"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "大手メディアは「PVを稼いでプログラマティック広告を貼る」ビジネスモデルに縛られており、コストのかかる地道な調査報道を次々と切り捨てていた。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "「FBIやサイバー犯罪者すら恐れる独自取材力」という記者の個人的名声。AIには逆立ちしても生成できない「一次現場の生情報」が最大の堀。",
+      "incumbentDilemma": "大手出版社は営業部や役員報酬などの巨大な固定費を抱えているため、数万人の有料読者（年商数億円）では会社が維持できず参入できない。",
+      "secretInsight": "世の中に溢れる記事の99%が「他人の記事の焼き直し」である時代において、真の「一次情報・独自取材」には読者が自腹を切って月千円を払う猛烈な希少価値がある。",
+      "initialTraction": [
+        "Vice解散直後に創業者4人が個人Twitter（計数十万フォロワー）で独立を一斉告知",
+        "ローンチ初週にAIポルノとサイバー犯罪に関する独占スクープを連発し、初速で数千人の有料会員を獲得",
+        "404 Mediaの独自記事がThe Vergeやニューヨーク・タイムズに引用され被リンクと権威性を自動蓄積"
+      ],
+      "actionPlaybook": [
+        "Step 1: 大手企業がリストラで手放した「特定領域の超一流プレイヤー（編集者、アナリスト、研究者）」を3〜4人集める",
+        "Step 2: 広告・スポンサーを完全拒否し、Ghost等のセルフサーブ基盤で有料サブスクを開設する",
+        "Step 3: 「業界の闇を暴く一次資料」だけを週に1本公開し、読者の知的好奇心と業界防衛本能を突いて課金させる"
+      ],
+      "coldOutreachTemplate": "【貴社セキュリティチーム向け極秘インシデント事例レターのご案内】〇〇様、突然のご連絡失礼いたします。昨今のダークウェブにおける企業認証情報流出の手口について、独自潜入取材に基づく一次レポートをお届けしております。月額$10で最新の攻撃手口の分析ログを即日ご確認いただけます。"
+    },
+    "temporal": {
+      "foundedYear": 2023,
+      "initialTractionPeriod": "2023年夏 (Vice破産直後ローンチ)",
+      "dataSnapshotPeriod": "2024-2026年 (年商$1M突破期)",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急上昇（AIコピペ汚染への反動）",
+      "eraContext": "生成AIによるWebの低品質コピペ記事の氾濫と、伝統的デジタルメディアの大量レイオフ・崩壊期。",
+      "currentViabilityAnalysis": "Google検索がAI生成スパムで崩壊したことで、信頼できる人間の記者による直接配信ニュースレターの価値は過去最高に跳ね上がっている。再現性は極めて高い。"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 2,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_3ac128f815c8808657fa",
+  "ticker": "GLOS.COSM",
+  "name": "Glossier",
+  "tagline": "「ファンデーションで肌を塗り固めるな」と素肌至上主義を掲げ、美容ブログ読者のコメント欄から共同開発したピンクのコスメで年商300億円を築いた共犯D2Cの先駆け",
+  "sector": "PHYSICAL_ASSET",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.640Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_3ac128f815c8808657fa",
+    "ticker": "GLOS.COSM",
+    "name": "Glossier",
+    "legalEntity": "Glossier, Inc.",
+    "tagline": "「ファンデーションで肌を塗り固めるな」と素肌至上主義を掲げ、美容ブログ読者のコメント欄から共同開発したピンクのコスメで年商300億円を築いた共犯D2Cの先駆け",
+    "sector": "PHYSICAL_ASSET",
+    "scale": "ENTERPRISE",
+    "founder": "Emily Weiss",
+    "country": "US",
+    "url": "https://www.glossier.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "読者共犯D2C",
+    "pipelineStack": "Into The Glossブログ × Instagram UGCコメント分析 × ピンクジップポーチ同梱 × Sephora棚取り",
+    "targetPainWallet": "重たい化粧で肌荒れを隠し続けるストレス ＆ 百貨店コスメカウンターのツンとした店員への苦手意識",
+    "tags": [
+      "コスメD2C",
+      "年商300億",
+      "UGCマーケ",
+      "共創プロダクト",
+      "素肌美学"
+    ],
+    "pnl": {
+      "monthlyRevenue": 2500000000,
+      "cogs": 625000000,
+      "grossProfit": 1875000000,
+      "grossMargin": 75,
+      "operatingExpenses": {
+        "serverAndApi": 20000000,
+        "advertising": 1100000000,
+        "subcontracting": 250000000,
+        "toolsAndSaaS": 80000000,
+        "other": 225000000
+      },
+      "operatingProfit": 200000000,
+      "operatingMargin": 8,
+      "estimatedAnnualNetProfit": 2400000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年 Sephora提携後報道（年商約$200M・リテール拡大期）",
+      "sourceDoc": "Vogue Business / Bloomberg 2024年Glossier事業分析",
+      "estimationLogic": "Sephora全米店舗展開およびオンライン直販による推定年商約$200M（約¥300億円 ➔ 月商約25億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_glos_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】既存メディアの「読者の不満コメント」をそのまま新商品にして売るコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "自前の美容ブログで「理想のクレンザーは？」と問いかけ、読者の要望通りの処方で製造して事前予約で売り切る。",
+        "details": [
+          "【ブログメディアを先行構築】: 創業前に美容ブログ『Into The Gloss』を立ち上げ、セレブの洗面所を突撃取材して月間数百万人読者を獲得。",
+          "【コメント欄の製品化】: 「泡立ちすぎない、つっぱらない洗顔料がほしい」という読者の生々しいコメントをそのままラボに持ち込み『Milky Jelly Cleanser』を開発。",
+          "【ピンクプチプチポーチのトロイの木馬】: 商品をピンクの気泡緩衝材ポーチに入れて送り、ポーチ自体が街中で持ち歩かれ無料の歩く広告塔に。"
+        ],
+        "codeSnippet": "// コンテンツ共創型D2C配管\n1. 特定ニッチで読者コミュニティを持つメディアを先行運用\n2. 「世の中の既存製品の何が不満か？」をアンケートやコメントで徹底収集\n3. 開発プロセスをすべて公開し、発売当日に読者が「自分の作った商品」として爆買い",
+        "sourceNote": "Emily Weiss 創業ドキュメント"
+      },
+      {
+        "id": "ev_glos_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：ヴォーグ社のアシスタント時代に深夜執筆したブログ",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "ファッション誌の過酷なアシスタント業務の合間、朝4時に起きてセレブのリアルな美容ルーティンを取材。",
+        "details": [
+          "2010年、Emily Weissが自己資金$700で『Into The Gloss』を開設。",
+          "キム・カーダシアン等のセレブが自宅のバスルームで実際に使っている私物コスメを撮影する『The Top Shelf』が爆発的人気に。",
+          "読者が何万人もコメントを寄せ合うコミュニティが完成した状態で、2014年に最初の4製品をローンチ。"
+        ],
+        "sourceNote": "The Story of Glossier: From Blog to Billion Dollar Brand"
+      },
+      {
+        "id": "ev_glos_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：Estee LauderやL'Orealが取れない距離感",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "伝統的コスメ巨人は「完璧にレタッチされた非現実的なモデル写真」でしか集客できない。",
+        "details": [
+          "大手は「シミやシワを完璧に隠す」というコンプレックス煽りで高額ファンデーション（1万円超）を売ってきた。",
+          "「そばかすや毛穴が見えていても可愛い」「すっぴんに近いツヤ肌」という自然体ナラティブは、大手の高価格帯商品の存在意義を否定してしまう。"
+        ],
+        "sourceNote": "Cosmetics Industry Structural Shift"
+      },
+      {
+        "id": "ev_glos_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「頑張って化粧しています感」を出したくない羞恥心",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「厚化粧で必死な人」と思われたくない、こなれた抜け感を演出したいZ世代のプライド。",
+        "details": [
+          "Glossierのバームやマスカラは「化粧していると気づかれないレベル」に薄付き。",
+          "「何もしていないのに元から肌がきれいな人」に見せるためのアイテムとして、若い女性の毎日の自己肯定感財布を独占。"
+        ],
+        "sourceNote": "Gen Z Beauty Aesthetics Analysis"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-05",
+        "author": "Make-Money アナリスト",
+        "text": "D2C限定から全米Sephoraへの本格進出を果たし、売上が過去最高水準へ回復。CEO交代を経て実利的なリテール黒字経営へ転換。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2014,
+      "initialTractionPeriod": "2014〜2016年（ブログ読者の熱狂とInstagramピンクUGCによる初動突破）",
+      "dataSnapshotPeriod": "2024年（Sephora展開後の事業水準）",
+      "eraContext": "Instagram初期の「ミレニアルピンク」ブームと、UGC共創マーケティングの夜明け",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "模倣ブランドが激増したものの、Sephoraの棚を押さえたことと初期ファンの強烈なロイヤルティにより安定基盤を確立。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "Into The Glossブログ",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 80000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 12000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【重たい化粧で肌荒れを隠し続けるストレス ＆ 百貨店コスメカウンターのツンとした店員への苦手意識を急所ハック】「ファンデーションで肌を塗り固めるな」と素肌至上主義を掲げ、美容ブログ読者のコメント欄から共同開発したピンクのコスメで年商300億円を築いた共犯D2Cの先駆け",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "読者共犯D2Cによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "伝統的コスメ巨人は「完璧にレタッチされた非現実的なモデル写真」でしか集客できない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Glossierは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "2010年、Emily Weissが自己資金$700で『Into The Gloss』を開設。",
+        "キム・カーダシアン等のセレブが自宅のバスルームで実際に使っている私物コスメを撮影する『The Top Shelf』が爆発的人気に。",
+        "読者が何万人もコメントを寄せ合うコミュニティが完成した状態で、2014年に最初の4製品をローンチ。"
+      ],
+      "actionPlaybook": [
+        "【ブログメディアを先行構築】: 創業前に美容ブログ『Into The Gloss』を立ち上げ、セレブの洗面所を突撃取材して月間数百万人読者を獲得。",
+        "【コメント欄の製品化】: 「泡立ちすぎない、つっぱらない洗顔料がほしい」という読者の生々しいコメントをそのままラボに持ち込み『Milky Jelly Cleanser』を開発。",
+        "【ピンクプチプチポーチのトロイの木馬】: 商品をピンクの気泡緩衝材ポーチに入れて送り、ポーチ自体が街中で持ち歩かれ無料の歩く広告塔に。"
+      ],
+      "coldOutreachTemplate": "// コンテンツ共創型D2C配管\n1. 特定ニッチで読者コミュニティを持つメディアを先行運用\n2. 「世の中の既存製品の何が不満か？」をアンケートやコメントで徹底収集\n3. 開発プロセスをすべて公開し、発売当日に読者が「自分の作った商品」として爆買い"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

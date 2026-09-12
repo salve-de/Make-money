@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_brandwell_aae3a185790bae0b2b39",
+  "ticker": "BRND.WELL",
+  "name": "BrandWell",
+  "tagline": "「GoogleのAIペナルティでサイトが死ぬ」恐怖を突いてAI検出回避（Undetectable AI）を掲げ、月額$250〜$1,500の超強気な高価格帯で年商35億円を売り抜くSEOの怪物",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.645Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_brandwell_aae3a185790bae0b2b39",
+    "ticker": "BRND.WELL",
+    "name": "BrandWell",
+    "legalEntity": "BrandWell Inc.",
+    "tagline": "「GoogleのAIペナルティでサイトが死ぬ」恐怖を突いてAI検出回避（Undetectable AI）を掲げ、月額$250〜$1,500の超強気な高価格帯で年商35億円を売り抜くSEOの怪物",
+    "sector": "NICHE_SAAS",
+    "scale": "ENTERPRISE",
+    "founder": "Justin Nelson, Julia McCoy",
+    "country": "US",
+    "url": "https://brandwell.ai",
+    "verifiedBadge": true,
+    "growthRateYoY": 60,
+    "architecturePattern": "高単価AI生成要塞",
+    "pipelineStack": "3層LLMスタック（Claude + GPT + 独自NLP） × リアルタイムクローリング × AI検出器バイパスエンジン × 高額月額課金",
+    "targetPainWallet": "月額20ドルのChatGPTで適当に記事を書いてGoogleから低品質ペナルティを食らいサイトが吹き飛んだアフィリエイト経営者の恐怖",
+    "tags": [
+      "AI SEO",
+      "年商35億",
+      "高単価SaaS",
+      "AI検出回避",
+      "長文専門"
+    ],
+    "pnl": {
+      "monthlyRevenue": 290000000,
+      "cogs": 43500000,
+      "grossProfit": 246500000,
+      "grossMargin": 85,
+      "operatingExpenses": {
+        "serverAndApi": 25000000,
+        "advertising": 60000000,
+        "subcontracting": 80000000,
+        "toolsAndSaaS": 15000000,
+        "other": 26500000
+      },
+      "operatingProfit": 40000000,
+      "operatingMargin": 13.8,
+      "estimatedAnnualNetProfit": 480000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年公開開示（ARR $20M突破・リブランディング期）",
+      "sourceDoc": "Julia McCoy公開インタビュー / TechTimes / GetLatka",
+      "estimationLogic": "有料契約企業数千社 × 平均月額単価$500〜$1,000 ＝ 年商約$23M（約¥35億円 ➔ 月商約2.9億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_bw_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】月額$20のツールが溢れる中で「最低月額$250」の超高価格をつけ、プロ用としてブランド化するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「安いAIツールを使うとサイトが飛ぶ。本物のプロは高額なうちを使う」と位置づけ、高単価を正当化する。",
+        "details": [
+          "【3つのAIモデルの多重合成】: 単一のChatGPTではなく、複数の大規模言語モデルを直列に繋ぎ、自然な人間の文章リズムを再現。",
+          "【最初から3,000文字の長文を出力】: 他社が短い文章しか出せない中、最初から完全なH2/H3構成と一次データ引用を含む3,000文字以上の完全体記事を一発出力。",
+          "【自前の無料AI検出器でリード獲得】: 無料の「AI Detector」を公開し、ChatGPTの文章をペーストしたユーザーに「AI度99%！危険！」と警告して自社ツールへ誘導。"
+        ],
+        "codeSnippet": "// 高単価AI生成配管\n1. 無料のAIコンテンツチェッカーで月間数百万人のSEO担当者を流入させる\n2. 「あなたの記事はGoogleにAIと判定されます」と恐怖を喚起\n3. 「人間が書いたと判定される唯一のAIツール（月額$250〜）」をオファーし即時決済",
+        "sourceNote": "Justin Nelson 創業ドキュメント"
+      },
+      {
+        "id": "ev_bw_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：自社オウンドメディアでの上位独占と無料AIチェッカーの拡散",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2022年後半、ChatGPT登場の直前にローンチ。無料AIチェッカーツールが世界中でバイラル化。",
+        "details": [
+          "大学教授や編集者が学生やライターの提出物をチェックするために、無料のAI検出器をブックマーク。",
+          "世界中から集まった膨大なトラフィックを、自社の高単価SaaS（Content at Scale）へ流し込み、わずか数ヶ月でARR 1,000万ドルを突破。",
+          "コンテンツマーケティングの第一人者Julia McCoyをプレジデントに招聘し、エンタープライズブランドへ脱皮。"
+        ],
+        "sourceNote": "GetLatka \"How Content at Scale Hit $10M ARR in Months\""
+      },
+      {
+        "id": "ev_bw_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：JasperやCopy.aiが「高価格長文特化」に振り切れなかった理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "競合は「月額39ドルのマス市場」を狙って薄利多売のレッドオーシャンに沈んでいった。",
+        "details": [
+          "Jasperは一般大衆向けに月額数十ドルで提供したため、サポートコストと解約率の高さに苦しんだ。",
+          "BrandWellは最低プランを月額$250（約3.8万円）に設定することで、真剣に月数百万円稼いでいるプロ企業だけを選別し、高粗利・高LTVを確立した。"
+        ],
+        "sourceNote": "High-Ticket SaaS Positioning Economics"
+      },
+      {
+        "id": "ev_bw_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：年商数億円のメディアサイトが「検索圏外」に飛ばされる破滅恐怖",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "安物のAIツールを使ってGoogleのアルゴリズムにスパム認定され、会社が倒産する恐怖。",
+        "details": [
+          "月額数十万円のBrandWellの費用は、月数千万円のサイト売上を守るための「安全保障費」として極めて安価に知覚される。",
+          "経営者の損失回避本能を直撃して解約を阻止。"
+        ],
+        "sourceNote": "Algorithm Penalty Loss Aversion Dynamics"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-04",
+        "author": "Make-Money アナリスト",
+        "text": "Content at Scaleから『BrandWell』へリブランディング。単なる記事生成から、ブランド全体のコンテンツ監査、リンク構築、キーワード調査を統合したオールインワンプラットフォームへ進化。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2022,
+      "initialTractionPeriod": "2022〜2023年（無料AI検出器の世界的バイラルと高価格帯戦略）",
+      "dataSnapshotPeriod": "2024年（公式発表・Latkaデータ）",
+      "eraContext": "ChatGPT公開に伴うAIコンテンツの爆発と、GoogleのAIペナルティに対するパニック期",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急成長トレンド",
+      "currentViabilityAnalysis": "無料AI検出器による圧倒的なトップオブファンネル流入と高価格帯ポジショニングが極めて強力な参入障壁。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "3層LLMスタック（Claude + GPT + 独自NLP）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 9280000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 15000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【月額20ドルのChatGPTで適当に記事を書いてGoogleから低品質ペナルティを食らいサイトが吹き飛んだアフィリエイト経営者の恐怖を急所ハック】「GoogleのAIペナルティでサイトが死ぬ」恐怖を突いてAI検出回避（Undetectable AI）を掲げ、月額$250〜$1,500の超強気な高価格帯で年商35億円を売り抜くSEOの怪物",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "高単価AI生成要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "競合は「月額39ドルのマス市場」を狙って薄利多売のレッドオーシャンに沈んでいった。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、BrandWellは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "大学教授や編集者が学生やライターの提出物をチェックするために、無料のAI検出器をブックマーク。",
+        "世界中から集まった膨大なトラフィックを、自社の高単価SaaS（Content at Scale）へ流し込み、わずか数ヶ月でARR 1,000万ドルを突破。",
+        "コンテンツマーケティングの第一人者Julia McCoyをプレジデントに招聘し、エンタープライズブランドへ脱皮。"
+      ],
+      "actionPlaybook": [
+        "【3つのAIモデルの多重合成】: 単一のChatGPTではなく、複数の大規模言語モデルを直列に繋ぎ、自然な人間の文章リズムを再現。",
+        "【最初から3,000文字の長文を出力】: 他社が短い文章しか出せない中、最初から完全なH2/H3構成と一次データ引用を含む3,000文字以上の完全体記事を一発出力。",
+        "【自前の無料AI検出器でリード獲得】: 無料の「AI Detector」を公開し、ChatGPTの文章をペーストしたユーザーに「AI度99%！危険！」と警告して自社ツールへ誘導。"
+      ],
+      "coldOutreachTemplate": "// 高単価AI生成配管\n1. 無料のAIコンテンツチェッカーで月間数百万人のSEO担当者を流入させる\n2. 「あなたの記事はGoogleにAIと判定されます」と恐怖を喚起\n3. 「人間が書いたと判定される唯一のAIツール（月額$250〜）」をオファーし即時決済"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}

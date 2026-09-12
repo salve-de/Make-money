@@ -1,0 +1,234 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_case06_7334fb44ac55769d7531",
+  "ticker": "NTN.EVRY",
+  "name": "Notion Everything",
+  "tagline": "世界中に散らばる個人クリエイターのNotionテンプレートをキュレーション集約し、クリエイターから決済手数料20〜30%を自動中抜きするマーケットプレイス型関所",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.637Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_case06_7334fb44ac55769d7531",
+    "ticker": "NTN.EVRY",
+    "name": "Notion Everything",
+    "legalEntity": "Notion Everything",
+    "tagline": "世界中に散らばる個人クリエイターのNotionテンプレートをキュレーション集約し、クリエイターから決済手数料20〜30%を自動中抜きするマーケットプレイス型関所",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Valentin Geffroy",
+    "country": "FR",
+    "url": "https://www.notioneverything.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "寄生プラットフォーム",
+    "pipelineStack": "ノーコード構築 (Webflow/Airtable) × クリエイター公募出品 × 決済仲介手数料20〜30%",
+    "targetPainWallet": "自作テンプレの集客手段がない個人クリエイターの焦燥 ＆ 優良テンプレを探せないユーザーの疲労",
+    "tags": [
+      "Notionエコシステム",
+      "マーケットプレイス",
+      "ノーコード",
+      "手数料中抜き",
+      "粗利80%超"
+    ],
+    "pnl": {
+      "monthlyRevenue": 3500000,
+      "cogs": 420000,
+      "grossProfit": 3080000,
+      "grossMargin": 88,
+      "operatingExpenses": {
+        "serverAndApi": 50000,
+        "advertising": 0,
+        "subcontracting": 150000,
+        "toolsAndSaaS": 80000,
+        "other": 0
+      },
+      "operatingProfit": 2800000,
+      "operatingMargin": 80,
+      "estimatedAnnualNetProfit": 33600000,
+      "financialStatus": "ESTIMATED",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約4,200万円規模）",
+      "sourceDoc": "Indie Hackers公開インタビューおよびサイト掲載テンプレ数・販売規模逆算",
+      "estimationLogic": "掲載テンプレ1,000点超 × 月間販売流通総額約¥1,500万 × 平均テイクレート20〜25% ＝ 月商約¥350万（粗利88%）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_notioneverything_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】他人の作ったデジタル商品をノーコードで集約し、通行税を吸い上げる関所コード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "自分ではテンプレを1つも作らず、世界中のクリエイターに「うちのサイトに載せれば売れる」と出品させ手数料を抜く。",
+        "details": [
+          "【自作コンテンツゼロの胴元モデル】: 自分はテンプレートを作成せず、キュレーション・審査・カテゴリ分類に専念。",
+          "【ノーコード爆速構築】: WebflowとAirtableを連携させ、開発費ほぼゼロ・1週間でディレクトリサイトを公開。",
+          "【テイクレート20〜30%の自動中抜き】: クリエイター側は「集客代行費」として喜んで20〜30%の手数料を差し出す。"
+        ],
+        "codeSnippet": "// 寄生型キュレーションマーケットプレイス配管\n1. Webflow + Airtableで「〇〇（特定SaaS/AIツール）専用テンプレートマーケット」を開設\n2. XやGumroadでテンプレを売っている個人に「無料で掲載して売上を増やしませんか？」とDM送付\n3. 出品者が集まるとSEOが自動強化され、購入者が流入。決済ごとに20%を胴元として自動中抜き",
+        "sourceNote": "Notion Everything プラットフォーム分析"
+      },
+      {
+        "id": "ev_notioneverything_crime",
+        "type": "THE_CRIME",
+        "title": "クリエイターの「集客できない弱み」に寄生した無労働の手数料ビジネス",
+        "badge": "寄生プラットフォームモデル",
+        "evidenceStatus": "REPORTED",
+        "punchline": "コンテンツ制作の苦労はすべて外部クリエイターに押し付け、自分はSEOの関所に居座って月280万円の純利益を抜く。",
+        "details": [
+          "初期投資数万円、社員ゼロ。創業者Valentin Geffroyがほぼ1人で運営。",
+          "Notionの世界的ブームの波に乗り、最大の独立系マーケットプレイスとしての地位を確立。"
+        ],
+        "metrics": [
+          {
+            "label": "粗利率",
+            "value": "88%",
+            "isHighlight": true
+          },
+          {
+            "label": "営業利益率",
+            "value": "80%",
+            "isHighlight": true
+          },
+          {
+            "label": "掲載テンプレート",
+            "value": "1,000点以上"
+          },
+          {
+            "label": "手数料率",
+            "value": "20〜30%"
+          }
+        ]
+      },
+      {
+        "id": "ev_notioneverything_incumbent_trap",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造: GumroadやEtsy等の汎用ECプラットフォームの死角",
+        "evidenceStatus": "REPORTED",
+        "punchline": "汎用プラットフォームは何でも売っているため、「Notionに特化したカテゴリ検索（ライフ、仕事、勉強等）」や「Notionプレビューの埋め込み」などの特化型UIを提供できず、専門マーケットにユーザーを奪われる。"
+      }
+    ],
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 30000,
+      "automationLevel": 90,
+      "primaryChannels": [
+        "Notion関連キーワードのオーガニックSEO",
+        "クリエイター自身のSNS拡散",
+        "週刊Notionおすすめメルマガ"
+      ],
+      "toolStack": [
+        {
+          "name": "Webflow",
+          "category": "フロントエンドCMS",
+          "monthlyCost": 45000,
+          "purpose": "マーケットプレイスUI・ディレクトリ表示"
+        },
+        {
+          "name": "Airtable",
+          "category": "バックエンドDB",
+          "monthlyCost": 25000,
+          "purpose": "出品テンプレ・クリエイターデータ管理"
+        },
+        {
+          "name": "Stripe Connect",
+          "category": "多面決済",
+          "monthlyCost": 100000,
+          "purpose": "クリエイターへの自動売上分配と自社手数料徴収"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【「作る人（クリエイター）」は山ほどいるが「売る場所（キュレーション）」がない市場の歪み】個人クリエイターの99%はマーケティングが苦手で売れない。彼らに「ここに置くだけで売れる」という土俵を提供するだけで、商品が勝手に集まる。",
+      "moatType": "NETWORK_EFFECT",
+      "moatDescription": "出品数が増えるほど購入者が集まり、購入者が増えるほどクリエイターが集まる二面市場フライホイール。",
+      "incumbentDilemma": "Notion公式のテンプレートギャラリーは無料テンプレの紹介が中心で、個人の有料売買を細かく管理・サポートする機能が弱かった。",
+      "secretInsight": "クリエイター審査制を導入。「誰でも出せるわけではない」というプレミア感を出すことで、出品されるテンプレートの質を担保し、購入者の信頼を獲得。",
+      "initialTraction": [
+        "TwitterやGumroadで良質なNotionテンプレを作っている個人を探し、1軒ずつDMで掲載オファー",
+        "「Notion Everything」という直球のドメインを取得し、ディレクトリを公開",
+        "Product Huntで「今週のプロダクト」に選ばれ、世界中からトラフィックが殺到"
+      ],
+      "actionPlaybook": [
+        "Step 1: 今伸びている新興ツール（例: Cursorルール集、Obsidianプラグイン、Framerテンプレ）を特定",
+        "Step 2: WebflowやWordPressでキュレーション型ディレクトリサイトを1週間で構築",
+        "Step 3: クリエイターをDMでスカウトして初期50商品を揃え、Stripe Connectで20%中抜き配管を開通"
+      ],
+      "coldOutreachTemplate": "【クリエイター様へ・掲載無料のご案内】貴作のNotionテンプレートを拝見し大変感銘を受けました。当サイト（月間〇万PV）にて特集掲載させていただきたく、ご案内申し上げます。初期費用・月額費用は完全無料です。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "GumroadがNotion特化サイトを作ると、他のデジタル商品（イラスト、電子書籍等）のクリエイターへの公平性が崩れる。",
+        "scaleMismatchReason": "特定ツールの特化マーケットプレイスは、上場メガプラットフォームにはニッチすぎて狙えない。",
+        "decisionSpeedAdvantage": "Notionの新機能（ボタン機能、新データベース等）に対応した新カテゴリをその日のうちに新設可能。"
+      },
+      "pricingPower": {
+        "anchorComparison": "「広告を出して自力で集客する費用（数万円〜数十万円）」と比較させ、売れた時だけ取られる20%の手数料を「完全な成功報酬」として喜ばせる。",
+        "lossAversionTrigger": "「せっかく何十時間もかけて作ったテンプレが、誰にも知られず埋もれて1円にもならない」徒労感。",
+        "budgetCategory": "販売手数料（売上からの天引き）。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "クリエイターのレビュー評価、売上実績バッジ、ランキング掲載履歴。",
+        "workflowIntegration": "クリエイターが新作テンプレを作るたびに、まずNotion Everythingに登録する出品フロー。",
+        "switchingFriction": "一度SEO上位にランクインした自社商品ページからの継続的な自動売上。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "購入者の支払代金を即時回収し、クリエイターへの支払いは翌月以降。手元キャッシュが常に潤沢。",
+        "incrementalMargin": "商品登録や取引が増えてもサーバー代はほぼ一定。限界利益率が極めて高い。",
+        "workingCapitalStrategy": "在庫リスクゼロ。得られた利益でSEOコンテンツの拡充とメルマガ会員の獲得を加速。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "TwitterでNotionクリエイターを地道にリストアップし、無料掲載を口実に巻き込んだ。",
+      "platformGlitch": "「Notion公式ギャラリーが有料販売に対応していない」というプラットフォームの穴を突いた。",
+      "pivotSnapshot": "単なるリンク集から、Stripe Connectを組み込んだ決済完結型マーケットプレイスへ進化。",
+      "hiddenStackCost": "月々の固定費はWebflowとAirtableの数万円のみ。驚異の利益率80%。"
+    },
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020年〜2021年",
+      "dataSnapshotPeriod": "2023-2024期観測（年商約4,200万円）",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（特化型マーケットプレイス・寄生型関所）",
+      "eraContext": "Notionのエコシステムが爆発し、一般ユーザーがNotionテンプレを購入する文化が定着した時代。",
+      "currentViabilityAnalysis": "「特定急成長ツール（Framer, Make, n8n, Cursor）のテンプレート特化マーケットプレイス」は、日本国内でもまったく手付かずの超高収益ブルーオーシャン。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2020年",
+        "eventType": "foundation",
+        "description": "Valentin GeffroyがWebflowでサイトを開設"
+      },
+      {
+        "occurredAt": "2021年",
+        "eventType": "marketplace",
+        "description": "直接決済機能を導入、月商100万円を突破"
+      },
+      {
+        "occurredAt": "2023-2024年",
+        "eventType": "steady",
+        "description": "掲載数1,000点超、年商4,200万円（利益率80%）を完全ソロ運営"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "即座に略奪可能",
+      "oneLineReason": "「Framerテンプレート特化」や「Cursorルール特化」の日本語マーケットプレイスを開設すれば、1人で月数百万円の関所になれる。",
+      "demandDelta": "90日 ↑30%",
+      "competitionDelta": "日本国内に特化サイト不在",
+      "entryRequirements": {
+        "capital": "数万円（Webflow代）",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "MEDIUM"
+      }
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 3,
+    "financialStatus": "ESTIMATED",
+    "hasLootBlueprint": false
+  }
+}

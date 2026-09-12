@@ -1,0 +1,191 @@
+{
+  "schema": "mm.dossier.v1",
+  "entityId": "ent_activecollab_312ada8332b460b0344a",
+  "ticker": "ACTV.COLB",
+  "name": "ActiveCollab",
+  "tagline": "「Basecampのパブリッククラウド強制とデータ囲い込みは我慢ならない」欧州・米国の受託制作会社を救い、自前サーバーでプロジェクト管理と請求書発行を完結させて年商15億円を稼ぐ古豪",
+  "sector": "NICHE_SAAS",
+  "projectorVersion": "1.0.0",
+  "projectedAt": "2026-09-12T12:26:47.646Z",
+  "curationState": "ACCEPTED",
+  "entity": {
+    "id": "ent_activecollab_312ada8332b460b0344a",
+    "ticker": "ACTV.COLB",
+    "name": "ActiveCollab",
+    "legalEntity": "ActiveCollab LLC",
+    "tagline": "「Basecampのパブリッククラウド強制とデータ囲い込みは我慢ならない」欧州・米国の受託制作会社を救い、自前サーバーでプロジェクト管理と請求書発行を完結させて年商15億円を稼ぐ古豪",
+    "sector": "NICHE_SAAS",
+    "scale": "ENTERPRISE",
+    "founder": "Ilija Studen",
+    "country": "RS",
+    "url": "https://activecollab.com",
+    "verifiedBadge": true,
+    "growthRateYoY": 15,
+    "architecturePattern": "自前運用プロジェクト要塞",
+    "pipelineStack": "PHP/MySQLスタック × セルフホスト買い切り（$3,200〜） ＋ クラウド月額（$9〜$14/人） × 工数記録＆請求書直結機能",
+    "targetPainWallet": "クライアントワークの工数管理と請求業務がバラバラのツールに分かれ、請求漏れで毎月数十万円損している制作会社の社長",
+    "tags": [
+      "プロジェクト管理",
+      "年商15億",
+      "自前ホスト対応",
+      "Basecamp対抗",
+      "工数請求書連動"
+    ],
+    "pnl": {
+      "monthlyRevenue": 125000000,
+      "cogs": 12500000,
+      "grossProfit": 112500000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 10000000,
+        "advertising": 15000000,
+        "subcontracting": 45000000,
+        "toolsAndSaaS": 5000000,
+        "other": 12500000
+      },
+      "operatingProfit": 25000000,
+      "operatingMargin": 20,
+      "estimatedAnnualNetProfit": 300000000,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2023〜2024年（世界5万社以上の導入実績・完全黒字自律経営）",
+      "sourceDoc": "Ilija Studen公開ポッドキャスト / Serbian Tech / ActiveCollab開示",
+      "estimationLogic": "クラウド有料ユーザー数万人 ＋ セルフホスト年額保守ライセンス ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）"
+    },
+    "evidenceCards": [
+      {
+        "id": "ev_actc_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】タスク管理と「タイムトラッキング・請求書」を合体させ、現金の回収までを一本化するコード",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "タスクの作業時間をストップウォッチで記録させ、ワンクリックでPDF請求書にして客に送金させる。",
+        "details": [
+          "【クライアントワーク特化の統合機能】: Trello（タスク）＋Harvest（工数記録）＋QuickBooks（請求書）の3つのツールを1つに集約し、SaaS月額費を1/3に圧縮。",
+          "【オンプレミス（自社サーバー）版の維持】: 銀行や軍事・政府系クライアントを持つ制作会社向けに、買い切り数千ドルのセルフホスト版を愚直に提供し続けて独占。",
+          "【クライアント無料招待】: 発注元のクライアントは何人呼んでも完全無料。制作会社が自社の顧客を全員ActiveCollabに巻き込んで囲い込み。"
+        ],
+        "codeSnippet": "// プロジェクト工数請求書配管\n1. 制作タスク上でタイマーをスタートし、実稼働時間（例: 4.5時間）を自動ログ\n2. 月末に「未請求の工数」をフィルタリングし、1クリックで請求書（Invoice）へ変換\n3. クライアントにStripe/PayPalリンク付きの請求メールを直接送信",
+        "sourceNote": "Ilija Studen 創業インタビュー"
+      },
+      {
+        "id": "ev_actc_crime",
+        "type": "THE_CRIME",
+        "title": "初期ゲリラ戦の客観ログ：Basecampの初期オープンソースクローンとして誕生",
+        "badge": "初動突破事実ログ",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "2006年、セルビアの学生だったIlijaが、Basecampを自社サーバーで動かしたいという世界中のエンジニアの声に応えてOSS公開。",
+        "details": [
+          "オープンソースの「ActiveCollab 0.x」が世界中で何十万回もダウンロードされる社会現象に。",
+          "コードの商業ライセンス化を発表した際には大炎上を経験したが、プロ向け商業ツールとして品質を磨き上げ黒字化。",
+          "外部VCを入れず、セルビア・ノヴィサドの拠点を中心に完全自前資本で15年以上生き残る古豪へ成長。"
+        ],
+        "sourceNote": "The ActiveCollab Story: From Open Source to Bootstrapped Profit"
+      },
+      {
+        "id": "ev_actc_incumbent",
+        "type": "INCUMBENT_TRAP",
+        "title": "大手の自爆構造：BasecampやAsanaが「請求書・工数管理」を統合できない理由",
+        "badge": "大手の自爆構造",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "AsanaやBasecampは「あらゆる業種向け」の汎用ツールであり、制作会社の泥臭い請求業務に特化できない。",
+        "details": [
+          "大手ツールで工数管理や請求書発行をやろうとすると、高額な外部プラグインを繋ぎ合わせなければならない。",
+          "ActiveCollabは最初から「Web制作会社・エージェンシー」だけにターゲットを絞り込んでいるため、余計な設定なしで業務が完結する。"
+        ],
+        "sourceNote": "Agency Vertical SaaS Advantage"
+      },
+      {
+        "id": "ev_actc_pain",
+        "type": "THE_CRIME",
+        "title": "人質にした痛みの財布：「デザイナーが何時間働いたか把握できずクライアントに過少請求する」制作会社社長の出血",
+        "badge": "サバンナOSの急所",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "追加の修正作業をタダ働きしてしまい、月末の請求書で数十万円の売上を取りこぼす受託の地獄。",
+        "details": [
+          "ActiveCollabなら全修正作業の時間が1分単位で記録され、請求書に漏れなく計上される。",
+          "「失われていた売上の回収マシン」として、月額数十ドルの費用など1回の請求書で完全に元が取れる。"
+        ],
+        "sourceNote": "Agency Billable Hours Leakage Economics"
+      }
+    ],
+    "observationsStream": [
+      {
+        "observedAt": "2024-03",
+        "author": "Make-Money アナリスト",
+        "text": "AIによるプロジェクト概要作成と工数見積もりアシスタントを統合。15年以上の稼働実績を持つ堅牢な老舗ブランドとして、欧米の制作会社から安定したキャッシュフローを維持。"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2006,
+      "initialTractionPeriod": "2006〜2008年（オープンソースクローンからの商業化移行）",
+      "dataSnapshotPeriod": "2024年（公式発表・業界推計）",
+      "eraContext": "Web2.0黎明期における受託Webエージェンシーの急増とプロジェクト管理のデジタル化期",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀で堅牢",
+      "currentViabilityAnalysis": "自前ホスト版の固定ファン層と、エージェンシー業務に完全特化した統合ワークフローが鉄壁の防御壁。"
+    },
+    "operations": {
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 5000000,
+      "automationLevel": 60,
+      "primaryChannels": [
+        "PHP/MySQLスタック",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
+      ],
+      "toolStack": [
+        {
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 4000000,
+          "purpose": "世界決済・月額課金・自動請求"
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 6000000,
+          "purpose": "高可用性ホスティング・エッジ配信"
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 45000,
+          "purpose": "顧客データ・トランザクション保管"
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 80000,
+          "purpose": "自動オンボーディング・ナーチャリング"
+        }
+      ]
+    },
+    "strategy": {
+      "blindspot": "【クライアントワークの工数管理と請求業務がバラバラのツールに分かれ、請求漏れで毎月数十万円損している制作会社の社長を急所ハック】「Basecampのパブリッククラウド強制とデータ囲い込みは我慢ならない」欧州・米国の受託制作会社を救い、自前サーバーでプロジェクト管理と請求書発行を完結させて年商15億円を稼ぐ古豪",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "自前運用プロジェクト要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "AsanaやBasecampは「あらゆる業種向け」の汎用ツールであり、制作会社の泥臭い請求業務に特化できない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、ActiveCollabは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "initialTraction": [
+        "オープンソースの「ActiveCollab 0.x」が世界中で何十万回もダウンロードされる社会現象に。",
+        "コードの商業ライセンス化を発表した際には大炎上を経験したが、プロ向け商業ツールとして品質を磨き上げ黒字化。",
+        "外部VCを入れず、セルビア・ノヴィサドの拠点を中心に完全自前資本で15年以上生き残る古豪へ成長。"
+      ],
+      "actionPlaybook": [
+        "【クライアントワーク特化の統合機能】: Trello（タスク）＋Harvest（工数記録）＋QuickBooks（請求書）の3つのツールを1つに集約し、SaaS月額費を1/3に圧縮。",
+        "【オンプレミス（自社サーバー）版の維持】: 銀行や軍事・政府系クライアントを持つ制作会社向けに、買い切り数千ドルのセルフホスト版を愚直に提供し続けて独占。",
+        "【クライアント無料招待】: 発注元のクライアントは何人呼んでも完全無料。制作会社が自社の顧客を全員ActiveCollabに巻き込んで囲い込み。"
+      ],
+      "coldOutreachTemplate": "// プロジェクト工数請求書配管\n1. 制作タスク上でタイマーをスタートし、実稼働時間（例: 4.5時間）を自動ログ\n2. 月末に「未請求の工数」をフィルタリングし、1クリックで請求書（Invoice）へ変換\n3. クライアントにStripe/PayPalリンク付きの請求メールを直接送信"
+    }
+  },
+  "qualityAudit": {
+    "hasEvidenceCards": true,
+    "evidenceCardCount": 4,
+    "financialStatus": "REPORTED",
+    "hasLootBlueprint": false
+  }
+}
