@@ -2,6 +2,61 @@
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
 
+## 2026-09-12 【R2全方位データ収集・蓄積基盤の完全物理仕様】Safari ChatGPTの自白と確定アーキテクチャ
+
+ユーザーの「これでいいのかよ、そもそもの構造やどうやって蓄積するか全て曖昧にせず全部出せ」という厳命に基づき、Safari上のChatGPTに最後通牒を叩きつけ、世界中のあらゆるデータをR2へ恒久蓄積するための【完全な物理ツリー、重複排除配管、蓄積プロトコル、圧縮規格】を1文字の曖昧さもなく完全開示させ、合意・固定した。
+
+### 1. 5大バケットの責任分離と完全物理ツリー
+1. **`foundation-ingest`（未信頼一時バッファ）**:
+   - `incoming/v1/date=<date>/producer=<id>/run=<id>/capture=<id>/payload`: エージェントが直接投入する一時領域（ライフサイクル7日で自動消滅）。
+   - `dead-letter/v1/date=<date>/reason=<code_id>/part-<batch_id>.ndjson.gz`: パース失敗・不正データの隔離所（30日で消滅）。
+2. **`foundation-raw`（検品済み永久原本）**:
+   - `blobs/sha256/<sha256[0:2]>/<sha256[2:4]>/<sha256>`: PDF、音声、画像、HTML、CSVなど全生バイナリをSHA-256でコンテンツアドレス化保存（拡張子不要、MIMEタイプはメタデータ管理）。
+   - `web/warc/v1/date=<date>/producer=<id>/run=<id>/part-*.warc.gz`: 大規模Webクロール専用（256MiBまたは10,000レスポンスでロール、1 WARCにつき1 CDXJインデックス）。
+3. **`foundation-restricted`（著作権・開示制限原本）**:
+   - 構造は `foundation-raw` と完全同一、アクセス権限（IAM）のみ厳格分離。
+4. **`foundation-lake`（世界の知識構造・正規化層）**:
+   - `bundles/v2/date=<date>/producer=<id>/run=<id>/bundle.json.gz`: 1回の収集実行単位の生バンドル。
+   - `journal/v2/date=<date>/hour=<HH>/producer=<id>/part-<batch_id>.ndjson.gz`: 万能観測ログ（32MiB/10,000件でロール）。
+   - `curation/v1/date=<date>/part-<batch_id>.ndjson.gz`: 門番の合否判定ログ。
+   - `tables/uf_core/<table_name>_v1/`: Iceberg管理の10大Coreテーブル（`sources`, `artifacts`, `captures`, `evidence`, `subjects`, `observations`, `relationships`, `curation`, `resolutions`, `lineage`）。
+   - `views/<consumer>/<view_name>/v1/objects/h=<h2>/<subject_id>/<hash>.json.gz`: 事前生成された1社1完全体JSON。
+5. **`foundation-public`（公開許可済みアーティファクト）**:
+   - 外部公開審査を正式に通過した成果物のみ配置。
+
+### 2. コンテンツアドレスと完全重複排除配管
+- **同一ファイル100回取得の挙動**:
+  - 原本Blob: SHA-256（例: `blobs/sha256/98/28/9828e5...`）の**1オブジェクトのみ**。
+  - Captureログ: 100レコード。
+  - Evidenceログ: 必要数。
+  - **「実物が何個あるか（ストレージ）」と「何回観測したか（事実ログ）」を物理的に分離**し、ストレージ容量とClass A課金の爆死を完全防止。
+- **並行書き込み競合**:
+  - 複数エージェントが同時に同じBlobを保存しようとした場合、条件付きPUT（`If-None-Match: *`）で先行者のみ書き込み、後続は既存Blobを参照する。
+
+### 3. エージェント蓄積プロトコル（Step-by-Step）
+**エージェントにはCanonical R2の書き込み権限（Credential）を絶対に渡さない**。中央Intake APIのみと通信する：
+1. `POST /v1/runs`: Runセッション作成（予算・上限トークン発行）。
+2. `POST /v1/captures/initiate`:
+   - リモートURL: Gatewayが直接fetchし、ingestバッファへストリーム保存＋SHA256計算。
+   - ローカルデータ: 100MB未満はPresigned PUT、100MB以上はMultipart Upload。
+3. `POST /v1/observations/batch`: 万能受入型 `ObservationEnvelope` のバッチ投入。
+4. `POST /v1/runs/{run_id}/commit`: コミット。
+
+### 4. 圧縮・ロールオーバー規格
+- **Rawバイナリ**: source-native（再圧縮禁止）。
+- **Webクロール**: `.warc.gz`（256MiB または 10,000レスポンス）。
+- **Universal Journal**: `.ndjson.gz`（32MiB / 10,000観測 / 60秒の最速条件）。
+- **Canonicalテーブル**: Parquet + ZSTD（target 128MiB/file）。
+- **Serving View**: 1社1完全体JSON（.json.gz）。
+
+### 5. 「これでいいのか？」に対する最終審判
+- **今日実装したコードの立ち位置**:
+  - `ObservationEnvelope`、`CurationGate`、`DossierProjector` は、この巨大R2基盤の「受入口の契約（Contract）」および「最下流の陳列棚（Serving View）」として100%整合している。
+- **次に接続すべき具体的配管**:
+  - エージェントが叩く「中央Intake Worker（`POST /v1/runs`, `POST /v1/observations/batch`）」を配備し、ローカルスクリプトからこの中央関所へバッチ投入するパイプラインを繋ぐことである。
+
+---
+
 ## 2026-09-12 【包括的データ収集基盤としての最強配管】Safari ChatGPTとの双方向ディスカッション合意
 
 ユーザーの「最強の方法を聞け、ディスカッションしてこい、1回じゃなくて」という厳命に基づき、Safari上のChatGPTと第2ラウンドの技術ディスカッションを実施。理想論（Iceberg大艦隊）と現場制約（運用死リスク）を激突させ、**「今夜から最小負荷で動かせ、将来億単位へ無停止スケールする最強の物理配管」** を合意・固定した。
