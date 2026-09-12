@@ -3586,6 +3586,29 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
     2. **CASの二重インデックス化**: R2への直接HeadObjectを禁止し、**L1 Bloom Filter（4096 shards）＋SQLite-backed Durable Objects（最大65,536 shards）** で判定。未完了マルチパートは1日自動破棄で三重防御。
     3. **Truth Resolverの完全バイテンポラル化**: **Valid Time（事実の成立期間 [from, to)）× Transaction Time（システム記録日時 [sys_from, sys_to)）** の2軸時間を導入。2021年と2024年の売上は区間非重複として両立保持し、過年度訂正は古い信条をsys_toで閉じてタイムトラベル監査を可能にする。
     4. **ListObjectsの完全追放**: R2全件走査を禁止し、**Reference Graph（参照エッジ）駆動型GC** で孤児BlobのみをピンポイントでDeleteObject（無料）実行。
-- **創業者からの最後通告と追撃（現在進行中）**:
+- **創業者からの最後通告と追撃（完了）**:
   - ユーザーからの直撃厳命:「おい こいつ 右のやつ ダメだとか 言い出したぞ お話になんねえな。それ以外にも 完全と言えるように やれって言っておけ」。
-  - 相手に対して「『撤回します』『ダメでした』と白旗を揚げてどうする。お話にならない。4点の修正だけでなく、それ以外に潜む全ての死角・運用リスクを洗い出し、二度と撤回しない正真正銘の完全無欠仕様を出せ」と追撃文を送信完了。現在、相手の深層回答を待機・回収中。
+  - 相手に対して「『撤回します』『ダメでした』と白旗を揚げてどうする。お話にならない。4点の修正だけでなく、それ以外に潜む全ての死角・運用リスクを洗い出し、二度と撤回しない正真正銘の完全無欠仕様を出せ」と追撃文を送信完了。
+
+### 115. Phase 115: 創業者最後通告による「60大Failure Domain・30大Acceptance Gate・18大不変条件」の完全回収（完了）
+- **背景**:
+  - 相手（ChatGPT）が降伏したのに対し、創業者が「ダメだとか言い出してどうする。お話にならん。それ以外にも完全と言えるように全てやれ」と最後通告を叩きつけた。
+  - 相手は「完全を雰囲気で使うのをやめる」「未来の障害を予言するのではなく、未知のデータ・未知の障害・将来のストレージ変更が来ても原本を失わず、隔離でき、再計算でき、復旧でき、製品を止めずに交換できる状態を指す」と定義を一新し、一網打尽の完全仕様を開示。
+- **回収された60大Failure Domain（機械的閉鎖仕様の骨子）**:
+  1. **セキュリティ・入力防壁**: SSRF遮断（Private IP/Link-local/DNS rebinding再検証）、ZIP/gzip bomb（展開比率・最大バイト・CPU制限）、悪性PDF/画像（隔離コンテナ・Network off）、MIME偽装（Magic bytes照合）、Prompt Injection（Web本文はDATA channel限定、CONTROL channel完全分離でツール実行遮断）。
+  2. **情報汚染・バイアス防御**: Data Poisoning（同一転載100件をSource Lineage Graphで1 family集約）、自己汚染ループ遮断（自社公開記事に `foundation_origin_id` を付与し、クローラーが再取得した場合は独立証拠重み=0）。
+  3. **金融・数値意味論の完全固定**: 金額のfloat誤差撲滅（JS float厳禁、Decimal string/fixed precision強制、元通貨保持＋Derived FX換算）。
+  4. **Entity Resolution（企業ID不変構造）**: Twitter➔X、Facebook➔Meta、Paddle等に対応。IDを社名やドメインに依存させず、永続内部ID `subject_id` を維持し、別名（`SAME_AS`, `MERGED_INTO`, `SPLIT_FROM` 等）を関係性グラフで管理。合併しても過去IDを消さずLineageを保護。
+  5. **Source Retraction（訂正・撤回の一級データ化）**: 記事404、記事訂正、創業者発言撤回、決算訂正を「最新値上書き」で済ませず、`RETRACTED at T2` イベントとして記録し、過去時点の信条履歴を完全に保持。
+  6. **法的削除（PII/GDPR）とAppend-Onlyの衝突解決**: 法的削除要求時はReference Graphから全影響オブジェクトを列挙し、Serving非表示・Derived無効化・Search Indexパージ・Raw実体削除を実施。削除履行証明（Erasure Tombstone）のみを残し、本文はaudit logにも再コピーしない。必要に応じ暗号化分離（Crypto-erasure）を適用。
+  7. **非同期基盤の冪等性・障害隔離**: Queuesのat-least-once重複前提（全10ステージをDeterministic + Idempotent化）。Poison Message対策（5回失敗でDLQ隔離、Parser v2デプロイ後に選択的リプレイ）。Backpressure（Queue lag > 15分で重処理停止、60分で低優先度拒否、日次ハードキャップで遮断）。
+  8. **コスト会計・自動回路遮断**: Run単位でClass A/B、コンテナCPU/メモリ秒、トークン数を計測。取得情報利回り（Marginal Yield）が悪化したクローラーを自動停止。
+  9. **Object Registry消失・全損復旧**: DO/D1だけに頼らず、R2ログ `foundation-lake/catalog/log/` と署名済みスナップショット `bootstrap/root.v1.json` からR2フルスキャン不要で完全復旧。
+  10. **Provider全損対策**: 再取得不能なTier A（原本、Journal、Manifest）のみ独立第2プロバイダへ定期複製。再構築可能なTier B（Iceberg、Derived、Index）は二重保管せずTier Aから再生成。
+  11. **画面一貫性・キャッシュ設計**: Shadow Generation完成後にポインタをアトミック切替。旧世代はロールバック用に即時削除しない。URLは `/view/{projection_hash}` の不変ハッシュキーでキャッシュ爆発・無効化事故を完全防止。
+- **30大Acceptance Gate（受入テスト合格条件）**:
+  - 「同一Blob 1,000並行投入で実ファイル1個」「Queue同一メッセージ10回でミューテーション1回」「Worker/Container/Multipart途中キルでの完全復旧」「Registry全削除からのスナップショット復旧」「Iceberg全削除からのJournal再構築」「2021/2024売上の非競合」「2022決算訂正のタイムトラベル再現」「法的削除の全レイヤーパージ確認」など、30項目の物理テストを定義。
+- **18大絶対不変条件**:
+  1. Raw bytesと解釈を混ぜない / 2. UntrustedとCanonicalを物理分離 / 3. IDを物理パスに依存させない / 4. 原本を製品スキーマに合わせない / 5. 未知データを捨てない / 6. Canonical昇格は厳格化 / 7. 全ミューテーションの冪等化 / 8. 全DerivedへのLineage付与 / 9. Valid TimeとSystem Timeの保持 / 10. Current stateとHistoryの分離 / 11. R2 Listを通常索引に使わない / 12. Rebuildableなものを永久バックアップしない / 13. Rebuild不能なものだけ冗長保管 / 14. Product ViewをFoundationへ逆流させない / 15. AI出力を自動でFactへ昇格させない / 16. 削除義務はappend-onlyより優先 / 17. Storage/DB/AI providerの交換可能性 / 18. 「完了」はdocumentではなくfailure testで判定。
+- **結論**:
+  - これにより、口先・バズワードの小出し設計論を完全包囲・封殺し、60大Failure Domainおよび30大テストゲートを満たす「正真正銘の完全無欠仕様」を確定。
