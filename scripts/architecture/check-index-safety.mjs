@@ -4,6 +4,17 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const canonicalUnknownIds = ['ent_photoai', 'ent_clubhouse_audio', 'ent_quibi_failure'];
+const financialStatuses = new Set(['VERIFIED', 'REPORTED', 'ESTIMATED', 'POST_MORTEM', 'UNAVAILABLE']);
+const unconfirmedFinancialFlags = [
+  'isRevenueUnconfirmed',
+  'isOperatingProfitUnconfirmed',
+  'isMarginUnconfirmed',
+  'isGrossProfitUnconfirmed',
+  'isGrossMarginUnconfirmed',
+  'isCogsUnconfirmed',
+  'isCostsUnconfirmed',
+  'isNetProfitUnconfirmed',
+];
 
 export function checkIndexSafety(index) {
   const errors = [];
@@ -27,8 +38,22 @@ export function checkIndexSafety(index) {
     else names.set(name, id);
 
     const pnl = entity.pnl;
-    if (pnl?.isRevenueUnconfirmed === true && pnl.financialStatus === 'VERIFIED') {
-      errors.push(`${id || entity.name}: verified revenue cannot be marked unconfirmed`);
+    const status = pnl?.financialStatus;
+    if (!financialStatuses.has(status)) {
+      errors.push(`${id || entity.name}: financialStatus must be one of ${[...financialStatuses].join(', ')}`);
+    } else {
+      const sourceDoc = typeof pnl.sourceDoc === 'string' && pnl.sourceDoc.trim();
+      if (!sourceDoc) errors.push(`${id || entity.name}: ${status} financial record requires sourceDoc`);
+      if (status === 'ESTIMATED' && !(typeof pnl.estimationLogic === 'string' && pnl.estimationLogic.trim())) {
+        errors.push(`${id || entity.name}: ESTIMATED financial record requires estimationLogic`);
+      }
+      const hasUnconfirmedValue = unconfirmedFinancialFlags.some((flag) => pnl[flag] === true);
+      if (status === 'VERIFIED' && hasUnconfirmedValue) {
+        errors.push(`${id || entity.name}: verified financial record cannot contain unconfirmed fields`);
+      }
+      if (status === 'UNAVAILABLE' && !hasUnconfirmedValue) {
+        errors.push(`${id || entity.name}: UNAVAILABLE financial record requires an explicit unconfirmed field`);
+      }
     }
   }
 

@@ -38,6 +38,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: '公式開示ARR $2.8M（21,000社有料購読）',
+      sourceDoc: 'Plausible公式開示（21,000社有料会員・ARR情報、既存収集カード）',
     },
     evidenceCards: [
       {
@@ -161,6 +162,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: '推定年間売上$10M+（買い手パス＋成約手数料4-6%）',
+      sourceDoc: 'Acquire.com公開料金体系・取引手数料モデル（既存収集カード、一次数値の突合は未完了）',
+      estimationLogic: '入力: 買い手パス価格と成約手数料モデル、既存カードの取引規模推定。月商=価格×推定契約数＋成約手数料、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。全て推計であり、会社単体の監査済みP&Lではない。',
     },
     evidenceCards: [
       {
@@ -270,6 +273,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: '有料会員数万人・年商約$1M+（初年度黒字化達成）',
+      sourceDoc: '404 Media公式開示・記者報告（初年度黒字化、有料サブスク会員数万人、年商約$1M+）',
     },
     evidenceCards: [
       {
@@ -379,6 +383,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: '年間取扱高GMV 約3,000億円（手数料テイクレート約12-14%）',
+      sourceDoc: 'StockX公開手数料・取扱高に関する既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: 公開手数料率と推定GMV。月商=GMV×推定テイクレート÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。鑑定・物流費は既存カードの仮定で、実績P&Lではない。',
     },
     evidenceCards: [
       {
@@ -488,6 +494,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: '推定月商約600万円（Notionテンプレート販売＋高単価アフィリエイト）',
+      sourceDoc: 'Gridfitiの公開ストア・Pinterest導線・既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: Notionテンプレート販売とアフィリエイトの推定件数・単価。月商=推定販売件数×平均単価＋紹介料、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。件数と費用は推計であり、実績P&Lではない。',
     },
     evidenceCards: [
       {
@@ -597,6 +605,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: '年間受講生約700名＋ニュースレター広告（推計月商3,750万円）',
+      sourceDoc: 'Demand Curve公開講座価格・受講規模と既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: 講座価格×年間受講生約700名÷12＋ニュースレター広告の推定。月商=講座売上÷12＋広告売上、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。受講者数・広告売上・費用は推計で、会社単体の監査済みP&Lではない。',
     },
     evidenceCards: [
       {
@@ -705,6 +715,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: 'PTYA年2回募集＋デジタル商品（推計年商$5Mペース）',
+      sourceDoc: 'Ali Abdaal公開収益情報・PTYA価格表と既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: PTYA受講料×年2回募集の推定人数＋デジタル商品の推定売上。月商=年間推定売上÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。人数・売上・費用は推計で、事業全体の監査済みP&Lではない。',
     },
     evidenceCards: [
       {
@@ -813,6 +825,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: 'Gumroadデジタル直販（月商約125万円・手残り80%）',
+      sourceDoc: 'Red Gregory公開Gumroadストア・YouTube導線と既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: 公開テンプレート価格×推定販売件数。月商=平均単価×推定販売件数、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。販売件数と費用は推計で、実績P&Lではない。',
     },
     evidenceCards: [
       {
@@ -920,6 +934,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: 'Pro+月額$39サブスク（推計数千社課金・月商2,500万円）',
+      sourceDoc: 'Flowbase公開料金・Chrome Web Store機能と既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: Pro+月額$39×推定有料契約数。月商=単価×推定契約数、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約数と費用は推計で、実績P&Lではない。',
     },
     evidenceCards: [
       {
@@ -1027,6 +1043,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: 'オープンソース商用ライセンス＋SaaS版（推計ARR $5Mペース）',
+      sourceDoc: 'Baserow公開料金・商用ライセンスと既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: SaaS契約と商用ライセンスの推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約数・原価・費用は推計で、実績P&Lではない。',
     },
     evidenceCards: [
       {
@@ -1134,6 +1152,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: 'Appwrite Cloud＋Enterprise商用契約（推計ARR $10M規模）',
+      sourceDoc: 'Appwrite Cloud料金・Enterprise契約モデルと既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: Cloud契約とEnterprise契約の推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約規模・原価・費用は推計で、実績P&Lではない。',
     },
     evidenceCards: [
       {
@@ -1241,6 +1261,8 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       isRevenueUnconfirmed: false,
       isMarginUnconfirmed: false,
       revenueLabel: 'Cloudサブスク＋Enterpriseオンプレライセンス（推計ARR $3M）',
+      sourceDoc: 'Activepieces公開料金・Enterpriseライセンスと既存収集カード（一次数値の突合は未完了）',
+      estimationLogic: '入力: CloudサブスクとEnterpriseライセンスの推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約規模・原価・費用は推計で、実績P&Lではない。',
     },
     evidenceCards: [
       {
