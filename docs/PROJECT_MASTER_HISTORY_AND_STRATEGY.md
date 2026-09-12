@@ -3857,6 +3857,20 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   3. **変更通知プロトコル**: 今後、保存先・共通コード・権限に変更が生じる場合のみ、実施前に事実（対象、証拠、未確認）をこの会話へ共有する。
   4. **相互干渉の完全排除**: IR側からMake-Money側へのEDINET作業の変更・追加依頼は発生せず、完全並行で自律進行する。
 
+---
+
+## Phase 124: CompanyInspectorPane セクション直通スクロールのリアクティブ化＆プロダクションビルド・全件テスト検証
+
+### 1. セクション直通スクロールのリアクティブ化
+- **背景・課題**: 同一エンティティ（企業）を表示したまま、URLの `section` クエリパラメータ（例: `?section=stream`, `?section=playbook`, `?section=financial`）が変化した際に、初回マウント時しかスクロールジャンプが発火しなかった。
+- **改修内容**: `src/features/company-inspector/CompanyInspectorPane.tsx` において Next.js の `useSearchParams()` を導入。`targetSection` の変化を検知して即座に該当DOMエレメントへスムーズスクロールするリアクティブ依存配列 `[entity?.id, targetSection]` を確立。
+
+### 2. プロダクションビルド・全自動テストの完全検証
+- `pnpm tsc --noEmit`: エラーゼロ通過。
+- `pnpm test`: 全320テスト（Vitest 292件、Foundation 11件、Architecture 11件、D1 Recovery 6件）100% PASS。
+- `pnpm build`: Next.js 16.3.4 プロダクションビルドおよび有料成果物ガードレール（84 files, 392 sentinels）正常通過。
+
+
 
 
 

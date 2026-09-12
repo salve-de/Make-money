@@ -1,5 +1,6 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import React,{ useEffect,useRef,useState } from 'react';
 
 import { buildInspectorModel } from './model/inspector-model';
@@ -34,6 +35,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const searchParams = useSearchParams();
+  const targetSection = searchParams?.get('section');
 
   // セクション直通スクロールジャンプ
   const scrollToSection = (sectionId: string) => {
@@ -68,17 +71,14 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   }, [onClose]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const params = new URLSearchParams(window.location.search);
-    const targetSection = params.get('section');
     if (targetSection) {
       const timer = setTimeout(() => {
         const el = document.getElementById(`section-${targetSection}`);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300);
+      }, 150);
       return () => clearTimeout(timer);
     }
-  }, [entity?.id]);
+  }, [entity?.id, targetSection]);
 
   if (!entity) return null;
 
