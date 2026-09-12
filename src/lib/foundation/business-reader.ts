@@ -588,15 +588,6 @@ function probeContainsEntity(probe: BundleProbe | null, entityId: string): boole
   return probe.typedArraysComplete ? false : null;
 }
 
-function probeContainsAnyEntity(probe: BundleProbe | null, entityIds: Set<string>): boolean | null {
-  if (!probe) return null;
-  for (const entityId of entityIds) {
-    if (probe.knownEntityIds.has(entityId)) return true;
-  }
-  if (probe.entitiesArrayPresent) return false;
-  return probe.typedArraysComplete ? false : null;
-}
-
 const bundleCache = new Map<string, Promise<JsonObject | null>>();
 
 function cachedBundle(key: string): Promise<JsonObject | null> {
@@ -721,37 +712,15 @@ export async function readFoundationValuePage(options: {
   if (page.data.length === 0) {
     return { data: [], nextCursor: page.nextCursor, hasMore: page.hasMore };
   }
-
-  const summaries = page.data;
-  const entityIds = new Set(summaries.map((summary) => summary.id));
-  const recordsByEntity = new Map<string, FoundationRecordAccumulator>(
-    summaries.map((summary) => [summary.id, createRecordAccumulator()])
-  );
-  const bundleObjects = await listBundleObjects();
-
-  for (let index = 0; index < bundleObjects.length; index += BUNDLE_SCAN_BATCH_SIZE) {
-    const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
-    const probes = await Promise.all(batch.map((item) => cachedProbe(item.key)));
-    const candidateKeys = batch
-      .filter((_, batchIndex) => probeContainsAnyEntity(probes[batchIndex], entityIds) !== false)
-      .map((item) => item.key);
-    const bundles = await Promise.all(candidateKeys.map((key) => cachedBundle(key)));
-
-    for (const bundle of bundles) {
-      if (!bundle) continue;
-      for (const entityId of entityIds) {
-        if (bundleContainsEntity(bundle, entityId)) {
-          const target = recordsByEntity.get(entityId);
-          if (target) collectBundleRecords(bundle, entityId, target);
-        }
-      }
-    }
-  }
-
+  // Keep the list path bounded to the immutable entity summaries. Scanning
+  // every research bundle here turns a 100-row page into a full-lake read and
+  // makes the first screen depend on the total number of bundles. Bundle
+  // records are intentionally loaded only by readFoundationBusinessCase when
+  // a user opens one entity's detail view.
   return {
-    data: summaries.map((summary) => ({
+    data: page.data.map((summary) => ({
       ...summary,
-      valueProfile: buildFoundationValueProfile(summary, recordsByEntity.get(summary.id) || createRecordAccumulator()),
+      valueProfile: buildFoundationValueProfile(summary, createRecordAccumulator()),
     })),
     nextCursor: page.nextCursor,
     hasMore: page.hasMore,
