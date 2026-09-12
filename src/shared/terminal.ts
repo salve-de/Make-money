@@ -296,7 +296,7 @@ export interface FinancialEntity {
   // 【動的証拠保全カード配列（Dynamic Evidence Registry）】
   evidenceCards?: DynamicEvidenceCard[]; // 企業固有の存在する特異点事実カードのみを動的に召喚
 
-  // 【Layer 2 & Layer 3: 3層ハイブリッドUI完全表示保障用フィールド】
+  // 【Layer 2 & Layer 3: 3層ハイブリッドUI表示経路用フィールド】
   temporal?: TemporalIntelligence; // 時系列インテリジェンス（創業年、データ時期、現時点での賞味期限判定）
   dynamicMoats?: DynamicMoats; // Layer 2: 動的特異点ブロック（データが存在する項目のみ展開）
   observationsStream?: UniversalObservation[]; // Layer 3: 万能救済ストリーム（型に収まらない全データ）

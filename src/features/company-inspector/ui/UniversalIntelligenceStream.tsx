@@ -332,7 +332,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       )}
       {/* ========================================================= */}
       {/* Layer 3: 【万能救済ストリーム】（型に収まらない全データ） */}
-      {/* observations / Universal Journal の内容を高密度カードとして1文字も捨てずに全量描画 */}
+      {/* 保存済み観測を根拠・権利・公開範囲を保ったまま表示可能な範囲で描画 */}
       {/* ========================================================= */}
       <section className="space-y-3">
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
