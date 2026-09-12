@@ -7,6 +7,7 @@ import type { CompanyInspectorPaneProps } from './model/section-props';
 import { AnalystNotes } from './ui/AnalystNotes';
 import { BusinessSections } from './ui/BusinessSections';
 import { CompanyHeader } from './ui/CompanyHeader';
+import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
 import { EvidenceStream } from './ui/EvidenceStream';
 import { FinancialSection } from './ui/FinancialSection';
 import { PlaybookSections } from './ui/PlaybookSections';
@@ -111,6 +112,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           <div className="sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10" />
 
         <RelatedResearch {...sectionProps} />
+        <EvidenceDeckSection {...sectionProps} />
         <BusinessSections {...sectionProps} />
         <FinancialSection {...sectionProps} />
         <ToolsSection {...sectionProps} />

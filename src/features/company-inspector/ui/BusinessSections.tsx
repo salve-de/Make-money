@@ -76,36 +76,6 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                   </div>
                 </div>
 
-                {/* 特異点メトリクス（証拠カードから統合・情報密度強化） */}
-                {(() => {
-                  const allMetrics = entity.evidenceCards?.flatMap(c => c.metrics || []) || [];
-                  const uniqueMetrics = allMetrics.filter((m, i, arr) => arr.findIndex(t => t.label === m.label) === i);
-                  if (uniqueMetrics.length === 0) return null;
-                  return (
-                    <div className="p-2.5 bg-[#141A28] border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono">
-                      {uniqueMetrics.map((m, mIdx) => (
-                        <div key={mIdx} className="space-y-0.5">
-                          <span className="text-[10px] text-zinc-400 block truncate font-medium">{m.label}</span>
-                          <span className={`text-xs font-bold block truncate tabular-nums ${m.isHighlight ? 'text-emerald-400' : 'text-zinc-100'}`}>
-                            {m.value}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  );
-                })()}
-
-                {/* 一次情報証拠（証拠カードから統合） */}
-                {(() => {
-                  const sourceNote = entity.evidenceCards?.find(c => c.sourceNote)?.sourceNote;
-                  if (!sourceNote) return null;
-                  return (
-                    <div className="px-3.5 py-1.5 bg-black/20 border-t border-white/[0.04] text-[10px] font-mono text-zinc-400 flex items-center justify-between">
-                      <span>一次情報証拠: <strong className="text-zinc-300">{sourceNote}</strong></span>
-                      <span className="text-zinc-500">AUDITED</span>
-                    </div>
-                  );
-                })()}
               </div>
             )}
 
