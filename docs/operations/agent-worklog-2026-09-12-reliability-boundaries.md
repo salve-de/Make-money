@@ -35,3 +35,14 @@ This worklog records the local verification state. Chat closure remains `review-
 - The verified commit was fast-forwarded into local `main` at `3d9d91e25a12980452c2f6781f415a57257cdd36`.
 - The two stale worktree registrations under `/private/tmp` were pruned after confirming their directories no longer existed. The repository now has one managed worktree and no untracked or uncommitted files.
 - GitHub `origin/main` remains at `6267f9140bf15a06cfdfb26833a9fa50ff4836ec`; local `main` is ahead because the external push was not authorized by the automatic review. Remote release and production recovery items remain explicitly unverified.
+
+## Current-state correction (2026-09-12, verified after the historical entries above)
+
+The entries above are historical snapshots and must not be used as the current release state. The current authoritative state is:
+
+- The working branch is `codex/reliability-boundaries`; its worktree is clean and `HEAD` is `73e4131a734f850e76771bb6cf8320f6fdf40830`. `origin/codex/reliability-boundaries` points to the same commit. `origin/main` is still `aa4e64cfb82add1366ad6c0a7185ddb755b6c1e9`.
+- PR #18 is open from this branch to `main`, is `MERGEABLE`/`CLEAN`, and has a successful current GitHub Actions run (`34688073287`) for `lint`, `typecheck`, `unit test`, `build`, and `E2E smoke`. It has not been merged.
+- The active `main-quality-gates` ruleset requires those five checks with strict status checks. This proves the merge gate exists; it does not prove that this branch is already in `main`.
+- The serving index currently contains 121 records. The 135-record wording in Phase 109/111 is historical; staged candidates remain out of the current display index by design. Current statuses are `VERIFIED 7`, `ESTIMATED 35`, `REPORTED 69`, `POST_MORTEM 3`, and `UNAVAILABLE 7`.
+- Local browser verification used the fallback path because the local session did not establish a live Foundation R2 read. Earlier direct Worker/R2 readback is separate evidence and must not be conflated with this local browser run.
+- Production Worker deployment, live production R2/D1 cutover, migration of any pre-existing Neon-owned user data, scheduled backup/RPO/RTO operation, and a production restore drill remain unverified. No completion claim may be made for those items.
