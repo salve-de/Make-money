@@ -1,6 +1,21 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
+## 2026-09-13 【確定・不可侵】EDINET完全遮断とChatGPT Proコード監査反映の記録
+
+### 1. EDINET（universal/data-assets/financials/）への完全不可侵
+- **物理・実行環境の遮断**: EDINETパース処理（Windows実機 `investrader-edinet-windows`）および既存データ領域への一切の変更・干渉を完全禁止。
+- **バケットホワイトリスト**: `scripts/foundation-simple-ingest.ts` に `ALLOWED_RAW_BUCKETS = ['foundation-raw']`, `ALLOWED_LAKE_BUCKETS = ['foundation-lake']` を厳格配備し、`universal` バケットへの誤爆・混入を通信発生前に即時 throw（スモークテスト実証済み）。
+- **IAM権限境界**: 本環境のR2トークンは `universal` へのアクセス権限を保持しておらず、物理的にも操作不可。
+
+### 2. ChatGPT Pro（監査役）によるコード監査所見と完全反映
+- **Readback完全検証**: `GetObject` の Body（Stream）を完全に消費し、原物は SHA-256＋バイト数照合、保存票は事前確定JSONとの完全一致を照合。
+- **CAS条件付きPUT**: `PutObjectCommand` に `IfNoneMatch: "*"` を付与し、レースコンディション時の上書き破壊を防止。412競合時は既存オブジェクトを検証・再利用。
+- **事前JSONシリアライズ確定**: 原物PUT前に保存票JSONを確定させ、シリアライズ例外による原物の孤立ゴミ化を遮断。
+- **S3 Metadata ASCII厳格準拠**: 日本語URL等は保存票JSON側で保持し、ヘッダー文字化け・エラーを防止。
+- **入力バッファのスナップショット化**: 呼出元によるミューテーションを遮断、50MB上限設定。
+
+---
 
 ## 2026-09-12 【構想・未実装】R2全方位データ収集・蓄積基盤の物理仕様案
 
