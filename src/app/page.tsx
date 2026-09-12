@@ -8,14 +8,19 @@ import { resolve } from 'node:path';
 import { TerminalShell } from '../platform/components/layout/TerminalShell';
 import type { FinancialEntity } from '@/platform/types/terminal';
 
+const INITIAL_FEED_LIMIT = 200;
+
 async function getInitialEntities(): Promise<FinancialEntity[]> {
   try {
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
-    const entities = parseFinancialEntities(parsed)
+    const allEntities = parseFinancialEntities(parsed)
       .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
       .map(normalizeFinancialEntity);
-    if (entities.length > 0) return entities;
+    if (allEntities.length > 0) {
+      // 10,000件スケール時もSSR HTMLの巨大化を防ぎ0.01秒描画を死守するため、初期描画分を先頭200件に制限
+      return allEntities.slice(0, INITIAL_FEED_LIMIT);
+    }
   } catch (error) {
     console.warn('[HomePage] Failed to read entities-index.json, fallback to mock data:', error);
   }

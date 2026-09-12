@@ -11,13 +11,15 @@ import { PlaybookClientShell } from './PlaybookClientShell';
 
 export const revalidate = 60; // 1分ごとに動的再検証 (ISR)
 
+const INITIAL_FEED_LIMIT = 200;
+
 async function getEntities(): Promise<FinancialEntity[]> {
   try {
     const localPath = resolve(process.cwd(), 'data/entities-index.json');
     const content = await readFile(localPath, 'utf8');
     const parsed = parseFinancialEntities(JSON.parse(content));
     if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed.map(normalizeFinancialEntity);
+      return parsed.slice(0, INITIAL_FEED_LIMIT).map(normalizeFinancialEntity);
     }
   } catch (error) {
     console.warn('[PlaybookPage] Failed to read entities-index.json, fallback to mock data:', error);

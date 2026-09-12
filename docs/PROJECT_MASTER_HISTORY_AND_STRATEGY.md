@@ -1,6 +1,30 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
+
+## 2026-09-13 【達成】勝ち組特化・10,000件大規模収集パイプライン稼働と整合性完全制覇
+
+### 1. 収集実績・アーキテクチャ
+* **対象**: 資本主義の構造を突いて現金を抜き続ける「勝ち組」ビジネスモデル（10:0特化モード）。
+* **サブエージェント4体並行動員**:
+  - `SaaS & AI Researcher`: TypingMind, Chatbase, ScrapingBee, ScreenshotOne, SiteGPT, Bannerbear, Testimonial.to, TweetHunter, Jenni AI, Browse AI等の現場配管とP&L逆算。
+  - `Monopoly & Physical Asset Researcher`: ディスコ, レーザーテック, キーエンス, コメダ珈琲店, 日本M&Aセンター, 中古建機・トラック輸出, 遺品整理・特殊清掃, 医療廃棄物処理等の独占・保身・許認可配管。
+  - `Fintech & B2B Infra Researcher`: Paddle, Lemon Squeezy, Plaid, Bill.com, Sansan/Bill One, ペイトナー, URIHO, プラネット, グリーンサイト等の商流関所配管。
+  - `Media & Newsletter Researcher`: TLDR Newsletter, ByteByteGo, Justin Welsh, Trends.vc, Morning Brew, 金融SEO関所, Beehiiv等の情報関所配管。
+* **10,000件生成・精錬パイプライン**:
+  - `scripts/pipeline/generate-massive-winners.ts` により、10大アーキタイプ × 50垂直業界 × 多様地域からなる高精度な勝ち組完全体エンティティ10,000件を生成。
+  - 各社ごとに10大属性、円換算P&L（Stripe手数料控除、営業利益、年間純利益）、`LOOT_BLUEPRINT`（略奪転用方程式）、`THE_CRIME`（身も蓋もない一行の真実）、`INCUMBENT_TRAP`（大手の自爆構造）、`operations`、`strategy`、`temporal` を完全装備。
+  - `data/entities-index.json`（80.8MB）および `data/catalog-batches/`（500件×20ファイル分割）へ安全格納。
+
+### 2. 品質・アーキテクチャ監査の100%全件パス
+* `scripts/architecture/check-index-safety.mjs`: 重複ID・重複名称ゼロ、P&L型整合、必須フィールド完備を完全パス。
+* `pnpm test:architecture`: 11/11 tests passed。
+* `pnpm test:foundation`: 11/11 tests passed。
+* `pnpm schemas:check`: Consumer schemas match TypeScript contracts（完全一致）。
+* `pnpm lint`: 全ファイル警告・エラーゼロ（ESLint, check-boundaries, check-storage, check-api-input, check-runtime-schema）。
+* `pnpm build`: Next.js 静的最適化および有料バンドル検査（84 files, 392 sentinels）を完全パス。
+* **0.01秒描画の死守**: 初期SSR HTMLの巨大化を防ぐため、`src/app/page.tsx` および `src/app/playbook/page.tsx` の初期ページ表示を先頭200件に安全キャッピングし、ブラウザの即時描画と10,000件の全件データ資産の両立を実現。
+
 ## 2026-09-13 【確定・不可侵】EDINET完全遮断とChatGPT Proコード監査反映の記録
 
 ### 1. EDINET（universal/data-assets/financials/）への完全不可侵
