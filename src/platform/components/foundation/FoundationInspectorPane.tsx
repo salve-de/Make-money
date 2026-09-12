@@ -361,7 +361,7 @@ export const FoundationInspectorPane: React.FC<FoundationInspectorPaneProps> = (
                   <div className="rounded border border-white/[0.05] bg-white/[0.02] p-2"><div className="text-[9px] text-zinc-600">Evidence</div><div className="mt-1 text-sm font-bold text-white">{dossier.evidenceCount}</div></div>
                   <div className="rounded border border-white/[0.05] bg-white/[0.02] p-2"><div className="text-[9px] text-zinc-600">Conflict</div><div className="mt-1 text-sm font-bold text-red-300">{dossier.conflictedCount}</div></div>
                   <div className="rounded border border-white/[0.05] bg-white/[0.02] p-2"><div className="text-[9px] text-zinc-600">Unverified</div><div className="mt-1 text-sm font-bold text-amber-300">{dossier.unverifiedCount}</div></div>
-                  <div className="rounded border border-white/[0.05] bg-white/[0.02] p-2"><div className="text-[9px] text-zinc-600">Bundles</div><div className="mt-1 text-sm font-bold text-zinc-300">{entity.bundlesScanned}</div></div>
+                  <div className="rounded border border-white/[0.05] bg-white/[0.02] p-2"><div className="text-[9px] text-zinc-600">Bundles</div><div className="mt-1 text-sm font-bold text-zinc-300">{entity.bundleScanComplete ? entity.bundlesScanned : `${entity.bundlesScanned}/${entity.bundleObjectsListed} 範囲`}</div></div>
                 </div>
               </section>
 

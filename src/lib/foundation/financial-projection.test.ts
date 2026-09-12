@@ -87,7 +87,7 @@ it('does not turn an unrelated observation into all scoring dimensions', () => {
 it('detail adapter selects MRR and keeps zero revenue separate from missing profit', () => {
   const summary: FoundationEntitySummary = { id: 'test', name: 'Test', entityType: 'business', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [] };
   const empty = { claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [] };
-  const detail: FoundationBusinessCase = { ...summary, ...empty, valueProfile: buildFoundationValueProfile(summary, empty), bundlesScanned: 0, bundleObjectsListed: 0 };
+  const detail: FoundationBusinessCase = { ...summary, ...empty, valueProfile: buildFoundationValueProfile(summary, empty), bundlesScanned: 0, bundleObjectsListed: 0, bundleScanComplete: true };
   const known = adaptFoundationDetailToFinancialEntity({ ...detail, metrics: [metric('mrr', 10000, { unit: 'monthly' })] });
   expect(known.pnl).toMatchObject({ monthlyRevenue: 10000, isRevenueUnconfirmed: false, isMarginUnconfirmed: true, operatingProfit: 0 });
   const zero = adaptFoundationDetailToFinancialEntity({ ...detail, metrics: [metric('mrr', 0, { unit: 'monthly' })] });
@@ -97,7 +97,7 @@ it('detail adapter selects MRR and keeps zero revenue separate from missing prof
 it('keeps absent detail facts explicitly unknown instead of inventing an operating profile', () => {
   const summary: FoundationEntitySummary = { id: 'unknown', name: 'Unknown', entityType: 'business', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [] };
   const empty = { claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [] };
-  const detail: FoundationBusinessCase = { ...summary, ...empty, valueProfile: buildFoundationValueProfile(summary, empty), bundlesScanned: 0, bundleObjectsListed: 0 };
+  const detail: FoundationBusinessCase = { ...summary, ...empty, valueProfile: buildFoundationValueProfile(summary, empty), bundlesScanned: 0, bundleObjectsListed: 0, bundleScanComplete: true };
   const entity = adaptFoundationDetailToFinancialEntity(detail);
 
   expect(entity.scale).toBe('UNKNOWN');
@@ -181,6 +181,7 @@ it('does not promote unsupported Foundation facts into confirmed adapter fields'
     valueProfile: buildFoundationValueProfile(summary, { ...empty, metrics: [metric('mrr', 10000, { verificationStatus: 'UNVERIFIED', originType: 'reported' })] }),
     bundlesScanned: 1,
     bundleObjectsListed: 1,
+    bundleScanComplete: true,
   };
   const entity = adaptFoundationDetailToFinancialEntity(detail);
 

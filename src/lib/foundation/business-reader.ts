@@ -2,6 +2,7 @@ import {
   getFoundationBucketAsync,
   getFromR2,
   listR2Objects,
+  readR2Object,
   readR2ObjectRange,
   type R2ListObject,
 } from '@/lib/storage/r2';
@@ -144,6 +145,8 @@ export interface FoundationBusinessCase extends FoundationEntitySummary {
   valueProfile: FoundationValueProfile;
   bundlesScanned: number;
   bundleObjectsListed: number;
+  /** False when a legacy bundle fallback stopped at its safety limit. */
+  bundleScanComplete: boolean;
 }
 
 export interface FoundationEntityPage {
@@ -168,6 +171,7 @@ const MAX_BUNDLE_LIST_PAGES = 128;
 // A larger bounded fan-out keeps a cold detail read responsive without
 // issuing an unbounded burst against R2.
 const BUNDLE_SCAN_BATCH_SIZE = 96;
+const MAX_FALLBACK_BUNDLE_OBJECTS = 96;
 // Keep the lightweight probe metadata wider than the current lake while
 // still bounding isolate memory. Full JSON bodies use a much smaller cache.
 const MAX_PROBE_CACHE_ENTRIES = 4096;
@@ -278,6 +282,19 @@ async function readJsonObject(key: string): Promise<JsonObject | null> {
   return parseObject(await getFromR2(key, await getFoundationBucketAsync(ENTITY_DATASET.bucketRole)));
 }
 
+interface JsonObjectWithMetadata {
+  value: JsonObject | null;
+  metadata: Record<string, string>;
+}
+
+async function readJsonObjectWithMetadata(key: string): Promise<JsonObjectWithMetadata> {
+  const object = await readR2Object(await getFoundationBucketAsync(ENTITY_DATASET.bucketRole), key);
+  return {
+    value: object ? parseObject(new TextDecoder().decode(object.body)) : null,
+    metadata: object?.metadata || {},
+  };
+}
+
 async function readJsonProbe(key: string): Promise<string | null> {
   const object = await readR2ObjectRange(await getFoundationBucketAsync(ENTITY_DATASET.bucketRole), key, {
     offset: 0,
@@ -288,6 +305,19 @@ async function readJsonProbe(key: string): Promise<string | null> {
 
 function entityKey(id: string): string {
   return `${ENTITY_PREFIX}${encodeURIComponent(id)}.json`;
+}
+
+function datePath(value: string | null | undefined): string | null {
+  if (!value) return null;
+  const match = value.match(/(20\d{2})[-_]?([01]\d)[-_]?([0-3]\d)/);
+  if (!match) return null;
+  return `${match[1]}/${match[2]}/${match[3]}`;
+}
+
+function directBundleKeys(runId: string | undefined, observedAt: string | null): string[] {
+  if (!runId || !/^run_[A-Za-z0-9_.:-]+$/.test(runId)) return [];
+  const dates = [...new Set([datePath(runId), datePath(observedAt)].filter((value): value is string => Boolean(value)))];
+  return dates.map((date) => `${BUNDLE_PREFIX}${date}/${runId}.json`);
 }
 
 async function readEntityPage(cursor: string | undefined, limit: number): Promise<FoundationEntityPage> {
@@ -669,14 +699,38 @@ function collectBundleRecords(bundle: JsonObject, entityId: string, target: Foun
 
 export async function readFoundationBusinessCase(entityId: string): Promise<FoundationBusinessCase | null> {
   if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
-  const entity = normalizeSummary((await readJsonObject(entityKey(entityId))) || {});
+  const entityObject = await readJsonObjectWithMetadata(entityKey(entityId));
+  const entity = normalizeSummary(entityObject.value || {});
   if (!entity) return null;
 
   const records = createRecordAccumulator();
+  const runId = entityObject.metadata['foundation-run-id'];
+
+  // Ingested entity objects carry the run id that produced them. The bundle
+  // key also carries the retrieval date, so the common path can read exactly
+  // one immutable bundle instead of probing the whole lake.
+  for (const key of directBundleKeys(runId, entity.observedAt)) {
+    const bundle = await cachedBundle(key);
+    if (bundle && bundleContainsEntity(bundle, entityId)) {
+      collectBundleRecords(bundle, entityId, records);
+      return {
+        ...entity,
+        ...records,
+        valueProfile: buildFoundationValueProfile(entity, records),
+        bundlesScanned: 1,
+        bundleObjectsListed: 1,
+        bundleScanComplete: true,
+      };
+    }
+  }
+
+  // Older entity objects may predate the run-id metadata. Keep a bounded
+  // rescue scan for those records, and expose that it was incomplete rather
+  // than turning a slow best-effort response into a false complete dossier.
   const bundleObjects = await listBundleObjects();
   let bundlesScanned = 0;
 
-  for (let index = 0; index < bundleObjects.length; index += BUNDLE_SCAN_BATCH_SIZE) {
+  for (let index = 0; index < Math.min(bundleObjects.length, MAX_FALLBACK_BUNDLE_OBJECTS); index += BUNDLE_SCAN_BATCH_SIZE) {
     const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
     const probes = await Promise.all(batch.map((item) => cachedProbe(item.key)));
     bundlesScanned += batch.length;
@@ -695,6 +749,7 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
     valueProfile: buildFoundationValueProfile(entity, records),
     bundlesScanned,
     bundleObjectsListed: bundleObjects.length,
+    bundleScanComplete: bundlesScanned >= bundleObjects.length,
   };
 }
 

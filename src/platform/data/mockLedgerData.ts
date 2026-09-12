@@ -5,6 +5,7 @@ import { ADDITIONAL_INSTITUTIONAL_ENTITIES } from './additionalInstitutionalEnti
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES_2 } from './additionalInstitutionalEntities2';
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES_3 } from './additionalInstitutionalEntities3';
 import { ADDITIONAL_INSTITUTIONAL_ENTITIES_4 } from './additionalInstitutionalEntities4';
+import { ADDITIONAL_INSTITUTIONAL_ENTITIES_5 } from './additionalInstitutionalEntities5';
 
 export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
   {
@@ -8692,6 +8693,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
   ...ADDITIONAL_INSTITUTIONAL_ENTITIES_2,
   ...ADDITIONAL_INSTITUTIONAL_ENTITIES_3,
   ...ADDITIONAL_INSTITUTIONAL_ENTITIES_4,
+  ...ADDITIONAL_INSTITUTIONAL_ENTITIES_5,
 ];
 
 // Explicit identity reconciliation: retain source records and support saved legacy IDs.

@@ -29,6 +29,7 @@ import type {
 import {
   adaptFoundationSummaryToFinancialEntity,
   adaptFoundationDetailToFinancialEntity,
+  isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 
 export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entityAliases: Record<string, string>}> = ({initialEntities, entityAliases}) => {
@@ -75,14 +76,19 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
 
-  // R2サマリーを FinancialEntity へアダプト
-  const foundationEntities = useMemo(() => {
-    return foundationRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
+  // R2の未精錬候補は詳細APIで確認できるが、完成体として一覧へ公開しない。
+  // これにより、薄いR2行が既存の高密度台帳を名前一致で上書きしない。
+  const foundationDisplayRows = useMemo(() => {
+    return foundationRows.filter(isFoundationDossierReady);
   }, [foundationRows]);
 
-  // 全エンティティの統合。Foundationに同じentity_idがある場合は、
-  // ローカルの旧スナップショットを一覧の正本として残さず、R2投影を優先する。
-  // R2でまだページングされていない対象だけは、読み取り不能時のローカル予備として残す。
+  // 公開対象になったR2サマリーだけを台帳用 FinancialEntity へアダプト
+  const foundationEntities = useMemo(() => {
+    return foundationDisplayRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
+  }, [foundationDisplayRows]);
+
+  // 全エンティティの統合。公開可能なFoundation Dossierだけが、
+  // 同じentity_id/nameのローカル表示を置き換えられる。
   const entities = useMemo(() => {
     const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
     const foundationById = new Map(foundationEntities.map((entity) => [entity.id.toLowerCase(), entity]));
@@ -115,8 +121,6 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       const normalizedName = normalize(foundation.name);
       const aliasName = aliasMatches[normalizedName];
       if (seenIds.has(foundation.id.toLowerCase()) || seenNames.has(normalizedName) || (aliasName && seenNames.has(aliasName))) continue;
-      // Foundationの正本に存在する行は、財務やタグラインが未確認でも一覧に残す。
-      // 欠損値はprojection/UI側で「未確認」と表示し、存在する記録を静かに捨てない。
       merged.push(foundation);
       seenIds.add(foundation.id.toLowerCase());
       seenNames.add(normalizedName);

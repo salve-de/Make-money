@@ -150,7 +150,7 @@ test('remote revenue-only detail leaves profit unknown and does not invent a wat
       id: 'metric_revenue', metricType: 'monthly_revenue', value: 120000, unit: 'JPY', currency: 'JPY',
       periodStart: null, periodEnd: null, pointInTime: null, basis: null, scope: null,
       originType: 'collected', verificationStatus: 'SUPPORTED', confidence: null, evidenceIds: [],
-    }], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0,
+    }], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0, bundleScanComplete: true,
   };
   let detailReturned = false;
   await page.route('**/api/businesses*', (route) => {

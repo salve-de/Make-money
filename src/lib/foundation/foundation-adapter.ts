@@ -23,6 +23,18 @@ import {
 } from './text-cleaner';
 
 /**
+ * Only high-density, evidence-backed Foundation projections enter the main
+ * ledger. Candidate summaries remain available through the read API and can
+ * be opened directly, but they must not replace a curated local dossier.
+ */
+export function isFoundationDossierReady(summary: FoundationValueSummary): boolean {
+  const profile = summary.valueProfile;
+  return profile.tier === 'HIGH_SIGNAL' &&
+    profile.labels.length >= 5 &&
+    profile.counts.evidence >= 2;
+}
+
+/**
  * 業態文字列から SectorCategory を推計
  */
 function inferSector(text: string): SectorCategory {

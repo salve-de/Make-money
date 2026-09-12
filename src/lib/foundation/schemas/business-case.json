@@ -97,11 +97,16 @@
         },
         "bundleObjectsListed": {
           "type": "number"
+        },
+        "bundleScanComplete": {
+          "type": "boolean",
+          "description": "False when a legacy bundle fallback stopped at its safety limit."
         }
       },
       "required": [
         "aliases",
         "bundleObjectsListed",
+        "bundleScanComplete",
         "bundlesScanned",
         "canonicalIdentifier",
         "claims",

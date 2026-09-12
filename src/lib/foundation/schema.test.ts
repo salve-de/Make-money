@@ -16,7 +16,7 @@ it('validates a paged response without coercing pagination or filling absent fac
   expect(parseFoundationPageResponse({ source: 'static_fallback', data: [] })).toBeNull();
 });
 it('rejects malformed nested detail and preserves empty evidence arrays', () => {
-  const detail = { ...summary, claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0 };
+  const detail = { ...summary, claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0, bundleScanComplete: true };
   expect(parseFoundationDetailResponse({ source: 'foundation_lake', data: detail })).toBe(detail);
   expect(() => parseFoundationDetailResponse({ source: 'foundation_lake', data: { ...detail, metrics: [{ value: {} }] } })).toThrow();
   expect(() => parseFoundationDetailResponse(null)).toThrow();
