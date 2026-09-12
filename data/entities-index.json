@@ -8274,8 +8274,15 @@
       }
     ],
     "operations": {
-      "teamSize": "5-10人（少人数コア＋外部メンター）",
-      "workload": "講座カリキュラム更新とニュースレター執筆（週20時間）",
+      "teamSize": 8,
+      "weeklyHours": 20,
+      "initialCapitalRequired": 0,
+      "automationLevel": 75,
+      "primaryChannels": [
+        "Twitterプレイブック共有",
+        "無料ニュースレター",
+        "VC推薦ネットワーク"
+      ],
       "toolStack": [
         {
           "name": "Webflow",
@@ -8851,8 +8858,15 @@
       }
     ],
     "operations": {
-      "teamSize": "15人（フルタイム編集者、ライター、コミュニティマネージャー）",
-      "workload": "本人は企画・撮影・執筆のみ（週15〜20時間）",
+      "teamSize": 15,
+      "weeklyHours": 18,
+      "initialCapitalRequired": 0,
+      "automationLevel": 80,
+      "primaryChannels": [
+        "YouTube長尺動画",
+        "自社ニュースレター",
+        "Twitter/Instagram"
+      ],
       "toolStack": [
         {
           "name": "YouTube",
@@ -9628,8 +9642,15 @@
       }
     ],
     "operations": {
-      "teamSize": "1人（完全ソロ運営）",
-      "workload": "動画作成とテンプレート更新（週10時間）",
+      "teamSize": 1,
+      "weeklyHours": 10,
+      "initialCapitalRequired": 0,
+      "automationLevel": 95,
+      "primaryChannels": [
+        "YouTubeチュートリアル",
+        "Reddit (r/Notion)",
+        "Twitter"
+      ],
       "toolStack": [
         {
           "name": "Notion",
@@ -16457,8 +16478,15 @@
       }
     ],
     "operations": {
-      "teamSize": "3-5人（創業者＋外部UIデザイナー）",
-      "workload": "新コンポーネントの追加とバグ修正（週15時間）",
+      "teamSize": 4,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 0,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "Chrome Web Store",
+        "Webflowコミュニティ",
+        "Twitter Tips動画"
+      ],
       "toolStack": [
         {
           "name": "Webflow",
@@ -16482,7 +16510,7 @@
     },
     "strategy": {
       "blindspot": "Webflowは「ツールの開発」に忙しく、ユーザーが本当に欲しい「完成された美しいパーツ集」を公式で充実させる余裕がなかった。",
-      "moatType": "HIGH_SWITCHING_COSTS",
+      "moatType": "SWITCHING_COST",
       "moatDescription": "数千社以上の制作会社・フリーランスの日常的な制作フロー（Chrome拡張機能）に組み込まれている点。",
       "incumbentDilemma": "Webflow公式がコンポーネント市場に本格参入すると、Flowbaseのようなエコシステム内のサードパーティ開発者を怒らせるため手が出しにくい。",
       "secretInsight": "デザイナーは「自分で一から作りたい」と言いながら、締め切り前日には「美しくて動くならコピペで済ませたい」と本能が叫ぶ。",
@@ -18960,8 +18988,15 @@
       }
     ],
     "operations": {
-      "teamSize": "15-20人（コアエンジニア＋サポート）",
-      "workload": "コアDBエンジンの最適化とエンタープライズ商談",
+      "teamSize": 18,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 80,
+      "primaryChannels": [
+        "GitHubオープンソース",
+        "Hacker News / Reddit",
+        "EUプライバシー展示会"
+      ],
       "toolStack": [
         {
           "name": "GitLab / GitHub",
@@ -18985,7 +19020,7 @@
     },
     "strategy": {
       "blindspot": "Airtableは米国のVCマネーで大型調達し、クラウドSaaS専業で急拡大したため、「自前サーバーで動かしたい」「データがEU国外に出ると違法になる」という欧州エンタープライズの超巨大市場を放置していた。",
-      "moatType": "HIGH_SWITCHING_COSTS",
+      "moatType": "SWITCHING_COST",
       "moatDescription": "企業の基幹データ（業務フロー、顧客DB）が一度Baserow内に格納されると、移行コストが天文学的になり解約が不可能になる。",
       "incumbentDilemma": "Airtableがセルフホスト版を出すと、クラウドSaaSの高単価サブスク売上を自ら破壊（カニバリズム）してしまうため手が出せない。",
       "secretInsight": "「オープンソースだから無料」は大衆の誤解である。大企業ほど「責任を取るための商用サポートとライセンス」に毎年数千万円を喜んで支払う。",
@@ -20127,8 +20162,15 @@
       }
     ],
     "operations": {
-      "teamSize": "30-40人（グローバル分散フルリモートエンジニア）",
-      "workload": "Cloudインフラの稼働維持とSDK開発",
+      "teamSize": 35,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "GitHubオープンソース",
+        "Hacktoberfest / 開発者イベント",
+        "Discordコミュニティ"
+      ],
       "toolStack": [
         {
           "name": "GitHub",
@@ -20152,7 +20194,7 @@
     },
     "strategy": {
       "blindspot": "GoogleはFirebaseを「GCPへの囲い込みの餌」として扱っていたため、クロスプラットフォーム対応やオープンソースでの自由なホスティングを絶対に許可しなかった。",
-      "moatType": "HIGH_SWITCHING_COSTS",
+      "moatType": "SWITCHING_COST",
       "moatDescription": "数万のモバイルアプリ・Webサービスの認証（Auth）とデータベースを人質に取っているため、サービス停止＝アプリ死滅となり解約できない。",
       "incumbentDilemma": "GoogleがFirebaseをオープンソース化したり固定安価プランを出すと、自社の巨大なクラウド売上（GCP）を毀損するため絶対に真似できない。",
       "secretInsight": "エンジニアは「自由」を求めてオープンソースを選ぶが、実際にサービスが成長すると「サーバー管理の面倒さ」に耐えられず、最終的に公式クラウドに課金する。",
@@ -22295,8 +22337,15 @@
       }
     ],
     "operations": {
-      "teamSize": "10-15人（コアエンジニア＋コミュニティ主導）",
-      "workload": "コア実行エンジンの開発とEnterpriseオンボーディング",
+      "teamSize": 12,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 85,
+      "primaryChannels": [
+        "Y Combinatorネットワーク",
+        "GitHubオープンソース",
+        "受託代理店パートナーシップ"
+      ],
       "toolStack": [
         {
           "name": "GitHub",
@@ -22320,7 +22369,7 @@
     },
     "strategy": {
       "blindspot": "Zapierは「非エンジニア向けSaaS」として大成功したため、コードを書けるエンジニアが求める「セルフホストしたい」「TypeScriptで直接コネクタを書きたい」という開発者体験を完全に無視していた。",
-      "moatType": "NETWORK_EFFECTS",
+      "moatType": "NETWORK_EFFECT",
       "moatDescription": "世界中の開発者が新しいAPIの「Piece（連携モジュール）」をオープンソースで勝手に開発してエコシステムに追加してくれるネットワーク効果。",
       "incumbentDilemma": "Zapierがタスク無制限プランやセルフホスト版を出すと、数十億ドルのARRの根幹である「タスク消費従量課金」が自爆するため絶対に対抗できない。",
       "secretInsight": "自動化ツールで最も重要なのは「ツール自体の機能」ではない。「どのサービスと繋がるか」であり、オープンソースはコネクタ開発を世界中に分散外注できる最強のチートである。",

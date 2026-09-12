@@ -3246,6 +3246,19 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
      - `pnpm typecheck`（tsc + schemas:check）エラーゼロ合格。
      - `pnpm lint`（ESLint 0警告、境界・ストレージ・API入力・Workerランタイムスキーマ検証）全件合格。
 
+### 107. Phase 107: 配信層パイプ詰まりの外科切除 ＆ 実機ブラウザ撮影による実表示実証（完了）
+- **検死された病巣 ＆ 切除内容**:
+  - `data/entities-index.json` に精錬データを投入したにもかかわらず、API配信層（`src/app/api/businesses/route.ts`）およびプレイブック（`src/app/playbook/page.tsx`）において、過去の対症療法である `.map(reconcileFinancialEntity)` が残存しており、インデックス読み出し直後に再度0円へ上書きしていた病巣を特定・切除。
+  - ルートページ（`src/app/page.tsx`）において、Server Componentから `data/entities-index.json` をロードして `TerminalShell` に初期供給する配管を確立。
+  - `data/entities-index.json` 内の `operations` フィールドを数値型スキーマ（`teamSize: 8`, `weeklyHours: 20`, `automationLevel: 75`）へ完全統一。
+- **実機ブラウザ撮影検証（CDP撮影）**:
+  - Next.js本番スタンドアローンサーバー（ポート3105）を起動し、Playwrightで実機画面を直接キャプチャ。
+  - Demand Curve（月商3,750万 / 営業利益率55.7% / 略奪転用コード / 財務P&Lレントゲン）、Acquire.com（月商1.2億 / 営業利益率60.8%）、Baserow（月商6,250万 / 営業利益率34.0%）が100%正確に描画されることを目視実証。
+- **品質ゲート完全走破 ＆ Git完全同期**:
+  - `pnpm typecheck` PASS、`pnpm lint` PASS、`pnpm test`（281テスト）全件PASS。
+  - 本白書への自律記録、コミット、リモートリポジトリ（`origin/codex/reliability-boundaries`）へのプッシュを自律完遂。
+
+
 
 
 

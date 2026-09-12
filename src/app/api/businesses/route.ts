@@ -1,4 +1,3 @@
-import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
 import { publicEntity, publicFoundationData } from '@/lib/company-access/public-entity';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { parseFinancialEntities } from '@/shared/financial-entity-schema';
@@ -75,7 +74,6 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
     return parseFinancialEntities(parsed)
       .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
-      .map(reconcileFinancialEntity)
       .map(normalizeFinancialEntity);
   } catch {
     return [];

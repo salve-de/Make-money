@@ -1,5 +1,5 @@
-import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
 import { publicEntity } from '@/lib/company-access/public-entity';
+import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { parseFinancialEntities } from '@/shared/financial-entity-schema';
 import React from 'react';
 import { readFile } from 'fs/promises';
@@ -17,7 +17,7 @@ async function getEntities(): Promise<FinancialEntity[]> {
     const content = await readFile(localPath, 'utf8');
     const parsed = parseFinancialEntities(JSON.parse(content));
     if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed.map(reconcileFinancialEntity);
+      return parsed.map(normalizeFinancialEntity);
     }
   } catch (error) {
     console.warn('[PlaybookPage] Failed to read entities-index.json, fallback to mock data:', error);
