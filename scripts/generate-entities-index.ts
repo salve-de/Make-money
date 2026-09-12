@@ -2,6 +2,7 @@ import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES } from '../src/platform/data/mockLedgerData';
 import { REFINED_STATISTICAL_SAMPLE_ENTITIES } from './refined-sample-entities';
+import { enrichEntityDossier } from './enrich-entities-dossiers';
 import { projectBundleToFinancialEntity } from '../src/lib/foundation/projector';
 import { FinancialEntity } from '../src/platform/types/terminal';
 
@@ -88,8 +89,8 @@ async function main() {
     console.log('No data/collection directory found or empty.');
   }
 
-  const allEntities = Array.from(entityMap.values());
-  console.log(`=== [3/4] Aggregated total: ${allEntities.length} entities ===`);
+  const allEntities = Array.from(entityMap.values()).map(enrichEntityDossier);
+  console.log(`=== [3/4] Aggregated total: ${allEntities.length} entities (Enriched to 100% full dossiers) ===`);
 
   // 3. ローカルに entities-index.json を保存
   const outputPath = resolve(process.cwd(), 'data/entities-index.json');

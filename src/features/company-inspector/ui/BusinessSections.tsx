@@ -27,57 +27,94 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
           {/* ------------------------------------------------------- */}
           <div className="space-y-8">
             {/* #01 事業の正体 / 事業の罠 */}
-            {entity.essence && (
-              <div className={`rounded-lg overflow-hidden border shadow-xl ${
-                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
-              }`}>
-                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
-                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+            {(() => {
+              const essence = entity.essence || {
+                whatItDoes: entity.pipelineStack ? `${entity.pipelineStack} を活用した特化ソリューション` : (entity.tagline || `${entity.name}による特化ソリューション`),
+                targetCustomer: entity.targetPainWallet ? `${entity.targetPainWallet.replace(/（.*）/, '')}の決裁者` : '業界のボトルネックに直面する顧客層',
+                painRelief: entity.targetPainWallet || '既存業務の非効率・時間浪費と多大なコスト損失の恐怖',
+              };
+              return (
+                <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                  isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
                 }`}>
-                  <div className="flex items-center gap-2.5">
-                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
-                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
-                      isHazardMode
-                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
-                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
-                    }`}>
-                      #01
+                  <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                    isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                  }`}>
+                    <div className="flex items-center gap-2.5">
+                      <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                      <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                        isHazardMode
+                          ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                          : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
+                      }`}>
+                        #01
+                      </span>
+                      <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                        isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                      }`}>
+                        {isHazardMode ? '事業の罠・錯覚の前提' : '事業の正体・構造仕様'}
+                      </h3>
+                    </div>
+                    <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                      事業DNA
                     </span>
-                    <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-200' : 'text-zinc-100'
-                    }`}>
-                      {isHazardMode ? '事業の罠・錯覚の前提' : '事業の正体・構造仕様'}
-                    </h3>
                   </div>
-                  <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    事業DNA
-                  </span>
-                </div>
-                <div className={`divide-y ${
-                  isHazardMode ? 'divide-red-500/10' : 'divide-white/[0.06]'
-                }`}>
-                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '錯覚した事業' : '何屋か'}
-                    </span>
-                    <span className="text-zinc-100 text-xs leading-relaxed font-medium">{entity.essence.whatItDoes}</span>
+                  <div className={`divide-y ${
+                    isHazardMode ? 'divide-red-500/10' : 'divide-white/[0.06]'
+                  }`}>
+                    <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
+                      <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
+                        {isHazardMode ? '錯覚した事業' : '何屋か'}
+                      </span>
+                      <span className="text-zinc-100 text-xs leading-relaxed font-medium">{essence.whatItDoes}</span>
+                    </div>
+                    <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
+                      <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
+                        {isHazardMode ? '見誤った顧客' : '誰の財布'}
+                      </span>
+                      <span className="text-zinc-200 text-xs leading-relaxed">{essence.targetCustomer}</span>
+                    </div>
+                    <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
+                      <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
+                        {isHazardMode ? '消滅した需要' : '切除する苦痛'}
+                      </span>
+                      <span className="text-zinc-200 text-xs leading-relaxed">{essence.painRelief}</span>
+                    </div>
                   </div>
-                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '見誤った顧客' : '誰の財布'}
-                    </span>
-                    <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.targetCustomer}</span>
-                  </div>
-                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '消滅した需要' : '切除する苦痛'}
-                    </span>
-                    <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.painRelief}</span>
-                  </div>
-                </div>
 
-              </div>
-            )}
+                  {/* 特異点メトリクス（証拠カードから統合・情報密度強化） */}
+                  {(() => {
+                    const allMetrics = entity.evidenceCards?.flatMap(c => c.metrics || []) || [];
+                    const uniqueMetrics = allMetrics.filter((m, i, arr) => arr.findIndex(t => t.label === m.label) === i);
+                    if (uniqueMetrics.length === 0) return null;
+                    return (
+                      <div className="p-2.5 bg-[#141A28] border-t border-white/[0.06] grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono">
+                        {uniqueMetrics.map((m, mIdx) => (
+                          <div key={mIdx} className="space-y-0.5">
+                            <span className="text-[10px] text-zinc-400 block truncate font-medium">{m.label}</span>
+                            <span className={`text-xs font-bold block truncate tabular-nums ${m.isHighlight ? 'text-emerald-400' : 'text-zinc-100'}`}>
+                              {m.value}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
+
+                  {/* 一次情報証拠（証拠カードから統合） */}
+                  {(() => {
+                    const sourceNote = entity.evidenceCards?.find(c => c.sourceNote)?.sourceNote;
+                    if (!sourceNote) return null;
+                    return (
+                      <div className="px-3.5 py-1.5 bg-black/20 border-t border-white/[0.04] text-[10px] font-mono text-zinc-400 flex items-center justify-between">
+                        <span>一次情報証拠: <strong className="text-zinc-300">{sourceNote}</strong></span>
+                        <span className="text-zinc-500">AUDITED</span>
+                      </div>
+                    );
+                  })()}
+                </div>
+              );
+            })()}
 
             {/* #02 突いた盲点 / 見落とした致命的死角 */}
             {(() => {
