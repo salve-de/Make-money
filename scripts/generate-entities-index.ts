@@ -2,7 +2,7 @@ import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES } from '../src/platform/data/mockLedgerData';
 import { REFINED_STATISTICAL_SAMPLE_ENTITIES } from './refined-sample-entities';
-import { MASSIVE_EXPANSION_ENTITIES } from './massive-expansion-entities';
+import { ADDITIONAL_REFINED_SAMPLE_ENTITIES } from './additional-refined-entities';
 import { projectBundleToFinancialEntity } from '../src/lib/foundation/projector';
 import { FinancialEntity } from '../src/platform/types/terminal';
 
@@ -20,7 +20,8 @@ async function main() {
 
   // 1.1. 精錬済みTier 1 Goldエンティティで未精錬・隔離データを適切な段階で昇格
   let refinedPromotions = 0;
-  for (const refined of REFINED_STATISTICAL_SAMPLE_ENTITIES) {
+  const allRefined = [...REFINED_STATISTICAL_SAMPLE_ENTITIES, ...ADDITIONAL_REFINED_SAMPLE_ENTITIES];
+  for (const refined of allRefined) {
     const lower = refined.name.toLowerCase();
     const existingId = nameMap.get(lower);
     if (existingId) {
@@ -32,21 +33,6 @@ async function main() {
     }
   }
   console.log(`Promoted ${refinedPromotions} quarantined entities to Keyence Gold Dossiers.`);
-
-  // 1.2. 新規大量拡充エンティティ（20社）をマージ
-  let expansionCount = 0;
-  for (const exp of MASSIVE_EXPANSION_ENTITIES) {
-    const lower = exp.name.toLowerCase();
-    const existingId = nameMap.get(lower);
-    if (existingId) {
-      entityMap.set(existingId, { ...exp, id: existingId });
-    } else {
-      entityMap.set(exp.id, exp);
-      nameMap.set(lower, exp.id);
-    }
-    expansionCount++;
-  }
-  console.log(`Ingested ${expansionCount} Keyence Gold massive expansion entities.`);
 
   // 2. data/collection/ 配下の収集JSONを探索して追加マージ
   console.log('=== [2/4] Scanning data/collection/ for raw bundles ===');

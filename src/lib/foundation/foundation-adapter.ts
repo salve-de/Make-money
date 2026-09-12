@@ -324,8 +324,8 @@ export function adaptFoundationSummaryToFinancialEntity(
     {
       id: `ev_${summary.id}_blueprint`,
       type: 'LOOT_BLUEPRINT',
-      title: '今夜使える略奪転用コード',
-      badge: '実務転用',
+      title: '金抜きの実動配管アーティファクト',
+      badge: '現場実動配管',
       // This is an analyst projection, not evidence about the source entity.
       evidenceStatus: 'ESTIMATED',
       punchline: (() => {
@@ -701,8 +701,8 @@ export function adaptFoundationDetailToFinancialEntity(
     {
       id: `ev_${entity.id}_blueprint`,
       type: 'LOOT_BLUEPRINT',
-      title: '今夜使える略奪転用コード',
-      badge: '実務転用',
+      title: '金抜きの実動配管アーティファクト',
+      badge: '現場実動配管',
       evidenceStatus: 'ESTIMATED',
       punchline: (() => {
         const cleanTag = cleanIntelligenceText(tagline).replace(/[。、].*$/, '').trim().slice(0, 25);

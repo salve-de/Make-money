@@ -65,7 +65,7 @@ export const evidenceRegistry = {
   ASYMMETRIC_LEVERAGE: { label: '非対称損益実額' },
   INCUMBENT_TRAP: { label: '大手の自爆死角' },
   FATAL_BLEED: { label: '死因検死解剖ログ' },
-  LOOT_BLUEPRINT: { label: '略奪転用コード' },
+  LOOT_BLUEPRINT: { label: '現場の実動配管' },
   UNKNOWN_AUDIT: { label: '調査限界開示' },
 } satisfies Record<DynamicEvidenceCardType, EvidenceKind>;
 

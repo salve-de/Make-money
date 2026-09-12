@@ -1,5 +1,4 @@
 import type { FinancialEntity } from '../src/platform/types/terminal';
-import { ADDITIONAL_REFINED_SAMPLE_ENTITIES } from './additional-refined-entities';
 
 export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
   // 1. Plausible Analytics
@@ -1312,5 +1311,4 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       currentViabilityAnalysis: 'AIエージェントの普及に伴い、APIを繋ぐバックボーンとしてのオープンソース自動化基盤の需要は過去最高に達している。',
     },
   },
-  ...ADDITIONAL_REFINED_SAMPLE_ENTITIES,
 ];
