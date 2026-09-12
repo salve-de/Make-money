@@ -87,8 +87,16 @@ async function streamToBuffer(stream: unknown): Promise<Buffer> {
   if (stream instanceof Uint8Array) {
     return Buffer.from(stream);
   }
-  if (!(stream instanceof Readable) && typeof (stream as any)[Symbol.asyncIterator] !== 'function') {
-    const reader = (stream as any).getReader();
+  interface AsyncStreamLike {
+    [Symbol.asyncIterator]?: () => AsyncIterator<Buffer | Uint8Array | string>;
+    getReader?: () => { read: () => Promise<{ done: boolean; value?: Uint8Array }> };
+  }
+  const streamCandidate = stream as AsyncStreamLike;
+  if (!(stream instanceof Readable) && typeof streamCandidate[Symbol.asyncIterator] !== 'function') {
+    if (typeof streamCandidate.getReader !== 'function') {
+      throw new Error('Readable stream has neither asyncIterator nor getReader');
+    }
+    const reader = streamCandidate.getReader();
     const chunks: Uint8Array[] = [];
     while (true) {
       const { done, value } = await reader.read();
@@ -194,8 +202,9 @@ export async function ingestArtifact(input: IngestInput): Promise<IngestOutput> 
     } else {
       throw new Error(`Existing object length mismatch for ${rawKey}: expected ${byteLength}, got ${head.ContentLength}`);
     }
-  } catch (err: any) {
-    if (err.name === 'NotFound' || err.$metadata?.httpStatusCode === 404) {
+  } catch (err: unknown) {
+    const s3Error = err as { name?: string; $metadata?: { httpStatusCode?: number } };
+    if (s3Error.name === 'NotFound' || s3Error.$metadata?.httpStatusCode === 404) {
       isExisting = false;
     } else {
       throw err;
@@ -217,9 +226,10 @@ export async function ingestArtifact(input: IngestInput): Promise<IngestOutput> 
           // 日本語URLやcollectorはS3メタデータに入れず、保存票JSON側で管理（ASCII厳格準拠）
         },
       }));
-    } catch (putErr: any) {
+    } catch (putErr: unknown) {
       // 412 Precondition Failed または競合時は既存オブジェクトの検証へフォールバック
-      if (putErr.name === 'PreconditionFailed' || putErr.$metadata?.httpStatusCode === 412) {
+      const s3PutError = putErr as { name?: string; $metadata?: { httpStatusCode?: number } };
+      if (s3PutError.name === 'PreconditionFailed' || s3PutError.$metadata?.httpStatusCode === 412) {
         isExisting = true;
       } else {
         throw putErr;

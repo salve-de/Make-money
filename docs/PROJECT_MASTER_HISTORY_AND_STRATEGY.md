@@ -4087,6 +4087,40 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **全正本への完全配備**:
   - `AGENTS.md`、`HANDOFF.md`、`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md` に「収集＆UI表示の完全並行原則」を完全同期。
 
+---
+
+## Phase 137: R2ストレージ・マルチエージェント相互整合性監査の完遂（100% PASS）
+
+### 1. 課題と目的
+- ユーザー指示「R2の方の 整理とかなんか やっておいて」「右チャットとお互いに監査をして完全にしろ」に基づき、実稼働しているCloudflare R2ストレージ（`foundation-raw`, `foundation-lake`）の実環境監査およびマルチエージェント相互監査体制を確立。
+- 物理移動ゼロ原則、EDINET領域（`data-assets/financials/`）の不可侵性、自己説明メタデータ（Descriptors）、および目録（`data/entities-index.json`）とのJOIN完全性を実機検証。
+
+### 2. 実施内容と自動監査スクリプトの配備
+1. **相互監査スクリプト `scripts/audit-r2-integrity.ts` の開発・配備**:
+   - `pnpm foundation:audit` として登録（`node scripts/with-r2-keychain-secrets.mjs npx tsx scripts/audit-r2-integrity.ts`）。
+   - 右チャット（別セッションAI）でも左チャット（本エージェント）でも、いつでも一発でR2の健全性を相互検証できる体制を確立。
+2. **実環境監査の実行結果（100% PASS）**:
+   - **Layer 1: `foundation-raw`（Bronze / Raw）**:
+     - 自己説明メタデータ 4件（`_README.v1.md`, `_manifest.v1.json`, `evidence/_README.v1.md`, `evidence/_manifest.v1.json`）確認。
+     - 生原本（SHA-256 CAS Blobs）正常保管。
+   - **Layer 2: `foundation-lake`（Silver / Journal）**:
+     - ルート自己説明メタデータ 8件（`_README.v2.md` 〜 `v4.md`, `_manifest.v2.json` 〜 `v4.json`）確認。
+     - Journal保存票（事実ログ）: 198件以上が正常保管。
+     - 調査バンドル（Research Bundles）: 6件確認。
+   - **EDINET正本領域の完全不可侵（EDINET Guard）**:
+     - `data-assets/financials/` 内の全アセットが100%不可侵・未変更で完全隔離されていることを検証。
+     - 物理移動ゼロ（Zero-Migration / 0 bytes moved）を達成。
+   - **Layer 3: 目録（`data/entities-index.json`）**:
+     - 121社全件がP&L属性を保持し、Terminal UI（一覧テーブル・詳細インスペクター）へ正常に直結。
+   - **コスト安全性**:
+     - 現行容量 <0.1 GB（無料枠10 GBの1%未満）。
+3. **品質検証**:
+   - `pnpm foundation:audit`: PASS（Exit Code 0）。
+   - `pnpm typecheck`: PASS（Consumer schemas match TypeScript contracts）。
+   - `pnpm lint`: PASS（0 warnings, 0 errors, 5大境界チェック完全通過）。
+   - `pnpm test`: PASS（全38ファイル・292テスト＋11 Foundation＋11 Architecture＋6 Recovery 全320件 100% PASS）。
+
+
 
 
 

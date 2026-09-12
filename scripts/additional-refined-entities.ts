@@ -40,8 +40,8 @@ export const ADDITIONAL_REFINED_SAMPLE_ENTITIES: FinancialEntity[] = [
       "operatingMargin": 84.7,
       "estimatedAnnualNetProfit": 152400000,
       "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
+      "isRevenueUnconfirmed": true,
+      "isMarginUnconfirmed": true,
       "revenueLabel": "創業者X公開ARR $1.2M（月商約1,500万円）",
       "dataSnapshotPeriod": "2024年 創業者X公開ARR .2M",
       "sourceDoc": "Pieter Levels X（@levelsio）公開収益ダッシュボード"
@@ -172,8 +172,8 @@ export const ADDITIONAL_REFINED_SAMPLE_ENTITIES: FinancialEntity[] = [
       "operatingMargin": -260,
       "estimatedAnnualNetProfit": 0,
       "financialStatus": "POST_MORTEM",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
+      "isRevenueUnconfirmed": true,
+      "isMarginUnconfirmed": true,
       "revenueLabel": "最盛期推定月商¥5,000万 / 毎月1.3億円超の資金流出",
       "dataSnapshotPeriod": "2021年 最盛期推定",
       "sourceDoc": "PitchBook / TechCrunch 報道資料"
@@ -298,8 +298,8 @@ export const ADDITIONAL_REFINED_SAMPLE_ENTITIES: FinancialEntity[] = [
       "operatingMargin": -6240,
       "estimatedAnnualNetProfit": 0,
       "financialStatus": "POST_MORTEM",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
+      "isRevenueUnconfirmed": true,
+      "isMarginUnconfirmed": true,
       "revenueLabel": "調達資金$1.75B（約2,000億円）を6ヶ月で全額償却清算",
       "dataSnapshotPeriod": "2020年 サービス終了時検死（調達.75B / 6ヶ月で清算）",
       "sourceDoc": "Wall Street Journal / SEC清算公表資料"

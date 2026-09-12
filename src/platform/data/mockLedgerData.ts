@@ -975,9 +975,11 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "operatingProfit": 10050000,
       "operatingMargin": 77.3,
       "estimatedAnnualNetProfit": 120600000,
-      "financialStatus": "VERIFIED",
+      "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年観測魚拓",
-      "sourceDoc": "Pieter Levels本人公式Stripeダッシュボード公開ポスト"
+      "sourceDoc": "Pieter Levels本人公式Stripeダッシュボード公開ポスト",
+      "isRevenueUnconfirmed": true,
+      "isMarginUnconfirmed": true
     },
     "operations": {
       "teamSize": 1,
@@ -7915,7 +7917,8 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "financialStatus": "POST_MORTEM",
       "dataSnapshotPeriod": "2021年ピーク時〜2022年崩壊期",
       "sourceDoc": "Agora API請求ログ試算 ＆ 人件費報道からの出血逆算",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": true,
+      "isMarginUnconfirmed": true
     },
     "operations": {
       "teamSize": 120,
@@ -8136,7 +8139,8 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "financialStatus": "POST_MORTEM",
       "dataSnapshotPeriod": "2020年清算時確定ログ",
       "sourceDoc": "清算発表資料 (総調達$1.75B中$350M返還・総出血額$1.4B)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": true,
+      "isMarginUnconfirmed": true
     },
     "operations": {
       "teamSize": 250,

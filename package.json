@@ -19,6 +19,7 @@
     "foundation:journal:ingest": "node --import tsx scripts/foundation-journal.ts ingest",
     "foundation:r2-descriptors:prepare": "node --import tsx scripts/foundation-r2-descriptors.ts prepare",
     "foundation:r2-descriptors:ingest": "node --import tsx scripts/foundation-r2-descriptors.ts ingest",
+    "foundation:audit": "node scripts/with-r2-keychain-secrets.mjs npx tsx scripts/audit-r2-integrity.ts",
     "typecheck": "next typegen && tsc --noEmit && pnpm schemas:check",
     "test": "vitest run && pnpm test:foundation && pnpm test:architecture && pnpm test:recovery",
     "test:architecture": "node --test scripts/architecture/check-deploy-config.test.mjs scripts/architecture/check-worker-secrets.test.mjs scripts/architecture/check-api-input.test.mjs scripts/architecture/check-runtime-schema.test.mjs scripts/architecture/check-index-safety.test.mjs",
