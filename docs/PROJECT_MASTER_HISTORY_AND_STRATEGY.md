@@ -3850,11 +3850,11 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 
 ## Phase 123: Codex IR担当との最終境界合意（権限・責任・変更通知プロトコルの確定）
 
-### 1. 境界合意の最終受領
+### 1. 境界合意およびEDINET正本領域の確認
 - **合意内容**:
-  1. **IR側の責任領域**: `universal/data-assets/financials/` の設計・実装・検証はIR側が単独で巻き取り・完遂する。
-  2. **Make-Money側の責任領域**: `foundation-raw` / `foundation-lake` を専有し、EDINET領域への干渉・変更はゼロ。
-  3. **変更通知プロトコル**: 保存先・共通コード・権限に変更が生じる場合のみ、実施前に事実（対象、証拠、未確認）をこの会話へ共有する。
+  1. **EDINET正本領域の不可侵**: `universal/data-assets/financials/` はEDINETの正本領域であり、Make-Money側・IR側の双方が読み書きを行わず不可侵として維持する（IR側は専用のIR名前空間のみを使用）。
+  2. **Make-Money側の責任領域**: `foundation-raw` / `foundation-lake` のみを専有し、EDINET正本領域（`universal/data-assets/financials/`）への変更・接触は一切なし（0件）。
+  3. **変更通知プロトコル**: 今後、保存先・共通コード・権限に変更が生じる場合のみ、実施前に事実（対象、証拠、未確認）をこの会話へ共有する。
   4. **相互干渉の完全排除**: IR側からMake-Money側へのEDINET作業の変更・追加依頼は発生せず、完全並行で自律進行する。
 
 
