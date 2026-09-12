@@ -1,4 +1,5 @@
-> **2026-09-10 現行契約**: [HANDOFF](../HANDOFF.md)、[既存データからUIへの実行・編集契約](EXISTING_DATA_TO_UI.md)、[Foundation統合契約](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md)を先に読む。既存情報の結合・再抽出を先に行い、読者価値を増やす不足を追加調査する。全項目の完全性検査はDEEP_RECONCILEDを主張するときに適用し、有益な部分事例を排除しない。保存成功と公開品質は別。以下の旧説明より本契約を優先する。
+> **2026-09-13 最高運用契約**: ユーザーは長文指示やプロンプトを絶対に書かない。「AGENTS.md見てデータ集めて」の一言で全AIは完全自律稼働せよ。収集の最高正本は [`GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、勝ち組4.1＆地雷組4.2完全体JSON）。スコープは [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md)。保存先は [`architecture/STORAGE.md`](./architecture/STORAGE.md)（原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）。勝ち組要塞（7〜8割）と地雷組検死（2〜3割）の両輪を底引き網収集し、追加質問・手戻りゼロで自走完遂せよ。
+
 
 # 新規収集・R2保存の入口
 
