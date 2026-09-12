@@ -85,3 +85,13 @@ This is a code/CI/browser/R2 closure record. It does not certify production depl
 - GitHub Actions run `34694859638` passed all required contexts (`lint`, `typecheck`, `unit test`, `build`, `E2E smoke`) for that head. PR #18 remains open and has not been merged into `main`; the active `main-quality-gates` ruleset remains the physical merge gate.
 - A private-R2 verification receipt was created only after a missing-key preflight and read back immediately: `make-money-production-private/architecture/5993b06147c9465c46f0d41e03bb65e25316d177/verification-receipt.v1.json` (2,109 bytes; SHA-256 `4b6da477cb848e0f323d3abda8d54eeb316f4d6803305c3c5893e4af39b758a9`).
 - The receipt and browser run prove the current checks and local fallback behavior; they do not prove a production Worker cutover, live Stripe roundtrip, scheduled backup/RPO/RTO, production restore, or live Foundation R2 rendering in the local browser.
+
+## e4d80b5 final audit receipt (2026-09-12)
+
+- Verification target: `e4d80b5e4899db171d69147205e10d0dfcef5256` on `codex/reliability-boundaries`.
+- GitHub Actions run `34696081803` passed all five required contexts: `lint`, `typecheck`, `unit test`, `build`, and `E2E smoke`. PR #18 is still `OPEN`, `MERGEABLE`, and `CLEAN`; no merge was performed.
+- Local checks passed: `pnpm lint`, `pnpm typecheck`, `pnpm test` (Vitest 292, Foundation 11, architecture 11, Recovery 6), `pnpm build`, `pnpm workers:build` (secret scan), `pnpm deploy:preflight`, `pnpm audit --prod`, and `pnpm test:e2e` (26 Chromium tests).
+- Real browser on `http://127.0.0.1:3105/?entity=ent_photoai`: Photo AI, Evidence, and Layer 3 rendered; financial values stayed `未確認`; lowercase `j`/`k` did not change the selected entity; Escape closed the inspector and it could be reopened; console error/warn logs were empty.
+- Active `main-quality-gates` ruleset requires exactly those five contexts with strict status checks, review-thread resolution, deletion/non-fast-forward protection, and no bypass actors. The legacy branch-protection endpoint returns 404 because this repository uses the ruleset API.
+- Final R2 receipt: `make-money-production-private/architecture/e4d80b5e4899db171d69147205e10d0dfcef5256/verification-receipt.v1.json` (2,938 bytes; SHA-256 `1236a01013d1cd4d50db41aca66b19dce6f21012cf7eac15711a3bc2ea1ca890`). Missing-key preflight and immediate byte/hash readback both passed.
+- This evidence does not certify production Worker deployment/cutover, live Stripe payment/refund, user-data migration, scheduled backup/RPO/RTO, production restore, live Foundation R2 rendering in the local browser, or any 100-year/1000-year retention guarantee. The history file's Phase 112-117 proposals remain non-authoritative for current implementation.

@@ -185,3 +185,16 @@ Neon管理APIを読み取り専用で確認した結果、接続可能な所有�
 - 内容: 現行ローカル全検査、GitHub必須5チェック、実ブラウザのPhoto AI未確認財務/Evidence/J/K無効/Escape・再表示、D1・Foundation R2・非公開R2・Neon境界、未検証の本番項目。
 
 このレシートはmainへのmerge、本番Workerのデプロイ、Stripe本番往復、定期バックアップ/RPO/RTO、production restore、全レコード一次資料再監査を完了扱いにしない。後続の文書ポインタ変更はコードを変更しないため、このレシートの対象状態を変えない。
+
+## 2026-09-12 e4d80b5監査レシート（R2 readback）
+
+コード・正本文書の検証対象コミット `e4d80b5e4899db171d69147205e10d0dfcef5256` について、ローカルの全検査、実ブラウザ確認、GitHub Actionsの必須5チェックを読み戻した。履歴文書に残る将来案を現行実装と混同しないための監査注記もこの対象に含む。検証結果は秘密情報を含まないreceiptとして、非公開R2へ新しいkeyでcreate-only保存した。
+
+- GitHub Actions: run `34696081803`（PR #18、`lint` / `typecheck` / `unit test` / `build` / `E2E smoke` 全成功）
+- R2: `make-money-production-private/architecture/e4d80b5e4899db171d69147205e10d0dfcef5256/verification-receipt.v1.json`
+- サイズ: 2,938 bytes
+- SHA-256: `1236a01013d1cd4d50db41aca66b19dce6f21012cf7eac15711a3bc2ea1ca890`
+- 検証: Wranglerでキー未存在を事前確認。保存直後にGETし、アップロード元と読戻しのbytes（2,938）・SHA-256が一致した。
+- 内容: local lint/typecheck、Vitest292、Foundation11、architecture11、Recovery6、Next build/Paid392、Workers build/secret scan、deploy preflight、`pnpm audit --prod`、Playwright26、Photo AIの未確認財務/Evidence/Layer 3/J/K無効/Escape閉じる、D1/R2/Neon境界、Rulesetと未検証の本番項目。
+
+このreceiptは検証対象コミットの保存とreadbackを証明する。PR #18は `OPEN` のままで、mainへのmerge、本番Workerデプロイ、Stripe本番往復、実ユーザーデータ移行、定期バックアップ/RPO/RTO、production restore、100年・1000年の保持保証は完了扱いにしない。後続の文書ポインタ変更はコードを変更しないが、最新CIの状態はGitHubで別途読み戻す。
