@@ -3870,6 +3870,35 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - `pnpm test`: 全320テスト（Vitest 292件、Foundation 11件、Architecture 11件、D1 Recovery 6件）100% PASS。
 - `pnpm build`: Next.js 16.3.4 プロダクションビルドおよび有料成果物ガードレール（84 files, 392 sentinels）正常通過。
 
+---
+
+## Phase 125: 100年壊れないR2完璧構造（原物・保存票・目録の3層メダリオン）の確立・正本化
+
+### 1. 背景と根本課題の特定
+- **課題**: EDINET開示（過去3.4万件および今後の四半期・通期開示の自動蓄積）とMake-Money新規調査データが並行増大する中で、人間的な物理フォルダ整理（年度別・業界別）を行うと、パス破損・参照切れ・R2コピー課金爆発・多層ゲートのデッドロック（運用死）を招く危険があった。
+- **目的**: AIおよび少人数運用において、半永久（100年）にわたって絶対にデータが壊れず、上書き事故が起きず、AIが迷わず探索・再生成できる極限の堅牢アーキテクチャを確立し、GitHub正本へ完全固定する。
+
+### 2. 右チャット（ChatGPT Pro / Codex IR担当）との相互監査・ディスカッション合意
+- **「分離すべきは『意味』であって『システム』ではない」**:
+  - PREMISやOCFL等の規格を真面目に受けて専用Worker・専用Queue・多層関所を自作すると、Windows EPERMやゲート間の依存膠着で自爆する。
+  - 覚える物理実体をたった3つに絞り込む「3層メダリオン構造」で完全合意：
+    1. **原物（Layer 1: Bronze / Raw）**: PDF、HTML、XBRL、魚拓等の生バイナリ。`foundation-raw/blobs/sha256/<hash>` および `data-assets/financials/edinet-raw/...`。**完全不変（Write-Once, 削除・上書き禁止）**。
+    2. **保存票（Layer 2: Silver / Lake）**: 原物への参照、出典URL、取得日時、観測事実ログ。`foundation-lake/journal-entry.v1/<id>.json` および `data-assets/financials/edinet-canonical-document-set/v2/...`。**追記専用（Append-Only）**。
+    3. **目録・提供ビュー（Layer 3: Gold / Catalog & View）**: IDから保存票・原物を探すための単一メタデータ台帳（D1 / `entities-index.json`）。**再生成可能（Derived）**。
+
+### 3. EDINET継続蓄積とMake-Money新規収集の自走パイプライン
+- **物理移動ゼロ（Physical Invariance）**: 既存の `universal/data-assets/financials/...` の物理パスは1ミリも動かさない。
+- **論理カタログ（D1 / entities-index）での一元結合**: 物理バケットを合体させるのではなく、単一の目録上で `edinetCode` と `entityId` を1行でJOIN（論理結合）し、Bloomberg端末UIへ直接プロジェクション描画する。
+- **100年運用の4大鉄則**:
+  1. 原物を解析結果で置き換えない（原本不変性）。
+  2. 保存完了を先に宣言しない（不完全な取得はそのまま保持）。
+  3. 同じ依頼を再送しても壊れない（不変ハッシュによる冪等性）。
+  4. 復元できることを実際に試す（全上位ビューの100%全自動再生成性）。
+
+### 4. 正本文書の更新とGit同期
+- `docs/architecture/STORAGE.md` および `docs/COLLECT_AND_STORE.md` を更新し、上記最高規範を明文化・固定。
+
+
 
 
 

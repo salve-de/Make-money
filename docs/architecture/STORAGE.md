@@ -100,6 +100,50 @@ D1には容量等の上限があり、Time Travelにも保持期間がありま�
 
 匿名のニュースレター登録と掲載申請には、Cloudflareのクライアント識別子を一方向ハッシュ化したD1の時間窓カウンタを適用する。これは最低限のスパム抑制であり、WAF・Turnstile・分散攻撃への完全な防御を意味しない。実運用の閾値はトラフィックを観測して調整する。
 
+## 100年壊れないR2完璧構造（原物・保存票・目録の3層アーキテクチャ）
+
+右チャット（Codex IR担当 / ChatGPT Pro）との徹底ディスカッションおよびデータエンジニアリングの物理限界監査を経て確立した、**「AI・少人数運用において100年運用しても絶対に壊れないR2データ構造と自走運用モデル」**の最高規範です。
+
+### 1. なぜ物理フォルダ整理を全廃し「物理移動ゼロ」にするのか？
+* **物理移動の自爆性**: 「年度別」「業界別」のように人間が物理フォルダを掘り直すと、社名変更や年度またぎのたびにパスが壊れ、参照切れが起き、R2のコピー課金（Class A）が爆発する。
+* **物理は「巨大な不変倉庫（Flat/Hash）」、整理は「単一の台帳（Catalog）」**: 物理実体は「変更不可（Append-Only）なハッシュキー」で放り込むだけに徹し、検索・整理・リレーションはすべて**単一のメタデータ台帳（D1 / entities-index）**側で管理する。
+
+### 2. 3大物理階層（Medallion Architecture on R2）
+
+| レイヤー | バケット / プレフィックス | 格納形式 | 性質 | 用途・書き手 |
+|:---|:---|:---|:---|:---|
+| **Layer 1: 原物<br>（Bronze / Raw）** | `foundation-raw/blobs/sha256/<hash>`<br>`data-assets/financials/edinet-raw/...`（既存固定） | HTML, PDF, XBRL, 魚拓（そのまま） | **完全不変<br>（Write-Once, 削除禁止）** | 一次資料の永久原本。改ざん不能。AIが取得したWeb記事やEDINET生開示をそのままPUT。 |
+| **Layer 2: 保存票<br>（Silver / Lake）** | `foundation-lake/journal-entry.v1/<id>.json`<br>`data-assets/financials/edinet-canonical-document-set/v2/...`（既存固定） | 構造化JSON（事実・数値のみ、解釈ゼロ） | **追記専用<br>（Append-Only）** | EDINETのパース済み正規ドキュメント（Canonical）、Make-Moneyの調査事実ログ（Journal）。 |
+| **Layer 3: 目録・提供ビュー<br>（Gold / Serving View）** | `datasets/ds.business.makemoney-dossiers.v1/<id>.json`<br>（またはD1キャッシュ / entities-index.json） | 完成体Dossier（P&L逆算・裏帳簿・UI直結） | **再生成可能<br>（Derived）** | Bloomberg端末UIが0.1秒で引く完成データ。Layer 1と2からいつでも100%全自動再生成可能。 |
+
+### 3. EDINET継続蓄積とMake-Money新規収集の完全自走パイプライン
+
+今後データがどれだけ増大しても、以下の**一本道（パイプライン）**のみで自走する。
+
+```text
+［EDINET側の自走経路］
+  開示発生 ➔ edinet-raw（原本保存） ➔ パース ➔ edinet-canonical（事実保存）
+                                                    │
+                                                    ▼
+［合流地点（台帳）］  === entities-index.json (D1) で EDINETコード と 企業ID を1行でJOIN ===
+                                                    ▲
+［Make-Money側の自走経路］                           │
+  新規調査 ➔ foundation-raw（Web原本） ➔ foundation-lake（事実） ➔ Gold裏帳簿（精錬）
+```
+
+1. **EDINET開示が新規に来た時**:
+   * 物理パスは `data-assets/financials/...` のまま永久固定（一切触らない・移動しない）。
+   * パース完了結果を台帳（`edinetCode`）に登録するだけで、Make-Money側と自動結合される。
+2. **Make-Moneyで新規データを集める時**:
+   * `foundation-raw`（生原本） ➔ `foundation-lake`（保存票・Journal）へ追記保存。
+   * 既存ファイルを一切上書きしないため、複数チャット・複数AIが並行で何万件集めても衝突確率はゼロ。
+
+### 4. 100年運用の4大鉄則（The 4 Invariants）
+1. **原物を解析結果で置き換えない**: 原本は永久不変。訂正や再解析も新しい履歴・観測として追記する。
+2. **保存完了を先に宣言しない**: 不完全な取得・保留・失敗はその状態で保持し、保存票が確定した時のみ完了とする。
+3. **同じ依頼を再送しても壊れない**: ユニークなハッシュキーにより、重複再送されても安全に同一結果へ収斂する（冪等性）。
+4. **復元できることを実際に試す**: 最上位のGoldデータやUIキャッシュが全損しても、原物と保存票からいつでも100%再生成できることをテストで担保する。
+
 ## 検証と変更の記録
 
 `pnpm lint`、`pnpm typecheck`、`pnpm test`、`pnpm build`、`pnpm test:e2e`を実行します。認可・保存先・決済を変えた場合は、実際の対象環境で保存と読み戻しまで確認します。ローカル成功、本番設定、データ移行、main反映は別々に記録します。

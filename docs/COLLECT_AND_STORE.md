@@ -36,7 +36,7 @@ DEEP_RECONCILEDを主張する場合にUniversalの `docs/COLLECTION_RECONCILIAT
 
 検索/ブラウザ、Node/npm、非公開UniversalへのGitHub認証、R2認証が必要。このMacは既存Keychainラッパーを利用できる。別環境には安全に許可済み認証を渡す必要があり、GitHub閲覧だけではR2書込権限は付かない。
 
-既存R2、EDINET、既存shadowの整理・上書き・移動・削除は禁止。新規保存だけを行う。
+既存R2、EDINET、既存shadowの物理整理・上書き・移動・削除は永久禁止。原物不変（Write-Once）と物理移動ゼロを徹底し、新規保存だけを行う。整理・結合はすべて単一の目録（Catalog / entities-index / D1）側で論理マッピングする（詳細は `docs/architecture/STORAGE.md` の「100年壊れないR2完璧構造」を参照）。
 
 実証記録（Bufferの2024年開示から新規6件を保存、全6件SHA/bytes一致、再実行は新規0・同一6）は、保存経路の実証であり、Bufferの全項目調査完了ではない。証拠は実装ブランチの `data/collection/buffer-2024.saved.json` と `buffer-2024.repeat.json` で確認する。
 
