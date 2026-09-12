@@ -847,131 +847,260 @@
     "id": "ent_photoai",
     "ticker": "PHOTOAI",
     "name": "Photo AI",
-    "legalEntity": "Levels Technologies BV",
-    "tagline": "スタジオ代3万円と移動の苦痛をReplicate APIで即座に解消。完全1人で年間1.8億円を叩き出すAI写真館",
+    "legalEntity": "Levels Technologies B.V.",
+    "tagline": "創業者はPhoto AIの月次ペースを$161,000と報告。ただし数日前の1日だけの記録で、その後低下したと明記している。継続MRRではない。",
     "sector": "AI_AUTOMATION",
     "scale": "SOLO",
     "founder": "Pieter Levels",
     "country": "NL",
     "url": "https://photoai.com",
-    "verifiedBadge": true,
-    "growthRateYoY": 120,
-    "architecturePattern": "他社APIの中抜き包装",
-    "pipelineStack": "Replicate API (Flux/SD) × Next.js × Stripe",
-    "targetPainWallet": "写真館に行く羞恥心・スタジオ代3万円・移動の拘束時間の切除",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "APIラッパー・自撮り特化",
+    "pipelineStack": "Stable Diffusion (Replicate/RunPod) × Vanilla JS/PHP × Stripe",
+    "targetPainWallet": "個人の虚栄心・見栄（自撮りの恥ずかしさとマッチングアプリ用写真の渇望）",
     "tags": [
-      "ソロプレナー",
-      "他社API中抜き",
-      "粗利85%超",
-      "AIアバター",
-      "完全放置"
+      "完全1人",
+      "API包装",
+      "粗利80%超",
+      "B2C",
+      "ノーフレームワーク",
+      "自撮り特化"
     ],
-    "pnl": {
-      "monthlyRevenue": 15000000,
-      "cogs": 1800000,
-      "grossProfit": 13200000,
-      "grossMargin": 88,
-      "operatingExpenses": {
-        "serverAndApi": 300000,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 100000,
-        "other": 100000
-      },
-      "operatingProfit": 12700000,
-      "operatingMargin": 84.7,
-      "estimatedAnnualNetProfit": 152400000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "創業者X公開ARR $1.2M（月商約1,500万円）"
-    },
     "evidenceCards": [
       {
-        "id": "ev_photoai_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "他人のGPU推論を直結中抜きする最小実動配管",
-        "badge": "現場保全配管",
+        "id": "financial-source-ent_photoai",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
         "evidenceStatus": "REPORTED",
-        "punchline": "自前サーバー・自前AIモデルは一切持たない。Stripe決済通知を受けた瞬間に他人の推論API（Replicate）を叩き、Cloudflare R2へ格納してメール送信する完全1人配管。",
+        "punchline": "創業者はPhoto AIの月次ペースを$161,000と報告。ただし数日前の1日だけの記録で、その後低下したと明記している。継続MRRではない。",
         "details": [
-          "【他人のGPUを丸投げ中抜き】: 自前のGPUクラスタを持たず、1枚あたり約$0.02でReplicate APIに画像生成ジョブをオフロード。",
-          "【虚栄心の即時換金】: 「Tinderでモテたい」「LinkedInで見栄を張りたい」個人の痛みの財布から$29〜$49をStripeで即時回収。",
-          "【極限の怠惰アーキテクチャ】: フレームワーク（React/Next.js/Node等）を一切使わず、単一のVanilla PHPファイルとSQLiteで月商1,500万円・利益率80%超を運用。"
+          "約80%の利益率は全事業合計。GPU費$60,000もPhoto AIとInterior AIの合算であり、Photo AI単体の利益・原価へ配分できない。円換算の為替根拠も未取得。"
         ],
-        "codeSnippet": "// Photo AI現場保全配管: Stripe WebhookからReplicate GPU推論を直結キックする最小コード\n$event = json_decode(file_get_contents('php://input'), true);\nif ($event['type'] === 'checkout.session.completed') {\n  $userId = $event['data']['object']['client_reference_id'];\n  $packId = $event['data']['object']['metadata']['pack_id'];\n  \n  // 1. Replicate APIへLoRAモデルの画像生成ジョブを即時投入（GPU原価: 1枚約$0.02）\n  $job = replicate_predict('sdxl-photo-v2', ['prompt' => get_pack_prompt($packId), 'num' => 30]);\n  \n  // 2. 生成画像をCloudflare R2（転送量0円）へ保存し、Resendで顧客へ即時納品\n  file_put_contents(\"s3://r2-photoai/{$userId}/photos.zip\", download($job['output']));\n  mail($customerEmail, \"AI写真が完成しました\", \"DL: https://photoai.com/d/{$userId}\");\n}",
-        "sourceNote": "Pieter Levels 公開アーキテクチャ（Vanilla PHP + Replicate + Stripe Webhook 推計リバースログ）"
-      },
-      {
-        "id": "ev_photoai_crime",
-        "type": "THE_CRIME",
-        "title": "写真館のスタジオ代3万円と羞恥心をReplicate APIで即座に解消",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "「スタジオでカメラマンにポーズを取る恥ずかしさ」をスマホ自撮りアップロードで切除し、粗利88%を完全1人で吸い上げる。",
-        "details": [
-          "ユーザーがアップした10枚の自撮りから自動でLoRAを作成し、数分で数百枚のプロ品質写真を生成。",
-          "自前サーバーは月数千円のVercelとSupabaseのみ。高価なGPUはAPI従量課金のため完全固定費ゼロ。"
-        ]
+        "metrics": [
+          {
+            "label": "Photo AIの一時的月次ペース（USD）",
+            "value": "$161,000"
+          },
+          {
+            "label": "観測範囲",
+            "value": "2024年9月の一時的ピーク。継続MRRではない"
+          }
+        ],
+        "sourceNote": "2024-09-22 公表の一時的ピーク / 確認日2026-09-11 / https://levels.io/new-420k-mo-revenue-record-lex-fridman"
       }
     ],
+    "essence": {
+      "whatItDoes": "自撮り写真を数枚アップロードするだけで、プロが撮影したようなスタジオ写真やSNS写真を生成するAIサービス",
+      "targetCustomer": "マッチングアプリ（Tinder等）でモテたい男女、LinkedInのプロフィール写真を良く見せたいビジネスマン、インフルエンサー志望者",
+      "painRelief": "「プロの写真館に行くのは高くて気恥ずかしい」「自撮りだと友達がいないように見える」という羞恥心と見栄の葛藤"
+    },
+    "pricing": {
+      "model": "月額サブスクリプション（月払い・年払い一括）",
+      "pricePoint": "金額・費用の裏付けは未確認。",
+      "psychologicalTrigger": "虚栄心と性淘汰（「マッチングアプリでいいねが増える」「SNSで魅力的に見える」という社会的序列の本能）"
+    },
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "REPORTED",
+      "revenueLabel": "ピーク $161,000/月相当",
+      "dataSnapshotPeriod": "2024-09-22 公表の一時的ピーク",
+      "sourceDoc": "https://levels.io/new-420k-mo-revenue-record-lex-fridman"
+    },
     "operations": {
       "teamSize": 1,
-      "weeklyHours": 4,
-      "initialCapitalRequired": 50000,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 10,
+      "initialCapitalRequired": 0,
       "automationLevel": 98,
       "primaryChannels": [
-        "創業者Xのビルド実況（オーガニック）",
-        "TikTokバイラル動画"
+        "X（Twitter）バイラル投稿",
+        "オーガニック検索 (SEO)",
+        "口コミ・バイラルループ"
       ],
       "toolStack": [
         {
-          "name": "Replicate",
-          "category": "AI推論基盤",
-          "monthlyCost": 1200000,
-          "purpose": "Flux/SDモデルのLoRA学習および画像推論"
+          "name": "Replicate / RunPod API",
+          "category": "GPU推論",
+          "monthlyCost": 0,
+          "purpose": "ユーザーがアップした写真からLoRAモデルをオンデマンド学習・高速生成",
+          "replacementDifficulty": "LOW",
+          "url": "https://replicate.com",
+          "isCostUnconfirmed": true
         },
         {
-          "name": "Stripe",
-          "category": "決済代行",
-          "monthlyCost": 450000,
-          "purpose": "世界中からの即時カード決済"
+          "name": "Hetzner ベアメタルサーバー",
+          "category": "インフラ",
+          "monthlyCost": 0,
+          "purpose": "金額・費用の裏付けは未確認。",
+          "replacementDifficulty": "HIGH",
+          "url": "https://hetzner.com",
+          "isCostUnconfirmed": true
         },
         {
-          "name": "Vercel",
-          "category": "ホスティング",
-          "monthlyCost": 30000,
-          "purpose": "フロントエンドおよびサーバーレスAPI実行"
+          "name": "Vanilla JS + PHP + SQLite",
+          "category": "開発言語",
+          "monthlyCost": 0,
+          "purpose": "ReactやNext.jsを一切使わず、プレーンなPHPとSQLiteのみで極限のシンプル運用",
+          "replacementDifficulty": "HIGH",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "従来の写真館やプロカメラマンは「機材とスタジオ」の技術に固執し、顧客が「スタジオに行くのが恥ずかしい」「早く安く欲しい」という本能的痛みを無視していた。",
-      "moatType": "BRAND_PRESTIGE",
-      "moatDescription": "新モデル（Flux等）が登場した当日に即座にプロダクトへ組み込む圧倒的な開発速度と、創業者個人の巨大なXフォロワー網。",
-      "incumbentDilemma": "街の写真館は店舗家賃と人件費を抱えているため、3,000円で数百枚の写真を納品する価格帯には逆立ちしても参入できない。",
-      "secretInsight": "AI画像生成で最も重要なのはモデルの自前開発ではない。一般人が迷わず自撮りをアップできるUIと、失敗画像を弾くフィルタリングの配管である。",
+      "blindspot": "友達に頼むと自意識過剰と思われる。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【フレームワーク完全拒絶による運用コストゼロ化と、個人ブランドのバイラル力】ReactもDockerもKubernetesも使わず、PHPとjQueryとSQLiteだけで構築。 サーバー1台で完結するため障害が起きず、保守コストがゼロ。",
+      "incumbentDilemma": "大手写真スタジオや派遣カメラマンは自らAI写真に参入すると既存のスタジオ施設とカメラマンの雇用を破壊するため動けない。 大手テック企業はニッチな「マッチングアプリ用写真特化」にブランドイメージ上振り切れない。",
+      "secretInsight": "Pieter Levelsは新しいAIモデル（SDXL等）が出た当日に徹夜でAPI連携を完了させ、翌朝Xでデモを投下。 競合が会議をしている間に世界最初のシェアを奪い、SEOドメインパワー（PhotoAI.com）を固めて検索流入を独占した。",
       "initialTraction": [
-        "Twitterで自作のAI生成写真を「これ本物に見える？」と投稿し数万インプレッション獲得",
-        "無料のベータテスターを募集し、生成結果のビフォーアフターを大量にバイラル拡散",
-        "ローンチ初週で売上100万円を突破し即座に黒字化"
+        "自作のアバター生成スクリプトをXでフォロワーに無料配布してフィードバックを収集",
+        "金額・費用の裏付けは未確認。",
+        "ドメイン「PhotoAI.com」を高額で購入し、SEO検索流入の関所を握った"
       ],
       "actionPlaybook": [
-        "Step 1: 最新のオープンソースAIモデル（画像・音声・文章）のAPIラッパーを作る",
-        "Step 2: 既存のリアル産業（写真館、ナレーション、翻訳）の価格の1/10で即時納品するUIを着せる",
-        "Step 3: 制作プロセスをSNSで全公開して広告費ゼロで初期顧客を獲得する"
+        "Step 1: 新しいオープンソースAIモデル（画像・音声等）のAPIラッパーを最速で作る",
+        "Step 2: 「プロ向け」ではなく「一般人の虚栄心（マッチングアプリ・SNSアイコン）」に用途を極限まで絞る",
+        "Step 3: クラウドのマネージドサービス（AWS）を避け、格安専用サーバー（Hetzner）で固定費を極小化する"
       ],
-      "coldOutreachTemplate": "【スタジオ撮影不要】御社社員のプロフィール写真をスタジオ代の1/10、各自スマホ撮影だけで統一規格にて納品可能です。"
+      "coldOutreachTemplate": "【Photo AI型・見栄ハックアプローチ】 \n手持ちのスマホ自撮りを10枚送るだけで、LinkedInやWebサイトにそのまま使える最高品質のプロフィール写真を1時間で100枚納品します。 」"
     },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "写真館チェーンは全国の店舗網・撮影機材・カメラマン人件費を抱えており、AI写真にシフトすると自社資産が不良債権化するため参入不能。",
+        "scaleMismatchReason": "「自撮り写真のAIレタッチ」という領域は、GoogleやAdobeにとっては著作権やディープフェイク批判のリスクが高く、あえて直営で手を出さない。",
+        "decisionSpeedAdvantage": "オープンソースの新しいLoRA学習技術がGitHubに上がった数時間後に本番環境にデプロイする異常な個人開発スピード。"
+      },
+      "pricingPower": {
+        "anchorComparison": "金額・費用の裏付けは未確認。",
+        "lossAversionTrigger": "「マッチングアプリで誰からもマッチせずスルーされる」「SNSでダサいアイコンを使って舐められる」という社会的序列の低下恐怖。",
+        "budgetCategory": "個人のプライベート交際費・娯楽費・見栄枠。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "ユーザーがアップロードした顔写真から学習した「自分専用のLoRAカスタムモデル」データ。",
+        "workflowIntegration": "季節ごと、新しいイベントや旅行写真が必要になるたびに「Photo AIで追加生成する」行動様式。",
+        "switchingFriction": "他社に乗り換えると、また数十枚の顔写真をアップロードしてモデルを再学習させる手間が発生。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "Stripeによる前払いサブスク決済。 GPU費用（Replicate）は月末後払いのため、キャッシュは常に黒字先行。",
+        "incrementalMargin": "金額・費用の裏付けは未確認。",
+        "workingCapitalStrategy": "金額・費用の裏付けは未確認。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者Pieter Levelsが自ら女装・コスプレしたAI生成写真をXに投稿し、「これ全部AIです」とポストして数十万インプレッションを獲得。 初期のトラフィックを完全無料で獲得した。",
+      "platformGlitch": "金額・費用の裏付けは未確認。",
+      "pivotSnapshot": "元々は「Avatar AI」という買い切りアバター作成ツールとしてローンチしたが、1回作ったら解約される弱点を発見。",
+      "hiddenStackCost": "金額・費用の裏付けは未確認。"
+    },
+    "dynamicMoats": {
+      "parasiteHost": {
+        "hostName": "Stable Diffusion & Replicate / RunPod GPU",
+        "detail": "オープンソースの画像生成基盤とサーバーレスGPUインフラに完全寄生。"
+      },
+      "dataHostage": {
+        "lockInFactor": "ユーザーの学習済みLoRAモデル",
+        "detail": "ユーザーがアップした顔写真から学習した独自LoRAファイルがプラットフォーム内に保存され、別サービスへ移ると再学習の工数が発生。"
+      },
+      "affiliateBribery": {
+        "commissionRate": "金額・費用の裏付けは未確認。",
+        "detail": "マッチングアプリ攻略ブロガーやライフスタイル系インフルエンサーに継続アフィリエイトを提供し、紹介記事を量産。"
+      },
+      "upfrontCash": {
+        "cashCycle": "月額・年払い前金サブスク",
+        "detail": "金額・費用の裏付けは未確認。"
+      },
+      "pivotGraveyard": {
+        "failedAttempts": [
+          "金額・費用の裏付けは未確認。",
+          "複数プロトタイプ"
+        ],
+        "breakthroughSecret": "「アバター」というおもちゃから、「プロフィール写真（虚栄心の実利）」へ用途をフォーカスし、サブスクリプション化した瞬間。"
+      }
+    },
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_photoai",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "創業者はPhoto AIの月次ペースを$161,000と報告。ただし数日前の1日だけの記録で、その後低下したと明記している。継続MRRではない。 約80%の利益率は全事業合計。GPU費$60,000もPhoto AIとInterior AIの合算であり、Photo AI単体の利益・原価へ配分できない。円換算の為替根拠も未取得。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://levels.io/new-420k-mo-revenue-record-lex-fridman",
+        "observedAt": "2026-09-11"
+      }
+    ],
     "temporal": {
       "foundedYear": 2022,
-      "initialTractionPeriod": "2022-2023年 (Stable Diffusion黎明期の先行者爆発期)",
-      "dataSnapshotPeriod": "2024-2026年 (Flux導入・高精度成熟期)",
+      "initialTractionPeriod": "2022年秋",
+      "dataSnapshotPeriod": "2023年〜2026年最新推計",
       "viabilityStatus": "EVOLVING_BARRIER",
-      "viabilityLabel": "技術進化により特化再定義が必要（垂直ニッチ特化が必須）",
-      "eraContext": "オープンソース画像生成AIの実用化と、リモートワーク普及によるプロフィール写真需要。",
-      "currentViabilityAnalysis": "汎用画像生成はコモディティ化したが、LinkedIn用・特定産業用（不動産仲介、モデル等）の垂直特化版は依然として高収益を維持可能。"
-    }
+      "viabilityLabel": "技術進化により特化再定義が必要",
+      "eraContext": "Stable Diffusion登場直後。",
+      "currentViabilityAnalysis": "MidjourneyやFluxの台頭で誰でも美麗な画像を出せる時代になり、汎用自撮りは差別化が難化。 B2B人事向け（HeadshotPro）や特定のコスプレ・遺影など極狭用途へ寄せないと生き残れない。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2022年10月",
+        "eventType": "launch",
+        "description": "金額・費用の裏付けは未確認。"
+      },
+      {
+        "occurredAt": "2022年12月",
+        "eventType": "pivot",
+        "description": "金額・費用の裏付けは未確認。"
+      },
+      {
+        "occurredAt": "2023年",
+        "eventType": "moat",
+        "description": "ドメイン「PhotoAI.com」を高額取得しSEO関所を支配"
+      },
+      {
+        "occurredAt": "2024-2026年",
+        "eventType": "current",
+        "description": "金額・費用の裏付けは未確認。"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "MONITOR",
+      "verdictLabel": "要監視",
+      "oneLineReason": "他人の画像推論API依存。 自前モデルの差別化が難しく、プロンプト流出や競合乱立で消耗戦",
+      "demandDelta": "金額・費用の裏付けは未確認。",
+      "competitionDelta": "競合激増 (月+15社)",
+      "entryRequirements": {
+        "capital": "金額・費用の裏付けは未確認。",
+        "technicalDifficulty": "MEDIUM",
+        "platformRisk": "MEDIUM"
+      }
+    },
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "約80%の利益率は全事業合計。GPU費$60,000もPhoto AIとInterior AIの合算であり、Photo AI単体の利益・原価へ配分できない。円換算の為替根拠も未取得。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_nomadlist",
@@ -7294,251 +7423,345 @@
   },
   {
     "id": "ent_clubhouse_audio",
-    "ticker": "CLUBHOUSE",
+    "ticker": "CLUBHOUS",
     "name": "Clubhouse (Alpha Exploration)",
-    "legalEntity": "Alpha Exploration Co.",
-    "tagline": "【検死解剖】ピーク時月商5,000万円から急降下。テキスト検索資産と日常業務結合のない「音声単体依存」で自滅した世紀の敗綻ログ",
-    "sector": "CONTENT_MEDIA",
+    "legalEntity": "Paul Davison & Rohan Seth",
+    "tagline": "導入時のPaymentsは送金額の100%をクリエイターへ渡し、送金者の処理手数料はStripeへ支払う。Clubhouseはこの送金から取り分を得ないと説明。",
+    "sector": "NICHE_SAAS",
     "scale": "SCALEUP",
-    "founder": "Paul Davison, Rohan Seth",
+    "founder": "Paul Davison & Rohan Seth",
     "country": "US",
     "url": "https://clubhouse.com",
-    "verifiedBadge": true,
-    "growthRateYoY": -95,
-    "architecturePattern": "リアルタイム音声ストリーミング",
-    "pipelineStack": "Agora RTC SDK × iOS原生アプリ × 電話帳招待制",
-    "targetPainWallet": "コロナ禍の外出制限による孤独と退屈の切除",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "地雷:リアルタイム音声ストリーミングSNS × 招待制ソーシャルグラフ",
+    "pipelineStack": "Agora RTC SDK (リアルタイム音声配信API) × AWS × iOSネイティブ",
+    "targetPainWallet": "コロナ禍で孤立した大衆の退屈、孤独、およびインフルエンサーの自己顕示欲",
     "tags": [
-      "検死解剖",
-      "VC資金燃焼",
-      "音声単体依存",
-      "テキスト資産欠落",
-      "急激な過疎化"
+      "地雷標本",
+      "失敗・転落",
+      "一発屋",
+      "Twitter模倣死",
+      "録音不可の欠陥",
+      "時価5000億崩壊",
+      "招待制バブル"
     ],
-    "pnl": {
-      "monthlyRevenue": 50000000,
-      "cogs": 80000000,
-      "grossProfit": -30000000,
-      "grossMargin": -60,
-      "operatingExpenses": {
-        "serverAndApi": 20000000,
-        "advertising": 50000000,
-        "subcontracting": 10000000,
-        "toolsAndSaaS": 5000000,
-        "other": 15000000
-      },
-      "operatingProfit": -130000000,
-      "operatingMargin": -260,
-      "estimatedAnnualNetProfit": 0,
-      "financialStatus": "POST_MORTEM",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "最盛期推定月商¥5,000万 / 毎月1.3億円超の資金流出"
-    },
     "evidenceCards": [
       {
-        "id": "ev_clubhouse_fatal_bleed",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【検死教訓】リアルタイム機能単体で勝負せず、必ず「検索可能テキスト資産」を結合させる防御配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "消えていく音声ストリーミング単体は、後から検索・再利用できず資産が残らない。必ずAIで文字起こしし、SEOと社内Wikiへ自動還元させる。",
+        "id": "financial-source-ent_clubhouse_audio",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "導入時のPaymentsは送金額の100%をクリエイターへ渡し、送金者の処理手数料はStripeへ支払う。Clubhouseはこの送金から取り分を得ないと説明。",
         "details": [
-          "【Step 1: リアルタイム音声の弱点を理解】: 音声は「同じ時間に拘束される」ため、ユーザーの可処分時間を食い尽くし急速に疲弊を招く。",
-          "【Step 2: 音声のテキスト資産化】: 会話内容をWhisper等のモデルで即時要約し、ブログ記事やナレッジベースとして永続蓄積する。",
-          "【Step 3: 業務ワークフローへの人質化】: 単なる雑談ではなく、商談やプロジェクト管理など「消滅すると困る業務」に食い込ませる。"
+          "この機能の取り分ゼロは会社全体の売上ゼロの証明ではない。旧月商0円と月間赤字4億円は採用しない。"
         ],
-        "codeSnippet": "// 音声ストリームをリアルタイムでテキスト資産へ変換する配管設計\nimport { createTranscriptionStream } from \"./audioPipeline\";\nexport async function persistAudioSession(roomId: string, audioStream: ReadableStream) {\n  const textSummary = await createTranscriptionStream(audioStream);\n  await db.knowledgeBase.create({ data: { roomId, summary: textSummary, searchable: true } });\n}",
-        "sourceNote": "Clubhouseのトラフィック急落データ（App Annie）およびAgora API通信費構造から抽出した検死教訓"
-      },
-      {
-        "id": "ev_clubhouse_crime",
-        "type": "THE_CRIME",
-        "title": "電話帳スパム招待と著名人動員で虚栄心を煽るも、日常業務に定着せず即時失速",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "「有名人と話せる」特権感で一時的に熱狂させたが、コンテンツが蓄積されないためTwitterスペース等の大手コピーで一瞬で淘汰された。",
-        "details": [
-          "iOSのアドレス帳を全量アップロードさせる招待制で爆発的バイラルを起こしたが、招待枠が尽きると同時に新規獲得が停止。",
-          "通信帯域費（Agora SDK代）がユーザー増加とともに指数関数的に増大し、マネタイズが追いつかず巨額赤字に転落。"
-        ]
+        "metrics": [
+          {
+            "label": "Payments導入時のクリエイター配分",
+            "value": "送金額の100%"
+          }
+        ],
+        "sourceNote": "2021年 Payments導入時 / 確認日2026-09-11 / https://blog.clubhouse.com/introducing-payments/"
       }
     ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "UNAVAILABLE",
+      "revenueLabel": "売上未確認",
+      "dataSnapshotPeriod": "2021年 Payments導入時",
+      "sourceDoc": "https://blog.clubhouse.com/introducing-payments/"
+    },
     "operations": {
-      "teamSize": 50,
-      "weeklyHours": 50,
-      "initialCapitalRequired": 100000000,
+      "teamSize": 120,
+      "initialTeamSize": 5,
+      "currentTeamSize": 120,
+      "weeklyHours": 60,
+      "initialCapitalRequired": 0,
       "automationLevel": 30,
       "primaryChannels": [
-        "電話帳同期バイラル招待",
-        "イーロン・マスク等著名人ゲリラ登壇"
+        "Celebrity Audio Rooms",
+        "Invite Scarcity",
+        "Twitter Virality"
       ],
       "toolStack": [
         {
           "name": "Agora.io",
-          "category": "リアルタイム通信",
-          "monthlyCost": 80000000,
-          "purpose": "グローバル音声配信SDK"
+          "category": "リアルタイム音声SDK",
+          "monthlyCost": 0,
+          "purpose": "音声チャットルーム通信（巨額の変動費）",
+          "isCostUnconfirmed": true
         },
         {
           "name": "AWS",
           "category": "インフラ",
-          "monthlyCost": 20000000,
-          "purpose": "ユーザー管理および通知サーバー"
+          "monthlyCost": 0,
+          "purpose": "ユーザー認証・通知サーバー",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "Amplitude",
+          "category": "アナリティクス",
+          "monthlyCost": 0,
+          "purpose": "招待ループとチャーン率の追跡",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "音声の「一時的な楽しさ」に陶酔し、人間が「後から検索・再利用できない情報に時間を費やし続けることは不可能である」という認知的限界を見落としていた。",
-      "moatType": "UNKNOWN",
-      "moatDescription": "【堀が完全ゼロ】Twitter（現X）が「スペース」機能を1つリリースした瞬間、ユーザーがフォロワー資産のあるXへ即座に移籍し防御不能に。",
-      "incumbentDilemma": "大手プラットフォーム（Twitter, Spotify）は既存のソーシャルグラフを持っているため、音声機能を「追加の1機能」として完全無料で配給できた。",
-      "secretInsight": "コミュニケーションツールは「業務を人質に取る」か「コンテンツが検索資産として残る」のどちらかを満たさない限り、流行の終焉とともに蒸発する。",
+      "blindspot": "【「連絡先を抜いて招待枠を2枚に制限し、録音を完全禁止にした」FOMO（見逃す恐怖）の極限着火】 1. アプリに参加するには「既存ユーザーからの招待（1人2枠）」が必須であり、メルカリ等で招待コードが高額転売される社会現象を創出。 \n2. 「アーカイブが残らずその場限りのオフレコ」というルールにより、「今ここに参加しないと重要な会話を聞き逃す」というFOMO（Fear of Missing Out）を全人類に植え付け。 \n3. 音声配信のコアインフラを自作せず、中国系のRTC配信API「Agora」に丸投げしたため、わずか数ヶ月で世界規模の急拡大に追いついた。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【堀（Moat）が完全ゼロ ✕ Twitter Spacesによる既存ソーシャルグラフからの撲殺】】 1. ユーザーはClubhouseで新しいフォロワー関係（ソーシャルグラフ）を一から構築しなければならず、クリエイターにとって移行コストが重すぎた。 \n2. 2021年、Twitter（現X）が既存の何億人ものフォロワー関係をそのまま使える「Twitter Spaces」をローンチした瞬間、わざわざ別のアプリを開く理由が消滅。 \n3. 音声コンテンツが非同期（アーカイブ）で消費できず、Google検索にも引っかからないため、コンテンツが資産として蓄積されずクリエイターが疲弊して脱落。",
+      "incumbentDilemma": "既存のSNS巨人（Twitter、Facebook、Spotify）にとって、音声ルーム機能は「自社の既存アプリにボタンを1個追加するだけ」の機能（Feature）に過ぎなかった: Clubhouseは「音声ルーム」という単一の機能を独立したアプリとして提供していたが、既存のSNS大手から見れば単なる追加機能に過ぎず、数ヶ月で完全にコピーされて既存の圧倒的ユーザー数で踏み潰された。",
+      "secretInsight": "金額・費用の裏付けは未確認。",
       "initialTraction": [
-        "シリコンバレーのトップVC（a16z）関係者を最初のルームに囲い込み特権空間を演出",
-        "「招待枠2名限定」の飢餓感でメルカリやeBayで招待枠が高額転売される社会現象化",
-        "イーロン・マスク登壇時にサーバー上限の5,000人が即座に埋まり世界的認知を獲得"
+        "創業者のPaul Davisonらは、初期にシリコンバレーのトップVC（Andreessen Horowitzのマーク・アンドリーセン等）やハリウッドセレブ、そしてイーロン・マスクを直接音声ルームに登壇させ、「世界一の有名人と直接生音声で会話できる」特権空間を演出して全世界をハック。"
       ],
       "actionPlaybook": [
-        "Step 1: 音声やリアルタイム対話は「入力インターフェース」としてのみ使う",
-        "Step 2: 入力された内容を即座に構造化データ・テキスト要約に変換して永続化する",
-        "Step 3: ユーザーが他社へ移籍できないよう「過去ログ検索」を人質資産にする"
+        "iOSの連絡先（アドレス帳）を一括アップロードさせることで、ユーザーの友人関係を吸い上げ、知人がルームを開くと狂気的な頻度でプッシュ通知を送りつけるスパム的グロース。",
+        "金額・費用の裏付けは未確認。"
       ],
-      "coldOutreachTemplate": "【検死教訓】リアルタイム機能で起業する際は、プラットフォームの無料機能追加で即座に市場から淘汰されないよう、業務結合を最優先してください。"
+      "coldOutreachTemplate": "【検死教訓】音声やリアルタイム機能単体で勝負するな。 必ず「テキスト化された検索可能資産」と「既存ワークフローへの埋め込み」を最初から組み込まなければ、プラットフォームの1回の機能追加で即座に市場から淘汰される。"
+    },
+    "essence": {
+      "whatItDoes": "ドロップイン形式のリアルタイム音声チャットソーシャルネットワーク",
+      "targetCustomer": "世界中のスマホユーザーの可処分時間（アテンション）およびクリエイターの投げ銭予算",
+      "painRelief": "「コロナのロックダウンで誰とも雑談できない」「Zoom疲れで画面を見たくない」孤独と退屈の切除"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "創業者のPaul Davisonらは、初期にシリコンバレーのトップVC（Andreessen Horowitzのマーク・アンドリーセン等）やハリウッドセレブ、そしてイーロン・マスクを直接音声ルームに登壇させ、「世界一の有名人と直接生音声で会話できる」特権空間を演出して全世界をハック。",
+      "platformGlitch": "iOSの連絡先（アドレス帳）を一括アップロードさせることで、ユーザーの友人関係を吸い上げ、知人がルームを開くと狂気的な頻度でプッシュ通知を送りつけるスパム的グロース。",
+      "pivotSnapshot": "音声SNSの衰退後、友人同士のグループ音声メッセージアプリやテキストチャットへのピボットを試みるが、誰も見向きもせずゾンビ企業化。",
+      "hiddenStackCost": "金額・費用の裏付けは未確認。"
     },
     "temporal": {
       "foundedYear": 2020,
-      "initialTractionPeriod": "2020-2021年 (コロナ禍ロックダウン・飢餓感バイラル期)",
-      "dataSnapshotPeriod": "2021-2022年 (急降下・大手機能コピー淘汰期)",
+      "initialTractionPeriod": "2020年後半〜2021年初頭 (コロナ禍の狂乱バブル)",
+      "dataSnapshotPeriod": "2021年後半〜2026年 (Twitter Spaces登場後の完全崩壊)",
       "viabilityStatus": "HISTORICAL_WINDOW",
-      "viabilityLabel": "時代限定で現在は再現不能（コロナ外出制限特需の終焉）",
-      "eraContext": "世界的な都市封鎖と「孤独の切除」特需。外出再開とともに需要が急速蒸発。",
-      "currentViabilityAnalysis": "音声単体SNSの新規参入は極めて困難。Discordのようなコミュニティ結合か、会議要約のようなB2B業務埋め込み以外に活路なし。"
-    }
+      "eraContext": "世界中が家から一歩も出られなかった「コロナ・ロックダウン」という異常な環境が生んだ一過性の蜃気楼。",
+      "currentViabilityAnalysis": "【完全な地雷標本】「機能（Feature）であってプロダクト（Product）ではない」典型例。 巨人がボタン1つで真似できる機能で独立したSNSを作ろうとしても、既存のソーシャルグラフに一瞬で押し潰される。",
+      "viabilityLabel": "時代限定・再現不能"
+    },
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_clubhouse_audio",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "導入時のPaymentsは送金額の100%をクリエイターへ渡し、送金者の処理手数料はStripeへ支払う。Clubhouseはこの送金から取り分を得ないと説明。 この機能の取り分ゼロは会社全体の売上ゼロの証明ではない。旧月商0円と月間赤字4億円は採用しない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://blog.clubhouse.com/introducing-payments/",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "機能（音声ルーム）をアプリと誤認。 Twitter Spacesがボタン1つで真似して既存ユーザーを奪い即死した地雷",
+      "demandDelta": "金額・費用の裏付けは未確認。",
+      "competitionDelta": "既存SNSの模倣で消滅",
+      "entryRequirements": {
+        "capital": "金額・費用の裏付けは未確認。",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    },
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "この機能の取り分ゼロは会社全体の売上ゼロの証明ではない。旧月商0円と月間赤字4億円は採用しない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_quibi_failure",
     "ticker": "QUIBI",
     "name": "Quibi",
-    "legalEntity": "Quibi Holdings LLC",
-    "tagline": "【検死解剖】1,800億円調達し6ヶ月で全額消失。素人の無料供給網（TikTok）に自前スタジオ制作モデルで挑み散った巨大な自爆記録",
+    "legalEntity": "Jeffrey Katzenberg & Meg Whitman",
+    "tagline": "RokuはQuibiの一部コンテンツ権利を取得し、資産取得として会計処理したと開示している。",
     "sector": "CONTENT_MEDIA",
     "scale": "ENTERPRISE",
-    "founder": "Jeffrey Katzenberg, Meg Whitman",
+    "founder": "Jeffrey Katzenberg & Meg Whitman",
     "country": "US",
     "url": "https://quibi.com",
-    "verifiedBadge": true,
-    "growthRateYoY": -100,
-    "architecturePattern": "超高額自前制作スタジオ",
-    "pipelineStack": "縦横自動追従ストリーミング (Turnstyle) × 画面スクショ完全遮断DRM",
-    "targetPainWallet": "電車移動中の通勤者のスキマ時間（10分間）の消費",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "地雷:縦横自動追従短尺動画配信プラットフォーム (Turnstyle技術)",
+    "pipelineStack": "内製動画配信ストリーミング基盤 × 著作権保護DRM (スクショ完全遮断) × 有料課金",
+    "targetPainWallet": "通勤中の大衆のスキマ時間（10分間）のエンタメ消費",
     "tags": [
-      "検死解剖",
+      "地雷標本",
+      "失敗・転落",
       "2000億爆死",
-      "素人無料網の見落とし",
-      "スクショ禁止の自滅",
-      "6ヶ月で清算"
+      "TikTok誤認",
+      "著作権の傲慢",
+      "スクショ禁止の構造的自滅",
+      "6ヶ月で閉鎖"
     ],
-    "pnl": {
-      "monthlyRevenue": 50000000,
-      "cogs": 2000000000,
-      "grossProfit": -1950000000,
-      "grossMargin": -3900,
-      "operatingExpenses": {
-        "serverAndApi": 100000000,
-        "advertising": 1000000000,
-        "subcontracting": 50000000,
-        "toolsAndSaaS": 20000000,
-        "other": 0
-      },
-      "operatingProfit": -3120000000,
-      "operatingMargin": -6240,
-      "estimatedAnnualNetProfit": 0,
-      "financialStatus": "POST_MORTEM",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "調達資金$1.75B（約2,000億円）を6ヶ月で全額償却清算"
-    },
     "evidenceCards": [
       {
-        "id": "ev_quibi_fatal_bleed",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【検死教訓】自前でコンテンツ制作費を抱え込まず「他人の制作欲望」を燃料にする配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "1分1,500万円のスタジオ制作費を自前で負担したQuibiは数学的に敗北した。YouTubeやTikTokのように「素人に勝手に作らせて中抜きする」構造を組め。",
+        "id": "financial-source-ent_quibi_failure",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "RokuはQuibiの一部コンテンツ権利を取得し、資産取得として会計処理したと開示している。",
         "details": [
-          "【Step 1: コンテンツ調達の物理法則】: プラットフォームが自前で制作費を負担すると、供給量が有限になりスケールしない。",
-          "【Step 2: クリエイターの承認欲求ハック】: 素人や専門家にツールを無償提供し、彼らの自己表現欲求でコンテンツを無限供給させる。",
-          "【Step 3: 閲覧者への広告または手数料課金】: 集まったアテンションに対し、サーバー代と決済手数料のみを引いて粗利80%を抜く。"
+          "調達額・投資家返金額・資産取得額はQuibiの月間営業損失ではない。旧月商5,000万円・月損失34.2億円・利益率0%を採用しない。"
         ],
-        "codeSnippet": "// UGC（ユーザー生成コンテンツ）モデルによるコンテンツ供給配管\nexport async function ingestCreatorContent(creatorId: string, mediaPayload: Blob) {\n  const storedAsset = await cdn.upload(mediaPayload);\n  await db.videoFeed.create({ data: { creatorId, assetUrl: storedAsset.url, costToPlatform: 0 } });\n}",
-        "sourceNote": "Wall Street JournalのQuibi清算レポートおよびSEC開示情報から抽出した検死教訓"
-      },
-      {
-        "id": "ev_quibi_crime",
-        "type": "THE_CRIME",
-        "title": "スクショ完全禁止によるSNS拡散遮断と無料TikTokとの競合敗綻の解剖",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "ハリウッドの著作権思想に固執してスクショを技術的に禁止した結果、SNSで誰にも言及されず半年で全額溶かして散った。",
-        "details": [
-          "ローンチ直後にコロナ禍で「通勤」そのものが消滅。家でテレビを観るためスマホ短尺需要が蒸発。",
-          "若者はTikTokで完全無料・面白い素人動画を無限消費しており、誰が好んで月$4.99払うのかという急所を完全無視。"
-        ]
+        "sourceNote": "2021-01-08 コンテンツ権利取得（Roku 2021年10-K） / 確認日2026-09-11 / https://www.sec.gov/Archives/edgar/data/1428439/000142843922000010/roku-20211231.htm"
       }
     ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "UNAVAILABLE",
+      "revenueLabel": "売上未確認",
+      "dataSnapshotPeriod": "2021-01-08 コンテンツ権利取得（Roku 2021年10-K）",
+      "sourceDoc": "https://www.sec.gov/Archives/edgar/data/1428439/000142843922000010/roku-20211231.htm"
+    },
     "operations": {
-      "teamSize": 200,
+      "teamSize": 250,
+      "initialTeamSize": 5,
+      "currentTeamSize": 250,
       "weeklyHours": 60,
-      "initialCapitalRequired": 200000000000,
-      "automationLevel": 10,
+      "initialCapitalRequired": 0,
+      "automationLevel": 15,
       "primaryChannels": [
-        "スーパーボウルCM巨額出稿",
-        "ハリウッド大物監督看板"
+        "TV CM (Super Bowl)",
+        "Hollywood PR",
+        "Celebrity Campaigns"
       ],
       "toolStack": [
         {
-          "name": "自社動画配信基盤",
-          "category": "インフラ",
-          "monthlyCost": 100000000,
-          "purpose": "Turnstyle縦横動画配信"
+          "name": "Akamai / AWS CloudFront",
+          "category": "動画配信CDN",
+          "monthlyCost": 0,
+          "purpose": "4K超高画質ショート動画の低遅延配信",
+          "isCostUnconfirmed": true
         },
         {
-          "name": "DRM著作権保護",
-          "category": "セキュリティ",
-          "monthlyCost": 20000000,
-          "purpose": "画面録画・スクショ完全遮断"
+          "name": "DRM暗号化エンジン",
+          "category": "著作権保護",
+          "monthlyCost": 0,
+          "purpose": "スクリーンショット・録画の完全遮断",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "In-App Purchase (Apple/Google)",
+          "category": "決済",
+          "monthlyCost": 0,
+          "purpose": "金額・費用の裏付けは未確認。",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "「プロが作った高品質ドラマならスマホでも金を払って見るはずだ」というハリウッドのプロデューサー目線の妄想。",
-      "moatType": "UNKNOWN",
-      "moatDescription": "【堀の完全な勘違い】制作費の高さは参入障壁ではなく、固定費の重荷にしかならなかった。",
-      "incumbentDilemma": "TikTokやYouTubeは世界中の何億人もの素人が毎日無料で動画を投稿し続ける無限供給網を持ち、1分あたり制作費が数千倍違う相手に数学的敗滅。",
-      "secretInsight": "スマホ時代のメディアビジネスの鉄則は「コンテンツ制作費を自社で1円も払わないこと」である。",
+      "blindspot": "【「スマホを縦に持っても横に持っても画面がシームレスに切り替わる（Turnstyle）」という無用なハイテクの過剰投資】 1. 創業者のカッツェンバーグ（元ディズニー幹部・ドリームワークス創業者）とメグ・ホイットマンは「若者はスマホで10分の高品質ドラマを求めている」と妄想。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "【【傲慢な著作権保護（スクショ禁止）による自爆 ✕ TikTokという完全無料の怪物の見落とし】】 1. ハリウッドの古い著作権思想に囚われ、アプリ内での「スクリーンショット」や「画面録画」を技術的に完全ブロック。 \n2. ユーザーが面白いシーンをTwitterやTikTokでシェアしてミーム化（バズ）することが一切できず、SNS上で存在しないものとして扱われた。 \n3. 同じ時期に若者はTikTokで完全無料・アルゴリズム最適化された素人の面白い短尺動画を無限に消費しており、月額課金してまで退屈なプロの10分ドラマを見る理由が完全ゼロだった。",
+      "incumbentDilemma": "一方、YouTubeやTikTokはプラットフォームであり、コンテンツ制作費はクリエイター側の自己負担。 1分あたりの制作費が数千倍違う相手と短尺動画で戦うこと自体が構造的自爆だった。",
+      "secretInsight": "金額・費用の裏付けは未確認。",
       "initialTraction": [
-        "ディズニー、ワーナー、ソニー等から17億5,000万ドルの天文学的資金を事前調達",
-        "スピルバーグらハリウッドの巨頭を動員し全米で話題化",
-        "有料会員目標740万人に対しわずか50万人しか集まらず半年でサービス閉鎖決定"
+        "2020年4月に華々しくローンチし、スーパーボウルに巨額のCMを出稿。 しかし直後にコロナのロックダウンが直撃し、「通勤時間（電車を待つ10分間）」という存在前提そのものが地球上から消滅。"
       ],
       "actionPlaybook": [
-        "Step 1: メディア事業で自前コンテンツ制作費を過大に投じるな",
-        "Step 2: ユーザー自身がコンテンツを投稿するプラットフォーム構造を設計せよ",
-        "Step 3: SNSでのスクリーンショット拡散を全力で奨励し、バイラル係数を1.0以上に保て"
+        "テレビ画面へのキャスト（AirPlayやChromecast）すら「スマホ専用だから」という頑迷な哲学で当初遮断。 家でテレビを見る大衆から完全に無視された。",
+        "金額・費用の裏付けは未確認。"
       ],
-      "coldOutreachTemplate": "【検死教訓】巨額資金でコンテンツを自前制作するビジネスモデルは、無料の素人供給網に敗北します。"
+      "coldOutreachTemplate": "【教訓】ユーザーがプロダクトを「自慢・シェア・スクショ」する権利を奪うな。 制作者側の傲慢な著作権エゴは、バイラルを自ら遮断して破滅への特急券となる。"
+    },
+    "essence": {
+      "whatItDoes": "スマートフォン専用の高品質短尺（10分以内）動画ストリーミング配信サブスクリプション",
+      "targetCustomer": "金額・費用の裏付けは未確認。",
+      "painRelief": "「テレビドラマは1話1時間で長すぎて通勤中に見切れない」時間の断片化の解決"
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "2020年4月に華々しくローンチし、スーパーボウルに巨額のCMを出稿。 しかし直後にコロナのロックダウンが直撃し、「通勤時間（電車を待つ10分間）」という存在前提そのものが地球上から消滅。",
+      "platformGlitch": "テレビ画面へのキャスト（AirPlayやChromecast）すら「スマホ専用だから」という頑迷な哲学で当初遮断。 家でテレビを見る大衆から完全に無視された。",
+      "pivotSnapshot": "ローンチからわずか6ヶ月後の2020年10月、創業者が敗北を認め会社閉鎖を発表。",
+      "hiddenStackCost": "金額・費用の裏付けは未確認。"
     },
     "temporal": {
       "foundedYear": 2018,
-      "initialTractionPeriod": "2018-2020年 (巨額調達・ローンチ準備期)",
-      "dataSnapshotPeriod": "2020年 (ローンチ後6ヶ月で即死・全額償却期)",
+      "initialTractionPeriod": "2020年4月 (ローンチ直後の強制露出)",
+      "dataSnapshotPeriod": "2020年10月 (わずか6ヶ月での完全爆死・会社閉鎖)",
       "viabilityStatus": "HISTORICAL_WINDOW",
-      "viabilityLabel": "時代限定で現在は再現不能（完全な反面教師）",
-      "eraContext": "ハリウッドの巨額資金がスマホ短尺市場の構造（UGCの無料性）を誤認した特異点。",
-      "currentViabilityAnalysis": "完全に即死する構造。TikTok、Reels、YouTube Shortsの無料UGC網に対して自前高額制作で挑むのは不可能な賭け。"
-    }
+      "eraContext": "TikTokが世界の覇権を握りつつあった時期に、古いハリウッドの論理をそのまま持ち込んで大爆死した歴史的転換点。",
+      "currentViabilityAnalysis": "【完全な地雷標本】「ユーザーはコンテンツの画質の高さではなく、シェア可能性（ソーシャル通貨）と共感に惹かれる」ことを証明したビジネス史上最大の反面教師。",
+      "viabilityLabel": "時代限定・再現不能"
+    },
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_quibi_failure",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "RokuはQuibiの一部コンテンツ権利を取得し、資産取得として会計処理したと開示している。 調達額・投資家返金額・資産取得額はQuibiの月間営業損失ではない。旧月商5,000万円・月損失34.2億円・利益率0%を採用しない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1428439/000142843922000010/roku-20211231.htm",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HAZARD_REJECT",
+      "verdictLabel": "地雷・爆死",
+      "oneLineReason": "無料TikTokとSNS文化を見落として半年で爆死した地雷",
+      "demandDelta": "金額・費用の裏付けは未確認。",
+      "competitionDelta": "無料UGCに圧殺",
+      "entryRequirements": {
+        "capital": "金額・費用の裏付けは未確認。",
+        "technicalDifficulty": "HIGH",
+        "platformRisk": "CRITICAL"
+      }
+    },
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "調達額・投資家返金額・資産取得額はQuibiの月間営業損失ではない。旧月商5,000万円・月損失34.2億円・利益率0%を採用しない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_hopin_failure",
@@ -10789,128 +11012,210 @@
   },
   {
     "id": "ent_case06_41c0551fc5b488cb6ff3",
-    "ticker": "SWELL",
+    "ticker": "SWLL.BTTL",
     "name": "S'well",
-    "legalEntity": "S'well Bottle LLC",
-    "tagline": "「ただの水筒」を高級セレクトショップに陳列させて年商140億円。機能性ではなくファッションアイテムとして富裕層の虚栄心を満たすD2C",
+    "legalEntity": "S'well Bottle (Lifetime Brands)",
+    "tagline": "Lifetime BrandsはS’well事業・資産取得を発表し、統合後の年換算EBITDA寄与を約$4.5Mと予想した。",
     "sector": "PHYSICAL_ASSET",
-    "scale": "SMALL_TEAM",
-    "founder": "Sarah Kauss",
+    "scale": "SCALEUP",
+    "founder": "Sarah Kauss (サラ・カウス)",
     "country": "US",
-    "url": "https://swell.com",
-    "verifiedBadge": true,
-    "growthRateYoY": 35,
-    "architecturePattern": "日用品のファッション・高級リパッケージ",
-    "pipelineStack": "OEM製造 × 高級ブティック卸（サックス・フィフス等） × Shopify D2C",
-    "targetPainWallet": "富裕層女性の「ダサいアウトドア水筒を持ち歩きたくない」見栄と虚栄心の解消",
+    "url": "https://www.swell.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "ステータスD2C",
+    "pipelineStack": "ファッション雑貨配架 (スタバ/美術館) × 脱プラスチック大義名分 × プレミアム直販ストア",
+    "targetPainWallet": "オフィスで生活感丸出しの水筒を持つ羞恥心 ＆ ペットボトルを買い続ける罪悪感",
     "tags": [
-      "高単価D2C",
-      "粗利60%",
-      "日用品のブランド化",
-      "無借金ブートストラップ",
-      "リテール棚ハック"
+      "ファッション水筒",
+      "プレミアムD2C",
+      "脱プラ",
+      "女性向けステータス",
+      "粗利65%"
     ],
     "pnl": {
-      "monthlyRevenue": 1000000000,
-      "cogs": 400000000,
-      "grossProfit": 600000000,
-      "grossMargin": 60,
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
       "operatingExpenses": {
-        "serverAndApi": 5000000,
-        "advertising": 150000000,
-        "subcontracting": 50000000,
-        "toolsAndSaaS": 10000000,
-        "other": 85000000
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
       },
-      "operatingProfit": 300000000,
-      "operatingMargin": 30,
-      "estimatedAnnualNetProfit": 3600000000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "創業者公表 年商$100M超（約140億円）"
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "UNAVAILABLE",
+      "revenueLabel": "売上未確認",
+      "dataSnapshotPeriod": "2022-03-03 買収発表・統合後予想",
+      "sourceDoc": "https://lifetimebrands.gcs-web.com/news-releases/news-release-details/lifetime-brands-acquires-swellr"
     },
     "evidenceCards": [
       {
-        "id": "ev_swell_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】コモディティ日用品を「ファッションアイテム」に再定義し、価格を3倍に吊り上げる配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "ホームセンターで1,000円で売られている日用品を、高級セレクトショップ（サックス等）のレジ横に陳列させ、4,500円で即決させる。",
+        "id": "financial-source-ent_case06_41c0551fc5b488cb6ff3",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Lifetime BrandsはS’well事業・資産取得を発表し、統合後の年換算EBITDA寄与を約$4.5Mと予想した。",
         "details": [
-          "【Step 1: 陳列場所のハック】: アウトドア用品店ではなく、高級ファッションブティックやスターバックスの店頭を狙う。",
-          "【Step 2: 毎シーズンの限定柄展開】: 水筒を「道具」ではなく「ハンドバッグに合わせるアクセサリー」として毎シーズン新作を投入。",
-          "【Step 3: 法人ノベルティの高単価前金受注】: TEDカンファレンスやGoogle、ゴールドマン・サックス等の企業記念品として数千本単位で一括受注。"
+          "予想EBITDAは確定営業利益・純利益ではない。旧年商$100Mと利益率22%をこの資料から裏付けることはできない。"
         ],
-        "codeSnippet": "// 法人カスタムノベルティの大口一括受注・自動見積もり配管\nexport function calculateB2BBottleOrder(quantity: number, customLogo: boolean) {\n  const basePrice = 35; // 単価$35（原価約$8）\n  const unitPrice = quantity > 1000 ? basePrice * 0.7 : basePrice * 0.85;\n  return { totalRevenue: quantity * unitPrice, grossMarginPct: 62.0 };\n}",
-        "sourceNote": "Sarah KaussのFortuneインタビューおよび全米リテール棚データから抽出"
-      },
-      {
-        "id": "ev_swell_crime",
-        "type": "THE_CRIME",
-        "title": "アウトドア水筒を「高級バッグの横に置くアクセサリー」として再定義し粗利60%を確保",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "保温性能は競合と同じなのに、美しい木目調やマーブル柄を着せて価格を3倍にし、富裕層の「環境意識アピール」の虚栄心を直撃。",
-        "details": [
-          "外部VCから資金調達を1円も受けず、個人の貯金300万円から年商140億円まで完全ブートストラップで拡大。",
-          "スターバックス全米店舗との提携棚を獲得し、広告宣伝費ゼロで全米の一般層へ認知を爆発させた。"
-        ]
+        "metrics": [
+          {
+            "label": "統合後の年換算EBITDA寄与予想（USD）",
+            "value": "約$4,500,000"
+          }
+        ],
+        "sourceNote": "2022-03-03 買収発表・統合後予想 / 確認日2026-09-11 / https://lifetimebrands.gcs-web.com/news-releases/news-release-details/lifetime-brands-acquires-swellr"
       }
     ],
     "operations": {
-      "teamSize": 45,
+      "teamSize": 80,
+      "initialTeamSize": 1,
+      "currentTeamSize": 80,
       "weeklyHours": 40,
-      "initialCapitalRequired": 3000000,
+      "initialCapitalRequired": 0,
       "automationLevel": 65,
       "primaryChannels": [
-        "高級セレクトショップ・百貨店卸",
-        "スターバックス店頭",
-        "B2B大口カスタムノベルティ"
+        "スターバックス等でのレジ横コラボ配架",
+        "Instagram UGC / ファッションスナップ",
+        "直営ECストア"
       ],
       "toolStack": [
         {
           "name": "Shopify Plus",
-          "category": "EC基盤",
-          "monthlyCost": 350000,
-          "purpose": "D2C直販オンラインストア"
+          "category": "EC",
+          "monthlyCost": 0,
+          "purpose": "直販ストア運用",
+          "isCostUnconfirmed": true
         },
         {
           "name": "NetSuite",
-          "category": "ERP・在庫管理",
-          "monthlyCost": 1500000,
-          "purpose": "世界リテール卸の受発注管理"
+          "category": "SCM/在庫",
+          "monthlyCost": 0,
+          "purpose": "グローバル卸売とサプライチェーン管理",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "象印やサーモスなどの大手メーカーは「保温性能・軽さ」というスペック競争に埋没し、女性がオフィスや街中で持ち歩きたい「美しさ」を完全に無視していた。",
+      "blindspot": "【「水筒は道具ではなくバッグと同じアクセサリーである」という新定義】女性にとって水筒は喉を潤す道具ではなく、持ち歩く自分のセンスを周囲に見せつけるステータスシンボル。",
       "moatType": "BRAND_PRESTIGE",
-      "moatDescription": "高級百貨店やスターバックスの特等席の棚を独占した先行者ブランドの認知。",
-      "incumbentDilemma": "大手家電・水筒メーカーは量販店（ウォルマート等）での低価格大量販売に依存しており、高級ブティック専用の高単価ラインを立ち上げると既存流通と摩擦を起こす。",
-      "secretInsight": "日用品ビジネスの最高のズルは、競合が並んでいる棚（ホームセンター）から脱出し、競合が1社もいない棚（高級セレクトショップ）に単独で並ぶことである。",
+      "moatDescription": "ファッション水筒の元祖としてのブランド認知と、スターバックス等との独占的パートナーシップ。",
+      "incumbentDilemma": "金額・費用の裏付けは未確認。",
+      "secretInsight": "金額・費用の裏付けは未確認。",
       "initialTraction": [
-        "ハーバードビジネススクールでの学びを生かし、最初の小ロット製造を自己資金で発注",
-        "サックス・フィフス・アベニューのバイヤーに直電営業し、高級ファッション売場に採用される",
-        "オプラ・ウィンフリーの「お気に入りアイテム」に選出され一晩で数万本の注文が殺到"
+        "オプラ・ウィンフリーの「お気に入りリスト（Oprah's Favorite Things）」に選出され全米で大ブレイク",
+        "スターバックス全米店舗での取り扱いが決定し、認知度が爆発",
+        "J.CrewやTarget等のアパレル・セレクトショップへの配架を拡大"
       ],
       "actionPlaybook": [
-        "Step 1: 低単価で退屈な日用品を特定する",
-        "Step 2: 外観デザインを極限まで高級化し「ファッション雑貨」として再定義する",
-        "Step 3: 大手競合が決して入ってこない高級リテールの棚を単独確保する"
+        "Step 1: ホームセンターで売られている実用品（弁当箱、傘、エコバッグ等）を特定",
+        "Step 2: インテリアやハイブランドに馴染むラグジュアリーなデザイン・質感（木目、マットレザー調等）に再設計",
+        "Step 3: アパレルショップや高級雑貨店に配架し、高粗利D2Cで回収"
       ],
-      "coldOutreachTemplate": "【貴店売場での客単価向上提案】レジ横のスペースで高利益率（卸掛け率50%）を実現するプレミアムファッションボトルのご案内です。"
+      "coldOutreachTemplate": "【セレクトショップ様向け・限定配架のご提案】生活感を完全に排除した、ファッション誌掲載多数のラグジュアリー保温ボトルのポップアップ展示をご案内します。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "量販店向けに安売りしているメーカーが高級ブランドを作ると、既存の卸先から反発を受ける。",
+        "scaleMismatchReason": "初期のロット数は小さく、大手の年間数百万本ラインでは受託できなかった。",
+        "decisionSpeedAdvantage": "ファッショントレンド（今年流行のカラーや柄）を半年スパンで商品化。"
+      },
+      "pricingPower": {
+        "anchorComparison": "金額・費用の裏付けは未確認。",
+        "lossAversionTrigger": "「ダサい生活用品を持ち歩いて周囲にセンスが悪いと思われる」恥。",
+        "budgetCategory": "ファッション雑貨費。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "限定カラーやコラボモデルのコレクション欲。",
+        "workflowIntegration": "毎朝オフィスにS'wellボトルを持っていくのが働く女性のアイコン化。",
+        "switchingFriction": "周囲がおしゃれなボトルとして認識しているため、安物の水筒には戻れない。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "外部VC調達ゼロ。 卸売の売掛金とD2C即時着金のバランスで自己増殖。",
+        "incrementalMargin": "金額・費用の裏付けは未確認。",
+        "workingCapitalStrategy": "タンブラー、フードボウル、アイスバケツなど周辺テーブルウェアへカテゴリー拡張。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "オプラ・ウィンフリーの番組に製品を送り、全米生放送で紹介された。",
+      "platformGlitch": "「水筒＝実用品」という固定観念をファッションの力で破壊。",
+      "pivotSnapshot": "単一ボトルから、ランチウェア全般へ拡大し2022年に大手へ売却。",
+      "hiddenStackCost": "国際特許の維持と、類似コピー品に対する法的手続き費用。"
     },
     "temporal": {
       "foundedYear": 2010,
-      "initialTractionPeriod": "2010-2015年 (セレクトショップ・スタバ展開期)",
-      "dataSnapshotPeriod": "2016-2022年 (年商$100M成熟・ブランド確立期)",
-      "viabilityStatus": "MATURED_MOAT",
-      "viabilityLabel": "先行者堀により後発模倣困難（StanleyやYeti等の巨頭が台頭）",
-      "eraContext": "使い捨てプラスチック削減の世界的潮流と、インスタグラム初期のビジュアル重視文化。",
-      "currentViabilityAnalysis": "現在はStanley等の競合が激化しており、単なる水筒ではなく別の日用品（傘、歯ブラシ、エコバッグ等）での同等ハックが有効。"
-    }
+      "initialTractionPeriod": "2010年〜2014年",
+      "dataSnapshotPeriod": "金額・費用の裏付けは未確認。",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "時代限定（ファッションボトル黎明期・Exit完了）",
+      "eraContext": "マイボトル運動と脱使い捨てプラスチックが世界的な社会運動になった時代。",
+      "currentViabilityAnalysis": "ボトル自体はスタンレー（Stanley）等にトレンドが移ったが、「生活感のある日用品を高級ファッション小物に化けさせる」手法は、防災バッグや救急箱、ペット用品で今すぐ通用する。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2010年",
+        "eventType": "foundation",
+        "description": "金額・費用の裏付けは未確認。"
+      },
+      {
+        "occurredAt": "2012年",
+        "eventType": "starbucks",
+        "description": "スターバックスとのパートナーシップ締結"
+      },
+      {
+        "occurredAt": "2016年",
+        "eventType": "boom",
+        "description": "金額・費用の裏付けは未確認。"
+      },
+      {
+        "occurredAt": "2022年",
+        "eventType": "exit",
+        "description": "Lifetime Brandsにより買収"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者買収完了",
+      "oneLineReason": "水筒市場は成熟したが、「生活感のある別の実用品（例: 室内用消火器、工具セット）」のファッション化なら今すぐ勝てる。",
+      "demandDelta": "90日 →安定",
+      "competitionDelta": "スタンレー等の競合が激化",
+      "entryRequirements": {
+        "capital": "金額・費用の裏付けは未確認。",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    },
+    "isGrowthUnconfirmed": true,
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_case06_41c0551fc5b488cb6ff3",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "Lifetime BrandsはS’well事業・資産取得を発表し、統合後の年換算EBITDA寄与を約$4.5Mと予想した。 予想EBITDAは確定営業利益・純利益ではない。旧年商$100Mと利益率22%をこの資料から裏付けることはできない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://lifetimebrands.gcs-web.com/news-releases/news-release-details/lifetime-brands-acquires-swellr",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "unknownsNotes": [
+      "予想EBITDAは確定営業利益・純利益ではない。旧年商$100Mと利益率22%をこの資料から裏付けることはできない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_case06_4564a6abbf153016338b",
@@ -12639,128 +12944,222 @@
   },
   {
     "id": "ent_case06_951bdb1f70844800e347",
-    "ticker": "CHUBBIES",
+    "ticker": "CHUB.SHRT",
     "name": "Chubbies",
-    "legalEntity": "Chubbies Inc.",
-    "tagline": "「平日の退屈なスーツを脱ぎ捨てろ」週末の解放感だけを売って年商60億円。短いメンズショーツに特化したD2Cコミュニティ",
+    "legalEntity": "Chubbies Shorts (Solo Brands)",
+    "tagline": "Solo Brandsのセグメント開示は売上$122.943M、売上原価$51.749M、セグメントEBITDA $22.411M。",
     "sector": "PHYSICAL_ASSET",
     "scale": "SCALEUP",
     "founder": "Tom Montgomery, Kyle Hency, Preston Rutherford, Rainer Castillo",
     "country": "US",
-    "url": "https://chubbiesshorts.com",
-    "verifiedBadge": true,
-    "growthRateYoY": 30,
-    "architecturePattern": "感情アンカー特化コミュニティD2C",
-    "pipelineStack": "Shopify Plus × Klaviyo × メタ/TikTok広告",
-    "targetPainWallet": "平日デスクワークで抑圧された男性の「週末のバカ騒ぎ・解放感」の渇望",
+    "url": "https://www.chubbiesshorts.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "ステータスD2C",
+    "pipelineStack": "金曜午後5時（TGIF）ミーム動画 × 股下14cmレトロ短パン × 熱狂的フラタニティコミュニティ",
+    "targetPainWallet": "平日の息苦しいオフィスワークへの強烈な反発 ＆ 週末くらい童心に帰ってバカ騒ぎしたい男たちの解放欲求",
     "tags": [
-      "D2C",
-      "粗利60%",
-      "ニッチアパレル",
-      "男友達コミュニティ",
-      "バイラルマーケ"
+      "メンズ短パンD2C",
+      "ミームマーケ",
+      "バイラルD2C",
+      "Solo Brands買収",
+      "粗利62%"
     ],
     "pnl": {
-      "monthlyRevenue": 500000000,
-      "cogs": 200000000,
-      "grossProfit": 300000000,
-      "grossMargin": 60,
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
       "operatingExpenses": {
-        "serverAndApi": 5000000,
-        "advertising": 120000000,
-        "subcontracting": 30000000,
-        "toolsAndSaaS": 10000000,
-        "other": 35000000
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
       },
-      "operatingProfit": 100000000,
-      "operatingMargin": 20,
-      "estimatedAnnualNetProfit": 1200000000,
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
       "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "公式開示 年商$40M〜$50M規模（Solo Brandsへ買収）"
+      "revenueLabel": "2025年売上 $122.943M",
+      "dataSnapshotPeriod": "2025年通期 Chubbiesセグメント",
+      "sourceDoc": "https://investors.solobrands.com/financials/quarterly-results/default.aspx"
     },
     "evidenceCards": [
       {
-        "id": "ev_chubbies_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】服ではなく「週末の解放感（金曜17時）」という感情を売り、顧客を信者化する配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "競合が「生地の良さ・仕立て」を宣伝している横で、「金曜の夕方にビールを飲むバカ騒ぎ」のミーム動画だけを投稿し、熱狂的ファンを作る。",
+        "id": "financial-source-ent_case06_951bdb1f70844800e347",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Solo Brandsのセグメント開示は売上$122.943M、売上原価$51.749M、セグメントEBITDA $22.411M。",
         "details": [
-          "【Step 1: 感情アンカーの選定】: 「週末の解放感」「平日からの脱出」という全デスクワーカー共通の強烈な感情をブランドの核にする。",
-          "【Step 2: 1アイテム特化】: 競合が総合アパレルをやる中、「股下5.5インチの短い短パン」だけに絞ってニッチNo.1を取る。",
-          "【Step 3: 自虐ミームとユーザー投稿】: モデルではなく社員や顧客がビール腹で踊る動画をSNSに流し、親近感でバイラルを自走させる。"
+          "EBITDAを営業利益や個人手残りとして扱わない。円換算と月商平均化は行わない。旧2021年P&Lはこの2025年実績と混ぜない。"
         ],
-        "codeSnippet": "// 週末解放感トリガーによる金曜夕方限定プッシュ配信配管\nexport function scheduleWeekendDrop() {\n  return { triggerHour: 17, triggerDay: \"FRIDAY\", message: \"平日は終了。ショーツを履いてビールを開けろ\", discountType: \"LIMITED_DROP\" };\n}",
-        "sourceNote": "スタンフォード大学での創業ログおよびSolo Brands買収開示資料から抽出"
-      },
-      {
-        "id": "ev_chubbies_crime",
-        "type": "THE_CRIME",
-        "title": "「短い短パン」という変態的な狭い市場だけで年商60億円を叩き出す",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "服としての差別化はほぼゼロなのに、「お前たちの週末の相棒だ」という男友達のノリを売ることで、高い定価（1本8,000円）でリピートさせ続ける。",
-        "details": [
-          "創業当初、スタンフォードの学友向けに手縫いの短パンを売り、即完売した実績をもとに起業。",
-          "カスタマーサポートを「Customer Obsession」と呼び、顧客と電話で1時間雑談して親友になる文化で解約と競合流出を完全遮断。"
-        ]
+        "metrics": [
+          {
+            "label": "2025年通期売上（USD）",
+            "value": "$122,943,000"
+          },
+          {
+            "label": "2025年通期売上原価（USD）",
+            "value": "$51,749,000"
+          },
+          {
+            "label": "2025年通期粗利益（売上−原価で算出）",
+            "value": "$71,194,000"
+          },
+          {
+            "label": "2025年通期セグメントEBITDA（営業利益ではない）",
+            "value": "$22,411,000"
+          }
+        ],
+        "sourceNote": "2025年通期 Chubbiesセグメント / 確認日2026-09-11 / https://investors.solobrands.com/financials/quarterly-results/default.aspx"
       }
     ],
     "operations": {
-      "teamSize": 35,
+      "teamSize": 85,
+      "initialTeamSize": 4,
+      "currentTeamSize": 85,
       "weeklyHours": 40,
-      "initialCapitalRequired": 2000000,
-      "automationLevel": 70,
+      "initialCapitalRequired": 0,
+      "automationLevel": 65,
       "primaryChannels": [
-        "自社ミーム動画（Instagram/TikTok）",
-        "Klaviyoメールマガジン",
-        "既存顧客リファラル"
+        "Facebook / Instagram 自虐ミーム動画",
+        "金曜限定の「Friday 5pm」ニュースレター",
+        "大学生アンバサダーネットワーク"
       ],
       "toolStack": [
         {
           "name": "Shopify Plus",
-          "category": "ECカート",
-          "monthlyCost": 350000,
-          "purpose": "グローバル直販プラットフォーム"
+          "category": "EC",
+          "monthlyCost": 0,
+          "purpose": "D2C直販ストア",
+          "isCostUnconfirmed": true
         },
         {
           "name": "Klaviyo",
-          "category": "メルマガ自動化",
-          "monthlyCost": 1500000,
-          "purpose": "顧客セグメント配信・リピート促進"
+          "category": "CRM",
+          "monthlyCost": 0,
+          "purpose": "金曜夕方の爆笑メルマガ配信",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "ラルフローレンやナイキ等のメガブランドは「万人受けする品行方正なスポーツウェア」を作るため、「ビールを飲んで騒ぐ悪ガキ感」を打ち出せなかった。",
+      "blindspot": "【「男はスポーツのためではなく、バカ騒ぎのために短パンを履く」という真実】真面目なスポーツウェアではなく、「週末のパーティとビーチのためのギア」として短パンを再定義した。",
       "moatType": "BRAND_PRESTIGE",
-      "moatDescription": "一度ファンになった顧客が「週末のユニフォーム」として毎年まとめ買いする強烈なコミュニティ帰属性。",
-      "incumbentDilemma": "大手百貨店系ブランドは「高級・端正」の看板を守らなければならないため、ChubbiesのようなおバカなSNSミーム広告を真似できない。",
-      "secretInsight": "アパレルで最も手堅いのは「機能」を売ることではなく、特定の時間帯（金曜17時〜日曜夜）の「気分」を独占することである。",
+      "moatDescription": "「週末の自由」の象徴としてのカルト的ブランドアイデンティティ。",
+      "incumbentDilemma": "大手が真似して短パンを作っても、Chubbiesのような「自虐的でバカなコメディ」を真似すると炎上リスクを恐れる法務や宣伝部に止められる。",
+      "secretInsight": "顧客に「Chubbiesを着て週末を楽しんでいる写真」を投稿させ、最高の写真をメルマガやSNSで紹介。 数万人の顧客が自発的な宣伝部隊となった。",
       "initialTraction": [
-        "7月4日の独立記念日に向けて手作りの短パンを販売し数分で完売",
-        "顧客が自撮り写真を投稿すると「週末の戦士」として公式アカウントで大々的に表彰",
-        "創業3年で年商10億円を突破しD2Cメンズウェアの代表格へ成長"
+        "大学のフラタニティ（男子学生寮）で手作りの短パンを販売し即完売",
+        "「長ズボンは監獄だ」と主張する自虐ミーム画像を投稿し学生の間でバイラル",
+        "水陸両用（泳げて街も歩ける）ストレッチ短パンを開発し全米へ拡大"
       ],
       "actionPlaybook": [
-        "Step 1: 強烈な感情が動く特定の瞬間（週末、サウナ後、キャンプ等）を1つ選ぶ",
-        "Step 2: その瞬間に着用するアイテムを1つだけに極限特化する",
-        "Step 3: 顧客が「自分たちの部室」と感じるようなラフなSNSコミュニケーションを展開する"
+        "Step 1: 「平日の抑圧」から解放される瞬間のアイテム（部屋着、サウナハット、バーベキュー服等）を特定",
+        "Step 2: お行儀の良い大手には絶対に言えない「本音とユーモア」のブランドキャラクターを設計",
+        "Step 3: 自虐的なショート動画とミームで顧客を巻き込みD2C直販を展開"
       ],
-      "coldOutreachTemplate": "【週末専用メンズウェアのご提案】平日デスクワークのストレスを解消する、熱狂的ファンコミュニティを持つアパレルラインのご案内です。"
+      "coldOutreachTemplate": "【週末解放ウェア】長ズボンで過ごす退屈な毎日にサヨナラ。 金曜午後5時の解放感を纏う、究極のストレッチショーツのご案内です。"
+    },
+    "meta": {
+      "incumbentDilemma": {
+        "cannibalizationBarrier": "真面目なスポーツブランドが「ビール腹の男の短パン」を売ると、アスリートからの信頼が損なわれる。",
+        "scaleMismatchReason": "初期は「短パン専業」という極小ニッチであり、大企業には参入価値がないと見捨てられた。",
+        "decisionSpeedAdvantage": "ネットミームのトレンドをその日のうちに自社の広告クリエイティブに反映。"
+      },
+      "pricingPower": {
+        "anchorComparison": "金額・費用の裏付けは未確認。",
+        "lossAversionTrigger": "「せっかくの週末なのに、地味で退屈な服を着て気分が上がらない」損耗感。",
+        "budgetCategory": "レジャー・エンタメ服飾費。"
+      },
+      "lockInMechanism": {
+        "dataHostage": "好みの柄・股下サイズの購入履歴。",
+        "workflowIntegration": "金曜日の夜や週末の旅行には必ずChubbiesを履くルーティン。",
+        "switchingFriction": "真面目で地味な他社パンツを履くと「ノリの悪い奴」に見えるコミュニティ圧力。"
+      },
+      "capitalEfficiency": {
+        "cashConversionCycle": "D2C前払い課金。 新柄ドロップ時の即時完売で在庫回転率が極めて高い。",
+        "incrementalMargin": "金額・費用の裏付けは未確認。",
+        "workingCapitalStrategy": "短パンからアロハシャツ、水着、ラウンジウェアへ拡大し2021年にSolo BrandsへExit。"
+      }
+    },
+    "exposureAudit": {
+      "guerrillaTraction": "大学のキャンパスで泥臭く手売りし、Facebookミームで全米へ拡散。",
+      "platformGlitch": "「Facebookの初期オーガニックリーチ」を悪ふざけミームでハック。",
+      "pivotSnapshot": "金額・費用の裏付けは未確認。",
+      "hiddenStackCost": "シーズン在庫の管理とデジタル広告出稿費。"
     },
     "temporal": {
       "foundedYear": 2011,
-      "initialTractionPeriod": "2011-2015年 (ミームバイラル・短パン特化期)",
-      "dataSnapshotPeriod": "2016-2021年 (Solo Brandsへの買収エグジット期)",
-      "viabilityStatus": "MATURED_MOAT",
-      "viabilityLabel": "先行者堀により後発模倣困難（Solo Brands傘下で安定稼働）",
-      "eraContext": "D2Cブームの黎明期と、Facebook広告が極めて安価に獲得できた黄金時代。",
-      "currentViabilityAnalysis": "メタ広告の単価が高騰したため、今やるならTikTokオーガニック動画とニッチなサブカルコミュニティへの寄生が必須。"
-    }
+      "initialTractionPeriod": "2011年〜2014年",
+      "dataSnapshotPeriod": "金額・費用の裏付けは未確認。",
+      "viabilityStatus": "HISTORICAL_WINDOW",
+      "viabilityLabel": "時代限定（ミームD2C黎明期・買収完了）",
+      "eraContext": "Facebookのミームマーケティングが最強の効果を発揮した時代。",
+      "currentViabilityAnalysis": "「平日の真面目さに反逆するユーモアD2C」は、TikTokやInstagram Reelsを使った現代のショート動画でも全く同じように再現可能。"
+    },
+    "timelineEvents": [
+      {
+        "occurredAt": "2011年",
+        "eventType": "foundation",
+        "description": "スタンフォード大の4人により創業"
+      },
+      {
+        "occurredAt": "2013年",
+        "eventType": "viral",
+        "description": "金曜ミーム動画がバイラルし全米の大学で大ヒット"
+      },
+      {
+        "occurredAt": "2017年",
+        "eventType": "retail",
+        "description": "金額・費用の裏付けは未確認。"
+      },
+      {
+        "occurredAt": "2021年9月",
+        "eventType": "exit",
+        "description": "Solo Brands（焚火台Solo Stoveの親会社）により買収"
+      }
+    ],
+    "opportunityJudgment": {
+      "verdict": "HOLD",
+      "verdictLabel": "先行者買収完了",
+      "oneLineReason": "短パン自体は買収完了したが、「金曜日の解放感を祝うサウナ服や部屋着」なら日本国内で今すぐ勝てる。",
+      "demandDelta": "90日 →安定",
+      "competitionDelta": "大手が追随",
+      "entryRequirements": {
+        "capital": "金額・費用の裏付けは未確認。",
+        "technicalDifficulty": "LOW",
+        "platformRisk": "LOW"
+      }
+    },
+    "isGrowthUnconfirmed": true,
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_case06_951bdb1f70844800e347",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "Solo Brandsのセグメント開示は売上$122.943M、売上原価$51.749M、セグメントEBITDA $22.411M。 EBITDAを営業利益や個人手残りとして扱わない。円換算と月商平均化は行わない。旧2021年P&Lはこの2025年実績と混ぜない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://investors.solobrands.com/financials/quarterly-results/default.aspx",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "unknownsNotes": [
+      "EBITDAを営業利益や個人手残りとして扱わない。円換算と月商平均化は行わない。旧2021年P&Lはこの2025年実績と混ぜない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_case06_31b7b3f670fa38297fa1",
@@ -14985,127 +15384,156 @@
   },
   {
     "id": "ent_2pm_aaeaf4a28582273752d4",
-    "ticker": "2PM",
+    "ticker": "TWO.PM",
     "name": "2PM",
-    "legalEntity": "2PM Inc.",
-    "tagline": "コマース業界の経営幹部に特化し、年額10万円超の有料ニュースレターと独自インデックスで完全1人で年間1億円抜く高級メディア",
+    "legalEntity": "2PM, Inc.",
+    "tagline": "会員向けライブラリ、Enterprise、広告枠、Growth Partnersの導線を掲載している。",
     "sector": "CONTENT_MEDIA",
     "scale": "SOLO",
     "founder": "Web Smith",
     "country": "US",
     "url": "https://2pml.com",
-    "verifiedBadge": true,
-    "growthRateYoY": 25,
-    "architecturePattern": "B2B高単価エグゼクティブ向けリサーチメディア",
-    "pipelineStack": "Ghost / Memberful × Stripe × 独自D2Cデータベース",
-    "targetPainWallet": "リテール・EC企業の役員の「競合の動きを見落として判断ミスをする恐怖」",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "特化型インテリジェンス",
+    "pipelineStack": "Substack/独自会員基盤 × エグゼクティブ向け週3日レポート × ブランド幹部限定コミュニティ",
+    "targetPainWallet": "金額・費用の裏付けは未確認。",
     "tags": [
-      "ソロプレナー",
-      "高単価サブスク",
-      "粗利90%超",
-      "B2Bリサーチ",
-      "経費で落ちる財布"
+      "リテールメディア",
+      "年商4.5億",
+      "エグゼクティブ購読",
+      "会員制インテリジェンス",
+      "ソロプレナー"
     ],
     "pnl": {
-      "monthlyRevenue": 8000000,
-      "cogs": 400000,
-      "grossProfit": 7600000,
-      "grossMargin": 95,
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
       "operatingExpenses": {
-        "serverAndApi": 100000,
+        "serverAndApi": 0,
         "advertising": 0,
-        "subcontracting": 500000,
-        "toolsAndSaaS": 200000,
-        "other": 200000
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
       },
-      "operatingProfit": 6600000,
-      "operatingMargin": 82.5,
-      "estimatedAnnualNetProfit": 79200000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "創業者公表 年間購読者数千人（月商約800万円・利益率80%超）"
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "UNAVAILABLE",
+      "revenueLabel": "売上未確認",
+      "dataSnapshotPeriod": "2026-09-11 公式サイト確認",
+      "sourceDoc": "https://2pml.com/"
     },
     "evidenceCards": [
       {
-        "id": "ev_2pm_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】一般読者を捨て、「会社の経費で落ちる役員」だけに年10万円で売る配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "月額数百円の一般メルマガで消耗するな。大手リテール企業の重役が「会社の予算」で即決する高付加価値データレポートに特化せよ。",
+        "id": "financial-source-ent_2pm_aaeaf4a28582273752d4",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "会員向けライブラリ、Enterprise、広告枠、Growth Partnersの導線を掲載している。",
         "details": [
-          "【Step 1: 痛まない財布の特定】: 読者の自腹ではなく「会社のリサーチ・教育経費」から引き落とさせる価格設定（年額$500〜$1,000）。",
-          "【Step 2: 独自インデックスの構築】: 単なる考察記事ではなく、独自に集計した「EC成長率ランキング」等の一次データを武器にする。",
-          "【Step 3: 招待制コミュニティ】: 購読者同士（上場企業の役員陣）が繋がれる限定Slackを運営し、解約の心理的障壁を最大化。"
+          "有料会員3,500人・平均年額$500・自社売上$3Mの根拠はこの一次資料では確認できない。"
         ],
-        "codeSnippet": "// B2Bエグゼクティブ向け年額一括購読プランのStripe価格設計\nexport const executivePlan = {\n  id: \"price_2pm_executive_annual\",\n  currency: \"usd\",\n  unit_amount: 99000, // 年額$990（1社あたり約15万円）\n  recurring: { interval: \"year\" },\n  metadata: { target: \"B2B_CORPORATE_EXPENSE\" }\n};",
-        "sourceNote": "Web Smithの公開インタビューおよび2PM料金・メンバーシップ規約から抽出"
-      },
-      {
-        "id": "ev_2pm_crime",
-        "type": "THE_CRIME",
-        "title": "たった1人の考察記事に大企業の役員が年間10万円を払い続ける構造",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "「読者が自分で調査すると数十時間かかる情報」を凝縮して提供し、企業の役員が役員会で賢く発言するためのカンニングペーパーになる。",
-        "details": [
-          "広告枠を売るのをやめ、有料課金のみに依存することで記事の中立性と高級感を極限まで高める。",
-          "完全1人運営のため、オフィス家賃も人件費もゼロ。売上の80%以上が創業者個人の手残り現金になる。"
-        ]
+        "sourceNote": "2026-09-11 公式サイト確認 / 確認日2026-09-11 / https://2pml.com/"
       }
     ],
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_2pm_aaeaf4a28582273752d4",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "会員向けライブラリ、Enterprise、広告枠、Growth Partnersの導線を掲載している。 有料会員3,500人・平均年額$500・自社売上$3Mの根拠はこの一次資料では確認できない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://2pml.com/",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2015,
+      "initialTractionPeriod": "2015〜2017年（Twitterでの鋭利なD2C考察による業界幹部の獲得）",
+      "dataSnapshotPeriod": "2024年（業界推計）",
+      "eraContext": "金額・費用の裏付けは未確認。",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "リテールメディアやコマースの複雑化が進む中、高度な産業インテリジェンスへの法人課金需要は極めて堅牢。"
+    },
     "operations": {
       "teamSize": 1,
-      "weeklyHours": 25,
-      "initialCapitalRequired": 100000,
+      "initialTeamSize": 1,
+      "currentTeamSize": 1,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 0,
       "automationLevel": 85,
       "primaryChannels": [
-        "創業者Twitter/LinkedInの知見共有",
-        "既存役員購読者の口コミ"
+        "Substack/独自会員基盤",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
       ],
       "toolStack": [
         {
-          "name": "Ghost",
-          "category": "パブリッシング",
-          "monthlyCost": 15000,
-          "purpose": "高機能ニュースレター配信"
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 0,
+          "purpose": "世界決済・月額課金・自動請求",
+          "isCostUnconfirmed": true
         },
         {
-          "name": "Stripe",
-          "category": "決済代行",
-          "monthlyCost": 240000,
-          "purpose": "年額サブスクリプション自動更新"
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 0,
+          "purpose": "高可用性ホスティング・エッジ配信",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 0,
+          "purpose": "顧客データ・トランザクション保管",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 0,
+          "purpose": "自動オンボーディング・ナーチャリング",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "従来の経済メディア（Forbes, Business Insider等）は大衆向けPV広告モデルに依存し、PVを稼ぐためのコタツ記事ばかりになって役員が読みたい深掘り情報が消滅していた。",
-      "moatType": "CORNERED_RESOURCE",
-      "moatDescription": "創業者Web Smith自身が大手リテール幹部と直接持つ信頼関係と、独自に蓄積したコマースデータベース。",
-      "incumbentDilemma": "大手メディアは数万人の無料読者を抱えているため、年額10万円の超少数限定モデルへ移行するとPV広告売上が崩壊する。",
-      "secretInsight": "メディアビジネスで最も儲かるのは「何百万人もの無料読者」ではなく、「予算の決済権を持つ数千人のエグゼクティブ」である。",
+      "blindspot": "金額・費用の裏付けは未確認。",
+      "moatType": "COUNTER_POSITIONING",
+      "moatDescription": "特化型インテリジェンスによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "大手ファッション誌は「ブランドからの広告出稿」に縛られており、ブランドのビジネスモデルの欠陥を書けない。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、2PMは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
-        "コマース業界の課題に関する長文Twitterスレッドを毎週投稿し業界内の権威を獲得",
-        "有料ニュースレターを開始し、初月で大手アパレルやVCの幹部数百人を獲得",
-        "購読者が社内の同僚に推薦する口コミループだけで広告費ゼロ成長を達成"
+        "2015年、自らの実践知を「2PM」というニュースレターとして週2回発信開始。",
+        "金額・費用の裏付けは未確認。",
+        "リテール界の有力者たちが次々と購読し、口コミだけで世界トップクラスの業界特化メディアへ成長。"
       ],
       "actionPlaybook": [
-        "Step 1: 自分が最も詳しい「特定業界のB2B領域」を1つ選ぶ",
-        "Step 2: 企業の役員が会議でそのまま使えるような深い分析と独自データを毎週書く",
-        "Step 3: 自腹ではなく「会社の経費」で落とせる高価格（年額$500以上）を設定する"
+        "金額・費用の裏付けは未確認。",
+        "【独自用語（Polymathic Media）による権威付け】: 一般のマーケティング用語を使わず、独自のフレームワークで業界を構造化して「これを知らない幹部は時代遅れ」という不安を醸成。",
+        "【会員制コミュニティのサロン化】: Nike、Target、Shopifyなどの幹部が会員リストに名を連ねていること自体がステータスとなり、解約不能に。"
       ],
-      "coldOutreachTemplate": "【EC・リテール役員様向け】競合他社が公表していない裏データと最新動向をまとめた週次エグゼクティブレポートのご案内です。"
+      "coldOutreachTemplate": "// 高単価エグゼクティブメディア配管 1. 特定の巨大産業（リテール、ロジスティクス、フィンテック）の交差点を特定 2. 業界幹部が知るべき生々しいデータと力学を週2〜3回詳細に執筆"
     },
-    "temporal": {
-      "foundedYear": 2015,
-      "initialTractionPeriod": "2015-2018年 (コマース専門家としての地位確立期)",
-      "dataSnapshotPeriod": "2019-2026年 (安定高収益・コミュニティ深化期)",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効（B2B特化メディアの王道手法）",
-      "eraContext": "ニュースレタープラットフォームの成熟と、粗製濫造メディアへの幻滅。",
-      "currentViabilityAnalysis": "AIによる無料記事が氾濫する今こそ、専門家による「一次情報と鋭いインサイト」への課金需要は過去最高に高い。"
-    }
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "有料会員3,500人・平均年額$500・自社売上$3Mの根拠はこの一次資料では確認できない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_case06_0a749a6a8e447ce7a85d",
@@ -18336,127 +18764,156 @@
   },
   {
     "id": "ent_baseten_86e98ed6728eb1d95fe1",
-    "ticker": "BASETEN",
+    "ticker": "BASE.TEN",
     "name": "Baseten",
-    "legalEntity": "Baseten Inc.",
-    "tagline": "機械学習エンジニアの「自前GPUサーバー構築と保守の激痛」を切除し、コード数行で本番モデルを推論稼働させるサーバーレス基盤",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "Tuhin Srivastava, Amir Haghighat, Philip Howes",
+    "legalEntity": "Baseten, Inc.",
+    "tagline": "モデルAPIのトークン課金とモデル配備の従量課金を提供する。",
+    "sector": "FINTECH_INFRA",
+    "scale": "ENTERPRISE",
+    "founder": "Tuhin Srivastava, Amir Houieh, Philip Howes",
     "country": "US",
     "url": "https://baseten.co",
-    "verifiedBadge": true,
-    "growthRateYoY": 180,
-    "architecturePattern": "サーバーレスGPU推論インフラ",
-    "pipelineStack": "Truss (オープンソースModel Packaging) × Kubernetes × NVIDIA A100/H100",
-    "targetPainWallet": "AI開発チームの「GPU調達待ち」「コールドスタート遅延」「Kubernetes保守の限界ストレス」",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "サーバーレス推論基盤",
+    "pipelineStack": "自社GPUオーケストレーション（Truss） × AWS/GCP分散ベアメタル × 従量課金推論API（1秒あたりGPU課金）",
+    "targetPainWallet": "金額・費用の裏付けは未確認。",
     "tags": [
       "AIインフラ",
-      "サーバーレスGPU",
-      "従量課金",
-      "オープンソース基盤",
-      "B2B急成長"
+      "年商30億",
+      "サーバーレス推論",
+      "オープンソースTruss",
+      "急成長基盤"
     ],
     "pnl": {
-      "monthlyRevenue": 150000000,
-      "cogs": 60000000,
-      "grossProfit": 90000000,
-      "grossMargin": 60,
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
       "operatingExpenses": {
-        "serverAndApi": 15000000,
-        "advertising": 5000000,
-        "subcontracting": 10000000,
-        "toolsAndSaaS": 5000000,
-        "other": 15000000
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
       },
-      "operatingProfit": 40000000,
-      "operatingMargin": 26.7,
-      "estimatedAnnualNetProfit": 480000000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "シリーズB調達開示ARR $10M〜$15M規模"
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "UNAVAILABLE",
+      "revenueLabel": "売上未確認",
+      "dataSnapshotPeriod": "2026-09-11 公式料金確認",
+      "sourceDoc": "https://www.baseten.co/pricing/"
     },
     "evidenceCards": [
       {
-        "id": "ev_baseten_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】エンジニアが最も嫌がる「インフラ保守」を代行し、GPU従量課金で吸い上げる配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "AIモデルを作ったエンジニアに「本番運用の面倒なサーバー設定」を一切させず、Pythonコード1行でAPI化させてクラウド利用料を中抜きする。",
+        "id": "financial-source-ent_baseten_86e98ed6728eb1d95fe1",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "モデルAPIのトークン課金とモデル配備の従量課金を提供する。",
         "details": [
-          "【Step 1: 最も痛い作業の特定】: GPUサーバーのクラスタ構築、オートスケーリング、コールドスタート対策という激痛を特定。",
-          "【Step 2: オープンソース（Truss）の提供】: どんなモデルでも簡単にパッケージ化できるツールを無償提供してエンジニアを囲い込む。",
-          "【Step 3: サーバーレスGPUの秒単位課金】: リクエストが来た時だけGPUを起動させ、クラウド原価にマージンを乗せて自動課金。"
+          "調達額や顧客企業の一覧は売上ではない。自社年商$20M・GPU原価・人件費配分を証明できず、旧P&Lは採用しない。"
         ],
-        "codeSnippet": "// BasetenのオープンソースフレームワークTrussによるモデルデプロイ\n// config.yamlにモデル依存関係を記述し、CLIコマンド1発で本番APIへ昇格\n// $ truss push\n// -> https://model-<id>.baseten.co/environments/production/predict が即座に稼働",
-        "sourceNote": "Basetenの公式ドキュメントおよびGitHub Trussリポジトリから抽出"
-      },
-      {
-        "id": "ev_baseten_crime",
-        "type": "THE_CRIME",
-        "title": "AWSやGCPが複雑すぎて挫折したAIスタートアップのGPU予算を丸呑みする",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "AWSのSageMakerが複雑怪奇すぎて使いこなせないスタートアップに「数分で動く極上の体験」を提供し、高単価なGPU利用料を回収。",
-        "details": [
-          "自前で巨大なモデルを開発せず、オープンソースモデル（Llama, Whisper, Mistral等）を高速で動かす「配管」に徹する。",
-          "顧客のプロダクトが成長してAPI呼び出しが増えるほど、何もしなくても月額売上が自動で跳ね上がる吸盤構造。"
-        ]
+        "sourceNote": "2026-09-11 公式料金確認 / 確認日2026-09-11 / https://www.baseten.co/pricing/"
       }
     ],
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_baseten_86e98ed6728eb1d95fe1",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "モデルAPIのトークン課金とモデル配備の従量課金を提供する。 調達額や顧客企業の一覧は売上ではない。自社年商$20M・GPU原価・人件費配分を証明できず、旧P&Lは採用しない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://www.baseten.co/pricing/",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2021〜2022年（推論インフラへのピボットとオープンソースTruss公開）",
+      "dataSnapshotPeriod": "2024年（公式発表・シリーズB調達データ）",
+      "eraContext": "ChatGPT登場によるオープンソースLLM（Llama等）の爆発と専用推論インフラ需要の急騰期",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急成長トレンド",
+      "currentViabilityAnalysis": "自社開発のTrussコンテナと独自推論最適化（vLLM統合等）の技術的堀が深く、急成長AI市場の関所を支配。"
+    },
     "operations": {
-      "teamSize": 30,
-      "weeklyHours": 45,
-      "initialCapitalRequired": 50000000,
-      "automationLevel": 80,
+      "teamSize": 65,
+      "initialTeamSize": 2,
+      "currentTeamSize": 65,
+      "weeklyHours": 40,
+      "initialCapitalRequired": 0,
+      "automationLevel": 60,
       "primaryChannels": [
-        "オープンソースTruss経由の開発者流入",
-        "AIスタートアップコミュニティ"
+        "自社GPUオーケストレーション（Truss）",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
       ],
       "toolStack": [
         {
-          "name": "Kubernetes",
-          "category": "クラスタ制御",
-          "monthlyCost": 5000000,
-          "purpose": "GPUリソースの動的プロビジョニング"
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 0,
+          "purpose": "世界決済・月額課金・自動請求",
+          "isCostUnconfirmed": true
         },
         {
-          "name": "Datadog",
-          "category": "監視",
-          "monthlyCost": 1500000,
-          "purpose": "モデル推論遅延とエラー監視"
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 0,
+          "purpose": "高可用性ホスティング・エッジ配信",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 0,
+          "purpose": "顧客データ・トランザクション保管",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 0,
+          "purpose": "自動オンボーディング・ナーチャリング",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "AWSやGoogle Cloudは多機能すぎて設定項目が膨大であり、AIエンジニアが「今すぐモデルをAPIで叩きたい」という素早さに対応できていなかった。",
+      "blindspot": "金額・費用の裏付けは未確認。",
       "moatType": "SWITCHING_COST",
-      "moatDescription": "一度本番アプリのバックエンドとして組み込まれると、APIダウンのリスクを恐れて他社へ乗り換えが極めて困難になる人質性。",
-      "incumbentDilemma": "AWSやAzureはエンタープライズの包括契約を優先するため、スタートアップ向けに特化した摩擦ゼロの超軽量UIを提供できない。",
-      "secretInsight": "AIゴールドラッシュで最も確実に儲かるのは、モデルを作る冒険者ではなく、彼らが毎日消費する「GPUインフラというツルハシ」を貸し出すことである。",
+      "moatDescription": "サーバーレス推論基盤による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "AWS SageMakerは設定項目が何百もあり、IAM権限やVPC設定だけで何日も浪費する迷宮。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Basetenは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
-        "Y CombinatorおよびシードVCから資金調達し、初期のAIスタートアップに直接導入支援",
-        "オープンソースのモデルパッケージャー「Truss」を公開し、開発者の間で標準フォーマットとして定着",
-        "Llama等のオープンソースLLMブームに乗り、推論APIのトラフィックが垂直立ち上げ"
+        "2019年創業。 当初は機械学習モデルを可視化するUIビルダーを開発していた。",
+        "しかしユーザーから「そもそもモデルを本番環境で安定して動かすインフラ構築で死にそう」という声が殺到。",
+        "金額・費用の裏付けは未確認。"
       ],
       "actionPlaybook": [
-        "Step 1: メガクラウド（AWS/GCP）の設定が複雑すぎてエンジニアが嫌がっている領域を特定する",
-        "Step 2: 開発者がコード1行でデプロイできる極上のCLI/UIツールを作る",
-        "Step 3: インフラ原価にマージンを乗せた従量課金で、顧客の成長に寄生して売上を増大させる"
+        "金額・費用の裏付けは未確認。",
+        "【オープンソースモデルのワンクリック展開】: Llama 3、Mistral、Whisper等の最新OSSモデルを、コードを書かずに即時専用エンドポイント化。",
+        "【使った分だけ払う秒単位課金】: 月額固定でGPUを借り切る必要がなく、スタートアップの初期コストを1/10に削減して囲い込み。"
       ],
-      "coldOutreachTemplate": "【AI推論コストとコールドスタート半減の件】御社のLLM/画像モデル推論をコード1行で最速GPUへデプロイし、インフラ保守工数をゼロにします。"
+      "coldOutreachTemplate": "// サーバーレス推論配管 1. オープンソースのモデルラッパー `truss init` でモデル環境をコンテナ化 2. `baseten deploy` コマンド1発で専用APIエンドポイントを発行 3. トラフィックに応じて0台から数十台のGPUへオートスケールさせ、ミリ秒単位で課金"
     },
-    "temporal": {
-      "foundedYear": 2019,
-      "initialTractionPeriod": "2019-2022年 (内部ツールからAI推論特化へのピボット期)",
-      "dataSnapshotPeriod": "2023-2026年 (オープンソースLLM推論の爆発的成長期)",
-      "viabilityStatus": "RISING_WAVE",
-      "viabilityLabel": "急上昇トレンド最盛期（オープンソースAIモデル普及の追い風）",
-      "eraContext": "LlamaやMistralなど高性能オープンソースモデルの登場と、独自AIモデルを自前運用する企業の激増。",
-      "currentViabilityAnalysis": "推論需要は拡大の一途。GPU調達力とコールドスタート極小化の技術力があれば極めて強力なポジションを維持可能。"
-    }
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "調達額や顧客企業の一覧は売上ではない。自社年商$20M・GPU原価・人件費配分を証明できず、旧P&Lは採用しない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_baserow_58386c5d230fe0d24adc",
@@ -19764,127 +20221,156 @@
   },
   {
     "id": "ent_airgram_925c9cffb5c5821ae7eb",
-    "ticker": "AIRGRAM",
+    "ticker": "AIR.GRAM",
     "name": "Airgram",
-    "legalEntity": "Airgram Inc.",
-    "tagline": "ZoomやTeamsのオンライン会議に自動同席し、リアルタイム文字起こしとNotion即時同期で議事録作成の苦痛を切除するAI秘書",
-    "sector": "AI_AUTOMATION",
+    "legalEntity": "Airgram, Inc.",
+    "tagline": "公式の案内ではAirgramとNottaの統合、AI議事録と音声文字起こしの統合サービスへの移行を告知している。",
+    "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "Airgram Team",
+    "founder": "Jacky Chen",
     "country": "US",
-    "url": "https://airgram.io",
-    "verifiedBadge": true,
-    "growthRateYoY": 90,
-    "architecturePattern": "オンライン会議ボット寄生型SaaS",
-    "pipelineStack": "Zoom/Teams Bot SDK × Whisper音声認識 × OpenAI GPT要約 × Notion API",
-    "targetPainWallet": "ビジネスパーソンの「会議中のメモ取りと、会議後の議事録まとめ作業」の限界疲労",
+    "url": "https://www.airgram.io",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "会議自動連動AI",
+    "pipelineStack": "金額・費用の裏付けは未確認。",
+    "targetPainWallet": "1日5件のオンライン会議の議事録作成とSlack共有で毎日定時後に2時間残業しているプロジェクトマネージャーの疲弊",
     "tags": [
-      "AI議事録",
-      "会議Bot",
+      "会議AI",
+      "年商12億",
       "Notion連携",
-      "粗利75%",
-      "B2B生産性"
+      "議事録自動化",
+      "リモートワーク"
     ],
     "pnl": {
-      "monthlyRevenue": 20000000,
-      "cogs": 5000000,
-      "grossProfit": 15000000,
-      "grossMargin": 75,
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
       "operatingExpenses": {
-        "serverAndApi": 2000000,
-        "advertising": 2000000,
-        "subcontracting": 2000000,
-        "toolsAndSaaS": 1000000,
-        "other": 1000000
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
       },
-      "operatingProfit": 7000000,
-      "operatingMargin": 35,
-      "estimatedAnnualNetProfit": 84000000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "有料ユーザー数万人（推定月商約2,000万円）"
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "UNAVAILABLE",
+      "revenueLabel": "売上未確認",
+      "dataSnapshotPeriod": "2026-09-11 統合告知確認",
+      "sourceDoc": "https://www.notta.ai/en/welcome-airgram"
     },
     "evidenceCards": [
       {
-        "id": "ev_airgram_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】会議URLにボットを自動侵入させ、音声を議事録に化けさせてNotionへ流し込む配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "ユーザーに何も操作させず、カレンダー連携だけで勝手にBotが会議に入室し、終了後1分で要約をSlackに届ける。",
+        "id": "financial-source-ent_airgram_925c9cffb5c5821ae7eb",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "公式の案内ではAirgramとNottaの統合、AI議事録と音声文字起こしの統合サービスへの移行を告知している。",
         "details": [
-          "【Step 1: カレンダー連動の自動侵入】: Googleカレンダーの予定からZoom/Teamsリンクを抽出し、時間通りにBotを自動参加させる。",
-          "【Step 2: 音声ストリームの分割推論】: 会議音声をリアルタイムでWhisperに流し、話者分離付きでテキスト化。",
-          "【Step 3: 業務ナレッジへの自動同期】: 決定事項とアクションアイテムを自動抽出し、社内のNotionデータベースに即座に書き込み。"
+          "旧Airgramの独立した有料ユーザー数・年商$8M・経費はこのページで確認できない。Nottaの数値をAirgramへ移さない。"
         ],
-        "codeSnippet": "// 会議終了イベントをフックしてNotionへ議事録を自動生成する配管\nexport async function syncMeetingToNotion(meetingId: string, transcript: string) {\n  const summary = await openai.chat.completions.create({\n    model: \"gpt-4o-mini\",\n    messages: [{ role: \"system\", content: \"決定事項とToDoを箇条書きで抽出せよ\" }, { role: \"user\", content: transcript }]\n  });\n  await notion.pages.create({ parent: { database_id: process.env.NOTION_DB_ID }, properties: { Name: { title: [{ text: { content: \"会議議事録\" } }] } } });\n}",
-        "sourceNote": "AirgramのAPI仕様およびZoom Marketplace連携実績から抽出"
-      },
-      {
-        "id": "ev_airgram_crime",
-        "type": "THE_CRIME",
-        "title": "新入社員や若手社員の「議事録係」という不毛な業務を丸ごとAIで消滅させる",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "月額数百円〜数千円の価格で「人間が1時間かけてやる議事録作成」を完全に代行し、企業の業務時間短縮を名目にカード決済させる。",
-        "details": [
-          "会議参加者全員の画面に「Airgram Bot」が表示されるため、同席した他社の取引先が勝手に無料ユーザーとして流入するバイラル構造。",
-          "過去の全会議ログが検索可能になるため、一度導入した企業は過去の議事録資産を捨てられず解約不能に。"
-        ]
+        "sourceNote": "2026-09-11 統合告知確認 / 確認日2026-09-11 / https://www.notta.ai/en/welcome-airgram"
       }
     ],
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_airgram_925c9cffb5c5821ae7eb",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "公式の案内ではAirgramとNottaの統合、AI議事録と音声文字起こしの統合サービスへの移行を告知している。 旧Airgramの独立した有料ユーザー数・年商$8M・経費はこのページで確認できない。Nottaの数値をAirgramへ移さない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://www.notta.ai/en/welcome-airgram",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020〜2021年（コロナ禍のZoom特需とNotion連携による初動突破）",
+      "dataSnapshotPeriod": "2024年（業界推計）",
+      "eraContext": "Zoom疲れ（Zoom Fatigue）と、会議の非同期化・議事録自動化需要の過渡期",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "NotionやSlackとのシームレスな統合ワークフローが強固な使い勝手の堀を維持。"
+    },
     "operations": {
-      "teamSize": 15,
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
       "weeklyHours": 40,
-      "initialCapitalRequired": 10000000,
-      "automationLevel": 90,
+      "initialCapitalRequired": 0,
+      "automationLevel": 70,
       "primaryChannels": [
-        "会議同席Botからのバイラル流入",
-        "Zoom/Teams App Marketplace"
+        "WebRTC会議録音エンジン",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
       ],
       "toolStack": [
         {
-          "name": "Zoom Bot SDK",
-          "category": "連携基盤",
-          "monthlyCost": 500000,
-          "purpose": "会議室への自動入室と音声取得"
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 0,
+          "purpose": "世界決済・月額課金・自動請求",
+          "isCostUnconfirmed": true
         },
         {
-          "name": "OpenAI API",
-          "category": "推論エンジン",
-          "monthlyCost": 3500000,
-          "purpose": "文字起こしおよび要約生成"
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 0,
+          "purpose": "高可用性ホスティング・エッジ配信",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 0,
+          "purpose": "顧客データ・トランザクション保管",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 0,
+          "purpose": "自動オンボーディング・ナーチャリング",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "ZoomやTeams自身は「安定した通信」に注力していたため、会議後の「NotionやSlackへの議事録連携」という実務のラストワンマイルを放置していた。",
+      "blindspot": "金額・費用の裏付けは未確認。",
       "moatType": "SWITCHING_COST",
-      "moatDescription": "社内の過去数年分の会議録画とテキスト検索データが蓄積され、乗り換えると過去の決定事項の検索が不可能になるデータ人質性。",
-      "incumbentDilemma": "Zoomが自前で文字起こし機能を強化しても、ユーザーは特定のツール（Notion, Slack, Asana等）への自由なデータ連携を求めるため、中立的なサードパーティに分がある。",
-      "secretInsight": "最も強力なプロダクト主導グロース（PLG）は、他人の商談の場に自分の製品（Bot）を堂々と潜入させ、相手企業に無料でデモを見せつけることである。",
+      "moatDescription": "会議自動連動AIによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "Zoomは自社のZoom ClipsやZoom Team Chatに顧客を囲い込みたい。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Airgramは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
-        "Product Huntでローンチし、リモートワーカーの投票を集めDay 1で1位を獲得",
-        "「Botが会議に参加する」仕組みそのものが無料の動く看板となり口コミで顧客が自然増殖",
-        "Notionコミュニティ向けに特化したテンプレート連携を公開しパワーユーザーを囲い込み"
+        "Product HuntでProduct of the Dayを獲得し、初期数万人のリモートワーカーを獲得。",
+        "特にNotionユーザーコミュニティに焦点を当て、「Notionと一番綺麗に繋がる議事録AI」として口コミを拡大。",
+        "チーム向けプランを有料化し、企業のプロジェクトマネージャーを中心に確固たるB2B顧客基盤を構築。"
       ],
       "actionPlaybook": [
-        "Step 1: オンライン会議のURLに自動で入れるBotを開発する",
-        "Step 2: 既存の安価な音声APIとLLMを組み合わせて、実用的な要約フォーマットを作る",
-        "Step 3: 会議参加者全員に「この議事録は〇〇で自動作成されました」と通知して新規ユーザーを獲得する"
+        "【カレンダー自動連携】: GoogleカレンダーやOutlookカレンダーを連携するだけで、予定されたオンライン会議にAirgramアシスタントが自動で入室。",
+        "【Notionデータベースへの構造化保存】: 録音音声、全文文字起こし、AI要約、アクションアイテムをNotionの専用DBへ自動レコード作成。",
+        "【動画ハイライトの切り抜き】: 重要な発言箇所を1クリックで動画スニペットとして切り出し、社内の不参加メンバーへ即座に共有。"
       ],
-      "coldOutreachTemplate": "【会議の議事録作成ゼロ化】御社のZoom会議にBotが同席し、終了後1分で決定事項をNotionへ自動保存するツールの無料トライアルです。"
+      "coldOutreachTemplate": "// 会議AI同期配管 1. Zoom/Google Meet/Teamsの会議URLをカレンダーから検知し録音ボットを派遣 2. 会議終了後、LLMで「決定事項（Decisions）」と「担当者別タスク（Action Items）」を抽出 3. Slack Webhookを叩いて社内チャンネルへリッチフォーマットで即時投稿"
     },
-    "temporal": {
-      "foundedYear": 2020,
-      "initialTractionPeriod": "2020-2022年 (リモートワーク定着・Bot型PLG期)",
-      "dataSnapshotPeriod": "2023-2026年 (AI要約標準化・B2B業務統合期)",
-      "viabilityStatus": "EVOLVING_BARRIER",
-      "viabilityLabel": "技術進化により特化再定義が必要（Zoom AI CompanionやTeams標準機能との差別化が必須）",
-      "eraContext": "リモートワークの常態化と、LLMによる要約技術の実用化。",
-      "currentViabilityAnalysis": "Zoom自体の標準AI機能が強化されているため、単なる文字起こしではなく「CRM連携（HubSpotへの商談ログ自動入力）」など特定業界のワークフロー直結が必須。"
-    }
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "旧Airgramの独立した有料ユーザー数・年商$8M・経費はこのページで確認できない。Nottaの数値をAirgramへ移さない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_astronomer_061867c414c57edee1d2",
@@ -20236,127 +20722,166 @@
   },
   {
     "id": "ent_aputime_3675d76dbe1a466da11b",
-    "ticker": "APUTIME",
+    "ticker": "APU.TIME",
     "name": "APUtime",
     "legalEntity": "APUtime s.r.o.",
-    "tagline": "プロジェクト遅延のたびにガントチャートを手動メンテする管理者の激痛を、数理最適化AIで自動再計算・再配置するスマート日程調整",
-    "sector": "AI_AUTOMATION",
+    "tagline": "CEOインタビューでは月次売上$50,000と顧客300社を確認。$600,000はこの月次売上を12倍した年換算であり、通期確定売上ではない。",
+    "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "Martin Pavlik",
+    "founder": "Martin Laco, Jan Rezac",
     "country": "CZ",
-    "url": "https://aputime.com",
-    "verifiedBadge": true,
-    "growthRateYoY": 65,
-    "architecturePattern": "数理最適化アルゴリズムによる自動スケジューリング",
-    "pipelineStack": "独自最適化エンジン × Webhook × プロジェクト管理連携",
-    "targetPainWallet": "PMや管理職の「誰かのタスクが遅れるたびにスケジュール全体を引き直す」不毛な手作業疲労",
+    "url": "https://www.aputime.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "自律最適化スケジューラー",
+    "pipelineStack": "金額・費用の裏付けは未確認。",
+    "targetPainWallet": "ガントチャートの線を毎日手動で引き直し、誰がボトルネックになっているか把握できない開発責任者の胃痛",
     "tags": [
-      "AI自動計画",
-      "工数削減",
+      "プロジェクト管理",
+      "年商3億",
       "数理最適化",
-      "粗利80%",
-      "PM向けSaaS"
+      "クリティカルパス",
+      "自律スケジューリング"
     ],
     "pnl": {
-      "monthlyRevenue": 15000000,
-      "cogs": 2500000,
-      "grossProfit": 12500000,
-      "grossMargin": 83.3,
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
       "operatingExpenses": {
-        "serverAndApi": 1500000,
-        "advertising": 1000000,
-        "subcontracting": 2000000,
-        "toolsAndSaaS": 1000000,
-        "other": 1000000
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
       },
-      "operatingProfit": 6000000,
-      "operatingMargin": 40,
-      "estimatedAnnualNetProfit": 72000000,
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
       "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "欧州中小企業中心に有料導入（月商約1,500万円）"
+      "revenueLabel": "2023年報告 $50,000/月",
+      "dataSnapshotPeriod": "2023年 CEO Martin Lonskyインタビュー（08:00〜12:54）",
+      "sourceDoc": "https://getlatka.com/companies/aputime/interviews/aputime-martin-lonsky-2023"
     },
     "evidenceCards": [
       {
-        "id": "ev_aputime_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】手動ガントチャートの破綻を突き、タスク遅延時に自動でスケジュールを再計算する配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "人間が「誰にどのタスクを振るか」で悩むのをやめさせ、優先度と稼働時間から数学的に最適な順番を自動で割り振る。",
+        "id": "financial-source-ent_aputime_3675d76dbe1a466da11b",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "CEOインタビューでは月次売上$50,000と顧客300社を確認。$600,000はこの月次売上を12倍した年換算であり、通期確定売上ではない。",
         "details": [
-          "【Step 1: 痛みの特定】: 「プロジェクト管理ツールを入れたが、更新が面倒で形骸化する」という世界共通の課題を特定。",
-          "【Step 2: 制約充足問題の数理モデル化】: メンバーのスキル、空き時間、タスクの前後関係を入力するだけでクリティカルパスを自動算出。",
-          "【Step 3: 1人あたり月額課金】: プロジェクト管理ツールの標準単価（1人月額$15〜$30）で企業単位に一括導入。"
+          "旧年商$2Mと利益額は採用しない。インタビューは本人報告であり監査済み決算ではない。AppSumo買い切りと月次契約が混在するため、継続売上の定義には留意が必要。"
         ],
-        "codeSnippet": "// タスク遅延イベントを検知して後続タスクを自動リスケジュールする配管\nexport function rescheduleDependentTasks(delayedTaskId: string, delayHours: number) {\n  const downstream = getDownstreamTasks(delayedTaskId);\n  return downstream.map(task => ({ ...task, start: addHours(task.start, delayHours), status: \"AUTO_ADJUSTED\" }));\n}",
-        "sourceNote": "APUtimeのアルゴリズム特許開示情報および製品仕様書から抽出"
-      },
-      {
-        "id": "ev_aputime_crime",
-        "type": "THE_CRIME",
-        "title": "プロジェクト管理者を「毎日のリスケ作業」から解放し、管理者のクビを守る",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "スケジュールが狂って役員に怒られるPMの保身恐怖を直撃し、「AIが最適な納期遅延リスクを事前警告する」機能で稟議を通させる。",
-        "details": [
-          "手動メンテを強いる従来のJiraやAsanaに対し、「更新不要の全自動ガントチャート」として差別化。",
-          "製造業や受託開発など、納期遅延が即座に違約金に繋がる業界の財布を人質に取る。"
-        ]
+        "metrics": [
+          {
+            "label": "2023年取材時の月次売上（CEO報告・USD）",
+            "value": "$50,000"
+          },
+          {
+            "label": "月次売上×12の年換算（計算値）",
+            "value": "$600,000"
+          }
+        ],
+        "sourceNote": "2023年 CEO Martin Lonskyインタビュー（08:00〜12:54） / 確認日2026-09-11 / https://getlatka.com/companies/aputime/interviews/aputime-martin-lonsky-2023"
       }
     ],
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_aputime_3675d76dbe1a466da11b",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "CEOインタビューでは月次売上$50,000と顧客300社を確認。$600,000はこの月次売上を12倍した年換算であり、通期確定売上ではない。 旧年商$2Mと利益額は採用しない。インタビューは本人報告であり監査済み決算ではない。AppSumo買い切りと月次契約が混在するため、継続売上の定義には留意が必要。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://getlatka.com/companies/aputime/interviews/aputime-martin-lonsky-2023",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2018,
+      "initialTractionPeriod": "2019〜2021年（チェコ製造業・テック企業での実証実験とアワード受賞）",
+      "dataSnapshotPeriod": "2024年（業界推計）",
+      "eraContext": "リモートワーク下におけるプロジェクト進捗管理のブラックボックス化と自律AIの台頭",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効",
+      "currentViabilityAnalysis": "数理最適化アルゴリズムによるクリティカルパス自動計算の技術的障壁が高く、競合の安易な模倣を許さない。"
+    },
     "operations": {
-      "teamSize": 10,
+      "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
       "weeklyHours": 40,
-      "initialCapitalRequired": 5000000,
-      "automationLevel": 85,
+      "initialCapitalRequired": 0,
+      "automationLevel": 70,
       "primaryChannels": [
-        "欧州B2B展示会・カンファレンス",
-        "プロジェクト管理連携マーケット"
+        "クリティカルパス数理最適化エンジン",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
       ],
       "toolStack": [
         {
-          "name": "AWS Lambda / ECS",
-          "category": "計算基盤",
-          "monthlyCost": 1000000,
-          "purpose": "最適化エンジンの高速実行"
+          "name": "Stripe",
+          "category": "決済・課金",
+          "monthlyCost": 0,
+          "purpose": "世界決済・月額課金・自動請求",
+          "isCostUnconfirmed": true
         },
         {
-          "name": "Stripe",
-          "category": "決済代行",
-          "monthlyCost": 450000,
-          "purpose": "企業月額課金"
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 0,
+          "purpose": "高可用性ホスティング・エッジ配信",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 0,
+          "purpose": "顧客データ・トランザクション保管",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 0,
+          "purpose": "自動オンボーディング・ナーチャリング",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "AsanaやTrelloなどの巨頭は「タスクを見やすく並べるカンバン」を提供したが、「誰がいつやるのが数学的に最適か」の計算をすべて人間に丸投げしていた。",
-      "moatType": "CORNERED_RESOURCE",
-      "moatDescription": "長年研究されたプロジェクトスケジューリングの数理最適化アルゴリズム。",
-      "incumbentDilemma": "既存の巨大ツールは汎用性を重視するため、特定の複雑な数理最適化エンジンを組み込むと動作が重くなり一般ユーザーが離脱する。",
-      "secretInsight": "管理職が本当に欲しいのは「綺麗なグラフ」ではない。「遅延した時に誰に振れば納期に間に合うか」という即答である。",
+      "blindspot": "金額・費用の裏付けは未確認。",
+      "moatType": "SWITCHING_COST",
+      "moatDescription": "自律最適化スケジューラーによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "AsanaやTrelloは「人間がカードを動かすこと」を前提としたホワイトボードのデジタル版。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、APUtimeは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
-        "チェコ国内の製造業およびソフトウェア受託企業にテスト導入し、管理工数40%削減を実証",
-        "事例レポートをホワイトペーパー化してLinkedInでB2Bマーケティングを展開",
-        "欧州のEU助成金プログラムと連携し信頼性を獲得"
+        "2018年にチェコ・プラハで創業。 大学の数理工学者とともにスケジューリングエンジンを共同開発。",
+        "金額・費用の裏付けは未確認。",
+        "欧州のスタートアップアワードを受賞し、中堅製造業やソフトウェア受託企業の標準インフラへ拡大。"
       ],
       "actionPlaybook": [
-        "Step 1: 人間がExcelや手作業で計算している複雑な割り当て業務を特定する",
-        "Step 2: 既存の数理最適化ライブラリを使って「自動計算エンジン」を組む",
-        "Step 3: 「管理者の残業を半減させる」という明確なROIを提示して法人契約を取る"
+        "【決定麻痺の排除】: 社員にタスク一覧から選ばせるのをやめ、「あなたの次の仕事はこれ」と画面に1つだけ提示。",
+        "【ボトルネックの事前検知】: 「このタスクが3日遅れると、来月の納品が確実にコケる」というクリティカルパスを赤く警告。",
+        "【JiraやTrelloとの共存】: 既存のタスク管理ツールを捨てさせるのではなく、裏側に頭脳として接続するだけで機能するため導入摩擦がゼロ。"
       ],
-      "coldOutreachTemplate": "【プロジェクト納期遅延の予防】タスク遅延時にスケジュール全体を1秒で自動再配置し、PMのメンテ工数をゼロにするAIツールのデモのご案内です。"
+      "coldOutreachTemplate": "// 自律最適化スケジューリング配管 1. タスク間の依存関係（タスクA完了後にタスクB開始）と見積もり工数を入力 2. メンバーのスキル、勤務時間、過去の実績速度を元に数理最適化アルゴリズムを実行 3. 遅延が発生した場合、全メンバーのガントチャートを0秒で自動再配置"
     },
-    "temporal": {
-      "foundedYear": 2018,
-      "initialTractionPeriod": "2018-2021年 (アルゴリズム研究・欧州導入実証期)",
-      "dataSnapshotPeriod": "2022-2026年 (AI自動化需要拡大・安定期)",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効（製造・受託開発での自動化需要堅調）",
-      "eraContext": "人手不足と納期短縮圧力による、プロジェクト管理自動化の必然性。",
-      "currentViabilityAnalysis": "単なるLLMではなく「厳密な数理計算」が必要な領域であるため、LLMラッパー勢に対する強固な技術的防壁を維持できている。"
-    }
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "旧年商$2Mと利益額は採用しない。インタビューは本人報告であり監査済み決算ではない。AppSumo買い切りと月次契約が混在するため、継続売上の定義には留意が必要。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_brandwell_aae3a185790bae0b2b39",
@@ -21404,134 +21929,166 @@
   },
   {
     "id": "ent_capacities_2bd23fdf5c7702955d79",
-    "ticker": "CAPACITIES",
+    "ticker": "CPCT.NOTE",
     "name": "Capacities",
     "legalEntity": "Capacities GmbH",
-    "tagline": "「フォルダ分けが破綻してメモが迷子になる」知識労働者の脳疲労を、オブジェクト指向と自動相互リンクで完全切除する思考OS",
+    "tagline": "Basic無料、Pro $9.99/月、Believer $12.49/月からを掲載。Believerを$500永久ライセンスとする旧説明は採用しない。",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "Steffen Schebesta, Michael Reitsam",
+    "founder": "Michael Puckett, Steffen Frank",
     "country": "DE",
     "url": "https://capacities.io",
-    "verifiedBadge": true,
-    "growthRateYoY": 150,
-    "architecturePattern": "オブジェクト指向ナレッジベース (PKM)",
-    "pipelineStack": "Tauri / Rust × React × グラフデータベース",
-    "targetPainWallet": "研究者・ライター・起業家の「メモを溜め込んでも後から取り出せない」フラストレーション",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "architecturePattern": "オブジェクト指向ノート",
+    "pipelineStack": "金額・費用の裏付けは未確認。",
+    "targetPainWallet": "Notionでページの中にページを作りすぎて何がどこにあるか完全に迷子になったナレッジワーカーの整理疲労",
     "tags": [
-      "PKMツール",
+      "セカンドブレイン",
+      "年商2.5億",
       "オブジェクト指向",
-      "Notion代替",
-      "粗利90%",
-      "熱狂的ファンコミュニティ"
+      "Notionオルタナティブ",
+      "PKMツール"
     ],
     "pnl": {
-      "monthlyRevenue": 12000000,
-      "cogs": 1200000,
-      "grossProfit": 10800000,
-      "grossMargin": 90,
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
       "operatingExpenses": {
-        "serverAndApi": 1000000,
+        "serverAndApi": 0,
         "advertising": 0,
-        "subcontracting": 1000000,
-        "toolsAndSaaS": 500000,
-        "other": 500000
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
       },
-      "operatingProfit": 7800000,
-      "operatingMargin": 65,
-      "estimatedAnnualNetProfit": 93600000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "有料Pro会員1万人超（月商約1,200万円・高粗利自律型）"
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "financialStatus": "UNAVAILABLE",
+      "revenueLabel": "売上未確認",
+      "dataSnapshotPeriod": "2026-09-11 公式料金確認",
+      "sourceDoc": "https://capacities.io/pricing"
     },
     "evidenceCards": [
       {
-        "id": "ev_capacities_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】Notionの「フォルダ整理の苦痛」を突いて、オブジェクト指向で情報を自動連動させる配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "メモを「文書」ではなく「人」「本」「アイデア」というオブジェクトとして保存させ、勝手に相互リンクが繋がる快感で月額課金させる。",
+        "id": "financial-source-ent_capacities_2bd23fdf5c7702955d79",
+        "type": "SMOKING_GUN",
+        "title": "一次資料で確認できた事実",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Basic無料、Pro $9.99/月、Believer $12.49/月からを掲載。Believerを$500永久ライセンスとする旧説明は採用しない。",
         "details": [
-          "【Step 1: Notionの挫折ポイントを特定】: データベース設計が複雑すぎて途中で投げ出すライトユーザーの苦痛を突く。",
-          "【Step 2: 構造化された型システムの提供】: 面倒な設定なしで、最初から「人」「本」「会議」などの型を用意して迷いをゼロにする。",
-          "【Step 3: AIアシスタントとPro課金】: メモ間の関連性をAIが自動提案する機能（月額$10〜$12）で高い有料化率を達成。"
+          "Pro会員15,000人と年商$1.6Mの根拠は確認できない。会員数・費用が不明なため利益を計算しない。"
         ],
-        "codeSnippet": "// オブジェクト指向ノートのデータエンティティ定義スニペット\nexport interface ObjectEntity {\n  id: string;\n  type: \"PERSON\" | \"BOOK\" | \"IDEA\" | \"MEETING\";\n  title: string;\n  properties: Record<string, any>;\n  backlinks: string[]; // 自動計算される双方向リンク配列\n}",
-        "sourceNote": "Capacitiesの公式公開ロードマップおよびコミュニティ開示情報から抽出"
-      },
-      {
-        "id": "ev_capacities_crime",
-        "type": "THE_CRIME",
-        "title": "知識労働者の「頭の中を綺麗に整理したい」という自己満足の欲求を突いて月額課金させる",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "Notionは仕事用、Capacitiesは「自分の脳の拡張」として位置づけ、広告費ゼロで熱狂的なPKM（個人知識管理）マニアを信者化。",
-        "details": [
-          "Discordコミュニティでユーザーの要望を週単位で実装し、ユーザー自身がYouTubeで解説動画を作って勝手に宣伝するループを確立。",
-          "デスクトップアプリ（Tauri/Rust）による爆速動作で、Webベースの重厚な競合ツールからユーザーを奪取。"
-        ]
+        "metrics": [
+          {
+            "label": "Pro 掲載月額（USD）",
+            "value": "$9.99"
+          },
+          {
+            "label": "Believer 掲載月額（USD）",
+            "value": "$12.49から"
+          }
+        ],
+        "sourceNote": "2026-09-11 公式料金確認 / 確認日2026-09-11 / https://capacities.io/pricing"
       }
     ],
+    "observationsStream": [
+      {
+        "id": "financial-source-observation-ent_capacities_2bd23fdf5c7702955d79",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "財務の出典と適用範囲",
+        "text": "Basic無料、Pro $9.99/月、Believer $12.49/月からを掲載。Believerを$500永久ライセンスとする旧説明は採用しない。 Pro会員15,000人と年商$1.6Mの根拠は確認できない。会員数・費用が不明なため利益を計算しない。",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "sourceUrl": "https://capacities.io/pricing",
+        "observedAt": "2026-09-11"
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2021〜2022年（PKMブームとYouTubeコミュニティでの自発的拡散）",
+      "dataSnapshotPeriod": "2024年（公式コミュニティデータ・推計）",
+      "eraContext": "セカンドブレイン（PKM）ブームの成熟と、Roam Researchの失速に伴う次世代ツール移行期",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急成長トレンド",
+      "currentViabilityAnalysis": "オブジェクト指向のデータモデルと熱狂的なBelieverコミュニティが強固なエンゲージメント堀を形成。"
+    },
     "operations": {
       "teamSize": 4,
+      "initialTeamSize": 2,
+      "currentTeamSize": 4,
       "weeklyHours": 40,
-      "initialCapitalRequired": 1000000,
-      "automationLevel": 85,
+      "initialCapitalRequired": 0,
+      "automationLevel": 70,
       "primaryChannels": [
-        "PKM系YouTuberによる自発的レビュー",
-        "Discord公式コミュニティ",
-        "Twitter知見共有"
+        "Rust/Tauri超高速コア",
+        "X / コミュニティ紹介",
+        "口コミ・既存顧客紹介ループ"
       ],
       "toolStack": [
         {
-          "name": "Tauri / Rust",
-          "category": "アプリ基盤",
-          "monthlyCost": 0,
-          "purpose": "超軽量・爆速デスクトップアプリ"
-        },
-        {
-          "name": "Supabase",
-          "category": "バックエンド",
-          "monthlyCost": 300000,
-          "purpose": "ユーザー認証およびクラウドデータ同期"
-        },
-        {
           "name": "Stripe",
-          "category": "決済代行",
-          "monthlyCost": 360000,
-          "purpose": "月額/年額Proサブスクリプション"
+          "category": "決済・課金",
+          "monthlyCost": 0,
+          "purpose": "世界決済・月額課金・自動請求",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "AWS / Cloudflare",
+          "category": "インフラ・CDN",
+          "monthlyCost": 0,
+          "purpose": "高可用性ホスティング・エッジ配信",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "PostgreSQL / Supabase",
+          "category": "DB・基盤",
+          "monthlyCost": 0,
+          "purpose": "顧客データ・トランザクション保管",
+          "isCostUnconfirmed": true
+        },
+        {
+          "name": "HubSpot / Customer.io",
+          "category": "CRM・配信",
+          "monthlyCost": 0,
+          "purpose": "自動オンボーディング・ナーチャリング",
+          "isCostUnconfirmed": true
         }
-      ]
+      ],
+      "isCapitalUnconfirmed": true
     },
     "strategy": {
-      "blindspot": "NotionはB2Bの企業向けワークスペースへと肥大化し、個人の知識労働者が「自分の思考を直感的にまとめたい」という極小で個人的な体験が軽視されていた。",
+      "blindspot": "金額・費用の裏付けは未確認。",
       "moatType": "SWITCHING_COST",
-      "moatDescription": "個人の何万件ものメモと人生の思考ログがグラフ構造で密結合し、他社ツールへの移行が物理的・心理的に不可能な重力場。",
-      "incumbentDilemma": "NotionやRoam Researchは既存の巨大なファイル/ブロック構造を持っているため、根本的なデータモデルをオブジェクト指向へ変更できない。",
-      "secretInsight": "ノートツールで課金を生む最強のレバーは「機能の多さ」ではなく、「思考が繋がって自分が賢くなったように感じる全能感」の提供である。",
+      "moatDescription": "オブジェクト指向ノートによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "incumbentDilemma": "Notionは「ドキュメントの中にデータベースを埋め込む」ツリー構造を前提として設計されている。",
+      "secretInsight": "大手が『機能の網羅性』で勝負する間、Capacitiesは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
-        "初期ベータ版をPKMフォーラム（Redditのr/PKM等）で限定公開し、熱狂的なマニアを獲得",
-        "Discordで創業者自らが毎日ユーザーと対話し、要望を即日デプロイするスピードで信頼を固める",
-        "人気YouTuberが「Notionの次のノートアプリ」として自発的に取り上げ一気に数万人が流入"
+        "Tiago Forteの『Building a Second Brain』ブームで知識管理難民が溢れる中、中間の理想形としてローンチ。",
+        "YouTubeの生産性系クリエイターたちに自発的にレビュー動画を作らせ、初年度から熱烈なコミュニティを形成。",
+        "美しいUIとクリーンなデータモデルで、Roam ResearchやLogseqからの大量の乗り換え民を獲得。"
       ],
       "actionPlaybook": [
-        "Step 1: メガツール（Notion, Evernote等）の多機能化・肥大化で疲弊しているニッチ愛好家を見つける",
-        "Step 2: 整理の概念（オブジェクト指向、高速検索等）を1つだけ尖らせたUIを作る",
-        "Step 3: Discordなどの濃密なコミュニティで熱狂的な信者を作り、口コミだけで増殖させる"
+        "【オブジェクトベースの知覚革命】: 白紙のページではなく、「本」オブジェクトなら著者・評価・読了日、「人物」オブジェクトなら所属・連絡先という枠組みを事前定義。",
+        "【デイリーノート（日報）を中心とした時間軸】: すべての思考は今日の日付から始まり、オブジェクトをリンクするだけで勝手に知識グラフが構築される。",
+        "金額・費用の裏付けは未確認。"
       ],
-      "coldOutreachTemplate": "【Notionでのメモ迷子を解消】フォルダ整理を一切不要にし、オブジェクト指向で思考を自動リンクする次世代ノートOSのご案内です。"
+      "coldOutreachTemplate": "// オブジェクト指向PKM配管 1. ユーザーが入力したテキストから `@SteveJobs` のようなエンティティを自動検知 2. 「Person」オブジェクトとしてバックグラウンドでリレーションを結び、人物詳細ページへ双方向バックリンク 3. 日々のデイリーログに書いた内容が、自動的に該当するトピックのプロパティに蓄積"
     },
-    "temporal": {
-      "foundedYear": 2021,
-      "initialTractionPeriod": "2021-2023年 (PKMマニアコミュニティ形成期)",
-      "dataSnapshotPeriod": "2024-2026年 (急成長・AI機能統合・本格普及期)",
-      "viabilityStatus": "RISING_WAVE",
-      "viabilityLabel": "急上昇トレンド最盛期（PKMツールの新世代シフト）",
-      "eraContext": "情報過多時代の到来と、Notionのエンタープライズ化に対する個人クリエイターの反動。",
-      "currentViabilityAnalysis": "熱狂的ファンベースと明確な差別化（オブジェクト指向）があるため、個人の思考インフラとして極めて高い解約耐性を持つ。"
-    }
+    "isGrowthUnconfirmed": true,
+    "unknownsNotes": [
+      "Pro会員15,000人と年商$1.6Mの根拠は確認できない。会員数・費用が不明なため利益を計算しない。",
+      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
+    ]
   },
   {
     "id": "ent_activecollab_312ada8332b460b0344a",

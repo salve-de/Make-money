@@ -2,7 +2,6 @@ import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES } from '../src/platform/data/mockLedgerData';
 import { REFINED_STATISTICAL_SAMPLE_ENTITIES } from './refined-sample-entities';
-import { ADDITIONAL_REFINED_SAMPLE_ENTITIES } from './additional-refined-entities';
 import { projectBundleToFinancialEntity } from '../src/lib/foundation/projector';
 import { FinancialEntity } from '../src/platform/types/terminal';
 
@@ -18,10 +17,12 @@ async function main() {
   }
   console.log(`Loaded ${entityMap.size} baseline entities.`);
 
-  // 1.1. 精錬済みTier 1 Goldエンティティで未精錬・隔離データを適切な段階で昇格
+  // 1.1. 監査済みTier 1 Goldエンティティだけを昇格
   let refinedPromotions = 0;
-  const allRefined = [...REFINED_STATISTICAL_SAMPLE_ENTITIES, ...ADDITIONAL_REFINED_SAMPLE_ENTITIES];
-  for (const refined of allRefined) {
+  // 隔離候補 (additional-refined-entities.ts) はレビュー用データであり、
+  // この表示用インデックスへ自動投入しない。索引再生成だけで未確認値が
+  // 正本レコードを上書きしないよう、昇格元を監査済みサンプルに固定する。
+  for (const refined of REFINED_STATISTICAL_SAMPLE_ENTITIES) {
     const lower = refined.name.toLowerCase();
     const existingId = nameMap.get(lower);
     if (existingId) {

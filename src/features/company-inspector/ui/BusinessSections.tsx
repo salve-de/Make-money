@@ -20,12 +20,11 @@ const MOAT_TYPE_LABELS: Record<string, string> = {
   UNKNOWN: '未確認',
 };
 
-export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
+export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'> & { hasEvidenceCards?: boolean }) {
   return <>
           {/* ------------------------------------------------------- */}
           {/* #01〜#04: 事業DNA ＆ 構造的優位性 / 致命的欠陥 (フォールバック) */}
           {/* ------------------------------------------------------- */}
-          {!hasEvidenceCards && (
           <div className="space-y-8">
             {/* #01 事業の正体 / 事業の罠 */}
             {entity.essence && (
@@ -225,7 +224,6 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
               </div>
             )}
             </div>
-          )}
 
 
   </>;

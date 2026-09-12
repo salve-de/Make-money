@@ -5,9 +5,6 @@ DynamicEvidenceCard,
 DynamicEvidenceCardType,
 EvidenceStatus
 } from '@/shared/terminal';
-import {
-FileCode
-} from 'lucide-react';
 import React from 'react';
 
 interface DynamicEvidenceDeckProps {
@@ -153,21 +150,6 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
                 </ul>
               )}
 
-              {/* 現物コード / DM実文 / 生データスニペット（存在する場合） */}
-              {card.codeSnippet && (
-                <div className="rounded-md border border-white/[0.08] bg-[#0A0D14] overflow-hidden">
-                  <div className="px-3 py-1.5 bg-white/[0.04] border-b border-white/[0.06] flex items-center justify-between text-[10px] font-mono text-zinc-400 font-bold">
-                    <span className="flex items-center gap-1.5 text-zinc-300">
-                      <FileCode className="w-3.5 h-3.5 text-zinc-400" />
-                      現場保全アーティファクト
-                    </span>
-                    <span className="text-zinc-500">RAW LOG</span>
-                  </div>
-                  <pre className="p-3 text-[11px] font-mono text-zinc-200 leading-relaxed whitespace-pre-wrap select-text overflow-x-auto bg-black/50">
-                    {card.codeSnippet}
-                  </pre>
-                </div>
-              )}
 
               {/* 一次情報源（存在する場合） */}
               {card.sourceNote && (

@@ -58,5 +58,6 @@ for (const entity of MASSIVE_EXPANSION_ENTITIES) {
 }
 
 console.log(`\n========================================`);
-console.log(`ALL ${passed}/${MASSIVE_EXPANSION_ENTITIES.length} EXPANSION ENTITIES FULLY VALIDATED!`);
+console.log(`STRUCTURE CHECKS PASSED: ${passed}/${MASSIVE_EXPANSION_ENTITIES.length} expansion entities`);
+console.log('This script checks shape, arithmetic, and normalization only; source provenance, R2 persistence, and production readback require separate verification.');
 console.log(`========================================`);

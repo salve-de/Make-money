@@ -11,12 +11,11 @@ Zap
 
 import type { InspectorSectionProps } from '../model/section-props';
 
-export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHazardMode, hasEvidenceCards }: Pick<InspectorSectionProps, 'entity' | 'onOpenPro' | 'isPro' | 'formatMoney' | 'isHazardMode' | 'hasEvidenceCards'>) {
+export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'onOpenPro' | 'isPro' | 'formatMoney' | 'isHazardMode'> & { hasEvidenceCards?: boolean }) {
   return <>
           {/* ------------------------------------------------------- */}
           {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
           {/* ------------------------------------------------------- */}
-          {!hasEvidenceCards && (
           <div className="space-y-8">
             {/* 資本主義の裏帳簿：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
             {entity.exposureAudit && (
@@ -237,7 +236,6 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
             </div>
           )}
           </div>
-          )}
 
           {/* ========================================================= */}
           {/* 【PRO EXCLUSIVE: 儲かり続ける4つの裏構造 / 崩壊を招いた4つの構造的死因 (フォールバック)】 */}
