@@ -68,3 +68,13 @@ The branch has not been merged into `main`. Production Worker deployment, live p
 ## Neon ownership-boundary audit (2026-09-12)
 
 The read-only Neon management inventory currently exposes one owned project, `Investrader-hub`. No Make-Money Neon project was listed. The production database's exact query for the former Make-Money table names returned an empty set. Generic tables such as `users`, `chat_messages`, `idea_drafts`, and `view_history` contain data in that other project, but no project discriminator proves Make-Money ownership; those rows were deliberately not copied into Make-Money R2. This confirms the safe decision for this project's known scope without claiming that every Neon account or inaccessible branch is empty.
+
+## Final current-head evidence (2026-09-12)
+
+- `f088ad3b706e9143ba4bd1c7b47799ba52f47a37` is present on `origin/codex/reliability-boundaries`.
+- GitHub Actions run `34693177683` passed all five required contexts: `lint`, `typecheck`, `unit test`, `build`, and `E2E smoke`. PR #18 remains open, clean, and mergeable; no merge was performed.
+- A current-head receipt was written to `make-money-production-private/architecture/f088ad3b706e9143ba4bd1c7b47799ba52f47a37/verification-receipt.v1.json` after a missing-key preflight. Immediate remote GET returned 2,461 bytes with SHA-256 `0453d793244510958049969c644f9b8cf6ab9352466371fd947017afe63fa06c`, matching the upload byte-for-byte.
+- Local real-browser verification used the temporary standalone server at `127.0.0.1:3104`: Photo AI inspector and Evidence rendered; financial values remained `未確認`; lowercase `j`/`k` did not change selection; Escape closed the inspector; console error/warn logs were empty.
+- The active `main-quality-gates` ruleset requires the same five contexts with strict status checks and no bypass actors. A branch-protection API endpoint returning 404 is expected because this repository uses the ruleset API for the protection policy.
+
+This is a code/CI/browser/R2 closure record. It does not certify production deployment, live payment, Neon migration, scheduled backup/RPO/RTO operation, production restore, or main integration. Static historical financial claims remain mechanically labeled but are not all independently rechecked against primary sources.

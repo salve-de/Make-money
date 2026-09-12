@@ -161,3 +161,15 @@
 ## 2026-09-12 Neon所有境界の再監査
 
 Neon管理APIを読み取り専用で確認した結果、接続可能な所有プロジェクトは `Investrader-hub` のみで、Make-Moneyプロジェクトは一覧に存在しなかった。同プロジェクトのproduction `neondb`でMake-Money旧schema名（`businesses`、`business_ideas`、`market_signals`、`saved_items`、`submissions`、`newsletter_subscribers`、`analyst_notes`、`chat_conversations`、`synthesized_ideas`）を照会した結果は空集合だった。一般名の`users`等には別プロジェクトの行があるため、所有を推測してMake-Money R2へ混入させず、移行・削除は行っていない。これはMake-Moneyの確認できる移行対象がないことの根拠であり、他アカウントや権限外branchまで空であることを意味しない。
+
+## 2026-09-12 現HEADの最終CI・ブラウザ・R2保全
+
+コードコミット `f088ad3b706e9143ba4bd1c7b47799ba52f47a37` を `origin/codex/reliability-boundaries` へpushし、PR #18の現行run `34693177683` を読み戻した。`lint`、`typecheck`、`unit test`、`build`、`E2E smoke` の5項目がすべて成功した。PRは `OPEN` / `MERGEABLE` / `CLEAN` のままで、mainへはmergeしていない。
+
+- R2: `make-money-production-private/architecture/f088ad3b706e9143ba4bd1c7b47799ba52f47a37/verification-receipt.v1.json`
+- サイズ: 2,461 bytes
+- SHA-256: `0453d793244510958049969c644f9b8cf6ab9352466371fd947017afe63fa06c`
+- 検証: Wranglerでキー未存在を事前確認してからremote R2へ保存し、直後のGETで保存前後のbytesとSHA-256が一致した。既存オブジェクトの上書きはしていない。
+- 内容: local Vitest292 / Foundation11 / architecture11 / Recovery6、Playwright Chromium26、Workers build、依存監査、実ブラウザのPhoto AI未確認財務・Evidence・J/K無効・Escape終了・コンソールエラーなし、D1/R2/Neon境界、未検証の本番項目。
+
+このレシートは現HEADのコードとCI・ブラウザ検証、R2保全を証明する。Production Workerのデプロイ、Stripe本番往復、実ユーザーデータ移行、定期バックアップ/RPO/RTO運用、production restore、mainへのmergeは完了扱いにしない。
