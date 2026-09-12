@@ -46,3 +46,14 @@ The entries above are historical snapshots and must not be used as the current r
 - The serving index currently contains 121 records. The 135-record wording in Phase 109/111 is historical; staged candidates remain out of the current display index by design. Current statuses are `VERIFIED 7`, `ESTIMATED 35`, `REPORTED 69`, `POST_MORTEM 3`, and `UNAVAILABLE 7`.
 - Local browser verification used the fallback path because the local session did not establish a live Foundation R2 read. Earlier direct Worker/R2 readback is separate evidence and must not be conflated with this local browser run.
 - Production Worker deployment, live production R2/D1 cutover, migration of any pre-existing Neon-owned user data, scheduled backup/RPO/RTO operation, and a production restore drill remain unverified. No completion claim may be made for those items.
+
+## Latest source and browser correction (2026-09-12)
+
+The previous section is a historical snapshot. The current local source is `d2e34c07c98fcb8683a4f832f90bc83814977182` on `codex/reliability-boundaries`; the worktree is clean and the branch is one commit ahead of `origin/codex/reliability-boundaries` (`ee9a59920fef3c7ac30101ff6250be3adaefdf12`).
+
+- `EvidenceDeckSection` is part of the public inspector composition again. The temporary regression was caused by a stale `.next/standalone` artifact; after a fresh `pnpm build`, the complete Playwright suite passed: **26/26**.
+- Current local checks passed: `pnpm lint` (zero warnings), `pnpm typecheck`, `pnpm test` (Vitest 281, Foundation 11, architecture 11, Recovery 6), `pnpm build`, `pnpm workers:build`, `pnpm deploy:preflight`, `pnpm audit --prod`, and `pnpm test:e2e` (26 Chromium tests).
+- A real browser session on `http://127.0.0.1:3103/?entity=ent_photoai` showed Photo AI's revenue and operating margin as `未確認`, rendered the Evidence section, kept the Photo AI inspector selected after lowercase `j` and `k`, and closed the visible inspector with `Escape`. No plain J/K shortcut hint was present; `⌘K` remains the search affordance.
+- Direct S3 listing of `foundation-lake` is reachable. Direct S3 access to `make-money-production-private` returned `AccessDenied`, and a lookup of the old `architecture/5146dfa.../verification-receipt.v1.json` key returned `specified key does not exist`. Existing private-R2 receipt claims remain historical evidence; a new private-bucket readback is not claimed from this session.
+
+The branch has not been merged into `main`. Production Worker deployment, live production cutover, migration of any pre-existing Neon-owned user data, scheduled backup/RPO/RTO operation, and a production restore drill remain unverified.

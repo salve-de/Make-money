@@ -82,6 +82,10 @@ Final browser run no longer emitted the Workers hung/canceled request errors. Th
 
 Live GitHub readback still showed main `aa4e64cfb82add1366ad6c0a7185ddb755b6c1e9` with `protected: false`. Local architecture commits and these uncommitted follow-up changes have not been published. The prior automated approval review denied public push/PR publication without explicit public-upload consent. Required Status Checks and GitHub CI execution remain incomplete.
 
+## Current source correction (2026-09-12)
+
+The historical snapshots above are retained for audit context. The current source is `d2e34c07c98fcb8683a4f832f90bc83814977182` on `codex/reliability-boundaries`. `EvidenceDeckSection` is restored in the public inspector composition after a fresh standalone build; `pnpm test:e2e` passes all 26 Chromium tests. The real browser check confirmed Photo AI's `未確認` financial labels, Evidence rendering, unchanged selection after lowercase `j`/`k`, and `Escape` close. Plain J/K navigation is absent; `⌘K` is the only search shortcut. Current local lint, strict typecheck, Vitest/Foundation/architecture/Recovery tests, build, Worker bundle, preflight, dependency audit, and E2E all pass. This does not claim that the branch is merged, that production is deployed, or that private R2 direct readback is currently authorized.
+
 ### Main protection enabled (2026-09-11, subsequent live update)
 
 The earlier unprotected readback above is superseded. Ruleset `22892592` (`main-quality-gates`) was created under the explicit Phase 5 instruction and read back from GitHub with `enforcement: active`, scope `refs/heads/main`, and no bypass actors. The main branch API now returns `protected: true`; its commit remains `aa4e64cfb82add1366ad6c0a7185ddb755b6c1e9`.
