@@ -34,6 +34,12 @@
 | 秘密鍵・APIトークン | ホストのsecret管理 | 環境ごとのsecret注入 | Git、R2本文、ブラウザへ入れない |
 | 一時キャッシュ | 再生成可能なキャッシュ | 消えても正本から再作成 | 権利やユーザー記録の正本にしない |
 
+### 調査候補の検疫
+
+`data/intelligence-blacklist.json` は、記事URLやプレースホルダーURLを企業の正規レコードとして再採用しないための、Make-Money専用のバージョン管理レジストリです。`src/lib/foundation/blacklist.ts` の `checkBlacklist` はインデックス生成時の入力projectionにだけ適用し、R2の原本・Foundationの登録データ・収集JSONを削除または上書きしません。除外候補にはID、URL、理由、登録時刻を残し、企業の存在そのものを否定する名前だけの規則は追加しません。
+
+新しい除外を追加するときは、元の候補を保全したまま、根拠URLと理由を記録し、`pnpm test`・`pnpm lint`・`pnpm typecheck` と索引再生成の差分を確認します。別プロジェクトへルールを共有する場合は、対象プロジェクト、版、根拠、適用範囲を別途記録し、共有Foundationの事実レイクへプロジェクト固有の除外判定を混ぜません。
+
 Workersの配布物は `pnpm workers:build`（`bundle:workers`、`deploy:workers`、`upload:workers`から利用）を入口にする。このビルドはdotenvから公開設定だけを一時的に取り出し、秘密鍵・APIトークンをビルドへ渡さず、生成された `.open-next` を秘密値で照合する。`deploy:workers` は公開Firebase設定だけでなく、`wrangler.jsonc` の専用Firebase project、APP_DB、APP_R2 bindingも事前検査する。Stripe/Gemini/R2/D1の秘密はCloudflare Worker secretまたは対象ホストのsecret管理へ実行時に注入する。直接 `opennextjs-cloudflare build` を本番配布手順に使わない。
 
 APIのリクエスト本文は`readJsonBody` / `readTextBody`でバイト上限を適用し、`Content-Length`がないchunked本文も上限を超えた時点で拒否する。routeへ直接`request.json()`や`request.text()`を追加するとarchitecture検査で失敗する。外部JSONは上限後にschema検証し、決済署名本文も検証前に上限を適用する。

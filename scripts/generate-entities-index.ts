@@ -29,6 +29,11 @@ async function main() {
   // この表示用インデックスへ自動投入しない。索引再生成だけで未確認値が
   // 正本レコードを上書きしないよう、昇格元を監査済みサンプルに固定する。
   for (const refined of REFINED_STATISTICAL_SAMPLE_ENTITIES) {
+    const check = checkBlacklist(refined);
+    if (check.isBlacklisted) {
+      console.log(`[Blacklist Guard] Skipped blacklisted refined entity: ${refined.name} (${check.reason})`);
+      continue;
+    }
     const lower = refined.name.toLowerCase();
     const existingId = nameMap.get(lower);
     if (existingId) {
