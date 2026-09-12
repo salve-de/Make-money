@@ -98,13 +98,13 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
     <div className="space-y-6">
 
       {/* ========================================================= */}
-      {/* 監査ステータスバッジ（法的安全性 ＆ 完全表示保障） */}
+      {/* 監査ステータスバッジ（法的安全性 ＆ 保存済み観測の範囲） */}
       {/* ========================================================= */}
       <div className="p-3 rounded-md bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[10px] font-mono">
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1 text-emerald-400 font-bold">
             <CheckCircle2 className="w-3 h-3" />
-            完全表示保障 (Display Guarantee: 100%)
+            保存済み観測を表示
           </span>
           <span className="text-zinc-600">|</span>
           <span className="text-zinc-400">万能救済ストリーム稼働中</span>

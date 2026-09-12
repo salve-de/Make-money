@@ -26,6 +26,8 @@ test('company list opens financials and evidence, then closes and reopens the in
   await page.getByRole('button', { name: /特異物証/ }).click();
   await expect(page.getByRole('heading', { name: '特異点物証 ＆ 金抜きの急所ファイル' })).toBeVisible();
   await expect(page.locator('#section-evidence')).toContainText('原価率18%の直販要塞・相見積もり完全拒否');
+  await expect(page.getByText('保存済み観測を表示', { exact: true })).toBeVisible();
+  await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
 
   await page.keyboard.press('Escape');
   await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toHaveCount(0);
