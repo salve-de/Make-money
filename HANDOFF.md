@@ -1,11 +1,24 @@
-# Make-Money 引継ぎ入口
+# Make-Money 引継ぎ入口（2026-09-13 最新正本）
 
-既存R2の情報を、現在の高密度一覧と右詳細へ具体的で有益な内容として出すことが現在の目的。
+> **【別チャットのAntigravityへの最優先引継ぎ】**:
+> ユーザーは長文指示を絶対に書かない。ユーザーの一言「勝ちの方だけ集めて」「地雷（負け）の方だけ集めて」「データ集めて（デフォルト7:3）」で完全自律稼働せよ。
+> 追加の質問や手戻り確認は一切不要。以下の3大正本を読み、直ちに底引き網調査 ➔ P&L逆算 ➔ 完全体JSON精錬 ➔ R2保存まで完遂せよ。
 
-1. [Foundation統合契約](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md) の収集範囲と第8.1〜8.5節を読む。
-2. [既存データからUIへの実行・編集契約](docs/EXISTING_DATA_TO_UI.md) を読む。Stripe基準の短さ・密度と会社ごとの柔軟な論点を両立する。
-3. [既存の収集・保存入口](docs/COLLECT_AND_STORE.md) を読む。既存情報の結合・再抽出を先に行い、有益な不足だけ追加調査する。
+## 1. 必読の最高正本
+1. **出力JSONフォーマット・完全体テンプレート**: [`docs/GOLDEN_INGEST_SCHEMA.md`](docs/GOLDEN_INGEST_SCHEMA.md)
+   - 必須10大属性、円換算P&L因数分解（Stripe手数料控除・創業者手残り純利）
+   - `LOOT_BLUEPRINT`（略奪転用方程式）100%必須配備
+   - 現場配管ツール原価（`operations.toolStack`）
+   - 勝ち組テンプレート（4.1）および地雷組テンプレート（4.2: `financialStatus: 'POST_MORTEM'` ＆ `FATAL_BLEED` 必須）
+2. **調査目録・9レーン・12領域・4大禁忌**: [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](docs/MAKE_MONEY_COLLECTION_SCOPE.md)
+3. **100年R2完璧構造（保存先）**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md)
+   - Layer 1: 生原本 ➔ `foundation-raw/blobs/sha256/<hash>`（Create-Only、上書き禁止）
+   - Layer 2: 保存票 ➔ `foundation-lake/journal-entry.v1/<id>.json`（追記専用）
+   - Layer 3: 目録 ➔ `data/entities-index.json`（単一目録で1行JOIN）
+   - **【絶対不可侵】**: `universal/data-assets/financials/`（EDINET正本領域）には1文字たりとも書き込むな・触れるな。
+4. **横断自律収集契約**: [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)
 
-候補保存数と公開用事例数、文書更新と実装完了を区別する。旧ブランチや過去ログだけで現在の実機状態を断定しない。schema・R2方式を新設せず、既存Universal/EDINET/Investraderを変更しない。
+## 2. 直近の推奨調査候補
+- **勝ち組要塞（高粗利・完全1人）**: ShipFast, Carrd, Formula Bot, Midjourney, PDF.ai 等
+- **地雷組検死（巨額炎上・即死・規約変更死）**: Humane Ai Pin, Fast 等
 
-この文書は作業の入口であり、UI実装・全件深掘り・R2データ補強が完了したという記録ではない。実装と検証の現在地は、上記の正本文書、テスト結果、R2 readback、GitHubの必須チェックで確認する。
