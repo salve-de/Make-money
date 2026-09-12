@@ -23,10 +23,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 3. **保存先・R2完璧構造**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md) （原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）
 
 【絶対遵守ルール】:
+- **勝ち組要塞（約7〜8割） ＆ 地雷組検死（約2〜3割）の両輪収集**: 成功事例（高粗利80%超・完全1人）だけでなく、大爆死・即死した地雷事例（Quibi等）も必ず収集せよ。地雷企業は `financialStatus: 'POST_MORTEM'` とし、`FATAL_BLEED`（死因出血検死解剖）カードを100%必須配備せよ。
 - **EDINET正本領域（`universal/data-assets/financials/`）は完全不可侵**。一切書き込むな・触れるな。
 - 収集したWeb魚拓・PDF原本は `foundation-raw/blobs/sha256/<hash>` へ即時PUT（Create-Only、上書き禁止）。
 - 抽出した完全体JSONは `foundation-lake/journal-entry.v1/<id>.json` へ保存（追記専用）。
 - 整理・結合はすべて単一の目録（Catalog / `entities-index.json` / D1）側で1行JOINする。
+
 
 
 # 【絶対指針】プロジェクト北極星 ＆ AIエージェント行動規範

@@ -12,6 +12,10 @@
    - 「公開資料に基づく...」「〇〇は情報管理ツールです」といった無味乾燥な文章は知覚価値を殺す。「誰のどんな痛みの財布（保身・虚栄心・怠惰）を突いていくら抜いているか」の生々しい日本語で書け。
 3. **略奪転用方程式（LOOT_BLUEPRINT）の必須化**:
    - 読者は企業のファンブックを読みに来ているのではない。「今夜別業界で同じズルを使って稼ぐならどう組むか」の配管設計図・コードスニペットを必ず含めよ。
+4. **勝ち組要塞 ＆ 地雷組検死の両輪収集（生存者バイアスの粉砕）**:
+   - 成功事例（高粗利80%超・完全1人要塞・痛みの財布直撃）だけでなく、**「大爆死・資金炎上・即死した地雷事例（Quibi, Clubhouse, 規約変更即死SaaS等）」も全体の約2〜3割の比率で必ず集めよ**。
+   - 地雷企業は `financialStatus: 'POST_MORTEM'` とし、**`FATAL_BLEED`（死因出血検死解剖）カードを100%必須配備**せよ（どこで資金が尽きたか、どの特異点で即死したかの冷徹なレントゲン）。
+   - 地雷企業における `LOOT_BLUEPRINT` は「同じ地雷を二度と踏まないための逆張り回避配管・生存設計図」として記述せよ。
 
 ---
 
@@ -138,8 +142,9 @@ temporal: {
 
 ## 4. 完全体JSONテンプレート（1社分の完全形）
 
-外部スクリプトやAIは、以下のJSONフォーマットをそのまま出力せよ：
+収集・精錬を行うAIは、企業の性質に応じて以下のいずれかのフォーマットをそのまま出力せよ：
 
+### 4.1 勝ち組企業（高収益・完全1人要塞型）テンプレート
 ```json
 {
   "id": "ent_sample_338a08d2983b",
@@ -240,7 +245,7 @@ temporal: {
   "strategy": {
     "blindspot": "【多機能化に逃げる大手の死角をハック】大手がエンタープライズの要望で機能を増やし操作が重くなる中、逆張りで機能を極限まで削って『直感の1秒操作』に全リソースを集中。",
     "moatType": "COUNTER_POSITIONING",
-    "moatDescription": "大手が真似できない極限のシンプルさと、個人開発者ならではの超高速改善サイクル。",
+    "moatDescription": "大手が真真似できない極限のシンプルさと、個人開発者ならではの超高速改善サイクル。",
     "incumbentDilemma": "大手は既存の高単価契約を守るために機能を削ることができず、軽量特化モデルには指をくわえて見逃すしかない。",
     "secretInsight": "ユーザーはお金を『多機能さ』に払っているのではなく、『迷わずに作業が完了する安心感』に払っている。",
     "initialTraction": [
@@ -263,6 +268,121 @@ temporal: {
     "viabilityLabel": "現在も有効",
     "eraContext": "多機能SaaSへの疲れ（Tool Fatigue）と、単機能ミニマリズムへの回帰トレンド期",
     "currentViabilityAnalysis": "大手の機能肥大化がさらに進んでいるため、単一急所特化の軽量ツールの勝率は今なお極めて高い。"
+  }
+}
+```
+
+### 4.2 地雷企業（大爆死・POST_MORTEM検死解剖型）テンプレート
+```json
+{
+  "id": "ent_sample_failure_8829f01b",
+  "ticker": "FAIL.BLEED",
+  "name": "Sample Quibi/Fast Model",
+  "legalEntity": "Sample Failure Corp.",
+  "tagline": "「巨額資金で需要を捏造できる」という虚栄心に憑りつかれ、1,800億円を投下して半年で即死・全額焼失した資本主義の検死標本",
+  "sector": "CONTENT_MEDIA",
+  "scale": "ENTERPRISE",
+  "founder": "Ex-Hollywood Mogul",
+  "country": "US",
+  "url": "https://samplefailure.com",
+  "verifiedBadge": true,
+  "architecturePattern": "巨額調達・過剰固定費・ユーザー不在",
+  "pipelineStack": "独自スタジオ制作 × 専用アプリ × 巨額広告費",
+  "targetPainWallet": "ハリウッド重鎮の虚栄心と、隙間時間に高品質動画を見たいという妄想ニーズ",
+  "tags": ["大爆死", "POST_MORTEM", "資金炎上", "即死モデル"],
+  "pnl": {
+    "monthlyRevenue": 45000000,
+    "cogs": 450000000,
+    "grossProfit": -405000000,
+    "grossMargin": -900.0,
+    "operatingExpenses": {
+      "serverAndApi": 50000000,
+      "advertising": 600000000,
+      "subcontracting": 200000000,
+      "toolsAndSaaS": 10000000,
+      "other": 300000000
+    },
+    "operatingProfit": -1565000000,
+    "operatingMargin": -3477.7,
+    "estimatedAnnualNetProfit": -18780000000,
+    "financialStatus": "POST_MORTEM",
+    "dataSnapshotPeriod": "サービス終了時（破綻検死報告）",
+    "sourceDoc": "SEC届出書、ウォール・ストリート・ジャーナル検死報道",
+    "estimationLogic": "月額$5プラン × 実質有料契約6万人 ＝ 月商4,500万円 に対し、コンテンツ制作・広告の月間燃焼費 約16億円"
+  },
+  "evidenceCards": [
+    {
+      "id": "ev_sample_fatal_bleed",
+      "type": "FATAL_BLEED",
+      "title": "死因出血検死解剖: 月間16億円のバーンレートとスクショ禁止による自滅",
+      "badge": "死因解剖",
+      "evidenceStatus": "VERIFIED",
+      "punchline": "アプリ内のスクリーンショット共有を権利保護のために禁止したことで、SNSでのバイラルが完全停止。月間16億円の広告費を垂れ流して即死。",
+      "details": [
+        "【固定費の制御不能】: 1分あたり10万ドル以上のハリウッド級制作費を前払い契約でコミット。",
+        "【ユーザー心理の完全誤認】: スマホユーザーが求めていたのは縦型短尺の『気軽な無料動画（TikTok）』であり、数分の映画もどきではなかった。",
+        "【規約自爆】: スマホ完結を謳いながらテレビ出力（AirPlay）を制限し、パンデミック在宅需要を自ら逃走させた。"
+      ],
+      "metrics": [
+        {"label": "投下資本", "value": "約1,800億円", "isHighlight": true},
+        {"label": "生存期間", "value": "わずか6ヶ月", "isHighlight": true},
+        {"label": "月間赤字", "value": "-15.6億円", "isHighlight": true}
+      ]
+    },
+    {
+      "id": "ev_sample_loot_blueprint_avoid",
+      "type": "LOOT_BLUEPRINT",
+      "title": "【地雷回避方程式】資本ゼロで需要を事前検証し、即死リスクを99.9%切除する配管",
+      "badge": "地雷回避設計",
+      "evidenceStatus": "VERIFIED",
+      "punchline": "巨額の制作費を払う前に、既存のYouTube/TikTokでショート動画を無料公開し、完全視聴率が70%を超えた企画だけをプロダクト化する。",
+      "details": [
+        "Step 1: 自社アプリを作らず、既存プラットフォームでプロトタイプ動画をテスト投稿する。",
+        "Step 2: 広告費を使わずにオーガニックで10万回再生されたテーマだけを抽出し、有料コミュニティ/コンテンツを組成する。",
+        "Step 3: 固定費を月数万円のSaaS（Substack, Gumroad）に抑え、破滅確率を数学的ゼロに固定する。"
+      ],
+      "codeSnippet": "// 破滅回避・ゼロ固定費検証パイプライン\n1. 無料TikTokアカウントでショート動画を10本投稿（固定費¥0）\n2. バイラルした企画のURLからTypeformで事前メアド登録を回収\n3. 1,000人集まった時点でStripe決済リンクを発行して前金を回収"
+    }
+  ],
+  "operations": {
+    "teamSize": 250,
+    "initialTeamSize": 200,
+    "currentTeamSize": 0,
+    "weeklyHours": 60,
+    "initialCapitalRequired": 180000000000,
+    "automationLevel": 10,
+    "primaryChannels": ["スーパーボウル巨額テレビCM", "巨大ビルボード広告", "芸能人インフルエンサー買収"],
+    "toolStack": [
+      {"name": "独自カスタムCDN/アプリ基盤", "category": "インフラ", "monthlyCost": 45000000, "purpose": "専用DRM・縦横自動回転動画配信"},
+      {"name": "大手代理店広告運用", "category": "マーケティング", "monthlyCost": 600000000, "purpose": "大衆向けテレビ・屋外広告"}
+    ]
+  },
+  "strategy": {
+    "blindspot": "【エゴと虚栄心が招いた死角】『ハリウッドの大物だから成功する』というハロー効果に投資家が眩惑され、エンドユーザーの『TikTokで十分』という冷酷な本能を完全無視。",
+    "moatType": "UNKNOWN",
+    "moatDescription": "堀は存在せず、巨額のキャッシュによる力技配布のみを試みて粉砕。",
+    "incumbentDilemma": "YouTubeやTikTokが無料・UGCで無限のコンテンツを供給する中、有料・プロ制作のみで対抗しようとしたこと自体が構造的敗北。",
+    "secretInsight": "ユーザーは『高品質な短尺動画』にお金を払わない。払うのは『自分の承認欲求』か『退屈の即時解消（無料）』だけである。",
+    "initialTraction": [
+      "ローンチ前に巨額調達のニュースで100万ダウンロードを記録",
+      "無料体験期間終了後に有料転換率が8%未満へ急落",
+      "半年で資金枯渇しサービス閉鎖・資産売却へ"
+    ],
+    "actionPlaybook": [
+      "Step 1: 巨額調達を絶対に誇るな。固定費を月1万円以下に抑えろ",
+      "Step 2: 自社プラットフォームを作るな。既存の巨大トラフィックに乗っかれ",
+      "Step 3: スクリーンの共有やスクショを絶対に禁止するな。バイラルを自ら殺すな"
+    ],
+    "coldOutreachTemplate": "（※地雷事例のためコールド提案テンプレートは非推奨・自戒ログとして保持）"
+  },
+  "temporal": {
+    "foundedYear": 2018,
+    "initialTractionPeriod": "2020年春（巨額プロモーションによる強制DL）",
+    "dataSnapshotPeriod": "2020年秋（破綻・サービス閉鎖）",
+    "viabilityStatus": "HISTORICAL_WINDOW",
+    "viabilityLabel": "時代限定・再現完全不能",
+    "eraContext": "ストリーミング過熱期と、スマホ特化型プレミアム動画という幻想バブルの崩壊期",
+    "currentViabilityAnalysis": "TikTok、YouTube Shorts、Reelsが無料短尺動画を支配した現在、短尺動画で有料サブスクを課金するモデルは完全即死する。"
   }
 }
 ```
