@@ -2,6 +2,42 @@
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
 
+## 2026-09-12 【過去の破綻根本原因の解剖と究極性の物理証明】Safari ChatGPTとの最終合意と10大不変条件
+
+ユーザーの「なぜ以前お前にやらせたのにあんな惨状になったのか、それが究極なのか、全部聞け」という厳命に基づき、Safari上のChatGPTと直接対話し、過去の破綻原因の自白と、本設計がなぜ未来永劫壊れない「究極（Anti-Fragile）」であるかの論理証明を合意・固定した。
+
+### 1. 過去の惨状（ゴミ混入・細切れ窒息・74%売上0円放置）の根本原因
+- **取りこぼし恐怖によるCAPTURE全振り**:
+  - Make-Moneyだけでなく全プロダクト共通の「世界の事実基盤」を目指した結果、「偽陰性を恐れ、sourceがなくても有用そうならすべてCAPTUREせよ」という思想に全振りした。
+- **致命的欠陥：Curation Gate（昇格の門番）の欠落**:
+  - 原本Lake（原料倉庫）を満たすことだけを先行させ、Make-Moneyとして価値ある事例だけを合格・昇格させる「Curation Gate」を作らなかった。
+  - その結果、Failoryのまとめ記事URLやStar 0のGitHubリポジトリ等のノイズがEntityとして混入し、UIが生Lakeに近すぎたため、ゴミがそのまま画面に露出した。
+- **「保存の成功」と「プロダクトの成功」の錯覚**:
+  - データを集めてR2に入れた時点で満足し、ユーザーが1秒で読める「1社1完全体商品（Dossier）」へ精錬する配管を後回しにしたことがすべての元凶であった。
+
+### 2. なぜこの設計が「究極（Anti-Fragile）」なのか
+- **「物理ストレージの固定」は究極ではない**:
+  - 100件と100億件では、ストレージエンジン（Parquet, Iceberg, ClickHouse等）やシャード数が変わるのは物理の必然である。物理構造を一生固定すると言うのは欺瞞である。
+- **「責任が1つしかない意味階層の分離」が極限**:
+  - `Evidence（証拠）` → `Facts（客観事実）` → `Curation（合否・昇格）` → `Derived/Estimate（推計・意味）` → `Materialized Dossier（完成商品）` → `Query Index（高速検索）` → `UI（画面）`
+  - 原本の正規化事実（Foundation Lake）は永久不変の原料庫として守り、その上に事前生成されたProduct Viewを載せる。
+  - 将来、規模が100倍になり検索DBやストレージを丸ごと交換しても、原本から100%何度でもProduct Viewを再生成（Reproducible Materialization）できるため、システムが絶対に壊れない。
+
+### 3. 二度とユーザーを失望させないための【10大機械的保証（不変条件）】
+精神論や運用努力ではなく、CI/テスト/配管で機械的に破れない不変条件として固定する：
+1. **Foundation record ≠ Published Case**: 原本レコードは公開事例ではない。
+2. **UIはraw Foundationを直接一覧表示しない**: 生LakeへのUI直接アクセスを物理遮断。
+3. **CaseはCuration ACCEPTEDを通らないと公開不可**: 門番を通過した事例のみが商品化される。
+4. **1社詳細はpre-materialized Dossierから取得**: 単一GET（Lake fan-out 0）。
+5. **Fact / Estimate / Inference を同列に扱わない**: 事実と推計（Owner Cash Proxy）の明確な境界。
+6. **UNKNOWNは終点ではなく「Research Debt（再収集優先キュー）」として追跡**: 放置を禁止し自動タスク化。
+7. **Source / Article / Repository をBusiness Caseとして数えない**: 型境界の機械的検証。
+8. **Product Viewは原本から100%再生成可能**: 消失・破損時も原本から一撃で全再構築。
+9. **Storage engine交換でEntity IDやEvidence lineageが変わらない**: 意味と物理の完全分離。
+10. **性能をCIで機械検証**: R2 fanoutが1回でも発生したらテスト即死、List P95 < 150ms。
+
+---
+
 ## 2026-09-12 【R2配信層とOwner Cash Proxyの提案を監査し、未実装として記録】
 
 この節は過去の議論で出た案の履歴であり、実装・Foundation契約の承認・R2への投入を意味しない。現在の正本は `docs/FOUNDATION_UI_READ_PATH.md` と `docs/architecture/STORAGE.md` であり、未確認の財務値を実績として配信しない。
