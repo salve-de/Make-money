@@ -13,6 +13,8 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
   const teamSizeUnknown = Boolean(entity.operations.isTeamSizeUnconfirmed);
   const weeklyHoursUnknown = Boolean(entity.operations.isWeeklyHoursUnconfirmed);
   const automationUnknown = Boolean(entity.operations.isAutomationUnconfirmed);
+  const cogsUnknown = entity.pnl.isCogsUnconfirmed ?? entity.pnl.isCostsUnconfirmed;
+  const grossProfitUnknown = entity.pnl.isGrossProfitUnconfirmed ?? entity.pnl.isGrossMarginUnconfirmed;
   return <>
           {/* ------------------------------------------------------- */}
           {/* #05〜#07: 財務レントゲン / 出血・逆流レントゲン */}
@@ -198,11 +200,11 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                         </div>
                         <div className="p-2.5 flex justify-between items-center text-[11px]">
                           <span className="text-zinc-400 pl-2">└ 売上原価 (COGS)</span>
-                          <span className="text-zinc-300 tabular-nums">{entity.pnl.isCostsUnconfirmed ? '未確認' : `-${formatMoney(entity.pnl.cogs)}`}</span>
+                          <span className="text-zinc-300 tabular-nums">{cogsUnknown ? '未確認' : `-${formatMoney(entity.pnl.cogs)}`}</span>
                         </div>
                         <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
                           <span className="text-zinc-200 font-medium">粗利益 (Gross Profit: {entity.pnl.isGrossMarginUnconfirmed ? '未確認' : `${entity.pnl.grossMargin}%`})</span>
-                          <span className="text-white font-medium tabular-nums">{entity.pnl.isGrossMarginUnconfirmed ? '未確認' : formatMoney(entity.pnl.grossProfit)}</span>
+                          <span className="text-white font-medium tabular-nums">{grossProfitUnknown ? '未確認' : formatMoney(entity.pnl.grossProfit)}</span>
                         </div>
 
                         {/* 販管費内訳 (OPEX) */}

@@ -44,7 +44,9 @@ export interface ProfitAndLossStatement {
   isRevenueUnconfirmed?: boolean; // 一次情報で売上未確認の場合 true（架空0円の捏造を防止）
   isOperatingProfitUnconfirmed?: boolean; // 営業利益額未確認の場合 true
   isMarginUnconfirmed?: boolean; // 利益率未確認の場合 true
+  isGrossProfitUnconfirmed?: boolean; // 粗利益額未確認の場合 true
   isGrossMarginUnconfirmed?: boolean;
+  isCogsUnconfirmed?: boolean; // 売上原価未確認の場合 true
   isCostsUnconfirmed?: boolean;
   isNetProfitUnconfirmed?: boolean;
   revenueLabel?: string; // 表示用カスタムラベル（例: "プラン: $57/月〜", "売上非公開"）

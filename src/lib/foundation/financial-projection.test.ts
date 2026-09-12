@@ -43,13 +43,31 @@ describe('profit evidence', () => {
     expect(projectProfitMetrics(10000, revenue, [metric('operating_profit', -24000)])).toMatchObject({ operatingProfit: -2000, operatingMargin: -20, isMarginUnconfirmed: false });
   });
   it.each([
-    { periodEnd: '2024-12-31' }, { currency: 'USD' }, { verificationStatus: 'UNVERIFIED' }, { basis: 'cash' }, { scope: 'subsidiary' },
+    { periodEnd: '2024-12-31' }, { currency: 'USD' }, { verificationStatus: 'UNVERIFIED' }, { scope: 'subsidiary' }, { pointInTime: '2025-12-31' },
   ] as Partial<FoundationMetricSignal>[])('rejects incompatible profit %j', override => {
     expect(projectProfitMetrics(10000, revenue, [metric('operating_profit', 24000, override)]).isMarginUnconfirmed).toBe(true);
   });
   it('uses explicit percentage margins only with a percentage unit', () => {
     expect(projectProfitMetrics(10000, revenue, [metric('operating_margin', 25, { unit: '%' })])).toMatchObject({ operatingProfit: 2500, operatingMargin: 25, isMarginUnconfirmed: false });
     expect(projectProfitMetrics(10000, revenue, [metric('operating_margin', 25)]).isMarginUnconfirmed).toBe(true);
+  });
+
+  it('uses bounded period dates for generic revenue and ignores free-form basis wording', () => {
+    const revenue = metric('revenue', 1_987_000, {
+      unit: 'USD', currency: 'USD', periodStart: '2025-10-01T00:00:00Z', periodEnd: '2025-10-31T23:59:59Z',
+      basis: 'Monthly recognized revenue; rounded.', scope: 'Buffer company',
+    });
+    const cogs = metric('cogs', 325_868, {
+      unit: 'USD', currency: 'USD', periodStart: revenue.periodStart, periodEnd: revenue.periodEnd,
+      basis: 'Calculated: rounded revenue * (1 - gross margin).', scope: revenue.scope,
+    });
+
+    expect(parseRevenueToMonthlyJpy(revenue.value, revenue.currency, `${revenue.metricType} ${revenue.unit}`, revenue.periodStart, revenue.periodEnd)).toMatchObject({
+      monthlyJpy: 298_050_000, isUnconfirmed: false,
+    });
+    expect(projectProfitMetrics(298_050_000, revenue, [revenue, cogs])).toMatchObject({
+      cogs: 48_880_200, isCogsUnconfirmed: false,
+    });
   });
 });
 
@@ -137,7 +155,7 @@ it('does not derive zero profit from a percentage when revenue is unknown', () =
 it('keeps a zero-revenue loss amount known without inventing a zero percent margin', () => {
   const revenue = metric('annual_revenue', 0);
   expect(projectProfitMetrics(0, revenue, [metric('operating_profit', -12000), metric('gross_profit', -12000)])).toMatchObject({
-    operatingProfit: -1000, isOperatingProfitUnconfirmed: false, isMarginUnconfirmed: true, isGrossMarginUnconfirmed: true,
+    operatingProfit: -1000, isOperatingProfitUnconfirmed: false, isMarginUnconfirmed: true, isGrossProfitUnconfirmed: false, isGrossMarginUnconfirmed: true,
   });
 });
 

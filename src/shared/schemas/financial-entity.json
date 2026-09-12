@@ -232,7 +232,13 @@
         "isMarginUnconfirmed": {
           "type": "boolean"
         },
+        "isGrossProfitUnconfirmed": {
+          "type": "boolean"
+        },
         "isGrossMarginUnconfirmed": {
+          "type": "boolean"
+        },
+        "isCogsUnconfirmed": {
           "type": "boolean"
         },
         "isCostsUnconfirmed": {

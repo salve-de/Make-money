@@ -41,6 +41,21 @@ it('shows the discrepancy instead of silently balancing the recorded profit', ()
   expect(html).not.toContain('100%基準');
 });
 
+it('shows known COGS and gross profit even when OPEX and gross margin are unknown', () => {
+  const base = INSTITUTIONAL_ENTITIES[0];
+  const entity = { ...base, pnl: { ...base.pnl,
+    monthlyRevenue: 100000, cogs: 30000, grossProfit: 70000, grossMargin: 0,
+    operatingProfit: 0, operatingMargin: 0, isRevenueUnconfirmed: false,
+    isCogsUnconfirmed: false, isGrossProfitUnconfirmed: false, isGrossMarginUnconfirmed: true,
+    isMarginUnconfirmed: true, isCostsUnconfirmed: true,
+    financialStatus: 'REPORTED' as const,
+  } };
+  const html = renderToStaticMarkup(createElement(FinancialSection, { entity, ...buildInspectorModel(entity, 'JPY') }));
+  expect(html).toContain('-¥3万');
+  expect(html).toContain('¥7万');
+  expect(html).toContain('粗利益 (Gross Profit: 未確認)');
+});
+
 it('does not render unconfirmed tool costs as zero-cost infrastructure', () => {
   const entity = INSTITUTIONAL_ENTITIES.find((entry) => entry.name === 'Photo AI')!;
   const html = renderToStaticMarkup(createElement(ToolsSection, { entity, ...buildInspectorModel(entity, 'JPY') }));

@@ -108,7 +108,9 @@ function hasSupportedEvidence(value: { verificationStatus?: string } | undefined
 export function parseRevenueToMonthlyJpy(
   value?: number | string | null,
   currency?: string | null,
-  metricType?: string
+  metricType?: string,
+  periodStart?: string | null,
+  periodEnd?: string | null,
 ): ParsedRevenueResult {
   const unknown: ParsedRevenueResult = { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
   if (value === null || value === undefined || value === '') return unknown;
@@ -119,7 +121,7 @@ export function parseRevenueToMonthlyJpy(
       !/revenue|売上|sales|\bmrr\b|\barr\b/i.test(context)) {
     return { ...unknown, revenueLabel: 'プラン価格あり' };
   }
-  const monthly = /monthly|month|mrr|月額|月商|月間/i.test(context);
+  const periodDivisor = inferRevenuePeriodDivisor(context, periodStart, periodEnd);
   // The existing projection uses USD 150 JPY as an explicit estimate. Never apply
   // that rate to a different currency for which no conversion rate is available.
   const currencyMarker = text.match(/\$|USD|¥|JPY|円/i)?.[0];
@@ -157,23 +159,58 @@ export function parseRevenueToMonthlyJpy(
 
   }
   if (!Number.isFinite(amount) || amount < 0) return unknown;
-  const monthlyJpy = Math.round(amount * rate / (monthly ? 1 : 12));
+  const monthlyJpy = Math.round(amount * rate / periodDivisor);
   if (!Number.isFinite(monthlyJpy)) return unknown;
   return { monthlyJpy, isUnconfirmed: false };
 
 }
 
+/**
+ * Convert a supported revenue period to a monthly amount. Explicit metric
+ * semantics win; otherwise bounded period dates prevent a generic one-month
+ * `revenue` signal from being mistaken for annual revenue.
+ */
+function inferRevenuePeriodDivisor(context: string, periodStart?: string | null, periodEnd?: string | null): 1 | 3 | 12 {
+  if (/mrr|monthly|month|月額|月商|月間/i.test(context)) return 1;
+  if (/quarter|quarterly|q[1-4]|四半期/i.test(context)) return 3;
+  if (/arr|annual|yearly|year|年額|年商|年次/i.test(context)) return 12;
+
+  if (periodStart && periodEnd) {
+    const start = Date.parse(periodStart);
+    const end = Date.parse(periodEnd);
+    if (Number.isFinite(start) && Number.isFinite(end) && end >= start) {
+      const days = (end - start) / 86_400_000;
+      if (days <= 45) return 1;
+      if (days <= 140) return 3;
+    }
+  }
+  return 12;
+}
+
+function accountingBasisCategory(value: string | null | undefined): 'cash' | 'accrual' | null {
+  if (!value) return null;
+  if (/cash|現金/i.test(value)) return 'cash';
+  if (/accrual|recogniz|発生|会計/i.test(value)) return 'accrual';
+  return null;
+}
+
+function isCompatibleFinancialMetric(revenue: FoundationMetricSignal, metric: FoundationMetricSignal): boolean {
+  if (metric.verificationStatus !== 'SUPPORTED') return false;
+  if (metric.scope !== revenue.scope || metric.periodStart !== revenue.periodStart || metric.periodEnd !== revenue.periodEnd || metric.pointInTime !== revenue.pointInTime) return false;
+  const revenueBasis = accountingBasisCategory(revenue.basis);
+  const metricBasis = accountingBasisCategory(metric.basis);
+  return !revenueBasis || !metricBasis || revenueBasis === metricBasis;
+}
+
 /** Project only supported, period-compatible financial records; zero is a value. */
 export function projectProfitMetrics(monthlyRevenue: number, revenue: FoundationMetricSignal | undefined, metrics: FoundationMetricSignal[]) {
-  const hasKnownRevenue = revenue !== undefined && !parseRevenueToMonthlyJpy(revenue.value, revenue.currency, `${revenue.metricType} ${revenue.unit || ''}`).isUnconfirmed;
+  const hasKnownRevenue = revenue !== undefined && !parseRevenueToMonthlyJpy(revenue.value, revenue.currency, `${revenue.metricType} ${revenue.unit || ''}`, revenue.periodStart, revenue.periodEnd).isUnconfirmed;
   const hasPeriod = hasKnownRevenue && Boolean(revenue?.periodStart && revenue?.periodEnd);
-  const compatible = metrics.filter(m => hasPeriod && m.verificationStatus === 'SUPPORTED' &&
-    m.basis === revenue?.basis && m.scope === revenue?.scope &&
-    m.periodStart === revenue?.periodStart && m.periodEnd === revenue?.periodEnd && m.pointInTime === revenue?.pointInTime);
+  const compatible = revenue ? metrics.filter(m => hasPeriod && isCompatibleFinancialMetric(revenue, m)) : [];
   const amount = (kind: string): number | undefined => {
     const metric = compatible.find(m => m.metricType.replace(/^(annual|monthly)_/, '') === kind && m.currency === revenue?.currency);
     if (!metric || typeof metric.value !== 'number' || !Number.isFinite(metric.value)) return undefined;
-    const parsed = parseRevenueToMonthlyJpy(Math.abs(metric.value), metric.currency, `${metric.metricType} ${metric.unit || ''}`);
+    const parsed = parseRevenueToMonthlyJpy(Math.abs(metric.value), metric.currency, `${metric.metricType} ${metric.unit || ''}`, metric.periodStart, metric.periodEnd);
     return parsed.isUnconfirmed ? undefined : parsed.monthlyJpy * Math.sign(metric.value);
   };
   const margin = (kind: string): number | undefined => {
@@ -186,6 +223,7 @@ export function projectProfitMetrics(monthlyRevenue: number, revenue: Foundation
   const operatingMargin = margin('operating_margin');
   const netProfit = amount('net_profit');
   const cogs = amount('cogs');
+  const grossProfitKnown = grossProfit !== undefined || (grossMargin !== undefined && monthlyRevenue > 0);
   return {
     cogs: cogs ?? 0,
     grossProfit: grossProfit ?? (grossMargin !== undefined ? monthlyRevenue * grossMargin / 100 : 0),
@@ -197,6 +235,8 @@ export function projectProfitMetrics(monthlyRevenue: number, revenue: Foundation
     isOperatingProfitUnconfirmed: operatingProfit === undefined && operatingMargin === undefined,
     isMarginUnconfirmed: operatingMargin === undefined && (operatingProfit === undefined || monthlyRevenue === 0),
     isGrossMarginUnconfirmed: grossMargin === undefined && (grossProfit === undefined || monthlyRevenue === 0),
+    isGrossProfitUnconfirmed: !grossProfitKnown,
+    isCogsUnconfirmed: cogs === undefined,
     isCostsUnconfirmed: true,
     isNetProfitUnconfirmed: netProfit === undefined,
   };
@@ -384,7 +424,13 @@ export function adaptFoundationDetailToFinancialEntity(
   const bestRevCurrency = hasMetricValue ? revMetric.currency : revMoney?.currency;
   const bestRevType = hasMetricValue ? `${revMetric.metricType} ${revMetric.unit || ''}` : `${revMoney?.moneyType || 'revenue'} ${revMoney?.unit || ''}`;
   
-  const parsedRev = parseRevenueToMonthlyJpy(bestRevValue, bestRevCurrency, bestRevType);
+  const parsedRev = parseRevenueToMonthlyJpy(
+    bestRevValue,
+    bestRevCurrency,
+    bestRevType,
+    revMetric?.periodStart ?? revMoney?.periodStart,
+    revMetric?.periodEnd ?? revMoney?.periodEnd,
+  );
   const monthlyJpy = parsedRev.monthlyJpy;
   const isUnconfirmed = parsedRev.isUnconfirmed;
 
