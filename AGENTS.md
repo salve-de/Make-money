@@ -56,6 +56,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - 収集したWeb魚拓・PDF原本は `foundation-raw/blobs/sha256/<hash>` へ即時PUT（Create-Only、上書き禁止）。
 - 抽出した完全体JSONは `foundation-lake/journal-entry.v1/<id>.json` へ保存（追記専用）。
 - 整理・結合はすべて単一の目録（Catalog / `entities-index.json` / D1）側で1行JOINする。
+- **【最重要：収集 ＆ UI表示の完全並行原則（後回し・分離の絶対禁止）】**:
+  - 「データを集めるだけ集めてUIを後回しにする」ことは厳禁。
+  - 【調査 ➔ P&L逆算 ➔ 完全体JSON ➔ R2保存 ➔ 目録（entities-index.json）登録 ➔ ブラウザUI（一覧＆詳細インスペクター）で0.01秒描画されることを実機確認】までを1セットの完了条件とする。
+
 
 
 
@@ -135,9 +139,11 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - 削除された黒歴史・初期魚拓、フォーラムの生々しい解約怨嗟（サクラレビューの排除）、真の裏集客配管（SEOやアフィリエイト等のドル箱）。
 - **【最重要・AI自律判断】必要と思った情報は枠外でも何でも記録せよ**:
   - 上記リストは思考の呼び水（チェックボックス）ではない。「これ以外は調べない」「型にないから書かない」はAIの完全失格である。創業者の思想、法規制の穴、業界の悪習、ユーザーの異常な使い方など、**AI自身が「このビジネスの勝因や金儲けの構造を解剖する上で必要・有益だ」と判断したことは、一切限定せずに全て調べ、1文字も捨てずに `observations` および `Universal Journal` へ記録せよ**。
-- **保存 ＆ 画面反映**:
+- **保存 ＆ 画面即時反映（完全並行サイクル）**:
   - `data/collection/<case>.request.json` を生成し、`pnpm foundation:r2` でR2へ保存。
-  - 画面の動的ハイライトUIへ直結。
+  - 保存した完全体JSONを目録（`data/entities-index.json`）へ登録。
+  - トップ画面（`src/app/page.tsx`）および詳細インスペクター（`CompanyInspectorPane.tsx`）で崩れなく0.01秒で描画されることをブラウザ実機で確認。ここまでを1セットとして並行稼働せよ。
+
 
 ### 【最高決定版】何を集めるか：キーエンス品質 黄金収集仕様（Golden Ingest Schema）
 > **全AI・スクリプト共通の最高規範**: 詳細定義・完全体JSONテンプレートは [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md) を正本とする。何を集めるべきか迷った時は、本節および仕様書の完全体JSONを1文字も変えずに遵守せよ。

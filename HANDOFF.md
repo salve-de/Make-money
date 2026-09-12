@@ -25,7 +25,13 @@
 > 4. **裏アフィリエイト・キックバック配管（フッター, ASP, Rewardful等）**: 表のLPには出ない「売上の30〜50%永久キックバック」「紹介報酬」という、広告費ゼロで広げている真の集客エンジン。
 > 5. **解約怨嗟・悪評（Trustpilot, Reddit, G2等）**: 公式のサクラ事例ではなく、「解約できない」「データが人質」「他社に移れず泣く泣く払っている」という、高収益を支える理不尽な監禁（スイッチングコスト）の実態。
 > 
-> 追加の質問や手戻り確認は一切不要。以下の3大正本を読み、直ちに底引き網調査 ➔ P&L逆算 ➔ 完全体JSON精錬 ➔ R2保存まで完遂せよ。
+> ### 【最重要：収集 ＆ UI表示の完全並行原則（後回し・分離の絶対禁止）】
+> **「データを集めるだけ集めて、UI画面の表示は後回しにする」ことを厳禁とする。**
+> 1. **配管直結**: トップ画面（`src/app/page.tsx`）は目録（`data/entities-index.json`）を直読し、金融端末UIへ流し込む。
+> 2. **完全並行サイクル**: 【底引き網調査 ➔ P&L逆算 ➔ 完全体JSON精錬 ➔ R2保存 ➔ 目録（entities-index.json）登録 ➔ ブラウザ実機でUI表示確認】の6ステップを1セットとして並行稼働せよ。
+> 3. **完了条件**: 画面の一覧テーブルに行が表示され、詳細インスペクター（P&L損益計算書、痛みの財布、ツール構成、死因解剖バッジ等）が崩れなく0.01秒で描画されることを確認して初めて1件の収集完了とみなす。
+> 
+> 追加の質問や手戻り確認は一切不要。以下の3大正本を読み、直ちに上記6ステップの完全並行サイクルで自走完遂せよ。
 
 ## 1. 必読の最高正本
 1. **出力JSONフォーマット・完全体テンプレート**: [`docs/GOLDEN_INGEST_SCHEMA.md`](docs/GOLDEN_INGEST_SCHEMA.md)
@@ -37,11 +43,12 @@
 3. **100年R2完璧構造（保存先）**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md)
    - Layer 1: 生原本 ➔ `foundation-raw/blobs/sha256/<hash>`（Create-Only、上書き禁止）
    - Layer 2: 保存票 ➔ `foundation-lake/journal-entry.v1/<id>.json`（追記専用）
-   - Layer 3: 目録 ➔ `data/entities-index.json`（単一目録で1行JOIN）
+   - Layer 3: 目録 ➔ `data/entities-index.json`（単一目録で1行JOIN、UI直結）
    - **【絶対不可侵】**: `universal/data-assets/financials/`（EDINET正本領域）には1文字たりとも書き込むな・触れるな。
 4. **横断自律収集契約**: [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)
    - **R2容量・料金の完全安全性**: 毎月10GB・100万回Class Aまで完全無料。1社最大1MBのため、1万社集めても月額0円（完全無料）。破産リスクゼロ。
 
 - **勝ち組（業種・規模不問、構造的勝者）**: キーエンス（直販製造業）、Gymshark（D2Cアパレル）、マニー（ニッチ独占医療器具）、ShipFast（SaaSボイラープレート）、Carrd（軽量LPインフラ）、Formula Bot（業務痛みの財布）等
 - **地雷組検死（業種・規模不問、巨額炎上・即死・規約変更死）**: Humane Ai Pin（過熱即死ハードウェア）、Fast（180億調達・月商60万即死フィンテック）、Quibi（2,000億炎上短尺動画）等
+
 
