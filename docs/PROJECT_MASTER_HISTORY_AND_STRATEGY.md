@@ -3662,3 +3662,10 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
     ③ `Lossless History`（「そのPDFに売上Xと書いてあった」という世界との接点の観測ログ）
 - **結論**:
   - R2は「会社データを検索する巨大DB」ではない。**「世界中から吸い上げた一次原本を、アプリのスキーマで汚さずに永久保管し、将来どんな事業・AIからでも知能を再蒸留できる共通バックボーン」**である。
+
+### 現行監査によるPhase 114〜117の位置づけ（2026-09-12）
+
+- Phase 114〜117は、当時の会話・反省・将来案を残す履歴であり、現行HEADの実装完了・性能・保持期間・復旧能力を証明するものではない。履歴内の「完了」「完全」「永久」「0.01秒」「60大Failure Domain/30大Acceptance Gate」は、現在の受入証拠として扱わない。
+- 現行HEADで確認できるR2の役割は、Foundationに登録されたデータを契約に従ってcreate-onlyで保存し、承認された書込みの直後にbyte/hashを読み戻すこと、そしてMake-Money UIが読み取り時にprojectionすることである。保持期間、可用性、別プロバイダDR、CAS分散索引、バイテンポラルResolver、Curation Gate、Dossier Projector、Container/DO基盤は、このリポジトリの現行完了条件として実装・実測していない。
+- R2の「長期原本庫」という表現は設計上の目的であり、無期限保存や100年・1000年運用の保証ではない。保存期間、権利、削除、復旧、料金、プロバイダ障害は、Foundation契約と個別の検証記録がある範囲だけを事実として扱う。
+- 現行の保存・読み取り・未知値・権限境界は [`docs/COLLECT_AND_STORE.md`](./docs/COLLECT_AND_STORE.md)、[`docs/R2_FOUNDATION_INGESTION.md`](./docs/R2_FOUNDATION_INGESTION.md)、[`docs/FOUNDATION_UI_READ_PATH.md`](./docs/FOUNDATION_UI_READ_PATH.md)、[`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md) を正本とする。履歴と正本が衝突する場合は正本と実測を優先し、未確認は未確認のまま報告する。
