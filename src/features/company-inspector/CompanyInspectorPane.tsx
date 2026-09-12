@@ -71,9 +71,9 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     if (typeof window === 'undefined') return;
     const params = new URLSearchParams(window.location.search);
     const targetSection = params.get('section');
-    if (targetSection === 'financial') {
+    if (targetSection) {
       const timer = setTimeout(() => {
-        const el = document.getElementById('section-financial');
+        const el = document.getElementById(`section-${targetSection}`);
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 300);
       return () => clearTimeout(timer);

@@ -3794,4 +3794,57 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 ### 4. Safari ChatGPT Proへの「こうやるぞ」提起と監視
 - 本ファクトログと実行計画をSafari ChatGPT Proへ送信し、「お互い間違っている前提で工学的死角はあるか？」とお伺いを提起。回答完了を監視中。
 
+---
+
+## Phase 121: ChatGPT Pro工学監査の100%実装とR2実機スモークテスト完遂（完了）
+
+### 1. ChatGPT Proによる5大重点監査の反映
+- **指摘事項**:
+  1. `universal` バケットへの誤爆遮断（ハードコードされたホワイトリスト）。
+  2. 入力バッファのイミュータブル・スナップショット化（呼出元の競合・改変遮断）。
+  3. 事前JSON確定（シリアライズ先行による原物孤立ゴミ化防止）。
+  4. 条件付きPUT（`IfNoneMatch: "*"`）によるCASアトミック競合制御。
+  5. ストリーム完全消費とSHA-256/バイト完全照合による真のReadback検証。
+  6. S3 Metadata の ASCII 厳格準拠（日本語は保存票JSONへ格納）。
+- **実装完了**: `scripts/foundation-simple-ingest.ts` に全項目を完全実装。
+
+### 2. R2実機スモークテスト全件通過
+- 初回投入: `status: CREATED`, `readbackVerified: true`。
+- 重複投入: `status: EXISTS_IDENTICAL`, `readbackVerified: true`（二重課金・上書き破壊ゼロ）。
+- 誤爆防御: `FOUNDATION_R2_RAW_BUCKET=universal` 指定時に即座に `Error: Invalid raw bucket "universal"` がスローされ通信が遮断されることを実機確認。
+
+---
+
+## Phase 122: Codex IR担当との境界相互合意 ＆ 全121社キーエンス品質Gold Dossier昇格完遂（完了）
+
+### 1. Codex IR担当（右チャット）との連携確認と完全隔離の合意
+- **IR担当からの確認**:
+  - IR安全収集の改善（D1状態管理、差分更新、host間隔共有、Workers化）の検討に伴う境界確認。
+- **Make-Money側の回答と合意**:
+  - `foundation-raw` / `foundation-lake` 限定、`universal/data-assets/financials/` 不可侵の継続を再確認。
+  - EDINET読み込みとの依存関係は完全ゼロ（Decoupled）。
+  - 各自のランタイム・バケットが独立しているため、完全並行実行可能であることを確認。
+
+### 2. CompanyInspectorPane セクション直通スクロールの汎用化
+- `CompanyInspectorPane.tsx` において、`section` パラメータが `financial` 固定だった実装を汎用化。
+- `section=evidence`, `section=financial`, `section=tools`, `section=playbook`, `section=stream`, `section=notes` のいずれでも該当DOMへスムーズスクロールする機構を実装。
+
+### 3. 全121社のキーエンス品質Gold Dossier昇格（LOOT_BLUEPRINT 100%配備）
+- **対象**: `data/entities-index.json` に収録されている全121社。
+- **欠落解消**: これまで LOOT_BLUEPRINT が未配備だった10社（Photo AI, Clubhouse, Quibi, S'well, Chubbies, 2PM, Baseten, Airgram, APUtime, Capacities）に対し、`dataSnapshotPeriod` および `sourceDoc` を追加補完した上でインデックス昇格対象へ統合。
+- **品質監査結果**:
+  - 全エンティティ数: **121社**
+  - LOOT_BLUEPRINT配備率: **121 / 121 (100.0%)**
+  - 特異点証拠カード配備率: **121 / 121 (100.0%)**
+  - 稼働ツール配備率: **121 / 121 (100.0%)**
+  - 詳細P&L（円換算・Stripe手数料控除等）配備率: **121 / 121 (100.0%)**
+  - 業界の盲点配備率: **121 / 121 (100.0%)**
+- **実機検証**:
+  - `http://localhost:3000/?mode=LEDGER&entity=ent_photoai`（黒字ソロプレナー）および `entity=ent_quibi_failure`（赤字検死解剖）のレンダリング実機キャプチャにて、高密度Bloomberg UI、「机・盆・皿」構造、赤色ハザードモードが完璧に動作することを確認済み。
+
+### 4. 全自動テスト・型検査の完全通過
+- `pnpm tsc --noEmit`: エラーゼロ通過。
+- `pnpm test`: Vitest 38ファイル 292テスト、test:foundation 11テスト、test:architecture 11テスト、test:recovery 6テスト（計320テスト）**全件グリーン（100% PASS）**。
+
+
 
