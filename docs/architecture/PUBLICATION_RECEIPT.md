@@ -157,3 +157,7 @@
 - 内容: 最新コードSHA、ローカル検証（Vitest281 / Foundation11 / architecture11 / Recovery6 / Playwright26）、GitHub 5チェック、実ブラウザのPhoto AI未確認財務・Evidence・J/K無効・Escape終了の結果、未検証の本番境界。
 
 このレシートはR2への保存とreadbackを証明する。Production Workerデプロイ、実ユーザーデータのNeon移行、定期バックアップ/RPO/RTO運用、production restore、mainへのmergeの完了は意味しない。
+
+## 2026-09-12 Neon所有境界の再監査
+
+Neon管理APIを読み取り専用で確認した結果、接続可能な所有プロジェクトは `Investrader-hub` のみで、Make-Moneyプロジェクトは一覧に存在しなかった。同プロジェクトのproduction `neondb`でMake-Money旧schema名（`businesses`、`business_ideas`、`market_signals`、`saved_items`、`submissions`、`newsletter_subscribers`、`analyst_notes`、`chat_conversations`、`synthesized_ideas`）を照会した結果は空集合だった。一般名の`users`等には別プロジェクトの行があるため、所有を推測してMake-Money R2へ混入させず、移行・削除は行っていない。これはMake-Moneyの確認できる移行対象がないことの根拠であり、他アカウントや権限外branchまで空であることを意味しない。

@@ -8,6 +8,8 @@
 
 2026-09-12: migration 0004（ニュースレター所有者・匿名解除トークンのハッシュ）と0005（匿名書込みの一時レート制限）を本番D1 `07affd4c-cac4-4998-843c-b5881fccab5e`へ適用した。適用前に全アプリテーブル0行を確認し、事前exportを非公開R2へcreate-only保存した。適用後に「No migrations to apply」、新列・index・`request_rate_limits`表、同表0行を読み戻した。R2保全物は[保存記録](PUBLICATION_RECEIPT.md)を参照。
 
+2026-09-12: Neon管理APIを読み取り専用で再監査した。接続可能な所有プロジェクトは `Investrader-hub` だけで、Make-MoneyというNeonプロジェクトは存在しなかった。そのDBでMake-Money旧schema名（`businesses`、`business_ideas`、`market_signals`、`saved_items`、`submissions`、`newsletter_subscribers`、`analyst_notes`、`chat_conversations`、`synthesized_ideas`）を照会した結果は0件。`users`等の一般名テーブルには別プロジェクトのデータがあるため、所有境界を証明できないままMake-MoneyのR2へコピーしていない。Neonは引き続きMake-Moneyの実行時保存先にしない。
+
 ## 認証環境の作成状況（2026-09-11）
 
 ユーザーの明示承認によりFirebaseプロジェクト `make-money-salve-prod`（Make-Money Production、project number `58988611995`）とWebアプリ `1:58988611995:web:8e69e3432164586d3ab93e` を新規作成した。既存Investraderの認証環境は変更していない。課金設定は追加していない。
