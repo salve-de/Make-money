@@ -104,37 +104,6 @@ async function main() {
     console.log('No data/collection directory found or empty.');
   }
 
-  // 2.5 data/catalog-batches/ 配下のバッチファイルをスキャンしてマージ
-  console.log('=== [2.5/4] Scanning data/catalog-batches/ for catalog batches ===');
-  const catalogBatchesDir = resolve(process.cwd(), 'data/catalog-batches');
-  try {
-    const batchFiles = await readdir(catalogBatchesDir);
-    let batchEntityCount = 0;
-    for (const file of batchFiles.sort()) {
-      if (file.endsWith('.json')) {
-        try {
-          const filePath = resolve(catalogBatchesDir, file);
-          const batchEntities = JSON.parse(await readFile(filePath, 'utf8')) as FinancialEntity[];
-          for (const entity of batchEntities) {
-            const check = checkBlacklist(entity);
-            if (check.isBlacklisted) continue;
-            const lowerName = entity.name.toLowerCase();
-            if (!entityMap.has(entity.id) && !nameMap.has(lowerName)) {
-              entityMap.set(entity.id, entity);
-              nameMap.set(lowerName, entity.id);
-              batchEntityCount++;
-            }
-          }
-        } catch (err) {
-          console.warn(`Warning: Could not parse batch ${file}:`, err);
-        }
-      }
-    }
-    console.log(`Loaded ${batchEntityCount} entities from data/catalog-batches/.`);
-  } catch {
-    console.log('No data/catalog-batches directory found or empty.');
-  }
-
   const allEntities = Array.from(entityMap.values());
   console.log(`=== [3/4] Aggregated total: ${allEntities.length} entities ===`);
 
