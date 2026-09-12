@@ -2,6 +2,44 @@
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
 
+## 2026-09-12 【包括的データ収集基盤としての最強配管】Safari ChatGPTとの双方向ディスカッション合意
+
+ユーザーの「最強の方法を聞け、ディスカッションしてこい、1回じゃなくて」という厳命に基づき、Safari上のChatGPTと第2ラウンドの技術ディスカッションを実施。理想論（Iceberg大艦隊）と現場制約（運用死リスク）を激突させ、**「今夜から最小負荷で動かせ、将来億単位へ無停止スケールする最強の物理配管」** を合意・固定した。
+
+### 1. 技術スタックの現実解（Iceberg vs DuckDB vs NDJSON+D1）
+- **DuckDB**: Workers上でネイティブ/WASMを動かすのは自滅。ローカルPC、CI、監査・検証ツールに限定。
+- **R2 Data Catalog / Apache Iceberg**: 将来の大規模Canonical分析基盤としてCloudflare Pipelines経由で流し込む本命だが、現在はbetaのため唯一の原本にはしない。
+- **採用する最強の現実解**: **`R2 immutable batch log (NDJSON.gz) + D1 (制御・Hot索引)`**
+  - R2は原本ストレージとして1リクエスト/実行単位でバッチ圧縮保存（1事実1オブジェクトを厳禁）。
+  - D1は全文を保存せず、`observation_index`, `dirty_keys`, `resolved_current`, `dirty_entities`, `dossier_index` という小さなHot State（制御・ポインタ）だけを担う（10GB制限・シングルスレッド制約を完全回避）。
+
+### 2. Intake Gatewayの物理配置（中央関所）
+- **中央Cloudflare Worker（`POST /v1/intake/batch`）を唯一の絶対関所とする**。
+- **エージェントにはCanonical R2の書き込み権限（write credential）を絶対に渡さない（IAMで物理遮断）**。
+  - エージェントがバグろうが暴走しようが、Intake Worker（認証、予算、ハッシュ重複、基本スキーマ）を通過しないデータはR2に1バイトも書けない。
+  - 通過したバッチのみがR2に保存され、Cloudflare Queueにはメタデータ（`batch_id`, `r2_key`）だけが流れる（Queueの128KB制限を回避）。
+
+### 3. Truth Resolver（矛盾調停）の局所実行モデル
+- **同期処理や夜間全件再計算（$O(N)$）の完全排除**:
+  - Observationが入ると、属性ごとの `semantic_key`（`hash(subject | attribute | scope | period | unit)`）を生成。
+  - 変更があったキーだけを `dirty_keys` / Queue に積む。
+  - Resolver Workerは `dirty_keys` を受け、**そのキーに競合する候補数件のみを局所的にスコアリング調停（$O(K \times c)$）** して `resolved_current` を更新。
+  - 100万件のデータがあっても更新された属性の候補数件しか計算しないため、0.01秒で調停が完了する。
+  - 解決値が変化した会社のみ `dirty_entities` に積み、その会社だけの `DossierProjector` を発火させる。
+
+### 4. Day 1最小完全体（型定義 ＆ D1テーブル）
+- **万能受入型 `ObservationEnvelope`**:
+  - `schema: "uf.observation.v1"`, `observationId`, `subjects[]`, `observationType`, `originType`, `verificationState`, `sourceRefs[]`, `semantic{ key, attribute, scope, unit }`, `payload: JsonValue`, `contentSha256`, `rights`。
+  - ポッドキャスト文字起こし、掲示板の怨嗟、決算表、株価、法律改正など、あらゆるデータを無損失で受入。
+- **D1 5大制御テーブル**:
+  1. `observation_index`: 観測メタデータとSHA-256一意制約（重複完全排除）。
+  2. `dirty_keys`: 更新された属性キー。
+  3. `resolved_current`: 決定論的ポリシーで現在確定した最新真実。
+  4. `dirty_entities`: Dossier再生成対象エンティティ。
+  5. `dossier_index`: 事前生成済み完成品Dossierのポインタとハッシュ。
+
+---
+
 ## 2026-09-12 【破綻原因の監査記録と、未実装目標の明示】
 
 この節は過去の議論を監査記録として残すもので、未来永劫壊れないことの証明ではない。件数・売上0件の割合・R2オブジェクト総数はスナップショットごとに変わるため、現在の状態や完全性の証拠として再利用しない。
