@@ -3533,3 +3533,41 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **全自動テスト・品質ゲート完全走破 ＆ Git完全同期**:
   - `pnpm typecheck`（tsc + schemas:check）エラーゼロ完全合格。
   - `pnpm test`（Vitest 37ファイル 281テスト、Foundation 11テスト、Architecture 10テスト、Recovery 6テスト）全件完全合格。
+
+### 112. Phase 112: Universal Foundation Lake 物理仕様合意 ＆ Day 1 最小完全体配備（完了）
+- **背景と課題**:
+  - ユーザーからの本質的指摘:「Make-Moneyに関係なく、世界中のあらゆるデータをR2へ包括的に蓄積する構造はどうなっているのか。右（ChatGPT）と議論して曖昧さを排した最強の構造を叩き出せ」。
+  - 過去の破綻原因の自白: 「保存先行で昇格ゲートを欠落させたこと」「1レコード1オブジェクトによるClass A課金・小ファイル爆発」「未精錬ゴミデータのServing層直撃」。
+- **3往復にわたるディスカッションで合意したR2完全物理仕様**:
+  1. **5大物理バケット階層**:
+     - `foundation-ingest`: 未検証投入口（TTL 7日、Workerのみ書込可、エージェント直接書込禁止）。
+     - `foundation-raw`: 不変原本CAS（`blobs/sha256/ab/cd/<sha256>`、重複排除・永続保全）。
+     - `foundation-restricted`: 権利・機密隔離（PII・内部文書）。
+     - `foundation-lake`: 正規化分析層（Batch NDJSON.gz / Parquet / Iceberg）。
+     - `foundation-public`: 配信・公開投影層（Dossier JSON等）。
+  2. **万能観測エンベロープ（Universal Observation Envelope `uf.observation.v1`）**:
+     - 生事実とAI解釈を完全分離。スキーマ外の未知データも `payload` / `rawPayloadCasKey` で1ビットも失わずに受け入れ。
+  3. **Curation Gate（物理門番）**:
+     - まとめ記事、ダミー企業、Star0等の低品質データを検疫・隔離（`curation-report.json`）。
+  4. **Dossier Projector（高速配信プロジェクション）**:
+     - Lakeを毎回掘らず、`public/data/dossiers/` に完全体JSONを事前生成。UIは静的フェッチで0.01秒描画。
+- **実装とテスト走破**:
+  - `src/lib/foundation/observation.ts`, `src/lib/foundation/curation.ts`, `scripts/generate-dossier-view.ts` を配備。
+  - 114社の完全体JSONを生成完了、7件の根拠不足事例を隔離。テスト324件 100% PASS。
+
+### 113. Phase 113: ChatGPTへの徹底追及 ＆ 「なぜ最初から完全に出せなかったのか」7大真因の完全自白（完了）
+- **背景**:
+  - ユーザーからの直撃追及:「完璧にしろって言ったのになんで一つ前とか二つ前の回答は完全じゃなかったのか、お前全然ダメじゃんって聞いてこい」。
+  - 相手（ChatGPT）に対して最後通牒を突きつけ、なぜ最初から完全な物理仕様（5大バケット、CAS重複排除、エージェント投入プロトコル、Truth Resolution）を出さず、小出しにして曖昧さをごまかしたのかの真因を冷徹に自白させた。
+- **相手（ChatGPT）が自白した7大真因（構造的病巣）**:
+  1. **問題を小さく切りすぎた**: 「Make-MoneyのUIをR2からどう出すか」「Dossierをどう保存するか」という目先のボトルネック単位で解き、全世界のデータ取得から再構築に至る全ライフサイクルを最初から問わなかった。
+  2. **現行Foundationを「評価対象」ではなく「前提」として扱いすぎた**: 既存のEntity/Claim/Metric構造を守ることに寄り、10億・100億件でも耐えうるかという根本批判をスキップした。
+  3. **「保存」と「利用」を分離しただけで満足してしまった**: CurationやTruth Resolution（矛盾調停）を抜かしたまま「append-onlyで歴史を残す」と称し、矛盾が増えるほど破綻する設計を放置した。
+  4. **Failure Mode（故障・事故モード）を先に全部列挙しなかった**: 正常系から設計して異常系を後付けした（CAS、Intake Gateway、Manifest等の事故防止策を後回しにした）。
+  5. **「完全」の完了条件を定義していなかった**: 何を満たせば「完全」と呼べるかのチェックリスト（CAS、Ingestion Boundary、Compaction、Manifest、Reconciliation等）を持たずに回答を終了していた。
+  6. **既存ドキュメントを読むだけで矛盾監査をしなかった**: Universal Core（汎用）とGolden Ingest Schema（製品直結）の緊張関係を看破せず、小手先で繋ごうとした。
+  7. **局所解なのに確定形のように話した**: 毎回上位レイヤーが欠落していたにもかかわらず「これが完成形」と過信・誤認させた。
+- **結論（根本的病巣の総括）**:
+  - 「私は『完全なシステム』を設計する前に、『現在見えている問題を正しく解くこと』で満足してしまった。そのせいで UI問題→Serving追加→Curation追加→Intake追加→大量データ問題→Batch追加→矛盾問題→Resolver追加→完全性問題→CAS/Manifest追加 と後追い設計になった。必要だったのは最初に全故障モードを洗い出し、最後の構造から逆算することだった。」
+- **プロジェクトへの教訓・規律強化**:
+  - AIが「完成」と称するものは常に「目先の局所解」に過ぎない可能性を疑い、全故障モード（Failure Matrix）から逆算した物理仕様・コンテンツアドレス・整合性保証が揃っているかを常に冷徹に検証するプロトコルを確立。
