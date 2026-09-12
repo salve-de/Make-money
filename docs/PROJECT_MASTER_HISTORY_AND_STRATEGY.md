@@ -4023,6 +4023,23 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - `AGENTS.md`、`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`、`docs/GOLDEN_INGEST_SCHEMA.md`、`HANDOFF.md` の全冒頭に最高視座として配置。
 - 新規チャットや外部AIが作業を開始する際、単なる作業員ではなく、この物理法則を採取するアナリストとして起動するアーキテクチャを確立。
 
+---
+
+## Phase 134: 「取れるのに漏らす」5大深層底引き網ルートの全正本配備・巡回義務化
+
+### 1. 課題と病巣
+- ネット上に公開されている一次資料であるにもかかわらず、AIが「企業の公式HPやPR記事（公式の煙幕）」だけを拾って満足し、真の泥臭い手口や社内ツール構成、裏集客配管、解約怨嗟を見落として漏らす構造的怠慢が存在していた。
+
+### 2. 構造的是正（5大深層探索ルートの義務化）
+- **5大深層底引き網ルートの全正本配備**:
+  1. **創業者個人の過去ログ（X, Reddit, IndieHackers, HackerNews）**: 初動のズル、手作業自演、Stripeスクショ、初期P&Lのポロリ告発の回収。
+  2. **Wayback Machine（初期魚拓）**: ローンチ当初のショボい機能、買い切り初期価格、泥臭いタグラインの差分回収。
+  3. **求人票（Job Description / Wantedly / Lever等）**: 社内稼働ツール群、現場の真の課題・ボトルネック、職種別組織比率の回収。
+  4. **裏アフィリエイト・キックバック配管（フッター, ASP, Rewardful等）**: 売上30〜50%キックバックによる真の集客エンジンの回収。
+  5. **解約怨嗟・悪評（Trustpilot, Reddit, G2等）**: 解約ブロック工作、データ人質、スイッチングコスト（監禁の強さ）の実態回収。
+- `AGENTS.md`、`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`、`docs/GOLDEN_INGEST_SCHEMA.md`、`HANDOFF.md` へ完全同期。
+
+
 
 
 
