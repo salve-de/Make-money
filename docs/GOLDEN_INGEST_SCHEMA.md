@@ -265,3 +265,20 @@ temporal: {
     "currentViabilityAnalysis": "大手の機能肥大化がさらに進んでいるため、単一急所特化の軽量ツールの勝率は今なお極めて高い。"
   }
 }
+```
+
+---
+
+## 5. R2保存パイプライン（3層メダリオン受入れルール）
+
+収集したデータは、以下の3層アーキテクチャ（`docs/architecture/STORAGE.md` 正本準拠）に従ってR2へ保存せよ：
+
+1. **生原本（Layer 1: Bronze / Raw）**:
+   - Web魚拓、PDF、スクレイピングHTML、一次資料 ➔ **`foundation-raw/blobs/sha256/<sha256_hash>`** へそのまま保存（Create-Only、上書き・削除禁止）。
+2. **事実抽出・保存票（Layer 2: Silver / Lake）**:
+   - 本仕様に従って生成した完全体JSON ➔ **`foundation-lake/journal-entry.v1/<id>.json`** へ保存（追記専用）。
+3. **完成ビュー（Layer 3: Gold / Serving View）**:
+   - 精錬されたDossier ➔ **`data/entities-index.json`**（ローカル台帳）へ登録、または **`datasets/ds.business.makemoney-dossiers.v1/<id>.json`** へ格納。
+4. **【絶対不可侵境界】**:
+   - **`universal/data-assets/financials/`（EDINET正本領域）には1文字たりとも書き込むな・触れるな。**
+

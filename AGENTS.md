@@ -15,11 +15,19 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 保存先・ファイル配置・責務・設計理由・他プロジェクトへの適用は [データとコードの置き場所](docs/architecture/STORAGE.md) を正本とする。D1へユーザーと決済状態、非公開R2へ添付・原本・バックアップを置く。Neonを新規の実行時依存にしない。移行途中の実装を完成形と誤認せず、同文書の現在地と実コードを確認する。保存先や境界を変えたら、関連するschema/migration・テスト・この正本を同じ変更で更新する。
 
 
-## 新規データ収集の入口
+## 新規データ収集の入口（最高正本）
 
-「MAKEMONEYに必要なデータを集めて」と依頼されたら、まず `docs/COLLECT_AND_STORE.md` を読む。Universal共通要件とプロジェクト要件の両方を収集する。既存R2/EDINETは一切変更しない。mainの旧pipelineは合成サンプルであり実収集には使用禁止。
+「MAKEMONEYに必要なデータを集めて」と依頼されたら、以下の3大正本を必ず順番に読め：
+1. **出力JSONフォーマット・収集仕様**: [`docs/GOLDEN_INGEST_SCHEMA.md`](docs/GOLDEN_INGEST_SCHEMA.md) （10大属性、円換算P&L、略奪転用方程式LOOT_BLUEPRINT必須、完全体JSON定義）
+2. **調査目録・スコープ**: [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](docs/MAKE_MONEY_COLLECTION_SCOPE.md) （9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、お金のウォーターフォール）
+3. **保存先・R2完璧構造**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md) （原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）
 
-収集対象の完全な項目表は [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](docs/MAKE_MONEY_COLLECTION_SCOPE.md) に固定している。全AIは入口文書と併せてこの目録を読み、9情報源レーン、12領域、4つの表に出にくい領域、5つの暗部パラメータ、3つの盲点、時間軸、お金のウォーターフォール、未知値、Journal系譜、R2配置、完了報告を漏れなく扱うこと。
+【絶対遵守ルール】:
+- **EDINET正本領域（`universal/data-assets/financials/`）は完全不可侵**。一切書き込むな・触れるな。
+- 収集したWeb魚拓・PDF原本は `foundation-raw/blobs/sha256/<hash>` へ即時PUT（Create-Only、上書き禁止）。
+- 抽出した完全体JSONは `foundation-lake/journal-entry.v1/<id>.json` へ保存（追記専用）。
+- 整理・結合はすべて単一の目録（Catalog / `entities-index.json` / D1）側で1行JOINする。
+
 
 # 【絶対指針】プロジェクト北極星 ＆ AIエージェント行動規範
 
