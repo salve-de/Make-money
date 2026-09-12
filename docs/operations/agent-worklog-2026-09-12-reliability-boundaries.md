@@ -57,3 +57,10 @@ The previous section is a historical snapshot. The current local source is `d2e3
 - Direct S3 listing of `foundation-lake` is reachable. Direct S3 access to `make-money-production-private` returned `AccessDenied`, and a lookup of the old `architecture/5146dfa.../verification-receipt.v1.json` key returned `specified key does not exist`. Existing private-R2 receipt claims remain historical evidence; a new private-bucket readback is not claimed from this session.
 
 The branch has not been merged into `main`. Production Worker deployment, live production cutover, migration of any pre-existing Neon-owned user data, scheduled backup/RPO/RTO operation, and a production restore drill remain unverified.
+
+## Latest remote and R2 readback (2026-09-12)
+
+- Commit `057f4985249eb36c9ea2eec34e3cd77d8b76ad6a` is now present on `origin/codex/reliability-boundaries`.
+- GitHub Actions run `34689950523` completed successfully for all five required checks: `lint`, `typecheck`, `unit test`, `build`, and `E2E smoke`. PR #18 is `OPEN`, `MERGEABLE`, and `CLEAN`; the active `main-quality-gates` ruleset remains in force. No merge was performed.
+- A new private-R2 receipt was written only after a missing-key preflight, then read back immediately: `make-money-production-private/architecture/057f4985249eb36c9ea2eec34e3cd77d8b76ad6a/verification-receipt.v1.json` (1,194 bytes; SHA-256 `43d0afef72a9b096cfff74f4d55c3cb8f44c157b19aab35d39a185db338834d7`). The downloaded bytes matched the upload byte-for-byte.
+- This R2 receipt records local and GitHub checks plus the browser result and limits. It does not certify production deployment, Neon data migration, scheduled backup/RPO/RTO operation, or production restore.

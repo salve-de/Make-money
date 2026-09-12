@@ -145,3 +145,15 @@
 - 読み戻し: 本番D1 `wrangler d1 migrations list APP_DB --remote` は `No migrations to apply`。GitHubの対象branchは `c3dcd48...`、mainは `aa4e64...`。現HEADはremote branchへ未pushで、現HEADのGitHub CI実行は主張しない。
 
 追加のR2検証レシート作成は自動審査で拒否されたため行っていない。既存R2の保全物、Git履歴、上記の読み取り証拠を併読する。本番Workerデプロイ、Stripe本番往復、production restore、定期バックアップ自動化は未実施・未検証であり、完了扱いにしない。
+
+## 2026-09-12 現行コード・GitHub CI・R2 readback レシート
+
+コード・監査文書コミット `057f4985249eb36c9ea2eec34e3cd77d8b76ad6a` を `origin/codex/reliability-boundaries` へpushした。GitHub Actions run `34689950523` は `lint`、`typecheck`、`unit test`、`build`、`E2E smoke` の5項目すべて成功し、PR #18は `OPEN` / `MERGEABLE` / `CLEAN` である。mainへのmergeは行っていない。
+
+- R2: `make-money-production-private/architecture/057f4985249eb36c9ea2eec34e3cd77d8b76ad6a/verification-receipt.v1.json`
+- サイズ: 1,194 bytes
+- SHA-256: `43d0afef72a9b096cfff74f4d55c3cb8f44c157b19aab35d39a185db338834d7`
+- 検証: 一意キーの未使用をWranglerで事前確認後に保存し、直後のWrangler GETで全bytesを取得。upload元とdownload元のSHA-256およびbytesが一致した。
+- 内容: 最新コードSHA、ローカル検証（Vitest281 / Foundation11 / architecture11 / Recovery6 / Playwright26）、GitHub 5チェック、実ブラウザのPhoto AI未確認財務・Evidence・J/K無効・Escape終了の結果、未検証の本番境界。
+
+このレシートはR2への保存とreadbackを証明する。Production Workerデプロイ、実ユーザーデータのNeon移行、定期バックアップ/RPO/RTO運用、production restore、mainへのmergeの完了は意味しない。
