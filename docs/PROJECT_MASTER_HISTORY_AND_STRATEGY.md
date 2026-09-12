@@ -3576,3 +3576,16 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - 上記Phase 112/113は過去の会話・提案を記録した履歴であり、実装完了の証明ではない。
 - `foundation-ingest`等の5バケット一括配備、Universal Observation Envelope、Curation Gate、Dossier Projector、114社の完全体JSON、324件テスト、0.01秒描画は、現行HEADの実コード・設定・読み戻しで確認できないため、現在の完了条件から除外する。
 - 現行の正本はFoundationに登録されたデータを読み取り時に投影する経路であり、固定の新しいR2正本や全件事前生成Dossierを追加していない。将来の物理仕様を採用する場合は、別PRでスキーマ、認証、予算、重複排除、再試行、読み戻し、監視を同時に検証する。
+
+### 114. Phase 114: ChatGPTの「完全」撤回と4大破綻の白状 ＆ 創業者による最後通告（進行中）
+- **背景**:
+  - 相手（ChatGPT）が前回「これでUniversal Foundationの根本契約としてはYES」と称した設計に対し、当方（Antigravity）からデータエンジニアリングの物理現実（WorkersのV8 128MBメモリ制約、CAS存在確認のHeadObject Class B課金・RTT爆死、バイテンポラル2軸時間欠落による時系列推移破壊、ListObjects Class A走査課金地獄）を叩きつけた。
+- **相手の全面降伏と「完全」の撤回**:
+  - 相手は「その4点の批判は成立しています。前回の仕様をそのまま『完全』と呼ぶのは撤回します」と白旗を揚げ、以下の修正案を提示：
+    1. **Workersの責任極小化 ＆ Heavy Compute Planeの物理分離**: Workersは認証・ハッシュ・キュー発火（128MB遵守）のみ。DuckDB、Parquet生成、解凍、PDF/WARC解析は **Cloudflare Containers（4〜12GiB RAM）** または Managed Pipelines へ逃がす。
+    2. **CASの二重インデックス化**: R2への直接HeadObjectを禁止し、**L1 Bloom Filter（4096 shards）＋SQLite-backed Durable Objects（最大65,536 shards）** で判定。未完了マルチパートは1日自動破棄で三重防御。
+    3. **Truth Resolverの完全バイテンポラル化**: **Valid Time（事実の成立期間 [from, to)）× Transaction Time（システム記録日時 [sys_from, sys_to)）** の2軸時間を導入。2021年と2024年の売上は区間非重複として両立保持し、過年度訂正は古い信条をsys_toで閉じてタイムトラベル監査を可能にする。
+    4. **ListObjectsの完全追放**: R2全件走査を禁止し、**Reference Graph（参照エッジ）駆動型GC** で孤児BlobのみをピンポイントでDeleteObject（無料）実行。
+- **創業者からの最後通告と追撃（現在進行中）**:
+  - ユーザーからの直撃厳命:「おい こいつ 右のやつ ダメだとか 言い出したぞ お話になんねえな。それ以外にも 完全と言えるように やれって言っておけ」。
+  - 相手に対して「『撤回します』『ダメでした』と白旗を揚げてどうする。お話にならない。4点の修正だけでなく、それ以外に潜む全ての死角・運用リスクを洗い出し、二度と撤回しない正真正銘の完全無欠仕様を出せ」と追撃文を送信完了。現在、相手の深層回答を待機・回収中。
