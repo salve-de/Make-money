@@ -2,6 +2,7 @@ import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES } from '../src/platform/data/mockLedgerData';
 import { REFINED_STATISTICAL_SAMPLE_ENTITIES } from './refined-sample-entities';
+import { checkBlacklist } from '../src/lib/foundation/blacklist';
 import { projectBundleToFinancialEntity } from '../src/lib/foundation/projector';
 import { FinancialEntity } from '../src/platform/types/terminal';
 
@@ -12,6 +13,11 @@ async function main() {
 
   // 1. 静的定義されているベースラインをロード
   for (const entity of INSTITUTIONAL_ENTITIES) {
+    const check = checkBlacklist(entity);
+    if (check.isBlacklisted) {
+      console.log(`[Blacklist Guard] Skipped blacklisted baseline entity: ${entity.name} (${check.reason})`);
+      continue;
+    }
     entityMap.set(entity.id, entity);
     nameMap.set(entity.name.toLowerCase(), entity.id);
   }
@@ -49,6 +55,12 @@ async function main() {
           const projected = projectBundleToFinancialEntity(bundle);
           
           if (projected) {
+            const check = checkBlacklist(projected);
+            if (check.isBlacklisted) {
+              console.log(`[Blacklist Guard] Skipped blacklisted collected entity: ${projected.name} (${check.reason})`);
+              continue;
+            }
+
             const lowerName = projected.name.toLowerCase();
             // Unknown Entity や空文字はスキップ
             if (lowerName === 'unknown entity' || !lowerName.trim()) {
