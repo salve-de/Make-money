@@ -1,10 +1,10 @@
-> **2026-09-10 現行契約**: [HANDOFF](./HANDOFF.md) と [既存データからUIへの実行・編集契約](./docs/EXISTING_DATA_TO_UI.md) を先に読む。収集の正本は [Foundation統合契約](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md)。既存データの活用・不足の追加調査・Stripe基準の凝縮表示・会社ごとの任意セクションを実行する。この契約は下記の旧記述と衝突する場合に優先し、全項目強制補完・根拠のない手取り実額・速度/成果の保証・独断のUI変更を認めない。
+> **2026-09-13 最高運用契約**: ユーザーは長文指示やプロンプトを絶対に書かない。「AGENTS.md見てデータ集めて」の一言で全AIは完全自律稼働せよ。収集の最高正本は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、勝ち組4.1＆地雷組4.2完全体JSON）。他プロジェクトへの横断展開規律は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）。勝ち組要塞（7〜8割）と地雷組検死（2〜3割）の両輪を底引き網収集し、追加質問・手戻りゼロで自走完遂せよ。
 
 # 金鉱録 (KIN-ROKOKU / Universal Business Foundation)
 
 開発・保存先の入口: [データとコードの置き場所](docs/architecture/STORAGE.md)。担当者・AIは変更前に参照してください。
 
-新規データ収集を依頼されたAIは、最初に [収集・R2保存の入口](docs/COLLECT_AND_STORE.md) を読むこと。
+新規データ収集を依頼されたAIは、最初に [全プロジェクト共通自律データ収集プロトコル](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md) および [黄金収集仕様](docs/GOLDEN_INGEST_SCHEMA.md) を読むこと。
 
 何を集めるかの完全な目録は [Make-Money / business-case 収集対象の完全目録](docs/MAKE_MONEY_COLLECTION_SCOPE.md) に固定している。GitHubとR2だけを渡されたAIも、入口文書・この目録・Universal Foundationの正本を突き合わせてから収集を開始すること。
 

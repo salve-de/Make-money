@@ -3898,6 +3898,41 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 ### 4. 正本文書の更新とGit同期
 - `docs/architecture/STORAGE.md` および `docs/COLLECT_AND_STORE.md` を更新し、上記最高規範を明文化・固定。
 
+---
+
+## Phase 126: 全プロジェクト共通：完全自律データ収集＆100年R2保存プロトコルの策定・全文書同期
+
+### 1. 目的と根本思想
+- **長文コピペ指示の完全排除**: ユーザーが長文プロンプトをAIにコピペ送信する愚行・二度手間を完全根絶。
+- **「AGENTS.md見てデータ集めて」の一言で完全自走**: Make-Moneyだけでなく、Investrader、universal-foundation等、どのプロジェクトに配備しても、AIがリポジトリを読んだ瞬間に迷いなく勝ち組（要塞）・地雷組（検死）を7:3で底引き網収集し、R2へ保存できるポータブルな最高契約を確立する。
+
+### 2. 新設アーキテクチャ文書
+- **`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`（新設）**:
+  - ① **0クリック自走原則**: 「データ集めて」の一言で追加質問・手戻りゼロで直ちに稼働。
+  - ② **勝ち組（7〜8割）＆地雷組（2〜3割）の両輪収集**: 生存者バイアスを粉砕し、読者の損失回避本能（サバンナOS）を直撃。地雷企業は `financialStatus: 'POST_MORTEM'` ＆ `FATAL_BLEED` カード100%必須。
+  - ③ **必須10大属性 ＆ 完全体JSON**: 円換算P&L因数分解、ツール原価、LOOT_BLUEPRINT（略奪転用方程式）100%必須。
+  - ④ **100年R2の3層メダリオン構造**: Layer 1（生原本: `foundation-raw`）➔ Layer 2（保存票: `foundation-lake`）➔ Layer 3（目録: D1/index）。EDINET正本領域（`universal/data-assets/financials/`）は完全不可侵。
+  - ⑤ **他プロジェクトへの横断導入手順**: `wrangler.jsonc` へのR2バケット接続と単一目録JOINによるポータブル運用手順。
+
+### 3. 全正本文書の最高契約（2026-09-13）同期
+- `AGENTS.md`、`README.md`、`docs/COLLECT_AND_STORE.md`、`docs/MAKE_MONEY_COLLECTION_SCOPE.md`、`docs/GOLDEN_INGEST_SCHEMA.md`、`docs/architecture/PROJECT_STARTER.md` の全ヘッダーおよび規範を完全同期・更新。
+
+---
+
+## Phase 127: 3大収集モード即時自走トリガー（勝ち組特化 / 地雷特化 / 攻守混合）の確立
+
+### 1. 概要とユーザーインターフェース
+ユーザーが別チャットまたは本リポジトリで発する極小の自然言語から、AIが意図を0.1秒で看破し、以下の3モードへ自律分岐するトリガー体系を確立：
+- **「勝ちの方だけ集めて」** ➔ **勝ち組要塞モード（10:0）**: 高粗利80%超、完全1人要塞、痛みの財布直撃、大手の自爆構造のみを100%収集。
+- **「地雷の方だけ集めて」「負けの方だけ集めて」** ➔ **地雷検死解剖モード（0:10）**: 巨額調達即死、CAC高騰炎上、プラットフォーム規約変更死のみを100%収集（`financialStatus: 'POST_MORTEM'`、`FATAL_BLEED` 必須）。
+- **「データ集めて」（指定なし）** ➔ **攻守混合デフォルト（7:3）**: 黄金比率で両輪収集。
+
+### 2. 成果と正本固定
+- `AGENTS.md`、`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md` に3大トリガーの判定表を完全固定。
+- ユーザーによるプロンプト作成・条件指定・追加質問への返答を100%不要化。
+
+
+
 
 
 

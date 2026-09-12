@@ -1,4 +1,5 @@
-> **2026-09-13 最高運用契約**: ユーザーは長文指示やプロンプトを絶対に書かない。「AGENTS.md見てデータ集めて」の一言で全AI（Antigravity, Claude, ChatGPT, Cursor）は完全自律稼働せよ。収集の最高正本は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、勝ち組4.1＆地雷組4.2完全体JSON）。スコープは [`docs/MAKE_MONEY_COLLECTION_SCOPE.md`](./docs/MAKE_MONEY_COLLECTION_SCOPE.md)（9レーン、12領域、4大禁忌、5大暗黒、3大死角）。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）。勝ち組要塞（7〜8割）と地雷組検死（2〜3割）の両輪を底引き網収集し、追加質問・手戻りゼロで自走完遂せよ。
+> **2026-09-13 最高運用契約**: ユーザーは長文指示やプロンプトを絶対に書かない。ユーザーの一言「勝ちの方だけ集めて」「地雷（負け）の方だけ集めて」「データ集めて（デフォルト7:3）」で全AI（Antigravity, Claude, ChatGPT, Cursor）は完全自律稼働せよ。収集の最高正本は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、勝ち組4.1＆地雷組4.2完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）。追加質問・手戻りゼロで自走完遂せよ。
+
 
 
 <!-- BEGIN:nextjs-agent-rules -->
@@ -24,7 +25,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 3. **保存先・R2完璧構造**: [`docs/architecture/STORAGE.md`](docs/architecture/STORAGE.md) （原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）
 
 【絶対遵守ルール】:
-- **勝ち組要塞（約7〜8割） ＆ 地雷組検死（約2〜3割）の両輪収集**: 成功事例（高粗利80%超・完全1人）だけでなく、大爆死・即死した地雷事例（Quibi等）も必ず収集せよ。地雷企業は `financialStatus: 'POST_MORTEM'` とし、`FATAL_BLEED`（死因出血検死解剖）カードを100%必須配備せよ。
+- **3大収集モードへの即時自走分岐（一言で判定）**:
+  - **「勝ちの方だけ集めて」** ➔ 勝ち組要塞（100%）に特化収集（高粗利80%超、完全1人要塞、LOOT_BLUEPRINT必須）。
+  - **「地雷（負け）の方だけ集めて」** ➔ 地雷組検死（100%）に特化収集（`financialStatus: 'POST_MORTEM'`、`FATAL_BLEED` 100%必須）。
+  - **「データ集めて」（指定なし）** ➔ デフォルトの勝ち7割・地雷3割の攻守混合ポートフォリオで自走。
 - **EDINET正本領域（`universal/data-assets/financials/`）は完全不可侵**。一切書き込むな・触れるな。
 - 収集したWeb魚拓・PDF原本は `foundation-raw/blobs/sha256/<hash>` へ即時PUT（Create-Only、上書き禁止）。
 - 抽出した完全体JSONは `foundation-lake/journal-entry.v1/<id>.json` へ保存（追記専用）。
