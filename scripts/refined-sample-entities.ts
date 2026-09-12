@@ -1,4 +1,5 @@
 import type { FinancialEntity } from '../src/platform/types/terminal';
+import { ADDITIONAL_REFINED_SAMPLE_ENTITIES } from './additional-refined-entities';
 
 export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
   // 1. Plausible Analytics
@@ -74,7 +75,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
         title: '創業者1人の孤独な開発からHacker News炎上をバネにした初動制圧',
         badge: '初期ゲリラ戦ログ',
         evidenceStatus: 'VERIFIED',
-        punchline: '「Googleにデータを渡したくない」開発者心理に火をつけ、Hacker Newsトップ掲載から初動100人を強奪。',
+        punchline: '「Googleにデータを渡したくない」開発者心理に火をつけ、Hacker Newsトップ掲載から初動100人を獲得。',
         details: [
           '2018年にエストニアのエンジニアUku Tahtが1人で創業。当初は鳴かず飛ばずで月商数十ドル。',
           '2020年にMarko Saricが合流し、「GA4 vs Plausible」の辛口比較記事をHacker NewsやRedditで連打。',
@@ -169,7 +170,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
         title: '【略奪転用】閉鎖的で高額な仲介業をセルフサーブ化し「買い手から前金サブスクを抜く」関所モデル',
         badge: '略奪転用方程式',
         evidenceStatus: 'VERIFIED',
-        punchline: '売り手に無料・格安で出品させ、案件情報を見たい買い手に年間$390〜$780の前金パスを課金。成約時にも数%抜く二重搾取構造を作る。',
+        punchline: '売り手に無料・格安で出品させ、案件情報を見たい買い手に年間$390〜$780の前金パスを課金。成約時にも数%抜く二重の手数料構造を作る。',
         details: [
           '【Step 1: 供給（売り手）のハードル撤廃】: 既存のM&A仲介が門前払いする「年商100万〜数千万円の小規模SaaS」を、初期費用ゼロ・Stripe連携だけで出品可能にする。',
           '【Step 2: 買い手側の前金サブスク化】: 投資家や連続起業家向けに「新着優良案件への即時アクセス権」として年間$390（Platinum）を前金で集金。',
@@ -249,7 +250,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
     growthRateYoY: 85.0,
     architecturePattern: '知恵の関所',
     pipelineStack: 'Ghost CMS × Stripe × 4人の調査報道記者',
-    targetPainWallet: 'テック業界ウォッチャー・セキュリティ専門家の「AI生成ゴミ記事への嫌悪感」と真実への渇望',
+    targetPainWallet: 'テック業界ウォッチャー・セキュリティ専門家の「粗製濫造されたAI生成記事への嫌悪感」と真実への渇望',
     tags: ['独立系メディア', '一次スクープ', '有料サブスク', 'Ghost基盤', '粗利90%', '反広告'],
     pnl: {
       monthlyRevenue: 15000000,
@@ -290,7 +291,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_404media_crime',
         type: 'THE_CRIME',
-        title: '広告代理店と中間搾取を完全切除し、読者からの直接会費だけで記者1人あたり年収2,000万円以上を手残りさせる構造',
+        title: '広告代理店と中間手数料マージンを完全切除し、読者からの直接会費だけで記者1人あたり年収2,000万円以上を手残りさせる構造',
         badge: '身も蓋もない真実',
         evidenceStatus: 'VERIFIED',
         punchline: '経営陣や営業マン、巨大オフィスを全廃し、4人の記者だけでGhost上に記事を投稿するだけで年間1億円以上の純利益を山分けする。',
@@ -387,7 +388,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
         title: '【略奪転用】偽物リスクの高い二次流通市場に「物理鑑定ハブ」を挟み込み取引の10%を中抜きする配管',
         badge: '略奪転用方程式',
         evidenceStatus: 'VERIFIED',
-        punchline: '売り手と買い手を直接つなぐのをやめ、荷物を一度自社倉庫へ送らせて「鑑定済みの緑タグ」を貼るだけで、eBayから客を全量強奪できる。',
+        punchline: '売り手と買い手を直接つなぐのをやめ、荷物を一度自社倉庫へ送らせて「鑑定済みの緑タグ」を貼るだけで、eBayから多くの顧客を獲得できる。',
         details: [
           '【Step 1: 偽物恐怖の特定】: 限定スニーカー市場で「定価2万円の靴が10万円で転売されるが、届くまで本物か分からない」という強烈な恐怖を特定。',
           '【Step 2: 株式市場型（Bid/Ask）の導入】: 写真出品や商品説明を廃止し、「品番とサイズ」だけで株のように買値・売値を提示して自動約定させる。',
@@ -647,7 +648,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       incumbentDilemma: '大手コンサルや代理店は「月額フィー契約」を売りたいため、ノウハウを体系化して無料公開すると自社の飯の種が消えるため真似できない。',
       secretInsight: '「ノウハウを隠す」時代は終わった。全部無料で見せて「自分たちで実行できないならお金を払え」と迫る方が、結果的に最も高単価な顧客だけが集まる。',
       initialTraction: [
-        '創業者の個人Twitterで「スタートアップ向け成長チートシート」を投稿し万バズ',
+        '創業者の個人Twitterで「スタートアップ向け成長実践プレイブック」を投稿し万バズ',
         'Mediumや個人サイトで5万文字を超えるモンスターガイドを完全無料で投下',
         '初期受講生50名の募集枠がTwitter告知後わずか数時間で完売',
       ],
@@ -1261,7 +1262,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_activepieces_crime',
         type: 'THE_CRIME',
-        title: 'Zapierが10年以上かけて開拓した「ノーコード自動化市場」をTypeScriptオープンソースで強奪する手口',
+        title: 'Zapierが10年以上かけて開拓した「ノーコード自動化市場」をTypeScriptオープンソースで獲得する手口',
         badge: '身も蓋もない真実',
         evidenceStatus: 'VERIFIED',
         punchline: '「Zapierは高すぎる」という世界中の開発者の愚痴を吸い上げ、Y Combinatorの看板を使って一気にエンタープライズ顧客を奪い去る。',
@@ -1288,7 +1289,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       moatType: 'NETWORK_EFFECT',
       moatDescription: '世界中の開発者が新しいAPIの「Piece（連携モジュール）」をオープンソースで勝手に開発してエコシステムに追加してくれるネットワーク効果。',
       incumbentDilemma: 'Zapierがタスク無制限プランやセルフホスト版を出すと、数十億ドルのARRの根幹である「タスク消費従量課金」が自爆するため絶対に対抗できない。',
-      secretInsight: '自動化ツールで最も重要なのは「ツール自体の機能」ではない。「どのサービスと繋がるか」であり、オープンソースはコネクタ開発を世界中に分散外注できる最強のチートである。',
+      secretInsight: '自動化ツールで最も重要なのは「ツール自体の機能」ではない。「どのサービスと繋がるか」であり、オープンソースはコネクタ開発を世界中に分散外注できる圧倒的なレバレッジである。',
       initialTraction: [
         'Y Combinator（W23）に採択され、シード資金とスタートアップネットワークを獲得',
         'GitHubでオープンソース公開後、数ヶ月で10,000 Starを突破',
@@ -1311,4 +1312,5 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
       currentViabilityAnalysis: 'AIエージェントの普及に伴い、APIを繋ぐバックボーンとしてのオープンソース自動化基盤の需要は過去最高に達している。',
     },
   },
+  ...ADDITIONAL_REFINED_SAMPLE_ENTITIES,
 ];

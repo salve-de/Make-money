@@ -862,7 +862,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
       tacticName: '勝手に相手の完成品を作って送りつける断り不能DM',
       category: 'COLD_DIRECT_OUTREACH',
       categoryLabel: '勝手に完成品DM',
-      summary: 'Linktreeに不満を持つインフルエンサーを見つけ、相手の画像とリンクを使って自社ツール上で美しいプロフを勝手に作成。「作っておいたから気に入ったら使って」とDMし、断る理由をゼロにして強奪。',
+      summary: 'Linktreeに不満を持つインフルエンサーを見つけ、相手の画像とリンクを使って自社ツール上で美しいプロフを勝手に作成。「作っておいたから気に入ったら使って」とDMし、断る理由をゼロにして顧客を獲得。',
       speedToFirstCustomer: 'DM送信から数時間〜翌日',
       executionSteps: [
         'ターゲットのアカウントを精査し、相手の既存コンテンツから完成版サンプルを勝手に組む',

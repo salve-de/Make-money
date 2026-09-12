@@ -62,7 +62,7 @@ export const DOSSIER_COLLECTIONS: Record<string, DossierData> = {
       },
       {
         phase: 'STEP 2: リード獲得と初期認知（所要: 1週間）',
-        action: 'X、ProductHunt、コミュニティで「無料版（フリーミアム）」を公開し認知を拡大',
+        action: 'X、ProductHunt、コミュニティで「本体無料版」を公開し認知を拡大',
         detail: 'まずは無料提供を通じてユーザー接点とフィードバックを獲得。初期ユーザーが100名を超えた段階で有料高機能プランへ移行を案内。',
       },
       {

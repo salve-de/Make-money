@@ -44,7 +44,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                         isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
-                        {isHazardMode ? '資本主義の裏帳簿：致命的死因の客観ログ (POST-MORTEM AUTOPSY)' : '資本主義の裏帳簿：初期突破の手口と裏原価 (EXPOSURE AUDIT)'}
+                        {isHazardMode ? '資本主義の裏帳簿：致命的死因の客観ログ' : '資本主義の裏帳簿：初期突破の手口と裏原価'}
                       </h3>
                     </div>
                   </div>
@@ -53,7 +53,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       ? 'text-red-300 bg-red-950/60 border-red-500/30 font-bold'
                       : 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
                   }`}>
-                    {isHazardMode ? 'FATAL CASUALTY' : 'FACT CHECKED'}
+                    {isHazardMode ? '死因確定' : '実査済'}
                   </span>
                 </div>
 
@@ -65,7 +65,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>01.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '初期の錯覚熱狂と自演トラクション (EUPHORIA TRACTION)' : '初期ゲリラ戦・自演集客ログ (GUERRILLA TRACTION)'}
+                        {isHazardMode ? '初期の錯覚熱狂と自演トラクション' : '初期ゲリラ戦・自演集客ログ'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -78,7 +78,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>02.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? 'プラットフォーム依存の死角と規約爆弾 (DEPENDENCY BOMB)' : 'プラットフォーム規約の盲点ハック (PLATFORM GLITCH)'}
+                        {isHazardMode ? 'プラットフォーム依存の死角と規約爆弾' : 'プラットフォーム規約の盲点ハック'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -91,7 +91,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>03.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '崩壊後の投げ売り・清算ピボット魚拓 (FIRE SALE & PIVOT)' : '死線とピボットの魚拓比較 (PIVOT SNAPSHOT)'}
+                        {isHazardMode ? '崩壊後の投げ売り・清算ピボット魚拓' : '死線とピボットの魚拓比較'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -104,7 +104,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>04.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '首を絞めたAPI原価・過剰固定費の出血ログ (FATAL EXPENSE)' : '裏ツール構成と現物原価のレントゲン (HIDDEN COST & API)'}
+                        {isHazardMode ? '首を絞めたAPI原価・過剰固定費の出血ログ' : '裏ツール構成と現物原価のレントゲン'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -136,12 +136,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                     isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    {isHazardMode ? '初期熱狂の獲得と解約の引き金 (INITIAL RUSH & TRIGGER)' : '最初の100人を獲得した泥臭い手順 (TRACTION)'}
+                    {isHazardMode ? '初期熱狂の獲得と解約の引き金' : '最初の100人を獲得した泥臭い手順'}
                   </h3>
                 </div>
               </div>
               <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                FIRST 100
+                初動獲得
               </span>
             </div>
             <div className="divide-y divide-white/[0.06] bg-[#0E131F]">
@@ -182,12 +182,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                     isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    {isHazardMode ? '踏んではいけない地雷チェックリスト (AVOIDANCE AUDIT)' : '再現・実行 Playbook (ACTION PLAYBOOK)'}
+                    {isHazardMode ? '踏んではいけない地雷リスト' : '再現・実行手順'}
                   </h3>
                 </div>
               </div>
               <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                PLAYBOOK
+                実行手順
               </span>
             </div>
             <div className={`divide-y ${
@@ -223,12 +223,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
-                      {isHazardMode ? '崩壊した集客動線とCAC高騰 (ACQUISITION COLLAPSE)' : '顧客獲得動線 (ACQUISITION FUNNEL)'}
+                      {isHazardMode ? '崩壊した集客動線と獲得費高騰' : '顧客獲得動線'}
                     </h3>
                   </div>
                 </div>
                 <span className="font-mono text-[11px] text-zinc-300 font-bold">
-                  CAC: <strong className={isHazardMode ? 'text-red-400' : 'text-emerald-400'}>{entity.acquisition.cacJpy === 0 ? '0円' : formatMoney(entity.acquisition.cacJpy)}</strong>
+                  獲得単価 (CAC): <strong className={isHazardMode ? 'text-red-400' : 'text-emerald-400'}>{entity.acquisition.cacJpy === 0 ? '0円' : formatMoney(entity.acquisition.cacJpy)}</strong>
                 </span>
               </div>
               <div className="p-3.5 text-xs text-zinc-200 bg-[#0E131F]">

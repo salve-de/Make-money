@@ -3288,6 +3288,34 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
   - `pnpm test`（Vitest 37ファイル 281テスト、Foundation 11テスト、Architecture 8テスト、Recovery 6テスト）全件合格。
   - コミット ➔ リモート同期を自律完遂。
 
+### 109. Phase 109: 企業数135社への大幅拡大 ＆ 隔離データ完全ゼロ化 ＆ 専門用語の直感短縮化（フリーミアム完全駆逐・7 Powers直感化）（完了）
+- **検死された病巣 ＆ 改善内容**:
+  - **企業数不足 ＆ 隔離データの残存**: インデックス内に売上0円やカード不足の隔離未精錬データ（10社）が残存し、企業総数が121社にとどまっていた。
+  - **専門用語の認知摩擦**: 「フリーミアム」「COUNTER_POSITIONING」「VERIFIED」等の業界用語・生英語が露出し、初心者や一般ユーザーの直感理解を妨げていた。ただし、弱腰な辞書的説明や長文解説に逃げず、4〜8文字で情景が浮かぶ冷徹なエッジを保った日本語化が急務であった。
+- **断行した外科的処置**:
+  1. **隔離データ10社のキーエンスGold完全精錬（隔離ゼロ達成）**:
+     - 対象: Photo AI, Clubhouse (検死), Quibi (検死), S'well, Chubbies, 2PM, Baseten, Airgram, APUtime, Capacities
+     - `scripts/additional-refined-entities.ts` を作成し、数学的整合P&L、略奪転用コードスニペット、初動事実ログを完全配備。
+     - インデックス内の未精錬隔離データ数を **10件 ➔ 0件（完全ゼロ）** へ根絶。
+  2. **新規高収益企業20社の底引き網収集・キーエンスGold精錬（135社へ拡大）**:
+     - 対象: PostHog, Midjourney, Dub.co, Resend, Beehiiv, Ghost, Cursor, ElevenLabs, Gumroad, Basecamp, Obsidian, ConvertKit, Buffer, Cal.com, Supabase, Veed.io, Typeform, Framer, Lemon Squeezy, Retool
+     - `scripts/massive-expansion-batch1.ts` 〜 `batch4.ts` を新規作成し、`scripts/massive-expansion-entities.ts` で集約。
+     - 全20社の必須10大属性、Stripe原価控除P&L、略奪転用コードスニペットを `scripts/test-massive-expansion.ts` で20/20社完全合格検証。
+     - `pnpm foundation:index` 配管へ組み込み、インデックス収録総数を **121社 ➔ 135社** へ拡大。全135社が100% `LOOT_BLUEPRINT` 配備。
+  3. **「フリーミアム」の完全駆逐 ＆ 直感短縮用語への統一（残存0件）**:
+     - コードベースおよびデータ層全体を走査し、「フリーミアム」を完全切除。
+     - 文脈に応じて「本体無料・急所課金」「本体無料・機能人質」「本体無料のおびき寄せ罠」等の4〜8文字の短く鋭い直感日本語へ統一。
+  4. **UI上の専門用語・生英語の直感ラベル化**:
+     - `BusinessSections.tsx`: 7大参入障壁（`moatType`）の生英語を直感日本語バッジへ変換（`大手の自爆誘発`, `自動増殖ループ`, `乗り換え不能人質`, `独占のズルい手札`, `規模の低原価要塞`, `暗黙知の密室配管`, `超速ブランド認知`, `未確認`）。
+     - `DynamicEvidenceDeck.tsx`: 証拠ステータスを `一次確認済`, `創業者公表`, `逆算推計`, `検死解剖`, `未確認` へ直感化。
+     - `PlaybookSections.tsx` & `BusinessSections.tsx`: 見出しの冗長な英語括弧 `(COLLAPSED MOAT)`, `(EXPOSURE AUDIT)` やピルバッジ `CORE SPEC`, `BLIND SPOT` を削り、日本語をストレートに際立たせるクリーンなデザインへ刷新。
+     - `AnalystNotes.tsx`: 英語プレフィックス `POST_MORTEM_NOTES: ` を排除し `死因検死・地雷回避メモ` へ統一。
+- **全自動テスト・品質ゲート完全走破 ＆ Git完全同期**:
+  - `pnpm typecheck`（tsc + schemas:check）エラーゼロ合格。
+  - `pnpm test`（Vitest 37ファイル 281テスト、Foundation 11テスト、Architecture 8テスト、Recovery 6テスト）全件完全合格。
+  - 本白書への自律記録、コミット、リモートリポジトリ（`origin/codex/reliability-boundaries`）への即時プッシュを自律完遂（Zero Divergence）。
+
+
 
 
 

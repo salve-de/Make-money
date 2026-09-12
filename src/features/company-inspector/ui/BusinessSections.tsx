@@ -9,6 +9,17 @@ TrendingUp
 import { parsePunchline } from '../model/inspector-model';
 import type { InspectorSectionProps } from '../model/section-props';
 
+const MOAT_TYPE_LABELS: Record<string, string> = {
+  COUNTER_POSITIONING: '大手の自爆誘発',
+  NETWORK_EFFECT: '自動増殖ループ',
+  HIGH_SWITCHING_COSTS: '乗り換え不能人質',
+  CORNERED_RESOURCE: '独占のズルい手札',
+  SCALE_ECONOMIES: '規模の低原価要塞',
+  PROCESS_POWER: '暗黙知の密室配管',
+  BRAND_SPEED: '超速ブランド認知',
+  UNKNOWN: '未確認',
+};
+
 export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
   return <>
           {/* ------------------------------------------------------- */}
@@ -36,11 +47,11 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
                     <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
-                      {isHazardMode ? '事業の罠・錯覚の前提 (FATAL ASSUMPTION)' : '事業の正体・構造仕様 (BUSINESS DNA)'}
+                      {isHazardMode ? '事業の罠・錯覚の前提' : '事業の正体・構造仕様'}
                     </h3>
                   </div>
                   <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    CORE SPEC
+                    事業DNA
                   </span>
                 </div>
                 <div className={`divide-y ${
@@ -96,12 +107,12 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
                         <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                           isHazardMode ? 'text-red-200' : 'text-zinc-100'
                         }`}>
-                          {isHazardMode ? '見落とした致命的死角 (BLIND SPOT TRAP)' : '突いた業界の盲点 (MARKET GLITCH)'}
+                          {isHazardMode ? '見落とした致命的死角' : '突いた業界の盲点'}
                         </h3>
                       </div>
                     </div>
                     <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                      BLIND SPOT
+                      業界の盲点
                     </span>
                   </div>
                   <div className="p-3.5 space-y-2.5 bg-[#0E131F]">
@@ -148,7 +159,7 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
                         <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                           isHazardMode ? 'text-red-200' : 'text-zinc-100'
                         }`}>
-                          {isHazardMode ? '崩壊した見せかけの堀 (COLLAPSED MOAT)' : '参入障壁の正体 (7 POWERS MOAT)'}
+                          {isHazardMode ? '崩壊した見せかけの堀' : '参入障壁の正体'}
                         </h3>
                       </div>
                     </div>
@@ -157,7 +168,7 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
                         ? 'bg-red-950/40 text-red-400 border-red-500/30'
                         : 'bg-white/[0.06] text-zinc-200 border-white/[0.12]'
                     }`}>
-                      {entity.strategy.moatType === 'UNKNOWN' ? '未確認' : entity.strategy.moatType}
+                      {MOAT_TYPE_LABELS[entity.strategy.moatType] || (entity.strategy.moatType === 'UNKNOWN' ? '未確認' : entity.strategy.moatType)}
                     </span>
                   </div>
                   <div className="p-3.5 space-y-2.5 bg-[#0E131F]">
@@ -198,12 +209,12 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
                       <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                         isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
-                        {isHazardMode ? '大手に一撃で市場を奪取された理由 (DISPLACED BY INCUMBENTS)' : '大手が構造上真似できない理由 (INCUMBENT DILEMMA)'}
+                        {isHazardMode ? '大手に一撃で市場を奪取された理由' : '大手が構造上真似できない理由'}
                       </h3>
                     </div>
                   </div>
                   <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    INCUMBENT TRAP
+                    大手の自爆
                   </span>
                 </div>
                 <div className="p-3.5 bg-[#0E131F]">

@@ -7,7 +7,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     ticker: 'DSC.SHAV',
     name: 'Dollar Shave Club',
     legalEntity: 'Dollar Shave Club, Inc. (Unilever)',
-    tagline: '「ジレットの替刃は高すぎる」と創業者自ら踊るシュールなYouTube動画で初日に1.2万人の定期顧客を強奪し、10億ドルでユニリーバに売却したD2Cサブスクの金字塔',
+    tagline: '「ジレットの替刃は高すぎる」と創業者自ら踊るシュールなYouTube動画で初日に1.2万人の定期顧客を獲得し、10億ドルでユニリーバに売却したD2Cサブスクの金字塔',
     sector: 'PHYSICAL_ASSET',
     scale: 'ENTERPRISE',
     founder: 'Michael Dubin, Mark Levine',
@@ -152,7 +152,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     timelineEvents: [
       { occurredAt: '2011年', eventType: 'foundation', description: 'Michael Dubinにより創業' },
       { occurredAt: '2012年3月', eventType: 'viral', description: '伝説のYouTube動画公開、48時間で1.2万人が登録' },
-      { occurredAt: '2015年', eventType: 'growth', description: '会員数200万人、年商$150Mを突破しジレットのシェアを強奪' },
+      { occurredAt: '2015年', eventType: 'growth', description: '会員数200万人、年商$150Mを突破しジレットのシェアを奪取' },
       { occurredAt: '2016年7月', eventType: 'exit', description: 'ユニリーバにより10億ドル（約1,500億円）で現金買収' },
     ],
     opportunityJudgment: {
@@ -1043,7 +1043,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_tailwindui_crime',
         type: 'THE_CRIME',
-        title: '世界中のエンジニアの「コピペしたい怠惰」をハックした24時間1.5億円の強奪',
+        title: '世界中のエンジニアの「コピペしたい怠惰」をハックした24時間1.5億円の売上獲得',
         badge: '知恵の要塞モデル',
         evidenceStatus: 'REPORTED',
         punchline: '「自分でデザインできる」というプライドを捨てさせたエンジニアたちに、HTMLコードのコピペ権を4万5千円で売って数億円を着金。',
@@ -1330,7 +1330,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     growthRateYoY: 18.0,
     architecturePattern: 'ソロ知恵要塞',
     pipelineStack: 'Notion公式認定アンバサダー権威 × Bulletproofテンプレート ($99〜$499) × 法人導入コンサル',
-    targetPainWallet: 'Notionを導入したがページが乱立してゴミ屋敷化し業務が停止する企業の焦燥',
+    targetPainWallet: 'Notionを導入したがページが乱立して散乱・形骸化し業務が停止する企業の焦燥',
     tags: ['Notion認定', '高単価テンプレ', '法人コンサル', 'ソロプレナー', '粗利90%超'],
     pnl: {
       monthlyRevenue: 2500000,
@@ -1470,7 +1470,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
       verdictLabel: '即座に参入可能',
-      oneLineReason: '日本国内の企業向けに「社内Notionのゴミ屋敷化を解消する防弾テンプレ（1社15万円）」を売れば即座に売れる。',
+      oneLineReason: '日本国内の企業向けに「社内Notionの無秩序・形骸化を解消する防弾テンプレ（1社15万円）」を売れば即座に売れる。',
       demandDelta: '90日 ↑25%',
       competitionDelta: '個人用テンプレばかりで企業向けが不在',
       entryRequirements: { capital: '0円', technicalDifficulty: 'LOW', platformRisk: 'LOW' },
@@ -1774,7 +1774,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       },
     },
     exposureAudit: {
-      guerrillaTraction: 'クリエイターへの「勝手に紹介メンション」で初期トラフィックを全量強奪。',
+      guerrillaTraction: 'クリエイターへの「勝手に紹介メンション」で初期トラフィックを全量獲得。',
       platformGlitch: '「公式ギャラリーが有料販売をサポートしていない」隙間を突いた。',
       pivotSnapshot: '単なるリンク集から、Stripe直結のマーケットプレイスへ進化。',
       hiddenStackCost: '月々の固定費は数万円のみ。',
@@ -1809,7 +1809,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     ticker: 'CHUB.SHRT',
     name: 'Chubbies',
     legalEntity: 'Chubbies Shorts (Solo Brands)',
-    tagline: '「平日はクソ食らえ、金曜午後5時を祝え」という金曜気分ナラティブと股下14cmの極短ショートパンツでアメリカの若者を狂乱させた反逆D2C',
+    tagline: '「平日の窮屈さを吹き飛ばし、金曜午後5時を祝え」という金曜気分ナラティブと股下14cmの極短ショートパンツでアメリカの若者を狂乱させた反逆D2C',
     sector: 'PHYSICAL_ASSET',
     scale: 'SCALEUP',
     founder: 'Tom Montgomery, Kyle Hency, Preston Rutherford, Rainer Castillo',
@@ -1854,7 +1854,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
           '【完璧な太もも露出（股下5.5インチ）】: 長すぎるダサいカーゴパンツを笑い飛ばし、男らしく太ももを出すレトロショートパンツを流行化。',
           '【自虐ミームSNSマーケティング】: 完璧なイケメンモデルではなく、「ビール腹の普通のおっさんがバカ騒ぎする写真」を大量投稿して共感を獲得。',
         ],
-        codeSnippet: '// 反逆・週末解放型D2C配管\n1. 「平日の息苦しいルール」をユーモアでぶっ壊すブランド世界観を構築\n2. 派手で機能的（ストレッチ・水陸両用）なレトロアイテムを開発\n3. ユーザーのバカ騒ぎ写真（UGC）をリポストしてコミュニティを熱狂させ粗利60%超を維持',
+        codeSnippet: '// 反逆・週末解放型D2C配管\n1. 「平日の息苦しいルール」をユーモアで根本から打破するブランド世界観を構築\n2. 派手で機能的（ストレッチ・水陸両用）なレトロアイテムを開発\n3. ユーザーのバカ騒ぎ写真（UGC）をリポストしてコミュニティを熱狂させ粗利60%超を維持',
         sourceNote: 'Chubbies ブランドバイラル戦略書',
       },
       {

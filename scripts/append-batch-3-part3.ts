@@ -502,7 +502,7 @@ const part3Entities = [
         punchline: 'Webflowの編集画面の中に直接入り込み、美しく作られたヘッダーやPricingテーブルを1秒でコピペさせる。',
         details: [
           '【ワークフローへの完全な寄生】: 独立したWebサイトに行かせるのではなく、Webflowの公式拡張機能（Apps）としてエディタ内に常駐。',
-          '【フリーミアムのフック】: 100種類以上の基本パーツを完全無料でコピーさせ、高度なアニメーション付きコンポーネントで年額プランへロックイン。',
+          '【本体無料のおびき寄せ罠】: 100種類以上の基本パーツを完全無料でコピーさせ、高度なアニメーション付きコンポーネントで年額プランへロックイン。',
           '【クライアント納期の短縮による投資回収】: 「1つのWebサイトの制作時間が10時間短縮される」ため、受託制作会社にとって年額$299は案件1件で10倍回収できる計算。',
         ],
         codeSnippet: '// エコシステム寄生型コンポーネントライブラリ配管\n1. WebflowやFramerの公式アプリストア/拡張機能としてプラグインを公開\n2. 500以上のUIコンポーネント（ナビゲーション、ヒーロー、FAQ、フッター）を事前作成\n3. 年額サブスク（¥45,000）で全コンポーネントの無制限コピペ権限を付与',
@@ -616,7 +616,7 @@ const part3Entities = [
         details: [
           '【更新作業の認知負荷ゼロ】: サイトを更新したい時は、普段使い慣れたNotionのページに文字を打ち込むだけ。自動でWebサイト側に即時反映。',
           '【プログラマティックSEOによる無料集客】: 「How to build a website with Notion for [職種]」という数千ページのSEO記事を自動生成し、Google検索から独占流入。',
-          '【フリーミアムによる大量拡散】: 無料プランでは「Made with Simple.ink」のフッターリンクが付き、訪問者が連鎖的に新規登録するバイラルループ。',
+          '【本体無料によるバイラル拡散】: 無料プランでは「Made with Simple.ink」のフッターリンクが付き、訪問者が連鎖的に新規登録するバイラルループ。',
         ],
         codeSnippet: '// Notion to Web変換配管\n1. ユーザーのNotion公開URLを取得し、API経由でHTMLへ変換してCloudflareエッジにキャッシュ\n2. 独自ドメイン（DNS）とカスタムCSS/フォント設定機能を有料化（月額$12）\n3. 全無料サイトの最下部に自社バナーを強制表示させ、被リンクと新規ユーザーを自動獲得',
         sourceNote: 'Ch Daniel 創業インタビュー',
@@ -624,7 +624,7 @@ const part3Entities = [
       {
         id: 'ev_sink_crime',
         type: 'THE_CRIME',
-        title: '初期ゲリラ戦の客観ログ：先行競合Super.soの盲点を突いたフリーミアム戦略',
+        title: '初期ゲリラ戦の客観ログ：先行競合Super.soの盲点を突いた「本体無料・機能人質」戦略',
         badge: '初動突破事実ログ',
         evidenceStatus: 'VERIFIED',
         punchline: '先行者Super.soが月額$12の完全有料だった隙を突き、「完全無料プラン」を掲げてトラフィックを総取り。',
@@ -671,7 +671,7 @@ const part3Entities = [
     ],
     temporal: {
       foundedYear: 2021,
-      initialTractionPeriod: '2021〜2022年（Super.so対抗フリーミアムとSEO記事大量生成による急成長）',
+      initialTractionPeriod: '2021〜2022年（Super.so対抗の本体無料とSEO記事大量生成による急成長）',
       dataSnapshotPeriod: '2023年（買収時データ）',
       eraContext: 'Notionエコシステムの成熟と、マイクロSaaSブームの最高潮期',
       viabilityStatus: 'HISTORICAL_WINDOW',
@@ -807,10 +807,10 @@ const part3Entities = [
     url: 'https://www.canva.com',
     verifiedBadge: true,
     growthRateYoY: 30.0,
-    architecturePattern: '民主化フリーミアム',
+    architecturePattern: '本体無料・機能人質',
     pipelineStack: 'WebGL/HTML5キャンバス × 巨大テンプレートアセットライブラリ × Canva Pro年額サブスク × Canva for Teams',
     targetPainWallet: 'チラシやSNSバナーを1枚作るためだけにAdobeに月7,000円払い、使い方を何週間も勉強させられる一般人の苦痛',
-    tags: ['デザインSaaS', '年商3000億超', 'フリーミアムの怪物', 'Adobe対抗', '世界的メガSaaS'],
+    tags: ['デザインSaaS', '年商3000億超', '本体無料・急所課金', 'Adobe対抗', '世界的メガSaaS'],
     pnl: {
       monthlyRevenue: 25000000000, // 年商約$2B ≒ ¥3,000億円 (月商約¥250億円)
       cogs: 3750000000, // サーバーインフラ・画像素材ライセンス（粗利85%）
@@ -841,10 +841,10 @@ const part3Entities = [
         punchline: 'Adobeがプロのデザイナー向けに高度化していく隙を突き、「デザインができない99%の素人」を総取りする。',
         details: [
           '【完成品から選ばせる逆転の発想】: 白紙から描かせるのではなく、プロが作った数万点の「インスタ投稿」「プレゼン資料」「名刺」の完成版を並べ、文字を打ち替えるだけで完成。',
-          '【王道のフリーミアム】: 無料でほとんどの機能を使わせ、ユーザーが「背景を1クリックで透過したい」「有料の極上写真素材を使いたい」と思った瞬間に月額課金へ誘導。',
+          '【本体無料・急所課金】: 無料でほとんどの機能を使わせ、ユーザーが「背景を1クリックで透過したい」「有料の極上写真素材を使いたい」と思った瞬間に月額課金へ誘導。',
           '【チームコラボレーションの拡張】: 会社内で「ノンデザイナーがマーケティング資料を作る標準ツール」として浸透させ、全社エンタープライズ契約を巻き取る。',
         ],
-        codeSnippet: '// 大衆民主化フリーミアム配管\n1. 専門家しか使えなかった複雑なソフトウェア（デザイン、動画編集、音楽制作）を特定\n2. ブラウザ上で直感操作できるUIに極限まで単純化し、数万件のプロ品質テンプレートを事前配備\n3. 基本無料で使用させ、プレミアム素材や便利機能（背景削除、サイズ自動変換）を有料サブスク化',
+        codeSnippet: '// 本体無料・機能人質配管\n1. 専門家しか使えなかった複雑なソフトウェア（デザイン、動画編集、音楽制作）を特定\n2. ブラウザ上で直感操作できるUIに極限まで単純化し、数万件のプロ品質テンプレートを事前配備\n3. 基本無料で使用させ、プレミアム素材や便利機能（背景削除、サイズ自動変換）を有料サブスク化',
         sourceNote: 'Melanie Perkins 創業インタビュー',
       },
       {
@@ -1305,7 +1305,7 @@ const part3Entities = [
         title: '初期ゲリラ戦の客観ログ：GitHubでCalendlyクローンを公開した翌日にHacker News首位',
         badge: '初動突破事実ログ',
         evidenceStatus: 'VERIFIED',
-        punchline: '2021年、PeerとBaileyが「Calendlyのプロプライエタリな独占をぶっ壊す」とGitHubにコードを投下。',
+        punchline: '2021年、PeerとBaileyが「Calendlyのプロプライエタリな独占を根本から打破する」とGitHubにコードを投下。',
         details: [
           '旧名Calendsoとしてローンチ。Hacker Newsで一晩で数千のUpvoteを獲得。',
           'Alexis Ohanian（Reddit共同創業者）やChad Hurley（YouTube共同創業者）等の大物エンジェル投資家から即座に出資を勝ち取る。',
@@ -1321,7 +1321,7 @@ const part3Entities = [
         evidenceStatus: 'VERIFIED',
         punchline: '時価総額30億ドルのCalendlyは「クラウド課金」を守るため、自前サーバー運用を絶対に許せない。',
         details: [
-          'Calendlyは医療機関（HIPAA準拠）や金融機関から法外なエンタープライズ料金を搾取している。',
+          'Calendlyは医療機関（HIPAA準拠）や金融機関から法外なエンタープライズ料金を徴収している。',
           'Cal.comはコードが公開されているため、セキュリティに厳しい大企業が自社のプライベートクラウド内に完全隔離して運用でき、大手の牙城を崩した。',
         ],
         sourceNote: 'Scheduling Software Disruption Case Study',

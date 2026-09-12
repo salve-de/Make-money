@@ -43,13 +43,13 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_demandcurve_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】圧倒的無料Wikiで権威を強奪し、高単価ブートキャンプで抜く知恵の関所コード',
+        title: '【略奪転用】圧倒的無料Wikiで権威を確立し、高単価ブートキャンプで抜く知恵の関所コード',
         badge: '略奪転用方程式',
         evidenceStatus: 'VERIFIED',
         punchline: '「業界最高の無料実践ガイド」をWeb上に常設し、SEOと口コミで集客を完全自動化。数万人の読者リストから上位1%に高額指導を売る。',
         details: [
           '【圧倒的クオリティの無料Wiki公開】: 広告やマーケの現場ノウハウを惜しみなく無料公開し、業界標準ドキュメントとしての地位を独占。',
-          '【Y Combinator等の権威ハック】: トップVCの投資先向け研修として無償提供し、公式パートナーの看板を強奪。',
+          '【Y Combinator等の権威ハック】: トップVCの投資先向け研修として無償提供し、公式パートナーの地位を獲得。',
           '【実践コホート講座の定期開催】: 30万〜80万円の高額グループ講座を年に数回ローンチし、1回で数千万円のキャッシュを一括回収。',
         ],
         codeSnippet: '// 知恵の関所型・高単価ブートキャンプ設計図\n1. 無料Wiki（Growth Playbook）で「このノウハウを自社で実行したいが自信がない」層を炙り出す\n2. Slackコミュニティへの無料招待でリードを囲い込み\n3. 年4回限定の集中実践プログラム（$3,000〜$5,000）を募集し、選考制にして希少価値を演出',
@@ -113,7 +113,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       ],
     },
     strategy: {
-      blindspot: '【無能な広告代理店に搾取される創業者の怒りと恐怖をハック】月額50万円のリテイナーフィーを払いながら結果が出ない代理店への不信感を突き、「社内に最強のグロース担当者を1ヶ月で育成する」という投資対効果の極めて高いオファーを提示。',
+      blindspot: '【無能な広告代理店に不当徴収される創業者の怒りと恐怖をハック】月額50万円のリテイナーフィーを払いながら結果が出ない代理店への不信感を突き、「社内に最強のグロース担当者を1ヶ月で育成する」という投資対効果の極めて高いオファーを提示。',
       moatType: 'BRAND_PRESTIGE',
       moatDescription: 'Y Combinator公認の看板と、シリコンバレー屈指のグロースWikiによる圧倒的オーガニックSEO。',
       incumbentDilemma: '大手広告代理店は月額リテイナーと広告出稿マージンで稼いでいるため、クライアントを自立させる教育サービスは自社の首を絞めることになり参入不能。',
@@ -243,7 +243,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         title: '「市販洗剤の90%はただの水」の不都合な真実を暴く道徳ハック',
         badge: '逆張りD2Cモデル',
         evidenceStatus: 'REPORTED',
-        punchline: '大手が莫大な輸送費と棚スペースをかけて運んでいる「水」を全廃し、家庭の水道水で薄めさせることで粗利75%を強奪する。',
+        punchline: '大手が莫大な輸送費と棚スペースをかけて運んでいる「水」を全廃し、家庭の水道水で薄めさせることで粗利75%を確保する。',
         details: [
           '消費者は「環境に優しい自分」に酔いしれ、自ら水道水を入れてシャカシャカ振る作業（イケア効果）を喜んで行う。',
           'Shark Tankで全審査員が争奪戦を繰り広げ、Kevin O\'Learyが投資を実行。',
@@ -368,7 +368,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     growthRateYoY: 20.0,
     architecturePattern: 'ソロ知恵要塞',
     pipelineStack: '無料価格診断ツール × 徹底セグメントメルマガ × $499〜$1,999買い切り講座',
-    targetPainWallet: '受託フリーランスの屈辱と搾取怨嗟（徹夜しても時給数千円から抜け出せない苦痛）',
+    targetPainWallet: '受託フリーランスの屈辱と不当な低単価への不満（徹夜しても時給数千円から抜け出せない苦痛）',
     tags: ['フリーランス教育', '価格交渉術', 'ソロプレナー', '高粗利デジタル教材', '利益率80%超'],
     pnl: {
       monthlyRevenue: 12500000,
@@ -1056,7 +1056,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         title: '【略奪転用】製品が間に合わない時に「ハードカバー本＋予約券」でバズらせる初動突破コード',
         badge: '略奪転用方程式',
         evidenceStatus: 'VERIFIED',
-        punchline: '製品完成前のクリスマス商戦に「有名作家の旅エッセイ集（ギフト券付）」を先行販売し、1夜で数千個の予約とメディア取材を強奪。',
+        punchline: '製品完成前のクリスマス商戦に「有名作家の旅エッセイ集（ギフト券付）」を先行販売し、1夜で数千個の予約とメディア取材を獲得。',
         details: [
           '【発売遅延の奇跡的逆転】: スーツケースの初回生産がクリスマスに間に合わず倒産危機 ➔ 「旅の本」を急遽出版し、スーツケース引換券を同梱して$225で販売。',
           '【Instagram映えするカラーパレット】: 地味な黒ばかりの空港のターンテーブルで一目で自分のものとわかるパステルカラーを展開。',
@@ -1108,7 +1108,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       blindspot: '【「スーツケースは壊れたら買う消耗品」という常識を「ファッションの一部」へ転換】空港を旅する若者にとって、スーツケースは靴やバッグと同じ「自分を表現するアクセサリー」であることを見抜いた。',
       moatType: 'BRAND_PRESTIGE',
       moatDescription: 'ミレニアル・Z世代トラベラーの間で確立された「Awayを持っていることがクール」というステータスシンボル。',
-      incumbentDilemma: 'リモワは高価格すぎ（10万〜20万円）、サムソナイトは実用本位でダサい。その間の「3万〜5万円台のデザインスーツケース」という巨大な空白地帯を強奪した。',
+      incumbentDilemma: 'リモワは高価格すぎ（10万〜20万円）、サムソナイトは実用本位でダサい。その間の「3万〜5万円台のデザインスーツケース」という巨大な空白地帯を獲得した。',
       secretInsight: '旅行インフルエンサー数百人にスーツケースを無償提供し、空港のラウンジや海外リゾートのプールサイドでAwayと一緒に写真を撮らせて投稿させた。',
       initialTraction: [
         'クリスマス商戦に「The Places We Would Go」という旅のエッセイ本を予約販売して完売',
@@ -1551,10 +1551,10 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         punchline: '「無料の美しいUIキット」をGitHubに公開して世界中の開発者から数万スターと被リンクを集め、Pro版を自動販売する。',
         details: [
           '【被リンクの自動増殖（SEOハック）】: 無料UIキットのフッターやREADMEに自社リンクを入れ、世界中のWebサイトからDR 85超の強力な被リンクを自動獲得。',
-          '【フリーミアムの黄金比】: 無料版には主要コンポーネント20個、有料Pro版には100個以上の画面テンプレート＋Figmaファイルを同梱。',
+          '【本体無料・有料拡張の黄金比】: 無料版には主要コンポーネント20個、有料Pro版には100個以上の画面テンプレート＋Figmaファイルを同梱。',
           '【オールアクセスパスへの誘導】: 単品$89に対し「全50個のUIキット使い放題で年$299」をアンカーとして提示し、サブスク化を加速。',
         ],
-        codeSnippet: '// テンプレ要塞型・SEOフリーミアム配管\n1. Tailwind / Next.js用の「無料管理画面テンプレート」をGitHubでOSS公開\n2. ドキュメントサイトを自社ドメイン（例: ui.yourdomain.com）にホストし、圧倒的SEO流入を獲得\n3. 「商用ライセンス・全ページ収録のPro版（$79）」へのアップセルバナーを全コンポーネントに埋め込み',
+        codeSnippet: '// テンプレ要塞型・無料おびき寄せSEO配管\n1. Tailwind / Next.js用の「無料管理画面テンプレート」をGitHubでOSS公開\n2. ドキュメントサイトを自社ドメイン（例: ui.yourdomain.com）にホストし、圧倒的SEO流入を獲得\n3. 「商用ライセンス・全ページ収録のPro版（$79）」へのアップセルバナーを全コンポーネントに埋め込み',
         sourceNote: 'Creative Tim グロースプレイブック',
       },
       {
@@ -1648,7 +1648,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       initialTractionPeriod: '2014年〜2016年',
       dataSnapshotPeriod: '2023-2024期観測（年商約$1.5M）',
       viabilityStatus: 'ACTIVE_PLAYBOOK',
-      viabilityLabel: '現在も有効（テンプレ要塞・フリーミアムSEO）',
+      viabilityLabel: '現在も有効（テンプレ要塞・無料おびき寄せSEO）',
       eraContext: 'Bootstrapが全盛期を迎え、レスポンシブWebデザインが必須となった時代。',
       currentViabilityAnalysis: 'Tailwind CSSやshadcn/uiの台頭により、モダンなデザインコンポーネントの需要は過去最高。日本国内向けの特化UIキット（日本の商習慣に合わせた管理画面等）は今すぐ独占可能。',
     },

@@ -9,12 +9,20 @@ import { DynamicEvidenceDeck } from '../dynamic-sections/DynamicEvidenceDeck';
 import { FinancialSection } from '../ui/FinancialSection';
 import { buildInspectorModel } from './inspector-model';
 
+const STATUS_LABELS: Record<EvidenceStatus, string> = {
+  VERIFIED: '一次確認済',
+  REPORTED: '創業者公表',
+  ESTIMATED: '逆算推計',
+  POST_MORTEM: '検死解剖',
+  UNKNOWN: '未確認',
+};
+
 it('renders every supported evidence status, including post-mortem evidence', () => {
   for (const status of ['VERIFIED', 'REPORTED', 'ESTIMATED', 'POST_MORTEM', 'UNKNOWN'] satisfies EvidenceStatus[]) {
     const html = renderToStaticMarkup(createElement(DynamicEvidenceDeck, { cards: [{
       id: 'evidence', type: 'SMOKING_GUN', title: 'Source', punchline: 'Observation', evidenceStatus: status,
     }] }));
-    expect(html).toContain(status === 'UNKNOWN' ? 'UNAUDITED' : status);
+    expect(html).toContain(STATUS_LABELS[status]);
   }
 });
 

@@ -460,7 +460,7 @@ const finalEntities = [
     ticker: 'BRN.TRST',
     name: 'Braintrust',
     legalEntity: 'Braintrust Technology Inc.',
-    tagline: '「UpworkやFiverrの20%という法外な手数料搾取をぶっ壊す」と宣言し、フリーランスの手数料を0%にして世界トップのシニアエンジニアを囲い込み年商45億円を稼ぐ分散型人材ギルド',
+    tagline: '「UpworkやFiverrの20%という法外な高額手数料構造を根本から打破する」と宣言し、フリーランスの手数料を0%にして世界トップのシニアエンジニアを囲い込み年商45億円を稼ぐ分散型人材ギルド',
     sector: 'SaaS',
     scale: 'ENTERPRISE',
     founder: 'Adam Jackson, Gabriel Luna-Ostoses',

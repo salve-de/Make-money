@@ -121,7 +121,7 @@ const part2Entities = [
     ticker: '404.NEWS',
     name: '404 Media',
     legalEntity: '404 Media LLC',
-    tagline: '「VCが支配するデジタルメディアは全員クソだ」と大手Viceから独立した敏腕記者4名が設立し、自前のGhostブログで年商3億円・初年度から完全黒字を叩き出す調査報道ギルド',
+    tagline: '「VCが支配するデジタルメディアは読者より出資者を優先しがちだ」と大手Viceから独立した敏腕記者4名が設立し、自前のGhostブログで年商3億円・初年度から完全黒字を叩き出す調査報道ギルド',
     sector: 'INFO_MEDIA',
     scale: 'MICRO_TEAM',
     founder: 'Jason Koebler, Emanuel Maiberg, Joseph Cox, Samantha Cole',

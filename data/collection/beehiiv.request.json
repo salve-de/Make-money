@@ -42,7 +42,7 @@
         "claim_id": "clm_beehiiv_tagline",
         "entity_id": "ent_beehiiv_0e052432d4cc474caec6",
         "attribute": "tagline",
-        "value": "「広告主集めと読者獲得に消耗する」個人メルマガ配信者を広告網と紹介プログラムで武装させ、Substackから配信者を強奪して急成長するニュースレター兵器",
+        "value": "「広告主集めと読者獲得に消耗する」個人メルマガ配信者を広告網と紹介プログラムで武装させ、Substackから配信者を獲得して急成長するニュースレター兵器",
         "evidence_ids": [
           "ev_beehiiv_pnl"
         ]
@@ -71,7 +71,7 @@
         "value": {
           "group": "GROUP_A_WINNER",
           "dossier": {
-            "oneLineLead": "Morning Brewをゼロから年商数十億円のメディアに育てた創業チームが、その成長ノウハウをすべてコード化し、Substackから人気メルマガを大量強奪して急成長した手口",
+            "oneLineLead": "Morning Brewをゼロから年商数十億円のメディアに育てた創業チームが、その成長ノウハウをすべてコード化し、Substackから人気メルマガを大量に獲得して急成長した手口",
             "section01_dna": {
               "businessType": "ニュースレター（メルマガ）作成・配信・成長分析・広告マネタイズ統合プラットフォーム",
               "targetWallet": "メディアパブリッシャー、ブロガー、企業マーケターのメール配信サーバー代および広告出稿予算",

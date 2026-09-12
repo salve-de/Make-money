@@ -97,11 +97,11 @@ const PATTERN_REPLACEMENTS: Array<{ regex: RegExp; replacement: string }> = [
   },
   {
     regex: /Creator Wizard publicly positions sponsorship education around creator brand deals (.*)/i,
-    replacement: 'スポンサー企業からの安売り搾取を防ぐクリエイター向け案件獲得・価格交渉スクール',
+    replacement: 'スポンサー企業からの安売り不当徴収を防ぐクリエイター向け案件獲得・価格交渉スクール',
   },
   {
     regex: /Creator Wizard publicly positions (.*)/i,
-    replacement: 'スポンサー企業からの安売り搾取を防ぐクリエイター向け案件獲得・価格交渉スクール',
+    replacement: 'スポンサー企業からの安売り不当徴収を防ぐクリエイター向け案件獲得・価格交渉スクール',
   },
   {
     regex: /Creative Tim publicly (.*)/i,

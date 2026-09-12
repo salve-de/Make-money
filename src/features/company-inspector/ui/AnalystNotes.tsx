@@ -31,7 +31,7 @@ export function AnalystNotes({ entity, analystNote, noteSaveStatus, onSaveAnalys
                 <div className="flex items-center gap-1.5">
                   <Edit3 className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
                   <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
-                    {isHazardMode ? 'POST_MORTEM_NOTES: 死因検死・地雷回避メモ' : 'ANALYST_FIELD_NOTES: 極秘考察メモ'}
+                    {isHazardMode ? '死因検死・地雷回避メモ' : 'アナリスト考察メモ'}
                   </h3>
                 </div>
               </div>

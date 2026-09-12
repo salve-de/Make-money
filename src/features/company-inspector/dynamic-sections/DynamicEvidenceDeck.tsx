@@ -22,35 +22,35 @@ function renderEvidenceBadge(status: EvidenceStatus) {
       return (
         <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-300">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-          VERIFIED
+          一次確認済
         </span>
       );
     case 'REPORTED':
       return (
         <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-400">
           <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
-          REPORTED
+          創業者公表
         </span>
       );
     case 'ESTIMATED':
       return (
-        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-500">
+        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-400">
           <span className="w-1.5 h-1.5 rounded-full bg-amber-500/70" />
-          ESTIMATED
+          逆算推計
         </span>
       );
     case 'POST_MORTEM':
       return (
         <span className="inline-flex items-center gap-1 font-mono text-[10px] text-red-400">
           <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
-          POST_MORTEM
+          検死解剖
         </span>
       );
     case 'UNKNOWN':
       return (
-        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-600">
+        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-500">
           <span className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
-          UNAUDITED
+          未確認
         </span>
       );
   }

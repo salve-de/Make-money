@@ -246,7 +246,7 @@ export const HAZARD_DEFENSE_SHIELDS: Record<string, HazardShieldSolution> = {
   'REGULATORY_COMPLIANCE': {
     title: '【適法防壁】法令違反・グレーゾーン自爆を防ぐ公式API ＆ 監査配管',
     fatalRisk: 'Zenefitsのように違法マクロや無資格営業に手を染めると、規制当局の調査一発で時価数千億円が吹き飛ぶ。',
-    shieldApproach: '裏口の違法チートを排し、公式API・認証・監査ログが担保された堅牢なエンタープライズ基盤を採用せよ。',
+    shieldApproach: '裏口の違法ショートカットを排し、公式API・認証・監査ログが担保された堅牢なエンタープライズ基盤を採用せよ。',
     recommendedTools: [
       {
         name: 'Supabase',
