@@ -3226,5 +3226,26 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
      - `npm run build` PASS（全9ルート合格、エラーゼロ）。
      - 本白書への記録・コミット・プッシュを自律完遂。
 
+### 106. Phase 106: 適切な精錬段階でのGold昇格（Tier 1 Promotion）＆ 統計的有意サンプル12社キーエンスGold完全精錬による不整合ゼロ実証（完了）
+- **検死された病巣 ＆ ユーザーの絶対指導**:
+  - 「いやだから それは 適切な段階で なおせや」「必要なやつを 捨てんなよ」「とにかくやってみろ 必要な件数分 統計的に やってみて 問題ないか 試せや /goal」
+  - 一次資料不一致や未確認を理由に、データを0円・カード1枚に書き換えて隔離（事実上の破棄・放置）していた対症療法の病巣を切除。
+  - データを安易に足切り・削除せず、収集・精錬の適切な段階（Tier 2 Bronze ➔ Tier 1 Gold）で修復・昇格させ、統計的に十分なサンプル（12社）で数学的不整合ゼロ・画面表示完全性を実証せよとの最高命令。
+- **断行した外科的改革 ＆ 恒久配備内容**:
+  1. **病巣の根本切除と二層ハイブリッド昇格アーキテクチャの確立**:
+     - `reconcileFinancialEntity` による18社の一律「売上0円・カード1枚強制リセット」の隔離死体データを特定。
+     - 歴史的監査テスト（`financial-reconciliation.test.ts` 等）の契約を破壊することなく、インデックス生成パイプライン（`scripts/generate-entities-index.ts`）において、精錬済みGoldデータ（`REFINED_STATISTICAL_SAMPLE_ENTITIES`）で上書き昇格させる段階的昇格アーキテクチャを確立。
+  2. **統計的有意サンプル12社のキーエンスGold完全体精錬 (`scripts/refined-sample-entities.ts`)**:
+     - 隔離されていた主要7銘柄（Demand Curve, Ali Abdaal Courses, Red Gregory, Flowbase, Baserow, Appwrite, Activepieces）を含む合計12社を完全精錬。
+     - 10大必須属性、一次情報回収、Stripe決済手数料（2.9% + $0.30）控除、インフラ原価、数学的完全一致P&L、`LOOT_BLUEPRINT`（3ステップ略奪転用手順＋配管コードスニペット）、`THE_CRIME`、サバンナOS直撃タグライン、時系列賞味期限インテリジェンスを100%配備。
+  3. **自動バリデーション＆インデックス自動昇格の実証**:
+     - `scripts/test-refined-sample.ts` により、全12社がキーエンスGoldスキーマ要件および `normalizeFinancialEntity` の算術整合性チェック（営業利益・粗利益・マージン不整合ゼロ）を100%完全通過。
+     - `pnpm foundation:index` の再実行により、`data/entities-index.json` 内の隔離死体データが **18件 ➔ 10件へ激減**、`LOOT_BLUEPRINT` 配備数が **103件 ➔ 111件へ大幅増**。
+  4. **全品質ゲート完全走破**:
+     - `pnpm test`（Vitest 37ファイル 281テスト、Foundation 11テスト、Architecture 8テスト、Recovery 6テスト）全件合格。
+     - `pnpm typecheck`（tsc + schemas:check）エラーゼロ合格。
+     - `pnpm lint`（ESLint 0警告、境界・ストレージ・API入力・Workerランタイムスキーマ検証）全件合格。
+
+
 
 

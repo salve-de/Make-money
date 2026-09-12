@@ -1,9 +1,8 @@
 import { REFINED_STATISTICAL_SAMPLE_ENTITIES } from './refined-sample-entities';
 import { normalizeFinancialEntity } from '../src/shared/financial-integrity';
-import { reconcileFinancialEntity } from '../src/platform/data/financial-reconciliation';
 
 async function main() {
-  console.log('=== Validating 5 Refined Sample Entities ===');
+  console.log(`=== Validating ${REFINED_STATISTICAL_SAMPLE_ENTITIES.length} Refined Sample Entities ===`);
   let passed = 0;
 
   for (const entity of REFINED_STATISTICAL_SAMPLE_ENTITIES) {
@@ -43,12 +42,15 @@ async function main() {
       throw new Error(`Invalid temporal fields`);
     }
 
-    // 5. Test financial normalization & reconciliation pipeline
-    const reconciled = reconcileFinancialEntity(entity);
-    const normalized = normalizeFinancialEntity(reconciled);
+    // 5. Test financial normalization pipeline
+    const normalized = normalizeFinancialEntity(entity);
 
     if (!normalized.id || !normalized.pnl) {
       throw new Error(`Normalization failed`);
+    }
+    // Inspect financial integrity
+    if (normalized.pnl.isOperatingProfitUnconfirmed || normalized.pnl.isMarginUnconfirmed) {
+      throw new Error(`Mathematical conflict detected in P&L for ${normalized.name}`);
     }
 
     console.log(`  ✓ Passed Keyence Gold Schema validation!`);

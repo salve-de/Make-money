@@ -234,7 +234,12 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     // 一覧の初回取得前に詳細を始めると、一覧更新時のcleanupでAbortされた後に
     // in-flightフラグだけが残り、再取得されない競合になるため、完了を待つ。
     if (!foundationInitialLoadComplete) return;
-    const foundationHasEntity = foundationRows.some((row) => row.id === selectedEntityId);
+    const foundationSummary = foundationRows.find((row) => row.id === selectedEntityId);
+    const foundationHasEntity = Boolean(foundationSummary);
+    // A sparse candidate sharing an ID with a curated local dossier is still
+    // readable through the API, but it must never replace the local display or
+    // trigger a detail fetch that would do so.
+    if (foundationSummary && coreEntities.some((entity) => entity.id === selectedEntityId) && !isFoundationDossierReady(foundationSummary)) return;
     if (!foundationHasEntity && coreEntities.some((e) => e.id === selectedEntityId)) return;
     // 既に詳細取得済みまたは取得中ならスキップ
     if (detailedEntities[selectedEntityId] || detailFetchInProgress.current.has(selectedEntityId)) return;

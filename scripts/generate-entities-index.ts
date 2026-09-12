@@ -1,6 +1,7 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES } from '../src/platform/data/mockLedgerData';
+import { REFINED_STATISTICAL_SAMPLE_ENTITIES } from './refined-sample-entities';
 import { projectBundleToFinancialEntity } from '../src/lib/foundation/projector';
 import { FinancialEntity } from '../src/platform/types/terminal';
 
@@ -9,12 +10,27 @@ async function main() {
   const entityMap = new Map<string, FinancialEntity>();
   const nameMap = new Map<string, string>(); // lowerName -> id
 
-  // 1. 静的定義されている実在13銘柄をベースとしてロード
+  // 1. 静的定義されているベースラインをロード
   for (const entity of INSTITUTIONAL_ENTITIES) {
     entityMap.set(entity.id, entity);
     nameMap.set(entity.name.toLowerCase(), entity.id);
   }
-  console.log(`Loaded ${entityMap.size} baseline verified entities.`);
+  console.log(`Loaded ${entityMap.size} baseline entities.`);
+
+  // 1.1. 精錬済みTier 1 Goldエンティティで未精錬・隔離データを適切な段階で昇格
+  let refinedPromotions = 0;
+  for (const refined of REFINED_STATISTICAL_SAMPLE_ENTITIES) {
+    const lower = refined.name.toLowerCase();
+    const existingId = nameMap.get(lower);
+    if (existingId) {
+      entityMap.set(existingId, { ...refined, id: existingId });
+      refinedPromotions++;
+    } else {
+      entityMap.set(refined.id, refined);
+      nameMap.set(lower, refined.id);
+    }
+  }
+  console.log(`Promoted ${refinedPromotions} quarantined entities to Keyence Gold Dossiers.`);
 
   // 2. data/collection/ 配下の収集JSONを探索して追加マージ
   console.log('=== [2/4] Scanning data/collection/ for raw bundles ===');

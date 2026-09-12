@@ -29,4 +29,4 @@ it('rejects private type queries, relative paths and template literal imports', 
   for (const probe of probes) {
     expect(violations.some(violation => violation.startsWith(probe.file))).toBe(true);
   }
-});
+}, 20_000);

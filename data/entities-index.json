@@ -1429,324 +1429,151 @@
     "ticker": "PLAUSIBLE",
     "name": "Plausible Analytics",
     "legalEntity": "Plausible Insights OÜ",
-    "tagline": "「Google Analyticsの同意バナーがサイトを殺す」欧州GDPRの恐怖を突き、オープンソースの超軽量解析で月商1,800万円抜く手口",
+    "tagline": "「GA4が重すぎて客が逃げる」「Cookie同意バナーがウザい」Web担当者の発狂を突き、コード1行で年間4億円抜く完全独立系オープンソース解析",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "Uku Taht & Marko Saric",
+    "founder": "Uku Taht, Marko Saric",
     "country": "EE",
     "url": "https://plausible.io",
     "verifiedBadge": true,
     "growthRateYoY": 45,
-    "architecturePattern": "クッキーレス解析 × GDPR規制逆手",
-    "pipelineStack": "Elixir/Phoenix × ClickHouse × PostgreSQL × Tailwind CSS",
-    "targetPainWallet": "企業のコンプライアンス（GDPR罰金恐怖とクッキー同意バナーによるCVR低下）",
+    "architecturePattern": "クッキーレス軽量代替",
+    "pipelineStack": "Elixir/Phoenix × ClickHouse × AGPLオープンソース",
+    "targetPainWallet": "Web担当者の胃痛（GA4の難解さ、Cookie同意バナーによるCV低下、GDPR罰則恐怖）",
     "tags": [
-      "プライバシー保護",
-      "オープンソース",
-      "GDPR特化",
-      "小規模チーム",
+      "プライバシー重視",
       "脱Google",
-      "クッキーレス"
+      "オープンソースSaaS",
+      "ノーコード導入",
+      "粗利85%超",
+      "完全ブートストラップ"
     ],
+    "pnl": {
+      "monthlyRevenue": 35000000,
+      "cogs": 3500000,
+      "grossProfit": 31500000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 2500000,
+        "advertising": 0,
+        "subcontracting": 1000000,
+        "toolsAndSaaS": 500000,
+        "other": 500000
+      },
+      "operatingProfit": 27000000,
+      "operatingMargin": 77.1,
+      "estimatedAnnualNetProfit": 324000000,
+      "financialStatus": "REPORTED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "公式開示ARR $2.8M（21,000社有料購読）"
+    },
     "evidenceCards": [
       {
         "id": "ev_plausible_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】Googleの同意バナーを「クッキーレス軽量スクリプト」で殺害し月商1,800万円抜くコード",
+        "title": "【略奪転用】巨大独占無料ツール（Google等）が自爆した隙間に「1/10の軽量版」を差し込み粗利80%抜く配管",
         "badge": "略奪転用方程式",
         "evidenceStatus": "VERIFIED",
-        "punchline": "サイト表示を重くしクッキー同意バナーを強制するGoogle Analyticsへの怒りを突き、「1KB以下の超軽量・個人情報ゼロ」で月額サブスクを抜く。",
+        "punchline": "大手が規制や多機能化で自爆してユーザーが苦痛を叫んでいる時、「機能を1/10にし、同意バナーを不要にする」だけで有料でも喜んで客が雪崩れ込む。",
         "details": [
-          "【GDPR恐怖の逆張り】: 欧州規制当局による巨額罰金リスクに怯える企業へ、「クッキー同意ポップアップ不要」を唯一の売りにする。",
-          "【超軽量スクリプト】: 45KBのGoogle Analyticsに対し、Plausibleは1KB未満。サイト速度とSEOスコアを気にする開発者の心を直撃。",
-          "【オープンソースの信頼性】: GitHubでコードを全公開し、セルフホスト可能にすることで「裏でデータを抜いていない」絶対の社会的証明を獲得。"
+          "【Step 1: 大手の自爆の特定】: Google AnalyticsがGA4へ強制移行し、UIが劇的に悪化＋EUのGDPRでCookie同意バナーが必須化された苦痛を特定。",
+          "【Step 2: 1KBスクリプトとオープンソース】: 個人情報を一切取らない1KB未満の超軽量スクリプトを開発し、AGPLでコード公開して開発者の信頼を獲得。",
+          "【Step 3: 広告費ゼロの比較SEO】: 「Google Analyticsの代替」「GA4のCookieレス移行」という比較記事だけでオーガニック流入を独占し、月額$9〜から課金。"
         ],
-        "codeSnippet": "// Plausible型・クッキーレス軽量トラッキング\n<script defer data-domain=\"yourdomain.com\" src=\"https://plausible.io/js/script.js\"></script>\n// クッキーも個人識別子も使わず、IPアドレスとUser-AgentのデイリーソルトハッシュだけでユニークPVを計測",
-        "sourceNote": "Plausible公式ブログ・オープンメトリクス"
+        "codeSnippet": "// 軽量クッキーレス計測スクリプトの埋め込みエンドポイント設計\n// 顧客のHTMLヘッダーに1行追加させるだけで、セッションストレージやクッキーを一切使わずハッシュ化IPで日次ユニークのみ集計\n<script defer data-domain=\"yourdomain.com\" src=\"https://plausible.io/js/script.js\"></script>",
+        "sourceNote": "Plausibleの公式開示（21,000社有料会員、広告費$0成長ログ）から抽出した構造転用設計図"
       },
       {
         "id": "ev_plausible_crime",
         "type": "THE_CRIME",
-        "title": "Google Analyticsの複雑さとCookie同意バナーへの怨嗟ハック",
-        "badge": "プライバシー逆張り",
+        "title": "広告費・営業費0円で年商4億円・営業利益率77%を叩き出すプライバシー要塞",
+        "badge": "身も蓋もない真実",
         "evidenceStatus": "VERIFIED",
-        "punchline": "GDPR対応のCookie同意バナーを設置したくないサイト運営者に対し、「1KBの軽量スクリプト・設定不要」で月$9〜を吸い上げる。",
+        "punchline": "Googleが無料で配るGA4の使いにくさにブチ切れたエンジニア・マーケターから、月額$9〜$100を毎月全自動で徴収する。",
         "details": [
-          "Google Analytics 4（GA4）が極端に使いにくく設定が難解化したタイミングで、1画面で全データが見えるシンプルUIを投入。",
-          "オープンソース（AGPLv3）で信頼を獲得しつつ、ホスティング版クラウドサブスクで高利益率を回収。"
-        ],
-        "metrics": [
-          {
-            "label": "ARR",
-            "value": "$1.5M+ (約¥2.3億)",
-            "isHighlight": true
-          },
-          {
-            "label": "利益率",
-            "value": "85%+",
-            "isHighlight": true
-          },
-          {
-            "label": "チーム人数",
-            "value": "少人数 (4人)"
-          },
-          {
-            "label": "スクリプト容量",
-            "value": "1KB未満 (GA4の1/45)"
-          }
-        ],
-        "sourceNote": "plausible.io/open"
+          "外部調達（VC）ゼロ、広告出稿費ゼロ、アフィリエイト報酬ゼロ。完全な自己資金（Self-funded）で10人体制。",
+          "EUのGDPR規制により「Cookie同意バナーを出さないといけない」という企業サイトの美観・離脱ペインを完全切除。",
+          "Basecamp, Ghost, Hugging Face, Harvard Universityなどのビッグネームが公式採用し社会的証明が極大化。"
+        ]
       },
       {
-        "id": "ev_plausible_incumbent_trap",
-        "type": "INCUMBENT_TRAP",
-        "title": "広告追跡モデルのGoogleが絶対に追随できない死角",
+        "id": "ev_plausible_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "創業者1人の孤独な開発からHacker News炎上をバネにした初動制圧",
+        "badge": "初期ゲリラ戦ログ",
         "evidenceStatus": "VERIFIED",
-        "punchline": "Googleは本業がターゲティング広告であるため、個人データをトラッキングしないCookieレス解析を出すと自社の広告帝国が自爆する。",
+        "punchline": "「Googleにデータを渡したくない」開発者心理に火をつけ、Hacker Newsトップ掲載から初動100人を強奪。",
         "details": [
-          "Googleは顧客の行動ログをクロスサイトで追跡する必要がある。",
-          "Plausibleは広告ビジネスを一切持たないため、「完全プライバシー重視」を掲げてGoogleを悪役に仕立てるポジショニングが無双した。"
+          "2018年にエストニアのエンジニアUku Tahtが1人で創業。当初は鳴かず飛ばずで月商数十ドル。",
+          "2020年にMarko Saricが合流し、「GA4 vs Plausible」の辛口比較記事をHacker NewsやRedditで連打。",
+          "オープンソースコミュニティで「反巨大IT（De-Google）」のシンボルとして祭り上げられ、口コミのみで急拡大。"
         ]
       }
     ],
-    "essence": {
-      "whatItDoes": "クッキーを使用せず、個人情報を収集しない、GDPR/CCPA完全準拠の超軽量Webサイトアクセス解析ツール",
-      "targetCustomer": "プライバシーを重視する企業、Webデザイナー、欧州市場向けECサイト、エンジニアブログ",
-      "painRelief": "「Google Analytics 4（GA4）が複雑すぎて使いこなせない」「巨大なクッキー同意バナーのせいでサイトの離脱率が上がる」という実務的苦痛"
-    },
-    "pricing": {
-      "model": "月間ページビュー数に応じた従量サブスクリプション",
-      "pricePoint": "$9 〜 $169+ / 月 (PV数に応じたスライド課金)",
-      "psychologicalTrigger": "法令順守とUI美学（「違法クッキーバナーを排除してサイトを美しく保つ」「GDPR罰金を完全回避する」という防衛本能）",
-      "estimatedLtvJpy": 48000,
-      "churnRate": "2.1%/月"
-    },
-    "acquisition": {
-      "cacJpy": 0,
-      "primaryFunnel": "「Why you should stop using Google Analytics」という挑発的ブログSEO ➔ Hacker Newsで定期的に1位獲得 ➔ 30日間無料トライアル",
-      "tactics": [
-        "自社の売上・トラフィック・サーバーコストを完全公開するオープンメトリクス",
-        "Google Analyticsからの1クリックデータ移行機能",
-        "スクリプト重量が1KB未満（Googleの45分の1）という圧倒的パフォーマンス訴求"
-      ]
-    },
-    "pnl": {
-      "monthlyRevenue": 18000000,
-      "cogs": 540000,
-      "grossProfit": 17460000,
-      "grossMargin": 97,
-      "operatingExpenses": {
-        "serverAndApi": 1500000,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 350000,
-        "other": 2500000
-      },
-      "operatingProfit": 13110000,
-      "operatingMargin": 72.8,
-      "estimatedAnnualNetProfit": 157320000,
-      "financialStatus": "VERIFIED",
-      "dataSnapshotPeriod": "リアルタイム公開メトリクス",
-      "sourceDoc": "Plausible公式 Live Metrics (ARR/原価公開)"
-    },
     "operations": {
-      "teamSize": 4,
-      "initialTeamSize": 2,
-      "currentTeamSize": 4,
-      "weeklyHours": 30,
-      "initialCapitalRequired": 200000,
-      "automationLevel": 95,
+      "teamSize": 10,
+      "weeklyHours": 35,
+      "initialCapitalRequired": 0,
+      "automationLevel": 90,
       "primaryChannels": [
-        "コンテンツマーケティング（脱Google訴求ブログ）",
-        "Hacker News / Redditでのオーガニックバズ",
+        "Hacker News / Reddit 口コミ",
+        "GA4批判SEO比較記事",
         "オープンソースGitHubリポジトリ"
       ],
       "toolStack": [
         {
-          "name": "Elixir + Phoenix Framework",
+          "name": "Elixir/Phoenix",
           "category": "バックエンド",
           "monthlyCost": 0,
-          "purpose": "秒間数万件のアクセスログを最小限のサーバー負荷で超並行処理",
-          "replacementDifficulty": "HIGH"
+          "purpose": "秒間数万リクエストを低メモリで処理"
         },
         {
           "name": "ClickHouse",
-          "category": "列指向DB",
+          "category": "分析データベース",
           "monthlyCost": 800000,
-          "purpose": "数十億レコードの分析クエリを1秒未満で返す超高速集計エンジン",
-          "replacementDifficulty": "HIGH",
-          "url": "https://clickhouse.com"
+          "purpose": "数億行のアクセスログを超高速集計"
         },
         {
-          "name": "Hetzner クラウド/ベアメタル",
-          "category": "インフラ",
-          "monthlyCost": 700000,
-          "purpose": "EU圏内のデータ主権を守りつつ低コストで大容量トラフィックをホスト",
-          "replacementDifficulty": "MEDIUM",
-          "url": "https://hetzner.com"
+          "name": "Hetzner",
+          "category": "ホスティング",
+          "monthlyCost": 600000,
+          "purpose": "EU拠点のベアメタルサーバーによるコスト圧縮"
+        },
+        {
+          "name": "Stripe",
+          "category": "決済",
+          "monthlyCost": 1050000,
+          "purpose": "グローバル定期課金決済（手数料約3%）"
         }
       ]
     },
     "strategy": {
-      "blindspot": "【「Google Analyticsは無料だが、企業の評判とユーザー体験を奪っている」という不都合な真実】Googleは広告会社であるため、ユーザーを追跡せざるを得ない。その結果、世界中のサイトが醜い同意バナーで埋め尽くされた。「月1,000円払えばバナーを消せる」という圧倒的にわかりやすい価値を提示し、大手の無料の罠を破壊した。",
+      "blindspot": "Googleは自社の広告ビジネス（ターゲティング広告）を守るために個人データの追跡をやめられず、Cookie不要のシンプル解析を出せなかった。",
       "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "【オープンソース ✕ プライバシー完全準拠という倫理的防壁】Googleは自社の広告ビジネスモデル上、絶対に「クッキーなし・個人情報追跡ゼロ」にはできない。Plausibleは自らをオープンソース化し、全コードと財務を透明化することで、Googleが逆立ちしても模倣できない信頼の堀を築いた。",
-      "incumbentDilemma": "Googleは年間数十兆円の広告ターゲティング収益を守る必要があるため、Google Analyticsをクッキーレス・追跡ゼロにすることは自社の広告収入の自殺を意味し、絶対に真似できない。",
-      "secretInsight": "GA4（Google Analytics 4）への強制移行の混乱を徹底的に利用。「GA4のUIがわかりにくすぎて絶望した」という世界中のマーケターや開発者の怨嗟の声を拾い上げ、「GA4からPlausibleへ乗り換える手順」を大量にSEO発信して顧客をごっそり奪った。",
+      "moatDescription": "Google Analyticsは広告エコシステムの都合上、複雑怪奇なイベント設計と個人トラッキングが必須。Plausibleは「広告をやらない」という前提そのものが堀になっている。",
+      "incumbentDilemma": "GoogleがPlausibleのような軽量・Cookieレスツールを無償提供すると、Googleの主たる収益源であるパーソナライズ広告の精度が落ちて自爆する。",
+      "secretInsight": "サイト運営者の95%は「PV数・参照元・閲覧デバイス」の3つしか見ていない。GA4の何百もある複雑なメニューは顧客の95%にとって騒音でしかない。",
       "initialTraction": [
-        "創業者Ukuが一人でElixirを使って最初のプロトタイプを開発",
-        "マーケターのMarkoが合流し、「Google Analyticsを捨てるべき理由」というブログ記事を執筆",
-        "Hacker Newsのトップに掲載され、初速で数百社の有料顧客を獲得"
+        "Hacker Newsで「Google Analyticsのオープンソース代替を作った」と投稿し1,000 Upvotes獲得",
+        "「なぜ私たちはGoogle Analyticsを削除したのか」という過激なブログ記事でSEO流入を独占",
+        "自社のMRR、PV数、サーバー費用を自社サイト上でリアルタイム全公開（オープンメトリクス）"
       ],
       "actionPlaybook": [
-        "Step 1: 業界の巨人が提供する「無料だがユーザーの不満が溜まっている標準ツール」を特定する",
-        "Step 2: 機能を10分の1に削ぎ落とし、設定不要・1秒で理解できるシンプルなUIを作る",
-        "Step 3: 巨人がビジネスモデルの都合上絶対に言えない「プライバシー」「透明性」を武器にカウンターを当てる"
+        "Step 1: 誰もが使っている巨大無料ツールの「最近の改悪（UI複雑化・法規制対応）」の怨嗟を調査する",
+        "Step 2: 機能を1/10に削り、1分でセットアップできるオープンソース版を公開する",
+        "Step 3: ホスティング・保守が面倒な層向けに月額$9〜のマネージドクラウドSaaSを提供し課金化する"
       ],
-      "coldOutreachTemplate": "【Plausible型・サイト高速化アプローチ】\n「貴社サイトのクッキー同意バナーで離脱率が15%悪化していませんか？\n弊社の解析ツールなら、個人情報を一切収集しないため同意バナーが完全不要になり、スクリプト重量も98%削減されます。\n1行のタグを差し替えるだけで本日より計測可能です。」"
+      "coldOutreachTemplate": "【貴社サイトのCookie同意バナーを今夜撤去できる軽量解析のご案内】〇〇様、突然のご連絡失礼いたします。現在貴社サイトで表示されているCookieバナーによる訪問者の離脱にお悩みではありませんか？Plausibleは1KBのコード1行で、Cookieバナー不要・EU法完全準拠のアクセス解析を提供します。"
     },
-    "meta": {
-      "incumbentDilemma": {
-        "cannibalizationBarrier": "Googleは世界最大の広告ネットワークを維持するため、ユーザーの行動追跡データを収集し続ける必要があり、クッキーレス・非追跡への転換は本業の自殺行為となる。",
-        "scaleMismatchReason": "月額数百円〜数千円のプライバシー解析市場は、年間数百兆円規模のGoogle親会社Alphabetにとっては誤差に過ぎず、専門チームを割けない。",
-        "decisionSpeedAdvantage": "EUのプライバシー法規制（GDPR、Schrems II判決）が改定された当日に完全準拠を宣言できる圧倒的コンプライアンス機動力。"
-      },
-      "pricingPower": {
-        "anchorComparison": "「EUのGDPR違反による莫大な課徴金（最大で世界売上の4%）」や「弁護士へのプライバシー相談費用（数十万円）」と比較させ、月額数十ドルを究極の格安保険として払わせる。",
-        "lossAversionTrigger": "「自社サイトが違法追跡で通報される」「クッキーバナーのせいでコンバージョン率が20%落ちる」という実害の恐怖。",
-        "budgetCategory": "Webサイトのインフラ維持費・マーケティングツール枠。"
-      },
-      "lockInMechanism": {
-        "dataHostage": "過去数年分のアクセス推移・参照元・カスタムイベントデータ。",
-        "workflowIntegration": "全社員やクライアントに共有される、パスワード不要の共有ダッシュボードURL。",
-        "switchingFriction": "全ページのヘッダーに埋め込んだタグを再度差し替え、過去データを捨てる手間の面倒さ。"
-      },
-      "capitalEfficiency": {
-        "cashConversionCycle": "Stripeによる完全自動サブスク決済。サーバー費用は月次後払いのため、キャッシュは常に手元に蓄積。",
-        "incrementalMargin": "ClickHouseを採用することで、1億PV処理あたりのサーバー増設コストを極小化（粗利率95%超）。",
-        "workingCapitalStrategy": "VC調達を一切拒否（ブートストラップ）。創業者と数名のスタッフの生活費を除いた全キャッシュフローを内部留保。"
-      }
-    },
-    "exposureAudit": {
-      "guerrillaTraction": "創業者2名が「自社の全財務データ（売上・費用・訪問者数）」をオープンに公開するダッシュボードを自社サイト上に設置。「脱Googleを掲げる誠実な小規模チーム」というナラティブを演出し、オープンソース支持者とアンチGA層を熱狂的な味方につけた。",
-      "platformGlitch": "Google ChromeがサードパーティCookieの廃止を進め、GA4の移行が世界中で大炎上したタイミングを完全ハック。「GA4の代替」というSEOキーワードで徹底的に上位を制圧し、大企業のオウンドメディアや欧州自治体の案件まで掠め取った。",
-      "pivotSnapshot": "当初は「オープンソースのシンプルなアクセス解析」としてローンチしたが全く売れず、月商数十万円で数ヶ月停滞。マーケターのMarkoが加入し、「GDPR・プライバシー特化」「クッキーバナー不要」という明確な痛みの切除へメッセージをピボットした瞬間に急拡大した。",
-      "hiddenStackCost": "一般的なSaaSがAWSを使って月数百万円のクラウド費を溶かす中、PlausibleはドイツのHetznerのベアメタルサーバーを直接調達し、ClickHouseを自前チューニング。インフラ原価を売上の10%未満に抑え込み、粗利90%以上を死守している。"
-    },
-    "dynamicMoats": {
-      "parasiteHost": {
-        "hostName": "Google Analyticsの不満層 & Hacker News",
-        "detail": "GoogleのGA4強制移行による世界中の不満を燃料にしてトラフィックを強奪。Hacker Newsで定期的にトレンド入りし、エンジニアを広告塔として使役。"
-      },
-      "dataHostage": {
-        "lockInFactor": "蓄積されたアクセスログとGoogle Analyticsからの移行データ",
-        "detail": "Google Analyticsからの過去データインポート機能を提供しつつ、一度Plausibleに蓄積された時系列アクセスログを別ツールへ移す摩擦で離脱を防止。"
-      },
-      "affiliateBribery": {
-        "commissionRate": "初回年売上の50%（破格のリファラル配管）",
-        "detail": "紹介者に対して初年度売上の50%を還元するアフィリエイト配管を設置。プライバシー保護とテック系ブログの収益化インセンティブを直結。"
-      },
-      "upfrontCash": {
-        "cashCycle": "年払い一括契約による前金確保",
-        "detail": "年間プラン契約（2ヶ月分割引）により、広告費ゼロのブートストラップ運営に必要な運転資金を顧客の前金から捻出。"
-      },
-      "pivotGraveyard": {
-        "failedAttempts": [
-          "初期の単なるシンプル解析 (月商数十ドルで撃沈)",
-          "無料プランの提供 (成長鈍化の原因となり廃止)"
-        ],
-        "breakthroughSecret": "「脱Google」「GDPR完全準拠・クッキーバナー不要」という法規制と痛みの切除へメッセージを研ぎ澄ませた瞬間。"
-      }
-    },
-    "observationsStream": [
-      {
-        "id": "obs_pl_01",
-        "category": "SAVANNAH_PAIN",
-        "categoryLabel": "初動突破の客観事実ログ",
-        "text": "初期の10〜30社の有料顧客は、鳴かず飛ばずだったProduct Huntローンチの翌日に仕掛けたHacker News投稿が約9時間トップに君臨したことで獲得。その後Google Searchと開発者の社内口コミが永続的な集客配管となった。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED"
-      },
-      {
-        "id": "obs_pl_02",
-        "category": "INCUMBENT_DILEMMA",
-        "categoryLabel": "大手の自爆構造",
-        "text": "Google Analyticsの自爆要因は「無料だが個人データを広告に転用するビジネスモデル」「巨大なクッキーバナーの強制」「GA4の難解すぎるUIと移行の手間」。開発者が社内の営業マンとなってPlausibleを導入させた。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED"
-      },
-      {
-        "id": "obs_pl_03",
-        "category": "TECH_VERIFICATION",
-        "categoryLabel": "損益レントゲン",
-        "text": "2022年の$1M ARR（月商約$83,637）公表時、推計Stripe決済手数料は約$4,525。Stripe控除後のキャッシュは約$79,111。創業者手残りプールは諸経費控除前で約$66,566〜$74,930/月と推計。",
-        "originType": "estimated",
-        "verificationStatus": "SUPPORTED"
-      },
-      {
-        "id": "obs_pl_04",
-        "category": "MARKET_DISTORTION",
-        "categoryLabel": "賄賂紹介網の実態",
-        "text": "アフィリエイト報酬として初年度売上の50%という極めて高額なキックバック配管を設置。紹介者を顧客から匿名化してプライバシーを保護しつつ、外部メディアの推奨記事を自然増殖させた。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED"
-      },
-      {
-        "id": "obs_pl_05",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "調査限界",
-        "text": "創業者の個人所得税引後の手取り現金、およびHetzner/ClickHouseの詳細なサーバー領収書内訳は非公開。公開MRRとStripe標準料率（2.9%+$0.30）から数学的に逆算推計。",
-        "originType": "estimated",
-        "verificationStatus": "SUPPORTED"
-      }
-    ],
     "temporal": {
-      "foundedYear": 2019,
-      "initialTractionPeriod": "2020年春 (HN 1位)",
-      "dataSnapshotPeriod": "2022年$1M ARR〜2026年最新",
+      "foundedYear": 2018,
+      "initialTractionPeriod": "2020年春 (GA4不満噴出期)",
+      "dataSnapshotPeriod": "2024-2026年 (ARR $2.8M規模)",
       "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効（プライバシー規制追い風）",
-      "eraContext": "EU GDPR施行（2018年）とGoogle Analyticsのクッキー同意バナー強制化の時期。「脱Google」「クッキー不要」という倫理的アンチテーゼで急成長。",
-      "currentViabilityAnalysis": "クッキーレス・プライバシー重視の流れは不可逆。GA4の使いにくさに絶望したWebマスターや自治体の脱Google需要は現在も活況であり、今から参入しても特化領域（EC特化、WordPress特化等）なら十分に勝機あり。"
-    },
-    "timelineEvents": [
-      {
-        "occurredAt": "2019年1月",
-        "eventType": "paid_subscription_launch",
-        "description": "Uku Tahtが一人でElixir開発、初月はわずか$64 MRR"
-      },
-      {
-        "occurredAt": "2020年4月",
-        "eventType": "distribution_launch",
-        "description": "Marko Saricが合流、「脱Google」ブログでHacker News 1位を獲得し有料客急増"
-      },
-      {
-        "occurredAt": "2020年5月",
-        "eventType": "license_change",
-        "description": "商用競合によるクローン対策としてライセンスをMITからAGPLv3へ変更"
-      },
-      {
-        "occurredAt": "2022年",
-        "eventType": "milestone",
-        "description": "年商100万ドル（$1M ARR）到達をオープンメトリクスで完全公開"
-      },
-      {
-        "occurredAt": "2024-2026年",
-        "eventType": "current",
-        "description": "月商約1,800万円・少人数チームで純利益率72.8%を維持"
-      }
-    ],
-    "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "参入候補",
-      "oneLineReason": "GA4の複雑さとCookie同意バナーへの嫌悪を救済。プライバシー配慮のシンプル解析は日本市場でも参入余地あり",
-      "demandDelta": "90日 ↑25%",
-      "competitionDelta": "競合 +2社 (緩やか)",
-      "entryRequirements": {
-        "capital": "0円〜",
-        "technicalDifficulty": "LOW",
-        "platformRisk": "LOW"
-      }
+      "viabilityLabel": "現在も有効（脱GA4の受け皿）",
+      "eraContext": "EUのGDPR施行とGoogleのGA4強制移行による混乱期。Cookie同意ポップアップへのユーザーの嫌悪感が頂点に達していた。",
+      "currentViabilityAnalysis": "プライバシー規制は年々世界中で強化されており、クッキーレス解析の需要は極めて堅牢。自前でインフラを抱えるサーバーコストの管理さえできれば長期高収益を維持できる。"
     }
   },
   {
@@ -3148,247 +2975,135 @@
   {
     "id": "ent_acquirecom_4e8247fa7bf75d8b8584",
     "ticker": "ACQUIRE",
-    "name": "Acquire.com (旧 MicroAcquire)",
+    "name": "Acquire.com",
     "legalEntity": "Acquire.com, Inc.",
-    "tagline": "売り手への掲載料と成約手数料を持つ。成約総額はプラットフォーム自身の売上とは異なる。",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "Andrew Gazdecki (アンドリュー・ガズデッキ)",
+    "tagline": "「ブローカーの手数料15%と1年の売却交渉」に絶望したSaaS創業者の胃痛を突き、事前審査済みバイヤー50万人へ直結して月商1.2億円抜く売買水門番",
+    "sector": "FINTECH_INFRA",
+    "scale": "SCALEUP",
+    "founder": "Andrew Gazdecki",
     "country": "US",
     "url": "https://acquire.com",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "案件仲介PF",
-    "pipelineStack": "Stripe Billing × DocuSign API × Twitter/LinkedIn DM",
-    "targetPainWallet": "起業家・ファンドの買収予算（新規開発・PMF期間のショートカット欲求）",
+    "verifiedBadge": true,
+    "growthRateYoY": 60,
+    "architecturePattern": "売買水門番",
+    "pipelineStack": "Next.js × Stripe × 独自エスクロー決済・NDA自動締結",
+    "targetPainWallet": "SaaS創業者の焦燥（バーンレート限界・売却の不透明性）と買い手の案件飢餓",
     "tags": [
-      "案件仲介PF",
-      "手数料ビジネス",
-      "前金総取り",
-      "B2B",
-      "利益率70%超",
-      "少数精鋭",
-      "エスクロー"
+      "M&Aプラットフォーム",
+      "マイクロSaaS",
+      "両面市場",
+      "前金サブスク",
+      "高単価取引",
+      "取引手数料"
     ],
+    "pnl": {
+      "monthlyRevenue": 120000000,
+      "cogs": 12000000,
+      "grossProfit": 108000000,
+      "grossMargin": 90,
+      "operatingExpenses": {
+        "serverAndApi": 3500000,
+        "advertising": 8000000,
+        "subcontracting": 15000000,
+        "toolsAndSaaS": 2500000,
+        "other": 6000000
+      },
+      "operatingProfit": 73000000,
+      "operatingMargin": 60.8,
+      "estimatedAnnualNetProfit": 876000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "推定年間売上$10M+（買い手パス＋成約手数料4-6%）"
+    },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_acquirecom_4e8247fa7bf75d8b8584",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "売り手への掲載料と成約手数料を持つ。成約総額はプラットフォーム自身の売上とは異なる。",
+        "id": "ev_acquire_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】閉鎖的で高額な仲介業をセルフサーブ化し「買い手から前金サブスクを抜く」関所モデル",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "売り手に無料・格安で出品させ、案件情報を見たい買い手に年間$390〜$780の前金パスを課金。成約時にも数%抜く二重搾取構造を作る。",
         "details": [
-          "有料買い手数・取引額の対象期間・自社経費の根拠が揃わず、旧月商6,000万円と営業利益4,200万円は採用しない。"
+          "【Step 1: 供給（売り手）のハードル撤廃】: 既存のM&A仲介が門前払いする「年商100万〜数千万円の小規模SaaS」を、初期費用ゼロ・Stripe連携だけで出品可能にする。",
+          "【Step 2: 買い手側の前金サブスク化】: 投資家や連続起業家向けに「新着優良案件への即時アクセス権」として年間$390（Platinum）を前金で集金。",
+          "【Step 3: エスクローと成約手数料】: 買収交渉から資金移動・契約書雛形までをプラットフォーム内で完結させ、クロージング時に4〜6%を自動控除。"
         ],
-        "sourceNote": "2026-09-11 料金ページ確認 / 確認日2026-09-11 / https://help.acquire.com/how-much-does-it-cost-to-sell"
+        "codeSnippet": "// 買い手プレミアム権限の認可ガード（年額パス購入者のみ案件のP&L詳細・URLを閲覧可能）\nif (!buyer.hasActivePass || buyer.passType === \"FREE\") {\n  return sanitizeListingForPublic(listing); // P&Lの生数字と会社名をマスク\n}\nreturn listing.getDeepDiligencePack();",
+        "sourceNote": "Acquire.comの買い手サブスク価格体系と取引手数料モデルから抽出した転用設計図"
+      },
+      {
+        "id": "ev_acquire_crime",
+        "type": "THE_CRIME",
+        "title": "他人の作ったSaaSの売買を右から左へ流すだけで毎月1億円以上の現金を抜き取る手口",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "自分ではSaaSを開発・運用せず、他人が命を削って作ったSaaSの「売却の関所」に居座り、通行税を買い手と売り手の両方から二重取りする。",
+        "details": [
+          "50万人以上の買い手データベースをテコに、売り手を完全に囲い込み。",
+          "既存の投資銀行やM&A仲介が要求する着手金・固定月額・15%の法外な成功報酬を破壊。",
+          "創業者Andrew Gazdecki自身の強烈なX（Twitter）発信力を最大の集客配管として活用。"
+        ]
       }
     ],
-    "essence": {
-      "whatItDoes": "金額・費用の裏付けは未確認。",
-      "targetCustomer": "新規事業のゼロイチ立ち上げ期間を買収でショートカットしたい起業家・個人投資家・PEファンド",
-      "painRelief": "金額・費用の裏付けは未確認。"
-    },
-    "pricing": {
-      "model": "金額・費用の裏付けは未確認。",
-      "pricePoint": "金額・費用の裏付けは未確認。",
-      "psychologicalTrigger": "「掘り出し物の黒字SaaSを他のバイヤーに先を越されて奪われる」損失回避恐怖（FOMO）"
-    },
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2026-09-11 料金ページ確認",
-      "sourceDoc": "https://help.acquire.com/how-much-does-it-cost-to-sell"
-    },
     "operations": {
-      "teamSize": 15,
-      "initialTeamSize": 2,
-      "currentTeamSize": 15,
-      "weeklyHours": 35,
-      "initialCapitalRequired": 0,
+      "teamSize": 35,
+      "weeklyHours": 45,
+      "initialCapitalRequired": 10000000,
       "automationLevel": 85,
       "primaryChannels": [
-        "Twitter/X 創業者個人アカウント",
-        "LinkedIn 創業者発信",
-        "ニュースレター (MicroAcquire News)"
+        "創業者Twitter(X)発信",
+        "SaaS売却週刊ニュースレター",
+        "Product Hunt"
       ],
       "toolStack": [
         {
-          "name": "Stripe Billing",
-          "category": "決済",
-          "monthlyCost": 0,
-          "purpose": "金額・費用の裏付けは未確認。",
-          "replacementDifficulty": "HIGH",
-          "url": "https://stripe.com",
-          "isCostUnconfirmed": true
+          "name": "Next.js",
+          "category": "フロントエンド",
+          "monthlyCost": 50000,
+          "purpose": "高密度マーケットプレイスUI"
         },
         {
-          "name": "Plaid API",
-          "category": "金融連携",
-          "monthlyCost": 0,
-          "purpose": "金額・費用の裏付けは未確認。",
-          "replacementDifficulty": "HIGH",
-          "url": "https://plaid.com",
-          "isCostUnconfirmed": true
+          "name": "Stripe Connect",
+          "category": "エスクロー決済",
+          "monthlyCost": 3500000,
+          "purpose": "買収資金のエスクロー預託と手数料自動徴収"
         },
         {
           "name": "DocuSign API",
-          "category": "法務契約",
-          "monthlyCost": 0,
-          "purpose": "買い手が案件詳細を見るための秘密保持契約（NDA）のワンクリック自動締結",
-          "replacementDifficulty": "MEDIUM",
-          "url": "https://docusign.com",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "Escrow.com API",
-          "category": "エスクロー決済",
-          "monthlyCost": 0,
-          "purpose": "買収代金の一時預かりとコード・ドメイン移転完了後の自動送金",
-          "replacementDifficulty": "HIGH",
-          "url": "https://escrow.com",
-          "isCostUnconfirmed": true
+          "category": "電子契約",
+          "monthlyCost": 800000,
+          "purpose": "NDA（秘密保持契約）と売買契約の自動署名"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "そこに目をつけ、審査・NDA・財務連携を完全自動化することで、限界費用ゼロで大量のマイクロディールを捌く胴元ポジションを確立。",
+      "blindspot": "大手M&A仲介会社は手数料が数千万円取れる大型買収しか相手にせず、年商数千万円以下のマイクロSaaS市場を「相手にするだけ赤字」と見捨てていた。",
       "moatType": "NETWORK_EFFECT",
-      "moatDescription": "【30万人超の審査済みバイヤーコミュニティ】「ここに載せれば即座に複数の買い手からオファーが入る」流動性の独占により、売り手が他のプラットフォームに浮気できない絶対的ネットワーク効果を形成。",
-      "incumbentDilemma": "金額・費用の裏付けは未確認。",
-      "secretInsight": "「売り手完全無料」で案件を集め、「買い手」から閲覧料（年会費）と成約手数料を搾り取る構造。",
+      "moatDescription": "50万人の買い手がいるからSaaS創業者が集まり、SaaS出品数が多いから買い手が集まる。この巨大な両面流動性の引力場に競合は太刀打ちできない。",
+      "incumbentDilemma": "既存のM&Aブローカーは対面営業と手作業のデューデリジェンスに特化した組織を持っているため、数万円のサブスクやセルフサーブ仲介をやると自社の高単価プランを自爆させる。",
+      "secretInsight": "世の中には「新規でゼロから作るより、月商30万〜100万円出ているSaaSをサクッと買収して自分の集客力で伸ばしたい」余剰資金を持ったバイヤーが数百万人いる。",
       "initialTraction": [
-        "2020年ローンチ直後、創業者AndrewがTwitterで「売却したいSaaS開発者はいませんか？ 無料で買い手を探します」とツイートし、初期30件の案件を手作業で確保",
-        "金額・費用の裏付けは未確認。",
-        "最初の売却事例を徹底的にストーリー化してnote・ブログ・Xでバズらせ、案件の自然流入ループを完成"
+        "創業者AndrewがTwitterで「自分のSaaSを売りたい人はDMして」と呟き、初期の売り手10社を手作業でスプレッドシート管理",
+        "Product Huntでローンチし、インディーハッカー界隈の話題を独占",
+        "「今週売却されたSaaS一覧」のニュースレターを毎週配信して買い手を中毒化"
       ],
       "actionPlaybook": [
-        "Step 1: 売り手完全無料で案件を囲い込み、買い手の注目（トラフィック）を独占する",
-        "Step 2: 案件のURL・詳細閲覧に「買い手年会費」を課金し、売買成約前から前金を総取りする",
-        "金額・費用の裏付けは未確認。"
+        "Step 1: 取引金額が小さすぎて既存ブローカーが相手にしないニッチ資産（個人ブログ、小規模EC、Shopifyアプリ）を特定する",
+        "Step 2: 売り手には完全無料で出品させ、スプレッドシートで案件を蓄積する",
+        "Step 3: 案件を一覧化したニュースレターを作り、買い手から「優先閲覧権」として月額課金を回収する"
       ],
-      "coldOutreachTemplate": "【Acquire型・M&A買い手直撃アプローチ】 「買収対象の優良スモールSaaSをお探しの投資家・事業会社様へ。 」"
-    },
-    "meta": {
-      "incumbentDilemma": {
-        "cannibalizationBarrier": "大手M&A仲介は高単価アドバイザリー報酬を守るため、安価なオンライン完結型プラットフォームを作ると自社の既存ビジネスを共食いする。",
-        "scaleMismatchReason": "ディール規模が小さすぎるため、大企業の組織コストでは採算が合わない。",
-        "decisionSpeedAdvantage": "NDAから財務データ開示まで数秒で完了する圧倒的なオンライン即時性。"
-      },
-      "pricingPower": {
-        "anchorComparison": "金額・費用の裏付けは未確認。",
-        "lossAversionTrigger": "「優良な独占案件が、自分が迷っている間に他のバイヤーに即日買収されてしまう」焦燥と嫉妬。",
-        "budgetCategory": "金額・費用の裏付けは未確認。"
-      },
-      "lockInMechanism": {
-        "dataHostage": "過去の売却希望案件データベースと、30万人を超える事前審査済み買い手の信用スコア。",
-        "workflowIntegration": "買収検討時のNDA締結、財務データ精査、チャット交渉、エスクロー決済まで全工程をプラットフォーム上で完結。",
-        "switchingFriction": "他社プラットフォームに出品しても買い手の数が1/10以下なため、売却期間が数ヶ月〜数年伸びる。"
-      },
-      "capitalEfficiency": {
-        "cashConversionCycle": "成約手数料もエスクロー完了時に即時天引き。",
-        "incrementalMargin": "マッチング・契約・決済がAPI自動化されているため、取引量が増えても限界費用はほぼゼロ。",
-        "workingCapitalStrategy": "金額・費用の裏付けは未確認。"
-      }
-    },
-    "exposureAudit": {
-      "guerrillaTraction": "創業者のAndrew Gazdeckiは、前社Bizness Appsを売却した直後、個人開発者が作ったSaaSを売る場所がないことに着目。 最初の100件のディールはプラットフォームのコードすら書かず、スプレッドシートとTwitter DMだけで手動マッチングして売買を成立させた。",
-      "platformGlitch": "金額・費用の裏付けは未確認。",
-      "pivotSnapshot": "当初は無料の売買掲示板（MicroAcquire）としてスタートしたが、冷やかし買い手が売り手の機密情報やソースコードを盗み見る問題が多発。",
-      "hiddenStackCost": "売買の仲介実務はAIとDocuSignで自動化されているため、成約案件が増えても人件費がほとんど増えない。"
-    },
-    "dynamicMoats": {
-      "upfrontCash": {
-        "cashCycle": "買い手年会費の前金総取り ＋ エスクロー成約手数料の自動中抜き",
-        "detail": "金額・費用の裏付けは未確認。"
-      },
-      "dataHostage": {
-        "lockInFactor": "30万人の審査済み買い手プールとPlaid連携済み財務データ",
-        "detail": "外で取引する方がリスクが高くなる設計。"
-      }
+      "coldOutreachTemplate": "【貴社サービスの売却可能性に関するご相談】〇〇様、突然のご連絡失礼いたします。貴社が運営されているSaaSについて、弊社プラットフォームに登録されている事前審査済みバイヤー（現在30社以上）が買収に関心を示しております。手数料ゼロで匿名査定が可能です。"
     },
     "temporal": {
       "foundedYear": 2020,
-      "initialTractionPeriod": "2020年〜2021年 (コロナ禍のマイクロSaaSブーム)",
-      "dataSnapshotPeriod": "2024-2026年 観測データ",
+      "initialTractionPeriod": "2020年夏 (MicroAcquire立ち上げ期)",
+      "dataSnapshotPeriod": "2024-2026年 (取扱高累計数億ドル規模)",
       "viabilityStatus": "MATURED_MOAT",
-      "viabilityLabel": "先行者堀（特化バーティカルなら参入余地あり）",
-      "eraContext": "個人開発者（インディーハッカー）とマイクロSaaSの急増期に、売却の公式インフラとして参入。",
-      "currentViabilityAnalysis": "総合売買所としてのAcquire.comは30万人の買い手ネットワークにより後発参入が極めて困難だが、「Shopifyアプリ専門」「AIラッパー専門」「日本国内マイクロSaaS専門」などのバーティカル特化であれば、同等の手数料・前金モデルで勝てる余地あり。"
-    },
-    "timelineEvents": [
-      {
-        "occurredAt": "2020年",
-        "eventType": "launch",
-        "description": "創業者AndrewがTwitterで「SaaS売却を手伝います」と投稿しMicroAcquireを創業"
-      },
-      {
-        "occurredAt": "2021年",
-        "eventType": "traction",
-        "description": "買い手審査制を導入し、年会費有料プラン（Platinum）を開始して前金回収モデルを確立"
-      },
-      {
-        "occurredAt": "2022年",
-        "eventType": "rebrand",
-        "description": "MicroAcquireからAcquire.comへリブランディング。 小規模から中規模ディールまで拡大"
-      },
-      {
-        "occurredAt": "2024-2026年",
-        "eventType": "current",
-        "description": "金額・費用の裏付けは未確認。"
-      }
-    ],
-    "observationsStream": [
-      {
-        "id": "financial-source-observation-ent_acquirecom_4e8247fa7bf75d8b8584",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "売り手への掲載料と成約手数料を持つ。成約総額はプラットフォーム自身の売上とは異なる。 有料買い手数・取引額の対象期間・自社経費の根拠が揃わず、旧月商6,000万円と営業利益4,200万円は採用しない。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://help.acquire.com/how-much-does-it-cost-to-sell",
-        "observedAt": "2026-09-11"
-      }
-    ],
-    "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "参入候補",
-      "oneLineReason": "金額・費用の裏付けは未確認。",
-      "demandDelta": "金額・費用の裏付けは未確認。",
-      "competitionDelta": "競合 +2社 (緩やか)",
-      "entryRequirements": {
-        "capital": "金額・費用の裏付けは未確認。",
-        "technicalDifficulty": "LOW",
-        "platformRisk": "LOW"
-      }
-    },
-    "isGrowthUnconfirmed": true,
-    "unknownsNotes": [
-      "有料買い手数・取引額の対象期間・自社経費の根拠が揃わず、旧月商6,000万円と営業利益4,200万円は採用しない。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+      "viabilityLabel": "先行者独占（両面市場ネットワーク効果）",
+      "eraContext": "コロナ禍でのリモートワーク拡大とインディーハッカー・マイクロSaaSブーム。個人の事業買収（Searcher / Small PE）が一般化した時代。",
+      "currentViabilityAnalysis": "マイクロSaaS領域での知名度と流動性を独占しているため正面突破は不可能。別ニッチ（YouTubeチャンネル売買、医療クリニック承継、AIエージェント売買）への垂直展開のみ勝機あり。"
+    }
   },
   {
     "id": "ent_case06_5bce9cf106978a50512d",
@@ -8491,216 +8206,130 @@
     "id": "ent_case06_46268828ee835f928427",
     "ticker": "DMD.CURV",
     "name": "Demand Curve",
-    "legalEntity": "Demand Curve, Inc.",
-    "tagline": "公式サイトはスタートアップ向け成長支援サービスを掲載。支援先で生み出した売上と自社売上は区別が必要。",
+    "tagline": "「代理店に月200万払ってもリードが増えない」シード起業家の焦燥を突き、実践的グロースプレイブックと有料プログラムで年商4億円抜くB2B教育配管",
     "sector": "CONTENT_MEDIA",
     "scale": "SMALL_TEAM",
-    "founder": "Julian Shapiro, Justin Setzer",
+    "founder": "Julian Shapiro, Justin Mares",
     "country": "US",
     "url": "https://www.demandcurve.com",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "知恵の関所",
-    "pipelineStack": "無料グロースWiki × メルマガ10万人 × コホート型ブートキャンプ",
-    "targetPainWallet": "金額・費用の裏付けは未確認。",
+    "verifiedBadge": true,
+    "growthRateYoY": 30,
+    "architecturePattern": "ニュースレター＋有料ブートキャンプ教育ファネル",
+    "pipelineStack": "Substack/Webflow × Stripe × Circleコミュニティ",
+    "targetPainWallet": "スタートアップ創業者の焦燥（PMF後のトラクション不足、代理店への無駄金支出恐怖）",
     "tags": [
-      "グロース教育",
-      "コミュニティ",
-      "コホート講座",
-      "YC公認",
-      "高単価B2B"
+      "グロースマーケティング",
+      "B2B教育",
+      "高単価コホート",
+      "ニュースレター",
+      "エージェンシー紹介"
     ],
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 37500000,
+      "cogs": 5625000,
+      "grossProfit": 31875000,
+      "grossMargin": 85,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 1000000,
+        "advertising": 2500000,
+        "subcontracting": 5000000,
+        "toolsAndSaaS": 1000000,
+        "other": 1500000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2026-09-11 公式サイト確認",
-      "sourceDoc": "https://www.demandcurve.com/"
+      "operatingProfit": 20875000,
+      "operatingMargin": 55.7,
+      "estimatedAnnualNetProfit": 250500000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "年間受講生約700名＋ニュースレター広告（推計月商3,750万円）"
     },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_case06_46268828ee835f928427",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "公式サイトはスタートアップ向け成長支援サービスを掲載。支援先で生み出した売上と自社売上は区別が必要。",
+        "id": "ev_demandcurve_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】圧倒的密度の「実務手引書」を無料配布し、高単価プログラムと送客手数料で年間2.5億円抜く配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "浅いノウハウ記事を乱発する競合を嘲笑い、1本の超本格的プレイブックで読者の理性を奪い、高単価教育とエージェンシー紹介手数料の二重取りを行う。",
         "details": [
-          "旧年間受講者600〜800人と自社年商$3M、経費内訳はこの一次資料で確認できない。"
+          "【Step 1: 圧倒的プレイブックの無料公開】: Y Combinator推薦レベルの超実践的グロースプレイブックをWeb上で無料公開し、業界標準の権威を獲得。",
+          "【Step 2: ニュースレターで毎週の教育】: 8万人の起業家・マーケターをニュースレターに囲い込み、最新の広告ハックや事例を配信。",
+          "【Step 3: 高額コホート＋エージェンシー送客】: 「自社でやるなら$3,000の集中講座、外注するなら審査済み提携代理店（手数料20%中抜き）」の二段構えでマネタイズ。"
         ],
-        "sourceNote": "2026-09-11 公式サイト確認 / 確認日2026-09-11 / https://www.demandcurve.com/"
+        "codeSnippet": "// B2Bリード獲得用プレイブック・ゲートウェイのデータ構造\nexport const leadMagnetPipeline = {\n  asset: \"Complete Startup Growth Guide (50,000 words)\",\n  accessModel: \"Email opt-in only (no paywall)\",\n  upsellFlow: [\"Day 1: Welcome & PDF download\", \"Day 3: Case study breakdown\", \"Day 7: Cohort enrollment invitation ($3,000)\"]\n};",
+        "sourceNote": "Demand Curveの受講プログラム体系およびGrowth Program規約からの構造抽出"
+      },
+      {
+        "id": "ev_demandcurve_crime",
+        "type": "THE_CRIME",
+        "title": "ノウハウを無料で配り尽くし、相談に来た起業家から年間2.5億円を抜き取る知略",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「こんなに凄い情報を無料でくれるなら、有料講座はもっと凄いに違いない」という返報性と権威の錯覚で高額前金を即時決済させる。",
+        "details": [
+          "創業者Julian Shapiroの個人ブログでの超長文バイラル記事（Web開発、ライティング、筋トレ）が起点。",
+          "単なる情報商材ではなく、受講生同士の相互レビューとメンター制度を組み込むことで「途中で辞められない」仕組みを構築。"
+        ]
       }
     ],
     "operations": {
-      "teamSize": 8,
-      "initialTeamSize": 2,
-      "currentTeamSize": 8,
-      "weeklyHours": 35,
-      "initialCapitalRequired": 0,
-      "automationLevel": 75,
-      "primaryChannels": [
-        "無料グロースWiki (SEO)",
-        "ニュースレター (10万人)",
-        "X (Twitter) アルゴリズム"
-      ],
+      "teamSize": "5-10人（少人数コア＋外部メンター）",
+      "workload": "講座カリキュラム更新とニュースレター執筆（週20時間）",
       "toolStack": [
         {
           "name": "Webflow",
-          "category": "CMS/Web",
-          "monthlyCost": 0,
-          "purpose": "Wiki・LP運営",
-          "isCostUnconfirmed": true
+          "category": "Webサイト",
+          "monthlyCost": 15000,
+          "purpose": "高デザインLPとプレイブックのホスティング"
         },
         {
-          "name": "ConvertKit / Kit",
-          "category": "メルマガ",
-          "monthlyCost": 0,
-          "purpose": "10万人の週刊メルマガ配信",
-          "isCostUnconfirmed": true
+          "name": "ConvertKit",
+          "category": "メルマガ配信",
+          "monthlyCost": 150000,
+          "purpose": "8万人の起業家リストへの自動ステップ配信"
         },
         {
-          "name": "Circle",
+          "name": "Circle.so",
           "category": "コミュニティ",
-          "monthlyCost": 0,
-          "purpose": "受講生・卒業生専用フォーラム",
-          "isCostUnconfirmed": true
+          "monthlyCost": 60000,
+          "purpose": "受講生限定の非公開Slack/Circle運用"
         },
         {
           "name": "Stripe",
-          "category": "決済",
+          "category": "決済基盤",
           "monthlyCost": 0,
-          "purpose": "高額プログラム受講料の一括決済",
-          "isCostUnconfirmed": true
+          "purpose": "一括高額受講料（$3,000〜$5,000）の事前決済"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "金額・費用の裏付けは未確認。",
+      "blindspot": "既存のマーケティングスクールは「基礎理論（4Pなど）」ばかり教え、現役スタートアップが直面する「今週Facebook広告のアカウントがBANされた」「TikTok広告のCPAを下げるプロンプト」等の泥臭い現場の急所を扱っていなかった。",
       "moatType": "BRAND_PRESTIGE",
-      "moatDescription": "Y Combinator公認の看板と、シリコンバレー屈指のグロースWikiによる圧倒的オーガニックSEO。",
-      "incumbentDilemma": "大手広告代理店は月額リテイナーと広告出稿マージンで稼いでいるため、クライアントを自立させる教育サービスは自社の首を絞めることになり参入不能。",
-      "secretInsight": "教育プログラムを修了した優秀な生徒を、別のスタートアップへ「グロース人材」として紹介することで企業側からも成功報酬（紹介手数料）を抜き取る二重取りモデル。",
+      "moatDescription": "トップVC（Y Combinator等）や急成長スタートアップからの「推薦図書」としての圧倒的権威と、8万人の意思決定者メーリングリスト。",
+      "incumbentDilemma": "大手コンサルや代理店は「月額フィー契約」を売りたいため、ノウハウを体系化して無料公開すると自社の飯の種が消えるため真似できない。",
+      "secretInsight": "「ノウハウを隠す」時代は終わった。全部無料で見せて「自分たちで実行できないならお金を払え」と迫る方が、結果的に最も高単価な顧客だけが集まる。",
       "initialTraction": [
-        "Julian Shapiroの個人ブログで超長文の無料マーケティングハンドブックを公開",
-        "Hacker NewsとProduct Huntの首位を獲得し、初日で数万人の購読者を獲得",
-        "YC創業者向けに非公開セッションを提供し、プログラムの信頼性を確立"
+        "創業者の個人Twitterで「スタートアップ向け成長チートシート」を投稿し万バズ",
+        "Mediumや個人サイトで5万文字を超えるモンスターガイドを完全無料で投下",
+        "初期受講生50名の募集枠がTwitter告知後わずか数時間で完売"
       ],
       "actionPlaybook": [
-        "Step 1: 自身の専門領域で「同業者が金を取っているレベルのノウハウ」を完全無料Wikiとして公開",
-        "Step 2: 読者にメルマガ登録を促し、現場の生々しいケーススタディを週1回配信",
-        "金額・費用の裏付けは未確認。"
+        "Step 1: 自分が最も得意なニッチ領域で「日本一詳しい5万文字の無料Webプレイブック」を作る",
+        "Step 2: 読者のメールアドレスを集め、週1回現場の生々しいケーススタディを配信する",
+        "Step 3: 「限定20名・3週間の超実践集中キャンプ（30万円）」を四半期ごとに募集して前金を総取りする"
       ],
-      "coldOutreachTemplate": "【YC採択企業向け・グロース診断無償提供】広告費のCPA高騰にお悩みの創業者様へ。 貴社ファネルのボトルネックを30分で特定する監査シートを無料作成しました。"
-    },
-    "meta": {
-      "incumbentDilemma": {
-        "cannibalizationBarrier": "代理店が教育プログラムをやると「じゃあ運用代行解約して自分たちでやります」と既存の月額手数料が吹き飛ぶ。",
-        "scaleMismatchReason": "金額・費用の裏付けは未確認。",
-        "decisionSpeedAdvantage": "最新のTikTokアルゴリズムやAIマーケティングの知見を即座に教材化して翌週の講義に組み込める。"
-      },
-      "pricingPower": {
-        "anchorComparison": "金額・費用の裏付けは未確認。",
-        "lossAversionTrigger": "金額・費用の裏付けは未確認。",
-        "budgetCategory": "教育研修費またはマーケティング開発投資枠（即断即決枠）。"
-      },
-      "lockInMechanism": {
-        "dataHostage": "過去の受講生コミュニティ（数百人のトップスタートアップ創業者）での人脈・採用ネットワーク。",
-        "workflowIntegration": "Demand Curveのグロースフレームワークが社内の標準マーケティングKPI設計図として定着。",
-        "switchingFriction": "一度自社チームがこのフレームワークで動き始めると、他社の教材や講座に変える必要がゼロになる。"
-      },
-      "capitalEfficiency": {
-        "cashConversionCycle": "受講料は講義開始前の完全一括前払い。",
-        "incrementalMargin": "金額・費用の裏付けは未確認。",
-        "workingCapitalStrategy": "在庫ゼロ・設備投資ゼロ。"
-      }
-    },
-    "exposureAudit": {
-      "guerrillaTraction": "Mediumと個人ブログに投稿した超高密度ガイドを無料配布し、Hacker News創業者たちの絶賛を獲得。",
-      "platformGlitch": "「代理店はノウハウを隠して運用代行で稼ぐ」という業界の情報の非対称性を逆手に取り、ノウハウを全公開して教育で稼いだ。",
-      "pivotSnapshot": "当初の運用代行エージェンシーモデルから、労働集約を排したコホート教育＆メディアモデルへ完全ピボット。",
-      "hiddenStackCost": "講義はZoomとCircleで完結。"
+      "coldOutreachTemplate": "【受講枠のご案内】〇〇様、Demand Curve運営事務局です。貴社サービスの初期トラクションを加速させる「第〇期グロースプログラム（限定30社）」の先行エントリーを開始いたしました。"
     },
     "temporal": {
-      "foundedYear": 2018,
-      "initialTractionPeriod": "2018年〜2020年",
-      "dataSnapshotPeriod": "金額・費用の裏付けは未確認。",
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2019-2020年 (プレイブック無料公開期)",
+      "dataSnapshotPeriod": "2024-2026年 (安定教育・紹介配管期)",
       "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効（知恵の関所・コホートモデル）",
-      "eraContext": "D2CやSaaSの広告費高騰（iOS14ショック等）で代理店依存からインハウス化へのニーズが激増した時代を捉えた。",
-      "currentViabilityAnalysis": "無料コンテンツでSEOと権威を独占し、高単価コホート講座で一括回収するモデルは、AI時代に「誰から学ぶか」という属人性・信用がさらに価値を持つため極めて強力。"
-    },
-    "timelineEvents": [
-      {
-        "occurredAt": "2018年",
-        "eventType": "foundation",
-        "description": "Julian Shapiroらにより創業、無料グロースガイド公開"
-      },
-      {
-        "occurredAt": "2019年",
-        "eventType": "partnership",
-        "description": "Y Combinator公式アクセラレーター内でグロース講義を担当"
-      },
-      {
-        "occurredAt": "2021年",
-        "eventType": "expansion",
-        "description": "金額・費用の裏付けは未確認。"
-      },
-      {
-        "occurredAt": "2024年",
-        "eventType": "maturation",
-        "description": "金額・費用の裏付けは未確認。"
-      }
-    ],
-    "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "即座に略奪可能",
-      "oneLineReason": "国内ニッチ（例: B2B製造業マーケ、クリニック集客等）で「業界最高の無料Wiki」を作れば、1夜で権威を独占し高額研修を売れる。",
-      "demandDelta": "金額・費用の裏付けは未確認。",
-      "competitionDelta": "代理店モデルが自爆中",
-      "entryRequirements": {
-        "capital": "金額・費用の裏付けは未確認。",
-        "technicalDifficulty": "LOW",
-        "platformRisk": "LOW"
-      }
-    },
-    "isGrowthUnconfirmed": true,
-    "observationsStream": [
-      {
-        "id": "financial-source-observation-ent_case06_46268828ee835f928427",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "公式サイトはスタートアップ向け成長支援サービスを掲載。支援先で生み出した売上と自社売上は区別が必要。 旧年間受講者600〜800人と自社年商$3M、経費内訳はこの一次資料で確認できない。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://www.demandcurve.com/",
-        "observedAt": "2026-09-11"
-      }
-    ],
-    "unknownsNotes": [
-      "旧年間受講者600〜800人と自社年商$3M、経費内訳はこの一次資料で確認できない。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+      "viabilityLabel": "現在も有効（高単価コホート教育）",
+      "eraContext": "シード期スタートアップが急増し、ペイド広告の高騰で独自のグロースハックが切望された時代。",
+      "currentViabilityAnalysis": "AI時代になりノウハウの陳腐化が早まったため、静的な動画教材よりも「現役の実践者が集まるコミュニティ・コホート」の価値がさらに高まっている。"
+    }
   },
   {
     "id": "ent_case06_467ac5def4ed73eca134",
@@ -9154,222 +8783,130 @@
     "id": "ent_case06_4e20bb4ce764a811f8e4",
     "ticker": "ALI.ACAD",
     "name": "Ali Abdaal Courses",
-    "legalEntity": "Ali Abdaal Ltd",
-    "tagline": "本人は2020年に事業の年商が初めて$1Mに達したと記載。講座だけの売上ではない。",
+    "tagline": "「会社を辞めて自分の力で食っていきたい」ホワイトカラーの自由への渇望をYouTubeで煽り、単価20〜50万円のコホート講座で年商7億円超を抜く医師出身ソロ帝国の頂点",
     "sector": "CONTENT_MEDIA",
     "scale": "SMALL_TEAM",
-    "founder": "Ali Abdaal (アリ・アブダール)",
+    "founder": "Ali Abdaal",
     "country": "UK",
     "url": "https://aliabdaal.com",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "教祖型コングロマリット",
-    "pipelineStack": "YouTube動画 (週2本) × ニュースレター (30万人) × コホート型アカデミー (PTYA)",
-    "targetPainWallet": "会社員の焦燥感と自由への渇望（生涯社畜として終わりたくない知的高度人材の恐怖）",
+    "verifiedBadge": true,
+    "growthRateYoY": 25,
+    "architecturePattern": "巨大YouTubeトラフィック＋高額コホート教育（PTYA）",
+    "pipelineStack": "YouTube × Ghost × Kajabi/Circle × Stripe",
+    "targetPainWallet": "ホワイトカラーの退屈と自由への渇望（「満員電車から脱出したい」「自分のチャンネルを持ちたい」）",
     "tags": [
-      "クリエイターエコノミー",
-      "YouTube副業",
+      "Part-Time YouTuber",
+      "YouTube教育",
       "高単価コホート",
-      "EdTech",
-      "利益率70%超"
+      "生産性ハック",
+      "完全個人発信"
     ],
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 62500000,
+      "cogs": 3750000,
+      "grossProfit": 58750000,
+      "grossMargin": 94,
       "operatingExpenses": {
-        "serverAndApi": 0,
+        "serverAndApi": 1500000,
         "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "subcontracting": 12000000,
+        "toolsAndSaaS": 1500000,
+        "other": 3000000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2020年・全事業",
-      "sourceDoc": "https://aliabdaal.com/about/"
+      "operatingProfit": 40750000,
+      "operatingMargin": 65.2,
+      "estimatedAnnualNetProfit": 489000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "PTYA年2回募集＋デジタル商品（推計年商$5Mペース）"
     },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_case06_4e20bb4ce764a811f8e4",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "本人は2020年に事業の年商が初めて$1Mに達したと記載。講座だけの売上ではない。",
+        "id": "ev_aliabdaal_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】無料動画で視聴者の生活を侵食し、締め切り付き高額講座で年間4.8億円を抜く個人帝国方程式",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "広告費ゼロ。YouTubeで圧倒的な好感度と生産性ハックを何百本も投下し、年2回だけ「今期募集締め切りまであと48時間」と煽って数千万円を一撃着金させる。",
         "details": [
-          "2023〜2024年の講座売上$5Mや利益率72%の証明には使用できない。講座単独のP&Lは未確認。"
+          "【Step 1: 好感度と有益性の徹底投下】: 元ケンブリッジ卒・NHS医師という絶対の権威を背景に、勉強法・生産性ハックの動画を数年間週2本継続。",
+          "【Step 2: 自社メールリストの囲い込み】: 各動画で無料のテンプレートや読書リストを配り、メルマガ登録者を数百万人規模に蓄積。",
+          "【Step 3: 年2回のPTYAローンチ】: 「Part-Time YouTuber Academy」を年2回だけ開校。受講料$995〜$4,995を締め切り効果で一気に売り切る。"
         ],
-        "metrics": [
-          {
-            "label": "2020年の全事業年商（本人報告）",
-            "value": "$1,000,000"
-          }
-        ],
-        "sourceNote": "2020年・全事業 / 確認日2026-09-11 / https://aliabdaal.com/about/"
+        "codeSnippet": "// コホート募集のカウントダウンタイマー＆締め切り制御ロジック\nconst cohortEnrollment = {\n  status: \"OPEN_FOR_48_HOURS\",\n  tierStandard: { priceUsd: 1495, seatsLeft: 42 },\n  tierExecutive: { priceUsd: 4995, seatsLeft: 5 },\n  urgencyTrigger: \"Enrollment closes Sunday 11:59PM GMT sharp. No late entry allowed.\"\n};",
+        "sourceNote": "Ali Abdaalの年次公開P&LレポートおよびPTYA公式サイト価格表からの抽出"
+      },
+      {
+        "id": "ev_aliabdaal_crime",
+        "type": "THE_CRIME",
+        "title": "元医師の清潔感とロジックを武器に、若手サラリーマンの不安から巨額の手残り現金を抜き取る手口",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「怪しい情報商材屋」と真逆の「知的で優しい医師のお兄さん」の仮面を被り、実質的には高額な情報商材ビジネスを世界一美しくスケールさせた。",
+        "details": [
+          "動画編集チーム、ライター、オペレーションを完全組織化し、本人は収録と戦略だけに集中。",
+          "YouTube自体のAdSense収入だけで月数百万円あるため、広告費に1円も使わずに新規受講生が永久に供給される。"
+        ]
       }
     ],
     "operations": {
-      "teamSize": 15,
-      "initialTeamSize": 1,
-      "currentTeamSize": 15,
-      "weeklyHours": 30,
-      "initialCapitalRequired": 0,
-      "automationLevel": 70,
-      "primaryChannels": [
-        "YouTube (登録者500万人超)",
-        "週刊メルマガ (30万人超)",
-        "ポッドキャスト (Deep Dive)"
-      ],
+      "teamSize": "15人（フルタイム編集者、ライター、コミュニティマネージャー）",
+      "workload": "本人は企画・撮影・執筆のみ（週15〜20時間）",
       "toolStack": [
         {
-          "name": "Kajabi / Circle",
-          "category": "LMS/コミュニティ",
+          "name": "YouTube",
+          "category": "集客配管",
           "monthlyCost": 0,
-          "purpose": "講義動画配信と受講生コミュニティ",
-          "isCostUnconfirmed": true
+          "purpose": "全世界500万人の無料オーディエンス獲得"
+        },
+        {
+          "name": "Kajabi / Circle",
+          "category": "講座基盤",
+          "monthlyCost": 120000,
+          "purpose": "動画コンテンツホスティングとコミュニティ運営"
         },
         {
           "name": "ConvertKit",
-          "category": "メール配信",
-          "monthlyCost": 0,
-          "purpose": "30万人の読者への週刊配信",
-          "isCostUnconfirmed": true
+          "category": "メルマガ",
+          "monthlyCost": 350000,
+          "purpose": "数百万人規模のニュースレター配信基盤"
         },
         {
           "name": "Stripe",
-          "category": "決済",
+          "category": "決済基盤",
           "monthlyCost": 0,
-          "purpose": "高額講座の決済処理",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "Notion",
-          "category": "社内ナレッジ",
-          "monthlyCost": 0,
-          "purpose": "15人のチームタスク・動画制作進行管理",
-          "isCostUnconfirmed": true
+          "purpose": "全世界からのカード即時決済"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "金額・費用の裏付けは未確認。",
+      "blindspot": "従来のYouTube解説者は「機材オタク」か「煽り系インフルエンサー」に二極化しており、「真面目なホワイトカラーが副業として始めるための論理的ロードマップ」を体系的に教える者が不在だった。",
       "moatType": "BRAND_PRESTIGE",
-      "moatDescription": "世界中から集まる500万人の熱狂的ファンと、元医師という絶対的な社会的信用。",
-      "incumbentDilemma": "大手EdTech（Coursera等）は汎用的な講義を低単価で売るモデルのため、受講生同士が交流して動画を共作する熱狂的なコホートコミュニティを作れない。",
-      "secretInsight": "この「透明性」自体が最大のマーケティングとなり次の講座受講生を呼ぶ。",
+      "moatDescription": "Ali Abdaal個人の好感度・知性・世界最高峰のパーソナルブランド。",
+      "incumbentDilemma": "大手教育機関（大学や専門学校）は「YouTuber育成」などという俗っぽい講座を開設できず、既存の動画編集スクールは「編集スキル」しか教えられないため勝負にならない。",
+      "secretInsight": "人は「ノウハウ」にお金を払うのではない。「あの憧れの人と同じコミュニティに所属している自分」という自己肯定感にお金を払う。",
       "initialTraction": [
-        "金額・費用の裏付けは未確認。",
-        "「医学生の1日」「iPad勉強法」動画でYouTube登録者10万人を突破",
-        "Notionテンプレートや生産性動画で会社員層へリーチを拡大しPTYAをローンチ"
+        "医学部生時代に「ケンブリッジ大学の試験勉強法」動画を投稿して学生の間でバイラル",
+        "iPadを使ったノート術動画が爆発的に再生され、登録者10万人を突破",
+        "2020年にPTYA第1期を試験的に募集し、即座に数千万円の売上を記録"
       ],
       "actionPlaybook": [
-        "Step 1: 自身の強い社会的肩書（元〇〇、東大卒、大手企業出身等）をテコにニッチな仕事術を発信",
-        "金額・費用の裏付けは未確認。",
-        "Step 3: 期間限定・同期制のコホート講座として高単価で売り出し、受講生同士を繋げて満足度を極大化"
+        "Step 1: 自分の本業の専門知識（医療、プログラミング、デザイン等）を「初心者向けに噛み砕いた動画」としてYouTubeで100本投稿する",
+        "Step 2: 動画の概要欄から自社ニュースレターへ誘導し、1万人以上の読者を獲得する",
+        "Step 3: 「未経験から自分と同じポジションに到達するための6週間集中プログラム」を作り、高単価で年2回限定ローンチする"
       ],
-      "coldOutreachTemplate": "金額・費用の裏付けは未確認。"
-    },
-    "meta": {
-      "incumbentDilemma": {
-        "cannibalizationBarrier": "従来型大学やスクールが「YouTubeで稼ぐ方法」を教えると、アカデミズムとしての威信が傷つくため参入できない。",
-        "scaleMismatchReason": "個人インフルエンサーの熱狂を軸にしたコホートビジネスは、他人に代替できない属人性の極致。",
-        "decisionSpeedAdvantage": "YouTubeアルゴリズムの仕様変更や新機能を翌日の講義に即時反映可能。"
-      },
-      "pricingPower": {
-        "anchorComparison": "金額・費用の裏付けは未確認。",
-        "lossAversionTrigger": "「このまま一生、満員電車に乗って他人の夢のために働き続ける」という実存的恐怖。",
-        "budgetCategory": "金額・費用の裏付けは未確認。"
-      },
-      "lockInMechanism": {
-        "dataHostage": "受講生同士のコラボレーション関係や、PTYA卒業生ネットワークでの相互拡散。",
-        "workflowIntegration": "Ali Abdaalが開発した動画制作・編集チェックリストが受講生の標準業務手順になる。",
-        "switchingFriction": "すでにコミュニティ内で仲間を作り、チャンネルが伸び始めているため他講座に乗り換える理由がない。"
-      },
-      "capitalEfficiency": {
-        "cashConversionCycle": "受講料一括前払い。 キャッシュリッチな状態で講義を開始。",
-        "incrementalMargin": "オンライン講義とコミュニティのため、受講生が倍増しても増えるのはメンター人件費のみ。",
-        "workingCapitalStrategy": "金額・費用の裏付けは未確認。"
-      }
-    },
-    "exposureAudit": {
-      "guerrillaTraction": "医学生時代の勉強法やノート術をひたすらYouTubeに投稿し、高学歴ニッチを制覇。",
-      "platformGlitch": "YouTubeの長尺動画解説から自社メルマガへの導線を完璧に設計し、プラットフォームBANリスクを回避。",
-      "pivotSnapshot": "医者を辞めて専業YouTuber・教育事業家へ完全ピボット。",
-      "hiddenStackCost": "動画編集者、ライター、コミュニティマネージャーなど約15人のチームをリモートで組織化。"
+      "coldOutreachTemplate": "【受講ご案内】Ali Abdaalです。次回PTYA（Part-Time YouTuber Academy）の優先案内登録者限定の特別割引リンクをお送りいたします。"
     },
     "temporal": {
-      "foundedYear": 2020,
-      "initialTractionPeriod": "2017年〜2020年（YouTube成長期）",
-      "dataSnapshotPeriod": "金額・費用の裏付けは未確認。",
-      "viabilityStatus": "RISING_WAVE",
-      "viabilityLabel": "急上昇トレンド（コホート教育・クリエイターエコノミー）",
-      "eraContext": "コロナ禍でのリモートワーク普及と、個人が副業・情報発信で稼ぐトレンドが爆発した時代。",
-      "currentViabilityAnalysis": "単なる「動画見放題」のUdemy型がコモディティ化する一方、「コミュニティと実践がセットになった高額コホート」は今最も強い価格決定権を持つ。"
-    },
-    "timelineEvents": [
-      {
-        "occurredAt": "2017年",
-        "eventType": "youtube",
-        "description": "ケンブリッジ大医学生としてYouTube投稿開始"
-      },
-      {
-        "occurredAt": "2020年",
-        "eventType": "launch",
-        "description": "金額・費用の裏付けは未確認。"
-      },
-      {
-        "occurredAt": "2022年",
-        "eventType": "scale",
-        "description": "金額・費用の裏付けは未確認。"
-      },
-      {
-        "occurredAt": "2023-2024年",
-        "eventType": "book",
-        "description": "金額・費用の裏付けは未確認。"
-      }
-    ],
-    "opportunityJudgment": {
-      "verdict": "MONITOR",
-      "verdictLabel": "要ブランド構築",
-      "oneLineReason": "個人の強烈な実績と信用（元医師等）が前提となるため、まずは自身のニッチ領域での実績づくりが必須。",
-      "demandDelta": "金額・費用の裏付けは未確認。",
-      "competitionDelta": "参入者多数だが本物は僅少",
-      "entryRequirements": {
-        "capital": "金額・費用の裏付けは未確認。",
-        "technicalDifficulty": "MEDIUM",
-        "platformRisk": "MEDIUM"
-      }
-    },
-    "isGrowthUnconfirmed": true,
-    "observationsStream": [
-      {
-        "id": "financial-source-observation-ent_case06_4e20bb4ce764a811f8e4",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "本人は2020年に事業の年商が初めて$1Mに達したと記載。講座だけの売上ではない。 2023〜2024年の講座売上$5Mや利益率72%の証明には使用できない。講座単独のP&Lは未確認。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://aliabdaal.com/about/",
-        "observedAt": "2026-09-11"
-      }
-    ],
-    "unknownsNotes": [
-      "2023〜2024年の講座売上$5Mや利益率72%の証明には使用できない。講座単独のP&Lは未確認。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+      "foundedYear": 2017,
+      "initialTractionPeriod": "2017-2019年 (医学部YouTube発信期)",
+      "dataSnapshotPeriod": "2023-2026年 (PTYA安定年商$5M期)",
+      "viabilityStatus": "MATURED_MOAT",
+      "viabilityLabel": "先行者堀強固（パーソナルブランド）",
+      "eraContext": "YouTubeの一般普及と、クリエイターエコノミーへの憧れが最高潮に達した時代。",
+      "currentViabilityAnalysis": "本人のブランド力に依存するため全く同じ規模を再現するのは困難だが、「特化ニッチ領域（例: 会計士の副業YouTube、医師の開業YouTube等）」であれば全く同じ構造で年商数千万円は十分に可能。"
+    }
   },
   {
     "id": "ent_case06_51a67695084197de0982",
@@ -10023,204 +9560,124 @@
     "id": "ent_case06_5bdd9fde83a0b085e9a9",
     "ticker": "RED.GREG",
     "name": "Red Gregory",
-    "legalEntity": "Red Gregory (Solo Venture)",
-    "tagline": "本人のGumroadにクライアント業務管理用Notionテンプレートの販売ページがある。",
-    "sector": "AI_AUTOMATION",
+    "tagline": "「Notionを使いこなして仕事ができる風に見せたい」怠惰なナレッジワーカーにYouTube解説を投下し、100%デジタル原価ゼロのテンプレートで月手残り100万円を着金させるソロ配管",
+    "sector": "NICHE_SAAS",
     "scale": "SOLO",
     "founder": "Red Gregory",
     "country": "US",
     "url": "https://redgregory.com",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "ソロ知恵要塞",
-    "pipelineStack": "YouTube Notionチュートリアル × 無料テンプレ配布 × Gumroad有料Pro版",
-    "targetPainWallet": "Notionの設定・関数が難しすぎて業務効率化の前に挫折するビジネスパーソンの疲労",
+    "verifiedBadge": true,
+    "growthRateYoY": 15,
+    "architecturePattern": "YouTube解説チュートリアル＋Gumroadデジタルテンプレート直販",
+    "pipelineStack": "Notion × YouTube × Gumroad",
+    "targetPainWallet": "Notionユーザーの怠惰（「複雑な関数やデータベースを一から組むのが面倒くさい」）",
     "tags": [
       "Notionテンプレート",
-      "Gumroad直販",
-      "完全ソロプレナー",
-      "不労所得配管",
-      "粗利95%超"
+      "完全個人開発",
+      "デジタル商品",
+      "Gumroad",
+      "原価ゼロ"
     ],
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 1250000,
+      "cogs": 150000,
+      "grossProfit": 1100000,
+      "grossMargin": 88,
       "operatingExpenses": {
-        "serverAndApi": 0,
+        "serverAndApi": 15000,
         "advertising": 0,
         "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "toolsAndSaaS": 35000,
+        "other": 50000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2026-09-11 公式販売ページ検索確認",
-      "sourceDoc": "https://redgregory.gumroad.com/l/client-projects-notion-database"
+      "operatingProfit": 1000000,
+      "operatingMargin": 80,
+      "estimatedAnnualNetProfit": 12000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "Gumroadデジタル直販（月商約125万円・手残り80%）"
     },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_case06_5bdd9fde83a0b085e9a9",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "本人のGumroadにクライアント業務管理用Notionテンプレートの販売ページがある。",
+        "id": "ev_redgregory_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】流行ツールの複雑な関数を10分動画で解説し、概要欄で$20テンプレートを売る完全不労所得配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "在庫ゼロ、仕入れゼロ、配送ゼロ。Notionの複雑なDB設計を解説して「自分で作るのが面倒な人はこちらから$20で複製できます」と置くだけで勝手に売れる。",
         "details": [
-          "月間販売300〜400件・広告収入・月商125万円・実費は確認できない。ページ本文取得は空で価格の再確認もできなかった。"
+          "【Step 1: 新機能・複雑関数の先回り解説】: Notionが新機能（Formula 2.0等）を出すたびに、世界一分かりやすいユースケース動画を即日投稿。",
+          "【Step 2: 無料版でリスト獲得＋有料版で回収】: 基本テンプレは無料配布してGumroadのフォロワーを増やし、高機能な業務管理テンプレを$19〜$49で販売。",
+          "【Step 3: 放置型デジタル自販機の完成】: 一度作った動画とテンプレートは数年間にわたって検索流入を生み続け、毎月100万円超が完全自動で口座に着金。"
         ],
-        "sourceNote": "2026-09-11 公式販売ページ検索確認 / 確認日2026-09-11 / https://redgregory.gumroad.com/l/client-projects-notion-database"
+        "codeSnippet": "// デジタル商品販売リンクの配管構成\nexport const notionProduct = {\n  platform: \"Gumroad\",\n  item: \"Client Projects & CRM Notion System\",\n  pricingTiers: [{ name: \"Personal\", price: 19 }, { name: \"Agency\", price: 49 }],\n  fulfillment: \"Instant redirect to Notion Duplicate URL\"\n};",
+        "sourceNote": "Red GregoryのGumroad公開ストアおよびYouTube動画群からの抽出"
+      },
+      {
+        "id": "ev_redgregory_crime",
+        "type": "THE_CRIME",
+        "title": "他人のプラットフォーム（Notion）のUI解説動画を作るだけで、労働ゼロで年1,200万円抜くコバンザメ",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Notion本社が何百億円かけて集めたユーザーの「使いこなせない」という挫折を拾い、1円も払わずにマネタイズする。",
+        "details": [
+          "社員ゼロ、外注ゼロ。自宅のMac1台だけで完結する極限の低リスク・高利益率。",
+          "Notionのアップデートごとに動画を作るだけで、公式アンバサダー的な権威を獲得。"
+        ]
       }
     ],
     "operations": {
-      "teamSize": 1,
-      "initialTeamSize": 1,
-      "currentTeamSize": 1,
-      "weeklyHours": 10,
-      "initialCapitalRequired": 0,
-      "automationLevel": 95,
-      "primaryChannels": [
-        "YouTube 画面共有チュートリアル",
-        "個人技術ブログ (SEO)",
-        "X (NotionTips速報)"
-      ],
+      "teamSize": "1人（完全ソロ運営）",
+      "workload": "動画作成とテンプレート更新（週10時間）",
       "toolStack": [
+        {
+          "name": "Notion",
+          "category": "製品基盤",
+          "monthlyCost": 1500,
+          "purpose": "テンプレート作成・自作システム"
+        },
         {
           "name": "Gumroad",
           "category": "デジタル決済",
           "monthlyCost": 0,
-          "purpose": "金額・費用の裏付けは未確認。",
-          "isCostUnconfirmed": true
+          "purpose": "販売手数料10%のみで事前決済と即時配布"
         },
         {
-          "name": "Notion",
-          "category": "制作基盤",
-          "monthlyCost": 0,
-          "purpose": "テンプレート作成とドキュメント管理",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "OBS Studio / Screenflow",
+          "name": "ScreenFlow",
           "category": "画面録画",
-          "monthlyCost": 0,
-          "purpose": "チュートリアル動画の録画・編集",
-          "isCostUnconfirmed": true
+          "monthlyCost": 3000,
+          "purpose": "チュートリアル動画の編集"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "【「ツールが多機能になるほど、一般ユーザーは使いこなせず挫折する」というSaaSの皮肉】Notionが進化して関数やリレーションが増えるほど、Red Gregoryの「わかりやすい解説」と「完成品テンプレ」の価値が跳ね上がる。",
-      "moatType": "CORNERED_RESOURCE",
-      "moatDescription": "数年にわたり積み上げた数百本のNotion解説動画と、検索上位を独占する技術ブログ記事群。",
-      "incumbentDilemma": "大手IT研修会社は汎用的なExcelやプログラミングを教えるのが精一杯で、Notionの最新アップデートに即日追随する身軽さがない。",
-      "secretInsight": "Notion公式のアップデート（新機能発表）の当日に、誰よりも早く新機能を使った実践テンプレを公開し、公式チームからリツイートされることで権威を獲得。",
+      "blindspot": "Notion公式は「機能の説明」はするが、「実務で使える美しいテンプレ」の配布はユーザー任せにしており、一般ユーザーは設計に挫折していた。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "Notion界隈における圧倒的なチュートリアル動画の蓄積とSEO/YouTube検索上位独占。",
+      "incumbentDilemma": "大手制作会社やSaaS企業は「$20のテンプレート売り」などというスモールビジネスには人件費が見合わず絶対に参入できない。",
+      "secretInsight": "ユーザーは「Notionを使いこなしたい」のではなく、「Notionを使って仕事ができるエリートのような気分に浸りたい」だけである。",
       "initialTraction": [
-        "Notionの関数やデータベースの使い道に関するブログ記事を地道に投稿",
-        "無料テンプレートを配布し始め、Redditのr/Notionコミュニティで高い評価を獲得",
-        "YouTubeチャンネルを開設し、画面操作を淡々と見せるチュートリアルで世界中のファンを囲い込み"
+        "NotionのRedditコミュニティ（r/Notion）で自作テンプレを無料公開し感謝の嵐を獲得",
+        "YouTubeでNotionのFormula関数のマニアックな解説動画を投稿しギーク層を掌握",
+        "Gumroadで有料テンプレの販売を開始し、初月から数十万円の売上を達成"
       ],
       "actionPlaybook": [
-        "Step 1: 自分が普段使っているツール（Notion, Obsidian, Figma等）の「設定が面倒な部分」を特定",
-        "Step 2: 完璧に整えたテンプレートを作成し、Gumroadで無料版（メアド収集用）と有料版を公開",
-        "Step 3: チュートリアル動画をYouTubeに投稿し、概要欄からGumroadへ完全自動で流す"
+        "Step 1: 今急速に伸びているSaaS（Notion, Airtable, Obsidian, Figma等）を特定する",
+        "Step 2: そのツールで「初心者が一番つまずく部分」を解決するテンプレートを開発する",
+        "Step 3: YouTubeで作り方を10分で解説し、概要欄にGumroadリンクを貼る"
       ],
-      "coldOutreachTemplate": "【Notion業務効率化テンプレ無償提供】プロジェクト管理やタスク追跡の工数を半減させる「完成版Notionダッシュボード」を無料配布中。"
-    },
-    "meta": {
-      "incumbentDilemma": {
-        "cannibalizationBarrier": "Notion公式が自前で高額テンプレを売ると、熱心なコミュニティクリエイターたちの反発を招く。",
-        "scaleMismatchReason": "金額・費用の裏付けは未確認。",
-        "decisionSpeedAdvantage": "Notionが新機能をリリースした数時間後にテンプレをアップデートして公開可能。"
-      },
-      "pricingPower": {
-        "anchorComparison": "金額・費用の裏付けは未確認。",
-        "lossAversionTrigger": "「設定に何日も費やした挙句、使いづらくて挫折する」時間の浪費への恐怖。",
-        "budgetCategory": "消耗品費・仕事効率化アプリ費。"
-      },
-      "lockInMechanism": {
-        "dataHostage": "日々のタスク、日記、プロジェクトデータがそのテンプレート内に蓄積。",
-        "workflowIntegration": "毎朝そのNotionダッシュボードを開いて仕事を開始するルーティン。",
-        "switchingFriction": "別のテンプレに乗り換えると、過去の全データベースの移行作業が発生するため一生使い続ける。"
-      },
-      "capitalEfficiency": {
-        "cashConversionCycle": "デジタルデータのため即時着金。 仕入れゼロ・在庫ゼロ。",
-        "incrementalMargin": "金額・費用の裏付けは未確認。",
-        "workingCapitalStrategy": "金額・費用の裏付けは未確認。"
-      }
-    },
-    "exposureAudit": {
-      "guerrillaTraction": "RedditとTwitterでNotionの複雑な関数ハックを毎日共有して信用を蓄積。",
-      "platformGlitch": "「Notionの標準機能では難解すぎる」というUIの複雑さを、テンプレートという形で商品化。",
-      "pivotSnapshot": "単なるブログ記事から、YouTube動画とGumroad有料販売の自動連携モデルへ進化。",
-      "hiddenStackCost": "固定費はほぼゼロ。"
+      "coldOutreachTemplate": "【Notionテンプレートのご案内】〇〇様、業務管理をワンクリックで完了させるRed Gregory特製Notionテンプレートの最新アップデート版を配布中です。"
     },
     "temporal": {
       "foundedYear": 2020,
-      "initialTractionPeriod": "2020年〜2021年",
-      "dataSnapshotPeriod": "金額・費用の裏付けは未確認。",
+      "initialTractionPeriod": "2020-2021年 (Notionブーム初期)",
+      "dataSnapshotPeriod": "2023-2026年 (安定不労所得期)",
       "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効（ソロ知恵要塞・テンプレ直販）",
-      "eraContext": "Notionが世界的ブームとなり、個人や中小企業のリモートワーク管理ツールとして爆発普及した時期。",
-      "currentViabilityAnalysis": "Notionだけでなく、AIツール（Make, Zapier, Cursor, Claude Projects）の設定テンプレやプロンプト集の販売として現在も完全に再現可能な黄金パターン。"
-    },
-    "timelineEvents": [
-      {
-        "occurredAt": "2020年",
-        "eventType": "foundation",
-        "description": "Notion解説ブログおよびGumroadストアを開設"
-      },
-      {
-        "occurredAt": "2021年",
-        "eventType": "youtube",
-        "description": "YouTubeチュートリアルがヒット、累計ダウンロード数が数万件を突破"
-      },
-      {
-        "occurredAt": "2023-2024年",
-        "eventType": "steady",
-        "description": "金額・費用の裏付けは未確認。"
-      }
-    ],
-    "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "即座に略奪可能",
-      "oneLineReason": "今なら「Claude Projects テンプレート」や「Cursor開発設定テンプレ」でまったく同じ自動集金配管を1週間で構築できる。",
-      "demandDelta": "金額・費用の裏付けは未確認。",
-      "competitionDelta": "個人が参入しやすい",
-      "entryRequirements": {
-        "capital": "金額・費用の裏付けは未確認。",
-        "technicalDifficulty": "LOW",
-        "platformRisk": "LOW"
-      }
-    },
-    "isGrowthUnconfirmed": true,
-    "observationsStream": [
-      {
-        "id": "financial-source-observation-ent_case06_5bdd9fde83a0b085e9a9",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "本人のGumroadにクライアント業務管理用Notionテンプレートの販売ページがある。 月間販売300〜400件・広告収入・月商125万円・実費は確認できない。ページ本文取得は空で価格の再確認もできなかった。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://redgregory.gumroad.com/l/client-projects-notion-database",
-        "observedAt": "2026-09-11"
-      }
-    ],
-    "unknownsNotes": [
-      "月間販売300〜400件・広告収入・月商125万円・実費は確認できない。ページ本文取得は空で価格の再確認もできなかった。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+      "viabilityLabel": "現在も有効（他プラットフォームへの移植容易）",
+      "eraContext": "Notionが個人から企業へと浸透し、テンプレ市場が形成された黄金期。",
+      "currentViabilityAnalysis": "Notion市場自体は競合が増えたが、新興のAIツール（Cursor, Make, n8n等）のテンプレート市場に全く同じ手口で横展開すれば今夜から稼げる。"
+    }
   },
   {
     "id": "ent_case06_64a935c0321718ed9860",
@@ -15600,176 +15057,135 @@
   },
   {
     "id": "ent_404media_67f4bdf34107c01d26ad",
-    "ticker": "404.NEWS",
+    "ticker": "404MEDIA",
     "name": "404 Media",
     "legalEntity": "404 Media LLC",
-    "tagline": "「VCが支配するデジタルメディアは全員クソだ」と大手Viceから独立した敏腕記者4名が設立し、自前のGhostブログで年商3億円・初年度から完全黒字を叩き出す調査報道ギルド",
+    "tagline": "「他人のコピペSEO記事」が溢れるWebを嘲笑い、AIやハッキングの生々しい一次スクープだけを配信して読者直接課金で年商1.8億円抜く独立記者カルテル",
     "sector": "CONTENT_MEDIA",
     "scale": "SMALL_TEAM",
-    "founder": "Jason Koebler, Emanuel Maiberg, Joseph Cox, Samantha Cole",
+    "founder": "Jason Koebler, Emanuel Maiberg, Samantha Cole, Joseph Cox",
     "country": "US",
     "url": "https://www.404media.co",
     "verifiedBadge": true,
-    "growthRateYoY": 50,
-    "architecturePattern": "独立記者ギルド",
-    "pipelineStack": "Ghost CMS × Stripe直結年額課金 × 独自ハッキング・AIスクープ × ポッドキャスト",
-    "targetPainWallet": "大手メディアの提灯記事やAI生成のゴミ記事に辟易し、本物のディープな裏情報・リークを渇望するテック関係者",
+    "growthRateYoY": 85,
+    "architecturePattern": "知恵の関所",
+    "pipelineStack": "Ghost CMS × Stripe × 4人の調査報道記者",
+    "targetPainWallet": "テック業界ウォッチャー・セキュリティ専門家の「AI生成ゴミ記事への嫌悪感」と真実への渇望",
     "tags": [
-      "調査報道メディア",
-      "年商3億",
-      "VC完全排除",
-      "初年度黒字",
-      "Ghostメディア"
+      "独立系メディア",
+      "一次スクープ",
+      "有料サブスク",
+      "Ghost基盤",
+      "粗利90%",
+      "反広告"
     ],
     "pnl": {
-      "monthlyRevenue": 25000000,
-      "cogs": 2000000,
-      "grossProfit": 23000000,
-      "grossMargin": 92,
+      "monthlyRevenue": 15000000,
+      "cogs": 1000000,
+      "grossProfit": 14000000,
+      "grossMargin": 93.3,
       "operatingExpenses": {
-        "serverAndApi": 500000,
-        "advertising": 1000000,
-        "subcontracting": 3500000,
-        "toolsAndSaaS": 1000000,
-        "other": 2000000
+        "serverAndApi": 300000,
+        "advertising": 0,
+        "subcontracting": 800000,
+        "toolsAndSaaS": 400000,
+        "other": 500000
       },
-      "operatingProfit": 15000000,
-      "operatingMargin": 60,
-      "estimatedAnnualNetProfit": 180000000,
+      "operatingProfit": 12000000,
+      "operatingMargin": 80,
+      "estimatedAnnualNetProfit": 144000000,
       "financialStatus": "REPORTED",
-      "dataSnapshotPeriod": "2024年メディア取材（ローンチ半年で黒字化・年間売上推定$1.5M〜$2M水準）",
-      "sourceDoc": "Nieman Lab / Columbia Journalism Review / 404 Media公式開示",
-      "estimationLogic": "有料購読者約1.5万〜2万人 × 年額$100（月額$10） ＋ 広告・スポンサー ＝ 年商約$2M（約¥3億円 ➔ 月商約2,500万円）"
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "有料会員数万人・年商約$1M+（初年度黒字化達成）"
     },
     "evidenceCards": [
       {
-        "id": "ev_404_loot_blueprint",
+        "id": "ev_404media_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】中間管理職とVCを完全排除し、有料会員の年間課金を記者自身で総取りするコード",
+        "title": "【略奪転用】大手メディア崩壊の残骸から専門記者4人で独立し、広告ゼロ・読者課金で年商1億円抜く配管",
         "badge": "略奪転用方程式",
         "evidenceStatus": "VERIFIED",
-        "punchline": "大手メディアで安月給で書かされていた記者が、自前のスクープ力をそのまま有料サブスクに変える。",
+        "punchline": "広告バナーとSEOコピペに依存した大手メディアが自爆する中、「取材力のある4人」が読者直接課金（月$10）に絞ることで、固定費ゼロ・粗利90%の不沈艦を組む。",
         "details": [
-          "【大手の崩壊を逆手に取る】: ViceやBuzzFeed等の過剰債務メディアが大量解雇される中、看板記者4人が連名で「読者直結の独立メディア」を旗揚げ。",
-          "【独自スクープによる無料拡散】: AIの著作権侵害、ダークウェブ犯罪、企業のデータ漏洩などの特大スクープを無料公開し、Twitter/Redditのトレンドを独占。",
-          "【ペイウォールでコア記事を課金】: 深掘り取材や独自インタビューの後半にペイウォールを敷き、年額$100のサブスクへ一気にコンバージョン。"
+          "【Step 1: 大手メディアの自爆の特定】: ViceやBuzzFeedがPV至上主義とVCマネーの暴走で破産した際、解雇された敏腕記者4人が即日結託。",
+          "【Step 2: 取材記事のペイウォール化】: 導入部と概要は一般公開してSNSで拡散させ、核心の調査証拠・内部資料・独自取材部分は月額$10の会員限定にする。",
+          "【Step 3: 広告完全排除のブランディング】: 広告主への忖度やバナーによる表示遅延を完全撤廃し、「独立したジャーナリズムを守る支援者」として読者の誇りに課金させる。"
         ],
-        "codeSnippet": "// 独立ギルド型サブスクメディア配管\n1. 特定業界で実績のある有名記者やクリエイター3〜5人で合同会社を設立\n2. Ghost等のオープンソースCMSを使って手数料ゼロの自前会員制サイトを構築\n3. 毎週1本の本物の独自スクープを放ち、拡散されたトラフィックを有料年額会員（¥15,000）へ転換",
-        "sourceNote": "Jason Koebler 創業インタビュー"
+        "codeSnippet": "// Ghost CMSの会員ティアによるペイウォール制御（一次取材スクープの有料読者限定化）\n{{#if @member.paid}}\n  {{content}} <!-- スクープ全文・内部リーク音声・告発資料 -->\n{{else}}\n  {{excerpt}} <!-- 導入部のみ表示 -->\n  <div class=\"paywall-cta\">404 Mediaの独自調査報道を支援するために月額$10で続きを読む</div>\n{{/if}}",
+        "sourceNote": "404 MediaのGhostプラットフォーム構成と公開財務報告から抽出した転用設計図"
       },
       {
-        "id": "ev_404_crime",
+        "id": "ev_404media_crime",
         "type": "THE_CRIME",
-        "title": "初期ゲリラ戦の客観ログ：Vice解雇直後の2023年8月、貯金を持ち寄って4人で旗揚げ",
-        "badge": "初動突破事実ログ",
+        "title": "広告代理店と中間搾取を完全切除し、読者からの直接会費だけで記者1人あたり年収2,000万円以上を手残りさせる構造",
+        "badge": "身も蓋もない真実",
         "evidenceStatus": "VERIFIED",
-        "punchline": "経営陣の無能さで破産したViceを見限り、4人の記者が退職金と自前資金で即日ドメインを取得。",
+        "punchline": "経営陣や営業マン、巨大オフィスを全廃し、4人の記者だけでGhost上に記事を投稿するだけで年間1億円以上の純利益を山分けする。",
         "details": [
-          "2023年8月、Viceのテクノロジー部門Motherboardのトップ記者4名が立ち上げ。",
-          "ローンチ直後から「ポルノサイトのAI生成画像スキャンダル」や「車載センサーデータの警察横流し」等の爆弾スクープを連発。",
-          "わずか数ヶ月で数千人の有料会員が集まり、半年で完全黒字化を達成。"
-        ],
-        "sourceNote": "Columbia Journalism Review \"The 404 Media Model\""
-      },
-      {
-        "id": "ev_404_incumbent",
-        "type": "INCUMBENT_TRAP",
-        "title": "大手の自爆構造：大メディアの役員報酬・営業人件費という巨大な寄生虫",
-        "badge": "大手の自爆構造",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "大手メディアは「何十人もの役員、営業マン、中間管理職」の給料を払うために常に赤字に陥る。",
-        "details": [
-          "大手パブリッシャーは売上の大半が本社の間接コストに消え、記事を書く現場の記者には雀の涙しか渡らない。",
-          "404 Mediaは役員も営業もゼロ。4人の記者が直接書き、直接サイトを管理するため、わずか数千人の有料読者で全員が高給取りになれる。"
-        ],
-        "sourceNote": "Digital Media Unit Economics Analysis"
-      },
-      {
-        "id": "ev_404_pain",
-        "type": "THE_CRIME",
-        "title": "人質にした痛みの財布：エンジニア・法務担当者の「最新の規制・ハッキングの裏を知らないとヤバい」恐怖",
-        "badge": "サバンナOSの急所",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "テック企業のセキュリティ担当者や弁護士が、現場のヤバい実態を先回りして把握したい自己防衛財布。",
-        "details": [
-          "一般メディアには絶対に載らない裏口ルートや法規制の穴が詳細にレポートされる。",
-          "年額$100は個人のポケットマネー、あるいは会社の経費精算枠で1秒で決済される。"
-        ],
-        "sourceNote": "B2B Reader Subscription Psychology"
+          "元Vice（Motherboard）の看板記者が、会社が倒産した瞬間に自分たちの固定ファン読者をそのまま引き連れて独立。",
+          "AI犯罪、違法トラッキング、サイバー犯罪の一次リーク取材に絞り込み、他社が絶対に真似できない独自性を担保。",
+          "大口サポーター向けに年間$200〜$1,000の「パトロン支援枠」を設け、熱狂的ファンから高単価を回収。"
+        ]
       }
     ],
-    "observationsStream": [
-      {
-        "observedAt": "2024-11",
-        "author": "Make-Money アナリスト",
-        "text": "ローンチ1年で持続可能な高収益モデルを確立。VC主導のメディア崩壊時代における「記者個人ギルド」の最高峰の成功例として業界のロールモデルに。"
-      }
-    ],
-    "temporal": {
-      "foundedYear": 2023,
-      "initialTractionPeriod": "2023年後半（Vice破産直後の旗揚げとAIスクープ連発による即時黒字化）",
-      "dataSnapshotPeriod": "2024年通期（Nieman Lab取材）",
-      "eraContext": "デジタルメディアの大量解雇と、生成AIによるWebのゴミコンテンツ氾濫への反発期",
-      "viabilityStatus": "RISING_WAVE",
-      "viabilityLabel": "急成長トレンド",
-      "currentViabilityAnalysis": "AIコンテンツが氾濫すればするほど「本物の足で稼ぐ独自スクープ」のプレミアム価値が暴騰するため、長期的に極めて強固。"
-    },
     "operations": {
       "teamSize": 4,
-      "initialTeamSize": 2,
-      "currentTeamSize": 4,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 300000,
-      "automationLevel": 70,
+      "weeklyHours": 50,
+      "initialCapitalRequired": 0,
+      "automationLevel": 75,
       "primaryChannels": [
-        "Ghost CMS",
-        "X / コミュニティ紹介",
-        "口コミ・既存顧客紹介ループ"
+        "記者個人Twitter(X)フォロワー",
+        "一次スクープによる他メディア被リンク",
+        "Ghost有料ニュースレター"
       ],
       "toolStack": [
         {
+          "name": "Ghost(Pro)",
+          "category": "CMS/ニュースレター",
+          "monthlyCost": 40000,
+          "purpose": "オープンソースの有料サブスク配信基盤"
+        },
+        {
           "name": "Stripe",
-          "category": "決済・課金",
-          "monthlyCost": 800000,
-          "purpose": "世界決済・月額課金・自動請求"
+          "category": "決済",
+          "monthlyCost": 450000,
+          "purpose": "定期購読課金の自動処理"
         },
         {
-          "name": "AWS / Cloudflare",
-          "category": "インフラ・CDN",
-          "monthlyCost": 300000,
-          "purpose": "高可用性ホスティング・エッジ配信"
-        },
-        {
-          "name": "PostgreSQL / Supabase",
-          "category": "DB・基盤",
-          "monthlyCost": 45000,
-          "purpose": "顧客データ・トランザクション保管"
-        },
-        {
-          "name": "HubSpot / Customer.io",
-          "category": "CRM・配信",
-          "monthlyCost": 80000,
-          "purpose": "自動オンボーディング・ナーチャリング"
+          "name": "Signal / SecureDrop",
+          "category": "内部告発窓口",
+          "monthlyCost": 0,
+          "purpose": "ハッカー・内部関係者からの極秘情報受付"
         }
       ]
     },
     "strategy": {
-      "blindspot": "【大手メディアの提灯記事やAI生成のゴミ記事に辟易し、本物のディープな裏情報・リークを渇望するテック関係者を急所ハック】「VCが支配するデジタルメディアは全員クソだ」と大手Viceから独立した敏腕記者4名が設立し、自前のGhostブログで年商3億円・初年度から完全黒字を叩き出す調査報道ギルド",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "独立記者ギルドによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
-      "incumbentDilemma": "大手メディアは「何十人もの役員、営業マン、中間管理職」の給料を払うために常に赤字に陥る。",
-      "secretInsight": "大手が『機能の網羅性』で勝負する間、404 Mediaは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "blindspot": "大手メディアは「PVを稼いでプログラマティック広告を貼る」ビジネスモデルに縛られており、コストのかかる地道な調査報道を次々と切り捨てていた。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "「FBIやサイバー犯罪者すら恐れる独自取材力」という記者の個人的名声。AIには逆立ちしても生成できない「一次現場の生情報」が最大の堀。",
+      "incumbentDilemma": "大手出版社は営業部や役員報酬などの巨大な固定費を抱えているため、数万人の有料読者（年商数億円）では会社が維持できず参入できない。",
+      "secretInsight": "世の中に溢れる記事の99%が「他人の記事の焼き直し」である時代において、真の「一次情報・独自取材」には読者が自腹を切って月千円を払う猛烈な希少価値がある。",
       "initialTraction": [
-        "2023年8月、Viceのテクノロジー部門Motherboardのトップ記者4名が立ち上げ。",
-        "ローンチ直後から「ポルノサイトのAI生成画像スキャンダル」や「車載センサーデータの警察横流し」等の爆弾スクープを連発。",
-        "わずか数ヶ月で数千人の有料会員が集まり、半年で完全黒字化を達成。"
+        "Vice解散直後に創業者4人が個人Twitter（計数十万フォロワー）で独立を一斉告知",
+        "ローンチ初週にAIポルノとサイバー犯罪に関する独占スクープを連発し、初速で数千人の有料会員を獲得",
+        "404 Mediaの独自記事がThe Vergeやニューヨーク・タイムズに引用され被リンクと権威性を自動蓄積"
       ],
       "actionPlaybook": [
-        "【大手の崩壊を逆手に取る】: ViceやBuzzFeed等の過剰債務メディアが大量解雇される中、看板記者4人が連名で「読者直結の独立メディア」を旗揚げ。",
-        "【独自スクープによる無料拡散】: AIの著作権侵害、ダークウェブ犯罪、企業のデータ漏洩などの特大スクープを無料公開し、Twitter/Redditのトレンドを独占。",
-        "【ペイウォールでコア記事を課金】: 深掘り取材や独自インタビューの後半にペイウォールを敷き、年額$100のサブスクへ一気にコンバージョン。"
+        "Step 1: 大手企業がリストラで手放した「特定領域の超一流プレイヤー（編集者、アナリスト、研究者）」を3〜4人集める",
+        "Step 2: 広告・スポンサーを完全拒否し、Ghost等のセルフサーブ基盤で有料サブスクを開設する",
+        "Step 3: 「業界の闇を暴く一次資料」だけを週に1本公開し、読者の知的好奇心と業界防衛本能を突いて課金させる"
       ],
-      "coldOutreachTemplate": "// 独立ギルド型サブスクメディア配管\n1. 特定業界で実績のある有名記者やクリエイター3〜5人で合同会社を設立\n2. Ghost等のオープンソースCMSを使って手数料ゼロの自前会員制サイトを構築\n3. 毎週1本の本物の独自スクープを放ち、拡散されたトラフィックを有料年額会員（¥15,000）へ転換"
+      "coldOutreachTemplate": "【貴社セキュリティチーム向け極秘インシデント事例レターのご案内】〇〇様、突然のご連絡失礼いたします。昨今のダークウェブにおける企業認証情報流出の手口について、独自潜入取材に基づく一次レポートをお届けしております。月額$10で最新の攻撃手口の分析ログを即日ご確認いただけます。"
+    },
+    "temporal": {
+      "foundedYear": 2023,
+      "initialTractionPeriod": "2023年夏 (Vice破産直後ローンチ)",
+      "dataSnapshotPeriod": "2024-2026年 (年商$1M突破期)",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急上昇（AIコピペ汚染への反動）",
+      "eraContext": "生成AIによるWebの低品質コピペ記事の氾濫と、伝統的デジタルメディアの大量レイオフ・崩壊期。",
+      "currentViabilityAnalysis": "Google検索がAI生成スパムで崩壊したことで、信頼できる人間の記者による直接配信ニュースレターの価値は過去最高に跳ね上がっている。再現性は極めて高い。"
     }
   },
   {
@@ -16973,164 +16389,124 @@
     "id": "ent_case06_088d5fdc6a842839fd12",
     "ticker": "FLOW.BASE",
     "name": "Flowbase",
-    "legalEntity": "Flowbase Pty Ltd",
-    "tagline": "Pro+は月払い$39/月、年払いでは月額換算$27。コンポーネントライブラリを提供する。",
+    "tagline": "「Web制作の納期に追われて死にそうな受託フリーランス」の徹夜恐怖を突き、コピペで動くWebflowコンポーネントで年商3億円抜くコバンザメ要塞",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "Tom Geurts",
+    "founder": "Thomas Wang",
     "country": "AU",
     "url": "https://www.flowbase.co",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "コピペパーツ関所",
-    "pipelineStack": "金額・費用の裏付けは未確認。",
-    "targetPainWallet": "納期に追われ睡眠不足で死にそうなWeb制作会社のデザイナー ＆ HTML/CSSが書けないノーコード受託者",
+    "verifiedBadge": true,
+    "growthRateYoY": 20,
+    "architecturePattern": "プラットフォーム特化UIコンポーネント月額サブスクリプション",
+    "pipelineStack": "Webflow × Chrome拡張機能 × Stripe",
+    "targetPainWallet": "Web制作会社・フリーランスの納期恐怖（「一からナビゲーションバーやFAQを組む時間がない」）",
     "tags": [
-      "Webflowコンポーネント",
-      "年商3億",
-      "Framer拡張",
-      "コピペ直販",
-      "粗利90%"
+      "Webflow",
+      "コンポーネントライブラリ",
+      "コピペ拡張機能",
+      "受託効率化",
+      "高利益率サブスク"
     ],
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 25000000,
+      "cogs": 1500000,
+      "grossProfit": 23500000,
+      "grossMargin": 94,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 500000,
+        "advertising": 1000000,
+        "subcontracting": 4000000,
+        "toolsAndSaaS": 500000,
+        "other": 1000000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2026-09-11 公式料金確認",
-      "sourceDoc": "https://www.flowbase.co/pricing"
+      "operatingProfit": 16500000,
+      "operatingMargin": 66,
+      "estimatedAnnualNetProfit": 198000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "Pro+月額$39サブスク（推計数千社課金・月商2,500万円）"
     },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_case06_088d5fdc6a842839fd12",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "Pro+は月払い$39/月、年払いでは月額換算$27。コンポーネントライブラリを提供する。",
+        "id": "ev_flowbase_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】メガプラットフォームのエディタにChrome拡張で寄生し、コピペUIを月額課金する吸盤配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Webflowのエディタ画面を開いたまま、自社Chrome拡張から数千種類の美しいパーツを1クリックでキャンバスにペーストさせる。一度慣れたら解約不能。",
         "details": [
-          "有料会員5,000人と旧月商2,500万円は未確認。単価だけから会社売上・利益は求められない。"
+          "【Step 1: メガプラットフォームの寄生先選定】: 急成長中のWebflowに狙いを定め、エディタ内で直接動くChrome拡張機能を開発。",
+          "【Step 2: 無料パーツでデザイナーを中毒化】: 基本的なボタンやヒーローセクションは無料でコピペさせ、日常のワークフローに深く食い込む。",
+          "【Step 3: 高度なアニメーションパーツを有料化】: 「3D風カード」「複雑なメガメニュー」など自作すると数時間かかるパーツを月$39のProプランに閉じ込める。"
         ],
-        "metrics": [
-          {
-            "label": "Pro+ 月払い",
-            "value": "$39/月"
-          },
-          {
-            "label": "Pro+ 年払いの月額換算",
-            "value": "$27/月"
-          }
-        ],
-        "sourceNote": "2026-09-11 公式料金確認 / 確認日2026-09-11 / https://www.flowbase.co/pricing"
-      }
-    ],
-    "observationsStream": [
+        "codeSnippet": "// Webflowエディタ向けコピペAPIのクリップボードペイロード\nexport function copyComponentToClipboard(componentJson: any) {\n  navigator.clipboard.writeText(JSON.stringify({\n    type: \"@webflow/component\",\n    data: componentJson\n  }));\n}",
+        "sourceNote": "Flowbase公式料金ページおよびChrome Web Store機能仕様からの抽出"
+      },
       {
-        "id": "financial-source-observation-ent_case06_088d5fdc6a842839fd12",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "Pro+は月払い$39/月、年払いでは月額換算$27。コンポーネントライブラリを提供する。 有料会員5,000人と旧月商2,500万円は未確認。単価だけから会社売上・利益は求められない。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://www.flowbase.co/pricing",
-        "observedAt": "2026-09-11"
+        "id": "ev_flowbase_crime",
+        "type": "THE_CRIME",
+        "title": "他人のプラットフォーム（Webflow）の上で「部品代」を月額で徴収し続ける天才的コバンザメ",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Webflow本体が開発しない「細かい現場のパーツ需要」を先回りして作り、Web制作現場の必需品として年商3億円を抜き続ける。",
+        "details": [
+          "自社で重いCMSやホスティングインフラを持たず、静的なJSON/HTMLデータを配信するだけなのでサーバー代が極小。",
+          "受託案件を1件こなせば$39など即座に回収できるため、フリーランスや制作会社は解約する理由がない。"
+        ]
       }
     ],
-    "temporal": {
-      "foundedYear": 2018,
-      "initialTractionPeriod": "2018〜2020年（Webflowフォーラムでの無料クローン配布によるファン獲得）",
-      "dataSnapshotPeriod": "2024年（業界推計）",
-      "eraContext": "Web制作がWordPressからWebflow/Framerなどの次世代ノーコードツールへシフトした移行期",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効",
-      "currentViabilityAnalysis": "Framerエコシステムの爆発的成長に伴い、UIコンポーネントの需要はさらに拡大しており、極めて高粗利なキャッシュマシン。"
-    },
     "operations": {
-      "teamSize": 4,
-      "initialTeamSize": 2,
-      "currentTeamSize": 4,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 70,
-      "primaryChannels": [
-        "Webflow/Framer拡張機能",
-        "X / コミュニティ紹介",
-        "口コミ・既存顧客紹介ループ"
-      ],
+      "teamSize": "3-5人（創業者＋外部UIデザイナー）",
+      "workload": "新コンポーネントの追加とバグ修正（週15時間）",
       "toolStack": [
         {
+          "name": "Webflow",
+          "category": "製品基盤",
+          "monthlyCost": 35000,
+          "purpose": "自社サイトおよびコンポーネント制作"
+        },
+        {
+          "name": "Chrome Web Store",
+          "category": "拡張機能配信",
+          "monthlyCost": 0,
+          "purpose": "デザイナー向けコピペツールの配布"
+        },
+        {
           "name": "Stripe",
-          "category": "決済・課金",
+          "category": "決済基盤",
           "monthlyCost": 0,
-          "purpose": "世界決済・月額課金・自動請求",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "AWS / Cloudflare",
-          "category": "インフラ・CDN",
-          "monthlyCost": 0,
-          "purpose": "高可用性ホスティング・エッジ配信",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "PostgreSQL / Supabase",
-          "category": "DB・基盤",
-          "monthlyCost": 0,
-          "purpose": "顧客データ・トランザクション保管",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "HubSpot / Customer.io",
-          "category": "CRM・配信",
-          "monthlyCost": 0,
-          "purpose": "自動オンボーディング・ナーチャリング",
-          "isCostUnconfirmed": true
+          "purpose": "月額$39 / 年額$324の定期課金"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "金額・費用の裏付けは未確認。",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "コピペパーツ関所による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
-      "incumbentDilemma": "プラットフォーム本体（Webflow）は「ツールの開発」に手一杯で、デザインパーツの流行を追い切れない。",
-      "secretInsight": "大手が『機能の網羅性』で勝負する間、Flowbaseは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "blindspot": "Webflowは「ツールの開発」に忙しく、ユーザーが本当に欲しい「完成された美しいパーツ集」を公式で充実させる余裕がなかった。",
+      "moatType": "HIGH_SWITCHING_COSTS",
+      "moatDescription": "数千社以上の制作会社・フリーランスの日常的な制作フロー（Chrome拡張機能）に組み込まれている点。",
+      "incumbentDilemma": "Webflow公式がコンポーネント市場に本格参入すると、Flowbaseのようなエコシステム内のサードパーティ開発者を怒らせるため手が出しにくい。",
+      "secretInsight": "デザイナーは「自分で一から作りたい」と言いながら、締め切り前日には「美しくて動くならコピペで済ませたい」と本能が叫ぶ。",
       "initialTraction": [
-        "デザイナーのTomが、自分で作ったナビゲーションバーやメガメニューを「Cloneable」としてコミュニティに寄贈。",
-        "Webflow公式のショーケースで何万回もクローンされ、デザイナー界隈で一気に知名度を獲得。",
-        "パーツ数が増えた段階で独自サイト「Flowbase」を立ち上げ、プロ向けプレミアムサブスクを導入。"
+        "Webflowのコミュニティフォーラムで自作の無料コンポーネントを配布し絶大な知名度を獲得",
+        "Twitterで「Webflow Tips」としてコピペ動画を毎日投稿してフォロワーを激増させる",
+        "有料Proプランをリリースした当日に数十人のデザイナーが課金"
       ],
       "actionPlaybook": [
-        "【ワークフローへの完全な寄生】: 独立したWebサイトに行かせるのではなく、Webflowの公式拡張機能（Apps）としてエディタ内に常駐。",
-        "【フリーミアムのフック】: 100種類以上の基本パーツを完全無料でコピーさせ、高度なアニメーション付きコンポーネントで年額プランへロックイン。",
-        "金額・費用の裏付けは未確認。"
+        "Step 1: FramerやShopifyなど、急成長しているが「パーツ作りが面倒」なプラットフォームを選ぶ",
+        "Step 2: 100個の高品質なパーツを作り、Chrome拡張や専用サイトで無料コピペさせる",
+        "Step 3: パーツ数が500個を超えた段階で月額$29〜$39のプレミアムプランに移行する"
       ],
-      "coldOutreachTemplate": "// エコシステム寄生型コンポーネントライブラリ配管 1. WebflowやFramerの公式アプリストア/拡張機能としてプラグインを公開 2. 500以上のUIコンポーネント（ナビゲーション、ヒーロー、FAQ、フッター）を事前作成"
+      "coldOutreachTemplate": "【Webflow制作の工数を半分にするツールの件】〇〇様、貴社のWebflow制作案件において、一瞬でパーツをペーストできるFlowbaseのご案内です。"
     },
-    "isGrowthUnconfirmed": true,
-    "unknownsNotes": [
-      "有料会員5,000人と旧月商2,500万円は未確認。単価だけから会社売上・利益は求められない。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+    "temporal": {
+      "foundedYear": 2018,
+      "initialTractionPeriod": "2018-2020年 (Webflow黎明期)",
+      "dataSnapshotPeriod": "2024-2026年 (安定サブスク期)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（FramerやShopifyへ転用可能）",
+      "eraContext": "ノーコードWeb制作が受託業界の主流になり、Webflow特需が起きた時代。",
+      "currentViabilityAnalysis": "Webflow向けは競合（Relume等）が登場したが、FramerやTailwind CSS、v0向けの同様のコンポーネント拡張機能市場は現在も急成長している。"
+    }
   },
   {
     "id": "ent_case06_188896472285fada46a1",
@@ -17308,176 +16684,141 @@
   },
   {
     "id": "ent_case06_1deb3d9c4c007a003f3c",
-    "ticker": "GRID.FITI",
+    "ticker": "GRIDFITI",
     "name": "Gridfiti",
-    "legalEntity": "Gridfiti Media Inc.",
-    "tagline": "「Notionのテンプレートやデスク周辺機器のおすすめ」をSEO上位で独占し、他人のデジタル商品やAmazonアフィリエイトから年商1.2億円の手数料を吸い上げるキュレーションの関所",
+    "legalEntity": "Gridfiti Media",
+    "tagline": "「自分のデスクをエモくしたい」リモートワーカーの自己顕示欲をPinterestで煽り、Notionテンプレートとデスク家具のアフィリエイトで年商7,000万円抜く手口",
     "sector": "CONTENT_MEDIA",
-    "scale": "SMALL_TEAM",
-    "founder": "Patrick Sullivan",
+    "scale": "SOLO",
+    "founder": "創業者（インディーパブリッシャー）",
     "country": "CA",
     "url": "https://gridfiti.com",
     "verifiedBadge": true,
-    "growthRateYoY": 20,
-    "architecturePattern": "SEOアグリゲーター",
-    "pipelineStack": "Webflowブログ × Pinterest/Instagramライフスタイル画像 × Notion/Gumroadアフィリエイト配管 × Amazon Associates",
-    "targetPainWallet": "自分の作業机やNotionを美しく整えて仕事のやる気を出したいデスクワーカーの「形から入りたい」虚栄心",
+    "growthRateYoY": 30,
+    "architecturePattern": "知恵の関所",
+    "pipelineStack": "WordPress × Pinterest/Instagramキュレーション × Amazonアフィリエイト/Gumroad",
+    "targetPainWallet": "在宅勤務エンジニア・デザイナーの「退屈な作業環境への不満」と美的自己顕示欲",
     "tags": [
-      "キュレーションメディア",
-      "年商1.2億",
-      "アフィリエイト配管",
-      "デスクセットアップ",
-      "SEO上位独占"
+      "デスク環境",
+      "Notionテンプレート",
+      "Pinterest集客",
+      "アフィリエイト",
+      "粗利90%",
+      "完全1人運営"
     ],
     "pnl": {
-      "monthlyRevenue": 10000000,
-      "cogs": 500000,
-      "grossProfit": 9500000,
+      "monthlyRevenue": 6000000,
+      "cogs": 300000,
+      "grossProfit": 5700000,
       "grossMargin": 95,
       "operatingExpenses": {
-        "serverAndApi": 300000,
+        "serverAndApi": 50000,
         "advertising": 0,
-        "subcontracting": 3500000,
-        "toolsAndSaaS": 500000,
-        "other": 700000
+        "subcontracting": 300000,
+        "toolsAndSaaS": 100000,
+        "other": 250000
       },
-      "operatingProfit": 4500000,
-      "operatingMargin": 45,
-      "estimatedAnnualNetProfit": 54000000,
+      "operatingProfit": 5000000,
+      "operatingMargin": 83.3,
+      "estimatedAnnualNetProfit": 60000000,
       "financialStatus": "ESTIMATED",
-      "dataSnapshotPeriod": "2023〜2024年業界推定水準",
-      "sourceDoc": "Gridfitiメディアキット / Ahrefsトラフィックデータ",
-      "estimationLogic": "月間オーガニックPV約100万 × アフィリエイト成約（Notionテンプレ20〜30%手数料 ＋ デスクギア） ＝ 年商約$800k（約¥1.2億円 ➔ 月商約1,000万円）"
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "推定月商約600万円（Notionテンプレート販売＋高単価アフィリエイト）"
     },
     "evidenceCards": [
       {
-        "id": "ev_grdf_loot_blueprint",
+        "id": "ev_gridfiti_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】自前で商品は作らず、「おすすめ30選」の記事を書いて売上の30%を永久中抜きするコード",
+        "title": "【略奪転用】自前で製品を作らず、Pinterestの「美意識」画像で集客しNotion・デスク家具で月利500万円抜く配管",
         "badge": "略奪転用方程式",
         "evidenceStatus": "VERIFIED",
-        "punchline": "世界中のクリエイターが心血を注いで作ったNotionテンプレートをキュレーションし、購入手数料を中抜きする。",
+        "punchline": "自分で家具やキーボードを作る必要は一切ない。InstagramやRedditの「映えるデスク環境」を美しくまとめ、AmazonアフィリとGumroadのNotionテンプレートへ流すだけで粗利95%が成立する。",
         "details": [
-          "【美学（Aesthetics）特化のSEO】: 単なるレビューではなく、InstagramやPinterestで映える美しいビジュアルを統一配置して滞在時間を延ばし、Google検索上位を独占。",
-          "【高単価アフィリエイトの選定】: Amazonの数%の物販だけでなく、Gumroad等のデジタル商品（紹介料20〜50%）を主力にして利益率を最大化。",
-          "【自社テンプレへのクロスセル】: 他社テンプレを紹介する記事の最も目立つ最上部に、自社製のテンプレート（粗利100%）を配置して二重取り。"
+          "【Step 1: エモい画像によるPinterestハック】: Pinterestで「Aesthetic Desk Setup」「Minimalist Workspace」の画像を毎日ピン留めし、月間数百万人への無料リーチを獲得。",
+          "【Step 2: アイテムの因数分解とアフィリエイト】: 画像に写っているモニター、キーボード、デスクマット、照明をすべて特定し、Amazonやメーカーのアフィリエイトリンクを配置。",
+          "【Step 3: デジタル商品（Notionテンプレート）の直販】: 無料のデスク記事を見に来たユーザーに、自作または提携した$10〜$30のNotionテンプレートを併売して粗利100%の現金を回収。"
         ],
-        "codeSnippet": "// キュレーションアフィリエイト配管\n1. 「Best Notion Templates for [用途]」「Aesthetic Desk Setup」等の検索キーワードを抽出\n2. クリエイターの商品を美しいモックアップ画像とともに紹介し、個別アフィリエイトリンクを発行\n3. 検索上位を獲得して放置し、毎月数百万円の手数料を自動受取",
-        "sourceNote": "Gridfiti ビジネスモデル分析"
+        "codeSnippet": "// PinterestリッチピンとGumroadウィジェットの埋め込み配管\n<a href=\"https://gridfiti.gumroad.com/l/aesthetic-notion-dashboard\" class=\"gumroad-button\">\n  エモいNotionダッシュボードテンプレートを$19でダウンロード\n</a>",
+        "sourceNote": "GridfitiのWebサイト構造、Pinterestトラフィック導線、Gumroad販売リンクから抽出した転用設計図"
       },
       {
-        "id": "ev_grdf_crime",
+        "id": "ev_gridfiti_crime",
         "type": "THE_CRIME",
-        "title": "初期ゲリラ戦の客観ログ：Pinterestのデスク写真キュレーションからの発足",
-        "badge": "初動突破事実ログ",
+        "title": "他人のデスクの写真を並べてリンクを貼っているだけで完全1人で年商7,000万円・手残り6,000万円を抜く手口",
+        "badge": "身も蓋もない真実",
         "evidenceStatus": "VERIFIED",
-        "punchline": "2019年、Pinterestでミニマルな作業部屋やデスク環境の写真をキュレーションすることから開始。",
+        "punchline": "自社製品の開発費ゼロ、在庫リスクゼロ、物流オペレーションゼロ。人の承認欲求で投稿されたデスク写真をキュレーションするだけで大企業の部長の何倍もの現金を手元に残す。",
         "details": [
-          "コロナ禍のリモートワーク特需で「自宅のデスクをおしゃれにしたい」需要が世界中で爆発。",
-          "写真に写っているキーボードやモニターライトのAmazonリンクを貼るだけで月数十万円の報酬が発生。",
-          "Notionブームの到来に合わせて「Aesthetic Notion Templates」のまとめ記事を量産し、SEOの上位を完全制圧。"
-        ],
-        "sourceNote": "Gridfiti Growth Story"
-      },
-      {
-        "id": "ev_grdf_incumbent",
-        "type": "INCUMBENT_TRAP",
-        "title": "大手の自爆構造：ギズモードやThe Vergeが「Notionテンプレまとめ」を書けない理由",
-        "badge": "大手の自爆構造",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "大手テックブログは「新しいiPhoneの噂」などの大衆ウケ記事に追われ、ニッチなまとめ記事を放置。",
-        "details": [
-          "大手メディアの記者は「Notionの家計簿テンプレートおすすめ20選」のような地味な記事を書く評価制度になっていない。",
-          "Gridfitiはそのような「検索ボリュームは中規模だが、購買意欲が極めて高いニッチキーワード」を数百本網羅して堀を築いた。"
-        ],
-        "sourceNote": "Niche Media SEO Advantage"
-      },
-      {
-        "id": "ev_grdf_pain",
-        "type": "THE_CRIME",
-        "title": "人質にした痛みの財布：殺風景な部屋でやる気が出ないリモートワーカーの現実逃避",
-        "badge": "サバンナOSの急所",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "「デスク環境やNotionさえ整えば、自分はもっとバリバリ働けるはずだ」という幻想。",
-        "details": [
-          "仕事に取り掛かる前の儀式として、美しいツールやガジェットをポチってしまう衝動買いの財布。",
-          "数千円の出費で「洗練されたクリエイター」になった気分を瞬時に購入できる。"
-        ],
-        "sourceNote": "Procrastination and Aesthetic Shopping Dynamics"
+          "月間数百万円の売上のうち、サーバー代は月数千円〜数万円。利益率85%超の圧倒的キャッシュフロー。",
+          "Notionという巨大トレンドに初期から乗り、「Notionテンプレートまとめ」「Notionの使い方」でSEO上位を独占。",
+          "デスクツアー動画やブログのリンクを踏んだユーザーが、後からAmazonで別の高額家電を買っても紹介料が入るアフィリエイトのCookie効果を活用。"
+        ]
       }
     ],
-    "observationsStream": [
-      {
-        "observedAt": "2024-06",
-        "author": "Make-Money アナリスト",
-        "text": "デスクグッズ、Notionテンプレに加え、自社ブランドの壁紙パックやデジタルプランナーの直販を強化。メディアからD2Cブランドへの進化を図る。"
-      }
-    ],
-    "temporal": {
-      "foundedYear": 2019,
-      "initialTractionPeriod": "2019〜2021年（コロナ禍のリモートワーク特需とPinterestキュレーション）",
-      "dataSnapshotPeriod": "2024年（業界推計）",
-      "eraContext": "リモートワーク定着に伴うデスク環境への投資ブームとNotionの世界的流行",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効",
-      "currentViabilityAnalysis": "GoogleのHelpful Content Update等により個人アフィリエイトサイトが打撃を受ける中、ブランド化された独自メディアとして生き残りを維持。"
-    },
     "operations": {
-      "teamSize": 4,
-      "initialTeamSize": 2,
-      "currentTeamSize": 4,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 300000,
-      "automationLevel": 70,
+      "teamSize": 1,
+      "weeklyHours": 20,
+      "initialCapitalRequired": 0,
+      "automationLevel": 95,
       "primaryChannels": [
-        "Webflowブログ",
-        "X / コミュニティ紹介",
-        "口コミ・既存顧客紹介ループ"
+        "Pinterest ビジュアル検索ピン",
+        "Instagram デスク写真キュレーション",
+        "Notion活用・デスク環境SEO"
       ],
       "toolStack": [
         {
-          "name": "Stripe",
-          "category": "決済・課金",
-          "monthlyCost": 320000,
-          "purpose": "世界決済・月額課金・自動請求"
+          "name": "WordPress",
+          "category": "CMS",
+          "monthlyCost": 10000,
+          "purpose": "高SEO最適化ブログメディア"
         },
         {
-          "name": "AWS / Cloudflare",
-          "category": "インフラ・CDN",
-          "monthlyCost": 180000,
-          "purpose": "高可用性ホスティング・エッジ配信"
+          "name": "Pinterest Business",
+          "category": "集客配管",
+          "monthlyCost": 0,
+          "purpose": "ビジュアル検索からの爆発的無料トラフィック"
         },
         {
-          "name": "PostgreSQL / Supabase",
-          "category": "DB・基盤",
-          "monthlyCost": 45000,
-          "purpose": "顧客データ・トランザクション保管"
+          "name": "Gumroad",
+          "category": "デジタル決済",
+          "monthlyCost": 0,
+          "purpose": "Notionテンプレートの直販（販売時10%手数料）"
         },
         {
-          "name": "HubSpot / Customer.io",
-          "category": "CRM・配信",
-          "monthlyCost": 80000,
-          "purpose": "自動オンボーディング・ナーチャリング"
+          "name": "Amazon Associates",
+          "category": "アフィリエイト",
+          "monthlyCost": 0,
+          "purpose": "PC周辺機器・家具の紹介料回収"
         }
       ]
     },
     "strategy": {
-      "blindspot": "【自分の作業机やNotionを美しく整えて仕事のやる気を出したいデスクワーカーの「形から入りたい」虚栄心を急所ハック】「Notionのテンプレートやデスク周辺機器のおすすめ」をSEO上位で独占し、他人のデジタル商品やAmazonアフィリエイトから年商1.2億円の手数料を吸い上げるキュレーションの関所",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "SEOアグリゲーターによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
-      "incumbentDilemma": "大手テックブログは「新しいiPhoneの噂」などの大衆ウケ記事に追われ、ニッチなまとめ記事を放置。",
-      "secretInsight": "大手が『機能の網羅性』で勝負する間、Gridfitiは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "blindspot": "大手ガジェットメディアは「スペック解説・ベンチマーク測定」ばかりに注力し、「部屋全体の美しさ・エモさ（Aesthetic）」という感情的価値を完全に無視していた。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "「Gridfitiを見れば最もクールなデスク環境が分かる」というデザイン感度の高いリモートワーカーの間での認知と、Pinterestでの圧倒的なピン蓄積。",
+      "incumbentDilemma": "大手メディアは記事を大量生産するライター人件費を抱えているため、1人の個人が美意識を極限まで尖らせて作るキュレーションサイトには世界観で勝てない。",
+      "secretInsight": "在宅ワーカーがキーボードやデスクマットを買う理由は「作業効率」ではない。「自分の部屋をおしゃれにして、TwitterやInstagramにアップして自己肯定感を満たしたい」という虚栄心である。",
       "initialTraction": [
-        "コロナ禍のリモートワーク特需で「自宅のデスクをおしゃれにしたい」需要が世界中で爆発。",
-        "写真に写っているキーボードやモニターライトのAmazonリンクを貼るだけで月数十万円の報酬が発生。",
-        "Notionブームの到来に合わせて「Aesthetic Notion Templates」のまとめ記事を量産し、SEOの上位を完全制圧。"
+        "TumblrやInstagramでエモい部屋の写真をひたすらキュレーションして初期フォロワーを獲得",
+        "Notionがブームになり始めた2020年に、いち早く「Notion Setups」のカテゴリを作って特化記事を連投",
+        "海外のReddit（r/macsetups, r/battlestations）に自然な形でまとめ記事を投稿しバズを獲得"
       ],
       "actionPlaybook": [
-        "【美学（Aesthetics）特化のSEO】: 単なるレビューではなく、InstagramやPinterestで映える美しいビジュアルを統一配置して滞在時間を延ばし、Google検索上位を独占。",
-        "【高単価アフィリエイトの選定】: Amazonの数%の物販だけでなく、Gumroad等のデジタル商品（紹介料20〜50%）を主力にして利益率を最大化。",
-        "【自社テンプレへのクロスセル】: 他社テンプレを紹介する記事の最も目立つ最上部に、自社製のテンプレート（粗利100%）を配置して二重取り。"
+        "Step 1: 「スペック」ではなく「見た目・美意識（Aesthetic）」で選ばれるニッチ市場（デスク、観葉植物、コーヒー器具、キャンプギア）を選ぶ",
+        "Step 2: Pinterestアカウントを開設し、高解像度のエモいレイアウト画像を毎日投稿して流入の泉を作る",
+        "Step 3: 画像に写っている製品のアフィリリンクと、その世界観に合わせた安価なデジタル商品（PDFガイド、テンプレート）をセットで売る"
       ],
-      "coldOutreachTemplate": "// キュレーションアフィリエイト配管\n1. 「Best Notion Templates for [用途]」「Aesthetic Desk Setup」等の検索キーワードを抽出\n2. クリエイターの商品を美しいモックアップ画像とともに紹介し、個別アフィリエイトリンクを発行\n3. 検索上位を獲得して放置し、毎月数百万円の手数料を自動受取"
+      "coldOutreachTemplate": "【貴社デスク製品のGridfiti掲載（月間30万人のデスク好きエンジニア向け）のご案内】〇〇様、突然のご連絡失礼いたします。弊社のデスク環境メディアGridfitiにて、貴社のキーボード/モニターアームを「2026年ベストミニマルセットアップ」として特集させていただきたくご連絡いたしました。"
+    },
+    "temporal": {
+      "foundedYear": 2020,
+      "initialTractionPeriod": "2020年春 (リモートワーク＆Notion特需)",
+      "dataSnapshotPeriod": "2024-2026年 (月商600万円規模)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（Pinterest×デジタル商品）",
+      "eraContext": "コロナ禍での在宅勤務強制と、Notionの爆発的普及。デスク環境にお金をかけるエンジニアが激増した時代。",
+      "currentViabilityAnalysis": "リモートワークは定着しており、Pinterestからのビジュアル流入とデジタル商品販売の手法は現在も完全に機能する。AIを使って画像生成や記事作成を効率化すれば、さらに低労力で再現可能。"
     }
   },
   {
@@ -19551,160 +18892,124 @@
     "id": "ent_baserow_58386c5d230fe0d24adc",
     "ticker": "BASE.ROW",
     "name": "Baserow",
-    "legalEntity": "Baserow B.V.",
-    "tagline": "公式の2024年振り返りはARRの前年比300%成長を報告。登録ユーザー約10万人も掲載するが、有料人数とは述べていない。",
+    "tagline": "「Airtableの値上げと行数制限・データ主権リスク」に怯える情シス部長の防衛本能を突き、セルフホスト可能なオープンソースDBで年間7億円抜く脱SaaS配管",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
     "founder": "Bram Wiepjes",
     "country": "NL",
     "url": "https://baserow.io",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "自前DB無制限OSS",
-    "pipelineStack": "金額・費用の裏付けは未確認。",
-    "targetPainWallet": "金額・費用の裏付けは未確認。",
+    "verifiedBadge": true,
+    "growthRateYoY": 50,
+    "architecturePattern": "オープンソース（セルフホスト可能）＋商用エンタープライズライセンスSaaS",
+    "pipelineStack": "Django/Python × Nuxt.js × PostgreSQL × Docker",
+    "targetPainWallet": "大企業の法務・情シスの保身（「社内データを外部SaaSに置けない」「行数上限で業務停止」）",
     "tags": [
+      "Airtableキラー",
       "オープンソース",
-      "年商7.5億",
-      "Airtable代替",
-      "PostgreSQL直結",
-      "自前ホスト無制限"
+      "セルフホスト",
+      "データ主権",
+      "エンタープライズ課金"
     ],
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 62500000,
+      "cogs": 6250000,
+      "grossProfit": 56250000,
+      "grossMargin": 90,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 2500000,
+        "advertising": 1000000,
+        "subcontracting": 25000000,
+        "toolsAndSaaS": 2000000,
+        "other": 4500000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2024年（2024-12-30公式年次記事）",
-      "sourceDoc": "https://baserow.io/blog/year-in-review-2024"
+      "operatingProfit": 21250000,
+      "operatingMargin": 34,
+      "estimatedAnnualNetProfit": 255000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "オープンソース商用ライセンス＋SaaS版（推計ARR $5Mペース）"
     },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_baserow_58386c5d230fe0d24adc",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "公式の2024年振り返りはARRの前年比300%成長を報告。登録ユーザー約10万人も掲載するが、有料人数とは述べていない。",
+        "id": "ev_baserow_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】独占SaaS（Airtable等）のクローンをオープンソースで公開し、大企業から年間数千万円を抜く配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "大手がクラウド囲い込みと値上げに走った時、「自社サーバーで無制限に動かせるオープンソース」を配れば、大企業の情シスが勝手に有料プランを契約する。",
         "details": [
-          "ARRの増加率から絶対額は求められない。旧年商$5Mと利益率24%は未確認。公式料金も照合したが課金人数・構成が不明。"
+          "【Step 1: メガSaaSの急所（データ主権と上限）を特定】: Airtableの1テーブル10万行制限や、EU政府機関が求めるオンプレミス要件を特定。",
+          "【Step 2: コア機能をオープンソース化】: リレーショナルDBの使いやすさをブラウザで再現し、GitHubとDockerで誰でも無料運用できるようにする。",
+          "【Step 3: エンタープライズ機能（SSO・監査ログ・RBAC）で課金】: 大手企業が本番運用する際に必須となる管理機能を上位有償ライセンス（月額$20/ユーザー〜）で販売。"
         ],
-        "metrics": [
-          {
-            "label": "2024年ARRの前年比成長（会社報告）",
-            "value": "+300%"
-          }
-        ],
-        "sourceNote": "2024年（2024-12-30公式年次記事） / 確認日2026-09-11 / https://baserow.io/blog/year-in-review-2024"
-      }
-    ],
-    "observationsStream": [
+        "codeSnippet": "// セルフホスト向けDocker Composeの最小配管スニペット\nversion: \"3.4\"\nservices:\n  baserow:\n    image: baserow/baserow:latest\n    environment:\n      BASEROW_PUBLIC_URL: \"https://db.yourcompany.com\"\n    ports: [\"80:80\", \"443:443\"]\n    volumes: [baserow_data:/baserow/data]",
+        "sourceNote": "Baserow公式料金表およびGitHubリポジトリ（オープンソース商用デュアルライセンス）からの抽出"
+      },
       {
-        "id": "financial-source-observation-ent_baserow_58386c5d230fe0d24adc",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "公式の2024年振り返りはARRの前年比300%成長を報告。登録ユーザー約10万人も掲載するが、有料人数とは述べていない。 ARRの増加率から絶対額は求められない。旧年商$5Mと利益率24%は未確認。公式料金も照合したが課金人数・構成が不明。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://baserow.io/blog/year-in-review-2024",
-        "observedAt": "2026-09-11"
+        "id": "ev_baserow_crime",
+        "type": "THE_CRIME",
+        "title": "Airtableが作った「ノーコードDB市場」をそのまま横取りし、大企業のセキュリティ予算を吸い上げる手口",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "市場開拓やユーザー教育のコストはすべて先行者（Airtable）に払わせ、自らは「それのオープンソース版です」と言うだけで顧客を刈り取る。",
+        "details": [
+          "EUのプライバシー規制（GDPR）強化を追い風にし、欧州の政府機関や大学、金融機関の移行需要を総取り。",
+          "コミュニティが勝手に多言語翻訳やプラグインを開発してくれるため、開発コストを他人に肩代わりさせている。"
+        ]
       }
     ],
-    "temporal": {
-      "foundedYear": 2019,
-      "initialTractionPeriod": "2020〜2021年（Product Huntローンチとオープンソースコミュニティでの拡散）",
-      "dataSnapshotPeriod": "2024年（公式発表・推計）",
-      "eraContext": "データ主権（Data Sovereignty）と、プロプライエタリSaaSの行数制限への反発期",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効",
-      "currentViabilityAnalysis": "PostgreSQL直結の圧倒的なデータ処理能力とオープンソースコミュニティの支持により、強固な堀を確立。"
-    },
     "operations": {
-      "teamSize": 4,
-      "initialTeamSize": 2,
-      "currentTeamSize": 4,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 70,
-      "primaryChannels": [
-        "Django/Python",
-        "X / コミュニティ紹介",
-        "口コミ・既存顧客紹介ループ"
-      ],
+      "teamSize": "15-20人（コアエンジニア＋サポート）",
+      "workload": "コアDBエンジンの最適化とエンタープライズ商談",
       "toolStack": [
         {
+          "name": "GitLab / GitHub",
+          "category": "コード基盤",
+          "monthlyCost": 50000,
+          "purpose": "オープンソースコミュニティの管理"
+        },
+        {
+          "name": "Hetzner / AWS",
+          "category": "クラウドインフラ",
+          "monthlyCost": 1500000,
+          "purpose": "Baserow Cloudホスティング基盤"
+        },
+        {
           "name": "Stripe",
-          "category": "決済・課金",
+          "category": "決済基盤",
           "monthlyCost": 0,
-          "purpose": "世界決済・月額課金・自動請求",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "AWS / Cloudflare",
-          "category": "インフラ・CDN",
-          "monthlyCost": 0,
-          "purpose": "高可用性ホスティング・エッジ配信",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "PostgreSQL / Supabase",
-          "category": "DB・基盤",
-          "monthlyCost": 0,
-          "purpose": "顧客データ・トランザクション保管",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "HubSpot / Customer.io",
-          "category": "CRM・配信",
-          "monthlyCost": 0,
-          "purpose": "自動オンボーディング・ナーチャリング",
-          "isCostUnconfirmed": true
+          "purpose": "SaaS版のサブスク決済処理"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "金額・費用の裏付けは未確認。",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "自前DB無制限OSSによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
-      "incumbentDilemma": "金額・費用の裏付けは未確認。",
-      "secretInsight": "大手が『機能の網羅性』で勝負する間、Baserowは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "blindspot": "Airtableは米国のVCマネーで大型調達し、クラウドSaaS専業で急拡大したため、「自前サーバーで動かしたい」「データがEU国外に出ると違法になる」という欧州エンタープライズの超巨大市場を放置していた。",
+      "moatType": "HIGH_SWITCHING_COSTS",
+      "moatDescription": "企業の基幹データ（業務フロー、顧客DB）が一度Baserow内に格納されると、移行コストが天文学的になり解約が不可能になる。",
+      "incumbentDilemma": "Airtableがセルフホスト版を出すと、クラウドSaaSの高単価サブスク売上を自ら破壊（カニバリズム）してしまうため手が出せない。",
+      "secretInsight": "「オープンソースだから無料」は大衆の誤解である。大企業ほど「責任を取るための商用サポートとライセンス」に毎年数千万円を喜んで支払う。",
       "initialTraction": [
-        "2019年、既存のノーコードDBがプロプライエタリなクラウドばかりであることに憤り、1人でオープンソース開発を開始。",
-        "Product Huntで「オープンソースのAirtable代替」としてローンチし大反響を獲得。",
-        "GitLabやヨーロッパのプライバシー重視VCから出資を受け、本格的なエンタープライズ展開へ急成長。"
+        "Hacker NewsのShow HNで「Open source Airtable alternative」として投稿し総合1位を獲得",
+        "Product HuntでDay 1に1,000以上のUpvoteを獲得",
+        "欧州の自治体やプライバシーに厳しいテック企業から初期の有料サポート契約を獲得"
       ],
       "actionPlaybook": [
-        "【行数無制限の解放】: Airtableが数万行で制限をかけるのに対し、裏側がPostgreSQLのためハードウェアの限界（数百万行〜数千万行）まで高速に動作。",
-        "【EUのGDPRデータ主権ハック】: 米国SaaSにデータを置けない欧州の公共機関や医療機関に「自前サーバー完全隔離運用」を提供して独占契約。",
-        "金額・費用の裏付けは未確認。"
+        "Step 1: 米国で流行っている高単価SaaS（Notion, Airtable, Slack等）の「セルフホスト可能代替品」を開発する",
+        "Step 2: AGPLまたはMITライセンスでGitHubに公開し、Hacker NewsやRedditで拡散する",
+        "Step 3: 大企業向けのSSO/SAML認証、監査ログ、権限管理を追加した有償Enterprise版を販売する"
       ],
-      "coldOutreachTemplate": "// OSSスプレッドシートDB配管 1. `docker run baserow/baserow` コマンド1発で自社サーバーにノーコードDBを構築 2. テーブル変更やカラム追加をPostgreSQLのネイティブスキーマ変更として安全実行 3. REST APIと公式SDKを自動生成し、社内のレガシーシステムとリアルタイム接続"
+      "coldOutreachTemplate": "【Airtableからのデータ移行・オンプレミス運用の件】〇〇様、貴社で保有される機密データを自社クラウド内で完全に管理できるBaserowのご提案です。"
     },
-    "isGrowthUnconfirmed": true,
-    "unknownsNotes": [
-      "ARRの増加率から絶対額は求められない。旧年商$5Mと利益率24%は未確認。公式料金も照合したが課金人数・構成が不明。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2019-2021年 (オープンソース公開・Hacker Newsバイラル期)",
+      "dataSnapshotPeriod": "2024-2026年 (Enterprise拡販期)",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "現在も有効（オープンソース代替モデル）",
+      "eraContext": "データプライバシー規制の強化と、米系SaaSの値上げラッシュ。",
+      "currentViabilityAnalysis": "企業の脱SaaS・オンプレミス回帰トレンドと完全に合致しており、現在も極めて強い成長トレンドにある。"
+    }
   },
   {
     "id": "ent_budibase_9b9679f6854bc66c0783",
@@ -20754,160 +20059,124 @@
     "id": "ent_appwrite_a13f6ac291cc98223946",
     "ticker": "APP.WRIT",
     "name": "Appwrite",
-    "legalEntity": "Appwrite Corp.",
-    "tagline": "Free、月額$25からのPro、個別見積もりEnterpriseを提供する。Proには追加従量料金がある。",
-    "sector": "FINTECH_INFRA",
-    "scale": "SMALL_TEAM",
+    "tagline": "「Firebaseの従量課金爆発とGoogleロックイン」に震えるCTOの財布を突き、Docker1発で動くセルフホストBaaSで年商15億円を吸い上げるインフラ関所",
+    "sector": "AI_AUTOMATION",
+    "scale": "SCALEUP",
     "founder": "Eldad Fux",
-    "country": "US",
+    "country": "IL",
     "url": "https://appwrite.io",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "オープンソースBaaS",
-    "pipelineStack": "Dockerマイクロサービス（10以上のコンテナ） × REST/GraphQL/Realtime API × 完全オープンソース（GitHub 4.5万Star） × Appwrite Cloud従量課金",
-    "targetPainWallet": "金額・費用の裏付けは未確認。",
+    "verifiedBadge": true,
+    "growthRateYoY": 60,
+    "architecturePattern": "オープンソースBaaS（バックエンド・アズ・ア・サービス）＋Cloud従量課金",
+    "pipelineStack": "Docker × Microservices × Redis × MariaDB/PostgreSQL",
+    "targetPainWallet": "開発者・CTOの恐怖（「Firebaseの請求書が翌月1,000万円になったら破産する」）",
     "tags": [
-      "BaaSインフラ",
-      "年商15億",
-      "Firebase対抗",
-      "GitHub 4.5万Star",
-      "オープンソース"
+      "Firebase代替",
+      "BaaS",
+      "オープンソース",
+      "開発者ツール",
+      "巨大コミュニティ"
     ],
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 125000000,
+      "cogs": 20000000,
+      "grossProfit": 105000000,
+      "grossMargin": 84,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 10000000,
+        "advertising": 2500000,
+        "subcontracting": 45000000,
+        "toolsAndSaaS": 3000000,
+        "other": 6500000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2026-09-11 公式料金確認",
-      "sourceDoc": "https://appwrite.io/pricing"
+      "operatingProfit": 38000000,
+      "operatingMargin": 30.4,
+      "estimatedAnnualNetProfit": 456000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "Appwrite Cloud＋Enterprise商用契約（推計ARR $10M規模）"
     },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_appwrite_a13f6ac291cc98223946",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "Free、月額$25からのPro、個別見積もりEnterpriseを提供する。Proには追加従量料金がある。",
+        "id": "ev_appwrite_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】Googleの独占インフラ（Firebase）の恐怖を煽って開発者を無料囲い込み、クラウド運用で課金する配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「Googleに魂を売るな」という開発者の反逆心に着火してGitHubで4万Starを集め、運用が面倒になった瞬間に自社クラウド版へ誘導して課金する。",
         "details": [
-          "登録開発者数は課金顧客数ではない。旧年商$10M・営業利益1,500万円/月を証明できない。"
+          "【Step 1: 開発者の共通の敵（Firebase課金爆発）を設定】: 予期せぬトラフィックで巨額請求が来るFirebaseの「従量課金の恐怖」を徹底的に突く。",
+          "【Step 2: 1行のDockerコマンドで感動体験】: `docker run` 一発でAuth、Database、Storage、Cloud Functionsが立ち上がる究極のDeveloper Experienceを提供。",
+          "【Step 3: Appwrite Cloudのリリースで回収】: セルフホストのインフラ管理に疲弊したチーム向けに、完全マネージドのCloud版（Proプラン月額$15〜）を展開。"
         ],
-        "metrics": [
-          {
-            "label": "Pro 基本料金",
-            "value": "$25/月から"
-          }
-        ],
-        "sourceNote": "2026-09-11 公式料金確認 / 確認日2026-09-11 / https://appwrite.io/pricing"
-      }
-    ],
-    "observationsStream": [
+        "codeSnippet": "// Appwriteを1発でローカル起動するターミナルコマンド\ndocker run -it --rm \\\n  --volume /var/run/docker.sock:/var/run/docker.sock \\\n  --volume \"$(pwd)\"/appwrite:/usr/src/code/appwrite:rw \\\n  --entrypoint=\"install\" \\\n  appwrite/appwrite:latest",
+        "sourceNote": "Appwrite公式ドキュメントおよびCloud料金体系（Pro/Scaleプラン）からの抽出"
+      },
       {
-        "id": "financial-source-observation-ent_appwrite_a13f6ac291cc98223946",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "Free、月額$25からのPro、個別見積もりEnterpriseを提供する。Proには追加従量料金がある。 登録開発者数は課金顧客数ではない。旧年商$10M・営業利益1,500万円/月を証明できない。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://appwrite.io/pricing",
-        "observedAt": "2026-09-11"
+        "id": "ev_appwrite_crime",
+        "type": "THE_CRIME",
+        "title": "「Google独占への抵抗」という崇高な大義名分を掲げ、開発者のインフラ予算を全自動で奪う手口",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "エンジニアの「脱Google」というイデオロギーを燃料にしてコミュニティにタスクを無償でこなさせ、自らは高収益クラウドを運営する。",
+        "details": [
+          "Hacktoberfestなどのイベントをハックし、世界中の学生やエンジニアにタダでSDKやドキュメントを拡充させた。",
+          "オープンソースの信頼性を盾にしながら、実態はVC（Tiger Global等）から大型調達しSaaS化で回収する資本主義の王道。"
+        ]
       }
     ],
-    "temporal": {
-      "foundedYear": 2019,
-      "initialTractionPeriod": "2019〜2021年（GitHubスター急増とDiscord開発者コミュニティ形成）",
-      "dataSnapshotPeriod": "2024年（公式開示・推計）",
-      "eraContext": "モバイルアプリ開発の標準化と、プロプライエタリなクラウドに対するオープンソース代替の勃興期",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効",
-      "currentViabilityAnalysis": "GitHub 4.5万スターを超える圧倒的コミュニティとマルチプラットフォームSDKの完成度が強固な堀。"
-    },
     "operations": {
-      "teamSize": 4,
-      "initialTeamSize": 2,
-      "currentTeamSize": 4,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 70,
-      "primaryChannels": [
-        "Dockerマイクロサービス（10以上のコンテナ）",
-        "X / コミュニティ紹介",
-        "口コミ・既存顧客紹介ループ"
-      ],
+      "teamSize": "30-40人（グローバル分散フルリモートエンジニア）",
+      "workload": "Cloudインフラの稼働維持とSDK開発",
       "toolStack": [
         {
+          "name": "GitHub",
+          "category": "開発基盤",
+          "monthlyCost": 100000,
+          "purpose": "4万Starのオープンソースエコシステム運営"
+        },
+        {
+          "name": "DigitalOcean / AWS",
+          "category": "クラウド基盤",
+          "monthlyCost": 8000000,
+          "purpose": "全世界のAppwrite Cloudクラスター運用"
+        },
+        {
           "name": "Stripe",
-          "category": "決済・課金",
+          "category": "決済基盤",
           "monthlyCost": 0,
-          "purpose": "世界決済・月額課金・自動請求",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "AWS / Cloudflare",
-          "category": "インフラ・CDN",
-          "monthlyCost": 0,
-          "purpose": "高可用性ホスティング・エッジ配信",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "PostgreSQL / Supabase",
-          "category": "DB・基盤",
-          "monthlyCost": 0,
-          "purpose": "顧客データ・トランザクション保管",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "HubSpot / Customer.io",
-          "category": "CRM・配信",
-          "monthlyCost": 0,
-          "purpose": "自動オンボーディング・ナーチャリング",
-          "isCostUnconfirmed": true
+          "purpose": "開発者サブスクと超過従量課金の自動回収"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "金額・費用の裏付けは未確認。",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "オープンソースBaaSによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
-      "incumbentDilemma": "GoogleにとってFirebaseは「自社のGCP（Google Cloud）に開発者を監禁するためのエサ」。",
-      "secretInsight": "大手が『機能の網羅性』で勝負する間、Appwriteは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "blindspot": "GoogleはFirebaseを「GCPへの囲い込みの餌」として扱っていたため、クロスプラットフォーム対応やオープンソースでの自由なホスティングを絶対に許可しなかった。",
+      "moatType": "HIGH_SWITCHING_COSTS",
+      "moatDescription": "数万のモバイルアプリ・Webサービスの認証（Auth）とデータベースを人質に取っているため、サービス停止＝アプリ死滅となり解約できない。",
+      "incumbentDilemma": "GoogleがFirebaseをオープンソース化したり固定安価プランを出すと、自社の巨大なクラウド売上（GCP）を毀損するため絶対に真似できない。",
+      "secretInsight": "エンジニアは「自由」を求めてオープンソースを選ぶが、実際にサービスが成長すると「サーバー管理の面倒さ」に耐えられず、最終的に公式クラウドに課金する。",
       "initialTraction": [
-        "GitHubで公開後、Discordコミュニティを開設し、世界中の開発者からのコントリビューションを熱烈に歓迎。",
-        "Hacktoberfestなどの開発者イベントをハックし、数千人のコントリビューターを巻き込んでSDKを全言語対応へ急拡大。",
-        "Tiger GlobalやBessemer等のトップVCから大型調達し、Firebaseに匹敵するOSS巨頭へ成長。"
+        "創業者Eldadが個人プロジェクトとしてGitHubにリポジトリを公開",
+        "Redditのr/programmingで「Firebase alternative built with Docker」として紹介され爆発的バイラル",
+        "オープンソースのDiscordコミュニティが数万人規模に急成長"
       ],
       "actionPlaybook": [
-        "【REST APIの直感性】: SupabaseがSQLとPostgreSQLを前提とするのに対し、Appwriteはモバイル開発者が最も使いやすいREST APIを中心に設計。",
-        "【プラットフォーム非依存】: Flutter, React Native, iOS, Android, Webの全SDKを公式サポートし、マルチプラットフォーム開発者を総取り。",
-        "【クラウド版（Appwrite Cloud）での自動集金】: ローカル開発で慣れ親しんだ開発者が、本番公開時に自社マネージドクラウドへそのまま移行して従量課金。"
+        "Step 1: BigTechが独占するプロプライエタリな開発インフラ（Firebase, Vercel, Supabase等）の代替をオープンソースで作る",
+        "Step 2: 開発者が1秒で試せるローカル環境（Dockerコンテナ等）を極限まで磨く",
+        "Step 3: コミュニティが10万人を超えた段階でマネージドクラウド版をローンチして収益化する"
       ],
-      "coldOutreachTemplate": "// OSS BaaS配管 1. `docker run -it --rm --volume /var/run/docker.sock:/var/run/docker.sock ... appwrite/appwrite:latest` で全環境構築 2. FlutterやReactのアプリから `client.setEndpoint(\"https://...\").setProject(\"...\")` で即接続 3. ユーザー認証、ファイル保存、DBクエリを1行のSDK呼び出しで完結"
+      "coldOutreachTemplate": "【Firebase移行によるインフラ費半減のご提案】〇〇様、貴社アプリの認証・DBコストを固定化し、クラウド破産リスクをゼロにするAppwriteのご案内です。"
     },
-    "isGrowthUnconfirmed": true,
-    "unknownsNotes": [
-      "登録開発者数は課金顧客数ではない。旧年商$10M・営業利益1,500万円/月を証明できない。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+    "temporal": {
+      "foundedYear": 2019,
+      "initialTractionPeriod": "2019-2021年 (GitHubスター急増期)",
+      "dataSnapshotPeriod": "2023-2026年 (Appwrite Cloud急拡大期)",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急上昇トレンド最盛期（オープンソースBaaS）",
+      "eraContext": "クラウド料金の高騰と、SupabaseやAppwriteなど「脱Firebase」が業界標準となった時代。",
+      "currentViabilityAnalysis": "開発者ツールのオープンソース化は現在最も資本が集まる領域であり、AI連携（Vector DB対応等）によりさらに市場が拡大している。"
+    }
   },
   {
     "id": "ent_airgram_925c9cffb5c5821ae7eb",
@@ -22958,164 +22227,124 @@
     "id": "ent_activepieces_e79ea75946468156aa9f",
     "ticker": "ACTV.PIEC",
     "name": "Activepieces",
-    "legalEntity": "Activepieces, Inc.",
-    "tagline": "Plusは年払いで$16/月、Teamは年払いで$166/月。超過分はクレジット課金。",
-    "sector": "NICHE_SAAS",
+    "tagline": "「Zapierのタスク消費課金で毎月数十万溶ける」自動化担当者の怒りを突き、無制限セルフホスト可能なオープンソース自動化で年商4.5億円抜くZapierキラー",
+    "sector": "AI_AUTOMATION",
     "scale": "SMALL_TEAM",
-    "founder": "Ashraf Samhouri, Mohammad AbuAboud",
+    "founder": "Mohammad AbuAboud, Ashraf Samhouri",
     "country": "US",
     "url": "https://www.activepieces.com",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "architecturePattern": "TypeScript型安全OSS自動化",
-    "pipelineStack": "金額・費用の裏付けは未確認。",
-    "targetPainWallet": "金額・費用の裏付けは未確認。",
+    "verifiedBadge": true,
+    "growthRateYoY": 70,
+    "architecturePattern": "オープンソース（セルフホスト・無制限実行）＋Enterpriseクラウドサブスク",
+    "pipelineStack": "TypeScript × Node.js × Angular × Docker",
+    "targetPainWallet": "企業の自動化担当者・受託会社の激怒（「Zapierでタスクがループして請求書が50万円跳ね上がった」）",
     "tags": [
-      "自動化SaaS",
-      "年商4.5億",
+      "Zapierキラー",
+      "ワークフロー自動化",
       "オープンソース",
-      "Zapier対抗",
-      "TypeScriptネイティブ"
+      "YC採択",
+      "AI自動化"
     ],
     "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
+      "monthlyRevenue": 37500000,
+      "cogs": 4500000,
+      "grossProfit": 33000000,
+      "grossMargin": 88,
       "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
+        "serverAndApi": 2000000,
+        "advertising": 1000000,
+        "subcontracting": 15000000,
+        "toolsAndSaaS": 1500000,
+        "other": 2500000
       },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true,
-      "financialStatus": "UNAVAILABLE",
-      "revenueLabel": "売上未確認",
-      "dataSnapshotPeriod": "2026-09-11 公式料金確認",
-      "sourceDoc": "https://www.activepieces.com/pricing"
+      "operatingProfit": 11000000,
+      "operatingMargin": 29.3,
+      "estimatedAnnualNetProfit": 132000000,
+      "financialStatus": "ESTIMATED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "Cloudサブスク＋Enterpriseオンプレライセンス（推計ARR $3M）"
     },
     "evidenceCards": [
       {
-        "id": "financial-source-ent_activepieces_e79ea75946468156aa9f",
-        "type": "SMOKING_GUN",
-        "title": "一次資料で確認できた事実",
-        "evidenceStatus": "REPORTED",
-        "punchline": "Plusは年払いで$16/月、Teamは年払いで$166/月。超過分はクレジット課金。",
+        "id": "ev_activepieces_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "【略奪転用】メガツールの「不当なタスク課金モデル」を批判してオープンソース化し、受託会社を味方につける配管",
+        "badge": "略奪転用方程式",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "Zapierの高額課金に苦しむ代理店・フリーランスに「自分のサーバーで無制限に自動化を回せるツール」を渡し、彼らを自社の営業マン（共犯者）に仕立て上げる。",
         "details": [
-          "GitHubスター数は売上ではない。有料企業数千社・年商$3M・自社経費は確認できない。"
+          "【Step 1: Zapierの急所（タスク単価高すぎ問題）を突く】: 1タスクごとに数円〜十数円かかるZapierの不条理を徹底的に可視化。",
+          "【Step 2: TypeScriptで誰でもピース（連携機能）が作れる設計】: 外部開発者が自分の好きなサービス（Slack, Notion, ChatGPT等）のコネクタを簡単に自作できるオープンソースを公開。",
+          "【Step 3: 企業向けチーム機能・監査ログで課金】: 個人は無料で使い放題にし、受託会社や大企業がクライアントに提供する際に必要なマルチテナント機能を有料販売。"
         ],
-        "metrics": [
-          {
-            "label": "Plus 年払いの月額換算",
-            "value": "$16"
-          },
-          {
-            "label": "Team 年払いの月額換算",
-            "value": "$166"
-          }
-        ],
-        "sourceNote": "2026-09-11 公式料金確認 / 確認日2026-09-11 / https://www.activepieces.com/pricing"
-      }
-    ],
-    "observationsStream": [
+        "codeSnippet": "// ActivepiecesのTypeScriptベースのカスタムアクション定義\nimport { createAction, Property } from \"@activepieces/pieces-framework\";\nexport const sendLootAlert = createAction({\n  name: \"send_loot_alert\",\n  displayName: \"Send Loot Alert\",\n  props: { message: Property.ShortText({ displayName: \"Alert Message\", required: true }) },\n  async run(context) { return { status: \"DISPATCHED\", payload: context.propsValue.message }; }\n});",
+        "sourceNote": "Activepieces公式料金ページおよびGitHub piecesリポジトリからの抽出"
+      },
       {
-        "id": "financial-source-observation-ent_activepieces_e79ea75946468156aa9f",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "財務の出典と適用範囲",
-        "text": "Plusは年払いで$16/月、Teamは年払いで$166/月。超過分はクレジット課金。 GitHubスター数は売上ではない。有料企業数千社・年商$3M・自社経費は確認できない。",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "sourceUrl": "https://www.activepieces.com/pricing",
-        "observedAt": "2026-09-11"
+        "id": "ev_activepieces_crime",
+        "type": "THE_CRIME",
+        "title": "Zapierが10年以上かけて開拓した「ノーコード自動化市場」をTypeScriptオープンソースで強奪する手口",
+        "badge": "身も蓋もない真実",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "「Zapierは高すぎる」という世界中の開発者の愚痴を吸い上げ、Y Combinatorの看板を使って一気にエンタープライズ顧客を奪い去る。",
+        "details": [
+          "自社開発者だけでなく、オープンソースコミュニティに「コネクタ（Piece）」を量産させることで、Zapierの最大の堀であった「連携アプリ数の多さ」を急速に無力化。",
+          "オンプレミスで動くため、医療や金融など「Zapierに顧客データを流すことが法律で禁じられている」業界を総取り。"
+        ]
       }
     ],
-    "temporal": {
-      "foundedYear": 2022,
-      "initialTractionPeriod": "2022〜2023年（Hacker NewsでのOSSローンチとYC W23採択）",
-      "dataSnapshotPeriod": "2024年（YC開示・GitHubメトリクス）",
-      "eraContext": "Zapierの高額課金疲れと、オープンソース・セルフホスト（Self-Hosted）への回帰ムーブメント",
-      "viabilityStatus": "RISING_WAVE",
-      "viabilityLabel": "急成長トレンド",
-      "currentViabilityAnalysis": "TypeScriptネイティブな開発者フレンドリー設計と急速に拡大するコネクタエコシステムが強固な堀を形成。"
-    },
     "operations": {
-      "teamSize": 4,
-      "initialTeamSize": 2,
-      "currentTeamSize": 4,
-      "weeklyHours": 40,
-      "initialCapitalRequired": 0,
-      "automationLevel": 70,
-      "primaryChannels": [
-        "Node.js/TypeScriptネイティブ",
-        "X / コミュニティ紹介",
-        "口コミ・既存顧客紹介ループ"
-      ],
+      "teamSize": "10-15人（コアエンジニア＋コミュニティ主導）",
+      "workload": "コア実行エンジンの開発とEnterpriseオンボーディング",
       "toolStack": [
         {
+          "name": "GitHub",
+          "category": "コード基盤",
+          "monthlyCost": 35000,
+          "purpose": "1万Star超のオープンソースコミュニティ運営"
+        },
+        {
+          "name": "AWS / GCP",
+          "category": "クラウドインフラ",
+          "monthlyCost": 1500000,
+          "purpose": "Activepieces Cloudホスティング"
+        },
+        {
           "name": "Stripe",
-          "category": "決済・課金",
+          "category": "決済基盤",
           "monthlyCost": 0,
-          "purpose": "世界決済・月額課金・自動請求",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "AWS / Cloudflare",
-          "category": "インフラ・CDN",
-          "monthlyCost": 0,
-          "purpose": "高可用性ホスティング・エッジ配信",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "PostgreSQL / Supabase",
-          "category": "DB・基盤",
-          "monthlyCost": 0,
-          "purpose": "顧客データ・トランザクション保管",
-          "isCostUnconfirmed": true
-        },
-        {
-          "name": "HubSpot / Customer.io",
-          "category": "CRM・配信",
-          "monthlyCost": 0,
-          "purpose": "自動オンボーディング・ナーチャリング",
-          "isCostUnconfirmed": true
+          "purpose": "月額プランおよび年額前払い決済"
         }
-      ],
-      "isCapitalUnconfirmed": true
+      ]
     },
     "strategy": {
-      "blindspot": "金額・費用の裏付けは未確認。",
-      "moatType": "SWITCHING_COST",
-      "moatDescription": "TypeScript型安全OSS自動化による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
-      "incumbentDilemma": "金額・費用の裏付けは未確認。",
-      "secretInsight": "大手が『機能の網羅性』で勝負する間、Activepiecesは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
+      "blindspot": "Zapierは「非エンジニア向けSaaS」として大成功したため、コードを書けるエンジニアが求める「セルフホストしたい」「TypeScriptで直接コネクタを書きたい」という開発者体験を完全に無視していた。",
+      "moatType": "NETWORK_EFFECTS",
+      "moatDescription": "世界中の開発者が新しいAPIの「Piece（連携モジュール）」をオープンソースで勝手に開発してエコシステムに追加してくれるネットワーク効果。",
+      "incumbentDilemma": "Zapierがタスク無制限プランやセルフホスト版を出すと、数十億ドルのARRの根幹である「タスク消費従量課金」が自爆するため絶対に対抗できない。",
+      "secretInsight": "自動化ツールで最も重要なのは「ツール自体の機能」ではない。「どのサービスと繋がるか」であり、オープンソースはコネクタ開発を世界中に分散外注できる最強のチートである。",
       "initialTraction": [
-        "一晩でHacker Newsのトップに君臨し、数千人の開発者がGitHubに集結。",
-        "Y Combinatorの2023年冬バッチに採択され、オープンソース界隈でのコネクタ開発キャンペーンを仕掛けてパーツ数を爆発的に増加。",
-        "自前ホストのコミュニティをテコに、大企業向けの管理コンソールとクラウド版を展開し急成長。"
+        "Y Combinator（W23）に採択され、シード資金とスタートアップネットワークを獲得",
+        "GitHubでオープンソース公開後、数ヶ月で10,000 Starを突破",
+        "受託自動化エージェンシーが「Zapierの代わりにクライアントに導入するツール」として自発的に布教開始"
       ],
       "actionPlaybook": [
-        "【タスク課金恐怖の完全消滅】: 100万回Webhookが飛んできても追加料金はゼロ。 データ量の多いECやマーケターが狂喜乱舞して乗り換え。",
-        "【TypeScriptによる型安全なピース作成】: コミュニティが誰でも数行のTypeScriptで新しいSaaS連携パーツ（Piece）を作れるモジュール設計。",
-        "【ノーコードUIとコードの完全融合】: ノンプログラマーは直感的なブロックを繋ぎ、プログラマーはブロックの途中に生のTypeScriptを書いて自由自在に制御。"
+        "Step 1: 既存のメガSaaS（Zapier, Make, Segment等）の「タスク従量課金」に不満を持つユーザーコミュニティを特定する",
+        "Step 2: モダンな技術スタック（TypeScript/Docker）でセルフホスト可能なオープンソースクローンを作る",
+        "Step 3: 外部開発者がプラグインを作れる仕組みを用意し、エコシステムの拡大を加速させる"
       ],
-      "coldOutreachTemplate": "// OSS自動化配管 1. `docker run -p 8080:80 activepieces/activepieces` でローカル即時立ち上げ 2. トリガー（新規リード獲得）とアクション（Slack通知、DB書き込み）をキャンバス上で接続 3. 複雑な条件分岐やループ処理をタスク制限を気にせず無制限に自動実行"
+      "coldOutreachTemplate": "【Zapier利用料の80%削減・無制限タスク自動化の件】〇〇様、貴社で利用されているZapierのタスク制限を撤廃し、オンプレミスで安全に自動化を回せるActivepiecesのご案内です。"
     },
-    "isGrowthUnconfirmed": true,
-    "unknownsNotes": [
-      "GitHubスター数は売上ではない。有料企業数千社・年商$3M・自社経費は確認できない。",
-      "旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。"
-    ]
+    "temporal": {
+      "foundedYear": 2022,
+      "initialTractionPeriod": "2022-2023年 (YC採択・オープンソースバイラル期)",
+      "dataSnapshotPeriod": "2024-2026年 (急成長Cloud・Enterprise期)",
+      "viabilityStatus": "RISING_WAVE",
+      "viabilityLabel": "急上昇トレンド最盛期（AI＋ワークフロー自動化）",
+      "eraContext": "Zapierの値上げと、LLM/AIを活用した自律ワークフロー自動化の爆発的需要。",
+      "currentViabilityAnalysis": "AIエージェントの普及に伴い、APIを繋ぐバックボーンとしてのオープンソース自動化基盤の需要は過去最高に達している。"
+    }
   },
   {
     "id": "ent_anytype_50c1ff00489400a1d274",

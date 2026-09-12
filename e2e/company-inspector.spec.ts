@@ -53,6 +53,40 @@ test('malformed Foundation response cannot replace the usable core list', async 
   expect(errors).toEqual([]);
 });
 
+test('sparse Foundation candidate cannot replace a curated dossier with the same ID', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  const candidate = {
+    id: 'ent_photoai', name: 'Photo AI (候補)', entityType: 'company', aliases: [],
+    canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [],
+    valueProfile: {
+      tier: 'CANDIDATE', score: 1, labels: [], businessSignal: '未精錬候補',
+      painSignal: null, moneySignal: null, tractionSignal: null,
+      mechanismSignal: null, timeSignal: null,
+      counts: { claims: 0, metrics: 0, moneySignals: 0, events: 0, observations: 0, derived: 0, evidence: 0 },
+    },
+  };
+  let detailRequests = 0;
+  await page.route('**/api/businesses*', (route) => {
+    const isDetail = new URL(route.request().url()).searchParams.has('entity_id');
+    if (isDetail) detailRequests += 1;
+    return route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify(isDetail
+        ? { source: 'foundation_lake', data: { ...candidate, claims: [], metrics: [], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0, bundleScanComplete: true } }
+        : { source: 'foundation_lake', data: [candidate], hasMore: false, nextCursor: null }),
+    });
+  });
+  await page.goto('/?entity=ent_photoai');
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Photo AI (候補)', exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: /特異物証/ }).click();
+  await expect(page.locator('#section-evidence')).toContainText('継続MRRではない');
+  expect(detailRequests).toBe(0);
+  expect(errors).toEqual([]);
+});
+
 test('existing hazard dossier keeps its loss label and dynamic evidence', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
