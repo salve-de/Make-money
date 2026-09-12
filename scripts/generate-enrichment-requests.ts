@@ -383,7 +383,7 @@ function buildAhrefsBundle() {
         observed_at: '2026-09-11T01:50:00Z',
         collection_channel: 'research_bundle',
         observer: 'MakeMoney-Analyst',
-        text: '創業時、Dmytroは自作クローラーの速度をSEOフォーラムやBlackHatWorldで無償提供し、既存ツール（Moz）が拾えないリアルタイム被リンクを見せつけて初期ユーザーを瞬殺で獲得した。',
+        text: '創業時、Dmytroは自作クローラーの速度をSEOフォーラムやBlackHatWorldで無償提供し、既存ツール（Moz）が拾えないリアルタイム被リンクを見せつけて初期ユーザーを即座に獲得した。',
         evidence_ids: [evHome]
       }
     ],

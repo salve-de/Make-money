@@ -312,7 +312,7 @@ const part3Entities = [
       {
         id: 'ev_asmth_pain',
         type: 'PAIN_WALLET',
-        title: '人質にした痛みの財布：「営業チームから毎日届く手動データ修正依頼」で手が止まるエンジニアの殺意',
+        title: '人質にした痛みの財布：「営業チームから毎日届く手動データ修正依頼」で手が止まるエンジニアの限界フラストレーション',
         badge: 'サバンナOSの急所',
         evidenceStatus: 'VERIFIED',
         punchline: '「このユーザーの課金ステータスを手動で直して」とSlackで頼まれるたびに本番DBを直接SQLで叩く極度の精神的負荷。',

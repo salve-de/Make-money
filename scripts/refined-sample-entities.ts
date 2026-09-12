@@ -7,7 +7,7 @@ export const REFINED_STATISTICAL_SAMPLE_ENTITIES: FinancialEntity[] = [
     ticker: 'PLAUSIBLE',
     name: 'Plausible Analytics',
     legalEntity: 'Plausible Insights OÜ',
-    tagline: '「GA4が重すぎて客が逃げる」「Cookie同意バナーがウザい」Web担当者の発狂を突き、コード1行で年間4億円抜く完全独立系オープンソース解析',
+    tagline: '「GA4が重すぎて客が逃げる」「Cookie同意バナーが離脱を生む」Web担当者の限界ストレスを突き、コード1行で年間4億円抜く完全独立系オープンソース解析',
     sector: 'NICHE_SAAS',
     scale: 'SMALL_TEAM',
     founder: 'Uku Taht, Marko Saric',

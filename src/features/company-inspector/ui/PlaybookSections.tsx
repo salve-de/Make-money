@@ -298,7 +298,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
                       <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>01.</span>
-                      <span>{isHazardMode ? '大手の直接参入とカニバリズムの死角（一撃圧殺）' : 'なぜ大手が手を出せないのか（大手の自縛・参入拒絶）'}</span>
+                      <span>{isHazardMode ? '大手の直接参入とカニバリズムの死角（一撃市場奪取）' : 'なぜ大手が手を出せないのか（大手の自縛・参入拒絶）'}</span>
                     </div>
                     <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
                       <div><strong className="text-zinc-200 font-mono">大手の自爆（カニバリ）:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
@@ -358,7 +358,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="flex flex-col items-center justify-center bg-black/80 rounded gap-2.5 p-4 text-center">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                       <KeyRound className={`w-4 h-4 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-                      <span>{isHazardMode ? '大手が一撃で圧殺し、資金が枯渇した「4大死因の裏帳簿」' : '大手が手を出せず、客が一生逃げられない「4大独占構造」'}</span>
+                      <span>{isHazardMode ? '大手が一撃で市場を奪取し、資金が枯渇した「4大撤退要因の裏帳簿」' : '大手が手を出せず、客が一生逃げられない「4大独占構造」'}</span>
                     </div>
                     <p className="text-xs text-zinc-300 max-w-sm font-sans leading-normal">
                       {isHazardMode

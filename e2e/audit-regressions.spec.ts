@@ -35,11 +35,11 @@ test('opening success without a payment cannot claim confirmation or grant acces
   expect(await page.evaluate(() => localStorage.getItem('kin_pro_unlocked'))).not.toBe('true');
 });
 
-test('conflicting financials explain the discrepancy instead of showing a verified profit', async ({ page }) => {
+test('unconfirmed financials never present a zero as a measured result', async ({ page }) => {
   await page.goto('/');
-  await page.getByPlaceholder('銘柄名・手口・タグ・裏帳簿を検索...').fill('Acquire.com');
-  await page.getByRole('row').filter({ hasText: 'Acquire.com' }).click();
-  await expect(page.getByRole('heading', { name: 'Acquire.com (旧 MicroAcquire)', exact: true })).toBeVisible();
+  await page.getByPlaceholder('銘柄名・手口・タグ・裏帳簿を検索...').fill('Clubhouse');
+  await page.getByRole('row').filter({ hasText: 'Clubhouse' }).click();
+  await expect(page.getByRole('heading', { name: 'Clubhouse (Alpha Exploration)', exact: true })).toBeVisible();
   await expect(page.getByText('金額・費用の裏付けは未確認。').first()).toBeVisible();
   await page.getByRole('button', { name: '財務P&L 未確認' }).click();
   const financials = page.locator('#section-financial');

@@ -722,7 +722,7 @@ const lastEntities = [
       {
         id: 'ev_actp_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】自前サーバーで動かせば「タスク実行数完全無制限（無料）」にしてZapierを虐殺するコード',
+        title: '【略奪転用】自前サーバーで動かせば「タスク実行数完全無制限（無料）」にしてZapierを完全無力化するコード',
         badge: '略奪転用方程式',
         evidenceStatus: 'VERIFIED',
         punchline: 'Zapierなら月数十万円かかる大量データ自動処理を、自宅のサーバーで0円で回させる。',

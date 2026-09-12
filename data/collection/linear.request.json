@@ -42,7 +42,7 @@
         "claim_id": "clm_linear_tagline",
         "entity_id": "ent_linear_app",
         "attribute": "tagline",
-        "value": "「Jiraの起動に10秒待たされる」世界中のエンジニアの殺意を0.05秒の爆速同期で救い、営業マンゼロ・口コミだけで急成長するイシュー管理のApple",
+        "value": "「Jiraの起動に10秒待たされる」世界中のエンジニアの限界フラストレーションを0.05秒の爆速同期で解消し、営業マンゼロ・口コミだけで急成長するイシュー管理のApple",
         "evidence_ids": [
           "ev_linear_pnl"
         ]
@@ -71,7 +71,7 @@
         "value": {
           "group": "GROUP_A_WINNER",
           "dossier": {
-            "oneLineLead": "Jiraの遅さに発狂していたAirbnbやUberのトップエンジニアたちに、キーボードだけで0.01秒で操作できる快感毒薬を注入し、営業ゼロで全社導入させた手口",
+            "oneLineLead": "Jiraの重さに深刻なストレスを抱えていたAirbnbやUberのトップエンジニアたちに、キーボードだけで0.01秒で操作できる圧倒的UXを提供し、営業ゼロで全社導入させた手口",
             "section01_dna": {
               "businessType": "ソフトウェア開発チーム向けの超高速イシュー・バグ・スプリント管理SaaS",
               "targetWallet": "世界中のテック企業、Y Combinatorスタートアップ、上場IT企業の開発管理ツール予算（月額1人$8〜$14）",

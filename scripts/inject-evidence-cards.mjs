@@ -145,7 +145,7 @@ const EVIDENCE_CARDS_MAP = {
     {
       id: "ev_photoai_crime",
       type: "THE_CRIME",
-      title: "写真館のスタジオ代3万円と羞恥心をReplicate APIで瞬殺",
+      title: "写真館のスタジオ代3万円と羞恥心をReplicate APIで即座に解消",
       badge: "API包装ソロプレナー",
       evidenceStatus: "VERIFIED",
       punchline: "Tinderのプロフィール写真やLinkedIn写真のために写真館に行く「3万円・移動・カメラマンの前での恥ずかしさ」をスマホ自撮りアップロードで切除。",
@@ -327,7 +327,7 @@ const EVIDENCE_CARDS_MAP = {
     {
       id: "ev_headshotpro_crime",
       type: "THE_CRIME",
-      title: "企業の全社員プロフィール写真をAI生成しスタジオ代を瞬殺",
+      title: "企業の全社員プロフィール写真をAI生成しスタジオ代を即座に削減",
       badge: "B2B一括AI生成",
       evidenceStatus: "VERIFIED",
       punchline: "全社員をスタジオに集めてプロカメラマンに撮らせる数百万円のコストを、各自スマホの自撮りをアップさせるだけで1人$29で一括生成。",
@@ -954,7 +954,7 @@ const EVIDENCE_CARDS_MAP = {
     {
       id: "ev_quibi_fatal_bleed",
       type: "FATAL_BLEED",
-      title: "スクショ完全禁止によるSNS拡散自殺と無料TikTokとの競合即死検死",
+      title: "スクショ完全禁止によるSNS拡散遮断と無料TikTokとの競合敗綻の解剖",
       evidenceStatus: "VERIFIED",
       punchline: "ハリウッドの著作権保護に固執し「アプリ内のスクリーンショットや切り抜き共有を技術的に完全禁止」したため、SNSで1ミリも話題にならず自滅。",
       details: [

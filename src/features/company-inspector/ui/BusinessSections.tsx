@@ -198,7 +198,7 @@ export function BusinessSections({ entity, isHazardMode, hasEvidenceCards }: Pic
                       <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                         isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
-                        {isHazardMode ? '大手に一撃で圧殺された理由 (KILLED BY INCUMBENTS)' : '大手が構造上真似できない理由 (INCUMBENT DILEMMA)'}
+                        {isHazardMode ? '大手に一撃で市場を奪取された理由 (DISPLACED BY INCUMBENTS)' : '大手が構造上真似できない理由 (INCUMBENT DILEMMA)'}
                       </h3>
                     </div>
                   </div>

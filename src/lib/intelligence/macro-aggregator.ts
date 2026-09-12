@@ -718,7 +718,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           id: 'ent_plausible',
           name: 'Plausible Analytics',
           ticker: 'PLAUSIBLE',
-          tagline: '「Google Analyticsの同意バナーがサイトを殺す」欧州GDPRの恐怖を突き、オープンソースの超軽量解析で月商1,800万円抜く手口',
+          tagline: '「Google Analyticsの同意バナーがサイト表示を破壊する」欧州GDPRの恐怖を突き、オープンソースの超軽量解析で月商1,800万円抜く手口',
           monthlyRevenueJpy: 18000000,
           marginPercent: 72.8,
         },

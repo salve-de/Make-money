@@ -2178,7 +2178,7 @@ export const BATCH_ENTITIES_4: FinancialEntity[] = [
       {
         "id": "ev_asmth_pain",
         "type": "THE_CRIME",
-        "title": "人質にした痛みの財布：「営業チームから毎日届く手動データ修正依頼」で手が止まるエンジニアの殺意",
+        "title": "人質にした痛みの財布：「営業チームから毎日届く手動データ修正依頼」で手が止まるエンジニアの限界フラストレーション",
         "badge": "サバンナOSの急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「このユーザーの課金ステータスを手動で直して」とSlackで頼まれるたびに本番DBを直接SQLで叩く極度の精神的負荷。",
@@ -4572,7 +4572,7 @@ export const BATCH_ENTITIES_4: FinancialEntity[] = [
       {
         "id": "ev_actp_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】自前サーバーで動かせば「タスク実行数完全無制限（無料）」にしてZapierを虐殺するコード",
+        "title": "【略奪転用】自前サーバーで動かせば「タスク実行数完全無制限（無料）」にしてZapierを完全無力化するコード",
         "badge": "略奪転用方程式",
         "evidenceStatus": "VERIFIED",
         "punchline": "Zapierなら月数十万円かかる大量データ自動処理を、自宅のサーバーで0円で回させる。",
