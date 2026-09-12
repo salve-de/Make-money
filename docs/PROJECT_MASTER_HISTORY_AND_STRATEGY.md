@@ -3846,5 +3846,17 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - `pnpm tsc --noEmit`: エラーゼロ通過。
 - `pnpm test`: Vitest 38ファイル 292テスト、test:foundation 11テスト、test:architecture 11テスト、test:recovery 6テスト（計320テスト）**全件グリーン（100% PASS）**。
 
+---
+
+## Phase 123: Codex IR担当との最終境界合意（権限・責任・変更通知プロトコルの確定）
+
+### 1. 境界合意の最終受領
+- **合意内容**:
+  1. **IR側の責任領域**: `universal/data-assets/financials/` の設計・実装・検証はIR側が単独で巻き取り・完遂する。
+  2. **Make-Money側の責任領域**: `foundation-raw` / `foundation-lake` を専有し、EDINET領域への干渉・変更はゼロ。
+  3. **変更通知プロトコル**: 保存先・共通コード・権限に変更が生じる場合のみ、実施前に事実（対象、証拠、未確認）をこの会話へ共有する。
+  4. **相互干渉の完全排除**: IR側からMake-Money側へのEDINET作業の変更・追加依頼は発生せず、完全並行で自律進行する。
+
+
 
 
