@@ -2,59 +2,24 @@
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
 
-## 2026-09-12 【R2配信層（Product View）事前生成 ＆ 創業者手残り（Owner Cash Proxy）科学的推計仕様合意】原本保全・二層分離と非公開企業通帳レントゲン
+## 2026-09-12 【R2配信層とOwner Cash Proxyの提案を監査し、未実装として記録】
 
-AIエージェント間（Antigravity × Safari稼働ChatGPT）での徹底的ディスカッションおよびユーザー（創業者）の代理反論を経て、R2データ基盤の保存構造・496件の未精錬データ昇格・ゴミ混入遮断・UI結合に関する最終設計合意を確立。事なかれ主義の「非公開だから出せません（UNKNOWN）」を完全粉砕し、読者が最も渇望する「創業者手残り実額」を前提・計算式フル開示で科学的に提示する【推定オーナー可処分キャッシュ（Owner Cash Proxy）】の算定アーキテクチャを策定・合意した。
+この節は過去の議論で出た案の履歴であり、実装・Foundation契約の承認・R2への投入を意味しない。現在の正本は `docs/FOUNDATION_UI_READ_PATH.md` と `docs/architecture/STORAGE.md` であり、未確認の財務値を実績として配信しない。
 
-### 1. 正本（Lake）と配信層（Product View）の二層分離アーキテクチャ
-- **原本層（Foundation Lake: 不変保全）**:
-  - `entities`, `claims`, `metrics`, `money-signals`, `events`, `bundles`, `journal` は出典・履歴・矛盾検証のための【正本（原本データ）】として不可侵のまま正規化保全。勝手に1社1ファイルに潰したり物理削除したりしない。
-- **配信層（Serving View / Product View: 1社1完全体）**:
-  - 正式契約に基づき、再生成可能な配信ビューを `foundation-lake/views/make-money/dossier-v1/<entity_id>.json` に配置。
-  - ユーザーがクリックした瞬間に裏で多重フェッチする動的合体を廃止し、事前に1社1完成Dossierを【事前生成（マテリアライズ）】して配置。画面は単一GET（0.01秒）で瞬時描画する。
+### 1. 原本と表示の境界
+- Foundationの `entities` / `research-bundles` を原本として保全し、Make-Moneyは読み取り時の一時projectionで表示する。R2へ独自root indexを書き戻さない。
+- versioned serving viewは、Foundation側の正式契約・作成権限・schema・create-only/readback手順が揃った後にだけ採用できる。このコミットでは作成せず、単一GETや固定レイテンシーも保証しない。
 
-### 2. 496件未精錬データ・非公開企業の「推定手残り（Owner Cash Proxy）」完全算定仕様
-- **優等生AIの「売上不明だからUNKNOWN」の逃げを完全撤回**:
-  - 非公開のスモールビジネスやマイクロSaaSで売上・手残りを「──」で放置すれば資本主義の裏帳簿は死ぬ。
-  - 捏造をVERIFIEDと偽装することは厳禁としつつ、公開プラン価格・観測シグナル・業界原価率から科学的逆算モデルを構築し、前提と仮定を丸裸にして【ESTIMATED】として提示する。
-- **2軸評価マトリクス**:
-  - `CASE QUALITY`: `GOLD` / `FOCUSED` / `SIGNAL` / `CANDIDATE`
-  - `FINANCE CERTAINTY`: `REPORTED` / `CALCULATED` / `ESTIMATED` / `UNKNOWN`
-  - 1Passwordのように売上非公開でも、痛みの財布・価格・乗り換え障壁が強烈な企業は `CASE QUALITY: GOLD` × `FINANCE: UNKNOWN/ESTIMATED` として迷わず昇格させる。
-- **損益ウォーターフォール ＆ オーナー可処分キャッシュ（Owner Cash Proxy）**:
-  ```text
-  【推定月商】                Low / Base / High（例: $126k 〜 $222k / month）
-    ├─ 決済手数料（Stripe）    -2.9% + $0.30
-    ├─ サーバー・推論API原価   -実測スタックまたは類似事例中央値（例: 4.2%）
-    ├─ 外注・人件費            -チーム規模別推計（例: 18%）
-    ├─ 広告宣伝費              -集客ファネル別推計（例: 7%）
-  【推定営業利益】            Low / Base / High（例: $89k 〜 $136k / month）
-    ├─ 法人税等（実効税率）    -法定実効税率（約25〜30%）
-    └─ 事業再投資・留保        -留保推計（約5〜15%）
-  ════════════════════════════════════════════
-  【推定オーナー可処分キャッシュ】 $60k 〜 $83k / month（月約900万〜1,250万円の手残り）
-  ```
-- **「仮定を消すな、仮定を見せろ」の開示ルール**:
-  - `Eq`: 計算方程式（`推定有料顧客 × 加重平均単価 ÷ 12`）
-  - `Observed`: 観測事実（例: `価格 $19/年`）
-  - `Estimated`: 推計値（例: `顧客 80k〜140k`）
-  - `Confidence`: 信頼度ランク（`E1`: ほぼ実測、`E2`: 一部推計、`E3`: モデル推計、`E4`: シナリオ参考値）
+### 2. 非公開財務とOwner Cash Proxy
+- 直接証拠がない売上・利益・創業者個人の手残りは `未確認` として扱う。価格、登録者数、業界相場だけから自動的に会社売上や個人手取りを作らない。
+- 将来推計を追加する場合は、観測値・推計値・期間・通貨・式・入力証拠・不確実性・`financialStatus: ESTIMATED` を同じ記録に持たせ、実額や個人の着金と呼ばない。数値例を実データとして保存・表示しない。
 
-### 3. ゴミデータ（ブログ記事・Star0リポジトリ）の3段階ゲート水際遮断
-- **Gate A（CAPTURE）**: 識別可能なEntity ＋ 出典 ＋ 事業シグナル最低1つ（Star 0リポジトリはここで終了）。
-- **Gate B（RESEARCH）**: 実在性 ＋ 金/顧客/利用/トラクションの具体的シグナル ＋ 調査価値 > コスト。
-- **Gate C（PRODUCT VIEW）**: 具体的・追跡可能で読者に意味があるシグナル ＋ Evidence/時期/確度の完備。
-- ※Failory等の100社まとめ記事は、記事自体をEvidence/Sourceとして扱い、言及された企業をEntityに分解する（記事そのものを企業として登録しない）。
+### 3. 入力品質ゲートとUI
+- 記事URLやプレースホルダーは企業正本へ昇格させず、根拠付きのプロジェクト固有検疫レジストリで再採用を止める。原本やR2オブジェクトは削除しない。
+- 固定Coreは明示的なReact Composition、可変Evidenceはtyped registry、型外の観測はEvidence Streamで表示する。全画面を汎用registryや一社一ファイルDossierへ押し込まない。
 
-### 4. UI（机・盆・皿）と配信層（`modules[]`）の完全結合
-- **机（Canvas）**: Dossier全体（画面基底・無国籍パイプライン）
-- **盆（Header Tray）**: `identity` ＋ `tray`（セクション境界・面パッケージング）
-- **皿（Card）**: `modules[]` 配列（各100行程度の自己完結コンポーネント）
-  - `kind: 'FINANCIAL_XRAY'` ➔ P&L・通帳レントゲン皿
-  - `kind: 'FIRST_CASH'` ➔ 初動ゲリラ戦ログ皿
-  - `kind: 'INCUMBENT_DILEMMA'` ➔ 大手自爆構造皿
-  - `kind: 'TRANSFERABLE_MECHANISM'` ➔ 略奪転用方程式（STEAL THIS）皿
-- **100億件スケール設計**: 単一の巨大 `master-index.json` は作らず、`objects/`, `index-shards/`, `search/` へのパーティション分割を許容する。
+### 4. 規模拡張の条件
+- 件数が増えたら、まずR2 Listのcursor、byte-range probe、短期cache、実測レイテンシーで対応する。大規模なserving view・検索index・追加DBは、費用、所有者、更新失敗、削除、復旧、readbackを含む契約と承認を作ってから導入する。
 
 ---
 
