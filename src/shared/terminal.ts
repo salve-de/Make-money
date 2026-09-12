@@ -54,6 +54,10 @@ export interface ProfitAndLossStatement {
   dataSnapshotPeriod?: string; // 観測基準時期（例: "2024年3月期通期", "2022年ピーク時", "2024年最新Stripe魚拓"）
   sourceDoc?: string; // 一次情報源・出典（例: "2024年有価証券報告書", "TechCrunch報道", "公式Open Dashboard"）
   estimationLogic?: string; // 推計因数分解（計算方程式。例: "年$19プラン × 推定12万件 ÷ 12ヶ月 ＝ 月商 約¥2,850万"）
+  ownerCashProxyJpy?: number; // 推定オーナー可処分キャッシュ（月額円。営業利益 - 法人税等 - 再投資）
+  ownerCashProxyRange?: { low: number; high: number }; // オーナー手残りレンジ（Low/High）
+  revenueRange?: { low: number; high: number }; // 推定月商レンジ（Low/High）
+  confidenceLevel?: 'E1' | 'E2' | 'E3' | 'E4'; // 推計信頼度ランク（E1: ほぼ実測, E2: 一部推計, E3: モデル推計, E4: シナリオ）
 }
 
 export interface ToolStackItem {
