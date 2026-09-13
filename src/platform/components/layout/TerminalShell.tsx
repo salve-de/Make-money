@@ -68,7 +68,6 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
   const [foundationLoading, setFoundationLoading] = useState(false);
-  const [foundationInitialLoadComplete, setFoundationInitialLoadComplete] = useState(false);
   const foundationLoadingRef = useRef(false);
   const foundationRequestedCursors = useRef(new Set<string>());
 
@@ -218,8 +217,6 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         setDataSource('保存済み台帳（外部取得に失敗）');
         console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
       }
-    }).finally(() => {
-      if (!controller.signal.aborted) setFoundationInitialLoadComplete(true);
     });
     return () => controller.abort();
   }, [loadFoundationPage]);
@@ -238,23 +235,18 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   // 市場の歪み（Market Anomaly）選択ステート
   const [selectedAnomalyId, setSelectedAnomalyId] = useState<string | null>(null);
 
-  // R2詳細読み込みロジック (選択されたエンティティがR2由来の場合に自動フェッチして完全版に昇華)
+  // オンデマンド詳細読み込みロジック (軽量サマリーまたはR2由来のエンティティを選択時に自動フェッチして完全版に昇華)
   useEffect(() => {
     if (!selectedEntityId) return;
-    // Foundationに同じIDが存在する対象は、ローカル旧スナップショットではなく
-    // R2詳細を読む。R2行がまだ到着していない間だけローカル予備を使う。
-    // 一覧の初回取得前に詳細を始めると、一覧更新時のcleanupでAbortされた後に
-    // in-flightフラグだけが残り、再取得されない競合になるため、完了を待つ。
-    if (!foundationInitialLoadComplete) return;
-    const foundationSummary = foundationRows.find((row) => row.id === selectedEntityId);
-    const foundationHasEntity = Boolean(foundationSummary);
-    // A sparse candidate sharing an ID with a curated local dossier is still
-    // readable through the API, but it must never replace the local display or
-    // trigger a detail fetch that would do so.
-    if (foundationSummary && coreEntities.some((entity) => entity.id === selectedEntityId) && !isFoundationDossierReady(foundationSummary)) return;
-    if (!foundationHasEntity && coreEntities.some((e) => e.id === selectedEntityId)) return;
+
     // 既に詳細取得済みまたは取得中ならスキップ
     if (detailedEntities[selectedEntityId] || detailFetchInProgress.current.has(selectedEntityId)) return;
+
+    // 既に完全なドシエ（エビデンスカード2枚以上 ＆ lootBlueprint）を持っていればフェッチ不要
+    const existing = entities.find((e) => e.id === selectedEntityId);
+    if (existing && existing.evidenceCards && existing.evidenceCards.length >= 2 && existing.lootBlueprint) {
+      return;
+    }
 
     detailFetchInProgress.current.add(selectedEntityId);
     const controller = new AbortController();
@@ -262,10 +254,18 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     void fetch(`/api/businesses?entity_id=${encodeURIComponent(selectedEntityId)}`, { signal: controller.signal })
       .then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const detail = parseFoundationDetailResponse(await res.json());
-        if (detail) {
-          const adapted = adaptFoundationDetailToFinancialEntity(detail);
-          setDetailedEntities((prev) => ({ ...prev, [selectedEntityId]: adapted }));
+        const json: unknown = await res.json();
+        if (json && typeof json === 'object') {
+          const payload = json as { source?: string; data?: unknown };
+          if (payload.source === 'foundation_lake') {
+            const detail = parseFoundationDetailResponse(payload.data);
+            if (detail) {
+              const adapted = adaptFoundationDetailToFinancialEntity(detail);
+              setDetailedEntities((prev) => ({ ...prev, [selectedEntityId]: adapted }));
+            }
+          } else if (payload.data && typeof payload.data === 'object') {
+            setDetailedEntities((prev) => ({ ...prev, [selectedEntityId]: payload.data as FinancialEntity }));
+          }
         }
       })
       .catch((err) => {
@@ -278,7 +278,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       });
 
     return () => controller.abort();
-  }, [selectedEntityId, foundationRows, foundationInitialLoadComplete, coreEntities, detailedEntities]);
+  }, [selectedEntityId, entities, detailedEntities]);
 
   useEffect(() => {
     // URL changes must synchronize the existing user-controlled workspace state.
