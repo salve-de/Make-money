@@ -22,6 +22,32 @@
       "完全1人開発",
       "月商600万",
       "PDF要約"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "契約書や論文を1ページずつ読む苦痛と時間の浪費",
+      "structuralFlaw": "Adobeは重すぎてAI対話の導入が遅れていた",
+      "stealthEntry": "ドラッグ＆ドロップで即対話できる怠惰UI",
+      "tollGateSetup": "利益率85%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 182160
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 60720
+      }
     ]
   },
   {
@@ -47,6 +73,32 @@
       "年商1億",
       "動画レビュー",
       "解約不能"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "自社サービスを売りたい創業者のレビュー不足の焦燥",
+      "structuralFlaw": "大手CRMはテキストばかりで動画収集に特化せず",
+      "stealthEntry": "スマホ1分動画を撮らせるリンクを配りサイトに埋め込み",
+      "tollGateSetup": "利益率82%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 265650
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 141680
+      }
     ]
   },
   {
@@ -72,6 +124,32 @@
       "完全1人",
       "URL即ボット化",
       "サポートAI"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "深夜休日の問い合わせ対応に追われる中小企業オーナーの睡眠不足",
+      "structuralFlaw": "大手サポートツールは導入に数ヶ月と高額コンサルが必要",
+      "stealthEntry": "URLを入れるだけで即ボット化する完全セルフサーブ",
+      "tollGateSetup": "利益率80%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 113850
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 60720
+      }
     ]
   },
   {
@@ -97,6 +175,32 @@
       "Notion寄生",
       "完全1人",
       "利益率88%"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "WordPressの管理画面の重さと設定地獄のストレス",
+      "structuralFlaw": "Notion公式は多機能ノートであり高速ブログ公開機能を持たず",
+      "stealthEntry": "Notion APIで記事を自動吸い上げ静的配信",
+      "tollGateSetup": "利益率88%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 17710
+      }
     ]
   },
   {
@@ -122,6 +226,32 @@
       "22歳完全1人",
       "月商4500万",
       "ラッパー王者"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "自社データAIが欲しいがエンジニアを雇う数百万円がない企業の焦燥",
+      "structuralFlaw": "OpenAI公式はAPIしか提供せず非エンジニア向けUIが欠落",
+      "stealthEntry": "API公開初週に48時間でラッパーを作りバイラル拡散",
+      "tollGateSetup": "利益率85%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 1366200
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 455400
+      }
     ]
   },
   {
@@ -147,6 +277,32 @@
       "評価額500億",
       "Mac完全ローカル",
       "記憶検索"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "「あの資料どこだっけ？」と思い出せないビジネスマンの脳疲労",
+      "structuralFlaw": "クラウドに送るとプライバシーで炎上するがローカルなら即決される",
+      "stealthEntry": "Apple SiliconのMetal最適化で画面を数千分の一に圧縮録画",
+      "tollGateSetup": "利益率75%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 1897500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 2150500
+      }
     ]
   },
   {
@@ -172,6 +328,32 @@
       "ARR 150億超",
       "VS Codeフォーク",
       "世界最速成長"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "リファクタリングや改修で何時間も残業させられるエンジニアの苦痛",
+      "structuralFlaw": "Microsoftは既存Copilotと社内政治でエディタ自体の破壊が遅れた",
+      "stealthEntry": "VS CodeをOSSの規約通り丸ごとフォークしてAIを脳幹に直結",
+      "tollGateSetup": "利益率50%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 63250000
+      }
     ]
   },
   {
@@ -197,6 +379,32 @@
       "Googleキラー",
       "年商120億",
       "評価額1兆円"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "検索結果の広告とSEO記事を何スクロールもさせられる時間の浪費",
+      "structuralFlaw": "Googleは広告クリック収入を守るためゼロクリック検索に移行不能",
+      "stealthEntry": "広告ゼロ・直接回答・インライン出典表示で知覚価値最大化",
+      "tollGateSetup": "利益率35%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 30360000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 70840000
+      }
     ]
   },
   {
@@ -222,6 +430,32 @@
       "音声AI王者",
       "年商120億",
       "声のクローン"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ナレーションやオーディオブックで声優を雇う予算とスタジオ代の激痛",
+      "structuralFlaw": "大手クラウドの機械音声は棒読みで動画コンテンツに使えなかった",
+      "stealthEntry": "ため息や笑い声までリアルに再現する感情音声合成",
+      "tollGateSetup": "利益率45%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 30360000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 70840000
+      }
     ]
   },
   {
@@ -247,6 +481,32 @@
       "Canva巨額売却",
       "年商15億",
       "Webキャンバス"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ゲーム開発で何百枚ものアセットを描くイラストレーター外注費の激痛",
+      "structuralFlaw": "MidjourneyはDiscord上でしか動かず非エンジニアには使いにくかった",
+      "stealthEntry": "洗練されたWeb UIキャンバスと絵柄一貫性モデル学習",
+      "tollGateSetup": "利益率40%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 3795000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 8855000
+      }
     ]
   },
   {
@@ -272,6 +532,32 @@
       "Bitlyキラー",
       "年商8000万",
       "オープンソース"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Bitlyのカスタムドメイン月額$35〜$300という法外な値上げ",
+      "structuralFlaw": "BitlyはPEファンドに買収されてコストカットと値上げに専念",
+      "stealthEntry": "Cloudflareエッジ転送と超高速アナリティクスを月$24で提供",
+      "tollGateSetup": "利益率80%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 189750
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 126500
+      }
     ]
   },
   {
@@ -297,6 +583,32 @@
       "Mailchimpキラー",
       "年商1.5億",
       "Notion風UI"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Mailchimpの複雑怪奇な設定とEC偏重に発狂するSaaS開発者",
+      "structuralFlaw": "Mailchimpは買収されて重厚長大化し開発者体験を無視",
+      "stealthEntry": "Notionライクなエディタと5行のコードで組めるイベントメール",
+      "tollGateSetup": "利益率75%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 379500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 253000
+      }
     ]
   },
   {
@@ -322,6 +634,32 @@
       "Alfredキラー",
       "年商8億",
       "拡張ストア"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "マウスでアプリやファイルを探すエンジニアの集中途切れの激痛",
+      "structuralFlaw": "Alfredは買い切りでコミュニティ拡張機能のエコシステムが停滞",
+      "stealthEntry": "TypeScriptで誰でも拡張を作れるストアとAI統合",
+      "tollGateSetup": "利益率65%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 189750
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 341550
+      }
     ]
   },
   {
@@ -347,6 +685,32 @@
       "Next.js胴元",
       "年商150億",
       "ホスティング関所"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "AWSの複雑怪奇なインフラ設定とサーバー管理に悩むフロントエンド開発者",
+      "structuralFlaw": "AWSは機能が多すぎてフロントエンド開発者が手軽にデプロイ不能",
+      "stealthEntry": "Git pushするだけで数秒で世界中にデプロイ完了する快感",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 139150000
+      }
     ]
   },
   {
@@ -372,6 +736,32 @@
       "Firebaseキラー",
       "ARR 45億",
       "オープンソース"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Firebaseで複雑なクエリが書けず莫大な課金が請求される恐怖",
+      "structuralFlaw": "GoogleはFirebaseをプロプライエタリに抱え込み移行を阻害",
+      "stealthEntry": "Postgresの上に認証・ストレージ・リアルタイムAPIを統合",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 11385000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 41745000
+      }
     ]
   },
   {
@@ -397,6 +787,32 @@
       "Mixpanelキラー",
       "ARR 30億",
       "全部入りOSS"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ユーザー行動分析ツールの法外な従量課金とプライバシー規制",
+      "structuralFlaw": "既存SaaSは自社クラウド強制でEU等の規制企業が導入困難",
+      "stealthEntry": "セッション録画・機能フラグ・A/Bテストを1つのOSSに統合",
+      "tollGateSetup": "利益率30%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 7590000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 27830000
+      }
     ]
   },
   {
@@ -422,6 +838,32 @@
       "年商80億",
       "Mac神ツール",
       "ウクライナ発"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "「ディスク容量がいっぱいです」というポップアップのストレス",
+      "structuralFlaw": "Appleは不要ファイルの一括安全削除機能を標準搭載せず",
+      "stealthEntry": "ワンクリックで数GBが空く快感を極上のUIデザインで提供",
+      "tollGateSetup": "利益率40%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 18975000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 69575000
+      }
     ]
   },
   {
@@ -447,6 +889,32 @@
       "Mac版Netflix",
       "年商50億",
       "アプリバンドル"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "便利な有料アプリを都度購入する心理的ハードルと出費",
+      "structuralFlaw": "App Storeはサブスクバンドル（合算課金）を構造上提供不能",
+      "stealthEntry": "数百の人気Macアプリを使い放題にし開発者には利用時間で分配",
+      "tollGateSetup": "利益率25%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 13282500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 39847500
+      }
     ]
   },
   {
@@ -472,6 +940,32 @@
       "Rust製端末",
       "評価額700億",
       "ターミナル近代化"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "複雑なシェルコマンドやDockerオプションを忘れてググる時間の浪費",
+      "structuralFlaw": "既存ターミナルはレガシー仕様に縛られ近代的なテキスト編集が不可能",
+      "stealthEntry": "IDEのようにマウス選択・入力できAIがコマンドを即時生成",
+      "tollGateSetup": "利益率40%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 3795000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 12650000
+      }
     ]
   },
   {
@@ -497,6 +991,32 @@
       "月30ドルメール",
       "年商50億",
       "未読ゼロ快感"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "毎朝メール処理に2時間奪われるエグゼクティブの激痛",
+      "structuralFlaw": "Gmailは一般大衆向け広告モデルであり極限の高速化には無関心",
+      "stealthEntry": "1対1のビデオ通話でオンボーディングしショートカットを徹底教育",
+      "tollGateSetup": "利益率30%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 13282500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 53130000
+      }
     ]
   },
   {
@@ -522,6 +1042,32 @@
       "年商3000億",
       "Amazon覇王",
       "深セン製造直結"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Apple純正の充電器やケーブルの高さと断線に激怒するスマホユーザー",
+      "structuralFlaw": "大手家電メーカーは流通マージンが高すぎてAmazon直販に対抗不能",
+      "stealthEntry": "Googleの分析力でAmazon SEOを制覇し手厚い18ヶ月保証で★5独占",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率45%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 759000000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 1745700000
+      }
     ]
   },
   {
@@ -547,6 +1093,32 @@
       "年商300億",
       "粗利80%",
       "自撮りハック"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "「鏡越しの自撮りで他人と違うお洒落な自分を誇示したい」若者の虚栄心",
+      "structuralFlaw": "既存メーカーは保護性能ばかりアピールしファッション性を無視",
+      "stealthEntry": "カメラリングのCASETiFYロゴを自撮りに強制写り込みさせてバイラル化",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率80%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 75900000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 293480000
+      }
     ]
   },
   {
@@ -572,6 +1144,32 @@
       "Mac特化キーボード",
       "年商150億",
       "クラファン発"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Apple純正Magic Keyboardのペタペタ感で指を痛めるMacユーザーの激痛",
+      "structuralFlaw": "ゲーミングキーボードはWindowsばかり優遇しMac配列を無視",
+      "stealthEntry": "Mac/Winワンタッチ切替スイッチと深セン金型直結クラファン",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率60%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 88550000
+      }
     ]
   },
   {
@@ -597,6 +1195,32 @@
       "ブートストラップ",
       "年商120億",
       "薄い財布"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "分厚い財布のせいでスーツやジーンズのシルエットが台無しになる羞恥心",
+      "structuralFlaw": "高級革ブランドは伝統的な厚い二つ折り財布しか作れず薄型化を無視",
+      "stealthEntry": "中身を抜き出して比較するストップモーション動画で直感理解",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率70%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 30360000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 101200000
+      }
     ]
   },
   {
@@ -622,6 +1246,32 @@
       "VC調達ゼロ",
       "年商150億",
       "クラファン11連勝"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "旅行や登山で重い一眼レフがブラブラ揺れて首が痛むカメラ愛好家の苦痛",
+      "structuralFlaw": "大手カメラアクセサリー企業は下請け任せで革新的な機構設計を怠慢",
+      "stealthEntry": "新製品のたびにKickstarterで客から数億円の前金を確定回収",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率65%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 108790000
+      }
     ]
   },
   {
@@ -647,6 +1297,32 @@
       "年商150億",
       "粗利80%",
       "YouTube広告覇権"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "「クレカのスキミングで財産を盗まれる恐怖」と重い財布の怠惰",
+      "structuralFlaw": "伝統的革財布メーカーはYouTubeスポンサー広告の効果を理解できず",
+      "stealthEntry": "MrBeastやMKBHDなどのトップYouTuberの広告枠を長期買い占め",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率80%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 139150000
+      }
     ]
   },
   {
@@ -672,6 +1348,32 @@
       "年商400億",
       "アンダーヘア特化",
       "替刃サブスク"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "普通のカミソリでデリケートゾーンを剃って皮膚を切創・大出血する恐怖",
+      "structuralFlaw": "大手電機メーカーはブランドイメージを気にして下半身の毛を敬遠",
+      "stealthEntry": "肌を傷つけないセラミック刃特許と替刃定期便サブスクリプション",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率75%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 113850000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 432630000
+      }
     ]
   },
   {
@@ -697,6 +1399,32 @@
       "年商2400億",
       "グリズリー耐性",
       "クーラーボックス5万円"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "安物クーラーボックスが数回のキャンプで壊れて氷が溶ける絶望",
+      "structuralFlaw": "大手メーカーは量販店向けに安物プラスチックの泥沼から抜け出せず",
+      "stealthEntry": "価格を競合の10倍にして「富裕層のステータスシンボル」へ昇華",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率58%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 607200000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 1700160000
+      }
     ]
   },
   {
@@ -722,6 +1450,32 @@
       "年商600億",
       "無煙焚き火",
       "二次燃焼特許"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "キャンプから帰った後に服や髪から煙の悪臭が漂い嫌がられるパパの苦痛",
+      "structuralFlaw": "伝統的企業は持ち運びの軽さばかり重視し庭用の無煙を無視",
+      "stealthEntry": "二重壁構造で煙を完全に燃やし尽くすエアフロー特許",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率62%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 151800000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 506000000
+      }
     ]
   },
   {
@@ -747,6 +1501,32 @@
       "年商1100億",
       "TikTokメガヒット",
       "飢餓商法"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "可愛いタンブラーを持って学校に行きSNSで仲間外れになりたくない同調圧力",
+      "structuralFlaw": "水筒メーカーは実用性ばかり宣伝しファッションアイテム化を怠慢",
+      "stealthEntry": "車のドリンクホルダーに入る底細形状と限定カラーの飢餓商法ドロップ",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率65%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 284625000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 759000000
+      }
     ]
   },
   {
@@ -772,6 +1552,32 @@
       "21歳ブートストラップ",
       "年商150億",
       "ビール缶クーラー"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ビーチやテラスで飲んでいる最中にビールがぬるくなる酒飲みの激痛",
+      "structuralFlaw": "YETIなどの巨人は保守的でホワイトクロー等のスリム缶専用を出せず",
+      "stealthEntry": "細缶にジャストフィットするプッシュロック特許とグリッターカラー",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率65%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 108790000
+      }
     ]
   },
   {
@@ -797,6 +1603,32 @@
       "評価額7500億",
       "ルルレモンメンズ版",
       "DreamKnit"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ナイキ等のゴワゴワした化繊に嫌気がさし極上の快適性を求める男の執着",
+      "structuralFlaw": "ルルレモンは女性市場に偏重し男性向けは後回しだった",
+      "stealthEntry": "一度履いたら他に戻れない極上肌触り「DreamKnit」ファブリック",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率68%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 379500000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 1214400000
+      }
     ]
   },
   {
@@ -822,6 +1654,32 @@
       "時価総額1兆円",
       "クラウドテック",
       "スイス発ランニング"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "硬いアスファルトを走って膝や関節を痛めるランナーの肉体的激痛",
+      "structuralFlaw": "ナイキやアディダスはエアバッグやフォーム材の硬直した開発競争に埋没",
+      "stealthEntry": "チューブ状の穴があいたCloudTecクッションによる圧倒的着地衝撃吸収",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率60%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 759000000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 2277000000
+      }
     ]
   },
   {
@@ -847,6 +1705,32 @@
       "年商300億",
       "リカバリーサンダル",
       "足底腱膜炎救済"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "足底腱膜炎や長時間の立ち仕事でかかとが痛くてたまらない中高年の悲鳴",
+      "structuralFlaw": "大手シューズブランドは推進力（走る速さ）ばかり追求し回復を無視",
+      "stealthEntry": "衝撃を37%多く吸収する独自発泡素材OOfoamを開発",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率65%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 75900000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 217580000
+      }
     ]
   },
   {
@@ -872,6 +1756,32 @@
       "年商75億",
       "筋トレ特化ショーツ",
       "特殊部隊耐久テスト"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "スクワットや懸垂でショーツが破れたりポケットのスマホが暴れる激痛",
+      "structuralFlaw": "大手アパレルはランニング用とバスケ用しか作らず筋トレ特化が不在",
+      "stealthEntry": "米軍特殊部隊やCrossFit王者にプロトタイプをテストさせ頑丈さを証明",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率68%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 18975000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 63250000
+      }
     ]
   },
   {
@@ -897,6 +1807,32 @@
       "年商150億",
       "水冷マットレス",
       "睡眠テック40万円"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "パートナーと体感温度が合わず暑くて熟睡できない富裕層の睡眠負債",
+      "structuralFlaw": "従来のマットレス（Tempur等）はウレタンフォームで熱がこもる欠陥",
+      "stealthEntry": "左右で独立して水冷・温水を循環させ深部体温を自動制御",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率65%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 113850000
+      }
     ]
   },
   {
@@ -922,6 +1858,32 @@
       "年商150億",
       "紛失防止タグ元祖",
       "Life360売却"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "毎朝出かける直前に鍵が見つからず遅刻するパニックと自己嫌悪",
+      "structuralFlaw": "AppleがAirTagを出すまでこの巨大市場を完全に放置していた",
+      "stealthEntry": "アプリを入れている他人のスマホ同士がすれ違いで位置を特定する網",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率55%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 101200000
+      }
     ]
   },
   {
@@ -947,6 +1909,32 @@
       "年商60億",
       "洗える寝袋毛布",
       "D2C成功事例"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "毛布に埃やペットの毛が絡みついて洗うのが面倒なキャンプ・犬飼いの苦痛",
+      "structuralFlaw": "寝袋メーカーは寝袋の形（マミー型）に固執し四角いブランケットを作らず",
+      "stealthEntry": "撥水加工・耐引裂リップストップ生地で焚火の火の粉や犬の毛を弾く",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率68%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 15180000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 48576000
+      }
     ]
   },
   {
@@ -972,6 +1960,32 @@
       "年商10億",
       "ヒゲオイルD2C",
       "YouTube教育コンテンツ"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ヒゲを伸ばすと肌が乾燥して痒くてたまらないヒゲ男子の激痛",
+      "structuralFlaw": "ジレット等の大手は「ヒゲを剃る」ことしか考えておらず手入れを無視",
+      "stealthEntry": "YouTubeで「かっこいいヒゲの手入れ法」を徹底解説し信者化",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率80%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 2656500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 9740500
+      }
     ]
   },
   {
@@ -997,6 +2011,32 @@
       "年間流通3000億",
       "高級時計関所",
       "エスクロー手数料"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "数百万円の高級時計を売買する際のだまされ恐怖と買い叩かれの激痛",
+      "structuralFlaw": "メルカリやeBayは偽物対策が甘く数百万円の高級時計取引に向かない",
+      "stealthEntry": "代金を一時預かるエスクロー口座とプロ時計師による真贋鑑定",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率85%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 49260000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 197040000
+      }
     ]
   },
   {
@@ -1022,6 +2062,32 @@
       "営業利益率33%",
       "年商220億",
       "アグリゲーション胴元"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "何十個もの求人サイトや賃貸サイトを個別に見る極限の怠惰",
+      "structuralFlaw": "大手ポータル（マイナビ等）は自社求人しか載せられず横断検索不能",
+      "stealthEntry": "スクレイピングとAPI連携で全求人・賃貸情報を1箇所に統合",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率85%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 55000000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 190666667
+      }
     ]
   },
   {
@@ -1047,6 +2113,32 @@
       "航空券比較",
       "年商250億",
       "送客手数料"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "各航空会社のサイトを行き来して最安値を探す時間の浪費",
+      "structuralFlaw": "航空各社は競合の価格をサイト上で比較できない構造的制約",
+      "stealthEntry": "一括比較UIで集客し取扱手数料（1件千円〜数千円）を着実に上乗せ",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率70%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 62500000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 216666667
+      }
     ]
   },
   {
@@ -1072,6 +2164,32 @@
       "営業利益率30%",
       "無在庫物販胴元",
       "BUYMA"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "日本未発売のシャネルやエルメスを海外定価に近い価格で買いたい虚栄心",
+      "structuralFlaw": "百貨店や直営店は国内定価を維持しなければならず安売りできない",
+      "stealthEntry": "海外在住日本人に買い付けさせ、成約手数料（出品者＋購入者で約10〜15%）を中抜き",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率90%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 17500000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 70000000
+      }
     ]
   },
   {
@@ -1097,6 +2215,32 @@
       "手数料22%",
       "年商50億",
       "スキルマーケット"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "企業にイラストやロゴを発注すると数十万円取られる個人の出費苦痛",
+      "structuralFlaw": "クラウドワークス等の既存サイトはIT受託開発中心で軽作業・占いが弱かった",
+      "stealthEntry": "1回500円のワンコインから開始し占い・イラスト・動画編集へ高単価化",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率80%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 12500000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 54166667
+      }
     ]
   },
   {
@@ -1122,6 +2266,32 @@
       "開設無料",
       "決済手数料中抜き",
       "年商120億"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Shopifyやカラーミーの月額固定費（数千円〜数万円）を払う恐怖",
+      "structuralFlaw": "既存カートASPは売れなくても月額固定費を徴収し初心者を弾いていた",
+      "stealthEntry": "初期費用ゼロ・月額ゼロで敷居を極小にし決済手数料だけでマネタイズ",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 30000000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 96000000
+      }
     ]
   },
   {
@@ -1147,6 +2317,32 @@
       "手数料30%",
       "年商200億",
       "20代最年少上場"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "急なドタキャンでシフトが埋まらず店が回らない飲食店長の胃潰瘍",
+      "structuralFlaw": "従来の派遣会社は登録面接に数日かかり当日の突発欠勤に対応不能",
+      "stealthEntry": "相互レビューによるドタキャン防止と前払い手数料の全自動徴収",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率75%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 50000000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 166666667
+      }
     ]
   },
   {
@@ -1172,6 +2368,32 @@
       "手数料30%",
       "年商15億",
       "空間時間貸し"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "空き部屋の固定資産税と維持費だけが垂れ流れる不動産オーナーの苦痛",
+      "structuralFlaw": "不動産会社は「月単位・年単位の賃貸」しか扱えず時間貸しに対応不能",
+      "stealthEntry": "1時間単位でネット予約・決済できる仕組みで遊休資産を換金化",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率80%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 3750000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 16250000
+      }
     ]
   },
   {
@@ -1197,6 +2419,32 @@
       "年商350億",
       "LTV成果報酬",
       "解約防止AI"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "CPA（顧客獲得単価）高騰と即時解約で広告費をドブに捨てるEC企業の絶望",
+      "structuralFlaw": "既存の広告代理店はクリックや獲得件数だけで請求し顧客の継続を無視",
+      "stealthEntry": "「継続率の高い優良顧客」だけを予測して集客し売上シェアで報酬獲得",
+      "tollGateSetup": "利益率12%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 87500000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 105000000
+      }
     ]
   },
   {
@@ -1222,6 +2470,32 @@
       "営業利益率25%",
       "年商70億",
       "eギフト独占"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "紙の商品券を郵送する送料と印刷費と個人情報管理に怯える企業のコスト",
+      "structuralFlaw": "金券ショップや紙のギフト券企業はスマホ完結のバーコード発券に対応不能",
+      "stealthEntry": "URLをLINEやメールで送るだけで店頭消込できるSaaS「giftee Campaign」",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 17500000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 40833333
+      }
     ]
   },
   {
@@ -1247,6 +2521,32 @@
       "営業利益率35%",
       "年商70億",
       "プレスリリース独占"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "新サービスを立ち上げたのに世間に完全に無視される広報担当者の絶望",
+      "structuralFlaw": "大手広告代理店にPRを頼むと月数百万円の顧問料を取られる",
+      "stealthEntry": "1配信3万円で大手メディア300媒体に一括転載されるSEO最強ポータル",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商70億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 17500000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 58333333
+      }
     ]
   },
   {
@@ -1272,6 +2572,32 @@
       "年商1300億",
       "ワークマンプラス",
       "値引きゼロ定価販売"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ノースフェイスなどの高額アウトドアウェア（数万円）を買えない大衆の出費苦痛",
+      "structuralFlaw": "アウトドアブランドはブランド料を上乗せしすぎて原価率が低すぎた",
+      "stealthEntry": "「プロ用作業着と同じ高機能」を1,900円〜2,900円の定価破壊で直販",
+      "tollGateSetup": "直営高回転オペレーションと原材料の内製化による原価関所の独占",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "POS & 店舗会計システム",
+        "category": "店舗オペレーション",
+        "monthlyCost": 165750000
+      },
+      {
+        "name": "自社物流・受発注EDI網",
+        "category": "サプライチェーン",
+        "monthlyCost": 110500000
+      }
     ]
   },
   {
@@ -1297,6 +2623,32 @@
       "年商1000億",
       "焼肉きんぐ",
       "ロードサイド独占"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "単品注文の焼肉屋で子供が追加肉を頼むたびに財布を気にする親のプレッシャー",
+      "structuralFlaw": "従来の格安バイキングは肉質が悪く、高級焼肉は高すぎて家族で行けない",
+      "stealthEntry": "厚切りカルビなどの高見え肉をタッチパネル配膳ロボットで席まで高速配達",
+      "tollGateSetup": "直営高回転オペレーションと原材料の内製化による原価関所の独占",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "POS & 店舗会計システム",
+        "category": "店舗オペレーション",
+        "monthlyCost": 431250000
+      },
+      {
+        "name": "自社物流・受発注EDI網",
+        "category": "サプライチェーン",
+        "monthlyCost": 287500000
+      }
     ]
   },
   {
@@ -1322,6 +2674,32 @@
       "年商2300億",
       "丸亀製麺",
       "粉モノ錬金術"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "安くて早くて美味い温かい食事を手軽に腹一杯食べたい労働者の食欲",
+      "structuralFlaw": "立ち食いそばは冷凍麺で不味く、手打ちうどん屋は高くて提供が遅い",
+      "stealthEntry": "客の目の前で粉からうどんを打つ劇場型オープンキッチンとセルフ天ぷら誘惑",
+      "tollGateSetup": "直営高回転オペレーションと原材料の内製化による原価関所の独占",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "POS & 店舗会計システム",
+        "category": "店舗オペレーション",
+        "monthlyCost": 1086750000
+      },
+      {
+        "name": "自社物流・受発注EDI網",
+        "category": "サプライチェーン",
+        "monthlyCost": 724500000
+      }
     ]
   },
   {
@@ -1347,6 +2725,32 @@
       "年商3600億",
       "原価率50%集客",
       "皿ICチップ自動管理"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "子供に寿司を食わせたいが回らない寿司屋には連れて行けない子育て世代の出費苦痛",
+      "structuralFlaw": "普通の飲食店は原価率30%に抑えなければならずネタの豪華さで勝負不能",
+      "stealthEntry": "原価率50%で客を呼ぶ代わりに、IT自動化レーンとタッチパネルで人件費を極限圧縮",
+      "tollGateSetup": "直営高回転オペレーションと原材料の内製化による原価関所の独占",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "POS & 店舗会計システム",
+        "category": "店舗オペレーション",
+        "monthlyCost": 1188000000
+      },
+      {
+        "name": "自社物流・受発注EDI網",
+        "category": "サプライチェーン",
+        "monthlyCost": 792000000
+      }
     ]
   },
   {
@@ -1372,6 +2776,32 @@
       "年商6000億",
       "チラシゼロ",
       "高品質エブリデーロープライス"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "日によって価格が変動するスーパーのチラシを比較して買い回る主婦のストレス",
+      "structuralFlaw": "既存スーパーはチラシ印刷費と日替わり特売の人件費でコストが肥大化",
+      "stealthEntry": "チラシを一切撒かず借入金ゼロ・現金決済還元でエブリデーロープライスを徹底",
+      "tollGateSetup": "現金決済縛りによる決済手数料ゼロ化と大量一括仕入れ関所の支配",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "POS & 店舗会計システム",
+        "category": "店舗オペレーション",
+        "monthlyCost": 756000000
+      },
+      {
+        "name": "自社物流・受発注EDI網",
+        "category": "サプライチェーン",
+        "monthlyCost": 504000000
+      }
     ]
   },
   {
@@ -1397,6 +2827,32 @@
       "年商4000億",
       "現金決済限定",
       "メガ盛り精肉成金"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "物価高で肉や惣菜が高すぎてお腹いっぱい買えない子育て世帯の家計激痛",
+      "structuralFlaw": "普通のスーパーはキャッシュレス対応で売上の数%を手数料で取られて価格に転嫁",
+      "stealthEntry": "クレカを一切使わせない代わりに仕入れ価格を限界まで下げメガパックで売る",
+      "tollGateSetup": "現金決済縛りによる決済手数料ゼロ化と大量一括仕入れ関所の支配",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "POS & 店舗会計システム",
+        "category": "店舗オペレーション",
+        "monthlyCost": 465000000
+      },
+      {
+        "name": "自社物流・受発注EDI網",
+        "category": "サプライチェーン",
+        "monthlyCost": 310000000
+      }
     ]
   },
   {
@@ -1422,6 +2878,32 @@
       "年商4800億",
       "営業利益率10%",
       "業務スーパーFC卸売"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "飲食店や大家族が業務用食材を安くまとめ買いできない仕入れコスト",
+      "structuralFlaw": "大手スーパーは国内問屋を通すため中間マージンが二重三重にかかる",
+      "stealthEntry": "自社で海外農場や国内食品工場を買い取り中間業者を全カットしてFC卸売",
+      "tollGateSetup": "現金決済縛りによる決済手数料ゼロ化と大量一括仕入れ関所の支配",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "POS & 店舗会計システム",
+        "category": "店舗オペレーション",
+        "monthlyCost": 172800000
+      },
+      {
+        "name": "自社物流・受発注EDI網",
+        "category": "サプライチェーン",
+        "monthlyCost": 115200000
+      }
     ]
   },
   {
@@ -1447,6 +2929,32 @@
       "100億円売却",
       "ニュースレター元祖",
       "高単価広告枠"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "毎朝経済ニュースを読まなければならないが難しくて眠くなる若手ビジネスマン",
+      "structuralFlaw": "WSJやブルームバーグは格式を重んじすぎてZ世代の話し言葉で書けなかった",
+      "stealthEntry": "友達とカフェで話すような軽妙な文体と紹介プログラムによる無料バイラル",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商76億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 18975000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 56925000
+      }
     ]
   },
   {
@@ -1472,6 +2980,32 @@
       "35億円売却",
       "HubSpot買収",
       "起業家メルマガ"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "綺麗事ばかりのビジネスメディアに飽き飽きしたハスラーたちの本音渇望",
+      "structuralFlaw": "大手テックメディアはPR発表の焼き直しばかりで生々しい裏話を出せない",
+      "stealthEntry": "アンダーグラウンド感のある過激な切り口と「Trends」という有料課金コミュニティ",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商30億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 7590000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 25300000
+      }
     ]
   },
   {
@@ -1498,6 +3032,32 @@
       "年商数億円",
       "広告枠完売",
       "箇条書き要約"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Hacker NewsやTwitterを一日中監視する時間がない多忙なエンジニア",
+      "structuralFlaw": "ニュースサイトは広告稼ぎのために長文記事を読ませようとする",
+      "stealthEntry": "「1分で読める箇条書き要約」に徹しエンジニアの朝のルーティンに定着",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商12億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 3036000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 2024000
+      }
     ]
   },
   {
@@ -1523,6 +3083,32 @@
       "10ヶ月で巨額売却",
       "クリプトメルマガ",
       "ミーム解説"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "仮想通貨の情報が専門用語ばかりで何が起きているか理解できない個人の不安",
+      "structuralFlaw": "既存の暗号資産メディアはギーク向けに難解な数式やホワイトペーパーばかり解説",
+      "stealthEntry": "画像とミームを多用した超平易な解説で購読者25万人を即時獲得",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商8億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 1897500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 632500
+      }
     ]
   },
   {
@@ -1548,6 +3134,32 @@
       "10%関所",
       "クリエイター直接課金",
       "ジャーナリズム解放"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "新聞社や出版社が給与を削減し自分のファンに直接課金できない記者の激痛",
+      "structuralFlaw": "WordPress等の自作システムは有料会員管理とStripe連携の設定が難解",
+      "stealthEntry": "「メルマガ配信＋有料購読＋ブログ」を1クリックで提供し売上の10%だけ徴収",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商46億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 11385000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 45540000
+      }
     ]
   },
   {
@@ -1573,6 +3185,32 @@
       "20%関所",
       "純利益500億",
       "直接課金の極致"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "SNSでファンを集めても広告規制でマネタイズできないクリエイターの不満",
+      "structuralFlaw": "PatreonやYouTubeは性的なコンテンツやアダルト表現を規約で完全排除",
+      "stealthEntry": "規約の隙間を突き、ファンがクリエイターに1対1で高額チップを払えるDM機能",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商1973億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 493350000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 1315600000
+      }
     ]
   },
   {
@@ -1598,6 +3236,32 @@
       "月額パトロン",
       "年商8000万ドル",
       "クリエイター保護"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "YouTubeのアルゴリズム変更で再生数が落ちると収入がゼロになる恐怖",
+      "structuralFlaw": "クラウドファンディング（Kickstarter等）は単発で毎月の生活費にならない",
+      "stealthEntry": "「月額$5で限定動画が見られる」継続パトロンモデルの確立",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商121億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 30360000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 111320000
+      }
     ]
   },
   {
@@ -1623,6 +3287,32 @@
       "Sam Ovens",
       "月99ドルSaaS",
       "ゲーミフィケーション"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Facebookグループで受講生が投稿を見失いエンゲージメントが崩壊する激痛",
+      "structuralFlaw": "既存コミュニティツール（Discord, Slack）は講座動画の整理機能が欠落",
+      "stealthEntry": "「投稿してレベルアップすると限定動画が解放される」ゲーミフィケーション",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商38億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 9487500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 28462500
+      }
     ]
   },
   {
@@ -1648,6 +3338,32 @@
       "Discord決済",
       "Z世代マーケット",
       "3%手数料"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Discordで手動でロールを付与したりPayPalの即時凍結に怯える若手起業家",
+      "structuralFlaw": "Stripeは規約が厳しくDiscord連動やデジタル商品の自動納品に対応不能",
+      "stealthEntry": "Discordボットと決済を直結し支払った瞬間にVIP部屋へ自動案内",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 11385000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 34155000
+      }
     ]
   },
   {
@@ -1673,6 +3389,32 @@
       "直接投げ銭SNS",
       "黒人コミュニティ連帯",
       "マイクロペイメント"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "TikTokやIGで数百万再生されても広告収益が分配されないクリエイターの怒り",
+      "structuralFlaw": "大手SNSはプラットフォームが広告費を独占し投稿者に還元しない",
+      "stealthEntry": "すべての投稿に「Love」ボタンで1セントから投げ銭できる少額決済",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商8億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 1897500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 6957500
+      }
     ]
   },
   {
@@ -1698,6 +3440,32 @@
       "4400億円売却",
       "PayPal買収",
       "自動クーポンハック"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "「クーポンコード入力欄」を見て「損したくない」と別窓で検索する心理的焦燥",
+      "structuralFlaw": "ユーザーが別窓でクーポンを探すと離脱してコンバージョンが下がる",
+      "stealthEntry": "決済画面で「クーポンを自動試行します」と1クリックで最安適用",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 126500000
+      }
     ]
   },
   {
@@ -1723,6 +3491,32 @@
       "年商300億",
       "ブラウザ常駐校正",
       "ウクライナ発ユニコーン"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "文法ミスでビジネス上の信用を失ったり恥をかくノンネイティブの恐怖",
+      "structuralFlaw": "Wordの標準校正は単純なスペルミスしか指摘できずトーンや語彙を無視",
+      "stealthEntry": "ブラウザのあらゆる入力欄に赤い波線を出して自動修正候補を提示",
+      "tollGateSetup": "利益率30%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 75900000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 278300000
+      }
     ]
   },
   {
@@ -1748,6 +3542,32 @@
       "Amazonアフィリエイト",
       "年商数億円",
       "価格推移チャート"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "「買った翌日にタイムセールで半額になって損したくない」損失回避本能",
+      "structuralFlaw": "Amazon公式は過去の価格履歴グラフを絶対に表示しない（高く買わせたいため）",
+      "stealthEntry": "数百万商品の価格を常時スクレイピングし、値下がり通知メールで客を再送客",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 1897500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 1897500
+      }
     ]
   },
   {
@@ -1773,6 +3593,32 @@
       "Capital One買収",
       "価格比較ハック",
       "送客手数料"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Amazonで買い物しているが実はウォルマートの方が安いかもしれない不安",
+      "structuralFlaw": "ユーザーはわざわざ複数のECサイトを巡回して最安値を比較しない",
+      "stealthEntry": "Amazonの商品ページ上で「他店なら$15安い」と通知しアフィリエイトで横取り",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 18975000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 63250000
+      }
     ]
   },
   {
@@ -1798,6 +3644,32 @@
       "楽天1000億買収",
       "キャッシュバック元祖",
       "アフィリエイト還元"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "普段の買い物で少しでも得をしたい・節約したい人間の防衛本能",
+      "structuralFlaw": "ECサイトは自社で値引きするとブランドが毀損するが代理店経由なら還元可能",
+      "stealthEntry": "アフィリエイト報酬の半分を客に現金（小切手・PayPal）で還元して忠誠心を獲得",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 94875000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 253000000
+      }
     ]
   },
   {
@@ -1823,6 +3695,32 @@
       "評価額20億ドル",
       "インスタアフィリエイト",
       "女性起業家成り上がり"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "「そのワンピどこで買ったの？」と何百回も聞かれて答えるのが面倒なインスタグラマー",
+      "structuralFlaw": "Instagramは投稿キャプションにクリック可能なリンクを貼らせない規約",
+      "stealthEntry": "「いいね」やスクショを撮るとメールやアプリで即座に購入リンクが届く特許配管",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商228億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 56925000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 189750000
+      }
     ]
   },
   {
@@ -1848,6 +3746,32 @@
       "ファッションメタサーチ",
       "送客手数料",
       "年商6000万ドル"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "欲しいブランドの服がどのECで在庫があるか探して回る苦痛",
+      "structuralFlaw": "アパレルEC各社は競合の在庫やセール価格を自社サイトに掲載不能",
+      "stealthEntry": "全ブランドのカタログをスクレイピングして巨大なファッション検索エンジンを構築",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商91億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 22770000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 83490000
+      }
     ]
   },
   {
@@ -1873,6 +3797,32 @@
       "掲示板アフィリエイト",
       "ユーザー自走型",
       "価格バグ速報"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "少しでも安く買いたいがネット上のセール情報を四六時中監視できない焦燥",
+      "structuralFlaw": "企業公式のセール情報は広告臭く本当に安い掘り出し物が埋もれる",
+      "stealthEntry": "ユーザーの投票（Upvote）で本当に安い「Frontpage Deals」だけが浮上する仕組み",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商61億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 15180000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 45540000
+      }
     ]
   },
   {
@@ -1898,6 +3848,32 @@
       "SEOクーポン覇者",
       "巨額バイアウト",
       "検索トラフィック関所"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ECの決済画面で「プロモコード」の入力欄を見て損したくない心理",
+      "structuralFlaw": "ブランド側はクーポンを配りたいが自社サイトで目立たせたくないジレンマ",
+      "stealthEntry": "「[ブランド名] coupon code」の全キーワードでSEO上位を独占しクリックを回収",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商304億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 75900000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 278300000
+      }
     ]
   },
   {
@@ -1923,6 +3899,32 @@
       "レシート現金化",
       "IPO上場",
       "メーカー販促費中抜き"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "インフレで食費が高騰し少しでも家計を節約したい主婦の切迫感",
+      "structuralFlaw": "P&Gなどの食品メーカーはスーパーの店頭で誰が自社製品を買ったか追跡不能",
+      "stealthEntry": "レシートOCRで特定商品の購買を照合しメーカーの予算からキャッシュバック",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 113850000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 379500000
+      }
     ]
   },
   {
@@ -1948,6 +3950,32 @@
       "規約ハック元祖",
       "評価額1500億",
       "オーストラリア発"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "YouTubeもTikTokもショップも見てほしいのにリンクが1本しか貼れないインフルエンサーの悶絶",
+      "structuralFlaw": "Instagramは外部へのトラフィック流出を防ぐため複数リンクを意図的に禁止していた",
+      "stealthEntry": "「linktr.ee/名前」のURLを貼らせ、その先で無数のリンクへ振り分ける関所",
+      "tollGateSetup": "利益率35%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 18975000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 69575000
+      }
     ]
   },
   {
@@ -1973,6 +4001,32 @@
       "AIバイオリンク",
       "スマホ完結ストア",
       "クリエイターマネタイズ"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "リンクまとめだけでなく、ファンから直接お金をもらったりメールを集めたい欲求",
+      "structuralFlaw": "Linktreeはボタンが並んでいるだけでデジタル商品の直接販売やAI機能が遅れた",
+      "stealthEntry": "スマホ上で完結する美しいミニホームページをAIが数分で自動生成",
+      "tollGateSetup": "利益率35%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 5692500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 18975000
+      }
     ]
   },
   {
@@ -1998,6 +4052,32 @@
       "TikTok特化ストア",
       "1タップ決済",
       "月29ドルSaaS"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "別のECサイト（Shopify等）に飛ばすと購入途中で離脱して売上が消える激痛",
+      "structuralFlaw": "従来のECはカートに入れて住所を入力して…と遷移が多くスマホで離脱しまくる",
+      "stealthEntry": "バイオリンクの中でそのままApple Payで1タップ決済・即時ダウンロード完了",
+      "tollGateSetup": "利益率40%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 7590000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 25300000
+      }
     ]
   },
   {
@@ -2023,6 +4103,32 @@
       "手数料0%",
       "ブートストラップ",
       "オンライン講座"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "売上が増えるたびにプラットフォームに手数料（5〜10%）を持っていかれる怒り",
+      "structuralFlaw": "大手プラットフォームは月額費用＋取引手数料の二重取りで客を搾取していた",
+      "stealthEntry": "「取引手数料ゼロ・月額固定のみ」という強烈なアンチテーゼで乗り換えを促進",
+      "tollGateSetup": "利益率35%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 3795000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 13915000
+      }
     ]
   },
   {
@@ -2048,6 +4154,32 @@
       "350億円売却",
       "Udemyキラー",
       "高額講座直販"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Udemyの「1,200円セール」で自分の専門知識が買い叩かれる専門家の怒り",
+      "structuralFlaw": "Udemyはプラットフォームの売上を優先し講師の顧客リスト（メルマガ）を渡さない",
+      "stealthEntry": "自分のドメインで数万円〜数十万円の高額コースを直販させ顧客リストを100%講師に還元",
+      "tollGateSetup": "利益率25%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 18975000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 69575000
+      }
     ]
   },
   {
@@ -2073,6 +4205,32 @@
       "トロント上場",
       "年商5500万ドル",
       "企業研修SaaS"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "自社製品の使い方を動画で教えたいが自作システムの開発費がない企業の苦痛",
+      "structuralFlaw": "オープンソースのMoodleは設定が難しすぎて非エンジニアには運用不能",
+      "stealthEntry": "ドラッグ＆ドロップで美しいクイズや終了証書を発行できるクラウド",
+      "tollGateSetup": "利益率15%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 20872500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 83490000
+      }
     ]
   },
   {
@@ -2098,6 +4256,32 @@
       "ARR 150億超",
       "月149ドル高価格SaaS",
       "情報発信ビジネスのOS"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "WordPress、Mailchimp、Stripe、VimeoをZapierで繋いで連携が壊れる悪夢",
+      "structuralFlaw": "個別ツールの組み合わせは月額合計が高くなりトラブル時の原因特定が不可能",
+      "stealthEntry": "「これ1つで起業できる」全部入りパッケージを成功者ステータスとして高額販売",
+      "tollGateSetup": "利益率30%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 37950000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 139150000
+      }
     ]
   },
   {
@@ -2123,6 +4307,32 @@
       "ARR 20億",
       "Discord対抗モダンサロン",
       "有益ログ蓄積"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "Slackで質問されてもチャットが流れて同じ質問に何回も回答させられる主宰者の疲労",
+      "structuralFlaw": "Slackは社内チャット用であり、Discordはゲーマー用で一般人にはUIが難解すぎた",
+      "stealthEntry": "Notionライクな美しいスレッド、イベントカレンダー、コース機能を1画面に統合",
+      "tollGateSetup": "利益率35%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 5692500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 18975000
+      }
     ]
   },
   {
@@ -2148,6 +4358,32 @@
       "独自アプリ発行",
       "年商20億",
       "アルゴリズム解放"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "InstagramやXに投稿してもフォロワーの数%にしか表示されないリーチ制限の怒り",
+      "structuralFlaw": "大手SNSは広告費を払わせるためにオーガニック投稿のリーチを意図的に絞る",
+      "stealthEntry": "自社ブランドのロゴが入ったiOS/Androidアプリをノーコードで発行",
+      "tollGateSetup": "利益率25%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 5692500
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 20872500
+      }
     ]
   },
   {
@@ -2173,6 +4409,32 @@
       "ネット界のバフェット",
       "スモールSaaS買収",
       "カナダ上場"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "事業を売却したいがPEファンドに会社を解体されたくない創業者の愛着と不安",
+      "structuralFlaw": "シリコンバレーのVCは赤字急成長しか評価せず、利益率50%の小規模事業を無視",
+      "stealthEntry": "「買収後も経営に口を出さない・創業者を尊重する」方針で優良スモールビジネスを独占買付",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 56925000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 151800000
+      }
     ]
   },
   {
@@ -2198,6 +4460,32 @@
       "時価総額1兆円",
       "ロンドン上場",
       "海外送金手数料粉砕"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "海外に10万円送金するだけで銀行に数千円の手数料と悪いレートで掠め取られる激痛",
+      "structuralFlaw": "伝統的銀行（SWIFT網）は中継銀行を何行も挟むため手数料が高く着金が遅い",
+      "stealthEntry": "「送金元の国の口座」と「送金先の国の口座」で相殺マッチングさせ国際送金を回避",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 483750000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 1290000000
+      }
     ]
   },
   {
@@ -2223,6 +4511,32 @@
       "評価額6.5兆円",
       "欧州最強ネオバンク",
       "手数料無料両替"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "海外旅行や外貨決済のたびに銀行やクレカ会社に為替手数料を上乗せされる損失感",
+      "structuralFlaw": "伝統的銀行は外貨両替の法外なスプレッドをドル箱収益として手放せなかった",
+      "stealthEntry": "アプリ内で数十通貨を為替手数料ゼロで瞬時に両替・デビット決済できる体験",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 1064250000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 3334650000
+      }
     ]
   },
   {
@@ -2248,6 +4562,32 @@
       "年商300億",
       "スタートアップ銀行",
       "API連動口座"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "大企業向けの古い銀行（Chase, BoA等）の使いにくいUIと理不尽な口座開設拒否",
+      "structuralFlaw": "伝統的銀行はスタートアップの資金調達スピードやAPI連携の需要を全く理解できず",
+      "stealthEntry": "シリコンバレーのテック企業に特化し、500万ドルのFDIC預金保険と美しいUIを提供",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 75900000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 227700000
+      }
     ]
   },
   {
@@ -2273,6 +4613,32 @@
       "評価額1.8兆円",
       "与信審査破壊",
       "法人カード王者"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "実績がないという理由で日本の大手カード会社から法人クレカの発行を断られる屈辱",
+      "structuralFlaw": "伝統的カード会社は個人の信用情報（FICOスコア）や2期分の決算書を要求する",
+      "stealthEntry": "VCから銀行口座に着金した預金残高をリアルタイムで見て与信枠を動的に設定",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 94875000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 284625000
+      }
     ]
   },
   {
@@ -2298,6 +4664,32 @@
       "評価額1兆円",
       "経費削減カード",
       "CFOの守護神"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "社員が勝手に契約した幽霊SaaSに毎月何百万円も無駄金を垂れ流すCFOの胃痛",
+      "structuralFlaw": "Amexなどの旧来カード会社は「客に使わせてリボ払いで利息を取る」ことしか考えていない",
+      "stealthEntry": "「うちのカードを使うと会社の無駄な経費が減ります」と訴求しCFOを歓喜させる",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 113850000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 379500000
+      }
     ]
   },
   {
@@ -2323,6 +4715,32 @@
       "ARR 750億",
       "世界最速成長EOR",
       "海外リモート雇用"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "海外人材を1人雇うためだけに現地の弁護士を雇い法人を作る数千万円と数ヶ月の浪費",
+      "structuralFlaw": "伝統的な労務コンサルティング会社は手続きがアナログで数ヶ月かかっていた",
+      "stealthEntry": "100カ国以上にDeelの現地法人を作り「Deelが雇用して顧客に貸し出す」合法配管",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率80%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 189750000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 632500000
+      }
     ]
   },
   {
@@ -2348,6 +4766,32 @@
       "評価額4500億",
       "自社現地法人直結",
       "安心リモート労務"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "下請けの人材ブローカーにマージンを抜かれ現地の税金トラブルに巻き込まれる恐怖",
+      "structuralFlaw": "多くのEOR競合は現地の怪しい仲介業者に再委託してコンプライアンス事故を起こす",
+      "stealthEntry": "世界各国に自社100%子会社を地道に設立し手数料を競合の半額（月$599）に設定",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率80%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 56925000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 208725000
+      }
     ]
   },
   {
@@ -2373,6 +4817,32 @@
       "新興国人材ハック",
       "年商6000万ドル",
       "給与送金インフラ"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "アメリカや日本のエンジニア給与が高騰しすぎて自社で採用できないスタートアップの悲鳴",
+      "structuralFlaw": "新興国からの直接雇用は二重課税や為替規制で個人口座への着金トラブルが多発",
+      "stealthEntry": "新興国の現地通貨での即時送金と現地の法定福利厚生をクラウド上で一括代行",
+      "tollGateSetup": "中間代理店を全排除した自社D2C直販と粗利率75%を死守するプライベートブランド関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存流通（問屋・小売）が乗せている多重マージンの無駄を特定する",
+        "製造工場（OEM）と直結し、最小ロットで圧倒的低原価のプロトタイプを仕込む",
+        "自社EC・直営店で前金・現金回収し、広告費をかけずにファン口コミで拡大する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 22770000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 83490000
+      }
     ]
   },
   {
@@ -2398,6 +4868,32 @@
       "未上場株独占管理",
       "年商2.5億ドル",
       "キャップテーブル覇権"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "エクセルで株主名簿を管理してストックオプションの計算ミスや法的手続きで大事故になる恐怖",
+      "structuralFlaw": "法律事務所に頼むと書類1枚の修正で数十万円の弁護士費用を取られる",
+      "stealthEntry": "法律事務所にCartaを無料配布して「弁護士側から顧客企業に導入させる」裏配管",
+      "tollGateSetup": "顧客の資金移動・決済残高に居座り、取引ごとに0.5〜3%を無労働で抜き続ける送金・為替関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する",
+        "既存のAPI（Stripe, Plaid, Banking-as-a-Service）の上に極上のUXラッパーを被せる",
+        "トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 94875000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 316250000
+      }
     ]
   },
   {
@@ -2423,6 +4919,32 @@
       "年商700億",
       "中小企業給与計算",
       "全自動源泉徴収"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "税務署への源泉徴収税の納付や福利厚生手続きのミスで罰金を食らう恐怖",
+      "structuralFlaw": "ADPなどの旧来巨人は複雑怪奇で中小企業には高すぎ、手厚いサポートがなかった",
+      "stealthEntry": "新入社員が自分で個人情報をスマホで入力するだけで給与計算が勝手に完了するUI",
+      "tollGateSetup": "利益率20%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 189750000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 695750000
+      }
     ]
   },
   {
@@ -2448,6 +4970,32 @@
       "AIモデル共有",
       "月間数千万PV",
       "Civitaiクラウド"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "ハイクオリティな美少女や背景を描くための最新AIモデル（LoRA）がどこにあるか分からない混乱",
+      "structuralFlaw": "Hugging Faceは研究者向けでプレビュー画像がなくクリエイターには使いにくかった",
+      "stealthEntry": "生成された作例画像をクリックするだけで同じプロンプトとモデルが使える超親切設計",
+      "tollGateSetup": "自社メディアの無料購読者プールを人質にし、年商18億円の直販広告枠・有料コミュニティ関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "既存ニュース・情報の退屈さや長文の苦痛を突き、1分で読める短尺フォーマットを作る",
+        "無料ニュースレターやSNSで熱狂的な読者プールを囲い込む",
+        "単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 4554000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 12144000
+      }
     ]
   },
   {
@@ -2473,6 +5021,32 @@
       "開発者特化検索",
       "StackOverflowキラー",
       "年商数億円"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "エラーログでググってもStack Overflowの10年前の回答しか出ず動かない絶望",
+      "structuralFlaw": "ChatGPTは一般知識向けで最新のライブラリや公式ドキュメントの参照が甘い",
+      "stealthEntry": "公式ドキュメントを最優先でクローリングし、実行可能なコードブロックのみを即返答",
+      "tollGateSetup": "利益率40%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 2277000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 6072000
+      }
     ]
   },
   {
@@ -2498,6 +5072,32 @@
       "プライバシー保護",
       "トラッカー遮断",
       "年商10億"
+    ],
+    "lootBlueprint": {
+      "targetPrey": "閲覧履歴を追跡されてネット上に同じ商品の追っかけ広告が出る気味悪さと不快感",
+      "structuralFlaw": "Google Chromeなどの広告主寄りブラウザはトラッカー遮断に消極的",
+      "stealthEntry": "サイト上でどの企業（Facebook, Google等）が個人情報を盗んでいるかを可視化・一括遮断",
+      "tollGateSetup": "利益率35%を叩き出す完全自動化された月額サブスクリプション課金関所",
+      "reproducibilityScore": 85,
+      "moatDurabilityScore": 80,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する",
+        "急所となる単一機能に特化した超軽量MVPを最小工数で構築する",
+        "前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する"
+      ]
+    },
+    "toolStack": [
+      {
+        "name": "Stripe Billing",
+        "category": "決済関所",
+        "monthlyCost": 3284000
+      },
+      {
+        "name": "Cloud Infrastructure",
+        "category": "ホスティング",
+        "monthlyCost": 12041333
+      }
     ]
   }
 ]
