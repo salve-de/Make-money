@@ -10,7 +10,7 @@ export const ANOMALY_CATEGORIES: AnomalyCategoryMeta[] = [
   {
     id: 'ALL',
     label: 'すべての歪み',
-    description: '市場全体で検出された未曾有の価格差・大手の自爆・急上昇マネーフロー',
+    description: '市場全体で検出された未曾有の価格差・大企業の弱点・急上昇マネーフロー',
   },
   {
     id: 'COST_COLLAPSE',
@@ -179,7 +179,7 @@ export const MARKET_ANOMALIES: MarketAnomaly[] = [
     heatScore: 93,
     updatedAt: '2026-03-04',
     targetPainWallet: '保険診療だけでは赤字転落寸前だが、患者に「自費の矯正やインプラントは100万円です」と口頭で営業すると「金儲け主義の歯医者」と思われるのが怖くて提案できずにいる歯科医院長。',
-    incumbentTrap: '大手電子カルテやレセコンメーカーは「保険点数計算」と「予約管理」が本業であり、患者の心理的抵抗（サバンナOSの損失回避）を和らげて自費率を跳ね上げるiPad営業ツールは開発の優先度が低く放置。',
+    incumbentTrap: '大手電子カルテやレセコンメーカーは「保険点数計算」と「予約管理」が本業であり、患者の心理的抵抗（人間の本音（切実な悩み）の損失回避）を和らげて自費率を跳ね上げるiPad営業ツールは開発の優先度が低く放置。',
     trendingPlaybook: '患者にiPadを渡し、「10年後の歯の残存本数シミュレーション」と「自費 vs 保険の生涯医療費比較」を数タップで視覚化する単機能アプリ。院長が1秒も営業トークをせず、患者側から「自費でお願いします」と言わせる仕掛け。月額3万円で全国の歯科にサブスク提供。',
     techStack: ['iPad用PWA (React / Tailwind)', 'Supabase', '生涯歯残存率アルゴリズム', 'Stripe'],
     expectedRevenue: '月商 300万 〜 900万円',

@@ -79,12 +79,12 @@ async function run() {
       structuralFlaw: m.flaw,
       stealthEntry: m.trick,
       tollGateSetup: m.sector === 'PHYSICAL_ASSET' || m.sector === 'LOCAL_SERVICES' || m.sector === 'MONOPOLY_MFG'
-        ? `店頭での現金回収・大量一括仕入れによる圧倒的低原価体制`
+        ? `${m.name}の店頭現金回収と一括仕入れ（利益率${m.opmPct}%）体制`
         : m.sector === 'CONTENT_MEDIA'
-        ? `スポンサー枠直販や限定有料枠による収益化体制`
+        ? `${m.name}のスポンサー直販と限定枠（利益率${m.opmPct}%）収益化体制`
         : m.sector === 'FINTECH_INFRA'
-        ? `取引ごとの決済・為替スプレッドによる自動収益化体制`
-        : `月額・年払いサブスクリプションによる継続収益化体制`,
+        ? `${m.name}の決済・為替スプレッド（利益率${m.opmPct}%）自動収益化体制`
+        : `${m.name}の月額・年払い課金（利益率${m.opmPct}%）継続収益化体制`,
       observations: [
         `【人間の本音と悩み】${m.pain}という切実な悩みを直接解決し、選ばれる理由を作っている。`,
         `【大企業の弱点】${m.flaw}により既存プレイヤーは対抗できずに見守るしかない。`,
@@ -98,7 +98,7 @@ async function run() {
   console.log(`Generated ${entities.length} full-spec FinancialEntity objects.`);
 
   // バッチインジェスト実行（R2イミュータブルPUT ＆ 目録同期）
-  await ingestVerifiedEntities(entities, 'verified-100-winners-plain-v5');
+  await ingestVerifiedEntities(entities, 'verified-100-winners-plain-v6');
 }
 
 run().catch(err => {

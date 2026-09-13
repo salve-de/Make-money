@@ -43,8 +43,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_demandcurve_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】圧倒的無料Wikiで権威を確立し、高単価ブートキャンプで抜く知恵の関所コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】圧倒的無料Wikiで権威を確立し、高単価ブートキャンプで抜く知恵の関所コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '「業界最高の無料実践ガイド」をWeb上に常設し、SEOと口コミで集客を完全自動化。数万人の読者リストから上位1%に高額指導を売る。',
         details: [
@@ -88,7 +88,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_demandcurve_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: 広告運用手数料ビジネス（20%マージン）に囚われた代理店の死角',
+        title: '大企業が真似できない理由: 広告運用手数料ビジネス（20%マージン）に囚われた代理店の死角',
         evidenceStatus: 'REPORTED',
         punchline: '大手代理店は顧客の広告費を増やさせてマージンを抜くモデルのため、「顧客自身をプロに育てて自立させる」教育には絶対に手を出せない。',
         details: [
@@ -175,7 +175,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '国内ニッチ（例: B2B製造業マーケ、クリニック集客等）で「業界最高の無料Wiki」を作れば、1夜で権威を独占し高額研修を売れる。',
       demandDelta: '90日 ↑25%',
       competitionDelta: '代理店モデルが自爆中',
@@ -225,8 +225,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_blueland_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「水を運ばず粉・錠剤だけ送る」極小送料・高LTVの定期通販コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】「水を運ばず粉・錠剤だけ送る」極小送料・高LTVの定期通販コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '既存の液体日用品（シャンプー、洗剤、化粧水、清涼飲料）から「水分」を抜き、タブレット化して封筒サイズで郵送する。',
         details: [
@@ -259,7 +259,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_blueland_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: スーパーの棚スペースと液体充填工場を抱えるP&Gの麻痺',
+        title: '大企業が真似できない理由: スーパーの棚スペースと液体充填工場を抱えるP&Gの麻痺',
         evidenceStatus: 'REPORTED',
         punchline: 'P&Gや花王は「巨大なプラスチックボトルで棚を占有する」ことで競合を排除してきたため、自ら「極小タブレット」に移行すると自社の棚支配権が死滅する。',
         details: [
@@ -344,7 +344,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '日本国内のニッチ液体商品（マウスウォッシュ、ペット消臭液、観葉植物用栄養剤等）を「水抜き錠剤化」してメール便で定期販売すれば即座に高粗利が取れる。',
       demandDelta: '90日 ↑30%',
       competitionDelta: '大手が身動き取れず',
@@ -394,8 +394,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_dyf_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「時給貧乏からの脱出」を煽り、価格決定権教材を売り抜くソロ教育コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】「時給貧乏からの脱出」を煽り、価格決定権教材を売り抜くソロ教育コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '受託業界（エンジニア、デザイナー、ライター、動画編集者）の「値上げ恐怖」を論理的に治療するテンプレを売り、粗利95%を達成。',
         details: [
@@ -427,7 +427,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_dyf_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: クラウドソーシング胴元（Upwork等）が絶対に教えられない「中抜き回避術」',
+        title: '大企業が真似できない理由: クラウドソーシング胴元（Upwork等）が絶対に教えられない「中抜き回避術」',
         evidenceStatus: 'REPORTED',
         punchline: 'クラウドソーシング大手は相見積もりによる低価格競争と手数料（10〜20%）で儲かるため、「フリーランスが自力で直営業して高単価を取る方法」を教える動機がゼロ。',
       },
@@ -509,7 +509,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '「受託エンジニア・動画編集者の単価倍増スクール」は日本国内でも極めて需要が高く、今夜からコンテンツ作成に着手できる。',
       demandDelta: '90日 ↑20%',
       competitionDelta: '技術スクールばかりで価格交渉専門が不在',
@@ -559,8 +559,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_aliabdaal_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「生産性オタク」から高単価アカデミーへ流し込む教祖配管コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】「生産性オタク」から高単価アカデミーへ流し込む教祖配管コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '「医者・エリートが教える勉強法・仕事術」で信頼を極大化し、数千ドルのコホート講座で回収する。',
         details: [
@@ -592,7 +592,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_aliabdaal_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: ビジネススクールや予備校が逆立ちしても出せない「個人の生々しい最新収益データ」',
+        title: '大企業が真似できない理由: ビジネススクールや予備校が逆立ちしても出せない「個人の生々しい最新収益データ」',
         evidenceStatus: 'REPORTED',
         punchline: '既存の教育機関やビジネススクールは「YouTubeやSNSでの個人マネタイズ」という現場の生々しいアルゴリズムと収益構造を教えられる教員がゼロ。',
       },
@@ -725,8 +725,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_masterclass_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「超一流の知恵を後世に残す」大義名分でセレブを口説き、年額サブスクで抜くコード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】「超一流の知恵を後世に残す」大義名分でセレブを口説き、年額サブスクで抜くコード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '業界の「伝説的トップ（引退間近の名人・大御所）」を前金＋映画クオリティで口説き、独占教材化して年額課金する。',
         details: [
@@ -758,7 +758,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_masterclass_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: UdemyやCourseraなどの「一般講師プラットフォーム」の死角',
+        title: '大企業が真似できない理由: UdemyやCourseraなどの「一般講師プラットフォーム」の死角',
         evidenceStatus: 'REPORTED',
         punchline: '既存の教育サイトは一般人が動画を投稿して2,000円で売るフリーマーケット型。1講座数千万円かけてセレブを口説くスタジオ制作モデルは、ビジネスのDNAが真逆で真似できない。',
       },
@@ -889,8 +889,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_bombas_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「買うことが人助けになる」大義名分で原価率を吸収する善行コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】「買うことが人助けになる」大義名分で原価率を吸収する善行コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '日用品に「1つ買うと1つ寄付」のナラティブを纏わせ、価格を3倍に釣り上げて粗利70%を確保する。',
         details: [
@@ -922,7 +922,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_bombas_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: ヘインズ（Hanes）等の低価格量販モデルの限界',
+        title: '大企業が真似できない理由: ヘインズ（Hanes）等の低価格量販モデルの限界',
         evidenceStatus: 'REPORTED',
         punchline: '量販店に3足1,000円で卸している大手メーカーは、1足$15の高価格帯や寄付モデルに切り替えると既存の量販チェーンから追放されるため手を出せない。',
       },
@@ -1003,7 +1003,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '「1つ買うと被災地や子ども食堂に1つ届く」高機能日用品（例: 防災用靴下、オーガニックタオル）をD2Cで仕掛ければ即座に成立する。',
       demandDelta: '90日 ↑15%',
       competitionDelta: '大手が追随不能',
@@ -1053,8 +1053,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_away_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】製品が間に合わない時に「ハードカバー本＋予約券」でバズらせる初動突破コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】製品が間に合わない時に「ハードカバー本＋予約券」でバズらせる初動突破コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '製品完成前のクリスマス商戦に「有名作家の旅エッセイ集（ギフト券付）」を先行販売し、1夜で数千個の予約とメディア取材を獲得。',
         details: [
@@ -1086,7 +1086,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_away_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: サムソナイトや百貨店卸売ネットワークのしがらみ',
+        title: '大企業が真似できない理由: サムソナイトや百貨店卸売ネットワークのしがらみ',
         evidenceStatus: 'REPORTED',
         punchline: '既存のスーツケース大手は世界中の空港免税店や百貨店への卸売り（卸値は定価の50%）に依存しており、D2Cで中間マージンを省いた低価格・高機能スーツケースを売ることが構造上不可能。',
       },
@@ -1217,8 +1217,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_redgregory_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】Notionの「無料テンプレ」でメアドを抜き、Gumroadで自動集金するソロ配管コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】Notionの「無料テンプレ」でメアドを抜き、Gumroadで自動集金するソロ配管コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '複雑なSaaS（Notion, Airtable, Make等）の「数式・自動化の難所」を動画で解き明かし、完成品テンプレをGumroadで売る。',
         details: [
@@ -1250,7 +1250,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_redgregory_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: Notion公式がテンプレート個別販売に本気になれない理由',
+        title: '大企業が真似できない理由: Notion公式がテンプレート個別販売に本気になれない理由',
         evidenceStatus: 'REPORTED',
         punchline: 'Notion公式は数千億円規模のエンタープライズSaaS契約（チーム・企業向け課金）を獲ることに全集中しており、個人クリエイターの数千円のテンプレ販売をサポートする余裕がゼロ。',
       },
@@ -1331,7 +1331,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '今なら「Claude Projects テンプレート」や「Cursor開発設定テンプレ」でまったく同じ自動集金配管を1週間で構築できる。',
       demandDelta: '90日 ↑35%',
       competitionDelta: '個人が参入しやすい',
@@ -1381,8 +1381,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_creatorwizard_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「企業の予算をバラす」ことでクリエイターを心酔させ、高額交渉術を売るコード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】「企業の予算をバラす」ことでクリエイターを心酔させ、高額交渉術を売るコード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '「企業側が裏でいくら払う気があるか」を元エージェンシー社長の立場で暴露し、クリエイターから高額指導料を抜く。',
         details: [
@@ -1414,7 +1414,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_creatorwizard_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: インフルエンサーキャスティング代理店のカニバリズム',
+        title: '大企業が真似できない理由: インフルエンサーキャスティング代理店のカニバリズム',
         evidenceStatus: 'REPORTED',
         punchline: 'キャスティング代理店は「クリエイターを安く買い叩いて企業から高額マージンを抜く」ことで儲かっているため、クリエイターに高い交渉術を教えると自社の首を絞めることになり絶対に参入できない。',
       },
@@ -1495,7 +1495,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '日本国内のYouTuber・インスタグラマー向けに「企業案件で単価を3倍にする交渉ピッチ集」を作れば、今夜から売れる。',
       demandDelta: '90日 ↑30%',
       competitionDelta: '専門家が国内皆無',
@@ -1545,8 +1545,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_creativetim_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】GitHubで無料UIキットを配り、SEO被リンクを総取りしてPro版で抜く要塞コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】GitHubで無料UIキットを配り、SEO被リンクを総取りしてPro版で抜く要塞コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '「無料の美しいUIキット」をGitHubに公開して世界中の開発者から数万スターと被リンクを集め、Pro版を自動販売する。',
         details: [
@@ -1578,7 +1578,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_creativetim_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: ThemeForest（Envato）等の仲介マーケットプレイスの自縄自縛',
+        title: '大企業が真似できない理由: ThemeForest（Envato）等の仲介マーケットプレイスの自縄自縛',
         evidenceStatus: 'REPORTED',
         punchline: '既存のテンプレートマーケットプレイスは30〜50%の手数料を中抜きするが、Creative Timは自社サイトで直販するため顧客のメールアドレスを100%独占し、新作を出すたびに一斉メールで売上を立てられる。',
       },
@@ -1660,7 +1660,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '「日本企業向け・shadcn/ui特化の業務システムテンプレート」を作りGitHubで無料配布すれば、即座に国内B2B開発者を総取りできる。',
       demandDelta: '90日 ↑25%',
       competitionDelta: '海外製ばかりで日本語特化が不在',
@@ -1710,8 +1710,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_egghead_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「挨拶・前置きを完全禁止」した超高密度動画でプロから高額課金するコード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】「挨拶・前置きを完全禁止」した超高密度動画でプロから高額課金するコード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '「動画の最初の1秒から本題コードを表示し、3分以内に解決する」ルールを徹底し、忙しいシニアエンジニアから年額サブスクを自動回収。',
         details: [
@@ -1743,7 +1743,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_egghead_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: Udemy等の「再生時間の長さ」で勝負するプラットフォームの死角',
+        title: '大企業が真似できない理由: Udemy等の「再生時間の長さ」で勝負するプラットフォームの死角',
         evidenceStatus: 'REPORTED',
         punchline: '既存の教育サイトは「総再生時間25時間！」というボリューム感をアピールして割安感を出すビジネスモデルのため、「3分で本質だけ終わる」動画を高単価で売るUIや価格設計に転換できない。',
       },
@@ -1825,7 +1825,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '「Cursor / ClaudeによるAI開発の超短尺3分動画集」を日本国内向けに作れば、IT企業の研修需要を独占できる。',
       demandDelta: '90日 ↑40%',
       competitionDelta: 'ダラダラ長いYouTube動画ばかりで競合不在',
@@ -1875,8 +1875,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_notioneverything_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】他人の作ったデジタル商品をノーコードで集約し、通行税を吸い上げる関所コード',
-        badge: '略奪転用方程式',
+        title: '【儲かる仕組み】他人の作ったデジタル商品をノーコードで集約し、通行税を吸い上げる関所コード',
+        badge: 'ビジネスモデルの設計図',
         evidenceStatus: 'VERIFIED',
         punchline: '自分ではテンプレを1つも作らず、世界中のクリエイターに「うちのサイトに載せれば売れる」と出品させ手数料を抜く。',
         details: [
@@ -1908,7 +1908,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         id: 'ev_notioneverything_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: GumroadやEtsy等の汎用ECプラットフォームの死角',
+        title: '大企業が真似できない理由: GumroadやEtsy等の汎用ECプラットフォームの死角',
         evidenceStatus: 'REPORTED',
         punchline: '汎用プラットフォームは何でも売っているため、「Notionに特化したカテゴリ検索（ライフ、仕事、勉強等）」や「Notionプレビューの埋め込み」などの特化型UIを提供できず、専門マーケットにユーザーを奪われる。',
       },
@@ -1989,7 +1989,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     ],
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
-      verdictLabel: '即座に略奪可能',
+      verdictLabel: '再現性が極めて高い',
       oneLineReason: '「Framerテンプレート特化」や「Cursorルール特化」の日本語マーケットプレイスを開設すれば、1人で月数百万円の関所になれる。',
       demandDelta: '90日 ↑30%',
       competitionDelta: '日本国内に特化サイト不在',
