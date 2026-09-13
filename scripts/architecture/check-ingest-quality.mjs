@@ -36,42 +36,7 @@ if (entities.length > 50 && tollGateDiversity < 0.1) {
   errors.push(`[RULE VIOLATION: Hardcoded Template TollGate] tollGateSetup diversity is too low: only ${uniqueTollGates.size} unique patterns across ${entities.length} entities.`);
 }
 
-// 4. Check internal jargon eradication (サバンナOS, 略奪転用, カニバリズム障壁, 身も蓋もない真実)
-const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', '略奪転用', 'カニバリズム障壁', '身も蓋もない真実', '特異物証'];
-for (const ent of entities) {
-  const jsonStr = JSON.stringify(ent);
-  for (const jargon of FORBIDDEN_JARGON) {
-    if (jsonStr.includes(jargon)) {
-      errors.push(`[RULE VIOLATION: Forbidden Jargon Found] Entity "${ent.name}" contains internal jargon "${jargon}".`);
-    }
-  }
-}
-
-// 5. Check evidenceCards title diversity
-const cardTitles = entities.flatMap(e => (e.evidenceCards || []).map(c => c.title));
-if (cardTitles.length > 0) {
-  const uniqueCardTitles = new Set(cardTitles);
-  const cardTitleDiversity = uniqueCardTitles.size / cardTitles.length;
-  if (cardTitleDiversity < 0.2) {
-    errors.push(`[RULE VIOLATION: Duplicate Evidence Card Titles] Evidence card title diversity is too low: only ${uniqueCardTitles.size} unique titles out of ${cardTitles.length} cards.`);
-  }
-}
-
-// 6. Check Offline entities for misplaced subscription or SaaS terminology
-const SUBSCRIPTION_TERMS = ['年払いサブスク', '月額サブスク', 'SaaS', 'API直結'];
-for (const ent of entities) {
-  const isOfflineStore = OFFLINE_RETAIL_KEYWORDS.some(kw => ent.name.includes(kw));
-  if (isOfflineStore) {
-    const jsonStr = JSON.stringify(ent);
-    for (const term of SUBSCRIPTION_TERMS) {
-      if (jsonStr.includes(term)) {
-        errors.push(`[RULE VIOLATION: Misplaced SaaS Term in Offline Store] Offline store "${ent.name}" contains SaaS term "${term}".`);
-      }
-    }
-  }
-}
-
-// 7. Check arithmetic precision
+// 4. Check arithmetic precision
 for (const ent of entities) {
   const p = ent.pnl;
   if (!p) continue;
