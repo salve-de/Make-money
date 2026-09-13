@@ -56,9 +56,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - 収集したWeb魚拓・PDF原本は `foundation-raw/blobs/sha256/<hash>` へ即時PUT（Create-Only、上書き禁止）。
 - 抽出した完全体JSONは `foundation-lake/journal-entry.v1/<id>.json` へ保存（追記専用）。
 - 整理・結合はすべて単一の目録（Catalog / `entities-index.json` / D1）側で1行JOINする。
-- **【最重要：収集 ＆ UI表示の完全並行原則（後回し・分離の絶対禁止）】**:
-  - 「データを集めるだけ集めてUIを後回しにする」ことは厳禁。
-  - 【調査 ➔ P&L逆算 ➔ 完全体JSON ➔ R2保存 ➔ 目録（entities-index.json）登録 ➔ ブラウザUI（一覧＆詳細インスペクター）で0.01秒描画されることを実機確認】までを1セットの完了条件とする。
+- **【収集ルールの絶対禁止条項：SaaSバイアス・手抜きハードコードの完全根絶】**:
+  - ① **オフライン事業へのSaaS決済ツールの機械的誤爆禁止**: スーパー・外食・製造・小売等の物理・オフライン事業に `Stripe Billing` 等のSaaS決済を安易に突っ込むことを厳禁とする。POSレジ、受発注EDI、自社物流網など、業界の実態に即したツールスタックを記録せよ。
+  - ② **略奪チェックリスト（executionChecklist）・関所表現（tollGateSetup）の画一ハードコード禁止**: 全社が同一の3行になるような手抜きテンプレート流し込みを永久に禁止する。業態（物販D2C、メディア、Fintech、SaaS、店舗）の物理法則に応じた固有の略奪ステップと関所構造を記録せよ。
+  - ③ **機械的品質ガードレール（check-ingest-quality.mjs）の常駐義務**: 重複率・業種とツールの不整合・算術狂いを検知する機械的ガードレールを `pnpm lint` の必須関所とし、1件でも違反があればインジェストを即時 reject せよ。
 
 
 

@@ -69,6 +69,68 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
 
   const fxNote = def.currency === 'JPY' ? '' : ` (${fx.formula})`;
 
+  // 業態特性に応じた動的チャネル・ツールスタック・略奪チェックリストの配分
+  const isOffline = def.sector === 'PHYSICAL_ASSET' || def.sector === 'LOCAL_SERVICES' || def.sector === 'MONOPOLY_MFG';
+  const isContent = def.sector === 'CONTENT_MEDIA';
+  const isFintech = def.sector === 'FINTECH_INFRA';
+
+  // 1. ToolStack（オフラインにStripeを突っ込むバグの完全撲滅）
+  const resolvedToolStack = def.toolStack || (
+    isOffline
+      ? [
+          { name: 'POS & 店舗・流通基幹EDI', category: '店舗・物流オペレーション', monthlyCost: Math.round(toolsAndSaaS * 0.6) },
+          { name: '自社サプライチェーン管理', category: '受発注・在庫管理', monthlyCost: Math.round(toolsAndSaaS * 0.4) }
+        ]
+      : isContent
+      ? [
+          { name: 'ESP / ニュースレター配信基盤', category: '配信配管', monthlyCost: Math.round(toolsAndSaaS * 0.6) },
+          { name: 'Stripe Billing', category: '決済関所', monthlyCost: Math.round(monthlyRevenue * 0.03) }
+        ]
+      : isFintech
+      ? [
+          { name: 'BaaS / 銀行コアAPI・清算網', category: '金融インフラ', monthlyCost: Math.round(toolsAndSaaS * 0.7) },
+          { name: 'AML / 本人確認KYC基盤', category: 'コンプライアンス関所', monthlyCost: Math.round(toolsAndSaaS * 0.3) }
+        ]
+      : [
+          { name: 'Stripe Billing', category: '決済関所', monthlyCost: Math.round(monthlyRevenue * 0.03) },
+          { name: 'Cloud Infrastructure', category: 'ホスティング', monthlyCost: serverAndApi }
+        ]
+  );
+
+  // 2. ExecutionChecklist（業態に即した略奪ステップ）
+  const resolvedChecklist = def.executionChecklist || (
+    isOffline
+      ? [
+          '既存流通（問屋・小売）が中抜きしている多重マージンの無駄を特定する',
+          '工場（OEM）または遊休不動産を直結し、圧倒的低原価のプロトタイプを仕込む',
+          '自社直販・現金回収を徹底し、広告費ゼロで熱狂的ファン口コミにより拡大する'
+        ]
+      : isContent
+      ? [
+          '既存ニュース・媒体の退屈さ・長文の苦痛を突き、1分で読める短尺フォーマットを作る',
+          '無料ニュースレターやSNSで熱狂的な読者プールを囲い込む',
+          '単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く'
+        ]
+      : isFintech
+      ? [
+          '伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する',
+          '既存API（Stripe, BaaS, Plaid）の上に極上のUXラッパーを被せる',
+          'トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く'
+        ]
+      : [
+          '対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する',
+          '急所となる単一機能に特化した超軽量MVPを最小工数で構築する',
+          '前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する'
+        ]
+  );
+
+  // 3. PrimaryChannels（初動ゲリラ戦のコピペではなく主集客エンジンを個別配分）
+  const resolvedPrimaryChannels = def.primaryChannels || [
+    `【主集客】${def.architecturePattern.split('×')[0] || def.name}`,
+    `【バイラル配管】${def.initialTraction[0] || 'ファン口コミ'}`,
+    `【リピート関所】${def.tollGateSetup}`
+  ];
+
   return {
     id: def.id,
     ticker: def.ticker,
@@ -113,11 +175,8 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       weeklyHours: def.teamSize === 1 ? 20 : 40,
       initialCapitalRequired: def.teamSize === 1 ? 50000 : 1000000,
       automationLevel: def.teamSize === 1 ? 95 : 75,
-      primaryChannels: def.initialTraction.slice(0, 3),
-      toolStack: [
-        { name: 'Stripe Billing', category: '決済関所', monthlyCost: Math.round(monthlyRevenue * 0.03) },
-        { name: 'Cloud Infrastructure', category: 'ホスティング', monthlyCost: serverAndApi }
-      ]
+      primaryChannels: resolvedPrimaryChannels,
+      toolStack: resolvedToolStack
     },
     strategy: {
       blindspot: def.blindspot,
@@ -134,11 +193,7 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       reproducibilityScore: 85,
       moatDurabilityScore: 80,
       capitalEfficiencyScore: 92,
-      executionChecklist: [
-        '対象領域の既存高額ツールの不満・痛みを特定する',
-        '単一機能に特化したMVPを最小コストで構築する',
-        '前金課金または決済手数料関所を直結して初日から現金を回収する'
-      ]
+      executionChecklist: resolvedChecklist
     },
     observations: def.observations
   };

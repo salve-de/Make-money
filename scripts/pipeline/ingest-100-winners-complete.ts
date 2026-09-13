@@ -86,7 +86,7 @@ async function run() {
   console.log(`Generated ${entities.length} full-spec FinancialEntity objects.`);
 
   // バッチインジェスト実行（R2イミュータブルPUT ＆ 目録同期）
-  await ingestVerifiedEntities(entities, 'verified-100-winners-batch-v2');
+  await ingestVerifiedEntities(entities, 'verified-100-winners-batch-v3');
 }
 
 run().catch(err => {

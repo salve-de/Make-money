@@ -19,6 +19,16 @@
 - **R2 Medallion Audit**: `pnpm foundation:audit` 100% PASS。
 - **実機UI描画実証**: Playwright実機ブラウザにて、トップ画面一覧の234社高速ロード、および `PDF.ai`、`Chatbase` 等の詳細インスペクターが0.01秒で一切のレイアウト崩れなく描画されることを確認（スクリーンショット `scratch/ui_verify_100_top.png`, `ui_verify_100_pdfai.png`, `ui_verify_100_chatbase.png` 保管）。
 
+### 4. 収集時点の構造的病巣の解明と機械的ガードレール配備（Phase 146.1）
+- **根本原因の特定**:
+  - `buildFinancialEntityFromDef` において、`toolStack`（Stripe Billing）、`executionChecklist`（固定3行テンプレート）がSaaS前提でハードコードされていた。
+  - バリデーションが「形式（型・算術）」のみで「意味論（オフライン店舗にStripeを突っ込む不整合やテンプレート重複）」を検知できていなかった。
+- **恒久再発防止策**:
+  - `scripts/architecture/check-ingest-quality.mjs` を新規配備し、`pnpm lint` に常駐化。
+  - オフライン実店舗企業へのSaaS決済ツールの誤爆、チェックリスト重複率50%超、算術狂いをビルド・コミット前に機械的に即時遮断。
+  - `AGENTS.md` に「SaaSバイアス・手抜きハードコードの完全根絶」を最高禁止条項として恒久刻印。
+  - 修正済みデータを `verified-100-winners-batch-v3` として R2 へ物理再同期完了。
+
 ---
 
 ## 2026-09-13 【確定・不可侵】EDINET完全遮断とChatGPT Proコード監査反映の記録
