@@ -4786,3 +4786,35 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **CI関所完全通過**: `pnpm lint`（エラー0件）、`pnpm typecheck`（エラー0件）、`pnpm build`（Exit code 0）。
 - **Gitリモート同期**: 差分ゼロ原則（憲条Ⅳ-2）に基づき、リモートブランチへ即時同期完了。
 
+---
+
+## 2026-09-13: Phase 155 - 【実装ロードマップ ＆ R2根本変更の是非に関するChatGPTとの最終決着（Round 6）】
+
+### 1. ユーザーの問い
+「で、結局 なにをどうやって 実装するの R2根本的に変更するの？ 右と言い合え」
+
+### 2. ChatGPT Pro Webとの激論・判定結果
+1. **「R2は根本的に変更するのか？」➔ 【結論：根本変更は一切不要】**
+   - 既存の「Layer 1: 原本（`foundation-raw`）➔ Layer 2: 事実（`foundation-lake`）➔ Layer 3: 表示ビュー（`views/make-money/dossier-v1`）」の3層メダリオン構造はすでに完璧であり、1ミリも作り直す必要はない。
+   - 変更するのはR2の物理構造ではなく、「その上に乗るデータの根拠契約」と「検索・提供コードの実行時境界」のみである。
+2. **「views/全体に90日TTL」の即死バグ特定と永久却下**:
+   - ChatGPTの痛烈な指摘：Cloudflare R2のLifecycleルールはプレフィックス＋作成日時で問答無用に削除するため、`views/` 全体にTTLを設定すると「1年間業績変化のない優良企業の現行Dossierまで消えて404エラーになる」。
+   - 解決策：一律TTLは設定しない。当面は保持（R2容量費用は極小）。将来バージョン数が増大した段階で、Tiny Indexの最新Hashから参照されていない孤児ObjectのみをExact-key DELETEする**「参照アウェアGC（Reference-aware GC）」**を採用。
+3. **「で、結局なにをどうやって実装するのか？」➔ 【5大ピンポイント実装】**:
+   - **① 根拠契約（Evidence Contract）**:
+     - `EvidenceLocator`（PDF, HTML, JSON, Text, MediaのUnion型）と `sourceClass`（PRIMARY / INDEPENDENT_SECONDARY / COMMUNITY / MODEL）の型定義を配備。
+   - **② 昇格のコード強制（Promotion Enforcement）**:
+     - 公開API・Serving Index生成において `WHERE publishability === 'PUBLISHABLE'` をコードで強制。未精錬データの混入を物理遮断。
+   - **③ 検索契約（Query Contract）**:
+     - `QueryContract` インターフェース（`search`, `getTiny`）と Cursor（`indexGeneration, sortValues, entityId`）を定義。D1から将来のClickHouseへの切り替え境界を抽象化。
+   - **④ 鮮度同期（Revision / Generation）**:
+     - 検索一覧で返した `latestDossierHash` そのものをクリック時に開く（ハッシュ直指定オープン）。一覧と詳細のズレを根本防止。ポインタ更新はCAS条件付き更新。
+   - **⑤ イミュータブル詳細ドシエ（Immutable Dossier）**:
+     - `views/.../<content_hash>.json.gz`。一律TTLは掛けず、現行版を安全に配信。
+
+### 3. 検証と完全性の証明
+- **正本改訂**: `docs/architecture/STORAGE.md` に「マルチフォーマットEvidenceLocator」および「参照アウェアGC（一律TTL禁止）」を反映。
+- **CI関所完全通過**: `pnpm lint`（エラー0件）、`pnpm typecheck`（エラー0件）、`pnpm build`（Exit code 0）。
+- **Gitリモート同期**: コミットおよびリモートへの即時同期完了。
+
+

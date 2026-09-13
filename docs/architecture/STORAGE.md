@@ -201,7 +201,12 @@ ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading�
    - 関係性自体にも `validTime`（効力発生日）、`announcedAt`（発表日）、`recordedAt`、`evidenceIds` を記録する。
 3. **Evidence Locator ＆ 支持検証（単なるSHA一致の脆弱性を根絶）**:
    - 原本ファイルのSHA-256一致は「そのファイルがそのバイト列で存在したこと」しか証明せず、LLMの抽出ミス・幻覚（例: 原本$12Mを$120Mと誤読）を1ミリも防げない。
-   - 全てのClaim/Factには原本内の厳格な位置情報 **`evidenceLocator: { page, table, row, column, exactQuote }`** を必須化する。
+   - 全てのClaim/Factには原本内の厳格な位置情報 **`evidenceLocator`** を必須化する：
+     - PDF: `{ type: 'pdf', page, table?, row?, column?, bbox? }`
+     - HTML/Web: `{ type: 'html', cssSelector?, textHash? }`
+     - JSON/API: `{ type: 'json', jsonPointer }`
+     - Text/記事: `{ type: 'text', start, end, excerptHash? }`
+     - 音声/動画: `{ type: 'media', startMs, endMs }`
    - 数字・日付・価格・人数等は、LLMとは別の決定論的Extractorによって原本Locatorと再照合（Support Check）し、「Evidence actually supports this claim（根拠が主張を本当に支持している）」ことを機械検証する。
 4. **直交する4大ステータス軸 ＆ 一次資料至上主義の脱却**:
    - **`originType`（出所の性質）**: `reported`（公式発表） | `observed`（実測） | `estimated`（推計） | `inferred`（論理演繹） | `unknown`
@@ -237,23 +242,23 @@ ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading�
 
 ---
 
-### 【契約C：イミュータブル詳細ドシエ ＆ 世代Retention契約】
+### 【契約C：イミュータブル詳細ドシエ ＆ 参照アウェアGC契約】
 1. **物理パスの配置規律**:
    - 詳細ドシエはFoundationのFactそのものではなく製品向けServing Viewであるため、`views/make-money/dossier-v1/objects/<shard>/<entity_id>/<content_hash>.json.gz` に配置。
-2. **Immutable ≠ 永久保存（改訂によるオブジェクト指数爆発の防止）**:
-   - 年数回の改訂が発生した場合、1億社×数年でオブジェクト数は10億〜数十億に達し、R2のメタデータ管理コストとList負荷が爆発する。
-   - ライフサイクルの分離：
-     - **Foundation Fact / Evidence原本**: 永久保存（True Source）。絶対に削除しない。
-     - **Dossier 現行版（Current）**: 即時配信保存。
-     - **Dossier 過去世代版（Historical Versions）**: 直近N世代、または90日TTLで自動ガベージコレクション。重要な年次決算公開SnapshotのみCold Parquetへ集約保全。
-3. **安全なポインタ更新（Race Condition防止）**:
+2. **「views/ 全体への一律TTL」の絶対禁止 ＆ 参照アウェアGC（Reference-aware GC）**:
+   - **一律TTLの致命的欠陥**: Cloudflare R2のObject Lifecycle Rules（prefix + age）を `views/` 全体に掛けると、業績やデータが90日間変わっていない優良企業の現行Dossierまで削除され、画面が404即死する。
+   - **正しいライフサイクル規律**:
+     - **Foundation Fact / Evidence原本**: 永久保存（True Source）。不可侵・削除禁止。
+     - **Dossier 現行版（Current）**: Tiny Indexが参照している限り永久に保持。
+     - **Dossier 過去世代版（Historical Versions）**: 当面はTTLを掛けず保持（R2容量費用は極小）。将来バージョン数が増大した段階で、「Tiny Indexの最新Hashから参照されていない（Orphan）」かつ「90日以上経過した」旧世代ObjectのみをExact-key DELETEする**「参照アウェアGC（Reference-aware GC）」**を実施する。
+3. **ハッシュ直指定オープン ＆ 安全なポインタ更新（Race Condition防止）**:
+   - ユーザーが一覧で企業をクリックした際は、Tiny Recordに記録された `latestDossierHash` そのものを直接開く（これにより、一覧と詳細のRevision不一致事故が構造的にゼロになる）。
    - ドシエ更新の手順を厳格に固定：
      1. 新Dossier生成
      2. Content Hash計算
      3. R2へImmutable PUT
      4. Readback Validation（書き込み検証）
-     5. Tiny Indexの `latestDossierHash` を更新
-   - 並行Projectorによる追い越し上書きを防ぐため、Tiny Indexのポインタ更新は `new_generation > current_generation` のアトミック条件付き更新とする。
+     5. Tiny IndexのポインタをCAS更新（`newRevision > currentRevision` の時のみポインタ更新。遅延した古いProjectorによる巻き戻しを根絶）
 4. **キャッシュ境界と安全弁（Revoke Safe）**:
    - キャッシュHit率99%を前提にしない（ロングテール閲覧では50〜80%に落ちても破綻しない設計とする）。
    - 公開承認済み（`PUBLICATION_APPROVED`）のコンテンツのみ `public, max-age=31536000, immutable` を適用。
