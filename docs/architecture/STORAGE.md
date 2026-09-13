@@ -151,22 +151,25 @@ D1には容量等の上限があり、Time Travelにも保持期間がありま�
 事例が1万件・100万件・1億件へと増大した際に、単一巨大JSON（`entities-index.json`）やクライアント全量展開に依存したシステムは**100%確実に即死**する（550GBのHTML送信、GitHubファイル制限100MB超過、V8ヒープ上限超過、ブラウザクラッシュ）。
 また、どれほど表示速度が0.01秒であろうと、データが重複・過去の誤情報・デマで汚染されていれば無価値である。
 
-外部大規模企業情報プラットフォーム（Bloomberg Terminal, PitchBook, Crunchbase, ZoomInfo等）の公開設計原則およびChatGPTとの批判的相互監査（3ラウンド往復討議）を経て導出された、**「100年耐久・1億事例スケールを保証する4大恒久契約」**を本プラットフォームの最高正本として定める。
+外部大規模企業情報プラットフォーム（Bloomberg Terminal, PitchBook, Crunchbase, ZoomInfo等）の公開設計原則、Cloudflare R2/D1の物理仕様監査、およびChatGPT Pro Webとの5往復にわたる極限の批判的相互討議を経て導出された、**「100年耐久・1億事例スケールを保証する4大恒久契約 ＆ 最高不変条件」**を本プラットフォームの最高正本として定める。
 
-### 0. 優先順位の最高規律（The 8-Stage Pipeline）
+### 0. 優先順位の最高規律（The 8-Stage Pipeline） ＆ 最高不変条件
+
 100年耐久において、設計の優先順位は以下に完全固定する。速度（Speed）は最も最後である。
 
 ```
-Identity → Time → Provenance → Truth → Promotion → Immutable Dossier → Serving Index → Speed
+Identity → Time → Provenance → Truth → Promotion → Immutable Dossier → Serving Index → Cache / Speed
 ```
 
 データ経路の全容：
 ```
-WORLD（一次ソース・開示・Web）
+WORLD（一次ソース・開示・Web・告発）
   ↓
 FOUNDATION（Universal Raw & Lake: Create-Only, 不可逆原本保存）
   ↓
-IDENTITY（無意味な不変ID ent_xxx ＋ 外部Claim/Alias紐付け）
+CLAIM & FACT EXTRACTION（Evidence Locator による章・表・行・引用の厳格紐付け）
+  ↓
+IDENTITY & RELATIONSHIP GRAPH（無意味な不変ID ent_xxx ＋ 買収・親子・エイリアス）
   ↓
 BITEMPORAL FACT HISTORY（Valid Time × Recorded At の2軸時間管理）
   ↓
@@ -176,59 +179,84 @@ PROMOTION GATE（RAW / PARTIAL / PUBLISHABLE / ARCHIVED / REJECTED_AS_CASE）
   ↓
 IMMUTABLE DOSSIER（views/make-money/dossier-v1/objects/xx/ent_yyy/<hash>.json.gz）
   ↓
-SERVING INDEX（Tiny Record: 80B ＋ Safe Generation Pointer）
+SERVING INDEX（Tiny Record: Query Contract ＋ Safe Generation Pointer ＋ Freshness Revision）
   ↓
-EDGE CDN（PUBLICATION_APPROVED のみ長期キャッシュ）
+EDGE CDN（PUBLICATION_APPROVED のみ長期キャッシュ。キャッシュは成立要件ではなく単なる最適化）
   ↓
 ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading）
 ```
 
+#### 【100M耐久の最高不変条件（The 100M Invariant）】
+> **「1KBファイルサイズを保証しない。CDN 99%キャッシュHit率を保証しない。D1を永久保証しない。ClickHouse等の特定DBも永久固定しない。**
+> **システムが唯一永久に保証するのは、『Fact・Identity・時間・Evidenceの不変性を1ミリも壊さず、Serving View（Dossier）と検索エンジン（D1 / ClickHouse）をいつでもR2から全自動で再生成・交換できること』である。」**
+
 ---
 
-### 【契約A：Identity ＆ バイテンポラルTruth契約】
+### 【契約A：Identity ＆ バイテンポラルTruth ＆ Evidence Locator契約】
 1. **無意味な恒久ID（Permanent Entity ID）**:
    - カノニカルID（`entity_id: ent_xxx`）はFoundationが一度だけ発行する意味を持たない不変識別子とする（ドメイン売却、社名変更、法人番号不在に耐える）。
    - ドメイン、法人番号、LEI、FIGI、Ticker、GitHub org等はすべて独立した「Identity Claim / Alias」として紐付ける。決定論的ハッシュはID生成ではなく重複候補（`identity_candidate_key`）の検出にのみ使用する。
 2. **関係性のグラフ化（Entity Relationships）**:
    - 買収（`ACQUIRED_BY`）、同一（`SAME_AS`）、子会社（`SUBSIDIARY_OF`）等を独立した関係性エッジとして保持し、過去のファクトを絶対に上書きしない。
    - 関係性自体にも `validTime`（効力発生日）、`announcedAt`（発表日）、`recordedAt`、`evidenceIds` を記録する。
-3. **直交する2大ステータス軸**:
-   - **`originType`（出所の性質）**: `reported` | `observed` | `estimated` | `inferred` | `unknown`
-   - **`verificationStatus`（裏付けの確定度）**: `SUPPORTED` | `UNVERIFIED` | `CONFLICTED` | `SUPERSEDED` | `RETRACTED`
-   - （※ 企業の生存/失敗状態である `POST_MORTEM` 等は事実の確定度ではなく、Case/Entity状態として管理する）。
-4. **バイテンポラル履歴 ＆ Current Resolution**:
+3. **Evidence Locator ＆ 支持検証（単なるSHA一致の脆弱性を根絶）**:
+   - 原本ファイルのSHA-256一致は「そのファイルがそのバイト列で存在したこと」しか証明せず、LLMの抽出ミス・幻覚（例: 原本$12Mを$120Mと誤読）を1ミリも防げない。
+   - 全てのClaim/Factには原本内の厳格な位置情報 **`evidenceLocator: { page, table, row, column, exactQuote }`** を必須化する。
+   - 数字・日付・価格・人数等は、LLMとは別の決定論的Extractorによって原本Locatorと再照合（Support Check）し、「Evidence actually supports this claim（根拠が主張を本当に支持している）」ことを機械検証する。
+4. **直交する4大ステータス軸 ＆ 一次資料至上主義の脱却**:
+   - **`originType`（出所の性質）**: `reported`（公式発表） | `observed`（実測） | `estimated`（推計） | `inferred`（論理演繹） | `unknown`
+   - **`verificationStatus`（裏付けの確定度）**: `SUPPORTED`（検証済） | `UNVERIFIED`（未検証） | `CONFLICTED`（矛盾有） | `SUPERSEDED`（新版有） | `RETRACTED`（撤回）
+   - **`sourceClass`（情報源の独立性）**: `PRIMARY`（一次公表） | `INDEPENDENT_SECONDARY`（独立第三者報道・実測） | `COMMUNITY`（現場告発・口コミ） | `MODEL`（LLM演繹）
+     - ※ 破綻・不正・顧客トラブルにおいては企業の一次公表よりも独立報道（`INDEPENDENT_SECONDARY`）の方が信頼性が高い。同一の一次公表を引用した100記事を100票として数えない独立性判定（Source Independence）を必須とする。
+   - **`estimationLineage`（推計値の追跡可能性）**:
+     - 公開価格（SUPPORTED）× 顧客数推計（SUPPORTED）× サーバー原価（Benchmark）＝ 営業利益推計値（ESTIMATED）のように、入力根拠と計算式が開示されている推計値はPublishableとする。
+     - Promotionの基準は「完全VERIFIEDのみ」ではなく「読者が値・根拠・算術式・不確実性（Confidence Range）まで辿れるか」である。
+     - 根拠のないLLMの思いつき仮説（LEAD / DERIVED）のみを公開面から隔離する。
+5. **バイテンポラル履歴 ＆ Current Resolution**:
    - 事実（Fact）は「いつの事実か（`validTime`）」と「いつ観測・記録されたか（`recordedAt`）」を分離し、過去の訂正（Restated）も履歴として蓄積。
    - 「現在の確定値（Current Resolution）」はFactそのものを書き換えるのではなく、`resolution { resolutionKey, selectedFactIds[], competingFactIds[], state, policyVersion, resolvedAt }` という導出ビュー（Derived View）として生成し、過去の裁定履歴も保全する。
 
 ---
 
-### 【契約B：Serving Index ＆ クエリ契約（Query Contract）】
-1. **Tiny Projection（目録: 80バイト）**:
-   - 一覧用インデックスレコードは `{ entityId, name, industry, operatingMargin, monthlyRevenue, tags, snapshotYear, latestDossierHash, projectionGeneration }` に絞り込み。1億件でも約8GB。
-   - 初期HTMLおよび一覧取得APIでは重厚な詳細ドシエを1バイトも返却しない。
-2. **Query Contract（抽象化ではなく契約の固定）**:
-   - バックエンドがD1（〜1万社）から将来のClickHouse / Columnar Engine（100M社）へ移行しても破綻しないよう、`search(filter, sort, cursor, limit)`、`getTiny(entityId)`、`getManyTiny(entityIds)` のセマンティクスを固定。
-   - **Cursorの完全定義**: `cursor = { indexGeneration, sortValues, entityId }` を含め、ユーザーが次ページを開く間にIndexが更新されても「重複・欠落・順序飛び」が数学的に起きない契約とする。
-3. **世代別スナップショット（Generations + Deltas）**:
-   - Serving Indexが全損した際の復元ポイントとして、R2上に `serving-index/generations/gen_xxx/snapshot.parquet` ＋ `manifest.json`、および `serving-index/deltas/seq_xxx.ndjson.gz` を順序付きで保存。
-   - ただし、このSnapshotは高速復元（数時間→数分）のためのチェックポイントであり、最高正本は常にFoundation（Universal Raw & Lake）である。
+### 【契約B：Serving Index ＆ クエリ契約（Query Contract） ＆ 鮮度同期】
+1. **Tiny Projection の現実的設計（80B幻想の破棄）**:
+   - 1レコード80バイト固定は非現実的（B-tree、インデックス、行オーバーヘッド、メタデータを含め実DBでは200〜500B）。
+   - 一覧用インデックスレコードは `{ entityId, name, industry, operatingMargin, monthlyRevenue, tags, snapshotYear, latestDossierHash, sourceRevision, projectionGeneration }` を保持。
+2. **多段階経済的階層（Economic Tiering）とServing Engine境界**:
+   - **小規模〜数万社**: Cloudflare D1（10GB上限、シングルスレッド）。低コスト・即時運用。
+   - **数万〜1000万社**: R2上のColumnar Snapshot（DuckDB on Worker / R2 SQL）。
+   - **1億社超（100M）**: ClickHouse 等の分散Columnar Serving Engine。
+   - **Parquetの責務**: ParquetはServing DBではなく「Snapshot / Rebuild / Analytics用」のストレージ形式として位置づける。
+3. **Query Contract（Provider抽象化と共通検証）**:
+   - 将来DBをD1からClickHouseへ切り替えてもアプリケーションを一切壊さないよう、`search(filters, sort, cursor, limit)`、`getTiny(entityId)`、`getManyTiny(entityIds)` のセマンティクスを固定。
+   - 両Providerに同一の「Conformance Test Suite」を通過させる。
+   - **Cursorの完全定義**: `cursor = { indexGeneration, sortValues, entityId }`。ページング中にIndexが更新されても「重複・欠落・順序飛び」が数学的に起きない契約とする。
+4. **鮮度同期契約（Serving Freshness / INDEX_STALE防止）**:
+   - 100M規模ではFoundation更新と検索インデックス反映の間に遅延が生じる。
+   - 検索インデックス（Tiny）の `sourceRevision` と詳細ドシエ（Dossier）の `sourceRevision` を突合し、不一致を検知した場合は `INDEX_STALE` としてUIで機械的にハンドリング（一覧で$30M、詳細で$50Mと表示される二重世界事故を完全防止）。
 
 ---
 
-### 【契約C：イミュータブル詳細ドシエ ＆ 安全なポインタ更新契約】
+### 【契約C：イミュータブル詳細ドシエ ＆ 世代Retention契約】
 1. **物理パスの配置規律**:
    - 詳細ドシエはFoundationのFactそのものではなく製品向けServing Viewであるため、`views/make-money/dossier-v1/objects/<shard>/<entity_id>/<content_hash>.json.gz` に配置。
-2. **安全なポインタ更新（Race Condition防止）**:
+2. **Immutable ≠ 永久保存（改訂によるオブジェクト指数爆発の防止）**:
+   - 年数回の改訂が発生した場合、1億社×数年でオブジェクト数は10億〜数十億に達し、R2のメタデータ管理コストとList負荷が爆発する。
+   - ライフサイクルの分離：
+     - **Foundation Fact / Evidence原本**: 永久保存（True Source）。絶対に削除しない。
+     - **Dossier 現行版（Current）**: 即時配信保存。
+     - **Dossier 過去世代版（Historical Versions）**: 直近N世代、または90日TTLで自動ガベージコレクション。重要な年次決算公開SnapshotのみCold Parquetへ集約保全。
+3. **安全なポインタ更新（Race Condition防止）**:
    - ドシエ更新の手順を厳格に固定：
      1. 新Dossier生成
      2. Content Hash計算
      3. R2へImmutable PUT
      4. Readback Validation（書き込み検証）
      5. Tiny Indexの `latestDossierHash` を更新
-   - 並行Projectorによる追い越し上書き（Revision 101が遅れてRevision 102のポインタを上書きするバグ）を防ぐため、Tiny Indexのポインタ更新は `new_generation > current_generation` のアトミック条件付き更新とする。
-3. **キャッシュ境界と安全弁（Revoke Safe）**:
+   - 並行Projectorによる追い越し上書きを防ぐため、Tiny Indexのポインタ更新は `new_generation > current_generation` のアトミック条件付き更新とする。
+4. **キャッシュ境界と安全弁（Revoke Safe）**:
+   - キャッシュHit率99%を前提にしない（ロングテール閲覧では50〜80%に落ちても破綻しない設計とする）。
    - 公開承認済み（`PUBLICATION_APPROVED`）のコンテンツのみ `public, max-age=31536000, immutable` を適用。
-   - 未承認・内部データは認証付きServing ＋ 短期Edge Cacheとする。
    - 法的削除や誤情報に対する「緊急revoke経路（Purge/Takedown API）」を常時維持する。
 
 ---
@@ -240,6 +268,7 @@ ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading�
 2. **公開インデックスへの選抜投影**:
    - 公開ユーザー向けServing Indexには、審査・検証を通過した `PUBLISHABLE` のエンティティのみを投影する。
    - これにより、未精錬・不完全なデータが公開一覧に混ざる事故を構造的に永久防止する。
+
 
 ## 検証と変更の記録
 

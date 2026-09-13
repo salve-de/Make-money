@@ -4733,3 +4733,56 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 4. **【契約D：昇格・公開境界契約（Promotion / Publishability）】**:
    - ケース状態（RAW / PARTIAL / PUBLISHABLE / ARCHIVED / REJECTED_AS_CASE）を独立管理。
    - 公開ユーザー向けServing Indexには `PUBLISHABLE` のみを投影し、未精錬データの混入を物理遮断。
+
+---
+
+## 2026-09-13: Phase 154 - 【ChatGPT Pro Webとの極限討議（Round 4〜5）完遂 ＆ 100M耐久・100年耐用最高不変条件の確立】
+
+### 1. 意思決定と背景
+ユーザーからの「おい ちゃんと お互いに 調べて お互いに 言い合えよ」「てか 収集とか 保存とか 全部 完璧を 目指すとか言ってたのに これかよ 右に言っておけよ」という痛烈な一喝を受け、Antigravityと右側SafariのChatGPT Pro Web（Codex IR担当）の間で、外部調査データ（Cloudflare R2/D1物理仕様、大規模データレイクハウスの運用実態、Bloomberg/PitchBook等のアーキテクチャ）を突きつけ合う第4・第5ラウンドの極限激論を断行。
+シャンシャン手打ち（お互いの合意ごっこ）を完全に拒絶し、両者が「最悪の物理破綻シナリオ」を容赦なくえぐり出した結果、以下の4大死角の特定と最終解決アーキテクチャへの完全合意に到達した。
+
+### 2. 特定された4大死角と最終解決契約（ChatGPT ＆ Antigravityの激論総括）
+
+#### ①【収集の死角】：SHA-256一致だけではLLMの抽出ミス・嘘データ混入を防げない
+- **病巣**: 実在PDFとSHA-256が一致していても、それは「そのファイルが存在したこと」を証明するだけであり、LLMが原本の「$12M」を「$120M」と誤読・捏造する事故を1ミリも防げない。
+- **最終解決契約**:
+  - 全Claim/Factに原本内の厳密な位置情報 **`evidenceLocator: { page, table, row, column, exactQuote }`** を必須化。
+  - 数字・日付・価格・人数等は、LLMとは別の決定論的Extractorによって原本Locatorと再照合（Support Check）し、「Evidence actually supports this claim」を機械検証。
+  - 一次資料至上主義の脱却：破綻・不正・告発では企業の公式公表より独立報道（`INDEPENDENT_SECONDARY`）の方が信頼性が高い。同一の一次発表を引用した100記事を100票として数えない独立性判定（Source Independence）を必須化。
+  - 推計値（ESTIMATED）の扱い：公開価格（SUPPORTED）× 顧客数推計（SUPPORTED）× 原価ベンチマークのように、入力根拠と計算式が開示されていればPublishableとする。Promotionの基準は「完全VERIFIEDのみ」ではなく「読者が値・根拠・式・不確実性（Confidence Range）まで辿れるか」とする。
+
+#### ②【保存の死角】：改訂（Revision）によるオブジェクト指数爆発と楽観的仮定の罠
+- **病巣**: 1KB固定やCDN 99% hit固定は楽観的（ロングテール閲覧ではHit率50〜80%に低下）。さらに、年数回の改訂が発生した場合、1億社×数年でオブジェクト数は数十億に達し、R2のメタデータ管理コストとLIST負荷が爆発する。
+- **最終解決契約**:
+  - **「Immutable ≠ 永久保存」の原則化**: 「一度生成したobjectのbytesを変更しない」ことと「全バージョンを100年保持する」ことを厳格に分離。
+  - ライフサイクルの三層分離：
+    1. **Foundation Fact / Evidence原本**: 永久保存（True Source）。不可侵・削除禁止。
+    2. **Dossier 現行版（Current）**: 即時配信保存。
+    3. **Dossier 過去世代版（Historical Versions）**: 直近N世代、または90日TTLで自動ガベージコレクション。重要な公開年次SnapshotのみCold Parquetへ集約保全。
+
+#### ③【検索の死角】：80B Tiny Record幻想の破棄とColumnar Serving境界
+- **病巣**: 1レコード80バイト固定は非現実的（実DBでは行オーバーヘッド、B-tree、メタデータを含め200〜500B）。またD1は1DB最大10GB・シングルスレッドであり、1億件の検索は物理的に不可能。
+- **最終解決契約**:
+  - **多段階経済的階層（Economic Tiering）の敷設**:
+    - 小規模〜数万社: Cloudflare D1（低コスト・即時運用）
+    - 数万〜1000万社: DuckDB on Worker / R2 SQL
+    - 1億社超（100M）: ClickHouse 等の分散Columnar Serving Engine
+  - **Parquetの責務の再定義**: ParquetはServing DBではなく「Snapshot / Rebuild / Analytics用」ストレージ。
+  - **Query Contractの固定**: `search(filters, sort, cursor, limit)`、`getTiny(entityId)`、`getManyTiny(entityIds)` のセマンティクスを固定し、D1とClickHouseをそのProviderとして共通Conformance Testで抽象化。Cursorは `generation + sortValues + entityId` で固定。
+
+#### ④【鮮度の死角】：Serving Freshness（二重世界事故の防止）
+- **病巣**: 100M規模ではFoundation更新と検索インデックス反映の間に遅延が生じ、検索一覧では売上$30M、詳細ドシエを開くと$50Mという「一覧と詳細で違う世界を見ている」致命的事故が発生する。
+- **最終解決契約**:
+  - Tiny RecordとDossierの両方に `sourceRevision` / `generation` を保持させ、クライアント遷移時に突合。不一致を検知した場合は `INDEX_STALE` として機械的にハンドリングする。
+
+### 3. 【100M耐久の最高不変条件（The 100M Invariant）】の制定
+両者が最終合意した最高不変条件を正本（`docs/architecture/STORAGE.md`）へ完全固定：
+> **「1KBファイルサイズを保証しない。CDN 99%キャッシュHit率を保証しない。D1を永久保証しない。ClickHouse等の特定DBも永久固定しない。**
+> **システムが唯一永久に保証するのは、『Fact・Identity・時間・Evidenceの不変性を1ミリも壊さず、Serving View（Dossier）と検索エンジン（D1 / ClickHouse）をいつでもR2から全自動で再生成・交換できること』である。」**
+
+### 4. 検証と完全性の証明
+- **正本改訂**: `docs/architecture/STORAGE.md` に「契約A〜D」および「最高不変条件」を完全反映。
+- **CI関所完全通過**: `pnpm lint`（エラー0件）、`pnpm typecheck`（エラー0件）、`pnpm build`（Exit code 0）。
+- **Gitリモート同期**: 差分ゼロ原則（憲条Ⅳ-2）に基づき、リモートブランチへ即時同期完了。
+
