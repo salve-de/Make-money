@@ -4,7 +4,8 @@ import {
   computeClaimFingerprint,
 } from '@/shared/terminal';
 import { sha256Sync } from '@/shared/sha256';
-import { resolveFoundationEvidence } from '@/lib/foundation/evidence-store';
+import { resolveFoundationEvidence, verifyRawPayload } from '@/lib/foundation/evidence-store';
+import { verifyClaimSupport } from './claim-support';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
@@ -149,6 +150,13 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       return false;
     }
 
+    // 原本実体（Immutable raw bytes）の物理整合性検証（ファイルが存在する場合の厳格チェック）
+    const rawVerification = verifyRawPayload(resolvedEvidence);
+    if (!rawVerification.valid && rawVerification.error !== 'RAW_BYTES_NOT_FOUND') {
+      // 原本バイト列が存在するのにSHA-256またはスライステキストが不一致の場合は物理遮断
+      return false;
+    }
+
     // Selector（実ロケーター文字列表現）
     const selectorStr = revBinding.locator.type === 'text'
       ? `text:${revBinding.locator.start ?? 0}-${revBinding.locator.end ?? 0}`
@@ -178,6 +186,19 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
 
     // 偽SHA、改ざん、Claim値・原本スニペット・原本ダイジェスト不一致を即座に物理遮断
     if (revBinding.verificationReceipt.fingerprint !== expectedFingerprint) {
+      return false;
+    }
+
+    // 7. [意味的実支持検証: Semantic Claim Support Verification]
+    // エビデンスの原本 excerpt が、主張された確定売上金額（Claim Value）を客観的・意味論的に実際に支持しているか検証。
+    // 金額が含まれていない、または Claim 値と異なる場合は、たとえ fingerprint が再生成されていても物理遮断する。
+    const effectiveClaimValue = revBinding.claimValue !== undefined ? revBinding.claimValue : entity.pnl.monthlyRevenue;
+    const supportResult = verifyClaimSupport(
+      revBinding.claimKey,
+      effectiveClaimValue,
+      resolvedEvidence.excerpt
+    );
+    if (!supportResult.supported) {
       return false;
     }
   }

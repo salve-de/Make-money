@@ -112,6 +112,7 @@ export function computeClaimFingerprint(params: ClaimFingerprintParams): string 
  */
 export interface ClaimEvidenceBinding {
   claimKey: CriticalClaimKey | string; // 例: "pnl.monthlyRevenue", "pnl.operatingProfit", "operations.teamSize"
+  claimValue?: unknown; // 主張値（数値・文字列等の実額）
   evidenceId: string;
   foundationEvidenceId: string; // Foundation 原本エビデンスID（Critical Claim では必須）
   originalDigest?: string; // 原本 (Raw/Lake) の SHA-256 ダイジェスト（64桁）

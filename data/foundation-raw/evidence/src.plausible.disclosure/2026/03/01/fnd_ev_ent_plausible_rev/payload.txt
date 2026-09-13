@@ -1,0 +1,6 @@
+【確定財務一次ログ】
+対象企業: Plausible Analytics (ent_plausible)
+観測時期: 観測確定データ
+出典資料: Plausible Open Metrics / 創業者ブログ公開P&L
+確定月商 (monthlyRevenue): 20,250,000円 (粗利益率: 91.1%, 営業利益率: 77%)
+事業急所・事実ログ: GA4の難解な設定画面とサイト読み込み速度の低下、およびCookie同意バナーによる離脱の悩みを即座に解決する。

@@ -1,0 +1,6 @@
+【確定財務一次ログ】
+対象企業: Bannerbear (ent_bannerbear_9e1204c3)
+観測時期: 観測確定データ
+出典資料: Jon Yongfook公式ブログ Open Metrics / IndieHackers AMA
+確定月商 (monthlyRevenue): 7,500,000円 (粗利益率: 89.3%, 営業利益率: 72%)
+事業急所・事実ログ: 単調な画像リサイズや文字入れ作業の繰り返しによる時間浪費と人的ミスをゼロにする。

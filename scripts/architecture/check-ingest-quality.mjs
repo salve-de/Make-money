@@ -1,6 +1,6 @@
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-import { createHash } from 'crypto';
+import fs, { readFileSync } from 'fs';
+import path, { resolve } from 'path';
+import crypto, { createHash } from 'crypto';
 
 const indexPath = resolve(process.cwd(), 'data/entities-index.json');
 const entities = JSON.parse(readFileSync(indexPath, 'utf8'));
@@ -148,8 +148,33 @@ for (const ent of entities) {
           const resolvedEvidence = evidenceCatalogMap.get(revBinding.foundationEvidenceId);
           if (!resolvedEvidence) {
             errors.push(`[PROVENANCE VIOLATION: Unresolvable Foundation Evidence] ${ent.name} foundationEvidenceId '${revBinding.foundationEvidenceId}' could not be resolved in foundation-evidence-catalog.json.`);
-          } else if (resolvedEvidence.originalSha256 !== (revBinding.originalDigest || revBinding.verificationReceipt?.originalDigest)) {
-            errors.push(`[PROVENANCE VIOLATION: Original Digest Mismatch] ${ent.name} originalDigest '${revBinding.originalDigest}' does not match resolved originalSha256 '${resolvedEvidence.originalSha256}'.`);
+          } else {
+            if (resolvedEvidence.originalSha256 !== (revBinding.originalDigest || revBinding.verificationReceipt?.originalDigest)) {
+              errors.push(`[PROVENANCE VIOLATION: Original Digest Mismatch] ${ent.name} originalDigest '${revBinding.originalDigest}' does not match resolved originalSha256 '${resolvedEvidence.originalSha256}'.`);
+            }
+
+            // 原本実体ファイル（data/foundation-raw/）の物理検証 ＆ 意味論的売上支持検証
+            const rawFilePath = path.join(process.cwd(), 'data', 'foundation-raw', resolvedEvidence.originalObjectKey);
+            if (!fs.existsSync(rawFilePath)) {
+              errors.push(`[PROVENANCE VIOLATION: Missing Raw Payload File] ${ent.name} raw payload file not found at ${rawFilePath}.`);
+            } else {
+              const rawBytes = fs.readFileSync(rawFilePath);
+              const actualSha256 = crypto.createHash('sha256').update(rawBytes).digest('hex');
+              if (actualSha256 !== resolvedEvidence.originalSha256) {
+                errors.push(`[PROVENANCE VIOLATION: Raw Payload SHA Mismatch] ${ent.name} raw file SHA ${actualSha256} does not match catalog ${resolvedEvidence.originalSha256}.`);
+              }
+              const rawText = rawBytes.toString('utf8');
+              const { start, end } = resolvedEvidence.locator;
+              const sliced = rawText.slice(start, end);
+              if (sliced !== resolvedEvidence.excerpt) {
+                errors.push(`[PROVENANCE VIOLATION: Locator Slice Mismatch] ${ent.name} raw text slice does not match excerpt.`);
+              }
+              // 意味論的売上支持検証（原本excerptがClaim数値を客観的に支持していること）
+              const revFormatted = ent.pnl.monthlyRevenue.toLocaleString('ja-JP');
+              if (!resolvedEvidence.excerpt.includes(revFormatted) && !resolvedEvidence.excerpt.includes(String(ent.pnl.monthlyRevenue))) {
+                errors.push(`[PROVENANCE VIOLATION: Excerpt Revenue Mismatch] ${ent.name} excerpt does not contain claimed revenue ${ent.pnl.monthlyRevenue}.`);
+              }
+            }
           }
         }
         if (!revBinding.sourceClass || revBinding.sourceClass === 'MODEL') {

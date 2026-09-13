@@ -1247,6 +1247,7 @@
             }
           ]
         },
+        "claimValue": {},
         "evidenceId": {
           "type": "string"
         },

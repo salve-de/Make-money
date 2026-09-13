@@ -10,7 +10,10 @@ import {
 } from '@/shared/terminal';
 import { sha256Sync } from '@/shared/sha256';
 import { GET } from '@/app/api/businesses/route';
-import { registerFoundationEvidenceForTesting } from '@/lib/foundation/evidence-store';
+import {
+  registerFoundationEvidenceForTesting,
+  registerMockRawPayloadForTesting,
+} from '@/lib/foundation/evidence-store';
 
 describe('Promotion Enforcement Gate - Public Route Safety', () => {
 
@@ -179,27 +182,35 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
       ],
       claimBindings: [
         (() => {
-          const originalDigest = 'a0b1c2d3e4f5a0b1c2d3e4f5a0b1c2d3e4f5a0b1c2d3e4f5a0b1c2d3e4f5a0b1';
-          const targetText = '客観的事実ログ・集金構造';
-          const selector = 'text:0-40';
+          const targetText = '確定月商 (monthlyRevenue): 833,333,333円 (月商 約8.3億円を確認)';
+          const rawPayloadText = `【一次財務ログ】\n対象企業: Keyence\n${targetText}\n事業急所: 直販高収益`;
+          const rawBytes = new TextEncoder().encode(rawPayloadText);
+          const originalDigest = sha256Sync(rawPayloadText);
+          const start = rawPayloadText.indexOf(targetText);
+          const end = start + targetText.length;
+          const selector = `text:${start}-${end}`;
           const extractedExcerptDigest = sha256Sync(targetText.trim());
           const foundationEvidenceId = 'fnd_ev_sec_report_123';
+          const originalObjectKey = 'evidence/src.sec/2026/03/01/fnd_ev_sec_report_123/payload.txt';
 
           // テスト用実在エビデンスをストアへ登録（原本実バイト列SHA-256、実Locator、実excerpt）
           registerFoundationEvidenceForTesting({
             evidenceId: foundationEvidenceId,
             sourceId: 'src.sec.disclosure',
-            originalObjectKey: 'evidence/src.sec/2026/03/01/fnd_ev_sec_report_123/payload.txt',
+            originalObjectKey,
             originalSha256: originalDigest,
             contentType: 'text/plain; charset=utf-8',
             locator: {
               type: 'text',
-              start: 0,
-              end: 40,
+              start,
+              end,
               targetText,
             },
             excerpt: targetText,
           });
+
+          // テスト用原本実体バイト列をモック登録（実際のimmutable raw payload）
+          registerMockRawPayloadForTesting(originalObjectKey, rawBytes);
 
           const fingerprint = computeClaimFingerprint({
             foundationEvidenceId,
@@ -217,8 +228,8 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
             originalDigest,
             locator: {
               type: 'text' as const,
-              start: 0,
-              end: 40,
+              start,
+              end,
               targetText,
             },
             sourceClass: 'PRIMARY' as const,
@@ -325,21 +336,52 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     } as unknown as FinancialEntity;
     expect(isPublishableEntity(wrongLocatorEntity)).toBe(false);
 
-    // [P0検証・監査役ChatGPT指摘] 原本は売上100万円なのにClaimが売上1000万円（嘘のClaimに合わせてReceiptも偽造生成）の場合、Gate再計算で物理遮断
-    const fabricatedReceiptWithWrongClaimEntity = {
+    // [P0検証・監査役ChatGPT必須指摘] 攻撃者が嘘のClaim（1,000万円）に合わせてfingerprintまで完全再生成した場合でも、
+    // 原本excerpt（8.3億円）が嘘のClaimを支持していないため、意味論的実支持検証（Semantic Support Check）で100%物理遮断
+    const falseClaimValue = 10000000; // 1,000万円（原本excerptは8.3億円）
+    const falseClaimBinding = verifiedEntity.claimBindings![0];
+    const start = falseClaimBinding.locator.type === 'text' ? (falseClaimBinding.locator.start ?? 0) : 0;
+    const end = falseClaimBinding.locator.type === 'text' ? (falseClaimBinding.locator.end ?? 0) : 0;
+    const regeneratedFingerprintForFalseClaim = computeClaimFingerprint({
+      foundationEvidenceId: falseClaimBinding.foundationEvidenceId!,
+      originalDigest: falseClaimBinding.originalDigest!,
+      selector: `text:${start}-${end}`,
+      extractedExcerptDigest: falseClaimBinding.verificationReceipt!.extractedExcerptDigest!,
+      normalizedClaimValue: falseClaimValue, // 嘘のClaim値に合わせてfingerprintを正当に再計算
+      validatorVersion: VALIDATOR_VERSION,
+    });
+    const fullyRegeneratedForFalseClaimEntity = {
       ...verifiedEntity,
       pnl: {
         ...verifiedEntity.pnl,
-        monthlyRevenue: 10000000, // 嘘のClaim（1,000万円）
+        monthlyRevenue: falseClaimValue,
       },
       claimBindings: [
         {
-          ...verifiedEntity.claimBindings![0],
-          // 原本エビデンス（月商8.3億円）を指しながらClaimだけ1,000万円に変更されたケース
+          ...falseClaimBinding,
+          claimValue: falseClaimValue,
+          verificationReceipt: {
+            ...falseClaimBinding.verificationReceipt!,
+            fingerprint: regeneratedFingerprintForFalseClaim, // 嘘のClaim値と一致する再計算済みfingerprint
+          },
         },
       ],
     } as unknown as FinancialEntity;
-    expect(isPublishableEntity(fabricatedReceiptWithWrongClaimEntity)).toBe(false);
+    // fingerprint暗号照合（Check 3）は通過するが、意味的実支持検証（Check 4）で確実に物理遮断（toBe(false)）
+    expect(isPublishableEntity(fullyRegeneratedForFalseClaimEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] 原本実体ファイル（immutable raw bytes）が改ざんされてSHA256不一致の場合、物理遮断
+    registerMockRawPayloadForTesting(
+      'evidence/src.sec/2026/03/01/fnd_ev_sec_report_123/payload.txt',
+      'CORRUPTED_RAW_BYTES_TAMPERED'
+    );
+    expect(isPublishableEntity(verifiedEntity)).toBe(false);
+    // 元の正当なraw payloadを再登録して復元
+    registerMockRawPayloadForTesting(
+      'evidence/src.sec/2026/03/01/fnd_ev_sec_report_123/payload.txt',
+      `【一次財務ログ】\n対象企業: Keyence\n確定月商 (monthlyRevenue): 833,333,333円 (月商 約8.3億円を確認)\n事業急所: 直販高収益`
+    );
+    expect(isPublishableEntity(verifiedEntity)).toBe(true);
 
     // [P0検証・監査役ChatGPT指摘] foundationEvidenceId が空文字または欠落している場合、物理遮断
     const missingFoundationEvidenceIdEntity = {

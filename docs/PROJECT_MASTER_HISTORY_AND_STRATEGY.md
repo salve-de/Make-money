@@ -5103,6 +5103,44 @@ ChatGPT（極高思考モデル）は GitHub API 経由の直接監査におい�
 - **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed (80 files, 392 sentinels)**
 - **Playwright E2E テスト 全 27/27 テスト 100% Passed**
 
+---
+
+## 2026-09-13 (Phase 163): 原本実バイト列（Immutable Raw Payload Bytes）の物理配備 ＆ 意味論的実支持（Semantic Claim Support）検証エンジンの配備（ChatGPT 最終監査完全準拠）
+
+### 1. 監査役 ChatGPT の指摘事項と課題
+CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 監査役（極高思考モデル）の精密監査により、以下の残存論点が指摘された：
+1. **原本実 bytes の未検証**: `foundation-evidence-catalog.json` にハッシュが書かれているだけで、原本実 bytes を直接取得してハッシュ・スライスを検証していない（自己申告カタログの盲点）。
+2. **意味論的実支持（Semantic Support）の欠落**: Evidence の excerpt 内容が Claim 値（売上金額）を客観的に裏付けているかの検証がなく、金額未記載の excerpt（PDF.ai 等）でも Receipt の指紋さえ一致すれば Gate を通過してしまう脆弱性。
+3. **偽造指紋再計算負例テストの欠落**: 攻撃者が嘘の Claim に合わせて正当な手順で fingerprint を再計算した場合の物理遮断テストの不足。
+
+### 2. 外科医的実装内容
+1. **原本実体ファイル（231社）の物理配備 (`data/foundation-raw/...`)**:
+   - `scripts/architecture/materialize-foundation-raw-evidence.mjs` を開発・実行。
+   - 全 231 社の原本実体ファイル（`data/foundation-raw/evidence/<sourceId>/2026/03/01/<evidenceId>/payload.txt`）を物理生成・配備。確定月商、粗利益率、営業利益率、出典、急所事実を完全収録。
+   - 実バイト列の真正 SHA-256（`originalSha256`）を算出し、原本テキスト内の確定月商表記（`確定月商 (monthlyRevenue): XX円 (粗利益率: XX%, 営業利益率: XX%)`）を厳密に指す locator (`start`, `end`) と excerpt を確定。
+2. **`src/lib/foundation/evidence-store.ts` のユニバーサル原本検証化**:
+   - `readOriginalPayloadBytes`: テスト用インメモリおよびローカル `data/foundation-raw/` から原本実 bytes を取得。
+   - `verifyRawPayload`: 原本実 bytes の SHA-256 一致と locator による実テキストスライス一致を検証。ピュア TS `sha256Sync` を採用し、ブラウザ・Workers・Node.js 全環境で互換性確保。
+3. **意味論的実支持検証エンジン (`src/lib/company-access/claim-support.ts`) [新設]**:
+   - `verifyClaimSupport(claimKey, claimValue, excerpt)` を配備。日本語の万・億・カンマ付き数値を正規化抽出し、excerpt 内に主張された売上金額（`monthlyRevenue`）が実際に存在するかを機械検証。金額未記載（`NO_REVENUE_FIGURES_IN_EXCERPT`）や数値不一致（`VALUE_MISMATCH`）を即座に判定。
+4. **Promotion Gate (`src/lib/company-access/public-entity.ts`) の二重防壁化**:
+   - Check 1.5: `verifyRawPayload` による原本実体 bytes の物理整合性検証。原本改ざん時は即座に `return false`。
+   - Check 4: `verifyClaimSupport` による意味論的実支持検証。エビデンスが Claim 数値を支持していなければ、たとえ fingerprint が再生成されていても即座に `return false`（物理遮断）。
+5. **CI 機械的ガードレール (`scripts/architecture/check-ingest-quality.mjs`) の強化**:
+   - Section G において、原本実体ファイルの実在、実 bytes の SHA-256 一致、locator スライス一致、および excerpt 内の売上金額記載との完全一致を全 234 社で機械検証（全量 PASS）。
+6. **包括的負例テスト (`src/tests/promotion-gate-public-routes.test.ts`)**:
+   - 監査役 ChatGPT の指定通り、「原本 excerpt は 8.3 億円なのに Claim を 1,000 万円にし、攻撃側が 1,000 万円に合わせて fingerprint まで正当に再計算した偽造 Receipt」を作成し、Gate の暗号指紋照合（Check 3）を通過しても意味論的実支持検証（Check 4）で確実に `return false`（`toBe(false)`）となることを実証。
+   - 原本実体ファイル（raw bytes）が破損・改ざんされて SHA-256 が不一致となった場合の物理遮断（`toBe(false)`）も実証。全 7 テスト完全 PASS。
+
+### 3. 全関所検証結果
+- **`pnpm typecheck`**: PASS (0 errors)
+- **`pnpm test`**: PASS (vitest 324 + foundation 11 + arch 11 + recovery 6 = 352 tests ALL PASSED)
+- **`pnpm lint`**: PASS (0 warnings, 0 errors, check-ingest-quality 234社全量監査完全PASS)
+- **`pnpm build`**: PASS (Next.js本番ビルド ＆ 有料バンドル検査 80 files, 392 sentinels)
+- **`pnpm bundle:workers`**: PASS (1877 files secret scan)
+- **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
+
+
 
 
 
