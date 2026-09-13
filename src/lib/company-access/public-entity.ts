@@ -51,12 +51,33 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
   );
 
   if (claimsRevenue) {
-    if (!Array.isArray(entity.claimBindings) || entity.claimBindings.length === 0) {
-      // 確定売上を主張しながら Binding が存在しない場合は即座に遮断（fallback B/C禁止）
-      return false;
+    const isReportedOrEstimated =
+      entity.pnl?.financialStatus === 'REPORTED' ||
+      entity.pnl?.financialStatus === 'ESTIMATED' ||
+      entity.pnl?.financialStatus === 'POST_MORTEM';
+    const hasBindings = Array.isArray(entity.claimBindings) && entity.claimBindings.length > 0;
+
+    // 二軸モデル: 一次確定値（PRIMARY / VERIFIED）を標榜する場合、または Binding が存在する場合は、原本Bindingの機械的照合が100%必須
+    if (!isReportedOrEstimated || hasBindings) {
+      if (!hasBindings) {
+        // 一次確定値を主張しながら原本Bindingを持たない偽装データは即座に物理遮断
+        return false;
+      }
+    } else {
+      // REPORTED / ESTIMATED / POST_MORTEM の場合:
+      // エビデンスカードまたは観測ストリームに客観的財務シグナルが一切ない架空データは遮断
+      const allEvidenceText = [
+        ...(entity.evidenceCards || []).map(c => `${c.punchline || ''} ${(c.details || []).join(' ')} ${c.sourceNote || ''}`),
+        ...(entity.observationsStream || []).map(o => o.text || ''),
+      ].join(' ');
+      const hasFinancialSignal = /月商|年商|売上|利益|revenue|arr|mrr|sales|¥|\$|円|億|万/i.test(allEvidenceText);
+      if (!hasFinancialSignal) {
+        return false;
+      }
+      return true;
     }
 
-    const revBinding = entity.claimBindings.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
+    const revBinding = entity.claimBindings?.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
     if (!revBinding) {
       return false;
     }

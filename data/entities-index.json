@@ -37,11 +37,11 @@
       "operatingMargin": 85,
       "estimatedAnnualNetProfit": 91800000,
       "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
       "isMarginUnconfirmed": false,
       "revenueLabel": "PDF.ai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "PDF.ai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "PDF.ai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "isRevenueUnconfirmed": false
     },
     "essence": {
       "whatItDoes": "PDF.aiは、「契約書や論文を1ページずつ読む苦痛と時間の浪費」に悩むユーザーに対し、ドラッグ＆ドロップで即対話できる怠惰UIによって手作業を効率化し、完全1人で営業利益率85%を実現するソフトウェアモデル。",
@@ -287,7 +287,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Testimonial.to 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Testimonial.to 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Testimonial.to 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Testimonial.toは、「自社サービスを売りたい創業者のレビュー不足の焦燥」に悩むユーザーに対し、スマホ1分動画を撮らせるリンクを配りサイトに埋め込みによって手作業を効率化し、完全1人で営業利益率82%を実現するソフトウェアモデル。",
@@ -461,7 +462,7 @@
       "【損益の実態】年商約¥1.1億円に対し、原価と経費を引いた営業利益率は82%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Testimonial.toの財務実績: 月商¥886万円、営業利益¥726万円（営業利益率約82%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -506,7 +507,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "SiteGPT 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "SiteGPT 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "SiteGPT 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "SiteGPTは、「深夜休日の問い合わせ対応に追われる中小企業オーナーの睡眠不足」に悩むユーザーに対し、URLを入れるだけで即ボット化する完全セルフサーブによって手作業を効率化し、完全1人で営業利益率80%を実現するソフトウェアモデル。",
@@ -680,7 +682,7 @@
       "【損益の実態】年商約¥4554万円に対し、原価と経費を引いた営業利益率は80%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】SiteGPTの財務実績: 月商¥380万円、営業利益¥304万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -725,7 +727,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Feather.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Feather.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Feather.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Feather.soは、「WordPressの管理画面の重さと設定地獄のストレス」に悩むユーザーに対し、Notion APIで記事を自動吸い上げ静的配信によって手作業を効率化し、完全1人で営業利益率88%を実現するソフトウェアモデル。",
@@ -899,7 +902,7 @@
       "【損益の実態】年商約¥1518万円に対し、原価と経費を引いた営業利益率は88%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Feather.soの財務実績: 月商¥127万円、営業利益¥111万円（営業利益率約88%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -944,7 +947,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Chatbase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Chatbase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Chatbase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Chatbaseは、「自社データAIが欲しいがエンジニアを雇う数百万円がない企業の焦燥」に悩むユーザーに対し、API公開初週に48時間でラッパーを作りバイラル拡散によって手作業を効率化し、完全1人で営業利益率85%を実現するソフトウェアモデル。",
@@ -1118,7 +1122,7 @@
       "【損益の実態】年商約¥5.5億円に対し、原価と経費を引いた営業利益率は85%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Chatbaseの財務実績: 月商¥4554万円、営業利益¥3871万円（営業利益率約85%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -1163,7 +1167,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Rewind AI 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Rewind AI 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Rewind AI 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Rewind AIは、「「あの資料どこだっけ？」と思い出せないビジネスマンの脳疲労」に悩むユーザーに対し、Apple SiliconのMetal最適化で画面を数千分の一に圧縮録画によって手作業を効率化し、少数精鋭で営業利益率75%を実現するソフトウェアモデル。",
@@ -1337,7 +1342,7 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は75%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rewind AIの財務実績: 月商¥6325万円、営業利益¥4744万円（営業利益率約75%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -1382,7 +1387,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Cursor (Anysphere) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Cursor (Anysphere) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Cursor (Anysphere) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Cursor (Anysphere)は、「リファクタリングや改修で何時間も残業させられるエンジニアの苦痛」に悩むユーザーに対し、VS CodeをOSSの規約通り丸ごとフォークしてAIを脳幹に直結によって手作業を効率化し、少数精鋭で営業利益率50%を実現するソフトウェアモデル。",
@@ -1556,7 +1562,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は50%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Cursor (Anysphere)の財務実績: 月商¥126500万円、営業利益¥63250万円（営業利益率約50%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -1601,7 +1607,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Perplexity AI 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Perplexity AI 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Perplexity AI 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Perplexity AIは、「検索結果の広告とSEO記事を何スクロールもさせられる時間の浪費」に悩むユーザーに対し、広告ゼロ・直接回答・インライン出典表示で知覚価値最大化によって手作業を効率化し、少数精鋭で営業利益率35%を実現するソフトウェアモデル。",
@@ -1775,7 +1782,7 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Perplexity AIの財務実績: 月商¥101200万円、営業利益¥35420万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -1820,7 +1827,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "ElevenLabs 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "ElevenLabs 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "ElevenLabs 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "ElevenLabsは、「ナレーションやオーディオブックで声優を雇う予算とスタジオ代の激痛」に悩むユーザーに対し、ため息や笑い声までリアルに再現する感情音声合成によって手作業を効率化し、少数精鋭で営業利益率45%を実現するソフトウェアモデル。",
@@ -1994,7 +2002,7 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は45%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】ElevenLabsの財務実績: 月商¥101200万円、営業利益¥45540万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -2039,7 +2047,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Leonardo.ai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Leonardo.ai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Leonardo.ai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Leonardo.aiは、「ゲーム開発で何百枚ものアセットを描くイラストレーター外注費の激痛」に悩むユーザーに対し、洗練されたWeb UIキャンバスと絵柄一貫性モデル学習によって手作業を効率化し、少数精鋭で営業利益率40%を実現するソフトウェアモデル。",
@@ -2213,7 +2222,7 @@
       "【損益の実態】年商約¥15.2億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Leonardo.aiの財務実績: 月商¥12650万円、営業利益¥5060万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -2258,7 +2267,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Dub.co 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Dub.co 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Dub.co 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Dub.coは、「Bitlyのカスタムドメイン月額$35〜$300という法外な値上げ」に悩むユーザーに対し、Cloudflareエッジ転送と超高速アナリティクスを月$24で提供によって手作業を効率化し、少数精鋭で営業利益率80%を実現するソフトウェアモデル。",
@@ -2432,7 +2442,7 @@
       "【損益の実態】年商約¥7590万円に対し、原価と経費を引いた営業利益率は80%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Dub.coの財務実績: 月商¥633万円、営業利益¥506万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -2477,7 +2487,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Loops.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Loops.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Loops.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Loops.soは、「Mailchimpの複雑怪奇な設定とEC偏重に発狂するSaaS開発者」に悩むユーザーに対し、Notionライクなエディタと5行のコードで組めるイベントメールによって手作業を効率化し、少数精鋭で営業利益率75%を実現するソフトウェアモデル。",
@@ -2651,7 +2662,7 @@
       "【損益の実態】年商約¥1.5億円に対し、原価と経費を引いた営業利益率は75%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Loops.soの財務実績: 月商¥1265万円、営業利益¥949万円（営業利益率約75%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -2696,7 +2707,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Raycast 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Raycast 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Raycast 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Raycastは、「マウスでアプリやファイルを探すエンジニアの集中途切れの激痛」に悩むユーザーに対し、TypeScriptで誰でも拡張を作れるストアとAI統合によって手作業を効率化し、少数精鋭で営業利益率65%を実現するソフトウェアモデル。",
@@ -2870,7 +2882,7 @@
       "【損益の実態】年商約¥7590万円に対し、原価と経費を引いた営業利益率は65%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Raycastの財務実績: 月商¥633万円、営業利益¥411万円（営業利益率約65%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -2915,7 +2927,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Vercel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Vercel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Vercel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Vercelは、「AWSの複雑怪奇なインフラ設定とサーバー管理に悩むフロントエンド開発者」に直面する個人・事業者に対し、Git pushするだけで数秒で世界中にデプロイ完了する快感によって手数料と手続き負担を最小化し、営業利益率20%を実現する金融インフラモデル。",
@@ -3089,7 +3102,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Vercelの財務実績: 月商¥126500万円、営業利益¥25300万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -3134,7 +3147,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Supabase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Supabase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Supabase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Supabaseは、「Firebaseで複雑なクエリが書けず莫大な課金が請求される恐怖」に直面する個人・事業者に対し、Postgresの上に認証・ストレージ・リアルタイムAPIを統合によって手数料と手続き負担を最小化し、営業利益率25%を実現する金融インフラモデル。",
@@ -3308,7 +3322,7 @@
       "【損益の実態】年商約¥45.5億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Supabaseの財務実績: 月商¥37950万円、営業利益¥9488万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -3353,7 +3367,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "PostHog 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "PostHog 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "PostHog 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "PostHogは、「ユーザー行動分析ツールの法外な従量課金とプライバシー規制」に悩むユーザーに対し、セッション録画・機能フラグ・A/Bテストを1つのOSSに統合によって手作業を効率化し、少数精鋭で営業利益率30%を実現するソフトウェアモデル。",
@@ -3527,7 +3542,7 @@
       "【損益の実態】年商約¥30.4億円に対し、原価と経費を引いた営業利益率は30%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】PostHogの財務実績: 月商¥25300万円、営業利益¥7590万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -3572,7 +3587,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "CleanMyMac 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "CleanMyMac 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "CleanMyMac 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "CleanMyMacは、「「ディスク容量がいっぱいです」というポップアップのストレス」に悩むユーザーに対し、ワンクリックで数GBが空く快感を極上のUIデザインで提供によって手作業を効率化し、少数精鋭で営業利益率40%を実現するソフトウェアモデル。",
@@ -3746,7 +3762,7 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は40%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】CleanMyMacの財務実績: 月商¥63250万円、営業利益¥25300万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -3791,7 +3807,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Setapp 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Setapp 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Setapp 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Setappは、「便利な有料アプリを都度購入する心理的ハードルと出費」に悩むユーザーに対し、数百の人気Macアプリを使い放題にし開発者には利用時間で分配によって手作業を効率化し、少数精鋭で営業利益率25%を実現するソフトウェアモデル。",
@@ -3965,7 +3982,7 @@
       "【損益の実態】年商約¥53.1億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Setappの財務実績: 月商¥44275万円、営業利益¥11069万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -4010,7 +4027,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Warp Terminal 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Warp Terminal 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Warp Terminal 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Warp Terminalは、「複雑なシェルコマンドやDockerオプションを忘れてググる時間の浪費」に悩むユーザーに対し、IDEのようにマウス選択・入力できAIがコマンドを即時生成によって手作業を効率化し、少数精鋭で営業利益率40%を実現するソフトウェアモデル。",
@@ -4184,7 +4202,7 @@
       "【損益の実態】年商約¥15.2億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Warp Terminalの財務実績: 月商¥12650万円、営業利益¥5060万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -4229,7 +4247,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Superhuman 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Superhuman 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Superhuman 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Superhumanは、「毎朝メール処理に2時間奪われるエグゼクティブの激痛」に悩むユーザーに対し、1対1のビデオ通話でオンボーディングしショートカットを徹底教育によって手作業を効率化し、少数精鋭で営業利益率30%を実現するソフトウェアモデル。",
@@ -4403,7 +4422,7 @@
       "【損益の実態】年商約¥53.1億円に対し、原価と経費を引いた営業利益率は30%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Superhumanの財務実績: 月商¥44275万円、営業利益¥13283万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -4448,7 +4467,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Anker 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Anker 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Anker 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Ankerは、「Apple純正の充電器やケーブルの高さと断線に激怒するスマホユーザー」を抱える顧客に対し、Googleの分析力でAmazon SEOを制覇し手厚い18ヶ月保証で★5独占によって他社では不可能な低価格と価値を提供し、営業利益率10.5%を実現する高収益店舗・製造モデル。",
@@ -4622,7 +4642,7 @@
       "【損益の実態】年商約¥3036.0億円に対し、原価と経費を引いた営業利益率は10.5%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ankerの財務実績: 月商¥2530000万円、営業利益¥265650万円（営業利益率約11%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -4667,7 +4687,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "CASETiFY 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "CASETiFY 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "CASETiFY 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "CASETiFYは、「「鏡越しの自撮りで他人と違うお洒落な自分を誇示したい」若者の虚栄心」を抱える顧客に対し、カメラリングのCASETiFYロゴを自撮りに強制写り込みさせてバイラル化によって他社では不可能な低価格と価値を提供し、営業利益率22%を実現する高収益店舗・製造モデル。",
@@ -4841,7 +4862,7 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は22%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】CASETiFYの財務実績: 月商¥253000万円、営業利益¥55660万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -4886,7 +4907,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Keychron 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Keychron 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Keychron 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Keychronは、「Apple純正Magic Keyboardのペタペタ感で指を痛めるMacユーザーの激痛」を抱える顧客に対し、Mac/Winワンタッチ切替スイッチと深セン金型直結クラファンによって他社では不可能な低価格と価値を提供し、営業利益率25%を実現する高収益店舗・製造モデル。",
@@ -5060,7 +5082,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は25%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Keychronの財務実績: 月商¥126500万円、営業利益¥31625万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -5105,7 +5127,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Bellroy 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Bellroy 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Bellroy 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Bellroyは、「分厚い財布のせいでスーツやジーンズのシルエットが台無しになる羞恥心」を抱える顧客に対し、中身を抜き出して比較するストップモーション動画で直感理解によって他社では不可能な低価格と価値を提供し、営業利益率20%を実現する高収益店舗・製造モデル。",
@@ -5279,7 +5302,7 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Bellroyの財務実績: 月商¥101200万円、営業利益¥20240万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -5324,7 +5347,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Peak Design 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Peak Design 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Peak Design 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Peak Designは、「旅行や登山で重い一眼レフがブラブラ揺れて首が痛むカメラ愛好家の苦痛」を抱える顧客に対し、新製品のたびにKickstarterで客から数億円の前金を確定回収によって他社では不可能な低価格と価値を提供し、営業利益率22%を実現する高収益店舗・製造モデル。",
@@ -5498,7 +5522,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は22%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Peak Designの財務実績: 月商¥126500万円、営業利益¥27830万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -5543,7 +5567,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "The Ridge Wallet 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "The Ridge Wallet 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "The Ridge Wallet 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "The Ridge Walletは、「「クレカのスキミングで財産を盗まれる恐怖」と重い財布の怠惰」を抱える顧客に対し、MrBeastやMKBHDなどのトップYouTuberの広告枠を長期買い占めによって他社では不可能な低価格と価値を提供し、営業利益率25%を実現する高収益店舗・製造モデル。",
@@ -5717,7 +5742,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は25%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】The Ridge Walletの財務実績: 月商¥126500万円、営業利益¥31625万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -5762,7 +5787,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Manscaped 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Manscaped 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Manscaped 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Manscapedは、「普通のカミソリでデリケートゾーンを剃って皮膚を切創・大出血する恐怖」を抱える顧客に対し、肌を傷つけないセラミック刃特許と替刃定期便サブスクリプションによって他社では不可能な低価格と価値を提供し、営業利益率18%を実現する高収益店舗・製造モデル。",
@@ -5936,7 +5962,7 @@
       "【損益の実態】年商約¥455.4億円に対し、原価と経費を引いた営業利益率は18%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Manscapedの財務実績: 月商¥379500万円、営業利益¥68310万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -5981,7 +6007,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "YETI Coolers 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "YETI Coolers 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "YETI Coolers 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "YETI Coolersは、「安物クーラーボックスが数回のキャンプで壊れて氷が溶ける絶望」を抱える顧客に対し、価格を競合の10倍にして「富裕層のステータスシンボル」へ昇華によって他社では不可能な低価格と価値を提供し、営業利益率16%を実現する高収益店舗・製造モデル。",
@@ -6155,7 +6182,7 @@
       "【損益の実態】年商約¥2428.8億円に対し、原価と経費を引いた営業利益率は16%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】YETI Coolersの財務実績: 月商¥2024000万円、営業利益¥323840万円（営業利益率約16%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -6200,7 +6227,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Solo Stove 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Solo Stove 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Solo Stove 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Solo Stoveは、「キャンプから帰った後に服や髪から煙の悪臭が漂い嫌がられるパパの苦痛」を抱える顧客に対し、二重壁構造で煙を完全に燃やし尽くすエアフロー特許によって他社では不可能な低価格と価値を提供し、営業利益率12%を実現する高収益店舗・製造モデル。",
@@ -6374,7 +6402,7 @@
       "【損益の実態】年商約¥607.2億円に対し、原価と経費を引いた営業利益率は12%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Solo Stoveの財務実績: 月商¥506000万円、営業利益¥60720万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -6419,7 +6447,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Stanley 1913 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Stanley 1913 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Stanley 1913 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Stanley 1913は、「可愛いタンブラーを持って学校に行きSNSで仲間外れになりたくない同調圧力」を抱える顧客に対し、車のドリンクホルダーに入る底細形状と限定カラーの飢餓商法ドロップによって他社では不可能な低価格と価値を提供し、営業利益率25%を実現する高収益店舗・製造モデル。",
@@ -6593,7 +6622,7 @@
       "【損益の実態】年商約¥1138.5億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Stanley 1913の財務実績: 月商¥948750万円、営業利益¥237188万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -6638,7 +6667,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Brumate 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Brumate 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Brumate 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Brumateは、「ビーチやテラスで飲んでいる最中にビールがぬるくなる酒飲みの激痛」を抱える顧客に対し、細缶にジャストフィットするプッシュロック特許とグリッターカラーによって他社では不可能な低価格と価値を提供し、営業利益率22%を実現する高収益店舗・製造モデル。",
@@ -6812,7 +6842,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は22%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Brumateの財務実績: 月商¥126500万円、営業利益¥27830万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -6857,7 +6887,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Vuori 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Vuori 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Vuori 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Vuoriは、「ナイキ等のゴワゴワした化繊に嫌気がさし極上の快適性を求める男の執着」を抱える顧客に対し、一度履いたら他に戻れない極上肌触り「DreamKnit」ファブリックによって他社では不可能な低価格と価値を提供し、営業利益率20%を実現する高収益店舗・製造モデル。",
@@ -7031,7 +7062,7 @@
       "【損益の実態】年商約¥1518.0億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Vuoriの財務実績: 月商¥1265000万円、営業利益¥253000万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -7076,7 +7107,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "On Holding 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "On Holding 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "On Holding 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "On Holdingは、「硬いアスファルトを走って膝や関節を痛めるランナーの肉体的激痛」を抱える顧客に対し、チューブ状の穴があいたCloudTecクッションによる圧倒的着地衝撃吸収によって他社では不可能な低価格と価値を提供し、営業利益率15%を実現する高収益店舗・製造モデル。",
@@ -7250,7 +7282,7 @@
       "【損益の実態】年商約¥3036.0億円に対し、原価と経費を引いた営業利益率は15%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】On Holdingの財務実績: 月商¥2530000万円、営業利益¥379500万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -7295,7 +7327,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "OOFOS 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "OOFOS 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "OOFOS 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "OOFOSは、「足底腱膜炎や長時間の立ち仕事でかかとが痛くてたまらない中高年の悲鳴」を抱える顧客に対し、衝撃を37%多く吸収する独自発泡素材OOfoamを開発によって他社では不可能な低価格と価値を提供し、営業利益率22%を実現する高収益店舗・製造モデル。",
@@ -7469,7 +7502,7 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は22%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】OOFOSの財務実績: 月商¥253000万円、営業利益¥55660万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -7514,7 +7547,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Ten Thousand 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Ten Thousand 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Ten Thousand 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Ten Thousandは、「スクワットや懸垂でショーツが破れたりポケットのスマホが暴れる激痛」を抱える顧客に対し、米軍特殊部隊やCrossFit王者にプロトタイプをテストさせ頑丈さを証明によって他社では不可能な低価格と価値を提供し、営業利益率18%を実現する高収益店舗・製造モデル。",
@@ -7688,7 +7722,7 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は18%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ten Thousandの財務実績: 月商¥63250万円、営業利益¥11385万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -7733,7 +7767,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Eight Sleep 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Eight Sleep 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Eight Sleep 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Eight Sleepは、「パートナーと体感温度が合わず暑くて熟睡できない富裕層の睡眠負債」を抱える顧客に対し、左右で独立して水冷・温水を循環させ深部体温を自動制御によって他社では不可能な低価格と価値を提供し、営業利益率20%を実現する高収益店舗・製造モデル。",
@@ -7907,7 +7942,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Eight Sleepの財務実績: 月商¥126500万円、営業利益¥25300万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -7952,7 +7987,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Tile 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Tile 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Tile 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Tileは、「毎朝出かける直前に鍵が見つからず遅刻するパニックと自己嫌悪」を抱える顧客に対し、アプリを入れている他人のスマホ同士がすれ違いで位置を特定する網によって他社では不可能な低価格と価値を提供し、営業利益率15%を実現する高収益店舗・製造モデル。",
@@ -8126,7 +8162,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は15%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Tileの財務実績: 月商¥126500万円、営業利益¥18975万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -8171,7 +8207,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Rumpl 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Rumpl 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Rumpl 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Rumplは、「毛布に埃やペットの毛が絡みついて洗うのが面倒なキャンプ・犬飼いの苦痛」を抱える顧客に対し、撥水加工・耐引裂リップストップ生地で焚火の火の粉や犬の毛を弾くによって他社では不可能な低価格と価値を提供し、営業利益率20%を実現する高収益店舗・製造モデル。",
@@ -8345,7 +8382,7 @@
       "【損益の実態】年商約¥60.7億円に対し、原価と経費を引いた営業利益率は20%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rumplの財務実績: 月商¥50600万円、営業利益¥10120万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -8390,7 +8427,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Beardbrand 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Beardbrand 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Beardbrand 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Beardbrandは、「ヒゲを伸ばすと肌が乾燥して痒くてたまらないヒゲ男子の激痛」を抱える顧客に対し、YouTubeで「かっこいいヒゲの手入れ法」を徹底解説し信者化によって他社では不可能な低価格と価値を提供し、営業利益率25%を実現する高収益店舗・製造モデル。",
@@ -8564,7 +8602,7 @@
       "【損益の実態】年商約¥10.6億円に対し、原価と経費を引いた営業利益率は25%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Beardbrandの財務実績: 月商¥8855万円、営業利益¥2214万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -8609,7 +8647,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Chrono24 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 EUR = ¥164.2 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Chrono24 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Chrono24 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Chrono24は、「数百万円の高級時計を売買する際のだまされ恐怖と買い叩かれの激痛」を抱える顧客に対し、代金を一時預かるエスクロー口座とプロ時計師による真贋鑑定によって他社では不可能な低価格と価値を提供し、営業利益率25%を実現する高収益店舗・製造モデル。",
@@ -8783,7 +8822,7 @@
       "【損益の実態】年商約¥197.0億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Chrono24の財務実績: 月商¥164200万円、営業利益¥41050万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -8828,7 +8867,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社じげん 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社じげん 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社じげん 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社じげんは、「何十個もの求人サイトや賃貸サイトを個別に見る極限の怠惰」を抱える顧客に対し、スクレイピングとAPI連携で全求人・賃貸情報を1箇所に統合によって他社では不可能な低価格と価値を提供し、営業利益率33%を実現する高収益店舗・製造モデル。",
@@ -9002,7 +9042,7 @@
       "【損益の実態】年商約¥220.0億円に対し、原価と経費を引いた営業利益率は33%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社じげんの財務実績: 月商¥183333万円、営業利益¥60500万円（営業利益率約33%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -9047,7 +9087,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社エアトリ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社エアトリ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社エアトリ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社エアトリは、「各航空会社のサイトを行き来して最安値を探す時間の浪費」を抱える顧客に対し、一括比較UIで集客し取扱手数料（1件千円〜数千円）を着実に上乗せによって他社では不可能な低価格と価値を提供し、営業利益率18%を実現する高収益店舗・製造モデル。",
@@ -9221,7 +9262,7 @@
       "【損益の実態】年商約¥250.0億円に対し、原価と経費を引いた営業利益率は18%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社エアトリの財務実績: 月商¥208333万円、営業利益¥37500万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -9266,7 +9307,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社エニグモ (BUYMA) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社エニグモ (BUYMA) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社エニグモ (BUYMA) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社エニグモ (BUYMA)は、「日本未発売のシャネルやエルメスを海外定価に近い価格で買いたい虚栄心」を抱える顧客に対し、海外在住日本人に買い付けさせ、成約手数料（出品者＋購入者で約10〜15%）を中抜きによって他社では不可能な低価格と価値を提供し、営業利益率30%を実現する高収益店舗・製造モデル。",
@@ -9440,7 +9482,7 @@
       "【損益の実態】年商約¥70.0億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社エニグモ (BUYMA)の財務実績: 月商¥58333万円、営業利益¥17500万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -9485,7 +9527,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社ココナラ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社ココナラ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社ココナラ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社ココナラは、「企業にイラストやロゴを発注すると数十万円取られる個人の出費苦痛」を抱える顧客に対し、1回500円のワンコインから開始し占い・イラスト・動画編集へ高単価化によって他社では不可能な低価格と価値を提供し、営業利益率15%を実現する高収益店舗・製造モデル。",
@@ -9659,7 +9702,7 @@
       "【損益の実態】年商約¥50.0億円に対し、原価と経費を引いた営業利益率は15%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ココナラの財務実績: 月商¥41667万円、営業利益¥6250万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -9704,7 +9747,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "BASE株式会社 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "BASE株式会社 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "BASE株式会社 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "BASE株式会社は、「Shopifyやカラーミーの月額固定費（数千円〜数万円）を払う恐怖」に直面する個人・事業者に対し、初期費用ゼロ・月額ゼロで敷居を極小にし決済手数料だけでマネタイズによって手数料と手続き負担を最小化し、営業利益率12%を実現する金融インフラモデル。",
@@ -9878,7 +9922,7 @@
       "【損益の実態】年商約¥120.0億円に対し、原価と経費を引いた営業利益率は12%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】BASE株式会社の財務実績: 月商¥100000万円、営業利益¥12000万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -9923,7 +9967,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社タイミー 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社タイミー 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社タイミー 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社タイミーは、「急なドタキャンでシフトが埋まらず店が回らない飲食店長の胃潰瘍」を抱える顧客に対し、相互レビューによるドタキャン防止と前払い手数料の全自動徴収によって他社では不可能な低価格と価値を提供し、営業利益率25%を実現する高収益店舗・製造モデル。",
@@ -10097,7 +10142,7 @@
       "【損益の実態】年商約¥200.0億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社タイミーの財務実績: 月商¥166667万円、営業利益¥41667万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -10142,7 +10187,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社スペースマーケット 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社スペースマーケット 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社スペースマーケット 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社スペースマーケットは、「空き部屋の固定資産税と維持費だけが垂れ流れる不動産オーナーの苦痛」を抱える顧客に対し、1時間単位でネット予約・決済できる仕組みで遊休資産を換金化によって他社では不可能な低価格と価値を提供し、営業利益率15%を実現する高収益店舗・製造モデル。",
@@ -10316,7 +10362,7 @@
       "【損益の実態】年商約¥15.0億円に対し、原価と経費を引いた営業利益率は15%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社スペースマーケットの財務実績: 月商¥12500万円、営業利益¥1875万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -10361,7 +10407,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社Macbee Planet 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社Macbee Planet 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社Macbee Planet 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社Macbee Planetは、「CPA（顧客獲得単価）高騰と即時解約で広告費をドブに捨てるEC企業の絶望」に悩むユーザーに対し、「継続率の高い優良顧客」だけを予測して集客し売上シェアで報酬獲得によって手作業を効率化し、少数精鋭で営業利益率12%を実現するソフトウェアモデル。",
@@ -10535,7 +10582,7 @@
       "【損益の実態】年商約¥350.0億円に対し、原価と経費を引いた営業利益率は12%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社Macbee Planetの財務実績: 月商¥291667万円、営業利益¥35000万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -10580,7 +10627,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社ギフティ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社ギフティ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社ギフティ 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社ギフティは、「紙の商品券を郵送する送料と印刷費と個人情報管理に怯える企業のコスト」に直面する個人・事業者に対し、URLをLINEやメールで送るだけで店頭消込できるSaaS「giftee Campaign」によって手数料と手続き負担を最小化し、営業利益率25%を実現する金融インフラモデル。",
@@ -10754,7 +10802,7 @@
       "【損益の実態】年商約¥70.0億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ギフティの財務実績: 月商¥58333万円、営業利益¥14583万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -10799,7 +10847,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社PR TIMES 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社PR TIMES 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社PR TIMES 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社PR TIMESは、「新サービスを立ち上げたのに世間に完全に無視される広報担当者の絶望」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率35%を叩き出すメディアモデル。",
@@ -10973,7 +11022,7 @@
       "【損益の実態】年商約¥70.0億円に対し、原価と経費を引いた営業利益率は35%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社PR TIMESの財務実績: 月商¥58333万円、営業利益¥20417万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -11018,7 +11067,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社ワークマン 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社ワークマン 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社ワークマン 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社ワークマンは、「ノースフェイスなどの高額アウトドアウェア（数万円）を買えない大衆の出費苦痛」を抱える顧客に対し、「プロ用作業着と同じ高機能」を1,900円〜2,900円の定価破壊で直販によって他社では不可能な低価格と価値を提供し、営業利益率18%を実現する高収益店舗・製造モデル。",
@@ -11192,7 +11242,7 @@
       "【損益の実態】年商約¥1300.0億円に対し、原価と経費を引いた営業利益率は18%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ワークマンの財務実績: 月商¥1083333万円、営業利益¥195000万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -11237,7 +11287,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社物語コーポレーション (焼肉きんぐ) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社物語コーポレーション (焼肉きんぐ) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社物語コーポレーション (焼肉きんぐ) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社物語コーポレーション (焼肉きんぐ)は、「単品注文の焼肉屋で子供が追加肉を頼むたびに財布を気にする親のプレッシャー」を抱える顧客に対し、厚切りカルビなどの高見え肉をタッチパネル配膳ロボットで席まで高速配達によって他社では不可能な低価格と価値を提供し、営業利益率7.5%を実現する高収益店舗・製造モデル。",
@@ -11411,7 +11462,7 @@
       "【損益の実態】年商約¥1000.0億円に対し、原価と経費を引いた営業利益率は7.5%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社物語コーポレーション (焼肉きんぐ)の財務実績: 月商¥833333万円、営業利益¥62500万円（営業利益率約8%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -11456,7 +11507,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "トリドールホールディングス (丸亀製麺) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "トリドールホールディングス (丸亀製麺) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "トリドールホールディングス (丸亀製麺) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "トリドールホールディングス (丸亀製麺)は、「安くて早くて美味い温かい食事を手軽に腹一杯食べたい労働者の食欲」を抱える顧客に対し、客の目の前で粉からうどんを打つ劇場型オープンキッチンとセルフ天ぷら誘惑によって他社では不可能な低価格と価値を提供し、営業利益率7%を実現する高収益店舗・製造モデル。",
@@ -11630,7 +11682,7 @@
       "【損益の実態】年商約¥2300.0億円に対し、原価と経費を引いた営業利益率は7%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】トリドールホールディングス (丸亀製麺)の財務実績: 月商¥1916667万円、営業利益¥134167万円（営業利益率約7%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -11675,7 +11727,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "FOOD & LIFE COMPANIES (スシロー) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "FOOD & LIFE COMPANIES (スシロー) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "FOOD & LIFE COMPANIES (スシロー) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "FOOD & LIFE COMPANIES (スシロー)は、「子供に寿司を食わせたいが回らない寿司屋には連れて行けない子育て世代の出費苦痛」を抱える顧客に対し、原価率50%で客を呼ぶ代わりに、IT自動化レーンとタッチパネルで人件費を極限圧縮によって他社では不可能な低価格と価値を提供し、営業利益率6%を実現する高収益店舗・製造モデル。",
@@ -11849,7 +11902,7 @@
       "【損益の実態】年商約¥3600.0億円に対し、原価と経費を引いた営業利益率は6%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】FOOD & LIFE COMPANIES (スシロー)の財務実績: 月商¥3000000万円、営業利益¥180000万円（営業利益率約6%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -11894,7 +11947,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "オーケー株式会社 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "オーケー株式会社 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "オーケー株式会社 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "オーケー株式会社は、「日によって価格が変動するスーパーのチラシを比較して買い回る主婦のストレス」を抱える顧客に対し、チラシを一切撒かず借入金ゼロ・現金決済還元でエブリデーロープライスを徹底によって他社では不可能な低価格と価値を提供し、営業利益率5.2%を実現する高収益店舗・製造モデル。",
@@ -12068,7 +12122,7 @@
       "【損益の実態】年商約¥6000.0億円に対し、原価と経費を引いた営業利益率は5.2%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】オーケー株式会社の財務実績: 月商¥5000000万円、営業利益¥260000万円（営業利益率約5%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -12113,7 +12167,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社ロピア (OIC) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社ロピア (OIC) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社ロピア (OIC) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社ロピア (OIC)は、「物価高で肉や惣菜が高すぎてお腹いっぱい買えない子育て世帯の家計激痛」を抱える顧客に対し、クレカを一切使わせない代わりに仕入れ価格を限界まで下げメガパックで売るによって他社では不可能な低価格と価値を提供し、営業利益率4.5%を実現する高収益店舗・製造モデル。",
@@ -12287,7 +12342,7 @@
       "【損益の実態】年商約¥4000.0億円に対し、原価と経費を引いた営業利益率は4.5%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ロピア (OIC)の財務実績: 月商¥3333333万円、営業利益¥150000万円（営業利益率約5%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -12332,7 +12387,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "株式会社神戸物産 (業務スーパー) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "株式会社神戸物産 (業務スーパー) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "株式会社神戸物産 (業務スーパー) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "株式会社神戸物産 (業務スーパー)は、「飲食店や大家族が業務用食材を安くまとめ買いできない仕入れコスト」を抱える顧客に対し、自社で海外農場や国内食品工場を買い取り中間業者を全カットしてFC卸売によって他社では不可能な低価格と価値を提供し、営業利益率10.2%を実現する高収益店舗・製造モデル。",
@@ -12506,7 +12562,7 @@
       "【損益の実態】年商約¥4800.0億円に対し、原価と経費を引いた営業利益率は10.2%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社神戸物産 (業務スーパー)の財務実績: 月商¥4000000万円、営業利益¥408000万円（営業利益率約10%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -12551,7 +12607,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Morning Brew 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Morning Brew 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Morning Brew 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Morning Brewは、「毎朝経済ニュースを読まなければならないが難しくて眠くなる若手ビジネスマン」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率40%を叩き出すメディアモデル。",
@@ -12725,7 +12782,7 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Morning Brewの財務実績: 月商¥63250万円、営業利益¥25300万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -12770,7 +12827,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "The Hustle 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "The Hustle 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "The Hustle 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "The Hustleは、「綺麗事ばかりのビジネスメディアに飽き飽きしたハスラーたちの本音渇望」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率35%を叩き出すメディアモデル。",
@@ -12944,7 +13002,7 @@
       "【損益の実態】年商約¥30.4億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】The Hustleの財務実績: 月商¥25300万円、営業利益¥8855万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -12990,7 +13048,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "TLDR Newsletter 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "TLDR Newsletter 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "TLDR Newsletter 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "TLDR Newsletterは、「Hacker NewsやTwitterを一日中監視する時間がない多忙なエンジニア」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、完全1人で営業利益率80%を叩き出すメディアモデル。",
@@ -13164,7 +13223,7 @@
       "【損益の実態】年商約¥12.1億円に対し、原価と経費を引いた営業利益率は80%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】TLDR Newsletterの財務実績: 月商¥10120万円、営業利益¥8096万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -13209,7 +13268,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "The Milk Road 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "The Milk Road 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "The Milk Road 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "The Milk Roadは、「仮想通貨の情報が専門用語ばかりで何が起きているか理解できない個人の不安」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、完全1人で営業利益率85%を叩き出すメディアモデル。",
@@ -13383,7 +13443,7 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は85%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】The Milk Roadの財務実績: 月商¥6325万円、営業利益¥5376万円（営業利益率約85%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -13428,7 +13488,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Substack 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Substack 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Substack 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Substackは、「新聞社や出版社が給与を削減し自分のファンに直接課金できない記者の激痛」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率20%を叩き出すメディアモデル。",
@@ -13602,7 +13663,7 @@
       "【損益の実態】年商約¥45.5億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Substackの財務実績: 月商¥37950万円、営業利益¥7590万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -13647,7 +13708,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "OnlyFans 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "OnlyFans 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "OnlyFans 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "OnlyFansは、「SNSでファンを集めても広告規制でマネタイズできないクリエイターの不満」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率40%を叩き出すメディアモデル。",
@@ -13821,7 +13883,7 @@
       "【損益の実態】年商約¥1973.4億円に対し、原価と経費を引いた営業利益率は40%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】OnlyFansの財務実績: 月商¥1644500万円、営業利益¥657800万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -13866,7 +13928,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Patreon 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Patreon 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Patreon 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Patreonは、「YouTubeのアルゴリズム変更で再生数が落ちると収入がゼロになる恐怖」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率20%を叩き出すメディアモデル。",
@@ -14040,7 +14103,7 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Patreonの財務実績: 月商¥101200万円、営業利益¥20240万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -14085,7 +14148,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Skool 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Skool 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Skool 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Skoolは、「Facebookグループで受講生が投稿を見失いエンゲージメントが崩壊する激痛」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率45%を叩き出すメディアモデル。",
@@ -14259,7 +14323,7 @@
       "【損益の実態】年商約¥38.0億円に対し、原価と経費を引いた営業利益率は45%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Skoolの財務実績: 月商¥31625万円、営業利益¥14231万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -14304,7 +14368,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Whop 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Whop 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Whop 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Whopは、「Discordで手動でロールを付与したりPayPalの即時凍結に怯える若手起業家」に直面する個人・事業者に対し、Discordボットと決済を直結し支払った瞬間にVIP部屋へ自動案内によって手数料と手続き負担を最小化し、営業利益率35%を実現する金融インフラモデル。",
@@ -14478,7 +14543,7 @@
       "【損益の実態】年商約¥45.5億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Whopの財務実績: 月商¥37950万円、営業利益¥13283万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -14523,7 +14588,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Fanbase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Fanbase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Fanbase 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Fanbaseは、「TikTokやIGで数百万再生されても広告収益が分配されないクリエイターの怒り」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率20%を叩き出すメディアモデル。",
@@ -14697,7 +14763,7 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は20%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Fanbaseの財務実績: 月商¥6325万円、営業利益¥1265万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -14742,7 +14808,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Honey 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Honey 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Honey 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Honeyは、「「クーポンコード入力欄」を見て「損したくない」と別窓で検索する心理的焦燥」に直面する個人・事業者に対し、決済画面で「クーポンを自動試行します」と1クリックで最安適用によって手数料と手続き負担を最小化し、営業利益率40%を実現する金融インフラモデル。",
@@ -14916,7 +14983,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は40%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Honeyの財務実績: 月商¥126500万円、営業利益¥50600万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -14961,7 +15028,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Grammarly 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Grammarly 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Grammarly 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Grammarlyは、「文法ミスでビジネス上の信用を失ったり恥をかくノンネイティブの恐怖」に悩むユーザーに対し、ブラウザのあらゆる入力欄に赤い波線を出して自動修正候補を提示によって手作業を効率化し、少数精鋭で営業利益率30%を実現するソフトウェアモデル。",
@@ -15135,7 +15203,7 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Grammarlyの財務実績: 月商¥253000万円、営業利益¥75900万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -15180,7 +15248,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "CamelCamelCamel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "CamelCamelCamel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "CamelCamelCamel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "CamelCamelCamelは、「「買った翌日にタイムセールで半額になって損したくない」損失回避本能」に直面する個人・事業者に対し、数百万商品の価格を常時スクレイピングし、値下がり通知メールで客を再送客によって手数料と手続き負担を最小化し、営業利益率80%を実現する金融インフラモデル。",
@@ -15354,7 +15423,7 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は80%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】CamelCamelCamelの財務実績: 月商¥6325万円、営業利益¥5060万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -15399,7 +15468,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Capital One Shopping (Wikibuy) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Capital One Shopping (Wikibuy) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Capital One Shopping (Wikibuy) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Capital One Shopping (Wikibuy)は、「Amazonで買い物しているが実はウォルマートの方が安いかもしれない不安」に直面する個人・事業者に対し、Amazonの商品ページ上で「他店なら$15安い」と通知しアフィリエイトで横取りによって手数料と手続き負担を最小化し、営業利益率35%を実現する金融インフラモデル。",
@@ -15573,7 +15643,7 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は35%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Capital One Shopping (Wikibuy)の財務実績: 月商¥63250万円、営業利益¥22138万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -15618,7 +15688,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Rakuten Rewards (Ebates) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Rakuten Rewards (Ebates) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Rakuten Rewards (Ebates) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Rakuten Rewards (Ebates)は、「普段の買い物で少しでも得をしたい・節約したい人間の防衛本能」に直面する個人・事業者に対し、アフィリエイト報酬の半分を客に現金（小切手・PayPal）で還元して忠誠心を獲得によって手数料と手続き負担を最小化し、営業利益率20%を実現する金融インフラモデル。",
@@ -15792,7 +15863,7 @@
       "【損益の実態】年商約¥379.5億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rakuten Rewards (Ebates)の財務実績: 月商¥316250万円、営業利益¥63250万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -15837,7 +15908,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "LTK (RewardStyle) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "LTK (RewardStyle) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "LTK (RewardStyle) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "LTK (RewardStyle)は、「「そのワンピどこで買ったの？」と何百回も聞かれて答えるのが面倒なインスタグラマー」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率25%を叩き出すメディアモデル。",
@@ -16011,7 +16083,7 @@
       "【損益の実態】年商約¥227.7億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】LTK (RewardStyle)の財務実績: 月商¥189750万円、営業利益¥47438万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -16056,7 +16128,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "ShopStyle 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "ShopStyle 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "ShopStyle 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "ShopStyleは、「欲しいブランドの服がどのECで在庫があるか探して回る苦痛」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率25%を叩き出すメディアモデル。",
@@ -16230,7 +16303,7 @@
       "【損益の実態】年商約¥91.1億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】ShopStyleの財務実績: 月商¥75900万円、営業利益¥18975万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -16275,7 +16348,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Slickdeals 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Slickdeals 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Slickdeals 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Slickdealsは、「少しでも安く買いたいがネット上のセール情報を四六時中監視できない焦燥」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率45%を叩き出すメディアモデル。",
@@ -16449,7 +16523,7 @@
       "【損益の実態】年商約¥60.7億円に対し、原価と経費を引いた営業利益率は45%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Slickdealsの財務実績: 月商¥50600万円、営業利益¥22770万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -16494,7 +16568,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "RetailMeNot 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "RetailMeNot 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "RetailMeNot 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "RetailMeNotは、「ECの決済画面で「プロモコード」の入力欄を見て損したくない心理」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率30%を叩き出すメディアモデル。",
@@ -16668,7 +16743,7 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】RetailMeNotの財務実績: 月商¥253000万円、営業利益¥75900万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -16713,7 +16788,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Ibotta 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Ibotta 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Ibotta 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Ibottaは、「インフレで食費が高騰し少しでも家計を節約したい主婦の切迫感」に直面する個人・事業者に対し、レシートOCRで特定商品の購買を照合しメーカーの予算からキャッシュバックによって手数料と手続き負担を最小化し、営業利益率20%を実現する金融インフラモデル。",
@@ -16887,7 +16963,7 @@
       "【損益の実態】年商約¥455.4億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ibottaの財務実績: 月商¥379500万円、営業利益¥75900万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -16932,7 +17008,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Linktree 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Linktree 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Linktree 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Linktreeは、「YouTubeもTikTokもショップも見てほしいのにリンクが1本しか貼れないインフルエンサーの悶絶」に悩むユーザーに対し、「linktr.ee/名前」のURLを貼らせ、その先で無数のリンクへ振り分ける収益モデルによって手作業を効率化し、少数精鋭で営業利益率35%を実現するソフトウェアモデル。",
@@ -17106,7 +17183,7 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Linktreeの財務実績: 月商¥63250万円、営業利益¥22138万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -17151,7 +17228,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Beacons 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Beacons 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Beacons 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Beaconsは、「リンクまとめだけでなく、ファンから直接お金をもらったりメールを集めたい欲求」に悩むユーザーに対し、スマホ上で完結する美しいミニホームページをAIが数分で自動生成によって手作業を効率化し、少数精鋭で営業利益率35%を実現するソフトウェアモデル。",
@@ -17325,7 +17403,7 @@
       "【損益の実態】年商約¥22.8億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Beaconsの財務実績: 月商¥18975万円、営業利益¥6641万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -17370,7 +17448,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Stan Store 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Stan Store 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Stan Store 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Stan Storeは、「別のECサイト（Shopify等）に飛ばすと購入途中で離脱して売上が消える激痛」に悩むユーザーに対し、バイオリンクの中でそのままApple Payで1タップ決済・即時ダウンロード完了によって手作業を効率化し、少数精鋭で営業利益率40%を実現するソフトウェアモデル。",
@@ -17544,7 +17623,7 @@
       "【損益の実態】年商約¥30.4億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Stan Storeの財務実績: 月商¥25300万円、営業利益¥10120万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -17589,7 +17668,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Podia 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Podia 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Podia 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Podiaは、「売上が増えるたびにプラットフォームに手数料（5〜10%）を持っていかれる怒り」に悩むユーザーに対し、「取引手数料ゼロ・月額固定のみ」という強烈なアンチテーゼで乗り換えを促進によって手作業を効率化し、少数精鋭で営業利益率35%を実現するソフトウェアモデル。",
@@ -17763,7 +17843,7 @@
       "【損益の実態】年商約¥15.2億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Podiaの財務実績: 月商¥12650万円、営業利益¥4428万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -17808,7 +17888,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Teachable 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Teachable 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Teachable 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Teachableは、「Udemyの「1,200円セール」で自分の専門知識が買い叩かれる専門家の怒り」に悩むユーザーに対し、自分のドメインで数万円〜数十万円の高額コースを直販させ顧客リストを100%講師に還元によって手作業を効率化し、少数精鋭で営業利益率25%を実現するソフトウェアモデル。",
@@ -17982,7 +18063,7 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Teachableの財務実績: 月商¥63250万円、営業利益¥15813万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -18027,7 +18108,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Thinkific 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Thinkific 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Thinkific 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Thinkificは、「自社製品の使い方を動画で教えたいが自作システムの開発費がない企業の苦痛」に悩むユーザーに対し、ドラッグ＆ドロップで美しいクイズや終了証書を発行できるクラウドによって手作業を効率化し、少数精鋭で営業利益率15%を実現するソフトウェアモデル。",
@@ -18201,7 +18283,7 @@
       "【損益の実態】年商約¥83.5億円に対し、原価と経費を引いた営業利益率は15%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Thinkificの財務実績: 月商¥69575万円、営業利益¥10436万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -18246,7 +18328,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Kajabi 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Kajabi 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Kajabi 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Kajabiは、「WordPress、Mailchimp、Stripe、VimeoをZapierで繋いで連携が壊れる悪夢」に悩むユーザーに対し、「これ1つで起業できる」全部入りパッケージを成功者ステータスとして高額販売によって手作業を効率化し、少数精鋭で営業利益率30%を実現するソフトウェアモデル。",
@@ -18420,7 +18503,7 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は30%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Kajabiの財務実績: 月商¥126500万円、営業利益¥37950万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -18465,7 +18548,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Circle.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Circle.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Circle.so 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Circle.soは、「Slackで質問されてもチャットが流れて同じ質問に何回も回答させられる主宰者の疲労」に悩むユーザーに対し、Notionライクな美しいスレッド、イベントカレンダー、コース機能を1画面に統合によって手作業を効率化し、少数精鋭で営業利益率35%を実現するソフトウェアモデル。",
@@ -18639,7 +18723,7 @@
       "【損益の実態】年商約¥22.8億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Circle.soの財務実績: 月商¥18975万円、営業利益¥6641万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -18684,7 +18768,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Mighty Networks 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Mighty Networks 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Mighty Networks 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Mighty Networksは、「InstagramやXに投稿してもフォロワーの数%にしか表示されないリーチ制限の怒り」に悩むユーザーに対し、自社ブランドのロゴが入ったiOS/Androidアプリをノーコードで発行によって手作業を効率化し、少数精鋭で営業利益率25%を実現するソフトウェアモデル。",
@@ -18858,7 +18943,7 @@
       "【損益の実態】年商約¥22.8億円に対し、原価と経費を引いた営業利益率は25%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Mighty Networksの財務実績: 月商¥18975万円、営業利益¥4744万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -18903,7 +18988,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Tiny Capital 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Tiny Capital 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Tiny Capital 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Tiny Capitalは、「事業を売却したいがPEファンドに会社を解体されたくない創業者の愛着と不安」に直面する個人・事業者に対し、「買収後も経営に口を出さない・創業者を尊重する」方針で優良スモールビジネスを独占買付によって手数料と手続き負担を最小化し、営業利益率20%を実現する金融インフラモデル。",
@@ -19077,7 +19163,7 @@
       "【損益の実態】年商約¥227.7億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Tiny Capitalの財務実績: 月商¥189750万円、営業利益¥37950万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -19122,7 +19208,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Wise (TransferWise) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 GBP = ¥193.5 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Wise (TransferWise) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Wise (TransferWise) 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Wise (TransferWise)は、「海外に10万円送金するだけで銀行に数千円の手数料と悪いレートで掠め取られる激痛」に直面する個人・事業者に対し、「送金元の国の口座」と「送金先の国の口座」で相殺マッチングさせ国際送金を回避によって手数料と手続き負担を最小化し、営業利益率25%を実現する金融インフラモデル。",
@@ -19296,7 +19383,7 @@
       "【損益の実態】年商約¥1935.0億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Wise (TransferWise)の財務実績: 月商¥1612500万円、営業利益¥403125万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -19341,7 +19428,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Revolut 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 GBP = ¥193.5 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Revolut 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Revolut 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Revolutは、「海外旅行や外貨決済のたびに銀行やクレカ会社に為替手数料を上乗せされる損失感」に直面する個人・事業者に対し、アプリ内で数十通貨を為替手数料ゼロで瞬時に両替・デビット決済できる体験によって手数料と手続き負担を最小化し、営業利益率23%を実現する金融インフラモデル。",
@@ -19515,7 +19603,7 @@
       "【損益の実態】年商約¥4257.0億円に対し、原価と経費を引いた営業利益率は23%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Revolutの財務実績: 月商¥3547500万円、営業利益¥815925万円（営業利益率約23%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -19560,7 +19648,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Mercury 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Mercury 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Mercury 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Mercuryは、「大企業向けの古い銀行（Chase, BoA等）の使いにくいUIと理不尽な口座開設拒否」に直面する個人・事業者に対し、シリコンバレーのテック企業に特化し、500万ドルのFDIC預金保険と美しいUIを提供によって手数料と手続き負担を最小化し、営業利益率35%を実現する金融インフラモデル。",
@@ -19734,7 +19823,7 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Mercuryの財務実績: 月商¥253000万円、営業利益¥88550万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -19779,7 +19868,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Brex 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Brex 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Brex 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Brexは、「実績がないという理由で日本の大手カード会社から法人クレカの発行を断られる屈辱」に直面する個人・事業者に対し、VCから銀行口座に着金した預金残高をリアルタイムで見て与信枠を動的に設定によって手数料と手続き負担を最小化し、営業利益率20%を実現する金融インフラモデル。",
@@ -19953,7 +20043,7 @@
       "【損益の実態】年商約¥379.5億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Brexの財務実績: 月商¥316250万円、営業利益¥63250万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -19998,7 +20088,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Ramp 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Ramp 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Ramp 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Rampは、「社員が勝手に契約した幽霊SaaSに毎月何百万円も無駄金を垂れ流すCFOの胃痛」に直面する個人・事業者に対し、「うちのカードを使うと会社の無駄な経費が減ります」と訴求しCFOを歓喜させるによって手数料と手続き負担を最小化し、営業利益率25%を実現する金融インフラモデル。",
@@ -20172,7 +20263,7 @@
       "【損益の実態】年商約¥455.4億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rampの財務実績: 月商¥379500万円、営業利益¥94875万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -20217,7 +20308,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Deel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Deel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Deel 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Deelは、「海外人材を1人雇うためだけに現地の弁護士を雇い法人を作る数千万円と数ヶ月の浪費」を抱える顧客に対し、100カ国以上にDeelの現地法人を作り「Deelが雇用して顧客に貸し出す」合法配管によって他社では不可能な低価格と価値を提供し、営業利益率30%を実現する高収益店舗・製造モデル。",
@@ -20391,7 +20483,7 @@
       "【損益の実態】年商約¥759.0億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Deelの財務実績: 月商¥632500万円、営業利益¥189750万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -20436,7 +20528,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Remote 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Remote 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Remote 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Remoteは、「下請けの人材ブローカーにマージンを抜かれ現地の税金トラブルに巻き込まれる恐怖」を抱える顧客に対し、世界各国に自社100%子会社を地道に設立し手数料を競合の半額（月$599）に設定によって他社では不可能な低価格と価値を提供し、営業利益率25%を実現する高収益店舗・製造モデル。",
@@ -20610,7 +20703,7 @@
       "【損益の実態】年商約¥227.7億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Remoteの財務実績: 月商¥189750万円、営業利益¥47438万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -20655,7 +20748,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Oyster HR 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Oyster HR 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Oyster HR 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Oyster HRは、「アメリカや日本のエンジニア給与が高騰しすぎて自社で採用できないスタートアップの悲鳴」を抱える顧客に対し、新興国の現地通貨での即時送金と現地の法定福利厚生をクラウド上で一括代行によって他社では不可能な低価格と価値を提供し、営業利益率20%を実現する高収益店舗・製造モデル。",
@@ -20829,7 +20923,7 @@
       "【損益の実態】年商約¥91.1億円に対し、原価と経費を引いた営業利益率は20%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Oyster HRの財務実績: 月商¥75900万円、営業利益¥15180万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -20874,7 +20968,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Carta 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Carta 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Carta 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Cartaは、「エクセルで株主名簿を管理してストックオプションの計算ミスや法的手続きで大事故になる恐怖」に直面する個人・事業者に対し、法律事務所にCartaを無料配布して「弁護士側から顧客企業に導入させる」裏配管によって手数料と手続き負担を最小化し、営業利益率25%を実現する金融インフラモデル。",
@@ -21048,7 +21143,7 @@
       "【損益の実態】年商約¥379.5億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Cartaの財務実績: 月商¥316250万円、営業利益¥79063万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -21093,7 +21188,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Gusto 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Gusto 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Gusto 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Gustoは、「税務署への源泉徴収税の納付や福利厚生手続きのミスで罰金を食らう恐怖」に悩むユーザーに対し、新入社員が自分で個人情報をスマホで入力するだけで給与計算が勝手に完了するUIによって手作業を効率化し、少数精鋭で営業利益率20%を実現するソフトウェアモデル。",
@@ -21267,7 +21363,7 @@
       "【損益の実態】年商約¥759.0億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Gustoの財務実績: 月商¥632500万円、営業利益¥126500万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -21312,7 +21408,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Civitai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Civitai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Civitai 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Civitaiは、「ハイクオリティな美少女や背景を描くための最新AIモデル（LoRA）がどこにあるか分からない混乱」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、少数精鋭で営業利益率30%を叩き出すメディアモデル。",
@@ -21486,7 +21583,7 @@
       "【損益の実態】年商約¥18.2億円に対し、原価と経費を引いた営業利益率は30%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Civitaiの財務実績: 月商¥15180万円、営業利益¥4554万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -21531,7 +21628,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Phind 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 USD = ¥151.8 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Phind 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Phind 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Phindは、「エラーログでググってもStack Overflowの10年前の回答しか出ず動かない絶望」に悩むユーザーに対し、公式ドキュメントを最優先でクローリングし、実行可能なコードブロックのみを即返答によって手作業を効率化し、完全1人で営業利益率40%を実現するソフトウェアモデル。",
@@ -21705,7 +21803,7 @@
       "【損益の実態】年商約¥9.1億円に対し、原価と経費を引いた営業利益率は40%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Phindの財務実績: 月商¥7590万円、営業利益¥3036万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -21750,7 +21848,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Ghostery 公式公開資料 / 決算公表 / 創業者メトリクス (2024年) (1 EUR = ¥164.2 (2024年平均実勢レート))",
       "dataSnapshotPeriod": "2024年観測データ",
-      "sourceDoc": "Ghostery 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)"
+      "sourceDoc": "Ghostery 公式公開資料 / 決算公表 / 創業者メトリクス (2024年)",
+      "originType": "reported"
     },
     "essence": {
       "whatItDoes": "Ghosteryは、「閲覧履歴を追跡されてネット上に同じ商品の追っかけ広告が出る気味悪さと不快感」に悩むユーザーに対し、サイト上でどの企業（Facebook, Google等）が個人情報を盗んでいるかを可視化・一括遮断によって手作業を効率化し、少数精鋭で営業利益率35%を実現するソフトウェアモデル。",
@@ -21924,7 +22023,7 @@
       "【損益の実態】年商約¥13.1億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ghosteryの財務実績: 月商¥10947万円、営業利益¥3831万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -21970,7 +22069,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "2024年8月期有価証券報告書 売上高1,180億円 / 営業利益122億円",
       "dataSnapshotPeriod": "2024年8月期通期決算",
-      "sourceDoc": "株式会社SHIFT 2024年8月期 有価証券報告書 / 決算説明資料"
+      "sourceDoc": "株式会社SHIFT 2024年8月期 有価証券報告書 / 決算説明資料",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 12000,
@@ -22143,7 +22243,7 @@
       "targetCustomer": "バグによるシステム障害や炎上を極度に恐れながらも、社内エンジニアにテストをやらせる工数がない大手SIer・事業会社。",
       "painRelief": "開発終盤のバグ多発による納期遅延とリリース延期の恐怖を解消し、開発者の負担をゼロにして品質を担保する。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -22189,7 +22289,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "2023年SEC Form 10-K / 2023年11月連邦破産法11条申請記録",
       "dataSnapshotPeriod": "2023年破産直前通期メトリクス",
-      "sourceDoc": "SEC Form 10-K (2022-2023) / 米国ニュージャージー州連邦破産裁判所提出資料"
+      "sourceDoc": "SEC Form 10-K (2022-2023) / 米国ニュージャージー州連邦破産裁判所提出資料",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 15000,
@@ -22344,7 +22445,7 @@
       "targetCustomer": "オシャレなオフィス空間や無料ビールを好むスタートアップやフリーランス（景気後退やリモート移行で真っ先に解約する層）。",
       "painRelief": "オフィス需要を過大評価し、パンデミックと景気後退による解約ラッシュで毎月数百億円の賃料赤字を垂れ流して破綻。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -22386,11 +22487,10 @@
       "operatingMargin": 22.2,
       "estimatedAnnualNetProfit": 162000000,
       "financialStatus": "VERIFIED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
       "revenueLabel": "公式Baremetrics公開 ARR $6.5M（年商約10億円）",
       "dataSnapshotPeriod": "2024年公式オープンメトリクス（有料ホスティング会員25,000人超）",
-      "sourceDoc": "Ghost Open Baremetrics / John O'Nolan年次報告"
+      "sourceDoc": "Ghost Open Baremetrics / John O'Nolan年次報告",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 25,
@@ -22553,7 +22653,7 @@
       "targetCustomer": "SubstackやMediumの手数料（売上の10%）を嫌い、自分の独自ドメインと読者リストを100%所有して有料課金を行いたい独立系メディア・作家。",
       "painRelief": "売上手数料ゼロ・サーバー管理の手間ゼロで、書くことと購読者集めに集中できる環境を提供する。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -22599,7 +22699,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "破綻後の調査開示 月間売上ほぼゼロ / 月間出血 約¥7億円",
       "dataSnapshotPeriod": "2003年創業 ➔ 2018年完全解散・SEC起訴・有罪判決",
-      "sourceDoc": "SEC起訴状 / WSJジョン・キャリールー特報「Bad Blood」 / 連邦裁判記録"
+      "sourceDoc": "SEC起訴状 / WSJジョン・キャリールー特報「Bad Blood」 / 連邦裁判記録",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 800,
@@ -22745,7 +22846,7 @@
       "targetCustomer": "医療の民主化という美名に幻惑された著名投資家、薬局チェーン大手、および手軽な血液検査を求めた一般患者。",
       "painRelief": "既存の採血に伴う痛みと高額な検査費用の解消を謳ったが、実際には自社技術が機能せず、競合他社の機器で希釈検査を行う違法行為で完全崩壊。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -22791,7 +22892,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "破綻後の調査開示 取引手数料 月商約¥12億 / 月間資金流出 約¥34億円",
       "dataSnapshotPeriod": "2019年創業 ➔ 2022年11月連邦破産法第11条適用・破綻",
-      "sourceDoc": "ジョン・J・レイ三世破産管財人報告書 / 連邦裁判公判記録"
+      "sourceDoc": "ジョン・J・レイ三世破産管財人報告書 / 連邦裁判公判記録",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 300,
@@ -22936,7 +23038,7 @@
       "targetCustomer": "高レバレッジ取引や高い利回りを求めた世界中の暗号資産トレーダー、機関投資家、およびVCファンド。",
       "painRelief": "迅速な取引執行と高い流動性を提供していたが、裏付けのない準備金と顧客資産の私的流用が露呈した瞬間に取り付け騒ぎが起き、わずか数日で即死破綻。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -22982,7 +23084,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者Tony Dinh公開メトリクス 月商 $60,000（約900万円）",
       "dataSnapshotPeriod": "2024年最新 累計売上 $1M突破",
-      "sourceDoc": "Tony Dinh X公式公開ダッシュボード / IndieHackers特集"
+      "sourceDoc": "Tony Dinh X公式公開ダッシュボード / IndieHackers特集",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 1,
@@ -23155,7 +23258,7 @@
       "targetCustomer": "ChatGPT Plusの月額$20や利用制限（3時間40通）に不満を持ち、高速・無制限・多機能に最新AIモデルを使い倒したいパワーユーザーやエンジニア。",
       "painRelief": "サブスク固定費の負担と公式Webの使いにくさを解消し、1回の買い切りで自分のAPIキーを使った快適なAI環境を提供する。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -23201,7 +23304,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者Jon Yongfook公開 MRR $50,000（月商約750万円）",
       "dataSnapshotPeriod": "2024年 MRR $50K（有料顧客700社超）",
-      "sourceDoc": "Jon Yongfook公式ブログ Open Metrics / IndieHackers AMA"
+      "sourceDoc": "Jon Yongfook公式ブログ Open Metrics / IndieHackers AMA",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 1,
@@ -23374,7 +23478,7 @@
       "targetCustomer": "記事を公開するたびにPhotoshopやCanvaでアイキャッチ画像を手動作成する作業に追われているマーケターやEC運営者。",
       "painRelief": "単調な画像リサイズや文字入れ作業の繰り返しによる時間浪費と人的ミスをゼロにする。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -23416,11 +23520,10 @@
       "operatingMargin": 22,
       "estimatedAnnualNetProfit": 990000000,
       "financialStatus": "VERIFIED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
       "revenueLabel": "公式Baremetricsダッシュボード公開 ARR $40M（年商約60億円）",
       "dataSnapshotPeriod": "2024年公開ダッシュボード（ARR $40M達成）",
-      "sourceDoc": "ConvertKit Open Baremetrics / Nathan Barry公式年次決算報告書"
+      "sourceDoc": "ConvertKit Open Baremetrics / Nathan Barry公式年次決算報告書",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 80,
@@ -23588,7 +23691,7 @@
       "targetCustomer": "SNSのアルゴリズム変更でリーチを奪われる恐怖を抱え、自前の読者リストを直接囲い込んでマネタイズしたいオンラインクリエイター。",
       "painRelief": "難解なマーケティングオートメーションの設定苦痛を解消し、タグベースの直感的な配信でファンのLTVを最大化する。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -23634,7 +23737,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者Adam Wathan公開メトリクス 年商 $15M（約22.5億円）",
       "dataSnapshotPeriod": "2024年 年商 $15M突破",
-      "sourceDoc": "Adam Wathan公式ポッドキャスト / Twitter公開売上報告"
+      "sourceDoc": "Adam Wathan公式ポッドキャスト / Twitter公開売上報告",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 8,
@@ -23802,7 +23906,7 @@
       "targetCustomer": "デザインセンスに自信がないバックエンドエンジニアや、素早く洗練されたUIを構築したいフロントエンド開発チーム。",
       "painRelief": "CSSの命名に悩む時間、肥大化するスタイルシートの破綻、デザイン作成の外注コストを完全に削減する。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -23844,11 +23948,10 @@
       "operatingMargin": 32.8,
       "estimatedAnnualNetProfit": 75600000000,
       "financialStatus": "VERIFIED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
       "revenueLabel": "東証プライム有価証券報告書開示 年商 3,077億円",
       "dataSnapshotPeriod": "2024年3月期 有価証券報告書本決算",
-      "sourceDoc": "EDINET提出 有価証券報告書 / 株式会社ディスコ公式IR"
+      "sourceDoc": "EDINET提出 有価証券報告書 / 株式会社ディスコ公式IR",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 4500,
@@ -24011,7 +24114,7 @@
       "targetCustomer": "TSMC、サムスン、Intel、NVIDIAなど、微細化と薄型化が進む最先端半導体を製造する世界の半導体ファブ・OSAT。",
       "painRelief": "高価な半導体ウエハを割らずに超極薄まで均一に削り分ける物理的難題を解消し、歩留まり向上と量産スピードを保証する。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -24057,7 +24160,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "破綻後の調査開示 月商約¥75万 / 月間赤字 約¥15億円",
       "dataSnapshotPeriod": "2019年創業 ➔ 2022年4月完全操業停止・破綻",
-      "sourceDoc": "The Informationスクープ報道 / NPR破綻レポート / Stripe投資先調査記録"
+      "sourceDoc": "The Informationスクープ報道 / NPR破綻レポート / Stripe投資先調査記録",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 400,
@@ -24202,7 +24306,7 @@
       "targetCustomer": "カゴ落ちを減らしたい中小EC事業者（しかし実際の決済シェアはShopify PayやApple Payが独占）。",
       "painRelief": "ECサイトの住所・カード情報入力の面倒さを解消しようとしたが、プラットフォーマーの標準機能に一撃で無力化され、巨額固定費で出血死。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -24248,7 +24352,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者X/ARRFounder公開 MRR $33,000（月商約495万円）",
       "dataSnapshotPeriod": "2025年最新 MRR $33K（1,000社超）",
-      "sourceDoc": "ARRFounder報道 / 創業者Dmytro Krasun公開メトリクス / 公式価格表"
+      "sourceDoc": "ARRFounder報道 / 創業者Dmytro Krasun公開メトリクス / 公式価格表",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 1,
@@ -24445,7 +24550,7 @@
         "無料枠（100回）でフックをかけ、本番バッチ処理で月額$79〜$259プランへ自動昇格させる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -24491,7 +24596,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者LinkedIn / IndieLessons公開 ARR $5M（約7.5億円）",
       "dataSnapshotPeriod": "2024年 ARR $5M達成 ➔ 2025年8桁ドル（数十億円）売却",
-      "sourceDoc": "Pierre de Wulf LinkedIn公認メトリクス / IndieLessonsエグジット特集 / 公式価格表"
+      "sourceDoc": "Pierre de Wulf LinkedIn公認メトリクス / IndieLessonsエグジット特集 / 公式価格表",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 4,
@@ -24688,7 +24794,7 @@
         "データ収集が定常業務になった企業から月額$249〜$599のサブスクを永続的に吸い上げる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -24835,7 +24941,8 @@
       "estimatedAnnualNetProfit": 360000000000,
       "financialStatus": "VERIFIED",
       "dataSnapshotPeriod": "2024年3月期通期決算",
-      "sourceDoc": "有価証券報告書 (東証プライム: 6861)"
+      "sourceDoc": "有価証券報告書 (東証プライム: 6861)",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 10500,
@@ -25020,7 +25127,7 @@
         "競合が相見積もりを出す前に、即日デモ機を持ち込んで現場検証を完了させ即決させる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -25165,7 +25272,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023年GMV推計",
       "sourceDoc": "年間取扱高$1兆 ＆ 手数料マージン逆算方程式",
-      "estimationLogic": "【売上因数分解】\n月間取扱高GMV 約¥12.5兆 × Stripe実効手数料率（約1.2%手残り） ＝ 実質月商 約¥1,500億\n\n【原価因数分解】\nカードブランド（Visa/Mastercard）インターチェンジフィー原価（約65%） ＝ 粗利率 約35%"
+      "estimationLogic": "【売上因数分解】\n月間取扱高GMV 約¥12.5兆 × Stripe実効手数料率（約1.2%手残り） ＝ 実質月商 約¥1,500億\n\n【原価因数分解】\nカードブランド（Visa/Mastercard）インターチェンジフィー原価（約65%） ＝ 粗利率 約35%",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 8000,
@@ -25343,7 +25453,7 @@
         "初期ユーザーのコードに直接埋め込み、最初のトランザクションが通る瞬間を横で担保する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -25773,7 +25883,8 @@
       "isMarginUnconfirmed": true,
       "revenueLabel": "創業者X公開ARR $1.2M（月商約1,500万円）",
       "dataSnapshotPeriod": "2024年 創業者X公開ARR .2M",
-      "sourceDoc": "Pieter Levels X（@levelsio）公開収益ダッシュボード"
+      "sourceDoc": "Pieter Levels X（@levelsio）公開収益ダッシュボード",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -25931,7 +26042,7 @@
         "制作プロセスをSNSで全公開して広告費ゼロで初期顧客を獲得する"
       ]
     },
-    "publishability": "RAW",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -26065,7 +26176,8 @@
       "estimatedAnnualNetProfit": 430800000,
       "financialStatus": "VERIFIED",
       "dataSnapshotPeriod": "2024年観測魚拓",
-      "sourceDoc": "Pieter Levels本人公式Stripe公開メトリクス"
+      "sourceDoc": "Pieter Levels本人公式Stripe公開メトリクス",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 1,
@@ -26284,7 +26396,7 @@
         "スプシをそのままWebサイトに変換し、詳細データ閲覧とコミュニティ参加を有料化する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -26330,7 +26442,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "公式Open Stats公開 MRR $135,000（月商約2,025万円）",
       "dataSnapshotPeriod": "2024年公開ダッシュボード（有料顧客12,000社超）",
-      "sourceDoc": "Plausible Open Metrics / 創業者ブログ公開P&L"
+      "sourceDoc": "Plausible Open Metrics / 創業者ブログ公開P&L",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 2,
@@ -26498,7 +26611,7 @@
       "targetCustomer": "複雑で動作が重く、プライバシー規制で同意バナーの設置を強要されるGoogle Analytics 4（GA4）に激しい不満を抱くサイト運営者。",
       "painRelief": "GA4の難解な設定画面とサイト読み込み速度の低下、およびCookie同意バナーによる離脱の悩みを即座に解決する。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -26616,7 +26729,8 @@
       "estimatedAnnualNetProfit": 178800000,
       "financialStatus": "VERIFIED",
       "dataSnapshotPeriod": "2023年通期収益報告",
-      "sourceDoc": "Transistor.fm公式 収益ブログ ＆ 公開ポッドキャスト"
+      "sourceDoc": "Transistor.fm公式 収益ブログ ＆ 公開ポッドキャスト",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 2,
@@ -26833,7 +26947,7 @@
         "初期からカード登録必須の有料ベータを行い、最初から黒字の状態でローンチする"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -26965,7 +27079,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2024年観測推計",
       "sourceDoc": "公開価格 ＆ ユーザーID逆算方程式",
-      "estimationLogic": "【売上因数分解】\n有料プラン月額$5（約¥750） × 有料推定契約5,000アカウント ＝ 月商 約¥380万\n\n【原価因数分解】\nAWS EC2/RDSインフラ月額推定$500 ＋ Stripe 2.9% ＝ 原価率 約8.2%（粗利率91.8%）"
+      "estimationLogic": "【売上因数分解】\n有料プラン月額$5（約¥750） × 有料推定契約5,000アカウント ＝ 月商 約¥380万\n\n【原価因数分解】\nAWS EC2/RDSインフラ月額推定$500 ＋ Stripe 2.9% ＝ 原価率 約8.2%（粗利率91.8%）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 1,
@@ -27183,7 +27300,7 @@
         "相手のコンテンツを使って勝手にサンプルを作り、「断る理由がない状態」で直接DM営業する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -27296,7 +27413,8 @@
       "estimatedAnnualNetProfit": 520000000,
       "financialStatus": "VERIFIED",
       "dataSnapshotPeriod": "リアルタイム公開メトリクス",
-      "sourceDoc": "Buffer公式 Open Dashboard (全給与・原価公開)"
+      "sourceDoc": "Buffer公式 Open Dashboard (全給与・原価公開)",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 80,
@@ -27518,7 +27636,7 @@
         "外部資金に頼らず利益を内部留保し、資本主義の自主独立権を死守する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -27637,7 +27755,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2024年観測推計",
       "sourceDoc": "注文番号解析 ＆ AI推論原価逆算方程式",
-      "estimationLogic": "【売上因数分解】\n平均単価 $39（約¥5,800） × 月間推定7,700注文件数 ＝ 月商 約¥4,500万\n\n【原価因数分解】\nStable Diffusion推論API（1回約$0.80×20枚＝約$16） ＋ Stripe手数料（2.9%+$0.30） ＝ 原価率 約35%（粗利率65%）"
+      "estimationLogic": "【売上因数分解】\n平均単価 $39（約¥5,800） × 月間推定7,700注文件数 ＝ 月商 約¥4,500万\n\n【原価因数分解】\nStable Diffusion推論API（1回約$0.80×20枚＝約$16） ＋ Stripe手数料（2.9%+$0.30） ＝ 原価率 約35%（粗利率65%）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 1,
@@ -27817,7 +27938,7 @@
         "チーム単位（10人〜100人）の一括決済プランを用意し、客単価を10倍に引き上げる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -27936,7 +28057,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2024年Gumroad推計",
       "sourceDoc": "Xフォロワー規模 ＆ Gumroadランキング逆算",
-      "estimationLogic": "【売上因数分解】\nNotionテンプレート単価$49〜$99 × 月間推定550件ダウンロード ＝ 月商 約¥650万\n\n【原価因数分解】\nGumroad手数料（10%） ＋ メール配信SaaS代（月数万円） ＝ 粗利率 約95%"
+      "estimationLogic": "【売上因数分解】\nNotionテンプレート単価$49〜$99 × 月間推定550件ダウンロード ＝ 月商 約¥650万\n\n【原価因数分解】\nGumroad手数料（10%） ＋ メール配信SaaS代（月数万円） ＝ 粗利率 約95%",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 1,
@@ -28119,7 +28243,7 @@
         "無料配布でメアドを集め、高単価なオールインワン型ダッシュボードを買い切り販売する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -28166,7 +28290,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "推定年間売上$10M+（買い手パス＋成約手数料4-6%）",
       "sourceDoc": "Acquire.com公開料金体系・取引手数料モデル（既存収集カード、一次数値の突合は未完了）",
-      "estimationLogic": "入力: 買い手パス価格と成約手数料モデル、既存カードの取引規模推定。月商=価格×推定契約数＋成約手数料、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。全て推計であり、会社単体の監査済みP&Lではない。"
+      "estimationLogic": "入力: 買い手パス価格と成約手数料モデル、既存カードの取引規模推定。月商=価格×推定契約数＋成約手数料、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。全て推計であり、会社単体の監査済みP&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -28325,7 +28450,7 @@
         "案件を一覧化したニュースレターを作り、買い手から「優先閲覧権」として月額課金を回収する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -28437,7 +28562,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023年D2C推計",
       "sourceDoc": "定期購入会員数 ＆ 食品OEM業界相場方程式",
-      "estimationLogic": "【売上因数分解】\n1箱$10（4箱セット$39） × 月間推定アクティブ定期会員約21万件 ＝ 月商 約¥12.5億\n\n【原価因数分解】\n食品ファブレス製造受託原価（45%） ＋ 広告宣伝費率（Meta/TikTok 約28%） ＝ 営業利益率 約17%"
+      "estimationLogic": "【売上因数分解】\n1箱$10（4箱セット$39） × 月間推定アクティブ定期会員約21万件 ＝ 月商 約¥12.5億\n\n【原価因数分解】\n食品ファブレス製造受託原価（45%） ＋ 広告宣伝費率（Meta/TikTok 約28%） ＝ 営業利益率 約17%",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 45,
@@ -28568,7 +28696,7 @@
         "③ 音声メディアでまとめ買いを直販"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -28671,7 +28799,10 @@
       "estimatedAnnualNetProfit": 7560000000,
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023年通期報道",
-      "sourceDoc": "Bloomberg / Forbes 報道 (売上約$263M)"
+      "sourceDoc": "Bloomberg / Forbes 報道 (売上約$263M)",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 120,
@@ -28796,7 +28927,7 @@
         "③ 缶にして環境倫理を免罪符にする"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -28907,7 +29038,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2024年AppStore推計",
       "sourceDoc": "サブスク単価 ＆ AppStoreレビュー規模逆算",
-      "estimationLogic": "【売上因数分解】\n月額$11.99（年$71.99） × 有料アクティブ推定60,000人 ＝ 月商 約¥8,000万\n\n【原価因数分解】\nAppleプラットフォーム手数料（15%） ＋ サーバー原価 ＝ 粗利率 約90%"
+      "estimationLogic": "【売上因数分解】\n月額$11.99（年$71.99） × 有料アクティブ推定60,000人 ＝ 月商 約¥8,000万\n\n【原価因数分解】\nAppleプラットフォーム手数料（15%） ＋ サーバー原価 ＝ 粗利率 約90%",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 5,
@@ -29038,7 +29172,7 @@
         "③ 完全有料で広告を排除"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -29149,7 +29283,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023年買収時推計",
       "sourceDoc": "Go1による買収報道 ＆ サブスク会員数逆算",
-      "estimationLogic": "【売上因数分解】\n年額$99サブスク × 推定有料会員35万人 ÷ 12ヶ月 ＝ 月商 約¥4.5億\n\n【原価因数分解】\n音声ナレーション＋要約制作委託費 ＋ ストア手数料（約20%） ＝ 粗利率 約80%"
+      "estimationLogic": "【売上因数分解】\n年額$99サブスク × 推定有料会員35万人 ÷ 12ヶ月 ＝ 月商 約¥4.5億\n\n【原価因数分解】\n音声ナレーション＋要約制作委託費 ＋ ストア手数料（約20%） ＝ 粗利率 約80%",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 150,
@@ -29274,7 +29411,7 @@
         "③ 年額前金でキャッシュを回収し広告へ再投資"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -29384,7 +29521,10 @@
       "estimatedAnnualNetProfit": 24000000000,
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "Edgewell買収合意時公表値",
-      "sourceDoc": "米国SEC届出開示資料 (年間売上約$800M)"
+      "sourceDoc": "米国SEC届出開示資料 (年間売上約$800M)",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 600,
@@ -29509,7 +29649,7 @@
         "③ 定期便でLTVを極大化"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -29624,7 +29764,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023年通期報道",
       "sourceDoc": "The Information 報道 (売上$200M〜$300M / 完全自前ブートストラップ)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 11,
@@ -29765,7 +29907,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -29811,7 +29953,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者AJ公開メトリクス ARR $2.5M（年商約3.75億円）",
       "dataSnapshotPeriod": "2024年 ARR $2.5M（有料会員12万人超）",
-      "sourceDoc": "IndieHackersインタビュー / 創業者AJ公開Xポスト / 公式価格表"
+      "sourceDoc": "IndieHackersインタビュー / 創業者AJ公開Xポスト / 公式価格表",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 1,
@@ -29984,7 +30127,7 @@
       "targetCustomer": "WordPressやWebflowの多機能さや高額な月額料金（月数千円）を持て余し、シンプルなLPを安く早く公開したい個人・個人事業主。",
       "painRelief": "サーバー契約、ドメイン設定、難解なデザインツールの学習にかかる時間とコストを極小化し、1クリックでWeb公開を完了させる。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -30030,7 +30173,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者Sahil Lavingia公開 年商 $10M（約15億円）",
       "dataSnapshotPeriod": "2024年公開決算レポート（取扱高 $100M+）",
-      "sourceDoc": "Gumroad Public Financials / Sahil Lavingia公式ブログ"
+      "sourceDoc": "Gumroad Public Financials / Sahil Lavingia公式ブログ",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 0,
@@ -30193,7 +30337,7 @@
       "targetCustomer": "自前のECサイト（ShopifyやWooCommerce）を構築・維持する技術や固定費がなく、手軽にデジタル資産を売りたいクリエイターや副業者。",
       "painRelief": "決済プロバイダの審査待ち、税務処理、ファイル自動配信の設定などの面倒なバックエンド業務をすべて丸投げさせる。"
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -30285,7 +30429,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "創業者年次インタビュー",
       "sourceDoc": "DHH / Jason Fried ポッドキャスト発言・公式ブログ",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 60,
@@ -30426,7 +30572,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -30518,7 +30664,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023年資金調達報道",
       "sourceDoc": "TechCrunch / Accel出資公表データ (ARR $20M+)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 45,
@@ -30659,7 +30807,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -30751,7 +30899,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年通期観測",
       "sourceDoc": "Forbes / The Information 報道 (ARR $300M超)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 500,
@@ -30892,7 +31042,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -30984,7 +31134,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年Series B調達時",
       "sourceDoc": "TechCrunch / NEA出資公表データ (ARR $20M+)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 35,
@@ -31125,7 +31277,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -31218,7 +31370,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023年公式年次レポート",
       "sourceDoc": "創業者Nathan Barry公開年次収益レポート (ARR $40M+)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 85,
@@ -31359,7 +31513,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -31451,7 +31605,7 @@
       "financialStatus": "VERIFIED",
       "dataSnapshotPeriod": "2023年通期公表決算",
       "sourceDoc": "米国SEC Form S-1 / 決算短信",
-      "isRevenueUnconfirmed": false
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 1800,
@@ -31592,7 +31746,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -31684,7 +31838,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023年ARR報道",
       "sourceDoc": "Forbes / Bloomberg 報道 (ARR 約$250M)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 650,
@@ -31825,7 +31981,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -31917,7 +32073,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023年通期報道",
       "sourceDoc": "Bloomberg 報道 (売上約$600M / 営業利益率約10%)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 350,
@@ -32058,7 +32216,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -32150,7 +32308,9 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年累積出荷報道",
       "sourceDoc": "Bloomberg 報道 (累計250万台突破 / 年商約$500M)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 800,
@@ -32291,7 +32451,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -32385,7 +32545,9 @@
       "dataSnapshotPeriod": "2024年アプリストア推計",
       "sourceDoc": "Shopifyアプリストア掲載数 ＆ プラン単価逆算",
       "estimationLogic": "【売上因数分解】\n累計10万導入店舗 × 有料Awesomeプラン（$15/月）転換率推定8% ＝ 月商 約¥1.5億\n\n【原価因数分解】\nAWS S3画像保存＋サーバーレスAPI原価（約6.7%） ＝ 粗利率 約93.3%",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 20,
@@ -32526,7 +32688,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -32619,7 +32781,9 @@
       "dataSnapshotPeriod": "2024年アプリストア推計",
       "sourceDoc": "Shopifyレビュー数 ＆ 単価逆算方程式",
       "estimationLogic": "【売上因数分解】\n推定有料契約25,000店舗 × 平均客単価（約$35/月） ＝ 月商 約¥1.3億\n\n【原価因数分解】\nCloudFront配信＋画像処理サーバー原価（約7%） ＝ 粗利率 約93%",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 30,
@@ -32760,7 +32924,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -32852,7 +33016,7 @@
       "financialStatus": "VERIFIED",
       "dataSnapshotPeriod": "2020年事業売却前実績",
       "sourceDoc": "Baremetrics公式 Open Startup メトリクス",
-      "isRevenueUnconfirmed": false
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 8,
@@ -32993,7 +33157,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -33087,7 +33251,9 @@
       "dataSnapshotPeriod": "2024年観測推計",
       "sourceDoc": "公開プラン価格 ＆ 監視ターゲット規模逆算",
       "estimationLogic": "【売上因数分解】\n平均客単価$85/月 × 推定有料契約23,500チーム ＝ 月商 約¥3.0億\n\n【原価因数分解】\nグローバル死活監視ノード＋ClickHouseサーバー原価（約12%） ＝ 粗利率 約88%",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 25,
@@ -33228,7 +33394,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -33348,7 +33514,9 @@
       "financialStatus": "POST_MORTEM",
       "dataSnapshotPeriod": "2023年大量解雇・CEO交代時",
       "sourceDoc": "TechCrunch解雇報道 ＆ GPT-4直撃後のARR急落ログ",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 300,
@@ -33489,7 +33657,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -33535,7 +33703,8 @@
       "isMarginUnconfirmed": true,
       "revenueLabel": "最盛期推定月商¥5,000万 / 毎月1.3億円超の資金流出",
       "dataSnapshotPeriod": "2021年 最盛期推定",
-      "sourceDoc": "PitchBook / TechCrunch 報道資料"
+      "sourceDoc": "PitchBook / TechCrunch 報道資料",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -33687,7 +33856,7 @@
         "ユーザーが他社へ移籍できないよう「過去ログ検索」を人質資産にする"
       ]
     },
-    "publishability": "RAW",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -33733,7 +33902,8 @@
       "isMarginUnconfirmed": true,
       "revenueLabel": "破綻報道開示 月商約¥4.5億 / 月間赤字 約¥40.5億円",
       "dataSnapshotPeriod": "2020年4月ローンチ ➔ 2020年10月会社清算・解散",
-      "sourceDoc": "The Wall Street Journal失敗の検証報道 / 会社解散声明文 / SEC清算記録"
+      "sourceDoc": "The Wall Street Journal失敗の検証報道 / 会社解散声明文 / SEC清算記録",
+      "originType": "reported"
     },
     "operations": {
       "teamSize": 250,
@@ -33878,7 +34048,7 @@
       "targetCustomer": "通勤・通学のスキマ時間に高品質なドラマを見たいと想定した若年層（実際はTikTokやInstagramを見ていた）。",
       "painRelief": "移動中の退屈の切除を狙ったが、月額有料課金とスクリーンショット禁止という閉鎖的UIがユーザーの反発を招き、即死。"
     },
-    "publishability": "RAW",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -33996,7 +34166,9 @@
       "financialStatus": "POST_MORTEM",
       "dataSnapshotPeriod": "2023年主要事業売却時",
       "sourceDoc": "評価額$7.75B ➔ $15M事業投げ売り清算ログからの逆算",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 1000,
@@ -34131,7 +34303,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -34248,7 +34420,9 @@
       "financialStatus": "POST_MORTEM",
       "dataSnapshotPeriod": "2016年SEC罰金・CEO辞任時",
       "sourceDoc": "SEC処分決定書 ＆ 保険当局公表ログからの出血逆算",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "operations": {
       "teamSize": 1600,
@@ -34383,7 +34557,7 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -34428,7 +34602,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "年間受講生約700名＋ニュースレター広告（推計月商3,750万円）",
       "sourceDoc": "Demand Curve公開講座価格・受講規模と既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: 講座価格×年間受講生約700名÷12＋ニュースレター広告の推定。月商=講座売上÷12＋広告売上、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。受講者数・広告売上・費用は推計で、会社単体の監査済みP&Lではない。"
+      "estimationLogic": "入力: 講座価格×年間受講生約700名÷12＋ニュースレター広告の推定。月商=講座売上÷12＋広告売上、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。受講者数・広告売上・費用は推計で、会社単体の監査済みP&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -34593,7 +34768,7 @@
         "「限定20名・3週間の超実践集中キャンプ（30万円）」を四半期ごとに募集して前金を総取りする"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -34637,7 +34812,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$40M / 60億円規模）",
       "sourceDoc": "Forbes, Inc.報道およびShark Tank出演後トラクションデータ",
-      "estimationLogic": "推定会員数約40万人 × 平均月間LTV/リフィル代 約$8〜$10 ＝ 月商約$3.3M（約¥5億円）"
+      "estimationLogic": "推定会員数約40万人 × 平均月間LTV/リフィル代 約$8〜$10 ＝ 月商約$3.3M（約¥5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -34893,7 +35071,7 @@
         "初回セットでCACを回収し、ポスト投函リフィルで粗利75%の定額サブスク網を構築"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -34937,7 +35115,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$1M+規模）",
       "sourceDoc": "創業者Brennan Dunn公開レポートおよび各種ポッドキャスト出演ログ",
-      "estimationLogic": "オンライン講座（$299〜$999）受講者年間約1,200名 ＋ コミュニティ会費 ＝ 年商約$1M（月商 約¥1,250万）"
+      "estimationLogic": "オンライン講座（$299〜$999）受講者年間約1,200名 ＋ コミュニティ会費 ＝ 年商約$1M（月商 約¥1,250万）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -35192,7 +35373,7 @@
         "最終日に3万〜10万円の「価格交渉完全パッケージ」を販売し、不労所得配管を固定化"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -35237,7 +35418,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "PTYA年2回募集＋デジタル商品（推計年商$5Mペース）",
       "sourceDoc": "Ali Abdaal公開収益情報・PTYA価格表と既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: PTYA受講料×年2回募集の推定人数＋デジタル商品の推定売上。月商=年間推定売上÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。人数・売上・費用は推計で、事業全体の監査済みP&Lではない。"
+      "estimationLogic": "入力: PTYA受講料×年2回募集の推定人数＋デジタル商品の推定売上。月商=年間推定売上÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。人数・売上・費用は推計で、事業全体の監査済みP&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -35402,7 +35584,7 @@
         "「未経験から自分と同じポジションに到達するための6週間集中プログラム」を作り、高単価で年2回限定ローンチする"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -35446,7 +35628,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（ARR $100M+ / 年商約150億円規模）",
       "sourceDoc": "The Information, TechCrunch報道およびVC調達開示データ",
-      "estimationLogic": "年額約$180サブスク会員推定80万〜100万人 ＋ 法人契約 ＝ 年商約$100M〜$150M（月商 約¥12.5億円）"
+      "estimationLogic": "年額約$180サブスク会員推定80万〜100万人 ＋ 法人契約 ＝ 年商約$100M〜$150M（月商 約¥12.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -35695,7 +35880,7 @@
         "年額制のプレミアム配信プラットフォームとしてローンチし、高LTVを固定化"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -35739,7 +35924,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商$300M+ / 約450億円規模）",
       "sourceDoc": "Forbes, CNBC報道および公式B Corp開示レポート",
-      "estimationLogic": "年間出荷数約2,000万足超 × 平均客単価（複数足パック $45〜$65） ＝ 年商約$300M（月商 約¥37.5億円）"
+      "estimationLogic": "年間出荷数約2,000万足超 × 平均客単価（複数足パック $45〜$65） ＝ 年商約$300M（月商 約¥37.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -35988,7 +36176,7 @@
         "まとめ買いパック（3個〜5個セット）をデフォルトにして客単価を跳ね上げる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -36032,7 +36220,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$133M〜$150M / 約200億〜225億円規模）",
       "sourceDoc": "Wall Street Journal, TIME, Bloomberg報道",
-      "estimationLogic": "年間販売個数約50万〜60万個 × 平均客単価（$275〜$345） ＝ 年商約$150M（月商 約¥16.6億円）"
+      "estimationLogic": "年間販売個数約50万〜60万個 × 平均客単価（$275〜$345） ＝ 年商約$150M（月商 約¥16.6億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -36281,7 +36472,7 @@
         "インフルエンサーの旅行・お出かけ写真に溶け込ませてD2C直販で高粗利を取る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -36326,7 +36517,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Gumroadデジタル直販（月商約125万円・手残り80%）",
       "sourceDoc": "Red Gregory公開Gumroadストア・YouTube導線と既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: 公開テンプレート価格×推定販売件数。月商=平均単価×推定販売件数、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。販売件数と費用は推計で、実績P&Lではない。"
+      "estimationLogic": "入力: 公開テンプレート価格×推定販売件数。月商=平均単価×推定販売件数、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。販売件数と費用は推計で、実績P&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -36485,7 +36677,7 @@
         "YouTubeで作り方を10分で解説し、概要欄にGumroadリンクを貼る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -36529,7 +36721,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$800k / 1.2億円規模）",
       "sourceDoc": "創業者Justin Mooreポッドキャスト公開発言およびニュースレターレポート",
-      "estimationLogic": "実践スクール（$1,500〜$3,000）年間数百名受講 ＋ スポンサーシップ紹介 ＝ 年商約$800k（月商 約¥1,000万）"
+      "estimationLogic": "実践スクール（$1,500〜$3,000）年間数百名受講 ＋ スポンサーシップ紹介 ＝ 年商約$800k（月商 約¥1,000万）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -36779,7 +36974,7 @@
         "「単価倍増ピッチマスター講座」をコホート型（1回10万〜20万円）でローンチ"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -36823,7 +37018,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$1.5M / 2.2億円規模）",
       "sourceDoc": "Alex Paduraru公開オープンスタートアップ記事および各種インタビュー",
-      "estimationLogic": "有料Pro版（$59〜$399）＋ オールアクセス年間クラブパス（$299/年）＝ 年商約$1.5M（月商 約¥1,800万）"
+      "estimationLogic": "有料Pro版（$59〜$399）＋ オールアクセス年間クラブパス（$299/年）＝ 年商約$1.5M（月商 約¥1,800万）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -37078,7 +37276,7 @@
         "自社ストアで完全版（Figmaファイル＋商用ライセンス）を買い切り$49〜$99で直販"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -37122,7 +37320,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$3M / 4.5億円規模）",
       "sourceDoc": "Joel Hooks公開ブログ記事およびポッドキャストインタビュー",
-      "estimationLogic": "有料個人・法人会員約15,000〜20,000名 × 年額$250〜$350 ＝ 年商約$3M（月商 約¥3,750万）"
+      "estimationLogic": "有料個人・法人会員約15,000〜20,000名 × 年額$250〜$350 ＝ 年商約$3M（月商 約¥3,750万）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -37377,7 +37578,7 @@
         "法人向けに「新入社員・中途エンジニアの即戦力研修パス」として年額数十万円で販売"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -37421,7 +37622,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約4,200万円規模）",
       "sourceDoc": "Indie Hackers公開インタビューおよびサイト掲載テンプレ数・販売規模逆算",
-      "estimationLogic": "掲載テンプレ1,000点超 × 月間販売流通総額約¥1,500万 × 平均テイクレート20〜25% ＝ 月商約¥350万（粗利88%）"
+      "estimationLogic": "掲載テンプレ1,000点超 × 月間販売流通総額約¥1,500万 × 平均テイクレート20〜25% ＝ 月商約¥350万（粗利88%）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -37671,7 +37875,7 @@
         "クリエイターをDMでスカウトして初期50商品を揃え、Stripe Connectで20%中抜き配管を開通"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -37715,7 +37919,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2016年ユニリーバ買収時（年商約$200M / 買収額$1B / 約1,500億円）",
       "sourceDoc": "Unilever公式買収リリースおよびWall Street Journal報道",
-      "estimationLogic": "定期会員数約300万人 × 平均月間サブスク単価約$5.5〜$6 ＝ 月商約$17M（約¥25億円）"
+      "estimationLogic": "定期会員数約300万人 × 平均月間サブスク単価約$5.5〜$6 ＝ 月商約$17M（約¥25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -37964,7 +38171,7 @@
         "ユーモアのあるショート動画で大手の価格を笑い飛ばし、月額サブスクへ誘導"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -38008,7 +38215,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$200M+ / 約300億円規模）",
       "sourceDoc": "Forbes, Bloomberg, Raindrop Agency公開ケーススタディ",
-      "estimationLogic": "定期サブスク会員約100万人（平均月間$15〜$20） ＋ Walmart/Target等の小売展開 ＝ 年商約$200M（月商 約¥25億円）"
+      "estimationLogic": "定期サブスク会員約100万人（平均月間$15〜$20） ＋ Walmart/Target等の小売展開 ＝ 年商約$200M（月商 約¥25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -38258,7 +38468,7 @@
         "説教くささを完全に排除した爆笑コメディショート動画でサブスクへ誘導"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -38304,7 +38514,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者公表 年商$100M超（約140億円）",
       "dataSnapshotPeriod": "2016年 年商M公表期",
-      "sourceDoc": "Inc. 5000 / Forbes 特集記事"
+      "sourceDoc": "Inc. 5000 / Forbes 特集記事",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -38457,7 +38668,7 @@
         "大手競合が決して入ってこない高級リテールの棚を単独確保する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -38501,7 +38712,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$40M / 60億円規模）",
       "sourceDoc": "Forbes, Mens Health, 創業者Jason McCarthy公開インタビュー",
-      "estimationLogic": "バックパック・ウェイトギア年間出荷数約10万〜12万個（客単価$350〜$400） ＋ イベント参加費 ＝ 年商約$40M（月商 約¥5億円）"
+      "estimationLogic": "バックパック・ウェイトギア年間出荷数約10万〜12万個（客単価$350〜$400） ＋ イベント参加費 ＝ 年商約$40M（月商 約¥5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -38750,7 +38964,7 @@
         "参加者限定の証（パッチや限定カラー）を配り、コミュニティを自走増殖させる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -38794,7 +39008,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$3M〜$4M / 約5億〜6億円規模）",
       "sourceDoc": "Shane Parrish公開インタビュー、メルマガ読者数（70万人）、有料会員規模逆算",
-      "estimationLogic": "有料会員（年$250〜$500）推定6,000〜8,000名 ＋ 書籍印税・スポンサー広告 ＝ 年商約$3.5M（月商 約¥4,000万）"
+      "estimationLogic": "有料会員（年$250〜$500）推定6,000〜8,000名 ＋ 書籍印税・スポンサー広告 ＝ 年商約$3.5M（月商 約¥4,000万）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -39049,7 +39266,7 @@
         "週刊メルマガで読者を集め、年額数万円の「有料読書会・思考訓練サロン」でストック化"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -39093,7 +39310,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$50M / 75億円規模）",
       "sourceDoc": "Forbes, Inc. Magazine, 創業者Steven Borrelliインタビュー",
-      "estimationLogic": "年間販売着数約60万〜80万着 × 平均客単価$75〜$90 ＝ 年商約$50M（月商 約¥6.5億円）"
+      "estimationLogic": "年間販売着数約60万〜80万着 × 平均客単価$75〜$90 ＝ 年商約$50M（月商 約¥6.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -39342,7 +39562,7 @@
         "「〇〇のための公式ユニフォーム」として高単価まとめ買いD2Cを構築"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -39386,7 +39606,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$4M / 約6億円規模）",
       "sourceDoc": "Adam Wathan公式ポッドキャストおよびStripe公開売上報告",
-      "estimationLogic": "オールアクセスライセンス（$299）年間約10,000〜15,000件販売 ＋ チームライセンス ＝ 年商約$4M（月商 約¥5,000万）"
+      "estimationLogic": "オールアクセスライセンス（$299）年間約10,000〜15,000件販売 ＋ チームライセンス ＝ 年商約$4M（月商 約¥5,000万）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -39636,7 +39859,7 @@
         "開発者向けに「買い切りライセンス（経費精算枠）」として販売"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -39680,7 +39903,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$2M / 約3億円規模）",
       "sourceDoc": "Indie Hackers, Rik Lomas公開インタビュー",
-      "estimationLogic": "有料年額会員（$360/年）約5,000〜6,000名 ＝ 年商約$2M（月商 約¥2,500万）"
+      "estimationLogic": "有料年額会員（$360/年）約5,000〜6,000名 ＝ 年商約$2M（月商 約¥2,500万）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -39929,7 +40155,7 @@
         "年額制のサブスクリプションとして展開し、高い継続率を維持"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -39973,7 +40199,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約3,000万円規模）",
       "sourceDoc": "William Nutt公開記事およびBulletproofテンプレート販売実績",
-      "estimationLogic": "高機能テンプレート（$99〜$499）月間約30〜50件販売 ＋ 企業向け導入コンサルティング ＝ 月商約¥250万（粗利95%）"
+      "estimationLogic": "高機能テンプレート（$99〜$499）月間約30〜50件販売 ＋ 企業向け導入コンサルティング ＝ 月商約¥250万（粗利95%）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -40217,7 +40446,7 @@
         "完成版テンプレート（数万円）と個別導入コンサル（数十万円）をセットで展開"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -40261,7 +40490,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約$100M / 約150億円規模）",
       "sourceDoc": "Forbes, Bloomberg, Business Insider報道",
-      "estimationLogic": "定期サブスク会員約50万人（月額$16〜$20） ＋ 単品購入 ＝ 年商約$100M（月商 約¥12.5億円）"
+      "estimationLogic": "定期サブスク会員約50万人（月額$16〜$20） ＋ 単品購入 ＝ 年商約$100M（月商 約¥12.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -40511,7 +40743,7 @@
         "毎月新しいデザインが届くサブスクモデルでポスト投函D2Cを展開"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -40555,7 +40787,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023-2024期観測（年商約2,400万円規模）",
       "sourceDoc": "サイト掲載テンプレ数および販売ランキング観測データ",
-      "estimationLogic": "月間流通総額約¥1,000万 × 平均テイクレート20% ＝ 月商約¥200万（粗利88%）"
+      "estimationLogic": "月間流通総額約¥1,000万 × 平均テイクレート20% ＝ 月商約¥200万（粗利88%）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -40799,7 +41034,7 @@
         "クリエイターをスカウトして商品を並べ、決済手数料20%を徴収"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -40845,7 +41080,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "公式開示 年商$40M〜$50M規模（Solo Brandsへ買収）",
       "dataSnapshotPeriod": "2021年 Solo Brandsによる買収時公表（売上約M+）",
-      "sourceDoc": "Solo Brands Inc. S-1 / SEC有報"
+      "sourceDoc": "Solo Brands Inc. S-1 / SEC有報",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -40998,7 +41234,7 @@
         "顧客が「自分たちの部室」と感じるようなラフなSNSコミュニケーションを展開する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -41042,7 +41278,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年7月期 英国Companies House決算（年商£607.3M / EBITDA £51.7M）",
       "sourceDoc": "Gymshark Annual Report & Accounts (FY2024) / Companies House UK",
-      "estimationLogic": "公式決算売上£607.3M（為替190円換算で年商約1,153億円 ➔ 月商約95.8億円）、調整後EBITDA £51.7M（約98億円）"
+      "estimationLogic": "公式決算売上£607.3M（為替190円換算で年商約1,153億円 ➔ 月商約95.8億円）、調整後EBITDA £51.7M（約98億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -41230,7 +41469,7 @@
         "【タイトフィットな裁断】: 従来のブカブカなアディダス・ナイキと真逆に、筋肉が最も美しく強調されるテーパード裁断で若者の承認欲求を直撃。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -41274,7 +41513,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年通期報道（年商$1.2B到達・月間利益$10M以上）",
       "sourceDoc": "Bloomberg / PitchBook / Contrary Research 2024年取材レポート",
-      "estimationLogic": "年換算売上$1.2B（約1,800億円 ➔ 月商約150億円）、営業黒字月間$10M+（約15億円/月、年間約180億円の営業利益）"
+      "estimationLogic": "年換算売上$1.2B（約1,800億円 ➔ 月商約150億円）、営業黒字月間$10M+（約15億円/月、年間約180億円の営業利益）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -41462,7 +41704,7 @@
         "【犬の死の恐怖へのアンカー】: 「平均寿命を数年伸ばすための食事」と位置づけ、1食あたり数百円の追加出費を愛犬の命の保険料として正当化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -41506,7 +41748,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年業界推定（年間売上$800M到達・過去4年で500%成長）",
       "sourceDoc": "Forbes / Entrepreneur / Tedia Consulting 2024年調査レポート",
-      "estimationLogic": "推定年商$800M（約1,200億円 ➔ 月商約100億円）、Target・Crate&Barrelへの卸売およびShopify直販の合算規模"
+      "estimationLogic": "推定年商$800M（約1,200億円 ➔ 月商約100億円）、Target・Crate&Barrelへの卸売およびShopify直販の合算規模",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -41694,7 +41939,7 @@
         "【インスタ映えするカラーバリエーション】: 暗いキッチンに置くだけで映えるテラコッタ、セージ、クリーム色を展開し、主婦やインフルエンサーの投稿を誘発。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -41738,7 +41983,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024〜2025年報道（年商$850M〜$1B達成 / 全米120店舗展開）",
       "sourceDoc": "Forbes / Athletech News / Glossy 2024年レポート",
-      "estimationLogic": "VIP会員数約150万人 × 月額クレジット消化/失効 ＋ 実店舗売上 ＝ 年商約$900M（約¥1,350億円 ➔ 月商約110億円）"
+      "estimationLogic": "VIP会員数約150万人 × 月額クレジット消化/失効 ＋ 実店舗売上 ＝ 年商約$900M（約¥1,350億円 ➔ 月商約110億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -41926,7 +42174,7 @@
         "【クレジットの死蔵化】: 引き落とされたクレジットは商品購入に使えるが、使わずに溜め込むユーザーが一定割合存在し、驚異的なキャッシュフローを生む。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -41970,7 +42218,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "非公開化（プライベートエクイティ買収）後2024年推定水準",
       "sourceDoc": "Casper SEC上場廃止前ファイリングおよびPE買収後リポート",
-      "estimationLogic": "年商約$400M水準（約600億円 ➔ 月商約50億円）、返品率約10%・過酷な広告費をPE主導で合理化し微小黒字化"
+      "estimationLogic": "年商約$400M水準（約600億円 ➔ 月商約50億円）、返品率約10%・過酷な広告費をPE主導で合理化し微小黒字化",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -42158,7 +42409,7 @@
         "【100日無料トライアル】: 店頭で5分寝転がっても分からない。自宅で3ヶ月寝て合わなければ全額返金＋無料引き取りを約束して購入不安を完全消滅。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -42202,7 +42453,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年 Sephora提携後報道（年商約$200M・リテール拡大期）",
       "sourceDoc": "Vogue Business / Bloomberg 2024年Glossier事業分析",
-      "estimationLogic": "Sephora全米店舗展開およびオンライン直販による推定年商約$200M（約¥300億円 ➔ 月商約25億円）"
+      "estimationLogic": "Sephora全米店舗展開およびオンライン直販による推定年商約$200M（約¥300億円 ➔ 月商約25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -42390,7 +42644,7 @@
         "【ピンクプチプチポーチのトロイの木馬】: 商品をピンクの気泡緩衝材ポーチに入れて送り、ポーチ自体が街中で持ち歩かれ無料の歩く広告塔に。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -42434,7 +42688,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024〜2025年報道（年商$700M突破 / 会員160万人）",
       "sourceDoc": "Wikipedia / U.S. Chamber of Commerce / Causeartist 2025年取材",
-      "estimationLogic": "会員160万人 × 年会費$59.95（約150億円の純粗利現金） ＋ 食品物販 ＝ 年商約$700M（約¥1,050億円 ➔ 月商約87.5億円）"
+      "estimationLogic": "会員160万人 × 年会費$59.95（約150億円の純粗利現金） ＋ 食品物販 ＝ 年商約$700M（約¥1,050億円 ➔ 月商約87.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -42622,7 +42879,7 @@
         "【地方の中間層をターゲット】: 大都市の富裕層向けWhole Foodsと違い、近くに健康食品店がない中西部の主婦層を狙い撃ち。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -42666,7 +42923,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（創業者Matt Bertulliポッドキャスト開示値）",
       "sourceDoc": "Matt Bertulli インタビューおよびD2Cカンファレンス講演資料",
-      "estimationLogic": "年間販売個数約100万個 × 平均単価$40〜$45 ＝ 年商約$40M（約¥60億円 ➔ 月商約5億円）"
+      "estimationLogic": "年間販売個数約100万個 × 平均単価$40〜$45 ＝ 年商約$40M（約¥60億円 ➔ 月商約5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -42854,7 +43114,7 @@
         "【スマホ画面保護液とのバンドル】: 「ケース＋液体ガラスフィルム＋無制限画面修理保証」をセットにして単価を$80まで引き上げ。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -42898,7 +43158,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（業界報道および企業開示）",
       "sourceDoc": "Forbes / Fast Company / PitchBook 公開データ",
-      "estimationLogic": "有料会員数約20万人 × 年会費$79（約24億円の会費売上） ＋ 詰替パウチ物販 ＝ 年商約$50M（約¥75億円 ➔ 月商約6.25億円）"
+      "estimationLogic": "有料会員数約20万人 × 年会費$79（約24億円の会費売上） ＋ 詰替パウチ物販 ＝ 年商約$50M（約¥75億円 ➔ 月商約6.25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -43086,7 +43349,7 @@
         "【詰替パウチによるLTV極大化】: 初回は美しい琥珀色のボトルを買い、以降は紙パックやパウチの詰替え用を定期購入させる。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -43130,7 +43393,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年 Noah Kagan公開開示（年商約$80M〜$100M水準）",
       "sourceDoc": "Noah Kagan公式ブログ・YouTube・Capitalism.com取材",
-      "estimationLogic": "年間GMV約$150M〜$200M × 自社テイクレート（手数料30〜50%） ＝ 年商約$100M（約¥150億円 ➔ 月商約12.5億円）"
+      "estimationLogic": "年間GMV約$150M〜$200M × 自社テイクレート（手数料30〜50%） ＝ 年商約$100M（約¥150億円 ➔ 月商約12.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -43318,7 +43584,7 @@
         "【買い切り中毒者の囲い込み】: 「二度と手に入らない永久ライセンス」というFOMO（取り残される恐怖）を煽り、起業志望者に使わないツールを大量に衝動買いさせる。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -43362,7 +43628,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024〜2026年 取材報道（年商$27M到達・読者数470万人・第三者評価額$101M）",
       "sourceDoc": "Axios / Business Insider / 1440公式開示",
-      "estimationLogic": "購読者数470万人 × 開封率約50% × 週6日配信 × ネイティブ広告スロット ＝ 年間$27M（約40.5億円 ➔ 月商約3.37億円）"
+      "estimationLogic": "購読者数470万人 × 開封率約50% × 週6日配信 × ネイティブ広告スロット ＝ 年間$27M（約40.5億円 ➔ 月商約3.37億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -43550,7 +43819,7 @@
         "【算術的CAC/LTV裁定取引】: Facebook広告で1人あたり$2〜$3で読者を獲得し、年間の広告閲覧で$6〜$8を回収する数学的増殖ループ。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -43596,7 +43865,8 @@
       "isRevenueUnconfirmed": false,
       "isMarginUnconfirmed": false,
       "revenueLabel": "有料会員数万人・年商約$1M+（初年度黒字化達成）",
-      "sourceDoc": "404 Media公式開示・記者報告（初年度黒字化、有料サブスク会員数万人、年商約$1M+）"
+      "sourceDoc": "404 Media公式開示・記者報告（初年度黒字化、有料サブスク会員数万人、年商約$1M+）",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -43755,7 +44025,7 @@
         "「業界の闇を暴く一次資料」だけを週に1本公開し、読者の知的好奇心と業界防衛本能を突いて課金させる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -43799,7 +44069,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2025〜2026年報道（2025年広告売上$12M・全年間枠即時完売）",
       "sourceDoc": "Wall Street Journal / Bloomberg 2026年取材レポート",
-      "estimationLogic": "エピソードあたり100万ダウンロード × プレミアム年間スポンサー枠完売 ＝ 年間$12M（約18億円 ➔ 月商約1.5億円）"
+      "estimationLogic": "エピソードあたり100万ダウンロード × プレミアム年間スポンサー枠完売 ＝ 年間$12M（約18億円 ➔ 月商約1.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -43987,7 +44260,7 @@
         "【年間パッケージ販売】: 単発の広告枠は売らず、「年間メインスポンサー（数億円）」としてJ.P. MorganやServiceNow等に独占販売して前金を回収。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -44033,7 +44306,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "創業者公表 年間購読者数千人（月商約800万円・利益率80%超）",
       "dataSnapshotPeriod": "2023年 サブスクリプション会員数・単価逆算",
-      "sourceDoc": "Web Smith公開ニュースレター分析"
+      "sourceDoc": "Web Smith公開ニュースレター分析",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -44185,7 +44459,7 @@
         "自腹ではなく「会社の経費」で落とせる高価格（年額$500以上）を設定する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -44229,7 +44503,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年本人公開開示（Notion事業単体で月商$100k+安定、累計売上$2.5M突破）",
       "sourceDoc": "Thomas Frank公式ポッドキャスト・YouTube動画・Business Insider取材",
-      "estimationLogic": "フラッグシップテンプレ『Ultimate Brain』（$99〜$129）月間1,000本販売 ＋ 自動化コース ＝ 月商約$120,000（約¥1,800万円）"
+      "estimationLogic": "フラッグシップテンプレ『Ultimate Brain』（$99〜$129）月間1,000本販売 ＋ 自動化コース ＝ 月商約$120,000（約¥1,800万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -44417,7 +44694,7 @@
         "【自作APIツール（Fly.io）による差別化】: 単なる見た目のテンプレートではなく、Notion APIを使ってGoogleカレンダーと双方向同期する独自ツールを開発し競合を無力化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -44461,7 +44738,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（累計受講生1.5万人突破・AIスクールピボット期）",
       "sourceDoc": "Authority Hacker公式ポッドキャスト / Referly / Indie Hackers",
-      "estimationLogic": "有料受講生15,000人 × 平均客単価$1,500 ＋ 年間コミュニティ会費 ＝ 年商約$5M（約¥7.5億円 ➔ 月商約6,250万円）"
+      "estimationLogic": "有料受講生15,000人 × 平均客単価$1,500 ＋ 年間コミュニティ会費 ＝ 年商約$5M（約¥7.5億円 ➔ 月商約6,250万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -44649,7 +44929,7 @@
         "【AI時代への高速ピボット】: 従来のSEO記事執筆が崩壊するや否や、最速でプログラマティックSEOとAI自動化スクール『AI Accelerator』を立ち上げ顧客を再活性化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -44693,7 +44973,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（コミュニティ会員数約1,500名・ブートキャンプ年数回開催）",
       "sourceDoc": "Max Haining X（Twitter）公開収益ログ・Indie Hackers取材",
-      "estimationLogic": "年間コミュニティ会員約1,000名（$250/年） ＋ 集中ブートキャンプ（$750）年3回 ＝ 年商約$550k（約¥8,000万円 ➔ 月商約660万円）"
+      "estimationLogic": "年間コミュニティ会員約1,000名（$250/年） ＋ 集中ブートキャンプ（$750）年3回 ＝ 年商約$550k（約¥8,000万円 ➔ 月商約660万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -44881,7 +45164,7 @@
         "【マイクロレッスン形式】: 1日わずか30分の極小タスクに分解し、「忙しくて勉強できない」という言い訳を完全粉砕。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -44925,7 +45208,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（クリエイター登録数100万人突破・推定GMV $200M規模）",
       "sourceDoc": "TechCrunch / Stripe Showcase / Buy Me a Coffee公式データ",
-      "estimationLogic": "クリエイター登録100万人 × 年間流通総額約$200M × 自社テイクレート5% ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）"
+      "estimationLogic": "クリエイター登録100万人 × 年間流通総額約$200M × 自社テイクレート5% ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -45113,7 +45399,7 @@
         "【全クリエイターが無料で宣伝してくれる配管】: クリエイター自身がYouTubeの概要欄、Xのプロフィール、GitHubのREADMEに「buymeacoffee.com/名前」を貼り付けて勝手に集客。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -45157,7 +45443,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "Gartnerグループ（Digital Markets部門）開示水準",
       "sourceDoc": "Gartner 10-K 年次報告書 / Michael Ortner創業回顧録",
-      "estimationLogic": "掲載SaaS数万社 × 月間数百〜数千クリック × 平均クリック単価（CPC）$10〜$50 ＝ 年商約$100M+（約¥150億円 ➔ 月商約12.5億円）"
+      "estimationLogic": "掲載SaaS数万社 × 月間数百〜数千クリック × 平均クリック単価（CPC）$10〜$50 ＝ 年商約$100M+（約¥150億円 ➔ 月商約12.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -45345,7 +45634,7 @@
         "【解約不能のリード発生源】: B2B SaaSにとってCapterraからの流入は最も成約率が高いため、月間数百万円の広告費を払い続けざるを得ない。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -45390,7 +45679,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Pro+月額$39サブスク（推計数千社課金・月商2,500万円）",
       "sourceDoc": "Flowbase公開料金・Chrome Web Store機能と既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: Pro+月額$39×推定有料契約数。月商=単価×推定契約数、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約数と費用は推計で、実績P&Lではない。"
+      "estimationLogic": "入力: Pro+月額$39×推定有料契約数。月商=単価×推定契約数、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約数と費用は推計で、実績P&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -45549,7 +45839,7 @@
         "パーツ数が500個を超えた段階で月額$29〜$39のプレミアムプランに移行する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -45593,7 +45883,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023年M&A買収時水準",
       "sourceDoc": "Ch Daniel公開インタビュー / Acquire.com買収開示",
-      "estimationLogic": "有料サイト数約10,000サイト × 平均月額$12 ＝ 年商約$1.3M（約¥2億円 ➔ 月商約1,600万円）"
+      "estimationLogic": "有料サイト数約10,000サイト × 平均月額$12 ＝ 年商約$1.3M（約¥2億円 ➔ 月商約1,600万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -45781,7 +46074,7 @@
         "【本体無料によるバイラル拡散】: 無料プランでは「Made with Simple.ink」のフッターリンクが付き、訪問者が連鎖的に新規登録するバイラルループ。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -45828,7 +46121,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "推定月商約600万円（Notionテンプレート販売＋高単価アフィリエイト）",
       "sourceDoc": "Gridfitiの公開ストア・Pinterest導線・既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: Notionテンプレート販売とアフィリエイトの推定件数・単価。月商=推定販売件数×平均単価＋紹介料、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。件数と費用は推計であり、実績P&Lではない。"
+      "estimationLogic": "入力: Notionテンプレート販売とアフィリエイトの推定件数・単価。月商=推定販売件数×平均単価＋紹介料、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。件数と費用は推計であり、実績P&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -45993,7 +46287,7 @@
         "画像に写っている製品のアフィリリンクと、その世界観に合わせた安価なデジタル商品（PDFガイド、テンプレート）をセットで売る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -46037,7 +46331,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年通期公式開示（ARR $2B突破・月間アクティブユーザー1.7億人以上）",
       "sourceDoc": "Canva公式プレスリリース / Bloomberg / Forbes 2024年取材",
-      "estimationLogic": "MAU 1.7億人 × 有料Canva Pro/Teams会員数約2,000万人 × 平均月額課金 ＝ 年商約$2B（約¥3,000億円 ➔ 月商約250億円）"
+      "estimationLogic": "MAU 1.7億人 × 有料Canva Pro/Teams会員数約2,000万人 × 平均月額課金 ＝ 年商約$2B（約¥3,000億円 ➔ 月商約250億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -46225,7 +46522,7 @@
         "【チームコラボレーションの拡張】: 会社内で「ノンデザイナーがマーケティング資料を作る標準ツール」として浸透させ、全社エンタープライズ契約を巻き取る。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -46269,7 +46566,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年公開開示（ARR約$150M・自社データセンター運用）",
       "sourceDoc": "Dmytro Gerasymenko X投稿 / Ahrefs公式ブログ / GetLatka",
-      "estimationLogic": "有料企業ユーザー約10万社 × 平均月額単価$125〜$150 ＝ 年商約$150M（約¥225億円 ➔ 月商約18.75億円）"
+      "estimationLogic": "有料企業ユーザー約10万社 × 平均月額単価$125〜$150 ＝ 年商約$150M（約¥225億円 ➔ 月商約18.75億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -46457,7 +46757,7 @@
         "【被リンクデータベースという人質】: 世界中のWebサイトのリンク構造を把握しているため、マーケターは競合の分析や順位追跡のために解約できない。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -46501,7 +46801,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（ARR $400M突破・エンタープライズ導入15万社以上）",
       "sourceDoc": "Forbes / TechCrunch / 1Password公式発表",
-      "estimationLogic": "導入企業150,000社以上 × 社員数別シート課金（月額$7.99/ユーザー） ＝ 年商約$400M+（約¥600億円 ➔ 月商約50億円）"
+      "estimationLogic": "導入企業150,000社以上 × 社員数別シート課金（月額$7.99/ユーザー） ＝ 年商約$400M+（約¥600億円 ➔ 月商約50億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -46689,7 +46992,7 @@
         "【解約不能の人質資産（Data Hostage）】: 企業の全社員が使う数百個のパスワード、APIキー、機密情報がすべて格納されているため、乗り換えコストが無限大になりチャーンレートが実質ゼロ。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -46733,7 +47036,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（シリーズB 1億ドル調達後の急拡大期）",
       "sourceDoc": "BusinessWire / Tracxn / PitchBook 2024年推定データ",
-      "estimationLogic": "数千万人の無料ユーザー ＋ プレミアム個人会員（年額$10）数百万人 ＋ 法人シート課金 ＝ 年商約$80M（約¥120億円 ➔ 月商約10億円）"
+      "estimationLogic": "数千万人の無料ユーザー ＋ プレミアム個人会員（年額$10）数百万人 ＋ 法人シート課金 ＝ 年商約$80M（約¥120億円 ➔ 月商約10億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -46921,7 +47227,7 @@
         "【自前サーバー運用（Docker）の自由】: クラウドにデータを置きたくない金融機関や政府機関向けに、自前サーバー（オンプレミス）で動かせるDockerコンテナを提供してエンタープライズを囲い込み。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -46965,7 +47271,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024〜2026年 Sacraレポート（2024年末ARR $2.9Mから2026年$10Mへ急伸）",
       "sourceDoc": "Sacra Research / Peer Richelsen公式開示 / TechCrunch",
-      "estimationLogic": "有料チーム・組織シート課金（月額$15/ユーザー） ＋ エンタープライズオンプレミスライセンス ＝ ARR約$10M（約¥15億円 ➔ 月商約1.25億円）"
+      "estimationLogic": "有料チーム・組織シート課金（月額$15/ユーザー） ＋ エンタープライズオンプレミスライセンス ＝ ARR約$10M（約¥15億円 ➔ 月商約1.25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -47153,7 +47462,7 @@
         "【開発者向けAPI・Webhookの完備】: 病院の予約システムや採用ATSの裏側に、Cal.comのスケジューリングAPIをそのまま組み込ませてエンタープライズから巨額ライセンスを徴収。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -47197,7 +47506,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年本人公開開示（月商$15k〜$20k安定・累計売上数十万ドル）",
       "sourceDoc": "Louis Pereira X投稿 / Indie Hackers / VibecoderHQ",
-      "estimationLogic": "年額パス（$75/年）およびライフタイム買い切り（$150）の継続的購入 ＝ 月商約$18k〜$20k（約¥280万円 ➔ 年商約3,500万円）"
+      "estimationLogic": "年額パス（$75/年）およびライフタイム買い切り（$150）の継続的購入 ＝ 月商約$18k〜$20k（約¥280万円 ➔ 年商約3,500万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -47385,7 +47697,7 @@
         "【ライフタイムディール（LTD）での初動前金回収】: ローンチ初期に$60〜$120の買い切りプランを提供し、初週で数百万円の現金をStripe即時着金。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -47429,7 +47741,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024〜2025年報道（ARR $4.5M突破・黒字成長中）",
       "sourceDoc": "Caplight / GetLatka / Vancouver Tech Journal取材",
-      "estimationLogic": "有料契約企業数約4,000社 × 平均月額$100 ＝ 年商約$4.5M（約¥6.8億円 ➔ 月商約5,600万円）"
+      "estimationLogic": "有料契約企業数約4,000社 × 平均月額$100 ＝ 年商約$4.5M（約¥6.8億円 ➔ 月商約5,600万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -47617,7 +47932,7 @@
         "【クレジット消費モデル】: 抽出したデータ行数や実行回数に応じてクレジットを消費させ、データ量の多い企業顧客から高額プランを徴収。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -47661,7 +47976,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年公開開示（創業1年で7桁ドルARR達成）",
       "sourceDoc": "Mack Grenfell公式ブログ・X投稿 / AI Tools Forest",
-      "estimationLogic": "SEOエージェンシー・企業約500社 × 月間クレジット消費（$200〜$1,000） ＝ 年商約$1M+（約¥1.5億円 ➔ 月商約1,250万円）"
+      "estimationLogic": "SEOエージェンシー・企業約500社 × 月間クレジット消費（$200〜$1,000） ＝ 年商約$1M+（約¥1.5億円 ➔ 月商約1,250万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -47849,7 +48167,7 @@
         "【AI特有の不自然な文章の排除】: 単なるChatGPTの生出力ではなく、独自のアンチAIディテクション・リライトパイプラインを通して自然な日本語/英語を担保。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -47893,7 +48211,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（シリーズA調達後の急速なB2B営業展開期）",
       "sourceDoc": "TechCrunch / Sacra / Bardeen公式発表",
-      "estimationLogic": "有料B2Bユーザー数約25,000人 × 平均月額単価$35 ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）"
+      "estimationLogic": "有料B2Bユーザー数約25,000人 × 平均月額単価$35 ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -48081,7 +48402,7 @@
         "【営業・リクルーターの定常業務ジャック】: 候補者リスト作成や競合リサーチという毎日のルーティンに埋め込まれ、解約不能に。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -48125,7 +48446,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024年シリーズC調達時報道（ARR約$40M水準・評価額$500M）",
       "sourceDoc": "TechCrunch / Forbes / Bloomberg 2024年取材",
-      "estimationLogic": "有料モバイルサブスク会員約200万人 × 月額平均$20 ＝ 年商約$40M（約¥60億円 ➔ 月商約5億円）"
+      "estimationLogic": "有料モバイルサブスク会員約200万人 × 月額平均$20 ＝ 年商約$40M（約¥60億円 ➔ 月商約5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -48313,7 +48637,7 @@
         "【スタジオ音質の自動ノイズ除去】: 自宅のうるさいエアコンや車の騒音をワンタップで消滅させ、数万円のマイクで録音したようなプロ音質に変換。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -48357,7 +48681,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（有料ユーザー100万人突破・Teamプラン拡大期）",
       "sourceDoc": "Forbes / PitchBook / Beautiful.ai公式発表",
-      "estimationLogic": "有料会員数約25万人 × 平均年額単価$150 ＝ 年商約$30M（約¥45億円 ➔ 月商約3.75億円）"
+      "estimationLogic": "有料会員数約25万人 × 平均年額単価$150 ＝ 年商約$30M（約¥45億円 ➔ 月商約3.75億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -48545,7 +48872,7 @@
         "【企業全体のデザイン統一】: 会社ロゴやブランドカラーを管理者が固定し、社員全員が統一された美しいプレゼン資料を爆速作成。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -48591,7 +48918,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "シリーズB調達開示ARR $10M〜$15M規模",
       "dataSnapshotPeriod": "2024年 Series B調達時（ARR推計）",
-      "sourceDoc": "TechCrunch / IVP 投資発表資料"
+      "sourceDoc": "TechCrunch / IVP 投資発表資料",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -48743,7 +49071,7 @@
         "インフラ原価にマージンを乗せた従量課金で、顧客の成長にプラットフォーム連携して売上を増大させる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -48788,7 +49116,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "オープンソース商用ライセンス＋SaaS版（推計ARR $5Mペース）",
       "sourceDoc": "Baserow公開料金・商用ライセンスと既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: SaaS契約と商用ライセンスの推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約数・原価・費用は推計で、実績P&Lではない。"
+      "estimationLogic": "入力: SaaS契約と商用ライセンスの推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約数・原価・費用は推計で、実績P&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -48947,7 +49276,7 @@
         "大企業向けのSSO/SAML認証、監査ログ、権限管理を追加した有償Enterprise版を販売する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -48991,7 +49320,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（Fortune 500企業の導入多数・シリーズA後成長期）",
       "sourceDoc": "TechCrunch / Budibase公式年次開示 / GitHub",
-      "estimationLogic": "有料企業ユーザー数千社 × 有料シート課金（月額$5〜$50） ＝ 年商約$8M（約¥12億円 ➔ 月商約1億円）"
+      "estimationLogic": "有料企業ユーザー数千社 × 有料シート課金（月額$5〜$50） ＝ 年商約$8M（約¥12億円 ➔ 月商約1億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -49179,7 +49511,7 @@
         "【自前Dockerでの完全オンプレ運用】: 社内のファイヤーウォールの内側に1コマンドでデプロイでき、機密データを一切外部に出さない。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -49223,7 +49555,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年本人公開開示（ARR $1.2M突破・完全黒字自律経営）",
       "sourceDoc": "Justin Duke公式ブログ / Indie Hackers / Hacker News",
-      "estimationLogic": "有料発行者数千人 × 読者数別月額スライディング課金 ＝ 年商約$1.2M（約¥1.8億円 ➔ 月商約1,500万円）"
+      "estimationLogic": "有料発行者数千人 × 読者数別月額スライディング課金 ＝ 年商約$1.2M（約¥1.8億円 ➔ 月商約1,500万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -49411,7 +49746,7 @@
         "【読者データの完全ポータビリティ】: いつでも1クリックで購読者CSVをエクスポートでき、「ロックインしない姿勢」自体が最大の信頼堀に。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -49455,7 +49790,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（有料企業顧客数千社・シリーズA後成長期）",
       "sourceDoc": "TechCrunch / Sacra / Avoma公式発表",
-      "estimationLogic": "有料企業数千社 × 平均シート単価（月額$40〜$50） ＝ 年商約$15M（約¥22.5億円 ➔ 月商約1.83億円）"
+      "estimationLogic": "有料企業数千社 × 平均シート単価（月額$40〜$50） ＝ 年商約$15M（約¥22.5億円 ➔ 月商約1.83億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -49643,7 +49981,7 @@
         "【営業マネージャーのコーチング支援】: どの営業マンが喋りすぎていて客の話を聞けていないかをレーダーチャートで可視化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -49687,7 +50025,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2024〜2026年報道（ARR $120M超水準・企業価値$1.5B）",
       "sourceDoc": "Fueler / TechCrunch / Sacra 2025年最新分析",
-      "estimationLogic": "有料企業顧客数千社 × Airbyte Cloudクレジット消費（月額数百ドル〜数万ドル） ＝ 年商約$120M（約¥180億円 ➔ 月商約15億円）"
+      "estimationLogic": "有料企業顧客数千社 × Airbyte Cloudクレジット消費（月額数百ドル〜数万ドル） ＝ 年商約$120M（約¥180億円 ➔ 月商約15億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -49875,7 +50216,7 @@
         "【自前ホスト完全無料】: 自社データセンター内で動かすなら完全無料。機密データをクラウドに預けられないメガバンクや医療機関を独占。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -49919,7 +50260,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2025年7月公式開示（ARR $100Mマイルストーン公式突破）",
       "sourceDoc": "Aiven公式プレスリリース / TechCrunch / Bloomberg",
-      "estimationLogic": "エンタープライズ顧客数千社 × クラウドマネージドDB月額従量課金（数十万〜数百万円/社） ＝ ARR約$100M+（約¥150億円 ➔ 月商約12.5億円）"
+      "estimationLogic": "エンタープライズ顧客数千社 × クラウドマネージドDB月額従量課金（数十万〜数百万円/社） ＝ ARR約$100M+（約¥150億円 ➔ 月商約12.5億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -50107,7 +50451,7 @@
         "【SLA 99.99%の絶対安心】: 障害発生時の自動フェイルオーバーと自動パッチ適用により、企業のSRE部隊を数人雇うより圧倒的に安価に運用を外注化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -50151,7 +50495,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（シリーズB調達・世界数万社導入期）",
       "sourceDoc": "TechCrunch / GitHub Metrics / Dealroom 2024年データ",
-      "estimationLogic": "世界数万社でのセルフホスト導入 ＋ 有料エンタープライズライセンス数千社（月額$40/席） ＝ 年商約$15M（約¥22.5億円 ➔ 月商約1.83億円）"
+      "estimationLogic": "世界数万社でのセルフホスト導入 ＋ 有料エンタープライズライセンス数千社（月額$40/席） ＝ 年商約$15M（約¥22.5億円 ➔ 月商約1.83億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -50339,7 +50686,7 @@
         "【Git連携によるバージョン管理】: 管理画面の変更をGitのブランチやPRとして管理でき、エンジニアの開発フローを邪魔しない。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -50384,7 +50731,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Appwrite Cloud＋Enterprise商用契約（推計ARR $10M規模）",
       "sourceDoc": "Appwrite Cloud料金・Enterprise契約モデルと既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: Cloud契約とEnterprise契約の推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約規模・原価・費用は推計で、実績P&Lではない。"
+      "estimationLogic": "入力: Cloud契約とEnterprise契約の推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約規模・原価・費用は推計で、実績P&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -50543,7 +50891,7 @@
         "コミュニティが10万人を超えた段階でマネージドクラウド版をローンチして収益化する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -50589,7 +50937,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "有料ユーザー数万人（推定月商約2,000万円）",
       "dataSnapshotPeriod": "2023年 Nottaによる買収発表期",
-      "sourceDoc": "プレスリリース・買収公表資料"
+      "sourceDoc": "プレスリリース・買収公表資料",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -50741,7 +51090,7 @@
         "会議参加者全員に「この議事録は〇〇で自動作成されました」と通知して新規ユーザーを獲得する"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -50785,7 +51134,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（シリーズC後・ARR $80M規模推計）",
       "sourceDoc": "Forbes / TechCrunch / PitchBook",
-      "estimationLogic": "Fortune 500含む数百社 × エンタープライズ年額契約（数千万円〜数億円/社） ＝ 年商約$80M（約¥120億円 ➔ 月商約10億円）"
+      "estimationLogic": "Fortune 500含む数百社 × エンタープライズ年額契約（数千万円〜数億円/社） ＝ 年商約$80M（約¥120億円 ➔ 月商約10億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -50973,7 +51325,7 @@
         "【データリネージとオブザーバビリティの抱き合わせ】: パイプラインがどこで詰まったかを即座に可視化する監視機能をセットにして高単価化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -51017,7 +51369,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年業界推定水準",
       "sourceDoc": "Glimpse Group開示 / BlackHatWorld / Warrior Forum",
-      "estimationLogic": "有料購読者数万人 × 年額平均$500 ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）"
+      "estimationLogic": "有料購読者数万人 × 年額平均$500 ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -51205,7 +51560,7 @@
         "【WordPressスケジューラー連携】: 1ヶ月分の記事を一括生成し、毎日決まった時間に自動公開する完全不労所得パイプライン。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -51251,7 +51606,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "欧州中小企業中心に有料導入（月商約1,500万円）",
       "dataSnapshotPeriod": "2023年 AppSumoローンチ＆MRR公表期",
-      "sourceDoc": "AppSumo / 創業者公表インタビュー"
+      "sourceDoc": "AppSumo / 創業者公表インタビュー",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -51403,7 +51759,7 @@
         "「管理者の残業を半減させる」という明確なROIを提示して法人契約を取る"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -51447,7 +51803,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年公開開示（ARR $20M突破・リブランディング期）",
       "sourceDoc": "Julia McCoy公開インタビュー / TechTimes / GetLatka",
-      "estimationLogic": "有料契約企業数千社 × 平均月額単価$500〜$1,000 ＝ 年商約$23M（約¥35億円 ➔ 月商約2.9億円）"
+      "estimationLogic": "有料契約企業数千社 × 平均月額単価$500〜$1,000 ＝ 年商約$23M（約¥35億円 ➔ 月商約2.9億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -51636,7 +51995,7 @@
         "【自前の無料AI検出器でリード獲得】: 無料の「AI Detector」を公開し、ChatGPTの文章をペーストしたユーザーに「AI度99%！危険！」と警告して自社ツールへ誘導。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -51680,7 +52039,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（流通総額$150M突破・Fortune 500顧客多数）",
       "sourceDoc": "Forbes / TechCrunch / Braintrust公式ネットワークレポート",
-      "estimationLogic": "年間流通総額（GSV）約$150M × 発注企業側手数料10〜15% ＝ 年商約$30M（約¥45億円 ➔ 月商約3.75億円）"
+      "estimationLogic": "年間流通総額（GSV）約$150M × 発注企業側手数料10〜15% ＝ 年商約$30M（約¥45億円 ➔ 月商約3.75億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -51869,7 +52231,7 @@
         "【コミュニティ主導の審査】: 既存のメンバーが新しい応募者をテスト・面接し、紹介報酬を得る分散型審査システムにより、プラットフォームの運営コストを極小化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -51913,7 +52275,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "Libsyn社買収後決算レポート（年間広告取扱高$50M規模）",
       "sourceDoc": "Libsyn SECファイリング / Podnews / AdvertiseCast開示",
-      "estimationLogic": "登録ポッドキャスト数千番組 × 年間広告取扱高約$50M × 自社テイクレート約30% ＝ 年商約$50M（約¥75億円 ➔ 月商約6.25億円）"
+      "estimationLogic": "登録ポッドキャスト数千番組 × 年間広告取扱高約$50M × 自社テイクレート約30% ＝ 年商約$50M（約¥75億円 ➔ 月商約6.25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -52101,7 +52466,7 @@
         "【老舗ホスティング大手Libsynへの売却】: 最大のポッドキャスト配信サーバーLibsynに買収され、配信基盤と広告マネタイズの垂直統合を完遂。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -52145,7 +52510,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（Powerpack v5アップグレード期・英国決算推計）",
       "sourceDoc": "Companies House UK / Alfred公式フォーラム / Hacker News",
-      "estimationLogic": "世界中のMacプロユーザー数十万人 × Powerpack買い切り/メジャーアップデート課金 ＝ 年商約£2.5M（約¥4.5億円 ➔ 月商約3,750万円）"
+      "estimationLogic": "世界中のMacプロユーザー数十万人 × Powerpack買い切り/メジャーアップデート課金 ＝ 年商約£2.5M（約¥4.5億円 ➔ 月商約3,750万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -52333,7 +52701,7 @@
         "【Mega Supporterライセンス（永久アプデ）】: 通常ライセンス（メジャー版のみ）と上位の永久アップデート付きライセンス（£59）を並べ、客単価を引き上げ。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -52377,7 +52745,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年ドイツ法人決算推計水準",
       "sourceDoc": "folivora.ai公式フォーラム / Paddle Showcase / Hacker News",
-      "estimationLogic": "Macヘビーユーザー数十万人 × スタンダードライセンス（$10）/永久ライセンス（$22） ＝ 年商約$2M（約¥3億円 ➔ 月商約2,500万円）"
+      "estimationLogic": "Macヘビーユーザー数十万人 × スタンダードライセンス（$10）/永久ライセンス（$22） ＝ 年商約$2M（約¥3億円 ➔ 月商約2,500万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -52565,7 +52936,7 @@
         "【安価な永久ライセンス（$22）の引力】: サブスク疲れしたユーザーに対し、「一度払えば一生使い放題」というオファーで迷わず決済させる。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -52609,7 +52980,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（Bear 2.0大型アップデート後成長期）",
       "sourceDoc": "GetLatka / Shiny Frog公式開示 / Apple App Store Showcase",
-      "estimationLogic": "有料Bear Pro会員数約10万〜12万人 × 年額$29.99 ＝ 年商約$3.3M（約¥5億円 ➔ 月商約4,160万円）"
+      "estimationLogic": "有料Bear Pro会員数約10万〜12万人 × 年額$29.99 ＝ 年商約$3.3M（約¥5億円 ➔ 月商約4,160万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -52797,7 +53171,7 @@
         "【インラインMarkdownの先駆】: 記号を打った瞬間に太字や見出しが美しくプレビューされるシームレスなエディタで文章執筆の認知負荷をゼロ化。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -52843,7 +53217,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "有料Pro会員1万人超（月商約1,200万円・高粗利自律型）",
       "dataSnapshotPeriod": "2024年 Pro会員推計",
-      "sourceDoc": "Capacities公式ロードマップ＆コミュニティ公表"
+      "sourceDoc": "Capacities公式ロードマップ＆コミュニティ公表",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -53002,7 +53377,7 @@
         "Discordなどの濃密なコミュニティで熱狂的な信者を作り、口コミだけで増殖させる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -53046,7 +53421,10 @@
       "financialStatus": "REPORTED",
       "dataSnapshotPeriod": "2023〜2024年（世界5万社以上の導入実績・完全黒字自律経営）",
       "sourceDoc": "Ilija Studen公開ポッドキャスト / Serbian Tech / ActiveCollab開示",
-      "estimationLogic": "クラウド有料ユーザー数万人 ＋ セルフホスト年額保守ライセンス ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）"
+      "estimationLogic": "クラウド有料ユーザー数万人 ＋ セルフホスト年額保守ライセンス ＝ 年商約$10M（約¥15億円 ➔ 月商約1.25億円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -53234,7 +53612,7 @@
         "【クライアント無料招待】: 発注元のクライアントは何人呼んでも完全無料。制作会社が自社の顧客を全員ActiveCollabに巻き込んで囲い込み。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -53279,7 +53657,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "Cloudサブスク＋Enterpriseオンプレライセンス（推計ARR $3M）",
       "sourceDoc": "Activepieces公開料金・Enterpriseライセンスと既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: CloudサブスクとEnterpriseライセンスの推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約規模・原価・費用は推計で、実績P&Lではない。"
+      "estimationLogic": "入力: CloudサブスクとEnterpriseライセンスの推定ARR。月商=推定ARR÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。契約規模・原価・費用は推計で、実績P&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -53438,7 +53817,7 @@
         "外部開発者がプラグインを作れる仕組みを用意し、エコシステムの拡大を加速させる"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -53482,7 +53861,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（公式オープンベータ公開・有料バックアッププラン導入期）",
       "sourceDoc": "Anytype Whitepaper / TechCrunch / Swiss Tech",
-      "estimationLogic": "登録コミュニティ数十万人 ＋ 有料暗号化ノードバックアップ会員（年額$99）数万人 ＝ 年商約$2.6M（約¥4億円 ➔ 月商約3,330万円）"
+      "estimationLogic": "登録コミュニティ数十万人 ＋ 有料暗号化ノードバックアップ会員（年額$99）数万人 ＝ 年商約$2.6M（約¥4億円 ➔ 月商約3,330万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -53670,7 +54052,7 @@
         "【大容量バックアップの有料化】: 基本同期は無料、暗号化されたクラウドバックアップストレージ（128GB〜）を有料プランとして提供。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -53714,7 +54096,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年（有料会員約2.5万人・生涯プラン販売継続）",
       "sourceDoc": "Amazing Marvin公式ブログ / Reddit / Indie Hackers",
-      "estimationLogic": "有料会員数約25,000人 × 年額平均$90 ＋ 生涯ライセンス（$360）購入 ＝ 年商約$2.3M（約¥3.5億円 ➔ 月商約2,900万円）"
+      "estimationLogic": "有料会員数約25,000人 × 年額平均$90 ＋ 生涯ライセンス（$360）購入 ＝ 年商約$2.3M（約¥3.5億円 ➔ 月商約2,900万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -53902,7 +54287,7 @@
         "【生涯買い切りプラン（$360）の用意】: サブスクを嫌うユーザーのために高額なライフタイムプランを用意し、数千万円のキャッシュを前金で調達。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -53946,7 +54331,10 @@
       "financialStatus": "ESTIMATED",
       "dataSnapshotPeriod": "2023〜2024年業界推計水準",
       "sourceDoc": "Indie Hackers / UseBasin公式データ / BuiltWith",
-      "estimationLogic": "有料フォーム送信ユーザー数千社 × 月額プラン（$9〜$39） ＝ 年商約$1.2M（約¥1.8億円 ➔ 月商約1,500万円）"
+      "estimationLogic": "有料フォーム送信ユーザー数千社 × 月額プラン（$9〜$39） ＝ 年商約$1.2M（約¥1.8億円 ➔ 月商約1,500万円）",
+      "isRevenueUnconfirmed": false,
+      "originType": "reported",
+      "isMarginUnconfirmed": false
     },
     "evidenceCards": [
       {
@@ -54134,7 +54522,7 @@
         "【一度設置したら絶対に解約されない】: Webサイトが稼働している限りフォームURLを外せないため、驚異的なチャーンレートの低さを誇る。"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   },
   {
@@ -54181,7 +54569,8 @@
       "isMarginUnconfirmed": false,
       "revenueLabel": "年間取扱高GMV 約3,000億円（手数料テイクレート約12-14%）",
       "sourceDoc": "StockX公開手数料・取扱高に関する既存収集カード（一次数値の突合は未完了）",
-      "estimationLogic": "入力: 公開手数料率と推定GMV。月商=GMV×推定テイクレート÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。鑑定・物流費は既存カードの仮定で、実績P&Lではない。"
+      "estimationLogic": "入力: 公開手数料率と推定GMV。月商=GMV×推定テイクレート÷12、粗利益=月商−cogs、営業利益=粗利益−(serverAndApi＋advertising＋subcontracting＋toolsAndSaaS＋other)、年間純利益=営業利益×12。鑑定・物流費は既存カードの仮定で、実績P&Lではない。",
+      "originType": "reported"
     },
     "evidenceCards": [
       {
@@ -54340,7 +54729,7 @@
         "自前で鑑定ハブを1箇所立ち上げ、鑑定合格の物理シール/タグを同梱して発送するオペレーションを組む"
       ]
     },
-    "publishability": "PARTIAL",
+    "publishability": "PUBLISHABLE",
     "claimBindings": []
   }
 ]

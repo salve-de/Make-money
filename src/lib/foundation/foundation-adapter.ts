@@ -411,7 +411,7 @@ export function adaptFoundationSummaryToFinancialEntity(
     pipelineStack: '技術構成未確認',
     targetPainWallet: cleanIntelligenceText(vp.painSignal || '対象の痛みは未確認'),
     tags,
-    publishability: (!isUnconfirmed && summary.domain) ? 'PUBLISHABLE' : 'RAW',
+    publishability: summary.domain ? 'PUBLISHABLE' : 'RAW',
   };
 }
 
@@ -813,11 +813,6 @@ export function adaptFoundationDetailToFinancialEntity(
     timelineEvents,
     publishability: (() => {
       if (financialStatus === 'UNAVAILABLE' || !entity.domain) return 'RAW';
-      if (!isUnconfirmed && monthlyJpy > 0) {
-        const rawEvId = revMetric?.evidenceIds?.[0] || revMoney?.evidenceIds?.[0] || detail.evidenceIds?.[0];
-        const resolved = rawEvId ? resolveFoundationEvidence(rawEvId) : null;
-        if (!resolved) return 'RAW';
-      }
       return 'PUBLISHABLE';
     })(),
     claimBindings: (!isUnconfirmed && monthlyJpy > 0)

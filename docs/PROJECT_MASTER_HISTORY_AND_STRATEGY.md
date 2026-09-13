@@ -1,5 +1,57 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-13 【確定】全234指示に基づく大反省・ChatGPT監査役全面合意・234社全量PUBLISHABLE復権 ＆ 二軸モデル完全確立（Phase 159）
+
+### 1. ユーザー指示と根本的反省（User Command & Fundamental Remorse）
+- **ユーザー指示**:
+  - 「だから これらを 一つも ずれずに やりたいんだが？ 収集とか 表示に関して」
+  - 「右に 言ってこい お前ら まじで 反省するように言っておけ」
+  - 「そして そもそも 何をしたいのか 何をするのか ゴールはなんなのか 明確にしろ」
+- **根本的反省と監査の軌道修正**:
+  - **ユーザーの全234指示の再鑑査**:
+    - 「勝ってるやつ・稼いでるやつを大量に集めろ」「利益率80%超・社員1人・数千万などの高収益のズル（裏帳簿）を可視化しろ」
+    - 「地雷（大赤字・粉飾・規約死）も集めろ（攻守両面）」
+    - 「粗利や人数を収集の足切り・フィルターにするな（全量収集せよ）」
+    - 「欠損があっても捨てるな。推計なら推計と明記して残せ」
+    - 「日本・海外、上場・未上場、SaaS・物販・製造問わず幅広く集めろ」
+  - **ChatGPT監査役との対話と全面合意受領**:
+    - Safari ChatGPT Web（監査役）に対し、AI同士が「原本がないから」「監査が通らないから」と234社中184社を非公開（RAW）に落としていた過ち（データベースの価値を消す自己保身・優等生バイアス）を猛省として共有。
+    - ChatGPT監査役より「全面合意。234社をPUBLISHABLEに戻すことと全Factを確定扱いすることは別。推計は隠さず、根拠・計算ロジックを残す。価値ある事例を大量に捕まえる。欠損で捨てない。材料不足ならFactの確度を落とすかUNKNOWNを残し、Case自体は殺さない。私も監査境界を必要以上にCase公開可否へ拡張し、データベースの価値を消す方向に使っていたことを反省する」との正式な全面合意を受領。
+
+### 2. 確立された二軸モデル（The Dual-Axis Architecture）
+1. **軸1: エンティティ（Case）の公開性（`publishability`）**:
+   - **`PUBLISHABLE`（常時全量公開）**: 客観的事実・初動突破ログ・事業DNA・エビデンスカードが存在する事例は、原本有無や財務推計の有無に関わらず100%全量公開する（234社全量復権）。
+   - **足切り・フィルターの永久禁止**: 粗利率、社員規模、原本有無、上場・未上場によるCaseの非公開化を完全禁止。
+2. **軸2: ファクト（Fact）の確実性（`financialStatus`）**:
+   - **`VERIFIED`**: 一次原本（有価証券報告書・決算書等）の完全照合・Hash検証が完了した一次確定値。
+   - **`REPORTED`**: 創業者自己申告、公式プレスリリース、信頼できる一次報道に基づく公表値。
+   - **`ESTIMATED`**: 業界相場・公開指標・社員規模から逆算した合理的推計値（計算ロジック明記）。
+   - **`POST_MORTEM`**: 破綻・撤退・巨額赤字企業の検死ファクト（致死出血点明記）。
+   - **`UNKNOWN`**: 原価や内訳の一次情報がネット上に存在しない場合の誠実な未知明記（0円偽装の禁止）。
+
+### 3. 実装した外科手術（Root Cause Code Surgery）
+1. **`data/entities-index.json`**:
+   - 234社全量を `publishability: 'PUBLISHABLE'` に復権。
+   - 各社の財務信頼性グラデーション（`REPORTED`: 181社, `ESTIMATED`: 34社, `VERIFIED`: 10社, `POST_MORTEM`: 9社）を完全整合。
+2. **`src/lib/company-access/public-entity.ts`**:
+   - 一次確定値（`financialSourceClass: PRIMARY` / `financialStatus: VERIFIED`）を標榜する場合のみ原本Bindingを必須とし、公表・推計・検死値（`REPORTED` / `ESTIMATED` / `POST_MORTEM`）は客観的財務シグナルを検証してCase公開を許可するよう境界を再構築。
+3. **`src/lib/foundation/foundation-adapter.ts`**:
+   - 原本未解決を理由に Case の `publishability` を `RAW` に落とすフォールバック処理を完全撤廃。
+4. **`src/app/api/businesses/route.ts`**:
+   - Foundation詳細が未精錬・不完全（RAW）な場合でも、404で早期脱出せずローカル精錬データ（`findFallbackEntity`）へ安全にフォールバックして配信を継続。
+5. **`scripts/architecture/check-ingest-quality.mjs`**:
+   - `claimBindings` が定義されている場合のみ原本実体・ハッシュ照合・Locator・意味的数値一致を厳格検証するよう整合。全234社のコンテンツ完全性（最低4件の一次事実ログ、最低2枚×各3箇条のエビデンス、最低3ステップの初動手順、サバンナOSスラングゼロ）をPASS。
+
+### 4. 全関所（All Verification Gates）All Green 達成
+- `pnpm typecheck`: ✓ PASSED
+- `pnpm lint`: ✓ PASSED（6大アーキテクチャ検査 ＆ 234社品質監査 全数合格）
+- `pnpm test`: ✓ PASSED（324 vitest + 11 foundation + 11 architecture + 6 recovery = 352テスト 全合格）
+- `pnpm build`: ✓ PASSED（Next.js 最適化・静的ページ 10/10・有料保護 80ファイル 完全合格）
+- `pnpm bundle:workers`: ✓ PASSED（OpenNext Cloudflare Workers バンドル・シークレット検査 完全合格）
+- `pnpm test:e2e`: ✓ PASSED（Playwright 27テスト 全数合格）
+
+---
+
 ## 2026-09-13 【確定】監査Round 10指摘の完全解消（P0 3点・P1 1点）＆ 現実的・長期的に管理可能な堅牢境界の確立（Phase 158）
 
 ### 1. ユーザー指摘と自律的課題解決（Root Cause & Manageable Longevity）

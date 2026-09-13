@@ -212,22 +212,21 @@ export async function GET(request: Request) {
         const parsed = parseFoundationBusinessCase(data);
         if (parsed) {
           const adapted = adaptFoundationDetailToFinancialEntity(parsed);
-          if (!isPublishableEntity(adapted)) {
-            return response({ error: 'Entity not found', entity_id: entityId }, 404);
+          if (isPublishableEntity(adapted)) {
+            const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
+            const revision = adapted.sourceRevision ?? 1;
+            return response({
+              source: 'foundation_lake',
+              dataset_id: foundationDataset('researchBundles').datasetId,
+              data: publicFoundationData(adapted),
+              dossierHash: actualHash,
+              sourceRevision: revision,
+              isStale: false,
+            }, 200, {
+              'X-Dossier-Hash': actualHash,
+              'X-Source-Revision': String(revision),
+            });
           }
-          const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
-          const revision = adapted.sourceRevision ?? 1;
-          return response({
-            source: 'foundation_lake',
-            dataset_id: foundationDataset('researchBundles').datasetId,
-            data: publicFoundationData(adapted),
-            dossierHash: actualHash,
-            sourceRevision: revision,
-            isStale: false,
-          }, 200, {
-            'X-Dossier-Hash': actualHash,
-            'X-Source-Revision': String(revision),
-          });
         }
       }
     } catch (error) {
