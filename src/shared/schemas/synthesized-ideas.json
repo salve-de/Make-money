@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/SynthesizedIdeas",
+  "definitions": {
+    "SynthesizedIdeas": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SynthesizedIdea"
+      }
+    },
+    "SynthesizedIdea": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "dimension": {
+          "type": "string",
+          "enum": [
+            "SAVANNA_INSTINCT",
+            "META_ARCHITECT",
+            "CONTRARIAN_BLINDSPOT"
+          ]
+        },
+        "dimensionLabel": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "title": {
+          "type": "string",
+          "maxLength": 320
+        },
+        "targetPainWallet": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "structuralArbitrage": {
+          "type": "string",
+          "maxLength": 4000
+        },
+        "projectedMonthlyProfitJpy": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000000000
+        },
+        "operatingMargin": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "requiredTools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "monthlyCostJpy": {
+                "type": "number"
+              },
+              "purpose": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "monthlyCostJpy",
+              "purpose"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 20
+        },
+        "first100TractionPlaybook": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 20
+        },
+        "sourceEntityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 50
+        },
+        "userNoteInspiration": {
+          "type": "string",
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "id",
+        "dimension",
+        "dimensionLabel",
+        "title",
+        "targetPainWallet",
+        "structuralArbitrage",
+        "projectedMonthlyProfitJpy",
+        "operatingMargin",
+        "requiredTools",
+        "first100TractionPlaybook",
+        "sourceEntityIds",
+        "userNoteInspiration"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

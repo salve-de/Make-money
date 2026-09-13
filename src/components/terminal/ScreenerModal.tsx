@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { X } from 'lucide-react';
+import { X, SlidersHorizontal, RotateCcw } from 'lucide-react';
 import {
   TerminalFilterState,
   WorkStyleFilter,
@@ -118,7 +118,7 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
     },
     {
       id: 'ZERO_AD_GROWTH',
-      label: '広告費ゼロ（自然集客型）',
+      label: '広告費ゼロ・SNS/紹介直結',
       apply: () =>
         onChangeFilter({
           ...filter,
@@ -133,8 +133,8 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
         })
     },
     {
-      id: 'FOR_SALE',
-      label: '事業買収・承継M&A案件',
+      id: 'BUY_RUN',
+      label: '事業買収・承継ターゲット',
       apply: () =>
         onChangeFilter({
           ...filter,
@@ -189,21 +189,26 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-900/40 backdrop-blur-xs select-none font-sans animate-in fade-in duration-150">
-      <div className="bg-white border border-slate-200 rounded-xl shadow-2xl w-full max-w-4xl overflow-hidden flex flex-col max-h-[92vh]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-black/80 backdrop-blur-xs select-none font-sans animate-in fade-in duration-150">
+      <div className="bg-[#0D1117] border border-white/[0.12] rounded-lg shadow-2xl w-full max-w-4xl overflow-hidden flex flex-col max-h-[92vh]">
         {/* モーダル上部ヘッダー */}
-        <div className="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50/80">
-          <div>
-            <div className="text-[11px] text-indigo-600 font-bold tracking-wider">
-              事業スクリーニング・コックピット
+        <div className="px-6 py-4 border-b border-white/[0.08] flex items-center justify-between bg-[#12161F]">
+          <div className="flex items-center gap-3">
+            <div className="w-7 h-7 bg-white/[0.04] border border-white/[0.08] rounded flex items-center justify-center text-emerald-400">
+              <SlidersHorizontal size={14} />
             </div>
-            <h2 className="text-base font-black text-slate-900 mt-0.5">
-              多次元ビジネス検索・計器盤 (50軸)
-            </h2>
+            <div>
+              <div className="text-[10px] font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                SCREENING COCKPIT (50 AXES)
+              </div>
+              <h2 className="text-sm sm:text-base font-black text-zinc-100 mt-0.5">
+                多次元ビジネス検索・計器盤
+              </h2>
+            </div>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-700 p-1 leading-none transition-colors cursor-pointer"
+            className="text-zinc-500 hover:text-zinc-300 p-1.5 rounded hover:bg-white/[0.06] transition-colors cursor-pointer"
             aria-label="閉じる"
           >
             <X size={16} />
@@ -214,15 +219,15 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
         <div className="p-6 overflow-y-auto space-y-6 text-xs font-sans">
           {/* プリセット選択 */}
           <div className="space-y-2">
-            <span className="text-[11px] text-slate-500 block font-bold">
-              主要シナリオ・プリセット
+            <span className="text-[10px] font-mono text-zinc-500 block font-bold uppercase tracking-wider">
+              STRATEGIC PRESETS / 主要シナリオ
             </span>
             <div className="flex flex-wrap gap-1.5">
               {presets.map((p) => (
                 <button
                   key={p.id}
                   onClick={p.apply}
-                  className="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors shadow-2xs cursor-pointer"
+                  className="px-2.5 py-1.5 rounded text-[11px] font-bold bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 border border-white/[0.08] transition-colors cursor-pointer font-sans"
                 >
                   {p.label}
                 </button>
@@ -230,11 +235,11 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
             </div>
           </div>
 
-          <div className="border-t border-slate-200 pt-5 space-y-5">
+          <div className="border-t border-white/[0.08] pt-5 space-y-5">
             {/* 軸1: 組織規模・勤務形態 */}
             <div className="space-y-2">
-              <label className="text-[11px] text-slate-700 block font-bold">
-                1. 組織規模・勤務形態
+              <label className="text-[11px] font-mono text-zinc-400 block font-bold">
+                01. 組織規模・勤務形態
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-1.5">
                 {[
@@ -243,16 +248,16 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
                   { val: 'SMALL_TEAM', label: '少数精鋭（2〜5名）' },
                   { val: 'LOCAL_REAL', label: '地域実業・現場' },
                   { val: 'SALES_HIGH', label: '直販・営業主導' },
-                  { val: 'AUTOMATED_PASSIVE', label: '自動化・システム運営' },
+                  { val: 'AUTOMATED_PASSIVE', label: '自動化・自走' },
                   { val: 'ENTERPRISE', label: '大規模組織' }
                 ].map((item) => (
                   <button
                     key={item.val}
                     onClick={() => onChangeFilter({ ...filter, workStyle: item.val as WorkStyleFilter })}
-                    className={`py-2 px-2 rounded-lg text-xs text-center transition-colors truncate cursor-pointer ${
+                    className={`py-2 px-1.5 rounded text-[11px] text-center transition-colors truncate cursor-pointer font-medium ${
                       filter.workStyle === item.val
-                        ? 'bg-indigo-600 text-white font-bold shadow-2xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium'
+                        ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                     }`}
                   >
                     {item.label}
@@ -263,8 +268,8 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
 
             {/* 軸2: 収益規模・目標年商 */}
             <div className="space-y-2">
-              <label className="text-[11px] text-slate-700 block font-bold">
-                2. 収益規模・目標年商
+              <label className="text-[11px] font-mono text-zinc-400 block font-bold">
+                02. 収益規模・目標年商
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1.5">
                 {[
@@ -278,10 +283,10 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
                   <button
                     key={item.val}
                     onClick={() => onChangeFilter({ ...filter, ambitionScale: item.val as AmbitionScaleFilter })}
-                    className={`py-2 px-2 rounded-lg text-xs text-center transition-colors truncate cursor-pointer ${
+                    className={`py-2 px-1.5 rounded text-[11px] text-center transition-colors truncate cursor-pointer font-medium ${
                       filter.ambitionScale === item.val
-                        ? 'bg-indigo-600 text-white font-bold shadow-2xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium'
+                        ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                     }`}
                   >
                     {item.label}
@@ -292,8 +297,8 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
 
             {/* 軸3: 営業利益率 */}
             <div className="space-y-2">
-              <label className="text-[11px] text-slate-700 block font-bold">
-                3. 営業利益率水準
+              <label className="text-[11px] font-mono text-zinc-400 block font-bold">
+                03. 営業利益率水準
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                 {[
@@ -305,10 +310,10 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
                   <button
                     key={item.val}
                     onClick={() => onChangeFilter({ ...filter, margin: item.val as MarginFilter })}
-                    className={`py-2 px-2 rounded-lg text-xs text-center transition-colors truncate cursor-pointer ${
+                    className={`py-2 px-1.5 rounded text-[11px] text-center transition-colors truncate cursor-pointer font-medium ${
                       filter.margin === item.val
-                        ? 'bg-indigo-600 text-white font-bold shadow-2xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium'
+                        ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                     }`}
                   >
                     {item.label}
@@ -319,8 +324,8 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
 
             {/* 軸4: 初期投資資本 */}
             <div className="space-y-2">
-              <label className="text-[11px] text-slate-700 block font-bold">
-                4. 初期必要資本
+              <label className="text-[11px] font-mono text-zinc-400 block font-bold">
+                04. 初期必要資本
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1.5">
                 {[
@@ -334,10 +339,10 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
                   <button
                     key={item.val}
                     onClick={() => onChangeFilter({ ...filter, capital: item.val as CapitalFilter })}
-                    className={`py-2 px-2 rounded-lg text-xs text-center transition-colors truncate cursor-pointer ${
+                    className={`py-2 px-1.5 rounded text-[11px] text-center transition-colors truncate cursor-pointer font-medium ${
                       filter.capital === item.val
-                        ? 'bg-indigo-600 text-white font-bold shadow-2xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium'
+                        ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                     }`}
                   >
                     {item.label}
@@ -348,27 +353,27 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
 
             {/* 軸5: ビジネスモデル・収益構造 */}
             <div className="space-y-2">
-              <label className="text-[11px] text-slate-700 block font-bold">
-                5. ビジネスモデル・収益構造
+              <label className="text-[11px] font-mono text-zinc-400 block font-bold">
+                05. ビジネスモデル・収益構造
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-1.5">
                 {[
                   { val: 'ALL', label: 'すべて' },
-                  { val: 'SAAS', label: 'SaaS・ソフトウェア' },
-                  { val: 'MEDIA_NEWS', label: '定期刊行・メディア' },
-                  { val: 'DIGITAL_ASSET', label: 'デジタル商材・ナレッジ' },
-                  { val: 'AGENCY_B2B', label: 'B2B受託・営業支援' },
-                  { val: 'LOCAL_DX', label: '地域実業・インフラDX' },
-                  { val: 'COMMERCE', label: '物販・自動化EC' },
-                  { val: 'DEEPTECH_MFG', label: '精密機器・独自製造' }
+                  { val: 'SAAS', label: 'SaaS・ソフト' },
+                  { val: 'MEDIA_NEWS', label: '刊行・メディア' },
+                  { val: 'DIGITAL_ASSET', label: 'ナレッジ商材' },
+                  { val: 'AGENCY_B2B', label: 'B2B受託・支援' },
+                  { val: 'LOCAL_DX', label: '実業・現場DX' },
+                  { val: 'COMMERCE', label: '物販・自動EC' },
+                  { val: 'DEEPTECH_MFG', label: '精密機器・製造' }
                 ].map((item) => (
                   <button
                     key={item.val}
                     onClick={() => onChangeFilter({ ...filter, businessModelCategory: item.val as BusinessModelFilter })}
-                    className={`py-2 px-2 rounded-lg text-xs text-center transition-colors truncate cursor-pointer ${
+                    className={`py-2 px-1.5 rounded text-[11px] text-center transition-colors truncate cursor-pointer font-medium ${
                       filter.businessModelCategory === item.val
-                        ? 'bg-indigo-600 text-white font-bold shadow-2xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium'
+                        ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                     }`}
                   >
                     {item.label}
@@ -379,15 +384,15 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
 
             {/* 軸6: 構造的参入障壁 */}
             <div className="space-y-2">
-              <label className="text-[11px] text-slate-700 block font-bold">
-                6. 構造的参入障壁（7つの競争優位性）
+              <label className="text-[11px] font-mono text-zinc-400 block font-bold">
+                06. 構造的参入障壁（7 POWERS）
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-1.5">
                 {[
                   { val: 'ALL', label: 'すべて' },
                   { val: 'PROCESS_POWER', label: '独自プロセス' },
-                  { val: 'NETWORK_EFFECTS', label: 'ネットワーク効果' },
-                  { val: 'COUNTER_POSITIONING', label: '対抗不能戦略' },
+                  { val: 'NETWORK_EFFECTS', label: 'ネットワーク' },
+                  { val: 'COUNTER_POSITIONING', label: '対抗不能' },
                   { val: 'SWITCHING_COSTS', label: '乗換コスト' },
                   { val: 'BRANDING', label: 'ブランド信頼' },
                   { val: 'CORNERED_RESOURCE', label: '希少資源独占' },
@@ -396,10 +401,10 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
                   <button
                     key={item.val}
                     onClick={() => onChangeFilter({ ...filter, moat: item.val as MoatFilter })}
-                    className={`py-2 px-2 rounded-lg text-xs text-center transition-colors truncate cursor-pointer ${
+                    className={`py-2 px-1.5 rounded text-[11px] text-center transition-colors truncate cursor-pointer font-medium ${
                       filter.moat === item.val
-                        ? 'bg-indigo-600 text-white font-bold shadow-2xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium'
+                        ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                     }`}
                   >
                     {item.label}
@@ -410,25 +415,25 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
 
             {/* 軸7: 顧客獲得導線 */}
             <div className="space-y-2">
-              <label className="text-[11px] text-slate-700 block font-bold">
-                7. 主要顧客獲得導線
+              <label className="text-[11px] font-mono text-zinc-400 block font-bold">
+                07. 主要顧客獲得導線
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-1.5">
                 {[
                   { val: 'ALL', label: 'すべて' },
                   { val: 'X_TWITTER', label: '公開開発・SNS' },
                   { val: 'DIRECT_OUTREACH', label: '直販・アウトバウンド' },
-                  { val: 'SEO_ORGANIC', label: '自然検索・コンテンツ' },
+                  { val: 'SEO_ORGANIC', label: '自然検索・SEO' },
                   { val: 'AFFILIATE_LOOP', label: '紹介・提携網' },
                   { val: 'ZERO_AD_SPEND', label: '広告宣伝費ゼロ' }
                 ].map((item) => (
                   <button
                     key={item.val}
                     onClick={() => onChangeFilter({ ...filter, acquisitionChannel: item.val as AcquisitionFilter })}
-                    className={`py-2 px-2 rounded-lg text-xs text-center transition-colors truncate cursor-pointer ${
+                    className={`py-2 px-1.5 rounded text-[11px] text-center transition-colors truncate cursor-pointer font-medium ${
                       filter.acquisitionChannel === item.val
-                        ? 'bg-indigo-600 text-white font-bold shadow-2xs'
-                        : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/80 font-medium'
+                        ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold'
+                        : 'bg-white/[0.04] text-zinc-400 hover:text-zinc-200 hover:bg-white/[0.08] border border-white/[0.06]'
                     }`}
                   >
                     {item.label}
@@ -440,25 +445,25 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
         </div>
 
         {/* リアルタイム該当企業プレビュー */}
-        <div className="px-6 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between gap-3 overflow-x-auto text-xs">
-          <span className="text-[10px] font-mono text-slate-500 uppercase shrink-0 font-bold">
-            該当プレビュー ({matchingCompanies.length}件):
+        <div className="px-6 py-3 bg-[#090C10] border-t border-white/[0.08] flex items-center justify-between gap-3 overflow-x-auto text-xs">
+          <span className="text-[10px] font-mono text-zinc-500 uppercase shrink-0 font-bold">
+            MATCHING PREVIEW ({matchingCompanies.length}):
           </span>
           <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
             {matchingCompanies.length > 0 ? (
               matchingCompanies.slice(0, 5).map((c) => (
                 <span
                   key={c.id}
-                  className="px-2.5 py-0.5 rounded-md bg-white border border-slate-200 text-slate-800 text-[11px] whitespace-nowrap font-bold shadow-2xs"
+                  className="px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.08] text-zinc-300 text-[11px] whitespace-nowrap font-medium font-sans"
                 >
                   {c.japaneseName}
                 </span>
               ))
             ) : (
-              <span className="text-amber-700 text-[11px] font-medium">該当するビジネスがありません（条件を緩和してください）</span>
+              <span className="text-amber-400 text-[11px] font-medium font-mono">該当なし（条件を緩和してください）</span>
             )}
             {matchingCompanies.length > 5 && (
-              <span className="text-slate-400 font-mono text-[10px] shrink-0 font-medium">
+              <span className="text-zinc-500 font-mono text-[10px] shrink-0">
                 他 {matchingCompanies.length - 5} 件...
               </span>
             )}
@@ -466,26 +471,27 @@ export const ScreenerModal: React.FC<ScreenerModalProps> = ({
         </div>
 
         {/* モーダルフッター */}
-        <div className="px-6 py-4 border-t border-slate-200 flex items-center justify-between bg-slate-50/80 font-mono text-xs">
+        <div className="px-6 py-4 border-t border-white/[0.08] flex items-center justify-between bg-[#12161F] font-mono text-xs">
           <div className="flex items-center gap-3">
-            <span className="text-slate-600 font-medium font-sans">
-              該当 <strong className="text-indigo-600 text-base font-black">{filteredCount}</strong> / {totalCount} 件
+            <span className="text-zinc-400 font-sans">
+              該当 <strong className="text-emerald-400 text-sm sm:text-base font-black font-mono tabular-nums">{filteredCount}</strong> / {totalCount} 件
             </span>
             {hasActiveFilters && (
               <button
                 onClick={resetAll}
-                className="text-slate-500 hover:text-slate-800 underline font-sans text-xs cursor-pointer font-medium"
+                className="text-zinc-400 hover:text-white underline font-sans text-xs cursor-pointer flex items-center gap-1"
               >
-                すべての条件をリセット
+                <RotateCcw size={11} />
+                <span>全リセット</span>
               </button>
             )}
           </div>
 
           <button
             onClick={onClose}
-            className="h-9 px-6 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg text-xs transition-colors shadow-2xs cursor-pointer"
+            className="h-8 px-5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold rounded text-xs transition-colors cursor-pointer font-mono"
           >
-            この条件で絞り込む ({filteredCount}件)
+            APPLY FILTER ({filteredCount})
           </button>
         </div>
       </div>

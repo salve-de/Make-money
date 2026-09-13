@@ -1,0 +1,159 @@
+# データとコードの置き場所（正本）
+
+この文書は、担当者・AIが交代しても保存先、変更箇所、理由、確認方法を判断するための入口です。技術を永久固定せず、データを検証して移し替えられる状態を維持します。
+
+## 現在地
+
+2026-09-11時点の記録（履歴）: D1 + R2への移行を実装中。専用D1・非公開R2を作成し、D1 migration 0001〜0003を適用済みだった。設計文書はGitHub/R2保存・読み戻し確認済み（[保存記録](PUBLICATION_RECEIPT.md)）。初期バックアップの隔離D1復元も確認済み。この段階は本番切替・利用者データの移行や復旧完了を意味しない。Neonは今後の実行時保存先として使用しない。旧実装が残っていても新規利用しない。既存データの移行は所有プロジェクトを確認し、原本を保全してから行う。
+
+2026-09-12: migration 0004（ニュースレター所有者・匿名解除トークンのハッシュ）と0005（匿名書込みの一時レート制限）を本番D1 `07affd4c-cac4-4998-843c-b5881fccab5e`へ適用した。適用前に全アプリテーブル0行を確認し、事前exportを非公開R2へcreate-only保存した。適用後に「No migrations to apply」、新列・index・`request_rate_limits`表、同表0行を読み戻した。R2保全物は[保存記録](PUBLICATION_RECEIPT.md)を参照。
+
+2026-09-12: Neon管理APIを読み取り専用で再監査した。接続可能な所有プロジェクトは `Investrader-hub` だけで、Make-MoneyというNeonプロジェクトは存在しなかった。そのDBでMake-Money旧schema名（`businesses`、`business_ideas`、`market_signals`、`saved_items`、`submissions`、`newsletter_subscribers`、`analyst_notes`、`chat_conversations`、`synthesized_ideas`）を照会した結果は0件。`users`等の一般名テーブルには別プロジェクトのデータがあるため、所有境界を証明できないままMake-MoneyのR2へコピーしていない。Neonは引き続きMake-Moneyの実行時保存先にしない。
+
+## 認証環境の作成状況（2026-09-11）
+
+ユーザーの明示承認によりFirebaseプロジェクト `make-money-salve-prod`（Make-Money Production、project number `58988611995`）とWebアプリ `1:58988611995:web:8e69e3432164586d3ab93e` を新規作成した。既存Investraderの認証環境は変更していない。課金設定は追加していない。
+
+2026-09-12: 表示承認後にFirebase Authenticationを初期化し、メール・パスワード認証とGoogleログインを有効化。認証設定APIでもメール認証の `enabled: true` / `passwordRequired: true` と許可ドメインを読み戻し、コンソールでGoogleのステータス有効を確認した。Google設定には専用プロジェクトのサポートメールを指定。Spark無料プランを維持。専用SDK設定をGit管理対象外の `.env.local` に接続し、設定値はGit/R2本文へ保存しない。許可ドメインは `localhost` と専用Firebaseの標準ドメイン2件。Workerの実行時検証は`wrangler.jsonc`の非秘密変数`FIREBASE_PROJECT_ID`を優先し、Nodeの明示実行だけ`NEXT_PUBLIC_FIREBASE_PROJECT_ID`へフォールバックする。
+
+実Firebaseで使い捨てアカウント2件を登録・メールログインし、ビルド済みOpenNext Workerから隔離したローカルD1へメモを保存・読み戻した。未認証・不正トークンの401、別ユーザーから対象メモが見えないことを確認。検証後に作成アカウント2件を削除した。本番D1は変更していない。この証拠は実認証とWorker/D1経路の結合検証であり、本番D1への切替・実利用者の移行・Googleログイン・Stripe決済の本番検証を意味しない。詳細は[認証・保存の検証記録](AUTH_VERIFICATION.md)。
+
+## データをどこへ入れるか
+
+| データ | 正本・保存先 | 保存経路と形式 | 理由 |
+|---|---|---|---|
+| ログイン資格情報 | Firebase Authentication | 認証SDK。サーバーでトークン検証 | パスワードや認証処理を自作しない |
+| ユーザー設定、保存企業、投稿、会話 | プロジェクト専用D1 | 認証済みAPI → 所有者を限定したSQL。構造変更はSQL migration | 更新・検索・整合性制約が必要 |
+| ニュースレター購読 | プロジェクト専用D1 | 認証済みならUIDを紐付け、匿名なら解除トークンのハッシュだけを保存。解除APIで削除 | メール本文をAPI応答へ返さず、匿名でも本人が削除できる |
+| 決済イベント、購入・返金・利用権 | プロジェクト専用D1 | 署名検証済みStripe webhook → 重複排除・原子的更新 | 二重処理、順序逆転、返金後の権限残存を防ぐ |
+| 課金そのもの | Stripe | サーバーのみ。決済IDをD1で参照 | ブラウザの成功画面やlocalStorageは支払い証明にならない |
+| アプリ添付・大きな生成物 | プロジェクト専用の非公開R2 | サーバー経由。D1には所有者、object key、schema version、hash等の参照 | バイナリをDBへ詰め込まず、認可と内容を分離 |
+| D1エクスポート・移行原本 | プロジェクト専用の非公開R2 | 世代別objectとmanifest。読み戻し・hash照合 | 障害復旧と他DBへの移行に備える |
+| 外部調査の事実・出典 | Foundationの登録済みR2契約 | 既存収集CLI、schema検証、create-only | 事実を不変に保ち、解釈・表示と分離 |
+| 表示用の企業一覧・詳細 | 上記正本からのprojection | 読み取り時の変換、公開DTO | UI都合で第二の正本を作らない |
+| 秘密鍵・APIトークン | ホストのsecret管理 | 環境ごとのsecret注入 | Git、R2本文、ブラウザへ入れない |
+| 一時キャッシュ | 再生成可能なキャッシュ | 消えても正本から再作成 | 権利やユーザー記録の正本にしない |
+
+### 調査候補の検疫
+
+`data/intelligence-blacklist.json` は、記事URLやプレースホルダーURLを企業の正規レコードとして再採用しないための、Make-Money専用のバージョン管理レジストリです。`src/lib/foundation/blacklist.ts` の `checkBlacklist` はインデックス生成時の入力projectionにだけ適用し、R2の原本・Foundationの登録データ・収集JSONを削除または上書きしません。除外候補にはID、URL、理由、登録時刻を残し、企業の存在そのものを否定する名前だけの規則は追加しません。
+
+新しい除外を追加するときは、元の候補を保全したまま、根拠URLと理由を記録し、`pnpm test`・`pnpm lint`・`pnpm typecheck` と索引再生成の差分を確認します。別プロジェクトへルールを共有する場合は、対象プロジェクト、版、根拠、適用範囲を別途記録し、共有Foundationの事実レイクへプロジェクト固有の除外判定を混ぜません。
+
+Workersの配布物は `pnpm workers:build`（`bundle:workers`、`deploy:workers`、`upload:workers`から利用）を入口にする。このビルドはdotenvから公開設定だけを一時的に取り出し、秘密鍵・APIトークンをビルドへ渡さず、生成された `.open-next` を秘密値で照合する。`deploy:workers` は公開Firebase設定だけでなく、`wrangler.jsonc` の専用Firebase project、APP_DB、APP_R2 bindingも事前検査する。Stripe/Gemini/R2/D1の秘密はCloudflare Worker secretまたは対象ホストのsecret管理へ実行時に注入する。直接 `opennextjs-cloudflare build` を本番配布手順に使わない。
+
+APIのリクエスト本文は`readJsonBody` / `readTextBody`でバイト上限を適用し、`Content-Length`がないchunked本文も上限を超えた時点で拒否する。routeへ直接`request.json()`や`request.text()`を追加するとarchitecture検査で失敗する。外部JSONは上限後にschema検証し、決済署名本文も検証前に上限を適用する。
+
+R2は強整合でも、複数レコードをまとめたSQL transactionの代わりではありません。複数の更新を一緒に成功させる必要があるデータはD1へ置きます。[Cloudflareの保存先選択](https://developers.cloudflare.com/use-cases/web-apps/store-data/)、[R2整合性](https://developers.cloudflare.com/r2/reference/consistency/)、[D1 batch](https://developers.cloudflare.com/d1/worker-api/d1-database/)を参照。
+
+## コードをどこへ入れるか
+
+| 変更したいこと | 置き場所 | 守る境界 |
+|---|---|---|
+| URL、HTTP、ページの組み立て | `src/app/` | APIで認証・入力検証し、業務処理へ渡す |
+| Inspectorの表示・計算 | `src/features/company-inspector/` | 固定UIはComposition、可変EvidenceだけRegistry |
+| 新機能のUI・業務処理 | `src/features/<feature>/ui`, `model`, 必要なら`server` | 一緒に変わる小さな型・関数は同居。外部はPublic API経由 |
+| 機能非依存の型・純粋関数 | `src/shared/` | Featureやアプリへ逆依存しない |
+| 現行のD1/R2接続 | `src/lib/storage/` | 接続、読み書き、エラー変換。料金や業務判定は入れない |
+| 現行の購入・利用権判定 | `src/lib/payments/` | Stripeイベントと権利の規則を集約 |
+| DB構造変更 | `migrations/d1/`（移行先） | 順番付きSQLを追加。適用済みファイルを書き換えない |
+| 公開・有料データの分離 | `src/lib/company-access/` | サーバーで公開項目を選び、非公開本文を配信しない |
+| 既存企業資料・財務照合 | `src/platform/data/` | 原資料と検証済みprojectionを区別。未確認を実績0にしない |
+| 依存制約・配信漏れの検査 | `scripts/architecture/` | 人の目だけで守らない |
+| 単体テスト | 対象の隣の`*.test.ts` | 境界値、他人のアクセス、失敗時、再実行を検証 |
+| 主要導線テスト | `e2e/` | ユーザーの操作と表示を確認 |
+
+`lib/`と`platform/`は既存配置です。一度に全面移動せず、変更理由が揃った単位でFeatureへ移します。server専用実装をclient用indexへ混ぜないでください。新しい階層を増やす前に、同じ責務の既存ファイルを探します。
+
+## 新しいデータを追加する手順
+
+1. 正本を一つ決める。誰のデータか、誰が書けるか、削除・保持期間、機密性を決める。
+2. 上の表で保存先と担当コードを選ぶ。不明なデータを汎用JSON置き場へ投げ込まない。
+3. D1はmigration・制約・index、R2はversion付きschema・key規則を定義する。外部JSONは境界で検証する。Worker実行時は`@cfworker/json-schema`（eval/new Function不要）を使い、AJVはNode専用のschema生成・収集CLIに限定する。
+4. 認証から得たユーザーIDで所有者を限定する。リクエスト内のuser IDを権限の根拠にしない。
+5. 重複、同時更新、途中失敗、削除を設計する。D1とR2を跨ぐ処理はDBにpending/ready等を記録し、再実行・照合で回復できるようにする。両者を一つのtransactionと呼ばない。
+6. 他ユーザーからの拒否、不正schema、重複イベント、途中失敗をテストする。保存後の読み戻しを確認する。
+7. この表に該当しない保存先・重要な判断変更は、理由・代案・移行方法をこの文書へ追記する。説明をコードから離れたチャットだけに残さない。
+
+## 複数プロジェクト・環境
+
+各プロジェクトのrepoにこの契約を持たせ、project IDとenvironmentを固定します。原則、D1、アプリ非公開R2、secret、migration履歴、バックアップはプロジェクト別・環境別です。開発環境から本番へ暗黙fallbackしません。認証も別プロジェクトを既定とし、共有するならissuer/audience・利用者の関連付けを明示します。Workerのデプロイ入口は専用Firebaseの公開設定が揃わない場合に失敗させます。ローカル表示用の未設定ビルドを許しても、認証なしの配布物を成功扱いにしません。
+
+名前の例は `<project>-<environment>-app`（D1）、`<project>-<environment>-private`（R2）。例は作成済みリソースではありません。実際のID/bindingは各repoの`wrangler.jsonc`が正本です。メールアドレスや個人情報をobject keyに含めず、不透明IDを使います。
+
+共有Foundationは例外的な調査基盤です。Make-Moneyはconsumer契約に従い、ユーザー情報・決済情報をFoundationへ混ぜません。別プロジェクトのDBに同名テーブルがあっても移行対象と見なしません。
+
+共通化するのは接続、schema検証、検査手順など安定した技術部分です。利用権、価格、業務ルールまで一つの巨大共通パッケージにまとめません。共通ライブラリ化は複数の実利用ができてから、version付きで行います。
+
+## 移行・バックアップ・復元の完了条件
+
+- 移行元のproject/environment/tableと所有根拠を記録。件数だけで所有者を推測しない。
+- エクスポートは非公開領域にcreate-only保存。manifestにproject、環境、schema版、日時、件数、hash、migration版を記録。本文や資格情報をログへ出さない。
+- 移行先で件数・主キー・参照整合性・hashを照合し、APIから読み戻す。稼働中データは書き込み停止か差分移行を計画し、取りこぼしを防ぐ。
+- 空の隔離DBへ復元し、所有者認可と主要導線を確認する。バックアップファイルがあるだけでは復元成功ではない。
+- 切替後の照合を終えるまで旧原本を削除しない。切戻し先、判断条件、責任者を記録する。
+- 個人情報は永久保持しない。保持期間・削除依頼・バックアップからの削除反映方針をデータ種別ごとに決める。
+
+D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。復元手順と合成データによる自動演習は [RECOVERY.md](RECOVERY.md) に記載します。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
+
+アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、`users` 行をD1の一括処理で削除する。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
+
+匿名のニュースレター登録と掲載申請には、Cloudflareのクライアント識別子を一方向ハッシュ化したD1の時間窓カウンタを適用する。これは最低限のスパム抑制であり、WAF・Turnstile・分散攻撃への完全な防御を意味しない。実運用の閾値はトラフィックを観測して調整する。
+
+## 100年壊れないR2完璧構造（原物・保存票・目録の3層アーキテクチャ）
+
+右チャット（Codex IR担当 / ChatGPT Pro）との徹底ディスカッションおよびデータエンジニアリングの物理限界監査を経て確立した、**「AI・少人数運用において100年運用しても絶対に壊れないR2データ構造と自走運用モデル」**の最高規範です。
+
+### 1. なぜ物理フォルダ整理を全廃し「物理移動ゼロ」にするのか？
+* **物理移動の自爆性**: 「年度別」「業界別」のように人間が物理フォルダを掘り直すと、社名変更や年度またぎのたびにパスが壊れ、参照切れが起き、R2のコピー課金（Class A）が爆発する。
+* **物理は「巨大な不変倉庫（Flat/Hash）」、整理は「単一の台帳（Catalog）」**: 物理実体は「変更不可（Append-Only）なハッシュキー」で放り込むだけに徹し、検索・整理・リレーションはすべて**単一のメタデータ台帳（D1 / entities-index）**側で管理する。
+
+### 2. 3大物理階層（Medallion Architecture on R2）
+
+| レイヤー | バケット / プレフィックス | 格納形式 | 性質 | 用途・書き手 |
+|:---|:---|:---|:---|:---|
+| **Layer 1: 原物<br>（Bronze / Raw）** | `foundation-raw/blobs/sha256/<hash>`<br>`data-assets/financials/edinet-raw/...`（既存固定） | HTML, PDF, XBRL, 魚拓（そのまま） | **完全不変<br>（Write-Once, 削除禁止）** | 一次資料の永久原本。改ざん不能。AIが取得したWeb記事やEDINET生開示をそのままPUT。 |
+| **Layer 2: 保存票<br>（Silver / Lake）** | `foundation-lake/journal-entry.v1/<id>.json`<br>`data-assets/financials/edinet-canonical-document-set/v2/...`（既存固定） | 構造化JSON（事実・数値のみ、解釈ゼロ） | **追記専用<br>（Append-Only）** | EDINETのパース済み正規ドキュメント（Canonical）、Make-Moneyの調査事実ログ（Journal）。 |
+| **Layer 3: 目録・提供ビュー<br>（Gold / Serving View）** | `datasets/ds.business.makemoney-dossiers.v1/<id>.json`<br>（またはD1キャッシュ / entities-index.json） | 完成体Dossier（P&L逆算・裏帳簿・UI直結） | **再生成可能<br>（Derived）** | Bloomberg端末UIが0.1秒で引く完成データ。Layer 1と2からいつでも100%全自動再生成可能。 |
+
+### 3. EDINET継続蓄積とMake-Money新規収集の完全自走パイプライン
+
+今後データがどれだけ増大しても、以下の**一本道（パイプライン）**のみで自走する。
+
+```text
+［EDINET側の自走経路］
+  開示発生 ➔ edinet-raw（原本保存） ➔ パース ➔ edinet-canonical（事実保存）
+                                                    │
+                                                    ▼
+［合流地点（台帳）］  === entities-index.json (D1) で EDINETコード と 企業ID を1行でJOIN ===
+                                                    ▲
+［Make-Money側の自走経路］                           │
+  新規調査 ➔ foundation-raw（Web原本） ➔ foundation-lake（事実） ➔ Gold裏帳簿（精錬）
+```
+
+1. **EDINET開示が新規に来た時**:
+   * 物理パスは `data-assets/financials/...` のまま永久固定（一切触らない・移動しない）。
+   * パース完了結果を台帳（`edinetCode`）に登録するだけで、Make-Money側と自動結合される。
+2. **Make-Moneyで新規データを集める時**:
+   * `foundation-raw`（生原本） ➔ `foundation-lake`（保存票・Journal）へ追記保存。
+   * 既存ファイルを一切上書きしないため、複数チャット・複数AIが並行で何万件集めても衝突確率はゼロ。
+
+### 4. 100年運用の4大鉄則（The 4 Invariants）
+1. **原物を解析結果で置き換えない**: 原本は永久不変。訂正や再解析も新しい履歴・観測として追記する。
+2. **保存完了を先に宣言しない**: 不完全な取得・保留・失敗はその状態で保持し、保存票が確定した時のみ完了とする。
+3. **同じ依頼を再送しても壊れない**: ユニークなハッシュキーにより、重複再送されても安全に同一結果へ収斂する（冪等性）。
+4. **復元できることを実際に試す**: 最上位のGoldデータやUIキャッシュが全損しても、原物と保存票からいつでも100%再生成できることをテストで担保する。
+
+## 検証と変更の記録
+
+`pnpm lint`、`pnpm typecheck`、`pnpm test`、`pnpm build`、`pnpm test:e2e`を実行します。認可・保存先・決済を変えた場合は、実際の対象環境で保存と読み戻しまで確認します。ローカル成功、本番設定、データ移行、main反映は別々に記録します。
+
+関連する正本:
+- [他プロジェクトへの導入テンプレート](PROJECT_STARTER.md)
+- [Inspector責務](../INSPECTOR_ARCHITECTURE.md)
+- [Foundation読み取り経路](../FOUNDATION_UI_READ_PATH.md)
+- [収集契約](../DATA_COLLECTION_CONTRACT.md)
+- [財務照合](../FINANCIAL_RECONCILIATION.md)
+- [監査修正と検証](../BROWSER_AUDIT_REPAIRS.md)
+
+Nodeでの直接起動は明示したD1 REST設定の単文のみを扱います。複数SQLのtransactionが必要な処理はAPP_DB bindingが必須です。RESTで部分成功させるfallbackは行いません。

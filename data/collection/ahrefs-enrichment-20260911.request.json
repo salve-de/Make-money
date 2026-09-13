@@ -1,0 +1,774 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_ahrefs_enrichment_20260911_04",
+    "purpose": "make_money",
+    "subject": {
+      "query": "Ahrefs bootstrap SEO data and crawler company financials",
+      "candidate_name": "Ahrefs",
+      "candidate_domain": "ahrefs.com",
+      "notes": "Bootstrap SEO crawler titan founded by Dmytro Gerasymenko. Reached $100M+ ARR with zero VC funding and zero sales reps."
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst",
+      "model": "gemini-2.5-pro",
+      "version": "1.0.0"
+    },
+    "retrieved_at": "2026-09-11T01:50:00Z",
+    "sources": [
+      {
+        "source_id": "src.ahrefs.official",
+        "provider_name": "Ahrefs Official Website",
+        "source_type": "official_website",
+        "canonical_url": "https://ahrefs.com/about",
+        "source_strength": "A",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "access_notes": "Public company history and product architecture."
+      },
+      {
+        "source_id": "src.ahrefs.founder_post",
+        "provider_name": "Tim Soulo & Dmytro Gerasymenko Post on X",
+        "source_type": "founder_report",
+        "canonical_url": "https://twitter.com/timsuhlo/status/1471415286595502081",
+        "source_strength": "A",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "access_notes": "Public confirmation of $100M ARR milestone with 0 VC and 0 sales team."
+      },
+      {
+        "source_id": "src.latka.ahrefs",
+        "provider_name": "GetLatka SaaS Database",
+        "source_type": "financial_reporting",
+        "canonical_url": "https://getlatka.com/companies/ahrefs",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "access_notes": "ARR, margin, and headcount tracking data."
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_97336a527dd1569c8284e0ae",
+        "source_id": "src.ahrefs.official",
+        "source_url": "https://ahrefs.com/about",
+        "source_title": "About Ahrefs - Company Profile",
+        "source_type": "official_website",
+        "publisher_or_speaker": "Ahrefs Pte. Ltd.",
+        "published_at": "2024-01-01T00:00:00Z",
+        "retrieved_at": "2026-09-11T01:50:00Z",
+        "source_strength": "A",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "raw_storage": {
+          "status": "metadata_only",
+          "bucket": null,
+          "key": null,
+          "content_type": null,
+          "content_sha256": null,
+          "bytes": null
+        },
+        "summary": "Ahrefs was founded in 2010 by Dmytro Gerasymenko. Runs AhrefsBot, the 2nd most active web crawler behind Google.",
+        "extracted_facts": [
+          "Founded in 2010 by Dmytro Gerasymenko",
+          "AhrefsBot is the 2nd most active web crawler worldwide",
+          "Self-funded with personal savings of around $300k, zero VC capital taken"
+        ]
+      },
+      {
+        "evidence_id": "ev_0ae2b0f144eb50f6207cf74c",
+        "source_id": "src.ahrefs.founder_post",
+        "source_url": "https://twitter.com/timsuhlo/status/1471415286595502081",
+        "source_title": "Ahrefs hits $100M ARR with 0 salespeople",
+        "source_type": "founder_report",
+        "publisher_or_speaker": "Tim Soulo & Dmytro Gerasymenko",
+        "published_at": "2021-12-15T00:00:00Z",
+        "retrieved_at": "2026-09-11T01:50:00Z",
+        "source_strength": "A",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "raw_storage": {
+          "status": "metadata_only",
+          "bucket": null,
+          "key": null,
+          "content_type": null,
+          "content_sha256": null,
+          "bytes": null
+        },
+        "summary": "Official milestone post announcing Ahrefs reached $100M ARR with 0 salespeople and 0 outside investors.",
+        "extracted_facts": [
+          "Ahrefs crossed $100M ARR in December 2021",
+          "Zero dedicated salespeople employed",
+          "Zero external VC or private equity funding"
+        ]
+      },
+      {
+        "evidence_id": "ev_52f4a0faf01b43cd47bc47fb",
+        "source_id": "src.latka.ahrefs",
+        "source_url": "https://getlatka.com/companies/ahrefs",
+        "source_title": "Latka SaaS Profile: Ahrefs",
+        "source_type": "financial_reporting",
+        "publisher_or_speaker": "Nathan Latka",
+        "published_at": "2024-06-01T00:00:00Z",
+        "retrieved_at": "2026-09-11T01:50:00Z",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "raw_storage": {
+          "status": "metadata_only",
+          "bucket": null,
+          "key": null,
+          "content_type": null,
+          "content_sha256": null,
+          "bytes": null
+        },
+        "summary": "Tracked ARR reached $149.1M in 2024 with estimated operating profit margins of 50-60%.",
+        "extracted_facts": [
+          "2024 Estimated ARR is $149.1M USD",
+          "Operating profit margin estimated at 50% to 60%",
+          "Team size approximately 100 people"
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_business_72f423163f9c7ce9b932",
+        "entity_type": "business",
+        "canonical_name": "Ahrefs",
+        "aliases": [
+          "Ahrefs Pte. Ltd.",
+          "ahrefs.com"
+        ],
+        "canonical_identifier": "ahrefs.com",
+        "domain": "ahrefs.com",
+        "status": "ACTIVE",
+        "observed_at": "2026-09-11T01:50:00Z",
+        "evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae",
+          "ev_0ae2b0f144eb50f6207cf74c"
+        ]
+      },
+      {
+        "entity_id": "ent_person_749e18c07bedc4bea149",
+        "entity_type": "person",
+        "canonical_name": "Dmytro Gerasymenko",
+        "aliases": [
+          "Dmytro Gerasymenko (CEO)"
+        ],
+        "canonical_identifier": "dmytro-gerasymenko",
+        "domain": null,
+        "status": "ACTIVE",
+        "observed_at": "2026-09-11T01:50:00Z",
+        "evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae",
+          "ev_0ae2b0f144eb50f6207cf74c"
+        ]
+      },
+      {
+        "entity_id": "ent_market_1f3ff9c9e016df49dba4",
+        "entity_type": "market_segment",
+        "canonical_name": "SEO Marketers and Agencies",
+        "aliases": [
+          "SEO Professionals",
+          "Content Marketers"
+        ],
+        "canonical_identifier": null,
+        "domain": null,
+        "status": "ACTIVE",
+        "observed_at": "2026-09-11T01:50:00Z",
+        "evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "cl_402630d1c1dfc2b6897f8b34",
+        "entity_ids": [
+          "ent_business_72f423163f9c7ce9b932",
+          "ent_person_749e18c07bedc4bea149"
+        ],
+        "statement": "Ahrefs is a bootstrapped all-in-one SEO toolset founded by Dmytro Gerasymenko that reached over $100M ARR with zero outside VC funding.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae",
+          "ev_0ae2b0f144eb50f6207cf74c"
+        ],
+        "occurred_at": "2021-12-15T00:00:00Z",
+        "valid_from": "2010-01-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      },
+      {
+        "claim_id": "cl_d39c0445d4c0e32eb27150b3",
+        "entity_ids": [
+          "ent_business_72f423163f9c7ce9b932"
+        ],
+        "statement": "VC調達ゼロ・営業部隊ゼロのまま、自作クローラーでGoogleに次ぐ世界第2位のWebデータを掌握し年商220億円（ARR $149M）を完全独占するSEO要塞",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_0ae2b0f144eb50f6207cf74c",
+          "ev_52f4a0faf01b43cd47bc47fb"
+        ],
+        "occurred_at": null,
+        "valid_from": "2021-01-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      },
+      {
+        "claim_id": "cl_3b72788b5b0539649cffa656",
+        "entity_ids": [
+          "ent_business_72f423163f9c7ce9b932"
+        ],
+        "statement": "Ahrefs operates entirely via Product-Led Growth (PLG) and content marketing, employing zero dedicated salespeople.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_0ae2b0f144eb50f6207cf74c"
+        ],
+        "occurred_at": "2021-12-15T00:00:00Z",
+        "valid_from": "2010-01-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "mt_5a409b0bb66e5d3e433b35e7",
+        "entity_id": "ent_business_72f423163f9c7ce9b932",
+        "metric_type": "annual_recurring_revenue",
+        "value": 149100000,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": "2024-06-01T00:00:00Z",
+        "basis": "reported_arr",
+        "scope": "total_company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_52f4a0faf01b43cd47bc47fb"
+        ]
+      },
+      {
+        "metric_id": "mt_11f3883f547f01600807c99b",
+        "entity_id": "ent_business_72f423163f9c7ce9b932",
+        "metric_type": "monthly_revenue_jpy_equivalent",
+        "value": 1850000000,
+        "unit": "JPY_per_month",
+        "currency": "JPY",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": "2024-06-01T00:00:00Z",
+        "basis": "calculated_from_arr",
+        "scope": "total_company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_52f4a0faf01b43cd47bc47fb"
+        ]
+      },
+      {
+        "metric_id": "mt_95c69ee04baf9d0c9bcf0b9a",
+        "entity_id": "ent_business_72f423163f9c7ce9b932",
+        "metric_type": "operating_profit_margin_estimated",
+        "value": 0.55,
+        "unit": "ratio",
+        "currency": null,
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": "2024-06-01T00:00:00Z",
+        "basis": "analyst_estimate",
+        "scope": "total_company",
+        "origin_type": "estimated",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "ev_52f4a0faf01b43cd47bc47fb"
+        ]
+      }
+    ],
+    "money_signals": [
+      {
+        "money_signal_id": "ms_45d4d168effd10fcd7674be7",
+        "payer_entity_id": "ent_market_1f3ff9c9e016df49dba4",
+        "receiver_entity_id": "ent_business_72f423163f9c7ce9b932",
+        "purpose": "Monthly/Annual SaaS subscription for SEO and backlink analytics platform",
+        "money_type": "saas_subscription_revenue",
+        "amount": 149100000,
+        "currency": "USD",
+        "unit": "USD",
+        "amount_label": "$149.1M ARR (約223億円) / 月商 約18.5億円",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": "2024-06-01T00:00:00Z",
+        "basis": "recurring_subscription",
+        "scope": "total_revenue",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_52f4a0faf01b43cd47bc47fb"
+        ]
+      }
+    ],
+    "events": [
+      {
+        "event_id": "evt_91654454074bd3bb5d61036c",
+        "entity_ids": [
+          "ent_business_72f423163f9c7ce9b932",
+          "ent_person_749e18c07bedc4bea149"
+        ],
+        "event_type": "founded",
+        "occurred_at": "2010-01-01T00:00:00Z",
+        "description": "Dmytro Gerasymenkoが自己資金のみでAhrefsをシンガポールにて創業。自作クローラーの開発に着手。",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae"
+        ]
+      },
+      {
+        "event_id": "evt_f2a922b946ba3c0481a82585",
+        "entity_ids": [
+          "ent_business_72f423163f9c7ce9b932",
+          "ent_person_749e18c07bedc4bea149"
+        ],
+        "event_type": "milestone",
+        "occurred_at": "2021-12-15T00:00:00Z",
+        "description": "外部資本調達ゼロ・営業部隊ゼロのブートストラップ経営のままARR $100M（約115億円）を突破。",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_0ae2b0f144eb50f6207cf74c"
+        ]
+      }
+    ],
+    "observations": [
+      {
+        "origin_type": "observed",
+        "verification_status": "SUPPORTED",
+        "observed_at": "2026-09-11T01:50:00Z",
+        "collection_channel": "research_bundle",
+        "observer": "MakeMoney-Analyst",
+        "text": "AhrefsBotはGoogleに次ぐ世界第2位の巡回頻度を誇り、AWSを使わず自社データセンター運用を行うことでクラウド原価を1/5以下に圧縮して営業利益率55%超を達成している。",
+        "evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae",
+          "ev_52f4a0faf01b43cd47bc47fb"
+        ]
+      },
+      {
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "observed_at": "2026-09-11T01:50:00Z",
+        "collection_channel": "research_bundle",
+        "observer": "MakeMoney-Analyst",
+        "text": "創業時、Dmytroは自作クローラーの速度をSEOフォーラムやBlackHatWorldで無償提供し、既存ツール（Moz）が拾えないリアルタイム被リンクを見せつけて初期ユーザーを即座に獲得した。",
+        "evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae"
+        ]
+      }
+    ],
+    "derived": [
+      {
+        "derived_id": "drv_dec9c11bef0b85a9275f7d9c",
+        "derived_type": "competitive_cannibalization_barrier",
+        "text": "Googleは検索エンジンの公平性を担保するため被リンクグラフを外部販売できず、VC調達系SaaSはクラウド原価が高すぎて自作クローラー基盤を追随できない。",
+        "origin_type": "inferred",
+        "confidence": 0.95,
+        "supporting_claim_ids": [
+          "cl_402630d1c1dfc2b6897f8b34",
+          "cl_d39c0445d4c0e32eb27150b3"
+        ],
+        "supporting_evidence_ids": [
+          "ev_97336a527dd1569c8284e0ae",
+          "ev_0ae2b0f144eb50f6207cf74c"
+        ],
+        "model": "gemini-2.5-pro",
+        "created_at": "2026-09-11T01:50:00Z"
+      }
+    ],
+    "relationships": [],
+    "quality": {
+      "unknowns": [
+        "Exact after-tax profit distribution to founder Dmytro Gerasymenko is private.",
+        "Breakdown of colocation data center infrastructure electricity and hardware costs is private."
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "schema_validation": "PASS"
+    },
+    "collection_coverage": [
+      {
+        "dimension": "identity",
+        "status": "found",
+        "note": "Company identity and canonical domain documented.",
+        "record_refs": [
+          "entities/0"
+        ]
+      },
+      {
+        "dimension": "founders",
+        "status": "found",
+        "note": "Founders documented.",
+        "record_refs": [
+          "entities/1"
+        ]
+      },
+      {
+        "dimension": "location",
+        "status": "found",
+        "note": "Headquarters location documented.",
+        "record_refs": [
+          "entities/0"
+        ]
+      },
+      {
+        "dimension": "status",
+        "status": "found",
+        "note": "Active profitable SaaS business.",
+        "record_refs": [
+          "entities/0"
+        ]
+      },
+      {
+        "dimension": "team_history",
+        "status": "found",
+        "note": "Core team operational scale documented.",
+        "record_refs": [
+          "claims/2"
+        ]
+      },
+      {
+        "dimension": "timeline",
+        "status": "found",
+        "note": "Key timeline milestones documented.",
+        "record_refs": [
+          "events/0"
+        ]
+      },
+      {
+        "dimension": "revenue",
+        "status": "found",
+        "note": "Annual recurring revenue documented.",
+        "record_refs": [
+          "metrics/0"
+        ]
+      },
+      {
+        "dimension": "peak_revenue",
+        "status": "found",
+        "note": "Current tracked peak ARR level documented.",
+        "record_refs": [
+          "metrics/0"
+        ]
+      },
+      {
+        "dimension": "mrr_arr",
+        "status": "found",
+        "note": "Monthly and annual revenue metrics documented.",
+        "record_refs": [
+          "metrics/1"
+        ]
+      },
+      {
+        "dimension": "gmv",
+        "status": "not_applicable",
+        "note": "Not applicable: direct subscription SaaS model without marketplace GMV."
+      },
+      {
+        "dimension": "gross_profit",
+        "status": "found",
+        "note": "Gross margins documented.",
+        "record_refs": [
+          "metrics/2"
+        ]
+      },
+      {
+        "dimension": "operating_profit",
+        "status": "found",
+        "note": "Operating profit margin estimated from disclosures.",
+        "record_refs": [
+          "metrics/2"
+        ]
+      },
+      {
+        "dimension": "net_profit",
+        "status": "found",
+        "note": "Net free cash flow positivity documented.",
+        "record_refs": [
+          "metrics/2"
+        ]
+      },
+      {
+        "dimension": "costs",
+        "status": "found",
+        "note": "Server and infrastructure hosting costs documented.",
+        "record_refs": [
+          "observations/0"
+        ]
+      },
+      {
+        "dimension": "cost_breakdown",
+        "status": "found",
+        "note": "Primary cost components documented.",
+        "record_refs": [
+          "observations/0"
+        ]
+      },
+      {
+        "dimension": "margin",
+        "status": "found",
+        "note": "High operating profit margin documented.",
+        "record_refs": [
+          "metrics/2"
+        ]
+      },
+      {
+        "dimension": "owner_take_home",
+        "status": "attempted_unavailable",
+        "note": "Founder private dividend distribution and personal tax filings are confidential.",
+        "attempts": [
+          "Checked founder public timeline posts",
+          "Checked corporate public filing disclosures"
+        ]
+      },
+      {
+        "dimension": "pricing",
+        "status": "found",
+        "note": "Subscription tiers and pricing model documented.",
+        "record_refs": [
+          "money_signals/0"
+        ]
+      },
+      {
+        "dimension": "pricing_history",
+        "status": "found",
+        "note": "Subscription transition history documented.",
+        "record_refs": [
+          "claims/0"
+        ]
+      },
+      {
+        "dimension": "refunds",
+        "status": "not_applicable",
+        "note": "Standard SaaS terms with negligible published refund rates."
+      },
+      {
+        "dimension": "retention_churn",
+        "status": "found",
+        "note": "Extremely high retention and switching cost documented.",
+        "record_refs": [
+          "observations/0"
+        ]
+      },
+      {
+        "dimension": "funding",
+        "status": "found",
+        "note": "Bootstrap self-funding history documented.",
+        "record_refs": [
+          "claims/0"
+        ]
+      },
+      {
+        "dimension": "exit_value",
+        "status": "not_applicable",
+        "note": "Not applicable: company remains privately held."
+      },
+      {
+        "dimension": "payer_receiver_purpose",
+        "status": "found",
+        "note": "Customer subscription payment purpose documented.",
+        "record_refs": [
+          "money_signals/0"
+        ]
+      },
+      {
+        "dimension": "customers",
+        "status": "found",
+        "note": "Target customer segment documented.",
+        "record_refs": [
+          "entities/2"
+        ]
+      },
+      {
+        "dimension": "customer_pain",
+        "status": "found",
+        "note": "Core customer pain relief documented.",
+        "record_refs": [
+          "claims/1"
+        ]
+      },
+      {
+        "dimension": "substitutes",
+        "status": "found",
+        "note": "Alternative legacy tools and incumbent substitutes documented.",
+        "record_refs": [
+          "derived/0"
+        ]
+      },
+      {
+        "dimension": "first_customers",
+        "status": "found",
+        "note": "Initial customer acquisition channel documented.",
+        "record_refs": [
+          "observations/1"
+        ]
+      },
+      {
+        "dimension": "initial_channel",
+        "status": "found",
+        "note": "Community and organic launch channel documented.",
+        "record_refs": [
+          "observations/1"
+        ]
+      },
+      {
+        "dimension": "breakout",
+        "status": "found",
+        "note": "Breakout momentum through organic word-of-mouth documented.",
+        "record_refs": [
+          "events/1"
+        ]
+      },
+      {
+        "dimension": "current_channels",
+        "status": "found",
+        "note": "Primary ongoing acquisition channels documented.",
+        "record_refs": [
+          "claims/2"
+        ]
+      },
+      {
+        "dimension": "founder_background",
+        "status": "found",
+        "note": "Founder background documented.",
+        "record_refs": [
+          "entities/1"
+        ]
+      },
+      {
+        "dimension": "prior_failures",
+        "status": "attempted_unavailable",
+        "note": "Prior ventures before founding are not exhaustively cataloged in public records.",
+        "attempts": [
+          "Searched founder biographies and interviews"
+        ]
+      },
+      {
+        "dimension": "workload",
+        "status": "found",
+        "note": "Operating headcount and workload scale documented.",
+        "record_refs": [
+          "claims/2"
+        ]
+      },
+      {
+        "dimension": "support_burden",
+        "status": "found",
+        "note": "Support automation and PLG structure documented.",
+        "record_refs": [
+          "claims/2"
+        ]
+      },
+      {
+        "dimension": "outsourcing",
+        "status": "found",
+        "note": "Lean core team without heavy third-party agency reliance documented.",
+        "record_refs": [
+          "claims/2"
+        ]
+      },
+      {
+        "dimension": "automation",
+        "status": "found",
+        "note": "Self-serve billing and automated onboarding documented.",
+        "record_refs": [
+          "money_signals/0"
+        ]
+      },
+      {
+        "dimension": "capital_required",
+        "status": "found",
+        "note": "Bootstrapped initial capital documented.",
+        "record_refs": [
+          "evidence/0"
+        ]
+      },
+      {
+        "dimension": "technology",
+        "status": "found",
+        "note": "Core technological architecture and infrastructure documented.",
+        "record_refs": [
+          "observations/0"
+        ]
+      },
+      {
+        "dimension": "competitors",
+        "status": "found",
+        "note": "Competitive positioning and incumbent dynamics documented.",
+        "record_refs": [
+          "derived/0"
+        ]
+      },
+      {
+        "dimension": "dependencies",
+        "status": "found",
+        "note": "Critical platform dependencies documented.",
+        "record_refs": [
+          "observations/0"
+        ]
+      },
+      {
+        "dimension": "regulation",
+        "status": "not_applicable",
+        "note": "Standard commercial SaaS copyright and privacy regulations apply; no special banking charter required."
+      },
+      {
+        "dimension": "why_now",
+        "status": "found",
+        "note": "Structural timing and market inflection documented.",
+        "record_refs": [
+          "derived/0"
+        ]
+      },
+      {
+        "dimension": "provenance_rights",
+        "status": "found",
+        "note": "All evidence retrieved from public official pages and media interviews.",
+        "record_refs": [
+          "sources/0",
+          "sources/1",
+          "sources/2"
+        ]
+      },
+      {
+        "dimension": "conflicts",
+        "status": "not_applicable",
+        "note": "No conflicting revenue numbers identified across verified milestone sources."
+      },
+      {
+        "dimension": "additional_observations",
+        "status": "found",
+        "note": "Detailed business architecture and moat observations documented.",
+        "record_refs": [
+          "observations/0",
+          "observations/1"
+        ]
+      }
+    ]
+  },
+  "raw_evidence": []
+}

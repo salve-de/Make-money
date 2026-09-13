@@ -11,7 +11,6 @@ interface StatistaDualViewProps {
 
 export const StatistaDualView: React.FC<StatistaDualViewProps> = ({
   financials,
-  companyName,
   actionHeadline
 }) => {
   const [viewMode, setViewMode] = useState<'CHART' | 'TABLE'>('CHART');

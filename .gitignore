@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+/.open-next/
 
 # production
 /build
@@ -38,6 +39,25 @@ yarn-error.log*
 # vercel
 .vercel
 
+# worktrees
+.worktrees/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# backups
+.backups/
+scratch/
+
+# cloudflare wrangler
+.wrangler/
+
+
+# Playwright reports and traces
+/playwright-report/
+/test-results/
+/blob-report/
+
+# Python recovery verification cache
+__pycache__/

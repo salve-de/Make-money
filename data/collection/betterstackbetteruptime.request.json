@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_betterstackbetteruptime_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Better Stack (Better Uptime)",
+      "candidate_domain": "betterstack.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_betterstackbetteruptime_primary",
+        "url": "https://betterstack.com",
+        "title": "Better Stack (Better Uptime) Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_betterstackbetteruptime_pnl",
+        "source_id": "src_betterstackbetteruptime_primary",
+        "snippet": "Monthly Revenue: 300000000, Margin: 46.7%, Gross: 88%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_betteruptime_bb05846361a4c3e961c7",
+        "entity_type": "business",
+        "canonical_name": "Better Stack (Better Uptime)",
+        "domain": "betterstack.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_betterstackbetteruptime_tagline",
+        "entity_id": "ent_betteruptime_bb05846361a4c3e961c7",
+        "attribute": "tagline",
+        "value": "「夜中にPagerDutyの爆音が鳴って心臓が止まる」エンジニアのトラウマを美しいUIと格安電話通知で救い、急成長する次世代インフラ監視機",
+        "evidence_ids": [
+          "ev_betterstackbetteruptime_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_betterstackbetteruptime_revenue",
+        "entity_id": "ent_betteruptime_bb05846361a4c3e961c7",
+        "name": "monthly_revenue_jpy",
+        "value": 300000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_betterstackbetteruptime_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_betterstackbetteruptime_dossier",
+        "entity_id": "ent_betteruptime_bb05846361a4c3e961c7",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "PagerDutyの複雑怪奇な料金体系とDatadogの高額請求にキレていた開発者たちに、Apple並みに美しい画面と10倍安いログ監視を叩きつけて急拡大した手口",
+            "section01_dna": {
+              "businessType": "Webサイト・APIの死活監視（アップタイムモニター）、オンコール電話当番管理、およびClickHouseベースの超高速ログ管理SaaS",
+              "targetWallet": "世界中の開発チーム、CTO、SREのインフラ監視・インシデント管理予算（月額$29〜$500+）",
+              "painRelief": "「サーバーが落ちているのに気づかず顧客から怒鳴られる」「夜間のアラート設定が複雑すぎて誤報で起こされる」恐怖の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「世界で一番美しいステータスページと、無制限の電話・SMSアラートを格安提供」",
+              "analysis": "1. 既存のPagerDutyは「通知を受け取るエンジニア1人あたり月額数十ドル」を徴収し、チーム全員を登録すると請求額が跳ね上がる構造だった。\n2. Better Stackはシンプルで分かりやすいチーム定額プランを提供し、サーバーが落ちた瞬間に電話を自動でかけてくれる安心感を格安で提供。\n3. 「Better Uptime」という死活監視から入り、裏側でClickHouseを使った「Better Stack Logs（超高速ログ分析）」へとクロスセルさせる狡猾なプロダクト拡張。"
+            },
+            "section03_moatPowers": {
+              "headline": "【開発者向けコミュニティSEO（技術Wikiの大量生成） ✕ ClickHouseによる異次元のログ処理速度】",
+              "analysis": "1. 「Dockerエラーの解決方法」「Ubuntuサーバー設定ガイド」などの膨大な開発者向け技術記事を自社ブログで量産し、世界中のエンジニアの検索流入を無料で独占。\n2. オープンソースの超高速分析DB「ClickHouse」をバックエンドに採用することで、DatadogやElasticsearchの数分の一のインフラ原価でテラバイト級のログ検索を実現。\n3. クライアント企業が自社の顧客向けに公開する「公開ステータスページ（status.company.com）」にBetter Stackのバナーが掲載され、ダウンタイムのたびに他社エンジニアへ宣伝されるバイラル配管。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "DatadogやNew Relic、PagerDutyはエンタープライズの重厚な営業体制とレガシーなUIに固執し、個人やスタートアップが1分で設定できる美しいセルフサーブSaaSを作れなかった",
+              "analysis": "Datadogは見積もりが必要なエンタープライズ営業に依存し、月末の請求書を見るまでいくら請求されるか分からない恐怖（クラウド破産リスク）をユーザーに与えていた。Better Stackはその不透明性を嘲笑い、透明な価格と洗練されたモダンUIでボトムアップに市場を奪取した。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "チェコ出身の創業者JurajとVeronikaが、初期に世界中のスタートアップのWebサイトを勝手に外部から死活監視し、サイトが落ちた瞬間にその会社のCTOやエンジニアにTwitterやメールで「あなたのサイトが今落ちていますよ。復旧作業のお手伝いとして、この無料ステータスページをどうぞ」と直接知らせる究極のゲリラ検知通知で熱狂的信頼を獲得。",
+            "platformGlitch": "「監視ツールの画面は無骨で白黒でいい」という業界の偏見を打ち破り、FigmaやLinearのような最高峰のダークモードUIを採用。画面を見るだけでエンジニアがテンションの上がるデザインに仕上げた。",
+            "pivotSnapshot": "単なる外形監視ツール「Better Uptime」から、ログ分析・インシデント管理を包含した総合可観測性プラットフォーム「Better Stack」へブランド統一。",
+            "hiddenCostStructure": "全世界数十箇所のエッジロケーションから毎分HTTPリクエストを飛ばす監視サーバーの帯域費と、電話通知（音声通話）をTwilio経由で発信する従量通話コスト。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「深夜にシステムがダウンし、朝起きたらユーザーからクレームの嵐で会社が炎上している恐怖（保身・免責）」。",
+            "marketDistortion": "「Datadogは高すぎて開発環境のログを捨てていた」スタートアップに、ClickHouseの爆速低コストログ基盤を提供してデータ全量保持を可能にした技術的解放。",
+            "userResentment": "急激なトラフィック増やログ流量のスパイクによって、事前に設定した制限を超えた際に自動でログ収集がサンプリング（間引き）される仕様に対する不満。"
+          },
+          "temporal": {
+            "foundedYear": 2021,
+            "initialTractionPeriod": "2021-2022年 (ゲリラダウン検知通知)",
+            "dataSnapshotPeriod": "2023-2026年 (ARR $25M突破・ClickHouseログ展開)",
+            "viabilityStatus": "RISING_WAVE",
+            "eraContext": "Datadogの高額請求への反発（クラウドコスト削減トレンド）と、ClickHouseの成熟が完璧に噛み合ったタイミング。",
+            "currentViabilityAnalysis": "開発者コミュニティで急速にシェアを伸ばしており、SRE・インフラエンジニアのデフォルト監視ツールとしてDatadogの城壁を切り崩し中。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

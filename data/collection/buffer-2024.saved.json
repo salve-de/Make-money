@@ -1,0 +1,273 @@
+{
+  "coverage": {
+    "status": "PARTIAL",
+    "pending": [
+      "location",
+      "status",
+      "team_history",
+      "timeline",
+      "peak_revenue",
+      "mrr_arr",
+      "gmv",
+      "gross_profit",
+      "operating_profit",
+      "costs",
+      "cost_breakdown",
+      "margin",
+      "owner_take_home",
+      "pricing",
+      "pricing_history",
+      "refunds",
+      "retention_churn",
+      "funding",
+      "exit_value",
+      "customers",
+      "customer_pain",
+      "substitutes",
+      "first_customers",
+      "initial_channel",
+      "breakout",
+      "current_channels",
+      "founder_background",
+      "prior_failures",
+      "workload",
+      "support_burden",
+      "outsourcing",
+      "automation",
+      "capital_required",
+      "technology",
+      "competitors",
+      "dependencies",
+      "regulation",
+      "why_now"
+    ],
+    "note": "Attempted coverage does not mean every fact is known or independently verified."
+  },
+  "run_id": "run_buffer_2024_20260908_01",
+  "write_authorized": true,
+  "schema_validation": "PASS",
+  "planned_writes": {
+    "schema_version": "planned-writes.v1",
+    "run_id": "run_buffer_2024_20260908_01",
+    "write_authorized": true,
+    "objects": [
+      {
+        "logical_role": "entity",
+        "dataset_id": "ds.business.entities.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.entities.core/v1/entities/ent_company_895ab08e769c3c944f65.json",
+        "content_sha256": "d50d0c105699795dd6024ba71f6505dc9cedb01e59a2f08d5f3b62da2a46a5d9",
+        "bytes": 275,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "claim",
+        "dataset_id": "ds.business.claims.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.claims.core/v1/year=2026/month=09/cl_289c26c85de0204c30bd7ce4.json",
+        "content_sha256": "56dc714d6a3efb92364e2b2db26c7a3a5a85a480b14468477da76bcc8a23d922",
+        "bytes": 313,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_7a4f559af80ff5af732fe6ce.json",
+        "content_sha256": "8652a897f270e9bab4d5bd48b7ef932f14dca71ae73b6e50c3df7c6acbcacfa0",
+        "bytes": 452,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_dd516ff694ade51171c46f4e.json",
+        "content_sha256": "f541b886ae9d4b9ca5454685185dc832114edef3675f1238dd1375b31b284169",
+        "bytes": 453,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2024/month=01/ms_7a4f559af80ff5af732fe6ce.json",
+        "content_sha256": "15be0936ccfb9487ea55dcd8542e241f4ff9937abea1779a136d66eee2a40609",
+        "bytes": 605,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "research_bundle",
+        "dataset_id": "ds.business.research-bundles.derived",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.research-bundles.derived/v1/2026/09/08/run_buffer_2024_20260908_01.json",
+        "content_sha256": "3cb728c926d0c1ec2b85237ca20732c596a71f79c981e6e6e523a83f20e05aa9",
+        "bytes": 10473,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      }
+    ],
+    "forbidden_operations": [
+      "CopyObject",
+      "DeleteObject",
+      "Move",
+      "Rename",
+      "Overwrite",
+      "LegacyUniversalMutation"
+    ]
+  },
+  "objects": [
+    {
+      "logical_role": "entity",
+      "dataset_id": "ds.business.entities.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.entities.core/v1/entities/ent_company_895ab08e769c3c944f65.json",
+      "status": "CREATED",
+      "bytes": 275,
+      "sha256": "d50d0c105699795dd6024ba71f6505dc9cedb01e59a2f08d5f3b62da2a46a5d9",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "claim",
+      "dataset_id": "ds.business.claims.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.claims.core/v1/year=2026/month=09/cl_289c26c85de0204c30bd7ce4.json",
+      "status": "CREATED",
+      "bytes": 313,
+      "sha256": "56dc714d6a3efb92364e2b2db26c7a3a5a85a480b14468477da76bcc8a23d922",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_7a4f559af80ff5af732fe6ce.json",
+      "status": "CREATED",
+      "bytes": 452,
+      "sha256": "8652a897f270e9bab4d5bd48b7ef932f14dca71ae73b6e50c3df7c6acbcacfa0",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_dd516ff694ade51171c46f4e.json",
+      "status": "CREATED",
+      "bytes": 453,
+      "sha256": "f541b886ae9d4b9ca5454685185dc832114edef3675f1238dd1375b31b284169",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2024/month=01/ms_7a4f559af80ff5af732fe6ce.json",
+      "status": "CREATED",
+      "bytes": 605,
+      "sha256": "15be0936ccfb9487ea55dcd8542e241f4ff9937abea1779a136d66eee2a40609",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "research_bundle",
+      "dataset_id": "ds.business.research-bundles.derived",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.research-bundles.derived/v1/2026/09/08/run_buffer_2024_20260908_01.json",
+      "status": "CREATED",
+      "bytes": 10473,
+      "sha256": "3cb728c926d0c1ec2b85237ca20732c596a71f79c981e6e6e523a83f20e05aa9",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    }
+  ],
+  "counts": {
+    "planned": 6,
+    "created": 6,
+    "exists_identical": 0
+  },
+  "provider_calls": {
+    "head_bucket": 12,
+    "get_object": 18,
+    "put_object": 6
+  },
+  "readback_verified": 6,
+  "mutation_counts": {
+    "put_object": 6,
+    "copy_object": 0,
+    "delete_object": 0,
+    "move": 0,
+    "rename": 0,
+    "overwrite": 0,
+    "legacy_universal": 0,
+    "bucket_or_config": 0
+  }
+}

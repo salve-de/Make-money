@@ -1,0 +1,206 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/FoundationValuePage",
+  "definitions": {
+    "FoundationValuePage": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationValueSummary"
+          }
+        },
+        "nextCursor": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "hasMore": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "data",
+        "nextCursor",
+        "hasMore"
+      ]
+    },
+    "FoundationValueSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "entityType": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "canonicalIdentifier": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "observedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "valueProfile": {
+          "$ref": "#/definitions/FoundationValueProfile"
+        }
+      },
+      "required": [
+        "aliases",
+        "canonicalIdentifier",
+        "domain",
+        "entityType",
+        "evidenceIds",
+        "id",
+        "name",
+        "observedAt",
+        "status",
+        "valueProfile"
+      ],
+      "description": "Application-only list projection. It is calculated from existing bundle records at read time and is never persisted as a Foundation object."
+    },
+    "FoundationValueProfile": {
+      "type": "object",
+      "properties": {
+        "tier": {
+          "$ref": "#/definitions/FoundationValueTier"
+        },
+        "score": {
+          "type": "number"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "businessSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "painSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "moneySignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tractionSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mechanismSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timeSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "counts": {
+          "$ref": "#/definitions/FoundationValueCounts"
+        }
+      },
+      "required": [
+        "tier",
+        "score",
+        "labels",
+        "businessSignal",
+        "painSignal",
+        "moneySignal",
+        "tractionSignal",
+        "mechanismSignal",
+        "timeSignal",
+        "counts"
+      ]
+    },
+    "FoundationValueTier": {
+      "type": "string",
+      "enum": [
+        "HIGH_SIGNAL",
+        "USEFUL",
+        "CANDIDATE"
+      ],
+      "description": "Read-time UI projection only.\n\nThis is deliberately not a Foundation schema and is never written to R2. It turns the records that are already present in a bundle into a small set of useful display signals. Missing facts stay null; this module never fills revenue, margin, price, customers, or other values with defaults."
+    },
+    "FoundationValueCounts": {
+      "type": "object",
+      "properties": {
+        "claims": {
+          "type": "number"
+        },
+        "metrics": {
+          "type": "number"
+        },
+        "moneySignals": {
+          "type": "number"
+        },
+        "events": {
+          "type": "number"
+        },
+        "observations": {
+          "type": "number"
+        },
+        "derived": {
+          "type": "number"
+        },
+        "evidence": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "claims",
+        "metrics",
+        "moneySignals",
+        "events",
+        "observations",
+        "derived",
+        "evidence"
+      ]
+    }
+  }
+}

@@ -34,22 +34,22 @@ export const WeeklyNewsletterSection: React.FC = () => {
 
       setSubscribed(true);
       setShowSample(true);
-    } catch (err: any) {
-      setErrorMsg(err.message || '通信エラーが発生しました');
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : '通信エラーが発生しました');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section className="p-6 sm:p-8 rounded-lg bg-slate-950 text-white border border-slate-800 shadow-2xs space-y-6">
+    <section className="p-6 sm:p-8 rounded bg-[#0D1117] text-white border border-white/[0.08] space-y-6">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         <div className="space-y-2 max-w-2xl">
           <div className="flex items-center gap-2">
-            <span className="px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-500/40">
+            <span className="px-2.5 py-0.5 rounded bg-emerald-950/70 text-emerald-400 font-mono text-[10px] font-bold border border-emerald-800/60">
               WEEKLY DISPATCH
             </span>
-            <span className="text-[11px] font-mono text-slate-400">
+            <span className="text-[11px] font-mono text-zinc-400">
               毎週月曜 朝8:00 定期配信（完全無料）
             </span>
           </div>
@@ -58,11 +58,11 @@ export const WeeklyNewsletterSection: React.FC = () => {
             週刊事業財務インサイト速報
           </h2>
 
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
             世界中で「先週もっとも高収益を達成したスモールビジネス」と「日本未上陸の構造的機会」を、公的決算書・決済実査データに基づいて1通だけお届けします。推測や煽りを排除した一次情報速報です。
           </p>
 
-          <div className="flex items-center gap-4 text-[11px] font-mono text-slate-400 pt-1 flex-wrap">
+          <div className="flex items-center gap-4 text-[11px] font-mono text-zinc-500 pt-1 flex-wrap">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>購読者数 1,420名（起業家・投資家）</span>
@@ -77,19 +77,19 @@ export const WeeklyNewsletterSection: React.FC = () => {
           {!subscribed ? (
             <form onSubmit={handleSubmit} className="space-y-2.5">
               <div className="space-y-1.5">
-                <div className="flex rounded-lg overflow-hidden border border-slate-700 bg-slate-800/80 focus-within:border-emerald-500 transition-colors">
+                <div className="flex rounded overflow-hidden border border-white/[0.1] bg-[#161B22] focus-within:border-emerald-400 transition-colors">
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="name@company.com"
-                    className="w-full px-3.5 py-2.5 bg-transparent text-xs text-white placeholder-slate-500 focus:outline-hidden font-mono"
+                    className="w-full px-3.5 py-2.5 bg-transparent text-xs text-zinc-100 placeholder-zinc-500 focus:outline-hidden font-mono"
                     required
                   />
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-mono text-xs font-black shrink-0 transition-colors disabled:opacity-50 cursor-pointer"
+                    className="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black font-mono text-xs font-black shrink-0 transition-colors disabled:opacity-50 cursor-pointer"
                   >
                     {loading ? '登録中...' : '無料で購読'}
                   </button>

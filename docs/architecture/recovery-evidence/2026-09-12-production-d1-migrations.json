@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "Production D1 additive migrations 0004 and 0005 with pre-migration backup and schema readback",
+  "observed_at": "2026-09-12",
+  "source_database": "07affd4c-cac4-4998-843c-b5881fccab5e",
+  "database_name": "make-money-production-app",
+  "pre_migration_application_rows": 0,
+  "applied_migrations": [
+    "0004_newsletter_privacy.sql",
+    "0005_request_rate_limits.sql"
+  ],
+  "migration_readback": "No migrations to apply",
+  "schema_readback": [
+    "newsletter_subscribers.user_id",
+    "newsletter_subscribers.unsubscribe_token_hash",
+    "newsletter_subscribers_owner index",
+    "newsletter_subscribers_unsubscribe_token partial unique index",
+    "request_rate_limits table and constraints"
+  ],
+  "request_rate_limits_rows": 0,
+  "pre_migration_backup": {
+    "bucket": "make-money-production-private",
+    "sql_key": "backups/d1/2026-09-12-pre-0004-0005/schema.sql",
+    "sql_bytes": 3569,
+    "sql_sha256": "ef0e120ef1eeb268a5119ff291743a53da0251d805d904f569c59d10cce6ea31",
+    "manifest_key": "backups/d1/2026-09-12-pre-0004-0005/manifest.json",
+    "manifest_bytes": 884,
+    "manifest_sha256": "0683b09961068e3f33075ea7142f55e8b8d6c5bbac2d6cfb552474a64cc9ddfc",
+    "write_mode": "remote R2 binding, create-only",
+    "readback": "bytes and SHA-256 matched immediately after each write"
+  },
+  "scope_limitation": "The production database was empty at capture. This proves additive schema application and backup readback, not live-user authorization, production Worker persistence, Stripe roundtrip, or production restore."
+}
