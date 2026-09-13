@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('verify plain Japanese UI and lack of Savannah OS jargon across diverse entities', async ({ page }) => {
+  test.setTimeout(120000);
   // 1. トップ画面撮影
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1000);

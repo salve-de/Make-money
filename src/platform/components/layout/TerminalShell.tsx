@@ -238,23 +238,23 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   // オンデマンド詳細読み込みロジック (軽量サマリーまたはR2由来のエンティティを選択時に自動フェッチして完全版に昇華)
   useEffect(() => {
     if (!selectedEntityId) return;
+    const targetId = selectedEntityId;
 
     // 既に詳細取得済みまたは取得中ならスキップ
-    if (detailedEntities[selectedEntityId] || detailFetchInProgress.current.has(selectedEntityId)) return;
+    if (detailedEntities[targetId] || detailFetchInProgress.current.has(targetId)) return;
 
     // 既に完全なドシエ（エビデンスカード2枚以上 ＆ lootBlueprint）を持っていればフェッチ不要
-    const existing = entities.find((e) => e.id === selectedEntityId);
+    const existing = entities.find((e) => e.id === targetId);
     if (existing && existing.evidenceCards && existing.evidenceCards.length >= 2 && existing.lootBlueprint) {
       return;
     }
 
-    detailFetchInProgress.current.add(selectedEntityId);
-    const controller = new AbortController();
+    detailFetchInProgress.current.add(targetId);
     const hashParam = existing?.latestDossierHash
       ? `&dossier_hash=${encodeURIComponent(existing.latestDossierHash)}`
       : '';
 
-    void fetch(`/api/businesses?entity_id=${encodeURIComponent(selectedEntityId)}${hashParam}`, { signal: controller.signal })
+    void fetch(`/api/businesses?entity_id=${encodeURIComponent(targetId)}${hashParam}`)
       .then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: unknown = await res.json();
@@ -264,23 +264,19 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
             const detail = parseFoundationDetailResponse(payload);
             if (detail) {
               const adapted = adaptFoundationDetailToFinancialEntity(detail);
-              setDetailedEntities((prev) => ({ ...prev, [selectedEntityId]: adapted }));
+              setDetailedEntities((prev) => ({ ...prev, [targetId]: adapted }));
             }
           } else if (payload.data && typeof payload.data === 'object') {
-            setDetailedEntities((prev) => ({ ...prev, [selectedEntityId]: payload.data as FinancialEntity }));
+            setDetailedEntities((prev) => ({ ...prev, [targetId]: payload.data as FinancialEntity }));
           }
         }
       })
       .catch((err) => {
-        if ((err as { name?: string })?.name !== 'AbortError') {
-          console.warn('[TerminalShell] Detail fetch failed for', selectedEntityId, err);
-        }
+        console.warn('[TerminalShell] Detail fetch failed for', targetId, err);
       })
       .finally(() => {
-        detailFetchInProgress.current.delete(selectedEntityId);
+        detailFetchInProgress.current.delete(targetId);
       });
-
-    return () => controller.abort();
   }, [selectedEntityId, entities, detailedEntities]);
 
   useEffect(() => {

@@ -130,7 +130,7 @@ export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
     temporal: entity.temporal,
     opportunityJudgment: entity.opportunityJudgment,
     isBookmarked: entity.isBookmarked,
-    publishability: entity.publishability ?? 'PUBLISHABLE',
+    publishability: entity.publishability,
     latestDossierHash: entity.latestDossierHash || `dossier_${entity.id}_v${entity.sourceRevision ?? 1}`,
     sourceRevision: entity.sourceRevision ?? 1,
   };

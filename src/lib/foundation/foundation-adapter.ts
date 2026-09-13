@@ -403,6 +403,7 @@ export function adaptFoundationSummaryToFinancialEntity(
     pipelineStack: '技術構成未確認',
     targetPainWallet: cleanIntelligenceText(vp.painSignal || '対象の痛みは未確認'),
     tags,
+    publishability: (!isUnconfirmed && summary.domain) ? 'PUBLISHABLE' : 'RAW',
   };
 }
 
@@ -794,5 +795,6 @@ export function adaptFoundationDetailToFinancialEntity(
     temporal,
     observationsStream,
     timelineEvents,
+    publishability: (financialStatus !== 'UNAVAILABLE' && Boolean(entity.domain)) ? 'PUBLISHABLE' : 'RAW',
   };
 }

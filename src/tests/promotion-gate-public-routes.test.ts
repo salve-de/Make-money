@@ -101,4 +101,25 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     const body = await res.json();
     expect(body.error).toBe('Entity not found');
   });
+
+  it('4. Public API route GET /api/businesses with requested dossier_hash strictly returns 404 when not found and does NOT fallback to latest', async () => {
+    // 存在するエンティティIDだが、存在しない特定の過去ハッシュを要求した場合
+    const req = new Request('http://localhost:3000/api/businesses?entity_id=ent_keyence&dossier_hash=non_existent_hash_99999');
+    const res = await GET(req);
+    // フォールバックして最新のキーエンスを返すのではなく、CAS契約に基づき厳格404を返すこと
+    expect(res.status).toBe(404);
+    const body = await res.json();
+    expect(body.error).toContain('Dossier snapshot not found for requested hash');
+  });
+
+  it('5. publicSummaryEntity strictly preserves undefined publishability without elevating to PUBLISHABLE', () => {
+    const rawEntity = {
+      id: 'raw_01',
+      name: 'Raw Entity',
+      publishability: undefined,
+    } as unknown as FinancialEntity;
+
+    const summary = publicSummaryEntity(rawEntity);
+    expect(summary.publishability).toBeUndefined();
+  });
 });

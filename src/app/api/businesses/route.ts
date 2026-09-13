@@ -16,7 +16,8 @@ import {
 import { promisify } from 'node:util';
 import { gunzip as gunzipCb } from 'node:zlib';
 import { CloudflareR2BlobStorage } from '@/lib/foundation/immutable-dossier-pipeline';
-import { getDossierStoragePath } from '@/lib/foundation/dossier-projection';
+import { computeDossierContentHash, getDossierStoragePath } from '@/lib/foundation/dossier-projection';
+import { adaptFoundationDetailToFinancialEntity, adaptFoundationSummaryToFinancialEntity } from '@/lib/foundation/foundation-adapter';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import type { FinancialEntity } from '@/platform/types/terminal';
 
@@ -96,10 +97,6 @@ async function getLocalEntitiesCached(): Promise<LocalEntitiesCache> {
     const { validEntities } = parseFinancialEntitiesResiliently(parsed);
     const entities = validEntities
       .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
-      .map((entity) => ({
-        ...entity,
-        publishability: entity.publishability ?? 'PUBLISHABLE',
-      }))
       .map(reconcileFinancialEntity)
       .filter(isPublishableEntity) // 昇格ゲート: 未精錬・却下データは一般公開から物理除外
       .map(normalizeFinancialEntity);
@@ -131,11 +128,7 @@ async function findFallbackEntity(id: string): Promise<FinancialEntity | null> {
   const cache = await getLocalEntitiesCached();
   const raw = cache.byId.get(id) || findInstitutionalEntity(id) || null;
   if (!raw) return null;
-  const reconciled = reconcileFinancialEntity(raw);
-  const found: FinancialEntity = {
-    ...reconciled,
-    publishability: reconciled.publishability ?? 'PUBLISHABLE',
-  };
+  const found = reconcileFinancialEntity(raw);
   if (!isPublishableEntity(found)) {
     return null;
   }
@@ -166,25 +159,44 @@ export async function GET(request: Request) {
         const r2Storage = new CloudflareR2BlobStorage('lake');
         const dossierPath = getDossierStoragePath(entityId, requestedDossierHash);
         const blob = await r2Storage.getObject(dossierPath);
-        if (blob) {
-          const decompressed = await gunzip(blob.body);
-          const parsed = JSON.parse(decompressed.toString('utf8')) as FinancialEntity;
-          if (!isPublishableEntity(parsed)) {
-            return response({ error: 'Entity not found', entity_id: entityId }, 404);
-          }
-          return response({
-            source: 'immutable_dossier_cas',
-            data: publicFoundationData(parsed),
-            dossierHash: requestedDossierHash,
-            sourceRevision: parsed.sourceRevision ?? 1,
-            isStale: false,
-          }, 200, {
-            'X-Dossier-Hash': requestedDossierHash,
-            'X-Source-Revision': String(parsed.sourceRevision ?? 1),
-          });
+        if (!blob) {
+          // CAS契約: 指定ハッシュのスナップショットが存在しない場合、フォールバックせず厳格404
+          return response({ error: 'Dossier snapshot not found for requested hash', entity_id: entityId, dossier_hash: requestedDossierHash }, 404);
         }
+        const decompressed = await gunzip(blob.body);
+        const parsed = JSON.parse(decompressed.toString('utf8')) as FinancialEntity;
+
+        // Content Hash (SHA-256) 再計算と厳密照合
+        const computedHash = computeDossierContentHash(parsed);
+        if (computedHash !== requestedDossierHash) {
+          return response({
+            error: 'Dossier hash mismatch (content integrity verification failed)',
+            expected: requestedDossierHash,
+            actual: computedHash,
+          }, 409);
+        }
+
+        if (!isPublishableEntity(parsed)) {
+          return response({ error: 'Entity not publishable', entity_id: entityId }, 404);
+        }
+
+        return response({
+          source: 'immutable_dossier_cas',
+          data: publicFoundationData(parsed),
+          dossierHash: requestedDossierHash,
+          sourceRevision: parsed.sourceRevision ?? 1,
+          isStale: false,
+        }, 200, {
+          'X-Dossier-Hash': requestedDossierHash,
+          'X-Source-Revision': String(parsed.sourceRevision ?? 1),
+        });
       } catch (error) {
         logFoundationFailure(`[businesses] Immutable dossier CAS lookup failed for ${requestedDossierHash}:`, error);
+        const errCode = (error as { code?: unknown })?.code;
+        if (errCode === 'R2_NOT_CONFIGURED') {
+          return response({ error: 'Dossier snapshot not found for requested hash', entity_id: entityId, dossier_hash: requestedDossierHash }, 404);
+        }
+        return response({ error: 'Immutable dossier CAS lookup error', entity_id: entityId, dossier_hash: requestedDossierHash }, 500);
       }
     }
 
@@ -198,17 +210,25 @@ export async function GET(request: Request) {
       );
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
-        if (!isPublishableEntity(parsed as unknown as FinancialEntity)) {
-          return response({ error: 'Entity not found', entity_id: entityId }, 404);
+        if (parsed) {
+          const adapted = adaptFoundationDetailToFinancialEntity(parsed);
+          if (!isPublishableEntity(adapted)) {
+            return response({ error: 'Entity not found', entity_id: entityId }, 404);
+          }
+          const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
+          const revision = adapted.sourceRevision ?? 1;
+          return response({
+            source: 'foundation_lake',
+            dataset_id: foundationDataset('researchBundles').datasetId,
+            data: publicFoundationData(adapted),
+            dossierHash: actualHash,
+            sourceRevision: revision,
+            isStale: false,
+          }, 200, {
+            'X-Dossier-Hash': actualHash,
+            'X-Source-Revision': String(revision),
+          });
         }
-        return response({
-          source: 'foundation_lake',
-          dataset_id: foundationDataset('researchBundles').datasetId,
-          data: publicFoundationData(parsed),
-        }, 200, {
-          'X-Dossier-Hash': requestedDossierHash || 'foundation_latest',
-          'X-Source-Revision': '1',
-        });
       }
     } catch (error) {
       logFoundationFailure('[businesses] Foundation detail read failed; using fallback:', error);
@@ -219,9 +239,8 @@ export async function GET(request: Request) {
       return response({ error: 'Entity not found', entity_id: entityId }, 404);
     }
 
-    const actualHash = fallback.latestDossierHash || `dossier_${fallback.id}_v${fallback.sourceRevision ?? 1}`;
+    const actualHash = fallback.latestDossierHash || computeDossierContentHash(fallback);
     const revision = fallback.sourceRevision ?? 1;
-    const isStale = requestedDossierHash ? requestedDossierHash !== actualHash : false;
 
     return response({
       source: 'local_fallback',
@@ -229,11 +248,10 @@ export async function GET(request: Request) {
       data: publicEntity(fallback),
       dossierHash: actualHash,
       sourceRevision: revision,
-      isStale,
+      isStale: false,
     }, 200, {
       'X-Dossier-Hash': actualHash,
       'X-Source-Revision': String(revision),
-      ...(isStale ? { 'X-Dossier-Stale': 'true' } : {}),
     });
   }
 
@@ -256,7 +274,8 @@ export async function GET(request: Request) {
       () => readFoundationValuePage({ cursor, limit })
     );
     parseFoundationValuePage(page);
-    const publishableData = (page.data as unknown as FinancialEntity[]).filter(isPublishableEntity);
+    const adaptedEntities = (page.data || []).map(adaptFoundationSummaryToFinancialEntity);
+    const publishableData = adaptedEntities.filter(isPublishableEntity);
     if (publishableData.length > 0 || page.hasMore) {
       return response({
         source: 'foundation_lake',
@@ -272,10 +291,7 @@ export async function GET(request: Request) {
   }
 
   const localEntities = await readLocalEntities();
-  const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES.map((e) => ({
-    ...e,
-    publishability: e.publishability ?? 'PUBLISHABLE',
-  }));
+  const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES;
   const fallbackEntities = rawEntities.filter(isPublishableEntity);
   const transformed = returnSummaryOnly
     ? fallbackEntities.map(publicSummaryEntity)

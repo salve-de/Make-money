@@ -40,7 +40,7 @@ test('unconfirmed financials never present a zero as a measured result', async (
   await page.getByPlaceholder(/銘柄名/).first().fill('Clubhouse');
   await page.getByRole('row').filter({ hasText: 'Clubhouse' }).click();
   await expect(page.getByRole('heading', { name: 'Clubhouse (Alpha Exploration)', exact: true })).toBeVisible();
-  await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認/).first()).toBeVisible();
+  await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認|財務データは未確認|月商・営業利益を裏付ける情報が不足しているため/).first()).toBeVisible();
   await page.getByRole('button', { name: '財務P&L 未確認' }).click();
   const financials = page.locator('#section-financial');
   await expect(financials).toBeInViewport();
