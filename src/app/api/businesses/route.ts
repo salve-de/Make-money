@@ -68,22 +68,49 @@ function response(body: unknown, status = 200): NextResponse {
   });
 }
 
-async function readLocalEntities(): Promise<FinancialEntity[]> {
+interface LocalEntitiesCache {
+  entities: FinancialEntity[];
+  byId: Map<string, FinancialEntity>;
+  cachedAt: number;
+}
+
+let localEntitiesCache: LocalEntitiesCache | null = null;
+const LOCAL_CACHE_TTL_MS = 60_000;
+
+async function getLocalEntitiesCached(): Promise<LocalEntitiesCache> {
+  const now = Date.now();
+  if (localEntitiesCache && now - localEntitiesCache.cachedAt < LOCAL_CACHE_TTL_MS) {
+    return localEntitiesCache;
+  }
+
   try {
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
     const { validEntities } = parseFinancialEntitiesResiliently(parsed);
-    return validEntities
+    const entities = validEntities
       .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
       .map(normalizeFinancialEntity);
+
+    const byId = new Map<string, FinancialEntity>();
+    for (const ent of entities) {
+      byId.set(ent.id, ent);
+    }
+
+    localEntitiesCache = { entities, byId, cachedAt: now };
+    return localEntitiesCache;
   } catch {
-    return [];
+    return { entities: [], byId: new Map(), cachedAt: now };
   }
 }
 
+async function readLocalEntities(): Promise<FinancialEntity[]> {
+  const cache = await getLocalEntitiesCached();
+  return cache.entities;
+}
 
-function findFallbackEntity(id: string, localEntities: FinancialEntity[]): FinancialEntity | null {
-  return localEntities.find((entity) => entity.id === id) ||
+async function findFallbackEntity(id: string): Promise<FinancialEntity | null> {
+  const cache = await getLocalEntitiesCached();
+  return cache.byId.get(id) ||
     findInstitutionalEntity(id) ||
     null;
 }
@@ -124,7 +151,7 @@ export async function GET(request: Request) {
       logFoundationFailure('[businesses] Foundation detail read failed; using fallback:', error);
     }
 
-    const fallback = findFallbackEntity(entityId, await readLocalEntities());
+    const fallback = await findFallbackEntity(entityId);
     return fallback
       ? response({ source: 'local_fallback', count: 1, data: publicEntity(fallback) })
       : response({ error: 'Entity not found', entity_id: entityId }, 404);
