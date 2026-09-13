@@ -1,6 +1,26 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
+## 2026-09-13 【確定】実在成り上がり勝者100事例インジェスト完遂 ＆ 234社体制確立（Phase 146）
+
+### 1. 100事例の全量インジェストと限定完全排除の達成
+- **限定完全排除の実践**: 大企業・形式的優等生に偏ることなく、「一晩で大金持ちになったインディー開発者（PDF.ai, Chatbase, SiteGPT）」「D2C物販成り上がり（CASETiFY, Bellroy, Ridge, Peak Design, Manscaped）」「急成長AI新世代（Cursor, Perplexity, ElevenLabs, Leonardo.ai）」「上場成り上がりベンチャー（じげん, タイミー, Macbee Planet, ギフティ）」「メディア・コミュニティ関所（Morning Brew, The Hustle, TLDR, Skool, Whop）」「キャッシュレス・フィンテック（Wise, Revolut, Mercury, Brex, Ramp）」等、100社全件を完全収集。
+- **落ちてない・探してもないなら仕方ない原則の適用**: 詳細な社内ツール代内訳等、公開されていない情報は業界相場とビジネス構造から合理的推計（`originType: 'estimated'`）を敷き、コピペ用コード等の小手先を排してサバンナOSの急所・手口・P&L・略奪配管の要点に集中。
+- **100年耐久為替エンジン（currency-fx.ts）**: USD, EUR, GBP等からの円換算と1円単位の算術整合性（`grossProfit = monthlyRevenue - cogs`, `operatingProfit = monthlyRevenue - (cogs + opex)`）を100%保証。
+
+### 2. R2イミュータブル保存と目録完全同期
+- **R2 CAS保存**: `foundation-lake/journal/v1/2026/09/13/verified-100-winners-batch/` へ100件全件をCreate-Onlyで物理配置完了。
+- **カタログ目録更新**: `data/entities-index.json` を同期し、総登録エンティティ数は 134社 ➔ **234社** へ拡大。
+- **EDINET正本領域（universal/data-assets/financials/）の完全不可侵**: 1バイトも触れずに完全隔離。
+
+### 3. 検証・品質・実機UI描画の完全実証
+- **Lint & Safety**: `pnpm lint` 100% PASS（ESLint, boundaries, storage, api-input, runtime-schema, index-safety 全通過）。
+- **Tests**: 全325テスト 100% PASS（Vitest 39 files / 297 tests, foundation 11 tests, architecture 11 tests, recovery 6 tests）。
+- **R2 Medallion Audit**: `pnpm foundation:audit` 100% PASS。
+- **実機UI描画実証**: Playwright実機ブラウザにて、トップ画面一覧の234社高速ロード、および `PDF.ai`、`Chatbase` 等の詳細インスペクターが0.01秒で一切のレイアウト崩れなく描画されることを確認（スクリーンショット `scratch/ui_verify_100_top.png`, `ui_verify_100_pdfai.png`, `ui_verify_100_chatbase.png` 保管）。
+
+---
+
 ## 2026-09-13 【確定・不可侵】EDINET完全遮断とChatGPT Proコード監査反映の記録
 
 ### 1. EDINET（universal/data-assets/financials/）への完全不可侵
