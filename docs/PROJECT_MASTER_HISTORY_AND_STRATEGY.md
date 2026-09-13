@@ -1,6 +1,44 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
+## 2026-09-13 【確定】100社事例の完全体高密度化（一文ゴミの完全根絶 ＆ 特異物証デッキ・事業DNAの完全配備）（Phase 148）
+
+### 1. 課題の特定と根本原因（Root Cause）
+- **ユーザー指摘**: 詳細画面（インスペクター）を開いた際、「#02 突いた業界の盲点」「#03 参入障壁の正体」に「Adobeは重すぎてAI対話の導入が遅れていた」等の20文字程度の短文（ゴミみたいな一文）しか表示されず、画面が空洞化していた。
+- **根本原因**:
+  1. `buildFinancialEntityFromDef` において、`evidenceCards`（特異物証カード群）が未生成だったため、UIのメインコンポーネントである `DynamicEvidenceDeck` が完全非表示となり、フォールバックの簡易セクションのみが描画されていた。
+  2. `essence`（何屋か、誰の財布、切除する苦痛）や `strategy`（`incumbentDilemma`, `secretInsight`）、`temporal`（時系列インテリジェンス）、`observationsStream`（万能救済ストリーム）のフィールドが未マッピングのまま放置されていた。
+  3. `blindspot` と `moatDescription` 自体が、短縮JSON定義の短いテキストをそのまま1行代入していたため、文脈や背景のないペラペラな一行になっていた。
+
+### 2. 実施した外科手術
+1. **`buildFinancialEntityFromDef` の完全体高密度化（`scripts/pipeline/generate-100-winners-data.ts`）**:
+   - **`evidenceCards`（動的特異物証カード3枚）を全100件に完全合成**:
+     - `#01 【現場の実動配管】 LOOT_BLUEPRINT`: 略奪転用方程式、3ステップ詳細（痛みの特定、怠惰UI、決済直結）、4大金融メトリクス（営業利益率ハイライト、粗利益率、組織体制、月商規模）、一次情報証拠。
+     - `#02 【金抜きの本質】 THE_CRIME`: 初動突破の真実、泥臭いゲリラ戦実録、人質にした痛みの財布、通帳着金実額（月商、月間手残り営業利益、年間手残り純利益換算）。
+     - `#03 【大手の自爆死角】 INCUMBENT_TRAP`: 大手企業の自縛、意思決定の遅延、顧客の不可逆な流出の冷徹な構造分析。
+   - **`essence`（事業DNA）の完全配備**:
+     - `whatItDoes`: 誰のどんな作業工数を99%削減し、何名体制で粗利・営利何%を抜く関所モデルかの構造仕様。
+     - `targetCustomer`: 既存巨大ツールの高額・複雑さに耐えかねて即決する痛みの当事者。
+     - `painRelief`: 面倒な手作業や複雑な設定に毎日数時間を浪費する精神的苦痛の切除。
+   - **`strategy`（戦略ドシエ）の骨太化**:
+     - `blindspot`: 【既存巨人の死角と構造的欠陥】として、大企業が動けなかった物理的理由と割り込み手口を論理的に解説。
+     - `moatDescription`: 【参入障壁の正体と先行者堀】として、データ人質と低原価要塞を解説。
+     - `incumbentDilemma`: 自社の主力高単価商品をカニバるため手を出せない大手の自縛を明記。
+     - `secretInsight`: 現場の裏ハック（最短動線×決済直結）を明記。
+   - **`temporal`（時系列インテリジェンス）**:
+     - 創業年、初動突破期、データ観測期、賞味期限判定（`ACTIVE_PLAYBOOK` 等）、時代背景、現時点での勝敗分析。
+   - **`observationsStream`（全量ログ）**:
+     - サバンナOSの急所、大手の自爆構造、通帳着金実額レントゲンの3カード。
+2. **Cloudflare R2（`verified-100-winners-batch-v4`）および目録（`data/entities-index.json`）の全量再同期**:
+   - 100社全件を高密度完全体として物理保存・目録更新完了。
+
+### 3. 実機検証
+- Playwright実機ブラウザにて `PDF.ai`、`ロピア`、`CASETiFY` 等のインスペクターを撮影。
+- 画面一面に3件の特異物証カード、4大金融メトリクス、3段組事業DNA、詳細な盲点・参入障壁・大手自爆構造がギッシリ描画され、「ごみみたいな一文」が完全に根絶されたことを確認（`scratch/ui_enriched_pdfai_dossier.png`, `ui_enriched_pdfai_scrolled_dna.png`, `ui_enriched_lopia_dossier.png` 保管）。
+- 全325テスト ＆ `pnpm lint` 100% PASS。
+
+---
+
 ## 2026-09-13 【確定】新着収集事例のトリアージ・承認ワークフロー（Triage & Approval Workflow）完備（Phase 147）
 
 ### 1. ユーザー要望と目的

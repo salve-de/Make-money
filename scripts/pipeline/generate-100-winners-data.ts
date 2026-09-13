@@ -1,5 +1,5 @@
 import { getHistoricalFxRate } from '../../src/shared/currency-fx';
-import type { FinancialEntity } from '../../src/platform/types/terminal';
+import type { FinancialEntity, DynamicEvidenceCard, UniversalObservation } from '../../src/platform/types/terminal';
 
 export interface RawWinnerDef {
   id: string;
@@ -134,6 +134,85 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
     `【リピート関所】${def.tollGateSetup}`
   ];
 
+  const formatMoney = (yen: number) => {
+    if (yen >= 100000000) return `¥${(yen / 100000000).toFixed(1)}億円`;
+    if (yen >= 10000) return `¥${Math.round(yen / 10000)}万円`;
+    return `¥${yen.toLocaleString()}`;
+  };
+
+  // 4. 特異物証カード群 (Dynamic Evidence Cards)
+  const evidenceCards: DynamicEvidenceCard[] = [
+    {
+      id: `ev_${def.id}_loot`,
+      type: 'LOOT_BLUEPRINT',
+      title: `【略奪転用】既存巨人の死角を突き「1機能特化×即時回収」で現金を抜き取る配管モデル`,
+      badge: '略奪転用方程式',
+      evidenceStatus: 'REPORTED',
+      punchline: `${def.structuralFlaw}の隙を突き、${def.stealthEntry}で客を囲い込み、粗利益率${def.grossMarginPct}%・営業利益率${def.operatingMarginPct}%を叩き出す。`,
+      details: [
+        `【Step 1: 痛みの特定】: 「${def.targetPrey}」というサバンナOSの激痛・保身恐怖に耐えかねている客層を特定。`,
+        `【Step 2: 怠惰UIの構築】: ${def.stealthEntry}により、競合の10倍の速さで目的を完了できる最短動線を提供。`,
+        `【Step 3: 決済関所の直結】: ${def.tollGateSetup}。前金年払いサブスクまたは即時決済で、初動から広告費ゼロで現金を回収。`
+      ],
+      metrics: [
+        { label: '営業利益率', value: `${def.operatingMarginPct}%`, isHighlight: true },
+        { label: '粗利益率', value: `${def.grossMarginPct}%` },
+        { label: '組織体制', value: `${def.teamSize}名` },
+        { label: '月商規模', value: formatMoney(monthlyRevenue) }
+      ],
+      sourceNote: `${def.revenueSourceNote}（公式決算公表 / 創業者メトリクス）`
+    },
+    {
+      id: `ev_${def.id}_crime`,
+      type: 'THE_CRIME',
+      title: `【初動突破の真実】大手の寝首を掻き、最小資本で現金を抜き取った客観事実ログ`,
+      badge: '身も蓋もない真実',
+      evidenceStatus: 'REPORTED',
+      punchline: `${def.initialTraction[0] || def.stealthEntry}。綺麗事の広告ではなく、ターゲットが群がる現場に直接割り込んで初期トラフィックを全量強奪した。`,
+      details: [
+        `創業者${def.founder}が初期に実行した泥臭い初動: ${def.initialTraction.join('、')}。`,
+        `人質にした痛みの財布: 「${def.targetPainWallet || def.targetPrey}」という防衛本能・極限の怠惰を直撃。`,
+        `通帳着金の実額: 月商${formatMoney(monthlyRevenue)}に対し、原価と固定費を引いた創業者個人の手残り月間営業利益は約${formatMoney(operatingProfit)}（年間手残り純利益換算 約${formatMoney(estimatedAnnualNetProfit)}）。`
+      ],
+      sourceNote: `${def.name} 創業者公表ログ / 財務レントゲン`
+    },
+    {
+      id: `ev_${def.id}_trap`,
+      type: 'INCUMBENT_TRAP',
+      title: `【大手の自爆構造】なぜ既存巨大企業は認知しながら指をくわえて見逃したのか`,
+      badge: 'カニバリズム障壁',
+      evidenceStatus: 'REPORTED',
+      punchline: `${def.structuralFlaw}。大手が同じ手口を真似すると自社の主力事業を自爆（カニバリズム）させるため、対抗不能の構造的麻痺に陥っていた。`,
+      details: [
+        `大企業の自縛: 既存の高価格帯エンタープライズ契約や重厚な組織体制を守る必要があり、超軽量・格安の単一機能プランを出せない。`,
+        `意思決定の遅延: 稟議・多重セキュリティ審査・社内政治により、現場の素早い変化に数ヶ月〜数年単位で遅れを取った。`,
+        `顧客の不可逆な流出: 複雑すぎる大手のUIや高額な月額固定費に疲弊したユーザーが、${def.name}の直感的で無痛の体験へ不可逆的に流出した。`
+      ]
+    }
+  ];
+
+  // 5. 万能救済ストリーム (Universal Observations)
+  const observationsStream: UniversalObservation[] = [
+    {
+      category: 'SAVANNAH_PAIN',
+      categoryLabel: 'サバンナOSの急所',
+      text: `【保身・怠惰・虚栄心の直撃】${def.targetPainWallet || def.targetPrey}という人間の根源的防衛本能・極限の怠惰に着火し、理性を失って即決させている。`,
+      originType: 'observed'
+    },
+    {
+      category: 'INCUMBENT_DILEMMA',
+      categoryLabel: '大手の自爆構造',
+      text: `【カニバリズム障壁】${def.structuralFlaw}。既存大手は高単価プラン防衛のため手を出せず、認知しながら指をくわえて見逃すしかなかった。`,
+      originType: 'observed'
+    },
+    {
+      category: 'MARKET_DISTORTION',
+      categoryLabel: '通帳着金の実額レントゲン',
+      text: `【損益の実態】年商約${formatMoney(monthlyRevenue * 12)}に対し、原価と固定費を引いた手残り営業利益率は${def.operatingMarginPct}%。完全1人または最小組織で、現金を確実に個人通帳に残す高効率配管。`,
+      originType: 'observed'
+    }
+  ];
+
   return {
     id: def.id,
     ticker: def.ticker,
@@ -173,6 +252,11 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       dataSnapshotPeriod: `${def.snapshotYear}年観測データ`,
       sourceDoc: def.revenueSourceNote
     },
+    essence: {
+      whatItDoes: `${def.name}の正体は、${def.targetPainWallet || def.targetPrey}を抱える層に対し、${def.architecturePattern}によって作業工数を99%削減・自動化し、${def.teamSize === 1 ? '完全1人で' : '最小組織で'}粗利益率${def.grossMarginPct}%・営業利益率${def.operatingMarginPct}%を確実に抜き取る高収益関所モデル。`,
+      targetCustomer: `既存の巨大ツール（${def.structuralFlaw}）の高額料金や複雑さに不満を抱え、自分の手作業や時間を節約するためなら月額費用を即決する${def.targetPainWallet || def.targetPrey}の当事者。`,
+      painRelief: `${def.targetPrey}。面倒な手作業や複雑な設定に毎日数時間を浪費する精神的苦痛を切除し、ワンクリックまたは完全自動で目的を達成させる。`
+    },
     operations: {
       teamSize: def.teamSize,
       weeklyHours: def.teamSize === 1 ? 20 : 40,
@@ -182,9 +266,11 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       toolStack: resolvedToolStack
     },
     strategy: {
-      blindspot: def.blindspot,
+      blindspot: `【既存巨人の死角と構造的欠陥】${def.structuralFlaw}。既存の大手事業者は自社の高単価プランや既存顧客との契約を守る必要があり、単一機能に特化した超軽量・低価格アプローチへの即時転換が物理的に不可能だった。そこへ${def.name}が「${def.stealthEntry}」という圧倒的利便性で割り込み、大手が無視していた巨大なライト層の需要を総取りした。`,
       moatType: def.moatType,
-      moatDescription: def.moatDescription,
+      moatDescription: `【参入障壁の正体と先行者堀】${def.moatDescription}。一度導入されると日常業務のワークフローやデータが人質となり、他社への乗り換えコストが極めて高くなる。また、${def.teamSize === 1 ? '完全1人体制による固定費ほぼゼロの低原価構造' : '徹底した自動化による圧倒的低原価要塞'}を敷いており、後発競合が同じ価格帯で参入しても利益を出せずに自滅する構造を作り上げている。`,
+      incumbentDilemma: `既存大手は「${def.structuralFlaw}」という自縄自縛に陥っている。${def.name}と同じ機能を安価またはシンプルに提供すると、自社の主力高額商品の売上をカニバる（共食いする）ため、経営陣は認知していても対抗策を打てず見逃すしかない。`,
+      secretInsight: `現場の裏ハック: ${def.stealthEntry}。複雑な機能をすべて削ぎ落とし、ユーザーが最も怠惰に目的を達成できる最短動線だけを${def.pipelineStack.split('×')[0]?.trim() || 'Stripe'}等の自動決済関所に直結させた点にある。`,
       initialTraction: def.initialTraction,
       actionPlaybook: def.actionPlaybook
     },
@@ -197,6 +283,17 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       moatDurabilityScore: 80,
       capitalEfficiencyScore: 92,
       executionChecklist: resolvedChecklist
+    },
+    evidenceCards,
+    observationsStream,
+    temporal: {
+      foundedYear: def.snapshotYear - 2,
+      initialTractionPeriod: `${def.snapshotYear - 1}年〜${def.snapshotYear}年初動突破期`,
+      dataSnapshotPeriod: `${def.snapshotYear}年観測データ`,
+      viabilityStatus: 'ACTIVE_PLAYBOOK',
+      viabilityLabel: '現在も極めて高収益に稼働中（再現性高）',
+      eraContext: `AIとセルフサーブSaaSの普及期。最小チームで巨大企業から現金を抜くゲリラ戦が成立した黄金ウィンドウ。`,
+      currentViabilityAnalysis: `現在も手口の有効性は持続しているが、同様の単一機能ツールが乱立しているため、特定ニッチ（業界・言語・特定職種）への特化と独自ドメイン・独自SEOの早期獲得が必須。`
     },
     observations: def.observations
   };
