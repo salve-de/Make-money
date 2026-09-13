@@ -252,52 +252,8 @@ export class CloudflareD1PointerStore implements DossierPointerStore {
     };
   }
 
-  public async compareAndSwap(
-    newPointer: DossierPointer,
-    expectedRevision?: number | null
-  ): Promise<CasUpdateResult> {
-    const current = await this.get(newPointer.entityId);
-
-    // 1. 明示的な expectedRevision チェックがある場合
-    if (expectedRevision !== undefined && expectedRevision !== null) {
-      const actualRev = current ? current.sourceRevision : null;
-      if (actualRev !== expectedRevision) {
-        return {
-          success: false,
-          applied: false,
-          current,
-          conflictReason: 'STALE_REVISION',
-        };
-      }
-    }
-
-    // 2. 既存ポインタとの検証
-    if (current) {
-      if (
-        current.sourceRevision === newPointer.sourceRevision &&
-        current.hash === newPointer.hash
-      ) {
-        return { success: true, applied: false, current };
-      }
-      if (current.sourceRevision === newPointer.sourceRevision) {
-        return {
-          success: false,
-          applied: false,
-          current,
-          conflictReason: 'REVISION_EQUAL_DIFFERENT_HASH',
-        };
-      }
-      if (newPointer.sourceRevision < current.sourceRevision) {
-        return {
-          success: false,
-          applied: false,
-          current,
-          conflictReason: 'STALE_REVISION',
-        };
-      }
-    }
-
-    // 3. D1 への条件付きUPSERT実行
+  public async compareAndSwap(newPointer: DossierPointer): Promise<CasUpdateResult> {
+    // 1. D1 への条件付きアトミックUPSERT実行（単調増加revisionのみ適用）
     const { sql, params } = buildD1PointerUpsertSql(newPointer);
     const result = await executeD1(sql, params);
     
@@ -309,7 +265,7 @@ export class CloudflareD1PointerStore implements DossierPointerStore {
       };
     }
 
-    // 4. changes === 0 の場合: 並行writerによる更新、または条件不一致。再読込して状態を厳密に分類
+    // 2. changes === 0 の場合: 再読込して状態を厳密に分類
     const latest = await this.get(newPointer.entityId);
     if (
       latest &&
@@ -332,16 +288,6 @@ export class CloudflareD1PointerStore implements DossierPointerStore {
         conflictReason: 'REVISION_EQUAL_DIFFERENT_HASH',
       };
     }
-    if (latest && latest.sourceRevision >= newPointer.sourceRevision) {
-      // より新しいリビジョンが存在するか、リビジョンが古いため書き込めなかった（Stale）
-      return {
-        success: false,
-        applied: false,
-        current: latest,
-        conflictReason: 'STALE_REVISION',
-      };
-    }
-
     return {
       success: false,
       applied: false,

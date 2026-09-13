@@ -87,10 +87,12 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     expect(summary.latestDossierHash).toBe('hash_heavy_v5');
     expect(summary.sourceRevision).toBe(5);
 
-    // 重厚・非公開フィールドは一切漏洩していないこと
-    expect(summary.observations).toBeUndefined();
-    expect(summary.lootBlueprint).toBeUndefined();
-    expect((summary as unknown as Record<string, unknown>).meta).toBeUndefined();
+    // 重厚・非公開フィールドは一切漏洩していないこと（型レベルおよび実行時オブジェクトレベルで排除）
+    const record = summary as unknown as Record<string, unknown>;
+    expect(record.observations).toBeUndefined();
+    expect(record.lootBlueprint).toBeUndefined();
+    expect(record.evidenceCards).toBeUndefined();
+    expect(record.meta).toBeUndefined();
   });
 
   it('3. Public API route GET /api/businesses rejects non-publishable entities from direct lookup with 404', async () => {
@@ -168,12 +170,41 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
           details: ['月商 約8.3億円を確認'],
         },
       ],
+      claimBindings: [
+        {
+          claimKey: 'pnl.monthlyRevenue',
+          evidenceId: 'ev_financial',
+          locator: {
+            type: 'pdf',
+            page: 42,
+            table: 'Revenue',
+          },
+          sourceClass: 'PRIMARY',
+          verificationStatus: 'SUPPORTED',
+          supportCheck: 'PASS',
+        },
+      ],
     } as unknown as FinancialEntity;
 
     expect(isPublishableEntity(verifiedEntity)).toBe(true);
+
+    // 反証（REFUTED）またはFAILのBindingがある場合は厳格拒絶
+    const refutedEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          claimKey: 'pnl.monthlyRevenue',
+          evidenceId: 'ev_financial',
+          sourceClass: 'PRIMARY',
+          verificationStatus: 'REFUTED',
+          supportCheck: 'FAIL',
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(refutedEntity)).toBe(false);
   });
 
-  it('7. publicSummaryEntity strictly converts unconfirmed metrics to null instead of 0 or 1', () => {
+  it('7. publicSummaryEntity strictly preserves unconfirmed flags without fabricating confirmed metrics', () => {
     const unconfirmedEntity = {
       id: 'unconfirmed_01',
       name: 'Unconfirmed Entity',
@@ -187,7 +218,7 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
         isMarginUnconfirmed: true,
       },
       operations: {
-        teamSize: 1,
+        teamSize: 0,
         isTeamSizeUnconfirmed: true,
         weeklyHours: 0,
         isWeeklyHoursUnconfirmed: true,
@@ -197,11 +228,11 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     } as unknown as FinancialEntity;
 
     const summary = publicSummaryEntity(unconfirmedEntity);
-    expect(summary.pnl.monthlyRevenue).toBeNull();
-    expect(summary.pnl.operatingProfit).toBeNull();
-    expect(summary.pnl.operatingMargin).toBeNull();
-    expect(summary.operations.teamSize).toBeNull();
-    expect(summary.operations.weeklyHours).toBeNull();
-    expect(summary.growthRateYoY).toBeNull();
+    expect(summary.pnl.isRevenueUnconfirmed).toBe(true);
+    expect(summary.pnl.isOperatingProfitUnconfirmed).toBe(true);
+    expect(summary.pnl.isMarginUnconfirmed).toBe(true);
+    expect(summary.operations.isTeamSizeUnconfirmed).toBe(true);
+    expect(summary.operations.isWeeklyHoursUnconfirmed).toBe(true);
+    expect(summary.isGrowthUnconfirmed).toBe(true);
   });
 });

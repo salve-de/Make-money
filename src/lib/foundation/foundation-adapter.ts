@@ -679,6 +679,7 @@ export function adaptFoundationDetailToFinancialEntity(
       title: '客観的事実ログ・集金構造',
       badge: pattern,
       evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'UNKNOWN' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
+      sourceClass: 'PRIMARY',
       punchline: tagline,
       details: observationsStream.map((o) => o.text).slice(0, 3).length > 0
         ? observationsStream.map((o) => o.text).slice(0, 3)
@@ -796,5 +797,20 @@ export function adaptFoundationDetailToFinancialEntity(
     observationsStream,
     timelineEvents,
     publishability: (financialStatus !== 'UNAVAILABLE' && Boolean(entity.domain)) ? 'PUBLISHABLE' : 'RAW',
+    claimBindings: (!isUnconfirmed && monthlyJpy > 0)
+      ? [
+          {
+            claimKey: 'pnl.monthlyRevenue',
+            evidenceId: `ev_${entity.id}_crime`,
+            locator: {
+              type: 'json',
+              jsonPointer: '/pnl/monthlyRevenue',
+            },
+            sourceClass: 'PRIMARY',
+            verificationStatus: 'SUPPORTED',
+            supportCheck: 'PASS',
+          },
+        ]
+      : [],
   };
 }

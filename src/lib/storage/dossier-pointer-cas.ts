@@ -21,10 +21,7 @@ export interface CasUpdateResult {
 
 export interface DossierPointerStore {
   get(entityId: string): Promise<DossierPointer | null>;
-  compareAndSwap(
-    newPointer: DossierPointer,
-    expectedRevision?: number | null
-  ): Promise<CasUpdateResult>;
+  compareAndSwap(newPointer: DossierPointer): Promise<CasUpdateResult>;
 }
 
 /**
@@ -71,27 +68,10 @@ export class MemoryDossierPointerStore implements DossierPointerStore {
    * - newRevision > currentRevision: 最新化成功
    * - newRevision === currentRevision && newHash === currentHash: 冪等成功
    * - newRevision <= currentRevision: 拒絶 (STALE_REVISION)
-   * - expectedRevision が明示指定されている場合: currentRevision !== expectedRevision で拒絶
    */
-  public async compareAndSwap(
-    newPointer: DossierPointer,
-    expectedRevision?: number | null
-  ): Promise<CasUpdateResult> {
+  public async compareAndSwap(newPointer: DossierPointer): Promise<CasUpdateResult> {
     return this.mutex.acquire(newPointer.entityId, async () => {
       const current = this.pointers.get(newPointer.entityId);
-
-      // 1. 明示的な expectedRevision チェックがある場合
-      if (expectedRevision !== undefined) {
-        const actualRev = current ? current.sourceRevision : null;
-        if (actualRev !== expectedRevision) {
-          return {
-            success: false,
-            applied: false,
-            current: current ? { ...current } : null,
-            conflictReason: 'STALE_REVISION',
-          };
-        }
-      }
 
       // 2. 既存ポインタが存在しない場合
       if (!current) {

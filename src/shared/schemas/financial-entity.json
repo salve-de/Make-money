@@ -145,6 +145,12 @@
         },
         "sourceRevision": {
           "type": "number"
+        },
+        "claimBindings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ClaimEvidenceBinding"
+          }
         }
       },
       "required": [
@@ -1223,6 +1229,48 @@
         "RAW",
         "ARCHIVED",
         "REJECTED_AS_CASE"
+      ]
+    },
+    "ClaimEvidenceBinding": {
+      "type": "object",
+      "properties": {
+        "claimKey": {
+          "type": "string"
+        },
+        "evidenceId": {
+          "type": "string"
+        },
+        "locator": {
+          "$ref": "#/definitions/EvidenceLocator"
+        },
+        "sourceClass": {
+          "$ref": "#/definitions/SourceClass"
+        },
+        "verificationStatus": {
+          "$ref": "#/definitions/VerificationStatus"
+        },
+        "supportCheck": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        }
+      },
+      "required": [
+        "claimKey",
+        "evidenceId",
+        "sourceClass",
+        "verificationStatus"
+      ],
+      "description": "Claim-to-Evidence Binding（Promotion Receipt） 確定事実（売上・利益・組織規模等）を客観的エビデンス（原本Locator・一次資料）に直接紐付ける決定論的契約。"
+    },
+    "VerificationStatus": {
+      "type": "string",
+      "enum": [
+        "SUPPORTED",
+        "REFUTED",
+        "UNVERIFIED"
       ]
     }
   }

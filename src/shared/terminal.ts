@@ -62,6 +62,21 @@ export type EvidenceLocator =
       endMs: number;
     };
 
+export type VerificationStatus = 'SUPPORTED' | 'REFUTED' | 'UNVERIFIED';
+
+/**
+ * Claim-to-Evidence Binding（Promotion Receipt）
+ * 確定事実（売上・利益・組織規模等）を客観的エビデンス（原本Locator・一次資料）に直接紐付ける決定論的契約。
+ */
+export interface ClaimEvidenceBinding {
+  claimKey: string; // 例: "pnl.monthlyRevenue", "pnl.operatingProfit", "operations.teamSize"
+  evidenceId: string;
+  locator?: EvidenceLocator;
+  sourceClass: SourceClass;
+  verificationStatus: VerificationStatus;
+  supportCheck?: 'PASS' | 'FAIL';
+}
+
 export type PublishabilityStatus =
   | 'PUBLISHABLE'       // 審査通過・確定公開可能（一般検索インデックスへ投影）
   | 'PARTIAL'           // 一部欠損・作業中（内部保管、公開面へは未投影）
@@ -361,7 +376,14 @@ export interface FinancialEntity {
   publishability?: PublishabilityStatus; // 昇格ステータス（PUBLISHABLEのみ一般公開検索へ投影）
   latestDossierHash?: string; // 最新イミュータブルDossierのContent Hash
   sourceRevision?: number; // ソース改訂リビジョン番号（INDEX_STALE検知用）
+  claimBindings?: ClaimEvidenceBinding[]; // Claim-to-Evidence Promotion Receipts
 }
+
+/**
+ * 一覧表示用軽量プロジェクションDTO
+ * 重厚なドシエ（evidenceCards, observationsStream, lootBlueprint）を除去した安全な表示用エンティティ。
+ */
+export type PublicSummaryEntity = FinancialEntity;
 
 export interface LootBlueprint {
   targetPrey: string;

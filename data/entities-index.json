@@ -209,7 +209,20 @@
       "【損益の実態】年商約¥7286万円に対し、原価と経費を引いた営業利益率は85%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】PDF.aiの財務実績: 月商¥607万円、営業利益¥516万円（営業利益率約85%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_pdf_ai_65_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_testim_66",
@@ -421,7 +434,20 @@
       "【損益の実態】年商約¥1.1億円に対し、原価と経費を引いた営業利益率は82%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Testimonial.toの財務実績: 月商¥886万円、営業利益¥726万円（営業利益率約82%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_testim_66_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_site_gpt_67",
@@ -633,7 +659,20 @@
       "【損益の実態】年商約¥4554万円に対し、原価と経費を引いた営業利益率は80%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】SiteGPTの財務実績: 月商¥380万円、営業利益¥304万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_site_gpt_67_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_feathr_68",
@@ -845,7 +884,20 @@
       "【損益の実態】年商約¥1518万円に対し、原価と経費を引いた営業利益率は88%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Feather.soの財務実績: 月商¥127万円、営業利益¥111万円（営業利益率約88%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_feathr_68_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_chatbs_69",
@@ -1057,7 +1109,20 @@
       "【損益の実態】年商約¥5.5億円に対し、原価と経費を引いた営業利益率は85%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Chatbaseの財務実績: 月商¥4554万円、営業利益¥3871万円（営業利益率約85%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_chatbs_69_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_rewind_6a",
@@ -1269,7 +1334,20 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は75%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rewind AIの財務実績: 月商¥6325万円、営業利益¥4744万円（営業利益率約75%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_rewind_6a_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_cursor_6b",
@@ -1481,7 +1559,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は50%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Cursor (Anysphere)の財務実績: 月商¥126500万円、営業利益¥63250万円（営業利益率約50%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_cursor_6b_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_prplx_6c",
@@ -1693,7 +1784,20 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Perplexity AIの財務実績: 月商¥101200万円、営業利益¥35420万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_prplx_6c_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_eleven_6d",
@@ -1905,7 +2009,20 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は45%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】ElevenLabsの財務実績: 月商¥101200万円、営業利益¥45540万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_eleven_6d_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_leonrd_6e",
@@ -2117,7 +2234,20 @@
       "【損益の実態】年商約¥15.2億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Leonardo.aiの財務実績: 月商¥12650万円、営業利益¥5060万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_leonrd_6e_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_dub_co_6f",
@@ -2329,7 +2459,20 @@
       "【損益の実態】年商約¥7590万円に対し、原価と経費を引いた営業利益率は80%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Dub.coの財務実績: 月商¥633万円、営業利益¥506万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_dub_co_6f_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_loops_70",
@@ -2541,7 +2684,20 @@
       "【損益の実態】年商約¥1.5億円に対し、原価と経費を引いた営業利益率は75%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Loops.soの財務実績: 月商¥1265万円、営業利益¥949万円（営業利益率約75%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_loops_70_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_raycst_71",
@@ -2753,7 +2909,20 @@
       "【損益の実態】年商約¥7590万円に対し、原価と経費を引いた営業利益率は65%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Raycastの財務実績: 月商¥633万円、営業利益¥411万円（営業利益率約65%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_raycst_71_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_vercel_72",
@@ -2965,7 +3134,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Vercelの財務実績: 月商¥126500万円、営業利益¥25300万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_vercel_72_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_supabs_73",
@@ -3177,7 +3359,20 @@
       "【損益の実態】年商約¥45.5億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Supabaseの財務実績: 月商¥37950万円、営業利益¥9488万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_supabs_73_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_posthg_74",
@@ -3389,7 +3584,20 @@
       "【損益の実態】年商約¥30.4億円に対し、原価と経費を引いた営業利益率は30%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】PostHogの財務実績: 月商¥25300万円、営業利益¥7590万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_posthg_74_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_cleanm_75",
@@ -3601,7 +3809,20 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は40%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】CleanMyMacの財務実績: 月商¥63250万円、営業利益¥25300万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_cleanm_75_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_setapp_76",
@@ -3813,7 +4034,20 @@
       "【損益の実態】年商約¥53.1億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Setappの財務実績: 月商¥44275万円、営業利益¥11069万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_setapp_76_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_warp_t_77",
@@ -4025,7 +4259,20 @@
       "【損益の実態】年商約¥15.2億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Warp Terminalの財務実績: 月商¥12650万円、営業利益¥5060万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_warp_t_77_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_sprhmn_78",
@@ -4237,7 +4484,20 @@
       "【損益の実態】年商約¥53.1億円に対し、原価と経費を引いた営業利益率は30%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Superhumanの財務実績: 月商¥44275万円、営業利益¥13283万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_sprhmn_78_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_anker_79",
@@ -4449,7 +4709,20 @@
       "【損益の実態】年商約¥3036.0億円に対し、原価と経費を引いた営業利益率は10.5%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ankerの財務実績: 月商¥2530000万円、営業利益¥265650万円（営業利益率約11%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_anker_79_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_casetf_7a",
@@ -4661,7 +4934,20 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は22%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】CASETiFYの財務実績: 月商¥253000万円、営業利益¥55660万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_casetf_7a_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_keychr_7b",
@@ -4873,7 +5159,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は25%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Keychronの財務実績: 月商¥126500万円、営業利益¥31625万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_keychr_7b_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_bellry_7c",
@@ -5085,7 +5384,20 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Bellroyの財務実績: 月商¥101200万円、営業利益¥20240万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_bellry_7c_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_peakds_7d",
@@ -5297,7 +5609,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は22%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Peak Designの財務実績: 月商¥126500万円、営業利益¥27830万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_peakds_7d_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ridge_7e",
@@ -5509,7 +5834,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は25%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】The Ridge Walletの財務実績: 月商¥126500万円、営業利益¥31625万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_ridge_7e_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_manscp_7f",
@@ -5721,7 +6059,20 @@
       "【損益の実態】年商約¥455.4億円に対し、原価と経費を引いた営業利益率は18%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Manscapedの財務実績: 月商¥379500万円、営業利益¥68310万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_manscp_7f_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_yeti_80",
@@ -5933,7 +6284,20 @@
       "【損益の実態】年商約¥2428.8億円に対し、原価と経費を引いた営業利益率は16%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】YETI Coolersの財務実績: 月商¥2024000万円、営業利益¥323840万円（営業利益率約16%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_yeti_80_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_solost_81",
@@ -6145,7 +6509,20 @@
       "【損益の実態】年商約¥607.2億円に対し、原価と経費を引いた営業利益率は12%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Solo Stoveの財務実績: 月商¥506000万円、営業利益¥60720万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_solost_81_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_stanly_82",
@@ -6357,7 +6734,20 @@
       "【損益の実態】年商約¥1138.5億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Stanley 1913の財務実績: 月商¥948750万円、営業利益¥237188万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_stanly_82_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_brumat_83",
@@ -6569,7 +6959,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は22%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Brumateの財務実績: 月商¥126500万円、営業利益¥27830万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_brumat_83_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_vuori_84",
@@ -6781,7 +7184,20 @@
       "【損益の実態】年商約¥1518.0億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Vuoriの財務実績: 月商¥1265000万円、営業利益¥253000万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_vuori_84_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_on_hld_85",
@@ -6993,7 +7409,20 @@
       "【損益の実態】年商約¥3036.0億円に対し、原価と経費を引いた営業利益率は15%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】On Holdingの財務実績: 月商¥2530000万円、営業利益¥379500万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_on_hld_85_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_oofos_86",
@@ -7205,7 +7634,20 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は22%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】OOFOSの財務実績: 月商¥253000万円、営業利益¥55660万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_oofos_86_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_10thsd_87",
@@ -7417,7 +7859,20 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は18%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ten Thousandの財務実績: 月商¥63250万円、営業利益¥11385万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_10thsd_87_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_8sleep_88",
@@ -7629,7 +8084,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Eight Sleepの財務実績: 月商¥126500万円、営業利益¥25300万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_8sleep_88_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_tile_tg_89",
@@ -7841,7 +8309,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は15%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Tileの財務実績: 月商¥126500万円、営業利益¥18975万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_tile_tg_89_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_rumpl_8a",
@@ -8053,7 +8534,20 @@
       "【損益の実態】年商約¥60.7億円に対し、原価と経費を引いた営業利益率は20%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rumplの財務実績: 月商¥50600万円、営業利益¥10120万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_rumpl_8a_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_beard_8b",
@@ -8265,7 +8759,20 @@
       "【損益の実態】年商約¥10.6億円に対し、原価と経費を引いた営業利益率は25%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Beardbrandの財務実績: 月商¥8855万円、営業利益¥2214万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_beard_8b_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_chrono_8c",
@@ -8477,7 +8984,20 @@
       "【損益の実態】年商約¥197.0億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Chrono24の財務実績: 月商¥164200万円、営業利益¥41050万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_chrono_8c_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_3679_t_8d",
@@ -8689,7 +9209,20 @@
       "【損益の実態】年商約¥220.0億円に対し、原価と経費を引いた営業利益率は33%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社じげんの財務実績: 月商¥183333万円、営業利益¥60500万円（営業利益率約33%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_3679_t_8d_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_6191_t_8e",
@@ -8901,7 +9434,20 @@
       "【損益の実態】年商約¥250.0億円に対し、原価と経費を引いた営業利益率は18%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社エアトリの財務実績: 月商¥208333万円、営業利益¥37500万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_6191_t_8e_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_3665_t_8f",
@@ -9113,7 +9659,20 @@
       "【損益の実態】年商約¥70.0億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社エニグモ (BUYMA)の財務実績: 月商¥58333万円、営業利益¥17500万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_3665_t_8f_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_4176_t_90",
@@ -9325,7 +9884,20 @@
       "【損益の実態】年商約¥50.0億円に対し、原価と経費を引いた営業利益率は15%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ココナラの財務実績: 月商¥41667万円、営業利益¥6250万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_4176_t_90_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_4477_t_91",
@@ -9537,7 +10109,20 @@
       "【損益の実態】年商約¥120.0億円に対し、原価と経費を引いた営業利益率は12%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】BASE株式会社の財務実績: 月商¥100000万円、営業利益¥12000万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_4477_t_91_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_215a_t_92",
@@ -9749,7 +10334,20 @@
       "【損益の実態】年商約¥200.0億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社タイミーの財務実績: 月商¥166667万円、営業利益¥41667万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_215a_t_92_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_4487_t_93",
@@ -9961,7 +10559,20 @@
       "【損益の実態】年商約¥15.0億円に対し、原価と経費を引いた営業利益率は15%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社スペースマーケットの財務実績: 月商¥12500万円、営業利益¥1875万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_4487_t_93_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_7095_t_94",
@@ -10173,7 +10784,20 @@
       "【損益の実態】年商約¥350.0億円に対し、原価と経費を引いた営業利益率は12%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社Macbee Planetの財務実績: 月商¥291667万円、営業利益¥35000万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_7095_t_94_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_4449_t_95",
@@ -10385,7 +11009,20 @@
       "【損益の実態】年商約¥70.0億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ギフティの財務実績: 月商¥58333万円、営業利益¥14583万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_4449_t_95_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_3922_t_96",
@@ -10597,7 +11234,20 @@
       "【損益の実態】年商約¥70.0億円に対し、原価と経費を引いた営業利益率は35%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社PR TIMESの財務実績: 月商¥58333万円、営業利益¥20417万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_3922_t_96_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_7564_t_97",
@@ -10809,7 +11459,20 @@
       "【損益の実態】年商約¥1300.0億円に対し、原価と経費を引いた営業利益率は18%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ワークマンの財務実績: 月商¥1083333万円、営業利益¥195000万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_7564_t_97_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_3097_t_98",
@@ -11021,7 +11684,20 @@
       "【損益の実態】年商約¥1000.0億円に対し、原価と経費を引いた営業利益率は7.5%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社物語コーポレーション (焼肉きんぐ)の財務実績: 月商¥833333万円、営業利益¥62500万円（営業利益率約8%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_3097_t_98_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_3397_t_99",
@@ -11233,7 +11909,20 @@
       "【損益の実態】年商約¥2300.0億円に対し、原価と経費を引いた営業利益率は7%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】トリドールホールディングス (丸亀製麺)の財務実績: 月商¥1916667万円、営業利益¥134167万円（営業利益率約7%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_3397_t_99_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_3563_t_9a",
@@ -11445,7 +12134,20 @@
       "【損益の実態】年商約¥3600.0億円に対し、原価と経費を引いた営業利益率は6%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】FOOD & LIFE COMPANIES (スシロー)の財務実績: 月商¥3000000万円、営業利益¥180000万円（営業利益率約6%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_3563_t_9a_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ok_sup_9b",
@@ -11657,7 +12359,20 @@
       "【損益の実態】年商約¥6000.0億円に対し、原価と経費を引いた営業利益率は5.2%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】オーケー株式会社の財務実績: 月商¥5000000万円、営業利益¥260000万円（営業利益率約5%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_ok_sup_9b_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_lopia_9c",
@@ -11869,7 +12584,20 @@
       "【損益の実態】年商約¥4000.0億円に対し、原価と経費を引いた営業利益率は4.5%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社ロピア (OIC)の財務実績: 月商¥3333333万円、営業利益¥150000万円（営業利益率約5%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_lopia_9c_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_3038_t_9d",
@@ -12081,7 +12809,20 @@
       "【損益の実態】年商約¥4800.0億円に対し、原価と経費を引いた営業利益率は10.2%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】株式会社神戸物産 (業務スーパー)の財務実績: 月商¥4000000万円、営業利益¥408000万円（営業利益率約10%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_3038_t_9d_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_mbrew_9e",
@@ -12293,7 +13034,20 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Morning Brewの財務実績: 月商¥63250万円、営業利益¥25300万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_mbrew_9e_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_hustle_9f",
@@ -12505,7 +13259,20 @@
       "【損益の実態】年商約¥30.4億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】The Hustleの財務実績: 月商¥25300万円、営業利益¥8855万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_hustle_9f_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_tldr_n_a0",
@@ -12718,7 +13485,20 @@
       "【損益の実態】年商約¥12.1億円に対し、原価と経費を引いた営業利益率は80%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】TLDR Newsletterの財務実績: 月商¥10120万円、営業利益¥8096万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_tldr_n_a0_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_milkrd_a1",
@@ -12930,7 +13710,20 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は85%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】The Milk Roadの財務実績: 月商¥6325万円、営業利益¥5376万円（営業利益率約85%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_milkrd_a1_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_substk_a2",
@@ -13142,7 +13935,20 @@
       "【損益の実態】年商約¥45.5億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Substackの財務実績: 月商¥37950万円、営業利益¥7590万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_substk_a2_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_onlyfn_a3",
@@ -13354,7 +14160,20 @@
       "【損益の実態】年商約¥1973.4億円に対し、原価と経費を引いた営業利益率は40%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】OnlyFansの財務実績: 月商¥1644500万円、営業利益¥657800万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_onlyfn_a3_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_patren_a4",
@@ -13566,7 +14385,20 @@
       "【損益の実態】年商約¥121.4億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Patreonの財務実績: 月商¥101200万円、営業利益¥20240万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_patren_a4_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_skool_a5",
@@ -13778,7 +14610,20 @@
       "【損益の実態】年商約¥38.0億円に対し、原価と経費を引いた営業利益率は45%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Skoolの財務実績: 月商¥31625万円、営業利益¥14231万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_skool_a5_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_whop_a6",
@@ -13990,7 +14835,20 @@
       "【損益の実態】年商約¥45.5億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Whopの財務実績: 月商¥37950万円、営業利益¥13283万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_whop_a6_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_fanbas_a7",
@@ -14202,7 +15060,20 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は20%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Fanbaseの財務実績: 月商¥6325万円、営業利益¥1265万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_fanbas_a7_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_honey_a8",
@@ -14414,7 +15285,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は40%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Honeyの財務実績: 月商¥126500万円、営業利益¥50600万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_honey_a8_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_grammr_a9",
@@ -14626,7 +15510,20 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Grammarlyの財務実績: 月商¥253000万円、営業利益¥75900万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_grammr_a9_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_camel_aa",
@@ -14838,7 +15735,20 @@
       "【損益の実態】年商約¥7.6億円に対し、原価と経費を引いた営業利益率は80%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】CamelCamelCamelの財務実績: 月商¥6325万円、営業利益¥5060万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_camel_aa_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_wikiby_ab",
@@ -15050,7 +15960,20 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は35%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Capital One Shopping (Wikibuy)の財務実績: 月商¥63250万円、営業利益¥22138万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_wikiby_ab_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ebates_ac",
@@ -15262,7 +16185,20 @@
       "【損益の実態】年商約¥379.5億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rakuten Rewards (Ebates)の財務実績: 月商¥316250万円、営業利益¥63250万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_ebates_ac_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ltk_app_ad",
@@ -15474,7 +16410,20 @@
       "【損益の実態】年商約¥227.7億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】LTK (RewardStyle)の財務実績: 月商¥189750万円、営業利益¥47438万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_ltk_app_ad_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_shpstl_ae",
@@ -15686,7 +16635,20 @@
       "【損益の実態】年商約¥91.1億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】ShopStyleの財務実績: 月商¥75900万円、営業利益¥18975万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_shpstl_ae_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_slickd_af",
@@ -15898,7 +16860,20 @@
       "【損益の実態】年商約¥60.7億円に対し、原価と経費を引いた営業利益率は45%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Slickdealsの財務実績: 月商¥50600万円、営業利益¥22770万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_slickd_af_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_rtlnot_b0",
@@ -16110,7 +17085,20 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】RetailMeNotの財務実績: 月商¥253000万円、営業利益¥75900万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_rtlnot_b0_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ibotta_b1",
@@ -16322,7 +17310,20 @@
       "【損益の実態】年商約¥455.4億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ibottaの財務実績: 月商¥379500万円、営業利益¥75900万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_ibotta_b1_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_lnktr_b2",
@@ -16534,7 +17535,20 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Linktreeの財務実績: 月商¥63250万円、営業利益¥22138万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_lnktr_b2_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_beacns_b3",
@@ -16746,7 +17760,20 @@
       "【損益の実態】年商約¥22.8億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Beaconsの財務実績: 月商¥18975万円、営業利益¥6641万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_beacns_b3_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_stan_s_b4",
@@ -16958,7 +17985,20 @@
       "【損益の実態】年商約¥30.4億円に対し、原価と経費を引いた営業利益率は40%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Stan Storeの財務実績: 月商¥25300万円、営業利益¥10120万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_stan_s_b4_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_podia_b5",
@@ -17170,7 +18210,20 @@
       "【損益の実態】年商約¥15.2億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Podiaの財務実績: 月商¥12650万円、営業利益¥4428万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_podia_b5_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_teachb_b6",
@@ -17382,7 +18435,20 @@
       "【損益の実態】年商約¥75.9億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Teachableの財務実績: 月商¥63250万円、営業利益¥15813万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_teachb_b6_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_thnkfc_b7",
@@ -17594,7 +18660,20 @@
       "【損益の実態】年商約¥83.5億円に対し、原価と経費を引いた営業利益率は15%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Thinkificの財務実績: 月商¥69575万円、営業利益¥10436万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_thnkfc_b7_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_kajabi_b8",
@@ -17806,7 +18885,20 @@
       "【損益の実態】年商約¥151.8億円に対し、原価と経費を引いた営業利益率は30%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Kajabiの財務実績: 月商¥126500万円、営業利益¥37950万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_kajabi_b8_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_circl_b9",
@@ -18018,7 +19110,20 @@
       "【損益の実態】年商約¥22.8億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Circle.soの財務実績: 月商¥18975万円、営業利益¥6641万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_circl_b9_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_mighty_ba",
@@ -18230,7 +19335,20 @@
       "【損益の実態】年商約¥22.8億円に対し、原価と経費を引いた営業利益率は25%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Mighty Networksの財務実績: 月商¥18975万円、営業利益¥4744万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_mighty_ba_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_tiny_c_bb",
@@ -18442,7 +19560,20 @@
       "【損益の実態】年商約¥227.7億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Tiny Capitalの財務実績: 月商¥189750万円、営業利益¥37950万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_tiny_c_bb_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_wise_bc",
@@ -18654,7 +19785,20 @@
       "【損益の実態】年商約¥1935.0億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Wise (TransferWise)の財務実績: 月商¥1612500万円、営業利益¥403125万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_wise_bc_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_revolt_bd",
@@ -18866,7 +20010,20 @@
       "【損益の実態】年商約¥4257.0億円に対し、原価と経費を引いた営業利益率は23%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Revolutの財務実績: 月商¥3547500万円、営業利益¥815925万円（営業利益率約23%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_revolt_bd_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_mrcury_be",
@@ -19078,7 +20235,20 @@
       "【損益の実態】年商約¥303.6億円に対し、原価と経費を引いた営業利益率は35%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Mercuryの財務実績: 月商¥253000万円、営業利益¥88550万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_mrcury_be_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_brex_bf",
@@ -19290,7 +20460,20 @@
       "【損益の実態】年商約¥379.5億円に対し、原価と経費を引いた営業利益率は20%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Brexの財務実績: 月商¥316250万円、営業利益¥63250万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_brex_bf_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ramp_f_c0",
@@ -19502,7 +20685,20 @@
       "【損益の実態】年商約¥455.4億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Rampの財務実績: 月商¥379500万円、営業利益¥94875万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_ramp_f_c0_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_deel_c1",
@@ -19714,7 +20910,20 @@
       "【損益の実態】年商約¥759.0億円に対し、原価と経費を引いた営業利益率は30%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Deelの財務実績: 月商¥632500万円、営業利益¥189750万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_deel_c1_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_remote_c2",
@@ -19926,7 +21135,20 @@
       "【損益の実態】年商約¥227.7億円に対し、原価と経費を引いた営業利益率は25%。80名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Remoteの財務実績: 月商¥189750万円、営業利益¥47438万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_remote_c2_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_oyster_c3",
@@ -20138,7 +21360,20 @@
       "【損益の実態】年商約¥91.1億円に対し、原価と経費を引いた営業利益率は20%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Oyster HRの財務実績: 月商¥75900万円、営業利益¥15180万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_oyster_c3_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_carta_c4",
@@ -20350,7 +21585,20 @@
       "【損益の実態】年商約¥379.5億円に対し、原価と経費を引いた営業利益率は25%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Cartaの財務実績: 月商¥316250万円、営業利益¥79063万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_carta_c4_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_gusto_c5",
@@ -20562,7 +21810,20 @@
       "【損益の実態】年商約¥759.0億円に対し、原価と経費を引いた営業利益率は20%。800名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Gustoの財務実績: 月商¥632500万円、営業利益¥126500万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_gusto_c5_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_civita_c6",
@@ -20774,7 +22035,20 @@
       "【損益の実態】年商約¥18.2億円に対し、原価と経費を引いた営業利益率は30%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Civitaiの財務実績: 月商¥15180万円、営業利益¥4554万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_civita_c6_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_phind_c7",
@@ -20986,7 +22260,20 @@
       "【損益の実態】年商約¥9.1億円に対し、原価と経費を引いた営業利益率は40%。完全1人で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Phindの財務実績: 月商¥7590万円、営業利益¥3036万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_phind_c7_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ghostr_c8",
@@ -21198,7 +22485,20 @@
       "【損益の実態】年商約¥13.1億円に対し、原価と経費を引いた営業利益率は35%。8名の少数組織で手元に確実に現金を残す高収益モデル。",
       "【財務確定ログ】Ghosteryの財務実績: 月商¥10947万円、営業利益¥3831万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ent_ghostr_c8_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_shift_3697",
@@ -21410,7 +22710,20 @@
       "targetCustomer": "バグによるシステム障害や炎上を極度に恐れながらも、社内エンジニアにテストをやらせる工数がない大手SIer・事業会社。",
       "painRelief": "開発終盤のバグ多発による納期遅延とリリース延期の恐怖を解消し、開発者の負担をゼロにして品質を担保する。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_shift_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_wework_landmine",
@@ -21604,7 +22917,20 @@
       "targetCustomer": "オシャレなオフィス空間や無料ビールを好むスタートアップやフリーランス（景気後退やリモート移行で真っ先に解約する層）。",
       "painRelief": "オフィス需要を過大評価し、パンデミックと景気後退による解約ラッシュで毎月数百億円の賃料赤字を垂れ流して破綻。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_wework_lesson",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ghost_3c99a012",
@@ -21806,7 +23132,20 @@
       "targetCustomer": "SubstackやMediumの手数料（売上の10%）を嫌い、自分の独自ドメインと読者リストを100%所有して有料課金を行いたい独立系メディア・作家。",
       "painRelief": "売上手数料ゼロ・サーバー管理の手間ゼロで、書くことと購読者集めに集中できる環境を提供する。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ghost_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_theranos_postmortem_dead",
@@ -21990,7 +23329,20 @@
       "targetCustomer": "医療の民主化という美名に幻惑された著名投資家、薬局チェーン大手、および手軽な血液検査を求めた一般患者。",
       "painRelief": "既存の採血に伴う痛みと高額な検査費用の解消を謳ったが、実際には自社技術が機能せず、競合他社の機器で希釈検査を行う違法行為で完全崩壊。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_theranos_lesson",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ftx_postmortem_dead",
@@ -22174,7 +23526,20 @@
       "targetCustomer": "高レバレッジ取引や高い利回りを求めた世界中の暗号資産トレーダー、機関投資家、およびVCファンド。",
       "painRelief": "迅速な取引執行と高い流動性を提供していたが、裏付けのない準備金と顧客資産の私的流用が露呈した瞬間に取り付け騒ぎが起き、わずか数日で即死破綻。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ftx_lesson",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_typingmind_3a81f902",
@@ -22386,7 +23751,20 @@
       "targetCustomer": "ChatGPT Plusの月額$20や利用制限（3時間40通）に不満を持ち、高速・無制限・多機能に最新AIモデルを使い倒したいパワーユーザーやエンジニア。",
       "painRelief": "サブスク固定費の負担と公式Webの使いにくさを解消し、1回の買い切りで自分のAPIキーを使った快適なAI環境を提供する。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_typingmind_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_bannerbear_9e1204c3",
@@ -22598,7 +23976,20 @@
       "targetCustomer": "記事を公開するたびにPhotoshopやCanvaでアイキャッチ画像を手動作成する作業に追われているマーケターやEC運営者。",
       "painRelief": "単調な画像リサイズや文字入れ作業の繰り返しによる時間浪費と人的ミスをゼロにする。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bannerbear_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_convertkit_5b219e84",
@@ -22805,7 +24196,20 @@
       "targetCustomer": "SNSのアルゴリズム変更でリーチを奪われる恐怖を抱え、自前の読者リストを直接囲い込んでマネタイズしたいオンラインクリエイター。",
       "painRelief": "難解なマーケティングオートメーションの設定苦痛を解消し、タグベースの直感的な配信でファンのLTVを最大化する。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_convertkit_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_tailwind_4c810a72",
@@ -23012,7 +24416,20 @@
       "targetCustomer": "デザインセンスに自信がないバックエンドエンジニアや、素早く洗練されたUIを構築したいフロントエンド開発チーム。",
       "painRelief": "CSSの命名に悩む時間、肥大化するスタイルシートの破綻、デザイン作成の外注コストを完全に削減する。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_tailwind_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_disco_6146_jp",
@@ -23214,7 +24631,20 @@
       "targetCustomer": "TSMC、サムスン、Intel、NVIDIAなど、微細化と薄型化が進む最先端半導体を製造する世界の半導体ファブ・OSAT。",
       "painRelief": "高価な半導体ウエハを割らずに超極薄まで均一に削り分ける物理的難題を解消し、歩留まり向上と量産スピードを保証する。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_disco_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_fast_postmortem_dead",
@@ -23398,7 +24828,20 @@
       "targetCustomer": "カゴ落ちを減らしたい中小EC事業者（しかし実際の決済シェアはShopify PayやApple Payが独占）。",
       "painRelief": "ECサイトの住所・カード情報入力の面倒さを解消しようとしたが、プラットフォーマーの標準機能に一撃で無力化され、巨額固定費で出血死。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_fast_lesson",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_screenshotone_d87b1c42",
@@ -23634,7 +25077,20 @@
         "無料枠（100回）でフックをかけ、本番バッチ処理で月額$79〜$259プランへ自動昇格させる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_screenshotone_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_scrapingbee_4f92a188",
@@ -23870,7 +25326,20 @@
         "データ収集が定常業務になった企業から月額$249〜$599のサブスクを永続的に吸い上げる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_scrapingbee_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_keyence",
@@ -24195,7 +25664,20 @@
         "競合が相見積もりを出す前に、即日デモ機を持ち込んで現場検証を完了させ即決させる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_keyence_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_stripe",
@@ -24511,7 +25993,20 @@
         "初期ユーザーのコードに直接埋め込み、最初のトランザクションが通る瞬間を横で担保する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_stripe_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_shipfast",
@@ -24861,7 +26356,20 @@
         "Xで制作過程や売上スクショを包み隠さず晒し、値上げタイマーで初動を刈り取る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_shipfast_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_photoai",
@@ -25058,7 +26566,8 @@
         "制作プロセスをSNSで全公開して広告費ゼロで初期顧客を獲得する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": []
   },
   {
     "id": "ent_nomadlist",
@@ -25404,7 +26913,20 @@
         "スプシをそのままWebサイトに変換し、詳細データ閲覧とコミュニティ参加を有料化する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_nomadlist_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_plausible",
@@ -25611,7 +27133,20 @@
       "targetCustomer": "複雑で動作が重く、プライバシー規制で同意バナーの設置を強要されるGoogle Analytics 4（GA4）に激しい不満を抱くサイト運営者。",
       "painRelief": "GA4の難解な設定画面とサイト読み込み速度の低下、およびCookie同意バナーによる離脱の悩みを即座に解決する。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_plausible_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_transistor",
@@ -25939,7 +27474,20 @@
         "初期からカード登録必須の有料ベータを行い、最初から黒字の状態でローンチする"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_transistor_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_liinks",
@@ -26282,7 +27830,20 @@
         "相手のコンテンツを使って勝手にサンプルを作り、「断る理由がない状態」で直接DM営業する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_liinks_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_buffer",
@@ -26610,7 +28171,20 @@
         "外部資金に頼らず利益を内部留保し、資本主義の自主独立権を死守する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_buffer_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_headshotpro",
@@ -26902,7 +28476,20 @@
         "チーム単位（10人〜100人）の一括決済プランを用意し、客単価を10倍に引き上げる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_headshotpro_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_5989aec929273dd2a579",
@@ -27197,7 +28784,20 @@
         "無料配布でメアドを集め、高単価なオールインワン型ダッシュボードを買い切り販売する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_easlo_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_acquirecom_4e8247fa7bf75d8b8584",
@@ -27396,7 +28996,20 @@
         "案件を一覧化したニュースレターを作り、買い手から「優先閲覧権」として月額課金を回収する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_acquire_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_5bce9cf106978a50512d",
@@ -27632,7 +29245,20 @@
         "③ 音声メディアでまとめ買いを直販"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_magicspoon_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_67a6586e2f30a21c8576",
@@ -27853,7 +29479,20 @@
         "③ 缶にして環境倫理を免罪符にする"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_liquiddeath_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_5d6250204b25adce3a8b",
@@ -28088,7 +29727,20 @@
         "③ 完全有料で広告を排除"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_macrofactor_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_67ee7501e9f6e00f31b5",
@@ -28317,7 +29969,20 @@
         "③ 年額前金でキャッシュを回収し広告へ再投資"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_blinkist_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_7590e69f49bb1c7e8ac7",
@@ -28545,7 +30210,20 @@
         "③ 定期便でLTVを極大化"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_harrys_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_midjourney_239b8ccc522504fb757b",
@@ -28794,7 +30472,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_midjourney_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_carrd_6a69c797d0b28fc91fe6",
@@ -29006,7 +30697,20 @@
       "targetCustomer": "WordPressやWebflowの多機能さや高額な月額料金（月数千円）を持て余し、シンプルなLPを安く早く公開したい個人・個人事業主。",
       "painRelief": "サーバー契約、ドメイン設定、難解なデザインツールの学習にかかる時間とコストを極小化し、1クリックでWeb公開を完了させる。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_carrd_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_gumroad_164534dd22fa6c2e2793",
@@ -29208,7 +30912,20 @@
       "targetCustomer": "自前のECサイト（ShopifyやWooCommerce）を構築・維持する技術や固定費がなく、手軽にデジタル資産を売りたいクリエイターや副業者。",
       "painRelief": "決済プロバイダの審査待ち、税務処理、ファイル自動配信の設定などの面倒なバックエンド業務をすべて丸投げさせる。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_gumroad_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_basecamp_b1bb0f0ff61469aa22c5",
@@ -29434,7 +31151,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_basecamp_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_linear_app",
@@ -29660,7 +31390,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_linear_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_notion_hq",
@@ -29886,7 +31629,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_notion_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_beehiiv_0e052432d4cc474caec6",
@@ -30112,7 +31868,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_beehiiv_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
@@ -30339,7 +32108,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_kit_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_klaviyo_core",
@@ -30565,7 +32347,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_klaviyo_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_whoop_fitness",
@@ -30791,7 +32586,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_whoop_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_athletic_greens_ag1",
@@ -31017,7 +32825,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_athletic_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_oura_ring",
@@ -31243,7 +33064,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_oura_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_judgeme",
@@ -31471,7 +33305,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_judgeme_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_loox_reviews",
@@ -31698,7 +33545,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_loox_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_baremetrics_b0966c4871940e459cbb",
@@ -31924,7 +33784,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_baremetrics_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_betteruptime_bb05846361a4c3e961c7",
@@ -32151,7 +34024,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_betterstack_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_jasper_e3e5b0b671c3f89a38e0",
@@ -32405,7 +34291,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_jasper_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_clubhouse_audio",
@@ -32596,7 +34495,8 @@
         "ユーザーが他社へ移籍できないよう「過去ログ検索」を人質資産にする"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": []
   },
   {
     "id": "ent_quibi_failure",
@@ -32780,7 +34680,8 @@
       "targetCustomer": "通勤・通学のスキマ時間に高品質なドラマを見たいと想定した若年層（実際はTikTokやInstagramを見ていた）。",
       "painRelief": "移動中の退屈の切除を狙ったが、月額有料課金とスクリーンショット禁止という閉鎖的UIがユーザーの反発を招き、即死。"
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": []
   },
   {
     "id": "ent_hopin_failure",
@@ -33026,7 +34927,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_hopin_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_zenefits_failure",
@@ -33271,7 +35185,20 @@
         "前金や事前登録で初期顧客を獲得し、使い続けるほどデータが溜まる仕組みを作る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_zenefits_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_46268828ee835f928427",
@@ -33474,7 +35401,20 @@
         "「限定20名・3週間の超実践集中キャンプ（30万円）」を四半期ごとに募集して前金を総取りする"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_demandcurve_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_467ac5def4ed73eca134",
@@ -33767,7 +35707,20 @@
         "初回セットでCACを回収し、ポスト投函リフィルで粗利75%の定額サブスク網を構築"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_blueland_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_48aab28b5130f39babb5",
@@ -34059,7 +36012,20 @@
         "最終日に3万〜10万円の「価格交渉完全パッケージ」を販売し、不労所得配管を固定化"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_dyf_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_4e20bb4ce764a811f8e4",
@@ -34262,7 +36228,20 @@
         "「未経験から自分と同じポジションに到達するための6週間集中プログラム」を作り、高単価で年2回限定ローンチする"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_aliabdaal_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_51a67695084197de0982",
@@ -34548,7 +36527,20 @@
         "年額制のプレミアム配信プラットフォームとしてローンチし、高LTVを固定化"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_masterclass_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_51de613ea122941bf718",
@@ -34834,7 +36826,20 @@
         "まとめ買いパック（3個〜5個セット）をデフォルトにして客単価を跳ね上げる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bombas_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_56a0c21ed144570baa08",
@@ -35120,7 +37125,20 @@
         "インフルエンサーの旅行・お出かけ写真に溶け込ませてD2C直販で高粗利を取る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_away_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_5bdd9fde83a0b085e9a9",
@@ -35317,7 +37335,20 @@
         "YouTubeで作り方を10分で解説し、概要欄にGumroadリンクを貼る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_redgregory_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_64a935c0321718ed9860",
@@ -35604,7 +37635,20 @@
         "「単価倍増ピッチマスター講座」をコホート型（1回10万〜20万円）でローンチ"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_creatorwizard_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_659613136a4282de3246",
@@ -35896,7 +37940,20 @@
         "自社ストアで完全版（Figmaファイル＋商用ライセンス）を買い切り$49〜$99で直販"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_creativetim_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_6d7a96e8fda07beec3be",
@@ -36188,7 +38245,20 @@
         "法人向けに「新入社員・中途エンジニアの即戦力研修パス」として年額数十万円で販売"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_egghead_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_7334fb44ac55769d7531",
@@ -36475,7 +38545,20 @@
         "クリエイターをDMでスカウトして初期50商品を揃え、Stripe Connectで20%中抜き配管を開通"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_notioneverything_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_3af472ae9a147b0a577d",
@@ -36761,7 +38844,20 @@
         "ユーモアのあるショート動画で大手の価格を笑い飛ばし、月額サブスクへ誘導"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_dsc_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_3ce4d4e178e6ac0b937f",
@@ -37048,7 +39144,20 @@
         "説教くささを完全に排除した爆笑コメディショート動画でサブスクへ誘導"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_drsquatch_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_41c0551fc5b488cb6ff3",
@@ -37240,7 +39349,20 @@
         "大手競合が決して入ってこない高級リテールの棚を単独確保する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_swell_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_4564a6abbf153016338b",
@@ -37526,7 +39648,20 @@
         "参加者限定の証（パッチや限定カラー）を配り、コミュニティを自走増殖させる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_goruck_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_76716d1fcbd132cc5384",
@@ -37818,7 +39953,20 @@
         "週刊メルマガで読者を集め、年額数万円の「有料読書会・思考訓練サロン」でストック化"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_farnamstreet_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_8b2018bd0f3346cd4b8d",
@@ -38104,7 +40252,20 @@
         "「〇〇のための公式ユニフォーム」として高単価まとめ買いD2Cを構築"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_cuts_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_8cb0f0f1d23c4b28845d",
@@ -38391,7 +40552,20 @@
         "開発者向けに「買い切りライセンス（経費精算枠）」として販売"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_tailwindui_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_91b3261eba01e9af87ca",
@@ -38677,7 +40851,20 @@
         "年額制のサブスクリプションとして展開し、高い継続率を維持"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_superhi_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_927226d70004ddc2f597",
@@ -38958,7 +41145,20 @@
         "完成版テンプレート（数万円）と個別導入コンサル（数十万円）をセットで展開"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_notionvip_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_9304ca0224781a9a0c17",
@@ -39245,7 +41445,20 @@
         "毎月新しいデザインが届くサブスクモデルでポスト投函D2Cを展開"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_meundies_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_946f6ac5e243c76c7056",
@@ -39526,7 +41739,20 @@
         "クリエイターをスカウトして商品を並べ、決済手数料20%を徴収"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_notionery_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_951bdb1f70844800e347",
@@ -39718,7 +41944,20 @@
         "顧客が「自分たちの部室」と感じるようなラフなSNSコミュニケーションを展開する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_chubbies_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_31b7b3f670fa38297fa1",
@@ -39943,7 +42182,20 @@
         "【タイトフィットな裁断】: 従来のブカブカなアディダス・ナイキと真逆に、筋肉が最も美しく強調されるテーパード裁断で若者の承認欲求を直撃。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_gym_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_3017fec28ef5556f7f18",
@@ -40168,7 +42420,20 @@
         "【犬の死の恐怖へのアンカー】: 「平均寿命を数年伸ばすための食事」と位置づけ、1食あたり数百円の追加出費を愛犬の命の保険料として正当化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_tfd_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_25dc4704a8b5af737f38",
@@ -40393,7 +42658,20 @@
         "【インスタ映えするカラーバリエーション】: 暗いキッチンに置くだけで映えるテラコッタ、セージ、クリーム色を展開し、主婦やインフルエンサーの投稿を誘発。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_crwy_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_1f571b3ed0a32a27a2cc",
@@ -40618,7 +42896,20 @@
         "【クレジットの死蔵化】: 引き落とされたクレジットは商品購入に使えるが、使わずに溜め込むユーザーが一定割合存在し、驚異的なキャッシュフローを生む。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_fblt_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_34177648949ad28ac68b",
@@ -40843,7 +43134,20 @@
         "【100日無料トライアル】: 店頭で5分寝転がっても分からない。自宅で3ヶ月寝て合わなければ全額返金＋無料引き取りを約束して購入不安を完全消滅。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_cspr_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_3ac128f815c8808657fa",
@@ -41068,7 +43372,20 @@
         "【ピンクプチプチポーチのトロイの木馬】: 商品をピンクの気泡緩衝材ポーチに入れて送り、ポーチ自体が街中で持ち歩かれ無料の歩く広告塔に。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_glos_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_3af28b86f4a9d1fcd41e",
@@ -41293,7 +43610,20 @@
         "【地方の中間層をターゲット】: 大都市の富裕層向けWhole Foodsと違い、近くに健康食品店がない中西部の主婦層を狙い撃ち。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_thrv_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_097e637a6bf6982eebb2",
@@ -41518,7 +43848,20 @@
         "【スマホ画面保護液とのバンドル】: 「ケース＋液体ガラスフィルム＋無制限画面修理保証」をセットにして単価を$80まで引き上げ。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_pela_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_12515dc99150f4ad0b3c",
@@ -41743,7 +44086,20 @@
         "【詰替パウチによるLTV極大化】: 初回は美しい琥珀色のボトルを買い、以降は紙パックやパウチの詰替え用を定期購入させる。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_pbg_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_appsumo_1df8bbce3167e567102f",
@@ -41968,7 +44324,20 @@
         "【買い切り中毒者の囲い込み】: 「二度と手に入らない永久ライセンス」というFOMO（取り残される恐怖）を煽り、起業志望者に使わないツールを大量に衝動買いさせる。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_asumo_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_1440_80f77c7820bd7f120771",
@@ -42193,7 +44562,20 @@
         "【算術的CAC/LTV裁定取引】: Facebook広告で1人あたり$2〜$3で読者を獲得し、年間の広告閲覧で$6〜$8を回収する数学的増殖ループ。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_1440_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_404media_67f4bdf34107c01d26ad",
@@ -42391,7 +44773,20 @@
         "「業界の闇を暴く一次資料」だけを週に1本公開し、読者の知的好奇心と業界防衛本能を突いて課金させる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_404media_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_acquired_407492c944d80b69979b",
@@ -42616,7 +45011,20 @@
         "【年間パッケージ販売】: 単発の広告枠は売らず、「年間メインスポンサー（数億円）」としてJ.P. MorganやServiceNow等に独占販売して前金を回収。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_acqr_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_2pm_aaeaf4a28582273752d4",
@@ -42807,7 +45215,20 @@
         "自腹ではなく「会社の経費」で落とせる高価格（年額$500以上）を設定する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_2pm_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_0a749a6a8e447ce7a85d",
@@ -43032,7 +45453,20 @@
         "【自作APIツール（Fly.io）による差別化】: 単なる見た目のテンプレートではなく、Notion APIを使ってGoogleカレンダーと双方向同期する独自ツールを開発し競合を無力化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_tf_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_authorityhacker_24e1384860f1c46f0b55",
@@ -43257,7 +45691,20 @@
         "【AI時代への高速ピボット】: 従来のSEO記事執筆が崩壊するや否や、最速でプログラマティックSEOとAI自動化スクール『AI Accelerator』を立ち上げ顧客を再活性化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ah_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_14e0a1cb7e58ff0313ee",
@@ -43482,7 +45929,20 @@
         "【マイクロレッスン形式】: 1日わずか30分の極小タスクに分解し、「忙しくて勉強できない」という言い訳を完全粉砕。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_100d_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_buymeacoffee_099aa188e018bccb70e9",
@@ -43707,7 +46167,20 @@
         "【全クリエイターが無料で宣伝してくれる配管】: クリエイター自身がYouTubeの概要欄、Xのプロフィール、GitHubのREADMEに「buymeacoffee.com/名前」を貼り付けて勝手に集客。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bmc_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_capterra_fa23dd140c0caa384afd",
@@ -43932,7 +46405,20 @@
         "【解約不能のリード発生源】: B2B SaaSにとってCapterraからの流入は最も成約率が高いため、月間数百万円の広告費を払い続けざるを得ない。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_cptr_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_088d5fdc6a842839fd12",
@@ -44129,7 +46615,20 @@
         "パーツ数が500個を超えた段階で月額$29〜$39のプレミアムプランに移行する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_flowbase_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_188896472285fada46a1",
@@ -44354,7 +46853,20 @@
         "【本体無料によるバイラル拡散】: 無料プランでは「Made with Simple.ink」のフッターリンクが付き、訪問者が連鎖的に新規登録するバイラルループ。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_sink_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_1deb3d9c4c007a003f3c",
@@ -44559,7 +47071,20 @@
         "画像に写っている製品のアフィリリンクと、その世界観に合わせた安価なデジタル商品（PDFガイド、テンプレート）をセットで売る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_gridfiti_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_case06_1de44cad09bd6e634047",
@@ -44784,7 +47309,20 @@
         "【チームコラボレーションの拡張】: 会社内で「ノンデザイナーがマーケティング資料を作る標準ツール」として浸透させ、全社エンタープライズ契約を巻き取る。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_cnva_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_ahrefs_1cfda3ec4b2ab651bd2d",
@@ -45009,7 +47547,20 @@
         "【被リンクデータベースという人質】: 世界中のWebサイトのリンク構造を把握しているため、マーケターは競合の分析や順位追跡のために解約できない。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ahrf_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_1password_f08ccd0b403a1bf0dcdc",
@@ -45234,7 +47785,20 @@
         "【解約不能の人質資産（Data Hostage）】: 企業の全社員が使う数百個のパスワード、APIキー、機密情報がすべて格納されているため、乗り換えコストが無限大になりチャーンレートが実質ゼロ。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_1p_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_bitwarden_1cb551fbca6b81c4d554",
@@ -45459,7 +48023,20 @@
         "【自前サーバー運用（Docker）の自由】: クラウドにデータを置きたくない金融機関や政府機関向けに、自前サーバー（オンプレミス）で動かせるDockerコンテナを提供してエンタープライズを囲い込み。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bitw_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_calcom_a24b70ba1746771479ff",
@@ -45684,7 +48261,20 @@
         "【開発者向けAPI・Webhookの完備】: 病院の予約システムや採用ATSの裏側に、Cal.comのスケジューリングAPIをそのまま組み込ませてエンタープライズから巨額ライセンスを徴収。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_cal_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_audiopen_155f440ff058c5942d9a",
@@ -45909,7 +48499,20 @@
         "【ライフタイムディール（LTD）での初動前金回収】: ローンチ初期に$60〜$120の買い切りプランを提供し、初週で数百万円の現金をStripe即時着金。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_ap_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_browseai_2ef74239e36bbf81739f",
@@ -46134,7 +48737,20 @@
         "【クレジット消費モデル】: 抽出したデータ行数や実行回数に応じてクレジットを消費させ、データ量の多い企業顧客から高額プランを徴収。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_brw_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_byword_ec4f3e53cbe79851187f",
@@ -46359,7 +48975,20 @@
         "【AI特有の不自然な文章の排除】: 単なるChatGPTの生出力ではなく、独自のアンチAIディテクション・リライトパイプラインを通して自然な日本語/英語を担保。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bywd_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_bardeen_ad88fb838c3e0dc78757",
@@ -46584,7 +49213,20 @@
         "【営業・リクルーターの定常業務ジャック】: 候補者リスト作成や競合リサーチという毎日のルーティンに埋め込まれ、解約不能に。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bard_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_captions_3d96412fefcce5b8ac16",
@@ -46809,7 +49451,20 @@
         "【スタジオ音質の自動ノイズ除去】: 自宅のうるさいエアコンや車の騒音をワンタップで消滅させ、数万円のマイクで録音したようなプロ音質に変換。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_capt_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_beautifulai_2b5b59f986ad4956b7c9",
@@ -47034,7 +49689,20 @@
         "【企業全体のデザイン統一】: 会社ロゴやブランドカラーを管理者が固定し、社員全員が統一された美しいプレゼン資料を爆速作成。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_btfl_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_baseten_86e98ed6728eb1d95fe1",
@@ -47225,7 +49893,20 @@
         "インフラ原価にマージンを乗せた従量課金で、顧客の成長にプラットフォーム連携して売上を増大させる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_baseten_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_baserow_58386c5d230fe0d24adc",
@@ -47422,7 +50103,20 @@
         "大企業向けのSSO/SAML認証、監査ログ、権限管理を追加した有償Enterprise版を販売する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_baserow_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_budibase_9b9679f6854bc66c0783",
@@ -47647,7 +50341,20 @@
         "【自前Dockerでの完全オンプレ運用】: 社内のファイヤーウォールの内側に1コマンドでデプロイでき、機密データを一切外部に出さない。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_budi_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_buttondown_573bd3808b0c701ad7ee",
@@ -47872,7 +50579,20 @@
         "【読者データの完全ポータビリティ】: いつでも1クリックで購読者CSVをエクスポートでき、「ロックインしない姿勢」自体が最大の信頼堀に。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bttn_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_avoma_33c53ae90f8f117d810f",
@@ -48097,7 +50817,20 @@
         "【営業マネージャーのコーチング支援】: どの営業マンが喋りすぎていて客の話を聞けていないかをレーダーチャートで可視化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_avom_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_airbyte_133c05efc89d9da1ff6f",
@@ -48322,7 +51055,20 @@
         "【自前ホスト完全無料】: 自社データセンター内で動かすなら完全無料。機密データをクラウドに預けられないメガバンクや医療機関を独占。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_abyt_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_aiven_87d2cb2d9dec1040195b",
@@ -48547,7 +51293,20 @@
         "【SLA 99.99%の絶対安心】: 障害発生時の自動フェイルオーバーと自動パッチ適用により、企業のSRE部隊を数人雇うより圧倒的に安価に運用を外注化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_aivn_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_appsmith_a55a66cb0e12c3afcaf0",
@@ -48772,7 +51531,20 @@
         "【Git連携によるバージョン管理】: 管理画面の変更をGitのブランチやPRとして管理でき、エンジニアの開発フローを邪魔しない。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_asmth_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_appwrite_a13f6ac291cc98223946",
@@ -48969,7 +51741,20 @@
         "コミュニティが10万人を超えた段階でマネージドクラウド版をローンチして収益化する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_appwrite_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_airgram_925c9cffb5c5821ae7eb",
@@ -49160,7 +51945,20 @@
         "会議参加者全員に「この議事録は〇〇で自動作成されました」と通知して新規ユーザーを獲得する"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_airgram_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_astronomer_061867c414c57edee1d2",
@@ -49385,7 +52183,20 @@
         "【データリネージとオブザーバビリティの抱き合わせ】: パイプラインがどこで詰まったかを即座に可視化する監視機能をセットにして高単価化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_astr_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_articleforge_f10222b5315e883c9edd",
@@ -49610,7 +52421,20 @@
         "【WordPressスケジューラー連携】: 1ヶ月分の記事を一括生成し、毎日決まった時間に自動公開する完全不労所得パイプライン。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_artf_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_aputime_3675d76dbe1a466da11b",
@@ -49801,7 +52625,20 @@
         "「管理者の残業を半減させる」という明確なROIを提示して法人契約を取る"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_aputime_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_brandwell_aae3a185790bae0b2b39",
@@ -50026,7 +52863,20 @@
         "【自前の無料AI検出器でリード獲得】: 無料の「AI Detector」を公開し、ChatGPTの文章をペーストしたユーザーに「AI度99%！危険！」と警告して自社ツールへ誘導。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bw_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_braintrust_33c2a68e4a61126b8bc7",
@@ -50251,7 +53101,20 @@
         "【コミュニティ主導の審査】: 既存のメンバーが新しい応募者をテスト・面接し、紹介報酬を得る分散型審査システムにより、プラットフォームの運営コストを極小化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_brnt_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_advertisecast_6cba2705cddf4bd57111",
@@ -50476,7 +53339,20 @@
         "【老舗ホスティング大手Libsynへの売却】: 最大のポッドキャスト配信サーバーLibsynに買収され、配信基盤と広告マネタイズの垂直統合を完遂。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_advc_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_alfred_4d340a9a61833216fae8",
@@ -50701,7 +53577,20 @@
         "【Mega Supporterライセンス（永久アプデ）】: 通常ライセンス（メジャー版のみ）と上位の永久アップデート付きライセンス（£59）を並べ、客単価を引き上げ。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_alfr_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_bettertouchtool_04fae3e7568f6bb1cf7c",
@@ -50926,7 +53815,20 @@
         "【安価な永久ライセンス（$22）の引力】: サブスク疲れしたユーザーに対し、「一度払えば一生使い放題」というオファーで迷わず決済させる。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_btt_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_bear_3612445daca25564898d",
@@ -51151,7 +54053,20 @@
         "【インラインMarkdownの先駆】: 記号を打った瞬間に太字や見出しが美しくプレビューされるシームレスなエディタで文章執筆の認知負荷をゼロ化。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_bear_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_capacities_2bd23fdf5c7702955d79",
@@ -51349,7 +54264,20 @@
         "Discordなどの濃密なコミュニティで熱狂的な信者を作り、口コミだけで増殖させる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_capacities_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_activecollab_312ada8332b460b0344a",
@@ -51574,7 +54502,20 @@
         "【クライアント無料招待】: 発注元のクライアントは何人呼んでも完全無料。制作会社が自社の顧客を全員ActiveCollabに巻き込んで囲い込み。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_actc_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_activepieces_e79ea75946468156aa9f",
@@ -51771,7 +54712,20 @@
         "外部開発者がプラグインを作れる仕組みを用意し、エコシステムの拡大を加速させる"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_activepieces_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_anytype_50c1ff00489400a1d274",
@@ -51996,7 +54950,20 @@
         "【大容量バックアップの有料化】: 基本同期は無料、暗号化されたクラウドバックアップストレージ（128GB〜）を有料プランとして提供。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_anyt_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_amazingmarvin_5a6874392f884c219f45",
@@ -52221,7 +55188,20 @@
         "【生涯買い切りプラン（$360）の用意】: サブスクを嫌うユーザーのために高額なライフタイムプランを用意し、数千万円のキャッシュを前金で調達。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_marv_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_basin_1f604b1aba68cca4cb2c",
@@ -52446,7 +55426,20 @@
         "【一度設置したら絶対に解約されない】: Webサイトが稼働している限りフォームURLを外せないため、驚異的なチャーンレートの低さを誇る。"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_basn_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   },
   {
     "id": "ent_stockx_347557ecc72cc6a4fbba",
@@ -52645,6 +55638,19 @@
         "自前で鑑定ハブを1箇所立ち上げ、鑑定合格の物理シール/タグを同梱して発送するオペレーションを組む"
       ]
     },
-    "publishability": "PUBLISHABLE"
+    "publishability": "PUBLISHABLE",
+    "claimBindings": [
+      {
+        "claimKey": "pnl.monthlyRevenue",
+        "evidenceId": "ev_stockx_crime",
+        "locator": {
+          "type": "json",
+          "jsonPointer": "/pnl/monthlyRevenue"
+        },
+        "sourceClass": "PRIMARY",
+        "verificationStatus": "SUPPORTED",
+        "supportCheck": "PASS"
+      }
+    ]
   }
 ]

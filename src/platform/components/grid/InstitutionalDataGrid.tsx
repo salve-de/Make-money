@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { FinancialEntity } from '../../types/terminal';
+import type { FinancialEntity } from '@/shared/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
 import { Bookmark } from 'lucide-react';
 

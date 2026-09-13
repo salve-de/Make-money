@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { parseCompanyAnalysis } from '@/lib/company-access/schema';
 import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/lib/foundation/schema';
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
-import { FinancialEntity, GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
+import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
 import { TerminalSidebar } from '../navigation/TerminalSidebar';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
@@ -26,6 +26,7 @@ import type {
   FoundationValuePage,
   FoundationValueSummary,
 } from '@/lib/foundation/business-reader';
+import type { FinancialEntity } from '@/shared/terminal';
 import {
   adaptFoundationSummaryToFinancialEntity,
   adaptFoundationDetailToFinancialEntity,

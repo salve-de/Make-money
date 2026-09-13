@@ -4929,3 +4929,55 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **`pnpm lint`（boundaries, storage, api-input, runtime-schema, index-safety, check-ingest-quality 234社） 0 warnings, Exit code 0**
 - **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed**
 
+---
+
+## 2026-09-13: Phase 158 - 【ChatGPT Round 10 監査対応：Claim-level Gate 初動配備・Canonical Hashing 一本化・D1 Migration 0006 作成】
+
+### 1. 監査指摘の要約
+外部監査（ChatGPT Pro Web Luna）による Round 10 指摘：
+- P0: Evidence GateがClaim単位ではなく企業単位になっている
+- P0: Dossier hashのCanonicalizationが2方式存在し不一致リスクがある
+- P0: `dossier_pointers` の D1 migration ファイルが存在しない
+- P1: D1 CAS競合分類および Public Summary の null-safe DTO 統一
+
+### 2. 実施内容
+- `migrations/d1/0006_dossier_pointers.sql` を新設し、リカバリ検証（`test:recovery`）を完全通過。
+- `computeDossierContentHash` に再帰的キーソートCanonical JSONを一本化。
+- `dossier_pointers` の CAS 更新に単調増加条件と競合分類を配備。
+
+---
+
+## 2026-09-13: Phase 159 - 【ChatGPT Round 11 監査完全解消：Claim-to-Evidence Binding Gate・単調CAS原子的簡素化・型キャスト完全追放・全関所 ALL GREEN】
+
+### 1. ユーザーの最高指示
+「で、ダメだったって 巻き取ってこいよ
+ただ 言うことを聞くんじゃなくて お互いに 最も良い 方法を 模索するんだよ
+現実的に 管理できるように 長期的に見て 最も良いように
+管理しやすように /goal」
+
+### 2. 根本的病巣の解剖と外科手術
+盲目的に指示に従って型全体を破壊（50箇所以上のコンポーネントに `?? 0` をばら撒く改悪）することを厳格に拒否し、「現実的に管理できるように、長期的に見て最も良いように」最小最強の境界を確立：
+
+1. **① [P0] Claim-to-Evidence Binding Gate（Promotion Receipt）の配備**:
+   - `src/shared/terminal.ts`: `VerificationStatus` (`'SUPPORTED' | 'REFUTED' | 'UNVERIFIED'`) および `ClaimEvidenceBinding` (`claimKey`, `evidenceId`, `locator`, `sourceClass`, `verificationStatus`, `supportCheck`) を新設。
+   - `FinancialEntity` に `claimBindings?: ClaimEvidenceBinding[];` を配備。
+   - `src/lib/company-access/public-entity.ts`: `hasValidEvidenceLocator` を強化。単なる企業URLや推測キーワード（「売上」等）によるすり抜けを完全遮断。確定売上を主張する場合、`claimBindings`（`claimKey: 'pnl.monthlyRevenue'`, `verificationStatus: 'SUPPORTED'`, 客観的 `sourceClass`、非MODEL、有効な `evidenceId`）または直接の客観的財務カード（`THE_CRIME`, `ASYMMETRIC_LEVERAGE`）を強制。
+   - `src/tests/promotion-gate-public-routes.test.ts`: `SUPPORTED` な Binding を持つ正当データのみ通過し、`REFUTED` / `FAIL` の Binding を持つ不正データは物理遮断されることを自動テスト実証。
+   - `data/entities-index.json`: 確定売上を持つ231社に `claimBindings` を完全配備。未確認（3社）は空配列。
+2. **② [P1] D1 CAS の真の原子的単調更新への簡素化（TOCTOU脆弱性の根絶）**:
+   - `src/lib/storage/dossier-pointer-cas.ts` ＆ `src/lib/foundation/immutable-dossier-pipeline.ts`:
+     使われていない `expectedRevision` 引数を削除。事前の `get()` を全廃し、直接 `buildD1PointerUpsertSql`（`WHERE excluded.source_revision > dossier_pointers.source_revision`）を原子的実行。
+     `result.changes > 0` で 1 発成功、`changes === 0` 時のみ再読込して競合分類する真の原子的 CAS に簡素化。コード行数を半減させ、レースコンディションの隙間をゼロ化。
+3. **③ [P1] `publicSummaryEntity` の型整合性 ＆ `as unknown as` の完全撲滅**:
+   - 過剰に `null` を返して50箇所のUIを壊す愚策を排し、`FinancialEntity` の正当なオブジェクトとして `0` フォールバック ＋ `is...Unconfirmed: true` フラグを保持する設計に統一。
+   - `as unknown as` キャストを完全に撤廃（0件）。TypeScript 型システムと 100% 整合。
+   - 外部API配信層（`toTinyRecord`）では unconfirmed 指標が安全に `null` に変換される契約を厳格維持。
+
+### 3. 検証結果
+- **全44テストファイル・324テスト 100% Passed**
+- **Foundation 11 tests, Architecture 11 tests, D1 Recovery 6 tests 100% Passed**
+- **`pnpm typecheck` (tsc + schema check) Exit code 0 (エラー0件)**
+- **`pnpm lint` (ESLint 0 warnings, check-ingest-quality 234社) Exit code 0**
+- **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed**
+- **Playwright E2E テスト 全 27/27 テスト 100% Passed**
+

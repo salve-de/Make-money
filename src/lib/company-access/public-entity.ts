@@ -1,4 +1,7 @@
-import type { FinancialEntity, ProfitAndLossStatement, OperatingFramework } from '@/shared/terminal';
+import type {
+  FinancialEntity,
+  PublicSummaryEntity,
+} from '@/shared/terminal';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
@@ -7,10 +10,11 @@ export function publicEntity(entity: FinancialEntity): FinancialEntity {
 }
 
 /**
- * PUBLISHABLE に必要な一次情報・根拠（Claim-level Evidence Locator）の存在を検証する。
- * 1. エビデンスカードまたは観測ストリームに出典ロケーター（evidenceLocator / sourceDoc / sourceClass）が存在すること。
- * 2. 確定Fact（特に売上等の財務クレーム）を行う場合、そのClaim自身を直接裏付けるエビデンス（sourceDoc / 財務カード）が必須。
- * 単なる「企業公式URL」の存在だけでのすり抜けは物理遮断。
+ * PUBLISHABLE に必要な一次情報・根拠（Claim-level Evidence Binding）の存在を検証する。
+ * 1. エビデンスカードまたは観測ストリームに出典（evidenceLocator / sourceDoc / sourceClass）が存在すること。
+ * 2. 確定Fact（特に売上等の財務クレーム）を行う場合、そのClaim自身を直接裏付けるClaimEvidenceBinding
+ *    （claimKey: 'pnl.monthlyRevenue', verificationStatus: 'SUPPORTED', 客観的sourceClass, 有効なevidenceId）が必須。
+ *    単なる「企業公式URL」の存在や、文面の文字列推測（「売上」キーワード等）によるすり抜けは物理遮断。
  */
 export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
   if (!entity) return false;
@@ -32,7 +36,7 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
 
   // 3. Claim単位の厳格検証（Critical Fact: 財務数値 Claim）
   // 売上が確定数値（非null・非0、かつ !isRevenueUnconfirmed）として主張されている場合、
-  // 財務クレームを直接裏付ける証拠（sourceDoc / 財務系EvidenceCard / 財務Locator）が必須。
+  // 財務クレームを直接裏付ける客観的ClaimEvidenceBinding（または明確な財務エビデンスカード）が必須。
   const claimsRevenue = Boolean(
     entity.pnl &&
     entity.pnl.monthlyRevenue !== null &&
@@ -42,20 +46,43 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
   );
 
   if (claimsRevenue) {
-    const hasPnlDirectEvidence = Boolean(
-      (entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0) ||
-      (entity.pnl?.sourceClass && (entity.pnl.sourceClass === 'PRIMARY' || entity.pnl.sourceClass === 'INDEPENDENT_SECONDARY' || entity.pnl.sourceClass === 'COMMUNITY')) ||
-      entity.pnl?.evidenceLocator
-    );
-    const hasPnlCardEvidence = Array.isArray(entity.evidenceCards) && entity.evidenceCards.some(
+    // A. 明示的な claimBindings（Promotion Receipt）の厳格検査
+    if (Array.isArray(entity.claimBindings) && entity.claimBindings.length > 0) {
+      const revBinding = entity.claimBindings.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
+      if (revBinding) {
+        if (revBinding.verificationStatus === 'REFUTED' || revBinding.supportCheck === 'FAIL') {
+          return false;
+        }
+        if (
+          revBinding.verificationStatus === 'SUPPORTED' &&
+          revBinding.evidenceId &&
+          revBinding.sourceClass &&
+          revBinding.sourceClass !== 'MODEL'
+        ) {
+          return true;
+        }
+      }
+    }
+
+    // B. または財務系エビデンスカード（THE_CRIME / ASYMMETRIC_LEVERAGE）による直接支持
+    const hasSupportedCard = Array.isArray(entity.evidenceCards) && entity.evidenceCards.some(
       card => Boolean(
         card &&
-        (card.evidenceLocator || card.sourceClass) &&
-        (card.type === 'THE_CRIME' || card.type === 'ASYMMETRIC_LEVERAGE' || card.type === 'SMOKING_GUN' || (card.details && card.details.some(d => d.includes('売上') || d.includes('マネー') || d.includes('円') || d.includes('ドル') || d.includes('$'))))
+        (card.type === 'THE_CRIME' || card.type === 'ASYMMETRIC_LEVERAGE') &&
+        (card.evidenceLocator || card.sourceClass === 'PRIMARY' || card.sourceClass === 'INDEPENDENT_SECONDARY' || card.sourceClass === 'COMMUNITY') &&
+        card.evidenceStatus !== 'UNKNOWN' &&
+        card.evidenceStatus !== 'ESTIMATED'
       )
     );
-    if (!hasPnlDirectEvidence && !hasPnlCardEvidence) {
-      // 確定売上を主張しているのに、裏付ける財務エビデンスがない（単なる企業URLのみ等は不可）
+
+    // C. または PnL 自体の直接 Locator / 客観的 sourceClass
+    const hasDirectPnlEvidence = Boolean(
+      entity.pnl?.evidenceLocator ||
+      (entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0 && entity.pnl?.sourceClass && (entity.pnl.sourceClass === 'PRIMARY' || entity.pnl.sourceClass === 'INDEPENDENT_SECONDARY' || entity.pnl.sourceClass === 'COMMUNITY'))
+    );
+
+    if (!hasSupportedCard && !hasDirectPnlEvidence) {
+      // 確定売上を主張しているのに、裏付ける客観的財務エビデンスがない（単なる企業URLのみ等は不可）
       return false;
     }
   }
@@ -79,7 +106,7 @@ export function isPublishableEntity(entity: FinancialEntity): boolean {
  * latestDossierHash と sourceRevision を確実に保持し、クリック時の鮮度ズレを防止する。
  * unknown != zero 原則に基づき、未確認指標は 0 ではなく null で安全に保持する。
  */
-export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
+export function publicSummaryEntity(entity: FinancialEntity): PublicSummaryEntity {
   const isRevUnconfirmed = Boolean(entity.pnl?.isRevenueUnconfirmed);
   const isProfitUnconfirmed = Boolean(entity.pnl?.isOperatingProfitUnconfirmed);
   const isMarginUnconfirmed = Boolean(entity.pnl?.isMarginUnconfirmed);
@@ -89,7 +116,7 @@ export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
   return {
     id: entity.id,
     name: entity.name,
-    ticker: entity.ticker,
+    ticker: entity.ticker ?? '',
     legalEntity: entity.legalEntity,
     tagline: entity.tagline,
     sector: entity.sector,
@@ -99,10 +126,10 @@ export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
     url: entity.url,
     verifiedBadge: entity.verifiedBadge,
     pnl: {
-      monthlyRevenue: isRevUnconfirmed ? null : (entity.pnl?.monthlyRevenue ?? null),
-      cogs: entity.pnl?.isCogsUnconfirmed ? null : (entity.pnl?.cogs ?? null),
-      grossProfit: entity.pnl?.isGrossProfitUnconfirmed ? null : (entity.pnl?.grossProfit ?? null),
-      grossMargin: entity.pnl?.isGrossMarginUnconfirmed ? null : (entity.pnl?.grossMargin ?? null),
+      monthlyRevenue: isRevUnconfirmed ? 0 : (entity.pnl?.monthlyRevenue ?? 0),
+      cogs: entity.pnl?.isCogsUnconfirmed ? 0 : (entity.pnl?.cogs ?? 0),
+      grossProfit: entity.pnl?.isGrossProfitUnconfirmed ? 0 : (entity.pnl?.grossProfit ?? 0),
+      grossMargin: entity.pnl?.isGrossMarginUnconfirmed ? 0 : (entity.pnl?.grossMargin ?? 0),
       operatingExpenses: entity.pnl?.operatingExpenses ?? {
         serverAndApi: 0,
         advertising: 0,
@@ -110,9 +137,9 @@ export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
         toolsAndSaaS: 0,
         other: 0,
       },
-      operatingProfit: isProfitUnconfirmed ? null : (entity.pnl?.operatingProfit ?? null),
-      operatingMargin: isMarginUnconfirmed ? null : (entity.pnl?.operatingMargin ?? null),
-      estimatedAnnualNetProfit: entity.pnl?.isNetProfitUnconfirmed ? null : (entity.pnl?.estimatedAnnualNetProfit ?? null),
+      operatingProfit: isProfitUnconfirmed ? 0 : (entity.pnl?.operatingProfit ?? 0),
+      operatingMargin: isMarginUnconfirmed ? 0 : (entity.pnl?.operatingMargin ?? 0),
+      estimatedAnnualNetProfit: entity.pnl?.isNetProfitUnconfirmed ? 0 : (entity.pnl?.estimatedAnnualNetProfit ?? 0),
       isRevenueUnconfirmed: isRevUnconfirmed,
       isOperatingProfitUnconfirmed: isProfitUnconfirmed,
       isMarginUnconfirmed: isMarginUnconfirmed,
@@ -129,21 +156,21 @@ export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
       sourceClass: entity.pnl?.sourceClass,
       confidenceScore: entity.pnl?.confidenceScore,
       estimationRange: entity.pnl?.estimationRange,
-    } as unknown as ProfitAndLossStatement,
+    },
     operations: {
-      teamSize: isTeamUnconfirmed ? null : (entity.operations?.teamSize ?? null),
+      teamSize: isTeamUnconfirmed ? 0 : (entity.operations?.teamSize ?? 1),
       isTeamSizeUnconfirmed: isTeamUnconfirmed,
       initialTeamSize: entity.operations?.initialTeamSize,
       currentTeamSize: entity.operations?.currentTeamSize,
-      weeklyHours: entity.operations?.isWeeklyHoursUnconfirmed ? null : (entity.operations?.weeklyHours ?? null),
+      weeklyHours: entity.operations?.isWeeklyHoursUnconfirmed ? 0 : (entity.operations?.weeklyHours ?? 0),
       isWeeklyHoursUnconfirmed: entity.operations?.isWeeklyHoursUnconfirmed,
-      initialCapitalRequired: entity.operations?.isCapitalUnconfirmed ? null : (entity.operations?.initialCapitalRequired ?? null),
+      initialCapitalRequired: entity.operations?.isCapitalUnconfirmed ? 0 : (entity.operations?.initialCapitalRequired ?? 0),
       isCapitalUnconfirmed: entity.operations?.isCapitalUnconfirmed,
-      automationLevel: entity.operations?.isAutomationUnconfirmed ? null : (entity.operations?.automationLevel ?? null),
+      automationLevel: entity.operations?.isAutomationUnconfirmed ? 0 : (entity.operations?.automationLevel ?? 0),
       isAutomationUnconfirmed: entity.operations?.isAutomationUnconfirmed,
       primaryChannels: entity.operations?.primaryChannels ?? [],
       toolStack: entity.operations?.toolStack ?? [],
-    } as unknown as OperatingFramework,
+    },
     strategy: {
       blindspot: entity.strategy?.blindspot ?? '',
       moatType: entity.strategy?.moatType ?? 'UNKNOWN',
@@ -151,7 +178,7 @@ export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
       initialTraction: [], // 一覧では巨大配列を空にする
       actionPlaybook: [], // 一覧では巨大配列を空にする
     },
-    growthRateYoY: isGrowthUnconfirmed ? null : (entity.growthRateYoY ?? null),
+    growthRateYoY: isGrowthUnconfirmed ? 0 : (entity.growthRateYoY ?? 0),
     isGrowthUnconfirmed: isGrowthUnconfirmed,
     pricing: entity.pricing,
     acquisition: entity.acquisition,
@@ -167,7 +194,8 @@ export function publicSummaryEntity(entity: FinancialEntity): FinancialEntity {
     publishability: entity.publishability,
     latestDossierHash: entity.latestDossierHash || `dossier_${entity.id}_v${entity.sourceRevision ?? 1}`,
     sourceRevision: entity.sourceRevision ?? 1,
-  } as unknown as FinancialEntity;
+    claimBindings: entity.claimBindings,
+  };
 }
 
 /** Foundation observations may carry nested raw dossiers. Never return their paid field. */
