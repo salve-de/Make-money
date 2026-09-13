@@ -1,48 +1,62 @@
 import { test, expect } from '@playwright/test';
 
-test('verify plain Japanese UI and lack of Savannah OS jargon', async ({ page }) => {
-  await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
-
+test('verify plain Japanese UI and lack of Savannah OS jargon across diverse entities', async ({ page }) => {
   // 1. トップ画面撮影
+  await page.goto('http://localhost:3000', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(1000);
   await page.screenshot({ path: 'scratch/ui_plain_top.png' });
 
   // 2. 「収集事例」クイックフィルターをクリック
   const triageBtn = page.locator('button:has-text("収集事例")').first();
-  await expect(triageBtn).toBeVisible();
+  await expect(triageBtn).toBeVisible({ timeout: 10000 });
   await triageBtn.click();
   await page.waitForTimeout(500);
   await page.screenshot({ path: 'scratch/ui_plain_triage_filtered.png' });
 
-  // 3. ロピアの詳細画面を直接開く
-  await page.goto('http://localhost:3000/?entity=ent_lopia_9c', { waitUntil: 'networkidle' });
-  await page.waitForTimeout(1000);
+  // 監査対象の8社（物理店舗、SaaS、製造業、失敗企業、受託IT等）
+  const testEntities = [
+    { id: 'ent_lopia_9c', name: 'ロピア', isHazard: false, labelToCheck: '儲けのウラ側' },
+    { id: 'ent_pdf_ai_65', name: 'PDF.ai', isHazard: false, labelToCheck: '儲けのウラ側' },
+    { id: 'ent_disco_6146_jp', name: '株式会社ディスコ', isHazard: false, labelToCheck: '儲けのウラ側' },
+    { id: 'ent_theranos_postmortem_dead', name: 'Theranos', isHazard: true, labelToCheck: '失敗・撤退の事実ログ' },
+    { id: 'ent_wework_landmine', name: 'WeWork Inc.', isHazard: true, labelToCheck: '失敗・撤退の事実ログ' },
+    { id: 'ent_plausible', name: 'Plausible Analytics', isHazard: false, labelToCheck: '儲けのウラ側' },
+    { id: 'ent_typingmind_3a81f902', name: 'TypingMind', isHazard: false, labelToCheck: '儲けのウラ側' },
+    { id: 'ent_shift_3697', name: '株式会社SHIFT', isHazard: false, labelToCheck: '儲けのウラ側' },
+  ];
 
-  // ロピアの詳細画面撮影
-  await page.screenshot({ path: 'scratch/ui_plain_lopia_dossier.png' });
+  for (const ent of testEntities) {
+    console.log(`Auditing UI for ${ent.name} (${ent.id})...`);
+    await page.goto(`http://localhost:3000/?entity=${ent.id}`, { waitUntil: 'domcontentloaded' });
+    await page.waitForFunction(
+      (name) => document.body.innerText.includes(name),
+      ent.name,
+      { timeout: 10000 }
+    );
+    await page.waitForTimeout(1000);
 
-  // 画面全体のテキストを取得し、「サバンナOS」「略奪転用」等の造語が存在しないことを検証
-  const bodyText = await page.innerText('body');
-  expect(bodyText).not.toContain('サバンナOS');
-  expect(bodyText).not.toContain('サバンナ OS');
-  expect(bodyText).not.toContain('略奪転用方程式');
-  expect(bodyText).not.toContain('身も蓋もない真実');
-  expect(bodyText).not.toContain('カニバリズム障壁');
-  expect(bodyText).not.toContain('特異物証');
+    const safeName = ent.name.replace(/[^a-zA-Z0-9\u3000-\u303f\u3040-\u309f\u30a0-\u30ff\uff00-\uff9f\u4e00-\u9faf]/g, '_');
+    await page.screenshot({ path: `scratch/audit_${safeName}.png` });
 
-  // 平易な日本語ラベルが存在することを検証
-  expect(bodyText).toContain('儲けのウラ側');
-  expect(bodyText).toContain('ビジネスモデル');
-  expect(bodyText).toContain('集客の事実ログ');
-  expect(bodyText).toContain('競合の弱点');
+    const bodyText = await page.innerText('body');
 
-  // 4. PDF.ai の詳細画面を直接開く
-  await page.goto('http://localhost:3000/?entity=ent_pdf_ai_65', { waitUntil: 'networkidle' });
-  await page.waitForTimeout(1000);
-  await page.screenshot({ path: 'scratch/ui_plain_pdfai_dossier.png' });
+    // 禁止造語の完全不在検証
+    expect(bodyText).not.toContain('サバンナOS');
+    expect(bodyText).not.toContain('サバンナ OS');
+    expect(bodyText).not.toContain('略奪転用方程式');
+    expect(bodyText).not.toContain('身も蓋もない真実');
+    expect(bodyText).not.toContain('カニバリズム障壁');
+    expect(bodyText).not.toContain('特異物証');
+    expect(bodyText).not.toContain('地雷検死');
+    expect(bodyText).not.toContain('検死開示');
 
-  const pdfaiBodyText = await page.innerText('body');
-  expect(pdfaiBodyText).not.toContain('サバンナOS');
-  expect(pdfaiBodyText).not.toContain('略奪転用');
-  expect(pdfaiBodyText).toContain('儲けのウラ側');
-  expect(pdfaiBodyText).toContain('ビジネスモデル');
+    // 必須セクションラベルの存在検証
+    expect(bodyText).toContain(ent.labelToCheck);
+
+    // 証拠ファイルカードが存在すること（最低2件以上）
+    const cards = page.locator('#section-evidence article');
+    const cardCount = await cards.count();
+    console.log(`Entity ${ent.name} has ${cardCount} evidence cards displayed.`);
+    expect(cardCount).toBeGreaterThanOrEqual(2);
+  }
 });

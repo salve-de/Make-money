@@ -93,7 +93,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   // 全エンティティの統合。公開可能なFoundation Dossierだけが、
   // 同じentity_id/nameのローカル表示を置き換えられる。
   const entities = useMemo(() => {
-    const normalize = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const normalize = (s: string) => s.toLowerCase().trim().replace(/[\s\-_・（）()株式会社有限会社]/g, '');
     const foundationById = new Map(foundationEntities.map((entity) => [entity.id.toLowerCase(), entity]));
     const foundationByName = new Map(foundationEntities.map((entity) => [normalize(entity.name), entity]));
     // 特殊エイリアスマッピング（R2の名前 ↔ coreName）
@@ -110,23 +110,22 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     for (const core of coreEntities) {
       const coreName = normalize(core.name);
       const replacement = foundationById.get(core.id.toLowerCase()) ||
-        foundationByName.get(coreName) ||
-        foundationByName.get(aliasMatches[coreName]);
+        (coreName ? foundationByName.get(coreName) || foundationByName.get(aliasMatches[coreName]) : undefined);
       const entity = replacement || core;
       const normalizedName = normalize(entity.name);
-      if (seenIds.has(entity.id.toLowerCase()) || seenNames.has(normalizedName)) continue;
+      if (seenIds.has(entity.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName))) continue;
       merged.push(entity);
       seenIds.add(entity.id.toLowerCase());
-      seenNames.add(normalizedName);
+      if (normalizedName) seenNames.add(normalizedName);
     }
 
     for (const foundation of foundationEntities) {
       const normalizedName = normalize(foundation.name);
       const aliasName = aliasMatches[normalizedName];
-      if (seenIds.has(foundation.id.toLowerCase()) || seenNames.has(normalizedName) || (aliasName && seenNames.has(aliasName))) continue;
+      if (seenIds.has(foundation.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName)) || (aliasName && seenNames.has(aliasName))) continue;
       merged.push(foundation);
       seenIds.add(foundation.id.toLowerCase());
-      seenNames.add(normalizedName);
+      if (normalizedName) seenNames.add(normalizedName);
     }
 
     // 承認済みエンティティからは「収集事例」タグを即時除外（楽観的UI）

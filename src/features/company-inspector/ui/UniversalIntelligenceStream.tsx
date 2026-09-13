@@ -21,6 +21,27 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
   entity,
 }) => {
   const { dynamicMoats, observationsStream, timelineEvents, coverageAudit, unknownsNotes, exposureAudit } = entity;
+  const effectiveObservations: UniversalObservation[] = React.useMemo(() => {
+    if (observationsStream && observationsStream.length > 0) {
+      return observationsStream;
+    }
+    if (entity.observations && entity.observations.length > 0) {
+      return entity.observations.map((obs: unknown, i) => {
+        if (typeof obs === 'object' && obs !== null && 'text' in obs) {
+          return obs as UniversalObservation;
+        }
+        return {
+          id: `obs-str-${i}`,
+          category: 'MARKET_DISTORTION' as const,
+          categoryLabel: '現場メモ',
+          text: String(obs),
+          originType: 'observed' as const,
+          verificationStatus: 'SUPPORTED' as const,
+        };
+      });
+    }
+    return [];
+  }, [observationsStream, entity.observations]);
 
   // Layer 2 特異点ブロックの存在判定
   const hasDynamicMoats = dynamicMoats && (
@@ -346,14 +367,14 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
             </span>
           </div>
           <span className="text-[10px] font-mono text-zinc-400">
-            {observationsStream?.length || 0} 件の観測レコード
+            {effectiveObservations.length} 件の観測レコード
           </span>
         </div>
 
         {/* 観測ログカード群 */}
-        {observationsStream && observationsStream.length > 0 ? (
+        {effectiveObservations.length > 0 ? (
           <div className="space-y-2.5">
-            {observationsStream.map((obs, idx) => {
+            {effectiveObservations.map((obs, idx) => {
               const badge = getCategoryBadge(obs.category, obs.categoryLabel);
               return (
                 <div

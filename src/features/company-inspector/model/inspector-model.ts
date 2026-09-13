@@ -43,10 +43,11 @@ export function buildInspectorModel(entity: FinancialEntity, currency: 'JPY' | '
     a.proofEntityIds.includes(entity.id)
   );
 
-  // 地雷・失敗・転落銘柄の自動検知（死因検死・ポストモータムモード）
+  // 地雷・失敗・転落銘柄の自動検知（失敗の検証・ポストモータムモード）
   const isHazardMode =
+    entity.pnl?.financialStatus === 'POST_MORTEM' ||
     entity.opportunityJudgment?.verdict === 'HAZARD_REJECT' ||
-    entity.tags?.some(t => t.includes('地雷') || t.includes('失敗') || t.includes('爆死')) ||
+    entity.tags?.some(t => t.includes('地雷') || t.includes('失敗') || t.includes('爆死') || t.includes('破産') || t.includes('倒産') || t.includes('破綻')) ||
     entity.architecturePattern?.includes('地雷') ||
     (entity.growthRateYoY !== undefined && entity.growthRateYoY < -30);
 
