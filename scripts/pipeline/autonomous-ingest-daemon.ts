@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { execSync } from 'node:child_process';
 import { ingestVerifiedEntities } from './real-ingest-pipeline';
+import { sha256Hex } from '../../src/lib/storage/r2';
 import type { FinancialEntity } from '../../src/platform/types/terminal';
 
 interface SeedTarget {
@@ -142,22 +143,24 @@ export async function runAutonomousDaemon() {
         sourceUrl: target.url
       };
 
-      // Extract real metadata from authentic raw HTML
+      // Extract real metadata from authentic raw HTML - NO synthetic fallbacks
       const titleMatch = rawContent.match(/<title[^>]*>(.*?)<\/title>/i);
-      const extractedTitle = titleMatch ? titleMatch[1].trim() : target.name;
+      const extractedTitle = titleMatch ? titleMatch[1].trim() : 'UNKNOWN';
       const descMatch = rawContent.match(/<meta[^>]*name=["']description["'][^>]*content=["'](.*?)["']/i);
-      const extractedDesc = descMatch ? descMatch[1].trim() : target.note;
+      const extractedDesc = descMatch ? descMatch[1].trim() : 'UNKNOWN';
+
+      const rawSha = await sha256Hex(rawContent);
+      const evidenceId = `ev_raw_${rawSha.slice(0, 16)}`;
 
       console.log(`  [2/4] Materializing to Foundation Raw & Lake via Golden Pipeline...`);
-      const evidenceId = `ev_${target.id}_landing`;
       await ingestVerifiedEntities([
         {
           entity: {
             id: `ent_${target.ticker.toLowerCase().replace(/[^a-z0-9]/g, '_')}`,
             ticker: target.ticker,
             name: target.name,
-            legalEntity: target.name,
-            tagline: extractedDesc,
+            legalEntity: 'UNKNOWN',
+            tagline: extractedDesc !== 'UNKNOWN' ? extractedDesc : extractedTitle,
             sector: target.sector,
             scale: 'UNKNOWN',
             founder: 'UNKNOWN',
@@ -198,21 +201,22 @@ export async function runAutonomousDaemon() {
                 details: [
                   `対象企業: ${target.name} (${target.ticker})`,
                   `事業ドメイン: ${target.sector}`,
-                  `一次情報ソース: ${target.url}`
+                  `一次情報ソース: ${target.url}`,
+                  `原本SHA-256 CASダイジェスト: ${rawSha}`
                 ],
-                sourceNote: `${target.url} 公式原本（CAS検証済み）`
+                sourceNote: `${target.url} 公式原本（CAS検証済み）`,
+                evidenceLocator: {
+                  type: 'html',
+                  cssSelector: 'title, meta[name="description"]'
+                }
               }
             ],
             strategy: {
               blindspot: '未調査（詳細深掘り待ち）',
               moatType: 'UNKNOWN',
-              moatDescription: '一次情報収集済み・深掘り調査待ち',
-              initialTraction: [
-                '一次Web原本収集完了'
-              ],
-              actionPlaybook: [
-                '未調査（詳細深掘り待ち）'
-              ]
+              moatDescription: '一次情報原本収集済み・詳細深掘り調査待ち',
+              initialTraction: [],
+              actionPlaybook: []
             },
             observations: [
               extractedDesc
@@ -238,12 +242,12 @@ export async function runAutonomousDaemon() {
               isCapitalUnconfirmed: true,
               automationLevel: 0,
               isAutomationUnconfirmed: true,
-              primaryChannels: ['Web / ダイレクト'],
+              primaryChannels: [],
               toolStack: []
             },
             opportunityJudgment: {
               verdict: 'MONITOR',
-              verdictLabel: '動向注視',
+              verdictLabel: '未判定',
               oneLineReason: extractedDesc,
               demandDelta: '未確認',
               competitionDelta: '未確認',

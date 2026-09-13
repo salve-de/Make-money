@@ -3,14 +3,14 @@
     "id": "ent_screen_studio",
     "ticker": "SCRNSTD",
     "name": "Screen Studio",
-    "legalEntity": "Screen Studio",
+    "legalEntity": "UNKNOWN",
     "tagline": "Screen Studio — Professional screen recorder for macOS",
     "sector": "NICHE_SAAS",
-    "scale": "SOLO",
+    "scale": "UNKNOWN",
     "founder": "Adam Pietrasiak",
     "country": "GLOBAL",
     "url": "https://screen.studio",
-    "verifiedBadge": true,
+    "verifiedBadge": false,
     "pnl": {
       "monthlyRevenue": 0,
       "cogs": 0,
@@ -37,7 +37,7 @@
     },
     "evidenceCards": [
       {
-        "id": "ev_screenstudio_landing",
+        "id": "ev_raw_610076679feed4aa",
         "type": "ASYMMETRIC_LEVERAGE",
         "title": "Screen Studio — Professional screen recorder for macOS",
         "badge": "公式Web原本",
@@ -46,24 +46,21 @@
         "details": [
           "公式Webサイト（https://screen.studio）のHTML原本から直接抽出した客観的製品仕様。",
           "創業者・著者メタデータ: Adam Pietrasiak",
-          "主要機能: 自動ズーム（automatic zoom）、スムーズなマウス軌跡（smooth mouse movement）、macOSネイティブ録画"
+          "原本SHA-256 CASダイジェスト: 610076679feed4aa2eeac167ac3bdbc8b1adfe3e92c495dbf27e9cce28a9f660"
         ],
-        "sourceNote": "https://screen.studio 公式サイト原本（SHA-256 CAS検証済み）"
+        "sourceNote": "https://screen.studio 公式サイト原本（SHA-256 CAS検証済み）",
+        "evidenceLocator": {
+          "type": "html",
+          "cssSelector": "meta[name=\"author\"], title, meta[name=\"description\"]"
+        }
       }
     ],
     "strategy": {
-      "blindspot": "プロ用動画編集ソフトが多機能化・高額化する中、直感的な自動ズーム機能のみに特化した死角",
-      "moatType": "PROCESS_POWER",
-      "moatDescription": "macOSネイティブによる超軽量・高速レンダリングと自動ズーム・モーションブラーアルゴリズム",
-      "initialTraction": [
-        "公式WebサイトおよびSNSでのデモ動画による自然拡散",
-        "自作ツールで作成した成果物そのものがバイラルする製品主導成長"
-      ],
-      "actionPlaybook": [
-        "macOS専用の単一用途・高付加価値デスクトップツールの開発",
-        "成果物自体にバイラル性を持たせるUI/UX設計",
-        "ライセンスキー即時発行による先行キャッシュ回収"
-      ]
+      "blindspot": "未調査（詳細深掘り待ち）",
+      "moatType": "UNKNOWN",
+      "moatDescription": "一次情報原本収集済み・詳細深掘り調査待ち",
+      "initialTraction": [],
+      "actionPlaybook": []
     },
     "observations": [
       "Screen recorder for macOS. Create engaging product demos, courses, tutorial and social media videos. Add automatic zoom on mouse actions, smooth mouse movement, and other powerful effects and animations. Designed for macOS."
@@ -77,64 +74,54 @@
       }
     ],
     "lootBlueprint": {
-      "targetPrey": "動画編集ソフトの複雑な操作に苦労している開発者・クリエイター",
-      "structuralFlaw": "既存の編集ソフトは多機能すぎて単一のデモ動画作成に過剰な工数がかかる",
-      "stealthEntry": "録画するだけで自動ズームがかかる単機能デスクトップアプリ",
-      "tollGateSetup": "ライセンスキー販売および年間アップデート",
-      "reproducibilityScore": 70,
-      "moatDurabilityScore": 80,
-      "capitalEfficiencyScore": 90,
+      "targetPrey": "未確認",
+      "structuralFlaw": "未確認",
+      "stealthEntry": "未確認",
+      "tollGateSetup": "未確認",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
       "executionChecklist": [
-        "1. 公式Web原本の解析完了",
-        "2. macOSネイティブでの自動アニメーション機能の実装",
-        "3. ライセンスキー課金配管の設置"
+        "1. 公式Web原本の解析完了（SHA-256 CAS保全済み）"
       ]
     },
     "operations": {
-      "teamSize": 1,
-      "isTeamSizeUnconfirmed": false,
+      "teamSize": 0,
+      "isTeamSizeUnconfirmed": true,
       "weeklyHours": 0,
       "isWeeklyHoursUnconfirmed": true,
       "initialCapitalRequired": 0,
       "isCapitalUnconfirmed": true,
-      "automationLevel": 90,
-      "isAutomationUnconfirmed": false,
-      "primaryChannels": [
-        "Web / SNS",
-        "ProductHunt"
-      ],
-      "toolStack": [
-        {
-          "name": "macOS Native (Swift/Metal)",
-          "monthlyCost": 0,
-          "category": "DEVELOPMENT"
-        }
-      ]
+      "automationLevel": 0,
+      "isAutomationUnconfirmed": true,
+      "primaryChannels": [],
+      "toolStack": []
     },
     "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "即時模倣・参入推奨",
-      "oneLineReason": "1人開発のMacネイティブ自動化ツール×SNSバイラルの高資本効率モデル",
-      "demandDelta": "急増",
-      "competitionDelta": "大手が追随不能",
+      "verdict": "MONITOR",
+      "verdictLabel": "未判定",
+      "oneLineReason": "Screen recorder for macOS. Create engaging product demos, courses, tutorial and social media videos. Add automatic zoom on mouse actions, smooth mouse movement, and other powerful effects and animations. Designed for macOS.",
+      "demandDelta": "未確認",
+      "competitionDelta": "未確認",
       "entryRequirements": {
-        "capital": "少額（数万円〜）",
-        "technicalDifficulty": "HIGH",
-        "platformRisk": "LOW"
+        "capital": "未確認",
+        "technicalDifficulty": "UNKNOWN",
+        "platformRisk": "UNKNOWN"
       }
     },
     "growthRateYoY": 0,
     "isGrowthUnconfirmed": true,
-    "architecturePattern": "Macネイティブアプリ・1人ビジネス",
-    "pipelineStack": "macOS Native + Web",
-    "targetPainWallet": "高額な動画編集代行や複雑な編集ソフトの学習に疲弊した創業者・開発者の財布",
+    "architecturePattern": "未確認",
+    "pipelineStack": "未確認",
+    "targetPainWallet": "未確認",
     "tags": [
       "収集事例",
-      "SaaS・ツール",
-      "1人ビジネス",
-      "海外勝者"
+      "macOS",
+      "録画",
+      "SaaS",
+      "Screen Studio"
     ],
-    "publishability": "PUBLISHABLE"
+    "publishability": "PARTIAL"
   },
   {
     "id": "ent_pdf_ai_65",

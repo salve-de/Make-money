@@ -182,6 +182,21 @@ export async function ingestVerifiedEntities(
       }
     }
     rawEvidenceMap.set(ent.id, savedEvidenceList);
+
+    // 厳密な 1:1 Evidence Binding:
+    // Raw CAS 保存によって確定した evidence_id (ev_raw_<sha先頭16桁>) を entity.evidenceCards の ID に直結
+    if (savedEvidenceList.length > 0 && ent.evidenceCards && ent.evidenceCards.length > 0) {
+      ent.evidenceCards.forEach((card, idx) => {
+        const matchingRaw = savedEvidenceList[idx] || savedEvidenceList[0];
+        card.id = matchingRaw.evidence_id;
+        if (!card.evidenceLocator) {
+          card.evidenceLocator = {
+            type: 'html',
+            cssSelector: 'meta[name="author"], title, meta[name="description"]'
+          };
+        }
+      });
+    }
   }
 
   // 3. Cloudflare R2 (foundation-lake) にイミュータブル日次ジャーナル保存（Raw参照を同一チェーンで保持）

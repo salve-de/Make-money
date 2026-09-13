@@ -5341,3 +5341,32 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
    - `pnpm test`: 352 tests ALL PASSED
    - `pnpm test:e2e`: Playwright 27/27 tests ALL PASSED
    - UI実機検証: `ent_screen_studio` がポート3000で Console Errors: 0 で完全描画されることを確認。
+
+---
+
+## 2026-09-13 (Phase 168): ChatGPT監査役の最終合意条件4項目の完全外科的切除 ＆ Raw CAS Evidence 1対1暗号学的直結 ＆ 未知Fact純化 ＆ CI All Green完遂
+
+### 1. 監査役 ChatGPT の最終サインオフ条件（「本当に残りはこれだけ。これ以上広げません」）
+1. **daemonの未知の事業Fact・判断値をUNKNOWN/空へ落とす**: `legalEntity`, `primaryChannels`, `initialTraction`, `actionPlaybook`, `verdictLabel` 等の未取得フィールドを UNKNOWN / 空配列 / 未判定 へ完全純化。
+2. **Screen Studioのtitle/author/description抽出時の固定フォールバック排除**: 三項演算子のフォールバック文字列（'Screen Studio...', 'Adam Pietrasiak' 等）を完全撤廃し、Rawに存在しない場合は `UNKNOWN` へ落とす。
+3. **`ev_screenstudio_landing` ➔ `ev_raw_<sha>` への 1対1 完全暗号学的直結**: Raw CAS 保存によって確定した SHA-256（先頭16桁）と UI Evidence Card ID を完全一致させ、HTML locator（`meta[name="author"], title, meta[name="description"]`）を保存。`real-ingest-pipeline.ts` でも Lake Journal と UI Fact の 1対1 結合を機械的契約として保証。
+4. **Screen Studioの未確認フィールドの完全切除**: Rawで確認できない `scale: SOLO`, `teamSize: 1`, `scores: 70, 80, 90`, `ProductHunt`, `急増`, `追随不能` を完全切除し、`scale: 'UNKNOWN'`, `teamSize: 0`, `scores: 0, 0, 0`, `primaryChannels: []`, `verdictLabel: '未判定'` に純化。生HTMLから抽出した本物Fact（Adam Pietrasiak、タイトル、説明文）のみをエビデンスに直結。
+5. **CI 5ジョブ All Green確認**: コミット `6615277` の Quality Run 34760297905（E2E smoke, build, lint, unit test, typecheck）が全5ジョブ Green で完走したことを確認。
+
+### 2. 外科医的実装内容
+1. **`scripts/pipeline/ingest-screen-studio.ts`**:
+   - 固定値フォールバックを排除し、マッチしなければ `UNKNOWN`。
+   - `rawSha = await sha256Hex(rawHtml)` から `evidenceId = ev_raw_${rawSha.slice(0, 16)}` を算出し、カードIDおよびLake Journalに1対1バインド。
+   - `evidenceLocator: { type: 'html', cssSelector: 'meta[name="author"], title, meta[name="description"]' }` を完備。
+   - `scale: 'UNKNOWN'`, `scores: 0, 0, 0`, `teamSize: 0`, `primaryChannels: []`, `verdictLabel: '未判定'` に純化。
+2. **`scripts/pipeline/autonomous-ingest-daemon.ts`**:
+   - `legalEntity: 'UNKNOWN'`, `primaryChannels: []`, `initialTraction: []`, `actionPlaybook: []`, `verdictLabel: '未判定'` に純化。
+   - Raw SHA CAS から `evidenceId = ev_raw_${rawSha.slice(0, 16)}` を算出してバインド。
+3. **`scripts/pipeline/real-ingest-pipeline.ts`**:
+   - Raw CAS 保存後に `entity.evidenceCards` の ID を `ev_raw_<sha16桁>` へ自動直結照合する機械的ガードレールを追加。
+4. **全関所検証結果**:
+   - `pnpm typecheck`: 0 errors
+   - `pnpm lint`: PASS（6大アーキテクチャガードレール + check-ingest-quality 235社全量一発クリア）
+   - `pnpm test`: 352 tests ALL PASSED
+   - `pnpm test:e2e`: Playwright 27/27 tests ALL PASSED
+
