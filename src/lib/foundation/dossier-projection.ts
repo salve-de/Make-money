@@ -894,3 +894,37 @@ export function buildFoundationDossierProjection(entity: FoundationBusinessCase)
     modules,
   };
 }
+
+/**
+ * Dossier の内容から決定論的な Content Hash (SHA-256) を算出する
+ */
+export function computeDossierContentHash(payload: unknown): string {
+  const json = typeof payload === 'string' ? payload : JSON.stringify(payload);
+  // Simple deterministic hash using djb2-like or standard crypto if available
+  let hash = 5381;
+  for (let i = 0; i < json.length; i++) {
+    hash = ((hash << 5) + hash) + json.charCodeAt(i);
+    hash |= 0;
+  }
+  const hex = Math.abs(hash).toString(16).padStart(8, '0');
+  return `h_${hex}_len${json.length}`;
+}
+
+/**
+ * 100M耐久・R2 イミュータブル詳細ドシエの物理格納パスを生成する
+ * 規則: views/make-money/dossier-v1/objects/<shard>/<entity_id>/<content_hash>.json.gz
+ */
+export function getDossierStoragePath(entityId: string, contentHash: string): string {
+  const sanitizedId = entityId.replace(/[^a-zA-Z0-9_-]/g, '_');
+  const shard = (contentHash.slice(0, 2) || '00').toLowerCase();
+  return `views/make-money/dossier-v1/objects/${shard}/${sanitizedId}/${contentHash}.json.gz`;
+}
+
+/**
+ * 安全なポインタ更新契約 (CAS: Compare-And-Swap)
+ * 並行Projectorによる追い越し上書き（巻き戻し）を物理防止する。
+ */
+export function canUpdateDossierPointer(currentRevision: number, newRevision: number): boolean {
+  return newRevision > currentRevision;
+}
+

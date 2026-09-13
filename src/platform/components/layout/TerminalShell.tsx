@@ -250,8 +250,11 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
     detailFetchInProgress.current.add(selectedEntityId);
     const controller = new AbortController();
+    const hashParam = existing?.latestDossierHash
+      ? `&dossier_hash=${encodeURIComponent(existing.latestDossierHash)}`
+      : '';
 
-    void fetch(`/api/businesses?entity_id=${encodeURIComponent(selectedEntityId)}`, { signal: controller.signal })
+    void fetch(`/api/businesses?entity_id=${encodeURIComponent(selectedEntityId)}${hashParam}`, { signal: controller.signal })
       .then(async (res) => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json: unknown = await res.json();

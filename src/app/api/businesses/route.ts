@@ -1,4 +1,4 @@
-import { publicEntity, publicFoundationData } from '@/lib/company-access/public-entity';
+import { isPublishableEntity, publicEntity, publicFoundationData, publicSummaryEntity } from '@/lib/company-access/public-entity';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
@@ -61,10 +61,10 @@ async function readCached<T>(
   }
 }
 
-function response(body: unknown, status = 200): NextResponse {
+function response(body: unknown, status = 200, headers: Record<string, string> = {}): NextResponse {
   return NextResponse.json(body, {
     status,
-    headers: { 'Cache-Control': CACHE_CONTROL },
+    headers: { 'Cache-Control': CACHE_CONTROL, ...headers },
   });
 }
 
@@ -89,6 +89,7 @@ async function getLocalEntitiesCached(): Promise<LocalEntitiesCache> {
     const { validEntities } = parseFinancialEntitiesResiliently(parsed);
     const entities = validEntities
       .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
+      .filter(isPublishableEntity) // 昇格ゲート: 未精錬・却下データは一般公開から物理除外
       .map(normalizeFinancialEntity);
 
     const byId = new Map<string, FinancialEntity>();
@@ -110,9 +111,11 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
 
 async function findFallbackEntity(id: string): Promise<FinancialEntity | null> {
   const cache = await getLocalEntitiesCached();
-  return cache.byId.get(id) ||
-    findInstitutionalEntity(id) ||
-    null;
+  const found = cache.byId.get(id) || findInstitutionalEntity(id) || null;
+  if (found && !isPublishableEntity(found)) {
+    return null;
+  }
+  return found;
 }
 
 function logFoundationFailure(message: string, error: unknown): void {
@@ -126,6 +129,8 @@ function logFoundationFailure(message: string, error: unknown): void {
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const entityId = url.searchParams.get('entity_id') || url.searchParams.get('entityId');
+  const requestedDossierHash = url.searchParams.get('dossier_hash') || url.searchParams.get('dossierHash');
+  const returnSummaryOnly = url.searchParams.get('summary') === 'true';
 
   if (entityId && entityId.length > MAX_ENTITY_ID_LENGTH) {
     return response({ error: 'Invalid entity' }, 400);
@@ -141,10 +146,14 @@ export async function GET(request: Request) {
         () => readFoundationBusinessCase(entityId)
       );
       if (data) {
+        const parsed = parseFoundationBusinessCase(data);
         return response({
           source: 'foundation_lake',
           dataset_id: foundationDataset('researchBundles').datasetId,
-          data: publicFoundationData(parseFoundationBusinessCase(data)),
+          data: publicFoundationData(parsed),
+        }, 200, {
+          'X-Dossier-Hash': requestedDossierHash || 'foundation_latest',
+          'X-Source-Revision': '1',
         });
       }
     } catch (error) {
@@ -152,9 +161,26 @@ export async function GET(request: Request) {
     }
 
     const fallback = await findFallbackEntity(entityId);
-    return fallback
-      ? response({ source: 'local_fallback', count: 1, data: publicEntity(fallback) })
-      : response({ error: 'Entity not found', entity_id: entityId }, 404);
+    if (!fallback) {
+      return response({ error: 'Entity not found', entity_id: entityId }, 404);
+    }
+
+    const actualHash = fallback.latestDossierHash || `dossier_${fallback.id}_v${fallback.sourceRevision ?? 1}`;
+    const revision = fallback.sourceRevision ?? 1;
+    const isStale = requestedDossierHash ? requestedDossierHash !== actualHash : false;
+
+    return response({
+      source: 'local_fallback',
+      count: 1,
+      data: publicEntity(fallback),
+      dossierHash: actualHash,
+      sourceRevision: revision,
+      isStale,
+    }, 200, {
+      'X-Dossier-Hash': actualHash,
+      'X-Source-Revision': String(revision),
+      ...(isStale ? { 'X-Dossier-Stale': 'true' } : {}),
+    });
   }
 
   const requestedLimit = Number(url.searchParams.get('limit') || '100');
@@ -191,11 +217,16 @@ export async function GET(request: Request) {
   }
 
   const localEntities = await readLocalEntities();
-  const fallbackEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES;
+  const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES;
+  const fallbackEntities = rawEntities.filter(isPublishableEntity);
+  const transformed = returnSummaryOnly
+    ? fallbackEntities.map(publicSummaryEntity)
+    : fallbackEntities.map(publicEntity);
+
   return response({
     source: localEntities.length > 0 ? 'local_fallback' : 'static_fallback',
     count: fallbackEntities.length,
-    data: fallbackEntities.map(publicEntity),
+    data: transformed,
     nextCursor: null,
     hasMore: false,
   });

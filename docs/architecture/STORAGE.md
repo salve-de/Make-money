@@ -251,14 +251,18 @@ ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading�
      - **Foundation Fact / Evidence原本**: 永久保存（True Source）。不可侵・削除禁止。
      - **Dossier 現行版（Current）**: Tiny Indexが参照している限り永久に保持。
      - **Dossier 過去世代版（Historical Versions）**: 当面はTTLを掛けず保持（R2容量費用は極小）。将来バージョン数が増大した段階で、「Tiny Indexの最新Hashから参照されていない（Orphan）」かつ「90日以上経過した」旧世代ObjectのみをExact-key DELETEする**「参照アウェアGC（Reference-aware GC）」**を実施する。
-3. **ハッシュ直指定オープン ＆ 安全なポインタ更新（Race Condition防止）**:
+3. **ハッシュ直指定オープン ＆ アトミックCASポインタ更新（Race Condition完全防止）**:
    - ユーザーが一覧で企業をクリックした際は、Tiny Recordに記録された `latestDossierHash` そのものを直接開く（これにより、一覧と詳細のRevision不一致事故が構造的にゼロになる）。
-   - ドシエ更新の手順を厳格に固定：
-     1. 新Dossier生成
-     2. Content Hash計算
-     3. R2へImmutable PUT
-     4. Readback Validation（書き込み検証）
-     5. Tiny IndexのポインタをCAS更新（`newRevision > currentRevision` の時のみポインタ更新。遅延した古いProjectorによる巻き戻しを根絶）
+   - ドシエ保存 ＆ ポインタ更新の7ステップパイプライン（`src/lib/foundation/immutable-dossier-pipeline.ts`）:
+     1. 決定論的 Canonical JSON 化（キーソート `stringifyDeterministic`）
+     2. 非圧縮 Canonical JSON の SHA-256 計算
+     3. gzip 圧縮
+     4. R2 PUT（`If-None-Match: *` による CAS 保存）
+     5. GET readback
+     6. decompress ＆ SHA-256 再検証（破損・サイレントコラプション完全排除）
+     7. アトミックCAS更新（`src/lib/storage/dossier-pointer-cas.ts`）
+        - D1/SQLite: `WHERE excluded.source_revision > dossier_pointers.source_revision` による不可逆単調増加。
+        - 100並行更新下でも遅延した古いワーカーによる巻き戻しを100%遮断。
 4. **キャッシュ境界と安全弁（Revoke Safe）**:
    - キャッシュHit率99%を前提にしない（ロングテール閲覧では50〜80%に落ちても破綻しない設計とする）。
    - 公開承認済み（`PUBLICATION_APPROVED`）のコンテンツのみ `public, max-age=31536000, immutable` を適用。
@@ -270,9 +274,11 @@ ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading�
 1. **ケース状態の厳格分離**:
    - Foundation内のデータは `RAW` | `PARTIAL` | `PUBLISHABLE` | `ARCHIVED` | `REJECTED_AS_CASE` の独立ステータスで管理。
    - 例: 単なるニュースや薄い記事はFoundationとしては保全（`KEEP`）するが、Caseとしては `REJECTED_AS_CASE` とする。
-2. **公開インデックスへの選抜投影**:
-   - 公開ユーザー向けServing Indexには、審査・検証を通過した `PUBLISHABLE` のエンティティのみを投影する。
-   - これにより、未精錬・不完全なデータが公開一覧に混ざる事故を構造的に永久防止する。
+2. **公開インデックスへの厳格Allow-list選抜投影**:
+   - `src/lib/company-access/public-entity.ts` の `isPublishableEntity` および `publicSummaryEntity` により、審査・検証を通過した `PUBLISHABLE` のエンティティのみを公開。
+   - `RAW`, `PARTIAL`, `ARCHIVED`, `REJECTED_AS_CASE` は一覧・個社直リクエスト（404 Entity not found）双方で物理遮断。
+3. **カーソル世代不整合検知（CURSOR_STALE）**:
+   - `src/lib/storage/query-contract.ts` において、`SearchCursor.indexGeneration` が現在のインデックス世代と不一致の場合は `CursorStaleError (CURSOR_STALE)` をスローし、安全にクライアントへ最初からの走査を促す。
 
 
 ## 検証と変更の記録

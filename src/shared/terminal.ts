@@ -26,6 +26,49 @@ export type FinancialEvidenceStatus =
   | 'POST_MORTEM'   // 死因出血逆算（破滅・清算企業の総調達額・残額・解散ログからの出血逆算）
   | 'UNAVAILABLE';  // 情報なし・推測不可（UIでは未確認と表示）
 
+export type SourceClass =
+  | 'PRIMARY'                // 一次公表（決算短信、有報、SEC、創業者公式発表、Stripe管理画面）
+  | 'INDEPENDENT_SECONDARY'  // 独立第三者報道・実測（The Information, Bloomberg, TechCrunch, 独立調査員）
+  | 'COMMUNITY'              // 現場告発・フォーラム（Reddit, X, HackerNews, 従業員レビュー）
+  | 'MODEL';                 // LLM論理演繹（派生仮説、要約）
+
+export type EvidenceLocator =
+  | {
+      type: 'pdf';
+      page: number;
+      table?: string;
+      row?: string;
+      column?: string;
+      bbox?: [number, number, number, number];
+    }
+  | {
+      type: 'html';
+      cssSelector?: string;
+      textHash?: string;
+    }
+  | {
+      type: 'json';
+      jsonPointer: string;
+    }
+  | {
+      type: 'text';
+      start: number;
+      end: number;
+      excerptHash?: string;
+    }
+  | {
+      type: 'media';
+      startMs: number;
+      endMs: number;
+    };
+
+export type PublishabilityStatus =
+  | 'PUBLISHABLE'       // 審査通過・確定公開可能（一般検索インデックスへ投影）
+  | 'PARTIAL'           // 一部欠損・作業中（内部保管、公開面へは未投影）
+  | 'RAW'               // 未加工ログ（Universal Raw / Lake）
+  | 'ARCHIVED'          // アーカイブ済み
+  | 'REJECTED_AS_CASE'; // 事例としては不採用（Foundationには保全するが公開しない）
+
 export interface ProfitAndLossStatement {
   monthlyRevenue: number; // 単位: 円
   cogs: number; // 売上原価
@@ -54,6 +97,10 @@ export interface ProfitAndLossStatement {
   dataSnapshotPeriod?: string; // 観測基準時期（例: "2024年3月期通期", "2022年ピーク時", "2024年最新Stripe魚拓"）
   sourceDoc?: string; // 一次情報源・出典（例: "2024年有価証券報告書", "TechCrunch報道", "公式Open Dashboard"）
   estimationLogic?: string; // 推計因数分解（計算方程式。例: "年$19プラン × 推定12万件 ÷ 12ヶ月 ＝ 月商 約¥2,850万"）
+  sourceClass?: SourceClass; // 出典の独立性（一次、独立第三者、告発、LLM）
+  evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
+  confidenceScore?: number; // 確信度スコア (0.0 - 1.0)
+  estimationRange?: { min: number; max: number; median?: number }; // 推計不確実性レンジ
 }
 
 export interface ToolStackItem {
@@ -181,6 +228,8 @@ export interface UniversalObservation {
   sourceUrl?: string;
   observedAt?: string;
   author?: string;
+  sourceClass?: SourceClass; // 出典の独立性
+  evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }
 
 export interface UniversalCoverageItem {
@@ -257,6 +306,8 @@ export interface DynamicEvidenceCard {
   metrics?: { label: string; value: string; isHighlight?: boolean }[]; // 強烈な数字（原価18%, 1人で年商2億等）
   codeSnippet?: string; // 実際のコード、DM文面、プロンプト等の現物テキスト
   sourceNote?: string; // 一次情報源（SEC提出書類, 創業者X魚拓, Stripeダッシュボード等）
+  sourceClass?: SourceClass; // 出典の独立性
+  evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }
 
 export interface FinancialEntity {
@@ -305,6 +356,11 @@ export interface FinancialEntity {
   timelineEvents?: UniversalEvent[]; // 重要タイムライン・マイルストーン
   coverageAudit?: UniversalCoverageItem[]; // 監査カバレッジ・調査試行ログ
   unknownsNotes?: string[]; // 調査限界・非公開要素の明記
+
+  // 【100M耐久・公開昇格 ＆ 鮮度同期フィールド】
+  publishability?: PublishabilityStatus; // 昇格ステータス（PUBLISHABLEのみ一般公開検索へ投影）
+  latestDossierHash?: string; // 最新イミュータブルDossierのContent Hash
+  sourceRevision?: number; // ソース改訂リビジョン番号（INDEX_STALE検知用）
 }
 
 export interface LootBlueprint {

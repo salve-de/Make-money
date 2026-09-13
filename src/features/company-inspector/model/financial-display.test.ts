@@ -13,7 +13,7 @@ const STATUS_LABELS: Record<EvidenceStatus, string> = {
   VERIFIED: '一次確認済',
   REPORTED: '創業者公表',
   ESTIMATED: '逆算推計',
-  POST_MORTEM: '検死解剖',
+  POST_MORTEM: '撤退・失敗の検証',
   UNKNOWN: '未確認',
 };
 

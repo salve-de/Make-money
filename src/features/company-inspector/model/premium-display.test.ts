@@ -21,7 +21,7 @@ function render(isPro: boolean, includeMeta: boolean, hasEvidenceCards = true) {
 it('shows a locked placeholder without receiving a premium payload, including with free evidence', () => {
   const html = render(false, false);
   expect(html).toContain('PROプランの内容を確認する');
-  expect(html).not.toContain('機関解錠済');
+  expect(html).not.toContain('解錠済');
 });
 it('never embeds confidential text for a free user even if a caller supplies meta', () => {
   for (const hasEvidence of [true, false]) {
@@ -33,12 +33,12 @@ it('never embeds confidential text for a free user even if a caller supplies met
 it('renders all twelve fields only after entitlement and actual payload are present', () => {
   const html = render(true, true);
   for (const secret of secrets) expect(html).toContain(secret);
-  expect(html).toContain('機関解錠済');
+  expect(html).toContain('解錠済');
   expect(html).not.toContain('PROプランの内容を確認する');
 });
 it('does not claim successful unlocking when the entitled request lacks its payload', () => {
   const html = render(true, false);
   expect(html).toContain('PRO分析を取得できていません');
-  expect(html).not.toContain('機関解錠済');
+  expect(html).not.toContain('解錠済');
   expect(html).not.toContain('PROプランの内容を確認する');
 });
