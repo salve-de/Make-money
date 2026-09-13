@@ -5,7 +5,7 @@ import { FinancialEntity } from '../../types/terminal';
 import { MobileFeedCard } from './MobileFeedCard';
 import { Bookmark } from 'lucide-react';
 
-const PAGE_SIZE = 100;
+const PAGE_SIZE = 250;
 
 interface InstitutionalDataGridProps {
   entities: FinancialEntity[];

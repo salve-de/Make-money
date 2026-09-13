@@ -22,7 +22,7 @@ test('ticker and welcome use the same amounts as the ledger', async ({ page }) =
 
 test('empty trend search clears selected detail and result statistics', async ({ page }) => {
   await page.goto('/?mode=ARCHETYPES');
-  await page.getByPlaceholder('歪み・手口・大手の弱点を検索...').fill('audit-no-matching-trend');
+  await page.getByPlaceholder('歪み・手口・大手の弱点を検索...').first().fill('audit-no-matching-trend');
   await expect(page.getByText('注目例 0件')).toBeVisible();
   await expect(page.getByText('86.5%')).toHaveCount(0);
 });
@@ -37,10 +37,10 @@ test('opening success without a payment cannot claim confirmation or grant acces
 
 test('unconfirmed financials never present a zero as a measured result', async ({ page }) => {
   await page.goto('/');
-  await page.getByPlaceholder('銘柄名・手口・タグ・裏帳簿を検索...').fill('Clubhouse');
+  await page.getByPlaceholder(/銘柄名/).first().fill('Clubhouse');
   await page.getByRole('row').filter({ hasText: 'Clubhouse' }).click();
   await expect(page.getByRole('heading', { name: 'Clubhouse (Alpha Exploration)', exact: true })).toBeVisible();
-  await expect(page.getByText('金額・費用の裏付けは未確認。').first()).toBeVisible();
+  await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認/).first()).toBeVisible();
   await page.getByRole('button', { name: '財務P&L 未確認' }).click();
   const financials = page.locator('#section-financial');
   await expect(financials).toBeInViewport();

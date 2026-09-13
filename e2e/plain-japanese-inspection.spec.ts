@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('verify plain Japanese UI and lack of Savannah OS jargon across diverse entities', async ({ page }) => {
   // 1. トップ画面撮影
-  await page.goto('http://localhost:3000', { waitUntil: 'domcontentloaded' });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
   await page.waitForTimeout(1000);
   await page.screenshot({ path: 'scratch/ui_plain_top.png' });
 
@@ -31,7 +31,7 @@ test('verify plain Japanese UI and lack of Savannah OS jargon across diverse ent
 
   for (const ent of testEntities) {
     console.log(`Auditing UI for ${ent.name} (${ent.id})...`);
-    await page.goto(`http://localhost:3000/?entity=${ent.id}`, { waitUntil: 'domcontentloaded' });
+    await page.goto(`/?entity=${ent.id}`, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(
       (name) => document.body.innerText.includes(name),
       ent.name,

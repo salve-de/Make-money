@@ -23,8 +23,8 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(financials).toContainText('¥800.0億');
   await expect(financials).toContainText('¥432.0億');
 
-  await page.getByRole('button', { name: /特異物証/ }).click();
-  await expect(page.getByRole('heading', { name: '特異点物証 ＆ 金抜きの急所ファイル' })).toBeVisible();
+  await page.getByRole('button', { name: /儲けのウラ側|特異物証/ }).click();
+  await expect(page.getByRole('heading', { name: /儲けのウラ側 ＆ 現場の証拠ファイル|特異点物証 ＆ 金抜きの急所ファイル/ })).toBeVisible();
   await expect(page.locator('#section-evidence')).toContainText('原価率18%の直販要塞・相見積もり完全拒否');
   await expect(page.getByText('保存済み観測を表示', { exact: true })).toBeVisible();
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
@@ -83,7 +83,7 @@ test('sparse Foundation candidate cannot replace a curated dossier with the same
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Photo AI (候補)', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: /特異物証/ }).click();
+  await page.getByRole('button', { name: /儲けのウラ側|特異物証/ }).click();
   await expect(page.locator('#section-evidence')).toContainText('継続MRRではない');
   expect(detailRequests).toBe(0);
   expect(errors).toEqual([]);
@@ -94,8 +94,8 @@ test('existing hazard dossier keeps its loss label and dynamic evidence', async 
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
   await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
-  await expect(page.getByRole('heading', { name: '致命的特異点・死因物証保全ファイル' })).toBeVisible();
-  await expect(page.locator('#section-evidence')).toContainText('ChatGPT無料公開による存在価値消滅と大量レイオフの検死');
+  await expect(page.getByRole('heading', { name: /失敗・撤退の事実ログ|致命的特異点・死因物証保全ファイル/ })).toBeVisible();
+  await expect(page.locator('#section-evidence')).toContainText(/ChatGPT無料公開による存在価値消滅と大量レイオフの(失敗の検証|検死)/);
   await page.getByRole('button', { name: /財務P&L/ }).click();
   await expect(page.locator('#section-financial')).toContainText('POST-MORTEM');
   await expect(page.locator('#section-financial')).toContainText('¥-260,000,000');

@@ -261,7 +261,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         if (json && typeof json === 'object') {
           const payload = json as { source?: string; data?: unknown };
           if (payload.source === 'foundation_lake') {
-            const detail = parseFoundationDetailResponse(payload.data);
+            const detail = parseFoundationDetailResponse(payload);
             if (detail) {
               const adapted = adaptFoundationDetailToFinancialEntity(detail);
               setDetailedEntities((prev) => ({ ...prev, [selectedEntityId]: adapted }));
@@ -529,6 +529,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       <MarketTickerStrip
         entities={entities}
         sourceLabel={dataSource}
+        selectedEntityId={selectedEntityId}
         onSelectEntity={(id) => {
           setSelectedEntityId(id);
           setWorkspaceMode('LEDGER');

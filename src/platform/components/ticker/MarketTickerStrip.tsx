@@ -15,16 +15,22 @@ interface MarketTickerStripProps {
   entities: SnapshotEntity[];
   sourceLabel: string;
   onSelectEntity?: (entityId: string) => void;
+  selectedEntityId?: string | null;
 }
 
-export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEntity, entities, sourceLabel }) => {
+export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEntity, entities, sourceLabel, selectedEntityId }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const isPausedRef = useRef(false);
   const offsetRef = useRef(0);
 
+  // 選択中エンティティを先頭に優先配置して鮮度を担保
+  const selected = selectedEntityId ? entities.find((e) => e.id === selectedEntityId) : null;
+  const remaining = selected ? entities.filter((e) => e.id !== selectedEntityId) : entities;
+  const displayEntities = selected ? [selected, ...remaining.slice(0, 11)] : entities.slice(0, 12);
+
   // 無限ループ用に配列を2重化
-  const items: MarketTickerItem[] = entities.slice(0, 12).map((entity) => {
+  const items: MarketTickerItem[] = displayEntities.map((entity) => {
     const snapshot = financialSnapshot(entity);
     return { category: '台帳', headline: `${entity.name}: 月商 ${snapshot.revenue} / 営業利益率 ${snapshot.margin}`, badge: snapshot.status, entityId: entity.id };
   });

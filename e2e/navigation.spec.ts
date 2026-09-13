@@ -5,7 +5,7 @@ test('search and screener change the company list and reset cleanly', async ({ p
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  const search = page.getByPlaceholder('銘柄名・手口・タグ・裏帳簿を検索...');
+  const search = page.getByPlaceholder(/銘柄名/).first();
   const rows = page.getByRole('row').filter({ visible: true });
   await search.fill('Photo AI');
   await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(1);
@@ -29,11 +29,11 @@ test('analyst note survives reload and remains attached to the selected company'
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await page.getByTitle('極秘考察メモ', { exact: true }).click();
+  await page.getByTitle(/考察メモ/).click();
   const note = page.locator('#section-notes textarea');
   await note.fill('Smoke note: verify the quoted operating margin before comparison.');
   await page.reload();
-  await page.getByTitle('極秘考察メモ', { exact: true }).click();
+  await page.getByTitle(/考察メモ/).click();
   await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
   await page.getByTitle('次銘柄', { exact: true }).click();
   await expect(note).not.toHaveValue('Smoke note: verify the quoted operating margin before comparison.');

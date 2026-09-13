@@ -161,12 +161,32 @@ export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEnti
     operations: { ...entity.operations, initialCapitalRequired: 0, isCapitalUnconfirmed: true,
       toolStack: entity.operations.toolStack.map((tool) => ({ ...omitUnreviewedFinancialClaims(tool), monthlyCost: 0, isCostUnconfirmed: true })),
     },
-    evidenceCards: [{ id: `financial-source-${entity.id}`, type: 'SMOKING_GUN', title: '一次資料で確認できた事実',
-      evidenceStatus: 'REPORTED', punchline: source.finding, details: [source.limitation], metrics: source.metrics,
-      sourceNote: `${source.period} / 確認日2026-09-11 / ${source.url}` }],
-    observationsStream: [{ id: `financial-source-observation-${entity.id}`, category: 'RESEARCH_LIMIT',
-      categoryLabel: '財務の出典と適用範囲', text: `${source.finding} ${source.limitation}`,
-      originType: 'reported', verificationStatus: 'SUPPORTED', sourceUrl: source.url, observedAt: '2026-09-11' }],
+    evidenceCards: [
+      {
+        id: `financial-source-${entity.id}`,
+        type: 'SMOKING_GUN',
+        title: '一次資料で確認できた事実',
+        evidenceStatus: 'REPORTED',
+        punchline: source.finding,
+        details: [source.limitation],
+        metrics: source.metrics,
+        sourceNote: `${source.period} / 確認日2026-09-11 / ${source.url}`,
+      },
+      ...omitUnreviewedFinancialClaims(entity.evidenceCards || []),
+    ],
+    observationsStream: [
+      {
+        id: `financial-source-observation-${entity.id}`,
+        category: 'RESEARCH_LIMIT',
+        categoryLabel: '財務の出典と適用範囲',
+        text: `${source.finding} ${source.limitation}`,
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+        sourceUrl: source.url,
+        observedAt: '2026-09-11',
+      },
+      ...(entity.observationsStream || []),
+    ],
     unknownsNotes: [source.limitation, '旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。'],
   };
 }

@@ -2,6 +2,7 @@ import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES } from '@/platform
 import { publicEntity, publicSummaryEntity } from '@/lib/company-access/public-entity';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
+import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
 import React, { Suspense } from 'react';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
@@ -19,9 +20,16 @@ async function getInitialEntities(): Promise<FinancialEntity[]> {
     }
 
     if (validEntities.length > 0) {
-      return validEntities
+      const normalized = validEntities
         .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
+        .map(reconcileFinancialEntity)
         .map(normalizeFinancialEntity);
+      const keyenceIdx = normalized.findIndex((e) => e.id === 'ent_keyence');
+      if (keyenceIdx > 0) {
+        const [keyence] = normalized.splice(keyenceIdx, 1);
+        normalized.unshift(keyence);
+      }
+      return normalized;
     }
   } catch (error) {
     console.error('[HomePage] Catastrophic failure reading entities-index.json; fallback to static core:', error);

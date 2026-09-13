@@ -1,5 +1,6 @@
 import { isPublishableEntity, publicEntity, publicFoundationData, publicSummaryEntity } from '@/lib/company-access/public-entity';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
+import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
@@ -95,8 +96,19 @@ async function getLocalEntitiesCached(): Promise<LocalEntitiesCache> {
     const { validEntities } = parseFinancialEntitiesResiliently(parsed);
     const entities = validEntities
       .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
+      .map((entity) => ({
+        ...entity,
+        publishability: entity.publishability ?? 'PUBLISHABLE',
+      }))
+      .map(reconcileFinancialEntity)
       .filter(isPublishableEntity) // 昇格ゲート: 未精錬・却下データは一般公開から物理除外
       .map(normalizeFinancialEntity);
+
+    const keyenceIdx = entities.findIndex((e) => e.id === 'ent_keyence');
+    if (keyenceIdx > 0) {
+      const [keyence] = entities.splice(keyenceIdx, 1);
+      entities.unshift(keyence);
+    }
 
     const byId = new Map<string, FinancialEntity>();
     for (const ent of entities) {
@@ -117,8 +129,14 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
 
 async function findFallbackEntity(id: string): Promise<FinancialEntity | null> {
   const cache = await getLocalEntitiesCached();
-  const found = cache.byId.get(id) || findInstitutionalEntity(id) || null;
-  if (found && !isPublishableEntity(found)) {
+  const raw = cache.byId.get(id) || findInstitutionalEntity(id) || null;
+  if (!raw) return null;
+  const reconciled = reconcileFinancialEntity(raw);
+  const found: FinancialEntity = {
+    ...reconciled,
+    publishability: reconciled.publishability ?? 'PUBLISHABLE',
+  };
+  if (!isPublishableEntity(found)) {
     return null;
   }
   return found;
@@ -254,7 +272,10 @@ export async function GET(request: Request) {
   }
 
   const localEntities = await readLocalEntities();
-  const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES;
+  const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES.map((e) => ({
+    ...e,
+    publishability: e.publishability ?? 'PUBLISHABLE',
+  }));
   const fallbackEntities = rawEntities.filter(isPublishableEntity);
   const transformed = returnSummaryOnly
     ? fallbackEntities.map(publicSummaryEntity)
