@@ -130,10 +130,18 @@ for (const ent of entities) {
   }
 
   // G. Claim-Level Evidence Provenance & Verification Receipt Integrity Guard (P0-4 Strict Audit)
-  const claimsRevenue = typeof ent.pnl?.monthlyRevenue === 'number' && ent.pnl.monthlyRevenue > 0 && !ent.pnl.isRevenueUnconfirmed;
-  if (claimsRevenue) {
+  // 監査役ChatGPT指示: 原本Evidenceの無い231社は無理にPUBLISHABLEにせずPARTIAL/RAWへ落とす。
+  // PUBLISHABLEなもののみ厳格な原本実体・暗号照合・意味的実支持を強制。PARTIAL/RAWの不完全Bindingは排除。
+  if (ent.publishability !== 'PUBLISHABLE') {
+    if (Array.isArray(ent.claimBindings) && ent.claimBindings.length > 0) {
+      errors.push(`[PROVENANCE VIOLATION: Premature ClaimBindings] ${ent.name} is ${ent.publishability} but has claimBindings. Non-publishable entities must have empty claimBindings.`);
+    }
+  }
+
+  const isPublishableRevenue = ent.publishability === 'PUBLISHABLE' && typeof ent.pnl?.monthlyRevenue === 'number' && ent.pnl.monthlyRevenue > 0 && !ent.pnl.isRevenueUnconfirmed;
+  if (isPublishableRevenue) {
     if (!Array.isArray(ent.claimBindings) || ent.claimBindings.length === 0) {
-      errors.push(`[PROVENANCE VIOLATION: Missing ClaimBindings] ${ent.name} claims revenue (${ent.pnl.monthlyRevenue}) but has no claimBindings.`);
+      errors.push(`[PROVENANCE VIOLATION: Missing ClaimBindings] ${ent.name} is PUBLISHABLE and claims revenue (${ent.pnl.monthlyRevenue}) but has no claimBindings.`);
     } else {
       const revBinding = ent.claimBindings.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
       if (!revBinding) {
@@ -141,6 +149,10 @@ for (const ent of entities) {
       } else {
         if (revBinding.verificationStatus !== 'SUPPORTED' || revBinding.supportCheck !== 'PASS') {
           errors.push(`[PROVENANCE VIOLATION: Unsupported Status] ${ent.name} binding has status '${revBinding.verificationStatus}' check '${revBinding.supportCheck}'.`);
+        }
+        // 監査役ChatGPT指示: 公開Claimとbinding.claimValueの同一値保証
+        if (revBinding.claimValue !== undefined && revBinding.claimValue !== ent.pnl.monthlyRevenue) {
+          errors.push(`[PROVENANCE VIOLATION: Decoupled ClaimValue] ${ent.name} claimValue ${revBinding.claimValue} !== monthlyRevenue ${ent.pnl.monthlyRevenue}.`);
         }
         if (!revBinding.foundationEvidenceId || typeof revBinding.foundationEvidenceId !== 'string' || revBinding.foundationEvidenceId.trim() === '') {
           errors.push(`[PROVENANCE VIOLATION: Missing foundationEvidenceId] ${ent.name} binding missing foundationEvidenceId.`);
@@ -170,9 +182,31 @@ for (const ent of entities) {
                 errors.push(`[PROVENANCE VIOLATION: Locator Slice Mismatch] ${ent.name} raw text slice does not match excerpt.`);
               }
               // 意味論的売上支持検証（原本excerptがClaim数値を客観的に支持していること）
-              const revFormatted = ent.pnl.monthlyRevenue.toLocaleString('ja-JP');
-              if (!resolvedEvidence.excerpt.includes(revFormatted) && !resolvedEvidence.excerpt.includes(String(ent.pnl.monthlyRevenue))) {
-                errors.push(`[PROVENANCE VIOLATION: Excerpt Revenue Mismatch] ${ent.name} excerpt does not contain claimed revenue ${ent.pnl.monthlyRevenue}.`);
+              const extractCandidateNumbers = (text) => {
+                const results = new Set();
+                const okuRegex = /([\d,]+(?:\.\d+)?)\s*億/g;
+                let m;
+                while ((m = okuRegex.exec(text)) !== null) {
+                  const n = parseFloat(m[1].replace(/,/g, ''));
+                  if (!Number.isNaN(n)) results.add(Math.round(n * 100000000));
+                }
+                const manRegex = /([\d,]+(?:\.\d+)?)\s*万/g;
+                while ((m = manRegex.exec(text)) !== null) {
+                  const n = parseFloat(m[1].replace(/,/g, ''));
+                  if (!Number.isNaN(n)) results.add(Math.round(n * 10000));
+                }
+                const numRegex = /(?:^|[^\d.])([1-9]\d{0,2}(?:,\d{3})+|[1-9]\d{4,})(?!\d)/g;
+                while ((m = numRegex.exec(text)) !== null) {
+                  const n = parseInt(m[1].replace(/,/g, ''), 10);
+                  if (!Number.isNaN(n)) results.add(n);
+                }
+                return Array.from(results);
+              };
+              const extractedNums = extractCandidateNumbers(resolvedEvidence.excerpt);
+              const claimVal = ent.pnl.monthlyRevenue;
+              const isSupported = extractedNums.includes(claimVal) || extractedNums.some(v => Math.abs(v - claimVal) / claimVal <= 0.01);
+              if (!isSupported) {
+                errors.push(`[PROVENANCE VIOLATION: Excerpt Revenue Mismatch] ${ent.name} excerpt does not contain claimed revenue ${claimVal}. Extracted: [${extractedNums.join(', ')}]`);
               }
             }
           }

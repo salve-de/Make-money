@@ -1,6 +1,0 @@
-【確定財務一次ログ】
-対象企業: Kit (formerly ConvertKit) (ent_convertkit_5b219e84)
-観測時期: 観測確定データ
-出典資料: ConvertKit Open Baremetrics / Nathan Barry公式年次決算報告書
-確定月商 (monthlyRevenue): 500,000,000円 (粗利益率: 80%, 営業利益率: 22%)
-事業急所・事実ログ: 難解なマーケティングオートメーションの設定苦痛を解消し、タグベースの直感的な配信でファンのLTVを最大化する。

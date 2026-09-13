@@ -1,6 +1,0 @@
-【確定財務一次ログ】
-対象企業: Notion (ent_notion_hq)
-観測時期: 2023-2026年 (ARR $300M超・Notion AI期)
-出典資料: Forbes / The Information 報道 (ARR $300M超)
-確定月商 (monthlyRevenue): 3,750,000,000円 (粗利益率: 90%, 営業利益率: 36.7%)
-事業急所・事実ログ: 「Google Docs、Confluence、Trello、Evernoteに情報が分散して見つからない」社内情報断片化の地獄

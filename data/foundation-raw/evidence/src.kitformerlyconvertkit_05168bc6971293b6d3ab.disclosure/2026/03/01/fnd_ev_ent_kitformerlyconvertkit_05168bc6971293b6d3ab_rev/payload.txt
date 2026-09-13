@@ -1,6 +1,0 @@
-【確定財務一次ログ】
-対象企業: Kit (旧 ConvertKit) (ent_kitformerlyconvertkit_05168bc6971293b6d3ab)
-観測時期: 2023-2026年 (ARR $40M超・Kitリブランド期)
-出典資料: 創業者Nathan Barry公開年次収益レポート (ARR $40M+)
-確定月商 (monthlyRevenue): 500,000,000円 (粗利益率: 88%, 営業利益率: 30%)
-事業急所・事実ログ: 「リストごとに二重課金されるMailchimpの不条理」と「複雑すぎて動かないステップメールの不満」を切除

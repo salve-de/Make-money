@@ -370,6 +370,28 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     // fingerprint暗号照合（Check 3）は通過するが、意味的実支持検証（Check 4）で確実に物理遮断（toBe(false)）
     expect(isPublishableEntity(fullyRegeneratedForFalseClaimEntity)).toBe(false);
 
+    // [P0検証・監査役ChatGPT必須指摘 4] 乖離攻撃負例テスト:
+    // Evidence=8.3億 / binding.claimValue=8.3億 / public Claim=1000万 / Receipt=1000万で再生成
+    // binding.claimValue と公開 Claim が二重化・乖離している場合、値の一致保証または公開値の支持検証により100%物理遮断
+    const decoupledAttackEntity = {
+      ...verifiedEntity,
+      pnl: {
+        ...verifiedEntity.pnl,
+        monthlyRevenue: falseClaimValue, // 公開値: 1,000万円
+      },
+      claimBindings: [
+        {
+          ...falseClaimBinding,
+          claimValue: 833333333, // binding.claimValue には正当な8.3億円を偽装セット
+          verificationReceipt: {
+            ...falseClaimBinding.verificationReceipt!,
+            fingerprint: regeneratedFingerprintForFalseClaim, // 公開値1,000万円で正当に計算された指紋
+          },
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(decoupledAttackEntity)).toBe(false);
+
     // [P0検証・監査役ChatGPT指摘] 原本実体ファイル（immutable raw bytes）が改ざんされてSHA256不一致の場合、物理遮断
     registerMockRawPayloadForTesting(
       'evidence/src.sec/2026/03/01/fnd_ev_sec_report_123/payload.txt',

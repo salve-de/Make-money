@@ -150,10 +150,10 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       return false;
     }
 
-    // 原本実体（Immutable raw bytes）の物理整合性検証（ファイルが存在する場合の厳格チェック）
+    // 原本実体（Immutable raw bytes）の物理整合性検証（Fail-closed: 原本実バイト列が存在し、SHA-256とLocatorスライスが完全一致すること）
     const rawVerification = verifyRawPayload(resolvedEvidence);
-    if (!rawVerification.valid && rawVerification.error !== 'RAW_BYTES_NOT_FOUND') {
-      // 原本バイト列が存在するのにSHA-256またはスライステキストが不一致の場合は物理遮断
+    if (!rawVerification.valid) {
+      // 原本バイト列が存在しない、SHA-256不一致、またはスライステキスト不一致はFail-closedで物理遮断
       return false;
     }
 
@@ -190,12 +190,14 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
     }
 
     // 7. [意味的実支持検証: Semantic Claim Support Verification]
-    // エビデンスの原本 excerpt が、主張された確定売上金額（Claim Value）を客観的・意味論的に実際に支持しているか検証。
-    // 金額が含まれていない、または Claim 値と異なる場合は、たとえ fingerprint が再生成されていても物理遮断する。
-    const effectiveClaimValue = revBinding.claimValue !== undefined ? revBinding.claimValue : entity.pnl.monthlyRevenue;
+    // 公開される Claim 値（entity.pnl.monthlyRevenue）そのものを唯一の検証対象として一本化。
+    // binding.claimValue との二重管理・乖離の脆弱性を完全排除。
+    if (revBinding.claimValue !== undefined && revBinding.claimValue !== entity.pnl.monthlyRevenue) {
+      return false;
+    }
     const supportResult = verifyClaimSupport(
       revBinding.claimKey,
-      effectiveClaimValue,
+      entity.pnl.monthlyRevenue,
       resolvedEvidence.excerpt
     );
     if (!supportResult.supported) {

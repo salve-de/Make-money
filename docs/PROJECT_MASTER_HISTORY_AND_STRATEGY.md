@@ -5141,6 +5141,44 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
 - **GitHub Actions CI**: Run `34753711129` ALL 5 JOBS GREEN (E2E smoke, build & bundle:workers, lint, typecheck, unit test) [Commits: `3ed3fd1`, `a4fa580`]
 
+---
+
+## 2026-09-13 (Phase 164): 本物外部原本キャプチャ（Authentic Raw Capture）への完全移行 ＆ 未取得案件PARTIAL降格 ＆ ClaimValue同一性保証（ChatGPT 最終監査4箇条完全充足）
+
+### 1. 監査役 ChatGPT の最終指摘4箇条と課題
+直前監査（Run 34753711129 / Commit a4fa580）において、以下の指摘事項を受理：
+1. **原本実bytesの循環自己生成の打破**: `materialize-foundation-raw-evidence.mjs` でClaimから生成した内部文書を原本と呼んでいた構造を完全撤廃し、本物の外部原本キャプチャ（Foundation evidence / raw capture）を入力にすること。
+2. **未取得案件の降格**: 原本未取得の231社は無理にPUBLISHABLEにせず、原本Evidenceの無い案件はRAW / PARTIALへ落とすこと。
+3. **Semantic Support Gateの値一本化**: 入力値を公開Claim（`entity.pnl.monthlyRevenue`）そのものへ一本化し、`binding.claimValue` との二重管理・乖離による抜け穴を完全遮断すること。
+4. **乖離攻撃負例テストの追加**: 「Evidence=8.3億 / binding.claimValue=8.3億 / public Claim=1000万 / Receipt=1000万で再生成」のパターンで確実に Gate が遮断（`toBe(false)`）されることを実証すること。
+
+### 2. 外科医的実装内容
+1. **本物の一次調査キャプチャ原本ファイルへの完全切り替え**:
+   - 外部一次キャプチャ `data/collection/case-studies-deep-research-20260909.md`（SHA-256: `ce3bf2b99f48e653e38f58a688aee608ee2c313e8e8ddd732a617836240541d3`）の実バイト列を `data/foundation-raw/evidence/src.deep_research/2026/09/09/case-studies-deep-research/payload.txt` に物理配置。
+   - 合成原本生成スクリプト `materialize-foundation-raw-evidence.mjs` を完全削除。
+   - `data/foundation-evidence-catalog.json` を本物原本から抽出した 2 件（ShipFast: `fnd_ev_ent_shipfast_rev`, PDF.ai: `fnd_ev_ent_pdf_ai_65_rev`）のみに再構築。
+2. **未取得案件の降格 ＆ 厳格PUBLISHABLE選別**:
+   - `data/entities-index.json` において、実原本が存在する ShipFast (`ent_shipfast`) と PDF.ai (`ent_pdf_ai_65`) のみを `publishability: 'PUBLISHABLE'`（月商900万円、厳格Locatorスライス、真正指紋Receipt）に保持。
+   - 原本未取得の残り 232 社は `publishability: 'PARTIAL'` または `'RAW'` に落とし、未検証の `claimBindings` は空配列 `[]` にクリア。
+3. **Semantic Support Gateの二重化解消 ＆ Fail-closed 強化 (`src/lib/company-access/public-entity.ts`)**:
+   - Check 1.5: 原本バイト列が存在しない場合も Fail-closed で即座に `return false`（物理遮断）。
+   - Check 4: `revBinding.claimValue !== undefined && revBinding.claimValue !== entity.pnl.monthlyRevenue` の場合即座に `return false`（公開値との乖離を完全遮断）。
+   - `verifyClaimSupport` の検証値を公開Claim値 `entity.pnl.monthlyRevenue` に一本化。
+4. **乖離攻撃負例テストの追加 (`src/tests/promotion-gate-public-routes.test.ts`)**:
+   - 監査役 ChatGPT の指定通り、「Evidence=8.3億 / binding.claimValue=8.3億 / public Claim=1000万 / Receipt=1000万で再生成」の乖離偽装攻撃テストを追加し、Gate が確実に `return false`（`toBe(false)`）で物理遮断することを実証。全 7 テスト完全 PASS。
+5. **CI 機械的ガードレール (`scripts/architecture/check-ingest-quality.mjs`) の更新**:
+   - Section G において、`PUBLISHABLE` かつ確定売上を主張するエンティティのみに厳格な原本実体・SHA-256・Locatorスライス・意味論的実支持（`extractCandidateNumbers`）・`claimValue === monthlyRevenue` 一致を強制。
+   - 非 `PUBLISHABLE` なエンティティが `claimBindings` を持っていたら即座に CI reject。
+
+### 3. 全関所検証結果
+- **`pnpm typecheck`**: PASS (0 errors)
+- **`pnpm test`**: PASS (vitest 324 + foundation 11 + arch 11 + recovery 6 = 352 tests ALL PASSED)
+- **`pnpm lint`**: PASS (0 warnings, 0 errors, check-ingest-quality 234社全量監査完全PASS)
+- **`pnpm build`**: PASS (Next.js本番ビルド ＆ 有料バンドル検査 80 files, 392 sentinels)
+- **`pnpm bundle:workers`**: PASS (1645 files secret scan)
+- **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
+
+
 
 
 
