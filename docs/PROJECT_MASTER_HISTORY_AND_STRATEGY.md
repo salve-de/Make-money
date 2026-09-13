@@ -1,5 +1,42 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-13 【確定】監査Round 10指摘の完全解消（P0 3点・P1 1点）＆ 現実的・長期的に管理可能な堅牢境界の確立（Phase 158）
+
+### 1. ユーザー指摘と自律的課題解決（Root Cause & Manageable Longevity）
+- **ユーザー指示**:
+  - 「で、ダメだったって 巻き取ってこいよ ただ 言うことを聞くんじゃなくて お互いに 最も良い 方法を 模索するんだよ 現実的に 管理できるように 長期的に見て 最も良いように 管理しやすように /goal」
+- **設計思想（過剰設計の排除 ＆ 現実的長期保守性）**:
+  - 外部監査（ChatGPT Pro Luna）の指摘を単に鵜呑みにして複雑なシステムを肥大化させるのではなく、「現実的に運用・管理でき、長期的に壊れない最小最強の境界」を設計・実装した。
+
+### 2. 実施した根本的外科手術（4大残存課題の完全解消）
+1. **[P0] Evidence GateのClaim-level検証化（`src/lib/company-access/public-entity.ts`）**:
+   - 企業の単なる公式URL（`https://example.com`）によるすり抜けを物理遮断。
+   - 確定売上（`claimsRevenue: monthlyRevenue > 0 && !isRevenueUnconfirmed`）を主張する場合、直接の財務エビデンス（一次公表・独立報道・現場告発の `sourceClass`、または財務系エビデンスカード `THE_CRIME` / `ASYMMETRIC_LEVERAGE` / `SMOKING_GUN`、決算ロケーター）を強制する Fail-Closed Gate を配備。
+2. **[P0] Dossier Hash の決定論的一本化（Canonical JSON + SHA-256）**:
+   - `dossier-projection.ts` と `immutable-dossier-pipeline.ts` に二重存在していたハッシュ計算ロジックを完全一本化。
+   - 再帰的キーソートを行う `computeDossierContentHash` を正本とし、読込側と保存側のキー順序の差異による CAS 不一致リスクを恒久根絶。
+3. **[P0] D1 Migration 0006 の配備（`migrations/d1/0006_dossier_pointers.sql`）**:
+   - `dossier_pointers` テーブル（entity_id, active_hash, source_revision, content_hash, promoted_at）およびインデックスを作成する正式な migration SQL を配備。
+   - `pnpm test:recovery`（`verify-d1-recovery.py`）により、空DBからの初期マイグレーションおよびロールバック耐久性を完全実証。
+4. **[P1] D1 CAS 競合分類 ＆ Public Summary の null-safe DTO 統一**:
+   - `CloudflareD1PointerStore.compareAndSwap` において、更新件数ゼロ（`changes === 0`）時に最新ポインタを再読込。
+     - 最新ポインタが要求と同一Hashであれば冪等成功（Idempotent Success）として許容。
+     - 同一Revisionで別Hashであれば CAS 競合（Conflict）として検知。
+     - Revision が進んでいれば stale 更新として安全に弾く。
+   - `publicSummaryEntity` で `?? 0` や `?? 1` によるフォールバックを排除し、未確認指標（`isRevenueUnconfirmed`, `isTeamSizeUnconfirmed` 等）は明示的に `null` を返す null-safe DTO に統一（unknown != zero 原則の徹底）。
+
+### 3. 検証結果
+- `pnpm typecheck`: Exit code 0
+- `pnpm test`: 44ファイル / 324テスト 全PASS
+- `pnpm test:foundation`: 11テスト 全PASS
+- `pnpm test:architecture`: 11テスト 全PASS
+- `pnpm test:recovery`: 6テスト 全PASS（D1 migration 0006 検証含む）
+- `pnpm lint`: Exit code 0（check-boundaries, check-storage, check-api-input, check-runtime-schema, check-index-safety, check-ingest-quality 234社 全数合格）
+- `pnpm build`: Exit code 0（Next.js 最適化・静的ページ 10/10・有料保護 80ファイル 完全合格）
+- `pnpm test:e2e`: 27テスト 全PASS（1.0m）
+
+---
+
 ## 2026-09-13 【確定】一覧ペイロードのゼロファット化（publicSummaryEntity）＆ オンデマンドLazy Loadingの実コード完全直結（Phase 152）
 
 ### 1. ユーザー指摘と課題の根絶（Root Cause First）

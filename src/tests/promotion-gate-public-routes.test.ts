@@ -122,4 +122,86 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     const summary = publicSummaryEntity(rawEntity);
     expect(summary.publishability).toBeUndefined();
   });
+
+  it('6. isPublishableEntity strictly rejects entities that claim revenue without direct financial evidence (Claim-level gate)', () => {
+    // 企業のホームページURLはあるが、売上100億円の証拠がない偽データ
+    const fakeRevenueEntity = {
+      id: 'fake_100b',
+      name: 'Fake Unicorn',
+      url: 'https://example.com',
+      publishability: 'PUBLISHABLE',
+      pnl: {
+        monthlyRevenue: 833333333, // 月商8.3億円（年商100億円）
+        isRevenueUnconfirmed: false, // 確定売上を主張
+        sourceDoc: '', // 根拠書類なし
+        sourceClass: 'LLM_DERIVED', // LLMでっち上げ
+      },
+      evidenceCards: [
+        {
+          id: 'ev_generic',
+          type: 'STORY',
+          title: '創業ストーリー',
+          sourceNote: 'https://example.com', // 財務と無関係なURL
+        },
+      ],
+    } as unknown as FinancialEntity;
+
+    // Claim-level Gateにより物理遮断
+    expect(isPublishableEntity(fakeRevenueEntity)).toBe(false);
+
+    // 一方、財務エビデンス（THE_CRIMEカードまたは決算書locator）を伴う場合は通過
+    const verifiedEntity = {
+      ...fakeRevenueEntity,
+      pnl: {
+        ...fakeRevenueEntity.pnl,
+        sourceDoc: '2024年有価証券報告書 p.42',
+        sourceClass: 'PRIMARY',
+        evidenceLocator: 'r2://foundation-raw/blobs/sha256/sec_report_123',
+      },
+      evidenceCards: [
+        {
+          id: 'ev_financial',
+          type: 'THE_CRIME',
+          title: '客観的事実ログ・集金構造',
+          evidenceLocator: 'r2://foundation-raw/blobs/sha256/sec_report_123',
+          sourceClass: 'PRIMARY',
+          details: ['月商 約8.3億円を確認'],
+        },
+      ],
+    } as unknown as FinancialEntity;
+
+    expect(isPublishableEntity(verifiedEntity)).toBe(true);
+  });
+
+  it('7. publicSummaryEntity strictly converts unconfirmed metrics to null instead of 0 or 1', () => {
+    const unconfirmedEntity = {
+      id: 'unconfirmed_01',
+      name: 'Unconfirmed Entity',
+      publishability: 'PUBLISHABLE',
+      pnl: {
+        monthlyRevenue: 0,
+        isRevenueUnconfirmed: true,
+        operatingProfit: 0,
+        isOperatingProfitUnconfirmed: true,
+        operatingMargin: 0,
+        isMarginUnconfirmed: true,
+      },
+      operations: {
+        teamSize: 1,
+        isTeamSizeUnconfirmed: true,
+        weeklyHours: 0,
+        isWeeklyHoursUnconfirmed: true,
+      },
+      growthRateYoY: 0,
+      isGrowthUnconfirmed: true,
+    } as unknown as FinancialEntity;
+
+    const summary = publicSummaryEntity(unconfirmedEntity);
+    expect(summary.pnl.monthlyRevenue).toBeNull();
+    expect(summary.pnl.operatingProfit).toBeNull();
+    expect(summary.pnl.operatingMargin).toBeNull();
+    expect(summary.operations.teamSize).toBeNull();
+    expect(summary.operations.weeklyHours).toBeNull();
+    expect(summary.growthRateYoY).toBeNull();
+  });
 });

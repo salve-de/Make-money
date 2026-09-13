@@ -16,31 +16,16 @@ import {
   type FoundationBucketRole,
 } from '@/lib/storage/r2';
 import { executeD1, queryD1 } from '@/lib/storage/d1';
-import { getDossierStoragePath } from './dossier-projection';
+import {
+  computeDossierContentHash,
+  getDossierStoragePath,
+  stringifyDeterministic,
+} from './dossier-projection';
+
+export { stringifyDeterministic } from './dossier-projection';
 
 const gzip = promisify(gzipCb);
 const gunzip = promisify(gunzipCb);
-
-/**
- * 決定論的 Canonical JSON 文字列化（キー再帰ソート）
- */
-export function stringifyDeterministic(value: unknown): string {
-  if (value === null || typeof value !== 'object') {
-    return JSON.stringify(value);
-  }
-
-  if (Array.isArray(value)) {
-    const items = value.map((item) => stringifyDeterministic(item));
-    return `[${items.join(',')}]`;
-  }
-
-  const obj = value as Record<string, unknown>;
-  const sortedKeys = Object.keys(obj).sort();
-  const pairs = sortedKeys
-    .filter((k) => obj[k] !== undefined)
-    .map((k) => `${JSON.stringify(k)}:${stringifyDeterministic(obj[k])}`);
-  return `{${pairs.join(',')}}`;
-}
 
 /**
  * R2 / S3 互換ブロブストレージクライアント型
@@ -132,8 +117,8 @@ export async function storeImmutableDossierWithReadback(
   const canonicalJson = stringifyDeterministic(entity);
   const uncompressedBuffer = Buffer.from(canonicalJson, 'utf8');
 
-  // 2. 非圧縮 Canonical JSON の SHA-256
-  const hash = createHash('sha256').update(uncompressedBuffer).digest('hex');
+  // 2. 非圧縮 Canonical JSON の SHA-256（共通関数へ完全一本化）
+  const hash = computeDossierContentHash(entity);
   const storagePath = getDossierStoragePath(entity.id, hash);
 
   // 3. gzip 圧縮
@@ -315,12 +300,53 @@ export class CloudflareD1PointerStore implements DossierPointerStore {
     // 3. D1 への条件付きUPSERT実行
     const { sql, params } = buildD1PointerUpsertSql(newPointer);
     const result = await executeD1(sql, params);
-    const applied = result.changes > 0;
+    
+    if (result.changes > 0) {
+      return {
+        success: true,
+        applied: true,
+        current: newPointer,
+      };
+    }
+
+    // 4. changes === 0 の場合: 並行writerによる更新、または条件不一致。再読込して状態を厳密に分類
+    const latest = await this.get(newPointer.entityId);
+    if (
+      latest &&
+      latest.sourceRevision === newPointer.sourceRevision &&
+      latest.hash === newPointer.hash
+    ) {
+      // 同一リビジョン・同一ハッシュで既に書き込み完了（冪等成功）
+      return { success: true, applied: false, current: latest };
+    }
+    if (
+      latest &&
+      latest.sourceRevision === newPointer.sourceRevision &&
+      latest.hash !== newPointer.hash
+    ) {
+      // 同一リビジョンで異なるハッシュが先に書き込まれた（競合）
+      return {
+        success: false,
+        applied: false,
+        current: latest,
+        conflictReason: 'REVISION_EQUAL_DIFFERENT_HASH',
+      };
+    }
+    if (latest && latest.sourceRevision >= newPointer.sourceRevision) {
+      // より新しいリビジョンが存在するか、リビジョンが古いため書き込めなかった（Stale）
+      return {
+        success: false,
+        applied: false,
+        current: latest,
+        conflictReason: 'STALE_REVISION',
+      };
+    }
 
     return {
-      success: true,
-      applied,
-      current: applied ? newPointer : current,
+      success: false,
+      applied: false,
+      current: latest,
+      conflictReason: 'STALE_REVISION',
     };
   }
 }

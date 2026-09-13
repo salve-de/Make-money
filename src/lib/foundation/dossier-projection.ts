@@ -897,11 +897,33 @@ export function buildFoundationDossierProjection(entity: FoundationBusinessCase)
 }
 
 /**
+ * 決定論的 Canonical JSON 文字列化（キー再帰ソート）
+ * オブジェクトのキー挿入順序に依存しない決定論的シリアライズを保証。
+ */
+export function stringifyDeterministic(value: unknown): string {
+  if (value === null || typeof value !== 'object') {
+    return JSON.stringify(value);
+  }
+
+  if (Array.isArray(value)) {
+    const items = value.map((item) => stringifyDeterministic(item));
+    return `[${items.join(',')}]`;
+  }
+
+  const obj = value as Record<string, unknown>;
+  const sortedKeys = Object.keys(obj).sort();
+  const pairs = sortedKeys
+    .filter((k) => obj[k] !== undefined)
+    .map((k) => `${JSON.stringify(k)}:${stringifyDeterministic(obj[k])}`);
+  return `{${pairs.join(',')}}`;
+}
+
+/**
  * Dossier の内容から決定論的な Content Hash (SHA-256) を算出する。
- * 弱いハッシュを完全排除し、暗号論的SHA-256で一本化。
+ * Canonical JSON (キー再帰ソート) + SHA-256 で保存側・読取側・検証側を1関数へ完全一本化。
  */
 export function computeDossierContentHash(payload: unknown): string {
-  const json = typeof payload === 'string' ? payload : JSON.stringify(payload);
+  const json = typeof payload === 'string' ? payload : stringifyDeterministic(payload);
   return createHash('sha256').update(json, 'utf8').digest('hex');
 }
 
