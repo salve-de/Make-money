@@ -40,29 +40,10 @@ export async function ingestVerifiedEntities(rawEntities: FinancialEntity[], bat
       throw new Error(msg);
     }
 
-    // C. コンテンツ完全性チェック（薄いデータ・欠損データのインジェスト絶対阻止）
-    if (!ent.essence || !ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief ||
-        ent.essence.whatItDoes.length < 40 || ent.essence.targetCustomer.length < 30 || ent.essence.painRelief.length < 30) {
-      throw new Error(`Completeness FAILED for ${ent.name}: essence is missing or too thin (<40/30/30 chars).`);
-    }
-    if (!ent.evidenceCards || ent.evidenceCards.length < 2 || ent.evidenceCards.some(c => !c.details || c.details.length < 3)) {
-      throw new Error(`Completeness FAILED for ${ent.name}: evidenceCards must be at least 2, and each card must have at least 3 detailed bullets.`);
-    }
-    if (!ent.observations || ent.observations.length < 4) {
-      throw new Error(`Completeness FAILED for ${ent.name}: observations count must be at least 4 fact logs.`);
-    }
+    // C. 構造と非破損性チェック（柔軟収集：欠損があっても捨てない・部分データでも堂々受入）
+    // 形式的な文字数やカード枚数での足切りを完全撤廃し、取得できたファクトをありのまま保存可能にする
 
-    // D. LootBlueprint 完全性チェック
-    if (!ent.lootBlueprint) {
-      throw new Error(`Completeness FAILED for ${ent.name}: missing lootBlueprint.`);
-    }
-    if (!ent.lootBlueprint.targetPrey || ent.lootBlueprint.targetPrey.length < 10 ||
-        !ent.lootBlueprint.structuralFlaw || ent.lootBlueprint.structuralFlaw.length < 10 ||
-        !ent.lootBlueprint.stealthEntry || ent.lootBlueprint.stealthEntry.length < 10 ||
-        !ent.lootBlueprint.tollGateSetup || ent.lootBlueprint.tollGateSetup.length < 10 ||
-        !ent.lootBlueprint.executionChecklist || ent.lootBlueprint.executionChecklist.length < 3) {
-      throw new Error(`Completeness FAILED for ${ent.name}: lootBlueprint is incomplete or has < 3 executionChecklist steps.`);
-    }
+    // D. 禁止造語パージチェック（サバンナOS等の社内造語の混入は厳格遮断）
 
     // E. 禁止造語パージチェック
     const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
@@ -73,7 +54,7 @@ export async function ingestVerifiedEntities(rawEntities: FinancialEntity[], bat
       }
     }
 
-    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards.length} / OBS: ${ent.observations.length}] PASS`);
+    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / OBS: ${ent.observations?.length ?? 0}] PASS`);
   }
 
 

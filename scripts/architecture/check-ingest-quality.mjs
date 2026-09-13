@@ -54,74 +54,45 @@ for (const ent of entities) {
   }
 }
 
-// 5. Check Content Completeness & Thickness (No thin garbage allowed)
+// 5. Check Content Quality & Non-Corruption (Flexible Ingest: Never reject for missing fields, audit only when present)
 const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
 
 for (const ent of entities) {
-  // A. essence (min 40/30/30 chars)
-  if (!ent.essence || !ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief) {
-    errors.push(`[RULE VIOLATION: Missing Essence] ${ent.name} is missing essence object or required fields.`);
-  } else {
-    if (ent.essence.whatItDoes.length < 40) errors.push(`[RULE VIOLATION: Thin Essence] ${ent.name} whatItDoes is too short (< 40 chars).`);
-    if (ent.essence.targetCustomer.length < 30) errors.push(`[RULE VIOLATION: Thin Essence] ${ent.name} targetCustomer is too short (< 30 chars).`);
-    if (ent.essence.painRelief.length < 30) errors.push(`[RULE VIOLATION: Thin Essence] ${ent.name} painRelief is too short (< 30 chars).`);
+  // A. essence (optional: if present, validate types)
+  if (ent.essence) {
+    if (typeof ent.essence !== 'object') {
+      errors.push(`[SCHEMA ERROR] ${ent.name}: essence must be an object.`);
+    }
   }
 
-  // B. evidenceCards (min 2 cards, each min 3 details with min 20 chars)
-  if (!ent.evidenceCards || ent.evidenceCards.length < 2) {
-    errors.push(`[RULE VIOLATION: Insufficient Cards] ${ent.name} has only ${ent.evidenceCards?.length || 0} evidence cards (min 2 required).`);
-  } else {
+  // B. evidenceCards (optional: if present, validate structure)
+  if (ent.evidenceCards && Array.isArray(ent.evidenceCards)) {
     ent.evidenceCards.forEach((c, idx) => {
-      if (!c.punchline || c.punchline.length < 20) {
-        errors.push(`[RULE VIOLATION: Thin Card Punchline] ${ent.name} card #${idx + 1} punchline is too short (< 20 chars).`);
-      }
-      if (!c.details || c.details.length < 3) {
-        errors.push(`[RULE VIOLATION: Thin Card Details] ${ent.name} card #${idx + 1} has only ${c.details?.length || 0} details (min 3 required).`);
+      if (!c.title || typeof c.title !== 'string') {
+        errors.push(`[SCHEMA ERROR] ${ent.name} card #${idx + 1} missing title.`);
       }
     });
   }
 
-  // C. strategy (blindspot, moatDescription, initialTraction >= 3, actionPlaybook >= 3)
-  if (!ent.strategy?.blindspot || !ent.strategy?.moatDescription) {
-    errors.push(`[RULE VIOLATION: Missing Strategy Core] ${ent.name} is missing blindspot or moatDescription.`);
-  }
-  if (!ent.strategy?.initialTraction || ent.strategy.initialTraction.length < 3) {
-    errors.push(`[RULE VIOLATION: Thin Initial Traction] ${ent.name} initialTraction count < 3.`);
-  }
-  if (!ent.strategy?.actionPlaybook || ent.strategy.actionPlaybook.length < 3) {
-    errors.push(`[RULE VIOLATION: Thin Action Playbook] ${ent.name} actionPlaybook count < 3.`);
+  // C. strategy (optional: if present, validate structure)
+  if (ent.strategy && typeof ent.strategy !== 'object') {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: strategy must be an object.`);
   }
 
-  // D. observations & observationsStream (min 4 items)
-  if (!ent.observations || ent.observations.length < 4) {
-    errors.push(`[RULE VIOLATION: Thin Observations] ${ent.name} observations count is ${ent.observations?.length || 0} (min 4 required).`);
+  // D. observations (optional: if present, must be array)
+  if (ent.observations && !Array.isArray(ent.observations)) {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: observations must be an array.`);
   }
-  if (!ent.observationsStream || ent.observationsStream.length < 4) {
-    errors.push(`[RULE VIOLATION: Thin ObservationsStream] ${ent.name} observationsStream count is ${ent.observationsStream?.length || 0} (min 4 required).`);
-  }
-
-  // E. LootBlueprint Guard (100% required)
-  if (!ent.lootBlueprint) {
-    errors.push(`[RULE VIOLATION: Missing LootBlueprint] ${ent.name} is missing lootBlueprint.`);
-  } else {
-    if (!ent.lootBlueprint.targetPrey || ent.lootBlueprint.targetPrey.length < 10) {
-      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} targetPrey is too short (< 10 chars).`);
-    }
-    if (!ent.lootBlueprint.structuralFlaw || ent.lootBlueprint.structuralFlaw.length < 10) {
-      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} structuralFlaw is too short (< 10 chars).`);
-    }
-    if (!ent.lootBlueprint.stealthEntry || ent.lootBlueprint.stealthEntry.length < 10) {
-      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} stealthEntry is too short (< 10 chars).`);
-    }
-    if (!ent.lootBlueprint.tollGateSetup || ent.lootBlueprint.tollGateSetup.length < 10) {
-      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} tollGateSetup is too short (< 10 chars).`);
-    }
-    if (!ent.lootBlueprint.executionChecklist || ent.lootBlueprint.executionChecklist.length < 3) {
-      errors.push(`[RULE VIOLATION: Thin ExecutionChecklist] ${ent.name} executionChecklist must have at least 3 steps.`);
-    }
+  if (ent.observationsStream && !Array.isArray(ent.observationsStream)) {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: observationsStream must be an array.`);
   }
 
-  // F. Forbidden Jargon Guard
+  // E. LootBlueprint (optional: if present, validate structure)
+  if (ent.lootBlueprint && typeof ent.lootBlueprint !== 'object') {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: lootBlueprint must be an object.`);
+  }
+
+  // F. Forbidden Jargon Guard (Always Enforced: Never leak internal buzzwords to users)
   const entStr = JSON.stringify(ent);
   for (const j of FORBIDDEN_JARGON) {
     if (entStr.includes(j)) {
@@ -282,5 +253,5 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`✓ [check-ingest-quality] PASSED: All ${entities.length} entities satisfy domain consistency, tool accuracy, arithmetic precision, content completeness (min 4 obs, min 2 cards x 3 details, min 3 steps), and zero jargon.\n`);
+console.log(`✓ [check-ingest-quality] PASSED: All ${entities.length} entities satisfy domain consistency, tool accuracy, arithmetic precision, flexible schema integrity, and zero jargon.\n`);
 
