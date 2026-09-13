@@ -77,7 +77,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
     {
       id: 'init_1',
       role: 'assistant',
-      content: '実在企業の裏帳簿データ（売上原価・手残り率・現場ツール・大手の盲点）をスタンバイしました。\n\nいま考えている事業アイデア（例: ○○業界向けSaaS、○○の自動化代行など）を1行投げてみてください。大手の自爆構造に巻き込まれないか、利益率80%を叩き出す勝ち筋、月数千円で組める最小稼働インフラを冷徹に検証します。',
+      content: '実在企業の財務・戦略データ（売上原価・手残り率・現場ツール・大手の盲点）をスタンバイしました。\n\nいま考えている事業アイデア（例: ○○業界向けSaaS、○○の自動化代行など）を1行投げてみてください。大手の自爆構造に巻き込まれないか、利益率80%を叩き出す勝ち筋、月数千円で組める最小稼働インフラを冷徹に検証します。',
       timestamp: new Date().toISOString(),
       suggestedActionPrompts: [
         '町工場の受発注・紙図面をLINEとOCRで自動化する代行モデル',
@@ -142,11 +142,11 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
           {
             id: `msg_${Date.now()}`,
             role: 'assistant',
-            content: `【多次元アイデア合成完了】\n選択された${selectedEntityIds.size}銘柄の財務構造と、あなたの閲覧・保存傾向（${userProfile.profileSummary.slice(0, 50)}...）を掛け合わせ、3つの別次元アプローチ（本能ハック型／構造胴元型／逆張り型）を抽出しました。「アイデア調書」タブにて損益見込・ツール構成・初動手順を確認してください。`,
+            content: `【多次元アイデア合成完了】\n選択された${selectedEntityIds.size}銘柄の財務構造と、あなたの閲覧・保存傾向（${userProfile.profileSummary.slice(0, 50)}...）を掛け合わせ、3つの別次元アプローチ（本能工夫型／構造胴元型／逆張り型）を抽出しました。「アイデア調書」タブにて損益見込・ツール構成・初動手順を確認してください。`,
             timestamp: new Date().toISOString(),
             suggestedActionPrompts: [
               'この中で一番初期費用が安く初動が速いアイデアはどれか？',
-              '本能ハック型アイデアの初動ゲリラ戦法をさらに具体化せよ',
+              '本能工夫型アイデアの初動ゲリラ戦法をさらに具体化せよ',
               '構造・胴元型モデルで決済手数料を抜く際の法的注意点は？'
             ]
           }
@@ -261,7 +261,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
         {/* 銘柄一覧 ＆ メモ入力 */}
         <div className="flex-1 overflow-y-auto p-3 space-y-3 scrollbar-thin scrollbar-thumb-white/10">
           <div className="text-[11px] text-zinc-400 leading-relaxed font-sans pb-1">
-            保存した銘柄の裏帳簿データに独自の着眼点（メモ）を掛け合わせることで、AIが競合の死角を突く独自ビジネスモデルを抽出します。
+            保存した銘柄の財務・戦略データに独自の着眼点（メモ）を掛け合わせることで、AIが競合の死角を突く独自ビジネスモデルを抽出します。
           </div>
 
           {savedEntities.map((ent) => {
@@ -465,7 +465,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                     独自アイデアは未生成です
                   </h3>
                   <p className="text-xs text-zinc-400 leading-relaxed font-sans mb-6">
-                    上部の検証バーから事業アイデアを1行投げるか、左ペインの保存銘柄を選んで「独自アイデアを合成」を実行してください。本能ハック・構造胴元・逆張りの3次元から即時抽出されます。
+                    上部の検証バーから事業アイデアを1行投げるか、左ペインの保存銘柄を選んで「独自アイデアを合成」を実行してください。本能工夫・構造胴元・逆張りの3次元から即時抽出されます。
                   </p>
                   <button
                     onClick={handleSynthesize}
@@ -483,7 +483,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                         SYNTHESIZED_ARBITRAGE_DOSSIERS
                       </h3>
                       <span className="text-[11px] text-zinc-500 font-mono">
-                        保存企業の裏帳簿 × あなたの考察メモから抽出された多次元ビジネスモデル
+                        保存企業の財務データ × あなたの考察メモから抽出された多次元ビジネスモデル
                       </span>
                     </div>
                     <button
@@ -541,7 +541,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                         </div>
                         <div className="bg-[#060709] p-3 rounded border border-white/[0.04]">
                           <span className="font-mono text-[10px] text-zinc-500 block mb-1">
-                            突く市場の歪み・大手の自爆（カニバリズム障壁）
+                            突く市場の歪み・大手の自爆（既存事業の共食い障壁）
                           </span>
                           <p className="text-zinc-300 text-[11px] leading-relaxed">
                             {idea.structuralArbitrage}

@@ -48,13 +48,13 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_gym_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】大手が無視したマイクロインフルエンサーに服を配り、見栄を燃料にするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】大手が無視したマイクロインフルエンサーに服を配り、見栄を燃料にするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "大手が巨額のTVCMやスーパースター契約に金を溶かす中、SNSの無名筋トレ発信者に商品を送り熱狂的な共犯者にする。",
         "details": [
           "【初期の無償ギフティング】: お金のないピザ屋時代、好きなYouTube筋トレ配信者（Lex Griffin等）に手紙付きで手縫いウェアを無償送付。彼らが動画で自発的に着用し爆発。",
-          "【リアルイベントでの行列ハック】: BodyPower展示会で極小ブースを取り、招待したインフルエンサーを目当てに何千人ものファンを行列させ「買えない熱狂」を演出。",
+          "【リアルイベントでの行列工夫】: BodyPower展示会で極小ブースを取り、招待したインフルエンサーを目当てに何千人ものファンを行列させ「買えない熱狂」を演出。",
           "【タイトフィットな裁断】: 従来のブカブカなアディダス・ナイキと真逆に、筋肉が最も美しく強調されるテーパード裁断で若者の承認欲求を直撃。"
         ],
         "codeSnippet": "// コミュニティ共犯型D2C配管\n1. ニッチ領域でファンが濃いフォロワー1万〜5万人の配信者を50人リストアップ\n2. ギフティング＋限定割引コードを配布し、新作発売日に一斉着用投稿\n3. 初回生産分を数分で即時完売させ、「買えなかった悔しさ」を次回ドロップの燃料にする",
@@ -91,11 +91,11 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_gym_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：ジムで「意識が低い素人」に見られたくない恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "フィットネス初心者がジムに入った瞬間に感じる「自分の身体や服への強烈な劣等感」。",
         "details": [
-          "ジムという空間は動物的な序列と見栄が剥き出しになるサバンナ。",
+          "ジムという空間は動物的な序列と見栄が剥き出しになる競争市場。",
           "Gymsharkを着るだけで「ハードコアに鍛えている側の人間」というパスポートが得られるため、若者は定価$45のレギンスやTシャツを迷わず即決する。"
         ],
         "sourceNote": "Consumer Psychology in Fitness Retail"
@@ -157,7 +157,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【ダサい既存スポーツウェアを着てジムで舐められたくない若者の虚栄心 ＆ 筋トレコミュニティへの所属承認欲求を急所ハック】ピザ配達員の青年が手縫いミシン1台から創業し、初期Instagram筋トレ発信者への無償ギフティングだけで年商1,150億円・ユニコーンへ登り詰めたコミュニティD2Cの怪物",
+      "blindspot": "【ダサい既存スポーツウェアを着てジムで舐められたくない若者の虚栄心 ＆ 筋トレコミュニティへの所属承認欲求を急所工夫】ピザ配達員の青年が手縫いミシン1台から創業し、初期Instagram筋トレ発信者への無償ギフティングだけで年商1,150億円・ユニコーンへ登り詰めたコミュニティD2Cの怪物",
       "moatType": "SWITCHING_COST",
       "moatDescription": "共犯者コミュニティによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "全スポーツ対応のマスブランドは、「ボディビルダー専用のタイトウェア」に特化できない。",
@@ -169,7 +169,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ],
       "actionPlaybook": [
         "【初期の無償ギフティング】: お金のないピザ屋時代、好きなYouTube筋トレ配信者（Lex Griffin等）に手紙付きで手縫いウェアを無償送付。彼らが動画で自発的に着用し爆発。",
-        "【リアルイベントでの行列ハック】: BodyPower展示会で極小ブースを取り、招待したインフルエンサーを目当てに何千人ものファンを行列させ「買えない熱狂」を演出。",
+        "【リアルイベントでの行列工夫】: BodyPower展示会で極小ブースを取り、招待したインフルエンサーを目当てに何千人ものファンを行列させ「買えない熱狂」を演出。",
         "【タイトフィットな裁断】: 従来のブカブカなアディダス・ナイキと真逆に、筋肉が最も美しく強調されるテーパード裁断で若者の承認欲求を直撃。"
       ],
       "coldOutreachTemplate": "// コミュニティ共犯型D2C配管\n1. ニッチ領域でファンが濃いフォロワー1万〜5万人の配信者を50人リストアップ\n2. ギフティング＋限定割引コードを配布し、新作発売日に一斉着用投稿\n3. 初回生産分を数分で即時完売させ、「買えなかった悔しさ」を次回ドロップの燃料にする"
@@ -222,8 +222,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_tfd_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】既存ペットフードの「汚い裏側」を告発し、家族化感情をサブスク化するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】既存ペットフードの「汚い裏側」を告発し、家族化感情をサブスク化するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「茶色い乾燥粒フードは人間なら一生食べられないジャンクフード」と定義し、フレッシュ冷凍便で囲い込む。",
         "details": [
@@ -265,7 +265,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_tfd_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：子供のいない共働き夫婦（DINKs）の愛犬溺愛予算",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "犬を「ペット」ではなく「我が子」として溺愛する世帯の無制限の医療・健康財布。",
         "details": [
@@ -331,7 +331,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【「自分のせいで愛犬が病気になり早く死ぬかもしれない」という飼い主の猛烈な罪悪感と後悔恐怖を急所ハック】「市販の乾燥ドッグフードは発がん性の産業廃棄物肉だ」と愛犬家の罪悪感と死の恐怖を直撃し、人間用生肉・野菜定期便で年商1,800億円・月間利益15億円を叩き出すD2C帝国",
+      "blindspot": "【「自分のせいで愛犬が病気になり早く死ぬかもしれない」という飼い主の猛烈な罪悪感と後悔恐怖を急所工夫】「市販の乾燥ドッグフードは発がん性の産業廃棄物肉だ」と愛犬家の罪悪感と死の恐怖を直撃し、人間用生肉・野菜定期便で年商1,800億円・月間利益15億円を叩き出すD2C帝国",
       "moatType": "SWITCHING_COST",
       "moatDescription": "恐怖直撃サブスクによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "既存フード大手の利益の源泉は「常温で数年持つ安価な穀物・乾燥粒」であり、冷凍サプライチェーンを持てない。",
@@ -396,8 +396,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_crwy_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】既存製品の「見えない毒性」を可視化し、デザイン性で高価格化するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】既存製品の「見えない毒性」を可視化し、デザイン性で高価格化するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "既存の黒いフライパンを「発がん性化学物質の温床」と位置づけ、安全でおしゃれなセラミック鍋をセット販売する。",
         "details": [
@@ -439,7 +439,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_crwy_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：新築・引っ越し時の「おしゃれな生活を始めたい」虚栄心",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "新居のきれいなキッチンに、昔から使っている黒ずんだフライパンを置きたくない羞恥心。",
         "details": [
@@ -505,7 +505,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【古いテフロン加工フライパンから化学物質が溶け出し家族の口に入る恐怖 ＆ 汚い台所を見せられない羞恥心を急所ハック】「テフロンフライパンを加熱すると有毒ガスが出る」とPFAS・PTFE発がん恐怖を煽り、セラミック塗装の美しい高額調理器具を年商1,200億円規模で売り抜くD2Cの急先鋒",
+      "blindspot": "【古いテフロン加工フライパンから化学物質が溶け出し家族の口に入る恐怖 ＆ 汚い台所を見せられない羞恥心を急所工夫】「テフロンフライパンを加熱すると有毒ガスが出る」とPFAS・PTFE発がん恐怖を煽り、セラミック塗装の美しい高額調理器具を年商1,200億円規模で売り抜くD2Cの急先鋒",
       "moatType": "SWITCHING_COST",
       "moatDescription": "毒性告発D2Cによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "既存フライパン巨人は「安価なテフロン加工の量産ライン」に数千億円を投資しており、路線変更できない。",
@@ -570,8 +570,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_fblt_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】初回を原価割れで叩き売り、毎月5日の「スキップ忘れ」で現金を徴収するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】初回を原価割れで叩き売り、毎月5日の「スキップ忘れ」で現金を徴収するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「VIP会員登録でパンツ2枚24ドル」の圧倒的オファーで釣り、毎月$59.95のクレジットを自動課金する。",
         "details": [
@@ -613,7 +613,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_fblt_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：運動習慣をサボっている自分への罪悪感",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「可愛いヨガウェアを買えば、今月からジムに通うはずだ」という未来の自分への言い訳。",
         "details": [
@@ -679,7 +679,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【ルルレモン（1本1.5万円）は高すぎて買えないが、ファストファッションのヨガパンツはすぐ破れて恥ずかしい女性の見栄を急所ハック】「VIP会員になればレギンス2枚で$24」という極限のディスカウントで囲い込み、月額$59.95の自動課金クレジットで年商1,300億円・会員100万人以上を幽閉するリバースリテールSaaS",
+      "blindspot": "【ルルレモン（1本1.5万円）は高すぎて買えないが、ファストファッションのヨガパンツはすぐ破れて恥ずかしい女性の見栄を急所工夫】「VIP会員になればレギンス2枚で$24」という極限のディスカウントで囲い込み、月額$59.95の自動課金クレジットで年商1,300億円・会員100万人以上を幽閉するリバースリテールSaaS",
       "moatType": "SWITCHING_COST",
       "moatDescription": "幽閉サブスクによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "ハイブランドは「毎月クレジット引き落とし」という商法をやるとブランド価値が暴落する。",
@@ -744,8 +744,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_cspr_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】既存業界の「最悪な購買体験」を完全切除し、宅配便サイズに圧縮するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】既存業界の「最悪な購買体験」を完全切除し、宅配便サイズに圧縮するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「怪しい店員、複雑な型番、高い配送費」を全廃し、1モデル・送料無料・箱入りで玄関に届ける。",
         "details": [
@@ -787,7 +787,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_cspr_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：引越し当夜に「今日寝る場所がない」パニック",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "新居への引越し日にベッドが届かないことによる極限の疲労とストレス。",
         "details": [
@@ -853,7 +853,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【マットレス売り場でスーツを着た営業マンに囲まれ数十万円のモデルを押し売りされる苦痛 ＆ 部屋まで運べない絶望を急所ハック】「マットレス屋のうさんくさい店員と値引き交渉したくない」という苦痛を切除し、箱に圧縮して届ける100日返品保証で年商600億円を築いたベッドインボックスの開拓者",
+      "blindspot": "【マットレス売り場でスーツを着た営業マンに囲まれ数十万円のモデルを押し売りされる苦痛 ＆ 部屋まで運べない絶望を急所工夫】「マットレス屋のうさんくさい店員と値引き交渉したくない」という苦痛を切除し、箱に圧縮して届ける100日返品保証で年商600億円を築いたベッドインボックスの開拓者",
       "moatType": "SWITCHING_COST",
       "moatDescription": "開拓者D2Cによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "既存メーカーは「Mattress Firm」などの巨大代理店チェーンに生殺与奪の権を握られていた。",
@@ -918,8 +918,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_glos_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】既存メディアの「読者の不満コメント」をそのまま新商品にして売るコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】既存メディアの「読者の不満コメント」をそのまま新商品にして売るコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "自前の美容ブログで「理想のクレンザーは？」と問いかけ、読者の要望通りの処方で製造して事前予約で売り切る。",
         "details": [
@@ -961,7 +961,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_glos_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「頑張って化粧しています感」を出したくない羞恥心",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「厚化粧で必死な人」と思われたくない、こなれた抜け感を演出したいZ世代のプライド。",
         "details": [
@@ -1027,7 +1027,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【重たい化粧で肌荒れを隠し続けるストレス ＆ 百貨店コスメカウンターのツンとした店員への苦手意識を急所ハック】「ファンデーションで肌を塗り固めるな」と素肌至上主義を掲げ、美容ブログ読者のコメント欄から共同開発したピンクのコスメで年商300億円を築いた共犯D2Cの先駆け",
+      "blindspot": "【重たい化粧で肌荒れを隠し続けるストレス ＆ 百貨店コスメカウンターのツンとした店員への苦手意識を急所工夫】「ファンデーションで肌を塗り固めるな」と素肌至上主義を掲げ、美容ブログ読者のコメント欄から共同開発したピンクのコスメで年商300億円を築いた共犯D2Cの先駆け",
       "moatType": "SWITCHING_COST",
       "moatDescription": "読者共犯D2Cによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "伝統的コスメ巨人は「完璧にレタッチされた非現実的なモデル写真」でしか集客できない。",
@@ -1092,8 +1092,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_thrv_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】年会費を前金で徴収し、商品を卸値同等で提供して利益率を支配するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】年会費を前金で徴収し、商品を卸値同等で提供して利益率を支配するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「年会費60ドル払えば、スーパーより25〜50%安く無添加食品が買える」とアピールし、年会費を純利益にする。",
         "details": [
@@ -1135,7 +1135,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_thrv_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：子供のアレルギーや添加物への母親の恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「普通のスーパーの食品を食べさせると子供の健康が害される」という親の防衛本能。",
         "details": [
@@ -1201,7 +1201,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【Whole Foodsが高すぎて破産する恐怖 ＆ 近くに健康的な無添加食品を売っている店が1軒もない田舎の絶望を急所ハック】「地方にはオーガニック食品を売るスーパーがない」という僻地難民を直撃し、コストコ型$60年会費で年商1,050億円・会員160万人を囲い込む健康ECの要塞",
+      "blindspot": "【Whole Foodsが高すぎて破産する恐怖 ＆ 近くに健康的な無添加食品を売っている店が1軒もない田舎の絶望を急所工夫】「地方にはオーガニック食品を売るスーパーがない」という僻地難民を直撃し、コストコ型$60年会費で年商1,050億円・会員160万人を囲い込む健康ECの要塞",
       "moatType": "SWITCHING_COST",
       "moatDescription": "年会費会員制ECによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "実店舗スーパーは「棚の維持費・店舗家賃・廃棄ロス」で30%以上の粗利を乗せないと即死する。",
@@ -1266,8 +1266,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_pela_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】日用品の廃棄に伴う「後ろめたさ」を買い取り、3倍の定価をつけるコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】日用品の廃棄に伴う「後ろめたさ」を買い取り、3倍の定価をつけるコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "Amazonで1,000円で買えるスマホケースを、土に還る独自素材にして6,000円で売る。",
         "details": [
@@ -1309,7 +1309,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_pela_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「私は地球に優しい人間だ」と周囲に見せつけたい見栄",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "カフェやオフィスでスマホを机に置いた瞬間、相手に見えるケースの素材感。",
         "details": [
@@ -1375,7 +1375,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【毎年新しいiPhoneが出るたびにプラスチックゴミを増やすことへの環境意識の高い消費者の自己嫌悪を急所ハック】「スマホケースを買い替えるたびにウミガメが死ぬ」とプラスチック汚染への罪悪感を突き、亜麻の茎で作った世界初の生分解ケースで年商60億円を稼ぎ出すエシカルD2C",
+      "blindspot": "【毎年新しいiPhoneが出るたびにプラスチックゴミを増やすことへの環境意識の高い消費者の自己嫌悪を急所工夫】「スマホケースを買い替えるたびにウミガメが死ぬ」とプラスチック汚染への罪悪感を突き、亜麻の茎で作った世界初の生分解ケースで年商60億円を稼ぎ出すエシカルD2C",
       "moatType": "SWITCHING_COST",
       "moatDescription": "罪悪感切除D2Cによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "既存ケースメーカーは「中国工場の格安射出成形金型」に依存しており、新素材ラインを組めない。",
@@ -1440,8 +1440,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_pbg_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】すべての商品を「白地に黒文字」で統一し、無印良品のD2C版を構築するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】すべての商品を「白地に黒文字」で統一し、無印良品のD2C版を構築するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "シャンプーからパスタ、トイレットペーパーまで全商品を同じミニマルデザインで揃えさせ、家中をジャックする。",
         "details": [
@@ -1483,7 +1483,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_pbg_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：友人を家に招いた時の「生活感丸出し」への羞恥心",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "来客がトイレや洗面所を使った瞬間に目に入る、安っぽいドラッグストア商品の生活感。",
         "details": [
@@ -1549,7 +1549,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【洗面所や台所に並ぶ市販洗剤のうるさい原色ラベルに部屋の美学を汚されるストレスを急所ハック】「ドラッグストアの派手なパッケージと化学薬品に囲まれたくない」という生活者を狙い、年会費$79でミニマルな無添加日用品を原価直販するホワイトラベルSaaS",
+      "blindspot": "【洗面所や台所に並ぶ市販洗剤のうるさい原色ラベルに部屋の美学を汚されるストレスを急所工夫】「ドラッグストアの派手なパッケージと化学薬品に囲まれたくない」という生活者を狙い、年会費$79でミニマルな無添加日用品を原価直販するホワイトラベルSaaS",
       "moatType": "SWITCHING_COST",
       "moatDescription": "ミニマル原価ECによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手メーカーは「パンテーン」「アリエール」等、商品ごとに別々のブランド巨額広告を回している。",
@@ -1588,7 +1588,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       "年商150億",
       "LTD買い切り",
       "ブートストラップ",
-      "関所ビジネス"
+      "収益モデルビジネス"
     ],
     "pnl": {
       "monthlyRevenue": 1250000000,
@@ -1614,8 +1614,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_asumo_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】開発者の「初期キャッシュ枯渇の恐怖」を買い叩き、客の前金を総取りするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】開発者の「初期キャッシュ枯渇の恐怖」を買い叩き、客の前金を総取りするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「月額課金では誰も買わない無名SaaS」をライフタイムディール（買い切り$49）に仕立てて数千万円を即日売り切る。",
         "details": [
@@ -1657,7 +1657,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_asumo_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：副業・個人起業家の「将来使うかもしれない」コレクター欲求",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「今買っておかないと、将来事業が大きくなった時に月額数万円払う羽目になる」という損失回避。",
         "details": [
@@ -1723,7 +1723,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【毎月のSaaSサブスク固定費で資金ショートする中小企業 ＆ 初期ユーザーが1人も集まらず死にかけている無名開発者を急所ハック】無名SaaSの創業者に「月額課金を諦めて$49で一生使い放題（LTD）にしろ」と迫り、売上の30〜50%を手数料として中抜きして年商150億円を稼ぐソフトウェアの質屋",
+      "blindspot": "【毎月のSaaSサブスク固定費で資金ショートする中小企業 ＆ 初期ユーザーが1人も集まらず死にかけている無名開発者を急所工夫】無名SaaSの創業者に「月額課金を諦めて$49で一生使い放題（LTD）にしろ」と迫り、売上の30〜50%を手数料として中抜きして年商150億円を稼ぐソフトウェアの質屋",
       "moatType": "SWITCHING_COST",
       "moatDescription": "前金総取り質屋による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手SaaSは「MRR（月額経常収益）」を最大化するゲームをやっており、買い切りは企業価値を破壊する禁忌。",
@@ -1788,8 +1788,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_1440_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】既存メディアの「オピニオン・感情論」を全カットし、中立ファクトの要約で広告を総取りするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】既存メディアの「オピニオン・感情論」を全カットし、中立ファクトの要約で広告を総取りするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「5分で世界が分かる中立な事実まとめ」を毎朝メールボックスに届け、大手ブランドの広告費を吸い上げる。",
         "details": [
@@ -1831,7 +1831,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_1440_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：朝の会議で「昨日のニュースを知らない」と恥をかく恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "会社の重役やクライアントとの雑談で、世の中の動向に無知だと思われたくないビジネスパーソンの防衛本能。",
         "details": [
@@ -1897,7 +1897,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【SNSやテレビニュースの過激な党派対立と怒りの煽り運転で精神を病みたくない知性派ビジネスパーソンの平穏欲求を急所ハック】「政治的偏向と怒りの煽り記事に疲弊した」470万人の知性派読者を集め、中立な事実ログの配信だけで年商40億円・純利益率35%超を叩き出す日刊ニュースレターの王者",
+      "blindspot": "【SNSやテレビニュースの過激な党派対立と怒りの煽り運転で精神を病みたくない知性派ビジネスパーソンの平穏欲求を急所工夫】「政治的偏向と怒りの煽り記事に疲弊した」470万人の知性派読者を集め、中立な事実ログの配信だけで年商40億円・純利益率35%超を叩き出す日刊ニュースレターの王者",
       "moatType": "SWITCHING_COST",
       "moatDescription": "中立中抜きメディアによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手テレビ局や新聞は「読者を怒らせてクリックさせる」ことでPVと購読料を稼ぐビジネスモデル。",
@@ -1962,8 +1962,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_404_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】中間管理職とVCを完全排除し、有料会員の年間課金を記者自身で総取りするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】中間管理職とVCを完全排除し、有料会員の年間課金を記者自身で総取りするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "大手メディアで安月給で書かされていた記者が、自前のスクープ力をそのまま有料サブスクに変える。",
         "details": [
@@ -1991,7 +1991,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_404_incumbent",
         "type": "INCUMBENT_TRAP",
-        "title": "大手の自爆構造：大メディアの役員報酬・営業人件費という巨大な寄生虫",
+        "title": "大手の自爆構造：大メディアの役員報酬・営業人件費という巨大なプラットフォーム連携虫",
         "badge": "大手の自爆構造",
         "evidenceStatus": "VERIFIED",
         "punchline": "大手メディアは「何十人もの役員、営業マン、中間管理職」の給料を払うために常に赤字に陥る。",
@@ -2005,7 +2005,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_404_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：エンジニア・法務担当者の「最新の規制・ハッキングの裏を知らないとヤバい」恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "テック企業のセキュリティ担当者や弁護士が、現場のヤバい実態を先回りして把握したい自己防衛財布。",
         "details": [
@@ -2071,7 +2071,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【大手メディアの提灯記事やAI生成のゴミ記事に辟易し、本物のディープな裏情報・リークを渇望するテック関係者を急所ハック】「VCが支配するデジタルメディアは読者より出資者を優先しがちだ」と大手Viceから独立した敏腕記者4名が設立し、自前のGhostブログで年商3億円・初年度から完全黒字を叩き出す調査報道ギルド",
+      "blindspot": "【大手メディアの提灯記事やAI生成のゴミ記事に辟易し、本物のディープな裏情報・リークを渇望するテック関係者を急所工夫】「VCが支配するデジタルメディアは読者より出資者を優先しがちだ」と大手Viceから独立した敏腕記者4名が設立し、自前のGhostブログで年商3億円・初年度から完全黒字を叩き出す調査報道ギルド",
       "moatType": "SWITCHING_COST",
       "moatDescription": "独立記者ギルドによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手メディアは「何十人もの役員、営業マン、中間管理職」の給料を払うために常に赤字に陥る。",
@@ -2094,7 +2094,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "ticker": "ACQR.POD",
     "name": "Acquired",
     "legalEntity": "Acquired Media LLC",
-    "tagline": "3〜4時間の超長尺で企業の成功と資本の裏帳簿を解剖し、エリート投資家・経営者100万人の耳をジャックして年間広告枠18億円を即日完売させるポッドキャストの頂点",
+    "tagline": "3〜4時間の超長尺で企業の成功と資本の財務・戦略データを解剖し、エリート投資家・経営者100万人の耳をジャックして年間広告枠18億円を即日完売させるポッドキャストの頂点",
     "sector": "CONTENT_MEDIA",
     "scale": "SMALL_TEAM",
     "founder": "Ben Gilbert, David Rosenthal",
@@ -2136,8 +2136,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_acqr_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】「誰もやらないレベルの狂気のリサーチ」で超長尺化し、スポンサーを年間契約で縛るコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】「誰もやらないレベルの狂気のリサーチ」で超長尺化し、スポンサーを年間契約で縛るコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "1本の番組に100時間のリサーチを注ぎ込んで映画のような傑作を作り、1回の広告出稿で数千万円を抜く。",
         "details": [
@@ -2179,7 +2179,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_acqr_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：B2B超大手企業の「エリート層にだけ刺さるブランディング」予算",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "一般大衆向けのTVCMを打っても意味がないB2B巨頭（クラウド、投資銀行、ERP）の巨額宣伝枠。",
         "details": [
@@ -2245,7 +2245,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【シリコンバレーのエリートビジネスマンやVCの「浅いニュースでは満たされない知的飢餓感」と「ライバルに知識で負けたくない恐怖」を急所ハック】3〜4時間の超長尺で企業の成功と資本の裏帳簿を解剖し、エリート投資家・経営者100万人の耳をジャックして年間広告枠18億円を即日完売させるポッドキャストの頂点",
+      "blindspot": "【シリコンバレーのエリートビジネスマンやVCの「浅いニュースでは満たされない知的飢餓感」と「ライバルに知識で負けたくない恐怖」を急所工夫】3〜4時間の超長尺で企業の成功と資本の財務・戦略データを解剖し、エリート投資家・経営者100万人の耳をジャックして年間広告枠18億円を即日完売させるポッドキャストの頂点",
       "moatType": "SWITCHING_COST",
       "moatDescription": "高密度独占メディアによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手放送局の社員記者は、1本の音声番組に1ヶ月の無給残業リサーチを注ぎ込むことができない。",
@@ -2268,7 +2268,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "ticker": "TWO.PM",
     "name": "2PM",
     "legalEntity": "2PM, Inc.",
-    "tagline": "「データとコマースが交差する未来」を冷徹に予測し、小売・ブランド幹部から年額$200〜$1,000のエグゼクティブ会員費を吸い上げるコマースインテリジェンスの関所",
+    "tagline": "「データとコマースが交差する未来」を冷徹に予測し、小売・ブランド幹部から年額$200〜$1,000のエグゼクティブ会員費を吸い上げるコマースインテリジェンスの収益モデル",
     "sector": "CONTENT_MEDIA",
     "scale": "SOLO",
     "founder": "Web Smith",
@@ -2310,8 +2310,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_2pm_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】業界の「最先端のデータと力学」を抽象化し、法人の経費精算枠で高額課金するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】業界の「最先端のデータと力学」を抽象化し、法人の経費精算枠で高額課金するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "一般人が読んでも理解できない高度なリテール分析を書き、ブランド幹部の会社の財布から年額数十万円を落とさせる。",
         "details": [
@@ -2353,7 +2353,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_2pm_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：取締役会で「次のトレンドを把握していない」と叱責される役員の恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "競合ブランドの戦略や新しい流通チャネルの台頭を見落とし、経営会議で恥をかきたくない幹部の保身。",
         "details": [
@@ -2419,7 +2419,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【小売・D2Cのトレンド変化を見誤って数億円の在庫爆死や広告費溶かしをしたくないブランド役員の防衛本能を急所ハック】「データとコマースが交差する未来」を冷徹に予測し、小売・ブランド幹部から年額$200〜$1,000のエグゼクティブ会員費を吸い上げるコマースインテリジェンスの関所",
+      "blindspot": "【小売・D2Cのトレンド変化を見誤って数億円の在庫爆死や広告費溶かしをしたくないブランド役員の防衛本能を急所工夫】「データとコマースが交差する未来」を冷徹に予測し、小売・ブランド幹部から年額$200〜$1,000のエグゼクティブ会員費を吸い上げるコマースインテリジェンスの収益モデル",
       "moatType": "COUNTER_POSITIONING",
       "moatDescription": "特化型インテリジェンスによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手ファッション誌は「ブランドからの広告出稿」に縛られており、ブランドのビジネスモデルの欠陥を書けない。",
@@ -2450,7 +2450,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "url": "https://thomasjfrank.com",
     "verifiedBadge": true,
     "growthRateYoY": 25,
-    "architecturePattern": "公式寄生デジタル職人",
+    "architecturePattern": "公式プラットフォーム連携デジタル職人",
     "pipelineStack": "Thomas Frank Explains（YouTube特化チャンネル） × Notion公式認定 × Gumroad/Lemon Squeezy決済 × Fly.io自作API",
     "targetPainWallet": "Notionを使いこなせずタスク管理が破綻して毎日自己嫌悪に陥る知的生産者 ＆ 自作する時間の惜しい多忙なフリーランス",
     "tags": [
@@ -2484,8 +2484,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_tf_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】巨大プラットフォームの「使いにくさ」を埋める完成品を作り、広告費ゼロで売り抜くコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】巨大プラットフォームの「使いにくさ」を埋める完成品を作り、広告費ゼロで売り抜くコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「白紙すぎて何から始めればいいか分からない」Notion難民に、1クリックで複製できる完全体システムを$99で売る。",
         "details": [
@@ -2493,7 +2493,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
           "【無料チュートリアルで圧倒的価値提供】: 2時間の完全マニュアル動画を無料で公開し、「動画を見ながら自分で組むか、99ドルで今すぐ完成版を手に入れるか」の究極の二者択一を迫る。",
           "【自作APIツール（Fly.io）による差別化】: 単なる見た目のテンプレートではなく、Notion APIを使ってGoogleカレンダーと双方向同期する独自ツールを開発し競合を無力化。"
         ],
-        "codeSnippet": "// プラットフォーム寄生型デジタルプロダクト配管\n1. 急成長しているノーコード/SaaS（Notion, Airtable, Webflow）の「初期設定の難しさ」を特定\n2. 初心者が即戦力で使えるオールインワンの完成型ワークスペースを構築\n3. YouTubeで「世界で一番わかりやすい解説動画」を投稿し、概要欄から自社テンプレへ直結",
+        "codeSnippet": "// プラットフォームプラットフォーム連携型デジタルプロダクト配管\n1. 急成長しているノーコード/SaaS（Notion, Airtable, Webflow）の「初期設定の難しさ」を特定\n2. 初心者が即戦力で使えるオールインワンの完成型ワークスペースを構築\n3. YouTubeで「世界で一番わかりやすい解説動画」を投稿し、概要欄から自社テンプレへ直結",
         "sourceNote": "Thomas Frank \"How I Make $100,000/Month Selling Notion Templates\""
       },
       {
@@ -2527,7 +2527,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_tf_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「自分の生産性システムを組むのに何十時間も溶かしたくない」知的労働者の時間節約",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "Notionの構築に週末の10時間を費やして挫折したビジネスマンの極度の徒労感。",
         "details": [
@@ -2593,9 +2593,9 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【Notionを使いこなせずタスク管理が破綻して毎日自己嫌悪に陥る知的生産者 ＆ 自作する時間の惜しい多忙なフリーランスを急所ハック】290万人の登録者を誇るメインYouTubeを捨ててNotion解説に全振りし、単価$99のテンプレートとAPI教材で月商1,800万円・粗利95%を稼ぎ出すデジタル職人の頂点",
+      "blindspot": "【Notionを使いこなせずタスク管理が破綻して毎日自己嫌悪に陥る知的生産者 ＆ 自作する時間の惜しい多忙なフリーランスを急所工夫】290万人の登録者を誇るメインYouTubeを捨ててNotion解説に全振りし、単価$99のテンプレートとAPI教材で月商1,800万円・粗利95%を稼ぎ出すデジタル職人の頂点",
       "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "公式寄生デジタル職人による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "moatDescription": "公式プラットフォーム連携デジタル職人による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "Notion公式は「自由な白紙のキャンバス」であることが最大の売りであり、特定ワークフローを押し付けられない。",
       "secretInsight": "大手が『機能の網羅性』で勝負する間、Thomas Frankは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
@@ -2608,7 +2608,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "【無料チュートリアルで圧倒的価値提供】: 2時間の完全マニュアル動画を無料で公開し、「動画を見ながら自分で組むか、99ドルで今すぐ完成版を手に入れるか」の究極の二者択一を迫る。",
         "【自作APIツール（Fly.io）による差別化】: 単なる見た目のテンプレートではなく、Notion APIを使ってGoogleカレンダーと双方向同期する独自ツールを開発し競合を無力化。"
       ],
-      "coldOutreachTemplate": "// プラットフォーム寄生型デジタルプロダクト配管\n1. 急成長しているノーコード/SaaS（Notion, Airtable, Webflow）の「初期設定の難しさ」を特定\n2. 初心者が即戦力で使えるオールインワンの完成型ワークスペースを構築\n3. YouTubeで「世界で一番わかりやすい解説動画」を投稿し、概要欄から自社テンプレへ直結"
+      "coldOutreachTemplate": "// プラットフォームプラットフォーム連携型デジタルプロダクト配管\n1. 急成長しているノーコード/SaaS（Notion, Airtable, Webflow）の「初期設定の難しさ」を特定\n2. 初心者が即戦力で使えるオールインワンの完成型ワークスペースを構築\n3. YouTubeで「世界で一番わかりやすい解説動画」を投稿し、概要欄から自社テンプレへ直結"
     }
   },
   {
@@ -2658,8 +2658,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_ah_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】自前の実験サイトで数万ドルの検証データを晒し、最高額の攻略本を売るコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】自前の実験サイトで数万ドルの検証データを晒し、最高額の攻略本を売るコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「理論ではなく実際のGoogle検索で何が起きたか」を100万語のケーススタディで公開し、講座を即決させる。",
         "details": [
@@ -2701,7 +2701,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_ah_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：会社の給料だけに依存しているサラリーマンの将来破滅恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「いつクビになるか分からない」という雇用の不安と、副業で月100万円の自動収入を作りたい強烈な欲望。",
         "details": [
@@ -2767,7 +2767,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【Googleコアアップデートで自社サイトが圏外に吹き飛び毎月の広告収入が即死したアフィリエイター・副業挑戦者の絶望を急所ハック】「SEOの欺瞞と綺麗事を完全排除する」と冷徹なデータ検証ポッドキャストを武器に、高単価オンライン実践講座とコミュニティで年商7.5億円を稼ぎ出すアフィリエイトの虎",
+      "blindspot": "【Googleコアアップデートで自社サイトが圏外に吹き飛び毎月の広告収入が即死したアフィリエイター・副業挑戦者の絶望を急所工夫】「SEOの欺瞞と綺麗事を完全排除する」と冷徹なデータ検証ポッドキャストを武器に、高単価オンライン実践講座とコミュニティで年商7.5億円を稼ぎ出すアフィリエイトの虎",
       "moatType": "SWITCHING_COST",
       "moatDescription": "高額教育ギルドによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手コンサルは「月額100万円の受託運用契約」を売りたいため、自社のノウハウをすべて講座で公開できない。",
@@ -2798,7 +2798,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "url": "https://www.100daysofnocode.com",
     "verifiedBadge": true,
     "growthRateYoY": 35,
-    "architecturePattern": "習慣化ハックコミュニティ",
+    "architecturePattern": "習慣化工夫コミュニティ",
     "pipelineStack": "Circleコミュニティ × Twitter #100DaysOfNoCodeハッシュタグ × Zapier/Airtable/Softr演習 × 年額$250〜$750パス",
     "targetPainWallet": "何回PythonやJavaScriptの入門書を買っても1章で挫折した文系ビジネスマンの「自分はアプリを作れない」劣等感",
     "tags": [
@@ -2832,8 +2832,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_100d_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】生徒自身に「#100DaysOfNoCode」と毎日ツイートさせ、広告費ゼロで集客し続けるコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】生徒自身に「#100DaysOfNoCode」と毎日ツイートさせ、広告費ゼロで集客し続けるコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「毎日の学習記録をSNSで報告すること」を受講ルールにし、全受講生を無給の宣伝インフルエンサーにする。",
         "details": [
@@ -2875,7 +2875,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_100d_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「エンジニアにアイデアをバカにされる」非技術者の屈辱",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "新規事業のアイデアがあっても、社内のエンジニアに「工数が足りない」「仕様が甘い」と一蹴される営業マンの怒り。",
         "details": [
@@ -2941,9 +2941,9 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【何回PythonやJavaScriptの入門書を買っても1章で挫折した文系ビジネスマンの「自分はアプリを作れない」劣等感を急所ハック】「プログラミングを学ぶな、1日30分ツールを繋げ」と非エンジニアの挫折感を救済し、100日間の公開コミットメント習慣化で年商8,000万円を稼ぎ出すノーコード学習村",
+      "blindspot": "【何回PythonやJavaScriptの入門書を買っても1章で挫折した文系ビジネスマンの「自分はアプリを作れない」劣等感を急所工夫】「プログラミングを学ぶな、1日30分ツールを繋げ」と非エンジニアの挫折感を救済し、100日間の公開コミットメント習慣化で年商8,000万円を稼ぎ出すノーコード学習村",
       "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "習慣化ハックコミュニティによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "moatDescription": "習慣化工夫コミュニティによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "既存のプログラミングスクールは「1人100万円の学費」を取る重厚なカリキュラムに囚われている。",
       "secretInsight": "大手が『機能の網羅性』で勝負する間、100 Days of No Codeは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
@@ -2964,7 +2964,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "ticker": "BMC.CAFE",
     "name": "Buy Me a Coffee",
     "legalEntity": "Buy Me a Coffee, Inc.",
-    "tagline": "「Patreonの重たい月額登録フォームを誰も書きたくない」という痛みを突き、ログイン不要・1クリックで$5の投げ銭を決済させて年商15億円・手数料5%を中抜きする関所",
+    "tagline": "「Patreonの重たい月額登録フォームを誰も書きたくない」という痛みを突き、ログイン不要・1クリックで$5の投げ銭を決済させて年商15億円・手数料5%を中抜きする収益モデル",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
     "founder": "Jihan Zheng, Joseph Sunny",
@@ -2972,7 +2972,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "url": "https://www.buymeacoffee.com",
     "verifiedBadge": true,
     "growthRateYoY": 30,
-    "architecturePattern": "摩擦ゼロ投げ銭関所",
+    "architecturePattern": "摩擦ゼロ投げ銭収益モデル",
     "pipelineStack": "Stripe Connect × Apple Pay/Google Pay 1タップ決済 × クリエイター個人ページ × 手数料5%自動徴収",
     "targetPainWallet": "ファンから少額の支援をもらいたいのに、会員登録やクレカ入力の面倒さで9割が決済前に離脱するクリエイターの無念",
     "tags": [
@@ -3006,8 +3006,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_bmc_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】寄付を「コーヒー1杯奢る（$5）」という極小の比喩にすり替え、決済摩擦をゼロにするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】寄付を「コーヒー1杯奢る（$5）」という極小の比喩にすり替え、決済摩擦をゼロにするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「パトロンになって毎月寄付してくれ」という重たい要求を、「コーヒー1杯ご馳走して」に変える。",
         "details": [
@@ -3049,7 +3049,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_bmc_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：無料コンテンツを毎日消費しているファンの後ろめたさ",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「いつも有益な無料記事やツールを使わせてもらっているのに、何もお礼をしていない」という罪悪感。",
         "details": [
@@ -3115,9 +3115,9 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【ファンから少額の支援をもらいたいのに、会員登録やクレカ入力の面倒さで9割が決済前に離脱するクリエイターの無念を急所ハック】「Patreonの重たい月額登録フォームを誰も書きたくない」という痛みを突き、ログイン不要・1クリックで$5の投げ銭を決済させて年商15億円・手数料5%を中抜きする関所",
+      "blindspot": "【ファンから少額の支援をもらいたいのに、会員登録やクレカ入力の面倒さで9割が決済前に離脱するクリエイターの無念を急所工夫】「Patreonの重たい月額登録フォームを誰も書きたくない」という痛みを突き、ログイン不要・1クリックで$5の投げ銭を決済させて年商15億円・手数料5%を中抜きする収益モデル",
       "moatType": "SWITCHING_COST",
-      "moatDescription": "摩擦ゼロ投げ銭関所による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "moatDescription": "摩擦ゼロ投げ銭収益モデルによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "Patreonは「月額サブスクリプション」を前提とした重厚な会員制プラットフォームとして巨額調達してしまった。",
       "secretInsight": "大手が『機能の網羅性』で勝負する間、Buy Me a Coffeeは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
@@ -3154,7 +3154,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       "年商150億超",
       "Gartner買収",
       "PPC広告モデル",
-      "関所ビジネス"
+      "収益モデルビジネス"
     ],
     "pnl": {
       "monthlyRevenue": 1250000000,
@@ -3180,8 +3180,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_cptr_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】客にギフト券を配ってクチコミを集め、競合同士に入札競争させてクリック課金するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】客にギフト券を配ってクチコミを集め、競合同士に入札競争させてクリック課金するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「CRM 比較」「会計ソフト おすすめ」の検索1位に居座り、掲載企業から1クリック数千円を自動徴収する。",
         "details": [
@@ -3223,7 +3223,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_cptr_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「誰もIBMを選んでクビになった者はいない」という企業の保身本能",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "社内ツールの選定で失敗して社長や役員から激怒されたくない情シス担当者の防衛心理。",
         "details": [
@@ -3289,7 +3289,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【「ソフトウェアを導入して大失敗し社内で降格・クビになる恐怖」に怯える企業の情報システム部長・総務部長を急所ハック】「ギフト券$20をあげるからレビューを書いて」とユーザーを釣って本物のクチコミを集め、SaaS企業から1クリック$50のPPC広告費を抜き続けるB2B比較サイトの胴元",
+      "blindspot": "【「ソフトウェアを導入して大失敗し社内で降格・クビになる恐怖」に怯える企業の情報システム部長・総務部長を急所工夫】「ギフト券$20をあげるからレビューを書いて」とユーザーを釣って本物のクチコミを集め、SaaS企業から1クリック$50のPPC広告費を抜き続けるB2B比較サイトの胴元",
       "moatType": "SWITCHING_COST",
       "moatDescription": "レビュー胴元アグリゲーターによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "Googleマップは飲食店やホテルのレビューには強いが、数千万円のエンタープライズERPの検証はできない。",
@@ -3312,7 +3312,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "ticker": "FLOW.BASE",
     "name": "Flowbase",
     "legalEntity": "Flowbase Pty Ltd",
-    "tagline": "「WebflowやFramerでゼロからボタンやナビゲーションを作る時間をドブに捨てるな」とデザイナーの怠惰を突き、コピペ可能なパーツ集で年商3億円・粗利90%を稼ぐコンポーネントの関所",
+    "tagline": "「WebflowやFramerでゼロからボタンやナビゲーションを作る時間をドブに捨てるな」とデザイナーの怠惰を突き、コピペ可能なパーツ集で年商3億円・粗利90%を稼ぐコンポーネントの収益モデル",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
     "founder": "Tom Geurts",
@@ -3320,7 +3320,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "url": "https://www.flowbase.co",
     "verifiedBadge": true,
     "growthRateYoY": 25,
-    "architecturePattern": "コピペパーツ関所",
+    "architecturePattern": "コピペパーツ収益モデル",
     "pipelineStack": "Webflow/Framer拡張機能 × Chrome Extension × Stripe年額サブスク（$199〜$399）",
     "targetPainWallet": "納期に追われ睡眠不足で死にそうなWeb制作会社のデザイナー ＆ HTML/CSSが書けないノーコード受託者",
     "tags": [
@@ -3354,16 +3354,16 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_flwb_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】ノーコード開発画面にプラグインとして常駐し、「右クリック1回でパーツ挿入」を課金化するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】ノーコード開発画面にプラグインとして常駐し、「右クリック1回でパーツ挿入」を課金化するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "Webflowの編集画面の中に直接入り込み、美しく作られたヘッダーやPricingテーブルを1秒でコピペさせる。",
         "details": [
-          "【ワークフローへの完全な寄生】: 独立したWebサイトに行かせるのではなく、Webflowの公式拡張機能（Apps）としてエディタ内に常駐。",
+          "【ワークフローへの完全なプラットフォーム連携】: 独立したWebサイトに行かせるのではなく、Webflowの公式拡張機能（Apps）としてエディタ内に常駐。",
           "【本体無料のおびき寄せ罠】: 100種類以上の基本パーツを完全無料でコピーさせ、高度なアニメーション付きコンポーネントで年額プランへロックイン。",
           "【クライアント納期の短縮による投資回収】: 「1つのWebサイトの制作時間が10時間短縮される」ため、受託制作会社にとって年額$299は案件1件で10倍回収できる計算。"
         ],
-        "codeSnippet": "// エコシステム寄生型コンポーネントライブラリ配管\n1. WebflowやFramerの公式アプリストア/拡張機能としてプラグインを公開\n2. 500以上のUIコンポーネント（ナビゲーション、ヒーロー、FAQ、フッター）を事前作成\n3. 年額サブスク（¥45,000）で全コンポーネントの無制限コピペ権限を付与",
+        "codeSnippet": "// エコシステムプラットフォーム連携型コンポーネントライブラリ配管\n1. WebflowやFramerの公式アプリストア/拡張機能としてプラグインを公開\n2. 500以上のUIコンポーネント（ナビゲーション、ヒーロー、FAQ、フッター）を事前作成\n3. 年額サブスク（¥45,000）で全コンポーネントの無制限コピペ権限を付与",
         "sourceNote": "Tom Geurts 創業インタビュー"
       },
       {
@@ -3397,7 +3397,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_flwb_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：明日の朝までにクライアントに初稿を出さなければいけないデザイナーの絶望",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "深夜2時にゼロからレスポンシブ対応のナビゲーションを組む地獄の作業時間。",
         "details": [
@@ -3463,9 +3463,9 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【納期に追われ睡眠不足で死にそうなWeb制作会社のデザイナー ＆ HTML/CSSが書けないノーコード受託者を急所ハック】「WebflowやFramerでゼロからボタンやナビゲーションを作る時間をドブに捨てるな」とデザイナーの怠惰を突き、コピペ可能なパーツ集で年商3億円・粗利90%を稼ぐコンポーネントの関所",
+      "blindspot": "【納期に追われ睡眠不足で死にそうなWeb制作会社のデザイナー ＆ HTML/CSSが書けないノーコード受託者を急所工夫】「WebflowやFramerでゼロからボタンやナビゲーションを作る時間をドブに捨てるな」とデザイナーの怠惰を突き、コピペ可能なパーツ集で年商3億円・粗利90%を稼ぐコンポーネントの収益モデル",
       "moatType": "SWITCHING_COST",
-      "moatDescription": "コピペパーツ関所による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "moatDescription": "コピペパーツ収益モデルによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "プラットフォーム本体（Webflow）は「ツールの開発」に手一杯で、デザインパーツの流行を追い切れない。",
       "secretInsight": "大手が『機能の網羅性』で勝負する間、Flowbaseは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
@@ -3474,11 +3474,11 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "パーツ数が増えた段階で独自サイト「Flowbase」を立ち上げ、プロ向けプレミアムサブスクを導入。"
       ],
       "actionPlaybook": [
-        "【ワークフローへの完全な寄生】: 独立したWebサイトに行かせるのではなく、Webflowの公式拡張機能（Apps）としてエディタ内に常駐。",
+        "【ワークフローへの完全なプラットフォーム連携】: 独立したWebサイトに行かせるのではなく、Webflowの公式拡張機能（Apps）としてエディタ内に常駐。",
         "【本体無料のおびき寄せ罠】: 100種類以上の基本パーツを完全無料でコピーさせ、高度なアニメーション付きコンポーネントで年額プランへロックイン。",
         "【クライアント納期の短縮による投資回収】: 「1つのWebサイトの制作時間が10時間短縮される」ため、受託制作会社にとって年額$299は案件1件で10倍回収できる計算。"
       ],
-      "coldOutreachTemplate": "// エコシステム寄生型コンポーネントライブラリ配管\n1. WebflowやFramerの公式アプリストア/拡張機能としてプラグインを公開\n2. 500以上のUIコンポーネント（ナビゲーション、ヒーロー、FAQ、フッター）を事前作成\n3. 年額サブスク（¥45,000）で全コンポーネントの無制限コピペ権限を付与"
+      "coldOutreachTemplate": "// エコシステムプラットフォーム連携型コンポーネントライブラリ配管\n1. WebflowやFramerの公式アプリストア/拡張機能としてプラグインを公開\n2. 500以上のUIコンポーネント（ナビゲーション、ヒーロー、FAQ、フッター）を事前作成\n3. 年額サブスク（¥45,000）で全コンポーネントの無制限コピペ権限を付与"
     }
   },
   {
@@ -3494,7 +3494,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "url": "https://simple.ink",
     "verifiedBadge": true,
     "growthRateYoY": 40,
-    "architecturePattern": "寄生型Webサイト化",
+    "architecturePattern": "プラットフォーム連携型Webサイト化",
     "pipelineStack": "Cloudflare Workers × Notion APIキャッシュ × Stripe月額サブスク（$12/月〜）",
     "targetPainWallet": "Webサイトを持ちたいが、WordPressの設定が難しくて吐き気がする個人起業家やポートフォリオ難民",
     "tags": [
@@ -3528,8 +3528,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_sink_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】世界一使いやすいNotionを「CMS（記事投稿画面）」に見立てて、ドメイン代と月額費を抜くコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】世界一使いやすいNotionを「CMS（記事投稿画面）」に見立てて、ドメイン代と月額費を抜くコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "Notionの共有リンクを貼り付けるだけで、独自ドメイン・高速表示・SEOタグ対応のWebサイトを即時生成する。",
         "details": [
@@ -3571,7 +3571,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_sink_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「今週末までに自分のポートフォリオを公開したい」フリーランスの焦燥",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "案件に応募するために自分の実績サイトが必要なのに、サイト制作で何日も足止めを食らう焦り。",
         "details": [
@@ -3637,9 +3637,9 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【Webサイトを持ちたいが、WordPressの設定が難しくて吐き気がする個人起業家やポートフォリオ難民を急所ハック】「WordPressのサーバー管理もプラグイン更新も嫌悪する」ズボラなNotionユーザーを狙い、Notionページを1クリックでSEO爆速Webサイトに変えて年商2億円でバイアウトされたマイクロSaaS",
+      "blindspot": "【Webサイトを持ちたいが、WordPressの設定が難しくて吐き気がする個人起業家やポートフォリオ難民を急所工夫】「WordPressのサーバー管理もプラグイン更新も嫌悪する」ズボラなNotionユーザーを狙い、Notionページを1クリックでSEO爆速Webサイトに変えて年商2億円でバイアウトされたマイクロSaaS",
       "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "寄生型Webサイト化による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
+      "moatDescription": "プラットフォーム連携型Webサイト化による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "WordPressは「何千もの設定項目、プラグインの互換性問題、セキュリティパッチ」で肥大化しすぎた。",
       "secretInsight": "大手が『機能の網羅性』で勝負する間、Simple Inkは『直感の1クリックと痛みの即時解消』に全リソースを集中して粗利を独占している。",
       "initialTraction": [
@@ -3660,7 +3660,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
     "ticker": "GRID.FITI",
     "name": "Gridfiti",
     "legalEntity": "Gridfiti Media Inc.",
-    "tagline": "「Notionのテンプレートやデスク周辺機器のおすすめ」をSEO上位で独占し、他人のデジタル商品やAmazonアフィリエイトから年商1.2億円の手数料を吸い上げるキュレーションの関所",
+    "tagline": "「Notionのテンプレートやデスク周辺機器のおすすめ」をSEO上位で独占し、他人のデジタル商品やAmazonアフィリエイトから年商1.2億円の手数料を吸い上げるキュレーションの収益モデル",
     "sector": "CONTENT_MEDIA",
     "scale": "SMALL_TEAM",
     "founder": "Patrick Sullivan",
@@ -3702,8 +3702,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_grdf_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】自前で商品は作らず、「おすすめ30選」の記事を書いて売上の30%を永久中抜きするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】自前で商品は作らず、「おすすめ30選」の記事を書いて売上の30%を永久中抜きするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "世界中のクリエイターが心血を注いで作ったNotionテンプレートをキュレーションし、購入手数料を中抜きする。",
         "details": [
@@ -3745,7 +3745,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_grdf_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：殺風景な部屋でやる気が出ないリモートワーカーの現実逃避",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「デスク環境やNotionさえ整えば、自分はもっとバリバリ働けるはずだ」という幻想。",
         "details": [
@@ -3811,7 +3811,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【自分の作業机やNotionを美しく整えて仕事のやる気を出したいデスクワーカーの「形から入りたい」虚栄心を急所ハック】「Notionのテンプレートやデスク周辺機器のおすすめ」をSEO上位で独占し、他人のデジタル商品やAmazonアフィリエイトから年商1.2億円の手数料を吸い上げるキュレーションの関所",
+      "blindspot": "【自分の作業机やNotionを美しく整えて仕事のやる気を出したいデスクワーカーの「形から入りたい」虚栄心を急所工夫】「Notionのテンプレートやデスク周辺機器のおすすめ」をSEO上位で独占し、他人のデジタル商品やAmazonアフィリエイトから年商1.2億円の手数料を吸い上げるキュレーションの収益モデル",
       "moatType": "SWITCHING_COST",
       "moatDescription": "SEOアグリゲーターによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "大手テックブログは「新しいiPhoneの噂」などの大衆ウケ記事に追われ、ニッチなまとめ記事を放置。",
@@ -3876,8 +3876,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_cnva_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】プロ用ツールの機能を90%削ぎ落とし、「テンプレートを選ぶだけ」にして全人類に課金するコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】プロ用ツールの機能を90%削ぎ落とし、「テンプレートを選ぶだけ」にして全人類に課金するコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "Adobeがプロのデザイナー向けに高度化していく隙を突き、「デザインができない99%の素人」を総取りする。",
         "details": [
@@ -3919,7 +3919,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_cnva_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：プロのデザイナーに頼む金も時間もない中小企業・起業家の絶望",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「バナー1枚作るのにデザイナーに見積もりを取って1週間待たされる」というビジネスの遅延。",
         "details": [
@@ -3985,7 +3985,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【チラシやSNSバナーを1枚作るためだけにAdobeに月7,000円払い、使い方を何週間も勉強させられる一般人の苦痛を急所ハック】「Photoshopの難解なレイヤーやツールバーに絶望した」全人類を救い、ブラウザ上のドラッグ＆ドロップだけで年商3,000億円・企業価値3.9兆円を築いたデザイン民主化の絶対王者",
+      "blindspot": "【チラシやSNSバナーを1枚作るためだけにAdobeに月7,000円払い、使い方を何週間も勉強させられる一般人の苦痛を急所工夫】「Photoshopの難解なレイヤーやツールバーに絶望した」全人類を救い、ブラウザ上のドラッグ＆ドロップだけで年商3,000億円・企業価値3.9兆円を築いたデザイン民主化の絶対王者",
       "moatType": "SWITCHING_COST",
       "moatDescription": "本体無料・機能人質による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "Adobeの最大の支持基盤は「何年間も修行してショートカットを極めたプロのデザイナー」だった。",
@@ -4050,10 +4050,10 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_ahrf_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】AWSを使わず自前サーバーで原価を1/5にし、営業マンを1人も雇わずに売り抜くコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】AWSを使わず自前サーバーで原価を1/5にし、営業マンを1人も雇わずに売り抜くコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
-        "punchline": "Googleに次ぐ世界第2位のクローラーを自前運用し、SEOに関わる全企業から年数十万円の関所税を吸い上げる。",
+        "punchline": "Googleに次ぐ世界第2位のクローラーを自前運用し、SEOに関わる全企業から年数十万円の収益モデル税を吸い上げる。",
         "details": [
           "【自前データセンターによる原価破壊】: AWSなどのクラウドを使えば月数十億円かかるペタバイト級データを、自前の物理サーバー（シンガポール等）で運用し原価率を激減。",
           "【営業部隊完全ゼロの製品主導（PLG）】: 電話営業や商談を一切行わず、自社YouTubeのチュートリアルと無料Webmaster Toolsでエンジニアを直接有料化。",
@@ -4093,7 +4093,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_ahrf_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：自社サイトの検索流入が落ちて会社が潰れる恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "SEOで毎月数千万円の売上を立てている企業の「順位下落の原因が分からない」パニック。",
         "details": [
@@ -4159,7 +4159,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・SEOエージェンシーを急所ハック】自前のAhrefsBotで世界中のWebを24時間クロールし、VC資金ゼロ・営業マンゼロのまま年商225億円・利益率55%を叩き出すブートストラップSEO帝国の頂点",
+      "blindspot": "【Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・SEOエージェンシーを急所工夫】自前のAhrefsBotで世界中のWebを24時間クロールし、VC資金ゼロ・営業マンゼロのまま年商225億円・利益率55%を叩き出すブートストラップSEO帝国の頂点",
       "moatType": "SWITCHING_COST",
       "moatDescription": "自前インフラ要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "競合のSEMrushは上場企業として「巨額のマーケティング費と営業人件費」を投じている。",
@@ -4224,8 +4224,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_1p_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】買い切りソフトから月額サブスクへ強制移行し、全社員の認証情報を人質にするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】買い切りソフトから月額サブスクへ強制移行し、全社員の認証情報を人質にするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "個人用Macソフトとして愛された後、企業のIT管理者が全社員に強制導入するB2B SaaSへ化けさせる。",
         "details": [
@@ -4267,7 +4267,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_1p_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：CIO（最高情報責任者）が情報漏洩で即日クビになる恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "社員が簡単なパスワードを使って不正アクセスされ、数億円の身代金ウイルスに感染する悪夢。",
         "details": [
@@ -4333,7 +4333,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【パスワード使い回しで顧客データが漏洩し、数億円の賠償金とブランド失墜で会社が倒産する企業のセキュリティ恐怖を急所ハック】14年間VC資金を1ドルも入れず完全ブートストラップ黒字経営を貫き、企業の全社員のマスターキーを人質にしてARR 600億円・解約率1%未満を支配する要塞SaaS",
+      "blindspot": "【パスワード使い回しで顧客データが漏洩し、数億円の賠償金とブランド失墜で会社が倒産する企業のセキュリティ恐怖を急所工夫】14年間VC資金を1ドルも入れず完全ブートストラップ黒字経営を貫き、企業の全社員のマスターキーを人質にしてARR 600億円・解約率1%未満を支配する要塞SaaS",
       "moatType": "SWITCHING_COST",
       "moatDescription": "人質暗号要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "競合LastPassがハッキングされ暗号化ボルトが流出する大失態を犯し、数万社が一斉に逃げ込んできた。",
@@ -4398,8 +4398,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_bitw_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】コードを100%公開して世界中のハッカーに無料監査させ、法人の信頼を掠め取るコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】コードを100%公開して世界中のハッカーに無料監査させ、法人の信頼を掠め取るコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「中身が見えない商用ソフトを信じるな」と叫び、ソースコード全公開で世界最強の信頼を獲得する。",
         "details": [
@@ -4407,7 +4407,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
           "【年額10ドル（月100円強）の破格プライス】: 1Passwordが月額$3（年$36）取る中、個人プレミアムを「年額$10」という捨て値で提供し、パイを総取り。",
           "【自前サーバー運用（Docker）の自由】: クラウドにデータを置きたくない金融機関や政府機関向けに、自前サーバー（オンプレミス）で動かせるDockerコンテナを提供してエンタープライズを囲い込み。"
         ],
-        "codeSnippet": "// OSS信頼略奪型配管\n1. 競合が高価格・ブラックボックスで提供しているセキュリティツールを特定\n2. 同等の暗号化機能をオープンソースで公開し、完全無料・自前ホスト可能にする\n3. 「年額$10の2要素認証強化」および「法人の一括管理コンソール（月額$3/人）」でマネタイズ",
+        "codeSnippet": "// OSS信頼獲得型配管\n1. 競合が高価格・ブラックボックスで提供しているセキュリティツールを特定\n2. 同等の暗号化機能をオープンソースで公開し、完全無料・自前ホスト可能にする\n3. 「年額$10の2要素認証強化」および「法人の一括管理コンソール（月額$3/人）」でマネタイズ",
         "sourceNote": "Kyle Spearrin 創業ドキュメント"
       },
       {
@@ -4441,7 +4441,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_bitw_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「自分のパスワードを他人のクラウドに預けたくない」ギークの不信感",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "大手IT企業のサーバーがダウンしたりハッキングされたりした時の、データアクセス遮断への恐怖。",
         "details": [
@@ -4507,7 +4507,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【高額なプロプライエタリSaaSに機密データを預けることを拒否するセキュリティ原理主義者 ＆ 1Passwordに月10ドル払いたくない節約ギークを急所ハック】「1Passwordの値上げとプロプライエタリな秘密主義は許せない」というギークの怨嗟を受け止め、完全オープンソースで年商120億円・無料版で世界を制圧する透明性の要塞",
+      "blindspot": "【高額なプロプライエタリSaaSに機密データを預けることを拒否するセキュリティ原理主義者 ＆ 1Passwordに月10ドル払いたくない節約ギークを急所工夫】「1Passwordの値上げとプロプライエタリな秘密主義は許せない」というギークの怨嗟を受け止め、完全オープンソースで年商120億円・無料版で世界を制圧する透明性の要塞",
       "moatType": "SWITCHING_COST",
       "moatDescription": "OSS透明性要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "商用ソフトは「ソースコードそのもの」が企業価値であり、公開すると知財防衛が破綻する。",
@@ -4522,7 +4522,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "【年額10ドル（月100円強）の破格プライス】: 1Passwordが月額$3（年$36）取る中、個人プレミアムを「年額$10」という捨て値で提供し、パイを総取り。",
         "【自前サーバー運用（Docker）の自由】: クラウドにデータを置きたくない金融機関や政府機関向けに、自前サーバー（オンプレミス）で動かせるDockerコンテナを提供してエンタープライズを囲い込み。"
       ],
-      "coldOutreachTemplate": "// OSS信頼略奪型配管\n1. 競合が高価格・ブラックボックスで提供しているセキュリティツールを特定\n2. 同等の暗号化機能をオープンソースで公開し、完全無料・自前ホスト可能にする\n3. 「年額$10の2要素認証強化」および「法人の一括管理コンソール（月額$3/人）」でマネタイズ"
+      "coldOutreachTemplate": "// OSS信頼獲得型配管\n1. 競合が高価格・ブラックボックスで提供しているセキュリティツールを特定\n2. 同等の暗号化機能をオープンソースで公開し、完全無料・自前ホスト可能にする\n3. 「年額$10の2要素認証強化」および「法人の一括管理コンソール（月額$3/人）」でマネタイズ"
     }
   },
   {
@@ -4572,8 +4572,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_cal_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】アポ調整リンク自体が「最強のウイルス感染装置」として客を連れてくるコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】アポ調整リンク自体が「最強のウイルス感染装置」として客を連れてくるコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "日程調整リンクを相手に送るたびに、相手が「この洗練されたカレンダーは何だ？」と無料登録する。",
         "details": [
@@ -4615,7 +4615,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_cal_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：「空いてる日程をメールで5往復する」不毛な往復書簡の苦痛",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "「来週火曜日の14時はどうですか？」「あ、その日は埋まってまして水曜の15時は？」という時間のドブ捨て。",
         "details": [
@@ -4681,7 +4681,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【客に日程調整URLを送った瞬間に「あいつCalendlyの無料ロゴ使ってケチってるな」と舐められるビジネスマンの羞恥心を急所ハック】「Calendlyのロゴを勝手に表示させて相手にマウントを取られるな」とCalendlyの殿様商売を粉砕し、完全オープンソース＆自社ブランド白地化でARR 15億円を突破した日程調整の解放者",
+      "blindspot": "【客に日程調整URLを送った瞬間に「あいつCalendlyの無料ロゴ使ってケチってるな」と舐められるビジネスマンの羞恥心を急所工夫】「Calendlyのロゴを勝手に表示させて相手にマウントを取られるな」とCalendlyの殿様商売を粉砕し、完全オープンソース＆自社ブランド白地化でARR 15億円を突破した日程調整の解放者",
       "moatType": "SWITCHING_COST",
       "moatDescription": "ホワイトラベルOSSによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "時価総額30億ドルのCalendlyは「クラウド課金」を守るため、自前サーバー運用を絶対に許せない。",
@@ -4746,8 +4746,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_ap_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】既存APIを2つ繋ぎ、「推敲プロンプト」を工夫するだけで年商数千万円の不労所得を作るコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】既存APIを2つ繋ぎ、「推敲プロンプト」を工夫するだけで年商数千万円の不労所得を作るコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「Whisper（文字起こし）」と「GPT（文章校正）」を繋いだだけの極小ツールを、美しいUIで包んで売る。",
         "details": [
@@ -4789,7 +4789,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_ap_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：歩きながら・風呂上がりに思いついた素晴らしいアイデアを忘れる恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "散歩中や運転中に最高のビジネスアイデアを思いついても、スマホでフリック入力している間にアイデアが蒸発する絶望。",
         "details": [
@@ -4855,7 +4855,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【キーボードを前にすると指が止まり1文字も書けなくなるライターズブロック ＆ まとまらない思考の言語化苦痛を急所ハック】「頭の中のぐちゃぐちゃな独り言」をマイクに向かって喋るだけで、美しいブログ記事やメールに自動清書し、完全1人で年商3,500万円・粗利90%超をStripe着金させるAIマイクロSaaSの奇跡",
+      "blindspot": "【キーボードを前にすると指が止まり1文字も書けなくなるライターズブロック ＆ まとまらない思考の言語化苦痛を急所工夫】「頭の中のぐちゃぐちゃな独り言」をマイクに向かって喋るだけで、美しいブログ記事やメールに自動清書し、完全1人で年商3,500万円・粗利90%超をStripe着金させるAIマイクロSaaSの奇跡",
       "moatType": "COUNTER_POSITIONING",
       "moatDescription": "ソロAIラッパーによる参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "AppleやGoogleの純正メモアプリは「原音を忠実に残す」ことにとどまり、大胆な文章推敲をしてくれない。",
@@ -4920,8 +4920,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_aliabdaal_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】「生産性オタク」から高単価アカデミーへ流し込む教祖配管コード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】「生産性オタク」から高単価アカデミーへ流し込む教祖配管コード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "「医者・エリートが教える勉強法・仕事術」で信頼を極大化し、数千ドルのコホート講座で回収する。",
         "details": [
@@ -5148,10 +5148,10 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_ahrf_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】AWSを使わず自前サーバーで原価を1/5にし、営業マンを1人も雇わずに売り抜くコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】AWSを使わず自前サーバーで原価を1/5にし、営業マンを1人も雇わずに売り抜くコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
-        "punchline": "Googleに次ぐ世界第2位のクローラーを自前運用し、SEOに関わる全企業から年数十万円の関所税を吸い上げる。",
+        "punchline": "Googleに次ぐ世界第2位のクローラーを自前運用し、SEOに関わる全企業から年数十万円の収益モデル税を吸い上げる。",
         "details": [
           "【自前データセンターによる原価破壊】: AWSなどのクラウドを使えば月数十億円かかるペタバイト級データを、自前の物理サーバー（シンガポール等）で運用し原価率を激減。",
           "【営業部隊完全ゼロの製品主導（PLG）】: 電話営業や商談を一切行わず、自社YouTubeのチュートリアルと無料Webmaster Toolsでエンジニアを直接有料化。",
@@ -5191,7 +5191,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_ahrf_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：自社サイトの検索流入が落ちて会社が潰れる恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "SEOで毎月数千万円の売上を立てている企業の「順位下落の原因が分からない」パニック。",
         "details": [
@@ -5257,7 +5257,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・SEOエージェンシーを急所ハック】自前のAhrefsBotで世界中のWebを24時間クロールし、VC資金ゼロ・営業マンゼロのまま年商225億円・利益率55%を叩き出すブートストラップSEO帝国の頂点",
+      "blindspot": "【Google検索の順位が下がって売上が吹き飛ぶ恐怖に怯える全世界のWeb担当者・SEOエージェンシーを急所工夫】自前のAhrefsBotで世界中のWebを24時間クロールし、VC資金ゼロ・営業マンゼロのまま年商225億円・利益率55%を叩き出すブートストラップSEO帝国の頂点",
       "moatType": "SWITCHING_COST",
       "moatDescription": "自前インフラ要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "競合のSEMrushは上場企業として「巨額のマーケティング費と営業人件費」を投じている。",
@@ -5322,8 +5322,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       {
         "id": "ev_1p_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】買い切りソフトから月額サブスクへ強制移行し、全社員の認証情報を人質にするコード",
-        "badge": "略奪転用方程式",
+        "title": "【仕組みの転用】買い切りソフトから月額サブスクへ強制移行し、全社員の認証情報を人質にするコード",
+        "badge": "高収益ビジネスモデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "個人用Macソフトとして愛された後、企業のIT管理者が全社員に強制導入するB2B SaaSへ化けさせる。",
         "details": [
@@ -5365,7 +5365,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
         "id": "ev_1p_pain",
         "type": "THE_CRIME",
         "title": "人質にした痛みの財布：CIO（最高情報責任者）が情報漏洩で即日クビになる恐怖",
-        "badge": "サバンナOSの急所",
+        "badge": "顧客の本能・衝動の急所",
         "evidenceStatus": "VERIFIED",
         "punchline": "社員が簡単なパスワードを使って不正アクセスされ、数億円の身代金ウイルスに感染する悪夢。",
         "details": [
@@ -5431,7 +5431,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_3: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【パスワード使い回しで顧客データが漏洩し、数億円の賠償金とブランド失墜で会社が倒産する企業のセキュリティ恐怖を急所ハック】14年間VC資金を1ドルも入れず完全ブートストラップ黒字経営を貫き、企業の全社員のマスターキーを人質にしてARR 600億円・解約率1%未満を支配する要塞SaaS",
+      "blindspot": "【パスワード使い回しで顧客データが漏洩し、数億円の賠償金とブランド失墜で会社が倒産する企業のセキュリティ恐怖を急所工夫】14年間VC資金を1ドルも入れず完全ブートストラップ黒字経営を貫き、企業の全社員のマスターキーを人質にしてARR 600億円・解約率1%未満を支配する要塞SaaS",
       "moatType": "SWITCHING_COST",
       "moatDescription": "人質暗号要塞による参入障壁と、顧客の日常業務・資産データへの深い食い込み。",
       "incumbentDilemma": "競合LastPassがハッキングされ暗号化ボルトが流出する大失態を犯し、数万社が一斉に逃げ込んできた。",

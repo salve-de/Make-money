@@ -97,7 +97,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         "id": "ev_keyence_incumbent_trap",
         "type": "INCUMBENT_TRAP",
-        "title": "既存代理店網に縛られた競合（オムロン等）のカニバリ死角",
+        "title": "既存代理店網に縛られた競合（オムロン等）の既存売上の共食い死角",
         "evidenceStatus": "VERIFIED",
         "punchline": "競合大手がキーエンスを真似て直販化しようとすれば、既存の全国代理店網から即座にボイコットされ本業が爆死する。",
         "details": [
@@ -285,7 +285,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "url": "https://stripe.com",
     "verifiedBadge": true,
     "growthRateYoY": 35,
-    "architecturePattern": "水門寄生",
+    "architecturePattern": "インフラ連携モデル",
     "pipelineStack": "7行のJavaScript × グローバル銀行接続API × 不正検知Radar",
     "targetPainWallet": "Web開発者の時間（数ヶ月の銀行審査・PCI DSS準拠の苦痛）",
     "tags": [
@@ -489,7 +489,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "viabilityStatus": "MATURED_MOAT",
       "viabilityLabel": "不可逆インフラ（銀行接続・世界水門番）",
       "eraContext": "旧来の決済代行業者が数ヶ月の紙の審査と難解な契約を強要していた時代。「7行のJavaScript」で即日決済できる開発者体験でスタートアップを総取り。",
-      "currentViabilityAnalysis": "グローバル銀行網と各国の金融免許、数億枚のカードVault（人質トークン）を独占しており、真正面からの模倣は不可能。Stripeと戦うのではなく、Stripeの決済データにコバンザメするSaaSを狙うのが鉄則。"
+      "currentViabilityAnalysis": "グローバル銀行網と各国の金融免許、数億枚のカードVault（人質トークン）を独占しており、真正面からの模倣は不可能。Stripeと戦うのではなく、Stripeの決済データにプラットフォーム特化するSaaSを狙うのが鉄則。"
     },
     "timelineEvents": [
       {
@@ -560,7 +560,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "punchline": "Next.jsでなくとも『環境構築に3日溶かす苦痛』が存在する全領域（Flutter/Python AI/Chrome拡張）で同じ買い切り$199が成立する。",
         "details": [
           "【宿主の選定】: 例: 「Flutter iOS/Android課金ボイラープレート」や「ローカルLLM特化Python環境構築スターターキット」。",
-          "【開発者の焦燥感ハック】: 『認証とアプリ内課金の審査で1ヶ月溶かすな。今夜リリースしろ』という時間節約の痛みを突く。",
+          "【開発者の焦燥感工夫】: 『認証とアプリ内課金の審査で1ヶ月溶かすな。今夜リリースしろ』という時間節約の痛みを突く。",
           "【無元手拡大】: サポート対応はDiscordコミュニティでユーザー同士に自己解決させ、創業者本人は1日1本のX自虐・開発進捗ポストだけで集客を自動化。"
         ],
         "sourceNote": "ShipFastモデル ➔ ニッチスタック特化型スターターキットへの構造転用設計図"
@@ -730,7 +730,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       }
     },
     "exposureAudit": {
-      "guerrillaTraction": "過去に作った15個の失敗作のスクショと「また稼げなかった」という自虐ツイートを連投。共感を最大化させた状態から、ShipFastのローンチ動画を投下し、初期フォロワーの義理買いと応援を巻き込んで初速をハックした。",
+      "guerrillaTraction": "過去に作った15個の失敗作のスクショと「また稼げなかった」という自虐ツイートを連投。共感を最大化させた状態から、ShipFastのローンチ動画を投下し、初期フォロワーの義理買いと応援を巻き込んで初速を工夫した。",
       "platformGlitch": "「販売数カウントダウン（Sold outまであと〇個）」のバナーをLP上に常時表示。実際にはデジタル商品のため在庫無限であるにもかかわらず、物理的な数量限定感を演出してユーザーの損失回避バイアスを着火。",
       "pivotSnapshot": "当初は「Habit tracker」「AIキャラクターチャット」などを個別にリリースしていたが鳴かず飛ばず。それらを作るために毎回作っていた「骨組み（ボイラープレート）」そのものを商品化した瞬間に年商1億円を突破。",
       "hiddenStackCost": "月々のサーバー代はVercelのProプラン（$20）とSupabaseの無料〜低価格枠のみ。年間ランニングコストは30万円以下。売上の97%以上が手残り純利という狂異的キャッシュマシーン。"
@@ -738,7 +738,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "dynamicMoats": {
       "parasiteHost": {
         "hostName": "X (Twitter) & Next.js エコシステム",
-        "detail": "Next.jsの急速な普及と、X上の「Build in Public（開発過程公開）」文化に100%寄生。自社プラットフォームを持たず、Xのタイムラインを営業マンとして使役し広告費0円を達成。"
+        "detail": "Next.jsの急速な普及と、X上の「Build in Public（開発過程公開）」文化に100%プラットフォーム連携。自社プラットフォームを持たず、Xのタイムラインを営業マンとして使役し広告費0円を達成。"
       },
       "dataHostage": {
         "lockInFactor": "購入者のGitHubコードベースと手癖の定着",
@@ -956,7 +956,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "primaryFunnel": "X（Twitter）での衝撃的なAIビフォーアフター動画投稿 ➔ バズによる無料流入 ➔ LPで即時課金",
       "tactics": [
         "創業者の個人アカウント（フォロワー数十万人）での制作過程の完全ライブ実況",
-        "生成された美女・イケメン写真によるタイムラインのハック",
+        "生成された美女・イケメン写真によるタイムラインの工夫",
         "プログラマティックSEOによる「AI写真 〇〇」キーワードの大量面制圧"
       ]
     },
@@ -1028,14 +1028,14 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "initialTraction": [
         "自作のアバター生成スクリプトをXでフォロワーに無料配布してフィードバックを収集",
         "「自分の顔のAIモデルを作れるWebサイト」としてローンチし、初月で月商数百万円を突破",
-        "ドメイン「PhotoAI.com」を高額で購入し、SEO検索流入の関所を握った"
+        "ドメイン「PhotoAI.com」を高額で購入し、SEO検索流入の収益モデルを握った"
       ],
       "actionPlaybook": [
         "Step 1: 新しいオープンソースAIモデル（画像・音声等）のAPIラッパーを最速で作る",
         "Step 2: 「プロ向け」ではなく「一般人の虚栄心（マッチングアプリ・SNSアイコン）」に用途を極限まで絞る",
         "Step 3: クラウドのマネージドサービス（AWS）を避け、格安専用サーバー（Hetzner）で固定費を極小化する"
       ],
-      "coldOutreachTemplate": "【Photo AI型・見栄ハックアプローチ】\n「プロのスタジオ撮影に数万円と半日の時間を費やす必要はありません。\n手持ちのスマホ自撮りを10枚送るだけで、LinkedInやWebサイトにそのまま使える最高品質のプロフィール写真を1時間で100枚納品します。\n初月50%オフで今すぐお試しください。」"
+      "coldOutreachTemplate": "【Photo AI型・見栄工夫アプローチ】\n「プロのスタジオ撮影に数万円と半日の時間を費やす必要はありません。\n手持ちのスマホ自撮りを10枚送るだけで、LinkedInやWebサイトにそのまま使える最高品質のプロフィール写真を1時間で100枚納品します。\n初月50%オフで今すぐお試しください。」"
     },
     "meta": {
       "incumbentDilemma": {
@@ -1068,7 +1068,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "dynamicMoats": {
       "parasiteHost": {
         "hostName": "Stable Diffusion & Replicate / RunPod GPU",
-        "detail": "オープンソースの画像生成基盤とサーバーレスGPUインフラに完全寄生。自前でGPUサーバーを一切買わずに、API経由で数千万円の計算資源を従量課金で回す。"
+        "detail": "オープンソースの画像生成基盤とサーバーレスGPUインフラに完全プラットフォーム連携。自前でGPUサーバーを一切買わずに、API経由で数千万円の計算資源を従量課金で回す。"
       },
       "dataHostage": {
         "lockInFactor": "ユーザーの学習済みLoRAモデル",
@@ -1139,7 +1139,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         "occurredAt": "2023年",
         "eventType": "moat",
-        "description": "ドメイン「PhotoAI.com」を高額取得しSEO関所を支配"
+        "description": "ドメイン「PhotoAI.com」を高額取得しSEO収益モデルを支配"
       },
       {
         "occurredAt": "2024-2026年",
@@ -1204,7 +1204,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "id": "ev_nomadlist_crime",
         "type": "THE_CRIME",
         "title": "公開スプレッドシートをPaywall化したデジタルノマド課金要塞",
-        "badge": "コミュニティ関所",
+        "badge": "コミュニティ収益モデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "世界各都市のWi-Fi速度・生活費・治安データを集約し、孤立に怯える海外ノマド同士のチャットルーム参加権（買い切り$99〜$199）を売り抜く。",
         "details": [
@@ -1525,7 +1525,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         "id": "ev_plausible_crime",
         "type": "THE_CRIME",
-        "title": "Google Analyticsの複雑さとCookie同意バナーへの怨嗟ハック",
+        "title": "Google Analyticsの複雑さとCookie同意バナーへの怨嗟工夫",
         "badge": "プライバシー逆張り",
         "evidenceStatus": "VERIFIED",
         "punchline": "GDPR対応のCookie同意バナーを設置したくないサイト運営者に対し、「1KBの軽量スクリプト・設定不要」で月$9〜を吸い上げる。",
@@ -1687,7 +1687,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     },
     "exposureAudit": {
       "guerrillaTraction": "創業者2名が「自社の全財務データ（売上・費用・訪問者数）」をオープンに公開するダッシュボードを自社サイト上に設置。「脱Googleを掲げる誠実な小規模チーム」というナラティブを演出し、オープンソース支持者とアンチGA層を熱狂的な味方につけた。",
-      "platformGlitch": "Google ChromeがサードパーティCookieの廃止を進め、GA4の移行が世界中で大炎上したタイミングを完全ハック。「GA4の代替」というSEOキーワードで徹底的に上位を制圧し、大企業のオウンドメディアや欧州自治体の案件まで掠め取った。",
+      "platformGlitch": "Google ChromeがサードパーティCookieの廃止を進め、GA4の移行が世界中で大炎上したタイミングを完全工夫。「GA4の代替」というSEOキーワードで徹底的に上位を制圧し、大企業のオウンドメディアや欧州自治体の案件まで掠め取った。",
       "pivotSnapshot": "当初は「オープンソースのシンプルなアクセス解析」としてローンチしたが全く売れず、月商数十万円で数ヶ月停滞。マーケターのMarkoが加入し、「GDPR・プライバシー特化」「クッキーバナー不要」という明確な痛みの切除へメッセージをピボットした瞬間に急拡大した。",
       "hiddenStackCost": "一般的なSaaSがAWSを使って月数百万円のクラウド費を溶かす中、PlausibleはドイツのHetznerのベアメタルサーバーを直接調達し、ClickHouseを自前チューニング。インフラ原価を売上の10%未満に抑え込み、粗利90%以上を死守している。"
     },
@@ -1997,14 +1997,14 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     },
     "exposureAudit": {
       "guerrillaTraction": "最初の課金客はJustinの古巣である「Cards Against Humanity」。身近な大口案件を最初のアンカーに据え、その後「有料アーリーアクセス」としてクレカ登録必須のクローズドベータを実施。56人中39人を即日課金化し初月から黒字を確定させた。",
-      "platformGlitch": "Apple PodcastsやSpotifyが「RSSフィードを外部から読み込んで配信する」オープンプロトコルであることを逆手に取り、自前で配信アプリを作らずに既存の巨大音声プラットフォームへ100%コバンザメ寄生。",
+      "platformGlitch": "Apple PodcastsやSpotifyが「RSSフィードを外部から読み込んで配信する」オープンプロトコルであることを逆手に取り、自前で配信アプリを作らずに既存の巨大音声プラットフォームへ100%プラットフォーム特化プラットフォーム連携。",
       "pivotSnapshot": "Jon Budaは以前Simplecastの初期開発に関わっていたが、よりクリエイター目線の「複数番組無制限・プライベートポッドキャスト特化」を実現するために独立。Justinと合流してTransistorへ特異点到達。",
       "hiddenStackCost": "月商1,800万円に対し、AWS S3とCloudFrontの配信帯域費は約35万〜50万円程度。Stripe手数料約50万円、外注サポート約45万円。固定費が極めて薄く、2人の手残り純利は年間1億7,000万円超。"
     },
     "dynamicMoats": {
       "parasiteHost": {
         "hostName": "Apple Podcasts, Spotify, YouTube & RSS Protocol",
-        "detail": "世界のポッドキャスト配信プラットフォームにRSS経由で完全寄生。配信者が増えるほど各プラットフォームのトラフィックをTransistorが中継。"
+        "detail": "世界のポッドキャスト配信プラットフォームにRSS経由で完全プラットフォーム連携。配信者が増えるほど各プラットフォームのトラフィックをTransistorが中継。"
       },
       "dataHostage": {
         "lockInFactor": "Apple/Spotifyに接続されたRSSフィードURL",
@@ -2289,7 +2289,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "Step 2: 既存の巨大競合（Linktree）が高価格化して見捨てた「個人・スモール」に半額で切り込む",
         "Step 3: 相手のコンテンツを使って勝手にサンプルを作り、「断る理由がない状態」で直接DM営業する"
       ],
-      "coldOutreachTemplate": "【Liinks型・競合不満ハックアプローチ】\n「Linktreeの月額費用や制限されたデザインに不満を感じていませんか？\n貴社のアカウント専用に、ブランドイメージを完璧に再現した爆速Bioリンクページを無料で作成しました。\nこちらのURLをご確認いただき、気に入れば1クリックで移行可能です。」"
+      "coldOutreachTemplate": "【Liinks型・競合不満工夫アプローチ】\n「Linktreeの月額費用や制限されたデザインに不満を感じていませんか？\n貴社のアカウント専用に、ブランドイメージを完璧に再現した爆速Bioリンクページを無料で作成しました。\nこちらのURLをご確認いただき、気に入れば1クリックで移行可能です。」"
     },
     "meta": {
       "incumbentDilemma": {
@@ -2315,14 +2315,14 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     },
     "exposureAudit": {
       "guerrillaTraction": "Instagramでリンク未設定のユーザーを手作業で探し、勝手にその人の写真でLiinksページを作成してDMする泥臭いコールド営業で初期顧客を獲得。「断る理由がない現物デモ」を叩きつけることで返信率と成約率を跳ね上げた。",
-      "platformGlitch": "Instagramの「プロフィールにURLが1つしか貼れない」というプラットフォームの仕様制限（ボトルネック）に100%寄生。Instagramが仕様を変更しない限り永遠に需要が枯渇しない構造。",
+      "platformGlitch": "Instagramの「プロフィールにURLが1つしか貼れない」というプラットフォームの仕様制限（ボトルネック）に100%プラットフォーム連携。Instagramが仕様を変更しない限り永遠に需要が枯渇しない構造。",
       "pivotSnapshot": "過去に「Colors of Motion」や取扱高（GMV）6桁ドルを達成しながら薄利すぎて破綻した「VSUAL」など複数の爆死を経験。パンデミックで一旦サラリーマンに戻った後、「利益率が高く1人で回せるマイクロSaaS」としてLiinksをローンチして再起。",
       "hiddenStackCost": "月商$25,000に対し、月額$4〜$8という低単価多数決済のためStripeの「1件あたり$0.30」の固定手数料が重くのしかかり約$2,038が控除される。それでもサーバー代等を除いた手残りは月間約$19,000（約280万円）。完全1人で年商3,400万円超の手残りを確定。"
     },
     "dynamicMoats": {
       "parasiteHost": {
         "hostName": "Instagram, TikTok & Creators Bio",
-        "detail": "InstagramとTikTokの「プロフィール欄にリンクが1つしか貼れない」制限に100%寄生。全クリエイターの公開Bioを無料の広告塔として使役。"
+        "detail": "InstagramとTikTokの「プロフィール欄にリンクが1つしか貼れない」制限に100%プラットフォーム連携。全クリエイターの公開Bioを無料の広告塔として使役。"
       },
       "dataHostage": {
         "lockInFactor": "各SNSのプロフィール欄に埋め込まれたLiinks短縮URL",
@@ -2436,7 +2436,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "ticker": "BUFF.OR",
     "name": "Buffer",
     "legalEntity": "Buffer, Inc.",
-    "tagline": "全社員給与・売上・Stripe手数料を全公開し、SNS投稿予約のコバンザメとして年商30億円・手残り純利6億円を叩き出す透明性要塞",
+    "tagline": "全社員給与・売上・Stripe手数料を全公開し、SNS投稿予約のプラットフォーム特化として年商30億円・手残り純利6億円を叩き出す透明性要塞",
     "sector": "NICHE_SAAS",
     "scale": "SCALEUP",
     "founder": "Joel Gascoigne & Leo Widrich",
@@ -2444,7 +2444,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "url": "https://buffer.com",
     "verifiedBadge": true,
     "growthRateYoY": 15,
-    "architecturePattern": "SNS API寄生 × 全財務オープンによる社会的証明",
+    "architecturePattern": "SNS APIプラットフォーム連携 × 全財務オープンによる社会的証明",
     "pipelineStack": "コンテンツマーケティングSEO ➔ 本体無料おびき寄せ ➔ 年間前払い一括",
     "targetPainWallet": "複数SNS（X, LinkedIn, Instagram）への手動個別投稿の極限の怠惰",
     "tags": [
@@ -2459,13 +2459,13 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         "id": "ev_buffer_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【儲かる仕組み】全社員給与・財務ダッシュボードを全公開して信用をハックする透明性要塞コード",
+        "title": "【儲かる仕組み】全社員給与・財務ダッシュボードを全公開して信用を工夫する透明性要塞コード",
         "badge": "ビジネスモデルの設計図",
         "evidenceStatus": "VERIFIED",
         "punchline": "「広告費を1円も使わずに世界中のメディアに取材させる」ため、創業者の給与、売上、解約率、失敗談を全公開し、透明性そのものを最大のマーケティング兵器にする。",
         "details": [
           "【ラディカル・トランスペアレンシー】: 全社員の給与計算式とリアルタイムのStripe売上をWeb上に公開。TechCrunchやForbesがこぞって無料報道。",
-          "【Twitter/SNS APIへの完全寄生】: ユーザーが毎日使うSNSの「投稿予約」という単一の面倒を解決し、月額サブスクでチャーンを最小化。",
+          "【Twitter/SNS APIへの完全プラットフォーム連携】: ユーザーが毎日使うSNSの「投稿予約」という単一の面倒を解決し、月額サブスクでチャーンを最小化。",
           "【初期2ページLPの検証】: プロダクトを1行も作らず、「価格表」と「購入ボタン」だけのLPを公開し、クリックした人に事前登録を促して需要を確定。"
         ],
         "codeSnippet": "// Buffer型・初期スモークテスト配管\n1. 投稿予約ツールの機能説明LPを公開\n2. 「Plans and Pricing」ボタンを設置\n3. 価格プランをクリックしたユーザーに「まだ開発中です。メールアドレスを登録して先行割引を受け取ってください」モーダルを表示\n4. メール登録率が20%を超えた時点で初めてコードを書き始める",
@@ -2616,14 +2616,14 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     },
     "exposureAudit": {
       "guerrillaTraction": "コードを書く前に「価格表」と「Plans and Pricing」のボタンだけを置いた偽装LP（Smoke Test）を公開。ボタンを押したユーザーに「まだ開発中です、メールアドレスを登録して待ってください」と表示し、本当に金を払う人間がいることを証明してから開発に着手した。",
-      "platformGlitch": "Twitterの急速な普及期に「ツイートをキュー（順番待ちリスト）に入れて最適な時間に自動投稿する」というAPIの隙間をハック。Twitterが標準機能として予約投稿を持っていなかった数年間で市場を独占した。",
+      "platformGlitch": "Twitterの急速な普及期に「ツイートをキュー（順番待ちリスト）に入れて最適な時間に自動投稿する」というAPIの隙間を工夫。Twitterが標準機能として予約投稿を持っていなかった数年間で市場を独占した。",
       "pivotSnapshot": "元々は1回限りのツイート送信ツールだったが、ユーザーが「毎日投稿を考えるのが面倒」という痛みを抱えていることに気づき、「事前に1週間分をまとめてキューに放り込む」バッファリングモデルへピボット。",
       "hiddenStackCost": "月商2.6億円に対し、社員約80名の給与（完全公開）が月約1.5億円。サーバー費は約2,000万円。年商30億円規模にスケールしながら、営業利益率20%（年間純利益約5億円）を叩き出し、外部資金なしで完全自走。"
     },
     "dynamicMoats": {
       "parasiteHost": {
         "hostName": "X (Twitter), Meta (Instagram/Facebook), LinkedIn, TikTok APIs",
-        "detail": "世界の主要SNSプラットフォームの公式APIに100%寄生。各プラットフォームのトラフィックとユーザーの投稿欲求を自社ハブ経由で中継。"
+        "detail": "世界の主要SNSプラットフォームの公式APIに100%プラットフォーム連携。各プラットフォームのトラフィックとユーザーの投稿欲求を自社ハブ経由で中継。"
       },
       "dataHostage": {
         "lockInFactor": "過去の全投稿ログ、アナリティクス、複数SNSの連携トークン",
@@ -2693,7 +2693,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "dataSnapshotPeriod": "2024-2025年公式財務開示〜2026年",
       "viabilityStatus": "MATURED_MOAT",
       "viabilityLabel": "先行者堀（X API高騰で後発模倣困難）",
-      "eraContext": "Twitter黎明期に「予約投稿」が公式になかったAPI穴をハック。さらに「全給与・財務の全公開」という逆張りPRで世界的メディアから無数の被リンクを無料獲得。",
+      "eraContext": "Twitter黎明期に「予約投稿」が公式になかったAPI穴を工夫。さらに「全給与・財務の全公開」という逆張りPRで世界的メディアから無数の被リンクを無料獲得。",
       "currentViabilityAnalysis": "現在X（Twitter）のAPI価格が月数十万円〜数百万円に高騰したため、今から個人がBufferと同じSNS一括予約ツールを作るとAPI原価で即死する。模倣するならBlueskyやThreadsなどAPIが無料・安価な新興SNSに限定すべき。"
     },
     "timelineEvents": [
@@ -3054,7 +3054,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "cacJpy": 0,
       "primaryFunnel": "X（Twitter）でのミニマルな白黒Notionダッシュボード画像投稿 ➔ 無料配布によるメアド獲得 ➔ 有料版へのアップセル",
       "tactics": [
-        "「RT＆リプした人に無料で配布します」によるXアルゴリズムの徹底ハック",
+        "「RT＆リプした人に無料で配布します」によるXアルゴリズムの徹底工夫",
         "Product Huntで新しいテンプレを出すたびに「Product of the Day」を獲得",
         "Gumroadのアフィリエイト機能を使い、他のNotionインフルエンサーに20%で売らせる"
       ]
@@ -3159,8 +3159,8 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       }
     },
     "exposureAudit": {
-      "guerrillaTraction": "Twitterで「Notionのタスク管理テンプレ作りました。欲しい人はRT＆フォローしてくれたらDMで送ります」という giveaway 投稿を毎週連発。Twitterの拡散アルゴリズムをハックし、広告費ゼロでフォロワーを20万人まで急拡大させた。",
-      "platformGlitch": "Notionの「ページ共有・複製（Duplicate）」機能を悪用…ではなく合法ハック。サーバーを契約してWebアプリを開発することなく、Notionの公開リンクをGumroadで販売するだけで、月商数百万円の自動販売機を構築。",
+      "guerrillaTraction": "Twitterで「Notionのタスク管理テンプレ作りました。欲しい人はRT＆フォローしてくれたらDMで送ります」という giveaway 投稿を毎週連発。Twitterの拡散アルゴリズムを工夫し、広告費ゼロでフォロワーを20万人まで急拡大させた。",
+      "platformGlitch": "Notionの「ページ共有・複製（Duplicate）」機能を悪用…ではなく合法工夫。サーバーを契約してWebアプリを開発することなく、Notionの公開リンクをGumroadで販売するだけで、月商数百万円の自動販売機を構築。",
       "pivotSnapshot": "元々は普通の大学生でデザインやプログラミングの専門教育を受けていなかったが、Notionの白黒ミニマリズムに特化することで「デザイナー」としての権威性を獲得。複雑な機能をあえて作らないことでサポート工数をゼロにした。",
       "hiddenStackCost": "決済はGumroad、商品はNotionの「複製リンク」を送るだけ。仕入れ原価0円、サーバー原価0円、配送費0円。粗利率98%で、売上のほぼ全額が創業者の手元口座へ直下。"
     },
@@ -3237,7 +3237,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "evidenceStatus": "VERIFIED",
         "punchline": "年商数百万円〜数千万円のスモールSaaS創業者へ、「手数料ゼロ・完全匿名」で買い手とマッチングするプラットフォームを提供し、買い手からの年額サブスクで巨額の収益を上げる。",
         "details": [
-          "【売り手手数料ゼロの流動性ハック】: 既存の仲介会社が10〜15%の手数料を取る中、売り手を完全無料にして良質な買収案件を一挙に集約。",
+          "【売り手手数料ゼロの流動性工夫】: 既存の仲介会社が10〜15%の手数料を取る中、売り手を完全無料にして良質な買収案件を一挙に集約。",
           "【買い手に年額課金（〜）】: 買収意欲の高い投資家やPEファンドに対し、「非公開案件の詳細データ閲覧権」を年額サブスクとして課金。",
           "【Stripe連携によるメトリクス保証】: 売上やMRRをStripeやGoogle AnalyticsとAPI連携させ、売り手の数字改ざんを技術的に完全防止。"
         ],
@@ -3699,7 +3699,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "evidenceStatus": "VERIFIED",
         "punchline": "ただのミネラルウォーターをビール缶に詰め、「喉の渇きを徹底粉砕する（Murder Your Thirst）」と過激にブランディングして評価額2,000億円・年商400億円へ化けさせる。",
         "details": [
-          "【ライブハウスやクラブでの見栄ハック】: 酒を飲めない人間が「プラスチックボトルの水」を持つ恥ずかしさを、クラフトビールに見えるアルミ缶で切除。",
+          "【ライブハウスやクラブでの見栄工夫】: 酒を飲めない人間が「プラスチックボトルの水」を持つ恥ずかしさを、クラフトビールに見えるアルミ缶で切除。",
           "【脱プラスチックの大義名分】: 「プラスチックを撲滅せよ（Death to Plastic）」と掲げ、環境意識の高い若者に胸を張って持てる大義名分を提供。",
           "【フェイク動画での需要検証】: 缶の製造前に30万円で作った過激なフェイクCMをFacebookに投稿し、数百万回再生と数千の注文メールを獲得してから生産開始。"
         ],
@@ -3709,7 +3709,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         "id": "ev_liquiddeath_crime",
         "type": "THE_CRIME",
-        "title": "中身はただの水をビール缶に詰めて売るヘビメタ虚栄心ハック",
+        "title": "中身はただの水をビール缶に詰めて売るヘビメタ虚栄心工夫",
         "badge": "逆張りパッケージング",
         "evidenceStatus": "VERIFIED",
         "punchline": "「ライブハウスやバーで酒を飲まないのがダサい」という羞恥心を、ビール缶そっくりのデザインで切除し、水をプレミアム価格で売る。",
@@ -3859,7 +3859,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "punchline": "広告と誤情報だらけの大手食事記録アプリを破壊し、「体重と摂取カロリーから日々の消費代謝を自動逆算する」独自アルゴリズムで年商数億円・高継続率を叩き出す。",
         "details": [
           "【完全有料・広告ゼロの美学】: 無料プランを廃止し、初月から月額.99または年額.99の有料課金のみにして客層をフィルタリング。",
-          "【エビデンスベースの権威ハック】: 筋トレ研究界のトップ（Stronger by Science）と提携し、科学的根拠を全面に押し出して信頼性を独占。",
+          "【エビデンスベースの権威工夫】: 筋トレ研究界のトップ（Stronger by Science）と提携し、科学的根拠を全面に押し出して信頼性を独占。",
           "【罪悪感を与えないUI設計】: 目標カロリーを超過しても赤字で怒らず、アルゴリズムが自動で翌週の目標値を再調整する「心理的安全」を提供。"
         ],
         "codeSnippet": "// MacroFactor型・動的代謝逆算アルゴリズム配管\n1. 毎日の体重推移（移動平均）と摂取カロリーログを入力\n2. 指数平滑化アルゴリズムで個人の「真のTDEE（総消費カロリー）」を毎日再推定\n3. 目標減量ペースに合わせて来週の摂取推奨マクロ栄養素を自動更新",
@@ -4032,7 +4032,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "punchline": "「ビジネス書を買っても積読してしまう」多忙な社会人の知的劣等感を、1冊15分の音声・テキスト要約で切除し年額のサブスクで年商100億円を吸い上げる。",
         "details": [
           "【通勤・散歩時間のマネタイズ】: スマホ画面を見なくても耳だけでインプットできる音声ナレーションを全要約に標準装備。",
-          "【読了コンプレックスの救済】: 「年間100冊読んだ」という知的ステータスを短時間で手に入れた気にさせる自己肯定感ハック。",
+          "【読了コンプレックスの救済】: 「年間100冊読んだ」という知的ステータスを短時間で手に入れた気にさせる自己肯定感工夫。",
           "【年額プラン一括課金ファネル】: 無料トライアル登録時に「年額一括（）」を初期選択させ、前金でキャッシュフローを最大化。"
         ],
         "codeSnippet": "// Blinkist型・マイクロラーニング配管\n1. ベストセラー書籍の重要概念を専門ライターが3〜5つの要点（Blink）に凝縮\n2. プロの声優・ナレーターによる高音質音声を同時収録\n3. 「朝の通勤15分で1冊読破」の訴求でMeta/TikTok広告から大量獲得\n4. 年払い一括決済で回収した現金を即座に次月の広告宣伝費へ再投資",
@@ -4047,7 +4047,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "punchline": "ビジネス書を読む時間がないビジネスパーソンの劣等感を突き、15分の音声・テキスト要約を年$99で定期購読させる。",
         "details": [
           "要約コンテンツは一度作成すれば限界費用ゼロで何百万人にも配信可能。",
-          "オーディオ機能を追加したことで、通勤中・ジム利用中の可処分時間を完全にハック。"
+          "オーディオ機能を追加したことで、通勤中・ジム利用中の可処分時間を完全に工夫。"
         ],
         "metrics": [
           {
@@ -4135,7 +4135,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "② 15分で聴けるプロ音声を作成",
         "③ 年額前金でキャッシュを回収し広告へ再投資"
       ],
-      "coldOutreachTemplate": "【Blinkist型・知性ハックアプローチ】\n「読みたいビジネス書が山積みで、消化しきれずに焦っていませんか？\n弊社のサービスなら、世界の名著の核心部分をたった15分の音声でインプット可能です。\n通勤時間だけで毎月20冊分の知識が身につく特別体験プランをご案内します。」",
+      "coldOutreachTemplate": "【Blinkist型・知性工夫アプローチ】\n「読みたいビジネス書が山積みで、消化しきれずに焦っていませんか？\n弊社のサービスなら、世界の名著の核心部分をたった15分の音声でインプット可能です。\n通勤時間だけで毎月20冊分の知識が身につく特別体験プランをご案内します。」",
       "incumbentDilemma": "既存大手は既存の高単価契約と自社マージンを守る構造的ジレンマ（大企業が真似できない理由）があるため、軽量・特化型の本モデルには手を出せない。"
     },
     "exposureAudit": {
@@ -4345,39 +4345,39 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "url": "https://midjourney.com",
     "verifiedBadge": true,
     "growthRateYoY": 50,
-    "architecturePattern": "Discord寄生型 × レンダリングGPU直結SaaS",
+    "architecturePattern": "Discordプラットフォーム連携型 × レンダリングGPU直結SaaS",
     "pipelineStack": "Discord Bot API × 自社チューニングDiffusion Model × クラウドGPUクラスタ (GCP / Oracle)",
     "targetPainWallet": "デザイナー・ゲーム会社・広告代理店のクリエイティブ外注費と納期短縮の焦燥",
     "tags": [
       "AI画像生成",
       "VC拒否",
       "利益率70%超",
-      "Discord寄生",
+      "Discordプラットフォーム連携",
       "ソロプレナー拡張"
     ],
     "evidenceCards": [
       {
         "id": "ev_midjourney_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【儲かる仕組み】WebアプリUIを完全破棄し、Discordに完全寄生して11人で年商300億円抜くコード",
+        "title": "【儲かる仕組み】WebアプリUIを完全破棄し、Discordに完全プラットフォーム連携して11人で年商300億円抜くコード",
         "badge": "ビジネスモデルの設計図",
         "evidenceStatus": "VERIFIED",
         "punchline": "Webサイトや自社アプリの開発を一切行わず、既存のDiscordサーバー上でボットを動かすだけで、社員11名・外部資本ゼロで年商300億円・純利100億円超を叩き出す。",
         "details": [
-          "【Discordへの完全寄生】: ユーザー認証、コミュニティ管理、サーバー通知、UI描画をすべてDiscordに丸投げし、自社開発コストをゼロ化。",
+          "【Discordへの完全プラットフォーム連携】: ユーザー認証、コミュニティ管理、サーバー通知、UI描画をすべてDiscordに丸投げし、自社開発コストをゼロ化。",
           "【公開生成の社会的証明】: 他のユーザーが呪文（プロンプト）を入力して美麗な画像が生成される過程を全員に見せることで、「自分もやってみたい」熱狂を自動増殖。",
           "【商用利用権を人質にしたサブスク】: 月額〜のStripeサブスクを課金させなければ高解像度生成や商用利用ができないルールで現金を総取り。"
         ],
-        "codeSnippet": "// Midjourney型・Discord寄生配管\n1. ユーザーがDiscordチャンネルで「/imagine prompt: ...」を入力\n2. ボットが推論クラスタ（自社GPUノード）へジョブを送信\n3. 60秒以内に4枚のプレビュー画像をDiscordメッセージとして返信\n4. アップスケール（U）やバリエーション（V）ボタンのクリックで追加クレジットを消費",
+        "codeSnippet": "// Midjourney型・Discordプラットフォーム連携配管\n1. ユーザーがDiscordチャンネルで「/imagine prompt: ...」を入力\n2. ボットが推論クラスタ（自社GPUノード）へジョブを送信\n3. 60秒以内に4枚のプレビュー画像をDiscordメッセージとして返信\n4. アップスケール（U）やバリエーション（V）ボタンのクリックで追加クレジットを消費",
         "sourceNote": "David Holz インタビュー・The Information"
       },
       {
         "id": "ev_midjourney_crime",
         "type": "THE_CRIME",
-        "title": "Webサイトなし・Discord完全寄生で11人で300億円売上",
-        "badge": "プラットフォーム完全寄生",
+        "title": "Webサイトなし・Discord完全プラットフォーム連携で11人で300億円売上",
+        "badge": "プラットフォーム完全プラットフォーム連携",
         "evidenceStatus": "VERIFIED",
-        "punchline": "自社Webアプリ・ユーザー管理・課金基盤を開発せず、DiscordのBotインターフェースに完全寄生することで、社員わずか11人で年間売上300億円超を叩き出す。",
+        "punchline": "自社Webアプリ・ユーザー管理・課金基盤を開発せず、DiscordのBotインターフェースに完全プラットフォーム連携することで、社員わずか11人で年間売上300億円超を叩き出す。",
         "details": [
           "ユーザーが生成した画像がDiscordチャンネル内にリアルタイムで流れるため、他人の神プロンプトと美麗画像が常に見えるバイラル閲覧ループ。",
           "フロントエンド開発者を雇わず、全リソースを画像生成モデルの研究とGPUクラスタの確保に集中。"
@@ -4487,10 +4487,10 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "初期はクローズドベータとしてDavid Holz本人がTwitter/Discordで著名デジタルアーティストやSFコミュニティに直接DMを送り、「自分の想像した世界を一瞬で絵にする体験」を招待制で配布。生成された神がかったアートワークがTwitter上に拡散され、招待コードの争奪戦が発生。"
       ],
       "actionPlaybook": [
-        "DiscordのBot APIとメッセージキューをそのままGUIとしてハック。サーバー管理・Push通知・コミュニティ形成のすべてをDiscord上で完結させ、Web開発費用を完全ゼロ化。",
+        "DiscordのBot APIとメッセージキューをそのままGUIとして工夫。サーバー管理・Push通知・コミュニティ形成のすべてをDiscord上で完結させ、Web開発費用を完全ゼロ化。",
         "最大のコストはGoogle CloudおよびOracle CloudのGPUクラスタ利用料。ただし月額サブスクリプションの前金（Stripe決済）でキャッシュを先回収しているため、売掛金の焦げ付きリスクが完全ゼロ。"
       ],
-      "coldOutreachTemplate": "【Midjourney型・UIゼロ寄生アプローチ】\n「高額なアプリ開発や複雑なログイン画面の構築は不要です。\nユーザーが日常的に使っているコミュニケーションツール内にボットを配置するだけで、本日中にAI自動化サービスをローンチできます。\nデモ環境のボットを貴社サーバーに追加してみませんか？」"
+      "coldOutreachTemplate": "【Midjourney型・UIゼロプラットフォーム連携アプローチ】\n「高額なアプリ開発や複雑なログイン画面の構築は不要です。\nユーザーが日常的に使っているコミュニケーションツール内にボットを配置するだけで、本日中にAI自動化サービスをローンチできます。\nデモ環境のボットを貴社サーバーに追加してみませんか？」"
     },
     "essence": {
       "whatItDoes": "Discordネイティブのテキストプロンプト式画像・ビジュアル生成AIサービス",
@@ -4499,7 +4499,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     },
     "exposureAudit": {
       "guerrillaTraction": "初期はクローズドベータとしてDavid Holz本人がTwitter/Discordで著名デジタルアーティストやSFコミュニティに直接DMを送り、「自分の想像した世界を一瞬で絵にする体験」を招待制で配布。生成された神がかったアートワークがTwitter上に拡散され、招待コードの争奪戦が発生。",
-      "platformGlitch": "DiscordのBot APIとメッセージキューをそのままGUIとしてハック。サーバー管理・Push通知・コミュニティ形成のすべてをDiscord上で完結させ、Web開発費用を完全ゼロ化。",
+      "platformGlitch": "DiscordのBot APIとメッセージキューをそのままGUIとして工夫。サーバー管理・Push通知・コミュニティ形成のすべてをDiscord上で完結させ、Web開発費用を完全ゼロ化。",
       "pivotSnapshot": "元々はLeap Motion（手のジェスチャー認識デバイス）でハードウェアの限界とVCの干渉に苦しんだ創業者が、「外部資本を一切入れず、ソフトウェアと自前モデルのサブスクリプションだけで黒字化する」方針へ完全ピボット。",
       "hiddenStackCost": "最大のコストはGoogle CloudおよびOracle CloudのGPUクラスタ利用料。ただし月額サブスクリプションの前金（Stripe決済）でキャッシュを先回収しているため、売掛金の焦げ付きリスクが完全ゼロ。"
     },
@@ -4780,7 +4780,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "ticker": "GUMROAD",
     "name": "Gumroad",
     "legalEntity": "Sahil Lavingia",
-    "tagline": "「ECサイトの開設審査に数週間待たされる」クリエイターの怒りをリンク1本で救済し、10%の手数料を天引きしてフルリモートで数十億円を稼ぐデジタル関所",
+    "tagline": "「ECサイトの開設審査に数週間待たされる」クリエイターの怒りをリンク1本で救済し、10%の手数料を天引きしてフルリモートで数十億円を稼ぐデジタル収益モデル",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
     "founder": "Sahil Lavingia",
@@ -4818,7 +4818,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "id": "ev_gumroad_crime",
         "type": "THE_CRIME",
         "title": "「リンク1つで売れる」クリエイター決済・10%独占中抜き",
-        "badge": "クリエイター関所",
+        "badge": "クリエイター収益モデル",
         "evidenceStatus": "VERIFIED",
         "punchline": "ECサイトの面倒な構築を完全撤廃し、「URLを貼るだけでPDFや動画が売れる」シンプルさで取引額の10%手数料を吸い上げる。",
         "details": [
@@ -4930,7 +4930,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "initialTractionPeriod": "2011-2012年",
       "dataSnapshotPeriod": "2023-2026年 (手数料改定後・安定黒字期)",
       "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "eraContext": "クリエイターエコノミーの爆発的成長期に、もっともシンプルで審査の緩い関所として定着。",
+      "eraContext": "クリエイターエコノミーの爆発的成長期に、もっともシンプルで審査の緩い収益モデルとして定着。",
       "currentViabilityAnalysis": "Lemon Squeezy（Stripeが買収）やStan Storeなどの競合が追撃しているが、長年培ったドメインオーソリティと購入者アカウント基盤により堅牢な地位を維持。",
       "viabilityLabel": "現在も有効"
     },
@@ -5006,7 +5006,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "title": "【儲かる仕組み】クラウド課金の暴利を告発し、「オンプレ回帰・買い切りソフト」で年商数億円抜くコード",
         "badge": "ビジネスモデルの設計図",
         "evidenceStatus": "VERIFIED",
-        "punchline": "「毎月のSaaS課金とAWSクラウド代金は企業の血を吸う寄生虫だ」と業界を痛烈に批判し、固定料金プロジェクト管理と買い切りソフト（ONCE）で巨万の富を抜く。",
+        "punchline": "「毎月のSaaS課金とAWSクラウド代金は企業の血を吸うプラットフォーム連携虫だ」と業界を痛烈に批判し、固定料金プロジェクト管理と買い切りソフト（ONCE）で巨万の富を抜く。",
         "details": [
           "【ユーザー数課金の拒否】: 「社員が増えるたびに従量課金される理不尽」を突いて、「何人使っても月額固定（/月）」で大企業を惹きつける。",
           "【クラウド脱出（Cloud Exit）運動】: AWSに毎年数億円払うのをやめて自社サーバーへ移行した事実を詳細レポートし、世界中のCTOの共感を独占。",
@@ -5312,7 +5312,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "営業組織を作らず、サポートもエンジニア自身が直接対応。機能要望のチケット自体を自社のLinear上で管理し、ユーザーが見ている前で数時間後に修正版をデプロイする狂気の開発スピードをアピール。",
         "クライアントサイド（ブラウザ側）で大部分のレンダリングと検索インデックス処理を行うため、バックエンドのサーバー負荷が競合SaaSに比べて極めて軽い。"
       ],
-      "coldOutreachTemplate": "【Linear型・開発者体験ハックアプローチ】\n「プロジェクト管理ツールの読み込み遅延や重い操作感に、開発チームの集中力を削がれていませんか？\n弊社のツールなら、すべての操作が50ミリ秒以下で完了し、キーボードだけでタスクを瞬時に整理できます。\nトップエンジニアが熱狂する操作感をぜひご体感ください。」"
+      "coldOutreachTemplate": "【Linear型・開発者体験工夫アプローチ】\n「プロジェクト管理ツールの読み込み遅延や重い操作感に、開発チームの集中力を削がれていませんか？\n弊社のツールなら、すべての操作が50ミリ秒以下で完了し、キーボードだけでタスクを瞬時に整理できます。\nトップエンジニアが熱狂する操作感をぜひご体感ください。」"
     },
     "essence": {
       "whatItDoes": "ソフトウェア開発チーム向けの超高速イシュー・バグ・スプリント管理SaaS",
@@ -5509,7 +5509,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "2015年に初期バージョンのコードが破綻して資金が尽きかけた際、創業者Ivan ZhaoとSimon Lastはサンフランシスコのオフィスを引き払い、物価の安い日本の京都に移住してプログラミングに没頭。完全再構築した「Notion 1.0/2.0」をProduct Huntで公開し、その圧倒的な美しさでProduct of the DayとGolden Kitty Awardを総なめにした。"
       ],
       "actionPlaybook": [
-        "「Product Huntのローンチハック」と「大学コミュニティへの無料配布（学割EDUプラン）」を徹底。学生時代にNotionに依存した若者が、就職したスタートアップや大企業で社内ツールとしてNotionを推薦するトロイの木馬戦略を展開。",
+        "「Product Huntのローンチ工夫」と「大学コミュニティへの無料配布（学割EDUプラン）」を徹底。学生時代にNotionに依存した若者が、就職したスタートアップや大企業で社内ツールとしてNotionを推薦するトロイの木馬戦略を展開。",
         "大量のドキュメントと共同編集データを保持するPostgreSQLのシャーディング運用が最大の技術的負債だったが、内製のデータパイプライン移行により維持費をコントロール。"
       ],
       "coldOutreachTemplate": "【Notion型・ツール統合アプローチ】\n「社内の情報がSlack、スプレッドシート、各ツールのメモに散らばって迷子になっていませんか？\n弊社の統合ワークスペースなら、業務マニュアルもプロジェクト進捗も1つの画面で完璧に管理できます。\n他社ツールからの1クリック自動移行デモをお試しください。」"
@@ -5521,7 +5521,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     },
     "exposureAudit": {
       "guerrillaTraction": "2015年に初期バージョンのコードが破綻して資金が尽きかけた際、創業者Ivan ZhaoとSimon Lastはサンフランシスコのオフィスを引き払い、物価の安い日本の京都に移住してプログラミングに没頭。完全再構築した「Notion 1.0/2.0」をProduct Huntで公開し、その圧倒的な美しさでProduct of the DayとGolden Kitty Awardを総なめにした。",
-      "platformGlitch": "「Product Huntのローンチハック」と「大学コミュニティへの無料配布（学割EDUプラン）」を徹底。学生時代にNotionに依存した若者が、就職したスタートアップや大企業で社内ツールとしてNotionを推薦するトロイの木馬戦略を展開。",
+      "platformGlitch": "「Product Huntのローンチ工夫」と「大学コミュニティへの無料配布（学割EDUプラン）」を徹底。学生時代にNotionに依存した若者が、就職したスタートアップや大企業で社内ツールとしてNotionを推薦するトロイの木馬戦略を展開。",
       "pivotSnapshot": "単なるメモアプリやドキュメントエディタから、「データベースとWikiが一体化したノーコード業務OS」へと舵を切ったことが最大の爆発点。",
       "hiddenStackCost": "大量のドキュメントと共同編集データを保持するPostgreSQLのシャーディング運用が最大の技術的負債だったが、内製のデータパイプライン移行により維持費をコントロール。"
     },
@@ -6009,7 +6009,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "evidenceStatus": "VERIFIED",
         "punchline": "Shopifyと完全同期し、「商品をカゴに入れたまま離脱した客」「特定カテゴリを3回見た客」へ1時間後にピンポイントで自動メールを飛ばし年商1,000億円超を吸い上げる。",
         "details": [
-          "【Shopifyエコシステムへの完全寄生】: Shopifyのアプリストアで「インストール即時に過去の全購買履歴を同期」させ、導入摩擦をゼロ化。",
+          "【Shopifyエコシステムへの完全プラットフォーム連携】: Shopifyのアプリストアで「インストール即時に過去の全購買履歴を同期」させ、導入摩擦をゼロ化。",
           "【ROIの即時可視化】: 「Klaviyoのメール経由で今月〇〇万円の売上が発生しました」と管理画面で常に突きつけ、解約できない心理状態を構築。",
           "【従量課金による青天井の売上】: EC事業者の保有リード数が増えるほど自動で月額数万円〜数百万円へ請求が跳ね上がるプライシング。"
         ],
@@ -6101,7 +6101,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       ]
     },
     "strategy": {
-      "blindspot": "【「Shopifyの購入・閲覧イベントログを全部自社DBに溜め、セグメント配信の速度を100倍にした」寄生先完全同期】 1. 既存のメール配信ツール（Mailchimp等）はShopifyとのデータ連携が遅く、「誰が何分前にどの商品をカゴに入れたか」で即時配信することができなかった。\n2. Klaviyoは自前でイベントデータベースを組み、Shopifyストアの全行動ログをミリ秒単位で同期。「カゴ落ち後30分」「閲覧後2時間」といった急所トリガー配信を完全自動化。\n3. Shopify公式のApp Storeで圧倒的な高評価を獲得し、Shopifyエコシステムに完全にコバンザメ寄生して全世界のEC事業者を無双。",
+      "blindspot": "【「Shopifyの購入・閲覧イベントログを全部自社DBに溜め、セグメント配信の速度を100倍にした」基盤完全同期】 1. 既存のメール配信ツール（Mailchimp等）はShopifyとのデータ連携が遅く、「誰が何分前にどの商品をカゴに入れたか」で即時配信することができなかった。\n2. Klaviyoは自前でイベントデータベースを組み、Shopifyストアの全行動ログをミリ秒単位で同期。「カゴ落ち後30分」「閲覧後2時間」といった急所トリガー配信を完全自動化。\n3. Shopify公式のApp Storeで圧倒的な高評価を獲得し、Shopifyエコシステムに完全にプラットフォーム特化プラットフォーム連携して全世界のEC事業者を無双。",
       "moatType": "COUNTER_POSITIONING",
       "moatDescription": "【【極めて高いスイッチングコスト（過去の全顧客購買履歴の監禁） ✕ Shopifyとの強固な資本提携】】 1. 各ECブランドの数年分の顧客LTVデータ、購入頻度、RFM分析セグメントがKlaviyo内に保管されており、他社ツールへの乗り換えは売上激減を意味するため不可逆。\n2. Shopify自身がKlaviyoに1億ドルを出資し、Shopify Plus（大企業プラン）の公式推奨メールソリューションとして提携。競合の参入を事実上ブロック。\n3. 導入したブランドが「Klaviyoから送信されたメール経由の売上実額（Klaviyo-Attributed Value: KAV）」をダッシュボードで常時確認できるため、費用対効果の証明が圧倒的。",
       "incumbentDilemma": "Salesforce Marketing Cloudは大企業向けすぎて導入に数千万円と数ヶ月かかり、中小〜中堅のShopify事業者が即日使えるツールを作れなかった: エンタープライズ向けマーケティング基盤はSIerによる開発前提で組まれており、Shopifyのワンクリックインストール文化に適合できなかった。MailchimpはShopifyとデータ利用規約を巡って喧嘩しアプリストアから追放されたため、Klaviyoに一人勝ちの椅子が転がり込んだ。",
@@ -6303,7 +6303,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "strategy": {
       "blindspot": "【「デバイス本体をタダ（実質無料）で配り、アプリ利用料として毎月課金する」ハードウェアSaaSの完成】 1. フィットビットやガーミンが「数万円のハードウェア売り切り」で稼いでいたのに対し、Whoopはハードをサブスク会員に無料提供し、月額$30の会員権を徴収。\n2. 画面をなくすことで「スマートウォッチとしての通知の煩わしさ」を完全排除し、24時間肌身離さず装着させることに成功。\n3. 充電中も腕から外す必要がない「スライドオン充電バッテリーパック」を開発し、データ欠損をゼロにして計測の中毒性を極限まで引き上げた。",
       "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "【【社会的ステータス誇示（エリートの証明） ✕ 不可逆な生体データの蓄積】】 1. レブロン・ジェームズやマイケル・フェルプス、クリスティアーノ・ロナウド等の世界最高峰アスリートが自発的に腕に巻いている姿が最強のステータスシンボルとして機能。\n2. 何年間もの心拍変動（HRV）、安静時心拍数、睡眠データのベースラインが蓄積されるため、外した瞬間に「自分の体調が見えなくなる不安」が生じて解約できない。\n3. 「Whoopチーム」機能により、ジム仲間や会社の同僚と回復スコア（リカバリースコア）を競い合う社会的比較心理をハック。",
+      "moatDescription": "【【社会的ステータス誇示（エリートの証明） ✕ 不可逆な生体データの蓄積】】 1. レブロン・ジェームズやマイケル・フェルプス、クリスティアーノ・ロナウド等の世界最高峰アスリートが自発的に腕に巻いている姿が最強のステータスシンボルとして機能。\n2. 何年間もの心拍変動（HRV）、安静時心拍数、睡眠データのベースラインが蓄積されるため、外した瞬間に「自分の体調が見えなくなる不安」が生じて解約できない。\n3. 「Whoopチーム」機能により、ジム仲間や会社の同僚と回復スコア（リカバリースコア）を競い合う社会的比較心理を工夫。",
       "incumbentDilemma": "Apple（Apple Watch）は一般大衆向けに画面通知・時計・アプリの総合端末を目指す必要があり、画面を捨てて24時間アスリートのリカバリーに特化することができなかった: Apple Watchはバッテリー持続時間が短く、毎日充電のために外さなければならない。Whoopは「画面ゼロ・5日間連続装着・睡眠中の邪魔にならない」という極北のニッチに特化することで、Appleの巨大な重力圏の外で高単価サブスクを成立させた。",
       "secretInsight": "Apple Watchのような画面をあえて完全排除し、液晶画面のない布バンドを「月額30ドルの永久課金」でアスリートに巻き続けさせる手口",
       "initialTraction": [
@@ -6409,7 +6409,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "evidenceStatus": "VERIFIED",
         "punchline": "ビタミン、ミネラル、プロバイオティクスを買い集める面倒を「毎朝1杯飲むだけの緑の粉（月1万円超）」に一本化し、ポッドキャスターへの巨額賄賂で年商900億円へ登り詰める。",
         "details": [
-          "【怠惰の本能ハック】: 「75種類の厳選成分をこれ1杯で」という極限のシンプルさで、何種類もの錠剤サプリを管理する苦痛を完全に消滅させる。",
+          "【怠惰の本能工夫】: 「75種類の厳選成分をこれ1杯で」という極限のシンプルさで、何種類もの錠剤サプリを管理する苦痛を完全に消滅させる。",
           "【ポッドキャスター・健康系インフルエンサー網】: Andrew HubermanやTim Ferriss等の知性派インフルエンサーに高額報酬と無料提供を行い、絶対の権威を獲得。",
           "【月額のサブスク囲い込み】: 単品購入を異常に割高にし、「定期便なら専用シェイカーと計量スプーン無料」で即座に月額自動更新へ監禁。"
         ],
@@ -6704,7 +6704,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "blindspot": "【「手首（時計）ではなく指（血管が極めて皮膚に近い部位）を選んだ」生理学的盲点】 1. AppleやFitbitが手首の陣取り合戦に血道を上げる中、指の動脈血管の方が心拍信号をより正確かつノイズレスに検知できる生理学的真実に着目。\n2. 指輪という「ジュエリー（装飾品）」の枠組みにテクノロジーを隠すことで、ガジェットオタクだけでなく女性層やファッション富裕層を取り込み。\n3. ハードウェアを300ドルで買わせた上で、過去データの閲覧と詳細分析に「月額$5.99のメンバーシップ課金」を後から導入し、利益率89%の経常収益ストリームを確立。",
       "moatType": "COUNTER_POSITIONING",
       "moatDescription": "【【指の超小型化技術（数々の特許） ✕ 女性の月経・排卵予測アルゴリズム独占】】 1. 超小型バッテリー、回路、センサーを指輪の厚み数ミリに収める極限の製造技術と特許網により、他社の模倣を長年ブロック。\n2. 皮膚温の微細な変動を夜間に計測することで、女性の月経周期や排卵日を自然言語で高精度予測する機能を備え、女性ユーザーの不可逆な定着を獲得。\n3. セレブやシリコンバレーの投資家、NBA選手が「指に光る黒い指輪」をつけている姿がオーガニックに拡散され、上流階級の象徴として定着。",
-      "incumbentDilemma": "Appleは自社のドル箱であるApple Watchの画面通知エコシステムを捨てるわけにいかず、Samsungは指輪型への参入に10年遅れた: Appleは年間数千億円を稼ぐApple Watchの売上とアプリストアをカニバリゼーション（共食い）するリスクを冒してまで指輪に特化できなかった。Samsungが「Galaxy Ring」で追撃してきたものの、Ouraはすでに500万人の睡眠データと特許要塞を築き上げていた。",
+      "incumbentDilemma": "Appleは自社のドル箱であるApple Watchの画面通知エコシステムを捨てるわけにいかず、Samsungは指輪型への参入に10年遅れた: Appleは年間数千億円を稼ぐApple Watchの売上とアプリストアを既存売上の共食いゼーション（共食い）するリスクを冒してまで指輪に特化できなかった。Samsungが「Galaxy Ring」で追撃してきたものの、Ouraはすでに500万人の睡眠データと特許要塞を築き上げていた。",
       "secretInsight": "「時計をつけて寝るのは苦痛だ」という世界中の人々の指に300ドルの指輪をはめ、さらに月額6ドルの通行税を徴収して累計500万本以上を売り抜けた手口",
       "initialTraction": [
         "フィンランドのオウル（元Nokiaの技術者が集まる街）で創業。Kickstarterで初期プロトタイプを出品し、世界中の睡眠オタクから数億円の予約注文を集めて初期製造資金を確保。その後、英国のヘンリー王子やTwitter創業者のジャック・ドーシーが私物として愛用している姿が激写され、一気にグローバル現象化。"
@@ -6804,14 +6804,14 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       {
         "id": "ev_judgeme_loot_blueprint",
         "type": "LOOT_BLUEPRINT",
-        "title": "【儲かる仕組み】Yotpo等の高額レビューSaaS（月数十万円）を「完全無料＋月」で破壊するShopify寄生コード",
+        "title": "【儲かる仕組み】Yotpo等の高額レビューSaaS（月数十万円）を「完全無料＋月」で破壊するShopifyプラットフォーム連携コード",
         "badge": "ビジネスモデルの設計図",
         "evidenceStatus": "VERIFIED",
         "punchline": "大手が月額数万円〜数十万円でぼったくるShopifyレビュー収集機能を、「永久無料プラン＋最上位でも月固定」の圧倒的低価格で破壊し数万店舗を独占する。",
         "details": [
           "【競合の高額プライシングを逆手にとる】: YotpoやOkendoがエンタープライズ価格へシフトして中小ストアを切り捨てた隙間に、極限の低価格で突入。",
           "【24時間365日の爆速ライブチャットサポート】: 低価格ツールにありがちなサポート放棄をせず、5分以内に返信する手厚いサポートでShopify公式レビュー5つ星を数万件獲得。",
-          "【ShopifyアプリストアSEOの完全制覇】: 「Product Reviews」の検索結果で1位に君臨し、広告費ゼロで毎月数千の新規ストアが自動で流入する関所を支配。"
+          "【ShopifyアプリストアSEOの完全制覇】: 「Product Reviews」の検索結果で1位に君臨し、広告費ゼロで毎月数千の新規ストアが自動で流入する収益モデルを支配。"
         ],
         "codeSnippet": "// Judge.me型・Shopifyレビュー収集配管\n1. 注文完了から14日後に自動でレビュー依頼メール・SMSを送信\n2. メールのインライン内で直接星評価と写真アップロードを完了させる（離脱ゼロ）\n3. 投稿されたレビューをGoogleリッチスニペット（SEO星表示）へ即時構造化マークアップ反映\n4. 最上位Awesomeプラン（月固定）で追加機能と透かしロゴ削除を提供",
         "sourceNote": "Peter van der Westhuizen 創業インタビュー"
@@ -6820,7 +6820,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "id": "ev_judgeme_crime",
         "type": "THE_CRIME",
         "title": "月額数十万の独占大手Yotpoを月$15で破壊したShopifyゲリラ",
-        "badge": "価格破壊コバンザメ",
+        "badge": "価格破壊プラットフォーム特化",
         "evidenceStatus": "VERIFIED",
         "punchline": "エンタープライズ営業で月数十万円をぼったくる先行大手Yotpoに対し、ほぼ全機能を「月額$15定額（無制限レビュー）」で提供し市場を総取り。",
         "details": [
@@ -7199,7 +7199,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "tags": [
       "SaaSメトリクス",
       "BuildInPublic",
-      "Stripe寄生",
+      "Stripeプラットフォーム連携",
       "元祖オープンスタートアップ",
       "買収イグジット"
     ],
@@ -7212,7 +7212,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "evidenceStatus": "VERIFIED",
         "punchline": "Stripeの標準ダッシュボードでは計算できない「MRR・解約率・LTV」をStripe Connectで1クリック連携させ、自社の売上数字すら全公開するオープンスタートアップ運動で世界を席巻。",
         "details": [
-          "【Stripeへの完全コバンザメ】: StripeのAPIキーを接続するだけで、過去の決済データからMRR推移を瞬時に美しくグラフ化。",
+          "【Stripeへの完全プラットフォーム特化】: StripeのAPIキーを接続するだけで、過去の決済データからMRR推移を瞬時に美しくグラフ化。",
           "【Open Startupsによるバイラル】: Bufferなど著名SaaSのリアルタイム売上をBaremetrics上で一般公開させ、強烈な被リンクとオーガニック流入を独占。",
           "【解約理由分析（Cancellation Insights）への拡張】: 単なる集計にとどまらず、「なぜ解約されたか」のアンケートと回収メール機能を追加して単価を引き上げ。"
         ],
@@ -7960,7 +7960,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "incumbentDilemma": "既存のSNS巨人（Twitter、Facebook、Spotify）にとって、音声ルーム機能は「自社の既存アプリにボタンを1個追加するだけ」の機能（Feature）に過ぎなかった: Clubhouseは「音声ルーム」という単一の機能を独立したアプリとして提供していたが、既存のSNS大手から見れば単なる追加機能に過ぎず、数ヶ月で完全にコピーされて既存の圧倒的ユーザー数で踏み潰された。",
       "secretInsight": "「録音禁止・招待枠は2人だけ」という飢餓感でイーロン・マスクまで巻き込み時価5,000億円をつけたが、TwitterがSpacesを出した瞬間に誰もアプリを開かなくなった手口",
       "initialTraction": [
-        "創業者のPaul Davisonらは、初期にシリコンバレーのトップVC（Andreessen Horowitzのマーク・アンドリーセン等）やハリウッドセレブ、そしてイーロン・マスクを直接音声ルームに登壇させ、「世界一の有名人と直接生音声で会話できる」特権空間を演出して全世界をハック。"
+        "創業者のPaul Davisonらは、初期にシリコンバレーのトップVC（Andreessen Horowitzのマーク・アンドリーセン等）やハリウッドセレブ、そしてイーロン・マスクを直接音声ルームに登壇させ、「世界一の有名人と直接生音声で会話できる」特権空間を演出して全世界を工夫。"
       ],
       "actionPlaybook": [
         "iOSの連絡先（アドレス帳）を一括アップロードさせることで、ユーザーの友人関係を吸い上げ、知人がルームを開くと狂気的な頻度でプッシュ通知を送りつけるスパム的グロース。",
@@ -7974,7 +7974,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "painRelief": "「コロナのロックダウンで誰とも雑談できない」「Zoom疲れで画面を見たくない」孤独と退屈の切除"
     },
     "exposureAudit": {
-      "guerrillaTraction": "創業者のPaul Davisonらは、初期にシリコンバレーのトップVC（Andreessen Horowitzのマーク・アンドリーセン等）やハリウッドセレブ、そしてイーロン・マスクを直接音声ルームに登壇させ、「世界一の有名人と直接生音声で会話できる」特権空間を演出して全世界をハック。",
+      "guerrillaTraction": "創業者のPaul Davisonらは、初期にシリコンバレーのトップVC（Andreessen Horowitzのマーク・アンドリーセン等）やハリウッドセレブ、そしてイーロン・マスクを直接音声ルームに登壇させ、「世界一の有名人と直接生音声で会話できる」特権空間を演出して全世界を工夫。",
       "platformGlitch": "iOSの連絡先（アドレス帳）を一括アップロードさせることで、ユーザーの友人関係を吸い上げ、知人がルームを開くと狂気的な頻度でプッシュ通知を送りつけるスパム的グロース。",
       "pivotSnapshot": "音声SNSの衰退後、友人同士のグループ音声メッセージアプリやテキストチャットへのピボットを試みるが、誰も見向きもせずゾンビ企業化。",
       "hiddenStackCost": "売上が1円も上がらない中、数千万人が同時に話す音声ストリーミングの通信帯域費（Agora API代）だけが爆発的に請求され、調達した現金を猛スピードで消費。"
@@ -8490,7 +8490,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
     "tags": [
       "地雷標本",
       "失敗・転落",
-      "無料SaaS裏帳簿",
+      "無料SaaS財務・戦略データ",
       "コンプライアンス死",
       "保険法違反",
       "不正自動化マクロ",
@@ -8617,7 +8617,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
       "blindspot": "【「ADPやWorkdayが月額数百万円取る人事ソフトを『完全無料』で配った」本体無料・裏キックバックの悪魔】 1. 通常の人事管理ソフトは高額な月額費用がかかるが、Zenefitsは「ソフトウェアは永久にタダでいいです」と中小企業に無料配布。\n2. その代わり、企業が健康保険に加入する際の「指定保険代理店（Broker of Record）」にZenefitsを指定させ、保険会社から支払われる多額の販売手数料（キックバック）を毎年自動徴収。\n3. 中小企業にとっては「タダで最高の人事ソフトが使えて保険も一括管理できる」ため、爆発的なスピードで数万社に導入され、ARR数千億円ペースで急拡大。",
       "moatType": "COUNTER_POSITIONING",
       "moatDescription": "【【狂気のノルマによる違法行為（Macroプログラム） ✕ 規制産業のコンプライアンス地雷】】 1. 爆発的な成長ノルマに追いつくため、営業マンが保険販売に必要な州の法定講習（52時間）を受講したように見せかける自動偽装ソフトウェア「Macro」を創業者が内製。\n2. 無資格の営業マン数千人が違法に保険を売りまくっていた事実をBuzzFeed Newsにすっぱ抜かれ、全米各州の保険当局およびSECから集中砲火。\n3. 数百万ドルの巨額制裁金を課され、創業者のParker Conradは辞任に追い込まれ、企業価値は45億ドルから急落、最終的に競合（Tritonet等）へ安値で売却。",
-      "incumbentDilemma": "ADPやPaychex等の伝統的給与計算大手は「ソフト代金を有料で売る」ビジネスモデルだったため、Zenefitsの「ソフト無料・保険手数料中抜き」という裏帳簿モデルに当初手も足も出なかった: 既存の大手HR企業はソフトウェアのライセンス料で稼いでいたため、ソフトを無料にする決断ができなかった。Zenefitsの「マネタイズの場所をずらす（金融手数料で回収する）」モデルは本来無敵のアーキテクチャだったが、コンプライアンスの軽視という自業自得の自爆によって自ら命を絶った。",
+      "incumbentDilemma": "ADPやPaychex等の伝統的給与計算大手は「ソフト代金を有料で売る」ビジネスモデルだったため、Zenefitsの「ソフト無料・保険手数料中抜き」という財務・戦略データモデルに当初手も足も出なかった: 既存の大手HR企業はソフトウェアのライセンス料で稼いでいたため、ソフトを無料にする決断ができなかった。Zenefitsの「マネタイズの場所をずらす（金融手数料で回収する）」モデルは本来無敵のアーキテクチャだったが、コンプライアンスの軽視という自業自得の自爆によって自ら命を絶った。",
       "secretInsight": "「人事管理ソフトを完全無料で配り、裏で社員の健康保険手数料を毎年数千万円ピンハネする」最強のビジネスモデルを作ったが、営業に不正ツールを使わせて自爆した手口",
       "initialTraction": [
         "創業者のParker Conradは、初期に自ら中小企業のオフィスを飛び込み営業。「あなたの会社の人事労務、給与計算、保険手続きをすべて1つの画面で自動化します。費用は完全無料です」と告げて契約を総取り。Y Combinatorを経てシリコンバレー最速のユニコーンとして脚光を浴びた。"
@@ -8653,7 +8653,7 @@ export const SOURCE_INSTITUTIONAL_ENTITIES: FinancialEntity[] = [
         "id": "obs_ent_zenefits_failure_1",
         "category": "INCUMBENT_DILEMMA",
         "categoryLabel": "大手の反撃・直接圧殺",
-        "text": "ADPやPaychex等の伝統的給与計算大手は「ソフト代金を有料で売る」ビジネスモデルだったため、Zenefitsの「ソフト無料・保険手数料中抜き」という裏帳簿モデルに当初手も足も出なかった: 既存の大手HR企業はソフトウェアのライセンス料で稼いでいたため、ソフトを無料にする決断ができなかった。Zenefitsの「マネタイズの場所をずらす（金融手数料で回収する）」モデルは本来無敵のアーキテクチャだったが、コンプライアンスの軽視という自業自得の自爆によって自ら命を絶った。",
+        "text": "ADPやPaychex等の伝統的給与計算大手は「ソフト代金を有料で売る」ビジネスモデルだったため、Zenefitsの「ソフト無料・保険手数料中抜き」という財務・戦略データモデルに当初手も足も出なかった: 既存の大手HR企業はソフトウェアのライセンス料で稼いでいたため、ソフトを無料にする決断ができなかった。Zenefitsの「マネタイズの場所をずらす（金融手数料で回収する）」モデルは本来無敵のアーキテクチャだったが、コンプライアンスの軽視という自業自得の自爆によって自ら命を絶った。",
         "originType": "inferred",
         "verificationStatus": "SUPPORTED",
         "observedAt": "2026-09-10"

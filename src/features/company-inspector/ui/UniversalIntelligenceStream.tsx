@@ -249,13 +249,13 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           </div>
 
           <div className="grid grid-cols-1 gap-2.5">
-            {/* ① 寄生・コバンザメ構造 */}
+            {/* ① プラットフォーム連携・プラットフォーム特化構造 */}
             {dynamicMoats?.parasiteHost && (
               <div className="border border-white/[0.08] rounded-md bg-[#0A0C10] p-3.5 space-y-1.5">
                 <div className="flex items-center justify-between text-[11px] font-mono">
                   <span className="text-zinc-400 font-bold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    他社プラットフォームの活用（コバンザメ戦略）
+                    他社プラットフォームの活用（エコシステム連携）
                   </span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08]">
                     プラットフォーム: {dynamicMoats.parasiteHost.hostName}

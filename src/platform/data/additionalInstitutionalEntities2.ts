@@ -43,8 +43,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_dsc_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「大手の暴利・不便」をユーモアで告発し、消耗品定期便で囲い込むコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】「大手の暴利・不便」をユーモアで告発し、消耗品定期便で囲い込むコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: '既存の寡占メーカーが「高価格・対面販売」で殿様商売している日用品を、低価格サブスクでポスト投函する。',
         details: [
@@ -76,7 +76,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_dsc_incumbent_trap',
         type: 'INCUMBENT_TRAP',
-        title: '大手の自爆構造: ジレット（P&G）の流通マージンとカニバリズムの罠',
+        title: '大手の自爆構造: ジレット（P&G）の流通マージンと既存事業の共食いの罠',
         evidenceStatus: 'REPORTED',
         punchline: 'ジレットは全米の小売店に高価格で卸すことで莫大な利益を得ていたため、自ら低価格サブスクに移行すると自社の本業数千億円が吹き飛ぶため対抗不能だった。',
       },
@@ -207,8 +207,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_drsquatch_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「市販品は危険な化学薬品だ」と脅し、高単価天然品を売るコメディコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】「市販品は危険な化学薬品だ」と脅し、高単価天然品を売るコメディコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: '「あなたが毎日使っているボディソープは実は合成洗剤だ」と常識を破壊し、天然手作り石鹸を8倍の価格で売る。',
         details: [
@@ -228,7 +228,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
         punchline: '100円の石鹸で満足していた男性たちに「男のプライド」を植え付け、1個1,200円の石鹸を喜んで買わせる。',
         details: [
           'YouTube広告は数億回再生。スキップされないコメディ動画の最高峰。',
-          'スターウォーズやアベンジャーズとの公式コラボ石鹸を投入し、コレクター需要をハック。',
+          'スターウォーズやアベンジャーズとの公式コラボ石鹸を投入し、コレクター需要を工夫。',
         ],
         metrics: [
           { label: '年間売上', value: '約300億円 ($200M+)', isHighlight: true },
@@ -259,7 +259,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       ],
     },
     strategy: {
-      blindspot: '【「男性用コスメは女々しいが、体臭は気にしている」男たちの矛盾をハック】女性向けのような気取ったコスメではなく、「ワイルドで自然派、男らしい石鹸」という新しいカテゴリを作り出した。',
+      blindspot: '【「男性用コスメは女々しいが、体臭は気にしている」男たちの矛盾を工夫】女性向けのような気取ったコスメではなく、「ワイルドで自然派、男らしい石鹸」という新しいカテゴリを作り出した。',
       moatType: 'BRAND_PRESTIGE',
       moatDescription: '全米の若い男性の間で確立された「Dr. Squatchを使うのがクール」というカルチャー的地位。',
       incumbentDilemma: 'オールドスパイス等の既存大手は「スプレーや化学香料」に依存しており、「天然コールドプロセス」を訴求すると自社の本業を否定することになる。',
@@ -300,7 +300,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     },
     exposureAudit: {
       guerrillaTraction: 'コメディ広告1本で数百万ドルの売上を一気に叩き出した。',
-      platformGlitch: '「男性はコスメを買わない」という常識を「男らしい石鹸」という言葉でハック。',
+      platformGlitch: '「男性はコスメを買わない」という常識を「男らしい石鹸」という言葉で工夫。',
       pivotSnapshot: 'ガレージ手作業から、全米ドラッグストアとスーパーを制覇するメガブランドへ進化。',
       hiddenStackCost: 'YouTube・Meta広告への巨額の広告出稿費用（売上の40%超）。',
     },
@@ -371,8 +371,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_swell_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】日用品を「ファッション小物」に昇格させ、定価を3倍にする美意識コード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】日用品を「ファッション小物」に昇格させ、定価を3倍にする美意識コード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: 'ホームセンターで売っている実用品を、高級ブティックに置けるデザインに塗り替えて粗利65%を抜く。',
         details: [
@@ -535,8 +535,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_goruck_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】顧客に「過酷な苦行」を課し、熱狂的信者に育てて高額ギアを売るコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】顧客に「過酷な苦行」を課し、熱狂的信者に育てて高額ギアを売るコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: 'ただモノを売るのではなく、「参加すると死ぬほどキツい体験イベント」を主催し、参加者を生涯の布教者に変える。',
         details: [
@@ -699,8 +699,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_farnamstreet_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】バフェットや歴史的偉人の「不変の知恵」を編集し、富裕層から年額課金するコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】バフェットや歴史的偉人の「不変の知恵」を編集し、富裕層から年額課金するコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: 'クリックベイトの時事ネタを完全追放し、「100年後も役に立つ思考フレームワーク」だけを書いて超富裕層を囲い込む。',
         details: [
@@ -864,8 +864,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_cuts_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「仕事に着ていけるTシャツ」という新枠組みで定価を5倍にするコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】「仕事に着ていけるTシャツ」という新枠組みで定価を5倍にするコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: 'ただのTシャツではなく「現代ビジネスマンの新しい作業着（スーツの代替品）」として再定義し、$70で売りまくる。',
         details: [
@@ -992,7 +992,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     ticker: 'TLWD.PLUS',
     name: 'Tailwind Plus',
     legalEntity: 'Tailwind Labs Inc.',
-    tagline: 'Tailwind CSSの生みの親が「公式UIコンポーネント集」を買い切り$299で直販し、ローンチわずか24時間で1.5億円をStripeに着金させたデジタル資産の関所',
+    tagline: 'Tailwind CSSの生みの親が「公式UIコンポーネント集」を買い切り$299で直販し、ローンチわずか24時間で1.5億円をStripeに着金させたデジタル資産の収益モデル',
     sector: 'NICHE_SAAS',
     scale: 'SMALL_TEAM',
     founder: 'Adam Wathan, Steve Schoger',
@@ -1028,8 +1028,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_tailwindui_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】無料OSSで世界を支配し、「公式パーツ」を有料直販して1日で億を抜くコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】無料OSSで世界を支配し、「公式パーツ」を有料直販して1日で億を抜くコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: 'オープンソースツールを無料で配って世界中の開発者を依存させ、「時間を買うための公式完成パーツ」を高単価で直販する。',
         details: [
@@ -1043,7 +1043,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_tailwindui_crime',
         type: 'THE_CRIME',
-        title: '世界中のエンジニアの「コピペしたい怠惰」をハックした24時間1.5億円の売上獲得',
+        title: '世界中のエンジニアの「コピペしたい怠惰」を工夫した24時間1.5億円の売上獲得',
         badge: '知恵の要塞モデル',
         evidenceStatus: 'REPORTED',
         punchline: '「自分でデザインできる」というプライドを捨てさせたエンジニアたちに、HTMLコードのコピペ権を4万5千円で売って数億円を着金。',
@@ -1121,7 +1121,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     },
     exposureAudit: {
       guerrillaTraction: 'Twitterで「デザインのBefore / After」を画像1枚で解説し、デザイナー嫌いのエンジニアを心酔させた。',
-      platformGlitch: '「オープンソースはボランティア」という欺瞞を破り、最強のマネタイズ関所へ変貌。',
+      platformGlitch: '「オープンソースはボランティア」という欺瞞を破り、最強のマネタイズ収益モデルへ変貌。',
       pivotSnapshot: '個人の教材販売から、世界標準開発ツール企業（Tailwind Labs）へ進化。',
       hiddenStackCost: '常駐するトップデザイナーとエンジニア数名への高額報酬。',
     },
@@ -1192,8 +1192,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_superhi_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】理系用語を完全追放し、「感性派」へコードを教える垂直教育コード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】理系用語を完全追放し、「感性派」へコードを教える垂直教育コード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: '「黒い画面」を見せずにブラウザ上で即座にデザインが動くエディタを作り、デザイナーのプログラミング恐怖を消滅させる。',
         details: [
@@ -1320,7 +1320,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     ticker: 'NTN.VIP',
     name: 'Notion VIP',
     legalEntity: 'Notion VIP (William Nutt)',
-    tagline: 'Notion認定エキスパート第1号が「Bulletproof Workspace」という体系的構造メソッドを提唱し、高額テンプレ販売と企業向けNotion導入コンサルで抜く知恵の関所',
+    tagline: 'Notion認定エキスパート第1号が「Bulletproof Workspace」という体系的構造メソッドを提唱し、高額テンプレ販売と企業向けNotion導入コンサルで抜く知恵の収益モデル',
     sector: 'NICHE_SAAS',
     scale: 'SOLO',
     founder: 'William Nutt (ウィリアム・ナット)',
@@ -1356,8 +1356,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_notionvip_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】ツールの「公式アーキテクチャ設計論」を名乗り、高額テンプレと受託を総取りするコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】ツールの「公式アーキテクチャ設計論」を名乗り、高額テンプレと受託を総取りするコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: '安っぽい個人用テンプレを捨て、「企業が倒産しないためのデータ構造設計」という権威を纏って数万円〜数十万円で売る。',
         details: [
@@ -1519,8 +1519,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_meundies_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「買いに行くのが恥ずかしい・面倒な日用品」を定期ポスト投函するコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】「買いに行くのが恥ずかしい・面倒な日用品」を定期ポスト投函するコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: '下着売り場に行くストレスを解消し、「毎月違う柄が届くワクワク感」を付加して高単価サブスク化する。',
         details: [
@@ -1647,7 +1647,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     ticker: 'NTN.ERY',
     name: 'Notionery',
     legalEntity: 'Notionery',
-    tagline: '厳選されたNotionテンプレートとクリエイターをキュレーションし、毎週のニュースレター配信とSEOで集客して販売手数料20%を徴収する寄生型ディレクトリ',
+    tagline: '厳選されたNotionテンプレートとクリエイターをキュレーションし、毎週のニュースレター配信とSEOで集客して販売手数料20%を徴収するプラットフォーム連携型ディレクトリ',
     sector: 'NICHE_SAAS',
     scale: 'SOLO',
     founder: 'Notionery Team',
@@ -1655,7 +1655,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     url: 'https://notionery.com',
     verifiedBadge: true,
     growthRateYoY: 15.0,
-    architecturePattern: '寄生プラットフォーム',
+    architecturePattern: 'プラットフォーム連携プラットフォーム',
     pipelineStack: 'ノーコードディレクトリ (Airtable/Softr) × 週刊テンプレ紹介メルマガ × 決済手数料中抜き (20%)',
     targetPainWallet: '自作テンプレの集客手段を持たない個人クリエイターの焦燥 ＆ 優良テンプレを探せないユーザーの疲労',
     tags: ['Notionテンプレ', 'ディレクトリ', 'ノーコード', '手数料ビジネス', '粗利85%'],
@@ -1683,8 +1683,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_notionery_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】人気ツールの「厳選キュレーション」に居座り、通行税を抜くコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】人気ツールの「厳選キュレーション」に居座り、通行税を抜くコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: '自分では商品を1つも作らず、「おすすめ〇〇選」のディレクトリを作り、クリエイターから手数料を抜く。',
         details: [
@@ -1692,18 +1692,18 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
           '【週刊ニュースレターでのプッシュ配信】: 「今週のベストNotionテンプレ3選」を配信し、定期的な購買トラフィックを創出。',
           '【スポンサー掲載枠の別売り】: 検索上位やメルマガトップに表示したいクリエイターから、手数料とは別に「広告枠（1枠数万円）」を徴収。',
         ],
-        codeSnippet: '// 垂直ディレクトリ関所配管\n1. Softr / Webflowで「特定ツール特化のマーケットプレイス」を立ち上げ\n2. Gumroadで売っているクリエイターに「うちで特集します」とスカウトDM\n3. 購入発生時にStripe Connectで20%を手数料として自動中抜き',
+        codeSnippet: '// 垂直ディレクトリ収益モデル配管\n1. Softr / Webflowで「特定ツール特化のマーケットプレイス」を立ち上げ\n2. Gumroadで売っているクリエイターに「うちで特集します」とスカウトDM\n3. 購入発生時にStripe Connectで20%を手数料として自動中抜き',
         sourceNote: 'Notionery 運用モデル分析',
       },
       {
         id: 'ev_notionery_crime',
         type: 'THE_CRIME',
         title: '他人の作ったNotionテンプレを集めて月150万円の不労中抜き',
-        badge: '寄生プラットフォームモデル',
+        badge: 'プラットフォーム連携プラットフォームモデル',
         evidenceStatus: 'REPORTED',
         punchline: 'クリエイターに「集客してあげる」という恩を売りながら、決済ごとに20%を天引きして年間1,800万円の現金を口座へ直結。',
         details: [
-          '仕入れゼロ、在庫ゼロ。サーバー代数千円で回る完全自動の関所。',
+          '仕入れゼロ、在庫ゼロ。サーバー代数千円で回る完全自動の収益モデル。',
         ],
         metrics: [
           { label: '粗利率', value: '88%', isHighlight: true },
@@ -1734,7 +1734,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       ],
     },
     strategy: {
-      blindspot: '【「作る人」は世界中にいるが「キュレーションする人」がいないギャップ】商品の製造コストはゼロでクリエイターに外注し、自分は一番美味しい「流通の関所」だけを握る。',
+      blindspot: '【「作る人」は世界中にいるが「キュレーションする人」がいないギャップ】商品の製造コストはゼロでクリエイターに外注し、自分は一番美味しい「流通の収益モデル」だけを握る。',
       moatType: 'NETWORK_EFFECT',
       moatDescription: '掲載数が増えるほど購入者が集まり、購入者が増えるほどクリエイターが出品したがる二面市場。',
       incumbentDilemma: 'Notion公式は自前で個人の有料取引の手数料を抜くビジネスを始めると、コミュニティの反発を買うため手を出せない。',
@@ -1784,7 +1784,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       initialTractionPeriod: '2021年〜2022年',
       dataSnapshotPeriod: '2023-2024期観測（年商約2,400万円）',
       viabilityStatus: 'ACTIVE_PLAYBOOK',
-      viabilityLabel: '現在も有効（キュレーション型関所・手数料中抜き）',
+      viabilityLabel: '現在も有効（キュレーション型収益モデル・手数料中抜き）',
       eraContext: '個人クリエイターのデジタル商品販売が一般化した時代。',
       currentViabilityAnalysis: '「特定AIツール（Cursorルール、Claudeプロンプト、Framerテンプレ）の特化型マーケット」として現在もまったく同じ手口で即座に大儲け可能。',
     },
@@ -1796,7 +1796,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     opportunityJudgment: {
       verdict: 'ENTRY_CANDIDATE',
       verdictLabel: '即座に参入可能',
-      oneLineReason: '「Cursorルール集特化」または「Framerテンプレ特化」の日本語マーケットプレイスを作れば、今夜から関所になれる。',
+      oneLineReason: '「Cursorルール集特化」または「Framerテンプレ特化」の日本語マーケットプレイスを作れば、今夜から収益モデルになれる。',
       demandDelta: '90日 ↑35%',
       competitionDelta: '国内特化が皆無',
       entryRequirements: { capital: '数万円', technicalDifficulty: 'LOW', platformRisk: 'MEDIUM' },
@@ -1845,8 +1845,8 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
       {
         id: 'ev_chubbies_loot_blueprint',
         type: 'LOOT_BLUEPRINT',
-        title: '【略奪転用】「平日の抑圧への反逆」を煽り、単なる短パンをカルト商品にするコード',
-        badge: '略奪転用方程式',
+        title: '【仕組みの転用】「平日の抑圧への反逆」を煽り、単なる短パンをカルト商品にするコード',
+        badge: '高収益ビジネスモデル',
         evidenceStatus: 'VERIFIED',
         punchline: '「退屈なスーツと長ズボンへの抵抗」をミーム動画で爆笑させ、股下の短いド派手な短パンを$65で買わせる。',
         details: [
@@ -1938,7 +1938,7 @@ export const ADDITIONAL_INSTITUTIONAL_ENTITIES_2: FinancialEntity[] = [
     },
     exposureAudit: {
       guerrillaTraction: '大学のキャンパスで泥臭く手売りし、Facebookミームで全米へ拡散。',
-      platformGlitch: '「Facebookの初期オーガニックリーチ」を悪ふざけミームでハック。',
+      platformGlitch: '「Facebookの初期オーガニックリーチ」を悪ふざけミームで工夫。',
       pivotSnapshot: '学生の遊びから、年商65億円の巨大アパレルブランドへ成長し上場グループへ売却。',
       hiddenStackCost: 'シーズン在庫の管理とデジタル広告出稿費。',
     },

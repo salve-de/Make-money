@@ -155,9 +155,9 @@ export const BUSINESS_ARCHETYPES: BusinessArchetype[] = [
   },
   {
     id: 'arch_blindspot',
-    badge: 'カニバリ障壁 / 無風独占',
+    badge: '既存売上の共食い障壁 / 無風独占',
     title: '【大手の自爆・無風地帯】大企業が手を出せない美味しい隙間を突く',
-    description: '大手企業が「既存の高単価商品や既存客との食い合い（カニバリゼーション）」を恐れて絶対に参入できない死角、または役員会を通らない規模の市場を完全独占する型。',
+    description: '大手企業が「既存の高単価商品や既存客との食い合い（既存売上の共食いゼーション）」を恐れて絶対に参入できない死角、または役員会を通らない規模の市場を完全独占する型。',
     avgNetMargin: 68.0,
     iconName: 'ShieldAlert',
     ideas: [
@@ -193,9 +193,9 @@ export const BUSINESS_ARCHETYPES: BusinessArchetype[] = [
   },
   {
     id: 'arch_tollbooth',
-    badge: '水門寄生 / 永続通行税',
-    title: '【水門・通行税モデル】他人の取引やデータに寄生して永続課金する',
-    description: '自らがプレイヤーとして汗をかくのをやめ、他人が売買・取引・業務を行う「水門（関所）」を支配し、取引ごとに自動で数%の手数料や通行税を吸い上げ続ける型。',
+    badge: 'インフラ連携モデル / 永続通行税',
+    title: '【水門・通行税モデル】他人の取引やデータにプラットフォーム連携して永続課金する',
+    description: '自らがプレイヤーとして汗をかくのをやめ、他人が売買・取引・業務を行う「水門（収益モデル）」を支配し、取引ごとに自動で数%の手数料や通行税を吸い上げ続ける型。',
     avgNetMargin: 75.0,
     iconName: 'KeyRound',
     ideas: [

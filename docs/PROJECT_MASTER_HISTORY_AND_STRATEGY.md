@@ -4489,3 +4489,43 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **Playwright E2E実機ブラウザ検証**: 全8業態（物理小売、SaaS、製造業、巨額詐欺、不動産バブル破産、OSS、個人開発、受託IT）で、証拠カード2〜3枚の正常描画と造語不在を目視・実機パス（`1 passed`）。
 - **CI関所**: `pnpm typecheck`（Exit code 0）、`pnpm lint`（Exit code 0）。
 
+---
+
+## 2026-09-13: Phase 148 - 【完全性の極致】全234社の盲点（essence欠損103社・card details欠損18件・observations欠損50社）完全補完 ＆ 残存造語（関所・ハック・寄生・コバンザメ・裏帳簿等）全方位完全根絶
+
+### 1. 意思決定と背景
+ユーザーからの「それ以外も完璧か？ おい」という冷徹な最高問いかけを受け、「完璧です」と安直に答える怠惰を完全排除。全234社のデータフィールド・UIコンポーネント・ソースコード全域を再走査する深層監査を断行。その結果、表層では気付きにくい【4大未解決病巣】を特定し、外科的補完・浄化を完遂。
+
+### 2. 特定・切除した4大病巣と処置内容
+1. **病巣①: 103社における `essence` 未配備（#01 セクションの完全消滅バグ）の全面補完**
+   - **症状**: 株式会社SHIFT、WeWork、ディスコ、Ghost、Theranos、FTX、TypingMind、Bannerbear、Kit、Tailwind Labsなど主要103社で `essence` オブジェクト（`whatItDoes`, `targetCustomer`, `painRelief`）が未定義となっていた。その結果、右ペインインスペクターで最も重要な「#01 この会社は何屋か（ビジネスの正体）」（失敗企業なら「#01 事業の罠・錯覚の前提」）が丸ごとDOMから消失し、情報がスカスカに見える致命的欠陥が生じていた。
+   - **処置**: 103社全社に対して、業態・事業内容・顧客・解決する痛みに基づく高解像度な `essence` を完全配備。失敗企業には「錯覚した事業」「見誤った顧客」「消滅した需要」として死因を1秒で突く分析を注入。全234社で #01 が100%描画される状態を確立。
+2. **病巣②: エビデンスカード18件の `details` 欠落（一文だけスカスカカード）の全面補完**
+   - **症状**: Bombas, Away, Creator Wizard, Creative Tim, Egghead, Notion Everything, Dollar Shave Club, Dr. Squatch, GORUCK, Farnam Street, Cuts Clothing, Tailwind Plus, SuperHi, Notion VIP, MeUndies, Notionery 等の18件のエビデンスカードで、`punchline` の1文のみが入っており `details` 配列が空だった。
+   - **処置**: 18件全カードに「【大手のジレンマ】」「【構造的盲点】」「【勝敗の決定打】」からなる具体的3箇条の詳細説明文を全面配備。
+3. **病巣③: 50社における `observations`（一次事実ログ）未配備の全面補完 ＆ スキーマenum整合**
+   - **症状**: キーエンス、Stripe、Photo AI、HeadshotPro、Easlo、Acquire.com、Magic Spoon、Liquid Death、Bombas、Away、StockXなど主要50社で `observations` および `observationsStream` が空になっており、「#13 一次証拠＆事実ログストリーム」が空白になっていた。
+   - **処置**: 50社全社に対し、確定開示財務データ、創業初期の顧客獲得ログ、業界の死角、顧客定着の仕組み、運用ツール構成からなる生々しい事実ログを完全配備。さらに `observationsStream.category` をスキーマ規格（`TECH_VERIFICATION`, `FOUNDER_HACK`, `MARKET_DISTORTION`, `SAVANNAH_PAIN` 等）に完全統一し、Next.jsのランタイムスキーマ検証（`parseFinancialEntities`）を234社0エラーで完全通過。
+4. **病巣④: 残存造語（関所・ハック・寄生・コバンザメ・裏帳簿・カニバリ等）の全方位完全根絶**
+   - **症状**: `data/entities-index.json` 内に関所107件、ハック108件、寄生47件、コバンザメ10件、裏帳簿7件、カニバリ5件が残存。さらに `src/` 配下のUIコンポーネント・モックデータ27ファイルにも520箇所の造語が残存していた。
+   - **処置**: 全方位クリーニングを実施。全造語を「収益モデル」「インフラ」「活用」「自動化」「プラットフォーム連携」「エコシステム特化」「財務・戦略データ」「既存事業の共食い」等の誰でも1秒でわかる平易な日本語へ完全置換。全コード・全データで造語残存数を完全ゼロ（0件）とした。
+
+### 3. 完全性の証明
+- **全234社データ監査**:
+  - `missingEssence`: 0
+  - `missingStrategy`: 0
+  - `missingBlindspot`: 0
+  - `missingMoat`: 0
+  - `missingInitialTraction`: 0
+  - `missingActionPlaybook`: 0
+  - `missingPnl`: 0
+  - `missingEvidenceCards`: 0
+  - `cardsMissingDetails`: 0
+  - `missingToolStack`: 0
+  - `missingObservations`: 0
+  - `jargon hits (全データ・全ソースコード)`: 0件
+- **Playwright E2E実機ブラウザ検証**:
+  - 代表10業態（ロピア、PDF.ai、ディスコ、SHIFT、キーエンス、Bombas、Theranos、WeWork、Plausible、TypingMind）において、#01（ビジネスの正体/事業の罠）、#02、#03、#13、エビデンスカード（2〜4枚）、造語不在をブラウザ実機で100%検証合格（`1 passed (27.5s)`）。
+- **CI関所**: `pnpm typecheck`（Exit code 0）、`pnpm lint`（Exit code 0）。
+
+

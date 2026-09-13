@@ -310,7 +310,7 @@ export function adaptFoundationSummaryToFinancialEntity(
     {
       id: `ev_${summary.id}_crime`,
       type: 'THE_CRIME',
-      title: '身も蓋もない真実・集金構造',
+      title: '客観的事実ログ・集金構造',
       badge: pattern,
       evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'UNKNOWN' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
       punchline: headline,
@@ -337,7 +337,7 @@ export function adaptFoundationSummaryToFinancialEntity(
       details: [
         '① 大手ツールがカバーしきれないニッチ業務フローを特定し、単一特化LPで初期検証。',
         '② Stripe等の定額サブスクリプションを組み込み、年払い一括割引で前金を回収。',
-        '③ 蓄積データを元に解約不能な業務ハックを構築し、高利益率を固定化。',
+        '③ 蓄積データを元に解約不能な業務工夫を構築し、高利益率を固定化。',
       ],
       sourceNote: 'Make-Money アナリスト転用設計',
     },
@@ -528,7 +528,7 @@ export function adaptFoundationDetailToFinancialEntity(
     observationsStream.push({
       id: cl.id,
       category: 'FOUNDER_HACK',
-      categoryLabel: '公表ファクト・裏帳簿',
+      categoryLabel: '公表ファクト・財務・戦略データ',
       text: cleanIntelligenceText(cl.statement),
       originType: normalizeObservationOrigin(cl.originType),
       verificationStatus: normalizeObservationStatus(cl.verificationStatus),
@@ -675,7 +675,7 @@ export function adaptFoundationDetailToFinancialEntity(
     {
       id: `ev_${entity.id}_crime`,
       type: 'THE_CRIME',
-      title: '身も蓋もない真実・集金構造',
+      title: '客観的事実ログ・集金構造',
       badge: pattern,
       evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'UNKNOWN' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
       punchline: tagline,

@@ -30,10 +30,10 @@ export const IntelligenceCatalogView: React.FC<IntelligenceCatalogViewProps> = (
               </span>
             </div>
             <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white leading-tight">
-              資本主義の裏帳簿：4大攻略シナリオ
+              高収益事業の真実：4大攻略シナリオ
             </h1>
             <p className="text-xs text-zinc-400 font-sans max-w-2xl leading-relaxed">
-              単体の企業データではなく、複数社に共通する「大手の自爆（カニバリズム）」と「利益率80%超の抜け道」を体系化した勝ちパターンの設計図。
+              単体の企業データではなく、複数社に共通する「大手の自爆（既存事業の共食い）」と「利益率80%超の抜け道」を体系化した勝ちパターンの設計図。
             </p>
           </div>
 

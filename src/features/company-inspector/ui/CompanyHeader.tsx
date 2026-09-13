@@ -85,7 +85,7 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
                 <button
                   onClick={() => onOpenSynthesisWithEntity(entity.id)}
                   className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer mr-1"
-                  title="この銘柄の裏帳簿データでAIと壁打ちする"
+                  title="この銘柄の財務・戦略データでAIと壁打ちする"
                 >
                   <Bot className="w-3 h-3 text-zinc-300" />
                   <span className="hidden sm:inline">AI壁打ち</span>

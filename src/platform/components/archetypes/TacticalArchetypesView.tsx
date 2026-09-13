@@ -335,7 +335,7 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
           </div>
         )}
 
-        {/* ② 狙う痛みの財布 (サバンナOS) */}
+        {/* ② 狙う痛みの財布 (人間の防衛本能・衝動) */}
         <div className="p-3.5 sm:p-4 rounded-lg bg-rose-950/10 border border-rose-500/20 space-y-1">
           <div className="flex items-center gap-1.5 text-rose-400 font-mono text-xs font-semibold">
             <Target className="w-3.5 h-3.5 text-rose-400" />
@@ -346,7 +346,7 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
           </p>
         </div>
 
-        {/* ③ 大手・既存産業の自爆構造 (Why it matters / カニバリズム障壁) */}
+        {/* ③ 大手・既存産業の自爆構造 (Why it matters / 既存事業の共食い障壁) */}
         <div className="p-3.5 sm:p-4 rounded-lg bg-amber-950/10 border border-amber-500/20 space-y-1">
           <div className="flex items-center gap-1.5 text-amber-400 font-mono text-xs font-semibold">
             <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
@@ -400,7 +400,7 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
 
       {/* ─── 相互直通ワームホール: 実在企業DB検証 ＆ AI壁打ち連携 ─── */}
       <div className="p-3.5 sm:p-4 rounded-lg bg-[#0B0D13] border border-white/[0.08] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-        {/* 実在企業の裏帳簿リンク（DBへ一瞬でワープ） */}
+        {/* 実在企業の財務・戦略データリンク（DBへ一瞬でワープ） */}
         <div className="flex flex-col sm:flex-row sm:items-center gap-2">
           <span className="text-[11px] sm:text-xs font-mono text-zinc-400 shrink-0 flex items-center gap-1">
             <Database className="w-3.5 h-3.5 text-emerald-400" />

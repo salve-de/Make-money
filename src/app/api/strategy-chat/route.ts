@@ -86,11 +86,11 @@ function generateFallbackSynthesis(
   const primaryEntity = relevantEntities[0] || INSTITUTIONAL_ENTITIES[0];
   const secondaryEntity = relevantEntities[1] || INSTITUTIONAL_ENTITIES[1] || primaryEntity;
 
-  // 1. 本能ハック型（サバンナOS）: 損失回避・怠惰・虚栄心を直撃する即効型
+  // 1. 本能工夫型（人間の防衛本能・衝動）: 損失回避・怠惰・虚栄心を直撃する即効型
   const idea1: SynthesizedIdea = {
     id: `idea_savanna_${Date.now()}_1`,
     dimension: 'SAVANNA_INSTINCT',
-    dimensionLabel: '① 本能ハック型（サバンナOS）',
+    dimensionLabel: '① 本能工夫型（人間の防衛本能・衝動）',
     title: `${primaryEntity.name}の手口転用: 【${primaryEntity.targetPainWallet || '顧客の防衛本能'}】を突く高単価マイクロ代行`,
     targetPainWallet: `${primaryEntity.targetPainWallet || '企業の保身・損失回避'} × ユーザー着目点（${combinedUserNote.slice(0, 40)}...）`,
     structuralArbitrage: `顧客が避けたい損失を、${primaryEntity.strategy.blindspot}の公開事例から読み解く。対象業界の許可された接点で小さく検証し、成約・提供時間・原価を記録してから拡大する。`,
@@ -134,12 +134,12 @@ function generateFallbackSynthesis(
     userNoteInspiration: combinedUserNote.slice(0, 100),
   };
 
-  // 3. 逆張り・盲点型（コペルニクス的転回）: 大手の自爆（カニバリ）を突く奇襲モデル
+  // 3. 逆張り・盲点型（コペルニクス的転回）: 大手の自爆（既存売上の共食い）を突く奇襲モデル
   const idea3: SynthesizedIdea = {
     id: `idea_contrarian_${Date.now()}_3`,
     dimension: 'CONTRARIAN_BLINDSPOT',
     dimensionLabel: '③ 逆張り・盲点型（コペルニクス的転回）',
-    title: `既存大手の自爆（カニバリ）直撃: 【業界常識の真逆】を突く超高密度ソロSaaS`,
+    title: `既存大手の自爆（既存売上の共食い）直撃: 【業界常識の真逆】を突く超高密度ソロSaaS`,
     targetPainWallet: `大手SaaSの高額な年間固定費と使わない多機能に疲弊した中小企業の現金`,
     structuralArbitrage: `大手の多機能・高額プランと、対象顧客が実際に使う最小機能を比較する。月額・解約条件・データ持ち出しを明記した特化版を作り、価格と継続率の実測で優位性を確かめる。`,
     projectedMonthlyProfitJpy: 1800000,
@@ -351,9 +351,9 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
 
 【出力要件】:
 以下の3つの次元でアイデアをJSON配列として返してください。Markdownコードブロックは不要、純粋なJSONのみ。
-1. SAVANNA_INSTINCT (本能ハック型): 顧客の損失回避・怠惰・虚栄心を突く即効モデル
+1. SAVANNA_INSTINCT (本能工夫型): 顧客の損失回避・怠惰・虚栄心を突く即効モデル
 2. META_ARCHITECT (構造・胴元型): 取引手数料や水門を握る独占モデル
-3. CONTRARIAN_BLINDSPOT (逆張り・盲点型): 大手の自爆（カニバリ）を突く奇襲モデル
+3. CONTRARIAN_BLINDSPOT (逆張り・盲点型): 大手の自爆（既存売上の共食い）を突く奇襲モデル
 
 【安全と根拠の境界】
 - 法令・各サービス規約に反する手順、自作自演、迷惑DM、不正取得・不正スクレイピング、直取引の妨害、誤認表示は提案しない。
@@ -365,7 +365,7 @@ ${payload.userProfile?.profileSummary || '完全1人運営、粗利80%超モデ�
   {
     "id": "idea_1",
     "dimension": "SAVANNA_INSTINCT",
-    "dimensionLabel": "① 本能ハック型（サバンナOS）",
+    "dimensionLabel": "① 本能工夫型（人間の防衛本能・衝動）",
     "title": "...",
     "targetPainWallet": "...",
     "structuralArbitrage": "...",
@@ -439,7 +439,7 @@ ${enableSearch ? '6. Google検索から得られた最新の市場・競合・�
 【安全と根拠の境界】
 法令・各サービス規約に反する手順、自作自演、迷惑DM、不正取得・不正スクレイピング、直取引の妨害、誤認表示は提案しないでください。実行案は正規チャネル、相手の明示同意、透明な料金・解約条件、データの持ち出し可能性を前提にしてください。公開事実・推定・未確認を区別し、根拠のない成功保証や売上・利益の断定は避けてください。
 
-【あなたの手元にある裏帳簿データ（参考実例）】:
+【あなたの手元にある財務・戦略データデータ（参考実例）】:
 ${entity ? JSON.stringify({ name: entity.name, pnl: entity.pnl, moat: entity.strategy.moatDescription, traction: entity.strategy.initialTraction, stack: entity.operations.toolStack, painWallet: entity.targetPainWallet }) : '全銘柄データ保有'}
 
 【DBおよび直近から蓄積されたアナリストメモ（ユーザーの視点）】:

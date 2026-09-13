@@ -29,7 +29,7 @@ const WEAPON_DOMAINS = [
   { id: 'info', name: '情報・認知の歪み', count: 5, icon: Compass, description: '不透明性・認知的怠惰・保身心理を突いた超過利潤' },
   { id: 'reg', name: '制度・規制の歪み', count: 5, icon: Scale, description: '法的義務化や参入規制・公的ルールを味方につけた独占' },
   { id: 'time', name: '時間・資本の歪み', count: 5, icon: Clock, description: '緊急性の崖・前受金フロート・時間差移植による無競争' },
-  { id: 'ecosystem', name: 'エコシステムの歪み', count: 5, icon: Network, description: '巨大PF寄生・単機能切り出し・大手の足元ニッチ寡占' },
+  { id: 'ecosystem', name: 'エコシステムの歪み', count: 5, icon: Network, description: '巨大PFプラットフォーム連携・単機能切り出し・大手の足元ニッチ寡占' },
   { id: 'operation', name: '非対称オペレーション', count: 5, icon: Wrench, description: '労働の地理的裁定・限界費用ゼロ自動化・実業近代化' },
 ] as const;
 
@@ -81,7 +81,7 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
   reg: [
     {
       code: '#02-A',
-      name: '法的義務化の関所（Mandatory Compliance）',
+      name: '法的義務化の収益モデル（Mandatory Compliance）',
       distortion: '電帳法・インボイス等「導入しないと違法」の施行期日に合わせ、営業努力ゼロで顧客を刈り取る',
       example: 'KEYENCE / 製造基準独占',
       margin: '54.0%',
@@ -165,7 +165,7 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
   ecosystem: [
     {
       code: '#04-A',
-      name: 'コバンザメ・プラットフォーム寄生',
+      name: 'プラットフォーム連携・エコシステム特化',
       distortion: 'ShopifyやLINE等の巨大ストア内で公式が作らない隙間ツールを展開し、CACほぼゼロで億を抜く',
       example: 'Notion OS / Easlo',
       margin: '98.6%',
@@ -189,7 +189,7 @@ const WEAPONS_BY_DOMAIN: Record<DomainId, WeaponItem[]> = {
     },
     {
       code: '#04-D',
-      name: '関所・チョークポイント（通行税モデル）',
+      name: '収益モデル・チョークポイント（通行税モデル）',
       distortion: 'プレイヤー同士を血みどろで競争させ、自身はその決済・受発注の出入り口で手数料を自動徴収',
       example: 'Stripe (決済テイクレート)',
       margin: '30.0%',

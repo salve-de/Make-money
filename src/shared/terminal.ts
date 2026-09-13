@@ -92,7 +92,7 @@ export interface PricingDossier {
 export interface AcquisitionDossier {
   cacJpy: number; // 顧客獲得コスト (0円等)
   primaryFunnel: string; // 集客〜成約ファネル
-  tactics: string[]; // 具体的ハック
+  tactics: string[]; // 具体的工夫
 }
 
 export interface BusinessEssence {
@@ -133,7 +133,7 @@ export interface StrategicDossier {
   moatType: MoatType;
   moatDescription: string; // 参入障壁の正体
   incumbentDilemma?: string; // 大手が手を出せない構造的理由
-  secretInsight?: string; // 現場の裏ハック・非公開インサイト
+  secretInsight?: string; // 現場の裏工夫・非公開インサイト
   initialTraction: string[]; // 最初の100人を獲得した泥臭い手順
   actionPlaybook: string[]; // 再現・実行のためのステップ
   coldOutreachTemplate?: string; // コールドDM実文
@@ -141,7 +141,7 @@ export interface StrategicDossier {
 
 export interface ExposureAuditDossier {
   guerrillaTraction: string; // ① 初期の泥臭いゲリラ戦・自演の客観事実ログ
-  platformGlitch: string; // ② プラットフォーム・規約の盲点ハック（審査すり抜け・トラフィック横取り）
+  platformGlitch: string; // ② プラットフォーム・規約の盲点工夫（審査すり抜け・トラフィック横取り）
   pivotSnapshot: string; // ③ 死線とピボット魚拓（当初何を売って爆死し、どこを変えて跳ねたか）
   hiddenStackCost: string; // ④ 表向き隠された裏原価・現物API構造
 }
@@ -150,7 +150,7 @@ export interface ExposureAuditDossier {
 export interface DynamicMoats {
   parasiteHost?: {
     hostName: string; // 宿主（例: "Shopify", "Chrome Web Store", "X (Twitter)"）
-    detail: string; // どのように寄生し、トラフィックや顧客を横取りしているか
+    detail: string; // どのようにプラットフォーム連携し、トラフィックや顧客を横取りしているか
   };
   dataHostage?: {
     lockInFactor: string; // 人質資産（例: "過去5年分の業務データ", "社内API連携"）
@@ -174,7 +174,7 @@ export interface DynamicMoats {
 export interface UniversalObservation {
   id?: string;
   category?: 'MARKET_DISTORTION' | 'SAVANNAH_PAIN' | 'INCUMBENT_DILEMMA' | 'FOUNDER_HACK' | 'FORUM_RAGE' | 'TECH_VERIFICATION' | 'RESEARCH_LIMIT';
-  categoryLabel?: string; // 例: "市場の歪み", "大手の自爆", "サバンナOSの急所", "現場の泥臭い工夫", "調査限界"
+  categoryLabel?: string; // 例: "市場の歪み", "大手の自爆", "顧客の本能・衝動の急所", "現場の泥臭い工夫", "調査限界"
   text: string;
   originType?: 'observed' | 'inferred' | 'reported' | 'estimated' | 'unknown';
   verificationStatus?: 'SUPPORTED' | 'UNVERIFIED' | 'REFUTED';
@@ -239,7 +239,7 @@ export type DynamicEvidenceCardType =
   | 'SMOKING_GUN'         // ② その会社固有の生々しい現物証拠（実際のDM文面、スクショ禁止コード、広告クリエイティブ、裏原価率等）
   | 'DIRTY_GENESIS'       // ③ 最初の100人を仕留めた初期ゲリラ・自演・泥臭い突破ログ
   | 'ASYMMETRIC_LEVERAGE' // ④ 固定費ゼロ・限界費用ゼロで現金を吸い上げる構造（P&L・手残りレントゲン）
-  | 'INCUMBENT_TRAP'      // ⑤ 大手がカニバリ・メンツで指をくわえて見逃すしかない死角
+  | 'INCUMBENT_TRAP'      // ⑤ 大手が既存売上の共食い・メンツで指をくわえて見逃すしかない死角
   | 'FATAL_BLEED'         // ⑥ 地雷・失敗企業専用：資金炎上・即死の生々しい検死解剖
   | 'LOOT_BLUEPRINT'      // ⑦ この手口を今夜別業界に持ち込むならどう組むかの転用コード
   | 'UNKNOWN_AUDIT';      // ⑧ 取れなかった事実・調査限界の冷徹な開示
@@ -281,12 +281,12 @@ export interface FinancialEntity {
   essence?: BusinessEssence;
   hasPremiumAnalysis?: boolean;
   meta?: MetaArchitectureDossier;
-  exposureAudit?: ExposureAuditDossier; // 資本主義の裏帳簿：客観事実の暴露レントゲン
+  exposureAudit?: ExposureAuditDossier; // 高収益事業の真実：客観事実の暴露レントゲン
   isBookmarked?: boolean;
   opportunityJudgment?: OpportunityJudgment; // 【即時意思決定】参入候補/監視/地雷判定 ＆ 需要競争Delta
 
-  // 資本主義の裏帳簿：知的興奮・探索3大トリガー
-  architecturePattern: string; // 構造の型（例: "直販要塞・相見積もり殺し", "APIラッパー・自撮り特化", "水門寄生・決済通行税", "テンプレ販売・無料逆手"）
+  // 高収益事業の真実：知的興奮・探索3大トリガー
+  architecturePattern: string; // 構造の型（例: "直販要塞・相見積もり殺し", "APIラッパー・自撮り特化", "インフラ連携モデル・決済通行税", "テンプレ販売・無料逆手"）
   pipelineStack: string; // 現場の配管・主要ツール（例: "Replicate API × Hetzner × Stripe", "Clay × Make × OpenAI"）
   targetPainWallet: string; // 人質にした財布・痛み（例: "個人の見栄（写真館スタジオの羞恥心回避）", "工場長の保身（ライン停止恐怖）"）
 
@@ -301,7 +301,7 @@ export interface FinancialEntity {
   dynamicMoats?: DynamicMoats; // Layer 2: 動的特異点ブロック（データが存在する項目のみ展開）
   observationsStream?: UniversalObservation[]; // Layer 3: 万能救済ストリーム（型に収まらない全データ）
   observations?: string[]; // 補足観測事実
-  lootBlueprint?: LootBlueprint; // 略奪転用方程式
+  lootBlueprint?: LootBlueprint; // 高収益ビジネスモデル
   timelineEvents?: UniversalEvent[]; // 重要タイムライン・マイルストーン
   coverageAudit?: UniversalCoverageItem[]; // 監査カバレッジ・調査試行ログ
   unknownsNotes?: string[]; // 調査限界・非公開要素の明記
@@ -355,8 +355,8 @@ export interface MarketAnomaly {
   isHot?: boolean;
   heatScore: number;          // 0 - 100
   updatedAt: string;          // 逐一更新の証 (例: '2026-03-01')
-  targetPainWallet: string;   // 狙う痛みの財布 (サバンナOS)
-  incumbentTrap: string;      // 大手・既存産業の自爆構造 (カニバリズム障壁)
+  targetPainWallet: string;   // 狙う痛みの財布 (人間の防衛本能・衝動)
+  incumbentTrap: string;      // 大手・既存産業の自爆構造 (既存事業の共食い障壁)
   trendingPlaybook: string;   // いま現場で流行っている抜き方・手口
   techStack: string[];        // 実際の構築ツール・原価配管
   expectedRevenue: string;    // 想定月商レンジ
@@ -471,7 +471,7 @@ export interface SynthesizedIdea {
   id: string;
   dimension: 'SAVANNA_INSTINCT' | 'META_ARCHITECT' | 'CONTRARIAN_BLINDSPOT';
   /** @maxLength 128 */
-  dimensionLabel: string; // "本能ハック型（サバンナOS）" | "構造・胴元型（メタ・アーキテクチャ）" | "逆張り・盲点型（コペルニクス的転回）"
+  dimensionLabel: string; // "本能工夫型（人間の防衛本能・衝動）" | "構造・胴元型（メタ・アーキテクチャ）" | "逆張り・盲点型（コペルニクス的転回）"
   /** @maxLength 320 */
   title: string;
   /** @maxLength 2000 */

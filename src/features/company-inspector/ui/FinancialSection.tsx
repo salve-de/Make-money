@@ -23,7 +23,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
               {isFinancialUnavailable && (
                 <section className="rounded-lg border border-white/[0.12] bg-[#0E131F] p-4 space-y-2">
                   <h3 className="font-bold text-zinc-200">財務データは未確認</h3>
-                  <p className="text-zinc-400">月商・営業利益を裏付ける情報が不足しているため、損益計算を表示していません。確認できた数値と対象期間は特異物証を参照してください。</p>
+                  <p className="text-zinc-400">月商・営業利益を裏付ける情報が不足しているため、損益計算を表示していません。確認できた数値と対象期間は証拠カードを参照してください。</p>
                 </section>
               )}
               {/* 財務計器盤 ＆ 月次損益テーブル（データ欠損・UNAVAILABLE時は完全非表示） */}

@@ -12,7 +12,7 @@ export interface UserInterestProfile {
 }
 
 /**
- * 保存銘柄および閲覧履歴からユーザーの関心傾向（サバンナOSプロファイル）を自動算出
+ * 保存銘柄および閲覧履歴からユーザーの関心傾向（人間の防衛本能・衝動プロファイル）を自動算出
  */
 export function buildUserInterestProfile(
   allEntities: FinancialEntity[],

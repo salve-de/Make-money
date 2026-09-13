@@ -46,7 +46,7 @@ export const TOOL_CATEGORIES: ToolCategoryMeta[] = [
     key: 'PAYMENTS_BILLING',
     label: '決済・サブスク課金',
     badge: 'Billing & Cashflow',
-    description: 'Stripe, Lemon Squeezy, Recharge等。即日着金・グローバル通貨対応の自動集金関所',
+    description: 'Stripe, Lemon Squeezy, Recharge等。即日着金・グローバル通貨対応の自動集金収益モデル',
     medianCost: '取引額の 2.9% + 30¢（成果報酬）',
     survivalRule: '【生存原則】銀行振込や請求書払いを待つな。クレカ即時決済と年払い前払いで客の金を使って拡大せよ。',
   },
@@ -374,7 +374,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
       category: 'PAYMENTS_BILLING',
       categoryLabel: '決済・サブスク課金',
       timeline,
-      summaryInsight: 'Stripeが圧倒的な関所として6割超を独占。一方で、海外のデジタル商品・テンプレ販売ではMoR（販売元代行・消費税自動処理）を持つLemon Squeezyが急伸。',
+      summaryInsight: 'Stripeが圧倒的な収益モデルとして6割超を独占。一方で、海外のデジタル商品・テンプレ販売ではMoR（販売元代行・消費税自動処理）を持つLemon Squeezyが急伸。',
       tools: [
         {
           name: 'Stripe (Checkout / Billing)',
@@ -384,8 +384,8 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           historyShares: [55.0, 56.5, 58.0, 59.5, 61.0, 62.2, 63.0, 63.5, 63.8, 64.0, 64.1, 64.2],
           estimatedCost: '取引額の 2.9% + 30¢ (初期0円)',
           detectionMethod: 'HTML内 <script src="https://js.stripe.com/v3/"> 監査済',
-          whyMigrating: 'Apple Pay即時決済、自動インボイス発行、解約防止スマートリトライ。個人の経理・集金業務を完全消滅させる必須関所。',
-          proofQuote: 'キーエンス・SaaS裏帳簿: 「Stripeの導入により、請求書発行・消込の手作業がゼロになり、営業マンゼロで月数千万円が口座に直着金する」',
+          whyMigrating: 'Apple Pay即時決済、自動インボイス発行、解約防止スマートリトライ。個人の経理・集金業務を完全消滅させる必須収益モデル。',
+          proofQuote: 'キーエンス・SaaS財務・戦略データ: 「Stripeの導入により、請求書発行・消込の手作業がゼロになり、営業マンゼロで月数千万円が口座に直着金する」',
           usedByEntities: [
             { id: 'ent_keyence', name: 'キーエンス', ticker: '6861.T' },
             { id: 'ent_stripe', name: 'Stripe', ticker: 'STRIPE' },
@@ -612,11 +612,11 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
     },
     {
       id: 'trap-ignoring-savannah-os',
-      title: 'サバンナOS無視・過剰資本病（大金投下と需要ゼロの爆死）',
+      title: '人間の防衛本能・衝動無視・過剰資本病（大金投下と需要ゼロの爆死）',
       badge: '危険度 ★★★★★ / 2,000億円全焼',
       dangerLevel: 5,
       lossScale: '2,000億円（$1.75B）調達 ➔ 6ヶ月で全焼閉鎖',
-      mechanism: 'ハリウッドの大物プロデューサーや超大物経営者が「高品質な短尺動画」を作れば若者が月額5ドル払うと過信。人間の「無料と怠惰と刺激」という本能（サバンナOS）を無視し、TikTokやYouTubeの無料コンテンツに惨敗。',
+      mechanism: 'ハリウッドの大物プロデューサーや超大物経営者が「高品質な短尺動画」を作れば若者が月額5ドル払うと過信。人間の「無料と怠惰と刺激」という本能（人間の防衛本能・衝動）を無視し、TikTokやYouTubeの無料コンテンツに惨敗。',
       warningSigns: [
         'ローンチ前に「数千万円〜数億円の開発費やコンテンツ費」を投じている',
         '顧客が自発的に検索・課金している証拠（初期トラクション）がない',
@@ -631,7 +631,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
           headline: '2,000億円調達からわずか6ヶ月での全焼・資産二値売り検死',
           punchline: 'スマホ専用10分ドラマに2,000億円投下するも、TikTokやYouTubeの無料刺激に惨敗。有料会員目標の7%しか集まらず即死。',
           details: [
-            '若者はTikTokやYouTubeで無限の無料コンテンツを消費しており、誰が好んで月$4.99払って10分ドラマを観るのかという根本的サバンナOSを無視。',
+            '若者はTikTokやYouTubeで無限の無料コンテンツを消費しており、誰が好んで月$4.99払って10分ドラマを観るのかという根本的人間の防衛本能・衝動を無視。',
             '有料会員目標740万人に対し、わずか50万人しか集まらず、資金が残っているうちにわずか6ヶ月で会社を畳み全資産をRokuへ二値売り。',
           ],
         },
@@ -646,10 +646,10 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
       mechanism: '大手が本気で守っている主力ドメインに、同じ機能・同じ価格帯で正面から挑む愚行。大手はブランド・資金力・既存顧客基盤で価格を下げ、後発スタートアップを窒息させる。',
       warningSigns: [
         '「大手のUIを使いやすくしただけ」の差別化',
-        '大手にとって自社の売上を傷つけない領域（カニバリズム障壁がない領域）での競合',
+        '大手にとって自社の売上を傷つけない領域（既存事業の共食い障壁がない領域）での競合',
         '大手が無料で追加できる機能を単体で有料販売している',
       ],
-      antidote: '大手が「真似したくても、真似すると自社の既存の高単価売上が爆死する」というカニバリズム死角（オムロンの代理店網、Googleの広告追跡、P&Gの棚占有）だけを急襲せよ。',
+      antidote: '大手が「真似したくても、真似すると自社の既存の高単価売上が爆死する」という既存事業の共食い死角（オムロンの代理店網、Googleの広告追跡、P&Gの棚占有）だけを急襲せよ。',
       victimEntities: [
         {
           id: 'ent_blueland_trap',
@@ -670,7 +670,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
   const currentWaves: CurrentPlaybookWave[] = [
     {
       id: 'wave-saas-boilerplate',
-      title: '開発者焦燥ハック（SaaSボイラープレート買い切り型）',
+      title: '開発者焦燥工夫（SaaSボイラープレート買い切り型）',
       badge: 'RISING_WAVE / 最盛期',
       viabilityStatus: 'RISING_WAVE',
       viabilityLabel: '急上昇トレンド最盛期',
@@ -766,7 +766,7 @@ export function aggregateMacroIntelligence(entities: FinancialEntity[]): MacroIn
     },
     {
       id: 'wave-faceless-commerce',
-      title: '手元実演・無償サンプルハック型（顔出し不要ショート動画物販）',
+      title: '手元実演・無償サンプル工夫型（顔出し不要ショート動画物販）',
       badge: 'RISING_WAVE / 最盛期',
       viabilityStatus: 'RISING_WAVE',
       viabilityLabel: '急上昇トレンド最盛期',

@@ -17,7 +17,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
           {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
           {/* ------------------------------------------------------- */}
           <div className="space-y-8">
-            {/* 資本主義の裏帳簿：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
+            {/* 高収益事業の真実：初期突破の手口と裏原価 / 致命的死因の客観ログ */}
             {entity.exposureAudit && (
               <div className={`rounded-lg overflow-hidden border shadow-xl ${
                 isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
@@ -72,7 +72,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     </p>
                   </div>
 
-                  {/* ② プラットフォーム規約の盲点ハック / 致命的規約違反・依存 */}
+                  {/* ② プラットフォーム規約の盲点工夫 / 致命的規約違反・依存 */}
                   <div className="p-3.5 space-y-1.5 bg-[#0E131F]">
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>02.</span>

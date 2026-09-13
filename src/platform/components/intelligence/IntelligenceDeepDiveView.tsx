@@ -176,7 +176,7 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
           <div className="space-y-2">
             <div className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 flex items-center gap-1.5">
               <ShieldAlert className="w-3.5 h-3.5 text-amber-500" />
-              市場の構造的歪み ＆ 大手の自爆（カニバリ死角）
+              市場の構造的歪み ＆ 大手の自爆（既存売上の共食い死角）
             </div>
             <div className="bg-[#08090C] p-4 rounded-lg border border-white/[0.06] text-xs text-zinc-300 leading-relaxed font-sans space-y-2">
               <p>{dossier.macroArbitrage}</p>

@@ -129,7 +129,7 @@ export const MARKET_ANOMALIES: MarketAnomaly[] = [
     category: 'PLATFORM_PARASITE',
     categoryLabel: '巨大PFの隙間',
     title: 'Google検索のReddit優遇バグと「口コミ偽装監視の逆張り」',
-    subtitle: '検索アルゴリズムがReddit・知恵袋を最上位表示する歪みを利用した一次情報関所',
+    subtitle: '検索アルゴリズムがReddit・知恵袋を最上位表示する歪みを利用した一次情報収益モデル',
     signalBadge: 'アルゴリズム激変',
     growthRate: '+670%',
     signalData: 'GoogleのHelpful Content Update以降、主要商用キーワードのトップ3枠にReddit・フォーラムが表示される割合が前年比4.2倍。',

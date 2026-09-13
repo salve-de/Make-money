@@ -105,7 +105,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             type="text"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="銘柄名・手口・タグ・裏帳簿を検索..."
+            placeholder="銘柄名・ビジネスモデル・タグ・特徴を検索..."
             className="w-full bg-[#050608] border border-white/[0.06] focus:border-white/[0.15] rounded pl-8 pr-12 py-1 text-zinc-200 placeholder-zinc-600 outline-none text-xs transition-colors"
           />
           {!searchQuery ? (

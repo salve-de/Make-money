@@ -1,7 +1,7 @@
 import { BusinessIdeaRecord } from '@/types/idea';
 
 export const BUSINESS_IDEAS: BusinessIdeaRecord[] = [
-  // 1. 富裕業界寄生・町工場AI検査
+  // 1. 富裕業界プラットフォーム連携・町工場AI検査
   {
     id: 'idea-factory-ipad-ai',
     title: 'キーエンスの死角を突く「地方町工場向け中古iPad格安外観検査」',
