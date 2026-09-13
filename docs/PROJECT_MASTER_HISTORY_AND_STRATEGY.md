@@ -1,5 +1,40 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-14 【確定】市場攻略レーダー「/radar」新設 ＆ 3段ピラミッド構造（マクロ・大手自爆・参入攻略本）の物理実装完了（Phase 162）
+
+### 1. ユーザー指示と設計思想（User Command & Architecture Rationale）
+- **ユーザー指示**:
+  - 「UIってか 何を表示するのか だけ考えろ」「そんな ジャンルを 見せられてもなあ 困るんだよなあ」「違うなあ だから こう言う傾向がある こう言う場所に お金が集まっている で、具体的なアイデア とかにすれば」「そもそもさあ こう言う系で ユーザーは 何を欲しいの何にならお金を払うの」「構造的に どうやって表示するべきか 外部検索して調べろ」「じゃあやって 実装」
+  - 「DBページと 被らないようにしたい」
+- **真の購買動機の解剖（外部市場調査・Trends.vc / Starter Story / Exploding Topics 逆算）**:
+  - ユーザーが金を払うのは「抽象的な市場レポート」でも「個別のビジネス企画書のポエム」でもない。
+  - **① 先回り市場（Under-The-Radar Market）**: 大手が手を出せない／気づいていない急上昇のニッチ。
+  - **② 実証データ（Proven Proof）**: 実際に個人や小規模チームが月利数百万円を抜いている客観数字。
+  - **③ 大手の自爆構造（Incumbent Dilemma）**: 既存の収益や手動運用を守るために大手が手を出せないカニバリズム死角。
+  - **④ 参入切り口と初動10人獲得ログ（Loot Blueprint & Traction Log）**: 明日真似できる手口と、最初の客を捕まえた実録DM・手口。
+  - **⑤ 道具箱と実費（3-Tool Tech Stack）**: 月数千円で今日組めるツールの組み合わせと初期費用。
+  - **⑥ 即死地雷（Fatal Pitfall）**: 先人が踏んで即死した血の教訓。
+- **DBページ（個別台帳カルテ）との明確な境界分離**:
+  - **DBページ（`/` / `/case/[id]`）**: 「個別企業の客観カルテ（過去ログ・決算・初動）」。企業のレントゲン写真。
+  - **RADARページ（`/radar`）**: 「市場の潮目と金儲けの交差点（マクロトレンド ➔ 大手の死角 ➔ 具体的攻略本）」を縦に貫く総合レーダー。
+
+### 2. 物理実装した3段ピラミッド構造（The 3-Tier Pyramid Architecture）
+1. **上段: マクロ市場・潮目レーダー（Macro Horizon）**:
+   - 成長率、市場規模、金が雪崩れ込んでいる力学、サバンナOSの急所（保身・怠惰・虚栄心）。
+2. **中段: 大手の死角 ＆ 実証データ（The Chokepoint & Proof）**:
+   - 大手がなぜ自爆して参入できないか（カニバリズム障壁）と、実際に現金を抜いている勝者の数字（人数、月利、粗利、回収期間）。
+3. **下段: 参入アクション攻略本（Execution Playbook）**:
+   - 参入アングル、初動10人獲得ログ（ワンクリックコピー可能）、3ツール道具箱と実費、即死地雷警告。
+
+### 3. 実装・結合コンポーネント
+- `src/platform/data/marketRadarData.ts`: 外部調査に基づく急上昇トレンドデータモデル。
+- `src/platform/components/radar/MarketRadarView.tsx`: 高密度ブルームバーグ型3段ピラミッドUI。
+- `src/app/radar/page.tsx` ＆ `src/app/radar/RadarClientShell.tsx`: 新規パーマリンク `/radar`（静的ビルド対応）。
+- `src/platform/components/layout/TerminalShell.tsx`: `workspaceMode === 'RADAR'` によるSPA即時描画。
+- `src/platform/components/navigation/TerminalSidebar.tsx`: 「市場攻略レーダー (Market Radar)」ボタン新設。
+
+---
+
 ## 2026-09-13 【確定】収集範囲の「周辺・隣接・裏の生態系5大重力場」への完全拡張 ＆ 枠組み限定完全排除・observations無制限吸収の最高運用契約確立（Phase 161）
 
 ### 1. ユーザー指示と最高合意（User Command & Supreme Consensus）

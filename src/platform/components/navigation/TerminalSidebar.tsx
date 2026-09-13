@@ -8,7 +8,8 @@ import {
   Activity,
   Cpu,
   KeyRound,
-  BookOpen
+  BookOpen,
+  Flame
 } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
@@ -100,6 +101,25 @@ export const TerminalSidebar: React.FC<TerminalSidebarProps> = ({
             {/* ツールチップ */}
             <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
               トレンド ＆ 稼ぎの歪み (Trends & Anomalies)
+            </div>
+          </div>
+
+          {/* 3. 市場攻略レーダー (RADAR) */}
+          <div className="relative group w-full flex justify-center">
+            <button
+              aria-label="Market Radar"
+              onClick={() => onSelectMode('RADAR')}
+              className={`w-9 h-9 flex items-center justify-center rounded-md transition-colors ${
+                workspaceMode === 'RADAR'
+                  ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 shadow-sm'
+                  : 'text-zinc-500 hover:text-zinc-300 hover:bg-white/[0.04]'
+              }`}
+            >
+              <Flame className="w-4 h-4 text-emerald-400" />
+            </button>
+            {/* ツールチップ */}
+            <div className="absolute left-12 top-1/2 -translate-y-1/2 ml-1 px-2.5 py-1 bg-[#0E1015] border border-white/[0.1] rounded text-[11px] font-mono text-zinc-200 shadow-2xl whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-50">
+              市場攻略レーダー (Market Radar)
             </div>
           </div>
 

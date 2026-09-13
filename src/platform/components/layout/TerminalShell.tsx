@@ -14,6 +14,7 @@ import { CompanyInspectorPane } from '@/features/company-inspector';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { PlaybookIntelligenceView } from '../playbook/PlaybookIntelligenceView';
+import { MarketRadarView } from '../radar/MarketRadarView';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { useViewHistory } from '../../hooks/useViewHistory';
@@ -564,7 +565,14 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
             currency={currency}
             initialContextEntityId={selectedEntityId}
           />
-        ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
+        ) : workspaceMode === 'RADAR' ? (
+          <MarketRadarView
+            onSelectEntity={(entityId) => {
+              setSelectedEntityId(entityId);
+              setWorkspaceMode('LEDGER');
+            }}
+          />
+        ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'DEEP_DIVE') ? (
           <TacticalArchetypesView
             allEntities={entities}
             initialAnomalyId={selectedAnomalyId}
