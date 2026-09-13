@@ -8,27 +8,43 @@ import { GET } from '@/app/api/businesses/route';
 
 describe('Promotion Enforcement Gate - Public Route Safety', () => {
 
-  it('1. isPublishableEntity strictly allows only PUBLISHABLE and denies all other stages', () => {
-    const baseEntity = {
+  it('1. isPublishableEntity strictly allows only PUBLISHABLE with valid evidence locator and denies all other stages', () => {
+    const baseEntityWithEvidence = {
       id: 'test_promo',
       name: 'Promo Test',
       ticker: 'TEST',
       sector: 'NICHE_SAAS',
       scale: 'SOLO',
       country: 'US',
+      url: 'https://example.com',
+      evidenceCards: [
+        {
+          id: 'ev_01',
+          evidenceLocator: 'r2://foundation-raw/blobs/sha256/abc123',
+          sourceClass: 'SEC_EDINET_PRIMARY',
+        },
+      ],
     } as unknown as FinancialEntity;
 
-    // PUBLISHABLE のみ true
-    expect(isPublishableEntity({ ...baseEntity, publishability: 'PUBLISHABLE' })).toBe(true);
+    // PUBLISHABLE かつ Evidence ありのみ true
+    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'PUBLISHABLE' })).toBe(true);
 
-    // 後方互換（未指定は既存データとして許可）
-    expect(isPublishableEntity({ ...baseEntity, publishability: undefined })).toBe(true);
+    // 厳格Fail-Closed: undefined も物理遮断 (false)
+    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: undefined })).toBe(false);
 
-    // それ以外はすべて物理遮断
-    expect(isPublishableEntity({ ...baseEntity, publishability: 'PARTIAL' })).toBe(false);
-    expect(isPublishableEntity({ ...baseEntity, publishability: 'RAW' })).toBe(false);
-    expect(isPublishableEntity({ ...baseEntity, publishability: 'ARCHIVED' })).toBe(false);
-    expect(isPublishableEntity({ ...baseEntity, publishability: 'REJECTED_AS_CASE' })).toBe(false);
+    // それ以外のステータスはすべて物理遮断
+    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'PARTIAL' })).toBe(false);
+    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'RAW' })).toBe(false);
+    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'ARCHIVED' })).toBe(false);
+    expect(isPublishableEntity({ ...baseEntityWithEvidence, publishability: 'REJECTED_AS_CASE' })).toBe(false);
+
+    // Evidence Locator が一切ないデータは PUBLISHABLE であっても遮断
+    const entityWithoutEvidence = {
+      id: 'test_fake',
+      name: 'Fake Entity',
+      publishability: 'PUBLISHABLE',
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(entityWithoutEvidence)).toBe(false);
   });
 
   it('2. publicSummaryEntity projects strictly explicit whitelist fields without leaking heavy dossiers or meta', () => {

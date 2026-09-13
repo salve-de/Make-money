@@ -12,8 +12,14 @@ import {
   type FoundationBusinessCase,
   type FoundationValuePage,
 } from '@/lib/foundation/business-reader';
+import { promisify } from 'node:util';
+import { gunzip as gunzipCb } from 'node:zlib';
+import { CloudflareR2BlobStorage } from '@/lib/foundation/immutable-dossier-pipeline';
+import { getDossierStoragePath } from '@/lib/foundation/dossier-projection';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import type { FinancialEntity } from '@/platform/types/terminal';
+
+const gunzip = promisify(gunzipCb);
 
 export const dynamic = 'force-dynamic';
 
@@ -137,6 +143,33 @@ export async function GET(request: Request) {
   }
 
   if (entityId) {
+    if (requestedDossierHash) {
+      try {
+        const r2Storage = new CloudflareR2BlobStorage('lake');
+        const dossierPath = getDossierStoragePath(entityId, requestedDossierHash);
+        const blob = await r2Storage.getObject(dossierPath);
+        if (blob) {
+          const decompressed = await gunzip(blob.body);
+          const parsed = JSON.parse(decompressed.toString('utf8')) as FinancialEntity;
+          if (!isPublishableEntity(parsed)) {
+            return response({ error: 'Entity not found', entity_id: entityId }, 404);
+          }
+          return response({
+            source: 'immutable_dossier_cas',
+            data: publicFoundationData(parsed),
+            dossierHash: requestedDossierHash,
+            sourceRevision: parsed.sourceRevision ?? 1,
+            isStale: false,
+          }, 200, {
+            'X-Dossier-Hash': requestedDossierHash,
+            'X-Source-Revision': String(parsed.sourceRevision ?? 1),
+          });
+        }
+      } catch (error) {
+        logFoundationFailure(`[businesses] Immutable dossier CAS lookup failed for ${requestedDossierHash}:`, error);
+      }
+    }
+
     try {
       const data = await readCached(
         detailCache,
@@ -147,6 +180,9 @@ export async function GET(request: Request) {
       );
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
+        if (!isPublishableEntity(parsed as unknown as FinancialEntity)) {
+          return response({ error: 'Entity not found', entity_id: entityId }, 404);
+        }
         return response({
           source: 'foundation_lake',
           dataset_id: foundationDataset('researchBundles').datasetId,
@@ -202,12 +238,13 @@ export async function GET(request: Request) {
       () => readFoundationValuePage({ cursor, limit })
     );
     parseFoundationValuePage(page);
-    if (page.data.length > 0 || page.hasMore) {
+    const publishableData = (page.data as unknown as FinancialEntity[]).filter(isPublishableEntity);
+    if (publishableData.length > 0 || page.hasMore) {
       return response({
         source: 'foundation_lake',
         dataset_id: foundationDataset('entities').datasetId,
-        count: page.data.length,
-        data: publicFoundationData(page.data),
+        count: publishableData.length,
+        data: publicFoundationData(returnSummaryOnly ? publishableData.map(publicSummaryEntity) : publishableData),
         nextCursor: page.nextCursor,
         hasMore: page.hasMore,
       });

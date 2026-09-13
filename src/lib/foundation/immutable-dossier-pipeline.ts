@@ -4,8 +4,18 @@ import { gzip as gzipCb, gunzip as gunzipCb } from 'node:zlib';
 import type { FinancialEntity } from '@/shared/terminal';
 import type {
   CasUpdateResult,
+  DossierPointer,
   DossierPointerStore,
 } from '@/lib/storage/dossier-pointer-cas';
+import { buildD1PointerUpsertSql } from '@/lib/storage/dossier-pointer-cas';
+import {
+  putR2ObjectCreateOnly,
+  readR2Object,
+  getFoundationBucket,
+  R2ObjectConflictError,
+  type FoundationBucketRole,
+} from '@/lib/storage/r2';
+import { executeD1, queryD1 } from '@/lib/storage/d1';
 import { getDossierStoragePath } from './dossier-projection';
 
 const gzip = promisify(gzipCb);
@@ -154,7 +164,16 @@ export async function storeImmutableDossierWithReadback(
   }
 
   // 6. decompress ＆ SHA-256 再検証
-  const readbackDecompressed = await gunzip(readbackObj.body);
+  let readbackDecompressed: Buffer;
+  try {
+    readbackDecompressed = await gunzip(readbackObj.body);
+  } catch (decompressError) {
+    throw new ChecksumMismatchError(
+      hash,
+      `CORRUPT_GZIP:${(decompressError as Error).message}`
+    );
+  }
+
   const readbackHash = createHash('sha256').update(readbackDecompressed).digest('hex');
   if (readbackHash !== hash) {
     throw new ChecksumMismatchError(hash, readbackHash);
@@ -177,4 +196,131 @@ export async function storeImmutableDossierWithReadback(
     isNewBlob,
     casResult,
   };
+}
+
+/**
+ * Cloudflare R2 プロダクション用ブロブストレージアダプター
+ */
+export class CloudflareR2BlobStorage implements R2BlobStorageClient {
+  constructor(private readonly bucketRole: FoundationBucketRole = 'lake') {}
+
+  public async putObject(
+    key: string,
+    body: Buffer,
+    options?: {
+      ifNoneMatch?: string;
+      contentType?: string;
+      contentEncoding?: string;
+    }
+  ): Promise<{ status: number; etag?: string }> {
+    const bucket = getFoundationBucket(this.bucketRole);
+    try {
+      const res = await putR2ObjectCreateOnly({
+        bucket,
+        key,
+        body: new Uint8Array(body),
+        contentType: options?.contentType || 'application/json',
+      });
+      return { status: res.status === 'CREATED' ? 201 : 200, etag: res.sha256 };
+    } catch (err) {
+      if (err instanceof R2ObjectConflictError) {
+        throw new BlobAlreadyExistsError(key);
+      }
+      throw err;
+    }
+  }
+
+  public async getObject(
+    key: string
+  ): Promise<{ body: Buffer; contentType?: string } | null> {
+    const bucket = getFoundationBucket(this.bucketRole);
+    const obj = await readR2Object(bucket, key);
+    if (!obj) return null;
+    return {
+      body: Buffer.from(obj.body),
+      contentType: obj.contentType || 'application/json',
+    };
+  }
+}
+
+/**
+ * Cloudflare D1 プロダクション用ポインタストアアダプター
+ */
+export class CloudflareD1PointerStore implements DossierPointerStore {
+  public async get(entityId: string): Promise<DossierPointer | null> {
+    const rows = await queryD1<{
+      entity_id: string;
+      hash: string;
+      source_revision: number;
+      updated_at: number;
+    }>(
+      'SELECT entity_id, hash, source_revision, updated_at FROM dossier_pointers WHERE entity_id = ? LIMIT 1',
+      [entityId]
+    );
+    if (rows.length === 0) return null;
+    const r = rows[0];
+    return {
+      entityId: r.entity_id,
+      hash: r.hash,
+      sourceRevision: r.source_revision,
+      updatedAt: r.updated_at,
+    };
+  }
+
+  public async compareAndSwap(
+    newPointer: DossierPointer,
+    expectedRevision?: number | null
+  ): Promise<CasUpdateResult> {
+    const current = await this.get(newPointer.entityId);
+
+    // 1. 明示的な expectedRevision チェックがある場合
+    if (expectedRevision !== undefined && expectedRevision !== null) {
+      const actualRev = current ? current.sourceRevision : null;
+      if (actualRev !== expectedRevision) {
+        return {
+          success: false,
+          applied: false,
+          current,
+          conflictReason: 'STALE_REVISION',
+        };
+      }
+    }
+
+    // 2. 既存ポインタとの検証
+    if (current) {
+      if (
+        current.sourceRevision === newPointer.sourceRevision &&
+        current.hash === newPointer.hash
+      ) {
+        return { success: true, applied: false, current };
+      }
+      if (current.sourceRevision === newPointer.sourceRevision) {
+        return {
+          success: false,
+          applied: false,
+          current,
+          conflictReason: 'REVISION_EQUAL_DIFFERENT_HASH',
+        };
+      }
+      if (newPointer.sourceRevision < current.sourceRevision) {
+        return {
+          success: false,
+          applied: false,
+          current,
+          conflictReason: 'STALE_REVISION',
+        };
+      }
+    }
+
+    // 3. D1 への条件付きUPSERT実行
+    const { sql, params } = buildD1PointerUpsertSql(newPointer);
+    const result = await executeD1(sql, params);
+    const applied = result.changes > 0;
+
+    return {
+      success: true,
+      applied,
+      current: applied ? newPointer : current,
+    };
+  }
 }

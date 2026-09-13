@@ -18,6 +18,7 @@ describe('QueryContract Conformance Test Suite', () => {
       monthlyRevenue: 1000000,
       operatingMargin: 85,
       growthRateYoY: 120,
+      foundedYear: 2021,
       tags: ['完全1人', 'B2B', '利益率80%超'],
       latestDossierHash: 'hash_alpha_v1',
       sourceRevision: 101,
@@ -35,6 +36,7 @@ describe('QueryContract Conformance Test Suite', () => {
       monthlyRevenue: 5000000,
       operatingMargin: 50,
       growthRateYoY: 30,
+      foundedYear: 2019,
       tags: ['製造', '直販'],
       latestDossierHash: 'hash_beta_v1',
       sourceRevision: 102,
@@ -52,6 +54,7 @@ describe('QueryContract Conformance Test Suite', () => {
       monthlyRevenue: 2000000,
       operatingMargin: -40,
       growthRateYoY: 50,
+      foundedYear: 2022,
       tags: ['AI', '赤字'],
       latestDossierHash: 'hash_gamma_v1',
       sourceRevision: 103,
@@ -69,6 +72,7 @@ describe('QueryContract Conformance Test Suite', () => {
       monthlyRevenue: 500000,
       operatingMargin: 90,
       growthRateYoY: 10,
+      foundedYear: 2023,
       tags: ['未精錬'],
       latestDossierHash: 'hash_delta_raw',
       sourceRevision: 1,
@@ -86,6 +90,7 @@ describe('QueryContract Conformance Test Suite', () => {
       monthlyRevenue: 10000,
       operatingMargin: 5,
       growthRateYoY: 0,
+      foundedYear: 2024,
       tags: ['スパム'],
       latestDossierHash: 'hash_epsilon_v1',
       sourceRevision: 1,
@@ -204,5 +209,46 @@ describe('QueryContract Conformance Test Suite', () => {
       expect((err as CursorStaleError).cursorGeneration).toBe(40);
       expect((err as CursorStaleError).currentGeneration).toBe(42);
     }
+  });
+
+  it('6. unknown != zero 原則: 未確認指標が null の場合に安全にソート・フィルタされること', async () => {
+    const { toTinyRecord } = await import('./query-contract');
+    const unconfirmedEntity = {
+      id: 'ent_unconfirmed',
+      name: 'Unconfirmed Metrics',
+      ticker: 'UNCONF',
+      sector: 'NICHE_SAAS',
+      scale: 'SOLO',
+      country: 'JP',
+      publishability: 'PUBLISHABLE',
+      // 数値指標を一切設定しない
+    } as unknown as import('@/shared/terminal').FinancialEntity;
+
+    const tiny = toTinyRecord(unconfirmedEntity);
+    expect(tiny.monthlyRevenue).toBeNull();
+    expect(tiny.operatingMargin).toBeNull();
+    expect(tiny.growthRateYoY).toBeNull();
+    expect(tiny.teamSize).toBeNull();
+    expect(tiny.foundedYear).toBeNull();
+
+    // 検索プロバイダで null メトリクスを含むレコードをテスト
+    const recordsWithNull: TinyRecord[] = [
+      ...mockRecords,
+      {
+        ...tiny,
+        entityId: 'ent_06_null',
+        tags: [],
+        projectionGeneration: 1,
+      },
+    ];
+    const nullProvider = new MemoryQueryProvider(recordsWithNull, 1);
+
+    // minOperatingMargin: 0 のフィルタで null は除外されること (unknown != 0)
+    const filtered = await nullProvider.search({ minOperatingMargin: 0 });
+    expect(filtered.items.some((i) => i.entityId === 'ent_06_null')).toBe(false);
+
+    // onlyProfitable でも null は除外されること
+    const profitableOnly = await nullProvider.search({ onlyProfitable: true });
+    expect(profitableOnly.items.some((i) => i.entityId === 'ent_06_null')).toBe(false);
   });
 });

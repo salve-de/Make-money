@@ -7,15 +7,43 @@ export function publicEntity(entity: FinancialEntity): FinancialEntity {
 }
 
 /**
- * 一般公開可能かどうかの昇格ゲート判定（厳格Allow-list方式）。
- * PUBLISHABLE のみを許可。RAW / PARTIAL / ARCHIVED / REJECTED_AS_CASE は一般公開面に漏らさない。
+ * PUBLISHABLE に必要な一次情報・根拠（Evidence Locator）の存在を検証する。
+ * エビデンスカードまたは観測ストリームに出典ロケーター／一次情報URL／監査可能ドキュメントが存在すること。
+ */
+export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
+  if (!entity) return false;
+
+  // 1. エビデンスカードに出典 locator または sourceClass / sourceNote があるか
+  const hasCardEvidence = Array.isArray(entity.evidenceCards) && entity.evidenceCards.some(
+    card => Boolean(card && (card.evidenceLocator || card.sourceClass || card.sourceNote))
+  );
+  if (hasCardEvidence) return true;
+
+  // 2. 観測ストリームに出典 locator または sourceUrl / sourceClass があるか
+  const hasStreamEvidence = Array.isArray(entity.observationsStream) && entity.observationsStream.some(
+    obs => Boolean(obs && (obs.evidenceLocator || obs.sourceUrl || obs.sourceClass))
+  );
+  if (hasStreamEvidence) return true;
+
+  // 3. PnL 財務根拠 (sourceDoc, sourceClass) または検証済み URL
+  const hasPnlEvidence = Boolean(
+    (entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0) ||
+    entity.pnl?.sourceClass ||
+    (entity.url && typeof entity.url === 'string' && entity.url.startsWith('http'))
+  );
+  if (hasPnlEvidence) return true;
+
+  return false;
+}
+
+/**
+ * 一般公開可能かどうかの昇格ゲート判定（厳格Fail-Closed Allow-list方式）。
+ * PUBLISHABLE かつ Evidence Locator（客観的出典）が存在するもののみを許可。
+ * undefined, RAW, PARTIAL, ARCHIVED, REJECTED_AS_CASE, または根拠なきデータは一般公開面に漏らさない。
  */
 export function isPublishableEntity(entity: FinancialEntity): boolean {
-  // 未指定の既存エンティティは後方互換でPUBLISHABLE扱い、それ以外は厳格にPUBLISHABLEのみ
-  if (entity.publishability === undefined) {
-    return true;
-  }
-  return entity.publishability === 'PUBLISHABLE';
+  // 厳格Fail-closed: 明示的に 'PUBLISHABLE' かつ客観的出典ロケーターが存在する場合のみ許可。
+  return entity?.publishability === 'PUBLISHABLE' && hasValidEvidenceLocator(entity);
 }
 
 /**

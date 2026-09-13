@@ -9,6 +9,7 @@ import type {
   FoundationRelationship,
   FoundationVerificationStatus,
 } from '@/lib/foundation/business-reader';
+import { createHash } from 'node:crypto';
 import {
   cleanIntelligenceText,
   cleanMetricLabel,
@@ -896,18 +897,12 @@ export function buildFoundationDossierProjection(entity: FoundationBusinessCase)
 }
 
 /**
- * Dossier の内容から決定論的な Content Hash (SHA-256) を算出する
+ * Dossier の内容から決定論的な Content Hash (SHA-256) を算出する。
+ * 弱いハッシュを完全排除し、暗号論的SHA-256で一本化。
  */
 export function computeDossierContentHash(payload: unknown): string {
   const json = typeof payload === 'string' ? payload : JSON.stringify(payload);
-  // Simple deterministic hash using djb2-like or standard crypto if available
-  let hash = 5381;
-  for (let i = 0; i < json.length; i++) {
-    hash = ((hash << 5) + hash) + json.charCodeAt(i);
-    hash |= 0;
-  }
-  const hex = Math.abs(hash).toString(16).padStart(8, '0');
-  return `h_${hex}_len${json.length}`;
+  return createHash('sha256').update(json, 'utf8').digest('hex');
 }
 
 /**

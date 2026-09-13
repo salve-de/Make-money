@@ -34,7 +34,7 @@ export interface SortSpec {
  */
 export interface SearchCursor {
   indexGeneration: number;
-  sortValues: (string | number)[];
+  sortValues: (string | number | null)[];
   entityId: string;
 }
 
@@ -59,6 +59,7 @@ export class CursorStaleError extends Error {
 /**
  * 目録用Tiny Record（一覧用軽量レコード）
  * 1億件スケールでの高速スキャン・インデックス用DTO。
+ * unknown != zero 原則に基づき、未確認指標は 0 ではなく null で保持する。
  */
 export interface TinyRecord {
   entityId: string;
@@ -67,11 +68,11 @@ export interface TinyRecord {
   sector: SectorCategory;
   scale: BusinessScale;
   country: string;
-  teamSize: number;
-  monthlyRevenue: number;
-  operatingMargin: number;
-  growthRateYoY: number;
-  foundedYear?: number;
+  teamSize: number | null;
+  monthlyRevenue: number | null;
+  operatingMargin: number | null;
+  growthRateYoY: number | null;
+  foundedYear: number | null;
   tags: string[];
   latestDossierHash: string;
   sourceRevision: number;
@@ -108,6 +109,7 @@ export interface QueryContract {
 
 /**
  * FinancialEntity から TinyRecord を抽出する変換ヘルパー
+ * 未指定の publishability は RAW（非昇格）として扱い、fail-closed を徹底する。
  */
 export function toTinyRecord(
   entity: FinancialEntity,
@@ -116,7 +118,7 @@ export function toTinyRecord(
 ): TinyRecord {
   const hash = entity.latestDossierHash || `hash_${entity.id}_v${defaultRevision}`;
   const revision = entity.sourceRevision ?? defaultRevision;
-  const publishability = entity.publishability ?? 'PUBLISHABLE';
+  const publishability = entity.publishability ?? 'RAW';
 
   return {
     entityId: entity.id,
@@ -125,11 +127,11 @@ export function toTinyRecord(
     sector: entity.sector,
     scale: entity.scale,
     country: entity.country,
-    teamSize: entity.operations?.teamSize ?? 1,
-    monthlyRevenue: entity.pnl?.monthlyRevenue ?? 0,
-    operatingMargin: entity.pnl?.operatingMargin ?? 0,
-    growthRateYoY: entity.growthRateYoY ?? 0,
-    foundedYear: entity.temporal?.foundedYear,
+    teamSize: entity.operations?.teamSize ?? null,
+    monthlyRevenue: entity.pnl?.monthlyRevenue ?? null,
+    operatingMargin: entity.pnl?.operatingMargin ?? null,
+    growthRateYoY: entity.growthRateYoY ?? null,
+    foundedYear: entity.temporal?.foundedYear ?? null,
     tags: entity.tags || [],
     latestDossierHash: hash,
     sourceRevision: revision,
@@ -168,16 +170,18 @@ export class MemoryQueryProvider implements QueryContract {
   }
 
   public async search(
-    filters: SearchFilters,
-    sort: SortSpec,
-    cursor: SearchCursor | null,
-    limit: number
+    filters: SearchFilters = {},
+    sort: SortSpec = { field: 'monthlyRevenue', direction: 'desc' },
+    cursor: SearchCursor | null = null,
+    limit: number = 50
   ): Promise<SearchPage> {
-    const targetPublishability = filters.publishability ?? 'PUBLISHABLE';
+    // 公開 Query Contract は常に 'PUBLISHABLE' のみ提供（Fail-closed）。
+    // 外部指定で PARTIAL や RAW が渡されても、公開面には一切露出させない。
+    const targetPublishability: PublishabilityStatus = 'PUBLISHABLE';
 
     // 1. フィルタリング（昇格ゲート強制）
     const filtered = this.records.filter((rec) => {
-      // 昇格フィルタ
+      // 厳格昇格フィルタ: PUBLISHABLE 以外は全遮断
       if (rec.publishability !== targetPublishability) {
         return false;
       }
@@ -195,15 +199,15 @@ export class MemoryQueryProvider implements QueryContract {
       }
 
       if (filters.minOperatingMargin !== undefined) {
-        if (rec.operatingMargin < filters.minOperatingMargin) return false;
+        if (rec.operatingMargin === null || rec.operatingMargin < filters.minOperatingMargin) return false;
       }
 
       if (filters.onlyProfitable) {
-        if (rec.operatingMargin <= 0) return false;
+        if (rec.operatingMargin === null || rec.operatingMargin <= 0) return false;
       }
 
       if (filters.maxTeamSize !== undefined) {
-        if (rec.teamSize > filters.maxTeamSize) return false;
+        if (rec.teamSize === null || rec.teamSize > filters.maxTeamSize) return false;
       }
 
       if (filters.tags && filters.tags.length > 0) {
@@ -230,16 +234,16 @@ export class MemoryQueryProvider implements QueryContract {
 
       switch (sort.field) {
         case 'operatingMargin':
-          valA = a.operatingMargin;
-          valB = b.operatingMargin;
+          valA = a.operatingMargin ?? (sort.direction === 'asc' ? Infinity : -Infinity);
+          valB = b.operatingMargin ?? (sort.direction === 'asc' ? Infinity : -Infinity);
           break;
         case 'monthlyRevenue':
-          valA = a.monthlyRevenue;
-          valB = b.monthlyRevenue;
+          valA = a.monthlyRevenue ?? (sort.direction === 'asc' ? Infinity : -Infinity);
+          valB = b.monthlyRevenue ?? (sort.direction === 'asc' ? Infinity : -Infinity);
           break;
         case 'growthRateYoY':
-          valA = a.growthRateYoY;
-          valB = b.growthRateYoY;
+          valA = a.growthRateYoY ?? (sort.direction === 'asc' ? Infinity : -Infinity);
+          valB = b.growthRateYoY ?? (sort.direction === 'asc' ? Infinity : -Infinity);
           break;
         case 'foundedYear':
           valA = a.foundedYear ?? 0;
@@ -280,7 +284,7 @@ export class MemoryQueryProvider implements QueryContract {
     let nextCursor: SearchCursor | null = null;
     if (startIndex + safeLimit < filtered.length && pagedItems.length > 0) {
       const lastItem = pagedItems[pagedItems.length - 1];
-      let sortVal: string | number = 0;
+      let sortVal: string | number | null = null;
       switch (sort.field) {
         case 'operatingMargin':
           sortVal = lastItem.operatingMargin;

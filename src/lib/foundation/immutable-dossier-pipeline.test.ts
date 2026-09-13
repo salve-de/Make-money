@@ -106,16 +106,15 @@ describe('Immutable Dossier Pipeline', () => {
     expect(storage.store.size).toBe(1);
   });
 
-  it('detects bit-rot or storage corruption during readback and aborts CAS update', async () => {
+  it('detects corrupted gzip header during readback and aborts CAS update', async () => {
     const storage = new MemoryR2BlobStorage();
     const pointerStore = new MemoryDossierPointerStore();
 
-    // ストレージの getObject をモックして改ざんデータを返すようにする
+    // ストレージの putObject 後に gzip ヘッダーが壊れたゴミデータを注入
     const originalPut = storage.putObject.bind(storage);
     storage.putObject = async (key, body, opts) => {
       const res = await originalPut(key, body, opts);
-      // 改ざん: 不正なバッファで上書き
-      storage.store.set(key, Buffer.from('corrupted_garbage_not_matching_hash'));
+      storage.store.set(key, Buffer.from('corrupted_garbage_not_valid_gzip'));
       return res;
     };
 
@@ -126,5 +125,43 @@ describe('Immutable Dossier Pipeline', () => {
     // 検証失敗によりポインタは一切更新されていないこと
     const pointer = await pointerStore.get(sampleEntity.id);
     expect(pointer).toBeNull();
+  });
+
+  it('detects payload checksum mismatch in valid gzip and aborts CAS update', async () => {
+    const storage = new MemoryR2BlobStorage();
+    const pointerStore = new MemoryDossierPointerStore();
+
+    // 有効な gzip 形式だが、中身が別のハッシュになる改ざんデータを注入
+    const originalPut = storage.putObject.bind(storage);
+    storage.putObject = async (key, body, opts) => {
+      const res = await originalPut(key, body, opts);
+      const tamperedGzip = await import('node:zlib').then((z) =>
+        import('node:util').then((u) => u.promisify(z.gzip)(Buffer.from('{"tampered":true}')))
+      );
+      storage.store.set(key, tamperedGzip);
+      return res;
+    };
+
+    await expect(
+      storeImmutableDossierWithReadback(sampleEntity, storage, pointerStore)
+    ).rejects.toThrowError(ChecksumMismatchError);
+
+    // 検証失敗によりポインタは一切更新されていないこと
+    const pointer = await pointerStore.get(sampleEntity.id);
+    expect(pointer).toBeNull();
+  });
+
+  it('Cloudflare production adapters conform to storage interfaces', async () => {
+    const { CloudflareR2BlobStorage, CloudflareD1PointerStore } = await import(
+      './immutable-dossier-pipeline'
+    );
+
+    const r2 = new CloudflareR2BlobStorage('lake');
+    expect(typeof r2.putObject).toBe('function');
+    expect(typeof r2.getObject).toBe('function');
+
+    const d1 = new CloudflareD1PointerStore();
+    expect(typeof d1.get).toBe('function');
+    expect(typeof d1.compareAndSwap).toBe('function');
   });
 });

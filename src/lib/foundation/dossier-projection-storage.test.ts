@@ -17,7 +17,7 @@ describe('Dossier Projection 100M Storage & CAS Guards', () => {
 
     expect(hash1).toBe(hash2);
     expect(hash1).not.toBe(hash3);
-    expect(hash1.startsWith('h_')).toBe(true);
+    expect(hash1).toHaveLength(64);
   });
 
   it('2. 100M耐久・R2 イミュータブル物理格納パスの生成', () => {
