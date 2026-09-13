@@ -103,9 +103,28 @@ export async function ingestVerifiedEntities(
   // 2. Cloudflare R2 (foundation-raw) に生データ（Raw Artifacts）をSHA-256 CAS保存
   console.log('\n--- [2/4] Preserving Raw Artifacts to Cloudflare R2 (foundation-raw) ---');
   const rawBucket = getFoundationBucket('raw');
+  const rawEvidenceMap = new Map<string, Array<{
+    evidence_id: string;
+    raw_bucket: string;
+    raw_key: string;
+    raw_sha256: string;
+    source_url: string;
+    filename: string;
+    retrieved_at: string;
+  }>>();
+
   for (const { entity: ent, rawArtifacts } of sanitizedInputs) {
+    const savedEvidenceList: Array<{
+      evidence_id: string;
+      raw_bucket: string;
+      raw_key: string;
+      raw_sha256: string;
+      source_url: string;
+      filename: string;
+      retrieved_at: string;
+    }> = [];
+
     if (rawArtifacts.length === 0) {
-      // 生アーティファクトがない場合は、最低限のソースURL証明をRawとして保管
       const fallbackPayload = JSON.stringify({
         sourceUrl: ent.url,
         sourceDoc: ent.pnl.sourceDoc,
@@ -124,6 +143,15 @@ export async function ingestVerifiedEntities(
           'foundation-sha256': fallbackSha
         }
       );
+      savedEvidenceList.push({
+        evidence_id: `ev_raw_${fallbackSha.slice(0, 16)}`,
+        raw_bucket: rawBucket,
+        raw_key: fallbackKey,
+        raw_sha256: fallbackSha,
+        source_url: ent.url,
+        filename: 'source_metadata.json',
+        retrieved_at: new Date().toISOString()
+      });
       console.log(`  ✓ R2 RAW PUT: ${rawBucket}/${fallbackKey} [Auto Source Metadata]`);
     } else {
       for (const artifact of rawArtifacts) {
@@ -141,18 +169,30 @@ export async function ingestVerifiedEntities(
             'foundation-filename': artifact.filename
           }
         );
+        savedEvidenceList.push({
+          evidence_id: `ev_raw_${sha.slice(0, 16)}`,
+          raw_bucket: rawBucket,
+          raw_key: rawKey,
+          raw_sha256: sha,
+          source_url: artifact.sourceUrl || ent.url,
+          filename: artifact.filename,
+          retrieved_at: new Date().toISOString()
+        });
         console.log(`  ✓ R2 RAW PUT: ${rawBucket}/${rawKey} [${artifact.filename}]`);
       }
     }
+    rawEvidenceMap.set(ent.id, savedEvidenceList);
   }
 
-  // 3. Cloudflare R2 (foundation-lake) にイミュータブル日次ジャーナル保存
+  // 3. Cloudflare R2 (foundation-lake) にイミュータブル日次ジャーナル保存（Raw参照を同一チェーンで保持）
   console.log('\n--- [3/4] Materializing to Cloudflare R2 (foundation-lake) ---');
   const lakeBucket = getFoundationBucket('lake');
   const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '/') + `/${batchName}`;
 
   for (const { entity: ent } of sanitizedInputs) {
     const journalKey = `journal/v1/${dateStr}/${ent.id}.json`;
+    const linkedRawEvidence = rawEvidenceMap.get(ent.id) || [];
+
     const payload = JSON.stringify({
       schema_version: 'journal-entry.v1',
       journal_id: `jr_${ent.id.replace('ent_', '')}`,
@@ -164,7 +204,8 @@ export async function ingestVerifiedEntities(
         verified_sources: [
           ent.url,
           ent.pnl.sourceDoc
-        ]
+        ],
+        raw_evidence: linkedRawEvidence
       }
     }, null, 2);
 
@@ -181,7 +222,7 @@ export async function ingestVerifiedEntities(
       }
     );
 
-    console.log(`  ✓ R2 LAKE PUT: ${lakeBucket}/${journalKey} [Status: ${writeResult.status}, SHA: ${sha.slice(0, 10)}]`);
+    console.log(`  ✓ R2 LAKE PUT: ${lakeBucket}/${journalKey} [Status: ${writeResult.status}, SHA: ${sha.slice(0, 10)}] (Linked Raw Evidence: ${linkedRawEvidence.length})`);
   }
 
   // 4. 目録 (data/entities-index.json) に追記・更新

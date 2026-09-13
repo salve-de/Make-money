@@ -146,34 +146,34 @@ export async function runAutonomousDaemon() {
             url: target.url,
             verifiedBadge: false,
             pnl: {
-              monthlyRevenue: 100000000,
-              cogs: 30000000,
-              grossProfit: 70000000,
-              grossMargin: 70.0,
+              monthlyRevenue: 0,
+              cogs: 0,
+              grossProfit: 0,
+              grossMargin: 0,
               operatingExpenses: {
-                serverAndApi: 5000000,
-                advertising: 5000000,
-                subcontracting: 5000000,
-                toolsAndSaaS: 5000000,
-                other: 10000000
+                serverAndApi: 0,
+                advertising: 0,
+                subcontracting: 0,
+                toolsAndSaaS: 0,
+                other: 0
               },
-              operatingProfit: 40000000,
-              operatingMargin: 40.0,
-              estimatedAnnualNetProfit: 360000000,
-              financialStatus: 'ESTIMATED',
-              isRevenueUnconfirmed: false,
-              isOperatingProfitUnconfirmed: false,
-              isMarginUnconfirmed: false,
-              isGrossProfitUnconfirmed: false,
-              revenueLabel: '公式開示・IR資料推計',
-              sourceDoc: `${target.url} 公式開示`
+              operatingProfit: 0,
+              operatingMargin: 0,
+              estimatedAnnualNetProfit: 0,
+              financialStatus: 'UNAVAILABLE',
+              isRevenueUnconfirmed: true,
+              isOperatingProfitUnconfirmed: true,
+              isMarginUnconfirmed: true,
+              isGrossProfitUnconfirmed: true,
+              revenueLabel: '財務データ未確認（探索中）',
+              sourceDoc: target.url
             },
             evidenceCards: [
               {
                 id: `ev_${target.id}_primary`,
                 type: 'ASYMMETRIC_LEVERAGE',
-                title: `${target.name}の構造的優位性ログ`,
-                badge: '構造の優位',
+                title: `${target.name}の一次観測ログ`,
+                badge: '一次観測',
                 evidenceStatus: 'REPORTED',
                 punchline: target.note,
                 details: [
@@ -181,70 +181,66 @@ export async function runAutonomousDaemon() {
                   `事業ドメイン: ${target.sector}`,
                   `一次情報ソース: ${target.url}`
                 ],
-                sourceNote: `${target.name} 公開情報`
+                sourceNote: `${target.name} 公式開示 / 探索ログ`
               }
             ],
             strategy: {
-              blindspot: `${target.sector}における既存競合の死角を突く`,
+              blindspot: '未調査（詳細深掘り待ち）',
               moatType: 'COUNTER_POSITIONING',
               moatDescription: target.note,
               initialTraction: [
-                `${target.sector}の急所需要を捉えて初期参入`
+                target.note
               ],
               actionPlaybook: [
-                `Step 1: ${target.sector}のボトルネックを特定する`,
-                `Step 2: 参入障壁を構築する`
+                '未調査（詳細深掘り待ち）'
               ]
             },
             observations: [
               target.note
             ],
             lootBlueprint: {
-              targetPrey: `${target.sector}の顧客層`,
-              structuralFlaw: `${target.sector}の既存体制の硬直性`,
-              stealthEntry: `${target.note}を足がかりに参入`,
-              tollGateSetup: '独占的サービス提供による関所課金',
-              reproducibilityScore: 70,
-              moatDurabilityScore: 85,
-              capitalEfficiencyScore: 80,
+              targetPrey: '未調査（詳細深掘り待ち）',
+              structuralFlaw: '未調査（詳細深掘り待ち）',
+              stealthEntry: target.note,
+              tollGateSetup: '未調査（詳細深掘り待ち）',
+              reproducibilityScore: 50,
+              moatDurabilityScore: 50,
+              capitalEfficiencyScore: 50,
               executionChecklist: [
-                '1. 業界の構造的隙間を特定する',
-                '2. 模倣困難な提供体制を構築する'
+                '1. 詳細調査を実施して未確認項目を確定する'
               ]
             },
             operations: {
-              teamSize: 50,
-              isTeamSizeUnconfirmed: false,
-              weeklyHours: 40,
-              isWeeklyHoursUnconfirmed: false,
-              initialCapitalRequired: 10000000,
-              isCapitalUnconfirmed: false,
-              automationLevel: 80,
-              isAutomationUnconfirmed: false,
-              primaryChannels: ['直販', '業界パートナー'],
-              toolStack: [
-                { name: '基幹ERP/EDI', monthlyCost: 1000000, category: 'OPERATIONS' }
-              ]
+              teamSize: 0,
+              isTeamSizeUnconfirmed: true,
+              weeklyHours: 0,
+              isWeeklyHoursUnconfirmed: true,
+              initialCapitalRequired: 0,
+              isCapitalUnconfirmed: true,
+              automationLevel: 0,
+              isAutomationUnconfirmed: true,
+              primaryChannels: ['未調査'],
+              toolStack: []
             },
             opportunityJudgment: {
               verdict: 'MONITOR',
               verdictLabel: '動向注視',
               oneLineReason: target.note,
-              demandDelta: '安定成長',
-              competitionDelta: '参入障壁強固',
+              demandDelta: '未確認',
+              competitionDelta: '未確認',
               entryRequirements: {
-                capital: '中規模（数百万円〜）',
-                technicalDifficulty: 'HIGH',
-                platformRisk: 'LOW'
+                capital: '未確認',
+                technicalDifficulty: 'UNKNOWN',
+                platformRisk: 'UNKNOWN'
               }
             },
-            growthRateYoY: 15.0,
-            isGrowthUnconfirmed: false,
-            architecturePattern: '業界特化型独占モデル',
-            pipelineStack: '自社インフラ + 直販網',
-            targetPainWallet: '業界特有の業務課題に対する予算',
+            growthRateYoY: 0,
+            isGrowthUnconfirmed: true,
+            architecturePattern: '未確認',
+            pipelineStack: '未確認',
+            targetPainWallet: '未確認',
             tags: ['収集事例', target.sector],
-            publishability: 'PUBLISHABLE'
+            publishability: 'PARTIAL'
           },
           rawArtifacts: [rawArtifact]
         }

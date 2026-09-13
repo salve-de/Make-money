@@ -5290,8 +5290,30 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
 
 
+---
 
+## 2026-09-13 (Phase 166): ChatGPT監査役の第3弾指摘（daemon財務ハードコード捏造切除・生データCAS直結・外部実データ取得）の完全解決
 
+### 1. 監査役 ChatGPT の第3弾批判的監査指摘（P0課題）
+1. **daemonのフォールバック財務捏造の切除**: `autonomous-ingest-daemon.ts` でデータ未提供時に売上1億円・粗利70%・社員50人を合成注入していた病巣の完全切除。
+2. **生データ（foundation-raw）とLake Journalの物理直結**: 保存した生バイト列の `evidence_id`, `raw_bucket`, `raw_key`, `raw_sha256`, `source_url` が Lake Journal 内の `source_provenance.raw_evidence` に直結されていない断絶の解消。
+3. **実在企業の外部実バイト列取得（Screen Studio）**: 手入力JSONのハッシュ化ではなく、公式Webサイト（`https://screen.studio`）への実際のHTTP GETによる生バイト列（267KB）取得とSHA-256 CAS保存の実証。
 
+### 2. 外科医的実装内容
+1. **`autonomous-ingest-daemon.ts` の完全誠実化**:
+   - 財務データ未提供時のハードコード合成を完全削除。
+   - `financialStatus: 'UNAVAILABLE'`, `isRevenueUnconfirmed: true`, `publishability: 'PARTIAL'` として正直に記録し、架空数値を1円たりとも捏造しない構造へ改修。
+2. **`real-ingest-pipeline.ts` による Raw Evidence と Lake Journal の完全結合**:
+   - 保存された `RawArtifact` から `raw_evidence` 配列を構築し、Lake Journal の `source_provenance.raw_evidence` へ不可逆リンク。
+3. **`ingest-screen-studio.ts` による外部生バイト列の実取得とCAS保存**:
+   - `fetch('https://screen.studio')` により 267KB の生HTMLを取得。
+   - SHA-256（`68529f8dda77950dad1c28908700540e54eb155884649ac6a74d6eb833239d1e`）で `foundation-raw/blobs/sha256/` へ保存し、Lake Journal へ直結。
+4. **UI実機描画の再確認（ポート3000）**:
+   - Screen Studio（235社目）がコンソールエラー0で完全描画されることを確認。
 
+### 3. 全関所検証結果
+- **`pnpm typecheck`**: PASS (0 errors)
+- **`pnpm lint`**: PASS (0 warnings, 0 errors, check-ingest-quality 235社全量一発クリア)
+- **`pnpm test`**: PASS (352 tests ALL PASSED)
+- **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
 
