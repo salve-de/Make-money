@@ -22,6 +22,7 @@ import {
   VALIDATOR_VERSION,
 } from '@/platform/types/terminal';
 import { sha256Sync } from '@/shared/sha256';
+import { resolveFoundationEvidence } from './evidence-store';
 import {
   cleanIntelligenceText,
   cleanMetricLabel,
@@ -810,24 +811,31 @@ export function adaptFoundationDetailToFinancialEntity(
     temporal,
     observationsStream,
     timelineEvents,
-    publishability: (financialStatus !== 'UNAVAILABLE' && Boolean(entity.domain)) ? 'PUBLISHABLE' : 'RAW',
+    publishability: (() => {
+      if (financialStatus === 'UNAVAILABLE' || !entity.domain) return 'RAW';
+      if (!isUnconfirmed && monthlyJpy > 0) {
+        const rawEvId = revMetric?.evidenceIds?.[0] || revMoney?.evidenceIds?.[0] || detail.evidenceIds?.[0];
+        const resolved = rawEvId ? resolveFoundationEvidence(rawEvId) : null;
+        if (!resolved) return 'RAW';
+      }
+      return 'PUBLISHABLE';
+    })(),
     claimBindings: (!isUnconfirmed && monthlyJpy > 0)
       ? (() => {
-          const fndEvId = revMetric?.evidenceIds?.[0] || revMoney?.evidenceIds?.[0] || detail.evidenceIds?.[0] || `fnd_ev_${entity.id}_rev`;
-          const originalDigest = sha256Sync(`foundation:lake:raw:${entity.id}:${fndEvId}`);
-          const obsSnippet = revMetric?.value
-            ? `月商${formatHumanMoney(monthlyJpy, 'JPY', 'monthly')}（公表値: ${revMetric.value}${revMetric.unit || ''}）`
-            : (observationsStream[0]?.text || tagline);
-          const realLocator: EvidenceLocator = {
-            type: 'text',
-            start: 0,
-            end: obsSnippet.length,
-            targetText: obsSnippet,
-          };
-          const selectorStr = `text:${realLocator.start}-${realLocator.end}`;
+          const rawEvId = revMetric?.evidenceIds?.[0] || revMoney?.evidenceIds?.[0] || detail.evidenceIds?.[0];
+          if (!rawEvId) return [];
+          const resolvedEvidence = resolveFoundationEvidence(rawEvId);
+          if (!resolvedEvidence) return []; // synthetic fallback禁止: 実在しない場合は未検証
+
+          const originalDigest = resolvedEvidence.originalSha256;
+          const realLocator = resolvedEvidence.locator;
+          const obsSnippet = resolvedEvidence.excerpt;
+          const selectorStr = realLocator.type === 'text'
+            ? `text:${realLocator.start ?? 0}-${realLocator.end ?? 0}`
+            : JSON.stringify(realLocator);
           const extractedExcerptDigest = sha256Sync(obsSnippet.trim());
           const fingerprint = computeClaimFingerprint({
-            foundationEvidenceId: fndEvId,
+            foundationEvidenceId: resolvedEvidence.evidenceId,
             originalDigest,
             selector: selectorStr,
             extractedExcerptDigest,
@@ -839,7 +847,7 @@ export function adaptFoundationDetailToFinancialEntity(
             {
               claimKey: 'pnl.monthlyRevenue',
               evidenceId: revMetric ? `${revMetric.id}_metric` : (revMoney ? `${revMoney.id}_money` : `ev_${entity.id}_crime`),
-              foundationEvidenceId: fndEvId,
+              foundationEvidenceId: resolvedEvidence.evidenceId,
               originalDigest,
               locator: realLocator,
               sourceClass: 'PRIMARY' as const,

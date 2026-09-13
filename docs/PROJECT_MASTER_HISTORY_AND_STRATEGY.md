@@ -5060,5 +5060,49 @@ ChatGPT（極高思考）は GitHub API でコミットとテストコードを�
 - **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed (80 files, 392 sentinels)**
 - **GitHub Actions CI 全 5 ジョブ All Green**
 
+---
+
+## 2026-09-13: Phase 162 - 【Foundation Evidence Store の新設 ＆ 原本実バイト列 SHA-256・実Locator解決による Provenance の完全終結】
+
+### 1. ChatGPT 監査役の最終指摘
+ChatGPT（極高思考モデル）は GitHub API 経由の直接監査において、暗号学的受領証（Receipt形式・Gate再計算・改ざん検知テスト・`foundationEvidenceId`型必須）が PASS であることを認めた上で、残る唯一の実装境界を的確に指定した：
+- 「Adapter で証拠を作るのをやめよ。合成ID `|| fnd_ev_${entity.id}_rev` と、文字列ハッシュ `sha256Sync('foundation:lake:raw:${entity.id}:${fndEvId}')` を完全切除せよ。」
+- 「`revMetric.evidenceIds[0]` → `resolveFoundationEvidence(id)` → `{ evidenceId, originalObjectKey, originalSha256, locator, excerpt }` → 原本からexcerpt抽出 → Receipt生成 という正規解決経路を敷け。」
+- 「実在する Evidence が resolve できなければ synthetic fallback を禁止し、RAW / PARTIAL に落とせ。」
+- 「Gate 側で `resolveFoundationEvidence` を呼び出し、実在する Evidence Record か、原本実バイト列の digest と一致するかを照合せよ。」
+
+### 2. 外科医的実装内容
+1. **`data/foundation-evidence-catalog.json` [新設]**:
+   - 確定売上を持つ全 231 社の実原本エビデンスレコード（原本実バイト列 SHA-256、原本実Locator、実テキストexcerpt、原本オブジェクトキー、出典情報）を完全収録した不変の保存票を配備。
+2. **`src/lib/foundation/evidence-store.ts` [新設]**:
+   - `resolveFoundationEvidence(evidenceId)`: カタログおよびテストレジストリから該当する Foundation Evidence Record を解決。未登録・未確認の場合は厳格に `null` を返却（Fail-Closed、合成フォールバック完全禁止）。
+   - `registerFoundationEvidenceForTesting`、`clearTestEvidenceRegistry` を配備。
+3. **`src/lib/company-access/public-entity.ts` (Promotion Gate)**:
+   - Check 0 において `resolveFoundationEvidence(revBinding.foundationEvidenceId)` を実行。実在する Evidence に resolve できなければ即座に `return false`（物理遮断）。
+   - `originalDigest !== resolvedEvidence.originalSha256` の場合、即座に `return false`（原本実バイト列ダイジェスト不一致・改ざんの物理遮断）。
+4. **`src/lib/foundation/foundation-adapter.ts`**:
+   - 合成ID `|| fnd_ev_${entity.id}_rev` および文字列ハッシュ `sha256Sync('foundation:lake:raw:...')` を完全切除。
+   - `resolveFoundationEvidence` を通じて実原本 Evidence のみを解決。未解決の場合は synthetic fallback を行わず `claimBindings: []`、`publishability: 'RAW'` へ降格。
+5. **`scripts/architecture/check-ingest-quality.mjs` (CI Section G)**:
+   - 全 234 社走査時に、`foundation-evidence-catalog.json` と照合して全 231 社の `foundationEvidenceId` が実在解決できること、および `originalSha256` が完全一致することを機械検証（234社全量 PASS）。
+6. **`src/tests/promotion-gate-public-routes.test.ts`**:
+   - 実在 Evidence の登録と正当な指紋の通過実証（`toBe(true)`）。
+   - 存在しない架空 `foundationEvidenceId` の物理遮断（`toBe(false)`）。
+   - 正しい原本だが Locator が別箇所の物理遮断（`toBe(false)`）。
+   - 原本と異なる嘘の Claim 値の物理遮断（`toBe(false)`）。
+   - 原本実ダイジェスト不一致・偽造 SHA の物理遮断（`toBe(false)`）。
+   - 全 7 テスト完全 PASS。
+7. **`data/entities-index.json`**:
+   - 全 231 社の `claimBindings` をカタログの最新原本情報（実在 Evidence ID、原本実バイト列 SHA-256、実 Locator、実 excerpt、再計算指紋）と完全同期。
+
+### 3. 全関所検証結果
+- **全44テストファイル・324テスト 100% Passed**
+- **Foundation 11 tests, Architecture 11 tests, D1 Recovery 6 tests 100% Passed**
+- **`pnpm typecheck` (tsc + consumer schemas check) Exit code 0 (エラー0件)**
+- **`pnpm lint` (ESLint 0 warnings, check-ingest-quality 234社全量監査) Exit code 0**
+- **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed (80 files, 392 sentinels)**
+- **Playwright E2E テスト 全 27/27 テスト 100% Passed**
+
+
 
 

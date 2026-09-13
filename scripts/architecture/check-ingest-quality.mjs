@@ -5,6 +5,10 @@ import { createHash } from 'crypto';
 const indexPath = resolve(process.cwd(), 'data/entities-index.json');
 const entities = JSON.parse(readFileSync(indexPath, 'utf8'));
 
+const catalogPath = resolve(process.cwd(), 'data/foundation-evidence-catalog.json');
+const evidenceCatalog = JSON.parse(readFileSync(catalogPath, 'utf8'));
+const evidenceCatalogMap = new Map(evidenceCatalog.map(item => [item.evidenceId, item]));
+
 console.log(`[check-ingest-quality] Auditing semantic and domain integrity for ${entities.length} entities...`);
 
 let errors = [];
@@ -140,6 +144,13 @@ for (const ent of entities) {
         }
         if (!revBinding.foundationEvidenceId || typeof revBinding.foundationEvidenceId !== 'string' || revBinding.foundationEvidenceId.trim() === '') {
           errors.push(`[PROVENANCE VIOLATION: Missing foundationEvidenceId] ${ent.name} binding missing foundationEvidenceId.`);
+        } else {
+          const resolvedEvidence = evidenceCatalogMap.get(revBinding.foundationEvidenceId);
+          if (!resolvedEvidence) {
+            errors.push(`[PROVENANCE VIOLATION: Unresolvable Foundation Evidence] ${ent.name} foundationEvidenceId '${revBinding.foundationEvidenceId}' could not be resolved in foundation-evidence-catalog.json.`);
+          } else if (resolvedEvidence.originalSha256 !== (revBinding.originalDigest || revBinding.verificationReceipt?.originalDigest)) {
+            errors.push(`[PROVENANCE VIOLATION: Original Digest Mismatch] ${ent.name} originalDigest '${revBinding.originalDigest}' does not match resolved originalSha256 '${resolvedEvidence.originalSha256}'.`);
+          }
         }
         if (!revBinding.sourceClass || revBinding.sourceClass === 'MODEL') {
           errors.push(`[PROVENANCE VIOLATION: Invalid Source Class] ${ent.name} binding has invalid sourceClass '${revBinding.sourceClass}'.`);

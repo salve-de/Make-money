@@ -4,6 +4,7 @@ import {
   computeClaimFingerprint,
 } from '@/shared/terminal';
 import { sha256Sync } from '@/shared/sha256';
+import { resolveFoundationEvidence } from '@/lib/foundation/evidence-store';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
@@ -59,8 +60,13 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       return false;
     }
 
-    // 0. Foundation 原本エビデンスID（実在Identity）の厳格検証（Critical Claim では必須・required）
+    // 0. Foundation 原本エビデンスIDの実在解決検証（Critical Fact: 実EvidenceへresolveできなければFAIL）
     if (!revBinding.foundationEvidenceId || typeof revBinding.foundationEvidenceId !== 'string' || revBinding.foundationEvidenceId.trim() === '') {
+      return false;
+    }
+    const resolvedEvidence = resolveFoundationEvidence(revBinding.foundationEvidenceId);
+    if (!resolvedEvidence) {
+      // 実在する Foundation Evidence へ解決できなければ即座に物理遮断（Fail-Closed Gate）
       return false;
     }
 
@@ -133,9 +139,13 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       return false;
     }
 
-    // 原本ダイジェスト（64桁 valid SHA-256）の厳格検証
+    // 原本ダイジェスト（64桁 valid SHA-256）の厳格検証 ＆ 実原本ダイジェストとの完全一致照合
     const originalDigest = revBinding.originalDigest || revBinding.verificationReceipt.originalDigest;
     if (!originalDigest || typeof originalDigest !== 'string' || !/^[0-9a-f]{64}$/i.test(originalDigest)) {
+      return false;
+    }
+    if (originalDigest !== resolvedEvidence.originalSha256) {
+      // 原本実バイト列ダイジェストと一致しない偽造・すり替えダイジェストは物理遮断
       return false;
     }
 

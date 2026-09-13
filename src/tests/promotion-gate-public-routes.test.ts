@@ -10,6 +10,7 @@ import {
 } from '@/shared/terminal';
 import { sha256Sync } from '@/shared/sha256';
 import { GET } from '@/app/api/businesses/route';
+import { registerFoundationEvidenceForTesting } from '@/lib/foundation/evidence-store';
 
 describe('Promotion Enforcement Gate - Public Route Safety', () => {
 
@@ -183,6 +184,23 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
           const selector = 'text:0-40';
           const extractedExcerptDigest = sha256Sync(targetText.trim());
           const foundationEvidenceId = 'fnd_ev_sec_report_123';
+
+          // テスト用実在エビデンスをストアへ登録（原本実バイト列SHA-256、実Locator、実excerpt）
+          registerFoundationEvidenceForTesting({
+            evidenceId: foundationEvidenceId,
+            sourceId: 'src.sec.disclosure',
+            originalObjectKey: 'evidence/src.sec/2026/03/01/fnd_ev_sec_report_123/payload.txt',
+            originalSha256: originalDigest,
+            contentType: 'text/plain; charset=utf-8',
+            locator: {
+              type: 'text',
+              start: 0,
+              end: 40,
+              targetText,
+            },
+            excerpt: targetText,
+          });
+
           const fingerprint = computeClaimFingerprint({
             foundationEvidenceId,
             originalDigest,
@@ -278,7 +296,52 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     } as unknown as FinancialEntity;
     expect(isPublishableEntity(tamperedOriginalDigestEntity)).toBe(false);
 
-    // [P0検証・監査役ChatGPT指摘] foundationEvidenceId が欠落している場合、物理遮断
+    // [P0検証・監査役ChatGPT指摘] 存在しない架空の foundationEvidenceId は resolve できず即座に物理遮断
+    const unresolvableFoundationEvidenceIdEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          ...verifiedEntity.claimBindings![0],
+          foundationEvidenceId: 'ev_non_existent_fake_id_99999',
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(unresolvableFoundationEvidenceIdEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] 正しいEvidenceだが Locator が原本の別箇所を指している場合（原本スニペットすり替え）、物理遮断
+    const wrongLocatorEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          ...verifiedEntity.claimBindings![0],
+          locator: {
+            type: 'text',
+            start: 100,
+            end: 140,
+            targetText: '原本の全く別の箇所にある無関係なテキスト',
+          },
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(wrongLocatorEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] 原本は売上100万円なのにClaimが売上1000万円（嘘のClaimに合わせてReceiptも偽造生成）の場合、Gate再計算で物理遮断
+    const fabricatedReceiptWithWrongClaimEntity = {
+      ...verifiedEntity,
+      pnl: {
+        ...verifiedEntity.pnl,
+        monthlyRevenue: 10000000, // 嘘のClaim（1,000万円）
+      },
+      claimBindings: [
+        {
+          ...verifiedEntity.claimBindings![0],
+          // 原本エビデンス（月商8.3億円）を指しながらClaimだけ1,000万円に変更されたケース
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(fabricatedReceiptWithWrongClaimEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] foundationEvidenceId が空文字または欠落している場合、物理遮断
     const missingFoundationEvidenceIdEntity = {
       ...verifiedEntity,
       claimBindings: [
