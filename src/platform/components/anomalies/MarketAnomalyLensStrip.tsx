@@ -137,7 +137,7 @@ export const MarketAnomalyLensStrip: React.FC<MarketAnomalyLensStripProps> = ({
               <div className="p-2.5 rounded bg-rose-950/15 border border-rose-500/20 space-y-1">
                 <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold text-rose-400">
                   <Target className="w-3 h-3" />
-                  <span>1. 狙う痛みの財布 (サバンナOS)</span>
+                  <span>1. 思わず買ってしまう人間の心理（切実な悩み）</span>
                 </div>
                 <p className="text-[11px] text-zinc-200 leading-relaxed font-sans line-clamp-3">
                   {activeAnomaly.targetPainWallet}
@@ -148,7 +148,7 @@ export const MarketAnomalyLensStrip: React.FC<MarketAnomalyLensStripProps> = ({
               <div className="p-2.5 rounded bg-amber-950/15 border border-amber-500/20 space-y-1">
                 <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold text-amber-400">
                   <ShieldAlert className="w-3 h-3" />
-                  <span>2. 大手の自爆構造 (カニバリズム)</span>
+                  <span>2. 大企業が真似できない理由（大手のジレンマ）</span>
                 </div>
                 <p className="text-[11px] text-zinc-200 leading-relaxed font-sans line-clamp-3">
                   {activeAnomaly.incumbentTrap}

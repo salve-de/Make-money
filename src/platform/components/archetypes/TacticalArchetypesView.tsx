@@ -339,7 +339,7 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
         <div className="p-3.5 sm:p-4 rounded-lg bg-rose-950/10 border border-rose-500/20 space-y-1">
           <div className="flex items-center gap-1.5 text-rose-400 font-mono text-xs font-semibold">
             <Target className="w-3.5 h-3.5 text-rose-400" />
-            <span>2. 狙う痛みの財布 (サバンナOS: 顧客が即決する保身・恐怖)</span>
+            <span>2. 思わず買ってしまう人間の心理（保身・不安・切実な悩み）</span>
           </div>
           <p className="text-xs text-zinc-200 leading-relaxed font-sans pl-5 break-words">
             {anomaly.targetPainWallet}
@@ -350,7 +350,7 @@ const AnomalyDossierView: React.FC<AnomalyDossierViewProps> = ({
         <div className="p-3.5 sm:p-4 rounded-lg bg-amber-950/10 border border-amber-500/20 space-y-1">
           <div className="flex items-center gap-1.5 text-amber-400 font-mono text-xs font-semibold">
             <ShieldAlert className="w-3.5 h-3.5 text-amber-400" />
-            <span>3. 大手の自爆構造 (Why it matters: 巨人が指をくわえて見逃す理由)</span>
+            <span>3. 大企業が真似できない理由（大手が手を出せない事情）</span>
           </div>
           <p className="text-xs text-zinc-200 leading-relaxed font-sans pl-5 break-words">
             {anomaly.incumbentTrap}

@@ -86,21 +86,21 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
         ]
       : isContent
       ? [
-          { name: 'ESP / ニュースレター配信基盤', category: '配信配管', monthlyCost: Math.round(toolsAndSaaS * 0.6) },
-          { name: 'Stripe Billing', category: '決済関所', monthlyCost: Math.round(monthlyRevenue * 0.03) }
+          { name: 'ESP / ニュースレター配信基盤', category: '配信ツール', monthlyCost: Math.round(toolsAndSaaS * 0.6) },
+          { name: 'Stripe Billing', category: '決済ツール', monthlyCost: Math.round(monthlyRevenue * 0.03) }
         ]
       : isFintech
       ? [
           { name: 'BaaS / 銀行コアAPI・清算網', category: '金融インフラ', monthlyCost: Math.round(toolsAndSaaS * 0.7) },
-          { name: 'AML / 本人確認KYC基盤', category: 'コンプライアンス関所', monthlyCost: Math.round(toolsAndSaaS * 0.3) }
+          { name: 'AML / 本人確認KYC基盤', category: 'コンプライアンス基盤', monthlyCost: Math.round(toolsAndSaaS * 0.3) }
         ]
       : [
-          { name: 'Stripe Billing', category: '決済関所', monthlyCost: Math.round(monthlyRevenue * 0.03) },
+          { name: 'Stripe Billing', category: '決済ツール', monthlyCost: Math.round(monthlyRevenue * 0.03) },
           { name: 'Cloud Infrastructure', category: 'ホスティング', monthlyCost: serverAndApi }
         ]
   );
 
-  // 2. ExecutionChecklist（業態に即した略奪ステップ）
+  // 2. ExecutionChecklist（業態に即した実践ステップ）
   const resolvedChecklist = def.executionChecklist || (
     isOffline
       ? [
@@ -110,28 +110,28 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
         ]
       : isContent
       ? [
-          '既存ニュース・媒体の退屈さ・長文の苦痛を突き、1分で読める短尺フォーマットを作る',
+          '既存ニュース・媒体の退屈さ・長文のストレスを突き、1分で読める短尺フォーマットを作る',
           '無料ニュースレターやSNSで熱狂的な読者プールを囲い込む',
-          '単価数百万円のスポンサー直販枠または有料限定コミュニティを開設して現金を抜く'
+          'スポンサー直販枠または有料限定コミュニティを開設して収益化する'
         ]
       : isFintech
       ? [
-          '伝統的銀行・金融機関が貪っている不当な為替・送金・月額手数料の盲点を特定する',
-          '既存API（Stripe, BaaS, Plaid）の上に極上のUXラッパーを被せる',
-          'トランザクション手数料またはデポジット金利スプレッドから初日から現金を抜く'
+          '伝統的銀行・金融機関が取っている不当な為替・送金・月額手数料の隙間を特定する',
+          '既存API（Stripe, BaaS, Plaid）の上に優れたUIを被せる',
+          'トランザクション手数料または預金金利スプレッドから初日から収益化する'
         ]
       : [
-          '対象領域の既存巨大ツールの過剰機能と価格高騰に対する怨嗟を特定する',
+          '対象領域の既存ツールの過剰機能と価格高騰に対する不満を特定する',
           '急所となる単一機能に特化した超軽量MVPを最小工数で構築する',
-          '前金年払いプランまたは即時決済APIを直結し、初動から広告費ゼロで回収する'
+          '即時決済や年払いプランを直結し、初動から広告費をかけずに回収する'
         ]
   );
 
-  // 3. PrimaryChannels（初動ゲリラ戦のコピペではなく主集客エンジンを個別配分）
+  // 3. PrimaryChannels（初動の主集客エンジンを個別配分）
   const resolvedPrimaryChannels = def.primaryChannels || [
     `【主集客】${def.architecturePattern.split('×')[0] || def.name}`,
-    `【バイラル配管】${def.initialTraction[0] || 'ファン口コミ'}`,
-    `【リピート関所】${def.tollGateSetup}`
+    `【口コミ】${def.initialTraction[0] || 'ファン口コミ'}`,
+    `【リピート導線】${def.tollGateSetup}`
   ];
 
   const formatMoney = (yen: number) => {
@@ -140,20 +140,82 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
     return `¥${yen.toLocaleString()}`;
   };
 
-  // 4. 特異物証カード群 (Dynamic Evidence Cards)
+  // 4. 特異事実カード群 (Dynamic Evidence Cards) - 業態別・個別化
+  const card1Title = isOffline
+    ? `【儲かる仕組み】${def.name}が既存流通を中抜きし圧倒的安さを生み出す店舗設計図`
+    : isContent
+    ? `【儲かる仕組み】${def.name}が読者の時間を節約し熱狂的コミュニティを作る配信設計図`
+    : isFintech
+    ? `【儲かる仕組み】${def.name}が既存銀行の高額手数料の隙間を突いて稼ぐ金融設計図`
+    : `【儲かる仕組み】${def.name}が巨人の隙間を突き「1機能特化×即時回収」で稼ぐ設計図`;
+
+  const card1Details = isOffline ? [
+    `【課題の特定】: 「${def.targetPrey}」という消費者の切実な負担・不満を直撃。`,
+    `【独自の工夫】: ${def.stealthEntry}により、他店では真似できない圧倒的なコストパフォーマンスを提供。`,
+    `【収益化の仕組み】: ${def.tollGateSetup}。`
+  ] : isContent ? [
+    `【課題の特定】: 「${def.targetPrey}」という読者の情報過多・長文のストレスを直撃。`,
+    `【独自の工夫】: ${def.stealthEntry}により、隙間時間で即座に要点を掴める超短尺フォーマットを提供。`,
+    `【収益化の仕組み】: ${def.tollGateSetup}。`
+  ] : isFintech ? [
+    `【課題の特定】: 「${def.targetPrey}」という利用者の理不尽な手数料負担・遅い手続きを直撃。`,
+    `【独自の工夫】: ${def.stealthEntry}により、従来の金融機関の10倍スムーズな手続きを実現。`,
+    `【収益化の仕組み】: ${def.tollGateSetup}。`
+  ] : [
+    `【課題の特定】: 「${def.targetPrey}」というユーザーの面倒な手作業や非効率を直撃。`,
+    `【独自の工夫】: ${def.stealthEntry}により、誰でも迷わず数秒で目的を完了できる操作性を実現。`,
+    `【収益化の仕組み】: ${def.tollGateSetup}。`
+  ];
+
+  const card2Title = isOffline
+    ? `【初動の突破口】${def.name}が現場の工夫と口コミで初期ファンを獲得した記録`
+    : isContent
+    ? `【初動の突破口】${def.name}が広告費ゼロで熱狂的な初期読者を獲得した記録`
+    : isFintech
+    ? `【初動の突破口】${def.name}が最初の取引ユーザーを泥臭く獲得した記録`
+    : `【初動の突破口】${def.name}が最小チームで初期ユーザーを獲得した泥臭い集客ログ`;
+
+  const card2Details = [
+    `創業初期の泥臭いアクション: ${def.initialTraction.join('、')}。`,
+    `顧客が即決した理由: 「${def.targetPainWallet || def.targetPrey}」を劇的に解決。`,
+    `手元に残る現金実額: 月商${formatMoney(monthlyRevenue)}に対し、原価と諸経費を引いた月間営業利益は約${formatMoney(operatingProfit)}（年間手残り純利益換算 約${formatMoney(estimatedAnnualNetProfit)}）。`
+  ];
+
+  const card3Title = isOffline
+    ? `【ライバルが真似できない理由】なぜ既存の大手流通・同業他社は同じビジネスモデルに対抗できないのか`
+    : isContent
+    ? `【ライバルが真似できない理由】なぜ伝統的な大手メディアは同じ発信スタイルに転換できないのか`
+    : isFintech
+    ? `【ライバルが真似できない理由】なぜ既存の大手銀行は同じ低手数料サービスを提供できないのか`
+    : `【ライバルが真似できない理由】なぜ既存の巨大IT企業は気づきながら対抗できなかったのか`;
+
+  const card3Details = isOffline ? [
+    `大手の構造的制約: ${def.structuralFlaw}。大手は既存の取引先や流通経路との関係があり、同じビジネスモデルに舵を切れない。`,
+    `現場のノウハウ格差: ${def.moatDescription}。`,
+    `顧客の定着: 圧倒的な価格差と品質により、他店へ浮気しないリピーターを囲い込んでいる。`
+  ] : isContent ? [
+    `大手メディアの縛り: ${def.structuralFlaw}。大手メディアは既存の広告主や読者層への配慮があり、尖ったフォーマットに舵を切れない。`,
+    `編集方針の差別化: ${def.moatDescription}。`,
+    `読者の囲い込み: 独自の世界観とコミュニティ化により、解約されにくい熱狂的読者基盤を形成。`
+  ] : isFintech ? [
+    `既存銀行のジレンマ: ${def.structuralFlaw}。大手銀行は支店網やレガシーシステムの維持費が重く、格安・即時のサービスに追従できない。`,
+    `技術・信用の壁: ${def.moatDescription}。`,
+    `利用者の定着: 毎日の資金移動や決済に組み込まれることで、乗り換えの手間（スイッチングコスト）を高めている。`
+  ] : [
+    `大企業のジレンマ: ${def.structuralFlaw}。大手の高価格プランや組織体制では、単一機能の超軽量ツールを安価に提供できない。`,
+    `開発・意思決定のスピード: ${def.moatDescription}。`,
+    `利用者の定着: 直感的な操作性と毎日の作業への定着により、解約されにくい仕組みを構築。`
+  ];
+
   const evidenceCards: DynamicEvidenceCard[] = [
     {
       id: `ev_${def.id}_loot`,
       type: 'LOOT_BLUEPRINT',
-      title: `【略奪転用】既存巨人の死角を突き「1機能特化×即時回収」で現金を抜き取る配管モデル`,
-      badge: '略奪転用方程式',
+      title: card1Title,
+      badge: 'ビジネスモデル',
       evidenceStatus: 'REPORTED',
       punchline: `${def.structuralFlaw}の隙を突き、${def.stealthEntry}で客を囲い込み、粗利益率${def.grossMarginPct}%・営業利益率${def.operatingMarginPct}%を叩き出す。`,
-      details: [
-        `【Step 1: 痛みの特定】: 「${def.targetPrey}」というサバンナOSの激痛・保身恐怖に耐えかねている客層を特定。`,
-        `【Step 2: 怠惰UIの構築】: ${def.stealthEntry}により、競合の10倍の速さで目的を完了できる最短動線を提供。`,
-        `【Step 3: 決済関所の直結】: ${def.tollGateSetup}。前金年払いサブスクまたは即時決済で、初動から広告費ゼロで現金を回収。`
-      ],
+      details: card1Details,
       metrics: [
         { label: '営業利益率', value: `${def.operatingMarginPct}%`, isHighlight: true },
         { label: '粗利益率', value: `${def.grossMarginPct}%` },
@@ -165,53 +227,80 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
     {
       id: `ev_${def.id}_crime`,
       type: 'THE_CRIME',
-      title: `【初動突破の真実】大手の寝首を掻き、最小資本で現金を抜き取った客観事実ログ`,
-      badge: '身も蓋もない真実',
+      title: card2Title,
+      badge: '集客の事実ログ',
       evidenceStatus: 'REPORTED',
-      punchline: `${def.initialTraction[0] || def.stealthEntry}。綺麗事の広告ではなく、ターゲットが群がる現場に直接割り込んで初期トラフィックを全量強奪した。`,
-      details: [
-        `創業者${def.founder}が初期に実行した泥臭い初動: ${def.initialTraction.join('、')}。`,
-        `人質にした痛みの財布: 「${def.targetPainWallet || def.targetPrey}」という防衛本能・極限の怠惰を直撃。`,
-        `通帳着金の実額: 月商${formatMoney(monthlyRevenue)}に対し、原価と固定費を引いた創業者個人の手残り月間営業利益は約${formatMoney(operatingProfit)}（年間手残り純利益換算 約${formatMoney(estimatedAnnualNetProfit)}）。`
-      ],
-      sourceNote: `${def.name} 創業者公表ログ / 財務レントゲン`
+      punchline: `${def.initialTraction[0] || def.stealthEntry}。広告に大金を投じるのではなく、ターゲットが集まる現場に直接アプローチして初期需要を掴んだ。`,
+      details: card2Details,
+      sourceNote: `${def.name} 創業者公表ログ / 財務データ`
     },
     {
       id: `ev_${def.id}_trap`,
       type: 'INCUMBENT_TRAP',
-      title: `【大手の自爆構造】なぜ既存巨大企業は認知しながら指をくわえて見逃したのか`,
-      badge: 'カニバリズム障壁',
+      title: card3Title,
+      badge: '競合の弱点',
       evidenceStatus: 'REPORTED',
-      punchline: `${def.structuralFlaw}。大手が同じ手口を真似すると自社の主力事業を自爆（カニバリズム）させるため、対抗不能の構造的麻痺に陥っていた。`,
-      details: [
-        `大企業の自縛: 既存の高価格帯エンタープライズ契約や重厚な組織体制を守る必要があり、超軽量・格安の単一機能プランを出せない。`,
-        `意思決定の遅延: 稟議・多重セキュリティ審査・社内政治により、現場の素早い変化に数ヶ月〜数年単位で遅れを取った。`,
-        `顧客の不可逆な流出: 複雑すぎる大手のUIや高額な月額固定費に疲弊したユーザーが、${def.name}の直感的で無痛の体験へ不可逆的に流出した。`
-      ]
+      punchline: `${def.structuralFlaw}。大手事業者が同じビジネスモデルに舵を切ると既存事業の売上を削ってしまうため、対抗できずに見守るしかなかった。`,
+      details: card3Details
     }
   ];
 
-  // 5. 万能救済ストリーム (Universal Observations)
+  // 5. 調査観測ストリーム (Universal Observations)
   const observationsStream: UniversalObservation[] = [
     {
       category: 'SAVANNAH_PAIN',
-      categoryLabel: 'サバンナOSの急所',
-      text: `【保身・怠惰・虚栄心の直撃】${def.targetPainWallet || def.targetPrey}という人間の根源的防衛本能・極限の怠惰に着火し、理性を失って即決させている。`,
+      categoryLabel: '人間の本音と悩み',
+      text: `【顧客の切実な需要】${def.targetPainWallet || def.targetPrey}という切実な悩みをピンポイントで解消し、迷わず選ばれる理由を作っている。`,
       originType: 'observed'
     },
     {
       category: 'INCUMBENT_DILEMMA',
-      categoryLabel: '大手の自爆構造',
-      text: `【カニバリズム障壁】${def.structuralFlaw}。既存大手は高単価プラン防衛のため手を出せず、認知しながら指をくわえて見逃すしかなかった。`,
+      categoryLabel: '大企業の弱点',
+      text: `【大手が真似できない理由】${def.structuralFlaw}。既存の大手事業者は自社の主力事業や既存体制を守る必要があり、同じモデルに対抗できない。`,
       originType: 'observed'
     },
     {
       category: 'MARKET_DISTORTION',
-      categoryLabel: '通帳着金の実額レントゲン',
-      text: `【損益の実態】年商約${formatMoney(monthlyRevenue * 12)}に対し、原価と固定費を引いた手残り営業利益率は${def.operatingMarginPct}%。完全1人または最小組織で、現金を確実に個人通帳に残す高効率配管。`,
+      categoryLabel: '通帳に残る現金の実態',
+      text: `【損益の実態】年商約${formatMoney(monthlyRevenue * 12)}に対し、原価と経費を引いた営業利益率は${def.operatingMarginPct}%。${def.teamSize === 1 ? '完全1人で' : `${def.teamSize}名の少数組織で`}手元に確実に現金を残す高収益モデル。`,
       originType: 'observed'
     }
   ];
+
+  // 6. essence
+  const resolvedEssence = isOffline ? {
+    whatItDoes: `${def.name}は、「${def.targetPainWallet || def.targetPrey}」を抱える顧客に対し、${def.stealthEntry}によって他社では不可能な低価格と価値を提供し、営業利益率${def.operatingMarginPct}%を実現する高収益店舗・製造モデル。`,
+    targetCustomer: `既存チェーンの価格高騰や画一的な品揃えに不満を抱え、品質と圧倒的なコストパフォーマンスを求める${def.targetPainWallet || def.targetPrey}の顧客層。`,
+    painRelief: `${def.targetPrey}。中間流通マージンを極限まで削ぎ落とし、家計の負担を劇的に軽減する。`
+  } : isContent ? {
+    whatItDoes: `${def.name}は、「${def.targetPainWallet || def.targetPrey}」を抱える読者層に対し、短時間で要点を掴めるコンテンツを配信し、${def.teamSize === 1 ? '完全1人で' : '少数精鋭で'}営業利益率${def.operatingMarginPct}%を叩き出すメディアモデル。`,
+    targetCustomer: `既存の長文ニュースや退屈なメディアに時間を奪われたくない${def.targetPainWallet || def.targetPrey}のビジネスパーソンや専門家。`,
+    painRelief: `${def.targetPrey}。情報収集のストレスを解消し、毎朝数分で業界の最前線を把握させる。`
+  } : isFintech ? {
+    whatItDoes: `${def.name}は、「${def.targetPainWallet || def.targetPrey}」に直面する個人・事業者に対し、${def.stealthEntry}によって手数料と手続き負担を最小化し、営業利益率${def.operatingMarginPct}%を実現する金融インフラモデル。`,
+    targetCustomer: `従来の銀行・金融機関の法外な手数料や遅い手続きに不満を抱える${def.targetPainWallet || def.targetPrey}のユーザー。`,
+    painRelief: `${def.targetPrey}。不透明な為替・送金・決済手数料を排除し、即時・低コストの資金移動を実現する。`
+  } : {
+    whatItDoes: `${def.name}は、「${def.targetPainWallet || def.targetPrey}」に悩むユーザーに対し、${def.stealthEntry}によって手作業を効率化し、${def.teamSize === 1 ? '完全1人で' : '少数精鋭で'}営業利益率${def.operatingMarginPct}%を実現するソフトウェアモデル。`,
+    targetCustomer: `既存の多機能ツールの複雑さや高額な料金に不満を持ち、特定業務を素早く終わらせたい${def.targetPainWallet || def.targetPrey}の現場担当者。`,
+    painRelief: `${def.targetPrey}。面倒な手作業や複雑な設定のストレスを解消し、直感的な操作で目的を達成させる。`
+  };
+
+  const resolvedBlindspot = isOffline
+    ? `【既存業界の死角】${def.structuralFlaw}。大手チェーンは既存の納入業者や流通網へのしがらみがあり、徹底した仕入れ改革や低価格特化への転換が難しかった。そこへ${def.name}が「${def.stealthEntry}」で割り込み、熱狂的な支持を獲得した。`
+    : isContent
+    ? `【既存メディアの死角】${def.structuralFlaw}。伝統的メディアは既存の広告主配慮や長文至上主義から抜け出せず、読者の「要点だけ手短に知りたい」需要を放置していた。そこへ${def.name}が「${def.stealthEntry}」で読者を囲い込んだ。`
+    : isFintech
+    ? `【既存金融の死角】${def.structuralFlaw}。大手金融機関は支店網の維持費や不透明な手数料収益に依存しており、自ら手数料を下げる動機がなかった。そこへ${def.name}が「${def.stealthEntry}」で透明な価格を提示し、顧客を一気に奪取した。`
+    : `【既存巨人の死角】${def.structuralFlaw}。大手事業者は高単価な大企業向け契約を守る必要があり、単一機能の超軽量・低価格ツールを出すことができなかった。そこへ${def.name}が「${def.stealthEntry}」で参入し、ライト層の需要を総取りした。`;
+
+  const resolvedIncumbentDilemma = isOffline
+    ? `既存の大手企業は「${def.structuralFlaw}」という制約を抱えている。${def.name}と同じ低価格・独自仕入れを実行すると自社の既存店舗の収益モデルが崩れるため、同じ手を打てずに見守るしかなかった。`
+    : isContent
+    ? `既存の伝統メディアは「${def.structuralFlaw}」という看板を抱えている。${def.name}のような尖った超短尺配信を行うと自社の広告枠単価が下がるため、模倣できずに見守るしかなかった。`
+    : isFintech
+    ? `既存の大手銀行は「${def.structuralFlaw}」という収益構造に依存している。${def.name}と同じ手数料体系に引き下げると自社の最大の収益源を失うため、対抗できずに顧客流出を招いた。`
+    : `既存大手は「${def.structuralFlaw}」というジレンマに陥っている。${def.name}のような軽量・安価な単一機能を提供すると自社の主力高額プランとバッティングするため、経営陣は認知していても対抗策を打てない。`;
 
   return {
     id: def.id,
@@ -252,11 +341,7 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       dataSnapshotPeriod: `${def.snapshotYear}年観測データ`,
       sourceDoc: def.revenueSourceNote
     },
-    essence: {
-      whatItDoes: `${def.name}の正体は、${def.targetPainWallet || def.targetPrey}を抱える層に対し、${def.architecturePattern}によって作業工数を99%削減・自動化し、${def.teamSize === 1 ? '完全1人で' : '最小組織で'}粗利益率${def.grossMarginPct}%・営業利益率${def.operatingMarginPct}%を確実に抜き取る高収益関所モデル。`,
-      targetCustomer: `既存の巨大ツール（${def.structuralFlaw}）の高額料金や複雑さに不満を抱え、自分の手作業や時間を節約するためなら月額費用を即決する${def.targetPainWallet || def.targetPrey}の当事者。`,
-      painRelief: `${def.targetPrey}。面倒な手作業や複雑な設定に毎日数時間を浪費する精神的苦痛を切除し、ワンクリックまたは完全自動で目的を達成させる。`
-    },
+    essence: resolvedEssence,
     operations: {
       teamSize: def.teamSize,
       weeklyHours: def.teamSize === 1 ? 20 : 40,
@@ -266,11 +351,11 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       toolStack: resolvedToolStack
     },
     strategy: {
-      blindspot: `【既存巨人の死角と構造的欠陥】${def.structuralFlaw}。既存の大手事業者は自社の高単価プランや既存顧客との契約を守る必要があり、単一機能に特化した超軽量・低価格アプローチへの即時転換が物理的に不可能だった。そこへ${def.name}が「${def.stealthEntry}」という圧倒的利便性で割り込み、大手が無視していた巨大なライト層の需要を総取りした。`,
+      blindspot: resolvedBlindspot,
       moatType: def.moatType,
-      moatDescription: `【参入障壁の正体と先行者堀】${def.moatDescription}。一度導入されると日常業務のワークフローやデータが人質となり、他社への乗り換えコストが極めて高くなる。また、${def.teamSize === 1 ? '完全1人体制による固定費ほぼゼロの低原価構造' : '徹底した自動化による圧倒的低原価要塞'}を敷いており、後発競合が同じ価格帯で参入しても利益を出せずに自滅する構造を作り上げている。`,
-      incumbentDilemma: `既存大手は「${def.structuralFlaw}」という自縄自縛に陥っている。${def.name}と同じ機能を安価またはシンプルに提供すると、自社の主力高額商品の売上をカニバる（共食いする）ため、経営陣は認知していても対抗策を打てず見逃すしかない。`,
-      secretInsight: `現場の裏ハック: ${def.stealthEntry}。複雑な機能をすべて削ぎ落とし、ユーザーが最も怠惰に目的を達成できる最短動線だけを${def.pipelineStack.split('×')[0]?.trim() || 'Stripe'}等の自動決済関所に直結させた点にある。`,
+      moatDescription: `【参入障壁の正体】${def.moatDescription}。${def.teamSize === 1 ? '完全1人体制による固定費ほぼゼロの低コスト構造' : '徹底した効率化による低コスト構造'}を敷いており、後発競合が参入しても利益を出しにくい仕組みを作り上げている。`,
+      incumbentDilemma: resolvedIncumbentDilemma,
+      secretInsight: `現場の工夫: ${def.stealthEntry}。ユーザーが最も手間なく目的を達成できる動線に集中した点にある。`,
       initialTraction: def.initialTraction,
       actionPlaybook: def.actionPlaybook
     },
@@ -292,8 +377,16 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       dataSnapshotPeriod: `${def.snapshotYear}年観測データ`,
       viabilityStatus: 'ACTIVE_PLAYBOOK',
       viabilityLabel: '現在も極めて高収益に稼働中（再現性高）',
-      eraContext: `AIとセルフサーブSaaSの普及期。最小チームで巨大企業から現金を抜くゲリラ戦が成立した黄金ウィンドウ。`,
-      currentViabilityAnalysis: `現在も手口の有効性は持続しているが、同様の単一機能ツールが乱立しているため、特定ニッチ（業界・言語・特定職種）への特化と独自ドメイン・独自SEOの早期獲得が必須。`
+      eraContext: isOffline
+        ? '物価高と家計防衛意識の高まり。無駄な流通マージンを削った店舗・製造モデルが急伸した環境。'
+        : isContent
+        ? '情報過多時代における要約・短尺メディア需要の急増。'
+        : isFintech
+        ? 'グローバル化とキャッシュレス進展に伴う送金・決済の効率化需要。'
+        : 'AIとセルフサーブSaaSの普及期。最小チームで巨大企業からシェアを奪うゲリラ戦が成立した環境。',
+      currentViabilityAnalysis: isOffline
+        ? '仕入れ網や店舗オペレーションの現場ノウハウが最大の参入障壁となり、現在も高い参入障壁を維持。'
+        : '現在も手口の有効性は持続しているが、同様の単一機能ツールが乱立しているため、特定ニッチ（業界・言語・特定職種）への特化が重要。'
     },
     observations: def.observations
   };

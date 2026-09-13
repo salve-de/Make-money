@@ -207,7 +207,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       )}
 
       {/* ========================================================= */}
-      {/* Layer 2: 【動的特異点ブロック】（型がある武器・急所） */}
+      {/* Layer 2: 【事業構造の特徴・独自の強み】 */}
       {/* データが存在するブロックだけが自動展開・最上位化 */}
       {/* ========================================================= */}
       {(hasDynamicMoats || hasExposureAudit) && (
@@ -215,15 +215,15 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
             <div className="flex items-center gap-2">
               <span className="font-mono text-[9px] font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 px-1.5 py-0.5 rounded">
-                LAYER 2
+                FEATURE
               </span>
               <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-emerald-400" />
-                動的特異点ブロック (KILLER EDGE MODULES)
+                独自の強み・事業構造の特徴
               </span>
             </div>
             <span className="text-[10px] font-mono text-zinc-500">
-              ※ 特異点データが存在する項目のみ自動展開
+              ※ 該当するデータが存在する項目のみ表示
             </span>
           </div>
 
@@ -234,10 +234,10 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 <div className="flex items-center justify-between text-[11px] font-mono">
                   <span className="text-zinc-400 font-bold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    寄生・コバンザメ構造（宿主ハック）
+                    他社プラットフォームの活用（コバンザメ戦略）
                   </span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08]">
-                    宿主: {dynamicMoats.parasiteHost.hostName}
+                    プラットフォーム: {dynamicMoats.parasiteHost.hostName}
                   </span>
                 </div>
                 <p className="text-zinc-300 text-[11px] leading-relaxed pl-3 border-l border-emerald-500/30">
@@ -252,10 +252,10 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 <div className="flex items-center justify-between text-[11px] font-mono">
                   <span className="text-zinc-400 font-bold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-                    データの監禁度（人質資産・解約不能化）
+                    データの蓄積による解約防止（スイッチングコスト）
                   </span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08]">
-                    人質: {dynamicMoats.dataHostage.lockInFactor}
+                    要因: {dynamicMoats.dataHostage.lockInFactor}
                   </span>
                 </div>
                 <p className="text-zinc-300 text-[11px] leading-relaxed pl-3 border-l border-amber-500/30">
@@ -270,10 +270,10 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 <div className="flex items-center justify-between text-[11px] font-mono">
                   <span className="text-zinc-400 font-bold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
-                    共犯者・紹介賄賂網（他人の強欲を走らせる配管）
+                    紹介・アフィリエイト報酬の仕組み
                   </span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-950/30 text-blue-300 border border-blue-500/30 font-bold">
-                    還元率: {dynamicMoats.affiliateBribery.commissionRate}
+                    報酬率: {dynamicMoats.affiliateBribery.commissionRate}
                   </span>
                 </div>
                 <p className="text-zinc-300 text-[11px] leading-relaxed pl-3 border-l border-blue-500/30">
@@ -288,7 +288,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 <div className="flex items-center justify-between text-[11px] font-mono">
                   <span className="text-zinc-400 font-bold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-                    前金総取り・客の金で拡大（キャッシュ幾何学）
+                    前受金による資金繰り（キャッシュフロー戦略）
                   </span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/[0.04] text-zinc-300 border border-white/[0.08]">
                     {dynamicMoats.upfrontCash.cashCycle}
@@ -306,12 +306,12 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 <div className="flex items-center justify-between text-[11px] font-mono">
                   <span className="text-zinc-400 font-bold flex items-center gap-1.5">
                     <History className="w-3.5 h-3.5 text-zinc-400" />
-                    死屍累々のピボット魚拓（爆死墓場と当たりの特異点）
+                    過去の試行錯誤と事業転換（ピボット）の軌跡
                   </span>
                 </div>
                 {dynamicMoats.pivotGraveyard.failedAttempts.length > 0 && (
                   <div className="text-[10px] font-mono text-zinc-400 space-y-1">
-                    <span className="text-zinc-500">過去に爆死させたプロダクト:</span>
+                    <span className="text-zinc-500">過去に失敗・撤退したサービス:</span>
                     <div className="flex flex-wrap gap-1.5 pt-0.5">
                       {dynamicMoats.pivotGraveyard.failedAttempts.map((prod, i) => (
                         <span key={i} className="px-1.5 py-0.5 rounded bg-red-950/20 text-red-400/90 border border-red-500/20 line-through">
@@ -322,7 +322,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                   </div>
                 )}
                 <p className="text-zinc-200 text-[11px] leading-relaxed pl-3 border-l border-emerald-500/40 font-medium">
-                  <span className="text-emerald-400 font-mono font-bold mr-1.5">[当たりの境界線]</span>
+                  <span className="text-emerald-400 font-mono font-bold mr-1.5">[ブレイクスルーの要因]</span>
                   {dynamicMoats.pivotGraveyard.breakthroughSecret}
                 </p>
               </div>
@@ -331,18 +331,18 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
         </section>
       )}
       {/* ========================================================= */}
-      {/* Layer 3: 【万能救済ストリーム】（型に収まらない全データ） */}
+      {/* Layer 3: 【全量調査ログ・取材メモ】 */}
       {/* 保存済み観測を根拠・権利・公開範囲を保ったまま表示可能な範囲で描画 */}
       {/* ========================================================= */}
       <section className="space-y-3">
         <div className="flex items-center justify-between border-b border-white/[0.08] pb-1.5">
           <div className="flex items-center gap-2">
             <span className="font-mono text-[9px] font-bold text-zinc-300 bg-white/[0.08] border border-white/[0.1] px-1.5 py-0.5 rounded">
-              LAYER 3
+              LOGS
             </span>
             <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider flex items-center gap-1.5">
               <Sparkles className="w-3.5 h-3.5 text-zinc-400" />
-              万能救済ストリーム (UNIVERSAL INTELLIGENCE STREAM)
+              全量調査ログ・取材メモ
             </span>
           </div>
           <span className="text-[10px] font-mono text-zinc-400">
@@ -386,7 +386,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           </div>
         ) : (
           <div className="p-4 rounded-md border border-white/[0.04] bg-white/[0.01] text-center text-zinc-500 text-xs font-mono">
-            現在、追加の未分類観測レコードはありません（固定Core骨格および動的特異点にすべて構造化されています）。
+            現在、追加の観測レコードはありません。
           </div>
         )}
 
@@ -395,7 +395,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           <div className="border border-white/[0.06] rounded-md bg-[#090A0E] p-3.5 space-y-2.5">
             <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-zinc-300">
               <Clock className="w-3.5 h-3.5 text-zinc-400" />
-              <span>主要タイムライン・里程標 (TIMELINE EVENTS)</span>
+              <span>主要な沿革・タイムライン</span>
             </div>
             <div className="space-y-2 pl-2 border-l border-white/[0.08]">
               {timelineEvents.map((evt, idx) => (
@@ -418,7 +418,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
           <div className="border border-white/[0.06] rounded-md bg-[#08090C] p-3.5 space-y-2">
             <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 font-bold">
               <HelpCircle className="w-3.5 h-3.5 text-zinc-500" />
-              <span>調査限界・非公開ステータス（UNKNOWNS & LIMITATIONS）</span>
+              <span>未確認・非公開情報</span>
             </div>
             <ul className="space-y-1 text-[10px] font-mono text-zinc-400 pl-4 list-disc">
               {unknownsNotes.map((note, idx) => (
@@ -434,7 +434,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
         {coverageAudit && coverageAudit.length > 0 && (
           <details className="border border-white/[0.04] rounded-md bg-black/40 p-2.5 text-[10px] font-mono text-zinc-500 group">
             <summary className="cursor-pointer hover:text-zinc-300 flex items-center justify-between">
-              <span>全方位カバレッジ監査ログ ({coverageAudit.length} 項目確認済み)</span>
+              <span>調査項目チェックリスト ({coverageAudit.length} 項目確認済み)</span>
               <span className="text-[9px] text-zinc-600 group-open:rotate-90 transition-transform">▶</span>
             </summary>
             <div className="mt-2.5 pt-2 border-t border-white/[0.04] space-y-1.5 max-h-48 overflow-y-auto">

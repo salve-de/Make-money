@@ -187,7 +187,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
             <Flame className="w-3.5 h-3.5 text-emerald-400" />
             <span>稼ぎの型の参考例 (Active Plays)</span>
             <span className="px-1.5 py-0.2 text-[10px] font-mono rounded bg-emerald-400/20 text-emerald-300">
-              略奪転用レシピ
+              実践レシピ
             </span>
           </button>
 
@@ -642,7 +642,7 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                     </div>
 
                     <div className="space-y-1">
-                      <div className="text-xs font-mono text-zinc-400 font-semibold">【突いている痛みの財布（サバンナOS）】</div>
+                      <div className="text-xs font-mono text-zinc-400 font-semibold">【顧客が思わずお金を払う切実な理由】</div>
                       <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed bg-white/[0.02] border border-white/[0.04] p-3 rounded">
                         {activeWave.targetPainWallet}
                       </p>
