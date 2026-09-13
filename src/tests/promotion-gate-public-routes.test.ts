@@ -182,11 +182,92 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
           sourceClass: 'PRIMARY',
           verificationStatus: 'SUPPORTED',
           supportCheck: 'PASS',
+          verificationReceipt: {
+            receiptId: 'rcpt_test_verified',
+            algorithm: 'SHA-256',
+            verifiedAt: '2026-09-13T18:00:00.000Z',
+            fingerprint: 'a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0',
+            deterministicCheck: 'PASS',
+          },
         },
       ],
     } as unknown as FinancialEntity;
 
     expect(isPublishableEntity(verifiedEntity)).toBe(true);
+
+    // [P0検証] verificationReceipt が欠落している場合は物理遮断
+    const noReceiptEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          claimKey: 'pnl.monthlyRevenue',
+          evidenceId: 'ev_financial',
+          locator: {
+            type: 'pdf',
+            page: 42,
+            table: 'Revenue',
+          },
+          sourceClass: 'PRIMARY',
+          verificationStatus: 'SUPPORTED',
+          supportCheck: 'PASS',
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(noReceiptEntity)).toBe(false);
+
+    // [P0検証] verificationReceipt の deterministicCheck が FAIL の場合は物理遮断
+    const failReceiptEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          claimKey: 'pnl.monthlyRevenue',
+          evidenceId: 'ev_financial',
+          locator: {
+            type: 'pdf',
+            page: 42,
+            table: 'Revenue',
+          },
+          sourceClass: 'PRIMARY',
+          verificationStatus: 'SUPPORTED',
+          supportCheck: 'PASS',
+          verificationReceipt: {
+            receiptId: 'rcpt_test_fail',
+            algorithm: 'SHA-256',
+            verifiedAt: '2026-09-13T18:00:00.000Z',
+            fingerprint: 'a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0',
+            deterministicCheck: 'FAIL',
+          },
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(failReceiptEntity)).toBe(false);
+
+    // [P0検証] verificationReceipt の fingerprint が不正（16文字未満）の場合は物理遮断
+    const invalidFingerprintEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          claimKey: 'pnl.monthlyRevenue',
+          evidenceId: 'ev_financial',
+          locator: {
+            type: 'pdf',
+            page: 42,
+            table: 'Revenue',
+          },
+          sourceClass: 'PRIMARY',
+          verificationStatus: 'SUPPORTED',
+          supportCheck: 'PASS',
+          verificationReceipt: {
+            receiptId: 'rcpt_test_short_hash',
+            algorithm: 'SHA-256',
+            verifiedAt: '2026-09-13T18:00:00.000Z',
+            fingerprint: 'tooshort',
+            deterministicCheck: 'PASS',
+          },
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(invalidFingerprintEntity)).toBe(false);
 
     // 反証（REFUTED）またはFAILのBindingがある場合は厳格拒絶
     const refutedEntity = {

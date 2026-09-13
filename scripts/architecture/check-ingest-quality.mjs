@@ -123,6 +123,66 @@ for (const ent of entities) {
       errors.push(`[RULE VIOLATION: Forbidden Jargon '${j}'] ${ent.name} contains forbidden internal buzzword.`);
     }
   }
+
+  // G. Claim-Level Evidence Provenance & Verification Receipt Integrity Guard (P0-4 Strict Audit)
+  const claimsRevenue = typeof ent.pnl?.monthlyRevenue === 'number' && ent.pnl.monthlyRevenue > 0 && !ent.pnl.isRevenueUnconfirmed;
+  if (claimsRevenue) {
+    if (!Array.isArray(ent.claimBindings) || ent.claimBindings.length === 0) {
+      errors.push(`[PROVENANCE VIOLATION: Missing ClaimBindings] ${ent.name} claims revenue (${ent.pnl.monthlyRevenue}) but has no claimBindings.`);
+    } else {
+      const revBinding = ent.claimBindings.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
+      if (!revBinding) {
+        errors.push(`[PROVENANCE VIOLATION: Missing Revenue Binding] ${ent.name} claims revenue but lacks 'pnl.monthlyRevenue' binding.`);
+      } else {
+        if (revBinding.verificationStatus !== 'SUPPORTED' || revBinding.supportCheck !== 'PASS') {
+          errors.push(`[PROVENANCE VIOLATION: Unsupported Status] ${ent.name} binding has status '${revBinding.verificationStatus}' check '${revBinding.supportCheck}'.`);
+        }
+        if (!revBinding.sourceClass || revBinding.sourceClass === 'MODEL') {
+          errors.push(`[PROVENANCE VIOLATION: Invalid Source Class] ${ent.name} binding has invalid sourceClass '${revBinding.sourceClass}'.`);
+        }
+        if (!revBinding.evidenceId || typeof revBinding.evidenceId !== 'string') {
+          errors.push(`[PROVENANCE VIOLATION: Missing EvidenceId] ${ent.name} binding missing evidenceId.`);
+        } else {
+          const matchingCard = Array.isArray(ent.evidenceCards) && ent.evidenceCards.find(c => c && c.id === revBinding.evidenceId);
+          const matchingObs = Array.isArray(ent.observationsStream) && ent.observationsStream.find(o => o && o.id === revBinding.evidenceId);
+          if (!matchingCard && !matchingObs) {
+            errors.push(`[PROVENANCE VIOLATION: Dangling EvidenceId] ${ent.name} evidenceId '${revBinding.evidenceId}' not found in cards or observationsStream.`);
+          } else {
+            // Check context contains financial signal
+            const text = matchingCard
+              ? `${matchingCard.punchline || ''} ${(matchingCard.details || []).join(' ')} ${matchingCard.sourceNote || ''}`
+              : (matchingObs?.text || '');
+            const hasFinancialSignal = /月商|年商|売上|利益|revenue|arr|mrr|sales|¥|\$|円|億|万/i.test(text);
+            if (!hasFinancialSignal) {
+              errors.push(`[PROVENANCE VIOLATION: Missing Financial Context] ${ent.name} bound evidence '${revBinding.evidenceId}' has no financial context.`);
+            }
+          }
+        }
+        if (!revBinding.locator || typeof revBinding.locator !== 'object') {
+          errors.push(`[PROVENANCE VIOLATION: Missing Locator] ${ent.name} binding missing locator object.`);
+        } else if (revBinding.locator.type === 'json') {
+          const ptr = revBinding.locator.jsonPointer || '';
+          if (ptr.startsWith('/pnl') || ptr.startsWith('/operations') || ptr.startsWith('/strategy') || ptr.startsWith('/essence')) {
+            errors.push(`[PROVENANCE VIOLATION: Self-Referential Locator] ${ent.name} locator uses forbidden self-pointer '${ptr}'.`);
+          }
+        }
+        if (!revBinding.verificationReceipt || typeof revBinding.verificationReceipt !== 'object') {
+          errors.push(`[PROVENANCE VIOLATION: Missing VerificationReceipt] ${ent.name} binding has no verificationReceipt.`);
+        } else {
+          const rcpt = revBinding.verificationReceipt;
+          if (rcpt.deterministicCheck !== 'PASS') {
+            errors.push(`[PROVENANCE VIOLATION: Failed DeterministicCheck] ${ent.name} verificationReceipt check is '${rcpt.deterministicCheck}'.`);
+          }
+          if (!rcpt.fingerprint || rcpt.fingerprint.length < 16) {
+            errors.push(`[PROVENANCE VIOLATION: Invalid Fingerprint] ${ent.name} verificationReceipt fingerprint length is insufficient.`);
+          }
+          if (rcpt.algorithm !== 'SHA-256') {
+            errors.push(`[PROVENANCE VIOLATION: Invalid Hash Algorithm] ${ent.name} verificationReceipt algorithm '${rcpt.algorithm}' !== 'SHA-256'.`);
+          }
+        }
+      }
+    }
+  }
 }
 
 if (errors.length > 0) {

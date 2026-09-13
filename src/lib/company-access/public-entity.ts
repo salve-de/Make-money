@@ -90,7 +90,7 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       }
     }
 
-    // 5. [実検証] 自己申告フラグに頼らず、紐付けられたEvidenceがClaim（確定売上）を客観的に裏付けているか機械照合
+    // 5. [実検証] 自己申告フラグに頼らず、紐付けられたEvidenceがClaim（確定売上）を客観的に裏付けているか機械照合（fallback完全撤廃）
     if (matchingCard) {
       if (matchingCard.evidenceStatus === 'UNKNOWN') {
         return false;
@@ -98,22 +98,32 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       const cardDetails = Array.isArray(matchingCard.details) ? matchingCard.details.join(' ') : '';
       const cardPunchline = matchingCard.punchline || '';
       const cardSource = matchingCard.sourceNote || '';
-      const cardText = `${cardPunchline} ${cardDetails} ${cardSource}`;
+      const cardMetrics = Array.isArray(matchingCard.metrics) ? matchingCard.metrics.map(m => `${m.label} ${m.value}`).join(' ') : '';
+      const cardText = `${cardPunchline} ${cardDetails} ${cardSource} ${cardMetrics}`;
       const hasFinancialSignal = /月商|年商|売上|利益|revenue|arr|mrr|sales|¥|\$|円|億|万/i.test(cardText);
-      const hasDirectSourceDoc = Boolean(entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0);
-      if (!hasFinancialSignal && !hasDirectSourceDoc) {
+      if (!hasFinancialSignal) {
         return false;
       }
     } else if (matchingObs) {
-      if (matchingObs.verificationStatus === 'REFUTED') {
+      if (matchingObs.verificationStatus === 'REFUTED' || matchingObs.originType === 'unknown') {
         return false;
       }
       const obsText = matchingObs.text || '';
       const hasFinancialSignal = /月商|年商|売上|利益|revenue|arr|mrr|sales|¥|\$|円|億|万/i.test(obsText);
-      const hasDirectSourceDoc = Boolean(entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0);
-      if (!hasFinancialSignal && !hasDirectSourceDoc) {
+      if (!hasFinancialSignal) {
         return false;
       }
+    }
+
+    // 6. 実検証領収書（Verification Receipt）の機械的整合性検証（Fail-Closed Gate）
+    if (!revBinding.verificationReceipt || typeof revBinding.verificationReceipt !== 'object') {
+      return false;
+    }
+    if (revBinding.verificationReceipt.deterministicCheck !== 'PASS') {
+      return false;
+    }
+    if (!revBinding.verificationReceipt.fingerprint || revBinding.verificationReceipt.fingerprint.length < 16) {
+      return false;
     }
   }
 

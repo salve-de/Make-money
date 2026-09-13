@@ -69,6 +69,14 @@ export type CriticalClaimKey =
   | 'pnl.operatingProfit'
   | 'operations.teamSize';
 
+export interface VerificationReceipt {
+  receiptId: string;
+  algorithm: 'SHA-256' | 'EDINET-XBRL' | 'W3C-SELECTOR-MATCH';
+  verifiedAt: string; // ISO 8601
+  fingerprint: string; // 原本またはエビデンスのSHA-256ハッシュ
+  deterministicCheck: 'PASS';
+}
+
 /**
  * Claim-to-Evidence Binding（Promotion Receipt）
  * 確定事実（売上・利益・組織規模等）を客観的エビデンス（原本Locator・一次資料）に直接紐付ける決定論的契約。
@@ -77,10 +85,12 @@ export type CriticalClaimKey =
 export interface ClaimEvidenceBinding {
   claimKey: CriticalClaimKey | string; // 例: "pnl.monthlyRevenue", "pnl.operatingProfit", "operations.teamSize"
   evidenceId: string;
+  foundationEvidenceId?: string; // Foundation 原本エビデンスID
   locator: EvidenceLocator; // 原本内の厳密なロケーター（自己参照 '/pnl/monthlyRevenue' 等は禁止）
   sourceClass: Exclude<SourceClass, 'MODEL'>;
   verificationStatus: 'SUPPORTED';
   supportCheck: 'PASS';
+  verificationReceipt: VerificationReceipt; // 機械的実検証領収書（必須）
 }
 
 export type PublishabilityStatus =

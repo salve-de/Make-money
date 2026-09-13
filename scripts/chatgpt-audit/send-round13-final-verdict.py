@@ -12,8 +12,8 @@ Round 13の激論において合意された「条件付きPASS」の4大条件�
 
 ### 1. GitHubコミット ＆ CI All Green 客観的証拠
 - **ブランチ**: `codex/reliability-boundaries`
-- **最新コミットSHA**: `41022de`（プッシュ済み）
-- **GitHub Actions CI Run**: `34749510203`（全5ジョブ All Green）
+- **最新コミットSHA**: `b5e73fb`（プッシュ済み）
+- **GitHub Actions CI Run**: `34749577908`（全5ジョブ All Green）
   - ✓ E2E smoke (全27テスト完全PASS)
   - ✓ lint (ESLint 0 warnings, check-ingest-quality 234社全量監査完全PASS)
   - ✓ typecheck (tsc + consumer schemas check 完全PASS)
@@ -64,13 +64,13 @@ applescript = '''
 tell application "Safari"
     activate
 end tell
-delay 0.3
+delay 0.5
 tell application "System Events"
     tell process "Safari"
-        click at {1140, 945}
-        delay 0.3
-        keystroke "v" using command down
+        click at {1140, 915}
         delay 0.5
+        keystroke "v" using command down
+        delay 0.8
         key code 36
     end tell
 end tell
