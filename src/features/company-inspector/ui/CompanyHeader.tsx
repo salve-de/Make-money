@@ -1,6 +1,7 @@
 import { cleanIntelligenceText } from '@/lib/foundation/text-cleaner';
 import {
 Bot,
+Check,
 ChevronLeft,
 ChevronRight,
 Clock,
@@ -11,7 +12,7 @@ X
 
 import type { InspectorSectionProps } from '../model/section-props';
 
-export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, activeTags = [], onToggleTag, analystNote, onOpenSynthesisWithEntity, isScrolled, scrollToSection, formatMoney, isHazardMode, isFinancialUnavailable }: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable'>) {
+export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, activeTags = [], onToggleTag, analystNote, onOpenSynthesisWithEntity, onApproveEntity, isScrolled, scrollToSection, formatMoney, isHazardMode, isFinancialUnavailable }: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'onApproveEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable'>) {
   return <>
         <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
           isScrolled
@@ -47,6 +48,18 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
 
             {/* 右側アクション */}
             <div className="flex items-center gap-1 shrink-0">
+              {/* これはオッケー（承認）ボタン: 収集事例タグがある場合に高輝度エメラルドで表示 */}
+              {entity.tags?.includes('収集事例') && onApproveEntity && (
+                <button
+                  onClick={() => onApproveEntity(entity.id)}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 hover:text-white font-bold text-[11px] font-mono transition-all cursor-pointer shadow-[0_0_12px_rgba(16,185,129,0.2)] hover:shadow-[0_0_16px_rgba(16,185,129,0.4)] mr-1"
+                  title="「収集事例」リストから承認完了として消去し、本台帳に保管します"
+                >
+                  <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[2.5]" />
+                  <span>これはオッケー（承認）</span>
+                </button>
+              )}
+
               {/* 銘柄ナビゲーション */}
               <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
                 <button

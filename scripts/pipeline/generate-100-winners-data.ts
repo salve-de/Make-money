@@ -39,6 +39,9 @@ export interface RawWinnerDef {
   structuralFlaw: string;
   stealthEntry: string;
   tollGateSetup: string;
+  toolStack?: { name: string; category: string; monthlyCost: number }[];
+  executionChecklist?: string[];
+  primaryChannels?: string[];
   
   // 裏帳簿観察ログ
   observations: string[];
@@ -147,7 +150,7 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
     architecturePattern: def.architecturePattern,
     pipelineStack: def.pipelineStack,
     targetPainWallet: def.targetPainWallet,
-    tags: def.tags,
+    tags: def.tags.includes('収集事例') ? def.tags : ['収集事例', ...def.tags],
     pnl: {
       monthlyRevenue,
       cogs,

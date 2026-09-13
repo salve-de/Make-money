@@ -110,6 +110,15 @@
             "$ref": "#/definitions/UniversalObservation"
           }
         },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lootBlueprint": {
+          "$ref": "#/definitions/LootBlueprint"
+        },
         "timelineEvents": {
           "type": "array",
           "items": {
@@ -943,6 +952,48 @@
       },
       "required": [
         "text"
+      ]
+    },
+    "LootBlueprint": {
+      "type": "object",
+      "properties": {
+        "targetPrey": {
+          "type": "string"
+        },
+        "structuralFlaw": {
+          "type": "string"
+        },
+        "stealthEntry": {
+          "type": "string"
+        },
+        "tollGateSetup": {
+          "type": "string"
+        },
+        "reproducibilityScore": {
+          "type": "number"
+        },
+        "moatDurabilityScore": {
+          "type": "number"
+        },
+        "capitalEfficiencyScore": {
+          "type": "number"
+        },
+        "executionChecklist": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "targetPrey",
+        "structuralFlaw",
+        "stealthEntry",
+        "tollGateSetup",
+        "reproducibilityScore",
+        "moatDurabilityScore",
+        "capitalEfficiencyScore",
+        "executionChecklist"
       ]
     },
     "UniversalEvent": {

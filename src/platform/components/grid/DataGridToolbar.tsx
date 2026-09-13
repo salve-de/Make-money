@@ -13,6 +13,7 @@ interface DataGridToolbarProps {
   onResetScreener?: () => void;
   activeTags?: string[];
   onToggleTag?: (tag: string | null) => void;
+  newlyCollectedCount?: number;
 }
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
@@ -24,6 +25,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   onResetScreener,
   activeTags = [],
   onToggleTag,
+  newlyCollectedCount = 0,
 }) => {
   // スクリーナーの適用条件数を計算
   const activeScreenerCount = React.useMemo(() => {
@@ -72,6 +74,29 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
             </button>
           )}
         </div>
+
+        {/* 1.5 新着収集事例クイックトグルボタン（未承認事例の専用インボックス） */}
+        {newlyCollectedCount > 0 && (
+          <button
+            onClick={() => onToggleTag && onToggleTag('収集事例')}
+            className={`flex items-center gap-1.5 text-xs px-2.5 py-1 rounded transition-all border cursor-pointer shrink-0 font-mono ${
+              activeTags.includes('収集事例')
+                ? 'bg-amber-500/20 border-amber-500/50 text-amber-300 font-bold shadow-[0_0_12px_rgba(245,158,11,0.25)]'
+                : 'bg-amber-500/10 hover:bg-amber-500/20 border-amber-500/30 text-amber-400 hover:text-amber-200'
+            }`}
+            title="新しく集めた未承認の収集事例のみを絞り込み表示"
+          >
+            <span className="text-xs">📥</span>
+            <span>収集事例</span>
+            <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded font-bold ${
+              activeTags.includes('収集事例')
+                ? 'bg-amber-400 text-black'
+                : 'bg-amber-500/25 text-amber-300'
+            }`}>
+              {newlyCollectedCount}
+            </span>
+          </button>
+        )}
 
         {/* 2. 検索窓（スクリーナーボタンの直後に固定配置、残余幅に合わせて伸縮） */}
         <div className="relative flex-1 min-w-[140px] max-w-sm">

@@ -300,9 +300,22 @@ export interface FinancialEntity {
   temporal?: TemporalIntelligence; // 時系列インテリジェンス（創業年、データ時期、現時点での賞味期限判定）
   dynamicMoats?: DynamicMoats; // Layer 2: 動的特異点ブロック（データが存在する項目のみ展開）
   observationsStream?: UniversalObservation[]; // Layer 3: 万能救済ストリーム（型に収まらない全データ）
+  observations?: string[]; // 補足観測事実
+  lootBlueprint?: LootBlueprint; // 略奪転用方程式
   timelineEvents?: UniversalEvent[]; // 重要タイムライン・マイルストーン
   coverageAudit?: UniversalCoverageItem[]; // 監査カバレッジ・調査試行ログ
   unknownsNotes?: string[]; // 調査限界・非公開要素の明記
+}
+
+export interface LootBlueprint {
+  targetPrey: string;
+  structuralFlaw: string;
+  stealthEntry: string;
+  tollGateSetup: string;
+  reproducibilityScore: number;
+  moatDurabilityScore: number;
+  capitalEfficiencyScore: number;
+  executionChecklist: string[];
 }
 
 export type GridFilterOption =

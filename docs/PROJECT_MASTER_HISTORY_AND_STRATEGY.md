@@ -1,6 +1,44 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
 > **現行運用注記（2026-09-12）**: この白書は意思決定の履歴であり、各節に残る「即時push」「差分ゼロ」などの表現は当時の記録であって、現在の実行指示ではない。現行の正本は `AGENTS.md` と `docs/architecture/STORAGE.md`。外部push/PR、main統合、deployは明示承認とremote・CI・Rulesetの読み戻しが揃うまで行わず、未確認の状態を完了扱いにしない。
+## 2026-09-13 【確定】新着収集事例のトリアージ・承認ワークフロー（Triage & Approval Workflow）完備（Phase 147）
+
+### 1. ユーザー要望と目的
+- **課題**: 新規収集した100事例などのデータを、通常の本台帳（234社）と混ざった状態ではなく、「今集めた新着事例」として隔離して確認したい。
+- **要件**:
+  1. ツールバー／スクリーニングに「収集事例」というタグ・専用クイックトグルを配備し、今集めた新着事例（未承認事例）だけを瞬時に一覧表示。
+  2. ユーザーが詳細画面で「これはオッケー（承認）」を押すと、その事例から「収集事例」タグが消滅し、その場でリストから消滅（本台帳に本登録完了）。
+  3. 次に新しく集めたやつは、また自動的に「収集事例」に入ってきてインボックスとして溜まる循環構造を確立。
+
+### 2. 実装されたアーキテクチャ
+1. **承認APIエンドポイント（`src/app/api/entities/approve/route.ts`）**:
+   - `POST /api/entities/approve`（境界防御 `readJsonBody` 準拠）。
+   - `data/entities-index.json` および `data/winners-100-definitions.json` から対象エンティティの `"収集事例"` タグを安全に除去して永続化。
+2. **インスペクター承認ボタン（`src/features/company-inspector/ui/CompanyHeader.tsx`）**:
+   - `entity.tags?.includes('収集事例')` の場合、高輝度エメラルドグリーン（`shadow-[0_0_12px_rgba(16,185,129,0.2)]`）で `[✓ これはオッケー（承認）]` ボタンを常時配備。
+   - クリックで即座に `onApproveEntity(id)` を発火。
+3. **楽観的UI更新 ＆ インボックス件数管理（`src/platform/components/layout/TerminalShell.tsx`）**:
+   - `approvedIds` ステートによる0.01秒の楽観的UI更新（承認ボタンを押した瞬間、リストから対象行が瞬時に消え、ツールバーの未承認件数バッジが即座にカウントダウン）。
+   - バックグラウンドで永続化APIへ通信し、データと画面を完全一致。
+4. **ツールバー・クイックトグルボタン（`src/platform/components/grid/DataGridToolbar.tsx`）**:
+   - 未承認事例が存在する場合、ツールバーに `[📥 収集事例 (N)]` バッジが金色に常駐。
+   - ワンクリックで新着事例の抽出と全台帳の切り替えが可能。
+5. **スクリーナーモーダル連携（`src/platform/components/screener/AdvancedScreenerModal.tsx`）**:
+   - 特徴タグ欄の最優先位置に「収集事例」を配備し、詳細スクリーニングとの複合検索を可能化。
+6. **新規収集パイプライン連携（`scripts/pipeline/generate-100-winners-data.ts`）**:
+   - 新規収集データに自動的に `tags: ['収集事例', ...]` が付与され、次回収集時も自動的に未承認インボックスに格納される設計。
+
+### 3. 実機E2E検証
+- Playwrightによる実機ブラウザ検証（`scripts/verify-triage-workflow.ts`）を実施。
+  - トップ画面にて `[📥 収集事例 90]` を確認。
+  - クリックして新着事例のみに絞り込み。
+  - `PDF.ai` を選択し、`[✓ これはオッケー（承認）]` ボタンの表示を確認。
+  - ボタンをクリックし、リストから `PDF.ai` が即座に消滅、ツールバー件数が `89` に減少し、本台帳に格納されたことを確認。
+  - 証跡スクリーンショット保管完了（`scratch/ui_triage_detail_with_approve.png`, `ui_triage_after_approve.png`）。
+- 全325テスト ＆ Lint 100% PASS。
+
+---
+
 ## 2026-09-13 【確定】実在成り上がり勝者100事例インジェスト完遂 ＆ 234社体制確立（Phase 146）
 
 ### 1. 100事例の全量インジェストと限定完全排除の達成

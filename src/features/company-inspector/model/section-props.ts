@@ -16,6 +16,7 @@ export interface CompanyInspectorPaneProps {
   noteSaveStatus?: 'loading' | 'saved' | 'local' | 'saving' | 'error';
   onSaveAnalystNote?: (entityId: string, note: string) => void;
   onOpenSynthesisWithEntity?: (entityId: string) => void;
+  onApproveEntity?: (entityId: string) => void;
   isPro?: boolean;
 }
 

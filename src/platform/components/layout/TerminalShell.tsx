@@ -76,6 +76,9 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
 
+  // 4. ユーザー承認済みエンティティID（収集事例タグから除外するID一覧）
+  const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
+
   // R2の未精錬候補は詳細APIで確認できるが、完成体として一覧へ公開しない。
   // これにより、薄いR2行が既存の高密度台帳を名前一致で上書きしない。
   const foundationDisplayRows = useMemo(() => {
@@ -125,8 +128,18 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       seenIds.add(foundation.id.toLowerCase());
       seenNames.add(normalizedName);
     }
-    return merged;
-  }, [coreEntities, foundationEntities]);
+
+    // 承認済みエンティティからは「収集事例」タグを即時除外（楽観的UI）
+    return merged.map((item) => {
+      if (approvedIds.has(item.id.toLowerCase())) {
+        return {
+          ...item,
+          tags: (item.tags || []).filter((t) => t !== '収集事例'),
+        };
+      }
+      return item;
+    });
+  }, [coreEntities, foundationEntities, approvedIds]);
 
   // 資本主義の動的攻略本マクロ集計データ
   const macroData = useMemo(() => {
@@ -365,16 +378,61 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   }, [activeDossier, entities]);
 
   // 全タグ一覧および件数集計
-  const { availableTags } = useMemo(() => {
+  const { availableTags, tagCounts, newlyCollectedCount } = useMemo(() => {
     const counts: Record<string, number> = {};
     entities.forEach((e) => {
       (e.tags || []).forEach((t) => {
         counts[t] = (counts[t] || 0) + 1;
       });
     });
-    const tags = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
-    return { availableTags: tags };
+    const tags = Object.keys(counts).sort((a, b) => {
+      // 「収集事例」タグを常に最優先表示
+      if (a === '収集事例') return -1;
+      if (b === '収集事例') return 1;
+      return counts[b] - counts[a];
+    });
+    return {
+      availableTags: tags,
+      tagCounts: counts,
+      newlyCollectedCount: counts['収集事例'] || 0,
+    };
   }, [entities]);
+
+  // 事例承認ハンドラー（「これはオッケー」ボタン）
+  const handleApproveEntity = useCallback(async (entityId: string) => {
+    const targetId = entityId.trim().toLowerCase();
+
+    // 1. 楽観的UI更新: 即時 approvedIds に追加して画面から即座に「収集事例」を除去
+    setApprovedIds((prev) => {
+      const next = new Set(prev);
+      next.add(targetId);
+      return next;
+    });
+
+    // 2. 詳細キャッシュがある場合も tags を更新
+    setDetailedEntities((prev) => {
+      const existing = prev[entityId];
+      if (!existing) return prev;
+      return {
+        ...prev,
+        [entityId]: {
+          ...existing,
+          tags: (existing.tags || []).filter((t) => t !== '収集事例'),
+        },
+      };
+    });
+
+    // 3. サーバーへ非同期永続化
+    try {
+      await fetch('/api/entities/approve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ entityId }),
+      });
+    } catch (err) {
+      console.error('[TerminalShell] Failed to persist approval for', entityId, err);
+    }
+  }, []);
 
   // 全台帳モードでのフィルタリング
   const filteredEntities = useMemo(() => {
@@ -534,6 +592,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
               onResetScreener={() => setScreenerFilters(null)}
               activeTags={activeTags}
               onToggleTag={handleToggleTag}
+              newlyCollectedCount={newlyCollectedCount}
             />
 
             <InstitutionalDataGrid
@@ -578,6 +637,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
               setSelectedEntityId(id);
               setWorkspaceMode('SYNTHESIS');
             }}
+            onApproveEntity={handleApproveEntity}
             isPro={isProUnlocked}
           />
         )}
@@ -618,6 +678,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}
         availableTags={availableTags}
+        tagCounts={tagCounts}
         initialFilters={screenerFilters}
       />
 
