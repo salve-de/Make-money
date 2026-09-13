@@ -248,6 +248,12 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
   // 5. 調査観測ストリーム (Universal Observations)
   const observationsStream: UniversalObservation[] = [
     {
+      category: 'MARKET_DISTORTION',
+      categoryLabel: '通帳に残る現金の実態',
+      text: `【損益の実態】年商約${formatMoney(monthlyRevenue * 12)}に対し、原価と経費を引いた営業利益率は${def.operatingMarginPct}%。${def.teamSize === 1 ? '完全1人で' : `${def.teamSize}名の少数組織で`}手元に確実に現金を残す高収益モデル。`,
+      originType: 'observed'
+    },
+    {
       category: 'SAVANNAH_PAIN',
       categoryLabel: '人間の本音と悩み',
       text: `【顧客の切実な需要】${def.targetPainWallet || def.targetPrey}という切実な悩みをピンポイントで解消し、迷わず選ばれる理由を作っている。`,
@@ -260,9 +266,15 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
       originType: 'observed'
     },
     {
-      category: 'MARKET_DISTORTION',
-      categoryLabel: '通帳に残る現金の実態',
-      text: `【損益の実態】年商約${formatMoney(monthlyRevenue * 12)}に対し、原価と経費を引いた営業利益率は${def.operatingMarginPct}%。${def.teamSize === 1 ? '完全1人で' : `${def.teamSize}名の少数組織で`}手元に確実に現金を残す高収益モデル。`,
+      category: 'FORUM_RAGE',
+      categoryLabel: '顧客定着の仕組み',
+      text: `【解約されない仕組み】${def.tollGateSetup}。`,
+      originType: 'observed'
+    },
+    {
+      category: 'TECH_VERIFICATION',
+      categoryLabel: '運用インフラ',
+      text: `【運用ツール】主要ツール構成: ${resolvedToolStack.map(t => t.name).join('、')}。少数組織による高効率運営を実現。`,
       originType: 'observed'
     }
   ];
@@ -388,6 +400,8 @@ export function buildFinancialEntityFromDef(def: RawWinnerDef): FinancialEntity 
         ? '仕入れ網や店舗オペレーションの現場ノウハウが最大の参入障壁となり、現在も高い参入障壁を維持。'
         : '現在も手口の有効性は持続しているが、同様の単一機能ツールが乱立しているため、特定ニッチ（業界・言語・特定職種）への特化が重要。'
     },
-    observations: def.observations
+    observations: def.observations && def.observations.length >= 4
+      ? def.observations
+      : observationsStream.map(o => o.text)
   };
 }

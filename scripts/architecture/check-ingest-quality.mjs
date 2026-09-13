@@ -95,7 +95,28 @@ for (const ent of entities) {
     errors.push(`[RULE VIOLATION: Thin ObservationsStream] ${ent.name} observationsStream count is ${ent.observationsStream?.length || 0} (min 4 required).`);
   }
 
-  // E. Forbidden Jargon Guard
+  // E. LootBlueprint Guard (100% required)
+  if (!ent.lootBlueprint) {
+    errors.push(`[RULE VIOLATION: Missing LootBlueprint] ${ent.name} is missing lootBlueprint.`);
+  } else {
+    if (!ent.lootBlueprint.targetPrey || ent.lootBlueprint.targetPrey.length < 10) {
+      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} targetPrey is too short (< 10 chars).`);
+    }
+    if (!ent.lootBlueprint.structuralFlaw || ent.lootBlueprint.structuralFlaw.length < 10) {
+      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} structuralFlaw is too short (< 10 chars).`);
+    }
+    if (!ent.lootBlueprint.stealthEntry || ent.lootBlueprint.stealthEntry.length < 10) {
+      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} stealthEntry is too short (< 10 chars).`);
+    }
+    if (!ent.lootBlueprint.tollGateSetup || ent.lootBlueprint.tollGateSetup.length < 10) {
+      errors.push(`[RULE VIOLATION: Thin LootBlueprint] ${ent.name} tollGateSetup is too short (< 10 chars).`);
+    }
+    if (!ent.lootBlueprint.executionChecklist || ent.lootBlueprint.executionChecklist.length < 3) {
+      errors.push(`[RULE VIOLATION: Thin ExecutionChecklist] ${ent.name} executionChecklist must have at least 3 steps.`);
+    }
+  }
+
+  // F. Forbidden Jargon Guard
   const entStr = JSON.stringify(ent);
   for (const j of FORBIDDEN_JARGON) {
     if (entStr.includes(j)) {

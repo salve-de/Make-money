@@ -5,13 +5,19 @@ import { parseFinancialEntity } from '../../src/shared/financial-entity-schema';
 import { inspectFinancialIntegrity } from '../../src/shared/financial-integrity';
 import type { FinancialEntity } from '../../src/platform/types/terminal';
 
+import { autoEnrichEntityBeforeIngest } from './auto-enrich-entity';
+
 /**
  * 実在企業のデータを検証し、R2 (foundation-lake) にイミュータブル保存し、目録に追記するコア関数
  */
-export async function ingestVerifiedEntities(entities: FinancialEntity[], batchName: string) {
+export async function ingestVerifiedEntities(rawEntities: FinancialEntity[], batchName: string) {
   console.log(`\n================================================================`);
-  console.log(`  INGESTING BATCH [${batchName}]: ${entities.length} Real-World Entities`);
+  console.log(`  INGESTING BATCH [${batchName}]: ${rawEntities.length} Real-World Entities`);
   console.log(`================================================================\n`);
+
+  // 0. 収集時点の自動完全エンリッチ（後から治す必要を永久にゼロにする防壁）
+  console.log('--- [0/3] Auto-Enriching Entities to Golden Standard ---');
+  const entities = rawEntities.map(ent => autoEnrichEntityBeforeIngest(ent));
 
   // 1. スキーマ & 算術整合性バリデーション
   console.log('--- [1/3] Validating Schema & Financial Arithmetic Integrity ---');
@@ -45,6 +51,20 @@ export async function ingestVerifiedEntities(entities: FinancialEntity[], batchN
     if (!ent.observations || ent.observations.length < 4) {
       throw new Error(`Completeness FAILED for ${ent.name}: observations count must be at least 4 fact logs.`);
     }
+
+    // D. LootBlueprint 完全性チェック
+    if (!ent.lootBlueprint) {
+      throw new Error(`Completeness FAILED for ${ent.name}: missing lootBlueprint.`);
+    }
+    if (!ent.lootBlueprint.targetPrey || ent.lootBlueprint.targetPrey.length < 10 ||
+        !ent.lootBlueprint.structuralFlaw || ent.lootBlueprint.structuralFlaw.length < 10 ||
+        !ent.lootBlueprint.stealthEntry || ent.lootBlueprint.stealthEntry.length < 10 ||
+        !ent.lootBlueprint.tollGateSetup || ent.lootBlueprint.tollGateSetup.length < 10 ||
+        !ent.lootBlueprint.executionChecklist || ent.lootBlueprint.executionChecklist.length < 3) {
+      throw new Error(`Completeness FAILED for ${ent.name}: lootBlueprint is incomplete or has < 3 executionChecklist steps.`);
+    }
+
+    // E. 禁止造語パージチェック
     const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
     const jsonStr = JSON.stringify(ent);
     for (const j of FORBIDDEN_JARGON) {
