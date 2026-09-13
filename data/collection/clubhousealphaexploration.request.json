@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_clubhousealphaexploration_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Clubhouse (Alpha Exploration)",
+      "candidate_domain": "clubhouse.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_clubhousealphaexploration_primary",
+        "url": "https://clubhouse.com",
+        "title": "Clubhouse (Alpha Exploration) Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_clubhousealphaexploration_pnl",
+        "source_id": "src_clubhousealphaexploration_primary",
+        "snippet": "Monthly Revenue: 0, Margin: 0%, Gross: 0%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_clubhouse_audio",
+        "entity_type": "business",
+        "canonical_name": "Clubhouse (Alpha Exploration)",
+        "domain": "clubhouse.com",
+        "status": "INACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_clubhousealphaexploration_tagline",
+        "entity_id": "ent_clubhouse_audio",
+        "attribute": "tagline",
+        "value": "「選ばれし者だけの秘密の会話」という虚栄心で時価5,000億円まで狂乱した直後、Twitter Spacesの一撃で全員退出した音声バブルの残骸",
+        "evidence_ids": [
+          "ev_clubhousealphaexploration_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_clubhousealphaexploration_revenue",
+        "entity_id": "ent_clubhouse_audio",
+        "name": "monthly_revenue_jpy",
+        "value": 0,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_clubhousealphaexploration_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_clubhousealphaexploration_dossier",
+        "entity_id": "ent_clubhouse_audio",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_B_FAILURE",
+          "dossier": {
+            "oneLineLead": "「録音禁止・招待枠は2人だけ」という飢餓感でイーロン・マスクまで巻き込み時価5,000億円をつけたが、TwitterがSpacesを出した瞬間に誰もアプリを開かなくなった手口",
+            "section01_dna": {
+              "businessType": "ドロップイン形式のリアルタイム音声チャットソーシャルネットワーク",
+              "targetWallet": "世界中のスマホユーザーの可処分時間（アテンション）およびクリエイターの投げ銭予算",
+              "painRelief": "「コロナのロックダウンで誰とも雑談できない」「Zoom疲れで画面を見たくない」孤独と退屈の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「連絡先を抜いて招待枠を2枚に制限し、録音を完全禁止にした」FOMO（見逃す恐怖）の極限着火",
+              "analysis": "1. アプリに参加するには「既存ユーザーからの招待（1人2枠）」が必須であり、メルカリ等で招待コードが高額転売される社会現象を創出。\n2. 「アーカイブが残らずその場限りのオフレコ」というルールにより、「今ここに参加しないと重要な会話を聞き逃す」というFOMO（Fear of Missing Out）を全人類に植え付け。\n3. 音声配信のコアインフラを自作せず、中国系のRTC配信API「Agora」に丸投げしたため、わずか数ヶ月で世界規模の急拡大に追いついた。"
+            },
+            "section03_moatPowers": {
+              "headline": "【堀（Moat）が完全ゼロ ✕ Twitter Spacesによる既存ソーシャルグラフからの撲殺】",
+              "analysis": "1. ユーザーはClubhouseで新しいフォロワー関係（ソーシャルグラフ）を一から構築しなければならず、クリエイターにとって移行コストが重すぎた。\n2. 2021年、Twitter（現X）が既存の何億人ものフォロワー関係をそのまま使える「Twitter Spaces」をローンチした瞬間、わざわざ別のアプリを開く理由が消滅。\n3. 音声コンテンツが非同期（アーカイブ）で消費できず、Google検索にも引っかからないため、コンテンツが資産として蓄積されずクリエイターが疲弊して脱落。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "既存のSNS巨人（Twitter、Facebook、Spotify）にとって、音声ルーム機能は「自社の既存アプリにボタンを1個追加するだけ」の機能（Feature）に過ぎなかった",
+              "analysis": "Clubhouseは「音声ルーム」という単一の機能を独立したアプリとして提供していたが、既存のSNS大手から見れば単なる追加機能に過ぎず、数ヶ月で完全にコピーされて既存の圧倒的ユーザー数で踏み潰された。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のPaul Davisonらは、初期にシリコンバレーのトップVC（Andreessen Horowitzのマーク・アンドリーセン等）やハリウッドセレブ、そしてイーロン・マスクを直接音声ルームに登壇させ、「世界一の有名人と直接生音声で会話できる」特権空間を演出して全世界をハック。",
+            "platformGlitch": "iOSの連絡先（アドレス帳）を一括アップロードさせることで、ユーザーの友人関係を吸い上げ、知人がルームを開くと狂気的な頻度でプッシュ通知を送りつけるスパム的グロース。",
+            "pivotSnapshot": "音声SNSの衰退後、友人同士のグループ音声メッセージアプリやテキストチャットへのピボットを試みるが、誰も見向きもせずゾンビ企業化。",
+            "hiddenCostStructure": "売上が1円も上がらない中、数千万人が同時に話す音声ストリーミングの通信帯域費（Agora API代）だけが爆発的に請求され、調達した現金を猛スピードで消費。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「自分は招待された特権階級であり、選ばれた人間である」という強烈な虚栄心（ステータス誇示）と、オフレコ情報から仲間外れにされる恐怖。",
+            "marketDistortion": "VCのa16zが主導し、売上ゼロのシード期アプリに1億ドル、40億ドル（約5,000億円）という法外なバリュエーションをつけて市場を煽動したVCバブルの極致。",
+            "userResentment": "「通知が多すぎてうるさい」「マウンティングの場になっていて会話がつまらない」「結局中身のないインフルエンサーの雑談を聞かされるだけ」という急速な飽きと嫌悪。"
+          },
+          "temporal": {
+            "foundedYear": 2020,
+            "initialTractionPeriod": "2020年後半〜2021年初頭 (コロナ禍の狂乱バブル)",
+            "dataSnapshotPeriod": "2021年後半〜2026年 (Twitter Spaces登場後の完全崩壊)",
+            "viabilityStatus": "HISTORICAL_WINDOW",
+            "eraContext": "世界中が家から一歩も出られなかった「コロナ・ロックダウン」という異常な環境が生んだ一過性の蜃気楼。",
+            "currentViabilityAnalysis": "【完全な地雷標本】「機能（Feature）であってプロダクト（Product）ではない」典型例。巨人がボタン1つで真似できる機能で独立したSNSを作ろうとしても、既存のソーシャルグラフに一瞬で押し潰される。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

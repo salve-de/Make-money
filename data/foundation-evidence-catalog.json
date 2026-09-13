@@ -1,0 +1,34 @@
+[
+  {
+    "evidenceId": "fnd_ev_ent_shipfast_rev",
+    "sourceId": "src.deep_research.shipfast",
+    "sourceUrl": "https://shipfa.st",
+    "originalObjectKey": "evidence/src.deep_research/2026/09/09/case-studies-deep-research/payload.txt",
+    "originalSha256": "ce3bf2b99f48e653e38f58a688aee608ee2c313e8e8ddd732a617836240541d3",
+    "contentType": "text/markdown; charset=utf-8",
+    "locator": {
+      "type": "text",
+      "start": 481,
+      "end": 526,
+      "targetText": "最盛期の月商は **20,000ドル 〜 60,000ドル（約300万〜900万円）**。"
+    },
+    "excerpt": "最盛期の月商は **20,000ドル 〜 60,000ドル（約300万〜900万円）**。",
+    "retrievedAt": "2026-09-09T00:00:00.000Z"
+  },
+  {
+    "evidenceId": "fnd_ev_ent_pdf_ai_65_rev",
+    "sourceId": "src.deep_research.pdf_ai_65",
+    "sourceUrl": "https://pdf.ai",
+    "originalObjectKey": "evidence/src.deep_research/2026/09/09/case-studies-deep-research/payload.txt",
+    "originalSha256": "ce3bf2b99f48e653e38f58a688aee608ee2c313e8e8ddd732a617836240541d3",
+    "contentType": "text/markdown; charset=utf-8",
+    "locator": {
+      "type": "text",
+      "start": 2929,
+      "end": 2958,
+      "targetText": "ピーク時月商: **約60,000ドル（約900万円）**"
+    },
+    "excerpt": "ピーク時月商: **約60,000ドル（約900万円）**",
+    "retrievedAt": "2026-09-09T00:00:00.000Z"
+  }
+]

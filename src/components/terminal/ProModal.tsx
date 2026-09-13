@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useAuth } from '@/context/AuthContext';
+import { AuthModal } from '@/components/auth/AuthModal';
+import { FOUNDING_PASS } from '@/lib/payments/founding-pass';
 
 interface ProModalProps {
   isOpen: boolean;
@@ -8,20 +11,23 @@ interface ProModalProps {
 }
 
 export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
+  const { user } = useAuth();
+  const [showAuth, setShowAuth] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
   const handleCheckout = async () => {
+    if (!user) { setShowAuth(true); return; }
     setIsLoading(true);
     setErrorMessage(null);
 
     try {
       const response = await fetch('/api/checkout', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ product: 'founding-pass' }),
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${await user.getIdToken()}` },
+        body: JSON.stringify({ product: FOUNDING_PASS.id }),
       });
       const result = await response.json();
 
@@ -45,7 +51,7 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
               PRO MEMBERSHIP
             </span>
             <span className="text-[10px] font-mono text-zinc-500">
-              機関・専業向けライセンス
+              創刊版アクセス権
             </span>
           </div>
           <button onClick={onClose} className="text-zinc-500 hover:text-zinc-300 text-xs font-mono">
@@ -54,53 +60,36 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
         </div>
 
         <p className="text-xs text-zinc-400 mb-5 leading-relaxed">
-          資本市場の裏側で動く非公開財務データ、初期集客のスクリプト、および未開拓ニッチ市場の検知アラートを解放します。
+          掲載企業の事業構造12項目の分析を閲覧するための買い切りアクセス権です。財務と出典情報は無料で閲覧できます。購入するアカウントでログインしてください。
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
           {/* 個人プロ */}
           <div className="p-4 rounded bg-[#171920] border border-white/10 flex flex-col justify-between">
             <div>
-              <div className="text-xs font-bold text-zinc-300 mb-1">個人プロフェッショナル</div>
+              <div className="text-xs font-bold text-zinc-300 mb-1">PRO 創刊版</div>
               <div className="text-xl font-bold font-mono text-zinc-100 mb-3">
-                ¥9,800<span className="text-xs font-normal text-zinc-500">/月</span>
+                ¥{FOUNDING_PASS.priceJpy.toLocaleString('ja-JP')}<span className="text-xs font-normal text-zinc-500"> / 買い切り</span>
               </div>
               <ul className="space-y-1.5 text-[11px] text-zinc-400 mb-4 font-mono">
-                <li>- 全19社の詳細損益計算書（P&L）</li>
-                <li>- 非公開事業構築インサイト台帳</li>
-                <li>- CSV生データ無制限出力</li>
-                <li>- 週次モメンタム速報</li>
+                <li>- 事業構造12項目の詳細分析</li>
+                <li>- 財務と出典情報は無料公開</li>
+                <li>- 創刊版の永久アクセス権</li>
+                <li>- 自動更新・月額請求なし</li>
               </ul>
             </div>
             <button
               onClick={handleCheckout}
               disabled={isLoading}
-              className="w-full h-7 bg-[#20232C] hover:bg-zinc-700 text-zinc-200 text-xs font-medium rounded border border-white/10 transition-colors"
+              className="w-full h-7 bg-white/[0.08] hover:bg-white/[0.14] text-zinc-200 text-xs font-bold rounded border border-white/[0.1] transition-colors cursor-pointer"
             >
               {isLoading ? '決済画面を準備中...' : '創刊版を購入する（¥1,980）'}
             </button>
           </div>
 
-          {/* 法人機関 */}
-          <div className="p-4 rounded bg-[#171920] border border-zinc-400/30 flex flex-col justify-between relative">
-            <div>
-              <div className="text-xs font-bold text-zinc-200 mb-1">法人・投資ファンド</div>
-              <div className="text-xl font-bold font-mono text-white mb-3">
-                ¥298,000<span className="text-xs font-normal text-zinc-500">/年</span>
-              </div>
-              <ul className="space-y-1.5 text-[11px] text-zinc-300 mb-4 font-mono">
-                <li>- 個人プロの全機能 (10名)</li>
-                <li>- エクセル計算式付き元本</li>
-                <li>- 買収意向表明・NDA仲介</li>
-                <li>- 専属アナリスト調査枠</li>
-              </ul>
-            </div>
-            <button
-              onClick={onClose}
-              className="w-full h-7 bg-zinc-100 hover:bg-white text-zinc-900 text-xs font-semibold rounded transition-colors shadow-sm"
-            >
-              法人契約を締結
-            </button>
+          <div className="p-4 rounded bg-[#171920] border border-white/10">
+            <div className="text-xs font-bold text-zinc-300 mb-3">法人プラン</div>
+            <p className="text-xs text-zinc-400">現在は提供していません。法人向け契約の受付は準備中です。</p>
           </div>
         </div>
 
@@ -111,9 +100,10 @@ export const ProModal: React.FC<ProModalProps> = ({ isOpen, onClose }) => {
         )}
 
         <div className="text-center text-[10px] text-zinc-500 font-mono">
-          契約後30日間の全額返金保証。いつでも解約可能です。
+          料金は1回限り1,980円です。決済確認後、購入アカウントへアクセス権を反映します。
         </div>
       </div>
+      <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} />
     </div>
   );
 };

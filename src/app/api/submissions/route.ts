@@ -1,69 +1,25 @@
-import { NextRequest, NextResponse } from "next/server";
-import { verifyFirebaseIdToken } from "@/lib/firebase/server";
-import { db, submissions } from "@/db";
+import { NextRequest, NextResponse } from 'next/server';
+import { verifyFirebaseIdToken } from '@/lib/firebase/server';
+import { parseSubmission, readInput } from '@/lib/api/input';
+import { executeD1 } from '@/lib/storage/d1';
+import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 
-export const dynamic = "force-dynamic";
-
+export const dynamic = 'force-dynamic';
 export async function POST(req: NextRequest) {
-  let userId: string | null = null;
-  const authHeader = req.headers.get("authorization");
-  if (authHeader && authHeader.startsWith("Bearer ")) {
-    const token = authHeader.split("Bearer ")[1];
-    const user = await verifyFirebaseIdToken(token);
-    if (user) {
-      userId = user.uid;
-    }
-  }
-
-  const body = await req.json();
-  const {
-    businessName,
-    url,
-    monthlyRevenue,
-    monthlyProfit,
-    toolsUsed,
-    acquisitionChannel,
-    proofScreenshotUrl,
-  } = body;
-
-  if (!businessName || !url || !monthlyRevenue || !monthlyProfit) {
-    return NextResponse.json(
-      { error: "必須項目（事業名、URL、月商、月利）が不足しています" },
-      { status: 400 }
-    );
-  }
-
-  if (!db) {
-    return NextResponse.json({
-      success: true,
-      message: "掲載申請を受理しました（検証環境）",
-      submissionId: 9999,
-    });
-  }
-
+  const input = await readInput(req, parseSubmission);
+  if (!input) return NextResponse.json({ error: '事業名、URL、月商、月利などの入力内容を確認してください' }, { status: 400 });
+  const auth = req.headers.get('authorization');
+  const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
+  if (auth && !user) return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
   try {
-    const inserted = await db
-      .insert(submissions)
-      .values({
-        userId,
-        businessName,
-        url,
-        monthlyRevenue: Number(monthlyRevenue),
-        monthlyProfit: Number(monthlyProfit),
-        toolsUsed: toolsUsed || "",
-        acquisitionChannel: acquisitionChannel || "",
-        proofScreenshotUrl: proofScreenshotUrl || "",
-        status: "pending",
-      })
-      .returning({ id: submissions.id });
-
-    return NextResponse.json({
-      success: true,
-      message: "掲載申請を受理しました。照合審査後に掲載されます。",
-      submissionId: inserted[0]?.id,
-    });
-  } catch (err) {
-    console.error("Submission DB error:", err);
-    return NextResponse.json({ error: "申請の保存に失敗しました" }, { status: 500 });
+    if (!user && !await consumeRequestRateLimit(req, 'submission-create')) {
+      return NextResponse.json({ error: 'しばらく待ってから再試行してください' }, { status: 429 });
+    }
+    const id = crypto.randomUUID();
+    const saved = await executeD1('INSERT INTO submissions(id,user_id,business_name,url,monthly_revenue,monthly_profit,tools_used,acquisition_channel,proof_screenshot_url) VALUES(?,?,?,?,?,?,?,?,?)', [id, user?.uid ?? null, input.businessName, input.url, input.monthlyRevenue, input.monthlyProfit, input.toolsUsed, input.acquisitionChannel, input.proofScreenshotUrl]);
+    if (saved.changes !== 1) throw new Error('Submission not persisted');
+    return NextResponse.json({ success: true, message: '掲載申請を受理しました。照合審査後に掲載されます。', submissionId: id });
+  } catch {
+    return NextResponse.json({ error: '現在、申請を保存できません' }, { status: 503 });
   }
 }

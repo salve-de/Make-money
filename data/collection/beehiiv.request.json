@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_beehiiv_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "beehiiv",
+      "candidate_domain": "beehiiv.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_beehiiv_primary",
+        "url": "https://beehiiv.com",
+        "title": "beehiiv Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_beehiiv_pnl",
+        "source_id": "src_beehiiv_primary",
+        "snippet": "Monthly Revenue: 250000000, Margin: 24%, Gross: 80%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_beehiiv_0e052432d4cc474caec6",
+        "entity_type": "business",
+        "canonical_name": "beehiiv",
+        "domain": "beehiiv.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_beehiiv_tagline",
+        "entity_id": "ent_beehiiv_0e052432d4cc474caec6",
+        "attribute": "tagline",
+        "value": "「広告主集めと読者獲得に消耗する」個人メルマガ配信者を広告網と紹介プログラムで武装させ、Substackから配信者を獲得して急成長するニュースレター兵器",
+        "evidence_ids": [
+          "ev_beehiiv_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_beehiiv_revenue",
+        "entity_id": "ent_beehiiv_0e052432d4cc474caec6",
+        "name": "monthly_revenue_jpy",
+        "value": 250000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_beehiiv_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_beehiiv_dossier",
+        "entity_id": "ent_beehiiv_0e052432d4cc474caec6",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "Morning Brewをゼロから年商数十億円のメディアに育てた創業チームが、その成長ノウハウをすべてコード化し、Substackから人気メルマガを大量に獲得して急成長した手口",
+            "section01_dna": {
+              "businessType": "ニュースレター（メルマガ）作成・配信・成長分析・広告マネタイズ統合プラットフォーム",
+              "targetWallet": "メディアパブリッシャー、ブロガー、企業マーケターのメール配信サーバー代および広告出稿予算",
+              "painRelief": "「メルマガを書いても読者が増えない」「広告主を自力で見つけられず収益化できない」マネタイズ難民の苦痛切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「Substackの10%手数料を批判し、固定月額制＋自社広告ネットワークで稼がせる」収益還元モデル",
+              "analysis": "1. Substackが有料購読売上から一律10%を徴収するのに対し、beehiivは「有料購読手数料0%（固定月額プランのみ）」で大口クリエイターの利益を保護。\n2. 自社で広告主を集めた「beehiiv Ad Network」を運営し、配信者はクリックやインプレッションに応じてボタン1つで広告をメルマガに挿入して現金化。\n3. 「メルマガ同士がお互いを紹介し合って読者を増やす（Recommendations）」ネットワーク機能をプラットフォーム内に組み込み、外部広告費ゼロで読者が倍増する仕組みを構築。"
+            },
+            "section03_moatPowers": {
+              "headline": "【両面市場のネットワーク効果（広告主 ✕ 配信者 ✕ 読者） ✕ 高い移転障壁】",
+              "analysis": "1. 配信者が増えるほど魅力的な広告主が集まり、広告主が集まるほど配信者の収益が増えてさらに配信者が流入するフライホイール。\n2. 読者のエンゲージメントデータ、配信到達率（Deliverability）の信用スコア、過去ログがプラットフォームに蓄積されるため、他社配信スタンドへの乗り換えが困難。\n3. 創業者自身がX上で狂気的な頻度で機能アップデートを公開し、競合が追いつけない開発スピード感を演出。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "Mailchimpは旧態依然とした大企業向けCRMへと肥大化し、Substackは有料購読モデルの思想に縛られて広告配信と高度なアナリティクスを拒絶した",
+              "analysis": "MailchimpはIntuitに買収されて価格が高騰し、個人クリエイターを見捨てた。Substackは「広告を排した純粋な有料読者モデル」という創業者思想に囚われていたため、無料メルマガの広告収益化という巨大なマス市場をbeehiivに完全に明け渡した。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のTyler Denkらは、朝刊ビジネスメール「Morning Brew」の初期エンジニア・プロダクト担当者。自らの実績を武器に、「Morning Brewを数千万人規模に育てた極秘ツール（紹介エンジンや広告管理システム）をそのまま提供する」という圧倒的オーソリティで初期ユーザーをTwitterから一本釣り。",
+            "platformGlitch": "Substackからの「1クリック移行ツール」を開発し、Substack利用者に「手数料10%で毎年何百万円も損していませんか？」と訴求して人気クリエイターを次々と引き抜き。",
+            "pivotSnapshot": "単なるメール送信ツールではなく、「メディアビジネスを自走させるマネタイズエンジン」へとポジショニングを昇華。",
+            "hiddenCostStructure": "メール到達率（Spam判定回避）を維持するためのIPウォーミングとインフラ管理が裏の最大コストだが、大量送信スケールメリットで単価を極小化。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「記事を書いても誰にも読まれない孤独と無力感」と「自分のメルマガでお金を稼ぎたい欲望」。紹介プログラムと広告網がその両方を即効で満たす。",
+            "marketDistortion": "個人が発行するニッチな専門メルマガが、既存の地方新聞や業界紙以上の広告単価（CPM $50〜$100）を叩き出し、旧来メディアの広告枠を破壊。",
+            "userResentment": "Ad Networkの審査基準や、紹介プログラムの不正クリック対策によるアカウント制限で一部クリエイターが不満を持つ点。"
+          },
+          "temporal": {
+            "foundedYear": 2021,
+            "initialTractionPeriod": "2021-2022年",
+            "dataSnapshotPeriod": "2023-2026年 (ARR $20M突破)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "ソーシャルメディアのアルゴリズム変動（TwitterのX化やFacebookのリンク冷遇）により、独自の読者リストを保有する重要性が最高潮に達した時期に台頭。",
+            "currentViabilityAnalysis": "ニュースレター市場における最も攻撃的な成長株であり、ポッドキャストやWebホスティング機能の統合により総合メディアSaaSへと進化中。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

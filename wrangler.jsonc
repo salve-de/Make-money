@@ -2,13 +2,52 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "make-money-app",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2026-09-01",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_date": "2026-09-08",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
   },
+  "r2_buckets": [
+    {
+      "binding": "FOUNDATION_R2_RAW",
+      "bucket_name": "foundation-raw",
+      "remote": true
+    },
+    {
+      "binding": "FOUNDATION_R2_LAKE",
+      "bucket_name": "foundation-lake",
+      "remote": true
+    },
+    {
+      "binding": "FOUNDATION_R2_RESTRICTED",
+      "bucket_name": "foundation-restricted",
+      "remote": true
+    },
+    {
+      "binding": "FOUNDATION_R2_PUBLIC",
+      "bucket_name": "foundation-public",
+      "remote": true
+    },
+    {
+      "binding": "APP_R2",
+      "bucket_name": "make-money-production-private"
+    }
+  ],
   "vars": {
-    "ENVIRONMENT": "production"
-  }
+    "ENVIRONMENT": "production",
+    "PROJECT_ID": "make-money",
+    "APP_R2_BUCKET": "make-money-production-private",
+    "FIREBASE_PROJECT_ID": "make-money-salve-prod"
+  },
+  "d1_databases": [
+    {
+      "binding": "APP_DB",
+      "database_name": "make-money-production-app",
+      "database_id": "07affd4c-cac4-4998-843c-b5881fccab5e",
+      "migrations_dir": "migrations/d1"
+    }
+  ]
 }

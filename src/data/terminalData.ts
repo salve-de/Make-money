@@ -756,7 +756,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ticker: 'STRIPE.PRIV',
     name: 'Stripe, Inc.',
     japaneseName: 'ストライプ',
-    tagline: '7行のコードで世界中の決済と金融SaaSを牛耳るインターネット経済の関所',
+    tagline: '7行のコードで世界中の決済と金融SaaSを牛耳るインターネット経済の収益モデル',
     scaleTier: 'SCALE_UP',
     businessModel: 'PAYMENT_INFRA',
     foundedYear: 2010,

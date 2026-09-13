@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_loox_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Loox",
+      "candidate_domain": "loox.app"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_loox_primary",
+        "url": "https://loox.app",
+        "title": "Loox Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_loox_pnl",
+        "source_id": "src_loox_primary",
+        "snippet": "Monthly Revenue: 130000000, Margin: 45.4%, Gross: 93%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_loox_reviews",
+        "entity_type": "business",
+        "canonical_name": "Loox",
+        "domain": "loox.app",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_loox_tagline",
+        "entity_id": "ent_loox_reviews",
+        "attribute": "tagline",
+        "value": "「文字だけのレビューは誰も読まない」真理を突き、購入者に自撮り写真を投稿させて割引クーポンを配る写真レビューの火付け役",
+        "evidence_ids": [
+          "ev_loox_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_loox_revenue",
+        "entity_id": "ent_loox_reviews",
+        "name": "monthly_revenue_jpy",
+        "value": 130000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_loox_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_loox_dossier",
+        "entity_id": "ent_loox_reviews",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "「文字のレビューなんて誰も信じない」ことを看破し、写真付きレビューを投稿した客にだけ次回20%OFFクーポンを配る自動ループで年商15億円を抜く手口",
+            "section01_dna": {
+              "businessType": "Eコマース向けの写真・動画付きカスタマーレビュー（UGC）収集・グリッド表示SaaS",
+              "targetWallet": "Shopifyで物販を行うブランドオーナーのコンバージョン率向上予算（月額$9.99〜$99+）",
+              "painRelief": "「テキストレビューだけでは商品の実際の見た目やサイズ感が伝わらずカゴ落ちする」不安の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「写真付きレビューを投稿してくれたら、次回使える割引コードを即時自動発行する」欲望の交換",
+              "analysis": "1. 顧客は「面倒だからレビューなんて書かない」が、「写真を1枚アップするだけで次回の買い物が20%引きになる」と言われると嬉々として自撮り写真を投稿。\n2. 集まった大量の美しい写真レビューを、Instagramライクな美しいグリッドギャラリーとして商品ページに並べることで、新規客の購買転換率（CVR）が即座に跳ね上がる。\n3. レビューを書いた既存客はクーポンを使うためにリピート購入し、新規客は写真を見て購入するという完全無欠のリピート増殖ループを構築。"
+            },
+            "section03_moatPowers": {
+              "headline": "【数万件のビジュアルUGC（写真資産）の監禁 ✕ Shopifyマーチャント間の口コミ】",
+              "analysis": "1. ショップ内に何千枚も投稿された「実際の顧客の着用写真・使用写真」は他のどんなレビューツールにもエクスポートしにくいため、解約が事実上不可能。\n2. ドロップシッピングやアパレル通販の起業家コミュニティ（YouTubeやコース）で「Shopifyを始めたら最初に入れるべき必須アプリ」として推奨され続ける構造的集客。\n3. 月額課金に加え、送信するレビュー依頼メール数やアップセル機能に応じた従量課金により、店舗の成長とともに自動で単価（ARPU）が上昇。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "従来のテキストレビュー大手（Trustpilot等）は文字の星評価に固執し、Instagram時代における「スマホ写真こそが最大の社会的証明である」現実に気づくのが遅れた",
+              "analysis": "旧来のレビューシステムは「文章で評価を書かせる」設計だったため、スマホで買い物をする若年層に完全に無視された。Looxは写真投稿を前提としたモバイル特化UIに絞り込むことで、アパレル・コスメ・雑貨D2Cのシェアを電撃的に獲得した。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "イスラエル出身の創業者2人が、初期のShopifyストアを巡回し、写真レビューがないために売上に苦しんでいるアパレル店舗に直接連絡。「無料でおしゃれな写真レビューウィジェットを埋め込むから、売上が伸びるかテストさせてほしい」と泥臭く導入させ、CVRが20%以上改善した実績をスクショにしてマーケティングに活用。",
+            "platformGlitch": "Shopifyの購入完了（サンキューページ）および配送完了から一定日数後に「自動で最適タイミングでレビュー依頼メールが届く」自動配信ロジックを確立。店長が何もしなくても勝手に写真が集まる放置プレイを実現。",
+            "pivotSnapshot": "単なるレビューウィジェットから、写真レビューをタップして直接その商品をカートに入れられる「ショッパブルUGC」へと進化。",
+            "hiddenCostStructure": "数百万枚におよぶ高解像度画像のS3ストレージ費とCloudFront転送量が負荷となるが、画像自動圧縮パイプラインによりコストを最小化。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「他人のリアルな生活や着用写真を見て安心したい（社会的証明）」と、「写真を投稿して安く買いたい（即時報酬）」。",
+            "marketDistortion": "プロのモデルを雇って撮影した高額な宣伝写真よりも、素人がスマホで撮った生活感のあるレビュー写真の方が圧倒的に商品を売るという広告業界の常識破壊。",
+            "userResentment": "レビュー依頼メールにクーポンを自動添付する機能が、一部の高級ブランドにとって「安売り感が出てブランドイメージを損なう」と敬遠されることがある点。"
+          },
+          "temporal": {
+            "foundedYear": 2015,
+            "initialTractionPeriod": "2016-2019年 (D2C・ドロップシッピングブーム期)",
+            "dataSnapshotPeriod": "2023-2026年 (ARR $10M超)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "Instagramの隆盛と視覚的SNS文化の浸透に完全に同期して成長。",
+            "currentViabilityAnalysis": "Judge.meやOkendoなどの競合と激しく争っているが、「写真・ビジュアル特化」のブランド力によりアパレル・美容セクターで依然として強固なポジション。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

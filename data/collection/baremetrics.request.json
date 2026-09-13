@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_baremetrics_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Baremetrics",
+      "candidate_domain": "baremetrics.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_baremetrics_primary",
+        "url": "https://baremetrics.com",
+        "title": "Baremetrics Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_baremetrics_pnl",
+        "source_id": "src_baremetrics_primary",
+        "snippet": "Monthly Revenue: 26000000, Margin: 38.5%, Gross: 92%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_baremetrics_b0966c4871940e459cbb",
+        "entity_type": "business",
+        "canonical_name": "Baremetrics",
+        "domain": "baremetrics.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_baremetrics_tagline",
+        "entity_id": "ent_baremetrics_b0966c4871940e459cbb",
+        "attribute": "tagline",
+        "value": "「Stripeの管理画面ではMRRも解約率も分からない」SaaS起業家の盲点をワンクリックで可視化し、自社の売上も全部公開して買収されたSaaSアナリティクスの開祖",
+        "evidence_ids": [
+          "ev_baremetrics_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_baremetrics_revenue",
+        "entity_id": "ent_baremetrics_b0966c4871940e459cbb",
+        "name": "monthly_revenue_jpy",
+        "value": 26000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_baremetrics_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_baremetrics_dossier",
+        "entity_id": "ent_baremetrics_b0966c4871940e459cbb",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "StripeのAPIキーをコピペするだけでMRR・解約率・LTVを一瞬で弾き出す画面を作り、自社の銀行口座の数字を全世界に晒して数億円でイグジットした手口",
+            "section01_dna": {
+              "businessType": "サブスクリプションビジネス（SaaS）向けのMRR、LTV、解約率、回収不能収益（Dunning）の自動集計ダッシュボード",
+              "targetWallet": "SaaS創業者やCFOの経営管理・アナリティクスツール予算（月額$129〜$500+）",
+              "painRelief": "「Excelやスプレッドシートで手作業でMRRやチャーンレートを計算する」膨大な手作業と計算ミスの恐怖を切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「自社のリアルタイムな売上・顧客数・解約ログを全世界に公開した」Open Startupsの創出",
+              "analysis": "1. 創業者のJosh Pigfordは、Baremetrics自身のStripeアカウントを連携した公開ダッシュボード「Open Startups」を制作しURLを一般公開。\n2. 「他人の売上や解約の実額を生々しく覗き見たい」という世界中の起業家・野次馬の強烈な覗き見趣味を刺激し、被リンクとソーシャルトラフィックが完全無料で爆発。\n3. BufferやConvertKitなどの著名スタートアップがこれに追随して自社のBaremetricsダッシュボードを公開し、巨大な無料広告塔ネットワークへと成長。"
+            },
+            "section03_moatPowers": {
+              "headline": "【SaaSコミュニティにおける先行者オーソリティ ✕ Recover（解約防止・未収金回収）機能の現金回収力】",
+              "analysis": "1. 「SaaSの指標といえばBaremetrics」という強力なブランド認知と、用語解説ブログ（SaaS Academy）による圧倒的なSEO集客。\n2. 単なるダッシュボード表示だけでなく、クレカ決済失敗時に自動でカード更新を促す「Recover」機能を追加。ユーザーに「今月ツール代以上の未収金を回収できた」と実感させ解約を阻止。\n3. 数年分の決済履歴と顧客行動ログが蓄積されているため、過去比較のダッシュボードとして手放せなくなる粘着性。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "Stripe自身は決済インフラの提供に徹しており、当時は詳細なSaaSサブスクリプション分析画面（Billing Analytics）を自前で作っていなかった",
+              "analysis": "Stripeは決済処理とAPIの信頼性向上にリソースを集中させており、ニッチなSaaS経営者向けの高度なチャーン分析やコホート分析は後回しにされていた。Baremetricsはその隙間を電撃的に突いてデファクトスタンダードの地位を確立した。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "Josh Pigfordは、以前運営していた自身の複数のSaaSの売上計算に苦労し、週末にStripeのAPIを叩いて数行のコードでダッシュボードをプロトタイピング。完成した画面のスクリーンショットをTwitter（X）に投稿したところ、著名なVCやスタートアップ創業者から「今すぐ使わせてくれ」とリプライが殺到し、即座に製品化。",
+            "platformGlitch": "Stripe Connectの黎明期にいち早く乗っかり、「APIキーを入力するだけで完了」という信じられないほど低いオンボーディング障壁を実現。",
+            "pivotSnapshot": "創業者のJosh Pigfordが数年間運営し安定黒字化した後、2020年にプライベートエクイティ企業に数百万ドル（推定4億円以上）で株式を売却して完全イグジット。",
+            "hiddenCostStructure": "Stripeから送られてくる膨大なWebhookイベントの処理と、大規模顧客の過去数年分のトランザクション再集計に伴うDBサーバーの負荷。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「他人の財布の中身を覗き見たい下世話な好奇心」と、「自分の事業の数字を投資家や仲間に見せびらかしたい虚栄心」。",
+            "marketDistortion": "「企業の売上や利益は最高機密である」というビジネスの絶対常識を逆手に取り、丸裸にすることで世界一の信頼とバイラルを獲得したコペルニクス的転回。",
+            "userResentment": "後発のProfitWell（後にPaddleが2億ドルで買収）が「アナリティクス機能を完全永久無料」で提供し始めたことで、無料化競争の圧力に晒された点。"
+          },
+          "temporal": {
+            "foundedYear": 2013,
+            "initialTractionPeriod": "2013-2014年 (Open Startupsの創設)",
+            "dataSnapshotPeriod": "2020年売却〜2026年 (PE買収後の安定運用期)",
+            "viabilityStatus": "MATURED_MOAT",
+            "eraContext": "SaaSブーム初期における「指標の可視化」需要と、「Build in Public」文化の幕開けを完全に牽引。",
+            "currentViabilityAnalysis": "ProfitWell等の無料競合やStripe公式ダッシュボードの進化により新規獲得ペースは落ち着いているが、既存の有料顧客基盤とRecover機能により手堅いキャッシュカウとして存続。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

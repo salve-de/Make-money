@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, useRef } from "react";
 import {
   User,
   onAuthStateChanged,
@@ -10,7 +10,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "@/lib/firebase/client";
+import { auth, requireFirebaseAuth } from "@/lib/firebase/client";
 
 interface AuthContextType {
   user: User | null;
@@ -38,18 +38,25 @@ const AuthContext = createContext<AuthContextType>({
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(Boolean(auth));
   const [isPro, setIsPro] = useState(false);
   const [token, setToken] = useState<string | null>(null);
 
+  const statusRequest = useRef(0);
+
   const refreshUserStatus = async () => {
-    if (!auth.currentUser) {
+    const requestId = ++statusRequest.current;
+    const account = auth?.currentUser;
+    setIsPro(false);
+    setToken(null);
+    if (!account) {
       setIsPro(false);
       setToken(null);
       return;
     }
     try {
-      const idToken = await auth.currentUser.getIdToken();
+      const idToken = await account.getIdToken();
+      if (requestId !== statusRequest.current || auth?.currentUser?.uid !== account.uid) return;
       setToken(idToken);
       // バックエンドからPRO会員ステータス取得（DB接続時）
       const res = await fetch("/api/user/me", {
@@ -57,7 +64,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
       if (res.ok) {
         const data = await res.json();
-        setIsPro(Boolean(data.isPro));
+        if (requestId === statusRequest.current && auth?.currentUser?.uid === account.uid) {
+          setIsPro(data.uid === account.uid && data.isPro === true);
+        }
       }
     } catch (err) {
       console.warn("User status sync error:", err);
@@ -65,11 +74,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
+    if (!auth) return;
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
       if (currentUser) {
         await refreshUserStatus();
       } else {
+        ++statusRequest.current;
         setIsPro(false);
         setToken(null);
       }
@@ -81,19 +92,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
-    await signInWithPopup(auth, provider);
+    await signInWithPopup(requireFirebaseAuth(), provider);
   };
 
   const signInWithEmail = async (email: string, pass: string) => {
-    await signInWithEmailAndPassword(auth, email, pass);
+    await signInWithEmailAndPassword(requireFirebaseAuth(), email, pass);
   };
 
   const signUpWithEmail = async (email: string, pass: string) => {
-    await createUserWithEmailAndPassword(auth, email, pass);
+    await createUserWithEmailAndPassword(requireFirebaseAuth(), email, pass);
   };
 
   const signOut = async () => {
-    await firebaseSignOut(auth);
+    if (auth) await firebaseSignOut(auth);
     setIsPro(false);
     setToken(null);
   };

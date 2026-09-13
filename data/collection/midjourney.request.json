@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_midjourney_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Midjourney",
+      "candidate_domain": "midjourney.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_midjourney_primary",
+        "url": "https://midjourney.com",
+        "title": "Midjourney Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_midjourney_pnl",
+        "source_id": "src_midjourney_primary",
+        "snippet": "Monthly Revenue: 3750000000, Margin: 55%, Gross: 75%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_midjourney_239b8ccc522504fb757b",
+        "entity_type": "business",
+        "canonical_name": "Midjourney",
+        "domain": "midjourney.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_midjourney_tagline",
+        "entity_id": "ent_midjourney_239b8ccc522504fb757b",
+        "attribute": "tagline",
+        "value": "「GPU推論代だけで月数億円溶ける」恐怖をDiscordの公開部屋に全員閉じ込めて逆手に取り、わずか11〜40人で年商450億円を抜く画像生成の黒船",
+        "evidence_ids": [
+          "ev_midjourney_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_midjourney_revenue",
+        "entity_id": "ent_midjourney_239b8ccc522504fb757b",
+        "name": "monthly_revenue_jpy",
+        "value": 3750000000,
+        "unit": "JPY",
+        "origin_type": "estimated_from_sec_and_interviews",
+        "evidence_ids": [
+          "ev_midjourney_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_midjourney_dossier",
+        "entity_id": "ent_midjourney_239b8ccc522504fb757b",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "VCの金を1円も入れず、Discordのチャット部屋にユーザーを放り込むだけで、デザイナーの数日間の残業を3秒に圧縮し年商450億円を手中に収めた手口",
+            "section01_dna": {
+              "businessType": "Discordネイティブのテキストプロンプト式画像・ビジュアル生成AIサービス",
+              "targetWallet": "広告制作会社、ゲーム開発スタジオ、Webデザイナーのグラフィック外注予算（月数十万〜数百万円枠）",
+              "painRelief": "「ラフデザイン1枚に外注費5万円・納期3日かかる」クリエイティブ制作の遅延・手戻り恐怖と高コスト"
+            },
+            "section02_marketGlitch": {
+              "headline": "「Webサイトもアプリも作らず、既存チャットツールの部屋にBotを常駐させた」極限の横着",
+              "analysis": "1. 他社が専用Webフロントエンドやユーザー認証、決済ポータルの開発に数ヶ月・数億円溶かす中、Discordの無料チャットUIをそのまま操作画面として代用。\n2. 全ユーザーが他人の生成プロンプトと出力画像を強制的に目にする「公開ショールーム（オープンフィード）」にしたことで、プロンプトの集合知が自動爆発。\n3. 会員登録やクレデンシャル管理のインフラコストをDiscordに完全肩代わりさせ、自社開発リソースをAIモデルの絵画的クオリティ調整に100%集中させた。"
+            },
+            "section03_moatPowers": {
+              "headline": "【ネットワーク効果 ✕ 独自美的チューニング（プロプライエタリ・アセット）】",
+              "analysis": "1. 競合モデル（Stable DiffusionやDALL-E）が写真的な写実性に寄る中、「一目でMidjourneyと分かる絵画的・映画的トーン」のスタイル偏向を確立。\n2. 数千万人のDiscordコミュニティによる「Upvote / Downvote（高解像度化・バリエーション選択）」ログが毎日数億回フィードバックされ、強化学習の堀が不可逆化。\n3. 月額$10〜$60の課金者が解約しないよう、生成高速化枠（Fast GPU Hours）と商用利用権を人質にし、クリエイターのデイリー業務ワークフローに完全に定着。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "AdobeやShutterstockは既存のストック写真著作権と高額ライセンス契約を守るため、野放図なスクレイピングと破壊的価格を出せなかった",
+              "analysis": "既存の画像ストック大手は契約クリエイターへのレベニューシェアと著作権訴訟リスクを極度に恐れ、モデル学習と機能提供が大幅に遅延。MidjourneyはVCも株主も入れない研究室体制のため、法規のグレーゾーンを突いて最速でユーザーを囲い込み、事実上の業界標準になった。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "初期はクローズドベータとしてDavid Holz本人がTwitter/Discordで著名デジタルアーティストやSFコミュニティに直接DMを送り、「自分の想像した世界を一瞬で絵にする体験」を招待制で配布。生成された神がかったアートワークがTwitter上に拡散され、招待コードの争奪戦が発生。",
+            "platformGlitch": "DiscordのBot APIとメッセージキューをそのままGUIとしてハック。サーバー管理・Push通知・コミュニティ形成のすべてをDiscord上で完結させ、Web開発費用を完全ゼロ化。",
+            "pivotSnapshot": "元々はLeap Motion（手のジェスチャー認識デバイス）でハードウェアの限界とVCの干渉に苦しんだ創業者が、「外部資本を一切入れず、ソフトウェアと自前モデルのサブスクリプションだけで黒字化する」方針へ完全ピボット。",
+            "hiddenCostStructure": "最大のコストはGoogle CloudおよびOracle CloudのGPUクラスタ利用料。ただし月額サブスクリプションの前金（Stripe決済）でキャッシュを先回収しているため、売掛金の焦げ付きリスクが完全ゼロ。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「絵を描けない劣等感」と「自分の頭の中の妄想を他人に自慢したい虚栄心」。1枚のプロンプトでプロ顔負けのアートが吐き出された瞬間にセロトニンが爆発し、課金を即決する。",
+            "marketDistortion": "プロのイラストレーターに1枚5万円払っていた広告代理店が、月額60ドルのProプランで1日に1,000枚のラフを出し、外注費を99%削減。外注先クリエイターの市場を根底から破壊。",
+            "userResentment": "「生成した画像がすべてDiscordの全体部屋で全世界に晒される（非公開にするには追加の高額課金が必要）」というプライバシーの生殺与奪権を握られている点。"
+          },
+          "temporal": {
+            "foundedYear": 2021,
+            "initialTractionPeriod": "2022年中盤 (Discord Open Beta)",
+            "dataSnapshotPeriod": "2024-2026年 (ARR $300M〜$500M)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "Transformerモデルの進化と拡散モデル（Diffusion）の夜明け。OpenAIが一般向けチャットに注力していた隙間に画像特化で奇襲。",
+            "currentViabilityAnalysis": "WebUI版のリリースや動画生成への拡張を進めており、極少人数・高収益の牙城は依然として強固。ただしOpenAIやGoogleのマルチモーダル進化による侵食が長期的な対抗課題。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

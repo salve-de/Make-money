@@ -1,0 +1,402 @@
+[
+  {
+    "id": "seed_sub_001",
+    "name": "Keyence",
+    "ticker": "6861.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.keyence.co.jp",
+    "type": "WINNER",
+    "note": "営業利益率50%超・ファブレス直販独占"
+  },
+  {
+    "id": "seed_sub_002",
+    "name": "Lasertec",
+    "ticker": "6920.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.lasertec.co.jp",
+    "type": "WINNER",
+    "note": "EUVマスク検査装置世界シェア100%"
+  },
+  {
+    "id": "seed_sub_003",
+    "name": "Disco",
+    "ticker": "6146.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.disco.co.jp",
+    "type": "WINNER",
+    "note": "半導体ダイシングソー世界シェア80%"
+  },
+  {
+    "id": "seed_sub_004",
+    "name": "Obic",
+    "ticker": "4684.T",
+    "sector": "NICHE_SAAS",
+    "country": "JP",
+    "url": "https://www.obic.co.jp",
+    "type": "WINNER",
+    "note": "自社直販ERP・営業利益率60%超"
+  },
+  {
+    "id": "seed_sub_005",
+    "name": "Nihon M&A Center",
+    "ticker": "2127.T",
+    "sector": "LOCAL_SERVICES",
+    "country": "JP",
+    "url": "https://www.nihon-ma.co.jp",
+    "type": "WINNER",
+    "note": "事業承継仲介・手数料前金総取り"
+  },
+  {
+    "id": "seed_sub_006",
+    "name": "Komeda Holdings",
+    "ticker": "3543.T",
+    "sector": "PHYSICAL_ASSET",
+    "country": "JP",
+    "url": "https://www.komeda.co.jp",
+    "type": "WINNER",
+    "note": "FC卸売・ロイヤルティ席数固定関所"
+  },
+  {
+    "id": "seed_sub_007",
+    "name": "MonotaRO",
+    "ticker": "3064.T",
+    "sector": "PHYSICAL_ASSET",
+    "country": "JP",
+    "url": "https://www.monotaro.com",
+    "type": "WINNER",
+    "note": "間接資材ロングテール・営業利益率13%"
+  },
+  {
+    "id": "seed_sub_008",
+    "name": "Tokyo Electron",
+    "ticker": "8035.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.tel.co.jp",
+    "type": "WINNER",
+    "note": "半導体製造装置コータ・デベロッパ独占"
+  },
+  {
+    "id": "seed_sub_009",
+    "name": "Hoya",
+    "ticker": "7741.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.hoya.co.jp",
+    "type": "WINNER",
+    "note": "EUVブランクス・メガネレンズ世界独占"
+  },
+  {
+    "id": "seed_sub_010",
+    "name": "SMC",
+    "ticker": "6273.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.smcworld.com",
+    "type": "WINNER",
+    "note": "空気圧制御機器世界シェア30%超"
+  },
+  {
+    "id": "seed_sub_011",
+    "name": "Fast Retailing",
+    "ticker": "9983.T",
+    "sector": "PHYSICAL_ASSET",
+    "country": "JP",
+    "url": "https://www.fastretailing.com",
+    "type": "WINNER",
+    "note": "SPA型製造小売・圧倒的調達力"
+  },
+  {
+    "id": "seed_sub_012",
+    "name": "Nitori Holdings",
+    "ticker": "9843.T",
+    "sector": "PHYSICAL_ASSET",
+    "country": "JP",
+    "url": "https://www.nitori-net.jp",
+    "type": "WINNER",
+    "note": "海外自社工場直結SPA・36期連続増収増益"
+  },
+  {
+    "id": "seed_sub_013",
+    "name": "Shimano",
+    "ticker": "7309.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.shimano.com",
+    "type": "WINNER",
+    "note": "自転車変速機世界シェア85%の関所"
+  },
+  {
+    "id": "seed_sub_014",
+    "name": "Shin-Etsu Chemical",
+    "ticker": "4063.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.shinetsu.co.jp",
+    "type": "WINNER",
+    "note": "半導体シリコンウエハ世界シェア1位"
+  },
+  {
+    "id": "seed_sub_015",
+    "name": "Sysmex",
+    "ticker": "6869.T",
+    "sector": "MONOPOLY_MFG",
+    "country": "JP",
+    "url": "https://www.sysmex.co.jp",
+    "type": "WINNER",
+    "note": "血球計数検査分野世界シェア1位"
+  },
+  {
+    "id": "seed_sub_016",
+    "name": "Asics",
+    "ticker": "7936.T",
+    "sector": "PHYSICAL_ASSET",
+    "country": "JP",
+    "url": "https://www.asics.com",
+    "type": "WINNER",
+    "note": "高付加価値ランニングシューズグローバル独占"
+  },
+  {
+    "id": "seed_sub_017",
+    "name": "Bandai Namco",
+    "ticker": "7832.T",
+    "sector": "CONTENT_MEDIA",
+    "country": "JP",
+    "url": "https://www.bandainamco.co.jp",
+    "type": "WINNER",
+    "note": "ガンダム・DB強力IP永続キャッシュマシン"
+  },
+  {
+    "id": "seed_sub_018",
+    "name": "Sanrio",
+    "ticker": "8136.T",
+    "sector": "CONTENT_MEDIA",
+    "country": "JP",
+    "url": "https://www.sanrio.co.jp",
+    "type": "WINNER",
+    "note": "ハローキティIPライセンス・限界費用ゼロ"
+  },
+  {
+    "id": "seed_sub_019",
+    "name": "Nintendo",
+    "ticker": "7974.T",
+    "sector": "CONTENT_MEDIA",
+    "country": "JP",
+    "url": "https://www.nintendo.co.jp",
+    "type": "WINNER",
+    "note": "自社IP×自社ハードウェア垂直統合関所"
+  },
+  {
+    "id": "seed_sub_020",
+    "name": "Recruit Holdings",
+    "ticker": "6098.T",
+    "sector": "AI_AUTOMATION",
+    "country": "JP",
+    "url": "https://www.recruit.co.jp",
+    "type": "WINNER",
+    "note": "Indeed×リボンモデルマッチング胴元"
+  },
+  {
+    "id": "seed_sub_021",
+    "name": "CyberAgent",
+    "ticker": "4751.T",
+    "sector": "CONTENT_MEDIA",
+    "country": "JP",
+    "url": "https://www.cyberagent.co.jp",
+    "type": "WINNER",
+    "note": "AbemaTV×ウマ娘IP収益モデル"
+  },
+  {
+    "id": "seed_sub_022",
+    "name": "GMO Internet Group",
+    "ticker": "9449.T",
+    "sector": "FINTECH_INFRA",
+    "country": "JP",
+    "url": "https://group.gmo.jp",
+    "type": "WINNER",
+    "note": "ドメイン・ホスティング・決済インフラ関所"
+  },
+  {
+    "id": "seed_sub_023",
+    "name": "Kakaku.com",
+    "ticker": "2371.T",
+    "sector": "CONTENT_MEDIA",
+    "country": "JP",
+    "url": "https://corporate.kakaku.com",
+    "type": "WINNER",
+    "note": "価格コム×食べログ広告・送客手数料"
+  },
+  {
+    "id": "seed_sub_024",
+    "name": "M3",
+    "ticker": "2413.T",
+    "sector": "LOCAL_SERVICES",
+    "country": "JP",
+    "url": "https://corporate.m3.com",
+    "type": "WINNER",
+    "note": "日本の医師8割組織化・製薬MR代替プラットフォーム"
+  },
+  {
+    "id": "seed_sub_025",
+    "name": "SMS",
+    "ticker": "2175.T",
+    "sector": "LOCAL_SERVICES",
+    "country": "JP",
+    "url": "https://bm-sms.co.jp",
+    "type": "WINNER",
+    "note": "介護・医療従事者特化型マッチング"
+  },
+  {
+    "id": "seed_sub_026",
+    "name": "Visional",
+    "ticker": "4194.T",
+    "sector": "LOCAL_SERVICES",
+    "country": "JP",
+    "url": "https://www.visional.inc",
+    "type": "WINNER",
+    "note": "ビズリーチ即戦力採用・企業課金リカーリング"
+  },
+  {
+    "id": "seed_sub_027",
+    "name": "Freee",
+    "ticker": "4478.T",
+    "sector": "NICHE_SAAS",
+    "country": "JP",
+    "url": "https://www.freee.co.jp",
+    "type": "WINNER",
+    "note": "中小企業バックオフィスERP監禁"
+  },
+  {
+    "id": "seed_sub_028",
+    "name": "Money Forward",
+    "ticker": "3994.T",
+    "sector": "FINTECH_INFRA",
+    "country": "JP",
+    "url": "https://corp.moneyforward.com",
+    "type": "WINNER",
+    "note": "金融データAPI連携×会計SaaS"
+  },
+  {
+    "id": "seed_sub_029",
+    "name": "Sansan",
+    "ticker": "4443.T",
+    "sector": "NICHE_SAAS",
+    "country": "JP",
+    "url": "https://jp.corp-sansan.com",
+    "type": "WINNER",
+    "note": "名刺データ独占管理×人脈CRM関所"
+  },
+  {
+    "id": "seed_sub_030",
+    "name": "Raksul",
+    "ticker": "4384.T",
+    "sector": "LOCAL_SERVICES",
+    "country": "JP",
+    "url": "https://corp.raksul.com",
+    "type": "WINNER",
+    "note": "印刷工場・運送の空き時間シェアリング"
+  },
+  {
+    "id": "seed_sub_031",
+    "name": "Shopify",
+    "ticker": "SHOP",
+    "sector": "FINTECH_INFRA",
+    "country": "US",
+    "url": "https://www.shopify.com",
+    "type": "WINNER",
+    "note": "Shopify Payments手数料×ストアSaaS"
+  },
+  {
+    "id": "seed_sub_032",
+    "name": "Stripe",
+    "ticker": "STRIPE",
+    "sector": "FINTECH_INFRA",
+    "country": "US",
+    "url": "https://stripe.com",
+    "type": "WINNER",
+    "note": "決済額の2.9%+$0.30自動吸い上げ関所"
+  },
+  {
+    "id": "seed_sub_033",
+    "name": "Twilio",
+    "ticker": "TWLO",
+    "sector": "AI_AUTOMATION",
+    "country": "US",
+    "url": "https://www.twilio.com",
+    "type": "WINNER",
+    "note": "通信キャリアとAPIの関所・SMS中継"
+  },
+  {
+    "id": "seed_sub_034",
+    "name": "Datadog",
+    "ticker": "DDOG",
+    "sector": "NICHE_SAAS",
+    "country": "US",
+    "url": "https://www.datadoghq.com",
+    "type": "WINNER",
+    "note": "インフラ監視従量課金・外せないワークフロー"
+  },
+  {
+    "id": "seed_sub_035",
+    "name": "Cloudflare",
+    "ticker": "NET",
+    "sector": "FINTECH_INFRA",
+    "country": "US",
+    "url": "https://www.cloudflare.com",
+    "type": "WINNER",
+    "note": "エッジCDN×Workers・解約不能インフラ"
+  },
+  {
+    "id": "seed_sub_036",
+    "name": "Clubhouse",
+    "ticker": "CLUBHOUSE",
+    "sector": "CONTENT_MEDIA",
+    "country": "US",
+    "url": "https://www.clubhouse.com",
+    "type": "LANDMINE",
+    "note": "評価額4,000億円から即死・音声バブル崩壊"
+  },
+  {
+    "id": "seed_sub_037",
+    "name": "WeWork",
+    "ticker": "WEWORK",
+    "sector": "PHYSICAL_ASSET",
+    "country": "US",
+    "url": "https://www.wework.com",
+    "type": "LANDMINE",
+    "note": "長期賃借×短期転貸の逆ザヤ・破産"
+  },
+  {
+    "id": "seed_sub_038",
+    "name": "Hopin",
+    "ticker": "HOPIN",
+    "sector": "NICHE_SAAS",
+    "country": "UK",
+    "url": "https://hopin.com",
+    "type": "LANDMINE",
+    "note": "評価額1兆円から事業売却・コロナ特需終了"
+  },
+  {
+    "id": "seed_sub_039",
+    "name": "Bird Global",
+    "ticker": "BIRD",
+    "sector": "PHYSICAL_ASSET",
+    "country": "US",
+    "url": "https://www.bird.co",
+    "type": "LANDMINE",
+    "note": "電動キックボード破壊・減価償却死で破産"
+  },
+  {
+    "id": "seed_sub_040",
+    "name": "Juicero",
+    "ticker": "JUICERO",
+    "sector": "MONOPOLY_MFG",
+    "country": "US",
+    "url": "https://www.juicero.com",
+    "type": "LANDMINE",
+    "note": "130億円調達の専用圧搾機・手で絞れることが暴露され即死解散"
+  }
+]

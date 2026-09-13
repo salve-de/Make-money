@@ -3,7 +3,7 @@
 import React from 'react';
 import { X } from 'lucide-react';
 import { CompanyRecord } from '../../../types/terminal';
-import { DOSSIER_COLLECTIONS, DossierData } from '../../../data/portalDossiers';
+import { DOSSIER_COLLECTIONS } from '../../../data/portalDossiers';
 import { CompanyLogo } from '../CompanyLogo';
 
 interface DossierModalProps {

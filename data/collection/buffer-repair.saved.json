@@ -1,0 +1,979 @@
+{
+  "coverage": {
+    "status": "PARTIAL",
+    "pending": [
+      "identity",
+      "founders",
+      "location",
+      "status",
+      "team_history",
+      "timeline",
+      "revenue",
+      "peak_revenue",
+      "mrr_arr",
+      "gross_profit",
+      "costs",
+      "cost_breakdown",
+      "margin",
+      "pricing",
+      "pricing_history",
+      "refunds",
+      "retention_churn",
+      "funding",
+      "exit_value",
+      "customers",
+      "customer_pain",
+      "substitutes",
+      "first_customers",
+      "initial_channel",
+      "breakout",
+      "current_channels",
+      "founder_background",
+      "prior_failures",
+      "workload",
+      "support_burden",
+      "outsourcing",
+      "automation",
+      "technology",
+      "competitors",
+      "dependencies",
+      "regulation",
+      "why_now",
+      "provenance_rights",
+      "conflicts",
+      "operating_profit",
+      "owner_take_home",
+      "capital_required",
+      "gmv",
+      "cumulative_revenue",
+      "pre_tax_profit_interest_tax"
+    ],
+    "reconciliation": {
+      "status": "REVIEW_REQUIRED",
+      "gaps": [
+        "Exactly one collection_audit.v1 inventory required"
+      ]
+    },
+    "note": "Intake and storage do not prove completeness. Reconciliation covers declared requirements and inventoried sources, not all information on the internet."
+  },
+  "reconciliation": {
+    "status": "REVIEW_REQUIRED",
+    "gaps": [
+      "Exactly one collection_audit.v1 inventory required",
+      "Current product contract hash missing/stale"
+    ]
+  },
+  "run_id": "run_buffer_reconciliation_20260908_03",
+  "write_authorized": true,
+  "schema_validation": "PASS",
+  "planned_writes": {
+    "schema_version": "planned-writes.v1",
+    "run_id": "run_buffer_reconciliation_20260908_03",
+    "write_authorized": true,
+    "objects": [
+      {
+        "logical_role": "entity",
+        "dataset_id": "ds.business.entities.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.entities.core/v1/entities/ent_company_895ab08e769c3c944f65.json",
+        "content_sha256": "d50d0c105699795dd6024ba71f6505dc9cedb01e59a2f08d5f3b62da2a46a5d9",
+        "bytes": 275,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2025/month=01/mt_65e354a8bcb58d50c63d468f.json",
+        "content_sha256": "1527287b6523675412b11e8b06a5e5303a22db382aaa319979a31f794e08fde5",
+        "bytes": 491,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2025/month=01/mt_b48d22b98def9a347c21170c.json",
+        "content_sha256": "c63996f7bef0be441c9d932b2ce65aa72ca71bea8a7f185ee8c05e41cc1b817b",
+        "bytes": 511,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a",
+          "ev_ca987fe2938ae49ffd667d8c"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_3f8c64756b771bd38874392b.json",
+        "content_sha256": "1a391a03737cfc143e7ab0da87148fe36dd57ab51c97eff1d45b9337c7145cfb",
+        "bytes": 498,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2017/month=01/mt_6b30e280465048054935f169.json",
+        "content_sha256": "55320fa7c620f18e164da5e25b99ce996855a2199fadb193c175bec8788923d7",
+        "bytes": 482,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2018/month=01/mt_88de965e10f4a4f4f76b9a8a.json",
+        "content_sha256": "da5d435442cacba9a449439f5926b94459b0714fc4c0d0c43236584fc1bb8cc0",
+        "bytes": 482,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2019/month=01/mt_d420bc9293b481148c5f9352.json",
+        "content_sha256": "26f640797430d3186f001a3dfebcc0fd8e74e062739a916952329732376e2113",
+        "bytes": 482,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2020/month=01/mt_9bfc87576dba579e9f077029.json",
+        "content_sha256": "550c8d23f7f974029212fab85e121592ca45937fd2142b4a7037d194b89ea15d",
+        "bytes": 482,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2021/month=01/mt_81eade1b64090c8d9a7aa21c.json",
+        "content_sha256": "ae3f3f16346b14818de5647549d65d12362b809613a0530f8eea8dec8b1f6569",
+        "bytes": 481,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2022/month=01/mt_bb53bc15ce8731bd9c55d5a4.json",
+        "content_sha256": "a6cc8f203687e815cf32c106e415423f500f9eb9fed8b1f37e940bf6ae9c5bf5",
+        "bytes": 483,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2023/month=01/mt_1fad5438b33af3bb6c3e78f4.json",
+        "content_sha256": "8dacf44b89ba6d828237e17609651314a5637c88cec21606779ad30f8dcb1bd1",
+        "bytes": 482,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2025/month=01/mt_7ee366b6e4fac06a8a96061e.json",
+        "content_sha256": "add7454c32e4dff2ba03b14faa47532d3e511b1c3800e568a16d85e230ac49b9",
+        "bytes": 514,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_9830d81e56d2848eeef854ad.json",
+        "content_sha256": "788e52c66208a8c8bbb56de5d253814532d15b5b952cda865bc9a586ff58a83d",
+        "bytes": 478,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "EXISTS_IDENTICAL"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2017/month=01/mt_3f08f393f37b03f95abed9c8.json",
+        "content_sha256": "31f48380323fabc0c2e0d32c27d27e2fbac0e0e4053a7d40be9faa4f71f14c00",
+        "bytes": 580,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2018/month=01/mt_d89d0cb40fadd9ed7c04b5ba.json",
+        "content_sha256": "c3e3c7295710ab296cd4a90bf19e3ce3cf87b42dd7edb5deeb743357e38a5b5c",
+        "bytes": 580,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2019/month=01/mt_061338980d2d7585bda15059.json",
+        "content_sha256": "a270e88b1a66813be882bdaab0316089e01adc6cb529af7c83064086523c597a",
+        "bytes": 580,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2020/month=01/mt_194427e52d902825359b0c7f.json",
+        "content_sha256": "b3455f1e1ce87f7487ae86e8a82c754cb3bbbd9662f3cb33a01b3fd6916c412c",
+        "bytes": 580,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2021/month=01/mt_05de8724c9d8a47b58d4d24f.json",
+        "content_sha256": "f7befe19112abd104009999e154fcf81a46883c0487f8a3de2e655014243c0ad",
+        "bytes": 579,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2022/month=01/mt_fb2e65a8eb173028cf1af4c8.json",
+        "content_sha256": "f9cec82375200be88b6a6b8d6f7734ccc4b7d55c86364ef0fc6fac3e2fd84feb",
+        "bytes": 575,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "metric",
+        "dataset_id": "ds.business.metrics.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.metrics.core/v1/year=2023/month=01/mt_2fe676a831fbbbd65b0529c8.json",
+        "content_sha256": "d99f5fc944530778db8c28356e1ae3e80b3fd3ae10cfe8f66eadc9f9bb1ff07e",
+        "bytes": 575,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2017/month=01/ms_3f08f393f37b03f95abed9c8.json",
+        "content_sha256": "138ff6825448e7e78ffd683499e45e91a7c5924fc9647d776bbeeca1741d73f5",
+        "bytes": 692,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2018/month=01/ms_d89d0cb40fadd9ed7c04b5ba.json",
+        "content_sha256": "31fc9d325adbb3e1e2abef6d40115bcb38139dad1d26e127269926eb0e93e73a",
+        "bytes": 692,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2019/month=01/ms_061338980d2d7585bda15059.json",
+        "content_sha256": "d2199f1b737a8a25af1aed794e1b37da12d256fb0f1b35e3aa15388207357e8f",
+        "bytes": 692,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2020/month=01/ms_194427e52d902825359b0c7f.json",
+        "content_sha256": "c3d8020ebe8448b52ffce82c773050e458bb97ba3717530d2c3e9511cec9d6b9",
+        "bytes": 692,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2021/month=01/ms_05de8724c9d8a47b58d4d24f.json",
+        "content_sha256": "82fb1bf373e34607a26abd64ace5a02af426b974e62cee64ef63f5f1411bd282",
+        "bytes": 691,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2022/month=01/ms_fb2e65a8eb173028cf1af4c8.json",
+        "content_sha256": "066fa4e56702eb0e6b1ae4e1d41ac0709d11ef11db6cef652a966d8527dfa163",
+        "bytes": 687,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "money_signal",
+        "dataset_id": "ds.business.money-signals.core",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.money-signals.core/v1/year=2023/month=01/ms_2fe676a831fbbbd65b0529c8.json",
+        "content_sha256": "af16fdb25086cb8a25316bfe1f35e380e310632beef80ae5f89e938e237b1b7d",
+        "bytes": 687,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      },
+      {
+        "logical_role": "research_bundle",
+        "dataset_id": "ds.business.research-bundles.derived",
+        "bucket": "foundation-lake",
+        "key": "datasets/ds.business.research-bundles.derived/v1/2026/09/08/run_buffer_reconciliation_20260908_03.json",
+        "content_sha256": "f2e196822b64c7d60420ce5ff55eda4de986bcb111f5f42dab370679b60a5bc3",
+        "bytes": 32973,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_a762737d63cb5d4257671427",
+          "ev_3d7df465bd41f3a89fb1da8a"
+        ],
+        "local_path": null,
+        "preflight_status": "ABSENT"
+      }
+    ],
+    "forbidden_operations": [
+      "CopyObject",
+      "DeleteObject",
+      "Move",
+      "Rename",
+      "Overwrite",
+      "LegacyUniversalMutation"
+    ]
+  },
+  "objects": [
+    {
+      "logical_role": "entity",
+      "dataset_id": "ds.business.entities.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.entities.core/v1/entities/ent_company_895ab08e769c3c944f65.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 275,
+      "sha256": "d50d0c105699795dd6024ba71f6505dc9cedb01e59a2f08d5f3b62da2a46a5d9",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2025/month=01/mt_65e354a8bcb58d50c63d468f.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 491,
+      "sha256": "1527287b6523675412b11e8b06a5e5303a22db382aaa319979a31f794e08fde5",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2025/month=01/mt_b48d22b98def9a347c21170c.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 511,
+      "sha256": "c63996f7bef0be441c9d932b2ce65aa72ca71bea8a7f185ee8c05e41cc1b817b",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a",
+        "ev_ca987fe2938ae49ffd667d8c"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_3f8c64756b771bd38874392b.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 498,
+      "sha256": "1a391a03737cfc143e7ab0da87148fe36dd57ab51c97eff1d45b9337c7145cfb",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2017/month=01/mt_6b30e280465048054935f169.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 482,
+      "sha256": "55320fa7c620f18e164da5e25b99ce996855a2199fadb193c175bec8788923d7",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2018/month=01/mt_88de965e10f4a4f4f76b9a8a.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 482,
+      "sha256": "da5d435442cacba9a449439f5926b94459b0714fc4c0d0c43236584fc1bb8cc0",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2019/month=01/mt_d420bc9293b481148c5f9352.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 482,
+      "sha256": "26f640797430d3186f001a3dfebcc0fd8e74e062739a916952329732376e2113",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2020/month=01/mt_9bfc87576dba579e9f077029.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 482,
+      "sha256": "550c8d23f7f974029212fab85e121592ca45937fd2142b4a7037d194b89ea15d",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2021/month=01/mt_81eade1b64090c8d9a7aa21c.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 481,
+      "sha256": "ae3f3f16346b14818de5647549d65d12362b809613a0530f8eea8dec8b1f6569",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2022/month=01/mt_bb53bc15ce8731bd9c55d5a4.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 483,
+      "sha256": "a6cc8f203687e815cf32c106e415423f500f9eb9fed8b1f37e940bf6ae9c5bf5",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2023/month=01/mt_1fad5438b33af3bb6c3e78f4.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 482,
+      "sha256": "8dacf44b89ba6d828237e17609651314a5637c88cec21606779ad30f8dcb1bd1",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2025/month=01/mt_7ee366b6e4fac06a8a96061e.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 514,
+      "sha256": "add7454c32e4dff2ba03b14faa47532d3e511b1c3800e568a16d85e230ac49b9",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2024/month=01/mt_9830d81e56d2848eeef854ad.json",
+      "status": "EXISTS_IDENTICAL",
+      "bytes": 478,
+      "sha256": "788e52c66208a8c8bbb56de5d253814532d15b5b952cda865bc9a586ff58a83d",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2017/month=01/mt_3f08f393f37b03f95abed9c8.json",
+      "status": "CREATED",
+      "bytes": 580,
+      "sha256": "31f48380323fabc0c2e0d32c27d27e2fbac0e0e4053a7d40be9faa4f71f14c00",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2018/month=01/mt_d89d0cb40fadd9ed7c04b5ba.json",
+      "status": "CREATED",
+      "bytes": 580,
+      "sha256": "c3e3c7295710ab296cd4a90bf19e3ce3cf87b42dd7edb5deeb743357e38a5b5c",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2019/month=01/mt_061338980d2d7585bda15059.json",
+      "status": "CREATED",
+      "bytes": 580,
+      "sha256": "a270e88b1a66813be882bdaab0316089e01adc6cb529af7c83064086523c597a",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2020/month=01/mt_194427e52d902825359b0c7f.json",
+      "status": "CREATED",
+      "bytes": 580,
+      "sha256": "b3455f1e1ce87f7487ae86e8a82c754cb3bbbd9662f3cb33a01b3fd6916c412c",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2021/month=01/mt_05de8724c9d8a47b58d4d24f.json",
+      "status": "CREATED",
+      "bytes": 579,
+      "sha256": "f7befe19112abd104009999e154fcf81a46883c0487f8a3de2e655014243c0ad",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2022/month=01/mt_fb2e65a8eb173028cf1af4c8.json",
+      "status": "CREATED",
+      "bytes": 575,
+      "sha256": "f9cec82375200be88b6a6b8d6f7734ccc4b7d55c86364ef0fc6fac3e2fd84feb",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "metric",
+      "dataset_id": "ds.business.metrics.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.metrics.core/v1/year=2023/month=01/mt_2fe676a831fbbbd65b0529c8.json",
+      "status": "CREATED",
+      "bytes": 575,
+      "sha256": "d99f5fc944530778db8c28356e1ae3e80b3fd3ae10cfe8f66eadc9f9bb1ff07e",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2017/month=01/ms_3f08f393f37b03f95abed9c8.json",
+      "status": "CREATED",
+      "bytes": 692,
+      "sha256": "138ff6825448e7e78ffd683499e45e91a7c5924fc9647d776bbeeca1741d73f5",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2018/month=01/ms_d89d0cb40fadd9ed7c04b5ba.json",
+      "status": "CREATED",
+      "bytes": 692,
+      "sha256": "31fc9d325adbb3e1e2abef6d40115bcb38139dad1d26e127269926eb0e93e73a",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2019/month=01/ms_061338980d2d7585bda15059.json",
+      "status": "CREATED",
+      "bytes": 692,
+      "sha256": "d2199f1b737a8a25af1aed794e1b37da12d256fb0f1b35e3aa15388207357e8f",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2020/month=01/ms_194427e52d902825359b0c7f.json",
+      "status": "CREATED",
+      "bytes": 692,
+      "sha256": "c3d8020ebe8448b52ffce82c773050e458bb97ba3717530d2c3e9511cec9d6b9",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2021/month=01/ms_05de8724c9d8a47b58d4d24f.json",
+      "status": "CREATED",
+      "bytes": 691,
+      "sha256": "82fb1bf373e34607a26abd64ace5a02af426b974e62cee64ef63f5f1411bd282",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2022/month=01/ms_fb2e65a8eb173028cf1af4c8.json",
+      "status": "CREATED",
+      "bytes": 687,
+      "sha256": "066fa4e56702eb0e6b1ae4e1d41ac0709d11ef11db6cef652a966d8527dfa163",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "money_signal",
+      "dataset_id": "ds.business.money-signals.core",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.money-signals.core/v1/year=2023/month=01/ms_2fe676a831fbbbd65b0529c8.json",
+      "status": "CREATED",
+      "bytes": 687,
+      "sha256": "af16fdb25086cb8a25316bfe1f35e380e310632beef80ae5f89e938e237b1b7d",
+      "source_evidence_ids": [
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    },
+    {
+      "logical_role": "research_bundle",
+      "dataset_id": "ds.business.research-bundles.derived",
+      "bucket": "foundation-lake",
+      "key": "datasets/ds.business.research-bundles.derived/v1/2026/09/08/run_buffer_reconciliation_20260908_03.json",
+      "status": "CREATED",
+      "bytes": 32973,
+      "sha256": "f2e196822b64c7d60420ce5ff55eda4de986bcb111f5f42dab370679b60a5bc3",
+      "source_evidence_ids": [
+        "ev_a762737d63cb5d4257671427",
+        "ev_3d7df465bd41f3a89fb1da8a"
+      ],
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      }
+    }
+  ],
+  "counts": {
+    "planned": 28,
+    "created": 15,
+    "exists_identical": 13
+  },
+  "provider_calls": {
+    "head_bucket": 56,
+    "get_object": 71,
+    "put_object": 15
+  },
+  "readback_verified": 28,
+  "mutation_counts": {
+    "put_object": 15,
+    "copy_object": 0,
+    "delete_object": 0,
+    "move": 0,
+    "rename": 0,
+    "overwrite": 0,
+    "legacy_universal": 0,
+    "bucket_or_config": 0
+  }
+}

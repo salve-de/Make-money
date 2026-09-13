@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_ouraring_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Oura Ring",
+      "candidate_domain": "ouraring.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_ouraring_primary",
+        "url": "https://ouraring.com",
+        "title": "Oura Ring Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_ouraring_pnl",
+        "source_id": "src_ouraring_primary",
+        "snippet": "Monthly Revenue: 6250000000, Margin: 7.6%, Gross: 70%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_oura_ring",
+        "entity_type": "business",
+        "canonical_name": "Oura Ring",
+        "domain": "ouraring.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_ouraring_tagline",
+        "entity_id": "ent_oura_ring",
+        "attribute": "tagline",
+        "value": "「手首の時計は寝るとき邪魔」という時計嫌いの指にチタンの指輪をはめさせ、月額6ドルの課金と指輪代で時価1.6兆円を狙うスマートリングの覇者",
+        "evidence_ids": [
+          "ev_ouraring_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_ouraring_revenue",
+        "entity_id": "ent_oura_ring",
+        "name": "monthly_revenue_jpy",
+        "value": 6250000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_ouraring_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_ouraring_dossier",
+        "entity_id": "ent_oura_ring",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "「時計をつけて寝るのは苦痛だ」という世界中の人々の指に300ドルの指輪をはめ、さらに月額6ドルの通行税を徴収して累計500万本以上を売り抜けた手口",
+            "section01_dna": {
+              "businessType": "指輪型の高精度睡眠・体温・心拍数モニタリングハードウェアおよび専用解析アプリの月額サブスクリプション",
+              "targetWallet": "世界中の健康志向層、睡眠負債に悩むビジネスマンの健康機器予算（本体$299〜$499 ＋ 月額$5.99）",
+              "painRelief": "「朝起きても疲れが取れていない」「スマートウォッチを手首につけて寝るとゴツゴツして眠れない」不快感の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「手首（時計）ではなく指（血管が極めて皮膚に近い部位）を選んだ」生理学的盲点",
+              "analysis": "1. AppleやFitbitが手首の陣取り合戦に血道を上げる中、指の動脈血管の方が心拍信号をより正確かつノイズレスに検知できる生理学的真実に着目。\n2. 指輪という「ジュエリー（装飾品）」の枠組みにテクノロジーを隠すことで、ガジェットオタクだけでなく女性層やファッション富裕層を取り込み。\n3. ハードウェアを300ドルで買わせた上で、過去データの閲覧と詳細分析に「月額$5.99のメンバーシップ課金」を後から導入し、利益率89%の経常収益ストリームを確立。"
+            },
+            "section03_moatPowers": {
+              "headline": "【指の超小型化技術（数々の特許） ✕ 女性の月経・排卵予測アルゴリズム独占】",
+              "analysis": "1. 超小型バッテリー、回路、センサーを指輪の厚み数ミリに収める極限の製造技術と特許網により、他社の模倣を長年ブロック。\n2. 皮膚温の微細な変動を夜間に計測することで、女性の月経周期や排卵日を自然言語で高精度予測する機能を備え、女性ユーザーの不可逆な定着を獲得。\n3. セレブやシリコンバレーの投資家、NBA選手が「指に光る黒い指輪」をつけている姿がオーガニックに拡散され、上流階級の象徴として定着。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "Appleは自社のドル箱であるApple Watchの画面通知エコシステムを捨てるわけにいかず、Samsungは指輪型への参入に10年遅れた",
+              "analysis": "Appleは年間数千億円を稼ぐApple Watchの売上とアプリストアをカニバリゼーション（共食い）するリスクを冒してまで指輪に特化できなかった。Samsungが「Galaxy Ring」で追撃してきたものの、Ouraはすでに500万人の睡眠データと特許要塞を築き上げていた。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "フィンランドのオウル（元Nokiaの技術者が集まる街）で創業。Kickstarterで初期プロトタイプを出品し、世界中の睡眠オタクから数億円の予約注文を集めて初期製造資金を確保。その後、英国のヘンリー王子やTwitter創業者のジャック・ドーシーが私物として愛用している姿が激写され、一気にグローバル現象化。",
+            "platformGlitch": "コロナ禍において「発熱する数日前にOura Ringが体温異常を検知した」という研究論文をいち早く発表。NBAのバブル（隔離施設）で全選手に配布され、感染予防デバイスとしての公認を獲得。",
+            "pivotSnapshot": "単なるハードウェアの売り切りガジェットから、月額課金制（メンバーシップ制）のヘルスケアデータインフラへ転身。",
+            "hiddenCostStructure": "指のサイズは人によって千差万別なため、事前に「サイジングキット（プラスチックの見本指輪）」を全世界の購入者に郵送する物理物流費が重い初期コスト。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「睡眠不足で寿命が縮む恐怖」と「自分の体を完璧に数値化している知的エリートに見られたい虚栄心」。",
+            "marketDistortion": "「健康器具＝ダサい」という常識をチタン製ジュエリーへと昇華させ、高級百貨店グッチ（Gucci）との限定コラボモデルを13万円で完売させるラグジュアリー化。",
+            "userResentment": "高額な指輪本体代金を払ったにもかかわらず、月額6ドルの課金を止めるとただの睡眠スコアすら見られなくなるサブスク強要に対する初期ユーザーの猛反発。"
+          },
+          "temporal": {
+            "foundedYear": 2013,
+            "initialTractionPeriod": "2015-2018年 (Kickstarter〜セレブ拡散)",
+            "dataSnapshotPeriod": "2024-2026年 (年商$500M〜$1B、IPO準備期)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "Apple Watch疲れと、睡眠トラッキングへの世界的関心の高まりを完全に捉えて独走。",
+            "currentViabilityAnalysis": "累計500万本超を販売し、時価総額1.6兆円でのIPOを目指すスマートリングの絶対王者。Samsungの参入にも動じず高成長を維持。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

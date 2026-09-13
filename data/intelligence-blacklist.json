@@ -1,0 +1,2749 @@
+{
+  "version": "1.0.0",
+  "description": "Make-Money永久ブラックリスト: 二度と調査・収集・インデックスに浮上させない除外レジストリ",
+  "updatedAt": "2026-09-12T11:34:14.247Z",
+  "domains": [
+    {
+      "domain": "failory.com",
+      "reason": "まとめブログ・ピッチデッキ記事・失敗談コラムサイト（企業ではない）"
+    },
+    {
+      "domain": "example.com",
+      "reason": "ダミー・プレースホルダーURL"
+    }
+  ],
+  "urlPatterns": [
+    "*failory.com/pitch-deck*",
+    "*failory.com/cemetery*",
+    "*failory.com/interview*",
+    "*example.com*"
+  ],
+  "entityIdPatterns": [
+    "ent_repository_*"
+  ],
+  "entities": [
+    {
+      "id": "ent_company_a857af1320f49f7004b7",
+      "name": "Kolos",
+      "url": "https://www.failory.com/interview/kolos",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_dd974232ad471c6dc86f",
+      "name": "Team Voice",
+      "url": "https://www.failory.com/interview/team-voice",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_9b424a3c56577eaea2ab",
+      "name": "The Blogging Manifesto",
+      "url": "https://www.failory.com/interview/the-blogging-manifesto",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d44bfa3b98ebce0deb3b",
+      "name": "Worldos",
+      "url": "https://www.failory.com/interview/worldos",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_c6ba9b44c6f92958fd61",
+      "name": "Glitch",
+      "url": "https://www.failory.com/cemetery/glitch",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_60924c3ecdd11ca2964f",
+      "name": "Justin Tv",
+      "url": "https://www.failory.com/cemetery/justin-tv",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_1d3b776313cf0d2e1e42",
+      "name": "Katerra",
+      "url": "https://www.failory.com/cemetery/katerra",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_c09c239f909c888f42db",
+      "name": "Tilt",
+      "url": "https://www.failory.com/cemetery/tilt",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_f6357151b6ceae890d69",
+      "name": "Xinja",
+      "url": "https://www.failory.com/cemetery/xinja",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_3153c6481bbab1f1cb2d",
+      "name": "Quirky",
+      "url": "https://www.failory.com/cemetery/quirky",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_37214f8a0d14d9738a40",
+      "name": "Angelcam",
+      "url": "https://www.failory.com/pitch-deck/angelcam",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_7c8c59f63501da158db4",
+      "name": "Parse",
+      "url": "https://www.failory.com/cemetery/parse",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e79e305f33787b3b64ab",
+      "name": "Shyp",
+      "url": "https://www.failory.com/cemetery/shyp",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_de2d3c65d49836507fa4",
+      "name": "Yik Yak",
+      "url": "https://www.failory.com/cemetery/yik-yak",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_53bf96bcfce6f4074d31",
+      "name": "Explorevr",
+      "url": "https://www.failory.com/interview/explorevr",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_ca01b291f17502f905b7",
+      "name": "Myspace",
+      "url": "https://www.failory.com/cemetery/myspace",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_9e8c585c6beb4d65e9c5",
+      "name": "Toys R Us",
+      "url": "https://www.failory.com/cemetery/toys-r-us",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d38e6594211f48a56b24",
+      "name": "Totsy",
+      "url": "https://www.failory.com/cemetery/totsy",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2ee58e11bf5b836d59a3",
+      "name": "Arrcus",
+      "url": "https://www.failory.com/pitch-deck/arrcus",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_f5c961fe44137ebb4662",
+      "name": "Arsdigita",
+      "url": "https://www.failory.com/cemetery/arsdigita",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_4b5db4111f11c5d183d1",
+      "name": "Yottio",
+      "url": "https://www.failory.com/interview/yottio",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_74286638d559e24bc830",
+      "name": "Monitor110",
+      "url": "https://www.failory.com/cemetery/monitor110",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e3592cfc441b664f9413",
+      "name": "Bitpass",
+      "url": "https://www.failory.com/cemetery/bitpass",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a45812cd7023fbdff479",
+      "name": "Matterfab",
+      "url": "https://www.failory.com/cemetery/matterfab",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_f32e55af5d928e8adbaf",
+      "name": "Dinner Lab",
+      "url": "https://www.failory.com/cemetery/dinner-lab",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_90cd7d3fc07f96047fde",
+      "name": "Raw Gains",
+      "url": "https://www.failory.com/interview/raw-gains",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_b4ba523cb6fa1b12a5a7",
+      "name": "The Careside",
+      "url": "https://www.failory.com/interview/the-careside",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_b4d641fd7d74f03dc68e",
+      "name": "Rayna Tours",
+      "url": "https://www.failory.com/interview/rayna-tours",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_8dc09d40473ad8a0397c",
+      "name": "Spoonrocket",
+      "url": "https://www.failory.com/cemetery/spoonrocket",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_8d2b859e9e4cca3ce08e",
+      "name": "Scalefactor",
+      "url": "https://www.failory.com/cemetery/scalefactor",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_06e956767fd70227df6b",
+      "name": "My Auto Shop",
+      "url": "https://www.failory.com/interview/my-auto-shop",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_9c45c890e6017deb1e4e",
+      "name": "Wantful",
+      "url": "https://www.failory.com/cemetery/wantful",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_622258ad33aac6345e04",
+      "name": "Radar Radio",
+      "url": "https://www.failory.com/cemetery/radar-radio",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_871705cdc8bc17f434b4",
+      "name": "Benja",
+      "url": "https://www.failory.com/interview/benja",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_ec783e5b3ef861d50811",
+      "name": "Grooveshark",
+      "url": "https://www.failory.com/cemetery/grooveshark",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_76903711d01aa5f54444",
+      "name": "Copyai",
+      "url": "https://www.failory.com/interview/copyai",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_079f11208910885f1b8b",
+      "name": "Crossnet",
+      "url": "https://www.failory.com/interview/crossnet",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_15e6e6bcc9572f8525b3",
+      "name": "Flexiple 2021",
+      "url": "https://www.failory.com/interview/flexiple-2021",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_8f3aba66a16f1e028603",
+      "name": "Flexy",
+      "url": "https://www.failory.com/interview/flexy",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d0be22a289fce8d283d4",
+      "name": "The Punjab Kitchen",
+      "url": "https://www.failory.com/interview/the-punjab-kitchen",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d47639250b7548c052e2",
+      "name": "Tutorspree",
+      "url": "https://www.failory.com/cemetery/tutorspree",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_37178409ce25f38376e3",
+      "name": "Manyrequests",
+      "url": "https://www.failory.com/interview/manyrequests",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d8f0b90e26f26d29a7b8",
+      "name": "Roomstonite",
+      "url": "https://www.failory.com/cemetery/roomstonite",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_b99e3d8b287180654a28",
+      "name": "Tactiq",
+      "url": "https://www.failory.com/interview/tactiq",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_573a899c00fbac7bcafa",
+      "name": "Zenmaid",
+      "url": "https://www.failory.com/interview/zenmaid",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_842eefd1af6dfcf18d5c",
+      "name": "99dresses",
+      "url": "https://www.failory.com/cemetery/99dresses",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_ce40f255f0bd03fa954e",
+      "name": "Addressbin",
+      "url": "https://www.failory.com/interview/addressbin",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e09cab7dcca7b44e78d9",
+      "name": "Endeavorun",
+      "url": "https://www.failory.com/interview/endeavorun",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2c22e26d7e1e2bef483d",
+      "name": "Gorails",
+      "url": "https://www.failory.com/interview/gorails",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_1bed8505806e56f6daea",
+      "name": "Growsurf",
+      "url": "https://www.failory.com/interview/growsurf",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_28838fdfe860d8801079",
+      "name": "Hitronasplet",
+      "url": "https://www.failory.com/interview/hitronasplet",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a11158d3a57e53629025",
+      "name": "Liveagent",
+      "url": "https://www.failory.com/interview/liveagent",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_1b8ff36e9ff96f306c95",
+      "name": "Posture Keeper",
+      "url": "https://www.failory.com/interview/posture-keeper",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_c8c1244f6e54649c0ad1",
+      "name": "Publoft",
+      "url": "https://www.failory.com/interview/publoft",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2d5d0b785711b129b567",
+      "name": "Standuply",
+      "url": "https://www.failory.com/interview/standuply",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_711fcdee766ee8c99ca7",
+      "name": "Vidico",
+      "url": "https://www.failory.com/interview/vidico",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d5a11d3f8a60ea086e9c",
+      "name": "Headlime",
+      "url": "https://www.failory.com/interview/headlime",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_ac8c6aedc28849466972",
+      "name": "Lemlist",
+      "url": "https://www.failory.com/interview/lemlist",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_c14ac51a5fbd608c0381",
+      "name": "Swipes",
+      "url": "https://www.failory.com/interview/swipes",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2f1b8f8a5736389a2f42",
+      "name": "Viewst",
+      "url": "https://www.failory.com/interview/viewst",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_13f4b471dc12093cd3c4",
+      "name": "Plutoview",
+      "url": "https://www.failory.com/interview/plutoview",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a2e948ddcfeacc21cf9c",
+      "name": "Wavve",
+      "url": "https://www.failory.com/interview/wavve",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_7f3a324233aba930449d",
+      "name": "Bunnyshell",
+      "url": "https://www.failory.com/interview/bunnyshell",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_91d50e78d88cf615574a",
+      "name": "Curiouscheck",
+      "url": "https://www.failory.com/interview/curiouscheck",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_6a8e8b66fc2de39ad3d8",
+      "name": "Css For Js Developers",
+      "url": "https://www.failory.com/interview/css-for-js-developers",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_dec789193ef8f2b35d70",
+      "name": "Ink",
+      "url": "https://www.failory.com/interview/ink",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_55f7083207ecc4075939",
+      "name": "Lernin Games",
+      "url": "https://www.failory.com/interview/lernin-games",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_ebd6001bc98432d81928",
+      "name": "Reality Hunt",
+      "url": "https://www.failory.com/interview/reality-hunt",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_6ffff92b9aa084b6777a",
+      "name": "Cold Email Studio",
+      "url": "https://www.failory.com/interview/cold-email-studio",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e75bb069e703cdb802f5",
+      "name": "Voyagu",
+      "url": "https://www.failory.com/interview/voyagu",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_7898e9aae9ac26e285a3",
+      "name": "140 Canvas",
+      "url": "https://www.failory.com/interview/140-canvas",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2c159d97e56c5bd63cc9",
+      "name": "Creator Growth Lab",
+      "url": "https://www.failory.com/interview/creator-growth-lab",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_7b74ea84a9d370ca8f6a",
+      "name": "Eventloot",
+      "url": "https://www.failory.com/interview/eventloot",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_aa81c29382e03ba4dd27",
+      "name": "Gymlisted",
+      "url": "https://www.failory.com/interview/gymlisted",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_66713d356924ac101f25",
+      "name": "Profitabilly",
+      "url": "https://www.failory.com/interview/profitabilly",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_5465e5f0f0a5d3cd33c6",
+      "name": "Vacation Bird",
+      "url": "https://www.failory.com/interview/vacation-bird",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_c392576f6ea3bc85262f",
+      "name": "Visualsitemaps",
+      "url": "https://www.failory.com/interview/visualsitemaps",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_da6af29df868f5cc877c",
+      "name": "Swagup",
+      "url": "https://www.failory.com/interview/swagup",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e90e1da78b204a458095",
+      "name": "Zogics",
+      "url": "https://www.failory.com/interview/zogics",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a67bd2c44dd7da7df14f",
+      "name": "Observa",
+      "url": "https://www.failory.com/interview/observa",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d317f9ba9df316153841",
+      "name": "Higear",
+      "url": "https://www.failory.com/cemetery/higear",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_556307ca70087229ff63",
+      "name": "Freshconnect",
+      "url": "https://www.failory.com/interview/freshconnect",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_45462d15c33aaba2d04e",
+      "name": "Adproval",
+      "url": "https://www.failory.com/interview/adproval",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d585c6351faf9f598fe5",
+      "name": "Akko",
+      "url": "https://www.failory.com/interview/akko",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_485f31d5ebf911db5dd5",
+      "name": "Blogging For Devs",
+      "url": "https://www.failory.com/interview/blogging-for-devs",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_72efb2ed508ab9567b2f",
+      "name": "Embarque",
+      "url": "https://www.failory.com/interview/embarque",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_9235226c6a25ee4457c6",
+      "name": "Fibery",
+      "url": "https://www.failory.com/interview/fibery",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_906b1698d6eef1a3101d",
+      "name": "Henry",
+      "url": "https://www.failory.com/interview/henry",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a6c7073089545bfac709",
+      "name": "Howell Market",
+      "url": "https://www.failory.com/interview/howell-market",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_c4d0883c73f3b9545c33",
+      "name": "No Code Founders",
+      "url": "https://www.failory.com/interview/no-code-founders",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_db84bf9f7b4ee3d371b2",
+      "name": "Snapshooter",
+      "url": "https://www.failory.com/interview/snapshooter",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_3b343828c31ce2c0aa5e",
+      "name": "Upvoty",
+      "url": "https://www.failory.com/interview/upvoty",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2b3dd1a5afc0e0aae87a",
+      "name": "Wotnot",
+      "url": "https://www.failory.com/interview/wotnot",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_710a31be5350c71496ec",
+      "name": "Narcine",
+      "url": "https://www.failory.com/interview/narcine",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_7854b9f4c04111a81563",
+      "name": "Patriot Chimney",
+      "url": "https://www.failory.com/interview/patriot-chimney",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_62da8ea420501255b29f",
+      "name": "Zulily",
+      "url": "https://www.failory.com/cemetery/zulily",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_3b06555368a8ff6d0138",
+      "name": "Awesomic",
+      "url": "https://www.failory.com/interview/awesomic",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_de235aa3b7b4e3fc9e9a",
+      "name": "Canary",
+      "url": "https://www.failory.com/interview/canary",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e8657c95d4fbf2d6a8fa",
+      "name": "Mentorcruise",
+      "url": "https://www.failory.com/interview/mentorcruise",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_fe5a1edeee01c56886d4",
+      "name": "Pear Cards",
+      "url": "https://www.failory.com/interview/pear-cards",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_18a5edf5dfb4b052e8c5",
+      "name": "Salonist",
+      "url": "https://www.failory.com/interview/salonist",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_c440a5eefced68e0263a",
+      "name": "Simplelogin",
+      "url": "https://www.failory.com/interview/simplelogin",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_9ce53d36612be542a56c",
+      "name": "Spuds",
+      "url": "https://www.failory.com/interview/spuds",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_cba10a8d35b45934dc23",
+      "name": "Tally",
+      "url": "https://www.failory.com/interview/tally",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e1c256a63808d20ebb96",
+      "name": "The Agent Nest",
+      "url": "https://www.failory.com/interview/the-agent-nest",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_12fa6408a2b6f763cfbe",
+      "name": "Zenoutreach",
+      "url": "https://www.failory.com/interview/zenoutreach",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_39abed5067aefe0256f0",
+      "name": "Legaats",
+      "url": "https://www.failory.com/interview/legaats",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_818603d89e5ea22ebf27",
+      "name": "Career Sidekick",
+      "url": "https://www.failory.com/interview/career-sidekick",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_5ec6bc5021234228aa8c",
+      "name": "Motionthink",
+      "url": "https://www.failory.com/interview/motionthink",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_ffef730fcb7f495a68bb",
+      "name": "Newco",
+      "url": "https://www.failory.com/interview/newco",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_416ef533d2d0d8a19426",
+      "name": "Dotahaven",
+      "url": "https://www.failory.com/interview/dotahaven",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_47ab4838bbb466cc45ae",
+      "name": "The Nerd Cave",
+      "url": "https://www.failory.com/interview/the-nerd-cave",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_fa294713db665591ac57",
+      "name": "Playdate",
+      "url": "https://www.failory.com/interview/playdate",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_638e731106544df78c6e",
+      "name": "Beehiveid",
+      "url": "https://www.failory.com/interview/beehiveid",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_73d6f83616000425a998",
+      "name": "Tuff",
+      "url": "https://www.failory.com/interview/tuff",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_5b5d6b493bd53bcaaf26",
+      "name": "Hello Tyro",
+      "url": "https://www.failory.com/interview/hello-tyro",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_275fe0200ac2dbc25fab",
+      "name": "Crabi",
+      "url": "https://www.failory.com/interview/crabi",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_be19debeba1dcccc4674",
+      "name": "Juice Startup",
+      "url": "https://www.failory.com/interview/juice-startup",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e7fcd9efcdf3e3f623f2",
+      "name": "Nogood",
+      "url": "https://www.failory.com/interview/nogood",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_6b17823f478e82ad5f01",
+      "name": "Onak",
+      "url": "https://www.failory.com/interview/onak",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_0b3c7f9666aabc84e4d5",
+      "name": "Delicious",
+      "url": "https://www.failory.com/cemetery/delicious",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2db983507cacdea26d1f",
+      "name": "Mubert",
+      "url": "https://www.failory.com/interview/mubert",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e9d5303911cfceae7810",
+      "name": "Strengthrunning",
+      "url": "https://www.failory.com/interview/strengthrunning",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2726af1b78d1d880cbed",
+      "name": "Cuddli",
+      "url": "https://www.failory.com/interview/cuddli",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_b2d347604e0fa5f4a2dc",
+      "name": "Singulution",
+      "url": "https://www.failory.com/interview/singulution",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_55060ba2360ecdd00ba7",
+      "name": "Botnim",
+      "url": "https://www.failory.com/interview/botnim",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_22273e293e4b0ffaac09",
+      "name": "Phez",
+      "url": "https://www.failory.com/interview/phez",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d1adc50f60c67f6a509a",
+      "name": "Impossible",
+      "url": "https://www.failory.com/interview/impossible",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a3a6a10a8ca86f33b129",
+      "name": "Wura",
+      "url": "https://www.failory.com/interview/wura",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_68c163dcfb2858240e1c",
+      "name": "Haptly",
+      "url": "https://www.failory.com/interview/haptly",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_f560fcb52b9755b49103",
+      "name": "Emit",
+      "url": "https://www.failory.com/interview/emit",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_009f90f64796be689245",
+      "name": "Knownet",
+      "url": "https://www.failory.com/interview/knownet",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e44c39231aa3405374bf",
+      "name": "Ne Lounge",
+      "url": "https://www.failory.com/interview/ne-lounge",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e2e621506f05876ec901",
+      "name": "Gulp",
+      "url": "https://www.failory.com/interview/gulp",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_969050ee1620a2b2374f",
+      "name": "Hawkers",
+      "url": "https://www.failory.com/interview/hawkers",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a708e389f406935c95c3",
+      "name": "Kopely",
+      "url": "https://www.failory.com/interview/kopely",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_da7503a09741196b3abc",
+      "name": "Poliana",
+      "url": "https://www.failory.com/cemetery/poliana",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d723b96844a1b618d600",
+      "name": "Weplate",
+      "url": "https://www.failory.com/interview/weplate",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_f6c54ea654295d0ca2be",
+      "name": "Pull Reminders",
+      "url": "https://www.failory.com/interview/pull-reminders",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_822133419d490f4940b4",
+      "name": "40 Aprons",
+      "url": "https://www.failory.com/interview/40-aprons",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_5cef412f2c57daf61932",
+      "name": "Aplano",
+      "url": "https://www.failory.com/interview/aplano",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_aca301b07869829258e5",
+      "name": "Bildr",
+      "url": "https://www.failory.com/interview/bildr",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_996644c042a1466eb61e",
+      "name": "Design In Dc",
+      "url": "https://www.failory.com/interview/design-in-dc",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_b40c04385e57bf7108af",
+      "name": "Friday",
+      "url": "https://www.failory.com/interview/friday",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_d64f9f3649d4fbe6316c",
+      "name": "Growth Cave",
+      "url": "https://www.failory.com/interview/growth-cave",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_7c98b0874434e1783f7d",
+      "name": "Karhoo",
+      "url": "https://www.failory.com/cemetery/karhoo",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_28df466974649affdb1d",
+      "name": "Reform",
+      "url": "https://www.failory.com/interview/reform",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_637c4afe0698e8b1e474",
+      "name": "Station",
+      "url": "https://www.failory.com/interview/station",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_53efdd62fd1923ebd9b4",
+      "name": "Woovly",
+      "url": "https://www.failory.com/interview/woovly",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_24b0147bea67f828f76c",
+      "name": "Vivalatina",
+      "url": "https://www.failory.com/interview/vivalatina",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_50fa18240c464dddbedc",
+      "name": "Gawkbox",
+      "url": "https://www.failory.com/interview/gawkbox",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_218d50db446daa506a02",
+      "name": "Mongoose Cricket",
+      "url": "https://www.failory.com/interview/mongoose-cricket",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_a35dfcceab2951b33600",
+      "name": "Swoop",
+      "url": "https://www.failory.com/interview/swoop",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_701509732da869b749ba",
+      "name": "Formatically",
+      "url": "https://www.failory.com/interview/formatically",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_29614d61e4e91b0a2164",
+      "name": "Microconf",
+      "url": "https://www.failory.com/interview/microconf",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_25a468198088ec47acc1",
+      "name": "Community Coders",
+      "url": "https://www.failory.com/interview/community-coders",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_920543164db4e192af96",
+      "name": "Ombori",
+      "url": "https://www.failory.com/interview/ombori",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_31cc07f2364188ae41ba",
+      "name": "Qwaiting",
+      "url": "https://www.failory.com/interview/qwaiting",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_e54c1138c343084fb4ca",
+      "name": "Teacher Finder",
+      "url": "https://www.failory.com/interview/teacher-finder",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_481ab20939c374379990",
+      "name": "Teamometer",
+      "url": "https://www.failory.com/interview/teamometer",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_9ada89872fe94003df13",
+      "name": "Hubrif",
+      "url": "https://www.failory.com/interview/hubrif",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_28cc7c50fe89d3515816",
+      "name": "Wedmap",
+      "url": "https://www.failory.com/interview/wedmap",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.245Z"
+    },
+    {
+      "id": "ent_company_2a8104ea38bb3197c3ad",
+      "name": "Adpushup",
+      "url": "https://www.failory.com/pitch-deck/adpushup",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f7b8a438e29207a14c60",
+      "name": "Circleback Lending",
+      "url": "https://www.failory.com/cemetery/circleback-lending",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_119aa0ff59da881e3084",
+      "name": "Zor Technology",
+      "url": "https://www.failory.com/interview/zor-technology",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_02fd20f08b99bb791449",
+      "name": "101 Studios",
+      "url": "https://www.failory.com/interview/101-studios",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_82fba0249e403178cf5f",
+      "name": "Juicero",
+      "url": "https://www.failory.com/cemetery/juicero",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_330e36586af38393202f",
+      "name": "Shuddle",
+      "url": "https://www.failory.com/cemetery/shuddle",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_bb08266a34da8ba3bb19",
+      "name": "Starsync",
+      "url": "https://www.failory.com/interview/starsync",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_15ae4e58a3e72f27a4aa",
+      "name": "Twitch Highlights",
+      "url": "https://www.failory.com/interview/twitch-highlights",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9ecfcd83928064f4f982",
+      "name": "Wantremotejob",
+      "url": "https://www.failory.com/interview/wantremotejob",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_157fdc0fc017a2b630c0",
+      "name": "Fantastic House Buyers",
+      "url": "https://www.failory.com/interview/fantastic-house-buyers",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d9a21cdecfb9e1d18afb",
+      "name": "Scream Pretty",
+      "url": "https://www.failory.com/interview/scream-pretty",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_46fc408b45131b67a5eb",
+      "name": "1906",
+      "url": "https://www.failory.com/pitch-deck/1906",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_6f45debf9d9a08791e95",
+      "name": "Wow Air",
+      "url": "https://www.failory.com/cemetery/wow-air",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_7d98bca5b088484a77a2",
+      "name": "Althea",
+      "url": "https://www.failory.com/pitch-deck/althea",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_bbc9c951aea0545d2802",
+      "name": "Delite",
+      "url": "https://www.failory.com/interview/delite",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_6ae057c850bdf1d18d17",
+      "name": "Ringdaddy",
+      "url": "https://www.failory.com/interview/ringdaddy",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e7dd9d8aaa7d5a4d5da6",
+      "name": "Processkit",
+      "url": "https://www.failory.com/interview/processkit",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_dc963eb9535a060401ef",
+      "name": "Stacking The Bricks",
+      "url": "https://www.failory.com/interview/stacking-the-bricks",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_95ed1d31a076556bbe25",
+      "name": "Campertunity",
+      "url": "https://www.failory.com/interview/campertunity",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8a76a9279108288a05ed",
+      "name": "Muun",
+      "url": "https://www.failory.com/interview/muun",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_563f268dcf8230b9102d",
+      "name": "Thepresence",
+      "url": "https://www.failory.com/interview/thepresence",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e8765cd09debbf39b06d",
+      "name": "Munchery",
+      "url": "https://www.failory.com/cemetery/munchery",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_00493fd40b8f5e9b397d",
+      "name": "Tandem",
+      "url": "https://www.failory.com/interview/tandem",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_485d91f3d9864ece797e",
+      "name": "Daqri",
+      "url": "https://www.failory.com/cemetery/daqri",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9c9813b4171df8290c21",
+      "name": "Refolo",
+      "url": "https://www.failory.com/interview/refolo",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_14d5fe93960bc4f76fcb",
+      "name": "Kimp",
+      "url": "https://www.failory.com/interview/kimp",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_94e2fc2a25e9e13f7122",
+      "name": "Festivilia",
+      "url": "https://www.failory.com/interview/festivilia",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e1980be5fa40c1d3a6bc",
+      "name": "Photobooth Supply",
+      "url": "https://www.failory.com/interview/photobooth-supply",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_31bbff605428d47d3368",
+      "name": "Adleaf Technologies",
+      "url": "https://www.failory.com/interview/adleaf-technologies",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9659c36ee723b45cf5a0",
+      "name": "Imaginovation",
+      "url": "https://www.failory.com/interview/imaginovation",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d71f36df4f8effe0b617",
+      "name": "Reroute Lifestyle",
+      "url": "https://www.failory.com/interview/reroute-lifestyle",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d53880855ac17fb1852b",
+      "name": "37coins",
+      "url": "https://www.failory.com/cemetery/37coins",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_910fa3ec96c86a22fe78",
+      "name": "3d-technology",
+      "url": "https://www.failory.com/pitch-deck/3d-technology",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_2a091a04b04df80e3c0a",
+      "name": "7bridges",
+      "url": "https://www.failory.com/pitch-deck/7bridges",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_fb2ae2f08f1d24ee37da",
+      "name": "Accounting",
+      "url": "https://www.failory.com/pitch-deck/accounting",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5c07b4512eb402bf8926",
+      "name": "Aceup",
+      "url": "https://www.failory.com/pitch-deck/aceup",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d83347e63ed815339abf",
+      "name": "Activityhero",
+      "url": "https://www.failory.com/pitch-deck/activityhero",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_3078878821bb98e110d0",
+      "name": "Admazely",
+      "url": "https://www.failory.com/cemetery/admazely",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_person_7444da760d327d565a2b",
+      "name": "Adriaan van Rossum",
+      "url": "https://example.com",
+      "reason": "DUMMY_EXAMPLE_COM_URL",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_955dbdd638882d535786",
+      "name": "Ads",
+      "url": "https://www.failory.com/pitch-deck/ads",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_706d3ef8d3e78d183607",
+      "name": "Advertising",
+      "url": "https://www.failory.com/pitch-deck/advertising",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_fbe2117f95018131b823",
+      "name": "Aftersale",
+      "url": "https://www.failory.com/pitch-deck/aftersale",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8787babd2ced2fcfd218",
+      "name": "Agfunder",
+      "url": "https://www.failory.com/pitch-deck/agfunder",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_6cbf6a834ff4dad85ccf",
+      "name": "Agtech",
+      "url": "https://www.failory.com/pitch-deck/agtech",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_040c74d276ff3b7500f1",
+      "name": "Ai",
+      "url": "https://www.failory.com/pitch-deck/ai",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4effe9a2658d66a3be92",
+      "name": "Ai-rudder",
+      "url": "https://www.failory.com/pitch-deck/ai-rudder",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_25e76cbc0a99783b9958",
+      "name": "Airbnb",
+      "url": "https://www.failory.com/pitch-deck/airbnb",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_de1545994598878ea4d8",
+      "name": "Aircall",
+      "url": "https://www.failory.com/pitch-deck/aircall",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_53559fa5dbaca664cd3f",
+      "name": "Airhub",
+      "url": "https://www.failory.com/pitch-deck/airhub",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_7387568466c5c0d50214",
+      "name": "Aisera",
+      "url": "https://www.failory.com/pitch-deck/aisera",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_cf147892ad05a5a738fb",
+      "name": "Alan",
+      "url": "https://www.failory.com/pitch-deck/alan",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f08c287ca8e979f10e6f",
+      "name": "Alba",
+      "url": "https://www.failory.com/pitch-deck/alba",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_708403f8398bb3558a77",
+      "name": "Albert",
+      "url": "https://www.failory.com/pitch-deck/albert",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9b1b63e364e523669f7a",
+      "name": "Alfredcamera",
+      "url": "https://www.failory.com/pitch-deck/alfredcamera",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f572007fd36b5a31bf5d",
+      "name": "Alikolo",
+      "url": "https://www.failory.com/cemetery/alikolo",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_1c56e56cbfb079a7aae1",
+      "name": "Alloy",
+      "url": "https://www.failory.com/pitch-deck/alloy",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_dec9ad8cc4cf3afcc15b",
+      "name": "Alloy-card",
+      "url": "https://www.failory.com/pitch-deck/alloy-card",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_008e5111d6b7137e2cec",
+      "name": "Alluva",
+      "url": "https://www.failory.com/pitch-deck/alluva",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_7829eb02e5d76af72f5c",
+      "name": "Almabase",
+      "url": "https://www.failory.com/pitch-deck/almabase",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_ff6f5275bf27ab108854",
+      "name": "Almanac",
+      "url": "https://www.failory.com/pitch-deck/almanac",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_75d4eff83bcda0320fcd",
+      "name": "Alto-pharmacy",
+      "url": "https://www.failory.com/pitch-deck/alto-pharmacy",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_92f3bd612dc9f48e8291",
+      "name": "Alumnify",
+      "url": "https://www.failory.com/pitch-deck/alumnify",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4f1ed7517c120b8deba7",
+      "name": "Alyce",
+      "url": "https://www.failory.com/pitch-deck/alyce",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d1c21f8b0ac975b4d301",
+      "name": "Amify",
+      "url": "https://www.failory.com/pitch-deck/amify",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_dc12f83df9a9546779ed",
+      "name": "Ampaworks",
+      "url": "https://www.failory.com/pitch-deck/ampaworks",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_3c3f22ad71ca9a36324b",
+      "name": "Analytics",
+      "url": "https://www.failory.com/pitch-deck/analytics",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_cebe1d2cffac454916ab",
+      "name": "Anki",
+      "url": "https://www.failory.com/cemetery/anki",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_048cb4b9159b871fef9a",
+      "name": "Ansaro",
+      "url": "https://www.failory.com/interview/ansaro",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e7807384fc7f019a65bc",
+      "name": "App",
+      "url": "https://www.failory.com/pitch-deck/app",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_94b9e1d400994acffb21",
+      "name": "Appiterate",
+      "url": "https://www.failory.com/cemetery/appiterate",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_c14ca4b0f3c2680ba99d",
+      "name": "Appnexus",
+      "url": "https://www.failory.com/pitch-deck/appnexus",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_92e4522c42ad3007f1b3",
+      "name": "Apps",
+      "url": "https://www.failory.com/pitch-deck/apps",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5c0a04c96571de63896b",
+      "name": "Apptite",
+      "url": "https://www.failory.com/pitch-deck/apptite",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_1b60b0710a314bc0de29",
+      "name": "Apptopia",
+      "url": "https://www.failory.com/pitch-deck/apptopia",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_3a3ab8db4678d7730087",
+      "name": "Appvirality",
+      "url": "https://www.failory.com/pitch-deck/appvirality",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_3b6535af340224f1dd8d",
+      "name": "Apteo",
+      "url": "https://www.failory.com/pitch-deck/apteo",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_72927c5eadc074c643d9",
+      "name": "Ar",
+      "url": "https://www.failory.com/pitch-deck/ar",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_2ed3da3f8468c3ae7489",
+      "name": "Arangodb",
+      "url": "https://www.failory.com/pitch-deck/arangodb",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5d2fe1a79231d70b6c15",
+      "name": "Argyle Social",
+      "url": "https://www.failory.com/cemetery/argyle-social",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_68f3fca2e120fbd7a70b",
+      "name": "Aria Insights",
+      "url": "https://www.failory.com/cemetery/aria-insights",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_0495bf9683f1b20b3577",
+      "name": "Art",
+      "url": "https://www.failory.com/pitch-deck/art",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_ee472dd73ebabf4057db",
+      "name": "Ascend-io",
+      "url": "https://www.failory.com/pitch-deck/ascend-io",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_477946eb16938b9f6ec3",
+      "name": "Asktina",
+      "url": "https://www.failory.com/interview/asktina",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_2c8487e08d36f781d6c0",
+      "name": "Atexto",
+      "url": "https://www.failory.com/pitch-deck/atexto",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_89e89a3cc2b83ef3c9ab",
+      "name": "Atomwise",
+      "url": "https://www.failory.com/pitch-deck/atomwise",
+      "reason": "BLOG_ARTICLE_PITCH_DECK_ROUNDUP",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_adf6736deafe45b45da2",
+      "name": "Atrium",
+      "url": "https://www.failory.com/cemetery/atrium",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_6dc836340dd1defa2c68",
+      "name": "Auctionata",
+      "url": "https://www.failory.com/cemetery/auctionata",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_efb07abd6f85ba4a32fd",
+      "name": "Autto In",
+      "url": "https://www.failory.com/interview/autto-in",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f5155a199fd50c8f026a",
+      "name": "Beepi",
+      "url": "https://www.failory.com/cemetery/beepi",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_b10c1c3f3d960b86b10f",
+      "name": "Berg",
+      "url": "https://www.failory.com/cemetery/berg",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8ab5bf9b676fd6bcd463",
+      "name": "Birdy",
+      "url": "https://www.failory.com/interview/birdy",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_516c7f527f255ca6e13e",
+      "name": "Boston Apartment Hub",
+      "url": "https://www.failory.com/interview/boston-apartment-hub",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_321ad45ca853cf7bd17b",
+      "name": "Bounce",
+      "url": "https://www.failory.com/interview/bounce",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_28963e7c3dd75334bec6",
+      "name": "Brisk",
+      "url": "https://www.failory.com/cemetery/brisk",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_616655a7fb1f62c86df9",
+      "name": "Busymind",
+      "url": "https://www.failory.com/interview/busymind",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d1773449f077786ae89c",
+      "name": "Call9",
+      "url": "https://www.failory.com/cemetery/call9",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_02a59e9264d6573c8ce0",
+      "name": "Cam Ly",
+      "url": "https://www.failory.com/interview/cam-ly",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e21cbfdd03f8b5a32f30",
+      "name": "Chacha",
+      "url": "https://www.failory.com/cemetery/chacha",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_person_7c1afdf06a121a2cc4c9",
+      "name": "Charlie Clark",
+      "url": "https://example.com",
+      "reason": "DUMMY_EXAMPLE_COM_URL",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_36f33a6b6341909c005c",
+      "name": "Circa",
+      "url": "https://www.failory.com/cemetery/circa",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5a94c2098ad3f41fcdc7",
+      "name": "Corebook",
+      "url": "https://www.failory.com/interview/corebook",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5049415c8dfed2ccf1e2",
+      "name": "Crowdmix",
+      "url": "https://www.failory.com/cemetery/crowdmix",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a2a94c9d605f5c1a85b4",
+      "name": "Dazo",
+      "url": "https://www.failory.com/cemetery/dazo",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_73dc7bf81956e4f91961",
+      "name": "Denbertech",
+      "url": "https://www.failory.com/interview/denbertech",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9833de2928e5e42a3692",
+      "name": "Design Inc",
+      "url": "https://www.failory.com/cemetery/design-inc",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_6bf476dd4575f80350fe",
+      "name": "Digg",
+      "url": "https://www.failory.com/cemetery/digg",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f1be3812ef56d5c23660",
+      "name": "Dinnr",
+      "url": "https://www.failory.com/cemetery/dinnr",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_780632c43d74e1a5c0a4",
+      "name": "Dopplr",
+      "url": "https://www.failory.com/cemetery/dopplr",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_138b3cec496aec44f883",
+      "name": "Dotcloud",
+      "url": "https://www.failory.com/cemetery/dotcloud",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_1cd4cd2cf6ed05ae4771",
+      "name": "Eloquis",
+      "url": "https://www.failory.com/interview/eloquis",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a9da895bbb34cfb57750",
+      "name": "Eventvue",
+      "url": "https://www.failory.com/cemetery/eventvue",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_6c1a0686cf0c2936e90f",
+      "name": "Fab",
+      "url": "https://www.failory.com/cemetery/fab",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_542d057c602fc47431ad",
+      "name": "Finmasters",
+      "url": "https://www.failory.com/interview/finmasters",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d1f4ee6773ec9ace0733",
+      "name": "Flowtab",
+      "url": "https://www.failory.com/cemetery/flowtab",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_03eedeb9d4019711f57c",
+      "name": "Flud",
+      "url": "https://www.failory.com/cemetery/flud",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_3e3880c69432637c471a",
+      "name": "Flux",
+      "url": "https://www.failory.com/interview/flux",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_043e0b4b31ca2a96bde1",
+      "name": "Formspring",
+      "url": "https://www.failory.com/cemetery/formspring",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5ec334910c176813bcf8",
+      "name": "Foundationdb",
+      "url": "https://www.failory.com/cemetery/foundationdb",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_b8eae25a9f539233f685",
+      "name": "Frankly",
+      "url": "https://www.failory.com/cemetery/frankly",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_ce48b3c992c5849dae9d",
+      "name": "Friendster",
+      "url": "https://www.failory.com/cemetery/friendster",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_2609d5ed40a1f3d8cf21",
+      "name": "Fuhu",
+      "url": "https://www.failory.com/cemetery/fuhu",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_96d249277ea056752107",
+      "name": "Gowalla",
+      "url": "https://www.failory.com/cemetery/gowalla",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a72e10d87355d58b45cd",
+      "name": "Habitual",
+      "url": "https://www.failory.com/interview/habitual",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_cb30c862acb26eb8f800",
+      "name": "Hashtag Pirate",
+      "url": "https://www.failory.com/interview/hashtag-pirate",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8da4e510179be8648173",
+      "name": "Headway",
+      "url": "https://www.failory.com/interview/headway",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9db07cc53e467b5dcb9b",
+      "name": "Hitmeup",
+      "url": "https://www.failory.com/cemetery/hitmeup",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_dced6464145ce9f36b73",
+      "name": "Hot Barber",
+      "url": "https://www.failory.com/interview/hot-barber",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_92dd7b09008d26ab25e0",
+      "name": "Hotelsaroundyou",
+      "url": "https://www.failory.com/cemetery/hotelsaroundyou",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4462cbbaca952323eb67",
+      "name": "Houseparty",
+      "url": "https://www.failory.com/cemetery/houseparty",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f5a27792dc85e314b79a",
+      "name": "Hubhaus",
+      "url": "https://www.failory.com/cemetery/hubhaus",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_0e6217cc62fe083ff051",
+      "name": "Inked Sports",
+      "url": "https://www.failory.com/interview/inked-sports",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9458177273e575c6c3d9",
+      "name": "Inovvorx",
+      "url": "https://www.failory.com/interview/inovvorx",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_person_98d4b675b2248fb5ca48",
+      "name": "Iron Brands",
+      "url": "https://example.com",
+      "reason": "DUMMY_EXAMPLE_COM_URL",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_person_8899aacf4c98b775be3e",
+      "name": "Jon Buda",
+      "url": "https://example.com",
+      "reason": "DUMMY_EXAMPLE_COM_URL",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_person_c86c463d3f65ecc7063b",
+      "name": "Justin Jackson",
+      "url": "https://example.com",
+      "reason": "DUMMY_EXAMPLE_COM_URL",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_758b18680f0f34ed0a5b",
+      "name": "Kiko",
+      "url": "https://www.failory.com/cemetery/kiko",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_fe0d0955dced08b10636",
+      "name": "Kitchit",
+      "url": "https://www.failory.com/cemetery/kitchit",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9ddd7bdf80968f0816be",
+      "name": "Kno",
+      "url": "https://www.failory.com/cemetery/kno",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a69eb4b88e946185f1a5",
+      "name": "Koinex",
+      "url": "https://www.failory.com/cemetery/koinex",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_08d35132feafedaee7d2",
+      "name": "Laurel Wolf",
+      "url": "https://www.failory.com/cemetery/laurel-wolf",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_343cd6ff95fb04a89f22",
+      "name": "Layervault",
+      "url": "https://www.failory.com/cemetery/layervault",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5a8de81951b318c54fdd",
+      "name": "Leap Transit",
+      "url": "https://www.failory.com/cemetery/leap-transit",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8730b66634c02f324430",
+      "name": "Lieferoo",
+      "url": "https://www.failory.com/interview/lieferoo",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_c68f28c3ff0a066a763d",
+      "name": "Localtown",
+      "url": "https://www.failory.com/interview/localtown",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_89b2c0d37a4583d7845a",
+      "name": "Lockpick Entertainment",
+      "url": "https://www.failory.com/interview/lockpick-entertainment",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a16ee3da8dd8d3f40cc4",
+      "name": "Lookery",
+      "url": "https://www.failory.com/cemetery/lookery",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a6f4b00cc7e07c359993",
+      "name": "Lumos",
+      "url": "https://www.failory.com/cemetery/lumos",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_cade59b09fa61225d4dc",
+      "name": "Mailbox",
+      "url": "https://www.failory.com/cemetery/mailbox",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e42c884416b58b5e58c9",
+      "name": "Maple",
+      "url": "https://www.failory.com/cemetery/maple",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_c40c389d5b78e58b03ab",
+      "name": "Marketmuse",
+      "url": "https://www.failory.com/interview/marketmuse",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_7e7b1d587beda7af1c61",
+      "name": "Mishra Motors",
+      "url": "https://www.failory.com/interview/mishra-motors",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_fa798a6cf715a178244a",
+      "name": "Monite",
+      "url": "https://www.failory.com/interview/monite",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4f773899a273feb88465",
+      "name": "Moped",
+      "url": "https://www.failory.com/cemetery/moped",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_04f3424117b9553b567d",
+      "name": "Motobox",
+      "url": "https://www.failory.com/interview/motobox",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_feb96bb5a67d3a204910",
+      "name": "Move Loot",
+      "url": "https://www.failory.com/cemetery/move-loot",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_ebb47205f4781c4cd112",
+      "name": "Musical Ly",
+      "url": "https://www.failory.com/cemetery/musical-ly",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9fa5d2339464ed6066a5",
+      "name": "Mycity",
+      "url": "https://www.failory.com/interview/mycity",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_1499909c4d674c59dabb",
+      "name": "Navdy",
+      "url": "https://www.failory.com/cemetery/navdy",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_3f4c5b33189a774d25c2",
+      "name": "Netscape",
+      "url": "https://www.failory.com/cemetery/netscape",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d2c5b6a557a2bd51d0fd",
+      "name": "Okami Pack",
+      "url": "https://www.failory.com/interview/okami-pack",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4c6c1e2d844c706fbf21",
+      "name": "Onepagetrip",
+      "url": "https://www.failory.com/interview/onepagetrip",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_0a06bdbe047b9d1f039c",
+      "name": "Openmargin",
+      "url": "https://www.failory.com/interview/openmargin",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4cc50e465d1bb2f1cf7c",
+      "name": "Optier",
+      "url": "https://www.failory.com/cemetery/optier",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f81f4e54562d067ea88b",
+      "name": "Patron Ai",
+      "url": "https://www.failory.com/interview/patron-ai",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8d546bcd1f443a70f7d3",
+      "name": "Peppertap",
+      "url": "https://www.failory.com/cemetery/peppertap",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a82e765757071d0e63be",
+      "name": "Phoenix",
+      "url": "https://www.failory.com/interview/phoenix",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_person_14784b33050aaf046c38",
+      "name": "Pieter Levels",
+      "url": "https://example.com",
+      "reason": "DUMMY_EXAMPLE_COM_URL",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9087f60e58d51801004b",
+      "name": "Pixate",
+      "url": "https://www.failory.com/cemetery/pixate",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_39ef2694965f255ae5b4",
+      "name": "Polimobile",
+      "url": "https://www.failory.com/cemetery/polimobile",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_350b6691905a183ce892",
+      "name": "Postrocket",
+      "url": "https://www.failory.com/cemetery/postrocket",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e9fbed2b4080a6bce286",
+      "name": "Qbotix",
+      "url": "https://www.failory.com/cemetery/qbotix",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e6c8bd93f9fa7972a4ff",
+      "name": "Quibi",
+      "url": "https://www.failory.com/cemetery/quibi",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_81b45d4234d32099753f",
+      "name": "Quickhaggle",
+      "url": "https://www.failory.com/interview/quickhaggle",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_fc78907c4676c09d3390",
+      "name": "Rafter",
+      "url": "https://www.failory.com/cemetery/rafter",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_0a406bdfad7d8c7f822b",
+      "name": "Rdio",
+      "url": "https://www.failory.com/cemetery/rdio",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_892c23e7da2d8a6a37b4",
+      "name": "Reach Ly",
+      "url": "https://www.failory.com/cemetery/reach-ly",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_b7c00ba69519eca71278",
+      "name": "Readership",
+      "url": "https://www.failory.com/interview/readership",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_744b5eb541294c79cff9",
+      "name": "Rethinkdb",
+      "url": "https://www.failory.com/cemetery/rethinkdb",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8cacc20c2057aa4f27ac",
+      "name": "Rewardme",
+      "url": "https://www.failory.com/cemetery/rewardme",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f7af79358bcbcdae4935",
+      "name": "Ropero",
+      "url": "https://www.failory.com/interview/ropero",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_de20c22459c99bbb223e",
+      "name": "Salorix",
+      "url": "https://www.failory.com/cemetery/salorix",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a09eb7b9c2706e7efcb0",
+      "name": "Schoolgennie",
+      "url": "https://www.failory.com/cemetery/schoolgennie",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_b8b9534580d3eebe4b3e",
+      "name": "Secret",
+      "url": "https://www.failory.com/cemetery/secret",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f447eb4f270bd8d872b0",
+      "name": "Sellanapp",
+      "url": "https://www.failory.com/cemetery/sellanapp",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a98c005935f03df7905d",
+      "name": "Selltag",
+      "url": "https://www.failory.com/cemetery/selltag",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_82329d2451eb8d07b1d8",
+      "name": "Sharingear",
+      "url": "https://www.failory.com/cemetery/sharingear",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_be818037bd560faab71c",
+      "name": "Shipbeat",
+      "url": "https://www.failory.com/cemetery/shipbeat",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5ac29782ef93d45dc1fa",
+      "name": "Shipitwise",
+      "url": "https://www.failory.com/cemetery/shipitwise",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_5eea32cceee202b6d2db",
+      "name": "Sidecar",
+      "url": "https://www.failory.com/cemetery/sidecar",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_73332f3d44699e1298d3",
+      "name": "Siempo",
+      "url": "https://www.failory.com/interview/siempo",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_095f212b43302db2bcd9",
+      "name": "Sip",
+      "url": "https://www.failory.com/cemetery/sip",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8c7c1f4cbaca3f5efc38",
+      "name": "Sisu Academy",
+      "url": "https://www.failory.com/interview/sisu-academy",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_d4d1045c445e4b14b1f7",
+      "name": "Skully",
+      "url": "https://www.failory.com/cemetery/skully",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_dd006d1fd391b2890572",
+      "name": "Sofetch",
+      "url": "https://www.failory.com/interview/sofetch",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_f8caa2e8d70bc9b41fbc",
+      "name": "Sport Draftr",
+      "url": "https://www.failory.com/interview/sport-draftr",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_6ca4797f04f2bf2a4c1d",
+      "name": "Sprig",
+      "url": "https://www.failory.com/cemetery/sprig",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_078b9dc17276ebca7faf",
+      "name": "Springpad",
+      "url": "https://www.failory.com/cemetery/springpad",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_900f5b6823010d7c4819",
+      "name": "Stayzilla",
+      "url": "https://www.failory.com/cemetery/stayzilla",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_2f78578a294b67f0adcf",
+      "name": "Stereomood",
+      "url": "https://www.failory.com/cemetery/stereomood",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8e791f1ed6b538f46782",
+      "name": "Stratolaunch",
+      "url": "https://www.failory.com/cemetery/stratolaunch",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_76a8fabbf6acf121b1c3",
+      "name": "Sunrise",
+      "url": "https://www.failory.com/cemetery/sunrise",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_96a9e5ce71c5b89ab7c1",
+      "name": "Syria Airlift Project",
+      "url": "https://www.failory.com/interview/syria-airlift-project",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e24a6b866083db1e189d",
+      "name": "Take Eat Easy",
+      "url": "https://www.failory.com/cemetery/take-eat-easy",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_94b1ac1799e035abd0b6",
+      "name": "Taleship",
+      "url": "https://www.failory.com/interview/taleship",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_21df91e447f1bdb9711c",
+      "name": "Tali",
+      "url": "https://www.failory.com/interview/tali",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_073c2caeaea539bc686f",
+      "name": "Tandem App",
+      "url": "https://www.failory.com/interview/tandem-app",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_66dbc356ba4f8f6f4d13",
+      "name": "Teebeedee",
+      "url": "https://www.failory.com/cemetery/teebeedee",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a050fefec7328cb79351",
+      "name": "Teforia",
+      "url": "https://www.failory.com/cemetery/teforia",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_2444e542631721245d53",
+      "name": "Theranos",
+      "url": "https://www.failory.com/cemetery/theranos",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_8da26c229969df7b272a",
+      "name": "Tink Labs",
+      "url": "https://www.failory.com/cemetery/tink-labs",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_479fc43104c20274fca2",
+      "name": "Toki",
+      "url": "https://www.failory.com/interview/toki",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_b8dfb33e2b55274f2189",
+      "name": "Toygaroo",
+      "url": "https://www.failory.com/interview/toygaroo",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_38e732249885df04521c",
+      "name": "Transpose",
+      "url": "https://www.failory.com/cemetery/transpose",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_a191c0711f9d84f76899",
+      "name": "Turntable Fm",
+      "url": "https://www.failory.com/cemetery/turntable-fm",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_person_4a2e1ccde0d5e98bb3e6",
+      "name": "Uku Taht",
+      "url": "https://example.com",
+      "reason": "DUMMY_EXAMPLE_COM_URL",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_299c7e061b55b7f920c7",
+      "name": "Uptrend",
+      "url": "https://www.failory.com/interview/uptrend",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_04230271fd677db169c5",
+      "name": "Utrip",
+      "url": "https://www.failory.com/cemetery/utrip",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_ad952ad7274ab4cbeed2",
+      "name": "Verelo",
+      "url": "https://www.failory.com/cemetery/verelo",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4695dc381d968f863e0a",
+      "name": "Vimcal",
+      "url": "https://www.failory.com/interview/vimcal",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_35430a8ab5463265031f",
+      "name": "Vine",
+      "url": "https://www.failory.com/cemetery/vine",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_e928484de9ee2b8329f0",
+      "name": "Vreal",
+      "url": "https://www.failory.com/cemetery/vreal",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_24b77b84c5b3e6e6f128",
+      "name": "Wattage",
+      "url": "https://www.failory.com/cemetery/wattage",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_4ebfcb7f7da9ead87f5e",
+      "name": "Wesabe",
+      "url": "https://www.failory.com/cemetery/wesabe",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_0bdeb383368bda5ee479",
+      "name": "Yogome",
+      "url": "https://www.failory.com/cemetery/yogome",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_7e11441397eca26cab10",
+      "name": "Zapstream",
+      "url": "https://www.failory.com/interview/zapstream",
+      "reason": "INTERVIEW_ARTICLE_NOT_ENTITY",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_9a41d9c7999862bd3f4e",
+      "name": "Zirtual",
+      "url": "https://www.failory.com/cemetery/zirtual",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    },
+    {
+      "id": "ent_company_93acea4dd7b5bca0dcd6",
+      "name": "Zoomo",
+      "url": "https://www.failory.com/cemetery/zoomo",
+      "reason": "FAILURE_STORY_COLUMN_ARTICLE",
+      "blacklistedAt": "2026-09-12T11:34:14.246Z"
+    }
+  ]
+}

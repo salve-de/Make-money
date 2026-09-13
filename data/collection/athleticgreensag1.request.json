@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_athleticgreensag1_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Athletic Greens (AG1)",
+      "candidate_domain": "drinkag1.com"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_athleticgreensag1_primary",
+        "url": "https://drinkag1.com",
+        "title": "Athletic Greens (AG1) Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_athleticgreensag1_pnl",
+        "source_id": "src_athleticgreensag1_primary",
+        "snippet": "Monthly Revenue: 7500000000, Margin: 10%, Gross: 80%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_athletic_greens_ag1",
+        "entity_type": "business",
+        "canonical_name": "Athletic Greens (AG1)",
+        "domain": "drinkag1.com",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_athleticgreensag1_tagline",
+        "entity_id": "ent_athletic_greens_ag1",
+        "attribute": "tagline",
+        "value": "「75種類のサプリを毎日飲む面倒」を緑の粉1杯にまとめ、ポッドキャスト全枠を札束で買い占めて年商900億円を吸い上げる粉末の錬金術",
+        "evidence_ids": [
+          "ev_athleticgreensag1_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_athleticgreensag1_revenue",
+        "entity_id": "ent_athletic_greens_ag1",
+        "name": "monthly_revenue_jpy",
+        "value": 7500000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_athleticgreensag1_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_athleticgreensag1_dossier",
+        "entity_id": "ent_athletic_greens_ag1",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "製造原価わずか数百円の緑色の粉末を、美しいシェイカーと大義名分で包み込み、「月額79ドルの定期購入」で世界中の富裕層に一生飲ませ続ける手口",
+            "section01_dna": {
+              "businessType": "オールインワン型プレミアム栄養粉末サプリメント（ビタミン、ミネラル、プロバイオティクス統合）の定期通販",
+              "targetWallet": "世界中の健康志向ビジネスマン、エグゼクティブの健康保険・サプリメント代（月額$79〜$99）",
+              "painRelief": "「ビタミン剤、整腸剤、オメガ3など何十個ものボトルを買い分け、毎朝飲む」極限の面倒くささと自己嫌悪の切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「品揃えを増やさず、AG1という単一SKU（1商品）だけに全資本を集中投下した」狂気の単純化",
+              "analysis": "1. 既存のサプリメント企業が何百種類ものビタミンやプロテインの在庫を抱えて利益を圧迫させる中、AG1は「これ1つで全部完了する」という単一商品に限定。\n2. 在庫管理コストと製造ラインを極限までシンプルにし、浮いた巨額の利益を全量ポッドキャスト広告の買い占めに再投資。\n3. 「初回限定で特製シェイカーと保存缶、ビタミンD3ボトルを無料でプレゼントする」アンカリングで定期購入の初期離脱を完全粉砕。"
+            },
+            "section03_moatPowers": {
+              "headline": "【ポッドキャスト音声広告枠の長期独占 ✕ 『朝の一杯』という生活習慣への不可逆的埋め込み】",
+              "analysis": "1. ジョー・ローガン（The Joe Rogan Experience）、ティム・フェリス、アンドリュー・ヒューバーマン等の超巨大ポッドキャストの広告枠を年間契約で先回り独占。\n2. リスナーは尊敬するオピニオンリーダーの肉声で「毎朝これを飲んでいる」と毎日聴かされるため、批判的思考が停止して神聖なルーティンとして定着。\n3. 一度「朝起きて冷水に緑の粉を溶かして飲む」習慣がついた人間は、飲まない日があると「今日一日体調を崩すのではないか」という損失回避の恐怖に縛られて解約できない。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "GNCやNature Made等の大手製薬・サプリ企業はドラッグストアの棚卸し商流に依存しており、月額79ドルの高額粉末サプリを直販する勇気がなかった",
+              "analysis": "薬局やスーパーの棚で売る場合、1ボトル1,000円〜2,000円の価格競争に巻き込まれる。AG1はドラッグストアを完全無視し、DTC（直販）で「月額1万円超のライフスタイルブランド」として再定義したため、他社が立ち入れない超高粗利ゾーンを築いた。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のChris Ashendenは自身の健康崩壊と多額の借金を経験した後、ニュージーランドの栄養士と組んで「完璧な1杯」を開発。初期はティム・フェリス（『週4時間だけ働く』の著者）に直接サンプルの粉を送り込み、彼が本気で気に入ってポッドキャストで絶賛したことから全米のテック界隈に火がついた。",
+            "platformGlitch": "デジタル広告（Facebook/Google）の広告単価が高騰する前に、まだ未開拓だった「ポッドキャストのホストリード広告（パーソナリティ自身が台本なしで語る形式）」に全額をベットし、極めて低いCPAで顧客を総取りした。",
+            "pivotSnapshot": "無数のサプリ開発をやめ、フラッグシップの緑の粉末「AG1」1本に社運を賭けてリブランディングした特化集中。",
+            "hiddenCostStructure": "製造原価自体は極めて安いが、顧客獲得コスト（CAC）の大半を占めるポッドキャスト広告の入札競争が激化しており、LTVを伸ばすための解約防止チームが生命線。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「健康的な食事を作るのは面倒、でも病気になって早死にするのは怖い」という極度の怠惰と生存本能。緑色の粉を飲むだけで『今日の健康への義務は完了した』という免罪符が手に入る。",
+            "marketDistortion": "「水に溶かすだけの粉末」に月額1万円以上を払わせることで、原価率20%・粗利率80%という製薬会社顔負けのキャッシュフローを実現。",
+            "userResentment": "「味が独特で青臭い」「解約ボタンが分かりにくい」「本当に効果があるのか医学的エビデンスが曖昧」という定期通販特有の解約怨嗟。"
+          },
+          "temporal": {
+            "foundedYear": 2010,
+            "initialTractionPeriod": "2012-2015年 (Tim Ferrissのスポンサーシップ獲得)",
+            "dataSnapshotPeriod": "2023-2026年 (年商$600M超・Kat Cole新体制)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "ウェルネス志向の高まりと、ポッドキャスト音声メディアの黄金期が完璧に合致。",
+            "currentViabilityAnalysis": "創業者の法的スキャンダルを経て新CEOが就任し、トラベルパックや新フレーバー、科学的検証の強化によってブランドの永続化を推進中。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

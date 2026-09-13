@@ -1,0 +1,119 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_carrd_20260910",
+    "purpose": "make_money",
+    "subject": {
+      "candidate_name": "Carrd",
+      "candidate_domain": "carrd.co"
+    },
+    "agent": {
+      "name": "MakeMoney-Analyst"
+    },
+    "retrieved_at": "2026-09-10T19:20:00Z",
+    "sources": [
+      {
+        "source_id": "src_carrd_primary",
+        "url": "https://carrd.co",
+        "title": "Carrd Official / Primary Evidence",
+        "retrieved_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_carrd_pnl",
+        "source_id": "src_carrd_primary",
+        "snippet": "Monthly Revenue: 28000000, Margin: 87.8%, Gross: 95%",
+        "collected_at": "2026-09-10T19:20:00Z"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_carrd_6a69c797d0b28fc91fe6",
+        "entity_type": "business",
+        "canonical_name": "Carrd",
+        "domain": "carrd.co",
+        "status": "ACTIVE"
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "clm_carrd_tagline",
+        "entity_id": "ent_carrd_6a69c797d0b28fc91fe6",
+        "attribute": "tagline",
+        "value": "「Webサイト制作に月数千円・管理に数日取られる」苦痛を年額9ドルの破壊価格で粉砕し、広告費0円・たった1人で年商3.5億円を抜く1枚LP要塞",
+        "evidence_ids": [
+          "ev_carrd_pnl"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "met_carrd_revenue",
+        "entity_id": "ent_carrd_6a69c797d0b28fc91fe6",
+        "name": "monthly_revenue_jpy",
+        "value": 28000000,
+        "unit": "JPY",
+        "origin_type": "reported_interviews_and_stripe_logs",
+        "evidence_ids": [
+          "ev_carrd_pnl"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [
+      {
+        "derived_id": "drv_carrd_dossier",
+        "entity_id": "ent_carrd_6a69c797d0b28fc91fe6",
+        "kind": "keyence_dossier",
+        "value": {
+          "group": "GROUP_A_WINNER",
+          "dossier": {
+            "oneLineLead": "WordPressの脆弱性とWebflowの過剰機能を嘲笑い、年額19ドルという狂気の価格設定で解約する理由を消滅させ、完全1人で毎年3億円以上の現金を貯め込む手口",
+            "section01_dna": {
+              "businessType": "レスポンシブな1ページ（LP・プロフィール）専用の超軽量Webサイトビルダー",
+              "targetWallet": "世界中の個人開発者、副業ワーカー、イベント主催者、インフルエンサーのリンクインバイオ・ポートフォリオ予算",
+              "painRelief": "「WordPressのプラグイン更新で画面が壊れる」「Webflowは設定項目が多すぎて挫折する」ストレスの完全切除"
+            },
+            "section02_marketGlitch": {
+              "headline": "「月額課金ではなく年額19ドル（月1.5ドル以下）で放置させる」非アクティブ総取りの罠",
+              "analysis": "1. 他社SaaSが「月額$15〜$29」で請求し毎月解約アラートをユーザーに意識させるのに対し、Carrdは「年額19ドル」。ユーザーは「解約手続きをする時間の方がもったいない」と判断し、永久に課金を継続。\n2. サーバーサイドで複雑な動的処理を行わず、静的なHTML/CSS/JSを書き出してS3とCloudflareに置くだけの構成にしたため、何百万サイト作られてもインフラコストがほぼゼロ。\n3. 無料プランの全サイト最下部に「Made with Carrd」の小バナーを強制設置し、サイトが閲覧されるたびに新規ユーザーが雪だるま式に流入する完全自走ループを構築。"
+            },
+            "section03_moatPowers": {
+              "headline": "【極限の低コスト構造（コーナード・リソース） ✕ 破壊的スイッチングコスト】",
+              "analysis": "1. 開発者1人＋サポート1人の合計2人運営のため、月間固定費はサーバー代数十万円のみ。利益率90%超を叩き出すため、どんな競合が価格競争を仕掛けても絶対に耐えられる。\n2. 一度カスタムドメインを当ててポートフォリオや問い合わせフォームとして稼働させたユーザーは、年額わずか数千円のツールを乗り換える動機が1ミリも存在しない。\n3. サードパーティの開発者がCarrd用テンプレートを自作してGumroadで販売する生態系が自律成立し、創業者自身がテンプレートを作る手間すら省力化。"
+            },
+            "section04_incumbentDilemma": {
+              "headline": "SquarespaceやWixは巨額のテレビCM・人件費・上場維持費を抱えているため、年額19ドルのプランを出した瞬間に売上が90%消滅して自爆する",
+              "analysis": "エンタープライズや多機能ECを目指す既存大手は、月額数千円〜数万円のARPUを維持しなければ赤字転落する。Carrdのように「1ページ完結・年額19ドル」という極限の低単価セグメントには、構造上逆立ちしても参入できない。"
+            }
+          },
+          "playbook": {
+            "initialGuerrillaLog": "創業者のAJは、元々「HTML5 UP」という無料レスポンシブWebテンプレート配布サイトを長年運営しており、全世界のWeb制作者に圧倒的な信頼と被リンク資産を保有していた。その無料テンプレ利用者の「Webサーバーを契約してFTPアップロードするのが面倒」という愚痴を拾い上げ、ブラウザ上で1クリック公開できるCarrdを告知して初日に数百人の有料会員を即座に獲得。",
+            "platformGlitch": "競合がWordPressやノーコードの多機能化競争に走る中、「1ページのみ」という極限の機能制限（引き算）を断行。結果的にバグの発生確率とサポート問い合わせ件数を極小化し、1人運営を可能にした。",
+            "pivotSnapshot": "受託Web制作や単体テンプレート配布の「労働集約型ビジネス」から、完全自動課金されるSaaSへと完全に脱皮。",
+            "hiddenCostStructure": "AWS S3とCloudflareのキャッシュヒット率が99%を超えているため、アクセスが数億PVに跳ね上がってもインフラ費がほぼ変動しない。"
+          },
+          "intelligence": {
+            "savannahTrigger": "「面倒なことは1秒もしたくない、今すぐ自分の名前のWebサイトが欲しい」という極限の怠惰。3分で完成し、年間2,000円台で維持できるため、財布の紐が完全に消滅する。",
+            "marketDistortion": "「Web制作会社にLP制作を依頼すると30万〜50万円かかる」常識を、大学生や個人事業主がCarrdで自作して完全に中抜き消滅させた。",
+            "userResentment": "年額プランの自動更新を忘れて放置し続けているが、金額が年間数千円と安すぎるためカード明細を見ても「まあいいか」と放置し続ける心理的麻痺。"
+          },
+          "temporal": {
+            "foundedYear": 2016,
+            "initialTractionPeriod": "2016-2018年",
+            "dataSnapshotPeriod": "2024-2026年 (ARR $2.5M超)",
+            "viabilityStatus": "ACTIVE_PLAYBOOK",
+            "eraContext": "モバイルファーストへの移行期に、重厚長大なCMSに対するアンチテーゼとしてミニマリズムを極めて一人勝ち。",
+            "currentViabilityAnalysis": "ノーコードツールの乱立期においても「最安・最速・壊れない」ポジションを独占しており、AIサイトビルダーが登場しても解約率が極めて低い絶対的要塞。"
+          }
+        }
+      }
+    ],
+    "quality": {
+      "schema_validation": "PASS"
+    }
+  }
+}

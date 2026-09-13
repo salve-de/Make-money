@@ -1,0 +1,453 @@
+{
+  "journal_entries": 28,
+  "results": [
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_c938621eea1a629aed4299b6.json",
+      "bytes": 1311,
+      "sha256": "6a4805e4b7a19669c71056ced2efdd24ee9a1ea329c7772eb4805a04f6658cb1",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_f6a3279a4dc0c162a56c60c1.json",
+      "bytes": 1317,
+      "sha256": "104413bf1ee7b78d30f2b781c1295e218d262a50eaf27b35eef5d727e0a4f6aa",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_6e31cac297a3852bd5477e97.json",
+      "bytes": 1224,
+      "sha256": "e7e742fed5ee0a9d791b043469cd3920ca6eb670dd3a4c16a0137c38ec8b620a",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_377169e8f1fe1f04c8a5f1cc.json",
+      "bytes": 1288,
+      "sha256": "cf1bdac0421cac233096de2995a91561a9078831cc219535cad11672cedc1860",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_0dfb531d7c973e78d11184a4.json",
+      "bytes": 1280,
+      "sha256": "e032d46d9a4d906942bb3d4951dff69b24ae406e93930e2c497edb1f15a80fb5",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_29efbbe56705d32d39ef06af.json",
+      "bytes": 1722,
+      "sha256": "f927fc0f2d6915c0a292fc798cb146f7b44f23d223c1c3421620b86ad0952a13",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_d49c1e6b293c73c136f626ac.json",
+      "bytes": 1584,
+      "sha256": "47aaa55ff86932de729006448797c7fb591755769bf794a4c35cddf39ea4d7ce",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_a97da1160f3a5831dccdf491.json",
+      "bytes": 1770,
+      "sha256": "3ef634e681da10c8254058621a3da7473416b8abe72099a3fd1a2d46783abe40",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_33ad8a787f9991344fd0186c.json",
+      "bytes": 1644,
+      "sha256": "33afe77d3e5d40202d83264e814e9f45be2d848f72893ebaf3ea6740069817f7",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_e401c1c61e3854c37d64ceb0.json",
+      "bytes": 1716,
+      "sha256": "0ac54d6d0e9532985481e16a821fefa2caabe7980855156b293db144496af8dd",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_7be1c2550a6036a7a4e4ae9b.json",
+      "bytes": 1531,
+      "sha256": "eb764fa203f112280217ca26e8cd338cd04140acaadf91194cc332d01368e173",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_a26c58e7954ecc57b63e660c.json",
+      "bytes": 1542,
+      "sha256": "9a32efd7203c24d508ed670173c93dfd291726655fd664d9c673dd0b45ff2854",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_fb4b7361928eb8c07ed184dd.json",
+      "bytes": 1556,
+      "sha256": "a29fae4c46579977ecdb24267ceb886030eb6401ad15e317ce5fb581f9693865",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_a5ef3b14670cefbcdb5b1ccf.json",
+      "bytes": 1648,
+      "sha256": "bd12f0b29e6caad344351ad4337404bfdcdf6aea798cdffa26fef1289d09ae8c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_71e3ef1787ac7b15e8080dcc.json",
+      "bytes": 1508,
+      "sha256": "0f38f9321767f44b11d6b4ed3aa26977aaecc7ddb348ca543f7227fe9ea81032",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_91b09febcf67b1d08e92dfa3.json",
+      "bytes": 1512,
+      "sha256": "bf7aa909db9fca538319ecf4ddb679b796ad1a32aa67d1eeb36dcee1eb0c75c3",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_c0310a5ca89c47397bba2590.json",
+      "bytes": 1504,
+      "sha256": "34c464fbbb92e5e70023a2085cc599184fcc9405f51462b874a76f1d5b15053f",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_947856db0a214df21f144fb4.json",
+      "bytes": 1588,
+      "sha256": "4e506b106fe7861db6957ba33b694cc43b60f998386b085e77608867351f86b5",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_85b797198dc550ad720f64e0.json",
+      "bytes": 1791,
+      "sha256": "c2df1b500a379561d78e06352794efa4411b9154cd5e08921853c114d3272111",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_5ebcf1dfb000261c4cb02ba7.json",
+      "bytes": 1807,
+      "sha256": "12d07979171dbdaa6106f384b776d1e9c8b832fa7f6ea77e01edaa92d0ff9ff8",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_4dcb5ac6240b591d6c0155fe.json",
+      "bytes": 1587,
+      "sha256": "03fe62460ce8d1a8ed7006af89425f387e126514e9dcf979f2889ee29580c615",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_155277f9e01646bfcc8f4a9b.json",
+      "bytes": 1435,
+      "sha256": "10e5659113e5ac7197b8a6cda3ebc4886e703ccaedea561e5f328a1c46652fdb",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_9d61b865709bb63f7d7f5f84.json",
+      "bytes": 1488,
+      "sha256": "ce1018cf01c3275f686dda459b7da5c05f4bef9649f2d2c09ecad26d8ad37edc",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_7382dee9790bf7794f7e3980.json",
+      "bytes": 1407,
+      "sha256": "0d63eea8191eb5134f1b8bd442c2006b4656d84df4018b1d5672588b98c64bed",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_79ff03a394483f164e5a704a.json",
+      "bytes": 1498,
+      "sha256": "d02ab02fc8cea79d4cb83302277d7b0f41cad33a686c2e49eec37a21b7c4d733",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_af7ff523c20c23ee370df04e.json",
+      "bytes": 1560,
+      "sha256": "8d3082a61bedc643763a234f3f9d10e0d250e04befbc5c5a8e29a88729d47a14",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_912ad6783feebce0de03e27f.json",
+      "bytes": 1642,
+      "sha256": "c02420e2d529362a130702990e0a294c812c47e77cc39987b7b06204accc5f41",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    },
+    {
+      "status": "CREATED",
+      "bucket": "foundation-lake",
+      "key": "journal/v1/2026/09/09/jr_13182eb0f2d5a0b08a3af0bf.json",
+      "bytes": 1652,
+      "sha256": "bb15cbd01223f569eddb1146de74b6d79a13c8c9efc6deda6b49aa7a64cb7ba8",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      }
+    }
+  ]
+}

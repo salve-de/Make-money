@@ -11,6 +11,7 @@ import { X } from 'lucide-react';
 
 export default function FinderPage() {
   const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedCompanyId, setSelectedCompanyId] = useState<string | null>(null);
 
   const selectedCompany = selectedCompanyId 
@@ -19,21 +20,22 @@ export default function FinderPage() {
 
   const handleChangeMainView = (view: string) => {
     if (view === 'FINDER') return;
-    router.push(`/?view=${view}`);
+    router.push(view === 'PORTAL' ? '/playbook' : '/?mode=LEDGER');
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans">
       <MarketLiveTicker />
       <CleanHeader
-        searchQuery=""
-        onSearchChange={() => {}}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
         totalCount={TERMINAL_COMPANIES.length}
         mainView="FINDER"
         onChangeMainView={handleChangeMainView}
       />
       <main className="flex-1 overflow-y-auto p-5 sm:p-7 lg:p-9 space-y-6 select-none max-w-7xl mx-auto w-full">
         <DiagnosticFinder
+          searchQuery={searchQuery}
           onSelectCompany={(id) => setSelectedCompanyId(id)}
         />
       </main>

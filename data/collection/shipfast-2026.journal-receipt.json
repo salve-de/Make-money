@@ -1,0 +1,2192 @@
+{
+  "entries": [
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_c938621eea1a629aed4299b6",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.entity.identity",
+      "payload_schema_ref": null,
+      "payload": {
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "entity_type": "business",
+        "canonical_name": "ShipFast",
+        "aliases": [
+          "Shipfast",
+          "shipfa.st"
+        ],
+        "canonical_identifier": "shipfa.st",
+        "domain": "shipfa.st",
+        "status": "ACTIVE",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_df334cf9840d219e375026f7"
+        ]
+      },
+      "text_original": "ShipFast",
+      "origin_type": "observed",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.5,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official",
+          "src.marclou.x"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936",
+        "ev_df334cf9840d219e375026f7"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "entity:ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "rights_status": null,
+      "tags": [
+        "entity"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_f6a3279a4dc0c162a56c60c1",
+      "subject_refs": [
+        "ent_person_45457b6f8e7724441c62"
+      ],
+      "observation_type": "foundation.entity.identity",
+      "payload_schema_ref": null,
+      "payload": {
+        "entity_id": "ent_person_45457b6f8e7724441c62",
+        "entity_type": "person",
+        "canonical_name": "Marc Lou",
+        "aliases": [
+          "Marc Louvion",
+          "@marc_louvion"
+        ],
+        "canonical_identifier": "x.com/marc_louvion",
+        "domain": null,
+        "status": "ACTIVE",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": "Marc Lou",
+      "origin_type": "observed",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.5,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "entity:ent_person_45457b6f8e7724441c62"
+      ],
+      "rights_status": null,
+      "tags": [
+        "entity"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_6e31cac297a3852bd5477e97",
+      "subject_refs": [
+        "ent_service_aa022bd721406c8a0d05"
+      ],
+      "observation_type": "foundation.entity.identity",
+      "payload_schema_ref": null,
+      "payload": {
+        "entity_id": "ent_service_aa022bd721406c8a0d05",
+        "entity_type": "service",
+        "canonical_name": "Stripe",
+        "aliases": [
+          "Stripe Payments"
+        ],
+        "canonical_identifier": "stripe.com",
+        "domain": "stripe.com",
+        "status": "ACTIVE",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": "Stripe",
+      "origin_type": "observed",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.5,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "entity:ent_service_aa022bd721406c8a0d05"
+      ],
+      "rights_status": null,
+      "tags": [
+        "entity"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_377169e8f1fe1f04c8a5f1cc",
+      "subject_refs": [
+        "ent_platform_b6f385c0c5f1cf58c3ac"
+      ],
+      "observation_type": "foundation.entity.identity",
+      "payload_schema_ref": null,
+      "payload": {
+        "entity_id": "ent_platform_b6f385c0c5f1cf58c3ac",
+        "entity_type": "platform",
+        "canonical_name": "X",
+        "aliases": [
+          "Twitter",
+          "x.com"
+        ],
+        "canonical_identifier": "x.com",
+        "domain": "x.com",
+        "status": "ACTIVE",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": "X",
+      "origin_type": "observed",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.5,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "entity:ent_platform_b6f385c0c5f1cf58c3ac"
+      ],
+      "rights_status": null,
+      "tags": [
+        "entity"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_0dfb531d7c973e78d11184a4",
+      "subject_refs": [
+        "ent_market_652c7039b9391b89d8f0"
+      ],
+      "observation_type": "foundation.entity.identity",
+      "payload_schema_ref": null,
+      "payload": {
+        "entity_id": "ent_market_652c7039b9391b89d8f0",
+        "entity_type": "market_segment",
+        "canonical_name": "Solo Developers and Entrepreneurs",
+        "aliases": [
+          "Indie Hackers",
+          "SaaS Founders"
+        ],
+        "canonical_identifier": null,
+        "domain": null,
+        "status": "ACTIVE",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": "Solo Developers and Entrepreneurs",
+      "origin_type": "observed",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.5,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "entity:ent_market_652c7039b9391b89d8f0"
+      ],
+      "rights_status": null,
+      "tags": [
+        "entity"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_29efbbe56705d32d39ef06af",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6",
+        "ent_person_45457b6f8e7724441c62"
+      ],
+      "observation_type": "foundation.claim",
+      "payload_schema_ref": null,
+      "payload": {
+        "claim_id": "cl_8e5444a7cfdc5ababae8e290",
+        "entity_ids": [
+          "ent_business_9b8e02f696f14e5ca2b6",
+          "ent_person_45457b6f8e7724441c62"
+        ],
+        "statement": "ShipFast is a Next.js SaaS boilerplate created and operated entirely by solo founder Marc Lou.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "occurred_at": "2023-09-01T00:00:00Z",
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      },
+      "text_original": "ShipFast is a Next.js SaaS boilerplate created and operated entirely by solo founder Marc Lou.",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.95,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "claim:cl_8e5444a7cfdc5ababae8e290"
+      ],
+      "rights_status": null,
+      "tags": [
+        "claim"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_d49c1e6b293c73c136f626ac",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.claim",
+      "payload_schema_ref": null,
+      "payload": {
+        "claim_id": "cl_06950aa94ae00694483d3360",
+        "entity_ids": [
+          "ent_business_9b8e02f696f14e5ca2b6"
+        ],
+        "statement": "ShipFast charges a one-time payment ($169 to $299) for lifetime access to its code repository and documentation.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "occurred_at": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      },
+      "text_original": "ShipFast charges a one-time payment ($169 to $299) for lifetime access to its code repository and documentation.",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.99,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "claim:cl_06950aa94ae00694483d3360"
+      ],
+      "rights_status": null,
+      "tags": [
+        "claim"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_a97da1160f3a5831dccdf491",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6",
+        "ent_platform_b6f385c0c5f1cf58c3ac"
+      ],
+      "observation_type": "foundation.claim",
+      "payload_schema_ref": null,
+      "payload": {
+        "claim_id": "cl_3b5a168de221e5b673fa1906",
+        "entity_ids": [
+          "ent_business_9b8e02f696f14e5ca2b6",
+          "ent_platform_b6f385c0c5f1cf58c3ac"
+        ],
+        "statement": "Initial customer acquisition was driven entirely by organic viral videos and build-in-public posts on X with $0 ad spend.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "occurred_at": "2023-09-10T00:00:00Z",
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      },
+      "text_original": "Initial customer acquisition was driven entirely by organic viral videos and build-in-public posts on X with $0 ad spend.",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.9,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-10T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "claim:cl_3b5a168de221e5b673fa1906"
+      ],
+      "rights_status": null,
+      "tags": [
+        "claim"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_33ad8a787f9991344fd0186c",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.claim",
+      "payload_schema_ref": null,
+      "payload": {
+        "claim_id": "cl_e6727621b122b111be905528",
+        "entity_ids": [
+          "ent_business_9b8e02f696f14e5ca2b6"
+        ],
+        "statement": "Gross margins are reported at 90-95% due to zero incremental software production cost per digital copy.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "occurred_at": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      },
+      "text_original": "Gross margins are reported at 90-95% due to zero incremental software production cost per digital copy.",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.9,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "claim:cl_e6727621b122b111be905528"
+      ],
+      "rights_status": null,
+      "tags": [
+        "claim"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_e401c1c61e3854c37d64ceb0",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.claim",
+      "payload_schema_ref": null,
+      "payload": {
+        "claim_id": "cl_d9010df144ede97467d1cda4",
+        "entity_ids": [
+          "ent_business_9b8e02f696f14e5ca2b6"
+        ],
+        "statement": "ShipFast operates with zero employees and zero office overhead; infrastructure runs on Vercel, Supabase, and Resend at negligible cost.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "occurred_at": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "supersedes": [],
+        "superseded_by": []
+      },
+      "text_original": "ShipFast operates with zero employees and zero office overhead; infrastructure runs on Vercel, Supabase, and Resend at negligible cost.",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.9,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "claim:cl_d9010df144ede97467d1cda4"
+      ],
+      "rights_status": null,
+      "tags": [
+        "claim"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_7be1c2550a6036a7a4e4ae9b",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.cumulative_revenue",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_f9e0df03a33d903a9f5b440e",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "cumulative_revenue",
+        "value": 250000,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": "2024-02-01T00:00:00Z",
+        "point_in_time": "2024-02-01T00:00:00Z",
+        "basis": "cash_collected",
+        "scope": "total_company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.95,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2024-02-01T00:00:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": "2024-02-01T00:00:00Z"
+      },
+      "observed_at": "2024-02-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_f9e0df03a33d903a9f5b440e"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_a26c58e7954ecc57b63e660c",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.peak_monthly_revenue",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_a87433b2e7ba87cdb6545cad",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "peak_monthly_revenue",
+        "value": 60000,
+        "unit": "USD_per_month",
+        "currency": "USD",
+        "period_start": "2023-11-01T00:00:00Z",
+        "period_end": "2023-11-30T23:59:59Z",
+        "point_in_time": "2023-11-30T23:59:59Z",
+        "basis": "cash_collected",
+        "scope": "total_company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.9,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2023-11-30T23:59:59Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-11-01T00:00:00Z",
+        "period_end": "2023-11-30T23:59:59Z"
+      },
+      "observed_at": "2023-11-30T23:59:59Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_a87433b2e7ba87cdb6545cad"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_fb4b7361928eb8c07ed184dd",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.steady_monthly_revenue_low",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_24848792c85c191adc9a83d6",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "steady_monthly_revenue_low",
+        "value": 20000,
+        "unit": "USD_per_month",
+        "currency": "USD",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-01-31T23:59:59Z",
+        "point_in_time": "2024-01-31T23:59:59Z",
+        "basis": "cash_collected",
+        "scope": "total_company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.85,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.85,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2024-01-31T23:59:59Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-01-31T23:59:59Z"
+      },
+      "observed_at": "2024-01-31T23:59:59Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_24848792c85c191adc9a83d6"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_a5ef3b14670cefbcdb5b1ccf",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.net_profit_margin_reported",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_01c067ea18e68f24a72ceafa",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "net_profit_margin_reported",
+        "value": 0.95,
+        "unit": "ratio",
+        "currency": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": "2024-02-01T00:00:00Z",
+        "point_in_time": "2024-02-01T00:00:00Z",
+        "basis": "reported_operating_cash_margin",
+        "scope": "total_company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.9,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2024-02-01T00:00:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": "2024-02-01T00:00:00Z"
+      },
+      "observed_at": "2024-02-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_01c067ea18e68f24a72ceafa"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_71e3ef1787ac7b15e8080dcc",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.pricing_tier_starter",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_535697da5a473f79aeae3557",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "pricing_tier_starter",
+        "value": 169,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null,
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "basis": "one_time_payment",
+        "scope": "license_starter",
+        "origin_type": "observed",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.99,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null
+      },
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_535697da5a473f79aeae3557"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_91b09febcf67b1d08e92dfa3",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.pricing_tier_all_in",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_38017ab37422c52a5f63f617",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "pricing_tier_all_in",
+        "value": 299,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null,
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "basis": "one_time_payment",
+        "scope": "license_all_inclusive",
+        "origin_type": "observed",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.99,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null
+      },
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_38017ab37422c52a5f63f617"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_c0310a5ca89c47397bba2590",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.headcount_full_time",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_ededba6e2977b5f72757c377",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "headcount_full_time",
+        "value": 1,
+        "unit": "people",
+        "currency": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null,
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "basis": "solo_founder",
+        "scope": "total_company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.99,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null
+      },
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_ededba6e2977b5f72757c377"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_947856db0a214df21f144fb4",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.metric.monthly_operating_cost_estimated",
+      "payload_schema_ref": null,
+      "payload": {
+        "metric_id": "mt_688e2fc161ae7392b457b704",
+        "entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "metric_type": "monthly_operating_cost_estimated",
+        "value": 150,
+        "unit": "USD_per_month",
+        "currency": "USD",
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": "2024-02-01T00:00:00Z",
+        "point_in_time": "2024-02-01T00:00:00Z",
+        "basis": "hosting_and_api_tiers",
+        "scope": "infrastructure",
+        "origin_type": "estimated",
+        "verification_status": "UNVERIFIED",
+        "confidence": 0.8,
+        "evidence_ids": [
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "estimated",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.8,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2024-02-01T00:00:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": "2024-02-01T00:00:00Z"
+      },
+      "observed_at": "2024-02-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "metric:mt_688e2fc161ae7392b457b704"
+      ],
+      "rights_status": null,
+      "tags": [
+        "metric"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_85b797198dc550ad720f64e0",
+      "subject_refs": [
+        "ent_market_652c7039b9391b89d8f0",
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.money.product_license_sale",
+      "payload_schema_ref": null,
+      "payload": {
+        "money_signal_id": "ms_4a2b930fea35b19330b46ecc",
+        "payer_entity_id": "ent_market_652c7039b9391b89d8f0",
+        "receiver_entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "purpose": "Purchase of one-time Next.js boilerplate code license",
+        "money_type": "product_license_sale",
+        "amount": 199,
+        "currency": "USD",
+        "unit": "USD",
+        "amount_label": "$169-$299 one-time payment per license",
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null,
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "basis": "one_time_charge",
+        "scope": "revenue_inflow",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": "Purchase of one-time Next.js boilerplate code license",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.95,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null
+      },
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "money_signal:ms_4a2b930fea35b19330b46ecc"
+      ],
+      "rights_status": null,
+      "tags": [
+        "money_signal"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_5ebcf1dfb000261c4cb02ba7",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6",
+        "ent_service_aa022bd721406c8a0d05"
+      ],
+      "observation_type": "foundation.money.payment_processing_fee",
+      "payload_schema_ref": null,
+      "payload": {
+        "money_signal_id": "ms_cd4fddabd689e681e5c46ffb",
+        "payer_entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "receiver_entity_id": "ent_service_aa022bd721406c8a0d05",
+        "purpose": "Payment processing fees (approx 2.9% + $0.30 per transaction)",
+        "money_type": "payment_processing_fee",
+        "amount": null,
+        "currency": "USD",
+        "unit": "fee_rate",
+        "amount_label": "2.9% + $0.30 per transaction",
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null,
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "basis": "standard_stripe_pricing",
+        "scope": "cogs",
+        "origin_type": "inferred",
+        "verification_status": "UNVERIFIED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": "Payment processing fees (approx 2.9% + $0.30 per transaction)",
+      "origin_type": "inferred",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.9,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": "2026-09-09T00:30:00Z",
+        "valid_from": null,
+        "valid_to": null,
+        "period_start": "2023-09-01T00:00:00Z",
+        "period_end": null
+      },
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "money_signal:ms_cd4fddabd689e681e5c46ffb"
+      ],
+      "rights_status": null,
+      "tags": [
+        "money_signal"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_4dcb5ac6240b591d6c0155fe",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6",
+        "ent_person_45457b6f8e7724441c62"
+      ],
+      "observation_type": "foundation.event.product_launch",
+      "payload_schema_ref": null,
+      "payload": {
+        "event_id": "evt_6e5ead428b54af49928245db",
+        "entity_ids": [
+          "ent_business_9b8e02f696f14e5ca2b6",
+          "ent_person_45457b6f8e7724441c62"
+        ],
+        "event_type": "product_launch",
+        "occurred_at": "2023-09-01T00:00:00Z",
+        "description": "ShipFast launched on X (Twitter) with demo videos illustrating boilerplate features, generating immediate sales.",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": "ShipFast launched on X (Twitter) with demo videos illustrating boilerplate features, generating immediate sales.",
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.95,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "event:evt_6e5ead428b54af49928245db"
+      ],
+      "rights_status": null,
+      "tags": [
+        "event"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_155277f9e01646bfcc8f4a9b",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6",
+        "ent_person_45457b6f8e7724441c62"
+      ],
+      "observation_type": "foundation.event.milestone_revenue",
+      "payload_schema_ref": null,
+      "payload": {
+        "event_id": "evt_9e97510649fc8f1ac3358345",
+        "entity_ids": [
+          "ent_business_9b8e02f696f14e5ca2b6",
+          "ent_person_45457b6f8e7724441c62"
+        ],
+        "event_type": "milestone_revenue",
+        "occurred_at": "2024-02-01T00:00:00Z",
+        "description": "ShipFast reached $250,000 in cumulative revenue within 5 months of public launch.",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ]
+      },
+      "text_original": "ShipFast reached $250,000 in cumulative revenue within 5 months of public launch.",
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.95,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2024-02-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "event:evt_9e97510649fc8f1ac3358345"
+      ],
+      "rights_status": null,
+      "tags": [
+        "event"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_9d61b865709bb63f7d7f5f84",
+      "subject_refs": [
+        "ent_person_45457b6f8e7724441c62"
+      ],
+      "observation_type": "foundation.relationship.founded_and_operates",
+      "payload_schema_ref": null,
+      "payload": {
+        "relationship_id": "rel_54b2bc7b97e7a025eac961f9",
+        "subject_entity_id": "ent_person_45457b6f8e7724441c62",
+        "predicate": "founded_and_operates",
+        "object": "ent_business_9b8e02f696f14e5ca2b6",
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.99,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "relationship:rel_54b2bc7b97e7a025eac961f9"
+      ],
+      "rights_status": null,
+      "tags": [
+        "relationship"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_7382dee9790bf7794f7e3980",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.relationship.uses_payment_processor",
+      "payload_schema_ref": null,
+      "payload": {
+        "relationship_id": "rel_65f9223aefeb0ccf00d3c154",
+        "subject_entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "predicate": "uses_payment_processor",
+        "object": "ent_service_aa022bd721406c8a0d05",
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "verification_status": "SUPPORTED",
+        "confidence": 0.99,
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.99,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "relationship:rel_65f9223aefeb0ccf00d3c154"
+      ],
+      "rights_status": null,
+      "tags": [
+        "relationship"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_79ff03a394483f164e5a704a",
+      "subject_refs": [
+        "ent_business_9b8e02f696f14e5ca2b6"
+      ],
+      "observation_type": "foundation.relationship.distributes_and_markets_via",
+      "payload_schema_ref": null,
+      "payload": {
+        "relationship_id": "rel_22822927d53c1b6bec97df6f",
+        "subject_entity_id": "ent_business_9b8e02f696f14e5ca2b6",
+        "predicate": "distributes_and_markets_via",
+        "object": "ent_platform_b6f385c0c5f1cf58c3ac",
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ]
+      },
+      "text_original": null,
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.95,
+      "source_availability": "source_backed",
+      "valid_time": {
+        "point_in_time": null,
+        "valid_from": "2023-09-01T00:00:00Z",
+        "valid_to": null,
+        "period_start": null,
+        "period_end": null
+      },
+      "observed_at": "2023-09-01T00:00:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.marclou.x",
+          "src.starterstory.shipfast"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_df334cf9840d219e375026f7",
+        "ev_e6cc74027388ba1f83c6755e"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [
+        "relationship:rel_22822927d53c1b6bec97df6f"
+      ],
+      "rights_status": null,
+      "tags": [
+        "relationship"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_af7ff523c20c23ee370df04e",
+      "subject_refs": [
+        "run:run_shipfast_foundation_20260909_01"
+      ],
+      "observation_type": "foundation.observation.general",
+      "payload_schema_ref": null,
+      "payload": {
+        "origin_type": "observed",
+        "verification_status": "SUPPORTED",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "collection_channel": "research_bundle",
+        "observer": "MakeMoney-Analyst",
+        "text": "Tech stack verification: Front-end uses Next.js 14 (App Router) + Tailwind CSS + DaisyUI. Auth uses NextAuth.js. Database supports MongoDB and Supabase (PostgreSQL). Email uses Resend or Mailgun. Payments use Stripe.",
+        "evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ]
+      },
+      "text_original": "Tech stack verification: Front-end uses Next.js 14 (App Router) + Tailwind CSS + DaisyUI. Auth uses NextAuth.js. Database supports MongoDB and Supabase (PostgreSQL). Email uses Resend or Mailgun. Payments use Stripe.",
+      "origin_type": "observed",
+      "verification_status": "SUPPORTED",
+      "confidence": 0.5,
+      "source_availability": "source_backed",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [
+          "src.shipfast.official"
+        ],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [
+        "ev_9f04d9526c007d079f4a1936"
+      ],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [],
+      "rights_status": null,
+      "tags": [
+        "observation"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_912ad6783feebce0de03e27f",
+      "subject_refs": [
+        "run:run_shipfast_foundation_20260909_01"
+      ],
+      "observation_type": "foundation.observation.general",
+      "payload_schema_ref": null,
+      "payload": {
+        "origin_type": "inferred",
+        "verification_status": "UNVERIFIED",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "collection_channel": "research_bundle",
+        "observer": "MakeMoney-Analyst",
+        "text": "Customer Pain Analysis (Savannah OS): Indie developers spend 2-4 weeks configuring Stripe webhooks, auth providers, and DNS emails before building core logic. This delay causes loss aversion and cognitive fatigue, leading to project abandonment. ShipFast monetizes this immediate pain relief.",
+        "evidence_ids": []
+      },
+      "text_original": "Customer Pain Analysis (Savannah OS): Indie developers spend 2-4 weeks configuring Stripe webhooks, auth providers, and DNS emails before building core logic. This delay causes loss aversion and cognitive fatigue, leading to project abandonment. ShipFast monetizes this immediate pain relief.",
+      "origin_type": "inferred",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.5,
+      "source_availability": "source_not_yet_checked",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [],
+      "rights_status": null,
+      "tags": [
+        "observation"
+      ],
+      "notes": null
+    },
+    {
+      "schema_version": "journal-entry.v1",
+      "journal_id": "jr_13182eb0f2d5a0b08a3af0bf",
+      "subject_refs": [
+        "run:run_shipfast_foundation_20260909_01"
+      ],
+      "observation_type": "foundation.observation.general",
+      "payload_schema_ref": null,
+      "payload": {
+        "origin_type": "inferred",
+        "verification_status": "UNVERIFIED",
+        "observed_at": "2026-09-09T00:30:00Z",
+        "collection_channel": "research_bundle",
+        "observer": "MakeMoney-Analyst",
+        "text": "Incumbent Cannibalization Barrier: Large dev agencies and programming bootcamps cannot offer a $199 one-off boilerplate without destroying their high-ticket custom contract ($10k-$50k) and recurring tuition ($1k/mo) revenue models. They are structurally blocked from competing at this price point.",
+        "evidence_ids": []
+      },
+      "text_original": "Incumbent Cannibalization Barrier: Large dev agencies and programming bootcamps cannot offer a $199 one-off boilerplate without destroying their high-ticket custom contract ($10k-$50k) and recurring tuition ($1k/mo) revenue models. They are structurally blocked from competing at this price point.",
+      "origin_type": "inferred",
+      "verification_status": "UNVERIFIED",
+      "confidence": 0.5,
+      "source_availability": "source_not_yet_checked",
+      "valid_time": null,
+      "observed_at": "2026-09-09T00:30:00Z",
+      "recorded_at": "2026-09-09T00:30:00Z",
+      "provenance": {
+        "run_id": "run_shipfast_foundation_20260909_01",
+        "collector": "MakeMoney-Analyst",
+        "collection_channel": "research_bundle",
+        "purpose": "make_money",
+        "source_ids": [],
+        "source_locator": null,
+        "parser_or_transform_version": "make-money-journal-materializer.v1"
+      },
+      "evidence_ids": [],
+      "supersedes": [],
+      "superseded_by": [],
+      "typed_projection_refs": [],
+      "rights_status": null,
+      "tags": [
+        "observation"
+      ],
+      "notes": null
+    }
+  ],
+  "planned_writes": {
+    "schema_version": "planned-writes.v1",
+    "run_id": "run_shipfast_foundation_20260909_01.journal",
+    "write_authorized": true,
+    "objects": [
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_c938621eea1a629aed4299b6.json",
+        "content_sha256": "6a4805e4b7a19669c71056ced2efdd24ee9a1ea329c7772eb4805a04f6658cb1",
+        "bytes": 1311,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_df334cf9840d219e375026f7"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_f6a3279a4dc0c162a56c60c1.json",
+        "content_sha256": "104413bf1ee7b78d30f2b781c1295e218d262a50eaf27b35eef5d727e0a4f6aa",
+        "bytes": 1317,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_6e31cac297a3852bd5477e97.json",
+        "content_sha256": "e7e742fed5ee0a9d791b043469cd3920ca6eb670dd3a4c16a0137c38ec8b620a",
+        "bytes": 1224,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_377169e8f1fe1f04c8a5f1cc.json",
+        "content_sha256": "cf1bdac0421cac233096de2995a91561a9078831cc219535cad11672cedc1860",
+        "bytes": 1288,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_0dfb531d7c973e78d11184a4.json",
+        "content_sha256": "e032d46d9a4d906942bb3d4951dff69b24ae406e93930e2c497edb1f15a80fb5",
+        "bytes": 1280,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_29efbbe56705d32d39ef06af.json",
+        "content_sha256": "f927fc0f2d6915c0a292fc798cb146f7b44f23d223c1c3421620b86ad0952a13",
+        "bytes": 1722,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_d49c1e6b293c73c136f626ac.json",
+        "content_sha256": "47aaa55ff86932de729006448797c7fb591755769bf794a4c35cddf39ea4d7ce",
+        "bytes": 1584,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_a97da1160f3a5831dccdf491.json",
+        "content_sha256": "3ef634e681da10c8254058621a3da7473416b8abe72099a3fd1a2d46783abe40",
+        "bytes": 1770,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_33ad8a787f9991344fd0186c.json",
+        "content_sha256": "33afe77d3e5d40202d83264e814e9f45be2d848f72893ebaf3ea6740069817f7",
+        "bytes": 1644,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_e401c1c61e3854c37d64ceb0.json",
+        "content_sha256": "0ac54d6d0e9532985481e16a821fefa2caabe7980855156b293db144496af8dd",
+        "bytes": 1716,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_7be1c2550a6036a7a4e4ae9b.json",
+        "content_sha256": "eb764fa203f112280217ca26e8cd338cd04140acaadf91194cc332d01368e173",
+        "bytes": 1531,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_a26c58e7954ecc57b63e660c.json",
+        "content_sha256": "9a32efd7203c24d508ed670173c93dfd291726655fd664d9c673dd0b45ff2854",
+        "bytes": 1542,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_fb4b7361928eb8c07ed184dd.json",
+        "content_sha256": "a29fae4c46579977ecdb24267ceb886030eb6401ad15e317ce5fb581f9693865",
+        "bytes": 1556,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_a5ef3b14670cefbcdb5b1ccf.json",
+        "content_sha256": "bd12f0b29e6caad344351ad4337404bfdcdf6aea798cdffa26fef1289d09ae8c",
+        "bytes": 1648,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_71e3ef1787ac7b15e8080dcc.json",
+        "content_sha256": "0f38f9321767f44b11d6b4ed3aa26977aaecc7ddb348ca543f7227fe9ea81032",
+        "bytes": 1508,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_91b09febcf67b1d08e92dfa3.json",
+        "content_sha256": "bf7aa909db9fca538319ecf4ddb679b796ad1a32aa67d1eeb36dcee1eb0c75c3",
+        "bytes": 1512,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_c0310a5ca89c47397bba2590.json",
+        "content_sha256": "34c464fbbb92e5e70023a2085cc599184fcc9405f51462b874a76f1d5b15053f",
+        "bytes": 1504,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_947856db0a214df21f144fb4.json",
+        "content_sha256": "4e506b106fe7861db6957ba33b694cc43b60f998386b085e77608867351f86b5",
+        "bytes": 1588,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_85b797198dc550ad720f64e0.json",
+        "content_sha256": "c2df1b500a379561d78e06352794efa4411b9154cd5e08921853c114d3272111",
+        "bytes": 1791,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_5ebcf1dfb000261c4cb02ba7.json",
+        "content_sha256": "12d07979171dbdaa6106f384b776d1e9c8b832fa7f6ea77e01edaa92d0ff9ff8",
+        "bytes": 1807,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_4dcb5ac6240b591d6c0155fe.json",
+        "content_sha256": "03fe62460ce8d1a8ed7006af89425f387e126514e9dcf979f2889ee29580c615",
+        "bytes": 1587,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_155277f9e01646bfcc8f4a9b.json",
+        "content_sha256": "10e5659113e5ac7197b8a6cda3ebc4886e703ccaedea561e5f328a1c46652fdb",
+        "bytes": 1435,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_9d61b865709bb63f7d7f5f84.json",
+        "content_sha256": "ce1018cf01c3275f686dda459b7da5c05f4bef9649f2d2c09ecad26d8ad37edc",
+        "bytes": 1488,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_7382dee9790bf7794f7e3980.json",
+        "content_sha256": "0d63eea8191eb5134f1b8bd442c2006b4656d84df4018b1d5672588b98c64bed",
+        "bytes": 1407,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_79ff03a394483f164e5a704a.json",
+        "content_sha256": "d02ab02fc8cea79d4cb83302277d7b0f41cad33a686c2e49eec37a21b7c4d733",
+        "bytes": 1498,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_df334cf9840d219e375026f7",
+          "ev_e6cc74027388ba1f83c6755e"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_af7ff523c20c23ee370df04e.json",
+        "content_sha256": "8d3082a61bedc643763a234f3f9d10e0d250e04befbc5c5a8e29a88729d47a14",
+        "bytes": 1560,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [
+          "ev_9f04d9526c007d079f4a1936"
+        ],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_912ad6783feebce0de03e27f.json",
+        "content_sha256": "c02420e2d529362a130702990e0a294c812c47e77cc39987b7b06204accc5f41",
+        "bytes": 1642,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      },
+      {
+        "logical_role": "journal_entry",
+        "dataset_id": "ds.foundation.journal.core",
+        "bucket": "foundation-lake",
+        "key": "journal/v1/2026/09/09/jr_13182eb0f2d5a0b08a3af0bf.json",
+        "content_sha256": "bb15cbd01223f569eddb1146de74b6d79a13c8c9efc6deda6b49aa7a64cb7ba8",
+        "bytes": 1652,
+        "content_type": "application/json; charset=utf-8",
+        "create_only": true,
+        "source_evidence_ids": [],
+        "local_path": null,
+        "preflight_status": "NOT_CHECKED"
+      }
+    ],
+    "forbidden_operations": [
+      "CopyObject",
+      "DeleteObject",
+      "Move",
+      "Rename",
+      "Overwrite",
+      "LegacyUniversalMutation"
+    ]
+  }
+}

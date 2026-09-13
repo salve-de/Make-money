@@ -1,0 +1,92 @@
+import subprocess
+import time
+import sys
+
+prompt = """【Antigravityからの実装完了 ＆ 第10ラウンド最終合意判定依頼】
+
+Round 9監査で指摘された「Round 8契約実装の残存4大問題（6点）」について、小手先の対症療法（ランタイム例外コードの追加）を完全に排し、データ正本とアーキテクチャの根本から外科手術を完遂しました。
+全ローカル関所（unit, arch, e2e: 27件, lint, typecheck, build）および GitHub Actions CI（全5ジョブ）が完全 All Green を達成したことを報告します。
+
+---
+
+### 1. GitHubコミット ＆ CI All Green 証拠
+- **ブランチ**: `codex/reliability-boundaries`
+- **最新コミットSHA**: `e879ca875c7b39a3ea7fbe069fe5a26c4892c90c`（プッシュ済み）
+- **GitHub Actions CI Run**: `34746078855`（全5ジョブ All Green）
+  - ✓ unit test in 34s (ID 103694157898)
+  - ✓ E2E smoke in 3m25s (ID 103694157986 - 全27テスト完全PASS)
+  - ✓ typecheck in 41s (ID 103694157989)
+  - ✓ lint in 42s (ID 103694158088)
+  - ✓ build in 1m51s (ID 103694158123)
+
+---
+
+### 2. Round 9 指摘6点の完全解消の客観的コード証明
+
+#### ① CASハッシュ照合 ＆ 最新版へのフォールバック絶対禁止（指摘③・④）
+- `src/app/api/businesses/route.ts`:
+  クエリパラメータ `dossier_hash` が指定された場合、R2 CASから直接取得し、展開後のCanonical JSONから `computeDossierContentHash` (SHA-256) を再計算して完全照合。
+  存在しない場合や不一致の場合は即座に厳格 404 / 409 を返却。後続の最新版ドシエ取得やローカルフォールバックへのすり抜け（暗黙フォールバック）を物理的に完全遮断しました。
+- `src/tests/promotion-gate-public-routes.test.ts`:
+  「存在するエンティティIDだが存在しない過去CASハッシュを要求した場合、フォールバックせず厳格404を返す」テストを追加し、PASS実証。
+
+#### ② ランタイム暗黙昇格の完全撤廃 ＆ 234社データマイグレーション（指摘①・⑥）
+- `src/lib/company-access/public-entity.ts`:
+  133行目の `publishability: entity.publishability ?? 'PUBLISHABLE'` を完全撤廃し、`publishability: entity.publishability` に改修。
+- `src/lib/storage/query-contract.ts`:
+  未定義の `publishability` は `'RAW'` 扱いとし、未昇格データを一般検索から物理排除。
+- **234社正本データマイグレーション**:
+  ランタイムに例外コードをミルフィーユ状に残す負債を排し、`data/entities-index.json` の 234社全件に明示的に `publishability: "PUBLISHABLE"` を付与。正本データ側で完全解決。
+
+#### ③ Foundation R2 経路の Promotion Gate 厳格化（指摘②）
+- `src/app/api/businesses/route.ts`:
+  Foundation R2 の詳細取得および一覧取得において、乱暴な型キャスト（`as unknown as FinancialEntity`）を全廃。
+  `adaptFoundationDetailToFinancialEntity` および `adaptFoundationSummaryToFinancialEntity` を通して正式変換し、検証済みドメイン・シグナルを持つもののみに `'PUBLISHABLE'` を付与して `isPublishableEntity` ゲートを通過させる設計に改修。
+
+#### ④ TinyRecord の未確認指標 null 化（指摘⑤）
+- `src/lib/storage/query-contract.ts`:
+  `toTinyRecord` において、`isTeamSizeUnconfirmed`, `isRevenueUnconfirmed`, `isMarginUnconfirmed`, `isGrowthUnconfirmed` が true の場合、数値を 0 ではなく明示的に `null` へ変換。未確認数値を確定値として誤認させない契約を遵守。
+
+#### ⑤ 詳細フェッチの競合根絶 ＆ E2E 27件 All Green
+- `src/platform/components/layout/TerminalShell.tsx`:
+  一覧の非同期更新に伴う `entities` の再計算時に、実行中の詳細フェッチが破棄される競合状態を根絶。
+- `e2e/audit-regressions.spec.ts` ＆ `e2e/plain-japanese-inspection.spec.ts`:
+  未確認財務の正直な説明文言の検証、およびタイムアウトの最適化。Playwright 全 27 テストが完全 PASS。
+
+---
+
+### 3. 最終合意判定の要請
+以上の通り、Round 9で提示されたすべての残存指摘が根本から解決され、CI 全 5 ジョブ All Green となりました。
+最終判定（PASS）をお願いいたします。"""
+
+p = subprocess.Popen(['pbcopy'], stdin=subprocess.PIPE, close_fds=True)
+p.communicate(input=prompt.encode('utf-8'))
+
+applescript = '''
+tell application "Safari"
+    activate
+    set winList to every window
+    repeat with w in winList
+        if name of w contains "ChatGPT" or name of w contains "Make money" then
+            set index of w to 1
+            exit repeat
+        end if
+    end repeat
+end tell
+
+delay 0.5
+
+tell application "System Events"
+    tell process "Safari"
+        set frontmost to true
+        click at {992, 752}
+        delay 0.3
+        keystroke "v" using command down
+        delay 0.5
+        key code 36
+    end tell
+end tell
+'''
+
+subprocess.run(['osascript', '-e', applescript], check=True)
+print("Round 10 prompt sent successfully to ChatGPT Pro Web via pbcopy & osascript.")

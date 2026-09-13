@@ -1,0 +1,720 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/FoundationBusinessCase",
+  "definitions": {
+    "FoundationBusinessCase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "entityType": {
+          "type": "string"
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "canonicalIdentifier": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "type": "string"
+        },
+        "observedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationClaim"
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationMetricSignal"
+          }
+        },
+        "moneySignals": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationMoneySignal"
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationEvent"
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationRelationship"
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationObservation"
+          }
+        },
+        "derived": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FoundationDerivedRecord"
+          }
+        },
+        "valueProfile": {
+          "$ref": "#/definitions/FoundationValueProfile"
+        },
+        "bundlesScanned": {
+          "type": "number"
+        },
+        "bundleObjectsListed": {
+          "type": "number"
+        },
+        "bundleScanComplete": {
+          "type": "boolean",
+          "description": "False when a legacy bundle fallback stopped at its safety limit."
+        }
+      },
+      "required": [
+        "aliases",
+        "bundleObjectsListed",
+        "bundleScanComplete",
+        "bundlesScanned",
+        "canonicalIdentifier",
+        "claims",
+        "derived",
+        "domain",
+        "entityType",
+        "events",
+        "evidenceIds",
+        "id",
+        "metrics",
+        "moneySignals",
+        "name",
+        "observations",
+        "observedAt",
+        "relationships",
+        "status",
+        "valueProfile"
+      ]
+    },
+    "FoundationClaim": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "originType": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "$ref": "#/definitions/FoundationVerificationStatus"
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "occurredAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "originType",
+        "verificationStatus",
+        "confidence",
+        "occurredAt",
+        "evidenceIds"
+      ]
+    },
+    "FoundationVerificationStatus": {
+      "type": "string",
+      "enum": [
+        "SUPPORTED",
+        "CONFLICTED",
+        "UNVERIFIED",
+        "SUPERSEDED",
+        "RETRACTED",
+        "unknown"
+      ]
+    },
+    "FoundationMetricSignal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "metricType": {
+          "type": "string"
+        },
+        "value": {
+          "type": [
+            "number",
+            "string",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "periodStart": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "periodEnd": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pointInTime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "originType": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "$ref": "#/definitions/FoundationVerificationStatus"
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "metricType",
+        "value",
+        "unit",
+        "currency",
+        "periodStart",
+        "periodEnd",
+        "pointInTime",
+        "basis",
+        "scope",
+        "originType",
+        "verificationStatus",
+        "confidence",
+        "evidenceIds"
+      ]
+    },
+    "FoundationMoneySignal": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "payerEntityId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "receiverEntityId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "purpose": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "moneyType": {
+          "type": "string"
+        },
+        "amount": {
+          "type": [
+            "number",
+            "string",
+            "null"
+          ]
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "amountLabel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "periodStart": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "periodEnd": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pointInTime": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "originType": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "$ref": "#/definitions/FoundationVerificationStatus"
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "payerEntityId",
+        "receiverEntityId",
+        "purpose",
+        "moneyType",
+        "amount",
+        "currency",
+        "unit",
+        "amountLabel",
+        "periodStart",
+        "periodEnd",
+        "pointInTime",
+        "basis",
+        "scope",
+        "originType",
+        "verificationStatus",
+        "confidence",
+        "evidenceIds"
+      ]
+    },
+    "FoundationEvent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "eventType": {
+          "type": "string"
+        },
+        "occurredAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "$ref": "#/definitions/FoundationVerificationStatus"
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "eventType",
+        "occurredAt",
+        "description",
+        "verificationStatus",
+        "confidence",
+        "evidenceIds"
+      ]
+    },
+    "FoundationRelationship": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "subjectEntityId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "predicate": {
+          "type": "string"
+        },
+        "object": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validFrom": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validTo": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verificationStatus": {
+          "$ref": "#/definitions/FoundationVerificationStatus"
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "subjectEntityId",
+        "predicate",
+        "object",
+        "validFrom",
+        "validTo",
+        "verificationStatus",
+        "confidence",
+        "evidenceIds"
+      ]
+    },
+    "FoundationObservation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "originType": {
+          "type": "string"
+        },
+        "verificationStatus": {
+          "$ref": "#/definitions/FoundationVerificationStatus"
+        },
+        "observedAt": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collectionTier": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collectionChannel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "text",
+        "originType",
+        "verificationStatus",
+        "observedAt",
+        "collectionTier",
+        "collectionChannel",
+        "evidenceIds"
+      ]
+    },
+    "FoundationDerivedRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "originType": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "supportingClaimIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "supportingEvidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "text",
+        "originType",
+        "confidence",
+        "supportingClaimIds",
+        "supportingEvidenceIds"
+      ]
+    },
+    "FoundationValueProfile": {
+      "type": "object",
+      "properties": {
+        "tier": {
+          "$ref": "#/definitions/FoundationValueTier"
+        },
+        "score": {
+          "type": "number"
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "businessSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "painSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "moneySignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "tractionSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mechanismSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "timeSignal": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "counts": {
+          "$ref": "#/definitions/FoundationValueCounts"
+        }
+      },
+      "required": [
+        "tier",
+        "score",
+        "labels",
+        "businessSignal",
+        "painSignal",
+        "moneySignal",
+        "tractionSignal",
+        "mechanismSignal",
+        "timeSignal",
+        "counts"
+      ]
+    },
+    "FoundationValueTier": {
+      "type": "string",
+      "enum": [
+        "HIGH_SIGNAL",
+        "USEFUL",
+        "CANDIDATE"
+      ],
+      "description": "Read-time UI projection only.\n\nThis is deliberately not a Foundation schema and is never written to R2. It turns the records that are already present in a bundle into a small set of useful display signals. Missing facts stay null; this module never fills revenue, margin, price, customers, or other values with defaults."
+    },
+    "FoundationValueCounts": {
+      "type": "object",
+      "properties": {
+        "claims": {
+          "type": "number"
+        },
+        "metrics": {
+          "type": "number"
+        },
+        "moneySignals": {
+          "type": "number"
+        },
+        "events": {
+          "type": "number"
+        },
+        "observations": {
+          "type": "number"
+        },
+        "derived": {
+          "type": "number"
+        },
+        "evidence": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "claims",
+        "metrics",
+        "moneySignals",
+        "events",
+        "observations",
+        "derived",
+        "evidence"
+      ]
+    }
+  }
+}

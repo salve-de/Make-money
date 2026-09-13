@@ -1,0 +1,431 @@
+{
+  "write_authorized": true,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_buffer_2024_20260908_01",
+    "purpose": "make_money",
+    "subject": {
+      "query": "Buffer 2024 profitability; initial real ingestion, partial research"
+    },
+    "agent": {
+      "name": "Codex"
+    },
+    "retrieved_at": "2026-09-08T00:00:00Z",
+    "sources": [
+      {
+        "source_id": "src.buffer.shareholders",
+        "provider_name": "Buffer",
+        "source_type": "company_shareholder_update",
+        "canonical_url": "https://buffer.com/shareholders/december-2024",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "access_notes": "Public financial facts and original paraphrase only; no source body copied."
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_a762737d63cb5d4257671427",
+        "source_id": "src.buffer.shareholders",
+        "source_url": "https://buffer.com/shareholders/december-2024",
+        "source_title": "December 2024 shareholder update",
+        "source_type": "company_shareholder_update",
+        "publisher_or_speaker": "Joel Gascoigne",
+        "published_at": "2025-01-31T00:00:00Z",
+        "retrieved_at": "2026-09-08T00:00:00Z",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "raw_storage": {
+          "status": "metadata_only",
+          "bucket": null,
+          "key": null,
+          "content_type": null,
+          "content_sha256": null,
+          "bytes": null
+        },
+        "summary": "Buffer reports 2024 revenue of $18.6M and annual net profit of $202,459. December MRR is $1,677,220; team size 73. The top table and annual summary contain different ARR/customer totals; preserve both rather than silently reconcile.",
+        "rights_policy_id": null
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "entity_type": "company",
+        "canonical_name": "Buffer",
+        "aliases": [],
+        "canonical_identifier": "domain:buffer.com",
+        "domain": "buffer.com",
+        "status": null,
+        "observed_at": "2026-09-08T00:00:00Z",
+        "evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ]
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "cl_289c26c85de0204c30bd7ce4",
+        "entity_ids": [
+          "ent_company_895ab08e769c3c944f65"
+        ],
+        "statement": "Joel Gascoigne authored Buffer's December 2024 shareholder update as Founder CEO.",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.95,
+        "evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ]
+      }
+    ],
+    "metrics": [
+      {
+        "metric_id": "mt_7a4f559af80ff5af732fe6ce",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "revenue",
+        "value": 18600000,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "annual; revenue rounded by publisher",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ]
+      },
+      {
+        "metric_id": "mt_dd516ff694ade51171c46f4e",
+        "entity_id": "ent_company_895ab08e769c3c944f65",
+        "metric_type": "net_profit",
+        "value": 202459,
+        "unit": "USD",
+        "currency": "USD",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "annual; revenue rounded by publisher",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ]
+      }
+    ],
+    "money_signals": [
+      {
+        "money_signal_id": "ms_7a4f559af80ff5af732fe6ce",
+        "payer_entity_id": null,
+        "receiver_entity_id": "ent_company_895ab08e769c3c944f65",
+        "purpose": "Customer revenue; individual payers not identified",
+        "money_type": "revenue",
+        "amount": 18600000,
+        "currency": "USD",
+        "unit": "USD",
+        "amount_label": "2024 company revenue (rounded)",
+        "period_start": "2024-01-01T00:00:00Z",
+        "period_end": "2024-12-31T23:59:59Z",
+        "point_in_time": null,
+        "basis": "annual aggregate, not a bank transaction",
+        "scope": "Buffer company",
+        "origin_type": "reported",
+        "verification_status": "SUPPORTED",
+        "confidence": 0.9,
+        "evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ]
+      }
+    ],
+    "events": [],
+    "relationships": [],
+    "derived": [],
+    "observations": [
+      {
+        "origin_type": "observed",
+        "verification_status": "UNVERIFIED",
+        "observed_at": "2026-09-08T00:00:00Z",
+        "collection_channel": "official website via web tool",
+        "observer": "Codex",
+        "text": "ARR table: 20,126,640 USD; annual summary: 20,129,149 USD. Customers table: 60,180; summary: 60,184. Reason not established.",
+        "evidence_ids": [
+          "ev_a762737d63cb5d4257671427"
+        ]
+      }
+    ],
+    "quality": {
+      "unknowns": [
+        "Costs, gross profit, operating profit and founder personal take-home are not established by this partial run."
+      ],
+      "conflicts": [
+        "ARR and customer totals differ between table and annual summary."
+      ],
+      "warnings": [
+        "Historical 2024 case, not current 2026 financial state.",
+        "Operator disclosure, not an independently audited filing.",
+        "73-person business; not a solo-business example."
+      ],
+      "schema_validation": "PASS"
+    },
+    "collection_coverage": [
+      {
+        "dimension": "identity",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "entities/0"
+        ]
+      },
+      {
+        "dimension": "founders",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "claims/0"
+        ]
+      },
+      {
+        "dimension": "location",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "status",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "team_history",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "timeline",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "revenue",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "metrics/0"
+        ]
+      },
+      {
+        "dimension": "peak_revenue",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "mrr_arr",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "gmv",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "gross_profit",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "operating_profit",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "net_profit",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "metrics/1"
+        ]
+      },
+      {
+        "dimension": "costs",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "cost_breakdown",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "margin",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "owner_take_home",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "pricing",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "pricing_history",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "refunds",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "retention_churn",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "funding",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "exit_value",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "payer_receiver_purpose",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "money_signals/0"
+        ]
+      },
+      {
+        "dimension": "customers",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "customer_pain",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "substitutes",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "first_customers",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "initial_channel",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "breakout",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "current_channels",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "founder_background",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "prior_failures",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "workload",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "support_burden",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "outsourcing",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "automation",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "capital_required",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "technology",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "competitors",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "dependencies",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "regulation",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "why_now",
+        "status": "not_attempted",
+        "note": "Pending further research; not represented as unavailable or complete."
+      },
+      {
+        "dimension": "provenance_rights",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "evidence/0"
+        ]
+      },
+      {
+        "dimension": "conflicts",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "observations/0"
+        ]
+      },
+      {
+        "dimension": "additional_observations",
+        "status": "found",
+        "note": "See linked record; historical 2024 scope.",
+        "record_refs": [
+          "observations/0"
+        ]
+      }
+    ]
+  }
+}
