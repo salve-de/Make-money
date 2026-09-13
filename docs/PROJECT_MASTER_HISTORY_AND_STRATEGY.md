@@ -4668,5 +4668,68 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **CI関所**: `pnpm typecheck`（Exit code 0）、`pnpm lint`（Exit code 0）、`pnpm build`（Exit code 0）。
 - **100年耐久保証**: 不完全データの物理的侵入阻止、1社隔離による他全社の無傷提供、ビルド時強制検証の3段構えにより、今後100年間の運用における堅牢性を構造的に確立。
 
+---
 
+## 2026-09-13: Phase 150 - 【1億事例・100年耐久の構造的脆弱性特定 ＆ Safari ChatGPT Web監査の開始】
 
+### 1. 意思決定と背景
+ユーザーからの「今後100年収集とか表示とか普通に使うために これで絶対に大丈夫なの？」「今後 1億事例集めたとして 大丈夫なのかよ おい 批判的に見てこいよ 完全なのかよ」「右チャット CHATGPTに聞いてこいよ 聞くってか 批判的に 言い合え お互いに 何度も やり取りをして 完全にやれ」「てか がいぶけんさくして 他の サイトとかサービスとか どうやってるのか とか 聞いてこいよ 右に」という最高指示を受け、自前善意の確証バイアスを完全破棄。
+右側Safariで稼働中のChatGPT Pro WebとAppleScript/CoreGraphicsによる自動連携配管を構築し、外部メガサービスの調査結果を突きつけた3往復の批判的相互監査を断行。
+
+### 2. 特定された初期アーキテクチャの10大病巣（ChatGPTによる急所突きの批判）
+1. **全件In-Memory Map（Worker 128MBでの即死）**: 100M社を1プロセスで保持すれば100GB〜500GBを消費し、エッジワーカー（128MB上限）は確実にOOMクラッシュする。
+2. **D1を100M世界台帳にする錯覚**: D1は単一DB 10GB・シングルスレッドであり、1億件のOLAP集計・全文検索には耐えられない。
+3. **優先順位の転倒（Speed過剰信仰の罠）**: 「100M件を0.01秒で描画する」という速度信仰は危険。50%が重複・古い・文脈違いなら価値はゼロ。本質的優先順位は `Identity → Time → Provenance → Truth → Promotion → Immutable Dossier → Serving Index → Speed` である。
+4. **バイテンポラル2軸時間の欠落**: 事実の対象期間（Valid Time）と観測日時（Transaction Time）を区別しないと、企業の売上推移や過年度修正を「矛盾」と誤認して履歴を破壊する。
+5. **キャッシュ無効化の悪夢**: キャッシュパージに依存する設計はエッジ規模で必ず破綻する。Content-AddressedなイミュータブルURL（`views/.../<hash>.json.gz`）により通常パージを永久ゼロ化すべき。
+
+---
+
+## 2026-09-13: Phase 151 - 【ゼロファットクライアント ＆ オンデマンドドシエ読み込みへの外科手術】
+
+### 1. 断行したアーキテクチャ改修
+1. **初期HTMLから重厚ドシエの完全切除 (`src/lib/company-access/public-entity.ts`)**:
+   - `publicSummaryEntity` を新設。一覧用データからはエビデンスカード、事実ログ、DNA、略奪手順などの巨大配列を100%除外し、一覧描画に必要な約80バイトのTiny Projectionのみを配信。
+2. **オンデマンドLazy Loading配管の確立 (`src/app/page.tsx`, `src/platform/components/layout/TerminalShell.tsx`)**:
+   - 初期SSR時には「初期表示対象の1社のみ」完全な重厚ドシエを供給し、残りの企業はサマリーとして供給。
+   - ユーザーが別企業をクリックした瞬間に `GET /api/businesses?entityId=xxx` をトリガーし、バックグラウンドで重厚ドシエをオンデマンド取得・キャッシュ（`dossierCache`）する配管を直結。
+
+---
+
+## 2026-09-13: Phase 152 - 【ゼロファットクライアントの実機E2E検証 ＆ CI完全通過】
+
+### 1. 検証結果
+- **Playwright実機ブラウザE2E（`pnpm audit:ui`）**:
+  - 初回SSR表示、別企業クリック時のオンデマンドドシエ読み込み、エビデンスカード・事実ログ・DNAの描画を実機で走査し、21.4秒で完全合格（Exit code 0）。
+- **CI関所**:
+  - `pnpm lint`: エラー0件。
+  - `pnpm typecheck`: エラー0件。
+  - `pnpm build`: エクスポート成功、全ルート正常ビルド。
+
+---
+
+## 2026-09-13: Phase 153 - 【外部メガサービス（Bloomberg, PitchBook, Crunchbase, ZoomInfo）の設計原則調査 ＆ ChatGPTとの合意による4大恒久契約の確立】
+
+### 1. 外部メガサービスの1億件耐久アーキテクチャ（調査事実ログ）
+1. **Bloomberg Terminal / OpenFIGI（不変ID ＆ 2軸財務）**:
+   - ティッカー再利用・社名変更の罠に対し、12桁の不変英数字（FIGI / 旧BBGID）を全主体に発行し恒久追跡。
+   - 財務開示は「当時の発表（As-Reported）」と「後日の訂正（Restated）」を絶対に上書きせず、バイテンポラルに2系列で永久保持。
+2. **Crunchbase / PitchBook（グラフリレーション ＆ 多段品質QA・昇格）**:
+   - CrunchbaseはOrganizationにUUID・aliasesを持ち、買収（Acquisition）を独立entityとしてannouncement date, completed dateとともに保持。
+   - PitchBookはWeb crawler → ML/NLP → 専門チーム → QA → 一次調査という多段品質工程を経て、未精錬データを製品データへ厳格に昇格（Promotion）させる。
+
+### 2. 合意・固定された【4大恒久契約】
+1. **【契約A：Identity ＆ バイテンポラルTruth契約】**:
+   - `entity_id: ent_xxx` はFoundationが一度だけ発行する無意味な不変内部ID。外部識別子（法人番号、ドメイン、Ticker、LEI等）はClaim/Aliasとして紐付け。
+   - `originType`（reported, observed, estimated, inferred）と `verificationStatus`（SUPPORTED, UNVERIFIED, CONFLICTED, SUPERSEDED, RETRACTED）を直交分離。
+   - `Current Resolution` はFactを上書きせず、導出Projectionとして過去の裁定履歴も保全。
+2. **【契約B：Serving Index ＆ クエリ契約（Query Contract）】**:
+   - 一覧用Tiny Projection（約80バイト）のセマンティクスと、Cursor（`indexGeneration, sortValues, entityId`）をQuery Contractとして固定。DB（D1 ➔ ClickHouse）の交換可能性を担保。
+   - R2上のSnapshotは `generations/gen_xxx/snapshot.parquet` ＋ `manifest.json` ＋ `deltas/seq_xxx.ndjson.gz`。Foundation（Universal Lake）が最高正本。
+3. **【契約C：イミュータブル詳細ドシエ ＆ 安全なポインタ更新契約】**:
+   - 物理パスは `views/make-money/dossier-v1/objects/<shard>/<entity_id>/<content_hash>.json.gz`。
+   - ポインタ更新は `new_generation > current_generation` のアトミック更新によりRace Conditionを永久根絶。
+   - `PUBLICATION_APPROVED` のみ長期CDNキャッシュとし、緊急revoke経路を常時維持。
+4. **【契約D：昇格・公開境界契約（Promotion / Publishability）】**:
+   - ケース状態（RAW / PARTIAL / PUBLISHABLE / ARCHIVED / REJECTED_AS_CASE）を独立管理。
+   - 公開ユーザー向けServing Indexには `PUBLISHABLE` のみを投影し、未精錬データの混入を物理遮断。

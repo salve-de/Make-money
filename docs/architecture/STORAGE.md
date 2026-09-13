@@ -149,38 +149,97 @@ D1には容量等の上限があり、Time Travelにも保持期間がありま�
 ## 1億事例（100M Scale）時代のシャード目録とゼロファットクライアント規律
 
 事例が1万件・100万件・1億件へと増大した際に、単一巨大JSON（`entities-index.json`）やクライアント全量展開に依存したシステムは**100%確実に即死**する（550GBのHTML送信、GitHubファイル制限100MB超過、V8ヒープ上限超過、ブラウザクラッシュ）。
-本プラットフォームが1億事例を0.01秒で捌くための【4大スケール規律】を永久正本として定める。
+また、どれほど表示速度が0.01秒であろうと、データが重複・過去の誤情報・デマで汚染されていれば無価値である。
 
-### 1. 目録（Tiny Index Record）と詳細（Heavy Dossier）の完全分離
-* **一覧用インデックス（Tiny Index Record: 約80バイト）**:
-  * `{ id, name, industry, operatingMargin, monthlyRevenue, tags, snapshotYear }`
-  * 一覧表示・フィルタに必要な最小メタデータのみ。100万件でも約80MB、1億件でも約8GB。
-  * これをD1 / SQLite FTS / Meilisearch / Parquet等の検索専用インデックスに格納し、ページネーションで50件ずつ供給する。
-* **詳細ドシエ（Heavy Dossier: 約5KB）**:
-  * エビデンスカード3枚、略奪転用方程式、事業概要DNA、P&L内訳、事実ログ。
-  * **初期画面のHTMLには1バイトも埋め込まない**。
-  * ユーザーが一覧の1行をクリックした瞬間、`GET /api/businesses?entity_id=xxx` でR2またはKVキャッシュからオンデマンドで1件のみ引く（Lazy Loading）。
+外部大規模企業情報プラットフォーム（Bloomberg Terminal, PitchBook, Crunchbase, ZoomInfo等）の公開設計原則およびChatGPTとの批判的相互監査（3ラウンド往復討議）を経て導出された、**「100年耐久・1億事例スケールを保証する4大恒久契約」**を本プラットフォームの最高正本として定める。
 
-### 2. ゼロファットクライアント（Zero-Fat Client）
-* クライアントのメモリ（`useState`）で全件配列を抱える設計を永久に禁止する。
-* 画面（UI）は常に「現在表示されている50件〜100件の仮想スロット（Virtual Window）」のみを描画する。
-* 検索・絞り込み・ソートはすべてサーバーサイドにオフロード（`GET /api/businesses?cursor=...&q=...`）。
-* これにより、蓄積データが1億事例になろうと、クライアントのメモリ消費量は**数MBで完全に頭打ち**になり、0.01秒で即座に起動する。
+### 0. 優先順位の最高規律（The 8-Stage Pipeline）
+100年耐久において、設計の優先順位は以下に完全固定する。速度（Speed）は最も最後である。
 
-### 3. R2ストレージのハッシュ2階層分散（Prefix Rate-Limit Immunity）
-* 単一プレフィックス（フォルダ）への書き込み集中による `503 Slow Down` を防ぐため、
-  * 原本: `foundation-raw/blobs/sha256/xx/yy/<hash>`（ハッシュ先頭4文字で分散）
-  * 保存票: `foundation-lake/journal/v1/YYYY/MM/<id>.json`（年月パーティション）
-  により、1億個のオブジェクトが存在してもR2レートリミットを完全回避する。
+```
+Identity → Time → Provenance → Truth → Promotion → Immutable Dossier → Serving Index → Speed
+```
 
-### 4. 2層ハイブリッド品質検問所（2-Tier Audit Gate）
-* **Tier 1: 数学的ストリーミング全数監査（O(N) Streaming Validator）**:
-  * メモリ10MB以内で全件のP&L計算（1円単位算術）、スキーマ、文字数を秒間数万件ペースで全数検査。
-* **Tier 2: 統計的層化サンプリング実機E2E走査（Stratified Sampling AQL: 信頼水準99%）**:
-  * 1億社をブラウザで1社ずつ開く行為（約2.7年間かかる）を廃止し、
-    1. 直近新規インジェスト・更新エンティティ（100%全数走査）
-    2. 全業種・全ステータス（黒字・赤字・地雷）からの統計的層化サンプル（30〜50社）
-    をPlaywright実機走査。CI実行時間を**常に2分以内に完全固定**しつつ、全体の品質を数学的に担保する。
+データ経路の全容：
+```
+WORLD（一次ソース・開示・Web）
+  ↓
+FOUNDATION（Universal Raw & Lake: Create-Only, 不可逆原本保存）
+  ↓
+IDENTITY（無意味な不変ID ent_xxx ＋ 外部Claim/Alias紐付け）
+  ↓
+BITEMPORAL FACT HISTORY（Valid Time × Recorded At の2軸時間管理）
+  ↓
+CURRENT RESOLUTION（最新値の導出投影。過去のResolution決定も保全）
+  ↓
+PROMOTION GATE（RAW / PARTIAL / PUBLISHABLE / ARCHIVED / REJECTED_AS_CASE）
+  ↓
+IMMUTABLE DOSSIER（views/make-money/dossier-v1/objects/xx/ent_yyy/<hash>.json.gz）
+  ↓
+SERVING INDEX（Tiny Record: 80B ＋ Safe Generation Pointer）
+  ↓
+EDGE CDN（PUBLICATION_APPROVED のみ長期キャッシュ）
+  ↓
+ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading）
+```
+
+---
+
+### 【契約A：Identity ＆ バイテンポラルTruth契約】
+1. **無意味な恒久ID（Permanent Entity ID）**:
+   - カノニカルID（`entity_id: ent_xxx`）はFoundationが一度だけ発行する意味を持たない不変識別子とする（ドメイン売却、社名変更、法人番号不在に耐える）。
+   - ドメイン、法人番号、LEI、FIGI、Ticker、GitHub org等はすべて独立した「Identity Claim / Alias」として紐付ける。決定論的ハッシュはID生成ではなく重複候補（`identity_candidate_key`）の検出にのみ使用する。
+2. **関係性のグラフ化（Entity Relationships）**:
+   - 買収（`ACQUIRED_BY`）、同一（`SAME_AS`）、子会社（`SUBSIDIARY_OF`）等を独立した関係性エッジとして保持し、過去のファクトを絶対に上書きしない。
+   - 関係性自体にも `validTime`（効力発生日）、`announcedAt`（発表日）、`recordedAt`、`evidenceIds` を記録する。
+3. **直交する2大ステータス軸**:
+   - **`originType`（出所の性質）**: `reported` | `observed` | `estimated` | `inferred` | `unknown`
+   - **`verificationStatus`（裏付けの確定度）**: `SUPPORTED` | `UNVERIFIED` | `CONFLICTED` | `SUPERSEDED` | `RETRACTED`
+   - （※ 企業の生存/失敗状態である `POST_MORTEM` 等は事実の確定度ではなく、Case/Entity状態として管理する）。
+4. **バイテンポラル履歴 ＆ Current Resolution**:
+   - 事実（Fact）は「いつの事実か（`validTime`）」と「いつ観測・記録されたか（`recordedAt`）」を分離し、過去の訂正（Restated）も履歴として蓄積。
+   - 「現在の確定値（Current Resolution）」はFactそのものを書き換えるのではなく、`resolution { resolutionKey, selectedFactIds[], competingFactIds[], state, policyVersion, resolvedAt }` という導出ビュー（Derived View）として生成し、過去の裁定履歴も保全する。
+
+---
+
+### 【契約B：Serving Index ＆ クエリ契約（Query Contract）】
+1. **Tiny Projection（目録: 80バイト）**:
+   - 一覧用インデックスレコードは `{ entityId, name, industry, operatingMargin, monthlyRevenue, tags, snapshotYear, latestDossierHash, projectionGeneration }` に絞り込み。1億件でも約8GB。
+   - 初期HTMLおよび一覧取得APIでは重厚な詳細ドシエを1バイトも返却しない。
+2. **Query Contract（抽象化ではなく契約の固定）**:
+   - バックエンドがD1（〜1万社）から将来のClickHouse / Columnar Engine（100M社）へ移行しても破綻しないよう、`search(filter, sort, cursor, limit)`、`getTiny(entityId)`、`getManyTiny(entityIds)` のセマンティクスを固定。
+   - **Cursorの完全定義**: `cursor = { indexGeneration, sortValues, entityId }` を含め、ユーザーが次ページを開く間にIndexが更新されても「重複・欠落・順序飛び」が数学的に起きない契約とする。
+3. **世代別スナップショット（Generations + Deltas）**:
+   - Serving Indexが全損した際の復元ポイントとして、R2上に `serving-index/generations/gen_xxx/snapshot.parquet` ＋ `manifest.json`、および `serving-index/deltas/seq_xxx.ndjson.gz` を順序付きで保存。
+   - ただし、このSnapshotは高速復元（数時間→数分）のためのチェックポイントであり、最高正本は常にFoundation（Universal Raw & Lake）である。
+
+---
+
+### 【契約C：イミュータブル詳細ドシエ ＆ 安全なポインタ更新契約】
+1. **物理パスの配置規律**:
+   - 詳細ドシエはFoundationのFactそのものではなく製品向けServing Viewであるため、`views/make-money/dossier-v1/objects/<shard>/<entity_id>/<content_hash>.json.gz` に配置。
+2. **安全なポインタ更新（Race Condition防止）**:
+   - ドシエ更新の手順を厳格に固定：
+     1. 新Dossier生成
+     2. Content Hash計算
+     3. R2へImmutable PUT
+     4. Readback Validation（書き込み検証）
+     5. Tiny Indexの `latestDossierHash` を更新
+   - 並行Projectorによる追い越し上書き（Revision 101が遅れてRevision 102のポインタを上書きするバグ）を防ぐため、Tiny Indexのポインタ更新は `new_generation > current_generation` のアトミック条件付き更新とする。
+3. **キャッシュ境界と安全弁（Revoke Safe）**:
+   - 公開承認済み（`PUBLICATION_APPROVED`）のコンテンツのみ `public, max-age=31536000, immutable` を適用。
+   - 未承認・内部データは認証付きServing ＋ 短期Edge Cacheとする。
+   - 法的削除や誤情報に対する「緊急revoke経路（Purge/Takedown API）」を常時維持する。
+
+---
+
+### 【契約D：昇格・公開境界契約（Promotion / Publishability）】
+1. **ケース状態の厳格分離**:
+   - Foundation内のデータは `RAW` | `PARTIAL` | `PUBLISHABLE` | `ARCHIVED` | `REJECTED_AS_CASE` の独立ステータスで管理。
+   - 例: 単なるニュースや薄い記事はFoundationとしては保全（`KEEP`）するが、Caseとしては `REJECTED_AS_CASE` とする。
+2. **公開インデックスへの選抜投影**:
+   - 公開ユーザー向けServing Indexには、審査・検証を通過した `PUBLISHABLE` のエンティティのみを投影する。
+   - これにより、未精錬・不完全なデータが公開一覧に混ざる事故を構造的に永久防止する。
 
 ## 検証と変更の記録
 
