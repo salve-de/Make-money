@@ -1,6 +1,7 @@
-import type {
-  FinancialEntity,
-  PublicSummaryEntity,
+import {
+  type FinancialEntity,
+  type PublicSummaryEntity,
+  computeClaimFingerprint,
 } from '@/shared/terminal';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
@@ -115,14 +116,32 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       }
     }
 
-    // 6. 実検証領収書（Verification Receipt）の機械的整合性検証（Fail-Closed Gate）
+    // 6. 実検証領収書（Verification Receipt）の決定論的再計算照合（Fail-Closed Gate）
     if (!revBinding.verificationReceipt || typeof revBinding.verificationReceipt !== 'object') {
       return false;
     }
     if (revBinding.verificationReceipt.deterministicCheck !== 'PASS') {
       return false;
     }
-    if (!revBinding.verificationReceipt.fingerprint || revBinding.verificationReceipt.fingerprint.length < 16) {
+    if (revBinding.verificationReceipt.algorithm !== 'SHA-256') {
+      return false;
+    }
+
+    const targetSnippet = revBinding.locator.type === 'text' && revBinding.locator.targetText
+      ? revBinding.locator.targetText
+      : (matchingCard ? (matchingCard.punchline || '') : (matchingObs ? (matchingObs.text?.slice(0, 40) || '') : ''));
+
+    const expectedFingerprint = computeClaimFingerprint({
+      entityId: entity.id,
+      claimKey: revBinding.claimKey,
+      claimValue: entity.pnl.monthlyRevenue,
+      evidenceId: revBinding.evidenceId,
+      targetSnippet,
+      validatorVersion: revBinding.verificationReceipt.validatorVersion,
+    });
+
+    // 偽SHA、改ざん、Claim値・原本スニペットとの不一致を即座に物理遮断
+    if (revBinding.verificationReceipt.fingerprint !== expectedFingerprint) {
       return false;
     }
   }

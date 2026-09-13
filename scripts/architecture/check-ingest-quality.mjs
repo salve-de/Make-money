@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
+import { createHash } from 'crypto';
 
 const indexPath = resolve(process.cwd(), 'data/entities-index.json');
 const entities = JSON.parse(readFileSync(indexPath, 'utf8'));
@@ -178,6 +179,19 @@ for (const ent of entities) {
           }
           if (rcpt.algorithm !== 'SHA-256') {
             errors.push(`[PROVENANCE VIOLATION: Invalid Hash Algorithm] ${ent.name} verificationReceipt algorithm '${rcpt.algorithm}' !== 'SHA-256'.`);
+          }
+
+          // Deterministic Recomputation Verification (Zero Fake Hashes allowed)
+          const targetSnippet = revBinding.locator?.type === 'text' && revBinding.locator.targetText
+            ? revBinding.locator.targetText
+            : (matchingCard ? (matchingCard.punchline || '') : (matchingObs?.text?.slice(0, 40) || ''));
+
+          const version = rcpt.validatorVersion || 'v1.0.0';
+          const canonical = `${ent.id}|${revBinding.claimKey}|${ent.pnl.monthlyRevenue}|${revBinding.evidenceId}|${targetSnippet.trim()}|${version}`;
+          const expectedFingerprint = createHash('sha256').update(canonical).digest('hex');
+
+          if (rcpt.fingerprint !== expectedFingerprint) {
+            errors.push(`[PROVENANCE VIOLATION: Fingerprint Recomputation Mismatch] ${ent.name} receipt fingerprint '${rcpt.fingerprint}' does not match recomputed SHA-256 '${expectedFingerprint}'.`);
           }
         }
       }

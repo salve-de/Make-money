@@ -3,7 +3,11 @@ import {
   isPublishableEntity,
   publicSummaryEntity,
 } from '@/lib/company-access/public-entity';
-import type { FinancialEntity } from '@/shared/terminal';
+import {
+  type FinancialEntity,
+  computeClaimFingerprint,
+  VALIDATOR_VERSION,
+} from '@/shared/terminal';
 import { GET } from '@/app/api/businesses/route';
 
 describe('Promotion Enforcement Gate - Public Route Safety', () => {
@@ -168,6 +172,7 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
           evidenceLocator: 'r2://foundation-raw/blobs/sha256/sec_report_123',
           sourceClass: 'PRIMARY',
           details: ['月商 約8.3億円を確認'],
+          punchline: '客観的事実ログ・集金構造',
         },
       ],
       claimBindings: [
@@ -175,9 +180,10 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
           claimKey: 'pnl.monthlyRevenue',
           evidenceId: 'ev_financial',
           locator: {
-            type: 'pdf',
-            page: 42,
-            table: 'Revenue',
+            type: 'text',
+            start: 0,
+            end: 40,
+            targetText: '客観的事実ログ・集金構造',
           },
           sourceClass: 'PRIMARY',
           verificationStatus: 'SUPPORTED',
@@ -186,7 +192,15 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
             receiptId: 'rcpt_test_verified',
             algorithm: 'SHA-256',
             verifiedAt: '2026-09-13T18:00:00.000Z',
-            fingerprint: 'a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0',
+            validatorVersion: VALIDATOR_VERSION,
+            fingerprint: computeClaimFingerprint({
+              entityId: 'fake_100b',
+              claimKey: 'pnl.monthlyRevenue',
+              claimValue: 833333333,
+              evidenceId: 'ev_financial',
+              targetSnippet: '客観的事実ログ・集金構造',
+              validatorVersion: VALIDATOR_VERSION,
+            }),
             deterministicCheck: 'PASS',
           },
         },
@@ -194,6 +208,52 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     } as unknown as FinancialEntity;
 
     expect(isPublishableEntity(verifiedEntity)).toBe(true);
+
+    // [P0検証・監査役ChatGPT指摘] もっともらしい64桁の偽SHA-256（任意入力ハッシュ）は再計算照合で物理遮断
+    const fake64ShaEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          ...verifiedEntity.claimBindings![0],
+          verificationReceipt: {
+            receiptId: 'rcpt_test_fake_sha',
+            algorithm: 'SHA-256',
+            verifiedAt: '2026-09-13T18:00:00.000Z',
+            validatorVersion: VALIDATOR_VERSION,
+            fingerprint: 'a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0', // 偽の64文字SHA
+            deterministicCheck: 'PASS',
+          },
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(fake64ShaEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] 原本は月商8.3億円なのにClaimが改ざん（1,000万円）されている場合、再計算不一致で物理遮断
+    const tamperedClaimEntity = {
+      ...verifiedEntity,
+      pnl: {
+        ...verifiedEntity.pnl,
+        monthlyRevenue: 10000000, // 改ざんされたClaim値
+      },
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(tamperedClaimEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] 原本スニペットが別箇所にすり替えられた場合、再計算不一致で物理遮断
+    const tamperedSnippetEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          ...verifiedEntity.claimBindings![0],
+          locator: {
+            type: 'text',
+            start: 0,
+            end: 40,
+            targetText: '全く無関係な別の文章スニペット',
+          },
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(tamperedSnippetEntity)).toBe(false);
 
     // [P0検証] verificationReceipt が欠落している場合は物理遮断
     const noReceiptEntity = {
@@ -203,9 +263,10 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
           claimKey: 'pnl.monthlyRevenue',
           evidenceId: 'ev_financial',
           locator: {
-            type: 'pdf',
-            page: 42,
-            table: 'Revenue',
+            type: 'text',
+            start: 0,
+            end: 40,
+            targetText: '客観的事実ログ・集金構造',
           },
           sourceClass: 'PRIMARY',
           verificationStatus: 'SUPPORTED',
@@ -220,54 +281,15 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
       ...verifiedEntity,
       claimBindings: [
         {
-          claimKey: 'pnl.monthlyRevenue',
-          evidenceId: 'ev_financial',
-          locator: {
-            type: 'pdf',
-            page: 42,
-            table: 'Revenue',
-          },
-          sourceClass: 'PRIMARY',
-          verificationStatus: 'SUPPORTED',
-          supportCheck: 'PASS',
+          ...verifiedEntity.claimBindings![0],
           verificationReceipt: {
-            receiptId: 'rcpt_test_fail',
-            algorithm: 'SHA-256',
-            verifiedAt: '2026-09-13T18:00:00.000Z',
-            fingerprint: 'a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0',
+            ...verifiedEntity.claimBindings![0].verificationReceipt,
             deterministicCheck: 'FAIL',
           },
         },
       ],
     } as unknown as FinancialEntity;
     expect(isPublishableEntity(failReceiptEntity)).toBe(false);
-
-    // [P0検証] verificationReceipt の fingerprint が不正（16文字未満）の場合は物理遮断
-    const invalidFingerprintEntity = {
-      ...verifiedEntity,
-      claimBindings: [
-        {
-          claimKey: 'pnl.monthlyRevenue',
-          evidenceId: 'ev_financial',
-          locator: {
-            type: 'pdf',
-            page: 42,
-            table: 'Revenue',
-          },
-          sourceClass: 'PRIMARY',
-          verificationStatus: 'SUPPORTED',
-          supportCheck: 'PASS',
-          verificationReceipt: {
-            receiptId: 'rcpt_test_short_hash',
-            algorithm: 'SHA-256',
-            verifiedAt: '2026-09-13T18:00:00.000Z',
-            fingerprint: 'tooshort',
-            deterministicCheck: 'PASS',
-          },
-        },
-      ],
-    } as unknown as FinancialEntity;
-    expect(isPublishableEntity(invalidFingerprintEntity)).toBe(false);
 
     // 反証（REFUTED）またはFAILのBindingがある場合は厳格拒絶
     const refutedEntity = {

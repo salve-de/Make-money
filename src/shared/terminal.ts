@@ -1,3 +1,5 @@
+import { sha256Sync } from './sha256';
+
 export type BusinessScale = 'SOLO' | 'SMALL_TEAM' | 'SCALEUP' | 'ENTERPRISE' | 'UNKNOWN';
 
 export type SectorCategory =
@@ -54,6 +56,7 @@ export type EvidenceLocator =
       type: 'text';
       start: number;
       end: number;
+      targetText?: string;
       excerptHash?: string;
     }
   | {
@@ -69,12 +72,36 @@ export type CriticalClaimKey =
   | 'pnl.operatingProfit'
   | 'operations.teamSize';
 
+export const VALIDATOR_VERSION = 'v1.0.0';
+
 export interface VerificationReceipt {
   receiptId: string;
   algorithm: 'SHA-256' | 'EDINET-XBRL' | 'W3C-SELECTOR-MATCH';
   verifiedAt: string; // ISO 8601
-  fingerprint: string; // 原本またはエビデンスのSHA-256ハッシュ
+  fingerprint: string; // 原本またはエビデンスのSHA-256決定論的ハッシュ
   deterministicCheck: 'PASS';
+  validatorVersion?: string;
+}
+
+export interface ClaimFingerprintParams {
+  entityId: string;
+  claimKey: string;
+  claimValue: number | string;
+  evidenceId: string;
+  targetSnippet?: string;
+  validatorVersion?: string;
+}
+
+/**
+ * 決定論的検証レシート（Verification Receipt）の指紋を生成する純粋関数。
+ * entityId, claimKey, claimValue, evidenceId, 原本スニペット, バージョンからSHA-256を算出。
+ * Gate側で再計算照合することで、自己申告や偽ハッシュを物理遮断する。
+ */
+export function computeClaimFingerprint(params: ClaimFingerprintParams): string {
+  const version = params.validatorVersion || VALIDATOR_VERSION;
+  const snippet = (params.targetSnippet || '').trim();
+  const canonical = `${params.entityId}|${params.claimKey}|${params.claimValue}|${params.evidenceId}|${snippet}|${version}`;
+  return sha256Sync(canonical);
 }
 
 /**

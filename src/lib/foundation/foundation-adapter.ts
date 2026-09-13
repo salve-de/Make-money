@@ -3,7 +3,6 @@ import type {
   FoundationMetricSignal,
   FoundationValueSummary,
 } from '@/lib/foundation/business-reader';
-import { sha256Sync } from '@/shared/sha256';
 import type {
   FinancialEntity,
   ProfitAndLossStatement,
@@ -17,6 +16,10 @@ import type {
   OpportunityJudgment,
   EvidenceLocator,
   VerificationReceipt,
+} from '@/platform/types/terminal';
+import {
+  computeClaimFingerprint,
+  VALIDATOR_VERSION,
 } from '@/platform/types/terminal';
 import {
   cleanIntelligenceText,
@@ -821,7 +824,15 @@ export function adaptFoundationDetailToFinancialEntity(
               receiptId: `rcpt_fnd_${entity.id}_rev`,
               algorithm: 'SHA-256',
               verifiedAt: new Date().toISOString(),
-              fingerprint: sha256Sync(`${entity.id}:${monthlyJpy}:${revMetric?.id || revMoney?.id || 'rev'}`),
+              validatorVersion: VALIDATOR_VERSION,
+              fingerprint: computeClaimFingerprint({
+                entityId: entity.id,
+                claimKey: 'pnl.monthlyRevenue',
+                claimValue: monthlyJpy,
+                evidenceId: revMetric ? `${revMetric.id}_metric` : (revMoney ? `${revMoney.id}_money` : `ev_${entity.id}_crime`),
+                targetSnippet: crimeLocator.type === 'text' ? crimeLocator.targetText : undefined,
+                validatorVersion: VALIDATOR_VERSION,
+              }),
               deterministicCheck: 'PASS',
             } satisfies VerificationReceipt,
           },

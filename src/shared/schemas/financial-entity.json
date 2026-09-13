@@ -426,6 +426,9 @@
             "end": {
               "type": "number"
             },
+            "targetText": {
+              "type": "string"
+            },
             "excerptHash": {
               "type": "string"
             }
@@ -1315,6 +1318,9 @@
         "deterministicCheck": {
           "type": "string",
           "const": "PASS"
+        },
+        "validatorVersion": {
+          "type": "string"
         }
       },
       "required": [
