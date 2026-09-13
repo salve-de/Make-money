@@ -27,7 +27,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                     <div className="flex items-center gap-1.5">
                       <Wrench className="w-3.5 h-3.5 text-zinc-300" />
                       <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-100">
-                        稼働インフラ：現場配管ツール ({entity.operations.toolStack.length}件)
+                        利用システム・ツール構成 ({entity.operations.toolStack.length}件)
                       </h3>
                     </div>
                   </div>
@@ -131,7 +131,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                       </div>
                     </div>
                     <span className="text-red-300 font-mono text-[10px] bg-red-950/60 px-2 py-0.5 rounded border border-red-500/30">
-                      損失回避・防御盾
+                      失敗の回避策
                     </span>
                   </div>
 
@@ -139,7 +139,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                     <div className="bg-red-950/30 border border-red-500/30 rounded-md p-3 space-y-1">
                       <div className="flex items-center gap-1.5 text-red-400 text-xs font-mono font-bold">
                         <AlertTriangle className="w-3.5 h-3.5" />
-                        <span>踏んだら即死する構造的死角</span>
+                        <span>陥りやすい致命的なリスク</span>
                       </div>
                       <p className="text-xs text-zinc-200 leading-relaxed font-sans">
                         {shield.fatalRisk}
@@ -149,7 +149,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                     <div className="bg-amber-950/20 border border-amber-500/30 rounded-md p-3 space-y-1">
                       <div className="flex items-center gap-1.5 text-amber-400 text-xs font-mono font-bold">
                         <ShieldCheck className="w-3.5 h-3.5" />
-                        <span>生存のための防壁アプローチ</span>
+                        <span>生き残るための代替アプローチ</span>
                       </div>
                       <p className="text-xs text-zinc-200 leading-relaxed font-sans">
                         {shield.shieldApproach}
@@ -158,7 +158,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
 
                     <div className="space-y-2 pt-1">
                       <span className="text-[10px] font-mono text-zinc-300 font-bold uppercase tracking-wider block">
-                        推奨・避難先インフラスタック（検証済み代替ツール）
+                        推奨する代替ツール
                       </span>
                       <div className="space-y-2">
                         {shield.recommendedTools.map((t, idx) => {

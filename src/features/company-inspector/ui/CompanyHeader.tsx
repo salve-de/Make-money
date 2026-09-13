@@ -192,7 +192,7 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
               onClick={() => scrollToSection('section-evidence')}
               className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
             >
-              <span>特異物証</span>
+              <span>儲けのウラ側</span>
               {entity.evidenceCards && entity.evidenceCards.length > 0 && (
                 <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
                   {entity.evidenceCards.length}
@@ -217,7 +217,7 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
                 onClick={() => scrollToSection('section-tools')}
                 className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
               >
-                <span>配管ツール</span>
+                <span>使っているツール</span>
               </button>
             )}
 
@@ -226,7 +226,7 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
               onClick={() => scrollToSection('section-playbook')}
               className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
             >
-              <span>{isHazardMode ? '死因検死' : '略奪手順'}</span>
+              <span>{isHazardMode ? '失敗の原因' : '実践ステップ'}</span>
             </button>
 
             <button
@@ -246,7 +246,7 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
               type="button"
               onClick={() => scrollToSection('section-notes')}
               className="py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-              title="極秘考察メモ"
+              title="考察メモ"
             >
               <span>メモ</span>
               {analystNote && <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />}

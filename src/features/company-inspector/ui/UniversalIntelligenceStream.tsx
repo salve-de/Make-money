@@ -43,14 +43,14 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
     switch (category) {
       case 'INCUMBENT_DILEMMA':
         return {
-          label: customLabel || '大手の自爆',
+          label: customLabel || '大企業の弱点',
           border: 'border-red-500/30',
           bg: 'bg-red-950/20',
           text: 'text-red-300',
         };
       case 'SAVANNAH_PAIN':
         return {
-          label: customLabel || 'サバンナOSの急所',
+          label: customLabel || '人間の本音と悩み',
           border: 'border-amber-500/30',
           bg: 'bg-amber-950/20',
           text: 'text-amber-300',
@@ -64,21 +64,21 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
         };
       case 'FOUNDER_HACK':
         return {
-          label: customLabel || '現場の泥臭い工夫',
+          label: customLabel || '創業期の泥臭い工夫',
           border: 'border-blue-500/30',
           bg: 'bg-blue-950/20',
           text: 'text-blue-300',
         };
       case 'TECH_VERIFICATION':
         return {
-          label: customLabel || '技術スタック照合',
+          label: customLabel || 'ツールの利用実態',
           border: 'border-purple-500/30',
           bg: 'bg-purple-950/20',
           text: 'text-purple-300',
         };
       case 'FORUM_RAGE':
         return {
-          label: customLabel || '顧客の生の声・怨嗟',
+          label: customLabel || '顧客の生の声・不満',
           border: 'border-orange-500/30',
           bg: 'bg-orange-950/20',
           text: 'text-orange-300',
@@ -86,7 +86,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
       case 'RESEARCH_LIMIT':
       default:
         return {
-          label: customLabel || '調査限界・非公開',
+          label: customLabel || '非公開・未確認の情報',
           border: 'border-zinc-700',
           bg: 'bg-zinc-900',
           text: 'text-zinc-400',

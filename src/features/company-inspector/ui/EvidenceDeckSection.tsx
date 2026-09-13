@@ -34,16 +34,16 @@ export function EvidenceDeckSection({ entity, isHazardMode, hasEvidenceCards }: 
                       ? 'text-red-300 bg-red-900/40 border-red-500/40'
                       : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                   }`}>
-                    DOSSIER
+                    FACT
                   </span>
                   <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                     isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    {isHazardMode ? '致命的特異点・死因物証保全ファイル' : '特異点物証 ＆ 金抜きの急所ファイル'}
+                    {isHazardMode ? '失敗・撤退の事実ログ' : '儲けのウラ側 ＆ 現場の証拠ファイル'}
                   </h3>
                 </div>
                 <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                  {entity.evidenceCards!.length}件の特異点事実
+                  {entity.evidenceCards!.length}件の証拠データ
                 </span>
               </div>
               <div className="p-3 bg-[#0E131F]">

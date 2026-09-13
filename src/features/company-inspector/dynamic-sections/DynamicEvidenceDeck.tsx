@@ -40,7 +40,7 @@ function renderEvidenceBadge(status: EvidenceStatus) {
       return (
         <span className="inline-flex items-center gap-1 font-mono text-[10px] text-red-400">
           <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
-          検死解剖
+          撤退・失敗の検証
         </span>
       );
     case 'UNKNOWN':
@@ -56,14 +56,14 @@ function renderEvidenceBadge(status: EvidenceStatus) {
 // Only data-dependent card kinds use a registry; fixed inspector sections use JSX.
 type EvidenceKind = { label: string; hazardLabel?: string };
 export const evidenceRegistry = {
-  THE_CRIME: { label: '金抜きの本質', hazardLabel: '致命的錯覚の前提' },
-  SMOKING_GUN: { label: '現場の現物証拠' },
-  DIRTY_GENESIS: { label: '初期ゲリラ戦実録' },
-  ASYMMETRIC_LEVERAGE: { label: '非対称損益実額' },
-  INCUMBENT_TRAP: { label: '大手の自爆死角' },
-  FATAL_BLEED: { label: '死因検死解剖ログ' },
-  LOOT_BLUEPRINT: { label: '現場の実動配管' },
-  UNKNOWN_AUDIT: { label: '調査限界開示' },
+  THE_CRIME: { label: 'キレイゴト抜きの稼ぎ方', hazardLabel: '失敗した思い込みの前提' },
+  SMOKING_GUN: { label: '現場の動かぬ証拠' },
+  DIRTY_GENESIS: { label: '最初の客を掴んだ泥臭い手口' },
+  ASYMMETRIC_LEVERAGE: { label: '通帳に残る本当の利益' },
+  INCUMBENT_TRAP: { label: '大企業が真似できない理由' },
+  FATAL_BLEED: { label: '会社が潰れた本当の原因' },
+  LOOT_BLUEPRINT: { label: '儲かる仕組みの設計図' },
+  UNKNOWN_AUDIT: { label: '非公開・未確認の情報' },
 } satisfies Record<DynamicEvidenceCardType, EvidenceKind>;
 
 function getCardLabel(type: DynamicEvidenceCardType, isHazard?: boolean): string {
@@ -154,8 +154,8 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
               {/* 一次情報源（存在する場合） */}
               {card.sourceNote && (
                 <div className="pt-1 text-[10px] font-mono text-zinc-400 flex items-center justify-between border-t border-white/[0.04]">
-                  <span>一次情報証拠: <strong className="text-zinc-300">{card.sourceNote}</strong></span>
-                  <span className="text-zinc-500">REGISTRY AUDIT</span>
+                  <span>情報源: <strong className="text-zinc-300">{card.sourceNote}</strong></span>
+                  <span className="text-zinc-500">確認済み</span>
                 </div>
               )}
             </div>

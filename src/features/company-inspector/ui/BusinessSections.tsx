@@ -10,13 +10,13 @@ import { parsePunchline } from '../model/inspector-model';
 import type { InspectorSectionProps } from '../model/section-props';
 
 const MOAT_TYPE_LABELS: Record<string, string> = {
-  COUNTER_POSITIONING: '大手の自爆誘発',
-  NETWORK_EFFECT: '自動増殖ループ',
-  HIGH_SWITCHING_COSTS: '乗り換え不能人質',
-  CORNERED_RESOURCE: '独占のズルい手札',
-  SCALE_ECONOMIES: '規模の低原価要塞',
-  PROCESS_POWER: '暗黙知の密室配管',
-  BRAND_SPEED: '超速ブランド認知',
+  COUNTER_POSITIONING: '大企業が真似できない構造',
+  NETWORK_EFFECT: '利用者が増えるほど強くなる仕組み',
+  HIGH_SWITCHING_COSTS: '他社へ乗り換えられない仕組み',
+  CORNERED_RESOURCE: '独自の独占資産・特権',
+  SCALE_ECONOMIES: '規模の大きさによる圧倒的低コスト',
+  PROCESS_POWER: '真似できない独自の現場ノウハウ',
+  BRAND_SPEED: '圧倒的なブランド認知とスピード',
   UNKNOWN: '未確認',
 };
 
@@ -46,11 +46,11 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                     <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
-                      {isHazardMode ? '事業の罠・錯覚の前提' : '事業の正体・構造仕様'}
+                      {isHazardMode ? '事業の罠・錯覚の前提' : 'この会社は何屋か（ビジネスの正体）'}
                     </h3>
                   </div>
                   <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    事業DNA
+                    ビジネスモデル
                   </span>
                 </div>
                 <div className={`divide-y ${
@@ -58,19 +58,19 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                 }`}>
                   <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
                     <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '錯覚した事業' : '何屋か'}
+                      {isHazardMode ? '錯覚した事業' : '要するに何屋か'}
                     </span>
                     <span className="text-zinc-100 text-xs leading-relaxed font-medium">{entity.essence.whatItDoes}</span>
                   </div>
                   <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
                     <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '見誤った顧客' : '誰の財布'}
+                      {isHazardMode ? '見誤った顧客' : '誰からお金をもらっているか'}
                     </span>
                     <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.targetCustomer}</span>
                   </div>
                   <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
                     <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '消滅した需要' : '切除する苦痛'}
+                      {isHazardMode ? '消滅した需要' : 'どんな悩みを解決しているか'}
                     </span>
                     <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.painRelief}</span>
                   </div>
@@ -107,12 +107,12 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                         <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                           isHazardMode ? 'text-red-200' : 'text-zinc-100'
                         }`}>
-                          {isHazardMode ? '見落とした致命的死角' : '突いた業界の盲点'}
+                          {isHazardMode ? '見落とした致命的な死角' : '業界の常識のウラを突いた点'}
                         </h3>
                       </div>
                     </div>
                     <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                      業界の盲点
+                      常識の逆
                     </span>
                   </div>
                   <div className="p-3.5 space-y-2.5 bg-[#0E131F]">
@@ -159,7 +159,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                         <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                           isHazardMode ? 'text-red-200' : 'text-zinc-100'
                         }`}>
-                          {isHazardMode ? '崩壊した見せかけの堀' : '参入障壁の正体'}
+                          {isHazardMode ? '崩壊した見せかけの強み' : 'ライバルが真似できない理由'}
                         </h3>
                       </div>
                     </div>
@@ -209,12 +209,12 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                       <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                         isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
-                        {isHazardMode ? '大手に一撃で市場を奪取された理由' : '大手が構造上真似できない理由'}
+                        {isHazardMode ? '大手に一撃で市場を奪取された理由' : '大企業が手を出せない理由'}
                       </h3>
                     </div>
                   </div>
                   <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    大手の自爆
+                    大企業の弱点
                   </span>
                 </div>
                 <div className="p-3.5 bg-[#0E131F]">

@@ -43,7 +43,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                         isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
-                        {isHazardMode ? '資本主義の裏帳簿：致命的死因の客観ログ' : '資本主義の裏帳簿：初期突破の手口と裏原価'}
+                        {isHazardMode ? '失敗に至った客観的な記録' : '初期に客を集めた手口とリアルな原価'}
                       </h3>
                     </div>
                   </div>
@@ -52,7 +52,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       ? 'text-red-300 bg-red-950/60 border-red-500/30 font-bold'
                       : 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
                   }`}>
-                    {isHazardMode ? '死因確定' : '実査済'}
+                    {isHazardMode ? '失敗要因' : '確認済'}
                   </span>
                 </div>
 
@@ -64,7 +64,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>01.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '初期の錯覚熱狂と自演トラクション' : '初期ゲリラ戦・自演集客ログ'}
+                        {isHazardMode ? '初期の過熱と数字の錯覚' : '創業初期の集客手口'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -77,7 +77,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>02.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? 'プラットフォーム依存の死角と規約爆弾' : 'プラットフォーム規約の盲点ハック'}
+                        {isHazardMode ? 'プラットフォーム規約への過度な依存' : 'プラットフォームの隙間・規約の穴'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -90,7 +90,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>03.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '崩壊後の投げ売り・清算ピボット魚拓' : '死線とピボットの魚拓比較'}
+                        {isHazardMode ? '事業転換（ピボット）の履歴' : '事業転換（ピボット）の履歴'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -103,7 +103,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>04.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '首を絞めたAPI原価・過剰固定費の出血ログ' : '裏ツール構成と現物原価のレントゲン'}
+                        {isHazardMode ? '想定外にかさんだコスト・固定費' : '実際に使っていたツールと原価の内訳'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -135,7 +135,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                     isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    {isHazardMode ? '初期熱狂の獲得と解約の引き金' : '最初の100人を獲得した泥臭い手順'}
+                    {isHazardMode ? '初期の伸びと解約が始まったきっかけ' : '最初の100人を集めた具体的な手順'}
                   </h3>
                 </div>
               </div>
@@ -181,7 +181,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                     isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    {isHazardMode ? '踏んではいけない地雷リスト' : '再現・実行手順'}
+                    {isHazardMode ? '避けるべき失敗パターン' : '事業を再現する具体的な手順'}
                   </h3>
                 </div>
               </div>
@@ -222,7 +222,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
-                      {isHazardMode ? '崩壊した集客動線と獲得費高騰' : '顧客獲得動線'}
+                      {isHazardMode ? '行き詰まった集客ルート' : '主な集客ルートと獲得コスト'}
                     </h3>
                   </div>
                 </div>
@@ -268,7 +268,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <h3 className={`text-xs font-mono font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
-                      {isHazardMode ? '崩壊と破滅を招いた4つの致命的バグ (FATAL MECHANISMS)' : '独占と暴利を生む4つの裏構造 (CORE MECHANISM)'}
+                      {isHazardMode ? '事業が立ち行かなくなった4つの根本原因' : '高収益を維持し続ける4つの仕組み'}
                     </h3>
                   </div>
                 </div>
@@ -279,11 +279,11 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       : 'text-emerald-300 bg-emerald-950/60 border-emerald-800/60'
                   }`}>
                     <ShieldCheck className="w-3 h-3" />
-                    UNLOCKED: 機関解錠済
+                    解錠済
                   </span>
                 ) : (
                   <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    DEEP AUDIT
+                    詳細分析
                   </span>
                 )}
               </div>
@@ -296,12 +296,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
                       <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>01.</span>
-                      <span>{isHazardMode ? '大手の直接参入とカニバリズムの死角（一撃市場奪取）' : 'なぜ大手が手を出せないのか（大手の自縛・参入拒絶）'}</span>
+                      <span>{isHazardMode ? '大手の直接参入と市場の奪取' : '大手が手を出せない理由（大手のジレンマ）'}</span>
                     </div>
                     <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-200 font-mono">大手の自爆（カニバリ）:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
-                      <div><strong className="text-zinc-200 font-mono">大企業病（美味い隙間）:</strong> {entity.meta.incumbentDilemma.scaleMismatchReason}</div>
-                      <div><strong className="text-zinc-200 font-mono">即決の奇襲（速度の差）:</strong> {entity.meta.incumbentDilemma.decisionSpeedAdvantage}</div>
+                      <div><strong className="text-zinc-200 font-mono">大手のジレンマ:</strong> {entity.meta.incumbentDilemma.cannibalizationBarrier}</div>
+                      <div><strong className="text-zinc-200 font-mono">大企業が狙えない市場規模:</strong> {entity.meta.incumbentDilemma.scaleMismatchReason}</div>
+                      <div><strong className="text-zinc-200 font-mono">スピードの差:</strong> {entity.meta.incumbentDilemma.decisionSpeedAdvantage}</div>
                     </div>
                   </div>
 
@@ -309,12 +309,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
                       <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>02.</span>
-                      <span>{isHazardMode ? '無料モデルの罠と持続不能な価格破壊（収益化の死）' : 'なぜ暴利でも客が群がるのか（値切らせない急所）'}</span>
+                      <span>{isHazardMode ? '価格設定の失敗と収益化の挫折' : '高い価格でも客が買う理由（価格設定の工夫）'}</span>
                     </div>
                     <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-200 font-mono">錯覚の比較軸（アンカー）:</strong> {entity.meta.pricingPower.anchorComparison}</div>
-                      <div><strong className="text-zinc-200 font-mono">人質の急所（恐怖のツボ）:</strong> {entity.meta.pricingPower.lossAversionTrigger}</div>
-                      <div><strong className="text-zinc-200 font-mono">痛まない財布（会社の経費）:</strong> {entity.meta.pricingPower.budgetCategory}</div>
+                      <div><strong className="text-zinc-200 font-mono">比較の基準:</strong> {entity.meta.pricingPower.anchorComparison}</div>
+                      <div><strong className="text-zinc-200 font-mono">失うことへの恐怖:</strong> {entity.meta.pricingPower.lossAversionTrigger}</div>
+                      <div><strong className="text-zinc-200 font-mono">痛まない予算（企業の経費等）:</strong> {entity.meta.pricingPower.budgetCategory}</div>
                     </div>
                   </div>
 
@@ -322,12 +322,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
                       <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>03.</span>
-                      <span>{isHazardMode ? '防御障壁の欠落と解約の津波（乗り換え自由の罠）' : 'なぜ客が一生辞められないのか（乗り換えの監禁構造）'}</span>
+                      <span>{isHazardMode ? '防壁の欠落と解約の急増' : '客が解約しない理由（解約の手間・乗り換えの壁）'}</span>
                     </div>
                     <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-200 font-mono">データの監禁（人質化）:</strong> {entity.meta.lockInMechanism.dataHostage}</div>
-                      <div><strong className="text-zinc-200 font-mono">業務への寄生（日常化）:</strong> {entity.meta.lockInMechanism.workflowIntegration}</div>
-                      <div><strong className="text-zinc-200 font-mono">解約の激痛（乗り換え罰）:</strong> {entity.meta.lockInMechanism.switchingFriction}</div>
+                      <div><strong className="text-zinc-200 font-mono">データの蓄積:</strong> {entity.meta.lockInMechanism.dataHostage}</div>
+                      <div><strong className="text-zinc-200 font-mono">日々の業務への定着:</strong> {entity.meta.lockInMechanism.workflowIntegration}</div>
+                      <div><strong className="text-zinc-200 font-mono">乗り換えの手間:</strong> {entity.meta.lockInMechanism.switchingFriction}</div>
                     </div>
                   </div>
 
@@ -335,12 +335,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="p-3 rounded-md bg-[#141A28] border border-white/[0.06] space-y-1.5">
                     <div className="flex items-center gap-2 text-zinc-200 font-mono text-xs font-bold">
                       <span className={isHazardMode ? "text-red-400" : "text-zinc-400"}>04.</span>
-                      <span>{isHazardMode ? '現金流出スパイラルと資本枯渇（破滅のカラクリ）' : 'なぜ無借金で現金が膨らみ続けるのか（前金・暴利のカラクリ）'}</span>
+                      <span>{isHazardMode ? '資金繰りの破綻と資金枯渇' : '手元に現金が残り続ける理由（資金繰りの有利さ・高い粗利）'}</span>
                     </div>
                     <div className="space-y-1 text-[11px] text-zinc-300 leading-relaxed font-sans">
-                      <div><strong className="text-zinc-200 font-mono">前金総取り（客の金で拡大）:</strong> {entity.meta.capitalEfficiency.cashConversionCycle}</div>
-                      <div><strong className="text-zinc-200 font-mono">原価ゼロの限界利益:</strong> {entity.meta.capitalEfficiency.incrementalMargin}</div>
-                      <div><strong className="text-zinc-200 font-mono">現金の自動蓄積（無借金増殖）:</strong> {entity.meta.capitalEfficiency.workingCapitalStrategy}</div>
+                      <div><strong className="text-zinc-200 font-mono">前金受け取り（資金繰りの有利さ）:</strong> {entity.meta.capitalEfficiency.cashConversionCycle}</div>
+                      <div><strong className="text-zinc-200 font-mono">高い粗利率:</strong> {entity.meta.capitalEfficiency.incrementalMargin}</div>
+                      <div><strong className="text-zinc-200 font-mono">手元に現金が残る仕組み:</strong> {entity.meta.capitalEfficiency.workingCapitalStrategy}</div>
                     </div>
                   </div>
                 </div>
@@ -356,12 +356,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="flex flex-col items-center justify-center bg-black/80 rounded gap-2.5 p-4 text-center">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                       <KeyRound className={`w-4 h-4 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-                      <span>{isHazardMode ? '大手が一撃で市場を奪取し、資金が枯渇した「4大撤退要因の裏帳簿」' : '大手が手を出せず、客が一生逃げられない「4大独占構造」'}</span>
+                      <span>{isHazardMode ? '事業が失敗・撤退に至った「4つの根本原因」' : '大手が参入できず、客が離れない「4つの高収益構造」'}</span>
                     </div>
                     <p className="text-xs text-zinc-300 max-w-sm font-sans leading-normal">
                       {isHazardMode
-                        ? 'なぜ一瞬で模倣されたのか、どこで規制に刺されたのか、出血が止まらなくなった裏原価をすべて公開'
-                        : '暴利でも客が群がるカラクリ、他社へ乗り換え不能にする罠、前金で手元に金が残る裏帳簿をすべて公開'}
+                        ? 'なぜ競合に敗れたのか、どこで資金が尽きたのか、事業が崩壊した内訳をすべて公開'
+                        : '高い利益率を維持できる理由、顧客が乗り換えない理由、手元に現金が残る仕組みをすべて公開'}
                     </p>
                     <button
                       onClick={onOpenPro}
