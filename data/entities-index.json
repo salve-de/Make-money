@@ -1,111 +1,5 @@
 [
   {
-    "id": "ent_plausible_7d120a11",
-    "ticker": "PLSB.IO",
-    "name": "Plausible Analytics",
-    "legalEntity": "Plausible Insights OÜ (Estonia)",
-    "tagline": "「Google Analytics（GA4）の重さ・クッキー同意バナーの離脱激痛」を1KBの軽量スクリプトで切除し、完全2人で月商¥2,025万・利益率77%を抜くプライバシー関所",
-    "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "Uku Taht & Marko Saric（エストニア出身ブートストラップ起業家）",
-    "country": "EE",
-    "url": "https://plausible.io",
-    "verifiedBadge": true,
-    "growthRateYoY": 70,
-    "architecturePattern": "ClickHouse×Elixir高効率集計×クッキーレス軽量トラッカー",
-    "pipelineStack": "Elixir/Phoenix × ClickHouse × Hetzner × Paddle/Stripe",
-    "targetPainWallet": "Cookieバナーのせいでコンバージョンが激減し、GA4の複雑な画面に絶望する世界中のWeb担当者の財布",
-    "tags": [
-      "完全2人開発",
-      "利益率77%",
-      "月商2000万",
-      "GA4対抗",
-      "クッキーレス"
-    ],
-    "pnl": {
-      "monthlyRevenue": 20250000,
-      "cogs": 1800000,
-      "grossProfit": 18450000,
-      "grossMargin": 91.1,
-      "operatingExpenses": {
-        "serverAndApi": 1000000,
-        "advertising": 0,
-        "subcontracting": 1500000,
-        "toolsAndSaaS": 350000,
-        "other": 0
-      },
-      "operatingProfit": 15600000,
-      "operatingMargin": 77,
-      "estimatedAnnualNetProfit": 140400000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "公式Open Stats公開 MRR $135,000（月商約2,025万円）",
-      "dataSnapshotPeriod": "2024年公開ダッシュボード（有料顧客12,000社超）",
-      "sourceDoc": "Plausible Open Metrics / 創業者ブログ公開P&L"
-    },
-    "operations": {
-      "teamSize": 2,
-      "weeklyHours": 25,
-      "initialCapitalRequired": 30000,
-      "automationLevel": 95,
-      "primaryChannels": [
-        "「なぜGoogle Analyticsを削除すべきか」の痛撃SEO記事",
-        "Twitter/Xでのオープンメトリクス公開",
-        "オープンソースGitHubリポジトリ（セルフホスト可能）"
-      ],
-      "toolStack": [
-        {
-          "name": "Hetzner Dedicated Servers",
-          "category": "専用サーバー",
-          "monthlyCost": 1000000
-        },
-        {
-          "name": "ClickHouse",
-          "category": "列指向高速DB",
-          "monthlyCost": 0
-        },
-        {
-          "name": "Paddle",
-          "category": "グローバル決済",
-          "monthlyCost": 1000000
-        }
-      ]
-    },
-    "strategy": {
-      "blindspot": "Google Analyticsは広告トラッキングのために膨大な個人情報を収集し、ユーザーに「クッキー同意バナー」を強要してサイトを遅くしていた。この不条理を突いた。",
-      "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "「クッキー不要・個人データ収集ゼロ・1KB以下の高速読込」。Googleは自社の広告ビジネスの都合上、個人データ収集を捨てる逆張りが絶対にできない。",
-      "initialTraction": [
-        "HackerNewsに「Google Analyticsから離脱する理由」を投稿しトップ獲得",
-        "自社の全財務データ（MRR、トラフィック、サーバー代）を完全公開する「Open Startup」を宣言",
-        "EUのGDPR規制強化の波に乗り、コンプライアンスを重視する企業が雪崩を打って契約"
-      ],
-      "actionPlaybook": [
-        "巨人のビジネスモデル（広告・データ収集）の構造的弱点（クッキー同意激痛）を特定する",
-        "機能を「本当に見る10個の指標」だけに削ぎ落とし、1画面で完結する超高速ダッシュボードを組む",
-        "オープンソースとクラウド版（SaaS）のハイブリッドで開発者の信頼を独占する"
-      ]
-    },
-    "lootBlueprint": {
-      "targetPrey": "GA4の設定に数週間かかり、サイトが重くなって離脱されているWebサイト運営者",
-      "structuralFlaw": "Googleは広告ターゲティングのためにデータを集めなければならず、軽量化できない。",
-      "stealthEntry": "「1行タグを貼るだけ、Cookieバナー不要」で即日利用可能に。",
-      "tollGateSetup": "Webトラフィック連動の月額サブスクリプション。",
-      "reproducibilityScore": 84,
-      "moatDurabilityScore": 82,
-      "capitalEfficiencyScore": 95,
-      "executionChecklist": [
-        "ClickHouseをHetznerに立てて超高速集計エンジンを作る",
-        "オープンソースでGitHubスターを集め、クラウド版を有料ホストする",
-        "EUのプライバシー法規制を追い風にして自然流入を刈り取る"
-      ]
-    },
-    "observations": [
-      "【完全2人で年利1.4億円】広告費ゼロ。ElixirとClickHouseの高効率インフラにより、月間数十億イベントを月100万円のサーバー代で捌き、利益率77%を叩き出している。"
-    ]
-  },
-  {
     "id": "ent_ghost_3c99a012",
     "ticker": "GHST.ORG",
     "name": "Ghost Foundation",
@@ -204,107 +98,6 @@
     },
     "observations": [
       "【株主ゼロの非営利独占】VC資金を一切入れず非営利財団として運営。買収されるリスクがなく、年間売上10億円が全額プロダクトと少人数チームに還元されるため、競合が資本力で潰せない無敵艦隊となっている。"
-    ]
-  },
-  {
-    "id": "ent_gumroad_1f820c43",
-    "ticker": "GMRD.CO",
-    "name": "Gumroad",
-    "legalEntity": "Gumroad, Inc. (Sahil Lavingia Founder)",
-    "tagline": "「フルタイム社員ゼロ・全員業務委託」の極限身軽組織で、年間$100M超のクリエイター流通総額から10%の関所通行税を抜き、月商¥1.25億円・利益率55%を稼ぎ出すデジタル決済プラットフォーム",
-    "sector": "FINTECH_INFRA",
-    "scale": "SMALL_TEAM",
-    "founder": "Sahil Lavingia（元Pinterest初期メンバー）",
-    "country": "US",
-    "url": "https://gumroad.com",
-    "verifiedBadge": true,
-    "growthRateYoY": 30,
-    "architecturePattern": "社員ゼロ・非同期ギグワーク組織×高テイクレート（10%フラット）決済関所",
-    "pipelineStack": "Ruby on Rails × AWS × Stripe Connect × Notion/GitHub非同期運用",
-    "targetPainWallet": "自作PDFやソフトを売りたいが、自前でECサイトや決済インボイスを組む激痛に直面する個人クリエイター",
-    "tags": [
-      "社員ゼロ",
-      "利益率55%",
-      "年商15億",
-      "10%関所",
-      "完全非同期"
-    ],
-    "pnl": {
-      "monthlyRevenue": 125000000,
-      "cogs": 37500000,
-      "grossProfit": 87500000,
-      "grossMargin": 70,
-      "operatingExpenses": {
-        "serverAndApi": 5000000,
-        "advertising": 0,
-        "subcontracting": 12500000,
-        "toolsAndSaaS": 1250000,
-        "other": 0
-      },
-      "operatingProfit": 68750000,
-      "operatingMargin": 55,
-      "estimatedAnnualNetProfit": 618750000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "創業者Sahil Lavingia公開 年商 $10M（約15億円）",
-      "dataSnapshotPeriod": "2024年公開決算レポート（取扱高 $100M+）",
-      "sourceDoc": "Gumroad Public Financials / Sahil Lavingia公式ブログ"
-    },
-    "operations": {
-      "teamSize": 0,
-      "weeklyHours": 15,
-      "initialCapitalRequired": 100000,
-      "automationLevel": 90,
-      "primaryChannels": [
-        "クリエイターが自ら貼る「gumroad.com」の購入リンク拡散",
-        "Twitter/Xでのオープンな経営実況と起業論",
-        "クリエイター向けディスカバリーポータル"
-      ],
-      "toolStack": [
-        {
-          "name": "AWS & Heroku",
-          "category": "クラウドインフラ",
-          "monthlyCost": 5000000
-        },
-        {
-          "name": "Stripe Connect & PayPal",
-          "category": "決済プロセッサ",
-          "monthlyCost": 35000000
-        }
-      ]
-    },
-    "strategy": {
-      "blindspot": "VCから巨額調達して社員を雇いまくり一度破綻寸前に追い込まれた教訓から、「フルタイム社員を1人も雇わず、全員を時給制の業務委託にしてSlackすら廃止する」という異次元の逆張りを断行。",
-      "moatType": "NETWORK_EFFECT",
-      "moatDescription": "世界中のクリエイターの通帳・顧客リストを握り、10%の一律手数料へ値上げしても客が離脱できないスイッチングコスト。",
-      "initialTraction": [
-        "Pinterestの初期デザイナーだった創業者が、週末に「リンク1行でデジタルファイルを売れるツール」を作成",
-        "Twitterに投稿したところ瞬く間に数万人にシェアされ、初週で5万ドルを調達",
-        "VC主導の無理な急成長から離脱し、手数料10%の超高収益キャッシュ牛ビジネスへと再構築"
-      ],
-      "actionPlaybook": [
-        "会議、Slack、フルタイム社員を全廃し、GitHubのIssueとNotionだけで動く完全非同期組織を作る",
-        "固定費を極限までゼロにし、売上の変動に連動する変動費構造（業務委託時給制）を徹底する",
-        "一度握ったプラットフォームの関所通行税（テイクレート）を堂々と引き上げ、利益率を最大化する"
-      ]
-    },
-    "lootBlueprint": {
-      "targetPrey": "自分の知識やコードを即座に現金化したい世界中のクリエイター",
-      "structuralFlaw": "大手決済（Stripe等）は生APIしか提供せず、非エンジニアが直販できる決済リンク画面を放置。",
-      "stealthEntry": "「URLを貼るだけで今すぐ売れる」という極限の認知負荷ゼロUI。",
-      "tollGateSetup": "全決済の10%を関所通行税として自動天引き。",
-      "reproducibilityScore": 70,
-      "moatDurabilityScore": 85,
-      "capitalEfficiencyScore": 96,
-      "executionChecklist": [
-        "Stripe Connectで売り手と買い手を仲介するエスクロー決済を組む",
-        "組織の固定費を完全ゼロにする",
-        "テイクレートを10%に設定してキャッシュを自動蓄積する"
-      ]
-    },
-    "observations": [
-      "【究極のノーヘッドカウント経営】フルタイム社員ゼロ。創業者Sahilは週数時間のコミットで年間6億円超の手残り現金を回収。固定費を抱えないことこそが資本主義における最強の防御壁であることを証明した。"
     ]
   },
   {
@@ -497,118 +290,6 @@
     },
     "observations": [
       "【検死解剖の教訓】破産管財人のジョン・J・レイ三世（エンロン破産を処理した伝説の弁護士）をして「40年のキャリアでこれほど完全に企業統治が破綻した事例は見たことがない」と言わしめた。派手な広告と崇高な理念の裏で、基本的な帳簿すらつけていなかった。"
-    ]
-  },
-  {
-    "id": "ent_carrd_8c310b91",
-    "ticker": "CARRD",
-    "name": "Carrd",
-    "legalEntity": "Carrd Inc. (AJ Sole Founder)",
-    "tagline": "「WordPressやWebflowの多機能・高額課金に疲弊した個人」を年$19の1ページ特化で救済し、完全1人で年商¥3.7億円・利益率88%を抜くWebビルダー",
-    "sector": "NICHE_SAAS",
-    "scale": "SOLO",
-    "founder": "AJ（アメリカ在住・完全1人開発・正体非公開）",
-    "country": "US",
-    "url": "https://carrd.co",
-    "verifiedBadge": true,
-    "growthRateYoY": 85,
-    "architecturePattern": "静的HTMLジェネレーター×S3ホスティング関所",
-    "pipelineStack": "Vanilla JS × Node.js × AWS S3/CloudFront × Stripe",
-    "targetPainWallet": "ポートフォリオやLPを作るためだけに月額$29を払い続けるクリエイターの固定費激痛",
-    "tags": [
-      "完全1人開発",
-      "利益率88%",
-      "年商3.7億",
-      "年$19前金総取り",
-      "解約ゼロ"
-    ],
-    "pnl": {
-      "monthlyRevenue": 31250000,
-      "cogs": 1500000,
-      "grossProfit": 29750000,
-      "grossMargin": 95.2,
-      "operatingExpenses": {
-        "serverAndApi": 800000,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 1300000,
-        "other": 150000
-      },
-      "operatingProfit": 27500000,
-      "operatingMargin": 88,
-      "estimatedAnnualNetProfit": 247500000,
-      "financialStatus": "REPORTED",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "創業者AJ公開メトリクス ARR $2.5M（年商約3.75億円）",
-      "dataSnapshotPeriod": "2024年 ARR $2.5M（有料会員12万人超）",
-      "sourceDoc": "IndieHackersインタビュー / 創業者AJ公開Xポスト / 公式価格表"
-    },
-    "operations": {
-      "teamSize": 1,
-      "weeklyHours": 10,
-      "initialCapitalRequired": 50000,
-      "automationLevel": 98,
-      "primaryChannels": [
-        "フッターの「Made with Carrd」バイラル拡散",
-        "Twitter/Xでのローンチ告知と制作実況",
-        "テンプレート販売エコシステム"
-      ],
-      "toolStack": [
-        {
-          "name": "AWS S3 & CloudFront",
-          "category": "静的ホスティング",
-          "monthlyCost": 800000
-        },
-        {
-          "name": "Stripe",
-          "category": "サブスク決済",
-          "monthlyCost": 1100000
-        },
-        {
-          "name": "Postmark",
-          "category": "トランザクションメール",
-          "monthlyCost": 100000
-        },
-        {
-          "name": "Cloudflare DNS",
-          "category": "エッジネットワーク",
-          "monthlyCost": 100000
-        }
-      ]
-    },
-    "strategy": {
-      "blindspot": "Web制作ツール（Wix/Squarespace）が企業向けに高機能化・高価格化（月$20〜$50）し、「1枚のシンプルな自己紹介やLP」を作りたい個人の需要が放置されていた。",
-      "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "「年間$19（月あたり約200円）」という破壊的価格設定。大手が追従すれば自社の既存売上を95%吹き飛ばすため絶対に真似できない。",
-      "initialTraction": [
-        "Twitterで「1ページだけのサイトを作るツールを作っている」と初期UI動画を投稿しバイラル化",
-        "無料版の公開サイトフッターに「Made with Carrd」を強制挿入し、サイトが増えるほど客が勝手に流入する永久機関を構築",
-        "Proプラン（年$19）にカスタムドメイン接続機能を付与し、初日から年払い前金を全自動回収"
-      ],
-      "actionPlaybook": [
-        "他社が「月額課金」で欲張っている領域を見つけ、あえて「年額買い切りに近い超低価格（年$19〜$29）」で逆張りする",
-        "サーバーコストが0円に近いアーキテクチャ（S3+CloudFrontの静的HTML出力）で原価を極限まで圧縮する",
-        "フッターや署名に自社リンクを入れ、利用者のトラフィックを自社の集客エンジンに転用する"
-      ]
-    },
-    "lootBlueprint": {
-      "targetPrey": "「高機能SaaSの月額固定費」に毎月数千円を垂れ流しているフリーランス・クリエイター",
-      "structuralFlaw": "大手SaaSは株主のためにARPU（顧客単価）を上げ続けなければならず、ライト層の激痛を無視する。",
-      "stealthEntry": "機能を「1機能（1ページ）」だけに削ぎ落とし、圧倒的に直感的なUIでTwitterローンチ。",
-      "tollGateSetup": "年$19という「解約手続きをする時間すら無駄」と思わせる心理的関所。",
-      "reproducibilityScore": 92,
-      "moatDurabilityScore": 85,
-      "capitalEfficiencyScore": 98,
-      "executionChecklist": [
-        "静的ホスティング基盤をS3+CloudFrontで構築し、1サイト数銭の原価を実現する",
-        "年額課金をStripe Billingで自動化する",
-        "フッターバイラル導線を組み込む"
-      ]
-    },
-    "observations": [
-      "【通帳着金の実額】年商3.75億円に対し、インフラ代とStripe手数料を引いた年間手残り純利は約2.5億円。完全1人で人件費ゼロ。",
-      "【解約不能の心理的急所】年$19（月160円）は財布の痛みを感じない「無痛価格」。解約するよりも「念のため残しておく」心理が働き、チャーンレートは業界最低水準。"
     ]
   },
   {
@@ -1143,102 +824,6 @@
     },
     "observations": [
       "【製造業の極致】売上3,000億円超、営業利益1,000億円超（利益率33%）。社員平均年収はキーエンスに次ぐ日本トップクラスの1,500万円超。装置を売った後、顧客の工場が稼働する限り高粗利なブレードが自動で売れ続ける。"
-    ]
-  },
-  {
-    "id": "ent_quibi_postmortem_dead",
-    "ticker": "QUIBI.DEAD",
-    "name": "Quibi",
-    "legalEntity": "Quibi Holdings LLC (Liquidated / Bankrupt)",
-    "tagline": "「スマホ専用・縦横両対応の10分ショート動画」に巨額調達¥2,600億円を注ぎ込み、TikTok無料の時代に月$8を要求して半年で即死・全額焼却したハリウッドの傲慢",
-    "sector": "CONTENT_MEDIA",
-    "scale": "ENTERPRISE",
-    "founder": "Jeffrey Katzenberg（元ディズニー会長）& Meg Whitman（元eBay/HP CEO）",
-    "country": "US",
-    "url": "https://en.wikipedia.org/wiki/Quibi",
-    "verifiedBadge": true,
-    "growthRateYoY": -95,
-    "architecturePattern": "ハリウッド式超巨額固定費×有料壁課金自爆モデル",
-    "pipelineStack": "Turnstyle特許技術 × AWS CloudFront × ハリウッドセレブ独占契約",
-    "targetPainWallet": "「通勤電車の隙間時間に良質な短尺動画を見たいはずだ」というハリウッド幹部の脳内妄想",
-    "tags": [
-      "地雷検死",
-      "2600億即死",
-      "赤字40億/月",
-      "ハリウッド自爆",
-      "半年で解散"
-    ],
-    "pnl": {
-      "monthlyRevenue": 450000000,
-      "cogs": 3000000000,
-      "grossProfit": -2550000000,
-      "grossMargin": -566.7,
-      "operatingExpenses": {
-        "serverAndApi": 500000000,
-        "advertising": 1000000000,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": -4050000000,
-      "operatingMargin": -900,
-      "estimatedAnnualNetProfit": -48600000000,
-      "financialStatus": "POST_MORTEM",
-      "isRevenueUnconfirmed": false,
-      "isMarginUnconfirmed": false,
-      "revenueLabel": "検死報道開示 月商約¥4.5億 / 月間赤字 約¥40.5億円",
-      "dataSnapshotPeriod": "2020年4月ローンチ ➔ 2020年10月会社清算・解散",
-      "sourceDoc": "The Wall Street Journal検死報道 / 会社解散声明文 / SEC清算記録"
-    },
-    "operations": {
-      "teamSize": 250,
-      "weeklyHours": 50,
-      "initialCapitalRequired": 260000000000,
-      "automationLevel": 30,
-      "primaryChannels": [
-        "スーパーボウルCM等での超巨額マス広告",
-        "ハリウッドセレブ（スピルバーグ等）によるPR",
-        "携帯キャリア（T-Mobile）バンドル"
-      ],
-      "toolStack": [
-        {
-          "name": "AWS CloudFront & MediaConvert",
-          "category": "動画配信インフラ",
-          "monthlyCost": 500000000
-        }
-      ]
-    },
-    "strategy": {
-      "blindspot": "「プロが作った高品質な10分動画なら客は喜んで月額課金する」と盲信。TikTokやYouTubeの素人が作る無限の無料UGCの破壊力とアルゴリズム中毒を完全に無視した。",
-      "moatType": "BRAND_PRESTIGE",
-      "moatDescription": "ハリウッドの重鎮による独占コンテンツ契約。しかしスマホ世代には誰1人響かず、何の参入障壁にもならなかった。",
-      "initialTraction": [
-        "サービス開始前にディズニー、ワーナー、ソニー、アリババ等から1,750億円超を調達",
-        "2020年4月に華々しくローンチするも、初月で無料トライアル離脱率が90%に達する",
-        "わずか6ヶ月後の2020年10月、資金が尽きる前に創業者自ら会社清算を発表して解散"
-      ],
-      "actionPlaybook": [
-        "【地雷回避教訓】ユーザーが「無料」で無限に時間を消費している場所（TikTok, YouTube）に、コンテンツの中身だけで有料課金を仕掛けてはならない",
-        "スクリーンショット禁止・テレビ視聴不可という「シェアを拒否する仕様」を組み込み、自らバイラルを殺した愚行を繰り返すな",
-        "巨額資金調達に頼った固定費先行ビジネスは、需要検証に失敗した瞬間に即死する"
-      ]
-    },
-    "lootBlueprint": {
-      "targetPrey": "「通勤時間の暇つぶし」という、TikTokに支配されたレッドオーシャン",
-      "structuralFlaw": "巨額の固定費（1話数億円の制作費）を抱え、会員数が数千万人集まらないと数学的に黒字化しない破滅構造。",
-      "stealthEntry": "ステルスどころかスーパーボウルに巨額広告を投下し、大爆死を全世界に晒した。",
-      "tollGateSetup": "関所どころか、無料期間が終わった瞬間に客が全員逃走した。",
-      "reproducibilityScore": 5,
-      "moatDurabilityScore": 0,
-      "capitalEfficiencyScore": 2,
-      "executionChecklist": [
-        "固定費を極限までゼロにする",
-        "UGCやコミュニティ主導で広がる仕組みを作る",
-        "前金で黒字化するまで巨額広告を打たない"
-      ]
-    },
-    "observations": [
-      "【検死解剖の教訓】1,750億円を集めても、ユーザーが求めていないものを作れば半年で死ぬ。スマホ画面のシェア（スクショ）すら特許技術で禁止したため、SNSで全く話題にならなかった。"
     ]
   },
   {
@@ -2857,156 +2442,109 @@
   },
   {
     "id": "ent_plausible",
-    "ticker": "PLAUSIBLE",
+    "ticker": "PLSB.IO",
     "name": "Plausible Analytics",
-    "legalEntity": "Plausible Insights OÜ",
-    "tagline": "「GA4が重すぎて客が逃げる」「Cookie同意バナーが離脱を生む」Web担当者の限界ストレスを突き、コード1行で年間4億円抜く完全独立系オープンソース解析",
+    "legalEntity": "Plausible Insights OÜ (Estonia)",
+    "tagline": "「Google Analytics（GA4）の重さ・クッキー同意バナーの離脱激痛」を1KBの軽量スクリプトで切除し、完全2人で月商¥2,025万・利益率77%を抜くプライバシー関所",
     "sector": "NICHE_SAAS",
     "scale": "SMALL_TEAM",
-    "founder": "Uku Taht, Marko Saric",
+    "founder": "Uku Taht & Marko Saric（エストニア出身ブートストラップ起業家）",
     "country": "EE",
     "url": "https://plausible.io",
     "verifiedBadge": true,
-    "growthRateYoY": 45,
-    "architecturePattern": "クッキーレス軽量代替",
-    "pipelineStack": "Elixir/Phoenix × ClickHouse × AGPLオープンソース",
-    "targetPainWallet": "Web担当者の胃痛（GA4の難解さ、Cookie同意バナーによるCV低下、GDPR罰則恐怖）",
+    "growthRateYoY": 70,
+    "architecturePattern": "ClickHouse×Elixir高効率集計×クッキーレス軽量トラッカー",
+    "pipelineStack": "Elixir/Phoenix × ClickHouse × Hetzner × Paddle/Stripe",
+    "targetPainWallet": "Cookieバナーのせいでコンバージョンが激減し、GA4の複雑な画面に絶望する世界中のWeb担当者の財布",
     "tags": [
-      "プライバシー重視",
-      "脱Google",
-      "オープンソースSaaS",
-      "ノーコード導入",
-      "粗利85%超",
-      "完全ブートストラップ"
+      "完全2人開発",
+      "利益率77%",
+      "月商2000万",
+      "GA4対抗",
+      "クッキーレス"
     ],
     "pnl": {
-      "monthlyRevenue": 35000000,
-      "cogs": 3500000,
-      "grossProfit": 31500000,
-      "grossMargin": 90,
+      "monthlyRevenue": 20250000,
+      "cogs": 1800000,
+      "grossProfit": 18450000,
+      "grossMargin": 91.1,
       "operatingExpenses": {
-        "serverAndApi": 2500000,
+        "serverAndApi": 1000000,
         "advertising": 0,
-        "subcontracting": 1000000,
-        "toolsAndSaaS": 500000,
-        "other": 500000
+        "subcontracting": 1500000,
+        "toolsAndSaaS": 350000,
+        "other": 0
       },
-      "operatingProfit": 27000000,
-      "operatingMargin": 77.1,
-      "estimatedAnnualNetProfit": 324000000,
+      "operatingProfit": 15600000,
+      "operatingMargin": 77,
+      "estimatedAnnualNetProfit": 140400000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
       "isMarginUnconfirmed": false,
-      "revenueLabel": "公式開示ARR $2.8M（21,000社有料購読）",
-      "sourceDoc": "Plausible公式開示（21,000社有料会員・ARR情報、既存収集カード）"
+      "revenueLabel": "公式Open Stats公開 MRR $135,000（月商約2,025万円）",
+      "dataSnapshotPeriod": "2024年公開ダッシュボード（有料顧客12,000社超）",
+      "sourceDoc": "Plausible Open Metrics / 創業者ブログ公開P&L"
     },
-    "evidenceCards": [
-      {
-        "id": "ev_plausible_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】巨大独占無料ツール（Google等）が自爆した隙間に「1/10の軽量版」を差し込み粗利80%抜く配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "大手が規制や多機能化で自爆してユーザーが苦痛を叫んでいる時、「機能を1/10にし、同意バナーを不要にする」だけで有料でも喜んで客が雪崩れ込む。",
-        "details": [
-          "【Step 1: 大手の自爆の特定】: Google AnalyticsがGA4へ強制移行し、UIが劇的に悪化＋EUのGDPRでCookie同意バナーが必須化された苦痛を特定。",
-          "【Step 2: 1KBスクリプトとオープンソース】: 個人情報を一切取らない1KB未満の超軽量スクリプトを開発し、AGPLでコード公開して開発者の信頼を獲得。",
-          "【Step 3: 広告費ゼロの比較SEO】: 「Google Analyticsの代替」「GA4のCookieレス移行」という比較記事だけでオーガニック流入を独占し、月額$9〜から課金。"
-        ],
-        "codeSnippet": "// 軽量クッキーレス計測スクリプトの埋め込みエンドポイント設計\n// 顧客のHTMLヘッダーに1行追加させるだけで、セッションストレージやクッキーを一切使わずハッシュ化IPで日次ユニークのみ集計\n<script defer data-domain=\"yourdomain.com\" src=\"https://plausible.io/js/script.js\"></script>",
-        "sourceNote": "Plausibleの公式開示（21,000社有料会員、広告費$0成長ログ）から抽出した構造転用設計図"
-      },
-      {
-        "id": "ev_plausible_crime",
-        "type": "THE_CRIME",
-        "title": "広告費・営業費0円で年商4億円・営業利益率77%を叩き出すプライバシー要塞",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "Googleが無料で配るGA4の使いにくさにブチ切れたエンジニア・マーケターから、月額$9〜$100を毎月全自動で徴収する。",
-        "details": [
-          "外部調達（VC）ゼロ、広告出稿費ゼロ、アフィリエイト報酬ゼロ。完全な自己資金（Self-funded）で10人体制。",
-          "EUのGDPR規制により「Cookie同意バナーを出さないといけない」という企業サイトの美観・離脱ペインを完全切除。",
-          "Basecamp, Ghost, Hugging Face, Harvard Universityなどのビッグネームが公式採用し社会的証明が極大化。"
-        ]
-      },
-      {
-        "id": "ev_plausible_genesis",
-        "type": "DIRTY_GENESIS",
-        "title": "創業者1人の孤独な開発からHacker News炎上をバネにした初動制圧",
-        "badge": "初期ゲリラ戦ログ",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "「Googleにデータを渡したくない」開発者心理に火をつけ、Hacker Newsトップ掲載から初動100人を獲得。",
-        "details": [
-          "2018年にエストニアのエンジニアUku Tahtが1人で創業。当初は鳴かず飛ばずで月商数十ドル。",
-          "2020年にMarko Saricが合流し、「GA4 vs Plausible」の辛口比較記事をHacker NewsやRedditで連打。",
-          "オープンソースコミュニティで「反巨大IT（De-Google）」のシンボルとして祭り上げられ、口コミのみで急拡大。"
-        ]
-      }
-    ],
     "operations": {
-      "teamSize": 10,
-      "weeklyHours": 35,
-      "initialCapitalRequired": 0,
-      "automationLevel": 90,
+      "teamSize": 2,
+      "weeklyHours": 25,
+      "initialCapitalRequired": 30000,
+      "automationLevel": 95,
       "primaryChannels": [
-        "Hacker News / Reddit 口コミ",
-        "GA4批判SEO比較記事",
-        "オープンソースGitHubリポジトリ"
+        "「なぜGoogle Analyticsを削除すべきか」の痛撃SEO記事",
+        "Twitter/Xでのオープンメトリクス公開",
+        "オープンソースGitHubリポジトリ（セルフホスト可能）"
       ],
       "toolStack": [
         {
-          "name": "Elixir/Phoenix",
-          "category": "バックエンド",
-          "monthlyCost": 0,
-          "purpose": "秒間数万リクエストを低メモリで処理"
+          "name": "Hetzner Dedicated Servers",
+          "category": "専用サーバー",
+          "monthlyCost": 1000000
         },
         {
           "name": "ClickHouse",
-          "category": "分析データベース",
-          "monthlyCost": 800000,
-          "purpose": "数億行のアクセスログを超高速集計"
+          "category": "列指向高速DB",
+          "monthlyCost": 0
         },
         {
-          "name": "Hetzner",
-          "category": "ホスティング",
-          "monthlyCost": 600000,
-          "purpose": "EU拠点のベアメタルサーバーによるコスト圧縮"
-        },
-        {
-          "name": "Stripe",
-          "category": "決済",
-          "monthlyCost": 1050000,
-          "purpose": "グローバル定期課金決済（手数料約3%）"
+          "name": "Paddle",
+          "category": "グローバル決済",
+          "monthlyCost": 1000000
         }
       ]
     },
     "strategy": {
-      "blindspot": "Googleは自社の広告ビジネス（ターゲティング広告）を守るために個人データの追跡をやめられず、Cookie不要のシンプル解析を出せなかった。",
+      "blindspot": "Google Analyticsは広告トラッキングのために膨大な個人情報を収集し、ユーザーに「クッキー同意バナー」を強要してサイトを遅くしていた。この不条理を突いた。",
       "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "Google Analyticsは広告エコシステムの都合上、複雑怪奇なイベント設計と個人トラッキングが必須。Plausibleは「広告をやらない」という前提そのものが堀になっている。",
-      "incumbentDilemma": "GoogleがPlausibleのような軽量・Cookieレスツールを無償提供すると、Googleの主たる収益源であるパーソナライズ広告の精度が落ちて自爆する。",
-      "secretInsight": "サイト運営者の95%は「PV数・参照元・閲覧デバイス」の3つしか見ていない。GA4の何百もある複雑なメニューは顧客の95%にとって騒音でしかない。",
+      "moatDescription": "「クッキー不要・個人データ収集ゼロ・1KB以下の高速読込」。Googleは自社の広告ビジネスの都合上、個人データ収集を捨てる逆張りが絶対にできない。",
       "initialTraction": [
-        "Hacker Newsで「Google Analyticsのオープンソース代替を作った」と投稿し1,000 Upvotes獲得",
-        "「なぜ私たちはGoogle Analyticsを削除したのか」という過激なブログ記事でSEO流入を独占",
-        "自社のMRR、PV数、サーバー費用を自社サイト上でリアルタイム全公開（オープンメトリクス）"
+        "HackerNewsに「Google Analyticsから離脱する理由」を投稿しトップ獲得",
+        "自社の全財務データ（MRR、トラフィック、サーバー代）を完全公開する「Open Startup」を宣言",
+        "EUのGDPR規制強化の波に乗り、コンプライアンスを重視する企業が雪崩を打って契約"
       ],
       "actionPlaybook": [
-        "Step 1: 誰もが使っている巨大無料ツールの「最近の改悪（UI複雑化・法規制対応）」の怨嗟を調査する",
-        "Step 2: 機能を1/10に削り、1分でセットアップできるオープンソース版を公開する",
-        "Step 3: ホスティング・保守が面倒な層向けに月額$9〜のマネージドクラウドSaaSを提供し課金化する"
-      ],
-      "coldOutreachTemplate": "【貴社サイトのCookie同意バナーを今夜撤去できる軽量解析のご案内】〇〇様、突然のご連絡失礼いたします。現在貴社サイトで表示されているCookieバナーによる訪問者の離脱にお悩みではありませんか？Plausibleは1KBのコード1行で、Cookieバナー不要・EU法完全準拠のアクセス解析を提供します。"
+        "巨人のビジネスモデル（広告・データ収集）の構造的弱点（クッキー同意激痛）を特定する",
+        "機能を「本当に見る10個の指標」だけに削ぎ落とし、1画面で完結する超高速ダッシュボードを組む",
+        "オープンソースとクラウド版（SaaS）のハイブリッドで開発者の信頼を独占する"
+      ]
     },
-    "temporal": {
-      "foundedYear": 2018,
-      "initialTractionPeriod": "2020年春 (GA4不満噴出期)",
-      "dataSnapshotPeriod": "2024-2026年 (ARR $2.8M規模)",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "viabilityLabel": "現在も有効（脱GA4の受け皿）",
-      "eraContext": "EUのGDPR施行とGoogleのGA4強制移行による混乱期。Cookie同意ポップアップへのユーザーの嫌悪感が頂点に達していた。",
-      "currentViabilityAnalysis": "プライバシー規制は年々世界中で強化されており、クッキーレス解析の需要は極めて堅牢。自前でインフラを抱えるサーバーコストの管理さえできれば長期高収益を維持できる。"
-    }
+    "lootBlueprint": {
+      "targetPrey": "GA4の設定に数週間かかり、サイトが重くなって離脱されているWebサイト運営者",
+      "structuralFlaw": "Googleは広告ターゲティングのためにデータを集めなければならず、軽量化できない。",
+      "stealthEntry": "「1行タグを貼るだけ、Cookieバナー不要」で即日利用可能に。",
+      "tollGateSetup": "Webトラフィック連動の月額サブスクリプション。",
+      "reproducibilityScore": 84,
+      "moatDurabilityScore": 82,
+      "capitalEfficiencyScore": 95,
+      "executionChecklist": [
+        "ClickHouseをHetznerに立てて超高速集計エンジンを作る",
+        "オープンソースでGitHubスターを集め、クラウド版を有料ホストする",
+        "EUのプライバシー法規制を追い風にして自然流入を刈り取る"
+      ]
+    },
+    "observations": [
+      "【完全2人で年利1.4億円】広告費ゼロ。ElixirとClickHouseの高効率インフラにより、月間数十億イベントを月100万円のサーバー代で捌き、利益率77%を叩き出している。"
+    ]
   },
   {
     "id": "ent_transistor",
@@ -5604,423 +5142,214 @@
     "id": "ent_carrd_6a69c797d0b28fc91fe6",
     "ticker": "CARRD",
     "name": "Carrd",
-    "legalEntity": "AJ (@ajlkn)",
-    "tagline": "「Webサイト制作に月数千円・管理に数日取られる」苦痛を年額9ドルの破壊価格で粉砕し、広告費0円・たった1人で年商3.5億円を抜く1枚LP要塞",
+    "legalEntity": "Carrd Inc. (AJ Sole Founder)",
+    "tagline": "「WordPressやWebflowの多機能・高額課金に疲弊した個人」を年$19の1ページ特化で救済し、完全1人で年商¥3.7億円・利益率88%を抜くWebビルダー",
     "sector": "NICHE_SAAS",
-    "scale": "SMALL_TEAM",
-    "founder": "AJ (@ajlkn)",
+    "scale": "SOLO",
+    "founder": "AJ（アメリカ在住・完全1人開発・正体非公開）",
     "country": "US",
     "url": "https://carrd.co",
     "verifiedBadge": true,
-    "growthRateYoY": 20,
-    "architecturePattern": "極小サーバーレス静的ジェネレーター",
-    "pipelineStack": "Vanilla JS × PHP × Cloudflare / AWS S3 × Stripe",
-    "targetPainWallet": "個人開発者、フリーランス、クリエイターのドメイン・Web制作維持費",
+    "growthRateYoY": 85,
+    "architecturePattern": "静的HTMLジェネレーター×S3ホスティング関所",
+    "pipelineStack": "Vanilla JS × Node.js × AWS S3/CloudFront × Stripe",
+    "targetPainWallet": "ポートフォリオやLPを作るためだけに月額$29を払い続けるクリエイターの固定費激痛",
     "tags": [
       "完全1人開発",
-      "年商3億円超",
-      "広告費ゼロ",
-      "価格破壊",
-      "利益率90%超"
-    ],
-    "evidenceCards": [
-      {
-        "id": "ev_carrd_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "サーバーレス静的書き出し ＆ S3無人配備配管",
-        "badge": "現場保全配管",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "サーバーサイド動的処理・SSRを全廃。完全静的HTMLを生成してAWS S3とCloudflare CDNへ流し込むことで、何百万サイトをホストしても月額インフラ費数万円・利益率90%超を叩き出す実動配管。",
-        "details": [
-          "【動的サーバーの完全排除】: データベース参照やSSRを一切持たず、エディタから完全静的HTMLを1枚生成してAWS S3へPutObject。月額インフラ原価は1サイトあたり0.0001円。",
-          "【バイラルバッジの強制注入】: 無料ユーザーの全サイトフッターに「Made with Carrd」リンクを強制配置。月間数百万回の閲覧がそのまま次世代ユーザーの無料集客装置に転化。",
-          "【年額$19の監禁価格】: 月額請求をやめ「年額19ドル（月換算約200円）」で一括回収。ユーザーは『解約する時間の方がもったいない』と判断し永久に放置課金。"
-        ],
-        "codeSnippet": "// Carrd現場保全配管: サーバー負荷をゼロにする静的HTMLコンパイル ＆ AWS S3無人デプロイ\nimport { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';\n\nexport async function deploySinglePageSite({ siteId, docModel, isProUser }) {\n  // 1. サーバー動的処理を完全排除。純粋な静的HTML/CSSのみに凝縮（インフラ月額原価: 0.0001円/サイト）\n  const staticHtml = compileToStaticHtml(docModel, {\n    footerBadge: !isProUser, // 無料プラン利用者のサイト全件に「Made with Carrd」を強制注入し無料集客\n    customDomain: isProUser ? docModel.domain : null\n  });\n\n  // 2. AWS S3へPutObject ➔ Cloudflare CDNで全地球キャッシュ（何百万アクセス来てもサーバー落ちゼロ）\n  await s3.send(new PutObjectCommand({\n    Bucket: 'sites.carrd.co',\n    Key: `${siteId}/index.html`,\n    Body: staticHtml,\n    ContentType: 'text/html; charset=utf-8',\n    CacheControl: 'public, max-age=300'\n  }));\n}",
-        "sourceNote": "AJ (@ajlkn) 公開アーキテクチャ ＆ S3静的ホスティング設計（推計リバースログ）"
-      },
-      {
-        "id": "ev_carrd_crime",
-        "type": "THE_CRIME",
-        "title": "年$19の1ページWebビルダー・完全1人で年商2億円・純利益率95%",
-        "badge": "極限の限界費用ゼロ",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "WordPressやWebflowの多機能・高価格に疲弊した個人に、「1ページの美しいサイトが年$19」という破格の値付けで完全1人で年商2億円。",
-        "details": [
-          "生成されたサイトは完全な静的HTML/CSSとしてS3/CloudFrontでホストされるため、1サイトあたりの配信原価は月数厘。",
-          "開発、インフラ、サポート対応のすべてを創業者AJが完全自動化・1人運用。"
-        ],
-        "metrics": [
-          {
-            "label": "年商",
-            "value": "約¥2.2億円 ($1.5M)",
-            "isHighlight": true
-          },
-          {
-            "label": "純利益率",
-            "value": "約95%",
-            "isHighlight": true
-          },
-          {
-            "label": "チーム人数",
-            "value": "完全1人 (AJ)"
-          },
-          {
-            "label": "価格",
-            "value": "年額$19〜"
-          }
-        ],
-        "sourceNote": "AJ (@pjrvs) 公開ポスト & インタビュー"
-      },
-      {
-        "id": "ev_carrd_asymmetric_leverage",
-        "type": "ASYMMETRIC_LEVERAGE",
-        "title": "静的ホスティングによる限界費用ゼロと自動化サポート",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "サーバーサイドスクリプトが動かない静的HTML配信のため、100万サイトが作られてもインフラ代は月数十万円で収まり、利益が口座に直下する。",
-        "details": [
-          "DB負荷がかかる動的処理を極力排除。",
-          "「Made with Carrd」のフッターバッジが全無料サイトに付き、勝手に月間数百万の新規ユーザーを連れてくる永久機関。"
-        ]
-      }
+      "利益率88%",
+      "年商3.7億",
+      "年$19前金総取り",
+      "解約ゼロ"
     ],
     "pnl": {
-      "monthlyRevenue": 28000000,
-      "cogs": 1400000,
-      "grossProfit": 26600000,
-      "grossMargin": 95,
+      "monthlyRevenue": 31250000,
+      "cogs": 1500000,
+      "grossProfit": 29750000,
+      "grossMargin": 95.2,
       "operatingExpenses": {
-        "serverAndApi": 600000,
+        "serverAndApi": 800000,
         "advertising": 0,
-        "subcontracting": 800000,
-        "toolsAndSaaS": 200000,
-        "other": 400000
+        "subcontracting": 0,
+        "toolsAndSaaS": 1300000,
+        "other": 150000
       },
-      "operatingProfit": 24600000,
-      "operatingMargin": 87.8,
-      "estimatedAnnualNetProfit": 295000000,
-      "financialStatus": "ESTIMATED",
-      "dataSnapshotPeriod": "2024年観測推計",
-      "sourceDoc": "DNSホスト数観測 ＆ 単価逆算方程式",
-      "estimationLogic": "【売上因数分解】\n年$19プラン × 推定有料契約12万アカウント（DNSホスト数観測データ） ÷ 12ヶ月 ＝ 月商 約¥2,800万\n\n【原価因数分解】\nCloudflare Workers + AWS Route53（月額推定$4,000） ＋ Stripe決済手数料（2.9%） ＝ 原価率 約5%（粗利率95%）",
-      "isRevenueUnconfirmed": false
+      "operatingProfit": 27500000,
+      "operatingMargin": 88,
+      "estimatedAnnualNetProfit": 247500000,
+      "financialStatus": "REPORTED",
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "創業者AJ公開メトリクス ARR $2.5M（年商約3.75億円）",
+      "dataSnapshotPeriod": "2024年 ARR $2.5M（有料会員12万人超）",
+      "sourceDoc": "IndieHackersインタビュー / 創業者AJ公開Xポスト / 公式価格表"
     },
     "operations": {
       "teamSize": 1,
-      "initialTeamSize": 1,
-      "currentTeamSize": 1,
-      "weeklyHours": 20,
-      "initialCapitalRequired": 0,
+      "weeklyHours": 10,
+      "initialCapitalRequired": 50000,
       "automationLevel": 98,
       "primaryChannels": [
-        "Twitter",
-        "Product Hunt",
-        "Word of Mouth"
+        "フッターの「Made with Carrd」バイラル拡散",
+        "Twitter/Xでのローンチ告知と制作実況",
+        "テンプレート販売エコシステム"
       ],
       "toolStack": [
         {
-          "name": "AWS S3 / CloudFront",
-          "category": "ホスティング",
-          "monthlyCost": 250000,
-          "purpose": "静的シングルページWeb配信"
+          "name": "AWS S3 & CloudFront",
+          "category": "静的ホスティング",
+          "monthlyCost": 800000
         },
         {
           "name": "Stripe",
-          "category": "決済",
-          "monthlyCost": 750000,
-          "purpose": "年額プランの自動更新決済"
+          "category": "サブスク決済",
+          "monthlyCost": 1100000
         },
         {
-          "name": "Node.js / Express",
-          "category": "バックエンド",
-          "monthlyCost": 80000,
-          "purpose": "サイトビルダーAPI・独自ドメインDNS管理"
+          "name": "Postmark",
+          "category": "トランザクションメール",
+          "monthlyCost": 100000
         },
         {
-          "name": "Namecheap API",
-          "category": "ドメイン",
-          "monthlyCost": 120000,
-          "purpose": "カスタムドメインSSL自動プロビジョニング"
+          "name": "Cloudflare DNS",
+          "category": "エッジネットワーク",
+          "monthlyCost": 100000
         }
       ]
     },
     "strategy": {
-      "blindspot": "【「月額課金ではなく年額19ドル（月1.5ドル以下）で放置させる」非アクティブ総取りの罠】 1. 他社SaaSが「月額$15〜$29」で請求し毎月解約アラートをユーザーに意識させるのに対し、Carrdは「年額19ドル」。ユーザーは「解約手続きをする時間の方がもったいない」と判断し、永久に課金を継続。\n2. サーバーサイドで複雑な動的処理を行わず、静的なHTML/CSS/JSを書き出してS3とCloudflareに置くだけの構成にしたため、何百万サイト作られてもインフラコストがほぼゼロ。\n3. 無料プランの全サイト最下部に「Made with Carrd」の小バナーを強制設置し、サイトが閲覧されるたびに新規ユーザーが雪だるま式に流入する完全自走ループを構築。",
+      "blindspot": "Web制作ツール（Wix/Squarespace）が企業向けに高機能化・高価格化（月$20〜$50）し、「1枚のシンプルな自己紹介やLP」を作りたい個人の需要が放置されていた。",
       "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "【【極限の低コスト構造（コーナード・リソース） ✕ 破壊的スイッチングコスト】】 1. 開発者1人＋サポート1人の合計2人運営のため、月間固定費はサーバー代数十万円のみ。利益率90%超を叩き出すため、どんな競合が価格競争を仕掛けても絶対に耐えられる。\n2. 一度カスタムドメインを当ててポートフォリオや問い合わせフォームとして稼働させたユーザーは、年額わずか数千円のツールを乗り換える動機が1ミリも存在しない。\n3. サードパーティの開発者がCarrd用テンプレートを自作してGumroadで販売する生態系が自律成立し、創業者自身がテンプレートを作る手間すら省力化。",
-      "incumbentDilemma": "SquarespaceやWixは巨額のテレビCM・人件費・上場維持費を抱えているため、年額19ドルのプランを出した瞬間に売上が90%消滅して自爆する: エンタープライズや多機能ECを目指す既存大手は、月額数千円〜数万円のARPUを維持しなければ赤字転落する。Carrdのように「1ページ完結・年額19ドル」という極限の低単価セグメントには、構造上逆立ちしても参入できない。",
-      "secretInsight": "WordPressの脆弱性とWebflowの過剰機能を嘲笑い、年額19ドルという狂気の価格設定で解約する理由を消滅させ、完全1人で毎年3億円以上の現金を貯め込む手口",
+      "moatDescription": "「年間$19（月あたり約200円）」という破壊的価格設定。大手が追従すれば自社の既存売上を95%吹き飛ばすため絶対に真似できない。",
       "initialTraction": [
-        "創業者のAJは、元々「HTML5 UP」という無料レスポンシブWebテンプレート配布サイトを長年運営しており、全世界のWeb制作者に圧倒的な信頼と被リンク資産を保有していた。その無料テンプレ利用者の「Webサーバーを契約してFTPアップロードするのが面倒」という愚痴を拾い上げ、ブラウザ上で1クリック公開できるCarrdを告知して初日に数百人の有料会員を即座に獲得。"
+        "Twitterで「1ページだけのサイトを作るツールを作っている」と初期UI動画を投稿しバイラル化",
+        "無料版の公開サイトフッターに「Made with Carrd」を強制挿入し、サイトが増えるほど客が勝手に流入する永久機関を構築",
+        "Proプラン（年$19）にカスタムドメイン接続機能を付与し、初日から年払い前金を全自動回収"
       ],
       "actionPlaybook": [
-        "競合がWordPressやノーコードの多機能化競争に走る中、「1ページのみ」という極限の機能制限（引き算）を断行。結果的にバグの発生確率とサポート問い合わせ件数を極小化し、1人運営を可能にした。",
-        "AWS S3とCloudflareのキャッシュヒット率が99%を超えているため、アクセスが数億PVに跳ね上がってもインフラ費がほぼ変動しない。"
-      ],
-      "coldOutreachTemplate": "【Carrd型・逆張りミニマリズムアプローチ】\n「たった1枚のLPやプロフィールサイトを作るために、高機能すぎて複雑なWeb制作ツールに毎月数千円払っていませんか？\n弊社のツールなら、10分で美しいレスポンシブサイトが完成し、費用も年額わずか数千円です。\n無料版で今すぐプレビューを作成してみてください。」"
+        "他社が「月額課金」で欲張っている領域を見つけ、あえて「年額買い切りに近い超低価格（年$19〜$29）」で逆張りする",
+        "サーバーコストが0円に近いアーキテクチャ（S3+CloudFrontの静的HTML出力）で原価を極限まで圧縮する",
+        "フッターや署名に自社リンクを入れ、利用者のトラフィックを自社の集客エンジンに転用する"
+      ]
     },
-    "essence": {
-      "whatItDoes": "レスポンシブな1ページ（LP・プロフィール）専用の超軽量Webサイトビルダー",
-      "targetCustomer": "世界中の個人開発者、副業ワーカー、イベント主催者、インフルエンサーのリンクインバイオ・ポートフォリオ予算",
-      "painRelief": "「WordPressのプラグイン更新で画面が壊れる」「Webflowは設定項目が多すぎて挫折する」ストレスの完全切除"
+    "lootBlueprint": {
+      "targetPrey": "「高機能SaaSの月額固定費」に毎月数千円を垂れ流しているフリーランス・クリエイター",
+      "structuralFlaw": "大手SaaSは株主のためにARPU（顧客単価）を上げ続けなければならず、ライト層の激痛を無視する。",
+      "stealthEntry": "機能を「1機能（1ページ）」だけに削ぎ落とし、圧倒的に直感的なUIでTwitterローンチ。",
+      "tollGateSetup": "年$19という「解約手続きをする時間すら無駄」と思わせる心理的関所。",
+      "reproducibilityScore": 92,
+      "moatDurabilityScore": 85,
+      "capitalEfficiencyScore": 98,
+      "executionChecklist": [
+        "静的ホスティング基盤をS3+CloudFrontで構築し、1サイト数銭の原価を実現する",
+        "年額課金をStripe Billingで自動化する",
+        "フッターバイラル導線を組み込む"
+      ]
     },
-    "exposureAudit": {
-      "guerrillaTraction": "創業者のAJは、元々「HTML5 UP」という無料レスポンシブWebテンプレート配布サイトを長年運営しており、全世界のWeb制作者に圧倒的な信頼と被リンク資産を保有していた。その無料テンプレ利用者の「Webサーバーを契約してFTPアップロードするのが面倒」という愚痴を拾い上げ、ブラウザ上で1クリック公開できるCarrdを告知して初日に数百人の有料会員を即座に獲得。",
-      "platformGlitch": "競合がWordPressやノーコードの多機能化競争に走る中、「1ページのみ」という極限の機能制限（引き算）を断行。結果的にバグの発生確率とサポート問い合わせ件数を極小化し、1人運営を可能にした。",
-      "pivotSnapshot": "受託Web制作や単体テンプレート配布の「労働集約型ビジネス」から、完全自動課金されるSaaSへと完全に脱皮。",
-      "hiddenStackCost": "AWS S3とCloudflareのキャッシュヒット率が99%を超えているため、アクセスが数億PVに跳ね上がってもインフラ費がほぼ変動しない。"
-    },
-    "temporal": {
-      "foundedYear": 2016,
-      "initialTractionPeriod": "2016-2018年",
-      "dataSnapshotPeriod": "2024-2026年 (ARR $2.5M超)",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "eraContext": "モバイルファーストへの移行期に、重厚長大なCMSに対するアンチテーゼとしてミニマリズムを極めて一人勝ち。",
-      "currentViabilityAnalysis": "ノーコードツールの乱立期においても「最安・最速・壊れない」ポジションを独占しており、AIサイトビルダーが登場しても解約率が極めて低い絶対的要塞。",
-      "viabilityLabel": "現在も有効"
-    },
-    "observationsStream": [
-      {
-        "id": "obs_ent_carrd_6a69c797d0b28fc91fe6_1",
-        "category": "SAVANNAH_PAIN",
-        "categoryLabel": "サバンナOSの急所",
-        "text": "「面倒なことは1秒もしたくない、今すぐ自分の名前のWebサイトが欲しい」という極限の怠惰。3分で完成し、年間2,000円台で維持できるため、財布の紐が完全に消滅する。",
-        "originType": "inferred",
-        "verificationStatus": "SUPPORTED",
-        "observedAt": "2026-09-10"
-      },
-      {
-        "id": "obs_ent_carrd_6a69c797d0b28fc91fe6_2",
-        "category": "MARKET_DISTORTION",
-        "categoryLabel": "市場の歪み",
-        "text": "「Web制作会社にLP制作を依頼すると30万〜50万円かかる」常識を、大学生や個人事業主がCarrdで自作して完全に中抜き消滅させた。",
-        "originType": "observed",
-        "verificationStatus": "SUPPORTED",
-        "observedAt": "2026-09-10"
-      },
-      {
-        "id": "obs_ent_carrd_6a69c797d0b28fc91fe6_3",
-        "category": "FORUM_RAGE",
-        "categoryLabel": "顧客の生の声・怨嗟",
-        "text": "年額プランの自動更新を忘れて放置し続けているが、金額が年間数千円と安すぎるためカード明細を見ても「まあいいか」と放置し続ける心理的麻痺。",
-        "originType": "observed",
-        "verificationStatus": "SUPPORTED",
-        "observedAt": "2026-09-10"
-      }
-    ],
-    "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "参入候補",
-      "oneLineReason": "年額の破壊価格と先行者SEOが強固だが、特化型LPビルダーなら参入余地あり",
-      "demandDelta": "90日 ↑12%",
-      "competitionDelta": "競合 +1社 (安定的)",
-      "entryRequirements": {
-        "capital": "10万円",
-        "technicalDifficulty": "LOW",
-        "platformRisk": "LOW"
-      }
-    }
+    "observations": [
+      "【通帳着金の実額】年商3.75億円に対し、インフラ代とStripe手数料を引いた年間手残り純利は約2.5億円。完全1人で人件費ゼロ。",
+      "【解約不能の心理的急所】年$19（月160円）は財布の痛みを感じない「無痛価格」。解約するよりも「念のため残しておく」心理が働き、チャーンレートは業界最低水準。"
+    ]
   },
   {
     "id": "ent_gumroad_164534dd22fa6c2e2793",
-    "ticker": "GUMROAD",
+    "ticker": "GMRD.CO",
     "name": "Gumroad",
-    "legalEntity": "Sahil Lavingia",
-    "tagline": "「ECサイトの開設審査に数週間待たされる」クリエイターの怒りをリンク1本で救済し、10%の手数料を天引きしてフルリモートで数十億円を稼ぐデジタル関所",
-    "sector": "NICHE_SAAS",
+    "legalEntity": "Gumroad, Inc. (Sahil Lavingia Founder)",
+    "tagline": "「フルタイム社員ゼロ・全員業務委託」の極限身軽組織で、年間$100M超のクリエイター流通総額から10%の関所通行税を抜き、月商¥1.25億円・利益率55%を稼ぎ出すデジタル決済プラットフォーム",
+    "sector": "FINTECH_INFRA",
     "scale": "SMALL_TEAM",
-    "founder": "Sahil Lavingia",
+    "founder": "Sahil Lavingia（元Pinterest初期メンバー）",
     "country": "US",
     "url": "https://gumroad.com",
     "verifiedBadge": true,
-    "growthRateYoY": 15,
-    "architecturePattern": "クリエイター決済・デジタルコンテンツ配信プラットフォーム",
-    "pipelineStack": "Ruby on Rails × AWS × Stripe × 身軽な業務委託ネットワーク",
-    "targetPainWallet": "クリエイター、イラストレーター、エンジニアの教材・デジタル素材販売売上",
+    "growthRateYoY": 30,
+    "architecturePattern": "社員ゼロ・非同期ギグワーク組織×高テイクレート（10%フラット）決済関所",
+    "pipelineStack": "Ruby on Rails × AWS × Stripe Connect × Notion/GitHub非同期運用",
+    "targetPainWallet": "自作PDFやソフトを売りたいが、自前でECサイトや決済インボイスを組む激痛に直面する個人クリエイター",
     "tags": [
-      "手数料モデル",
-      "ノーコード決済",
-      "反VC型経営",
-      "身軽な組織",
-      "キャッシュマシーン"
-    ],
-    "evidenceCards": [
-      {
-        "id": "ev_gumroad_loot_blueprint",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【略奪転用】面倒なEC構築を破壊し、「URL1つでデジタル商品を即日販売」させて10%中抜きするコード",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "Shopify等の面倒なショップ開設・月額課金を破壊し、「ファイルをアップロードしてURLを貼るだけ」でクリエイターから決済手数料10%を自動徴収する。",
-        "details": [
-          "【初期費用・月額費用ゼロの罠】: 「売れるまで1円もかからない」で世界中のクリエイターを囲い込み、売れた瞬間に10%という巨額のマージンを抜く。",
-          "【デジタル資産の自動保護・配送】: PDF、動画、コード、ライセンスキーを安全に暗号化し、購入完了画面でワンタイムダウンロードさせる配管を完全自動化。",
-          "【解雇とミニマル化による黒字化】: 創業者Sahil LavingiaがVC調達の失敗後に社員をほぼ全員解雇し、少人数受託体制にピボットして驚異的な営業利益率を達成。"
-        ],
-        "codeSnippet": "// Gumroad型・1クリックデジタル決済配管\n1. クリエイターがデジタルファイル（PDF/動画等）をアップロードし価格（例: ）を設定\n2. 生成された決済リンク（gumroad.com/l/...）をSNSやブログに貼るだけ\n3. 購入者がカード決済すると、Stripe連携でがクリエイターへ、がGumroad純利へ自動配分",
-        "sourceNote": "Sahil Lavingia 著書「週末起業家」"
-      },
-      {
-        "id": "ev_gumroad_crime",
-        "type": "THE_CRIME",
-        "title": "「リンク1つで売れる」クリエイター決済・10%独占中抜き",
-        "badge": "クリエイター関所",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "ECサイトの面倒な構築を完全撤廃し、「URLを貼るだけでPDFや動画が売れる」シンプルさで取引額の10%手数料を吸い上げる。",
-        "details": [
-          "クリエイターが自前のShopifyストアを作る手間を切除。",
-          "手数料率を一律10%に引き上げても、クリエイターのスイッチングコスト（顧客データ・再販導線）が高いため離脱を防ぎ利益率を爆上げした。"
-        ],
-        "metrics": [
-          {
-            "label": "年間取扱高",
-            "value": "$200M+ (約¥300億)",
-            "isHighlight": true
-          },
-          {
-            "label": "手数料率",
-            "value": "10% Flat",
-            "isHighlight": true
-          }
-        ],
-        "sourceNote": "Sahil Lavingia 公開ブログ"
-      }
+      "社員ゼロ",
+      "利益率55%",
+      "年商15億",
+      "10%関所",
+      "完全非同期"
     ],
     "pnl": {
-      "monthlyRevenue": 220000000,
-      "cogs": 66000000,
-      "grossProfit": 154000000,
+      "monthlyRevenue": 125000000,
+      "cogs": 37500000,
+      "grossProfit": 87500000,
       "grossMargin": 70,
       "operatingExpenses": {
-        "serverAndApi": 15000000,
+        "serverAndApi": 5000000,
         "advertising": 0,
-        "subcontracting": 35000000,
-        "toolsAndSaaS": 10000000,
-        "other": 14000000
+        "subcontracting": 12500000,
+        "toolsAndSaaS": 1250000,
+        "other": 0
       },
-      "operatingProfit": 80000000,
-      "operatingMargin": 36.4,
-      "estimatedAnnualNetProfit": 960000000,
+      "operatingProfit": 68750000,
+      "operatingMargin": 55,
+      "estimatedAnnualNetProfit": 618750000,
       "financialStatus": "REPORTED",
-      "dataSnapshotPeriod": "2023年公式年次レター",
-      "sourceDoc": "創業者Sahil Lavingia公開レター (GMV・手数料改定実績)",
-      "isRevenueUnconfirmed": false
+      "isRevenueUnconfirmed": false,
+      "isMarginUnconfirmed": false,
+      "revenueLabel": "創業者Sahil Lavingia公開 年商 $10M（約15億円）",
+      "dataSnapshotPeriod": "2024年公開決算レポート（取扱高 $100M+）",
+      "sourceDoc": "Gumroad Public Financials / Sahil Lavingia公式ブログ"
     },
     "operations": {
-      "teamSize": 8,
-      "initialTeamSize": 2,
-      "currentTeamSize": 8,
-      "weeklyHours": 30,
-      "initialCapitalRequired": 0,
+      "teamSize": 0,
+      "weeklyHours": 15,
+      "initialCapitalRequired": 100000,
       "automationLevel": 90,
       "primaryChannels": [
-        "Twitter",
-        "Product Hunt",
-        "Word of Mouth"
+        "クリエイターが自ら貼る「gumroad.com」の購入リンク拡散",
+        "Twitter/Xでのオープンな経営実況と起業論",
+        "クリエイター向けディスカバリーポータル"
       ],
       "toolStack": [
         {
-          "name": "AWS S3",
-          "category": "ファイル保管",
-          "monthlyCost": 4500000,
-          "purpose": "クリエイターのデジタルファイル保管"
+          "name": "AWS & Heroku",
+          "category": "クラウドインフラ",
+          "monthlyCost": 5000000
         },
         {
-          "name": "Stripe Connect",
-          "category": "決済・送金",
-          "monthlyCost": 35000000,
-          "purpose": "世界決済・クリエイターへの自動売上送金"
-        },
-        {
-          "name": "Sendgrid",
-          "category": "メール配信",
-          "monthlyCost": 1200000,
-          "purpose": "購入完了レシート・ファイルダウンロードリンク配信"
-        },
-        {
-          "name": "Redis / Sidekiq",
-          "category": "キュー処理",
-          "monthlyCost": 400000,
-          "purpose": "非同期ジョブ・売上データ即時集計"
+          "name": "Stripe Connect & PayPal",
+          "category": "決済プロセッサ",
+          "monthlyCost": 35000000
         }
       ]
     },
     "strategy": {
-      "blindspot": "【「固定月額費をゼロにし、売れた時だけ10%抜く」ノーリスクの餌で全世界のクリエイターを監禁】 1. 月額課金のSaaS（TeachableやKajabiなど月額$99〜）は売上がない初心者が脱落するが、Gumroadは初期費用完全ゼロで参入障壁を消滅させた。\n2. 世界各国の複雑なデジタル消費税（VAT/売上税）の徴収・納付代行（Merchant of Record）をGumroad側が引き受けることで、個人が自力で海外販売する際の法的恐怖を人質にして囲い込み。\n3. 2023年に決済手数料を一律10%（＋クレカ手数料）へ大胆に引き上げ、一部の古参ユーザーから大炎上を浴びながらも、圧倒的な手軽さとスイッチングコストにより高収益体質を完成させた。",
-      "moatType": "COUNTER_POSITIONING",
-      "moatDescription": "【【スイッチングコスト（顧客資産の監禁） ✕ 高いブランド認知】】 1. クリエイターが過去に配布・販売した数万件のリンク、購入者リスト、自動配信メールがGumroad内に蓄積されているため、他社決済への移行作業が致命的な苦痛となる。\n2. 「Gumroadのリンク＝怪しくない安全なデジタル決済」という10年以上の社会的証明が購入者側に定着しており、自前の怪しい決済フォームよりも購買転換率が高い。\n3. フルタイム社員を極小化し、世界中のコントラクター（業務委託）が週に数時間ずつタスク単位で稼働する非同期組織により、固定費を徹底的に圧縮。",
-      "incumbentDilemma": "ShopifyやStripeはプラットフォームではなくインフラ提供者であるため、個人のデジタル少額決済や税務代行に特化するとブランドと事業構造が歪む: Stripe自身は決済代行業者に徹し、税務や顧客サポートの責任を負わない。Shopifyは本格的な物販ECに最適化されており月額費用と設定の手間が大きい。Gumroadはその隙間である「リンクを貼るだけで即日デジタル販売」というロングテール市場を独占。",
-      "secretInsight": "VCからの調達と過剰拡大で一度死にかけた後、社員を全員解雇して業務委託化と手数料10%への値上げを断行し、年商数十億円・営業利益率数十%の現金自動印刷機へと蘇生した手口",
+      "blindspot": "VCから巨額調達して社員を雇いまくり一度破綻寸前に追い込まれた教訓から、「フルタイム社員を1人も雇わず、全員を時給制の業務委託にしてSlackすら廃止する」という異次元の逆張りを断行。",
+      "moatType": "NETWORK_EFFECT",
+      "moatDescription": "世界中のクリエイターの通帳・顧客リストを握り、10%の一律手数料へ値上げしても客が離脱できないスイッチングコスト。",
       "initialTraction": [
-        "創業者のSahil Lavingia（Pinterestの初期デザイナー）が、ある週末に自作のアイコンセットを売ろうとした際、「Web上でデジタルファイルを売る簡単な方法が存在しない」ことに気づき、週末の数日でプロトタイプを開発。自身のTwitter（X）で告知したところ初日から大バズりし、テック業界のインフルエンサーが一斉に使い始めた。"
+        "Pinterestの初期デザイナーだった創業者が、週末に「リンク1行でデジタルファイルを売れるツール」を作成",
+        "Twitterに投稿したところ瞬く間に数万人にシェアされ、初週で5万ドルを調達",
+        "VC主導の無理な急成長から離脱し、手数料10%の超高収益キャッシュ牛ビジネスへと再構築"
       ],
       "actionPlaybook": [
-        "2015年にVCからの追加調達に失敗し、社員の75%を解雇するどん底を経験。そこから「VCを排除し、株主を配当で買い戻し、フルタイム雇用をやめて完全業務委託の自走型組織にする」という資本主義の裏技にピボット。",
-        "オフィスを持たず、全業務をNotion・GitHub・Slackによる完全非同期で回すため、家賃・福利厚生・通勤費などの間接費が文字通りゼロ。"
-      ],
-      "coldOutreachTemplate": "【Gumroad型・即時マネタイズアプローチ】\n「お持ちのノウハウやテンプレートを販売したいのに、ECサイトの構築や月額固定費で足踏みしていませんか？\nファイルをアップロードするだけで、5分後にはカード決済可能な販売ページが手に入ります。固定費は完全無料です。\n今すぐ最初の商品を登録してみませんか？」"
+        "会議、Slack、フルタイム社員を全廃し、GitHubのIssueとNotionだけで動く完全非同期組織を作る",
+        "固定費を極限までゼロにし、売上の変動に連動する変動費構造（業務委託時給制）を徹底する",
+        "一度握ったプラットフォームの関所通行税（テイクレート）を堂々と引き上げ、利益率を最大化する"
+      ]
     },
-    "essence": {
-      "whatItDoes": "デジタルコンテンツ、電子書籍、ソフトウェア、テンプレ販売専用のワンクリック決済プラットフォーム",
-      "targetCustomer": "個人クリエイターや知識労働者が自作コンテンツを販売して得る売上金からの10%天引き枠",
-      "painRelief": "「自前でShopifyやECサーバーを構築し、特定商取引法や海外税制（EU VAT等）に対応する」地獄の事務負担の完全切除"
+    "lootBlueprint": {
+      "targetPrey": "自分の知識やコードを即座に現金化したい世界中のクリエイター",
+      "structuralFlaw": "大手決済（Stripe等）は生APIしか提供せず、非エンジニアが直販できる決済リンク画面を放置。",
+      "stealthEntry": "「URLを貼るだけで今すぐ売れる」という極限の認知負荷ゼロUI。",
+      "tollGateSetup": "全決済の10%を関所通行税として自動天引き。",
+      "reproducibilityScore": 70,
+      "moatDurabilityScore": 85,
+      "capitalEfficiencyScore": 96,
+      "executionChecklist": [
+        "Stripe Connectで売り手と買い手を仲介するエスクロー決済を組む",
+        "組織の固定費を完全ゼロにする",
+        "テイクレートを10%に設定してキャッシュを自動蓄積する"
+      ]
     },
-    "exposureAudit": {
-      "guerrillaTraction": "創業者のSahil Lavingia（Pinterestの初期デザイナー）が、ある週末に自作のアイコンセットを売ろうとした際、「Web上でデジタルファイルを売る簡単な方法が存在しない」ことに気づき、週末の数日でプロトタイプを開発。自身のTwitter（X）で告知したところ初日から大バズりし、テック業界のインフルエンサーが一斉に使い始めた。",
-      "platformGlitch": "2015年にVCからの追加調達に失敗し、社員の75%を解雇するどん底を経験。そこから「VCを排除し、株主を配当で買い戻し、フルタイム雇用をやめて完全業務委託の自走型組織にする」という資本主義の裏技にピボット。",
-      "pivotSnapshot": "ユニコーンを目指す急成長VCモデルを放棄し、創業者利益とキャッシュフローを極大化する「カチカチの現金牛（キャッシュカウ）」へ転身。",
-      "hiddenStackCost": "オフィスを持たず、全業務をNotion・GitHub・Slackによる完全非同期で回すため、家賃・福利厚生・通勤費などの間接費が文字通りゼロ。"
-    },
-    "temporal": {
-      "foundedYear": 2011,
-      "initialTractionPeriod": "2011-2012年",
-      "dataSnapshotPeriod": "2023-2026年 (手数料改定後・安定黒字期)",
-      "viabilityStatus": "ACTIVE_PLAYBOOK",
-      "eraContext": "クリエイターエコノミーの爆発的成長期に、もっともシンプルで審査の緩い関所として定着。",
-      "currentViabilityAnalysis": "Lemon Squeezy（Stripeが買収）やStan Storeなどの競合が追撃しているが、長年培ったドメインオーソリティと購入者アカウント基盤により堅牢な地位を維持。",
-      "viabilityLabel": "現在も有効"
-    },
-    "observationsStream": [
-      {
-        "id": "obs_ent_gumroad_164534dd22fa6c2e2793_1",
-        "category": "SAVANNAH_PAIN",
-        "categoryLabel": "サバンナOSの急所",
-        "text": "「自分が作ったコンテンツでお金を稼いでみたい、でも会社を登記したり複雑な設定をするのは怖い」という承認欲求と極度の面倒くささ。",
-        "originType": "inferred",
-        "verificationStatus": "SUPPORTED",
-        "observedAt": "2026-09-10"
-      },
-      {
-        "id": "obs_ent_gumroad_164534dd22fa6c2e2793_2",
-        "category": "MARKET_DISTORTION",
-        "categoryLabel": "市場の歪み",
-        "text": "個人開発者が作った数ページのPDFやNotionテンプレが、数日で数百万円の売上を叩き出し、既存の出版社や取次システムを完全に無力化。",
-        "originType": "observed",
-        "verificationStatus": "SUPPORTED",
-        "observedAt": "2026-09-10"
-      },
-      {
-        "id": "obs_ent_gumroad_164534dd22fa6c2e2793_3",
-        "category": "FORUM_RAGE",
-        "categoryLabel": "顧客の生の声・怨嗟",
-        "text": "2023年の手数料10%フラット化で古参クリエイターから激しい抗議が起きたが、結局「他の決済サービスへの移行設定が面倒」なため大多数が居座り続けた現実。",
-        "originType": "observed",
-        "verificationStatus": "SUPPORTED",
-        "observedAt": "2026-09-10"
-      }
-    ],
-    "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "参入候補",
-      "oneLineReason": "手数料10%改定でクリエイターの不満が滞留しており、低手数料特化で奪取余地あり",
-      "demandDelta": "90日 ↑18%",
-      "competitionDelta": "競合 +3社 (手数料戦争)",
-      "entryRequirements": {
-        "capital": "50万円",
-        "technicalDifficulty": "LOW",
-        "platformRisk": "LOW"
-      }
-    }
+    "observations": [
+      "【究極のノーヘッドカウント経営】フルタイム社員ゼロ。創業者Sahilは週数時間のコミットで年間6億円超の手残り現金を回収。固定費を抱えないことこそが資本主義における最強の防御壁であることを証明した。"
+    ]
   },
   {
     "id": "ent_basecamp_b1bb0f0ff61469aa22c5",
@@ -8983,129 +8312,99 @@
   },
   {
     "id": "ent_quibi_failure",
-    "ticker": "QUIBI",
+    "ticker": "QUIBI.DEAD",
     "name": "Quibi",
-    "legalEntity": "Quibi Holdings LLC",
-    "tagline": "【検死解剖】1,800億円調達し6ヶ月で全額消失。素人の無料供給網（TikTok）に自前スタジオ制作モデルで挑み散った巨大な自爆記録",
+    "legalEntity": "Quibi Holdings LLC (Liquidated / Bankrupt)",
+    "tagline": "「スマホ専用・縦横両対応の10分ショート動画」に巨額調達¥2,600億円を注ぎ込み、TikTok無料の時代に月$8を要求して半年で即死・全額焼却したハリウッドの傲慢",
     "sector": "CONTENT_MEDIA",
     "scale": "ENTERPRISE",
-    "founder": "Jeffrey Katzenberg, Meg Whitman",
+    "founder": "Jeffrey Katzenberg（元ディズニー会長）& Meg Whitman（元eBay/HP CEO）",
     "country": "US",
-    "url": "https://quibi.com",
+    "url": "https://en.wikipedia.org/wiki/Quibi",
     "verifiedBadge": true,
-    "growthRateYoY": -100,
-    "architecturePattern": "超高額自前制作スタジオ",
-    "pipelineStack": "縦横自動追従ストリーミング (Turnstyle) × 画面スクショ完全遮断DRM",
-    "targetPainWallet": "電車移動中の通勤者のスキマ時間（10分間）の消費",
+    "growthRateYoY": -95,
+    "architecturePattern": "ハリウッド式超巨額固定費×有料壁課金自爆モデル",
+    "pipelineStack": "Turnstyle特許技術 × AWS CloudFront × ハリウッドセレブ独占契約",
+    "targetPainWallet": "「通勤電車の隙間時間に良質な短尺動画を見たいはずだ」というハリウッド幹部の脳内妄想",
     "tags": [
-      "検死解剖",
-      "2000億爆死",
-      "素人無料網の見落とし",
-      "スクショ禁止の自滅",
-      "6ヶ月で清算"
+      "地雷検死",
+      "2600億即死",
+      "赤字40億/月",
+      "ハリウッド自爆",
+      "半年で解散"
     ],
     "pnl": {
-      "monthlyRevenue": 50000000,
-      "cogs": 2000000000,
-      "grossProfit": -1950000000,
-      "grossMargin": -3900,
+      "monthlyRevenue": 450000000,
+      "cogs": 3000000000,
+      "grossProfit": -2550000000,
+      "grossMargin": -566.7,
       "operatingExpenses": {
-        "serverAndApi": 100000000,
+        "serverAndApi": 500000000,
         "advertising": 1000000000,
-        "subcontracting": 50000000,
-        "toolsAndSaaS": 20000000,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
         "other": 0
       },
-      "operatingProfit": -3120000000,
-      "operatingMargin": -6240,
-      "estimatedAnnualNetProfit": 0,
+      "operatingProfit": -4050000000,
+      "operatingMargin": -900,
+      "estimatedAnnualNetProfit": -48600000000,
       "financialStatus": "POST_MORTEM",
       "isRevenueUnconfirmed": true,
       "isMarginUnconfirmed": true,
-      "revenueLabel": "調達資金$1.75B（約2,000億円）を6ヶ月で全額償却清算",
-      "dataSnapshotPeriod": "2020年 サービス終了時検死（調達.75B / 6ヶ月で清算）",
-      "sourceDoc": "Wall Street Journal / SEC清算公表資料"
+      "revenueLabel": "検死報道開示 月商約¥4.5億 / 月間赤字 約¥40.5億円",
+      "dataSnapshotPeriod": "2020年4月ローンチ ➔ 2020年10月会社清算・解散",
+      "sourceDoc": "The Wall Street Journal検死報道 / 会社解散声明文 / SEC清算記録"
     },
-    "evidenceCards": [
-      {
-        "id": "ev_quibi_fatal_bleed",
-        "type": "LOOT_BLUEPRINT",
-        "title": "【検死教訓】自前でコンテンツ制作費を抱え込まず「他人の制作欲望」を燃料にする配管",
-        "badge": "略奪転用方程式",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "1分1,500万円のスタジオ制作費を自前で負担したQuibiは数学的に敗北した。YouTubeやTikTokのように「素人に勝手に作らせて中抜きする」構造を組め。",
-        "details": [
-          "【Step 1: コンテンツ調達の物理法則】: プラットフォームが自前で制作費を負担すると、供給量が有限になりスケールしない。",
-          "【Step 2: クリエイターの承認欲求ハック】: 素人や専門家にツールを無償提供し、彼らの自己表現欲求でコンテンツを無限供給させる。",
-          "【Step 3: 閲覧者への広告または手数料課金】: 集まったアテンションに対し、サーバー代と決済手数料のみを引いて粗利80%を抜く。"
-        ],
-        "codeSnippet": "// UGC（ユーザー生成コンテンツ）モデルによるコンテンツ供給配管\nexport async function ingestCreatorContent(creatorId: string, mediaPayload: Blob) {\n  const storedAsset = await cdn.upload(mediaPayload);\n  await db.videoFeed.create({ data: { creatorId, assetUrl: storedAsset.url, costToPlatform: 0 } });\n}",
-        "sourceNote": "Wall Street JournalのQuibi清算レポートおよびSEC開示情報から抽出した検死教訓"
-      },
-      {
-        "id": "ev_quibi_crime",
-        "type": "THE_CRIME",
-        "title": "スクショ完全禁止によるSNS拡散遮断と無料TikTokとの競合敗綻の解剖",
-        "badge": "身も蓋もない真実",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "ハリウッドの著作権思想に固執してスクショを技術的に禁止した結果、SNSで誰にも言及されず半年で全額溶かして散った。",
-        "details": [
-          "ローンチ直後にコロナ禍で「通勤」そのものが消滅。家でテレビを観るためスマホ短尺需要が蒸発。",
-          "若者はTikTokで完全無料・面白い素人動画を無限消費しており、誰が好んで月$4.99払うのかという急所を完全無視。"
-        ]
-      }
-    ],
     "operations": {
-      "teamSize": 200,
-      "weeklyHours": 60,
-      "initialCapitalRequired": 200000000000,
-      "automationLevel": 10,
+      "teamSize": 250,
+      "weeklyHours": 50,
+      "initialCapitalRequired": 260000000000,
+      "automationLevel": 30,
       "primaryChannels": [
-        "スーパーボウルCM巨額出稿",
-        "ハリウッド大物監督看板"
+        "スーパーボウルCM等での超巨額マス広告",
+        "ハリウッドセレブ（スピルバーグ等）によるPR",
+        "携帯キャリア（T-Mobile）バンドル"
       ],
       "toolStack": [
         {
-          "name": "自社動画配信基盤",
-          "category": "インフラ",
-          "monthlyCost": 100000000,
-          "purpose": "Turnstyle縦横動画配信"
-        },
-        {
-          "name": "DRM著作権保護",
-          "category": "セキュリティ",
-          "monthlyCost": 20000000,
-          "purpose": "画面録画・スクショ完全遮断"
+          "name": "AWS CloudFront & MediaConvert",
+          "category": "動画配信インフラ",
+          "monthlyCost": 500000000
         }
       ]
     },
     "strategy": {
-      "blindspot": "「プロが作った高品質ドラマならスマホでも金を払って見るはずだ」というハリウッドのプロデューサー目線の妄想。",
-      "moatType": "UNKNOWN",
-      "moatDescription": "【堀の完全な勘違い】制作費の高さは参入障壁ではなく、固定費の重荷にしかならなかった。",
-      "incumbentDilemma": "TikTokやYouTubeは世界中の何億人もの素人が毎日無料で動画を投稿し続ける無限供給網を持ち、1分あたり制作費が数千倍違う相手に数学的敗滅。",
-      "secretInsight": "スマホ時代のメディアビジネスの鉄則は「コンテンツ制作費を自社で1円も払わないこと」である。",
+      "blindspot": "「プロが作った高品質な10分動画なら客は喜んで月額課金する」と盲信。TikTokやYouTubeの素人が作る無限の無料UGCの破壊力とアルゴリズム中毒を完全に無視した。",
+      "moatType": "BRAND_PRESTIGE",
+      "moatDescription": "ハリウッドの重鎮による独占コンテンツ契約。しかしスマホ世代には誰1人響かず、何の参入障壁にもならなかった。",
       "initialTraction": [
-        "ディズニー、ワーナー、ソニー等から17億5,000万ドルの天文学的資金を事前調達",
-        "スピルバーグらハリウッドの巨頭を動員し全米で話題化",
-        "有料会員目標740万人に対しわずか50万人しか集まらず半年でサービス閉鎖決定"
+        "サービス開始前にディズニー、ワーナー、ソニー、アリババ等から1,750億円超を調達",
+        "2020年4月に華々しくローンチするも、初月で無料トライアル離脱率が90%に達する",
+        "わずか6ヶ月後の2020年10月、資金が尽きる前に創業者自ら会社清算を発表して解散"
       ],
       "actionPlaybook": [
-        "Step 1: メディア事業で自前コンテンツ制作費を過大に投じるな",
-        "Step 2: ユーザー自身がコンテンツを投稿するプラットフォーム構造を設計せよ",
-        "Step 3: SNSでのスクリーンショット拡散を全力で奨励し、バイラル係数を1.0以上に保て"
-      ],
-      "coldOutreachTemplate": "【検死教訓】巨額資金でコンテンツを自前制作するビジネスモデルは、無料の素人供給網に敗北します。"
+        "【地雷回避教訓】ユーザーが「無料」で無限に時間を消費している場所（TikTok, YouTube）に、コンテンツの中身だけで有料課金を仕掛けてはならない",
+        "スクリーンショット禁止・テレビ視聴不可という「シェアを拒否する仕様」を組み込み、自らバイラルを殺した愚行を繰り返すな",
+        "巨額資金調達に頼った固定費先行ビジネスは、需要検証に失敗した瞬間に即死する"
+      ]
     },
-    "temporal": {
-      "foundedYear": 2018,
-      "initialTractionPeriod": "2018-2020年 (巨額調達・ローンチ準備期)",
-      "dataSnapshotPeriod": "2020年 (ローンチ後6ヶ月で即死・全額償却期)",
-      "viabilityStatus": "HISTORICAL_WINDOW",
-      "viabilityLabel": "時代限定で現在は再現不能（完全な反面教師）",
-      "eraContext": "ハリウッドの巨額資金がスマホ短尺市場の構造（UGCの無料性）を誤認した特異点。",
-      "currentViabilityAnalysis": "完全に即死する構造。TikTok、Reels、YouTube Shortsの無料UGC網に対して自前高額制作で挑むのは不可能な賭け。"
-    }
+    "lootBlueprint": {
+      "targetPrey": "「通勤時間の暇つぶし」という、TikTokに支配されたレッドオーシャン",
+      "structuralFlaw": "巨額の固定費（1話数億円の制作費）を抱え、会員数が数千万人集まらないと数学的に黒字化しない破滅構造。",
+      "stealthEntry": "ステルスどころかスーパーボウルに巨額広告を投下し、大爆死を全世界に晒した。",
+      "tollGateSetup": "関所どころか、無料期間が終わった瞬間に客が全員逃走した。",
+      "reproducibilityScore": 5,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 2,
+      "executionChecklist": [
+        "固定費を極限までゼロにする",
+        "UGCやコミュニティ主導で広がる仕組みを作る",
+        "前金で黒字化するまで巨額広告を打たない"
+      ]
+    },
+    "observations": [
+      "【検死解剖の教訓】1,750億円を集めても、ユーザーが求めていないものを作れば半年で死ぬ。スマホ画面のシェア（スクショ）すら特許技術で禁止したため、SNSで全く話題にならなかった。"
+    ]
   },
   {
     "id": "ent_hopin_failure",
