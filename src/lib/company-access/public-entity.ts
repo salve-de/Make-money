@@ -35,8 +35,9 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
   }
 
   // 3. Claim単位の厳格検証（Critical Fact: 財務数値 Claim）
-  // 売上が確定数値（非null・非0、かつ !isRevenueUnconfirmed）として主張されている場合、
-  // 財務クレームを直接裏付ける客観的ClaimEvidenceBinding（または明確な財務エビデンスカード）が必須。
+  // 確定売上（非null・非0、かつ !isRevenueUnconfirmed）を主張する場合、
+  // W3C Web Annotation 準拠の Claim-to-Evidence Binding（原本Locator・実在EvidenceID）が100%必須。
+  // フォールバック（単なるカードやPnLの文字列存在）によるすり抜けは完全遮断。
   const claimsRevenue = Boolean(
     entity.pnl &&
     entity.pnl.monthlyRevenue !== null &&
@@ -46,44 +47,73 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
   );
 
   if (claimsRevenue) {
-    // A. 明示的な claimBindings（Promotion Receipt）の厳格検査
-    if (Array.isArray(entity.claimBindings) && entity.claimBindings.length > 0) {
-      const revBinding = entity.claimBindings.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
-      if (revBinding) {
-        if (revBinding.verificationStatus === 'REFUTED' || revBinding.supportCheck === 'FAIL') {
-          return false;
-        }
-        if (
-          revBinding.verificationStatus === 'SUPPORTED' &&
-          revBinding.evidenceId &&
-          revBinding.sourceClass &&
-          revBinding.sourceClass !== 'MODEL'
-        ) {
-          return true;
-        }
+    if (!Array.isArray(entity.claimBindings) || entity.claimBindings.length === 0) {
+      // 確定売上を主張しながら Binding が存在しない場合は即座に遮断（fallback B/C禁止）
+      return false;
+    }
+
+    const revBinding = entity.claimBindings.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
+    if (!revBinding) {
+      return false;
+    }
+
+    // 1. 検証ステータスとサポートチェック
+    if (revBinding.verificationStatus !== 'SUPPORTED' || revBinding.supportCheck !== 'PASS') {
+      return false;
+    }
+
+    // 2. 出典の独立性（LLMによるでっち上げ MODEL は禁止）
+    if (!revBinding.sourceClass || (revBinding.sourceClass as string) === 'MODEL') {
+      return false;
+    }
+
+    // 3. 実在エビデンスID（Real Evidence Identity）の厳格検証
+    if (!revBinding.evidenceId || typeof revBinding.evidenceId !== 'string') {
+      return false;
+    }
+    const matchingCard = Array.isArray(entity.evidenceCards) && entity.evidenceCards.find(c => c && c.id === revBinding.evidenceId);
+    const matchingObs = Array.isArray(entity.observationsStream) && entity.observationsStream.find(o => o && o.id === revBinding.evidenceId);
+    if (!matchingCard && !matchingObs) {
+      // 実在するカードまたは観測ストリームに存在しない架空IDは拒絶
+      return false;
+    }
+
+    // 4. 原本Locator（Target Selector）の厳格検証（自己参照の完全物理遮断）
+    if (!revBinding.locator || typeof revBinding.locator !== 'object') {
+      return false;
+    }
+    if (revBinding.locator.type === 'json') {
+      const ptr = revBinding.locator.jsonPointer || '';
+      // 生成後DTO自分自身（/pnl, /operations 等）を指す自己参照は物理遮断
+      if (ptr.startsWith('/pnl') || ptr.startsWith('/operations') || ptr.startsWith('/strategy') || ptr.startsWith('/essence')) {
+        return false;
       }
     }
 
-    // B. または財務系エビデンスカード（THE_CRIME / ASYMMETRIC_LEVERAGE）による直接支持
-    const hasSupportedCard = Array.isArray(entity.evidenceCards) && entity.evidenceCards.some(
-      card => Boolean(
-        card &&
-        (card.type === 'THE_CRIME' || card.type === 'ASYMMETRIC_LEVERAGE') &&
-        (card.evidenceLocator || card.sourceClass === 'PRIMARY' || card.sourceClass === 'INDEPENDENT_SECONDARY' || card.sourceClass === 'COMMUNITY') &&
-        card.evidenceStatus !== 'UNKNOWN' &&
-        card.evidenceStatus !== 'ESTIMATED'
-      )
-    );
-
-    // C. または PnL 自体の直接 Locator / 客観的 sourceClass
-    const hasDirectPnlEvidence = Boolean(
-      entity.pnl?.evidenceLocator ||
-      (entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0 && entity.pnl?.sourceClass && (entity.pnl.sourceClass === 'PRIMARY' || entity.pnl.sourceClass === 'INDEPENDENT_SECONDARY' || entity.pnl.sourceClass === 'COMMUNITY'))
-    );
-
-    if (!hasSupportedCard && !hasDirectPnlEvidence) {
-      // 確定売上を主張しているのに、裏付ける客観的財務エビデンスがない（単なる企業URLのみ等は不可）
-      return false;
+    // 5. [実検証] 自己申告フラグに頼らず、紐付けられたEvidenceがClaim（確定売上）を客観的に裏付けているか機械照合
+    if (matchingCard) {
+      if (matchingCard.evidenceStatus === 'UNKNOWN') {
+        return false;
+      }
+      const cardDetails = Array.isArray(matchingCard.details) ? matchingCard.details.join(' ') : '';
+      const cardPunchline = matchingCard.punchline || '';
+      const cardSource = matchingCard.sourceNote || '';
+      const cardText = `${cardPunchline} ${cardDetails} ${cardSource}`;
+      const hasFinancialSignal = /月商|年商|売上|利益|revenue|arr|mrr|sales|¥|\$|円|億|万/i.test(cardText);
+      const hasDirectSourceDoc = Boolean(entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0);
+      if (!hasFinancialSignal && !hasDirectSourceDoc) {
+        return false;
+      }
+    } else if (matchingObs) {
+      if (matchingObs.verificationStatus === 'REFUTED') {
+        return false;
+      }
+      const obsText = matchingObs.text || '';
+      const hasFinancialSignal = /月商|年商|売上|利益|revenue|arr|mrr|sales|¥|\$|円|億|万/i.test(obsText);
+      const hasDirectSourceDoc = Boolean(entity.pnl?.sourceDoc && entity.pnl.sourceDoc.trim().length > 0);
+      if (!hasFinancialSignal && !hasDirectSourceDoc) {
+        return false;
+      }
     }
   }
 

@@ -195,6 +195,11 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
         {
           claimKey: 'pnl.monthlyRevenue',
           evidenceId: 'ev_financial',
+          locator: {
+            type: 'pdf',
+            page: 42,
+            table: 'Revenue',
+          },
           sourceClass: 'PRIMARY',
           verificationStatus: 'REFUTED',
           supportCheck: 'FAIL',
@@ -202,6 +207,92 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
       ],
     } as unknown as FinancialEntity;
     expect(isPublishableEntity(refutedEntity)).toBe(false);
+
+    // [P0検証] Binding自体が存在しない場合、たとえ財務カードやPnL sourceDocがあっても絶対にfallbackで公開しない（Gate物理遮断）
+    const noBindingEntity = {
+      ...verifiedEntity,
+      claimBindings: [],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(noBindingEntity)).toBe(false);
+
+    // [P0検証] 自己参照ポインタ（/pnl/monthlyRevenue 等）を持つ自己署名Bindingは物理遮断
+    const selfReferentialEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          claimKey: 'pnl.monthlyRevenue',
+          evidenceId: 'ev_financial',
+          locator: {
+            type: 'json',
+            jsonPointer: '/pnl/monthlyRevenue',
+          },
+          sourceClass: 'PRIMARY',
+          verificationStatus: 'SUPPORTED',
+          supportCheck: 'PASS',
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(selfReferentialEntity)).toBe(false);
+
+    // [P0検証] 実在しない架空エビデンスIDを指すBindingは物理遮断
+    const fakeEvidenceIdEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          claimKey: 'pnl.monthlyRevenue',
+          evidenceId: 'ev_non_existent_fake_card',
+          locator: {
+            type: 'pdf',
+            page: 42,
+            table: 'Revenue',
+          },
+          sourceClass: 'PRIMARY',
+          verificationStatus: 'SUPPORTED',
+          supportCheck: 'PASS',
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(fakeEvidenceIdEntity)).toBe(false);
+
+    // [P0検証] supportCheck: 'PASS' と自己申告していても、紐付けられたエビデンスが UNKNOWN の場合は実検証で遮断
+    const unknownEvidenceEntity = {
+      ...verifiedEntity,
+      evidenceCards: [
+        {
+          id: 'ev_financial',
+          type: 'THE_CRIME',
+          title: '未確認カード',
+          evidenceStatus: 'UNKNOWN',
+          sourceNote: '未確認のメモ',
+        },
+      ],
+      pnl: {
+        ...verifiedEntity.pnl,
+        sourceDoc: '',
+      },
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(unknownEvidenceEntity)).toBe(false);
+
+    // [P0検証] supportCheck: 'PASS' と自己申告していても、エビデンスに財務裏付け文脈が一切ない場合は実検証で遮断
+    const nonFinancialEvidenceEntity = {
+      ...verifiedEntity,
+      evidenceCards: [
+        {
+          id: 'ev_financial',
+          type: 'THE_CRIME',
+          title: 'ただのデザイン解説',
+          evidenceStatus: 'REPORTED',
+          details: ['UIデザインが青色で美しいことのみを説明'],
+          punchline: 'デザインレビュー',
+          sourceNote: '社内デザインメモ',
+        },
+      ],
+      pnl: {
+        ...verifiedEntity.pnl,
+        sourceDoc: '',
+      },
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(nonFinancialEvidenceEntity)).toBe(false);
   });
 
   it('7. publicSummaryEntity strictly preserves unconfirmed flags without fabricating confirmed metrics', () => {

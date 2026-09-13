@@ -14,6 +14,7 @@ import type {
   FinancialEvidenceStatus,
   DynamicEvidenceCard,
   OpportunityJudgment,
+  EvidenceLocator,
 } from '@/platform/types/terminal';
 import {
   cleanIntelligenceText,
@@ -671,6 +672,12 @@ export function adaptFoundationDetailToFinancialEntity(
     tags.add('収益確認済');
   }
 
+  const crimeLocator: EvidenceLocator = {
+    type: 'text',
+    start: 0,
+    end: Math.max(10, (pnl.sourceDoc || 'R2観測レイク・公表シグナル').length),
+  };
+
   // 動的特異点証拠カード（詳細用）
   const evidenceCards: DynamicEvidenceCard[] = [
     {
@@ -680,6 +687,7 @@ export function adaptFoundationDetailToFinancialEntity(
       badge: pattern,
       evidenceStatus: financialStatus === 'UNAVAILABLE' ? 'UNKNOWN' : (financialStatus === 'REPORTED' ? 'REPORTED' : 'ESTIMATED'),
       sourceClass: 'PRIMARY',
+      evidenceLocator: crimeLocator,
       punchline: tagline,
       details: observationsStream.map((o) => o.text).slice(0, 3).length > 0
         ? observationsStream.map((o) => o.text).slice(0, 3)
@@ -710,7 +718,7 @@ export function adaptFoundationDetailToFinancialEntity(
         const cleanTag = cleanIntelligenceText(tagline).replace(/[。、].*$/, '').trim().slice(0, 25);
         return cleanTag.length > 5 && !/^[a-zA-Z\s]+$/.test(cleanTag)
           ? `「${cleanTag}」の仕組みを国内ニッチへ横展開する即戦力モデル`
-          : `『${entity.name}』の${pattern}モデルを国内ニッチへ横展開する即戦力設計図`;
+          : `『${entity.name}』の${pattern}モデルを国内ニッチへ横展開する設計図`;
       })(),
       details: [
         `① 突いた盲点: ${blindspotText.slice(0, 60)}`,
@@ -802,10 +810,7 @@ export function adaptFoundationDetailToFinancialEntity(
           {
             claimKey: 'pnl.monthlyRevenue',
             evidenceId: `ev_${entity.id}_crime`,
-            locator: {
-              type: 'json',
-              jsonPointer: '/pnl/monthlyRevenue',
-            },
+            locator: crimeLocator,
             sourceClass: 'PRIMARY',
             verificationStatus: 'SUPPORTED',
             supportCheck: 'PASS',

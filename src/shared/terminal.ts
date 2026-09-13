@@ -64,17 +64,23 @@ export type EvidenceLocator =
 
 export type VerificationStatus = 'SUPPORTED' | 'REFUTED' | 'UNVERIFIED';
 
+export type CriticalClaimKey =
+  | 'pnl.monthlyRevenue'
+  | 'pnl.operatingProfit'
+  | 'operations.teamSize';
+
 /**
  * Claim-to-Evidence Binding（Promotion Receipt）
  * 確定事実（売上・利益・組織規模等）を客観的エビデンス（原本Locator・一次資料）に直接紐付ける決定論的契約。
+ * W3C Web Annotation Data Model REC（Target Selector）および SEC Inline XBRL Provenance に準拠。
  */
 export interface ClaimEvidenceBinding {
-  claimKey: string; // 例: "pnl.monthlyRevenue", "pnl.operatingProfit", "operations.teamSize"
+  claimKey: CriticalClaimKey | string; // 例: "pnl.monthlyRevenue", "pnl.operatingProfit", "operations.teamSize"
   evidenceId: string;
-  locator?: EvidenceLocator;
-  sourceClass: SourceClass;
-  verificationStatus: VerificationStatus;
-  supportCheck?: 'PASS' | 'FAIL';
+  locator: EvidenceLocator; // 原本内の厳密なロケーター（自己参照 '/pnl/monthlyRevenue' 等は禁止）
+  sourceClass: Exclude<SourceClass, 'MODEL'>;
+  verificationStatus: 'SUPPORTED';
+  supportCheck: 'PASS';
 }
 
 export type PublishabilityStatus =

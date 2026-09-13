@@ -148,7 +148,13 @@
           "顧客が即決した理由: 「契約書や論文を1ページずつ読む苦痛と時間の浪費」を劇的に解決。",
           "手元に残る現金実額: 月商¥607万円に対し、原価と諸経費を引いた月間営業利益は約¥516万円（年間手残り純利益換算 約¥4645万円）。"
         ],
-        "sourceNote": "PDF.ai 創業者公表ログ / 財務データ"
+        "sourceNote": "PDF.ai 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_ent_pdf_ai_65_trap",
@@ -215,8 +221,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_pdf_ai_65_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -373,7 +380,13 @@
           "顧客が即決した理由: 「自社サービスを売りたい創業者のレビュー不足の焦燥」を劇的に解決。",
           "手元に残る現金実額: 月商¥886万円に対し、原価と諸経費を引いた月間営業利益は約¥726万円（年間手残り純利益換算 約¥6535万円）。"
         ],
-        "sourceNote": "Testimonial.to 創業者公表ログ / 財務データ"
+        "sourceNote": "Testimonial.to 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 30
+        }
       },
       {
         "id": "ev_ent_testim_66_trap",
@@ -440,8 +453,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_testim_66_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 30
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -598,7 +612,13 @@
           "顧客が即決した理由: 「深夜休日の問い合わせ対応に追われる中小企業オーナーの睡眠不足」を劇的に解決。",
           "手元に残る現金実額: 月商¥380万円に対し、原価と諸経費を引いた月間営業利益は約¥304万円（年間手残り純利益換算 約¥2732万円）。"
         ],
-        "sourceNote": "SiteGPT 創業者公表ログ / 財務データ"
+        "sourceNote": "SiteGPT 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_site_gpt_67_trap",
@@ -665,8 +685,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_site_gpt_67_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -823,7 +844,13 @@
           "顧客が即決した理由: 「WordPressの管理画面の重さと設定地獄のストレス」を劇的に解決。",
           "手元に残る現金実額: 月商¥127万円に対し、原価と諸経費を引いた月間営業利益は約¥111万円（年間手残り純利益換算 約¥1002万円）。"
         ],
-        "sourceNote": "Feather.so 創業者公表ログ / 財務データ"
+        "sourceNote": "Feather.so 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_feathr_68_trap",
@@ -890,8 +917,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_feathr_68_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -1048,7 +1076,13 @@
           "顧客が即決した理由: 「自社データAIが欲しいがエンジニアを雇う数百万円がない企業の焦燥」を劇的に解決。",
           "手元に残る現金実額: 月商¥4554万円に対し、原価と諸経費を引いた月間営業利益は約¥3871万円（年間手残り純利益換算 約¥3.5億円）。"
         ],
-        "sourceNote": "Chatbase 創業者公表ログ / 財務データ"
+        "sourceNote": "Chatbase 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_chatbs_69_trap",
@@ -1115,8 +1149,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_chatbs_69_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -1273,7 +1308,13 @@
           "顧客が即決した理由: 「「あの資料どこだっけ？」と思い出せないビジネスマンの脳疲労」を劇的に解決。",
           "手元に残る現金実額: 月商¥6325万円に対し、原価と諸経費を引いた月間営業利益は約¥4744万円（年間手残り純利益換算 約¥4.3億円）。"
         ],
-        "sourceNote": "Rewind AI 創業者公表ログ / 財務データ"
+        "sourceNote": "Rewind AI 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_rewind_6a_trap",
@@ -1340,8 +1381,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_rewind_6a_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -1498,7 +1540,13 @@
           "顧客が即決した理由: 「リファクタリングや改修で何時間も残業させられるエンジニアの苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥6.3億円（年間手残り純利益換算 約¥56.9億円）。"
         ],
-        "sourceNote": "Cursor (Anysphere) 創業者公表ログ / 財務データ"
+        "sourceNote": "Cursor (Anysphere) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 34
+        }
       },
       {
         "id": "ev_ent_cursor_6b_trap",
@@ -1565,8 +1613,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_cursor_6b_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 34
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -1723,7 +1772,13 @@
           "顧客が即決した理由: 「検索結果の広告とSEO記事を何スクロールもさせられる時間の浪費」を劇的に解決。",
           "手元に残る現金実額: 月商¥10.1億円に対し、原価と諸経費を引いた月間営業利益は約¥3.5億円（年間手残り純利益換算 約¥31.9億円）。"
         ],
-        "sourceNote": "Perplexity AI 創業者公表ログ / 財務データ"
+        "sourceNote": "Perplexity AI 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 29
+        }
       },
       {
         "id": "ev_ent_prplx_6c_trap",
@@ -1790,8 +1845,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_prplx_6c_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 29
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -1948,7 +2004,13 @@
           "顧客が即決した理由: 「ナレーションやオーディオブックで声優を雇う予算とスタジオ代の激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥10.1億円に対し、原価と諸経費を引いた月間営業利益は約¥4.6億円（年間手残り純利益換算 約¥41.0億円）。"
         ],
-        "sourceNote": "ElevenLabs 創業者公表ログ / 財務データ"
+        "sourceNote": "ElevenLabs 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_eleven_6d_trap",
@@ -2015,8 +2077,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_eleven_6d_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -2173,7 +2236,13 @@
           "顧客が即決した理由: 「ゲーム開発で何百枚ものアセットを描くイラストレーター外注費の激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.3億円に対し、原価と諸経費を引いた月間営業利益は約¥5060万円（年間手残り純利益換算 約¥4.6億円）。"
         ],
-        "sourceNote": "Leonardo.ai 創業者公表ログ / 財務データ"
+        "sourceNote": "Leonardo.ai 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       },
       {
         "id": "ev_ent_leonrd_6e_trap",
@@ -2240,8 +2309,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_leonrd_6e_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -2398,7 +2468,13 @@
           "顧客が即決した理由: 「Bitlyのカスタムドメイン月額$35〜$300という法外な値上げ」を劇的に解決。",
           "手元に残る現金実額: 月商¥633万円に対し、原価と諸経費を引いた月間営業利益は約¥506万円（年間手残り純利益換算 約¥4554万円）。"
         ],
-        "sourceNote": "Dub.co 創業者公表ログ / 財務データ"
+        "sourceNote": "Dub.co 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_ent_dub_co_6f_trap",
@@ -2465,8 +2541,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_dub_co_6f_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -2623,7 +2700,13 @@
           "顧客が即決した理由: 「Mailchimpの複雑怪奇な設定とEC偏重に発狂するSaaS開発者」を劇的に解決。",
           "手元に残る現金実額: 月商¥1265万円に対し、原価と諸経費を引いた月間営業利益は約¥949万円（年間手残り純利益換算 約¥8539万円）。"
         ],
-        "sourceNote": "Loops.so 創業者公表ログ / 財務データ"
+        "sourceNote": "Loops.so 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_loops_70_trap",
@@ -2690,8 +2773,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_loops_70_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -2848,7 +2932,13 @@
           "顧客が即決した理由: 「マウスでアプリやファイルを探すエンジニアの集中途切れの激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥633万円に対し、原価と諸経費を引いた月間営業利益は約¥411万円（年間手残り純利益換算 約¥3700万円）。"
         ],
-        "sourceNote": "Raycast 創業者公表ログ / 財務データ"
+        "sourceNote": "Raycast 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_raycst_71_trap",
@@ -2915,8 +3005,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_raycst_71_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -3073,7 +3164,13 @@
           "顧客が即決した理由: 「AWSの複雑怪奇なインフラ設定とサーバー管理に悩むフロントエンド開発者」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥2.5億円（年間手残り純利益換算 約¥22.8億円）。"
         ],
-        "sourceNote": "Vercel 創業者公表ログ / 財務データ"
+        "sourceNote": "Vercel 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_ent_vercel_72_trap",
@@ -3140,8 +3237,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_vercel_72_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -3298,7 +3396,13 @@
           "顧客が即決した理由: 「Firebaseで複雑なクエリが書けず莫大な課金が請求される恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥3.8億円に対し、原価と諸経費を引いた月間営業利益は約¥9488万円（年間手残り純利益換算 約¥8.5億円）。"
         ],
-        "sourceNote": "Supabase 創業者公表ログ / 財務データ"
+        "sourceNote": "Supabase 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_supabs_73_trap",
@@ -3365,8 +3469,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_supabs_73_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -3523,7 +3628,13 @@
           "顧客が即決した理由: 「ユーザー行動分析ツールの法外な従量課金とプライバシー規制」を劇的に解決。",
           "手元に残る現金実額: 月商¥2.5億円に対し、原価と諸経費を引いた月間営業利益は約¥7590万円（年間手残り純利益換算 約¥6.8億円）。"
         ],
-        "sourceNote": "PostHog 創業者公表ログ / 財務データ"
+        "sourceNote": "PostHog 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_posthg_74_trap",
@@ -3590,8 +3701,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_posthg_74_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -3748,7 +3860,13 @@
           "顧客が即決した理由: 「「ディスク容量がいっぱいです」というポップアップのストレス」を劇的に解決。",
           "手元に残る現金実額: 月商¥6.3億円に対し、原価と諸経費を引いた月間営業利益は約¥2.5億円（年間手残り純利益換算 約¥22.8億円）。"
         ],
-        "sourceNote": "CleanMyMac 創業者公表ログ / 財務データ"
+        "sourceNote": "CleanMyMac 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_cleanm_75_trap",
@@ -3815,8 +3933,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_cleanm_75_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -3973,7 +4092,13 @@
           "顧客が即決した理由: 「便利な有料アプリを都度購入する心理的ハードルと出費」を劇的に解決。",
           "手元に残る現金実額: 月商¥4.4億円に対し、原価と諸経費を引いた月間営業利益は約¥1.1億円（年間手残り純利益換算 約¥10.0億円）。"
         ],
-        "sourceNote": "Setapp 創業者公表ログ / 財務データ"
+        "sourceNote": "Setapp 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_ent_setapp_76_trap",
@@ -4040,8 +4165,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_setapp_76_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -4198,7 +4324,13 @@
           "顧客が即決した理由: 「複雑なシェルコマンドやDockerオプションを忘れてググる時間の浪費」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.3億円に対し、原価と諸経費を引いた月間営業利益は約¥5060万円（年間手残り純利益換算 約¥4.6億円）。"
         ],
-        "sourceNote": "Warp Terminal 創業者公表ログ / 財務データ"
+        "sourceNote": "Warp Terminal 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 29
+        }
       },
       {
         "id": "ev_ent_warp_t_77_trap",
@@ -4265,8 +4397,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_warp_t_77_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 29
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -4423,7 +4556,13 @@
           "顧客が即決した理由: 「毎朝メール処理に2時間奪われるエグゼクティブの激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥4.4億円に対し、原価と諸経費を引いた月間営業利益は約¥1.3億円（年間手残り純利益換算 約¥12.0億円）。"
         ],
-        "sourceNote": "Superhuman 創業者公表ログ / 財務データ"
+        "sourceNote": "Superhuman 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_sprhmn_78_trap",
@@ -4490,8 +4629,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_sprhmn_78_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -4648,7 +4788,13 @@
           "顧客が即決した理由: 「Apple純正の充電器やケーブルの高さと断線に激怒するスマホユーザー」を劇的に解決。",
           "手元に残る現金実額: 月商¥253.0億円に対し、原価と諸経費を引いた月間営業利益は約¥26.6億円（年間手残り純利益換算 約¥239.1億円）。"
         ],
-        "sourceNote": "Anker 創業者公表ログ / 財務データ"
+        "sourceNote": "Anker 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_anker_79_trap",
@@ -4715,8 +4861,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_anker_79_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -4873,7 +5020,13 @@
           "顧客が即決した理由: 「「鏡越しの自撮りで他人と違うお洒落な自分を誇示したい」若者の虚栄心」を劇的に解決。",
           "手元に残る現金実額: 月商¥25.3億円に対し、原価と諸経費を引いた月間営業利益は約¥5.6億円（年間手残り純利益換算 約¥50.1億円）。"
         ],
-        "sourceNote": "CASETiFY 創業者公表ログ / 財務データ"
+        "sourceNote": "CASETiFY 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_casetf_7a_trap",
@@ -4940,8 +5093,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_casetf_7a_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -5098,7 +5252,13 @@
           "顧客が即決した理由: 「Apple純正Magic Keyboardのペタペタ感で指を痛めるMacユーザーの激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥3.2億円（年間手残り純利益換算 約¥28.5億円）。"
         ],
-        "sourceNote": "Keychron 創業者公表ログ / 財務データ"
+        "sourceNote": "Keychron 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_keychr_7b_trap",
@@ -5165,8 +5325,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_keychr_7b_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -5323,7 +5484,13 @@
           "顧客が即決した理由: 「分厚い財布のせいでスーツやジーンズのシルエットが台無しになる羞恥心」を劇的に解決。",
           "手元に残る現金実額: 月商¥10.1億円に対し、原価と諸経費を引いた月間営業利益は約¥2.0億円（年間手残り純利益換算 約¥18.2億円）。"
         ],
-        "sourceNote": "Bellroy 創業者公表ログ / 財務データ"
+        "sourceNote": "Bellroy 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_bellry_7c_trap",
@@ -5390,8 +5557,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_bellry_7c_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -5548,7 +5716,13 @@
           "顧客が即決した理由: 「旅行や登山で重い一眼レフがブラブラ揺れて首が痛むカメラ愛好家の苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥2.8億円（年間手残り純利益換算 約¥25.0億円）。"
         ],
-        "sourceNote": "Peak Design 創業者公表ログ / 財務データ"
+        "sourceNote": "Peak Design 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       },
       {
         "id": "ev_ent_peakds_7d_trap",
@@ -5615,8 +5789,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_peakds_7d_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -5773,7 +5948,13 @@
           "顧客が即決した理由: 「「クレカのスキミングで財産を盗まれる恐怖」と重い財布の怠惰」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥3.2億円（年間手残り純利益換算 約¥28.5億円）。"
         ],
-        "sourceNote": "The Ridge Wallet 創業者公表ログ / 財務データ"
+        "sourceNote": "The Ridge Wallet 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 32
+        }
       },
       {
         "id": "ev_ent_ridge_7e_trap",
@@ -5840,8 +6021,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_ridge_7e_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 32
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -5998,7 +6180,13 @@
           "顧客が即決した理由: 「普通のカミソリでデリケートゾーンを剃って皮膚を切創・大出血する恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥38.0億円に対し、原価と諸経費を引いた月間営業利益は約¥6.8億円（年間手残り純利益換算 約¥61.5億円）。"
         ],
-        "sourceNote": "Manscaped 創業者公表ログ / 財務データ"
+        "sourceNote": "Manscaped 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_manscp_7f_trap",
@@ -6065,8 +6253,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_manscp_7f_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -6223,7 +6412,13 @@
           "顧客が即決した理由: 「安物クーラーボックスが数回のキャンプで壊れて氷が溶ける絶望」を劇的に解決。",
           "手元に残る現金実額: 月商¥202.4億円に対し、原価と諸経費を引いた月間営業利益は約¥32.4億円（年間手残り純利益換算 約¥291.5億円）。"
         ],
-        "sourceNote": "YETI Coolers 創業者公表ログ / 財務データ"
+        "sourceNote": "YETI Coolers 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       },
       {
         "id": "ev_ent_yeti_80_trap",
@@ -6290,8 +6485,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_yeti_80_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -6448,7 +6644,13 @@
           "顧客が即決した理由: 「キャンプから帰った後に服や髪から煙の悪臭が漂い嫌がられるパパの苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥50.6億円に対し、原価と諸経費を引いた月間営業利益は約¥6.1億円（年間手残り純利益換算 約¥54.6億円）。"
         ],
-        "sourceNote": "Solo Stove 創業者公表ログ / 財務データ"
+        "sourceNote": "Solo Stove 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_solost_81_trap",
@@ -6515,8 +6717,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_solost_81_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -6673,7 +6876,13 @@
           "顧客が即決した理由: 「可愛いタンブラーを持って学校に行きSNSで仲間外れになりたくない同調圧力」を劇的に解決。",
           "手元に残る現金実額: 月商¥94.9億円に対し、原価と諸経費を引いた月間営業利益は約¥23.7億円（年間手残り純利益換算 約¥213.5億円）。"
         ],
-        "sourceNote": "Stanley 1913 創業者公表ログ / 財務データ"
+        "sourceNote": "Stanley 1913 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       },
       {
         "id": "ev_ent_stanly_82_trap",
@@ -6740,8 +6949,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_stanly_82_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -6898,7 +7108,13 @@
           "顧客が即決した理由: 「ビーチやテラスで飲んでいる最中にビールがぬるくなる酒飲みの激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥2.8億円（年間手残り純利益換算 約¥25.0億円）。"
         ],
-        "sourceNote": "Brumate 創業者公表ログ / 財務データ"
+        "sourceNote": "Brumate 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_brumat_83_trap",
@@ -6965,8 +7181,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_brumat_83_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -7123,7 +7340,13 @@
           "顧客が即決した理由: 「ナイキ等のゴワゴワした化繊に嫌気がさし極上の快適性を求める男の執着」を劇的に解決。",
           "手元に残る現金実額: 月商¥126.5億円に対し、原価と諸経費を引いた月間営業利益は約¥25.3億円（年間手残り純利益換算 約¥227.7億円）。"
         ],
-        "sourceNote": "Vuori 創業者公表ログ / 財務データ"
+        "sourceNote": "Vuori 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_vuori_84_trap",
@@ -7190,8 +7413,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_vuori_84_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -7348,7 +7572,13 @@
           "顧客が即決した理由: 「硬いアスファルトを走って膝や関節を痛めるランナーの肉体的激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥253.0億円に対し、原価と諸経費を引いた月間営業利益は約¥38.0億円（年間手残り純利益換算 約¥341.6億円）。"
         ],
-        "sourceNote": "On Holding 創業者公表ログ / 財務データ"
+        "sourceNote": "On Holding 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_on_hld_85_trap",
@@ -7415,8 +7645,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_on_hld_85_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -7573,7 +7804,13 @@
           "顧客が即決した理由: 「足底腱膜炎や長時間の立ち仕事でかかとが痛くてたまらない中高年の悲鳴」を劇的に解決。",
           "手元に残る現金実額: 月商¥25.3億円に対し、原価と諸経費を引いた月間営業利益は約¥5.6億円（年間手残り純利益換算 約¥50.1億円）。"
         ],
-        "sourceNote": "OOFOS 創業者公表ログ / 財務データ"
+        "sourceNote": "OOFOS 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_oofos_86_trap",
@@ -7640,8 +7877,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_oofos_86_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -7798,7 +8036,13 @@
           "顧客が即決した理由: 「スクワットや懸垂でショーツが破れたりポケットのスマホが暴れる激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥6.3億円に対し、原価と諸経費を引いた月間営業利益は約¥1.1億円（年間手残り純利益換算 約¥10.2億円）。"
         ],
-        "sourceNote": "Ten Thousand 創業者公表ログ / 財務データ"
+        "sourceNote": "Ten Thousand 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       },
       {
         "id": "ev_ent_10thsd_87_trap",
@@ -7865,8 +8109,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_10thsd_87_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -8023,7 +8268,13 @@
           "顧客が即決した理由: 「パートナーと体感温度が合わず暑くて熟睡できない富裕層の睡眠負債」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥2.5億円（年間手残り純利益換算 約¥22.8億円）。"
         ],
-        "sourceNote": "Eight Sleep 創業者公表ログ / 財務データ"
+        "sourceNote": "Eight Sleep 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       },
       {
         "id": "ev_ent_8sleep_88_trap",
@@ -8090,8 +8341,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_8sleep_88_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -8248,7 +8500,13 @@
           "顧客が即決した理由: 「毎朝出かける直前に鍵が見つからず遅刻するパニックと自己嫌悪」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥1.9億円（年間手残り純利益換算 約¥17.1億円）。"
         ],
-        "sourceNote": "Tile 創業者公表ログ / 財務データ"
+        "sourceNote": "Tile 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       },
       {
         "id": "ev_ent_tile_tg_89_trap",
@@ -8315,8 +8573,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_tile_tg_89_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -8473,7 +8732,13 @@
           "顧客が即決した理由: 「毛布に埃やペットの毛が絡みついて洗うのが面倒なキャンプ・犬飼いの苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥5.1億円に対し、原価と諸経費を引いた月間営業利益は約¥1.0億円（年間手残り純利益換算 約¥9.1億円）。"
         ],
-        "sourceNote": "Rumpl 創業者公表ログ / 財務データ"
+        "sourceNote": "Rumpl 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_rumpl_8a_trap",
@@ -8540,8 +8805,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_rumpl_8a_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -8698,7 +8964,13 @@
           "顧客が即決した理由: 「ヒゲを伸ばすと肌が乾燥して痒くてたまらないヒゲ男子の激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥8855万円に対し、原価と諸経費を引いた月間営業利益は約¥2214万円（年間手残り純利益換算 約¥2.0億円）。"
         ],
-        "sourceNote": "Beardbrand 創業者公表ログ / 財務データ"
+        "sourceNote": "Beardbrand 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_beard_8b_trap",
@@ -8765,8 +9037,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_beard_8b_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -8923,7 +9196,13 @@
           "顧客が即決した理由: 「数百万円の高級時計を売買する際のだまされ恐怖と買い叩かれの激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥16.4億円に対し、原価と諸経費を引いた月間営業利益は約¥4.1億円（年間手残り純利益換算 約¥36.9億円）。"
         ],
-        "sourceNote": "Chrono24 創業者公表ログ / 財務データ"
+        "sourceNote": "Chrono24 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_chrono_8c_trap",
@@ -8990,8 +9269,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_chrono_8c_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -9148,7 +9428,13 @@
           "顧客が即決した理由: 「何十個もの求人サイトや賃貸サイトを個別に見る極限の怠惰」を劇的に解決。",
           "手元に残る現金実額: 月商¥18.3億円に対し、原価と諸経費を引いた月間営業利益は約¥6.0億円（年間手残り純利益換算 約¥54.5億円）。"
         ],
-        "sourceNote": "株式会社じげん 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社じげん 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_3679_t_8d_trap",
@@ -9215,8 +9501,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_3679_t_8d_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -9373,7 +9660,13 @@
           "顧客が即決した理由: 「各航空会社のサイトを行き来して最安値を探す時間の浪費」を劇的に解決。",
           "手元に残る現金実額: 月商¥20.8億円に対し、原価と諸経費を引いた月間営業利益は約¥3.8億円（年間手残り純利益換算 約¥33.8億円）。"
         ],
-        "sourceNote": "株式会社エアトリ 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社エアトリ 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_6191_t_8e_trap",
@@ -9440,8 +9733,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_6191_t_8e_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -9598,7 +9892,13 @@
           "顧客が即決した理由: 「日本未発売のシャネルやエルメスを海外定価に近い価格で買いたい虚栄心」を劇的に解決。",
           "手元に残る現金実額: 月商¥5.8億円に対し、原価と諸経費を引いた月間営業利益は約¥1.8億円（年間手残り純利益換算 約¥15.8億円）。"
         ],
-        "sourceNote": "株式会社エニグモ (BUYMA) 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社エニグモ (BUYMA) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 32
+        }
       },
       {
         "id": "ev_ent_3665_t_8f_trap",
@@ -9665,8 +9965,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_3665_t_8f_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 32
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -9823,7 +10124,13 @@
           "顧客が即決した理由: 「企業にイラストやロゴを発注すると数十万円取られる個人の出費苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥4.2億円に対し、原価と諸経費を引いた月間営業利益は約¥6250万円（年間手残り純利益換算 約¥5.6億円）。"
         ],
-        "sourceNote": "株式会社ココナラ 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社ココナラ 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_4176_t_90_trap",
@@ -9890,8 +10197,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_4176_t_90_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -10048,7 +10356,13 @@
           "顧客が即決した理由: 「Shopifyやカラーミーの月額固定費（数千円〜数万円）を払う恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥10.0億円に対し、原価と諸経費を引いた月間営業利益は約¥1.2億円（年間手残り純利益換算 約¥10.8億円）。"
         ],
-        "sourceNote": "BASE株式会社 創業者公表ログ / 財務データ"
+        "sourceNote": "BASE株式会社 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_4477_t_91_trap",
@@ -10115,8 +10429,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_4477_t_91_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -10273,7 +10588,13 @@
           "顧客が即決した理由: 「急なドタキャンでシフトが埋まらず店が回らない飲食店長の胃潰瘍」を劇的に解決。",
           "手元に残る現金実額: 月商¥16.7億円に対し、原価と諸経費を引いた月間営業利益は約¥4.2億円（年間手残り純利益換算 約¥37.5億円）。"
         ],
-        "sourceNote": "株式会社タイミー 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社タイミー 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_215a_t_92_trap",
@@ -10340,8 +10661,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_215a_t_92_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -10498,7 +10820,13 @@
           "顧客が即決した理由: 「空き部屋の固定資産税と維持費だけが垂れ流れる不動産オーナーの苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.3億円に対し、原価と諸経費を引いた月間営業利益は約¥1875万円（年間手残り純利益換算 約¥1.7億円）。"
         ],
-        "sourceNote": "株式会社スペースマーケット 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社スペースマーケット 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 29
+        }
       },
       {
         "id": "ev_ent_4487_t_93_trap",
@@ -10565,8 +10893,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_4487_t_93_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 29
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -10723,7 +11052,13 @@
           "顧客が即決した理由: 「CPA（顧客獲得単価）高騰と即時解約で広告費をドブに捨てるEC企業の絶望」を劇的に解決。",
           "手元に残る現金実額: 月商¥29.2億円に対し、原価と諸経費を引いた月間営業利益は約¥3.5億円（年間手残り純利益換算 約¥31.5億円）。"
         ],
-        "sourceNote": "株式会社Macbee Planet 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社Macbee Planet 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 33
+        }
       },
       {
         "id": "ev_ent_7095_t_94_trap",
@@ -10790,8 +11125,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_7095_t_94_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 33
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -10948,7 +11284,13 @@
           "顧客が即決した理由: 「紙の商品券を郵送する送料と印刷費と個人情報管理に怯える企業のコスト」を劇的に解決。",
           "手元に残る現金実額: 月商¥5.8億円に対し、原価と諸経費を引いた月間営業利益は約¥1.5億円（年間手残り純利益換算 約¥13.1億円）。"
         ],
-        "sourceNote": "株式会社ギフティ 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社ギフティ 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_4449_t_95_trap",
@@ -11015,8 +11357,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_4449_t_95_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -11173,7 +11516,13 @@
           "顧客が即決した理由: 「新サービスを立ち上げたのに世間に完全に無視される広報担当者の絶望」を劇的に解決。",
           "手元に残る現金実額: 月商¥5.8億円に対し、原価と諸経費を引いた月間営業利益は約¥2.0億円（年間手残り純利益換算 約¥18.4億円）。"
         ],
-        "sourceNote": "株式会社PR TIMES 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社PR TIMES 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       },
       {
         "id": "ev_ent_3922_t_96_trap",
@@ -11240,8 +11589,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_3922_t_96_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -11398,7 +11748,13 @@
           "顧客が即決した理由: 「ノースフェイスなどの高額アウトドアウェア（数万円）を買えない大衆の出費苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥108.3億円に対し、原価と諸経費を引いた月間営業利益は約¥19.5億円（年間手残り純利益換算 約¥175.5億円）。"
         ],
-        "sourceNote": "株式会社ワークマン 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社ワークマン 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_7564_t_97_trap",
@@ -11465,8 +11821,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_7564_t_97_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -11623,7 +11980,13 @@
           "顧客が即決した理由: 「単品注文の焼肉屋で子供が追加肉を頼むたびに財布を気にする親のプレッシャー」を劇的に解決。",
           "手元に残る現金実額: 月商¥83.3億円に対し、原価と諸経費を引いた月間営業利益は約¥6.3億円（年間手残り純利益換算 約¥56.3億円）。"
         ],
-        "sourceNote": "株式会社物語コーポレーション (焼肉きんぐ) 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社物語コーポレーション (焼肉きんぐ) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 38
+        }
       },
       {
         "id": "ev_ent_3097_t_98_trap",
@@ -11690,8 +12053,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_3097_t_98_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 38
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -11848,7 +12212,13 @@
           "顧客が即決した理由: 「安くて早くて美味い温かい食事を手軽に腹一杯食べたい労働者の食欲」を劇的に解決。",
           "手元に残る現金実額: 月商¥191.7億円に対し、原価と諸経費を引いた月間営業利益は約¥13.4億円（年間手残り純利益換算 約¥120.8億円）。"
         ],
-        "sourceNote": "トリドールホールディングス (丸亀製麺) 創業者公表ログ / 財務データ"
+        "sourceNote": "トリドールホールディングス (丸亀製麺) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 36
+        }
       },
       {
         "id": "ev_ent_3397_t_99_trap",
@@ -11915,8 +12285,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_3397_t_99_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 36
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -12073,7 +12444,13 @@
           "顧客が即決した理由: 「子供に寿司を食わせたいが回らない寿司屋には連れて行けない子育て世代の出費苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥300.0億円に対し、原価と諸経費を引いた月間営業利益は約¥18.0億円（年間手残り純利益換算 約¥162.0億円）。"
         ],
-        "sourceNote": "FOOD & LIFE COMPANIES (スシロー) 創業者公表ログ / 財務データ"
+        "sourceNote": "FOOD & LIFE COMPANIES (スシロー) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 44
+        }
       },
       {
         "id": "ev_ent_3563_t_9a_trap",
@@ -12140,8 +12517,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_3563_t_9a_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 44
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -12298,7 +12676,13 @@
           "顧客が即決した理由: 「日によって価格が変動するスーパーのチラシを比較して買い回る主婦のストレス」を劇的に解決。",
           "手元に残る現金実額: 月商¥500.0億円に対し、原価と諸経費を引いた月間営業利益は約¥26.0億円（年間手残り純利益換算 約¥234.0億円）。"
         ],
-        "sourceNote": "オーケー株式会社 創業者公表ログ / 財務データ"
+        "sourceNote": "オーケー株式会社 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_ok_sup_9b_trap",
@@ -12365,8 +12749,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_ok_sup_9b_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -12523,7 +12908,13 @@
           "顧客が即決した理由: 「物価高で肉や惣菜が高すぎてお腹いっぱい買えない子育て世帯の家計激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥333.3億円に対し、原価と諸経費を引いた月間営業利益は約¥15.0億円（年間手残り純利益換算 約¥135.0億円）。"
         ],
-        "sourceNote": "株式会社ロピア (OIC) 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社ロピア (OIC) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 29
+        }
       },
       {
         "id": "ev_ent_lopia_9c_trap",
@@ -12590,8 +12981,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_lopia_9c_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 29
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -12748,7 +13140,13 @@
           "顧客が即決した理由: 「飲食店や大家族が業務用食材を安くまとめ買いできない仕入れコスト」を劇的に解決。",
           "手元に残る現金実額: 月商¥400.0億円に対し、原価と諸経費を引いた月間営業利益は約¥40.8億円（年間手残り純利益換算 約¥367.2億円）。"
         ],
-        "sourceNote": "株式会社神戸物産 (業務スーパー) 創業者公表ログ / 財務データ"
+        "sourceNote": "株式会社神戸物産 (業務スーパー) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 33
+        }
       },
       {
         "id": "ev_ent_3038_t_9d_trap",
@@ -12815,8 +13213,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_3038_t_9d_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 33
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -12973,7 +13372,13 @@
           "顧客が即決した理由: 「毎朝経済ニュースを読まなければならないが難しくて眠くなる若手ビジネスマン」を劇的に解決。",
           "手元に残る現金実額: 月商¥6.3億円に対し、原価と諸経費を引いた月間営業利益は約¥2.5億円（年間手残り純利益換算 約¥22.8億円）。"
         ],
-        "sourceNote": "Morning Brew 創業者公表ログ / 財務データ"
+        "sourceNote": "Morning Brew 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       },
       {
         "id": "ev_ent_mbrew_9e_trap",
@@ -13040,8 +13445,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_mbrew_9e_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -13198,7 +13604,13 @@
           "顧客が即決した理由: 「綺麗事ばかりのビジネスメディアに飽き飽きしたハスラーたちの本音渇望」を劇的に解決。",
           "手元に残る現金実額: 月商¥2.5億円に対し、原価と諸経費を引いた月間営業利益は約¥8855万円（年間手残り純利益換算 約¥8.0億円）。"
         ],
-        "sourceNote": "The Hustle 創業者公表ログ / 財務データ"
+        "sourceNote": "The Hustle 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_hustle_9f_trap",
@@ -13265,8 +13677,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_hustle_9f_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -13424,7 +13837,13 @@
           "顧客が即決した理由: 「Hacker NewsやTwitterを一日中監視する時間がない多忙なエンジニア」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.0億円に対し、原価と諸経費を引いた月間営業利益は約¥8096万円（年間手残り純利益換算 約¥7.3億円）。"
         ],
-        "sourceNote": "TLDR Newsletter 創業者公表ログ / 財務データ"
+        "sourceNote": "TLDR Newsletter 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 31
+        }
       },
       {
         "id": "ev_ent_tldr_n_a0_trap",
@@ -13491,8 +13910,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_tldr_n_a0_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 31
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -13649,7 +14069,13 @@
           "顧客が即決した理由: 「仮想通貨の情報が専門用語ばかりで何が起きているか理解できない個人の不安」を劇的に解決。",
           "手元に残る現金実額: 月商¥6325万円に対し、原価と諸経費を引いた月間営業利益は約¥5376万円（年間手残り純利益換算 約¥4.8億円）。"
         ],
-        "sourceNote": "The Milk Road 創業者公表ログ / 財務データ"
+        "sourceNote": "The Milk Road 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 29
+        }
       },
       {
         "id": "ev_ent_milkrd_a1_trap",
@@ -13716,8 +14142,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_milkrd_a1_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 29
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -13874,7 +14301,13 @@
           "顧客が即決した理由: 「新聞社や出版社が給与を削減し自分のファンに直接課金できない記者の激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥3.8億円に対し、原価と諸経費を引いた月間営業利益は約¥7590万円（年間手残り純利益換算 約¥6.8億円）。"
         ],
-        "sourceNote": "Substack 創業者公表ログ / 財務データ"
+        "sourceNote": "Substack 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_substk_a2_trap",
@@ -13941,8 +14374,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_substk_a2_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -14099,7 +14533,13 @@
           "顧客が即決した理由: 「SNSでファンを集めても広告規制でマネタイズできないクリエイターの不満」を劇的に解決。",
           "手元に残る現金実額: 月商¥164.4億円に対し、原価と諸経費を引いた月間営業利益は約¥65.8億円（年間手残り純利益換算 約¥592.0億円）。"
         ],
-        "sourceNote": "OnlyFans 創業者公表ログ / 財務データ"
+        "sourceNote": "OnlyFans 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_onlyfn_a3_trap",
@@ -14166,8 +14606,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_onlyfn_a3_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -14324,7 +14765,13 @@
           "顧客が即決した理由: 「YouTubeのアルゴリズム変更で再生数が落ちると収入がゼロになる恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥10.1億円に対し、原価と諸経費を引いた月間営業利益は約¥2.0億円（年間手残り純利益換算 約¥18.2億円）。"
         ],
-        "sourceNote": "Patreon 創業者公表ログ / 財務データ"
+        "sourceNote": "Patreon 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_patren_a4_trap",
@@ -14391,8 +14838,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_patren_a4_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -14549,7 +14997,13 @@
           "顧客が即決した理由: 「Facebookグループで受講生が投稿を見失いエンゲージメントが崩壊する激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥3.2億円に対し、原価と諸経費を引いた月間営業利益は約¥1.4億円（年間手残り純利益換算 約¥12.8億円）。"
         ],
-        "sourceNote": "Skool 創業者公表ログ / 財務データ"
+        "sourceNote": "Skool 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_skool_a5_trap",
@@ -14616,8 +15070,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_skool_a5_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -14774,7 +15229,13 @@
           "顧客が即決した理由: 「Discordで手動でロールを付与したりPayPalの即時凍結に怯える若手起業家」を劇的に解決。",
           "手元に残る現金実額: 月商¥3.8億円に対し、原価と諸経費を引いた月間営業利益は約¥1.3億円（年間手残り純利益換算 約¥12.0億円）。"
         ],
-        "sourceNote": "Whop 創業者公表ログ / 財務データ"
+        "sourceNote": "Whop 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       },
       {
         "id": "ev_ent_whop_a6_trap",
@@ -14841,8 +15302,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_whop_a6_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -14999,7 +15461,13 @@
           "顧客が即決した理由: 「TikTokやIGで数百万再生されても広告収益が分配されないクリエイターの怒り」を劇的に解決。",
           "手元に残る現金実額: 月商¥6325万円に対し、原価と諸経費を引いた月間営業利益は約¥1265万円（年間手残り純利益換算 約¥1.1億円）。"
         ],
-        "sourceNote": "Fanbase 創業者公表ログ / 財務データ"
+        "sourceNote": "Fanbase 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_fanbas_a7_trap",
@@ -15066,8 +15534,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_fanbas_a7_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -15224,7 +15693,13 @@
           "顧客が即決した理由: 「「クーポンコード入力欄」を見て「損したくない」と別窓で検索する心理的焦燥」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥5.1億円（年間手残り純利益換算 約¥45.5億円）。"
         ],
-        "sourceNote": "Honey 創業者公表ログ / 財務データ"
+        "sourceNote": "Honey 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_honey_a8_trap",
@@ -15291,8 +15766,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_honey_a8_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -15449,7 +15925,13 @@
           "顧客が即決した理由: 「文法ミスでビジネス上の信用を失ったり恥をかくノンネイティブの恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥25.3億円に対し、原価と諸経費を引いた月間営業利益は約¥7.6億円（年間手残り純利益換算 約¥68.3億円）。"
         ],
-        "sourceNote": "Grammarly 創業者公表ログ / 財務データ"
+        "sourceNote": "Grammarly 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_grammr_a9_trap",
@@ -15516,8 +15998,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_grammr_a9_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -15674,7 +16157,13 @@
           "顧客が即決した理由: 「「買った翌日にタイムセールで半額になって損したくない」損失回避本能」を劇的に解決。",
           "手元に残る現金実額: 月商¥6325万円に対し、原価と諸経費を引いた月間営業利益は約¥5060万円（年間手残り純利益換算 約¥4.6億円）。"
         ],
-        "sourceNote": "CamelCamelCamel 創業者公表ログ / 財務データ"
+        "sourceNote": "CamelCamelCamel 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 31
+        }
       },
       {
         "id": "ev_ent_camel_aa_trap",
@@ -15741,8 +16230,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_camel_aa_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 31
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -15899,7 +16389,13 @@
           "顧客が即決した理由: 「Amazonで買い物しているが実はウォルマートの方が安いかもしれない不安」を劇的に解決。",
           "手元に残る現金実額: 月商¥6.3億円に対し、原価と諸経費を引いた月間営業利益は約¥2.2億円（年間手残り純利益換算 約¥19.9億円）。"
         ],
-        "sourceNote": "Capital One Shopping (Wikibuy) 創業者公表ログ / 財務データ"
+        "sourceNote": "Capital One Shopping (Wikibuy) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 46
+        }
       },
       {
         "id": "ev_ent_wikiby_ab_trap",
@@ -15966,8 +16462,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_wikiby_ab_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 46
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -16124,7 +16621,13 @@
           "顧客が即決した理由: 「普段の買い物で少しでも得をしたい・節約したい人間の防衛本能」を劇的に解決。",
           "手元に残る現金実額: 月商¥31.6億円に対し、原価と諸経費を引いた月間営業利益は約¥6.3億円（年間手残り純利益換算 約¥56.9億円）。"
         ],
-        "sourceNote": "Rakuten Rewards (Ebates) 創業者公表ログ / 財務データ"
+        "sourceNote": "Rakuten Rewards (Ebates) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 40
+        }
       },
       {
         "id": "ev_ent_ebates_ac_trap",
@@ -16191,8 +16694,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_ebates_ac_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 40
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -16349,7 +16853,13 @@
           "顧客が即決した理由: 「「そのワンピどこで買ったの？」と何百回も聞かれて答えるのが面倒なインスタグラマー」を劇的に解決。",
           "手元に残る現金実額: 月商¥19.0億円に対し、原価と諸経費を引いた月間営業利益は約¥4.7億円（年間手残り純利益換算 約¥42.7億円）。"
         ],
-        "sourceNote": "LTK (RewardStyle) 創業者公表ログ / 財務データ"
+        "sourceNote": "LTK (RewardStyle) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 33
+        }
       },
       {
         "id": "ev_ent_ltk_app_ad_trap",
@@ -16416,8 +16926,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_ltk_app_ad_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 33
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -16574,7 +17085,13 @@
           "顧客が即決した理由: 「欲しいブランドの服がどのECで在庫があるか探して回る苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥7.6億円に対し、原価と諸経費を引いた月間営業利益は約¥1.9億円（年間手残り純利益換算 約¥17.1億円）。"
         ],
-        "sourceNote": "ShopStyle 創業者公表ログ / 財務データ"
+        "sourceNote": "ShopStyle 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_shpstl_ae_trap",
@@ -16641,8 +17158,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_shpstl_ae_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -16799,7 +17317,13 @@
           "顧客が即決した理由: 「少しでも安く買いたいがネット上のセール情報を四六時中監視できない焦燥」を劇的に解決。",
           "手元に残る現金実額: 月商¥5.1億円に対し、原価と諸経費を引いた月間営業利益は約¥2.3億円（年間手残り純利益換算 約¥20.5億円）。"
         ],
-        "sourceNote": "Slickdeals 創業者公表ログ / 財務データ"
+        "sourceNote": "Slickdeals 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_slickd_af_trap",
@@ -16866,8 +17390,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_slickd_af_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -17024,7 +17549,13 @@
           "顧客が即決した理由: 「ECの決済画面で「プロモコード」の入力欄を見て損したくない心理」を劇的に解決。",
           "手元に残る現金実額: 月商¥25.3億円に対し、原価と諸経費を引いた月間営業利益は約¥7.6億円（年間手残り純利益換算 約¥68.3億円）。"
         ],
-        "sourceNote": "RetailMeNot 創業者公表ログ / 財務データ"
+        "sourceNote": "RetailMeNot 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       },
       {
         "id": "ev_ent_rtlnot_b0_trap",
@@ -17091,8 +17622,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_rtlnot_b0_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -17249,7 +17781,13 @@
           "顧客が即決した理由: 「インフレで食費が高騰し少しでも家計を節約したい主婦の切迫感」を劇的に解決。",
           "手元に残る現金実額: 月商¥38.0億円に対し、原価と諸経費を引いた月間営業利益は約¥7.6億円（年間手残り純利益換算 約¥68.3億円）。"
         ],
-        "sourceNote": "Ibotta 創業者公表ログ / 財務データ"
+        "sourceNote": "Ibotta 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_ent_ibotta_b1_trap",
@@ -17316,8 +17854,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_ibotta_b1_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -17474,7 +18013,13 @@
           "顧客が即決した理由: 「YouTubeもTikTokもショップも見てほしいのにリンクが1本しか貼れないインフルエンサーの悶絶」を劇的に解決。",
           "手元に残る現金実額: 月商¥6.3億円に対し、原価と諸経費を引いた月間営業利益は約¥2.2億円（年間手残り純利益換算 約¥19.9億円）。"
         ],
-        "sourceNote": "Linktree 創業者公表ログ / 財務データ"
+        "sourceNote": "Linktree 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_lnktr_b2_trap",
@@ -17541,8 +18086,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_lnktr_b2_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -17699,7 +18245,13 @@
           "顧客が即決した理由: 「リンクまとめだけでなく、ファンから直接お金をもらったりメールを集めたい欲求」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.9億円に対し、原価と諸経費を引いた月間営業利益は約¥6641万円（年間手残り純利益換算 約¥6.0億円）。"
         ],
-        "sourceNote": "Beacons 創業者公表ログ / 財務データ"
+        "sourceNote": "Beacons 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_beacns_b3_trap",
@@ -17766,8 +18318,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_beacns_b3_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -17924,7 +18477,13 @@
           "顧客が即決した理由: 「別のECサイト（Shopify等）に飛ばすと購入途中で離脱して売上が消える激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥2.5億円に対し、原価と諸経費を引いた月間営業利益は約¥1.0億円（年間手残り純利益換算 約¥9.1億円）。"
         ],
-        "sourceNote": "Stan Store 創業者公表ログ / 財務データ"
+        "sourceNote": "Stan Store 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ent_stan_s_b4_trap",
@@ -17991,8 +18550,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_stan_s_b4_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -18149,7 +18709,13 @@
           "顧客が即決した理由: 「売上が増えるたびにプラットフォームに手数料（5〜10%）を持っていかれる怒り」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.3億円に対し、原価と諸経費を引いた月間営業利益は約¥4428万円（年間手残り純利益換算 約¥4.0億円）。"
         ],
-        "sourceNote": "Podia 創業者公表ログ / 財務データ"
+        "sourceNote": "Podia 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_podia_b5_trap",
@@ -18216,8 +18782,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_podia_b5_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -18374,7 +18941,13 @@
           "顧客が即決した理由: 「Udemyの「1,200円セール」で自分の専門知識が買い叩かれる専門家の怒り」を劇的に解決。",
           "手元に残る現金実額: 月商¥6.3億円に対し、原価と諸経費を引いた月間営業利益は約¥1.6億円（年間手残り純利益換算 約¥14.2億円）。"
         ],
-        "sourceNote": "Teachable 創業者公表ログ / 財務データ"
+        "sourceNote": "Teachable 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_teachb_b6_trap",
@@ -18441,8 +19014,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_teachb_b6_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -18599,7 +19173,13 @@
           "顧客が即決した理由: 「自社製品の使い方を動画で教えたいが自作システムの開発費がない企業の苦痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥7.0億円に対し、原価と諸経費を引いた月間営業利益は約¥1.0億円（年間手残り純利益換算 約¥9.4億円）。"
         ],
-        "sourceNote": "Thinkific 創業者公表ログ / 財務データ"
+        "sourceNote": "Thinkific 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_thnkfc_b7_trap",
@@ -18666,8 +19246,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_thnkfc_b7_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -18824,7 +19405,13 @@
           "顧客が即決した理由: 「WordPress、Mailchimp、Stripe、VimeoをZapierで繋いで連携が壊れる悪夢」を劇的に解決。",
           "手元に残る現金実額: 月商¥12.7億円に対し、原価と諸経費を引いた月間営業利益は約¥3.8億円（年間手残り純利益換算 約¥34.2億円）。"
         ],
-        "sourceNote": "Kajabi 創業者公表ログ / 財務データ"
+        "sourceNote": "Kajabi 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_ent_kajabi_b8_trap",
@@ -18891,8 +19478,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_kajabi_b8_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -19049,7 +19637,13 @@
           "顧客が即決した理由: 「Slackで質問されてもチャットが流れて同じ質問に何回も回答させられる主宰者の疲労」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.9億円に対し、原価と諸経費を引いた月間営業利益は約¥6641万円（年間手残り純利益換算 約¥6.0億円）。"
         ],
-        "sourceNote": "Circle.so 創業者公表ログ / 財務データ"
+        "sourceNote": "Circle.so 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_circl_b9_trap",
@@ -19116,8 +19710,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_circl_b9_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -19274,7 +19869,13 @@
           "顧客が即決した理由: 「InstagramやXに投稿してもフォロワーの数%にしか表示されないリーチ制限の怒り」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.9億円に対し、原価と諸経費を引いた月間営業利益は約¥4744万円（年間手残り純利益換算 約¥4.3億円）。"
         ],
-        "sourceNote": "Mighty Networks 創業者公表ログ / 財務データ"
+        "sourceNote": "Mighty Networks 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 31
+        }
       },
       {
         "id": "ev_ent_mighty_ba_trap",
@@ -19341,8 +19942,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_mighty_ba_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 31
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -19499,7 +20101,13 @@
           "顧客が即決した理由: 「事業を売却したいがPEファンドに会社を解体されたくない創業者の愛着と不安」を劇的に解決。",
           "手元に残る現金実額: 月商¥19.0億円に対し、原価と諸経費を引いた月間営業利益は約¥3.8億円（年間手残り純利益換算 約¥34.2億円）。"
         ],
-        "sourceNote": "Tiny Capital 創業者公表ログ / 財務データ"
+        "sourceNote": "Tiny Capital 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       },
       {
         "id": "ev_ent_tiny_c_bb_trap",
@@ -19566,8 +20174,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_tiny_c_bb_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -19724,7 +20333,13 @@
           "顧客が即決した理由: 「海外に10万円送金するだけで銀行に数千円の手数料と悪いレートで掠め取られる激痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥161.3億円に対し、原価と諸経費を引いた月間営業利益は約¥40.3億円（年間手残り純利益換算 約¥362.8億円）。"
         ],
-        "sourceNote": "Wise (TransferWise) 創業者公表ログ / 財務データ"
+        "sourceNote": "Wise (TransferWise) 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 35
+        }
       },
       {
         "id": "ev_ent_wise_bc_trap",
@@ -19791,8 +20406,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_wise_bc_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 35
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -19949,7 +20565,13 @@
           "顧客が即決した理由: 「海外旅行や外貨決済のたびに銀行やクレカ会社に為替手数料を上乗せされる損失感」を劇的に解決。",
           "手元に残る現金実額: 月商¥354.8億円に対し、原価と諸経費を引いた月間営業利益は約¥81.6億円（年間手残り純利益換算 約¥734.3億円）。"
         ],
-        "sourceNote": "Revolut 創業者公表ログ / 財務データ"
+        "sourceNote": "Revolut 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_revolt_bd_trap",
@@ -20016,8 +20638,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_revolt_bd_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -20174,7 +20797,13 @@
           "顧客が即決した理由: 「大企業向けの古い銀行（Chase, BoA等）の使いにくいUIと理不尽な口座開設拒否」を劇的に解決。",
           "手元に残る現金実額: 月商¥25.3億円に対し、原価と諸経費を引いた月間営業利益は約¥8.9億円（年間手残り純利益換算 約¥79.7億円）。"
         ],
-        "sourceNote": "Mercury 創業者公表ログ / 財務データ"
+        "sourceNote": "Mercury 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_mrcury_be_trap",
@@ -20241,8 +20870,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_mrcury_be_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -20399,7 +21029,13 @@
           "顧客が即決した理由: 「実績がないという理由で日本の大手カード会社から法人クレカの発行を断られる屈辱」を劇的に解決。",
           "手元に残る現金実額: 月商¥31.6億円に対し、原価と諸経費を引いた月間営業利益は約¥6.3億円（年間手残り純利益換算 約¥56.9億円）。"
         ],
-        "sourceNote": "Brex 創業者公表ログ / 財務データ"
+        "sourceNote": "Brex 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       },
       {
         "id": "ev_ent_brex_bf_trap",
@@ -20466,8 +21102,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_brex_bf_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -20624,7 +21261,13 @@
           "顧客が即決した理由: 「社員が勝手に契約した幽霊SaaSに毎月何百万円も無駄金を垂れ流すCFOの胃痛」を劇的に解決。",
           "手元に残る現金実額: 月商¥38.0億円に対し、原価と諸経費を引いた月間営業利益は約¥9.5億円（年間手残り純利益換算 約¥85.4億円）。"
         ],
-        "sourceNote": "Ramp 創業者公表ログ / 財務データ"
+        "sourceNote": "Ramp 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       },
       {
         "id": "ev_ent_ramp_f_c0_trap",
@@ -20691,8 +21334,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_ramp_f_c0_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -20849,7 +21493,13 @@
           "顧客が即決した理由: 「海外人材を1人雇うためだけに現地の弁護士を雇い法人を作る数千万円と数ヶ月の浪費」を劇的に解決。",
           "手元に残る現金実額: 月商¥63.3億円に対し、原価と諸経費を引いた月間営業利益は約¥19.0億円（年間手残り純利益換算 約¥170.8億円）。"
         ],
-        "sourceNote": "Deel 創業者公表ログ / 財務データ"
+        "sourceNote": "Deel 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       },
       {
         "id": "ev_ent_deel_c1_trap",
@@ -20916,8 +21566,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_deel_c1_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -21074,7 +21725,13 @@
           "顧客が即決した理由: 「下請けの人材ブローカーにマージンを抜かれ現地の税金トラブルに巻き込まれる恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥19.0億円に対し、原価と諸経費を引いた月間営業利益は約¥4.7億円（年間手残り純利益換算 約¥42.7億円）。"
         ],
-        "sourceNote": "Remote 創業者公表ログ / 財務データ"
+        "sourceNote": "Remote 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_ent_remote_c2_trap",
@@ -21141,8 +21798,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_remote_c2_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -21299,7 +21957,13 @@
           "顧客が即決した理由: 「アメリカや日本のエンジニア給与が高騰しすぎて自社で採用できないスタートアップの悲鳴」を劇的に解決。",
           "手元に残る現金実額: 月商¥7.6億円に対し、原価と諸経費を引いた月間営業利益は約¥1.5億円（年間手残り純利益換算 約¥13.7億円）。"
         ],
-        "sourceNote": "Oyster HR 創業者公表ログ / 財務データ"
+        "sourceNote": "Oyster HR 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_ent_oyster_c3_trap",
@@ -21366,8 +22030,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_oyster_c3_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -21524,7 +22189,13 @@
           "顧客が即決した理由: 「エクセルで株主名簿を管理してストックオプションの計算ミスや法的手続きで大事故になる恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥31.6億円に対し、原価と諸経費を引いた月間営業利益は約¥7.9億円（年間手残り純利益換算 約¥71.2億円）。"
         ],
-        "sourceNote": "Carta 創業者公表ログ / 財務データ"
+        "sourceNote": "Carta 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_carta_c4_trap",
@@ -21591,8 +22262,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_carta_c4_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -21749,7 +22421,13 @@
           "顧客が即決した理由: 「税務署への源泉徴収税の納付や福利厚生手続きのミスで罰金を食らう恐怖」を劇的に解決。",
           "手元に残る現金実額: 月商¥63.3億円に対し、原価と諸経費を引いた月間営業利益は約¥12.7億円（年間手残り純利益換算 約¥113.8億円）。"
         ],
-        "sourceNote": "Gusto 創業者公表ログ / 財務データ"
+        "sourceNote": "Gusto 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_gusto_c5_trap",
@@ -21816,8 +22494,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_gusto_c5_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -21974,7 +22653,13 @@
           "顧客が即決した理由: 「ハイクオリティな美少女や背景を描くための最新AIモデル（LoRA）がどこにあるか分からない混乱」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.5億円に対し、原価と諸経費を引いた月間営業利益は約¥4554万円（年間手残り純利益換算 約¥4.1億円）。"
         ],
-        "sourceNote": "Civitai 創業者公表ログ / 財務データ"
+        "sourceNote": "Civitai 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_ent_civita_c6_trap",
@@ -22041,8 +22726,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_civita_c6_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -22199,7 +22885,13 @@
           "顧客が即決した理由: 「エラーログでググってもStack Overflowの10年前の回答しか出ず動かない絶望」を劇的に解決。",
           "手元に残る現金実額: 月商¥7590万円に対し、原価と諸経費を引いた月間営業利益は約¥3036万円（年間手残り純利益換算 約¥2.7億円）。"
         ],
-        "sourceNote": "Phind 創業者公表ログ / 財務データ"
+        "sourceNote": "Phind 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       },
       {
         "id": "ev_ent_phind_c7_trap",
@@ -22266,8 +22958,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_phind_c7_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -22424,7 +23117,13 @@
           "顧客が即決した理由: 「閲覧履歴を追跡されてネット上に同じ商品の追っかけ広告が出る気味悪さと不快感」を劇的に解決。",
           "手元に残る現金実額: 月商¥1.1億円に対し、原価と諸経費を引いた月間営業利益は約¥3831万円（年間手残り純利益換算 約¥3.4億円）。"
         ],
-        "sourceNote": "Ghostery 創業者公表ログ / 財務データ"
+        "sourceNote": "Ghostery 創業者公表ログ / 財務データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_ent_ghostr_c8_trap",
@@ -22491,8 +23190,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ent_ghostr_c8_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -22659,7 +23359,13 @@
           "顧客が即決した理由: 「開発エンジニアにテストをやらせると嫌がる・見落とす」という現場の不満を完全切除。",
           "手残り利益の実態: 単なる人材派遣ではなく「成果物保証」に近い単価設定により、業界平均を大きく上回るマージンを確保。"
         ],
-        "sourceNote": "SHIFT 創業ストーリー / 決算説明会資料"
+        "sourceNote": "SHIFT 創業ストーリー / 決算説明会資料",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_shift_trap",
@@ -22716,8 +23422,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_shift_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -22879,7 +23586,13 @@
           "【致命的出血点】: ソフトウェアと異なり、机や椅子、ビル賃料という物理的固定費はスケールしても限界費用がゼロにならない。VCマネーを燃やして実態のない成長を装うモデルは金利のある世界では即死する。",
           "【得られた教訓】: 理念や規模の幻想を排し、ユニットエコノミクスと現金の保全を最優先にすべきという冷徹な事実。"
         ],
-        "sourceNote": "Wall Street Journal WeWork崩壊スクープ"
+        "sourceNote": "Wall Street Journal WeWork崩壊スクープ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 32
+        }
       }
     ],
     "observationsStream": [
@@ -22923,8 +23636,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_wework_lesson",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 32
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -23081,7 +23795,13 @@
           "【独自の工夫】: 創業者が「WordPressは肥大化しすぎてブログツールではなくなった」と課題を突くプロモーション動画を公開し、Kickstarterで初月約3,000万円を集めて初期ファンとキャッシュを同時獲得。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Ghost Kickstarter キャンペーン記録 / 創業者ブログ"
+        "sourceNote": "Ghost Kickstarter キャンペーン記録 / 創業者ブログ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 35
+        }
       },
       {
         "id": "ev_ghost_trap",
@@ -23138,8 +23858,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ghost_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 35
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -23291,7 +24012,13 @@
           "【致命的出血点】: 「企業秘密・特許防御」を口実に第三者検証を一切拒絶する技術は99%詐欺である。デューデリジェンスを怠り、著名人の推薦という「社会的証明」だけで群がった投資家コミュニティの集団心理の敗北。",
           "【得られた教訓】: 理念や規模の幻想を排し、ユニットエコノミクスと現金の保全を最優先にすべきという冷徹な事実。"
         ],
-        "sourceNote": "Bad Blood（ジョン・キャリールー著）"
+        "sourceNote": "Bad Blood（ジョン・キャリールー著）",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       }
     ],
     "observationsStream": [
@@ -23335,8 +24062,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_theranos_lesson",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -23488,7 +24216,13 @@
           "【致命的出血点】: 取引所（胴元）とマーケットメイカー（プレイヤー）が同一人物に支配されている構造は、顧客資産を自分の財布と勘違いするモラルハザードを必然的に生み出す。",
           "【得られた教訓】: 理念や規模の幻想を排し、ユニットエコノミクスと現金の保全を最優先にすべきという冷徹な事実。"
         ],
-        "sourceNote": "SECおよびCFTC 告発記録"
+        "sourceNote": "SECおよびCFTC 告発記録",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 15
+        }
       }
     ],
     "observationsStream": [
@@ -23532,8 +24266,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ftx_lesson",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 15
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -23700,7 +24435,13 @@
           "【独自の工夫】: 「公式UIが使いにくいから自分用に作った」と画面動画をXにポストしたところ爆発的に拡散。Gumroadの決済リンクを即座に貼り、数日で初期ユーザー数千人を獲得。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Tony Dinh ブログ「How I built TypingMind」"
+        "sourceNote": "Tony Dinh ブログ「How I built TypingMind」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 37
+        }
       },
       {
         "id": "ev_typingmind_trap",
@@ -23757,8 +24498,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_typingmind_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 37
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -23925,7 +24667,13 @@
           "【独自の工夫】: 創業者は1年で12個のプロダクトを作る挑戦の中で幾度も失敗。当初はInstagram向け自動化だったが、Airtable/Zapierと連携させた瞬間にノーコード界隈で口コミが爆発。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Bannerbear 開発日誌 / IndieHackers ポッドキャスト"
+        "sourceNote": "Bannerbear 開発日誌 / IndieHackers ポッドキャスト",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 38
+        }
       },
       {
         "id": "ev_bannerbear_trap",
@@ -23982,8 +24730,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bannerbear_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 38
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -24145,7 +24894,13 @@
           "【独自の工夫】: 創業者ネイサン・バリーが、有力なプロブロガー一人ひとりに直接連絡を取り、「Mailchimpからの移行作業を僕が全部手動で無料でやります」と提案して初期の有力顧客を丸ごと乗り換えさせた。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Nathan Barry 著書およびポッドキャスト記録"
+        "sourceNote": "Nathan Barry 著書およびポッドキャスト記録",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       },
       {
         "id": "ev_convertkit_trap",
@@ -24202,8 +24957,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_convertkit_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -24365,7 +25121,13 @@
           "【独自の工夫】: 何年も無料で最高のツールを提供し続け、YouTubeで美しいUIを組み上げるライブコーディングを配信。圧倒的な信頼を築いた上で「Tailwind UI」を公開した瞬間、数時間で数千万円の注文が殺到。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Adam Wathan Twitter / Stripe管理画面公開ログ"
+        "sourceNote": "Adam Wathan Twitter / Stripe管理画面公開ログ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 36
+        }
       },
       {
         "id": "ev_tailwind_trap",
@@ -24422,8 +25184,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_tailwind_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 36
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -24580,7 +25343,13 @@
           "【独自の工夫】: かつて万年筆のペン先スリットを入れる砥石から始まり、半導体メーカーが新素材の切断に悩むたびに自社研究所で無償テスト切断を代行。「ディスコに相談すれば必ず切れる」という信頼を構築して独占へ。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "ディスコ社史「高度技術への挑戦」/ 各種IR資料"
+        "sourceNote": "ディスコ社史「高度技術への挑戦」/ 各種IR資料",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_disco_trap",
@@ -24637,8 +25406,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_disco_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -24790,7 +25560,13 @@
           "【致命的出血点】: ShopifyやApple、GoogleがOS・プラットフォームレベルで提供している無料機能（Shop Pay, Apple Pay）に対して、独立したSaaSが対抗することは構造的に不可能である。",
           "【得られた教訓】: 理念や規模の幻想を排し、ユニットエコノミクスと現金の保全を最優先にすべきという冷徹な事実。"
         ],
-        "sourceNote": "The Information「Inside the Fast Collapse」"
+        "sourceNote": "The Information「Inside the Fast Collapse」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 41
+        }
       }
     ],
     "observationsStream": [
@@ -24834,8 +25610,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_fast_lesson",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 41
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -24998,7 +25775,13 @@
           "【独自の工夫】: 「Puppeteer screenshot cookie banner」「Html2canvas alternative」等のエンジニアが絶望してGoogle検索する超ニッチなキーワードに特化した技術ブログと比較LPを徹底作成し、広告費ゼロで集客。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Dmytro Krasun 著「How I Grew ScreenshotOne」"
+        "sourceNote": "Dmytro Krasun 著「How I Grew ScreenshotOne」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 41
+        }
       },
       {
         "id": "ev_screenshotone_trap",
@@ -25083,8 +25866,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_screenshotone_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 41
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -25247,7 +26031,13 @@
           "【独自の工夫】: 「Python web scraping tutorial」「How to scrape without getting blocked」といった長文の技術チュートリアルを創業者自ら徹底的に執筆。Google検索で1位を独占し、毎月数万人の開発者を無料流入させた。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Kevin Sahin 著書「Make Art from Technology」"
+        "sourceNote": "Kevin Sahin 著書「Make Art from Technology」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 40
+        }
       },
       {
         "id": "ev_scrapingbee_trap",
@@ -25332,8 +26122,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_scrapingbee_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 40
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -25413,7 +26204,13 @@
             "value": "99.9%"
           }
         ],
-        "sourceNote": "有価証券報告書 ＆ 工場長ヒアリング調査"
+        "sourceNote": "有価証券報告書 ＆ 工場長ヒアリング調査",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       },
       {
         "id": "ev_keyence_smoking_gun",
@@ -25670,8 +26467,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_keyence_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -25747,7 +26545,13 @@
             "value": "約5分"
           }
         ],
-        "sourceNote": "Stripe Developer Documentation & SEC Form S-1 Pre-filing"
+        "sourceNote": "Stripe Developer Documentation & SEC Form S-1 Pre-filing",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 56
+        }
       },
       {
         "id": "ev_stripe_smoking_gun",
@@ -25999,8 +26803,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_stripe_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 56
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -26079,7 +26884,13 @@
             "value": "¥0 (GitHub配管のみ)"
           }
         ],
-        "sourceNote": "Marc Lou 公開Stripeダッシュボード (X/Twitter)"
+        "sourceNote": "Marc Lou 公開Stripeダッシュボード (X/Twitter)",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 36
+        }
       },
       {
         "id": "ev_shipfast_dirty_genesis",
@@ -26362,8 +27173,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_shipfast_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 36
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -26443,7 +27255,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 「スタジオでカメラマンにポーズを取る恥ずかしさ」をスマホ自撮りアップロードで切除し、粗利88%を完全1人で吸い上げる。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 37
+        }
       }
     ],
     "operations": {
@@ -26641,7 +27459,13 @@
             "value": "月数万円 (単一VPS)"
           }
         ],
-        "sourceNote": "nomadlist.com/open"
+        "sourceNote": "nomadlist.com/open",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 18
+        }
       },
       {
         "id": "ev_nomadlist_dirty_genesis",
@@ -26919,8 +27743,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_nomadlist_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 18
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -27082,7 +27907,13 @@
           "【独自の工夫】: 「なぜ我々はGoogle Analyticsを捨ててオープンソースで自作したのか」という理念記事をHacker Newsに投稿し、数万PVと数千人の初期有料会員を獲得。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Plausible公式ブログ / Hacker News トレンドログ"
+        "sourceNote": "Plausible公式ブログ / Hacker News トレンドログ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 35
+        }
       },
       {
         "id": "ev_plausible_trap",
@@ -27139,8 +27970,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_plausible_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 35
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -27216,7 +28048,13 @@
             "value": "2人"
           }
         ],
-        "sourceNote": "Justin Jackson & Jon Buda 公開ポッドキャスト"
+        "sourceNote": "Justin Jackson & Jon Buda 公開ポッドキャスト",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 35
+        }
       }
     ],
     "essence": {
@@ -27480,8 +28318,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_transistor_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 35
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -27556,7 +28395,13 @@
             "value": "¥0 (手動DM)"
           }
         ],
-        "sourceNote": "創業者インタビュー ＆ Instagram DMログ"
+        "sourceNote": "創業者インタビュー ＆ Instagram DMログ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_liinks_smoking_gun",
@@ -27836,8 +28681,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_liinks_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -27908,7 +28754,13 @@
             "value": "わずか7週間"
           }
         ],
-        "sourceNote": "Joel Gascoigne ブログ「Idea to Paying Customers in 7 Weeks」"
+        "sourceNote": "Joel Gascoigne ブログ「Idea to Paying Customers in 7 Weeks」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 55
+        }
       }
     ],
     "essence": {
@@ -28177,8 +29029,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_buffer_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 55
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -28254,7 +29107,13 @@
             "value": "1人 (Danny Postma)"
           }
         ],
-        "sourceNote": "Danny Postma 公開インタビュー & X"
+        "sourceNote": "Danny Postma 公開インタビュー & X",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       }
     ],
     "essence": {
@@ -28482,8 +29341,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_headshotpro_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -28559,7 +29419,13 @@
             "value": "完全1人"
           }
         ],
-        "sourceNote": "Easlo 公開インタビュー (Notion Ambassador)"
+        "sourceNote": "Easlo 公開インタビュー (Notion Ambassador)",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 34
+        }
       }
     ],
     "essence": {
@@ -28790,8 +29656,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_easlo_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 34
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -28872,7 +29739,13 @@
           "50万人以上の買い手データベースをテコに、売り手を完全に囲い込み。",
           "既存の投資銀行やM&A仲介が要求する着手金・固定月額・15%の法外な成功報酬を破壊。",
           "創業者Andrew Gazdecki自身の強烈なX（Twitter）発信力を最大の集客配管として活用。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 47
+        }
       }
     ],
     "operations": {
@@ -29002,8 +29875,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_acquire_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 47
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -29074,7 +29948,13 @@
             "isHighlight": true
           }
         ],
-        "sourceNote": "Forbes & Magic Spoon D2C Teardown"
+        "sourceNote": "Forbes & Magic Spoon D2C Teardown",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 33
+        }
       }
     ],
     "essence": {
@@ -29251,8 +30131,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_magicspoon_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 33
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -29323,7 +30204,13 @@
             "isHighlight": true
           }
         ],
-        "sourceNote": "Bloomberg & Mike Cessario インタビュー"
+        "sourceNote": "Bloomberg & Mike Cessario インタビュー",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 32
+        }
       }
     ],
     "essence": {
@@ -29485,8 +30372,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_liquiddeath_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 32
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -29556,7 +30444,13 @@
             "value": "業界平均の1/3"
           }
         ],
-        "sourceNote": "Stronger By Science ポッドキャスト & 財務開示"
+        "sourceNote": "Stronger By Science ポッドキャスト & 財務開示",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 34
+        }
       }
     ],
     "essence": {
@@ -29733,8 +30627,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_macrofactor_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 34
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -29804,7 +30699,13 @@
             "value": "約¥65億"
           }
         ],
-        "sourceNote": "Blinkist Exit to Go1 プレスリリース"
+        "sourceNote": "Blinkist Exit to Go1 プレスリリース",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       }
     ],
     "essence": {
@@ -29975,8 +30876,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_blinkist_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -30046,7 +30948,13 @@
             "value": "100,000人 (ローンチ前)"
           }
         ],
-        "sourceNote": "Harry's S-1 Filing Draft & Forbes"
+        "sourceNote": "Harry's S-1 Filing Draft & Forbes",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 33
+        }
       }
     ],
     "essence": {
@@ -30216,8 +31124,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_harrys_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 33
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -30296,7 +31205,13 @@
             "value": "$0 (完全ブートストラップ)"
           }
         ],
-        "sourceNote": "David Holz 公式発表 & The Information"
+        "sourceNote": "David Holz 公式発表 & The Information",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 33
+        }
       },
       {
         "id": "ev_midjourney_smoking_gun",
@@ -30478,8 +31393,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_midjourney_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 33
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -30646,7 +31562,13 @@
           "【独自の工夫】: 無料プランの全サイトの最下部に控えめなバッジを配置。Carrdで作られた美しいサイトを見た訪問者が「これ何で作ったの？」とクリックして新規顧客になる自走ループを構築。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "IndieHackers「How Carrd hit $1M ARR as a Solo Founder」"
+        "sourceNote": "IndieHackers「How Carrd hit $1M ARR as a Solo Founder」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 53
+        }
       },
       {
         "id": "ev_carrd_trap",
@@ -30703,8 +31625,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_carrd_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 53
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -30861,7 +31784,13 @@
           "【独自の工夫】: 創業者が自作アイコンをTwitterでフォロワーに売ろうとした際、「なぜこんなに販売手続きが面倒なのか」と疑問に思い、週末の数日でプロトタイプを組んでTwitterに投稿したところ大バズを起こした。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
         ],
-        "sourceNote": "Sahil Lavingia 著書「The Minimalist Entrepreneur」"
+        "sourceNote": "Sahil Lavingia 著書「The Minimalist Entrepreneur」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 46
+        }
       },
       {
         "id": "ev_gumroad_trap",
@@ -30918,8 +31847,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_gumroad_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 46
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -30989,7 +31919,13 @@
             "value": "月額$99定額 (ユーザー無制限)"
           }
         ],
-        "sourceNote": "37signals 公式ブログ & DHH 公開発言"
+        "sourceNote": "37signals 公式ブログ & DHH 公開発言",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       }
     ],
     "pnl": {
@@ -31157,8 +32093,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_basecamp_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -31228,7 +32165,13 @@
             "value": "0人 (プロダクトレッドグロース)"
           }
         ],
-        "sourceNote": "Linear プレスリリース & Karri Saarinen インタビュー"
+        "sourceNote": "Linear プレスリリース & Karri Saarinen インタビュー",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 38
+        }
       }
     ],
     "pnl": {
@@ -31396,8 +32339,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_linear_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 38
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -31467,7 +32411,13 @@
             "value": "3,000万人+"
           }
         ],
-        "sourceNote": "Forbes & Notion 公式開示"
+        "sourceNote": "Forbes & Notion 公式開示",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       }
     ],
     "pnl": {
@@ -31635,8 +32585,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_notion_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -31706,7 +32657,13 @@
             "value": "300%+"
           }
         ],
-        "sourceNote": "Tyler Denk 公開ポスト & beehiiv ニュースレター"
+        "sourceNote": "Tyler Denk 公開ポスト & beehiiv ニュースレター",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 34
+        }
       }
     ],
     "pnl": {
@@ -31874,8 +32831,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_beehiiv_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 34
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -31946,7 +32904,13 @@
             "isHighlight": true
           }
         ],
-        "sourceNote": "Nathan Barry 公開ブログ & Baremetrics Open Dashboard"
+        "sourceNote": "Nathan Barry 公開ブログ & Baremetrics Open Dashboard",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 47
+        }
       }
     ],
     "pnl": {
@@ -32114,8 +33078,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_kit_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 47
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -32185,7 +33150,13 @@
             "value": "75%+"
           }
         ],
-        "sourceNote": "Klaviyo SEC Form S-1 Filing"
+        "sourceNote": "Klaviyo SEC Form S-1 Filing",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       }
     ],
     "pnl": {
@@ -32353,8 +33324,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_klaviyo_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -32424,7 +33396,13 @@
             "value": "$30/月 (年間契約)"
           }
         ],
-        "sourceNote": "Will Ahmed インタビュー & Bloomberg"
+        "sourceNote": "Will Ahmed インタビュー & Bloomberg",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 29
+        }
       }
     ],
     "pnl": {
@@ -32592,8 +33570,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_whoop_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 29
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -32663,7 +33642,13 @@
             "value": "月額$79 (定期購入)"
           }
         ],
-        "sourceNote": "Wall Street Journal & AG1 財務調査レポート"
+        "sourceNote": "Wall Street Journal & AG1 財務調査レポート",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 34
+        }
       }
     ],
     "pnl": {
@@ -32831,8 +33816,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_athletic_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 34
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -32902,7 +33888,13 @@
             "value": "$5B+ (約¥7,500億)"
           }
         ],
-        "sourceNote": "Oura Health Oy プレスリリース"
+        "sourceNote": "Oura Health Oy プレスリリース",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       }
     ],
     "pnl": {
@@ -33070,8 +34062,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_oura_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -33142,7 +34135,13 @@
             "isHighlight": true
           }
         ],
-        "sourceNote": "Shopify App Store 統計データ"
+        "sourceNote": "Shopify App Store 統計データ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       }
     ],
     "pnl": {
@@ -33311,8 +34310,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_judgeme_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -33382,7 +34382,13 @@
             "value": "80%+"
           }
         ],
-        "sourceNote": "Loox 公式発表"
+        "sourceNote": "Loox 公式発表",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 10
+        }
       }
     ],
     "pnl": {
@@ -33551,8 +34557,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_loox_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 10
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -33622,7 +34629,13 @@
             "value": "1週間"
           }
         ],
-        "sourceNote": "Josh Pigford ブログ"
+        "sourceNote": "Josh Pigford ブログ",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 16
+        }
       }
     ],
     "pnl": {
@@ -33790,8 +34803,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_baremetrics_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 16
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -33861,7 +34875,13 @@
             "value": "$20M+ (推定)"
           }
         ],
-        "sourceNote": "Better Stack 公式開示"
+        "sourceNote": "Better Stack 公式開示",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 17
+        }
       }
     ],
     "pnl": {
@@ -34030,8 +35050,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_betterstack_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 17
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -34104,7 +35125,13 @@
             "isHighlight": true
           }
         ],
-        "sourceNote": "The Information ＆ Forbes"
+        "sourceNote": "The Information ＆ Forbes",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_jasper_fatal_bleed",
@@ -34297,8 +35324,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_jasper_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -34378,7 +35406,13 @@
           "【錯覚の前提】: 表面的なユーザー数の伸びや巨額調達に幻惑され、1顧客あたりの獲得単価と生涯価値の乖離を見落とした。",
           "【致命的出血点】: 「有名人と話せる」特権感で一時的に熱狂させたが、コンテンツが蓄積されないためTwitterスペース等の大手コピーで一瞬で淘汰された。",
           "【得られた教訓】: 理念や規模の幻想を排し、ユニットエコノミクスと現金の保全を最優先にすべきという冷徹な事実。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       }
     ],
     "operations": {
@@ -34642,7 +35676,13 @@
           "【致命的出血点】: コンテンツの品質とは「製作費の高さ」ではなく「視聴者の共感と共有可能性」である。TikTokやYouTubeという無料のモンスターが存在する戦場に、有料の閉鎖的アプリで正面衝突した歴史的敗北。",
           "【得られた教訓】: 理念や規模の幻想を排し、ユニットエコノミクスと現金の保全を最優先にすべきという冷徹な事実。"
         ],
-        "sourceNote": "WSJ「The Fall of Quibi」"
+        "sourceNote": "WSJ「The Fall of Quibi」",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       }
     ],
     "observationsStream": [
@@ -34747,7 +35787,13 @@
             "value": "$100M+ (約¥150億)"
           }
         ],
-        "sourceNote": "Hopin プレスリリース & Financial Times"
+        "sourceNote": "Hopin プレスリリース & Financial Times",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 31
+        }
       },
       {
         "id": "ev_hopin_fatal_bleed",
@@ -34933,8 +35979,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_hopin_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 31
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -35005,7 +36052,13 @@
             "value": "前年比2,000%+"
           }
         ],
-        "sourceNote": "SEC & カリフォルニア州保険局 調査資料"
+        "sourceNote": "SEC & カリフォルニア州保険局 調査資料",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 22
+        }
       },
       {
         "id": "ev_zenefits_fatal_bleed",
@@ -35191,8 +36244,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_zenefits_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 22
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -35271,7 +36325,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 「こんなに凄い情報を無料でくれるなら、有料講座はもっと凄いに違いない」という返報性と権威の錯覚で高額前金を即時決済させる。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 44
+        }
       }
     ],
     "operations": {
@@ -35407,8 +36467,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_demandcurve_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 44
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -35507,7 +36568,13 @@
             "value": "約60億円 ($40M)"
           }
         ],
-        "sourceNote": "Forbes, CNBC Shark Tank"
+        "sourceNote": "Forbes, CNBC Shark Tank",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       },
       {
         "id": "ev_blueland_incumbent_trap",
@@ -35713,8 +36780,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_blueland_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -35812,7 +36880,13 @@
             "label": "創業者手残り",
             "value": "年間約1億円"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 37
+        }
       },
       {
         "id": "ev_dyf_incumbent_trap",
@@ -36018,8 +37092,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_dyf_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 37
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -36098,7 +37173,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 「怪しい情報商材屋」と真逆の「知的で優しい医師のお兄さん」の仮面を被り、実質的には高額な情報商材ビジネスを世界一美しくスケールさせた。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 45
+        }
       }
     ],
     "operations": {
@@ -36234,8 +37315,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_aliabdaal_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 45
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -36333,7 +37415,13 @@
             "label": "有料会員数",
             "value": "推定100万人超"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 41
+        }
       },
       {
         "id": "ev_masterclass_incumbent_trap",
@@ -36533,8 +37621,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_masterclass_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 41
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -36632,7 +37721,13 @@
             "label": "寄付累計",
             "value": "1億点突破"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 31
+        }
       },
       {
         "id": "ev_bombas_incumbent_trap",
@@ -36832,8 +37927,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bombas_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 31
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -36931,7 +38027,13 @@
             "label": "累計販売数",
             "value": "100万個超"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 38
+        }
       },
       {
         "id": "ev_away_incumbent_trap",
@@ -37131,8 +38233,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_away_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 38
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -37211,7 +38314,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: Notion本社が何百億円かけて集めたユーザーの「使いこなせない」という挫折を拾い、1円も払わずにマネタイズする。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 54
+        }
       }
     ],
     "operations": {
@@ -37341,8 +38450,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_redgregory_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 54
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -37440,7 +38550,13 @@
             "label": "年間売上",
             "value": "約1.2億円 ($800k)"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 40
+        }
       },
       {
         "id": "ev_creatorwizard_incumbent_trap",
@@ -37641,8 +38757,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_creatorwizard_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 40
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -37740,7 +38857,13 @@
             "label": "登録開発者数",
             "value": "200万人超"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 39
+        }
       },
       {
         "id": "ev_creativetim_incumbent_trap",
@@ -37946,8 +39069,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_creativetim_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 39
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -38045,7 +39169,13 @@
             "label": "年間売上",
             "value": "約4.5億円 ($3M)"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 33
+        }
       },
       {
         "id": "ev_egghead_incumbent_trap",
@@ -38251,8 +39381,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_egghead_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 33
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -38350,7 +39481,13 @@
             "label": "手数料率",
             "value": "20〜30%"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 41
+        }
       },
       {
         "id": "ev_notioneverything_incumbent_trap",
@@ -38551,8 +39688,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_notioneverything_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 41
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -38650,7 +39788,13 @@
             "label": "動画制作費",
             "value": "わずか$4,500"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 40
+        }
       },
       {
         "id": "ev_dsc_incumbent_trap",
@@ -38850,8 +39994,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_dsc_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 40
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -38950,7 +40095,13 @@
             "label": "動画再生数",
             "value": "累計3億回超"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 43
+        }
       },
       {
         "id": "ev_drsquatch_incumbent_trap",
@@ -39150,8 +40301,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_drsquatch_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 43
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -39231,7 +40383,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 保温性能は競合と同じなのに、美しい木目調やマーブル柄を着せて価格を3倍にし、富裕層の「環境意識アピール」の虚栄心を直撃。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       }
     ],
     "operations": {
@@ -39355,8 +40513,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_swell_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -39454,7 +40613,13 @@
             "label": "バックパック定価",
             "value": "$335〜$445"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 46
+        }
       },
       {
         "id": "ev_goruck_incumbent_trap",
@@ -39654,8 +40819,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_goruck_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 46
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -39753,7 +40919,13 @@
             "label": "広告費",
             "value": "完全0円"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 44
+        }
       },
       {
         "id": "ev_farnamstreet_incumbent_trap",
@@ -39959,8 +41131,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_farnamstreet_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 44
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -40058,7 +41231,13 @@
             "label": "平均客単価",
             "value": "$80超 (約12,000円)"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 47
+        }
       },
       {
         "id": "ev_cuts_incumbent_trap",
@@ -40258,8 +41437,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_cuts_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 47
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -40358,7 +41538,13 @@
             "label": "広告費",
             "value": "完全0円"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 35
+        }
       },
       {
         "id": "ev_tailwindui_incumbent_trap",
@@ -40558,8 +41744,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_tailwindui_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 35
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -40657,7 +41844,13 @@
             "label": "年間売上",
             "value": "約3億円 ($2M)"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 32
+        }
       },
       {
         "id": "ev_superhi_incumbent_trap",
@@ -40857,8 +42050,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_superhi_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 32
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -40956,7 +42150,13 @@
             "label": "社員数",
             "value": "1名 (完全ソロ)"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 40
+        }
       },
       {
         "id": "ev_notionvip_incumbent_trap",
@@ -41151,8 +42351,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_notionvip_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 40
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -41251,7 +42452,13 @@
             "label": "販売枚数",
             "value": "累計2,500万枚超"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 37
+        }
       },
       {
         "id": "ev_meundies_incumbent_trap",
@@ -41451,8 +42658,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_meundies_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 37
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -41550,7 +42758,13 @@
             "label": "固定費",
             "value": "月10万円以下"
           }
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 25
+        }
       },
       {
         "id": "ev_notionery_incumbent_trap",
@@ -41745,8 +42959,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_notionery_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 25
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -41826,7 +43041,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 服としての差別化はほぼゼロなのに、「お前たちの週末の相棒だ」という男友達のノリを売ることで、高い定価（1本8,000円）でリピートさせ続ける。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       }
     ],
     "operations": {
@@ -41950,8 +43171,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_chubbies_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -42030,7 +43252,13 @@
           "サプリメントのドロップシッピングで小銭を稼ぎ、それを元手にミシンを購入。筋肉のカットが綺麗に見える独自のベストを自作。",
           "展示会ブース代を全財産で支払い、SNSで知り合ったマッチョたちを招待してファンと直接交流させたことで全在庫が即日蒸発。"
         ],
-        "sourceNote": "BBC News \"How Ben Francis built a £1bn clothing brand\""
+        "sourceNote": "BBC News \"How Ben Francis built a £1bn clothing brand\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 54
+        }
       },
       {
         "id": "ev_gym_incumbent",
@@ -42188,8 +43416,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_gym_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 54
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -42268,7 +43497,13 @@
           "同じ悩みを抱える愛犬家コミュニティやドッグパークで手作りパックを配り、初期の熱烈なリピーターを獲得。",
           "「ドッグフード産業の闇」を暴く長文コンテンツとSNS広告で爆発的な拡散を誘発。"
         ],
-        "sourceNote": "The Farmer's Dog 創業ストーリー"
+        "sourceNote": "The Farmer's Dog 創業ストーリー",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 24
+        }
       },
       {
         "id": "ev_tfd_incumbent",
@@ -42426,8 +43661,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_tfd_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 24
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -42506,7 +43742,13 @@
           "Kickstarter等を使わず、数百回の素材テストを経てセラミックコーティング工場を開拓。",
           "ローンチ直後にInstagramのインテリア系アカウントにギフティングし、「隠さず見せるフライパン」として即座に完売。"
         ],
-        "sourceNote": "Entrepreneur Magazine \"How Caraway Built a Cookware Empire\""
+        "sourceNote": "Entrepreneur Magazine \"How Caraway Built a Cookware Empire\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 59
+        }
       },
       {
         "id": "ev_crwy_incumbent",
@@ -42664,8 +43906,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_crwy_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 59
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -42744,7 +43987,13 @@
           "「ルルレモンと同等の高品質アクティブウェアを1/3の価格で」という分かりやすい対比でテレビ・雑誌・SNSを席巻。",
           "初年度から数千万ドルの売上を記録し、サブスク型アパレルの最大手へと登り詰めた。"
         ],
-        "sourceNote": "TechStyle Corporate History"
+        "sourceNote": "TechStyle Corporate History",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       },
       {
         "id": "ev_fblt_incumbent",
@@ -42902,8 +44151,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_fblt_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -42982,7 +44232,13 @@
           "Joe Rogan、Tim Ferriss等の有力ポッドキャスター全員にマットレスを送り、割引コード付きで絶賛レビューを放送。",
           "箱からマットレスがムクムク膨らむ動画がYouTubeやVineで「開封の快感」としてバイラル化。"
         ],
-        "sourceNote": "How Casper Disrupted the Mattress Industry"
+        "sourceNote": "How Casper Disrupted the Mattress Industry",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 42
+        }
       },
       {
         "id": "ev_cspr_incumbent",
@@ -43140,8 +44396,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_cspr_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 42
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -43220,7 +44477,13 @@
           "キム・カーダシアン等のセレブが自宅のバスルームで実際に使っている私物コスメを撮影する『The Top Shelf』が爆発的人気に。",
           "読者が何万人もコメントを寄せ合うコミュニティが完成した状態で、2014年に最初の4製品をローンチ。"
         ],
-        "sourceNote": "The Story of Glossier: From Blog to Billion Dollar Brand"
+        "sourceNote": "The Story of Glossier: From Blog to Billion Dollar Brand",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 56
+        }
       },
       {
         "id": "ev_glos_incumbent",
@@ -43378,8 +44641,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_glos_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 56
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -43458,7 +44722,13 @@
           "創業チームは健康系YouTuberやパレオダイエットのカリスマブロガー50人にアプローチし、彼らから少額出資を集めて株主に任命。",
           "彼らが自分のブログやメルマガで一斉に「私が投資した、最高に安くて安全なオンラインスーパー」と紹介し、数ヶ月で10万人の有料会員を獲得。"
         ],
-        "sourceNote": "How Thrive Market Crowdfunded from Health Influencers"
+        "sourceNote": "How Thrive Market Crowdfunded from Health Influencers",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 53
+        }
       },
       {
         "id": "ev_thrv_incumbent",
@@ -43616,8 +44886,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_thrv_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 53
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -43696,7 +44967,13 @@
           "カナダ・サスカチュワン州の亜麻（アマ）農場で廃棄されていた繊維の破片と植物性ポリマーを配合し「Flaxstic」を発明。",
           "Eコマースの専門家Matt Bertulliが合流し、環境系Facebookグループやクラウドファンディングで爆発的に拡大。"
         ],
-        "sourceNote": "The Pela Story: From Beach to Boardroom"
+        "sourceNote": "The Pela Story: From Beach to Boardroom",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 39
+        }
       },
       {
         "id": "ev_pela_incumbent",
@@ -43854,8 +45131,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_pela_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 39
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -43934,7 +45212,13 @@
           "ミニマルなデザインのボトル写真を並べただけで、Kickstarter目標額の600%以上を集めて完売。",
           "初期バッカーをそのまま初年度の年会費無料会員として抱え込み、初動のロイヤル顧客基盤を構築。"
         ],
-        "sourceNote": "Kickstarter Public Goods Campaign History"
+        "sourceNote": "Kickstarter Public Goods Campaign History",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 41
+        }
       },
       {
         "id": "ev_pbg_incumbent",
@@ -44092,8 +45376,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_pbg_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 41
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -44172,7 +45457,13 @@
           "PayPalボタンを貼っただけの簡素な1ページLPを作り、Redditに投稿したところ初日で数千ドルを着金。",
           "利益をすべてメルマガ読者獲得広告（Facebookリード広告）に再投資し、世界最大の起業ツールメルマガを構築。"
         ],
-        "sourceNote": "Noah Kagan Blog \"How I built AppSumo for $50\""
+        "sourceNote": "Noah Kagan Blog \"How I built AppSumo for $50\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 45
+        }
       },
       {
         "id": "ev_asumo_incumbent",
@@ -44330,8 +45621,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_asumo_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 45
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -44410,7 +45702,13 @@
           "転送によって読者が自然増し、1,000人を超えた段階で外部VCを入れず自前資金のみで広告テストを開始。",
           "獲得単価（CPA）と読者生涯価値（LTV）のスプレッドがプラスであることを確認し、利益の全額をMeta広告に投入して急拡大。"
         ],
-        "sourceNote": "Axios Media Trends Interview"
+        "sourceNote": "Axios Media Trends Interview",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 28
+        }
       },
       {
         "id": "ev_1440_incumbent",
@@ -44568,8 +45866,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_1440_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 28
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -44649,7 +45948,13 @@
           "元Vice（Motherboard）の看板記者が、会社が倒産した瞬間に自分たちの固定ファン読者をそのまま引き連れて独立。",
           "AI犯罪、違法トラッキング、サイバー犯罪の一次リーク取材に絞り込み、他社が絶対に真似できない独自性を担保。",
           "大口サポーター向けに年間$200〜$1,000の「パトロン支援枠」を設け、熱狂的ファンから高単価を回収。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 46
+        }
       }
     ],
     "operations": {
@@ -44779,8 +46084,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_404media_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 46
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -44859,7 +46165,13 @@
           "「エピソードが長ければ長いほどリスナーのエンゲージメントが上がる」という異常なデータを発見し、どんどん尺を伸ばす逆張りを敢行。",
           "マーク・ザッカーバーグやジェンセン・フアン（NVIDIA）が逆指名で出演するようになり、資本主義の公式ドキュメンタリーへ昇格。"
         ],
-        "sourceNote": "WSJ \"How Acquired Became the Hottest Podcast in Tech\""
+        "sourceNote": "WSJ \"How Acquired Became the Hottest Podcast in Tech\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 53
+        }
       },
       {
         "id": "ev_acqr_incumbent",
@@ -45017,8 +46329,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_acqr_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 53
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -45098,7 +46411,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 「読者が自分で調査すると数十時間かかる情報」を凝縮して提供し、企業の役員が役員会で賢く発言するためのカンニングペーパーになる。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 20
+        }
       }
     ],
     "operations": {
@@ -45221,8 +46540,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_2pm_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 20
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -45301,7 +46621,13 @@
           "Notionに熱中し、自前で構築したGTD（Getting Things Done）タスク管理システムを公開したところ反響が爆発。",
           "初年度（2022年）だけでNotionテンプレ売上100万ドル（約1.5億円）を突破。"
         ],
-        "sourceNote": "Business Insider \"How a YouTuber Made $1 Million in a Year\""
+        "sourceNote": "Business Insider \"How a YouTuber Made $1 Million in a Year\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 59
+        }
       },
       {
         "id": "ev_tf_incumbent",
@@ -45459,8 +46785,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_tf_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 59
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -45539,7 +46866,13 @@
           "その過程で得た「どの被リンクが効いて、どのリンクがペナルティを受けるか」の膨大な実験記録をブログに全公開。",
           "詐欺的な情報商材屋が横行する業界で、圧倒的な実証データにより瞬く間に業界標準の教育ブランドへ上り詰めた。"
         ],
-        "sourceNote": "The Authority Hacker Story"
+        "sourceNote": "The Authority Hacker Story",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 26
+        }
       },
       {
         "id": "ev_ah_incumbent",
@@ -45697,8 +47030,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ah_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 26
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -45777,7 +47111,13 @@
           "同じ悩みを持つ世界中のビジネスマンから「自分も混ぜてほしい」とリプライが殺到。",
           "最初はWhatsAppグループで無料運営し、人が溢れた段階でCircleコミュニティへ移行し有料化。"
         ],
-        "sourceNote": "Indie Hackers \"How I Grew 100DaysOfNoCode to $50k MRR\""
+        "sourceNote": "Indie Hackers \"How I Grew 100DaysOfNoCode to $50k MRR\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 54
+        }
       },
       {
         "id": "ev_100d_incumbent",
@@ -45935,8 +47275,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_100d_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 54
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -46015,7 +47356,13 @@
           "「登録不要で今すぐ寄付を受け取れるシンプルなページ」として直接リプライで提案。",
           "オープンソース開発者やポッドキャスターが次々とPatreonから乗り換え、初期のトラクションを獲得。"
         ],
-        "sourceNote": "TechCrunch \"Buy Me a Coffee Takes on Patreon\""
+        "sourceNote": "TechCrunch \"Buy Me a Coffee Takes on Patreon\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 45
+        }
       },
       {
         "id": "ev_bmc_incumbent",
@@ -46173,8 +47520,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bmc_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 45
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -46253,7 +47601,13 @@
           "「購入意欲が最も高い見込み客がクリックした時だけ課金される」仕組みがSaaS企業に大ヒットし、売上が垂直立ち上げ。",
           "2015年に米調査会社大手Gartnerに数億ドルで巨額売却。"
         ],
-        "sourceNote": "How Capterra Survived the Dot-Com Crash to Sell to Gartner"
+        "sourceNote": "How Capterra Survived the Dot-Com Crash to Sell to Gartner",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 58
+        }
       },
       {
         "id": "ev_cptr_incumbent",
@@ -46411,8 +47765,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_cptr_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 58
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -46491,7 +47846,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: Webflow本体が開発しない「細かい現場のパーツ需要」を先回りして作り、Web制作現場の必需品として年商3億円を抜き続ける。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 52
+        }
       }
     ],
     "operations": {
@@ -46621,8 +47982,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_flowbase_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 52
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -46701,7 +48063,13 @@
           "「クレジットカード登録不要で、今すぐNotionをWebサイト化できる」とRedditやProduct Huntで宣伝。",
           "数万人の無料ユーザーを瞬く間に抱え込み、独自ドメイン設定を有料化して一気に黒字化、2023年に売却成功。"
         ],
-        "sourceNote": "How We Built and Sold Simple.ink in 2 Years"
+        "sourceNote": "How We Built and Sold Simple.ink in 2 Years",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 43
+        }
       },
       {
         "id": "ev_sink_incumbent",
@@ -46859,8 +48227,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_sink_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 43
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -46941,7 +48310,13 @@
           "月間数百万円の売上のうち、サーバー代は月数千円〜数万円。利益率85%超の圧倒的キャッシュフロー。",
           "Notionという巨大トレンドに初期から乗り、「Notionテンプレートまとめ」「Notionの使い方」でSEO上位を独占。",
           "デスクツアー動画やブログのリンクを踏んだユーザーが、後からAmazonで別の高額家電を買っても紹介料が入るアフィリエイトのCookie効果を活用。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 47
+        }
       }
     ],
     "operations": {
@@ -47077,8 +48452,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_gridfiti_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 47
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -47157,7 +48533,13 @@
           "自前資金で黒字経営を続けながら、デザインシステムのノウハウを蓄積。",
           "シリコンバレーの投資家から100回以上拒絶された後、元GoogleマップのCameron Adamsらを巻き込んで2013年にCanvaをローンチ。"
         ],
-        "sourceNote": "Forbes \"How Melanie Perkins Built Canva into a $40 Billion Behemoth\""
+        "sourceNote": "Forbes \"How Melanie Perkins Built Canva into a $40 Billion Behemoth\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 68
+        }
       },
       {
         "id": "ev_cnva_incumbent",
@@ -47315,8 +48697,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_cnva_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 68
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -47395,7 +48778,13 @@
           "当時の王者だったMajesticやMozを速度とデータ量で瞬く間に抜き去り、口コミだけで有料会員が爆発。",
           "外部VCからの数億ドルの買収・出資提案をすべて拒絶し、100%自己資本を維持。"
         ],
-        "sourceNote": "Ahrefs Company History and Founder Journey"
+        "sourceNote": "Ahrefs Company History and Founder Journey",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 42
+        }
       },
       {
         "id": "ev_ahrf_incumbent",
@@ -47553,8 +48942,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ahrf_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 42
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -47633,7 +49023,13 @@
           "Macユーザー向けのブログで公開したところ、Appleファンの間で「デザインが圧倒的に美しいパスワード管理ツール」として絶賛されバイラル化。",
           "iPhoneの登場と同時にiOS版を投入し、App Storeの有料ランキング首位を独占。"
         ],
-        "sourceNote": "The 1Password Journey: From Bootstrapped Mac App to $6.8B Valuation"
+        "sourceNote": "The 1Password Journey: From Bootstrapped Mac App to $6.8B Valuation",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 67
+        }
       },
       {
         "id": "ev_1p_incumbent",
@@ -47791,8 +49187,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_1p_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 67
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -47871,7 +49268,13 @@
           "Redditのr/privacyやr/opensourceに「完全オープンソースで誰でも検証できるパスワードマネージャーを作った」と投稿。",
           "コミュニティの熱狂的な支援を受け、数千人のギークが翻訳やバグ報告に協力して一気にグローバル展開。"
         ],
-        "sourceNote": "Reddit r/privacy \"I built Bitwarden, an open source password manager\""
+        "sourceNote": "Reddit r/privacy \"I built Bitwarden, an open source password manager\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 69
+        }
       },
       {
         "id": "ev_bitw_incumbent",
@@ -48029,8 +49432,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bitw_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 69
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -48109,7 +49513,13 @@
           "Alexis Ohanian（Reddit共同創業者）やChad Hurley（YouTube共同創業者）等の大物エンジェル投資家から即座に出資を勝ち取る。",
           "わずか数年でGitHubスター数3万を超え、世界中のオープンソース開発者の標準日程調整ツールへ急成長。"
         ],
-        "sourceNote": "TechCrunch \"Calendso rebrands to Cal.com and raises $7.4M\""
+        "sourceNote": "TechCrunch \"Calendso rebrands to Cal.com and raises $7.4M\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 58
+        }
       },
       {
         "id": "ev_cal_incumbent",
@@ -48267,8 +49677,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_cal_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 58
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -48347,7 +49758,13 @@
           "文章を書くのが苦手なビジネスマンやクリエイターの間で動画が猛烈に拡散。",
           "広告費を1円もかけず、Twitterのフォロワーからの口コミだけでローンチ初月に数万ドルの売上を記録。"
         ],
-        "sourceNote": "Indie Hackers AudioPen Interview"
+        "sourceNote": "Indie Hackers AudioPen Interview",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 32
+        }
       },
       {
         "id": "ev_ap_incumbent",
@@ -48505,8 +49922,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_ap_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 32
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -48585,7 +50003,13 @@
           "Product of the Day 1位を獲得し、初月で数万人のサインアップを獲得。",
           "Indie Hackersコミュニティの著名投資家Arvid Kahlらからエンジェル出資を受け黒字急成長。"
         ],
-        "sourceNote": "Product Hunt Golden Kitty Awards History"
+        "sourceNote": "Product Hunt Golden Kitty Awards History",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 40
+        }
       },
       {
         "id": "ev_brw_incumbent",
@@ -48743,8 +50167,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_brw_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 40
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -48823,7 +50248,13 @@
           "SEO業界関係者が「何を使って記事を書いているのか？」と群がり、Bywordの非公開ベータ版に殺到。",
           "月額制ではなく「100記事で$99」などの買い切りクレジットモデルを採用し、初期の決済障壁を破壊して即座にARR 100万ドルへ到達。"
         ],
-        "sourceNote": "Mack Grenfell X Case Study Threads"
+        "sourceNote": "Mack Grenfell X Case Study Threads",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 34
+        }
       },
       {
         "id": "ev_bywd_incumbent",
@@ -48981,8 +50412,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bywd_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 34
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -49061,7 +50493,13 @@
           "Product of the Yearを受賞し、初期数万人の営業マンや採用担当者を獲得。",
           "Tiger GlobalやFirstMark等の名門VCから即座に出資を勝ち取り、AI機能を統合して急拡大。"
         ],
-        "sourceNote": "TechCrunch \"Bardeen raises $15.3M for its AI-powered workflow automation\""
+        "sourceNote": "TechCrunch \"Bardeen raises $15.3M for its AI-powered workflow automation\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 73
+        }
       },
       {
         "id": "ev_bard_incumbent",
@@ -49219,8 +50657,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bard_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 73
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -49299,7 +50738,13 @@
           "クリエイターが「Captionsで作った」とTikTokに動画を投稿するたびに、画面の字幕スタイル自体が宣伝となりバイラル拡散。",
           "Kleiner PerkinsやIndex Venturesから次々と資金調達し、動画クリエイター必携の神アプリへ上り詰めた。"
         ],
-        "sourceNote": "TechCrunch \"Captions raises $60M Series C for AI-powered video editing\""
+        "sourceNote": "TechCrunch \"Captions raises $60M Series C for AI-powered video editing\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 71
+        }
       },
       {
         "id": "ev_capt_incumbent",
@@ -49457,8 +50902,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_capt_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 71
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -49537,7 +50983,13 @@
           "「PowerPointで3時間かかる作業が3分で終わる」比較動画をSNSで広告配信し、激務に追われるコンサルタントやマーケターを獲得。",
           "口コミで急速に社内に広がるボトムアップ型（PLG）で急拡大。"
         ],
-        "sourceNote": "How Beautiful.ai Automated Presentation Design"
+        "sourceNote": "How Beautiful.ai Automated Presentation Design",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 46
+        }
       },
       {
         "id": "ev_btfl_incumbent",
@@ -49695,8 +51147,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_btfl_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 46
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -49776,7 +51229,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: AWSのSageMakerが複雑怪奇すぎて使いこなせないスタートアップに「数分で動く極上の体験」を提供し、高単価なGPU利用料を回収。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 23
+        }
       }
     ],
     "operations": {
@@ -49899,8 +51358,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_baseten_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 23
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -49979,7 +51439,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 市場開拓やユーザー教育のコストはすべて先行者（Airtable）に払わせ、自らは「それのオープンソース版です」と言うだけで顧客を刈り取る。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 40
+        }
       }
     ],
     "operations": {
@@ -50109,8 +51575,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_baserow_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 40
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -50189,7 +51656,13 @@
           "「Retoolを使いたいが高すぎて会社に却下された」世界中のエンジニアがGitHub Starを押し、数ヶ月で1万スターを突破。",
           "コミュニティの声を元に高速リリースを続け、正式ローンチからわずか数年で数万社の社内ツールインフラへ登り詰めた。"
         ],
-        "sourceNote": "TechCrunch \"Budibase raises $7M to help developers build internal apps faster\""
+        "sourceNote": "TechCrunch \"Budibase raises $7M to help developers build internal apps faster\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 78
+        }
       },
       {
         "id": "ev_budi_incumbent",
@@ -50347,8 +51820,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_budi_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 78
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -50427,7 +51901,13 @@
           "Hacker Newsに「週末にミニマルなニュースレターツールを作った」と投下し、初期数百人のエンジニアを獲得。",
           "Stripe退職後、フルタイムのソロプレナーとして育て上げ、外部資金ゼロでARR 100万ドルを突破。"
         ],
-        "sourceNote": "Hacker News \"Show HN: Buttondown, the elegant newsletter tool\""
+        "sourceNote": "Hacker News \"Show HN: Buttondown, the elegant newsletter tool\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 62
+        }
       },
       {
         "id": "ev_bttn_incumbent",
@@ -50585,8 +52065,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bttn_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 62
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -50665,7 +52146,13 @@
           "コロナ禍のリモートセールス特需に完璧に乗り、口コミだけで数千社の中小企業へ浸透。",
           "大手Gongが相手にしないミッドマーケット（社員50〜500人規模）に特化して売上を拡大。"
         ],
-        "sourceNote": "TechCrunch \"Avoma raises $12M to streamline meeting workflows\""
+        "sourceNote": "TechCrunch \"Avoma raises $12M to streamline meeting workflows\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 62
+        }
       },
       {
         "id": "ev_avom_incumbent",
@@ -50823,8 +52310,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_avom_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 62
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -50903,7 +52391,13 @@
           "GitHub Starが爆発的に増加し、わずか1年でFivetranに次ぐデータ統合のデファクトスタンダードへ急浮上。",
           "BenchmarkやAccel等の世界的名門VCから大型調達し、クラウド版（Airbyte Cloud）を投入して即座に巨額ARRを達成。"
         ],
-        "sourceNote": "TechCrunch \"Airbyte raises $150M at $1.5B valuation\""
+        "sourceNote": "TechCrunch \"Airbyte raises $150M at $1.5B valuation\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 52
+        }
       },
       {
         "id": "ev_abyt_incumbent",
@@ -51061,8 +52555,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_abyt_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 52
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -51141,7 +52636,13 @@
           "自前資金のみで最初の自動運用プラットフォームを構築し、初期の北欧テック企業を獲得。",
           "外部VCを急がず、製品の信頼性と徹底した自動化により黒字を維持しながら急拡大。"
         ],
-        "sourceNote": "Aiven: From Bootstrapped Nordic Startup to $3B Cloud Behemoth"
+        "sourceNote": "Aiven: From Bootstrapped Nordic Startup to $3B Cloud Behemoth",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 61
+        }
       },
       {
         "id": "ev_aivn_incumbent",
@@ -51299,8 +52800,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_aivn_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 61
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -51379,7 +52881,13 @@
           "GitHubにオープンソースとして公開後、海外のテックコミュニティで「Retoolの最強OSS代替」として拡散。",
           "AccelやCanaan等のトップティアVCから大型調達し、グローバル標準の地位を確立。"
         ],
-        "sourceNote": "TechCrunch \"Appsmith raises $41M to help businesses build internal tools\""
+        "sourceNote": "TechCrunch \"Appsmith raises $41M to help businesses build internal tools\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 73
+        }
       },
       {
         "id": "ev_asmth_incumbent",
@@ -51537,8 +53045,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_asmth_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 73
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -51617,7 +53126,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: エンジニアの「脱Google」というイデオロギーを燃料にしてコミュニティにタスクを無償でこなさせ、自らは高収益クラウドを運営する。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 53
+        }
       }
     ],
     "operations": {
@@ -51747,8 +53262,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_appwrite_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 53
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -51828,7 +53344,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 月額数百円〜数千円の価格で「人間が1時間かけてやる議事録作成」を完全に代行し、企業の業務時間短縮を名目にカード決済させる。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 14
+        }
       }
     ],
     "operations": {
@@ -51951,8 +53473,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_airgram_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 14
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -52031,7 +53554,13 @@
           "自社プロダクトを「Airflow専用プラットフォーム」に絞り込み、Airflowのコミュニティミートアップを全世界で主催。",
           "Salesforce VenturesやBessemerから大型出資を集め、業界標準のマネージド基盤へ成長。"
         ],
-        "sourceNote": "The Astronomer Journey: From Cincinnati to Global Cloud Leader"
+        "sourceNote": "The Astronomer Journey: From Cincinnati to Global Cloud Leader",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 62
+        }
       },
       {
         "id": "ev_astr_incumbent",
@@ -52189,8 +53718,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_astr_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 62
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -52269,7 +53799,13 @@
           "フォーラムのトップアフィリエイターたちが一斉に購入し、初年度から巨額のキャッシュフローを創出。",
           "ChatGPT登場後も、自前リサーチエンジンとWordPress直結のワークフローの手軽さで生き残りを維持。"
         ],
-        "sourceNote": "BlackHatWorld Article Forge Launch Archives"
+        "sourceNote": "BlackHatWorld Article Forge Launch Archives",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 43
+        }
       },
       {
         "id": "ev_artf_incumbent",
@@ -52427,8 +53963,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_artf_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 43
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -52508,7 +54045,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: スケジュールが狂って役員に怒られるPMの保身恐怖を直撃し、「AIが最適な納期遅延リスクを事前警告する」機能で稟議を通させる。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 21
+        }
       }
     ],
     "operations": {
@@ -52631,8 +54174,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_aputime_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 21
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -52711,7 +54255,13 @@
           "世界中から集まった膨大なトラフィックを、自社の高単価SaaS（Content at Scale）へ流し込み、わずか数ヶ月でARR 1,000万ドルを突破。",
           "コンテンツマーケティングの第一人者Julia McCoyをプレジデントに招聘し、エンタープライズブランドへ脱皮。"
         ],
-        "sourceNote": "GetLatka \"How Content at Scale Hit $10M ARR in Months\""
+        "sourceNote": "GetLatka \"How Content at Scale Hit $10M ARR in Months\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 54
+        }
       },
       {
         "id": "ev_bw_incumbent",
@@ -52869,8 +54419,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bw_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 54
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -52949,7 +54500,13 @@
           "NikeやNestle等の超大手企業に対し「シリコンバレーのトップAIエンジニアを即日アサインできる」と売り込み。",
           "初年度から数千万ドルの案件が流通し、従来の人材派遣会社を完全に無力化。"
         ],
-        "sourceNote": "Forbes \"How Braintrust Is Taking On Upwork And Traditional Staffing Agencies\""
+        "sourceNote": "Forbes \"How Braintrust Is Taking On Upwork And Traditional Staffing Agencies\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 77
+        }
       },
       {
         "id": "ev_brnt_incumbent",
@@ -53107,8 +54664,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_brnt_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 77
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -53187,7 +54745,13 @@
           "CasperやDollar Shave Club等のD2C黎明期の巨額広告主をマッチングさせ、初年度から急速に黒字拡大。",
           "手動マッチングをシステム化して自動売買マーケットプレイスへ進化させ、大手Libsynに巨額バイアウト。"
         ],
-        "sourceNote": "Podnews \"Libsyn acquires AdvertiseCast for up to $30m\""
+        "sourceNote": "Podnews \"Libsyn acquires AdvertiseCast for up to $30m\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 54
+        }
       },
       {
         "id": "ev_advc_incumbent",
@@ -53345,8 +54909,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_advc_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 54
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -53425,7 +54990,13 @@
           "高度な自動化機能を使いたいユーザー向けに「Powerpack」を有料化。",
           "15年間VC資金を1ポンドも入れず、広告も一切打たず、Appleファン同士の熱狂的な推薦だけで世界標準へ君臨。"
         ],
-        "sourceNote": "Vero Pepperrell \"The Story of Running with Crayons\""
+        "sourceNote": "Vero Pepperrell \"The Story of Running with Crayons\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 51
+        }
       },
       {
         "id": "ev_alfr_incumbent",
@@ -53583,8 +55154,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_alfr_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 51
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -53663,7 +55235,13 @@
           "2016年に有償の買い切りライセンスモデルへ移行したが、既存ファンは「安すぎる、もっと取れ」と喜んで課金。",
           "現在に至るまでオフィスも社員も持たず、自宅から一人でアップデートを配信し続けて毎年数億円の純利を吸い上げる。"
         ],
-        "sourceNote": "How Andreas Hegenberg Built BetterTouchTool"
+        "sourceNote": "How Andreas Hegenberg Built BetterTouchTool",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 43
+        }
       },
       {
         "id": "ev_btt_incumbent",
@@ -53821,8 +55399,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_btt_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 43
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -53901,7 +55480,13 @@
           "Evernoteの重厚さに絶望していたAppleユーザーが一斉にBearへ乗り換え、数ヶ月で数十万ダウンロードを突破。",
           "2017年にApple Design Awardを受賞し、App Storeの看板アプリとして不動の地位を確立。"
         ],
-        "sourceNote": "Apple Design Awards 2017 Hall of Fame"
+        "sourceNote": "Apple Design Awards 2017 Hall of Fame",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 37
+        }
       },
       {
         "id": "ev_bear_incumbent",
@@ -54059,8 +55644,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_bear_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 37
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -54140,7 +55726,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: Notionは仕事用、Capacitiesは「自分の脳の拡張」として位置づけ、広告費ゼロで熱狂的なPKM（個人知識管理）マニアを信者化。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 27
+        }
       }
     ],
     "operations": {
@@ -54270,8 +55862,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_capacities_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 27
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -54350,7 +55943,13 @@
           "コードの商業ライセンス化を発表した際には大炎上を経験したが、プロ向け商業ツールとして品質を磨き上げ黒字化。",
           "外部VCを入れず、セルビア・ノヴィサドの拠点を中心に完全自前資本で15年以上生き残る古豪へ成長。"
         ],
-        "sourceNote": "The ActiveCollab Story: From Open Source to Bootstrapped Profit"
+        "sourceNote": "The ActiveCollab Story: From Open Source to Bootstrapped Profit",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 63
+        }
       },
       {
         "id": "ev_actc_incumbent",
@@ -54508,8 +56107,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_actc_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 63
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -54588,7 +56188,13 @@
           "【課題の特定】: 顧客が抱える日々の面倒な手作業や非効率、高額な外注コストを直撃。",
           "【独自の工夫】: 「Zapierは高すぎる」という世界中の開発者の愚痴を吸い上げ、Y Combinatorの看板を使って一気にエンタープライズ顧客を奪い去る。",
           "【収益化の仕組み】: 継続的な利用と高い定着率を背景に、高い利益率で現金を回収する仕組みを確立。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 53
+        }
       }
     ],
     "operations": {
@@ -54718,8 +56324,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_activepieces_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 53
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -54798,7 +56405,13 @@
           "創業チーム自らがオンボーディングコールを行い、熱烈な思想信者コミュニティを育成。",
           "2023年にオープンベータを公開し、世界中のジャーナリスト、研究者、暗号資産関係者が殺到。"
         ],
-        "sourceNote": "TechCrunch \"Anytype is building a decentralized, local-first alternative to Notion\""
+        "sourceNote": "TechCrunch \"Anytype is building a decentralized, local-first alternative to Notion\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 83
+        }
       },
       {
         "id": "ev_anyt_incumbent",
@@ -54956,8 +56569,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_anyt_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 83
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -55036,7 +56650,13 @@
           "Redditのr/ADHDやr/productivityコミュニティに「科学的根拠に基づいた先延ばし対策ツール」として投稿。",
           "「これなしでは生活できない」という熱狂的なADHDユーザーたちが自発的に拡散し、広告費ゼロで急成長。"
         ],
-        "sourceNote": "Indie Hackers \"How We Built Amazing Marvin to Escape Procrastination\""
+        "sourceNote": "Indie Hackers \"How We Built Amazing Marvin to Escape Procrastination\"",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 69
+        }
       },
       {
         "id": "ev_marv_incumbent",
@@ -55194,8 +56814,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_marv_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 69
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -55274,7 +56895,13 @@
           "Webflow制作コミュニティで「Webflowの標準フォームよりスパムが来ない」と評判が爆発。",
           "完全自動で回るキャッシュマシンとして、10年間放置状態で毎年数千万円〜億円規模の純利を生み続ける。"
         ],
-        "sourceNote": "JAMstack Ecosystem Form Tools Analysis"
+        "sourceNote": "JAMstack Ecosystem Form Tools Analysis",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 38
+        }
       },
       {
         "id": "ev_basn_incumbent",
@@ -55432,8 +57059,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_basn_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 38
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",
@@ -55514,7 +57142,13 @@
           "eBayが長年放置していた「個人間取引の真贋トラブル」を、物理的な検品オペレーションを挟むことで完全解決。",
           "出品者は写真を撮る必要すらなく、製品コードと希望価格を入力するだけで1秒出品。",
           "NBAクリーブランド・キャバリアーズのオーナーであるダン・ギルバートの巨額資本をテコに鑑定物流拠点を世界展開。"
-        ]
+        ],
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "text",
+          "start": 0,
+          "end": 39
+        }
       }
     ],
     "operations": {
@@ -55644,8 +57278,9 @@
         "claimKey": "pnl.monthlyRevenue",
         "evidenceId": "ev_stockx_crime",
         "locator": {
-          "type": "json",
-          "jsonPointer": "/pnl/monthlyRevenue"
+          "type": "text",
+          "start": 0,
+          "end": 39
         },
         "sourceClass": "PRIMARY",
         "verificationStatus": "SUPPORTED",

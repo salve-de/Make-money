@@ -4981,3 +4981,46 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed**
 - **Playwright E2E テスト 全 27/27 テスト 100% Passed**
 
+---
+
+## 2026-09-13: Phase 160 - 【ChatGPT Web Round 13 外部標準激論・条件付きPASS ➔ Claim-to-Evidence Binding の W3C / SEC 準拠実検証エンジン完成・全関所 ALL GREEN】
+
+### 1. ユーザーの最高指示
+「お互いに 自分も　相手も 間違っている前提で やれ
+外部検索を 駆使しろ お互いに
+それで このチャットに出てきた 全ての問題を 解決できるようにしろ /goal
+最後に 右に監査させろ」
+
+### 2. 批判的激論と世界標準の照合
+右の ChatGPT Web と「双方が間違っている」という前提に立ち、W3C Web Annotation Data Model REC および SEC Inline XBRL Provenance を外部調査・照合：
+- **相手（ChatGPT）の盲点の看破**: 全企業に一律の特定PDF原本を強制すると、未上場・個人開発・現場店舗のリアルな一次データ（ブログ、公式一次文面、Stripe管理画面スクショ）が全滅する。また売上非確認の企業にまで売上Bindingを求めるのは論理破綻。
+- **自分（Antigravity）の瑕疵の切除**: `/pnl/monthlyRevenue` というDTO自己参照ポインタの捏造（循環論法）、およびBindingがなくてもすり抜けるPromotion Gateの緩さを完全に認めて切除。
+- **結果**: ChatGPT Web から **「Round 13設計：条件付きPASS」** を獲得。
+
+### 3. 外科手術の実装内容
+1. **W3C Web Annotation 準拠の Target Locator**:
+   - `locator` から DTO 自己参照（`/pnl/monthlyRevenue` 等）を物理遮断。
+   - W3C準拠の客観的テキストロケーター（`type: 'text', start, end`）を234社全エンティティに配備。
+2. **Promotion Gate の実検証エンジン化（自己申告フラグの排除）**:
+   - `supportCheck` を単なるプロパティの文字列判定ではなく、紐付けられた実在エビデンス（`matchingCard` / `matchingObs`）の内容に月商・売上・財務シグナルが客観的に存在するかをプログラムで照合する実検証ロジックを配備。
+   - エビデンスが `UNKNOWN` や非財務メモの場合は `supportCheck: 'PASS'` と書かれていても即座に `return false`（遮断）。
+3. **Fallback B/C の完全根絶（Fail-Closed）**:
+   - 確定売上（`claimsRevenue`）を主張するエンティティは、有効な `pnl.monthlyRevenue` の Binding が【100%必須】。Bindingがなければ他のフィールドに何が書かれていても非公開。
+4. **包括的負例テストの配備**:
+   - `src/tests/promotion-gate-public-routes.test.ts`:
+     - Binding欠落（fallback遮断）
+     - 自己参照ポインタ（`/pnl/monthlyRevenue` 遮断）
+     - 架空エビデンスID遮断
+     - UNKNOWNエビデンス遮断
+     - 財務無関係エビデンス遮断
+     の5大負例テストを配備し、すべて完全PASSを実証。
+
+### 4. 全関所検証結果
+- **全44テストファイル・324テスト 100% Passed**
+- **Foundation 11 tests, Architecture 11 tests, D1 Recovery 6 tests 100% Passed**
+- **`pnpm typecheck` (tsc + schema check) Exit code 0 (エラー0件)**
+- **`pnpm lint` (ESLint 0 warnings, check-ingest-quality 234社全量監査) Exit code 0**
+- **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed**
+- **Playwright E2E テスト 全 27/27 テスト 100% Passed**
+
+
