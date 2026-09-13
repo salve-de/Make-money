@@ -1,5 +1,36 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-14 【確定】市場攻略レーダーの個別URL（/radar/[id]）への完全ページ移管 ＆ SSG/ISR事前生成・全画面詳細ビュー化（Phase 163）
+
+### 1. ユーザー指示と病巣の解剖（User Command & Disease Diagnosis）
+- **ユーザー指示**:
+  - 「あと、いまはクリックしても ページ移管しない したが変わるだけ　ページを 移管するようにして 今は変だよ」
+- **病巣の看破**:
+  - 一覧画面（`/radar`）の中でカードをクリックした際に、同一ページの下段に詳細がインライン展開される挙動は、ユーザーから見て「ページが移管しない、下が勝手に変わるだけ。不自然で変だ」という違和感を与えていた。
+  - 本質的なUXとして、一覧は「市場の目次・カタログ（`/radar`）」として全体を俯瞰させ、各項目をクリックした際は**独立した専用URL（`/radar/[id]`）へ物理的に完全にページ遷移（画面移管）**させることで、ブラウザの「戻る・進む」ナビゲーション、URL直接共有、全画面を使った没入感のある攻略本・検死解剖書の閲覧を実現した。
+
+### 2. 物理実装したアーキテクチャ（The Dedicated Page & Static Generation Architecture）
+1. **静的事前生成 ＆ Next.js 16 App Router準拠（`src/app/radar/[id]/page.tsx`）**:
+   - `generateStaticParams` により、8大チャンス＋5大地雷の計13ページをビルド時に全量SSG事前静的生成（1分ISR対応）。
+   - Next.js 16 の非同期 `params` 契約（`const { id } = await params;`）に完全準拠。
+2. **全画面クライアントシェル（`src/app/radar/[id]/RadarDetailClientShell.tsx`）**:
+   - ティッカーストリップ、左サイドバー（RADARアクティブ）、全画面詳細ビューを統合。
+3. **全画面詳細コンポーネント（`src/platform/components/radar/RadarItemDetailView.tsx`）**:
+   - 最上部に「← 一覧に戻る（`/radar`）」ナビゲーションおよびカテゴリパンくずを完備。
+   - チャンス詳細（3段ピラミッド、痛みの財布、大手の自爆 vs 実証勝者、参入切り口、実録DMワンクリックコピー、3ツール道具箱、即死地雷警告、他レーダー探索）。
+   - 地雷詳細（赤警告ヘッダー、危険度スコア、死因解剖書、3大致死メトリクス、爆死企業墓碑銘、生存・回避ピボット指針）。
+4. **一覧ポータルの純化（`src/platform/components/radar/MarketRadarView.tsx`）**:
+   - 各カードを `<Link href={`/radar/${trend.id}`}>` / `<Link href={`/radar/${mine.id}`}>` による正規のNext.jsリンクに改修。
+   - 同一ページ内下段への不要な展開パネルを完全撤廃し、カタログ一覧ポータルとして純化。
+
+### 3. 検証・品質ゲート結果
+- `pnpm typecheck`: 0エラー完全通過。
+- `pnpm lint`: ESLint、境界チェック、ストレージチェック、API入力境界、235社全数インジェスト品質チェックすべて合格。
+- `pnpm build`: `○ /radar` および `● /radar/[id]`（13ページ全量）のSSG/ISR事前生成、有料コンテンツガードすべて合格。
+- 実機キャプチャ（Playwright）にて `/radar` からのカードクリックによる `/radar/[id]` への完全画面移管、戻る動線、地雷詳細ビューの正常描画を確認。
+
+---
+
 ## 2026-09-14 【確定】市場攻略レーダー「/radar」新設 ＆ 8大儲かりチャンス ＆ 5大参入禁止地雷カタログ・攻守対照ビューの物理実装完了（Phase 162）
 
 ### 1. ユーザー指示と設計思想（User Command & Architecture Rationale）
