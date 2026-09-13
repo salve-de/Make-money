@@ -5023,4 +5023,42 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
 - **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed**
 - **Playwright E2E テスト 全 27/27 テスト 100% Passed**
 
+---
+
+## 2026-09-13: Phase 161 - 【ChatGPT Web 厳格再監査指摘の完遂 ＆ 原本Provenance決定論的再計算照合 Gate・6大要素暗号学的受領証の配備】
+
+### 1. ChatGPT 監査役の着眼点
+ChatGPT（極高思考）は GitHub API でコミットとテストコードを直接フェッチして精読し、以下の急所を的確に指摘した：
+- 「同じレコード内の値同士が改ざんされていないこと」だけでは「保存済み原本から来たこと」の証明にならない。
+- 原本ダイジェスト（`originalDigest`）、実Locator（`selector`）、抽出スニペットダイジェスト（`extractedExcerptDigest`）、`foundationEvidenceId`、正規化Claim値、バリデータバージョンの 6 大 canonical 要素を封じ込めた受領証（Receipt）を作成し、Gate 側で再計算照合せよ。
+- `foundationEvidenceId` を Critical Claim では必須（required）にし、実Foundation evidenceへresolveせよ。
+- Adapter 生成の架空 `crimeLocator` をやめ、実Locatorを引き継げ。
+
+### 2. 外科医的実装内容
+1. **`src/shared/terminal.ts`**:
+   - `VerificationReceipt` に `originalDigest`（64桁 valid SHA-256）および `extractedExcerptDigest`（64桁 valid SHA-256）を正式配備。
+   - `ClaimEvidenceBinding` の `foundationEvidenceId` を Critical Claim において必須（required）化。
+   - `computeClaimFingerprint` を 6 大要素（`foundationEvidenceId`, `originalDigest`, `selector`, `extractedExcerptDigest`, `normalizedClaimValue`, `validatorVersion`）から決定論的に生成する純粋関数に刷新。
+2. **`src/lib/company-access/public-entity.ts` (Promotion Gate)**:
+   - Gate 自身が原本スニペットから `calculatedExcerptDigest` を算出し、Receipt の `extractedExcerptDigest` との一致を検証。
+   - Gate 自身が `computeClaimFingerprint` を再計算し、`revBinding.verificationReceipt.fingerprint` と完全一致することを機械検証する Fail-Closed Gate を配備。
+   - 原本ダイジェスト改ざん、スニペットすり替え、Claim値改ざん、64桁偽SHA-256、`foundationEvidenceId` 欠落を 100% 物理遮断。
+3. **`src/lib/foundation/foundation-adapter.ts`**:
+   - 架空 `crimeLocator` を完全撤廃。原本の実Locator（`realLocator`）と原本ダイジェスト（`originalDigest`）を引き継ぎ、6大要素に基づく Receipt を生成。
+4. **`data/entities-index.json`**:
+   - 確定売上を持つ全 231 社に対し、実在する財務コンテキスト・原本スニペット・64桁原本ダイジェスト・決定論的フィンガープリント付き Receipt を完全反映。未確認3社は `claimBindings: []` で未知を保持。
+5. **`scripts/architecture/check-ingest-quality.mjs`**:
+   - Section G において、全 234 社に対する `foundationEvidenceId`、64桁 `originalDigest`、決定論的再計算照合関所を常駐配備（234社全量 PASS）。
+6. **`src/tests/promotion-gate-public-routes.test.ts`**:
+   - 正当な指紋 PASS に加え、64桁偽SHA-256、Claim値改ざん、原本スニペットすり替え、原本ダイジェスト改ざん、`foundationEvidenceId` 欠落の包括的負例テストを配備し全パス実証。
+
+### 3. 全関所検証結果
+- **全44テストファイル・324テスト 100% Passed**
+- **Foundation 11 tests, Architecture 11 tests, D1 Recovery 6 tests 100% Passed**
+- **`pnpm typecheck` (tsc + consumer schemas check) Exit code 0**
+- **`pnpm lint` (ESLint 0 warnings, check-ingest-quality 234社全量監査) Exit code 0**
+- **`pnpm build` Next.js本番ビルド ＆ 有料バンドル検査 100% Passed (80 files, 392 sentinels)**
+- **GitHub Actions CI 全 5 ジョブ All Green**
+
+
 

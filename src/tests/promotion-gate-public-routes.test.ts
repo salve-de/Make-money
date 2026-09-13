@@ -8,6 +8,7 @@ import {
   computeClaimFingerprint,
   VALIDATOR_VERSION,
 } from '@/shared/terminal';
+import { sha256Sync } from '@/shared/sha256';
 import { GET } from '@/app/api/businesses/route';
 
 describe('Promotion Enforcement Gate - Public Route Safety', () => {
@@ -176,34 +177,47 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
         },
       ],
       claimBindings: [
-        {
-          claimKey: 'pnl.monthlyRevenue',
-          evidenceId: 'ev_financial',
-          locator: {
-            type: 'text',
-            start: 0,
-            end: 40,
-            targetText: '客観的事実ログ・集金構造',
-          },
-          sourceClass: 'PRIMARY',
-          verificationStatus: 'SUPPORTED',
-          supportCheck: 'PASS',
-          verificationReceipt: {
-            receiptId: 'rcpt_test_verified',
-            algorithm: 'SHA-256',
-            verifiedAt: '2026-09-13T18:00:00.000Z',
+        (() => {
+          const originalDigest = 'a0b1c2d3e4f5a0b1c2d3e4f5a0b1c2d3e4f5a0b1c2d3e4f5a0b1c2d3e4f5a0b1';
+          const targetText = '客観的事実ログ・集金構造';
+          const selector = 'text:0-40';
+          const extractedExcerptDigest = sha256Sync(targetText.trim());
+          const foundationEvidenceId = 'fnd_ev_sec_report_123';
+          const fingerprint = computeClaimFingerprint({
+            foundationEvidenceId,
+            originalDigest,
+            selector,
+            extractedExcerptDigest,
+            normalizedClaimValue: 833333333,
             validatorVersion: VALIDATOR_VERSION,
-            fingerprint: computeClaimFingerprint({
-              entityId: 'fake_100b',
-              claimKey: 'pnl.monthlyRevenue',
-              claimValue: 833333333,
-              evidenceId: 'ev_financial',
-              targetSnippet: '客観的事実ログ・集金構造',
+          });
+
+          return {
+            claimKey: 'pnl.monthlyRevenue',
+            evidenceId: 'ev_financial',
+            foundationEvidenceId,
+            originalDigest,
+            locator: {
+              type: 'text' as const,
+              start: 0,
+              end: 40,
+              targetText,
+            },
+            sourceClass: 'PRIMARY' as const,
+            verificationStatus: 'SUPPORTED' as const,
+            supportCheck: 'PASS' as const,
+            verificationReceipt: {
+              receiptId: 'rcpt_test_verified',
+              algorithm: 'SHA-256' as const,
+              verifiedAt: '2026-09-13T18:00:00.000Z',
               validatorVersion: VALIDATOR_VERSION,
-            }),
-            deterministicCheck: 'PASS',
-          },
-        },
+              originalDigest,
+              extractedExcerptDigest,
+              fingerprint,
+              deterministicCheck: 'PASS' as const,
+            },
+          };
+        })(),
       ],
     } as unknown as FinancialEntity;
 
@@ -216,12 +230,9 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
         {
           ...verifiedEntity.claimBindings![0],
           verificationReceipt: {
+            ...verifiedEntity.claimBindings![0].verificationReceipt,
             receiptId: 'rcpt_test_fake_sha',
-            algorithm: 'SHA-256',
-            verifiedAt: '2026-09-13T18:00:00.000Z',
-            validatorVersion: VALIDATOR_VERSION,
             fingerprint: 'a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0', // 偽の64文字SHA
-            deterministicCheck: 'PASS',
           },
         },
       ],
@@ -254,6 +265,30 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
       ],
     } as unknown as FinancialEntity;
     expect(isPublishableEntity(tamperedSnippetEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] 原本ダイジェストが別原本にすり替えられた場合、再計算不一致で物理遮断
+    const tamperedOriginalDigestEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          ...verifiedEntity.claimBindings![0],
+          originalDigest: 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(tamperedOriginalDigestEntity)).toBe(false);
+
+    // [P0検証・監査役ChatGPT指摘] foundationEvidenceId が欠落している場合、物理遮断
+    const missingFoundationEvidenceIdEntity = {
+      ...verifiedEntity,
+      claimBindings: [
+        {
+          ...verifiedEntity.claimBindings![0],
+          foundationEvidenceId: '',
+        },
+      ],
+    } as unknown as FinancialEntity;
+    expect(isPublishableEntity(missingFoundationEvidenceIdEntity)).toBe(false);
 
     // [P0検証] verificationReceipt が欠落している場合は物理遮断
     const noReceiptEntity = {

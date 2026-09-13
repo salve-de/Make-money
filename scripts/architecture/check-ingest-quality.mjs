@@ -138,6 +138,9 @@ for (const ent of entities) {
         if (revBinding.verificationStatus !== 'SUPPORTED' || revBinding.supportCheck !== 'PASS') {
           errors.push(`[PROVENANCE VIOLATION: Unsupported Status] ${ent.name} binding has status '${revBinding.verificationStatus}' check '${revBinding.supportCheck}'.`);
         }
+        if (!revBinding.foundationEvidenceId || typeof revBinding.foundationEvidenceId !== 'string' || revBinding.foundationEvidenceId.trim() === '') {
+          errors.push(`[PROVENANCE VIOLATION: Missing foundationEvidenceId] ${ent.name} binding missing foundationEvidenceId.`);
+        }
         if (!revBinding.sourceClass || revBinding.sourceClass === 'MODEL') {
           errors.push(`[PROVENANCE VIOLATION: Invalid Source Class] ${ent.name} binding has invalid sourceClass '${revBinding.sourceClass}'.`);
         }
@@ -174,20 +177,33 @@ for (const ent of entities) {
           if (rcpt.deterministicCheck !== 'PASS') {
             errors.push(`[PROVENANCE VIOLATION: Failed DeterministicCheck] ${ent.name} verificationReceipt check is '${rcpt.deterministicCheck}'.`);
           }
-          if (!rcpt.fingerprint || rcpt.fingerprint.length < 16) {
-            errors.push(`[PROVENANCE VIOLATION: Invalid Fingerprint] ${ent.name} verificationReceipt fingerprint length is insufficient.`);
+          if (!rcpt.fingerprint || rcpt.fingerprint.length !== 64 || !/^[0-9a-f]{64}$/i.test(rcpt.fingerprint)) {
+            errors.push(`[PROVENANCE VIOLATION: Invalid Fingerprint] ${ent.name} verificationReceipt fingerprint '${rcpt.fingerprint}' must be 64-char hex SHA-256.`);
           }
           if (rcpt.algorithm !== 'SHA-256') {
             errors.push(`[PROVENANCE VIOLATION: Invalid Hash Algorithm] ${ent.name} verificationReceipt algorithm '${rcpt.algorithm}' !== 'SHA-256'.`);
           }
 
-          // Deterministic Recomputation Verification (Zero Fake Hashes allowed)
+          // 原本ダイジェスト検証
+          const originalDigest = revBinding.originalDigest || rcpt.originalDigest;
+          if (!originalDigest || typeof originalDigest !== 'string' || originalDigest.length !== 64 || !/^[0-9a-f]{64}$/i.test(originalDigest)) {
+            errors.push(`[PROVENANCE VIOLATION: Invalid Original Digest] ${ent.name} originalDigest '${originalDigest}' must be 64-char hex SHA-256.`);
+          }
+
+          // Deterministic Provenance Recomputation Verification (Zero Fake Hashes allowed)
+          const matchingCard = Array.isArray(ent.evidenceCards) && ent.evidenceCards.find(c => c && c.id === revBinding.evidenceId);
+          const matchingObs = Array.isArray(ent.observationsStream) && ent.observationsStream.find(o => o && o.id === revBinding.evidenceId);
           const targetSnippet = revBinding.locator?.type === 'text' && revBinding.locator.targetText
             ? revBinding.locator.targetText
             : (matchingCard ? (matchingCard.punchline || '') : (matchingObs?.text?.slice(0, 40) || ''));
 
+          const selectorStr = revBinding.locator?.type === 'text'
+            ? `text:${revBinding.locator.start ?? 0}-${revBinding.locator.end ?? 0}`
+            : JSON.stringify(revBinding.locator);
+
+          const extractedExcerptDigest = rcpt.extractedExcerptDigest || createHash('sha256').update(targetSnippet.trim()).digest('hex');
           const version = rcpt.validatorVersion || 'v1.0.0';
-          const canonical = `${ent.id}|${revBinding.claimKey}|${ent.pnl.monthlyRevenue}|${revBinding.evidenceId}|${targetSnippet.trim()}|${version}`;
+          const canonical = `${revBinding.foundationEvidenceId}|${originalDigest}|${selectorStr}|${extractedExcerptDigest}|${ent.pnl.monthlyRevenue}|${version}`;
           const expectedFingerprint = createHash('sha256').update(canonical).digest('hex');
 
           if (rcpt.fingerprint !== expectedFingerprint) {

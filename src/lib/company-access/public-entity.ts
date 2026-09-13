@@ -3,6 +3,7 @@ import {
   type PublicSummaryEntity,
   computeClaimFingerprint,
 } from '@/shared/terminal';
+import { sha256Sync } from '@/shared/sha256';
 
 /** The only paid content is the structural analysis. Public facts stay public. */
 export function publicEntity(entity: FinancialEntity): FinancialEntity {
@@ -55,6 +56,11 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
 
     const revBinding = entity.claimBindings.find(b => b && b.claimKey === 'pnl.monthlyRevenue');
     if (!revBinding) {
+      return false;
+    }
+
+    // 0. Foundation 原本エビデンスID（実在Identity）の厳格検証（Critical Claim では必須・required）
+    if (!revBinding.foundationEvidenceId || typeof revBinding.foundationEvidenceId !== 'string' || revBinding.foundationEvidenceId.trim() === '') {
       return false;
     }
 
@@ -116,7 +122,7 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       }
     }
 
-    // 6. 実検証領収書（Verification Receipt）の決定論的再計算照合（Fail-Closed Gate）
+    // 6. 実検証領収書（Verification Receipt）の原本Provenance決定論的再計算照合（Fail-Closed Gate）
     if (!revBinding.verificationReceipt || typeof revBinding.verificationReceipt !== 'object') {
       return false;
     }
@@ -127,20 +133,40 @@ export function hasValidEvidenceLocator(entity: FinancialEntity): boolean {
       return false;
     }
 
+    // 原本ダイジェスト（64桁 valid SHA-256）の厳格検証
+    const originalDigest = revBinding.originalDigest || revBinding.verificationReceipt.originalDigest;
+    if (!originalDigest || typeof originalDigest !== 'string' || !/^[0-9a-f]{64}$/i.test(originalDigest)) {
+      return false;
+    }
+
+    // Selector（実ロケーター文字列表現）
+    const selectorStr = revBinding.locator.type === 'text'
+      ? `text:${revBinding.locator.start ?? 0}-${revBinding.locator.end ?? 0}`
+      : JSON.stringify(revBinding.locator);
+
+    // 原本から抽出したスニペットのダイジェスト（Gate側での決定論的抽出・検証）
     const targetSnippet = revBinding.locator.type === 'text' && revBinding.locator.targetText
       ? revBinding.locator.targetText
       : (matchingCard ? (matchingCard.punchline || '') : (matchingObs ? (matchingObs.text?.slice(0, 40) || '') : ''));
+    const calculatedExcerptDigest = sha256Sync(targetSnippet.trim());
 
+    // Receiptに記録された抽出ダイジェストとの完全一致検証（原本スニペットすり替え・改ざんの物理遮断）
+    if (revBinding.verificationReceipt.extractedExcerptDigest && revBinding.verificationReceipt.extractedExcerptDigest !== calculatedExcerptDigest) {
+      return false;
+    }
+    const extractedExcerptDigest = calculatedExcerptDigest;
+
+    // 原本ダイジェスト＋実ロケーター＋スニペットダイジェスト＋Claim値＋バージョンから決定論的指紋をGate側で再計算照合
     const expectedFingerprint = computeClaimFingerprint({
-      entityId: entity.id,
-      claimKey: revBinding.claimKey,
-      claimValue: entity.pnl.monthlyRevenue,
-      evidenceId: revBinding.evidenceId,
-      targetSnippet,
+      foundationEvidenceId: revBinding.foundationEvidenceId,
+      originalDigest,
+      selector: selectorStr,
+      extractedExcerptDigest,
+      normalizedClaimValue: entity.pnl.monthlyRevenue,
       validatorVersion: revBinding.verificationReceipt.validatorVersion,
     });
 
-    // 偽SHA、改ざん、Claim値・原本スニペットとの不一致を即座に物理遮断
+    // 偽SHA、改ざん、Claim値・原本スニペット・原本ダイジェスト不一致を即座に物理遮断
     if (revBinding.verificationReceipt.fingerprint !== expectedFingerprint) {
       return false;
     }

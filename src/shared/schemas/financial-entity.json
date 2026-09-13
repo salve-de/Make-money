@@ -1253,6 +1253,9 @@
         "foundationEvidenceId": {
           "type": "string"
         },
+        "originalDigest": {
+          "type": "string"
+        },
         "locator": {
           "$ref": "#/definitions/EvidenceLocator"
         },
@@ -1279,6 +1282,7 @@
       "required": [
         "claimKey",
         "evidenceId",
+        "foundationEvidenceId",
         "locator",
         "sourceClass",
         "verificationStatus",
@@ -1320,6 +1324,12 @@
           "const": "PASS"
         },
         "validatorVersion": {
+          "type": "string"
+        },
+        "originalDigest": {
+          "type": "string"
+        },
+        "extractedExcerptDigest": {
           "type": "string"
         }
       },

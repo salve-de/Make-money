@@ -78,29 +78,30 @@ export interface VerificationReceipt {
   receiptId: string;
   algorithm: 'SHA-256' | 'EDINET-XBRL' | 'W3C-SELECTOR-MATCH';
   verifiedAt: string; // ISO 8601
-  fingerprint: string; // 原本またはエビデンスのSHA-256決定論的ハッシュ
+  fingerprint: string; // SHA-256決定論的ハッシュ
   deterministicCheck: 'PASS';
   validatorVersion?: string;
+  originalDigest?: string; // 原本 (Raw/Lake) の SHA-256 ダイジェスト（64桁）
+  extractedExcerptDigest?: string; // 原本から抽出したスニペットの SHA-256（64桁）
 }
 
 export interface ClaimFingerprintParams {
-  entityId: string;
-  claimKey: string;
-  claimValue: number | string;
-  evidenceId: string;
-  targetSnippet?: string;
+  foundationEvidenceId: string;
+  originalDigest: string;
+  selector: string;
+  extractedExcerptDigest: string;
+  normalizedClaimValue: number | string;
   validatorVersion?: string;
 }
 
 /**
  * 決定論的検証レシート（Verification Receipt）の指紋を生成する純粋関数。
- * entityId, claimKey, claimValue, evidenceId, 原本スニペット, バージョンからSHA-256を算出。
- * Gate側で再計算照合することで、自己申告や偽ハッシュを物理遮断する。
+ * foundationEvidenceId, originalDigest, selector, extractedExcerptDigest, normalizedClaimValue, validatorVersion からSHA-256を算出。
+ * 原本オブジェクトとClaimを暗号学的に直結し、Gate側で再計算照合することで自己申告・偽造・改ざんを物理遮断する。
  */
 export function computeClaimFingerprint(params: ClaimFingerprintParams): string {
   const version = params.validatorVersion || VALIDATOR_VERSION;
-  const snippet = (params.targetSnippet || '').trim();
-  const canonical = `${params.entityId}|${params.claimKey}|${params.claimValue}|${params.evidenceId}|${snippet}|${version}`;
+  const canonical = `${params.foundationEvidenceId}|${params.originalDigest}|${params.selector}|${params.extractedExcerptDigest}|${params.normalizedClaimValue}|${version}`;
   return sha256Sync(canonical);
 }
 
@@ -112,8 +113,9 @@ export function computeClaimFingerprint(params: ClaimFingerprintParams): string 
 export interface ClaimEvidenceBinding {
   claimKey: CriticalClaimKey | string; // 例: "pnl.monthlyRevenue", "pnl.operatingProfit", "operations.teamSize"
   evidenceId: string;
-  foundationEvidenceId?: string; // Foundation 原本エビデンスID
-  locator: EvidenceLocator; // 原本内の厳密なロケーター（自己参照 '/pnl/monthlyRevenue' 等は禁止）
+  foundationEvidenceId: string; // Foundation 原本エビデンスID（Critical Claim では必須）
+  originalDigest?: string; // 原本 (Raw/Lake) の SHA-256 ダイジェスト（64桁）
+  locator: EvidenceLocator; // 原本内の厳密な実ロケーター（自己参照 '/pnl/monthlyRevenue' 等は禁止）
   sourceClass: Exclude<SourceClass, 'MODEL'>;
   verificationStatus: 'SUPPORTED';
   supportCheck: 'PASS';

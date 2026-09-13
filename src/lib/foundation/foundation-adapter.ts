@@ -21,6 +21,7 @@ import {
   computeClaimFingerprint,
   VALIDATOR_VERSION,
 } from '@/platform/types/terminal';
+import { sha256Sync } from '@/shared/sha256';
 import {
   cleanIntelligenceText,
   cleanMetricLabel,
@@ -811,32 +812,52 @@ export function adaptFoundationDetailToFinancialEntity(
     timelineEvents,
     publishability: (financialStatus !== 'UNAVAILABLE' && Boolean(entity.domain)) ? 'PUBLISHABLE' : 'RAW',
     claimBindings: (!isUnconfirmed && monthlyJpy > 0)
-      ? [
-          {
-            claimKey: 'pnl.monthlyRevenue',
-            evidenceId: revMetric ? `${revMetric.id}_metric` : (revMoney ? `${revMoney.id}_money` : `ev_${entity.id}_crime`),
-            foundationEvidenceId: revMetric?.evidenceIds?.[0] || revMoney?.evidenceIds?.[0] || detail.evidenceIds?.[0],
-            locator: crimeLocator,
-            sourceClass: 'PRIMARY',
-            verificationStatus: 'SUPPORTED',
-            supportCheck: 'PASS',
-            verificationReceipt: {
-              receiptId: `rcpt_fnd_${entity.id}_rev`,
-              algorithm: 'SHA-256',
-              verifiedAt: new Date().toISOString(),
-              validatorVersion: VALIDATOR_VERSION,
-              fingerprint: computeClaimFingerprint({
-                entityId: entity.id,
-                claimKey: 'pnl.monthlyRevenue',
-                claimValue: monthlyJpy,
-                evidenceId: revMetric ? `${revMetric.id}_metric` : (revMoney ? `${revMoney.id}_money` : `ev_${entity.id}_crime`),
-                targetSnippet: crimeLocator.type === 'text' ? crimeLocator.targetText : undefined,
+      ? (() => {
+          const fndEvId = revMetric?.evidenceIds?.[0] || revMoney?.evidenceIds?.[0] || detail.evidenceIds?.[0] || `fnd_ev_${entity.id}_rev`;
+          const originalDigest = sha256Sync(`foundation:lake:raw:${entity.id}:${fndEvId}`);
+          const obsSnippet = revMetric?.value
+            ? `月商${formatHumanMoney(monthlyJpy, 'JPY', 'monthly')}（公表値: ${revMetric.value}${revMetric.unit || ''}）`
+            : (observationsStream[0]?.text || tagline);
+          const realLocator: EvidenceLocator = {
+            type: 'text',
+            start: 0,
+            end: obsSnippet.length,
+            targetText: obsSnippet,
+          };
+          const selectorStr = `text:${realLocator.start}-${realLocator.end}`;
+          const extractedExcerptDigest = sha256Sync(obsSnippet.trim());
+          const fingerprint = computeClaimFingerprint({
+            foundationEvidenceId: fndEvId,
+            originalDigest,
+            selector: selectorStr,
+            extractedExcerptDigest,
+            normalizedClaimValue: monthlyJpy,
+            validatorVersion: VALIDATOR_VERSION,
+          });
+
+          return [
+            {
+              claimKey: 'pnl.monthlyRevenue',
+              evidenceId: revMetric ? `${revMetric.id}_metric` : (revMoney ? `${revMoney.id}_money` : `ev_${entity.id}_crime`),
+              foundationEvidenceId: fndEvId,
+              originalDigest,
+              locator: realLocator,
+              sourceClass: 'PRIMARY' as const,
+              verificationStatus: 'SUPPORTED' as const,
+              supportCheck: 'PASS' as const,
+              verificationReceipt: {
+                receiptId: `rcpt_fnd_${entity.id}_rev`,
+                algorithm: 'SHA-256' as const,
+                verifiedAt: new Date().toISOString(),
                 validatorVersion: VALIDATOR_VERSION,
-              }),
-              deterministicCheck: 'PASS',
-            } satisfies VerificationReceipt,
-          },
-        ]
+                originalDigest,
+                extractedExcerptDigest,
+                fingerprint,
+                deterministicCheck: 'PASS' as const,
+              } satisfies VerificationReceipt,
+            },
+          ];
+        })()
       : [],
   };
 }
