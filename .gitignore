@@ -59,5 +59,8 @@ scratch/
 /test-results/
 /blob-report/
 
+# Local R2 CAS Mirror
+/data/r2-local/
+
 # Python recovery verification cache
 __pycache__/

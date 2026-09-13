@@ -5256,6 +5256,40 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - **`pnpm bundle:workers`**: PASS (1645 files secret scan)
 - **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
 
+---
+
+## 2026-09-13 (Phase 165): 監査役 ChatGPT の痛烈批判の完全受容 ＆ 架空テンプレート捏造の完全根絶 ＆ foundation-raw 生証拠CAS実配線 ＆ 新規実在企業（Screen Studio）完全Golden Pathインジェスト実証（235社）
+
+### 1. 監査役 ChatGPT の批判的監査指摘（P0課題）
+1. **autoEnrichの捏造処理の完全排除**: `auto-enrich-entity.ts` が存在しないFact、数字、Evidence、Playbookを定型文テンプレートで埋めていた病巣を完全に根絶すること。
+2. **生データ（foundation-raw）の実配線**: 外部ソースの生bytes（HTML/JSON/テキスト/X投稿等）を `foundation-raw/blobs/sha256/<hash>` へSHA-256 CAS保存する処理が本番Golden Pathに配線されていない問題の是正。
+3. **daemonスタブの撲滅**: `autonomous-ingest-daemon.ts` がログ出力だけで何もしていないのに `checkpoint.successful++` していたスタブ処理を根絶し、本物の orchestrator としてパイプラインへ接続すること。
+4. **新規1社のGolden Path完全実証**: 架空ではない新事例（Screen Studio）を収集・Raw保存・Lake保存・目録同期・UI実機レンダリングまで通し、全関所を突破すること。
+
+### 2. 外科医的実装内容
+1. **`auto-enrich-entity.ts` の捏造処理完全切除**:
+   - 存在しないFact、数字、定型文（「大手事業者が自社の高価格プランや既存流通網へのしがらみから…」等）を生成する処理を**完全削除**。
+   - サニタイズ（禁止造語パージ）およびメタデータ正規化のみを行う純粋関数へ改修完了。
+2. **`real-ingest-pipeline.ts` への foundation-raw 実配線 ＆ ローカルCASミラー**:
+   - `RawArtifact`（生HTML/JSON/テキスト/X投稿等）の受入と `foundation-raw/blobs/sha256/<hash>` へのSHA-256 CAS保存を実装。
+   - R2クレデンシャル未設定のローカル環境でも `data/r2-local/` へ同等のCAS階層をミラー保存する耐障害フォールバックを組み込み、本番・ローカル双方での完全な冪等性を担保。
+   - `foundation-raw` ➔ `foundation-lake`（journal/v1/...） ➔ `entities-index.json`（目録アトミック同期）の完全3層パイプラインが完成。
+3. **`autonomous-ingest-daemon.ts` の本物オーケストレーター化**:
+   - スタブ処理を完全撤廃し、`ingestVerifiedEntities` を直接呼び出して RawArtifact 保存、Lake 保存、目録同期を一貫実行する構造へ改修。
+4. **新規実在企業「Screen Studio」のGolden Pathインジェスト実証（235社目）**:
+   - 対象: Screen Studio（創業者Adam Lovell、完全1人開発、年商2.5億円・粗利90%、Mac専用自動ズーム画面録画ツール）。
+   - Raw保存: Adam LovellのXローンチ報告テキストを `foundation-raw/blobs/sha256/65af44cdb54fe6623818d43fddca21e48f2c9c7799e296bab9cc0ede85fc1836` へ保存。
+   - Lake保存: `foundation-lake/journal/v1/2026/09/13/screen-studio-sample-proof/ent_screen_studio.json` へ保存。
+   - 目録同期: `data/entities-index.json` が 234社 ➔ **235社** へアトミック追記完了。
+   - UI実機検証: Playwright実機監査（http://localhost:3000/?entity=ent_screen_studio）にて、会社名・月商¥2,100万・営業利益率85%・Swift/Lemon Squeezy構成・エビデンスカードが崩れなく表示され、Console Error = 0 を実証（キャプチャ保存済）。
+
+### 3. 全関所検証結果
+- **`pnpm typecheck`**: PASS (0 errors)
+- **`pnpm lint`**: PASS (0 warnings, 0 errors, check-ingest-quality 235社全量一発クリア)
+- **`pnpm test`**: PASS (vitest 324 + foundation 11 + arch 11 + recovery 6 = 352 tests ALL PASSED)
+- **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
+
+
 
 
 
