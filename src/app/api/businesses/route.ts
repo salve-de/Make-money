@@ -1,6 +1,6 @@
 import { publicEntity, publicFoundationData } from '@/lib/company-access/public-entity';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
-import { parseFinancialEntities } from '@/shared/financial-entity-schema';
+import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
 import { readFile } from 'node:fs/promises';
@@ -72,13 +72,15 @@ async function readLocalEntities(): Promise<FinancialEntity[]> {
   try {
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
-    return parseFinancialEntities(parsed)
+    const { validEntities } = parseFinancialEntitiesResiliently(parsed);
+    return validEntities
       .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
       .map(normalizeFinancialEntity);
   } catch {
     return [];
   }
 }
+
 
 function findFallbackEntity(id: string, localEntities: FinancialEntity[]): FinancialEntity | null {
   return localEntities.find((entity) => entity.id === id) ||

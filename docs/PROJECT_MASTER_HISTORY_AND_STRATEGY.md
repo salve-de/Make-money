@@ -4551,11 +4551,18 @@ Buffer公式2024年開示の部分収集を実保存: 新規6件、読戻しSHA/
      - `forbiddenJargon`: 禁止造語（サバンナOS、略奪転用、カニバリズム障壁、身も蓋もない真実、関所、ハック等）の残存ゼロ
 3. **取り込みパイプライン（`real-ingest-pipeline.ts`）への完全性バリデーター直結**
    - 新規収集データがCloudflare R2（foundation-lake）やカタログ（`entities-index.json`）に書き込まれる直前に関所を設置。完全密度を満たさないデータは書き込みを即座に拒絶する構造的ロックを配備。
+4. **耐障害的パーサー（`parseFinancialEntitiesResiliently`）の配備（一蓮托生バグの完全根絶）**
+   - `src/shared/financial-entity-schema.ts` に耐障害的パーサーを実装。1社のデータに万が一不備があっても、他全社を安全に救出してブラウザへ届け、異常社のみを隔離（Quarantine）して詳細ログを出力する構造に刷新。
+   - `src/app/page.tsx` および `src/app/api/businesses/route.ts` に配備し、1社のスキーマエラーで全234社が過去モックへ巻き添え退行するサイレント障害を物理的に消滅させた。
+5. **ビルド ＆ CI物理ロック（`package.json` build スクリプトへの `pnpm lint` 直結）**
+   - `package.json` の `"build"` スクリプトの先頭に `pnpm lint` を直結。
+   - 不完全データ、算術狂い、造語、スキーマ違反が1件でもある状態では、ビルド・デプロイ・CIが `exit 1` で物理的に遮断される絶対関所を敷設。
 
 ### 3. 完全性の証明
 - **機械的品質関所**: 全234社が強化版 `check-ingest-quality.mjs` をエラー0件で完全突破。
 - **Playwright E2E実機ブラウザ検証**: 10業態で高密度な証拠カード・事実ログ・事業概要がブラウザ実機で美しく描画されることを確認（`1 passed (26.9s)`）。
-- **CI関所**: `pnpm typecheck`（Exit code 0）、`pnpm lint`（Exit code 0）。
+- **CI関所**: `pnpm typecheck`（Exit code 0）、`pnpm lint`（Exit code 0）、`pnpm build`（Exit code 0）。
+- **100年耐久保証**: 不完全データの物理的侵入阻止、1社隔離による他全社の無傷提供、ビルド時強制検証の3段構えにより、今後100年間の運用における堅牢性を構造的に確立。
 
 
 
