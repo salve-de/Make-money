@@ -80,7 +80,6 @@ export function readOriginalPayloadBytes(originalObjectKey: string): Uint8Array 
   if (typeof process !== "undefined" && process.versions?.node) {
     try {
       // Use indirect require to prevent webpack from attempting to bundle 'fs'/'path' for client
-      // eslint-disable-next-line @typescript-eslint/no-implied-eval
       const dynamicRequire = new Function("moduleName", "return require(moduleName);");
       const fs = dynamicRequire("fs");
       const path = dynamicRequire("path");
