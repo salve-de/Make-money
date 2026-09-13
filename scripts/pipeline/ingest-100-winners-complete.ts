@@ -59,24 +59,36 @@ async function run() {
       blindspot: m.flaw,
       moatType: m.moat,
       moatDescription: m.moatDesc,
-      initialTraction: [
-        `${m.trick}により初期ユーザーを獲得`,
-        'Twitter/SNSでのクチコミとインフルエンサーの熱狂的拡散',
-        '使った客が勝手に他人に宣伝するバイラル配管の確立'
-      ],
+      initialTraction: m.sector === 'PHYSICAL_ASSET' || m.sector === 'LOCAL_SERVICES' || m.sector === 'MONOPOLY_MFG'
+        ? [
+            `${m.trick}により最初の店舗・顧客を開拓`,
+            '店頭の圧倒的な価格差と品揃えによる主婦層の口コミ拡散',
+            '一度訪れた客がリピーターとなり地域で圧倒的シェアを獲得'
+          ]
+        : [
+            `${m.trick}により初期ユーザーを獲得`,
+            'SNSやコミュニティでの口コミと熱狂的拡散',
+            '使ったユーザーが自発的に他者へ推薦する紹介の輪の確立'
+          ],
       actionPlaybook: [
-        `【弱点の特定】${m.pain}に耐えかねている客層を見つける`,
-        `【大手の盲点】${m.flaw}という大企業の死角を突く`,
-        `【関所の構築】${m.trick}で客を抱え込み、利益率${m.opmPct}%を抜く`
+        `【課題の特定】${m.pain}に困っているターゲット層を見つける`,
+        `【競合の盲点】${m.flaw}という大手が手を出せない隙間を突く`,
+        `【仕組みの構築】${m.trick}で顧客を定着させ、利益率${m.opmPct}%を実現する`
       ],
       targetPrey: m.pain,
       structuralFlaw: m.flaw,
       stealthEntry: m.trick,
-      tollGateSetup: `利益率${m.opmPct}%を抜く月額・従量決済関所の配備`,
+      tollGateSetup: m.sector === 'PHYSICAL_ASSET' || m.sector === 'LOCAL_SERVICES' || m.sector === 'MONOPOLY_MFG'
+        ? `店頭での現金回収・大量一括仕入れによる圧倒的低原価体制`
+        : m.sector === 'CONTENT_MEDIA'
+        ? `スポンサー枠直販や限定有料枠による収益化体制`
+        : m.sector === 'FINTECH_INFRA'
+        ? `取引ごとの決済・為替スプレッドによる自動収益化体制`
+        : `月額・年払いサブスクリプションによる継続収益化体制`,
       observations: [
-        `【サバンナOSの急所】${m.pain}という防衛本能・怠惰・虚栄心に着火し、理性を失って即決させる。`,
-        `【大手の自爆構造】${m.flaw}により既存プレイヤーは指をくわえて見逃すしかない。`,
-        `【通帳手残り】年間売上に対し営業利益率${m.opmPct}%を維持し、現金を確実に個人通帳に残す。`
+        `【人間の本音と悩み】${m.pain}という切実な悩みを直接解決し、選ばれる理由を作っている。`,
+        `【大企業の弱点】${m.flaw}により既存プレイヤーは対抗できずに見守るしかない。`,
+        `【通帳に残る現金】年間売上に対し営業利益率${m.opmPct}%を維持し、現金を確実に手元に残す。`
       ]
     };
 
@@ -86,7 +98,7 @@ async function run() {
   console.log(`Generated ${entities.length} full-spec FinancialEntity objects.`);
 
   // バッチインジェスト実行（R2イミュータブルPUT ＆ 目録同期）
-  await ingestVerifiedEntities(entities, 'verified-100-winners-batch-v4');
+  await ingestVerifiedEntities(entities, 'verified-100-winners-plain-v5');
 }
 
 run().catch(err => {
