@@ -33,8 +33,29 @@ export async function ingestVerifiedEntities(entities: FinancialEntity[], batchN
       console.error(msg);
       throw new Error(msg);
     }
-    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}%] PASS`);
+
+    // C. コンテンツ完全性チェック（薄いデータ・欠損データのインジェスト絶対阻止）
+    if (!ent.essence || !ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief ||
+        ent.essence.whatItDoes.length < 40 || ent.essence.targetCustomer.length < 30 || ent.essence.painRelief.length < 30) {
+      throw new Error(`Completeness FAILED for ${ent.name}: essence is missing or too thin (<40/30/30 chars).`);
+    }
+    if (!ent.evidenceCards || ent.evidenceCards.length < 2 || ent.evidenceCards.some(c => !c.details || c.details.length < 3)) {
+      throw new Error(`Completeness FAILED for ${ent.name}: evidenceCards must be at least 2, and each card must have at least 3 detailed bullets.`);
+    }
+    if (!ent.observations || ent.observations.length < 4) {
+      throw new Error(`Completeness FAILED for ${ent.name}: observations count must be at least 4 fact logs.`);
+    }
+    const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
+    const jsonStr = JSON.stringify(ent);
+    for (const j of FORBIDDEN_JARGON) {
+      if (jsonStr.includes(j)) {
+        throw new Error(`Completeness FAILED for ${ent.name}: contains forbidden internal jargon '${j}'.`);
+      }
+    }
+
+    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards.length} / OBS: ${ent.observations.length}] PASS`);
   }
+
 
   // 2. Cloudflare R2 (foundation-lake) にイミュータブル保存
   console.log('\n--- [2/3] Materializing to Cloudflare R2 (foundation-lake) ---');
