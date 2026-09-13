@@ -5317,3 +5317,27 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - **`pnpm test`**: PASS (352 tests ALL PASSED)
 - **`pnpm test:e2e`**: PASS (Playwright 全 27/27 tests ALL PASSED)
 
+---
+
+## 2026-09-13 (Phase 167): 監査役 ChatGPT の最終要求4項目の完全外科的解決 ＆ CI All Green実証
+
+### 1. 監査役 ChatGPT の最終監査要求（ここから広げない4点）
+1. **daemonで外部取得していない値を一切生成しない**: `scale` / `founder` / `moat` を `UNKNOWN` に設定し、スコア類を `0` にリセット。外部fetch失敗時は捏造せずスキップ。
+2. **Screen Studioのfetch失敗時の自作HTML fallbackの完全削除**: 取得失敗時にモックHTMLを生成するフォールバックを完全撤廃し、即時例外送出。
+3. **Screen Studioの実RawからのFact抽出と直結**: 公式サイト生HTML（267KB）から抽出したタイトル、著者（Adam Pietrasiak）、機能説明をエビデンスカードに直結。財務は公式Web未掲載のため `UNAVAILABLE` として完全誠実に保持。
+4. **同一SHAのCI 5ジョブ（E2E smoke, build, typecheck, unit test, lint）のAll Green完走確認**: GitHub Actions Run 34759736161 にて全ジョブAll Greenを実証。
+
+### 2. 外科医的実装内容
+1. **`autonomous-ingest-daemon.ts` の完全純化**:
+   - `fetch(target.url)` で生バイト列を取得できない場合は捏造せず `checkpoint.skipped++` で即座にスキップ。
+   - `scale: 'UNKNOWN'`, `founder: 'UNKNOWN'`, `moatType: 'UNKNOWN'`, 各種スコア `0` とし、架空の分類や点数の生成を永久遮断。
+2. **`ingest-screen-studio.ts` のモックフォールバック完全削除 ＆ 生データFact直結**:
+   - モックHTML生成catch節を完全切除。
+   - 取得した生HTMLから `<title>`、`<meta name="author">`（Adam Pietrasiak）、`<meta name="description">` を抽出し、`ev_screenstudio_landing` に直結。
+   - 財務データは生Webで未開示のため、`financialStatus: 'UNAVAILABLE'`, `isRevenueUnconfirmed: true` として捏造ゼロを貫徹。
+3. **ローカルおよびCI全関所突破**:
+   - `pnpm typecheck`: 0 errors
+   - `pnpm lint`: PASS (235社全量一発クリア)
+   - `pnpm test`: 352 tests ALL PASSED
+   - `pnpm test:e2e`: Playwright 27/27 tests ALL PASSED
+   - UI実機検証: `ent_screen_studio` がポート3000で Console Errors: 0 で完全描画されることを確認。

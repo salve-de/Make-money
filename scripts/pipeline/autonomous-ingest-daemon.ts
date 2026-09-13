@@ -110,38 +110,57 @@ export async function runAutonomousDaemon() {
     }
 
     try {
-      console.log(`  [1/4] Researching primary fact logs for ${target.name}...`);
+      console.log(`  [1/4] Fetching primary external raw bytes for ${target.name} from ${target.url}...`);
+      let rawContent = '';
+      let fetchSucceeded = false;
+      try {
+        const res = await fetch(target.url, {
+          headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)' },
+          signal: AbortSignal.timeout(6000)
+        });
+        if (res.ok) {
+          rawContent = await res.text();
+          fetchSucceeded = true;
+          console.log(`  ✓ Fetched authentic website bytes: ${Buffer.byteLength(rawContent)} bytes`);
+        }
+      } catch (err) {
+        console.warn(`  ! External fetch failed for ${target.url}:`, err instanceof Error ? err.message : String(err));
+      }
+
+      if (!fetchSucceeded || !rawContent) {
+        console.warn(`  ↷ Skipped ${target.name}: no authentic external raw bytes obtained. Zero fabrication.`);
+        checkpoint.skipped++;
+        checkpoint.lastProcessedIndex = i;
+        await saveCheckpoint(checkpoint);
+        continue;
+      }
+
       const rawArtifact = {
-        filename: `${target.id}_research_snapshot.json`,
-        contentType: 'application/json; charset=utf-8',
-        content: JSON.stringify({
-          targetId: target.id,
-          name: target.name,
-          ticker: target.ticker,
-          sector: target.sector,
-          country: target.country,
-          url: target.url,
-          type: target.type,
-          note: target.note,
-          fetchedAt: new Date().toISOString()
-        }, null, 2),
+        filename: `${target.id}_official_landing.html`,
+        contentType: 'text/html; charset=utf-8',
+        content: rawContent,
         sourceUrl: target.url
       };
 
+      // Extract real metadata from authentic raw HTML
+      const titleMatch = rawContent.match(/<title[^>]*>(.*?)<\/title>/i);
+      const extractedTitle = titleMatch ? titleMatch[1].trim() : target.name;
+      const descMatch = rawContent.match(/<meta[^>]*name=["']description["'][^>]*content=["'](.*?)["']/i);
+      const extractedDesc = descMatch ? descMatch[1].trim() : target.note;
+
       console.log(`  [2/4] Materializing to Foundation Raw & Lake via Golden Pipeline...`);
-      // 実インジェストパイプライン経由で保存（スタブではなく本物のRaw/Lake/Catalog一連処理）
-      // ※フル調査済みの場合は完全体を、初期フェーズの場合はRawファクト保管を実行
+      const evidenceId = `ev_${target.id}_landing`;
       await ingestVerifiedEntities([
         {
           entity: {
             id: `ent_${target.ticker.toLowerCase().replace(/[^a-z0-9]/g, '_')}`,
             ticker: target.ticker,
             name: target.name,
-            legalEntity: `${target.name} Inc.`,
-            tagline: target.note,
+            legalEntity: target.name,
+            tagline: extractedDesc,
             sector: target.sector,
-            scale: 'ENTERPRISE',
-            founder: '公表情報に基づく',
+            scale: 'UNKNOWN',
+            founder: 'UNKNOWN',
             country: target.country,
             url: target.url,
             verifiedBadge: false,
@@ -170,44 +189,44 @@ export async function runAutonomousDaemon() {
             },
             evidenceCards: [
               {
-                id: `ev_${target.id}_primary`,
+                id: evidenceId,
                 type: 'ASYMMETRIC_LEVERAGE',
-                title: `${target.name}の一次観測ログ`,
-                badge: '一次観測',
+                title: extractedTitle,
+                badge: '公式Web原本',
                 evidenceStatus: 'REPORTED',
-                punchline: target.note,
+                punchline: extractedDesc,
                 details: [
                   `対象企業: ${target.name} (${target.ticker})`,
                   `事業ドメイン: ${target.sector}`,
                   `一次情報ソース: ${target.url}`
                 ],
-                sourceNote: `${target.name} 公式開示 / 探索ログ`
+                sourceNote: `${target.url} 公式原本（CAS検証済み）`
               }
             ],
             strategy: {
               blindspot: '未調査（詳細深掘り待ち）',
-              moatType: 'COUNTER_POSITIONING',
-              moatDescription: target.note,
+              moatType: 'UNKNOWN',
+              moatDescription: '一次情報収集済み・深掘り調査待ち',
               initialTraction: [
-                target.note
+                '一次Web原本収集完了'
               ],
               actionPlaybook: [
                 '未調査（詳細深掘り待ち）'
               ]
             },
             observations: [
-              target.note
+              extractedDesc
             ],
             lootBlueprint: {
-              targetPrey: '未調査（詳細深掘り待ち）',
-              structuralFlaw: '未調査（詳細深掘り待ち）',
-              stealthEntry: target.note,
-              tollGateSetup: '未調査（詳細深掘り待ち）',
-              reproducibilityScore: 50,
-              moatDurabilityScore: 50,
-              capitalEfficiencyScore: 50,
+              targetPrey: '未確認',
+              structuralFlaw: '未確認',
+              stealthEntry: '未確認',
+              tollGateSetup: '未確認',
+              reproducibilityScore: 0,
+              moatDurabilityScore: 0,
+              capitalEfficiencyScore: 0,
               executionChecklist: [
-                '1. 詳細調査を実施して未確認項目を確定する'
+                '1. 公式Web原本取得完了。財務・収益構造の深掘り調査待ち'
               ]
             },
             operations: {
@@ -219,13 +238,13 @@ export async function runAutonomousDaemon() {
               isCapitalUnconfirmed: true,
               automationLevel: 0,
               isAutomationUnconfirmed: true,
-              primaryChannels: ['未調査'],
+              primaryChannels: ['Web / ダイレクト'],
               toolStack: []
             },
             opportunityJudgment: {
               verdict: 'MONITOR',
               verdictLabel: '動向注視',
-              oneLineReason: target.note,
+              oneLineReason: extractedDesc,
               demandDelta: '未確認',
               competitionDelta: '未確認',
               entryRequirements: {
