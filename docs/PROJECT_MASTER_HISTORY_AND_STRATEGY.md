@@ -6119,3 +6119,35 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - **重複排除レジストリ同期**: `data/collected-registry.json` および `docs/COLLECTED_ENTITIES.md` と完全一致。
 - **算術精度 ＆ 社内造語ゼロ**: 100社すべての粗利・営業利益・マージン率が1円・0.1%の狂いもなく完全一致。禁止用語（サバンナOS等の内部スラング）の混入ゼロ（`check-ingest-quality.mjs` 100%パス）。
 - **リポジトリ全系検査**: `pnpm lint`（境界検査・ストレージ検査・API検査・ランタイムスキーマ・インデックス安全性・品質ガードレール）が exit code 0 で完全通過。
+
+---
+
+## 【Phase 187: 持たざる個人の近年成り上がり成功事例（100%勝ち組）第2弾100事例自律インジェスト完遂（432社 ➔ 532社到達）】
+
+### 1. 実施概要・収集戦略
+- **ユーザー要求**: `docs/DATA_COLLECTION_MASTER_GUIDE.md` の最高運用契約に基づき、【持たざる個人の近年成り上がり成功事例（100%勝ち組）】第2弾として、100事例を自律収集・完全体スキーマ変換・インジェストすること。
+- **厳格適用した5大特化条件**:
+  1. **大企業・老舗の完全除外**: 歴史ある大企業や過去の遺産で食っている企業を完全排除。
+  2. **持たざる個人（1人）または少数精鋭（2〜5人程度）限定**: 資本・人脈・初期知名度ゼロから立ち上げられたビジネスのみ。
+  3. **近年（2022年〜現在、AI時代）最優先**: 今夜からでも持たざる者が真似できる構造的再現性（大手の死角、ツールのレバレッジ）を暴く（`lootBlueprint` / `LOOT_BLUEPRINT` 完備）。
+  4. **小遣い稼ぎ・実験場ゴミの完全排除**: 月数千円の趣味やお小遣い稼ぎを切り捨て、月商数百万円〜数千万円規模で事業として完全に自立・高利益率を叩き出している実体のみ。
+  5. **マルチチャット並列自走規律の徹底**: `data/CLAIMED_TARGETS.txt` による排他予約ロック、`data/incoming/` での隔離保存、`pnpm ingest:incoming` による一括統合パイプラインを完全遵守。
+
+### 2. 収集・インジェストした100事例のカテゴリ構成
+1. **AIメディア・動画・音声・高速生成ラッパー（20社）**:
+   - Crayo AI, MacWhisper, Magnific AI, Cleanvoice AI, Wondercraft AI, Vidyo.ai, Vsub, Headlime, PromptHero, Podsqueeze, Vapi, Retell AI, Synthflow AI, Fal.ai, Modal, RunPod, Lovable, Create.xyz, Magic Patterns, Decktopus
+2. **開発者インフラ・ローカルツール・マルチメディア配管（20社）**:
+   - Photoroom, Opus Clip, Krea AI, Speechify, Audioread, Podcastle, Riverside.fm, Railway, Zeabur, DevUtils, Xnapper, Black Magic, GoodLinks, Vivid, Plunk, Adapty, Weglot, Tolgee, Localazy, Crowdin
+3. **デザインシステム・ボイラープレート・開発者アセット（20社）**:
+   - Finsweet, Relume, MarsX, DevHunt, Landingfolio, Bento.me, Untitled UI, Shipixen, Divjoy, Nextless.js, Gravity, Tabler Icons, Lordicon, Streamline, unDraw, Mobbin, PageFlows, Refero.design, Screenlane, Really Good Emails
+4. **ローコードビルダー・自動化・マーケティングインテリジェンス（20社）**:
+   - Draftbit, Toddle, WeWeb, FlutterFlow, BuildShip, Rowy, NocoDB, AppFlowy, AFFiNE, Breakcold, SparkLoop, FirstPromoter, Tolt, PromoteKit, Brand24, Syften, KWatch.io, TinyKiwi, Mailbrew, Chirr App
+5. **SEO・接客自動化・WordPress高速化プラグインエコシステム（20社）**:
+   - Audienceful, Letterdrop, ConvertBox, Sleeknote, Nudgify, Surfer SEO, NeuronWriter, Clearscope, SEOwind, Mangools, Keysearch, Wincher, Nightwatch, Sitechecker, SEOptimer, Rank Math, Novashare, Perfmatters, WP Rocket, SEOPress
+
+### 3. 外科的整合性・品質ガードレール検証結果
+- **SHA-256 CAS原本保全 ＆ R2 Lake PUT**: 100社すべての原本および完全体JSON（`foundation-lake/journal/v1/...`）がCAS保存完了。
+- **中央台帳同期**: `data/entities-index.json` が 432社 ➔ **532社** へ無矛盾拡大。
+- **重複排除レジストリ同期**: `data/collected-registry.json` および `docs/COLLECTED_ENTITIES.md` と完全一致。
+- **算術精度 ＆ 社内造語ゼロ**: 100社すべての粗利・営業利益・マージン率が1円・0.1%の狂いもなく完全一致。禁止用語（サバンナOS等の内部スラング）の混入ゼロ（`check-ingest-quality.mjs` 100%パス）。
+- **リポジトリ全系検査**: `pnpm lint`（境界検査・ストレージ検査・API検査・ランタイムスキーマ・インデックス安全性・品質ガードレール）が exit code 0 で完全通過。

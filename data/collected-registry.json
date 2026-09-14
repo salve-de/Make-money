@@ -1,5 +1,905 @@
 [
   {
+    "id": "ent_crayo_ai_02ec59",
+    "name": "Crayo AI",
+    "normName": "crayoai",
+    "ticker": "CRAYOAI",
+    "domain": "crayo.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_macwhisper_2f65b8",
+    "name": "MacWhisper",
+    "normName": "macwhisper",
+    "ticker": "MACWHISP",
+    "domain": "goodsnooze.gumroad.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_magnific_ai_349dd3",
+    "name": "Magnific AI",
+    "normName": "magnificai",
+    "ticker": "MAGNIFIC",
+    "domain": "magnific.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_cleanvoice_ai_bbdf69",
+    "name": "Cleanvoice AI",
+    "normName": "cleanvoiceai",
+    "ticker": "CLEANVOI",
+    "domain": "cleanvoice.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_wondercraft_ai_cf6a91",
+    "name": "Wondercraft AI",
+    "normName": "wondercraftai",
+    "ticker": "WNDRCFT",
+    "domain": "wondercraft.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_vidyo_ai_2c79b9",
+    "name": "Vidyo.ai",
+    "normName": "vidyo.ai",
+    "ticker": "VIDYOAI",
+    "domain": "vidyo.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_vsub_f334f8",
+    "name": "Vsub",
+    "normName": "vsub",
+    "ticker": "VSUBIO",
+    "domain": "vsub.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_headlime_c44798",
+    "name": "Headlime",
+    "normName": "headlime",
+    "ticker": "HEADLIME",
+    "domain": "headlime.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_prompthero_7fbb6e",
+    "name": "PromptHero",
+    "normName": "prompthero",
+    "ticker": "PRMPTHRO",
+    "domain": "prompthero.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_podsqueeze_bdfb91",
+    "name": "Podsqueeze",
+    "normName": "podsqueeze",
+    "ticker": "PODSQUEZ",
+    "domain": "podsqueeze.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_vapi_29e1a4",
+    "name": "Vapi",
+    "normName": "vapi",
+    "ticker": "VAPI.AI",
+    "domain": "vapi.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_retell_ai_4cdd23",
+    "name": "Retell AI",
+    "normName": "retellai",
+    "ticker": "RETELLAI",
+    "domain": "retellai.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_synthflow_ai_819761",
+    "name": "Synthflow AI",
+    "normName": "synthflowai",
+    "ticker": "SYNTHFLW",
+    "domain": "synthflow.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_fal_ai_36559d",
+    "name": "Fal.ai",
+    "normName": "fal.ai",
+    "ticker": "FAL.AI",
+    "domain": "fal.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_modal_c5803a",
+    "name": "Modal",
+    "normName": "modal",
+    "ticker": "MODALLAB",
+    "domain": "modal.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_runpod_31d1b3",
+    "name": "RunPod",
+    "normName": "runpod",
+    "ticker": "RUNPOD",
+    "domain": "runpod.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_lovable_2f9cb7",
+    "name": "Lovable",
+    "normName": "lovable",
+    "ticker": "LOVABLE",
+    "domain": "lovable.dev",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_create_xyz_9f5e62",
+    "name": "Create.xyz",
+    "normName": "create.xyz",
+    "ticker": "CREATEX",
+    "domain": "create.xyz",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_magic_patterns_11bed8",
+    "name": "Magic Patterns",
+    "normName": "magicpatterns",
+    "ticker": "MGCPTRN",
+    "domain": "magicpatterns.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_decktopus_ac8e51",
+    "name": "Decktopus",
+    "normName": "decktopus",
+    "ticker": "DECKTOPS",
+    "domain": "decktopus.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_photoroom_cacaf9",
+    "name": "Photoroom",
+    "normName": "photoroom",
+    "ticker": "PHOTOROM",
+    "domain": "photoroom.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_opus_clip_34adc7",
+    "name": "Opus Clip",
+    "normName": "opusclip",
+    "ticker": "OPUSCLIP",
+    "domain": "opus.pro",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_krea_ai_f3c836",
+    "name": "Krea AI",
+    "normName": "kreaai",
+    "ticker": "KREAAI",
+    "domain": "krea.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_speechify_72d96a",
+    "name": "Speechify",
+    "normName": "speechify",
+    "ticker": "SPEECHFY",
+    "domain": "speechify.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_audioread_381127",
+    "name": "Audioread",
+    "normName": "audioread",
+    "ticker": "AUDIORED",
+    "domain": "audioread.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_podcastle_1f6fb5",
+    "name": "Podcastle",
+    "normName": "podcastle",
+    "ticker": "PODCASTL",
+    "domain": "podcastle.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_riverside_fm_16995f",
+    "name": "Riverside.fm",
+    "normName": "riverside.fm",
+    "ticker": "RIVERFM",
+    "domain": "riverside.fm",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_railway_e34d1c",
+    "name": "Railway",
+    "normName": "railway",
+    "ticker": "RAILWAYA",
+    "domain": "railway.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_zeabur_ab37ac",
+    "name": "Zeabur",
+    "normName": "zeabur",
+    "ticker": "ZEABUR",
+    "domain": "zeabur.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_devutils_46425e",
+    "name": "DevUtils",
+    "normName": "devutils",
+    "ticker": "DEVUTILS",
+    "domain": "devutils.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_xnapper_ba0abc",
+    "name": "Xnapper",
+    "normName": "xnapper",
+    "ticker": "XNAPPER",
+    "domain": "xnapper.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_black_magic_bde537",
+    "name": "Black Magic",
+    "normName": "blackmagic",
+    "ticker": "BLKMGC",
+    "domain": "blackmagic.so",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_goodlinks_68316e",
+    "name": "GoodLinks",
+    "normName": "goodlinks",
+    "ticker": "GOODLNKS",
+    "domain": "goodlinks.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_vivid_685ee5",
+    "name": "Vivid",
+    "normName": "vivid",
+    "ticker": "VIVIDAPP",
+    "domain": "getvivid.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_plunk_10a2aa",
+    "name": "Plunk",
+    "normName": "plunk",
+    "ticker": "PLUNKEML",
+    "domain": "useplunk.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_adapty_63fd9e",
+    "name": "Adapty",
+    "normName": "adapty",
+    "ticker": "ADAPTYIO",
+    "domain": "adapty.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_weglot_f00a14",
+    "name": "Weglot",
+    "normName": "weglot",
+    "ticker": "WEGLOTFR",
+    "domain": "weglot.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_tolgee_00b398",
+    "name": "Tolgee",
+    "normName": "tolgee",
+    "ticker": "TOLGEEIO",
+    "domain": "tolgee.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_localazy_1a6615",
+    "name": "Localazy",
+    "normName": "localazy",
+    "ticker": "LOCALAZY",
+    "domain": "localazy.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_crowdin_5a0ba8",
+    "name": "Crowdin",
+    "normName": "crowdin",
+    "ticker": "CROWDINUA",
+    "domain": "crowdin.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_finsweet_c96039",
+    "name": "Finsweet",
+    "normName": "finsweet",
+    "ticker": "FINSWEET",
+    "domain": "finsweet.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_relume_4d8e63",
+    "name": "Relume",
+    "normName": "relume",
+    "ticker": "RELUMEIO",
+    "domain": "relume.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_marsx_61d5de",
+    "name": "MarsX",
+    "normName": "marsx",
+    "ticker": "MARSXDEV",
+    "domain": "marsx.dev",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_devhunt_7d0e7a",
+    "name": "DevHunt",
+    "normName": "devhunt",
+    "ticker": "DEVHUNTIO",
+    "domain": "devhunt.org",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_landingfolio_e0eaff",
+    "name": "Landingfolio",
+    "normName": "landingfolio",
+    "ticker": "LNDGFOLIO",
+    "domain": "landingfolio.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_bento_me_c1b3e3",
+    "name": "Bento.me",
+    "normName": "bento.me",
+    "ticker": "BENTOME",
+    "domain": "bento.me",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_untitled_ui_53545a",
+    "name": "Untitled UI",
+    "normName": "untitledui",
+    "ticker": "UNTITLEUI",
+    "domain": "untitledui.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_shipixen_78c44d",
+    "name": "Shipixen",
+    "normName": "shipixen",
+    "ticker": "SHIPIXEN",
+    "domain": "shipixen.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_divjoy_3111be",
+    "name": "Divjoy",
+    "normName": "divjoy",
+    "ticker": "DIVJOYIO",
+    "domain": "divjoy.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_nextless_js_09e412",
+    "name": "Nextless.js",
+    "normName": "nextless.js",
+    "ticker": "NXTLSSJS",
+    "domain": "nextlessjs.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_gravity_d4e3fc",
+    "name": "Gravity",
+    "normName": "gravity",
+    "ticker": "GRAVITYUK",
+    "domain": "usegravity.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_tabler_icons_86f533",
+    "name": "Tabler Icons",
+    "normName": "tablericons",
+    "ticker": "TABLERICN",
+    "domain": "tabler.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_lordicon_c609ed",
+    "name": "Lordicon",
+    "normName": "lordicon",
+    "ticker": "LORDICON",
+    "domain": "lordicon.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_streamline_59afb3",
+    "name": "Streamline",
+    "normName": "streamline",
+    "ticker": "STREAMLNE",
+    "domain": "streamlinehq.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_undraw_ba4350",
+    "name": "unDraw",
+    "normName": "undraw",
+    "ticker": "UNDRAWIO",
+    "domain": "undraw.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_mobbin_09d00f",
+    "name": "Mobbin",
+    "normName": "mobbin",
+    "ticker": "MOBBINCO",
+    "domain": "mobbin.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_pageflows_a7c2b9",
+    "name": "PageFlows",
+    "normName": "pageflows",
+    "ticker": "PAGEFLOWS",
+    "domain": "pageflows.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_refero_design_a7f2cc",
+    "name": "Refero.design",
+    "normName": "refero.design",
+    "ticker": "REFERODSG",
+    "domain": "refero.design",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_screenlane_2e8603",
+    "name": "Screenlane",
+    "normName": "screenlane",
+    "ticker": "SCRNLANE",
+    "domain": "screenlane.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_really_good_emails_b66581",
+    "name": "Really Good Emails",
+    "normName": "reallygoodemails",
+    "ticker": "RGOODEML",
+    "domain": "reallygoodemails.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_draftbit_2a1a95",
+    "name": "Draftbit",
+    "normName": "draftbit",
+    "ticker": "DRAFTBIT",
+    "domain": "draftbit.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_toddle_ccc793",
+    "name": "Toddle",
+    "normName": "toddle",
+    "ticker": "TODDLEDEV",
+    "domain": "toddle.dev",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_weweb_87761b",
+    "name": "WeWeb",
+    "normName": "weweb",
+    "ticker": "WEWEBIO",
+    "domain": "weweb.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_flutterflow_48a36b",
+    "name": "FlutterFlow",
+    "normName": "flutterflow",
+    "ticker": "FLUTTERFL",
+    "domain": "flutterflow.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_buildship_39efd1",
+    "name": "BuildShip",
+    "normName": "buildship",
+    "ticker": "BUILDSHIP",
+    "domain": "buildship.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_rowy_9cf14f",
+    "name": "Rowy",
+    "normName": "rowy",
+    "ticker": "ROWYIO",
+    "domain": "rowy.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_nocodb_42885d",
+    "name": "NocoDB",
+    "normName": "nocodb",
+    "ticker": "NOCODBIO",
+    "domain": "nocodb.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_appflowy_911e94",
+    "name": "AppFlowy",
+    "normName": "appflowy",
+    "ticker": "APPFLOWY",
+    "domain": "appflowy.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_affine_d18b0d",
+    "name": "AFFiNE",
+    "normName": "affine",
+    "ticker": "AFFINEO",
+    "domain": "affine.pro",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_breakcold_303e14",
+    "name": "Breakcold",
+    "normName": "breakcold",
+    "ticker": "BREAKCLD",
+    "domain": "breakcold.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_sparkloop_7ea1a3",
+    "name": "SparkLoop",
+    "normName": "sparkloop",
+    "ticker": "SPARKLOOP",
+    "domain": "sparkloop.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_firstpromoter_947807",
+    "name": "FirstPromoter",
+    "normName": "firstpromoter",
+    "ticker": "FIRSTPRMT",
+    "domain": "firstpromoter.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_tolt_60ea1b",
+    "name": "Tolt",
+    "normName": "tolt",
+    "ticker": "TOLTIO",
+    "domain": "tolt.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_promotekit_6ae070",
+    "name": "PromoteKit",
+    "normName": "promotekit",
+    "ticker": "PROMOTKT",
+    "domain": "promotekit.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_brand24_f4c972",
+    "name": "Brand24",
+    "normName": "brand24",
+    "ticker": "BRAND24PL",
+    "domain": "brand24.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_syften_7bb9c1",
+    "name": "Syften",
+    "normName": "syften",
+    "ticker": "SYFTENIO",
+    "domain": "syften.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_kwatch_io_fb50b4",
+    "name": "KWatch.io",
+    "normName": "kwatch.io",
+    "ticker": "KWATCHIO",
+    "domain": "kwatch.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_tinykiwi_3c51b6",
+    "name": "TinyKiwi",
+    "normName": "tinykiwi",
+    "ticker": "TNYKIWIO",
+    "domain": "tinykiwi.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_mailbrew_c71e2a",
+    "name": "Mailbrew",
+    "normName": "mailbrew",
+    "ticker": "MAILBREW",
+    "domain": "mailbrew.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_chirr_app_d33bca",
+    "name": "Chirr App",
+    "normName": "chirrapp",
+    "ticker": "CHIRRAPP",
+    "domain": "chirrapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_audienceful_e5937d",
+    "name": "Audienceful",
+    "normName": "audienceful",
+    "ticker": "AUDIENCE",
+    "domain": "audienceful.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_letterdrop_7f9b8d",
+    "name": "Letterdrop",
+    "normName": "letterdrop",
+    "ticker": "LTRDROP",
+    "domain": "letterdrop.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_convertbox_9883c5",
+    "name": "ConvertBox",
+    "normName": "convertbox",
+    "ticker": "CNVRTBOX",
+    "domain": "convertbox.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_sleeknote_bd24ec",
+    "name": "Sleeknote",
+    "normName": "sleeknote",
+    "ticker": "SLEEKNOT",
+    "domain": "sleeknote.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_nudgify_8d2f67",
+    "name": "Nudgify",
+    "normName": "nudgify",
+    "ticker": "NUDGIFY",
+    "domain": "nudgify.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_surfer_seo_c472db",
+    "name": "Surfer SEO",
+    "normName": "surferseo",
+    "ticker": "SURFRSEO",
+    "domain": "surferseo.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_neuronwriter_b95856",
+    "name": "NeuronWriter",
+    "normName": "neuronwriter",
+    "ticker": "NRNWRITR",
+    "domain": "neuronwriter.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_clearscope_22a1ca",
+    "name": "Clearscope",
+    "normName": "clearscope",
+    "ticker": "CLRSCOPE",
+    "domain": "clearscope.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_seowind_2a0d53",
+    "name": "SEOwind",
+    "normName": "seowind",
+    "ticker": "SEOWIND",
+    "domain": "seowind.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_mangools_f79a1b",
+    "name": "Mangools",
+    "normName": "mangools",
+    "ticker": "MANGOOLS",
+    "domain": "mangools.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_keysearch_be8d77",
+    "name": "Keysearch",
+    "normName": "keysearch",
+    "ticker": "KEYSRCH",
+    "domain": "keysearch.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_wincher_6f3d33",
+    "name": "Wincher",
+    "normName": "wincher",
+    "ticker": "WINCHER",
+    "domain": "wincher.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_nightwatch_da7a7e",
+    "name": "Nightwatch",
+    "normName": "nightwatch",
+    "ticker": "NGHTWTCH",
+    "domain": "nightwatch.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_sitechecker_c62233",
+    "name": "Sitechecker",
+    "normName": "sitechecker",
+    "ticker": "SITCHCKR",
+    "domain": "sitechecker.pro",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_seoptimer_8008c8",
+    "name": "SEOptimer",
+    "normName": "seoptimer",
+    "ticker": "SEOPTIMR",
+    "domain": "seoptimer.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_rank_math_5f0e5e",
+    "name": "Rank Math",
+    "normName": "rankmath",
+    "ticker": "RANKMATH",
+    "domain": "rankmath.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_novashare_3fcc71",
+    "name": "Novashare",
+    "normName": "novashare",
+    "ticker": "NOVASHR",
+    "domain": "novashare.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_perfmatters_7671dd",
+    "name": "Perfmatters",
+    "normName": "perfmatters",
+    "ticker": "PERFMATR",
+    "domain": "perfmatters.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_wp_rocket_bae671",
+    "name": "WP Rocket",
+    "normName": "wprocket",
+    "ticker": "WPROCKET",
+    "domain": "wp-rocket.me",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
+    "id": "ent_seopress_eb7d51",
+    "name": "SEOPress",
+    "normName": "seopress",
+    "ticker": "SEOPRESS",
+    "domain": "seopress.org",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED"
+  },
+  {
     "id": "ent_submagic_c66b29",
     "name": "Submagic",
     "normName": "submagic",
