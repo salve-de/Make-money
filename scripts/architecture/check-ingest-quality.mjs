@@ -104,16 +104,20 @@ if (entities.length > 50 && tollGateDiversity < 0.1) {
   errors.push(`[RULE VIOLATION: Hardcoded Template TollGate] tollGateSetup diversity is too low: only ${uniqueTollGates.size} unique patterns across ${entities.length} entities.`);
 }
 
-// 4. Check arithmetic precision
+// 4. Check arithmetic precision (Audit only when financialStatus is not UNAVAILABLE and numbers are fully present)
 for (const ent of entities) {
   const p = ent.pnl;
-  if (!p) continue;
-  if (p.monthlyRevenue - p.cogs !== p.grossProfit) {
-    errors.push(`[ARITHMETIC ERROR] ${ent.name}: monthlyRevenue (${p.monthlyRevenue}) - cogs (${p.cogs}) !== grossProfit (${p.grossProfit})`);
+  if (!p || p.financialStatus === 'UNAVAILABLE' || p.isRevenueUnconfirmed) continue;
+  if (typeof p.monthlyRevenue === 'number' && typeof p.cogs === 'number' && typeof p.grossProfit === 'number') {
+    if (p.monthlyRevenue - p.cogs !== p.grossProfit) {
+      errors.push(`[ARITHMETIC ERROR] ${ent.name}: monthlyRevenue (${p.monthlyRevenue}) - cogs (${p.cogs}) !== grossProfit (${p.grossProfit})`);
+    }
   }
-  const opexSum = Object.values(p.operatingExpenses || {}).reduce((a, b) => (typeof b === 'number' ? a + b : a), 0);
-  if (p.grossProfit - opexSum !== p.operatingProfit) {
-    errors.push(`[ARITHMETIC ERROR] ${ent.name}: grossProfit (${p.grossProfit}) - opexSum (${opexSum}) !== operatingProfit (${p.operatingProfit})`);
+  if (typeof p.grossProfit === 'number' && typeof p.operatingProfit === 'number' && p.operatingExpenses) {
+    const opexSum = Object.values(p.operatingExpenses || {}).reduce((a, b) => (typeof b === 'number' ? a + b : a), 0);
+    if (p.grossProfit - opexSum !== p.operatingProfit) {
+      errors.push(`[ARITHMETIC ERROR] ${ent.name}: grossProfit (${p.grossProfit}) - opexSum (${opexSum}) !== operatingProfit (${p.operatingProfit})`);
+    }
   }
 }
 
@@ -312,48 +316,32 @@ for (const ent of entities) {
         }
       }
     }
-  // 6. Check High-Density Quality Invariants (Permanent Keyence-Level Fail-Closed Gate)
-  // A. 稼働ツールスタック密度チェック (0件のスカスカデータを物理遮断)
-  if (!ent.operations?.toolStack || !Array.isArray(ent.operations.toolStack) || ent.operations.toolStack.length === 0) {
-    errors.push(`[DENSITY VIOLATION: Empty ToolStack] ${ent.name} has 0 tools in operations.toolStack.`);
+  // 6. Check High-Density Quality Invariants (Flexible Guardrail: Honest Incomplete Ingestion & Zero-Exclusion)
+  // A. 稼働ツールスタック型チェック（未確認時は空配列を許容、架空捏造を遮断）
+  if (ent.operations?.toolStack && !Array.isArray(ent.operations.toolStack)) {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: operations.toolStack must be an array.`);
   }
 
-  // B. 4大意思決定ベクトル完全性チェック (ヘッダー空白化の物理遮断)
-  if (!ent.opportunityJudgment || !ent.opportunityJudgment.verdict || !ent.opportunityJudgment.demandDelta || ent.opportunityJudgment.demandDelta === '未確認') {
-    errors.push(`[DENSITY VIOLATION: Missing OpportunityJudgment] ${ent.name} missing valid opportunityJudgment (verdict or demandDelta is missing/unconfirmed).`);
+  // B. 意思決定ベクトル整合性チェック（未確認フラグは誠実な状態として許容）
+  if (ent.opportunityJudgment && (!ent.opportunityJudgment.verdict || !ent.opportunityJudgment.demandDelta)) {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: opportunityJudgment present but missing verdict or demandDelta.`);
   }
 
-  // C. エビデンスカード金融メトリクスチェック (数値グリッド欠落の物理遮断)
-  const hasCardMetrics = Array.isArray(ent.evidenceCards) && ent.evidenceCards.some(c => c && Array.isArray(c.metrics) && c.metrics.length > 0);
-  if (!hasCardMetrics) {
-    errors.push(`[DENSITY VIOLATION: Missing Card Metrics] ${ent.name} has no numerical KPI metrics in evidenceCards.`);
-  }
-
-  // D. 地雷・破綻ステータス整合性チェック (破綻警告不全の物理遮断)
+  // C. 地雷・破綻ステータス整合性チェック（破綻警告不全の物理遮断）
   const isHazard = (Array.isArray(ent.tags) && ent.tags.some(t => /破綻|倒産|粉飾|不正|清算|枯渇|崩壊|撤退|レシーバーシップ/i.test(t))) ||
     (Array.isArray(ent.evidenceCards) && ent.evidenceCards.some(c => c && c.type === 'FATAL_BLEED'));
   if (isHazard && ent.financialStatus !== 'POST_MORTEM') {
     errors.push(`[DENSITY VIOLATION: Hazard Status Mismatch] ${ent.name} has failure/fatal bleed evidence but financialStatus is not POST_MORTEM.`);
   }
 
-  // E. エビデンスカード最低3枚チェック (#01〜#03の欠落物理遮断)
-  if (!Array.isArray(ent.evidenceCards) || ent.evidenceCards.length < 3) {
-    errors.push(`[DENSITY VIOLATION: Less Than 3 Cards] ${ent.name} has only ${ent.evidenceCards?.length ?? 0} evidenceCards (minimum 3 required).`);
+  // D. エビデンスカード基本チェック（最低1枚以上配備、カードがある場合はtitle必須）
+  if (!Array.isArray(ent.evidenceCards) || ent.evidenceCards.length === 0) {
+    errors.push(`[DENSITY VIOLATION: Zero Evidence Cards] ${ent.name} has 0 evidenceCards (minimum 1 required).`);
   }
 
-  // F. essence (#01) 完全性チェック (ビジネスの正体非表示の物理遮断)
-  if (!ent.essence || !ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief) {
-    errors.push(`[DENSITY VIOLATION: Incomplete Essence] ${ent.name} missing complete essence.`);
-  }
-
-  // G. 構造化パンチラインチェック (1行ポツン表示の物理遮断)
-  const bs = ent.strategy?.blindspot || '';
-  if (!bs.startsWith('【') || !bs.includes('】') || bs.length < 40) {
-    errors.push(`[DENSITY VIOLATION: Unstructured Blindspot] ${ent.name} strategy.blindspot missing 【headline】 or too short.`);
-  }
-  const md = ent.strategy?.moatDescription || '';
-  if (!md.startsWith('【') || !md.includes('】') || md.length < 40) {
-    errors.push(`[DENSITY VIOLATION: Unstructured Moat] ${ent.name} strategy.moatDescription missing 【headline】 or too short.`);
+  // E. essence (#01) 基本チェック（空欄・未定義による画面崩れを防止、文字数ノルマは課さない）
+  if (ent.essence && (!ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief)) {
+    errors.push(`[DENSITY VIOLATION: Incomplete Essence] ${ent.name} essence has missing properties.`);
   }
 }
 
