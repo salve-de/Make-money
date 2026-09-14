@@ -41,209 +41,230 @@ export function SankeyCashFlowDiagram({
     : Math.max(100 - cogsPct - opexPct, 5);
 
   useEffect(() => {
-    if (!chartRef.current) return;
+    const el = chartRef.current;
+    if (!el) return;
 
-    if (!chartInstance.current) {
-      chartInstance.current = echarts.init(chartRef.current, 'dark');
+    let myChart = chartInstance.current;
+    if (!myChart) {
+      myChart = echarts.init(el, 'dark');
+      chartInstance.current = myChart;
     }
-    const myChart = chartInstance.current;
 
-    if (viewType === 'SANKEY') {
-      // ----------------------------------------------------
-      // 1. Apache ECharts 本格サンキー図オプション
-      // ----------------------------------------------------
-      const option: echarts.EChartsOption = {
-        backgroundColor: 'transparent',
-        tooltip: {
-          trigger: 'item',
-          triggerOn: 'mousemove',
-          backgroundColor: 'rgba(10, 13, 20, 0.95)',
-          borderColor: 'rgba(255, 255, 255, 0.15)',
-          borderWidth: 1,
-          textStyle: { color: '#f1f5f9', fontSize: 12, fontFamily: 'monospace' },
-          formatter: (params: unknown) => {
-            const p = params as { dataType?: string; name?: string; value?: number; data?: { source?: string; target?: string } };
-            if (p.dataType === 'edge' && p.data && typeof p.value === 'number') {
-              const pct = rev > 0 ? Math.round((p.value / rev) * 100) : 0;
-              return `<div style="font-weight:bold;margin-bottom:4px;">${p.data.source} ➔ ${p.data.target}</div>` +
-                     `<div style="color:#38bdf8;">金額: ${formatMoney(p.value)} (${pct}%)</div>`;
-            }
-            return `<div style="font-weight:bold;">${p.name || ''}</div>`;
-          }
-        },
-        series: [
-          {
-            type: 'sankey',
-            layout: 'none',
-            top: 20,
-            bottom: 20,
-            left: 30,
-            right: 140,
-            nodeWidth: 18,
-            nodeGap: 24,
-            draggable: true,
-            emphasis: {
-              focus: 'adjacency',
-              lineStyle: { opacity: 0.85 }
-            },
-            data: [
-              {
-                name: '売上高 (100%)',
-                itemStyle: { color: '#06b6d4', borderColor: '#22d3ee', borderWidth: 1 }
-              },
-              ...(cogs > 0 ? [{
-                name: `売上原価 (${cogsPct}%)`,
-                itemStyle: { color: '#f43f5e', borderColor: '#fb7185', borderWidth: 1 }
-              }] : []),
-              ...(totalOpex > 0 ? [{
-                name: `販管費 (${opexPct}%)`,
-                itemStyle: { color: '#f59e0b', borderColor: '#fbbf24', borderWidth: 1 }
-              }] : []),
-              {
-                name: isLoss ? `営業赤字 (-${profitPct}%)` : `営業利益 (+${profitPct}%)`,
-                itemStyle: {
-                  color: isLoss ? '#ef4444' : '#10b981',
-                  borderColor: isLoss ? '#f87171' : '#34d399',
-                  borderWidth: 1.5
-                }
+    const renderChart = () => {
+      if (!el || !myChart) return;
+      if (el.clientWidth <= 0 || el.clientHeight <= 0) return;
+
+      let option: echarts.EChartsOption;
+
+      if (viewType === 'SANKEY') {
+        // ----------------------------------------------------
+        // 1. Apache ECharts 本格サンキー図オプション
+        // ----------------------------------------------------
+        option = {
+          backgroundColor: 'transparent',
+          tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove',
+            backgroundColor: 'rgba(10, 13, 20, 0.95)',
+            borderColor: 'rgba(255, 255, 255, 0.15)',
+            borderWidth: 1,
+            textStyle: { color: '#f1f5f9', fontSize: 12, fontFamily: 'monospace' },
+            formatter: (params: unknown) => {
+              const p = params as { dataType?: string; name?: string; value?: number; data?: { source?: string; target?: string } };
+              if (p.dataType === 'edge' && p.data && typeof p.value === 'number') {
+                const pct = rev > 0 ? Math.round((p.value / rev) * 100) : 0;
+                return `<div style="font-weight:bold;margin-bottom:4px;">${p.data.source} ➔ ${p.data.target}</div>` +
+                       `<div style="color:#38bdf8;">金額: ${formatMoney(p.value)} (${pct}%)</div>`;
               }
-            ],
-            links: [
-              ...(cogs > 0 ? [{
-                source: '売上高 (100%)',
-                target: `売上原価 (${cogsPct}%)`,
-                value: cogs,
-                lineStyle: {
-                  color: 'gradient',
-                  opacity: 0.45,
-                  curveness: 0.5
-                }
-              }] : []),
-              ...(totalOpex > 0 ? [{
-                source: '売上高 (100%)',
-                target: `販管費 (${opexPct}%)`,
-                value: totalOpex,
-                lineStyle: {
-                  color: 'gradient',
-                  opacity: 0.45,
-                  curveness: 0.5
-                }
-              }] : []),
-              {
-                source: '売上高 (100%)',
-                target: isLoss ? `営業赤字 (-${profitPct}%)` : `営業利益 (+${profitPct}%)`,
-                value: Math.max(Math.abs(profit), rev * 0.05),
-                lineStyle: {
-                  color: 'gradient',
-                  opacity: 0.65,
-                  curveness: 0.5
-                }
-              }
-            ],
-            label: {
-              color: '#cbd5e1',
-              fontFamily: 'monospace',
-              fontSize: 11,
-              fontWeight: 'bold',
-              position: 'right'
-            },
-            lineStyle: {
-              color: 'gradient',
-              curveness: 0.5
+              return `<div style="font-weight:bold;">${p.name || ''}</div>`;
             }
-          }
-        ]
-      };
-      myChart.setOption(option, true);
-    } else {
-      // ----------------------------------------------------
-      // 2. Apache ECharts ウォーターフォール階段グラフ
-      // ----------------------------------------------------
-      const grossProfit = rev - cogs;
-      const option: echarts.EChartsOption = {
-        backgroundColor: 'transparent',
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: { type: 'shadow' },
-          backgroundColor: 'rgba(10, 13, 20, 0.95)',
-          borderColor: 'rgba(255, 255, 255, 0.15)',
-          textStyle: { color: '#f1f5f9', fontFamily: 'monospace' },
-          formatter: (params: unknown) => {
-            const arr = params as Array<{ name?: string; value?: number }>;
-            const tar = arr?.[1];
-            if (!tar) return '';
-            return `<div style="font-weight:bold;">${tar.name || ''}</div>` +
-                   `<div style="color:#38bdf8;">金額: ${formatMoney(Math.abs(tar.value || 0))}</div>`;
-          }
-        },
-        grid: {
-          top: 30,
-          bottom: 30,
-          left: 60,
-          right: 30
-        },
-        xAxis: {
-          type: 'category',
-          data: ['① 売上高', '② 原価控除', '③ 粗利益', '④ 販管費控除', '⑤ 営業利益'],
-          axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.15)' } },
-          axisLabel: { color: '#94a3b8', fontFamily: 'monospace', fontSize: 10 }
-        },
-        yAxis: {
-          type: 'value',
-          splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.06)' } },
-          axisLabel: {
-            color: '#64748b',
-            fontFamily: 'monospace',
-            formatter: (v: number) => formatMoney(v)
-          }
-        },
-        series: [
-          {
-            name: 'プレースホルダー',
-            type: 'bar',
-            stack: 'Total',
-            itemStyle: { borderColor: 'transparent', color: 'transparent' },
-            emphasis: { itemStyle: { borderColor: 'transparent', color: 'transparent' } },
-            data: [0, grossProfit, 0, Math.max(profit, 0), 0]
           },
-          {
-            name: '損益',
-            type: 'bar',
-            stack: 'Total',
-            label: {
-              show: true,
-              position: 'top',
-              color: '#f8fafc',
-              fontFamily: 'monospace',
-              fontSize: 10,
-              formatter: (p: { value?: unknown }) => formatMoney(Math.abs(Number(p.value) || 0))
-            },
-            data: [
-              { value: rev, itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
-              { value: cogs, itemStyle: { color: '#f43f5e', borderRadius: [4, 4, 0, 0] } },
-              { value: grossProfit, itemStyle: { color: '#38bdf8', borderRadius: [4, 4, 0, 0] } },
-              { value: totalOpex, itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } },
-              {
-                value: Math.abs(profit),
-                itemStyle: {
-                  color: isLoss ? '#ef4444' : '#10b981',
-                  borderRadius: [4, 4, 0, 0]
+          series: [
+            {
+              type: 'sankey',
+              layout: 'none',
+              top: 20,
+              bottom: 20,
+              left: 30,
+              right: 140,
+              nodeWidth: 18,
+              nodeGap: 24,
+              draggable: true,
+              emphasis: {
+                focus: 'adjacency',
+                lineStyle: { opacity: 0.85 }
+              },
+              data: [
+                {
+                  name: '売上高 (100%)',
+                  itemStyle: { color: '#06b6d4', borderColor: '#22d3ee', borderWidth: 1 }
+                },
+                ...(cogs > 0 ? [{
+                  name: `売上原価 (${cogsPct}%)`,
+                  itemStyle: { color: '#f43f5e', borderColor: '#fb7185', borderWidth: 1 }
+                }] : []),
+                ...(totalOpex > 0 ? [{
+                  name: `販管費 (${opexPct}%)`,
+                  itemStyle: { color: '#f59e0b', borderColor: '#fbbf24', borderWidth: 1 }
+                }] : []),
+                {
+                  name: isLoss ? `営業赤字 (-${profitPct}%)` : `営業利益 (+${profitPct}%)`,
+                  itemStyle: {
+                    color: isLoss ? '#ef4444' : '#10b981',
+                    borderColor: isLoss ? '#f87171' : '#34d399',
+                    borderWidth: 1.5
+                  }
                 }
+              ],
+              links: [
+                ...(cogs > 0 ? [{
+                  source: '売上高 (100%)',
+                  target: `売上原価 (${cogsPct}%)`,
+                  value: cogs,
+                  lineStyle: {
+                    color: 'gradient',
+                    opacity: 0.45,
+                    curveness: 0.5
+                  }
+                }] : []),
+                ...(totalOpex > 0 ? [{
+                  source: '売上高 (100%)',
+                  target: `販管費 (${opexPct}%)`,
+                  value: totalOpex,
+                  lineStyle: {
+                    color: 'gradient',
+                    opacity: 0.45,
+                    curveness: 0.5
+                  }
+                }] : []),
+                {
+                  source: '売上高 (100%)',
+                  target: isLoss ? `営業赤字 (-${profitPct}%)` : `営業利益 (+${profitPct}%)`,
+                  value: Math.max(Math.abs(profit), rev * 0.05),
+                  lineStyle: {
+                    color: 'gradient',
+                    opacity: 0.65,
+                    curveness: 0.5
+                  }
+                }
+              ],
+              label: {
+                color: '#cbd5e1',
+                fontFamily: 'monospace',
+                fontSize: 11,
+                fontWeight: 'bold',
+                position: 'right'
+              },
+              lineStyle: {
+                color: 'gradient',
+                curveness: 0.5
               }
-            ]
-          }
-        ]
-      };
-      myChart.setOption(option, true);
-    }
+            }
+          ]
+        };
+      } else {
+        // ----------------------------------------------------
+        // 2. Apache ECharts ウォーターフォール階段グラフ
+        // ----------------------------------------------------
+        const grossProfit = rev - cogs;
+        option = {
+          backgroundColor: 'transparent',
+          tooltip: {
+            trigger: 'axis',
+            axisPointer: { type: 'shadow' },
+            backgroundColor: 'rgba(10, 13, 20, 0.95)',
+            borderColor: 'rgba(255, 255, 255, 0.15)',
+            textStyle: { color: '#f1f5f9', fontFamily: 'monospace' },
+            formatter: (params: unknown) => {
+              const arr = params as Array<{ name?: string; value?: number }>;
+              const tar = arr?.[1];
+              if (!tar) return '';
+              return `<div style="font-weight:bold;">${tar.name || ''}</div>` +
+                     `<div style="color:#38bdf8;">金額: ${formatMoney(Math.abs(tar.value || 0))}</div>`;
+            }
+          },
+          grid: {
+            top: 30,
+            bottom: 30,
+            left: 60,
+            right: 30
+          },
+          xAxis: {
+            type: 'category',
+            data: ['① 売上高', '② 原価控除', '③ 粗利益', '④ 販管費控除', '⑤ 営業利益'],
+            axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.15)' } },
+            axisLabel: { color: '#94a3b8', fontFamily: 'monospace', fontSize: 10 }
+          },
+          yAxis: {
+            type: 'value',
+            splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.06)' } },
+            axisLabel: {
+              color: '#64748b',
+              fontFamily: 'monospace',
+              formatter: (v: number) => formatMoney(v)
+            }
+          },
+          series: [
+            {
+              name: 'プレースホルダー',
+              type: 'bar',
+              stack: 'Total',
+              itemStyle: { borderColor: 'transparent', color: 'transparent' },
+              emphasis: { itemStyle: { borderColor: 'transparent', color: 'transparent' } },
+              data: [0, grossProfit, 0, Math.max(profit, 0), 0]
+            },
+            {
+              name: '損益',
+              type: 'bar',
+              stack: 'Total',
+              label: {
+                show: true,
+                position: 'top',
+                color: '#f8fafc',
+                fontFamily: 'monospace',
+                fontSize: 10,
+                formatter: (p: { value?: unknown }) => formatMoney(Math.abs(Number(p.value) || 0))
+              },
+              data: [
+                { value: rev, itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
+                { value: cogs, itemStyle: { color: '#f43f5e', borderRadius: [4, 4, 0, 0] } },
+                { value: grossProfit, itemStyle: { color: '#38bdf8', borderRadius: [4, 4, 0, 0] } },
+                { value: totalOpex, itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } },
+                {
+                  value: Math.abs(profit),
+                  itemStyle: {
+                    color: isLoss ? '#ef4444' : '#10b981',
+                    borderRadius: [4, 4, 0, 0]
+                  }
+                }
+              ]
+            }
+          ]
+        };
+      }
 
-    const handleResize = () => {
-      myChart.resize();
+      try {
+        myChart.setOption(option, true);
+        myChart.resize();
+      } catch (err) {
+        console.error('[SankeyCashFlowDiagram] ECharts rendering suppressed:', err);
+      }
     };
-    window.addEventListener('resize', handleResize);
+
+    renderChart();
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+          myChart?.resize();
+          renderChart();
+        }
+      }
+    });
+    resizeObserver.observe(el);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
     };
   }, [viewType, rev, cogs, totalOpex, profit, isLoss, cogsPct, opexPct, profitPct, formatMoney]);
 

@@ -99,18 +99,21 @@ export function TradingViewFinancialChart({
 
     chart.timeScale().fitContent();
 
-    const handleResize = () => {
-      if (chartContainerRef.current) {
-        chart.applyOptions({
-          width: chartContainerRef.current.clientWidth,
-          height: chartContainerRef.current.clientHeight
-        });
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+          chart.applyOptions({
+            width: entry.contentRect.width,
+            height: entry.contentRect.height
+          });
+          chart.timeScale().fitContent();
+        }
       }
-    };
-    window.addEventListener('resize', handleResize);
+    });
+    resizeObserver.observe(chartContainerRef.current);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
       chart.remove();
       chartRef.current = null;
     };

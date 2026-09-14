@@ -46,149 +46,170 @@ export function FlywheelEngineDiagram({
     : cleanNodeTitle(cards[3]?.title || entity.strategy?.moat, '独自アセットへの再投資とモート強化');
 
   useEffect(() => {
-    if (!chartRef.current) return;
+    const el = chartRef.current;
+    if (!el) return;
 
-    if (!chartInstance.current) {
-      chartInstance.current = echarts.init(chartRef.current, 'dark');
+    let myChart = chartInstance.current;
+    if (!myChart) {
+      myChart = echarts.init(el, 'dark');
+      chartInstance.current = myChart;
     }
-    const myChart = chartInstance.current;
 
-    // 4方位ノードの座標 (X, Y: 0〜100)
-    // 0: 北 (50, 15)
-    // 1: 東 (85, 50)
-    // 2: 南 (50, 85)
-    // 3: 西 (15, 50)
-    // 4: 中央コア (50, 50)
+    const renderChart = () => {
+      if (!el || !myChart) return;
+      const width = el.clientWidth;
+      const height = el.clientHeight;
+      if (width <= 0 || height <= 0) return;
 
-    const option: echarts.EChartsOption = {
-      backgroundColor: 'transparent',
-      tooltip: {
-        trigger: 'item',
-        backgroundColor: 'rgba(10, 13, 20, 0.95)',
-        borderColor: 'rgba(255, 255, 255, 0.15)',
-        textStyle: { color: '#f8fafc', fontSize: 12, fontFamily: 'monospace' },
-        formatter: (params: unknown) => {
-          const p = params as { dataType?: string; data?: { source?: string; target?: string; name?: string; desc?: string } };
-          if (p.dataType === 'edge' && p.data) {
-            return `<div style="color:#38bdf8;">自己強化サイクル: ${p.data.source} ➔ ${p.data.target}</div>`;
+      const cx = width / 2;
+      const cy = height / 2;
+      const rx = Math.min(width * 0.36, 180);
+      const ry = Math.min(height * 0.36, 110);
+
+      const option: echarts.EChartsOption = {
+        backgroundColor: 'transparent',
+        tooltip: {
+          trigger: 'item',
+          backgroundColor: 'rgba(10, 13, 20, 0.95)',
+          borderColor: 'rgba(255, 255, 255, 0.15)',
+          textStyle: { color: '#f8fafc', fontSize: 12, fontFamily: 'monospace' },
+          formatter: (params: unknown) => {
+            const p = params as { dataType?: string; data?: { source?: string; target?: string; name?: string; desc?: string } };
+            if (p.dataType === 'edge' && p.data) {
+              return `<div style="color:#38bdf8;">自己強化サイクル: ${p.data.source} ➔ ${p.data.target}</div>`;
+            }
+            if (p.data) {
+              return `<div style="font-weight:bold;margin-bottom:2px;">${p.data.name || ''}</div>` +
+                     `<div style="color:#cbd5e1;font-size:11px;">${p.data.desc || ''}</div>`;
+            }
+            return '';
           }
-          if (p.data) {
-            return `<div style="font-weight:bold;margin-bottom:2px;">${p.data.name || ''}</div>` +
-                   `<div style="color:#cbd5e1;font-size:11px;">${p.data.desc || ''}</div>`;
-          }
-          return '';
-        }
-      },
-      series: [
-        {
-          type: 'graph',
-          layout: 'none',
-          coordinateSystem: undefined,
-          roam: false,
-          symbolSize: 45,
-          edgeSymbol: ['none', 'arrow'],
-          edgeSymbolSize: [4, 10],
-          label: {
-            show: true,
-            position: 'bottom',
-            color: '#f1f5f9',
-            fontSize: 11,
-            fontWeight: 'bold',
-            fontFamily: 'monospace',
-            formatter: '{b}'
-          },
-          data: [
-            {
-              name: '① コア価値確立',
-              desc: node1,
-              x: 50,
-              y: 18,
-              itemStyle: { color: '#06b6d4', borderColor: '#22d3ee', borderWidth: 2 },
-              label: { position: 'top', distance: 6 }
+        },
+        series: [
+          {
+            type: 'graph',
+            layout: 'none',
+            roam: false,
+            symbolSize: 45,
+            edgeSymbol: ['none', 'arrow'],
+            edgeSymbolSize: [4, 10],
+            label: {
+              show: true,
+              position: 'bottom',
+              color: '#f1f5f9',
+              fontSize: 11,
+              fontWeight: 'bold',
+              fontFamily: 'monospace',
+              formatter: '{b}'
             },
-            {
-              name: '② スイッチングコスト',
-              desc: node2,
-              x: 82,
-              y: 50,
-              itemStyle: { color: '#f59e0b', borderColor: '#fbbf24', borderWidth: 2 },
-              label: { position: 'right', distance: 6 }
-            },
-            {
-              name: '③ 超過利潤創出',
-              desc: node3,
-              x: 50,
-              y: 82,
-              itemStyle: { color: '#10b981', borderColor: '#34d399', borderWidth: 2 },
-              label: { position: 'bottom', distance: 6 }
-            },
-            {
-              name: '④ 独自資産再投資',
-              desc: node4,
-              x: 18,
-              y: 50,
-              itemStyle: { color: '#a855f7', borderColor: '#c084fc', borderWidth: 2 },
-              label: { position: 'left', distance: 6 }
-            },
-            {
-              name: isHazardMode ? '資本効率破綻' : 'モート自己強化',
-              desc: isHazardMode ? '規模拡大に伴う赤字増殖' : '規模拡大に伴う参入障壁強化',
-              x: 50,
-              y: 50,
-              symbolSize: 64,
-              itemStyle: {
-                color: isHazardMode ? '#7f1d1d' : '#0e3a47',
-                borderColor: isHazardMode ? '#ef4444' : '#06b6d4',
-                borderWidth: 2,
-                shadowBlur: 20,
-                shadowColor: isHazardMode ? 'rgba(239,68,68,0.5)' : 'rgba(6,182,212,0.5)'
+            data: [
+              {
+                name: '① コア価値確立',
+                desc: node1,
+                x: cx,
+                y: cy - ry,
+                itemStyle: { color: '#06b6d4', borderColor: '#22d3ee', borderWidth: 2 },
+                label: { position: 'top', distance: 6 }
               },
-              label: {
-                show: true,
-                position: 'inside',
-                color: '#ffffff',
-                fontSize: 10,
-                fontWeight: 900
+              {
+                name: '② スイッチングコスト',
+                desc: node2,
+                x: cx + rx,
+                y: cy,
+                itemStyle: { color: '#f59e0b', borderColor: '#fbbf24', borderWidth: 2 },
+                label: { position: 'right', distance: 6 }
+              },
+              {
+                name: '③ 超過利潤創出',
+                desc: node3,
+                x: cx,
+                y: cy + ry,
+                itemStyle: { color: '#10b981', borderColor: '#34d399', borderWidth: 2 },
+                label: { position: 'bottom', distance: 6 }
+              },
+              {
+                name: '④ 独自資産再投資',
+                desc: node4,
+                x: cx - rx,
+                y: cy,
+                itemStyle: { color: '#a855f7', borderColor: '#c084fc', borderWidth: 2 },
+                label: { position: 'left', distance: 6 }
+              },
+              {
+                name: isHazardMode ? '資本効率破綻' : 'モート自己強化',
+                desc: isHazardMode ? '規模拡大に伴う赤字増殖' : '規模拡大に伴う参入障壁強化',
+                x: cx,
+                y: cy,
+                symbolSize: 64,
+                itemStyle: {
+                  color: isHazardMode ? '#7f1d1d' : '#0e3a47',
+                  borderColor: isHazardMode ? '#ef4444' : '#06b6d4',
+                  borderWidth: 2,
+                  shadowBlur: 20,
+                  shadowColor: isHazardMode ? 'rgba(239,68,68,0.5)' : 'rgba(6,182,212,0.5)'
+                },
+                label: {
+                  show: true,
+                  position: 'inside',
+                  color: '#ffffff',
+                  fontSize: 10,
+                  fontWeight: 900
+                }
               }
+            ],
+            links: [
+              {
+                source: '① コア価値確立',
+                target: '② スイッチングコスト',
+                lineStyle: { curveness: 0.25, color: '#06b6d4', width: 2.5 }
+              },
+              {
+                source: '② スイッチングコスト',
+                target: '③ 超過利潤創出',
+                lineStyle: { curveness: 0.25, color: '#f59e0b', width: 2.5 }
+              },
+              {
+                source: '③ 超過利潤創出',
+                target: '④ 独自資産再投資',
+                lineStyle: { curveness: 0.25, color: '#10b981', width: 2.5 }
+              },
+              {
+                source: '④ 独自資産再投資',
+                target: '① コア価値確立',
+                lineStyle: { curveness: 0.25, color: '#a855f7', width: 2.5 }
+              }
+            ],
+            lineStyle: {
+              opacity: 0.85
             }
-          ],
-          links: [
-            {
-              source: '① コア価値確立',
-              target: '② スイッチングコスト',
-              lineStyle: { curveness: 0.25, color: '#06b6d4', width: 2.5 }
-            },
-            {
-              source: '② スイッチングコスト',
-              target: '③ 超過利潤創出',
-              lineStyle: { curveness: 0.25, color: '#f59e0b', width: 2.5 }
-            },
-            {
-              source: '③ 超過利潤創出',
-              target: '④ 独自資産再投資',
-              lineStyle: { curveness: 0.25, color: '#10b981', width: 2.5 }
-            },
-            {
-              source: '④ 独自資産再投資',
-              target: '① コア価値確立',
-              lineStyle: { curveness: 0.25, color: '#a855f7', width: 2.5 }
-            }
-          ],
-          lineStyle: {
-            opacity: 0.85
           }
+        ]
+      };
+
+      try {
+        myChart.setOption(option, true);
+        myChart.resize();
+      } catch (err) {
+        console.error('[FlywheelEngineDiagram] ECharts rendering suppressed:', err);
+      }
+    };
+
+    // 初期描画（要素サイズ確定時）
+    renderChart();
+
+    // ResizeObserver でモーダルアニメーション中やウィンドウ変更時にも自動再計算
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
+          myChart?.resize();
+          renderChart();
         }
-      ]
-    };
+      }
+    });
+    resizeObserver.observe(el);
 
-    myChart.setOption(option, true);
-
-    const handleResize = () => {
-      myChart.resize();
-    };
-    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
     };
   }, [node1, node2, node3, node4, isHazardMode]);
 
