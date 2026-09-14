@@ -67,10 +67,49 @@ export async function ingestVerifiedEntities(
     rawArtifacts: rawArtifacts ?? []
   }));
 
-  // 1. スキーマ & 算術整合性バリデーション
-  console.log('--- [1/4] Validating Schema & Financial Arithmetic Integrity ---');
+  // 1. スキーマ & 算術整合性 & 重複完全遮断バリデーション
+  console.log('--- [1/4] Validating Schema, Financial Arithmetic & Zero-Duplication Integrity ---');
+  const existingIndexPath = resolve(process.cwd(), 'data/entities-index.json');
+  const existingCatalog: FinancialEntity[] = JSON.parse(await readFile(existingIndexPath, 'utf8'));
+
+  const normalizeForDedup = (name: string) => name
+    .toLowerCase()
+    .trim()
+    .replace(/\b(inc|llc|corp|corporation|co|ltd|plc|gmbh|holdings)\b/g, '')
+    .replace(/[\s\-_・（）()株式会社有限会社]/g, '');
+
+  const existingIdMap = new Map(existingCatalog.map(e => [e.id.toLowerCase().trim(), e]));
+  const existingNormMap = new Map(existingCatalog.map(e => [normalizeForDedup(e.name), e]));
+  const batchSeenNorms = new Map<string, string>();
+  const batchSeenIds = new Map<string, string>();
+
   for (const { entity: ent } of sanitizedInputs) {
-    // A. スキーマチェック
+    // A. 重複検査（既存台帳との衝突 ＆ バッチ内重複の物理遮断）
+    const idLower = ent.id.toLowerCase().trim();
+    const norm = normalizeForDedup(ent.name);
+
+    if (batchSeenIds.has(idLower)) {
+      throw new Error(`[INGEST REJECTED: BATCH DUPLICATE ID] "${ent.name}" has duplicate ID "${ent.id}" within incoming batch.`);
+    }
+    batchSeenIds.set(idLower, ent.name);
+
+    if (norm.length > 2 && batchSeenNorms.has(norm)) {
+      throw new Error(`[INGEST REJECTED: BATCH DUPLICATE NAME] "${ent.name}" duplicates another entity in the same batch: "${batchSeenNorms.get(norm)}".`);
+    }
+    batchSeenNorms.set(norm, ent.name);
+
+    // 既存台帳との衝突判定（新規追加時）
+    const existingIdConflict = existingIdMap.get(idLower);
+    if (existingIdConflict && existingIdConflict.id !== ent.id) {
+      throw new Error(`[INGEST REJECTED: EXISTING ID DUPLICATE] ID "${ent.id}" conflicts with already collected entity "${existingIdConflict.name}".`);
+    }
+
+    const existingConflict = existingNormMap.get(norm);
+    if (existingConflict && existingConflict.id !== ent.id && ent.pnl?.financialStatus !== 'POST_MORTEM' && !ent.name.includes('検死')) {
+      throw new Error(`[INGEST REJECTED: EXISTING DUPLICATE] "${ent.name}" conflicts with already collected entity "${existingConflict.name}" (ID: ${existingConflict.id}). Collection was a waste of effort.`);
+    }
+
+    // B. スキーマチェック
     try {
       parseFinancialEntity(ent);
     } catch (err) {
@@ -78,7 +117,7 @@ export async function ingestVerifiedEntities(
       throw err;
     }
 
-    // B. 算術整合性チェック (1円・0.1%の狂いも許さない)
+    // C. 算術整合性チェック (1円・0.1%の狂いも許さない)
     const check = inspectFinancialIntegrity(ent.pnl);
     if (check.profitConflict || check.grossConflict || check.marginConflict) {
       const msg = `Arithmetic integrity FAILED for ${ent.name}: ` +
@@ -88,7 +127,7 @@ export async function ingestVerifiedEntities(
       throw new Error(msg);
     }
 
-    // C. 禁止造語パージチェック
+    // D. 禁止造語パージチェック
     const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
     const jsonStr = JSON.stringify(ent);
     for (const j of FORBIDDEN_JARGON) {

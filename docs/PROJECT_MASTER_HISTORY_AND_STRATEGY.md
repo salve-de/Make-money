@@ -1,5 +1,27 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-14 【確定】誰がどうやろうと例外なく物理拒絶する「多層関所ガバナンス（Ironclad Mechanical Governance）」の配備（Phase 179）
+
+### 1. ユーザー指示と病巣の解剖（User Command & Disease Diagnosis）
+- **ユーザー指示**:
+  - 「で、誰が　どうやろうと 絶対に みて従うようになっているのか？ 重複だろうが 集める内容だろうが なんだろうが」
+- **病巣の看破**:
+  - 「ルールを書きました」「ガイドに記載しました」という文書レベルの性善説は、外部AIや人間のサボり・見落としの前では無力である。
+  - 外部AIが集めてこようと、人間が手動で弄ろうと、別AIが適当にコミットしようと、「**物理的にシステムが拒絶・即死（exit code 1）させて1バイトもマージさせない機械的関所**」を、①インジェスト時、②Gitコミット時、③GitHub CIプッシュ時のすべてのパイプラインに配備する必要があった。
+
+### 2. 物理実装した4大鉄壁関所（The 4 Ironclad Gates）
+1. **第1関所：外部AIへの入口拘束（プロンプト強制力）**:
+   - `docs/DATA_COLLECTION_MASTER_GUIDE.md` 冒頭に「重複絶対禁止条項（332社事前照合）」を明記し、手戻りの完全ゼロを契約化。
+2. **第2関所：インジェストパイプラインの事前遮断（`scripts/pipeline/real-ingest-pipeline.ts`）**:
+   - データ取り込みスクリプト実行時、R2書き込みや目録更新の前に、既存台帳（`entities-index.json`）とのID・正規化社名重複、およびバッチ内重複を機械スキャン。
+   - 重複・算術狂い・禁止造語が1件でもあれば、即座に例外（`throw new Error`）で処理を完全中断。
+3. **第3関所：Git ローカルコミットの物理遮断（`.git/hooks/pre-commit`）**:
+   - 人間やAIがローカルで `git commit` を叩いた瞬間に `pnpm lint` が強制発動。重複やリント違反があればPC上でコミットを物理拒絶。
+4. **第4関所：GitHub Actions リモートCIの完全監視（`.github/workflows/quality.yml`）**:
+   - `codex/**`, `feature/**`, `fix/**` を含む全ブランチプッシュに対して、GitHub上で `lint`, `typecheck`, `test` が完全強制発動。違反コードは世界レベルでブロック。
+
+---
+
 ## 2026-09-14 【確定】重複撲滅・無駄足ゼロ要塞の物理構築 ＆ ファジー一括重複判定CLI・インジェスト遮断ガードレール・マスターガイド最高契約配備（Phase 178）
 
 ### 1. ユーザー指示と病巣の解剖（User Command & Disease Diagnosis）
