@@ -19,6 +19,7 @@ import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
 import { VisualPipelineSection } from './ui/VisualPipelineSection';
 import { SankeyCashFlowDiagram } from './ui/SankeyCashFlowDiagram';
 import { FlywheelEngineDiagram } from './ui/FlywheelEngineDiagram';
+import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
 import type { InspectorViewMode } from './model/section-props';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -153,10 +154,10 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
           <RelatedResearch {...sectionProps} />
 
-          {/* 1. 【最上段】直感サマリー（表の顔 / 裏の正体 / 儲けのツボ） */}
+          {/* 1. 【最上段】エグゼクティブ・サマリー（事業規模 / 顧客ペイン / 構造的モート） */}
           <ExecutiveIntuitiveSummary {...sectionProps} />
 
-          {/* 2. 【第2段】お金の配管図（誰の弱み ➔ どう現金を吸い上げるか ➔ 通帳手残り） */}
+          {/* 2. 【第2段】キャッシュ創出構造（顧客ペイン ➔ 価格決定力 ➔ 営業利益創出） */}
           <VisualPipelineSection {...sectionProps} />
 
           {/* 3. 【図表強化①】現金の滝（損益分岐サンキー図） */}
@@ -165,7 +166,10 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 4. 【図表強化②】自走増殖エンジン（独占のフライホイール円環図） */}
           {showBusiness && <FlywheelEngineDiagram {...sectionProps} />}
 
-          {/* 5. 【第3段】全体像・ビジネスの正体 */}
+          {/* 5. 【図表強化③】産業構造の変革（バリューチェーン中抜き対比図） */}
+          {showBusiness && <ValueChainDisruptionSection {...sectionProps} />}
+
+          {/* 6. 【第3段】全体像・ビジネスの正体 */}
           {showBusiness && <BusinessSections {...sectionProps} />}
 
           {/* 6. 【第4段】現金のレントゲン（P&L損益計算書・原価構造） */}

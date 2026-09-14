@@ -103,19 +103,19 @@ export function SankeyCashFlowDiagram({
           <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
             isHazardMode ? 'text-red-300' : 'text-zinc-100'
           }`}>
-            {isHazardMode ? '現金の流出・出血サンキー図 (CASH BLEED WATERFALL)' : '現金の滝：損益分岐サンキー図 (SANKEY CASH WATERFALL)'}
+            {isHazardMode ? 'キャッシュバーン構造：資本流出ウォーターフォール' : 'キャッシュ創出構造：損益分岐サンキー図 (SANKEY CASH WATERFALL)'}
           </h3>
         </div>
         <div className="flex items-center gap-3 text-[10px] font-mono text-zinc-400">
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-cyan-400/80 shadow-[0_0_6px_rgba(6,182,212,0.6)] inline-block" /> 流入
+            <span className="w-2 h-2 rounded-full bg-cyan-400/80 shadow-[0_0_6px_rgba(6,182,212,0.6)] inline-block" /> 売上流入
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-rose-400/80 inline-block" /> 原価
+            <span className="w-2 h-2 rounded-full bg-rose-400/80 inline-block" /> 売上原価
           </span>
           <span className="flex items-center gap-1.5">
             <span className={`w-2 h-2 rounded-full inline-block ${isLoss ? 'bg-red-500' : 'bg-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.8)]'}`} />
-            {isLoss ? '出血赤字' : '手残り純益'}
+            {isLoss ? '営業損失 (Burn)' : '営業利益 (EBIT)'}
           </span>
         </div>
       </div>
@@ -317,7 +317,7 @@ export function SankeyCashFlowDiagram({
             </g>
           )}
 
-          {/* ---------------- 右端下：創業者手残り（営業利益）バー ---------------- */}
+          {/* ---------------- 右端下：営業利益（EBIT）バー ---------------- */}
           {!isLoss && profitH > 0 && (
             <g>
               <rect
@@ -337,7 +337,7 @@ export function SankeyCashFlowDiagram({
                 fontWeight="bold"
                 fontFamily="monospace"
               >
-                創業者手残り (営業利益)
+                営業利益 (EBIT)
               </text>
               <text
                 x={endX + 20}
@@ -357,7 +357,7 @@ export function SankeyCashFlowDiagram({
                 fontWeight="bold"
                 fontFamily="monospace"
               >
-                手残り率 +{profitPct}%
+                営業利益率 +{profitPct}%
               </text>
             </g>
           )}
@@ -382,7 +382,7 @@ export function SankeyCashFlowDiagram({
                 fontWeight="bold"
                 fontFamily="monospace"
               >
-                出血赤字・資金流出
+                営業赤字 (Operating Burn)
               </text>
               <text
                 x={endX + 20}
@@ -401,7 +401,7 @@ export function SankeyCashFlowDiagram({
                 fontSize="11"
                 fontFamily="monospace"
               >
-                赤字率 {profitPct}%
+                営業赤字率 -{profitPct}%
               </text>
             </g>
           )}

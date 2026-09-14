@@ -46,11 +46,11 @@ export function VisualPipelineSection({
           <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
             isHazardMode ? 'text-red-300' : 'text-zinc-100'
           }`}>
-            {isHazardMode ? '出血の配管図：誰から奪われ、どこで資金が尽きたか' : 'お金の配管図：誰の弱みから、どう現金を吸い上げているか'}
+            {isHazardMode ? '資本出血構造：ユニットエコノミクスの崩壊要因' : 'キャッシュ創出構造：顧客ペインの解決から営業利益の創出まで'}
           </h3>
         </div>
         <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
-          現金の流れ（1秒ビジュアル）
+          キャッシュフロー構造
         </span>
       </div>
 
@@ -58,7 +58,7 @@ export function VisualPipelineSection({
       <div className="grid grid-cols-1 lg:grid-cols-11 gap-3 items-stretch relative">
 
         {/* ---------------------------------------------------- */}
-        {/* ブロック1: カモ / 顧客の急所（弱み） */}
+        {/* ブロック1: 対象市場と顧客の構造的ペイン */}
         {/* ---------------------------------------------------- */}
         <div className={`lg:col-span-3 rounded-lg p-3.5 border flex flex-col justify-between transition-all ${
           isHazardMode
@@ -69,7 +69,7 @@ export function VisualPipelineSection({
             <div className="flex items-center justify-between gap-1.5 mb-2">
               <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
                 <Users className="w-3 h-3 text-amber-400" />
-                ① 客の急所（財布の主）
+                ① 対象市場と顧客ペイン
               </span>
               <AlertTriangle className="w-3 h-3 text-amber-400/70" />
             </div>
@@ -79,7 +79,7 @@ export function VisualPipelineSection({
           </div>
           <div className="mt-2 pt-2 border-t border-white/[0.06] bg-black/20 -mx-3.5 -mb-3.5 p-3 rounded-b-lg">
             <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider block mb-0.5">
-              突かれた弱み・保身恐怖:
+              支払いを決定づける要因（WTP）:
             </span>
             <p className="text-zinc-300 text-[11px] leading-snug line-clamp-3">
               {painRelief}
@@ -93,13 +93,13 @@ export function VisualPipelineSection({
         <div className="lg:col-span-1 flex lg:flex-col items-center justify-center py-1 lg:py-0 text-zinc-500">
           <div className="flex items-center lg:flex-col gap-1 text-[9px] font-mono text-zinc-400 bg-white/[0.03] px-2 py-1 rounded border border-white/[0.06]">
             <Zap className="w-2.5 h-2.5 text-amber-400" />
-            <span className="whitespace-nowrap font-bold text-amber-300/90">弱み直撃</span>
+            <span className="whitespace-nowrap font-bold text-amber-300/90">価値提供</span>
           </div>
           <ArrowRight className="w-4 h-4 text-zinc-400 hidden lg:block my-1 animate-pulse" />
         </div>
 
         {/* ---------------------------------------------------- */}
-        {/* ブロック2: 関所 / 自社のボッタクリ配管 */}
+        {/* ブロック2: 価格決定力と参入障壁 */}
         {/* ---------------------------------------------------- */}
         <div className={`lg:col-span-3 rounded-lg p-3.5 border flex flex-col justify-between transition-all ${
           isHazardMode
@@ -112,17 +112,17 @@ export function VisualPipelineSection({
                 isHazardMode ? 'text-red-400' : 'text-emerald-400'
               }`}>
                 <Building className="w-3 h-3" />
-                ② 自社の関所（現金の吸い上げ）
+                ② 価格決定力 ＆ 参入障壁
               </span>
               <Lock className="w-3 h-3 text-zinc-400" />
             </div>
             <p className="text-zinc-100 text-xs font-bold mb-1.5 line-clamp-2">
-              {isHazardMode ? '錯覚したビジネスモデル' : '相見積もりを即死させる独自構造'}
+              {isHazardMode ? '破綻に至ったビジネスモデル' : '競争回避を可能にする独自ポジショニング'}
             </p>
           </div>
           <div className="mt-2 pt-2 border-t border-white/[0.06] bg-black/20 -mx-3.5 -mb-3.5 p-3 rounded-b-lg">
             <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-wider block mb-0.5">
-              {isHazardMode ? '破綻した原因:' : '他社が真似できない参入障壁:'}
+              {isHazardMode ? '破綻原因の構造:' : '競合を無力化する独自ケイパビリティ:'}
             </span>
             <p className="text-zinc-300 text-[11px] leading-snug line-clamp-3">
               {moat}
@@ -136,13 +136,13 @@ export function VisualPipelineSection({
         <div className="lg:col-span-1 flex lg:flex-col items-center justify-center py-1 lg:py-0 text-zinc-500">
           <div className="flex items-center lg:flex-col gap-1 text-[9px] font-mono text-zinc-400 bg-white/[0.03] px-2 py-1 rounded border border-white/[0.06]">
             <Coins className="w-2.5 h-2.5 text-emerald-400" />
-            <span className="whitespace-nowrap font-bold text-emerald-300/90">現金総取り</span>
+            <span className="whitespace-nowrap font-bold text-emerald-300/90">利益創出</span>
           </div>
           <ArrowRight className="w-4 h-4 text-zinc-400 hidden lg:block my-1 animate-pulse" />
         </div>
 
         {/* ---------------------------------------------------- */}
-        {/* ブロック3: 金庫 / 通帳の手残り現金 */}
+        {/* ブロック3: 営業利益とキャッシュ創出能 */}
         {/* ---------------------------------------------------- */}
         <div className={`lg:col-span-3 rounded-lg p-3.5 border flex flex-col justify-between transition-all ${
           isHazardMode
@@ -159,7 +159,7 @@ export function VisualPipelineSection({
                 ) : (
                   <Wallet className="w-3 h-3 text-emerald-400" />
                 )}
-                ③ 通帳の着金（真の手残り）
+                ③ 営業利益 ＆ キャッシュ創出能
               </span>
               <TrendingUp className={`w-3 h-3 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
             </div>
@@ -186,12 +186,12 @@ export function VisualPipelineSection({
 
           <div className="mt-2 pt-2 border-t border-white/[0.06] bg-black/30 -mx-3.5 -mb-3.5 p-2.5 rounded-b-lg flex items-center justify-between">
             <span className="text-[10px] font-mono text-zinc-400">
-              {cogsPct > 0 ? `原価率: 約${cogsPct}%` : '高収益手残り'}
+              {cogsPct > 0 ? `原価率: 約${cogsPct}%` : '高付加価値構造'}
             </span>
             <span className={`text-xs font-mono font-bold ${
               isHazardMode ? 'text-red-400' : 'text-emerald-300'
             }`}>
-              {isHazardMode ? '資金枯渇で即死' : `月間純利益 ${formatMoney(profit)}`}
+              {isHazardMode ? 'キャッシュ枯渇・破綻' : `月間営業利益 ${formatMoney(profit)}`}
             </span>
           </div>
         </div>

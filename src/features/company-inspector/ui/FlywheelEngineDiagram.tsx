@@ -6,17 +6,20 @@ import {
   Coins,
   ShieldCheck,
   Flame,
-  Skull
+  AlertTriangle
 } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
-function cleanNodeTitle(text: string): string {
-  if (!text) return '';
-  return text
+function cleanNodeTitle(text: string, fallback: string): string {
+  if (!text) return fallback;
+  const res = text
+    .replace(/^【.*?】/, '')
     .replace(/^【.*?】/, '')
     .replace(/^#\d+\s*/, '')
-    .replace(/^.*?の/u, '')
+    .replace(/^キレイゴト抜きの.*?構造/u, '')
+    .replace(/^大企業が.*?死角/u, '')
     .trim();
+  return res.length >= 4 ? res : fallback;
 }
 
 export function FlywheelEngineDiagram({
@@ -25,11 +28,26 @@ export function FlywheelEngineDiagram({
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'>) {
   const cards = entity.evidenceCards || [];
 
-  // 4つのノード用テキスト（全332社で100%動的フォールバック）
-  const node1 = cleanNodeTitle(cards[0]?.title || entity.essence?.whatItDoes || '独自の提供価値・初動の突破口');
-  const node2 = cleanNodeTitle(cards[1]?.title || entity.essence?.painRelief || '顧客の弱みロック・解約不能の監禁');
-  const node3 = cleanNodeTitle(cards[2]?.title || entity.strategy?.moatDescription || '相見積もり拒否・高粗利の現金回収');
-  const node4 = cleanNodeTitle(cards[3]?.title || entity.strategy?.blindspot || '真似できないインフラ・再投資による堀');
+  // 自己強化サイクルの4段階テキスト
+  const opMargin = entity.pnl?.operatingProfit && entity.pnl?.monthlyRevenue
+    ? Math.round((entity.pnl.operatingProfit / entity.pnl.monthlyRevenue) * 100)
+    : 0;
+
+  const node1 = isHazardMode
+    ? cleanNodeTitle(cards[0]?.title || entity.architecturePattern, '巨額資本調達による急拡大')
+    : cleanNodeTitle(cards[0]?.title || entity.architecturePattern, 'コア提供価値の確立と初期顧客獲得');
+
+  const node2 = isHazardMode
+    ? cleanNodeTitle(cards[1]?.title || entity.targetPainWallet, '逆ザヤ・値引き施策による顧客維持難')
+    : cleanNodeTitle(cards[1]?.title || entity.targetPainWallet, 'スイッチングコストと顧客囲い込み');
+
+  const node3 = isHazardMode
+    ? cleanNodeTitle(cards[2]?.title, '固定費膨張とキャッシュバーン加速')
+    : cleanNodeTitle(cards[2]?.title, opMargin > 0 ? `営業利益率 ${opMargin}% の超過利潤創出` : '価格決定力による超過利潤創出');
+
+  const node4 = isHazardMode
+    ? cleanNodeTitle(cards[3]?.title, '追加調達環境悪化による資金枯渇')
+    : cleanNodeTitle(cards[3]?.title || entity.strategy?.moat, '独自アセットへの再投資とモート強化');
 
   return (
     <div id="section-flywheel" className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${
@@ -46,14 +64,14 @@ export function FlywheelEngineDiagram({
       <div className="flex items-center justify-between gap-2 mb-6 pb-3 border-b border-white/[0.08] relative z-10">
         <div className="flex items-center gap-2.5">
           {isHazardMode ? (
-            <Skull className="w-4 h-4 text-red-400 shrink-0" />
+            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
           ) : (
             <RotateCw className="w-4 h-4 text-cyan-400 shrink-0 animate-[spin_10s_linear_infinite]" />
           )}
           <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
             isHazardMode ? 'text-red-300' : 'text-zinc-100'
           }`}>
-            {isHazardMode ? '死神のデススパイラル (DEATH SPIRAL ENGINE)' : '独占の自走増殖フライホイール (MONOPOLY FLYWHEEL)'}
+            {isHazardMode ? '資本効率の崩壊サイクル (DEATH SPIRAL ANALYSIS)' : '自己強化型成長サイクル：構造的モートのフライホイール (GROWTH FLYWHEEL)'}
           </h3>
         </div>
         <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.08]">
@@ -178,10 +196,10 @@ export function FlywheelEngineDiagram({
           <span className={`text-[11px] font-mono font-black tracking-wider uppercase block ${
             isHazardMode ? 'text-red-200' : 'text-cyan-200'
           }`}>
-            {isHazardMode ? '死の重力場' : '独占の重力場'}
+            {isHazardMode ? '資本効率の破綻' : 'モートの自己強化'}
           </span>
           <span className="text-[9px] font-sans text-zinc-400 mt-0.5 leading-tight line-clamp-2">
-            {isHazardMode ? '回るほど赤字拡大' : '回るほど競合を無力化'}
+            {isHazardMode ? '規模拡大に伴い赤字拡大' : '規模拡大に伴い参入障壁が強固化'}
           </span>
         </div>
 
@@ -193,7 +211,7 @@ export function FlywheelEngineDiagram({
             <div className="flex items-center justify-between gap-1 mb-1">
               <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1">
                 <Zap className="w-2.5 h-2.5" />
-                ① 突破口（初期ゲリラ）
+                ① コア価値の確立
               </span>
               <span className="text-[8px] font-mono text-zinc-500">NORTH</span>
             </div>
@@ -209,7 +227,7 @@ export function FlywheelEngineDiagram({
             <div className="flex items-center justify-between gap-1 mb-1">
               <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
                 <Lock className="w-2.5 h-2.5" />
-                ② 顧客の監禁（弱み）
+                ② スイッチングコスト
               </span>
               <span className="text-[8px] font-mono text-zinc-500">EAST</span>
             </div>
@@ -225,7 +243,7 @@ export function FlywheelEngineDiagram({
             <div className="flex items-center justify-between gap-1 mb-1">
               <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1">
                 <Coins className="w-2.5 h-2.5" />
-                ③ 現金関所（高粗利回収）
+                ③ 高い営業利益率の創出
               </span>
               <span className="text-[8px] font-mono text-zinc-500">SOUTH</span>
             </div>
@@ -241,7 +259,7 @@ export function FlywheelEngineDiagram({
             <div className="flex items-center justify-between gap-1 mb-1">
               <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-purple-400 flex items-center gap-1">
                 <ShieldCheck className="w-2.5 h-2.5" />
-                ④ 不可逆な堀（再投資）
+                ④ 独自資産への再投資
               </span>
               <span className="text-[8px] font-mono text-zinc-500">WEST</span>
             </div>
