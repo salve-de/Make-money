@@ -141,7 +141,7 @@ R2ストレージは、人間の感情による物理フォルダ整理を永久
 
 1. **AGENTS.mdの先頭に本プロトコルを宣言**:
    ```markdown
-   > **2026-09-13 最高運用契約**: 「AGENTS.md見てデータ集めて」の一言で完全自走せよ。正本は `docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`。
+   > **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は `docs/DATA_COLLECTION_MASTER_GUIDE.md`。
    ```
 2. **プロジェクトのバケット設定（wrangler.jsonc）にR2バケットを接続**:
    - `RAW_BUCKET`: `foundation-raw`（原物保管庫）

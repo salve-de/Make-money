@@ -198,8 +198,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - `financialStatus`: `VERIFIED`（一次確認） / `REPORTED`（創業者公表） / `ESTIMATED`（入力・期間・根拠を明記した逆算推計） / `POST_MORTEM`（検死） / `UNAVAILABLE`（根拠不足）
 
 #### 3. 動的証拠カード（特異点事実 ＆ 略奪転用方程式）
-最低2枚以上（うち `LOOT_BLUEPRINT` は全社100%必須）を配備せよ：
-- **`LOOT_BLUEPRINT`（略奪転用方程式）[必須]**: 「今夜別業界で同じズルを使って稼ぐならどう組むか」の3ステップ転用手順（`details`）と配管設計図・コードスニペット（`codeSnippet`）。
+最低1枚以上（うち勝ち組は `LOOT_BLUEPRINT`、地雷組は `FATAL_BLEED` 必須）を配備せよ：
+- **`LOOT_BLUEPRINT`（略奪転用方程式）[勝ち組必須]**: 「今夜別業界で同じズルを使って稼ぐならどう組むか」の転用手順（`details`）と配管設計図・コードスニペット（`codeSnippet`）。
 - **`THE_CRIME`（身も蓋もない一行の真実）**: 誰から・いくら・どんな手口で抜いているかのレントゲン。
 - **`DIRTY_GENESIS`（初期ゲリラ戦ログ）**: 最初の100人を仕留めた泥臭い自演、手作業代行、Reddit潜入等の事実ログ。
 - **`INCUMBENT_TRAP`（大手の自爆構造）**: 大手が自社の高単価売上を守るために手を出せないカニバリズム障壁。

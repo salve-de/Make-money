@@ -1,6 +1,39 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
-## 2026-09-14 【確定】「何が書いてあるか全然わからん」を即時切除 ＆ 一撃強烈フック ＋ 淡々とした明快3大ブロックへのインスペクター全面昇華（Phase 183）
+## 2026-09-14 【確定】全文書批判的精査 ＆ 変な限定表現・硬直ノルマの完全駆逐 ＆ 2026-09-14最新最高運用契約への全正本一括同期（Phase 186）
+
+### 1. ユーザー指示と病巣の看破（User Command & Critical Pathology）
+- **ユーザー指示**:
+  - 「あのさあ 全文書 批判的に 全て見てこいよ MDとか GITHUBとかR2とかにある 全ての 何を集めるかってやつ。それ 変に限定している内容を 全て駆逐してこい」
+  - 「うーん だから 意味不明な しょうもないやつを 集めてきて欲しくないし 有用なやつでも 一つ 抜けてるだけで 破棄しないで欲しい。柔軟にやって欲しいんだよなあ」
+  - 「あと そういう 生生しいズル が なかったら だから 全部落とすようになってんの？ おい」
+- **病巣の解剖**:
+  - 各種ドキュメント（`README.md`, `CLAUDE.md`, `PROJECT_CHARTER.md`等）の冒頭に過去の旧契約ヘッダー（2026-09-10 / 09-13）が混在し、外部AIが参照する際に古い前提（「最低2枚以上」「SaaS決済前提」等）を拾ってしまう脆弱性があった。
+  - ガードレールでは緩和した「動的証拠カード最低2枚以上」という記述が `AGENTS.md` や `GOLDEN_INGEST_SCHEMA.md` の一部に残存しており、AIが不要な水増し捏造を行ったり、有益な1枚のみの事例を破棄するリスクがあった。
+
+### 2. 物理実装した全文書の外科的切除と同期（Zero-Exclusion & Unified Governance）
+1. **動的証拠カードノルマの緩和（最低1枚以上）**:
+   - `AGENTS.md` (L201), `docs/GOLDEN_INGEST_SCHEMA.md` (L144), `README.md` (L94) における「最低2枚以上」の記述を、最新仕様である「最低1枚以上（勝ち組は `LOOT_BLUEPRINT`、地雷組は `FATAL_BLEED` 必須）」へ完全整合。
+2. **全正本文書の最高運用契約（2026-09-14）一括統一**:
+   - 以下の全正本文書のヘッダーを「2026-09-14 最高運用契約（ゼロプロンプト宣言）」に全面統一：
+     - `README.md`
+     - `CLAUDE.md`
+     - `PROJECT_CHARTER.md`
+     - `docs/DATA_COLLECTION_CONTRACT.md`
+     - `docs/COLLECT_AND_STORE.md`
+     - `docs/MAKE_MONEY_COLLECTION_SCOPE.md`
+     - `docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`
+   - 他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` を読め」の1行で統一。
+3. **R2ローカル保管庫へのマスターガイド同期**:
+   - `data/r2-local/foundation-lake/guidelines/DATA_COLLECTION_MASTER_GUIDE.md` へ最新ガイドを同期コピー。
+   - `data-collection-master-manifest.json` の事故件数を8件に更新し、事故⑧（手堅い実業の誤爆破棄・硬直ノルマ水増し捏造）を追記。
+4. **全リポジトリ走査による限定表現の根絶検証**:
+   - リポジトリ内全Markdownファイルを走査し、不当な限定（「SaaS限定」「1人限定」「粗利80%必須」等）が一切存在しないことを確認。残存する「限定」はすべて「限定の完全排除（Take Everything）」「一切限定するな」という禁止規定、または「合法リサーチ限定」などの安全境界であることを確認済み。
+
+### 3. テスト・リント全関所検証
+- `pnpm lint`: 全332エンティティのドメイン整合性、ツール整合性、算術整合性、柔軟スキーマ整合性、ゼロ造語チェック全件 PASS。
+
+---
 
 ### 1. ユーザー指示と病巣の看破（Disease Diagnosis & User Direct Command）
 - **ユーザー指示**:
