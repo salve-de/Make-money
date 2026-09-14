@@ -5613,6 +5613,24 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
    - ② R2正本保管庫: `foundation-lake/manifest/collected-registry.json`
    - ③ 公開HTTP API: `GET /api/registry`（全件超軽量一覧）および `GET /api/registry?check=<社名/ドメイン>`（0.01秒で重複判定結果を返却）を本番Next.jsルートに配備完了。
 
+---
+
+## 2026-09-14 (Phase 175): 「集めてあったから無駄だった」の物理的完全根絶 ＆ 全件除外リスト付き収集プロンプト自動生成コマンド（pnpm prompt:collect）の配備完了
+
+### 1. ユーザーの痛点（リサーチ無駄打ち・徒労感の排除）
+- 「外部AIに100件調べさせたのに、半分が既に集めたNotionやLinearと被っていて、時間とトークンが無駄になった」という根本課題の切除。
+- 外部AIが集め始める前に「何が集まっていて何が未開拓か」を完全注入し、1件たりとも被らせない。
+
+### 2. 外科的配備内容
+1. **除外リスト自動生成エンジン（`scripts/generate-collection-prompt.mjs`）**:
+   - `data/collected-registry.json` から全335社の企業名を一意抽出。
+   - 業種別比率をリアルタイム計算（NICHE_SAASは106社で飽和、MONOPOLY_MFGは19社、LOCAL_SERVICESは21社でガラ空き）。
+   - 「以下の335社は既に収集完了しているため絶対に含めるな」「手薄な独占製造・地域独占店舗・AI自動化から掘れ」という命令文を全自動合成。
+2. **ワンコマンド生成（`pnpm prompt:collect`）**:
+   - コマンド一発で `data/next-collection-prompt.txt` に最新除外リスト付きプロンプトを出力。
+   - ユーザーはこれを外部AIにそのままペーストするだけで、完全新規の100社だけを掘り出させることができる。
+
+
 
 
 

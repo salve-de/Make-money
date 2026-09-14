@@ -25,6 +25,7 @@
     "ingest:daemon": "node scripts/with-r2-keychain-secrets.mjs npx tsx scripts/pipeline/autonomous-ingest-daemon.ts",
     "registry:sync": "node scripts/sync-registry.mjs",
     "dedup:check": "node scripts/check-dedup.mjs",
+    "prompt:collect": "node scripts/generate-collection-prompt.mjs",
     "typecheck": "next typegen && tsc --noEmit && pnpm schemas:check",
     "test": "vitest run && pnpm test:foundation && pnpm test:architecture && pnpm test:recovery",
     "test:architecture": "node --test scripts/architecture/check-deploy-config.test.mjs scripts/architecture/check-worker-secrets.test.mjs scripts/architecture/check-api-input.test.mjs scripts/architecture/check-runtime-schema.test.mjs scripts/architecture/check-index-safety.test.mjs",
