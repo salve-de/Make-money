@@ -21,6 +21,12 @@ export interface CompanyInspectorPaneProps {
 }
 
 export type TabType = 'EVIDENCE' | 'FINANCIALS' | 'PLAYBOOK' | 'STREAM' | 'NOTES' | 'ALL';
+export type InspectorViewMode = 'ALL' | 'ESSENCE' | 'FINANCIAL' | 'PLAYBOOK';
 
-
-export type InspectorSectionProps = Omit<CompanyInspectorPaneProps, 'entity'> & ReturnType<typeof buildInspectorModel> & { entity: FinancialEntity; isScrolled: boolean; scrollToSection: (id: string) => void };
+export type InspectorSectionProps = Omit<CompanyInspectorPaneProps, 'entity'> & ReturnType<typeof buildInspectorModel> & {
+  entity: FinancialEntity;
+  isScrolled: boolean;
+  scrollToSection: (id: string) => void;
+  viewMode?: InspectorViewMode;
+  setViewMode?: (mode: InspectorViewMode) => void;
+};

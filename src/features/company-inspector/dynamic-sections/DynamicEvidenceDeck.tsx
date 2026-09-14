@@ -149,15 +149,6 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
                   ))}
                 </ul>
               )}
-
-
-              {/* 一次情報源（存在する場合） */}
-              {card.sourceNote && (
-                <div className="pt-1 text-[10px] font-mono text-zinc-400 flex items-center justify-between border-t border-white/[0.04]">
-                  <span>情報源: <strong className="text-zinc-300">{card.sourceNote}</strong></span>
-                  <span className="text-zinc-500">確認済み</span>
-                </div>
-              )}
             </div>
           </article>
         );

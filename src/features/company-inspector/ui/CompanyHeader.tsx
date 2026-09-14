@@ -5,14 +5,32 @@ Check,
 ChevronLeft,
 ChevronRight,
 Clock,
-ExternalLink,
+FileText,
 Pin,
+SlidersHorizontal,
 X
 } from 'lucide-react';
 
 import type { InspectorSectionProps } from '../model/section-props';
 
-export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, activeTags = [], onToggleTag, analystNote, onOpenSynthesisWithEntity, onApproveEntity, isScrolled, scrollToSection, formatMoney, isHazardMode, isFinancialUnavailable }: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'onApproveEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable'>) {
+export function CompanyHeader({
+  entity,
+  onClose,
+  onPrevEntity,
+  onNextEntity,
+  activeTags = [],
+  onToggleTag,
+  analystNote,
+  onOpenSynthesisWithEntity,
+  onApproveEntity,
+  isScrolled,
+  scrollToSection,
+  formatMoney,
+  isHazardMode,
+  isFinancialUnavailable,
+  viewMode = 'ALL',
+  setViewMode
+}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'onApproveEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'viewMode' | 'setViewMode'>) {
   return <>
         <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
           isScrolled
@@ -91,17 +109,6 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
                   <span className="hidden sm:inline">AI壁打ち</span>
                 </button>
               )}
-
-              {/* 外部リンク */}
-              <a
-                href={entity.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1 text-zinc-500 hover:text-white transition-colors cursor-pointer"
-                title="公式サイトを開く"
-              >
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
 
               {/* クローズボタン */}
               <button
@@ -185,7 +192,51 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
             )}
           </div>
 
-          {/* 4. 金融端末仕様 目次ジャンプバー（ワンクリックで該当セクションへ直通スクロール） */}
+          {/* 4. 表示モードセレクター（柔軟な表示カスタマイズ） */}
+          <div className="flex items-center justify-between bg-[#06080E] px-3 py-1.5 border-t border-white/[0.08] text-[11px] font-mono gap-2 overflow-x-auto scrollbar-none">
+            <div className="flex items-center gap-1.5 shrink-0">
+              <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                <SlidersHorizontal className="w-2.5 h-2.5 text-zinc-400" />
+                <span>表示:</span>
+              </span>
+              <div className="inline-flex rounded p-0.5 bg-black/50 border border-white/[0.10]">
+                {(
+                  [
+                    { id: 'ALL', label: '全量開示' },
+                    { id: 'ESSENCE', label: '急所・要約' },
+                    { id: 'FINANCIAL', label: '財務・原価' },
+                    { id: 'PLAYBOOK', label: '実践手順' },
+                  ] as const
+                ).map((m) => (
+                  <button
+                    key={m.id}
+                    type="button"
+                    onClick={() => setViewMode && setViewMode(m.id)}
+                    className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer ${
+                      viewMode === m.id
+                        ? 'bg-white text-black shadow-xs font-black'
+                        : 'text-zinc-400 hover:text-zinc-200'
+                    }`}
+                  >
+                    {m.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* 最下部情報源への直通リンク */}
+            <button
+              type="button"
+              onClick={() => scrollToSection('section-sources')}
+              className="inline-flex items-center gap-1 text-[10px] text-zinc-400 hover:text-white px-2 py-0.5 rounded hover:bg-white/[0.06] transition-colors cursor-pointer shrink-0 ml-auto"
+              title="最下部の一次情報源・原本アーカイブへジャンプ"
+            >
+              <FileText className="w-3 h-3 text-zinc-400" />
+              <span>情報源・原本 (#14)</span>
+            </button>
+          </div>
+
+          {/* 5. 金融端末仕様 目次ジャンプバー（ワンクリックで該当セクションへ直通スクロール） */}
           <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
             <button
               type="button"
@@ -240,6 +291,15 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
                   {entity.observationsStream.length}
                 </span>
               )}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection('section-sources')}
+              className="py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+              title="一次情報源・エビデンス原本"
+            >
+              <span>情報源</span>
             </button>
 
             <button

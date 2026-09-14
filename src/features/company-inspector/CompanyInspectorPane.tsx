@@ -13,7 +13,10 @@ import { EvidenceStream } from './ui/EvidenceStream';
 import { FinancialSection } from './ui/FinancialSection';
 import { PlaybookSections } from './ui/PlaybookSections';
 import { RelatedResearch } from './ui/RelatedResearch';
+import { SourcesSection } from './ui/SourcesSection';
 import { ToolsSection } from './ui/ToolsSection';
+import type { InspectorViewMode } from './model/section-props';
+
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   entity,
   onClose,
@@ -36,6 +39,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [viewMode, setViewMode] = useState<InspectorViewMode>('ALL');
   const searchParams = useSearchParams();
   const targetSection = searchParams?.get('section');
 
@@ -84,7 +88,38 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   if (!entity) return null;
 
   const model = buildInspectorModel(entity, currency);
-  const sectionProps = { entity, currency, onClose, onPrevEntity, onNextEntity, onOpenPro, onSelectTopic, onOpenAnomaly, activeTags, onToggleTag, analystNote, noteSaveStatus, onSaveAnalystNote, onOpenSynthesisWithEntity, onApproveEntity, isPro, isScrolled, scrollToSection, ...model };
+  const sectionProps = {
+    entity,
+    currency,
+    onClose,
+    onPrevEntity,
+    onNextEntity,
+    onOpenPro,
+    onSelectTopic,
+    onOpenAnomaly,
+    activeTags,
+    onToggleTag,
+    analystNote,
+    noteSaveStatus,
+    onSaveAnalystNote,
+    onOpenSynthesisWithEntity,
+    onApproveEntity,
+    isPro,
+    isScrolled,
+    scrollToSection,
+    viewMode,
+    setViewMode,
+    ...model
+  };
+
+  // 表示モードに応じたセクション表示判定
+  const showEvidence = true; // 儲けのウラ側は全モードで表示
+  const showBusiness = viewMode === 'ALL' || viewMode === 'ESSENCE';
+  const showFinancial = viewMode === 'ALL' || viewMode === 'FINANCIAL';
+  const showTools = viewMode === 'ALL' || viewMode === 'FINANCIAL';
+  const showPlaybook = viewMode === 'ALL' || viewMode === 'PLAYBOOK';
+  const showStream = viewMode === 'ALL';
+  const showSources = true; // 情報源は常に最下部に配置
 
   return (
     <>
@@ -112,14 +147,20 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 上端潜り込みグラデーションシャドウ */}
           <div className="sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10" />
 
-        <RelatedResearch {...sectionProps} />
-        <EvidenceDeckSection {...sectionProps} />
-        <BusinessSections {...sectionProps} />
-        <FinancialSection {...sectionProps} />
-        <ToolsSection {...sectionProps} />
-        <PlaybookSections {...sectionProps} />
-        <EvidenceStream {...sectionProps} />
-        <AnalystNotes {...sectionProps} />
+          <RelatedResearch {...sectionProps} />
+          {showEvidence && <EvidenceDeckSection {...sectionProps} />}
+          {showBusiness && <BusinessSections {...sectionProps} />}
+          {showFinancial && <FinancialSection {...sectionProps} />}
+          {showTools && <ToolsSection {...sectionProps} />}
+          {showPlaybook && <PlaybookSections {...sectionProps} />}
+          {showStream && <EvidenceStream {...sectionProps} />}
+
+          {/* ========================================================= */}
+          {/* 【最下部集約: 一次情報源 ＆ エビデンス原本アーカイブ (#14)】 */}
+          {/* ========================================================= */}
+          {showSources && <SourcesSection {...sectionProps} />}
+
+          <AnalystNotes {...sectionProps} />
         </div>
       </aside>
     </>
