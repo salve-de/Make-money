@@ -35,4 +35,21 @@ if (!fs.existsSync(r2Dir)) {
 }
 fs.writeFileSync(r2RegistryPath, JSON.stringify(registry, null, 2), "utf-8");
 
-console.log(`[Registry Sync] Synced ${registry.length} entities to ${registryPath} and R2 Lake manifest.`);
+// docs/COLLECTED_ENTITIES.md (人間・外部AI用シンプル除外リスト) の自動更新
+const docListPath = path.join(process.cwd(), "docs", "COLLECTED_ENTITIES.md");
+const uniqueNames = Array.from(new Set(index.map((e) => e.name.trim()))).sort((a, b) => a.localeCompare(b, "ja"));
+const mdContent = `# 収集済み企業・サービス一覧リスト (Collected Entities Ledger)
+
+> **更新日時**: ${new Date().toISOString().slice(0, 10)}
+> **総登録社数**: ${uniqueNames.length} 社
+> **Raw URL**: https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/COLLECTED_ENTITIES.md
+> **用途**: 外部AIへの「重複除外ブラックリスト」として使用。ここに記載された企業はすでに収集済みのため、絶対に取りに行くな。
+
+---
+
+${uniqueNames.map((n, i) => `${i + 1}. ${n}`).join("\n")}
+`;
+fs.writeFileSync(docListPath, mdContent, "utf-8");
+
+console.log(`[Registry Sync] Synced ${registry.length} entities to ${registryPath}, R2 Lake manifest, and ${docListPath}.`);
+
