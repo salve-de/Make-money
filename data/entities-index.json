@@ -10,6 +10,7 @@
     "country": "US",
     "url": "https://www.costco.com/",
     "tags": [
+      "収集事例",
       "会員制",
       "薄利高速回転",
       "年会費収入",
@@ -18303,7 +18304,6 @@
     "pipelineStack": "未確認",
     "targetPainWallet": "未確認",
     "tags": [
-      "収集事例",
       "macOS",
       "録画",
       "SaaS",
@@ -18328,7 +18328,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "契約書や論文を1ページずつ読む苦痛と時間の浪費",
     "tags": [
-      "収集事例",
       "完全1人開発",
       "月商600万",
       "PDF要約"
@@ -18574,7 +18573,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "自社サービスを売りたい創業者のレビュー不足の焦燥",
     "tags": [
-      "収集事例",
       "年商1億",
       "動画レビュー",
       "解約不能"
@@ -18794,7 +18792,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "深夜休日の問い合わせ対応に追われる中小企業オーナーの睡眠不足",
     "tags": [
-      "収集事例",
       "完全1人",
       "URL即ボット化",
       "サポートAI"
@@ -19014,7 +19011,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "WordPressの管理画面の重さと設定地獄のストレス",
     "tags": [
-      "収集事例",
       "Notionエコシステム連携",
       "完全1人",
       "利益率88%"
@@ -19234,7 +19230,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "自社データAIが欲しいがエンジニアを雇う数百万円がない企業の焦燥",
     "tags": [
-      "収集事例",
       "22歳完全1人",
       "月商4500万",
       "ラッパー王者"
@@ -19454,7 +19449,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "「あの資料どこだっけ？」と思い出せないビジネスマンの脳疲労",
     "tags": [
-      "収集事例",
       "評価額500億",
       "Mac完全ローカル",
       "記憶検索"
@@ -19674,7 +19668,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "リファクタリングや改修で何時間も残業させられるエンジニアの苦痛",
     "tags": [
-      "収集事例",
       "ARR 150億超",
       "VS Codeフォーク",
       "世界最速成長"
@@ -19894,7 +19887,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "検索結果の広告とSEO記事を何スクロールもさせられる時間の浪費",
     "tags": [
-      "収集事例",
       "Googleキラー",
       "年商120億",
       "評価額1兆円"
@@ -20114,7 +20106,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ナレーションやオーディオブックで声優を雇う予算とスタジオ代の激痛",
     "tags": [
-      "収集事例",
       "音声AI王者",
       "年商120億",
       "声のクローン"
@@ -20334,7 +20325,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ゲーム開発で何百枚ものアセットを描くイラストレーター外注費の激痛",
     "tags": [
-      "収集事例",
       "Canva巨額売却",
       "年商15億",
       "Webキャンバス"
@@ -20554,7 +20544,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Bitlyのカスタムドメイン月額$35〜$300という法外な値上げ",
     "tags": [
-      "収集事例",
       "Bitlyキラー",
       "年商8000万",
       "オープンソース"
@@ -20774,7 +20763,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Mailchimpの複雑怪奇な設定とEC偏重に発狂するSaaS開発者",
     "tags": [
-      "収集事例",
       "Mailchimpキラー",
       "年商1.5億",
       "Notion風UI"
@@ -20994,7 +20982,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "マウスでアプリやファイルを探すエンジニアの集中途切れの激痛",
     "tags": [
-      "収集事例",
       "Alfredキラー",
       "年商8億",
       "拡張ストア"
@@ -21214,7 +21201,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "AWSの複雑怪奇なインフラ設定とサーバー管理に悩むフロントエンド開発者",
     "tags": [
-      "収集事例",
       "Next.js胴元",
       "年商150億",
       "ホスティング基盤"
@@ -21434,7 +21420,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Firebaseで複雑なクエリが書けず莫大な課金が請求される恐怖",
     "tags": [
-      "収集事例",
       "Firebaseキラー",
       "ARR 45億",
       "オープンソース"
@@ -21654,7 +21639,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ユーザー行動分析ツールの法外な従量課金とプライバシー規制",
     "tags": [
-      "収集事例",
       "Mixpanelキラー",
       "ARR 30億",
       "全部入りOSS"
@@ -21874,7 +21858,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "「ディスク容量がいっぱいです」というポップアップのストレス",
     "tags": [
-      "収集事例",
       "年商80億",
       "Mac神ツール",
       "ウクライナ発"
@@ -22094,7 +22077,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "便利な有料アプリを都度購入する心理的ハードルと出費",
     "tags": [
-      "収集事例",
       "Mac版Netflix",
       "年商50億",
       "アプリバンドル"
@@ -22314,7 +22296,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "複雑なシェルコマンドやDockerオプションを忘れてググる時間の浪費",
     "tags": [
-      "収集事例",
       "Rust製端末",
       "評価額700億",
       "ターミナル近代化"
@@ -22534,7 +22515,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "毎朝メール処理に2時間奪われるエグゼクティブの激痛",
     "tags": [
-      "収集事例",
       "月30ドルメール",
       "年商50億",
       "未読ゼロ快感"
@@ -22754,7 +22734,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Apple純正の充電器やケーブルの高さと断線に激怒するスマホユーザー",
     "tags": [
-      "収集事例",
       "年商3000億",
       "Amazon覇王",
       "深セン製造直結"
@@ -22974,7 +22953,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "「鏡越しの自撮りで他人と違うお洒落な自分を誇示したい」若者の虚栄心",
     "tags": [
-      "収集事例",
       "年商300億",
       "粗利80%",
       "自撮り文化の活用"
@@ -23194,7 +23172,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Apple純正Magic Keyboardのペタペタ感で指を痛めるMacユーザーの激痛",
     "tags": [
-      "収集事例",
       "Mac特化キーボード",
       "年商150億",
       "クラファン発"
@@ -23414,7 +23391,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "分厚い財布のせいでスーツやジーンズのシルエットが台無しになる羞恥心",
     "tags": [
-      "収集事例",
       "ブートストラップ",
       "年商120億",
       "薄い財布"
@@ -23634,7 +23610,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "旅行や登山で重い一眼レフがブラブラ揺れて首が痛むカメラ愛好家の苦痛",
     "tags": [
-      "収集事例",
       "VC調達ゼロ",
       "年商150億",
       "クラファン11連勝"
@@ -23854,7 +23829,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "「クレカのスキミングで財産を盗まれる恐怖」と重い財布の怠惰",
     "tags": [
-      "収集事例",
       "年商150億",
       "粗利80%",
       "YouTube広告覇権"
@@ -24074,7 +24048,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "普通のカミソリでデリケートゾーンを剃って皮膚を切創・大出血する恐怖",
     "tags": [
-      "収集事例",
       "年商400億",
       "アンダーヘア特化",
       "替刃サブスク"
@@ -24294,7 +24267,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "安物クーラーボックスが数回のキャンプで壊れて氷が溶ける絶望",
     "tags": [
-      "収集事例",
       "年商2400億",
       "グリズリー耐性",
       "クーラーボックス5万円"
@@ -24514,7 +24486,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "キャンプから帰った後に服や髪から煙の悪臭が漂い嫌がられるパパの苦痛",
     "tags": [
-      "収集事例",
       "年商600億",
       "無煙焚き火",
       "二次燃焼特許"
@@ -24734,7 +24705,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "可愛いタンブラーを持って学校に行きSNSで仲間外れになりたくない同調圧力",
     "tags": [
-      "収集事例",
       "年商1100億",
       "TikTokメガヒット",
       "飢餓商法"
@@ -24954,7 +24924,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ビーチやテラスで飲んでいる最中にビールがぬるくなる酒飲みの激痛",
     "tags": [
-      "収集事例",
       "21歳ブートストラップ",
       "年商150億",
       "ビール缶クーラー"
@@ -25174,7 +25143,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ナイキ等のゴワゴワした化繊に嫌気がさし極上の快適性を求める男の執着",
     "tags": [
-      "収集事例",
       "評価額7500億",
       "ルルレモンメンズ版",
       "DreamKnit"
@@ -25394,7 +25362,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "硬いアスファルトを走って膝や関節を痛めるランナーの肉体的激痛",
     "tags": [
-      "収集事例",
       "時価総額1兆円",
       "クラウドテック",
       "スイス発ランニング"
@@ -25614,7 +25581,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "足底腱膜炎や長時間の立ち仕事でかかとが痛くてたまらない中高年の悲鳴",
     "tags": [
-      "収集事例",
       "年商300億",
       "リカバリーサンダル",
       "足底腱膜炎救済"
@@ -25834,7 +25800,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "スクワットや懸垂でショーツが破れたりポケットのスマホが暴れる激痛",
     "tags": [
-      "収集事例",
       "年商75億",
       "筋トレ特化ショーツ",
       "特殊部隊耐久テスト"
@@ -26054,7 +26019,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "パートナーと体感温度が合わず暑くて熟睡できない富裕層の睡眠負債",
     "tags": [
-      "収集事例",
       "年商150億",
       "水冷マットレス",
       "睡眠テック40万円"
@@ -26274,7 +26238,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "毎朝出かける直前に鍵が見つからず遅刻するパニックと自己嫌悪",
     "tags": [
-      "収集事例",
       "年商150億",
       "紛失防止タグ元祖",
       "Life360売却"
@@ -26494,7 +26457,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "毛布に埃やペットの毛が絡みついて洗うのが面倒なキャンプ・犬飼いの苦痛",
     "tags": [
-      "収集事例",
       "年商60億",
       "洗える寝袋毛布",
       "D2C成功事例"
@@ -26714,7 +26676,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ヒゲを伸ばすと肌が乾燥して痒くてたまらないヒゲ男子の激痛",
     "tags": [
-      "収集事例",
       "年商10億",
       "ヒゲオイルD2C",
       "YouTube教育コンテンツ"
@@ -26934,7 +26895,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "数百万円の高級時計を売買する際のだまされ恐怖と買い叩かれの激痛",
     "tags": [
-      "収集事例",
       "年間流通3000億",
       "高級時計収益モデル",
       "エスクロー手数料"
@@ -27154,7 +27114,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "何十個もの求人サイトや賃貸サイトを個別に見る極限の怠惰",
     "tags": [
-      "収集事例",
       "営業利益率33%",
       "年商220億",
       "アグリゲーション胴元"
@@ -27374,7 +27333,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "各航空会社のサイトを行き来して最安値を探す時間の浪費",
     "tags": [
-      "収集事例",
       "航空券比較",
       "年商250億",
       "送客手数料"
@@ -27594,7 +27552,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "日本未発売のシャネルやエルメスを海外定価に近い価格で買いたい虚栄心",
     "tags": [
-      "収集事例",
       "営業利益率30%",
       "無在庫物販胴元",
       "BUYMA"
@@ -27814,7 +27771,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "企業にイラストやロゴを発注すると数十万円取られる個人の出費苦痛",
     "tags": [
-      "収集事例",
       "手数料22%",
       "年商50億",
       "スキルマーケット"
@@ -28034,7 +27990,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Shopifyやカラーミーの月額固定費（数千円〜数万円）を払う恐怖",
     "tags": [
-      "収集事例",
       "開設無料",
       "決済手数料中抜き",
       "年商120億"
@@ -28254,7 +28209,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "急なドタキャンでシフトが埋まらず店が回らない飲食店長の胃潰瘍",
     "tags": [
-      "収集事例",
       "手数料30%",
       "年商200億",
       "20代最年少上場"
@@ -28474,7 +28428,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "空き部屋の固定資産税と維持費だけが垂れ流れる不動産オーナーの苦痛",
     "tags": [
-      "収集事例",
       "手数料30%",
       "年商15億",
       "空間時間貸し"
@@ -28694,7 +28647,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "CPA（顧客獲得単価）高騰と即時解約で広告費をドブに捨てるEC企業の絶望",
     "tags": [
-      "収集事例",
       "年商350億",
       "LTV成果報酬",
       "解約防止AI"
@@ -28914,7 +28866,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "紙の商品券を郵送する送料と印刷費と個人情報管理に怯える企業のコスト",
     "tags": [
-      "収集事例",
       "営業利益率25%",
       "年商70億",
       "eギフト独占"
@@ -29134,7 +29085,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "新サービスを立ち上げたのに世間に完全に無視される広報担当者の絶望",
     "tags": [
-      "収集事例",
       "営業利益率35%",
       "年商70億",
       "プレスリリース独占"
@@ -29354,7 +29304,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ノースフェイスなどの高額アウトドアウェア（数万円）を買えない大衆の出費苦痛",
     "tags": [
-      "収集事例",
       "年商1300億",
       "ワークマンプラス",
       "値引きゼロ定価販売"
@@ -29574,7 +29523,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "単品注文の焼肉屋で子供が追加肉を頼むたびに財布を気にする親のプレッシャー",
     "tags": [
-      "収集事例",
       "年商1000億",
       "焼肉きんぐ",
       "ロードサイド独占"
@@ -29794,7 +29742,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "安くて早くて美味い温かい食事を手軽に腹一杯食べたい労働者の食欲",
     "tags": [
-      "収集事例",
       "年商2300億",
       "丸亀製麺",
       "粉モノ錬金術"
@@ -30014,7 +29961,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "子供に寿司を食わせたいが回らない寿司屋には連れて行けない子育て世代の出費苦痛",
     "tags": [
-      "収集事例",
       "年商3600億",
       "原価率50%集客",
       "皿ICチップ自動管理"
@@ -30234,7 +30180,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "日によって価格が変動するスーパーのチラシを比較して買い回る主婦のストレス",
     "tags": [
-      "収集事例",
       "年商6000億",
       "チラシゼロ",
       "高品質エブリデーロープライス"
@@ -30454,7 +30399,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "物価高で肉や惣菜が高すぎてお腹いっぱい買えない子育て世帯の家計激痛",
     "tags": [
-      "収集事例",
       "年商4000億",
       "現金決済限定",
       "メガ盛り精肉成金"
@@ -30674,7 +30618,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "飲食店や大家族が業務用食材を安くまとめ買いできない仕入れコスト",
     "tags": [
-      "収集事例",
       "年商4800億",
       "営業利益率10%",
       "業務スーパーFC卸売"
@@ -30894,7 +30837,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "毎朝経済ニュースを読まなければならないが難しくて眠くなる若手ビジネスマン",
     "tags": [
-      "収集事例",
       "100億円売却",
       "ニュースレター元祖",
       "高単価広告枠"
@@ -31114,7 +31056,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "綺麗事ばかりのビジネスメディアに飽き飽きしたハスラーたちの本音渇望",
     "tags": [
-      "収集事例",
       "35億円売却",
       "HubSpot買収",
       "起業家メルマガ"
@@ -31334,7 +31275,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Hacker NewsやTwitterを一日中監視する時間がない多忙なエンジニア",
     "tags": [
-      "収集事例",
       "完全1人",
       "年商数億円",
       "広告枠完売",
@@ -31555,7 +31495,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "仮想通貨の情報が専門用語ばかりで何が起きているか理解できない個人の不安",
     "tags": [
-      "収集事例",
       "10ヶ月で巨額売却",
       "クリプトメルマガ",
       "ミーム解説"
@@ -31775,7 +31714,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "新聞社や出版社が給与を削減し自分のファンに直接課金できない記者の激痛",
     "tags": [
-      "収集事例",
       "10%収益モデル",
       "クリエイター直接課金",
       "ジャーナリズム解放"
@@ -31995,7 +31933,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "SNSでファンを集めても広告規制でマネタイズできないクリエイターの不満",
     "tags": [
-      "収集事例",
       "20%収益モデル",
       "純利益500億",
       "直接課金の極致"
@@ -32215,7 +32152,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "YouTubeのアルゴリズム変更で再生数が落ちると収入がゼロになる恐怖",
     "tags": [
-      "収集事例",
       "月額パトロン",
       "年商8000万ドル",
       "クリエイター保護"
@@ -32435,7 +32371,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Facebookグループで受講生が投稿を見失いエンゲージメントが崩壊する激痛",
     "tags": [
-      "収集事例",
       "Sam Ovens",
       "月99ドルSaaS",
       "ゲーミフィケーション"
@@ -32655,7 +32590,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Discordで手動でロールを付与したりPayPalの即時凍結に怯える若手起業家",
     "tags": [
-      "収集事例",
       "Discord決済",
       "Z世代マーケット",
       "3%手数料"
@@ -32875,7 +32809,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "TikTokやIGで数百万再生されても広告収益が分配されないクリエイターの怒り",
     "tags": [
-      "収集事例",
       "直接投げ銭SNS",
       "黒人コミュニティ連帯",
       "マイクロペイメント"
@@ -33095,7 +33028,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "「クーポンコード入力欄」を見て「損したくない」と別窓で検索する心理的焦燥",
     "tags": [
-      "収集事例",
       "4400億円売却",
       "PayPal買収",
       "自動クーポン適用"
@@ -33315,7 +33247,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "文法ミスでビジネス上の信用を失ったり恥をかくノンネイティブの恐怖",
     "tags": [
-      "収集事例",
       "年商300億",
       "ブラウザ常駐校正",
       "ウクライナ発ユニコーン"
@@ -33535,7 +33466,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "「買った翌日にタイムセールで半額になって損したくない」損失回避本能",
     "tags": [
-      "収集事例",
       "Amazonアフィリエイト",
       "年商数億円",
       "価格推移チャート"
@@ -33755,7 +33685,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Amazonで買い物しているが実はウォルマートの方が安いかもしれない不安",
     "tags": [
-      "収集事例",
       "Capital One買収",
       "価格比較の自動化",
       "送客手数料"
@@ -33975,7 +33904,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "普段の買い物で少しでも得をしたい・節約したい人間の防衛本能",
     "tags": [
-      "収集事例",
       "楽天1000億買収",
       "キャッシュバック元祖",
       "アフィリエイト還元"
@@ -34195,7 +34123,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "「そのワンピどこで買ったの？」と何百回も聞かれて答えるのが面倒なインスタグラマー",
     "tags": [
-      "収集事例",
       "評価額20億ドル",
       "インスタアフィリエイト",
       "女性起業家成り上がり"
@@ -34415,7 +34342,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "欲しいブランドの服がどのECで在庫があるか探して回る苦痛",
     "tags": [
-      "収集事例",
       "ファッションメタサーチ",
       "送客手数料",
       "年商6000万ドル"
@@ -34635,7 +34561,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "少しでも安く買いたいがネット上のセール情報を四六時中監視できない焦燥",
     "tags": [
-      "収集事例",
       "掲示板アフィリエイト",
       "ユーザー自走型",
       "価格バグ速報"
@@ -34855,7 +34780,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ECの決済画面で「プロモコード」の入力欄を見て損したくない心理",
     "tags": [
-      "収集事例",
       "SEOクーポン覇者",
       "巨額バイアウト",
       "検索トラフィック収益モデル"
@@ -35075,7 +34999,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "インフレで食費が高騰し少しでも家計を節約したい主婦の切迫感",
     "tags": [
-      "収集事例",
       "レシート現金化",
       "IPO上場",
       "メーカー販促費中抜き"
@@ -35295,7 +35218,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "YouTubeもTikTokもショップも見てほしいのにリンクが1本しか貼れないインフルエンサーの悶絶",
     "tags": [
-      "収集事例",
       "規約工夫元祖",
       "評価額1500億",
       "オーストラリア発"
@@ -35515,7 +35437,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "リンクまとめだけでなく、ファンから直接お金をもらったりメールを集めたい欲求",
     "tags": [
-      "収集事例",
       "AIバイオリンク",
       "スマホ完結ストア",
       "クリエイターマネタイズ"
@@ -35735,7 +35656,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "別のECサイト（Shopify等）に飛ばすと購入途中で離脱して売上が消える激痛",
     "tags": [
-      "収集事例",
       "TikTok特化ストア",
       "1タップ決済",
       "月29ドルSaaS"
@@ -35955,7 +35875,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "売上が増えるたびにプラットフォームに手数料（5〜10%）を持っていかれる怒り",
     "tags": [
-      "収集事例",
       "手数料0%",
       "ブートストラップ",
       "オンライン講座"
@@ -36175,7 +36094,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Udemyの「1,200円セール」で自分の専門知識が買い叩かれる専門家の怒り",
     "tags": [
-      "収集事例",
       "350億円売却",
       "Udemyキラー",
       "高額講座直販"
@@ -36395,7 +36313,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "自社製品の使い方を動画で教えたいが自作システムの開発費がない企業の苦痛",
     "tags": [
-      "収集事例",
       "トロント上場",
       "年商5500万ドル",
       "企業研修SaaS"
@@ -36615,7 +36532,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "WordPress、Mailchimp、Stripe、VimeoをZapierで繋いで連携が壊れる悪夢",
     "tags": [
-      "収集事例",
       "ARR 150億超",
       "月149ドル高価格SaaS",
       "情報発信ビジネスのOS"
@@ -36835,7 +36751,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "Slackで質問されてもチャットが流れて同じ質問に何回も回答させられる主宰者の疲労",
     "tags": [
-      "収集事例",
       "ARR 20億",
       "Discord対抗モダンサロン",
       "有益ログ蓄積"
@@ -37055,7 +36970,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "InstagramやXに投稿してもフォロワーの数%にしか表示されないリーチ制限の怒り",
     "tags": [
-      "収集事例",
       "独自アプリ発行",
       "年商20億",
       "アルゴリズム解放"
@@ -37275,7 +37189,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "事業を売却したいがPEファンドに会社を解体されたくない創業者の愛着と不安",
     "tags": [
-      "収集事例",
       "ネット界のバフェット",
       "スモールSaaS買収",
       "カナダ上場"
@@ -37495,7 +37408,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "海外に10万円送金するだけで銀行に数千円の手数料と悪いレートで掠め取られる激痛",
     "tags": [
-      "収集事例",
       "時価総額1兆円",
       "ロンドン上場",
       "海外送金手数料粉砕"
@@ -37715,7 +37627,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "海外旅行や外貨決済のたびに銀行やクレカ会社に為替手数料を上乗せされる損失感",
     "tags": [
-      "収集事例",
       "評価額6.5兆円",
       "欧州最強ネオバンク",
       "手数料無料両替"
@@ -37935,7 +37846,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "大企業向けの古い銀行（Chase, BoA等）の使いにくいUIと理不尽な口座開設拒否",
     "tags": [
-      "収集事例",
       "年商300億",
       "スタートアップ銀行",
       "API連動口座"
@@ -38155,7 +38065,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "実績がないという理由で日本の大手カード会社から法人クレカの発行を断られる屈辱",
     "tags": [
-      "収集事例",
       "評価額1.8兆円",
       "与信審査破壊",
       "法人カード王者"
@@ -38375,7 +38284,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "社員が勝手に契約した幽霊SaaSに毎月何百万円も無駄金を垂れ流すCFOの胃痛",
     "tags": [
-      "収集事例",
       "評価額1兆円",
       "経費削減カード",
       "CFOの守護神"
@@ -38595,7 +38503,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "海外人材を1人雇うためだけに現地の弁護士を雇い法人を作る数千万円と数ヶ月の浪費",
     "tags": [
-      "収集事例",
       "ARR 750億",
       "世界最速成長EOR",
       "海外リモート雇用"
@@ -38815,7 +38722,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "下請けの人材ブローカーにマージンを抜かれ現地の税金トラブルに巻き込まれる恐怖",
     "tags": [
-      "収集事例",
       "評価額4500億",
       "自社現地法人直結",
       "安心リモート労務"
@@ -39035,7 +38941,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "アメリカや日本のエンジニア給与が高騰しすぎて自社で採用できないスタートアップの悲鳴",
     "tags": [
-      "収集事例",
       "新興国人材工夫",
       "年商6000万ドル",
       "給与送金インフラ"
@@ -39255,7 +39160,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "エクセルで株主名簿を管理してストックオプションの計算ミスや法的手続きで大事故になる恐怖",
     "tags": [
-      "収集事例",
       "未上場株独占管理",
       "年商2.5億ドル",
       "キャップテーブル覇権"
@@ -39475,7 +39379,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "税務署への源泉徴収税の納付や福利厚生手続きのミスで罰金を食らう恐怖",
     "tags": [
-      "収集事例",
       "年商700億",
       "中小企業給与計算",
       "全自動源泉徴収"
@@ -39695,7 +39598,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "ハイクオリティな美少女や背景を描くための最新AIモデル（LoRA）がどこにあるか分からない混乱",
     "tags": [
-      "収集事例",
       "AIモデル共有",
       "月間数千万PV",
       "Civitaiクラウド"
@@ -39915,7 +39817,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "エラーログでググってもStack Overflowの10年前の回答しか出ず動かない絶望",
     "tags": [
-      "収集事例",
       "開発者特化検索",
       "StackOverflowキラー",
       "年商数億円"
@@ -40135,7 +40036,6 @@
     "pipelineStack": "Web UI × Stripe × Cloudflare × CDN",
     "targetPainWallet": "閲覧履歴を追跡されてネット上に同じ商品の追っかけ広告が出る気味悪さと不快感",
     "tags": [
-      "収集事例",
       "プライバシー保護",
       "トラッカー遮断",
       "年商10億"

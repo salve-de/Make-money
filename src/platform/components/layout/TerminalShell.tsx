@@ -434,6 +434,46 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     }
   }, []);
 
+  // 表示中の収集事例を一括承認するハンドラー（「一括承認（全部オッケー）」ボタン）
+  const handleApproveAllCollected = useCallback(async () => {
+    const targetEntities = entities.filter((e) => (e.tags || []).includes('収集事例'));
+    if (targetEntities.length === 0) return;
+
+    const targetIds = targetEntities.map((e) => e.id.trim().toLowerCase());
+
+    // 1. 楽観的UI更新: 即時 approvedIds に全件追加してバッジを0にし本台帳へ昇格
+    setApprovedIds((prev) => {
+      const next = new Set(prev);
+      targetIds.forEach((id) => next.add(id));
+      return next;
+    });
+
+    // 2. 詳細キャッシュがある場合も tags を更新
+    setDetailedEntities((prev) => {
+      const next = { ...prev };
+      for (const [id, entity] of Object.entries(next)) {
+        if (targetIds.includes(id.toLowerCase())) {
+          next[id] = {
+            ...entity,
+            tags: (entity.tags || []).filter((t) => t !== '収集事例'),
+          };
+        }
+      }
+      return next;
+    });
+
+    // 3. サーバーへ非同期永続化
+    try {
+      await fetch('/api/entities/approve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ entityIds: targetIds }),
+      });
+    } catch (err) {
+      console.error('[TerminalShell] Failed to persist batch approval', err);
+    }
+  }, [entities]);
+
   // 全台帳モードでのフィルタリング
   const filteredEntities = useMemo(() => {
     return entities.filter((entity) => {
@@ -601,6 +641,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
               activeTags={activeTags}
               onToggleTag={handleToggleTag}
               newlyCollectedCount={newlyCollectedCount}
+              onApproveAllCollected={handleApproveAllCollected}
             />
 
             <InstitutionalDataGrid
