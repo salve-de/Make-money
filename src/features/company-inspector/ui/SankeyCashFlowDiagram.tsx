@@ -89,7 +89,7 @@ export function SankeyCashFlowDiagram({
               right: 140,
               nodeWidth: 18,
               nodeGap: 24,
-              draggable: true,
+              draggable: false,
               emphasis: {
                 focus: 'adjacency',
                 lineStyle: { opacity: 0.85 }

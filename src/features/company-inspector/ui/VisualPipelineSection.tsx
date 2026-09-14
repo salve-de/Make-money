@@ -4,7 +4,6 @@ import React from 'react';
 import {
   ReactFlow,
   Background,
-  Controls,
   MarkerType,
   Position,
   Handle,
@@ -44,7 +43,7 @@ const CustomerPainNode = ({ data }: CustomerPainNodeProps) => (
       <span className="font-mono text-amber-400/90 font-bold block mb-0.5">支払い要因(WTP):</span>
       {data.painRelief}
     </div>
-    <Handle type="source" position={Position.Right} className="!bg-amber-400 !w-2.5 !h-2.5" />
+    <Handle type="source" position={Position.Right} className="!opacity-0" />
   </div>
 );
 
@@ -63,7 +62,7 @@ const MoatNode = ({ data }: MoatNodeProps) => (
       ? 'bg-[#140A0D]/95 border-red-500/40 text-red-100 shadow-[0_0_20px_rgba(239,68,68,0.15)]'
       : 'bg-[#0A1820]/95 border-cyan-500/40 text-zinc-100 shadow-[0_0_20px_rgba(6,182,212,0.15)]'
   }`}>
-    <Handle type="target" position={Position.Left} className="!bg-cyan-400 !w-2.5 !h-2.5" />
+    <Handle type="target" position={Position.Left} className="!opacity-0" />
     <div className="flex items-center justify-between gap-1 mb-1.5">
       <span className={`text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 ${
         data.isHazardMode ? 'text-red-400' : 'text-cyan-400'
@@ -80,7 +79,7 @@ const MoatNode = ({ data }: MoatNodeProps) => (
       <span className="font-mono text-cyan-400/90 font-bold block mb-0.5">構造的参入障壁:</span>
       {data.moat}
     </div>
-    <Handle type="source" position={Position.Right} className="!bg-cyan-400 !w-2.5 !h-2.5" />
+    <Handle type="source" position={Position.Right} className="!opacity-0" />
   </div>
 );
 
@@ -100,7 +99,7 @@ const ProfitNode = ({ data }: ProfitNodeProps) => (
       ? 'bg-[#180A0A]/95 border-red-500/50 text-red-100 shadow-[0_0_25px_rgba(239,68,68,0.25)]'
       : 'bg-[#091814]/95 border-emerald-500/50 text-zinc-100 shadow-[0_0_25px_rgba(16,185,129,0.2)]'
   }`}>
-    <Handle type="target" position={Position.Left} className="!bg-emerald-400 !w-2.5 !h-2.5" />
+    <Handle type="target" position={Position.Left} className="!opacity-0" />
     <div className="flex items-center justify-between gap-1 mb-1.5">
       <span className={`text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 ${
         data.isHazardMode ? 'text-red-400' : 'text-emerald-400'
@@ -154,19 +153,19 @@ export function VisualPipelineSection({
     {
       id: 'node-1',
       type: 'customerPain',
-      position: { x: 20, y: 35 },
+      position: { x: 30, y: 35 },
       data: { isHazardMode, targetCustomer, painRelief }
     },
     {
       id: 'node-2',
       type: 'moat',
-      position: { x: 340, y: 35 },
+      position: { x: 420, y: 35 },
       data: { isHazardMode, architecturePattern, moat }
     },
     {
       id: 'node-3',
       type: 'profit',
-      position: { x: 660, y: 35 },
+      position: { x: 810, y: 35 },
       data: {
         isHazardMode,
         formattedRev: formatMoney(rev),
@@ -184,9 +183,9 @@ export function VisualPipelineSection({
       animated: true,
       label: '価値提供 (WTP)',
       labelStyle: { fill: '#38bdf8', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
-      labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.9, stroke: 'rgba(56, 189, 248, 0.4)' },
+      labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.95, stroke: 'rgba(56, 189, 248, 0.4)' },
       labelBgPadding: [6, 4] as [number, number],
-      style: { stroke: isHazardMode ? '#ef4444' : '#06b6d4', strokeWidth: 2 },
+      style: { stroke: isHazardMode ? '#ef4444' : '#06b6d4', strokeWidth: 2.5 },
       markerEnd: { type: MarkerType.ArrowClosed, color: isHazardMode ? '#ef4444' : '#06b6d4' }
     },
     {
@@ -196,9 +195,9 @@ export function VisualPipelineSection({
       animated: true,
       label: '超過利潤創出',
       labelStyle: { fill: '#34d399', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
-      labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.9, stroke: 'rgba(52, 211, 153, 0.4)' },
+      labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.95, stroke: 'rgba(52, 211, 153, 0.4)' },
       labelBgPadding: [6, 4] as [number, number],
-      style: { stroke: isHazardMode ? '#dc2626' : '#10b981', strokeWidth: 2 },
+      style: { stroke: isHazardMode ? '#dc2626' : '#10b981', strokeWidth: 2.5 },
       markerEnd: { type: MarkerType.ArrowClosed, color: isHazardMode ? '#dc2626' : '#10b981' }
     }
   ];
@@ -221,29 +220,34 @@ export function VisualPipelineSection({
           <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
             isHazardMode ? 'text-red-300' : 'text-zinc-100'
           }`}>
-            {isHazardMode ? '資本出血配管図：ユニットエコノミクス崩壊フロー' : 'キャッシュ創出配管図：顧客ペイン解決から営業利益回収まで (REACT FLOW)'}
+            {isHazardMode ? '資本出血配管図：ユニットエコノミクス崩壊フロー' : 'キャッシュ創出配管図：顧客ペイン解決から営業利益回収まで'}
           </h3>
         </div>
         <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
-          INTERACTIVE PIPELINE
+          AUTONOMOUS FLOW
         </span>
       </div>
 
-      {/* React Flow キャンバス */}
-      <div className="w-full h-[250px] bg-[#07090F]/90 rounded-xl border border-white/[0.08] relative overflow-hidden shadow-inner">
+      {/* 閲覧専用・自動フィット配管キャンバス */}
+      <div className="w-full h-[240px] bg-[#07090F]/90 rounded-xl border border-white/[0.08] relative overflow-hidden shadow-inner pointer-events-none">
         <ReactFlow
           nodes={nodes}
           edges={edges}
           nodeTypes={nodeTypes}
           fitView
-          fitViewOptions={{ padding: 0.2 }}
-          minZoom={0.5}
-          maxZoom={1.5}
+          fitViewOptions={{ padding: 0.12 }}
+          nodesDraggable={false}
+          nodesConnectable={false}
+          elementsSelectable={false}
+          panOnDrag={false}
+          zoomOnScroll={false}
+          zoomOnPinch={false}
+          zoomOnDoubleClick={false}
+          preventScrolling={false}
           proOptions={{ hideAttribution: true }}
           className="select-none"
         >
-          <Background color="rgba(255, 255, 255, 0.05)" gap={16} size={1} />
-          <Controls showInteractive={false} className="!bg-black/60 !border-white/10 !text-zinc-400" />
+          <Background color="rgba(255, 255, 255, 0.04)" gap={16} size={1} />
         </ReactFlow>
       </div>
     </div>
