@@ -20,6 +20,7 @@ import { VisualPipelineSection } from './ui/VisualPipelineSection';
 import { SankeyCashFlowDiagram } from './ui/SankeyCashFlowDiagram';
 import { FlywheelEngineDiagram } from './ui/FlywheelEngineDiagram';
 import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
+import { TradingViewFinancialChart } from './ui/TradingViewFinancialChart';
 import type { InspectorViewMode } from './model/section-props';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -160,10 +161,13 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 2. 【第2段】キャッシュ創出構造（顧客ペイン ➔ 価格決定力 ➔ 営業利益創出） */}
           <VisualPipelineSection {...sectionProps} />
 
-          {/* 3. 【図表強化①】現金の滝（損益分岐サンキー図） */}
+          {/* 3. 【図表強化①】現金の滝（Apache ECharts サンキー ＆ 損益分岐ウォーターフォール） */}
           {showFinancial && <SankeyCashFlowDiagram {...sectionProps} />}
 
-          {/* 4. 【図表強化②】自走増殖エンジン（独占のフライホイール円環図） */}
+          {/* 4. 【図表強化②】損益ストリーム分析（TradingView 機関投資家チャート） */}
+          {showFinancial && <TradingViewFinancialChart {...sectionProps} />}
+
+          {/* 5. 【図表強化③】自走増殖エンジン（Apache ECharts 360°グラフネットワーク） */}
           {showBusiness && <FlywheelEngineDiagram {...sectionProps} />}
 
           {/* 5. 【図表強化③】産業構造の変革（バリューチェーン中抜き対比図） */}

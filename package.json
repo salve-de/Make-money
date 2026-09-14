@@ -9,7 +9,6 @@
     "lint": "eslint --max-warnings=0 && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs && node scripts/architecture/check-index-safety.mjs && node scripts/architecture/check-ingest-quality.mjs",
     "ingest:verify": "node scripts/architecture/check-ingest-quality.mjs",
     "audit:ui": "tsx scripts/architecture/audit-all-234-ui.ts",
-
     "preview:workers": "pnpm workers:build && opennextjs-cloudflare preview",
     "deploy:preflight": "node scripts/architecture/check-deploy-config.mjs",
     "deploy:workers": "pnpm deploy:preflight && pnpm workers:build && opennextjs-cloudflare deploy",
@@ -44,8 +43,10 @@
     "@cfworker/json-schema": "4.1.1",
     "@next/env": "16.3.4",
     "@opennextjs/cloudflare": "^1.20.6",
+    "@xyflow/react": "^12.11.6",
     "ajv": "8.18.0",
     "ajv-formats": "3.0.1",
+    "echarts": "^6.1.0",
     "firebase": "^12.18.0",
     "jose": "^6.2.12",
     "lightweight-charts": "^5.2.1",
