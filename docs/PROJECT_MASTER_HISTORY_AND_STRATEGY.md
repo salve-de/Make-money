@@ -5593,6 +5593,27 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 4. **収集マスターガイドへの反映**:
    - `docs/DATA_COLLECTION_MASTER_GUIDE.md` 第Ⅵ章に「重複防止マスター台帳と事前判定規律」を明記。
 
+---
+
+## 2026-09-14 (Phase 174): 台帳の自律管理ライフサイクル確立（誰が・いつ・どのように・どこで） ＆ 公開API（GET /api/registry） ＆ 機械的パリティガードの完全配備
+
+### 1. ユーザーの疑問（「台帳は誰がいつどのように追記し、どこで誰がちゃんと管理できるのか？」）
+- 手動コマンド（`pnpm registry:sync`）に頼る属人的運用を完全排除。
+- 人間の介入ゼロ（Zero-Effort）で、システムがインジェスト時に100%自動で台帳を追記・R2 Manifest同期し、CI/リントでパリティ（一致性）を強制保証する物理アーキテクチャを確立。
+
+### 2. 外科的配備内容
+1. **「誰が？ いつ？ どのように？」（自動追記パイプライン）**:
+   - `scripts/pipeline/real-ingest-pipeline.ts` のインジェスト最終ステップに `sync-registry.mjs` の自動フックを組み込み。
+   - 新規データがR2/目録に書き込まれた「その瞬間」に、システム自身が自動で `data/collected-registry.json` および R2 Lake Manifest へ追記・同期を完了させる。人間は一切手を触れない。
+2. **「誰がちゃんと管理（保証）するのか？」（機械的パリティガード）**:
+   - `scripts/architecture/check-index-safety.mjs` に `checkRegistryParity` を新設。
+   - `entities-index.json` と `collected-registry.json` の件数および全IDが1件でもズレていれば、コミットおよびCI（`pnpm lint`）が物理的に停止する Fail-Closed Gate を配備。台帳の不整合・放置は構造的に不可能。
+3. **「どこで参照できるのか？」（3大公開チャネル ＆ 高速API）**:
+   - ① Git/GitHub正本: `data/collected-registry.json`
+   - ② R2正本保管庫: `foundation-lake/manifest/collected-registry.json`
+   - ③ 公開HTTP API: `GET /api/registry`（全件超軽量一覧）および `GET /api/registry?check=<社名/ドメイン>`（0.01秒で重複判定結果を返却）を本番Next.jsルートに配備完了。
+
+
 
 
 

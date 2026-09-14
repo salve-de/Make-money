@@ -252,6 +252,12 @@ export async function ingestVerifiedEntities(
 
   await writeFile(indexPath, JSON.stringify(updatedCatalog, null, 2), 'utf8');
   console.log(`  ✓ Catalog synchronized! Total entities: ${updatedCatalog.length} (Added/Updated: ${entities.length})`);
+
+  // 5. 超軽量・重複防止マスター台帳 (data/collected-registry.json) への自動同期
+  const { execSync } = await import('node:child_process');
+  execSync('node scripts/sync-registry.mjs', { stdio: 'inherit' });
+  console.log(`  ✓ Deduplication Registry synchronized automatically!`);
+
   console.log(`\n================================================================\n`);
   return updatedCatalog.length;
 }
