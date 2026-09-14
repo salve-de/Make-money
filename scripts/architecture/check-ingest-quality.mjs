@@ -121,10 +121,15 @@ for (const ent of entities) {
 const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
 
 for (const ent of entities) {
-  // A. essence (optional: if present, validate types)
+  // A. essence (optional: if present, validate types and clean business identity)
   if (ent.essence) {
     if (typeof ent.essence !== 'object') {
       errors.push(`[SCHEMA ERROR] ${ent.name}: essence must be an object.`);
+    } else if (ent.essence.whatItDoes) {
+      const text = ent.essence.whatItDoes;
+      if (text.startsWith(`${ent.name}は`) || text.startsWith(`${ent.name}が`) || text.includes('は、「')) {
+        errors.push(`[REDUNDANT IDENTITY] ${ent.name}: essence.whatItDoes starts with redundant company name prefix.`);
+      }
     }
   }
 

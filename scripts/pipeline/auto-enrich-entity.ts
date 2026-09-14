@@ -429,21 +429,57 @@ export function autoEnrichEntityBeforeIngest(ent: FinancialEntity): FinancialEnt
     }
   }
 
-  // 6. essence (#01) の自動補完
+  // 6. essence (#01) の自動補完および社名プレフィックス除去
+  const MOAT_JP_TITLES: Record<string, string> = {
+    SCALE_ECONOMIES: '圧倒的な規模の経済と調達コスト優位性',
+    NETWORK_EFFECT: '参加者増加が自己強化するネットワーク効果',
+    SWITCHING_COST: '解約不能な業務組み込みと高い移行摩擦',
+    INTELLECTUAL_PROPERTY: '独占的特許・知財と模倣困難な独自技術',
+    PROCESS_POWER: '現場の徹底した標準化と極限のオペレーション能力',
+    BRAND: '市場の信頼を独占するブランド引力と価格決定力',
+    CORNERED_RESOURCE: '他社がアクセスできない希少資源の独占',
+    COUNTER_POSITIONING: '大企業が自爆を恐れて手を出せない構造',
+    SYSTEMIC_GRAVITY: '不可逆なデータ蓄積と業務プロセスの囲い込み'
+  };
+
+  const stripEntityPrefix = (text: string): string => {
+    if (!text) return '';
+    let res = text.trim();
+    const names = [cloned.name, cloned.legalEntity, cloned.id?.replace('ent_', '')].filter(Boolean) as string[];
+    for (const n of names) {
+      const esc = n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      res = res.replace(new RegExp('^' + esc + '[は|が|の|による]?\\s*[、,]?\\s*', 'u'), '');
+    }
+    res = res.replace(/^.*?は、[「『]?/u, '');
+    res = res.replace(/^.*?は[「『]/u, '');
+    res = res.replace(/^[「『]/u, '');
+    return res.trim();
+  };
+
   if (!cloned.essence || !cloned.essence.whatItDoes || !cloned.essence.targetCustomer || !cloned.essence.painRelief) {
     if (isHazard) {
+      const coreTagline = (cloned.tagline || '急拡大する市場の幻想').replace(/[。、]+$/, '');
       cloned.essence = {
-        whatItDoes: `${cloned.name}は、「${cloned.tagline || '急拡大する市場の幻想'}」を掲げて巨額資本を集めたものの、単位経済を無視した過剰投資により破綻に至った教訓的モデル。`,
+        whatItDoes: `「${coreTagline}」を掲げて巨額資本を集めたものの、単位経済を無視した過剰投資により破綻に至った教訓的モデル。`,
         targetCustomer: '急成長の幻想や低価格に引き寄せられた一般ユーザーおよび法人顧客層。',
         painRelief: '見かけの利便性や低価格の錯覚を提供したが、持続可能な収益構造の欠如により最終的に事業継続が不可能となった。'
       };
     } else {
       const revStr = p && p.monthlyRevenue > 0 ? `月商${formatMoneyShort(p.monthlyRevenue)}・利益率${p.operatingMargin || 0}%` : '高収益';
+      const coreTagline = (cloned.tagline || '特定市場の強い歪み').replace(/[。、]+$/, '');
       cloned.essence = {
-        whatItDoes: `${cloned.name}は、「${cloned.tagline || '特定市場の強い歪み'}」を捉え、独自の構造的関所を握ることで${revStr}を実現する高収益ビジネスモデル。`,
+        whatItDoes: `「${coreTagline}」を捉え、独自の構造的関所を握ることで${revStr}を実現するビジネスモデル。`,
         targetCustomer: '既存の汎用ツールの非効率に不満を持ち、迅速かつ確実に成果を上げたい企業の現場担当者やプロ層。',
         painRelief: '日々の面倒な手作業の繰り返し、属人化によるミスの発生、および高額な外注コストの苦痛を解消する。'
       };
+    }
+  } else {
+    // 既存の whatItDoes からも社名プレフィックスを除去
+    cloned.essence.whatItDoes = stripEntityPrefix(cloned.essence.whatItDoes);
+    if (cloned.essence.whatItDoes.includes('」を捉え、独自の構造的関所を握ることで')) {
+      const parts = cloned.essence.whatItDoes.split('」を捉え、独自の構造的関所を握ることで');
+      const core = parts[0].trim().replace(/[。、]+$/, '');
+      cloned.essence.whatItDoes = `${core}構造を握り、${parts[1].trim()}`;
     }
   }
 
@@ -452,24 +488,46 @@ export function autoEnrichEntityBeforeIngest(ent: FinancialEntity): FinancialEnt
     const bs = cloned.strategy.blindspot || '';
     if (!bs.startsWith('【') || !bs.includes('】') || bs.length < 50) {
       const headline = isHazard
-        ? (cloned.name + 'が見落とした致命的死角').slice(0, 30)
-        : (cloned.tagline || cloned.name + 'が突いた常識のウラ').slice(0, 30);
+        ? '見落とされた致命的死角と構造的欠陥'
+        : (cloned.strategy?.secretInsight || '業界の常識のウラを突いた独自構造').slice(0, 30);
       const detail = bs && bs.length > 15
         ? `${bs}。競合他社が常識と信じ込んでいた業界の慣行を完全に裏切り、顧客が最も嫌う苦痛・時間的損失・保身恐怖を最短で解消する配管を構築した。`
         : '業界の既存プレイヤーが「高価格・対面営業・多機能」に固執する間に、顧客が真に求めていた「即時性・手間の排除・確実な成果」だけに絞り込み、極小の固定費で市場の現金を吸い上げた。';
       cloned.strategy.blindspot = `【${headline}】${detail}`;
+    } else {
+      // 見出しから社名を除去
+      const match = bs.match(/^【(.*?)】(.*)$/);
+      if (match) {
+        let h = stripEntityPrefix(match[1]);
+        h = h.replace(/^.*?が突いた業界の盲点/u, '業界の常識のウラを突いた独自構造');
+        cloned.strategy.blindspot = `【${h || '業界の常識のウラを突いた独自構造'}】${match[2].trim()}`;
+      }
     }
 
     const md = cloned.strategy.moatDescription || '';
     if (!md.startsWith('【') || !md.includes('】') || md.length < 50) {
       const moatLabel = cloned.strategy.moatType || '構造的優位性';
       const headline = isHazard
-        ? (cloned.name + 'の見せかけの堀が崩壊した構造').slice(0, 30)
-        : (`${cloned.name}の${moatLabel}要塞`).slice(0, 30);
+        ? '見せかけの堀が崩壊した構造的要因'
+        : (MOAT_JP_TITLES[moatLabel] || '他社の追随を許さない構造的参入障壁');
       const detail = md && md.length > 15
         ? `${md}。後発の競合が追いつこうとしても、すでに確立されたネットワーク効果やデータ蓄積、現場の深いオペレーションノウハウを物理的に模倣できず、参入障壁として機能している。`
         : '顧客の過去データや業務プロセスに深く食い込み、他社ツールへ移行する際の手間と事業停止リスクが参入障壁となるため、高い顧客維持率と長期的なキャッシュ創出力が担保されている。';
       cloned.strategy.moatDescription = `【${headline}】${detail}`;
+    } else {
+      // 見出しから社名と英語キーを除去
+      const match = md.match(/^【(.*?)】(.*)$/);
+      if (match) {
+        let h = stripEntityPrefix(match[1]);
+        for (const [k, v] of Object.entries(MOAT_JP_TITLES)) {
+          if (h.includes(k)) {
+            h = v;
+            break;
+          }
+        }
+        h = h.replace(/独占要[塞]?/g, '').replace(/要塞$/g, '').trim();
+        cloned.strategy.moatDescription = `【${h || MOAT_JP_TITLES[cloned.strategy.moatType] || '他社の追随を許さない構造的参入障壁'}】${match[2].trim()}`;
+      }
     }
 
     const inc = cloned.strategy.incumbentDilemma || '';

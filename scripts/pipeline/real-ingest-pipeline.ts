@@ -172,6 +172,11 @@ export async function ingestVerifiedEntities(
       throw new Error(`[INGEST REJECTED: UNSTRUCTURED MOAT] "${ent.name}" strategy.moatDescription must have 【headline】 and detailed body.`);
     }
 
+    // L. クリーン・ビジネス・アイデンティティチェック（会社名の冗長プレフィックス遮断）
+    if (ent.essence.whatItDoes.startsWith(`${ent.name}は`) || ent.essence.whatItDoes.startsWith(`${ent.name}が`) || ent.essence.whatItDoes.includes('は、「')) {
+      throw new Error(`[INGEST REJECTED: REDUNDANT COMPANY NAME IN ESSENCE] "${ent.name}" whatItDoes starts with redundant company name prefix.`);
+    }
+
     console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / TOOLS: ${ent.operations.toolStack.length}] PASS`);
   }
 
