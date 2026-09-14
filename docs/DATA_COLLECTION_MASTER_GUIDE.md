@@ -7,6 +7,15 @@
 > GitHubの docs/DATA_COLLECTION_MASTER_GUIDE.md （または https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/DATA_COLLECTION_MASTER_GUIDE.md ）を読んで、資本主義の裏帳簿データを集めて。
 > ```
 > 本文書を読み込んだ全てのAIは、一切の追加質問・手戻り・過去のやらかしをゼロにして完全自律稼働せよ。
+>
+> **【最重要・重複絶対禁止条項（無駄足ゼロ契約）】**:
+> 1. **収集済みリストの事前照合義務**:
+>    - 調査を開始する前に、必ず最新の収集済み企業一覧 [docs/COLLECTED_ENTITIES.md](https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/COLLECTED_ENTITIES.md) （現在332社）を全件取得せよ。
+>    - ここに掲載されている企業（およびその製品名・旧社名・グループ会社・直接の親会社・子会社）を再収集することは**「計算資源と人間の時間の完全な浪費・重大インシデント」**とする。
+> 2. **エイリアス・製品名の衝突地雷の事前回避**:
+>    - 「Basecamp ➔ 37signals」「Uniqlo ➔ Fast Retailing」「Instagram/WhatsApp ➔ Meta」「YouTube ➔ Alphabet」「ConvertKit ➔ Kit」「MicroAcquire ➔ Acquire.com」「Cursor ➔ Anysphere」「Wise ➔ Wise (TransferWise)」など、製品名や別名で既存企業と被るケースを必ず事前照合して排除せよ。
+> 3. **機械的重複遮断（インジェスト即死）**:
+>    - 収集されたデータはインジェスト時に `check-ingest-quality.mjs` により、ID重複・社名重複・Ticker重複・公式ドメイン重複が1件でもあると**1秒で物理的にreject（即時破棄）**される。重複の調査に費やした時間は全て無駄になるため、候補出しの時点で重複を100%排除せよ。
 
 ---
 
@@ -233,7 +242,7 @@
 あなたが外部AI（ChatGPT, Claude, Cursor等）にデータを集めさせる際、以下の1行をそのまま投げれば、AIはこのドキュメントを直接参照して過去のミスをゼロにして自走する：
 
 ```markdown
-GitHubの docs/DATA_COLLECTION_MASTER_GUIDE.md （https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/DATA_COLLECTION_MASTER_GUIDE.md ）に書かれている「資本主義の裏帳簿収集マスターガイド」を完全に熟読せよ。そこに記載された「過去の重大やらかし事故（為替逆数、100倍誤記、ID重複、未確認フラグ欠落、SaaS誤爆）」を絶対に繰り返さず、完全体JSONフォーマットで [業種/企業/件数] のデータを生成せよ。
+GitHubの docs/DATA_COLLECTION_MASTER_GUIDE.md （https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/DATA_COLLECTION_MASTER_GUIDE.md ）に書かれている「資本主義の裏帳簿収集マスターガイド」を完全に熟読せよ。そこに記載された「収集済みリスト docs/COLLECTED_ENTITIES.md の332社との重複厳禁」および「過去の重大やらかし事故（為替逆数、100倍誤記、ID重複、未確認フラグ欠落、SaaS誤爆）」を絶対に繰り返さず、完全体JSONフォーマットで [業種/企業/件数] のデータを生成せよ。
 ```
 
 ---
@@ -244,19 +253,39 @@ GitHubの docs/DATA_COLLECTION_MASTER_GUIDE.md （https://raw.githubusercontent.
 - **課題**: 全プロパティを含む台帳（`entities-index.json`）は1万社・1億社になると数十GB〜数TBに達し、外部AIや収集スクリプトが読み込めなくなる。
 - **解決策**: 企業名（正規化）・Ticker・公式ドメインの3点のみを凝縮した**【超軽量・収集済みマスター台帳】（`data/collected-registry.json` および R2 Lake Manifest）**を常時同期。1社あたりわずか200バイト、10万社でも20MB、1億社でもBloom FilterやD1（SQLite B-Tree）により0.001秒で重複判定が可能。
 
-### 2. 事前重複判定コマンド（収集前に叩け）
-収集スクリプトや外部AIは、調査を開始する前に以下のコマンドで被りを一瞬で判定できる：
-```bash
-# 社名、ティッカー、またはドメインで判定
-pnpm dedup:check "TSMC"
-# ➔ {"status": "EXISTS", "message": "既に収集済みです: [Taiwan Semiconductor...]", ...}
+### 2. 事前重複判定コマンド（収集前・候補選定時に叩け）
+収集スクリプトや外部AI、人間は、調査を開始する前に以下のコマンドで被りを一瞬で判定できる：
 
-pnpm dedup:check "新規ニッチ企業"
-# ➔ {"status": "AVAILABLE", "message": "未収集です（重複なし）。新規収集可能です", ...}
+```bash
+# 1. 単一社名・ドメイン・エイリアス判定
+pnpm dedup:check "Costco"
+# ➔ {"status": "EXISTS", "reason": "社名が完全に一致します: [Costco Wholesale Corporation]"}
+
+pnpm dedup:check "basecamp"
+# ➔ {"status": "EXISTS", "reason": "エイリアス/製品名「basecamp」は既存の [37signals...] に該当します"}
+
+# 2. 複数候補の一括判定（重複企業と新規安全企業を一瞬で自動仕分け）
+pnpm dedup:check "Costco" "Stripe" "Notion" "架空の新規AI企業"
+
+# 3. カンマ区切りリストの一括判定
+pnpm dedup:check --list "Costco, Stripe, 新規企業A, 新規企業B"
+
+# 4. 候補リストテキストファイルの一括判定
+pnpm dedup:check --file candidate_companies.txt
 ```
 
-### 3. マスター台帳の自動同期
-新規データをインジェストした後は、以下のコマンドで超軽量レジストリとR2 Manifestへ即時反映される：
+### 3. 次回収集用プロンプトの自動生成
+現在の収集済み企業（332社）を全件除外ブラックリストとして埋め込み、手薄なセクターを優先指示するプロンプトを一撃で生成する：
+```bash
+pnpm prompt:collect
+# ➔ data/next-collection-prompt.txt に一発生成
+```
+
+### 4. インジェスト時の機械的重複拒絶ガードレール（Mechanical Ingest Blocker）
+万が一、重複企業がデータに含まれていた場合、CIおよびコミット前の `pnpm lint`（`scripts/architecture/check-ingest-quality.mjs`）が物理的に検知し、ID重複・社名重複・Ticker重複・ドメイン重複を**1秒で完全reject（即時破棄）**する。これにより、マスター台帳の多重登録・汚染は永久にゼロに保たれる。
+
+### 5. マスター台帳の自動同期
+新規データをインジェストした後は、以下のコマンドで超軽量レジストリ、R2 Manifest、および人間・外部AI用一覧リストへ即時反映される：
 ```bash
 pnpm registry:sync
 ```

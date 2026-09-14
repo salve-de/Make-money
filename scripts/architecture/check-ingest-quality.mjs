@@ -13,6 +13,69 @@ console.log(`[check-ingest-quality] Auditing semantic and domain integrity for $
 
 let errors = [];
 
+// 0. Check for duplicate entities (ID, Normalized Name, Ticker, Domain)
+const seenIds = new Map();
+const seenNormNames = new Map();
+const seenTickers = new Map();
+const seenDomains = new Map();
+const SHARED_PLATFORMS = new Set([
+  'x.com', 'twitter.com', 'notion.so', 'notion.site', 'gumroad.com', 'substack.com', 'medium.com', 'github.com',
+  'wikipedia.org', 'en.wikipedia.org', 'ja.wikipedia.org', 'sec.gov'
+]);
+
+function normalizeEntityName(name) {
+  if (!name) return '';
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/\b(inc|llc|corp|corporation|co|ltd|plc|gmbh|holdings)\b/g, '')
+    .replace(/[\s\-_・（）()株式会社有限会社]/g, '');
+}
+
+for (const ent of entities) {
+  // A. ID一意性
+  const idLower = (ent.id || '').toLowerCase().trim();
+  if (seenIds.has(idLower)) {
+    errors.push(`[DUPLICATION ERROR] Duplicate entity ID: "${ent.id}" (conflicts with "${seenIds.get(idLower).name}")`);
+  } else {
+    seenIds.set(idLower, ent);
+  }
+
+  // B. 正規化名称一意性
+  const normName = normalizeEntityName(ent.name);
+  if (normName.length > 2) {
+    if (seenNormNames.has(normName)) {
+      errors.push(`[DUPLICATION ERROR] Duplicate company name: "${ent.name}" conflicts with existing "${seenNormNames.get(normName).name}" (ID: ${ent.id} vs ${seenNormNames.get(normName).id})`);
+    } else {
+      seenNormNames.set(normName, ent);
+    }
+  }
+
+  // C. Ticker一意性
+  if (ent.ticker && typeof ent.ticker === 'string' && ent.ticker.trim()) {
+    const tick = ent.ticker.trim().toUpperCase();
+    if (seenTickers.has(tick)) {
+      errors.push(`[DUPLICATION ERROR] Duplicate Ticker: "${tick}" for "${ent.name}" conflicts with "${seenTickers.get(tick).name}"`);
+    } else {
+      seenTickers.set(tick, ent);
+    }
+  }
+
+  // D. ドメイン一意性（同一企業の検死版POST_MORTEMは許容）
+  if (ent.url && ent.pnl?.financialStatus !== 'POST_MORTEM' && !ent.name.includes('検死')) {
+    try {
+      const domain = new URL(ent.url).hostname.replace(/^www\./, '').toLowerCase();
+      if (domain && !SHARED_PLATFORMS.has(domain)) {
+        if (seenDomains.has(domain)) {
+          errors.push(`[DUPLICATION ERROR] Duplicate official domain: "${domain}" for "${ent.name}" conflicts with "${seenDomains.get(domain).name}"`);
+        } else {
+          seenDomains.set(domain, ent);
+        }
+      }
+    } catch {}
+  }
+}
+
 // 1. Check Offline entities for misplaced SaaS payment tools
 const OFFLINE_RETAIL_KEYWORDS = ['スーパー', 'ロピア', 'オーケー', '丸亀', 'スシロー', 'きんぐ', 'ワークマン', '業務スーパー'];
 for (const ent of entities) {

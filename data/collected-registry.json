@@ -10,16 +10,6 @@
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
-    "id": "ent_keyence_R7P3L9XA",
-    "name": "KEYENCE Corporation",
-    "normName": "keyencecorporation",
-    "ticker": "KEYENCE",
-    "domain": "keyence.co.jp",
-    "sector": "MONOPOLY_MFG",
-    "status": "ESTIMATED",
-    "batchId": "batch-03-2026-09-14-capitalism100"
-  },
-  {
     "id": "ent_tsmc_J6V2C8QK",
     "name": "Taiwan Semiconductor Manufacturing Company Limited",
     "normName": "taiwansemiconductormanufacturingcompanylimited",
@@ -916,16 +906,6 @@
     "ticker": "LOREAL",
     "domain": "loreal.com",
     "sector": "MONOPOLY_MFG",
-    "status": "ESTIMATED",
-    "batchId": "batch-03-2026-09-14-capitalism100"
-  },
-  {
-    "id": "ent_wise_G9M3R6TK",
-    "name": "Wise plc",
-    "normName": "wiseplc",
-    "ticker": "WISECO",
-    "domain": "wise.com",
-    "sector": "FINTECH_INFRA",
     "status": "ESTIMATED",
     "batchId": "batch-03-2026-09-14-capitalism100"
   },
@@ -2375,16 +2355,6 @@
     "normName": "beehiiv",
     "ticker": "BEEHIIV",
     "domain": "beehiiv.com",
-    "sector": "NICHE_SAAS",
-    "status": "REPORTED",
-    "batchId": "batch-01-core-foundation134"
-  },
-  {
-    "id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
-    "name": "Kit (旧 ConvertKit)",
-    "normName": "kit旧convertkit",
-    "ticker": "KITCONVE",
-    "domain": "kit.com",
     "sector": "NICHE_SAAS",
     "status": "REPORTED",
     "batchId": "batch-01-core-foundation134"

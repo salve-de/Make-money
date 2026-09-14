@@ -1,17 +1,17 @@
 # 収集済み企業・サービス一覧リスト (Collected Entities Ledger)
 
 > **更新日時**: 2026-09-14
-> **総登録社数**: 335 社
+> **総登録社数**: 332 社
 > **内訳**:
-> - 第3期 今回収集: 100 社
+> - 第3期 今回収集: 98 社
 > - 第2期 前回収集: 101 社
-> - 第1期 初期コア: 134 社
+> - 第1期 初期コア: 133 社
 > **Raw URL**: https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/COLLECTED_ENTITIES.md
 > **用途**: 外部AIへの「重複除外ブラックリスト」として使用。ここに記載された企業はすでに収集済みのため、絶対に取りに行くな。
 
 ---
 
-## 50音・アルファベット順 全量一覧 (335 社)
+## 50音・アルファベット順 全量一覧 (332 社)
 
 1. 100 Days of No Code
 2. 1440
@@ -176,175 +176,172 @@
 161. Kajabi
 162. Katerra, Inc.
 163. Keychron
-164. KEYENCE Corporation
-165. Kit (formerly ConvertKit)
-166. Kit (旧 ConvertKit)
-167. Klaviyo
-168. L'Oréal S.A.
-169. Leonardo.ai
-170. Liinks
-171. Linear
-172. Linktree
-173. Liquid Death
-174. Lockheed Martin Corporation
-175. Loops.so
-176. Loox
-177. Lordstown Motors Corp.
-178. LTK (RewardStyle)
-179. LVMH Moët Hennessy Louis Vuitton SE
-180. MacroFactor
-181. Magic Spoon
-182. Manscaped
-183. MasterClass
-184. McDonald's Corporation
-185. MercadoLibre, Inc.
-186. Mercury
-187. MeUndies
-188. Microsoft Corporation
-189. Midjourney
-190. Mighty Networks
-191. MongoDB, Inc.
-192. MonotaRO Co., Ltd.
-193. Morning Brew
-194. MoviePass / Helios and Matheson Analytics Inc.
-195. Netflix, Inc.
-196. NIKE, Inc.
-197. Nintendo Co., Ltd.
-198. Nomad List
-199. Notion
-200. Notion Everything
-201. Notion VIP
-202. Notionery
-203. NVIDIA Corporation
-204. Okta, Inc.
-205. On Holding
-206. OnlyFans
-207. OOFOS
-208. Oura Ring
-209. Oyster HR
-210. Palo Alto Networks, Inc.
-211. Patreon
-212. PayPal Holdings, Inc.
-213. PDF.ai
-214. Peak Design
-215. Pela Case
-216. PepsiCo, Inc.
-217. Perplexity AI
-218. Pets.com, Inc. → IPET Holdings, Inc.
-219. Phind
-220. Photo AI
-221. Plaid, Inc.
-222. Plausible Analytics
-223. Podia
-224. PostHog
-225. Public Goods
-226. Quibi
-227. Quibi Holdings, LLC
-228. Rakuten Rewards (Ebates)
-229. Ramp
-230. Raycast
-231. Recruit Holdings Co., Ltd.
-232. Red Gregory
-233. Remote
-234. RetailMeNot
-235. Revolut
-236. Rewind AI
-237. Robinhood Markets, Inc.
-238. Roblox Corporation
-239. Rumpl
-240. Ryanair Holdings plc
-241. S'well
-242. Salesforce, Inc.
-243. Samsung Electronics Co., Ltd.
-244. ScrapingBee
-245. Screen Studio
-246. ScreenshotOne
-247. Sea Limited
-248. ServiceNow, Inc.
-249. Setapp
-250. ShipFast
-251. Shopify Inc.
-252. ShopStyle
-253. Silicon Valley Bank / SVB Financial Group
-254. Simple Ink
-255. SiteGPT
-256. Skool
-257. Slickdeals
-258. Solo Stove
-259. Sony Group Corporation
-260. Spotify Technology S.A.
-261. Stan Store
-262. Stanley 1913
-263. Starbucks Corporation
-264. StockX
-265. Stripe
-266. Substack
-267. Supabase
-268. SuperHi
-269. Superhuman
-270. Tailwind Labs
-271. Tailwind Plus
-272. Taiwan Semiconductor Manufacturing Company Limited
-273. Teachable
-274. Ten Thousand
-275. Tencent Holdings Limited
-276. Testimonial.to
-277. The Coca-Cola Company
-278. The Farmer's Dog
-279. The Home Depot, Inc.
-280. The Hustle
-281. The Milk Road
-282. The Procter & Gamble Company
-283. The Ridge Wallet
-284. The Rocket Science Group LLC d/b/a Mailchimp
-285. The Walt Disney Company
-286. Theranos
-287. Theranos, Inc.
-288. Thinkific
-289. Thomas Frank
-290. Thrive Market
-291. Tile
-292. Tiny Capital
-293. TLDR Newsletter
-294. Toyota Motor Corporation
-295. Transistor.fm
-296. Twilio Inc.
-297. TypingMind
-298. Uber Technologies, Inc.
-299. Union Pacific Corporation
-300. Vercel
-301. Visa Inc.
-302. Vuori
-303. Walmart Inc.
-304. Warp Terminal
-305. Webvan Group, Inc.
-306. WeWork (2019破綻前夜検死)
-307. WeWork Inc.
-308. Whoop
-309. Whop
-310. Wirecard AG
-311. Wise (TransferWise)
-312. Wise plc
-313. YETI Coolers
-314. Zenefits
-315. Zoom Communications, Inc.
-316. ZOZO, Inc.
-317. Zume, Inc.
-318. オーケー株式会社
-319. キーエンス (KEYENCE)
-320. トリドールホールディングス (丸亀製麺)
-321. 株式会社Macbee Planet
-322. 株式会社PR TIMES
-323. 株式会社SHIFT
-324. 株式会社エアトリ
-325. 株式会社エニグモ (BUYMA)
-326. 株式会社ギフティ
-327. 株式会社ココナラ
-328. 株式会社じげん
-329. 株式会社スペースマーケット
-330. 株式会社タイミー
-331. 株式会社ディスコ
-332. 株式会社ロピア (OIC)
-333. 株式会社ワークマン
-334. 株式会社神戸物産 (業務スーパー)
-335. 株式会社物語コーポレーション (焼肉きんぐ)
+164. Kit (formerly ConvertKit)
+165. Klaviyo
+166. L'Oréal S.A.
+167. Leonardo.ai
+168. Liinks
+169. Linear
+170. Linktree
+171. Liquid Death
+172. Lockheed Martin Corporation
+173. Loops.so
+174. Loox
+175. Lordstown Motors Corp.
+176. LTK (RewardStyle)
+177. LVMH Moët Hennessy Louis Vuitton SE
+178. MacroFactor
+179. Magic Spoon
+180. Manscaped
+181. MasterClass
+182. McDonald's Corporation
+183. MercadoLibre, Inc.
+184. Mercury
+185. MeUndies
+186. Microsoft Corporation
+187. Midjourney
+188. Mighty Networks
+189. MongoDB, Inc.
+190. MonotaRO Co., Ltd.
+191. Morning Brew
+192. MoviePass / Helios and Matheson Analytics Inc.
+193. Netflix, Inc.
+194. NIKE, Inc.
+195. Nintendo Co., Ltd.
+196. Nomad List
+197. Notion
+198. Notion Everything
+199. Notion VIP
+200. Notionery
+201. NVIDIA Corporation
+202. Okta, Inc.
+203. On Holding
+204. OnlyFans
+205. OOFOS
+206. Oura Ring
+207. Oyster HR
+208. Palo Alto Networks, Inc.
+209. Patreon
+210. PayPal Holdings, Inc.
+211. PDF.ai
+212. Peak Design
+213. Pela Case
+214. PepsiCo, Inc.
+215. Perplexity AI
+216. Pets.com, Inc. → IPET Holdings, Inc.
+217. Phind
+218. Photo AI
+219. Plaid, Inc.
+220. Plausible Analytics
+221. Podia
+222. PostHog
+223. Public Goods
+224. Quibi
+225. Quibi Holdings, LLC
+226. Rakuten Rewards (Ebates)
+227. Ramp
+228. Raycast
+229. Recruit Holdings Co., Ltd.
+230. Red Gregory
+231. Remote
+232. RetailMeNot
+233. Revolut
+234. Rewind AI
+235. Robinhood Markets, Inc.
+236. Roblox Corporation
+237. Rumpl
+238. Ryanair Holdings plc
+239. S'well
+240. Salesforce, Inc.
+241. Samsung Electronics Co., Ltd.
+242. ScrapingBee
+243. Screen Studio
+244. ScreenshotOne
+245. Sea Limited
+246. ServiceNow, Inc.
+247. Setapp
+248. ShipFast
+249. Shopify Inc.
+250. ShopStyle
+251. Silicon Valley Bank / SVB Financial Group
+252. Simple Ink
+253. SiteGPT
+254. Skool
+255. Slickdeals
+256. Solo Stove
+257. Sony Group Corporation
+258. Spotify Technology S.A.
+259. Stan Store
+260. Stanley 1913
+261. Starbucks Corporation
+262. StockX
+263. Stripe
+264. Substack
+265. Supabase
+266. SuperHi
+267. Superhuman
+268. Tailwind Labs
+269. Tailwind Plus
+270. Taiwan Semiconductor Manufacturing Company Limited
+271. Teachable
+272. Ten Thousand
+273. Tencent Holdings Limited
+274. Testimonial.to
+275. The Coca-Cola Company
+276. The Farmer's Dog
+277. The Home Depot, Inc.
+278. The Hustle
+279. The Milk Road
+280. The Procter & Gamble Company
+281. The Ridge Wallet
+282. The Rocket Science Group LLC d/b/a Mailchimp
+283. The Walt Disney Company
+284. Theranos
+285. Theranos, Inc.
+286. Thinkific
+287. Thomas Frank
+288. Thrive Market
+289. Tile
+290. Tiny Capital
+291. TLDR Newsletter
+292. Toyota Motor Corporation
+293. Transistor.fm
+294. Twilio Inc.
+295. TypingMind
+296. Uber Technologies, Inc.
+297. Union Pacific Corporation
+298. Vercel
+299. Visa Inc.
+300. Vuori
+301. Walmart Inc.
+302. Warp Terminal
+303. Webvan Group, Inc.
+304. WeWork (2019破綻前夜検死)
+305. WeWork Inc.
+306. Whoop
+307. Whop
+308. Wirecard AG
+309. Wise (TransferWise)
+310. YETI Coolers
+311. Zenefits
+312. Zoom Communications, Inc.
+313. ZOZO, Inc.
+314. Zume, Inc.
+315. オーケー株式会社
+316. キーエンス (KEYENCE)
+317. トリドールホールディングス (丸亀製麺)
+318. 株式会社Macbee Planet
+319. 株式会社PR TIMES
+320. 株式会社SHIFT
+321. 株式会社エアトリ
+322. 株式会社エニグモ (BUYMA)
+323. 株式会社ギフティ
+324. 株式会社ココナラ
+325. 株式会社じげん
+326. 株式会社スペースマーケット
+327. 株式会社タイミー
+328. 株式会社ディスコ
+329. 株式会社ロピア (OIC)
+330. 株式会社ワークマン
+331. 株式会社神戸物産 (業務スーパー)
+332. 株式会社物語コーポレーション (焼肉きんぐ)
