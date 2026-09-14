@@ -307,7 +307,30 @@ for (const ent of entities) {
         }
       }
     }
+  // 6. Check High-Density Quality Invariants (Permanent Keyence-Level Fail-Closed Gate)
+  // A. 稼働ツールスタック密度チェック (0件のスカスカデータを物理遮断)
+  if (!ent.operations?.toolStack || !Array.isArray(ent.operations.toolStack) || ent.operations.toolStack.length === 0) {
+    errors.push(`[DENSITY VIOLATION: Empty ToolStack] ${ent.name} has 0 tools in operations.toolStack.`);
   }
+
+  // B. 4大意思決定ベクトル完全性チェック (ヘッダー空白化の物理遮断)
+  if (!ent.opportunityJudgment || !ent.opportunityJudgment.verdict || !ent.opportunityJudgment.demandDelta || ent.opportunityJudgment.demandDelta === '未確認') {
+    errors.push(`[DENSITY VIOLATION: Missing OpportunityJudgment] ${ent.name} missing valid opportunityJudgment (verdict or demandDelta is missing/unconfirmed).`);
+  }
+
+  // C. エビデンスカード金融メトリクスチェック (数値グリッド欠落の物理遮断)
+  const hasCardMetrics = Array.isArray(ent.evidenceCards) && ent.evidenceCards.some(c => c && Array.isArray(c.metrics) && c.metrics.length > 0);
+  if (!hasCardMetrics) {
+    errors.push(`[DENSITY VIOLATION: Missing Card Metrics] ${ent.name} has no numerical KPI metrics in evidenceCards.`);
+  }
+
+  // D. 地雷・破綻ステータス整合性チェック (破綻警告不全の物理遮断)
+  const isHazard = (Array.isArray(ent.tags) && ent.tags.some(t => /破綻|倒産|粉飾|不正|清算|枯渇|崩壊|撤退|レシーバーシップ/i.test(t))) ||
+    (Array.isArray(ent.evidenceCards) && ent.evidenceCards.some(c => c && c.type === 'FATAL_BLEED'));
+  if (isHazard && ent.financialStatus !== 'POST_MORTEM') {
+    errors.push(`[DENSITY VIOLATION: Hazard Status Mismatch] ${ent.name} has failure/fatal bleed evidence but financialStatus is not POST_MORTEM.`);
+  }
+}
 
 if (errors.length > 0) {
   console.error(`\n❌ [check-ingest-quality] FAILED with ${errors.length} quality violations:`);
@@ -315,6 +338,7 @@ if (errors.length > 0) {
   if (errors.length > 10) console.error(`  ...and ${errors.length - 10} more`);
   process.exit(1);
 }
+
 
 console.log(`✓ [check-ingest-quality] PASSED: All ${entities.length} entities satisfy domain consistency, tool accuracy, arithmetic precision, flexible schema integrity, and zero jargon.\n`);
 

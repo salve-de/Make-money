@@ -136,8 +136,32 @@ export async function ingestVerifiedEntities(
       }
     }
 
-    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / OBS: ${ent.observations?.length ?? 0}] PASS`);
+    // E. 稼働ツールスタック密度チェック（スカスカデータの物理遮断）
+    if (!ent.operations?.toolStack || ent.operations.toolStack.length === 0) {
+      throw new Error(`[INGEST REJECTED: EMPTY TOOLSTACK] "${ent.name}" has 0 tools in operations.toolStack. Keyence-level density is strictly required.`);
+    }
+
+    // F. 4大意思決定ベクトル完全性チェック（ヘッダー空白化の物理遮断）
+    if (!ent.opportunityJudgment || !ent.opportunityJudgment.verdict || !ent.opportunityJudgment.demandDelta || ent.opportunityJudgment.demandDelta === '未確認') {
+      throw new Error(`[INGEST REJECTED: MISSING OPPORTUNITY JUDGMENT] "${ent.name}" missing valid opportunityJudgment (verdict / demandDelta / entryRequirements).`);
+    }
+
+    // G. エビデンスカード金融メトリクスチェック（数値グリッド欠落の物理遮断）
+    const hasCardMetrics = ent.evidenceCards?.some(c => c.metrics && c.metrics.length > 0);
+    if (!hasCardMetrics) {
+      throw new Error(`[INGEST REJECTED: NO METRICS IN EVIDENCE CARDS] "${ent.name}" has no numerical KPI metrics in evidenceCards. Pro terminal visual density required.`);
+    }
+
+    // H. 地雷・破綻ステータス整合性チェック（破綻警告不全の物理遮断）
+    const isHazard = ent.tags?.some(t => /破綻|倒産|粉飾|不正|清算|枯渇|崩壊|撤退|レシーバーシップ/i.test(t)) ||
+      ent.evidenceCards?.some(c => c.type === 'FATAL_BLEED');
+    if (isHazard && ent.financialStatus !== 'POST_MORTEM') {
+      throw new Error(`[INGEST REJECTED: HAZARD STATUS MISMATCH] "${ent.name}" is marked with failure/fatal bleed but financialStatus is not POST_MORTEM.`);
+    }
+
+    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / TOOLS: ${ent.operations.toolStack.length}] PASS`);
   }
+
 
   // 2. Cloudflare R2 (foundation-raw) に生データ（Raw Artifacts）をSHA-256 CAS保存
   console.log('\n--- [2/4] Preserving Raw Artifacts to Cloudflare R2 (foundation-raw) ---');
