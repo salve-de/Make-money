@@ -1,5 +1,37 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-14 【確定】Safari ChatGPT Web実機との激論合意 ＆ 次世代 Money Circuit Case Dossier Architecture 策定・PR仕様書完成（Phase 182）
+
+### 1. ユーザー指示と実機ChatGPT Webとの対話経緯（Real-time Live Debate & Synthesis）
+- **ユーザー指示**:
+  - 「右のCHATGPTWEBとディスカッションして そもそも右の個別銘柄にどういう内容を載せるべきなのか とかのディスカッションをお互いに疑いながら そんなの出して価値があるのか とか 北極星をみてこい とか お互いに言い合って 批判しあって 最強の結論を出して 具体的に /goal」
+  - 「あと 右のチャットは すごい 教科書的なことを言ってくるので 気をつけろ」
+  - 「相手の 返信が弱すぎる 外部検索を 使って 北極星も見て 全てからして 最強の お前の思う最強を 言えって言っておけ」
+  - 「まあいいや とりあえず これで GITHUBにPRとして右に これを 作らせてみて」
+- **実機通信と論争プロセス**:
+  - SafariウィンドウのChatGPT Web（Make money GPT）とAppleScript / CoreGraphicsパイプラインを通じて直接通信。
+  - **第1ラウンド**: ChatGPT Webが「16セクションレポート解体」「固定するのは画面ではなく問い」と主張。CTO（Antigravity）から「完全可変病によるユーザーのメンタルモデル崩壊」「武器庫（Tools）の有用性」「Fact-bound転用エンジン」を突きつけて批判。
+  - **第2ラウンド**: ChatGPT Webが「固定4層の認知骨格 × 内部可変モジュール × Fact-bound転用エンジン」で再合意。
+  - **第3ラウンド（外部検索強制 ＆ PR化）**: Bloomberg, Tegus, PitchBook, AlphaSense等の外部調査を強制し、GitHub PR仕様書として極限まで具体的なドキュメントを生成完遂。正本として `docs/PR_INSPECTOR_REARCH.md`（42KB, 1879行）を配備。
+
+### 2. 確定した「Money Circuit Case Dossier」のコア思想
+1. **画面の主役は「企業紹介」ではなく「現金の移動（Money Circuit）と因果鎖」**:
+   - `PAYER → TRIGGER / PAIN → ACQUISITION → OFFER → PRICE → PAYMENT RAIL → REVENUE → COST → COMPANY → OWNER` という現金の移動因果鎖を第一級データとして可視化。
+2. **Control Point（急所）とBreakpoint（破綻点）の特定**:
+   - 勝者では「何を握っているから超過利潤を抜けるのか（Customer Access, Pricing, Direct Sales等）」を特定。
+   - 破綻・地雷銘柄（Post-Mortem / WeWork等）では「どこが壊れたからキャッシュマシンが逆回転したのか（Breakpoint: Lease rigidity, Financing access等）」を浮き彫りにする。
+3. **Evidence（証拠）の常時横付け（Sidecar）とEpistemic Status（認識状態）の明記**:
+   - Evidenceを末尾のゴミ箱セクションに追いやるのを禁止。
+   - 全ての主張（Claim）や数値の横に `[FACT]`, `[CALCULATED]`, `[ESTIMATED]`, `[INFERRED]`, `[CONFLICTED]`, `[UNKNOWN]` をバッジ表示し、クリックで右側常設の `Evidence Sidecar` が即時展開。
+4. **Cross-case Pattern Base Rate と Minimal Test（Transfer Engine）**:
+   - 単発の美談・作文Playbookを禁止。
+   - 「このMechanismを持つ事例は何件中何件成功したか」の横断再現率（Pattern Base Rate）と、今夜検証できるMinimal Test（WTPインタビュー等）を提供。
+5. **4大ケース（KEYENCE, Costco, Photo AI, WeWork破綻検死）の表示シミュレーション完備**:
+   - 財務不明時（Photo AI）に「売上¥0」と捏造せず「未確認」を堂々と保持。
+   - 破綻事例（WeWork）では「真似しろ」ではなく「DON'T COPY（地雷条件検出）」として機能。
+
+---
+
 ## 2026-09-14 【確定】16セクションの長大タワーマンション解体 ＆ 資本主義の裏帳簿「4層キラーピラミッド ＋ 検証タブ分離」全面再編成完了（Phase 181）
 
 ### 1. ユーザー指示と激論ディスカッション（Red Team Review & Synthesis）
