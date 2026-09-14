@@ -17,6 +17,8 @@ import { SourcesSection } from './ui/SourcesSection';
 import { ToolsSection } from './ui/ToolsSection';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
 import { VisualPipelineSection } from './ui/VisualPipelineSection';
+import { SankeyCashFlowDiagram } from './ui/SankeyCashFlowDiagram';
+import { FlywheelEngineDiagram } from './ui/FlywheelEngineDiagram';
 import type { InspectorViewMode } from './model/section-props';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -157,13 +159,19 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {/* 2. 【第2段】お金の配管図（誰の弱み ➔ どう現金を吸い上げるか ➔ 通帳手残り） */}
           <VisualPipelineSection {...sectionProps} />
 
-          {/* 3. 【第3段】全体像・ビジネスの正体 */}
+          {/* 3. 【図表強化①】現金の滝（損益分岐サンキー図） */}
+          {showFinancial && <SankeyCashFlowDiagram {...sectionProps} />}
+
+          {/* 4. 【図表強化②】自走増殖エンジン（独占のフライホイール円環図） */}
+          {showBusiness && <FlywheelEngineDiagram {...sectionProps} />}
+
+          {/* 5. 【第3段】全体像・ビジネスの正体 */}
           {showBusiness && <BusinessSections {...sectionProps} />}
 
-          {/* 4. 【第4段】現金のレントゲン（P&L損益計算書・原価構造） */}
+          {/* 6. 【第4段】現金のレントゲン（P&L損益計算書・原価構造） */}
           {showFinancial && <FinancialSection {...sectionProps} />}
 
-          {/* 5. 【第5段】動かぬ証拠（儲けのウラ側 4大急所カード） */}
+          {/* 7. 【第5段】動かぬ証拠（儲けのウラ側 4大急所カード） */}
           {showEvidence && <EvidenceDeckSection {...sectionProps} />}
 
           {/* 6. 使っているツール・インフラ */}

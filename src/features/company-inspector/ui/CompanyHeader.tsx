@@ -6,8 +6,10 @@ ChevronLeft,
 ChevronRight,
 Clock,
 Coins,
+Droplets,
 FileText,
 Pin,
+RotateCw,
 SlidersHorizontal,
 X
 } from 'lucide-react';
@@ -246,6 +248,24 @@ export function CompanyHeader({
             >
               <Coins className="w-2.5 h-2.5 text-emerald-400" />
               <span>お金の配管図</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection('section-sankey')}
+              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+            >
+              <Droplets className="w-2.5 h-2.5 text-cyan-400" />
+              <span>現金の滝</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection('section-flywheel')}
+              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+            >
+              <RotateCw className="w-2.5 h-2.5 text-amber-400" />
+              <span>増殖ループ</span>
             </button>
 
             <button
