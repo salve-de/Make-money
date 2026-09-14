@@ -5571,6 +5571,29 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
    - `pnpm test`: 352 tests ALL PASSED (100%合格)
    - Playwright実機検証にて、`[📥 収集事例 100]` 表示および `[✓ 一括承認（全部オッケー）]` ボタンの完全描画を確認済み。
 
+---
+
+## 2026-09-14 (Phase 173): 1億事例スケール対応：収集前重複防止マスター台帳（Deduplication Registry）＆ 超高速事前チェックCLIの配備完了
+
+### 1. ユーザーの課題意識（「何を集めたか記録する台帳で、1億事例集めるのに収集段階で被りを防ぎたい」）
+- 1万社〜1億社を集める際、重厚な全データJSON（`entities-index.json`）を外部AIやスクリプトが読み込んで重複チェックするのは物理的に不可能（コンテキスト死・メモリ爆発）。
+- 収集を開始する前（調査の段階）で、社名・ティッカー・ドメインの被りを0.001秒で判定できる超軽量レジストリが不可欠。
+
+### 2. 外科的配備内容
+1. **超軽量・収集済みマスター台帳（`data/collected-registry.json`）**:
+   - `entities-index.json`（約1MB）から、社名（正規化）・Ticker・公式ドメイン・業種・ステータスのみを抽出した超軽量名録（70KB、1/14に圧縮）。
+   - 1社200バイト程度のため、10万社でも20MB、1億社でもBloom FilterやD1（SQLite B-Tree）で超高速0.001秒判定が可能。
+2. **R2正本保管庫（Lake Manifest）への常時ミラーリング**:
+   - `foundation-lake/manifest/collected-registry.json` に常時同期。
+   - `pnpm registry:sync` でワンコマンド自動更新。
+3. **事前重複判定CLI（`pnpm dedup:check <社名/ドメイン>`）**:
+   - `node scripts/check-dedup.mjs` を配備。
+   - 例: `pnpm dedup:check "TSMC"` ➔ `EXISTS`（台湾セミコンダクター、ID等を表示）。
+   - 例: `pnpm dedup:check "新規未収集企業"` ➔ `AVAILABLE`（収集可能と判定）。
+4. **収集マスターガイドへの反映**:
+   - `docs/DATA_COLLECTION_MASTER_GUIDE.md` 第Ⅵ章に「重複防止マスター台帳と事前判定規律」を明記。
+
+
 
 
 

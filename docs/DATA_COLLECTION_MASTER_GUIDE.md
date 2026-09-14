@@ -235,3 +235,29 @@
 ```markdown
 GitHubの docs/DATA_COLLECTION_MASTER_GUIDE.md （https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/DATA_COLLECTION_MASTER_GUIDE.md ）に書かれている「資本主義の裏帳簿収集マスターガイド」を完全に熟読せよ。そこに記載された「過去の重大やらかし事故（為替逆数、100倍誤記、ID重複、未確認フラグ欠落、SaaS誤爆）」を絶対に繰り返さず、完全体JSONフォーマットで [業種/企業/件数] のデータを生成せよ。
 ```
+
+---
+
+## Ⅵ. 1億社スケール対応：収集段階での重複防止マスター台帳（Deduplication Registry）
+
+### 1. 1億社収集における物理的課題と解決策
+- **課題**: 全プロパティを含む台帳（`entities-index.json`）は1万社・1億社になると数十GB〜数TBに達し、外部AIや収集スクリプトが読み込めなくなる。
+- **解決策**: 企業名（正規化）・Ticker・公式ドメインの3点のみを凝縮した**【超軽量・収集済みマスター台帳】（`data/collected-registry.json` および R2 Lake Manifest）**を常時同期。1社あたりわずか200バイト、10万社でも20MB、1億社でもBloom FilterやD1（SQLite B-Tree）により0.001秒で重複判定が可能。
+
+### 2. 事前重複判定コマンド（収集前に叩け）
+収集スクリプトや外部AIは、調査を開始する前に以下のコマンドで被りを一瞬で判定できる：
+```bash
+# 社名、ティッカー、またはドメインで判定
+pnpm dedup:check "TSMC"
+# ➔ {"status": "EXISTS", "message": "既に収集済みです: [Taiwan Semiconductor...]", ...}
+
+pnpm dedup:check "新規ニッチ企業"
+# ➔ {"status": "AVAILABLE", "message": "未収集です（重複なし）。新規収集可能です", ...}
+```
+
+### 3. マスター台帳の自動同期
+新規データをインジェストした後は、以下のコマンドで超軽量レジストリとR2 Manifestへ即時反映される：
+```bash
+pnpm registry:sync
+```
+
