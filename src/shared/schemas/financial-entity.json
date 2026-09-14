@@ -151,6 +151,9 @@
           "items": {
             "$ref": "#/definitions/ClaimEvidenceBinding"
           }
+        },
+        "batchId": {
+          "type": "string"
         }
       },
       "required": [

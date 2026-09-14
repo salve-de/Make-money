@@ -334,6 +334,7 @@ export function publicSummaryEntity(entity: FinancialEntity): PublicSummaryEntit
     latestDossierHash: entity.latestDossierHash || `dossier_${entity.id}_v${entity.sourceRevision ?? 1}`,
     sourceRevision: entity.sourceRevision ?? 1,
     claimBindings: entity.claimBindings,
+    batchId: entity.batchId,
   };
 }
 

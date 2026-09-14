@@ -42,6 +42,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const topicParam = searchParams?.get('topic') as IntelligenceTopicId | null;
   const entityParam = searchParams?.get('entity');
   const filterParam = searchParams?.get('filter') as GridFilterOption | null;
+  const batchParam = searchParams?.get('batch');
 
   // アナリスト考察メモの永続化フック
   const { notes, getNote, saveNote, getSaveStatus } = useAnalystNotes();
@@ -59,6 +60,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
   const initialFilter: GridFilterOption = filterParam || 'ALL';
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
+  const [selectedBatch, setSelectedBatch] = useState<string>(batchParam || 'ALL');
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
 
   // 1. 静的・自社重点事例（キーエンス、Photo AI、ShipFast等）
@@ -112,7 +114,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       const coreName = normalize(core.name);
       const replacement = foundationById.get(core.id.toLowerCase()) ||
         (coreName ? foundationByName.get(coreName) || foundationByName.get(aliasMatches[coreName]) : undefined);
-      const entity = replacement || core;
+      const entity = replacement ? { ...replacement, batchId: replacement.batchId || core.batchId } : core;
       const normalizedName = normalize(entity.name);
       if (seenIds.has(entity.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName))) continue;
       merged.push(entity);
@@ -295,6 +297,10 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       setCurrentFilter(filterParam);
     }
 
+    if (batchParam) {
+      setSelectedBatch(batchParam);
+    }
+
     if (queryParam !== undefined) {
       setSearchQuery(queryParam);
     }
@@ -312,7 +318,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         setSelectedEntityId(matched.id);
       }
     }
-  }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam, entities, entityAliases]);
+  }, [searchParams, modeParam, topicParam, entityParam, filterParam, batchParam, queryParam, entities, entityAliases]);
 
   // 閲覧履歴の自動追跡（開いた銘柄を蓄積）
   useEffect(() => {
@@ -396,6 +402,17 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       tagCounts: counts,
       newlyCollectedCount: counts['収集事例'] || 0,
     };
+  }, [entities]);
+
+  // 収集世代（バッチ）別件数集計
+  const batchCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    entities.forEach((e) => {
+      if (e.batchId) {
+        counts[e.batchId] = (counts[e.batchId] || 0) + 1;
+      }
+    });
+    return counts;
   }, [entities]);
 
   // 事例承認ハンドラー（「これはオッケー」ボタン）
@@ -484,6 +501,9 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       if (currentFilter === 'AI_NATIVE' && entity.sector !== 'AI_AUTOMATION') return false;
       if (currentFilter === 'BOOKMARKED' && !bookmarkedIds.has(entity.id)) return false;
 
+      // 収集世代（チャンク）フィルター
+      if (selectedBatch !== 'ALL' && entity.batchId !== selectedBatch) return false;
+
       // 複数タグフィルタ（選択された全タグを含むAND一致）
       if (activeTags.length > 0) {
         const entityTags = entity.tags || [];
@@ -517,7 +537,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
       return true;
     });
-  }, [entities, currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
+  }, [entities, currentFilter, selectedBatch, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
 
   // 現在選択中の企業エンティティ (詳細版があれば詳細版、なければサマリー版)
   const [analysis, setAnalysis] = useState<{ id: string; token: string; meta: NonNullable<FinancialEntity['meta']> } | null>(null);
@@ -642,6 +662,9 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
               onToggleTag={handleToggleTag}
               newlyCollectedCount={newlyCollectedCount}
               onApproveAllCollected={handleApproveAllCollected}
+              selectedBatch={selectedBatch}
+              onSelectBatch={setSelectedBatch}
+              batchCounts={batchCounts}
             />
 
             <InstitutionalDataGrid

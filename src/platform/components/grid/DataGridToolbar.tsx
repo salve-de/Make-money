@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
-import { SlidersHorizontal, Search, X } from 'lucide-react';
+import { SlidersHorizontal, Search, X, Layers } from 'lucide-react';
 import { ScreenerFilterState } from '../screener/AdvancedScreenerModal';
+import { KNOWN_INGEST_BATCHES } from '@/shared/terminal';
 
 interface DataGridToolbarProps {
   searchQuery: string;
@@ -15,6 +16,9 @@ interface DataGridToolbarProps {
   onToggleTag?: (tag: string | null) => void;
   newlyCollectedCount?: number;
   onApproveAllCollected?: () => void;
+  selectedBatch?: string;
+  onSelectBatch?: (batchId: string) => void;
+  batchCounts?: Record<string, number>;
 }
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
@@ -28,7 +32,43 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   onToggleTag,
   newlyCollectedCount = 0,
   onApproveAllCollected,
+  selectedBatch = 'ALL',
+  onSelectBatch,
+  batchCounts = {},
 }) => {
+  // バッチの選択肢一覧（既知のバッチ＋動的バッチ）
+  const batchOptions = React.useMemo(() => {
+    const knownMap = new Map(KNOWN_INGEST_BATCHES.map((b) => [b.id, b]));
+    const list: Array<{ id: string; label: string; count: number }> = [];
+
+    // 既知のバッチを優先順に配置
+    for (const kb of KNOWN_INGEST_BATCHES) {
+      list.push({
+        id: kb.id,
+        label: kb.shortLabel,
+        count: batchCounts[kb.id] || 0,
+      });
+    }
+
+    // 未知の新規バッチがあれば追加
+    for (const [id, count] of Object.entries(batchCounts)) {
+      if (!knownMap.has(id) && id !== 'ALL') {
+        list.push({
+          id,
+          label: id.replace(/^batch-/, ''),
+          count,
+        });
+      }
+    }
+
+    return list;
+  }, [batchCounts]);
+
+  const totalAllBatches = React.useMemo(() => {
+    const sum = Object.values(batchCounts).reduce((acc, n) => acc + n, 0);
+    return sum > 0 ? sum : totalCount;
+  }, [batchCounts, totalCount]);
+
   // スクリーナーの適用条件数を計算
   const activeScreenerCount = React.useMemo(() => {
     if (!screenerFilters) return 0;
@@ -75,6 +115,41 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               <X className="w-3 h-3" />
             </button>
           )}
+        </div>
+
+        {/* 1.2 収集世代（チャンク）セレクター */}
+        <div className="flex items-center gap-1 shrink-0">
+          <div className={`flex items-center gap-1.5 px-2 py-1 rounded transition-colors border text-xs ${
+            selectedBatch !== 'ALL'
+              ? 'bg-cyan-950/40 border-cyan-500/40 text-cyan-300 font-medium'
+              : 'bg-white/[0.03] hover:bg-white/[0.06] border-white/[0.08] text-zinc-300 hover:text-white'
+          }`}>
+            <Layers className={`w-3 h-3 shrink-0 ${selectedBatch !== 'ALL' ? 'text-cyan-400' : 'text-zinc-400'}`} />
+            <select
+              value={selectedBatch}
+              onChange={(e) => onSelectBatch && onSelectBatch(e.target.value)}
+              className="bg-transparent text-xs font-mono outline-none cursor-pointer text-inherit pr-0.5"
+              title="収集世代（チャンク・バージョン）で切り替え"
+            >
+              <option value="ALL" className="bg-[#0c0d12] text-zinc-200">
+                📦 全世代 ({totalAllBatches})
+              </option>
+              {batchOptions.map((b) => (
+                <option key={b.id} value={b.id} className="bg-[#0c0d12] text-cyan-200">
+                  {b.label} ({b.count}社)
+                </option>
+              ))}
+            </select>
+            {selectedBatch !== 'ALL' && (
+              <button
+                onClick={() => onSelectBatch && onSelectBatch('ALL')}
+                className="p-0.5 rounded text-cyan-400 hover:text-white hover:bg-white/[0.1] transition-colors cursor-pointer ml-0.5"
+                title="全世代表示に戻す"
+              >
+                <X className="w-2.5 h-2.5" />
+              </button>
+            )}
+          </div>
         </div>
 
         {/* 1.5 新着収集事例クイックトグルボタン（未承認事例の専用インボックス） */}

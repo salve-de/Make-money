@@ -179,7 +179,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "会員基盤、仕入量、PB、倉庫網、更新率が相互強化する規模経済",
     "pipelineStack": "会員倉庫 × 公式EC × 口コミ",
-    "targetPainWallet": "一般小売が広告・SKU数・高粗利を重視する間に、会費を先に回収して商品価格を下げ"
+    "targetPainWallet": "一般小売が広告・SKU数・高粗利を重視する間に、会費を先に回収して商品価格を下げ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_keyence_R7P3L9XA",
@@ -360,7 +361,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "技術営業の提案データが製品開発、販売、サポートへ循環する高密",
     "pipelineStack": "技術営業の直販 × 顧客工場でのデモ × 既存顧客への横展開",
-    "targetPainWallet": "代理店・総合カタログ・低価格競争に寄る大手の間で、現場の具体用途を売る。"
+    "targetPainWallet": "代理店・総合カタログ・低価格競争に寄る大手の間で、現場の具体用途を売る。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_tsmc_J6V2C8QK",
@@ -542,7 +544,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "最先端設備、歩留まり知識、顧客設計、装置・材料・EDA網が複",
     "pipelineStack": "設計会社との技術営業 × 顧客設計支援 × 業界エコシステム",
-    "targetPainWallet": "半導体メーカーが自社製品を守るために避ける、顧客非競合の製造専業を徹底した。"
+    "targetPainWallet": "半導体メーカーが自社製品を守るために避ける、顧客非競合の製造専業を徹底した。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_visa_H3M8T1QZ",
@@ -724,7 +727,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "発行者、加盟店、アクワイアラー、消費者が増えるほど接続価値と",
     "pipelineStack": "発行銀行との提携 × 加盟店アクワイアラー × フィンテック提携",
-    "targetPainWallet": "金融機関が貸付・口座・顧客接点を守る間に、中立的な決済接続層を押さえた。"
+    "targetPainWallet": "金融機関が貸付・口座・顧客接点を守る間に、中立的な決済接続層を押さえた。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_adobe_P5R1V7NX",
@@ -906,7 +910,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "ファイル、テンプレート、制作履歴、承認フロー、教育資産が蓄積",
     "pipelineStack": "製品内アップセル × クリエイター教育 × 代理店・SIパートナー",
-    "targetPainWallet": "専門家のファイル互換性・教育・ワークフローを、製品単体でなく標準の束として押さえ"
+    "targetPainWallet": "専門家のファイル互換性・教育・ワークフローを、製品単体でなく標準の束として押さえ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_fastretail_K8Q4M2VZ",
@@ -1088,7 +1093,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "大量調達、機能素材、店舗・EC網、在庫データ、R&Dの学習曲",
     "pipelineStack": "直営店舗 × 公式EC × 折込・マスメディア",
-    "targetPainWallet": "ブランド広告だけでなく、素材・工場・物流・店舗の反復を一体運用した。"
+    "targetPainWallet": "ブランド広告だけでなく、素材・工場・物流・店舗の反復を一体運用した。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_ryanair_F1L7C3QW",
@@ -1270,7 +1276,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "単一機材、高稼働率、短距離点対点、直販、付帯商品の運用プロセ",
     "pipelineStack": "公式直販サイト × モバイルアプリ × 格安空港",
-    "targetPainWallet": "航空券の豪華さで競う間に、機材・空港・人員を同じ型へ寄せて低単位コストを作った。"
+    "targetPainWallet": "航空券の豪華さで競う間に、機材・空港・人員を同じ型へ寄せて低単位コストを作った。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_shopify_M6Q2R8VT",
@@ -1452,7 +1459,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "商品・注文・決済・アプリ・テーマ・顧客データが日常業務に結び",
     "pipelineStack": "セルフサービス × App Store × 開発者・代理店",
-    "targetPainWallet": "大手が複雑なEC導入を売る間に、SMBの自走導入と開発者拡張を先に押さえた。"
+    "targetPainWallet": "大手が複雑なEC導入を売る間に、SMBの自走導入と開発者拡張を先に押さえた。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_amazon_V9T4K1PS",
@@ -1635,7 +1643,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "トラフィック、販売者、物流、会員、データセンター、広告在庫が",
     "pipelineStack": "公式EC × Prime × 第三者販売者",
-    "targetPainWallet": "書店・小売の売上だけでなく、発見・決済・物流・広告・クラウドの接点を別々の収益へ"
+    "targetPainWallet": "書店・小売の売上だけでなく、発見・決済・物流・広告・クラウドの接点を別々の収益へ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_booking_S2H7M5QK",
@@ -1818,7 +1827,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "供給施設、旅行者、レビュー、価格データ、決済、直接流入が相互",
     "pipelineStack": "SEO・検索 × アプリ直販 × ホテル管理画面",
-    "targetPainWallet": "ホテル資産を買う競合の間で、検索・翻訳・決済・レビューだけを所有した。"
+    "targetPainWallet": "ホテル資産を買う競合の間で、検索・翻訳・決済・レビューだけを所有した。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_mcdonald_Q4V8L2NX",
@@ -2001,7 +2011,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "ブランド、標準レシピ、サプライヤー網、立地、加盟店の現場資本",
     "pipelineStack": "加盟店 × ドライブスルー × モバイルアプリ",
-    "targetPainWallet": "飲食店売上そのものより、標準運営・加盟店資本・不動産・ロイヤルティを束ねた。"
+    "targetPainWallet": "飲食店売上そのものより、標準運営・加盟店資本・不動産・ロイヤルティを束ねた。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_netflix_L5R9Q2VC",
@@ -2184,7 +2195,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "加入者、視聴データ、推薦、作品調達・制作、現地語コンテンツが",
     "pipelineStack": "公式アプリ × テレビ・モバイル配信 × 口コミ",
-    "targetPainWallet": "レンタル延滞料と店舗網に依存する間に、顧客の時間と作品データを月額課金へ寄せた。"
+    "targetPainWallet": "レンタル延滞料と店舗網に依存する間に、顧客の時間と作品データを月額課金へ寄せた。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_airbnb_C7N2V5RX",
@@ -2367,7 +2379,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "ホスト、ゲスト、レビュー、本人確認、決済、補償、検索データが",
     "pipelineStack": "公式アプリ × SEO・検索 × ホスト紹介",
-    "targetPainWallet": "ホテルの部屋を所有する代わりに、個人資産の空き時間・空き部屋を信頼と決済で流通さ"
+    "targetPainWallet": "ホテルの部屋を所有する代わりに、個人資産の空き時間・空き部屋を信頼と決済で流通さ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_mailchimp_B8Q3L6VZ",
@@ -2550,7 +2563,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "連絡先、配信履歴、セグメント、テンプレート、連携アプリが積み",
     "pipelineStack": "セルフサービス × 無料プラン × テンプレート",
-    "targetPainWallet": "高機能・営業主導のマーケSaaSが見落とす、小規模事業者の「すぐ使う」需要を取っ"
+    "targetPainWallet": "高機能・営業主導のマーケSaaSが見落とす、小規模事業者の「すぐ使う」需要を取っ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_37signals_T6M1R8QK",
@@ -2732,7 +2746,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "少人数で開発・運用・サポートを回し、予測可能な価格と独自の業",
     "pipelineStack": "公式サイト × 口コミ × 創業者ブログ・ポッドキャスト",
-    "targetPainWallet": "大手が機能数と営業人数を増やす間に、顧客の業務を軽くする少機能・少人数へ逆張りし"
+    "targetPainWallet": "大手が機能数と営業人数を増やす間に、顧客の業務を軽くする少機能・少人数へ逆張りし",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_wework_A7K2P9QX",
@@ -2912,7 +2927,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "ブランドと拠点ネットワークはあったが、固定費構造を吸収できる",
     "pipelineStack": "不動産オーナーとの大口契約 × 営業チーム × ブランド拠点",
-    "targetPainWallet": "オフィス需要を月額会員制に変換できても、賃貸借契約の期間・解約条件までは柔軟にな"
+    "targetPainWallet": "オフィス需要を月額会員制に変換できても、賃貸借契約の期間・解約条件までは柔軟にな",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_quibi_B4M8R2TZ",
@@ -3092,7 +3108,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "創業者と制作陣のブランドは強かったが、消費者の反復利用を固定",
     "pipelineStack": "テレビ・映画業界の人脈 × 大規模広告 × アプリストア",
-    "targetPainWallet": "有名な制作陣と潤沢な資金は初期供給を作れるが、毎日使う習慣と低コストな発見導線は"
+    "targetPainWallet": "有名な制作陣と潤沢な資金は初期供給を作れるが、毎日使う習慣と低コストな発見導線は",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_moviepass_C9L5N1VK",
@@ -3272,7 +3289,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "会員規模は一時的に大きかったが、利用量が増えるほど損失が増え",
     "pipelineStack": "低価格広告 × アプリストア × 映画館ネットワーク",
-    "targetPainWallet": "会員制価格は需要を作れても、供給者へ支払う従量原価を消せない。"
+    "targetPainWallet": "会員制価格は需要を作れても、供給者へ支払う従量原価を消せない。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_juicero_D2H6S8WM",
@@ -3452,7 +3470,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "専用パックと機械の組み合わせを囲い込みにしようとしたが、代替",
     "pipelineStack": "高級家電販売 × 投資家・食品業界ネットワーク × PR",
-    "targetPainWallet": "ハードウェアの複雑さを増やすほど価格と故障点は増えるが、顧客が感じる不可欠性は自"
+    "targetPainWallet": "ハードウェアの複雑さを増やすほど価格と故障点は増えるが、顧客が感じる不可欠性は自",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_zume_E6Q1W7RP",
@@ -3632,7 +3651,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "キッチン自動化と容器技術を組み合わせたが、複数の新規工程が同",
     "pipelineStack": "自社店舗・配達 × 大手企業との提携 × 投資家向けPR",
-    "targetPainWallet": "自動化による人件費削減は、注文密度が十分で設備稼働率が高い場合にだけ固定費を上回"
+    "targetPainWallet": "自動化による人件費削減は、注文密度が十分で設備稼働率が高い場合にだけ固定費を上回",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_paypal_H3K7M2QX",
@@ -3814,7 +3834,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "加盟店が増えるほど消費者の利用理由が増え、消費者が増えるほど",
     "pipelineStack": "オンラインチェックアウト × 加盟店SDK・API × ウォレットアプリ",
-    "targetPainWallet": "決済の本体は送金処理ではなく、本人確認・不正・返金・加盟店信頼をまとめて肩代わり"
+    "targetPainWallet": "決済の本体は送金処理ではなく、本人確認・不正・返金・加盟店信頼をまとめて肩代わり",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_block_J8P4V6RN",
@@ -3996,7 +4017,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "商取引データを決済・与信・金融サービスへ流す反復プロセスが、",
     "pipelineStack": "Square端末・POS × Cash App × 開発者API",
-    "targetPainWallet": "決済端末は単体商品ではなく、SMBの売上・在庫・給与・資金需要を観測するデータ入"
+    "targetPainWallet": "決済端末は単体商品ではなく、SMBの売上・在庫・給与・資金需要を観測するデータ入",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_plaid_K5R9T3LM",
@@ -4178,7 +4200,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "多数の金融機関との接続・正規化・障害対応を反復するほど、後発",
     "pipelineStack": "開発者向けAPI × フィンテック企業の導入営業 × 金融機関連携",
-    "targetPainWallet": "データ接続の価値は画面では見えないが、認証エラーと規約変更を誰かが吸収しないと金"
+    "targetPainWallet": "データ接続の価値は画面では見えないが、認証エラーと規約変更を誰かが吸収しないと金",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_coinbase_M7Q2W8HF",
@@ -4360,7 +4383,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "規制対応とブランド信頼が、単なる取引画面以上の入口障壁になる",
     "pipelineStack": "個人向け取引所 × 機関向け取引・カストディ × 開発者API",
-    "targetPainWallet": "暗号資産の使いにくさは価格変動だけでなく、秘密鍵・税務・本人確認・保管・詐欺対応"
+    "targetPainWallet": "暗号資産の使いにくさは価格変動だけでなく、秘密鍵・税務・本人確認・保管・詐欺対応",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_mercadolibre_N4D6S1YK",
@@ -4543,7 +4567,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "買い手・売り手・決済・物流・信用データが相互に増強し、単一サ",
     "pipelineStack": "マーケットプレイス × Mercado Pago × 自社・提携物流",
-    "targetPainWallet": "新興市場では、販売・決済・物流・信用を別会社に任せると取引摩擦が大きく残る。"
+    "targetPainWallet": "新興市場では、販売・決済・物流・信用を別会社に任せると取引摩擦が大きく残る。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_apple_Q6M2R8TZ",
@@ -4725,7 +4750,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "データ、アプリ、周辺機器、決済、家族アカウントが積み上がり、",
     "pipelineStack": "直販オンライン・店舗 × 通信事業者 × App Store",
-    "targetPainWallet": "端末単体ではなく、端末を持つ時間・購入履歴・アプリ・決済を一つの継続関係へ束ねる"
+    "targetPainWallet": "端末単体ではなく、端末を持つ時間・購入履歴・アプリ・決済を一つの継続関係へ束ねる",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_microsoft_V9P3L7KD",
@@ -4907,7 +4933,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "企業の業務データ、ID、開発環境、契約、教育が複数製品へ積み",
     "pipelineStack": "企業営業 × クラウド・開発者基盤 × OEMライセンス",
-    "targetPainWallet": "ソフトウェアの価値は機能ではなく、企業の互換性・教育・移行・停止リスクを一括で下"
+    "targetPainWallet": "ソフトウェアの価値は機能ではなく、企業の互換性・教育・移行・停止リスクを一括で下",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_intuit_B4X8N1QP",
@@ -5089,7 +5116,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "会計履歴、税務設定、顧客・給与データ、専門家連携が蓄積し、移",
     "pipelineStack": "セルフサービスSaaS × 会計士・税理士チャネル × アプリ連携",
-    "targetPainWallet": "顧客が本当に払うのは機能ではなく、期限・規制・信用を外した時の損失を避ける保険と"
+    "targetPainWallet": "顧客が本当に払うのは機能ではなく、期限・規制・信用を外した時の損失を避ける保険と",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_atlassian_C7L2W9HM",
@@ -5271,7 +5299,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "課題・コード・仕様・プロジェクト履歴が製品に残り、既存アカウ",
     "pipelineStack": "開発者セルフサービス × チーム導入 × Marketplace",
-    "targetPainWallet": "大企業向け営業を始める前に、現場チームが自発的に業務へ埋め込むと拡張時の説明コス"
+    "targetPainWallet": "大企業向け営業を始める前に、現場チームが自発的に業務へ埋め込むと拡張時の説明コス",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_servicenow_R8K4P1VX",
@@ -5453,7 +5482,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "複数部門のワークフロー、権限、監査データが蓄積し、切替時の業",
     "pipelineStack": "企業直販 × ITSM導入パートナー × 既存顧客拡張",
-    "targetPainWallet": "単発の自動化機能ではなく、社内の申請・承認・監査ログを共通ワークフローにして業務"
+    "targetPainWallet": "単発の自動化機能ではなく、社内の申請・承認・監査ログを共通ワークフローにして業務",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_nintendo_J5R8M2QX",
@@ -5635,7 +5665,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "独自IPと専用ハードの組み合わせが、競合ハードでは代替できな",
     "pipelineStack": "専用ゲーム機 × ファーストパーティIP × Nintendo eShop",
-    "targetPainWallet": "ゲーム機は単体利益の商品ではなく、ソフト・追加コンテンツ・オンライン・IPの入口"
+    "targetPainWallet": "ゲーム機は単体利益の商品ではなく、ソフト・追加コンテンツ・オンライン・IPの入口",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_sonygroup_V7K3P9LM",
@@ -5818,7 +5849,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "複数カテゴリのブランド・IP・ユーザー接点が相互送客し、単一",
     "pipelineStack": "PlayStation × 音楽・映画配信 × 家電・機器",
-    "targetPainWallet": "コンテンツのヒットを単発で終わらせず、ゲーム・音楽・映画・機器の接点へ移植する。"
+    "targetPainWallet": "コンテンツのヒットを単発で終わらせず、ゲーム・音楽・映画・機器の接点へ移植する。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_capcom_H2N6R8QW",
@@ -6001,7 +6033,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "長期運用されるIP、開発知識、エンジン、カタログが次作と再販",
     "pipelineStack": "家庭用ゲーム機 × PCデジタル販売 × 自社IP",
-    "targetPainWallet": "ゲームの価値は発売日の売上だけでなく、IPを複数機種・地域・媒体へ再利用できる期"
+    "targetPainWallet": "ゲームの価値は発売日の売上だけでなく、IPを複数機種・地域・媒体へ再利用できる期",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_spotify_P9V4L6KD",
@@ -6183,7 +6216,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "再生データが推薦を改善し、推薦が利用時間を増やし、利用時間が",
     "pipelineStack": "Spotifyアプリ × 無料広告層 × Premiumサブスク",
-    "targetPainWallet": "無料ユーザーの時間・推薦データ・広告在庫を有料会員獲得へ循環させ、音楽配信を習慣"
+    "targetPainWallet": "無料ユーザーの時間・推薦データ・広告在庫を有料会員獲得へ循環させ、音楽配信を習慣",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_roblox_K8Q2M5VN",
@@ -6365,7 +6399,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "制作者が増えるほど体験が増え、体験が増えるほどユーザーとRo",
     "pipelineStack": "Robloxプラットフォーム × 開発者コミュニティ × Robux・サブスク",
-    "targetPainWallet": "ゲームを大量制作するのではなく、制作者が自分で供給を増やす制作・配信・決済基盤を"
+    "targetPainWallet": "ゲームを大量制作するのではなく、制作者が自分で供給を増やす制作・配信・決済基盤を",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_theranos_H3L7Q2XM",
@@ -6546,7 +6581,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "著名投資家・提携・物語はあったが、技術性能を再現可能にする堀",
     "pipelineStack": "投資家・著名取締役会 × Walgreens提携 × 小売臨床検査",
-    "targetPainWallet": "医療では秘密主義やブランドは検査精度・規制承認・臨床再現性の代替にならない。"
+    "targetPainWallet": "医療では秘密主義やブランドは検査精度・規制承認・臨床再現性の代替にならない。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_ftxtrading_J8N4V6PK",
@@ -6727,7 +6763,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "流動性・ブランド・成長資金はあったが、顧客資産の分別管理とい",
     "pipelineStack": "暗号資産取引所 × 機関投資家営業 × FTTトークン",
-    "targetPainWallet": "取引所・カストディ・自己勘定を分離しないと、顧客の出金要求が関連会社の投機損失を"
+    "targetPainWallet": "取引所・カストディ・自己勘定を分離しないと、顧客の出金要求が関連会社の投機損失を",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_betterplace_R5C2M8QW",
@@ -6908,7 +6945,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "電池交換設備・車両・ソフトを囲い込もうとしたが、供給車種と利",
     "pipelineStack": "自動車メーカー提携 × EV販売 × 電池交換ステーション",
-    "targetPainWallet": "インフラは利用率が上がるまでの赤字を耐えられる資本構造と、複数OEMの標準化が必"
+    "targetPainWallet": "インフラは利用率が上がるまでの赤字を耐えられる資本構造と、複数OEMの標準化が必",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_lordstownmotors_P7K3D9ZS",
@@ -7089,7 +7127,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "量産によるコスト低下を狙ったが、量産前の低稼働とBOM高騰で",
     "pipelineStack": "SPAC・資本市場 × フリート営業 × GM工場",
-    "targetPainWallet": "EV製造では予約・工場・提携の存在より、実購買、BOM、量産歩留まり、部品供給が"
+    "targetPainWallet": "EV製造では予約・工場・提携の存在より、実購買、BOM、量産歩留まり、部品供給が",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_birdglobal_V4M8T2QY",
@@ -7270,7 +7309,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "車両台数と都市数の規模を狙ったが、低稼働地域の減損とローカル",
     "pipelineStack": "スマートフォンアプリ × 自治体許認可 × Fleet Manager網",
-    "targetPainWallet": "モビリティの単位経済はアプリ利用率だけでなく、車両の稼働・回収・充電・修理・減損"
+    "targetPainWallet": "モビリティの単位経済はアプリ利用率だけでなく、車両の稼働・回収・充電・修理・減損",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_salesforce_L4N8Q2VM",
@@ -7452,7 +7492,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "顧客・案件・サポート履歴と社内プロセスが蓄積し、移行時のデー",
     "pipelineStack": "企業直販 × セルフサービス導入 × SI・パートナー",
-    "targetPainWallet": "顧客が買うのはCRM画面ではなく、案件漏れ・対応漏れ・売上予測ミスを減らす業務の"
+    "targetPainWallet": "顧客が買うのはCRM画面ではなく、案件漏れ・対応漏れ・売上予測ミスを減らす業務の",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_hubspot_P7K3M9QW",
@@ -7634,7 +7675,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "大手CRMが高単価・営業主導で守る市場の外側へ、コンテンツと",
     "pipelineStack": "教育コンテンツ × 検索流入 × 無料CRM",
-    "targetPainWallet": "中堅企業の痛みは機能不足より、見込み客・営業・サポートのデータがつながらないこと"
+    "targetPainWallet": "中堅企業の痛みは機能不足より、見込み客・営業・サポートのデータがつながらないこと",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_zoom_R2V6K8MN",
@@ -7816,7 +7858,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "参加者がZoomに慣れるほど、相手も同じリンクで参加しやすく",
     "pipelineStack": "無料会議リンク × 企業営業 × Zoom Workplace",
-    "targetPainWallet": "会議ソフトの本当の価値は機能数でなく、接続に失敗しないことと、参加者を増やしても"
+    "targetPainWallet": "会議ソフトの本当の価値は機能数でなく、接続に失敗しないことと、参加者を増やしても",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_cloudflare_M5Q9T1RK",
@@ -7998,7 +8041,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "世界中のトラフィック、接続拠点、攻撃データ、運用ソフトが増え",
     "pipelineStack": "無料Web導入 × 開発者・管理者コミュニティ × Enterprise直販",
-    "targetPainWallet": "セキュリティ・性能・DNS・CDN・開発基盤を別製品にせず、同じネットワークの利"
+    "targetPainWallet": "セキュリティ・性能・DNS・CDN・開発基盤を別製品にせず、同じネットワークの利",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_datadog_X8L2P6QK",
@@ -8180,7 +8224,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "顧客のメトリクス・ログ・トレース・セキュリティ信号を一つの運",
     "pipelineStack": "開発者セルフサービス × クラウド連携 × Enterprise営業",
-    "targetPainWallet": "可観測性は管理画面ではなく、障害・遅延・誤アラートを売上停止前に発見する業務保険"
+    "targetPainWallet": "可観測性は管理画面ではなく、障害・遅延・誤アラートを売上停止前に発見する業務保険",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_cocacola_R6M2Q8VN",
@@ -8363,7 +8408,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "商標と味覚記憶が、ボトラー・小売・飲食店の供給網を同じ需要へ",
     "pipelineStack": "ボトラー網 × 小売棚 × 飲食店",
-    "targetPainWallet": "飲料の原価ではなく、味の再現・選択不安の解消・棚の可視性を商標と流通契約へ束ねる"
+    "targetPainWallet": "飲料の原価ではなく、味の再現・選択不安の解消・棚の可視性を商標と流通契約へ束ねる",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_pepsico_K3V7N1QM",
@@ -8545,7 +8591,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "ブランド、製造、物流、棚交渉、コモディティ購買を横断し、単品",
     "pipelineStack": "小売棚 × 直販・配送 × フランチャイズ",
-    "targetPainWallet": "単一ブランドの売上ではなく、同じ棚・配送車・小売交渉で複数カテゴリを回収する。"
+    "targetPainWallet": "単一ブランドの売上ではなく、同じ棚・配送車・小売交渉で複数カテゴリを回収する。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_pgcompany_M8Q4R2LV",
@@ -8727,7 +8774,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "研究、性能、包装、広告、棚、リピート購入が一つのカテゴリ支配",
     "pipelineStack": "小売棚 × 反復購入 × 広告・ブランド",
-    "targetPainWallet": "日用品の価値は原材料でなく、家事・衛生の失敗を避ける標準解を毎回同じ棚で買えるこ"
+    "targetPainWallet": "日用品の価値は原材料でなく、家事・衛生の失敗を避ける標準解を毎回同じ棚で買えるこ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_lvmh_S1K7Q4MX",
@@ -8910,7 +8958,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "Maisonの個性を維持したまま、グループの資本・人材・店舗",
     "pipelineStack": "直営旗艦店 × Maisonブランド × 限定供給",
-    "targetPainWallet": "高級品の価格は素材原価でなく、希少性・儀礼・職人・店舗体験が作る比較不能性で決ま"
+    "targetPainWallet": "高級品の価格は素材原価でなく、希少性・儀礼・職人・店舗体験が作る比較不能性で決ま",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_hermes_T5M1R8QK",
@@ -9093,7 +9142,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "職人技能、素材、工房、直営店、修理履歴、家族経営の長期視点が",
     "pipelineStack": "直営店 × 職人工房 × 選択的流通",
-    "targetPainWallet": "供給の遅さ・修理可能性・職人名・店舗体験を、欠点ではなく価格比較を不可能にする資"
+    "targetPainWallet": "供給の遅さ・修理可能性・職人名・店舗体験を、欠点ではなく価格比較を不可能にする資",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_toyota_W4K8M2QN",
@@ -9276,7 +9326,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "生産方式、販売店、部品網、金融、保守、残価の一体運用が単位コ",
     "pipelineStack": "販売店網 × 自動車金融・リース × 量産工場",
-    "targetPainWallet": "自動車の購入理由は車体スペックだけでなく、故障停止・残価・燃料費・納期を含む総保"
+    "targetPainWallet": "自動車の購入理由は車体スペックだけでなく、故障停止・残価・燃料費・納期を含む総保",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_asml_Q7N3K9VW",
@@ -9458,7 +9509,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "EUVの光学・光源・真空・ソフト・共同開発・サービス網が一体",
     "pipelineStack": "半導体メーカー共同開発 × 装置直販 × フィールドサービス",
-    "targetPainWallet": "顧客が買うのは装置ではなく、次世代ノードを止めずに量産し歩留まりを上げる時間。"
+    "targetPainWallet": "顧客が買うのは装置ではなく、次世代ノードを止めずに量産し歩留まりを上げる時間。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_nvidia_Z6Q2M8RK",
@@ -9640,7 +9692,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "GPU、CUDA、ライブラリ、ネットワーク、モデル、開発者学",
     "pipelineStack": "データセンター直販 × クラウド事業者 × 開発者CUDA網",
-    "targetPainWallet": "顧客が買うのは演算チップではなく、AIモデルを期限内に動かすソフト・ネットワーク"
+    "targetPainWallet": "顧客が買うのは演算チップではなく、AIモデルを期限内に動かすソフト・ネットワーク",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_amd_F8Q3L6TK",
@@ -9822,7 +9875,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "fabless設計、チップレット、複数市場のポートフォリオで",
     "pipelineStack": "OEM・PCメーカー × データセンター × ゲーム機",
-    "targetPainWallet": "顧客が求めるのは最大性能ではなく、既存ソフトを壊さず性能・電力・価格を改善する移"
+    "targetPainWallet": "顧客が求めるのは最大性能ではなく、既存ソフトを壊さず性能・電力・価格を改善する移",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_samsung_X2M7Q4LP",
@@ -10005,7 +10059,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "大規模購買、製造設備、歩留まり学習、部品内製、販売網が規模の",
     "pipelineStack": "家電・スマートフォン × 半導体供給 × ディスプレイ",
-    "targetPainWallet": "完成品・メモリ・ディスプレイ・自動車部品を同じ資本と製造学習で回すため、単一事業"
+    "targetPainWallet": "完成品・メモリ・ディスプレイ・自動車部品を同じ資本と製造学習で回すため、単一事業",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_uber_T4M8Q2LK",
@@ -10187,7 +10242,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "利用者とドライバーの密度が待ち時間と稼働率を改善し、さらに両",
     "pipelineStack": "スマートフォンアプリ × ドライバー・店舗ネットワーク × 位置情報マッチング",
-    "targetPainWallet": "移動の価値は車両所有ではなく、需要発生地点へ供給を数分で呼び出せること。"
+    "targetPainWallet": "移動の価値は車両所有ではなく、需要発生地点へ供給を数分で呼び出せること。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_doordash_N7Q3L8VM",
@@ -10369,7 +10425,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "注文密度が配達効率を高め、配達網が店舗・顧客の選択肢を増やす",
     "pipelineStack": "消費者アプリ × 加盟店営業 × 配達員ネットワーク",
-    "targetPainWallet": "配達の価値は料理ではなく、店舗が自前で持てない顧客獲得・決済・ラストマイルを束ね"
+    "targetPainWallet": "配達の価値は料理ではなく、店舗が自前で持てない顧客獲得・決済・ラストマイルを束ね",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_etsy_H6M2Q9RK",
@@ -10551,7 +10608,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "個性的な出品者が増えるほど買い手が増え、買い手の検索・レビュ",
     "pipelineStack": "検索・マーケットプレイス × 出品者コミュニティ × 購入者レビュー",
-    "targetPainWallet": "大量生産ECが扱いにくい少量・個性・物語の供給を、検索と信頼の市場へ変える。"
+    "targetPainWallet": "大量生産ECが扱いにくい少量・個性・物語の供給を、検索と信頼の市場へ変える。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_ebay_C8Q4M1VN",
@@ -10734,7 +10792,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "出品者の在庫が増えるほど買い手が増え、買い手の価格発見と評価",
     "pipelineStack": "マーケットプレイス × 検索・入札 × 決済",
-    "targetPainWallet": "ECの価値は保有在庫ではなく、分散したロングテールを買い手が見つけられること。"
+    "targetPainWallet": "ECの価値は保有在庫ではなく、分散したロングテールを買い手が見つけられること。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_expedia_F2V8Q6KM",
@@ -10916,7 +10975,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "施設在庫が多いほど検索価値が上がり、検索流入が多いほど施設が",
     "pipelineStack": "旅行検索 × ホテル・航空・レンタカー提携 × アプリ・ロイヤリティ",
-    "targetPainWallet": "旅行の価値は部屋を所有することではなく、分散する在庫・価格・キャンセル条件を一度"
+    "targetPainWallet": "旅行の価値は部屋を所有することではなく、分散する在庫・価格・キャンセル条件を一度",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_honeywell_Y7Q3M9LK",
@@ -11098,7 +11158,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "既設設備との互換性、認証、現場データ、保守部品が交換の停止コ",
     "pipelineStack": "航空OEM・防衛調達 × 産業設備・建物オーナー × 代理店・保守網",
-    "targetPainWallet": "顧客が買うのは制御機器の箱ではなく、停止・再認証・規制違反を避ける稼働保証である"
+    "targetPainWallet": "顧客が買うのは制御機器の箱ではなく、停止・再認証・規制違反を避ける稼働保証である",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_caterpillar_N4V8P2QS",
@@ -11280,7 +11341,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "販売、整備、部品、テレマティクス、再生品、金融を機械の稼働プ",
     "pipelineStack": "独立ディーラー × 鉱山・建設・発電OEM調達 × 部品・整備拠点",
-    "targetPainWallet": "重機の価値を購入時の鉄の量ではなく、現場で止まらない時間と部品供給の速さへ移す。"
+    "targetPainWallet": "重機の価値を購入時の鉄の量ではなく、現場で止まらない時間と部品供給の速さへ移す。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_unionpacific_K6M1R8TW",
@@ -11462,7 +11524,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "線路、用地、ターミナル、許認可、運行ノウハウが一体となった希",
     "pipelineStack": "港湾・メキシコ接続 × 大口荷主契約 × 鉄道労組・現場網",
-    "targetPainWallet": "物流の価値を運行距離ではなく、代替不能な地理接続・容量・納期確実性へ移す。"
+    "targetPainWallet": "物流の価値を運行距離ではなく、代替不能な地理接続・容量・納期確実性へ移す。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_fedex_Q2L7V5MN",
@@ -11644,7 +11707,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "航空機、ハブ、車両、通関、追跡、集荷を高密度の物量で稼働させ",
     "pipelineStack": "企業物流契約 × 航空・ハブ・通関網 × サービスプロバイダー",
-    "targetPainWallet": "配送の価値を距離ではなく、遅延による製造停止・欠品・規制違反の回避へ変換する。"
+    "targetPainWallet": "配送の価値を距離ではなく、遅延による製造停止・欠品・規制違反の回避へ変換する。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_lockheed_S8K4R1VP",
@@ -11826,7 +11890,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "政府調達実績、機密認証、量産品質、同盟規格、保守実績が信頼の",
     "pipelineStack": "政府・同盟国調達 × 防衛OEM・プライム契約 × 長期保守・更新",
-    "targetPainWallet": "防衛の買い手が払うのは兵器のスペックではなく、失敗時の国家的損失を下げる信頼性・"
+    "targetPainWallet": "防衛の買い手が払うのは兵器のスペックではなく、失敗時の国家的損失を下げる信頼性・",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_twilio_H3K8P1RM",
@@ -12008,7 +12073,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "番号、通信キャリア接続、開発者SDK、ログ、請求、規制対応を",
     "pipelineStack": "開発者ドキュメント × セルフサービスAPI × クラウド・CRM連携",
-    "targetPainWallet": "顧客が欲しいのは電話会社になることではなく、数時間で通信機能をプロダクトへ埋め込"
+    "targetPainWallet": "顧客が欲しいのは電話会社になることではなく、数時間で通信機能をプロダクトへ埋め込",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_okta_R6M2V8QK",
@@ -12190,7 +12256,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "全社アプリ、権限ポリシー、監査ログ、認証フローが一つのID基",
     "pipelineStack": "セキュリティ・IT部門営業 × クラウド・アプリ連携 × パートナー・導入支援",
-    "targetPainWallet": "顧客が買うのはログイン機能ではなく、社員・顧客・機械の権限を一つの監査可能な層で"
+    "targetPainWallet": "顧客が買うのはログイン機能ではなく、社員・顧客・機械の権限を一つの監査可能な層で",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_crowdstrike_P9L4W2SN",
@@ -12372,7 +12439,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "多数端末から集めるテレメトリーと脅威データが検知精度とモジュ",
     "pipelineStack": "CISO・IT部門営業 × クラウドマーケットプレイス × セキュリティパートナー",
-    "targetPainWallet": "顧客の財布はアンチウイルス機能ではなく、侵害後に業務と信用を失うテールリスクの削"
+    "targetPainWallet": "顧客の財布はアンチウイルス機能ではなく、侵害後に業務と信用を失うテールリスクの削",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_paloalto_T5N8C3QW",
@@ -12554,7 +12622,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "製品、脅威データ、サポート、営業、契約を統合し、複数ワークロ",
     "pipelineStack": "CISO・SOC営業 × 大手SI・販売パートナー × クラウド・政府調達",
-    "targetPainWallet": "買い手が欲しいのはファイアウォールの箱ではなく、増え続ける防御製品を統合して事故"
+    "targetPainWallet": "買い手が欲しいのはファイアウォールの箱ではなく、増え続ける防御製品を統合して事故",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_mongodb_J7R2K9VX",
@@ -12736,7 +12805,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "開発者採用、ドキュメント、ツール、Atlas利用データ、企業",
     "pipelineStack": "開発者コミュニティ × クラウドマーケットプレイス × 技術ドキュメント・無料利用",
-    "targetPainWallet": "データベースの買い手をDBAだけにせず、スキーマ変更と開発速度に困る開発者へ移す"
+    "targetPainWallet": "データベースの買い手をDBAだけにせず、スキーマ変更と開発速度に困る開発者へ移す",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_walmart_F5N8Q2LK",
@@ -12918,7 +12988,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "店舗、物流、購買量、会員、EC、広告データを同一顧客接点へ束",
     "pipelineStack": "店舗・クラブ × EC・アプリ × 会員制度",
-    "targetPainWallet": "小売の勝負は一品のマージンではなく、顧客の生活圏で買い物を一回にまとめる頻度と在"
+    "targetPainWallet": "小売の勝負は一品のマージンではなく、顧客の生活圏で買い物を一回にまとめる頻度と在",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_homedepot_M4R7C2VW",
@@ -13100,7 +13171,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "店舗在庫、専門流通拠点、地域物流、商品知識、Pro顧客データ",
     "pipelineStack": "店舗・アプリ × Pro営業 × SRS専門流通",
-    "targetPainWallet": "顧客が買うのは工具ではなく、工事を止めずに正しい部材を手に入れる確実性である。"
+    "targetPainWallet": "顧客が買うのは工具ではなく、工事を止めずに正しい部材を手に入れる確実性である。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_nike_C8V1M6QS",
@@ -13282,7 +13354,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "アスリート、デザイン、文化、広告、直販データをブランド記憶へ",
     "pipelineStack": "アスリート・スポーツ文化 × NIKE Direct・デジタル × 卸売・小売パートナー",
-    "targetPainWallet": "顧客が買うのは靴の素材ではなく、性能・物語・所属感を一体化した自己表現である。"
+    "targetPainWallet": "顧客が買うのは靴の素材ではなく、性能・物語・所属感を一体化した自己表現である。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_starbucks_L2Q9W4RM",
@@ -13464,7 +13537,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "店舗立地、習慣、ブランド、アプリ、Stored Value ",
     "pipelineStack": "直営店舗 × licensed店舗 × アプリ・ロイヤルティ",
-    "targetPainWallet": "顧客が買うのはコーヒー豆ではなく、毎日の時間短縮と、家でも職場でもない確実な滞在"
+    "targetPainWallet": "顧客が買うのはコーヒー豆ではなく、毎日の時間短縮と、家でも職場でもない確実な滞在",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_disney_V7K3P9LN",
@@ -13646,7 +13720,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "キャラクターと物語を配信、広告、スポーツ、パーク、ホテル、商",
     "pipelineStack": "映画・テレビ・DTC × ESPN・スポーツ配信 × テーマパーク・ホテル・クルーズ",
-    "targetPainWallet": "顧客が買うのは映像ファイルではなく、視聴・旅行・家族の記憶・ファンの所有欲を連続"
+    "targetPainWallet": "顧客が買うのは映像ファイルではなく、視聴・旅行・家族の記憶・ファンの所有欲を連続",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_wirecard_Z6P2M8QK",
@@ -13827,7 +13902,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "決済免許、ブランド、加盟店網はあったが、現金と取引の検証可能",
     "pipelineStack": "加盟店・カードネットワーク × 第三者取得事業 × 銀行・信託口座",
-    "targetPainWallet": "決済会社のKPIは取引量ではなく、顧客資金・加盟店資金・自己資金を銀行明細まで三"
+    "targetPainWallet": "決済会社のKPIは取引量ではなく、顧客資金・加盟店資金・自己資金を銀行明細まで三",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_celsius_V8Q4L1MN",
@@ -14008,7 +14084,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "利回り、顧客規模、流動性の評判はあったが、資産分別と償還順位",
     "pipelineStack": "暗号資産アプリ × 利回り・紹介広告 × 預入・担保付借入",
-    "targetPainWallet": "暗号資産プラットフォームの本当の制約は利回りではなく、顧客資産を即時償還できる流"
+    "targetPainWallet": "暗号資産プラットフォームの本当の制約は利回りではなく、顧客資産を即時償還できる流",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_evergrande_C5M9R2QK",
@@ -14189,7 +14266,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "土地、販売網、建設、金融、物件管理を規模で束ねたが、資金調達",
     "pipelineStack": "住宅販売・前受金 × 土地・建設請負網 × 銀行・社債市場",
-    "targetPainWallet": "不動産の売上成長は完成・引渡しまでのキャッシュではなく、前受金・借入・土地価値の"
+    "targetPainWallet": "不動産の売上成長は完成・引渡しまでのキャッシュではなく、前受金・借入・土地価値の",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_petscom_W3R7M1QK",
@@ -14370,7 +14448,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "ブランドとキャラクターは認知を作ったが、原価・配送・広告の組",
     "pipelineStack": "オンライン広告 × IPO・VC調達 × 在庫・配送網",
-    "targetPainWallet": "Eコマースは注文数ではなく、送料・返品・広告・在庫廃棄を引いた一注文現金粗利が正"
+    "targetPainWallet": "Eコマースは注文数ではなく、送料・返品・広告・在庫廃棄を引いた一注文現金粗利が正",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_webvan_N8Q4L2RM",
@@ -14551,7 +14630,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "倉庫、配送、ソフト、人員の規模経済を狙ったが、需要密度前の先",
     "pipelineStack": "オンライン注文 × 自動倉庫・配送拠点 × IPO・VC資金",
-    "targetPainWallet": "即日配送の価値は注文数ではなく、地域ごとの注文密度が倉庫・車両・人員の完全固定費"
+    "targetPainWallet": "即日配送の価値は注文数ではなく、地域ごとの注文密度が倉庫・車両・人員の完全固定費",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_hoya_P4N8Q2LM",
@@ -14733,7 +14813,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "材料、研磨、成膜、品質保証、顧客承認を一体で反復する工程能力",
     "pipelineStack": "医療機器OEM × 眼鏡レンズ流通網 × 半導体・FPDサプライチェーン",
-    "targetPainWallet": "売上規模を追う企業が避ける、品質保証・認証・歩留まりの面倒な狭い用途を深掘りする"
+    "targetPainWallet": "売上規模を追う企業が避ける、品質保証・認証・歩留まりの面倒な狭い用途を深掘りする",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_daikin_R7M3K9VW",
@@ -14915,7 +14996,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "冷媒化学、コンプレッサー、制御、施工教育、保守部品の工程とチ",
     "pipelineStack": "空調販売店 × 施工・サービス網 × 建設・設備設計会社",
-    "targetPainWallet": "機器価格だけを比較する市場に、冷媒・施工・保守を含むライフサイクル原価を持ち込む"
+    "targetPainWallet": "機器価格だけを比較する市場に、冷媒・施工・保守を含むライフサイクル原価を持ち込む",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_recruit_C6L1P8QZ",
@@ -15097,7 +15179,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "候補者が増えるほど求人が集まり、求人が増えるほど検索利用と応",
     "pipelineStack": "求人検索サイト × 企業向け広告営業 × 人材紹介・派遣",
-    "targetPainWallet": "広告を見せることではなく、候補者の意図から採用までの確率を上げることへ課金単位を"
+    "targetPainWallet": "広告を見せることではなく、候補者の意図から採用までの確率を上げることへ課金単位を",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_monotaro_V2K7N4RS",
@@ -15279,7 +15362,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "SKU名寄せ、在庫、検索順位、出荷、PB開発を一つのデータル",
     "pipelineStack": "MonotaRO.com × 検索・型番流入 × 法人アカウント営業",
-    "targetPainWallet": "大口案件向けの営業採算では見捨てられる小口・反復・型番発注を、検索と物流で一括処"
+    "targetPainWallet": "大口案件向けの営業採算では見捨てられる小口・反復・型番発注を、検索と物流で一括処",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_zozo_H9Q3M5LK",
@@ -15461,7 +15545,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "ブランド・SKU・消費者の閲覧購買データが増えるほど、探索精",
     "pipelineStack": "ZOZOTOWN × ブランド出店 × スマホアプリ",
-    "targetPainWallet": "小売在庫を大量保有せず、服を探す行動とブランドの供給を先に集めて取引手数料を取る"
+    "targetPainWallet": "小売在庫を大量保有せず、服を探す行動とブランドの供給を先に集めて取引手数料を取る",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_tencent_J8R2V6QN",
@@ -15643,7 +15728,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "利用者、開発者、広告主、商店、決済データが同じIDに集まり、",
     "pipelineStack": "WeChat × ゲーム配信 × 広告ネットワーク",
-    "targetPainWallet": "コンテンツ、会話、商取引を別々に買う顧客の面倒を、単一アカウントの滞在時間へ圧縮"
+    "targetPainWallet": "コンテンツ、会話、商取引を別々に買う顧客の面倒を、単一アカウントの滞在時間へ圧縮",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_alibaba_M5Q9C2WK",
@@ -15825,7 +15911,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "消費者、商人、広告、物流、クラウドが相互にデータと需要を供給",
     "pipelineStack": "マーケットプレイス × 商人向け広告 × クラウド営業",
-    "targetPainWallet": "商取引の手数料だけでなく、出店者の成長予算と事業インフラ費まで同じ顧客から回収す"
+    "targetPainWallet": "商取引の手数料だけでなく、出店者の成長予算と事業インフラ費まで同じ顧客から回収す",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_jdcom_N7L4P1RX",
@@ -16007,7 +16094,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "注文密度、倉庫網、配送ルート、在庫データが増えるほど1件あた",
     "pipelineStack": "JD.com × 自社倉庫・配送 × ブランド直営出店",
-    "targetPainWallet": "価格比較でなく、納期・真贋・返品の失敗を減らすための在庫と物流を競争軸にする。"
+    "targetPainWallet": "価格比較でなく、納期・真贋・返品の失敗を減らすための在庫と物流を競争軸にする。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_sea_T6K2M8QV",
@@ -16189,7 +16277,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "消費者、商人、ゲーム利用者、決済履歴が同じ地域ネットワークに",
     "pipelineStack": "Shopee × Garena × Monee",
-    "targetPainWallet": "市場ごとの摩擦を単一サービスで解こうとせず、ゲームの時間、ECの取引、金融の信用"
+    "targetPainWallet": "市場ごとの摩擦を単一サービスで解こうとせず、ゲームの時間、ECの取引、金融の信用",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_baidu_W3R9Q5LN",
@@ -16371,7 +16460,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "大規模な中国語検索ログ、分散計算、地図・音声・クラウドのデー",
     "pipelineStack": "検索エンジン × 広告主営業 × AIクラウド",
-    "targetPainWallet": "検索広告の既存現金化を維持しながら、検索ログ・モデル・クラウドを企業向け計算資源"
+    "targetPainWallet": "検索広告の既存現金化を維持しながら、検索ログ・モデル・クラウドを企業向け計算資源",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_ferrari_F8N2L6KM",
@@ -16553,7 +16643,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "レース実績、希少性、所有者クラブ、再販価値が互いにブランドの",
     "pipelineStack": "正規ディーラー × 招待・待機リスト × 個別仕様プログラム",
-    "targetPainWallet": "自動車を量ではなく、供給制限・所有者コミュニティ・個別仕様の体験として売る。"
+    "targetPainWallet": "自動車を量ではなく、供給制限・所有者コミュニティ・個別仕様の体験として売る。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_loreal_C4V7P1QS",
@@ -16735,7 +16826,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "研究開発、特許・処方、ブランド認知、販売棚、専門家推奨が複合",
     "pipelineStack": "量販店 × 薬局・専門店 × サロン・美容師",
-    "targetPainWallet": "原料の性能を単体で売らず、研究・ブランド・棚・専門家の信用を価格階層へ変換する。"
+    "targetPainWallet": "原料の性能を単体で売らず、研究・ブランド・棚・専門家の信用を価格階層へ変換する。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_wise_G9M3R6TK",
@@ -16917,7 +17009,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "受取口座、送金履歴、法人給与・請求書、残高を一度統合すると、",
     "pipelineStack": "Wiseアプリ × 法人API × 口コミ・比較検索",
-    "targetPainWallet": "銀行の複雑な為替差益を明示料金へ変え、現地口座網で送金経路そのものを短くする。"
+    "targetPainWallet": "銀行の複雑な為替差益を明示料金へ変え、現地口座網で送金経路そのものを短くする。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_adyen_B2Q8N5LV",
@@ -17099,7 +17192,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "承認、リスク、返金、精算、レポートを一つのプラットフォームで",
     "pipelineStack": "グローバル大口加盟店営業 × 決済API × EC・実店舗POS連携",
-    "targetPainWallet": "決済会社を国・カードブランドごとに足すのではなく、加盟店の全支払い面を同じデータ"
+    "targetPainWallet": "決済会社を国・カードブランドごとに足すのではなく、加盟店の全支払い面を同じデータ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_robinhood_Y7K4C1PM",
@@ -17281,7 +17375,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "口座、残高、税務記録、定期投資、会員機能が一つのモバイル体験",
     "pipelineStack": "モバイルアプリ × 紹介・口コミ × Gold会員",
-    "targetPainWallet": "売買手数料を主収益にせず、口座残高・注文フロー・会員機能へ収益源を分散する。"
+    "targetPainWallet": "売買手数料を主収益にせず、口座残高・注文フロー・会員機能へ収益源を分散する。",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_svb_Z5M8Q2RL",
@@ -17462,7 +17557,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "スタートアップ、VC、テック人材の関係網は強かったが、預金の",
     "pipelineStack": "VC・スタートアップ営業 × 法人預金 × プライベートバンク",
-    "targetPainWallet": "専門顧客への集中が紹介と預金成長を生む一方、顧客の資金需要と出金タイミングを同じ"
+    "targetPainWallet": "専門顧客への集中が紹介と預金成長を生む一方、顧客の資金需要と出金タイミングを同じ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_firstrepublic_H3N7V1KQ",
@@ -17643,7 +17739,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "顧客関係と地域ブランドは強かったが、信頼が金利・預金安全性の",
     "pipelineStack": "富裕層リレーション営業 × 住宅ローン × プライベートバンク",
-    "targetPainWallet": "富裕層への高接触サービスと低金利ローンを信頼資産に変える一方、預金の保険外集中を"
+    "targetPainWallet": "富裕層への高接触サービスと低金利ローンを信頼資産に変える一方、預金の保険外集中を",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_convoy_P9L4W6TC",
@@ -17824,7 +17921,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "荷主と運送会社の両面ネットワークは成立し得たが、参加者数が価",
     "pipelineStack": "荷主営業 × 運送会社アプリ × デジタル貨物仲介",
-    "targetPainWallet": "仲介の取引量を増やせば固定費が薄まると考え、運賃サイクルと運転資金の変動を後回し"
+    "targetPainWallet": "仲介の取引量を増やせば固定費が薄まると考え、運賃サイクルと運転資金の変動を後回し",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_katerra_R2Q8M5VN",
@@ -18005,7 +18103,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "標準化・工場・設計・施工を束ねる構想は強いが、受注密度と工程",
     "pipelineStack": "大規模開発案件 × 自社工場 × 建設会社・設計会社",
-    "targetPainWallet": "建設現場の分散した変動費を製造業の規模経済へ変える前に、工場と組織を先行固定化し"
+    "targetPainWallet": "建設現場の分散した変動費を製造業の規模経済へ変える前に、工場と組織を先行固定化し",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_beepi_C7L1N9WK",
@@ -18186,7 +18285,8 @@
     "isGrowthUnconfirmed": true,
     "architecturePattern": "検査・価格付け・配送・書類を一体化すれば差別化になるが、地域",
     "pipelineStack": "オンライン中古車検索 × 自社検査・配送 × 投資家・買収候補",
-    "targetPainWallet": "ディーラーの手数料を外す代わりに、車両の実物・物流・書類・保証を自社オペレーショ"
+    "targetPainWallet": "ディーラーの手数料を外す代わりに、車両の実物・物流・書類・保証を自社オペレーショ",
+    "batchId": "batch-03-2026-09-14-capitalism100"
   },
   {
     "id": "ent_screen_studio",
@@ -18309,7 +18409,8 @@
       "SaaS",
       "Screen Studio"
     ],
-    "publishability": "PARTIAL"
+    "publishability": "PARTIAL",
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_pdf_ai_65",
@@ -18554,7 +18655,8 @@
           "deterministicCheck": "PASS"
         }
       }
-    ]
+    ],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_testim_66",
@@ -18773,7 +18875,8 @@
       "【財務確定ログ】Testimonial.toの財務実績: 月商¥886万円、営業利益¥726万円（営業利益率約82%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_site_gpt_67",
@@ -18992,7 +19095,8 @@
       "【財務確定ログ】SiteGPTの財務実績: 月商¥380万円、営業利益¥304万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_feathr_68",
@@ -19211,7 +19315,8 @@
       "【財務確定ログ】Feather.soの財務実績: 月商¥127万円、営業利益¥111万円（営業利益率約88%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_chatbs_69",
@@ -19430,7 +19535,8 @@
       "【財務確定ログ】Chatbaseの財務実績: 月商¥4554万円、営業利益¥3871万円（営業利益率約85%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_rewind_6a",
@@ -19649,7 +19755,8 @@
       "【財務確定ログ】Rewind AIの財務実績: 月商¥6325万円、営業利益¥4744万円（営業利益率約75%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_cursor_6b",
@@ -19868,7 +19975,8 @@
       "【財務確定ログ】Cursor (Anysphere)の財務実績: 月商¥126500万円、営業利益¥63250万円（営業利益率約50%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_prplx_6c",
@@ -20087,7 +20195,8 @@
       "【財務確定ログ】Perplexity AIの財務実績: 月商¥101200万円、営業利益¥35420万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_eleven_6d",
@@ -20306,7 +20415,8 @@
       "【財務確定ログ】ElevenLabsの財務実績: 月商¥101200万円、営業利益¥45540万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_leonrd_6e",
@@ -20525,7 +20635,8 @@
       "【財務確定ログ】Leonardo.aiの財務実績: 月商¥12650万円、営業利益¥5060万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_dub_co_6f",
@@ -20744,7 +20855,8 @@
       "【財務確定ログ】Dub.coの財務実績: 月商¥633万円、営業利益¥506万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_loops_70",
@@ -20963,7 +21075,8 @@
       "【財務確定ログ】Loops.soの財務実績: 月商¥1265万円、営業利益¥949万円（営業利益率約75%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_raycst_71",
@@ -21182,7 +21295,8 @@
       "【財務確定ログ】Raycastの財務実績: 月商¥633万円、営業利益¥411万円（営業利益率約65%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_vercel_72",
@@ -21401,7 +21515,8 @@
       "【財務確定ログ】Vercelの財務実績: 月商¥126500万円、営業利益¥25300万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_supabs_73",
@@ -21620,7 +21735,8 @@
       "【財務確定ログ】Supabaseの財務実績: 月商¥37950万円、営業利益¥9488万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_posthg_74",
@@ -21839,7 +21955,8 @@
       "【財務確定ログ】PostHogの財務実績: 月商¥25300万円、営業利益¥7590万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_cleanm_75",
@@ -22058,7 +22175,8 @@
       "【財務確定ログ】CleanMyMacの財務実績: 月商¥63250万円、営業利益¥25300万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_setapp_76",
@@ -22277,7 +22395,8 @@
       "【財務確定ログ】Setappの財務実績: 月商¥44275万円、営業利益¥11069万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_warp_t_77",
@@ -22496,7 +22615,8 @@
       "【財務確定ログ】Warp Terminalの財務実績: 月商¥12650万円、営業利益¥5060万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_sprhmn_78",
@@ -22715,7 +22835,8 @@
       "【財務確定ログ】Superhumanの財務実績: 月商¥44275万円、営業利益¥13283万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_anker_79",
@@ -22934,7 +23055,8 @@
       "【財務確定ログ】Ankerの財務実績: 月商¥2530000万円、営業利益¥265650万円（営業利益率約11%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_casetf_7a",
@@ -23153,7 +23275,8 @@
       "【財務確定ログ】CASETiFYの財務実績: 月商¥253000万円、営業利益¥55660万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_keychr_7b",
@@ -23372,7 +23495,8 @@
       "【財務確定ログ】Keychronの財務実績: 月商¥126500万円、営業利益¥31625万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_bellry_7c",
@@ -23591,7 +23715,8 @@
       "【財務確定ログ】Bellroyの財務実績: 月商¥101200万円、営業利益¥20240万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_peakds_7d",
@@ -23810,7 +23935,8 @@
       "【財務確定ログ】Peak Designの財務実績: 月商¥126500万円、営業利益¥27830万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_ridge_7e",
@@ -24029,7 +24155,8 @@
       "【財務確定ログ】The Ridge Walletの財務実績: 月商¥126500万円、営業利益¥31625万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_manscp_7f",
@@ -24248,7 +24375,8 @@
       "【財務確定ログ】Manscapedの財務実績: 月商¥379500万円、営業利益¥68310万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_yeti_80",
@@ -24467,7 +24595,8 @@
       "【財務確定ログ】YETI Coolersの財務実績: 月商¥2024000万円、営業利益¥323840万円（営業利益率約16%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_solost_81",
@@ -24686,7 +24815,8 @@
       "【財務確定ログ】Solo Stoveの財務実績: 月商¥506000万円、営業利益¥60720万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_stanly_82",
@@ -24905,7 +25035,8 @@
       "【財務確定ログ】Stanley 1913の財務実績: 月商¥948750万円、営業利益¥237188万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_brumat_83",
@@ -25124,7 +25255,8 @@
       "【財務確定ログ】Brumateの財務実績: 月商¥126500万円、営業利益¥27830万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_vuori_84",
@@ -25343,7 +25475,8 @@
       "【財務確定ログ】Vuoriの財務実績: 月商¥1265000万円、営業利益¥253000万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_on_hld_85",
@@ -25562,7 +25695,8 @@
       "【財務確定ログ】On Holdingの財務実績: 月商¥2530000万円、営業利益¥379500万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_oofos_86",
@@ -25781,7 +25915,8 @@
       "【財務確定ログ】OOFOSの財務実績: 月商¥253000万円、営業利益¥55660万円（営業利益率約22%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_10thsd_87",
@@ -26000,7 +26135,8 @@
       "【財務確定ログ】Ten Thousandの財務実績: 月商¥63250万円、営業利益¥11385万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_8sleep_88",
@@ -26219,7 +26355,8 @@
       "【財務確定ログ】Eight Sleepの財務実績: 月商¥126500万円、営業利益¥25300万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_tile_tg_89",
@@ -26438,7 +26575,8 @@
       "【財務確定ログ】Tileの財務実績: 月商¥126500万円、営業利益¥18975万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_rumpl_8a",
@@ -26657,7 +26795,8 @@
       "【財務確定ログ】Rumplの財務実績: 月商¥50600万円、営業利益¥10120万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_beard_8b",
@@ -26876,7 +27015,8 @@
       "【財務確定ログ】Beardbrandの財務実績: 月商¥8855万円、営業利益¥2214万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_chrono_8c",
@@ -27095,7 +27235,8 @@
       "【財務確定ログ】Chrono24の財務実績: 月商¥164200万円、営業利益¥41050万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_3679_t_8d",
@@ -27314,7 +27455,8 @@
       "【財務確定ログ】株式会社じげんの財務実績: 月商¥183333万円、営業利益¥60500万円（営業利益率約33%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_6191_t_8e",
@@ -27533,7 +27675,8 @@
       "【財務確定ログ】株式会社エアトリの財務実績: 月商¥208333万円、営業利益¥37500万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_3665_t_8f",
@@ -27752,7 +27895,8 @@
       "【財務確定ログ】株式会社エニグモ (BUYMA)の財務実績: 月商¥58333万円、営業利益¥17500万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_4176_t_90",
@@ -27971,7 +28115,8 @@
       "【財務確定ログ】株式会社ココナラの財務実績: 月商¥41667万円、営業利益¥6250万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_4477_t_91",
@@ -28190,7 +28335,8 @@
       "【財務確定ログ】BASE株式会社の財務実績: 月商¥100000万円、営業利益¥12000万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_215a_t_92",
@@ -28409,7 +28555,8 @@
       "【財務確定ログ】株式会社タイミーの財務実績: 月商¥166667万円、営業利益¥41667万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_4487_t_93",
@@ -28628,7 +28775,8 @@
       "【財務確定ログ】株式会社スペースマーケットの財務実績: 月商¥12500万円、営業利益¥1875万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_7095_t_94",
@@ -28847,7 +28995,8 @@
       "【財務確定ログ】株式会社Macbee Planetの財務実績: 月商¥291667万円、営業利益¥35000万円（営業利益率約12%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_4449_t_95",
@@ -29066,7 +29215,8 @@
       "【財務確定ログ】株式会社ギフティの財務実績: 月商¥58333万円、営業利益¥14583万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_3922_t_96",
@@ -29285,7 +29435,8 @@
       "【財務確定ログ】株式会社PR TIMESの財務実績: 月商¥58333万円、営業利益¥20417万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_7564_t_97",
@@ -29504,7 +29655,8 @@
       "【財務確定ログ】株式会社ワークマンの財務実績: 月商¥1083333万円、営業利益¥195000万円（営業利益率約18%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_3097_t_98",
@@ -29723,7 +29875,8 @@
       "【財務確定ログ】株式会社物語コーポレーション (焼肉きんぐ)の財務実績: 月商¥833333万円、営業利益¥62500万円（営業利益率約8%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_3397_t_99",
@@ -29942,7 +30095,8 @@
       "【財務確定ログ】トリドールホールディングス (丸亀製麺)の財務実績: 月商¥1916667万円、営業利益¥134167万円（営業利益率約7%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_3563_t_9a",
@@ -30161,7 +30315,8 @@
       "【財務確定ログ】FOOD & LIFE COMPANIES (スシロー)の財務実績: 月商¥3000000万円、営業利益¥180000万円（営業利益率約6%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_ok_sup_9b",
@@ -30380,7 +30535,8 @@
       "【財務確定ログ】オーケー株式会社の財務実績: 月商¥5000000万円、営業利益¥260000万円（営業利益率約5%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_lopia_9c",
@@ -30599,7 +30755,8 @@
       "【財務確定ログ】株式会社ロピア (OIC)の財務実績: 月商¥3333333万円、営業利益¥150000万円（営業利益率約5%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_3038_t_9d",
@@ -30818,7 +30975,8 @@
       "【財務確定ログ】株式会社神戸物産 (業務スーパー)の財務実績: 月商¥4000000万円、営業利益¥408000万円（営業利益率約10%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_mbrew_9e",
@@ -31037,7 +31195,8 @@
       "【財務確定ログ】Morning Brewの財務実績: 月商¥63250万円、営業利益¥25300万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_hustle_9f",
@@ -31256,7 +31415,8 @@
       "【財務確定ログ】The Hustleの財務実績: 月商¥25300万円、営業利益¥8855万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_tldr_n_a0",
@@ -31476,7 +31636,8 @@
       "【財務確定ログ】TLDR Newsletterの財務実績: 月商¥10120万円、営業利益¥8096万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_milkrd_a1",
@@ -31695,7 +31856,8 @@
       "【財務確定ログ】The Milk Roadの財務実績: 月商¥6325万円、営業利益¥5376万円（営業利益率約85%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_substk_a2",
@@ -31914,7 +32076,8 @@
       "【財務確定ログ】Substackの財務実績: 月商¥37950万円、営業利益¥7590万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_onlyfn_a3",
@@ -32133,7 +32296,8 @@
       "【財務確定ログ】OnlyFansの財務実績: 月商¥1644500万円、営業利益¥657800万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_patren_a4",
@@ -32352,7 +32516,8 @@
       "【財務確定ログ】Patreonの財務実績: 月商¥101200万円、営業利益¥20240万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_skool_a5",
@@ -32571,7 +32736,8 @@
       "【財務確定ログ】Skoolの財務実績: 月商¥31625万円、営業利益¥14231万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_whop_a6",
@@ -32790,7 +32956,8 @@
       "【財務確定ログ】Whopの財務実績: 月商¥37950万円、営業利益¥13283万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_fanbas_a7",
@@ -33009,7 +33176,8 @@
       "【財務確定ログ】Fanbaseの財務実績: 月商¥6325万円、営業利益¥1265万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_honey_a8",
@@ -33228,7 +33396,8 @@
       "【財務確定ログ】Honeyの財務実績: 月商¥126500万円、営業利益¥50600万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_grammr_a9",
@@ -33447,7 +33616,8 @@
       "【財務確定ログ】Grammarlyの財務実績: 月商¥253000万円、営業利益¥75900万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_camel_aa",
@@ -33666,7 +33836,8 @@
       "【財務確定ログ】CamelCamelCamelの財務実績: 月商¥6325万円、営業利益¥5060万円（営業利益率約80%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_wikiby_ab",
@@ -33885,7 +34056,8 @@
       "【財務確定ログ】Capital One Shopping (Wikibuy)の財務実績: 月商¥63250万円、営業利益¥22138万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_ebates_ac",
@@ -34104,7 +34276,8 @@
       "【財務確定ログ】Rakuten Rewards (Ebates)の財務実績: 月商¥316250万円、営業利益¥63250万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_ltk_app_ad",
@@ -34323,7 +34496,8 @@
       "【財務確定ログ】LTK (RewardStyle)の財務実績: 月商¥189750万円、営業利益¥47438万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_shpstl_ae",
@@ -34542,7 +34716,8 @@
       "【財務確定ログ】ShopStyleの財務実績: 月商¥75900万円、営業利益¥18975万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_slickd_af",
@@ -34761,7 +34936,8 @@
       "【財務確定ログ】Slickdealsの財務実績: 月商¥50600万円、営業利益¥22770万円（営業利益率約45%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_rtlnot_b0",
@@ -34980,7 +35156,8 @@
       "【財務確定ログ】RetailMeNotの財務実績: 月商¥253000万円、営業利益¥75900万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_ibotta_b1",
@@ -35199,7 +35376,8 @@
       "【財務確定ログ】Ibottaの財務実績: 月商¥379500万円、営業利益¥75900万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_lnktr_b2",
@@ -35418,7 +35596,8 @@
       "【財務確定ログ】Linktreeの財務実績: 月商¥63250万円、営業利益¥22138万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_beacns_b3",
@@ -35637,7 +35816,8 @@
       "【財務確定ログ】Beaconsの財務実績: 月商¥18975万円、営業利益¥6641万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_stan_s_b4",
@@ -35856,7 +36036,8 @@
       "【財務確定ログ】Stan Storeの財務実績: 月商¥25300万円、営業利益¥10120万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_podia_b5",
@@ -36075,7 +36256,8 @@
       "【財務確定ログ】Podiaの財務実績: 月商¥12650万円、営業利益¥4428万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_teachb_b6",
@@ -36294,7 +36476,8 @@
       "【財務確定ログ】Teachableの財務実績: 月商¥63250万円、営業利益¥15813万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_thnkfc_b7",
@@ -36513,7 +36696,8 @@
       "【財務確定ログ】Thinkificの財務実績: 月商¥69575万円、営業利益¥10436万円（営業利益率約15%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_kajabi_b8",
@@ -36732,7 +36916,8 @@
       "【財務確定ログ】Kajabiの財務実績: 月商¥126500万円、営業利益¥37950万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_circl_b9",
@@ -36951,7 +37136,8 @@
       "【財務確定ログ】Circle.soの財務実績: 月商¥18975万円、営業利益¥6641万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_mighty_ba",
@@ -37170,7 +37356,8 @@
       "【財務確定ログ】Mighty Networksの財務実績: 月商¥18975万円、営業利益¥4744万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_tiny_c_bb",
@@ -37389,7 +37576,8 @@
       "【財務確定ログ】Tiny Capitalの財務実績: 月商¥189750万円、営業利益¥37950万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_wise_bc",
@@ -37608,7 +37796,8 @@
       "【財務確定ログ】Wise (TransferWise)の財務実績: 月商¥1612500万円、営業利益¥403125万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_revolt_bd",
@@ -37827,7 +38016,8 @@
       "【財務確定ログ】Revolutの財務実績: 月商¥3547500万円、営業利益¥815925万円（営業利益率約23%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_mrcury_be",
@@ -38046,7 +38236,8 @@
       "【財務確定ログ】Mercuryの財務実績: 月商¥253000万円、営業利益¥88550万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_brex_bf",
@@ -38265,7 +38456,8 @@
       "【財務確定ログ】Brexの財務実績: 月商¥316250万円、営業利益¥63250万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_ramp_f_c0",
@@ -38484,7 +38676,8 @@
       "【財務確定ログ】Rampの財務実績: 月商¥379500万円、営業利益¥94875万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_deel_c1",
@@ -38703,7 +38896,8 @@
       "【財務確定ログ】Deelの財務実績: 月商¥632500万円、営業利益¥189750万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_remote_c2",
@@ -38922,7 +39116,8 @@
       "【財務確定ログ】Remoteの財務実績: 月商¥189750万円、営業利益¥47438万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_oyster_c3",
@@ -39141,7 +39336,8 @@
       "【財務確定ログ】Oyster HRの財務実績: 月商¥75900万円、営業利益¥15180万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_carta_c4",
@@ -39360,7 +39556,8 @@
       "【財務確定ログ】Cartaの財務実績: 月商¥316250万円、営業利益¥79063万円（営業利益率約25%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_gusto_c5",
@@ -39579,7 +39776,8 @@
       "【財務確定ログ】Gustoの財務実績: 月商¥632500万円、営業利益¥126500万円（営業利益率約20%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_civita_c6",
@@ -39798,7 +39996,8 @@
       "【財務確定ログ】Civitaiの財務実績: 月商¥15180万円、営業利益¥4554万円（営業利益率約30%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_phind_c7",
@@ -40017,7 +40216,8 @@
       "【財務確定ログ】Phindの財務実績: 月商¥7590万円、営業利益¥3036万円（営業利益率約40%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_ghostr_c8",
@@ -40236,7 +40436,8 @@
       "【財務確定ログ】Ghosteryの財務実績: 月商¥10947万円、営業利益¥3831万円（営業利益率約35%）。無駄な人員と固定費を極小化し、極めて筋肉質な損益分岐点を維持している。"
     ],
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-02-2026-09-13-expansion101"
   },
   {
     "id": "ent_shift_3697",
@@ -40456,7 +40657,8 @@
       "painRelief": "開発終盤のバグ多発による納期遅延とリリース延期の恐怖を解消し、開発者の負担をゼロにして品質を担保する。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_wework_landmine",
@@ -40658,7 +40860,8 @@
       "painRelief": "オフィス需要を過大評価し、パンデミックと景気後退による解約ラッシュで毎月数百億円の賃料赤字を垂れ流して破綻。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_ghost_3c99a012",
@@ -40866,7 +41069,8 @@
       "painRelief": "売上手数料ゼロ・サーバー管理の手間ゼロで、書くことと購読者集めに集中できる環境を提供する。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_theranos_postmortem_dead",
@@ -41059,7 +41263,8 @@
       "painRelief": "既存の採血に伴う痛みと高額な検査費用の解消を謳ったが、実際には自社技術が機能せず、競合他社の機器で希釈検査を行う違法行為で完全崩壊。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_ftx_postmortem_dead",
@@ -41251,7 +41456,8 @@
       "painRelief": "迅速な取引執行と高い流動性を提供していたが、裏付けのない準備金と顧客資産の私的流用が露呈した瞬間に取り付け騒ぎが起き、わずか数日で即死破綻。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_typingmind_3a81f902",
@@ -41471,7 +41677,8 @@
       "painRelief": "サブスク固定費の負担と公式Webの使いにくさを解消し、1回の買い切りで自分のAPIキーを使った快適なAI環境を提供する。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_bannerbear_9e1204c3",
@@ -41691,7 +41898,8 @@
       "painRelief": "単調な画像リサイズや文字入れ作業の繰り返しによる時間浪費と人的ミスをゼロにする。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_convertkit_5b219e84",
@@ -41904,7 +42112,8 @@
       "painRelief": "難解なマーケティングオートメーションの設定苦痛を解消し、タグベースの直感的な配信でファンのLTVを最大化する。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_tailwind_4c810a72",
@@ -42119,7 +42328,8 @@
       "painRelief": "CSSの命名に悩む時間、肥大化するスタイルシートの破綻、デザイン作成の外注コストを完全に削減する。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_disco_6146_jp",
@@ -42327,7 +42537,8 @@
       "painRelief": "高価な半導体ウエハを割らずに超極薄まで均一に削り分ける物理的難題を解消し、歩留まり向上と量産スピードを保証する。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_fast_postmortem_dead",
@@ -42519,7 +42730,8 @@
       "painRelief": "ECサイトの住所・カード情報入力の面倒さを解消しようとしたが、プラットフォーマーの標準機能に一撃で無力化され、巨額固定費で出血死。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_screenshotone_d87b1c42",
@@ -42763,7 +42975,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_scrapingbee_4f92a188",
@@ -43007,7 +43220,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_keyence",
@@ -43340,7 +43554,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_stripe",
@@ -43666,7 +43881,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_shipfast",
@@ -44050,7 +44266,8 @@
           "deterministicCheck": "PASS"
         }
       }
-    ]
+    ],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_photoai",
@@ -44255,7 +44472,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_nomadlist",
@@ -44609,7 +44827,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_plausible",
@@ -44824,7 +45043,8 @@
       "painRelief": "GA4の難解な設定画面とサイト読み込み速度の低下、およびCookie同意バナーによる離脱の悩みを即座に解決する。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_transistor",
@@ -45160,7 +45380,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_liinks",
@@ -45513,7 +45734,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_buffer",
@@ -45849,7 +46071,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_headshotpro",
@@ -46151,7 +46374,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_5989aec929273dd2a579",
@@ -46456,7 +46680,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_acquirecom_4e8247fa7bf75d8b8584",
@@ -46663,7 +46888,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_5bce9cf106978a50512d",
@@ -46909,7 +47135,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_67a6586e2f30a21c8576",
@@ -47140,7 +47367,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_5d6250204b25adce3a8b",
@@ -47385,7 +47613,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_67ee7501e9f6e00f31b5",
@@ -47624,7 +47853,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_7590e69f49bb1c7e8ac7",
@@ -47862,7 +48092,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_midjourney_239b8ccc522504fb757b",
@@ -48120,7 +48351,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_carrd_6a69c797d0b28fc91fe6",
@@ -48340,7 +48572,8 @@
       "painRelief": "サーバー契約、ドメイン設定、難解なデザインツールの学習にかかる時間とコストを極小化し、1クリックでWeb公開を完了させる。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_gumroad_164534dd22fa6c2e2793",
@@ -48550,7 +48783,8 @@
       "painRelief": "決済プロバイダの審査待ち、税務処理、ファイル自動配信の設定などの面倒なバックエンド業務をすべて丸投げさせる。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_basecamp_b1bb0f0ff61469aa22c5",
@@ -48785,7 +49019,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_linear_app",
@@ -49020,7 +49255,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_notion_hq",
@@ -49255,7 +49491,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_beehiiv_0e052432d4cc474caec6",
@@ -49490,7 +49727,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_kitformerlyconvertkit_05168bc6971293b6d3ab",
@@ -49726,7 +49964,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_klaviyo_core",
@@ -49959,7 +50198,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_whoop_fitness",
@@ -50194,7 +50434,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_athletic_greens_ag1",
@@ -50429,7 +50670,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_oura_ring",
@@ -50664,7 +50906,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_judgeme",
@@ -50901,7 +51144,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_loox_reviews",
@@ -51137,7 +51381,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_baremetrics_b0966c4871940e459cbb",
@@ -51370,7 +51615,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_betteruptime_bb05846361a4c3e961c7",
@@ -51607,7 +51853,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_jasper_e3e5b0b671c3f89a38e0",
@@ -51870,7 +52117,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_clubhouse_audio",
@@ -52069,7 +52317,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_quibi_failure",
@@ -52261,7 +52510,8 @@
       "painRelief": "移動中の退屈の切除を狙ったが、月額有料課金とスクリーンショット禁止という閉鎖的UIがユーザーの反発を招き、即死。"
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_hopin_failure",
@@ -52516,7 +52766,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_zenefits_failure",
@@ -52770,7 +53021,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_46268828ee835f928427",
@@ -52981,7 +53233,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_467ac5def4ed73eca134",
@@ -53284,7 +53537,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_48aab28b5130f39babb5",
@@ -53586,7 +53840,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_4e20bb4ce764a811f8e4",
@@ -53797,7 +54052,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_51a67695084197de0982",
@@ -54093,7 +54349,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_51de613ea122941bf718",
@@ -54389,7 +54646,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_56a0c21ed144570baa08",
@@ -54685,7 +54943,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_5bdd9fde83a0b085e9a9",
@@ -54890,7 +55149,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_64a935c0321718ed9860",
@@ -55187,7 +55447,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_659613136a4282de3246",
@@ -55489,7 +55750,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_6d7a96e8fda07beec3be",
@@ -55791,7 +56053,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_7334fb44ac55769d7531",
@@ -56088,7 +56351,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_3af472ae9a147b0a577d",
@@ -56384,7 +56648,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_3ce4d4e178e6ac0b937f",
@@ -56681,7 +56946,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_41c0551fc5b488cb6ff3",
@@ -56881,7 +57147,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_4564a6abbf153016338b",
@@ -57177,7 +57444,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_76716d1fcbd132cc5384",
@@ -57479,7 +57747,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_8b2018bd0f3346cd4b8d",
@@ -57775,7 +58044,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_8cb0f0f1d23c4b28845d",
@@ -58072,7 +58342,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_91b3261eba01e9af87ca",
@@ -58368,7 +58639,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_927226d70004ddc2f597",
@@ -58659,7 +58931,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_9304ca0224781a9a0c17",
@@ -58956,7 +59229,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_946f6ac5e243c76c7056",
@@ -59247,7 +59521,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_951bdb1f70844800e347",
@@ -59447,7 +59722,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_31b7b3f670fa38297fa1",
@@ -59682,7 +59958,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_3017fec28ef5556f7f18",
@@ -59917,7 +60194,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_25dc4704a8b5af737f38",
@@ -60152,7 +60430,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_1f571b3ed0a32a27a2cc",
@@ -60387,7 +60666,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_34177648949ad28ac68b",
@@ -60622,7 +60902,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_3ac128f815c8808657fa",
@@ -60857,7 +61138,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_3af28b86f4a9d1fcd41e",
@@ -61092,7 +61374,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_097e637a6bf6982eebb2",
@@ -61327,7 +61610,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_12515dc99150f4ad0b3c",
@@ -61562,7 +61846,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_appsumo_1df8bbce3167e567102f",
@@ -61797,7 +62082,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_1440_80f77c7820bd7f120771",
@@ -62032,7 +62318,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_404media_67f4bdf34107c01d26ad",
@@ -62238,7 +62525,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_acquired_407492c944d80b69979b",
@@ -62473,7 +62761,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_2pm_aaeaf4a28582273752d4",
@@ -62672,7 +62961,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_0a749a6a8e447ce7a85d",
@@ -62907,7 +63197,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_authorityhacker_24e1384860f1c46f0b55",
@@ -63142,7 +63433,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_14e0a1cb7e58ff0313ee",
@@ -63377,7 +63669,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_buymeacoffee_099aa188e018bccb70e9",
@@ -63612,7 +63905,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_capterra_fa23dd140c0caa384afd",
@@ -63847,7 +64141,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_088d5fdc6a842839fd12",
@@ -64052,7 +64347,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_188896472285fada46a1",
@@ -64287,7 +64583,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_1deb3d9c4c007a003f3c",
@@ -64500,7 +64797,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_case06_1de44cad09bd6e634047",
@@ -64735,7 +65033,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_ahrefs_1cfda3ec4b2ab651bd2d",
@@ -64970,7 +65269,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_1password_f08ccd0b403a1bf0dcdc",
@@ -65205,7 +65505,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_bitwarden_1cb551fbca6b81c4d554",
@@ -65440,7 +65741,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_calcom_a24b70ba1746771479ff",
@@ -65675,7 +65977,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_audiopen_155f440ff058c5942d9a",
@@ -65910,7 +66213,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_browseai_2ef74239e36bbf81739f",
@@ -66145,7 +66449,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_byword_ec4f3e53cbe79851187f",
@@ -66380,7 +66685,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_bardeen_ad88fb838c3e0dc78757",
@@ -66615,7 +66921,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_captions_3d96412fefcce5b8ac16",
@@ -66850,7 +67157,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_beautifulai_2b5b59f986ad4956b7c9",
@@ -67085,7 +67393,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_baseten_86e98ed6728eb1d95fe1",
@@ -67284,7 +67593,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_baserow_58386c5d230fe0d24adc",
@@ -67489,7 +67799,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_budibase_9b9679f6854bc66c0783",
@@ -67724,7 +68035,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_buttondown_573bd3808b0c701ad7ee",
@@ -67959,7 +68271,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_avoma_33c53ae90f8f117d810f",
@@ -68194,7 +68507,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_airbyte_133c05efc89d9da1ff6f",
@@ -68429,7 +68743,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_aiven_87d2cb2d9dec1040195b",
@@ -68664,7 +68979,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_appsmith_a55a66cb0e12c3afcaf0",
@@ -68899,7 +69215,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_appwrite_a13f6ac291cc98223946",
@@ -69104,7 +69421,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_airgram_925c9cffb5c5821ae7eb",
@@ -69303,7 +69621,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_astronomer_061867c414c57edee1d2",
@@ -69538,7 +69857,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_articleforge_f10222b5315e883c9edd",
@@ -69773,7 +70093,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_aputime_3675d76dbe1a466da11b",
@@ -69972,7 +70293,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_brandwell_aae3a185790bae0b2b39",
@@ -70208,7 +70530,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_braintrust_33c2a68e4a61126b8bc7",
@@ -70444,7 +70767,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_advertisecast_6cba2705cddf4bd57111",
@@ -70679,7 +71003,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_alfred_4d340a9a61833216fae8",
@@ -70914,7 +71239,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_bettertouchtool_04fae3e7568f6bb1cf7c",
@@ -71149,7 +71475,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_bear_3612445daca25564898d",
@@ -71384,7 +71711,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_capacities_2bd23fdf5c7702955d79",
@@ -71590,7 +71918,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_activecollab_312ada8332b460b0344a",
@@ -71825,7 +72154,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_activepieces_e79ea75946468156aa9f",
@@ -72030,7 +72360,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_anytype_50c1ff00489400a1d274",
@@ -72265,7 +72596,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_amazingmarvin_5a6874392f884c219f45",
@@ -72500,7 +72832,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_basin_1f604b1aba68cca4cb2c",
@@ -72735,7 +73068,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   },
   {
     "id": "ent_stockx_347557ecc72cc6a4fbba",
@@ -72942,6 +73276,7 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-01-core-foundation134"
   }
 ]

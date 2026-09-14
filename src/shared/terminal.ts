@@ -423,7 +423,42 @@ export interface FinancialEntity {
   latestDossierHash?: string; // 最新イミュータブルDossierのContent Hash
   sourceRevision?: number; // ソース改訂リビジョン番号（INDEX_STALE検知用）
   claimBindings?: ClaimEvidenceBinding[]; // Claim-to-Evidence Promotion Receipts
+
+  // 【収集世代・チャンク管理】
+  batchId?: string; // 収集チャンク（バッチ）識別子 例: "batch-03-2026-09-14-capitalism100"
 }
+
+export interface IngestBatch {
+  id: string;
+  name: string;
+  shortLabel: string;
+  date: string;
+  description: string;
+}
+
+export const KNOWN_INGEST_BATCHES: IngestBatch[] = [
+  {
+    id: 'batch-03-2026-09-14-capitalism100',
+    name: '第3期 今回収集 (100社)',
+    shortLabel: '第3期 (今回)',
+    date: '2026-09-14',
+    description: '資本主義の裏帳簿100選（TSMC・WeWork破綻検死・PayPal・完全1人SaaS等）',
+  },
+  {
+    id: 'batch-02-2026-09-13-expansion101',
+    name: '第2期 前回収集 (101社)',
+    shortLabel: '第2期 (前回)',
+    date: '2026-09-13',
+    description: 'グローバル高収益事業・一人SaaS・D2C・プロトコル101社',
+  },
+  {
+    id: 'batch-01-core-foundation134',
+    name: '第1期 初期コア (134社)',
+    shortLabel: '第1期 (初期)',
+    date: '2026-09-12',
+    description: 'キーエンス・直販要塞・初期コア台帳134社',
+  },
+];
 
 /**
  * 一覧表示用軽量プロジェクションDTO

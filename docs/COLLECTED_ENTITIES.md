@@ -2,10 +2,16 @@
 
 > **更新日時**: 2026-09-14
 > **総登録社数**: 335 社
+> **内訳**:
+> - 第3期 今回収集: 100 社
+> - 第2期 前回収集: 101 社
+> - 第1期 初期コア: 134 社
 > **Raw URL**: https://raw.githubusercontent.com/salve-de/Make-money/codex/reliability-boundaries/docs/COLLECTED_ENTITIES.md
 > **用途**: 外部AIへの「重複除外ブラックリスト」として使用。ここに記載された企業はすでに収集済みのため、絶対に取りに行くな。
 
 ---
+
+## 50音・アルファベット順 全量一覧 (335 社)
 
 1. 100 Days of No Code
 2. 1440

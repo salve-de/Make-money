@@ -1,5 +1,37 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-14 【確定】収集チャンク（世代別バッチ: 第1期 134社、第2期 101社、第3期 100社）の完全分離・識別 ＆ 金融端末UIバッチセレクターの物理配備（Phase 177）
+
+### 1. ユーザー指示と病巣の解剖（User Command & Disease Diagnosis）
+- **ユーザー指示**:
+  - 「あと、その100事例 バージョンごとに 分けてみられるようにして。つまり 今回集めたやつ 前回集めたやつ 次に集めるやつ 次の次 みたいに、収集したチャンクごとにみられるように」
+- **病巣の看破**:
+  - 収集が進むにつれて企業数が増大（現在335社、将来1000社・1億社）する中で、「今回集めた100事例の品質を確認したい」「前回分と比較したい」というレビューおよび検証の認知負荷が高まる。
+  - 収集バッチ世代（チャンク）をデータ構造およびUIの両面で明確に分離し、1クリックで「今回 (100社)」「前回 (101社)」「初期 (134社)」「全件 (335社)」を瞬時に切り替えられるようにする必要があった。
+
+### 2. 物理実装したアーキテクチャ（The Multi-Generational Ingest Batch Architecture）
+1. **型定義・スキーマ拡張（`src/shared/terminal.ts`, `src/shared/schemas/financial-entity.json`）**:
+   - `FinancialEntity` および軽量サマリーDTO `publicSummaryEntity` に `batchId?: string;` を正式追加。
+   - `IngestBatch` 型および `KNOWN_INGEST_BATCHES`（第3期 `batch-03-2026-09-14-capitalism100`, 第2期 `batch-02-2026-09-13-expansion101`, 第1期 `batch-01-core-foundation134`）を定義。
+   - `pnpm schemas:generate` により契約を完全同期。
+2. **データインデックスおよびマスター台帳の完全識別（`data/entities-index.json`, `data/collected-registry.json`）**:
+   - 全335社に正確な `batchId` を付与（第3期: 100社、第2期: 101社、第1期: 134社）。
+   - `scripts/sync-registry.mjs` を改修し、台帳および `docs/COLLECTED_ENTITIES.md` に世代別内訳サマリーを自動反映。
+3. **金融端末UIバッチセレクター（`DataGridToolbar.tsx`, `TerminalShell.tsx`）**:
+   - スクリーナーボタン直後に、`<Layers>` アイコン付きの高密度世代別セレクター（ドロップダウン ＆ クイック切替バッジ）を配備。
+   - `selectedBatch` ステートを新設し、`filteredEntities` 内で世代別に即座にフィルタリング（検索窓・タグフィルター・50軸スクリーナーと完全連動）。
+   - URL パラメータ `?batch=...` との双方向同期に対応。
+   - 未知の将来バッチ（第4期等）も動的に検出して選択肢へ自動追加する拡張設計。
+
+### 3. 検証・品質ゲート結果
+- `pnpm typecheck`: 0エラー完全通過。
+- `pnpm schemas:check`: 100%整合。
+- `pnpm lint`: 全ガードレール合格（check-ingest-quality 335社全件合格）。
+- `pnpm test`: 44ファイル324テスト、Foundation/Architecture/Recoveryテスト全量通過。
+- Playwright 実機検証: 第3期（100社）、第2期（101社）、第1期（134社）、全世代（335社）の切り替えおよび検索連動を完全確認。
+
+---
+
 ## 2026-09-14 【確定】市場攻略レーダーの個別URL（/radar/[id]）への完全ページ移管 ＆ SSG/ISR事前生成・全画面詳細ビュー化（Phase 163）
 
 ### 1. ユーザー指示と病巣の解剖（User Command & Disease Diagnosis）
