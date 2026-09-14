@@ -67,6 +67,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
     - **欠損の誠実受入**: 取れない項目があっても決して収集を諦めたり捨てたりしてはならない。`null` や `UNKNOWN` のままで堂々と記録せよ。
     - **水増しテンプレの禁止**: 項目を埋めるために抽象的なテンプレ文章を捏造することは厳禁。手元にある生々しいファクトだけを記録せよ。
     - **機械的ガードレールの境界**: 算術不整合（売上-原価!=粗利）、禁止造語（サバンナOS等の社内スラング）、確定Factの偽装Bindingのみを物理的に遮断し、欠損や文字数不足による足切り・rejectは永久に禁止する。
+  - ⑤ **【外部AI過去重大やらかし事故リスト ＆ 厳格再発防止条項（二度と繰り返すな）】**:
+    - **為替レート逆数掛けバグの完全撲滅**: （過去事故: TSMCでNTD/JPY=4.71477を誤って割り算し、売上規模を4倍狂わせた）。外貨から円換算する際は必ず「現地通貨額 × 為替レート＝日本円」で掛け算せよ。逆数で割るな。
+    - **タグラインのケタ・単位誤爆の完全撲滅**: （過去事故: PayPalで年商4.96兆円をタグラインで「497兆円」と100倍誤表記した）。本文・タグライン・P&Lの数値単位（億円・兆円）の整合性を必ず事前照合せよ。
+    - **既存ID・名称・Tickerの衝突完全回避**: （過去事故: 37signalsで`BASECAMP`、WeWorkで既存検死レコードと名称衝突）。同一企業で別切り口（検死版等）を記録する場合は `WeWork (2019破綻前夜検死)` のように名称・IDを完全一意化せよ。
+    - **未公開（UNAVAILABLE）時の未確認フラグ義務**: （過去事故: Mailchimp等の非公開企業でフラグ欠落）。財務未公開時は `isRevenueUnconfirmed: true`, `isMarginUnconfirmed: true` を漏れなく付与せよ。
+    - **スキーマ型完全遵守**: `operations`（`weeklyHours`, `initialCapitalRequired`, `automationLevel` と各 `is*Unconfirmed` フラグ）、`evidenceCards` 内の `evidenceStatus`（`REPORTED` / `POST_MORTEM`）、`observations` と `observationsStream` の型分離を厳格に遵守せよ。
+
 
 
 
