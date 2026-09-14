@@ -5478,3 +5478,35 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
    - `pnpm test`: 352 tests ALL PASSED
    - `pnpm test:e2e`: Playwright 27/27 tests ALL PASSED
 
+---
+
+## 2026-09-14 (Phase 169): 外部AI収集100事例の全自動外科手術・スキーマ型正規化・R2/目録インジェスト・335社体制確立 ＆ 実機UIトリアージ承認実証完了
+
+### 1. 外部AI生成100事例（`capitalism_black_ledger_part01.json`）の監査・外科的クレンジング
+- **PayPal**: `tagline` の誤記（「497兆円」➔ 年商「4.96兆円」）を外科的修正。
+- **TSMC**: 新台湾ドル（NTD/JPY = 4.71477）換算レートの逆数割バグ（1/4.71477掛けになっていた）を完全修正（年商13.65兆円、月商1.14兆円、営業利益5,189億円、純利益5.53兆円へ適正化）。
+- **37signals**: Ticker衝突（`BASECAMP` ➔ `37SIGNALS`）を解消。
+- **WeWork**: 既存エンティティとの名称重複を解消（`WeWork (2019破綻前夜検死)`）。
+- **UNAVAILABLEエンティティ（Mailchimp, 37signals等）**: `isRevenueUnconfirmed: true`, `isMarginUnconfirmed: true` を明示付与し、アーキテクチャガードレール（`check-index-safety.mjs`）の規律を遵守。
+- **スキーマ型完全整合**:
+  - `operations`: `weeklyHours: 0`, `isWeeklyHoursUnconfirmed: true`, `initialCapitalRequired: 0`, `isCapitalUnconfirmed: true`, `automationLevel: 0`, `isAutomationUnconfirmed: true` を完全補完。
+  - `evidenceCards`: 全カードに `evidenceStatus`（REPORTED / POST_MORTEM）を付与。
+  - `observations`: `string[]` と `UniversalObservation[]`（`observationsStream`）に分離・正規化。
+  - `url`: `null` を空文字 `""` に正規化。
+  - `publishability: 'PUBLISHABLE'` を全100件に付与。
+
+### 2. メダリオン3層構造への正式インジェスト
+- **Raw CAS（原本層）**: `foundation-raw/blobs/sha256/<hash>` へ100件のSHA-256 CAS原本を保存（Create-Only、上書き禁止）。
+- **Lake Journal（追記層）**: `foundation-lake/journal/v1/2026/09/14/verified-100-capitalism-batch-v1/<id>.json` へ100件の追記専用Journalを保存。
+- **Catalog（目録層）**: `data/entities-index.json` に100件を正式マージ。総エンティティ数が 235社 ➔ **335社** へ拡大。
+
+### 3. 全自動検証 ＆ 実機ブラウザE2E実証
+- `pnpm lint`: PASS（6大アーキテクチャガードレール + check-ingest-quality 335社全量一発クリア）
+- `pnpm typecheck`: 0 errors
+- `pnpm test`: 352 tests ALL PASSED（vitest 324, foundation 11, architecture 11, recovery 6）
+- **実機ブラウザ（Playwright）E2E動作実証**:
+  - ポート3000上で全335社がロードされ、ツールバー新着バッジに `[📥 収集事例 201]`（過去未承認101件 + 新規100件）が表示されることを確認。
+  - 新規インジェストした `Costco Wholesale Corporation` を選択し、詳細インスペクターに特異物証カード2枚およびエメラルドグリーンの `[✓ これはオッケー（承認）]` ボタンが完全描画されることを確認（スクリーンショット `scratch/ui_triage_detail_with_approve.png` 保存・目視確認完了）。
+  - 承認ボタン押下で楽観的UI更新（`201` ➔ `200`）および本台帳への昇格が正常動作することを確認。
+
+
