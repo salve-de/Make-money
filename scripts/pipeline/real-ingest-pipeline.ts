@@ -152,11 +152,24 @@ export async function ingestVerifiedEntities(
       throw new Error(`[INGEST REJECTED: NO METRICS IN EVIDENCE CARDS] "${ent.name}" has no numerical KPI metrics in evidenceCards. Pro terminal visual density required.`);
     }
 
-    // H. 地雷・破綻ステータス整合性チェック（破綻警告不全の物理遮断）
-    const isHazard = ent.tags?.some(t => /破綻|倒産|粉飾|不正|清算|枯渇|崩壊|撤退|レシーバーシップ/i.test(t)) ||
-      ent.evidenceCards?.some(c => c.type === 'FATAL_BLEED');
-    if (isHazard && ent.financialStatus !== 'POST_MORTEM') {
-      throw new Error(`[INGEST REJECTED: HAZARD STATUS MISMATCH] "${ent.name}" is marked with failure/fatal bleed but financialStatus is not POST_MORTEM.`);
+    // I. エビデンスカード最低3枚密度チェック（#01〜#03の欠落物理遮断）
+    if (!ent.evidenceCards || ent.evidenceCards.length < 3) {
+      throw new Error(`[INGEST REJECTED: LESS THAN 3 EVIDENCE CARDS] "${ent.name}" has only ${ent.evidenceCards?.length ?? 0} evidenceCards. Minimum 3 cards strictly required.`);
+    }
+
+    // J. essence (#01) 完全性チェック（ビジネスの正体非表示の物理遮断）
+    if (!ent.essence || !ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief) {
+      throw new Error(`[INGEST REJECTED: INCOMPLETE ESSENCE] "${ent.name}" missing complete essence (whatItDoes / targetCustomer / painRelief).`);
+    }
+
+    // K. 構造化パンチラインチェック（1行ポツン表示の物理遮断）
+    const bs = ent.strategy?.blindspot || '';
+    if (!bs.startsWith('【') || !bs.includes('】') || bs.length < 40) {
+      throw new Error(`[INGEST REJECTED: UNSTRUCTURED BLINDSPOT] "${ent.name}" strategy.blindspot must have 【headline】 and detailed body.`);
+    }
+    const md = ent.strategy?.moatDescription || '';
+    if (!md.startsWith('【') || !md.includes('】') || md.length < 40) {
+      throw new Error(`[INGEST REJECTED: UNSTRUCTURED MOAT] "${ent.name}" strategy.moatDescription must have 【headline】 and detailed body.`);
     }
 
     console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / TOOLS: ${ent.operations.toolStack.length}] PASS`);

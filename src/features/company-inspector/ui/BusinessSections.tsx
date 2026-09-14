@@ -188,42 +188,52 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
             })()}
 
             {/* #04 大手の自爆 / 大手に一撃で圧殺された理由 */}
-            {entity.strategy.incumbentDilemma && (
-              <div className={`rounded-lg overflow-hidden border shadow-xl ${
-                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
-              }`}>
-                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
-                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+            {entity.strategy.incumbentDilemma && (() => {
+              const { punchline, detail } = parsePunchline(entity.strategy.incumbentDilemma);
+              return (
+                <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                  isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
                 }`}>
-                  <div className="flex items-center gap-2.5">
-                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
-                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
-                      isHazardMode
-                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
-                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
-                    }`}>
-                      #04
-                    </span>
-                    <div className="flex items-center gap-1.5">
-                      <Flame className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
-                      <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                        isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                  <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                    isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                  }`}>
+                    <div className="flex items-center gap-2.5">
+                      <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
+                      <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                        isHazardMode
+                          ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                          : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                       }`}>
-                        {isHazardMode ? '大手に一撃で市場を奪取された理由' : '大企業が手を出せない理由'}
-                      </h3>
+                        #04
+                      </span>
+                      <div className="flex items-center gap-1.5">
+                        <Flame className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
+                        <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                          isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                        }`}>
+                          {isHazardMode ? '大手に一撃で市場を奪取された理由' : '大企業が手を出せない理由'}
+                        </h3>
+                      </div>
                     </div>
+                    <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                      大企業の弱点
+                    </span>
                   </div>
-                  <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    大企業の弱点
-                  </span>
+                  <div className="p-3.5 space-y-2.5 bg-[#0E131F]">
+                    {punchline && (
+                      <div className={`font-bold text-xs leading-snug border-l-2 pl-3 py-1 ${
+                        isHazardMode ? 'text-red-200 border-red-500 bg-red-950/20' : 'text-white border-zinc-400 bg-white/[0.02]'
+                      }`}>
+                        {punchline}
+                      </div>
+                    )}
+                    <p className="text-zinc-300 text-xs leading-relaxed">
+                      {detail}
+                    </p>
+                  </div>
                 </div>
-                <div className="p-3.5 bg-[#0E131F]">
-                  <p className="text-zinc-300 text-xs leading-relaxed">
-                    {entity.strategy.incumbentDilemma}
-                  </p>
-                </div>
-              </div>
-            )}
+              );
+            })()}
             </div>
 
 

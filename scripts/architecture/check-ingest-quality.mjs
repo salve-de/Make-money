@@ -330,6 +330,26 @@ for (const ent of entities) {
   if (isHazard && ent.financialStatus !== 'POST_MORTEM') {
     errors.push(`[DENSITY VIOLATION: Hazard Status Mismatch] ${ent.name} has failure/fatal bleed evidence but financialStatus is not POST_MORTEM.`);
   }
+
+  // E. エビデンスカード最低3枚チェック (#01〜#03の欠落物理遮断)
+  if (!Array.isArray(ent.evidenceCards) || ent.evidenceCards.length < 3) {
+    errors.push(`[DENSITY VIOLATION: Less Than 3 Cards] ${ent.name} has only ${ent.evidenceCards?.length ?? 0} evidenceCards (minimum 3 required).`);
+  }
+
+  // F. essence (#01) 完全性チェック (ビジネスの正体非表示の物理遮断)
+  if (!ent.essence || !ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief) {
+    errors.push(`[DENSITY VIOLATION: Incomplete Essence] ${ent.name} missing complete essence.`);
+  }
+
+  // G. 構造化パンチラインチェック (1行ポツン表示の物理遮断)
+  const bs = ent.strategy?.blindspot || '';
+  if (!bs.startsWith('【') || !bs.includes('】') || bs.length < 40) {
+    errors.push(`[DENSITY VIOLATION: Unstructured Blindspot] ${ent.name} strategy.blindspot missing 【headline】 or too short.`);
+  }
+  const md = ent.strategy?.moatDescription || '';
+  if (!md.startsWith('【') || !md.includes('】') || md.length < 40) {
+    errors.push(`[DENSITY VIOLATION: Unstructured Moat] ${ent.name} strategy.moatDescription missing 【headline】 or too short.`);
+  }
 }
 
 if (errors.length > 0) {

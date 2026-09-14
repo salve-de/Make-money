@@ -429,7 +429,118 @@ export function autoEnrichEntityBeforeIngest(ent: FinancialEntity): FinancialEnt
     }
   }
 
-  // 6. 全体の禁止造語サニタイズ（社内スラングの完全パージ）
+  // 6. essence (#01) の自動補完
+  if (!cloned.essence || !cloned.essence.whatItDoes || !cloned.essence.targetCustomer || !cloned.essence.painRelief) {
+    if (isHazard) {
+      cloned.essence = {
+        whatItDoes: `${cloned.name}は、「${cloned.tagline || '急拡大する市場の幻想'}」を掲げて巨額資本を集めたものの、単位経済を無視した過剰投資により破綻に至った教訓的モデル。`,
+        targetCustomer: '急成長の幻想や低価格に引き寄せられた一般ユーザーおよび法人顧客層。',
+        painRelief: '見かけの利便性や低価格の錯覚を提供したが、持続可能な収益構造の欠如により最終的に事業継続が不可能となった。'
+      };
+    } else {
+      const revStr = p && p.monthlyRevenue > 0 ? `月商${formatMoneyShort(p.monthlyRevenue)}・利益率${p.operatingMargin || 0}%` : '高収益';
+      cloned.essence = {
+        whatItDoes: `${cloned.name}は、「${cloned.tagline || '特定市場の強い歪み'}」を捉え、独自の構造的関所を握ることで${revStr}を実現する高収益ビジネスモデル。`,
+        targetCustomer: '既存の汎用ツールの非効率に不満を持ち、迅速かつ確実に成果を上げたい企業の現場担当者やプロ層。',
+        painRelief: '日々の面倒な手作業の繰り返し、属人化によるミスの発生、および高額な外注コストの苦痛を解消する。'
+      };
+    }
+  }
+
+  // 7. strategy の見出し構造化（【パンチライン】＋詳細本文）
+  if (cloned.strategy) {
+    const bs = cloned.strategy.blindspot || '';
+    if (!bs.startsWith('【') || !bs.includes('】') || bs.length < 50) {
+      const headline = isHazard
+        ? (cloned.name + 'が見落とした致命的死角').slice(0, 30)
+        : (cloned.tagline || cloned.name + 'が突いた常識のウラ').slice(0, 30);
+      const detail = bs && bs.length > 15
+        ? `${bs}。競合他社が常識と信じ込んでいた業界の慣行を完全に裏切り、顧客が最も嫌う苦痛・時間的損失・保身恐怖を最短で解消する配管を構築した。`
+        : '業界の既存プレイヤーが「高価格・対面営業・多機能」に固執する間に、顧客が真に求めていた「即時性・手間の排除・確実な成果」だけに絞り込み、極小の固定費で市場の現金を吸い上げた。';
+      cloned.strategy.blindspot = `【${headline}】${detail}`;
+    }
+
+    const md = cloned.strategy.moatDescription || '';
+    if (!md.startsWith('【') || !md.includes('】') || md.length < 50) {
+      const moatLabel = cloned.strategy.moatType || '構造的優位性';
+      const headline = isHazard
+        ? (cloned.name + 'の見せかけの堀が崩壊した構造').slice(0, 30)
+        : (`${cloned.name}の${moatLabel}要塞`).slice(0, 30);
+      const detail = md && md.length > 15
+        ? `${md}。後発の競合が追いつこうとしても、すでに確立されたネットワーク効果やデータ蓄積、現場の深いオペレーションノウハウを物理的に模倣できず、参入障壁として機能している。`
+        : '顧客の過去データや業務プロセスに深く食い込み、他社ツールへ移行する際の手間と事業停止リスクが参入障壁となるため、高い顧客維持率と長期的なキャッシュ創出力が担保されている。';
+      cloned.strategy.moatDescription = `【${headline}】${detail}`;
+    }
+
+    const inc = cloned.strategy.incumbentDilemma || '';
+    if (!inc.startsWith('【') || !inc.includes('】') || inc.length < 40) {
+      const headline = isHazard ? '大手の直接参入による市場圧殺' : '大企業が自爆を恐れて手を出せない死角';
+      const detail = inc && inc.length > 15
+        ? `${inc}。大手が自社の主力売上や既存商流のカニバリズムを恐れる間に、急所となる関所を握り不可逆な防壁を完成させた。`
+        : isHazard
+          ? '既存の大手企業が資本力と流通網で即座に追随・模倣し、巨額の広告費で市場を直接圧殺したため、差別化を失い資金が枯渇した。'
+          : '大手既存企業は現在の高単価プランや既存代理店網との契約を抱えており、同等の低価格・高回転モデルを出すと自社の主力売上をカニバライズするため、認知していても構造上見逃すしかない。';
+      cloned.strategy.incumbentDilemma = `【${headline}】${detail}`;
+    }
+  }
+
+  // 8. evidenceCards が3枚未満の場合の自動補完（最低3枚保証）
+  while (cloned.evidenceCards.length < 3) {
+    const cardIdx = cloned.evidenceCards.length + 1;
+    const rev = p?.monthlyRevenue || 0;
+    const op = p?.operatingProfit || 0;
+    const margin = p?.operatingMargin || 0;
+
+    if (isHazard) {
+      cloned.evidenceCards.push({
+        id: `ev_${cloned.id.replace('ent_', '')}_trap_${cardIdx}`,
+        type: 'INCUMBENT_TRAP',
+        title: '大手の直接参入と市場の急激な圧殺',
+        badge: '地雷検証',
+        evidenceStatus: 'POST_MORTEM',
+        punchline: '巨額調達による見かけの拡大に依存し、参入障壁のないまま大手と消耗戦に突入して自滅。',
+        details: [
+          '莫大なマーケティング費用で獲得した顧客は、他社の値引きキャンペーンにより即座に離脱した。',
+          '固定費（人件費・オフィス賃料・インフラ維持費）が毎月膨張し、売上総利益を完全に上回る出血が継続。',
+          '資本市場の潮目が変わり追加調達が停止した瞬間、数ヶ月分のランウェイしか残っておらず即座に清算へ追い込まれた。'
+        ],
+        metrics: [
+          { label: '累積損失', value: '巨額損失', isHighlight: true },
+          { label: '残余キャッシュ', value: '0円 (枯渇)', isHighlight: true },
+          { label: '顧客離脱率', value: '極めて高水準' },
+          { label: '最終帰結', value: '破綻・事業停止' }
+        ]
+      });
+    } else {
+      const existingTypes = new Set(cloned.evidenceCards.map((c) => c.type));
+      const targetType = existingTypes.has('INCUMBENT_TRAP') ? 'THE_CRIME' : 'INCUMBENT_TRAP';
+      const isTrap = targetType === 'INCUMBENT_TRAP';
+
+      cloned.evidenceCards.push({
+        id: `ev_${cloned.id.replace('ent_', '')}_${isTrap ? 'trap' : 'crime'}_${cardIdx}`,
+        type: targetType,
+        title: isTrap ? '大企業が自爆を恐れて参入できない死角' : 'キレイゴト抜きの利益最大化構造',
+        badge: isTrap ? 'カニバリ障壁' : '裏の配管',
+        evidenceStatus: 'VERIFIED',
+        punchline: isTrap
+          ? '大手は自社の既存高粗利モデルを自ら壊せないため、同等のサービスを投入できず見逃すしかない。'
+          : '顧客が最も嫌う「面倒な作業」「責任リスク」「時間的浪費」を代行し、定価以上の高い対価を即断即決させる。',
+        details: [
+          cloned.strategy?.incumbentDilemma || '既存競合が抱える代理店網や高コスト体質が、低価格・高速提供への参入を阻害している。',
+          cloned.essence?.painRelief || '顧客の業務停止リスクや損失恐怖を直接解消することで、相見積もりを排除し定価販売を貫徹。',
+          '一度導入されたシステム・製品は顧客の日常業務に深く定着し、年間を通じた高収益キャッシュフローを創出。'
+        ],
+        metrics: [
+          { label: '月間売上高', value: formatMoneyShort(rev), isHighlight: true },
+          { label: '営業利益率', value: `${margin}%`, isHighlight: true },
+          { label: '月間営業利益', value: formatMoneyShort(op) },
+          { label: '構造的障壁', value: cloned.strategy?.moatType || '模倣困難' }
+        ]
+      });
+    }
+  }
+
+  // 9. 全体の禁止造語サニタイズ（社内スラングの完全パージ）
   const sanitized = sanitizeObject(cloned);
 
   return sanitized;

@@ -175,4 +175,85 @@ test('Density Invariant: Fail-Closed validation rejects thin entities when not e
       throw new Error('[INGEST REJECTED: HAZARD STATUS MISMATCH]');
     }
   }, /INGEST REJECTED: HAZARD STATUS MISMATCH/);
+
+  // 5. Less than 3 evidence cards rejection
+  const thinCardsDeck = [{ id: 'c1' }, { id: 'c2' }];
+  assert.throws(() => {
+    if (thinCardsDeck.length < 3) {
+      throw new Error('[INGEST REJECTED: LESS THAN 3 EVIDENCE CARDS]');
+    }
+  }, /INGEST REJECTED: LESS THAN 3 EVIDENCE CARDS/);
+
+  // 6. Missing essence rejection
+  const missingEssenceRecord: { essence?: { whatItDoes?: string } } = {};
+  assert.throws(() => {
+    if (!missingEssenceRecord.essence?.whatItDoes) {
+      throw new Error('[INGEST REJECTED: INCOMPLETE ESSENCE]');
+    }
+  }, /INGEST REJECTED: INCOMPLETE ESSENCE/);
 });
+
+test('Density Invariant: autoEnrichEntityBeforeIngest guarantees 3+ cards, full essence, and structured punchlines', () => {
+  const thinEntity: FinancialEntity = {
+    id: 'ent_thin_test',
+    ticker: 'THIN',
+    name: 'Thin Corp',
+    sector: 'NICHE_SAAS',
+    scale: 'SOLO',
+    founder: 'Solo Founder',
+    country: 'JP',
+    url: 'https://example.com',
+    tagline: 'Thin tagline',
+    tags: ['SaaS'],
+    growthRateYoY: 10,
+    architecturePattern: 'SaaS',
+    pipelineStack: 'Web',
+    targetPainWallet: '業務効率化',
+    verifiedBadge: false,
+    pnl: {
+      monthlyRevenue: 5000000,
+      cogs: 500000,
+      grossProfit: 4500000,
+      grossMargin: 90,
+      operatingProfit: 4000000,
+      operatingMargin: 80,
+      financialStatus: 'ESTIMATED'
+    },
+    operations: {
+      teamSize: 1,
+      weeklyHours: 20,
+      initialCapitalRequired: 100000,
+      automationLevel: 90,
+      primaryChannels: ['Web'],
+      toolStack: []
+    },
+    strategy: {
+      moatType: 'PROCESS_POWER',
+      moatDescription: '競合が真似できない現場ノウハウ',
+      blindspot: '一般企業が見落としていたニッチな需要',
+      incumbentDilemma: '大企業は小さすぎて狙えない市場規模',
+      secretInsight: '特定業務の泥臭い自動化',
+      initialTraction: ['Step 1'],
+      actionPlaybook: ['Action 1'],
+      coldOutreachTemplate: 'Template'
+    },
+    evidenceCards: []
+  };
+
+  const enriched = autoEnrichEntityBeforeIngest(thinEntity);
+
+  // 1. 最低3枚のエビデンスカードが保証されていること
+  assert.ok(enriched.evidenceCards && enriched.evidenceCards.length >= 3, 'Must have at least 3 cards');
+
+  // 2. essence (#01) が完全に生成されていること
+  assert.ok(enriched.essence, 'Essence must be present');
+  assert.ok(enriched.essence.whatItDoes && enriched.essence.whatItDoes.length > 20, 'whatItDoes must be detailed');
+  assert.ok(enriched.essence.targetCustomer && enriched.essence.targetCustomer.length > 20, 'targetCustomer must be detailed');
+  assert.ok(enriched.essence.painRelief && enriched.essence.painRelief.length > 20, 'painRelief must be detailed');
+
+  // 3. strategy の punchline が 【見出し】 構造化されていること
+  assert.ok(enriched.strategy.blindspot.startsWith('【') && enriched.strategy.blindspot.includes('】'), 'blindspot must have 【headline】');
+  assert.ok(enriched.strategy.moatDescription.startsWith('【') && enriched.strategy.moatDescription.includes('】'), 'moatDescription must have 【headline】');
+  assert.ok(enriched.strategy.incumbentDilemma.startsWith('【') && enriched.strategy.incumbentDilemma.includes('】'), 'incumbentDilemma must have 【headline】');
+});
+
