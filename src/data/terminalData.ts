@@ -488,7 +488,7 @@ export const TERMINAL_COMPANIES: CompanyRecord[] = [
     ticker: '6861.T',
     name: 'KEYENCE Corporation',
     japaneseName: '株式会社キーエンス',
-    tagline: '代理店を完全排除した直接販売と即日出荷で営業利益率51%を継続創出するFAの覇者',
+    tagline: '「『工場のラインが1分止まれば数千万吹っ飛ぶ』工場長のクビの恐怖を突き、原価率18%のセンサーを相見積もり拒否で定価売りして利益率54%・月432億円の現金を抜く直販独占の化け物',
     scaleTier: 'MEGA_CORP',
     businessModel: 'B2B_DIRECT',
     foundedYear: 1974,
