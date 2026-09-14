@@ -15,6 +15,8 @@ import { PlaybookSections } from './ui/PlaybookSections';
 import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
 import { ToolsSection } from './ui/ToolsSection';
+import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
+import { VisualPipelineSection } from './ui/VisualPipelineSection';
 import type { InspectorViewMode } from './model/section-props';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -148,11 +150,29 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           <div className="sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10" />
 
           <RelatedResearch {...sectionProps} />
-          {showEvidence && <EvidenceDeckSection {...sectionProps} />}
+
+          {/* 1. 【最上段】直感サマリー（表の顔 / 裏の正体 / 儲けのツボ） */}
+          <ExecutiveIntuitiveSummary {...sectionProps} />
+
+          {/* 2. 【第2段】お金の配管図（誰の弱み ➔ どう現金を吸い上げるか ➔ 通帳手残り） */}
+          <VisualPipelineSection {...sectionProps} />
+
+          {/* 3. 【第3段】全体像・ビジネスの正体 */}
           {showBusiness && <BusinessSections {...sectionProps} />}
+
+          {/* 4. 【第4段】現金のレントゲン（P&L損益計算書・原価構造） */}
           {showFinancial && <FinancialSection {...sectionProps} />}
+
+          {/* 5. 【第5段】動かぬ証拠（儲けのウラ側 4大急所カード） */}
+          {showEvidence && <EvidenceDeckSection {...sectionProps} />}
+
+          {/* 6. 使っているツール・インフラ */}
           {showTools && <ToolsSection {...sectionProps} />}
+
+          {/* 7. 実践ステップ（略奪転用） */}
           {showPlaybook && <PlaybookSections {...sectionProps} />}
+
+          {/* 8. 全量調査ログ */}
           {showStream && <EvidenceStream {...sectionProps} />}
 
           {/* ========================================================= */}

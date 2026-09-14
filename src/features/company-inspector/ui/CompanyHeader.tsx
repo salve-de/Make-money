@@ -5,6 +5,7 @@ Check,
 ChevronLeft,
 ChevronRight,
 Clock,
+Coins,
 FileText,
 Pin,
 SlidersHorizontal,
@@ -240,15 +241,11 @@ export function CompanyHeader({
           <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
             <button
               type="button"
-              onClick={() => scrollToSection('section-evidence')}
+              onClick={() => scrollToSection('section-pipeline')}
               className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
             >
-              <span>儲けのウラ側</span>
-              {entity.evidenceCards && entity.evidenceCards.length > 0 && (
-                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
-                  {entity.evidenceCards.length}
-                </span>
-              )}
+              <Coins className="w-2.5 h-2.5 text-emerald-400" />
+              <span>お金の配管図</span>
             </button>
 
             <button
@@ -260,6 +257,19 @@ export function CompanyHeader({
               <span className="text-[9px] text-zinc-500 font-normal">
                 {isFinancialUnavailable ? '未確認' : formatMoney(entity.pnl.monthlyRevenue)}
               </span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => scrollToSection('section-evidence')}
+              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+            >
+              <span>儲けのウラ側</span>
+              {entity.evidenceCards && entity.evidenceCards.length > 0 && (
+                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
+                  {entity.evidenceCards.length}
+                </span>
+              )}
             </button>
 
             {!isHazardMode && (
