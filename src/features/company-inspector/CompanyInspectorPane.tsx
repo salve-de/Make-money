@@ -1,26 +1,19 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import React,{ useEffect,useRef,useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { buildInspectorModel } from './model/inspector-model';
-import type { CompanyInspectorPaneProps } from './model/section-props';
+import type { CompanyInspectorPaneProps, InspectorMainTab } from './model/section-props';
 import { AnalystNotes } from './ui/AnalystNotes';
-import { BusinessSections } from './ui/BusinessSections';
 import { CompanyHeader } from './ui/CompanyHeader';
 import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
 import { EvidenceStream } from './ui/EvidenceStream';
-import { FinancialSection } from './ui/FinancialSection';
-import { PlaybookSections } from './ui/PlaybookSections';
 import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
-import { ToolsSection } from './ui/ToolsSection';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
-import { VisualPipelineSection } from './ui/VisualPipelineSection';
-import { SankeyCashFlowDiagram } from './ui/SankeyCashFlowDiagram';
-import { FlywheelEngineDiagram } from './ui/FlywheelEngineDiagram';
-import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
-import { TradingViewFinancialChart } from './ui/TradingViewFinancialChart';
+import { CashAnatomySection } from './ui/CashAnatomySection';
+import { LootBlueprintSection } from './ui/LootBlueprintSection';
 import type { InspectorViewMode } from './model/section-props';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -42,9 +35,9 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onApproveEntity,
   isPro = false,
 }) => {
-
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mainTab, setMainTab] = useState<InspectorMainTab>('LEDGER');
   const [viewMode, setViewMode] = useState<InspectorViewMode>('ALL');
   const searchParams = useSearchParams();
   const targetSection = searchParams?.get('section');
@@ -115,17 +108,10 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     scrollToSection,
     viewMode,
     setViewMode,
+    mainTab,
+    setMainTab,
     ...model
   };
-
-  // 表示モードに応じたセクション表示判定
-  const showEvidence = true; // 儲けのウラ側は全モードで表示
-  const showBusiness = viewMode === 'ALL' || viewMode === 'ESSENCE';
-  const showFinancial = viewMode === 'ALL' || viewMode === 'FINANCIAL';
-  const showTools = viewMode === 'ALL' || viewMode === 'FINANCIAL';
-  const showPlaybook = viewMode === 'ALL' || viewMode === 'PLAYBOOK';
-  const showStream = viewMode === 'ALL';
-  const showSources = true; // 情報源は常に最下部に配置
 
   return (
     <>
@@ -148,55 +134,48 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-4 space-y-8 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
+          className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
         >
           {/* 上端潜り込みグラデーションシャドウ */}
           <div className="sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10" />
 
-          <RelatedResearch {...sectionProps} />
+          {mainTab === 'LEDGER' ? (
+            <>
+              {/* ========================================================= */}
+              {/* 【本丸】資本主義の裏帳簿：4層キラーピラミッド */}
+              {/* ========================================================= */}
 
-          {/* 1. 【最上段】エグゼクティブ・サマリー（事業規模 / 顧客ペイン / 構造的モート） */}
-          <ExecutiveIntuitiveSummary {...sectionProps} />
+              {/* LAYER 1: 【0秒・脳幹直撃】断罪HUD・エグゼクティブサマリー */}
+              <ExecutiveIntuitiveSummary {...sectionProps} />
 
-          {/* 2. 【第2段】キャッシュ創出構造（顧客ペイン ➔ 価格決定力 ➔ 営業利益創出） */}
-          <VisualPipelineSection {...sectionProps} />
+              {/* LAYER 2: 【3秒・急所解剖】動かぬ証拠 4大急所デッキ */}
+              <EvidenceDeckSection {...sectionProps} />
 
-          {/* 3. 【図表強化①】現金の滝（Apache ECharts サンキー ＆ 損益分岐ウォーターフォール） */}
-          {showFinancial && <SankeyCashFlowDiagram {...sectionProps} />}
+              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー ⇄ 現金の滝 ⇄ P&L明細） */}
+              <CashAnatomySection {...sectionProps} />
 
-          {/* 4. 【図表強化②】損益ストリーム分析（TradingView 機関投資家チャート） */}
-          {showFinancial && <TradingViewFinancialChart {...sectionProps} />}
+              {/* LAYER 4: 【5分・略奪実行】略奪ブループリント ＆ 武器庫 */}
+              <LootBlueprintSection {...sectionProps} />
+            </>
+          ) : (
+            <>
+              {/* ========================================================= */}
+              {/* 【証拠】検証エビデンス（原本アーカイブ ＆ 全量ログ） */}
+              {/* ========================================================= */}
 
-          {/* 5. 【図表強化③】自走増殖エンジン（Apache ECharts 360°グラフネットワーク） */}
-          {showBusiness && <FlywheelEngineDiagram {...sectionProps} />}
+              {/* 1. 一次情報源・原本アーカイブ */}
+              <SourcesSection {...sectionProps} />
 
-          {/* 5. 【図表強化③】産業構造の変革（バリューチェーン中抜き対比図） */}
-          {showBusiness && <ValueChainDisruptionSection {...sectionProps} />}
+              {/* 2. 全量調査ログ・観察ストリーム */}
+              <EvidenceStream {...sectionProps} />
 
-          {/* 6. 【第3段】全体像・ビジネスの正体 */}
-          {showBusiness && <BusinessSections {...sectionProps} />}
+              {/* 3. アナリスト考察メモ */}
+              <AnalystNotes {...sectionProps} />
 
-          {/* 6. 【第4段】現金のレントゲン（P&L損益計算書・原価構造） */}
-          {showFinancial && <FinancialSection {...sectionProps} />}
-
-          {/* 7. 【第5段】動かぬ証拠（儲けのウラ側 4大急所カード） */}
-          {showEvidence && <EvidenceDeckSection {...sectionProps} />}
-
-          {/* 6. 使っているツール・インフラ */}
-          {showTools && <ToolsSection {...sectionProps} />}
-
-          {/* 7. 実践ステップ（略奪転用） */}
-          {showPlaybook && <PlaybookSections {...sectionProps} />}
-
-          {/* 8. 全量調査ログ */}
-          {showStream && <EvidenceStream {...sectionProps} />}
-
-          {/* ========================================================= */}
-          {/* 【最下部集約: 一次情報源 ＆ エビデンス原本アーカイブ (#14)】 */}
-          {/* ========================================================= */}
-          {showSources && <SourcesSection {...sectionProps} />}
-
-          <AnalystNotes {...sectionProps} />
+              {/* 4. 関連リサーチ */}
+              <RelatedResearch {...sectionProps} />
+            </>
+          )}
         </div>
       </aside>
     </>

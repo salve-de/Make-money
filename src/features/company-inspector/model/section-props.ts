@@ -22,6 +22,7 @@ export interface CompanyInspectorPaneProps {
 
 export type TabType = 'EVIDENCE' | 'FINANCIALS' | 'PLAYBOOK' | 'STREAM' | 'NOTES' | 'ALL';
 export type InspectorViewMode = 'ALL' | 'ESSENCE' | 'FINANCIAL' | 'PLAYBOOK';
+export type InspectorMainTab = 'LEDGER' | 'AUDIT';
 
 export type InspectorSectionProps = Omit<CompanyInspectorPaneProps, 'entity'> & ReturnType<typeof buildInspectorModel> & {
   entity: FinancialEntity;
@@ -29,4 +30,6 @@ export type InspectorSectionProps = Omit<CompanyInspectorPaneProps, 'entity'> & 
   scrollToSection: (id: string) => void;
   viewMode?: InspectorViewMode;
   setViewMode?: (mode: InspectorViewMode) => void;
+  mainTab?: InspectorMainTab;
+  setMainTab?: (tab: InspectorMainTab) => void;
 };

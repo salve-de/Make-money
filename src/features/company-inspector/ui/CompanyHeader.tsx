@@ -5,12 +5,8 @@ Check,
 ChevronLeft,
 ChevronRight,
 Clock,
-Coins,
-Droplets,
 FileText,
 Pin,
-RotateCw,
-SlidersHorizontal,
 X
 } from 'lucide-react';
 
@@ -23,7 +19,6 @@ export function CompanyHeader({
   onNextEntity,
   activeTags = [],
   onToggleTag,
-  analystNote,
   onOpenSynthesisWithEntity,
   onApproveEntity,
   isScrolled,
@@ -31,9 +26,13 @@ export function CompanyHeader({
   formatMoney,
   isHazardMode,
   isFinancialUnavailable,
-  viewMode = 'ALL',
-  setViewMode
-}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'onApproveEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'viewMode' | 'setViewMode'>) {
+  mainTab = 'LEDGER',
+  setMainTab
+}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'onOpenSynthesisWithEntity' | 'onApproveEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'mainTab' | 'setMainTab'>) {
+  const rev = entity.pnl?.monthlyRevenue || 0;
+  const profit = entity.pnl?.operatingProfit ?? 0;
+  const margin = entity.pnl?.operatingMargin ?? (rev > 0 ? Math.round((profit / rev) * 100) : 0);
+  const isLoss = profit < 0 || isHazardMode;
   return <>
         <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
           isScrolled
@@ -196,151 +195,119 @@ export function CompanyHeader({
           </div>
 
           {/* 4. 表示モードセレクター（柔軟な表示カスタマイズ） */}
-          <div className="flex items-center justify-between bg-[#06080E] px-3 py-1.5 border-t border-white/[0.08] text-[11px] font-mono gap-2 overflow-x-auto scrollbar-none">
-            <div className="flex items-center gap-1.5 shrink-0">
-              <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider flex items-center gap-1">
-                <SlidersHorizontal className="w-2.5 h-2.5 text-zinc-400" />
-                <span>表示:</span>
-              </span>
-              <div className="inline-flex rounded p-0.5 bg-black/50 border border-white/[0.10]">
-                {(
-                  [
-                    { id: 'ALL', label: '全量開示' },
-                    { id: 'ESSENCE', label: '急所・要約' },
-                    { id: 'FINANCIAL', label: '財務・原価' },
-                    { id: 'PLAYBOOK', label: '実践手順' },
-                  ] as const
-                ).map((m) => (
-                  <button
-                    key={m.id}
-                    type="button"
-                    onClick={() => setViewMode && setViewMode(m.id)}
-                    className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer ${
-                      viewMode === m.id
-                        ? 'bg-white text-black shadow-xs font-black'
-                        : 'text-zinc-400 hover:text-zinc-200'
-                    }`}
-                  >
-                    {m.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* 最下部情報源への直通リンク */}
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-sources')}
-              className="inline-flex items-center gap-1 text-[10px] text-zinc-400 hover:text-white px-2 py-0.5 rounded hover:bg-white/[0.06] transition-colors cursor-pointer shrink-0 ml-auto"
-              title="最下部の一次情報源・原本アーカイブへジャンプ"
-            >
-              <FileText className="w-3 h-3 text-zinc-400" />
-              <span>情報源・原本 (#14)</span>
-            </button>
-          </div>
-
-          {/* 5. 金融端末仕様 目次ジャンプバー（ワンクリックで該当セクションへ直通スクロール） */}
-          <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-pipeline')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <Coins className="w-2.5 h-2.5 text-emerald-400" />
-              <span>お金の配管図</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-sankey')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <Droplets className="w-2.5 h-2.5 text-cyan-400" />
-              <span>現金の滝</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-flywheel')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <RotateCw className="w-2.5 h-2.5 text-amber-400" />
-              <span>増殖ループ</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-financial')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <span>財務P&L</span>
-              <span className="text-[9px] text-zinc-500 font-normal">
-                {isFinancialUnavailable ? '未確認' : formatMoney(entity.pnl.monthlyRevenue)}
-              </span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-evidence')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <span>儲けのウラ側</span>
-              {entity.evidenceCards && entity.evidenceCards.length > 0 && (
-                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
-                  {entity.evidenceCards.length}
-                </span>
-              )}
-            </button>
-
-            {!isHazardMode && (
+          {/* 4. メインタブ切替（【本丸】資本主義の裏帳簿 ⇄ 【証拠】検証エビデンス） */}
+          <div className="flex items-center justify-between bg-[#06080E] px-3 py-1.5 border-t border-white/[0.08] text-[11px] font-mono gap-2 flex-wrap">
+            <div className="inline-flex rounded-lg p-0.5 bg-black/60 border border-white/[0.12] shrink-0">
               <button
                 type="button"
-                onClick={() => scrollToSection('section-tools')}
-                className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
+                onClick={() => setMainTab && setMainTab('LEDGER')}
+                className={`px-3 py-1 rounded text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                  mainTab === 'LEDGER'
+                    ? 'bg-white text-black shadow-md font-black'
+                    : 'text-zinc-400 hover:text-zinc-200'
+                }`}
               >
-                <span>使っているツール</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                <span>【本丸】資本主義の裏帳簿</span>
               </button>
+              <button
+                type="button"
+                onClick={() => setMainTab && setMainTab('AUDIT')}
+                className={`px-3 py-1 rounded text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                  mainTab === 'AUDIT'
+                    ? 'bg-white text-black shadow-md font-black'
+                    : 'text-zinc-400 hover:text-zinc-200'
+                }`}
+              >
+                <FileText className="w-3 h-3 text-zinc-400" />
+                <span>【証拠】検証エビデンス</span>
+              </button>
+            </div>
+
+            {/* HUD通帳実額サマリー */}
+            <div className="flex items-center gap-2 font-mono text-[10px] ml-auto shrink-0">
+              <span className="text-zinc-400">月商: <strong className="text-white">{isFinancialUnavailable ? '未確認' : formatMoney(rev)}</strong></span>
+              <span className="text-zinc-700">|</span>
+              <span className="text-zinc-400">純手残り: <strong className={isLoss ? 'text-red-400' : 'text-emerald-300'}>{isFinancialUnavailable ? '未確認' : formatMoney(profit)}</strong></span>
+              <span className={`px-1.5 py-0.2 rounded font-black border ${
+                isLoss
+                  ? 'bg-red-950/40 text-red-300 border-red-500/40'
+                  : 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40'
+              }`}>
+                {isLoss ? '赤字出血' : `利益率 ${margin}%`}
+              </span>
+            </div>
+          </div>
+
+          {/* 5. 目次ジャンプバー（選択中タブに応じた直通ナビゲーション） */}
+          <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
+            {mainTab === 'LEDGER' ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-summary')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#01</span>
+                  <span>断罪HUD</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-evidence')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#02</span>
+                  <span>動かぬ証拠 4大急所</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-cash-anatomy')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#03</span>
+                  <span>現金の解剖室</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-loot-blueprint')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#04</span>
+                  <span>略奪武器庫</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-sources')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>情報源原本 (#14)</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-stream')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>全量調査ログ</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-notes')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>考察メモ</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-related')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>関連リサーチ</span>
+                </button>
+              </>
             )}
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-playbook')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-            >
-              <span>{isHazardMode ? '失敗の原因' : '実践ステップ'}</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-stream')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <span>全量ログ</span>
-              {entity.observationsStream && entity.observationsStream.length > 0 && (
-                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
-                  {entity.observationsStream.length}
-                </span>
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-sources')}
-              className="py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-              title="一次情報源・エビデンス原本"
-            >
-              <span>情報源</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-notes')}
-              className="py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-              title="考察メモ"
-            >
-              <span>メモ</span>
-              {analystNote && <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />}
-            </button>
           </div>
         </div>
 
