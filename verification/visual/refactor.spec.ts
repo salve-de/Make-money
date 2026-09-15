@@ -4,7 +4,11 @@ import { recordRuntimeErrors, reportRuntimeFailure } from './runtime-diagnostics
 async function settle(page: Page) {
   await page.evaluate(() => document.fonts.ready);
   await page.mouse.move(0, 0);
-  await page.addStyleTag({ content: '*, *::before, *::after { animation: none !important; transition: none !important; caret-color: transparent !important; scroll-behavior: auto !important; }' });
+  await page.addStyleTag({ content: `
+    *, *::before, *::after { animation: none !important; transition: none !important; caret-color: transparent !important; scroll-behavior: auto !important; }
+    /* JS-driven continuous ticker: compare the initial frame, not different elapsed times. */
+    [aria-label="台帳の財務サマリー"] .will-change-transform { transform: translate3d(0, 0, 0) !important; }
+  ` });
   await expect(page.locator('body')).not.toContainText('Application error:');
   await expect(page.locator('body')).not.toContainText('This page could not be found');
 }
@@ -19,10 +23,10 @@ test.beforeEach(async ({ page }) => {
 test.afterEach(async ({ page }, info) => reportRuntimeFailure(page, info));
 
 for (const [name, url, expected] of [
+  ['playbook', '/playbook', '事業・ツールの参考プレイブック'],
   ['ledger', '/', 'キーエンス'],
   ['inspector', '/?entity=ent_keyence', 'キーエンス'],
   ['partners', '/partners', 'REFERRAL CONSOLE'],
-  ['playbook', '/playbook', '事業・ツールの参考プレイブック'],
   ['radar', '/radar', '市場傾向'],
   ['synthesis', '/?mode=SYNTHESIS', '独自アイデア調書'],
   ['opportunity', '/radar/trend-ai-doc-pipeline', 'AI即食いクリーンMarkdown化'],
