@@ -15,9 +15,12 @@ export async function approveEntities(ids: readonly string[], fetcher: typeof fe
     if (!response.ok) throw new Error(`Approval failed: HTTP ${response.status}`);
     const payload: unknown = await response.json();
     if (!payload || typeof payload !== 'object' || !('success' in payload) || payload.success !== true ||
-        !('entityIds' in payload) || !Array.isArray(payload.entityIds) ||
-        !payload.entityIds.every((id: unknown) => typeof id === 'string') ||
-        !entityIds.every((id) => payload.entityIds.includes(id))) {
+        !('entityIds' in payload) || !Array.isArray(payload.entityIds)) {
+      throw new Error('Invalid approval acknowledgement');
+    }
+    const acknowledgedIds: unknown[] = payload.entityIds;
+    if (!acknowledgedIds.every((id) => typeof id === 'string') ||
+        !entityIds.every((id) => acknowledgedIds.includes(id))) {
       throw new Error('Approval was not acknowledged for every requested entity');
     }
   } finally {
