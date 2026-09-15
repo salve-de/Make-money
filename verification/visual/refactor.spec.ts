@@ -28,11 +28,19 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.afterEach(async ({ page }, info) => {
-  // Next.js may still have speculative RSC prefetches in flight after a screenshot.
-  // Drain route handlers before Playwright tears the page down; otherwise a correct
-  // render can fail with `route.fetch: Test ended` after the assertion already passed.
-  await page.unrouteAll({ behavior: 'ignoreErrors' });
+  // Keep the origin proxy installed until the page is closed. Removing routes while
+  // the document is still alive lets speculative Next.js RSC prefetches escape to
+  // the public pages.dev origin and creates DNS noise unrelated to the comparison.
   await reportRuntimeFailure(page, info);
+  if (!page.isClosed()) {
+    try {
+      await page.waitForLoadState('networkidle', { timeout: 5_000 });
+    } catch {
+      // A continuously polling page is still closed explicitly below; route handlers
+      // remain installed so no request can escape the loopback visual backend.
+    }
+    await page.close({ runBeforeUnload: false });
+  }
 });
 
 for (const [name, url, expected] of [
