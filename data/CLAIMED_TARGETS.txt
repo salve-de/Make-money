@@ -732,3 +732,309 @@ Fly Simulator (FLYSIM)
 Reform
 Magnet
 
+
+Checkout Page [CLAIMED:codex-20260916 @ 2026-09-15]
+
+Supademo [CLAIMED:codex-20260916 @ 2026-09-15]
+
+Jim Designs [CLAIMED:codex-20260916 @ 2026-09-15]
+
+Strabo [CLAIMED:codex-20260916 @ 2026-09-15]
+
+BlockSurvey [CLAIMED:codex-20260916 @ 2026-09-16]
+
+Mockey [CLAIMED:codex-20260916 @ 2026-09-16]
+
+Setter AI [CLAIMED:codex-20260916 @ 2026-09-16]
+
+Leadmore AI [CLAIMED:codex-20260916 @ 2026-09-16]
+
+Centori [CLAIMED:codex-20260916 @ 2026-09-16]
+
+StandOut CV [CLAIMED:codex-20260916 @ 2026-09-16]
+
+Lunch Money [CLAIMED:codex-20260916 @ 2026-09-16]
+
+MediaFa.st [CLAIMED:codex-20260916 @ 2026-09-16]
+
+ColdClicks [CLAIMED:codex-20260916 @ 2026-09-16]
+
+WP Umbrella [CLAIMED:codex-20260916 @ 2026-09-16]
+
+Bearconnect [CLAIMED:codex-20260916 @ 2026-09-16]
+
+SuperMotion [CLAIMED:codex-20260916 @ 2026-09-16]
+
+# Batch Solo Winners 100 (2026-09-16)
+Scrapingdog (SCRPDOG)
+ZenRows (ZENROWS)
+ScraperAPI (SCRPAPI)
+DocRaptor (DOCRAPTR)
+PDFShift (PDFSHIFT)
+Api2Pdf (API2PDF)
+Placid (PLACID)
+Abyssale (ABYSSALE)
+Robolly (ROBOLLY)
+APITemplate.io (APITMPL)
+Formspree (FRMSPREE)
+Formspark (FRMSPRK)
+KwesForms (KWESFRM)
+Dead Mans Snitch (DMSNITCH)
+CronHub (CRONHUB)
+Pirsch Analytics (PIRSCH)
+Swetrix (SWETRIX)
+Aptabase (APTABAS)
+GoatCounter (GOATCNT)
+TelemetryDeck (TLMTRDCK)
+June.so (JUNESOF)
+LogSnag (LOGSNAG)
+Instatus (INSTATUS)
+Statuspal (STATUSPAL)
+Pulsetic (PULSETIC)
+Postmark (POSTMARK)
+Mailtrap (MAILTRAP)
+MailerLite (MAILRLT)
+SendPulse (SNDPULS)
+Mailosaur (MAILOSAR)
+SE Ranking (SERANK)
+AlsoAsked (ALSOASK)
+Keyword Insights (KWINSGHT)
+Scalenut (SCALENUT)
+Frase.io (FRASEIO)
+MeetEdgar (MEETEDGR)
+SocialBee (SOCLBEE)
+Planoly (PLANOLY)
+Postfity (POSTFITY)
+Circleboom (CRCLBOOM)
+OneUp (ONEUPAPP)
+Pallyy (PALLYY)
+Vista Social (VSTSOCL)
+Simplecast (SMPLCST)
+Auphonic (AUPHONIC)
+Otter.ai (OTTERAI)
+Fireflies.ai (FIREFLYS)
+Supernormal (SPRNRML)
+TL;DV (TLDVMEET)
+Krisp (KRISPAI)
+Tactiq (TACTIQ)
+Bluedot (BLUEDOT)
+HeyGen (HEYGEN)
+Synthesia (SYNTHSIA)
+Colossyan (COLOSSYN)
+Sudowrite (SUDOWRT)
+NovelAI (NOVELAI)
+Lex.page (LEXPAGE)
+Tower Git (TOWERGIT)
+GitKraken (GITKRKN)
+Beyond Compare (BYNDCMP)
+Sublime Text (SUBLMTXT)
+Transmit (TRNSMIT)
+Hoppscotch (HOPPSCOT)
+Yaak (YAAKREST)
+Rectangle Pro (RECTPRO)
+Swish Mac (SWISHMAC)
+Dropshare (DROPSHAR)
+SoundSource (SNDSOURC)
+Little Snitch (LTLSNITCH)
+DEVONthink (DEVONTHK)
+Hazel (HAZELMAC)
+Default Folder X (DEFFLDRX)
+Fantastical (FNTSTCL)
+Carbon Copy Cloner (CCCBKP)
+Arq Backup (ARQBKP)
+Keyboard Maestro (KEYBMAES)
+Obsidian Sync (OBSDSYNC)
+Readwise (READWISE)
+WP All Import (WPALLIMP)
+Gravity Forms (GRVFORMS)
+Ninja Forms (NINJAFRM)
+Formidable Forms (FRMIDABL)
+MemberPress (MBRPRESS)
+Paid Memberships Pro (PMPRO)
+CartFlows (CARTFLOW)
+Bricks Builder (BRICKSBL)
+Complianz (CMPLIANZ)
+Really Simple SSL (RSSSL)
+FluentCRM (FLUENTCRM)
+PageFly (PAGEFLY)
+GemPages (GEMPAGES)
+Privy (PRIVYAPP)
+Keepa (KEEPACOM)
+Helium 10 (HELIUM10)
+Tactical Arbitrage (TACTARB)
+Ipdata (IPDATACO)
+IPinfo (IPINFOIO)
+Quad Lock (QUADLOCK)
+トヨクモ (4058.T)
+
+Vizard.ai [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+MindMac [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Chatbox [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Jina AI [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+LlamaParse [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Deciphr AI [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+SquadCast [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Tella.tv [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Screenity [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+DeepInfra [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Scrapfly [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Apify [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Smartproxy [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Webshare [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+SerpApi [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+DataForSEO [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Typesense [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+PocketBase [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Turso [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Tinybird [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Vast.ai [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+WorkOS [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Stytch [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Zitadel [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Tailscale [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+NetBird [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Knock.app [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Courier [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+MagicBell [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+SuprSend [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Pipedream [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Relay.app [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Axiom.ai [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Rootly [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Axiom.co [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Userflow [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Chameleon [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+CommandBar [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Yoink [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+AlDente [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Downie [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+iStat Menus [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Ulysses [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Scrivener [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Final Draft [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Tinify [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Camtasia [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+vMix [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+TubeBuddy [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+vidIQ [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Keywords Everywhere [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Inoreader [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Feedbin [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+RSS.app [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Visualping [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Distill.io [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Omnisend [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Purelymail [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+MXroute [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+ImprovMX [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Jobber [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Housecall Pro [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Slice [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+BentoBox [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Popmenu [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+MarginEdge [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Deliverect [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Turno [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+PriceLabs [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+DealMachine [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+InvestorCarrot [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+TurboTenant [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Innago [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+SimplePractice [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+TherapyNotes [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Boulevard [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+GorillaDesk [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Jane App [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Cliniko [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Hostaway [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+OwnerRez [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+Wheelhouse [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+AirDNA [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+TenantCloud [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+RentCast [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
+
+GreenPal [CLAIMED:codex-20260916-clean100 @ 2026-09-15]
