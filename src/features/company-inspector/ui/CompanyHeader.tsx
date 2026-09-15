@@ -1,4 +1,3 @@
-import { cleanIntelligenceText } from '@/lib/foundation/text-cleaner';
 import {
 Bot,
 Check,
@@ -123,25 +122,20 @@ export function CompanyHeader({
             </div>
           </div>
 
-          {/* 2. タグライン ＆ 4大意思決定ベクトル */}
-          <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 text-[10px] font-mono">
-            <div className="flex items-center gap-2 min-w-0 flex-1 truncate">
-              {entity.opportunityJudgment && (
-                <span className={`sm:hidden px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
+          {/* 2. 4大意思決定ベクトル（タグラインはメイン本文の【正体】に集約） */}
+          {entity.opportunityJudgment && (
+            <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 text-[10px] font-mono">
+              <div className="flex items-center gap-2">
+                <span className={`px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
                   entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
                     ? 'bg-red-950/40 text-red-400 border-red-500/40'
                     : 'bg-white/[0.08] text-white border-white/[0.16]'
                 }`}>
                   {entity.opportunityJudgment.verdictLabel}
                 </span>
-              )}
-              <span className="text-zinc-300 font-sans truncate" title={cleanIntelligenceText(entity.tagline)}>
-                {cleanIntelligenceText(entity.tagline)}
-              </span>
-            </div>
+              </div>
 
-            {entity.opportunityJudgment && (
-              <div className="hidden sm:flex items-center gap-2 shrink-0 text-zinc-400">
+              <div className="flex items-center gap-2 shrink-0 text-zinc-400">
                 <span>需要: <strong className="text-zinc-200">{entity.opportunityJudgment.demandDelta}</strong></span>
                 <span className="text-zinc-700">|</span>
                 <span>競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
@@ -150,8 +144,8 @@ export function CompanyHeader({
                 <span className="text-zinc-700">|</span>
                 <span>難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* 3. 探索タグ一覧（上部に常時配置） ＆ 時系列インテリジェンス */}
           <div className="px-3 py-1.5 flex items-center justify-between gap-2 bg-[#05070B] border-b border-white/[0.04]">
