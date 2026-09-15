@@ -1,12 +1,12 @@
 import { expect, test, type Page } from '@playwright/test';
 import { recordRuntimeErrors, reportRuntimeFailure } from './runtime-diagnostics';
+import { installOriginFixture, visualOrigin } from './origin-fixture';
 
 async function settle(page: Page) {
   await page.evaluate(() => document.fonts.ready);
   await page.mouse.move(0, 0);
   await page.addStyleTag({ content: `
     *, *::before, *::after { animation: none !important; transition: none !important; caret-color: transparent !important; scroll-behavior: auto !important; }
-    /* JS-driven continuous ticker: compare the initial frame, not different elapsed times. */
     [aria-label="台帳の財務サマリー"] .will-change-transform { transform: translate3d(0, 0, 0) !important; }
   ` });
   await expect(page.locator('body')).not.toContainText('Application error:');
@@ -15,7 +15,9 @@ async function settle(page: Page) {
 
 test.beforeEach(async ({ page }) => {
   recordRuntimeErrors(page);
+  await installOriginFixture(page);
   await page.clock.setFixedTime(new Date('2026-09-15T00:00:00Z'));
+  // Last registered route wins; this fixture overrides only the public catalog response.
   await page.route('**/api/businesses*', (route) => route.fulfill({ status: 200, contentType: 'application/json',
     body: JSON.stringify({ source: 'local_fallback', data: [], nextCursor: null, hasMore: false }),
   }));
@@ -26,7 +28,7 @@ for (const [name, url, expected] of [
   ['playbook', '/playbook', '事業・ツールの参考プレイブック'],
   ['ledger', '/', 'キーエンス'],
   ['inspector', '/?entity=ent_keyence', 'キーエンス'],
-  ['partners', '/partners', 'REFERRAL CONSOLE'],
+  ['partners', '/partners', 'OFFICIAL REVENUE SHARING PROTOCOL'],
   ['radar', '/radar', '市場傾向'],
   ['synthesis', '/?mode=SYNTHESIS', '独自アイデア調書'],
   ['opportunity', '/radar/trend-ai-doc-pipeline', 'AI即食いクリーンMarkdown化'],
@@ -38,6 +40,7 @@ for (const [name, url, expected] of [
     const response = await page.goto(url, { waitUntil: 'networkidle' });
     expect(response?.ok()).toBe(true);
     await expect(page.locator('body')).toContainText(expected);
+    if (name === 'partners') await expect(page.getByText(`${visualOrigin}/?ref=p_pr20test`, { exact: true })).toBeVisible();
     await settle(page);
     await expect(page).toHaveScreenshot(`${name}.png`, { fullPage: true });
     expect(errors).toEqual([]);

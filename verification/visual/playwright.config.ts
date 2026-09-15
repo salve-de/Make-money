@@ -1,5 +1,6 @@
 import { defineConfig } from '@playwright/test';
 import path from 'node:path';
+import { visualOrigin } from './origin-fixture';
 
 const artifacts = process.env.VISUAL_ARTIFACT_DIR;
 if (!artifacts || !process.env.VISUAL_TARGET_URL) throw new Error('Use scripts/verify-refactor-ui.ts with explicit BASE and HEAD URLs');
@@ -11,7 +12,7 @@ export default defineConfig({
   outputDir: path.join(artifacts, process.env.VISUAL_PHASE || 'unknown', 'results'),
   reporter: [['list'], [path.resolve('verification/ci-reporter.ts')], ['json', { outputFile: path.join(artifacts, `${process.env.VISUAL_PHASE}.json`) }]],
   use: {
-    baseURL: process.env.VISUAL_TARGET_URL,
+    baseURL: visualOrigin,
     locale: 'ja-JP', timezoneId: 'Asia/Tokyo', colorScheme: 'dark', reducedMotion: 'reduce',
     serviceWorkers: 'block', trace: 'retain-on-failure', screenshot: 'only-on-failure',
   },
