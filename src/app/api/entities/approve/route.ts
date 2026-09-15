@@ -60,7 +60,7 @@ async function requireAdmin(req: NextRequest): Promise<{ uid: string } | null | 
  * Global approval IDs are not private user data. They are an editorial overlay
  * used to remove the transient `収集事例` marker without mutating research data.
  */
-export async function GET(_req: NextRequest) {
+export async function GET() {
   if (isLocalEditor()) return json({ success: true, entityIds: [] });
   try {
     return json({ success: true, entityIds: await listD1ApprovedEntityIds() });
