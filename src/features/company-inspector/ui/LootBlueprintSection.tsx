@@ -12,6 +12,11 @@ import {
 } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
+function confirmedText(value: string | null | undefined): string | null {
+  const text = value?.trim();
+  return text && text !== '未確認' && text !== 'UNKNOWN' ? text : null;
+}
+
 export function LootBlueprintSection({
   entity,
   isHazardMode
@@ -20,6 +25,14 @@ export function LootBlueprintSection({
   const tools = entity.operations?.toolStack || [];
   const teamSize = entity.operations?.teamSize;
   const initialCapital = entity.operations?.initialCapitalRequired;
+  const stealthEntry = confirmedText(loot?.stealthEntry) || confirmedText(entity.acquisition?.primaryFunnel);
+  const tollGateSetup = confirmedText(loot?.tollGateSetup) || confirmedText(entity.architecturePattern);
+  const incumbentBarrier = confirmedText(entity.meta?.incumbentDilemma?.cannibalizationBarrier)
+    || confirmedText(legacyText(entity.strategy, 'moat'));
+  const hasKnownTeamSize = !entity.operations?.isTeamSizeUnconfirmed && typeof teamSize === 'number' && teamSize > 0;
+  const hasKnownInitialCapital = !entity.operations?.isCapitalUnconfirmed
+    && typeof initialCapital === 'number'
+    && initialCapital >= 0;
 
   return (
     <section
@@ -30,14 +43,12 @@ export function LootBlueprintSection({
           : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
       }`}
     >
-      {/* 背景アンビエント光 */}
       <div
         className={`absolute top-0 right-0 w-80 h-48 rounded-full blur-[90px] pointer-events-none ${
           isHazardMode ? 'bg-red-500/8' : 'bg-cyan-500/8'
         }`}
       />
 
-      {/* セクションヘッダー */}
       <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10">
         <div className="flex items-center gap-2.5">
           <Crosshair className={`w-4 h-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-cyan-400'}`} />
@@ -54,20 +65,18 @@ export function LootBlueprintSection({
         </span>
       </div>
 
-      {/* 3ステップ略奪転用方程式 */}
       <div className="space-y-3 mb-5">
-        {/* Step 1: 関所強奪 */}
         <div className="rounded-lg border border-white/[0.08] bg-[#0E131F] p-3.5 space-y-1.5 transition-colors hover:border-white/[0.15]">
           <div className="flex items-center gap-2">
             <span className="font-mono text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
               STEP 1
             </span>
             <span className="font-mono text-xs font-bold text-zinc-100">
-              【関所強奪】既存の獲物と初動のステルス侵入ルート
+              【初動獲得】最初の顧客をどう取ったか
             </span>
           </div>
-          <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-            {loot?.stealthEntry || entity.acquisition?.primaryFunnel || '既存プラットフォームの規約の隙間・競合の不満客を狙い撃ちにして初期トラフィックを横取りする動線。'}
+          <p className={`text-xs leading-relaxed font-sans pl-1 ${stealthEntry ? 'text-zinc-300' : 'text-zinc-500'}`}>
+            {stealthEntry || '未確認：初期顧客の獲得経路を裏付ける情報がまだありません。'}
           </p>
           {loot?.targetPrey && (
             <div className="text-[11px] font-mono text-zinc-400 bg-black/40 px-2.5 py-1.5 rounded border border-white/[0.04] flex items-center gap-1.5">
@@ -77,18 +86,17 @@ export function LootBlueprintSection({
           )}
         </div>
 
-        {/* Step 2: 格安配管 */}
         <div className="rounded-lg border border-white/[0.08] bg-[#0E131F] p-3.5 space-y-1.5 transition-colors hover:border-white/[0.15]">
           <div className="flex items-center gap-2">
             <span className="font-mono text-[10px] font-black px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
               STEP 2
             </span>
             <span className="font-mono text-xs font-bold text-zinc-100">
-              【格安配管】無料/格安APIとノーコードによる原価の極限圧縮
+              【原価・配管】何を使って、どう提供しているか
             </span>
           </div>
-          <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-            {loot?.tollGateSetup || entity.architecturePattern || '既存の無料・格安SaaS/APIを裏側で配管し、自社開発コストをゼロに抑えて粗利80%超を確定させる構造。'}
+          <p className={`text-xs leading-relaxed font-sans pl-1 ${tollGateSetup ? 'text-zinc-300' : 'text-zinc-500'}`}>
+            {tollGateSetup || '未確認：原価構造・利用基盤・提供方式を断定できる一次情報がありません。'}
           </p>
           {loot?.structuralFlaw && (
             <div className="text-[11px] font-mono text-zinc-400 bg-black/40 px-2.5 py-1.5 rounded border border-white/[0.04] flex items-center gap-1.5">
@@ -98,23 +106,21 @@ export function LootBlueprintSection({
           )}
         </div>
 
-        {/* Step 3: 自爆死角の盾 */}
         <div className="rounded-lg border border-white/[0.08] bg-[#0E131F] p-3.5 space-y-1.5 transition-colors hover:border-white/[0.15]">
           <div className="flex items-center gap-2">
             <span className="font-mono text-[10px] font-black px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
               STEP 3
             </span>
             <span className="font-mono text-xs font-bold text-zinc-100">
-              【自爆死角の盾】大手が追随できない理由を参入障壁に偽装
+              【追随障壁】大手や競合が真似しにくい理由
             </span>
           </div>
-          <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-            {entity.meta?.incumbentDilemma?.cannibalizationBarrier || legacyText(entity.strategy, 'moat') || '大手が参入すると既存の単価・代理店ネットワークを破壊してしまうため、指をくわえて見逃さざるを得ないカニバリズム死角。'}
+          <p className={`text-xs leading-relaxed font-sans pl-1 ${incumbentBarrier ? 'text-zinc-300' : 'text-zinc-500'}`}>
+            {incumbentBarrier || '未確認：競合・大手の追随障壁を裏付ける情報がまだありません。'}
           </p>
         </div>
       </div>
 
-      {/* 実行チェックリスト（今夜試せる具体的なアクション） */}
       {loot?.executionChecklist && loot.executionChecklist.length > 0 && (
         <div className="mb-5 rounded-lg border border-white/[0.06] bg-[#06080E] p-3.5">
           <div className="flex items-center gap-1.5 mb-2.5">
@@ -134,20 +140,19 @@ export function LootBlueprintSection({
         </div>
       )}
 
-      {/* 武器庫（実際に稼働しているツール ＆ インフラ構成） */}
       <div className="pt-4 border-t border-white/[0.08]">
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
             <Wrench className="w-3.5 h-3.5 text-zinc-400" />
             <span className="text-xs font-mono font-bold text-zinc-200 uppercase">
-              裏で稼働している武器庫（TECH STACK & INFRA）
+              確認できた武器庫（TECH STACK & INFRA）
             </span>
           </div>
           <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
-            {teamSize !== undefined && (
-              <span>人員規模: <strong className="text-zinc-200">{teamSize > 0 ? `${teamSize}名` : '1人（完全自動化）'}</strong></span>
+            {hasKnownTeamSize && (
+              <span>人員規模: <strong className="text-zinc-200">{teamSize}名</strong></span>
             )}
-            {initialCapital && (
+            {hasKnownInitialCapital && (
               <span>初期資本: <strong className="text-zinc-200">{initialCapital}</strong></span>
             )}
           </div>
@@ -179,7 +184,7 @@ export function LootBlueprintSection({
           </div>
         ) : (
           <div className="text-xs font-mono text-zinc-500 py-1">
-            特定ツールスタックは未確認、または汎用スクリプトで稼働中
+            ツール構成は未確認です。
           </div>
         )}
       </div>
