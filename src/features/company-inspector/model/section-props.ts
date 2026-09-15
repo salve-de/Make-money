@@ -18,6 +18,8 @@ export interface CompanyInspectorPaneProps {
   onOpenSynthesisWithEntity?: (entityId: string) => void;
   onApproveEntity?: (entityId: string) => void;
   isPro?: boolean;
+  isBookmarked?: boolean;
+  onToggleBookmark?: (e: React.MouseEvent) => void;
 }
 
 export type TabType = 'EVIDENCE' | 'FINANCIALS' | 'PLAYBOOK' | 'STREAM' | 'NOTES' | 'ALL';

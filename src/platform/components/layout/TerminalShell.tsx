@@ -711,6 +711,8 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
             }}
             onApproveEntity={handleApproveEntity}
             isPro={isProUnlocked}
+            isBookmarked={bookmarkedIds.has(selectedEntity.id)}
+            onToggleBookmark={(e) => handleToggleBookmark(selectedEntity.id, e)}
           />
         )}
       </main>

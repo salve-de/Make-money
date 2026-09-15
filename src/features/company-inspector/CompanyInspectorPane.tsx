@@ -34,6 +34,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onOpenSynthesisWithEntity,
   onApproveEntity,
   isPro = false,
+  isBookmarked = false,
+  onToggleBookmark,
 }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -110,6 +112,8 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     setViewMode,
     mainTab,
     setMainTab,
+    isBookmarked,
+    onToggleBookmark,
     ...model
   };
 
