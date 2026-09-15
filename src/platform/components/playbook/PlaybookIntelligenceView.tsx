@@ -564,9 +564,8 @@ export const PlaybookIntelligenceView: React.FC<PlaybookIntelligenceViewProps> =
                         <div className="text-[11px] font-mono text-zinc-400">【この罠で爆死した実在企業】:</div>
                         {activeTrap.victimEntities.map((v) => (
                           <div key={v.id} className="bg-white/[0.02] border border-white/[0.06] p-3 rounded text-xs space-y-1">
-                            <div className="flex items-center justify-between font-bold text-white">
+                            <div className="font-bold text-white">
                               <span>{v.name}</span>
-                              <span className="text-zinc-500 font-mono">{v.ticker}</span>
                             </div>
                             <div className="text-rose-300 font-semibold text-[11px]">{v.headline}</div>
                             <div className="text-zinc-400 text-[11px]">{v.punchline}</div>

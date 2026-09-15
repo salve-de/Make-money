@@ -169,7 +169,7 @@ export function ValueChainDisruptionSection({
               ) : (
                 <>
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                  {entity.ticker}の直結モデル：中間マージン全量バイパス ＆ 利益独占
+                  {entity.name}の直結モデル：中間マージン全量バイパス ＆ 利益独占
                 </>
               )}
             </span>

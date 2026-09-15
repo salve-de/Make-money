@@ -251,7 +251,7 @@ export const ExecutiveDetailSheet: React.FC<ExecutiveDetailSheetProps> = ({
             <div className="space-y-2 min-w-0">
               <div className="flex items-center gap-2 flex-wrap font-mono text-[10px]">
                 <span className="px-2 py-0.5 bg-white/[0.06] text-zinc-300 font-bold border border-white/[0.1]">
-                  DOSSIER #{company.ticker}
+                  DOSSIER: {company.japaneseName}
                 </span>
                 <span className={`px-2 py-0.5 font-bold border ${
                   company.verifiedStatus === 'AUDITED_PUBLIC'

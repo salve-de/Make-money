@@ -124,16 +124,11 @@ export function ExecutiveIntuitiveSummary({
 
       {/* ブロック3: 実際の数字（冷徹な通信簿） */}
       <div className="rounded-xl border border-white/[0.08] bg-[#070A0F] p-3.5 shadow-lg">
-        <div className="flex items-center justify-between mb-2.5 pb-2 border-b border-white/[0.06]">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-            <h3 className="text-[11px] font-bold text-zinc-200 font-mono tracking-wider uppercase">
-              3. 実際の数字（冷徹な通信簿）
-            </h3>
-          </div>
-          <span className="text-[10px] font-mono text-zinc-400">
-            {entity.ticker || entity.scale || 'AUDITED'}
-          </span>
+        <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
+          <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+          <h3 className="text-[11px] font-bold text-zinc-200 font-mono tracking-wider uppercase">
+            3. 実際の数字（冷徹な通信簿）
+          </h3>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">

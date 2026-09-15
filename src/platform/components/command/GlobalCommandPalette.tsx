@@ -152,10 +152,7 @@ export const GlobalCommandPalette: React.FC<GlobalCommandPaletteProps> = ({
               >
                 <div className="min-w-0 pr-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono text-zinc-500">
-                      {item.ticker}
-                    </span>
-                    <span className="text-xs font-medium text-white truncate">
+                    <span className="text-xs font-semibold text-white truncate">
                       {item.name}
                     </span>
                   </div>

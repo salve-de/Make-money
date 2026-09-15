@@ -1,5 +1,36 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-15 【確定】全画面・全UIコンポーネントからのティッカー（Ticker）表示完全根絶 ＆ 社名主役化完了（Phase 191）
+
+### 1. ユーザー指示と病巣の解剖（User Direct Command & Complete Ticker Eradication）
+- **ユーザー指示**:
+  - 「ティッカー消しておいて」
+- **病巣の解剖**:
+  - ヘッダー（`CompanyHeader.tsx`）からティッカーバッジを先行切除したものの、個別銘柄ビューの「3. 実際の数字（冷徹な通信簿）」右上に `{entity.ticker || entity.scale || 'AUDITED'}` が残存していた。
+  - さらに、バリューチェーン解剖（`ValueChainDisruptionSection`）、グローバルコマンドパレット（`GlobalCommandPalette`）、検索モーダル（`SearchPaletteModal`）、戦略シンセシス（`StrategySynthesisView`）、ディープダイブ（`IntelligenceDeepDiveView`）、プレイブック（`PlaybookIntelligenceView`）、ドロワー（`ExecutiveDossierDrawer` / `ExecutiveDetailSheet`）等の計9コンポーネントにティッカーの表示コードが散在。
+  - 未上場SaaSや個人ビジネスが大半を占める本プラットフォームにおいて、`CRAYOAI` や `SOLO-PHOTOAI` などの架空略称コードが画面各所に表示されることは、ユーザーの認知負荷と視覚的ノイズでしかなかった。
+
+### 2. 物理実装したUIアーキテクチャ（Complete UI Cleanse & Company Name Primary）
+1. **個別銘柄ビューのティッカー完全根絶**:
+   - `ExecutiveIntuitiveSummary.tsx`: 「3. 実際の数字（冷徹な通信簿）」右上の `{entity.ticker || entity.scale || 'AUDITED'}` を完全切除。
+   - `ValueChainDisruptionSection.tsx`: `{entity.ticker}の直結モデル` を `{entity.name}の直結モデル` へ変更。
+2. **検索・パレット・補助ビューのティッカー完全根絶**:
+   - `GlobalCommandPalette.tsx`: 検索結果の `{item.ticker}` を切除し、社名（`item.name`）を主役に昇格。
+   - `SearchPaletteModal.tsx`: 2文字アイコンを社名ベースへ変更し、`#{item.ticker}` を完全切除。
+   - `StrategySynthesisView.tsx`: 企業リストから `{ent.ticker}` を削除し社名太字化、連動銘柄バナーも `activeEntity.name` へ統一。
+   - `IntelligenceDeepDiveView.tsx`: `[{entity.ticker}]` を完全切除。
+   - `PlaybookIntelligenceView.tsx`: 爆死実在企業一覧の `{v.ticker}` を完全切除。
+   - `ExecutiveDossierDrawer.tsx` / `ExecutiveDetailSheet.tsx`: `#{company.ticker}` を完全切除。
+3. **ワークツリー同期（ポート3000 & 3001）**:
+   - 全9コンポーネントの修正をポート3000（メイン）およびポート3001（`Make-Money-prev`）へ完全同期。
+
+### 3. テスト・リント・実機Playwright検証
+- `pnpm lint`: 全634エンティティ品質、アーキテクチャ境界、ESLint（--max-warnings=0）全件 PASS。
+- Playwright実機検証（ポート3000 & 3001）:
+  - `screen_3000_ticker_completely_gone.png` および `screen_3001_ticker_completely_gone.png` にて、画面内の全ティッカー表示が完全に消滅し、社名・財務指標がクリアに描画されていることを確認。
+
+---
+
 ## 2026-09-15 【確定】ティッカー完全撤廃 ＆ 共有モーダル（マルチSNS直通＋最下部URLコピー＋正体単語なし自動引用）配備完了（Phase 190）
 
 ### 1. ユーザー指示と病巣の解剖（User Direct Command & Elimination of Ticker/URL Clutter）

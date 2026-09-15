@@ -272,9 +272,6 @@ export const IntelligenceDeepDiveView: React.FC<IntelligenceDeepDiveViewProps> =
                         <span className="font-mono text-xs font-bold text-white">
                           {entity.name}
                         </span>
-                        <span className="font-mono text-[10px] text-zinc-500">
-                          [{entity.ticker}]
-                        </span>
                       </div>
                       <p className="text-xs text-zinc-400 font-sans mt-0.5">
                         {entity.tagline}
