@@ -1,12 +1,8 @@
 import {
-Bot,
-Check,
-ChevronLeft,
-ChevronRight,
-Clock,
-FileText,
-Pin,
-X
+  Clock,
+  FileText,
+  Pin,
+  X
 } from 'lucide-react';
 
 import type { InspectorSectionProps } from '../model/section-props';
@@ -14,12 +10,8 @@ import type { InspectorSectionProps } from '../model/section-props';
 export function CompanyHeader({
   entity,
   onClose,
-  onPrevEntity,
-  onNextEntity,
   activeTags = [],
   onToggleTag,
-  onOpenSynthesisWithEntity,
-  onApproveEntity,
   isScrolled,
   scrollToSection,
   formatMoney,
@@ -27,7 +19,7 @@ export function CompanyHeader({
   isFinancialUnavailable,
   mainTab = 'LEDGER',
   setMainTab
-}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'onOpenSynthesisWithEntity' | 'onApproveEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'mainTab' | 'setMainTab'>) {
+}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'activeTags' | 'onToggleTag' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'mainTab' | 'setMainTab'>) {
   const rev = entity.pnl?.monthlyRevenue || 0;
   const profit = entity.pnl?.operatingProfit ?? 0;
   const margin = entity.pnl?.operatingMargin ?? (rev > 0 ? Math.round((profit / rev) * 100) : 0);
@@ -54,64 +46,10 @@ export function CompanyHeader({
               <span className="text-[10px] text-zinc-400 font-mono hidden md:inline truncate">
                 {entity.legalEntity || entity.founder} ・ {entity.country}
               </span>
-              {entity.opportunityJudgment && (
-                <span className={`hidden sm:inline-flex px-1.5 py-0.2 rounded text-[9px] font-mono font-bold tracking-wider border shrink-0 ${
-                  entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                    ? 'bg-red-950/40 text-red-400 border-red-500/40'
-                    : 'bg-white/[0.08] text-white border-white/[0.16]'
-                }`}>
-                  {entity.opportunityJudgment.verdictLabel}
-                </span>
-              )}
             </div>
 
-            {/* 右側アクション */}
+            {/* 右側アクション（クローズのみの超ソリッド構成） */}
             <div className="flex items-center gap-1 shrink-0">
-              {/* これはオッケー（承認）ボタン: 収集事例タグがある場合に高輝度エメラルドで表示 */}
-              {entity.tags?.includes('収集事例') && onApproveEntity && (
-                <button
-                  onClick={() => onApproveEntity(entity.id)}
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 hover:text-white font-bold text-[11px] font-mono transition-all cursor-pointer shadow-[0_0_12px_rgba(16,185,129,0.2)] hover:shadow-[0_0_16px_rgba(16,185,129,0.4)] mr-1"
-                  title="「収集事例」リストから承認完了として消去し、本台帳に保管します"
-                >
-                  <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[2.5]" />
-                  <span>これはオッケー（承認）</span>
-                </button>
-              )}
-
-              {/* 銘柄ナビゲーション */}
-              <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
-                <button
-                  onClick={onPrevEntity}
-                  disabled={!onPrevEntity}
-                  className="p-1 hover:text-white disabled:opacity-20 transition-colors cursor-pointer"
-                  title="前銘柄"
-                >
-                  <ChevronLeft className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={onNextEntity}
-                  disabled={!onNextEntity}
-                  className="p-1 hover:text-white disabled:opacity-20 transition-colors cursor-pointer"
-                  title="次銘柄"
-                >
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-
-              {/* AI壁打ちクイック起動 */}
-              {onOpenSynthesisWithEntity && (
-                <button
-                  onClick={() => onOpenSynthesisWithEntity(entity.id)}
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer mr-1"
-                  title="この銘柄の財務・戦略データでAIと壁打ちする"
-                >
-                  <Bot className="w-3 h-3 text-zinc-300" />
-                  <span className="hidden sm:inline">AI壁打ち</span>
-                </button>
-              )}
-
-              {/* クローズボタン */}
               <button
                 onClick={onClose}
                 className="p-1 text-zinc-500 hover:text-white transition-colors cursor-pointer"
@@ -122,20 +60,10 @@ export function CompanyHeader({
             </div>
           </div>
 
-          {/* 2. 4大意思決定ベクトル（タグラインはメイン本文の【正体】に集約） */}
+          {/* 2. 4大意思決定ベクトル */}
           {entity.opportunityJudgment && (
             <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 text-[10px] font-mono">
-              <div className="flex items-center gap-2">
-                <span className={`px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
-                  entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                    ? 'bg-red-950/40 text-red-400 border-red-500/40'
-                    : 'bg-white/[0.08] text-white border-white/[0.16]'
-                }`}>
-                  {entity.opportunityJudgment.verdictLabel}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0 text-zinc-400">
+              <div className="flex items-center gap-2 text-zinc-400">
                 <span>需要: <strong className="text-zinc-200">{entity.opportunityJudgment.demandDelta}</strong></span>
                 <span className="text-zinc-700">|</span>
                 <span>競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
