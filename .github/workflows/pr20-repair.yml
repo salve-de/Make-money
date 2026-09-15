@@ -1,0 +1,78 @@
+name: PR20 repair verification
+
+on:
+  pull_request:
+    paths:
+      - scripts/audit/pr20-type-repair.mjs
+      - .github/workflows/pr20-repair.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pr20-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    if: github.event.pull_request.number == 20 && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Apply guarded type repairs
+        run: node scripts/audit/pr20-type-repair.mjs
+      - name: Record source repairs without overwriting concurrent work
+        env:
+          EXPECTED_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -eu
+          branch=refactor/100yr-clean-architecture
+          current=$(git ls-remote origin "refs/heads/$branch" | cut -f1)
+          test "$current" = "$EXPECTED_SHA"
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/features/company-inspector src/platform/components/radar scripts/pipeline/auto-enrich-entity.ts src/tests/density-invariants.test.ts
+          if ! git diff --cached --quiet; then
+            git commit -m 'fix(pr20): repair canonical types and retain inspector rendering contracts'
+            git push origin "HEAD:refs/heads/$branch"
+          fi
+          echo "TESTED_SOURCE_SHA=$(git rev-parse HEAD)"
+          git show --stat --oneline HEAD
+      - name: Lint
+        if: success()
+        run: pnpm lint
+      - name: Typecheck
+        if: always()
+        run: pnpm typecheck
+      - name: Unit and architecture tests
+        if: always()
+        run: pnpm test
+      - name: Production and Workers builds
+        id: build
+        if: always()
+        run: pnpm build && pnpm bundle:workers
+      - name: Browser setup
+        if: steps.build.outcome == 'success'
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Browser E2E
+        if: steps.build.outcome == 'success'
+        run: pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: pr20-repair-test-results
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
