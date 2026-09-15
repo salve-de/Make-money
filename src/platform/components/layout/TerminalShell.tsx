@@ -7,7 +7,6 @@ import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/li
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
-import { TerminalSidebar } from '../navigation/TerminalSidebar';
 import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
@@ -599,6 +598,12 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         }
         onSelectLocalMode={(mode) => setWorkspaceMode(mode)}
         onOpenPro={() => setIsProModalOpen(true)}
+        bookmarkCount={bookmarkedIds.size}
+        onSelectBookmark={() => {
+          setWorkspaceMode('LEDGER');
+          setCurrentFilter((prev) => (prev === 'BOOKMARKED' ? 'ALL' : 'BOOKMARKED'));
+        }}
+        isBookmarkActive={workspaceMode === 'LEDGER' && currentFilter === 'BOOKMARKED'}
       />
 
       {/* リアルタイム市況ティッカー */}
@@ -614,16 +619,6 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
       {/* メインエリア */}
       <main className="flex-1 flex overflow-hidden relative">
-        {/* 左サイドバー */}
-        <TerminalSidebar
-          workspaceMode={workspaceMode}
-          onSelectMode={(mode) => setWorkspaceMode(mode)}
-          currentFilter={currentFilter}
-          onSelectFilter={(f) => setCurrentFilter(f)}
-          bookmarkCount={bookmarkedIds.size}
-          onOpenPro={() => setIsProModalOpen(true)}
-        />
-
         {/* 画面モードに応じたコンテンツレンダリング */}
         {workspaceMode === 'PLAYBOOK' ? (
           <PlaybookIntelligenceView

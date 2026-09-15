@@ -10,7 +10,8 @@ import {
   TrendingUp, 
   Cpu, 
   Handshake,
-  KeyRound
+  KeyRound,
+  Bookmark
 } from 'lucide-react';
 
 export type GlobalNavSection = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS' | 'PARTNERS' | 'WELCOME';
@@ -20,6 +21,9 @@ interface GlobalHeaderProps {
   onSelectLocalMode?: (mode: 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS') => void;
   onOpenPro?: () => void;
   rightContent?: React.ReactNode;
+  bookmarkCount?: number;
+  onSelectBookmark?: () => void;
+  isBookmarkActive?: boolean;
 }
 
 export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
@@ -27,6 +31,9 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   onSelectLocalMode,
   onOpenPro,
   rightContent,
+  bookmarkCount,
+  onSelectBookmark,
+  isBookmarkActive,
 }) => {
   const pathname = usePathname();
 
@@ -156,24 +163,48 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       <div className="flex items-center gap-2 shrink-0 ml-2 sm:ml-4">
         {rightContent !== undefined ? (
           rightContent
-        ) : onOpenPro ? (
-          <button
-            onClick={onOpenPro}
-            className="flex items-center gap-1 px-2.5 py-1 rounded bg-white text-zinc-950 hover:bg-zinc-200 font-mono text-xs font-bold transition-colors cursor-pointer shadow-sm"
-            title="PROプランで全詳細データを解錠"
-          >
-            <KeyRound className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">PRO解錠</span>
-          </button>
         ) : (
-          activeSection !== 'LEDGER' && (
-            <Link
-              href="/"
-              className="text-xs font-mono text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-white/[0.04] transition-colors whitespace-nowrap"
-            >
-              <span>台帳 ↗</span>
-            </Link>
-          )
+          <>
+            {onSelectBookmark && (
+              <button
+                onClick={onSelectBookmark}
+                className={`flex items-center gap-1 px-2.5 py-1 rounded text-xs font-mono transition-colors cursor-pointer border ${
+                  isBookmarkActive
+                    ? 'bg-white/[0.1] text-white border-white/[0.2]'
+                    : 'text-zinc-400 hover:text-white border-white/[0.06] hover:bg-white/[0.04]'
+                }`}
+                title={`保存済み銘柄 (${bookmarkCount || 0})`}
+              >
+                <Bookmark className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">保存</span>
+                {typeof bookmarkCount === 'number' && bookmarkCount > 0 && (
+                  <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-1 rounded-full">
+                    {bookmarkCount}
+                  </span>
+                )}
+              </button>
+            )}
+
+            {onOpenPro && (
+              <button
+                onClick={onOpenPro}
+                className="flex items-center gap-1 px-2.5 py-1 rounded bg-white text-zinc-950 hover:bg-zinc-200 font-mono text-xs font-bold transition-colors cursor-pointer shadow-sm"
+                title="PROプランで全詳細データを解錠"
+              >
+                <KeyRound className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">PRO解錠</span>
+              </button>
+            )}
+
+            {activeSection !== 'LEDGER' && !onOpenPro && (
+              <Link
+                href="/"
+                className="text-xs font-mono text-zinc-400 hover:text-white px-2 py-1 rounded hover:bg-white/[0.04] transition-colors whitespace-nowrap"
+              >
+                <span>台帳 ↗</span>
+              </Link>
+            )}
+          </>
         )}
       </div>
     </header>
