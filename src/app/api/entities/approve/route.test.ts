@@ -121,6 +121,22 @@ describe('approval API acknowledgement', () => {
     expect(localStore).not.toHaveBeenCalled();
   });
 
+  it('accepts more than one thousand explicit IDs and delegates chunking to the D1 store', async () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    verify.mockResolvedValue({ uid: 'admin-1', claims: {} });
+    roles.mockResolvedValue([{ role: 'admin' }]);
+    const entityIds = Array.from({ length: 1001 }, (_, index) => `ent-${index}`);
+    d1Store.mockResolvedValue({ approvedCount: entityIds.length, entityIds, updated: true });
+
+    const response = await POST(request({ entityIds }, 'https://app.example.com/api/entities/approve', {
+      origin: 'https://app.example.com', authorization: 'Bearer valid',
+    }));
+
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({ success: true, approvedCount: 1001, entityIds });
+    expect(d1Store).toHaveBeenCalledWith(entityIds, 'admin-1');
+  });
+
   it('never converts a production persistence failure into success', async () => {
     vi.stubEnv('NODE_ENV', 'production');
     verify.mockResolvedValue({ uid: 'admin-1', claims: {} });
