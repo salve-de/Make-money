@@ -1,7 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Handshake,
@@ -18,10 +17,7 @@ import {
   BarChart3
 } from 'lucide-react';
 
-function PartnersContent() {
-  const searchParams = useSearchParams();
-  const companyParam = searchParams.get('company');
-
+export default function PartnersPage() {
   const [copied, setCopied] = useState(false);
   const [partnerId, setPartnerId] = useState('usr_partner');
   const [referralCount, setReferralCount] = useState(25);
@@ -46,10 +42,7 @@ function PartnersContent() {
   }, []);
 
   const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://makemoney-app.pages.dev';
-  
-  const referralUrl = companyParam
-    ? `${baseUrl}/?company=${encodeURIComponent(companyParam)}&ref=${partnerId}`
-    : `${baseUrl}/?ref=${partnerId}`;
+  const referralUrl = `${baseUrl}/?ref=${partnerId}`;
 
   const handleCopy = async () => {
     try {
@@ -149,7 +142,7 @@ function PartnersContent() {
                 <span>あなた専用の紹介リンク</span>
               </h2>
               <p className="text-[11px] text-zinc-400 mt-0.5">
-                {companyParam ? `指定銘柄 (${companyParam}) 直通の紹介URLです。` : 'サイト全体にアクセスできる汎用紹介URLです。'}
+                MAKEMONEY全体のすべての企業分析・裏帳簿に有効な公式紹介URLです。
               </p>
             </div>
             <div className="text-[10px] font-mono text-emerald-400 bg-emerald-950/50 border border-emerald-500/30 px-2 py-0.5 rounded shrink-0">
@@ -357,13 +350,5 @@ function PartnersContent() {
         </footer>
       </main>
     </div>
-  );
-}
-
-export default function PartnersPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-[#07090E] flex items-center justify-center text-zinc-500 font-mono text-xs">読み込み中...</div>}>
-      <PartnersContent />
-    </Suspense>
   );
 }

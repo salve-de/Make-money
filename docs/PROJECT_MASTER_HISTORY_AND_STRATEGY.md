@@ -1,5 +1,35 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-15 【確定】パートナー公式ポータル（`/partners`）の純化 ＆ 個別銘柄パラメータ（`?company=...`）完全撤廃（Phase 195）
+
+### 1. ユーザー指示と設計方針（User Direct Command & Elimination of Fragmented Context）
+- **ユーザー指示**:
+  - 「http://localhost:3001/partners?company=ent_vidyo_ai_2c79b9 これはこのままでいいの？」
+  - 「いや違うよ だからこの ページ自体 いらねえんじゃねえの？」
+  - 「どういうことだ いるの？ いらないの？ だから これまでの 内容からして どうすんの？ 意味不明なんだよお前」
+  - 「やれ」
+- **設計方針の徹底（本質的役割の完全分離）**:
+  - **個別記事の紹介（日常作業）**: 共有モーダル内で100%完結（文面＋30%還元URLを即時一括コピー・SNS投稿。別ページには飛ばさない）。
+  - **公式ポータル（`/partners`）の純化**: パートナー制度の全貌（30%永続還元、30日Cookie、月額シミュレーター、振込規約、FAQ）を明示し、本気で稼ぎたい紹介者へ信用と大義名分を与える公式ページとして純化。
+  - **個別パラメータ（`?company=...`）の完全撤廃**: 内部生ID（`ent_vidyo_ai_...`）の露出や不自然な分岐を完全切除し、サイト全体に有効な公式紹介リンク（`/?ref=p_xxx`）に一本化。
+
+### 2. 物理実装したUIアーキテクチャ（Portal Purification & URL Decoupling）
+1. **`src/app/partners/page.tsx` の純化**:
+   - `useSearchParams` および `companyParam` を完全撤廃。
+   - 紹介リンクを純粋な `https://.../?ref=${partnerId}`（サイト全体の全分析・裏帳簿に有効な公式紹介URL）に統一。
+   - 内部生ID表示（`指定銘柄 (ent_vidyo_ai_...)` 等）を完全切除。
+2. **`ShareModal.tsx` のリンク修正**:
+   - 最下部の詳細案内リンクを `href="/partners"`（パラメータなし）へ純化。
+3. **ワークツリー同期（ポート3000 & 3001）**:
+   - ポート3000（メイン）およびポート3001（`Make-Money-prev`）の双方へ完全同期。
+
+### 3. テスト・リント・実機Playwright検証
+- `pnpm lint`: 全634エンティティ品質、アーキテクチャ境界、ESLint（--max-warnings=0）全件 PASS。
+- Playwright実機ブラウザ検証:
+  - `screen_partners_purified_3001.png` にて、生IDや不自然な分岐のない美しい公式紹介リンクと全体制度ポータルが正常にレンダリングされていることを確認。
+
+---
+
 ## 2026-09-15 【確定】共有モーダルにおける「正体文面 ＋ 固有紹介URL（30%還元）」ワンクリック完全合体共有 ＆ 最下部一括コピー昇格完了（Phase 194）
 
 ### 1. ユーザー指示と設計方針（User Direct Command & Elimination of Multi-Step Hassle）
