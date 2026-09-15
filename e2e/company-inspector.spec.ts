@@ -1,3 +1,4 @@
+import { openNotes, selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
 
 test('company list opens financials and evidence, then closes and reopens the inspector', async ({ page }) => {
@@ -15,17 +16,18 @@ test('company list opens financials and evidence, then closes and reopens the in
   await row.click();
   await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
 
-  await page.getByRole('button', { name: /財務P&L/ }).click();
-  const financials = page.locator('#section-financial');
+  await page.getByRole('button', { name: /現金の解剖室/ }).click();
+  const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
   await expect(financials).toContainText('月商');
-  await expect(financials).toContainText('営業利益 (税引前)');
+  await expect(financials).toContainText('純手残り (営業利益)');
   await expect(financials).toContainText('¥800.0億');
   await expect(financials).toContainText('¥432.0億');
 
-  await page.getByRole('button', { name: /儲けのウラ側|特異物証/ }).click();
+  await page.getByRole('button', { name: /動かぬ証拠 4大急所/ }).click();
   await expect(page.getByRole('heading', { name: /儲けのウラ側 ＆ 現場の証拠ファイル|特異点物証 ＆ 金抜きの急所ファイル/ })).toBeVisible();
   await expect(page.locator('#section-evidence')).toContainText('原価率18%の直販要塞・相見積もり完全拒否');
+  await page.getByRole('button', { name: '【証拠】検証エビデンス', exact: true }).click();
   await expect(page.getByText('保存済み観測を表示', { exact: true })).toBeVisible();
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
 
@@ -50,8 +52,8 @@ test('malformed Foundation response cannot replace the usable core list', async 
   await expect.poll(() => warnings.some((warning) => warning.includes('Foundation Lake read failed'))).toBe(true);
   await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
   await expect(page.getByText('Invalid remote company', { exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: /財務P&L/ }).click();
-  await expect(page.locator('#section-financial')).toContainText('¥800.0億');
+  await page.getByRole('button', { name: /現金の解剖室/ }).click();
+  await expect(page.locator('#section-cash-anatomy')).toContainText('¥800.0億');
   expect(errors).toEqual([]);
 });
 
@@ -83,7 +85,7 @@ test('sparse Foundation candidate cannot replace a curated dossier with the same
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Photo AI (候補)', exact: true })).toHaveCount(0);
-  await page.getByRole('button', { name: /儲けのウラ側|特異物証/ }).click();
+  await page.getByRole('button', { name: /動かぬ証拠 4大急所/ }).click();
   await expect(page.locator('#section-evidence')).toContainText('継続MRRではない');
   expect(detailRequests).toBe(0);
   expect(errors).toEqual([]);
@@ -96,9 +98,9 @@ test('existing hazard dossier keeps its loss label and dynamic evidence', async 
   await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
   await expect(page.getByRole('heading', { name: /失敗・撤退の事実ログ|致命的特異点・死因物証保全ファイル/ })).toBeVisible();
   await expect(page.locator('#section-evidence')).toContainText(/ChatGPT無料公開による存在価値消滅と大量レイオフの(失敗の検証|検死)/);
-  await page.getByRole('button', { name: /財務P&L/ }).click();
-  await expect(page.locator('#section-financial')).toContainText('POST-MORTEM');
-  await expect(page.locator('#section-financial')).toContainText('¥-260,000,000');
+  await page.getByRole('button', { name: /現金の解剖室/ }).click();
+  await expect(page.locator('aside')).toContainText('赤字出血');
+  await expect(page.locator('#section-cash-anatomy')).toContainText('¥-260,000,000');
   expect(errors).toEqual([]);
 });
 
@@ -114,7 +116,7 @@ test('J/K never switches companies, including while writing and reloading a note
   await page.goto('/');
   const heading = page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true });
   await expect(heading).toBeVisible();
-  await page.getByRole('button', { name: 'メモ', exact: true }).click();
+  await openNotes(page);
   const note = page.locator('#section-notes textarea');
   await note.fill('');
   await note.pressSequentially('jkJK memo');
@@ -126,9 +128,9 @@ test('J/K never switches companies, including while writing and reloading a note
   await expect(page.locator('kbd').filter({ hasText: 'J/K' })).toHaveCount(0);
   await page.reload();
   await expect(heading).toBeVisible();
-  await page.getByRole('button', { name: 'メモ', exact: true }).click();
+  await openNotes(page);
   await expect(note).toHaveValue('jkJK memo');
-  await page.getByTitle('次銘柄', { exact: true }).click();
+  await selectCompany(page, 'Photo AI');
   await expect(heading).toHaveCount(0);
   expect(errors).toEqual([]);
 });
@@ -149,7 +151,7 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({
     }, { storageKey, raw });
     await page.goto('/');
     await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
-    await page.getByRole('button', { name: 'メモ', exact: true }).click();
+    await openNotes(page);
     const note = page.locator('#section-notes textarea');
     await expect(note).toHaveValue('');
     expect(await page.evaluate((key) => localStorage.getItem(key), storageKey)).toBe(raw);
@@ -162,7 +164,7 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({
     if (raw.includes('ent_photoai')) expect(stored.notes.ent_photoai.content).toBe('正常な既存メモ');
     await page.reload();
     await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
-    await page.getByRole('button', { name: 'メモ', exact: true }).click();
+    await openNotes(page);
     await expect(note).toHaveValue('復旧後のメモ jkJK');
     expect(errors).toEqual([]);
   });
@@ -199,8 +201,8 @@ test('remote revenue-only detail leaves profit unknown and does not invent a wat
   await page.goto('/?entity=ent_smoke_revenue_only');
   await expect.poll(() => detailReturned).toBe(true);
   await expect(page.getByRole('heading', { name: '境界確認企業', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: /財務P&L/ }).click();
-  const financials = page.locator('#section-financial');
+  await page.getByRole('button', { name: /現金の解剖室/ }).click();
+  const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toContainText('¥12万');
   await expect(financials).toContainText('未確認');
   await expect(financials).not.toContainText('¥0');
@@ -212,11 +214,11 @@ test('remote revenue-only detail leaves profit unknown and does not invent a wat
 test('unconfirmed financials have an honest label and a working navigation target', async ({ page }) => {
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
-  const jump = page.getByRole('button', { name: '財務P&L 未確認' });
+  const jump = page.getByRole('button', { name: /現金の解剖室/ });
   await expect(jump).toBeVisible();
   await jump.click();
-  const section = page.locator('#section-financial');
+  const section = page.locator('#section-cash-anatomy');
   await expect(section).toBeInViewport();
-  await expect(section).toContainText('財務データは未確認');
+  await expect(section).toContainText('財務データ未確認');
   await expect(section).not.toContainText('¥0');
 });

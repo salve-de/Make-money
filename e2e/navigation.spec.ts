@@ -1,3 +1,4 @@
+import { openNotes, selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
 
 // These routes use checked-in content. Nothing submits AI generation or payment requests.
@@ -29,15 +30,15 @@ test('analyst note survives reload and remains attached to the selected company'
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await page.getByTitle(/考察メモ/).click();
+  await openNotes(page);
   const note = page.locator('#section-notes textarea');
   await note.fill('Smoke note: verify the quoted operating margin before comparison.');
   await page.reload();
-  await page.getByTitle(/考察メモ/).click();
+  await openNotes(page);
   await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await page.getByTitle('次銘柄', { exact: true }).click();
+  await selectCompany(page, 'Photo AI');
   await expect(note).not.toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await page.getByTitle('前銘柄', { exact: true }).click();
+  await selectCompany(page, 'キーエンス (KEYENCE)');
   await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
   expect(errors).toEqual([]);
 });
@@ -109,7 +110,7 @@ for (const raw of ['null', '{}', '[null,42,"ent_photoai"]']) {
     await page.addInitScript((raw) => localStorage.setItem('mm_viewed_entity_history_v1', raw), raw);
     await page.goto('/');
     await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
-    await page.getByTitle('次銘柄', { exact: true }).click();
+    await selectCompany(page, 'Photo AI');
     await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toHaveCount(0);
     expect(errors).toEqual([]);
   });
