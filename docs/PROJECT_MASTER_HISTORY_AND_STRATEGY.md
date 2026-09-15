@@ -1,6 +1,33 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
-## 2026-09-14 【確定】オーナーの5大最高意志（不公正攻略本・全方位網・事業成立境界・欠損誠実受容・1億事例スクリーニング基盤）＆ 短時間・高レバレッジ型事例受入の全正本完全明文化（Phase 187）
+## 2026-09-15 【確定】世代別（第1期〜第5期）UIセレクター配備 ＆ 全532社への世代ID配備・実機E2E検証完了（Phase 188）
+
+### 1. ユーザー指示と病巣の看破（User Command & Batch Selector Fix）
+- **ユーザー指示**:
+  - 「じゃあ 世代ごとに またUIで見られるようにして」
+- **病巣の解剖**:
+  - 第6世代・第5世代によって新規追加された200社（`batch_solo_conquerors_100` および `batch_solo_recent_winners_100`）は、データ自体の品質は極めて高かったものの、各エンティティの `batchId` が `undefined`（未設定）のまま中央台帳へマージされていた。
+  - そのため、UIツールバー（`DataGridToolbar.tsx`）の世代セレクターに第4期・第5期が出現せず、「全世代」以外で絞り込めない状態になっていた。
+
+### 2. 物理実装したUIアーキテクチャとデータ配線（Unified Generation Architecture）
+1. **世代マスタ定義の拡充（`src/shared/terminal.ts`）**:
+   - `KNOWN_INGEST_BATCHES` に以下の2世代を最新順に配備：
+     - `batch-05-2026-09-14-recent-winners100`（第5期 近年AI・高速ラッパー 100社）
+     - `batch-04-2026-09-14-solo-conquerors100`（第4期 個人・少数精鋭 100社）
+2. **全532社への世代バッチID完全配備**:
+   - `data/entities-index.json`、`data/incoming/processed/` 内の生JSON、および R2ローカル（`data/r2-local/foundation-lake/journal/`）の全ファイルに、漏れなく `batchId` をセット。
+   - `NO_BATCH` を **完全0件** に根絶（第5期: 100社、第4期: 100社、第3期: 98社、第2期: 101社、第1期: 133社、計532社）。
+3. **UIセレクターの連動と実機E2E検証**:
+   - UIヘッダーの `[📦 全世代 (532社)]` ドロップダウンから、任意の期（世代）を選択可能。
+   - Playwright による実機ブラウザ検証を実施：
+     - 第5期（近年AI 100社）選択時: Crayo AI, MacWhisper, Magnific AI 等の最新AIツール群が瞬時にフィルタリング表示（`screen_batch_05.png`）。
+     - 第4期（個人少数 100社）選択時: Submagic, Taplio, ChatPDF 等の個人・少数精鋭勝者群が瞬時にフィルタリング表示（`screen_batch_04.png`）。
+     - ワンクリック解除ボタン（`[×]`）で即座に全532社表示に復帰可能。
+
+### 3. テスト・リント全関所検証
+- `pnpm lint`: 全532エンティティの品質監査・アーキテクチャ境界チェック全件 PASS。
+
+---
 
 ### 1. ユーザー指示と病巣の看破（User Direct Command & True Intent）
 - **ユーザー指示**:

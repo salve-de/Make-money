@@ -26,7 +26,7 @@
       "monthlyRevenue": 45000000,
       "cogs": 6750000,
       "grossProfit": 38250000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 3500000,
         "advertising": 8000000,
@@ -151,7 +151,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_macwhisper_2f65b8",
@@ -180,7 +181,7 @@
       "monthlyRevenue": 6500000,
       "cogs": 0,
       "grossProfit": 6500000,
-      "grossMargin": 100.0,
+      "grossMargin": 100,
       "operatingExpenses": {
         "serverAndApi": 30000,
         "advertising": 0,
@@ -305,7 +306,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_magnific_ai_349dd3",
@@ -333,7 +335,7 @@
       "monthlyRevenue": 28000000,
       "cogs": 5600000,
       "grossProfit": 22400000,
-      "grossMargin": 80.0,
+      "grossMargin": 80,
       "operatingExpenses": {
         "serverAndApi": 3200000,
         "advertising": 0,
@@ -457,7 +459,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_cleanvoice_ai_bbdf69",
@@ -486,7 +489,7 @@
       "monthlyRevenue": 3800000,
       "cogs": 380000,
       "grossProfit": 3420000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 180000,
         "advertising": 0,
@@ -611,7 +614,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_wondercraft_ai_cf6a91",
@@ -640,7 +644,7 @@
       "monthlyRevenue": 25000000,
       "cogs": 4250000,
       "grossProfit": 20750000,
-      "grossMargin": 83.0,
+      "grossMargin": 83,
       "operatingExpenses": {
         "serverAndApi": 2500000,
         "advertising": 2000000,
@@ -765,7 +769,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_vidyo_ai_2c79b9",
@@ -793,7 +798,7 @@
       "monthlyRevenue": 18000000,
       "cogs": 3600000,
       "grossProfit": 14400000,
-      "grossMargin": 80.0,
+      "grossMargin": 80,
       "operatingExpenses": {
         "serverAndApi": 2200000,
         "advertising": 1800000,
@@ -918,7 +923,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_vsub_f334f8",
@@ -947,7 +953,7 @@
       "monthlyRevenue": 4500000,
       "cogs": 675000,
       "grossProfit": 3825000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 350000,
         "advertising": 0,
@@ -1072,7 +1078,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_headlime_c44798",
@@ -1100,7 +1107,7 @@
       "monthlyRevenue": 15000000,
       "cogs": 1500000,
       "grossProfit": 13500000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 900000,
         "advertising": 0,
@@ -1109,7 +1116,7 @@
         "other": 300000
       },
       "operatingProfit": 12000000,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 115200000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -1225,7 +1232,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_prompthero_7fbb6e",
@@ -1253,7 +1261,7 @@
       "monthlyRevenue": 5200000,
       "cogs": 520000,
       "grossProfit": 4680000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 350000,
         "advertising": 0,
@@ -1377,7 +1385,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_podsqueeze_bdfb91",
@@ -1406,7 +1415,7 @@
       "monthlyRevenue": 5000000,
       "cogs": 500000,
       "grossProfit": 4500000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 300000,
         "advertising": 0,
@@ -1415,7 +1424,7 @@
         "other": 200000
       },
       "operatingProfit": 3850000,
-      "operatingMargin": 77.0,
+      "operatingMargin": 77,
       "estimatedAnnualNetProfit": 36960000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -1531,7 +1540,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_vapi_29e1a4",
@@ -1560,7 +1570,7 @@
       "monthlyRevenue": 38000000,
       "cogs": 11400000,
       "grossProfit": 26600000,
-      "grossMargin": 70.0,
+      "grossMargin": 70,
       "operatingExpenses": {
         "serverAndApi": 3800000,
         "advertising": 1500000,
@@ -1685,7 +1695,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_retell_ai_4cdd23",
@@ -1714,7 +1725,7 @@
       "monthlyRevenue": 42000000,
       "cogs": 12600000,
       "grossProfit": 29400000,
-      "grossMargin": 70.0,
+      "grossMargin": 70,
       "operatingExpenses": {
         "serverAndApi": 4200000,
         "advertising": 2000000,
@@ -1839,7 +1850,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_synthflow_ai_819761",
@@ -1868,7 +1880,7 @@
       "monthlyRevenue": 28000000,
       "cogs": 8400000,
       "grossProfit": 19600000,
-      "grossMargin": 70.0,
+      "grossMargin": 70,
       "operatingExpenses": {
         "serverAndApi": 3200000,
         "advertising": 1800000,
@@ -1993,7 +2005,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_fal_ai_36559d",
@@ -2022,7 +2035,7 @@
       "monthlyRevenue": 85000000,
       "cogs": 34000000,
       "grossProfit": 51000000,
-      "grossMargin": 60.0,
+      "grossMargin": 60,
       "operatingExpenses": {
         "serverAndApi": 8500000,
         "advertising": 1500000,
@@ -2031,7 +2044,7 @@
         "other": 2500000
       },
       "operatingProfit": 34000000,
-      "operatingMargin": 40.0,
+      "operatingMargin": 40,
       "estimatedAnnualNetProfit": 326400000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -2147,7 +2160,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_modal_c5803a",
@@ -2176,7 +2190,7 @@
       "monthlyRevenue": 75000000,
       "cogs": 30000000,
       "grossProfit": 45000000,
-      "grossMargin": 60.0,
+      "grossMargin": 60,
       "operatingExpenses": {
         "serverAndApi": 7500000,
         "advertising": 1000000,
@@ -2185,7 +2199,7 @@
         "other": 2500000
       },
       "operatingProfit": 30000000,
-      "operatingMargin": 40.0,
+      "operatingMargin": 40,
       "estimatedAnnualNetProfit": 288000000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -2301,7 +2315,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_runpod_31d1b3",
@@ -2330,7 +2345,7 @@
       "monthlyRevenue": 120000000,
       "cogs": 54000000,
       "grossProfit": 66000000,
-      "grossMargin": 55.0,
+      "grossMargin": 55,
       "operatingExpenses": {
         "serverAndApi": 12000000,
         "advertising": 2000000,
@@ -2339,7 +2354,7 @@
         "other": 3000000
       },
       "operatingProfit": 42000000,
-      "operatingMargin": 35.0,
+      "operatingMargin": 35,
       "estimatedAnnualNetProfit": 403200000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -2455,7 +2470,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_lovable_2f9cb7",
@@ -2484,7 +2500,7 @@
       "monthlyRevenue": 65000000,
       "cogs": 19500000,
       "grossProfit": 45500000,
-      "grossMargin": 70.0,
+      "grossMargin": 70,
       "operatingExpenses": {
         "serverAndApi": 9750000,
         "advertising": 3000000,
@@ -2609,7 +2625,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_create_xyz_9f5e62",
@@ -2637,7 +2654,7 @@
       "monthlyRevenue": 35000000,
       "cogs": 7000000,
       "grossProfit": 28000000,
-      "grossMargin": 80.0,
+      "grossMargin": 80,
       "operatingExpenses": {
         "serverAndApi": 4500000,
         "advertising": 1500000,
@@ -2762,7 +2779,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_magic_patterns_11bed8",
@@ -2791,7 +2809,7 @@
       "monthlyRevenue": 18000000,
       "cogs": 3600000,
       "grossProfit": 14400000,
-      "grossMargin": 80.0,
+      "grossMargin": 80,
       "operatingExpenses": {
         "serverAndApi": 2200000,
         "advertising": 1200000,
@@ -2916,7 +2934,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_decktopus_ac8e51",
@@ -2945,7 +2964,7 @@
       "monthlyRevenue": 32000000,
       "cogs": 4800000,
       "grossProfit": 27200000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 2800000,
         "advertising": 3500000,
@@ -3070,7 +3089,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_photoroom_cacaf9",
@@ -3099,7 +3119,7 @@
       "monthlyRevenue": 280000000,
       "cogs": 42000000,
       "grossProfit": 238000000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 25000000,
         "advertising": 35000000,
@@ -3224,7 +3244,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_opus_clip_34adc7",
@@ -3253,7 +3274,7 @@
       "monthlyRevenue": 55000000,
       "cogs": 11000000,
       "grossProfit": 44000000,
-      "grossMargin": 80.0,
+      "grossMargin": 80,
       "operatingExpenses": {
         "serverAndApi": 6500000,
         "advertising": 4000000,
@@ -3378,7 +3399,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_krea_ai_f3c836",
@@ -3407,7 +3429,7 @@
       "monthlyRevenue": 48000000,
       "cogs": 12000000,
       "grossProfit": 36000000,
-      "grossMargin": 75.0,
+      "grossMargin": 75,
       "operatingExpenses": {
         "serverAndApi": 5500000,
         "advertising": 2000000,
@@ -3532,7 +3554,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_speechify_72d96a",
@@ -3561,7 +3584,7 @@
       "monthlyRevenue": 180000000,
       "cogs": 27000000,
       "grossProfit": 153000000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 18000000,
         "advertising": 35000000,
@@ -3686,7 +3709,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_audioread_381127",
@@ -3715,7 +3739,7 @@
       "monthlyRevenue": 1800000,
       "cogs": 270000,
       "grossProfit": 1530000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 120000,
         "advertising": 0,
@@ -3840,7 +3864,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_podcastle_1f6fb5",
@@ -3869,7 +3894,7 @@
       "monthlyRevenue": 38000000,
       "cogs": 5700000,
       "grossProfit": 32300000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 3800000,
         "advertising": 4500000,
@@ -3994,7 +4019,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_riverside_fm_16995f",
@@ -4023,7 +4049,7 @@
       "monthlyRevenue": 220000000,
       "cogs": 33000000,
       "grossProfit": 187000000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 22000000,
         "advertising": 30000000,
@@ -4148,7 +4174,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_railway_e34d1c",
@@ -4177,7 +4204,7 @@
       "monthlyRevenue": 80000000,
       "cogs": 28000000,
       "grossProfit": 52000000,
-      "grossMargin": 65.0,
+      "grossMargin": 65,
       "operatingExpenses": {
         "serverAndApi": 8000000,
         "advertising": 1500000,
@@ -4186,7 +4213,7 @@
         "other": 2500000
       },
       "operatingProfit": 36000000,
-      "operatingMargin": 45.0,
+      "operatingMargin": 45,
       "estimatedAnnualNetProfit": 345600000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -4302,7 +4329,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_zeabur_ab37ac",
@@ -4331,7 +4359,7 @@
       "monthlyRevenue": 6000000,
       "cogs": 1800000,
       "grossProfit": 4200000,
-      "grossMargin": 70.0,
+      "grossMargin": 70,
       "operatingExpenses": {
         "serverAndApi": 600000,
         "advertising": 0,
@@ -4456,7 +4484,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_devutils_46425e",
@@ -4485,7 +4514,7 @@
       "monthlyRevenue": 2100000,
       "cogs": 0,
       "grossProfit": 2100000,
-      "grossMargin": 100.0,
+      "grossMargin": 100,
       "operatingExpenses": {
         "serverAndApi": 20000,
         "advertising": 0,
@@ -4610,7 +4639,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_xnapper_ba0abc",
@@ -4639,7 +4669,7 @@
       "monthlyRevenue": 1800000,
       "cogs": 0,
       "grossProfit": 1800000,
-      "grossMargin": 100.0,
+      "grossMargin": 100,
       "operatingExpenses": {
         "serverAndApi": 15000,
         "advertising": 0,
@@ -4764,7 +4794,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_black_magic_bde537",
@@ -4793,7 +4824,7 @@
       "monthlyRevenue": 1900000,
       "cogs": 190000,
       "grossProfit": 1710000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 120000,
         "advertising": 0,
@@ -4917,7 +4948,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_goodlinks_68316e",
@@ -4946,7 +4978,7 @@
       "monthlyRevenue": 1600000,
       "cogs": 0,
       "grossProfit": 1600000,
-      "grossMargin": 100.0,
+      "grossMargin": 100,
       "operatingExpenses": {
         "serverAndApi": 0,
         "advertising": 0,
@@ -4955,7 +4987,7 @@
         "other": 50000
       },
       "operatingProfit": 1520000,
-      "operatingMargin": 95.0,
+      "operatingMargin": 95,
       "estimatedAnnualNetProfit": 14592000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -5071,7 +5103,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_vivid_685ee5",
@@ -5100,7 +5133,7 @@
       "monthlyRevenue": 1200000,
       "cogs": 0,
       "grossProfit": 1200000,
-      "grossMargin": 100.0,
+      "grossMargin": 100,
       "operatingExpenses": {
         "serverAndApi": 10000,
         "advertising": 0,
@@ -5219,7 +5252,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_plunk_10a2aa",
@@ -5248,7 +5282,7 @@
       "monthlyRevenue": 1500000,
       "cogs": 180000,
       "grossProfit": 1320000,
-      "grossMargin": 88.0,
+      "grossMargin": 88,
       "operatingExpenses": {
         "serverAndApi": 120000,
         "advertising": 30000,
@@ -5373,7 +5407,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_adapty_63fd9e",
@@ -5527,7 +5562,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_weglot_f00a14",
@@ -5681,7 +5717,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_tolgee_00b398",
@@ -5835,7 +5872,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_localazy_1a6615",
@@ -5873,7 +5911,7 @@
         "other": 200000
       },
       "operatingProfit": 5200000,
-      "operatingMargin": 65.0,
+      "operatingMargin": 65,
       "estimatedAnnualNetProfit": 49920000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -5989,7 +6027,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_crowdin_5a0ba8",
@@ -6018,7 +6057,7 @@
       "monthlyRevenue": 120000000,
       "cogs": 18000000,
       "grossProfit": 102000000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 12000000,
         "advertising": 15000000,
@@ -6143,7 +6182,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_finsweet_c96039",
@@ -6172,7 +6212,7 @@
       "monthlyRevenue": 25000000,
       "cogs": 3500000,
       "grossProfit": 21500000,
-      "grossMargin": 86.0,
+      "grossMargin": 86,
       "operatingExpenses": {
         "serverAndApi": 800000,
         "advertising": 500000,
@@ -6181,7 +6221,7 @@
         "other": 400000
       },
       "operatingProfit": 18000000,
-      "operatingMargin": 72.0,
+      "operatingMargin": 72,
       "estimatedAnnualNetProfit": 172800000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -6297,7 +6337,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_relume_4d8e63",
@@ -6451,7 +6492,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_marsx_61d5de",
@@ -6489,7 +6531,7 @@
         "other": 80000
       },
       "operatingProfit": 2100000,
-      "operatingMargin": 70.0,
+      "operatingMargin": 70,
       "estimatedAnnualNetProfit": 20160000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -6605,7 +6647,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_devhunt_7d0e7a",
@@ -6759,7 +6802,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_landingfolio_e0eaff",
@@ -6797,7 +6841,7 @@
         "other": 30000
       },
       "operatingProfit": 2800000,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 26880000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -6913,7 +6957,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_bento_me_c1b3e3",
@@ -7067,7 +7112,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_untitled_ui_53545a",
@@ -7096,7 +7142,7 @@
       "monthlyRevenue": 8000000,
       "cogs": 400000,
       "grossProfit": 7600000,
-      "grossMargin": 95.0,
+      "grossMargin": 95,
       "operatingExpenses": {
         "serverAndApi": 50000,
         "advertising": 150000,
@@ -7221,7 +7267,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_shipixen_78c44d",
@@ -7375,7 +7422,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_divjoy_3111be",
@@ -7404,7 +7452,7 @@
       "monthlyRevenue": 2500000,
       "cogs": 200000,
       "grossProfit": 2300000,
-      "grossMargin": 92.0,
+      "grossMargin": 92,
       "operatingExpenses": {
         "serverAndApi": 80000,
         "advertising": 30000,
@@ -7413,7 +7461,7 @@
         "other": 30000
       },
       "operatingProfit": 2100000,
-      "operatingMargin": 84.0,
+      "operatingMargin": 84,
       "estimatedAnnualNetProfit": 20160000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -7529,7 +7577,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_nextless_js_09e412",
@@ -7567,7 +7616,7 @@
         "other": 30000
       },
       "operatingProfit": 1700000,
-      "operatingMargin": 85.0,
+      "operatingMargin": 85,
       "estimatedAnnualNetProfit": 16320000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -7683,7 +7732,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_gravity_d4e3fc",
@@ -7837,7 +7887,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_tabler_icons_86f533",
@@ -7991,7 +8042,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_lordicon_c609ed",
@@ -8145,7 +8197,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_streamline_59afb3",
@@ -8299,7 +8352,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_undraw_ba4350",
@@ -8453,7 +8507,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_mobbin_09d00f",
@@ -8607,7 +8662,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_pageflows_a7c2b9",
@@ -8636,7 +8692,7 @@
       "monthlyRevenue": 2000000,
       "cogs": 180000,
       "grossProfit": 1820000,
-      "grossMargin": 91.0,
+      "grossMargin": 91,
       "operatingExpenses": {
         "serverAndApi": 80000,
         "advertising": 20000,
@@ -8645,7 +8701,7 @@
         "other": 30000
       },
       "operatingProfit": 1640000,
-      "operatingMargin": 82.0,
+      "operatingMargin": 82,
       "estimatedAnnualNetProfit": 15744000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -8761,7 +8817,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_refero_design_a7f2cc",
@@ -8790,7 +8847,7 @@
       "monthlyRevenue": 2200000,
       "cogs": 220000,
       "grossProfit": 1980000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 120000,
         "advertising": 30000,
@@ -8799,7 +8856,7 @@
         "other": 20000
       },
       "operatingProfit": 1760000,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 16896000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -8915,7 +8972,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_screenlane_2e8603",
@@ -8944,7 +9002,7 @@
       "monthlyRevenue": 1500000,
       "cogs": 120000,
       "grossProfit": 1380000,
-      "grossMargin": 92.0,
+      "grossMargin": 92,
       "operatingExpenses": {
         "serverAndApi": 50000,
         "advertising": 10000,
@@ -8953,7 +9011,7 @@
         "other": 20000
       },
       "operatingProfit": 1260000,
-      "operatingMargin": 84.0,
+      "operatingMargin": 84,
       "estimatedAnnualNetProfit": 12096000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -9069,7 +9127,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_really_good_emails_b66581",
@@ -9223,7 +9282,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_draftbit_2a1a95",
@@ -9261,7 +9321,7 @@
         "other": 600000
       },
       "operatingProfit": 10800000,
-      "operatingMargin": 60.0,
+      "operatingMargin": 60,
       "estimatedAnnualNetProfit": 103680000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -9377,7 +9437,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_toddle_ccc793",
@@ -9531,7 +9592,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_weweb_87761b",
@@ -9685,7 +9747,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_flutterflow_48a36b",
@@ -9714,7 +9777,7 @@
       "monthlyRevenue": 120000000,
       "cogs": 18000000,
       "grossProfit": 102000000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 12000000,
         "advertising": 15000000,
@@ -9839,7 +9902,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_buildship_39efd1",
@@ -9993,7 +10057,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_rowy_9cf14f",
@@ -10147,7 +10212,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_nocodb_42885d",
@@ -10301,7 +10367,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_appflowy_911e94",
@@ -10455,7 +10522,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_affine_d18b0d",
@@ -10609,7 +10677,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_breakcold_303e14",
@@ -10647,7 +10716,7 @@
         "other": 60000
       },
       "operatingProfit": 2100000,
-      "operatingMargin": 75.0,
+      "operatingMargin": 75,
       "estimatedAnnualNetProfit": 20160000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -10763,7 +10832,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_sparkloop_7ea1a3",
@@ -10917,7 +10987,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_firstpromoter_947807",
@@ -11071,7 +11142,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_tolt_60ea1b",
@@ -11225,7 +11297,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_promotekit_6ae070",
@@ -11254,7 +11327,7 @@
       "monthlyRevenue": 2500000,
       "cogs": 300000,
       "grossProfit": 2200000,
-      "grossMargin": 88.0,
+      "grossMargin": 88,
       "operatingExpenses": {
         "serverAndApi": 120000,
         "advertising": 30000,
@@ -11263,7 +11336,7 @@
         "other": 70000
       },
       "operatingProfit": 1900000,
-      "operatingMargin": 76.0,
+      "operatingMargin": 76,
       "estimatedAnnualNetProfit": 18240000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -11379,7 +11452,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_brand24_f4c972",
@@ -11408,7 +11482,7 @@
       "monthlyRevenue": 80000000,
       "cogs": 12000000,
       "grossProfit": 68000000,
-      "grossMargin": 85.0,
+      "grossMargin": 85,
       "operatingExpenses": {
         "serverAndApi": 8000000,
         "advertising": 10000000,
@@ -11417,7 +11491,7 @@
         "other": 5000000
       },
       "operatingProfit": 36000000,
-      "operatingMargin": 45.0,
+      "operatingMargin": 45,
       "estimatedAnnualNetProfit": 345600000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -11533,7 +11607,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_syften_7bb9c1",
@@ -11687,7 +11762,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_kwatch_io_fb50b4",
@@ -11716,7 +11792,7 @@
       "monthlyRevenue": 1500000,
       "cogs": 180000,
       "grossProfit": 1320000,
-      "grossMargin": 88.0,
+      "grossMargin": 88,
       "operatingExpenses": {
         "serverAndApi": 80000,
         "advertising": 20000,
@@ -11725,7 +11801,7 @@
         "other": 30000
       },
       "operatingProfit": 1140000,
-      "operatingMargin": 76.0,
+      "operatingMargin": 76,
       "estimatedAnnualNetProfit": 10944000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -11841,7 +11917,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_tinykiwi_3c51b6",
@@ -11879,7 +11956,7 @@
         "other": 30000
       },
       "operatingProfit": 1360000,
-      "operatingMargin": 85.0,
+      "operatingMargin": 85,
       "estimatedAnnualNetProfit": 13056000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -11995,7 +12072,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_mailbrew_c71e2a",
@@ -12149,7 +12227,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_chirr_app_d33bca",
@@ -12178,7 +12257,7 @@
       "monthlyRevenue": 2500000,
       "cogs": 250000,
       "grossProfit": 2250000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 100000,
         "advertising": 30000,
@@ -12187,7 +12266,7 @@
         "other": 60000
       },
       "operatingProfit": 2000000,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 19200000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -12303,7 +12382,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_audienceful_e5937d",
@@ -12330,7 +12410,7 @@
       "monthlyRevenue": 18000000,
       "cogs": 1800000,
       "grossProfit": 16200000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 486000,
         "advertising": 567000,
@@ -12339,7 +12419,7 @@
         "other": 162000
       },
       "operatingProfit": 14580000,
-      "operatingMargin": 81.0,
+      "operatingMargin": 81,
       "estimatedAnnualNetProfit": 139968000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -12455,7 +12535,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_letterdrop_7f9b8d",
@@ -12482,7 +12563,7 @@
       "monthlyRevenue": 30000000,
       "cogs": 3000000,
       "grossProfit": 27000000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 1200000,
         "advertising": 1400000,
@@ -12607,7 +12688,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_convertbox_9883c5",
@@ -12634,7 +12716,7 @@
       "monthlyRevenue": 28333333,
       "cogs": 1416666,
       "grossProfit": 26916667,
-      "grossMargin": 95.0,
+      "grossMargin": 95,
       "operatingExpenses": {
         "serverAndApi": 594999,
         "advertising": 694166,
@@ -12643,7 +12725,7 @@
         "other": 198336
       },
       "operatingProfit": 24933334,
-      "operatingMargin": 88.0,
+      "operatingMargin": 88,
       "estimatedAnnualNetProfit": 239360000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -12759,7 +12841,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_sleeknote_bd24ec",
@@ -12786,7 +12869,7 @@
       "monthlyRevenue": 75000000,
       "cogs": 6000000,
       "grossProfit": 69000000,
-      "grossMargin": 92.0,
+      "grossMargin": 92,
       "operatingExpenses": {
         "serverAndApi": 2700000,
         "advertising": 3150000,
@@ -12795,7 +12878,7 @@
         "other": 900000
       },
       "operatingProfit": 60000000,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 576000000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -12911,7 +12994,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_nudgify_8d2f67",
@@ -12938,7 +13022,7 @@
       "monthlyRevenue": 17500000,
       "cogs": 1400000,
       "grossProfit": 16100000,
-      "grossMargin": 92.0,
+      "grossMargin": 92,
       "operatingExpenses": {
         "serverAndApi": 577500,
         "advertising": 673750,
@@ -12947,7 +13031,7 @@
         "other": 192500
       },
       "operatingProfit": 14175000,
-      "operatingMargin": 81.0,
+      "operatingMargin": 81,
       "estimatedAnnualNetProfit": 136080000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -13063,7 +13147,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_surfer_seo_c472db",
@@ -13090,7 +13175,7 @@
       "monthlyRevenue": 250000000,
       "cogs": 25000000,
       "grossProfit": 225000000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 9000000,
         "advertising": 10500000,
@@ -13099,7 +13184,7 @@
         "other": 3000000
       },
       "operatingProfit": 195000000,
-      "operatingMargin": 78.0,
+      "operatingMargin": 78,
       "estimatedAnnualNetProfit": 1872000000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -13215,7 +13300,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_neuronwriter_b95856",
@@ -13242,7 +13328,7 @@
       "monthlyRevenue": 31666666,
       "cogs": 3166666,
       "grossProfit": 28500000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 759999,
         "advertising": 886666,
@@ -13251,7 +13337,7 @@
         "other": 253336
       },
       "operatingProfit": 25966667,
-      "operatingMargin": 82.0,
+      "operatingMargin": 82,
       "estimatedAnnualNetProfit": 249280000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -13367,7 +13453,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_clearscope_22a1ca",
@@ -13394,7 +13481,7 @@
       "monthlyRevenue": 58333333,
       "cogs": 4083333,
       "grossProfit": 54250000,
-      "grossMargin": 93.0,
+      "grossMargin": 93,
       "operatingExpenses": {
         "serverAndApi": 2100000,
         "advertising": 2450000,
@@ -13403,7 +13490,7 @@
         "other": 700000
       },
       "operatingProfit": 47250000,
-      "operatingMargin": 81.0,
+      "operatingMargin": 81,
       "estimatedAnnualNetProfit": 453600000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -13519,7 +13606,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_seowind_2a0d53",
@@ -13546,7 +13634,7 @@
       "monthlyRevenue": 15000000,
       "cogs": 1500000,
       "grossProfit": 13500000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 495000,
         "advertising": 577500,
@@ -13555,7 +13643,7 @@
         "other": 165000
       },
       "operatingProfit": 11850000,
-      "operatingMargin": 79.0,
+      "operatingMargin": 79,
       "estimatedAnnualNetProfit": 113760000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -13671,7 +13759,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_mangools_f79a1b",
@@ -13698,7 +13787,7 @@
       "monthlyRevenue": 33333333,
       "cogs": 3000000,
       "grossProfit": 30333333,
-      "grossMargin": 91.0,
+      "grossMargin": 91,
       "operatingExpenses": {
         "serverAndApi": 1200000,
         "advertising": 1400000,
@@ -13707,7 +13796,7 @@
         "other": 400000
       },
       "operatingProfit": 26333333,
-      "operatingMargin": 79.0,
+      "operatingMargin": 79,
       "estimatedAnnualNetProfit": 252800000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -13823,7 +13912,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_keysearch_be8d77",
@@ -13850,7 +13940,7 @@
       "monthlyRevenue": 20000000,
       "cogs": 2000000,
       "grossProfit": 18000000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 480000,
         "advertising": 560000,
@@ -13859,7 +13949,7 @@
         "other": 160000
       },
       "operatingProfit": 16400000,
-      "operatingMargin": 82.0,
+      "operatingMargin": 82,
       "estimatedAnnualNetProfit": 157440000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -13975,7 +14065,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_wincher_6f3d33",
@@ -14002,7 +14093,7 @@
       "monthlyRevenue": 26666666,
       "cogs": 2666666,
       "grossProfit": 24000000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 960000,
         "advertising": 1120000,
@@ -14011,7 +14102,7 @@
         "other": 320000
       },
       "operatingProfit": 20800000,
-      "operatingMargin": 78.0,
+      "operatingMargin": 78,
       "estimatedAnnualNetProfit": 199680000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -14127,7 +14218,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_nightwatch_da7a7e",
@@ -14154,7 +14246,7 @@
       "monthlyRevenue": 29166666,
       "cogs": 2916666,
       "grossProfit": 26250000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 1050000,
         "advertising": 1225000,
@@ -14163,7 +14255,7 @@
         "other": 350000
       },
       "operatingProfit": 22750000,
-      "operatingMargin": 78.0,
+      "operatingMargin": 78,
       "estimatedAnnualNetProfit": 218400000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -14279,7 +14371,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_sitechecker_c62233",
@@ -14306,7 +14399,7 @@
       "monthlyRevenue": 31666666,
       "cogs": 3166666,
       "grossProfit": 28500000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 1140000,
         "advertising": 1330000,
@@ -14315,7 +14408,7 @@
         "other": 380000
       },
       "operatingProfit": 24700000,
-      "operatingMargin": 78.0,
+      "operatingMargin": 78,
       "estimatedAnnualNetProfit": 237120000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -14431,7 +14524,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_seoptimer_8008c8",
@@ -14458,7 +14552,7 @@
       "monthlyRevenue": 30000000,
       "cogs": 3000000,
       "grossProfit": 27000000,
-      "grossMargin": 90.0,
+      "grossMargin": 90,
       "operatingExpenses": {
         "serverAndApi": 1080000,
         "advertising": 1260000,
@@ -14467,7 +14561,7 @@
         "other": 360000
       },
       "operatingProfit": 23400000,
-      "operatingMargin": 78.0,
+      "operatingMargin": 78,
       "estimatedAnnualNetProfit": 224640000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -14583,7 +14677,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_rank_math_5f0e5e",
@@ -14610,7 +14705,7 @@
       "monthlyRevenue": 100000000,
       "cogs": 8000000,
       "grossProfit": 92000000,
-      "grossMargin": 92.0,
+      "grossMargin": 92,
       "operatingExpenses": {
         "serverAndApi": 3600000,
         "advertising": 4200000,
@@ -14619,7 +14714,7 @@
         "other": 1200000
       },
       "operatingProfit": 80000000,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 768000000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -14735,7 +14830,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_novashare_3fcc71",
@@ -14762,7 +14858,7 @@
       "monthlyRevenue": 12500000,
       "cogs": 625000,
       "grossProfit": 11875000,
-      "grossMargin": 95.0,
+      "grossMargin": 95,
       "operatingExpenses": {
         "serverAndApi": 300000,
         "advertising": 350000,
@@ -14771,7 +14867,7 @@
         "other": 100000
       },
       "operatingProfit": 10875000,
-      "operatingMargin": 87.0,
+      "operatingMargin": 87,
       "estimatedAnnualNetProfit": 104400000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -14887,7 +14983,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_perfmatters_7671dd",
@@ -14914,7 +15011,7 @@
       "monthlyRevenue": 25000000,
       "cogs": 1250000,
       "grossProfit": 23750000,
-      "grossMargin": 95.0,
+      "grossMargin": 95,
       "operatingExpenses": {
         "serverAndApi": 600000,
         "advertising": 700000,
@@ -14923,7 +15020,7 @@
         "other": 200000
       },
       "operatingProfit": 21750000,
-      "operatingMargin": 87.0,
+      "operatingMargin": 87,
       "estimatedAnnualNetProfit": 208800000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -15039,7 +15136,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_wp_rocket_bae671",
@@ -15066,7 +15164,7 @@
       "monthlyRevenue": 208333333,
       "cogs": 16666666,
       "grossProfit": 191666667,
-      "grossMargin": 92.0,
+      "grossMargin": 92,
       "operatingExpenses": {
         "serverAndApi": 7500000,
         "advertising": 8750000,
@@ -15075,7 +15173,7 @@
         "other": 2500000
       },
       "operatingProfit": 166666667,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 1600000000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -15191,7 +15289,8 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   },
   {
     "id": "ent_seopress_eb7d51",
@@ -15218,7 +15317,7 @@
       "monthlyRevenue": 18333333,
       "cogs": 1466666,
       "grossProfit": 16866667,
-      "grossMargin": 92.0,
+      "grossMargin": 92,
       "operatingExpenses": {
         "serverAndApi": 660000,
         "advertising": 770000,
@@ -15227,7 +15326,7 @@
         "other": 220000
       },
       "operatingProfit": 14666667,
-      "operatingMargin": 80.0,
+      "operatingMargin": 80,
       "estimatedAnnualNetProfit": 140800000,
       "financialStatus": "REPORTED",
       "isRevenueUnconfirmed": false,
@@ -15343,6 +15442,7 @@
       ]
     },
     "publishability": "PUBLISHABLE",
-    "claimBindings": []
+    "claimBindings": [],
+    "batchId": "batch-05-2026-09-14-recent-winners100"
   }
 ]

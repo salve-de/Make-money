@@ -438,9 +438,23 @@ export interface IngestBatch {
 
 export const KNOWN_INGEST_BATCHES: IngestBatch[] = [
   {
+    id: 'batch-05-2026-09-14-recent-winners100',
+    name: '第5期 近年AI・高速ラッパー (100社)',
+    shortLabel: '第5期 (近年AI)',
+    date: '2026-09-14',
+    description: '2022〜2024年創業のAIメディア・動画音声・高速生成ラッパー100社（Crayo AI, MacWhisper, Magnific AI等）',
+  },
+  {
+    id: 'batch-04-2026-09-14-solo-conquerors100',
+    name: '第4期 個人・少数精鋭 (100社)',
+    shortLabel: '第4期 (個人少数)',
+    date: '2026-09-14',
+    description: '持たざる個人・少数精鋭の成り上がり勝ち組100社（Submagic, Taplio, ChatPDF, RoomGPT等）',
+  },
+  {
     id: 'batch-03-2026-09-14-capitalism100',
-    name: '第3期 今回収集 (100社)',
-    shortLabel: '第3期 (今回)',
+    name: '第3期 資本主義100選 (98社)',
+    shortLabel: '第3期 (資本主義)',
     date: '2026-09-14',
     description: '資本主義の裏帳簿100選（TSMC・WeWork破綻検死・PayPal・完全1人SaaS等）',
   },
@@ -453,10 +467,10 @@ export const KNOWN_INGEST_BATCHES: IngestBatch[] = [
   },
   {
     id: 'batch-01-core-foundation134',
-    name: '第1期 初期コア (134社)',
+    name: '第1期 初期コア (133社)',
     shortLabel: '第1期 (初期)',
     date: '2026-09-12',
-    description: 'キーエンス・直販要塞・初期コア台帳134社',
+    description: 'キーエンス・直販要塞・初期コア台帳133社',
   },
 ];
 
