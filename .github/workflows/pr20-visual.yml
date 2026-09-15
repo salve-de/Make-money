@@ -1,0 +1,76 @@
+name: PR20 visual equivalence
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr20-visual-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual:
+    if: github.event.pull_request.number == 20
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - name: Prepare original BASE with a pinned compatibility patch
+        run: |
+          set -eu
+          mkdir -p test-results/refactor-visual
+          git worktree add --detach "$RUNNER_TEMP/pr20-base" a5cc02aade93d867645766770a0bd1fcc0048c38
+          git diff b3d27811025b47ac374b0d969e69f18d3f3e1bdd c5034e0858a6c7dcfe6a83f04cf17d3d86da6ed1 -- src/features/company-inspector scripts/pipeline/auto-enrich-entity.ts src/tests/density-invariants.test.ts > test-results/refactor-visual/baseline.patch
+          git -C "$RUNNER_TEMP/pr20-base" apply "$GITHUB_WORKSPACE/test-results/refactor-visual/baseline.patch"
+          git diff --exit-code a5cc02aade93d867645766770a0bd1fcc0048c38 HEAD -- data/
+          cd "$RUNNER_TEMP/pr20-base"
+          pnpm install --frozen-lockfile
+          pnpm build
+      - name: Build HEAD with the same dependency lock and environment
+        run: pnpm build
+      - name: Compare rendered output against BASE
+        env:
+          VISUAL_BASE_SHA: a5cc02aade93d867645766770a0bd1fcc0048c38
+          VISUAL_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          VISUAL_BASE_URL: http://127.0.0.1:3201
+          VISUAL_HEAD_URL: http://127.0.0.1:3202
+          VISUAL_ARTIFACT_DIR: test-results/refactor-visual
+        run: |
+          set -eu
+          (cd "$RUNNER_TEMP/pr20-base"; PORT=3201 HOSTNAME=127.0.0.1 node scripts/start-standalone.mjs) >test-results/refactor-visual/base-server.log 2>&1 &
+          base_pid=$!
+          PORT=3202 HOSTNAME=127.0.0.1 node scripts/start-standalone.mjs >test-results/refactor-visual/head-server.log 2>&1 &
+          head_pid=$!
+          trap 'kill "$base_pid" "$head_pid" 2>/dev/null || true' EXIT
+          for url in "$VISUAL_BASE_URL" "$VISUAL_HEAD_URL"; do
+            ready=false
+            for attempt in $(seq 1 60); do
+              if curl --fail --silent "$url" >/dev/null; then ready=true; break; fi
+              sleep 1
+            done
+            test "$ready" = true
+          done
+          pnpm exec tsx scripts/verify-refactor-ui.ts
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pr20-visual-evidence
+          path: test-results/refactor-visual/
+          retention-days: 14
+          if-no-files-found: error
