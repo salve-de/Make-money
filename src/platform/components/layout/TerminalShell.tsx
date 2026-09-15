@@ -130,7 +130,8 @@ export const TerminalShell: React.FC<{
 
   // アナリスト考察メモ
   const { notes, getNote, saveNote, getSaveStatus } = useAnalystNotes();
-  const { isPro: isProUnlocked } = useAuth();
+  const { isPro: isProUnlocked, role } = useAuth();
+  const canApproveEntities = role === 'admin';
 
   return (
     <div className="flex flex-col h-screen w-screen bg-[#07080B] text-zinc-100 overflow-hidden font-sans">
@@ -225,7 +226,7 @@ export const TerminalShell: React.FC<{
               activeTags={activeTags}
               onToggleTag={handleToggleTag}
               newlyCollectedCount={newlyCollectedCount}
-              onApproveAllCollected={handleApproveAllCollected}
+              onApproveAllCollected={canApproveEntities ? handleApproveAllCollected : undefined}
               selectedBatch={selectedBatch}
               onSelectBatch={setSelectedBatch}
               batchCounts={batchCounts}
@@ -273,7 +274,7 @@ export const TerminalShell: React.FC<{
               setSelectedEntityId(id);
               setWorkspaceMode('SYNTHESIS');
             }}
-            onApproveEntity={handleApproveEntity}
+            onApproveEntity={canApproveEntities ? handleApproveEntity : undefined}
             isPro={isProUnlocked}
             isBookmarked={bookmarkedIds.has(selectedEntity.id)}
             onToggleBookmark={(e) => handleToggleBookmark(selectedEntity.id, e)}
