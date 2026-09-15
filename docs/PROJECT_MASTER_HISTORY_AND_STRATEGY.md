@@ -6801,3 +6801,16 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 
 
 
+
+
+## 2026-09-16: 新規勝ち組100件の完全自走収集・排他ロック・品質完全担保
+### 1. 収集実績
+- 共有台帳（data/CLAIMED_TARGETS.txt）および既存中央目録（data/entities-index.json）との重複・衝突を1件たりとも許さず、最新2,600件超の完全ブラックリストと厳密照合の上、新規クリーンな勝ち組事例【100件】を自走収集・完全体生成。
+- 保存先：
+- 全100件において以下を完全遵守：
+  - 算術整合性（monthlyRevenue - monthlyCost === monthlyProfit、operatingMargin一致）
+  - 禁止用語（FORBIDDEN_JARGON: サバンナOS、略奪転用方程式等）の混入ゼロ
+  - 社名プレフィックス排除（essence.whatItDoes）
+  - 戦略文文字数（blindspot, moatDescription 40文字以上）
+  - ツール構成3個以上、オフライン物理事業へのStripe等SaaS決済誤爆の完全排除
+  - 全ID/Tickerの一意性確保
