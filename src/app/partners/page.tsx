@@ -99,23 +99,26 @@ export default function PartnersPage() {
 
   const keyBenefits = [
     {
-      title: '30% 永続レベニューシェア',
-      desc: '初月限りの単発報酬ではありません。紹介経由で有料登録したユーザーが利用を継続している限り、毎月の月額利用料の30%が継続して還元されます。'
+      badge: '30% REVENUE SHARE',
+      title: '毎月30%の継続レベニューシェア',
+      desc: '初月限りの単発ではありません。紹介経由で有料登録したユーザーが購読を継続している限り、毎月継続して売上の30%が還元されます。'
     },
     {
-      title: '30日間のCookie有効期間',
-      desc: '紹介リンクをクリックした訪問者がその場で課金しなくても、30日以内に再訪して有料登録を完了すれば、あなたの紹介成果として自動集計されます。'
+      badge: '30-DAY COOKIE',
+      title: '30日間のCookie追跡期間',
+      desc: 'リンクを踏んだ読者がその場で課金しなくても、30日以内に再訪して有料登録を完了すれば、あなたの紹介成果として自動集計されます。'
     },
     {
-      title: '透明な成果集計と月末翌月払い',
-      desc: '成果は月末締めで確定し、翌月末日にご指定の国内銀行口座またはStripe経由で確実に送金されます。'
+      badge: 'MONTH-END SETTLEMENT',
+      title: '透明な成果集計と翌月末日払い',
+      desc: '成果は月末締めで確定し、翌月末日にご指定の国内銀行口座またはStripe経由で確実にお振込みいたします。'
     }
   ];
 
   return (
-    <div className="min-h-screen bg-[#080A0F] text-zinc-200 font-sans selection:bg-white/[0.15] selection:text-white">
+    <div className="min-h-screen bg-[#080A0F] text-zinc-100 font-sans selection:bg-white/[0.15] selection:text-white">
       {/* ターミナル風ミニマルヘッダー */}
-      <header className="border-b border-white/[0.08] bg-[#080A0F] sticky top-0 z-40">
+      <header className="border-b border-white/[0.08] bg-[#080A0F]/90 backdrop-blur-sm sticky top-0 z-40">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between font-mono text-xs">
           <div className="flex items-center gap-2">
             <span className="font-black tracking-widest text-white">MAKEMONEY</span>
@@ -125,82 +128,85 @@ export default function PartnersPage() {
 
           <Link
             href="/"
-            className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1 text-[11px]"
+            className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-mono"
           >
-            <ArrowLeft className="w-3 h-3" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>ターミナルへ戻る</span>
           </Link>
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-12">
-        {/* 規定ヘッダー（タイトル＆要旨） */}
-        <section className="space-y-3">
-          <div className="text-[10px] font-mono tracking-widest text-emerald-400 uppercase">
-            Official Revenue Sharing Protocol
-          </div>
-          <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            MAKEMONEY 公式パートナープログラム規程
-          </h1>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl">
-            MAKEMONEYの企業裏帳簿・財務分析レポートを紹介し、紹介経由の有料登録者が継続する限り、毎月利用料の30%を継続還元する公式プログラムです。
-          </p>
-        </section>
-
-        {/* 固有リンク発行エリア（カードではなく、コマンドライン風のプレーン行） */}
-        <section className="space-y-2 pt-2 pb-4 border-b border-white/[0.08]">
-          <div className="flex items-center justify-between text-[11px] font-mono text-zinc-400">
-            <span>{'//'} あなた専用の紹介URL（全銘柄・全分析に有効）</span>
-            <span className="text-emerald-400 text-[10px]">● 即時有効</span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <div className="flex-1 bg-black/60 border border-white/[0.12] rounded px-3 py-2 text-xs font-mono text-zinc-200 overflow-x-auto select-all whitespace-nowrap">
-              {referralUrl}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-12">
+        {/* ヒーロー＆紹介URL発行（高視認性パネル） */}
+        <section className="space-y-6 pb-8 border-b border-white/[0.08]">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 text-[10px] font-mono tracking-widest text-emerald-400 uppercase">
+              <span>●</span>
+              <span>Official Revenue Sharing Protocol</span>
             </div>
-            <button
-              type="button"
-              onClick={handleCopy}
-              className={`px-4 py-2 rounded text-xs font-mono font-bold transition-all cursor-pointer flex items-center gap-1.5 shrink-0 border ${
-                copied
-                  ? 'bg-emerald-500 text-black border-emerald-400'
-                  : 'bg-white text-black hover:bg-zinc-200 border-white'
-              }`}
-            >
-              {copied ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-black" />
-                  <span>コピー完了</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5 text-black" />
-                  <span>URLをコピー</span>
-                </>
-              )}
-            </button>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              MAKEMONEY 公式パートナープログラム規程
+            </h1>
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-2xl">
+              MAKEMONEYの企業裏帳簿・財務分析レポートを紹介し、紹介経由の有料登録者が継続する限り、毎月利用料の30%を継続還元する公式プログラムです。
+            </p>
           </div>
 
-          <div className="text-[10px] font-mono text-zinc-500">
-            ※ 各企業画面の「共有」モーダルからも、この固有コードが自動付与された文面＋URLをワンクリックで取得できます。
+          {/* 専用URLバー */}
+          <div className="bg-[#0D1117] border border-white/[0.12] rounded-lg p-4 space-y-2">
+            <div className="flex items-center justify-between text-[11px] font-mono">
+              <span className="text-zinc-300 font-bold">あなた専用の紹介URL（全銘柄・全分析に有効）</span>
+              <span className="text-emerald-400 text-[10px]">即時有効 / 審査不要</span>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+              <div className="flex-1 bg-black/80 border border-white/[0.10] rounded px-3.5 py-2.5 text-xs font-mono text-zinc-100 overflow-x-auto select-all whitespace-nowrap">
+                {referralUrl}
+              </div>
+              <button
+                type="button"
+                onClick={handleCopy}
+                className={`px-5 py-2.5 rounded font-mono text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 shrink-0 border shadow-md ${
+                  copied
+                    ? 'bg-emerald-500 text-black border-emerald-400'
+                    : 'bg-white text-black hover:bg-zinc-200 border-white'
+                }`}
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 text-black" />
+                    <span>コピー完了！</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 text-black" />
+                    <span>URLをコピー</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            <p className="text-[11px] font-mono text-zinc-500">
+              ※ 各企業詳細画面の「共有」モーダルからも、この固有コードが付与された文面＋URLをワンクリックで取得できます。
+            </p>
           </div>
         </section>
 
-        {/* 01 // プログラムの特長 */}
+        {/* 01 // プログラムの特長（視認性の高い3行ブロック） */}
         <section className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
+          <div className="flex items-center justify-between text-xs font-mono border-b border-white/[0.08] pb-2">
             <span className="font-bold text-white tracking-wider">01 {'//'} プログラムの特長</span>
             <span className="text-[10px] text-zinc-500">KEY BENEFITS</span>
           </div>
 
-          <div className="space-y-3 font-mono text-xs">
+          <div className="divide-y divide-white/[0.06] font-mono text-xs">
             {keyBenefits.map((item, idx) => (
-              <div key={idx} className="py-2 border-b border-white/[0.04] space-y-1">
-                <div className="text-zinc-200 font-bold flex items-center gap-2">
-                  <span className="text-emerald-400 text-[10px]">●</span>
-                  <span>{item.title}</span>
+              <div key={idx} className="py-4 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-4 items-baseline">
+                <div className="sm:col-span-4">
+                  <div className="text-[10px] text-emerald-400/80 mb-0.5">{item.badge}</div>
+                  <div className="text-zinc-100 font-bold text-sm">{item.title}</div>
                 </div>
-                <div className="text-[11px] text-zinc-400 leading-relaxed pl-4">
+                <div className="sm:col-span-8 text-xs text-zinc-400 leading-relaxed">
                   {item.desc}
                 </div>
               </div>
@@ -208,58 +214,66 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* 02 // プログラム仕様（カードではなく、端正なスペックシート台帳） */}
+        {/* 02 // プログラム仕様（高密度スペックテーブル） */}
         <section className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
+          <div className="flex items-center justify-between text-xs font-mono border-b border-white/[0.08] pb-2">
             <span className="font-bold text-white tracking-wider">02 {'//'} プログラム仕様</span>
             <span className="text-[10px] text-zinc-500">SPECIFICATIONS</span>
           </div>
 
-          <div className="divide-y divide-white/[0.06] text-xs font-mono">
-            {specs.map((spec, idx) => (
-              <div key={idx} className="py-2.5 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-6">
-                <span className="text-zinc-500 w-28 shrink-0">{spec.label}</span>
-                <span className="text-zinc-200">{spec.value}</span>
-              </div>
-            ))}
+          <div className="border border-white/[0.08] rounded-lg overflow-hidden bg-[#0A0D14]">
+            <table className="w-full text-left font-mono text-xs">
+              <thead className="bg-white/[0.04] border-b border-white/[0.08] text-zinc-400 text-[11px]">
+                <tr>
+                  <th className="py-2.5 px-4 font-bold w-36 sm:w-44">項目</th>
+                  <th className="py-2.5 px-4 font-bold">規定内容</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.06]">
+                {specs.map((spec, idx) => (
+                  <tr key={idx} className={idx % 2 === 1 ? 'bg-white/[0.015]' : 'bg-transparent'}>
+                    <td className="py-3 px-4 text-zinc-400 font-medium whitespace-nowrap align-top">{spec.label}</td>
+                    <td className="py-3 px-4 text-zinc-100 font-semibold align-top">{spec.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 
-        {/* 03 // 運用の流れ（カードではなく、プレーンなナンバリング行） */}
+        {/* 03 // 運用の流れ（水平ステップフロー） */}
         <section className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
+          <div className="flex items-center justify-between text-xs font-mono border-b border-white/[0.08] pb-2">
             <span className="font-bold text-white tracking-wider">03 {'//'} 運用の流れ</span>
             <span className="text-[10px] text-zinc-500">WORKFLOW</span>
           </div>
 
-          <div className="space-y-3 font-mono">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
             {steps.map((step) => (
-              <div key={step.num} className="flex items-start gap-4 py-2">
-                <span className="text-xs font-bold text-zinc-500 shrink-0 mt-0.5">{step.num}</span>
-                <div className="space-y-0.5">
-                  <div className="text-xs font-bold text-zinc-200">{step.title}</div>
-                  <div className="text-[11px] text-zinc-400 leading-relaxed">{step.desc}</div>
-                </div>
+              <div key={step.num} className="border-t-2 border-emerald-500/50 pt-3 space-y-1.5">
+                <div className="text-[10px] text-emerald-400 font-bold">STEP {step.num}</div>
+                <div className="text-zinc-100 font-bold text-xs">{step.title}</div>
+                <div className="text-[11px] text-zinc-400 leading-relaxed">{step.desc}</div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* 04 // よくある質問（FAQ） */}
+        {/* 04 // よくある質問（視認性の高いQ&Aリスト） */}
         <section className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
+          <div className="flex items-center justify-between text-xs font-mono border-b border-white/[0.08] pb-2">
             <span className="font-bold text-white tracking-wider">04 {'//'} よくある質問</span>
             <span className="text-[10px] text-zinc-500">FAQ</span>
           </div>
 
-          <div className="space-y-4 font-mono text-xs">
+          <div className="space-y-5 font-mono text-xs">
             {faqs.map((faq, idx) => (
-              <div key={idx} className="space-y-1.5 py-1">
-                <div className="text-zinc-200 font-bold flex items-start gap-2">
-                  <span className="text-emerald-400">Q.</span>
+              <div key={idx} className="space-y-1.5">
+                <div className="text-zinc-100 font-bold flex items-start gap-2 text-xs sm:text-sm">
+                  <span className="text-emerald-400 font-black">Q.</span>
                   <span>{faq.q}</span>
                 </div>
-                <div className="text-[11px] text-zinc-400 leading-relaxed pl-5">
+                <div className="text-xs text-zinc-400 leading-relaxed pl-5">
                   {faq.a}
                 </div>
               </div>
