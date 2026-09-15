@@ -66,7 +66,7 @@ export function ExecutiveIntuitiveSummary({
                   ? 'text-red-400 bg-red-950/50 border-red-500/30'
                   : 'text-cyan-300 bg-cyan-950/50 border-cyan-500/30'
               }`}>
-                {isHazardMode ? '【破綻サマリー】' : '【サマリー】'}
+                {isHazardMode ? '【破綻の正体】' : '【正体】'}
               </span>
             </div>
             <p className="text-sm sm:text-base md:text-lg font-bold text-white leading-snug tracking-wide">
