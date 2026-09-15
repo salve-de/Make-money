@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import { recordRuntimeErrors, reportRuntimeFailure } from './runtime-diagnostics';
 
 async function settle(page: Page) {
   await page.evaluate(() => document.fonts.ready);
@@ -9,12 +10,13 @@ async function settle(page: Page) {
 }
 
 test.beforeEach(async ({ page }) => {
-  // The isolated SSR servers use the same epoch and Asia/Tokyo timezone.
+  recordRuntimeErrors(page);
   await page.clock.setFixedTime(new Date('2026-09-15T00:00:00Z'));
   await page.route('**/api/businesses*', (route) => route.fulfill({ status: 200, contentType: 'application/json',
     body: JSON.stringify({ source: 'local_fallback', data: [], nextCursor: null, hasMore: false }),
   }));
 });
+test.afterEach(async ({ page }, info) => reportRuntimeFailure(page, info));
 
 for (const [name, url, expected] of [
   ['ledger', '/', 'キーエンス'],

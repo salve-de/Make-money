@@ -78,11 +78,12 @@ test('existing hazard dossier keeps its loss label and dynamic evidence', async 
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
-  await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
+  const heading = page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true });
+  await expect(heading).toBeVisible();
   await expect(page.locator('#section-evidence')).toContainText(/失敗・撤退の事実ログ|致命的特異点・死因物証保全ファイル/);
   await expect(page.locator('#section-evidence')).toContainText(/ChatGPT無料公開による存在価値消滅と大量レイオフの(失敗の検証|検死)/);
   await page.getByRole('button', { name: /現金の解剖室/ }).click();
-  await expect(page.locator('aside')).toContainText('赤字出血');
+  await expect(page.getByRole('complementary').filter({ has: heading })).toContainText('赤字出血');
   await expect(page.locator('#section-cash-anatomy')).toContainText('¥-260,000,000');
   expect(errors).toEqual([]);
 });

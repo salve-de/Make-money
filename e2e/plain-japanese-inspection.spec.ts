@@ -1,9 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-// The base branch already replaced the old thirteen-section layout with a four-layer,
-// two-tab inspector. Preserve evidence coverage, not obsolete copy/layout assertions.
+// Preserve business/evidence coverage on the current four-layer, two-tab inspector.
 const entities = [
-  ['ent_lopia_9c', 'ロピア', false],
+  ['ent_lopia_9c', '株式会社ロピア (OIC)', false],
   ['ent_pdf_ai_65', 'PDF.ai', false],
   ['ent_disco_6146_jp', '株式会社ディスコ', false],
   ['ent_shift_3697', '株式会社SHIFT', false],

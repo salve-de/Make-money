@@ -5,7 +5,7 @@ const artifacts = process.env.VISUAL_ARTIFACT_DIR;
 if (!artifacts || !process.env.VISUAL_TARGET_URL) throw new Error('Use scripts/verify-refactor-ui.ts with explicit BASE and HEAD URLs');
 export default defineConfig({
   testDir: '.', testMatch: 'refactor.spec.ts', forbidOnly: true,
-  retries: 0, workers: 1, timeout: 45000,
+  retries: 0, workers: 1, timeout: 45000, maxFailures: 1,
   expect: { timeout: 15000, toHaveScreenshot: { maxDiffPixels: 0, threshold: 0, animations: 'disabled', caret: 'hide' } },
   snapshotPathTemplate: path.join(artifacts, 'baseline', '{projectName}', '{testFilePath}', '{arg}{ext}'),
   outputDir: path.join(artifacts, process.env.VISUAL_PHASE || 'unknown', 'results'),

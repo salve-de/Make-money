@@ -1,3 +1,4 @@
+import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { aggregateMacroIntelligence, TOOL_CATEGORIES, type MacroIntelligenceData } from '@/lib/intelligence/macro-aggregator';
@@ -15,8 +16,7 @@ describe('playbook data and rendering contract', () => {
     }
   });
   it('renders the default tool radar rather than an error boundary', () => {
-    const data = aggregateMacroIntelligence([]);
-    const html = renderToStaticMarkup(<PlaybookIntelligenceView data={data} />);
+    const html = renderToStaticMarkup(createElement(PlaybookIntelligenceView, { data: aggregateMacroIntelligence([]) }));
     expect(html).toContain('ツール構成と乗り換えの参考例');
     expect(html).toContain('Cloudflare');
   });
