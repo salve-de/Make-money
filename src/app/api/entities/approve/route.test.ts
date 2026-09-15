@@ -36,6 +36,7 @@ const request = (
 
 beforeEach(() => {
   vi.stubEnv('NODE_ENV', 'development');
+  vi.stubEnv('MAKE_MONEY_LOCAL_EDITOR', '');
   localStore.mockReset();
   d1Store.mockReset();
   d1List.mockReset();
@@ -45,7 +46,8 @@ beforeEach(() => {
 afterEach(() => vi.unstubAllEnvs());
 
 describe('approval API acknowledgement', () => {
-  it('keeps local development on the atomic fixture adapter', async () => {
+  it('keeps explicitly enabled local development on the atomic fixture adapter', async () => {
+    vi.stubEnv('MAKE_MONEY_LOCAL_EDITOR', '1');
     localStore.mockResolvedValue({ approvedCount: 2, entityIds: ['a', 'b'], updated: true });
     const response = await POST(request({ entityIds: ['A', 'b'] }));
     expect(response.status).toBe(200);
@@ -54,11 +56,21 @@ describe('approval API acknowledgement', () => {
     expect(d1Store).not.toHaveBeenCalled();
   });
 
-  it.each([404, 409, 503] as const)('returns %s for local persistence failure, never success:true', async (status) => {
+  it.each([404, 409, 503] as const)('returns %s for explicitly enabled local persistence failure, never success:true', async (status) => {
+    vi.stubEnv('MAKE_MONEY_LOCAL_EDITOR', '1');
     localStore.mockRejectedValue(new ApprovalStoreError('not persisted', status));
     const response = await POST(request({ entityId: 'a' }));
     expect(response.status).toBe(status);
     expect(await response.json()).toMatchObject({ success: false });
+  });
+
+  it('does not grant local-editor access from a localhost-shaped request alone', async () => {
+    const response = await POST(request({ entityId: 'a' }, 'http://localhost:3000/api/entities/approve', {
+      host: 'localhost:3000',
+    }));
+    expect(response.status).toBe(401);
+    expect(localStore).not.toHaveBeenCalled();
+    expect(d1Store).not.toHaveBeenCalled();
   });
 
   it.each([null, {}, { entityIds: [null] }, { entityIds: [''] }, { entityIds: ['../../etc/passwd'] }, { entityIds: ['a'.repeat(201)] }])(
