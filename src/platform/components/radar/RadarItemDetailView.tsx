@@ -27,9 +27,21 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id, on
 
   const trend = useMemo(() => MARKET_RADAR_TRENDS.find((t) => t.id === id), [id]);
   const landmine = useMemo(() => MARKET_RADAR_LANDMINES.find((l) => l.id === id), [id]);
-  const proofEntityId = useMemo(() => {
-    const rawId = trend?.gapAndProof.provenPlayer.entityId;
-    return rawId && resolveEntityId ? resolveEntityId(rawId) : null;
+  const displayTrend = useMemo(() => {
+    if (!trend) return undefined;
+    const rawId = trend.gapAndProof.provenPlayer.entityId;
+    const resolvedId = rawId && resolveEntityId ? resolveEntityId(rawId) : null;
+    if (resolvedId === rawId) return trend;
+    return {
+      ...trend,
+      gapAndProof: {
+        ...trend.gapAndProof,
+        provenPlayer: {
+          ...trend.gapAndProof.provenPlayer,
+          entityId: resolvedId ?? undefined,
+        },
+      },
+    };
   }, [trend, resolveEntityId]);
 
   const handleCopy = (text: string, key: string) => {
@@ -96,13 +108,12 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id, on
       </header>
 
       <main className="max-w-5xl mx-auto w-full p-4 sm:p-6 space-y-6 flex-1">
-        {trend && (
+        {displayTrend && (
           <RadarOpportunityDetail
-            trend={trend}
+            trend={displayTrend}
             copiedKey={copiedKey}
             handleCopy={handleCopy}
             onSelectEntity={onSelectEntity}
-            proofEntityId={proofEntityId}
           />
         )}
 
