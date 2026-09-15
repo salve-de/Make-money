@@ -6840,3 +6840,14 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - 禁止用語（`FORBIDDEN_JARGON`: サバンナOS、略奪転用方程式等）の混入ゼロ
   - 各社エビデンスカード（`LOOT_BLUEPRINT` 等）完備
   - オフライン・SaaS決済ツールの整合性確保
+
+## 2026-09-16: 高収益自立型事業100件（Zed Editor〜Fantia）の完全新規・厳密重複ゼロ・自律収集完遂
+### 1. 収集実績
+- 共有台帳（`data/CLAIMED_TARGETS.txt`：4,300件超）および中央台帳（`data/entities-index.json`：634件）との厳密照合を実施し、完全未登録・未予約の100社（Zed Editor, Tower Git Client, Medusa.js, SurrealDB, Meilisearch, MinIO, LocalStack, Ngrok, ZeroTier, Headscale, Twingate, Mailgun, EmailJS, Updown.io, FlareApp, Bugsnag, AppSignal, Tideways, Descope, Ory, FusionAuth, Frontegg, BoxyHQ, Casdoor, Hanko, Doodle, YouCanBook.me, Acuity Scheduling, OnceHub, TidyCal, Koalendar, SimplyBook.me, Appointlet, Setmore, Reply.io, Klenty, Saleshandy, Mixmax, Yesware, Clearbit, Proxycurl, CoreSignal, BuiltWith, Wappalyzer, Serpstat, Ubersuggest, KeywordTool.io, AnswerThePublic, Exploding Topics, Trends.vc, Pastebot, Monosnap, Alfred App, Moom, Lasso Mac, SuperDuper!, MacTracker, Amphetamine Mac, AlDente Mac, Loopback, Audio Hijack, Piezo Rogue Amoeba, Farrago, Pixelmator Pro, Photomator, Acorn Image Editor, Affinity Designer, Affinity Photo, Affinity Publisher, Linearity Curve, Cardhop, BusyCal, Bear Notes, Agenda App, Amplenote, Vectorizer.ai, Vector Magic, Recraft.ai, Brandmark.io, Looka, Trint, Sonix.ai, WellSaid Labs, Clipdrop, Remove.bg, Slazzer, NightCafe, Octoparse, ParseHub, Diffbot, RoboRabbit, Simplescraper, Captain Data, Phantombuster, TexAu, Misoca, MakeLeaps, flier (フライヤー), Skeb, Fantia）を確定・抽出。
+- `data/CLAIMED_TARGETS.txt` への予約ロック（`CLAIMED:CleanWinners-100 @ 2026-09-16`）を全100件完了。
+- 保存先：`data/incoming/batch_clean_winners_100_20260916.json`（完全体JSON配列100件、916KB）
+- 機械的品質ガードレール（`check-ingest-quality.mjs`）による全件監査合格：
+  - 算術整合性（`monthlyRevenue - cogs === grossProfit`、`grossProfit - opex === operatingProfit`）100%一致
+  - 禁止用語（`FORBIDDEN_JARGON`: サバンナOS、略奪転用方程式、決済関所等）の混入ゼロ
+  - 各社エビデンスカード（`LOOT_BLUEPRINT` 等）完備
+  - オフライン・SaaS決済ツールの整合性確保
