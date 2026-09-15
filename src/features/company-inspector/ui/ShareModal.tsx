@@ -312,6 +312,19 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               )}
             </button>
           </div>
+
+          {/* パートナー紹介還元プログラム案内 */}
+          <div className="pt-1 pb-0.5 text-center">
+            <a
+              href={`/partners?company=${encodeURIComponent(entity.id)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono text-zinc-400 hover:text-amber-300 transition-colors group cursor-pointer py-1 px-2 rounded hover:bg-white/[0.04]"
+            >
+              <span>🎁 この記事を紹介して毎月30%の還元を受け取る</span>
+              <span className="group-hover:translate-x-0.5 transition-transform text-amber-400">➔</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
