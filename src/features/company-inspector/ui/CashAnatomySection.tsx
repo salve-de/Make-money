@@ -58,7 +58,7 @@ export function CashAnatomySection({
   // 複数原価がある場合は「サンキー図」を推奨
   const defaultMode: CashViewMode = actualCogsPct < 20 && opexPct < 20 ? 'WATERFALL' : 'SANKEY';
   const [viewMode, setViewMode] = useState<CashViewMode>(defaultMode);
-  const incompleteInputs = Boolean(entity.pnl.isOperatingProfitUnconfirmed || entity.pnl.isCostBreakdownUnconfirmed);
+  const incompleteInputs = Boolean(entity.pnl.isOperatingProfitUnconfirmed || entity.pnl.isCostsUnconfirmed);
 
   useEffect(() => {
     const el = chartRef.current;
