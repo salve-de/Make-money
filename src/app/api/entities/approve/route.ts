@@ -12,7 +12,6 @@ import {
 
 export const dynamic = 'force-dynamic';
 const headers = { 'Cache-Control': 'private, no-store', Vary: 'Authorization' };
-const LOOPBACK_HOSTS = new Set(['localhost', '127.0.0.1', '[::1]']);
 const ENTITY_ID = /^[a-z0-9][a-z0-9._:-]{0,199}$/;
 
 function json(body: unknown, status = 200) {
@@ -24,8 +23,13 @@ function sameOrigin(req: NextRequest): boolean {
   return origin === null || origin === req.nextUrl.origin;
 }
 
-function isLocalEditor(req: NextRequest): boolean {
-  return process.env.NODE_ENV !== 'production' && LOOPBACK_HOSTS.has(req.nextUrl.hostname);
+/**
+ * Local fixture writes are an explicit server-side maintenance mode. Never infer
+ * this privilege from request-controlled Host/Origin values: a remotely reachable
+ * development server can receive spoofed localhost headers.
+ */
+function isLocalEditor(): boolean {
+  return process.env.NODE_ENV !== 'production' && process.env.MAKE_MONEY_LOCAL_EDITOR === '1';
 }
 
 function normalizeIds(inputIds: unknown): string[] {
@@ -56,8 +60,8 @@ async function requireAdmin(req: NextRequest): Promise<{ uid: string } | null | 
  * Global approval IDs are not private user data. They are an editorial overlay
  * used to remove the transient `収集事例` marker without mutating research data.
  */
-export async function GET(req: NextRequest) {
-  if (isLocalEditor(req)) return json({ success: true, entityIds: [] });
+export async function GET(_req: NextRequest) {
+  if (isLocalEditor()) return json({ success: true, entityIds: [] });
   try {
     return json({ success: true, entityIds: await listD1ApprovedEntityIds() });
   } catch (error) {
@@ -84,7 +88,7 @@ export async function POST(req: NextRequest) {
     return json({ success: false, error: 'Invalid approval request' }, error instanceof RequestBodyTooLargeError ? 413 : 400);
   }
 
-  if (isLocalEditor(req)) {
+  if (isLocalEditor()) {
     try {
       const result = await approveLocalEntities(path.join(process.cwd(), 'data'), ids, all);
       return json({
@@ -103,7 +107,7 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Production state is a D1 overlay; packaged JSON/R2 research records are immutable.
+  // Production/default state is a D1 overlay; packaged JSON/R2 research records are immutable.
   if (all && ids.length === 0) {
     return json({ success: false, error: 'Production approval requires explicit entity IDs' }, 400);
   }
