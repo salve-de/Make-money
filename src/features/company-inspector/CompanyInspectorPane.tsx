@@ -140,8 +140,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           onScroll={handleScroll}
           className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
         >
-          {/* 上端潜り込みグラデーションシャドウ */}
-          <div className="sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10" />
 
           {mainTab === 'LEDGER' ? (
             <>

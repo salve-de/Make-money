@@ -1,5 +1,30 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-15 【確定】メインコンテンツ上端の不要な黒線（潜り込みグラデーションシャドウdiv）完全切除完了（Phase 192）
+
+### 1. ユーザー指示と病巣の解剖（User Direct Command & Black Line Root Cause）
+- **ユーザー指示**:
+  - 「なんか 黒い 細長い 黒線があるから これ」
+  - 「消したい」
+  - 「なんか メインの中にあるんだよね」
+- **病巣の看破**:
+  - `CompanyInspectorPane.tsx` のメインコンテンツ領域（スクロールトレイ）先頭に設置されていた `sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10`（上端潜り込みグラデーションシャドウ用要素）。
+  - この要素が、最上段のカード（`ExecutiveIntuitiveSummary` の一撃フックカード）の上部に被さり、カード上部の枠線（border-t）やグラデーション背景を帯状に遮蔽したことで、ヘッダー直下に「不自然な細長い黒線（高さ16pxの真っ黒な帯）」として浮き上がっていた。
+
+### 2. 物理実装したUIアーキテクチャ（Removal of Sticky Shadow Div）
+1. **グラデーションシャドウ要素の完全切除**:
+   - `CompanyInspectorPane.tsx`: メインスクロールコンテナ先頭の `sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b ...` を完全削除。
+   - `p-4` の自然で均一な余白を取り戻し、一撃フックカードの四方の枠線（border）およびグラデーションが遮蔽なくクリアに描画されるよう修復。
+2. **ワークツリー同期（ポート3000 & 3001）**:
+   - ポート3000およびポート3001（`Make-Money-prev`）の `CompanyInspectorPane.tsx` 双方から同要素を完全切除。
+
+### 3. テスト・リント・実機Playwright検証
+- `pnpm lint`: 全634エンティティ品質、アーキテクチャ境界、ESLint全件 PASS。
+- Playwright実機検証（ポート3000 & 3001）:
+  - `screen_3000_black_line_fixed.png` および `screen_3001_black_line_fixed.png` にて、目次ジャンプバーとメインカード間の黒線が完全に消滅し、フラットで美しいレイアウトであることを確認。
+
+---
+
 ## 2026-09-15 【確定】全画面・全UIコンポーネントからのティッカー（Ticker）表示完全根絶 ＆ 社名主役化完了（Phase 191）
 
 ### 1. ユーザー指示と病巣の解剖（User Direct Command & Complete Ticker Eradication）
