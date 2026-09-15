@@ -6828,3 +6828,15 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - 戦略文文字数（`blindspot`, `moatDescription` 40文字以上）
   - ツール構成3個以上、オフライン事業へのSaaS決済誤爆の完全排除
   - 各社3枚のエビデンスカード（`ev_01`, `ev_02`, `ev_03`）完備
+
+
+## 2026-09-16: 高収益自立型事業100件（Instantly.ai〜Streak）の完全自走収集・排他ロック・完全体生成完遂
+### 1. 収集実績
+- 共有台帳（`data/CLAIMED_TARGETS.txt`）および中央台帳との完全重複照合を実施し、完全未登録・未予約の100社（Instantly.ai, Smartlead.ai, Lemlist, Hunter.io, Snov.io, Clay.com, Woodpecker.co, Mailshake, Descript, Grain.com, Bunny.net, Backblaze, Wasabi Technologies, Porkbun, Axiom.ai, Sheetson, Superblog, Blogstatic, MagicBrief, Missinglettr, Taplio, Tweet Hunter, Hypefury, Typefully, Publer, Fedica, SocialBee, Ocoya, Vista Social, SocialChamp, Metricool, Plausible Analytics, Fathom Analytics, Simple Analytics, Umami, Pirsch Analytics, TinyPilot, Kitemaker, Cron, Height, Linear, Raycast, Warp, GitKraken, Tower, Beyond Compare, TablePlus, Beekeeper Studio, SQLGate, Navicat, DBeaver Pro, DataGrip, Insomnia, Paw, Bruno, Yaak, Hoppscotch, Stoplight, ReadMe, GitBook, Mintlify, Fern, Archbee, Slite, Almanac, Notion, Coda, Craft, Obsidian, Logseq, Roam Research, Reflect, Mem, Supernotes, Capacities, Anytype, Taskade, Todoist, TickTick, Things 3, インフォマート, エムスリー, エス・エム・エス (カイポケ), JMDC, アイドマ・ホールディングス, チェンジホールディングス, ユーザーローカル, rakumo, Sansan (Bill One), プレイド (KARTE), サイボウズ (kintone), LegalOn Technologies, 弁護士ドットコム (クラウドサイン), オープンロジ, ハコベル, ラクスル, イード, アトラエ (Green), Missive, Streak）を確定。
+- `data/CLAIMED_TARGETS.txt` への予約ロックを全100件完了。
+- 保存先：`data/incoming/batch_analyst_100_instantly_to_streak.json`（完全体JSON配列100件、421KB）
+- 機械的品質ガードレール（`check-ingest-quality.mjs`）による全件監査合格：
+  - 算術整合性（`monthlyRevenue - cogs === grossProfit`、`grossProfit - opex === operatingProfit`）100%一致
+  - 禁止用語（`FORBIDDEN_JARGON`: サバンナOS、略奪転用方程式等）の混入ゼロ
+  - 各社エビデンスカード（`LOOT_BLUEPRINT` 等）完備
+  - オフライン・SaaS決済ツールの整合性確保
