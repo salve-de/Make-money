@@ -6722,6 +6722,47 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - `pnpm lint`（ESLint 0 warnings, 0 errors, check-boundaries, check-storage, check-api-input, check-runtime-schema, check-index-safety, check-ingest-quality 634社, check-component-health）が exit code 0 で完全合格。
 - `pnpm test`（Vitest 327件, Foundation 11件, Architecture 11件, Recovery 6件）がすべて exit code 0 で完全合格。テスト実行時間が約10秒へと大幅高速化。
 
+---
+
+## 【Phase 204: 100年保守の完全体・残存3大巨大画面の完全外科解体 ＆ 全コンポーネント500行以下（God Component完全根絶）】（2026-09-15）
+
+### 1. 課題の本質と背景
+- **「批判的・客観的に見て100年耐えうるか？」というオーナー最高意志の追及**:
+  - Phase 203 で心臓部（`TerminalShell`）の解体と粗大ゴミの一掃を完了したものの、周辺の3大画面（`Playbook` 805行、`Synthesis` 735行、`RadarItemDetail` 507行）が依然として状態・通信・JSXが同居した巨大モノリスとして残存していた。
+  - Martin Fowlerの経済的リファクタリング論、Kent Beckの『Tidy First?』、および現代の大規模Reactフロントエンド設計標準に基づき、「すべての巨大コンポーネントを完全に解体し、1ファイル500行以上のコンポーネントをプロジェクト全域で完全ゼロにする」外科手術を断行。
+
+### 2. 断行した外科的処置
+1. **`PlaybookIntelligenceView.tsx`（805行 ➔ 219行）の完全解体**:
+   - 状態・タブ・アイコン判定を [`usePlaybookNavigation.ts`](file:///Users/satoushinya/project/Make-Money/src/platform/hooks/usePlaybookNavigation.ts) へ分離。
+   - 5大タブを4つの単一責任サブコンポーネントへ分割：
+     - `ToolRadarSection.tsx`（233行）: ツール勢力図・TradingViewチャート・客観的乗り換え理由
+     - `DeathTrapsSection.tsx`（180行）: 賞味期限アラート＆即死検死録
+     - `CurrentWavesSection.tsx`（129行）: 稼ぎの型の参考例・実践レシピ
+     - `GenesisAndStackSection.tsx`（127行）: 初動突破ゲリラ戦録＆黄金スタックレシピ
+2. **`StrategySynthesisView.tsx`（735行 ➔ 98行）の完全解体**:
+   - 全通信・多次元アイデア合成・プロファイリング・チャット状態を [`useStrategySynthesis.ts`](file:///Users/satoushinya/project/Make-Money/src/platform/hooks/useStrategySynthesis.ts) へ分離。
+   - ペイン構造をサブコンポーネントへ完全分解：
+     - `SynthesisEntitiesSidebar.tsx`（165行）: 左ペイン（保存銘柄・プロファイル・独自メモ入力・合成ボタン）
+     - `SynthesisConsolePane.tsx`（161行）: 右ペイン統合コンソール
+     - `SynthesisIdeasDossier.tsx`（178行）: 独自アイデア調書（3次元アプローチ・損益見込・ツール構成・初動手順）
+     - `SynthesisChatConsole.tsx`（150行）: 戦略デューデリジェンス＆壁打ちチャット
+3. **`RadarItemDetailView.tsx`（507行 ➔ 142行）の完全解体**:
+   - チャンス詳細と地雷詳細の二重構造を専用サブコンポーネントへ分離：
+     - `RadarOpportunityDetail.tsx`（290行）: チャンス3段ピラミッド完全攻略本（マクロ急所、大手の死角、実証勝者、参入アクション）
+     - `RadarLandmineDetail.tsx`（119行）: 地雷検死解剖書（死因の解剖、致死指標、墓碑銘、生存ピボット）
+4. **機械的健康度ガードレールの絶対防壁化（ハード上限 500行 ＆ 個別厳格上限）**:
+   - `scripts/architecture/check-component-health.mjs` の全コンポーネント上限を 850行 ➔ **500行（厳格ハードキャップ）** へ引き下げ。
+   - 解体済み4大コンポーネントに Strict Limits を常駐（`TerminalShell`: 400行, `Playbook`: 300行, `Synthesis`: 200行, `RadarDetail`: 200行）。全33コンポーネントが完全合格。
+
+### 3. 検証・稼働確認
+- **実機Playwright撮影による全6大画面の完全無傷証明**:
+  - 台帳（`/`）、企業詳細（`/?entity=ent_keyence`）、パートナー（`/partners`）、攻略本（`/playbook`）、レーダー（`/radar`）、戦略壁打ち（`/?mode=SYNTHESIS`）の全6画面を実機ブラウザで撮影検証。
+  - デザイン・フォント・配置・色彩・機能が1ピクセルも狂わず完全無傷であることを確認。
+- **全系検査完全合格**:
+  - `pnpm lint`（ESLint 0 warnings, 0 errors, boundaries, storage, API, schema, index safety, 634社品質, component-health）が exit code 0 で完全合格。
+  - `pnpm test`（Vitest 327件, Foundation 11件, Architecture 11件, Recovery 6件、計355テスト）が exit code 0 で完全合格。
+
+
 
 
 

@@ -6,16 +6,19 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const componentsDir = path.join(root, 'src/platform/components');
 
 /**
- * 100年保守・コンポーネント健康度ガードレール
+ * 100年保守・コンポーネント健康度ガードレール（機械的ギロチン）
  * 
  * 1. 巨大モノリス（God Component）の再発を物理的に遮断
- * 2. 分割済みコアレイアウト（TerminalShell.tsx）は 400 行以下を厳格強制
- * 3. 全コンポーネントは 850 行以下（絶対上限）を強制
- * 4. 350行超えのコンポーネントにはリファクタリング推奨警告を出力
+ * 2. 解体済み主要コンポーネントは厳格個別上限（Strict Limits）を強制
+ * 3. 全コンポーネントは 500 行以下（絶対ハード上限）を強制
+ * 4. 350 行超えのコンポーネントにはリファクタリング推奨警告を出力
  */
-const MAX_ALLOWED_LINES_HARD = 850;
+const MAX_ALLOWED_LINES_HARD = 500;
 const STRICT_LIMITS = {
   'layout/TerminalShell.tsx': 400,
+  'playbook/PlaybookIntelligenceView.tsx': 300,
+  'synthesis/StrategySynthesisView.tsx': 200,
+  'radar/RadarItemDetailView.tsx': 200,
 };
 const ADVISORY_THRESHOLD = 350;
 
@@ -52,7 +55,7 @@ export function checkComponentHealth() {
       );
     }
 
-    // 全体ハード上限チェック
+    // 全体ハード上限チェック (500行)
     if (lineCount > MAX_ALLOWED_LINES_HARD) {
       errors.push(
         `[HARD LIMIT VIOLATION] ${relPath} has ${lineCount} lines (max allowed: ${MAX_ALLOWED_LINES_HARD} lines). Break down this God Component immediately.`
@@ -77,7 +80,7 @@ export function checkComponentHealth() {
     return false;
   }
 
-  console.log(`✓ [Component Health Gate] All ${files.length} platform components comply with health limits (total ${totalLines} lines).`);
+  console.log(`✓ [Component Health Gate] All ${files.length} platform components comply with strict health limits (hard max: ${MAX_ALLOWED_LINES_HARD} lines, total ${totalLines} lines).`);
   return true;
 }
 
