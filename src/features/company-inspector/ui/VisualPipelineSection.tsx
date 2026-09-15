@@ -1,5 +1,7 @@
 'use client';
 
+import { legacyText } from '../model/legacy-fields';
+
 import React from 'react';
 import {
   ReactFlow,
@@ -147,7 +149,7 @@ export function VisualPipelineSection({
   const targetCustomer = entity.essence?.targetCustomer || '特定セグメントの顧客層';
   const painRelief = entity.essence?.painRelief || entity.targetPainWallet || '構造的ペイン・代替不能な損失回避';
   const architecturePattern = entity.architecturePattern || '相見積もりを即死させる独自構造';
-  const moat = entity.strategy?.moat || '他社が追随できない構造的参入障壁';
+  const moat = legacyText(entity.strategy, 'moat') || '他社が追随できない構造的参入障壁';
 
   const nodes: Node[] = [
     {

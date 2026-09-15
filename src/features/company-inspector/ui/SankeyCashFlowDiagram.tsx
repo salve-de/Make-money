@@ -82,7 +82,7 @@ export function SankeyCashFlowDiagram({
           series: [
             {
               type: 'sankey',
-              layout: 'none',
+
               top: 20,
               bottom: 20,
               left: 30,

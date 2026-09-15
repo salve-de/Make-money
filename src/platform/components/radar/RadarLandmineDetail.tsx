@@ -6,10 +6,10 @@ import {
   CheckCircle2,
   Ban,
 } from 'lucide-react';
-import type { MarketRadarLandmine } from '@/platform/data/marketRadarData';
+import type { MarketRadarLandmineItem } from '@/platform/data/marketRadarData';
 
 interface RadarLandmineDetailProps {
-  landmine: MarketRadarLandmine;
+  landmine: MarketRadarLandmineItem;
 }
 
 export const RadarLandmineDetail: React.FC<RadarLandmineDetailProps> = ({ landmine }) => {

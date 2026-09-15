@@ -13,10 +13,10 @@ import {
   Target,
   ShieldAlert,
 } from 'lucide-react';
-import type { MarketRadarTrend } from '@/platform/data/marketRadarData';
+import type { MarketRadarTrendItem } from '@/platform/data/marketRadarData';
 
 interface RadarOpportunityDetailProps {
-  trend: MarketRadarTrend;
+  trend: MarketRadarTrendItem;
   copiedKey: string | null;
   handleCopy: (text: string, key: string) => void;
   onSelectEntity?: (entityId: string) => void;
