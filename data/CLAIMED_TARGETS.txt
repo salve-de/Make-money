@@ -238,7 +238,6 @@ Linear (LINEAR)
 Notion (NOTION)
 beehiiv (BEEHIIV)
 Klaviyo (KLAVIYO)
-Whoop (WHOOP)
 Athletic Greens (AG1) (ATHLETIC)
 Oura Ring (OURARING)
 Judge.me (JUDGEME)
@@ -373,7 +372,6 @@ Tavily (TAVILY)
 Serper.dev (SERPER)
 Healthchecks.io (HLTHCHK)
 Oh Dear (OHDEAR)
-Cronitor (CRONITOR)
 Fathom Analytics (FATHOM)
 Simple Analytics (SMPLANAL)
 Umami (UMAMI.IO)
@@ -433,7 +431,6 @@ LINEステップ配信自動化 エルステップライト (LSTEPLITE)
 Instagram予約＆自動DM返信ツール インスタボット (INSTABOT)
 工事台帳・現場日報クラウド 現場ペーパーレス (GENBAPAPER)
 補助金申請書類AI自動下書きジェネレーター (SUBSIDYAI)
-
 Crayo AI (CRAYOAI)
 MacWhisper (MACWHISP)
 Magnific AI (MAGNIFIC)
@@ -523,7 +520,6 @@ Surfer SEO (SURFRSEO)
 NeuronWriter (NRNWRITR)
 Clearscope (CLRSCOPE)
 SEOwind (SEOWIND)
-Mangools (MANGOOLS)
 Keysearch (KEYSRCH)
 Wincher (WINCHER)
 Nightwatch (NGHTWTCH)
@@ -534,7 +530,6 @@ Novashare (NOVASHR)
 Perfmatters (PERFMATR)
 WP Rocket (WPROCKET)
 SEOPress (SEOPRESS)
-
 BoltAI
 PDFPals
 AI2SQL
@@ -635,7 +630,6 @@ Boop
 Lessonfuse
 ChatIQ
 Fly Simulator
-
 BoltAI (BOLTAI)
 PDFPals (PDFPALS)
 AI2SQL (AI2SQL)
@@ -725,7 +719,6 @@ Previewed (PREVIEWED)
 DaisyDisk (DAISYDISK)
 Bartender (BARTENDER)
 Paste (PASTEAPP)
-PopClip (POPCLIP)
 Dropover (DROPOVER)
 Hand Mirror (HANDMIRROR)
 PixelSnap (PIXELSNAP)
@@ -736,6 +729,6 @@ Boop (BOOPAPP)
 Lessonfuse (LESSONFUSE)
 ChatIQ (CHATIQ)
 Fly Simulator (FLYSIM)
-
 Reform
 Magnet
+
