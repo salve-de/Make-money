@@ -1,5 +1,44 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-15 【確定】ティッカー完全撤廃 ＆ 共有モーダル（マルチSNS直通＋最下部URLコピー＋正体単語なし自動引用）配備完了（Phase 190）
+
+### 1. ユーザー指示と病巣の解剖（User Direct Command & Elimination of Ticker/URL Clutter）
+- **ユーザー指示**:
+  - 「ティッカーとか いる？」
+  - 「あと URLはいらない 共有に吸収して 共有押したら、なんかX いんすた TIKTOK とか 色々出して で、 一番下に URLをコピー とかにして」
+  - 「あと、 こっちで出すような 文章とかも決めておいて これは 正体の文章を そのまま出せばいいかな 正体って単語はいらないけど」
+- **病巣の看破**:
+  - **ティッカーの視覚的ノイズ**: 上場企業（キーエンス `6861.T` 等）を除き、95%のスモールビジネスや個人開発では `CRAYOAI`、`MACWHISP` 等の架空略称コードが表示されており、社名の視認性を著しく阻害していた。
+  - **個別URLボタンの乱立**: ヘッダー1行目に `[URL]` コピーボタンと `[共有]` ボタンが併存し、認知負荷とボタン重複を引き起こしていた。
+  - **共有の貧弱さ**: Web Share API依存のみで、デスクトップ環境や特定SNS（X, Instagram, TikTok, Threads, LINE）への拡散導線が遮断されていた。
+
+### 2. 物理実装したUIアーキテクチャ（ShareModal & Header Streamlining）
+1. **ティッカーバッジ・個別URLボタンの完全切除（`CompanyHeader.tsx`）**:
+   - `Pin` アイコンおよびティッカーバッジ（`entity.ticker`）を完全撤廃。社名（`entity.name`）が先頭に堂々と配置され、視覚的ノイズをゼロ化。
+   - ヘッダー右端の個別 `[URL]` コピーボタンを削除し、`[共有]` ボタンに完全吸収・一元化。
+2. **専用マルチSNS共有モーダル（`ShareModal.tsx`）の配備**:
+   - **正体文章の自動引用（「正体」単語の完全切除）**: `getCleanShareText` により、`strongHeadline` または `essence.whatItDoes` から文章そのものを直接抜粋し、「正体」「【正体】」というメタラベル・単語のみを完全切除。社名・月商・手残り・営業利益率とハッシュタグ（`#裏帳簿 #MAKEMONEY`）を付加した高拡散性シェア文面を自動生成。
+   - **5大SNS直通導線**:
+     - **X (Twitter)**: Webインテント直通（自動文面＋URL付与）
+     - **Threads**: Web/アプリ投稿直通
+     - **LINE**: 公式シェアプラグイン直通
+     - **Instagram / TikTok**: 拡散文面＋URLをクリップボードに自動コピーした上で各Web/アプリを即時起動
+   - **最下部アクション（全幅 URLコピーボタン）**:
+     - モーダル最下部に全幅の `[ 🔗 URLをコピー ]` を常設。
+     - クリックでクリップボードへコピーし、即座に `[ ✓ URLをコピーしました！ ]`（緑色フィードバック）へと視覚変容。
+   - **クリップボード例外の完全吸収（`safeCopyText`）**:
+     - ブラウザの権限エラー（`NotAllowedError`）発生時も自動で `document.execCommand('copy')` にフォールバックし、Next.jsのIssueオーバーレイやエラー停止を根本切除。
+3. **ワークツリー同期（ポート3000 & 3001）**:
+   - メインリポジトリ（ポート3000）および `Make-Money-prev`（ポート3001）の双方に同一コンポーネントを配備・同期。
+
+### 3. テスト・リント・実機Playwright検証
+- `pnpm lint`: 全634エンティティ品質・アーキテクチャ境界・ESLint全件 PASS。
+- Playwright実機検証（ポート3000および3001）:
+  - ティッカーバッジ完全消滅、社名のクリアな描画を確認（`screen_header_no_ticker.png`）。
+  - 共有モーダル展開、X・Threads・LINE・Instagram・TikTok・最下部URLコピーボタンの全要素の可視性とクリック挙動を確認（`screen_share_modal_open.png`, `screen_3001_share_modal_open.png`）。
+
+---
+
 ## 2026-09-15 【確定】第6期（Codex AIブートストラップ勝者100社）完全体統合 ＆ 全634社体制・UI世代セレクター実機検証完了（Phase 189）
 
 ### 1. ユーザー指示と病巣の解剖（User Command & Cross-Machine Audit）

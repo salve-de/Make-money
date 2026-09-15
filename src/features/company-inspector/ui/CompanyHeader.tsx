@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import {
   Calendar,
-  Check,
-  Copy,
   ExternalLink,
   FileText,
-  Pin,
   Share2,
   Star,
   Users,
@@ -13,6 +10,7 @@ import {
 } from 'lucide-react';
 
 import type { InspectorSectionProps } from '../model/section-props';
+import { ShareModal } from './ShareModal';
 
 export function CompanyHeader({
   entity,
@@ -29,7 +27,7 @@ export function CompanyHeader({
   isBookmarked,
   onToggleBookmark,
 }: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'activeTags' | 'onToggleTag' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'mainTab' | 'setMainTab' | 'isBookmarked' | 'onToggleBookmark'>) {
-  const [copied, setCopied] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
 
   const rev = entity.pnl?.monthlyRevenue || 0;
   const profit = entity.pnl?.operatingProfit ?? 0;
@@ -60,27 +58,6 @@ export function CompanyHeader({
     ? `想定価値: 約${formatMoney(estValuation)} (5x)`
     : null;
 
-  // 6. X (Twitter) 共有ハンドラー
-  const handleShareX = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    const revText = isFinancialUnavailable ? '未確認' : formatMoney(rev);
-    const profitText = isFinancialUnavailable ? '未確認' : formatMoney(profit);
-    const text = `『${entity.name}』の資本主義の裏帳簿：月商${revText} / 純手残り${profitText}（利益率${margin}%）\n#KIN_KOROKU #資本主義の裏帳簿\n`;
-    const shareUrl = typeof window !== 'undefined' ? window.location.href : 'https://make-money.app';
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
-    window.open(tweetUrl, '_blank', 'noopener,noreferrer');
-  };
-
-  // 7. URLコピー ハンドラー
-  const handleCopyUrl = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (typeof window !== 'undefined') {
-      void navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
   return <>
         <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
           isScrolled
@@ -92,12 +69,8 @@ export function CompanyHeader({
 
           {/* 1. タイトル＆主要操作バー（1行統合・高密度金融HUD） */}
           <div className="px-3 py-2 flex items-center justify-between gap-2 border-b border-white/[0.04]">
-            {/* 左側：ID・社名・属性・外部リンク */}
+            {/* 左側：社名・属性・外部リンク */}
             <div className="flex items-center gap-2 min-w-0">
-              <span className="font-mono text-[11px] text-white font-bold shrink-0 bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.12] flex items-center gap-1">
-                <Pin className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
-                <span>{entity.ticker}</span>
-              </span>
               <h2 className="text-xs sm:text-sm font-bold text-white truncate font-sans tracking-tight">
                 {entity.name}
               </h2>
@@ -150,35 +123,15 @@ export function CompanyHeader({
                 </button>
               )}
 
-              {/* ⑧ X (Twitter) 共有 */}
+              {/* ⑧ 共有（ポップアップで各種SNS ＆ URLコピー展開） */}
               <button
                 type="button"
-                onClick={handleShareX}
+                onClick={() => setIsShareOpen(true)}
                 className="p-1.5 rounded-md border bg-white/[0.04] hover:bg-white/[0.10] border-white/[0.08] text-zinc-400 hover:text-white transition-all cursor-pointer flex items-center gap-1 text-[10px] font-mono"
-                title="X (Twitter) でこの裏帳簿を共有"
+                title="この裏帳簿を共有"
               >
-                <Share2 className="w-3 h-3" />
+                <Share2 className="w-3 h-3 text-cyan-400" />
                 <span className="hidden sm:inline">共有</span>
-              </button>
-
-              {/* ⑧ URL コピー */}
-              <button
-                type="button"
-                onClick={handleCopyUrl}
-                className="p-1.5 rounded-md border bg-white/[0.04] hover:bg-white/[0.10] border-white/[0.08] text-zinc-400 hover:text-white transition-all cursor-pointer flex items-center gap-1 text-[10px] font-mono"
-                title="URLをクリップボードにコピー"
-              >
-                {copied ? (
-                  <>
-                    <Check className="w-3 h-3 text-emerald-400" />
-                    <span className="text-emerald-400 hidden sm:inline">済</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3 h-3" />
-                    <span className="hidden sm:inline">URL</span>
-                  </>
-                )}
               </button>
 
               {/* クローズボタン */}
@@ -365,5 +318,13 @@ export function CompanyHeader({
           </div>
         </div>
 
+        {/* 共有モーダル（各種SNS ＆ 最下部URLコピー） */}
+        <ShareModal
+          isOpen={isShareOpen}
+          onClose={() => setIsShareOpen(false)}
+          entity={entity}
+          formatMoney={formatMoney}
+          isFinancialUnavailable={isFinancialUnavailable}
+        />
   </>;
 }
