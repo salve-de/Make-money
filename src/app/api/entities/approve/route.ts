@@ -29,7 +29,7 @@ function isLocalEditor(req: NextRequest): boolean {
 }
 
 function normalizeIds(inputIds: unknown): string[] {
-  if (!Array.isArray(inputIds) || inputIds.length > 1000) throw new Error('Invalid entity IDs');
+  if (!Array.isArray(inputIds)) throw new Error('Invalid entity IDs');
   const ids = [...new Set(inputIds.map((id) => {
     if (typeof id !== 'string') throw new Error('Invalid entity ID');
     return id.trim().toLowerCase();
