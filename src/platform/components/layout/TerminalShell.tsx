@@ -8,6 +8,7 @@ import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
 import { TerminalSidebar } from '../navigation/TerminalSidebar';
+import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '@/features/company-inspector';
@@ -583,7 +584,24 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
   return (
     <div className="flex flex-col h-screen w-screen bg-[#07080B] text-zinc-100 overflow-hidden font-sans">
-      {/* 統合ヘッダー ＆ リアルタイム市況ティッカー */}
+      {/* 統合グローバルナビゲーションヘッダー */}
+      <GlobalHeader
+        currentSection={
+          workspaceMode === 'PLAYBOOK'
+            ? 'PLAYBOOK'
+            : workspaceMode === 'RADAR'
+            ? 'RADAR'
+            : workspaceMode === 'ARCHETYPES'
+            ? 'ARCHETYPES'
+            : workspaceMode === 'SYNTHESIS'
+            ? 'SYNTHESIS'
+            : 'LEDGER'
+        }
+        onSelectLocalMode={(mode) => setWorkspaceMode(mode)}
+        onOpenPro={() => setIsProModalOpen(true)}
+      />
+
+      {/* リアルタイム市況ティッカー */}
       <MarketTickerStrip
         entities={entities}
         sourceLabel={dataSource}

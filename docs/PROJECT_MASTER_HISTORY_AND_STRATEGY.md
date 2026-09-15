@@ -6610,6 +6610,46 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - **Playwright実機撮影検証**: `http://localhost:3001/partners` にてフルページスクリーンショット（`screen_partners_premium_v2.png`）を撮影し、スカスカ感・視線の迷いが完全に消滅し、端正な可読性が担保されていることを確認。
 - **リポジトリ全系検査**: `pnpm lint`（ESLint 0 warnings、境界検査・ストレージ検査・API検査・ランタイムスキーマ・インデックス安全性・品質ガードレール 634社）が完全合格（exit code 0）。
 
+---
+
+## 【Phase 201: 全画面共通グローバルナビゲーション（GlobalHeader）統合・孤立デッドエンドの完全根絶】（2026-09-15）
+
+### 1. 課題の本質と背景
+- **「開くと別のページに移動できない・ナビがなくなる」孤立障害の特定**:
+  - パートナーページ（`/partners`）やウェルカムページ（`/welcome`）を開くと、デスクトップ左サイドバーが消滅し、ヘッダーにも他ページへのリンクが一切ないため「他のページへ行けなくなる」デッドエンドが発生していた。
+  - レーダー（`/radar`）や攻略本（`/playbook`）においてもモバイル表示でサイドバーが隠れてナビゲーションが完全に消失していた。
+  - 旧時代の残骸である `/finder` ページが白テーマで放置され、不整合を引き起こしていた。
+
+### 2. 断行した外科的処置
+1. **統合グローバルナビゲーション（GlobalHeader）の創設**:
+   - `src/platform/components/navigation/GlobalHeader.tsx` を新規開発。
+   - **主要6大セクションの一元ナビゲーション**:
+     - ① **財務台帳** (`/` / `LEDGER`): アイコン `Database`
+     - ② **動的攻略本** (`/playbook` / `PLAYBOOK`): アイコン `BookOpen`
+     - ③ **市場レーダー** (`/radar` / `RADAR`): アイコン `Flame`
+     - ④ **稼ぎの歪み** (`/?mode=ARCHETYPES`): アイコン `TrendingUp`
+     - ⑤ **事業壁打ち** (`/?mode=SYNTHESIS`): アイコン `Cpu`
+     - ⑥ **パートナー** (`/partners`): アイコン `Handshake` ＋ `30%還元` パルスバッジ
+   - **アクティブハイライト ＆ 0秒SPA切替**:
+     - トップページ内では `onSelectLocalMode` により0秒で画面を切り替え。他ページからはシームレスなルーティングを実行。
+     - 現在いるセクションが視覚的に即座に判別できるアクティブタブスタイル。
+     - 横スクロール（`overflow-x-auto no-scrollbar`）によりモバイル画面でも全セクションへ1タップで移動可能。
+2. **全ページへの配備とデッドエンドの一掃**:
+   - `src/app/partners/page.tsx`: 孤立ヘッダーを `GlobalHeader` に置換。パートナー画面から全主要機能へ1クリック移動可能に。
+   - `src/app/playbook/PlaybookClientShell.tsx`: 最上部に `GlobalHeader` を配備。
+   - `src/app/radar/RadarClientShell.tsx` & `[id]/RadarDetailClientShell.tsx`: 最上部に `GlobalHeader` を配備。
+   - `src/platform/components/layout/TerminalShell.tsx`: 最上部に `GlobalHeader` を常駐させ、全モードと完全双方向連動。
+   - `src/app/welcome/WelcomeClient.tsx`: `GlobalHeader` を導入し、右端にログイン/端末起動ボタンを統合。
+   - `src/app/finder/page.tsx`: 白テーマの旧残骸を全廃し、`/` への安全な `redirect` へ統一。
+   - `src/platform/components/navigation/MobileBottomNav.tsx`: スマホ用ボトムナビに「還元（パートナー）」を追加。
+
+### 3. 検証・稼働確認
+- **実機Playwright撮影検証**:
+  - `/partners`, `/`, `/playbook` の3画面を連続撮影し、最上部に同一デザインのグローバルナビゲーションが常駐し、各ページのアクティブ状態が正しく反映されていることを目視確認。
+- **リポジトリ全系検査**:
+  - `pnpm lint`（ESLint 0 warnings、アーキテクチャ境界・ストレージ検査・API検査・ランタイムスキーマ・インデックス安全性・全634社品質ガードレール）が exit code 0 で完全合格。
+
+
 
 
 

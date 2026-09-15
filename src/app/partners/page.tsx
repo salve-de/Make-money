@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Check, Copy, ArrowLeft } from 'lucide-react';
+import { Check, Copy } from 'lucide-react';
+import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 
 export default function PartnersPage() {
   const [copied, setCopied] = useState(false);
@@ -120,24 +121,8 @@ export default function PartnersPage() {
 
   return (
     <div className="min-h-screen bg-[#07090E] text-zinc-100 font-sans selection:bg-white/[0.15] selection:text-white pb-20">
-      {/* ターミナル風ミニマルヘッダー */}
-      <header className="border-b border-white/[0.08] bg-[#07090E]/90 backdrop-blur-md sticky top-0 z-40">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between font-mono text-xs">
-          <div className="flex items-center gap-2.5">
-            <span className="font-black tracking-widest text-white text-sm">MAKEMONEY</span>
-            <span className="text-zinc-600">{'//'}</span>
-            <span className="text-zinc-400 tracking-wider text-[11px] font-medium">PARTNER_PROTOCOL</span>
-          </div>
-
-          <Link
-            href="/"
-            className="text-zinc-400 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-mono group"
-          >
-            <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
-            <span>ターミナルへ戻る</span>
-          </Link>
-        </div>
-      </header>
+      {/* 全ページ共通統合グローバルヘッダー */}
+      <GlobalHeader currentSection="PARTNERS" />
 
       <main className="max-w-5xl mx-auto px-4 sm:px-6 pt-12 space-y-16">
         {/* ヒーローセクション */}

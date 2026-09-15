@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MarketRadarView } from '@/platform/components/radar/MarketRadarView';
 import { TerminalSidebar } from '@/platform/components/navigation/TerminalSidebar';
+import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { MarketTickerStrip } from '@/platform/components/ticker/MarketTickerStrip';
 import { WorkspaceMode, GridFilterOption, FinancialEntity } from '@/platform/types/terminal';
 
@@ -32,6 +33,9 @@ export const RadarClientShell: React.FC<RadarClientShellProps> = ({ entities }) 
 
   return (
     <div className="flex flex-col h-screen w-screen bg-[#060709] overflow-hidden">
+      {/* 統合グローバルナビゲーションヘッダー */}
+      <GlobalHeader currentSection="RADAR" />
+
       {/* 最上部 ティッカーストリップ */}
       <MarketTickerStrip entities={entities} sourceLabel="市場レーダー連動" onSelectEntity={handleSelectEntity} />
 

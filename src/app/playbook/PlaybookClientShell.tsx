@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { MacroIntelligenceData } from '@/lib/intelligence/macro-aggregator';
 import { PlaybookIntelligenceView } from '@/platform/components/playbook/PlaybookIntelligenceView';
 import { TerminalSidebar } from '@/platform/components/navigation/TerminalSidebar';
+import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import { MarketTickerStrip } from '@/platform/components/ticker/MarketTickerStrip';
 import { WorkspaceMode, GridFilterOption, FinancialEntity } from '@/platform/types/terminal';
 
@@ -32,6 +33,9 @@ export const PlaybookClientShell: React.FC<PlaybookClientShellProps> = ({ macroD
 
   return (
     <div className="flex flex-col h-screen w-screen bg-[#060709] overflow-hidden">
+      {/* 統合グローバルナビゲーションヘッダー */}
+      <GlobalHeader currentSection="PLAYBOOK" />
+
       {/* 最上部 ティッカーストリップ */}
       <MarketTickerStrip entities={entities} sourceLabel="保存済み台帳" onSelectEntity={handleSelectEntity} />
 
