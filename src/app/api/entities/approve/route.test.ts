@@ -164,7 +164,7 @@ describe('approval API acknowledgement', () => {
   it('publishes the global D1 approval overlay without exposing user data', async () => {
     vi.stubEnv('NODE_ENV', 'production');
     d1List.mockResolvedValue(['a', 'b']);
-    const response = await GET(new NextRequest('https://app.example.com/api/entities/approve'));
+    const response = await GET();
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual({ success: true, entityIds: ['a', 'b'] });
   });
