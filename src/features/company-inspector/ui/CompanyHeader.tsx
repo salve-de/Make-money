@@ -4,7 +4,6 @@ import {
   Check,
   Copy,
   ExternalLink,
-  FileCheck,
   FileText,
   Pin,
   Share2,
@@ -60,9 +59,6 @@ export function CompanyHeader({
   const valuationText = (!isFinancialUnavailable && estValuation > 0)
     ? `想定価値: 約${formatMoney(estValuation)} (5x)`
     : null;
-
-  // 5. 一次情報原本件数
-  const evidenceCount = (entity.evidenceCards?.length || 0) + (entity.sources?.length || 0);
 
   // 6. X (Twitter) 共有ハンドラー
   const handleShareX = (e: React.MouseEvent) => {
@@ -216,13 +212,10 @@ export function CompanyHeader({
             <div className="flex items-center gap-2 text-zinc-400 shrink-0">
               {/* ③ チーム人数 */}
               {displayTeam && (
-                <>
-                  <span className="text-zinc-700 hidden sm:inline">|</span>
-                  <span className="flex items-center gap-1">
-                    <Users className="w-2.5 h-2.5 text-cyan-400" />
-                    <span>組織: <strong className="text-zinc-200">{displayTeam}</strong></span>
-                  </span>
-                </>
+                <span className="flex items-center gap-1">
+                  <Users className="w-2.5 h-2.5 text-cyan-400" />
+                  <span>組織: <strong className="text-zinc-200">{displayTeam}</strong></span>
+                </span>
               )}
 
               {/* ④ 事業継続年数 */}
@@ -235,20 +228,6 @@ export function CompanyHeader({
                   </span>
                 </>
               )}
-
-              {/* ② 一次情報原本アンカー */}
-              <button
-                type="button"
-                onClick={() => {
-                  if (setMainTab) setMainTab('AUDIT');
-                  scrollToSection('section-evidence');
-                }}
-                className="flex items-center gap-1 text-cyan-300 hover:text-cyan-100 bg-cyan-950/40 hover:bg-cyan-900/50 border border-cyan-500/30 px-1.5 py-0.5 rounded text-[10px] font-mono transition-colors cursor-pointer ml-1"
-                title="数字の裏付けとなった一次情報・エビデンス原本へ直通ジャンプ"
-              >
-                <FileCheck className="w-2.5 h-2.5 text-cyan-400" />
-                <span>原本・証拠 {evidenceCount > 0 ? `(${evidenceCount})` : ''} ↗</span>
-              </button>
             </div>
           </div>
 
@@ -358,7 +337,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-sources')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span>情報源原本 (#14)</span>
+                  <span>一次情報源</span>
                 </button>
                 <button
                   type="button"
