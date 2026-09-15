@@ -296,10 +296,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
                         <Square className="w-4 h-4 text-zinc-600" />
                       )}
                     </button>
-                    <span className="font-mono text-xs font-bold text-white truncate">
-                      {ent.ticker}
-                    </span>
-                    <span className="text-[11px] text-zinc-400 truncate">
+                    <span className="text-xs font-semibold text-white truncate">
                       {ent.name}
                     </span>
                   </div>
@@ -387,8 +384,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
           {activeEntity && (
             <div className="hidden sm:flex items-center gap-1.5 font-mono text-[10px] text-zinc-500 bg-white/[0.03] px-2.5 py-1 rounded border border-white/[0.06]">
               <span className="text-zinc-400">連動銘柄:</span>
-              <span className="text-white font-bold">{activeEntity.ticker}</span>
-              <span>({activeEntity.name})</span>
+              <span className="text-white font-bold">{activeEntity.name}</span>
             </div>
           )}
         </div>

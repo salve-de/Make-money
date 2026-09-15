@@ -71,9 +71,37 @@ export function checkIndexSafety(index) {
   return errors;
 }
 
+export function checkRegistryParity(
+  index,
+  registryFile = path.join(root, 'data/collected-registry.json')
+) {
+  const errors = [];
+  try {
+    const registry = JSON.parse(readFileSync(registryFile, 'utf8'));
+    if (!Array.isArray(registry)) {
+      errors.push('data/collected-registry.json must contain an array');
+    } else if (registry.length !== index.length) {
+      errors.push(`data/collected-registry.json count (${registry.length}) does not match entities-index.json count (${index.length}). Run 'pnpm registry:sync' to reconcile.`);
+    } else {
+      const regIds = new Set(registry.map((r) => r.id));
+      for (const entity of index) {
+        if (!regIds.has(entity.id)) {
+          errors.push(`entity ${entity.id} is missing from data/collected-registry.json. Run 'pnpm registry:sync'.`);
+        }
+      }
+    }
+  } catch (err) {
+    errors.push(`could not read data/collected-registry.json: ${err.message}`);
+  }
+  return errors;
+}
+
 export function checkIndexFile(file = path.join(root, 'data/entities-index.json')) {
   try {
-    return checkIndexSafety(JSON.parse(readFileSync(file, 'utf8')));
+    const index = JSON.parse(readFileSync(file, 'utf8'));
+    const safetyErrors = checkIndexSafety(index);
+    const parityErrors = checkRegistryParity(index);
+    return [...safetyErrors, ...parityErrors];
   } catch (error) {
     return [`could not read ${path.relative(root, file)}: ${error.message}`];
   }

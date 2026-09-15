@@ -7,13 +7,14 @@ import { parseFoundationPageResponse, parseFoundationDetailResponse } from '@/li
 import { INTELLIGENCE_DOSSIERS } from '../../data/intelligenceDossiers';
 import { GridFilterOption, WorkspaceMode, IntelligenceTopicId } from '../../types/terminal';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
-import { TerminalSidebar } from '../navigation/TerminalSidebar';
+import { GlobalHeader } from '../navigation/GlobalHeader';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
 import { CompanyInspectorPane } from '@/features/company-inspector';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
 import { PlaybookIntelligenceView } from '../playbook/PlaybookIntelligenceView';
+import { MarketRadarView } from '../radar/MarketRadarView';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { useAnalystNotes } from '../../hooks/useAnalystNotes';
 import { useViewHistory } from '../../hooks/useViewHistory';
@@ -41,6 +42,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
   const topicParam = searchParams?.get('topic') as IntelligenceTopicId | null;
   const entityParam = searchParams?.get('entity');
   const filterParam = searchParams?.get('filter') as GridFilterOption | null;
+  const batchParam = searchParams?.get('batch');
 
   // アナリスト考察メモの永続化フック
   const { notes, getNote, saveNote, getSaveStatus } = useAnalystNotes();
@@ -58,6 +60,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
   const initialFilter: GridFilterOption = filterParam || 'ALL';
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(initialFilter);
+  const [selectedBatch, setSelectedBatch] = useState<string>(batchParam || 'ALL');
   const [searchQuery, setSearchQuery] = useState<string>(queryParam);
 
   // 1. 静的・自社重点事例（キーエンス、Photo AI、ShipFast等）
@@ -111,7 +114,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       const coreName = normalize(core.name);
       const replacement = foundationById.get(core.id.toLowerCase()) ||
         (coreName ? foundationByName.get(coreName) || foundationByName.get(aliasMatches[coreName]) : undefined);
-      const entity = replacement || core;
+      const entity = replacement ? { ...replacement, batchId: replacement.batchId || core.batchId } : core;
       const normalizedName = normalize(entity.name);
       if (seenIds.has(entity.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName))) continue;
       merged.push(entity);
@@ -294,6 +297,10 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       setCurrentFilter(filterParam);
     }
 
+    if (batchParam) {
+      setSelectedBatch(batchParam);
+    }
+
     if (queryParam !== undefined) {
       setSearchQuery(queryParam);
     }
@@ -311,7 +318,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
         setSelectedEntityId(matched.id);
       }
     }
-  }, [searchParams, modeParam, topicParam, entityParam, filterParam, queryParam, entities, entityAliases]);
+  }, [searchParams, modeParam, topicParam, entityParam, filterParam, batchParam, queryParam, entities, entityAliases]);
 
   // 閲覧履歴の自動追跡（開いた銘柄を蓄積）
   useEffect(() => {
@@ -397,6 +404,17 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     };
   }, [entities]);
 
+  // 収集世代（バッチ）別件数集計
+  const batchCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    entities.forEach((e) => {
+      if (e.batchId) {
+        counts[e.batchId] = (counts[e.batchId] || 0) + 1;
+      }
+    });
+    return counts;
+  }, [entities]);
+
   // 事例承認ハンドラー（「これはオッケー」ボタン）
   const handleApproveEntity = useCallback(async (entityId: string) => {
     const targetId = entityId.trim().toLowerCase();
@@ -433,6 +451,46 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
     }
   }, []);
 
+  // 表示中の収集事例を一括承認するハンドラー（「一括承認（全部オッケー）」ボタン）
+  const handleApproveAllCollected = useCallback(async () => {
+    const targetEntities = entities.filter((e) => (e.tags || []).includes('収集事例'));
+    if (targetEntities.length === 0) return;
+
+    const targetIds = targetEntities.map((e) => e.id.trim().toLowerCase());
+
+    // 1. 楽観的UI更新: 即時 approvedIds に全件追加してバッジを0にし本台帳へ昇格
+    setApprovedIds((prev) => {
+      const next = new Set(prev);
+      targetIds.forEach((id) => next.add(id));
+      return next;
+    });
+
+    // 2. 詳細キャッシュがある場合も tags を更新
+    setDetailedEntities((prev) => {
+      const next = { ...prev };
+      for (const [id, entity] of Object.entries(next)) {
+        if (targetIds.includes(id.toLowerCase())) {
+          next[id] = {
+            ...entity,
+            tags: (entity.tags || []).filter((t) => t !== '収集事例'),
+          };
+        }
+      }
+      return next;
+    });
+
+    // 3. サーバーへ非同期永続化
+    try {
+      await fetch('/api/entities/approve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ entityIds: targetIds }),
+      });
+    } catch (err) {
+      console.error('[TerminalShell] Failed to persist batch approval', err);
+    }
+  }, [entities]);
+
   // 全台帳モードでのフィルタリング
   const filteredEntities = useMemo(() => {
     return entities.filter((entity) => {
@@ -442,6 +500,9 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
       if (currentFilter === 'MONOPOLY' && entity.scale !== 'ENTERPRISE') return false;
       if (currentFilter === 'AI_NATIVE' && entity.sector !== 'AI_AUTOMATION') return false;
       if (currentFilter === 'BOOKMARKED' && !bookmarkedIds.has(entity.id)) return false;
+
+      // 収集世代（チャンク）フィルター
+      if (selectedBatch !== 'ALL' && entity.batchId !== selectedBatch) return false;
 
       // 複数タグフィルタ（選択された全タグを含むAND一致）
       if (activeTags.length > 0) {
@@ -476,7 +537,7 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
       return true;
     });
-  }, [entities, currentFilter, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
+  }, [entities, currentFilter, selectedBatch, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
 
   // 現在選択中の企業エンティティ (詳細版があれば詳細版、なければサマリー版)
   const [analysis, setAnalysis] = useState<{ id: string; token: string; meta: NonNullable<FinancialEntity['meta']> } | null>(null);
@@ -522,7 +583,30 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
   return (
     <div className="flex flex-col h-screen w-screen bg-[#07080B] text-zinc-100 overflow-hidden font-sans">
-      {/* 統合ヘッダー ＆ リアルタイム市況ティッカー */}
+      {/* 統合グローバルナビゲーションヘッダー */}
+      <GlobalHeader
+        currentSection={
+          workspaceMode === 'PLAYBOOK'
+            ? 'PLAYBOOK'
+            : workspaceMode === 'RADAR'
+            ? 'RADAR'
+            : workspaceMode === 'ARCHETYPES'
+            ? 'ARCHETYPES'
+            : workspaceMode === 'SYNTHESIS'
+            ? 'SYNTHESIS'
+            : 'LEDGER'
+        }
+        onSelectLocalMode={(mode) => setWorkspaceMode(mode)}
+        onOpenPro={() => setIsProModalOpen(true)}
+        bookmarkCount={bookmarkedIds.size}
+        onSelectBookmark={() => {
+          setWorkspaceMode('LEDGER');
+          setCurrentFilter((prev) => (prev === 'BOOKMARKED' ? 'ALL' : 'BOOKMARKED'));
+        }}
+        isBookmarkActive={workspaceMode === 'LEDGER' && currentFilter === 'BOOKMARKED'}
+      />
+
+      {/* リアルタイム市況ティッカー */}
       <MarketTickerStrip
         entities={entities}
         sourceLabel={dataSource}
@@ -535,16 +619,6 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
 
       {/* メインエリア */}
       <main className="flex-1 flex overflow-hidden relative">
-        {/* 左サイドバー */}
-        <TerminalSidebar
-          workspaceMode={workspaceMode}
-          onSelectMode={(mode) => setWorkspaceMode(mode)}
-          currentFilter={currentFilter}
-          onSelectFilter={(f) => setCurrentFilter(f)}
-          bookmarkCount={bookmarkedIds.size}
-          onOpenPro={() => setIsProModalOpen(true)}
-        />
-
         {/* 画面モードに応じたコンテンツレンダリング */}
         {workspaceMode === 'PLAYBOOK' ? (
           <PlaybookIntelligenceView
@@ -564,7 +638,14 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
             currency={currency}
             initialContextEntityId={selectedEntityId}
           />
-        ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'RADAR' || workspaceMode === 'DEEP_DIVE') ? (
+        ) : workspaceMode === 'RADAR' ? (
+          <MarketRadarView
+            onSelectEntity={(entityId) => {
+              setSelectedEntityId(entityId);
+              setWorkspaceMode('LEDGER');
+            }}
+          />
+        ) : (workspaceMode === 'ARCHETYPES' || workspaceMode === 'DEEP_DIVE') ? (
           <TacticalArchetypesView
             allEntities={entities}
             initialAnomalyId={selectedAnomalyId}
@@ -593,6 +674,10 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
               activeTags={activeTags}
               onToggleTag={handleToggleTag}
               newlyCollectedCount={newlyCollectedCount}
+              onApproveAllCollected={handleApproveAllCollected}
+              selectedBatch={selectedBatch}
+              onSelectBatch={setSelectedBatch}
+              batchCounts={batchCounts}
             />
 
             <InstitutionalDataGrid
@@ -639,6 +724,8 @@ export const TerminalShell: React.FC<{initialEntities: FinancialEntity[]; entity
             }}
             onApproveEntity={handleApproveEntity}
             isPro={isProUnlocked}
+            isBookmarked={bookmarkedIds.has(selectedEntity.id)}
+            onToggleBookmark={(e) => handleToggleBookmark(selectedEntity.id, e)}
           />
         )}
       </main>

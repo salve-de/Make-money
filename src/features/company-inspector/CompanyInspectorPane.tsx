@@ -1,19 +1,21 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import React,{ useEffect,useRef,useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { buildInspectorModel } from './model/inspector-model';
-import type { CompanyInspectorPaneProps } from './model/section-props';
+import type { CompanyInspectorPaneProps, InspectorMainTab } from './model/section-props';
 import { AnalystNotes } from './ui/AnalystNotes';
-import { BusinessSections } from './ui/BusinessSections';
 import { CompanyHeader } from './ui/CompanyHeader';
 import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
 import { EvidenceStream } from './ui/EvidenceStream';
-import { FinancialSection } from './ui/FinancialSection';
-import { PlaybookSections } from './ui/PlaybookSections';
 import { RelatedResearch } from './ui/RelatedResearch';
-import { ToolsSection } from './ui/ToolsSection';
+import { SourcesSection } from './ui/SourcesSection';
+import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
+import { CashAnatomySection } from './ui/CashAnatomySection';
+import { LootBlueprintSection } from './ui/LootBlueprintSection';
+import type { InspectorViewMode } from './model/section-props';
+
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   entity,
   onClose,
@@ -32,10 +34,13 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onOpenSynthesisWithEntity,
   onApproveEntity,
   isPro = false,
+  isBookmarked = false,
+  onToggleBookmark,
 }) => {
-
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mainTab, setMainTab] = useState<InspectorMainTab>('LEDGER');
+  const [viewMode, setViewMode] = useState<InspectorViewMode>('ALL');
   const searchParams = useSearchParams();
   const targetSection = searchParams?.get('section');
 
@@ -84,7 +89,33 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   if (!entity) return null;
 
   const model = buildInspectorModel(entity, currency);
-  const sectionProps = { entity, currency, onClose, onPrevEntity, onNextEntity, onOpenPro, onSelectTopic, onOpenAnomaly, activeTags, onToggleTag, analystNote, noteSaveStatus, onSaveAnalystNote, onOpenSynthesisWithEntity, onApproveEntity, isPro, isScrolled, scrollToSection, ...model };
+  const sectionProps = {
+    entity,
+    currency,
+    onClose,
+    onPrevEntity,
+    onNextEntity,
+    onOpenPro,
+    onSelectTopic,
+    onOpenAnomaly,
+    activeTags,
+    onToggleTag,
+    analystNote,
+    noteSaveStatus,
+    onSaveAnalystNote,
+    onOpenSynthesisWithEntity,
+    onApproveEntity,
+    isPro,
+    isScrolled,
+    scrollToSection,
+    viewMode,
+    setViewMode,
+    mainTab,
+    setMainTab,
+    isBookmarked,
+    onToggleBookmark,
+    ...model
+  };
 
   return (
     <>
@@ -107,19 +138,46 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-4 space-y-8 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
+          className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
         >
-          {/* 上端潜り込みグラデーションシャドウ */}
-          <div className="sticky top-0 -mt-4 -mx-4 h-4 bg-gradient-to-b from-[#080B10] via-[#080B10]/90 to-transparent pointer-events-none z-10" />
 
-        <RelatedResearch {...sectionProps} />
-        <EvidenceDeckSection {...sectionProps} />
-        <BusinessSections {...sectionProps} />
-        <FinancialSection {...sectionProps} />
-        <ToolsSection {...sectionProps} />
-        <PlaybookSections {...sectionProps} />
-        <EvidenceStream {...sectionProps} />
-        <AnalystNotes {...sectionProps} />
+          {mainTab === 'LEDGER' ? (
+            <>
+              {/* ========================================================= */}
+              {/* 【本丸】資本主義の裏帳簿：4層キラーピラミッド */}
+              {/* ========================================================= */}
+
+              {/* LAYER 1: 【0秒・脳幹直撃】断罪HUD・エグゼクティブサマリー */}
+              <ExecutiveIntuitiveSummary {...sectionProps} />
+
+              {/* LAYER 2: 【3秒・急所解剖】動かぬ証拠 4大急所デッキ */}
+              <EvidenceDeckSection {...sectionProps} />
+
+              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー ⇄ 現金の滝 ⇄ P&L明細） */}
+              <CashAnatomySection {...sectionProps} />
+
+              {/* LAYER 4: 【5分・略奪実行】略奪ブループリント ＆ 武器庫 */}
+              <LootBlueprintSection {...sectionProps} />
+            </>
+          ) : (
+            <>
+              {/* ========================================================= */}
+              {/* 【証拠】検証エビデンス（原本アーカイブ ＆ 全量ログ） */}
+              {/* ========================================================= */}
+
+              {/* 1. 一次情報源・原本アーカイブ */}
+              <SourcesSection {...sectionProps} />
+
+              {/* 2. 全量調査ログ・観察ストリーム */}
+              <EvidenceStream {...sectionProps} />
+
+              {/* 3. アナリスト考察メモ */}
+              <AnalystNotes {...sectionProps} />
+
+              {/* 4. 関連リサーチ */}
+              <RelatedResearch {...sectionProps} />
+            </>
+          )}
         </div>
       </aside>
     </>

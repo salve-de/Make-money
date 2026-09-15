@@ -67,10 +67,49 @@ export async function ingestVerifiedEntities(
     rawArtifacts: rawArtifacts ?? []
   }));
 
-  // 1. スキーマ & 算術整合性バリデーション
-  console.log('--- [1/4] Validating Schema & Financial Arithmetic Integrity ---');
+  // 1. スキーマ & 算術整合性 & 重複完全遮断バリデーション
+  console.log('--- [1/4] Validating Schema, Financial Arithmetic & Zero-Duplication Integrity ---');
+  const existingIndexPath = resolve(process.cwd(), 'data/entities-index.json');
+  const existingCatalog: FinancialEntity[] = JSON.parse(await readFile(existingIndexPath, 'utf8'));
+
+  const normalizeForDedup = (name: string) => name
+    .toLowerCase()
+    .trim()
+    .replace(/\b(inc|llc|corp|corporation|co|ltd|plc|gmbh|holdings)\b/g, '')
+    .replace(/[\s\-_・（）()株式会社有限会社]/g, '');
+
+  const existingIdMap = new Map(existingCatalog.map(e => [e.id.toLowerCase().trim(), e]));
+  const existingNormMap = new Map(existingCatalog.map(e => [normalizeForDedup(e.name), e]));
+  const batchSeenNorms = new Map<string, string>();
+  const batchSeenIds = new Map<string, string>();
+
   for (const { entity: ent } of sanitizedInputs) {
-    // A. スキーマチェック
+    // A. 重複検査（既存台帳との衝突 ＆ バッチ内重複の物理遮断）
+    const idLower = ent.id.toLowerCase().trim();
+    const norm = normalizeForDedup(ent.name);
+
+    if (batchSeenIds.has(idLower)) {
+      throw new Error(`[INGEST REJECTED: BATCH DUPLICATE ID] "${ent.name}" has duplicate ID "${ent.id}" within incoming batch.`);
+    }
+    batchSeenIds.set(idLower, ent.name);
+
+    if (norm.length > 2 && batchSeenNorms.has(norm)) {
+      throw new Error(`[INGEST REJECTED: BATCH DUPLICATE NAME] "${ent.name}" duplicates another entity in the same batch: "${batchSeenNorms.get(norm)}".`);
+    }
+    batchSeenNorms.set(norm, ent.name);
+
+    // 既存台帳との衝突判定（新規追加時）
+    const existingIdConflict = existingIdMap.get(idLower);
+    if (existingIdConflict && existingIdConflict.id !== ent.id) {
+      throw new Error(`[INGEST REJECTED: EXISTING ID DUPLICATE] ID "${ent.id}" conflicts with already collected entity "${existingIdConflict.name}".`);
+    }
+
+    const existingConflict = existingNormMap.get(norm);
+    if (existingConflict && existingConflict.id !== ent.id && ent.pnl?.financialStatus !== 'POST_MORTEM' && !ent.name.includes('検死')) {
+      throw new Error(`[INGEST REJECTED: EXISTING DUPLICATE] "${ent.name}" conflicts with already collected entity "${existingConflict.name}" (ID: ${existingConflict.id}). Collection was a waste of effort.`);
+    }
+
+    // B. スキーマチェック
     try {
       parseFinancialEntity(ent);
     } catch (err) {
@@ -78,7 +117,7 @@ export async function ingestVerifiedEntities(
       throw err;
     }
 
-    // B. 算術整合性チェック (1円・0.1%の狂いも許さない)
+    // C. 算術整合性チェック (1円・0.1%の狂いも許さない)
     const check = inspectFinancialIntegrity(ent.pnl);
     if (check.profitConflict || check.grossConflict || check.marginConflict) {
       const msg = `Arithmetic integrity FAILED for ${ent.name}: ` +
@@ -88,7 +127,7 @@ export async function ingestVerifiedEntities(
       throw new Error(msg);
     }
 
-    // C. 禁止造語パージチェック
+    // D. 禁止造語パージチェック
     const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
     const jsonStr = JSON.stringify(ent);
     for (const j of FORBIDDEN_JARGON) {
@@ -97,8 +136,50 @@ export async function ingestVerifiedEntities(
       }
     }
 
-    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / OBS: ${ent.observations?.length ?? 0}] PASS`);
+    // E. 稼働ツールスタック密度チェック（スカスカデータの物理遮断）
+    if (!ent.operations?.toolStack || ent.operations.toolStack.length === 0) {
+      throw new Error(`[INGEST REJECTED: EMPTY TOOLSTACK] "${ent.name}" has 0 tools in operations.toolStack. Keyence-level density is strictly required.`);
+    }
+
+    // F. 4大意思決定ベクトル完全性チェック（ヘッダー空白化の物理遮断）
+    if (!ent.opportunityJudgment || !ent.opportunityJudgment.verdict || !ent.opportunityJudgment.demandDelta || ent.opportunityJudgment.demandDelta === '未確認') {
+      throw new Error(`[INGEST REJECTED: MISSING OPPORTUNITY JUDGMENT] "${ent.name}" missing valid opportunityJudgment (verdict / demandDelta / entryRequirements).`);
+    }
+
+    // G. エビデンスカード金融メトリクスチェック（数値グリッド欠落の物理遮断）
+    const hasCardMetrics = ent.evidenceCards?.some(c => c.metrics && c.metrics.length > 0);
+    if (!hasCardMetrics) {
+      throw new Error(`[INGEST REJECTED: NO METRICS IN EVIDENCE CARDS] "${ent.name}" has no numerical KPI metrics in evidenceCards. Pro terminal visual density required.`);
+    }
+
+    // I. エビデンスカード最低3枚密度チェック（#01〜#03の欠落物理遮断）
+    if (!ent.evidenceCards || ent.evidenceCards.length < 3) {
+      throw new Error(`[INGEST REJECTED: LESS THAN 3 EVIDENCE CARDS] "${ent.name}" has only ${ent.evidenceCards?.length ?? 0} evidenceCards. Minimum 3 cards strictly required.`);
+    }
+
+    // J. essence (#01) 完全性チェック（ビジネスの正体非表示の物理遮断）
+    if (!ent.essence || !ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief) {
+      throw new Error(`[INGEST REJECTED: INCOMPLETE ESSENCE] "${ent.name}" missing complete essence (whatItDoes / targetCustomer / painRelief).`);
+    }
+
+    // K. 構造化パンチラインチェック（1行ポツン表示の物理遮断）
+    const bs = ent.strategy?.blindspot || '';
+    if (!bs.startsWith('【') || !bs.includes('】') || bs.length < 40) {
+      throw new Error(`[INGEST REJECTED: UNSTRUCTURED BLINDSPOT] "${ent.name}" strategy.blindspot must have 【headline】 and detailed body.`);
+    }
+    const md = ent.strategy?.moatDescription || '';
+    if (!md.startsWith('【') || !md.includes('】') || md.length < 40) {
+      throw new Error(`[INGEST REJECTED: UNSTRUCTURED MOAT] "${ent.name}" strategy.moatDescription must have 【headline】 and detailed body.`);
+    }
+
+    // L. クリーン・ビジネス・アイデンティティチェック（会社名の冗長プレフィックス遮断）
+    if (ent.essence.whatItDoes.startsWith(`${ent.name}は`) || ent.essence.whatItDoes.startsWith(`${ent.name}が`) || ent.essence.whatItDoes.includes('は、「')) {
+      throw new Error(`[INGEST REJECTED: REDUNDANT COMPANY NAME IN ESSENCE] "${ent.name}" whatItDoes starts with redundant company name prefix.`);
+    }
+
+    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / TOOLS: ${ent.operations.toolStack.length}] PASS`);
   }
+
 
   // 2. Cloudflare R2 (foundation-raw) に生データ（Raw Artifacts）をSHA-256 CAS保存
   console.log('\n--- [2/4] Preserving Raw Artifacts to Cloudflare R2 (foundation-raw) ---');
@@ -252,6 +333,12 @@ export async function ingestVerifiedEntities(
 
   await writeFile(indexPath, JSON.stringify(updatedCatalog, null, 2), 'utf8');
   console.log(`  ✓ Catalog synchronized! Total entities: ${updatedCatalog.length} (Added/Updated: ${entities.length})`);
+
+  // 5. 超軽量・重複防止マスター台帳 (data/collected-registry.json) への自動同期
+  const { execSync } = await import('node:child_process');
+  execSync('node scripts/sync-registry.mjs', { stdio: 'inherit' });
+  console.log(`  ✓ Deduplication Registry synchronized automatically!`);
+
   console.log(`\n================================================================\n`);
   return updatedCatalog.length;
 }

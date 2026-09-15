@@ -100,9 +100,9 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
                 }`}>
                   {label}
                 </span>
-                <h4 className="font-mono text-xs font-bold text-white tracking-tight truncate">
+                <span className="font-mono text-[11px] text-zinc-400 tracking-tight truncate">
                   {card.title}
-                </h4>
+                </span>
               </div>
               <div className="flex items-center gap-2 shrink-0">
                 {card.badge && (
@@ -115,11 +115,11 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
             </div>
 
             <div className="p-3.5 space-y-3 bg-[#111624]">
-              {/* パンチライン（冷徹な事実結論） */}
-              <div className={`text-xs font-semibold leading-relaxed font-sans p-2.5 rounded-r border-l-2 ${
+              {/* 大見出しパンチライン（冷徹な事実結論・脳幹直撃） */}
+              <div className={`text-sm sm:text-base font-black leading-snug font-sans p-3 rounded-lg border-l-4 ${
                 isHazardMode
-                  ? 'text-red-200 border-red-500 bg-red-950/20'
-                  : 'text-zinc-100 border-zinc-300 bg-white/[0.03]'
+                  ? 'text-red-100 border-red-500 bg-red-950/30 shadow-[0_0_16px_rgba(239,68,68,0.12)]'
+                  : 'text-white border-cyan-400 bg-white/[0.04] shadow-[0_0_16px_rgba(6,182,212,0.10)]'
               }`}>
                 {card.punchline}
               </div>
@@ -148,15 +148,6 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
                     </li>
                   ))}
                 </ul>
-              )}
-
-
-              {/* 一次情報源（存在する場合） */}
-              {card.sourceNote && (
-                <div className="pt-1 text-[10px] font-mono text-zinc-400 flex items-center justify-between border-t border-white/[0.04]">
-                  <span>情報源: <strong className="text-zinc-300">{card.sourceNote}</strong></span>
-                  <span className="text-zinc-500">確認済み</span>
-                </div>
               )}
             </div>
           </article>

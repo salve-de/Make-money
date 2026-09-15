@@ -13,6 +13,69 @@ console.log(`[check-ingest-quality] Auditing semantic and domain integrity for $
 
 let errors = [];
 
+// 0. Check for duplicate entities (ID, Normalized Name, Ticker, Domain)
+const seenIds = new Map();
+const seenNormNames = new Map();
+const seenTickers = new Map();
+const seenDomains = new Map();
+const SHARED_PLATFORMS = new Set([
+  'x.com', 'twitter.com', 'notion.so', 'notion.site', 'gumroad.com', 'substack.com', 'medium.com', 'github.com',
+  'wikipedia.org', 'en.wikipedia.org', 'ja.wikipedia.org', 'sec.gov'
+]);
+
+function normalizeEntityName(name) {
+  if (!name) return '';
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/\b(inc|llc|corp|corporation|co|ltd|plc|gmbh|holdings)\b/g, '')
+    .replace(/[\s\-_・（）()株式会社有限会社]/g, '');
+}
+
+for (const ent of entities) {
+  // A. ID一意性
+  const idLower = (ent.id || '').toLowerCase().trim();
+  if (seenIds.has(idLower)) {
+    errors.push(`[DUPLICATION ERROR] Duplicate entity ID: "${ent.id}" (conflicts with "${seenIds.get(idLower).name}")`);
+  } else {
+    seenIds.set(idLower, ent);
+  }
+
+  // B. 正規化名称一意性
+  const normName = normalizeEntityName(ent.name);
+  if (normName.length > 2) {
+    if (seenNormNames.has(normName)) {
+      errors.push(`[DUPLICATION ERROR] Duplicate company name: "${ent.name}" conflicts with existing "${seenNormNames.get(normName).name}" (ID: ${ent.id} vs ${seenNormNames.get(normName).id})`);
+    } else {
+      seenNormNames.set(normName, ent);
+    }
+  }
+
+  // C. Ticker一意性
+  if (ent.ticker && typeof ent.ticker === 'string' && ent.ticker.trim()) {
+    const tick = ent.ticker.trim().toUpperCase();
+    if (seenTickers.has(tick)) {
+      errors.push(`[DUPLICATION ERROR] Duplicate Ticker: "${tick}" for "${ent.name}" conflicts with "${seenTickers.get(tick).name}"`);
+    } else {
+      seenTickers.set(tick, ent);
+    }
+  }
+
+  // D. ドメイン一意性（同一企業の検死版POST_MORTEMは許容）
+  if (ent.url && ent.pnl?.financialStatus !== 'POST_MORTEM' && !ent.name.includes('検死')) {
+    try {
+      const domain = new URL(ent.url).hostname.replace(/^www\./, '').toLowerCase();
+      if (domain && !SHARED_PLATFORMS.has(domain)) {
+        if (seenDomains.has(domain)) {
+          errors.push(`[DUPLICATION ERROR] Duplicate official domain: "${domain}" for "${ent.name}" conflicts with "${seenDomains.get(domain).name}"`);
+        } else {
+          seenDomains.set(domain, ent);
+        }
+      }
+    } catch {}
+  }
+}
+
 // 1. Check Offline entities for misplaced SaaS payment tools
 const OFFLINE_RETAIL_KEYWORDS = ['スーパー', 'ロピア', 'オーケー', '丸亀', 'スシロー', 'きんぐ', 'ワークマン', '業務スーパー'];
 for (const ent of entities) {
@@ -41,16 +104,20 @@ if (entities.length > 50 && tollGateDiversity < 0.1) {
   errors.push(`[RULE VIOLATION: Hardcoded Template TollGate] tollGateSetup diversity is too low: only ${uniqueTollGates.size} unique patterns across ${entities.length} entities.`);
 }
 
-// 4. Check arithmetic precision
+// 4. Check arithmetic precision (Audit only when financialStatus is not UNAVAILABLE and numbers are fully present)
 for (const ent of entities) {
   const p = ent.pnl;
-  if (!p) continue;
-  if (p.monthlyRevenue - p.cogs !== p.grossProfit) {
-    errors.push(`[ARITHMETIC ERROR] ${ent.name}: monthlyRevenue (${p.monthlyRevenue}) - cogs (${p.cogs}) !== grossProfit (${p.grossProfit})`);
+  if (!p || p.financialStatus === 'UNAVAILABLE' || p.isRevenueUnconfirmed) continue;
+  if (typeof p.monthlyRevenue === 'number' && typeof p.cogs === 'number' && typeof p.grossProfit === 'number') {
+    if (p.monthlyRevenue - p.cogs !== p.grossProfit) {
+      errors.push(`[ARITHMETIC ERROR] ${ent.name}: monthlyRevenue (${p.monthlyRevenue}) - cogs (${p.cogs}) !== grossProfit (${p.grossProfit})`);
+    }
   }
-  const opexSum = Object.values(p.operatingExpenses || {}).reduce((a, b) => (typeof b === 'number' ? a + b : a), 0);
-  if (p.grossProfit - opexSum !== p.operatingProfit) {
-    errors.push(`[ARITHMETIC ERROR] ${ent.name}: grossProfit (${p.grossProfit}) - opexSum (${opexSum}) !== operatingProfit (${p.operatingProfit})`);
+  if (typeof p.grossProfit === 'number' && typeof p.operatingProfit === 'number' && p.operatingExpenses) {
+    const opexSum = Object.values(p.operatingExpenses || {}).reduce((a, b) => (typeof b === 'number' ? a + b : a), 0);
+    if (p.grossProfit - opexSum !== p.operatingProfit) {
+      errors.push(`[ARITHMETIC ERROR] ${ent.name}: grossProfit (${p.grossProfit}) - opexSum (${opexSum}) !== operatingProfit (${p.operatingProfit})`);
+    }
   }
 }
 
@@ -58,10 +125,15 @@ for (const ent of entities) {
 const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
 
 for (const ent of entities) {
-  // A. essence (optional: if present, validate types)
+  // A. essence (optional: if present, validate types and clean business identity)
   if (ent.essence) {
     if (typeof ent.essence !== 'object') {
       errors.push(`[SCHEMA ERROR] ${ent.name}: essence must be an object.`);
+    } else if (ent.essence.whatItDoes) {
+      const text = ent.essence.whatItDoes;
+      if (text.startsWith(`${ent.name}は`) || text.startsWith(`${ent.name}が`) || text.includes('は、「')) {
+        errors.push(`[REDUNDANT IDENTITY] ${ent.name}: essence.whatItDoes starts with redundant company name prefix.`);
+      }
     }
   }
 
@@ -244,7 +316,34 @@ for (const ent of entities) {
         }
       }
     }
+  // 6. Check High-Density Quality Invariants (Flexible Guardrail: Honest Incomplete Ingestion & Zero-Exclusion)
+  // A. 稼働ツールスタック型チェック（未確認時は空配列を許容、架空捏造を遮断）
+  if (ent.operations?.toolStack && !Array.isArray(ent.operations.toolStack)) {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: operations.toolStack must be an array.`);
   }
+
+  // B. 意思決定ベクトル整合性チェック（未確認フラグは誠実な状態として許容）
+  if (ent.opportunityJudgment && (!ent.opportunityJudgment.verdict || !ent.opportunityJudgment.demandDelta)) {
+    errors.push(`[SCHEMA ERROR] ${ent.name}: opportunityJudgment present but missing verdict or demandDelta.`);
+  }
+
+  // C. 地雷・破綻ステータス整合性チェック（破綻警告不全の物理遮断）
+  const isHazard = (Array.isArray(ent.tags) && ent.tags.some(t => /破綻|倒産|粉飾|不正|清算|枯渇|崩壊|撤退|レシーバーシップ/i.test(t))) ||
+    (Array.isArray(ent.evidenceCards) && ent.evidenceCards.some(c => c && c.type === 'FATAL_BLEED'));
+  if (isHazard && ent.financialStatus !== 'POST_MORTEM') {
+    errors.push(`[DENSITY VIOLATION: Hazard Status Mismatch] ${ent.name} has failure/fatal bleed evidence but financialStatus is not POST_MORTEM.`);
+  }
+
+  // D. エビデンスカード基本チェック（最低1枚以上配備、カードがある場合はtitle必須）
+  if (!Array.isArray(ent.evidenceCards) || ent.evidenceCards.length === 0) {
+    errors.push(`[DENSITY VIOLATION: Zero Evidence Cards] ${ent.name} has 0 evidenceCards (minimum 1 required).`);
+  }
+
+  // E. essence (#01) 基本チェック（空欄・未定義による画面崩れを防止、文字数ノルマは課さない）
+  if (ent.essence && (!ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief)) {
+    errors.push(`[DENSITY VIOLATION: Incomplete Essence] ${ent.name} essence has missing properties.`);
+  }
+}
 
 if (errors.length > 0) {
   console.error(`\n❌ [check-ingest-quality] FAILED with ${errors.length} quality violations:`);
@@ -252,6 +351,7 @@ if (errors.length > 0) {
   if (errors.length > 10) console.error(`  ...and ${errors.length - 10} more`);
   process.exit(1);
 }
+
 
 console.log(`✓ [check-ingest-quality] PASSED: All ${entities.length} entities satisfy domain consistency, tool accuracy, arithmetic precision, flexible schema integrity, and zero jargon.\n`);
 

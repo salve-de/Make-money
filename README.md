@@ -1,4 +1,4 @@
-> **2026-09-13 最高運用契約**: ユーザーは長文指示やプロンプトを絶対に書かない。「AGENTS.md見てデータ集めて」の一言で全AIは完全自律稼働せよ。収集の最高正本は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、勝ち組4.1＆地雷組4.2完全体JSON）。他プロジェクトへの横断展開規律は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）。勝ち組要塞（7〜8割）と地雷組検死（2〜3割）の両輪を底引き網収集し、追加質問・手戻りゼロで自走完遂せよ。
+> **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
 
 # 金鉱録 (KIN-ROKOKU / Universal Business Foundation)
 
@@ -91,7 +91,7 @@
 > どのAIも以下の【必須10大属性 ＆ 6大コアブロック】を完全網羅して収集・精錬せよ：
 > 1. **身元骨格10大属性**: `id`, `ticker`, `name`, `tagline`, `sector`, `scale`, `founder`, `country`, `url`, `temporal`
 > 2. **検証済み実額P&L**: 月商・原価・粗利・営業利益・販管費5大内訳（推論/サーバー/広告/外注/ツール）の円換算ウォーターフォール
-> 3. **動的証拠カード（最低2枚・LOOT_BLUEPRINT必須）**: 「今夜別業界で同じズルを使って稼ぐ略奪転用方程式」＋現場配管コード
+> 3. **動的証拠カード（最低1枚・勝ち組LOOT_BLUEPRINT/地雷組FATAL_BLEED必須）**: 「今夜別業界で同じズルを使って稼ぐ略奪転用方程式」＋現場配管コード
 > 4. **現場配管ツール（operations.toolStack）**: 利益率を支えるツール群と月額コスト一覧
 > 5. **資本主義の裏帳簿戦略（strategy）**: 痛みの財布、堀の分類、大手の自爆構造、初動マイルストーン、コールド営業文
 > 6. **時系列・賞味期限インテリジェンス（temporal）**: 創業年、初動獲得期、観測期、賞味期限5大判定、時代背景、現在の勝敗判定

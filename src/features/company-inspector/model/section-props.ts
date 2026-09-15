@@ -18,9 +18,20 @@ export interface CompanyInspectorPaneProps {
   onOpenSynthesisWithEntity?: (entityId: string) => void;
   onApproveEntity?: (entityId: string) => void;
   isPro?: boolean;
+  isBookmarked?: boolean;
+  onToggleBookmark?: (e: React.MouseEvent) => void;
 }
 
 export type TabType = 'EVIDENCE' | 'FINANCIALS' | 'PLAYBOOK' | 'STREAM' | 'NOTES' | 'ALL';
+export type InspectorViewMode = 'ALL' | 'ESSENCE' | 'FINANCIAL' | 'PLAYBOOK';
+export type InspectorMainTab = 'LEDGER' | 'AUDIT';
 
-
-export type InspectorSectionProps = Omit<CompanyInspectorPaneProps, 'entity'> & ReturnType<typeof buildInspectorModel> & { entity: FinancialEntity; isScrolled: boolean; scrollToSection: (id: string) => void };
+export type InspectorSectionProps = Omit<CompanyInspectorPaneProps, 'entity'> & ReturnType<typeof buildInspectorModel> & {
+  entity: FinancialEntity;
+  isScrolled: boolean;
+  scrollToSection: (id: string) => void;
+  viewMode?: InspectorViewMode;
+  setViewMode?: (mode: InspectorViewMode) => void;
+  mainTab?: InspectorMainTab;
+  setMainTab?: (tab: InspectorMainTab) => void;
+};

@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Database, SlidersHorizontal, Bookmark, Cpu, TrendingUp, BookOpen } from 'lucide-react';
+import Link from 'next/link';
+import { Database, SlidersHorizontal, Bookmark, Cpu, TrendingUp, BookOpen, Handshake } from 'lucide-react';
 import { GridFilterOption, WorkspaceMode } from '../../types/terminal';
 
 interface MobileBottomNavProps {
@@ -78,6 +79,15 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <SlidersHorizontal className="w-3.5 h-3.5 mb-0.5" />
         <span>50軸</span>
       </button>
+
+      {/* パートナー (30%還元) */}
+      <Link
+        href="/partners"
+        className="flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono text-zinc-500 hover:text-amber-300 transition-colors"
+      >
+        <Handshake className="w-3.5 h-3.5 mb-0.5" />
+        <span>還元</span>
+      </Link>
 
       {/* 保存した台帳 */}
       <button

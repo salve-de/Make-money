@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { AuthModal } from '@/components/auth/AuthModal';
 import { useAuth } from '@/context/AuthContext';
+import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import type { FinancialEntity } from '@/shared/terminal';
 import { financialSnapshot } from '@/platform/utils/financialSnapshot';
 
@@ -255,41 +256,34 @@ export default function WelcomeClient({ entities }: { entities: FinancialEntity[
 
   return (
     <div className="min-h-screen bg-[#060709] text-zinc-100 font-sans selection:bg-zinc-800 selection:text-zinc-100">
-      {/* 1. 最上部コントロールバー */}
-      <header className="sticky top-0 z-40 h-12 bg-[#07080B]/90 backdrop-blur-md border-b border-white/[0.06] px-4 md:px-8 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 text-xs font-mono font-bold tracking-wider text-white hover:text-zinc-300 transition-colors">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            KIN-ROKOKU
-          </Link>
-          <span className="text-[10px] font-mono text-zinc-600 hidden sm:inline">
-            CAPITAL ARBITRAGE TERMINAL v2.5
-          </span>
-        </div>
+      {/* 1. 統合グローバルナビゲーションヘッダー */}
+      <GlobalHeader
+        currentSection="WELCOME"
+        rightContent={
+          <div className="flex items-center gap-3">
+            {user ? (
+              <span className="text-xs font-mono text-zinc-400 truncate max-w-[120px] sm:max-w-none">
+                {user.email}
+              </span>
+            ) : (
+              <button
+                onClick={() => setIsAuthModalOpen(true)}
+                className="text-xs font-mono text-zinc-400 hover:text-white px-2 py-1 rounded transition-colors cursor-pointer"
+              >
+                ログイン
+              </button>
+            )}
 
-        <div className="flex items-center gap-3">
-          {user ? (
-            <span className="text-xs font-mono text-zinc-400 truncate max-w-[120px] sm:max-w-none">
-              {user.email}
-            </span>
-          ) : (
-            <button
-              onClick={() => setIsAuthModalOpen(true)}
-              className="text-xs font-mono text-zinc-400 hover:text-white px-2.5 py-1 rounded transition-colors cursor-pointer"
+            <Link
+              href="/?entity=ent_photoai"
+              className="flex items-center gap-1.5 px-3 py-1 rounded bg-white hover:bg-zinc-200 text-black font-medium text-xs transition-colors cursor-pointer shadow-sm"
             >
-              ログインしてみる
-            </button>
-          )}
-
-          <Link
-            href="/?entity=ent_photoai"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-white hover:bg-zinc-200 text-black font-medium text-xs transition-colors cursor-pointer shadow-sm"
-          >
-            <span>端末を起動する</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-      </header>
+              <span>端末起動</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        }
+      />
 
       {/* 2. HERO セクション */}
       <section className="relative pt-16 pb-20 md:pt-24 md:pb-28 px-4 md:px-8 max-w-5xl mx-auto text-center">

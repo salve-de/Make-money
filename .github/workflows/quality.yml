@@ -3,7 +3,7 @@ name: Quality
 on:
   pull_request:
   push:
-    branches: [main]
+    branches: ['main', 'codex/**', 'feature/**', 'fix/**']
   merge_group:
   workflow_dispatch:
 
