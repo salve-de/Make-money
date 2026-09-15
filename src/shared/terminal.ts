@@ -438,6 +438,13 @@ export interface IngestBatch {
 
 export const KNOWN_INGEST_BATCHES: IngestBatch[] = [
   {
+    id: 'batch-06-2026-09-15-codex-bootstrap100',
+    name: '第6期 Codex AIブートストラップ (100社)',
+    shortLabel: '第6期 (Codex AI)',
+    date: '2026-09-15',
+    description: 'Codex収集のAIブートストラップ・マイクロSaaS・高速自走勝者100社（BoltAI, Inkdrop, Memberstack, Typebot等）',
+  },
+  {
     id: 'batch-05-2026-09-14-recent-winners100',
     name: '第5期 近年AI・高速ラッパー (100社)',
     shortLabel: '第5期 (近年AI)',

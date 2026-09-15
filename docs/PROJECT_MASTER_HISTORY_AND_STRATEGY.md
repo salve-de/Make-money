@@ -1,5 +1,39 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-15 【確定】第6期（Codex AIブートストラップ勝者100社）完全体統合 ＆ 全634社体制・UI世代セレクター実機検証完了（Phase 189）
+
+### 1. ユーザー指示と病巣の解剖（User Command & Cross-Machine Audit）
+- **ユーザー指示**:
+  - 「いやだから CODEX ANTIGRAVITY✖️2 で 合計 300集めたんじゃないの？」「↑ これをやったんだけど？」
+  - 「/Users/satoushinya/Downloads/batch_ai_bootstrap_winners_01.zip これや」
+- **病巣の解剖**:
+  - ANTIGRAVITYが収集した200社（第4期: 100社、第5期: 100社）は既に中央台帳へ統合されていたが、別環境（Windows Tempローカル）で稼働していたCODEX四世代の100社（`batch_ai_bootstrap_winners_01.json`）は「中央 entities-index.json は未変更」かつGit未同期のまま孤立していた。
+  - ユーザーから提供されたZIP原本およびMac側の生成物（`scripts/collector/data-part*.mjs`）を監査したところ、USD建て・null欠損・英語タグライン・既存台帳とのドメイン衝突（Tally, Sindre Sorhus）など、未精錬の素データであることが判明。
+  - これらを放置せず、Dorik, Mixo等の未使用・高収益勝者への差し替え、日本円換算P&L（USD×150）、LOOT_BLUEPRINT（3大スコア完備）、スキーマenum正規化（sector, moatType, verifiedBadge）を外科医の如く完遂した。
+
+### 2. 物理実装した統合アーキテクチャとデータ配線（Batch 06 Full Pipeline Ingest）
+1. **第6期バッチ（100社）の完全体生成と正規化**:
+   - `batch_codex_bootstrap_winners_100.json`（100社）として構築。
+   - 全件に `batchId: 'batch-06-2026-09-15-codex-bootstrap100'` を付与。
+   - `data/entities-index.json` にアトミックマージ（既存534社 ➔ **全634社**）。
+   - `data/incoming/processed/` へ完全体JSON配列を隔離保存。
+   - `data/r2-local/foundation-lake/journal/v1/2026/09/15/batch_codex_bootstrap_winners_100/ent_*.json` へ 100社全件を SHA-256 CAS原本として不変保存。
+2. **重複防止レジストリ・排他ロックの完全同期**:
+   - `data/collected-registry.json` を全634社で再生成・同期。
+   - `data/CLAIMED_TARGETS.txt` に新規100社（Dorik, Mixo等を含む）を追記（計736社分）。
+3. **UI世代セレクターへの第6期配備と実機検証**:
+   - `src/shared/terminal.ts` の `KNOWN_INGEST_BATCHES` に「第6期 (Codex AI) (100社)」を追加。
+   - Playwright による実機ブラウザE2E検証を実施：
+     - `screen_all_632.png`: ツールバーに `[📦 全世代 (634)]` が正常描画されることを確認。
+     - `screen_batch_06_verified.png`: ドロップダウンから「第6期 (Codex AI) (100社)」を選択し、BoltAI, PDFPals, AutoShorts.ai 等の100社が瞬時にフィルタリング表示されることを確認。
+
+### 3. テスト・リント全関所検証
+- `node scripts/architecture/check-ingest-quality.mjs`: 全634社のドメイン一意性、算術整合性（売上-原価=粗利、粗利-販管費=営業利益）、禁止造語ゼロ、柔軟スキーマ整合性 PASS。
+- `node scripts/architecture/check-index-safety.mjs`: 台帳安全性・出所完全性 PASS。
+- `pnpm lint`: ESLint、全アーキテクチャ境界テスト（境界、ストレージ、APIインプット、ランタイムスキーマ、台帳安全、インジェスト品質）一発 PASS。
+
+---
+
 ## 2026-09-15 【確定】世代別（第1期〜第5期）UIセレクター配備 ＆ 全532社への世代ID配備・実機E2E検証完了（Phase 188）
 
 ### 1. ユーザー指示と病巣の看破（User Command & Batch Selector Fix）

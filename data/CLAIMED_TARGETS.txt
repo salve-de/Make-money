@@ -534,3 +534,208 @@ Novashare (NOVASHR)
 Perfmatters (PERFMATR)
 WP Rocket (WPROCKET)
 SEOPress (SEOPRESS)
+
+BoltAI
+PDFPals
+AI2SQL
+AutoShorts.ai
+Turbo AI
+Subscribr
+Revid.ai
+SuperX
+Easy Folders
+Klap.app
+ReplyGuy
+Jupitrr
+Userdesk
+Marblism
+GoAPI
+ByeDispute
+ZenVoice
+LaunchFast
+aiCarousels
+IbexAI
+Tally Forms
+Typebot
+Senja
+RB2B
+ProjectionLab
+Inkdrop
+Swifteq
+FeedBucket
+Endorsal
+Shoutout.so
+Frill
+Sleekplan
+Formcarry
+Getform
+Warmup Inbox
+Mailivery
+Publer
+Postiz
+ZenMaid
+Outseta
+Forward Email
+SimpleLogin
+addy.io
+Webhook.site
+Requestly
+Kirby CMS
+Statamic
+Mailcoach
+Spatie
+Memberstack
+Sync2Sheets
+SendOwl
+TinyPNG
+ShortPixel
+Imagify
+SEORadar
+SpyFu
+Univid
+Flodesk
+Papermark
+Kaching Appz
+WideBundle
+Zigpoll
+CartHook
+Lifetimely
+DesignJoy
+VideoHusky
+Penji
+ManyPixels
+Scribly
+Draftss
+RoastMyLandingPage
+Growth Design
+The Agent Nest
+RatePunk
+Designpulse
+Docswell
+Poipiku
+Chichi-pui
+Zenn
+Castos
+Captivate.fm
+Buzzsprout
+Veed.io
+Rotato
+Previewed
+DaisyDisk
+Bartender
+Paste
+PopClip
+Dropover
+Hand Mirror
+PixelSnap
+Velja
+Sindre Sorhus Software
+Maccy
+Boop
+Lessonfuse
+ChatIQ
+Fly Simulator
+
+BoltAI (BOLTAI)
+PDFPals (PDFPALS)
+AI2SQL (AI2SQL)
+AutoShorts.ai (AUTSHRTS)
+Turbo AI (TURBO.AI)
+Subscribr (SUBSCRIBR)
+Revid.ai (REVID.AI)
+SuperX (SUPERX)
+Easy Folders (EASYFLDR)
+Klap.app (KLAP.APP)
+ReplyGuy (REPLYGUY)
+Jupitrr (JUPITRR)
+Userdesk (USERDESK)
+Marblism (MARBLISM)
+GoAPI (GOAPI.AI)
+ByeDispute (BYEDISPUT)
+ZenVoice (ZENVOICE)
+LaunchFast (LNCHFAST)
+aiCarousels (AICROUSL)
+IbexAI (IBEX.AI)
+Tally Forms (TALLY.FRM)
+Typebot (TYPEBOT)
+Senja (SENJA.IO)
+RB2B (RB2B.ID)
+ProjectionLab (PRJCTLAB)
+Inkdrop (INKDROP)
+Swifteq (SWIFTEQ)
+FeedBucket (FEEDBUCKET)
+Endorsal (ENDORSAL)
+Shoutout.so (SHOUTOUT)
+Frill (FRILL)
+Sleekplan (SLEEKPLAN)
+Formcarry (FORMCARRY)
+Getform (GETFORM)
+Warmup Inbox (WARMUPINBOX)
+Mailivery (MAILIVERY)
+Publer (PUBLER)
+Postiz (POSTIZ)
+ZenMaid (ZENMAID)
+Outseta (OUTSETA)
+Forward Email (FORWARDEMAIL)
+SimpleLogin (SIMPLELOGIN)
+addy.io (ADDYIO)
+Webhook.site (WEBHOOKSITE)
+Requestly (REQUESTLY)
+Kirby CMS (KIRBYCMS)
+Statamic (STATAMIC)
+Mailcoach (MAILCOACH)
+Spatie (SPATIE)
+Memberstack (MEMBERSTACK)
+Sync2Sheets (SYNC2SHEETS)
+SendOwl (SENDOWL)
+TinyPNG (TINYPNG)
+ShortPixel (SHORTPIXEL)
+Imagify (IMAGIFY)
+SEORadar (SEORADAR)
+SpyFu (SPYFU)
+Univid (UNIVID)
+Flodesk (FLODESK)
+Papermark (PAPERMARK)
+Kaching Appz (KACHING)
+WideBundle (WIDEBUNDLE)
+Zigpoll (ZIGPOLL)
+CartHook (CARTHOOK)
+Lifetimely (LIFETIMELY)
+DesignJoy (DESIGNJOY)
+VideoHusky (VIDEOHUSKY)
+Penji (PENJI)
+ManyPixels (MANYPIXELS)
+Scribly (SCRIBLY)
+Draftss (DRAFTSS)
+RoastMyLandingPage (ROASTMYLP)
+Growth Design (GROWTHDESIGN)
+The Agent Nest (AGENTNEST)
+RatePunk (RATEPUNK)
+Designpulse (DESIGNPULSE)
+Docswell (DOCSWELL)
+Poipiku (POIPIKU)
+Chichi-pui (CHICHIPUI)
+Zenn (ZENN)
+Castos (CASTOS)
+Captivate.fm (CAPTIVATE)
+Buzzsprout (BUZZSPROUT)
+Veed.io (VEEDIO)
+Rotato (ROTATO)
+Previewed (PREVIEWED)
+DaisyDisk (DAISYDISK)
+Bartender (BARTENDER)
+Paste (PASTEAPP)
+PopClip (POPCLIP)
+Dropover (DROPOVER)
+Hand Mirror (HANDMIRROR)
+PixelSnap (PIXELSNAP)
+Velja (VELJA)
+Sindre Sorhus Software (SINDRESORHUS)
+Maccy (MACCY)
+Boop (BOOPAPP)
+Lessonfuse (LESSONFUSE)
+ChatIQ (CHATIQ)
+Fly Simulator (FLYSIM)
+
+Reform
+Magnet

@@ -1742,89 +1742,88 @@ export const part1 = [
     }
   },
   {
-    name: 'Tally Forms',
-    ticker: 'TALLY.FRM',
-    legalEntity: 'Tally BV',
-    tagline: 'Typeformの高額請求に激怒した世界中の起業家の怒りを突き、Notion感覚で無料から作れるフォームで月商2,250万円・営業利益78%を抜く2人要塞',
+    name: 'Reform',
+    ticker: 'REFORMAPP',
+    legalEntity: 'Reform App ApS',
+    tagline: 'Typeformの重さと子どもっぽい1問1答UIを嫌うB2B企業にクリーンで高速なブランドフォームを提供し、1人開発で月商250万円を抜くマイクロSaaS',
     sector: 'NICHE_SAAS',
-    scale: 'SMALL_TEAM',
-    founder: 'Marie Martens / Filip Minev',
-    country: 'BE',
-    url: 'https://tally.so',
-    growthRateYoY: 150,
-    architecturePattern: 'Notionライクなブロックエディタ×完全セルフサーブ課金×99%無料開放による超巨大バイラル配管',
-    pipelineStack: 'Next.js × React × TailwindCSS × Node.js × Google Cloud × Stripe',
-    targetPainWallet: '無料枠を少し超えただけで月額数万円を強制課金してくるTypeform等の既存フォーム大手への怨嗟とコスト負担',
-    tags: ['少数精鋭', '月商2000万超', 'フォーム作成', 'Notion感覚', '利益率75%超'],
+    scale: 'SOLO',
+    founder: 'Peter Suhm',
+    country: 'DK',
+    url: 'https://www.reform.app',
+    growthRateYoY: 40,
+    architecturePattern: 'クリーンでアクセシブルなHTMLフォーム生成×マルチステップUI×Zapier/Webhook直結配管',
+    pipelineStack: 'Ruby on Rails × Hotwire / Stimulus × PostgreSQL × Stripe',
+    targetPainWallet: 'Typeformがアニメーション過多で離脱を生み、しかも月額料金が急騰して不満を抱えるB2Bマーケターの固定費',
+    tags: ['完全1人開発', 'B2BフォームSaaS', 'Typeform代替', 'アクセシビリティ', '高利益率'],
     pnl: {
-      monthlyRevenue: 22500000,
-      cogs: 1125000, // Stripe決済手数料 + インフラ原価
-      serverAndApi: 1500000, // 膨大な無料ユーザーのトラフィックを支えるサーバー代
-      advertising: 0, // 広告費完全ゼロ（プロダクトバイラル）
-      subcontracting: 300000,
-      toolsAndSaaS: 500000,
-      other: 1500000,
+      monthlyRevenue: 2500000,
+      cogs: 100000,
+      serverAndApi: 80000,
+      advertising: 30000,
+      subcontracting: 0,
+      toolsAndSaaS: 50000,
+      other: 60000,
       financialStatus: 'REPORTED',
-      dataSnapshotPeriod: '2024年（MRR $150K / ARR $1.8M達成時）',
-      sourceDoc: 'Marie Martens公式ブログおよび公式インディーズ公開メトリクス',
-      estimationLogic: 'プロプラン月額$29または年額$290 × 有料会員数千名 × 150円換算 ＝ 月商 約2,250万円（ARR 約2.7億円）。広告費0円、2名創業者＋極少チームで営業利益率75%超。'
+      dataSnapshotPeriod: '2024年（創業者ポッドキャストおよび収益公開）',
+      estimationLogic: '月額$35〜$95 × 約400社 ＝ 月商 約250万円。自前サーバー運用により利益率85%超。'
     },
     operations: {
-      teamSize: 3,
-      weeklyHours: 35,
-      initialCapitalRequired: 200000,
-      automationLevel: 94,
-      primaryChannels: ['フォームフッターの「Made with Tally」バイラルループ（最大の集客源）', 'Notionユーザーコミュニティ', 'Product Hunt（年間最優秀賞）'],
+      teamSize: 1,
+      weeklyHours: 15,
+      initialCapitalRequired: 80000,
+      automationLevel: 92,
+      primaryChannels: ['「Typeform alternative」でのSEO獲得', 'ポッドキャスト（Bootstrap Web / Indie Hackers）での発信', 'B2Bマーケターコミュニティ'],
       toolStack: [
-        { name: 'Google Cloud Platform', category: 'インフラ', monthlyCost: 1200000, purpose: '月間数千万PVのフォーム配信とDB' },
-        { name: 'Stripe', category: '決済', monthlyCost: 750000, purpose: '月額・年額プロプラン決済' },
-        { name: 'Customer.io', category: 'メール配信', monthlyCost: 150000, purpose: 'オンボーディングメール自動配信' }
+        { name: 'Stripe', category: '決済', monthlyCost: 100000, purpose: '月額サブスクリプション課金' },
+        { name: 'Hetzner', category: 'インフラ', monthlyCost: 40000, purpose: '高可用性Railsサーバー運用' },
+        { name: 'Postmark', category: 'メール配信', monthlyCost: 15000, purpose: 'フォーム回答通知メール' }
       ]
     },
     strategy: {
-      blindspot: '【大手が絶対に真似できない「99%無料開放」の死角】TypeformやSurveyMonkeyが回答数制限（月100件など）で課金を強要しユーザーを怒らせている中、逆張りで「回答数無制限・フォーム数無制限」を完全無料開放し、大手の参入障壁を破壊。',
-      moatType: 'COUNTER_POSITIONING',
-      moatDescription: '【Typeformが対抗すると売上の8割が消し飛ぶ無料モデル】Typeformの年間数百億円の売上の源泉である「回答数制限課金」をTallyが無料化したため、Typeform側は追随して無料化すると即死するジレンマを突いた。',
-      incumbentDilemma: '【VCから数千億円調達した既存巨人が低価格にできない構造】Typeformは巨額のVC資金を抱え大規模な営業部隊を抱えているため、年額数百ドルの格安プランに価格を下げることは自社の企業価値の崩壊を意味する。',
-      secretInsight: '【フォーム末尾の小さな透かしバッジによる指数関数的増殖】全フォームの最下部に表示される「Made with Tally」から、アンケートに回答した見込み客が「この綺麗なフォーム何？」とクリックして次なるフォーム作成者になる自己増殖ループ。',
+      blindspot: '【Typeformの「1問1答アニメーション」に対する大人のB2B顧客の嫌悪感】Typeformはスタイリッシュだが1問ずつスライドするため「入力に何問残っているか分からず離脱する」というB2B商談における致命傷を見抜き、1ページで完結するクリーンなフォームの需要を突いた。',
+      moatType: 'HIGH_SWITCHING_COSTS',
+      moatDescription: '【企業の商談受付・オンボーディング配管への埋め込み】企業のLPやお問い合わせ、導入ヒアリングフォームとして一度サイトに組み込まれると、フォームが機能し続ける限り解約されない。',
+      incumbentDilemma: '【Typeformが自社のアイデンティティ（1問1答）を捨てられない理由】Typeformは自社のアニメーションUIで世界一になったため、静かでシンプルなマルチステップフォームを主力にすることができない。',
+      secretInsight: '【自社ブランドに完璧に溶け込むカスタムCSSと白ラベル】Typeformのロゴが目立つフォームではなく、自社のコーポレートサイトと完全に同一のフォント・色・余白で埋め込めるプロフェッショナルな白ラベル体験。',
       initialTraction: [
-        'Twitterで「Typeformが高すぎて困っている人へ、99%無料のフォームを作りました」と投稿し、スタートアップ界隈の熱狂的支持を獲得',
-        'Notionの操作感（スラッシュコマンド `/` でブロック追加）を完全再現し、Notionユーザーが学習コストゼロで乗り換え',
-        'カスタムドメインやチーム共同編集、透かしロゴ削除という「本気で使いたいビジネス層だけが欲しがる機能」を有料化'
+        'Twitterで「Typeformが嫌いな人のためのフォームツール」として初期ベータを告知',
+        'B2Bスタートアップ創業者たちが次々とTypeformを解約してReformへ移行',
+        '「フォームの読み込み速度が3倍速くなりCVRが改善した」と口コミ拡散'
       ],
       actionPlaybook: [
-        'ステップ1: 業界最大手が「課金の急所」にしている制限（回答数、容量など）を逆張りで完全無料化する',
-        'ステップ2: 現代のデファクトUI（Notionライクなブロックエディタ）を採用し、使い心地で既存巨人を圧倒する',
-        'ステップ3: 無料フォームの末尾バッジを最大の集客配管として、広告費0円で世界中に自走拡散させる'
+        'ステップ1: 大手SaaS（Typeform）の過剰な演出（アニメーション）に疲弊した実用主義のB2B顧客を特定する',
+        'ステップ2: 1行の埋め込みで自社ブランドに100%馴染む超高速・クリーンなフォームエンジンを作る',
+        'ステップ3: 自前サーバーで低コスト運用し、月額固定サブスクで手堅いキャッシュを積み上げる'
       ],
-      coldOutreachTemplate: '【Typeformの高額請求をゼロにするNotion感覚フォーム】\n「アンケートや問い合わせフォームで、回答数が上限を超えたからと月額数万円の請求が来てうんざりしていませんか？\nTallyなら、回答数・フォーム数無制限で99%の機能を完全無料で使えます。\nNotionのように直感的に綺麗なフォームを作成してみてください。」'
+      coldOutreachTemplate: '【B2Bマーケティング責任者様へ：Typeformのアニメーションでお客様が途中で離脱していませんか？】\n「1問ずつスライドするUIのせいで、忙しいビジネス顧客が入力完了前にブラウザを閉じていませんか？\nReformなら、自社ブランドに完璧に馴染むクリーンで爆速なマルチステップフォームを即座に作成できます。\n無料トライアルで成約率の違いをお確かめください。」'
     },
     temporal: {
-      foundedYear: 2020,
-      initialTractionPeriod: '2021年〜2022年（Product Hunt 1位とTwitterの乗り換えムーブメント）',
-      dataSnapshotPeriod: '2024年通期データ（ARR $1.8M到達時）',
+      foundedYear: 2021,
+      initialTractionPeriod: '2021年（B2Bスタートアップ界隈での乗り換え期）',
+      dataSnapshotPeriod: '2024年観測データ',
       viabilityStatus: 'ACTIVE_PLAYBOOK',
-      viabilityLabel: '現在も極めて高収益に稼働中（再現性高）',
-      eraContext: '多機能SaaSの高価格化に対する反発（アンチTypeform）と、Notion流UIのグローバルスタンダード化期。',
-      currentViabilityAnalysis: '強固なバイラルループと圧倒的知覚品質により、広告費ゼロで年間成長率100%超を維持する最強のインディーモデル。'
+      viabilityLabel: 'クリーンフォームSaaSの代表格として安定稼働中',
+      eraContext: 'Typeformの値上げと、過剰な動的UIから静的・高速UIへの回帰期。',
+      currentViabilityAnalysis: 'Webhook連携やHubSpot連携を深め、解約率の極めて低いB2Bインフラとして定着。'
     },
     essence: {
-      whatItDoes: 'Notionのようにキーボードだけでスラッシュコマンドを入力して直感的に作成でき、回答数やフォーム数を無制限で無料利用できる次世代フォームビルダーSaaS。',
-      targetCustomer: 'Typeformの高額な回答数制限課金に不満を抱え、美しくモダンなフォームを低コストで運用したい起業家、マーケター、クリエイター。',
-      painRelief: '毎月のフォーム回答数上限を気にするストレスと、大手の理不尽なプランアップグレード請求の苦痛。'
+      whatItDoes: 'Typeformのような過度なアニメーションを排し、自社ブランドに溶け込むクリーンで爆速なマルチステップフォームを作成・埋め込みできるB2B向けフォームSaaS。',
+      targetCustomer: 'TypeformのUIや値上げに不満を持ち、商談やヒアリングの完了率を高めたいB2B企業、スタートアップ。',
+      painRelief: 'フォームのアニメーションによる途中離脱、自社サイトのデザインと合わないサードパーティロゴの露出。'
     },
     lootBlueprint: {
-      targetPrey: 'Typeformの高額な請求書（月額数万円〜数十万円）に毎年キレている中小企業・スタートアップ',
-      structuralFlaw: '大手は巨額の固定費を賄うため回答数制限で無理やり課金させるモデルに依存しており、無料枠を広げられない',
-      stealthEntry: '「Notionの書き心地で回答数無制限・完全無料」を掲げてTwitterに投下し、大手に不満を持つユーザーを一気に乗り換えさせる',
-      tollGateSetup: '月額$29（年額$290）のカスタムドメイン・透かしロゴ削除・チーム機能による上位プラン課金',
-      reproducibilityScore: 85,
-      moatDurabilityScore: 90,
-      capitalEfficiencyScore: 95,
+      targetPrey: 'Typeformのアニメーションが遅くて見込み客が逃げていることに気付いたB2Bマーケター',
+      structuralFlaw: 'Typeformは1問1答アニメーションに拘泥しB2B実務が求めるシンプルで速いフォームを軽視',
+      stealthEntry: '「Typeformの半額で読み込み3倍速い」を掲げてTwitterやポッドキャストの不満層を直接刈り取り',
+      tollGateSetup: '月額$35〜$95のStripeサブスクリプション自動引き落とし',
+      reproducibilityScore: 86,
+      moatDurabilityScore: 88,
+      capitalEfficiencyScore: 96,
       executionChecklist: [
-        'SlateやTipTap等のリッチテキストエディタをベースに、`/`で質問タイプを挿入できるエディタを構築する',
-        '回答データの保存・CSV出力を完全無料にし、バイラル透かしバッジ付きで全フォームをWeb公開させる',
-        '月額$29で「透かしを消して自社ドメインで動かせる」ホワイトラベル権限をStripeで課金する'
+        'Hotwireを用いてブラウザのリロードなしで爆速にページ遷移するマルチステップフォームを組む',
+        '企業のブランドカラーやカスタムCSSを1クリックで注入できるデザインテーマ機能を開発する',
+        'HubSpotやSlack、Webhookへ回答データを即時転送するエンタープライズ連携を整備する'
       ]
     }
   },
