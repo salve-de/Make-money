@@ -1,5 +1,4 @@
 import {
-  Clock,
   FileText,
   Pin,
   X
@@ -105,15 +104,6 @@ export function CompanyHeader({
                 );
               })}
             </div>
-
-            {entity.temporal && (
-              <div className="flex items-center gap-1.5 font-mono text-[9px] text-zinc-500 shrink-0 pl-2">
-                <Clock className="w-2.5 h-2.5 text-zinc-500" />
-                <span>{entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}</span>
-                <span>・</span>
-                <span className="text-zinc-300 font-semibold">{entity.temporal.viabilityLabel}</span>
-              </div>
-            )}
           </div>
 
           {/* 4. 表示モードセレクター（柔軟な表示カスタマイズ） */}
