@@ -97,51 +97,18 @@ export default function PartnersPage() {
     }
   ];
 
-  const conversionMechanics = [
+  const keyBenefits = [
     {
-      title: '剥き出しの資本主義ファクト（覗き見本能の着火）',
-      desc: '綺麗事や精神論を排除した「実際のP&L・原価・通帳着金額」を提示するため、読者は強い知的好奇心と保身恐怖から即座に購読を判断します。'
+      title: '30% 永続レベニューシェア',
+      desc: '初月限りの単発報酬ではありません。紹介経由で有料登録したユーザーが利用を継続している限り、毎月の月額利用料の30%が継続して還元されます。'
     },
     {
-      title: '押し売り不要・有益な情報源としての感謝',
-      desc: '怪しい商材を勧めるのではなく、「客観的な財務分析・大企業の急所」をシェアするため、フォロワーから信用を失わず、むしろ感謝されます。'
+      title: '30日間のCookie有効期間',
+      desc: '紹介リンクをクリックした訪問者がその場で課金しなくても、30日以内に再訪して有料登録を完了すれば、あなたの紹介成果として自動集計されます。'
     },
     {
-      title: '意思決定の必需インフラによる極小解約率',
-      desc: '事業者・起業家・投資家が自社の打ち手や投資判断のインフラとして利用するため、月額解約率が極めて低く、報酬が毎月複利で積み上がります。'
-    }
-  ];
-
-  const leverageComparison = [
-    {
-      metric: '翌月の収益',
-      conventional: '¥0から再スタート（毎月集客し続ける労働集約）',
-      makemoney: '前月の継続分が自動着金（解約されない限り永続）'
-    },
-    {
-      metric: '発信の資産性',
-      conventional: '使い捨ての広告労働（投稿をやめれば収入ゼロ）',
-      makemoney: '不可逆なストック資産（過去の紹介が累積し続ける）'
-    },
-    {
-      metric: '読者との関係',
-      conventional: '買わせたら終わり（短期的な信用の切り売り）',
-      makemoney: 'プロ用ツールの共有（有益な情報源としての信頼蓄積）'
-    }
-  ];
-
-  const provenHooks = [
-    {
-      label: 'HOOK 01 // 巨人の急所型（大手企業の裏帳簿）',
-      example: '「キーエンスの年収2,000万円はどこから抜かれているのか？ 顧客が逃げられない関所構造と粗利80%の裏帳簿。」'
-    },
-    {
-      label: 'HOOK 02 // 個人高レバレッジ型（小資本爆利の配管）',
-      example: '「社員1人・月額原価数万円で年間数億円を残す不公正な自動化配管。労働集約を脱出する唯一の抜け道。」'
-    },
-    {
-      label: 'HOOK 03 // 巨額調達即死検死型（失敗の客観ログ）',
-      example: '「なぜ数十億円を調達した企業が1年で即死したのか？ 表のPRでは絶対に出ない『致死出血点』の客観ログ。」'
+      title: '透明な成果集計と月末翌月払い',
+      desc: '成果は月末締めで確定し、翌月末日にご指定の国内銀行口座またはStripe経由で確実に送金されます。'
     }
   ];
 
@@ -166,7 +133,7 @@ export default function PartnersPage() {
         </div>
       </header>
 
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-14">
+      <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12 space-y-12">
         {/* 規定ヘッダー（タイトル＆要旨） */}
         <section className="space-y-3">
           <div className="text-[10px] font-mono tracking-widest text-emerald-400 uppercase">
@@ -219,15 +186,15 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* 01 // 成約の力学（Why it Converts） */}
+        {/* 01 // プログラムの特長 */}
         <section className="space-y-4">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
-            <span className="font-bold text-white tracking-wider">01 {'//'} 成約の力学（なぜ課金されるのか）</span>
-            <span className="text-[10px] text-zinc-500">WHY IT CONVERTS</span>
+            <span className="font-bold text-white tracking-wider">01 {'//'} プログラムの特長</span>
+            <span className="text-[10px] text-zinc-500">KEY BENEFITS</span>
           </div>
 
           <div className="space-y-3 font-mono text-xs">
-            {conversionMechanics.map((item, idx) => (
+            {keyBenefits.map((item, idx) => (
               <div key={idx} className="py-2 border-b border-white/[0.04] space-y-1">
                 <div className="text-zinc-200 font-bold flex items-center gap-2">
                   <span className="text-emerald-400 text-[10px]">●</span>
@@ -241,53 +208,10 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* 02 // 単発案件 vs 永続ストックの格差 */}
+        {/* 02 // プログラム仕様（カードではなく、端正なスペックシート台帳） */}
         <section className="space-y-4">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
-            <span className="font-bold text-white tracking-wider">02 {'//'} 単発案件 vs 永続ストックの格差</span>
-            <span className="text-[10px] text-zinc-500">THE LEVERAGE GAP</span>
-          </div>
-
-          <div className="divide-y divide-white/[0.06] text-xs font-mono">
-            {leverageComparison.map((row, idx) => (
-              <div key={idx} className="py-3 grid grid-cols-1 sm:grid-cols-12 gap-2">
-                <div className="sm:col-span-3 text-zinc-400 font-bold">{row.metric}</div>
-                <div className="sm:col-span-4 text-zinc-500 text-[11px]">
-                  <span className="text-[9px] text-zinc-600 block sm:hidden">単発案件:</span>
-                  {row.conventional}
-                </div>
-                <div className="sm:col-span-5 text-emerald-300 text-[11px] font-semibold">
-                  <span className="text-[9px] text-emerald-500/70 block sm:hidden">MAKEMONEY:</span>
-                  {row.makemoney}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 03 // 今夜使える3大発信フック */}
-        <section className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
-            <span className="font-bold text-white tracking-wider">03 {'//'} 今夜使える3大発信フック</span>
-            <span className="text-[10px] text-zinc-500">PROVEN HOOKS</span>
-          </div>
-
-          <div className="space-y-3 font-mono text-xs">
-            {provenHooks.map((hook, idx) => (
-              <div key={idx} className="py-2.5 space-y-1.5 border-b border-white/[0.04]">
-                <div className="text-zinc-300 font-bold text-[11px]">{hook.label}</div>
-                <div className="bg-black/50 border border-white/[0.08] rounded p-2.5 text-[11px] text-zinc-300 leading-relaxed">
-                  {hook.example}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 04 // プログラム仕様（カードではなく、端正なスペックシート台帳） */}
-        <section className="space-y-4">
-          <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
-            <span className="font-bold text-white tracking-wider">04 {'//'} プログラム仕様</span>
+            <span className="font-bold text-white tracking-wider">02 {'//'} プログラム仕様</span>
             <span className="text-[10px] text-zinc-500">SPECIFICATIONS</span>
           </div>
 
@@ -301,10 +225,10 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* 05 // 運用の流れ（カードではなく、プレーンなナンバリング行） */}
+        {/* 03 // 運用の流れ（カードではなく、プレーンなナンバリング行） */}
         <section className="space-y-4">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
-            <span className="font-bold text-white tracking-wider">05 {'//'} 運用の流れ</span>
+            <span className="font-bold text-white tracking-wider">03 {'//'} 運用の流れ</span>
             <span className="text-[10px] text-zinc-500">WORKFLOW</span>
           </div>
 
@@ -321,10 +245,10 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* 06 // 規約・FAQ（アコーディオンではなく、端正なドキュメントリスト） */}
+        {/* 04 // よくある質問（FAQ） */}
         <section className="space-y-4">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400 border-b border-white/[0.08] pb-2">
-            <span className="font-bold text-white tracking-wider">06 {'//'} よくある質問</span>
+            <span className="font-bold text-white tracking-wider">04 {'//'} よくある質問</span>
             <span className="text-[10px] text-zinc-500">FAQ</span>
           </div>
 
