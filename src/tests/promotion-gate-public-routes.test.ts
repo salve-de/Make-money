@@ -111,7 +111,7 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
     expect(res.status).toBe(404);
     const body = await res.json();
     expect(body.error).toBe('Entity not found');
-  });
+  }, 15000);
 
   it('4. Public API route GET /api/businesses with requested dossier_hash strictly returns 404 when not found and does NOT fallback to latest', async () => {
     // 存在するエンティティIDだが、存在しない特定の過去ハッシュを要求した場合

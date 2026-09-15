@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "pnpm lint && next build --webpack && node scripts/architecture/check-paid-bundle.mjs",
     "start": "node scripts/start-standalone.mjs",
-    "lint": "eslint --max-warnings=0 && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs && node scripts/architecture/check-index-safety.mjs && node scripts/architecture/check-ingest-quality.mjs",
+    "lint": "eslint --max-warnings=0 && node scripts/architecture/check-boundaries.mjs && node scripts/architecture/check-storage.mjs && node scripts/architecture/check-api-input.mjs && node scripts/architecture/check-runtime-schema.mjs && node scripts/architecture/check-index-safety.mjs && node scripts/architecture/check-ingest-quality.mjs && node scripts/architecture/check-component-health.mjs",
     "ingest:verify": "node scripts/architecture/check-ingest-quality.mjs",
     "ingest:incoming": "npx tsx scripts/pipeline/process-incoming.ts",
     "audit:ui": "tsx scripts/architecture/audit-all-234-ui.ts",

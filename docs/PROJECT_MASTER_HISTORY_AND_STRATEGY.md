@@ -6680,6 +6680,49 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - **リポジトリ全系検査**:
   - `pnpm lint`（ESLint 0 warnings, 0 errors、アーキテクチャ境界・ストレージ検査・API検査・ランタイムスキーマ・インデックス安全性・全634社品質ガードレール）が exit code 0 で完全合格。
 
+---
+
+## 【Phase 203: 100年保守に向けたクリーンアーキテクチャ刷新・God Component解体・レガシー死骸切除・コンポーネント健康度ガードレール導入】（2026-09-15）
+
+### 1. 課題の本質と背景
+- **「百年管理できるように 最も 良い方法で 最強に整えて 今後も コードを触る際は 最強に わかりやすく 壊れないようにしたい」というオーナー最高意志の具現化**:
+  - `TerminalShell.tsx` が 780行 に達し、状態管理・URLクエリ同期・データフェッチ・フィルタリング・キーボードショートカット・モーダル制御・JSXレンダリングを1ファイルで抱え込む「God Component（神コンポーネント）」となっていた。
+  - プロジェクト内に旧世代の残骸コード（`ExecutiveDetailSheet.tsx` 等、合計約3,600行 / 200KB超）が放置され、TypeScript型走査・テスト実行・認知負荷を増大させていた。
+  - 将来誰（人間でもAIでも）がコードを変更しても、コンポーネントが再び無秩序に肥大化することを防ぐ物理的ガードレールが存在しなかった。
+
+### 2. 断行した外科的処置
+1. **God Component の完全解体と単一責任カスタムフックへの責務純化**:
+   - `TerminalShell.tsx`（780行）から全ビジネスロジック・状態・副作用を以下の4大カスタムフックへ外科的に抽出し、本体を 332行（約60%削減）の純粋な宣言的オーケストレーターへと純化：
+     - `src/platform/hooks/useTerminalWorkspace.ts`: ワークスペースモード、特集トピック、URLクエリ双方向同期、⌘K/⌘Bキーボードショートカット、モーダル開閉。
+     - `src/platform/hooks/useFoundationCatalog.ts`: R2データレイク/オンデマンドフェッチ、CASハッシュ対応、詳細キャッシュ、マクロ集計（`aggregateMacroIntelligence`）。
+     - `src/platform/hooks/useEntityFilter.ts`: 50軸スクリーナー、カテゴリ/バッチ/タグ多次元フィルタリング、ブックマーク追跡、管理者承認（`approvedIds`）。
+     - `src/platform/hooks/useSelectedEntityNavigation.ts`: 選択中エンティティ解決、J/Kキー送り、PRO詳細分析（`parseCompanyAnalysis`）フェッチ、閲覧履歴（`useViewHistory`）。
+2. **使われていない旧世代レガシーコード（約3,600行）の完全安全切除**:
+   - コードベース全域で参照箇所がゼロ（新世代コンポーネントへ完全移行済み）であることを検証した上で、以下の死骸コード群を完全削除：
+     - `src/components/terminal/ExecutiveDetailSheet.tsx`（約2,000行）
+     - `src/components/terminal/ExecutiveDetailSheet.test.ts`
+     - `src/components/terminal/DiagnosticFinder.tsx`（約1,500行）
+     - `src/components/terminal/TerminalDirectoryTable.tsx`（約700行）
+     - `src/components/terminal/PortalView.tsx`（約700行）
+     - `src/components/terminal/ScreenerModal.tsx`（約500行）
+3. **機械的健康度ガードレールの新設とCI常駐（`check-component-health.mjs`）**:
+   - `scripts/architecture/check-component-health.mjs` を作成し、`pnpm lint` の必須関所へ配備。
+   - `TerminalShell.tsx` は 400行以下を厳格強制（リファクタリング巻き戻しを物理遮断）。
+   - プラットフォーム全UIコンポーネントの行数上限を 850行 とし、350行超えのファイルにはリファクタリング推奨警告を自動出力。
+4. **UI完全不可侵の絶対証明（Playwright実機撮影）**:
+   - リファクタリング前後のUI・表示内容が1ピクセルも変更されていないことを担保するため、Playwright実機ブラウザにて主要5大画面を撮影検証：
+     - 台帳画面（`/`）: `refactor_verify_ledger.png`
+     - 企業詳細インスペクター（`/?entity=ent_keyence`）: `refactor_verify_costco.png`
+     - パートナー画面（`/partners`）: `refactor_verify_partners.png`
+     - 実戦プレイブック（`/playbook`）: `refactor_verify_playbook.png`
+     - 異常値レーダー（`/radar`）: `refactor_verify_radar.png`
+   - 全画面においてレイアウト、フォント、配色、データの完全一致を実写確認。
+
+### 3. 検証・稼働確認
+- `pnpm lint`（ESLint 0 warnings, 0 errors, check-boundaries, check-storage, check-api-input, check-runtime-schema, check-index-safety, check-ingest-quality 634社, check-component-health）が exit code 0 で完全合格。
+- `pnpm test`（Vitest 327件, Foundation 11件, Architecture 11件, Recovery 6件）がすべて exit code 0 で完全合格。テスト実行時間が約10秒へと大幅高速化。
+
+
 
 
 
