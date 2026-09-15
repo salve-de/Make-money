@@ -17,12 +17,23 @@ test.beforeEach(async ({ page }) => {
   recordRuntimeErrors(page);
   await installOriginFixture(page);
   await page.clock.setFixedTime(new Date('2026-09-15T00:00:00Z'));
-  // Last registered route wins; this fixture overrides only the public catalog response.
+  // Last registered route wins; deterministic fixtures override only APIs whose
+  // runtime state is intentionally outside the refactor comparison.
   await page.route('**/api/businesses*', (route) => route.fulfill({ status: 200, contentType: 'application/json',
     body: JSON.stringify({ source: 'local_fallback', data: [], nextCursor: null, hasMore: false }),
   }));
+  await page.route('**/api/entities/approve', (route) => route.fulfill({ status: 200, contentType: 'application/json',
+    body: JSON.stringify({ success: true, entityIds: [] }),
+  }));
 });
-test.afterEach(async ({ page }, info) => reportRuntimeFailure(page, info));
+
+test.afterEach(async ({ page }, info) => {
+  // Next.js may still have speculative RSC prefetches in flight after a screenshot.
+  // Drain route handlers before Playwright tears the page down; otherwise a correct
+  // render can fail with `route.fetch: Test ended` after the assertion already passed.
+  await page.unrouteAll({ behavior: 'ignoreErrors' });
+  await reportRuntimeFailure(page, info);
+});
 
 for (const [name, url, expected] of [
   ['playbook', '/playbook', '事業・ツールの参考プレイブック'],

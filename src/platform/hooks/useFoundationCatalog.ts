@@ -17,6 +17,20 @@ import {
 } from '@/lib/foundation/foundation-adapter';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 
+function parseApprovedIds(payload: unknown): string[] {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Invalid approval overlay');
+  const ids = (payload as Record<string, unknown>).entityIds;
+  if (!Array.isArray(ids) || !ids.every((id) => typeof id === 'string' && id.trim().length > 0 && id.length <= 200)) {
+    throw new Error('Invalid approval overlay');
+  }
+  return [...new Set(ids.map((id) => id.trim().toLowerCase()))];
+}
+
+function removeCollectionTag(entity: FinancialEntity): FinancialEntity {
+  if (!(entity.tags || []).includes('収集事例')) return entity;
+  return { ...entity, tags: (entity.tags || []).filter((tag) => tag !== '収集事例') };
+}
+
 export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   const coreEntities = initialEntities;
 
@@ -31,8 +45,30 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
 
-  // ユーザー承認済みエンティティID（収集事例タグから除外するID一覧）
+  // Source research is immutable. Approved IDs are a separate persisted editorial overlay.
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const controller = new AbortController();
+    void fetch('/api/entities/approve', { method: 'GET', cache: 'no-store', signal: controller.signal })
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const ids = parseApprovedIds(await response.json());
+        setApprovedIds((current) => {
+          // Merge instead of replace: a slow bootstrap request must never erase an
+          // approval that was acknowledged while this request was in flight.
+          const next = new Set(current);
+          ids.forEach((id) => next.add(id));
+          return next;
+        });
+      })
+      .catch((error) => {
+        if ((error as { name?: string })?.name !== 'AbortError') {
+          console.warn('[TerminalShell] Approval overlay read failed; source data remains unchanged:', error);
+        }
+      });
+    return () => controller.abort();
+  }, []);
 
   // R2の完成体候補のみを抽出
   const foundationDisplayRows = useMemo(() => {
@@ -80,17 +116,18 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
       if (normalizedName) seenNames.add(normalizedName);
     }
 
-    // 承認済みエンティティからは「収集事例」タグを即時除外（楽観的UI）
-    return merged.map((item) => {
-      if (approvedIds.has(item.id.toLowerCase())) {
-        return {
-          ...item,
-          tags: (item.tags || []).filter((t) => t !== '収集事例'),
-        };
-      }
-      return item;
-    });
+    return merged.map((item) => approvedIds.has(item.id.toLowerCase()) ? removeCollectionTag(item) : item);
   }, [coreEntities, foundationEntities, approvedIds]);
+
+  // Detailed records use the same persisted overlay as summaries. Keep the raw
+  // fetched object intact so changing an approval never mutates source evidence.
+  const visibleDetailedEntities = useMemo(() => {
+    const next: Record<string, FinancialEntity> = {};
+    for (const [key, entity] of Object.entries(detailedEntities)) {
+      next[key] = approvedIds.has(entity.id.toLowerCase()) ? removeCollectionTag(entity) : entity;
+    }
+    return next;
+  }, [approvedIds, detailedEntities]);
 
   // 資本主義の動的攻略本マクロ集計データ
   const macroData = useMemo(() => {
@@ -214,7 +251,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
     macroData,
     foundationHasMore,
     foundationLoading,
-    detailedEntities,
+    detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
     approvedIds,
     setApprovedIds,
