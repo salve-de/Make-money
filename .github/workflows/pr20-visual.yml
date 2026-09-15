@@ -1,16 +1,12 @@
 name: PR20 visual equivalence
-
 on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
-
 permissions:
   contents: read
-
 concurrency:
   group: pr20-visual-${{ github.ref }}
   cancel-in-progress: true
-
 jobs:
   visual:
     if: github.event.pull_request.number == 20
@@ -18,6 +14,7 @@ jobs:
     timeout-minutes: 30
     env:
       NEXT_TELEMETRY_DISABLED: 1
+      TZ: Asia/Tokyo
     steps:
       - uses: actions/checkout@v4
         with:
@@ -42,7 +39,7 @@ jobs:
           cd "$RUNNER_TEMP/pr20-base"
           pnpm install --frozen-lockfile
           pnpm build
-      - name: Build HEAD with the same dependency lock and environment
+      - name: Build HEAD
         run: pnpm build
       - name: Compare rendered output against BASE
         env:
@@ -53,11 +50,13 @@ jobs:
           VISUAL_ARTIFACT_DIR: test-results/refactor-visual
         run: |
           set -eu
+          export NODE_OPTIONS="--require=$GITHUB_WORKSPACE/verification/visual/fixed-clock.cjs"
           (cd "$RUNNER_TEMP/pr20-base"; PORT=3201 HOSTNAME=127.0.0.1 node scripts/start-standalone.mjs) >test-results/refactor-visual/base-server.log 2>&1 &
           base_pid=$!
           PORT=3202 HOSTNAME=127.0.0.1 node scripts/start-standalone.mjs >test-results/refactor-visual/head-server.log 2>&1 &
           head_pid=$!
           trap 'kill "$base_pid" "$head_pid" 2>/dev/null || true' EXIT
+          unset NODE_OPTIONS
           for url in "$VISUAL_BASE_URL" "$VISUAL_HEAD_URL"; do
             ready=false
             for attempt in $(seq 1 60); do

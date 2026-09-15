@@ -9,8 +9,8 @@ async function settle(page: Page) {
 }
 
 test.beforeEach(async ({ page }) => {
+  // The isolated SSR servers use the same epoch and Asia/Tokyo timezone.
   await page.clock.setFixedTime(new Date('2026-09-15T00:00:00Z'));
-  // Both revisions receive exactly the same deterministic, valid public response.
   await page.route('**/api/businesses*', (route) => route.fulfill({ status: 200, contentType: 'application/json',
     body: JSON.stringify({ source: 'local_fallback', data: [], nextCursor: null, hasMore: false }),
   }));
@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
 for (const [name, url, expected] of [
   ['ledger', '/', 'キーエンス'],
   ['inspector', '/?entity=ent_keyence', 'キーエンス'],
-  ['partners', '/partners', 'パートナー'],
+  ['partners', '/partners', 'REFERRAL CONSOLE'],
   ['playbook', '/playbook', '事業・ツールの参考プレイブック'],
   ['radar', '/radar', '市場傾向'],
   ['synthesis', '/?mode=SYNTHESIS', '独自アイデア調書'],
