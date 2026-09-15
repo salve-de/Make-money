@@ -29,3 +29,11 @@ test('batch deep links survive reload and removed URL parameters reset', async (
   await page.goForward();
   await expect(rows.filter({ hasText: 'キーエンス (KEYENCE)' })).toHaveCount(1);
 });
+
+test('anonymous users never see the editorial bulk approval action', async ({ page }) => {
+  await page.goto('/');
+  const collectedInbox = page.getByRole('button', { name: /収集事例/ }).first();
+  await expect(collectedInbox).toBeVisible();
+  await collectedInbox.click();
+  await expect(page.getByRole('button', { name: /一括承認/ })).toHaveCount(0);
+});
