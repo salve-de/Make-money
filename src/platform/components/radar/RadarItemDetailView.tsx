@@ -19,13 +19,18 @@ import { RadarLandmineDetail } from './RadarLandmineDetail';
 interface RadarItemDetailViewProps {
   id: string;
   onSelectEntity?: (entityId: string) => void;
+  resolveEntityId?: (entityId: string) => string | null;
 }
 
-export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id, onSelectEntity }) => {
+export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id, onSelectEntity, resolveEntityId }) => {
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   const trend = useMemo(() => MARKET_RADAR_TRENDS.find((t) => t.id === id), [id]);
   const landmine = useMemo(() => MARKET_RADAR_LANDMINES.find((l) => l.id === id), [id]);
+  const proofEntityId = useMemo(() => {
+    const rawId = trend?.gapAndProof.provenPlayer.entityId;
+    return rawId && resolveEntityId ? resolveEntityId(rawId) : null;
+  }, [trend, resolveEntityId]);
 
   const handleCopy = (text: string, key: string) => {
     navigator.clipboard.writeText(text);
@@ -33,7 +38,6 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id, on
     setTimeout(() => setCopiedKey(null), 2000);
   };
 
-  // 404フォールバック
   if (!trend && !landmine) {
     return (
       <div className="flex-1 flex flex-col items-center justify-center p-8 bg-[#060709] text-zinc-300">
@@ -52,7 +56,6 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id, on
 
   return (
     <div className="flex-1 flex flex-col h-full bg-[#060709] text-zinc-100 overflow-y-auto font-sans select-none">
-      {/* ─── 最上部ナビゲーションヘッダー ─── */}
       <header className="border-b border-white/[0.06] bg-[#090A0F] px-4 sm:px-6 py-3.5 shrink-0 sticky top-0 z-20 backdrop-blur-md">
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
@@ -92,24 +95,21 @@ export const RadarItemDetailView: React.FC<RadarItemDetailViewProps> = ({ id, on
         </div>
       </header>
 
-      {/* ─── メイン詳細コンテンツ ─── */}
       <main className="max-w-5xl mx-auto w-full p-4 sm:p-6 space-y-6 flex-1">
-        {/* 【A】チャンス詳細ビュー（3段ピラミッド完全攻略本） */}
         {trend && (
           <RadarOpportunityDetail
             trend={trend}
             copiedKey={copiedKey}
             handleCopy={handleCopy}
             onSelectEntity={onSelectEntity}
+            proofEntityId={proofEntityId}
           />
         )}
 
-        {/* 【B】地雷詳細ビュー（検死解剖書 ＆ 回避・生存ウェッジ） */}
         {landmine && (
           <RadarLandmineDetail landmine={landmine} />
         )}
 
-        {/* ─── 画面下部：他の項目へのリンクバー ─── */}
         <div className="pt-6 border-t border-white/[0.08] space-y-3">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
             <span>他のレーダー項目を探索:</span>
