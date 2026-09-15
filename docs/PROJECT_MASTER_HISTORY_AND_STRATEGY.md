@@ -15,7 +15,7 @@
 1. **第6期バッチ（100社）の完全体生成と正規化**:
    - `batch_codex_bootstrap_winners_100.json`（100社）として構築。
    - 全件に `batchId: 'batch-06-2026-09-15-codex-bootstrap100'` を付与。
-   - `data/entities-index.json` にアトミックマージ（既存534社 ➔ **全634社**）。
+   - `data/entities-index.json` にアトミックマージ（既存532社 ➔ **全634社**）。
    - `data/incoming/processed/` へ完全体JSON配列を隔離保存。
    - `data/r2-local/foundation-lake/journal/v1/2026/09/15/batch_codex_bootstrap_winners_100/ent_*.json` へ 100社全件を SHA-256 CAS原本として不変保存。
 2. **重複防止レジストリ・排他ロックの完全同期**:
