@@ -6815,3 +6815,16 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - ツール構成3個以上、オフライン物理事業へのStripe等SaaS決済誤爆の完全排除
   - 全ID/Tickerの一意性確保（6-10文字英大文字Ticker）
   - 排他予約台帳（data/CLAIMED_TARGETS.txt）への100件追記ロック完了。
+
+## 2026-09-16: 新規ソロプレナー・少数精鋭勝ち組100件の自走収集・完全体生成完遂
+### 1. 収集実績
+- 共有台帳（`data/CLAIMED_TARGETS.txt`）および中央台帳との完全重複照合を実施し、未登録・未予約の100社（Soulver, Calcbot, Kaleidoscope, DeltaWalker, Sublime Merge, SmartGit, ForkLift, Path Finder, Commander One, MenubarX, LocalSend, AltTab, AppCleaner, LinearMouse, MonitorControl, Hidden Bar, Latest, Typora, DBeaver, Navicat, Postico 2, Studio 3T, Lens Kubernetes, Termius, Royal TSX, Bruno API, HTTPie, Apidog, Colima, Kreya, CotEditor, VSCodium, Nimbleway, Rayobyte, ScrapeOps, ScrapingRobot, Zenscrape, Proxy-Seller, Storm Proxies, NetNut, PacketStream, Froxy, Proxyrack, Soax, Pump.fun, Photon Sol, Trojan on Solana, Maestro Bots, Banana Gun, BonkBot, BullX, GMGN.ai, Birdeye, Token Terminal, Dune Analytics, Arkham Intelligence, CoinGecko, FormKeep, Feathery, Cognito Forms, 123FormBuilder, DexTools, Optix Coworking, OfficeRnD, Cobot, Spacebring, Nexudus, Coworkify, Rentec Direct, Hemlane, RentRedi, DealCheck, Yardi Breeze, Halaxy, Practice Better, Nutritics, Fresha, Vagaro, Mindbody, TouchBistro, ChowNow, Mockuuups Studio, Shots.so, Cleanmock, Kapwing, Artlist, Epidemic Sound, Soundstripe, Biteable, InVideo, Audiio, Mullvad, IVPN, Windscribe, AdGuard DNS, Control D Pro, Enpass Pro, Passbolt, AirVPN, RoboForm）を確定。
+- `data/CLAIMED_TARGETS.txt` への予約ロック（`CLAIMED:Antigravity-Master @ 2026-09-16`）を全100件完了。
+- 保存先：`data/incoming/batch_solo_winners_20260916.json`（完全体JSON配列100件、402KB）
+- 機械的品質ガードレール（`check-ingest-quality.mjs`）による全634件の一括完全合格を確認：
+  - 算術整合性（`monthlyRevenue - monthlyCost === monthlyProfit`、`operatingMargin` 一致）
+  - 禁止用語（`FORBIDDEN_JARGON`: サバンナOS、略奪転用方程式等）の混入ゼロ
+  - 社名プレフィックス排除（`essence.whatItDoes`）
+  - 戦略文文字数（`blindspot`, `moatDescription` 40文字以上）
+  - ツール構成3個以上、オフライン事業へのSaaS決済誤爆の完全排除
+  - 各社3枚のエビデンスカード（`ev_01`, `ev_02`, `ev_03`）完備
