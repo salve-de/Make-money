@@ -12,10 +12,13 @@ import {
 } from "firebase/auth";
 import { auth, requireFirebaseAuth } from "@/lib/firebase/client";
 
+type UserRole = "member" | "admin";
+
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   isPro: boolean;
+  role: UserRole | null;
   token: string | null;
   signInWithGoogle: () => Promise<void>;
   signInWithEmail: (email: string, pass: string) => Promise<void>;
@@ -28,6 +31,7 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
   isPro: false,
+  role: null,
   token: null,
   signInWithGoogle: async () => {},
   signInWithEmail: async () => {},
@@ -40,6 +44,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(Boolean(auth));
   const [isPro, setIsPro] = useState(false);
+  const [role, setRole] = useState<UserRole | null>(null);
   const [token, setToken] = useState<string | null>(null);
 
   const statusRequest = useRef(0);
@@ -48,27 +53,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const requestId = ++statusRequest.current;
     const account = auth?.currentUser;
     setIsPro(false);
+    setRole(null);
     setToken(null);
-    if (!account) {
-      setIsPro(false);
-      setToken(null);
-      return;
-    }
+    if (!account) return;
     try {
       const idToken = await account.getIdToken();
       if (requestId !== statusRequest.current || auth?.currentUser?.uid !== account.uid) return;
       setToken(idToken);
-      // バックエンドからPRO会員ステータス取得（DB接続時）
       const res = await fetch("/api/user/me", {
         headers: { Authorization: `Bearer ${idToken}` },
       });
       if (res.ok) {
-        const data = await res.json();
-        if (requestId === statusRequest.current && auth?.currentUser?.uid === account.uid) {
-          setIsPro(data.uid === account.uid && data.isPro === true);
+        const data: unknown = await res.json();
+        if (requestId === statusRequest.current && auth?.currentUser?.uid === account.uid && data && typeof data === "object") {
+          const record = data as Record<string, unknown>;
+          setIsPro(record.uid === account.uid && record.isPro === true);
+          setRole(record.uid === account.uid && (record.role === "member" || record.role === "admin") ? record.role : null);
         }
       }
     } catch (err) {
+      if (requestId === statusRequest.current) {
+        setIsPro(false);
+        setRole(null);
+        setToken(null);
+      }
       console.warn("User status sync error:", err);
     }
   };
@@ -82,6 +90,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       } else {
         ++statusRequest.current;
         setIsPro(false);
+        setRole(null);
         setToken(null);
       }
       setLoading(false);
@@ -106,6 +115,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const signOut = async () => {
     if (auth) await firebaseSignOut(auth);
     setIsPro(false);
+    setRole(null);
     setToken(null);
   };
 
@@ -115,6 +125,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         user,
         loading,
         isPro,
+        role,
         token,
         signInWithGoogle,
         signInWithEmail,
