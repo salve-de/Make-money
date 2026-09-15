@@ -1,11 +1,11 @@
 import React from 'react';
 import { readFile } from 'fs/promises';
 import { resolve } from 'path';
-import { publicEntity } from '@/lib/company-access/public-entity';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { parseFinancialEntities } from '@/shared/financial-entity-schema';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
-import { FinancialEntity } from '@/platform/types/terminal';
+import type { FinancialEntity } from '@/platform/types/terminal';
+import type { SnapshotEntity } from '@/platform/utils/financialSnapshot';
 import {
   MARKET_RADAR_TRENDS,
   MARKET_RADAR_LANDMINES,
@@ -34,6 +34,10 @@ async function getEntities(): Promise<FinancialEntity[]> {
   return INSTITUTIONAL_ENTITIES;
 }
 
+function toTickerEntity(entity: FinancialEntity): SnapshotEntity {
+  return { id: entity.id, name: entity.name, pnl: entity.pnl };
+}
+
 interface RadarDetailPageProps {
   params: Promise<{ id: string }>;
 }
@@ -42,5 +46,5 @@ export default async function RadarDetailPage({ params }: RadarDetailPageProps) 
   const { id } = await params;
   const entities = await getEntities();
 
-  return <RadarDetailClientShell id={id} entities={entities.map(publicEntity)} />;
+  return <RadarDetailClientShell id={id} entities={entities.map(toTickerEntity)} />;
 }
