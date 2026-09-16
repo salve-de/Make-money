@@ -16,6 +16,7 @@ import {
   isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
+import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
 
 function parseApprovedIds(payload: unknown): string[] {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Invalid approval overlay');
@@ -26,9 +27,19 @@ function parseApprovedIds(payload: unknown): string[] {
   return [...new Set(ids.map((id) => id.trim().toLowerCase()))];
 }
 
+function chunks<T>(values: readonly T[], size: number): T[][] {
+  const result: T[][] = [];
+  for (let index = 0; index < values.length; index += size) result.push(values.slice(index, index + size));
+  return result;
+}
+
 function removeCollectionTag(entity: FinancialEntity): FinancialEntity {
   if (!(entity.tags || []).includes('収集事例')) return entity;
   return { ...entity, tags: (entity.tags || []).filter((tag) => tag !== '収集事例') };
+}
+
+function isApprovalCandidate(entity: FinancialEntity): boolean {
+  return (entity.tags || []).includes('収集事例');
 }
 
 export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
@@ -47,28 +58,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
 
   // Source research is immutable. Approved IDs are a separate persisted editorial overlay.
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    const controller = new AbortController();
-    void fetch('/api/entities/approve', { method: 'GET', cache: 'no-store', signal: controller.signal })
-      .then(async (response) => {
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const ids = parseApprovedIds(await response.json());
-        setApprovedIds((current) => {
-          // Merge instead of replace: a slow bootstrap request must never erase an
-          // approval that was acknowledged while this request was in flight.
-          const next = new Set(current);
-          ids.forEach((id) => next.add(id));
-          return next;
-        });
-      })
-      .catch((error) => {
-        if ((error as { name?: string })?.name !== 'AbortError') {
-          console.warn('[TerminalShell] Approval overlay read failed; source data remains unchanged:', error);
-        }
-      });
-    return () => controller.abort();
-  }, []);
+  const approvalProjectionRequestedIds = useRef(new Set<string>());
 
   // R2の完成体候補のみを抽出
   const foundationDisplayRows = useMemo(() => {
@@ -79,6 +69,53 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   const foundationEntities = useMemo(() => {
     return foundationDisplayRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
   }, [foundationDisplayRows]);
+
+  const approvalCandidateIds = useMemo(() => {
+    const ids = new Set<string>();
+    const addCandidate = (entity: FinancialEntity) => {
+      if (isApprovalCandidate(entity)) ids.add(entity.id.trim().toLowerCase());
+    };
+    coreEntities.forEach(addCandidate);
+    foundationEntities.forEach(addCandidate);
+    Object.values(detailedEntities).forEach(addCandidate);
+    return [...ids];
+  }, [coreEntities, foundationEntities, detailedEntities]);
+
+  useEffect(() => {
+    const pendingIds = approvalCandidateIds.filter((id) => !approvalProjectionRequestedIds.current.has(id));
+    if (pendingIds.length === 0) return;
+    pendingIds.forEach((id) => approvalProjectionRequestedIds.current.add(id));
+
+    const controller = new AbortController();
+    void (async () => {
+      try {
+        for (const chunk of chunks(pendingIds, MAX_APPROVAL_PROJECTION_IDS)) {
+          const params = new URLSearchParams();
+          chunk.forEach((id) => params.append('entityId', id));
+          const response = await fetch(`/api/entities/approve?${params.toString()}`, {
+            method: 'GET',
+            signal: controller.signal,
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const ids = parseApprovedIds(await response.json());
+          setApprovedIds((current) => {
+            // Merge instead of replace: a slow projection read must never erase an
+            // approval acknowledged while this request was in flight.
+            const next = new Set(current);
+            ids.forEach((id) => next.add(id));
+            return next;
+          });
+        }
+      } catch (error) {
+        // Permit a later catalog/detail change to retry a failed projection.
+        pendingIds.forEach((id) => approvalProjectionRequestedIds.current.delete(id));
+        if ((error as { name?: string })?.name !== 'AbortError') {
+          console.warn('[TerminalShell] Approval projection read failed; source data remains unchanged:', error);
+        }
+      }
+    })();
+    return () => controller.abort();
+  }, [approvalCandidateIds]);
 
   // 全エンティティの統合
   const entities = useMemo(() => {
