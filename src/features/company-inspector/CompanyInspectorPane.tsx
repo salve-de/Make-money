@@ -6,14 +6,21 @@ import React, { useEffect, useRef, useState } from 'react';
 import { buildInspectorModel } from './model/inspector-model';
 import type { CompanyInspectorPaneProps, InspectorMainTab } from './model/section-props';
 import { AnalystNotes } from './ui/AnalystNotes';
+import { BusinessSections } from './ui/BusinessSections';
+import { CashAnatomySection } from './ui/CashAnatomySection';
 import { CompanyHeader } from './ui/CompanyHeader';
 import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
 import { EvidenceStream } from './ui/EvidenceStream';
+import { FinancialSection } from './ui/FinancialSection';
+import { FlywheelEngineDiagram } from './ui/FlywheelEngineDiagram';
+import { LootBlueprintSection } from './ui/LootBlueprintSection';
+import { PlaybookSections } from './ui/PlaybookSections';
 import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
+import { ToolsSection } from './ui/ToolsSection';
+import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
+import { VisualPipelineSection } from './ui/VisualPipelineSection';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
-import { CashAnatomySection } from './ui/CashAnatomySection';
-import { LootBlueprintSection } from './ui/LootBlueprintSection';
 import type { InspectorViewMode } from './model/section-props';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -153,11 +160,28 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               {/* LAYER 2: 【3秒・急所解剖】動かぬ証拠 4大急所デッキ */}
               <EvidenceDeckSection {...sectionProps} />
 
-              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー ⇄ 現金の滝 ⇄ P&L明細） */}
+              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー ⇄ 現金の滝） */}
               <CashAnatomySection {...sectionProps} />
 
-              {/* LAYER 4: 【5分・略奪実行】略奪ブループリント ＆ 武器庫 */}
+              {/* LAYER 4: 【損益計算書・詳細P&L】財務損益計器盤 ＆ 原価構造 */}
+              <FinancialSection {...sectionProps} />
+
+              {/* LAYER 5: 【事業DNA・ビジネスの正体】#01〜#04 弱者の生存戦略・大企業の死角 */}
+              <BusinessSections {...sectionProps} />
+
+              {/* LAYER 6: 【現場配管・武器庫】#08 利用ツールスタック ＆ 月額原価 */}
+              <ToolsSection {...sectionProps} />
+
+              {/* LAYER 7: 【5分・略奪実行】略奪ブループリント ＆ 武器庫 */}
               <LootBlueprintSection {...sectionProps} />
+
+              {/* LAYER 8: 【初動突破・実務プレイブック】#09〜#13 最初の100人獲得 ＆ 再現手順 */}
+              <PlaybookSections {...sectionProps} />
+
+              {/* LAYER 9: 【構造ダイアグラム】産業構造破壊 ＆ 自走増殖フライホイール */}
+              <VisualPipelineSection {...sectionProps} />
+              <ValueChainDisruptionSection {...sectionProps} />
+              <FlywheelEngineDiagram {...sectionProps} />
             </>
           ) : (
             <>

@@ -6954,3 +6954,19 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - 禁止用語（`FORBIDDEN_JARGON`: サバンナOS、略奪転用方程式、決済関所等）の混入ゼロ
   - 各社エビデンスカード（`LOOT_BLUEPRINT` 等）完備
   - オフライン・SaaS決済ツールの整合性確保
+
+## 2026-09-16: UIにおける全10大属性・ビジネスの正体・財務P&L・現場ツール・略奪ブループリント・再現手順プレイブックの完全漏れなし復元 ＆ ポート3000/3001同時稼働確立（Phase 203）
+### 1. 課題と原因の特定
+- 前回のUI再編時、4層ピラミッドへの集約に伴い、`BusinessSections`（#01 ビジネスの正体・#02 弱者の生存戦略・#03 大企業の自縛バグ・#04 解約不能の仕組み）、`FinancialSection`（#05 損益計算書・4連KPI・P&L明細・原価内訳）、`ToolsSection`（#08 利用ツールスタック・月額原価）、`PlaybookSections`（#09 初動集客手口・#10 最初の100人・#11 実行手順・#12 分岐点・#13 参入障壁）、および構造ダイアグラムがJSXツリーから脱落していた。
+- これにより、Playwrightによる包括UI監査（`audit:ui`）が失敗し、ユーザーから「必要な情報が漏れなく表示できているか」の指摘を受けた。
+
+### 2. 実施施策と技術的成果
+1. **インスペクターUIの完全体再構築**:
+   - `src/features/company-inspector/CompanyInspectorPane.tsx` にて、最上段のHUD・急所デッキ・現金解剖室に加え、`FinancialSection`、`BusinessSections`、`ToolsSection`、`LootBlueprintSection`、`PlaybookSections`、`VisualPipelineSection`、`ValueChainDisruptionSection`、`FlywheelEngineDiagram` を整然と復元・統合。
+   - `BusinessSections` に `id="section-essence"` を付与し、`CompanyHeader.tsx` の目次ジャンプバーを8大セクション直通に拡張。
+2. **包括UI自動監査（Playwright）の完全合格**:
+   - `pnpm audit:ui` を実行し、全業種サンプリング・直近収集分・地雷検死組を含む全22社で **100% PASS（0 failures, 0 console errors）** を実証。
+   - 禁止造語（サバンナOS等）混入ゼロ、破損テキスト（undefined, NaN%等）ゼロ、ビジネスの正体（#01）・財務（#05）・実行手順（#11）・エビデンスカードの全量レンダリングを客観証明。
+3. **ポート3000および3001の同時稼働体制確立**:
+   - Next.js Turbopackのインスタンス競合を回避するため、ポート3001からポート3000への透過リバースプロキシ（`scripts/dev-proxy-3001.mjs`）を配備・デーモン起動。
+   - `http://localhost:3000` および `http://localhost:3001` の双方で全く同一の高密度金融端末UIが即時閲覧可能であることをPlaywright実機レンダリング・スクリーンショットで検証完了。

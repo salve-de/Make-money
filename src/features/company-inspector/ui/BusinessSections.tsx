@@ -47,7 +47,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
           <div className="space-y-8">
             {/* #01 事業の正体 / 事業の罠 */}
             {entity.essence && (
-              <div className={`rounded-lg overflow-hidden border shadow-xl ${
+              <div id="section-essence" className={`rounded-lg overflow-hidden border shadow-xl scroll-mt-4 ${
                 isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
               }`}>
                 <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${

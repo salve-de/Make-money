@@ -265,7 +265,7 @@ export function CompanyHeader({
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
                   <span className="text-[9px] text-zinc-500 font-bold">#02</span>
-                  <span>動かぬ証拠 4大急所</span>
+                  <span>動かぬ証拠</span>
                 </button>
                 <button
                   type="button"
@@ -273,15 +273,47 @@ export function CompanyHeader({
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
                   <span className="text-[9px] text-zinc-500 font-bold">#03</span>
-                  <span>現金の解剖室</span>
+                  <span>現金解剖</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-financial')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#04</span>
+                  <span>財務損益</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-essence')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#05</span>
+                  <span>正体・DNA</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-tools')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#06</span>
+                  <span>現場ツール</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollToSection('section-loot-blueprint')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#04</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#07</span>
                   <span>略奪武器庫</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-playbook')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#08</span>
+                  <span>再現手順</span>
                 </button>
               </>
             ) : (
