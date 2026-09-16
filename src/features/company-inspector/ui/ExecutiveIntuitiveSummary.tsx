@@ -1,3 +1,4 @@
+import { legacyText, legacyNumber } from '../model/legacy-fields';
 import React from 'react';
 import { Building2, Flame } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
@@ -26,20 +27,20 @@ export function ExecutiveIntuitiveSummary({
   );
 
   // 2. 何をやっているのか（事業の正体）
-  const whatItDoes = entity.essence?.whatItDoes || entity.executiveSummary || '特定業界向けソリューションの開発・販売';
+  const whatItDoes = entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary') || '特定業界向けソリューションの開発・販売';
   const targetCustomer = entity.essence?.targetCustomer?.trim() || '';
   const painRelief = entity.essence?.painRelief?.trim() || entity.targetPainWallet?.trim() || '';
 
   // 3. どうやって儲けているのか（儲けのカラクリ）
-  const monetization = entity.essence?.monetizationWay || entity.monetizationWay || '';
-  const rawMoat = entity.strategy?.moatDescription || entity.strategy?.moat || entity.coreMoatDescription || entity.architecturePattern || '';
+  const monetization = legacyText(entity.essence, 'monetizationWay') || legacyText(entity, 'monetizationWay') || '';
+  const rawMoat = entity.strategy?.moatDescription || legacyText(entity.strategy, 'moat') || legacyText(entity, 'coreMoatDescription') || entity.architecturePattern || '';
   const cleanedMoat = rawMoat.replace(/^【.*?】/g, '').trim();
 
   // 4. 冷徹な実績数字
   const monthlyRev = entity.pnl?.monthlyRevenue ? formatMoney(entity.pnl.monthlyRevenue) : null;
   const monthlyProfit = entity.pnl?.operatingProfit ? formatMoney(entity.pnl.operatingProfit) : null;
   const margin = entity.pnl?.operatingMargin !== undefined ? `${entity.pnl.operatingMargin.toFixed(1)}%` : null;
-  const teamSize = entity.operations?.teamSize || entity.teamSize || null;
+  const teamSize = entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null;
 
   return (
     <div id="section-summary" className="space-y-4 select-text">

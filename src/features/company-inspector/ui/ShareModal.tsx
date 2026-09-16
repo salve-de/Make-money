@@ -1,5 +1,7 @@
 'use client';
 
+import { legacyText } from '../model/legacy-fields';
+
 import React, { useState, useEffect } from 'react';
 import {
   Check,
@@ -7,7 +9,7 @@ import {
   Link2,
   X
 } from 'lucide-react';
-import type { FinancialEntity } from '@/types/financial-entity';
+import type { FinancialEntity } from '@/shared/terminal';
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -23,7 +25,7 @@ export function getCleanShareText(
   isFinancialUnavailable: boolean
 ): string {
   // 正体の文章を抽出（「正体」「【正体】」という単語は含めない）
-  const rawText = entity.tagline || entity.essence?.whatItDoes || entity.executiveSummary || '';
+  const rawText = entity.tagline || entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary') || '';
   let cleaned = rawText
     .replace(/【(.*?正体.*?)】/g, '')
     .replace(/^正体[:：]\s*/g, '')

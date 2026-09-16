@@ -1,5 +1,7 @@
 'use client';
 
+import { legacyText } from '../model/legacy-fields';
+
 import React from 'react';
 import {
   CheckCircle2,
@@ -107,7 +109,7 @@ export function LootBlueprintSection({
             </span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-            {entity.meta?.incumbentDilemma?.cannibalizationBarrier || entity.strategy?.moat || '大手が参入すると既存の単価・代理店ネットワークを破壊してしまうため、指をくわえて見逃さざるを得ないカニバリズム死角。'}
+            {entity.meta?.incumbentDilemma?.cannibalizationBarrier || legacyText(entity.strategy, 'moat') || '大手が参入すると既存の単価・代理店ネットワークを破壊してしまうため、指をくわえて見逃さざるを得ないカニバリズム死角。'}
           </p>
         </div>
       </div>

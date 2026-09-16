@@ -53,6 +53,9 @@ export function deploymentConfigErrors(environment = process.env, runtimeConfig 
     if (d1?.database_name !== 'make-money-production-app') {
       errors.push('wrangler production APP_DB binding must use make-money-production-app');
     }
+    if (d1?.migrations_dir !== 'migrations/d1') {
+      errors.push('wrangler production APP_DB migrations_dir must be migrations/d1');
+    }
     const r2 = (Array.isArray(runtimeObject.r2_buckets) ? runtimeObject.r2_buckets : []).find((entry) => entry && entry.binding === 'APP_R2');
     if (r2?.bucket_name !== 'make-money-production-private') {
       errors.push('wrangler production APP_R2 binding must use the private Make-Money bucket');

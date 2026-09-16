@@ -1,6 +1,7 @@
 import fs, { readFileSync } from 'fs';
 import path, { resolve } from 'path';
 import crypto, { createHash } from 'crypto';
+import { hazardStatusViolation } from './ingest-hazard-guard.mjs';
 
 const indexPath = resolve(process.cwd(), 'data/entities-index.json');
 const entities = JSON.parse(readFileSync(indexPath, 'utf8'));
@@ -327,12 +328,9 @@ for (const ent of entities) {
     errors.push(`[SCHEMA ERROR] ${ent.name}: opportunityJudgment present but missing verdict or demandDelta.`);
   }
 
-  // C. 地雷・破綻ステータス整合性チェック（破綻警告不全の物理遮断）
-  const isHazard = (Array.isArray(ent.tags) && ent.tags.some(t => /破綻|倒産|粉飾|不正|清算|枯渇|崩壊|撤退|レシーバーシップ/i.test(t))) ||
-    (Array.isArray(ent.evidenceCards) && ent.evidenceCards.some(c => c && c.type === 'FATAL_BLEED'));
-  if (isHazard && ent.financialStatus !== 'POST_MORTEM') {
-    errors.push(`[DENSITY VIOLATION: Hazard Status Mismatch] ${ent.name} has failure/fatal bleed evidence but financialStatus is not POST_MORTEM.`);
-  }
+  // C. 地雷・破綻ステータス整合性チェック（canonical P&L statusを優先し、旧rootはguard内でfallback）
+  const hazardViolation = hazardStatusViolation(ent);
+  if (hazardViolation) errors.push(hazardViolation);
 
   // D. エビデンスカード基本チェック（最低1枚以上配備、カードがある場合はtitle必須）
   if (!Array.isArray(ent.evidenceCards) || ent.evidenceCards.length === 0) {
@@ -354,4 +352,3 @@ if (errors.length > 0) {
 
 
 console.log(`✓ [check-ingest-quality] PASSED: All ${entities.length} entities satisfy domain consistency, tool accuracy, arithmetic precision, flexible schema integrity, and zero jargon.\n`);
-

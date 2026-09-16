@@ -1,3 +1,4 @@
+import { legacyText } from '../model/legacy-fields';
 import React from 'react';
 import { Layers, ArrowRight, XCircle, CheckCircle2, ShieldAlert, Cpu, Network, Store, Users, Factory, Building2 } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
@@ -8,7 +9,7 @@ export function ValueChainDisruptionSection({
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'>) {
   const pattern = entity.architecturePattern || '直販・中抜き関所モデル';
   const sector = entity.sector || 'SAAS';
-  const moat = entity.strategy?.moat || '直接顧客接点と独自アセットによる参入障壁';
+  const moat = legacyText(entity.strategy, 'moat') || '直接顧客接点と独自アセットによる参入障壁';
 
   // セクターごとの従来の業界中間プレーヤーの動的推定（全7大セクター完全対応）
   const getConventionalIntermediaries = (sec: string) => {

@@ -69,6 +69,8 @@ def verify():
                            (owner, "business", "synthetic-company", timestamp, timestamp))
             source.execute("INSERT INTO analyst_notes(user_id,entity_id,content,updated_at) VALUES(?,?,?,?)",
                            (owner, "synthetic-company", owner + "'s note\n日本語・復元確認", timestamp))
+        source.execute("INSERT INTO entity_approvals(entity_id,approved_by,approved_at) VALUES(?,?,?)",
+                       ("synthetic-company", "recovery-owner-a", timestamp))
         source.execute("INSERT INTO newsletter_subscribers(id,email,source,subscribed_at) VALUES(?,?,?,?)",
                        ("synthetic-news", "subscriber@example.invalid", "recovery-drill", timestamp))
         source.execute("INSERT INTO submissions(id,user_id,business_name,url,monthly_revenue,monthly_profit,created_at) VALUES(?,?,?,?,?,?,?)",
@@ -92,7 +94,7 @@ def verify():
         restored_path = directory / "restored.sqlite"
         restore_empty(restored_path, backup.read_text(), backup_hash)
         with closing(sqlite3.connect(restored_path)) as restored:
-            assert inventory(restored) == before, "Restore changed schema, owner data, or payment facts"
+            assert inventory(restored) == before, "Restore changed schema, owner data, approval facts, or payment facts"
 
         try:
             restore_empty(restored_path, dump, backup_hash)

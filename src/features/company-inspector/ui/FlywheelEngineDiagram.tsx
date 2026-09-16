@@ -1,9 +1,17 @@
 'use client';
 
+import { legacyText } from '../model/legacy-fields';
+
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import { RotateCw, AlertTriangle } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
+
+function describedGraphNodes(
+  nodes: Array<NonNullable<echarts.GraphSeriesOption['data']>[number] & { desc?: string }>,
+): NonNullable<echarts.GraphSeriesOption['data']> {
+  return nodes;
+}
 
 function cleanNodeTitle(text: string | undefined, fallback: string): string {
   if (!text) return fallback;
@@ -43,7 +51,7 @@ export function FlywheelEngineDiagram({
 
   const node4 = isHazardMode
     ? cleanNodeTitle(cards[3]?.title, '追加調達環境悪化による資金枯渇')
-    : cleanNodeTitle(cards[3]?.title || entity.strategy?.moat, '独自アセットへの再投資とモート強化');
+    : cleanNodeTitle(cards[3]?.title || legacyText(entity.strategy, 'moat'), '独自アセットへの再投資とモート強化');
 
   useEffect(() => {
     const el = chartRef.current;
@@ -102,7 +110,7 @@ export function FlywheelEngineDiagram({
               fontFamily: 'monospace',
               formatter: '{b}'
             },
-            data: [
+            data: describedGraphNodes([
               {
                 name: '① コア価値確立',
                 desc: node1,
@@ -156,7 +164,7 @@ export function FlywheelEngineDiagram({
                   fontWeight: 900
                 }
               }
-            ],
+            ]),
             links: [
               {
                 source: '① コア価値確立',

@@ -21,6 +21,9 @@ test('Density Invariant: autoEnrichEntityBeforeIngest fills empty toolStack', ()
     targetPainWallet: '業務効率化',
     verifiedBadge: false,
     pnl: {
+      operatingExpenses: { serverAndApi: 0, advertising: 0, subcontracting: 0, toolsAndSaaS: 0, other: 0 },
+      estimatedAnnualNetProfit: 0,
+      isNetProfitUnconfirmed: true,
       monthlyRevenue: 10000000,
       cogs: 2000000,
       grossProfit: 8000000,
@@ -38,7 +41,7 @@ test('Density Invariant: autoEnrichEntityBeforeIngest fills empty toolStack', ()
       toolStack: [] // 空
     },
     strategy: {
-      moatType: 'NETWORK_EFFECTS',
+      moatType: 'NETWORK_EFFECT',
       moatDescription: 'Test moat',
       blindspot: 'Test blindspot',
       incumbentDilemma: 'Test dilemma',
@@ -85,6 +88,9 @@ test('Density Invariant: hazard entity automatically gets POST_MORTEM status and
     targetPainWallet: '欲深さ',
     verifiedBadge: false,
     pnl: {
+      operatingExpenses: { serverAndApi: 0, advertising: 0, subcontracting: 0, toolsAndSaaS: 0, other: 0 },
+      estimatedAnnualNetProfit: 0,
+      isNetProfitUnconfirmed: true,
       monthlyRevenue: 0,
       cogs: 0,
       grossProfit: 0,
@@ -102,7 +108,7 @@ test('Density Invariant: hazard entity automatically gets POST_MORTEM status and
       toolStack: []
     },
     strategy: {
-      moatType: 'NONE',
+      moatType: 'UNKNOWN',
       moatDescription: 'None',
       blindspot: 'None',
       incumbentDilemma: 'None',
@@ -126,7 +132,7 @@ test('Density Invariant: hazard entity automatically gets POST_MORTEM status and
   const enriched = autoEnrichEntityBeforeIngest(hazardEntity);
 
   // 1. financialStatus が POST_MORTEM に自動統一されていること
-  assert.strictEqual(enriched.financialStatus, 'POST_MORTEM', 'Hazard entity must have POST_MORTEM status');
+  assert.strictEqual(enriched.pnl.financialStatus, 'POST_MORTEM', 'Hazard entity must have canonical POST_MORTEM status');
   assert.strictEqual(enriched.pnl.financialStatus, 'POST_MORTEM');
 
   // 2. opportunityJudgment が HAZARD_REJECT に設定されていること
@@ -211,6 +217,9 @@ test('Density Invariant: autoEnrichEntityBeforeIngest guarantees 3+ cards, full 
     targetPainWallet: '業務効率化',
     verifiedBadge: false,
     pnl: {
+      operatingExpenses: { serverAndApi: 0, advertising: 0, subcontracting: 0, toolsAndSaaS: 0, other: 0 },
+      estimatedAnnualNetProfit: 0,
+      isNetProfitUnconfirmed: true,
       monthlyRevenue: 5000000,
       cogs: 500000,
       grossProfit: 4500000,
@@ -254,6 +263,7 @@ test('Density Invariant: autoEnrichEntityBeforeIngest guarantees 3+ cards, full 
   // 3. strategy の punchline が 【見出し】 構造化されていること
   assert.ok(enriched.strategy.blindspot.startsWith('【') && enriched.strategy.blindspot.includes('】'), 'blindspot must have 【headline】');
   assert.ok(enriched.strategy.moatDescription.startsWith('【') && enriched.strategy.moatDescription.includes('】'), 'moatDescription must have 【headline】');
+  assert.ok(enriched.strategy.incumbentDilemma, 'incumbentDilemma must exist');
   assert.ok(enriched.strategy.incumbentDilemma.startsWith('【') && enriched.strategy.incumbentDilemma.includes('】'), 'incumbentDilemma must have 【headline】');
 });
 
