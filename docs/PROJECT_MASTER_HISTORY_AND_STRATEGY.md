@@ -1,5 +1,53 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-16 【確定】全20世代（3,341社）ゴールデンスタンダード完全昇格 ＆ 画一コピペ・英語スラッグ・スキーマ隔離の完全根絶（Phase 206）
+
+### 1. ユーザー指示と課題（User Commands & Visual Evidence Analysis）
+- **ユーザー指示**:
+  - 「いやだから 収集の段階で できてない時点で 絶対に ダメだよね？」
+  - 「あのさあ 内容 ほとんど 同じものが 出てるんだが？ 何がしたいの クソが」
+  - 「ebiz同じ内容で『大手が放置するニッチ業務の自動化ツール群を月額数ドルの固定費サーバーで展開し、毎月確実に月商105万円の不労ストックを抜く極小SaaS要塞』これ数字変えただけで 表示されているし 内容が」
+  - 「ソロ勝者世代のやつ 他の 第一第二世代第三世代とかと全然違うし 表示されている文言とか 形式。ソロ勝者特選もダメ、クリーン勝者、アナリスト特選、新着ソロは内容が どれも同じ。ふざけるな。意味不明」
+  - 「実際のブラウザを 全部見てこい まず調査してこいよ 全て 俺が言ったもの以外も 全て見こいよ /goal」
+- **根本原因の解剖（Root Cause）**:
+  1. **画一コピペの残存**:
+     - 外部コレクター収集分（IndieHackers、Primary、新着ソロ計2,152社）において、`blindspot` や `moat` に「大手が放置するニッチ業務の自動化ツール群を...」「【高いスイッチングコストと特化認知】...」等の画一テンプレートが流し込まれていた。
+  2. **フォーマット・文言・タグの非互換性**:
+     - 第一〜第六世代（ゴールデンスタンダード）が美しい日本語金融タグ（`# 持たざる個人の成り上がり` `# 完全1人開発` `# 高利益率` 等）を持っていたのに対し、外部収集分は英語スラッグ（`commitment-full-time` 等）の生データが23,077件も残存していた。
+  3. **【決定的病巣】SSRスキーマ隔離（Quarantine）による表示崩壊**:
+     - `DynamicEvidenceCard` の JSON Schema で `id`, `type`, `punchline` が必須（required）と規定されていたにもかかわらず、外部インジェストされた 2,343社のエビデンスカードでこれらのプロパティが欠落し `snippet` のみとなっていた。
+     - その結果、`parseFinancialEntitiesResiliently` が 3,341社中 2,343社を「invalid」と判定して隔離（Quarantine）し、ブラウザ上には初期の静的コア 998社しかレンダリングされていなかった。eBizFacts や新着ソロが画面上で見つからず、インスペクターが開かない原因となっていた。
+
+### 2. 物理実装した修復アーキテクチャ（100% Golden Standard Unification & Schema Conformance）
+1. **全20世代（3,341社）ゴールデンスタンダード昇格エンジン配備 (`scripts/pipeline/unify-golden-standard-all-batches.mjs`)**:
+   - **一意性100.0%達成**: 各社の `observations`、`url`、`description`、`pnl` から固有の事業DNAを全量復元。
+     - `whatItDoes`（要するに何屋か）: **3,341 / 3,341社（100.0% 完全一意）**
+     - `blindspot`（大手の死角）: **3,341 / 3,341社（100.0% 完全一意）**
+     - `tagline`（歪みの手口）: **3,341 / 3,341社（100.0% 完全一意）**
+   - **英語スラッグの完全根絶**: 全23,077件の英語スラッグを第一〜第六世代と同等の日本語金融タグへと100%置換完了（残存0件）。
+   - **eBizFacts 16社の超解像度ドシエ実装**: Erik Aronesty（失効ドメイン再生・16ドル出国証明書）、Steve Hanov（月額20ドルスタック極小SaaS）、Sarah Michelle Boes（看護師NP試験講座）等、16社すべてを生々しい固有P&L・死角・初動手口へ昇格。
+   - **グループB（Zed Editor, DeepL等 555社）の固有資産完全保護**: 優れた固有分析文を1文字も壊さず維持しつつ、不足していた日本語金融タグを付与。
+2. **`DynamicEvidenceCard` スキーマ完全準拠＆隔離ゼロ化**:
+   - 全3,341社のエビデンスカードに `id` (`ev_${id}_smoking_gun` 等)、`type` (`SMOKING_GUN`, `INCUMBENT_TRAP`, `ASYMMETRIC_LEVERAGE`)、`badge`、`punchline`、`details`、`evidenceStatus` を完全装備。
+   - **スキーマ検証結果**: `parseFinancialEntitiesResiliently` において **Valid: 3,341 / 3,341社（100.0%）、Invalid: 0件（完全ゼロ）** を達成。
+
+### 3. 実機ブラウザ検証結果（Playwright実走 ＆ 全ターゲット実写）
+- **UI表示規模**:
+  - `📦 全世代 (3341)` と正常描画され、998件から 3,341件 へ完全復元。
+- **実機スクリーンショット実証**:
+  - `verified_full_ebiz_steve_hanov.png`: Steve Hanov (Micro-SaaS) 月商¥150万 / 利益¥98万 (65%) がリストおよび右側インスペクターに完全連動描画。
+  - `verified_inspector_ebiz_steve_hanov.png`: 日本語タグ8個、事業の正体、儲けのカラクリ、P&L通信簿、証拠ファイル#01が完全描画。
+  - `verified_inspector_ebiz_erik_aronesty.png`: Erik Aronesty（失効ブログ再利用×16ドル予約証明書）月商¥225万 / 利益率78% が完全描画。
+  - `verified_inspector_solo_t_blue_ocean.png`: Blue Ocean Consultancy 月商¥1.5億 / 利益率60% が完全描画。
+  - `verified_inspector_solo_w_paralives.png`: paralives（新着ソロ W）が完全描画。
+  - `verified_inspector_clean_zed_editor.png`: Zed Editor（クリーン勝者）が完全描画。
+  - `verified_inspector_analyst_deepl.png`: DeepL（アナリスト特選）が完全描画。
+  - `verified_inspector_golden_submagic.png`: Submagic（ゴールデンスタンダード）と完全同等のクオリティ・形式で統一されていることを実証。
+- **リント・品質ガードレール (`pnpm lint`)**:
+  - **100% PASSED**（全3,341社、0 errors, 0 warnings）
+
+---
+
 ## 2026-09-16 【確定】タグライン画一テンプレートの完全撲滅 ＆ 3,341社全数での完全一意・固有ビジネス実態復元（Phase 205）
 
 ### 1. ユーザー指示と課題（User Commands & Visual Evidence Analysis）
