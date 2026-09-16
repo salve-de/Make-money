@@ -58,7 +58,9 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
 
   // Source research is immutable. Approved IDs are a separate persisted editorial overlay.
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
-  const approvalProjectionRequestedIds = useRef(new Set<string>());
+  // Only successful projection reads are remembered. An aborted/failed request is
+  // deliberately not marked complete, so the replacement effect retries it.
+  const approvalProjectionCompletedIds = useRef(new Set<string>());
 
   // R2の完成体候補のみを抽出
   const foundationDisplayRows = useMemo(() => {
@@ -82,9 +84,8 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   }, [coreEntities, foundationEntities, detailedEntities]);
 
   useEffect(() => {
-    const pendingIds = approvalCandidateIds.filter((id) => !approvalProjectionRequestedIds.current.has(id));
+    const pendingIds = approvalCandidateIds.filter((id) => !approvalProjectionCompletedIds.current.has(id));
     if (pendingIds.length === 0) return;
-    pendingIds.forEach((id) => approvalProjectionRequestedIds.current.add(id));
 
     const controller = new AbortController();
     void (async () => {
@@ -105,10 +106,12 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
             ids.forEach((id) => next.add(id));
             return next;
           });
+          // Commit completion only after this chunk was fetched and parsed. If a
+          // dependency change aborts an in-flight chunk, the replacement effect
+          // still sees it as pending and reissues the bounded projection request.
+          chunk.forEach((id) => approvalProjectionCompletedIds.current.add(id));
         }
       } catch (error) {
-        // Permit a later catalog/detail change to retry a failed projection.
-        pendingIds.forEach((id) => approvalProjectionRequestedIds.current.delete(id));
         if ((error as { name?: string })?.name !== 'AbortError') {
           console.warn('[TerminalShell] Approval projection read failed; source data remains unchanged:', error);
         }
