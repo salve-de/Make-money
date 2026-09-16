@@ -4,18 +4,19 @@ import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { buildInspectorModel } from './model/inspector-model';
-import type { CompanyInspectorPaneProps, InspectorMainTab } from './model/section-props';
+import type { CompanyInspectorPaneProps, InspectorMainTab, InspectorViewMode } from './model/section-props';
 import { AnalystNotes } from './ui/AnalystNotes';
+import { CashAnatomySection } from './ui/CashAnatomySection';
 import { CompanyHeader } from './ui/CompanyHeader';
+import { EstimatedCashSummary } from './ui/EstimatedCashSummary';
 import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
 import { EvidenceStream } from './ui/EvidenceStream';
+import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
+import { FlywheelEngineDiagram } from './ui/FlywheelEngineDiagram';
+import { LootBlueprintSection } from './ui/LootBlueprintSection';
 import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
-import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
-import { CashAnatomySection } from './ui/CashAnatomySection';
-import { EstimatedCashSummary } from './ui/EstimatedCashSummary';
-import { LootBlueprintSection } from './ui/LootBlueprintSection';
-import type { InspectorViewMode } from './model/section-props';
+import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   entity,
@@ -26,7 +27,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   onOpenPro,
   onSelectTopic,
   onOpenAnomaly,
-
   activeTags = [],
   onToggleTag,
   analystNote = '',
@@ -47,9 +47,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const handleScroll = () => {
@@ -66,21 +64,20 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   }, [entity?.id]);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [onClose]);
 
   useEffect(() => {
-    if (targetSection) {
-      const timer = setTimeout(() => {
-        const el = document.getElementById(`section-${targetSection}`);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
-      return () => clearTimeout(timer);
-    }
+    if (!targetSection) return;
+    const timer = setTimeout(() => {
+      const el = document.getElementById(`section-${targetSection}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+    return () => clearTimeout(timer);
   }, [entity?.id, targetSection]);
 
   if (!entity) return null;
@@ -118,26 +115,30 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     <>
       <div
         onClick={onClose}
-        className="fixed inset-0 bg-black/60 backdrop-blur-xs z-30 md:hidden"
+        className="fixed inset-0 z-30 bg-black/60 backdrop-blur-xs md:hidden"
       />
 
-      <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#040507] border-t md:border-t-0 md:border-l border-white/[0.08] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
+      <aside className="fixed inset-x-0 bottom-0 z-40 flex h-full max-h-[92vh] w-full shrink-0 flex-col overflow-hidden border-t border-white/[0.08] bg-[#090d13] shadow-2xl md:static md:max-h-none md:min-w-[480px] md:flex-1 md:shrink md:border-l md:border-t-0">
         <CompanyHeader {...sectionProps} />
 
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
+          className="relative flex-1 space-y-5 overflow-y-auto bg-[#0b0f15] p-4 text-xs font-sans scroll-smooth [scrollbar-color:rgba(255,255,255,0.2)_rgba(11,15,21,1)] [scrollbar-gutter:stable] [scrollbar-width:thin] sm:p-5"
         >
           {mainTab === 'LEDGER' ? (
             <>
               <ExecutiveIntuitiveSummary {...sectionProps} />
               <EvidenceDeckSection {...sectionProps} />
+
               {entity.pnl.financialStatus === 'ESTIMATED' ? (
                 <EstimatedCashSummary {...sectionProps} />
               ) : (
                 <CashAnatomySection {...sectionProps} />
               )}
+
+              <FlywheelEngineDiagram {...sectionProps} />
+              <ValueChainDisruptionSection {...sectionProps} />
               <LootBlueprintSection {...sectionProps} />
             </>
           ) : (

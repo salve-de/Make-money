@@ -1,28 +1,22 @@
 'use client';
 
-import { legacyText } from '../model/legacy-fields';
-
-import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
-import { RotateCw, AlertTriangle } from 'lucide-react';
+import { AlertTriangle, RotateCw } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+
 import type { InspectorSectionProps } from '../model/section-props';
 
-function describedGraphNodes(
-  nodes: Array<NonNullable<echarts.GraphSeriesOption['data']>[number] & { desc?: string }>,
-): NonNullable<echarts.GraphSeriesOption['data']> {
-  return nodes;
-}
+const chartFont = 'Inter, "Noto Sans JP", system-ui, sans-serif';
+const supportedEvidence = new Set(['VERIFIED', 'REPORTED', 'POST_MORTEM']);
 
-function cleanNodeTitle(text: string | undefined, fallback: string): string {
-  if (!text) return fallback;
-  const res = text
-    .replace(/^【.*?】/, '')
-    .replace(/^【.*?】/, '')
-    .replace(/^#\d+\s*/, '')
-    .replace(/^キレイゴト抜きの.*?構造/u, '')
-    .replace(/^大企業が.*?死角/u, '')
+function compactText(value: string | undefined, fallback: string): string {
+  const normalized = (value || '')
+    .replace(/^【.*?】/u, '')
+    .replace(/^#\d+\s*/u, '')
+    .replace(/\s+/g, ' ')
     .trim();
-  return res.length >= 4 ? res : fallback;
+  if (!normalized) return fallback;
+  return normalized.length > 64 ? `${normalized.slice(0, 61)}…` : normalized;
 }
 
 export function FlywheelEngineDiagram({
@@ -33,29 +27,43 @@ export function FlywheelEngineDiagram({
   const chartInstance = useRef<echarts.ECharts | null>(null);
 
   const cards = entity.evidenceCards || [];
-  const opMargin = entity.pnl?.operatingProfit && entity.pnl?.monthlyRevenue
-    ? Math.round((entity.pnl.operatingProfit / entity.pnl.monthlyRevenue) * 100)
-    : 0;
+  const structuralCards = cards.filter(
+    (card) =>
+      supportedEvidence.has(card.evidenceStatus) &&
+      ['THE_CRIME', 'SMOKING_GUN', 'ASYMMETRIC_LEVERAGE', 'INCUMBENT_TRAP', 'FATAL_BLEED'].includes(card.type)
+  );
+  const verifiedCount = structuralCards.filter((card) => card.evidenceStatus === 'VERIFIED').length;
+  const hasEnoughEvidence = structuralCards.length >= 2;
+  const hasConfirmedMargin = !entity.pnl.isMarginUnconfirmed && !entity.pnl.isOperatingProfitUnconfirmed && entity.pnl.monthlyRevenue > 0;
+  const margin = hasConfirmedMargin ? entity.pnl.operatingMargin : null;
 
-  const node1 = isHazardMode
-    ? cleanNodeTitle(cards[0]?.title || entity.architecturePattern, '巨額資本調達による急拡大')
-    : cleanNodeTitle(cards[0]?.title || entity.architecturePattern, 'コア提供価値の確立と初期顧客獲得');
-
-  const node2 = isHazardMode
-    ? cleanNodeTitle(cards[1]?.title || entity.targetPainWallet, '逆ザヤ・値引き施策による顧客維持難')
-    : cleanNodeTitle(cards[1]?.title || entity.targetPainWallet, 'スイッチングコストと顧客囲い込み');
-
-  const node3 = isHazardMode
-    ? cleanNodeTitle(cards[2]?.title, '固定費膨張とキャッシュバーン加速')
-    : cleanNodeTitle(cards[2]?.title, opMargin > 0 ? `営業利益率 ${opMargin}% の超過利潤創出` : '価格決定力による超過利潤創出');
-
-  const node4 = isHazardMode
-    ? cleanNodeTitle(cards[3]?.title, '追加調達環境悪化による資金枯渇')
-    : cleanNodeTitle(cards[3]?.title || legacyText(entity.strategy, 'moat'), '独自アセットへの再投資とモート強化');
+  const node1 = compactText(
+    isHazardMode
+      ? structuralCards.find((card) => card.type === 'FATAL_BLEED')?.punchline || entity.architecturePattern
+      : entity.essence?.whatItDoes || entity.architecturePattern,
+    isHazardMode ? '悪化の起点は未特定' : '提供価値の起点は未確認'
+  );
+  const node2 = compactText(
+    isHazardMode
+      ? entity.targetPainWallet
+      : entity.meta?.lockInMechanism?.switchingFriction || entity.strategy.moatDescription,
+    isHazardMode ? '継続要因は未確認' : '継続・切替摩擦は未確認'
+  );
+  const node3 = margin === null
+    ? '収益性は未確認'
+    : margin < 0
+      ? `営業利益率 ${margin}%`
+      : `営業利益率 +${margin}%`;
+  const node4 = compactText(
+    isHazardMode
+      ? structuralCards.find((card) => card.type === 'INCUMBENT_TRAP')?.punchline
+      : entity.meta?.capitalEfficiency?.workingCapitalStrategy || entity.strategy.moatDescription,
+    isHazardMode ? '悪化を増幅する要因は未確認' : '再投資・防御要因は未確認'
+  );
 
   useEffect(() => {
     const el = chartRef.current;
-    if (!el) return;
+    if (!el || !hasEnoughEvidence) return;
 
     let myChart = chartInstance.current;
     if (!myChart) {
@@ -64,33 +72,40 @@ export function FlywheelEngineDiagram({
     }
 
     const renderChart = () => {
-      if (!el || !myChart) return;
+      if (!el || !myChart || el.clientWidth <= 0 || el.clientHeight <= 0) return;
+
       const width = el.clientWidth;
       const height = el.clientHeight;
-      if (width <= 0 || height <= 0) return;
-
       const cx = width / 2;
       const cy = height / 2;
-      const rx = Math.min(width * 0.36, 180);
-      const ry = Math.min(height * 0.36, 110);
+      const rx = Math.min(width * 0.32, 170);
+      const ry = Math.min(height * 0.30, 92);
+      const marginColor = margin !== null && margin < 0 ? '#dc2626' : margin !== null && margin > 0 ? '#22c55e' : '#64748b';
 
       const option: echarts.EChartsOption = {
         backgroundColor: 'transparent',
+        aria: {
+          enabled: true,
+          decal: { show: true },
+          description: `${entity.name}の構造的な強化ループ仮説。提供価値、継続・切替摩擦、収益性、再投資・防御の4要素を表示。因果関係そのものは仮説として扱う。`
+        },
         tooltip: {
           trigger: 'item',
-          backgroundColor: 'rgba(10, 13, 20, 0.95)',
-          borderColor: 'rgba(255, 255, 255, 0.15)',
-          textStyle: { color: '#f8fafc', fontSize: 12, fontFamily: 'monospace' },
+          backgroundColor: '#111827',
+          borderColor: '#334155',
+          borderWidth: 1,
+          textStyle: { color: '#f8fafc', fontSize: 12, fontFamily: chartFont },
           formatter: (params: unknown) => {
-            const p = params as { dataType?: string; data?: { source?: string; target?: string; name?: string; desc?: string } };
+            const p = params as {
+              dataType?: string;
+              data?: { source?: string; target?: string; name?: string; desc?: string };
+            };
             if (p.dataType === 'edge' && p.data) {
-              return `<div style="color:#38bdf8;">自己強化サイクル: ${p.data.source} ➔ ${p.data.target}</div>`;
+              return `<strong>${p.data.source} → ${p.data.target}</strong><br/><span style="color:#94a3b8">因果関係は仮説。根拠カードで確認してください。</span>`;
             }
-            if (p.data) {
-              return `<div style="font-weight:bold;margin-bottom:2px;">${p.data.name || ''}</div>` +
-                     `<div style="color:#cbd5e1;font-size:11px;">${p.data.desc || ''}</div>`;
-            }
-            return '';
+            return p.data
+              ? `<strong>${p.data.name || ''}</strong><br/><span style="color:#cbd5e1">${p.data.desc || ''}</span>`
+              : '';
           }
         },
         series: [
@@ -98,98 +113,83 @@ export function FlywheelEngineDiagram({
             type: 'graph',
             layout: 'none',
             roam: false,
-            symbolSize: 45,
+            symbolSize: width < 520 ? 38 : 44,
             edgeSymbol: ['none', 'arrow'],
-            edgeSymbolSize: [4, 10],
+            edgeSymbolSize: [0, 8],
             label: {
               show: true,
-              position: 'bottom',
-              color: '#f1f5f9',
-              fontSize: 11,
-              fontWeight: 'bold',
-              fontFamily: 'monospace',
-              formatter: '{b}'
+              color: '#e2e8f0',
+              fontSize: width < 520 ? 9 : 10,
+              fontWeight: 600,
+              fontFamily: chartFont
             },
-            data: describedGraphNodes([
+            data: [
               {
-                name: '① コア価値確立',
+                name: '① 提供価値',
                 desc: node1,
                 x: cx,
                 y: cy - ry,
-                itemStyle: { color: '#06b6d4', borderColor: '#22d3ee', borderWidth: 2 },
-                label: { position: 'top', distance: 6 }
+                itemStyle: { color: '#2563eb', borderColor: '#60a5fa', borderWidth: 1.5 },
+                label: { position: 'top', distance: 7 }
               },
               {
-                name: '② スイッチングコスト',
+                name: '② 継続・切替摩擦',
                 desc: node2,
                 x: cx + rx,
                 y: cy,
-                itemStyle: { color: '#f59e0b', borderColor: '#fbbf24', borderWidth: 2 },
-                label: { position: 'right', distance: 6 }
+                itemStyle: { color: '#334155', borderColor: '#94a3b8', borderWidth: 1.5 },
+                label: { position: 'right', distance: 7 }
               },
               {
-                name: '③ 超過利潤創出',
+                name: '③ 収益性',
                 desc: node3,
                 x: cx,
                 y: cy + ry,
-                itemStyle: { color: '#10b981', borderColor: '#34d399', borderWidth: 2 },
-                label: { position: 'bottom', distance: 6 }
+                itemStyle: { color: marginColor, borderColor: marginColor, borderWidth: 1.5 },
+                label: { position: 'bottom', distance: 7 }
               },
               {
-                name: '④ 独自資産再投資',
+                name: '④ 再投資・防御',
                 desc: node4,
                 x: cx - rx,
                 y: cy,
-                itemStyle: { color: '#a855f7', borderColor: '#c084fc', borderWidth: 2 },
-                label: { position: 'left', distance: 6 }
+                itemStyle: { color: '#1e3a5f', borderColor: '#60a5fa', borderWidth: 1.5 },
+                label: { position: 'left', distance: 7 }
               },
               {
-                name: isHazardMode ? '資本効率破綻' : 'モート自己強化',
-                desc: isHazardMode ? '規模拡大に伴う赤字増殖' : '規模拡大に伴う参入障壁強化',
+                name: isHazardMode ? '悪化ループ仮説' : '強化ループ仮説',
+                desc: '矢印は検証済みの因果を断定するものではありません。',
                 x: cx,
                 y: cy,
-                symbolSize: 64,
+                symbolSize: width < 520 ? 56 : 64,
                 itemStyle: {
-                  color: isHazardMode ? '#7f1d1d' : '#0e3a47',
-                  borderColor: isHazardMode ? '#ef4444' : '#06b6d4',
-                  borderWidth: 2,
-                  shadowBlur: 20,
-                  shadowColor: isHazardMode ? 'rgba(239,68,68,0.5)' : 'rgba(6,182,212,0.5)'
+                  color: isHazardMode ? '#3f1719' : '#172033',
+                  borderColor: isHazardMode ? '#f87171' : '#60a5fa',
+                  borderWidth: 1.5
                 },
                 label: {
                   show: true,
                   position: 'inside',
-                  color: '#ffffff',
-                  fontSize: 10,
-                  fontWeight: 900
+                  color: '#f8fafc',
+                  fontSize: 9,
+                  fontWeight: 700,
+                  fontFamily: chartFont
                 }
               }
-            ]),
+            ],
             links: [
-              {
-                source: '① コア価値確立',
-                target: '② スイッチングコスト',
-                lineStyle: { curveness: 0.25, color: '#06b6d4', width: 2.5 }
-              },
-              {
-                source: '② スイッチングコスト',
-                target: '③ 超過利潤創出',
-                lineStyle: { curveness: 0.25, color: '#f59e0b', width: 2.5 }
-              },
-              {
-                source: '③ 超過利潤創出',
-                target: '④ 独自資産再投資',
-                lineStyle: { curveness: 0.25, color: '#10b981', width: 2.5 }
-              },
-              {
-                source: '④ 独自資産再投資',
-                target: '① コア価値確立',
-                lineStyle: { curveness: 0.25, color: '#a855f7', width: 2.5 }
-              }
+              { source: '① 提供価値', target: '② 継続・切替摩擦' },
+              { source: '② 継続・切替摩擦', target: '③ 収益性' },
+              { source: '③ 収益性', target: '④ 再投資・防御' },
+              { source: '④ 再投資・防御', target: '① 提供価値' }
             ],
             lineStyle: {
-              opacity: 0.85
-            }
+              color: isHazardMode ? '#ef4444' : '#60a5fa',
+              width: 1.75,
+              opacity: 0.55,
+              curveness: 0.23
+            },
+            emphasis: { focus: 'adjacency' }
           }
         ]
       };
@@ -197,15 +197,12 @@ export function FlywheelEngineDiagram({
       try {
         myChart.setOption(option, true);
         myChart.resize();
-      } catch (err) {
-        console.error('[FlywheelEngineDiagram] ECharts rendering suppressed:', err);
+      } catch (error) {
+        console.error('[FlywheelEngineDiagram] ECharts rendering suppressed:', error);
       }
     };
 
-    // 初期描画（要素サイズ確定時）
     renderChart();
-
-    // ResizeObserver でモーダルアニメーション中やウィンドウ変更時にも自動再計算
     const resizeObserver = new ResizeObserver((entries) => {
       for (const entry of entries) {
         if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
@@ -218,8 +215,19 @@ export function FlywheelEngineDiagram({
 
     return () => {
       resizeObserver.disconnect();
+      myChart?.dispose();
+      if (chartInstance.current === myChart) chartInstance.current = null;
     };
-  }, [node1, node2, node3, node4, isHazardMode]);
+  }, [
+    entity.name,
+    hasEnoughEvidence,
+    isHazardMode,
+    margin,
+    node1,
+    node2,
+    node3,
+    node4
+  ]);
 
   useEffect(() => {
     return () => {
@@ -228,41 +236,82 @@ export function FlywheelEngineDiagram({
     };
   }, []);
 
+  if (!hasEnoughEvidence) {
+    return (
+      <section id="section-flywheel" className="rounded-lg border border-white/[0.10] bg-[#11151d] p-4">
+        <div className="flex items-start gap-2.5">
+          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-zinc-500" />
+          <div>
+            <h3 className="text-sm font-semibold text-zinc-200">強化ループは未確定</h3>
+            <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+              構造に関係する VERIFIED / REPORTED / POST_MORTEM の根拠が2件未満です。一般的な「フライホイール」を自動生成して埋めません。
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <div id="section-flywheel" className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${
-      isHazardMode
-        ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-        : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
-    }`}>
-      {/* 背景の微細なアンビエント光 */}
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-[110px] pointer-events-none ${
-        isHazardMode ? 'bg-red-500/10' : 'bg-cyan-500/8'
-      }`} />
-
-      {/* ヘッダー */}
-      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10">
-        <div className="flex items-center gap-2.5">
-          {isHazardMode ? (
-            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
-          ) : (
-            <RotateCw className="w-4 h-4 text-cyan-400 shrink-0 animate-[spin_10s_linear_infinite]" />
-          )}
-          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-300' : 'text-zinc-100'
-          }`}>
-            {isHazardMode ? '資本効率の崩壊サイクル (DEATH SPIRAL ANALYSIS)' : '自己強化型成長サイクル：構造的モートのフライホイール (APACHE ECHARTS)'}
-          </h3>
+    <section
+      id="section-flywheel"
+      className={`rounded-lg border bg-[#11151d] p-4 sm:p-5 ${isHazardMode ? 'border-red-500/30' : 'border-white/[0.10]'}`}
+    >
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3 border-b border-white/[0.08] pb-3">
+        <div className="flex items-start gap-2.5">
+          <RotateCw className={`mt-0.5 h-4 w-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-blue-400'}`} />
+          <div>
+            <h3 className="text-sm font-semibold text-zinc-100">
+              {isHazardMode ? '悪化ループの構造仮説' : '強化ループの構造仮説'}
+            </h3>
+            <p className="mt-0.5 text-[11px] text-zinc-400">
+              4要素のつながりを仮説として可視化。矢印は因果を断定しません。
+            </p>
+          </div>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.08]">
-          <span className={`w-1.5 h-1.5 rounded-full ${isHazardMode ? 'bg-red-500 animate-ping' : 'bg-cyan-400 animate-pulse'}`} />
-          <span>360° GRAPH NETWORK</span>
+        <div className="flex items-center gap-1.5 text-[10px] text-zinc-400">
+          <span className="rounded border border-white/[0.10] bg-white/[0.03] px-2 py-1">構造根拠 {structuralCards.length}件</span>
+          <span className="rounded border border-white/[0.10] bg-white/[0.03] px-2 py-1">VERIFIED {verifiedCount}件</span>
         </div>
       </div>
 
-      {/* ECharts グラフコンテナ */}
-      <div className="relative w-full bg-[#07090F]/90 rounded-xl border border-white/[0.08] p-2 shadow-inner">
-        <div ref={chartRef} className="w-full h-[320px]" />
+      <div className="rounded-md border border-white/[0.08] bg-[#0b0f15] p-2">
+        <div
+          ref={chartRef}
+          className="h-[300px] w-full sm:h-[340px]"
+          role="img"
+          aria-label={`${entity.name}の構造仮説。提供価値: ${node1}。継続・切替摩擦: ${node2}。収益性: ${node3}。再投資・防御: ${node4}。因果関係は未確定。`}
+        />
       </div>
+
+      <div className="mt-3 grid gap-2 text-[11px] sm:grid-cols-2">
+        <HypothesisLine index="01" label="提供価値" text={node1} />
+        <HypothesisLine index="02" label="継続・切替摩擦" text={node2} />
+        <HypothesisLine index="03" label="収益性" text={node3} />
+        <HypothesisLine index="04" label="再投資・防御" text={node4} />
+      </div>
+
+      <div className="mt-3 border-t border-white/[0.06] pt-3 text-[10px] leading-relaxed text-zinc-500">
+        <span className="font-medium text-zinc-400">参照根拠:</span>{' '}
+        {structuralCards.slice(0, 3).map((card, index) => (
+          <React.Fragment key={card.id}>
+            {index > 0 && ' / '}
+            <span>{card.title} [{card.evidenceStatus}]</span>
+          </React.Fragment>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function HypothesisLine({ index, label, text }: { index: string; label: string; text: string }) {
+  return (
+    <div className="rounded-md border border-white/[0.07] bg-[#151a23] px-3 py-2.5">
+      <div className="flex items-center gap-2 text-[10px] text-zinc-500">
+        <span className="font-mono tabular-nums">{index}</span>
+        <span>{label}</span>
+      </div>
+      <p className="mt-1 leading-relaxed text-zinc-300">{text}</p>
     </div>
   );
 }

@@ -1,17 +1,16 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { IncompleteCashSummary } from './IncompleteCashSummary';
+import { inspectFinancialIntegrity } from '@/shared/financial-integrity';
 import * as echarts from 'echarts';
-import {
-  Banknote,
-  Droplets,
-  Table,
-  TrendingDown
-} from 'lucide-react';
+import { Banknote, GitBranch, Table, TrendingDown } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+
 import type { InspectorSectionProps } from '../model/section-props';
+import { IncompleteCashSummary } from './IncompleteCashSummary';
 
 type CashViewMode = 'WATERFALL' | 'SANKEY' | 'TABLE';
+
+const chartFont = 'Inter, "Noto Sans JP", system-ui, sans-serif';
 
 export function CashAnatomySection({
   entity,
@@ -20,17 +19,14 @@ export function CashAnatomySection({
   isFinancialUnavailable
 }: Pick<
   InspectorSectionProps,
-  | 'entity'
-  | 'isHazardMode'
-  | 'formatMoney'
-  | 'isFinancialUnavailable'
+  'entity' | 'isHazardMode' | 'formatMoney' | 'isFinancialUnavailable'
 >) {
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstance = useRef<echarts.ECharts | null>(null);
 
-  const rev = entity.pnl?.monthlyRevenue || 1;
-  const cogs = Math.max(entity.pnl?.cogs || 0, 0);
-  const opexObj = entity.pnl?.operatingExpenses || {
+  const rev = Math.max(entity.pnl?.monthlyRevenue ?? 0, 0);
+  const cogs = Math.max(entity.pnl?.cogs ?? 0, 0);
+  const opexObj = entity.pnl?.operatingExpenses ?? {
     serverAndApi: 0,
     advertising: 0,
     subcontracting: 0,
@@ -39,30 +35,51 @@ export function CashAnatomySection({
   };
   const totalOpex = Math.max(
     (opexObj.serverAndApi || 0) +
-    (opexObj.advertising || 0) +
-    (opexObj.subcontracting || 0) +
-    (opexObj.toolsAndSaaS || 0) +
-    (opexObj.other || 0),
+      (opexObj.advertising || 0) +
+      (opexObj.subcontracting || 0) +
+      (opexObj.toolsAndSaaS || 0) +
+      (opexObj.other || 0),
     0
   );
-  const profit = entity.pnl?.operatingProfit ?? (rev - cogs - totalOpex);
-  const isLoss = profit < 0 || isHazardMode;
+  const profit = entity.pnl?.operatingProfit ?? 0;
+  const grossProfit = rev - cogs;
+  const isLoss = profit < 0;
+  const ratio = (value: number) => (rev > 0 ? Math.round((value / rev) * 100) : 0);
+  const actualCogsPct = ratio(cogs);
+  const opexPct = ratio(totalOpex);
+  const actualProfitPct = ratio(profit);
+  const grossProfitPct = ratio(grossProfit);
+  const canRenderSankey = grossProfit >= 0;
+  const integrity = inspectFinancialIntegrity(entity.pnl);
+  const hasConflict = integrity.profitConflict || integrity.grossConflict || integrity.marginConflict;
+  const incompleteInputs = Boolean(
+    entity.pnl.isRevenueUnconfirmed ||
+      entity.pnl.isOperatingProfitUnconfirmed ||
+      entity.pnl.isCostsUnconfirmed ||
+      entity.pnl.isCogsUnconfirmed ||
+      rev <= 0
+  );
 
-  const actualCogsPct = Math.max(Math.round((cogs / rev) * 100), cogs > 0 ? 3 : 0);
-  const opexPct = Math.max(Math.round((totalOpex / rev) * 100), totalOpex > 0 ? 3 : 0);
-  const actualProfitPct = isLoss
-    ? Math.abs(Math.round((profit / rev) * 100))
-    : Math.max(100 - actualCogsPct - opexPct, 5);
-
-  // 原価率が20%未満（粗利80%超）の超高利益モデルは「通帳引き算バー」をデフォルト推奨
-  // 複数原価がある場合は「サンキー図」を推奨
-  const defaultMode: CashViewMode = actualCogsPct < 20 && opexPct < 20 ? 'WATERFALL' : 'SANKEY';
+  const defaultMode: CashViewMode = canRenderSankey && (actualCogsPct >= 20 || opexPct >= 20)
+    ? 'SANKEY'
+    : 'WATERFALL';
   const [viewMode, setViewMode] = useState<CashViewMode>(defaultMode);
-  const incompleteInputs = Boolean(entity.pnl.isOperatingProfitUnconfirmed || entity.pnl.isCostsUnconfirmed);
+
+  useEffect(() => {
+    if (viewMode === 'SANKEY' && !canRenderSankey) setViewMode('WATERFALL');
+  }, [canRenderSankey, viewMode]);
 
   useEffect(() => {
     const el = chartRef.current;
-    if (!el || viewMode === 'TABLE' || isFinancialUnavailable || incompleteInputs) return;
+    if (
+      !el ||
+      viewMode === 'TABLE' ||
+      isFinancialUnavailable ||
+      incompleteInputs ||
+      hasConflict
+    ) {
+      return;
+    }
 
     let myChart = chartInstance.current;
     if (!myChart) {
@@ -70,101 +87,89 @@ export function CashAnatomySection({
       chartInstance.current = myChart;
     }
 
+    const financialSummary = `売上高 ${formatMoney(rev)}、売上原価 ${formatMoney(cogs)}、粗利益 ${formatMoney(grossProfit)}、販管費 ${formatMoney(totalOpex)}、営業利益 ${formatMoney(profit)}。`;
+
     const renderChart = () => {
-      if (!el || !myChart) return;
-      if (el.clientWidth <= 0 || el.clientHeight <= 0) return;
+      if (!el || !myChart || el.clientWidth <= 0 || el.clientHeight <= 0) return;
 
       let option: echarts.EChartsOption;
 
-      if (viewMode === 'WATERFALL') {
-        const grossProfit = rev - cogs;
+      if (viewMode === 'SANKEY' && canRenderSankey) {
+        const revenueNode = `売上高 100%`;
+        const cogsNode = `売上原価 ${actualCogsPct}%`;
+        const grossNode = `粗利益 ${grossProfitPct}%`;
+        const opexNode = `販管費 ${opexPct}%`;
+        const profitNode = `営業利益 ${actualProfitPct}%`;
+        const lossFundingNode = `営業損失 ${Math.abs(actualProfitPct)}%`;
+
+        const nodes: echarts.SankeySeriesOption['data'] = [
+          {
+            name: revenueNode,
+            itemStyle: { color: '#60a5fa', borderColor: '#93c5fd', borderWidth: 1 }
+          },
+          ...(cogs > 0
+            ? [{
+                name: cogsNode,
+                itemStyle: { color: '#64748b', borderColor: '#94a3b8', borderWidth: 1 }
+              }]
+            : []),
+          {
+            name: grossNode,
+            itemStyle: { color: '#3b82f6', borderColor: '#60a5fa', borderWidth: 1 }
+          },
+          ...(totalOpex > 0
+            ? [{
+                name: opexNode,
+                itemStyle: { color: '#475569', borderColor: '#64748b', borderWidth: 1 }
+              }]
+            : []),
+          ...(profit > 0
+            ? [{
+                name: profitNode,
+                itemStyle: { color: '#22c55e', borderColor: '#4ade80', borderWidth: 1 }
+              }]
+            : []),
+          ...(profit < 0
+            ? [{
+                name: lossFundingNode,
+                itemStyle: { color: '#dc2626', borderColor: '#f87171', borderWidth: 1 }
+              }]
+            : [])
+        ];
+
+        const links: echarts.SankeySeriesOption['links'] = [
+          ...(cogs > 0
+            ? [{ source: revenueNode, target: cogsNode, value: cogs }]
+            : []),
+          { source: revenueNode, target: grossNode, value: grossProfit },
+          ...(profit >= 0 && totalOpex > 0
+            ? [{ source: grossNode, target: opexNode, value: totalOpex }]
+            : []),
+          ...(profit > 0
+            ? [{ source: grossNode, target: profitNode, value: profit }]
+            : []),
+          ...(profit < 0 && grossProfit > 0
+            ? [{ source: grossNode, target: opexNode, value: grossProfit }]
+            : []),
+          ...(profit < 0
+            ? [{ source: lossFundingNode, target: opexNode, value: Math.abs(profit) }]
+            : [])
+        ];
+
         option = {
           backgroundColor: 'transparent',
-          tooltip: {
-            trigger: 'axis',
-            axisPointer: { type: 'shadow' },
-            backgroundColor: 'rgba(10, 13, 20, 0.95)',
-            borderColor: 'rgba(255, 255, 255, 0.15)',
-            textStyle: { color: '#f1f5f9', fontFamily: 'monospace' },
-            formatter: (params: unknown) => {
-              const arr = params as Array<{ name?: string; value?: number }>;
-              const tar = arr?.[1];
-              if (!tar) return '';
-              return (
-                `<div style="font-weight:bold;">${tar.name || ''}</div>` +
-                `<div style="color:#38bdf8;">金額: ${formatMoney(Math.abs(tar.value || 0))}</div>`
-              );
-            }
+          aria: {
+            enabled: true,
+            decal: { show: true },
+            description: `月次損益フロー。${financialSummary}`
           },
-          grid: {
-            top: 25,
-            bottom: 25,
-            left: 55,
-            right: 25
-          },
-          xAxis: {
-            type: 'category',
-            data: ['① 月商', '② 原価控除', '③ 粗利益', '④ 販管費控除', '⑤ 純手残り'],
-            axisLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.15)' } },
-            axisLabel: { color: '#94a3b8', fontFamily: 'monospace', fontSize: 10 }
-          },
-          yAxis: {
-            type: 'value',
-            splitLine: { lineStyle: { color: 'rgba(255, 255, 255, 0.06)' } },
-            axisLabel: {
-              color: '#64748b',
-              fontFamily: 'monospace',
-              formatter: (v: number) => formatMoney(v)
-            }
-          },
-          series: [
-            {
-              name: 'プレースホルダー',
-              type: 'bar',
-              stack: 'Total',
-              itemStyle: { borderColor: 'transparent', color: 'transparent' },
-              emphasis: { itemStyle: { borderColor: 'transparent', color: 'transparent' } },
-              data: [0, grossProfit, 0, Math.max(profit, 0), 0]
-            },
-            {
-              name: '損益推移',
-              type: 'bar',
-              stack: 'Total',
-              label: {
-                show: true,
-                position: 'top',
-                color: '#f8fafc',
-                fontFamily: 'monospace',
-                fontSize: 10,
-                formatter: (p: { value?: unknown }) => formatMoney(Math.abs(Number(p.value) || 0))
-              },
-              data: [
-                { value: rev, itemStyle: { color: '#06b6d4', borderRadius: [4, 4, 0, 0] } },
-                { value: cogs, itemStyle: { color: '#f43f5e', borderRadius: [4, 4, 0, 0] } },
-                { value: grossProfit, itemStyle: { color: '#38bdf8', borderRadius: [4, 4, 0, 0] } },
-                { value: totalOpex, itemStyle: { color: '#f59e0b', borderRadius: [4, 4, 0, 0] } },
-                {
-                  value: Math.abs(profit),
-                  itemStyle: {
-                    color: isLoss ? '#ef4444' : '#10b981',
-                    borderRadius: [4, 4, 0, 0]
-                  }
-                }
-              ]
-            }
-          ]
-        };
-      } else {
-        // SANKEY MODE
-        option = {
-          backgroundColor: 'transparent',
           tooltip: {
             trigger: 'item',
             triggerOn: 'mousemove',
-            backgroundColor: 'rgba(10, 13, 20, 0.95)',
-            borderColor: 'rgba(255, 255, 255, 0.15)',
+            backgroundColor: '#111827',
+            borderColor: '#334155',
             borderWidth: 1,
-            textStyle: { color: '#f1f5f9', fontSize: 12, fontFamily: 'monospace' },
+            textStyle: { color: '#f8fafc', fontSize: 12, fontFamily: chartFont },
             formatter: (params: unknown) => {
               const p = params as {
                 dataType?: string;
@@ -173,121 +178,181 @@ export function CashAnatomySection({
                 data?: { source?: string; target?: string };
               };
               if (p.dataType === 'edge' && p.data && typeof p.value === 'number') {
-                const pct = rev > 0 ? Math.round((p.value / rev) * 100) : 0;
-                return (
-                  `<div style="font-weight:bold;margin-bottom:4px;">${p.data.source} ➔ ${p.data.target}</div>` +
-                  `<div style="color:#38bdf8;">金額: ${formatMoney(p.value)} (${pct}%)</div>`
-                );
+                const pct = ratio(p.value);
+                return `<strong>${p.data.source} → ${p.data.target}</strong><br/>${formatMoney(p.value)} / 売上比 ${pct}%`;
               }
-              return `<div style="font-weight:bold;">${p.name || ''}</div>`;
+              return `<strong>${p.name || ''}</strong>`;
             }
           },
           series: [
             {
               type: 'sankey',
-
-              top: 20,
-              bottom: 20,
-              left: 30,
-              right: 140,
-              nodeWidth: 18,
-              nodeGap: 24,
+              top: 18,
+              bottom: 18,
+              left: 16,
+              right: el.clientWidth < 640 ? 105 : 150,
+              nodeWidth: 12,
+              nodeGap: 20,
               draggable: false,
-              emphasis: {
-                focus: 'adjacency',
-                lineStyle: { opacity: 0.85 }
-              },
-              data: [
-                {
-                  name: '月商 (100%)',
-                  itemStyle: { color: '#06b6d4', borderColor: '#22d3ee', borderWidth: 1 }
-                },
-                ...(cogs > 0
-                  ? [
-                      {
-                        name: `原価 (${actualCogsPct}%)`,
-                        itemStyle: { color: '#f43f5e', borderColor: '#fb7185', borderWidth: 1 }
-                      }
-                    ]
-                  : []),
-                ...(totalOpex > 0
-                  ? [
-                      {
-                        name: `販管費 (${opexPct}%)`,
-                        itemStyle: { color: '#f59e0b', borderColor: '#fbbf24', borderWidth: 1 }
-                      }
-                    ]
-                  : []),
-                {
-                  name: isLoss ? `営業赤字 (-${actualProfitPct}%)` : `純手残り (+${actualProfitPct}%)`,
-                  itemStyle: {
-                    color: isLoss ? '#ef4444' : '#10b981',
-                    borderColor: isLoss ? '#f87171' : '#34d399',
-                    borderWidth: 1.5
-                  }
-                }
-              ],
-              links: [
-                ...(cogs > 0
-                  ? [
-                      {
-                        source: '月商 (100%)',
-                        target: `原価 (${actualCogsPct}%)`,
-                        value: cogs,
-                        lineStyle: {
-                          color: 'gradient',
-                          opacity: 0.45,
-                          curveness: 0.5
-                        }
-                      }
-                    ]
-                  : []),
-                ...(totalOpex > 0
-                  ? [
-                      {
-                        source: '月商 (100%)',
-                        target: `販管費 (${opexPct}%)`,
-                        value: totalOpex,
-                        lineStyle: {
-                          color: 'gradient',
-                          opacity: 0.45,
-                          curveness: 0.5
-                        }
-                      }
-                    ]
-                  : []),
-                {
-                  source: '月商 (100%)',
-                  target: isLoss ? `営業赤字 (-${actualProfitPct}%)` : `純手残り (+${actualProfitPct}%)`,
-                  value: Math.max(Math.abs(profit), rev * 0.05),
-                  lineStyle: {
-                    color: 'gradient',
-                    opacity: 0.65,
-                    curveness: 0.5
-                  }
-                }
-              ],
+              emphasis: { focus: 'adjacency' },
+              data: nodes,
+              links,
               label: {
-                color: '#cbd5e1',
-                fontFamily: 'monospace',
-                fontSize: 11,
-                fontWeight: 'bold',
+                color: '#e2e8f0',
+                fontFamily: chartFont,
+                fontSize: el.clientWidth < 520 ? 10 : 11,
+                fontWeight: 600,
                 position: 'right'
               },
+              itemStyle: { borderWidth: 1 },
               lineStyle: {
-                color: 'gradient',
-                curveness: 0.5
+                color: 'source',
+                opacity: 0.34,
+                curveness: 0.48
               }
             }
           ]
         };
+      } else {
+        const categories = ['売上高', '売上原価', '粗利益', '販管費', '営業利益'];
+
+        if (!isLoss && grossProfit >= 0) {
+          option = {
+            backgroundColor: 'transparent',
+            aria: {
+              enabled: true,
+              decal: { show: true },
+              description: `月次損益ブリッジ。${financialSummary}`
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: { type: 'shadow' },
+              backgroundColor: '#111827',
+              borderColor: '#334155',
+              textStyle: { color: '#f8fafc', fontFamily: chartFont },
+              formatter: (params: unknown) => {
+                const arr = params as Array<{ seriesName?: string; name?: string; value?: number }>;
+                const visible = arr.find((item) => item.seriesName === '損益');
+                if (!visible) return '';
+                return `<strong>${visible.name || ''}</strong><br/>${formatMoney(Math.abs(visible.value || 0))}`;
+              }
+            },
+            grid: { top: 24, bottom: 40, left: 64, right: 20 },
+            xAxis: {
+              type: 'category',
+              data: categories,
+              axisLine: { lineStyle: { color: '#475569' } },
+              axisLabel: { color: '#cbd5e1', fontFamily: chartFont, fontSize: 10 }
+            },
+            yAxis: {
+              type: 'value',
+              splitLine: { lineStyle: { color: 'rgba(148, 163, 184, 0.10)' } },
+              axisLabel: {
+                color: '#94a3b8',
+                fontFamily: chartFont,
+                formatter: (value: number) => formatMoney(value)
+              }
+            },
+            series: [
+              {
+                name: '基準位置',
+                type: 'bar',
+                stack: 'cash',
+                silent: true,
+                itemStyle: { color: 'transparent', borderColor: 'transparent' },
+                emphasis: { itemStyle: { color: 'transparent', borderColor: 'transparent' } },
+                data: [0, grossProfit, 0, profit, 0]
+              },
+              {
+                name: '損益',
+                type: 'bar',
+                stack: 'cash',
+                barMaxWidth: 48,
+                label: {
+                  show: true,
+                  position: 'top',
+                  color: '#e2e8f0',
+                  fontFamily: chartFont,
+                  fontSize: 10,
+                  formatter: (p: { value?: unknown }) => formatMoney(Math.abs(Number(p.value) || 0))
+                },
+                data: [
+                  { value: rev, itemStyle: { color: '#60a5fa' } },
+                  { value: cogs, itemStyle: { color: '#64748b' } },
+                  { value: grossProfit, itemStyle: { color: '#3b82f6' } },
+                  { value: totalOpex, itemStyle: { color: '#475569' } },
+                  { value: profit, itemStyle: { color: '#22c55e' } }
+                ]
+              }
+            ]
+          };
+        } else {
+          option = {
+            backgroundColor: 'transparent',
+            aria: {
+              enabled: true,
+              decal: { show: true },
+              description: `赤字を含む符号付き損益ブリッジ。${financialSummary}`
+            },
+            tooltip: {
+              trigger: 'axis',
+              axisPointer: { type: 'shadow' },
+              backgroundColor: '#111827',
+              borderColor: '#334155',
+              textStyle: { color: '#f8fafc', fontFamily: chartFont },
+              formatter: (params: unknown) => {
+                const arr = params as Array<{ name?: string; value?: number }>;
+                const item = arr?.[0];
+                return item ? `<strong>${item.name || ''}</strong><br/>${formatMoney(item.value || 0)}` : '';
+              }
+            },
+            grid: { top: 24, bottom: 40, left: 64, right: 20 },
+            xAxis: {
+              type: 'category',
+              data: categories,
+              axisLine: { lineStyle: { color: '#475569' } },
+              axisLabel: { color: '#cbd5e1', fontFamily: chartFont, fontSize: 10 }
+            },
+            yAxis: {
+              type: 'value',
+              splitLine: { lineStyle: { color: 'rgba(148, 163, 184, 0.10)' } },
+              axisLabel: {
+                color: '#94a3b8',
+                fontFamily: chartFont,
+                formatter: (value: number) => formatMoney(value)
+              }
+            },
+            series: [
+              {
+                name: '損益',
+                type: 'bar',
+                barMaxWidth: 48,
+                label: {
+                  show: true,
+                  position: 'outside',
+                  color: '#e2e8f0',
+                  fontFamily: chartFont,
+                  fontSize: 10,
+                  formatter: (p: { value?: unknown }) => formatMoney(Number(p.value) || 0)
+                },
+                data: [
+                  { value: rev, itemStyle: { color: '#60a5fa' } },
+                  { value: -cogs, itemStyle: { color: '#64748b' } },
+                  { value: grossProfit, itemStyle: { color: grossProfit < 0 ? '#dc2626' : '#3b82f6' } },
+                  { value: -totalOpex, itemStyle: { color: '#475569' } },
+                  { value: profit, itemStyle: { color: '#dc2626' } }
+                ]
+              }
+            ]
+          };
+        }
       }
 
       try {
         myChart.setOption(option, true);
         myChart.resize();
-      } catch (err) {
-        console.error('[CashAnatomySection] ECharts rendering suppressed:', err);
+      } catch (error) {
+        console.error('[CashAnatomySection] ECharts rendering suppressed:', error);
       }
     };
 
@@ -308,7 +373,24 @@ export function CashAnatomySection({
       myChart?.dispose();
       if (chartInstance.current === myChart) chartInstance.current = null;
     };
-  }, [viewMode, rev, cogs, totalOpex, profit, isLoss, actualCogsPct, opexPct, actualProfitPct, formatMoney, isFinancialUnavailable, incompleteInputs]);
+  }, [
+    viewMode,
+    rev,
+    cogs,
+    grossProfit,
+    totalOpex,
+    profit,
+    isLoss,
+    actualCogsPct,
+    grossProfitPct,
+    opexPct,
+    actualProfitPct,
+    canRenderSankey,
+    formatMoney,
+    isFinancialUnavailable,
+    incompleteInputs,
+    hasConflict
+  ]);
 
   useEffect(() => {
     return () => {
@@ -319,175 +401,227 @@ export function CashAnatomySection({
 
   if (isFinancialUnavailable) {
     return (
-      <div id="section-cash-anatomy" className="rounded-xl border border-white/[0.08] bg-[#0A0D14] p-4 text-xs">
-        <span className="font-bold text-zinc-300">財務データ未確認:</span>
-        <span className="text-zinc-500 ml-2">通帳実額・原価内訳は非公開または未確認です。</span>
-      </div>
+      <section id="section-cash-anatomy" className="rounded-lg border border-white/[0.10] bg-[#11151d] p-4 text-xs">
+        <p className="font-semibold text-zinc-200">財務データは未確認です。</p>
+        <p className="mt-1 text-zinc-400">月商・原価・営業利益の確認が揃うまで、フロー図を生成しません。</p>
+      </section>
     );
   }
 
   if (incompleteInputs) return <IncompleteCashSummary entity={entity} formatMoney={formatMoney} />;
 
+  if (hasConflict) {
+    return (
+      <section id="section-cash-anatomy" className="rounded-lg border border-amber-500/30 bg-[#11151d] p-4 text-xs">
+        <p className="font-semibold text-amber-200">財務数値に不整合があるため、図示を停止しています。</p>
+        <p className="mt-1 text-zinc-400">
+          売上−原価−販管費と記録された粗利益・営業利益の照合が通るまで、線幅や利益率を描画しません。
+        </p>
+      </section>
+    );
+  }
+
+  const statusLabel = {
+    VERIFIED: '一次確認',
+    REPORTED: '報道・取材',
+    ESTIMATED: '推定',
+    POST_MORTEM: '事後検証',
+    UNAVAILABLE: '未確認'
+  }[entity.pnl.financialStatus || 'UNAVAILABLE'];
+
   return (
     <section
       id="section-cash-anatomy"
-      className={`rounded-xl border p-4 sm:p-5 shadow-2xl relative overflow-hidden transition-all ${
-        isHazardMode
-          ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-          : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
+      className={`rounded-lg border bg-[#11151d] p-4 sm:p-5 ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.10]'
       }`}
     >
-      {/* 背景アンビエント光 */}
-      <div
-        className={`absolute top-0 right-0 w-80 h-48 rounded-full blur-[90px] pointer-events-none ${
-          isHazardMode ? 'bg-red-500/8' : 'bg-emerald-500/8'
-        }`}
-      />
-
-      {/* セクションヘッダー ＆ 3大ビュートグル */}
-      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10 flex-wrap">
-        <div className="flex items-center gap-2.5">
-          <Banknote className={`w-4 h-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-          <div>
-            <h3
-              className={`text-xs font-mono font-bold tracking-wider uppercase ${
-                isHazardMode ? 'text-red-300' : 'text-zinc-100'
-              }`}
-            >
-              現金の解剖室：通帳着金と原価流出のレントゲン
-            </h3>
+      <div className="mb-4 flex flex-wrap items-start justify-between gap-3 border-b border-white/[0.08] pb-3">
+        <div className="flex min-w-0 items-start gap-2.5">
+          <Banknote className={`mt-0.5 h-4 w-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-blue-400'}`} />
+          <div className="min-w-0">
+            <h3 className="text-sm font-semibold text-zinc-100">月次損益の流れ</h3>
+            <p className="mt-0.5 text-[11px] leading-relaxed text-zinc-400">
+              売上が、原価・販管費・営業利益へどう分かれるかを同じ数値で表示します。
+            </p>
           </div>
         </div>
+        <div className="flex flex-wrap items-center gap-1.5 text-[10px] text-zinc-400">
+          <span className="rounded border border-white/[0.10] bg-white/[0.03] px-2 py-1">{statusLabel}</span>
+          {entity.pnl.dataSnapshotPeriod && (
+            <span className="rounded border border-white/[0.10] bg-white/[0.03] px-2 py-1">{entity.pnl.dataSnapshotPeriod}</span>
+          )}
+        </div>
+      </div>
 
-        {/* 3大切替トグル */}
-        <div className="inline-flex rounded-lg p-0.5 bg-black/60 border border-white/[0.10] font-mono text-[10px]">
-          <button
-            type="button"
+      <div className="mb-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+        <Metric label="売上高" value={formatMoney(rev)} tone="blue" />
+        <Metric label="売上原価" value={formatMoney(cogs)} suffix={`${actualCogsPct}%`} />
+        <Metric label="販管費" value={formatMoney(totalOpex)} suffix={`${opexPct}%`} />
+        <Metric
+          label="営業利益"
+          value={formatMoney(profit)}
+          suffix={`${actualProfitPct > 0 ? '+' : ''}${actualProfitPct}%`}
+          tone={isLoss ? 'red' : 'green'}
+        />
+      </div>
+
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <div className="inline-flex rounded-md border border-white/[0.10] bg-[#0b0f15] p-0.5 text-[11px]">
+          <ViewButton
+            active={viewMode === 'WATERFALL'}
             onClick={() => setViewMode('WATERFALL')}
-            className={`px-2.5 py-1 rounded transition-all cursor-pointer flex items-center gap-1 ${
-              viewMode === 'WATERFALL'
-                ? 'bg-white text-black font-bold shadow-xs'
-                : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <TrendingDown className="w-3 h-3" />
-            <span>通帳引き算バー</span>
-          </button>
-          <button
-            type="button"
+            icon={<TrendingDown className="h-3.5 w-3.5" />}
+            label="損益ブリッジ"
+          />
+          <ViewButton
+            active={viewMode === 'SANKEY'}
             onClick={() => setViewMode('SANKEY')}
-            className={`px-2.5 py-1 rounded transition-all cursor-pointer flex items-center gap-1 ${
-              viewMode === 'SANKEY'
-                ? 'bg-white text-black font-bold shadow-xs'
-                : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <Droplets className="w-3 h-3" />
-            <span>現金の滝 (Sankey)</span>
-          </button>
-          <button
-            type="button"
+            icon={<GitBranch className="h-3.5 w-3.5" />}
+            label="資金フロー"
+            disabled={!canRenderSankey}
+          />
+          <ViewButton
+            active={viewMode === 'TABLE'}
             onClick={() => setViewMode('TABLE')}
-            className={`px-2.5 py-1 rounded transition-all cursor-pointer flex items-center gap-1 ${
-              viewMode === 'TABLE'
-                ? 'bg-white text-black font-bold shadow-xs'
-                : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <Table className="w-3 h-3" />
-            <span>損益計算明細 (P&L)</span>
-          </button>
+            icon={<Table className="h-3.5 w-3.5" />}
+            label="明細"
+          />
         </div>
+        {!canRenderSankey && (
+          <span className="text-[10px] text-zinc-500">粗利益が負のため、Sankey は表示しません。</span>
+        )}
       </div>
 
-      {/* 4連コアKPIストリップ */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4 font-mono">
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">月商規模</span>
-          <span className="text-sm font-black text-white tabular-nums">{formatMoney(rev)}</span>
-        </div>
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">売上原価 (COGS)</span>
-          <span className="text-sm font-black text-rose-400 tabular-nums">
-            {formatMoney(cogs)}
-            <span className="text-[10px] text-rose-300/80 ml-1 font-normal">({actualCogsPct}%)</span>
-          </span>
-        </div>
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">月間販管費 (Opex)</span>
-          <span className="text-sm font-black text-amber-400 tabular-nums">
-            {formatMoney(totalOpex)}
-            <span className="text-[10px] text-amber-300/80 ml-1 font-normal">({opexPct}%)</span>
-          </span>
-        </div>
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">純手残り (営業利益)</span>
-          <span
-            className={`text-sm font-black tabular-nums ${
-              isLoss ? 'text-red-400' : 'text-emerald-300'
-            }`}
-          >
-            {formatMoney(profit)}
-            <span className="text-[10px] ml-1 font-bold">
-              ({isLoss ? `-${actualProfitPct}%` : `+${actualProfitPct}%`})
-            </span>
-          </span>
-        </div>
-      </div>
-
-      {/* メイン可視化コンテンツ */}
       {viewMode === 'TABLE' ? (
-        <div className="rounded-lg border border-white/[0.08] overflow-hidden bg-[#07090F] font-mono text-xs">
-          <table className="w-full text-left border-collapse">
+        <div className="overflow-x-auto rounded-md border border-white/[0.08] bg-[#0b0f15]">
+          <table className="w-full min-w-[620px] border-collapse text-left text-xs">
             <thead>
-              <tr className="border-b border-white/[0.08] bg-white/[0.02] text-[10px] text-zinc-400">
-                <th className="py-2 px-3">勘定科目</th>
-                <th className="py-2 px-3 text-right">月次実額</th>
-                <th className="py-2 px-3 text-right">構成比</th>
-                <th className="py-2 px-3 text-left">内訳・正体</th>
+              <tr className="border-b border-white/[0.08] text-[10px] text-zinc-500">
+                <th className="px-3 py-2 font-medium">勘定科目</th>
+                <th className="px-3 py-2 text-right font-medium">月次金額</th>
+                <th className="px-3 py-2 text-right font-medium">売上比</th>
+                <th className="px-3 py-2 font-medium">意味</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/[0.04]">
-              <tr className="hover:bg-white/[0.02]">
-                <td className="py-2 px-3 font-bold text-white">① 売上高 (Revenue)</td>
-                <td className="py-2 px-3 text-right font-bold text-cyan-300">{formatMoney(rev)}</td>
-                <td className="py-2 px-3 text-right text-zinc-400">100.0%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">本業の総現金流入</td>
-              </tr>
-              <tr className="hover:bg-white/[0.02]">
-                <td className="py-2 px-3 text-rose-300">② 売上原価 (COGS)</td>
-                <td className="py-2 px-3 text-right text-rose-400">-{formatMoney(cogs)}</td>
-                <td className="py-2 px-3 text-right text-rose-400">{actualCogsPct}%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">仕入れ・API従量課金・直接インフラ</td>
-              </tr>
-              <tr className="bg-white/[0.02] font-bold">
-                <td className="py-2 px-3 text-sky-300">③ 売上総利益 (Gross Profit)</td>
-                <td className="py-2 px-3 text-right text-sky-300">{formatMoney(rev - cogs)}</td>
-                <td className="py-2 px-3 text-right text-sky-300">{100 - actualCogsPct}%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">粗利益（事業の本質的価格決定力）</td>
-              </tr>
-              <tr className="hover:bg-white/[0.02]">
-                <td className="py-2 px-3 text-amber-300">④ 販管費合計 (SGA / Opex)</td>
-                <td className="py-2 px-3 text-right text-amber-400">-{formatMoney(totalOpex)}</td>
-                <td className="py-2 px-3 text-right text-amber-400">{opexPct}%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">
-                  サーバー {formatMoney(opexObj.serverAndApi || 0)} / 広告 {formatMoney(opexObj.advertising || 0)} / 外注 {formatMoney(opexObj.subcontracting || 0)} / ツール {formatMoney(opexObj.toolsAndSaaS || 0)}
-                </td>
-              </tr>
-              <tr className={`border-t-2 border-white/[0.15] font-black ${isLoss ? 'bg-red-950/20 text-red-300' : 'bg-emerald-950/20 text-emerald-300'}`}>
-                <td className="py-2.5 px-3 text-sm">⑤ 営業利益 (手残り現金)</td>
-                <td className="py-2.5 px-3 text-right text-sm">{formatMoney(profit)}</td>
-                <td className="py-2.5 px-3 text-right text-sm">{isLoss ? `-${actualProfitPct}%` : `+${actualProfitPct}%`}</td>
-                <td className="py-2.5 px-3 text-[11px] font-normal text-zinc-300">創業者口座への実質手残りキャッシュ</td>
-              </tr>
+            <tbody className="divide-y divide-white/[0.05]">
+              <FinancialRow label="売上高" value={formatMoney(rev)} ratio="100%" detail="本業の総売上" tone="blue" />
+              <FinancialRow label="売上原価" value={`-${formatMoney(cogs)}`} ratio={`${actualCogsPct}%`} detail="売上に直接対応する原価" />
+              <FinancialRow label="粗利益" value={formatMoney(grossProfit)} ratio={`${grossProfitPct}%`} detail="売上高 − 売上原価" tone={grossProfit < 0 ? 'red' : 'blue'} strong />
+              <FinancialRow label="販管費" value={`-${formatMoney(totalOpex)}`} ratio={`${opexPct}%`} detail={`サーバー ${formatMoney(opexObj.serverAndApi || 0)} / 広告 ${formatMoney(opexObj.advertising || 0)} / 外注 ${formatMoney(opexObj.subcontracting || 0)} / ツール ${formatMoney(opexObj.toolsAndSaaS || 0)}`} />
+              <FinancialRow label="営業利益" value={formatMoney(profit)} ratio={`${actualProfitPct > 0 ? '+' : ''}${actualProfitPct}%`} detail="粗利益 − 販管費（税引前）" tone={isLoss ? 'red' : 'green'} strong />
             </tbody>
           </table>
         </div>
       ) : (
-        <div className="w-full h-[260px] bg-[#07090F]/90 rounded-lg border border-white/[0.08] relative overflow-hidden">
-          <div ref={chartRef} className="w-full h-full" />
+        <div className="rounded-md border border-white/[0.08] bg-[#0b0f15] p-2">
+          <div
+            ref={chartRef}
+            className="h-[280px] w-full sm:h-[320px]"
+            role="img"
+            aria-label={`月次損益図。売上高 ${formatMoney(rev)}、売上原価 ${formatMoney(cogs)}、粗利益 ${formatMoney(grossProfit)}、販管費 ${formatMoney(totalOpex)}、営業利益 ${formatMoney(profit)}。`}
+          />
         </div>
       )}
+
+      <div className="mt-3 flex flex-wrap items-start justify-between gap-2 text-[10px] leading-relaxed text-zinc-500">
+        <p>
+          売上高 {formatMoney(rev)} → 粗利益 {formatMoney(grossProfit)} → 営業利益 {formatMoney(profit)}。
+        </p>
+        <p>営業利益は税引後キャッシュや創業者の手取りではありません。</p>
+      </div>
     </section>
+  );
+}
+
+function Metric({
+  label,
+  value,
+  suffix,
+  tone = 'neutral'
+}: {
+  label: string;
+  value: string;
+  suffix?: string;
+  tone?: 'neutral' | 'blue' | 'green' | 'red';
+}) {
+  const valueClass = {
+    neutral: 'text-zinc-100',
+    blue: 'text-blue-300',
+    green: 'text-emerald-300',
+    red: 'text-red-300'
+  }[tone];
+
+  return (
+    <div className="rounded-md border border-white/[0.07] bg-[#151a23] px-3 py-2.5">
+      <span className="block text-[10px] text-zinc-500">{label}</span>
+      <span className={`mt-0.5 block font-mono text-sm font-semibold tabular-nums ${valueClass}`}>
+        {value}
+        {suffix && <span className="ml-1.5 text-[10px] font-medium text-zinc-500">{suffix}</span>}
+      </span>
+    </div>
+  );
+}
+
+function ViewButton({
+  active,
+  onClick,
+  icon,
+  label,
+  disabled = false
+}: {
+  active: boolean;
+  onClick: () => void;
+  icon: React.ReactNode;
+  label: string;
+  disabled?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-pressed={active}
+      className={`flex items-center gap-1.5 rounded px-2.5 py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/80 ${
+        active
+          ? 'bg-blue-500/15 text-blue-200'
+          : 'text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-200'
+      } disabled:cursor-not-allowed disabled:opacity-35`}
+    >
+      {icon}
+      <span>{label}</span>
+    </button>
+  );
+}
+
+function FinancialRow({
+  label,
+  value,
+  ratio,
+  detail,
+  tone = 'neutral',
+  strong = false
+}: {
+  label: string;
+  value: string;
+  ratio: string;
+  detail: string;
+  tone?: 'neutral' | 'blue' | 'green' | 'red';
+  strong?: boolean;
+}) {
+  const valueClass = {
+    neutral: 'text-zinc-300',
+    blue: 'text-blue-300',
+    green: 'text-emerald-300',
+    red: 'text-red-300'
+  }[tone];
+
+  return (
+    <tr className={strong ? 'bg-white/[0.02]' : undefined}>
+      <td className={`px-3 py-2.5 ${strong ? 'font-semibold text-zinc-100' : 'text-zinc-300'}`}>{label}</td>
+      <td className={`px-3 py-2.5 text-right font-mono tabular-nums ${valueClass}`}>{value}</td>
+      <td className="px-3 py-2.5 text-right font-mono tabular-nums text-zinc-400">{ratio}</td>
+      <td className="px-3 py-2.5 text-[11px] text-zinc-500">{detail}</td>
+    </tr>
   );
 }
