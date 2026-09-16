@@ -153,7 +153,7 @@ function transformEntity(raw: Record<string, unknown>, baseTemplate: FinancialEn
     opex = { serverAndApi: 0, advertising: 0, subcontracting: 0, toolsAndSaaS: 0, other: 0 };
   }
 
-  const pnlObj: Record<string, any> = {
+  const pnlObj: any = {
     ...ent.pnl,
     monthlyRevenue: rev,
     cogs,
@@ -352,10 +352,8 @@ function transformEntity(raw: Record<string, unknown>, baseTemplate: FinancialEn
     sector,
     scale,
     founder: ent.founder || '非公開',
-    description: sanitizeJargon(ent.description || whatItDoes),
     url: ent.url || 'https://example.com',
     verifiedBadge: Boolean(ent.verifiedBadge),
-    financialStatus: finStatus,
     targetPainWallet: sanitizeJargon(ent.targetPainWallet || '事業運用および保守の固定費'),
     tags: Array.isArray(ent.tags) ? ent.tags.map((t: any) => sanitizeJargon(String(t))) : ['収集事例', sector],
     pnl: pnlObj,

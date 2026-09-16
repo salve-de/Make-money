@@ -42,12 +42,25 @@ export function CompanyHeader({
   const rawUrl = legacyText(entity, 'websiteUrl') || entity.url || (entity as unknown as { website?: string }).website || (entity.essence as unknown as { website?: string })?.website || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
 
-  // 2. チーム規模
-  const rawTeam = entity.operations?.isTeamSizeUnconfirmed
+  // 2. チーム規模・立ち上げ初期人数（サバンナOS直撃）
+  const isSolo = entity.scale === 'SOLO' || entity.tags?.some(t => t.includes('1人') || t.includes('一人') || t.includes('ソロ'));
+  const rawInitialTeam = entity.operations?.isTeamSizeUnconfirmed
     ? null
-    : entity.operations?.teamSize || (entity as unknown as { teamSize?: number | string }).teamSize;
-  const isSolo = entity.tags?.some(t => t.includes('1人') || t.includes('一人') || t.includes('ソロ'));
-  const displayTeam = rawTeam ? (typeof rawTeam === 'number' ? `${rawTeam}人` : String(rawTeam)) : (isSolo ? '1人' : null);
+    : entity.operations?.initialTeamSize ?? (isSolo ? 1 : entity.scale === 'SMALL_TEAM' ? 2 : null);
+  const rawCurrentTeam = entity.operations?.isTeamSizeUnconfirmed
+    ? null
+    : entity.operations?.currentTeamSize ?? entity.operations?.teamSize ?? (entity as unknown as { teamSize?: number | string }).teamSize;
+
+  let displayTeam: string | null = null;
+  if (rawInitialTeam && rawCurrentTeam && rawInitialTeam !== rawCurrentTeam) {
+    displayTeam = `初期 ${rawInitialTeam}人 ➔ 現在 ${typeof rawCurrentTeam === 'number' ? rawCurrentTeam.toLocaleString() : rawCurrentTeam}人`;
+  } else if (rawInitialTeam === 1 || isSolo) {
+    displayTeam = '初期 1人（ソロ）';
+  } else if (rawInitialTeam) {
+    displayTeam = `初期 ${rawInitialTeam}人`;
+  } else if (rawCurrentTeam) {
+    displayTeam = `${typeof rawCurrentTeam === 'number' ? rawCurrentTeam.toLocaleString() : rawCurrentTeam}人`;
+  }
 
   // 3. 事業継続年数
   const hasVerifiedTemporal = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true && entity.temporal?.viabilityStatus !== 'UNKNOWN';
@@ -312,31 +325,23 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-cash-anatomy')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#03</span>
-                  <span>通帳バー</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection('section-sankey')}
-                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-                >
-                  <span className="text-[9px] text-emerald-400 font-bold">#04</span>
-                  <span>現金の滝</span>
+                  <span className="text-[9px] text-emerald-400 font-bold">#03</span>
+                  <span>現金解剖</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollToSection('section-tradingview')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-cyan-400 font-bold">#05</span>
-                  <span>損益チャート</span>
+                  <span className="text-[9px] text-cyan-400 font-bold">#04</span>
+                  <span>損益構造</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollToSection('section-financial')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#06</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#05</span>
                   <span>財務P&L</span>
                 </button>
                 <button
@@ -344,7 +349,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-evidence')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#07</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#06</span>
                   <span>4大急所</span>
                 </button>
                 <button
@@ -352,7 +357,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-essence')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#08</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#07</span>
                   <span>正体・DNA</span>
                 </button>
                 <button
@@ -360,7 +365,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-flywheel')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-amber-400 font-bold">#09</span>
+                  <span className="text-[9px] text-amber-400 font-bold">#08</span>
                   <span>増殖ループ</span>
                 </button>
                 <button
@@ -368,7 +373,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-value-chain')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-purple-400 font-bold">#10</span>
+                  <span className="text-[9px] text-purple-400 font-bold">#09</span>
                   <span>中抜き図</span>
                 </button>
                 <button
@@ -376,7 +381,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-tools')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#11</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#10</span>
                   <span>現場ツール</span>
                 </button>
                 <button
@@ -384,7 +389,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-loot-blueprint')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#12</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#11</span>
                   <span>略奪武器庫</span>
                 </button>
                 <button
@@ -392,7 +397,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-playbook')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#13</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#12</span>
                   <span>再現手順</span>
                 </button>
               </>

@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { createChart, ColorType, type IChartApi, HistogramSeries, AreaSeries } from 'lightweight-charts';
-import { Activity } from 'lucide-react';
+import * as echarts from 'echarts';
+import { PieChart } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function TradingViewFinancialChart({
@@ -10,144 +10,283 @@ export function TradingViewFinancialChart({
   isHazardMode,
   formatMoney
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'formatMoney'>) {
-  const chartContainerRef = useRef<HTMLDivElement>(null);
-  const chartRef = useRef<IChartApi | null>(null);
+  const chartRef = useRef<HTMLDivElement>(null);
+  const chartInstance = useRef<echarts.ECharts | null>(null);
 
   const rev = entity.pnl?.monthlyRevenue || 1;
   const cogs = Math.max(entity.pnl?.cogs || 0, 0);
-  const opexObj = entity.pnl?.operatingExpenses || {
-    serverAndApi: 0,
-    advertising: 0,
-    subcontracting: 0,
-    toolsAndSaaS: 0,
-    other: 0
-  };
-  const totalOpex = Math.max(
-    (opexObj.serverAndApi || 0) +
-    (opexObj.advertising || 0) +
-    (opexObj.subcontracting || 0) +
-    (opexObj.toolsAndSaaS || 0) +
-    (opexObj.other || 0),
-    0
-  );
+  const serverCost = entity.pnl?.operatingExpenses?.serverAndApi || 0;
+  const adCost = entity.pnl?.operatingExpenses?.advertising || 0;
+  const subCost = entity.pnl?.operatingExpenses?.subcontracting || 0;
+  const saasCost = entity.pnl?.operatingExpenses?.toolsAndSaaS || 0;
+  const otherCost = entity.pnl?.operatingExpenses?.other || 0;
+
+  const totalOpex = Math.max(serverCost + adCost + subCost + saasCost + otherCost, 0);
   const profit = entity.pnl?.operatingProfit ?? (rev - cogs - totalOpex);
   const isLoss = profit < 0 || isHazardMode;
 
+  const cogsPct = rev > 0 ? Math.round((cogs / rev) * 100) : 0;
+  const serverPct = rev > 0 ? Math.round((serverCost / rev) * 100) : 0;
+  const adPct = rev > 0 ? Math.round((adCost / rev) * 100) : 0;
+  const subPct = rev > 0 ? Math.round((subCost / rev) * 100) : 0;
+  const saasPct = rev > 0 ? Math.round((saasCost / rev) * 100) : 0;
+  const profitPct = rev > 0 ? Math.round((profit / rev) * 100) : 0;
+
   useEffect(() => {
-    if (!chartContainerRef.current) return;
+    const el = chartRef.current;
+    if (!el) return;
 
-    const chart = createChart(chartContainerRef.current, {
-      layout: {
-        background: { type: ColorType.Solid, color: 'transparent' },
-        textColor: '#94a3b8',
-        fontSize: 11,
-        fontFamily: 'monospace'
-      },
-      grid: {
-        vertLines: { color: 'rgba(255, 255, 255, 0.05)' },
-        horzLines: { color: 'rgba(255, 255, 255, 0.05)' }
-      },
-      crosshair: {
-        vertLine: { color: 'rgba(56, 189, 248, 0.4)', width: 1, style: 2 },
-        horzLine: { color: 'rgba(56, 189, 248, 0.4)', width: 1, style: 2 }
-      },
-      timeScale: {
-        borderColor: 'rgba(255, 255, 255, 0.1)',
-        timeVisible: true
-      },
-      rightPriceScale: {
-        borderColor: 'rgba(255, 255, 255, 0.1)'
-      }
-    });
-    chartRef.current = chart;
+    let myChart = chartInstance.current;
+    if (!myChart) {
+      myChart = echarts.init(el, 'dark');
+      chartInstance.current = myChart;
+    }
 
-    // TradingView のヒストグラムシリーズで描画
-    const histogramSeries = chart.addSeries(HistogramSeries, {
-      color: '#06b6d4',
-      priceFormat: {
-        type: 'custom',
-        formatter: (price: number) => formatMoney(price)
-      }
-    });
+    // ドーナツチャートのデータ構築（0円の項目は除外してすっきり見せる）
+    const pieData: Array<{ name: string; value: number; itemStyle: { color: string } }> = [];
 
-    const dates = ['2026-04-01', '2026-05-01', '2026-06-01', '2026-07-01', '2026-08-01', '2026-09-01'];
-    const data = [
-      { time: dates[0], value: rev, color: '#06b6d4' }, // 月商
-      { time: dates[1], value: cogs, color: '#f43f5e' }, // 原価
-      { time: dates[2], value: rev - cogs, color: '#38bdf8' }, // 粗利
-      { time: dates[3], value: totalOpex, color: '#f59e0b' }, // 販管費
-      { time: dates[4], value: Math.abs(profit), color: isLoss ? '#ef4444' : '#10b981' } // 営業利益
-    ];
-    histogramSeries.setData(data);
+    if (!isLoss && profit > 0) {
+      pieData.push({
+        name: '純手残り（営業利益）',
+        value: profit,
+        itemStyle: { color: '#10b981' }
+      });
+    }
 
-    // エリアシリーズで利益率トレンドをオーバーレイ
-    const areaSeries = chart.addSeries(AreaSeries, {
-      topColor: isLoss ? 'rgba(239, 68, 68, 0.3)' : 'rgba(16, 185, 129, 0.3)',
-      bottomColor: 'rgba(16, 185, 129, 0.0)',
-      lineColor: isLoss ? '#ef4444' : '#10b981',
-      lineWidth: 2
-    });
+    if (cogs > 0) {
+      pieData.push({
+        name: '売上原価 (COGS)',
+        value: cogs,
+        itemStyle: { color: '#f43f5e' }
+      });
+    }
 
-    const marginData = [
-      { time: dates[0], value: rev * 0.9 },
-      { time: dates[1], value: rev * 0.92 },
-      { time: dates[2], value: rev * 0.95 },
-      { time: dates[3], value: rev * 0.98 },
-      { time: dates[4], value: rev }
-    ];
-    areaSeries.setData(marginData);
+    if (serverCost > 0) {
+      pieData.push({
+        name: 'サーバー / 推論API',
+        value: serverCost,
+        itemStyle: { color: '#06b6d4' }
+      });
+    }
 
-    chart.timeScale().fitContent();
+    if (adCost > 0) {
+      pieData.push({
+        name: '広告宣伝費',
+        value: adCost,
+        itemStyle: { color: '#f59e0b' }
+      });
+    }
 
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.contentRect.width > 0 && entry.contentRect.height > 0) {
-          chart.applyOptions({
-            width: entry.contentRect.width,
-            height: entry.contentRect.height
-          });
-          chart.timeScale().fitContent();
+    if (subCost > 0) {
+      pieData.push({
+        name: '外注・委託費',
+        value: subCost,
+        itemStyle: { color: '#a855f7' }
+      });
+    }
+
+    if (saasCost > 0) {
+      pieData.push({
+        name: '業務ツール・SaaS',
+        value: saasCost,
+        itemStyle: { color: '#64748b' }
+      });
+    }
+
+    if (isLoss) {
+      pieData.push({
+        name: '赤字出血 (純流出)',
+        value: Math.abs(profit),
+        itemStyle: { color: '#ef4444' }
+      });
+    }
+
+    // 項目が1つもない場合のフォールバック
+    if (pieData.length === 0) {
+      pieData.push({
+        name: '純手残り（営業利益）',
+        value: rev,
+        itemStyle: { color: '#10b981' }
+      });
+    }
+
+    const option: echarts.EChartsOption = {
+      backgroundColor: 'transparent',
+      tooltip: {
+        trigger: 'item',
+        backgroundColor: 'rgba(10, 13, 20, 0.95)',
+        borderColor: 'rgba(255, 255, 255, 0.15)',
+        textStyle: { color: '#f1f5f9', fontFamily: 'monospace', fontSize: 11 },
+        formatter: (params: unknown) => {
+          const p = params as { name?: string; value?: number; percent?: number };
+          const val = typeof p.value === 'number' ? formatMoney(p.value) : '';
+          return `
+            <div style="font-weight:bold;margin-bottom:2px;">${p.name || ''}</div>
+            <div style="color:#38bdf8;">金額: ${val}</div>
+            <div style="color:#94a3b8;">月商比: ${p.percent ?? 0}%</div>
+          `;
         }
-      }
-    });
-    resizeObserver.observe(chartContainerRef.current);
+      },
+      legend: {
+        orient: 'vertical',
+        right: 10,
+        top: 'center',
+        textStyle: { color: '#94a3b8', fontSize: 10, fontFamily: 'monospace' },
+        itemWidth: 10,
+        itemHeight: 10,
+        icon: 'circle'
+      },
+      series: [
+        {
+          name: '損益配分',
+          type: 'pie',
+          radius: ['45%', '72%'],
+          center: ['38%', '50%'],
+          avoidLabelOverlap: false,
+          itemStyle: {
+            borderRadius: 4,
+            borderColor: '#0b0f17',
+            borderWidth: 2
+          },
+          label: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: 12,
+              fontWeight: 'bold',
+              color: '#ffffff',
+              formatter: '{b}\n{d}%'
+            }
+          },
+          labelLine: {
+            show: false
+          },
+          data: pieData
+        }
+      ]
+    };
+
+    myChart.setOption(option);
+
+    const handleResize = () => {
+      myChart?.resize();
+    };
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      resizeObserver.disconnect();
-      chart.remove();
-      chartRef.current = null;
+      window.removeEventListener('resize', handleResize);
+      myChart?.dispose();
+      chartInstance.current = null;
     };
-  }, [rev, cogs, totalOpex, profit, isLoss, formatMoney]);
+  }, [rev, cogs, serverCost, adCost, subCost, saasCost, profit, isLoss, formatMoney]);
 
   return (
-    <div id="section-tradingview" className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${
-      isHazardMode
-        ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-        : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
-    }`}>
-      {/* 背景アンビエント光 */}
-      <div className={`absolute top-0 right-0 w-80 h-48 rounded-full blur-[90px] pointer-events-none ${
-        isHazardMode ? 'bg-red-500/8' : 'bg-blue-500/8'
-      }`} />
-
-      {/* ヘッダー */}
-      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10">
-        <div className="flex items-center gap-2.5">
-          <Activity className="w-4 h-4 text-blue-400 shrink-0" />
-          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-300' : 'text-zinc-100'
-          }`}>
-            損益ストリーム分析：機関投資家ターミナル (TRADINGVIEW LIGHTWEIGHT CHARTS)
-          </h3>
+    <div id="section-tradingview" className="rounded-xl border border-white/[0.10] bg-[#0A0D14] overflow-hidden shadow-xl">
+      {/* タイトルバー */}
+      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-white/[0.08] bg-[#0E131F]">
+        <div className="flex items-center gap-2">
+          <div className={`w-1 h-3.5 rounded-full ${isLoss ? 'bg-red-500' : 'bg-emerald-400'}`} />
+          <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded border border-white/[0.1] text-zinc-300 bg-white/[0.05]">
+            ANATOMY
+          </span>
+          <div className="flex items-center gap-1.5">
+            <PieChart className="w-3.5 h-3.5 text-cyan-400" />
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
+              損益構造レントゲン（PROFIT & COST BREAKDOWN）
+            </h3>
+          </div>
         </div>
-        <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
-          TRADINGVIEW ENGINE
-        </span>
+        <div className="flex items-center gap-2">
+          <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
+            isLoss
+              ? 'text-red-300 bg-red-950/40 border-red-500/30'
+              : 'text-emerald-300 bg-emerald-950/40 border-emerald-500/30'
+          }`}>
+            {isLoss ? '赤字出血' : `純手残り率 ${profitPct}%`}
+          </span>
+        </div>
       </div>
 
-      {/* TradingView チャートコンテナ */}
-      <div className="relative w-full h-[260px] bg-[#07090F]/90 rounded-xl border border-white/[0.08] p-2 shadow-inner">
-        <div ref={chartContainerRef} className="w-full h-full" />
+      <div className="p-4 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
+        {/* 左側: ECharts ドーナツチャート (7カラム) */}
+        <div className="lg:col-span-7 h-[200px] relative">
+          <div ref={chartRef} className="w-full h-full" />
+        </div>
+
+        {/* 右側: 主要コスト＆利益率サマリー (5カラム) */}
+        <div className="lg:col-span-5 space-y-2 font-mono text-xs">
+          <div className="bg-white/[0.02] border border-white/[0.06] rounded-lg p-3 space-y-2">
+            <div className="flex items-center justify-between text-[11px] pb-1.5 border-b border-white/[0.06]">
+              <span className="text-zinc-400">月商 (100%)</span>
+              <span className="text-white font-bold">{formatMoney(rev)}</span>
+            </div>
+
+            <div className="space-y-1 text-[10px]">
+              <div className="flex justify-between items-center text-zinc-300">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span>純手残り営業利益</span>
+                </span>
+                <span className={`font-bold ${isLoss ? 'text-red-400' : 'text-emerald-400'}`}>
+                  {formatMoney(profit)} ({profitPct}%)
+                </span>
+              </div>
+
+              {cogs > 0 && (
+                <div className="flex justify-between items-center text-zinc-400">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-rose-400" />
+                    <span>売上原価</span>
+                  </span>
+                  <span>{formatMoney(cogs)} ({cogsPct}%)</span>
+                </div>
+              )}
+
+              {serverCost > 0 && (
+                <div className="flex justify-between items-center text-zinc-400">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                    <span>サーバー/API費</span>
+                  </span>
+                  <span>{formatMoney(serverCost)} ({serverPct}%)</span>
+                </div>
+              )}
+
+              {adCost > 0 && (
+                <div className="flex justify-between items-center text-zinc-400">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-amber-400" />
+                    <span>広告宣伝費</span>
+                  </span>
+                  <span>{formatMoney(adCost)} ({adPct}%)</span>
+                </div>
+              )}
+
+              {subCost > 0 && (
+                <div className="flex justify-between items-center text-zinc-400">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-purple-400" />
+                    <span>外注費</span>
+                  </span>
+                  <span>{formatMoney(subCost)} ({subPct}%)</span>
+                </div>
+              )}
+
+              {saasCost > 0 && (
+                <div className="flex justify-between items-center text-zinc-400">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-slate-400" />
+                    <span>ツール/SaaS</span>
+                  </span>
+                  <span>{formatMoney(saasCost)} ({saasPct}%)</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

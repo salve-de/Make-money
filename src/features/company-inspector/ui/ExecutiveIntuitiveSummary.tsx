@@ -39,7 +39,7 @@ export function ExecutiveIntuitiveSummary({
   const monetization = legacyText(entity.essence, 'monetizationWay') || legacyText(entity, 'monetizationWay') || '';
   const rawMoat = entity.strategy?.moatDescription || legacyText(entity.strategy, 'moat') || legacyText(entity, 'coreMoatDescription') || entity.architecturePattern || '';
   const cleanedMoat = rawMoat.replace(/^【.*?】/g, '').trim();
-  const incumbentDilemma = entity.strategy?.incumbentDilemma || entity.incumbentDilemma || '';
+  const incumbentDilemma = entity.strategy?.incumbentDilemma || legacyText(entity, 'incumbentDilemma') || '';
 
   // ペインがwhatItDoesと同一の場合のフォールバック防波堤
   const effectivePain = (painRelief && painRelief !== whatItDoes)
@@ -64,9 +64,17 @@ export function ExecutiveIntuitiveSummary({
   const margin = entity.pnl?.isMarginUnconfirmed || entity.pnl?.operatingMargin === undefined
     ? null
     : `${entity.pnl.operatingMargin.toFixed(1)}%`;
-  const teamSize = entity.operations?.isTeamSizeUnconfirmed
-    ? null
-    : entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null;
+
+  // 立ち上げ初期人数 ＆ 組織規模（読者のサバンナOSを刺激する最重要キラーデータ）
+  const isSolo = entity.scale === 'SOLO' || entity.tags?.some(t => t.includes('1人') || t.includes('一人') || t.includes('ソロ'));
+  const rawCurrentTeam = entity.operations?.currentTeamSize ?? entity.operations?.teamSize ?? legacyNumber(entity, 'teamSize');
+  const currentTeamText = entity.operations?.isTeamSizeUnconfirmed
+    ? '未確認'
+    : rawCurrentTeam
+      ? `${rawCurrentTeam.toLocaleString()}名`
+      : isSolo
+        ? '1名'
+        : '未確認';
 
   return (
     <div id="section-summary" className="space-y-4 select-text">
@@ -208,7 +216,7 @@ export function ExecutiveIntuitiveSummary({
           <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
             <div className="text-[10px] text-zinc-400 font-mono">組織規模</div>
             <div className="text-xs sm:text-sm font-bold font-mono text-zinc-200 mt-0.5">
-              {teamSize ? `${teamSize.toLocaleString()}名` : '未確認'}
+              {currentTeamText}
             </div>
           </div>
         </div>

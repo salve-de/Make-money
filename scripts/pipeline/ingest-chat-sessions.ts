@@ -219,10 +219,8 @@ function transformRawEntity(raw: Record<string, unknown>, baseTemplate: Financia
       ? ent.scale
       : ((ent.scale === 'MICRO_TEAM' || ent.operations?.teamSize === 1) ? 'SOLO' : 'SMALL_TEAM'),
     founder: ent.founder || '非公開',
-    description: sanitizeJargon(ent.description || whatItDoes),
     url: ent.url || 'https://example.com',
     verifiedBadge: true,
-    financialStatus: ent.financialStatus || ent.pnl?.financialStatus || 'REPORTED',
     growthRateYoY: typeof ent.growthRateYoY === 'number' ? ent.growthRateYoY : 35,
     architecturePattern: ent.architecturePattern || 'LEVERAGED_SOLO_PIPELINE',
     pipelineStack: ent.pipelineStack || 'Next.js + Stripe + Vercel',
@@ -243,9 +241,7 @@ function transformRawEntity(raw: Record<string, unknown>, baseTemplate: Financia
       operatingProfit: opProfit,
       operatingMargin: opMargin,
       estimatedAnnualNetProfit: opProfit * 12,
-      cogsBreakdown: sanitizeJargon(ent.pnl?.cogsBreakdown || '推論API費、インフラ費、決済手数料等の直接原価'),
       sourceDoc: sanitizeJargon(ent.pnl?.sourceDoc || ent.url || 'https://example.com'),
-      currency: 'JPY',
       financialStatus: ent.financialStatus || ent.pnl?.financialStatus || 'REPORTED'
     },
     operations: {
@@ -259,8 +255,8 @@ function transformRawEntity(raw: Record<string, unknown>, baseTemplate: Financia
         : ['SEO / オーガニック検索', '口コミ・コミュニティ'],
       toolStack,
       isWeeklyHoursUnconfirmed: ent.operations?.isWeeklyHoursUnconfirmed ?? false,
-      isInitialCapitalUnconfirmed: ent.operations?.isInitialCapitalUnconfirmed ?? false,
-      isAutomationLevelUnconfirmed: ent.operations?.isAutomationLevelUnconfirmed ?? false
+      isCapitalUnconfirmed: ent.operations?.isInitialCapitalUnconfirmed ?? ent.operations?.isCapitalUnconfirmed ?? false,
+      isAutomationUnconfirmed: ent.operations?.isAutomationUnconfirmed ?? ent.operations?.isAutomationLevelUnconfirmed ?? false
     },
     strategy: {
       moatType: ent.strategy?.moatType || 'COUNTER_POSITIONING',
@@ -268,11 +264,11 @@ function transformRawEntity(raw: Record<string, unknown>, baseTemplate: Financia
       secretInsight: sanitizeJargon(ent.strategy?.secretInsight || ent.lootBlueprint?.stealthEntry || '大手が参入できないニッチ領域を特化機能で独占'),
       blindspot: sanitizeJargon(ent.strategy?.blindspot || '競合が気づいていない顧客の痛みの財布'),
       incumbentDilemma: sanitizeJargon(ent.strategy?.incumbentDilemma || '既存大手が主力製品の売上競合を恐れて手を出せない死角'),
-      initialTraction: ent.strategy?.initialTraction && Array.isArray(ent.strategy.initialTraction) && ent.strategy.initialTraction.length > 0
-        ? ent.strategy.initialTraction.map((t: string) => sanitizeJargon(t))
+      initialTraction: Array.isArray(ent.strategy?.initialTraction) && ent.strategy.initialTraction.length > 0
+        ? ent.strategy.initialTraction.map((t: any) => sanitizeJargon(String(t)))
         : ['特化型MVPの公開と初期ユーザー獲得', 'コミュニティでの口コミ拡散'],
-      actionPlaybook: ent.strategy?.actionPlaybook && Array.isArray(ent.strategy.actionPlaybook) && ent.strategy.actionPlaybook.length > 0
-        ? ent.strategy.actionPlaybook.map((a: string) => sanitizeJargon(a))
+      actionPlaybook: Array.isArray(ent.strategy?.actionPlaybook) && ent.strategy.actionPlaybook.length > 0
+        ? ent.strategy.actionPlaybook.map((a: any) => sanitizeJargon(String(a)))
         : ['顧客の痛みに特化したプロトタイプ検証', '高粗利オペレーションの確立']
     },
     essence: {
@@ -283,7 +279,7 @@ function transformRawEntity(raw: Record<string, unknown>, baseTemplate: Financia
     lootBlueprint: {
       targetPrey: sanitizeJargon(ent.lootBlueprint?.targetPrey || '手動運用の時間浪費と高額な外注コスト'),
       structuralFlaw: sanitizeJargon(ent.lootBlueprint?.structuralFlaw || 'レガシーな手作業プロセスが残存する非効率な市場構造'),
-      stealthEntry: sanitizeJargon(ent.lootBlueprint?.stealthEntry || '初期MVPによる特化型アプローチで競合の死角から参入'),
+      stealthEntry: sanitizeJargon(ent.lootBlueprint?.stealthEntry || '大手が無視するニッチな不満から参入'),
       tollGateSetup,
       reproducibilityScore: typeof ent.lootBlueprint?.reproducibilityScore === 'number' ? ent.lootBlueprint.reproducibilityScore : 80,
       moatDurabilityScore: typeof ent.lootBlueprint?.moatDurabilityScore === 'number' ? ent.lootBlueprint.moatDurabilityScore : 85,
@@ -297,7 +293,7 @@ function transformRawEntity(raw: Record<string, unknown>, baseTemplate: Financia
         text: sanitizeJargon(`【実績検証】${ent.name}の運用実績：月商¥${Math.round(rev / 10000)}万円、営業利益¥${Math.round(opProfit / 10000)}万円。`),
         category: 'TECH_VERIFICATION',
         categoryLabel: '実績検証',
-        timestamp: '2026-Q1'
+        observedAt: '2026-Q1'
       }
     ],
     observations: [

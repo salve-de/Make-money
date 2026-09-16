@@ -21,7 +21,6 @@ import { ToolsSection } from './ui/ToolsSection';
 import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
 import { VisualPipelineSection } from './ui/VisualPipelineSection';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
-import { SankeyCashFlowDiagram } from './ui/SankeyCashFlowDiagram';
 import { TradingViewFinancialChart } from './ui/TradingViewFinancialChart';
 import type { InspectorViewMode } from './model/section-props';
 
@@ -171,22 +170,17 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
               {/* 【第2幕：現金の裏帳簿】3〜15秒・通帳の客観事実・数字の解剖 */}
               {/* ========================================================= */}
 
-              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー） */}
+              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー / 現金の滝サンキー / 会計テーブル） */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
                 <CashAnatomySection {...sectionProps} />
               )}
 
-              {/* LAYER 4: 【図表強化①】現金の滝・損益分岐サンキー図（Apache ECharts） */}
-              {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
-                <SankeyCashFlowDiagram {...sectionProps} />
-              )}
-
-              {/* LAYER 5: 【図表強化②】損益ストリーム分析（TradingView Lightweight Charts） */}
+              {/* LAYER 4: 【図表強化】損益構造レントゲン（ECharts ドーナツ＆コスト配分） */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
                 <TradingViewFinancialChart {...sectionProps} />
               )}
 
-              {/* LAYER 6: 【詳細P&L】財務損益計器盤 ＆ 原価構造 */}
+              {/* LAYER 5: 【詳細P&L】財務損益計器盤 ＆ 原価構造 */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
                 <FinancialSection {...sectionProps} />
               )}
