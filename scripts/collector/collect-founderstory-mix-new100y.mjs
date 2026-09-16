@@ -8,10 +8,11 @@ import { checkDuplicate, claimTarget } from "../claim.mjs";
 
 const ROOT = process.cwd();
 const SNAPSHOT = "2026-09-16";
-const AGENT_ID = "codex-20260916-founderstory-new100y";
-const BATCH_ID = "batch-founderstory-mix-new100y-20260916";
-const OUTPUT_FILE = path.join(ROOT, "data/incoming/external_collectors/batch_founderstory_mix_new100y_20260916.json");
-const AUDIT_FILE = path.join(ROOT, "data/incoming/audit_logs/batch_founderstory_mix_new100y_audit_20260916.json");
+const RUN_SUFFIX = String(process.env.COLLECTION_SUFFIX || "y").toLowerCase();
+const AGENT_ID = process.env.COLLECTION_AGENT || "codex-20260916-founderstory-new100" + RUN_SUFFIX;
+const BATCH_ID = "batch-founderstory-mix-new100" + RUN_SUFFIX + "-20260916";
+const OUTPUT_FILE = path.join(ROOT, "data/incoming/external_collectors/batch_founderstory_mix_new100" + RUN_SUFFIX + "_20260916.json");
+const AUDIT_FILE = path.join(ROOT, "data/incoming/audit_logs/batch_founderstory_mix_new100" + RUN_SUFFIX + "_audit_20260916.json");
 const STARTER_SITEMAP = "https://www.starterstory.com/sitemap.xml";
 const FOUNDER_SITEMAP = "https://founderreports.com/interview-sitemap.xml";
 const HTTP_HEADERS = { "user-agent": "Make-Money-source-audit/1.0" };
@@ -106,6 +107,11 @@ function normalizeUrl(value) {
   if (/^https?:\/\//i.test(raw)) return raw;
   if (/^(?:www\.)?[a-z0-9.-]+\.[a-z]{2,}(?:\/|$)/i.test(raw)) return "https://" + raw;
   return "";
+}
+
+function firstHttpUrl(value) {
+  const match = String(value ?? "").match(/https?:\/\/[^\s<>"]+/i);
+  return normalizeUrl((match?.[0] ?? "").replace(/[),.;]+$/g, ""));
 }
 
 function parseMoneyToken(original) {
@@ -212,7 +218,7 @@ function divClassText(html, className) {
 }
 
 function firstHref(value) {
-  return normalizeUrl(String(value ?? "").match(/href=["']([^"']+)["']/i)?.[1] ?? "");
+  return firstHttpUrl(String(value ?? "").match(/href=["']([^"']+)["']/i)?.[1] ?? "");
 }
 
 function extractStarterStory(url, body, status = 200) {
@@ -280,7 +286,7 @@ function extractFounderReport(url, body, status = 200) {
   const overviewIndex = body.search(/<strong>\s*Business Name\s*:/i);
   const overview = overviewIndex >= 0 ? body.slice(overviewIndex, overviewIndex + 10000) : body;
   const businessName = fieldFromOverview(overview, "Business Name") || tidy(title.split(":")[0], 220);
-  const officialUrl = normalizeUrl(fieldFromOverview(overview, "Website URL"));
+  const officialUrl = firstHttpUrl(fieldFromOverview(overview, "Website URL"));
   const founder = fieldFromOverview(overview, "Founders?") || tidy(metaValue(body, "article:author"), 180);
   const location = fieldFromOverview(overview, "Business Location");
   const started = fieldFromOverview(overview, "Year Started");
@@ -729,7 +735,7 @@ function buildEntity(candidate, officialAudit, rawStorage) {
       punchline: "取得原本をSHA-256キーで保存し、読み戻し結果を監査票へ記録した。これは財務内容の真実性を保証しない。",
       details: ["raw hash: " + rawStorage.sha256, "R2: " + rawStorage.bucket + "/" + rawStorage.payloadKey, "bytes: " + rawStorage.bytes + "; readback: " + String(rawStorage.readbackVerified), "公式URL HTTP: " + String(officialAudit.status ?? "UNAVAILABLE")],
       metrics: [{ label: "原本SHA-256", value: rawStorage.sha256.slice(0, 16) + "…", isHighlight: true }, { label: "公式URL", value: officialReachable ? "HTTP 200" : "到達性未確定" }],
-      sourceClass: "PRIMARY",
+      sourceClass,
       sourceUrl: candidate.officialUrl || candidate.sourceUrl,
       evidenceLocator: { type: "html", textHash: rawStorage.sha256 },
     },
@@ -883,17 +889,113 @@ function buildEntity(candidate, officialAudit, rawStorage) {
 async function validateEntities(entities) {
   const schema = await import("../../src/shared/financial-entity-schema.ts");
   const enrich = await import("../pipeline/auto-enrich-entity.ts");
+  const parseFinancialEntity = schema.parseFinancialEntity ?? schema.default?.parseFinancialEntity;
+  const autoEnrichEntityBeforeIngest = enrich.autoEnrichEntityBeforeIngest ?? enrich.default?.autoEnrichEntityBeforeIngest;
+  if (typeof parseFinancialEntity !== "function" || typeof autoEnrichEntityBeforeIngest !== "function") throw new Error("Validation modules did not expose expected functions.");
   for (const entity of entities) {
-    schema.parseFinancialEntity(entity);
-    const enriched = enrich.autoEnrichEntityBeforeIngest(entity);
+    parseFinancialEntity(entity);
+    const enriched = autoEnrichEntityBeforeIngest(entity);
     if (!enriched.operations?.toolStack?.length || !Array.isArray(enriched.evidenceCards) || enriched.evidenceCards.length < 3) {
       throw new Error("Density validation failed for " + entity.name);
     }
   }
 }
 
+const REPAIR_REJECT = /(xvideosave|kekius|maximus|mp3\s*downloader|yt2mp3|dreamyify|indie['’]s\s+posts|buy\s*email|cronos|nft|telegram\s+bots|stripe-like\s+sdk|usdt|tron|leadfluxa|lead\s+generation|zendo\s*lead|code\s+interview\s+ai|ai\s+beginner|veline\s+ai|s[²2]\s+advertising|synctosheet|novarc\s+ai)/i;
+
+function needsRepair(entity) {
+  const text = [entity.name, entity.url, entity.essence?.whatItDoes, entity.essence?.painRelief, entity.sourceMetadata?.sourceUrl].join(" ");
+  return entity.name === "Everyone’s Earth" || REPAIR_REJECT.test(text);
+}
+
+async function repairBatch() {
+  const current = JSON.parse(fs.readFileSync(OUTPUT_FILE, "utf8"));
+  const currentAudit = JSON.parse(fs.readFileSync(AUDIT_FILE, "utf8"));
+  const rejected = current.filter(needsRepair);
+  const keep = current.filter((entity) => !needsRepair(entity));
+  const fixedOfficialNames = [];
+  for (const entity of keep) {
+    if (String(entity.url).includes(" & ")) {
+      entity.url = firstHttpUrl(entity.url);
+      if (entity.sourceMetadata) {
+        entity.sourceMetadata.officialUrl = entity.url;
+        entity.sourceMetadata.officialAudit = await auditOfficial({ officialUrl: entity.url });
+      }
+      fixedOfficialNames.push(entity.name);
+    }
+  }
+  const needed = 100 - keep.length;
+  const known = loadKnownTargets();
+  const [starter, founder] = await Promise.all([fetchStarterCandidates(), fetchFounderCandidates()]);
+  const pools = chooseCandidatePools({ starter, founder, indie: { candidates: [] }, names: known.names, domains: known.domains });
+  const replacementCandidates = sortCandidates([...pools.starter, ...pools.founder]).filter((candidate) => {
+    return !REPAIR_REJECT.test([candidate.businessName, candidate.officialUrl, candidate.title, candidate.description, candidate.summary].join(" "));
+  });
+  const r2 = await import("../../src/lib/storage/r2.ts");
+  const replacements = [];
+  const replacementAudits = [];
+  for (const candidate of replacementCandidates) {
+    if (replacements.length >= needed) break;
+    if (checkDuplicate(candidate.businessName).exists) continue;
+    claimTarget(candidate.businessName, AGENT_ID, false);
+    const officialAudit = await auditOfficial(candidate);
+    const rawStorage = await uploadRaw(candidate, r2);
+    if (!rawStorage.readbackVerified) throw new Error("Replacement raw capture did not verify: " + candidate.businessName);
+    replacements.push(buildEntity(candidate, officialAudit, rawStorage));
+    replacementAudits.push({
+      name: candidate.businessName,
+      provider: candidate.provider,
+      sourceUrl: candidate.sourceUrl,
+      officialUrl: candidate.officialUrl,
+      sourceStatus: candidate.httpStatus,
+      officialAudit,
+      rawStorage,
+      claimed: true,
+      claimedBy: AGENT_ID,
+      revenueSignal: candidate.revenueOriginal,
+    });
+  }
+  if (replacements.length !== needed) throw new Error("Only prepared " + replacements.length + "/" + needed + " replacements.");
+  const entities = [...keep, ...replacements];
+  await validateEntities(entities);
+  const keptNames = new Set(keep.map((entity) => entity.name));
+  const auditCandidates = (currentAudit.candidates ?? []).filter((entry) => keptNames.has(entry.name)).map((entry) => {
+    const entity = keep.find((item) => item.name === entry.name);
+    if (entity && fixedOfficialNames.includes(entity.name)) {
+      return { ...entry, officialUrl: entity.url, officialAudit: entity.sourceMetadata?.officialAudit };
+    }
+    return entry;
+  });
+  const audit = {
+    ...currentAudit,
+    capturedAt: new Date().toISOString(),
+    count: entities.length,
+    sourceCounts: entities.reduce((acc, entity) => {
+      const provider = entity.sourceMetadata?.provider || "UNKNOWN";
+      acc[provider] = (acc[provider] || 0) + 1;
+      return acc;
+    }, {}),
+    candidates: [...auditCandidates, ...replacementAudits],
+    repair: {
+      performedAt: new Date().toISOString(),
+      droppedFromBatch: rejected.map((entity) => ({ name: entity.name, provider: entity.sourceMetadata?.provider, reason: "quality boundary: non-target or unsafe/noisy directory case" })),
+      replacementCount: replacements.length,
+      fixedOfficialUrlNames: fixedOfficialNames,
+      rawObjectsRetained: true,
+      claimsRetainedForDroppedCases: true,
+    },
+  };
+  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(entities, null, 2) + "\n", "utf8");
+  fs.writeFileSync(AUDIT_FILE, JSON.stringify(audit, null, 2) + "\n", "utf8");
+  console.log(JSON.stringify({ repaired: rejected.length, replacements: replacements.length, count: entities.length, sourceCounts: audit.sourceCounts, output: OUTPUT_FILE, audit: AUDIT_FILE }, null, 2));
+}
+
 async function main() {
   const dryRun = process.argv.includes("--dry-run");
+  if (process.argv.includes("--repair-batch")) {
+    await repairBatch();
+    return;
+  }
   if (!dryRun && fs.existsSync(OUTPUT_FILE)) throw new Error("Output already exists: " + OUTPUT_FILE);
   const known = loadKnownTargets();
   const [starter, founder, indie] = await Promise.all([
