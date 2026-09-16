@@ -4,25 +4,29 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 
 /**
- * Restore the catalog's descriptive fields from evidence instead of deriving
- * them from one global business template.
+ * Audit the catalog's descriptive fields without mutating the catalog.
  *
- * This is intentionally a deterministic, evidence-preserving repair. It does
- * not invent revenue, margin, customers, tools, or acquisition results. When
- * a fact is unavailable, the generated field says so and points back to the
- * observation that was available (or to the absence of one).
+ * IMPORTANT: this file used to have a catalogue-wide --write path that
+ * replaced accepted Japanese business summaries with generated citations and
+ * disclaimers. That path is permanently disabled. The catalog's descriptive
+ * fields are preserved data, not repair targets.
  *
  * Usage:
  *   node scripts/pipeline/repair-content-diversity.mjs --check
- *   node scripts/pipeline/repair-content-diversity.mjs --write
- *   node scripts/pipeline/repair-content-diversity.mjs --write --base-revision c2c39fd
+ *
+ * --write is rejected deliberately. Use an explicitly reviewed historical
+ * snapshot restore outside this generator when recovery is required.
  */
 
 const root = process.cwd();
 const indexPath = path.join(root, 'data/entities-index.json');
 const args = new Set(process.argv.slice(2));
-const shouldWrite = args.has('--write');
-const shouldCheck = args.has('--check') || !shouldWrite;
+if (args.has('--write')) {
+  console.error('[repair] write mode is permanently disabled; descriptive catalog fields must not be regenerated');
+  process.exit(2);
+}
+const shouldWrite = false;
+const shouldCheck = true;
 const revisionFlag = process.argv.indexOf('--base-revision');
 const baseRevision = revisionFlag >= 0 ? process.argv[revisionFlag + 1] : 'c2c39fd';
 

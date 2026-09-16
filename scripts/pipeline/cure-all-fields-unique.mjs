@@ -3,14 +3,18 @@ import path from "path";
 import { getMasterAll340Profiles } from "./profiles/master-all-340.mjs";
 import { execFileSync } from "node:child_process";
 
-// Compatibility entry point: the old profile-wrapper below is intentionally
-// unreachable because it recreated the catalogue-wide template pollution.
+// Compatibility entry point: this is audit-only. The former profile-wrapper
+// and the catalogue-wide write path are intentionally unreachable because
+// they recreated template pollution in accepted Japanese summaries.
 const compatibilityArgs = process.argv.slice(2);
-const compatibilityMode = compatibilityArgs.includes("--check") ? "--check" : "--write";
+if (!compatibilityArgs.includes("--check") || compatibilityArgs.includes("--write")) {
+  console.error("[cure] write mode is permanently disabled; run with --check for a read-only audit");
+  process.exit(2);
+}
 const compatibilityExtra = compatibilityArgs.filter((arg) => arg !== "--check" && arg !== "--write");
 execFileSync(
   process.execPath,
-  ["scripts/pipeline/repair-content-diversity.mjs", compatibilityMode, ...compatibilityExtra],
+  ["scripts/pipeline/repair-content-diversity.mjs", "--check", ...compatibilityExtra],
   { stdio: "inherit" },
 );
 process.exit(0);

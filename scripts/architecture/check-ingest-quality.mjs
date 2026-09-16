@@ -364,8 +364,23 @@ for (const ent of entities) {
     }
   }
 
-  // G. 言語・意味論整合性チェック（文字切れ・文法崩壊・去勢テンプレ・業態不一致の完全物理遮断）
+  // H. 超重大インシデント防止：英語生ログ丸投げ＆免責プレフィックスの物理遮断 (INCIDENT-2026-09-16-01)
   const tag = ent.tagline || '';
+  const what = ent.essence?.whatItDoes || '';
+  if (tag.includes('から読む') && (tag.includes('公開説明') || tag.includes('表示値と利益は分離') || tag.includes('財務観測:'))) {
+    errors.push(`[UPSTREAM VIOLATION: Mechanical Disclaimer Tagline] "${ent.name}" tagline has mechanical disclaimer pattern.`);
+  }
+  if (what.startsWith('公開説明に記載された提供内容:') || what.includes('実装詳細と収益性はこの記述だけでは確認できない')) {
+    errors.push(`[UPSTREAM VIOLATION: Mechanical Disclaimer WhatItDoes] "${ent.name}" essence.whatItDoes has mechanical disclaimer pattern.`);
+  }
+  if (tag && !/[ぁ-んァ-ヶ]/.test(tag)) {
+    errors.push(`[UPSTREAM VIOLATION: Raw English Tagline] "${ent.name}" tagline must be localized into Japanese.`);
+  }
+  if (what && !/[ぁ-んァ-ヶ]/.test(what)) {
+    errors.push(`[UPSTREAM VIOLATION: Raw English WhatItDoes] "${ent.name}" essence.whatItDoes must be localized into Japanese.`);
+  }
+
+  // G. 言語・意味論整合性チェック（文字切れ・文法崩壊・去勢テンプレ・業態不一致の完全物理遮断）
   const pain = ent.targetPainWallet || '';
   const dilemma = ent.strategy?.incumbentDilemma || '';
 
