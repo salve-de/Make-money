@@ -153,59 +153,71 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {mainTab === 'LEDGER' ? (
             <>
               {/* ========================================================= */}
-              {/* 【本丸】資本主義の裏帳簿：完全統合キラーピラミッド */}
+              {/* 【第1幕：結論・全体像】0〜3秒・脳幹直撃 */}
               {/* ========================================================= */}
 
-              {/* 0. 【特集インテリジェンス】深層解剖記事への直通バナー */}
-              <RelatedResearch {...sectionProps} />
-
-              {/* LAYER 1: 【0秒・脳幹直撃】断罪HUD・エグゼクティブサマリー */}
+              {/* LAYER 1: 【0秒・結論最速】断罪HUD・エグゼクティブサマリー */}
               <ExecutiveIntuitiveSummary {...sectionProps} />
 
-              {/* LAYER 2: 【配管特等席】キャッシュ創出配管図（React Flow回路図） */}
+              {/* 【特集インテリジェンス】深層解剖記事への直通バナー */}
+              <RelatedResearch {...sectionProps} />
+
+              {/* LAYER 2: 【全体回路】キャッシュ創出配管図（React Flow回路図） */}
               {(viewMode === 'ALL' || viewMode === 'ESSENCE' || viewMode === 'PLAYBOOK') && (
                 <VisualPipelineSection {...sectionProps} />
               )}
 
-              {/* LAYER 3: 【3秒・急所解剖】動かぬ証拠 4大急所デッキ */}
-              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
-                <EvidenceDeckSection {...sectionProps} />
-              )}
+              {/* ========================================================= */}
+              {/* 【第2幕：現金の裏帳簿】3〜15秒・通帳の客観事実・数字の解剖 */}
+              {/* ========================================================= */}
 
-              {/* LAYER 4: 【30秒・現金解剖】現金の解剖室（通帳引き算バー） */}
+              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー） */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
                 <CashAnatomySection {...sectionProps} />
               )}
 
-              {/* LAYER 5: 【図表強化①】現金の滝・損益分岐サンキー図（Apache ECharts） */}
+              {/* LAYER 4: 【図表強化①】現金の滝・損益分岐サンキー図（Apache ECharts） */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
                 <SankeyCashFlowDiagram {...sectionProps} />
               )}
 
-              {/* LAYER 6: 【図表強化②】損益ストリーム分析（TradingView Lightweight Charts） */}
+              {/* LAYER 5: 【図表強化②】損益ストリーム分析（TradingView Lightweight Charts） */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
                 <TradingViewFinancialChart {...sectionProps} />
               )}
 
-              {/* LAYER 7: 【詳細P&L】財務損益計器盤 ＆ 原価構造 */}
+              {/* LAYER 6: 【詳細P&L】財務損益計器盤 ＆ 原価構造 */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
                 <FinancialSection {...sectionProps} />
               )}
 
-              {/* LAYER 8: 【図表強化③】自走増殖フライホイール（Apache ECharts 360°円環図） */}
+              {/* ========================================================= */}
+              {/* 【第3幕：強さのタネ明かし】15〜45秒・なぜ勝てるのか・構造と堀 */}
+              {/* ========================================================= */}
+
+              {/* LAYER 7: 【動かぬ証拠】4大急所デッキ（通帳レントゲン・大手の死角・関所防壁・再現性） */}
+              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
+                <EvidenceDeckSection {...sectionProps} />
+              )}
+
+              {/* LAYER 8: 【事業DNA・ビジネスの正体】#01〜#04 弱者の生存戦略・大企業の死角 */}
+              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
+                <BusinessSections {...sectionProps} />
+              )}
+
+              {/* LAYER 9: 【図表強化③】自走増殖フライホイール（Apache ECharts 360°円環図） */}
               {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
                 <FlywheelEngineDiagram {...sectionProps} />
               )}
 
-              {/* LAYER 9: 【図表強化④】産業構造の変革（バリューチェーン中抜き対比図） */}
+              {/* LAYER 10: 【図表強化④】産業構造の変革（バリューチェーン中抜き対比図） */}
               {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
                 <ValueChainDisruptionSection {...sectionProps} />
               )}
 
-              {/* LAYER 10: 【事業DNA・ビジネスの正体】#01〜#04 弱者の生存戦略・大企業の死角 */}
-              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
-                <BusinessSections {...sectionProps} />
-              )}
+              {/* ========================================================= */}
+              {/* 【第4幕：武器と攻略本】45秒〜・現場の武器庫 ＆ 略奪プレイブック */}
+              {/* ========================================================= */}
 
               {/* LAYER 11: 【現場配管・武器庫】#08 利用ツールスタック ＆ 月額原価 */}
               {(viewMode === 'ALL' || viewMode === 'FINANCIAL' || viewMode === 'PLAYBOOK') && (
