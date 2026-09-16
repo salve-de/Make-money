@@ -65,11 +65,11 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   const negativeApprovalCheckedAt = useRef(new Map<string, number>());
 
   useEffect(() => {
-    // Approval is editorial state, not a live market feed. Revalidate when the
-    // operator returns to the window instead of polling D1 for every open client.
-    const handleFocus = () => setApprovalProjectionEpoch((value) => value + 1);
-    window.addEventListener('focus', handleFocus);
-    return () => window.removeEventListener('focus', handleFocus);
+    const timer = window.setInterval(
+      () => setApprovalProjectionEpoch((value) => value + 1),
+      NEGATIVE_APPROVAL_RECHECK_MS,
+    );
+    return () => window.clearInterval(timer);
   }, []);
 
   // R2の完成体候補のみを抽出
@@ -128,8 +128,9 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
           });
 
           // Only successful reads get a negative timestamp. Aborted/failed chunks
-          // remain immediately eligible for a replacement effect. Expired negative
-          // results are rechecked on later catalog changes or window refocus.
+          // remain immediately eligible for the replacement effect. A negative is
+          // revalidated after the short TTL so another admin's later approval is
+          // discovered without a full page reload.
           const checkedAt = Date.now();
           chunk.forEach((id) => {
             if (approved.has(id)) negativeApprovalCheckedAt.current.delete(id);
