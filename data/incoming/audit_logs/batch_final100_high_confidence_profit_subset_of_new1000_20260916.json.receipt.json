@@ -1,0 +1,28 @@
+{
+  "receiptVersion": "make-money-collection-receipt.v1",
+  "batchId": "batch-final100-high-confidence-profit-subset-of-new1000-20260916",
+  "snapshot": "2026-09-16",
+  "selection": {
+    "input": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+    "evidenceAudit": "data/incoming/profit_evidence_quality_audit_new1000_20260916.json",
+    "selectionRule": "raw本文の金額近傍に利益語があり、一般ナビ語を除外した高信頼利益証拠から、規模・公式カード・利益証拠数・報告収益を優先。",
+    "highConfidenceCandidateCount": 100
+  },
+  "artifact": {
+    "path": "data/incoming/batch_final100_high_confidence_profit_subset_of_new1000_20260916.json",
+    "sha256": "8b6ff898cf0b92d8fa5308e5d1cc3ab2e451b5a843806df5f731a039ce3eafcf",
+    "bytes": 2084698,
+    "count": 100
+  },
+  "quality": {
+    "highConfidenceProfitEvidence": 100,
+    "rawStorageReadbackBound": 100,
+    "allRevenueValuesUnconfirmed": true,
+    "allMarginValuesUnconfirmed": true
+  },
+  "boundaries": {
+    "financialValuesIndependentlyAudited": false,
+    "centralCatalogEdited": false,
+    "edinetFinancialsEdited": false
+  }
+}

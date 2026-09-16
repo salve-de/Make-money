@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "make-money-collection-completion-audit.v1",
+  "auditedAt": "2026-09-16T01:04:11.836Z",
+  "inputs": {
+    "allPath": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+    "finalPath": "data/incoming/batch_final100_subset_of_new1000_20260916.json",
+    "receiptPath": "data/incoming/batch_final100_subset_of_new1000_20260916.json.receipt.json",
+    "bundlePath": "data/incoming/research-bundle_new1000_r2captured1000_20260916.json",
+    "r2Path": "data/incoming/raw_snapshots_new1000_20260916.r2-result.json",
+    "metricPath": "data/incoming/raw_metric_support_audit_new1000_20260916.json",
+    "ledgerPath": "data/CLAIMED_TARGETS.txt",
+    "centralPath": "data/entities-index.json",
+    "journalPath": "data/incoming/foundation_journal_bounded_result_20260916.json",
+    "temporalPath": "data/incoming/temporal_success_window_audit_new1000_20260916.json"
+  },
+  "requested": {
+    "allEntities": 1000,
+    "finalEntities": 100
+  },
+  "evidence": {
+    "all": {
+      "count": 1000,
+      "requiredFieldsMissing": 0,
+      "duplicateIds": 0,
+      "duplicateNames": 0,
+      "duplicateTickers": 0,
+      "forbiddenJargon": [],
+      "centralCatalogCollisions": 0,
+      "claimLockMissingNames": [],
+      "scale": {
+        "SOLO": 548,
+        "UNKNOWN": 307,
+        "SMALL_TEAM": 145
+      },
+      "financialStatus": {
+        "REPORTED": 999,
+        "UNAVAILABLE": 1
+      },
+      "revenueUnconfirmed": 1000,
+      "marginUnconfirmed": 1000,
+      "rawStorageReadbackBound": 1000
+    },
+    "final": {
+      "count": 100,
+      "requiredFieldsMissing": 0,
+      "duplicateIds": 0,
+      "duplicateNames": 0,
+      "duplicateTickers": 0,
+      "forbiddenJargon": [],
+      "centralCatalogCollisions": 0,
+      "claimLockMissingNames": [],
+      "isSubsetOfAll1000": true,
+      "artifactSha256": "28a8362b5c557cb3dc69d3a4a7ac94a1c9001a2b55a677b60f5eaae23f4d65c2",
+      "receiptSha256": "28a8362b5c557cb3dc69d3a4a7ac94a1c9001a2b55a677b60f5eaae23f4d65c2",
+      "scale": {
+        "SMALL_TEAM": 25,
+        "SOLO": 75
+      },
+      "financialStatus": {
+        "REPORTED": 100
+      },
+      "rawStorageReadbackBound": 100
+    },
+    "foundationBundle": {
+      "writeAuthorized": false,
+      "entities": 1000,
+      "evidence": 1000,
+      "rawEvidenceBodies": 0
+    },
+    "r2": {
+      "requested": 1000,
+      "completed": 1000,
+      "readbackVerified": 1000
+    },
+    "foundationJournal": {
+      "resultPath": "data/incoming/foundation_journal_bounded_result_20260916.json",
+      "planned": 4000,
+      "preflightAbsent": 191,
+      "preflightIdentical": 3809,
+      "created": 191,
+      "writeIdentical": 3809,
+      "readbackVerified": 4000
+    },
+    "rawMetricSupport": {
+      "count": 1000,
+      "rawCaptured": 1000,
+      "noRawCapture": 0,
+      "anyMetricSupported": 992,
+      "explicitProfitMetricSupported": 71
+    },
+    "temporalSuccessWindow": {
+      "requestedWindow": [
+        "2024",
+        "2025",
+        "2026"
+      ],
+      "rawCaptured": 1000,
+      "performanceWindowMention": 51,
+      "profitWindowMention": 2,
+      "revenueWindowMention": 49
+    }
+  },
+  "boundaries": {
+    "independentProfitAuditCompleted": false,
+    "allRevenueValuesIndependentlyVerified": false,
+    "allMarginValuesIndependentlyVerified": false,
+    "canonicalFoundationJournalWriteCompleted": true,
+    "centralCatalogEdited": false,
+    "edinetFinancialsEdited": false,
+    "knownRawCaptureGap": null,
+    "requestedWindowProfitEvidenceComplete": false
+  },
+  "acceptance": {
+    "exactAllCount": true,
+    "exactFinalCount": true,
+    "finalIsSubset": true,
+    "schemaAndIdentityClean": true,
+    "claimLockComplete": true,
+    "r2ReadbackCompleteForCapturedSources": true,
+    "canonicalJournalReadbackComplete": true,
+    "fullRequestedScopeProven": false
+  },
+  "overall": false
+}

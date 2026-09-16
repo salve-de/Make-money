@@ -1,0 +1,47 @@
+{
+  "receiptVersion": "1.0",
+  "batchId": "batch-indie-hackers-enriched-1000-20260916",
+  "snapshot": "2026-09-16",
+  "entityFile": {
+    "path": "data/incoming/batch_indie_hackers_enriched_1000_20260916.json",
+    "sha256": "6b5152cf77d6549f534336d2625bbfcaadb562efef239fb2cb5cef06d500d0e8",
+    "count": 1000,
+    "schemaValidCount": 1000,
+    "schemaInvalidCount": 0
+  },
+  "source": {
+    "directory": "Indie Hackers Products directory",
+    "sourceClass": "INDEPENDENT_SECONDARY",
+    "reportedRevenueUnit": "USD/month",
+    "conversionRule": "reported USD amount x 150 = JPY; no inverse-rate division",
+    "financialInterpretation": "Reported monthly revenue is preserved as a reported signal; profit, COGS, expenses, margins, and net profit remain unconfirmed for every entity."
+  },
+  "officialSiteCheck": {
+    "auditPath": "data/incoming/batch_indie_hackers_official_site_checks_1000_20260916.json",
+    "auditSha256": "f2e1d507805566fa0ffa35bbcfbbbc7629ff1bc61a3525e7d09fd44e2bb1bd91",
+    "checkedCount": 1000,
+    "reachableCount": 615,
+    "contentObservedCount": 670,
+    "unreachableOrFailedCount": 385,
+    "interpretation": "HTTP/content observations support current-site reachability only; they do not prove revenue or profit."
+  },
+  "integrity": {
+    "uniqueIds": 1000,
+    "uniqueNames": 1000,
+    "uniqueTickers": 1000,
+    "uniqueDomains": 1000,
+    "centralCatalogCollisionCount": 0,
+    "claimLockMatchedCount": 1000,
+    "centralCatalogCountBeforeAndAfter": 634,
+    "edinetFinancialAreaChanged": false
+  },
+  "publishability": {
+    "status": "PARTIAL",
+    "reason": "Primary financial reconciliation and raw evidence R2 readback are not complete; do not present these records as independently audited profitable businesses."
+  },
+  "verificationCommands": [
+    "node --import tsx -e schema validation via parseFinancialEntitiesResiliently",
+    "pnpm ingest:verify",
+    "git diff --check"
+  ]
+}

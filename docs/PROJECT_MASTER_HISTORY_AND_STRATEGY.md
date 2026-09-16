@@ -1,5 +1,47 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-16 【確定】`data/incoming` の完全分類隔離 ＆ 新規7チャット収集バッチ（555社）の正規化インジェスト完遂（全1,189社体制確立）（Phase 200）
+
+### 1. ユーザー指示と課題（User Commands & Incoming Architecture Partitioning）
+- **ユーザー指示**:
+  - 「で、そもそも これ 分けて 管理するようにしてよ これじゃわかりにくいだろうが」
+  - 「7時間前に 作った ANTIGRAVITYの内容 巻き取っておいて 収集のやつ 全部で 七個 新しいチャットで収集させた」
+  - 「別のAIでも集めたやつ /Users/satoushinya/project/Make-Money/data/incoming ここに全部あるらしいから 確認をして 巻き取っておいて」
+- **病巣の解剖**:
+  - `data/incoming/` の直下に200個以上のファイル（チャット提出JSON、外部スクレイピングバッチ、原本HTMLディレクトリ、監査Markdown、R2バンドル）が混在し、どれが未処理でどれが完了か一見して判別不能なカオス状態だった。
+  - 外部AIが生成した収集データには、スキーマ非準拠（scale値の非標準化、pnl.operatingExpensesの項目不足、evidenceCardsの構造差異）、P&Lの会計算術不一致、既存銘柄とのドメイン・ティッカー重複が存在し、安易なマージでは全系テスト（`check-ingest-quality.mjs`）が物理遮断される状態だった。
+
+### 2. 物理実装したアーキテクチャ（Incoming Partitioning & Robust Ingestion Engine）
+1. **`data/incoming/` の完全分類分離（6大ディレクトリ体制）**:
+   - `chat_sessions/`: 各チャットセッションから提出された新規バッチ（未処理受入窓口）
+   - `external_collectors/`: 外部AI・スクリプトの大規模収集バッチ群（106ファイル）
+   - `raw_snapshots/`: 生HTML・スクリーンショット・一次情報原本ディレクトリ群（27ディレクトリ）
+   - `research_bundles/`: R2連携用リサーチバンドル中間成果物（14ファイル）
+   - `audit_logs/`: データ整合性・P&L・品質監査レポート類（58ファイル）
+   - `processed/`: 中央台帳へインジェスト完了後のアーカイブ保管庫
+   - `data/incoming/README.md`: 各ディレクトリの責務・運用ルールを明文化。
+2. **正規化＆品質保証インジェストエンジン配備 (`scripts/pipeline/ingest-chat-sessions.ts`)**:
+   - **4重重複排除ガード**: ID・正規化会社名・Ticker・ドメイン（共有プラットフォームを除く）の多重照合により、既存634社およびバッチ間での重複を1件も漏らさず物理排除。
+   - **会計算術完全一致保証**: `rev - cogs = grossProfit`、`grossProfit - opexSum = opProfit` の数学的整合性を100%強制（端数もother項目で完全吸収）。
+   - **スキーマ完全正規化**: 非標準scale（MICRO_TEAM ➔ SMALL_TEAM）、`operations.primaryChannels`、`strategy.initialTraction` / `actionPlaybook`、`operations.toolStack` のオブジェクト化、`evidenceCards` 3枚構造を完全補完。
+   - **禁止語句サニタイズ**: 外部AIが漏洩させた社内スラング（サバンナOS、カニバリズム障壁、略奪転用方程式等）を客観的ビジネス用語に自動変換。
+   - **実店舗SaaS誤爆防止**: オフライン事業への Stripe 機械的割り当てを遮断し、POS/受発注EDIへ置換。
+
+### 3. インジェスト実績と台帳規模
+- **収集投入**: 新規7チャット収集バッチ（計700件）
+- **重複・無効除外**: 145件（既存とのドメイン/ティッカー重複、バッチ間重複、表記揺れ）
+- **純増エンティティ**: **+555社**（完全体スキーマ合格）
+- **中央台帳規模**: **634社 ➔ 1,189社** へ一挙拡大
+- **台帳同期**: `data/collected-registry.json`（1,189社）、`data/CLAIMED_TARGETS.txt`、および Cloudflare R2（`foundation-lake/registry/`）へ即時プッシュ同期完了。
+- **アーカイブ**: 処理済み7バッチを `data/incoming/processed/` へ自動移動。
+
+### 4. 検証結果（Mechanical Quality Gate）
+- `pnpm lint`: **PASS**（ESLint 0 warnings, 0 errors）
+- `node scripts/architecture/check-index-safety.mjs`: **PASS**（全1,189社のスキーマ・ID・財務ステータス整合）
+- `node scripts/architecture/check-ingest-quality.mjs`: **PASS**（全1,189社においてドメイン一意性、ツール整合性、算術精度、禁止語句ゼロを完全実証）
+
+---
+
 ## 2026-09-15 【確定】パートナー規程ページ（`/partners`）の視認性抜本改善 ＆ カードゼロのプロ用スペックレイアウト確立（Phase 199）
 
 ### 1. ユーザー指示と設計方針（User Direct Command & Elimination of Unreadable Wall of Text）

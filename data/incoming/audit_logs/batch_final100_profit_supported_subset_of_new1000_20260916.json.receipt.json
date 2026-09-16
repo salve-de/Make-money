@@ -1,0 +1,27 @@
+{
+  "receiptVersion": "make-money-collection-receipt.v1",
+  "batchId": "batch-final100-profit-supported-subset-of-new1000-20260916",
+  "snapshot": "2026-09-16",
+  "selection": {
+    "input": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+    "selectionRule": "raw本文で明示利益シグナルを支持できる現行1000件から、規模判定・公式カード・支持メトリクス数・報告収益シグナルを優先。",
+    "candidateCount": 125
+  },
+  "artifact": {
+    "path": "data/incoming/batch_final100_profit_supported_subset_of_new1000_20260916.json",
+    "sha256": "0c6da89ed8cbfa48ce97785659b95ab42a75744d9b45c6c197cb87a24e85ab8e",
+    "bytes": 2100802,
+    "count": 100
+  },
+  "quality": {
+    "explicitProfitMetricSupported": 100,
+    "rawStorageReadbackBound": 100,
+    "allRevenueValuesUnconfirmed": true,
+    "allMarginValuesUnconfirmed": true
+  },
+  "boundaries": {
+    "financialValuesIndependentlyAudited": false,
+    "centralCatalogEdited": false,
+    "edinetFinancialsEdited": false
+  }
+}

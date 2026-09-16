@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "raw-snapshot-audit.v1",
+  "snapshot": "2026-09-16",
+  "requested": 1,
+  "captured": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Anonymous Niche Accounting SaaS (r/saasforsale 2026)",
+      "requestedUrl": "https://www.reddit.com/r/saasforsale/comments/1wat14x/for_sale_niche_accounting_saas_35k_mrr_20_yoy/",
+      "sourceId": "src.reddit.saasforsale.1wat14x.accounting",
+      "evidenceId": "ev_reddit_saasforsale_1wat14x_accounting",
+      "author": "anonymous seller",
+      "observedAt": "2026-09-16T00:00:00.000Z",
+      "entityId": "ent_reported_542f0372a82890ee2ff5986b",
+      "sourceUrl": "https://www.reddit.com/r/saasforsale/comments/1wat14x/for_sale_niche_accounting_saas_35k_mrr_20_yoy/",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 8474,
+      "sha256": "40455678e0bf402ed9153e6ff11ef736884d4c44b80289f725a4a0b6ecbeea8b",
+      "localPath": "data/incoming/raw_snapshots_accounting_replacement_20260916/ev_reddit_saasforsale_1wat14x_accounting_40455678e0bf402ed9153e6ff11ef736884d4c44b80289f725a4a0b6ecbeea8b.html",
+      "fetchedAt": "2026-09-16T00:13:17.867Z"
+    }
+  ]
+}

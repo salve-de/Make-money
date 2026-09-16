@@ -1,0 +1,1206 @@
+[
+  {
+    "name": "VibeLing",
+    "productId": "vibeling",
+    "officialUrl": "https://vibeling.app",
+    "status": 200,
+    "finalUrl": "https://vibeling.app/en",
+    "title": "Vocabulary App — Learn Foreign Words with VibeLing",
+    "matchedTokens": [
+      "vibeling"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Lead Pulse",
+    "productId": "lead-pulse",
+    "officialUrl": "https://leadpulse.medicortex.de",
+    "status": 404,
+    "finalUrl": "https://leadpulse.medicortex.de/",
+    "title": "",
+    "matchedTokens": [
+      "lead",
+      "pulse"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AiSiteForger",
+    "productId": "ai-siteforger",
+    "officialUrl": "https://aisiteforger.com/",
+    "status": 200,
+    "finalUrl": "https://aisiteforger.com/",
+    "title": "AI Website Builder | Build Websites, SaaS &amp; Apps with AI | AI SiteForger - AI SiteForger",
+    "matchedTokens": [
+      "aisiteforger"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Magic Motion AI",
+    "productId": "magic-motion-ai",
+    "officialUrl": "https://magicmotion.ai",
+    "status": 200,
+    "finalUrl": "https://www.magicmotion.ai/",
+    "title": "Magic Motion AI - Text to 3D Character Animation | Create Stunning Animations in Seconds",
+    "matchedTokens": [
+      "magic",
+      "motion"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "EmailVerify",
+    "productId": "emailverify",
+    "officialUrl": "https://tool.targetnxt.com/",
+    "status": 200,
+    "finalUrl": "https://tool.targetnxt.com/",
+    "title": "Email Deliverability Checker – TargetNXT",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Hoocs.AI",
+    "productId": "hoocs-ai",
+    "officialUrl": "https://hoocs.ai/",
+    "status": 200,
+    "finalUrl": "https://hoocs.ai/",
+    "title": "Hoocs AI | Most Accurate AI Transcriber for Pro Users + Beyond",
+    "matchedTokens": [
+      "hoocs"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scrptly",
+    "productId": "scrptly",
+    "officialUrl": "https://scrptly.com",
+    "status": 200,
+    "finalUrl": "https://scrptly.com/",
+    "title": "Scrptly — AI Video Agent — The Ultimate AI Video Generator for Ads, Short Films &amp; Viral Content — Create consistent videos with AI — Scrptly",
+    "matchedTokens": [
+      "scrptly"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Create N Fly",
+    "productId": "create-n-fly-2",
+    "officialUrl": "https://www.create.drone-mafia.in",
+    "status": null,
+    "finalUrl": "https://www.create.drone-mafia.in",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "pdfalltools.com",
+    "productId": "pdfalltools-com",
+    "officialUrl": "https://pdfalltools.com",
+    "status": 200,
+    "finalUrl": "https://pdfalltools.com/",
+    "title": "PDF All Tools - Outils et convertisseur gratuits en ligne",
+    "matchedTokens": [
+      "pdfalltools"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ListifyAI",
+    "productId": "listifyai-2",
+    "officialUrl": "https://www.listifyai.net",
+    "status": 200,
+    "finalUrl": "https://www.listifyai.net/",
+    "title": "Etsy Listing Generator: Photo to Full SEO Listing | ListifyAI",
+    "matchedTokens": [
+      "listifyai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CRUD8",
+    "productId": "crud8",
+    "officialUrl": "https://crud8.com",
+    "status": 200,
+    "finalUrl": "https://www.crud8.com/",
+    "title": "CRUD8 - Meet developers through projects, not photos.",
+    "matchedTokens": [
+      "crud8"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PDFHaul",
+    "productId": "pdfhaul",
+    "officialUrl": "https://www.pdfhaul.com/",
+    "status": 200,
+    "finalUrl": "https://www.pdfhaul.com/",
+    "title": "PDFHaul - PDF Processing Made Simple",
+    "matchedTokens": [
+      "pdfhaul"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Dolaaa",
+    "productId": "dolaaa",
+    "officialUrl": "https://dolaaa.com",
+    "status": 200,
+    "finalUrl": "https://dolaaa.com/",
+    "title": "Dolaaa – AI Marketing Intelligence Platform for Agencies",
+    "matchedTokens": [
+      "dolaaa"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nahfa Store",
+    "productId": "nahfa-store",
+    "officialUrl": "https://nahfastore.com",
+    "status": 200,
+    "finalUrl": "https://nahfastore.com/",
+    "title": "Buy Talbina &amp; Honey Online India | Nahfa Store",
+    "matchedTokens": [
+      "nahfa",
+      "store"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "UseAdvert",
+    "productId": "useadvert",
+    "officialUrl": "https://useadvert.com/",
+    "status": 200,
+    "finalUrl": "https://useadvert.com/",
+    "title": "Advert | Affiliate &amp; Influencer Marketing Platform",
+    "matchedTokens": [
+      "useadvert"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Seply",
+    "productId": "seply",
+    "officialUrl": "https://seply.org",
+    "status": 200,
+    "finalUrl": "https://seply.org/",
+    "title": "AI Speaker Separation – Split Audio by Speaker | Seply",
+    "matchedTokens": [
+      "seply"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Celebrateyou",
+    "productId": "celebrateyou",
+    "officialUrl": "https://celebrateyou.app/",
+    "status": 200,
+    "finalUrl": "https://celebrateyou.app/",
+    "title": "Personalized Birthday Songs — CelebrateYou",
+    "matchedTokens": [
+      "celebrateyou"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Kawze",
+    "productId": "kawze",
+    "officialUrl": "https://kawze.com",
+    "status": 200,
+    "finalUrl": "https://kawze.com/",
+    "title": "Uptime Monitoring, Website Monitoring &amp; Downtime Alerts | Kawze",
+    "matchedTokens": [
+      "kawze"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Exhibitor Lens",
+    "productId": "exhibitor-lens",
+    "officialUrl": "https://exhibitorlens.com",
+    "status": 200,
+    "finalUrl": "https://exhibitorlens.com/",
+    "title": "AI-Researched Trade Show Exhibitor Lists | ExhibitorLens",
+    "matchedTokens": [
+      "exhibitor",
+      "lens"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Promobeez",
+    "productId": "promobeez",
+    "officialUrl": "https://www.promobeez.com/",
+    "status": 200,
+    "finalUrl": "https://www.promobeez.com/",
+    "title": "Promobeez: Local creators meet local brands",
+    "matchedTokens": [
+      "promobeez"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RezumBay",
+    "productId": "rezumbay-2",
+    "officialUrl": "https://rezumbay.com?utm_source=indiehackers&utm_medium=social&utm_campaign=launch",
+    "status": 200,
+    "finalUrl": "https://www.rezumbay.com/?utm_source=indiehackers&utm_medium=social&utm_campaign=launch",
+    "title": "Free ATS Resume Checker &amp; Score | RezumBay",
+    "matchedTokens": [
+      "rezumbay"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Stayfound",
+    "productId": "stayfound",
+    "officialUrl": "https://stayfound.tech",
+    "status": 200,
+    "finalUrl": "https://stayfound.tech/",
+    "title": "StayFound — Be the brand AI keeps recommending",
+    "matchedTokens": [
+      "stayfound"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LovPics",
+    "productId": "lovpics",
+    "officialUrl": "https://lovpics.com",
+    "status": 200,
+    "finalUrl": "https://lovpics.com/",
+    "title": "Lovpics - Create Content That Sells More Products",
+    "matchedTokens": [
+      "lovpics"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SimpleImageConvert",
+    "productId": "simpleimageconvert",
+    "officialUrl": "https://www.simpleimageconvert.com/",
+    "status": 200,
+    "finalUrl": "https://www.simpleimageconvert.com/",
+    "title": "Free Image Converter to JPG | Fast Photo Converter Tool",
+    "matchedTokens": [
+      "simpleimageconvert"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Notoo",
+    "productId": "notoo",
+    "officialUrl": "https://notoo.app/",
+    "status": 200,
+    "finalUrl": "https://notoo.app/",
+    "title": "Notoo — local-first apps that run in your browser",
+    "matchedTokens": [
+      "notoo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Kajkhuji - কাজখুঁজি",
+    "productId": "kajkhuji-",
+    "officialUrl": "https://kajkhuji.bd",
+    "status": 200,
+    "finalUrl": "https://kajkhuji.bd/",
+    "title": "কাজখুঁজি (KajKhuji) - বাংলাদেশের স্মার্ট ফ্রিল্যান্সিং প্লাটফর্ম | Hire Freelancers in Bangladesh",
+    "matchedTokens": [
+      "kajkhuji"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MusVideo",
+    "productId": "musvideo-2",
+    "officialUrl": "https://musvideo.ai",
+    "status": 200,
+    "finalUrl": "https://musvideo.ai/",
+    "title": "AI Music Video Generator | Turn Your Song Into a Video | MusVideo",
+    "matchedTokens": [
+      "musvideo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CVCompose",
+    "productId": "cvcompose",
+    "officialUrl": "https://cvcompose.com",
+    "status": 200,
+    "finalUrl": "https://cvcompose.com/",
+    "title": "Free Online CV Builder — No Sign-Up Required | CVCompose",
+    "matchedTokens": [
+      "cvcompose"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LinQ Extractor",
+    "productId": "linq-extractor",
+    "officialUrl": "https://infinitysofthint.com/linq-extractor/",
+    "status": 200,
+    "finalUrl": "https://infinitysofthint.com/linq-extractor/",
+    "title": "LinQ Extractor Extension Boost Your Outsourcing Performance",
+    "matchedTokens": [
+      "linq",
+      "extractor"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CheckMail1",
+    "productId": "checkmail1",
+    "officialUrl": "https://checkmail1.com",
+    "status": 200,
+    "finalUrl": "https://checkmail1.com/",
+    "title": "Free Email Verification API — Verify Gmail, Outlook, iCloud | CheckMail1",
+    "matchedTokens": [
+      "checkmail1"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SantoWarden",
+    "productId": "santowarden",
+    "officialUrl": "https://santohost.com/santowarden/",
+    "status": 200,
+    "finalUrl": "https://santohost.com/santowarden/",
+    "title": "SantoWarden — Bitwarden Vault Hosting | SantoHost",
+    "matchedTokens": [
+      "santowarden"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PackForAI",
+    "productId": "packforai",
+    "officialUrl": "https://packforai.com",
+    "status": 503,
+    "finalUrl": "https://packforai.com/",
+    "title": "503 Server Error",
+    "matchedTokens": [
+      "packforai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DnD Recap",
+    "productId": "dnd-recap",
+    "officialUrl": "https://dndrecap.com/",
+    "status": 200,
+    "finalUrl": "https://dndrecap.com/",
+    "title": "DnD Recap — turn your D&amp;D sessions into a podcast-quality audiobook",
+    "matchedTokens": [
+      "recap"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TodoResuelto",
+    "productId": "todoresuelto",
+    "officialUrl": "https://todoresuelto.com",
+    "status": 200,
+    "finalUrl": "https://todoresuelto.com/",
+    "title": "Todo Resuelto – Encontrá Profesionales de Confianza para tu Hogar",
+    "matchedTokens": [
+      "todoresuelto"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Epub Reader Pro",
+    "productId": "epub-reader-pro",
+    "officialUrl": "https://www.epubreaderpro.com",
+    "status": 200,
+    "finalUrl": "https://www.epubreaderpro.com/",
+    "title": "Epub Reader Pro: Read and Listen Ebooks Online",
+    "matchedTokens": [
+      "epub",
+      "reader"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VITA AI",
+    "productId": "vita-ai",
+    "officialUrl": "https://www.vita-ai.net/?utm_source=indiehackers&utm_medium=referral",
+    "status": 200,
+    "finalUrl": "https://www.vita-ai.net/?utm_source=indiehackers&utm_medium=referral",
+    "title": "VITA AI: Your Digital Worker for AI Social Media &amp; More | VITA AI",
+    "matchedTokens": [
+      "vita"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SaaS Select",
+    "productId": "saas-select",
+    "officialUrl": "https://saas-select.com",
+    "status": 200,
+    "finalUrl": "https://saas-select.com/",
+    "title": "SaaS Select | Independent SaaS Reviews for POD Sellers",
+    "matchedTokens": [
+      "saas",
+      "select"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Shieldly",
+    "productId": "shieldly",
+    "officialUrl": "https://www.shieldly.io",
+    "status": 200,
+    "finalUrl": "https://www.shieldly.io/",
+    "title": "Shieldly — AI-Powered Security Analysis for AWS",
+    "matchedTokens": [
+      "shieldly"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Votura",
+    "productId": "votura-2",
+    "officialUrl": "https://votura.app",
+    "status": 200,
+    "finalUrl": "https://votura.app/",
+    "title": "Votura - AI-Powered Self-Guided Audio Tour App | Walking Tours Worldwide",
+    "matchedTokens": [
+      "votura"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Whoogy",
+    "productId": "whoogy",
+    "officialUrl": "https://www.whoogy.com/",
+    "status": 200,
+    "finalUrl": "https://www.whoogy.com/",
+    "title": "Whoogy | AI-Powered Figma to Website Testing &amp; Visual QA Platform",
+    "matchedTokens": [
+      "whoogy"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "qdBox",
+    "productId": "qdbox",
+    "officialUrl": "https://qdbox.one/",
+    "status": 200,
+    "finalUrl": "https://qdbox.one/",
+    "title": "qdBox | Projects, Tasks &amp; Revenue",
+    "matchedTokens": [
+      "qdbox"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "STORRX",
+    "productId": "storrx",
+    "officialUrl": "https://www.storrx.com/",
+    "status": 200,
+    "finalUrl": "https://www.storrx.com/",
+    "title": "Storrx — Medication Reminder &amp; Family Health Records App",
+    "matchedTokens": [
+      "storrx"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DearHiringManager.io",
+    "productId": "dearhiringmanager-io",
+    "officialUrl": "https://www.dearhiringmanager.io",
+    "status": 200,
+    "finalUrl": "https://dearhiringmanager.io/",
+    "title": "Find any hiring manager&#x27;s contacts in 60 seconds",
+    "matchedTokens": [
+      "dearhiringmanager"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Patmi App: Personalized Stories",
+    "productId": "patmi-app",
+    "officialUrl": "https://patmi.app",
+    "status": 200,
+    "finalUrl": "https://patmi.app/",
+    "title": "Patmi - Create Magical Fairytales Starring Your Child",
+    "matchedTokens": [
+      "patmi"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Chinwag",
+    "productId": "chinwag-2",
+    "officialUrl": "https://www.chinwag.ie",
+    "status": 200,
+    "finalUrl": "https://www.chinwag.ie/",
+    "title": "Chinwag - Conversation is our currency",
+    "matchedTokens": [
+      "chinwag"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SocialClip Studio",
+    "productId": "socialclip-studio",
+    "officialUrl": "https://socialclipstudio.com/",
+    "status": 200,
+    "finalUrl": "https://socialclipstudio.com/",
+    "title": "SocialClip Studio — AI Clip Generator | AI Video Clipping for YouTube, TikTok & Reels",
+    "matchedTokens": [
+      "socialclip",
+      "studio"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CROE",
+    "productId": "croe",
+    "officialUrl": "https://www.croe-ai.com",
+    "status": 200,
+    "finalUrl": "https://www.croe-ai.com/",
+    "title": "CROE – Find &amp; Compare Top Agencies | Agency Directory",
+    "matchedTokens": [
+      "croe"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Redgrow",
+    "productId": "redgrow",
+    "officialUrl": "https://redgrow.app/",
+    "status": 200,
+    "finalUrl": "https://redgrow.app/",
+    "title": "Redgrow — Find Reddit Leads &amp; Show Up in AI Search",
+    "matchedTokens": [
+      "redgrow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PostDrop",
+    "productId": "postdrop",
+    "officialUrl": "https://postdrop.online",
+    "status": 200,
+    "finalUrl": "https://www.postdrop.online/",
+    "title": "PostDrop | The Easiest Headless Form Backend",
+    "matchedTokens": [
+      "postdrop"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DropSync",
+    "productId": "dropsync",
+    "officialUrl": "https://dropsync.io/",
+    "status": 200,
+    "finalUrl": "https://dropsync.io/",
+    "title": "DropSync — All-in-One eBay Dropshipping | £1 7-Day Trial",
+    "matchedTokens": [
+      "dropsync"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Virality Predictor",
+    "productId": "virality-predictor",
+    "officialUrl": "https://viralitypredictor.net/",
+    "status": 200,
+    "finalUrl": "https://viralitypredictor.net/",
+    "title": "Virality Predictor: AI Video Analysis to Predict Video Virality",
+    "matchedTokens": [
+      "virality",
+      "predictor"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Rank Traq",
+    "productId": "rank-traq",
+    "officialUrl": "https://ranktraq.com",
+    "status": 200,
+    "finalUrl": "https://ranktraq.com/",
+    "title": "RankTraq - Google SERP &amp; Google AI Overview rank tracking",
+    "matchedTokens": [
+      "rank",
+      "traq"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "imperfectly",
+    "productId": "imperfectly",
+    "officialUrl": "https://imperfectly.app/",
+    "status": 200,
+    "finalUrl": "https://imperfectly.app/",
+    "title": "imperfectly - Perfect sounds fake.Write imperfectly.",
+    "matchedTokens": [
+      "imperfectly"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Baron Buff",
+    "productId": "baron-buff",
+    "officialUrl": "https://baronbuff.com",
+    "status": 200,
+    "finalUrl": "https://baronbuff.com/",
+    "title": "Baron Buff — League of Legends AI Coach &amp; Companion App",
+    "matchedTokens": [
+      "baron",
+      "buff"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Outapply",
+    "productId": "outapply",
+    "officialUrl": "https://outapply.com",
+    "status": 200,
+    "finalUrl": "https://outapply.com/",
+    "title": "OutApply — Know your fit before you apply",
+    "matchedTokens": [
+      "outapply"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Visionary Tech Society",
+    "productId": "visionary-tech-society",
+    "officialUrl": "https://vtsofficial.site/",
+    "status": 200,
+    "finalUrl": "https://vtsofficial.site/",
+    "title": "",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PDF to MD",
+    "productId": "pdf-to-md",
+    "officialUrl": "https://pdftomd.cloud/",
+    "status": 200,
+    "finalUrl": "https://pdftomd.cloud/",
+    "title": "PDFtoMD — Convert PDF to Markdown",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CatchNote - AI MEMO Organizer",
+    "productId": "catchnote-ai-memo-organizer",
+    "officialUrl": "https://orangeai.co.kr",
+    "status": 200,
+    "finalUrl": "https://orangeai.co.kr/",
+    "title": "Orange Studio, one video, a 7-day read",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WeSpeak",
+    "productId": "wespeak",
+    "officialUrl": "https://www.wespeak.now/",
+    "status": 200,
+    "finalUrl": "https://wespeak.now/",
+    "title": "AI English Speaking Practice App — Free AI Tutor | WeSpeak",
+    "matchedTokens": [
+      "wespeak"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Solene Prompt",
+    "productId": "solene-prompt",
+    "officialUrl": "https://soleneprompt.com",
+    "status": 200,
+    "finalUrl": "https://soleneprompt.com/",
+    "title": "Prompts para Fotos Realistas con IA | Solene Prompt",
+    "matchedTokens": [
+      "solene",
+      "prompt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Mnemo",
+    "productId": "mnemo-2",
+    "officialUrl": "https://trymnemo.net/",
+    "status": 200,
+    "finalUrl": "https://trymnemo.net/",
+    "title": "Mnemo - Reading reflection app with Socratic questions",
+    "matchedTokens": [
+      "mnemo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MenHair App",
+    "productId": "menhair-app",
+    "officialUrl": "https://menhair.app",
+    "status": 200,
+    "finalUrl": "https://menhair.app/",
+    "title": "AI Hairstyle Try-On for Men | See Haircuts on Your Photo",
+    "matchedTokens": [
+      "menhair"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Zeuslock",
+    "productId": "zeuslock",
+    "officialUrl": "https://zeuslock.ai",
+    "status": 200,
+    "finalUrl": "https://zeuslock.ai/",
+    "title": "ZeusLock — AI DLP for ChatGPT, Claude &amp; Gemini",
+    "matchedTokens": [
+      "zeuslock"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "bimo33",
+    "productId": "bimo33",
+    "officialUrl": "https://bimo33.com",
+    "status": 200,
+    "finalUrl": "https://bimo33.com/",
+    "title": "bimo33",
+    "matchedTokens": [
+      "bimo33"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BuildStability",
+    "productId": "buildstability",
+    "officialUrl": "https://www.buildstability.com/",
+    "status": 200,
+    "finalUrl": "https://www.buildstability.com/",
+    "title": "BuildStability | Fitness Studio Software &amp; Personal Trainer App",
+    "matchedTokens": [
+      "buildstability"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Readmodel",
+    "productId": "readmodel",
+    "officialUrl": "https://readmodel.com",
+    "status": null,
+    "finalUrl": "https://readmodel.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CandidRank",
+    "productId": "candidrank",
+    "officialUrl": "https://candidrank.cc",
+    "status": null,
+    "finalUrl": "https://candidrank.cc",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OSINTstitute",
+    "productId": "osintstitute",
+    "officialUrl": "https://www.osintstitute.com/",
+    "status": 429,
+    "finalUrl": "https://www.osintstitute.com/",
+    "title": "Vercel Security Checkpoint",
+    "matchedTokens": [
+      "osintstitute"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "pixshop",
+    "productId": "pixshop",
+    "officialUrl": "https://www.pixshop.art",
+    "status": 200,
+    "finalUrl": "https://www.pixshop.art/",
+    "title": "AI Headshots from One Selfie — Pixshop",
+    "matchedTokens": [
+      "pixshop"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Divine Messenger",
+    "productId": "divine-messenger",
+    "officialUrl": "https://divineinfosec.com/messaging.html",
+    "status": 200,
+    "finalUrl": "https://divineinfosec.com/messaging.html",
+    "title": "Bulk Messaging Services | SMS Marketing in Raipur",
+    "matchedTokens": [
+      "divine"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Prompt God",
+    "productId": "prompt-god",
+    "officialUrl": "https://promptgod.tech/",
+    "status": 200,
+    "finalUrl": "https://promptgod.tech/",
+    "title": "Free AI Prompt Enhancer, Rewriter &amp; Prompt Generator | Prompt God",
+    "matchedTokens": [
+      "prompt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Baisis",
+    "productId": "baisis",
+    "officialUrl": "https://baisis.app",
+    "status": 200,
+    "finalUrl": "https://baisis.app/",
+    "title": "Aimry",
+    "matchedTokens": [
+      "baisis"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ami",
+    "productId": "ami",
+    "officialUrl": "https://www.ami.gold/",
+    "status": 200,
+    "finalUrl": "https://www.ami.gold/",
+    "title": "ami - AI Companion Platform | Caregiver Dashboard",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sub Manager Pro",
+    "productId": "sub-manager-pro",
+    "officialUrl": "https://submanager-c9lhbn4p.manus.space",
+    "status": 404,
+    "finalUrl": "https://submanager-c9lhbn4p.manus.space/",
+    "title": "",
+    "matchedTokens": [
+      "manager"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Domebox",
+    "productId": "domebox",
+    "officialUrl": "https://domebox.in/",
+    "status": 200,
+    "finalUrl": "https://domebox.in/",
+    "title": "",
+    "matchedTokens": [
+      "domebox"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ItatScale",
+    "productId": "itatscale",
+    "officialUrl": "https://itatscale.fr",
+    "status": 200,
+    "finalUrl": "https://itatscale.fr/fr",
+    "title": "ITatScale — CRM, Devis et Facturation pour indépendants français | ITatScale",
+    "matchedTokens": [
+      "itatscale"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Proofix.ai",
+    "productId": "proofix-ai-2",
+    "officialUrl": "https://proofix.ai/",
+    "status": 200,
+    "finalUrl": "https://proofix.ai/",
+    "title": "Proofix.ai — The Only Reviews Backed by Real Receipts",
+    "matchedTokens": [
+      "proofix"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ShopSeek AI",
+    "productId": "shopseek-ai",
+    "officialUrl": "https://www.shopseek.app",
+    "status": 200,
+    "finalUrl": "https://www.shopseek.app/",
+    "title": "ShopSeek AI – AI Product Finder & Smart Shopping Search Engine",
+    "matchedTokens": [
+      "shopseek"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FormTo",
+    "productId": "formto",
+    "officialUrl": "https://formto.dev/",
+    "status": null,
+    "finalUrl": "https://formto.dev/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Slap Your Laptop",
+    "productId": "slap-your-laptop",
+    "officialUrl": "https://slapyourlaptop.com/",
+    "status": 200,
+    "finalUrl": "https://slapyourlaptop.com/",
+    "title": "Slap Your Laptop | Yes, You Can Slap It",
+    "matchedTokens": [
+      "slap",
+      "your",
+      "laptop"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Recruiter Roles",
+    "productId": "recruiter-roles",
+    "officialUrl": "https://recruiterroles.com",
+    "status": 200,
+    "finalUrl": "https://recruiterroles.com/",
+    "title": "Recruiter Jobs | The Job Board for Recruiters | Recruiter Roles",
+    "matchedTokens": [
+      "recruiter",
+      "roles"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BoundBot",
+    "productId": "boundbot",
+    "officialUrl": "https://www.boundbot.com/",
+    "status": 200,
+    "finalUrl": "https://www.boundbot.com/",
+    "title": "AI Sales Agent for Ecommerce",
+    "matchedTokens": [
+      "boundbot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pawndojo",
+    "productId": "pawn-dojo",
+    "officialUrl": "https://www.pawndojo.com",
+    "status": 200,
+    "finalUrl": "https://www.pawndojo.com/",
+    "title": "Pawn Dojo — Chess Opening Repertoire Trainer",
+    "matchedTokens": [
+      "pawndojo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sellshot AI",
+    "productId": "sellshot-ai",
+    "officialUrl": "https://sellshot.ai/",
+    "status": 200,
+    "finalUrl": "https://sellshot.ai/",
+    "title": "AI Product Image Generator for E-commerce | Sellshot AI",
+    "matchedTokens": [
+      "sellshot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Recy",
+    "productId": "recy",
+    "officialUrl": "https://www.recy.no/",
+    "status": 200,
+    "finalUrl": "https://www.recy.no/",
+    "title": "Recy - Modern hiring software for growing teams",
+    "matchedTokens": [
+      "recy"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Earleaf",
+    "productId": "earleaf",
+    "officialUrl": "https://earleaf.app/",
+    "status": 200,
+    "finalUrl": "https://earleaf.app/",
+    "title": "Earleaf — Audiobook Player for Android",
+    "matchedTokens": [
+      "earleaf"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SSLTrackr",
+    "productId": "ssltrackr",
+    "officialUrl": "https://ssltrackr.com",
+    "status": 200,
+    "finalUrl": "https://ssltrackr.com/",
+    "title": "SSLTrackr — SSL Certificate &amp; Domain Monitoring",
+    "matchedTokens": [
+      "ssltrackr"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Shipstry",
+    "productId": "shipstry",
+    "officialUrl": "https://shipstry.com",
+    "status": 200,
+    "finalUrl": "https://shipstry.com/",
+    "title": "Shipstry — Launch Your Product. Get Discovered by Early Adopters.",
+    "matchedTokens": [
+      "shipstry"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Image2Any",
+    "productId": "image2any-2",
+    "officialUrl": "https://www.image2any.com",
+    "status": 200,
+    "finalUrl": "https://www.image2any.com/",
+    "title": "Image2Any - Fast, Free &amp; Premium Browser-Based Image Tools",
+    "matchedTokens": [
+      "image2any"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Quietly Hosted",
+    "productId": "quietly-hosted",
+    "officialUrl": "https://quietlyhosted.com",
+    "status": 200,
+    "finalUrl": "https://quietlyhosted.com/",
+    "title": "Quietly Hosted – Calm, reliable hosting and support",
+    "matchedTokens": [
+      "quietly",
+      "hosted"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "funny birthday cards online",
+    "productId": "funny-birthday-cards-online",
+    "officialUrl": "https://www.birthdaycards.cc/",
+    "status": 200,
+    "finalUrl": "https://www.birthdaycards.cc/",
+    "title": "Funny Birthday Cards - Free Online Greeting Cards in Seconds",
+    "matchedTokens": [
+      "funny",
+      "birthday",
+      "cards"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Gigflow",
+    "productId": "gigflow",
+    "officialUrl": "https://www.gigflow.co.uk",
+    "status": 200,
+    "finalUrl": "https://www.gigflow.co.uk/",
+    "title": "Gigflow – Gig Tracking, Invoicing &amp; Tax for UK Performers",
+    "matchedTokens": [
+      "gigflow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nano Banana Pro Prompts",
+    "productId": "nano-banana-pro-prompts",
+    "officialUrl": "https://nanobananaproprompts.net",
+    "status": 200,
+    "finalUrl": "https://nanobananaproprompts.net/",
+    "title": "Nano Banana Pro Prompts - AI Prompt Library &amp; One-Click Image Generation",
+    "matchedTokens": [
+      "nano",
+      "banana",
+      "prompts"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Tasktracker",
+    "productId": "task-track",
+    "officialUrl": "https://tasktracker.nesasoftware.com/",
+    "status": null,
+    "finalUrl": "https://tasktracker.nesasoftware.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "JourneoAI",
+    "productId": "journeoai",
+    "officialUrl": "https://www.journeoai.com",
+    "status": 200,
+    "finalUrl": "https://www.journeoai.com/",
+    "title": "Plan Your Dream Trip with AI | JourneoAI",
+    "matchedTokens": [
+      "journeoai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Custoba",
+    "productId": "custoba",
+    "officialUrl": "https://custoba.com",
+    "status": 200,
+    "finalUrl": "https://custoba.com/",
+    "title": "Custoba - Cari Hesap Takibi ve Ön Muhasebe",
+    "matchedTokens": [
+      "custoba"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Osek.ai",
+    "productId": "osek-ai",
+    "officialUrl": "https://osek.ai/",
+    "status": 200,
+    "finalUrl": "https://osek.ai/",
+    "title": "Free AI Content Audit Smarter SEO Content Strategy by Osek.ai",
+    "matchedTokens": [
+      "osek"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Collabra",
+    "productId": "collabra",
+    "officialUrl": "http://www.collabraapp.com",
+    "status": 200,
+    "finalUrl": "https://www.collabraapp.com/",
+    "title": "Collabra – Simplify Your Service Business",
+    "matchedTokens": [
+      "collabra"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PetraCalc",
+    "productId": "petracalc",
+    "officialUrl": "https://www.petracalc.com/",
+    "status": null,
+    "finalUrl": "https://www.petracalc.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Doc Babel",
+    "productId": "doc-babel",
+    "officialUrl": "https://docbabel.com",
+    "status": 200,
+    "finalUrl": "https://docbabel.com/",
+    "title": "DocBabel - AI Book & Document Translator | Translate Entire Books Online",
+    "matchedTokens": [
+      "babel"
+    ],
+    "checkedAt": "2026-09-16"
+  }
+]

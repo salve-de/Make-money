@@ -1,0 +1,25 @@
+import fs from 'node:fs';
+
+const batchPath = process.env.MM_BATCH_FILE ?? 'data/incoming/batch_new_1000_final_primary_mubs_20260916.json';
+const oldAuditPath = process.env.MM_OLD_AUDIT_FILE ?? 'data/incoming/raw_snapshots_new1000_20260916.audit.json';
+const newAuditPath = process.env.MM_NEW_AUDIT_FILE ?? '/tmp/mm-raw-replacement7-20260916.audit.json';
+const oldR2Path = process.env.MM_OLD_R2_FILE ?? 'data/incoming/raw_snapshots_new1000_20260916.r2-result.json';
+const newR2Path = process.env.MM_NEW_R2_FILE ?? '/tmp/mm-r2-replacement7-20260916.json';
+const auditOutputPath = process.env.MM_AUDIT_OUTPUT_FILE ?? 'data/incoming/raw_snapshots_new1000_20260916.audit.json';
+const r2OutputPath = process.env.MM_R2_OUTPUT_FILE ?? 'data/incoming/raw_snapshots_new1000_20260916.r2-result.json';
+const batch = JSON.parse(fs.readFileSync(batchPath, 'utf8'));
+const oldAudit = JSON.parse(fs.readFileSync(oldAuditPath, 'utf8'));
+const newAudit = JSON.parse(fs.readFileSync(newAuditPath, 'utf8'));
+const oldR2 = JSON.parse(fs.readFileSync(oldR2Path, 'utf8'));
+const newR2 = JSON.parse(fs.readFileSync(newR2Path, 'utf8'));
+const currentIds = new Set(batch.map((entity) => entity.id));
+const auditById = new Map([...oldAudit.results, ...newAudit.results].filter((item) => currentIds.has(item.entityId)).map((item) => [item.entityId, item]));
+const r2ById = new Map([...oldR2.results, ...newR2.results].filter((item) => currentIds.has(item.entityId)).map((item) => [item.entityId, item]));
+const auditResults = batch.map((entity) => auditById.get(entity.id)).filter(Boolean);
+const r2Results = batch.map((entity) => r2ById.get(entity.id)).filter((item) => item?.payloadReadback && item?.manifestReadback);
+const audit = { schemaVersion: 'raw-capture-audit.v1', snapshot: '2026-09-16', input: batchPath, outputDir: 'data/incoming/raw_snapshots_new1000_20260916', requested: batch.length, captured: auditResults.filter((item) => item.status === 'CAPTURED').length, failed: auditResults.filter((item) => item.status !== 'CAPTURED').length, results: auditResults };
+const r2 = { schemaVersion: 'raw-r2-ingest-result.v1', bucket: 'foundation-raw', runId: oldR2.runId, requested: r2Results.length, completed: r2Results.length, createdPayloads: r2Results.filter((item) => item.payloadStatus === 'CREATED').length, existingPayloads: r2Results.filter((item) => item.payloadStatus && item.payloadStatus !== 'CREATED').length, createdManifests: r2Results.filter((item) => item.manifestStatus === 'CREATED').length, existingManifests: r2Results.filter((item) => item.manifestStatus && item.manifestStatus !== 'CREATED').length, readbackVerified: r2Results.length, results: r2Results };
+if (audit.requested !== 1000 || audit.captured !== r2.completed) throw new Error(`Raw result mismatch: requested=${audit.requested}, captured=${audit.captured}, r2=${r2.completed}`);
+fs.writeFileSync(auditOutputPath, `${JSON.stringify(audit, null, 2)}\n`, 'utf8');
+fs.writeFileSync(r2OutputPath, `${JSON.stringify(r2, null, 2)}\n`, 'utf8');
+console.log(JSON.stringify({ auditOutputPath, r2OutputPath, requested: audit.requested, captured: audit.captured, failed: audit.failed, r2ReadbackVerified: r2.readbackVerified }, null, 2));

@@ -1,0 +1,1011 @@
+{
+  "schemaVersion": "pnl-period-binding-repair.v1",
+  "input": "data/incoming/batch_new_1000_primary_enriched_20260916.json",
+  "output": "/tmp/pnl-period-binding-preview-20260916.json",
+  "count": 1000,
+  "retainedExplicitProfileMonthly": 420,
+  "changed": 125,
+  "removedFromPnl": 125,
+  "changes": [
+    {
+      "id": "ent_ebizfacts_johnmuscarelloamazoninfluencer30kmonthproduc_5a6adfda5159",
+      "name": "$30K a Month Reviewing Products On Amazon",
+      "previousMonthlyRevenueJpy": 4050000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_sergeynazarovscreencharm52000macapplifetimed_2808eafdb812",
+      "name": "$52,000 From A Mac App With No Subscription",
+      "previousMonthlyRevenueJpy": 11850,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_philipsergeliusnerdsip3000monthlearningapp_04d68b87aa59",
+      "name": "$3,000 in a Month From an App Two Dads Built in Their Spare Time",
+      "previousMonthlyRevenueJpy": 450000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_mikestuartgaragefloorcoatings60kthirdmonth_fcb6aeb17849",
+      "name": "$60K in His Third Month Coating Garage Floors",
+      "previousMonthlyRevenueJpy": 9000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_boobooslemonade250k8monthsfreshsqueezed_19df7d42f3f9",
+      "name": "$250K in 8 Months Selling Fresh-Squeezed Lemonade",
+      "previousMonthlyRevenueJpy": 37500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_shirinsyedfrommamaapp1536month_d76b98454bb8",
+      "name": "Mom's Vibe-Coded App Made $1,536 in Month One",
+      "previousMonthlyRevenueJpy": 230400,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_garagespacerental125monthpassiveincome_d093cf660e6e",
+      "name": "Earning $5K+ From Half a Garage",
+      "previousMonthlyRevenueJpy": 22500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nateliasonaiagentfelix177kbusiness_d074e026c8a8",
+      "name": "He Told an AI to Build a Business. It Made $177K.",
+      "previousMonthlyRevenueJpy": 26612550,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_sariahhowellmemorymagnets163mcustomphotomagn_b589b02bb06a",
+      "name": "Broke Mom to $1.63M Selling Custom Magnets",
+      "previousMonthlyRevenueJpy": 53,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_catgoetzephysicalphones789kbluetoothlandline_e3fbb8b2336f",
+      "name": "She's Earned $789K Selling Retro Phones",
+      "previousMonthlyRevenueJpy": 118350000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_mindybookpallets5kebaycurriculumflipping_8771a37aacc2",
+      "name": "$5K Flipping $1 Book Pallets (ChatGPT Does the Hard Part)",
+      "previousMonthlyRevenueJpy": 3000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_oliurclaudecodedigitalcreatorclub20kweekone_2b70a61c8028",
+      "name": "$20K Week One From His App (No Coding Background)",
+      "previousMonthlyRevenueJpy": 3000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_deadchefssociety126kyearsupperclubdinnereven_e2e27abc4aee",
+      "name": "$126K Per Year Hosting Monthly Dinner Parties",
+      "previousMonthlyRevenueJpy": 18900000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_yangmunaimonkinfluencer350k4months_6648cf0a3e02",
+      "name": "This AI Monk May Have Earned $350K in 4 Months",
+      "previousMonthlyRevenueJpy": 10500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_timaedomainflipping100k_c526adcf1f66",
+      "name": "He's Earned €100K This Year Flipping Specific Domains",
+      "previousMonthlyRevenueJpy": 150000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_angeladawntiktokaffiliatemarketingbooks2970_a6da17d20438",
+      "name": "She Earned $2970 in 30 Days By Leafing Through Poetry Books",
+      "previousMonthlyRevenueJpy": 2227500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_bennettsantora20kshortformvideoagencymagicia_1e5f19d2692c",
+      "name": "$20K Fast Start for This Super-Niche Agency",
+      "previousMonthlyRevenueJpy": 3000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_akrambaiebook1200promotingreddit_934af646268d",
+      "name": "His Digital Product: From $0 to $1,200 in 30 Days (No Ads)",
+      "previousMonthlyRevenueJpy": 180000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jakemangerhowtoconvert3857aprilconversionweb_2ac5dc6a5612",
+      "name": "His App Earned $3857 Revenue Within a Few Weeks",
+      "previousMonthlyRevenueJpy": 578550,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_partyrentals18konemonthbouncehouseswaterslid_740ae0063921",
+      "name": "$18K Last Month Setting Up Bounce Houses & Water Slides",
+      "previousMonthlyRevenueJpy": 2700000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_leraclipwing15800revenue1monthstrategy_23b8b1e993f9",
+      "name": "$15.8K Revenue in 1 Month With This Strategy",
+      "previousMonthlyRevenueJpy": 2370000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_tweetgirl2300brandnewfacebookpage10weeks_2cc48e830966",
+      "name": "She Made $2300 in 10 Weeks With a New Facebook Page",
+      "previousMonthlyRevenueJpy": 345000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jadewaltersninthsemester23kbranddealsapril_c80959a83e74",
+      "name": "She Earned $23K From Brand Deals in April",
+      "previousMonthlyRevenueJpy": 375000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jasonchineaslo500knotiontemplates_70df5a2544db",
+      "name": "This Guy Has Earned $500K+ Selling Templates",
+      "previousMonthlyRevenueJpy": 75000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_keithmurphytiktokshopaffiliatemarketing9913j_2b5d0a61218a",
+      "name": "He Earned $9913 From This Simple 30-Second Video",
+      "previousMonthlyRevenueJpy": 2100000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_alexanderllansoclevercubancardswhatnot10kmon_33f89a364ffc",
+      "name": "$10,000+ Per Month Flipping Sports Cards on WhatNot",
+      "previousMonthlyRevenueJpy": 2178300,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_amberstarlinggoodwitchcleaning500kyear_f88c447527ab",
+      "name": "$500K Per Year With Her Simple Local Business",
+      "previousMonthlyRevenueJpy": 32400000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_carlosugaldehouseofchingasos3millionecommerc_f53f08813408",
+      "name": "His Niche Shopify Store Earned $3 Million Last Year",
+      "previousMonthlyRevenueJpy": 375000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_writewithai200kyearnewsletterbusinessideas_ac93ab7cb382",
+      "name": "$200K Per Year Sharing Industry-Specific AI Tips",
+      "previousMonthlyRevenueJpy": 3000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jamesjulian3000in8dayswritingmedium_0cbb68a003c8",
+      "name": "2 People Earning $1000's Writing on Medium",
+      "previousMonthlyRevenueJpy": 450000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jordanbown15millionfrom1youtubevideo_2b31339a265b",
+      "name": "He Made $1.5 Million From 1 YouTube Video",
+      "previousMonthlyRevenueJpy": 225000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jayjenkensidehustles1197marchfreecash_087fe02f2af6",
+      "name": "He Earned $23 Per Hour Playing Games on This App",
+      "previousMonthlyRevenueJpy": 196500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nickbakeddesign113kmarchproductizedservice_55f098da7d7b",
+      "name": "From $0 to $1,000,000 in 434 Days",
+      "previousMonthlyRevenueJpy": 17055000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_kaledavishackernewsletter1000weekcuration_deadbf74cfab",
+      "name": "$1000/Week Curating Content From a Popular Website",
+      "previousMonthlyRevenueJpy": 240000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_sageofsapienreplyguyx4368january_44779c6dc1f4",
+      "name": "He Earned $4,368 in 1 Month Just Replying to Tweets",
+      "previousMonthlyRevenueJpy": 655200,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_vvineyardleadgenlegalfacebookads293ksixmonth_3f0364e9b3ee",
+      "name": "$293K in Six Months with Legal Leads on Facebook Ads",
+      "previousMonthlyRevenueJpy": 43950000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_hellabellaamazoninfluencer968firstmonth_60be16896601",
+      "name": "She Earned $968 in Her First Month With This Side Hustle",
+      "previousMonthlyRevenueJpy": 145200,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_mikewilliamseverythingmarketplacescommunity1_949a91d0a901",
+      "name": "This Paid Community Earns At Least $1.75M Per Year",
+      "previousMonthlyRevenueJpy": 900,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_romelplumbingjobs515revenuenichejobboard_0771215ade09",
+      "name": "$515 Already From His Plumbing Job Board",
+      "previousMonthlyRevenueJpy": 450000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_noctsenseiaiinfluencer1100in5days_9d1272e16a76",
+      "name": "This Naughty AI Model Made $1100 in 5 Days",
+      "previousMonthlyRevenueJpy": 165000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_heibuilderpeazehubsimpleproductivityapp2300v_f84f81f7ad36",
+      "name": "This Simple App Earned $2,300 in 1 Month via Instagram",
+      "previousMonthlyRevenueJpy": 345000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_danielletudahllaravertiktoknewsletter100k3mo_8f2f5c8bb126",
+      "name": "TikTok Account > Newsletter > $100K in 3 Months",
+      "previousMonthlyRevenueJpy": 15000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_zhengxiangxiangdouyin137millionliveselling_ded266d10be6",
+      "name": "She Made $13.7 Million in 7 Days Doing This",
+      "previousMonthlyRevenueJpy": 15000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_billyhowellreplit750appviaupwork_043f4bb71621",
+      "name": "Used AI to Build and Sell an App For $750",
+      "previousMonthlyRevenueJpy": 112500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_mohitvaswani1588monthwritingmedium_763ca0bea1ed",
+      "name": "$1588 in January From Writing on Medium (Still Quite New)",
+      "previousMonthlyRevenueJpy": 238200,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_michaelkauffmancatskillcrew52kmonthnewslette_6c9aba40df85",
+      "name": "This Local Newsletter Earned $52K Last Month (85% Profit)",
+      "previousMonthlyRevenueJpy": 7800000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_timbennettocolormagicwebsiteflip100k_87589a3094a2",
+      "name": "Bought The Site 3 Months Ago, Just Sold For $100K+",
+      "previousMonthlyRevenueJpy": 4500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nazranfagilemvps196krevenuemonth3_0dc0ab0fac61",
+      "name": "$19.6K Revenue For His Small Agency in Month 3",
+      "previousMonthlyRevenueJpy": 2940000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jonastyrollersteamgamethronefall15million2mo_345f300fca64",
+      "name": "Their Minimalist Indie Game Earned $1.5 Million in 2 Months",
+      "previousMonthlyRevenueJpy": 225000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_drazglbsteamgame18krevenue3weeks_ab01cfd302ae",
+      "name": "Released His Game on Steam: $18,766 Revenue in 3 Weeks",
+      "previousMonthlyRevenueJpy": 2814900,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_rezataheridomainflipping01937in4months_1ea0fd44cc49",
+      "name": "Bought a Domain for $0, Sold it 4 Months Later for $1937",
+      "previousMonthlyRevenueJpy": 677100,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_deepakmehta35kprofitcouplesideprojects_9de5dd871808",
+      "name": "$35,000 Profit in 2 Years From a Couple of Side Projects",
+      "previousMonthlyRevenueJpy": 75000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_alexandruturcanugenmoji105knovemberai_1092d6161dfc",
+      "name": "He Earned $105,550 Last Month Selling Emojis Online",
+      "previousMonthlyRevenueJpy": 15832500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_mahmoudrasmiphiloquestdiscussions1320calls_f3355e4eee32",
+      "name": "Earning $1000's Discussing Books & Movies With Nerds on Zoom?",
+      "previousMonthlyRevenueJpy": 198000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_jsonformatter70kyearboringnichewebsite_52b37969233a",
+      "name": "Boring Formatting Site = $70,000 Per Year",
+      "previousMonthlyRevenueJpy": 15000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_ashyoungcarmatsuk1million9months_52bf0fa6d932",
+      "name": "$1+ Million in 9 Months Selling Car Mats in the UK",
+      "previousMonthlyRevenueJpy": 190000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_josefstrzibny9849monthteachingwhatheknows_f6c1d7321cda",
+      "name": "He Earned $9849 Last Month Teaching What He Knows",
+      "previousMonthlyRevenueJpy": 1477350,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_robinfarajnativeexpressboilerplate2konemonth_5bdf2b0697ca",
+      "name": "$2000 in a Month (From a Small Audience) By Saving People Time",
+      "previousMonthlyRevenueJpy": 300000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_janhammer3daistudio300kyear_ed19bf8ff7b4",
+      "name": "$300K ARR From A Tool He Launched 6 Months Ago",
+      "previousMonthlyRevenueJpy": 45000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_alexszczurekbakeddesignroasts1marr_a83a9a05e55b",
+      "name": "They Built A 7-Figure Design Agency In Just 7 Months",
+      "previousMonthlyRevenueJpy": 150000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_tiborbregmanframertemplates20k6months_97220efa5738",
+      "name": "$20,000 in 6 Months With No Marketing",
+      "previousMonthlyRevenueJpy": 3000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_manojahirwar12startups12months130k_da1372c111aa",
+      "name": "12 Startups in 12 Months = $130K Revenue",
+      "previousMonthlyRevenueJpy": 19500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_heyosleaaiinfluencers12k30days_1230e5e6f657",
+      "name": "These AI-Generated Models Earned $12,402 in 30 Days",
+      "previousMonthlyRevenueJpy": 1860300,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_fayazahmedsupersaas4609onemonth_8fc0b1e4b8db",
+      "name": "This Simple Framework Earned Him $4609 in 1 Month",
+      "previousMonthlyRevenueJpy": 691350,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_annahickmancedabrandingcontentstrategy200k6m_9354f13d96ba",
+      "name": "This Simple Content Strategy Earned Her $200K in 6 Months",
+      "previousMonthlyRevenueJpy": 30000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_dannypostmaseocoursepresale150k_0c01191394f2",
+      "name": "How Danny Earned $106,000 in 24 Hours",
+      "previousMonthlyRevenueJpy": 22500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_samarjamilframertemplate10k4months_7aa72555d89b",
+      "name": "This Template Earned Him $10,000 in 4 Months",
+      "previousMonthlyRevenueJpy": 1500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_shahryarrajabpoorsummify30ksale10months_b48855a226ed",
+      "name": "Sold His Simple AI Tool For $30K After 10 Months",
+      "previousMonthlyRevenueJpy": 75000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_bohmilpokstefldealharvest15kmonthafter4month_d060edac8fb6",
+      "name": "Simple Service Business: Zero to $15K/Month in 4 Months",
+      "previousMonthlyRevenueJpy": 2250000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_artificialcreativityetsysellingebooks45k_86e485d76187",
+      "name": "$45,000 Selling 2 Simple eBooks on Etsy",
+      "previousMonthlyRevenueJpy": 6750000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nicojeannentalknotessold200k_e7a5da6d6bd8",
+      "name": "Sold His AI App for $200,000 After 11 Months",
+      "previousMonthlyRevenueJpy": 1125000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_deepakleanmvp30k2salesquitjob_a5118a079be6",
+      "name": "Quit His Job And Made 2 Sales of $15,000",
+      "previousMonthlyRevenueJpy": 2250000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_hawktuahgirlmerch10000stolers_6124735c1cd3",
+      "name": "Hawk Tuah Merch is Earning $10,000's",
+      "previousMonthlyRevenueJpy": 6750000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_thomasim60kupworkfreelancehacks_e92403b54619",
+      "name": "Weird Upwork Hacks From a $60,000+ Freelancer",
+      "previousMonthlyRevenueJpy": 9000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_sergeykarakhanyanlarafast20k3months_6b3e3e363e09",
+      "name": "His “Not Good Enough” Project Earned $20K in 3 Months",
+      "previousMonthlyRevenueJpy": 3000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_alexanderbelogubovreplyguy100kyearsneakyaito_1a780d1c0f78",
+      "name": "$100K/Year Sneaky AI That Plugs Your Product Online",
+      "previousMonthlyRevenueJpy": 15000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_marshallatkinsonmidjourneyexperiencenewslett_a5fa8e7e757a",
+      "name": "A Quick Google Search Led to His $30K/Year Side Hustle",
+      "previousMonthlyRevenueJpy": 1800,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_rutadrungilaitedatenightprintablegames76k_07ca6c65b5d6",
+      "name": "She's Earned $76,000 With Date Night Printables",
+      "previousMonthlyRevenueJpy": 133000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nithursanmahendranmoaijobsboard1000_2ac25bd7e173",
+      "name": "Launched His Job Board in 2 Hours, Just Hit $1000 Revenue",
+      "previousMonthlyRevenueJpy": 150000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_marcloushipfastsawdust500k_61c5a593a793",
+      "name": "$500,000 in 8 Months By Selling His Sawdust",
+      "previousMonthlyRevenueJpy": 75000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_hasibalicfacebooktrafficdisplayadsstrevio60k_c9ec23b25a4a",
+      "name": "Earning $60K in 30 Days From Facebook Traffic",
+      "previousMonthlyRevenueJpy": 9000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_davidszabostubanpromptmaster225k6months_9d7d867a6bb0",
+      "name": "This AI Learning Community Earned $225K in 6 Months",
+      "previousMonthlyRevenueJpy": 33750000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_ryansneddonnaptownscoopnewsletter200kyear_f030b2f901dd",
+      "name": "Local Newsletter For a Small City: $200K Last Year",
+      "previousMonthlyRevenueJpy": 45000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_adrianeschwagergrowthassistantagency11millio_3cb0911b87ce",
+      "name": "Built Her Talent Agency To $11M/Year in Only 3 Years",
+      "previousMonthlyRevenueJpy": 7500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_vigneshwararkeepitshot3100macapp_36a7b346a2cb",
+      "name": "Solved His Own Problem & Made $3100 in 2.5 Months",
+      "previousMonthlyRevenueJpy": 465000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_matthewhowellsbarbytrafficthinktank891kyear_2b3a9e48b3eb",
+      "name": "SEO Community Side Gig = $891,000 Per Year",
+      "previousMonthlyRevenueJpy": 270000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_pascionotionexpert144k12monthssellingtemplat_a9cf9cf10d12",
+      "name": "$144,000 in 12 Months Selling Templates",
+      "previousMonthlyRevenueJpy": 21600000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_hieudinhcompressxsoftware80003months_069a648add50",
+      "name": "His User-Friendly Wrapper Made $8000 in 3 Months",
+      "previousMonthlyRevenueJpy": 1200000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_fabiensnauwaertgliglish9kmonth16months_74bb12b3192e",
+      "name": "His AI Language Learning App: $9K/Month in 16 Months",
+      "previousMonthlyRevenueJpy": 1350000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_peteraskewranchwork399krevenue_ccf127320368",
+      "name": "Perfect Side Project Has Earned Him $399,109",
+      "previousMonthlyRevenueJpy": 59866350,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_stefandeboispointerprosaas3millionyeardaught_b42949766194",
+      "name": "Quiz For Daughter's Birthday Led to $287K/Month Business",
+      "previousMonthlyRevenueJpy": 43050000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_manojahirwaruniquesidemvpstudio50k5months_fc2d60237389",
+      "name": "$50,000 in 5 Months Thanks to His Crazy Offer",
+      "previousMonthlyRevenueJpy": 7500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_philippkellerseokickstarter10k30days_e0993830d16e",
+      "name": "$10K+ From a Product “Nobody Would Buy”",
+      "previousMonthlyRevenueJpy": 1500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_alangreenbaumwhiskercloudvetwebsites10millio_b32d6d9e0316",
+      "name": "Building Veterinary Websites = $10M Exit",
+      "previousMonthlyRevenueJpy": 1500000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_simplyorganizedproetsyspreadsheets160k_442bb5fd8462",
+      "name": "$160K in 2 Years Selling Spreadsheet Templates",
+      "previousMonthlyRevenueJpy": 24000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_ninaclappertonsheknowsseo110konemonth_e33daf217af9",
+      "name": "She Earned $110K in 1 Month From 2 Websites",
+      "previousMonthlyRevenueJpy": 16500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_maryspender9491fromoneyoutubevideo_103619b2b4a6",
+      "name": "She Earned $9491 From This YouTube Video",
+      "previousMonthlyRevenueJpy": 750,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_julienlevalloissublaunch29kmonthwithin1year_6f4f95827c8a",
+      "name": "His Telegram Software: $0 to $29K/Month in 1 Year",
+      "previousMonthlyRevenueJpy": 7350,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_noahbraggpotionwebsitebuilder300ksale_1a8927175519",
+      "name": "Sold His Unoriginal Business For $300K After 2.5 Years",
+      "previousMonthlyRevenueJpy": 945000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_vatsalsanghvivisualizeaisold30k3months_44eda2f5e7b3",
+      "name": "Sold Their 3-Month-Old Side Project For $30,000",
+      "previousMonthlyRevenueJpy": 225000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_ludwigvanclassicalmusicsitemichaelvincent1mi_701abd6d3f79",
+      "name": "65,000 Monthly Traffic = $1.1 Million Sale",
+      "previousMonthlyRevenueJpy": 150000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_philippeantoinelehouxconferencebadges5millio_b7781be082c2",
+      "name": "Conference Badges = $5 Million in Sales",
+      "previousMonthlyRevenueJpy": 1050000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_kylevamvourissalesconsulting120kmonthlyreven_8f93d64dafcb",
+      "name": "5000 Monthly Website Visitors = $120,000 Monthly Revenue",
+      "previousMonthlyRevenueJpy": 18000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_johnonolanghost6millionyear_b2b3204128f7",
+      "name": "WordPress Alternative Making $6 Million a Year",
+      "previousMonthlyRevenueJpy": 630000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_garybrewerbuiltwith14millionperyearnoemploye_ad35b5470d3d",
+      "name": "$14 Million a Year Website with Zero Employees",
+      "previousMonthlyRevenueJpy": 6000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_brimcdonaldvirtualassistant6000month_c388fbe7d898",
+      "name": "$6000/Month VA Business With Little Online Presence",
+      "previousMonthlyRevenueJpy": 630000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_upenmicrosaasideanewsletter75kannualrevenue_df60ff8c9003",
+      "name": "Side Project of his Side Project Earns $75,000+ a Year",
+      "previousMonthlyRevenueJpy": 52500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nickcmovevirtualexmeta34konemonth_fe0274817464",
+      "name": "Quit His Job 9 Months Ago, Earned $34K Last Month",
+      "previousMonthlyRevenueJpy": 5100000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_rickblythmicrosaas500kamazonmerchwizard_f29b1a65e6a0",
+      "name": "His Micro Saas Journey: Zero to $500K in 2 Years",
+      "previousMonthlyRevenueJpy": 1500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_meredithshirk10millionfitnessbrandfacebookad_4c419eb40136",
+      "name": "Facebook Ads Blueprint From a $10 Million Fitness Brand",
+      "previousMonthlyRevenueJpy": 6000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_rishipikastyleunbundlingcanva2900month_ac29a5eb3ff6",
+      "name": "$2900 Last Month Unbundling Canva",
+      "previousMonthlyRevenueJpy": 435000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_slidescarnivaljimenacatalinagayo20kmonthsold_c5ed5cb5ec69",
+      "name": "€20,000/Month 1-Woman Template Business",
+      "previousMonthlyRevenueJpy": 3000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_oliverbrocatotabschocolate11million18months_9179ebf5268d",
+      "name": "21-Year-Old Entrepreneur: From Idea to $11M in 18 Months",
+      "previousMonthlyRevenueJpy": 1650000000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nobodysausagekaelcabral50kperbranddeal_fedb234c59da",
+      "name": "The Dancing Sausage Charging $50,000 Per Post",
+      "previousMonthlyRevenueJpy": 2025000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_hunterhammondsviralcuts1millionrunratefirstm_5281241a8355",
+      "name": "New Agency Hits $1 Million Run Rate in 30 Days",
+      "previousMonthlyRevenueJpy": 12450000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_mattmcgarry29kfromoneemail_5fa0a7fb065c",
+      "name": "He Made $28,910 By Sending One Email",
+      "previousMonthlyRevenueJpy": 61500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_nativenomadsadventurerigshop16kfirstmonthrev_24846f3b5bf0",
+      "name": "How a Small YouTube Channel Made $16,000 Last Month",
+      "previousMonthlyRevenueJpy": 2400000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_digitalartscapeetsyfinds6870revenuefirsttwom_c2b679447d1c",
+      "name": "$3K/Month Selling Digital Backdrops for Photographers",
+      "previousMonthlyRevenueJpy": 1030500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_joshschneiderlooseleafpdfgptsold20k_db79b8effb02",
+      "name": "Sold His App for $20K Within 48 Hours of Launching",
+      "previousMonthlyRevenueJpy": 22500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_audiopennocodechatgptapp15kfirstmonth_f995587ce9ba",
+      "name": "No-Code GPT App: $15K in First Month",
+      "previousMonthlyRevenueJpy": 2250000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_alexainouzfrenchguycooking258ksaucepan_d2273844e8a2",
+      "name": "$258K Selling His Dream Saucepan",
+      "previousMonthlyRevenueJpy": 750000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_josephleesupademo10karrmarketing_01754fac66eb",
+      "name": "$10K ARR and 1000 Downloads in 5 Months",
+      "previousMonthlyRevenueJpy": 1500000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_katechristinevirtualassistantinfluencers9544_20cfdd2218dc",
+      "name": "She Earned $9,544 Last Month as a VA for Influencers",
+      "previousMonthlyRevenueJpy": 1431600,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_aliabdaalyoutubeearningsjanuary2023_086602e08dbb",
+      "name": "His YouTube Business Earned $236,000 in 1 Month",
+      "previousMonthlyRevenueJpy": 8559500,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    },
+    {
+      "id": "ent_ebizfacts_mushfiqsarkerprofile_0f40cc29c965",
+      "name": "Flipping a Website for $238,356 Profit in 2 Years",
+      "previousMonthlyRevenueJpy": 45000,
+      "nextMonthlyRevenueJpy": 0,
+      "reason": "NO_UNAMBIGUOUS_EXPLICIT_PROFILE_CARD_MONTHLY_REVENUE",
+      "metric": null
+    }
+  ]
+}

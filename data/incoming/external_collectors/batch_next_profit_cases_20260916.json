@@ -1,0 +1,1240 @@
+[
+  {
+    "id": "ent_reported_512e9b45705e41598acea5fd",
+    "ticker": "ANON.FIN",
+    "name": "Anonymous B2C SaaS Personal Finance Side-Hustle (r/acquiresaas 2026)",
+    "legalEntity": "UNKNOWN",
+    "tagline": "「副業の収支を見たい」個人の財布を突くB2C SaaSを、1人のクリエイター配布と広告費ゼロで月商115.5万円・累計利益900万円を本人報告",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "匿名売却者",
+    "country": "GLOBAL",
+    "url": null,
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "単一ニッチB2C SaaS × クリエイター配布",
+    "pipelineStack": "B2C SaaS × creator-led distribution",
+    "targetPainWallet": "広い広告市場ではなく、反復可能な動画フォーマットを持つクリエイターの視聴者を直接課金へ転換する。",
+    "tags": [
+      "B2C",
+      "REPORTED_PROFIT",
+      "CREATOR_LED",
+      "ZERO_PAID_ADS",
+      "2026"
+    ],
+    "pnl": {
+      "monthlyRevenue": 1155000,
+      "cogs": 0,
+      "grossProfit": 1155000,
+      "grossMargin": 100,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026年7月のr/acquiresaas売却募集投稿",
+      "sourceDoc": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+      "estimationLogic": "current MRR $7,700 × 150円＝¥1,155,000。累計売上・利益はreportedMetricsへ分離。",
+      "revenueLabel": "本人投稿: current MRR $7.7k（独立監査なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "grossProfitDerivation": "monthlyRevenue - cogsの機械的整合値。実際の利益・税・未記載費用はreportedMetricsへ分離。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_reported_512e9b45705e41598acea5fd_loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "クリエイターの反復フォーマットに乗せ、広告費を固定しない",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "金融・副業の短い動画フォーマットを一人のクリエイター経由で反復し、12M organic viewsを配布関所にして課金へ送ったと報告。",
+        "details": [
+          "有料広告を使わず、視聴者が繰り返し見るニッチ形式を作る。",
+          "MRR・解約率・月費用・累計利益を売却時に同時提示する。",
+          "購入検討者には流入が一人に依存する集中リスクも併記する。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1"
+        }
+      },
+      {
+        "id": "ent_reported_512e9b45705e41598acea5fd_crime",
+        "type": "THE_CRIME",
+        "title": "累計利益60kドルを月費用75ドルで維持した報告",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "累計売上$80,000、純利益$60,000、MRR$7,700、月費用$75、解約率24%、売却希望額$120,000を本人が記載。",
+        "details": [
+          "配布は一人のクリエイター主導、広告費は$0、6か月で12M organic viewsと報告。",
+          "匿名売却募集の自己申告であり、独立した収益証憑は未確認。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1"
+        }
+      },
+      {
+        "id": "ent_reported_512e9b45705e41598acea5fd_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "半年で売却可能な小型B2C SaaSを作った",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "2026年1月10日ローンチ、累計利益と現在MRRを同じ売却投稿に記録し、別案件へ集中するため売却すると説明。",
+        "details": [
+          "24% churnという不安定性を隠さず提示。",
+          "次の成長策としてUGC、マイクロインフルエンサー、SEO、価格・オンボーディング改善を列挙。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "クリエイター主導配布",
+        "オーガニック動画",
+        "ニッチコミュニティ"
+      ],
+      "toolStack": [
+        {
+          "name": "B2C SaaS application",
+          "category": "アプリ",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "個人向け金融・副業サービス"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "architecturePattern": "単一ニッチB2C SaaS × クリエイター配布",
+      "pipelineStack": "B2C SaaS × creator-led distribution",
+      "blindspot": "広い広告市場ではなく、反復可能な動画フォーマットを持つクリエイターの視聴者を直接課金へ転換する。",
+      "moatType": "PROCESS_POWER",
+      "moatDescription": "ニッチの反復フォーマットと視聴者導線の組み合わせ。",
+      "incumbentDilemma": "大手金融サービスは小さな副業ニッチ向けの低価格・高速検証を組織として回しにくい。",
+      "secretInsight": "広告費ゼロでも配布者の反復フォーマットがあれば、MRRと売却価値を同時に作れる。",
+      "initialTraction": [
+        "2026-01-10ローンチ",
+        "12M organic views",
+        "MRR $7.7k・累計利益$60kを報告"
+      ],
+      "actionPlaybook": [
+        "狭い視聴者の反復フォーマットに合わせる",
+        "課金・解約・費用を毎月計測する",
+        "配布者依存を把握したうえで売却または複線化する"
+      ],
+      "coldOutreachTemplate": "「副業の収支を毎週見るための機能だけに絞りました。広告ではなく、実際の利用者が見ている短いデモから試してください。」"
+    },
+    "temporal": {
+      "foundedYear": 2026,
+      "initialTractionPeriod": "2026年1月ローンチ後、クリエイター主導のオーガニック配布",
+      "dataSnapshotPeriod": "2026年7月の売却募集投稿",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "継続性は未確認",
+      "eraContext": "短尺動画と小型B2C SaaSを組み合わせ、広告費を抑えて検証しやすい時期。",
+      "currentViabilityAnalysis": "24% churnと一人の配布者への依存が大きい。再現には視聴者の所有権、継続率、課金証拠の独立確認が必要。"
+    },
+    "observations": [
+      "2026年7月の匿名売却募集投稿に基づく。",
+      "累計売上$80k、純利益$60k、MRR$7.7k、月費用$75、解約率24%、12M organic viewsを報告。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_reported_512e9b45705e41598acea5fd_report",
+        "category": "FINANCIAL_SIGNAL",
+        "originType": "reported",
+        "verificationStatus": "UNVERIFIED",
+        "text": "匿名投稿が累計売上・累計純利益・MRR・費用・解約率・有機視聴数を報告している。",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "observedAt": "2026-07-26",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1"
+        }
+      },
+      {
+        "id": "ent_reported_512e9b45705e41598acea5fd_capture_limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "Reddit直接取得はanti-bot challengeで、本文のRawメトリクス支持は未成立。",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "個人の金融・副業課題を扱うB2C SaaSを、クリエイターのオーガニック視聴者へ配布する。",
+      "targetCustomer": "副業や個人金融の数字を簡単に確認したい個人。",
+      "painRelief": "複雑な金融管理をニッチな短い導線で始められる。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_reported_512e9b45705e41598acea5fd_blueprint",
+      "targetPrey": "副業の数字を追いたいが大手金融アプリは重い個人",
+      "structuralFlaw": "大手は小さな動画フォーマット単位の検証を回しにくい",
+      "stealthEntry": "一人のクリエイターが繰り返せるデモ形式で入る",
+      "tollGateSetup": "視聴→低摩擦課金→MRR・解約率の売却証拠へつなぐ",
+      "reproducibilityScore": 58,
+      "moatDurabilityScore": 35,
+      "capitalEfficiencyScore": 92,
+      "executionChecklist": [
+        "ニッチの反復動画形式を作る",
+        "MRR・解約率・費用を記録する",
+        "配布者依存の集中リスクを定量化する"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "法人・サービス名・創業者実名・広告以外の費用・税・決済口座は未確認。",
+      "直接取得Rawはchallengeで、数値は本人報告として保持。"
+    ],
+    "screening": {
+      "winner": true,
+      "initialTeamPass": false,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "REPORTED_PRIMARY_NOT_INDEPENDENTLY_AUDITED",
+      "backgroundAndScaleCaveat": "公開投稿または本人インタビューの報告値。独立した銀行・決済・税務監査は未実施。"
+    },
+    "caseType": "PRIMARY_REPORTED_PROFIT_CASE",
+    "profileSubject": "匿名売却者",
+    "profileBusinessLabel": "匿名B2C SaaS（個人金融・副業）",
+    "reportedMetrics": [
+      {
+        "original": "$80,000",
+        "currency": "USD",
+        "amount": 80000,
+        "jpyAmount": 12000000,
+        "unit": "CUMULATIVE_REVENUE",
+        "source": "reddit_post",
+        "context": "all time revenue"
+      },
+      {
+        "original": "$60,000",
+        "currency": "USD",
+        "amount": 60000,
+        "jpyAmount": 9000000,
+        "unit": "CUMULATIVE_PROFIT",
+        "source": "reddit_post",
+        "context": "all time net profit"
+      },
+      {
+        "original": "$7,700",
+        "currency": "USD",
+        "amount": 7700,
+        "jpyAmount": 1155000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "reddit_post",
+        "context": "current MRR"
+      },
+      {
+        "original": "$75",
+        "currency": "USD",
+        "amount": 75,
+        "jpyAmount": 11250,
+        "unit": "MONTHLY_COST",
+        "source": "reddit_post",
+        "context": "monthly expenses"
+      },
+      {
+        "original": "24%",
+        "amount": 24,
+        "unit": "CHURN_RATE",
+        "source": "reddit_post",
+        "context": "churn"
+      },
+      {
+        "original": "$120,000",
+        "currency": "USD",
+        "amount": 120000,
+        "jpyAmount": 18000000,
+        "unit": "ASKING_PRICE",
+        "source": "reddit_post",
+        "context": "asking price"
+      }
+    ],
+    "officialUrl": null,
+    "sourceMetadata": {
+      "provider": "Reddit",
+      "postId": "1v77f9j",
+      "postUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+      "author": "anonymous seller",
+      "observedAt": "2026-07-26T00:00:00.000Z",
+      "publishedAt": "2026-07-26T00:00:00.000Z",
+      "rawContentSha256": "dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1",
+      "rawCaptureNote": "Reddit anti-bot challenge; raw response is retained but not metric support."
+    },
+    "batchId": "batch-next-profit-cases-20260916"
+  },
+  {
+    "id": "ent_reported_6c75c58dc8ceb1000a081213",
+    "ticker": "ANON.CAR",
+    "name": "Anonymous B2C SaaS Career (r/acquiresaas 2026)",
+    "legalEntity": "UNKNOWN",
+    "tagline": "「転職・キャリアの迷い」を短いクリエイター動画で課金へ変え、累計利益240万円・MRR70.5万円を本人報告した少人数不明B2C SaaS",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "匿名売却者",
+    "country": "GLOBAL",
+    "url": null,
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "キャリア特化B2C SaaS × 複数クリエイター配布",
+    "pipelineStack": "B2C SaaS × creator-led distribution",
+    "targetPainWallet": "大手求人・キャリアサービスが拾いにくい短期の不安を、視聴者が毎日見る短尺形式へ変換する。",
+    "tags": [
+      "B2C",
+      "CAREER",
+      "REPORTED_PROFIT",
+      "CREATOR_LED",
+      "2026"
+    ],
+    "pnl": {
+      "monthlyRevenue": 705000,
+      "cogs": 0,
+      "grossProfit": 705000,
+      "grossMargin": 100,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026年7月のr/acquiresaas売却募集投稿",
+      "sourceDoc": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+      "estimationLogic": "current MRR $4,700 × 150円＝¥705,000。累計利益$16,000はreportedMetricsへ分離。",
+      "revenueLabel": "本人投稿: current MRR $4.7k（独立監査なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "grossProfitDerivation": "monthlyRevenue - cogsの機械的整合値。実際の利益・税・未記載費用はreportedMetricsへ分離。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_reported_6c75c58dc8ceb1000a081213_loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "キャリアの迷いをクリエイター導線の定型課題にする",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "キャリア領域の視聴者が繰り返し見る動画導線から、広告費なしで課金へ送ったと報告。",
+        "details": [
+          "クリエイター2人の配布を使い、同じ課題を異なる視聴者へ反復する。",
+          "価格改善・オンボーディング改善を成長レバーにする。",
+          "高い解約率を隠さず、成長と継続性を分けて見る。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea"
+        }
+      },
+      {
+        "id": "ent_reported_6c75c58dc8ceb1000a081213_crime",
+        "type": "THE_CRIME",
+        "title": "累計利益$16kとMRR$4.7kを広告費ゼロで作った報告",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "累計売上$18,800、純利益$16,000、MRR$4,700、月費用$270、解約率32%、売却希望額$80,000。",
+        "details": [
+          "配布はクリエイター2人、広告費$0、キャリアのバイラルニッチと報告。",
+          "数値は匿名の売却募集投稿で、独立監査なし。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea"
+        }
+      },
+      {
+        "id": "ent_reported_6c75c58dc8ceb1000a081213_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "2026年3月ローンチから短期間で出口候補へ",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "2026年3月10日ローンチ後、累計利益・MRR・費用・解約率を売却説明にまとめた。",
+        "details": [
+          "次の成長策としてUGC、マイクロインフルエンサー、SEO、B2B連携を提示。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "クリエイター2人の配布",
+        "オーガニック動画",
+        "キャリアニッチコミュニティ"
+      ],
+      "toolStack": [
+        {
+          "name": "B2C SaaS application",
+          "category": "アプリ",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "キャリア領域の消費者向けサービス"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "architecturePattern": "キャリア特化B2C SaaS × 複数クリエイター配布",
+      "pipelineStack": "B2C SaaS × creator-led distribution",
+      "blindspot": "大手求人・キャリアサービスが拾いにくい短期の不安を、視聴者が毎日見る短尺形式へ変換する。",
+      "moatType": "PROCESS_POWER",
+      "moatDescription": "キャリア課題をクリエイターの反復形式へ落とす配布プロセス。",
+      "incumbentDilemma": "大手は求人・人材取引の単価や審査を守るため、低単価の個人向け反復検証をしにくい。",
+      "secretInsight": "クリエイター2人に同じ課題を載せると、広告費なしでも初期課金を検証できる。",
+      "initialTraction": [
+        "2026-03-10ローンチ",
+        "クリエイター2人で配布",
+        "MRR $4.7k・累計利益$16k"
+      ],
+      "actionPlaybook": [
+        "日常のキャリア不安を一つに絞る",
+        "複数クリエイターでオーガニック検証する",
+        "解約率と利益を価格改善と分けて追う"
+      ],
+      "coldOutreachTemplate": "「転職情報を増やすのではなく、今週のキャリア判断を一つ終わらせるための短い導線です。まず7日だけ試してください。」"
+    },
+    "temporal": {
+      "foundedYear": 2026,
+      "initialTractionPeriod": "2026年3月ローンチ後、クリエイター2人の配布",
+      "dataSnapshotPeriod": "2026年7月の売却募集投稿",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "継続性は未確認",
+      "eraContext": "個人向けキャリアサービスがクリエイター配布と小型SaaSを組み合わせて検証しやすい時期。",
+      "currentViabilityAnalysis": "32% churnと短い観測期間が再現性を制限する。B2B連携や価格改善の効果は未検証。"
+    },
+    "observations": [
+      "匿名投稿: 2026-03-10ローンチ、累計売上$18.8k、純利益$16k、MRR$4.7k、月費用$270、解約率32%。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_reported_6c75c58dc8ceb1000a081213_report",
+        "category": "FINANCIAL_SIGNAL",
+        "originType": "reported",
+        "verificationStatus": "UNVERIFIED",
+        "text": "匿名投稿がキャリアSaaSの累計売上・利益・MRR・費用・解約率を報告している。",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "observedAt": "2026-07-26",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea"
+        }
+      },
+      {
+        "id": "ent_reported_6c75c58dc8ceb1000a081213_capture_limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "Reddit直接取得はanti-bot challengeで、本文のRawメトリクス支持は未成立。",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "キャリア領域の単一課題をB2C SaaSにし、複数クリエイターの視聴者へ配布する。",
+      "targetCustomer": "転職・キャリア判断を短時間で進めたい個人。",
+      "painRelief": "大きな求人サイトを巡回せず、今の不安を一つの行動へ落とせる。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_reported_6c75c58dc8ceb1000a081213_blueprint",
+      "targetPrey": "キャリアの迷いを抱える個人",
+      "structuralFlaw": "大手求人サービスは個人の小さな意思決定に重い",
+      "stealthEntry": "クリエイターが繰り返せる短い課題形式",
+      "tollGateSetup": "動画→短期課金→MRR・解約率・累計利益の可視化",
+      "reproducibilityScore": 55,
+      "moatDurabilityScore": 32,
+      "capitalEfficiencyScore": 88,
+      "executionChecklist": [
+        "キャリア不安を一つの行動へ絞る",
+        "複数クリエイターで課金を試す",
+        "解約率・費用・利益を月次で記録する"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "法人・サービス名・創業者実名・広告以外の費用・税・決済口座は未確認。",
+      "直接取得Rawはchallengeで、数値は本人報告として保持。"
+    ],
+    "screening": {
+      "winner": true,
+      "initialTeamPass": false,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "REPORTED_PRIMARY_NOT_INDEPENDENTLY_AUDITED",
+      "backgroundAndScaleCaveat": "公開投稿または本人インタビューの報告値。独立した銀行・決済・税務監査は未実施。"
+    },
+    "caseType": "PRIMARY_REPORTED_PROFIT_CASE",
+    "profileSubject": "匿名売却者",
+    "profileBusinessLabel": "匿名B2C SaaS（キャリア）",
+    "reportedMetrics": [
+      {
+        "original": "$18,800",
+        "currency": "USD",
+        "amount": 18800,
+        "jpyAmount": 2820000,
+        "unit": "CUMULATIVE_REVENUE",
+        "source": "reddit_post",
+        "context": "all time revenue"
+      },
+      {
+        "original": "$16,000",
+        "currency": "USD",
+        "amount": 16000,
+        "jpyAmount": 2400000,
+        "unit": "CUMULATIVE_PROFIT",
+        "source": "reddit_post",
+        "context": "all time net profit"
+      },
+      {
+        "original": "$4,700",
+        "currency": "USD",
+        "amount": 4700,
+        "jpyAmount": 705000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "reddit_post",
+        "context": "current MRR"
+      },
+      {
+        "original": "$270",
+        "currency": "USD",
+        "amount": 270,
+        "jpyAmount": 40500,
+        "unit": "MONTHLY_COST",
+        "source": "reddit_post",
+        "context": "monthly expenses"
+      },
+      {
+        "original": "32%",
+        "amount": 32,
+        "unit": "CHURN_RATE",
+        "source": "reddit_post",
+        "context": "churn"
+      },
+      {
+        "original": "$80,000",
+        "currency": "USD",
+        "amount": 80000,
+        "jpyAmount": 12000000,
+        "unit": "ASKING_PRICE",
+        "source": "reddit_post",
+        "context": "asking price"
+      }
+    ],
+    "officialUrl": null,
+    "sourceMetadata": {
+      "provider": "Reddit",
+      "postId": "1v77f9j",
+      "postUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+      "author": "anonymous seller",
+      "observedAt": "2026-07-26T00:00:00.000Z",
+      "publishedAt": "2026-07-26T00:00:00.000Z",
+      "rawContentSha256": "bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea",
+      "rawCaptureNote": "Reddit anti-bot challenge; raw response is retained but not metric support."
+    },
+    "batchId": "batch-next-profit-cases-20260916"
+  },
+  {
+    "id": "ent_reported_9acb69fc6928d9dc30d0812d",
+    "ticker": "ANON.SPT",
+    "name": "Anonymous iOS Sports App (r/acquiresaas 2026)",
+    "legalEntity": "UNKNOWN",
+    "tagline": "「スポーツの瞬間を追いたい」ファンの財布をTikTokデモとiOS課金で突き、累計利益450万円・MRR115.5万円を本人報告",
+    "sector": "CONTENT_MEDIA",
+    "scale": "UNKNOWN",
+    "founder": "匿名売却者",
+    "country": "GLOBAL",
+    "url": null,
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "iOSスポーツアプリ × TikTokデモ配布",
+    "pipelineStack": "iOS app × App Store × TikTok",
+    "targetPainWallet": "大手スポーツメディアが長い記事や広告に依存する間に、短いデモとストア課金で瞬間的な関心を取る。",
+    "tags": [
+      "IOS_APP",
+      "SPORTS",
+      "REPORTED_PROFIT",
+      "TIKTOK",
+      "2026"
+    ],
+    "pnl": {
+      "monthlyRevenue": 1155000,
+      "cogs": 0,
+      "grossProfit": 1155000,
+      "grossMargin": 100,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026年7月のr/acquiresaas売却募集投稿",
+      "sourceDoc": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+      "estimationLogic": "current MRR $7,700 × 150円＝¥1,155,000。累計利益$30,000はreportedMetricsへ分離。",
+      "revenueLabel": "本人投稿: current MRR $7.7k（独立監査なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "grossProfitDerivation": "monthlyRevenue - cogsの機械的整合値。実際の利益・税・未記載費用はreportedMetricsへ分離。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_reported_9acb69fc6928d9dc30d0812d_loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "スポーツのデモをTikTokへ載せ、アプリストア課金へ送る",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "スポーツの一瞬を見せるデモをTikTokへ置き、広告費ゼロでファンをiOSアプリ課金へ送ったと報告。",
+        "details": [
+          "デモの価値を短時間で伝え、ストアへ移す。",
+          "広告費を使わず、視聴・課金・解約を同じ期間で記録する。",
+          "競技シーズンとプラットフォーム依存をリスクとして残す。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62"
+        }
+      },
+      {
+        "id": "ent_reported_9acb69fc6928d9dc30d0812d_crime",
+        "type": "THE_CRIME",
+        "title": "累計利益$30kを月費用15ドルで作った報告",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "累計売上$37,100、純利益$30,000、MRR$7,700、月費用$15、解約率24%、売却希望額$120,000。",
+        "details": [
+          "TikTokにデモを残し、クリエイター主導配布・広告費$0と報告。",
+          "匿名売却募集の自己申告で、独立監査はない。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62"
+        }
+      },
+      {
+        "id": "ent_reported_9acb69fc6928d9dc30d0812d_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "2026年1月ローンチからスポーツニッチへ集中した",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "2026年1月15日ローンチ、スポーツのバイラルニッチと反復可能なデモ形式で拡大したと記載。",
+        "details": [
+          "次の成長策としてUGC、マイクロインフルエンサー、SEO、価格改善、B2B連携を列挙。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "TikTokデモ",
+        "クリエイター主導配布",
+        "App Store"
+      ],
+      "toolStack": [
+        {
+          "name": "Apple App Store",
+          "category": "配信・決済",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "iOSアプリ配信と課金"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "architecturePattern": "iOSスポーツアプリ × TikTokデモ配布",
+      "pipelineStack": "iOS app × App Store × TikTok",
+      "blindspot": "大手スポーツメディアが長い記事や広告に依存する間に、短いデモとストア課金で瞬間的な関心を取る。",
+      "moatType": "PROCESS_POWER",
+      "moatDescription": "スポーツニッチの反復デモと、短尺動画からストア課金までの導線。",
+      "incumbentDilemma": "大手メディアは広告・編集体制が重く、小さな競技ニッチで短期間のアプリ検証をしにくい。",
+      "secretInsight": "スポーツアプリの初期課金は機能数ではなく、短いデモがファンの今の感情を捕まえるかで決まる。",
+      "initialTraction": [
+        "2026-01-15ローンチ",
+        "TikTokデモ",
+        "MRR$7.7k・累計利益$30k"
+      ],
+      "actionPlaybook": [
+        "競技の一瞬をデモ化する",
+        "TikTokからストアへ直結する",
+        "シーズン性・解約率・費用を毎月追う"
+      ],
+      "coldOutreachTemplate": "「試合のこの瞬間を、見逃さず振り返れるデモを30秒で見てください。ファン向けの最小機能だけを今週試せます。」"
+    },
+    "temporal": {
+      "foundedYear": 2026,
+      "initialTractionPeriod": "2026年1月ローンチ後、TikTokデモとクリエイター配布",
+      "dataSnapshotPeriod": "2026年7月の売却募集投稿",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "継続性は未確認",
+      "eraContext": "短尺動画の視聴からモバイル課金へ移る導線が個人でも試せる時期。",
+      "currentViabilityAnalysis": "24% churn、季節性、TikTokとApp Storeへの依存がある。継続ユーザーと権利関係の確認が必要。"
+    },
+    "observations": [
+      "匿名投稿: 2026-01-15ローンチ、累計売上$37.1k、純利益$30k、MRR$7.7k、月費用$15、解約率24%。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_reported_9acb69fc6928d9dc30d0812d_report",
+        "category": "FINANCIAL_SIGNAL",
+        "originType": "reported",
+        "verificationStatus": "UNVERIFIED",
+        "text": "匿名投稿がiOSアプリの累計売上・利益・MRR・費用・解約率を報告している。",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "observedAt": "2026-07-26",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62"
+        }
+      },
+      {
+        "id": "ent_reported_9acb69fc6928d9dc30d0812d_capture_limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "Reddit直接取得はanti-bot challengeで、本文のRawメトリクス支持は未成立。",
+        "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "スポーツニッチ向けiOSアプリを短尺デモから配布し、ストア課金を取る。",
+      "targetCustomer": "特定スポーツの瞬間や情報を手軽に追いたいファン。",
+      "painRelief": "長い記事や複数サイトを巡回せず、短い導線でスポーツ体験を始められる。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_reported_9acb69fc6928d9dc30d0812d_blueprint",
+      "targetPrey": "特定スポーツの情報を今すぐ見たいファン",
+      "structuralFlaw": "大手メディアは広い競技を扱い、ニッチの瞬間的関心に絞れない",
+      "stealthEntry": "TikTokの短いデモからiOSストアへ送る",
+      "tollGateSetup": "視聴→課金→解約・季節性を記録して売却候補にする",
+      "reproducibilityScore": 60,
+      "moatDurabilityScore": 30,
+      "capitalEfficiencyScore": 94,
+      "executionChecklist": [
+        "競技の瞬間を30秒デモにする",
+        "短尺動画からストア課金へ送る",
+        "季節性と解約率を含む利益ログを残す"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "法人・アプリ名・創業者実名・広告以外の費用・税・ストア管理画面は未確認。",
+      "直接取得Rawはchallengeで、数値は本人報告として保持。"
+    ],
+    "screening": {
+      "winner": true,
+      "initialTeamPass": false,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "REPORTED_PRIMARY_NOT_INDEPENDENTLY_AUDITED",
+      "backgroundAndScaleCaveat": "公開投稿または本人インタビューの報告値。独立した銀行・決済・税務監査は未実施。"
+    },
+    "caseType": "PRIMARY_REPORTED_PROFIT_CASE",
+    "profileSubject": "匿名売却者",
+    "profileBusinessLabel": "匿名iOSスポーツアプリ",
+    "reportedMetrics": [
+      {
+        "original": "$37,100",
+        "currency": "USD",
+        "amount": 37100,
+        "jpyAmount": 5565000,
+        "unit": "CUMULATIVE_REVENUE",
+        "source": "reddit_post",
+        "context": "all time revenue"
+      },
+      {
+        "original": "$30,000",
+        "currency": "USD",
+        "amount": 30000,
+        "jpyAmount": 4500000,
+        "unit": "CUMULATIVE_PROFIT",
+        "source": "reddit_post",
+        "context": "all time net profit"
+      },
+      {
+        "original": "$7,700",
+        "currency": "USD",
+        "amount": 7700,
+        "jpyAmount": 1155000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "reddit_post",
+        "context": "current MRR"
+      },
+      {
+        "original": "$15",
+        "currency": "USD",
+        "amount": 15,
+        "jpyAmount": 2250,
+        "unit": "MONTHLY_COST",
+        "source": "reddit_post",
+        "context": "monthly expenses"
+      },
+      {
+        "original": "24%",
+        "amount": 24,
+        "unit": "CHURN_RATE",
+        "source": "reddit_post",
+        "context": "churn"
+      },
+      {
+        "original": "$120,000",
+        "currency": "USD",
+        "amount": 120000,
+        "jpyAmount": 18000000,
+        "unit": "ASKING_PRICE",
+        "source": "reddit_post",
+        "context": "asking price"
+      }
+    ],
+    "officialUrl": null,
+    "sourceMetadata": {
+      "provider": "Reddit",
+      "postId": "1v77f9j",
+      "postUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+      "author": "anonymous seller",
+      "observedAt": "2026-07-26T00:00:00.000Z",
+      "publishedAt": "2026-07-26T00:00:00.000Z",
+      "rawContentSha256": "9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62",
+      "rawCaptureNote": "Reddit anti-bot challenge; raw response is retained but not metric support."
+    },
+    "batchId": "batch-next-profit-cases-20260916"
+  },
+  {
+    "id": "ent_reported_a543ef504ff030e8c52f117e",
+    "ticker": "WAYS.WEALTH",
+    "name": "The Ways To Wealth (R.J. Weiss)",
+    "legalEntity": "UNKNOWN",
+    "tagline": "「お金の判断に迷う」読者を検索とPinterestで集め、広告・アフィリエイトで月商300万円超・月純利益225万円超を報告した小規模メディア",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SMALL_TEAM",
+    "founder": "R.J. Weiss",
+    "country": "GLOBAL",
+    "url": "https://www.thewaystowealth.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "専門コンテンツ × SEO × 広告・アフィリエイト",
+    "pipelineStack": "WordPress × Organic Search × Pinterest × Affiliate Networks × Display Ads",
+    "targetPainWallet": "金融サービスを売るのではなく、検索者が次に探す比較・ボーナス情報まで同じサイト内で受け止め、最後のクリックを収益化する。",
+    "tags": [
+      "SMALL_TEAM",
+      "CONTENT_MEDIA",
+      "SEO",
+      "AFFILIATE",
+      "REPORTED_PROFIT"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "公開インタビュー（取得日2026-09-16、数値時点の独立監査なし）",
+      "sourceDoc": "https://founderreports.com/interview/the-ways-to-wealth/",
+      "estimationLogic": "月商・純利益は「over/above」の下限報告のため、P&L数値へ固定せずreportedMetricsへ保持。",
+      "revenueLabel": "Founder Reports掲載: average revenue over $20,000/month、net profit above $15,000/month（いずれも報告値）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "grossProfitDerivation": "monthlyRevenue - cogsの機械的整合値。実際の利益・税・未記載費用はreportedMetricsへ分離。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_reported_a543ef504ff030e8c52f117e_loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "検索流入を広告とアフィリエイトの二本足へ変える",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "金融知識を求める検索者をPinterestで初期獲得し、検索・広告・アフィリエイトを同じ記事群へ重ねて収益化した。",
+        "details": [
+          "初期はPinterestで新規サイトの流入を作る。",
+          "検索で記事群を広げ、レビュー・比較・ボーナス記事で次の検索をサイト内に留める。",
+          "広告とアフィリエイトを約50/50に分け、単一広告主への依存を下げる。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://founderreports.com/interview/the-ways-to-wealth/",
+        "sourceUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f"
+        }
+      },
+      {
+        "id": "ent_reported_a543ef504ff030e8c52f117e_crime",
+        "type": "THE_CRIME",
+        "title": "月商$20k超に対して月純利益$15k超を報告",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "本人インタビューでは平均月商$20,000超、平均月純利益$15,000超、従業員・契約者・フリーランサー5人と記載。",
+        "details": [
+          "収益は広告とアフィリエイトが概ね半々。",
+          "数値はFounder Reports掲載の本人インタビューで、会計帳簿や税務資料の独立監査ではない。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://founderreports.com/interview/the-ways-to-wealth/",
+        "sourceUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f"
+        }
+      },
+      {
+        "id": "ent_reported_a543ef504ff030e8c52f117e_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "Pinterestの初期流入をSEOの長期資産へ切り替えた",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "2016年に副業として始め、Pinterestで初期流入を作った後、検索を主な収益ドライバーへ育てた。",
+        "details": [
+          "ドメイン・ホスティング約$100、テーマ約$100、キーワードツール月$50未満という初期投資を報告。",
+          "Google更新で複数回打撃を受け、ブランドと記事品質へ軸足を移した。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Source page, retrieved 2026-09-16: https://founderreports.com/interview/the-ways-to-wealth/",
+        "sourceUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 5,
+      "initialTeamSize": 0,
+      "currentTeamSize": 5,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "Organic search",
+        "Pinterest",
+        "Affiliate partnerships",
+        "Display advertising"
+      ],
+      "toolStack": [
+        {
+          "name": "WordPress",
+          "category": "CMS",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "金融コンテンツサイトの公開"
+        },
+        {
+          "name": "Ahrefs",
+          "category": "SEO",
+          "monthlyCost": 7500,
+          "isCostUnconfirmed": true,
+          "purpose": "キーワード調査（$50未満/月の報告）"
+        },
+        {
+          "name": "Pinterest",
+          "category": "集客",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "初期流入の獲得"
+        }
+      ],
+      "isTeamSizeUnconfirmed": false,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "architecturePattern": "専門コンテンツ × SEO × 広告・アフィリエイト",
+      "pipelineStack": "WordPress × Organic Search × Pinterest × Affiliate Networks × Display Ads",
+      "blindspot": "金融サービスを売るのではなく、検索者が次に探す比較・ボーナス情報まで同じサイト内で受け止め、最後のクリックを収益化する。",
+      "moatType": "PROCESS_POWER",
+      "moatDescription": "金融領域の専門性、記事群の網羅性、検索意図を次の記事へ送る編集プロセス。",
+      "incumbentDilemma": "大手メディアは短期広告売上を優先し、個別の検索意図を長期記事群へ積み上げにくい。",
+      "secretInsight": "広告とアフィリエイトは競合ではなく、検索者の意思決定の異なる段階を取る二つの関所になる。",
+      "initialTraction": [
+        "2016年副業開始",
+        "Pinterestで初期流入",
+        "2019年にOrganic searchが主な収益ドライバー"
+      ],
+      "actionPlaybook": [
+        "読者が次に検索する語を記事化する",
+        "比較・レビュー・ボーナス記事を内部接続する",
+        "広告・アフィリエイト・更新リスクを分散して追う"
+      ],
+      "coldOutreachTemplate": "「金融商品を一つ売るのではなく、比較・料金・申込条件まで同じページ群で確認できるように整理しました。読者の次の検索を減らします。」"
+    },
+    "temporal": {
+      "foundedYear": 2016,
+      "initialTractionPeriod": "2016–2017年、Pinterestと検索で初期流入",
+      "dataSnapshotPeriod": "公開インタビューの報告値（取得日2026-09-16）",
+      "viabilityStatus": "EVOLVING_BARRIER",
+      "viabilityLabel": "検索・プラットフォーム変動に対応必須",
+      "eraContext": "Pinterestが新規サイトへ短期間で流量を送れ、金融広告・アフィリエイト単価が高かった時期。",
+      "currentViabilityAnalysis": "Google更新、AI検索、広告RPM、アフィリエイト規制に左右される。現在再現するには一次情報・専門性・ブランド信頼の追加投資が必要。"
+    },
+    "observations": [
+      "Founder Reportsの本人インタビューに基づく。",
+      "平均月商$20k超、平均月純利益$15k超、5人の従業員・契約者・フリーランサー、広告とアフィリエイト概ね50/50を報告。",
+      "初期投資としてドメイン・ホスティング約$100、テーマ約$100、キーワードツール月$50未満を報告。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_reported_a543ef504ff030e8c52f117e_report",
+        "category": "FINANCIAL_SIGNAL",
+        "originType": "reported",
+        "verificationStatus": "UNVERIFIED",
+        "text": "Founder Reports掲載の本人インタビューが平均月商と平均月純利益、チーム人数を報告している。",
+        "sourceUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+        "observedAt": "2024-03-16",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f"
+        }
+      },
+      {
+        "id": "ent_reported_a543ef504ff030e8c52f117e_limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "利益額は本人インタビュー報告であり、会計帳簿・税務資料の独立監査は未実施。",
+        "sourceUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "個人金融の検索記事を作り、広告とアフィリエイトの二つの収益源へ送客する。",
+      "targetCustomer": "金融商品や節約策を比較し、具体的な申込判断をしたい読者。",
+      "painRelief": "複数サイトを巡回せず、比較・レビュー・次の検索を一つの編集導線で確認できる。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_reported_a543ef504ff030e8c52f117e_blueprint",
+      "targetPrey": "金融判断の検索者と、送客先を探す広告・アフィリエイト事業者",
+      "structuralFlaw": "金融検索者は比較後に別検索へ離脱し、広告・アフィリエイトの最後のクリックが分散する",
+      "stealthEntry": "Pinterestで初期流量を買わずに作り、検索記事群を積み上げる",
+      "tollGateSetup": "レビュー→比較→ボーナス情報を内部接続し、広告・アフィリエイトの成果地点を取る",
+      "reproducibilityScore": 64,
+      "moatDurabilityScore": 61,
+      "capitalEfficiencyScore": 78,
+      "executionChecklist": [
+        "検索者の次の疑問を記事化する",
+        "記事群を内部リンクで連結する",
+        "広告とアフィリエイトの収益・規制・更新リスクを記録する"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "純利益の定義、税・創業者報酬・外注費の完全内訳、現在の月次実績は未確認。",
+      "記事の数値は報告値であり、Founder Reportsの会計監査ではない。"
+    ],
+    "screening": {
+      "winner": true,
+      "initialTeamPass": true,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "REPORTED_PRIMARY_NOT_INDEPENDENTLY_AUDITED",
+      "backgroundAndScaleCaveat": "公開投稿または本人インタビューの報告値。独立した銀行・決済・税務監査は未実施。"
+    },
+    "caseType": "PRIMARY_REPORTED_PROFIT_CASE",
+    "profileSubject": "R.J. Weiss",
+    "profileBusinessLabel": "The Ways To Wealth",
+    "reportedMetrics": [
+      {
+        "original": "over $20,000/month",
+        "currency": "USD",
+        "amount": 20000,
+        "jpyAmount": 3000000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "founder_reports_interview",
+        "context": "average revenue lower bound"
+      },
+      {
+        "original": "above $15,000/month",
+        "currency": "USD",
+        "amount": 15000,
+        "jpyAmount": 2250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "founder_reports_interview",
+        "context": "average net profit lower bound"
+      },
+      {
+        "original": "5",
+        "amount": 5,
+        "unit": "TEAM_SIZE",
+        "source": "founder_reports_interview",
+        "context": "employees/contractors/freelancers"
+      },
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "INITIAL_CAPITAL",
+        "source": "founder_reports_interview",
+        "context": "domain and hosting"
+      },
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "INITIAL_CAPITAL",
+        "source": "founder_reports_interview",
+        "context": "WordPress theme"
+      }
+    ],
+    "officialUrl": "https://www.thewaystowealth.com/",
+    "sourceMetadata": {
+      "provider": "Founder Reports",
+      "sourceUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+      "author": "R.J. Weiss",
+      "observedAt": "2024-03-16T00:00:00.000Z",
+      "publishedAt": "2024-03-16T00:00:00.000Z",
+      "rawContentSha256": "6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f",
+      "rawCaptureNote": "Direct HTML capture succeeded; financial values remain reported and independently unaudited."
+    },
+    "batchId": "batch-next-profit-cases-20260916"
+  }
+]

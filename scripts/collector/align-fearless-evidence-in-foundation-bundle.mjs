@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+
+const bundlePath = 'data/incoming/research-bundle_new1000_20260916.json';
+const auditPath = 'data/incoming/raw_snapshots_fearless_business_20260916.audit.json';
+const bundleRequest = JSON.parse(fs.readFileSync(bundlePath, 'utf8'));
+const capture = JSON.parse(fs.readFileSync(auditPath, 'utf8')).results[0];
+const evidence = bundleRequest.bundle.evidence.find((item) => item.source_url === capture.requestedUrl);
+const source = bundleRequest.bundle.sources.find((item) => item.canonical_url === capture.requestedUrl);
+if (!evidence || !source) throw new Error(`Fearless source not found in foundation bundle: ${capture.requestedUrl}`);
+evidence.evidence_id = capture.evidenceId;
+evidence.source_id = capture.sourceId;
+evidence.source_type = 'founder_interview';
+evidence.source_strength = 'B';
+source.source_id = capture.sourceId;
+source.source_type = 'founder_interview';
+source.source_strength = 'B';
+source.provider_name = 'Founder Reports';
+bundleRequest.bundle.quality = { ...bundleRequest.bundle.quality, warnings: [...(bundleRequest.bundle.quality?.warnings ?? []), 'Fearless Businessの一次インタビューRaw evidence ID/source IDをcapture auditへ整合。'] };
+fs.writeFileSync(bundlePath, `${JSON.stringify(bundleRequest, null, 2)}\n`);
+console.log(JSON.stringify({ bundlePath, evidenceId: evidence.evidence_id, sourceId: evidence.source_id, sourceType: evidence.source_type }, null, 2));

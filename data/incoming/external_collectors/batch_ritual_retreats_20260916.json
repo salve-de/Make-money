@@ -1,0 +1,455 @@
+[
+  {
+    "id": "ent_reported_b120e89b7719fc670ca120b2",
+    "ticker": "RITUALRET",
+    "name": "Ritual Retreats (Max Schneider)",
+    "legalEntity": "UNKNOWN",
+    "tagline": "経営者の「普通のオフサイトでは変わらない」財布を、既存人脈・紹介・再訪で囲い、正式ローンチ前に6桁の予約売上を確保し創業時から利益構造を報告",
+    "sector": "LOCAL_SERVICES",
+    "scale": "SMALL_TEAM",
+    "founder": "Max Schneider",
+    "country": "US",
+    "url": "https://thisisritual.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "高信頼者ネットワーク × 少数の高単価合宿 × CEO向け継続アドバイザリー",
+    "pipelineStack": "UNKNOWN — 記事本文に技術スタック・決済基盤の詳細なし",
+    "targetPainWallet": "経営者とチームが表面的なチームビルディングで終わり、意思決定・リーダーシップの重い問題を持ち帰る痛みを、少人数の高接触体験と継続対話で解く。",
+    "tags": [
+      "SMALL_TEAM",
+      "B2B_SERVICES",
+      "RETREATS",
+      "RELATIONSHIP_LED_SALES",
+      "REPEAT_CLIENTS",
+      "2024",
+      "2025"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年開始・2025年6月正式ローンチに関する本人インタビュー",
+      "sourceDoc": "https://founderreports.com/interview/ritual-retreats/",
+      "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+      },
+      "estimationLogic": "本文は正式ローンチ前の6桁予約売上と「経済的に最初から利益」と記載するが、正確な売上・原価・利益額を開示していない。したがってP&L数値は推定せず、0は未入力の機械的整合値として未確認フラグを付け、報告シグナルはreportedMetricsへ分離した。",
+      "revenueLabel": "本人インタビュー: 正式ローンチ前にsix figuresのbooked revenue（具体額非開示）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "grossProfitDerivation": "具体的な売上額・原価額がないためP&Lへ推定値を置かない。0は実績利益ではない。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "一度の合宿をCEOの継続対話へ接続し、紹介の関所を作る",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "少人数の高接触リトリートを入口に、帰社後の月次CEO/President advisoryへ継続させ、取引を単発イベントで終わらせない。",
+        "details": [
+          "本文は年5-6回の親密なwhite-glove retreatと、帰社後のfollow-up callsを2つの収益源として記載。",
+          "一度体験したチームはほぼ再訪したいと報告され、継続パートナーシップとして設計している。",
+          "具体的な価格・利益額・再訪率は未開示であり、構造のみを記録する。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/ritual-retreats/",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "sourceMetadata": {
+          "rawStorage": {
+            "bucket": "foundation-raw",
+            "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+            "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+            "bytes": 207788,
+            "readbackVerified": true
+          }
+        }
+      },
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_crime",
+        "type": "THE_CRIME",
+        "title": "冷たい広告を避け、既存人脈の信頼を高単価案件へ変える",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "元コンサル時代の関係者・紹介・手書きの接点を使い、メールやLinkedInの冷たい営業をせずに、ローンチ前から6桁予約売上を積んだ。",
+        "details": [
+          "最初の法人顧客は、過去のコンサル業務を見ていたリーダーや元マネージャーからの連絡だったと記載。",
+          "Ritual Retreatsは正式ローンチ前にsix figuresのbooked revenueがあったと報告。",
+          "予約売上は着金・利益・税引後手残りの証明ではなく、本人インタビューの報告シグナルである。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/ritual-retreats/",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "sourceMetadata": {
+          "rawStorage": {
+            "bucket": "foundation-raw",
+            "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+            "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+            "bytes": 207788,
+            "readbackVerified": true
+          }
+        }
+      },
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "個人向けリトリートから法人向けブランドを切り出す",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "コンサル退職後の個人向けSand and Salt Escapesで得た運営経験と顧客を、法人向けの別ブランドへ分離した。",
+        "details": [
+          "2024年開始、2025年6月正式ローンチ。2025年前半はブランドを公開しないsoft launchだったと記載。",
+          "個人向けと法人向けを1つの事業で話すとメッセージが薄まるため、法人業務を別会社・別プロセスへ切り出した。",
+          "Sand and Salt Escapesでは最初の24か月に11回のリトリートを実施したが、本人にとって持続困難だったと報告。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/ritual-retreats/",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "sourceMetadata": {
+          "rawStorage": {
+            "bucket": "foundation-raw",
+            "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+            "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+            "bytes": 207788,
+            "readbackVerified": true
+          }
+        }
+      },
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_acquisition",
+        "type": "CUSTOMER_ACQUISITION",
+        "title": "紹介・再訪・関係性を広告費の代わりに使う",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "CEOとの1対1関係を深め、紹介・再訪・ポッドキャスト/PRを組み合わせる。法人向けでは一般的な大量キャンペーンと冷たい営業を意図的に避ける。",
+        "details": [
+          "経営者・Presidentへの紹介、手書きのノート、ストーリーテリングを主要な接点として記載。",
+          "Sand and Salt Escapesでは有料広告とSEOが後から効いた一方、Ritual Retreatsでは関係性中心へ戦略を変更。",
+          "案件別の料理人、マインドフルネス実践者、写真家などを契約者ネットワークで組成する。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/ritual-retreats/",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "sourceMetadata": {
+          "rawStorage": {
+            "bucket": "foundation-raw",
+            "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+            "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+            "bytes": 207788,
+            "readbackVerified": true
+          }
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 46,
+      "initialTeamSize": 1,
+      "currentTeamSize": 46,
+      "teamSizeReported": "フルタイム従業員は創業者1人、約45人の契約者・パートナーで案件を実施",
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "元コンサル人脈",
+        "紹介",
+        "リピート顧客",
+        "ポッドキャスト",
+        "PR",
+        "手書きノートによる1対1接点"
+      ],
+      "toolStack": [],
+      "isTeamSizeUnconfirmed": false,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "architecturePattern": "個人向け実績を法人向けの高接触ブランドへ転用し、イベント売上を継続アドバイザリーへ伸ばす",
+      "pipelineStack": "UNKNOWN — 技術スタックは本文に記載なし",
+      "blindspot": "一般的なオフサイトが戦略・表面的なチームビルディングに偏る隙間へ、経営者の心理的負荷とリーダーシップの問題に特化した体験を置く。",
+      "moatType": "RELATIONSHIP_AND_REPUTATION",
+      "moatDescription": "元コンサル時代からの信頼、紹介、リピート、案件ごとの専門家ネットワーク。特定顧客への依存度と再訪率は未確認。",
+      "incumbentDilemma": "大規模な研修・イベント会社は、創業者自身の元同僚ネットワークと少数CEOへの手作業の信頼形成を同じ形で複製しにくい。これは本文からの構造推論。",
+      "secretInsight": "売り込みで法人案件を取るのではなく、過去の信用を「紹介→少数の高単価体験→再訪→月次対話」に変換し、固定雇用を増やさず案件ごとに供給を組み替える。",
+      "initialTraction": [
+        "2024年に開始",
+        "2025年6月正式ローンチ前にsix figuresのbooked revenueを報告",
+        "過去のコンサル関係者から法人案件を獲得",
+        "体験後の再訪と紹介を成長経路として報告"
+      ],
+      "actionPlaybook": [
+        "既存の高信頼者が感じる未解決の経営課題を特定する",
+        "単発イベントではなく帰社後の継続対話まで設計する",
+        "創業者は高信頼の営業・設計に集中し、実行は契約者ネットワークで組成する",
+        "予約売上と着金・原価・利益を別々に記録する"
+      ],
+      "coldOutreachTemplate": "「経営チームがオフサイト後も持ち帰っている未解決の問題を、少人数の場と帰社後の対話で扱えるか、まず過去の関係者に聞く。」"
+    },
+    "temporal": {
+      "foundedYear": 2024,
+      "initialTractionPeriod": "2024年開始。2025年前半にsoft launch、2025年6月正式ローンチ。",
+      "dataSnapshotPeriod": "2025年ローンチ前後の本人インタビュー。取得は2026-09-16。",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "高信頼B2Bサービスの紹介・再訪モデルとして有効候補。現在の数値は未更新。",
+      "eraContext": "経営者がリモート・分散環境で深い信頼形成を必要とする一方、一般的なオフサイトとの差別化が難しい時期に、体験と継続対話を組み合わせる。",
+      "currentViabilityAnalysis": "紹介とリピートを基礎にするため広告競争の影響を抑えやすいが、創業者の人脈依存、約45契約者の品質統制、季節性、予約売上と利益の差が残る。2026年の実績・費用・再訪率は未確認。"
+    },
+    "essence": {
+      "whatItDoes": "CEOと経営チーム向けに、マインドフルネスを取り入れた少人数の高接触リトリートと帰社後のエグゼクティブアドバイザリーを提供する。",
+      "targetCustomer": "一般的なオフサイトでは解けないリーダーシップ・心理的負荷・関係性の問題を抱えるCEOと経営チーム。",
+      "painRelief": "リトリートでの深い対話と、帰社後の月次フォローで、イベント後に元へ戻る問題を継続的に扱う。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_reported_b120e89b7719fc670ca120b2_blueprint",
+      "targetPrey": "高額なオフサイトを実施しても、経営者の本当の悩みが残る法人顧客",
+      "structuralFlaw": "一般的なチームビルディングはイベント当日の体験で終わり、帰社後の意思決定・心理的負荷を引き受けない",
+      "stealthEntry": "元コンサル人脈から紹介を受け、既存の個人向けリトリート実績を法人向けに転用する",
+      "tollGateSetup": "紹介→少人数のwhite-glove retreat→帰社後のCEO advisory→再訪と紹介",
+      "reproducibilityScore": 64,
+      "moatDurabilityScore": 66,
+      "capitalEfficiencyScore": 61,
+      "executionChecklist": [
+        "既存人脈が持つ未解決の経営課題を聞き出す",
+        "法人向けと個人向けのメッセージを分離する",
+        "イベント後の継続対話を商品に含める",
+        "実行スタッフは案件別の契約者ネットワークで組成する",
+        "booked revenueを着金・原価・利益と別管理する"
+      ]
+    },
+    "observations": [
+      "Max Schneider本人のFounder Reportsインタビューに基づく。",
+      "Ritual Retreatsは2024年開始、2025年6月正式ローンチ。正式ローンチ前にsix figuresのbooked revenueがあり、経済的には最初からprofitableだったと記載。",
+      "フルタイム従業員は創業者1人、約45人の契約者・パートナーで案件を実施。",
+      "紹介・リピート・元コンサル人脈・少数高接触の法人リトリートを成長導線として記載。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_launch",
+        "category": "TIMELINE",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "本文が2024年開始、2025年前半soft launch、2025年6月正式ローンチを記載している。",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "rawStorage": {
+          "bucket": "foundation-raw",
+          "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+          "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+          "bytes": 207788,
+          "readbackVerified": true
+        }
+      },
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_booked",
+        "category": "FINANCIAL_SIGNAL",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "本文が正式ローンチ前のsix figures booked revenueと、創業時から利益構造だったことを記載している。具体的な利益額・原価は未開示。",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "rawStorage": {
+          "bucket": "foundation-raw",
+          "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+          "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+          "bytes": 207788,
+          "readbackVerified": true
+        }
+      },
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_team",
+        "category": "TEAM_SCALE",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "本文がフルタイム従業員1人と、約45人の契約者・パートナーによる運営を記載している。",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "rawStorage": {
+          "bucket": "foundation-raw",
+          "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+          "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+          "bytes": 207788,
+          "readbackVerified": true
+        }
+      },
+      {
+        "id": "ent_reported_b120e89b7719fc670ca120b2_audit_limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "booked revenueとprofitabilityは本人報告であり、予約契約・銀行・税務・決済資料による独立監査は未実施。",
+        "sourceUrl": "https://founderreports.com/interview/ritual-retreats/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585"
+        },
+        "rawStorage": {
+          "bucket": "foundation-raw",
+          "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+          "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+          "bytes": 207788,
+          "readbackVerified": true
+        }
+      }
+    ],
+    "reportedMetrics": [
+      {
+        "original": "2024",
+        "unit": "LAUNCH_YEAR",
+        "source": "founderreports_interview",
+        "context": "Ritual Retreats year started"
+      },
+      {
+        "original": "June 2025",
+        "unit": "OFFICIAL_LAUNCH_DATE",
+        "source": "founderreports_interview",
+        "context": "officially launched"
+      },
+      {
+        "original": "six figures booked revenue",
+        "unit": "BOOKED_REVENUE",
+        "source": "founderreports_interview",
+        "context": "booked revenue before official launch; exact amount not disclosed"
+      },
+      {
+        "original": "profitable from the beginning",
+        "unit": "PROFITABILITY_STATUS",
+        "source": "founderreports_interview",
+        "context": "economics described as profitable from the beginning"
+      },
+      {
+        "original": "$100k startup costs and first-year losses",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "STARTUP_COST",
+        "source": "founderreports_interview",
+        "context": "Sand and Salt Escapes predecessor, not Ritual Retreats P&L"
+      },
+      {
+        "original": "5-6 retreats/year",
+        "unit": "ANNUAL_RETREAT_COUNT",
+        "source": "founderreports_interview",
+        "context": "intended Ritual Retreats operating cadence"
+      },
+      {
+        "original": "11 retreats in the first 24 months",
+        "unit": "RETREAT_COUNT",
+        "source": "founderreports_interview",
+        "context": "Sand and Salt Escapes predecessor operating history"
+      },
+      {
+        "original": "1 full-time employee",
+        "unit": "FULL_TIME_EMPLOYEES",
+        "source": "founderreports_interview",
+        "context": "founder is the only full-time employee"
+      },
+      {
+        "original": "around 45 contractors",
+        "unit": "CONTRACTOR_COUNT",
+        "source": "founderreports_interview",
+        "context": "trusted network of contractors and partners"
+      }
+    ],
+    "unknownsNotes": [
+      "six figures booked revenueの正確な金額、着金時期、返金条件は未確認。",
+      "利益と記載されるが、原価、契約者費用、税、創業者報酬、手残り、独立監査は未確認。",
+      "約45人の契約者・パートナーの稼働頻度と案件別費用は未確認。",
+      "2026年現在の売上・利益・顧客数・再訪率は未更新。",
+      "前身事業Sand and Salt Escapesの$100k startup costs and lossesはRitual RetreatsのP&Lへ合算していない。"
+    ],
+    "unknowns": [
+      "予約売上と実現売上・利益の差は未確認。",
+      "本人報告で独立監査なし。",
+      "2026年現在値は未確認。"
+    ],
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "screening": {
+      "winner": true,
+      "initialTeamPass": true,
+      "capitalStatus": "bootstrapped_reported",
+      "qualificationStatus": "PRIMARY_AUTHOR_PROFITABILITY_REPORTED_NO_NUMERIC_PROFIT",
+      "backgroundAndScaleCaveat": "正式ローンチ前の予約売上と創業時からの利益構造は本人報告。金額・原価・手残りは独立確認していない。"
+    },
+    "caseType": "PRIMARY_AUTHOR_INTERVIEW_PROFITABILITY_CASE",
+    "profileSubject": "Max Schneider",
+    "profileBusinessLabel": "Ritual Retreats",
+    "officialUrl": "https://thisisritual.com",
+    "sourceMetadata": {
+      "provider": "Founder Reports",
+      "sourceId": "src.founderreports.ritual-retreats",
+      "postUrl": "https://founderreports.com/interview/ritual-retreats/",
+      "author": "Max Schneider",
+      "observedAt": "2026-09-16T00:00:00.000Z",
+      "publishedAt": null,
+      "rawContentSha256": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585",
+      "rawCaptureNote": "Founder interview raw HTML is retained. Booked revenue and profitability are reported signals, not independently audited financial statements.",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/payload.html",
+        "manifestKey": "evidence/src.founderreports.ritual-retreats/2026/09/16/ev_founderreports_ritual-retreats/manifest.json",
+        "bytes": 207788,
+        "readbackVerified": true
+      }
+    },
+    "batchId": "batch-ritual-retreats-20260916"
+  }
+]

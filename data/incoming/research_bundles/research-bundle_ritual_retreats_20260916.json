@@ -1,0 +1,75 @@
+{
+  "write_authorized": false,
+  "bundle": {
+    "schema_version": "research-bundle.v1",
+    "run_id": "run_make_money_ritual_retreats_20260916",
+    "purpose": "make_money",
+    "subject": {
+      "query": "Ritual Retreats Max Schneider"
+    },
+    "agent": {
+      "name": "codex-20260916-ritual-retreats",
+      "version": "1.0"
+    },
+    "retrieved_at": "2026-09-16T00:00:00.000Z",
+    "sources": [
+      {
+        "source_id": "src.founderreports.ritual-retreats",
+        "provider_name": "Founder Reports",
+        "source_type": "founder_interview",
+        "canonical_url": "https://founderreports.com/interview/ritual-retreats/",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "rights_policy_id": null,
+        "access_notes": "Private raw capture for provenance."
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "ev_founderreports_ritual-retreats",
+        "source_id": "src.founderreports.ritual-retreats",
+        "source_url": "https://founderreports.com/interview/ritual-retreats/",
+        "source_title": "How Max Schneider Turned Mindfulness Retreats Into a Profitable Business",
+        "source_type": "founder_interview",
+        "publisher_or_speaker": "Max Schneider",
+        "published_at": null,
+        "retrieved_at": "2026-09-16T00:00:00.000Z",
+        "source_strength": "B",
+        "rights_status": "metadata_only",
+        "raw_storage": {
+          "status": "not_attempted",
+          "bucket": null,
+          "key": null,
+          "content_type": null,
+          "content_sha256": null,
+          "bytes": null
+        },
+        "summary": "2024年開始・2025年正式ローンチ、予約売上、利益構造、契約者ネットワークを記録した本人インタビュー",
+        "extracted_facts": [
+          "正式ローンチ前にsix figuresのbooked revenue",
+          "Ritual Retreatsの経済は最初からprofitable",
+          "フルタイム従業員1人と約45人の契約者・パートナー"
+        ],
+        "rights_policy_id": null
+      }
+    ],
+    "entities": [],
+    "claims": [],
+    "metrics": [],
+    "money_signals": [],
+    "events": [],
+    "relationships": [],
+    "derived": [],
+    "collection_coverage": [],
+    "quality": {
+      "schema_validation": "PASS",
+      "unknowns": [
+        "予約売上・利益額・原価は非開示",
+        "独立監査なし"
+      ],
+      "conflicts": [],
+      "warnings": []
+    }
+  },
+  "raw_evidence": []
+}

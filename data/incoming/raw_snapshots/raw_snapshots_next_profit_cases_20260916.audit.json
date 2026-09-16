@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "raw-snapshot-audit.v1",
+  "snapshot": "2026-09-16",
+  "requested": 4,
+  "captured": 4,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Anonymous B2C SaaS Personal Finance Side-Hustle (r/acquiresaas 2026)",
+      "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+      "sourceId": "src.reddit.acquiresaas.1v77f9j.finance",
+      "evidenceId": "ev_reddit_acquiresaas_1v77f9j_finance",
+      "author": "anonymous seller",
+      "observedAt": "2026-07-26T00:00:00.000Z",
+      "requestedUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=finance",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 8477,
+      "sha256": "dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1",
+      "localPath": "data/incoming/raw_snapshots_next_profit_cases_20260916/ev_reddit_acquiresaas_1v77f9j_finance_dcac9b1c9e7ce2936f64e646bce8abf599b733ff195f7f8ecab6bc6688b35af1.html",
+      "fetchedAt": "2026-09-15T23:53:32.004Z"
+    },
+    {
+      "name": "Anonymous B2C SaaS Career (r/acquiresaas 2026)",
+      "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+      "sourceId": "src.reddit.acquiresaas.1v77f9j.career",
+      "evidenceId": "ev_reddit_acquiresaas_1v77f9j_career",
+      "author": "anonymous seller",
+      "observedAt": "2026-07-26T00:00:00.000Z",
+      "requestedUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=career",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 8477,
+      "sha256": "bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea",
+      "localPath": "data/incoming/raw_snapshots_next_profit_cases_20260916/ev_reddit_acquiresaas_1v77f9j_career_bf2299f02a110c37d8c757fb4398bc6870342f8cd0472d70ebe791255c358cea.html",
+      "fetchedAt": "2026-09-15T23:53:32.052Z"
+    },
+    {
+      "name": "Anonymous iOS Sports App (r/acquiresaas 2026)",
+      "sourceUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+      "sourceId": "src.reddit.acquiresaas.1v77f9j.sports",
+      "evidenceId": "ev_reddit_acquiresaas_1v77f9j_sports",
+      "author": "anonymous seller",
+      "observedAt": "2026-07-26T00:00:00.000Z",
+      "requestedUrl": "https://www.reddit.com/r/acquiresaas/comments/1v77f9j/selling_2_saas_1_ios_app_127k_rev_prior_6_months/?case=sports",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 8477,
+      "sha256": "9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62",
+      "localPath": "data/incoming/raw_snapshots_next_profit_cases_20260916/ev_reddit_acquiresaas_1v77f9j_sports_9aa9ba66f72ff99819bb72e2410a3c044f626bd96d70ab7108f3e0065503ed62.html",
+      "fetchedAt": "2026-09-15T23:53:32.101Z"
+    },
+    {
+      "name": "The Ways To Wealth (R.J. Weiss)",
+      "sourceUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+      "sourceId": "src.founderreports.thewaystowealth",
+      "evidenceId": "ev_founderreports_ways_to_wealth",
+      "author": "R.J. Weiss",
+      "observedAt": "2024-03-16T00:00:00.000Z",
+      "requestedUrl": "https://founderreports.com/interview/the-ways-to-wealth/",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 207938,
+      "sha256": "6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f",
+      "localPath": "data/incoming/raw_snapshots_next_profit_cases_20260916/ev_founderreports_ways_to_wealth_6102cdb51b3dbdda37354b4ae68d5e989d717aa1f6e476b14c54790fa673503f.html",
+      "fetchedAt": "2026-09-15T23:53:32.183Z"
+    }
+  ]
+}
