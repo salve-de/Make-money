@@ -10,6 +10,17 @@ function statusLabel(sourceClass: string | undefined): string {
   return '推計';
 }
 
+function confirmedEstimate(
+  isUnconfirmed: boolean | undefined,
+  value: number,
+  formatMoney: (value: number) => string,
+): string {
+  // Legacy ESTIMATED records often use numeric zero as a missing-data sentinel
+  // while omitting the unconfirmed flags. Only an explicit false is sufficient
+  // to present a numeric estimate; absent/true flags fail closed to 未確認.
+  return isUnconfirmed === false ? formatMoney(value) : '未確認';
+}
+
 export function EstimatedCashSummary({
   entity,
   formatMoney,
@@ -31,19 +42,19 @@ export function EstimatedCashSummary({
   const rows = [
     {
       label: '推計月商',
-      value: pnl.isRevenueUnconfirmed ? '未確認' : formatMoney(pnl.monthlyRevenue),
+      value: confirmedEstimate(pnl.isRevenueUnconfirmed, pnl.monthlyRevenue, formatMoney),
     },
     {
       label: '推計売上原価',
-      value: pnl.isCogsUnconfirmed ? '未確認' : formatMoney(pnl.cogs),
+      value: confirmedEstimate(pnl.isCogsUnconfirmed, pnl.cogs, formatMoney),
     },
     {
       label: '推計販管費',
-      value: pnl.isCostsUnconfirmed ? '未確認' : formatMoney(totalOpex),
+      value: confirmedEstimate(pnl.isCostsUnconfirmed, totalOpex, formatMoney),
     },
     {
       label: '推計営業利益',
-      value: pnl.isOperatingProfitUnconfirmed ? '未確認' : formatMoney(pnl.operatingProfit),
+      value: confirmedEstimate(pnl.isOperatingProfitUnconfirmed, pnl.operatingProfit, formatMoney),
     },
   ];
 
