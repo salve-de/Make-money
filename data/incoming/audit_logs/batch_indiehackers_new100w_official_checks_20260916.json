@@ -1,0 +1,1215 @@
+[
+  {
+    "name": "paralives",
+    "productId": "paralives",
+    "officialUrl": "https://paralives.wiki/",
+    "status": 200,
+    "finalUrl": "https://paralives.wiki/",
+    "title": "Paralives Wiki — Game Wiki, Guides, Mods, Simulator &amp; Map",
+    "matchedTokens": [
+      "paralives"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ORBIT",
+    "productId": "orbit-5",
+    "officialUrl": "https://shhab-web.github.io/orbit/",
+    "status": 200,
+    "finalUrl": "https://shhab-web.github.io/orbit/",
+    "title": "ORBIT — Deep Space Command",
+    "matchedTokens": [
+      "orbit"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Localadda",
+    "productId": "localadda",
+    "officialUrl": "https://www.localadda.xyz",
+    "status": 200,
+    "finalUrl": "https://www.localadda.xyz/",
+    "title": "LocalAdda — Your City. Your People. Your Feed.",
+    "matchedTokens": [
+      "localadda"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TerraUnits",
+    "productId": "terraunits",
+    "officialUrl": "https://terraunits.com/",
+    "status": 200,
+    "finalUrl": "https://terraunits.com/",
+    "title": "TerraUnits — Own a light in the night sky",
+    "matchedTokens": [
+      "terraunits"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Monoboard",
+    "productId": "monoboard",
+    "officialUrl": "https://monoboard.app?utm_source=indie",
+    "status": 200,
+    "finalUrl": "https://monoboard.app/?utm_source=indie",
+    "title": "Living Dashboards for Notion",
+    "matchedTokens": [
+      "monoboard"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scoply",
+    "productId": "scoply",
+    "officialUrl": "https://scoply-v2.vercel.app/",
+    "status": 200,
+    "finalUrl": "https://scoply-v2.vercel.app/",
+    "title": "Scoply - Scope Creep Detection for SaaS Teams &amp; Freelancers",
+    "matchedTokens": [
+      "scoply"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ohuriya AI",
+    "productId": "ohuriya-ai",
+    "officialUrl": "https://ohuriya.com",
+    "status": 200,
+    "finalUrl": "https://ohuriya.com/",
+    "title": "Ohuriya AI",
+    "matchedTokens": [
+      "ohuriya"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Script Timer",
+    "productId": "script-timer",
+    "officialUrl": "https://www.scripttimer.io/",
+    "status": 200,
+    "finalUrl": "https://www.scripttimer.io/",
+    "title": "ScriptTimer — Free Script Timer &amp; Video Length Calculator for YouTube, Podcasts &amp; Shorts",
+    "matchedTokens": [
+      "script",
+      "timer"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ZemCV",
+    "productId": "zemcv",
+    "officialUrl": "https://zemcv.com",
+    "status": 200,
+    "finalUrl": "https://zemcv.com/",
+    "title": "ZemCV | AI-Powered ATS-Friendly Resume Builder",
+    "matchedTokens": [
+      "zemcv"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MyTrustedBrands.com",
+    "productId": "mytrustedbrands-com",
+    "officialUrl": "https://MyTrustedBrands.com",
+    "status": 200,
+    "finalUrl": "https://mytrustedbrands.com/amazon",
+    "title": "My Trusted Brands - Trusted Amazon brands you know",
+    "matchedTokens": [
+      "mytrustedbrands"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PotenAI",
+    "productId": "potenai",
+    "officialUrl": "https://nopick.site",
+    "status": 200,
+    "finalUrl": "https://www.nopick.site/",
+    "title": "PotenAI — Know Your Next Career Move",
+    "matchedTokens": [
+      "potenai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Talib",
+    "productId": "talib-2",
+    "officialUrl": "https://talib.me",
+    "status": 200,
+    "finalUrl": "https://talib.me/",
+    "title": "Talib - Your Professional Identity, Live in Minutes | No Coding Required",
+    "matchedTokens": [
+      "talib"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Wimemo",
+    "productId": "wimemo",
+    "officialUrl": "https://wimemo.com",
+    "status": 200,
+    "finalUrl": "https://wimemo.com/",
+    "title": "Wimemo: Travel Photo Organizer, Map & Shared Albums",
+    "matchedTokens": [
+      "wimemo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Media Mint",
+    "productId": "mediamint",
+    "officialUrl": "https://media-mint.netlify.app",
+    "status": 200,
+    "finalUrl": "https://media-mint.netlify.app/",
+    "title": "MediaMint – Free YouTube to MP4 & MP3 Converter | Instagram Downloader",
+    "matchedTokens": [
+      "media",
+      "mint"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sxitch",
+    "productId": "sxitch",
+    "officialUrl": "https://sxitch.app",
+    "status": 200,
+    "finalUrl": "https://sxitch.app/",
+    "title": "Sxitch - macOS CMD Tab replacement",
+    "matchedTokens": [
+      "sxitch"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TrainSmarter",
+    "productId": "trainsmarter",
+    "officialUrl": "https://www.trainsmarter.cc/",
+    "status": 200,
+    "finalUrl": "https://www.trainsmarter.cc/",
+    "title": "TrainSmarter",
+    "matchedTokens": [
+      "trainsmarter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Freakyyy Letters",
+    "productId": "freakyyy-letters",
+    "officialUrl": "https://letters.freakyyy.com",
+    "status": 200,
+    "finalUrl": "https://letters.freakyyy.com/",
+    "title": "Freakyyy Letters | A Permanent Archive for Words Never Sent",
+    "matchedTokens": [
+      "freakyyy",
+      "letters"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Patches Game",
+    "productId": "patches-game",
+    "officialUrl": "https://patchesgame.app/",
+    "status": 200,
+    "finalUrl": "https://patchesgame.app/",
+    "title": "Patches Game — Free Daily Rectangle Puzzle (August 2026)",
+    "matchedTokens": [
+      "patches",
+      "game"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LyricMV",
+    "productId": "lyricmv",
+    "officialUrl": "https://lyricmv.com",
+    "status": 200,
+    "finalUrl": "https://lyricmv.com/",
+    "title": "AI Lyric Video Maker — Turn Your Songs Into Stunning Videos | LyricMV",
+    "matchedTokens": [
+      "lyricmv"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PianoML",
+    "productId": "pianoml",
+    "officialUrl": "https://pianoml.org",
+    "status": 200,
+    "finalUrl": "https://pianoml.org/",
+    "title": "PianoML: Learn Piano with Smart Sheet Music &amp; Practice Tools",
+    "matchedTokens": [
+      "pianoml"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Remoot.Dev",
+    "productId": "remoot-dev",
+    "officialUrl": "https://remoot.dev",
+    "status": 200,
+    "finalUrl": "https://www.remoot.dev/",
+    "title": "Remoot | Remote VS Code and Cursor Control",
+    "matchedTokens": [
+      "remoot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Shadow Fight Guides Hub",
+    "productId": "shadow-fight-guides-hub",
+    "officialUrl": "https://shadowfightter.com/",
+    "status": 200,
+    "finalUrl": "https://shadowfightter.com/",
+    "title": "Download Shadow Fight 2 Mod APK 2026 Max Level &amp; All Weapons",
+    "matchedTokens": [
+      "shadow",
+      "fight"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Veo 4 Prompt Library",
+    "productId": "veo-4-prompt-library",
+    "officialUrl": "https://veo4prompt.com/",
+    "status": 200,
+    "finalUrl": "https://veo4prompt.com/",
+    "title": "Gemini Omni (Veo 4) Prompt Library &amp; Examples for Google Veo Users",
+    "matchedTokens": [
+      "prompt",
+      "library"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Galinia",
+    "productId": "galinia",
+    "officialUrl": "https://www.galinia.app",
+    "status": 200,
+    "finalUrl": "https://galinia.app/",
+    "title": "Galinia — AI Meditation & Prayer, Personalized to You",
+    "matchedTokens": [
+      "galinia"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PerfectParser",
+    "productId": "perfectparser",
+    "officialUrl": "https://perfectparser.com",
+    "status": 200,
+    "finalUrl": "https://perfectparser.com/",
+    "title": "AI Document Parsing Software | PerfectParser",
+    "matchedTokens": [
+      "perfectparser"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Inscribe",
+    "productId": "inscribe",
+    "officialUrl": "https://get-inscribe.com",
+    "status": 200,
+    "finalUrl": "https://lyonesse.app/",
+    "title": "Lyonesse: Private On-Device AI for Voice, Meetings &amp; Docs",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Snapp AI",
+    "productId": "snapp-ai",
+    "officialUrl": "https://snappai.co",
+    "status": 200,
+    "finalUrl": "https://snappai.co/",
+    "title": "Snapp AI — Build Mobile &amp; Web Apps with AI in Seconds",
+    "matchedTokens": [
+      "snapp"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Online Pay Stub",
+    "productId": "online-pay-stub",
+    "officialUrl": "https://www.onlinepaystub.com/",
+    "status": 200,
+    "finalUrl": "https://www.onlinepaystub.com/",
+    "title": "Online Paystub Generator: #1 Best Check Stub Maker",
+    "matchedTokens": [
+      "stub"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Obskura",
+    "productId": "obskura",
+    "officialUrl": "https://obskura.app",
+    "status": 200,
+    "finalUrl": "https://obskura.app/",
+    "title": "Obskura - Livestream DVR for Twitch, YouTube &amp; Kick",
+    "matchedTokens": [
+      "obskura"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PerilixAI",
+    "productId": "perilixai",
+    "officialUrl": "https://perilixai.com/",
+    "status": 200,
+    "finalUrl": "https://perilixai.com/",
+    "title": "PerilixAI",
+    "matchedTokens": [
+      "perilixai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MyExamTrack",
+    "productId": "myexamtrack",
+    "officialUrl": "https://myexamtrack.com",
+    "status": 200,
+    "finalUrl": "https://www.myexamtrack.com/",
+    "title": "Exam Response Sheet Analyzer for CAT, JIPMAT, IPMAT, CUET &amp; More | My Exam Track",
+    "matchedTokens": [
+      "myexamtrack"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LinguaX",
+    "productId": "linguax",
+    "officialUrl": "https://linguax.app",
+    "status": 200,
+    "finalUrl": "https://linguax.app/",
+    "title": "LinguaX: Mac Mouse Enhancement &amp; Input Automation",
+    "matchedTokens": [
+      "linguax"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Forge Logbooks",
+    "productId": "forge-logbooks",
+    "officialUrl": "https://www.forgelogbooks.com/",
+    "status": 200,
+    "finalUrl": "https://www.forgelogbooks.com/",
+    "title": "Custom Workout Logbooks | Build Your Own Training Log Book",
+    "matchedTokens": [
+      "forge",
+      "logbooks"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Free tool forge",
+    "productId": "free-tool-forge",
+    "officialUrl": "https://freetoolforge.org/",
+    "status": 429,
+    "finalUrl": "https://freetoolforge.org/",
+    "title": "Vercel Security Checkpoint",
+    "matchedTokens": [
+      "forge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Permisoft",
+    "productId": "permisoft",
+    "officialUrl": "https://permisoft.app",
+    "status": 200,
+    "finalUrl": "https://permisoft.app/",
+    "title": "Permisoft — Perpetual Software Marketplace",
+    "matchedTokens": [
+      "permisoft"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "InterviewRoom",
+    "productId": "interviewroom",
+    "officialUrl": "https://interviewroom.io/",
+    "status": 200,
+    "finalUrl": "https://interviewroom.io/",
+    "title": "AI Mock Interview Practice | InterviewRoom",
+    "matchedTokens": [
+      "interviewroom"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MoonCV",
+    "productId": "mooncv",
+    "officialUrl": "https://mooncv.com",
+    "status": 200,
+    "finalUrl": "https://mooncv.com/",
+    "title": "AI Resume Builder & Automated Job Search | MoonCV",
+    "matchedTokens": [
+      "mooncv"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AutoSubmit.to",
+    "productId": "autosubmit-to",
+    "officialUrl": "https://AutoSubmit.to",
+    "status": 200,
+    "finalUrl": "https://autosubmit.to/",
+    "title": "The Weekend Launch Blitz — Get Listed on 200+ Directories Without the Copy-Paste | AutoSubmit.to",
+    "matchedTokens": [
+      "autosubmit"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TvRecommendationBridge",
+    "productId": "tvrecommendationbridge",
+    "officialUrl": "https://yushetf33.github.io/TvReccomendationBridge/",
+    "status": 200,
+    "finalUrl": "https://yushetf33.github.io/TvReccomendationBridge/",
+    "title": "WatchBridge — open recommendations in the app you actually want",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SenFlo Senna Gummies",
+    "productId": "senflo-senna-gummies",
+    "officialUrl": "https://senflogummies.com/#aff=Mrguyz",
+    "status": 200,
+    "finalUrl": "https://senflogummies.com/",
+    "title": "SenFlo Gummies &#8211; Your Daily Bite of Wellness!",
+    "matchedTokens": [
+      "senflo",
+      "gummies"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Demovio",
+    "productId": "demovio",
+    "officialUrl": "https://demovio.vercel.app/",
+    "status": 200,
+    "finalUrl": "https://demovio.vercel.app/",
+    "title": "Demovio — Turn any screenshot into a live demo",
+    "matchedTokens": [
+      "demovio"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MillionAIOS",
+    "productId": "millionaios-2",
+    "officialUrl": "https://millionaios.polsia.app",
+    "status": 200,
+    "finalUrl": "https://millionaios.polsia.app/",
+    "title": "MillionAIOS",
+    "matchedTokens": [
+      "millionaios"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Telegram Mini App Revenue Kit",
+    "productId": "telegram-mini-app-revenue-kit",
+    "officialUrl": "https://foxify.pro",
+    "status": 200,
+    "finalUrl": "https://foxify.pro/",
+    "title": "FOXIFY.PRO Infrastructure",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Social Flow",
+    "productId": "social-flow",
+    "officialUrl": "https://social-flow.dev/",
+    "status": 200,
+    "finalUrl": "https://social-flow.dev/",
+    "title": "Social Flow — Warm-up Dashboard",
+    "matchedTokens": [
+      "social",
+      "flow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RoastMyLanding",
+    "productId": "roastmylanding",
+    "officialUrl": "https://roastmylanding.vercel.app/",
+    "status": 200,
+    "finalUrl": "https://roastmylanding.vercel.app/",
+    "title": "RoastMyLanding — Landing Page Diagnosis for Indie Hackers",
+    "matchedTokens": [
+      "roastmylanding"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ForgeHouse",
+    "productId": "forgehouse",
+    "officialUrl": "https://forgehouse.io",
+    "status": 200,
+    "finalUrl": "https://forgehouse.io/",
+    "title": "ForgeHouse | Expert Knowledge for Your Agent",
+    "matchedTokens": [
+      "forgehouse"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SharePDF",
+    "productId": "sharepdf",
+    "officialUrl": "https://sharepdf.app",
+    "status": 200,
+    "finalUrl": "https://sharepdf.app/",
+    "title": "SharePDF - Share PDFs Online with Trackable Links",
+    "matchedTokens": [
+      "sharepdf"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Plavtora",
+    "productId": "plavtora",
+    "officialUrl": "https://www.plavtora.com",
+    "status": 200,
+    "finalUrl": "https://www.plavtora.com/",
+    "title": "Plavtora | AI Startup Decision System for Founders",
+    "matchedTokens": [
+      "plavtora"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PullPage",
+    "productId": "pullpage",
+    "officialUrl": "https://pull.page",
+    "status": 200,
+    "finalUrl": "https://pull.page/",
+    "title": "Framer Export Tool – Self-Host Your Site Anywhere | PullPage",
+    "matchedTokens": [
+      "pullpage"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "bugstack",
+    "productId": "bugstack",
+    "officialUrl": "https://bugstack.ai",
+    "status": 200,
+    "finalUrl": "https://bugstack.ai/",
+    "title": "Production Bug Fixes as Tested Pull Requests | bugstack",
+    "matchedTokens": [
+      "bugstack"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PreFlight",
+    "productId": "preflight",
+    "officialUrl": "https://preflightio.com/?ref=producthunt",
+    "status": 200,
+    "finalUrl": "https://preflightio.com/?ref=producthunt",
+    "title": "Preflight - Launch security checks for AI-built SaaS apps",
+    "matchedTokens": [
+      "preflight"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Storymate",
+    "productId": "storymate",
+    "officialUrl": "https://storymate.app",
+    "status": 404,
+    "finalUrl": "https://storymate.app/",
+    "title": "404 Page not found",
+    "matchedTokens": [
+      "storymate"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "HiredFast AI",
+    "productId": "hiredfast-ai",
+    "officialUrl": "https://www.hiredfast.co",
+    "status": 200,
+    "finalUrl": "https://hiredfast.co/",
+    "title": "HiredFast – AI Job Search Automation & Auto Apply",
+    "matchedTokens": [
+      "hiredfast"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Heliostat.dev",
+    "productId": "heliostat-dev",
+    "officialUrl": "https://heliostat.dev",
+    "status": 200,
+    "finalUrl": "https://heliostat.dev/",
+    "title": "Heliostat — Shape Up for solo developers",
+    "matchedTokens": [
+      "heliostat"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Lunar Sections",
+    "productId": "lunar-sections",
+    "officialUrl": "https://lunarsections.com/",
+    "status": 200,
+    "finalUrl": "https://lunarsections.com/",
+    "title": "Vite + React",
+    "matchedTokens": [
+      "lunar",
+      "sections"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FoundersRankBoard",
+    "productId": "foundersrankboard",
+    "officialUrl": "https://foundersrankboard.com/",
+    "status": 200,
+    "finalUrl": "https://foundersrankboard.com/",
+    "title": "Founders Rank Board - The Pay-to-Rank Startup &amp; Creator Leaderboard",
+    "matchedTokens": [
+      "foundersrankboard"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RuleTheWorld",
+    "productId": "ruletheworld",
+    "officialUrl": "https://ruleworld.co",
+    "status": 200,
+    "finalUrl": "https://ruleworld.co/",
+    "title": "RuleWorld — own a country on the world map",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AppCharts",
+    "productId": "appcharts",
+    "officialUrl": "https://appcharts.app",
+    "status": 200,
+    "finalUrl": "https://appcharts.app/",
+    "title": "AppCharts - Community App Rankings",
+    "matchedTokens": [
+      "appcharts"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "inventapp",
+    "productId": "inventa",
+    "officialUrl": "https://inventa-da89a.web.app/inicio.html",
+    "status": 200,
+    "finalUrl": "https://inventa-da89a.web.app/inicio.html",
+    "title": "Inventa | Gestión de Inventarios Corporativa",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Struxy",
+    "productId": "struxy",
+    "officialUrl": "https://struxy.app/",
+    "status": 200,
+    "finalUrl": "https://struxy.app/",
+    "title": "Struxy — AI Chief of Staff for Independent Professionals",
+    "matchedTokens": [
+      "struxy"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "EverList",
+    "productId": "everlist",
+    "officialUrl": "https://everlist.dev/",
+    "status": 200,
+    "finalUrl": "https://everlist.dev/",
+    "title": "EverList — Discoverability infrastructure for the AI era",
+    "matchedTokens": [
+      "everlist"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "V9 App",
+    "productId": "v9-app",
+    "officialUrl": "https://v-9game.com.pk/",
+    "status": 200,
+    "finalUrl": "https://v-9game.com.pk/",
+    "title": "V9 Game",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Website Detector",
+    "productId": "ai-website-detector",
+    "officialUrl": "https://www.aiwebsitedetector.com/",
+    "status": 200,
+    "finalUrl": "https://aiwebsitedetector.com/",
+    "title": "AI Website Detector — Detect if Any Website Was Built With AI",
+    "matchedTokens": [
+      "website",
+      "detector"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LiveGig",
+    "productId": "livegig",
+    "officialUrl": "https://www.livegig.app",
+    "status": 200,
+    "finalUrl": "https://www.livegig.app/",
+    "title": "LiveGig - Live Music Song Requests",
+    "matchedTokens": [
+      "livegig"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ScreenerHub",
+    "productId": "screenerhub",
+    "officialUrl": "https://screenerhub.app",
+    "status": 200,
+    "finalUrl": "https://screenerhub.app/",
+    "title": "ScreenerHub | Find Stocks to Watch",
+    "matchedTokens": [
+      "screenerhub"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LandThisJob",
+    "productId": "landthisjob",
+    "officialUrl": "https://landthisjob.com?utm_source=indiehackers",
+    "status": 200,
+    "finalUrl": "https://landthisjob.com/?utm_source=indiehackers",
+    "title": "Tailor Your Resume to Any Job in 60 Seconds | LandThisJob",
+    "matchedTokens": [
+      "landthisjob"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SignalsHunt",
+    "productId": "signalshunt",
+    "officialUrl": "https://signalshunt.com/",
+    "status": 200,
+    "finalUrl": "https://signalshunt.com/",
+    "title": "SignalsHunt — AI Lead Generation for Freelancers &amp; Agencies",
+    "matchedTokens": [
+      "signalshunt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DesignAgents",
+    "productId": "designagents",
+    "officialUrl": "https://designagents.app/",
+    "status": null,
+    "finalUrl": "https://designagents.app/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cornerman",
+    "productId": "cornerman",
+    "officialUrl": "https://trycornerman.com/",
+    "status": 200,
+    "finalUrl": "https://trycornerman.com/",
+    "title": "Cornerman — Find Jobs, Apply Smarter, Nail the Interview. $1 Trial.",
+    "matchedTokens": [
+      "cornerman"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Yemake",
+    "productId": "yemake",
+    "officialUrl": "https://yemake.semender.ai/download",
+    "status": 200,
+    "finalUrl": "https://yemake.semender.ai/download",
+    "title": "Yemake — Download",
+    "matchedTokens": [
+      "yemake"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Fincend: Expense Tracker",
+    "productId": "fincend-expense-tracker",
+    "officialUrl": "https://fincend.com/expense-tracker/",
+    "status": 200,
+    "finalUrl": "https://fincend.com/expense-tracker/",
+    "title": "Expense Tracker — Track Expenses &amp; Take Control of Your Budget",
+    "matchedTokens": [
+      "fincend",
+      "expense",
+      "tracker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Aurora Vault",
+    "productId": "aurora-vault",
+    "officialUrl": "https://www.auroranode.com/vault",
+    "status": 200,
+    "finalUrl": "https://www.auroranode.com/vault",
+    "title": "Vault — AuroraNode",
+    "matchedTokens": [
+      "aurora",
+      "vault"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "codecop",
+    "productId": "codecop",
+    "officialUrl": "https://www.codecop.io",
+    "status": 200,
+    "finalUrl": "https://codecop.io/",
+    "title": "CodeCop — AI security review for AI-generated code",
+    "matchedTokens": [
+      "codecop"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PopBoost ‑ FOMO & Popups",
+    "productId": "popboost-fomo-popups",
+    "officialUrl": "https://extensionsmarket.com/popboost",
+    "status": 200,
+    "finalUrl": "https://extensionsmarket.com/popboost",
+    "title": "PopBoost: Shopify FOMO, Social Proof &amp; Countdown App",
+    "matchedTokens": [
+      "popboost",
+      "fomo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Xpiry.dev",
+    "productId": "xpiry-dev",
+    "officialUrl": "https://xpiry.dev",
+    "status": 200,
+    "finalUrl": "https://xpiry.dev/",
+    "title": "Free SSL Certificate Checker — Xpiry",
+    "matchedTokens": [
+      "xpiry"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BuildMind",
+    "productId": "buildmind",
+    "officialUrl": "https://buildmind.live",
+    "status": 200,
+    "finalUrl": "https://buildmind.live/",
+    "title": "BuildMind — Your next move, already decided",
+    "matchedTokens": [
+      "buildmind"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Online Tasbih Counter",
+    "productId": "online-tasbih-counter-2",
+    "officialUrl": "https://onlinetasbihcounter.com",
+    "status": 200,
+    "finalUrl": "https://onlinetasbihcounter.com/",
+    "title": "Online Tasbeeh Counter | Simple Digital Tasbih (Auto-Save &amp; Free)",
+    "matchedTokens": [
+      "tasbih",
+      "counter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "StrategyForge",
+    "productId": "strategyforge",
+    "officialUrl": "https://ai-leads.app",
+    "status": 200,
+    "finalUrl": "https://ai-leads.app/",
+    "title": "StrategyForge — AI-Powered Marketing Strategy Generator",
+    "matchedTokens": [
+      "strategyforge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FitConvert",
+    "productId": "fitconvert",
+    "officialUrl": "https://www.fitconvert.to",
+    "status": 200,
+    "finalUrl": "https://www.fitconvert.to/",
+    "title": "FitConvert — Don&#x27;t Leave Your Hard-Earned PRs Behind",
+    "matchedTokens": [
+      "fitconvert"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RemyndAI",
+    "productId": "remyndai",
+    "officialUrl": "https://remyndai.com/",
+    "status": 200,
+    "finalUrl": "https://remyndai.com/",
+    "title": "ReMynd — Give Your Mac a Photographic Memory",
+    "matchedTokens": [
+      "remyndai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TrunkTransfer",
+    "productId": "trunktransfer",
+    "officialUrl": "https://trunktransfer.com/",
+    "status": 200,
+    "finalUrl": "https://trunktransfer.com/",
+    "title": "TrunkTransfer: Branded File Transfer, Not WeTransfer&#x27;s Branding",
+    "matchedTokens": [
+      "trunktransfer"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "My Wealth Tracker",
+    "productId": "my-wealth-tracker",
+    "officialUrl": "https://mywealthtracker.ai/",
+    "status": 200,
+    "finalUrl": "https://mywealthtracker.ai/",
+    "title": "Wealth Tracker - Best Net Worth Tracking app",
+    "matchedTokens": [
+      "wealth",
+      "tracker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Seeker",
+    "productId": "seeker-3",
+    "officialUrl": "https://www.seekerscore.com",
+    "status": 200,
+    "finalUrl": "https://www.seekerscore.com/",
+    "title": "SeekerScore | See which jobs match your resume",
+    "matchedTokens": [
+      "seeker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Neogenio SEO & GEO AI Engine",
+    "productId": "neogenio-seo-geo-ai-engine",
+    "officialUrl": "https://seo.neogenio.ai",
+    "status": 200,
+    "finalUrl": "https://seo.neogenio.ai/en",
+    "title": "Neogenio SEO AI Engine",
+    "matchedTokens": [
+      "neogenio",
+      "engine"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Factostack",
+    "productId": "factostack",
+    "officialUrl": "https://factostack.com",
+    "status": 200,
+    "finalUrl": "https://factostack.com/",
+    "title": "See Every Order, Material and Job | FactoStack",
+    "matchedTokens": [
+      "factostack"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ideaFast",
+    "productId": "ideafast",
+    "officialUrl": "https://www.ideafast.pro/",
+    "status": 200,
+    "finalUrl": "https://www.ideafast.pro/",
+    "title": "IdeaFast: Reddit Pain Point Finder for Startup Ideas",
+    "matchedTokens": [
+      "ideafast"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Caffy: Caffeine Sleep Tracker",
+    "productId": "caffy-caffeine-sleep-tracker",
+    "officialUrl": "https://caffy.app/",
+    "status": 200,
+    "finalUrl": "https://caffy.app/",
+    "title": "Caffy: Caffeine &amp; Sleep Tracker",
+    "matchedTokens": [
+      "caffy",
+      "caffeine",
+      "sleep",
+      "tracker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PaceCount",
+    "productId": "pacecount",
+    "officialUrl": "https://pacecount.net",
+    "status": 200,
+    "finalUrl": "https://pacecount.net/",
+    "title": "PaceCount Software | For Service Businesses",
+    "matchedTokens": [
+      "pacecount"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Provoon",
+    "productId": "provoon",
+    "officialUrl": "https://provoon.com/",
+    "status": 200,
+    "finalUrl": "https://provoon.com/",
+    "title": "Provoon - Testimonial Software to Collect &amp; Embed Reviews",
+    "matchedTokens": [
+      "provoon"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Hirevate",
+    "productId": "hirevate",
+    "officialUrl": "https://www.hirevate.com",
+    "status": 503,
+    "finalUrl": "https://www.hirevate.com/",
+    "title": "",
+    "matchedTokens": [
+      "hirevate"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cert Empire",
+    "productId": "cert-empire",
+    "officialUrl": "https://certempire.com",
+    "status": 200,
+    "finalUrl": "https://certempire.com/",
+    "title": "Cert Empire - Best Exam Dumps Website of 2026",
+    "matchedTokens": [
+      "cert",
+      "empire"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "HomeGrid VPN",
+    "productId": "homegrid-vpn",
+    "officialUrl": "https://www.homegrid-vpn.com",
+    "status": 200,
+    "finalUrl": "https://www.homegrid-vpn.com/",
+    "title": "HomeGrid VPN",
+    "matchedTokens": [
+      "homegrid"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Anvil Workout",
+    "productId": "anvil-workout",
+    "officialUrl": "https://anvilworkout.iamjarl.com/",
+    "status": 200,
+    "finalUrl": "https://anvilworkout.iamjarl.com/",
+    "title": "Anvil Workout: Subscription-Free Strength App & Log | iOS",
+    "matchedTokens": [
+      "anvil",
+      "workout"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SwipeWipe",
+    "productId": "swipewipe",
+    "officialUrl": "https://swipewipe.site/",
+    "status": 200,
+    "finalUrl": "https://swipewipe.site/",
+    "title": "SwipeWipe | A lighter way to clean up iPhone photos",
+    "matchedTokens": [
+      "swipewipe"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WanderScout",
+    "productId": "wanderscout",
+    "officialUrl": "https://wanderscout.app/?utm_source=indiehackers&utm_medium=community&utm_campaign=community",
+    "status": 200,
+    "finalUrl": "https://wanderscout.app/?utm_source=indiehackers&utm_medium=community&utm_campaign=community",
+    "title": "Wanderscout - Find Your Perfect Holiday",
+    "matchedTokens": [
+      "wanderscout"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Gpt Prompt Maker",
+    "productId": "gpt-prompt-maker",
+    "officialUrl": "https://www.gptpromptmaker.com/",
+    "status": 200,
+    "finalUrl": "https://www.gptpromptmaker.com/",
+    "title": "GPTPromptMaker - #1 AI Prompt Generator for ChatGPT, Claude & Gemini",
+    "matchedTokens": [
+      "prompt",
+      "maker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Getsponsored",
+    "productId": "getsponsored",
+    "officialUrl": "https://getsponsored.io/",
+    "status": 200,
+    "finalUrl": "https://getsponsored.io/",
+    "title": "GetSponsored — Find YouTube Sponsorships and Brand Deals",
+    "matchedTokens": [
+      "getsponsored"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Intimate Challenge",
+    "productId": "intimate-challenge",
+    "officialUrl": "https://www.intimatechallenge.com",
+    "status": 200,
+    "finalUrl": "https://intimatechallenge.com/en",
+    "title": "Break the routine — couples games for two | Intimate Challenge",
+    "matchedTokens": [
+      "intimate",
+      "challenge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "NeatMail",
+    "productId": "neatmail",
+    "officialUrl": "https://www.neatmail.app/",
+    "status": 200,
+    "finalUrl": "https://www.neatmail.app/",
+    "title": "NeatMail — Never Drop a Promise in Your Inbox",
+    "matchedTokens": [
+      "neatmail"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Wean Nicotine",
+    "productId": "wean-nicotine",
+    "officialUrl": "https://weannicotine.iamjarl.com/",
+    "status": 200,
+    "finalUrl": "https://weannicotine.iamjarl.com/",
+    "title": "Wean Nicotine, Snus &amp; Nicotine Pouch Reduction App",
+    "matchedTokens": [
+      "wean",
+      "nicotine"
+    ],
+    "checkedAt": "2026-09-16"
+  }
+]

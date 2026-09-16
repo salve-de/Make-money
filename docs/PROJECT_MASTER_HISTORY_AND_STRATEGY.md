@@ -1,5 +1,43 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-16 【確定】外部コレクター成果物（Primary/MUBS 1000件、IndieHackers 1000件、新着4バッチ400件）の大規模統合完遂 ＆ 純増2,163社・全3,352社体制確立（Phase 201）
+
+### 1. ユーザー指示と課題（User Commands & Mass External Ingestion）
+- **ユーザー指示**:
+  - 「これも巻き取っておいて」
+  - 外部コレクター収集バッチ（Primary/MUBS 1000件、Indie Hackers 1000件、eBiz Facts 1000件、新着IndieHackers 4バッチ400件）の巻き取り要求。
+- **留意事項・病巣の解剖**:
+  - 同一データの重複（IndieHackers 報告版と検証版で999件重複、eBizFactsとPrimary/MUBSで約980件重複）。
+  - IndieHackers等における利益・粗利・マージンの未確認状態（`isRevenueUnconfirmed` / `isMarginUnconfirmed` の適切な付与と算術整合性の担保）。
+  - 大量エンティティ（3,000社超）統合時のドメイン重複・ティッカー衝突・禁止語句漏洩リスク。
+
+### 2. 物理実装したアーキテクチャ（Mass Ingestion Pipeline & Precision Normalization）
+1. **外部コレクター専用インジェストエンジン配備 (`scripts/pipeline/ingest-external-collectors.ts`)**:
+   - **4重重複排除ガード**: 既存1,189社のID・会社名・Ticker・ドメイン（共有プラットフォーム除く）と多重照合し、優先度の高い一次情報（Primary/MUBS ➔ IndieHackers Verified ➔ new100t-w ➔ eBizFacts）順にインジェスト。
+   - **プラットフォームドメイン共有の適正化**: App Store (`apps.apple.com`), Google Play (`play.google.com`), Chrome Web Store 等のアプリ配信用共有ドメインを `SHARED_PLATFORMS` に追加し、偽陽性ドメイン重複を解消。
+   - **会計算術・未確認フラグの完全整合**:
+     - 確定値エンティティ: `rev - cogs = grossProfit`、`grossProfit - opex = opProfit` の数学的整合性を100%保証。
+     - 未確認（UNAVAILABLE / 未確認売上）エンティティ: 原文の報告値を保持しつつ、未確認フラグ（`isRevenueUnconfirmed`, `isMarginUnconfirmed` 等）を完全付与。
+   - **スキーマ完全準拠**: `operations.primaryChannels`、`strategy.initialTraction` / `actionPlaybook`、`operations.toolStack`、`evidenceCards` 3枚構造を完全保証。
+   - **禁止語句サニタイズ**: サバンナOS等の社内スラングを客観的ビジネス用語に完全置換。
+
+### 3. インジェスト実績と台帳規模
+- **処理バッチ**:
+  - `Primary/MUBS 1000`: 755社 純増（重複232件除外、バリデーション不備13件除外）
+  - `IndieHackers Verified 1000`: 991社 純増（重複9件除外）
+  - `IndieHackers new100t, u, v, w`: 400社 純増（各100社、重複0件）
+  - `eBizFacts Playbooks 1000`: 17社 純増（重複983件除外）
+- **純増エンティティ**: **+2,163社**（完全体スキーマ合格）
+- **中央台帳規模**: **1,189社 ➔ 3,352社** へ超拡大
+- **台帳同期**: `data/collected-registry.json`（3,352社）、`data/CLAIMED_TARGETS.txt`、および Cloudflare R2（`foundation-lake/registry/`）へ即時プッシュ同期完了。
+
+### 4. 検証結果（Mechanical Quality Gate）
+- `pnpm lint`: **PASS**（全3,352社、ESLint 0 warnings, 0 errors）
+- `node scripts/architecture/check-index-safety.mjs`: **PASS**（全3,352社）
+- `node scripts/architecture/check-ingest-quality.mjs`: **PASS**（全3,352社においてドメイン一意性、ツール整合性、算術精度、スキーマ整合性、禁止語句ゼロを完全実証）
+
+---
+
 ## 2026-09-16 【確定】`data/incoming` の完全分類隔離 ＆ 新規7チャット収集バッチ（555社）の正規化インジェスト完遂（全1,189社体制確立）（Phase 200）
 
 ### 1. ユーザー指示と課題（User Commands & Incoming Architecture Partitioning）

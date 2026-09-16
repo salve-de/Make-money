@@ -21,7 +21,8 @@ const seenTickers = new Map();
 const seenDomains = new Map();
 const SHARED_PLATFORMS = new Set([
   'x.com', 'twitter.com', 'notion.so', 'notion.site', 'gumroad.com', 'substack.com', 'medium.com', 'github.com',
-  'wikipedia.org', 'en.wikipedia.org', 'ja.wikipedia.org', 'sec.gov'
+  'wikipedia.org', 'en.wikipedia.org', 'ja.wikipedia.org', 'sec.gov',
+  'apps.apple.com', 'play.google.com', 'chrome.google.com', 'chromewebstore.google.com'
 ]);
 
 function normalizeEntityName(name) {

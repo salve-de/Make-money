@@ -8,6 +8,14 @@ const template = fs.readFileSync(templatePath, "utf8")
   .replaceAll("new100o", "new100t")
   .replaceAll("new100O", "new100T")
   .replaceAll("codex-20260916-ih-new100o", "codex-20260916-ih-new100t")
-  .replaceAll("revenue>=100,revenue<=499", "revenue>=500,revenue<=1000000");
+  .replaceAll("revenue>=100,revenue<=499", "revenue>=500,revenue<=1000000")
+  .replaceAll(
+    'tags.some((tag) => ["founders-solo", "employees-0", "employees-under-10", "employees-10-plus"].includes(tag))',
+    "tags.some((tag) => /^founders-|^employees-/.test(tag))",
+  )
+  .replace(
+    'const [name, targetDomain] = line.split(" [CLAIMED:")[0].split(" — ");',
+    () => 'const raw = line.split(" [CLAIMED:")[0]; const head = raw.replace(/ — IHNEW100T$/, ""); const pivot = head.lastIndexOf(" — "); const name = pivot >= 0 ? head.slice(0, pivot) : head; const targetDomain = pivot >= 0 ? head.slice(pivot + 3) : "";',
+  );
 
 await import(`data:text/javascript;charset=utf-8,${encodeURIComponent(template)}`);
