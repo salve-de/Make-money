@@ -19472,429 +19472,6 @@
     "batchId": "batch-founderstory-mix-new100z-20260916"
   },
   {
-    "id": "ent_photoboothsupply_dd749843b230",
-    "ticker": "SSDD749843",
-    "name": "Photobooth Supply...",
-    "legalEntity": "UNKNOWN (公開ソースで法人名を独立確認していない)",
-    "tagline": "「Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start …」に対し、USD 500,000/month (revenue/mo display; independently unverified)を公開報告。利益と手残りは未確認。",
-    "sector": "LOCAL_SERVICES",
-    "scale": "SMALL_TEAM",
-    "founder": "Brandon Wong",
-    "country": "US",
-    "url": "https://photoboothsupplyco.com",
-    "verifiedBadge": false,
-    "growthRateYoY": 0,
-    "isGrowthUnconfirmed": true,
-    "architecturePattern": "公開ソースでは実装方式を独立確認していない。",
-    "pipelineStack": "公開ソースでは技術スタックを独立確認していない。",
-    "targetPainWallet": "公開説明が示す「Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start a business? It can be complicated, expensive, and time consuming. We provide a meaningful business opportunity th...」に対する支払課題。具体的な顧客の意思決定理由は原文の範囲を超えて断定しない。",
-    "tags": [
-      "Starter Story公開ストーリー",
-      "SOURCE_REPORTED_REVENUE",
-      "FINANCIAL_PROFIT_UNKNOWN",
-      "RAW_CAPTURED_R2",
-      "TEAM_SIZE_REPORTED",
-      "OFFICIAL_URL_REACHABLE",
-      "REVENUE_PER_MONTH_DISPLAY"
-    ],
-    "pnl": {
-      "monthlyRevenue": 0,
-      "cogs": 0,
-      "grossProfit": 0,
-      "grossMargin": 0,
-      "operatingExpenses": {
-        "serverAndApi": 0,
-        "advertising": 0,
-        "subcontracting": 0,
-        "toolsAndSaaS": 0,
-        "other": 0
-      },
-      "operatingProfit": 0,
-      "operatingMargin": 0,
-      "estimatedAnnualNetProfit": 0,
-      "financialStatus": "REPORTED",
-      "dataSnapshotPeriod": "2026-09-16 Starter Story source capture",
-      "sourceDoc": "https://www.starterstory.com/stories/photobooth",
-      "sourceClass": "INDEPENDENT_SECONDARY",
-      "evidenceLocator": {
-        "type": "html",
-        "textHash": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203"
-      },
-      "estimationLogic": "金額は報告シグナルとしてreportedMetricsへ保存し、期間・原価・利益定義が揃わないためP&Lの数値は0かつ未確認フラグを維持した。",
-      "revenueLabel": "USD 500,000/month (revenue/mo display; independently unverified)",
-      "confidenceScore": 0,
-      "isRevenueUnconfirmed": true,
-      "isOperatingProfitUnconfirmed": true,
-      "isMarginUnconfirmed": true,
-      "isGrossProfitUnconfirmed": true,
-      "isGrossMarginUnconfirmed": true,
-      "isCogsUnconfirmed": true,
-      "isCostsUnconfirmed": true,
-      "isNetProfitUnconfirmed": true
-    },
-    "operations": {
-      "teamSize": 10,
-      "initialTeamSize": 0,
-      "currentTeamSize": 10,
-      "weeklyHours": 0,
-      "initialCapitalRequired": 0,
-      "automationLevel": 0,
-      "primaryChannels": [
-        "Starter Story公開ストーリー",
-        "公式URL到達性監査"
-      ],
-      "toolStack": [
-        {
-          "name": "UNKNOWN (source text did not identify tools)",
-          "category": "UNCONFIRMED",
-          "monthlyCost": 0,
-          "isCostUnconfirmed": true,
-          "purpose": "The captured source does not identify the operational tools; no tool is inferred.",
-          "replacementDifficulty": "MEDIUM"
-        }
-      ],
-      "isTeamSizeUnconfirmed": true,
-      "isWeeklyHoursUnconfirmed": true,
-      "isCapitalUnconfirmed": true,
-      "isAutomationUnconfirmed": true
-    },
-    "strategy": {
-      "blindspot": "【観測された隙間】公開ストーリーの事業説明、創業者情報、revenue/mo表示を同じ原本から抽出し、売上表示を利益から分離する。競合比較と大手の参入判断は原本に記載された範囲を超えて断定しない。",
-      "moatType": "UNKNOWN",
-      "moatDescription": "【防御要因】継続率、独自データ、供給制約、ブランド優位、規模効果のどれが利益を守るかは原本だけでは確定できない。",
-      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の参入制約は独立資料で照合していない。",
-      "secretInsight": "【金額の境界】USD 500,000/month (revenue/mo display; independently unverified)は支払実績を示す報告シグナルだが、原価を引いた創業者の手残りではない。",
-      "initialTraction": [
-        "公開日: 2018-09-11T00:00:00+00:00",
-        "回答者・創業者欄: Brandon Wong",
-        "最初の顧客獲得経路は原本に記載された範囲を超えて断定しない。"
-      ],
-      "actionPlaybook": [
-        "原本の提供説明を顧客課題・価格・契約条件へ分解し、報告値と実測値を別帳簿で照合する。",
-        "原価、広告、外注、決済、税、創業者報酬を取得するまで手残り率を算出しない。",
-        "公式URLの提供実体とsource pageの事業名を同一IDで保全し、差異があれば追加調査へ戻す。"
-      ],
-      "coldOutreachTemplate": "公開インタビューにある提供内容について、売上と原価を分けて確認できる資料があるか尋ねる。"
-    },
-    "essence": {
-      "whatItDoes": "Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start a business? It can be complicated, expensive, and time consuming. We provide a meaningful business opportunity th...",
-      "targetCustomer": "原本の所在地・事業説明に現れる顧客層（詳細は独立確認前）: from California, USA",
-      "painRelief": "公開説明が示す課題に対する提供内容: Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start a business? It can be complicated, expensive, and time consuming. We provide a meaningful business opportunity th..."
-    },
-    "opportunityJudgment": {
-      "verdict": "ENTRY_CANDIDATE",
-      "verdictLabel": "報告値を保持して追加照合",
-      "oneLineReason": "公開ソースに具体的な金額シグナルと事業説明があるが、利益・継続性・再現性は独立照合前である。",
-      "demandDelta": "公開説明上の支払い需要シグナルあり（独立照合待ち）",
-      "competitionDelta": "競合比較は原本の記載範囲を超えて断定しない",
-      "entryRequirements": {
-        "capital": "原価・販売条件の実測が必要",
-        "technicalDifficulty": "UNKNOWN",
-        "platformRisk": "MEDIUM"
-      }
-    },
-    "evidenceCards": [
-      {
-        "id": "ent_photoboothsupply_dd749843b230_finance",
-        "type": "SMOKING_GUN",
-        "title": "報告された売上・収益シグナル",
-        "badge": "SOURCE_REPORTED",
-        "evidenceStatus": "REPORTED",
-        "punchline": "USD 500,000/month (revenue/mo display; independently unverified)。利益・手残りは独立確認していない。",
-        "details": [
-          "$500K revenue/mo",
-          "原本上の金額をreportedMetricsへ転記し、P&Lとは分離した。",
-          "公開された金額は報告値であり、財務諸表・決済口座・税務資料の独立監査は行っていない。",
-          "原価、広告費、外注費、税、営業利益、純利益、手残りはP&Lへ推定投入していない。"
-        ],
-        "metrics": [
-          {
-            "label": "原文金額",
-            "value": "$500K",
-            "isHighlight": true
-          },
-          {
-            "label": "財務状態",
-            "value": "REPORTED / P&L未確定"
-          }
-        ],
-        "sourceClass": "INDEPENDENT_SECONDARY",
-        "sourceUrl": "https://www.starterstory.com/stories/photobooth",
-        "evidenceLocator": {
-          "type": "html",
-          "textHash": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203"
-        }
-      },
-      {
-        "id": "ent_photoboothsupply_dd749843b230_mechanism",
-        "type": "LOOT_BLUEPRINT",
-        "title": "提供形態と支払導線の観測",
-        "badge": "BUSINESS_MECHANISM",
-        "evidenceStatus": "REPORTED",
-        "punchline": "公開ストーリーの事業説明、創業者情報、revenue/mo表示を同じ原本から抽出し、売上表示を利益から分離する。",
-        "details": [
-          "Embracing the Experience Economy with a $300K/mo Photo Booth Startup - Starter Story",
-          "Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start a business? It can be complicated, expensive, and time consuming. We provide a meaningful business opportunity th...",
-          "創業者・回答者: Brandon Wong"
-        ],
-        "metrics": [
-          {
-            "label": "情報源",
-            "value": "Starter Story"
-          },
-          {
-            "label": "観測日",
-            "value": "2026-09-16"
-          }
-        ],
-        "sourceClass": "INDEPENDENT_SECONDARY",
-        "sourceUrl": "https://www.starterstory.com/stories/photobooth",
-        "evidenceLocator": {
-          "type": "html",
-          "textHash": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203"
-        }
-      },
-      {
-        "id": "ent_photoboothsupply_dd749843b230_raw",
-        "type": "UNKNOWN_AUDIT",
-        "title": "原本保存と到達性の監査票",
-        "badge": "RAW_RECEIPT",
-        "evidenceStatus": "VERIFIED",
-        "punchline": "取得原本をSHA-256キーで保存し、読み戻し結果を監査票へ記録した。これは財務内容の真実性を保証しない。",
-        "details": [
-          "raw hash: da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
-          "R2: foundation-raw/blobs/sha256/da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
-          "bytes: 503744; readback: true",
-          "公式URL HTTP: 200"
-        ],
-        "metrics": [
-          {
-            "label": "原本SHA-256",
-            "value": "da862f33b165474b…",
-            "isHighlight": true
-          },
-          {
-            "label": "公式URL",
-            "value": "HTTP 200"
-          }
-        ],
-        "sourceClass": "INDEPENDENT_SECONDARY",
-        "sourceUrl": "https://photoboothsupplyco.com",
-        "evidenceLocator": {
-          "type": "html",
-          "textHash": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203"
-        }
-      }
-    ],
-    "temporal": {
-      "foundedYear": 2013,
-      "initialTractionPeriod": "原本記載の開始時期: started March 2013",
-      "dataSnapshotPeriod": "2026-09-16取得。公開日=2018-09-11T00:00:00+00:00; 更新日=2025-03-26T12:15:37+00:00",
-      "viabilityStatus": "UNKNOWN",
-      "viabilityLabel": "現在の再現性は追加照合待ち",
-      "eraContext": "公開インタビュー・公開ストーリー・公開ディレクトリが事業説明と報告値を掲載する環境。",
-      "currentViabilityAnalysis": "報告値は観測できるが、現在の稼働、利益定義、顧客継続、規制境界、原価配管は独立資料で確認する必要がある。"
-    },
-    "observations": [
-      "Starter Story公開ストーリーの原本を2026-09-16に取得した。",
-      "事業名: Photobooth Supply...。公開金額: $500K",
-      "事業説明: Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start a business? It can be complicated, expensive, and time consuming. We provide a meaningful business opportunity th...",
-      "原本SHA-256: da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
-      "公開された金額は報告値であり、財務諸表・決済口座・税務資料の独立監査は行っていない。",
-      "原価、広告費、外注費、税、営業利益、純利益、手残りはP&Lへ推定投入していない。",
-      "価格、継続率、解約率、顧客数、技術スタック、紹介報酬、契約条件は原本で確認できる範囲に限った。",
-      "公式URLのHTTP到達性は事業の利益や継続性を証明しない。"
-    ],
-    "observationsStream": [
-      {
-        "id": "ent_photoboothsupply_dd749843b230_reported",
-        "category": "MARKET_DISTORTION",
-        "categoryLabel": "報告値",
-        "originType": "reported",
-        "verificationStatus": "SUPPORTED",
-        "text": "Starter Story公開ストーリーに「$500K」の金額シグナルが記載されている。",
-        "sourceUrl": "https://www.starterstory.com/stories/photobooth",
-        "observedAt": "2026-09-16",
-        "sourceClass": "INDEPENDENT_SECONDARY",
-        "evidenceLocator": {
-          "type": "html",
-          "textHash": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203"
-        }
-      },
-      {
-        "id": "ent_photoboothsupply_dd749843b230_mechanism",
-        "category": "SAVANNAH_PAIN",
-        "categoryLabel": "支払課題",
-        "originType": "reported",
-        "verificationStatus": "UNVERIFIED",
-        "text": "公開説明が示す支払課題: Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start a business? It can be complicated, expensive, and time consuming. We provide a meaningful business opportunity th...",
-        "sourceUrl": "https://www.starterstory.com/stories/photobooth",
-        "observedAt": "2026-09-16",
-        "sourceClass": "INDEPENDENT_SECONDARY",
-        "evidenceLocator": {
-          "type": "html",
-          "textHash": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203"
-        }
-      },
-      {
-        "id": "ent_photoboothsupply_dd749843b230_limit",
-        "category": "RESEARCH_LIMIT",
-        "categoryLabel": "未照合範囲",
-        "originType": "observed",
-        "verificationStatus": "UNVERIFIED",
-        "text": "利益・原価・継続性・手残りは独立資料で照合していない。",
-        "sourceUrl": "https://www.starterstory.com/stories/photobooth",
-        "observedAt": "2026-09-16",
-        "sourceClass": "INDEPENDENT_SECONDARY",
-        "evidenceLocator": {
-          "type": "html",
-          "textHash": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203"
-        }
-      }
-    ],
-    "lootBlueprint": {
-      "targetPrey": "公開説明が示す「Hello! Who are you and what are you working on?Hello! I’m Brandon Wong, the CEO and part of the husband and wife team that started Photobooth Supply Co. Trying to start a business? It can be complicated, expensive, and time consuming. We provide a meaningful business opportunity th...」に対する支払課題。具体的な顧客の意思決定理由は原文の範囲を超えて断定しない。",
-      "structuralFlaw": "公開説明が示す課題に対して対価が発生している事実を記録する。ただし、競合の弱点や支払者の心理は原本だけでは確定しない。",
-      "stealthEntry": "公開ストーリーの事業説明、創業者情報、revenue/mo表示を同じ原本から抽出し、売上表示を利益から分離する。",
-      "tollGateSetup": "金額表示・提供条件・原価・継続条件を分離記録し、報告売上を利益や自由資金へ読み替えない。",
-      "reproducibilityScore": 0,
-      "moatDurabilityScore": 0,
-      "capitalEfficiencyScore": 0,
-      "executionChecklist": [
-        "公開ソースの金額、期間、売上・利益区分を原文どおり保存する。",
-        "顧客獲得、供給、人件費、広告、決済、返品またはサポートの配管を独立資料で照合する。",
-        "公式URLの提供実体を確認し、確認できない項目は推測せず未確認として残す。"
-      ]
-    },
-    "timelineEvents": [
-      {
-        "eventType": "BUSINESS_STARTED_REPORTED",
-        "occurredAt": "2013",
-        "description": "原本の事業開始年欄に記載された値。"
-      },
-      {
-        "eventType": "SOURCE_PUBLISHED",
-        "occurredAt": "2018-09-11T00:00:00+00:00",
-        "description": "Starter Story source publication date."
-      },
-      {
-        "eventType": "SOURCE_CAPTURED",
-        "occurredAt": "2026-09-16",
-        "description": "原本取得・SHA-256計算・R2読み戻しを実施。"
-      }
-    ],
-    "coverageAudit": [
-      {
-        "dimension": "reported_revenue",
-        "status": "found",
-        "note": "$500K",
-        "attempts": [
-          "https://www.starterstory.com/stories/photobooth"
-        ]
-      },
-      {
-        "dimension": "profit_and_costs",
-        "status": "attempted_unavailable",
-        "note": "P&Lへ確定投入できる原価・経費・利益の一次根拠なし。",
-        "attempts": [
-          "https://www.starterstory.com/stories/photobooth"
-        ]
-      },
-      {
-        "dimension": "official_presence",
-        "status": "found",
-        "note": "HTTP 200; Photobooth Supply Co: Start Your Photo Booth Business",
-        "attempts": [
-          "https://photoboothsupplyco.com"
-        ]
-      },
-      {
-        "dimension": "founder_and_legal_entity",
-        "status": "found",
-        "note": "Brandon Wong",
-        "attempts": [
-          "https://www.starterstory.com/stories/photobooth"
-        ]
-      },
-      {
-        "dimension": "pricing_and_retention",
-        "status": "attempted_unavailable",
-        "note": "料金・継続率・解約条件は独立確認していない。",
-        "attempts": [
-          "https://www.starterstory.com/stories/photobooth",
-          "https://photoboothsupplyco.com"
-        ]
-      },
-      {
-        "dimension": "technology_and_tools",
-        "status": "attempted_unavailable",
-        "note": "技術スタックと実在ツールは原本の記載範囲を超えて推測していない。",
-        "attempts": [
-          "https://www.starterstory.com/stories/photobooth",
-          "https://photoboothsupplyco.com"
-        ]
-      }
-    ],
-    "unknownsNotes": [
-      "公開された金額は報告値であり、財務諸表・決済口座・税務資料の独立監査は行っていない。",
-      "原価、広告費、外注費、税、営業利益、純利益、手残りはP&Lへ推定投入していない。",
-      "価格、継続率、解約率、顧客数、技術スタック、紹介報酬、契約条件は原本で確認できる範囲に限った。",
-      "公式URLのHTTP到達性は事業の利益や継続性を証明しない。"
-    ],
-    "reportedMetrics": [
-      {
-        "original": "$500K",
-        "currency": "USD",
-        "amount": 500000,
-        "unit": "MONTHLY_REVENUE",
-        "source": "starter_story_story_page",
-        "context": "revenue/mo display"
-      },
-      {
-        "original": "10",
-        "amount": 10,
-        "unit": "TEAM_SIZE",
-        "source": "starter_story",
-        "context": "reported overview team field"
-      }
-    ],
-    "sourceMetadata": {
-      "provider": "Starter Story",
-      "sourceType": "business_story",
-      "sourceUrl": "https://www.starterstory.com/stories/photobooth",
-      "officialUrl": "https://photoboothsupplyco.com",
-      "publishedAt": "2018-09-11T00:00:00+00:00",
-      "modifiedAt": "2025-03-26T12:15:37+00:00",
-      "observedAt": "2026-09-16",
-      "rawContentSha256": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
-      "rawStorage": {
-        "bucket": "foundation-raw",
-        "payloadKey": "blobs/sha256/da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
-        "bytes": 503744,
-        "sha256": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
-        "status": "CREATED",
-        "readbackVerified": true
-      },
-      "officialAudit": {
-        "status": 200,
-        "finalUrl": "https://photoboothsupplyco.com/",
-        "title": "Photobooth Supply Co: Start Your Photo Booth Business",
-        "checkedAt": "2026-09-16"
-      },
-      "disclosure": "公開ソースの金額は研究・推定・自己申告またはディレクトリ表示を含み、独立検証済み財務諸表ではない。"
-    },
-    "claimBindings": [],
-    "publishability": "PARTIAL",
-    "screening": {
-      "qualificationStatus": "SOURCE_REPORTED_MONEY_CASE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
-      "sourceProvider": "Starter Story",
-      "reportedMoneySignal": "$500K",
-      "independentFinancialVerification": false,
-      "backgroundAndScaleCaveat": "公開ソースの事業説明と金額シグナルを保存した候補。利益・自立性は未確定。"
-    },
-    "batchId": "batch-founderstory-mix-new100z-20260916"
-  },
-  {
     "id": "ent_quieton_887a199ab8ca",
     "ticker": "SS887A199A",
     "name": "Quieton",
@@ -42300,6 +41877,429 @@
       "qualificationStatus": "SOURCE_REPORTED_MONEY_CASE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
       "sourceProvider": "Starter Story",
       "reportedMoneySignal": "$292K",
+      "independentFinancialVerification": false,
+      "backgroundAndScaleCaveat": "公開ソースの事業説明と金額シグナルを保存した候補。利益・自立性は未確定。"
+    },
+    "batchId": "batch-founderstory-mix-new100z-20260916"
+  },
+  {
+    "id": "ent_brightlocal_3d0ff1220bf9",
+    "ticker": "SS3D0FF122",
+    "name": "BrightLocal",
+    "legalEntity": "UNKNOWN (公開ソースで法人名を独立確認していない)",
+    "tagline": "「Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that h…」に対し、USD 2,740,000/month (revenue/mo display; independently unverified)を公開報告。利益と手残りは未確認。",
+    "sector": "NICHE_SAAS",
+    "scale": "ENTERPRISE",
+    "founder": "Myles Anderson",
+    "country": "GB",
+    "url": "https://brightlocal.com",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "公開ソースでは実装方式を独立確認していない。",
+    "pipelineStack": "公開ソースでは技術スタックを独立確認していない。",
+    "targetPainWallet": "公開説明が示す「Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that helps marketers become brilliant at local SEO. We did this through a combination of intuitive software, done-for-you se...」に対する支払課題。具体的な顧客の意思決定理由は原文の範囲を超えて断定しない。",
+    "tags": [
+      "Starter Story公開ストーリー",
+      "SOURCE_REPORTED_REVENUE",
+      "FINANCIAL_PROFIT_UNKNOWN",
+      "RAW_CAPTURED_R2",
+      "TEAM_SIZE_REPORTED",
+      "OFFICIAL_URL_REACHABLE",
+      "REVENUE_PER_MONTH_DISPLAY"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 Starter Story source capture",
+      "sourceDoc": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2"
+      },
+      "estimationLogic": "金額は報告シグナルとしてreportedMetricsへ保存し、期間・原価・利益定義が揃わないためP&Lの数値は0かつ未確認フラグを維持した。",
+      "revenueLabel": "USD 2,740,000/month (revenue/mo display; independently unverified)",
+      "confidenceScore": 0,
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "operations": {
+      "teamSize": 180,
+      "initialTeamSize": 0,
+      "currentTeamSize": 180,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "Starter Story公開ストーリー",
+        "公式URL到達性監査"
+      ],
+      "toolStack": [
+        {
+          "name": "UNKNOWN (source text did not identify tools)",
+          "category": "UNCONFIRMED",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "The captured source does not identify the operational tools; no tool is inferred.",
+          "replacementDifficulty": "MEDIUM"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】公開ストーリーの事業説明、創業者情報、revenue/mo表示を同じ原本から抽出し、売上表示を利益から分離する。競合比較と大手の参入判断は原本に記載された範囲を超えて断定しない。",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】継続率、独自データ、供給制約、ブランド優位、規模効果のどれが利益を守るかは原本だけでは確定できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の参入制約は独立資料で照合していない。",
+      "secretInsight": "【金額の境界】USD 2,740,000/month (revenue/mo display; independently unverified)は支払実績を示す報告シグナルだが、原価を引いた創業者の手残りではない。",
+      "initialTraction": [
+        "公開日: 2021-10-30T00:00:00+00:00",
+        "回答者・創業者欄: Myles Anderson",
+        "最初の顧客獲得経路は原本に記載された範囲を超えて断定しない。"
+      ],
+      "actionPlaybook": [
+        "原本の提供説明を顧客課題・価格・契約条件へ分解し、報告値と実測値を別帳簿で照合する。",
+        "原価、広告、外注、決済、税、創業者報酬を取得するまで手残り率を算出しない。",
+        "公式URLの提供実体とsource pageの事業名を同一IDで保全し、差異があれば追加調査へ戻す。"
+      ],
+      "coldOutreachTemplate": "公開インタビューにある提供内容について、売上と原価を分けて確認できる資料があるか尋ねる。"
+    },
+    "essence": {
+      "whatItDoes": "Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that helps marketers become brilliant at local SEO. We did this through a combination of intuitive software, done-for-you se...",
+      "targetCustomer": "原本の所在地・事業説明に現れる顧客層（詳細は独立確認前）: from Brighton, UK",
+      "painRelief": "公開説明が示す課題に対する提供内容: Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that helps marketers become brilliant at local SEO. We did this through a combination of intuitive software, done-for-you se..."
+    },
+    "opportunityJudgment": {
+      "verdict": "ENTRY_CANDIDATE",
+      "verdictLabel": "報告値を保持して追加照合",
+      "oneLineReason": "公開ソースに具体的な金額シグナルと事業説明があるが、利益・継続性・再現性は独立照合前である。",
+      "demandDelta": "公開説明上の支払い需要シグナルあり（独立照合待ち）",
+      "competitionDelta": "競合比較は原本の記載範囲を超えて断定しない",
+      "entryRequirements": {
+        "capital": "原価・販売条件の実測が必要",
+        "technicalDifficulty": "UNKNOWN",
+        "platformRisk": "MEDIUM"
+      }
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_brightlocal_3d0ff1220bf9_finance",
+        "type": "SMOKING_GUN",
+        "title": "報告された売上・収益シグナル",
+        "badge": "SOURCE_REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "USD 2,740,000/month (revenue/mo display; independently unverified)。利益・手残りは独立確認していない。",
+        "details": [
+          "$2.74M revenue/mo",
+          "原本上の金額をreportedMetricsへ転記し、P&Lとは分離した。",
+          "公開された金額は報告値であり、財務諸表・決済口座・税務資料の独立監査は行っていない。",
+          "原価、広告費、外注費、税、営業利益、純利益、手残りはP&Lへ推定投入していない。"
+        ],
+        "metrics": [
+          {
+            "label": "原文金額",
+            "value": "$2.74M",
+            "isHighlight": true
+          },
+          {
+            "label": "財務状態",
+            "value": "REPORTED / P&L未確定"
+          }
+        ],
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "sourceUrl": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2"
+        }
+      },
+      {
+        "id": "ent_brightlocal_3d0ff1220bf9_mechanism",
+        "type": "LOOT_BLUEPRINT",
+        "title": "提供形態と支払導線の観測",
+        "badge": "BUSINESS_MECHANISM",
+        "evidenceStatus": "REPORTED",
+        "punchline": "公開ストーリーの事業説明、創業者情報、revenue/mo表示を同じ原本から抽出し、売上表示を利益から分離する。",
+        "details": [
+          "We Bootstrapped A Local SEO Tool To $9M ARR - Starter Story",
+          "Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that helps marketers become brilliant at local SEO. We did this through a combination of intuitive software, done-for-you se...",
+          "創業者・回答者: Myles Anderson"
+        ],
+        "metrics": [
+          {
+            "label": "情報源",
+            "value": "Starter Story"
+          },
+          {
+            "label": "観測日",
+            "value": "2026-09-16"
+          }
+        ],
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "sourceUrl": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2"
+        }
+      },
+      {
+        "id": "ent_brightlocal_3d0ff1220bf9_raw",
+        "type": "UNKNOWN_AUDIT",
+        "title": "原本保存と到達性の監査票",
+        "badge": "RAW_RECEIPT",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "取得原本をSHA-256キーで保存し、読み戻し結果を監査票へ記録した。これは財務内容の真実性を保証しない。",
+        "details": [
+          "raw hash: f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+          "R2: foundation-raw/blobs/sha256/f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+          "bytes: 491163; readback: true",
+          "公式URL HTTP: 200"
+        ],
+        "metrics": [
+          {
+            "label": "原本SHA-256",
+            "value": "f72bcad509c09e54…",
+            "isHighlight": true
+          },
+          {
+            "label": "公式URL",
+            "value": "HTTP 200"
+          }
+        ],
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "sourceUrl": "https://brightlocal.com",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2"
+        }
+      }
+    ],
+    "temporal": {
+      "foundedYear": 2009,
+      "initialTractionPeriod": "原本記載の開始時期: started November 2009",
+      "dataSnapshotPeriod": "2026-09-16取得。公開日=2021-10-30T00:00:00+00:00; 更新日=2026-08-31T08:02:35+00:00",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の再現性は追加照合待ち",
+      "eraContext": "公開インタビュー・公開ストーリー・公開ディレクトリが事業説明と報告値を掲載する環境。",
+      "currentViabilityAnalysis": "報告値は観測できるが、現在の稼働、利益定義、顧客継続、規制境界、原価配管は独立資料で確認する必要がある。"
+    },
+    "observations": [
+      "Starter Story公開ストーリーの原本を2026-09-16に取得した。",
+      "事業名: BrightLocal。公開金額: $2.74M",
+      "事業説明: Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that helps marketers become brilliant at local SEO. We did this through a combination of intuitive software, done-for-you se...",
+      "原本SHA-256: f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+      "公開された金額は報告値であり、財務諸表・決済口座・税務資料の独立監査は行っていない。",
+      "原価、広告費、外注費、税、営業利益、純利益、手残りはP&Lへ推定投入していない。",
+      "価格、継続率、解約率、顧客数、技術スタック、紹介報酬、契約条件は原本で確認できる範囲に限った。",
+      "公式URLのHTTP到達性は事業の利益や継続性を証明しない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_brightlocal_3d0ff1220bf9_reported",
+        "category": "MARKET_DISTORTION",
+        "categoryLabel": "報告値",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "Starter Story公開ストーリーに「$2.74M」の金額シグナルが記載されている。",
+        "sourceUrl": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+        "observedAt": "2026-09-16",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2"
+        }
+      },
+      {
+        "id": "ent_brightlocal_3d0ff1220bf9_mechanism",
+        "category": "SAVANNAH_PAIN",
+        "categoryLabel": "支払課題",
+        "originType": "reported",
+        "verificationStatus": "UNVERIFIED",
+        "text": "公開説明が示す支払課題: Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that helps marketers become brilliant at local SEO. We did this through a combination of intuitive software, done-for-you se...",
+        "sourceUrl": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+        "observedAt": "2026-09-16",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2"
+        }
+      },
+      {
+        "id": "ent_brightlocal_3d0ff1220bf9_limit",
+        "category": "RESEARCH_LIMIT",
+        "categoryLabel": "未照合範囲",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "利益・原価・継続性・手残りは独立資料で照合していない。",
+        "sourceUrl": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+        "observedAt": "2026-09-16",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2"
+        }
+      }
+    ],
+    "lootBlueprint": {
+      "targetPrey": "公開説明が示す「Hello! Who are you, and what business did you start?Hi! I’m Myles Anderson, co-founder, and CEO of BrightLocal. Brightlocal is a B2B software and services company that helps marketers become brilliant at local SEO. We did this through a combination of intuitive software, done-for-you se...」に対する支払課題。具体的な顧客の意思決定理由は原文の範囲を超えて断定しない。",
+      "structuralFlaw": "公開説明が示す課題に対して対価が発生している事実を記録する。ただし、競合の弱点や支払者の心理は原本だけでは確定しない。",
+      "stealthEntry": "公開ストーリーの事業説明、創業者情報、revenue/mo表示を同じ原本から抽出し、売上表示を利益から分離する。",
+      "tollGateSetup": "金額表示・提供条件・原価・継続条件を分離記録し、報告売上を利益や自由資金へ読み替えない。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "公開ソースの金額、期間、売上・利益区分を原文どおり保存する。",
+        "顧客獲得、供給、人件費、広告、決済、返品またはサポートの配管を独立資料で照合する。",
+        "公式URLの提供実体を確認し、確認できない項目は推測せず未確認として残す。"
+      ]
+    },
+    "timelineEvents": [
+      {
+        "eventType": "BUSINESS_STARTED_REPORTED",
+        "occurredAt": "2009",
+        "description": "原本の事業開始年欄に記載された値。"
+      },
+      {
+        "eventType": "SOURCE_PUBLISHED",
+        "occurredAt": "2021-10-30T00:00:00+00:00",
+        "description": "Starter Story source publication date."
+      },
+      {
+        "eventType": "SOURCE_CAPTURED",
+        "occurredAt": "2026-09-16",
+        "description": "原本取得・SHA-256計算・R2読み戻しを実施。"
+      }
+    ],
+    "coverageAudit": [
+      {
+        "dimension": "reported_revenue",
+        "status": "found",
+        "note": "$2.74M",
+        "attempts": [
+          "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr"
+        ]
+      },
+      {
+        "dimension": "profit_and_costs",
+        "status": "attempted_unavailable",
+        "note": "P&Lへ確定投入できる原価・経費・利益の一次根拠なし。",
+        "attempts": [
+          "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr"
+        ]
+      },
+      {
+        "dimension": "official_presence",
+        "status": "found",
+        "note": "HTTP 200; BrightLocal - Local SEO Platform, Citations, Services, and APIs",
+        "attempts": [
+          "https://brightlocal.com"
+        ]
+      },
+      {
+        "dimension": "founder_and_legal_entity",
+        "status": "found",
+        "note": "Myles Anderson",
+        "attempts": [
+          "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr"
+        ]
+      },
+      {
+        "dimension": "pricing_and_retention",
+        "status": "attempted_unavailable",
+        "note": "料金・継続率・解約条件は独立確認していない。",
+        "attempts": [
+          "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+          "https://brightlocal.com"
+        ]
+      },
+      {
+        "dimension": "technology_and_tools",
+        "status": "attempted_unavailable",
+        "note": "技術スタックと実在ツールは原本の記載範囲を超えて推測していない。",
+        "attempts": [
+          "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+          "https://brightlocal.com"
+        ]
+      }
+    ],
+    "unknownsNotes": [
+      "公開された金額は報告値であり、財務諸表・決済口座・税務資料の独立監査は行っていない。",
+      "原価、広告費、外注費、税、営業利益、純利益、手残りはP&Lへ推定投入していない。",
+      "価格、継続率、解約率、顧客数、技術スタック、紹介報酬、契約条件は原本で確認できる範囲に限った。",
+      "公式URLのHTTP到達性は事業の利益や継続性を証明しない。"
+    ],
+    "reportedMetrics": [
+      {
+        "original": "$2.74M",
+        "currency": "USD",
+        "amount": 2740000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "starter_story_story_page",
+        "context": "revenue/mo display"
+      },
+      {
+        "original": "180",
+        "amount": 180,
+        "unit": "TEAM_SIZE",
+        "source": "starter_story",
+        "context": "reported overview team field"
+      }
+    ],
+    "sourceMetadata": {
+      "provider": "Starter Story",
+      "sourceType": "business_story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+      "officialUrl": "https://brightlocal.com",
+      "publishedAt": "2021-10-30T00:00:00+00:00",
+      "modifiedAt": "2026-08-31T08:02:35+00:00",
+      "observedAt": "2026-09-16",
+      "rawContentSha256": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+        "bytes": 491163,
+        "sha256": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.brightlocal.com/",
+        "title": "BrightLocal - Local SEO Platform, Citations, Services, and APIs",
+        "checkedAt": "2026-09-16"
+      },
+      "disclosure": "公開ソースの金額は研究・推定・自己申告またはディレクトリ表示を含み、独立検証済み財務諸表ではない。"
+    },
+    "claimBindings": [],
+    "publishability": "PARTIAL",
+    "screening": {
+      "qualificationStatus": "SOURCE_REPORTED_MONEY_CASE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "sourceProvider": "Starter Story",
+      "reportedMoneySignal": "$2.74M",
       "independentFinancialVerification": false,
       "backgroundAndScaleCaveat": "公開ソースの事業説明と金額シグナルを保存した候補。利益・自立性は未確定。"
     },

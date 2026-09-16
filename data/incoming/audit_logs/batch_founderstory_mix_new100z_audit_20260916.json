@@ -1,7 +1,7 @@
 {
   "batchId": "batch-founderstory-mix-new100z-20260916",
   "agentId": "codex-20260916-founderstory-new100z",
-  "capturedAt": "2026-09-16T04:16:38.244Z",
+  "capturedAt": "2026-09-16T04:41:27.472Z",
   "count": 100,
   "sourceCounts": {
     "Starter Story": 98,
@@ -1118,30 +1118,6 @@
         "payloadKey": "blobs/sha256/90ac7ca377814ad5c0383b1bd6432cdcc69a6568649146526d8105220af2bc3d",
         "bytes": 496564,
         "sha256": "90ac7ca377814ad5c0383b1bd6432cdcc69a6568649146526d8105220af2bc3d",
-        "status": "CREATED",
-        "readbackVerified": true
-      },
-      "claimed": true,
-      "claimedBy": "codex-20260916-founderstory-new100z",
-      "revenueSignal": "$500K"
-    },
-    {
-      "name": "Photobooth Supply...",
-      "provider": "Starter Story",
-      "sourceUrl": "https://www.starterstory.com/stories/photobooth",
-      "officialUrl": "https://photoboothsupplyco.com",
-      "sourceStatus": 200,
-      "officialAudit": {
-        "status": 200,
-        "finalUrl": "https://photoboothsupplyco.com/",
-        "title": "Photobooth Supply Co: Start Your Photo Booth Business",
-        "checkedAt": "2026-09-16"
-      },
-      "rawStorage": {
-        "bucket": "foundation-raw",
-        "payloadKey": "blobs/sha256/da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
-        "bytes": 503744,
-        "sha256": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
         "status": "CREATED",
         "readbackVerified": true
       },
@@ -2422,6 +2398,30 @@
       "claimed": true,
       "claimedBy": "codex-20260916-founderstory-new100z",
       "revenueSignal": "$292K"
+    },
+    {
+      "name": "BrightLocal",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-bootstrapped-a-local-seo-tool-to-9m-arr",
+      "officialUrl": "https://brightlocal.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.brightlocal.com/",
+        "title": "BrightLocal - Local SEO Platform, Citations, Services, and APIs",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+        "bytes": 491163,
+        "sha256": "f72bcad509c09e54f21b9fbce3512aa703098b77522168aef8f32ddbd9e08dd2",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$2.74M"
     }
   ],
   "guarantees": {
@@ -2432,5 +2432,19 @@
     "unknownFinancialFlags": true,
     "toolStackPresent": true,
     "evidenceCardsAtLeastThree": true
+  },
+  "repair": {
+    "performedAt": "2026-09-16T04:41:27.473Z",
+    "droppedFromBatch": [
+      {
+        "name": "Photobooth Supply...",
+        "provider": "Starter Story",
+        "reason": "quality boundary: non-target or unsafe/noisy directory case"
+      }
+    ],
+    "replacementCount": 1,
+    "fixedOfficialUrlNames": [],
+    "rawObjectsRetained": true,
+    "claimsRetainedForDroppedCases": true
   }
 }

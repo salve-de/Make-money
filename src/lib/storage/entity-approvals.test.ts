@@ -21,7 +21,7 @@ describe('D1 entity approval store', () => {
       updated: true,
     });
     expect(batch).toHaveBeenCalledTimes(1);
-    expect(batch.mock.calls[0][0]).toHaveLength(2);
+    expect(batch.mock.calls[0][0]).toHaveLength(1);
     expect(batch.mock.calls[0][0][0].sql).toContain('ON CONFLICT(entity_id) DO NOTHING');
   });
 
@@ -42,8 +42,8 @@ describe('D1 entity approval store', () => {
     expect(batch).not.toHaveBeenCalled();
   });
 
-  it('returns the canonical persisted overlay', async () => {
+  it('returns the canonical persisted overlay for supplied IDs', async () => {
     query.mockImplementation(async (_sql, _params, parseRow) => [parseRow!({ entityId: 'a' }), parseRow!({ entityId: 'b' })]);
-    await expect(listD1ApprovedEntityIds()).resolves.toEqual(['a', 'b']);
+    await expect(listD1ApprovedEntityIds(['a', 'b'])).resolves.toEqual(['a', 'b']);
   });
 });
