@@ -1,4 +1,4 @@
-> **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録（為替逆数、100倍誤爆、ID衝突、未確認フラグ、SaaS誤爆、#01〜#04手抜き・非表示等）の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。追加質問・手戻りゼロで自走完遂せよ。
+> **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録（為替逆数、100倍誤爆、ID衝突、未確認フラグ、SaaS誤爆、#01〜#04手抜き・非表示、大企業P&L個人SaaS上書き破壊、ビジュアル図表欠落等）の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./docs/DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./docs/GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./docs/architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。追加質問・手戻りゼロで自走完遂せよ。
 
 
 
@@ -80,8 +80,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
   - ⑤ **【外部AI過去重大やらかし事故リスト ＆ 厳格再発防止条項（二度と繰り返すな）】**:
     - **為替レート逆数掛けバグの完全撲滅**: （過去事故: TSMCでNTD/JPY=4.71477を誤って割り算し、売上規模を4倍狂わせた）。外貨から円換算する際は必ず「現地通貨額 × 為替レート＝日本円」で掛け算せよ。逆数で割るな。
     - **タグラインのケタ・単位誤爆の完全撲滅**: （過去事故: PayPalで年商4.96兆円をタグラインで「497兆円」と100倍誤表記した）。本文・タグライン・P&Lの数値単位（億円・兆円）の整合性を必ず事前照合せよ。
+    - **大企業・有報確定P&Lへの個人SaaS売上パース無差別適用の永久根絶**: （過去事故: キーエンスが月商245万円、トヨタが月商114万円に縮小破壊）。有報・SEC確定データや原本Lakeが存在する企業を小規模SaaS用のパーススクリプトで上書きすることは永久厳禁。原本データ不可侵とし、社員100名以上や大企業で月商5000万円未満などの規模不整合はCIで即Rejectせよ。
     - **既存ID・名称・Tickerの衝突完全回避**: （過去事故: 37signalsで`BASECAMP`、WeWorkで既存検死レコードと名称衝突）。同一企業で別切り口（検死版等）を記録する場合は `WeWork (2019破綻前夜検死)` のように名称・IDを完全一意化せよ。
-    - **未公開（UNAVAILABLE）時の未確認フラグ義務**: （過去事故: Mailchimp等の非公開企業でフラグ欠落）。財務未公開時は `isRevenueUnconfirmed: true`, `isMarginUnconfirmed: true` を漏れなく付与せよ。
+    - **未公開（UNAVAILABLE）時の未確認フラグ義務**: （過去事故: Mailchimp, 37signals等でフラグ欠落）。財務未公開時は `financialStatus: "UNAVAILABLE"`、`isRevenueUnconfirmed: true`, `isMarginUnconfirmed: true` などの未確認フラグを100%漏れなく付与せよ。架空数値を捏造して埋めるな。
+    - **ビジュアル図表群（React Flow配管図・EChartsサンキー図・TradingViewチャート・フライホイール）の退行防止**: UIリファクタリング時にテキスト要約に偏重してビジュアル図表を削除・埋没させるな。全13セクションの立体構造、表示切替モード、直通目次バーを常時維持せよ。
     - **スキーマ型完全遵守**: `operations`（`weeklyHours`, `initialCapitalRequired`, `automationLevel` と各 `is*Unconfirmed` フラグ）、`evidenceCards` 内の `evidenceStatus`（`REPORTED` / `POST_MORTEM`）、`observations` と `observationsStream` の型分離を厳格に遵守せよ。
 
 

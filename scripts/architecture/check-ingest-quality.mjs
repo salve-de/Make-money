@@ -356,6 +356,14 @@ for (const ent of entities) {
     }
   }
 
+  // G. 事故⑬防止：大企業・メガ企業P&Lの個人SaaSダミー破壊を物理遮断 (INCIDENT-2026-09-16-02)
+  const team = ent.operations?.teamSize || ent.operations?.currentTeamSize || 0;
+  if (p && p.financialStatus !== 'UNAVAILABLE' && p.financialStatus !== 'POST_MORTEM' && !p.isRevenueUnconfirmed) {
+    if (team >= 100 && typeof p.monthlyRevenue === 'number' && p.monthlyRevenue < 50000000) {
+      errors.push(`[PNL CORRUPTION DETECTED: Enterprise Revenue Collapse] "${ent.name}" has ${team} employees but monthlyRevenue is only ¥${p.monthlyRevenue.toLocaleString()} (under 50M yen). Enterprise P&L overwrite is strictly prohibited.`);
+    }
+  }
+
   const rawStr = JSON.stringify(ent);
   const FORBIDDEN_DISCLAIMERS = ['Indie Hackers表示', '報告値・利益ではない', '掲載タグラインが示す課題', '防御要因は未確認'];
   for (const d of FORBIDDEN_DISCLAIMERS) {
