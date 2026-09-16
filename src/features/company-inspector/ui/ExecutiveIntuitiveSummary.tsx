@@ -1,6 +1,5 @@
 import { legacyText, legacyNumber } from '../model/legacy-fields';
 import React from 'react';
-import { Building2, Flame } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 function stripLeadingEntityName(text: string, name?: string, legalEntity?: string, founder?: string): string {
@@ -22,7 +21,7 @@ export function ExecutiveIntuitiveSummary({
   isHazardMode,
   formatMoney,
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'formatMoney'>) {
-  // 1. 最上段の一撃フック（白太字・最大視覚強度）
+  // 1. 最上段のエレベーター・シシス（事業の本質）
   const strongHeadline = stripLeadingEntityName(
     entity.tagline || entity.essence?.whatItDoes || '',
     entity.name,
@@ -35,7 +34,7 @@ export function ExecutiveIntuitiveSummary({
   const targetCustomer = entity.essence?.targetCustomer?.trim() || '';
   const painRelief = entity.essence?.painRelief?.trim() || entity.targetPainWallet?.trim() || '';
 
-  // 3. どうやって儲けているのか（儲けのカラクリ）
+  // 3. どうやって儲けているのか（超過利潤の源泉）
   const monetization = legacyText(entity.essence, 'monetizationWay') || legacyText(entity, 'monetizationWay') || '';
   const rawMoat = entity.strategy?.moatDescription || legacyText(entity.strategy, 'moat') || legacyText(entity, 'coreMoatDescription') || entity.architecturePattern || '';
   const cleanedMoat = rawMoat.replace(/^【.*?】/g, '').trim();
@@ -50,7 +49,7 @@ export function ExecutiveIntuitiveSummary({
         ? targetCustomer.replace(/^.*?が直撃する顧客急所：/u, '')
         : '';
 
-  // 4. 冷徹な実績数字
+  // 4. 冷徹な実績数字（4大KPI）
   const monthlyRev = entity.pnl?.isRevenueUnconfirmed
     ? null
     : entity.pnl?.monthlyRevenue
@@ -65,7 +64,7 @@ export function ExecutiveIntuitiveSummary({
     ? null
     : `${entity.pnl.operatingMargin.toFixed(1)}%`;
 
-  // 立ち上げ初期人数 ＆ 組織規模（読者のサバンナOSを刺激する最重要キラーデータ）
+  // 組織規模
   const isSolo = entity.scale === 'SOLO' || entity.tags?.some(t => t.includes('1人') || t.includes('一人') || t.includes('ソロ'));
   const rawCurrentTeam = entity.operations?.currentTeamSize ?? entity.operations?.teamSize ?? legacyNumber(entity, 'teamSize');
   const currentTeamText = entity.operations?.isTeamSizeUnconfirmed
@@ -76,148 +75,160 @@ export function ExecutiveIntuitiveSummary({
         ? '1名'
         : '未確認';
 
+  // 主体ラベル
+  const operatorLabel = entity.founder
+    ? `主体: ${entity.founder}`
+    : entity.scale === 'SOLO'
+      ? '完全1人運営'
+      : entity.scale === 'SMALL_TEAM'
+        ? '少数精鋭'
+        : entity.scale === 'ENTERPRISE'
+          ? '大企業'
+          : '自立事業者';
+
   return (
-    <div id="section-summary" className="space-y-4 select-text">
+    <div id="section-summary" className="select-text">
       {/* ========================================================= */}
-      {/* 【最上段：一撃フック（ユーザー指定の絶対デザイン）】 */}
+      {/* 【PitchBook式 単一テアシード（マトリョーシカ箱の完全解体）】 */}
       {/* ========================================================= */}
-      <div className={`rounded-xl border p-4 sm:p-5 shadow-2xl relative overflow-hidden transition-all ${
+      <div className={`rounded-xl border overflow-hidden shadow-2xl transition-all ${
         isHazardMode
-          ? 'bg-gradient-to-r from-red-950/40 via-[#120B0E] to-[#0A0D14] border-red-500/40 shadow-[0_0_30px_rgba(239,68,68,0.08)]'
-          : 'bg-gradient-to-r from-[#0C1322] via-[#0E1626] to-[#080B10] border-cyan-500/40 shadow-[0_0_30px_rgba(6,182,212,0.08)]'
+          ? 'border-red-500/30 bg-[#0F0B0E]'
+          : 'border-white/[0.08] bg-[#0A0D15]'
       }`}>
-        <div className="flex items-start gap-3 relative z-10">
-          <div className="shrink-0 mt-0.5 p-2 rounded-lg bg-white/[0.05] border border-white/[0.1]">
-            {isHazardMode ? (
-              <Flame className="w-5 h-5 text-red-400" />
-            ) : (
-              <Building2 className="w-5 h-5 text-cyan-400" />
-            )}
+        {/* 1. エレベーター・シシス（事業の本質・白太字） */}
+        <div className="p-5 sm:p-6 border-b border-white/[0.06] bg-gradient-to-b from-white/[0.02] to-transparent">
+          <div className="flex items-center justify-between gap-3 mb-2.5">
+            <span className={`text-[10px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
+              isHazardMode
+                ? 'text-red-400 bg-red-950/40 border-red-500/30'
+                : 'text-zinc-300 bg-white/[0.04] border-white/[0.08]'
+            }`}>
+              {isHazardMode ? 'FATAL MECHANISM / 破綻の正体' : 'INVESTMENT THESIS / 事業の正体'}
+            </span>
+            <span className="text-[11px] font-mono text-zinc-400">
+              {operatorLabel}
+            </span>
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className={`text-[11px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
-                isHazardMode
-                  ? 'text-red-400 bg-red-950/50 border-red-500/30'
-                  : 'text-cyan-300 bg-cyan-950/50 border-cyan-500/30'
-              }`}>
-                {isHazardMode ? '【破綻の正体】' : '【正体】'}
-              </span>
-            </div>
-            <p className="text-sm sm:text-base md:text-lg font-bold text-white leading-snug tracking-wide">
-              {strongHeadline}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ========================================================= */}
-      {/* 【淡々とした明快な3大ブロック】 */}
-      {/* ========================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-        {/* ブロック1: 何をやっているのか */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#0A0D14] p-4 flex flex-col justify-between shadow-lg">
-          <div>
-            <div className="flex items-center justify-between gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
-                <h3 className="text-xs font-bold text-zinc-200 font-mono tracking-wider uppercase">
-                  1. 何をやっているのか（事業の正体）
-                </h3>
-              </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-950/60 border border-blue-500/30 text-blue-300 shrink-0">
-                {entity.founder ? `主体: ${entity.founder}` : entity.scale === 'SOLO' ? '完全1人運営' : entity.scale === 'SMALL_TEAM' ? '少数精鋭' : entity.scale === 'ENTERPRISE' ? '大企業' : '自立事業者'}
-              </span>
-            </div>
-            <p className="text-xs sm:text-[13.5px] text-zinc-100 leading-relaxed font-sans mb-3 font-semibold">
-              {whatItDoes}
-            </p>
-            {(targetCustomer || effectivePain) && (
-              <div className="space-y-1.5 pt-1">
-                {targetCustomer && (
-                  <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
-                    <strong className="text-blue-400 font-mono font-semibold">【誰の財布か（対象客）】:</strong>{' '}
-                    <span className="text-zinc-200">{targetCustomer}</span>
-                  </div>
-                )}
-                {effectivePain && (
-                  <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
-                    <strong className="text-amber-400 font-mono font-semibold">【直撃ペイン（客の痛み）】:</strong>{' '}
-                    <span className="text-zinc-200">{effectivePain}</span>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* ブロック2: どうやって儲けているのか（儲けのカラクリ） */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#0A0D14] p-4 flex flex-col justify-between shadow-lg">
-          <div>
-            <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
-              <span className={`w-2 h-2 rounded-full shrink-0 ${isHazardMode ? 'bg-red-400' : 'bg-emerald-400'}`} />
-              <h3 className="text-xs font-bold text-zinc-200 font-mono tracking-wider uppercase">
-                {isHazardMode ? '2. なぜ破綻したのか（死因の核心）' : '2. どうやって儲けているのか（儲けのカラクリ）'}
-              </h3>
-            </div>
-            <p className="text-xs sm:text-[13.5px] text-zinc-100 leading-relaxed font-sans mb-3 font-semibold">
-              {cleanedMoat || monetization || '独自のビジネスモデルと参入障壁によって競合を排除し超過利潤を確保'}
-            </p>
-            <div className="space-y-1.5 pt-1">
-              {incumbentDilemma && (
-                <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
-                  <strong className="text-cyan-400 font-mono font-semibold">【大手が真似できない理由】:</strong>{' '}
-                  <span className="text-zinc-300">{incumbentDilemma}</span>
-                </div>
-              )}
-              {monetization && monetization !== cleanedMoat && (
-                <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                  <strong className="text-emerald-400 font-mono font-semibold">【現金の抜き方（課金構造）】:</strong>{' '}
-                  <span className="text-zinc-300">{monetization}</span>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ブロック3: 実際の数字（冷徹な通信簿） */}
-      <div className="rounded-xl border border-white/[0.08] bg-[#070A0F] p-3.5 shadow-lg">
-        <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
-          <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-          <h3 className="text-[11px] font-bold text-zinc-200 font-mono tracking-wider uppercase">
-            3. 実際の数字（冷徹な通信簿）
+          <h3 className="text-base sm:text-lg md:text-xl font-bold text-white leading-snug tracking-tight font-sans">
+            {strongHeadline}
           </h3>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">月商規模</div>
-            <div className="text-xs sm:text-sm font-bold font-mono text-zinc-100 mt-0.5">
+        {/* 2. 4大KPI水平ストリップ（枠線なし・等間隔分割） */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.06] border-b border-white/[0.06] bg-[#07090F]">
+          <div className="p-3.5 sm:py-4 text-center">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-1">
+              月商規模
+            </span>
+            <span className="text-sm sm:text-base md:text-lg font-bold font-mono tabular-nums text-zinc-100">
               {monthlyRev || '未公開'}
-            </div>
+            </span>
           </div>
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">純手残り（営業利益）</div>
-            <div className={`text-xs sm:text-sm font-bold font-mono mt-0.5 ${
+          <div className="p-3.5 sm:py-4 text-center">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-1">
+              純手残り (営業利益)
+            </span>
+            <span className={`text-sm sm:text-base md:text-lg font-bold font-mono tabular-nums ${
               isHazardMode ? 'text-red-400' : 'text-emerald-400'
             }`}>
               {monthlyProfit || '未公開'}
-            </div>
+            </span>
           </div>
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">利益率</div>
-            <div className={`text-xs sm:text-sm font-bold font-mono mt-0.5 ${
+          <div className="p-3.5 sm:py-4 text-center">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-1">
+              営業利益率
+            </span>
+            <span className={`text-sm sm:text-base md:text-lg font-bold font-mono tabular-nums ${
               isHazardMode ? 'text-red-400' : 'text-emerald-400'
             }`}>
               {margin || '未公開'}
-            </div>
+            </span>
           </div>
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">組織規模</div>
-            <div className="text-xs sm:text-sm font-bold font-mono text-zinc-200 mt-0.5">
+          <div className="p-3.5 sm:py-4 text-center">
+            <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-1">
+              組織規模
+            </span>
+            <span className="text-sm sm:text-base md:text-lg font-bold font-mono tabular-nums text-zinc-200">
               {currentTeamText}
+            </span>
+          </div>
+        </div>
+
+        {/* 3. デューデリジェンス2カラム調書（エディトリアルレイアウト） */}
+        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/[0.06]">
+          {/* 左カラム: 事業の正体 ＆ 顧客ペイン */}
+          <div className="p-5 space-y-4">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-1.5 font-semibold">
+                01. 提供ソリューション (WHAT IT DOES)
+              </span>
+              <p className="text-xs sm:text-[13px] text-zinc-100 leading-relaxed font-sans font-medium">
+                {whatItDoes}
+              </p>
             </div>
+
+            {(targetCustomer || effectivePain) && (
+              <div className="space-y-3 pt-3 border-t border-white/[0.04]">
+                {targetCustomer && (
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-0.5">
+                      対象顧客 (TARGET AUDIENCE)
+                    </span>
+                    <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                      {targetCustomer}
+                    </p>
+                  </div>
+                )}
+                {effectivePain && (
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400/90 block mb-0.5">
+                      直撃ペイン (CORE PAIN WALLET)
+                    </span>
+                    <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                      {effectivePain}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* 右カラム: 超過利潤の源泉 ＆ 課金構造 */}
+          <div className="p-5 space-y-4">
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-1.5 font-semibold">
+                {isHazardMode ? '02. 死因の核心 (FATAL BLEED)' : '02. 超過利潤の源泉 (COMPETITIVE MOAT)'}
+              </span>
+              <p className="text-xs sm:text-[13px] text-zinc-100 leading-relaxed font-sans font-medium">
+                {cleanedMoat || monetization || '独自のビジネスモデルと参入障壁によって競合を排除し超過利潤を確保'}
+              </p>
+            </div>
+
+            {(incumbentDilemma || (monetization && monetization !== cleanedMoat)) && (
+              <div className="space-y-3 pt-3 border-t border-white/[0.04]">
+                {incumbentDilemma && (
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400/90 block mb-0.5">
+                      大手が真似できない理由 (INCUMBENT DILEMMA)
+                    </span>
+                    <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                      {incumbentDilemma}
+                    </p>
+                  </div>
+                )}
+                {monetization && monetization !== cleanedMoat && (
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400/90 block mb-0.5">
+                      現金の抜き方 (MONETIZATION)
+                    </span>
+                    <p className="text-xs text-zinc-300 font-sans leading-relaxed">
+                      {monetization}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
