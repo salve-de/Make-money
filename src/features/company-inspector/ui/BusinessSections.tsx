@@ -48,16 +48,16 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
   return (
     <section id="section-essence" className="scroll-mt-4">
       {/* 統合調書サーフェス（コンサルティング・ファーム式 デューデリジェンス調書） */}
-      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
-        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      <div className={`rounded-md border bg-[#10131C] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.12]'
       }`}>
         {/* セクションヘッダー */}
         <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
-          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
         }`}>
           <div className="flex items-center gap-2.5">
             <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+              isHazardMode ? 'text-red-400' : 'text-zinc-300'
             }`}>
               STRATEGIC BLUEPRINT // {isHazardMode ? '破綻メカニズム・深層死因' : '構造DNA・非対称の堀'}
             </span>
@@ -68,9 +68,9 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
         </div>
 
         {/* 4項目 構造調書（ディバイダーで区切られたフラットなリスト形式） */}
-        <div className="divide-y divide-white/[0.06]">
+        <div className="divide-y divide-white/[0.08]">
           {/* 01: 突いた盲点 / 見落とした死角 */}
-          <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
+          <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.02] transition-colors">
             <div className="w-full md:w-48 shrink-0 space-y-1">
               <div className="flex items-center gap-2">
                 <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded ${
@@ -89,7 +89,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
             <div className="flex-1 min-w-0 space-y-1.5">
               {blindspotPunch && (
                 <h4 className={`text-xs font-semibold leading-snug ${
-                  isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                  isHazardMode ? 'text-red-200' : 'text-[#F4F5F7]'
                 }`}>
                   {blindspotPunch}
                 </h4>
@@ -101,7 +101,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
           </div>
 
           {/* 02: 参入障壁 / 崩壊した見せかけの堀 */}
-          <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
+          <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.02] transition-colors">
             <div className="w-full md:w-48 shrink-0 space-y-1">
               <div className="flex items-center gap-2">
                 <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded ${
@@ -125,7 +125,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
             <div className="flex-1 min-w-0 space-y-1.5">
               {moatPunch && (
                 <h4 className={`text-xs font-semibold leading-snug ${
-                  isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                  isHazardMode ? 'text-red-200' : 'text-[#F4F5F7]'
                 }`}>
                   {moatPunch}
                 </h4>
@@ -138,7 +138,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
 
           {/* 03: 大手の自爆 / 圧殺された理由 */}
           {dilemmaData && (
-            <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
+            <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.02] transition-colors">
               <div className="w-full md:w-48 shrink-0 space-y-1">
                 <div className="flex items-center gap-2">
                   <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded ${
@@ -157,7 +157,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
               <div className="flex-1 min-w-0 space-y-1.5">
                 {dilemmaPunch && (
                   <h4 className={`text-xs font-semibold leading-snug ${
-                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                    isHazardMode ? 'text-red-200' : 'text-[#F4F5F7]'
                   }`}>
                     {dilemmaPunch}
                   </h4>
@@ -171,7 +171,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
 
           {/* 04: 勝算の本質 / 慢心と盲信 */}
           {insightData && (
-            <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
+            <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.02] transition-colors">
               <div className="w-full md:w-48 shrink-0 space-y-1">
                 <div className="flex items-center gap-2">
                   <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded ${
@@ -190,7 +190,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
               <div className="flex-1 min-w-0 space-y-1.5">
                 {insightPunch && (
                   <h4 className={`text-xs font-semibold leading-snug ${
-                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                    isHazardMode ? 'text-red-200' : 'text-[#F4F5F7]'
                   }`}>
                     {insightPunch}
                   </h4>

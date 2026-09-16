@@ -57,16 +57,16 @@ export function FinancialSection({
   return (
     <section id="section-financial" className="scroll-mt-4">
       {/* 統合財務調書サーフェス */}
-      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
-        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      <div className={`rounded-md border bg-[#10131C] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.12]'
       }`}>
         {/* セクションヘッダー */}
         <div className={`flex items-center justify-between px-4 py-2.5 border-b gap-2 flex-wrap ${
-          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.08]'
         }`}>
           <div className="flex items-center gap-2">
             <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+              isHazardMode ? 'text-red-400' : 'text-zinc-300'
             }`}>
               FINANCIAL DOSSIER // {hasConflict ? '財務データ照合待ち' : `${financialBadgeMeta.title} ＆ P&L内訳`}
             </span>
@@ -75,7 +75,7 @@ export function FinancialSection({
           <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
             {entity.pnl.dataSnapshotPeriod && (
               <span className="flex items-center gap-1">
-                <Clock className="w-2.5 h-2.5 text-zinc-500" />
+                <Clock className="w-2.5 h-2.5 text-zinc-400" />
                 {entity.pnl.dataSnapshotPeriod}
               </span>
             )}
@@ -87,7 +87,7 @@ export function FinancialSection({
           </div>
         </div>
 
-        <div className="divide-y divide-white/[0.06]">
+        <div className="divide-y divide-white/[0.08]">
           {/* データ不整合アラート */}
           {(integrity.profitConflict || integrity.grossConflict || integrity.marginConflict || integrity.marginUndefined) && (
             <div role="note" className="text-xs text-amber-300 p-3 bg-amber-950/20 font-mono">
@@ -99,30 +99,30 @@ export function FinancialSection({
             </div>
           )}
 
-          {/* 1. 4大KPI水平ストリップ（等間隔バー） */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-white/[0.06] bg-white/[0.01]">
+          {/* 1. 4大KPI水平ストリップ（等間隔バー・白太字＋変化率アクセント） */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-white/[0.08] bg-[#0D1017]">
             <div className="p-3">
-              <span className="text-[10px] font-mono text-zinc-400 block uppercase">
+              <span className="text-[11px] font-mono text-zinc-400 block font-medium">
                 {financialStatus === 'ESTIMATED' ? '推定月商' : isHazardMode ? '直近月商' : '直近月商'}
               </span>
-              <span className="text-sm font-bold font-mono text-zinc-100 tabular-nums">
+              <span className="text-sm sm:text-base font-bold font-mono text-[#F4F5F7] tabular-nums">
                 {entity.pnl.isRevenueUnconfirmed ? '未確認' : formatMoney(entity.pnl.monthlyRevenue)}
               </span>
             </div>
             <div className="p-3">
-              <span className="text-[10px] font-mono text-zinc-400 block uppercase">
+              <span className="text-[11px] font-mono text-zinc-400 block font-medium">
                 {isHazardMode ? '営業損失' : '純手残り利益'}
               </span>
-              <span className={`text-sm font-bold font-mono tabular-nums ${
-                isHazardMode ? 'text-red-400' : 'text-emerald-400'
+              <span className={`text-sm sm:text-base font-bold font-mono tabular-nums ${
+                isHazardMode ? 'text-red-400' : 'text-[#F4F5F7]'
               }`}>
                 {(entity.pnl.isOperatingProfitUnconfirmed ?? entity.pnl.isMarginUnconfirmed) ? '未確認' : formatMoney(entity.pnl.operatingProfit)}
               </span>
             </div>
             <div className="p-3">
-              <span className="text-[10px] font-mono text-zinc-400 block uppercase">営業利益率</span>
-              <span className={`text-sm font-bold font-mono tabular-nums ${
-                isHazardMode ? 'text-red-400' : 'text-emerald-400'
+              <span className="text-[11px] font-mono text-zinc-400 block font-medium">営業利益率</span>
+              <span className={`text-sm sm:text-base font-bold font-mono tabular-nums ${
+                isHazardMode ? 'text-red-400' : 'text-[#10B981]'
               }`}>
                 {entity.pnl.isMarginUnconfirmed ? '未確認' : `${entity.pnl.operatingMargin}%`}
               </span>
@@ -262,12 +262,12 @@ export function FinancialSection({
 
           {/* 4. 会計スプレッドシート詳細テーブル */}
           <div className="p-4">
-            <div className="border border-white/[0.06] rounded divide-y divide-white/[0.04] text-xs font-mono bg-[#07090F]">
+            <div className="border border-white/[0.08] rounded divide-y divide-white/[0.06] text-xs font-mono bg-[#0D1017]">
               <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
                 <span className="text-zinc-200 font-bold">
                   {financialStatus === 'ESTIMATED' ? '推定月商 (Gross Revenue)' : isHazardMode ? '直近/ピーク月商' : '直近月商 (Gross Revenue)'}
                 </span>
-                <span className="text-white font-bold tabular-nums">
+                <span className="text-[#F4F5F7] font-bold tabular-nums">
                   {entity.pnl.isRevenueUnconfirmed ? '財務値未確認' : formatMoney(entity.pnl.monthlyRevenue)}
                 </span>
               </div>
@@ -277,12 +277,12 @@ export function FinancialSection({
               </div>
               <div className="p-2.5 flex justify-between items-center bg-white/[0.02]">
                 <span className="text-zinc-200 font-medium">粗利益 (Gross Profit: {entity.pnl.isGrossMarginUnconfirmed ? '未確認' : `${entity.pnl.grossMargin}%`})</span>
-                <span className="text-white font-medium tabular-nums">{grossProfitUnknown ? '未確認' : formatMoney(entity.pnl.grossProfit)}</span>
+                <span className="text-[#F4F5F7] font-medium tabular-nums">{grossProfitUnknown ? '未確認' : formatMoney(entity.pnl.grossProfit)}</span>
               </div>
 
               {/* 販管費内訳 */}
               <div className="p-2.5 space-y-1 text-[11px] text-zinc-400">
-                <div className="text-[10px] text-zinc-500 uppercase font-bold">
+                <div className="text-[10px] text-zinc-400 uppercase font-bold">
                   販管費内訳 (OPEX)
                 </div>
                 <div className="flex justify-between pl-2">
@@ -311,13 +311,14 @@ export function FinancialSection({
               <div className={`p-3 flex justify-between items-center border-t ${
                 isHazardMode || entity.pnl.operatingProfit < 0
                   ? 'bg-red-950/20 border-red-500/20'
-                  : 'bg-emerald-950/20 border-white/[0.06]'
+                  : 'bg-[#131724] border-white/[0.08]'
               }`}>
-                <span className="text-white font-bold text-xs">
-                  {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業損失 (純流出)' : '純手残り営業利益 (税引前)'} ({entity.pnl.isMarginUnconfirmed ? '未確認' : `${entity.pnl.operatingMargin}%`})
+                <span className="text-zinc-200 font-bold text-xs">
+                  {isHazardMode || entity.pnl.operatingProfit < 0 ? '営業損失 (純流出)' : '純手残り営業利益 (税引前)'}
+                  <span className="text-emerald-400 ml-1.5 font-mono">({entity.pnl.isMarginUnconfirmed ? '未確認' : `${entity.pnl.operatingMargin}%`})</span>
                 </span>
                 <span className={`font-bold tabular-nums text-sm ${
-                  isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-emerald-400'
+                  isHazardMode || entity.pnl.operatingProfit < 0 ? 'text-red-400' : 'text-[#F4F5F7]'
                 }`}>
                   {(entity.pnl.isOperatingProfitUnconfirmed ?? entity.pnl.isMarginUnconfirmed) ? '未確認' : formatMoney(entity.pnl.operatingProfit)}/月
                 </span>

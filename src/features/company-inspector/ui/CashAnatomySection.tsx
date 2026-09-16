@@ -325,16 +325,16 @@ export function CashAnatomySection({
   return (
     <section id="section-cash-anatomy" className="scroll-mt-4">
       {/* 統合財務アナトミー調書サーフェス */}
-      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
-        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      <div className={`rounded-md border bg-[#10131C] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.12]'
       }`}>
         {/* セクションヘッダー ＆ 切替トグル */}
         <div className={`flex items-center justify-between px-4 py-2.5 border-b gap-2 flex-wrap ${
-          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
         }`}>
           <div className="flex items-center gap-2">
             <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+              isHazardMode ? 'text-red-400' : 'text-zinc-300'
             }`}>
               FINANCIAL ANATOMY // {isHazardMode ? '致死出血点 ＆ 赤字解剖' : '現金解剖 ＆ 損益レントゲン'}
             </span>
@@ -347,7 +347,7 @@ export function CashAnatomySection({
               onClick={() => setViewMode('WATERFALL')}
               className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
                 viewMode === 'WATERFALL'
-                  ? 'bg-white text-zinc-950 font-semibold'
+                  ? 'bg-white/[0.12] text-[#F4F5F7] font-semibold border border-white/[0.15]'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
@@ -358,7 +358,7 @@ export function CashAnatomySection({
               onClick={() => setViewMode('SANKEY')}
               className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
                 viewMode === 'SANKEY'
-                  ? 'bg-white text-zinc-950 font-semibold'
+                  ? 'bg-white/[0.12] text-[#F4F5F7] font-semibold border border-white/[0.15]'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
@@ -369,7 +369,7 @@ export function CashAnatomySection({
               onClick={() => setViewMode('TABLE')}
               className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
                 viewMode === 'TABLE'
-                  ? 'bg-white text-zinc-950 font-semibold'
+                  ? 'bg-white/[0.12] text-[#F4F5F7] font-semibold border border-white/[0.15]'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
@@ -379,30 +379,30 @@ export function CashAnatomySection({
         </div>
 
         {/* 4大KPI水平ストリップ（カードではなく等間隔バー） */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-white/[0.06] border-b border-white/[0.06] bg-white/[0.01]">
+        <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-white/[0.08] border-b border-white/[0.08] bg-[#131724]/20">
           <div className="p-3">
             <span className="text-[10px] font-mono text-zinc-400 block uppercase">月商規模</span>
-            <span className="text-sm font-bold font-mono text-zinc-100 tabular-nums">{formatMoney(rev)}</span>
+            <span className="text-sm font-bold font-mono text-[#F4F5F7] tabular-nums">{formatMoney(rev)}</span>
           </div>
           <div className="p-3">
             <span className="text-[10px] font-mono text-zinc-400 block uppercase">売上原価 (COGS)</span>
-            <span className="text-sm font-bold font-mono text-zinc-300 tabular-nums">
+            <span className="text-sm font-bold font-mono text-zinc-200 tabular-nums">
               {formatMoney(cogs)}
-              <span className="text-[10px] text-zinc-500 ml-1 font-normal">({actualCogsPct}%)</span>
+              <span className="text-[10px] text-zinc-400 ml-1 font-normal">({actualCogsPct}%)</span>
             </span>
           </div>
           <div className="p-3">
             <span className="text-[10px] font-mono text-zinc-400 block uppercase">月間販管費 (Opex)</span>
-            <span className="text-sm font-bold font-mono text-zinc-300 tabular-nums">
+            <span className="text-sm font-bold font-mono text-zinc-200 tabular-nums">
               {formatMoney(totalOpex)}
-              <span className="text-[10px] text-zinc-500 ml-1 font-normal">({opexPct}%)</span>
+              <span className="text-[10px] text-zinc-400 ml-1 font-normal">({opexPct}%)</span>
             </span>
           </div>
           <div className="p-3">
             <span className="text-[10px] font-mono text-zinc-400 block uppercase">営業利益 (純手残り)</span>
-            <span className={`text-sm font-bold font-mono tabular-nums ${isLoss ? 'text-red-400' : 'text-emerald-400'}`}>
+            <span className="text-sm font-bold font-mono tabular-nums text-[#F4F5F7]">
               {formatMoney(profit)}
-              <span className="text-[10px] ml-1">
+              <span className={`text-[10px] ml-1.5 font-semibold ${isLoss ? 'text-red-400' : 'text-emerald-400'}`}>
                 ({isLoss ? `-${actualProfitPct}%` : `+${actualProfitPct}%`})
               </span>
             </span>
@@ -411,60 +411,62 @@ export function CashAnatomySection({
 
         {/* メイン可視化コンテンツ */}
         <div className="p-4">
-
-      {/* メイン可視化コンテンツ */}
-      {viewMode === 'TABLE' ? (
-        <div className="rounded-lg border border-white/[0.08] overflow-hidden bg-[#07090F] font-mono text-xs">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="border-b border-white/[0.08] bg-white/[0.02] text-[10px] text-zinc-400">
-                <th className="py-2 px-3">勘定科目</th>
-                <th className="py-2 px-3 text-right">月次実額</th>
-                <th className="py-2 px-3 text-right">構成比</th>
-                <th className="py-2 px-3 text-left">内訳・正体</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/[0.04]">
-              <tr className="hover:bg-white/[0.02]">
-                <td className="py-2 px-3 font-bold text-white">① 売上高 (Revenue)</td>
-                <td className="py-2 px-3 text-right font-bold text-cyan-300">{formatMoney(rev)}</td>
-                <td className="py-2 px-3 text-right text-zinc-400">100.0%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">本業の総現金流入</td>
-              </tr>
-              <tr className="hover:bg-white/[0.02]">
-                <td className="py-2 px-3 text-rose-300">② 売上原価 (COGS)</td>
-                <td className="py-2 px-3 text-right text-rose-400">-{formatMoney(cogs)}</td>
-                <td className="py-2 px-3 text-right text-rose-400">{actualCogsPct}%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">仕入れ・API従量課金・直接インフラ</td>
-              </tr>
-              <tr className="bg-white/[0.02] font-bold">
-                <td className="py-2 px-3 text-sky-300">③ 売上総利益 (Gross Profit)</td>
-                <td className="py-2 px-3 text-right text-sky-300">{formatMoney(rev - cogs)}</td>
-                <td className="py-2 px-3 text-right text-sky-300">{100 - actualCogsPct}%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">粗利益（事業の本質的価格決定力）</td>
-              </tr>
-              <tr className="hover:bg-white/[0.02]">
-                <td className="py-2 px-3 text-amber-300">④ 販管費合計 (SGA / Opex)</td>
-                <td className="py-2 px-3 text-right text-amber-400">-{formatMoney(totalOpex)}</td>
-                <td className="py-2 px-3 text-right text-amber-400">{opexPct}%</td>
-                <td className="py-2 px-3 text-zinc-400 text-[11px]">
-                  サーバー {formatMoney(opexObj.serverAndApi || 0)} / 広告 {formatMoney(opexObj.advertising || 0)} / 外注 {formatMoney(opexObj.subcontracting || 0)} / ツール {formatMoney(opexObj.toolsAndSaaS || 0)}
-                </td>
-              </tr>
-              <tr className={`border-t-2 border-white/[0.15] font-black ${isLoss ? 'bg-red-950/20 text-red-300' : 'bg-emerald-950/20 text-emerald-300'}`}>
-                <td className="py-2.5 px-3 text-sm">⑤ 営業利益 (手残り現金)</td>
-                <td className="py-2.5 px-3 text-right text-sm">{formatMoney(profit)}</td>
-                <td className="py-2.5 px-3 text-right text-sm">{isLoss ? `-${actualProfitPct}%` : `+${actualProfitPct}%`}</td>
-                <td className="py-2.5 px-3 text-[11px] font-normal text-zinc-300">創業者口座への実質手残りキャッシュ</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      ) : (
-        <div className="w-full h-[260px] bg-[#07090F]/90 rounded border border-white/[0.08] relative overflow-hidden">
-          <div ref={chartRef} className="w-full h-full" />
-        </div>
-      )}
+          {viewMode === 'TABLE' ? (
+            <div className="rounded border border-white/[0.08] overflow-hidden bg-[#0D1017] font-mono text-xs">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-white/[0.08] bg-white/[0.02] text-[10px] text-zinc-400">
+                    <th className="py-2 px-3">勘定科目</th>
+                    <th className="py-2 px-3 text-right">月次実額</th>
+                    <th className="py-2 px-3 text-right">構成比</th>
+                    <th className="py-2 px-3 text-left">内訳・正体</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/[0.04]">
+                  <tr className="hover:bg-white/[0.02]">
+                    <td className="py-2 px-3 font-semibold text-[#F4F5F7]">① 売上高 (Revenue)</td>
+                    <td className="py-2 px-3 text-right font-bold text-[#F4F5F7] tabular-nums">{formatMoney(rev)}</td>
+                    <td className="py-2 px-3 text-right text-zinc-400 tabular-nums">100.0%</td>
+                    <td className="py-2 px-3 text-zinc-400 text-[11px]">本業の総現金流入</td>
+                  </tr>
+                  <tr className="hover:bg-white/[0.02]">
+                    <td className="py-2 px-3 text-zinc-300">② 売上原価 (COGS)</td>
+                    <td className="py-2 px-3 text-right text-zinc-200 tabular-nums">-{formatMoney(cogs)}</td>
+                    <td className="py-2 px-3 text-right text-zinc-400 tabular-nums">{actualCogsPct}%</td>
+                    <td className="py-2 px-3 text-zinc-400 text-[11px]">仕入れ・API従量課金・直接インフラ</td>
+                  </tr>
+                  <tr className="bg-white/[0.02] font-semibold">
+                    <td className="py-2 px-3 text-[#F4F5F7]">③ 売上総利益 (Gross Profit)</td>
+                    <td className="py-2 px-3 text-right text-[#F4F5F7] tabular-nums">{formatMoney(rev - cogs)}</td>
+                    <td className="py-2 px-3 text-right text-zinc-300 tabular-nums">{100 - actualCogsPct}%</td>
+                    <td className="py-2 px-3 text-zinc-400 text-[11px]">粗利益（事業の本質的価格決定力）</td>
+                  </tr>
+                  <tr className="hover:bg-white/[0.02]">
+                    <td className="py-2 px-3 text-zinc-300">④ 販管費合計 (SGA / Opex)</td>
+                    <td className="py-2 px-3 text-right text-zinc-200 tabular-nums">-{formatMoney(totalOpex)}</td>
+                    <td className="py-2 px-3 text-right text-zinc-400 tabular-nums">{opexPct}%</td>
+                    <td className="py-2 px-3 text-zinc-400 text-[11px]">
+                      サーバー {formatMoney(opexObj.serverAndApi || 0)} / 広告 {formatMoney(opexObj.advertising || 0)} / 外注 {formatMoney(opexObj.subcontracting || 0)} / ツール {formatMoney(opexObj.toolsAndSaaS || 0)}
+                    </td>
+                  </tr>
+                  <tr className={`border-t-2 border-white/[0.15] font-bold ${isLoss ? 'bg-red-950/20 text-red-200' : 'bg-white/[0.04] text-[#F4F5F7]'}`}>
+                    <td className="py-2.5 px-3 text-sm">⑤ 営業利益 (手残り現金)</td>
+                    <td className="py-2.5 px-3 text-right text-sm text-[#F4F5F7] tabular-nums">{formatMoney(profit)}</td>
+                    <td className="py-2.5 px-3 text-right text-sm tabular-nums">
+                      <span className={isLoss ? 'text-red-400' : 'text-emerald-400 font-semibold'}>
+                        {isLoss ? `-${actualProfitPct}%` : `+${actualProfitPct}%`}
+                      </span>
+                    </td>
+                    <td className="py-2.5 px-3 text-[11px] font-normal text-zinc-300">創業者口座への実質手残りキャッシュ</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="w-full h-[260px] bg-[#0D1017] rounded border border-white/[0.08] relative overflow-hidden">
+              <div ref={chartRef} className="w-full h-full" />
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -8,21 +8,21 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
     <section id="section-tools" className="scroll-mt-4">
       {/* 通常時：稼働インフラ・ツール構成調書 */}
       {!isHazardMode && entity.operations && (
-        <div className="rounded-md border border-white/[0.08] bg-[#0A0D15] overflow-hidden">
+        <div className="rounded-md border border-white/[0.12] bg-[#10131C] overflow-hidden">
           {/* ヘッダー */}
-          <div className="flex items-center justify-between px-4 py-2.5 bg-white/[0.02] border-b border-white/[0.06]">
+          <div className="flex items-center justify-between px-4 py-2.5 bg-[#131724] border-b border-white/[0.10]">
             <div className="flex items-center gap-2">
-              <span className="font-mono text-[11px] font-bold tracking-wider text-zinc-400 uppercase">
+              <span className="font-mono text-[11px] font-bold tracking-wider text-zinc-300 uppercase">
                 TECH STACK & RUNTIME INFRA // 現場配管 ＆ 月額原価 ({entity.operations.toolStack.length}件)
               </span>
             </div>
-            <span className="text-zinc-300 font-mono text-[11px]">
-              月額計: <strong className="text-zinc-100">{entity.operations.toolStack.some((tool) => tool.isCostUnconfirmed) ? '未確認' : formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}</strong>
+            <span className="text-zinc-400 font-mono text-[11px]">
+              月額計: <strong className="text-[#F4F5F7]">{entity.operations.toolStack.some((tool) => tool.isCostUnconfirmed) ? '未確認' : formatMoney(entity.operations.toolStack.reduce((sum, t) => sum + t.monthlyCost, 0))}</strong>
             </span>
           </div>
 
           {/* ツールリスト（テーブル調書形式） */}
-          <div className="divide-y divide-white/[0.06]">
+          <div className="divide-y divide-white/[0.08]">
             {entity.operations.toolStack.length === 0 ? (
               <div className="p-4 text-xs font-mono text-zinc-500">
                 実際のツール構成・月額原価は未確認です。
@@ -32,7 +32,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                 const aff = findToolAffiliate(tool.name);
                 const targetUrl = tool.url || aff?.url;
                 return (
-                  <div key={idx} className="p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.01] transition-colors">
+                  <div key={idx} className="p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:bg-white/[0.02] transition-colors">
                     <div className="space-y-0.5 flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
                         {targetUrl ? (
@@ -40,7 +40,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                             href={targetUrl}
                             target="_blank"
                             rel="noopener noreferrer sponsored"
-                            className="inline-flex items-center gap-1.5 text-white text-xs font-semibold hover:text-zinc-300 transition-colors"
+                            className="inline-flex items-center gap-1.5 text-[#F4F5F7] text-xs font-semibold hover:text-white transition-colors"
                           >
                             <span>{tool.name}</span>
                             <ExternalLink className="w-3 h-3 text-zinc-400" />
@@ -51,7 +51,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                             )}
                           </a>
                         ) : (
-                          <span className="text-white text-xs font-semibold">{tool.name}</span>
+                          <span className="text-[#F4F5F7] text-xs font-semibold">{tool.name}</span>
                         )}
                         <span className="text-zinc-400 text-[10px] font-mono">[{tool.category}]</span>
                       </div>
@@ -61,7 +61,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                         </p>
                       )}
                     </div>
-                    <div className="shrink-0 font-mono text-xs text-zinc-300 tabular-nums">
+                    <div className="shrink-0 font-mono text-xs text-zinc-200 tabular-nums">
                       {tool.isCostUnconfirmed ? (
                         <span className="text-zinc-500">費用未確認</span>
                       ) : (
@@ -107,7 +107,7 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
         const shield = HAZARD_DEFENSE_SHIELDS[shieldKey] || HAZARD_DEFENSE_SHIELDS['API_DEPENDENCY'];
 
         return (
-          <div className="rounded-md border border-red-500/30 bg-[#0A0D15] overflow-hidden">
+          <div className="rounded-md border border-red-500/30 bg-[#10131C] overflow-hidden">
             {/* ヘッダー */}
             <div className="flex items-center justify-between px-4 py-2.5 bg-red-950/25 border-b border-red-500/20">
               <span className="font-mono text-[11px] font-bold tracking-wider text-red-400 uppercase">
@@ -118,10 +118,10 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
               </span>
             </div>
 
-            <div className="divide-y divide-white/[0.06]">
+            <div className="divide-y divide-white/[0.08]">
               {/* リスクと回避策 */}
               <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="p-3 rounded bg-red-950/20 border border-red-500/20 space-y-1">
+                <div className="p-3 rounded bg-red-950/20 border border-red-500/25 space-y-1">
                   <div className="font-mono text-[11px] font-bold text-red-400">
                     {'//'} 陥りやすい致命的リスク
                   </div>
@@ -129,8 +129,8 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                     {shield.fatalRisk}
                   </p>
                 </div>
-                <div className="p-3 rounded bg-white/[0.02] border border-white/[0.06] space-y-1">
-                  <div className="font-mono text-[11px] font-bold text-zinc-200">
+                <div className="p-3 rounded bg-[#151926] border border-white/[0.08] space-y-1">
+                  <div className="font-mono text-[11px] font-bold text-[#F4F5F7]">
                     {'//'} 生き残るための代替アプローチ
                   </div>
                   <p className="text-xs text-zinc-300 leading-relaxed font-sans">
@@ -154,18 +154,18 @@ export function ToolsSection({ entity, formatMoney, isHazardMode }: Pick<Inspect
                         href={targetUrl}
                         target="_blank"
                         rel="noopener noreferrer sponsored"
-                        className="p-3 rounded bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.06] hover:border-white/[0.15] transition-all block"
+                        className="p-2.5 rounded bg-[#151926] border border-white/[0.08] hover:border-white/[0.20] transition-colors block group"
                       >
                         <div className="flex items-center justify-between text-xs mb-1">
                           <div className="flex items-center gap-2">
-                            <span className="text-white font-semibold">{t.name}</span>
-                            <span className="text-[9px] font-mono text-zinc-400 bg-white/[0.06] px-1 rounded">
+                            <span className="text-[#F4F5F7] font-semibold group-hover:text-white transition-colors">{t.name}</span>
+                            <span className="text-[9px] font-mono text-zinc-400 bg-white/[0.06] px-1 rounded border border-white/[0.08]">
                               {t.role}
                             </span>
                           </div>
-                          <ExternalLink className="w-3 h-3 text-zinc-400" />
+                          <ExternalLink className="w-3 h-3 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
                         </div>
-                        <p className="text-[11px] text-zinc-400 leading-snug font-sans">
+                        <p className="text-xs text-zinc-300 leading-snug font-sans">
                           {t.whyShield}
                         </p>
                       </a>

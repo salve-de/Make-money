@@ -27,23 +27,23 @@ interface CustomerPainNodeProps {
 
 // カスタムノード1: 対象市場と顧客ペイン
 const CustomerPainNode = ({ data }: CustomerPainNodeProps) => (
-  <div className={`rounded-xl p-3.5 border shadow-2xl w-[260px] text-left transition-all ${
+  <div className={`rounded-lg p-3.5 border shadow-xl w-[260px] text-left transition-all ${
     data.isHazardMode
-      ? 'bg-[#140A0D]/95 border-red-500/40 text-red-100 shadow-[0_0_20px_rgba(239,68,68,0.15)]'
-      : 'bg-[#0E1524]/95 border-amber-500/40 text-zinc-100 shadow-[0_0_20px_rgba(245,158,11,0.12)]'
+      ? 'bg-[#151926] border-red-500/40 text-red-100 shadow-[0_0_15px_rgba(239,68,68,0.1)]'
+      : 'bg-[#151926] border-white/[0.12] text-zinc-100'
   }`}>
     <div className="flex items-center justify-between gap-1 mb-1.5">
       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
-        <Users className="w-3 h-3" />
+        <Users className="w-3 h-3 text-amber-400" />
         {data.isHazardMode ? '① 対象市場 ＆ 致命的死角' : '① 対象市場 ＆ 顧客ペイン'}
       </span>
       <AlertTriangle className="w-3 h-3 text-amber-400/80" />
     </div>
-    <p className="text-zinc-100 text-xs font-bold leading-snug line-clamp-2 mb-2">
+    <p className="text-[#F4F5F7] text-xs font-semibold leading-snug line-clamp-2 mb-2">
       {data.targetCustomer}
     </p>
     <div className="pt-2 border-t border-white/[0.08] text-[10px] text-zinc-300 font-sans leading-relaxed">
-      <span className="font-mono text-amber-400/90 font-bold block mb-0.5">{data.isHazardMode ? '破綻要因:' : '支払い要因(WTP):'}</span>
+      <span className="font-mono text-zinc-400 font-medium block mb-0.5">{data.isHazardMode ? '破綻要因:' : '支払い要因 (WTP):'}</span>
       {data.painRelief}
     </div>
     <Handle type="source" position={Position.Right} className="!opacity-0" />
@@ -61,26 +61,26 @@ interface MoatNodeProps {
 
 // カスタムノード2: 価格決定力と参入障壁
 const MoatNode = ({ data }: MoatNodeProps) => (
-  <div className={`rounded-xl p-3.5 border shadow-2xl w-[260px] text-left transition-all ${
+  <div className={`rounded-lg p-3.5 border shadow-xl w-[260px] text-left transition-all ${
     data.isHazardMode
-      ? 'bg-[#140A0D]/95 border-red-500/40 text-red-100 shadow-[0_0_20px_rgba(239,68,68,0.15)]'
-      : 'bg-[#0A1820]/95 border-cyan-500/40 text-zinc-100 shadow-[0_0_20px_rgba(6,182,212,0.15)]'
+      ? 'bg-[#151926] border-red-500/40 text-red-100 shadow-[0_0_15px_rgba(239,68,68,0.1)]'
+      : 'bg-[#151926] border-white/[0.12] text-zinc-100'
   }`}>
     <Handle type="target" position={Position.Left} className="!opacity-0" />
     <div className="flex items-center justify-between gap-1 mb-1.5">
       <span className={`text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 ${
-        data.isHazardMode ? 'text-red-400' : 'text-cyan-400'
+        data.isHazardMode ? 'text-red-400' : 'text-blue-400'
       }`}>
         <Lock className="w-3 h-3" />
         {data.isHazardMode ? '② 価格破壊 ＆ 競争条件' : '② 価格決定力 ＆ 参入障壁'}
       </span>
-      <Cpu className="w-3 h-3 text-cyan-400/80" />
+      <Cpu className="w-3 h-3 text-blue-400/80" />
     </div>
-    <p className="text-zinc-100 text-xs font-bold leading-snug line-clamp-2 mb-2">
+    <p className="text-[#F4F5F7] text-xs font-semibold leading-snug line-clamp-2 mb-2">
       {data.architecturePattern}
     </p>
     <div className="pt-2 border-t border-white/[0.08] text-[10px] text-zinc-300 font-sans leading-relaxed">
-      <span className="font-mono text-cyan-400/90 font-bold block mb-0.5">{data.isHazardMode ? '防壁崩壊の核心:' : '構造的参入障壁:'}</span>
+      <span className="font-mono text-zinc-400 font-medium block mb-0.5">{data.isHazardMode ? '防壁崩壊の核心:' : '構造的参入障壁:'}</span>
       {data.moat}
     </div>
     <Handle type="source" position={Position.Right} className="!opacity-0" />
@@ -99,35 +99,35 @@ interface ProfitNodeProps {
 
 // カスタムノード3: 営業利益とキャッシュ創出能
 const ProfitNode = ({ data }: ProfitNodeProps) => (
-  <div className={`rounded-xl p-3.5 border shadow-2xl w-[260px] text-left transition-all ${
+  <div className={`rounded-lg p-3.5 border shadow-xl w-[260px] text-left transition-all ${
     data.isHazardMode
-      ? 'bg-[#180A0A]/95 border-red-500/50 text-red-100 shadow-[0_0_25px_rgba(239,68,68,0.25)]'
-      : 'bg-[#091814]/95 border-emerald-500/50 text-zinc-100 shadow-[0_0_25px_rgba(16,185,129,0.2)]'
+      ? 'bg-[#151926] border-red-500/40 text-red-100 shadow-[0_0_15px_rgba(239,68,68,0.1)]'
+      : 'bg-[#151926] border-white/[0.12] text-zinc-100'
   }`}>
     <Handle type="target" position={Position.Left} className="!opacity-0" />
     <div className="flex items-center justify-between gap-1 mb-1.5">
       <span className={`text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1 ${
-        data.isHazardMode ? 'text-red-400' : 'text-emerald-400'
+        data.isHazardMode ? 'text-red-400' : 'text-zinc-300'
       }`}>
-        <TrendingUp className="w-3 h-3" />
+        <TrendingUp className="w-3 h-3 text-emerald-400" />
         {data.hasVerifiedEvidence ? '③ 営業利益 ＆ キャッシュ創出能' : '③ 財務観測（未確認）'}
       </span>
     </div>
     <div className="space-y-1 mb-2 font-mono">
       <div className="flex justify-between items-baseline">
         <span className="text-[10px] text-zinc-400">月商規模:</span>
-        <span className="text-xs font-bold text-zinc-100">{data.formattedRev}</span>
+        <span className="text-xs font-bold text-[#F4F5F7] tabular-nums">{data.formattedRev}</span>
       </div>
       <div className="flex justify-between items-baseline">
         <span className="text-[10px] text-zinc-400">営業利益率:</span>
-        <span className={`text-xs font-bold ${data.isHazardMode ? 'text-red-400' : 'text-emerald-400'}`}>
+        <span className={`text-xs font-bold tabular-nums ${data.isHazardMode ? 'text-red-400' : 'text-emerald-400'}`}>
           {data.marginText}
         </span>
       </div>
     </div>
     <div className="pt-2 border-t border-white/[0.08] flex items-baseline justify-between font-mono">
       <span className="text-[10px] text-zinc-400">月間営業利益:</span>
-      <span className={`text-sm font-black ${data.isHazardMode ? 'text-red-400' : 'text-emerald-300'}`}>
+      <span className={`text-sm font-bold tabular-nums ${data.isHazardMode ? 'text-red-400' : 'text-[#F4F5F7]'}`}>
         {data.formattedProfit}
       </span>
     </div>
@@ -194,11 +194,11 @@ export function VisualPipelineSection({
       target: 'node-2',
       animated: true,
       label: hasVerifiedEvidence ? '価値提供 (WTP)' : '関係未確認',
-      labelStyle: { fill: '#38bdf8', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
-      labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.95, stroke: 'rgba(56, 189, 248, 0.4)' },
+      labelStyle: { fill: '#F4F5F7', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
+      labelBgStyle: { fill: '#151926', fillOpacity: 0.95, stroke: 'rgba(255, 255, 255, 0.15)' },
       labelBgPadding: [6, 4] as [number, number],
-      style: { stroke: isHazardMode ? '#ef4444' : '#06b6d4', strokeWidth: 2.5 },
-      markerEnd: { type: MarkerType.ArrowClosed, color: isHazardMode ? '#ef4444' : '#06b6d4' }
+      style: { stroke: isHazardMode ? '#ef4444' : '#64748b', strokeWidth: 2 },
+      markerEnd: { type: MarkerType.ArrowClosed, color: isHazardMode ? '#ef4444' : '#64748b' }
     },
     {
       id: 'edge-2-3',
@@ -206,25 +206,25 @@ export function VisualPipelineSection({
       target: 'node-3',
       animated: true,
       label: hasVerifiedEvidence ? '超過利潤創出' : '関係未確認',
-      labelStyle: { fill: '#34d399', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
-      labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.95, stroke: 'rgba(52, 211, 153, 0.4)' },
+      labelStyle: { fill: '#F4F5F7', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
+      labelBgStyle: { fill: '#151926', fillOpacity: 0.95, stroke: 'rgba(255, 255, 255, 0.15)' },
       labelBgPadding: [6, 4] as [number, number],
-      style: { stroke: isHazardMode ? '#dc2626' : '#10b981', strokeWidth: 2.5 },
+      style: { stroke: isHazardMode ? '#dc2626' : '#10b981', strokeWidth: 2 },
       markerEnd: { type: MarkerType.ArrowClosed, color: isHazardMode ? '#dc2626' : '#10b981' }
     }
   ];
 
   return (
-    <div id="section-pipeline" className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
-      isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+    <div id="section-pipeline" className={`rounded-md border bg-[#10131C] overflow-hidden ${
+      isHazardMode ? 'border-red-500/30' : 'border-white/[0.12]'
     }`}>
       {/* ヘッダー */}
       <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
-        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
       }`}>
         <div className="flex items-center gap-2">
           <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-400' : 'text-zinc-400'
+            isHazardMode ? 'text-red-400' : 'text-zinc-300'
           }`}>
             CASH PIPELINE // {isHazardMode ? '資本出血配管図 ＆ 破綻メカニズム' : 'キャッシュ創出配管図 ＆ 利益フロー'}
           </span>
@@ -236,7 +236,7 @@ export function VisualPipelineSection({
 
       {/* 閲覧専用・自動フィット配管キャンバス */}
       <div className="p-4">
-        <div className="w-full h-[240px] bg-[#07090F] rounded border border-white/[0.06] relative overflow-hidden pointer-events-none">
+        <div className="w-full h-[240px] bg-[#0B0D14] rounded border border-white/[0.08] relative overflow-hidden pointer-events-none">
           <ReactFlow
             nodes={nodes}
             edges={edges}

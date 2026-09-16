@@ -76,14 +76,14 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
   if (!cards || cards.length === 0) return null;
 
   return (
-    <div className="divide-y divide-white/[0.06]">
+    <div className="divide-y divide-white/[0.08]">
       {cards.map((card, idx) => {
         const label = getCardLabel(card.type, isHazardMode);
 
         return (
           <article
             key={card.id || `card-${idx}`}
-            className="p-4 space-y-3 hover:bg-white/[0.01] transition-colors"
+            className="p-4 space-y-3 hover:bg-white/[0.02] transition-colors"
           >
             {/* メタ行: インデックス / 種別 / タイトル / ステータス */}
             <div className="flex items-center justify-between gap-2 flex-wrap text-xs">
@@ -116,18 +116,18 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
             <div className={`text-xs sm:text-sm font-semibold leading-snug font-sans pl-3 border-l-2 ${
               isHazardMode
                 ? 'text-red-200 border-red-500'
-                : 'text-zinc-100 border-zinc-400'
+                : 'text-[#F4F5F7] border-zinc-400'
             }`}>
               {card.punchline}
             </div>
 
             {/* メトリクスハイライト */}
             {card.metrics && card.metrics.length > 0 && (
-              <div className="p-2 rounded bg-white/[0.02] border border-white/[0.04] grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono">
+              <div className="p-2.5 rounded bg-[#151926] border border-white/[0.08] grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono">
                 {card.metrics.map((m, mIdx) => (
                   <div key={mIdx} className="space-y-0.5">
                     <span className="text-[10px] text-zinc-400 block truncate">{m.label}</span>
-                    <span className={`text-xs font-bold block truncate tabular-nums ${m.isHighlight ? 'text-zinc-100' : 'text-zinc-300'}`}>
+                    <span className={`text-xs font-bold block truncate tabular-nums ${m.isHighlight ? 'text-[#F4F5F7]' : 'text-zinc-200'}`}>
                       {m.value}
                     </span>
                   </div>

@@ -133,7 +133,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         className="fixed inset-0 bg-black/60 backdrop-blur-xs z-30 md:hidden"
       />
 
-      <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#07090E] border-t md:border-t-0 md:border-l border-white/[0.08] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
+      <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#090B10] border-t md:border-t-0 md:border-l border-white/[0.10] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
 
         {/* ========================================================= */}
         {/* 【上部固定計器盤（PINNED EXECUTIVE HUD）: 冷徹モノトーン ＆ 高密度金融端末】 */}
@@ -146,7 +146,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
-          className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5 text-xs font-sans bg-[#080A0F] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,10,15,1)]"
+          className="flex-1 overflow-y-auto p-4 sm:p-5 space-y-5 text-xs font-sans bg-[#090B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(9,11,16,1)]"
         >
 
           {mainTab === 'LEDGER' ? (

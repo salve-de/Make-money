@@ -1,24 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0B0E14;
-  --foreground: #f3f4f6;
+  /* -------------------------------------------------------------------------
+     MAKEMONEY Institutional Design System Tokens
+     Engineered for high-density scanability, long sessions, and zero visual noise
+     ------------------------------------------------------------------------- */
+
+  /* 1. Surface Hierarchy (Perceptual Elevation) */
+  --bg-canvas: #090B10;
+  --bg-sidebar: #0B0D14;
+  --bg-surface: #10131C;
+  --bg-surface-raised: #151926;
+  --bg-surface-overlay: #1C2233;
+
+  /* 2. Interactive & State Surfaces */
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  --bg-active: rgba(255, 255, 255, 0.07);
+  --bg-selected: rgba(59, 130, 246, 0.08);
+
+  /* 3. Border Hierarchy */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --border-focus: #3B82F6;
+
+  /* 4. Typography & Luminance Hierarchy (WCAG 2.2 AAA/AA Compliant) */
+  --text-primary: #F4F5F7;
+  --text-secondary: #B0B5C0;
+  --text-tertiary: #6E7585;
+  --text-disabled: #464B56;
+
+  /* 5. Semantic Color System (Strictly functional) */
+  --accent-interactive: #3B82F6;
+  --semantic-positive: #10B981;
+  --semantic-warning: #F59E0B;
+  --semantic-negative: #F43F5E;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-canvas: var(--bg-canvas);
+  --color-sidebar: var(--bg-sidebar);
+  --color-surface: var(--bg-surface);
+  --color-surface-raised: var(--bg-surface-raised);
+  --color-surface-overlay: var(--bg-surface-overlay);
+
+  --color-border-subtle: var(--border-subtle);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-focus: var(--border-focus);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-text-disabled: var(--text-disabled);
+
+  --color-accent: var(--accent-interactive);
+  --color-positive: var(--semantic-positive);
+  --color-warning: var(--semantic-warning);
+  --color-negative: var(--semantic-negative);
+
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 body {
-  background: #0B0E14;
-  color: #f3f4f6;
+  background: var(--bg-canvas);
+  color: var(--text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.011em;
+}
+
+/* 等幅数値（Tabular Numerics）の徹底 */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
 
 /* スクロールバーの洗練（プロ用端末規格） */

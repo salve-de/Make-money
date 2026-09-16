@@ -8,16 +8,16 @@ export function EvidenceDeckSection({ entity, isHazardMode, hasEvidenceCards }: 
   return (
     <section id="section-evidence" className="scroll-mt-4">
       {/* 統合エビデンス調書サーフェス */}
-      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
-        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      <div className={`rounded-md border bg-[#10131C] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.12]'
       }`}>
         {/* セクションヘッダー */}
         <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
-          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
         }`}>
           <div className="flex items-center gap-2">
             <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+              isHazardMode ? 'text-red-400' : 'text-zinc-300'
             }`}>
               EVIDENCE DOSSIER // {isHazardMode ? '破綻・撤退の客観的証拠ログ' : '儲けのウラ側 ＆ 現場観測ログ'}
             </span>

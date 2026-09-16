@@ -1,5 +1,64 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-17 【確定】プロ金融端末 UI/UX 全面刷新 ＆ 機関投資家向けデザイントークンシステム導入（Phase 218）
+
+### 1. 課題と病巣の解剖（Root Cause: Visual Hierarchy & Luminance Collapse）
+- **ユーザー告発**:
+  - 「めっちゃ見た目良くなったね でも、なんかまだ少し見ずらい なんか 色のメリハリがないから これどうするべき？」
+  - 「/goal あなたは Principal Product Designer / Design Systems Lead / Fintech UX Architect / Senior Frontend Engineer を兼任してください。対象はプロ投資家・起業家向けの金融・事業インテリジェンス端末です。全体的に暗く、背景・surface・border・本文・補助情報の明度が近すぎるため、情報量は多いのに視線の着地点と優先順位が一瞬で分からない問題を解決せよ」
+- **病巣の解剖（Cold Hard Truth）**:
+  1. **背景と面（Surface）の明度沈没（Luminance Collapse）**:
+     - ベース背景（`#06080C`, `#07080B`, `#0A0D15`）とカード背景、ボーダー（`border-white/[0.06]`）、本文（`text-zinc-400`）の明度差が1〜3%と近接しすぎており、画面全体が「暗い海」の中に沈没。視認性のアンカー（着地点）が消滅していた。
+  2. **無秩序なセマンティックカラーの誤爆**:
+     - 純手残りや営業利益の「絶対値（金額）」まで緑色（`text-emerald-400`）で塗られていたため、画面中が緑だらけとなり「何がポジティブなシグナルなのか」のメリハリが麻痺。
+     - 台帳の選択行レールまで緑（`border-emerald-500`）だったため、利益表示と激突していた。
+  3. **情報の3層階層（L1 ➔ L2 ➔ L3）の喪失**:
+     - L1（最も重要な結論・エレベーターシシス）、L2（4大KPI・損益実額）、L3（構造的根拠・デューデリ調書）のフォントサイズ・ウェイト・明度が均一化し、プロが1秒でスキャンできない状態だった。
+
+### 2. 物理実装した外科手術アーキテクチャ（Phase 218 Institutional Design System）
+1. **機関投資家向けデザイントークンシステムの基盤配備 (`src/app/globals.css`)**:
+   - **4層エレベーション階層**:
+     - `--bg-canvas`: `#090B10`（ベースキャンバス）
+     - `--bg-sidebar`: `#0B0D14`（一段沈めた左台帳レール：Dimmed Sidebar）
+     - `--bg-surface`: `#10131C`（情報ブロック・カード本体）
+     - `--bg-surface-raised`: `#151926`（インナーカード・強調トレイ）
+     - `--bg-surface-overlay`: `#1C2233`（モーダル・ドロップダウン）
+   - **テキスト輝度階層（WCAG AAA / Linear 2026規格）**:
+     - `--text-primary`: `#F4F5F7`（純白95%：L1見出し・最重要結論・主要金額）
+     - `--text-secondary`: `#B0B5C0`（明灰色70%：要約本文・重要根拠）
+     - `--text-tertiary`: `#6E7585`（中立灰45%：メタラベル・ヘッダー・補足）
+     - `--text-disabled`: `#464B56`（沈黙灰28%：非活性・プレースホルダー）
+   - **ボーダー階層**:
+     - `--border-subtle`: `rgba(255, 255, 255, 0.06)`（微細区切り）
+     - `--border-default`: `rgba(255, 255, 255, 0.12)`（カード・サーフェス境界）
+     - `--border-strong`: `rgba(255, 255, 255, 0.20)`（重要アンカー）
+     - `--border-focus`: `#3B82F6`（アクティブフォーカス）
+   - **無彩色95% ＆ セマンティック固定原則（95:5 Rule）**:
+     - 画面の95%をニュートラル無彩色で構成。
+     - 色は「緊急度・状態・変化」の警告灯としてのみ機能：
+       - `Accent / Interactive`: `#3B82F6`（Blue：選択レール、アクティブ状態）
+       - `Positive`: `#10B981`（Emerald：利益率%、ポジティブ変化率に限定）
+       - `Warning`: `#F59E0B`（Amber：直撃ペイン、リスク、注意喚起）
+       - `Negative`: `#F43F5E`（Rose/Red：赤字、出血点、破綻要因）
+     - **絶対禁止事項**: 利益の絶対値（金額）や選択状態にGreenを使うことを完全禁止。金額は純白（`#F4F5F7`）。
+2. **全主要コンポーネントの完全外科手術**:
+   - `ExecutiveIntuitiveSummary.tsx`: サーフェス明度引き上げ、L1純白太字、L2 4大KPI白太字＋利益率のみGreen、L3 2カラム調書のコントラスト最適化。
+   - `InstitutionalDataGrid.tsx`: 背景を `--bg-sidebar`（一段暗く沈める）、選択レールをBlueへ、タグ・バッジを無彩色微細枠へ統一。
+   - `CompanyHeader.tsx`: 余分なシアンアイコン削除、アクティブタブの白太字＋微細枠化。
+   - `FinancialSection.tsx`: サーフェス統一、P&Lテーブル背景沈下、純利益行の白太字化。
+   - `BusinessSections.tsx`: 戦略DNA調書（STRATEGIC BLUEPRINT）の2カラムフラット化、パンチラインの純白化。
+   - `PlaybookSections.tsx`: PHASE 01〜03、深層監査カード（`#151926`）、PROインテリジェンスのコントラスト刷新。
+   - `CashAnatomySection.tsx`: 3大切替トグル（通帳引き算バー / Sankey / P&Lテーブル）、4大KPIバーの白太字化、テーブル境界コントラスト強化。
+   - `VisualPipelineSection.tsx`: ノード背景をニュートラル（`#151926`）へ統一、ネオンボーダーを排しエッジ矢印を明瞭化。
+   - `ToolsSection.tsx` & `EvidenceDeckSection.tsx`: 調書サーフェスおよびエビデンスカードの明度・境界線の完全同期。
+3. **全数検証 ＆ Visual QA 合格**:
+   - `pnpm lint`: PASS（0 errors, 0 warnings、3,341社ガードレール合格）
+   - `pnpm test`: PASS（全53ファイル、396テスト全数合格）
+   - `pnpm build`: PASS（SSG 25/25生成、有償境界検査完全合格）
+   - Playwright Retinaスクリーンショット（通常・地雷モード）による視認性・コントラスト・階層検証完了。
+
+---
+
 ## 2026-09-16 【確定】キーエンス・トヨタ・Amazon等メガ企業104社のP&L個人SaaSテンプレ破壊からの完全復元（Phase 217）
 
 ### 1. ユーザー告発と病巣の解剖（User Outrage & Root Cause Analysis）

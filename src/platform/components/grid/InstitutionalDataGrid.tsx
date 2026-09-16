@@ -85,7 +85,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-[#07080B] select-none">
+    <div className="flex-1 overflow-y-auto bg-[#0B0D14] select-none">
       {/* 1. モバイル（390px以下）: 親指最適化フィード */}
       <div className="md:hidden divide-y divide-white/[0.05]">
         {visibleEntities.map((entity) => (
@@ -127,7 +127,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                   onClick={() => onSelectEntity(entity.id)}
                   className={`cursor-pointer transition-colors ${
                     isSelected
-                      ? 'bg-white/[0.08] border-l-2 border-emerald-500'
+                      ? 'bg-blue-500/[0.08] border-l-2 border-blue-500'
                       : 'hover:bg-white/[0.02] border-l-2 border-transparent'
                   }`}
                 >
@@ -136,21 +136,23 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     <div className="flex items-start gap-2 min-w-0">
                       <button
                         onClick={(e) => onToggleBookmark(entity.id, e)}
-                        className="text-zinc-600 hover:text-zinc-300 shrink-0 mt-0.5"
+                        className="text-zinc-500 hover:text-zinc-200 shrink-0 mt-0.5"
                       >
-                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-zinc-300 fill-zinc-300' : ''}`} />
+                        <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'text-blue-400 fill-blue-400' : ''}`} />
                       </button>
                       <div className="min-w-0 flex-1">
                         {/* 1段目: 社名 + 型バッジ */}
                         <div className="flex items-center gap-1.5 min-w-0">
-                          <span className="font-semibold text-xs text-white truncate font-sans shrink min-w-0">
+                          <span className={`font-semibold text-xs truncate font-sans shrink min-w-0 ${
+                            isSelected ? 'text-white' : 'text-zinc-200'
+                          }`}>
                             {entity.name}
                           </span>
                           <span 
-                              className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[120px] truncate ${
+                            className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[120px] truncate ${
                               entity.architecturePattern?.startsWith('地雷:')
                                 ? 'bg-red-950/40 text-red-400 border-red-500/40 font-bold'
-                                : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
+                                : 'bg-white/[0.04] text-zinc-300 border-white/[0.08]'
                             }`}
                             title={entity.architecturePattern}
                           >
@@ -160,7 +162,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                             <span className={`text-[9px] font-mono px-1 py-0.2 rounded border shrink-0 ${
                               entity.architecturePattern?.startsWith('地雷:')
                                 ? 'bg-red-950/50 text-red-300 border-red-500/40 font-bold'
-                                : 'bg-cyan-950/40 text-cyan-400 border border-cyan-500/30'
+                                : 'bg-white/[0.04] text-zinc-400 border-white/[0.08]'
                             }`}>
                               {entity.architecturePattern?.startsWith('地雷:')
                                 ? '● 爆死'
@@ -199,7 +201,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                         <span className="text-zinc-600">--</span>
                       ) : (
                         <>
-                          <span className="text-zinc-400">
+                          <span className="text-zinc-300">
                             {formatMoney(entity.pnl.operatingProfit)}
                           </span>
                           <span className="text-emerald-400 font-medium">

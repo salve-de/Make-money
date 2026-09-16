@@ -76,38 +76,38 @@ export function CompanyHeader({
     : null;
 
   return <>
-        <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
+        <div className={`shrink-0 z-30 bg-[#10131C] border-b relative transition-all duration-150 ${
           isScrolled
-            ? 'border-white/[0.18] shadow-[0_12px_32px_rgba(0,0,0,0.95)]'
+            ? 'border-white/[0.16] shadow-[0_12px_32px_rgba(0,0,0,0.95)]'
             : 'border-white/[0.10] shadow-[0_4px_16px_rgba(0,0,0,0.6)]'
         }`}>
           {/* 最上部アクセントライン */}
-          <div className={`h-[1px] w-full ${isHazardMode ? 'bg-red-500/60' : 'bg-white/[0.15]'}`} />
+          <div className={`h-[1px] w-full ${isHazardMode ? 'bg-red-500/60' : 'bg-white/[0.12]'}`} />
 
           {/* 1. タイトル＆主要操作バー（1行統合・高密度金融HUD） */}
-          <div className="px-3 py-2 flex items-center justify-between gap-2 border-b border-white/[0.04]">
+          <div className="px-3.5 py-2 flex items-center justify-between gap-2 border-b border-white/[0.06]">
             {/* 左側：社名・属性・組織・外部リンク */}
             <div className="flex items-center gap-2 min-w-0 flex-wrap">
-              <h2 className="text-xs sm:text-sm font-bold text-white truncate font-sans tracking-tight">
+              <h2 className="text-xs sm:text-sm font-bold text-[#F4F5F7] truncate font-sans tracking-tight">
                 {entity.name}
               </h2>
-              <span className="text-[10px] text-zinc-400 font-mono hidden md:inline truncate">
+              <span className="text-[11px] text-zinc-400 font-mono hidden md:inline truncate">
                 {entity.legalEntity || entity.founder} ・ {entity.country}
               </span>
 
               {/* 組織規模 */}
               {displayTeam && (
-                <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">
-                  <Users className="w-2.5 h-2.5 text-cyan-400" />
-                  <span>{displayTeam}</span>
+                <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-zinc-300 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.08]">
+                  <Users className="w-2.5 h-2.5 text-zinc-400" />
+                  {displayTeam}
                 </span>
               )}
 
               {/* 事業継続年数 */}
               {displayAge && (
-                <span className="hidden md:inline-flex items-center gap-1 text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.06]">
+                <span className="hidden lg:inline-flex items-center gap-1 text-[10px] font-mono text-zinc-300 bg-white/[0.04] px-1.5 py-0.5 rounded border border-white/[0.08]">
                   <Calendar className="w-2.5 h-2.5 text-zinc-400" />
-                  <span>{displayAge}</span>
+                  {displayAge}
                 </span>
               )}
 
@@ -117,24 +117,20 @@ export function CompanyHeader({
                   href={externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.10] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer shrink-0"
-                  title={`${entity.name} の実物公式サイトを開く（新規タブ）`}
+                  className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-zinc-400 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.08] transition-colors"
+                  title="公式サイトを開く"
                 >
-                  <ExternalLink className="w-2.5 h-2.5 text-cyan-400" />
-                  <span className="hidden sm:inline">公式サイト</span>
+                  <ExternalLink className="w-2.5 h-2.5" />
+                  <span>公式サイト</span>
                 </a>
               )}
             </div>
 
-            {/* 右側：推定価値・お気に入り・共有・クローズ */}
+            {/* 右側：想定価値・保存・共有・閉じる */}
             <div className="flex items-center gap-1.5 shrink-0">
-              {/* 推定事業価値 */}
+              {/* 想定事業価値 */}
               {valuationText && (
-                <span
-                  className="hidden lg:inline-flex items-center px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/25 text-amber-300 font-mono text-[10px] font-bold tracking-tight shadow-xs"
-                  title="年間利益の5倍換算による想定M&A事業売却価値"
-                >
+                <span className="hidden xl:inline-block text-[11px] font-mono font-bold text-zinc-200 bg-white/[0.05] border border-white/[0.10] px-2 py-0.5 rounded">
                   {valuationText}
                 </span>
               )}
@@ -146,7 +142,7 @@ export function CompanyHeader({
                   onClick={onToggleBookmark}
                   className={`p-1.5 rounded-md border transition-all cursor-pointer flex items-center gap-1 text-[10px] font-mono ${
                     isBookmarked
-                      ? 'bg-amber-500/20 border-amber-500/40 text-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.2)]'
+                      ? 'bg-amber-500/15 border-amber-500/30 text-amber-300'
                       : 'bg-white/[0.04] border-white/[0.08] text-zinc-400 hover:text-white hover:bg-white/[0.08]'
                   }`}
                   title={isBookmarked ? 'お気に入りから解除' : 'お気に入りに保存'}
@@ -160,10 +156,10 @@ export function CompanyHeader({
               <button
                 type="button"
                 onClick={() => setIsShareOpen(true)}
-                className="p-1.5 rounded-md border bg-white/[0.04] hover:bg-white/[0.10] border-white/[0.08] text-zinc-400 hover:text-white transition-all cursor-pointer flex items-center gap-1 text-[10px] font-mono"
+                className="p-1.5 rounded-md border bg-white/[0.04] hover:bg-white/[0.08] border-white/[0.08] text-zinc-400 hover:text-white transition-all cursor-pointer flex items-center gap-1 text-[10px] font-mono"
                 title="この裏帳簿を共有"
               >
-                <Share2 className="w-3 h-3 text-cyan-400" />
+                <Share2 className="w-3 h-3 text-zinc-400" />
                 <span className="hidden sm:inline">共有</span>
               </button>
 
@@ -179,21 +175,20 @@ export function CompanyHeader({
           </div>
 
           {/* 2. メインタブ切替 ＆ 表示モードセレクター ＆ 探索タグ */}
-          <div className="flex items-center justify-between bg-[#06080E] px-3 py-1.5 border-t border-white/[0.08] text-[11px] font-mono gap-2">
+          <div className="flex items-center justify-between bg-[#0D1017] px-3.5 py-1.5 border-t border-white/[0.06] text-[11px] font-mono gap-2">
             {/* 左側: タブ & 表示モード */}
             <div className="flex items-center gap-2 shrink-0 flex-wrap">
               {/* メインタブ切替 */}
-              <div className="inline-flex rounded-lg p-0.5 bg-black/60 border border-white/[0.12] shrink-0">
+              <div className="inline-flex rounded p-0.5 bg-black/40 border border-white/[0.10] shrink-0">
                 <button
                   type="button"
                   onClick={() => setMainTab && setMainTab('LEDGER')}
                   className={`px-2.5 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     mainTab === 'LEDGER'
-                      ? 'bg-white text-black shadow-md font-black'
+                      ? 'bg-white text-zinc-950 font-bold'
                       : 'text-zinc-400 hover:text-zinc-200'
                   }`}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
                   <span>資本主義の裏帳簿</span>
                 </button>
                 <button
@@ -201,7 +196,7 @@ export function CompanyHeader({
                   onClick={() => setMainTab && setMainTab('AUDIT')}
                   className={`px-2.5 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
                     mainTab === 'AUDIT'
-                      ? 'bg-white text-black shadow-md font-black'
+                      ? 'bg-white text-zinc-950 font-bold'
                       : 'text-zinc-400 hover:text-zinc-200'
                   }`}
                 >
@@ -213,7 +208,7 @@ export function CompanyHeader({
               {/* 表示モードセレクター（LEDGER時のみアクティブ） */}
               {mainTab === 'LEDGER' && (
                 <div className="flex items-center gap-1 shrink-0">
-                  <div className="inline-flex rounded p-0.5 bg-black/50 border border-white/[0.10]">
+                  <div className="inline-flex rounded p-0.5 bg-black/40 border border-white/[0.08]">
                     {(
                       [
                         { id: 'ALL', label: '全開示' },
@@ -226,9 +221,9 @@ export function CompanyHeader({
                         key={m.id}
                         type="button"
                         onClick={() => setViewMode && setViewMode(m.id)}
-                        className={`px-1.5 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer ${
+                        className={`px-1.5 py-0.5 rounded text-[10px] font-medium transition-all cursor-pointer ${
                           viewMode === m.id
-                            ? 'bg-white text-black shadow-xs font-black'
+                            ? 'bg-white/[0.15] text-white font-bold'
                             : 'text-zinc-400 hover:text-zinc-200'
                         }`}
                       >
