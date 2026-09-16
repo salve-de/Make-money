@@ -38,6 +38,10 @@ function removeCollectionTag(entity: FinancialEntity): FinancialEntity {
   return { ...entity, tags: (entity.tags || []).filter((tag) => tag !== '収集事例') };
 }
 
+function isApprovalCandidate(entity: FinancialEntity): boolean {
+  return (entity.tags || []).includes('収集事例');
+}
+
 export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   const coreEntities = initialEntities;
 
@@ -68,9 +72,12 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
 
   const approvalCandidateIds = useMemo(() => {
     const ids = new Set<string>();
-    for (const entity of coreEntities) ids.add(entity.id.trim().toLowerCase());
-    for (const entity of foundationEntities) ids.add(entity.id.trim().toLowerCase());
-    for (const entity of Object.values(detailedEntities)) ids.add(entity.id.trim().toLowerCase());
+    const addCandidate = (entity: FinancialEntity) => {
+      if (isApprovalCandidate(entity)) ids.add(entity.id.trim().toLowerCase());
+    };
+    coreEntities.forEach(addCandidate);
+    foundationEntities.forEach(addCandidate);
+    Object.values(detailedEntities).forEach(addCandidate);
     return [...ids];
   }, [coreEntities, foundationEntities, detailedEntities]);
 
