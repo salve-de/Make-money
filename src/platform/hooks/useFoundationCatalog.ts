@@ -104,6 +104,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
 
     const controller = new AbortController();
     void (async () => {
+      const approvedThisRun = new Set<string>();
       try {
         for (const chunk of chunks(pendingIds, MAX_APPROVAL_PROJECTION_IDS)) {
           const params = new URLSearchParams();
@@ -115,17 +116,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const ids = parseApprovedIds(await response.json());
           const approved = new Set(ids);
-          setApprovedIds((current) => {
-            let changed = false;
-            const next = new Set(current);
-            ids.forEach((id) => {
-              if (!next.has(id)) {
-                next.add(id);
-                changed = true;
-              }
-            });
-            return changed ? next : current;
-          });
+          ids.forEach((id) => approvedThisRun.add(id));
 
           // Only successful reads get a negative timestamp. Aborted/failed chunks
           // remain immediately eligible for the replacement effect. A negative is
@@ -140,6 +131,23 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
       } catch (error) {
         if ((error as { name?: string })?.name !== 'AbortError') {
           console.warn('[TerminalShell] Approval projection read failed; source data remains unchanged:', error);
+        }
+      } finally {
+        // Publish positives once per projection run. Updating approvedIds inside the
+        // chunk loop would retrigger this effect, abort the next chunk, and duplicate
+        // bounded D1 reads. Completed chunks remain useful even if a later chunk aborts.
+        if (approvedThisRun.size > 0) {
+          setApprovedIds((current) => {
+            let changed = false;
+            const next = new Set(current);
+            approvedThisRun.forEach((id) => {
+              if (!next.has(id)) {
+                next.add(id);
+                changed = true;
+              }
+            });
+            return changed ? next : current;
+          });
         }
       }
     })();
