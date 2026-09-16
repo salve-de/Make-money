@@ -35,6 +35,16 @@ export function ExecutiveIntuitiveSummary({
   const monetization = legacyText(entity.essence, 'monetizationWay') || legacyText(entity, 'monetizationWay') || '';
   const rawMoat = entity.strategy?.moatDescription || legacyText(entity.strategy, 'moat') || legacyText(entity, 'coreMoatDescription') || entity.architecturePattern || '';
   const cleanedMoat = rawMoat.replace(/^【.*?】/g, '').trim();
+  const incumbentDilemma = entity.strategy?.incumbentDilemma || entity.incumbentDilemma || '';
+
+  // ペインがwhatItDoesと同一の場合のフォールバック防波堤
+  const effectivePain = (painRelief && painRelief !== whatItDoes)
+    ? painRelief
+    : (entity.targetPainWallet && entity.targetPainWallet !== whatItDoes)
+      ? entity.targetPainWallet
+      : targetCustomer.includes('恐怖') || targetCustomer.includes('痛み') || targetCustomer.includes('悩み')
+        ? targetCustomer.replace(/^.*?が直撃する顧客急所：/u, '')
+        : '';
 
   // 4. 冷徹な実績数字
   const monthlyRev = entity.pnl?.isRevenueUnconfirmed
@@ -102,13 +112,18 @@ export function ExecutiveIntuitiveSummary({
                 1. 何をやっているのか（事業の正体）
               </h3>
             </div>
-            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3">
+            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3 font-medium">
               {whatItDoes}
             </p>
             {targetCustomer && (
-              <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04] space-y-1">
+              <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04] space-y-1.5">
                 <div><strong className="text-zinc-400">対象顧客:</strong> {targetCustomer}</div>
-                {painRelief && <div><strong className="text-zinc-400">解決ペイン:</strong> {painRelief}</div>}
+                {effectivePain && (
+                  <div className="pt-1 border-t border-white/[0.04]">
+                    <strong className="text-amber-400 font-mono font-semibold">直撃ペイン:</strong>{' '}
+                    <span className="text-zinc-200">{effectivePain}</span>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -123,14 +138,22 @@ export function ExecutiveIntuitiveSummary({
                 {isHazardMode ? '2. なぜ破綻したのか（死因の核心）' : '2. どうやって儲けているのか（儲けのカラクリ）'}
               </h3>
             </div>
-            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3">
+            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3 font-medium">
               {cleanedMoat || monetization || '独自のビジネスモデルと参入障壁によって競合を排除し超過利潤を確保'}
             </p>
-            {monetization && monetization !== cleanedMoat && (
-              <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
-                <strong className="text-zinc-400">課金構造:</strong> {monetization}
-              </div>
-            )}
+            <div className="space-y-1.5">
+              {incumbentDilemma && (
+                <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
+                  <strong className="text-cyan-400 font-mono font-semibold">大手の自縛:</strong>{' '}
+                  <span className="text-zinc-300">{incumbentDilemma}</span>
+                </div>
+              )}
+              {monetization && monetization !== cleanedMoat && (
+                <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2 rounded border border-white/[0.04]">
+                  <strong className="text-zinc-400">課金構造:</strong> {monetization}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

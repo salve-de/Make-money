@@ -42,63 +42,27 @@ const MOAT_TYPE_LABELS: Record<string, string> = {
 export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'> & { hasEvidenceCards?: boolean }) {
   return <>
           {/* ------------------------------------------------------- */}
-          {/* #01〜#04: 事業DNA ＆ 構造的優位性 / 致命的欠陥 (フォールバック) */}
+          {/* #10: 構造DNA ＆ 参入障壁レントゲン */}
           {/* ------------------------------------------------------- */}
-          <div className="space-y-8">
-            {/* #01 事業の正体 / 事業の罠 */}
-            {entity.essence && (
-              <div id="section-essence" className={`rounded-lg overflow-hidden border shadow-xl scroll-mt-4 ${
-                isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
-              }`}>
-                <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
-                  isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+          <div id="section-essence" className="space-y-6 scroll-mt-4">
+            {/* セクション大見出し */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
+              <div className="flex items-center gap-2">
+                <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded border ${
+                  isHazardMode
+                    ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                    : 'text-cyan-300 bg-cyan-950/40 border-cyan-500/30'
                 }`}>
-                  <div className="flex items-center gap-2.5">
-                    <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-zinc-300'}`} />
-                    <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
-                      isHazardMode
-                        ? 'text-red-300 bg-red-900/40 border-red-500/40'
-                        : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
-                    }`}>
-                      #01
-                    </span>
-                    <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                      isHazardMode ? 'text-red-200' : 'text-zinc-100'
-                    }`}>
-                      {isHazardMode ? '事業の罠・錯覚の前提' : 'この会社は何屋か（ビジネスの正体）'}
-                    </h3>
-                  </div>
-                  <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                    ビジネスモデル
-                  </span>
-                </div>
-                <div className={`divide-y ${
-                  isHazardMode ? 'divide-red-500/10' : 'divide-white/[0.06]'
-                }`}>
-                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '錯覚した事業' : '要するに何屋か'}
-                    </span>
-                    <span className="text-zinc-100 text-xs leading-relaxed font-medium">
-                      {stripLeadingEntityName(entity.essence.whatItDoes, entity.name, entity.legalEntity)}
-                    </span>
-                  </div>
-                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '見誤った顧客' : '誰からお金をもらっているか'}
-                    </span>
-                    <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.targetCustomer}</span>
-                  </div>
-                  <div className="p-3.5 flex items-start gap-3 bg-[#0E131F]">
-                    <span className={`w-24 text-[10px] font-mono shrink-0 font-bold uppercase tracking-wider ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
-                      {isHazardMode ? '消滅した需要' : 'どんな悩みを解決しているか'}
-                    </span>
-                    <span className="text-zinc-200 text-xs leading-relaxed">{entity.essence.painRelief}</span>
-                  </div>
-                </div>
-
+                  #10
+                </span>
+                <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-zinc-100">
+                  {isHazardMode ? '事業DNA・破綻の深層レントゲン' : '構造DNA・ビジネス深層レントゲン'}
+                </h3>
               </div>
-            )}
+              <span className="font-mono text-[10px] text-zinc-400">
+                深層解剖
+              </span>
+            </div>
 
             {/* #02 突いた盲点 / 見落とした致命的死角 */}
             {(() => {
@@ -118,7 +82,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                           ? 'text-red-300 bg-red-900/40 border-red-500/40'
                           : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                       }`}>
-                        #02
+                        #10-A
                       </span>
                       <div className="flex items-center gap-1.5">
                         {isHazardMode ? (
@@ -153,7 +117,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
               );
             })()}
 
-            {/* #03 参入障壁 / 崩壊した見せかけの堀 */}
+            {/* #10-B 参入障壁 / 崩壊した見せかけの堀 */}
             {(() => {
               const { punchline, detail } = parsePunchline(entity.strategy.moatDescription);
               const cleanPunch = cleanSectionPunchline(punchline, entity.name, entity.legalEntity);
@@ -171,7 +135,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                           ? 'text-red-300 bg-red-900/40 border-red-500/40'
                           : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                       }`}>
-                        #03
+                        #10-B
                       </span>
                       <div className="flex items-center gap-1.5">
                         {isHazardMode ? (
@@ -210,7 +174,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
               );
             })()}
 
-            {/* #04 大手の自爆 / 大手に一撃で圧殺された理由 */}
+            {/* #10-C 大手の自爆 / 大手に一撃で圧殺された理由 */}
             {entity.strategy.incumbentDilemma && (() => {
               const { punchline, detail } = parsePunchline(entity.strategy.incumbentDilemma);
               const cleanPunch = cleanSectionPunchline(punchline, entity.name, entity.legalEntity);
@@ -228,7 +192,7 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                           ? 'text-red-300 bg-red-900/40 border-red-500/40'
                           : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                       }`}>
-                        #04
+                        #10-C
                       </span>
                       <div className="flex items-center gap-1.5">
                         <Flame className={`w-3.5 h-3.5 ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`} />
@@ -247,6 +211,52 @@ export function BusinessSections({ entity, isHazardMode }: Pick<InspectorSection
                     {cleanPunch && (
                       <div className={`font-bold text-xs leading-snug border-l-2 pl-3 py-1 ${
                         isHazardMode ? 'text-red-200 border-red-500 bg-red-950/20' : 'text-white border-zinc-400 bg-white/[0.02]'
+                      }`}>
+                        {cleanPunch}
+                      </div>
+                    )}
+                    <p className="text-zinc-300 text-xs leading-relaxed">
+                      {detail}
+                    </p>
+                  </div>
+                </div>
+              );
+            })()}
+
+            {/* #10-D 勝算の本質・構造インサイト */}
+            {entity.strategy.secretInsight && (() => {
+              const { punchline, detail } = parsePunchline(entity.strategy.secretInsight);
+              const cleanPunch = cleanSectionPunchline(punchline, entity.name, entity.legalEntity);
+              return (
+                <div className={`rounded-lg overflow-hidden border shadow-xl ${
+                  isHazardMode ? 'border-red-500/30 bg-[#0E131F]' : 'border-white/[0.12] bg-[#0E131F]'
+                }`}>
+                  <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
+                    isHazardMode ? 'bg-red-950/40 border-red-500/30' : 'bg-[#141A29] border-white/[0.08]'
+                  }`}>
+                    <div className="flex items-center gap-2.5">
+                      <div className={`w-1 h-3.5 rounded-full ${isHazardMode ? 'bg-red-500' : 'bg-amber-400'}`} />
+                      <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
+                        isHazardMode
+                          ? 'text-red-300 bg-red-900/40 border-red-500/40'
+                          : 'text-amber-300 bg-amber-950/40 border-amber-500/30'
+                      }`}>
+                        #10-D
+                      </span>
+                      <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
+                        isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                      }`}>
+                        {isHazardMode ? '破綻を招いた慢心・盲信' : '構造的勝算・本質インサイト'}
+                      </h3>
+                    </div>
+                    <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
+                      本質インサイト
+                    </span>
+                  </div>
+                  <div className="p-3.5 space-y-2.5 bg-[#0E131F]">
+                    {cleanPunch && (
+                      <div className={`font-bold text-xs leading-snug border-l-2 pl-3 py-1 ${
+                        isHazardMode ? 'text-red-200 border-red-500 bg-red-950/20' : 'text-amber-200 border-amber-400 bg-amber-950/10'
                       }`}>
                         {cleanPunch}
                       </div>

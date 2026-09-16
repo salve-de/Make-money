@@ -35,7 +35,7 @@ const CustomerPainNode = ({ data }: CustomerPainNodeProps) => (
     <div className="flex items-center justify-between gap-1 mb-1.5">
       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
         <Users className="w-3 h-3" />
-        {data.hasVerifiedEvidence ? '① 対象市場 ＆ 顧客ペイン' : '① 公開説明・顧客情報（照合待ち）'}
+        {data.isHazardMode ? '① 対象市場 ＆ 致命的死角' : '① 対象市場 ＆ 顧客ペイン'}
       </span>
       <AlertTriangle className="w-3 h-3 text-amber-400/80" />
     </div>
@@ -43,7 +43,7 @@ const CustomerPainNode = ({ data }: CustomerPainNodeProps) => (
       {data.targetCustomer}
     </p>
     <div className="pt-2 border-t border-white/[0.08] text-[10px] text-zinc-300 font-sans leading-relaxed">
-      <span className="font-mono text-amber-400/90 font-bold block mb-0.5">{data.hasVerifiedEvidence ? '支払い要因(WTP):' : '支払理由（未確認）:'}</span>
+      <span className="font-mono text-amber-400/90 font-bold block mb-0.5">{data.isHazardMode ? '破綻要因:' : '支払い要因(WTP):'}</span>
       {data.painRelief}
     </div>
     <Handle type="source" position={Position.Right} className="!opacity-0" />
@@ -72,7 +72,7 @@ const MoatNode = ({ data }: MoatNodeProps) => (
         data.isHazardMode ? 'text-red-400' : 'text-cyan-400'
       }`}>
         <Lock className="w-3 h-3" />
-        {data.hasVerifiedEvidence ? '② 価格決定力 ＆ 参入障壁' : '② 提供方式・参入条件（照合待ち）'}
+        {data.isHazardMode ? '② 価格破壊 ＆ 競争条件' : '② 価格決定力 ＆ 参入障壁'}
       </span>
       <Cpu className="w-3 h-3 text-cyan-400/80" />
     </div>
@@ -80,7 +80,7 @@ const MoatNode = ({ data }: MoatNodeProps) => (
       {data.architecturePattern}
     </p>
     <div className="pt-2 border-t border-white/[0.08] text-[10px] text-zinc-300 font-sans leading-relaxed">
-      <span className="font-mono text-cyan-400/90 font-bold block mb-0.5">{data.hasVerifiedEvidence ? '構造的参入障壁:' : '参入障壁（未確認）:'}</span>
+      <span className="font-mono text-cyan-400/90 font-bold block mb-0.5">{data.isHazardMode ? '防壁崩壊の核心:' : '構造的参入障壁:'}</span>
       {data.moat}
     </div>
     <Handle type="source" position={Position.Right} className="!opacity-0" />
@@ -232,7 +232,7 @@ export function VisualPipelineSection({
           <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
             isHazardMode ? 'text-red-300' : 'text-zinc-100'
           }`}>
-            {isHazardMode ? '資本出血配管図（照合待ち）' : hasVerifiedEvidence ? 'キャッシュ創出配管図：照合済み観測' : '提供・財務観測配管図（照合待ち）'}
+            {isHazardMode ? '資本出血配管図・破綻メカニズム' : 'キャッシュ創出配管図・超過利潤フロー'}
           </h3>
         </div>
         <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">

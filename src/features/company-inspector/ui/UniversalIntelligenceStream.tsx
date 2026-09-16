@@ -148,7 +148,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 TEMPORAL
               </span>
               <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
-                時系列観測 ＆ 賞味期限（原本照合待ち）
+                時系列観測 ＆ 手口の賞味期限レーダー
               </span>
             </div>
             <div className="flex items-center gap-1.5">
@@ -160,7 +160,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 entity.temporal.viabilityStatus === 'EVOLVING_BARRIER' ? 'bg-purple-950/40 text-purple-300 border-purple-500/40' :
                 'bg-zinc-900 text-zinc-400 border-zinc-700'
               }`}>
-                ● {hasVerifiedTemporal ? entity.temporal.viabilityLabel : '現在の稼働・再現性は未確認'}
+                ● {entity.temporal.viabilityLabel || '稼働分析中'}
               </span>
             </div>
           </div>
