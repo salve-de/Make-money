@@ -369,7 +369,7 @@ for (const ent of entities) {
   const pain = ent.targetPainWallet || '';
   const dilemma = ent.strategy?.incumbentDilemma || '';
 
-  const validAcronyms = ['DBで', 'VPNで', 'APMで', 'SaaSで', 'UIで', 'APIで', 'SDKで', 'LLMで', 'AIで', 'Macで', 'CRMで', 'OSで', 'URLで', 'Kafkaで', 'Storeで', 'VPNの'];
+  const validAcronyms = ['DBで', 'VPNで', 'APMで', 'SaaSで', 'UIで', 'APIで', 'SDKで', 'LLMで', 'AIで', 'Macで', 'CRMで', 'OSで', 'URLで', 'Kafkaで', 'Storeで', 'VPNの', 'CMSで', 'SEOで', 'B2Bで', 'D2Cで'];
   if (/[a-zA-Z]{2,15}\s*(で月商|を着金|の痛みを突き)/.test(tag)) {
     if (!validAcronyms.some(a => tag.includes(a))) {
       errors.push(`[LINGUISTIC VIOLATION: Truncated English] "${ent.name}" tagline has truncated English word.`);

@@ -403,7 +403,9 @@ function loadKnownTargets() {
   const files = [
     path.join(ROOT, "data/entities-index.json"),
     path.join(ROOT, "data/collected-registry.json"),
+    path.join(ROOT, "data/intelligence-blacklist.json"),
     ...jsonFilesUnder(path.join(ROOT, "data/incoming")),
+    ...jsonFilesUnder(path.join(ROOT, "data/rejected")),
   ];
   const entities = [];
   for (const file of files) {
@@ -908,6 +910,8 @@ function needsRepair(entity) {
   const provider = entity.sourceMetadata?.provider;
   return entity.name === "Everyone’s Earth"
     || entity.name === "Photobooth Supply..."
+    || entity.name === "The CareSide"
+    || entity.name === "Animation Explainers"
     || (provider === "Indie Hackers" && REPAIR_REJECT.test(text));
 }
 
