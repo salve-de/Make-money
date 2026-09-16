@@ -1,20 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server';
-import path from 'node:path';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { queryD1 } from '@/lib/storage/d1';
-import { approveLocalEntities, ApprovalStoreError } from '@/lib/storage/local-entity-approvals';
 import {
   approveD1Entities,
   EntityApprovalStoreError,
   listD1ApprovedEntityIds,
 } from '@/lib/storage/entity-approvals';
+import {
+  ENTITY_APPROVAL_ID_PATTERN,
+  MAX_APPROVAL_IDS_PER_REQUEST,
+  MAX_APPROVAL_PROJECTION_IDS,
+} from '@/shared/entity-approval-contract';
 
 export const dynamic = 'force-dynamic';
-const headers = { 'Cache-Control': 'private, no-store', Vary: 'Authorization' };
-const ENTITY_ID = /^[a-z0-9][a-z0-9._:-]{0,199}$/;
+const privateHeaders = { 'Cache-Control': 'private, no-store', Vary: 'Authorization' };
+const publicHeaders = { 'Cache-Control': 'public, max-age=30, stale-while-revalidate=300' };
 
-function json(body: unknown, status = 200) {
+function json(body: unknown, status = 200, headers: HeadersInit = privateHeaders) {
   return NextResponse.json(body, { status, headers });
 }
 
@@ -23,22 +26,13 @@ function sameOrigin(req: NextRequest): boolean {
   return origin === null || origin === req.nextUrl.origin;
 }
 
-/**
- * Local fixture writes are an explicit server-side maintenance mode. Never infer
- * this privilege from request-controlled Host/Origin values: a remotely reachable
- * development server can receive spoofed localhost headers.
- */
-function isLocalEditor(): boolean {
-  return process.env.NODE_ENV !== 'production' && process.env.MAKE_MONEY_LOCAL_EDITOR === '1';
-}
-
-function normalizeIds(inputIds: unknown): string[] {
-  if (!Array.isArray(inputIds)) throw new Error('Invalid entity IDs');
+function normalizeIds(inputIds: unknown, maxIds: number): string[] {
+  if (!Array.isArray(inputIds) || inputIds.length > maxIds) throw new Error('Invalid entity IDs');
   const ids = [...new Set(inputIds.map((id) => {
     if (typeof id !== 'string') throw new Error('Invalid entity ID');
     return id.trim().toLowerCase();
   }))];
-  if (ids.some((id) => !ENTITY_ID.test(id))) throw new Error('Invalid entity IDs');
+  if (ids.some((id) => !ENTITY_APPROVAL_ID_PATTERN.test(id))) throw new Error('Invalid entity IDs');
   return ids;
 }
 
@@ -57,16 +51,23 @@ async function requireAdmin(req: NextRequest): Promise<{ uid: string } | null | 
 }
 
 /**
- * Global approval IDs are not private user data. They are an editorial overlay
- * used to remove the transient `収集事例` marker without mutating research data.
+ * Public approval state is queried only for IDs the caller already has. This
+ * keeps every D1 read and response bounded as the global approval table grows.
  */
-export async function GET() {
-  if (isLocalEditor()) return json({ success: true, entityIds: [] });
+export async function GET(req: NextRequest) {
+  let ids: string[];
   try {
-    return json({ success: true, entityIds: await listD1ApprovedEntityIds() });
+    ids = normalizeIds(req.nextUrl.searchParams.getAll('entityId'), MAX_APPROVAL_PROJECTION_IDS);
+  } catch {
+    return json({ success: false, error: 'Invalid approval projection request' }, 400, publicHeaders);
+  }
+  if (ids.length === 0) return json({ success: true, entityIds: [] }, 200, publicHeaders);
+
+  try {
+    return json({ success: true, entityIds: await listD1ApprovedEntityIds(ids) }, 200, publicHeaders);
   } catch (error) {
-    console.error('[entities/approve] Approval overlay read failed:', error);
-    return json({ success: false, error: 'Approval overlay unavailable' }, 503);
+    console.error('[entities/approve] Approval projection read failed:', error);
+    return json({ success: false, error: 'Approval overlay unavailable' }, 503, publicHeaders);
   }
 }
 
@@ -74,42 +75,20 @@ export async function POST(req: NextRequest) {
   if (!sameOrigin(req)) return json({ success: false, error: 'Cross-origin approval denied' }, 403);
 
   let ids: string[];
-  let all: boolean;
   let entityId: string | null;
   try {
     const body = await readJsonBody(req);
     if (!body || typeof body !== 'object' || Array.isArray(body)) throw new Error('Invalid body');
     entityId = 'entityId' in body && typeof body.entityId === 'string' ? body.entityId : null;
-    all = 'all' in body && body.all === true;
+    if ('all' in body && body.all === true) throw new Error('Explicit entity IDs required');
     const inputIds: unknown = 'entityIds' in body ? body.entityIds : entityId ? [entityId] : [];
-    ids = normalizeIds(inputIds);
-    if (!ids.length && !all) throw new Error('No entity IDs');
+    ids = normalizeIds(inputIds, MAX_APPROVAL_IDS_PER_REQUEST);
+    if (!ids.length) throw new Error('No entity IDs');
   } catch (error) {
-    return json({ success: false, error: 'Invalid approval request' }, error instanceof RequestBodyTooLargeError ? 413 : 400);
-  }
-
-  if (isLocalEditor()) {
-    try {
-      const result = await approveLocalEntities(path.join(process.cwd(), 'data'), ids, all);
-      return json({
-        success: true,
-        ...result,
-        entityId,
-        all,
-        message: `承認完了。${result.approvedCount}件の「収集事例」タグを除去し、本台帳に保管しました。`,
-      });
-    } catch (error) {
-      console.error('[entities/approve] Local persistence failed:', error);
-      return json(
-        { success: false, error: error instanceof ApprovalStoreError ? error.message : 'Approval unavailable' },
-        error instanceof ApprovalStoreError ? error.status : 503,
-      );
-    }
-  }
-
-  // Production/default state is a D1 overlay; packaged JSON/R2 research records are immutable.
-  if (all && ids.length === 0) {
-    return json({ success: false, error: 'Production approval requires explicit entity IDs' }, 400);
+    return json(
+      { success: false, error: 'Invalid approval request' },
+      error instanceof RequestBodyTooLargeError ? 413 : 400,
+    );
   }
 
   try {
@@ -121,7 +100,6 @@ export async function POST(req: NextRequest) {
       success: true,
       ...result,
       entityId,
-      all: false,
       message: `承認完了。${result.approvedCount}件を本番承認台帳へ記録しました。`,
     });
   } catch (error) {
