@@ -388,6 +388,47 @@ for (const ent of entities) {
   if (isPhysicalOrContent && dilemma.includes('OpenAIやGoogle等の基盤モデル企業')) {
     errors.push(`[DOMAIN VIOLATION: Irrelevant Incumbent Dilemma] "${ent.name}" (Physical/Content) has AI platform dilemma.`);
   }
+
+  // H. 深層フィールド意味論・非コピペ整合性チェック（全3,341社の生々しさ・業態適合の完全物理遮断）
+  const clStr = JSON.stringify(ent.lootBlueprint?.executionChecklist || []);
+  if (clStr.includes('初期50社の運用ルーティン') || clStr.includes('既存の格安APIやクラウド基盤')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic ExecutionChecklist] "${ent.name}" has generic SaaS executionChecklist boilerplate.`);
+  }
+
+  const trStr = JSON.stringify(ent.strategy?.initialTraction || []);
+  if (trStr.includes('コミュニティや業界SNSに直接実演デモを投稿') || trStr.includes('初期見込み客へのパーソナライズされた直接提案')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic InitialTraction] "${ent.name}" has generic initialTraction boilerplate.`);
+  }
+
+  const pbStr = JSON.stringify(ent.strategy?.actionPlaybook || []);
+  if (pbStr.includes('クラウドAPIや軽量フレームワークで最小限のMVP') || pbStr.includes('顧客の日常業務に深く組み込ませ、解約不能なストック')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic ActionPlaybook] "${ent.name}" has generic actionPlaybook boilerplate.`);
+  }
+
+  const targetPrey = ent.lootBlueprint?.targetPrey || '';
+  if (targetPrey.includes('特定職種（不動産仲介、士業、EC運営者等）')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic TargetPrey] "${ent.name}" has generic targetPrey boilerplate.`);
+  }
+
+  const structuralFlaw = ent.lootBlueprint?.structuralFlaw || '';
+  if (structuralFlaw.includes('大手エンタープライズSaaSが多機能化・複雑化しすぎて')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic StructuralFlaw] "${ent.name}" has generic structuralFlaw boilerplate.`);
+  }
+
+  const stealthEntry = ent.lootBlueprint?.stealthEntry || '';
+  if (stealthEntry.includes('業界特化のFacebookグループ、Redditサブレディット')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic StealthEntry] "${ent.name}" has generic stealthEntry boilerplate.`);
+  }
+
+  const tollGate = ent.lootBlueprint?.tollGateSetup || '';
+  if (tollGate.includes('月額サブスクリプションまたは利用量課金APIにより、利用企業の業務フローに深く組み込み')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic TollGate] "${ent.name}" has generic tollGateSetup boilerplate.`);
+  }
+
+  const bsStr = ent.strategy?.blindspot || '';
+  if (isPhysicalOrContent && bsStr.includes('大手ITベンダーが機能過多な大企業向けシステムに注力')) {
+    errors.push(`[DOMAIN VIOLATION: Irrelevant Blindspot] "${ent.name}" (Physical/Content) has IT vendor blindspot.`);
+  }
 }
 
 if (errors.length > 0) {

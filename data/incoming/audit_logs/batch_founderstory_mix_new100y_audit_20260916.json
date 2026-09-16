@@ -1,7 +1,7 @@
 {
   "batchId": "batch-founderstory-mix-new100y-20260916",
   "agentId": "codex-20260916-founderstory-new100y",
-  "capturedAt": "2026-09-16T03:56:11.013Z",
+  "capturedAt": "2026-09-16T04:34:31.681Z",
   "count": 100,
   "sourceCounts": {
     "Starter Story": 84,
@@ -2435,103 +2435,10 @@
     "evidenceCardsAtLeastThree": true
   },
   "repair": {
-    "performedAt": "2026-09-16T03:56:11.014Z",
-    "droppedFromBatch": [
-      {
-        "name": "Everyone’s Earth",
-        "provider": "Founder Reports",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "XVideoSave",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Kekius Maximus",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "S² Advertising",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "MP3 downloader",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "YT2MP3",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Dreamyify",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Indie's Posts",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Buy Email Openers",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Cronos Army",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "LeadFluxA",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Stripe-like SDK for Telegram bots",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "SyncToSheet",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Code Interview AI",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "AI Beginner",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Novarc Ai",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "Veline AI",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      },
-      {
-        "name": "ZendoLead",
-        "provider": "Indie Hackers",
-        "reason": "quality boundary: non-target or unsafe/noisy directory case"
-      }
-    ],
-    "replacementCount": 18,
-    "fixedOfficialUrlNames": [
-      "Broken Oven Baking Company"
-    ],
+    "performedAt": "2026-09-16T04:34:31.685Z",
+    "droppedFromBatch": [],
+    "replacementCount": 0,
+    "fixedOfficialUrlNames": [],
     "rawObjectsRetained": true,
     "claimsRetainedForDroppedCases": true
   }

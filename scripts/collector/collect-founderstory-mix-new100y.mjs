@@ -905,7 +905,10 @@ const REPAIR_REJECT = /(xvideosave|kekius|maximus|mp3\s*downloader|yt2mp3|dreamy
 
 function needsRepair(entity) {
   const text = [entity.name, entity.url, entity.essence?.whatItDoes, entity.essence?.painRelief, entity.sourceMetadata?.sourceUrl].join(" ");
-  return entity.name === "Everyone’s Earth" || REPAIR_REJECT.test(text);
+  const provider = entity.sourceMetadata?.provider;
+  return entity.name === "Everyone’s Earth"
+    || entity.name === "Photobooth Supply..."
+    || (provider === "Indie Hackers" && REPAIR_REJECT.test(text));
 }
 
 async function repairBatch() {

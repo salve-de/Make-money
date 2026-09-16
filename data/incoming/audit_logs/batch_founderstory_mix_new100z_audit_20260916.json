@@ -1,0 +1,2436 @@
+{
+  "batchId": "batch-founderstory-mix-new100z-20260916",
+  "agentId": "codex-20260916-founderstory-new100z",
+  "capturedAt": "2026-09-16T04:16:38.244Z",
+  "count": 100,
+  "sourceCounts": {
+    "Starter Story": 98,
+    "Founder Reports": 2
+  },
+  "selection": {
+    "available": {
+      "starter": 854,
+      "founder": 4,
+      "indie": 2
+    },
+    "rejected": {
+      "duplicate": 61,
+      "claim": 0
+    }
+  },
+  "candidates": [
+    {
+      "name": "OWC (Other World ...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/i-was-too-young-to-drive-but-started-my-business-anyway-now-we-re-approaching-200m-year",
+      "officialUrl": "https://owc.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.owc.com/",
+        "title": "OWC - Other World Computing",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b22611e92c584ef1b7feec30e5a284b14e05f5111e31de830272e134f63cce7f",
+        "bytes": 507035,
+        "sha256": "b22611e92c584ef1b7feec30e5a284b14e05f5111e31de830272e134f63cce7f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$13.5M"
+    },
+    {
+      "name": "Rent a Car & Luxu...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/luxury-yacht-rental-dubai-yacht-charter-elite-rentals",
+      "officialUrl": "https://eliterentalsdubai.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://eliterentalsdubai.com/",
+        "title": "Luxury Car Rental Dubai | Elite Rentals Dubai",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f7bc25b7d8143b868c228840cbfa2ff83be105b66bf03af2d3665f378474a6fe",
+        "bytes": 502802,
+        "sha256": "f7bc25b7d8143b868c228840cbfa2ff83be105b66bf03af2d3665f378474a6fe",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$12M"
+    },
+    {
+      "name": "BeatBox Beverages",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/beatbox-beverages",
+      "officialUrl": "https://beatboxbeverages.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://beatboxbeverages.com/",
+        "title": "BeatBox - The World's Tastiest Party Punch &ndash; BeatBox Beverages",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/a9f701af0db92cbb0894b2900150631ffc7455bbfca677ade9cd2a695c2987d3",
+        "bytes": 481228,
+        "sha256": "a9f701af0db92cbb0894b2900150631ffc7455bbfca677ade9cd2a695c2987d3",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$11M"
+    },
+    {
+      "name": "Madrivo",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-built-a-44m-year-customer-acquisition-agency",
+      "officialUrl": "https://madrivo.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://madrivo.com/",
+        "title": "Home - Madrivo",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/46edc8b35d6124b4f1f936cb781b0c26a31df05775663989091d27aef5f15921",
+        "bytes": 496032,
+        "sha256": "46edc8b35d6124b4f1f936cb781b0c26a31df05775663989091d27aef5f15921",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$3.7M"
+    },
+    {
+      "name": "Factofly",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/this-admin-tool-for-freelancers-now-generates-1-8m-year-denmark",
+      "officialUrl": "https://factofly.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.factofly.com/",
+        "title": "Freelancebureau - Factofly - Gratis oprettelse ✓",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/e14c6f43ec7946900ad9648ddcb294672ce4350541dde13b54ba92d558eea4cf",
+        "bytes": 488248,
+        "sha256": "e14c6f43ec7946900ad9648ddcb294672ce4350541dde13b54ba92d558eea4cf",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$2.38M"
+    },
+    {
+      "name": "Honest FulPhilment",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/honest-fulphilment",
+      "officialUrl": "https://honestfulphilment.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": null,
+        "finalUrl": "https://honestfulphilment.com",
+        "title": "",
+        "error": "The operation was aborted due to timeout",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4a8170c4d1d868a5f224811d6822cc18ef8620a0b8165d84d51844a3f922bb07",
+        "bytes": 487123,
+        "sha256": "4a8170c4d1d868a5f224811d6822cc18ef8620a0b8165d84d51844a3f922bb07",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$2M"
+    },
+    {
+      "name": "Mattress Depot USA",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-built-our-discount-mattress-company-to-24m-year",
+      "officialUrl": "https://mattressdepotusa.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.mattressdepotusa.com/",
+        "title": "Mattress Store and Mattresses For Less - Mattress Depot USA",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/c68ec8da99bf37266981116ab69bf9fc2a0bfa9840ed4da8df2280996c922192",
+        "bytes": 493374,
+        "sha256": "c68ec8da99bf37266981116ab69bf9fc2a0bfa9840ed4da8df2280996c922192",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$2M"
+    },
+    {
+      "name": "JP Fuji Group",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-started-a-20m-year-sushi-and-japanese-cuisine-restaurant-group",
+      "officialUrl": "https://www.jpfujigroup.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.jpfujigroup.com/",
+        "title": "Home - JP Fuji Group",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/848a3bd18a9d4b81fc80fc2c96442507941e346aaf88970a6d4bf70b75af4f52",
+        "bytes": 483202,
+        "sha256": "848a3bd18a9d4b81fc80fc2c96442507941e346aaf88970a6d4bf70b75af4f52",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1.8M"
+    },
+    {
+      "name": "Paniq Escape Room",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/paniq-escape-room-eea9c12e-80b2-4ea0-bafd-e9756fb97a90",
+      "officialUrl": "https://paniqescaperoom.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://paniqescaperoom.com/",
+        "title": "PanIQ Escape Room – Millions of Players Can't Be Wrong",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/7841bc78c6cf8afda52072b229c89f1c9a90dd6690d20341c06990b4054b5dbe",
+        "bytes": 472692,
+        "sha256": "7841bc78c6cf8afda52072b229c89f1c9a90dd6690d20341c06990b4054b5dbe",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1.25M"
+    },
+    {
+      "name": "Franchise Direct",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/from-business-consultant-to-owning-a-1-2m-year-franchise-portal",
+      "officialUrl": "https://www.franchisedirect.co.za",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.franchisedirect.com/internationalfranchises/south-africa/193/",
+        "title": "Franchise Opportunities Available in South Africa | Franchise Direct",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/cf3cefae6ac376c7bd6758a1998a1235cc36b0ee657d079485fbefba801a7066",
+        "bytes": 496134,
+        "sha256": "cf3cefae6ac376c7bd6758a1998a1235cc36b0ee657d079485fbefba801a7066",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1.08M"
+    },
+    {
+      "name": "Inflectra Corpora...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/software-testing-project-management-tools",
+      "officialUrl": "https://inflectra.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://inflectra.com/",
+        "title": "Inflectra | Software For Managing Quality, Delivery, & Risk",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/8da0dcce5e405b1802d5b6b092c27f732d43d57335e55f846cf386ec7dcb03d5",
+        "bytes": 520842,
+        "sha256": "8da0dcce5e405b1802d5b6b092c27f732d43d57335e55f846cf386ec7dcb03d5",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1.08M"
+    },
+    {
+      "name": "Aithor: AI Writin...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/aithor-online-essay-and-paper-writing-and-paraphrasing-tool",
+      "officialUrl": "https://aithor.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://aithor.com/",
+        "title": "AI Essay Writer | Undetectable AI Essay Generator – Aithor",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/16442f5eb0d05eb347c9d1f2ebc641442c5084394099b3508c50ce29a1c1565b",
+        "bytes": 492830,
+        "sha256": "16442f5eb0d05eb347c9d1f2ebc641442c5084394099b3508c50ce29a1c1565b",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1M"
+    },
+    {
+      "name": "Big Jeff Audio",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/big-jeff-audio",
+      "officialUrl": "https://bigjeffaudio.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://bigjeffaudio.com/",
+        "title": "Big Jeff Audio - Shop Now For Premium Car Stereo Equipment! — Big Jeff Online Inc",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/cea02431c1181d7153b2bb851fe5f03afa5b1332b6f5c07ac353d03545136591",
+        "bytes": 501419,
+        "sha256": "cea02431c1181d7153b2bb851fe5f03afa5b1332b6f5c07ac353d03545136591",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1M"
+    },
+    {
+      "name": "Jigsaw Health",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-hit-1m-in-monthly-revenue",
+      "officialUrl": "https://jigsawhealth.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.jigsawhealth.com/",
+        "title": "It's Fun To Feel Good® | High-Quality Nutritional Supplements",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/c4fc9eed1b41a8bcf9f2d62c89f98b11cca8e33f22f3387461eadd2fe22c1571",
+        "bytes": 495775,
+        "sha256": "c4fc9eed1b41a8bcf9f2d62c89f98b11cca8e33f22f3387461eadd2fe22c1571",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1M"
+    },
+    {
+      "name": "XPay Life Pvt Ltd",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-re-building-square-for-india-reached-12m-arr",
+      "officialUrl": "https://xpay.life",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.xpay.life/",
+        "title": "XPay Life - Mobile Recharge & Utility Bill Payment App",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/24afd2831a7e3369167f41b686eb8034a12d7b7d8c872bb9f76220db73f5d3d4",
+        "bytes": 488789,
+        "sha256": "24afd2831a7e3369167f41b686eb8034a12d7b7d8c872bb9f76220db73f5d3d4",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1,000,000"
+    },
+    {
+      "name": "Yuba Cargo Bikes",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-turned-my-love-for-bikes-into-a-12m-year-electric-cargo-bike-business",
+      "officialUrl": "https://yubabikes.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://yubabikes.com/",
+        "title": "Yuba - Cargo Bikes for Families and Professionals",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4db6caa2e651c4a3151a4afac842dbefaafc01041207163dd5e8ced1322466e5",
+        "bytes": 486169,
+        "sha256": "4db6caa2e651c4a3151a4afac842dbefaafc01041207163dd5e8ced1322466e5",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$1M"
+    },
+    {
+      "name": "Drake’s Organic S...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/from-farming-to-creating-a-10-8m-year-organic-spirits-brand",
+      "officialUrl": "https://drakesorganic.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": null,
+        "finalUrl": "https://drakesorganic.com",
+        "title": "",
+        "error": "fetch failed",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/08e54d7febb6e9c5c17e83b56b8fa4d549bea349bb9f0ccaf3688318317e2b22",
+        "bytes": 492253,
+        "sha256": "08e54d7febb6e9c5c17e83b56b8fa4d549bea349bb9f0ccaf3688318317e2b22",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$900K"
+    },
+    {
+      "name": "Scrubblade Inc.",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/scrubblade-inc-e2f24d20-38dc-4c2f-8c0e-66639f1c4cfc",
+      "officialUrl": "https://scrubblade.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.scrubblade.com/",
+        "title": "Replacement Wiper Blades &ndash; Scrubblade",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/a10addc4be2b4bad90e77fd414aead5fbc6810181baa44faf5b61fd3f90899c6",
+        "bytes": 488093,
+        "sha256": "a10addc4be2b4bad90e77fd414aead5fbc6810181baa44faf5b61fd3f90899c6",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$850K"
+    },
+    {
+      "name": "MrScraper",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/mrscraper",
+      "officialUrl": "https://mrscraper.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://mrscraper.com/",
+        "title": "Scrape Any Website with AI & Proxies | MrScraper",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/9de56c936deb34b6e77d70af6206db12e4fe3d7dfdd6799db5b1f0cacfc5b878",
+        "bytes": 522140,
+        "sha256": "9de56c936deb34b6e77d70af6206db12e4fe3d7dfdd6799db5b1f0cacfc5b878",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$756K"
+    },
+    {
+      "name": "Bailey's Blossoms",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-grew-10-6m-revenue-in-2020",
+      "officialUrl": "https://baileysblossoms.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.baileysblossoms.com/",
+        "title": "Baby Girl & Toddler Clothes + Mommy & Me Dresses | Bailey's Blossoms",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4fc5fc47125004135e536f636c377a91c99cac8e0e9151e7be63873ae235ec26",
+        "bytes": 479373,
+        "sha256": "4fc5fc47125004135e536f636c377a91c99cac8e0e9151e7be63873ae235ec26",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$750K"
+    },
+    {
+      "name": "SleekFlow",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/sleekflow",
+      "officialUrl": "https://sleekflow.io",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://sleekflow.io/",
+        "title": "AI Suite for Revenue-Driving Conversations | SleekFlow",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/450a4b5991f47cd92926ce5a87e50a36bbfcd5a98246c240ba5daf0ba5926cdf",
+        "bytes": 499492,
+        "sha256": "450a4b5991f47cd92926ce5a87e50a36bbfcd5a98246c240ba5daf0ba5926cdf",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$729K"
+    },
+    {
+      "name": "Appetiser",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-started-an-8-4m-year-app-development-agency-with-0",
+      "officialUrl": "https://appetiser.com.au",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://appetiser.com.au/",
+        "title": "Appetiser App Development Melbourne, Australia - Get Results",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/a80e9ef663f93a8bc9320e46e27fd3291813bf8b4146f19a33a40c2ecff1ba5f",
+        "bytes": 486043,
+        "sha256": "a80e9ef663f93a8bc9320e46e27fd3291813bf8b4146f19a33a40c2ecff1ba5f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$700K"
+    },
+    {
+      "name": "MindJournal",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-updated-our-brand-style-and-launched-a-new-product",
+      "officialUrl": "https://mindjournals.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.mindjournals.com/",
+        "title": "MindJournal – The #1 Best-selling Journal For Men",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0487b001ad6060ac611d1e63831d33badbaec86c46662d33f93b3f89b2c361f9",
+        "bytes": 481397,
+        "sha256": "0487b001ad6060ac611d1e63831d33badbaec86c46662d33f93b3f89b2c361f9",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$633K"
+    },
+    {
+      "name": "Empire Flippers",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/empire-flippers-20m-year-helping-people-buy-and-sell-websites",
+      "officialUrl": "https://empireflippers.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://empireflippers.com/",
+        "title": "Buy and Sell Online Businesses & Websites - Empire Flippers",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/e7a303ce2cebcd13dfd3d8a821deb8ea5c21b469673de44d5bbd542dd9dc1f0d",
+        "bytes": 501305,
+        "sha256": "e7a303ce2cebcd13dfd3d8a821deb8ea5c21b469673de44d5bbd542dd9dc1f0d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$600K"
+    },
+    {
+      "name": "Pete & Pedro",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/pete-pedro-fe5431ca-2fbc-46ef-a534-89868dd020fa",
+      "officialUrl": "https://peteandpedro.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://peteandpedro.com/",
+        "title": "Pete & Pedro | Best Men's Hairstyling, Haircare, & Grooming Products",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/29bce49bcad66f22129387e06ea844d168e0eb0cd32f4afa89393ddee0613bae",
+        "bytes": 485436,
+        "sha256": "29bce49bcad66f22129387e06ea844d168e0eb0cd32f4afa89393ddee0613bae",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$600K"
+    },
+    {
+      "name": "PVM IT",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/pvm-it",
+      "officialUrl": "https://pvmit.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.pvmit.com/",
+        "title": "PVM – Palantir Partner and Digital Services Provider",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/14336e8182c84c83e2aa016e4294553efb54df0af2f1f49e3dbdca18b8b67a38",
+        "bytes": 486230,
+        "sha256": "14336e8182c84c83e2aa016e4294553efb54df0af2f1f49e3dbdca18b8b67a38",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$600K"
+    },
+    {
+      "name": "ShipDaddy",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/shipdaddy-update-how-google-incubator-grew-lead-submissions-1000-in-8-weeks",
+      "officialUrl": "https://goshipdaddy.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.goshipdaddy.com/",
+        "title": "ShipDaddy: Best 3PL eCommerce Fulfillment Services",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/dcf3ab2e0c8c9c441f2b948ebd0ee9a3ac8fe3aa709347e2e839824d139471b4",
+        "bytes": 491648,
+        "sha256": "dcf3ab2e0c8c9c441f2b948ebd0ee9a3ac8fe3aa709347e2e839824d139471b4",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$600,000"
+    },
+    {
+      "name": "Two Maids & A Mop",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-warren-buffett-inspired-my-lifelong-journey-creating-a-25m-cleaning-empire",
+      "officialUrl": "https://twomaidsfranchise.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 403,
+        "finalUrl": "https://twomaidsfranchise.com/",
+        "title": "ERROR: The request could not be satisfied",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d33f5432a9c6add720e4e9f2f201b998eb0ea6971dcbd8bd9215b8c165489503",
+        "bytes": 511230,
+        "sha256": "d33f5432a9c6add720e4e9f2f201b998eb0ea6971dcbd8bd9215b8c165489503",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$600K"
+    },
+    {
+      "name": "Casa Mia Coliving",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-started-a-2-4m-year-coliving-business-in-singapore",
+      "officialUrl": "https://casamia.co",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.casamia.co/",
+        "title": "Best Coliving Spaces and Room Rentals in Singapore",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/3c0ef2f9592512c6bf27626011bdc8d5fa4eeb889cce06ec43774fcc8808611d",
+        "bytes": 483841,
+        "sha256": "3c0ef2f9592512c6bf27626011bdc8d5fa4eeb889cce06ec43774fcc8808611d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$583K"
+    },
+    {
+      "name": "RetroStyle Games",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/retrostyle-games-71e24e54-c419-41ed-8eed-41f81dc8d7d5",
+      "officialUrl": "https://retrostylegames.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 403,
+        "finalUrl": "https://retrostylegames.com/",
+        "title": "Just a moment...",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/050cf17a7cda518cbe127663477e4af4890c4dad4bd80b0b79577fd7a7717db5",
+        "bytes": 469109,
+        "sha256": "050cf17a7cda518cbe127663477e4af4890c4dad4bd80b0b79577fd7a7717db5",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$580K"
+    },
+    {
+      "name": "Paperwallet",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-ve-sold-over-100k-wallets-on-kickstarter",
+      "officialUrl": "https://paperwallet.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://paperwallet.com/",
+        "title": "Paperwallet® | Slim Tyvek Wallets Designed by Independent Artists",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0e7c42fb8ee3487d0307f99c7e717b60253ae4409fdb7e85d10efc04455d35cd",
+        "bytes": 490809,
+        "sha256": "0e7c42fb8ee3487d0307f99c7e717b60253ae4409fdb7e85d10efc04455d35cd",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$556K"
+    },
+    {
+      "name": "PlaybookUX",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-bootstrapped-a-1-8m-year-ux-research-software",
+      "officialUrl": "https://playbookux.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.playbookux.com/",
+        "title": "The most complete research platform. Everything built in. | PlaybookUX",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/cbf00bc0a321d67751515cfe00abdf4256b2e06bc792f68aa3989c786562b7e1",
+        "bytes": 492667,
+        "sha256": "cbf00bc0a321d67751515cfe00abdf4256b2e06bc792f68aa3989c786562b7e1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$542K"
+    },
+    {
+      "name": "The Hygiene Company",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/the-hygiene-company",
+      "officialUrl": "https://thehygienecompanyonline.co.uk",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.thehygienecompanyonline.co.uk/",
+        "title": "Hygiene Products & Cleaning Supplies | The Hygiene Company",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/fff535c746e53e7fa6675a4c73cb72eebb913ad2edeceeadd76d2a59e463471f",
+        "bytes": 479197,
+        "sha256": "fff535c746e53e7fa6675a4c73cb72eebb913ad2edeceeadd76d2a59e463471f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$521K"
+    },
+    {
+      "name": "24/7 Golf",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/24-7-golf",
+      "officialUrl": "https://24-7.golf",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.skytrakgolf.au/",
+        "title": "SKYTRAK Golf AU",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/143bb7902e549e7fc6c6a2b32e5a7b5827cbb2db359af7fbd47227d5daa647b1",
+        "bytes": 491299,
+        "sha256": "143bb7902e549e7fc6c6a2b32e5a7b5827cbb2db359af7fbd47227d5daa647b1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "All Things Commer...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/all-things-commerce-helsinki-ltd",
+      "officialUrl": "https://moomin.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.moomin.com/en/",
+        "title": "The official site for Moomin: Discover the wonders of Moominvalley",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5bf5577442441d76f4d58fb9d9d38c8189dc2cc2a43d6832688a5eb36473eb87",
+        "bytes": 487024,
+        "sha256": "5bf5577442441d76f4d58fb9d9d38c8189dc2cc2a43d6832688a5eb36473eb87",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "BBQGrills.com",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/bbqgrills-com-12986358-14bb-4cc7-8f5f-a3a875022e12",
+      "officialUrl": "https://bbqgrills.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.bbqs.com/",
+        "title": "BBQ Grills, Smokers & Built-In Outdoor Kitchens | BBQs.com",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/ff7687492b22669db76e409f3a2676918db589f2fbee4021153d58857f02f532",
+        "bytes": 491836,
+        "sha256": "ff7687492b22669db76e409f3a2676918db589f2fbee4021153d58857f02f532",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Cognota",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/cognota",
+      "officialUrl": "https://www.cognota.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://cognota.com/",
+        "title": "Cognota - Your All-In-One LearnOps® Platform",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/6fec128c32e126d93faf98a0fabdad7bc79fc89aa9b589c8f1aed145baba8020",
+        "bytes": 493446,
+        "sha256": "6fec128c32e126d93faf98a0fabdad7bc79fc89aa9b589c8f1aed145baba8020",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Combat Flip Flops",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/on-closing-our-retail-channel-to-focus-more-on-digital-marketing",
+      "officialUrl": "https://combatflipflops.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.combatflipflops.com/",
+        "title": "Combat Flip Flops - We Don't Pull Out.",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/e1568730fd5aa25f9d2697ec73eed1902e6405b6cc71c3421279a4174b457c3a",
+        "bytes": 483577,
+        "sha256": "e1568730fd5aa25f9d2697ec73eed1902e6405b6cc71c3421279a4174b457c3a",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "ContentCreator.com",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/content-creator",
+      "officialUrl": "https://contentcreator.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.contentcreator.com/",
+        "title": "Become a Content Creator | Courses, AI Tools & Training",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/899de142d9be20d3c70a1ab2965717157b6f0e09620620d1bca7ab50e82e4343",
+        "bytes": 495705,
+        "sha256": "899de142d9be20d3c70a1ab2965717157b6f0e09620620d1bca7ab50e82e4343",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Herbal Goodness",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-started-a-six-figure-superfood-brand-from-nigeria",
+      "officialUrl": "https://herbalgoodnessco.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.herbalgoodnessco.com/",
+        "title": "Herbal Goodness – Buy Premium Organic Herbal Supplements Online",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/14da06b4a19cd556c5d358a723e18487889624f8c849a915b1766d3deabf3c6f",
+        "bytes": 513883,
+        "sha256": "14da06b4a19cd556c5d358a723e18487889624f8c849a915b1766d3deabf3c6f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Magnus Home Products",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/magnus-home-products",
+      "officialUrl": "https://magnushomeproducts.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.magnushomeproducts.com/",
+        "title": "Magnus Home Products - Bathroom & Kitchen Hardware Store",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/e4aa2ea07c0a8ea05afa98783e046be2e657f48cd4772394b50bc4e992295c2d",
+        "bytes": 476924,
+        "sha256": "e4aa2ea07c0a8ea05afa98783e046be2e657f48cd4772394b50bc4e992295c2d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Moonglow Jewelry",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/moonglow-jewelry",
+      "officialUrl": "https://moonglow.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.moonglow.com/",
+        "title": "Moonglow Jewelry | Custom Moon Phase Necklaces & Bracelets",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4528dc24c07495df0eaa8e478a8226612d5e97fad25b8182864cbf847b6426e1",
+        "bytes": 487027,
+        "sha256": "4528dc24c07495df0eaa8e478a8226612d5e97fad25b8182864cbf847b6426e1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "OXO Packaging",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/oxo-packaging",
+      "officialUrl": "https://oxopackaging.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 403,
+        "finalUrl": "https://oxopackaging.com/",
+        "title": "Attention Required! | Cloudflare",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/ece6a8aaa4dad2ce77d5a04a0dc558ac7ccdd08d9916fa54ff3c860cab53b35b",
+        "bytes": 499360,
+        "sha256": "ece6a8aaa4dad2ce77d5a04a0dc558ac7ccdd08d9916fa54ff3c860cab53b35b",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "James Wood Law",
+      "provider": "Founder Reports",
+      "sourceUrl": "https://founderreports.com/interview/james-wood-law/",
+      "officialUrl": "https://www.albuquerqueinjurylawfirm.com/",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 403,
+        "finalUrl": "https://www.albuquerqueinjurylawfirm.com/",
+        "title": "Just a moment...",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/7d85b236f60bfdd4dc296628bc35ac7b9bcb86b523347acc180fb6bbd0f3656f",
+        "bytes": 204940,
+        "sha256": "7d85b236f60bfdd4dc296628bc35ac7b9bcb86b523347acc180fb6bbd0f3656f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500,000 in average monthly revenue. Contingent-fee practice varies from month to month."
+    },
+    {
+      "name": "Jöey Nordic Seed Crisps",
+      "provider": "Founder Reports",
+      "sourceUrl": "https://founderreports.com/interview/joey-nordic-seed-crisps/",
+      "officialUrl": "https://joeynordicseedcrisps.com/",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://joeynordicseedcrisps.com/",
+        "title": "Jöey Nordic Seed Crisps &ndash; Joeynordicseedcrisps",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/013eac60c315862d8ad925ce9d3acf84116d819b41885db3cb60010eb46b7767",
+        "bytes": 218833,
+        "sha256": "013eac60c315862d8ad925ce9d3acf84116d819b41885db3cb60010eb46b7767",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "We’re proud to be a six-figure business, and we’re on track to more than double our revenue this year compared to last. It’s an exciting time for us as we continue to grow and expand."
+    },
+    {
+      "name": "Parker Baby Co.",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-a-retail-partner-helped-grow-our-business-for-2-years",
+      "officialUrl": "https://parkerbaby.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.parkerbaby.com/",
+        "title": "Parker Baby Co. | Practical and Modern Baby Products",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/90ac7ca377814ad5c0383b1bd6432cdcc69a6568649146526d8105220af2bc3d",
+        "bytes": 496564,
+        "sha256": "90ac7ca377814ad5c0383b1bd6432cdcc69a6568649146526d8105220af2bc3d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Photobooth Supply...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/photobooth",
+      "officialUrl": "https://photoboothsupplyco.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://photoboothsupplyco.com/",
+        "title": "Photobooth Supply Co: Start Your Photo Booth Business",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
+        "bytes": 503744,
+        "sha256": "da862f33b165474beae58e01b020bbbeb2a68326d4a8dac2f4b33a0706ead203",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Quieton",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-designed-a-6m-year-innovative-noise-cancelling-earbuds-for-better-sleep-travel",
+      "officialUrl": "https://quieton.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://quieton.com/",
+        "title": "QuietOn earbuds - Noise cancelling earbuds for sleeping",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/269583d7eaa966208053516c36c4c71546194a67c80146cf7d787a3c354087e2",
+        "bytes": 489468,
+        "sha256": "269583d7eaa966208053516c36c4c71546194a67c80146cf7d787a3c354087e2",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "SimplySolved",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/simplysolved",
+      "officialUrl": "https://simplysolved.ae",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.simplysolved.ae/",
+        "title": "SimplySolved offers Outsourced Accounting, Auditing & Corporate Tax",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/df14c356dff064e16ef82447f9cae41ee52b0b39a3cefd7d5263e0312a865126",
+        "bytes": 494040,
+        "sha256": "df14c356dff064e16ef82447f9cae41ee52b0b39a3cefd7d5263e0312a865126",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Solar Staff",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/solar-staff",
+      "officialUrl": "https://solarstaff.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://solarstaff.ru/",
+        "title": "Сервис для работы с самозанятыми, физлицами и ИП | Solar Staff",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0e362f231557b4c3658cf751eae72c3717c7c431cb6ebade367e56d66acd5ea9",
+        "bytes": 490920,
+        "sha256": "0e362f231557b4c3658cf751eae72c3717c7c431cb6ebade367e56d66acd5ea9",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "T. C. Lewis & Co....",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-focused-on-customer-s-communication-and-grew-400-annual-revenue",
+      "officialUrl": "https://tclewisproperties.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.tclewisproperties.com/",
+        "title": "T. C. Lewis & Co. | Real Estate | Property Management | Investments",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/63d7df6639834397409e358cc1d2e1ae657a74f317cf3b0521a9970794538e51",
+        "bytes": 486682,
+        "sha256": "63d7df6639834397409e358cc1d2e1ae657a74f317cf3b0521a9970794538e51",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Tree To Tub",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-started-a-4-8m-amazon-skin-care-product",
+      "officialUrl": "https://treetotub.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://treetotub.com/",
+        "title": "Tree To Tub — #1 Skincare for Sensitive Skin",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/9f2fef7bcf11ef2ffe0032891701f58f3150d13bd357fd9a6808770bf77c5262",
+        "bytes": 496253,
+        "sha256": "9f2fef7bcf11ef2ffe0032891701f58f3150d13bd357fd9a6808770bf77c5262",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "VADE Nutrition",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-partnered-with-big-companies-to-grow-our-business",
+      "officialUrl": "https://vade-nutrition.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://vade-nutrition.com/",
+        "title": "Protein, Pre-workout, Collagen & Meal Replacement | VADE Nutrition",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/9ff50945938faf6fcb202babbb867de6839c053491085096ff8d08222fc364e9",
+        "bytes": 481832,
+        "sha256": "9ff50945938faf6fcb202babbb867de6839c053491085096ff8d08222fc364e9",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "Woolstock.eu",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/waterro-ltd",
+      "officialUrl": "https://woolstock.eu",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://woolstock.eu/",
+        "title": "Buy ITALIAN KNIT WOOL YARN in Our ONLINE STORE NEAR ME ,",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/bd127c0b54e901f215fc7daa1fce6b72c5806c3873f7158620dd2fb5dc090cc7",
+        "bytes": 500295,
+        "sha256": "bd127c0b54e901f215fc7daa1fce6b72c5806c3873f7158620dd2fb5dc090cc7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "WorthPoint",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-grew-revenue-by-60-yoy",
+      "officialUrl": "https://worthpoint.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 403,
+        "finalUrl": "https://worthpoint.com/",
+        "title": "Access to this page has been denied.",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/35f2f68eb1d2a9eb2db6a3de585815bc5a8db0692919f811ac5d94dd5e35f358",
+        "bytes": 486691,
+        "sha256": "35f2f68eb1d2a9eb2db6a3de585815bc5a8db0692919f811ac5d94dd5e35f358",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$500K"
+    },
+    {
+      "name": "LastObject",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/lastobject-update-we-launched-our-4th-product",
+      "officialUrl": "https://lastobject.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://lastobject.com/",
+        "title": "LastObject &ndash; Reusable Cotton Swabs, Pads & Tissues",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/722bf2e0f04b53534f280ec136ce6ab6990bc1a99bc97633e34af75d3048e8b8",
+        "bytes": 477833,
+        "sha256": "722bf2e0f04b53534f280ec136ce6ab6990bc1a99bc97633e34af75d3048e8b8",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$467K"
+    },
+    {
+      "name": "Contrarian Thinking",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/contrarian-thinking",
+      "officialUrl": "https://contrarianthinking.co",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.contrarianthinking.co/",
+        "title": "Contrarian Thinking | Buy & Scale Cash-Flowing Businesses",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0232c9896b45bdd9cd65859b6a5ad1be6442a281908e27502c032920557f3673",
+        "bytes": 495135,
+        "sha256": "0232c9896b45bdd9cd65859b6a5ad1be6442a281908e27502c032920557f3673",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$450K"
+    },
+    {
+      "name": "Media Scaling",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/1-leading-consumer-and-personal-brand-social-media-firm",
+      "officialUrl": "https://mediascaling.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://mediascaling.com/",
+        "title": "#1 Award-Winning Personal Brand & Clipping Social Media Agency",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/2f66779ff38407e3d325e98624b542e0fb4045b9df6cb9ddb202be551b6202ed",
+        "bytes": 514806,
+        "sha256": "2f66779ff38407e3d325e98624b542e0fb4045b9df6cb9ddb202be551b6202ed",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$450K"
+    },
+    {
+      "name": "Assuras",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/assuras",
+      "officialUrl": "https://assuras.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://assuras.com/404.html",
+        "title": "404 Error",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/69eb45dc82d52a8e406a582cbc8ae1cdafc676f0176b5369ac054be7d26d5912",
+        "bytes": 494987,
+        "sha256": "69eb45dc82d52a8e406a582cbc8ae1cdafc676f0176b5369ac054be7d26d5912",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$433K"
+    },
+    {
+      "name": "FuseBox One",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/fusebox-one",
+      "officialUrl": "https://fuseboxone.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://slotvipindo.club/",
+        "title": "Akun Demo Slot Olympus 1000 Pragmatic Main Gratis Anti Delay",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/372ec8b946a3484483722a6339195bb2335c3e73dd26d0473edc45212057f45e",
+        "bytes": 481883,
+        "sha256": "372ec8b946a3484483722a6339195bb2335c3e73dd26d0473edc45212057f45e",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$420K"
+    },
+    {
+      "name": "Badger Maps",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/badger-maps-building-a-sales-route-planning-app-to-3-3m-arr",
+      "officialUrl": "https://badgermapping.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.badgermapping.com/",
+        "title": "Badger Maps - Route Planner for Outside Sales and Field Teams",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/3df6eb434dfdbb8c2fed0f7a269e8ae433ee32683e02ea409675f623940a3dbe",
+        "bytes": 492456,
+        "sha256": "3df6eb434dfdbb8c2fed0f7a269e8ae433ee32683e02ea409675f623940a3dbe",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$417K"
+    },
+    {
+      "name": "StatsDrone",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/statsdrone",
+      "officialUrl": "https://statsdrone.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://statsdrone.com/",
+        "title": "Affiliate Program Stats Tracker - StatsDrone",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/eacd1004da433ae9f81ef9bad399d2d95b35c19a96477ae952d7bcfdd1d0e182",
+        "bytes": 490793,
+        "sha256": "eacd1004da433ae9f81ef9bad399d2d95b35c19a96477ae952d7bcfdd1d0e182",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$417K"
+    },
+    {
+      "name": "White Bullet",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-increased-revenue-by-40-and-launched-new-products",
+      "officialUrl": "https://white-bullet.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.white-bullet.com/",
+        "title": "White Bullet Solutions Home",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/aada44bcaef9948b3b9bb3fa0d8cc2705bf8a0723c3929844ee02ce2041d121e",
+        "bytes": 475960,
+        "sha256": "aada44bcaef9948b3b9bb3fa0d8cc2705bf8a0723c3929844ee02ce2041d121e",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$417K"
+    },
+    {
+      "name": "Hoagard.com",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/i-turned-my-hobby-into-a-4-5m-year-metal-wall-art-business",
+      "officialUrl": "https://hoagard.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.hoagard.com/password",
+        "title": "Hoagard",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5ad026fbc618c3c52b41ec73bf2bdd9d1b977b7491580ba29ff8d50bd222c358",
+        "bytes": 496285,
+        "sha256": "5ad026fbc618c3c52b41ec73bf2bdd9d1b977b7491580ba29ff8d50bd222c358",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$415K"
+    },
+    {
+      "name": "GoPromotional",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/gopromotional",
+      "officialUrl": "https://gopromotional.co.uk",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 403,
+        "finalUrl": "https://gopromotional.co.uk/",
+        "title": "Just a moment...",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/ab92aab67bd3f25fcf80d60cc3287cc7fb68d59243bd31c16c676af16dfb15d3",
+        "bytes": 489296,
+        "sha256": "ab92aab67bd3f25fcf80d60cc3287cc7fb68d59243bd31c16c676af16dfb15d3",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$400K"
+    },
+    {
+      "name": "Igloohome",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/igloohome",
+      "officialUrl": "https://igloohome.co",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.igloohome.co/",
+        "title": "igloohome Smart Locks: Keyless Access Solutions",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/57b1f5aa34d57d2262b88999606a4d7d7a40354be140b355e4d9f8c0e7dee4b6",
+        "bytes": 493966,
+        "sha256": "57b1f5aa34d57d2262b88999606a4d7d7a40354be140b355e4d9f8c0e7dee4b6",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$400K"
+    },
+    {
+      "name": "Kosmos Innovation...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-built-and-launched-a-100m-equity-crowdfunding-platform",
+      "officialUrl": "https://kosmosinnovationcenter.com/",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://kosmosinnovationcenter.com/",
+        "title": "Funding Small Business Ideas in Africa | Kosmos Innovation Center",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/70a856b8b0fcbf380cc71b2f1e5c1bd0638d8bb998875429f06862f61b8edac1",
+        "bytes": 493892,
+        "sha256": "70a856b8b0fcbf380cc71b2f1e5c1bd0638d8bb998875429f06862f61b8edac1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$400K"
+    },
+    {
+      "name": "OTW Shipping",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/otw-shipping",
+      "officialUrl": "https://otwshipping.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.otwshipping.com/",
+        "title": "OTW Shipping | A Better Fulfillment Center",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4faeaf901743e35dbcc1bb3bc2a114bd5f998be9bd833e8f77c39689cd4afa97",
+        "bytes": 502903,
+        "sha256": "4faeaf901743e35dbcc1bb3bc2a114bd5f998be9bd833e8f77c39689cd4afa97",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$400K"
+    },
+    {
+      "name": "Sydney Party Deco...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/starting-a-party-store-and-growing-into-a-chain",
+      "officialUrl": "https://sydneypartydecorations.com.au",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": null,
+        "finalUrl": "https://sydneypartydecorations.com.au",
+        "title": "",
+        "error": "fetch failed",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/6b99304f39d92a247be7a5d8c10fe5527c97529c3c41d9765e312bc1d6bebe16",
+        "bytes": 501490,
+        "sha256": "6b99304f39d92a247be7a5d8c10fe5527c97529c3c41d9765e312bc1d6bebe16",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$400K"
+    },
+    {
+      "name": "True Leaf Market",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/true-leaf-market-update-how-we-focused-on-marketing-and-grew-direct-channels",
+      "officialUrl": "https://trueleafmarket.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://trueleafmarket.com/",
+        "title": "True Leaf Market Seed Company | Heirloom & Organic Seeds",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/e6840aed8f8d47b0208717bc2cae6ce0b62399806de7ad00056c5f9da458e1c7",
+        "bytes": 483750,
+        "sha256": "e6840aed8f8d47b0208717bc2cae6ce0b62399806de7ad00056c5f9da458e1c7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$400K"
+    },
+    {
+      "name": "Taylor & Hart",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/starting-and-growing-a-jewelry-business-to-4-6m-year",
+      "officialUrl": "https://taylorandhart.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://taylorandhart.com/us",
+        "title": "Taylor & Hart | Bespoke Engagement Rings & Jewelry • Taylor & Hart",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4b40400fc1e6e1e0749230b2fcc4da67fab4a29c4526aac57dc89e89a111b3ca",
+        "bytes": 526309,
+        "sha256": "4b40400fc1e6e1e0749230b2fcc4da67fab4a29c4526aac57dc89e89a111b3ca",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$385K"
+    },
+    {
+      "name": "Total Home Supply",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-expanded-our-team-grew-to-500k-month",
+      "officialUrl": "https://totalhomesupply.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.totalhomesupply.com/",
+        "title": "Total Home Supply Store: Heating & Cooling - HVAC Systems",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/544e175517fc70c354f33614c49725d75e649f74bb680fb2bd5def693093336d",
+        "bytes": 480397,
+        "sha256": "544e175517fc70c354f33614c49725d75e649f74bb680fb2bd5def693093336d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$375K"
+    },
+    {
+      "name": "Mirai Flights",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/we-started-a-4-37m-year-private-jet-and-air-taxi-booking-service",
+      "officialUrl": "https://mirai.flights",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://mirai.flights/",
+        "title": "Private jet ✈ #1 business jet rent app ✈ Mirai Flights",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b3c7261f81297b8122ceb64d3030c6f64d9d80d995b4720d41a53451bda36552",
+        "bytes": 489853,
+        "sha256": "b3c7261f81297b8122ceb64d3030c6f64d9d80d995b4720d41a53451bda36552",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$364K"
+    },
+    {
+      "name": "LuggageHero",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/luggagehero",
+      "officialUrl": "https://luggagehero.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://luggagehero.com/",
+        "title": "LuggageHero: Luggage Storage Near Me | Locker Alternative",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/8dc75e65f094a2642f6b1c712e003ea0a27b302b3f54cb86255def81307d67c1",
+        "bytes": 481483,
+        "sha256": "8dc75e65f094a2642f6b1c712e003ea0a27b302b3f54cb86255def81307d67c1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$358K"
+    },
+    {
+      "name": "1 Core Solution",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/best-childcare-management-software-true-all-in-one-childcare-center-management",
+      "officialUrl": "https://1coresolution.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://1coresolution.com/",
+        "title": "Childcare Management Software | 1Core Solution",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0409da18e55727f821acacbd1b41bcfd1884a7d9c27e28b88ca7f4c377f71026",
+        "bytes": 501126,
+        "sha256": "0409da18e55727f821acacbd1b41bcfd1884a7d9c27e28b88ca7f4c377f71026",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$350K"
+    },
+    {
+      "name": "Bodify",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-two-sisters-started-a-fat-freezing-empire",
+      "officialUrl": "https://thebodify.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.thebodify.com/",
+        "title": "CoolSculpting® Elite, Morpheus8 in Arizona | Bodify — Non-Surgical Body Contouring in Phoenix, Scottsdale & Gilbert",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/10c3b80643c8b3f9d418dc3c4b3cf4015f9ba44dfbc2b09bd2159e25b2002405",
+        "bytes": 506522,
+        "sha256": "10c3b80643c8b3f9d418dc3c4b3cf4015f9ba44dfbc2b09bd2159e25b2002405",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$350K"
+    },
+    {
+      "name": "Station 16 Editio...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/station-16-d9818c9b-2771-4084-bcae-eb340a905918",
+      "officialUrl": "https://station16editions.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.lesdrageescolchiques.com/",
+        "title": "ALEXISTOGEL 📲 Download Sekarang! APK Slot & Togel Online Resmi Versi Terbaru 2026",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/70d5ce60e747497627adf38818a9c622bf6900b2933b16d6276fdd30bf8db20e",
+        "bytes": 476953,
+        "sha256": "70d5ce60e747497627adf38818a9c622bf6900b2933b16d6276fdd30bf8db20e",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$350,000"
+    },
+    {
+      "name": "Virtual Latinos",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-started-a-4-2m-year-latino-virtual-assistant-platform-over-2-000-va-s",
+      "officialUrl": "https://virtuallatinos.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.virtuallatinos.com/",
+        "title": "Virtual Latinos - Hire Virtual Assistants from Latin America",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5abc5ed222ed447892ed057731ea498426e23637a2590c0bfb2b811ddc181cec",
+        "bytes": 498237,
+        "sha256": "5abc5ed222ed447892ed057731ea498426e23637a2590c0bfb2b811ddc181cec",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$350K"
+    },
+    {
+      "name": "Wolfpack Digital",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-focused-on-customer-experience-and-grew-revenue-by-30",
+      "officialUrl": "https://wolfpack-digital.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.wolfpack-digital.com/",
+        "title": "Wolfpack Digital | start-to-end tech product development",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/ac18e31d15628c54efd48651a5ca612b35243473cc59e5482118fc353e8dd737",
+        "bytes": 483267,
+        "sha256": "ac18e31d15628c54efd48651a5ca612b35243473cc59e5482118fc353e8dd737",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$350K"
+    },
+    {
+      "name": "T is for Tame",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/t-is-for-tame",
+      "officialUrl": "https://tisfortame.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.tisfortame.com/",
+        "title": "Natural Hair Products for Babies - T is for Tame",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/6166033f1a1b3e035cc3cd5525b317e19072dbc95417da7e8fb5a0fdbcf224e7",
+        "bytes": 490974,
+        "sha256": "6166033f1a1b3e035cc3cd5525b317e19072dbc95417da7e8fb5a0fdbcf224e7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$345K"
+    },
+    {
+      "name": "Swoveralls",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/swoveralls",
+      "officialUrl": "https://swoveralls.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://swoveralls.com/",
+        "title": "Swoveralls | Original Sweatpant Overalls | Comfiest Overalls on Earth",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/dcae40bca411c65a027670bc9a84d3d8a5c365c73be5c5b22a8beda4db8fcbc8",
+        "bytes": 497360,
+        "sha256": "dcae40bca411c65a027670bc9a84d3d8a5c365c73be5c5b22a8beda4db8fcbc8",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$333K"
+    },
+    {
+      "name": "SEE/RESCUE Corpor...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/see-rescue-corporation",
+      "officialUrl": "https://facebook.com/SeeRescueStreamer/",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.facebook.com/SeeRescueStreamer/",
+        "title": "See Rescue Streamer | Honolulu HI",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/c1b98ef83a9753de70614c9e0a7e2388360da9643fbe06575724f3c9c639a4f4",
+        "bytes": 484453,
+        "sha256": "c1b98ef83a9753de70614c9e0a7e2388360da9643fbe06575724f3c9c639a4f4",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$325K"
+    },
+    {
+      "name": "Boldly",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-word-of-mouth-propelled-our-business-to-3m-year",
+      "officialUrl": "https://boldly.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://boldly.com/",
+        "title": "Premium Executive Assistants for leaders in crucial roles.",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f7c379e0e4e37616f846447eac92daaef6582e64d366592286e12a779b9996a1",
+        "bytes": 487620,
+        "sha256": "f7c379e0e4e37616f846447eac92daaef6582e64d366592286e12a779b9996a1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$320K"
+    },
+    {
+      "name": "Delray Watch Supply",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-started-a-3-3m-watch-business-selling-on-youtube",
+      "officialUrl": "https://delraywatch.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://delraywatch.com/",
+        "title": "DelrayWatch.com",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/51d81e0e1775d679c9f98237f02e503cbe9e553647a9b2ee047231d712a668ea",
+        "bytes": 498121,
+        "sha256": "51d81e0e1775d679c9f98237f02e503cbe9e553647a9b2ee047231d712a668ea",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$320K"
+    },
+    {
+      "name": "Lost Empire Herbs",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/lost-empire-herbs-update-how-we-increased-our-net-profit-by-280",
+      "officialUrl": "https://lostempireherbs.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://lostempireherbs.com/",
+        "title": "Natural Supplements And Herbs For A Healthy Life - Lost Empire Herbs",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0a0240b7c8ad31d4d0505856c9a1af88bbd2fd55729c1eff50737ffde2b067af",
+        "bytes": 491164,
+        "sha256": "0a0240b7c8ad31d4d0505856c9a1af88bbd2fd55729c1eff50737ffde2b067af",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$320K"
+    },
+    {
+      "name": "Alitura Naturals",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/alitura-naturals",
+      "officialUrl": "https://alitura.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://alitura.com/",
+        "title": "Alitura Naturals Skincare",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/151009966f670b40ec89c0c02adab4d0663a7908eac220d9f3547f6bc80a7858",
+        "bytes": 494283,
+        "sha256": "151009966f670b40ec89c0c02adab4d0663a7908eac220d9f3547f6bc80a7858",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$316K"
+    },
+    {
+      "name": "Easy Song",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-grew-30-and-added-4-new-employees-on-the-team-this-year",
+      "officialUrl": "https://easysong.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.easysong.com/",
+        "title": "Music Licensing, Cover Songs & Copyright | Easy Song",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/84139e02d2376f0527994fda2791c7fd7123431f7784cdf3314e220899ad9219",
+        "bytes": 488023,
+        "sha256": "84139e02d2376f0527994fda2791c7fd7123431f7784cdf3314e220899ad9219",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$315K"
+    },
+    {
+      "name": "3D Universe, LLC",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/3d-universe",
+      "officialUrl": "https://shop3duniverse.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://shop3duniverse.com/",
+        "title": "3D Printer Store: 3D Printers, Filament & Gear | 3D Universe",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/7fc235c8d50bc71b163c1ba255df13360c73b4b538f95529a5180ba2e3aca9ac",
+        "bytes": 502491,
+        "sha256": "7fc235c8d50bc71b163c1ba255df13360c73b4b538f95529a5180ba2e3aca9ac",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Baboo Travel",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/my-passion-in-travel-lead-to-build-a-600k-year-custom-trips-platform",
+      "officialUrl": "https://baboo.travel",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://baboo.travel/",
+        "title": "Tailor-Made Trips & Custom Travel Tours | Baboo Travel",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/caf4af2ca41a4ffa36f5f37d52edde0e6d407db3c56d4dd21cdf9fcb5f67f2e8",
+        "bytes": 509420,
+        "sha256": "caf4af2ca41a4ffa36f5f37d52edde0e6d407db3c56d4dd21cdf9fcb5f67f2e8",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Cameron's Seafood",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/camerons-seafood",
+      "officialUrl": "https://www.cameronsseafood.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.cameronsseafood.com/",
+        "title": "Fresh Seafood Market & Online Seafood Company | Cameron's Seafood",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d505f8243086a9888f8e32b5c367d9b900601fa354abb75420fe053d0a966203",
+        "bytes": 516543,
+        "sha256": "d505f8243086a9888f8e32b5c367d9b900601fa354abb75420fe053d0a966203",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Jelvix",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/i-built-a-3-6m-year-software-dev-agency-from-scratch-from-ukraine",
+      "officialUrl": "https://jelvix.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://jelvix.com/",
+        "title": "Enterprise Software Development Company - Jelvix",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b93020770fae1b82af8342e66c2c7d59bd9303a2b5b10c2c41e5b610c39f3d08",
+        "bytes": 491028,
+        "sha256": "b93020770fae1b82af8342e66c2c7d59bd9303a2b5b10c2c41e5b610c39f3d08",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Maxwell Scott Bag...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/expanding-our-luxury-brand-by-launching-new-product-lines",
+      "officialUrl": "https://maxwellscottbags.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": null,
+        "finalUrl": "https://maxwellscottbags.com",
+        "title": "",
+        "error": "fetch failed",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/649200359e1e29a96b215ce25b0c66ea051bdbb5d748679df190afc42519c423",
+        "bytes": 488937,
+        "sha256": "649200359e1e29a96b215ce25b0c66ea051bdbb5d748679df190afc42519c423",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "New Law Business ...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/on-making-the-inc-5000-list-and-growing-revenue-154",
+      "officialUrl": "https://newlawbusinessmodel.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://newlawbusinessmodel.com/",
+        "title": "New Law Business Model - Build a Life and Practice You Love",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/08b153242025593f6d2facaa546835eca35b78c7b39e7dbc4575793dc272efcf",
+        "bytes": 486288,
+        "sha256": "08b153242025593f6d2facaa546835eca35b78c7b39e7dbc4575793dc272efcf",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "OCUSHIELD",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/i-invented-a-3-6m-year-blue-light-filter",
+      "officialUrl": "https://ocushield.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.ocushield.com/",
+        "title": "Blue Light Screen Filters & Protectors | Ocushield",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/348b131065f19bd501495ef418cf50ade9a35c7063eb0765d52beeb7c8c164d0",
+        "bytes": 508735,
+        "sha256": "348b131065f19bd501495ef418cf50ade9a35c7063eb0765d52beeb7c8c164d0",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "ReputationStacker",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/i-bootstrapped-a-3-6m-year-online-review-software-in-180-days",
+      "officialUrl": "https://reputationstacker.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://reputationstacker.com/",
+        "title": "ReputationStacker: #1 Reputation Management & Customer Experience Software",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/834d2e7a9eb21b8f4d6a753b1bdd5a5fdd5781ccd296927dd9cf5806ee457d18",
+        "bytes": 494942,
+        "sha256": "834d2e7a9eb21b8f4d6a753b1bdd5a5fdd5781ccd296927dd9cf5806ee457d18",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Riders Share",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-i-built-and-scaled-the-first-airbnb-for-motorcycles",
+      "officialUrl": "https://riders-share.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://www.riders-share.com/",
+        "title": "Riders Share: 4,000+ Motorcycle Rentals from $25/Day",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/3d917c298dff117c6513e9d3888bf701ddbf2963d18af1598ce37c84a43327c1",
+        "bytes": 487992,
+        "sha256": "3d917c298dff117c6513e9d3888bf701ddbf2963d18af1598ce37c84a43327c1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Santafixie",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/santafixie-5b7bc5d5-5c29-4c89-92d0-6095ca276af7",
+      "officialUrl": "https://santafixie.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 403,
+        "finalUrl": "https://santafixie.com/",
+        "title": "Attention Required! | Cloudflare",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/97056b193315fec4222102b5d97551fc66b32aa116a516aedcb973e205240032",
+        "bytes": 484234,
+        "sha256": "97056b193315fec4222102b5d97551fc66b32aa116a516aedcb973e205240032",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Soaring Heart Nat...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/soaring-heart-natural-beds",
+      "officialUrl": "https://soaringheart.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://soaringheart.com/",
+        "title": "Soaring Heart Natural Beds | Handcrafted Organic Beds",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/1ac5dee8488cf35c2b8ea074eddbf32ba202c88dc294dbfe1252ddde0dd24c4b",
+        "bytes": 483590,
+        "sha256": "1ac5dee8488cf35c2b8ea074eddbf32ba202c88dc294dbfe1252ddde0dd24c4b",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Wolf Spirit Disti...",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/how-we-launched-a-new-product-and-reached-90-of-goal-revenue-this-year",
+      "officialUrl": "https://ourwolfspirit.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://ourwolfspirit.com/",
+        "title": "Independent, Premium Spirits | Wolf Spirit Distillery",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0855e0bf0a582a2efcfa1664aa417d081f61bd02b850b297425a00f66490bcfb",
+        "bytes": 484132,
+        "sha256": "0855e0bf0a582a2efcfa1664aa417d081f61bd02b850b297425a00f66490bcfb",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$300K"
+    },
+    {
+      "name": "Woodies",
+      "provider": "Starter Story",
+      "sourceUrl": "https://www.starterstory.com/stories/woodies",
+      "officialUrl": "https://woodies.com",
+      "sourceStatus": 200,
+      "officialAudit": {
+        "status": 200,
+        "finalUrl": "https://woodies.com/",
+        "title": "Woodies | Handmade Wooden Sunglasses | Polarized & Sustainable",
+        "checkedAt": "2026-09-16"
+      },
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/908670d124027cf465c682416713f3c3be2b92a47a5f205ec735db7b47e92542",
+        "bytes": 481294,
+        "sha256": "908670d124027cf465c682416713f3c3be2b92a47a5f205ec735db7b47e92542",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "claimed": true,
+      "claimedBy": "codex-20260916-founderstory-new100z",
+      "revenueSignal": "$292K"
+    }
+  ],
+  "guarantees": {
+    "centralIndexEdited": false,
+    "edinetAreaTouched": false,
+    "pAndLReportedValuesPromoted": false,
+    "rawCreateOnlyReadback": true,
+    "unknownFinancialFlags": true,
+    "toolStackPresent": true,
+    "evidenceCardsAtLeastThree": true
+  }
+}
