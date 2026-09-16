@@ -35,4 +35,40 @@ describe('estimated financial presentation', () => {
     expect(html).not.toContain('月次実額');
     expect(html).not.toContain('創業者口座への実質手残りキャッシュ');
   });
+
+  it('treats absent confirmation flags as unknown instead of rendering legacy sentinel numbers', () => {
+    const entity = structuredClone(INSTITUTIONAL_ENTITIES[0]);
+    entity.pnl = {
+      ...entity.pnl,
+      financialStatus: 'ESTIMATED',
+      monthlyRevenue: 123456,
+      cogs: 0,
+      grossProfit: 123456,
+      operatingExpenses: {
+        serverAndApi: 0,
+        advertising: 0,
+        subcontracting: 0,
+        toolsAndSaaS: 0,
+        other: 0,
+      },
+      operatingProfit: 123456,
+      estimationRange: undefined,
+      isRevenueUnconfirmed: undefined,
+      isCogsUnconfirmed: undefined,
+      isCostsUnconfirmed: undefined,
+      isOperatingProfitUnconfirmed: undefined,
+    };
+
+    const html = renderToStaticMarkup(
+      <EstimatedCashSummary entity={entity} formatMoney={(value) => `MONEY-${value}`} />,
+    );
+
+    expect(html).toContain('推計月商');
+    expect(html).toContain('推計売上原価');
+    expect(html).toContain('推計販管費');
+    expect(html).toContain('推計営業利益');
+    expect(html).toContain('未確認');
+    expect(html).not.toContain('MONEY-123456');
+    expect(html).not.toContain('MONEY-0');
+  });
 });
