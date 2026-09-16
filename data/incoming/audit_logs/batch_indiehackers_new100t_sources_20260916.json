@@ -1707,77 +1707,74 @@
   {
     "_tags": [
       "commitment-full-time",
-      "employees-0",
+      "employees-under-10",
       "founders-code-yes",
       "founders-solo",
       "funding-self",
       "platform-android",
-      "platform-desktop",
       "platform-ios",
-      "platform-mac",
-      "platform-mobile",
-      "platform-pc",
       "platform-web",
-      "revenue-model-transactional",
+      "revenue-model-subscription",
+      "vertical-ai",
       "vertical-b2b",
-      "vertical-b2c",
+      "vertical-calendar",
+      "vertical-communication",
+      "vertical-growth",
+      "vertical-productivity",
       "vertical-saas",
-      "vertical-sales"
+      "vertical-task-management"
     ],
-    "approvedTimestamp": 1748178590375,
-    "avatarUrl": "https://storage.googleapis.com/indie-hackers.appspot.com/product-avatars/mediafa-st/niEoQRHphRTAy2C5dQjjHhTX87P2",
-    "bumpedTimestamp": 1748178158444,
-    "createdTimestamp": 1748178158444,
-    "description": "MediaFast is made for those who want:\n- Grow and do marketing on Reddit\n- Grow and do marketing on Linkedin\n- Grow and do marketing on X (twitter)\n- Grow and do marketing on Bluesky",
-    "endDateStr": "2025-02",
+    "approvedTimestamp": 1778389424575,
+    "avatarUrl": "https://storage.googleapis.com/indie-hackers.appspot.com/product-avatars/pulse-ai/e87URSYUy6gsyH2TVsZIBdOQAp43",
+    "bumpedTimestamp": 1777537243180,
+    "createdTimestamp": 1777537243180,
+    "description": "Scaled to $2.5M ARR on WhatsApp—until tasks got lost and follow-ups broke. Built Pulse to turn chats into structured execution automatically.",
     "last30DaysUniques": null,
-    "name": "MediaFa.st",
+    "name": "Pulse AI",
     "numFollowers": 1,
-    "productId": "mediafa-st",
-    "publishedTimestamp": 1748178157998,
-    "revenue": 1500,
-    "startDateStr": "2025-01",
-    "tagline": "One Tool. All Your Socials. SaaS Growth Done Right.",
-    "twitterHandle": "mediafa_st",
-    "updatedTimestamp": 1753602915009,
+    "productId": "pulse-ai",
+    "publishedTimestamp": 1777537242975,
+    "revenue": 100000,
+    "startDateStr": "2026-01",
+    "tagline": "AI-native team chat that eliminates the coordination tax",
+    "twitterHandle": "pulseforwork",
+    "updatedTimestamp": 1778389424753,
     "userIds": [
-      "niEoQRHphRTAy2C5dQjjHhTX87P2"
+      "e87URSYUy6gsyH2TVsZIBdOQAp43"
     ],
-    "websiteUrl": "https://www.mediasfa.com/",
-    "objectID": "mediafa-st",
+    "websiteUrl": "https://pulseapp.ai/",
+    "objectID": "pulse-ai",
     "_highlightResult": {
       "description": {
-        "value": "MediaFast is made for those who want:\n- Grow and do marketing on Reddit\n- Grow and do marketing on Linkedin\n- Grow and do marketing on X (twitter)\n- Grow and do marketing on Bluesky",
+        "value": "Scaled to $2.5M ARR on WhatsApp—until tasks got lost and follow-ups broke. Built Pulse to turn chats into structured execution automatically.",
         "matchLevel": "none",
         "matchedWords": []
       },
       "name": {
-        "value": "MediaFa.st",
+        "value": "Pulse AI",
         "matchLevel": "none",
         "matchedWords": []
       },
       "tagline": {
-        "value": "One Tool. All Your Socials. SaaS Growth Done Right.",
+        "value": "AI-native team chat that eliminates the coordination tax",
         "matchLevel": "none",
         "matchedWords": []
       },
       "twitterHandle": {
-        "value": "mediafa_st",
+        "value": "pulseforwork",
         "matchLevel": "none",
         "matchedWords": []
       },
       "websiteUrl": {
-        "value": "https://www.mediasfa.com/",
+        "value": "https://pulseapp.ai/",
         "matchLevel": "none",
         "matchedWords": []
       }
     },
     "officialAudit": {
-      "status": null,
-      "finalUrl": "https://www.mediasfa.com/",
-      "title": "",
-      "matchedTokens": [],
-      "error": "TypeError",
+      "status": 200,
+      "finalUrl": "https://pulseapp.ai/",
+      "title": "Pulse — Every chat hides work. We make it visible.",
       "checkedAt": "2026-09-16"
     }
   },

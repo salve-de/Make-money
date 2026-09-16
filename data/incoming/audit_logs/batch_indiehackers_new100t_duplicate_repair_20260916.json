@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "indie-hackers-duplicate-repair-audit.v1",
+  "capturedAt": "2026-09-16T06:29:23.660Z",
+  "agent": "codex-20260916-ih-new100t-repair",
+  "batchPath": "data/incoming/processed/batch_indiehackers_new100t_20260916.json",
+  "sourcePath": "data/incoming/audit_logs/batch_indiehackers_new100t_sources_20260916.json",
+  "dropped": {
+    "name": "MediaFa.st",
+    "id": "ent_mediafast_55337c7fb92e",
+    "ticker": "IH55337C7F",
+    "url": "https://www.mediasfa.com/",
+    "reason": "NFKC punctuation-normalized name collision with MediaFast; original claim and raw receipt retained"
+  },
+  "replacement": {
+    "name": "Pulse AI",
+    "entityId": "ent_pulseai_e66567c90db5",
+    "ticker": "IHE66567C9",
+    "url": "https://pulseapp.ai/",
+    "officialAudit": {
+      "status": 200,
+      "finalUrl": "https://pulseapp.ai/",
+      "title": "Pulse — Every chat hides work. We make it visible.",
+      "checkedAt": "2026-09-16"
+    },
+    "rawStorage": {
+      "bucket": "foundation-raw",
+      "payloadKey": "blobs/sha256/04ad275fdbf85a03e968cc64fdef461d49c65e474599cd3091db8ed4977f1af8",
+      "bytes": 2279,
+      "sha256": "04ad275fdbf85a03e968cc64fdef461d49c65e474599cd3091db8ed4977f1af8",
+      "status": "CREATED",
+      "readbackVerified": true
+    }
+  },
+  "countAfterRepair": 100
+}

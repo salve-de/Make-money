@@ -326,7 +326,19 @@
       "slug": "riley-jarvis-sleep-consultant-earning-1000s-per-client",
       "publishedAt": "2021-12-10T12:55:00",
       "modifiedAt": "2024-07-20T14:55:47",
-      "rawContentSha256": "164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d"
+      "rawContentSha256": "164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d",
+        "bytes": 2563,
+        "sha256": "164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -648,7 +660,19 @@
       "slug": "nat-eliason-4000-month-longer-lasting-sex-app",
       "publishedAt": "2021-12-03T17:45:00",
       "modifiedAt": "2024-07-20T14:55:47",
-      "rawContentSha256": "5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358"
+      "rawContentSha256": "5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358",
+        "bytes": 2614,
+        "sha256": "5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -979,7 +1003,19 @@
       "slug": "nick-fogle-self-taught-coder-150k-mrr",
       "publishedAt": "2021-12-03T17:37:00",
       "modifiedAt": "2024-07-20T14:52:11",
-      "rawContentSha256": "10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a"
+      "rawContentSha256": "10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a",
+        "bytes": 2421,
+        "sha256": "10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -1292,7 +1328,19 @@
       "slug": "beau-jessup-407443-naming-chinese-babies",
       "publishedAt": "2021-12-03T16:03:00",
       "modifiedAt": "2025-03-07T15:42:48",
-      "rawContentSha256": "82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a"
+      "rawContentSha256": "82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a",
+        "bytes": 2600,
+        "sha256": "82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -1605,7 +1653,19 @@
       "slug": "brian-barczyk-20000-month-reptile-vlogger",
       "publishedAt": "2021-11-26T22:01:00",
       "modifiedAt": "2024-07-20T14:48:10",
-      "rawContentSha256": "4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0"
+      "rawContentSha256": "4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0",
+        "bytes": 2475,
+        "sha256": "4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -1927,7 +1987,19 @@
       "slug": "ramon-van-meer-business-acquisition-opportunities",
       "publishedAt": "2021-11-26T21:40:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc"
+      "rawContentSha256": "c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc",
+        "bytes": 2673,
+        "sha256": "c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -2258,7 +2330,19 @@
       "slug": "marko-saric-3-years-to-500k-arr",
       "publishedAt": "2021-11-19T01:41:00",
       "modifiedAt": "2025-03-07T15:43:16",
-      "rawContentSha256": "35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f"
+      "rawContentSha256": "35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f",
+        "bytes": 2814,
+        "sha256": "35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -2553,7 +2637,19 @@
       "slug": "larry-ludwig-sold-his-website-for-6-million",
       "publishedAt": "2021-11-19T00:06:00",
       "modifiedAt": "2025-01-09T13:10:09",
-      "rawContentSha256": "93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1"
+      "rawContentSha256": "93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1",
+        "bytes": 2668,
+        "sha256": "93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -2902,7 +2998,19 @@
       "slug": "georgia-austin-24-year-old-earned-500k-on-fiverr",
       "publishedAt": "2021-11-12T23:09:00",
       "modifiedAt": "2024-07-20T14:42:21",
-      "rawContentSha256": "14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357"
+      "rawContentSha256": "14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357",
+        "bytes": 2667,
+        "sha256": "14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -3242,7 +3350,19 @@
       "slug": "removaly-20k-in-first-3-months",
       "publishedAt": "2021-11-12T22:02:00",
       "modifiedAt": "2024-07-20T14:42:21",
-      "rawContentSha256": "053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab"
+      "rawContentSha256": "053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab",
+        "bytes": 3357,
+        "sha256": "053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -3555,7 +3675,19 @@
       "slug": "malcolm-tyson-50000-in-1-week-on-appsumo",
       "publishedAt": "2021-11-12T21:15:00",
       "modifiedAt": "2024-07-20T14:52:11",
-      "rawContentSha256": "1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991"
+      "rawContentSha256": "1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991",
+        "bytes": 2341,
+        "sha256": "1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -3913,7 +4045,19 @@
       "slug": "deals-viking-3000-month-automated-affiliate-site",
       "publishedAt": "2021-11-05T23:29:00",
       "modifiedAt": "2025-01-11T22:29:06",
-      "rawContentSha256": "7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1"
+      "rawContentSha256": "7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1",
+        "bytes": 2530,
+        "sha256": "7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -4226,7 +4370,19 @@
       "slug": "jonathan-berger-tiny-tool-1-million-visitors-a-month",
       "publishedAt": "2021-11-05T02:22:00",
       "modifiedAt": "2024-07-20T14:55:47",
-      "rawContentSha256": "27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60"
+      "rawContentSha256": "27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60",
+        "bytes": 2296,
+        "sha256": "27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -4548,7 +4704,19 @@
       "slug": "andrew-burnett-thompson-self-taught-coder-1-million-business",
       "publishedAt": "2021-11-05T01:24:00",
       "modifiedAt": "2024-07-20T14:52:11",
-      "rawContentSha256": "b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44"
+      "rawContentSha256": "b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44",
+        "bytes": 2762,
+        "sha256": "b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -4852,7 +5020,19 @@
       "slug": "maddie-wang-4000-month-online-coworking",
       "publishedAt": "2021-11-05T01:16:00",
       "modifiedAt": "2025-03-08T16:10:30",
-      "rawContentSha256": "ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff"
+      "rawContentSha256": "ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff",
+        "bytes": 2048,
+        "sha256": "ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -5156,7 +5336,19 @@
       "slug": "reilly-chase-fired-from-job-now-makes-95k-month",
       "publishedAt": "2021-11-05T00:12:00",
       "modifiedAt": "2025-03-07T15:43:17",
-      "rawContentSha256": "f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00"
+      "rawContentSha256": "f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00",
+        "bytes": 2560,
+        "sha256": "f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -5469,7 +5661,19 @@
       "slug": "ajay-goel-300k-month-gmail-extension",
       "publishedAt": "2021-10-29T06:15:00",
       "modifiedAt": "2025-03-07T15:43:18",
-      "rawContentSha256": "60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d"
+      "rawContentSha256": "60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d",
+        "bytes": 2767,
+        "sha256": "60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -5782,7 +5986,19 @@
       "slug": "jack-butcher-design-intern-to-1m-business-owner",
       "publishedAt": "2021-10-22T08:43:00",
       "modifiedAt": "2024-07-20T14:48:10",
-      "rawContentSha256": "bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70"
+      "rawContentSha256": "bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70",
+        "bytes": 2530,
+        "sha256": "bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -6095,7 +6311,19 @@
       "slug": "ecologi-60000-month-fighting-climate-change",
       "publishedAt": "2021-10-22T08:27:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab"
+      "rawContentSha256": "37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab",
+        "bytes": 2187,
+        "sha256": "37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -6407,7 +6635,19 @@
       "slug": "ramon-van-meer-sold-35000000-of-dog-ramps",
       "publishedAt": "2021-10-15T01:59:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026"
+      "rawContentSha256": "1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026",
+        "bytes": 2327,
+        "sha256": "1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -6720,7 +6960,19 @@
       "slug": "awesome-pros-10k-month-podcast-production-agency",
       "publishedAt": "2021-10-15T01:24:00",
       "modifiedAt": "2025-03-07T15:43:20",
-      "rawContentSha256": "394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6"
+      "rawContentSha256": "394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6",
+        "bytes": 2652,
+        "sha256": "394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -7024,7 +7276,19 @@
       "slug": "pete-mcpherson-500-month-from-21000-views",
       "publishedAt": "2021-10-08T16:37:00",
       "modifiedAt": "2025-01-12T23:48:35",
-      "rawContentSha256": "12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624"
+      "rawContentSha256": "12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624",
+        "bytes": 2037,
+        "sha256": "12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -7337,7 +7601,19 @@
       "slug": "youssef-sarhan-120k-year-one-man-webflow-business",
       "publishedAt": "2021-10-01T06:26:00",
       "modifiedAt": "2024-06-26T10:00:10",
-      "rawContentSha256": "a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f"
+      "rawContentSha256": "a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f",
+        "bytes": 2027,
+        "sha256": "a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -7641,7 +7917,19 @@
       "slug": "joseph-clements-100000-month-bbq-blog",
       "publishedAt": "2021-10-01T05:37:00",
       "modifiedAt": "2025-01-12T23:51:43",
-      "rawContentSha256": "d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9"
+      "rawContentSha256": "d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9",
+        "bytes": 2640,
+        "sha256": "d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -7936,7 +8224,19 @@
       "slug": "melanie-perkins-self-talk-of-a-40-billion-woman",
       "publishedAt": "2021-10-01T04:45:00",
       "modifiedAt": "2024-07-20T14:52:11",
-      "rawContentSha256": "77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb"
+      "rawContentSha256": "77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb",
+        "bytes": 3050,
+        "sha256": "77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -8249,7 +8549,19 @@
       "slug": "daniella-pierson-25-year-olds-40-million-newsletter",
       "publishedAt": "2021-09-24T07:57:00",
       "modifiedAt": "2024-07-22T15:16:04",
-      "rawContentSha256": "97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71"
+      "rawContentSha256": "97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71",
+        "bytes": 2755,
+        "sha256": "97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -8597,7 +8909,19 @@
       "slug": "austin-hankwitz-25-year-old-tiktok-millionaire",
       "publishedAt": "2021-09-24T06:56:00",
       "modifiedAt": "2025-03-07T15:43:25",
-      "rawContentSha256": "b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c"
+      "rawContentSha256": "b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c",
+        "bytes": 3218,
+        "sha256": "b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -8927,7 +9251,19 @@
       "slug": "lim-how-wei-1103-in-a-day-with-display-ads",
       "publishedAt": "2021-09-17T12:05:00",
       "modifiedAt": "2025-03-07T15:43:27",
-      "rawContentSha256": "26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5"
+      "rawContentSha256": "26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5",
+        "bytes": 3333,
+        "sha256": "26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -9258,7 +9594,19 @@
       "slug": "reilly-chase-made-1-million-in-saas",
       "publishedAt": "2021-09-17T11:50:00",
       "modifiedAt": "2024-07-20T14:52:11",
-      "rawContentSha256": "9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3"
+      "rawContentSha256": "9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3",
+        "bytes": 2409,
+        "sha256": "9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -9589,7 +9937,19 @@
       "slug": "chris-grant-75k-month-online-arbitrage",
       "publishedAt": "2021-09-03T17:11:00",
       "modifiedAt": "2024-02-13T12:51:00",
-      "rawContentSha256": "4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9"
+      "rawContentSha256": "4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9",
+        "bytes": 2365,
+        "sha256": "4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -9929,7 +10289,19 @@
       "slug": "justin-jackson-1-million-arr-with-3-employees",
       "publishedAt": "2021-09-03T16:38:00",
       "modifiedAt": "2024-07-20T14:52:11",
-      "rawContentSha256": "1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7"
+      "rawContentSha256": "1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7",
+        "bytes": 2866,
+        "sha256": "1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -10260,7 +10632,19 @@
       "slug": "erik-allebest-50-million-in-annual-revenue",
       "publishedAt": "2021-09-03T16:11:00",
       "modifiedAt": "2024-07-20T14:55:47",
-      "rawContentSha256": "588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7"
+      "rawContentSha256": "588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7",
+        "bytes": 1670,
+        "sha256": "588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -10600,7 +10984,19 @@
       "slug": "benyamin-ahmed-12-year-old-earns-400k-from-nfts",
       "publishedAt": "2021-09-03T15:18:00",
       "modifiedAt": "2024-07-20T14:55:47",
-      "rawContentSha256": "bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7"
+      "rawContentSha256": "bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7",
+        "bytes": 2451,
+        "sha256": "bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -10939,7 +11335,19 @@
       "slug": "nicole-state-4227-in-one-week-on-poshmark",
       "publishedAt": "2021-08-27T15:19:00",
       "modifiedAt": "2024-07-21T17:22:31",
-      "rawContentSha256": "f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39"
+      "rawContentSha256": "f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39",
+        "bytes": 2311,
+        "sha256": "f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -11243,7 +11651,19 @@
       "slug": "jordan-oconnor-origin-of-a-35k-month-saas-business",
       "publishedAt": "2021-08-27T15:06:00",
       "modifiedAt": "2025-03-07T15:45:10",
-      "rawContentSha256": "3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5"
+      "rawContentSha256": "3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5",
+        "bytes": 2776,
+        "sha256": "3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -11565,7 +11985,19 @@
       "slug": "caleb-porzio-200k-year-on-github-sponsors",
       "publishedAt": "2021-08-27T14:31:00",
       "modifiedAt": "2024-07-20T14:55:47",
-      "rawContentSha256": "d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502"
+      "rawContentSha256": "d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502",
+        "bytes": 3315,
+        "sha256": "d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -11923,7 +12355,19 @@
       "slug": "una-minh-kavanagh-3500-from-a-niche-ebook",
       "publishedAt": "2021-08-20T14:50:00",
       "modifiedAt": "2024-07-20T14:55:47",
-      "rawContentSha256": "982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6"
+      "rawContentSha256": "982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6",
+        "bytes": 3181,
+        "sha256": "982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -12227,7 +12671,19 @@
       "slug": "graeme-mcgaw-50k-month-creating-book-lists",
       "publishedAt": "2021-08-06T21:57:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932"
+      "rawContentSha256": "289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932",
+        "bytes": 2913,
+        "sha256": "289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -12531,7 +12987,19 @@
       "slug": "davis-baer-50k-month-bootstrapped-saas",
       "publishedAt": "2021-07-30T22:10:00",
       "modifiedAt": "2024-07-20T14:52:12",
-      "rawContentSha256": "8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2"
+      "rawContentSha256": "8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2",
+        "bytes": 2204,
+        "sha256": "8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -12862,7 +13330,19 @@
       "slug": "efe-helvaci-15k-month-affirmation-app",
       "publishedAt": "2021-07-23T23:35:00",
       "modifiedAt": "2025-03-07T15:45:16",
-      "rawContentSha256": "b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8"
+      "rawContentSha256": "b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8",
+        "bytes": 2596,
+        "sha256": "b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -13193,7 +13673,19 @@
       "slug": "vitalik-buterin-origins-of-a-27-year-old-billionaire",
       "publishedAt": "2021-07-16T18:47:00",
       "modifiedAt": "2024-07-20T14:52:12",
-      "rawContentSha256": "140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec"
+      "rawContentSha256": "140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec",
+        "bytes": 3018,
+        "sha256": "140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -13550,7 +14042,19 @@
       "slug": "jacob-karram-1-million-selling-slime",
       "publishedAt": "2021-07-16T18:19:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc"
+      "rawContentSha256": "9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc",
+        "bytes": 2948,
+        "sha256": "9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -13881,7 +14385,19 @@
       "slug": "paul-jarvis-200k-year-teaching-mailchimp",
       "publishedAt": "2021-07-16T17:31:00",
       "modifiedAt": "2025-03-07T15:45:18",
-      "rawContentSha256": "45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2"
+      "rawContentSha256": "45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2",
+        "bytes": 2693,
+        "sha256": "45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -14194,7 +14710,19 @@
       "slug": "jake-jorgovan-50k-month-in-5-hours-week",
       "publishedAt": "2021-07-09T15:07:00",
       "modifiedAt": "2024-07-21T17:02:49",
-      "rawContentSha256": "dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6"
+      "rawContentSha256": "dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6",
+        "bytes": 2141,
+        "sha256": "dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -14507,7 +15035,19 @@
       "slug": "sleepout-150000-in-12-days",
       "publishedAt": "2021-07-09T13:53:00",
       "modifiedAt": "2025-03-07T15:45:54",
-      "rawContentSha256": "d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d"
+      "rawContentSha256": "d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d",
+        "bytes": 3486,
+        "sha256": "d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -14802,7 +15342,19 @@
       "slug": "alex-masmej-tokenized-himself-for-20000",
       "publishedAt": "2021-07-02T16:17:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3"
+      "rawContentSha256": "770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3",
+        "bytes": 2926,
+        "sha256": "770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -15106,7 +15658,19 @@
       "slug": "anthony-baroud-78k-month-niche-youtube-channel",
       "publishedAt": "2021-07-02T15:57:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e"
+      "rawContentSha256": "e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e",
+        "bytes": 3003,
+        "sha256": "e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -15419,7 +15983,19 @@
       "slug": "julia-horvath-1500-month-passive-income",
       "publishedAt": "2021-06-25T18:38:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65"
+      "rawContentSha256": "2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65",
+        "bytes": 2518,
+        "sha256": "2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -15723,7 +16299,19 @@
       "slug": "rachel-jones-10k-month-selling-printables-on-etsy",
       "publishedAt": "2021-06-18T21:12:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221"
+      "rawContentSha256": "0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221",
+        "bytes": 2133,
+        "sha256": "0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -16054,7 +16642,19 @@
       "slug": "ivan-kuckir-1-million-a-year-cloning-photoshop",
       "publishedAt": "2021-06-18T20:32:00",
       "modifiedAt": "2024-07-22T15:16:04",
-      "rawContentSha256": "a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1"
+      "rawContentSha256": "a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1",
+        "bytes": 2148,
+        "sha256": "a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -16358,7 +16958,19 @@
       "slug": "khris-steven-how-to-earn-75k-affiliate-marketing",
       "publishedAt": "2021-06-11T14:25:00",
       "modifiedAt": "2025-01-13T00:27:04",
-      "rawContentSha256": "dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e"
+      "rawContentSha256": "dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e",
+        "bytes": 2019,
+        "sha256": "dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -16716,7 +17328,19 @@
       "slug": "matt-diggity-bought-for-16k-sold-for-625k",
       "publishedAt": "2021-06-11T13:26:00",
       "modifiedAt": "2025-01-17T19:56:14",
-      "rawContentSha256": "0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb"
+      "rawContentSha256": "0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb",
+        "bytes": 2678,
+        "sha256": "0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -17020,7 +17644,19 @@
       "slug": "savannah-solo-5-figures-a-month-via-onlyfans",
       "publishedAt": "2021-06-11T12:09:00",
       "modifiedAt": "2024-07-22T15:16:04",
-      "rawContentSha256": "1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c"
+      "rawContentSha256": "1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c",
+        "bytes": 1759,
+        "sha256": "1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -17324,7 +17960,19 @@
       "slug": "zoe-roth-disaster-girl-just-made-473000",
       "publishedAt": "2021-06-04T16:07:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a"
+      "rawContentSha256": "0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a",
+        "bytes": 2427,
+        "sha256": "0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -17664,7 +18312,19 @@
       "slug": "brett-williams-50k-month-one-man-design-service",
       "publishedAt": "2021-05-28T17:14:00",
       "modifiedAt": "2024-01-17T10:12:40",
-      "rawContentSha256": "845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f"
+      "rawContentSha256": "845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f",
+        "bytes": 1689,
+        "sha256": "845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -17968,7 +18628,19 @@
       "slug": "jordan-oconnor-the-secret-to-building-a-39k-mo-business",
       "publishedAt": "2021-05-21T00:32:00",
       "modifiedAt": "2024-07-21T17:22:31",
-      "rawContentSha256": "75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d"
+      "rawContentSha256": "75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d",
+        "bytes": 2346,
+        "sha256": "75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -18272,7 +18944,19 @@
       "slug": "carrie-french-450000-freelance-writing-on-fiverr",
       "publishedAt": "2021-05-14T03:05:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0"
+      "rawContentSha256": "32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0",
+        "bytes": 2330,
+        "sha256": "32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -18594,7 +19278,19 @@
       "slug": "anne-laure-le-cunff-100k-online-community-in-one-year",
       "publishedAt": "2021-05-07T17:12:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe"
+      "rawContentSha256": "d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe",
+        "bytes": 2605,
+        "sha256": "d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -18907,7 +19603,19 @@
       "slug": "dan-and-naomi-morris-20k-mo-affiliate-site-in-a-weird-niche",
       "publishedAt": "2021-05-07T16:43:00",
       "modifiedAt": "2025-01-13T01:33:02",
-      "rawContentSha256": "a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c"
+      "rawContentSha256": "a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c",
+        "bytes": 1377,
+        "sha256": "a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -19255,7 +19963,19 @@
       "slug": "james-scholz-1500-month-for-studying-full-time",
       "publishedAt": "2021-05-07T15:40:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a"
+      "rawContentSha256": "d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a",
+        "bytes": 2825,
+        "sha256": "d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -19577,7 +20297,19 @@
       "slug": "david-perell-1-8-million-teaching-writing",
       "publishedAt": "2021-05-07T15:02:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e"
+      "rawContentSha256": "4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e",
+        "bytes": 3340,
+        "sha256": "4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -19899,7 +20631,19 @@
       "slug": "garry-tan-turned-300k-into-2-billion",
       "publishedAt": "2021-04-30T19:09:00",
       "modifiedAt": "2024-07-20T15:08:28",
-      "rawContentSha256": "3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802"
+      "rawContentSha256": "3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802",
+        "bytes": 2507,
+        "sha256": "3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -20194,7 +20938,19 @@
       "slug": "steph-smith-100000-ebook-sales-in-8-months",
       "publishedAt": "2021-04-30T18:43:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5"
+      "rawContentSha256": "cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5",
+        "bytes": 2450,
+        "sha256": "cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -20516,7 +21272,19 @@
       "slug": "collin-waldoch-250000-year-online-trivia-business",
       "publishedAt": "2021-04-30T17:38:00",
       "modifiedAt": "2025-03-07T15:46:03",
-      "rawContentSha256": "d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55"
+      "rawContentSha256": "d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55",
+        "bytes": 2172,
+        "sha256": "d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -20847,7 +21615,19 @@
       "slug": "brad-rice-225k-a-year-salesforce-consultant",
       "publishedAt": "2021-04-23T16:29:00",
       "modifiedAt": "2025-03-07T15:46:05",
-      "rawContentSha256": "5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22"
+      "rawContentSha256": "5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22",
+        "bytes": 2533,
+        "sha256": "5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -21160,7 +21940,19 @@
       "slug": "rachel-harrison-sund-60k-her-1st-year-low-content-publishing",
       "publishedAt": "2021-04-16T17:48:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c"
+      "rawContentSha256": "703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c",
+        "bytes": 2667,
+        "sha256": "703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -21482,7 +22274,19 @@
       "slug": "daniel-maegaard-made-millions-with-bitcoin-then-nfts",
       "publishedAt": "2021-04-09T19:15:00",
       "modifiedAt": "2024-07-20T15:08:28",
-      "rawContentSha256": "181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0"
+      "rawContentSha256": "181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0",
+        "bytes": 2403,
+        "sha256": "181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -21795,7 +22599,19 @@
       "slug": "ferrari-market-letter-this-newsletter-makes-2-million-a-year",
       "publishedAt": "2021-04-09T18:57:00",
       "modifiedAt": "2025-03-07T15:46:09",
-      "rawContentSha256": "dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711"
+      "rawContentSha256": "dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711",
+        "bytes": 2526,
+        "sha256": "dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -22117,7 +22933,19 @@
       "slug": "anthony-and-jhanilka-hartzog-20k-month-outsourced-cleaning-service",
       "publishedAt": "2021-04-02T19:13:00",
       "modifiedAt": "2024-07-21T15:24:42",
-      "rawContentSha256": "cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5"
+      "rawContentSha256": "cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5",
+        "bytes": 2421,
+        "sha256": "cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -22421,7 +23249,19 @@
       "slug": "freeyourmusic-turning-a-small-app-into-20k-month",
       "publishedAt": "2021-04-02T18:22:00",
       "modifiedAt": "2025-03-07T15:46:10",
-      "rawContentSha256": "37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029"
+      "rawContentSha256": "37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029",
+        "bytes": 2707,
+        "sha256": "37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -22725,7 +23565,19 @@
       "slug": "alex-ramirez-mallis-910-selling-nft-farts",
       "publishedAt": "2021-03-26T22:00:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e"
+      "rawContentSha256": "9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e",
+        "bytes": 2379,
+        "sha256": "9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -23029,7 +23881,19 @@
       "slug": "amar-ghose-100k-month-maid-service-software",
       "publishedAt": "2021-03-26T21:42:00",
       "modifiedAt": "2024-07-20T14:52:12",
-      "rawContentSha256": "91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43"
+      "rawContentSha256": "91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43",
+        "bytes": 2177,
+        "sha256": "91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -23342,7 +24206,19 @@
       "slug": "david-lindahl-twitter-side-hustle-2000-month",
       "publishedAt": "2021-03-19T18:45:00",
       "modifiedAt": "2024-07-21T16:51:01",
-      "rawContentSha256": "b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7"
+      "rawContentSha256": "b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7",
+        "bytes": 2657,
+        "sha256": "b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -23646,7 +24522,19 @@
       "slug": "ethan-gawronski-49k-month-on-roblox",
       "publishedAt": "2021-03-12T20:53:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c"
+      "rawContentSha256": "cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c",
+        "bytes": 3389,
+        "sha256": "cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -23941,7 +24829,19 @@
       "slug": "thomas-smith-53-hour-small-time-youtuber",
       "publishedAt": "2021-03-12T20:32:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31"
+      "rawContentSha256": "5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31",
+        "bytes": 2631,
+        "sha256": "5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -24263,7 +25163,19 @@
       "slug": "nathan-barry-targeting-100-million-annual-revenue",
       "publishedAt": "2021-03-05T22:25:00",
       "modifiedAt": "2024-07-20T14:52:12",
-      "rawContentSha256": "f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f"
+      "rawContentSha256": "f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f",
+        "bytes": 2870,
+        "sha256": "f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -24585,7 +25497,19 @@
       "slug": "jani-pasha-50k-month-helping-indians-brag",
       "publishedAt": "2021-03-05T22:01:00",
       "modifiedAt": "2025-03-07T15:46:13",
-      "rawContentSha256": "c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925"
+      "rawContentSha256": "c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925",
+        "bytes": 2852,
+        "sha256": "c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -24925,7 +25849,19 @@
       "slug": "david-rudnick-this-digital-flower-sold-for-20000",
       "publishedAt": "2021-02-19T00:15:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee"
+      "rawContentSha256": "7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee",
+        "bytes": 3618,
+        "sha256": "7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -25247,7 +26183,19 @@
       "slug": "preetam-nath-online-course-made-6622-in-5-days",
       "publishedAt": "2021-02-05T22:32:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0"
+      "rawContentSha256": "6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0",
+        "bytes": 2835,
+        "sha256": "6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -25559,7 +26507,19 @@
       "slug": "nigel-hooijmans-10k-monthly-affiliate-marketing-in-dutch-and-german",
       "publishedAt": "2021-01-29T08:01:00",
       "modifiedAt": "2025-01-13T01:39:37",
-      "rawContentSha256": "5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085"
+      "rawContentSha256": "5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085",
+        "bytes": 1999,
+        "sha256": "5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -25863,7 +26823,19 @@
       "slug": "jon-yongfook-bootstrapped-a-saas-to-10k-mrr",
       "publishedAt": "2021-01-29T07:18:00",
       "modifiedAt": "2024-07-20T14:52:12",
-      "rawContentSha256": "2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf"
+      "rawContentSha256": "2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf",
+        "bytes": 2229,
+        "sha256": "2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -26167,7 +27139,19 @@
       "slug": "janel-loi-selling-her-notes-for-22000",
       "publishedAt": "2021-01-22T10:49:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b"
+      "rawContentSha256": "238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b",
+        "bytes": 2652,
+        "sha256": "238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -26498,7 +27482,19 @@
       "slug": "andrea-romo-500000-for-deep-frying-a-turkey",
       "publishedAt": "2021-01-22T08:30:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755"
+      "rawContentSha256": "6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755",
+        "bytes": 2118,
+        "sha256": "6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -26865,7 +27861,19 @@
       "slug": "ali-abdaal-doctors-6-online-revenue-streams",
       "publishedAt": "2021-01-15T13:12:00",
       "modifiedAt": "2024-07-20T14:55:48",
-      "rawContentSha256": "86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c"
+      "rawContentSha256": "86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c",
+        "bytes": 2727,
+        "sha256": "86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -27187,7 +28195,19 @@
       "slug": "phillip-davis-get-leads-from-your-competition",
       "publishedAt": "2021-01-14T20:42:00",
       "modifiedAt": "2024-07-21T16:56:03",
-      "rawContentSha256": "c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c"
+      "rawContentSha256": "c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c",
+        "bytes": 3137,
+        "sha256": "c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -27500,7 +28520,19 @@
       "slug": "kyle-taylor-this-website-sold-for-102-5-million",
       "publishedAt": "2020-12-25T09:36:00",
       "modifiedAt": "2025-01-13T01:40:39",
-      "rawContentSha256": "c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb"
+      "rawContentSha256": "c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb",
+        "bytes": 3147,
+        "sha256": "c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -27813,7 +28845,19 @@
       "slug": "luke-emery-3500-day-painting-your-dog",
       "publishedAt": "2020-12-25T08:57:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727"
+      "rawContentSha256": "4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727",
+        "bytes": 2218,
+        "sha256": "4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -28171,7 +29215,19 @@
       "slug": "trashureseeker-1500-for-1000-words-on-medium",
       "publishedAt": "2020-12-18T09:49:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73"
+      "rawContentSha256": "f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73",
+        "bytes": 2663,
+        "sha256": "f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -28484,7 +29540,19 @@
       "slug": "justin-mares-10-million-idea-validation",
       "publishedAt": "2020-12-18T04:31:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc"
+      "rawContentSha256": "a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc",
+        "bytes": 2146,
+        "sha256": "a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -28788,7 +29856,19 @@
       "slug": "armin-ulrich-15k-month-side-project",
       "publishedAt": "2020-12-11T11:51:00",
       "modifiedAt": "2024-07-20T14:52:12",
-      "rawContentSha256": "0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f"
+      "rawContentSha256": "0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f",
+        "bytes": 2396,
+        "sha256": "0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -29137,7 +30217,19 @@
       "slug": "david-dobrik-510000-in-one-hour",
       "publishedAt": "2020-12-11T11:17:00",
       "modifiedAt": "2024-07-20T15:09:55",
-      "rawContentSha256": "267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca"
+      "rawContentSha256": "267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca",
+        "bytes": 2022,
+        "sha256": "267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -29450,7 +30542,19 @@
       "slug": "brian-baumgartner-1-million-top-earner-on-cameo",
       "publishedAt": "2020-12-11T10:40:00",
       "modifiedAt": "2024-07-20T14:48:11",
-      "rawContentSha256": "81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab"
+      "rawContentSha256": "81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab",
+        "bytes": 2976,
+        "sha256": "81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -29754,7 +30858,19 @@
       "slug": "jesus-vargas-10k-a-month-lowcode-agency",
       "publishedAt": "2020-12-04T14:01:00",
       "modifiedAt": "2025-03-07T15:46:20",
-      "rawContentSha256": "66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25"
+      "rawContentSha256": "66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25",
+        "bytes": 2116,
+        "sha256": "66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -29845,7 +30961,7 @@
         "sourceClass": "INDEPENDENT_SECONDARY",
         "evidenceLocator": {
           "type": "html",
-          "textHash": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff"
+          "textHash": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7"
         },
         "metrics": [
           {
@@ -29879,7 +30995,7 @@
         "sourceClass": "INDEPENDENT_SECONDARY",
         "evidenceLocator": {
           "type": "html",
-          "textHash": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff"
+          "textHash": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7"
         },
         "metrics": [
           {
@@ -29908,7 +31024,7 @@
         "sourceClass": "INDEPENDENT_SECONDARY",
         "evidenceLocator": {
           "type": "html",
-          "textHash": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff"
+          "textHash": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7"
         }
       }
     ],
@@ -29985,7 +31101,7 @@
         "sourceClass": "INDEPENDENT_SECONDARY",
         "evidenceLocator": {
           "type": "html",
-          "textHash": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff"
+          "textHash": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7"
         }
       },
       {
@@ -29999,7 +31115,7 @@
         "sourceClass": "INDEPENDENT_SECONDARY",
         "evidenceLocator": {
           "type": "html",
-          "textHash": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff"
+          "textHash": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7"
         }
       }
     ],
@@ -30085,7 +31201,19 @@
       "slug": "dantdm-profile",
       "publishedAt": "2020-10-27T17:58:50",
       "modifiedAt": "2024-07-20T14:48:12",
-      "rawContentSha256": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff"
+      "rawContentSha256": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7",
+        "bytes": 8595,
+        "sha256": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff",
+      "rawCaptureHistoricalHashMatches": false
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -30389,7 +31517,19 @@
       "slug": "sa-el-earning-2-for-every-website-visitor",
       "publishedAt": "2020-09-11T15:53:00",
       "modifiedAt": "2025-01-13T01:45:35",
-      "rawContentSha256": "5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a"
+      "rawContentSha256": "5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a",
+        "bytes": 1808,
+        "sha256": "5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -30755,7 +31895,19 @@
       "slug": "hikaru-nakamura-chess-grandmaster-35k-month-online",
       "publishedAt": "2020-08-23T12:41:15",
       "modifiedAt": "2024-12-26T16:30:14",
-      "rawContentSha256": "0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6"
+      "rawContentSha256": "0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6",
+        "bytes": 6394,
+        "sha256": "0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -31050,7 +32202,19 @@
       "slug": "cash-back-shopping-rakuten",
       "publishedAt": "2020-08-18T17:33:35",
       "modifiedAt": "2024-10-08T13:41:25",
-      "rawContentSha256": "e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca"
+      "rawContentSha256": "e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca",
+        "bytes": 3459,
+        "sha256": "e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -31363,7 +32527,19 @@
       "slug": "deborah-s-30-into-150k-online-slots",
       "publishedAt": "2020-08-18T11:16:48",
       "modifiedAt": "2024-12-28T13:33:59",
-      "rawContentSha256": "db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c"
+      "rawContentSha256": "db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c",
+        "bytes": 2581,
+        "sha256": "db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -31676,7 +32852,19 @@
       "slug": "adam-wathan-working-in-public-to-4-million",
       "publishedAt": "2020-08-07T23:38:00",
       "modifiedAt": "2024-07-21T15:14:20",
-      "rawContentSha256": "6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81"
+      "rawContentSha256": "6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81",
+        "bytes": 3256,
+        "sha256": "6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   },
@@ -32007,7 +33195,19 @@
       "slug": "ryan-roots-24176-per-month-reselling-on-ebay",
       "publishedAt": "2020-07-24T15:40:00",
       "modifiedAt": "2024-07-21T15:33:37",
-      "rawContentSha256": "7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864"
+      "rawContentSha256": "7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": "blobs/sha256/7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864",
+        "bytes": 2433,
+        "sha256": "7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864",
+        "status": "CREATED",
+        "readbackVerified": true
+      },
+      "observedAt": "2026-09-16",
+      "disclosure": "eBiz Facts WordPress APIのcontent.rendered本文を取得し、本文SHA-256とFoundation Rawのreadbackを検証。記事の報告値は利益の独立監査ではない。",
+      "rawCaptureHistoricalHash": "7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864",
+      "rawCaptureHistoricalHashMatches": true
     },
     "batchId": "batch-ebizfacts-new100x-clean-20260916"
   }

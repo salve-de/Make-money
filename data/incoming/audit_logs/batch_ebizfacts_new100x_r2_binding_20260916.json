@@ -1,0 +1,2317 @@
+{
+  "schemaVersion": "ebizfacts-r2-binding-audit.v1",
+  "capturedAt": "2026-09-16T06:15:43.671Z",
+  "bucket": "foundation-raw",
+  "requested": 100,
+  "bound": 100,
+  "readbackVerified": 100,
+  "historicalHashMatches": 99,
+  "historicalHashMismatches": 1,
+  "statusCounts": {
+    "CREATED": 100
+  },
+  "batchPath": "data/incoming/external_collectors/batch_ebizfacts_new100x_clean_20260916.json",
+  "auditPath": "data/incoming/audit_logs/batch_ebizfacts_new100x_clean_audit_20260916.json",
+  "results": [
+    {
+      "name": "Sleep consultant earning $1000’s per client",
+      "entityId": "ent_ebizfacts_rileyjarvissleepconsultantearning1000spercli_a4be4c30ba4c",
+      "sourceUrl": "https://ebizfacts.com/riley-jarvis-sleep-consultant-earning-1000s-per-client/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923159?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d",
+      "bytes": 2563,
+      "sha256": "164350599adf7e2afa4bed0d9bb0da4596a0e93a13fa943811ceba61e5c1692d",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$4000/month longer lasting sex app",
+      "entityId": "ent_ebizfacts_nateliason4000monthlongerlastingsexapp_fade1e8212eb",
+      "sourceUrl": "https://ebizfacts.com/nat-eliason-4000-month-longer-lasting-sex-app/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923252?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358",
+      "bytes": 2614,
+      "sha256": "5165718d867bf6c16889e8d5d03b294d2b3cc9755e1634b97f816f97aadea358",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Self-taught coder, $150k MRR",
+      "entityId": "ent_ebizfacts_nickfogleselftaughtcoder150kmrr_f260bf564535",
+      "sourceUrl": "https://ebizfacts.com/nick-fogle-self-taught-coder-150k-mrr/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923244?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a",
+      "bytes": 2421,
+      "sha256": "10a989c0f0ba09c3349d215fa189c591e7c348384d925d8081696419c278a38a",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$407,443 Naming Chinese Babies",
+      "entityId": "ent_ebizfacts_beaujessup407443namingchinesebabies_3e2c0bc1bff5",
+      "sourceUrl": "https://ebizfacts.com/beau-jessup-407443-naming-chinese-babies/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923219?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a",
+      "bytes": 2600,
+      "sha256": "82919dfc3b31302011748b05bd9a34e459452d00f5dfc8dd274f05ac4332005a",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$20,000/Month Reptile Vlogger",
+      "entityId": "ent_ebizfacts_brianbarczyk20000monthreptilevlogger_6692ea5ad62d",
+      "sourceUrl": "https://ebizfacts.com/brian-barczyk-20000-month-reptile-vlogger/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923418?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0",
+      "bytes": 2475,
+      "sha256": "4ce18749e13c43ae1b303b8671837b8be45dcb48f0ff3aa7c092998ba815cad0",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$35 Million Selling Dog Ramps Online",
+      "entityId": "ent_ebizfacts_ramonvanmeerbusinessacquisitionopportunities_d088b52578c2",
+      "sourceUrl": "https://ebizfacts.com/ramon-van-meer-business-acquisition-opportunities/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923410?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc",
+      "bytes": 2673,
+      "sha256": "c987541adb74840e49bf7d0ab4625e30364eac508f8b708916aae26b73f396fc",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "3 Years to $500k ARR",
+      "entityId": "ent_ebizfacts_markosaric3yearsto500karr_c60eca96286f",
+      "sourceUrl": "https://ebizfacts.com/marko-saric-3-years-to-500k-arr/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923476?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f",
+      "bytes": 2814,
+      "sha256": "35c3faa0725f3339c5e296c0fed9e0c10545b4ba0d1c9fa47ae22470f567972f",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Sold his website for $6 million",
+      "entityId": "ent_ebizfacts_larryludwigsoldhiswebsitefor6million_7a3af16afb42",
+      "sourceUrl": "https://ebizfacts.com/larry-ludwig-sold-his-website-for-6-million/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923451?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1",
+      "bytes": 2668,
+      "sha256": "93ff114b07b25e6c6070ef2a8504743154ef65035459f3acd941e6f1ad8df5f1",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "24-year-old earned $500k+ on Fiverr",
+      "entityId": "ent_ebizfacts_georgiaaustin24yearoldearned500konfiverr_6e5091b2ac87",
+      "sourceUrl": "https://ebizfacts.com/georgia-austin-24-year-old-earned-500k-on-fiverr/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923542?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357",
+      "bytes": 2667,
+      "sha256": "14bb7e72cf21afeb17ebbff778ff4291e303b32cc8f20d32c5d34dc737dce357",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$20,000 in first 3 months",
+      "entityId": "ent_ebizfacts_removaly20kinfirst3months_3bcd9fbb9d74",
+      "sourceUrl": "https://ebizfacts.com/removaly-20k-in-first-3-months/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923523?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab",
+      "bytes": 3357,
+      "sha256": "053297b7239eda1851a7864a80f7a1cf1feac0e4f95d29531a5b7c9ea33e21ab",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$50,000 in 1 week on AppSumo",
+      "entityId": "ent_ebizfacts_malcolmtyson50000in1weekonappsumo_19464a85f976",
+      "sourceUrl": "https://ebizfacts.com/malcolm-tyson-50000-in-1-week-on-appsumo/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923500?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991",
+      "bytes": 2341,
+      "sha256": "1570ee0850b00f14e919077502a44cf0a0627e47ae96c7eaae52ad525bf7a991",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$3000/month Automated Affiliate Site",
+      "entityId": "ent_ebizfacts_dealsviking3000monthautomatedaffiliatesite_c944696a2cc7",
+      "sourceUrl": "https://ebizfacts.com/deals-viking-3000-month-automated-affiliate-site/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923559?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1",
+      "bytes": 2530,
+      "sha256": "7ac6478b45f9b914680f13a81f0f14926124f0838de8d382387085bda3ef16d1",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Tiny tool, 1 million visitors a month",
+      "entityId": "ent_ebizfacts_jonathanbergertinytool1millionvisitorsamonth_bd05b7b6a6ef",
+      "sourceUrl": "https://ebizfacts.com/jonathan-berger-tiny-tool-1-million-visitors-a-month/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923600?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60",
+      "bytes": 2296,
+      "sha256": "27a60791df2d0a7ceab9b6a052afe06c3fbc9175f98f7576fdda2d49714e6b60",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Self-taught Coder, $1 Million Business",
+      "entityId": "ent_ebizfacts_andrewburnettthompsonselftaughtcoder1million_286306c88219",
+      "sourceUrl": "https://ebizfacts.com/andrew-burnett-thompson-self-taught-coder-1-million-business/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923586?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44",
+      "bytes": 2762,
+      "sha256": "b95d737d2206f237c0a0ef9383eabc6c24908725ee4023e98b6eeba581608c44",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$4000/month Online Coworking",
+      "entityId": "ent_ebizfacts_maddiewang4000monthonlinecoworking_707532cecd2f",
+      "sourceUrl": "https://ebizfacts.com/maddie-wang-4000-month-online-coworking/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923580?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff",
+      "bytes": 2048,
+      "sha256": "ab414acae47bfad76b2535316d16a04288b4da5e1da8339e448d9a83e6b4d9ff",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Fired from job, now makes $95k/month",
+      "entityId": "ent_ebizfacts_reillychasefiredfromjobnowmakes95kmonth_ffed02486ebc",
+      "sourceUrl": "https://ebizfacts.com/reilly-chase-fired-from-job-now-makes-95k-month/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923573?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00",
+      "bytes": 2560,
+      "sha256": "f51086c76dae3879de121b723fc53a91fa7d3c4fbfd410c35e0436eb2c3a5c00",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$300k/month Gmail extension",
+      "entityId": "ent_ebizfacts_ajaygoel300kmonthgmailextension_524db0fd62e8",
+      "sourceUrl": "https://ebizfacts.com/ajay-goel-300k-month-gmail-extension/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923657?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d",
+      "bytes": 2767,
+      "sha256": "60d7aac57e826f03b63172295173ca1d9d6dbec59b87f034d39118eea4bb969d",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Design intern to $1M business owner",
+      "entityId": "ent_ebizfacts_jackbutcherdesigninternto1mbusinessowner_746a33488266",
+      "sourceUrl": "https://ebizfacts.com/jack-butcher-design-intern-to-1m-business-owner/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923735?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70",
+      "bytes": 2530,
+      "sha256": "bb4bd93ac6137eb3ac4df7d4fd1c331daea09e1c18771cc206b88ac837d53b70",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$60,000/month fighting climate change",
+      "entityId": "ent_ebizfacts_ecologi60000monthfightingclimatechange_120efc924b9d",
+      "sourceUrl": "https://ebizfacts.com/ecologi-60000-month-fighting-climate-change/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923722?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab",
+      "bytes": 2187,
+      "sha256": "37b6e3cc1a0f6a7fec9cf90ddbca8e623f3cb310d38c5af3587304e77cde55ab",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "He sold $35,000,000 of dog ramps",
+      "entityId": "ent_ebizfacts_ramonvanmeersold35000000ofdogramps_daf7029da6b6",
+      "sourceUrl": "https://ebizfacts.com/ramon-van-meer-sold-35000000-of-dog-ramps/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923848?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026",
+      "bytes": 2327,
+      "sha256": "1b31db2b0c72e5b0ed627ac8b4b0f06774bc6f93ac73d4606674e9f7f6443026",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$10k/month Podcast Production Agency",
+      "entityId": "ent_ebizfacts_awesomepros10kmonthpodcastproductionagency_a1ac4dacdaef",
+      "sourceUrl": "https://ebizfacts.com/awesome-pros-10k-month-podcast-production-agency/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3923840?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6",
+      "bytes": 2652,
+      "sha256": "394b650bb855b1ca18f7be8b75ddfe17218170237a12ec4a52df98b14443b1b6",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$500/month from 21,000 views",
+      "entityId": "ent_ebizfacts_petemcpherson500monthfrom21000views_8fbdab2c98d8",
+      "sourceUrl": "https://ebizfacts.com/pete-mcpherson-500-month-from-21000-views/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3924952?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624",
+      "bytes": 2037,
+      "sha256": "12b4d6161aaa791ca3b83139bc5a033efc60c1ef714204c47b5d6ebb6d257624",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$120K Per Year One-Man Webflow Business",
+      "entityId": "ent_ebizfacts_youssefsarhan120kyearonemanwebflowbusiness_fe40c08c8b7c",
+      "sourceUrl": "https://ebizfacts.com/youssef-sarhan-120k-year-one-man-webflow-business/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925043?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f",
+      "bytes": 2027,
+      "sha256": "a44e5de5299cef474c9704ad0afbe649381fb86e62387cf6b5cb1303a0547b0f",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$100,000/Month BBQ Blog",
+      "entityId": "ent_ebizfacts_josephclements100000monthbbqblog_b43bf939efbe",
+      "sourceUrl": "https://ebizfacts.com/joseph-clements-100000-month-bbq-blog/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925019?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9",
+      "bytes": 2640,
+      "sha256": "d644096fcc60999be530d4a52995267011d5f46301a4d2ecf25f130e116359e9",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Self-talk of a $40 billion woman",
+      "entityId": "ent_ebizfacts_melanieperkinsselftalkofa40billionwoman_1fc3b4982418",
+      "sourceUrl": "https://ebizfacts.com/melanie-perkins-self-talk-of-a-40-billion-woman/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3924999?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb",
+      "bytes": 3050,
+      "sha256": "77481a1f4c127c8bca75705016676696c7c1442717c3b7a4db536a0e2f697acb",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "25-year-old’s $40 million newsletter",
+      "entityId": "ent_ebizfacts_daniellapierson25yearolds40millionnewsletter_b68422e06d0d",
+      "sourceUrl": "https://ebizfacts.com/daniella-pierson-25-year-olds-40-million-newsletter/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925089?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71",
+      "bytes": 2755,
+      "sha256": "97d1a6758f39ffc397ed5cd5fe3881716e67c345d088586e53317b0498df4a71",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "25-year-old TikTok Millionaire",
+      "entityId": "ent_ebizfacts_austinhankwitz25yearoldtiktokmillionaire_ef79c382d08d",
+      "sourceUrl": "https://ebizfacts.com/austin-hankwitz-25-year-old-tiktok-millionaire/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925059?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c",
+      "bytes": 3218,
+      "sha256": "b55d50a1bc6efcc6f4e0ec47f5e85c29cacea3beac31e200997db2b43754861c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1103 in a day with display ads",
+      "entityId": "ent_ebizfacts_limhowwei1103inadaywithdisplayads_b817a84b7dee",
+      "sourceUrl": "https://ebizfacts.com/lim-how-wei-1103-in-a-day-with-display-ads/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925457?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5",
+      "bytes": 3333,
+      "sha256": "26fd656055cf2b3217abaa694a8fd955eb94dc4f4ae7975610003cf6f121d3f5",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "He made $1 million in SaaS",
+      "entityId": "ent_ebizfacts_reillychasemade1millioninsaas_62b74c700cad",
+      "sourceUrl": "https://ebizfacts.com/reilly-chase-made-1-million-in-saas/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925450?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3",
+      "bytes": 2409,
+      "sha256": "9dd8d3d04a3488be7cb75a92fefeb00f685b518589f4abf7856cfc40516ff7b3",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$75K/Month Online Arbitrage",
+      "entityId": "ent_ebizfacts_chrisgrant75kmonthonlinearbitrage_13e30ff21d74",
+      "sourceUrl": "https://ebizfacts.com/chris-grant-75k-month-online-arbitrage/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925628?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9",
+      "bytes": 2365,
+      "sha256": "4f69e35e765789e07e54a2d02c4ea54bd2c1cd18b17f743d399fe7e5583947e9",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1 million ARR with 3 employees",
+      "entityId": "ent_ebizfacts_justinjackson1millionarrwith3employees_7d7c7c286d32",
+      "sourceUrl": "https://ebizfacts.com/justin-jackson-1-million-arr-with-3-employees/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925608?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7",
+      "bytes": 2866,
+      "sha256": "1f596982fedbf8444440551565a5276d7b7a57ae3ec3a0f35b7171c9cd8fc8a7",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$50 Million in Annual Revenue",
+      "entityId": "ent_ebizfacts_erikallebest50millioninannualrevenue_d99a56271095",
+      "sourceUrl": "https://ebizfacts.com/erik-allebest-50-million-in-annual-revenue/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925598?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7",
+      "bytes": 1670,
+      "sha256": "588aa396a4116952f49e4c907c542f586e778ca0a9e4cf367a76df178aeaebb7",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "12-year-old earns $400k from NFTs",
+      "entityId": "ent_ebizfacts_benyaminahmed12yearoldearns400kfromnfts_489d6a3306a8",
+      "sourceUrl": "https://ebizfacts.com/benyamin-ahmed-12-year-old-earns-400k-from-nfts/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925585?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7",
+      "bytes": 2451,
+      "sha256": "bb8f7c6f144975609b73fddc6951f699bd1d6b416c0c309d606133ed86aa68a7",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$4227 in one week on Poshmark",
+      "entityId": "ent_ebizfacts_nicolestate4227inoneweekonposhmark_2a39d07d91a9",
+      "sourceUrl": "https://ebizfacts.com/nicole-state-4227-in-one-week-on-poshmark/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925705?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39",
+      "bytes": 2311,
+      "sha256": "f9bbf7ae0ee3e8b10a2f7e5d17737d9b2e4498592798b08e0859c91ac6326c39",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Origin of a $35k/month SaaS business",
+      "entityId": "ent_ebizfacts_jordanoconnororiginofa35kmonthsaasbusiness_24ae14145a4e",
+      "sourceUrl": "https://ebizfacts.com/jordan-oconnor-origin-of-a-35k-month-saas-business/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925701?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5",
+      "bytes": 2776,
+      "sha256": "3e5a73b1e0b9754b6096efc8d70230a00322533410aa6e24c8430b578a0d4ce5",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$200k/year on GitHub Sponsors",
+      "entityId": "ent_ebizfacts_calebporzio200kyearongithubsponsors_22680e40226e",
+      "sourceUrl": "https://ebizfacts.com/caleb-porzio-200k-year-on-github-sponsors/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925690?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502",
+      "bytes": 3315,
+      "sha256": "d226b003a6da65ade41b6845844cccd4c75c8a84137422a71a267cf07d42b502",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$10,000+ From A Niche Ebook",
+      "entityId": "ent_ebizfacts_unaminhkavanagh3500fromanicheebook_5b66e109c13a",
+      "sourceUrl": "https://ebizfacts.com/una-minh-kavanagh-3500-from-a-niche-ebook/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925762?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6",
+      "bytes": 3181,
+      "sha256": "982439f663f9c28f5c38107076b9a50cdc16ce819dd60a0d110a50beab0389f6",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$50k/month Creating Book Lists",
+      "entityId": "ent_ebizfacts_graememcgaw50kmonthcreatingbooklists_a869c66c39b3",
+      "sourceUrl": "https://ebizfacts.com/graeme-mcgaw-50k-month-creating-book-lists/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3925931?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932",
+      "bytes": 2913,
+      "sha256": "289cf166ee85d847e5254887cac18534ca5182be45d8e5faa79c3f1c1fe21932",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$50k/Month Bootstrapped SaaS",
+      "entityId": "ent_ebizfacts_davisbaer50kmonthbootstrappedsaas_47edb9309545",
+      "sourceUrl": "https://ebizfacts.com/davis-baer-50k-month-bootstrapped-saas/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926057?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2",
+      "bytes": 2204,
+      "sha256": "8c056a677868eb31c4a7cc4e4e6caab1d5524329f00b82d87b8708576264e5d2",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$15k/month Affirmation App",
+      "entityId": "ent_ebizfacts_efehelvaci15kmonthaffirmationapp_3d5b2994c83e",
+      "sourceUrl": "https://ebizfacts.com/efe-helvaci-15k-month-affirmation-app/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926102?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8",
+      "bytes": 2596,
+      "sha256": "b8ab8f898a0555889e3dfdac94053ab30257d61e5ea1e1f932ac55e4b6cc5cc8",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Origins of a 27-Year-Old Billionaire",
+      "entityId": "ent_ebizfacts_vitalikbuterinoriginsofa27yearoldbillionaire_d0ff8e421f55",
+      "sourceUrl": "https://ebizfacts.com/vitalik-buterin-origins-of-a-27-year-old-billionaire/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926231?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec",
+      "bytes": 3018,
+      "sha256": "140dceff2113af75c75d01c05362d9d8bccfdcb98ef92bf75ecef25d329ee4ec",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1 Million Selling Slime",
+      "entityId": "ent_ebizfacts_jacobkarram1millionsellingslime_acd9728fcc89",
+      "sourceUrl": "https://ebizfacts.com/jacob-karram-1-million-selling-slime/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926223?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc",
+      "bytes": 2948,
+      "sha256": "9fd02a2625ece13f04f5f1c9f5d4628d3d2c6d08b01883951b795855808457dc",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$200k/Year Teaching Mailchimp",
+      "entityId": "ent_ebizfacts_pauljarvis200kyearteachingmailchimp_b7d18b978545",
+      "sourceUrl": "https://ebizfacts.com/paul-jarvis-200k-year-teaching-mailchimp/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926202?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2",
+      "bytes": 2693,
+      "sha256": "45dcbefffa93d114fdb833ffcc1cac6f35648c22b2e78332d8e61a0b780679e2",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$50k/Month in 5 Hours/Week",
+      "entityId": "ent_ebizfacts_jakejorgovan50kmonthin5hoursweek_b9ef53ffb8ac",
+      "sourceUrl": "https://ebizfacts.com/jake-jorgovan-50k-month-in-5-hours-week/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926269?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6",
+      "bytes": 2141,
+      "sha256": "dcc6c881983e49c01632140616b012d43ff7418d3552e345b6b63d60b83022d6",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$150,000 in 12 days",
+      "entityId": "ent_ebizfacts_sleepout150000in12days_46d292fd19c5",
+      "sourceUrl": "https://ebizfacts.com/sleepout-150000-in-12-days/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926241?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d",
+      "bytes": 3486,
+      "sha256": "d0f5d277f9a00f8f6bc9814415d46875b0116e9110f423438fa70d6c8224a69d",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Tokenized himself for $20,000",
+      "entityId": "ent_ebizfacts_alexmasmejtokenizedhimselffor20000_8011d8da9a81",
+      "sourceUrl": "https://ebizfacts.com/alex-masmej-tokenized-himself-for-20000/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926316?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3",
+      "bytes": 2926,
+      "sha256": "770b28daec167009bbe79de78a028b762bb5990b204ff47d95ed95be9e0634a3",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$78k/month niche YouTube channel",
+      "entityId": "ent_ebizfacts_anthonybaroud78kmonthnicheyoutubechannel_c4ea4dcdeee3",
+      "sourceUrl": "https://ebizfacts.com/anthony-baroud-78k-month-niche-youtube-channel/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926309?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e",
+      "bytes": 3003,
+      "sha256": "e536ea67e24be42045fe9077c0569f328646b7f71eef9ec4444d40029d43a54e",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1500/Month Passive Income",
+      "entityId": "ent_ebizfacts_juliahorvath1500monthpassiveincome_3659e6693737",
+      "sourceUrl": "https://ebizfacts.com/julia-horvath-1500-month-passive-income/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926382?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65",
+      "bytes": 2518,
+      "sha256": "2a1d86e4346c7c7fed3ec43416a228694548ec3da2ea2bbcd7f3aa24756b2b65",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$10k/Month Selling Printables on Etsy",
+      "entityId": "ent_ebizfacts_racheljones10kmonthsellingprintablesonetsy_986105770286",
+      "sourceUrl": "https://ebizfacts.com/rachel-jones-10k-month-selling-printables-on-etsy/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926453?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221",
+      "bytes": 2133,
+      "sha256": "0be91bc4b5d16458bfedec99cd3b0b1b50bb1998f77f35bf9dc171342c16d221",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1 Million a Year Cloning Photoshop",
+      "entityId": "ent_ebizfacts_ivankuckir1millionayearcloningphotoshop_a3b87b2ecd25",
+      "sourceUrl": "https://ebizfacts.com/ivan-kuckir-1-million-a-year-cloning-photoshop/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926433?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1",
+      "bytes": 2148,
+      "sha256": "a7ae7cdee399dadcafe70bd5d7d5b5acbde57cc96bfdfa3d5a21430c0afed3d1",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "How To Earn $75k Affiliate Marketing",
+      "entityId": "ent_ebizfacts_khrisstevenhowtoearn75kaffiliatemarketing_23bcbea2d8f4",
+      "sourceUrl": "https://ebizfacts.com/khris-steven-how-to-earn-75k-affiliate-marketing/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926702?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e",
+      "bytes": 2019,
+      "sha256": "dab4f31e7dc013d577ed6234011a0a4b5cc55d123facbf00011bcd53b029049e",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Bought For $16K, Sold For $625K",
+      "entityId": "ent_ebizfacts_mattdiggityboughtfor16ksoldfor625k_34aaa3fd258c",
+      "sourceUrl": "https://ebizfacts.com/matt-diggity-bought-for-16k-sold-for-625k/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926694?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb",
+      "bytes": 2678,
+      "sha256": "0572e6dee3fcfe7f05bb541a280aec67d56ec4633bcd6e3b6c8dd5af9e4678cb",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "5-Figures a Month via OnlyFans",
+      "entityId": "ent_ebizfacts_savannahsolo5figuresamonthviaonlyfans_5b8d06701ff7",
+      "sourceUrl": "https://ebizfacts.com/savannah-solo-5-figures-a-month-via-onlyfans/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926650?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c",
+      "bytes": 1759,
+      "sha256": "1fdea4d73cd4fd6381bce346d1089dc672da4c8df9d47a755d3e810e13da796c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Disaster Girl just made $473,000",
+      "entityId": "ent_ebizfacts_zoerothdisastergirljustmade473000_b100ec6d1595",
+      "sourceUrl": "https://ebizfacts.com/zoe-roth-disaster-girl-just-made-473000/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926737?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a",
+      "bytes": 2427,
+      "sha256": "0ab4edd4028a590472e7e30d1e8c6eb374d88827f60f3fac5eb9ff8f3c5de46a",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$50K/Month One-Man Design Service",
+      "entityId": "ent_ebizfacts_brettwilliams50kmonthonemandesignservice_2e073075ae5b",
+      "sourceUrl": "https://ebizfacts.com/brett-williams-50k-month-one-man-design-service/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926782?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f",
+      "bytes": 1689,
+      "sha256": "845cbad0ace68858ac182c652c52663631c6b2f0171cc8c97b9b2a5685e8d51f",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "The Secret to Building a $39k/Month Business",
+      "entityId": "ent_ebizfacts_jordanoconnorthesecrettobuildinga39kmobusine_fcbd1ac173d4",
+      "sourceUrl": "https://ebizfacts.com/jordan-oconnor-the-secret-to-building-a-39k-mo-business/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3926967?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d",
+      "bytes": 2346,
+      "sha256": "75bae8dafec9efbe316921a330c21138fabd21797adec6c86e1055f0c432d09d",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$450,000 Freelance Writing on Fiverr",
+      "entityId": "ent_ebizfacts_carriefrench450000freelancewritingonfiverr_999dd851a282",
+      "sourceUrl": "https://ebizfacts.com/carrie-french-450000-freelance-writing-on-fiverr/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927033?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0",
+      "bytes": 2330,
+      "sha256": "32c925c74ab66295c23d2439614f9d3f20654335e1d6903521f95136c99534a0",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$100K Online Community in One Year",
+      "entityId": "ent_ebizfacts_annelaurelecunff100konlinecommunityinoneyear_35f760b0f9b9",
+      "sourceUrl": "https://ebizfacts.com/anne-laure-le-cunff-100k-online-community-in-one-year/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927092?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe",
+      "bytes": 2605,
+      "sha256": "d4a202cabd84a487932349824fea622e5171cd148351d5f742a3d7f415111ffe",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$20k/Month Affiliate Site in a Weird Niche",
+      "entityId": "ent_ebizfacts_danandnaomimorris20kmoaffiliatesiteinaweirdn_e4881ee172fb",
+      "sourceUrl": "https://ebizfacts.com/dan-and-naomi-morris-20k-mo-affiliate-site-in-a-weird-niche/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927079?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c",
+      "bytes": 1377,
+      "sha256": "a1eb6494a4e884eaec91538378f859148c494813c2ee0fdccbb6be60cc00027c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1500/Month For Studying Full-Time",
+      "entityId": "ent_ebizfacts_jamesscholz1500monthforstudyingfulltime_e9f6215b0383",
+      "sourceUrl": "https://ebizfacts.com/james-scholz-1500-month-for-studying-full-time/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927063?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a",
+      "bytes": 2825,
+      "sha256": "d5fb79a2af95c9098ee301dae50f183e959869652d590bc9400c4d262d927c0a",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1.8 Million Teaching Writing",
+      "entityId": "ent_ebizfacts_davidperell18millionteachingwriting_bccc584197dd",
+      "sourceUrl": "https://ebizfacts.com/david-perell-1-8-million-teaching-writing/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927047?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e",
+      "bytes": 3340,
+      "sha256": "4a2ea3ac68a8efe91aca746478e9fcf40a2ca4dc653be6c14a8b160d66a96e8e",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "He Turned $300k into $2 Billion",
+      "entityId": "ent_ebizfacts_garrytanturned300kinto2billion_df2adb4a7764",
+      "sourceUrl": "https://ebizfacts.com/garry-tan-turned-300k-into-2-billion/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927131?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802",
+      "bytes": 2507,
+      "sha256": "3986c28802b96ef499eb7e044a557a06811df0c43f27c16938ec3bc5cc343802",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$100,000 Ebook Sales in 8 Months",
+      "entityId": "ent_ebizfacts_stephsmith100000ebooksalesin8months_2b5e074368ff",
+      "sourceUrl": "https://ebizfacts.com/steph-smith-100000-ebook-sales-in-8-months/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927124?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5",
+      "bytes": 2450,
+      "sha256": "cbb61a1b73c78fdecc765fd2d5c5749e2defc9479f5adc4f61ec9102a7278ca5",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$250,000/Year Online Trivia Business",
+      "entityId": "ent_ebizfacts_collinwaldoch250000yearonlinetriviabusiness_e50ef53a247a",
+      "sourceUrl": "https://ebizfacts.com/collin-waldoch-250000-year-online-trivia-business/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927106?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55",
+      "bytes": 2172,
+      "sha256": "d1bce62561310177ea56ce02cadc3cc00b0d63e22e0112336cadb063458bde55",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$225k a Year Salesforce Consultant",
+      "entityId": "ent_ebizfacts_bradrice225kayearsalesforceconsultant_9c7caaafe7f2",
+      "sourceUrl": "https://ebizfacts.com/brad-rice-225k-a-year-salesforce-consultant/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927162?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22",
+      "bytes": 2533,
+      "sha256": "5807c9a20d5bcf6fba4a6f0faac2f2967857f2cf89f107bbf14884e15cbaba22",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$60k her 1st year low-content publishing",
+      "entityId": "ent_ebizfacts_rachelharrisonsund60kher1styearlowcontentpub_3a79160cd3fc",
+      "sourceUrl": "https://ebizfacts.com/rachel-harrison-sund-60k-her-1st-year-low-content-publishing/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927218?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c",
+      "bytes": 2667,
+      "sha256": "703a219befa8d6879220869eeb15aae22eb5ce79f0aad3a5c612eb351e9c035c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "He Made Millions With Bitcoin, Then NFTs",
+      "entityId": "ent_ebizfacts_danielmaegaardmademillionswithbitcointhennft_d498c456e986",
+      "sourceUrl": "https://ebizfacts.com/daniel-maegaard-made-millions-with-bitcoin-then-nfts/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927273?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0",
+      "bytes": 2403,
+      "sha256": "181073184fcdfc1d1386679ae7ca3d232a8ef3f5c1df4c81121e69f5a02fffa0",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "This Newsletter Makes $2 Million a Year",
+      "entityId": "ent_ebizfacts_ferrarimarketletterthisnewslettermakes2milli_1442a2a4fb6f",
+      "sourceUrl": "https://ebizfacts.com/ferrari-market-letter-this-newsletter-makes-2-million-a-year/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927262?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711",
+      "bytes": 2526,
+      "sha256": "dce8746fcf3a5e8667eeccec23c5233b816cc5544e466948d36c0603162cc711",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$20K/Month Outsourced Cleaning Service",
+      "entityId": "ent_ebizfacts_anthonyandjhanilkahartzog20kmonthoutsourcedc_f092fad71524",
+      "sourceUrl": "https://ebizfacts.com/anthony-and-jhanilka-hartzog-20k-month-outsourced-cleaning-service/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927441?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5",
+      "bytes": 2421,
+      "sha256": "cc9b4b78ba3609d2d90a8f0ee4716d99c3229ab98239f3e9363c24c64ee729c5",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Turning a Small App into $20k/month",
+      "entityId": "ent_ebizfacts_freeyourmusicturningasmallappinto20kmonth_00b3a572d38a",
+      "sourceUrl": "https://ebizfacts.com/freeyourmusic-turning-a-small-app-into-20k-month/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927427?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029",
+      "bytes": 2707,
+      "sha256": "37ac293961a93a76974a36ccce247a3aff3a85bc857158568b6acb530f247029",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$910 Selling NFT Farts",
+      "entityId": "ent_ebizfacts_alexramirezmallis910sellingnftfarts_0421533d2f4a",
+      "sourceUrl": "https://ebizfacts.com/alex-ramirez-mallis-910-selling-nft-farts/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927482?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e",
+      "bytes": 2379,
+      "sha256": "9cbff80eaac6a3ddaf42c1a95f5b71fba0b7292caf6720f069195f44a916eb3e",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$100K/Month Maid Service Software",
+      "entityId": "ent_ebizfacts_amarghose100kmonthmaidservicesoftware_0173962fb8e1",
+      "sourceUrl": "https://ebizfacts.com/amar-ghose-100k-month-maid-service-software/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927471?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43",
+      "bytes": 2177,
+      "sha256": "91e05a2c2d5cb5c84283c795aa22d675bb021f8479c9fab9edc59fc43ed37e43",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Twitter Side Hustle = $2000/Month",
+      "entityId": "ent_ebizfacts_davidlindahltwittersidehustle2000month_2485d1dd3c75",
+      "sourceUrl": "https://ebizfacts.com/david-lindahl-twitter-side-hustle-2000-month/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927730?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7",
+      "bytes": 2657,
+      "sha256": "b99179f0add8d8b60a036b2a95746c043478aca0c5ae032fb15a6030bed4f8f7",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$49K/Month on Roblox",
+      "entityId": "ent_ebizfacts_ethangawronski49kmonthonroblox_49b6eac555ab",
+      "sourceUrl": "https://ebizfacts.com/ethan-gawronski-49k-month-on-roblox/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927780?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c",
+      "bytes": 3389,
+      "sha256": "cf4799c222ca8e198a016bfb6b38ac9f4efacde55d3b6d600a68a7f62a2fd63c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$53/hour Small-Time YouTuber",
+      "entityId": "ent_ebizfacts_thomassmith53hoursmalltimeyoutuber_1ad3fb3bbdfc",
+      "sourceUrl": "https://ebizfacts.com/thomas-smith-53-hour-small-time-youtuber/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927772?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31",
+      "bytes": 2631,
+      "sha256": "5d6adcec045b25b87081b79511b1748814a1651f729ad50ecb1814961454df31",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Targeting $100 Million Annual Revenue",
+      "entityId": "ent_ebizfacts_nathanbarrytargeting100millionannualrevenue_0ddfd2f18756",
+      "sourceUrl": "https://ebizfacts.com/nathan-barry-targeting-100-million-annual-revenue/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927842?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f",
+      "bytes": 2870,
+      "sha256": "f97f788dadcd992c21d856ad5c1d3153522cc84b14c57dca951ad01ede52876f",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$50K/Month Helping Indians Brag",
+      "entityId": "ent_ebizfacts_janipasha50kmonthhelpingindiansbrag_830205c8232f",
+      "sourceUrl": "https://ebizfacts.com/jani-pasha-50k-month-helping-indians-brag/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927829?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925",
+      "bytes": 2852,
+      "sha256": "c5fb3fb1e0853ddcd0b958cec49d2d2638c4b76cf974fbb28cc2f43f83bcc925",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "This Digital Flower Sold For $20,000",
+      "entityId": "ent_ebizfacts_davidrudnickthisdigitalflowersoldfor20000_7f5c04c28186",
+      "sourceUrl": "https://ebizfacts.com/david-rudnick-this-digital-flower-sold-for-20000/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3927928?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee",
+      "bytes": 3618,
+      "sha256": "7849e2b3fcf006de68473d86f93f8bbb892315bbd04f1d5576884c1a96f2c5ee",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "His Online Course Made $6,622 in 5 Days",
+      "entityId": "ent_ebizfacts_preetamnathonlinecoursemade6622in5days_e0d5b2da67d4",
+      "sourceUrl": "https://ebizfacts.com/preetam-nath-online-course-made-6622-in-5-days/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928114?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0",
+      "bytes": 2835,
+      "sha256": "6d2eb60e46ab801ef53c752ee9c7453d759e54f99abdb5bf9cce8e231a2a11e0",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$10K/Month Affiliate Marketing in Dutch and German",
+      "entityId": "ent_ebizfacts_nigelhooijmans10kmonthlyaffiliatemarketingin_0b098634202e",
+      "sourceUrl": "https://ebizfacts.com/nigel-hooijmans-10k-monthly-affiliate-marketing-in-dutch-and-german/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928290?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085",
+      "bytes": 1999,
+      "sha256": "5bd1714e7f91a8a53931fe9333d61e3427674719469f4f639658a0a4603b7085",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Bootstrapped a SaaS to $10k MRR",
+      "entityId": "ent_ebizfacts_jonyongfookbootstrappedasaasto10kmrr_95c706a4c9c6",
+      "sourceUrl": "https://ebizfacts.com/jon-yongfook-bootstrapped-a-saas-to-10k-mrr/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928273?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf",
+      "bytes": 2229,
+      "sha256": "2d9106401427a3be8b96ffab91ceff63145398d36f377d1fc16942bb2cb06eaf",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Selling Her Notes For $22,000",
+      "entityId": "ent_ebizfacts_janelloisellinghernotesfor22000_0ae759de532b",
+      "sourceUrl": "https://ebizfacts.com/janel-loi-selling-her-notes-for-22000/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928350?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b",
+      "bytes": 2652,
+      "sha256": "238f09f4b3385ed0be86965cf1bb8e117ca4dd19c3076401d144967a9549ac9b",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$500,000 For Deep Frying a Turkey",
+      "entityId": "ent_ebizfacts_andrearomo500000fordeepfryingaturkey_7fc9f4dcf526",
+      "sourceUrl": "https://ebizfacts.com/andrea-romo-500000-for-deep-frying-a-turkey/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928303?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755",
+      "bytes": 2118,
+      "sha256": "6ce029b6ff7f03984de76d4b45fff7473a5492a77634ed0fd0ca35454239b755",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Doctor’s 6 Online Revenue Streams",
+      "entityId": "ent_ebizfacts_aliabdaaldoctors6onlinerevenuestreams_e8f22319d996",
+      "sourceUrl": "https://ebizfacts.com/ali-abdaal-doctors-6-online-revenue-streams/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928536?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c",
+      "bytes": 2727,
+      "sha256": "86e4cce85838a2d267b36f690bae2be8e54f38bcc88a78428e0b2619b109d66c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$100,000/Month Making Up Names",
+      "entityId": "ent_ebizfacts_phillipdavisgetleadsfromyourcompetition_f971a935e628",
+      "sourceUrl": "https://ebizfacts.com/phillip-davis-get-leads-from-your-competition/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3922838?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c",
+      "bytes": 3137,
+      "sha256": "c8b7395066987a1a8a7778dadc018988fc210501313d1def8005e5830456201c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "This Website Sold for $102.5 Million",
+      "entityId": "ent_ebizfacts_kyletaylorthiswebsitesoldfor1025million_d0e0cd48ad87",
+      "sourceUrl": "https://ebizfacts.com/kyle-taylor-this-website-sold-for-102-5-million/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928713?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb",
+      "bytes": 3147,
+      "sha256": "c7ace9434b9d8dae39c99be247bd08f247dd04c896f9f81b0d673f29fb31bacb",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$3500/Day Painting Your Dog",
+      "entityId": "ent_ebizfacts_lukeemery3500daypaintingyourdog_da7f9f21f25a",
+      "sourceUrl": "https://ebizfacts.com/luke-emery-3500-day-painting-your-dog/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928698?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727",
+      "bytes": 2218,
+      "sha256": "4596c3b6cdecc6841a500267828b1a1b0b3431d4021bf001802ae7555fb72727",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1500 for 1000 Words on Medium",
+      "entityId": "ent_ebizfacts_trashureseeker1500for1000wordsonmedium_19c8985b7950",
+      "sourceUrl": "https://ebizfacts.com/trashureseeker-1500-for-1000-words-on-medium/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928897?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73",
+      "bytes": 2663,
+      "sha256": "f7c890317e597dd281a29587226bfd719da6f493a5c7c64c63144576e47c5a73",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$10 Million Idea Validation",
+      "entityId": "ent_ebizfacts_justinmares10millionideavalidation_74195c46d3f2",
+      "sourceUrl": "https://ebizfacts.com/justin-mares-10-million-idea-validation/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928868?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc",
+      "bytes": 2146,
+      "sha256": "a0c7c31cd831ea822269c7cd16125f65252cabd11b34294ee9e7754a311839dc",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$15k/Month Side Project",
+      "entityId": "ent_ebizfacts_arminulrich15kmonthsideproject_7a3596c9ce78",
+      "sourceUrl": "https://ebizfacts.com/armin-ulrich-15k-month-side-project/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928933?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f",
+      "bytes": 2396,
+      "sha256": "0f730c074d9d2d4ae2e5d62021349f05832692af6cbd8cb409e92ffad109306f",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$510,000 in One Hour",
+      "entityId": "ent_ebizfacts_daviddobrik510000inonehour_af2ea5c218af",
+      "sourceUrl": "https://ebizfacts.com/david-dobrik-510000-in-one-hour/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928924?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca",
+      "bytes": 2022,
+      "sha256": "267be9884475b9ee7eba594db68be43d3d59fc813939dbde5ff372678d12aaca",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$1 Million Top Earner On Cameo",
+      "entityId": "ent_ebizfacts_brianbaumgartner1milliontopearneroncameo_02338320c922",
+      "sourceUrl": "https://ebizfacts.com/brian-baumgartner-1-million-top-earner-on-cameo/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928913?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab",
+      "bytes": 2976,
+      "sha256": "81331ba36e73cfcecf374fee1ac354dcd6a9cbed649ec5ac15e35151f7dc92ab",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$10K a Month LowCode Agency",
+      "entityId": "ent_ebizfacts_jesusvargas10kamonthlowcodeagency_96f81cee60cb",
+      "sourceUrl": "https://ebizfacts.com/jesus-vargas-10k-a-month-lowcode-agency/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3928966?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25",
+      "bytes": 2116,
+      "sha256": "66ce851925e32f0c9c1be2de22f81c3495d1069c50403fb17348aca7d80aab25",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "How much does DanTDM make a year?",
+      "entityId": "ent_ebizfacts_dantdmprofile_5b79905c3af4",
+      "sourceUrl": "https://ebizfacts.com/dantdm-profile/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/724202?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "d87ef103bfd26c669f7a0c0993921b9d52fb3c32938f71917e9a2336173f7bff",
+      "hashMatchesHistorical": false,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7",
+      "bytes": 8595,
+      "sha256": "b63bd6f861e862652ffed10cdfb11a381985dd6c1ff77cb3731de3c39a9bb6c7",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Earning $2 for every website visitor",
+      "entityId": "ent_ebizfacts_saelearning2foreverywebsitevisitor_a5b08026368a",
+      "sourceUrl": "https://ebizfacts.com/sa-el-earning-2-for-every-website-visitor/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3930051?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a",
+      "bytes": 1808,
+      "sha256": "5c9333640bea8e6363a4961a3186c396733d98db6749b08a7aee47b26f25c01a",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "How This Chess Grandmaster Earns $35K+ Per Month Online",
+      "entityId": "ent_ebizfacts_hikarunakamurachessgrandmaster35kmonthonline_cd11734bdc13",
+      "sourceUrl": "https://ebizfacts.com/hikaru-nakamura-chess-grandmaster-35k-month-online/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/550785?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6",
+      "bytes": 6394,
+      "sha256": "0cd3f5c8e69f3ad9566af235e97be096775992a14ae5bdec586c644594c112c6",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Get $30 Cash Back When Shopping Via Rakuten",
+      "entityId": "ent_ebizfacts_cashbackshoppingrakuten_4c8a6c6a1a69",
+      "sourceUrl": "https://ebizfacts.com/cash-back-shopping-rakuten/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/537205?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca",
+      "bytes": 3459,
+      "sha256": "e9e0ec2d3d79e4ac4325216b087ddcb59d6aece4fc56e1561ef56c868a475cca",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "She Turned $30 Into $150K Playing Online Slots",
+      "entityId": "ent_ebizfacts_deborahs30into150konlineslots_7959c1008d2f",
+      "sourceUrl": "https://ebizfacts.com/deborah-s-30-into-150k-online-slots/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/535195?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c",
+      "bytes": 2581,
+      "sha256": "db936e349e4741af7d7ef708f6f8f0598d9ad3e751e2983660367586444f406c",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "Working in Public (to $4 million)",
+      "entityId": "ent_ebizfacts_adamwathanworkinginpublicto4million_ef32a834ba56",
+      "sourceUrl": "https://ebizfacts.com/adam-wathan-working-in-public-to-4-million/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3930403?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81",
+      "bytes": 3256,
+      "sha256": "6c9e0ba1b0006e68dc81313ab2ddd483eeb43f80deb4d2686fdd5af5c55aec81",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    },
+    {
+      "name": "$24,176 per month reselling on eBay",
+      "entityId": "ent_ebizfacts_ryanroots24176permonthresellingonebay_a540364408b4",
+      "sourceUrl": "https://ebizfacts.com/ryan-roots-24176-per-month-reselling-on-ebay/",
+      "requestUrl": "https://ebizfacts.com/wp-json/wp/v2/posts/3930818?_fields=id,slug,date,modified,title,excerpt,content,link,author",
+      "historicalHash": "7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864",
+      "hashMatchesHistorical": true,
+      "status": "CREATED",
+      "bucket": "foundation-raw",
+      "key": "blobs/sha256/7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864",
+      "bytes": 2433,
+      "sha256": "7f6e015b9a07aa18c00d06287da6fb30d2c59a4acb4608054e727ed0e5738864",
+      "readback": {
+        "bytes_match": true,
+        "sha256_match": true
+      },
+      "provider_calls": {
+        "head_bucket": 1,
+        "get_object": 2,
+        "put_object": 1
+      },
+      "readbackVerified": true
+    }
+  ]
+}
