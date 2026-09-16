@@ -136,7 +136,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               </option>
               {batchOptions.map((b) => (
                 <option key={b.id} value={b.id} className="bg-[#0c0d12] text-cyan-200">
-                  {b.label} ({b.count}社)
+                  {b.label.replace(/\s*\(\d+社\)\s*$/, '')} ({b.count}社)
                 </option>
               ))}
             </select>

@@ -33,7 +33,8 @@ export function FlywheelEngineDiagram({
   const chartInstance = useRef<echarts.ECharts | null>(null);
 
   const cards = entity.evidenceCards || [];
-  const opMargin = entity.pnl?.operatingProfit && entity.pnl?.monthlyRevenue
+  const hasVerifiedEvidence = cards.some((card) => card.evidenceStatus === 'VERIFIED');
+  const opMargin = hasVerifiedEvidence && entity.pnl?.isOperatingProfitUnconfirmed !== true && entity.pnl?.isRevenueUnconfirmed !== true && entity.pnl?.operatingProfit && entity.pnl?.monthlyRevenue
     ? Math.round((entity.pnl.operatingProfit / entity.pnl.monthlyRevenue) * 100)
     : 0;
 
@@ -47,11 +48,11 @@ export function FlywheelEngineDiagram({
 
   const node3 = isHazardMode
     ? cleanNodeTitle(cards[2]?.title, '固定費膨張とキャッシュバーン加速')
-    : cleanNodeTitle(cards[2]?.title, opMargin > 0 ? `営業利益率 ${opMargin}% の超過利潤創出` : '価格決定力による超過利潤創出');
+    : cleanNodeTitle(cards[2]?.title, hasVerifiedEvidence && opMargin > 0 ? `営業利益率 ${opMargin}%` : '営業利益率・キャッシュ創出は未確認');
 
   const node4 = isHazardMode
     ? cleanNodeTitle(cards[3]?.title, '追加調達環境悪化による資金枯渇')
-    : cleanNodeTitle(cards[3]?.title || legacyText(entity.strategy, 'moat'), '独自アセットへの再投資とモート強化');
+    : cleanNodeTitle(cards[3]?.title || (hasVerifiedEvidence ? legacyText(entity.strategy, 'moat') : ''), hasVerifiedEvidence ? '独自アセットへの再投資' : '再現性・防御要因は未確認');
 
   useEffect(() => {
     const el = chartRef.current;
@@ -112,7 +113,7 @@ export function FlywheelEngineDiagram({
             },
             data: describedGraphNodes([
               {
-                name: '① コア価値確立',
+                name: hasVerifiedEvidence ? '① コア価値確立' : '① 提供内容（観測）',
                 desc: node1,
                 x: cx,
                 y: cy - ry,
@@ -120,7 +121,7 @@ export function FlywheelEngineDiagram({
                 label: { position: 'top', distance: 6 }
               },
               {
-                name: '② スイッチングコスト',
+                name: hasVerifiedEvidence ? '② スイッチングコスト' : '② 切替摩擦（未確認）',
                 desc: node2,
                 x: cx + rx,
                 y: cy,
@@ -128,7 +129,7 @@ export function FlywheelEngineDiagram({
                 label: { position: 'right', distance: 6 }
               },
               {
-                name: '③ 超過利潤創出',
+                name: hasVerifiedEvidence ? '③ 超過利潤創出' : '③ 収益性（未確認）',
                 desc: node3,
                 x: cx,
                 y: cy + ry,
@@ -136,7 +137,7 @@ export function FlywheelEngineDiagram({
                 label: { position: 'bottom', distance: 6 }
               },
               {
-                name: '④ 独自資産再投資',
+                name: hasVerifiedEvidence ? '④ 独自資産再投資' : '④ 再現性（未確認）',
                 desc: node4,
                 x: cx - rx,
                 y: cy,
@@ -144,13 +145,13 @@ export function FlywheelEngineDiagram({
                 label: { position: 'left', distance: 6 }
               },
               {
-                name: isHazardMode ? '資本効率破綻' : 'モート自己強化',
-                desc: isHazardMode ? '規模拡大に伴う赤字増殖' : '規模拡大に伴う参入障壁強化',
+                name: isHazardMode ? '資本効率破綻' : hasVerifiedEvidence ? 'モート自己強化' : '監査待ち',
+                desc: isHazardMode ? '規模拡大に伴う赤字増殖' : hasVerifiedEvidence ? '規模拡大に伴う参入障壁強化' : '因果関係・モートは未確認',
                 x: cx,
                 y: cy,
                 symbolSize: 64,
                 itemStyle: {
-                  color: isHazardMode ? '#7f1d1d' : '#0e3a47',
+                  color: isHazardMode ? '#7f1d1d' : hasVerifiedEvidence ? '#0e3a47' : '#3f3f46',
                   borderColor: isHazardMode ? '#ef4444' : '#06b6d4',
                   borderWidth: 2,
                   shadowBlur: 20,
@@ -167,23 +168,23 @@ export function FlywheelEngineDiagram({
             ]),
             links: [
               {
-                source: '① コア価値確立',
-                target: '② スイッチングコスト',
+                source: hasVerifiedEvidence ? '① コア価値確立' : '① 提供内容（観測）',
+                target: hasVerifiedEvidence ? '② スイッチングコスト' : '② 切替摩擦（未確認）',
                 lineStyle: { curveness: 0.25, color: '#06b6d4', width: 2.5 }
               },
               {
-                source: '② スイッチングコスト',
-                target: '③ 超過利潤創出',
+                source: hasVerifiedEvidence ? '② スイッチングコスト' : '② 切替摩擦（未確認）',
+                target: hasVerifiedEvidence ? '③ 超過利潤創出' : '③ 収益性（未確認）',
                 lineStyle: { curveness: 0.25, color: '#f59e0b', width: 2.5 }
               },
               {
-                source: '③ 超過利潤創出',
-                target: '④ 独自資産再投資',
+                source: hasVerifiedEvidence ? '③ 超過利潤創出' : '③ 収益性（未確認）',
+                target: hasVerifiedEvidence ? '④ 独自資産再投資' : '④ 再現性（未確認）',
                 lineStyle: { curveness: 0.25, color: '#10b981', width: 2.5 }
               },
               {
-                source: '④ 独自資産再投資',
-                target: '① コア価値確立',
+                source: hasVerifiedEvidence ? '④ 独自資産再投資' : '④ 再現性（未確認）',
+                target: hasVerifiedEvidence ? '① コア価値確立' : '① 提供内容（観測）',
                 lineStyle: { curveness: 0.25, color: '#a855f7', width: 2.5 }
               }
             ],
@@ -219,7 +220,7 @@ export function FlywheelEngineDiagram({
     return () => {
       resizeObserver.disconnect();
     };
-  }, [node1, node2, node3, node4, isHazardMode]);
+  }, [node1, node2, node3, node4, isHazardMode, hasVerifiedEvidence]);
 
   useEffect(() => {
     return () => {

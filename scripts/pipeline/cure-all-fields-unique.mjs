@@ -1,6 +1,19 @@
 import fs from "fs";
 import path from "path";
 import { getMasterAll340Profiles } from "./profiles/master-all-340.mjs";
+import { execFileSync } from "node:child_process";
+
+// Compatibility entry point: the old profile-wrapper below is intentionally
+// unreachable because it recreated the catalogue-wide template pollution.
+const compatibilityArgs = process.argv.slice(2);
+const compatibilityMode = compatibilityArgs.includes("--check") ? "--check" : "--write";
+const compatibilityExtra = compatibilityArgs.filter((arg) => arg !== "--check" && arg !== "--write");
+execFileSync(
+  process.execPath,
+  ["scripts/pipeline/repair-content-diversity.mjs", compatibilityMode, ...compatibilityExtra],
+  { stdio: "inherit" },
+);
+process.exit(0);
 
 console.log("=== Universal Deep Precision Cure Engine for all 3,341 Entities ===");
 

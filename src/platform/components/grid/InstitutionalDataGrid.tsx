@@ -147,7 +147,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                             {entity.name}
                           </span>
                           <span 
-                            className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[85px] truncate ${
+                              className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[120px] truncate ${
                               entity.architecturePattern?.startsWith('地雷:')
                                 ? 'bg-red-950/40 text-red-400 border-red-500/40 font-bold'
                                 : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
@@ -164,13 +164,13 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                             }`}>
                               {entity.architecturePattern?.startsWith('地雷:')
                                 ? '● 爆死'
-                                : entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}
+                                : entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') && entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}
                             </span>
                           )}
                         </div>
                         {/* 2段目: 歪みの手口（1行スニペット） */}
                         <div 
-                          className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-1 line-clamp-1 truncate"
+                          className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-1 line-clamp-2"
                           title={entity.tagline}
                         >
                           {entity.tagline}
@@ -185,7 +185,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     <div className="text-xs font-semibold">
                       {entity.pnl.isRevenueUnconfirmed ? (
                         <span className="text-zinc-500 font-mono text-[10px] font-normal">
-                          {entity.pnl.revenueLabel || '非公開'}
+                          財務値未確認（原本照合待ち）
                         </span>
                       ) : (
                         <span className="text-white">
@@ -258,7 +258,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                               {entity.name}
                             </span>
                             <span 
-                              className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[100px] truncate ${
+                                className={`text-[9px] font-mono px-1.5 py-0.2 rounded border shrink-0 max-w-[150px] truncate ${
                                 entity.architecturePattern?.startsWith('地雷:')
                                   ? 'bg-red-950/40 text-red-400 border-red-500/40 font-bold'
                                   : 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
@@ -273,15 +273,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                                   ? 'bg-red-950/50 text-red-300 border-red-500/40 font-bold'
                                   : 'bg-cyan-950/40 text-cyan-400 border border-cyan-500/30'
                               }`}>
-                                {entity.architecturePattern?.startsWith('地雷:')
+                              {entity.architecturePattern?.startsWith('地雷:')
                                   ? '● 爆死・転落'
-                                  : entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}
+                                  : entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') && entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}
                               </span>
                             )}
                           </div>
                           {/* 2段目: 歪みの手口（ワンライナー） */}
                           <div 
-                            className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-0.5 line-clamp-1 truncate group-hover:text-zinc-300 transition-colors"
+                            className="text-[11px] text-zinc-400 font-sans tracking-tight leading-snug mt-0.5 line-clamp-2 group-hover:text-zinc-300 transition-colors"
                             title={entity.tagline}
                           >
                             {entity.tagline}
@@ -294,7 +294,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
                     <td className="py-2.5 px-3 text-right tabular-nums align-middle font-mono text-xs">
                       {entity.pnl.isRevenueUnconfirmed ? (
                         <span className="text-zinc-500 font-normal text-[11px]">
-                          {entity.pnl.revenueLabel || '非公開'}
+                          財務値未確認（原本照合待ち）
                         </span>
                       ) : (
                         <span className="font-bold text-white">

@@ -121,6 +121,7 @@ export const MarketTickerStrip: React.FC<MarketTickerStripProps> = ({ onSelectEn
           {tickerItems.map((item, idx) => (
             <div
               key={idx}
+              aria-hidden={idx >= items.length ? true : undefined}
               onClick={() => item.entityId && onSelectEntity?.(item.entityId)}
               className={`inline-flex items-center gap-2 px-2.5 py-0.5 mr-3 rounded border border-white/[0.06] bg-white/[0.02] shrink-0 ${
                 item.entityId && onSelectEntity

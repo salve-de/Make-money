@@ -3,6 +3,7 @@ import { DynamicEvidenceDeck } from '../dynamic-sections/DynamicEvidenceDeck';
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function EvidenceDeckSection({ entity, isHazardMode, hasEvidenceCards }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
+  const hasVerifiedCards = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
   return <>
           {/* ========================================================= */}
           {/* 【動的証拠保全デッキ (DYNAMIC EVIDENCE DECK)】 */}
@@ -34,7 +35,7 @@ export function EvidenceDeckSection({ entity, isHazardMode, hasEvidenceCards }: 
                       ? 'text-red-300 bg-red-900/40 border-red-500/40'
                       : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
                   }`}>
-                    FACT
+                    {hasVerifiedCards ? 'FACT' : 'OBSERVATION'}
                   </span>
                   <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                     isHazardMode ? 'text-red-200' : 'text-zinc-100'
@@ -43,7 +44,7 @@ export function EvidenceDeckSection({ entity, isHazardMode, hasEvidenceCards }: 
                   </h3>
                 </div>
                 <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                  {entity.evidenceCards!.length}件の証拠データ
+                  {entity.evidenceCards!.length}件の保存済み観測
                 </span>
               </div>
               <div className="p-3 bg-[#0E131F]">

@@ -21,6 +21,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
   entity,
 }) => {
   const { dynamicMoats, observationsStream, timelineEvents, coverageAudit, unknownsNotes, exposureAudit } = entity;
+  const hasVerifiedTemporal = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
   const effectiveObservations: UniversalObservation[] = React.useMemo(() => {
     if (observationsStream && observationsStream.length > 0) {
       return observationsStream;
@@ -147,7 +148,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 TEMPORAL
               </span>
               <span className="font-mono text-[11px] font-bold text-zinc-200 uppercase tracking-wider">
-                時系列インテリジェンス ＆ 手口の賞味期限
+                時系列観測 ＆ 賞味期限（原本照合待ち）
               </span>
             </div>
             <div className="flex items-center gap-1.5">
@@ -159,14 +160,14 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
                 entity.temporal.viabilityStatus === 'EVOLVING_BARRIER' ? 'bg-purple-950/40 text-purple-300 border-purple-500/40' :
                 'bg-zinc-900 text-zinc-400 border-zinc-700'
               }`}>
-                ● {entity.temporal.viabilityLabel}
+                ● {hasVerifiedTemporal ? entity.temporal.viabilityLabel : '現在の稼働・再現性は未確認'}
               </span>
             </div>
           </div>
 
           <div className="grid grid-cols-3 gap-2 text-[10px] font-mono py-1">
             <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
-              <span className="text-zinc-500 block">創業・ローンチ時期</span>
+              <span className="text-zinc-500 block">創業・ローンチ時期（照合状況）</span>
               <span className="text-zinc-200 font-bold text-[11px]">
                 {entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'} ({entity.temporal.initialTractionPeriod})
               </span>
@@ -176,8 +177,8 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
               <span className="text-zinc-200 font-bold text-[11px]">{entity.temporal.dataSnapshotPeriod}</span>
             </div>
             <div className="bg-white/[0.02] border border-white/[0.04] p-2 rounded">
-              <span className="text-zinc-500 block">現在の再現性判定</span>
-              <span className="text-emerald-400 font-bold text-[11px]">{entity.temporal.viabilityLabel}</span>
+              <span className="text-zinc-500 block">現在の再現性判定（未確認を含む）</span>
+              <span className="text-zinc-400 font-bold text-[11px]">{hasVerifiedTemporal ? entity.temporal.viabilityLabel : '現在の稼働・継続性は未確認'}</span>
             </div>
           </div>
 
@@ -185,7 +186,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
             <div className="bg-white/[0.01] border border-white/[0.04] p-2.5 rounded space-y-1">
               <span className="font-mono text-[10px] text-zinc-400 font-bold flex items-center gap-1">
                 <History className="w-3 h-3 text-cyan-400" />
-                なぜその時期・時代に勝てたのか（構造的背景）:
+                時代背景（原本照合前）:
               </span>
               <p className="text-zinc-300 leading-relaxed text-[11px]">
                 {entity.temporal.eraContext}
@@ -194,7 +195,7 @@ export const UniversalIntelligenceStream: React.FC<UniversalIntelligenceStreamPr
             <div className="bg-white/[0.01] border border-white/[0.04] p-2.5 rounded space-y-1">
               <span className="font-mono text-[10px] text-zinc-400 font-bold flex items-center gap-1">
                 <AlertCircle className="w-3 h-3 text-amber-400" />
-                今から同じ手口で勝てるか？（冷徹な根拠判定）:
+                現在の再現性（原本照合前）:
               </span>
               <p className="text-zinc-300 leading-relaxed text-[11px]">
                 {entity.temporal.currentViabilityAnalysis}

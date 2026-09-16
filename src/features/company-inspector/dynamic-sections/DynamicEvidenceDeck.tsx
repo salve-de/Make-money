@@ -26,7 +26,7 @@ function renderEvidenceBadge(status: EvidenceStatus) {
       return (
         <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-400">
           <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
-          創業者公表
+          公開報告・未検証
         </span>
       );
     case 'ESTIMATED':

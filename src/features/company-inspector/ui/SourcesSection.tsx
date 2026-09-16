@@ -20,6 +20,14 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
   // 決算ステータスや一次検証情報
   const isEstimated = legacyText(entity.pnl, 'originType') === 'estimated';
   const hasClaims = Array.isArray(entity.claimBindings) && entity.claimBindings.length > 0;
+  const hasBoundPrimary = Array.isArray(entity.claimBindings) && entity.claimBindings.some((binding) => (
+    binding?.verificationStatus === 'SUPPORTED' &&
+    binding?.supportCheck === 'PASS' &&
+    Boolean(binding?.foundationEvidenceId)
+  ));
+  const hasVerifiedCards = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
+  const provenance = entity as typeof entity & { latestDossierHash?: string; sourceUrls?: string[] };
+  const hasCasPointer = Boolean(provenance.latestDossierHash) && Array.isArray(provenance.sourceUrls) && provenance.sourceUrls.length > 0;
 
   return (
     <section
@@ -44,7 +52,7 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
           <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
             isHazardMode ? 'text-red-200' : 'text-zinc-100'
           }`}>
-            一次情報源 ＆ エビデンス原本アーカイブ (PRIMARY SOURCES & ARCHIVE)
+            出典ラベル ＆ 原本照合状況 (SOURCE & PROVENANCE STATUS)
           </h3>
         </div>
         <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
@@ -81,7 +89,7 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
         <div className="pt-3 space-y-2">
           <div className="flex items-center gap-2 text-[11px] font-mono font-bold text-zinc-300">
             <FileCheck className="w-3.5 h-3.5 text-zinc-400" />
-            <span>証拠データ・財務数値の一次出典</span>
+            <span>保存された出典ラベル・主張結合</span>
           </div>
           {sourceNotes.length > 0 ? (
             <ul className="space-y-1.5 font-mono text-xs">
@@ -94,7 +102,7 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
             </ul>
           ) : (
             <p className="text-xs text-zinc-400 font-mono">
-              公開財務諸表、有価証券報告書、公式アナウンスメントおよび一次市場データから抽出。
+              原本URL、独立した主張結合、一次確認カードはこの記録では確認できません。
             </p>
           )}
         </div>
@@ -103,11 +111,11 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
         <div className="pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[10px] font-mono text-zinc-400">
           <div className="flex items-center gap-2">
             <Database className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Cloudflare R2 (foundation-raw) SHA-256 CAS原本暗号保全済み</span>
+            <span>{hasCasPointer ? '原本CAS/R2保存ポインタ登録済み' : '原本CAS/R2保存状態はこの表示では未確認'}</span>
           </div>
           <div className="flex items-center gap-1.5 text-zinc-400">
             <ShieldCheck className="w-3 h-3 text-zinc-400" />
-            <span>{hasClaims ? '一次台帳暗号バインド済み' : isEstimated ? '業界標準推計モデル' : '一次観測ログ確認済み'}</span>
+            <span>{hasBoundPrimary ? '一次主張バインド済み' : hasVerifiedCards ? '一次確認カードあり' : isEstimated ? '推計モデル（事例固有の原本未確認）' : hasClaims ? '主張バインドはあるが照合状態を要確認' : '原本・一次確認は未確認'}</span>
           </div>
         </div>
       </div>

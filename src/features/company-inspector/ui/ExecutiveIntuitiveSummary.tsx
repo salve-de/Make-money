@@ -37,10 +37,22 @@ export function ExecutiveIntuitiveSummary({
   const cleanedMoat = rawMoat.replace(/^【.*?】/g, '').trim();
 
   // 4. 冷徹な実績数字
-  const monthlyRev = entity.pnl?.monthlyRevenue ? formatMoney(entity.pnl.monthlyRevenue) : null;
-  const monthlyProfit = entity.pnl?.operatingProfit ? formatMoney(entity.pnl.operatingProfit) : null;
-  const margin = entity.pnl?.operatingMargin !== undefined ? `${entity.pnl.operatingMargin.toFixed(1)}%` : null;
-  const teamSize = entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null;
+  const monthlyRev = entity.pnl?.isRevenueUnconfirmed
+    ? null
+    : entity.pnl?.monthlyRevenue
+      ? formatMoney(entity.pnl.monthlyRevenue)
+      : null;
+  const monthlyProfit = entity.pnl?.isOperatingProfitUnconfirmed
+    ? null
+    : entity.pnl?.operatingProfit
+      ? formatMoney(entity.pnl.operatingProfit)
+      : null;
+  const margin = entity.pnl?.isMarginUnconfirmed || entity.pnl?.operatingMargin === undefined
+    ? null
+    : `${entity.pnl.operatingMargin.toFixed(1)}%`;
+  const teamSize = entity.operations?.isTeamSizeUnconfirmed
+    ? null
+    : entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null;
 
   return (
     <div id="section-summary" className="space-y-4 select-text">
@@ -158,7 +170,7 @@ export function ExecutiveIntuitiveSummary({
           <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
             <div className="text-[10px] text-zinc-400 font-mono">組織規模</div>
             <div className="text-xs sm:text-sm font-bold font-mono text-zinc-200 mt-0.5">
-              {teamSize ? `${teamSize.toLocaleString()}名` : '少数精鋭'}
+              {teamSize ? `${teamSize.toLocaleString()}名` : '未確認'}
             </div>
           </div>
         </div>

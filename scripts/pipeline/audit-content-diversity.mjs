@@ -48,6 +48,19 @@ const GENERIC_MARKERS = [
   'まずは無料',
 ];
 
+const PNL_UNCONFIRMED_FIELDS = [
+  'isRevenueUnconfirmed',
+  'isOperatingProfitUnconfirmed',
+  'isMarginUnconfirmed',
+  'isGrossProfitUnconfirmed',
+  'isGrossMarginUnconfirmed',
+  'isCogsUnconfirmed',
+  'isCostsUnconfirmed',
+  'isNetProfitUnconfirmed',
+];
+const SUSPICIOUS_UNIT_RE = /¥\s*\d{4,}万円|(?:月商|年商)\s*[^。\n]{0,40}\d{4,}万円/u;
+const GENERIC_SOURCE_DOC_RE = /実在財務シグナル検証レポート|公式プロダクト検証レポート/u;
+
 const get = (object, dotted) => dotted.split('.').reduce((value, key) => value?.[key], object);
 
 function textOf(value) {
@@ -138,6 +151,168 @@ function duplicateReport(items, field) {
   };
 }
 
+function supportedRevenueBinding(entity) {
+  return (Array.isArray(entity.claimBindings) ? entity.claimBindings : []).some((binding) => (
+    binding?.claimKey === 'pnl.monthlyRevenue'
+    && binding?.claimValue === entity.pnl?.monthlyRevenue
+    && binding?.verificationStatus === 'SUPPORTED'
+    && binding?.supportCheck === 'PASS'
+    && typeof binding?.foundationEvidenceId === 'string'
+    && binding.foundationEvidenceId.trim().length > 0
+  ));
+}
+
+function finitePnl(entity) {
+  const pnl = entity.pnl || {};
+  const expenses = pnl.operatingExpenses;
+  const expenseTotal = expenses && typeof expenses === 'object'
+    ? Object.values(expenses).reduce((sum, value) => sum + Number(value || 0), 0)
+    : Number.NaN;
+  const values = [
+    pnl.monthlyRevenue,
+    pnl.cogs,
+    pnl.grossProfit,
+    pnl.grossMargin,
+    pnl.operatingProfit,
+    pnl.operatingMargin,
+    pnl.estimatedAnnualNetProfit,
+    expenseTotal,
+  ].map(Number);
+  return values.every(Number.isFinite) ? {
+    revenue: values[0],
+    cogs: values[1],
+    grossProfit: values[2],
+    grossMargin: values[3],
+    operatingProfit: values[4],
+    operatingMargin: values[5],
+    annualNetProfit: values[6],
+    expenseTotal: values[7],
+  } : null;
+}
+
+function financialAudit(items) {
+  const mathErrors = [];
+  const marginErrors = [];
+  const annualErrors = [];
+  const missingUnconfirmedFlags = [];
+  const reportedWithoutBinding = [];
+  const verifiedWithoutBinding = [];
+  const suspiciousUnitEntities = [];
+  const genericSourceDocs = [];
+  const formulaCounts = new Map();
+  const statusCounts = {};
+
+  for (const entity of items) {
+    const pnl = entity.pnl || {};
+    const status = pnl.financialStatus || 'MISSING';
+    statusCounts[status] = (statusCounts[status] || 0) + 1;
+    const values = finitePnl(entity);
+    if (values) {
+      if (Math.abs(values.grossProfit - (values.revenue - values.cogs)) > 1) mathErrors.push(entity.name);
+      if (values.revenue > 0 && Math.abs(values.grossMargin - (values.grossProfit / values.revenue) * 100) > 1.5) marginErrors.push(entity.name);
+      if (values.revenue > 0 && Math.abs(values.operatingMargin - (values.operatingProfit / values.revenue) * 100) > 1.5) marginErrors.push(entity.name);
+      if (Math.abs(values.operatingProfit - (values.grossProfit - values.expenseTotal)) > 1) mathErrors.push(entity.name);
+      if (Math.abs(values.annualNetProfit - values.operatingProfit * 12) > 1) annualErrors.push(entity.name);
+      const formula = [values.revenue, values.cogs, values.grossProfit, values.operatingProfit, values.grossMargin, values.operatingMargin, values.annualNetProfit, values.expenseTotal].join('|');
+      const names = formulaCounts.get(formula) || [];
+      names.push(entity.name);
+      formulaCounts.set(formula, names);
+    }
+    if (PNL_UNCONFIRMED_FIELDS.some((field) => pnl[field] !== true)) missingUnconfirmedFlags.push(entity.name);
+    if (status === 'REPORTED' && !supportedRevenueBinding(entity)) reportedWithoutBinding.push(entity.name);
+    if (status === 'VERIFIED' && !supportedRevenueBinding(entity)) verifiedWithoutBinding.push(entity.name);
+    if (observationText(entity).some((line) => SUSPICIOUS_UNIT_RE.test(line))) suspiciousUnitEntities.push(entity.name);
+    if (GENERIC_SOURCE_DOC_RE.test(String(pnl.sourceDoc || ''))) genericSourceDocs.push(entity.name);
+  }
+
+  const repeatedFormulaSignatures = [...formulaCounts.entries()]
+    .filter(([, names]) => names.length > 1)
+    .sort((a, b) => b[1].length - a[1].length)
+    .slice(0, 12)
+    .map(([signature, names]) => ({ count: names.length, signature, names: names.slice(0, 8) }));
+
+  return {
+    statusCounts,
+    arithmetic: {
+      grossOrOperatingProfitErrors: mathErrors.length,
+      marginErrors: marginErrors.length,
+      annualNetProfitErrors: annualErrors.length,
+      examples: [...new Set([...mathErrors, ...marginErrors, ...annualErrors])].slice(0, 12),
+    },
+    provenance: {
+      missingUnconfirmedFlags: missingUnconfirmedFlags.length,
+      reportedWithoutExactSupportedBinding: reportedWithoutBinding.length,
+      verifiedWithoutExactSupportedBinding: verifiedWithoutBinding.length,
+      genericSourceDocs: genericSourceDocs.length,
+      examples: {
+        reportedWithoutExactSupportedBinding: reportedWithoutBinding.slice(0, 12),
+        verifiedWithoutExactSupportedBinding: verifiedWithoutBinding.slice(0, 12),
+        suspiciousUnitEntities: suspiciousUnitEntities.slice(0, 12),
+        genericSourceDocs: genericSourceDocs.slice(0, 12),
+      },
+    },
+    repeatedFormulaSignatures,
+  };
+}
+
+function catalogSafetyAudit(items) {
+  const acquisitionEntities = items.filter((entity) => entity.acquisition && typeof entity.acquisition === 'object');
+  const nonNeutralTagEntities = items.filter((entity) => (Array.isArray(entity.tags) ? entity.tags : []).some((tag) => (
+    tag !== '収集事例' && !(entity.pnl?.financialStatus === 'POST_MORTEM' && tag === '失敗・撤退の検証')
+  )));
+  const temporalStatusCounts = {};
+  const foundedYearEntities = [];
+  const nonUnknownTemporalEntities = [];
+  const verifiedBadgeEntities = [];
+  const verifiedCardEntities = [];
+  const legacyGeneratedFieldEntities = [];
+
+  for (const entity of items) {
+    const temporal = entity.temporal;
+    if (temporal && typeof temporal === 'object') {
+      const status = temporal.viabilityStatus || 'MISSING';
+      temporalStatusCounts[status] = (temporalStatusCounts[status] || 0) + 1;
+      if (Number(temporal.foundedYear) > 0) foundedYearEntities.push(entity.name);
+      if (status !== 'UNKNOWN') nonUnknownTemporalEntities.push(entity.name);
+    }
+    if (entity.verifiedBadge === true) verifiedBadgeEntities.push(entity.name);
+    if (Array.isArray(entity.evidenceCards) && entity.evidenceCards.some((card) => card?.evidenceStatus === 'VERIFIED')) {
+      verifiedCardEntities.push(entity.name);
+    }
+    const repairedFields = [
+      entity.tagline,
+      entity.architecturePattern,
+      entity.pipelineStack,
+      entity.essence?.whatItDoes,
+      entity.strategy?.blindspot,
+      entity.lootBlueprint?.structuralFlaw,
+    ].map(textOf).join(' ');
+    if (/累計売上4億円超|エンジニアが作った画面が絶望的にダサい/.test(repairedFields)) {
+      legacyGeneratedFieldEntities.push(entity.name);
+    }
+  }
+
+  return {
+    acquisitionEntities: acquisitionEntities.length,
+    nonNeutralTagEntities: nonNeutralTagEntities.length,
+    temporalStatusCounts,
+    foundedYearEntities: foundedYearEntities.length,
+    nonUnknownTemporalEntities: nonUnknownTemporalEntities.length,
+    verifiedBadgeEntities: verifiedBadgeEntities.length,
+    verifiedCardEntities: verifiedCardEntities.length,
+    legacyGeneratedFieldEntities: legacyGeneratedFieldEntities.length,
+    examples: {
+      acquisitionEntities: acquisitionEntities.slice(0, 12).map((entity) => entity.name),
+      nonNeutralTagEntities: nonNeutralTagEntities.slice(0, 12).map((entity) => entity.name),
+      foundedYearEntities: foundedYearEntities.slice(0, 12),
+      nonUnknownTemporalEntities: nonUnknownTemporalEntities.slice(0, 12),
+      verifiedBadgeEntities: verifiedBadgeEntities.slice(0, 12),
+      verifiedCardEntities: verifiedCardEntities.slice(0, 12),
+      legacyGeneratedFieldEntities: legacyGeneratedFieldEntities.slice(0, 12),
+    },
+  };
+}
+
 const rawById = new Map();
 for (const file of walkJson(path.join(root, 'data/incoming'))) {
   let rows;
@@ -159,8 +334,8 @@ const descriptionValues = new Set();
 const titleValues = new Set();
 for (const entity of entities) {
   const observations = observationText(entity);
-  const description = observations.find((item) => /^Indie Hackers(?:公開説明| listing):/.test(item));
-  const ebiz = observations.find((item) => /(?:eBiz Factsプロフィール記事|プロフィール記事|記事要約):/.test(item));
+  const description = observations.find((item) => /^Indie Hackers(?:公開説明| listing):/.test(item) || /Indie Hackersの掲載説明は/.test(item));
+  const ebiz = observations.find((item) => /^(?:eBiz Factsプロフィール記事|eBiz Facts記事要約|プロフィール記事|記事要約):/.test(item));
   const title = observations.find((item) => /title=/.test(item) && !/タイトル未取得|HTTP ERROR|Just a moment/i.test(item));
   const source = description ? 'indie-description' : ebiz ? 'ebiz-summary' : title ? 'title' : 'none';
   sourceCounts.set(source, (sourceCounts.get(source) || 0) + 1);
@@ -176,6 +351,8 @@ console.log(JSON.stringify({
   uniqueIndieDescriptions: descriptionValues.size,
   uniqueTitles: titleValues.size,
   fields: Object.fromEntries(FIELDS.map((field) => [field, duplicateReport(entities, field)])),
+  financial: financialAudit(entities),
+  catalogSafety: catalogSafetyAudit(entities),
   batches: Object.fromEntries([...new Set(entities.map(batchOf))].sort().map((batch) => {
     const batchEntities = entities.filter((entity) => batchOf(entity) === batch);
     const tagline = duplicateReport(batchEntities, 'tagline');

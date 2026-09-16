@@ -66,7 +66,7 @@ export const MobileFeedCard: React.FC<MobileFeedCardProps> = ({
           <div className="text-right font-mono">
             {entity.pnl.isRevenueUnconfirmed ? (
               <span className="text-zinc-500 text-[10px] font-normal">
-                {entity.pnl.revenueLabel || '非公開'}
+                財務値未確認（原本照合待ち）
               </span>
             ) : (
               <span className="text-white text-xs font-medium">

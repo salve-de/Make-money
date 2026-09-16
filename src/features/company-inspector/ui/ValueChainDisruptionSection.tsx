@@ -75,6 +75,33 @@ export function ValueChainDisruptionSection({
   };
 
   const intermediaries = getConventionalIntermediaries(sector);
+  const hasVerifiedModel = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
+
+  if (!hasVerifiedModel) {
+    return (
+      <section
+        id="section-value-chain"
+        className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden ${
+          isHazardMode
+            ? 'bg-[#0A0D14] border-red-500/25'
+            : 'bg-[#0A0D14] border-white/[0.10]'
+        }`}
+      >
+        <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-white/[0.08]">
+          {isHazardMode ? <ShieldAlert className="w-4 h-4 text-red-400" /> : <Layers className="w-4 h-4 text-zinc-400" />}
+          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${isHazardMode ? 'text-red-300' : 'text-zinc-100'}`}>
+            {isHazardMode ? '産業構造・失敗要因（原本照合待ち）' : 'バリューチェーン比較（原本照合待ち）'}
+          </h3>
+          <span className="ml-auto text-[9px] font-mono text-zinc-500 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
+            未確認
+          </span>
+        </div>
+        <div className="rounded-lg border border-amber-500/20 bg-amber-950/10 p-3 text-xs leading-relaxed text-zinc-300">
+          この記録について、直販・中間排除・利益転換・顧客データ独占・業界マージンは独立確認できていません。原本と主張の結合後に評価します。
+        </div>
+      </section>
+    );
+  }
 
   return (
     <div id="section-value-chain" className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${

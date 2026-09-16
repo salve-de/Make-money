@@ -19,6 +19,7 @@ import type { InspectorSectionProps } from '../model/section-props';
 interface CustomerPainNodeProps {
   data: {
     isHazardMode?: boolean;
+    hasVerifiedEvidence?: boolean;
     targetCustomer: string;
     painRelief: string;
   };
@@ -34,7 +35,7 @@ const CustomerPainNode = ({ data }: CustomerPainNodeProps) => (
     <div className="flex items-center justify-between gap-1 mb-1.5">
       <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1">
         <Users className="w-3 h-3" />
-        ① 対象市場 ＆ 顧客ペイン
+        {data.hasVerifiedEvidence ? '① 対象市場 ＆ 顧客ペイン' : '① 公開説明・顧客情報（照合待ち）'}
       </span>
       <AlertTriangle className="w-3 h-3 text-amber-400/80" />
     </div>
@@ -42,7 +43,7 @@ const CustomerPainNode = ({ data }: CustomerPainNodeProps) => (
       {data.targetCustomer}
     </p>
     <div className="pt-2 border-t border-white/[0.08] text-[10px] text-zinc-300 font-sans leading-relaxed">
-      <span className="font-mono text-amber-400/90 font-bold block mb-0.5">支払い要因(WTP):</span>
+      <span className="font-mono text-amber-400/90 font-bold block mb-0.5">{data.hasVerifiedEvidence ? '支払い要因(WTP):' : '支払理由（未確認）:'}</span>
       {data.painRelief}
     </div>
     <Handle type="source" position={Position.Right} className="!opacity-0" />
@@ -52,6 +53,7 @@ const CustomerPainNode = ({ data }: CustomerPainNodeProps) => (
 interface MoatNodeProps {
   data: {
     isHazardMode?: boolean;
+    hasVerifiedEvidence?: boolean;
     architecturePattern: string;
     moat: string;
   };
@@ -70,7 +72,7 @@ const MoatNode = ({ data }: MoatNodeProps) => (
         data.isHazardMode ? 'text-red-400' : 'text-cyan-400'
       }`}>
         <Lock className="w-3 h-3" />
-        ② 価格決定力 ＆ 参入障壁
+        {data.hasVerifiedEvidence ? '② 価格決定力 ＆ 参入障壁' : '② 提供方式・参入条件（照合待ち）'}
       </span>
       <Cpu className="w-3 h-3 text-cyan-400/80" />
     </div>
@@ -78,7 +80,7 @@ const MoatNode = ({ data }: MoatNodeProps) => (
       {data.architecturePattern}
     </p>
     <div className="pt-2 border-t border-white/[0.08] text-[10px] text-zinc-300 font-sans leading-relaxed">
-      <span className="font-mono text-cyan-400/90 font-bold block mb-0.5">構造的参入障壁:</span>
+      <span className="font-mono text-cyan-400/90 font-bold block mb-0.5">{data.hasVerifiedEvidence ? '構造的参入障壁:' : '参入障壁（未確認）:'}</span>
       {data.moat}
     </div>
     <Handle type="source" position={Position.Right} className="!opacity-0" />
@@ -88,6 +90,7 @@ const MoatNode = ({ data }: MoatNodeProps) => (
 interface ProfitNodeProps {
   data: {
     isHazardMode?: boolean;
+    hasVerifiedEvidence?: boolean;
     formattedRev: string;
     marginText: string;
     formattedProfit: string;
@@ -107,7 +110,7 @@ const ProfitNode = ({ data }: ProfitNodeProps) => (
         data.isHazardMode ? 'text-red-400' : 'text-emerald-400'
       }`}>
         <TrendingUp className="w-3 h-3" />
-        ③ 営業利益 ＆ キャッシュ創出能
+        {data.hasVerifiedEvidence ? '③ 営業利益 ＆ キャッシュ創出能' : '③ 財務観測（未確認）'}
       </span>
     </div>
     <div className="space-y-1 mb-2 font-mono">
@@ -142,9 +145,13 @@ export function VisualPipelineSection({
   isHazardMode,
   formatMoney
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'formatMoney'>) {
-  const rev = entity.pnl?.monthlyRevenue || 1;
-  const profit = entity.pnl?.operatingProfit ?? 0;
-  const margin = Math.round((profit / rev) * 100);
+  const revenueKnown = entity.pnl?.isRevenueUnconfirmed !== true;
+  const profitKnown = entity.pnl?.isOperatingProfitUnconfirmed !== true;
+  const marginKnown = entity.pnl?.isMarginUnconfirmed !== true;
+  const hasVerifiedEvidence = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
+  const rev = revenueKnown ? (entity.pnl?.monthlyRevenue || 1) : 1;
+  const profit = profitKnown ? (entity.pnl?.operatingProfit ?? 0) : 0;
+  const margin = revenueKnown && profitKnown ? Math.round((profit / rev) * 100) : 0;
 
   const targetCustomer = entity.essence?.targetCustomer || '特定セグメントの顧客層';
   const painRelief = entity.essence?.painRelief || entity.targetPainWallet || '構造的ペイン・代替不能な損失回避';
@@ -156,13 +163,13 @@ export function VisualPipelineSection({
       id: 'node-1',
       type: 'customerPain',
       position: { x: 30, y: 35 },
-      data: { isHazardMode, targetCustomer, painRelief }
+      data: { isHazardMode, hasVerifiedEvidence, targetCustomer, painRelief }
     },
     {
       id: 'node-2',
       type: 'moat',
       position: { x: 420, y: 35 },
-      data: { isHazardMode, architecturePattern, moat }
+      data: { isHazardMode, hasVerifiedEvidence, architecturePattern, moat }
     },
     {
       id: 'node-3',
@@ -170,9 +177,12 @@ export function VisualPipelineSection({
       position: { x: 810, y: 35 },
       data: {
         isHazardMode,
-        formattedRev: formatMoney(rev),
-        marginText: isHazardMode ? `${margin}% (赤字)` : `+${margin}%`,
-        formattedProfit: formatMoney(profit)
+        hasVerifiedEvidence,
+        formattedRev: revenueKnown ? formatMoney(rev) : '未確認',
+        marginText: marginKnown && revenueKnown && profitKnown
+          ? (isHazardMode ? `${margin}% (赤字)` : `+${margin}%`)
+          : '未確認',
+        formattedProfit: profitKnown ? formatMoney(profit) : '未確認'
       }
     }
   ];
@@ -183,7 +193,7 @@ export function VisualPipelineSection({
       source: 'node-1',
       target: 'node-2',
       animated: true,
-      label: '価値提供 (WTP)',
+      label: hasVerifiedEvidence ? '価値提供 (WTP)' : '関係未確認',
       labelStyle: { fill: '#38bdf8', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
       labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.95, stroke: 'rgba(56, 189, 248, 0.4)' },
       labelBgPadding: [6, 4] as [number, number],
@@ -195,7 +205,7 @@ export function VisualPipelineSection({
       source: 'node-2',
       target: 'node-3',
       animated: true,
-      label: '超過利潤創出',
+      label: hasVerifiedEvidence ? '超過利潤創出' : '関係未確認',
       labelStyle: { fill: '#34d399', fontFamily: 'monospace', fontSize: 10, fontWeight: 'bold' },
       labelBgStyle: { fill: '#0a0d14', fillOpacity: 0.95, stroke: 'rgba(52, 211, 153, 0.4)' },
       labelBgPadding: [6, 4] as [number, number],
@@ -222,7 +232,7 @@ export function VisualPipelineSection({
           <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
             isHazardMode ? 'text-red-300' : 'text-zinc-100'
           }`}>
-            {isHazardMode ? '資本出血配管図：ユニットエコノミクス崩壊フロー' : 'キャッシュ創出配管図：顧客ペイン解決から営業利益回収まで'}
+            {isHazardMode ? '資本出血配管図（照合待ち）' : hasVerifiedEvidence ? 'キャッシュ創出配管図：照合済み観測' : '提供・財務観測配管図（照合待ち）'}
           </h3>
         </div>
         <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">

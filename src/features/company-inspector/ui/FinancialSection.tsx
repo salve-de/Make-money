@@ -92,7 +92,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                             {financialStatus === 'ESTIMATED' ? '推定月商 (Rev)' : isHazardMode ? '月商 (ピーク/現行)' : '月商 (Rev)'}
                           </span>
                           <span className="text-xs font-bold text-white tabular-nums">
-                            {entity.pnl.isRevenueUnconfirmed ? (entity.pnl.revenueLabel || '未確認') : formatMoney(entity.pnl.monthlyRevenue)}
+                            {entity.pnl.isRevenueUnconfirmed ? '財務値未確認（原本照合待ち）' : formatMoney(entity.pnl.monthlyRevenue)}
                           </span>
                         </div>
                         <div className="bg-[#141A28] p-2.5 rounded-md border border-white/[0.06]">
@@ -196,7 +196,7 @@ export function FinancialSection({ entity, formatMoney, cogsPct, serverPct, adPc
                           <span className="text-zinc-300">
                             {financialStatus === 'ESTIMATED' ? '推定月商 (Gross Revenue)' : isHazardMode ? '直近/ピーク月商' : '直近月商 (Gross Revenue)'}
                           </span>
-                          <span className="text-white font-bold tabular-nums">{entity.pnl.isRevenueUnconfirmed ? (entity.pnl.revenueLabel || '未確認') : formatMoney(entity.pnl.monthlyRevenue)}</span>
+                          <span className="text-white font-bold tabular-nums">{entity.pnl.isRevenueUnconfirmed ? '財務値未確認（原本照合待ち）' : formatMoney(entity.pnl.monthlyRevenue)}</span>
                         </div>
                         <div className="p-2.5 flex justify-between items-center text-[11px]">
                           <span className="text-zinc-400 pl-2">└ 売上原価 (COGS)</span>

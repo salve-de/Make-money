@@ -18,8 +18,9 @@ export function LootBlueprintSection({
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'>) {
   const loot = entity.lootBlueprint;
   const tools = entity.operations?.toolStack || [];
-  const teamSize = entity.operations?.teamSize;
-  const initialCapital = entity.operations?.initialCapitalRequired;
+  const teamSize = entity.operations?.isTeamSizeUnconfirmed ? undefined : entity.operations?.teamSize;
+  const initialCapital = entity.operations?.isCapitalUnconfirmed ? undefined : entity.operations?.initialCapitalRequired;
+  const hasVerifiedEvidence = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
 
   return (
     <section
@@ -46,7 +47,7 @@ export function LootBlueprintSection({
               isHazardMode ? 'text-red-300' : 'text-zinc-100'
             }`}
           >
-            {isHazardMode ? '致死トラップ検死書：二度と踏んではいけない地雷原' : '略奪転用ブループリント：今夜使える不公正なカンニングペーパー'}
+            {isHazardMode ? '致死トラップ検死書（照合待ち）' : hasVerifiedEvidence ? '略奪転用ブループリント：照合済みの観測' : '略奪転用ブループリント（照合待ち）'}
           </h3>
         </div>
         <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
@@ -63,7 +64,7 @@ export function LootBlueprintSection({
               STEP 1
             </span>
             <span className="font-mono text-xs font-bold text-zinc-100">
-              【関所強奪】既存の獲物と初動のステルス侵入ルート
+              【照合1】観測された入口（事例固有性未確認）
             </span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
@@ -84,7 +85,7 @@ export function LootBlueprintSection({
               STEP 2
             </span>
             <span className="font-mono text-xs font-bold text-zinc-100">
-              【格安配管】無料/格安APIとノーコードによる原価の極限圧縮
+              【照合2】提供方式・原価（事例固有性未確認）
             </span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
@@ -105,7 +106,7 @@ export function LootBlueprintSection({
               STEP 3
             </span>
             <span className="font-mono text-xs font-bold text-zinc-100">
-              【自爆死角の盾】大手が追随できない理由を参入障壁に偽装
+              【照合3】参入障壁・競争条件（未確認）
             </span>
           </div>
           <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
@@ -120,7 +121,7 @@ export function LootBlueprintSection({
           <div className="flex items-center gap-1.5 mb-2.5">
             <Zap className="w-3.5 h-3.5 text-amber-400" />
             <span className="text-xs font-mono font-bold text-zinc-200 uppercase">
-              今夜実行する3手詰めチェックリスト
+              {hasVerifiedEvidence ? '実行チェックリスト' : '照合用チェックリスト（再現性未確認）'}
             </span>
           </div>
           <ul className="space-y-2 font-mono text-xs text-zinc-300">
@@ -140,7 +141,7 @@ export function LootBlueprintSection({
           <div className="flex items-center gap-2">
             <Wrench className="w-3.5 h-3.5 text-zinc-400" />
             <span className="text-xs font-mono font-bold text-zinc-200 uppercase">
-              裏で稼働している武器庫（TECH STACK & INFRA）
+              利用システム・ツール構成（原本照合待ち）
             </span>
           </div>
           <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
@@ -179,7 +180,7 @@ export function LootBlueprintSection({
           </div>
         ) : (
           <div className="text-xs font-mono text-zinc-500 py-1">
-            特定ツールスタックは未確認、または汎用スクリプトで稼働中
+            事例固有のツール構成は未確認。
           </div>
         )}
       </div>

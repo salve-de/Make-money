@@ -33,19 +33,22 @@ export function CompanyHeader({
   const rev = entity.pnl?.monthlyRevenue || 0;
   const profit = entity.pnl?.operatingProfit ?? 0;
   const margin = entity.pnl?.operatingMargin ?? (rev > 0 ? Math.round((profit / rev) * 100) : 0);
-  const isLoss = profit < 0 || isHazardMode;
+  const isLoss = isHazardMode || (!entity.pnl?.isOperatingProfitUnconfirmed && profit < 0);
 
   // 1. 公式サイト外部リンク
   const rawUrl = legacyText(entity, 'websiteUrl') || entity.url || (entity as unknown as { website?: string }).website || (entity.essence as unknown as { website?: string })?.website || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
 
   // 2. チーム規模
-  const rawTeam = entity.operations?.teamSize || (entity as unknown as { teamSize?: number | string }).teamSize;
+  const rawTeam = entity.operations?.isTeamSizeUnconfirmed
+    ? null
+    : entity.operations?.teamSize || (entity as unknown as { teamSize?: number | string }).teamSize;
   const isSolo = entity.tags?.some(t => t.includes('1人') || t.includes('一人') || t.includes('ソロ'));
   const displayTeam = rawTeam ? (typeof rawTeam === 'number' ? `${rawTeam}人` : String(rawTeam)) : (isSolo ? '1人' : null);
 
   // 3. 事業継続年数
-  const foundedYear = entity.temporal?.foundedYear;
+  const hasVerifiedTemporal = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true && entity.temporal?.viabilityStatus !== 'UNKNOWN';
+  const foundedYear = hasVerifiedTemporal ? entity.temporal?.foundedYear : undefined;
   const currentYear = 2026;
   const trackRecordYears = (foundedYear && foundedYear > 1900 && foundedYear <= currentYear) 
     ? (currentYear - foundedYear + 1)
@@ -55,7 +58,7 @@ export function CompanyHeader({
   // 4. 推定事業価値（年間営業利益の5倍、または売上の2.5倍）
   const annualProfit = profit * 12;
   const estValuation = annualProfit > 0 ? annualProfit * 5 : (rev * 12 * 2.5);
-  const valuationText = (!isFinancialUnavailable && estValuation > 0)
+  const valuationText = (!isFinancialUnavailable && !entity.pnl?.isRevenueUnconfirmed && !entity.pnl?.isOperatingProfitUnconfirmed && estValuation > 0)
     ? `想定価値: 約${formatMoney(estValuation)} (5x)`
     : null;
 
@@ -150,15 +153,15 @@ export function CompanyHeader({
           <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 text-[10px] font-mono overflow-x-auto scrollbar-none">
             {/* 左側：月商・手残り・利益率 */}
             <div className="flex items-center gap-2 shrink-0">
-              <span className="text-zinc-400">月商: <strong className="text-white">{isFinancialUnavailable ? '未確認' : formatMoney(rev)}</strong></span>
+              <span className="text-zinc-400">月商: <strong className="text-white">{isFinancialUnavailable || entity.pnl?.isRevenueUnconfirmed ? '未確認' : formatMoney(rev)}</strong></span>
               <span className="text-zinc-700">|</span>
-              <span className="text-zinc-400">純手残り: <strong className={isLoss ? 'text-red-400' : 'text-emerald-300'}>{isFinancialUnavailable ? '未確認' : formatMoney(profit)}</strong></span>
+              <span className="text-zinc-400">純手残り: <strong className={isLoss ? 'text-red-400' : 'text-emerald-300'}>{isFinancialUnavailable || entity.pnl?.isOperatingProfitUnconfirmed ? '未確認' : formatMoney(profit)}</strong></span>
               <span className={`px-1.5 py-0.2 rounded font-black border ${
                 isLoss
                   ? 'bg-red-950/40 text-red-300 border-red-500/40'
                   : 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40'
               }`}>
-                {isLoss ? '赤字出血' : `利益率 ${margin}%`}
+                {isLoss ? '赤字出血' : entity.pnl?.isMarginUnconfirmed ? '利益率 未確認' : `利益率 ${margin}%`}
               </span>
             </div>
 

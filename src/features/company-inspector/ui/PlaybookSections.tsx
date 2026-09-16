@@ -12,6 +12,7 @@ Zap
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'onOpenPro' | 'isPro' | 'formatMoney' | 'isHazardMode'> & { hasEvidenceCards?: boolean }) {
+  const hasVerifiedEvidence = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
   return <>
           {/* ------------------------------------------------------- */}
           {/* #09〜#12: 実務Playbook ＆ 初動突破ログ / 死因確定ログ ＆ 崩壊スパイラル (フォールバック) */}
@@ -43,7 +44,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                         isHazardMode ? 'text-red-200' : 'text-zinc-100'
                       }`}>
-                        {isHazardMode ? '失敗に至った客観的な記録' : '初期に客を集めた手口とリアルな原価'}
+                        {isHazardMode ? '失敗に至った客観的な記録（照合待ち）' : '初動・原価の観測（照合待ち）'}
                       </h3>
                     </div>
                   </div>
@@ -52,7 +53,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                       ? 'text-red-300 bg-red-950/60 border-red-500/30 font-bold'
                       : 'text-zinc-400 bg-white/[0.04] border-white/[0.06]'
                   }`}>
-                    {isHazardMode ? '失敗要因' : '確認済'}
+                    {isHazardMode ? '失敗要因・要照合' : hasVerifiedEvidence ? '確認済' : '照合待ち'}
                   </span>
                 </div>
 
@@ -90,7 +91,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <div className="flex items-center gap-2 font-mono text-xs font-bold">
                       <span className={isHazardMode ? 'text-red-400' : 'text-zinc-400'}>03.</span>
                       <span className={isHazardMode ? 'text-red-200' : 'text-zinc-200'}>
-                        {isHazardMode ? '事業転換（ピボット）の履歴' : '事業転換（ピボット）の履歴'}
+                        {isHazardMode ? '事業転換（ピボット）の履歴（照合待ち）' : '事業転換（ピボット）の履歴（照合待ち）'}
                       </span>
                     </div>
                     <p className="text-zinc-300 leading-relaxed font-sans pl-4">
@@ -135,12 +136,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
                     isHazardMode ? 'text-red-200' : 'text-zinc-100'
                   }`}>
-                    {isHazardMode ? '初期の伸びと解約が始まったきっかけ' : '最初の100人を集めた具体的な手順'}
+                    {isHazardMode ? '初期の伸びと解約が始まったきっかけ（照合待ち）' : '最初の100人を集めた手順（照合待ち）'}
                   </h3>
                 </div>
               </div>
               <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                初動獲得
+                {hasVerifiedEvidence ? '初動獲得' : '初動獲得・要照合'}
               </span>
             </div>
             <div className="divide-y divide-white/[0.06] bg-[#0E131F]">
@@ -186,7 +187,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                 </div>
               </div>
               <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                実行手順
+                {hasVerifiedEvidence ? '実行手順' : '仮説・照合手順'}
               </span>
             </div>
             <div className={`divide-y ${
@@ -268,7 +269,7 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                     <h3 className={`text-xs font-mono font-bold uppercase tracking-wider ${
                       isHazardMode ? 'text-red-200' : 'text-zinc-100'
                     }`}>
-                      {isHazardMode ? '事業が立ち行かなくなった4つの根本原因' : '高収益を維持し続ける4つの仕組み'}
+                      {isHazardMode ? '事業が立ち行かなくなった4つの根本原因（照合待ち）' : hasVerifiedEvidence ? '高収益を維持し続ける4つの仕組み' : '収益構造の観測（照合待ち）'}
                     </h3>
                   </div>
                 </div>
@@ -356,12 +357,12 @@ export function PlaybookSections({ entity, onOpenPro, isPro, formatMoney, isHaza
                   <div className="flex flex-col items-center justify-center bg-black/80 rounded gap-2.5 p-4 text-center">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-white">
                       <KeyRound className={`w-4 h-4 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-                      <span>{isHazardMode ? '事業が失敗・撤退に至った「4つの根本原因」' : '大手が参入できず、客が離れない「4つの高収益構造」'}</span>
+                      <span>{isHazardMode ? '事業が失敗・撤退に至った「4つの根本原因」（照合待ち）' : hasVerifiedEvidence ? '大手が参入できず、客が離れない「4つの高収益構造」' : '大手・顧客維持・利益構造（照合待ち）'}</span>
                     </div>
                     <p className="text-xs text-zinc-300 max-w-sm font-sans leading-normal">
                       {isHazardMode
                         ? 'なぜ競合に敗れたのか、どこで資金が尽きたのか、事業が崩壊した内訳をすべて公開'
-                        : '高い利益率を維持できる理由、顧客が乗り換えない理由、手元に現金が残る仕組みをすべて公開'}
+                        : hasVerifiedEvidence ? '高い利益率を維持できる理由、顧客が乗り換えない理由、手元に現金が残る仕組みをすべて公開' : '利益率、乗り換え障壁、手元現金の構造は原本照合後に評価します'}
                     </p>
                     <button
                       onClick={onOpenPro}
