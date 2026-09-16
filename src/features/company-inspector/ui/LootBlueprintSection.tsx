@@ -17,16 +17,16 @@ export function LootBlueprintSection({
   return (
     <section id="section-loot-blueprint" className="scroll-mt-4">
       {/* 統合ブループリント調書サーフェス */}
-      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
-        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      <div className={`rounded-md border bg-[#10131C] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.12]'
       }`}>
         {/* セクションヘッダー */}
         <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
-          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
         }`}>
           <div className="flex items-center gap-2.5">
             <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+              isHazardMode ? 'text-red-400' : 'text-zinc-300'
             }`}>
               REPLICATION BLUEPRINT // {isHazardMode ? '致命的破綻の設計図' : '収益配管 ＆ 略奪転用設計図'}
             </span>
@@ -37,7 +37,7 @@ export function LootBlueprintSection({
         </div>
 
         {/* 3ステップ略奪転用プロセス（カード入れ子なし・クリーンな3行構成） */}
-        <div className="divide-y divide-white/[0.06]">
+        <div className="divide-y divide-white/[0.08]">
           {/* STEP 01 */}
           <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
             <div className="w-full md:w-48 shrink-0 space-y-1">

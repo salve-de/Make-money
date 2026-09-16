@@ -183,14 +183,14 @@ export function TradingViewFinancialChart({
   }, [rev, cogs, serverCost, adCost, subCost, saasCost, profit, isLoss, formatMoney]);
 
   return (
-    <div id="section-tradingview" className="rounded-md border border-white/[0.08] bg-[#0A0D15] overflow-hidden">
+    <div id="section-tradingview" className="rounded-md border border-white/[0.12] bg-[#10131C] overflow-hidden">
       {/* タイトルバー */}
       <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
-        isLoss ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+        isLoss ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
       }`}>
         <div className="flex items-center gap-2">
           <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-            isLoss ? 'text-red-400' : 'text-zinc-400'
+            isLoss ? 'text-red-400' : 'text-zinc-300'
           }`}>
             PROFIT & COST BREAKDOWN // 損益構造レントゲン
           </span>

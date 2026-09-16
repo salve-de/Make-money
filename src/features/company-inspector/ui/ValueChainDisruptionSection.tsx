@@ -103,18 +103,18 @@ export function ValueChainDisruptionSection({
   }
 
   return (
-    <div id="section-value-chain" className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
+    <div id="section-value-chain" className={`rounded-md border bg-[#10131C] overflow-hidden ${
       isHazardMode
         ? 'border-red-500/30'
-        : 'border-white/[0.08]'
+        : 'border-white/[0.12]'
     }`}>
       {/* ヘッダー */}
       <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
-        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
       }`}>
         <div className="flex items-center gap-2">
           <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-400' : 'text-zinc-400'
+            isHazardMode ? 'text-red-400' : 'text-zinc-300'
           }`}>
             VALUE CHAIN DISRUPTION // {isHazardMode ? '産業構造の歪み ＆ ユニットエコノミクス破綻' : 'バリューチェーン中抜き ＆ 直接超過利潤'}
           </span>

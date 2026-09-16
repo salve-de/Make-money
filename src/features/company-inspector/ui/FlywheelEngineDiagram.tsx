@@ -71,8 +71,8 @@ export function FlywheelEngineDiagram({
 
       const cx = width / 2;
       const cy = height / 2;
-      const rx = Math.min(width * 0.36, 180);
-      const ry = Math.min(height * 0.36, 110);
+      const rx = Math.min(width * 0.25, 125);
+      const ry = Math.min(height * 0.20, 65);
 
       const option: echarts.EChartsOption = {
         backgroundColor: 'transparent',
@@ -98,6 +98,10 @@ export function FlywheelEngineDiagram({
             type: 'graph',
             layout: 'none',
             roam: false,
+            top: 45,
+            bottom: 45,
+            left: 140,
+            right: 140,
             symbolSize: 45,
             edgeSymbol: ['none', 'arrow'],
             edgeSymbolSize: [4, 10],
@@ -117,7 +121,7 @@ export function FlywheelEngineDiagram({
                 x: cx,
                 y: cy - ry,
                 itemStyle: { color: '#06b6d4', borderColor: '#22d3ee', borderWidth: 2 },
-                label: { position: 'top', distance: 6 }
+                label: { position: 'top', distance: 8 }
               },
               {
                 name: hasVerifiedEvidence ? '② スイッチングコスト' : '② 切替摩擦（未確認）',
@@ -125,7 +129,7 @@ export function FlywheelEngineDiagram({
                 x: cx + rx,
                 y: cy,
                 itemStyle: { color: '#f59e0b', borderColor: '#fbbf24', borderWidth: 2 },
-                label: { position: 'right', distance: 6 }
+                label: { position: 'right', distance: 8 }
               },
               {
                 name: hasVerifiedEvidence ? '③ 超過利潤創出' : '③ 収益性（未確認）',
@@ -133,7 +137,7 @@ export function FlywheelEngineDiagram({
                 x: cx,
                 y: cy + ry,
                 itemStyle: { color: '#10b981', borderColor: '#34d399', borderWidth: 2 },
-                label: { position: 'bottom', distance: 6 }
+                label: { position: 'bottom', distance: 8 }
               },
               {
                 name: hasVerifiedEvidence ? '④ 独自資産再投資' : '④ 再現性（未確認）',
@@ -141,7 +145,7 @@ export function FlywheelEngineDiagram({
                 x: cx - rx,
                 y: cy,
                 itemStyle: { color: '#a855f7', borderColor: '#c084fc', borderWidth: 2 },
-                label: { position: 'left', distance: 6 }
+                label: { position: 'left', distance: 8 }
               },
               {
                 name: isHazardMode ? '資本効率破綻' : hasVerifiedEvidence ? 'モート自己強化' : '監査待ち',
@@ -229,16 +233,16 @@ export function FlywheelEngineDiagram({
   }, []);
 
   return (
-    <div id="section-flywheel" className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
-      isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+    <div id="section-flywheel" className={`rounded-md border bg-[#10131C] overflow-hidden ${
+      isHazardMode ? 'border-red-500/30' : 'border-white/[0.12]'
     }`}>
       {/* ヘッダー */}
       <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
-        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-[#131724] border-white/[0.10]'
       }`}>
         <div className="flex items-center gap-2">
           <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-400' : 'text-zinc-400'
+            isHazardMode ? 'text-red-400' : 'text-zinc-300'
           }`}>
             FLYWHEEL DYNAMICS // {isHazardMode ? '資本崩壊サイクル (DEATH SPIRAL)' : '自己強化型成長サイクル (FLYWHEEL)'}
           </span>
@@ -250,8 +254,8 @@ export function FlywheelEngineDiagram({
 
       {/* ECharts グラフコンテナ */}
       <div className="p-4">
-        <div className="relative w-full bg-[#07090F] rounded border border-white/[0.06] p-2">
-          <div ref={chartRef} className="w-full h-[320px]" />
+        <div className="relative w-full bg-[#0B0D14] rounded border border-white/[0.08] p-2">
+          <div ref={chartRef} className="w-full h-[380px]" />
         </div>
       </div>
     </div>

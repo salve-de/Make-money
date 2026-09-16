@@ -1,5 +1,42 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-17 【確定】右メイン単独・無重複スクリーンショット全13セクション完備 ＆ EChartsフライホイール描画境界微調整（Phase 219）
+
+### 1. 実施概要とユーザー要求
+- **ユーザー要求**:
+  - 「もう一度 スクショ 全部 1枚ずつ撮って 重複しないように撮って 右メインのみ」
+- **目的**:
+  - 左サイドバー（企業台帳）を完全に除外し、**右メイン（会社インスペクターペイン: `aside:has(#section-summary)`）のみ**を対象とする。
+  - スクロール画面の単純な切り抜きではなく、各セクションの DOM 要素（element screenshot）単位で撮影することで、**上下の重複が物理的にゼロ**の状態で全セクションを1枚ずつ独立取得する。
+  - ChatGPT等の外部AIにアップロードして1枚ずつコントラストや情報階層を精査可能な Retina（2x）高精細画像を提供する。
+
+### 2. 技術的調整と外科手術（Flywheel Text Clipping Root-Cause Elimination）
+1. **右メインペインの厳格セレクタ分離**:
+   - `aside` が台帳サマリーと会社インスペクターで2要素存在したため、`aside:has(#section-summary)` で右メインペインを厳密に特定。
+2. **ECharts フライホイール（FlywheelEngineDiagram.tsx）のテキスト見切れ根本撲滅**:
+   - ECharts の `layout: 'none'` において、ノードシンボルのバウンディングボックスのみが自動フィット対象となり、外側ラベル（`① コア価値確立`, `② スイッチングコスト`, `③ 超過利潤創出`, `④ 独自資産再投資`）がキャンバス端で切れる問題が発生。
+   - `series[0]` に `top: 45, bottom: 45, left: 140, right: 140` の明示的マージンを注入し、`rx`, `ry` およびコンテナ高さを `h-[380px]` に再配分。上下左右すべてのテキストが完全なゆとりを持って鮮明にレンダリングされるよう調整完了。
+3. **撮影完了した全ファイル目録（全13セクション + 右メイン全体景4枚）**:
+   - `section_00_pinned_header.png`: 固定計器盤ヘッダー（会社名・ステータス・モード切替・セクション目次バー）
+   - `section_01_hud_summary.png`: L1結論・4大KPI（月商・手残り・利益率・組織）・直撃ペイン調書
+   - `section_02_pipeline_circuit.png`: キャッシュ創出配管図（回路スキーマ）
+   - `section_03_cash_anatomy.png`: 現金の解剖室（サンキー図・損益レントゲン）
+   - `section_04_profit_breakdown.png`: 損益構造レントゲン（ECharts ドーナツチャート＆内訳リスト）
+   - `section_05_financial_dossier.png`: 財務損益計器盤（有報確定P&L・コスト流出バー・運用体制）
+   - `section_06_evidence_deck.png`: 動かぬ証拠調書（DOC #01〜#04 検証エビデンス）
+   - `section_07_strategic_blueprint.png`: 戦略DNA・非対称の堀（逆張り仮説・自縛罠・構造的勝算）
+   - `section_08_flywheel_dynamics.png`: 自己強化型成長サイクル（自走増殖フライホイール・ネットワークグラフ）
+   - `section_09_value_chain.png`: バリューチェーン中抜き対比図（多段階マージン中抜き vs 直結モデル）
+   - `section_10_tech_stack_tools.png`: 現場配管・稼働ツールスタック＆月額原価
+   - `section_11_loot_blueprint.png`: 略奪転用設計図（STEP 01〜03・実行検証チェックリスト・インフラ構成）
+   - `section_12_execution_playbook.png`: 初動突破・実務プレイブック（PHASE 01〜03・生々しい現場ログ）
+   - `right_main_view_01_top.png`: 右メイン全景ショット（TOP）
+   - `right_main_view_02_financials.png`: 右メイン全景ショット（財務・P&L）
+   - `right_main_view_03_strategy.png`: 右メイン全景ショット（戦略・エビデンス）
+   - `right_main_view_04_playbook.png`: 右メイン全景ショット（略奪・プレイブック）
+
+---
+
 ## 2026-09-17 【確定】プロ金融端末 UI/UX 全面刷新 ＆ 機関投資家向けデザイントークンシステム導入（Phase 218）
 
 ### 1. 課題と病巣の解剖（Root Cause: Visual Hierarchy & Luminance Collapse）
