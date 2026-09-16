@@ -39,7 +39,7 @@ describe('D1 entity approval store', () => {
     expect(batch).toHaveBeenCalledTimes(1);
     const statements = batch.mock.calls[0][0];
     expect(statements).toHaveLength(27);
-    expect(Math.max(...statements.map((statement) => statement.params.length))).toBeLessThanOrEqual(90);
+    expect(Math.max(...statements.map((statement) => statement.params?.length ?? 0))).toBeLessThanOrEqual(90);
     expect(query).toHaveBeenCalledTimes(8);
     expect(statements.length + query.mock.calls.length).toBeLessThanOrEqual(50);
   });
