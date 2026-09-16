@@ -363,6 +363,31 @@ for (const ent of entities) {
       errors.push(`[UPSTREAM VIOLATION: Disclaimer Boilerplate] "${ent.name}" contains disclaimer boilerplate text '${d}'.`);
     }
   }
+
+  // G. 言語・意味論整合性チェック（文字切れ・文法崩壊・去勢テンプレ・業態不一致の完全物理遮断）
+  const tag = ent.tagline || '';
+  const pain = ent.targetPainWallet || '';
+  const dilemma = ent.strategy?.incumbentDilemma || '';
+
+  const validAcronyms = ['DBで', 'VPNで', 'APMで', 'SaaSで', 'UIで', 'APIで', 'SDKで', 'LLMで', 'AIで', 'Macで', 'CRMで', 'OSで', 'URLで', 'Kafkaで', 'Storeで', 'VPNの'];
+  if (/[a-zA-Z]{2,15}\s*(で月商|を着金|の痛みを突き)/.test(tag)) {
+    if (!validAcronyms.some(a => tag.includes(a))) {
+      errors.push(`[LINGUISTIC VIOLATION: Truncated English] "${ent.name}" tagline has truncated English word.`);
+    }
+  }
+
+  if (pain.includes('「「') || pain.includes('のが抱える') || pain.includes('が対象とする「')) {
+    errors.push(`[LINGUISTIC VIOLATION: Broken Grammar] "${ent.name}" targetPainWallet has broken parentheses or grammar.`);
+  }
+
+  if (pain.includes('業務停滞でクライアントや上司から詰められる保身恐怖') || pain.includes('手動作業の非効率と外注コストの浪費')) {
+    errors.push(`[LINGUISTIC VIOLATION: Boilerplate Suffix] "${ent.name}" targetPainWallet has castrated boilerplate text.`);
+  }
+
+  const isPhysicalOrContent = ent.sector === 'PHYSICAL_ASSET' || ent.category?.includes('E-commerce') || ent.category?.includes('Newsletter') || ent.name.includes('Arbitrage') || ent.name.includes('Printing');
+  if (isPhysicalOrContent && dilemma.includes('OpenAIやGoogle等の基盤モデル企業')) {
+    errors.push(`[DOMAIN VIOLATION: Irrelevant Incumbent Dilemma] "${ent.name}" (Physical/Content) has AI platform dilemma.`);
+  }
 }
 
 if (errors.length > 0) {
