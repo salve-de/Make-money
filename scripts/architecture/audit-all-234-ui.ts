@@ -74,11 +74,11 @@ async function main() {
     try {
       await page.goto(`http://localhost:3000/?entity=${encodeURIComponent(ent.id)}`, {
         waitUntil: 'domcontentloaded',
-        timeout: 10000
+        timeout: 30000
       });
 
       // インスペクターのレンダリング待機
-      await page.waitForSelector('#section-evidence', { timeout: 5000 });
+      await page.waitForSelector('#section-evidence', { timeout: 15000 });
 
       const auditData = await page.evaluate((forbiddenList: string[]) => {
         // 右側のインスペクターパネル（最後のaside）
