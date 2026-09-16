@@ -342,6 +342,27 @@ for (const ent of entities) {
   if (ent.essence && (!ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief)) {
     errors.push(`[DENSITY VIOLATION: Incomplete Essence] ${ent.name} essence has missing properties.`);
   }
+
+  // F. 収集段階（川上）データ品質ガード（記事タイトル社名・趣味ゴミ・免責テンプレの完全遮断）
+  const name = ent.name || '';
+  if (name.startsWith('Multiple ') || (name.includes('$') && (name.includes('/Month') || name.includes(' a Month') || name.includes('From ')))) {
+    errors.push(`[UPSTREAM VIOLATION: Title As Entity Name] "${ent.name}" is an article title, not a proper entity name.`);
+  }
+
+  const p = ent.pnl;
+  if (p && p.financialStatus !== 'UNAVAILABLE' && p.financialStatus !== 'POST_MORTEM' && !p.isRevenueUnconfirmed) {
+    if (typeof p.monthlyRevenue === 'number' && p.monthlyRevenue < 50000) {
+      errors.push(`[UPSTREAM VIOLATION: Sub-Living Wage Noise] "${ent.name}" monthlyRevenue (${p.monthlyRevenue}) is under 50,000 yen (unviable hobby project).`);
+    }
+  }
+
+  const rawStr = JSON.stringify(ent);
+  const FORBIDDEN_DISCLAIMERS = ['Indie Hackers表示', '報告値・利益ではない', '掲載タグラインが示す課題', '防御要因は未確認'];
+  for (const d of FORBIDDEN_DISCLAIMERS) {
+    if (rawStr.includes(d)) {
+      errors.push(`[UPSTREAM VIOLATION: Disclaimer Boilerplate] "${ent.name}" contains disclaimer boilerplate text '${d}'.`);
+    }
+  }
 }
 
 if (errors.length > 0) {
