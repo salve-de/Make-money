@@ -1,0 +1,20 @@
+import fs from 'node:fs';
+
+const bundlePath = 'data/incoming/research-bundle_new1000_20260916.json';
+const auditPath = 'data/incoming/raw_snapshots_ritual_retreats_20260916.audit.json';
+const request = JSON.parse(fs.readFileSync(bundlePath, 'utf8'));
+const capture = JSON.parse(fs.readFileSync(auditPath, 'utf8')).results[0];
+const evidence = request.bundle.evidence.find((item) => item.source_url === capture.requestedUrl);
+const source = request.bundle.sources.find((item) => item.canonical_url === capture.requestedUrl);
+if (!evidence || !source) throw new Error(`Ritual Retreats source not found: ${capture.requestedUrl}`);
+evidence.evidence_id = capture.evidenceId;
+evidence.source_id = capture.sourceId;
+evidence.source_type = 'founder_interview';
+evidence.source_strength = 'B';
+source.source_id = capture.sourceId;
+source.source_type = 'founder_interview';
+source.source_strength = 'B';
+source.provider_name = 'Founder Reports';
+request.bundle.quality = { ...request.bundle.quality, warnings: [...(request.bundle.quality?.warnings ?? []), 'Ritual Retreatsの一次インタビューRaw evidence ID/source IDをcapture auditへ整合。'] };
+fs.writeFileSync(bundlePath, `${JSON.stringify(request, null, 2)}\n`);
+console.log(JSON.stringify({ bundlePath, evidenceId: evidence.evidence_id, sourceId: evidence.source_id, sourceType: evidence.source_type }, null, 2));

@@ -1,5 +1,7 @@
 'use client';
 
+import { legacyText } from '../model/legacy-fields';
+
 import React from 'react';
 import { ExternalLink, Database, FileCheck, Globe, ShieldCheck } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
@@ -16,7 +18,7 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
   }
 
   // 決算ステータスや一次検証情報
-  const isEstimated = entity.pnl?.originType === 'estimated';
+  const isEstimated = legacyText(entity.pnl, 'originType') === 'estimated';
   const hasClaims = Array.isArray(entity.claimBindings) && entity.claimBindings.length > 0;
 
   return (

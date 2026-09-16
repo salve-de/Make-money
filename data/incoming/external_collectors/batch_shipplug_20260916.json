@@ -1,0 +1,387 @@
+[
+  {
+    "id": "ent_reported_b8c082b67876cacb5b1c1b32",
+    "ticker": "SHIPPLUG",
+    "name": "ShipPlug (Nick DiNatale)",
+    "legalEntity": "UNKNOWN",
+    "tagline": "物流担当者の「送料の見えない漏れ」財布を、FedEx出身者のデータ洞察と紹介網で突き、2024年売上見込み2,500万ドル・利益見込み200万ドルを報告",
+    "sector": "FINTECH_INFRA",
+    "scale": "SMALL_TEAM",
+    "founder": "Nick DiNatale",
+    "country": "US",
+    "url": "https://www.shipplug.com/",
+    "officialUrl": "https://www.shipplug.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "配送データの可視化 × 返金回収 × 紹介主導のB2B販売",
+    "pipelineStack": "自社のデータ駆動型配送コスト分析ソフトウェア。具体的なクラウド・決済製品は未開示。",
+    "targetPainWallet": "送料の過払い、遅延返金の取り漏れ、複雑な配送契約を放置すると利益が静かに流出する物流・EC担当者の保身恐怖。",
+    "tags": [
+      "SMALL_TEAM",
+      "B2B",
+      "LOGISTICS",
+      "SHIPPING_COSTS",
+      "REFERRAL_LED",
+      "2021",
+      "2024"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2024年の売上・利益見込みに関する本人インタビュー",
+      "sourceDoc": "https://founderreports.com/interview/shipplug/",
+      "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+      },
+      "estimationLogic": "本文は2024年のexpected revenue/profitを報告するが、見込み値であり、月次実績・原価・税引後手残り・独立監査は示さない。したがってP&Lへ確定値を置かず、報告値はreportedMetricsへ分離した。",
+      "revenueLabel": "本人インタビュー: 2024年売上見込み$25m、利益見込み$2m（独立監査なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "grossProfitDerivation": "見込み年次数値のみで実績P&Lを再構成できないため、0は実績利益ではない。"
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_loot_blueprint",
+        "type": "LOOT_BLUEPRINT",
+        "title": "送料の盲点をデータ分析と返金回収の関所へ変える",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "配送契約と実績データの差分を可視化し、顧客が見落としていた返金・コスト削減を回収する専門導線を作る。",
+        "details": [
+          "本文はproprietary softwareとdata-driven insightsを中核に置く。",
+          "過去2年間で顧客の送料を$12m削減し、遅延返金$1mを回収したと報告。",
+          "2024年の売上・利益はexpected値で、回収額は顧客便益の報告値であり自社利益ではない。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/shipplug/",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      },
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_the_crime",
+        "type": "THE_CRIME",
+        "title": "大手配送契約の複雑さを、外部の利益回収レイヤーにする",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "運送会社との契約・請求・遅延保証を顧客側が細かく監視できない隙間に、分析と返金請求の専門家として入り込む。",
+        "details": [
+          "創業者のFedEx経験が物流契約の盲点への入口になった。",
+          "自社が運送網を持つとは書かれておらず、データと回収プロセスを担う構造として記録する。",
+          "競合・契約条件・回収手数料の詳細は未開示。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/shipplug/",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      },
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_dirty_genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "FedEx現場知識を、顧客の既存データへ転用する",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "配送会社側で得た知識を、荷主の請求・遅延・契約データを読む側へ移し、設備投資の少ない専門サービスを立ち上げる。",
+        "details": [
+          "本文はNick DiNataleがFedEx出身であることを記載。",
+          "2021年開始、2024年の20人規模と利益見込みを本人が報告。",
+          "初期資本、創業時チーム、実際の粗利・手残りは未確認。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/shipplug/",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      },
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_customer_acquisition",
+        "type": "CUSTOMER_ACQUISITION",
+        "title": "紹介を主戦場にして、物流の信頼コストを下げる",
+        "badge": "REPORTED",
+        "evidenceStatus": "REPORTED",
+        "punchline": "物流の数字を任せられる信頼を既存顧客とネットワークで横展開し、広告依存を下げる。",
+        "details": [
+          "事業の約40%がreferralsから来ると報告。",
+          "紹介の形成に業界イベント、交流会、チャリティイベントなどの関係構築を使ったと記載。",
+          "紹介売上比率は本人報告であり、コホート別の検証は未実施。"
+        ],
+        "codeSnippet": "N/A — 原文に実装コードの記載なし。",
+        "sourceNote": "Founder Reports, retrieved 2026-09-16: https://founderreports.com/interview/shipplug/",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 20,
+      "initialTeamSize": 1,
+      "currentTeamSize": 20,
+      "teamSizeReported": "2024年時点で20 employeesと本人インタビューに記載",
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "顧客紹介",
+        "物流業界ネットワーク",
+        "業界イベント",
+        "交流会",
+        "チャリティイベント"
+      ],
+      "toolStack": [
+        "proprietary shipping analytics software"
+      ],
+      "isTeamSizeUnconfirmed": false,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "architecturePattern": "運送会社の契約・請求データと実績データを照合し、コスト削減と返金回収をB2Bの継続価値にする",
+      "pipelineStack": "自社ソフトウェアとデータ駆動型分析。詳細技術スタックは未開示。",
+      "blindspot": "配送費・遅延返金・契約条件は担当者が全量監査しにくく、金額が大きいまま見逃される。",
+      "moatType": "DOMAIN_DATA_AND_TRUST",
+      "moatDescription": "FedExでのドメイン知識、顧客データの蓄積、返金回収実績、紹介ネットワーク。契約期間・解約率は未確認。",
+      "incumbentDilemma": "運送会社や大手物流会社は既存契約と売上を守る側で、顧客の過払い・返金取り漏れを第三者として横断監査する誘因が弱い。構造推論。",
+      "secretInsight": "輸送そのものを所有せず、請求と実績の間にある見逃しを見つける情報レイヤーを握る。",
+      "initialTraction": [
+        "2021年開始",
+        "約40%が紹介由来と報告",
+        "2年間で顧客の送料$12m削減、遅延返金$1m回収を報告"
+      ],
+      "actionPlaybook": [
+        "配送費・遅延・返金条項を顧客データから抽出する",
+        "削減額と返金回収額を分離して効果測定する",
+        "FedEx等の現場知識を監査ルールへ変換する",
+        "紹介が生まれる実績証拠を蓄積する",
+        "期待売上・期待利益と着金・原価・手残りを別管理する"
+      ],
+      "coldOutreachTemplate": "「配送請求と遅延返金の取り漏れを、直近12か月分だけ照合すると、回収可能額が見えるか確認させてください。」"
+    },
+    "temporal": {
+      "foundedYear": 2021,
+      "initialTractionPeriod": "2021年開始。2022-2024年の顧客削減・返金回収実績を本人が報告。",
+      "dataSnapshotPeriod": "2024年expected revenue/profitと20 employeesの本人インタビュー。取得は2026-09-16。",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "物流費の可視化・回収を専門化するB2B情報レイヤーとして有効候補。現在実績は未更新。",
+      "eraContext": "EC・複雑な配送契約・大量の請求データが増え、荷主が個別請求の精査を外部化しやすい時期。",
+      "currentViabilityAnalysis": "物流費の高止まりは追い風だが、運送会社のAPI/請求データアクセス、顧客データ品質、回収報酬契約、競合の模倣が成否を左右する。2026年の実績と利益率は未確認。"
+    },
+    "essence": {
+      "whatItDoes": "企業の配送費・遅延・契約データを分析し、送料削減と遅延返金の回収を支援する。",
+      "targetCustomer": "配送量が多く、送料の過払い・返金漏れを全量監査できない企業。",
+      "painRelief": "見えない物流コスト流出を数値化し、削減・回収へ接続する。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_reported_b8c082b67876cacb5b1c1b32_blueprint",
+      "targetPrey": "配送費と返金漏れを放置している荷主",
+      "structuralFlaw": "運送契約と実績請求の差分を社内で継続監査しにくい",
+      "stealthEntry": "FedEx出身の専門知識と紹介で既存顧客の請求データへ入る",
+      "tollGateSetup": "紹介→配送データ診断→削減/返金回収→継続監査と紹介",
+      "reproducibilityScore": 68,
+      "moatDurabilityScore": 70,
+      "capitalEfficiencyScore": 62,
+      "executionChecklist": [
+        "請求・遅延・契約データを揃える",
+        "削減と返金回収を分けて検証する",
+        "業界知識を監査ルールへ落とす",
+        "成果を紹介の信頼資産に変える",
+        "期待値と実績P&Lを分離する"
+      ]
+    },
+    "observations": [
+      "Nick DiNatale本人のFounder Reportsインタビューに基づく。",
+      "ShipPlugは2021年開始、2024年expected revenue $25m / expected profit $2m、20 employeesと報告。",
+      "約40%が紹介由来、2年間で顧客送料$12m削減・遅延返金$1m回収を報告。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_timeline",
+        "category": "TIMELINE",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "本文が2021年開始と2024年の会社規模・見込み値を記載している。",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      },
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_profit_signal",
+        "category": "FINANCIAL_SIGNAL",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "本文が2024年expected revenue $25mとexpected profit $2mを記載。実績・監査済み利益ではない。",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      },
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_customer_value",
+        "category": "CUSTOMER_VALUE",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "本文が2年間で顧客送料$12m削減、遅延返金$1m回収を記載。自社売上・利益ではない。",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      },
+      {
+        "id": "ent_reported_b8c082b67876cacb5b1c1b32_audit_limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "見込み売上・利益と顧客便益は本人報告であり、財務諸表・銀行・税務・顧客請求による独立監査は未実施。",
+        "sourceUrl": "https://founderreports.com/interview/shipplug/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d"
+        }
+      }
+    ],
+    "reportedMetrics": [
+      {
+        "original": "$25m expected 2024 revenue",
+        "currency": "USD",
+        "amount": 25000000,
+        "jpyAmount": 3750000000,
+        "unit": "USD",
+        "source": "founderreports_interview",
+        "context": "2024 expected annual revenue"
+      },
+      {
+        "original": "$2m expected 2024 profit",
+        "currency": "USD",
+        "amount": 2000000,
+        "jpyAmount": 300000000,
+        "unit": "USD",
+        "source": "founderreports_interview",
+        "context": "2024 expected annual profit"
+      },
+      {
+        "original": "20 employees",
+        "unit": "TEAM_SIZE",
+        "source": "founderreports_interview",
+        "context": "2024 company size"
+      },
+      {
+        "original": "almost 40% business from referrals",
+        "unit": "REFERRAL_SHARE",
+        "source": "founderreports_interview",
+        "context": "customer acquisition mix"
+      },
+      {
+        "original": "$1m recovered in late-shipment refunds",
+        "currency": "USD",
+        "amount": 1000000,
+        "jpyAmount": 150000000,
+        "unit": "USD",
+        "source": "founderreports_interview",
+        "context": "customer refunds recovered over two years"
+      },
+      {
+        "original": "$12m in customer savings",
+        "currency": "USD",
+        "amount": 12000000,
+        "jpyAmount": 1800000000,
+        "unit": "USD",
+        "source": "founderreports_interview",
+        "context": "customer shipping savings over two years"
+      },
+      {
+        "original": "2021",
+        "unit": "FOUNDING_YEAR",
+        "source": "founderreports_interview",
+        "context": "year started"
+      }
+    ],
+    "unknownsNotes": [
+      "expected revenue/profitの実現値、月次推移、原価、税、創業者報酬、手残りは未確認。",
+      "顧客便益の削減・回収額は自社売上ではなく、本人報告の累計値。",
+      "収益モデル、回収手数料、契約期間、解約率、クラウド/決済スタックは未開示。",
+      "2026年現在の実績は未更新。"
+    ],
+    "unknowns": [
+      "見込み値と実績値の差は未確認。",
+      "本人報告で独立監査なし。",
+      "顧客便益と自社利益を混同してはならない。"
+    ],
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "screening": {
+      "winner": true,
+      "initialTeamPass": true,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "PRIMARY_AUTHOR_EXPECTED_PROFIT_NO_INDEPENDENT_AUDIT",
+      "backgroundAndScaleCaveat": "2024年売上・利益はexpected値、顧客削減・返金回収は本人報告。実績P&Lと手残りは未監査。"
+    },
+    "caseType": "PRIMARY_AUTHOR_EXPECTED_PROFIT_CASE",
+    "profileSubject": "Nick DiNatale",
+    "profileBusinessLabel": "ShipPlug",
+    "sourceMetadata": {
+      "provider": "Founder Reports",
+      "sourceId": "src.founderreports.shipplug",
+      "postUrl": "https://founderreports.com/interview/shipplug/",
+      "author": "Nick DiNatale",
+      "observedAt": "2026-09-16T00:00:00.000Z",
+      "publishedAt": null,
+      "rawContentSha256": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d",
+      "rawCaptureNote": "Founder interview raw HTML is retained. Expected revenue/profit and customer savings are reported signals, not independently audited financial statements.",
+      "rawStorage": {
+        "bucket": "foundation-raw",
+        "payloadKey": null,
+        "manifestKey": null,
+        "bytes": 210989,
+        "readbackVerified": false
+      }
+    },
+    "batchId": "batch-shipplug-20260916"
+  }
+]

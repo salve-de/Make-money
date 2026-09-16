@@ -1,0 +1,124 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+
+const capture = JSON.parse(fs.readFileSync('data/incoming/raw_snapshots_accounting_replacement_20260916.audit.json', 'utf8')).results[0];
+const name = 'Anonymous Niche Accounting SaaS (r/saasforsale 2026)';
+const sourceUrl = capture.requestedUrl;
+const id = `ent_reported_${crypto.createHash('sha256').update(`${name}|${sourceUrl}`).digest('hex').slice(0, 24)}`;
+const jpy = (usd) => Math.round(usd * 150);
+const sourceNote = `Source page, retrieved 2026-09-16: ${sourceUrl}`;
+
+const entity = {
+  id,
+  ticker: 'ANON.ACCT',
+  name,
+  legalEntity: 'UNKNOWN',
+  tagline: '「税務シーズンの特定業務を軽くしたい会計事務所」の財布を、従業員ゼロの特化SaaSで囲い、MRR52.5万円・直近12か月調整後利益345万円を本人報告',
+  sector: 'NICHE_SAAS',
+  scale: 'SOLO',
+  founder: '匿名売却者',
+  country: 'GLOBAL',
+  url: null,
+  verifiedBadge: false,
+  growthRateYoY: 20,
+  isGrowthUnconfirmed: true,
+  architecturePattern: '税務・会計ワークフロー特化B2B SaaS × 継続契約',
+  pipelineStack: 'React × Node/Express × MongoDB Atlas × Heroku × Stripe × SendGrid',
+  targetPainWallet: '税務シーズンに繰り返す会計事務所の特定ワークフローを、既存顧客が複数シーズン使い続ける小型SaaSへ固定する。',
+  tags: ['SOLO', 'B2B_SAAS', 'ACCOUNTING_WORKFLOW', 'REPORTED_PROFIT', 'NO_EMPLOYEES', '2026'],
+  pnl: {
+    monthlyRevenue: jpy(3500),
+    cogs: 0,
+    grossProfit: jpy(3500),
+    grossMargin: 100,
+    operatingExpenses: { serverAndApi: 0, advertising: 0, subcontracting: 0, toolsAndSaaS: 0, other: 0 },
+    operatingProfit: 0,
+    operatingMargin: 0,
+    estimatedAnnualNetProfit: 0,
+    financialStatus: 'REPORTED',
+    dataSnapshotPeriod: '2026-09-16 r/saasforsale公開売却募集投稿',
+    sourceDoc: sourceUrl,
+    sourceClass: 'PRIMARY',
+    evidenceLocator: { type: 'html', textHash: capture.sha256 },
+    estimationLogic: 'MRR $3,500 × 150円＝¥525,000。調整後利益$23,000はreportedMetricsへ分離し、税・創業者報酬・未記載費用をP&Lへ推定しない。',
+    revenueLabel: '本人投稿: 約$3,500 MRR（独立監査なし）',
+    isRevenueUnconfirmed: true,
+    isOperatingProfitUnconfirmed: true,
+    isMarginUnconfirmed: true,
+    isGrossProfitUnconfirmed: true,
+    isGrossMarginUnconfirmed: true,
+    isCogsUnconfirmed: true,
+    isCostsUnconfirmed: true,
+    isNetProfitUnconfirmed: true,
+    grossProfitDerivation: 'monthlyRevenue - cogsの機械的整合値。実際の利益・税・未記載費用はreportedMetricsへ分離。',
+  },
+  evidenceCards: [
+    { id: `${id}_loot`, type: 'LOOT_BLUEPRINT', title: '税務シーズンの狭い反復業務を継続契約へ変える', badge: 'REPORTED', evidenceStatus: 'REPORTED', punchline: '税務・会計領域の特定ワークフローだけを解き、会計事務所が複数の税務シーズンで使う継続SaaSにしたと報告。', details: ['広い会計ソフト市場ではなく、特定の反復業務に絞る。', 'React/Node/Expressなど小さな構成で運用し、広告より既存顧客と専門領域の信頼を重ねる。', '季節性を含むMRR・解約・利益を12か月単位で見る。'], codeSnippet: 'N/A — 原文に実装コードの記載なし。', sourceNote, sourceUrl, sourceClass: 'PRIMARY', evidenceLocator: { type: 'html', textHash: capture.sha256 } },
+    { id: `${id}_crime`, type: 'THE_CRIME', title: '従業員ゼロで直近12か月調整後利益を報告', badge: 'REPORTED', evidenceStatus: 'REPORTED', punchline: '約$3,500 MRR、直近12か月の調整後利益約$23,000、従業員ゼロ、前年比約20%成長を売却投稿で提示。', details: ['利益は売却者の自己申告で、銀行・決済・税務資料の独立監査は未実施。', '利益の定義、創業者報酬、税、外注費、季節性の内訳は未確認。'], codeSnippet: 'N/A — 原文に実装コードの記載なし。', sourceNote, sourceUrl, sourceClass: 'PRIMARY', evidenceLocator: { type: 'html', textHash: capture.sha256 } },
+    { id: `${id}_genesis`, type: 'DIRTY_GENESIS', title: '副業として5年運用し、買い手へ引き継ぐ', badge: 'REPORTED', evidenceStatus: 'REPORTED', punchline: '5年間の副業運用、成熟した本番アプリ、複数税務シーズンの継続利用、希望価格$110,000を記載。', details: ['冷たい新規獲得より、会計事務所の既存ワークフローに入り込む。', '技術者のソロ運用者や会計テック企業を買い手候補として想定。', '売却希望価格は利益の確定値ではなく、売り手の提示額として扱う。'], codeSnippet: 'N/A — 原文に実装コードの記載なし。', sourceNote, sourceUrl, sourceClass: 'PRIMARY', evidenceLocator: { type: 'html', textHash: capture.sha256 } },
+  ],
+  operations: {
+    teamSize: 1, initialTeamSize: 1, currentTeamSize: 1, weeklyHours: 0, initialCapitalRequired: 0, automationLevel: 0,
+    primaryChannels: ['会計・税務業界の既存顧客', '専門領域の口コミ', 'ニッチB2Bワークフロー'],
+    toolStack: [
+      ...['React', 'Node/Express', 'MongoDB Atlas', 'Heroku', 'Stripe', 'SendGrid'].map((tool) => ({ name: tool, category: 'TECH_STACK', monthlyCost: 0, isCostUnconfirmed: true, purpose: '投稿本文で言及された運用構成' })),
+    ],
+    isTeamSizeUnconfirmed: false, isWeeklyHoursUnconfirmed: true, isCapitalUnconfirmed: true, isAutomationUnconfirmed: true,
+  },
+  strategy: {
+    architecturePattern: '特定の会計ワークフローに深く入るB2B SaaS',
+    pipelineStack: 'React × Node/Express × MongoDB Atlas × Heroku × Stripe × SendGrid',
+    blindspot: '汎用会計ソフトが取りこぼす税務・会計事務所固有の反復作業を、複数シーズン利用される一点突破の製品にする。',
+    moatType: 'WORKFLOW_LOCK_IN',
+    moatDescription: '税務シーズンをまたいだ顧客利用と、会計事務所固有の手順への埋め込み。',
+    incumbentDilemma: '大手会計ソフトは広い機能・既存価格を守るため、小さな税務ワークフローへ深く最適化しにくい。',
+    secretInsight: '従業員を増やさず、顧客が毎年戻る狭い業務へ入ることで、MRRと買収可能性を同時に作る。',
+    initialTraction: ['副業として約5年運用', '複数の税務シーズンで継続利用', '直近12か月調整後利益$23,000を報告'],
+    actionPlaybook: ['業界の反復作業を一つだけ選ぶ', '季節性を含む12か月の収支を記録する', '従業員ゼロ運用の限界と買い手候補を早期に把握する'],
+    coldOutreachTemplate: '「税務シーズンに毎年繰り返すこの作業だけを、既存の会計フローを壊さず短縮できます。まず今季の一案件で試してください。」',
+  },
+  temporal: {
+    foundedYear: 0,
+    initialTractionPeriod: '約5年間の副業運用。正確な開始年は投稿に記載なし。',
+    dataSnapshotPeriod: '2026年9月16日の売却募集投稿',
+    viabilityStatus: 'ACTIVE_PLAYBOOK',
+    viabilityLabel: '狭い業務への埋め込みは有効候補',
+    eraContext: '会計・税務の専門業務を小型SaaSで補完し、既存顧客の反復利用を積み上げやすい環境。',
+    currentViabilityAnalysis: '税務季節性、創業者一人への依存、顧客集中、独立監査未実施が残る。汎用機能競争ではなく、専門業務の継続利用を検証する必要がある。',
+  },
+  essence: { whatItDoes: '税務・会計事務所の特定ワークフローを支援するB2B SaaS。', targetCustomer: '税務シーズンに同じ業務を繰り返す会計・税務事務所。', painRelief: '汎用ソフトの外側に残る特定業務を、毎年同じ手順で処理しやすくする。' },
+  lootBlueprint: {
+    blueprintId: `${id}_blueprint`, targetPrey: '税務シーズンの反復作業に時間を取られる会計事務所', structuralFlaw: '汎用会計ソフトは小さな業務単位の深い最適化を後回しにする', stealthEntry: '税務シーズンの一つのワークフローだけに絞る', tollGateSetup: '業務埋め込み→複数シーズン利用→MRR・12か月利益の提示', reproducibilityScore: 68, moatDurabilityScore: 58, capitalEfficiencyScore: 82,
+    executionChecklist: ['現場の反復作業を一つに絞る', '複数シーズンの継続利用を追う', '季節性と創業者依存を含めて12か月利益を記録する'],
+  },
+  observations: ['匿名売却者の公開投稿に基づく。', '約$3,500 MRR、約$42,000 run-rate ARR、直近12か月調整後利益約$23,000、前年比約20%、5年運用、従業員ゼロを報告。', 'React、Node/Express、MongoDB Atlas、Heroku、Stripe、SendGridを使用と記載。'],
+  observationsStream: [
+    { id: `${id}_reported`, category: 'FINANCIAL_SIGNAL', originType: 'reported', verificationStatus: 'UNVERIFIED', text: '公開投稿がMRR、run-rate ARR、直近12か月調整後利益、成長率、運用年数、従業員ゼロを報告している。', sourceUrl, observedAt: '2026-09-16', sourceClass: 'PRIMARY', evidenceLocator: { type: 'html', textHash: capture.sha256 } },
+    { id: `${id}_capture_limit`, category: 'RESEARCH_LIMIT', originType: 'observed', verificationStatus: 'UNVERIFIED', text: 'Reddit直接取得のRaw本文は防止ページとなる場合があるため、数値は公開表示からの報告値として保持し、独立監査済みとは扱わない。', sourceUrl, observedAt: '2026-09-16', sourceClass: 'PRIMARY', evidenceLocator: { type: 'html', textHash: capture.sha256 } },
+  ],
+  essenceNotes: 'UNKNOWN',
+  reportedMetrics: [
+    { original: '$3,500 MRR', currency: 'USD', amount: 3500, jpyAmount: jpy(3500), unit: 'MONTHLY_REVENUE', source: 'reddit_post', context: 'current MRR' },
+    { original: '$42,000 run-rate ARR', currency: 'USD', amount: 42000, jpyAmount: jpy(42000), unit: 'ANNUAL_REVENUE', source: 'reddit_post', context: 'run-rate ARR' },
+    { original: '$23,000 adjusted profit', currency: 'USD', amount: 23000, jpyAmount: jpy(23000), unit: 'ANNUAL_PROFIT', source: 'reddit_post', context: 'latest reconciled 12-month period' },
+    { original: '20%', amount: 20, unit: 'YOY_GROWTH', source: 'reddit_post', context: 'MRR growth year over year' },
+    { original: '5 years', amount: 5, unit: 'OPERATING_HISTORY_YEARS', source: 'reddit_post', context: 'side project operating history' },
+    { original: '0 employees', amount: 0, unit: 'TEAM_SIZE', source: 'reddit_post', context: 'no employees' },
+    { original: '$110,000', currency: 'USD', amount: 110000, jpyAmount: jpy(110000), unit: 'ASKING_PRICE', source: 'reddit_post', context: 'asking price' },
+  ],
+  unknownsNotes: ['調整後利益の定義、税、創業者報酬、外注費、決済手数料、季節性の内訳は未確認。', '売却者の法人名・実名・顧客数・解約率・銀行/Stripe証憑は未確認。', 'Reddit投稿の報告値であり、会計帳簿・税務資料の独立監査ではない。'],
+  unknowns: ['調整後利益の定義と費用内訳は未確認。', 'Reddit投稿の自己申告で独立監査なし。'],
+  publishability: 'PARTIAL',
+  claimBindings: [],
+  screening: { winner: true, initialTeamPass: true, capitalStatus: 'unknown', qualificationStatus: 'REPORTED_PRIMARY_NOT_INDEPENDENTLY_AUDITED', backgroundAndScaleCaveat: '従業員ゼロは投稿本文に明記されるが、利益の独立監査は未実施。' },
+  caseType: 'PRIMARY_REPORTED_PROFIT_CASE',
+  profileSubject: '匿名売却者',
+  profileBusinessLabel: '匿名・税務会計ワークフローSaaS',
+  officialUrl: null,
+  sourceMetadata: { provider: 'Reddit', postId: '1wat14x', postUrl: sourceUrl, author: 'anonymous seller', observedAt: '2026-09-16T00:00:00.000Z', publishedAt: '2026-09-16T00:00:00.000Z', rawContentSha256: capture.sha256, rawCaptureNote: 'Reddit anti-bot challenge may be present; raw response is retained but financial values remain reported.' },
+  batchId: 'batch-accounting-replacement-20260916',
+};
+
+delete entity.essenceNotes;
+fs.writeFileSync('data/incoming/batch_accounting_replacement_20260916.json', `${JSON.stringify([entity], null, 2)}\n`);
+console.log(JSON.stringify({ count: 1, id, name, ticker: entity.ticker, scale: entity.scale, sourceUrl }, null, 2));

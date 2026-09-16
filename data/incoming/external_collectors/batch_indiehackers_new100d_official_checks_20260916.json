@@ -1,0 +1,1197 @@
+[
+  {
+    "name": "Runbear",
+    "productId": "plugbear",
+    "officialUrl": "https://runbear.io",
+    "status": 200,
+    "finalUrl": "https://runbear.io/",
+    "title": "AI for Ops Teams &amp; Slack Inbox Automation | Runbear",
+    "matchedTokens": [
+      "runbear"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Menuly",
+    "productId": "menuly",
+    "officialUrl": "https://menuly.pro/",
+    "status": 502,
+    "finalUrl": "https://menuly.pro/",
+    "title": "502 Bad Gateway",
+    "matchedTokens": [
+      "menuly"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TrustLoop",
+    "productId": "trustloop",
+    "officialUrl": "https://www.trustloop.co/",
+    "status": null,
+    "finalUrl": "https://www.trustloop.co/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SteLearn",
+    "productId": "stelearn",
+    "officialUrl": "https://stelearn.irissecure.tech/",
+    "status": 200,
+    "finalUrl": "https://stelearn.irissecure.tech/",
+    "title": "SteLearn - Formation Audio Professionnelle",
+    "matchedTokens": [
+      "stelearn"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Falcon Builder",
+    "productId": "falcon-builder",
+    "officialUrl": "https://www.falconbuilder.dev",
+    "status": 200,
+    "finalUrl": "https://www.falconbuilder.dev/",
+    "title": "Falcon Builder — No-Code AI Agents for Production",
+    "matchedTokens": [
+      "falcon",
+      "builder"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sumora",
+    "productId": "sumora",
+    "officialUrl": "https://trysumora.com",
+    "status": 200,
+    "finalUrl": "https://trysumora.com/",
+    "title": "Sumora | We grow your revenue through outbound",
+    "matchedTokens": [
+      "sumora"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cllavio",
+    "productId": "cllavio",
+    "officialUrl": "https://cllavio.com",
+    "status": 200,
+    "finalUrl": "https://sendtrim.com/",
+    "title": "SendTrim — Email Marketing &amp; SMTP API for Startups",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Diozex",
+    "productId": "diozex-2",
+    "officialUrl": "https://diozex.com",
+    "status": 200,
+    "finalUrl": "https://diozex.com/",
+    "title": "Diozex • Client Approvals for Vertical Video Without Per-Seat Taxes",
+    "matchedTokens": [
+      "diozex"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DocumindAI",
+    "productId": "documindai",
+    "officialUrl": "https://documindai.com/",
+    "status": 200,
+    "finalUrl": "https://documindai.com/",
+    "title": "AI Document Analysis Tool — Analyze Contracts, PDFs & Reports | DocumindAI",
+    "matchedTokens": [
+      "documindai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Origin",
+    "productId": "origin",
+    "officialUrl": "https://getorigin.io/",
+    "status": 200,
+    "finalUrl": "https://getorigin.io/",
+    "title": "Origin — Snapshots, blame, and governance for AI code",
+    "matchedTokens": [
+      "origin"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Talanoa",
+    "productId": "talanoa",
+    "officialUrl": "https://talanoa.email/?utm_source=indiehackers&utm_medium=community&utm_campaign=beta&utm_content=project",
+    "status": 200,
+    "finalUrl": "https://talanoa.email/?utm_source=indiehackers&utm_medium=community&utm_campaign=beta&utm_content=project",
+    "title": "Talanoa - Email Organized by Sender",
+    "matchedTokens": [
+      "talanoa"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Aisa.to",
+    "productId": "aisa-to",
+    "officialUrl": "https://aisa.to",
+    "status": 200,
+    "finalUrl": "https://aisa.to/",
+    "title": "AI Fluency Assessment — Free Report &amp; AI Certification | AISA",
+    "matchedTokens": [
+      "aisa"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Authn8",
+    "productId": "authn8",
+    "officialUrl": "https://authn8.com",
+    "status": 200,
+    "finalUrl": "https://authn8.com/",
+    "title": "Shared 2FA for Teams: Audit Logs, SSO &amp; Instant Revocation | Authn8",
+    "matchedTokens": [
+      "authn8"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AutoPipe",
+    "productId": "autopipe",
+    "officialUrl": "https://autopipe.cloud/",
+    "status": 200,
+    "finalUrl": "https://www.autopipecloud.com/",
+    "title": "Home | AutoPipe - Your Cloud Co-pilot",
+    "matchedTokens": [
+      "autopipe"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Blastra",
+    "productId": "blastra",
+    "officialUrl": "https://blastra.io",
+    "status": 200,
+    "finalUrl": "https://blastra.io/",
+    "title": "Blastra — Directory Presence, Handled",
+    "matchedTokens": [
+      "blastra"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Blend The Product",
+    "productId": "blend-the-product",
+    "officialUrl": "https://blendtheproduct.com",
+    "status": 503,
+    "finalUrl": "https://blendtheproduct.com/",
+    "title": "503 Service Temporarily Unavailable",
+    "matchedTokens": [
+      "blend"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Book Preflight",
+    "productId": "book-preflight",
+    "officialUrl": "https://bookpreflight.com/",
+    "status": 200,
+    "finalUrl": "https://bookpreflight.com/",
+    "title": "Book Preflight — Your Publishing Co-Pilot",
+    "matchedTokens": [
+      "book",
+      "preflight"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Bookingbird",
+    "productId": "bookingbird",
+    "officialUrl": "https://www.bookingbird.io/",
+    "status": 200,
+    "finalUrl": "https://www.bookingbird.io/",
+    "title": "Bookingbird — Built for Next-Gen Booking Operations",
+    "matchedTokens": [
+      "bookingbird"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BrandGEO.co - AI Brand Visibility Monitoring",
+    "productId": "brandgeo-co-ai-brand-visibility-monitoring",
+    "officialUrl": "https://brandgeo.co/",
+    "status": 200,
+    "finalUrl": "https://brandgeo.co/",
+    "title": "BrandGEO — AI visibility audits for brands &amp; agencies. All 5 AI engines, white-label PDFs.",
+    "matchedTokens": [
+      "brandgeo",
+      "brand",
+      "visibility"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BreakGround",
+    "productId": "breakground",
+    "officialUrl": "https://breakground.io",
+    "status": 200,
+    "finalUrl": "https://breakground.io/",
+    "title": "BreakGround — AI-Native User Engagement, Onboarding, and Support Platform",
+    "matchedTokens": [
+      "breakground"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Bungalov",
+    "productId": "bungalov",
+    "officialUrl": "https://ossiqn.com.tr/bungalov",
+    "status": 403,
+    "finalUrl": "https://ossiqn.com.tr/bungalov",
+    "title": "Just a moment...",
+    "matchedTokens": [
+      "bungalov"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cavryon",
+    "productId": "cavryon",
+    "officialUrl": "https://www.cavryon.ai/",
+    "status": 200,
+    "finalUrl": "https://www.cavryon.ai/",
+    "title": "Cavryon | Variance Investigation Inside Excel",
+    "matchedTokens": [
+      "cavryon"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Chat Mitra",
+    "productId": "chat-mitra",
+    "officialUrl": "https://chatmitra.com",
+    "status": 200,
+    "finalUrl": "https://chatmitra.com/",
+    "title": "Affordable WhatsApp Business API Platform with AI Chatbot | Chat Mitra",
+    "matchedTokens": [
+      "chat",
+      "mitra"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CheckInGO",
+    "productId": "checkingo",
+    "officialUrl": "https://checkingoapp.com",
+    "status": 200,
+    "finalUrl": "https://checkingoapp.com/",
+    "title": "CheckInGO | Control Horario para Empresas · 7 días gratis",
+    "matchedTokens": [
+      "checkingo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Chronicle",
+    "productId": "chronicle-2",
+    "officialUrl": "https://chronicle.chat",
+    "status": 200,
+    "finalUrl": "https://chronicle.chat/",
+    "title": "Chronicle - AI Voice Memory App for Instant Recall",
+    "matchedTokens": [
+      "chronicle"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cira",
+    "productId": "cira",
+    "officialUrl": "https://www.HiCira.com",
+    "status": 200,
+    "finalUrl": "https://www.hicira.com/",
+    "title": "Cira the AI Voice Receptionist for your small business",
+    "matchedTokens": [
+      "cira"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CKey",
+    "productId": "ckey",
+    "officialUrl": "https://ckey.vn",
+    "status": 200,
+    "finalUrl": "https://ckey.vn/",
+    "title": "時間貸し GPU レンタル、格安 GPU サーバー、高性能構成 | Ckey.vn",
+    "matchedTokens": [
+      "ckey"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Costlix",
+    "productId": "costlix",
+    "officialUrl": "https://costlix.com/",
+    "status": 200,
+    "finalUrl": "https://www.costlix.com/",
+    "title": "My Google AI Studio App",
+    "matchedTokens": [
+      "costlix"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CVCShield",
+    "productId": "cvcshield",
+    "officialUrl": "https://cvcshield.com/",
+    "status": null,
+    "finalUrl": "https://cvcshield.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CVETodo",
+    "productId": "cvetodo",
+    "officialUrl": "https://cvetodo.com",
+    "status": 200,
+    "finalUrl": "https://cvetodo.com/",
+    "title": "CVETodo - Security Vulnerability Tracking",
+    "matchedTokens": [
+      "cvetodo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DarkGen",
+    "productId": "darkgen",
+    "officialUrl": "https://darkgen.io",
+    "status": 200,
+    "finalUrl": "https://darkgen.io/",
+    "title": "DarkGen - Dark Web Monitoring | Threat Intelligence",
+    "matchedTokens": [
+      "darkgen"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DocuSafe.ai",
+    "productId": "docusafe-ai",
+    "officialUrl": "https://www.docusafe.ai",
+    "status": 200,
+    "finalUrl": "https://www.docusafe.ai/",
+    "title": "AI-Powered Document & Contract Management Software",
+    "matchedTokens": [
+      "docusafe"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Entergram",
+    "productId": "entergram",
+    "officialUrl": "https://entergram.com",
+    "status": 200,
+    "finalUrl": "https://www.entergram.com/",
+    "title": "Telegram CRM, Support &amp; Sales Platform | Entergram",
+    "matchedTokens": [
+      "entergram"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Etryon Virtual Try-On",
+    "productId": "etryon-virtual-try-on",
+    "officialUrl": "https://www.etryon.ai/",
+    "status": 200,
+    "finalUrl": "https://www.etryon.ai/",
+    "title": "AI Virtual Try-On Plugin for Shopify &amp; WooCommerce Stores | Etryon.ai",
+    "matchedTokens": [
+      "etryon",
+      "virtual"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "fissible",
+    "productId": "fissible-3",
+    "officialUrl": "https://fissible.dev/",
+    "status": 200,
+    "finalUrl": "https://fissible.dev/",
+    "title": "Fissible",
+    "matchedTokens": [
+      "fissible"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "focusedOS",
+    "productId": "focusedos",
+    "officialUrl": "https://focusedos.com",
+    "status": 200,
+    "finalUrl": "https://focusedos.com/",
+    "title": "focusedOS - Transform Your Mac &amp; iPhone For Ultimate Productivity",
+    "matchedTokens": [
+      "focusedos"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Fonable",
+    "productId": "fonable",
+    "officialUrl": "https://fonable.io",
+    "status": 200,
+    "finalUrl": "https://fonable.io/",
+    "title": "Cheap International Calls From Your Browser | Fonable",
+    "matchedTokens": [
+      "fonable"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "GIgledger",
+    "productId": "gigledger",
+    "officialUrl": "https://www.gigledgers.com/",
+    "status": 200,
+    "finalUrl": "https://www.gigledgers.com/",
+    "title": "",
+    "matchedTokens": [
+      "gigledger"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Inkwise AI",
+    "productId": "inkwise-ai",
+    "officialUrl": "https://inkwise.ai/",
+    "status": null,
+    "finalUrl": "https://inkwise.ai/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "INNOCHAT",
+    "productId": "innochat",
+    "officialUrl": "https://www.innochat.ch/en-gb",
+    "status": 200,
+    "finalUrl": "https://www.innochat.ch/en-gb",
+    "title": "AI agents for companies — digital consulting &amp; solutions from InnoChat Europe",
+    "matchedTokens": [
+      "innochat"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Intebwio",
+    "productId": "intebwio",
+    "officialUrl": "https://intebwio.com/",
+    "status": 200,
+    "finalUrl": "https://intebwio.com/",
+    "title": "Intebwio - The Browser That Writes Itself",
+    "matchedTokens": [
+      "intebwio"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Iris Secure Financial",
+    "productId": "iris-secure-financial",
+    "officialUrl": "https://irisfinancial.tech",
+    "status": 200,
+    "finalUrl": "https://irisfinancial.tech/",
+    "title": "Iris Secure Financial - Professional Accounting Platform",
+    "matchedTokens": [
+      "iris",
+      "secure",
+      "financial"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Keet",
+    "productId": "keet",
+    "officialUrl": "https://keet.fast",
+    "status": null,
+    "finalUrl": "https://keet.fast",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Keplars",
+    "productId": "keplers-mail-service",
+    "officialUrl": "https://keplars.com",
+    "status": 200,
+    "finalUrl": "https://keplars.com/",
+    "title": "Keplars - Email Infrastructure for Modern Product Teams | Keplars Mail Service",
+    "matchedTokens": [
+      "keplars"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "KinVeto",
+    "productId": "kinveto",
+    "officialUrl": "https://www.kinveto.com",
+    "status": 200,
+    "finalUrl": "https://www.kinveto.com/",
+    "title": "Protect Your Family from Remote Access Scams — KinVeto",
+    "matchedTokens": [
+      "kinveto"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Kodus",
+    "productId": "kodus",
+    "officialUrl": "https://kodus.io/en/?ref=indiehackers",
+    "status": 200,
+    "finalUrl": "https://kodus.io/",
+    "title": "Kodus | Open Source AI Code Review",
+    "matchedTokens": [
+      "kodus"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Lasso AI",
+    "productId": "lasso-ai",
+    "officialUrl": "https://productlasso.com/en",
+    "status": 200,
+    "finalUrl": "https://productlasso.com/en",
+    "title": "Lasso: AI agents for ecommerce data | PIM built for the AI era",
+    "matchedTokens": [
+      "lasso"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Telyn",
+    "productId": "telyn",
+    "officialUrl": "https://telyn.ai/ph",
+    "status": 200,
+    "finalUrl": "https://telyn.ai/?utm_source=producthunt&utm_medium=listing&utm_campaign=launch_2026_06_09",
+    "title": "Telyn",
+    "matchedTokens": [
+      "telyn"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LoopFlow AI",
+    "productId": "loopflow-ai",
+    "officialUrl": "https://myloopflow.com",
+    "status": 200,
+    "finalUrl": "https://myloopflow.com/",
+    "title": "LoopFlow | Voice Feedback That Replaces Surveys and Interviews",
+    "matchedTokens": [
+      "loopflow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "maikitto",
+    "productId": "maikitto",
+    "officialUrl": "http://maikitto.com",
+    "status": 200,
+    "finalUrl": "https://www.maikitto.com/",
+    "title": "Maikitto — ChatBot y Dashboard para Restaurantes",
+    "matchedTokens": [
+      "maikitto"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ManyMeet",
+    "productId": "manymeet",
+    "officialUrl": "https://getmanymeet.com",
+    "status": 200,
+    "finalUrl": "https://getmanymeet.com/",
+    "title": "ManyMeet — Sales Webinars on Zoom Meetings, Integrated with Brevo",
+    "matchedTokens": [
+      "manymeet"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OwlVigil",
+    "productId": "owlvigil",
+    "officialUrl": "https://owlvigil.com/",
+    "status": 200,
+    "finalUrl": "https://owlvigil.com/",
+    "title": "OwlVigil | AI Governance, Cost Control &amp; Compliance Platform",
+    "matchedTokens": [
+      "owlvigil"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Parallax",
+    "productId": "parallax",
+    "officialUrl": "https://tryparallax.app/founders",
+    "status": 200,
+    "finalUrl": "https://www.tryparallax.app/founders",
+    "title": "Parallax for Founders: Close deals without becoming a salesperson | Parallax",
+    "matchedTokens": [
+      "parallax"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PdfFixNow",
+    "productId": "pdffixnow",
+    "officialUrl": "https://pdffixnow.com",
+    "status": 200,
+    "finalUrl": "https://pdffixnow.com/",
+    "title": "PdfFixNow - Free Online PDF Editor &amp; Converter - Merge, Split, Edit PDF Files",
+    "matchedTokens": [
+      "pdffixnow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pharma POS — Smart Pharmacy POS with Accounting",
+    "productId": "pharma-pos-smart-pharmacy-pos-with-accounting",
+    "officialUrl": "https://soft-max.app/686153/product",
+    "status": 200,
+    "finalUrl": "https://soft-max.app/686153/product",
+    "title": "soft-max.app&nbsp;-&nbsp;soft max リソースおよび情報",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Photocore",
+    "productId": "photocore",
+    "officialUrl": "https://www.photocore.pro",
+    "status": 200,
+    "finalUrl": "https://www.photocore.pro/",
+    "title": "PhotoCore AI Photo Archive for Mac: The private home for your whole photo life",
+    "matchedTokens": [
+      "photocore"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PopTask - AI Powered Menu Bar To-do List",
+    "productId": "poptask-ai-powered-menu-bar-to-do-list",
+    "officialUrl": "https://poptask.bar/",
+    "status": 404,
+    "finalUrl": "https://poptask.bar/",
+    "title": "Site Not Found | Framer",
+    "matchedTokens": [
+      "poptask"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PRSM",
+    "productId": "prsm",
+    "officialUrl": "https://prsm.so",
+    "status": 200,
+    "finalUrl": "https://www.krev.ai/",
+    "title": "Krev AI | Full Ecommerce Growth Suite",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Q-Flow",
+    "productId": "q-flow-event-gateway",
+    "officialUrl": "https://www.qalatech.io/webhooks",
+    "status": 404,
+    "finalUrl": "https://letsqala.com/webhooks",
+    "title": "404",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "QAXA",
+    "productId": "qaxa-2",
+    "officialUrl": "https://www.qaxa.com/",
+    "status": 200,
+    "finalUrl": "https://www.qaxa.com/",
+    "title": "Qaxa — Encrypted Deal Rooms for Sensitive Work",
+    "matchedTokens": [
+      "qaxa"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Recallify",
+    "productId": "recallify",
+    "officialUrl": "https://recallify.ai",
+    "status": 200,
+    "finalUrl": "https://recallify.ai/",
+    "title": "AI Memory App for ADHD, Learning &amp; Cognitive Support | Recallify",
+    "matchedTokens": [
+      "recallify"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ReChurn",
+    "productId": "rechurn",
+    "officialUrl": "https://rechurn.io",
+    "status": 200,
+    "finalUrl": "https://www.rechurn.io/",
+    "title": "Rechurn — AI-Powered Payment Recovery for SaaS",
+    "matchedTokens": [
+      "rechurn"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "recto",
+    "productId": "recto-2",
+    "officialUrl": "https://rectoapp.com/",
+    "status": 200,
+    "finalUrl": "https://rectoapp.com/",
+    "title": "recto — orphan rescue and internal linking for serious sites",
+    "matchedTokens": [
+      "recto"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Research Terminal",
+    "productId": "research-terminal",
+    "officialUrl": "https://www.researchterminal.ai",
+    "status": 200,
+    "finalUrl": "https://www.researchterminal.ai/",
+    "title": "Research Terminal | Brand Awareness Machine",
+    "matchedTokens": [
+      "research",
+      "terminal"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sentie",
+    "productId": "sentie",
+    "officialUrl": "https://sentie.io",
+    "status": 200,
+    "finalUrl": "https://sentie.io/",
+    "title": "Custom AI Agents Built Around Your Business | Sentie",
+    "matchedTokens": [
+      "sentie"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Tallied",
+    "productId": "tallied",
+    "officialUrl": "https://tallied.pk",
+    "status": 200,
+    "finalUrl": "https://tallied.pk/",
+    "title": "Tallied — FBR Digital Invoicing for Tax Consultants",
+    "matchedTokens": [
+      "tallied"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Solwees AI",
+    "productId": "solwees-ai",
+    "officialUrl": "https://solwees.ai/",
+    "status": 200,
+    "finalUrl": "https://solwees.ai/en",
+    "title": "AI Agent and Software for Any Business | Solwees AI",
+    "matchedTokens": [
+      "solwees"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "StreetSmart",
+    "productId": "streetsmart",
+    "officialUrl": "https://streetsmart.inc/",
+    "status": 200,
+    "finalUrl": "https://streetsmart.inc/",
+    "title": "Lower Your Rent - Use Building Data to Negotiate | StreetSmart",
+    "matchedTokens": [
+      "streetsmart"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Openplan AI",
+    "productId": "openplan-ai",
+    "officialUrl": "https://www.openplanai.com",
+    "status": 200,
+    "finalUrl": "https://www.openplanai.com/",
+    "title": "OpenPlan - Modern Ops for Hardware SaaS",
+    "matchedTokens": [
+      "openplan"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OptInFix",
+    "productId": "optinfix-2",
+    "officialUrl": "https://optinfix.com/",
+    "status": 200,
+    "finalUrl": "https://optinfix.com/",
+    "title": "TCPA Compliance Software for SMS & 10DLC | OptInFix",
+    "matchedTokens": [
+      "optinfix"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OneScript: Support, Rewritten",
+    "productId": "onescript-support-rewritten",
+    "officialUrl": "https://onescript.xyz",
+    "status": 200,
+    "finalUrl": "https://www.onescript.app/",
+    "title": "OneScript Studio — Software, AI &amp; Automation for Businesses",
+    "matchedTokens": [
+      "onescript"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Teamorouter",
+    "productId": "teamorouter",
+    "officialUrl": "https://teamorouter.com/",
+    "status": 200,
+    "finalUrl": "https://teamorouter.com/",
+    "title": "OpenAI",
+    "matchedTokens": [
+      "teamorouter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "warmup.rocks",
+    "productId": "warmup-rocks",
+    "officialUrl": "https://warmup.rocks",
+    "status": 200,
+    "finalUrl": "https://warmup.rocks/",
+    "title": "warmup.rocks — CDN cache warming for Cloudflare, Fastly, Akamai &amp; more",
+    "matchedTokens": [
+      "warmup",
+      "rocks"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Wayt",
+    "productId": "wayt",
+    "officialUrl": "https://wayt.fast/",
+    "status": 200,
+    "finalUrl": "https://wayt.fast/",
+    "title": "Wayt — Premier Line Waiting Service | Lose the Wait. Live More.",
+    "matchedTokens": [
+      "wayt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WhittleOS",
+    "productId": "whittleos",
+    "officialUrl": "https://whittleos.com",
+    "status": 200,
+    "finalUrl": "https://whittleos.com/",
+    "title": "WhittleOS — decide which idea is worth building",
+    "matchedTokens": [
+      "whittleos"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Yapamar",
+    "productId": "yapamar",
+    "officialUrl": "https://yapamar.com",
+    "status": 200,
+    "finalUrl": "https://yapamar.com/",
+    "title": "Yapamar",
+    "matchedTokens": [
+      "yapamar"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AnyCrawl",
+    "productId": "anycrawl",
+    "officialUrl": "https://anycrawl.dev/",
+    "status": 200,
+    "finalUrl": "https://anycrawl.dev/",
+    "title": "AnyCrawl - Turn Web into AI | AI Web Crawler/Scraping API",
+    "matchedTokens": [
+      "anycrawl"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Blastermailer",
+    "productId": "blastermailer",
+    "officialUrl": "https://blastermailer.com/",
+    "status": 200,
+    "finalUrl": "https://blastermailer.com/",
+    "title": "BlasterMailer — AI Email Campaign Builder",
+    "matchedTokens": [
+      "blastermailer"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cloud Watchdog",
+    "productId": "cloud-watchdog",
+    "officialUrl": "https://cloudwatchdog.online",
+    "status": 200,
+    "finalUrl": "https://cloudwatchdog.online/",
+    "title": "Cloud Watchdog — Stop the bill before the bill stops you",
+    "matchedTokens": [
+      "cloud",
+      "watchdog"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Smilejet",
+    "productId": "smilejet",
+    "officialUrl": "https://www.smilejet.com",
+    "status": 200,
+    "finalUrl": "https://www.smilejet.com/",
+    "title": "Smilejet. Analytics tells you where, we show you why",
+    "matchedTokens": [
+      "smilejet"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SimuLive",
+    "productId": "simulive",
+    "officialUrl": "https://simulive.us",
+    "status": 200,
+    "finalUrl": "https://simulive.us/",
+    "title": "SimuLive - SimuLive | Automate Your Webinars &amp; Meetings",
+    "matchedTokens": [
+      "simulive"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SEETO AI",
+    "productId": "seeto-ai",
+    "officialUrl": "https://seeto.ai",
+    "status": 200,
+    "finalUrl": "https://seeto.ai/",
+    "title": "Seeto — Competitor Analysis in Minutes",
+    "matchedTokens": [
+      "seeto"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AICosts.ai",
+    "productId": "aibillingdashboard-com",
+    "officialUrl": "https://www.aicosts.ai",
+    "status": 200,
+    "finalUrl": "https://www.aicosts.ai/",
+    "title": "AICosts.ai | All your AI costs in one dashboard",
+    "matchedTokens": [
+      "aicosts"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SIMY",
+    "productId": "simy",
+    "officialUrl": "https://simy.one/",
+    "status": 200,
+    "finalUrl": "https://simy.one/",
+    "title": "SIMY — Turn conversations into workflows that get work done",
+    "matchedTokens": [
+      "simy"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TalkSense",
+    "productId": "talksense",
+    "officialUrl": "https://talksense.io?ref=indiehackers",
+    "status": null,
+    "finalUrl": "https://talksense.io?ref=indiehackers",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Translingo",
+    "productId": "translingo",
+    "officialUrl": "https://translingo.cc/",
+    "status": 200,
+    "finalUrl": "https://translingo.cc/",
+    "title": "Translingo - Accurate Live Translations for Events",
+    "matchedTokens": [
+      "translingo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "NXT Cloud Chat",
+    "productId": "nxt-cloud-chat",
+    "officialUrl": "https://nxtcloudchat.com",
+    "status": 200,
+    "finalUrl": "https://nxtcloudchat.com/",
+    "title": "NXT CLOUD CHAT &#8211; WhatsApp Cloud API for WordPress",
+    "matchedTokens": [
+      "cloud",
+      "chat"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Card Notes",
+    "productId": "ai-card-notes",
+    "officialUrl": "https://notesgenerator.pro",
+    "status": null,
+    "finalUrl": "https://notesgenerator.pro",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Formula agenie",
+    "productId": "ai-formula-agenie",
+    "officialUrl": "https://xcel.aifinovaedge.com",
+    "status": null,
+    "finalUrl": "https://xcel.aifinovaedge.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Sightline",
+    "productId": "ai-sightline",
+    "officialUrl": "https://aisightline.com/",
+    "status": 200,
+    "finalUrl": "https://aisightline.com/",
+    "title": "AI Sightline -- AI Visibility Monitoring &amp; GEO Platform",
+    "matchedTokens": [
+      "sightline"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI4Sheets",
+    "productId": "ai4sheets",
+    "officialUrl": "https://getsheetsdone.app",
+    "status": 200,
+    "finalUrl": "https://getsheetsdone.app/",
+    "title": "AI4Sheets - AI-Powered Google Sheets Add-on",
+    "matchedTokens": [
+      "ai4sheets"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Binokl",
+    "productId": "binokl",
+    "officialUrl": "https://binokl.app",
+    "status": 200,
+    "finalUrl": "https://binokl.app/",
+    "title": "Binokl | The financial model that moves with your startup",
+    "matchedTokens": [
+      "binokl"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DecideStack",
+    "productId": "decidestack",
+    "officialUrl": "https://www.decidestack.com/",
+    "status": 200,
+    "finalUrl": "https://www.decidestack.com/",
+    "title": "DecideStack | Smart Product Comparisons",
+    "matchedTokens": [
+      "decidestack"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Flyout",
+    "productId": "flyout",
+    "officialUrl": "https://getflyout.app",
+    "status": 200,
+    "finalUrl": "https://getflyout.app/",
+    "title": "Notes app for Mac, on the edge of your screen — Flyout",
+    "matchedTokens": [
+      "flyout"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ranky.site",
+    "productId": "ranky-site",
+    "officialUrl": "https://ranky.site",
+    "status": null,
+    "finalUrl": "https://ranky.site",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SaaSCurate",
+    "productId": "saascurate",
+    "officialUrl": "https://saascurate.com",
+    "status": 200,
+    "finalUrl": "https://www.saascurate.com/",
+    "title": "SaaSCurate - Everything you need to grow a SaaS business",
+    "matchedTokens": [
+      "saascurate"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TrulyCritic",
+    "productId": "trulycritic",
+    "officialUrl": "https://www.trulycritic.com",
+    "status": 200,
+    "finalUrl": "https://www.trulycritic.com/",
+    "title": "TrulyCritic - Honest SaaS Reviews &amp; Software Comparisons",
+    "matchedTokens": [
+      "trulycritic"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Vulcanizare Mobila",
+    "productId": "vulcanizare-mobila",
+    "officialUrl": "https://vulcanizaremobila.com",
+    "status": 200,
+    "finalUrl": "https://vulcanizaremobila.com/",
+    "title": "Vulcanizare Mobilă NON STOP — Intervenție Urgentă 24/7 | Sună Acum",
+    "matchedTokens": [
+      "vulcanizare",
+      "mobila"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nix It",
+    "productId": "nix-it",
+    "officialUrl": "http://www.nixit.app/",
+    "status": 404,
+    "finalUrl": "https://www.nixit.app/",
+    "title": "",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Hey Deacon",
+    "productId": "hey-deacon",
+    "officialUrl": "https://heydeacon.com",
+    "status": 200,
+    "finalUrl": "https://heydeacon.com/",
+    "title": "AI customer support and insights for your app | Deacon",
+    "matchedTokens": [
+      "deacon"
+    ],
+    "checkedAt": "2026-09-16"
+  }
+]

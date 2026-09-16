@@ -1,0 +1,1202 @@
+[
+  {
+    "name": "BasinCheck",
+    "productId": "basincheck",
+    "officialUrl": "https://basincheck.com",
+    "status": 200,
+    "finalUrl": "https://basincheck.com/",
+    "title": "BasinCheck - Oilfield Safety Audit Software",
+    "matchedTokens": [
+      "basincheck"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "EconCalendar AI",
+    "productId": "econcalendar-ai",
+    "officialUrl": "https://www.econcalendar.ai",
+    "status": 200,
+    "finalUrl": "https://www.econcalendar.ai/",
+    "title": "EconCalendar — The AI Economic Calendar for Serious Traders",
+    "matchedTokens": [
+      "econcalendar"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Rental Insight Lab",
+    "productId": "rental-insight-lab",
+    "officialUrl": "https://rentalinsightlab.com/",
+    "status": null,
+    "finalUrl": "https://rentalinsightlab.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PromptDC",
+    "productId": "promptdc",
+    "officialUrl": "https://promptdc.com/",
+    "status": 200,
+    "finalUrl": "https://promptdc.com/",
+    "title": "PromptDC - AI Prompt &amp; Writing Assistant for Every Text Box",
+    "matchedTokens": [
+      "promptdc"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Anacoder",
+    "productId": "blogs",
+    "officialUrl": "https://anacoder.site",
+    "status": 200,
+    "finalUrl": "https://anacoder.site/",
+    "title": "Anacoder | 1,400+ Interactive Calculators, AI Intelligence & Developer Suite",
+    "matchedTokens": [
+      "anacoder"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VirtuProbe",
+    "productId": "virtuprobe",
+    "officialUrl": "https://virtuprobe.studio",
+    "status": 200,
+    "finalUrl": "https://virtuprobe.studio/",
+    "title": "VirtuProbe Studio | Test automation for systems that speak more than HTTP",
+    "matchedTokens": [
+      "virtuprobe"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CheckShop.io",
+    "productId": "checkshop-io",
+    "officialUrl": "https://www.checkshop.io/",
+    "status": 200,
+    "finalUrl": "https://www.checkshop.io/",
+    "title": "CheckShop | Digital Stores Directory",
+    "matchedTokens": [
+      "checkshop"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Fabrika",
+    "productId": "fabrika",
+    "officialUrl": "https://fabrika.ad",
+    "status": 200,
+    "finalUrl": "https://fabrika.ad/",
+    "title": "Fabrika — AI marketer for your ad campaigns",
+    "matchedTokens": [
+      "fabrika"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Simple Testimonials",
+    "productId": "simple-testimonials",
+    "officialUrl": "https://www.simpletestimonials.com",
+    "status": 200,
+    "finalUrl": "https://www.simpletestimonials.com/",
+    "title": "Simple Testimonials — testimonials, without the bloat",
+    "matchedTokens": [
+      "simple",
+      "testimonials"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "shippin.io",
+    "productId": "shippin-io",
+    "officialUrl": "https://shippin.io/",
+    "status": 200,
+    "finalUrl": "https://shippin.io/",
+    "title": "shippin.io | Discover, Launch, Acquire and Exit Software With Ease",
+    "matchedTokens": [
+      "shippin"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Wizecards AI Flashcards Maker",
+    "productId": "wizecards-ai-flashcards-maker",
+    "officialUrl": "https://www.wizecards.com",
+    "status": 200,
+    "finalUrl": "https://www.wizecards.com/",
+    "title": "",
+    "matchedTokens": [
+      "wizecards"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Remove PDF Pages",
+    "productId": "remove-pdf-pages",
+    "officialUrl": "https://removepdfpages.net/?utm_source=indiehackers&utm_medium=community&utm_campaign=launch-2026-07`|",
+    "status": 200,
+    "finalUrl": "https://removepdfpages.net/?utm_source=indiehackers&utm_medium=community&utm_campaign=launch-2026-07`|",
+    "title": "Remove PDF Pages Online Free – No Signup or Watermark | RemovePDFPages",
+    "matchedTokens": [
+      "remove",
+      "pages"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Format Factory",
+    "productId": "format-factory",
+    "officialUrl": "https://formatfactory.io",
+    "status": 200,
+    "finalUrl": "https://formatfactory.io/",
+    "title": "Format Factory - Online Video and Audio Converter",
+    "matchedTokens": [
+      "format",
+      "factory"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VibeSecurity",
+    "productId": "vibesecurity",
+    "officialUrl": "https://vibsecurity.com/",
+    "status": 200,
+    "finalUrl": "https://vibsecurity.com/",
+    "title": "Vibe Security Academy | Learn AI &amp; Vibe Penetration Testing",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Offerseye",
+    "productId": "offerseye",
+    "officialUrl": "https://offerseye.com",
+    "status": 200,
+    "finalUrl": "https://offerseye.com/",
+    "title": "Offerseye – Discover Best Software Tools, Reviews &amp; SaaS Deals",
+    "matchedTokens": [
+      "offerseye"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scatter Meter",
+    "productId": "scatter-meter",
+    "officialUrl": "https://scattermeter.com",
+    "status": 200,
+    "finalUrl": "https://scattermeter.com/",
+    "title": "Scatter Meter — Slot Jackpot Monitor | Slot Meter",
+    "matchedTokens": [
+      "scatter",
+      "meter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Gemini Omni",
+    "productId": "gemini-omni",
+    "officialUrl": "https://gemini-omni-ai.org",
+    "status": 200,
+    "finalUrl": "https://gemini-omni-ai.org/",
+    "title": "Gemini Omni | Google&#x27;s Next-Gen AI Video Generator",
+    "matchedTokens": [
+      "gemini",
+      "omni"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ReddStat",
+    "productId": "reddstat",
+    "officialUrl": "https://reddstat.com",
+    "status": null,
+    "finalUrl": "https://reddstat.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OohSleep",
+    "productId": "oohsleep",
+    "officialUrl": "https://oohsleep.com",
+    "status": null,
+    "finalUrl": "https://oohsleep.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Apex Overlay",
+    "productId": "apex-overlay",
+    "officialUrl": "https://apex-scale.com/products",
+    "status": 404,
+    "finalUrl": "https://apex-scale.com/products",
+    "title": "404 Not Found",
+    "matchedTokens": [
+      "apex"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "JSON Formatter Tool",
+    "productId": "json-formatter-tool",
+    "officialUrl": "https://jsonformattertool.org",
+    "status": 200,
+    "finalUrl": "https://jsonformattertool.org/",
+    "title": "JSON Formatter - Fast Developer Utilities",
+    "matchedTokens": [
+      "json",
+      "formatter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BlitzClaw",
+    "productId": "blitzclaw",
+    "officialUrl": "https://blitzclaw.com",
+    "status": 200,
+    "finalUrl": "https://www.blitzclaw.com/",
+    "title": "BlitzClaw — Recurring work off your team&#x27;s plate, every week",
+    "matchedTokens": [
+      "blitzclaw"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sora2Video",
+    "productId": "sora2video-2",
+    "officialUrl": "https://sora2video.us/",
+    "status": 200,
+    "finalUrl": "https://sora2video.us/",
+    "title": "Sora2Video - AI Video Generation Platform",
+    "matchedTokens": [
+      "sora2video"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Applyra",
+    "productId": "applyra",
+    "officialUrl": "https://www.applyra.io",
+    "status": 200,
+    "finalUrl": "https://www.applyra.io/",
+    "title": "Applyra - ASO Made Simple",
+    "matchedTokens": [
+      "applyra"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Psychology AI",
+    "productId": "psychology-ai",
+    "officialUrl": "https://psychologyai.co.uk",
+    "status": 200,
+    "finalUrl": "https://www.psychologyai.co.uk/",
+    "title": "Psychology AI Chat",
+    "matchedTokens": [
+      "psychology"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Android App Safety Guide",
+    "productId": "android-app-safety-guide",
+    "officialUrl": "https://www.androidponsel.com",
+    "status": 200,
+    "finalUrl": "https://www.androidponsel.com/",
+    "title": "AndroidPonsel.com &#8226; HP Android Terbaru - Berita Teknologi Telekomunikasi",
+    "matchedTokens": [
+      "android"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Toolifix",
+    "productId": "toolifix",
+    "officialUrl": "https://www.toolifix.com/",
+    "status": 200,
+    "finalUrl": "https://www.toolifix.com/",
+    "title": "Toolifix - 130+ Free Online Tools for PDF, Image, Video &amp; Text",
+    "matchedTokens": [
+      "toolifix"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DeleteThreads",
+    "productId": "deletethreads",
+    "officialUrl": "https://deletethreads.net/",
+    "status": 200,
+    "finalUrl": "https://deletethreads.net/",
+    "title": "DeleteThreads - Bulk Delete Your Threads Posts",
+    "matchedTokens": [
+      "deletethreads"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Globe",
+    "productId": "globe",
+    "officialUrl": "https://globe.ie/",
+    "status": 200,
+    "finalUrl": "https://globe.ie/",
+    "title": "Globe.ie | Travel News, Destinations &amp; Guides",
+    "matchedTokens": [
+      "globe"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Travel Roulette",
+    "productId": "travel-roulette",
+    "officialUrl": "https://travelroulette.app/",
+    "status": 200,
+    "finalUrl": "https://travelroulette.app/",
+    "title": "Travel Destination Ideas | Random Trip Generator",
+    "matchedTokens": [
+      "travel",
+      "roulette"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TierHive",
+    "productId": "tierhive",
+    "officialUrl": "https://tierhive.com",
+    "status": 200,
+    "finalUrl": "https://tierhive.com/",
+    "title": "Hourly VPS | TierHive - Next Generation NAT Hosting",
+    "matchedTokens": [
+      "tierhive"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Vibe Pocket",
+    "productId": "vibe-pocket",
+    "officialUrl": "https://vibepocket.com",
+    "status": 200,
+    "finalUrl": "https://vibepocket.com/",
+    "title": "Vibe Pocket | Run CLI AI Agents Anywhere Easily",
+    "matchedTokens": [
+      "vibe",
+      "pocket"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "GitBrand.io",
+    "productId": "gitbrand-io",
+    "officialUrl": "https://gitbrand.io",
+    "status": 404,
+    "finalUrl": "https://gitbrand.io/",
+    "title": "",
+    "matchedTokens": [
+      "gitbrand"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ThumbnailGPT",
+    "productId": "thumbnailgpt-2",
+    "officialUrl": "https://thumbnailgpt.com/",
+    "status": 200,
+    "finalUrl": "https://thumbnailgpt.com/",
+    "title": "ThumbnailGPT – AI Tools for Thumbnail Designers",
+    "matchedTokens": [
+      "thumbnailgpt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OnlineImageUpscaler",
+    "productId": "onlineimageupscaler",
+    "officialUrl": "https://onlineimageupscaler.com/",
+    "status": 200,
+    "finalUrl": "https://onlineimageupscaler.com/",
+    "title": "Free Image Upscaler - Upscale to 16K Instantly | OnlineImageUpscaler.com",
+    "matchedTokens": [
+      "onlineimageupscaler"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MicTesting123",
+    "productId": "mictesting123",
+    "officialUrl": "https://www.mictesting123.com/",
+    "status": 200,
+    "finalUrl": "https://www.mictesting123.com/",
+    "title": "Free Online Mic Test — Check Your Microphone",
+    "matchedTokens": [
+      "mictesting123"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SpikApp",
+    "productId": "spikapp",
+    "officialUrl": "https://spikapp.com/",
+    "status": 200,
+    "finalUrl": "https://spikapp.com/",
+    "title": "SpikApp - AI Charisma & Communications Coaching",
+    "matchedTokens": [
+      "spikapp"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AIToolFame",
+    "productId": "aitoolfame",
+    "officialUrl": "https://aitoolfame.com/",
+    "status": 200,
+    "finalUrl": "https://aitoolfame.com/",
+    "title": "AIToolFame - Popular AI Tools Directory",
+    "matchedTokens": [
+      "aitoolfame"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Memento AI",
+    "productId": "memento-ai",
+    "officialUrl": "https://mementoai.net/",
+    "status": 200,
+    "finalUrl": "https://mementoai.net/",
+    "title": "AI Memorial Portrait Generator - Memento AI | Free Trial",
+    "matchedTokens": [
+      "memento"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pikant",
+    "productId": "pikant",
+    "officialUrl": "https://pikant.app/",
+    "status": 200,
+    "finalUrl": "https://www.pikant.app/en-us",
+    "title": "Couples App for Connection, Games &amp; Relationship Growth | Pikant",
+    "matchedTokens": [
+      "pikant"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Hair Glow Up",
+    "productId": "hair-glow-up",
+    "officialUrl": "https://gethairglowup.com",
+    "status": 200,
+    "finalUrl": "https://gethairglowup.com/",
+    "title": "Hair Glow Up - AI Hair Try On App | Virtual Hair Makeover & Color Changer",
+    "matchedTokens": [
+      "hair",
+      "glow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Stock",
+    "productId": "ai-stock",
+    "officialUrl": "https://aistock.tools",
+    "status": null,
+    "finalUrl": "https://aistock.tools",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Youtube to Transcript",
+    "productId": "youtube-to-transcript-2",
+    "officialUrl": "https://youtubetotranscript.top/",
+    "status": 200,
+    "finalUrl": "https://youtubetotranscript.top/",
+    "title": "YouTube to Text Converter – AI Transcript &amp; Translation",
+    "matchedTokens": [
+      "youtube",
+      "transcript"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Matcha Resume",
+    "productId": "matcha-resume",
+    "officialUrl": "https://www.matcharesume.com/",
+    "status": 200,
+    "finalUrl": "https://www.matcharesume.com/",
+    "title": "MatchaResume - AI Resume Builder &amp; Auto Apply Extension",
+    "matchedTokens": [
+      "matcha",
+      "resume"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Product Reveal",
+    "productId": "product-reveal",
+    "officialUrl": "https://productreveal.live/",
+    "status": 200,
+    "finalUrl": "https://productreveal.live/",
+    "title": "",
+    "matchedTokens": [
+      "reveal"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PicHub.App",
+    "productId": "pichub-app",
+    "officialUrl": "https://pichub.app",
+    "status": null,
+    "finalUrl": "https://pichub.app",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Input Matters",
+    "productId": "input-matters",
+    "officialUrl": "https://learn.inputmatters.tech/",
+    "status": 404,
+    "finalUrl": "https://learn.inputmatters.tech/",
+    "title": "ConnectYourDomain Error | Wix.com",
+    "matchedTokens": [
+      "input",
+      "matters"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sinqlo",
+    "productId": "sinqlo",
+    "officialUrl": "https://sinqlo.com",
+    "status": 200,
+    "finalUrl": "https://sinqlo.com/",
+    "title": "AI Assisted Brand Asset Management Platform | Sinqlo",
+    "matchedTokens": [
+      "sinqlo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Kidsdrawingai",
+    "productId": "kidsdrawingai",
+    "officialUrl": "https://www.kidsdrawingai.com",
+    "status": 200,
+    "finalUrl": "https://www.kidsdrawingai.com/",
+    "title": "Kids Drawing AI | Sketch to Image for Kids",
+    "matchedTokens": [
+      "kidsdrawingai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "EraseVideo",
+    "productId": "erasevideo",
+    "officialUrl": "https://erasevideo.app/",
+    "status": 200,
+    "finalUrl": "https://erasevideo.app/",
+    "title": "Free Video Watermark Remover| Remove Sora Watermark in 1 Min",
+    "matchedTokens": [
+      "erasevideo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "picture to drawing",
+    "productId": "picture-to-drawing",
+    "officialUrl": "https://picturetodrawing.net/",
+    "status": null,
+    "finalUrl": "https://picturetodrawing.net/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "hair filter",
+    "productId": "hair-filter",
+    "officialUrl": "https://hairfilter.net/",
+    "status": 200,
+    "finalUrl": "https://hairfilter.net/",
+    "title": "Hair Filter - AI Hairstyle &amp; AI Hair Color Changer",
+    "matchedTokens": [
+      "hair",
+      "filter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PromptVID.site",
+    "productId": "promptvid-site",
+    "officialUrl": "https://promptvid.site/",
+    "status": 200,
+    "finalUrl": "https://promptvid.site/",
+    "title": "PromptVid - Video AI Prompt Generator | Copy Ready Prompts for Sora 2, Veo 3, Kling AI",
+    "matchedTokens": [
+      "promptvid",
+      "site"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "GPTLocalhost",
+    "productId": "gptlocalhost",
+    "officialUrl": "https://www.gptlocalhost.com",
+    "status": 200,
+    "finalUrl": "https://gptlocalhost.com/",
+    "title": "Home - GPTLocalhost",
+    "matchedTokens": [
+      "gptlocalhost"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Subtiming",
+    "productId": "subtiming",
+    "officialUrl": "https://subtiming.com",
+    "status": 200,
+    "finalUrl": "https://subtiming.com/",
+    "title": "subtiming.com — Premium Domain For Sale",
+    "matchedTokens": [
+      "subtiming"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Voyagard",
+    "productId": "voyagard",
+    "officialUrl": "https://voyagard.com",
+    "status": 200,
+    "finalUrl": "https://www.voyagard.com/",
+    "title": "",
+    "matchedTokens": [
+      "voyagard"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BatchBeautify - AI Photo Enhancer",
+    "productId": "batchbeautify-ai-photo-enhancer",
+    "officialUrl": "https://batchbeautify.com/",
+    "status": null,
+    "finalUrl": "https://batchbeautify.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MiniMax Music",
+    "productId": "minimax-music",
+    "officialUrl": "https://www.minimax-music.com/",
+    "status": 200,
+    "finalUrl": "https://www.minimax-music.com/",
+    "title": "MiniMax Music - The Ultimate Music AI &amp; AI Song Maker",
+    "matchedTokens": [
+      "minimax",
+      "music"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SitSense",
+    "productId": "sitsense",
+    "officialUrl": "https://www.sitsense.app",
+    "status": 200,
+    "finalUrl": "https://www.sitsense.app/",
+    "title": "SitSense - AI Posture Tracker and Coach",
+    "matchedTokens": [
+      "sitsense"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Leadcube",
+    "productId": "leadcube",
+    "officialUrl": "https://leadcube.io",
+    "status": 200,
+    "finalUrl": "https://leadcube.io/en",
+    "title": "Leadcube - Get in touch with your visitors effortlessly with Leadcube lead widgets",
+    "matchedTokens": [
+      "leadcube"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Trip Roulette",
+    "productId": "trip-roulette",
+    "officialUrl": "https://trip-roulette.com",
+    "status": 200,
+    "finalUrl": "https://trip-roulette.com/",
+    "title": "",
+    "matchedTokens": [
+      "trip",
+      "roulette"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Free AI Video Maker",
+    "productId": "free-ai-video-maker",
+    "officialUrl": "https://aivideomaker.ai/",
+    "status": 200,
+    "finalUrl": "https://aivideomaker.ai/",
+    "title": "Free AI Video Maker for Text, Images and Native Sound",
+    "matchedTokens": [
+      "video",
+      "maker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "InterviewPilot AI",
+    "productId": "interviewpilotai",
+    "officialUrl": "https://interviewpilot.tech/",
+    "status": null,
+    "finalUrl": "https://interviewpilot.tech/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TextWisely",
+    "productId": "textwisely",
+    "officialUrl": "https://textwisely.ai",
+    "status": 200,
+    "finalUrl": "https://textwisely.ai/",
+    "title": "TextWisely: Your AI Writing Companion for Mac",
+    "matchedTokens": [
+      "textwisely"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Alp Kemal Gözel Whatsapp",
+    "productId": "alp-kemal-g-zel-whatsapp",
+    "officialUrl": "https://alpkemalgozel.av.tr",
+    "status": 200,
+    "finalUrl": "https://alpkemalgozel.av.tr/",
+    "title": "Av. Alp Kemal Gözel &#8211; Avukatlık, Arabuluculuk, Danışmanlık",
+    "matchedTokens": [
+      "kemal"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Proctor AI",
+    "productId": "proctor-ai",
+    "officialUrl": "https://www.proctorai.io/",
+    "status": 200,
+    "finalUrl": "https://www.proctorai.io/",
+    "title": "AI Grading Tool: Grade Handwritten Papers &amp; Essays With One Prompt | Proctor AI",
+    "matchedTokens": [
+      "proctor"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Yoink AI",
+    "productId": "yoink-ai",
+    "officialUrl": "https://useyoink.ai/?utm_source=indiehackers&utm_medium=community&utm_campaign=yoink_ih_launch&utm_content=ai_group",
+    "status": 403,
+    "finalUrl": "https://useyoink.ai/?utm_source=indiehackers&utm_medium=community&utm_campaign=yoink_ih_launch&utm_content=ai_group",
+    "title": "DNS points to prohibited IP | useyoink.ai | Cloudflare",
+    "matchedTokens": [
+      "yoink"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PeerPush",
+    "productId": "peerpush",
+    "officialUrl": "https://peerpush.net/",
+    "status": 200,
+    "finalUrl": "https://peerpush.com/",
+    "title": "PeerPush - Get Found by People and AI",
+    "matchedTokens": [
+      "peerpush"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DeepSider",
+    "productId": "deepsider",
+    "officialUrl": "https://www.deepsider.ai/",
+    "status": 200,
+    "finalUrl": "https://www.deepsider.ai/",
+    "title": "DeepSider - Free Trial of GPT4o, Claude, Gemini, DeepSeek",
+    "matchedTokens": [
+      "deepsider"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BrandSnap",
+    "productId": "brandsnap",
+    "officialUrl": "https://brandsnap.app",
+    "status": 404,
+    "finalUrl": "https://brandsnap.app/",
+    "title": "",
+    "matchedTokens": [
+      "brandsnap"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Base Nomade",
+    "productId": "base-nomade",
+    "officialUrl": "https://basenomade.com/inicio/",
+    "status": null,
+    "finalUrl": "https://basenomade.com/inicio/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "JobSeekerTools",
+    "productId": "jobseekertools",
+    "officialUrl": "https://jobseekertools.com/",
+    "status": 200,
+    "finalUrl": "https://jobseekertools.com/",
+    "title": "AI Resume Job Match Tool | ATS Resume Optimizer &amp; Job Description Matcher",
+    "matchedTokens": [
+      "jobseekertools"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LeadBuddie",
+    "productId": "leadbuddie",
+    "officialUrl": "https://www.leadbuddie.com",
+    "status": 200,
+    "finalUrl": "https://www.leadbuddie.com/",
+    "title": "LeadBuddie — AI Sales Employee for WhatsApp",
+    "matchedTokens": [
+      "leadbuddie"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ybrand",
+    "productId": "ybrand",
+    "officialUrl": "https://ybrand.io/",
+    "status": 200,
+    "finalUrl": "https://ybrand.io/",
+    "title": "ybrand.io",
+    "matchedTokens": [
+      "ybrand"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "GlitchApe",
+    "productId": "crypto-analyst-ai",
+    "officialUrl": "https://glitchape.fun",
+    "status": null,
+    "finalUrl": "https://glitchape.fun",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PhotoStreamr",
+    "productId": "photostreamr",
+    "officialUrl": "https://photostreamr.cybu.site",
+    "status": null,
+    "finalUrl": "https://photostreamr.cybu.site",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Story Hub",
+    "productId": "ai-story-hub",
+    "officialUrl": "https://aistoryhub.co",
+    "status": 200,
+    "finalUrl": "https://aistoryhub.co/",
+    "title": "Free AI Writing Studio for Fiction Writers | AIStoryHub",
+    "matchedTokens": [
+      "story"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "QkInvoice",
+    "productId": "qkinvoice",
+    "officialUrl": "https://qkinvoice.com",
+    "status": null,
+    "finalUrl": "https://qkinvoice.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Calscri",
+    "productId": "calscri",
+    "officialUrl": "https://calscri.com/",
+    "status": 404,
+    "finalUrl": "https://calscri.com/",
+    "title": "",
+    "matchedTokens": [
+      "calscri"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ProductLair",
+    "productId": "productlair",
+    "officialUrl": "https://productlair.com",
+    "status": 200,
+    "finalUrl": "https://productlair.com/",
+    "title": "ProductLair - Winning Dropshipping Products &amp; Analysis",
+    "matchedTokens": [
+      "productlair"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BeLingual",
+    "productId": "belingual",
+    "officialUrl": "https://belingual.online/",
+    "status": null,
+    "finalUrl": "https://belingual.online/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TNYL",
+    "productId": "tnyl",
+    "officialUrl": "https://tnyl.link",
+    "status": 200,
+    "finalUrl": "https://tnyl.link/",
+    "title": "TNYL — World&#x27;s Best URL Shortener",
+    "matchedTokens": [
+      "tnyl"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Founder Folks",
+    "productId": "founder-folks",
+    "officialUrl": "https://www.founderfolks.com/",
+    "status": 200,
+    "finalUrl": "https://www.founderfolks.com/",
+    "title": "FounderFolks - Connect, Fund, Build Together",
+    "matchedTokens": [
+      "founder",
+      "folks"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scout Forge",
+    "productId": "scout-forge",
+    "officialUrl": "https://scoutforge.net",
+    "status": 200,
+    "finalUrl": "https://scoutforge.net/",
+    "title": "Scout Forge | Discover and Review New Apps Safely",
+    "matchedTokens": [
+      "scout",
+      "forge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Directonaut",
+    "productId": "directonaut",
+    "officialUrl": "https://directonaut.com",
+    "status": null,
+    "finalUrl": "https://directonaut.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MealPix",
+    "productId": "mealpix",
+    "officialUrl": "https://mealpix.app",
+    "status": 200,
+    "finalUrl": "https://www.mealpix.app/",
+    "title": "MealPix",
+    "matchedTokens": [
+      "mealpix"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Lume",
+    "productId": "lume",
+    "officialUrl": "https://tranquiltech.io/lume",
+    "status": 200,
+    "finalUrl": "https://tranquiltech.io/lume",
+    "title": "Lume: Stress and Wellness Coach - Tranquil Technologies",
+    "matchedTokens": [
+      "lume"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Websitevice",
+    "productId": "websitevice-2",
+    "officialUrl": "https://websitevice.com",
+    "status": 200,
+    "finalUrl": "https://websitevice.com/",
+    "title": "Website Examples for Design Inspiration on Websitevice",
+    "matchedTokens": [
+      "websitevice"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MasterSuiteAI",
+    "productId": "mastersuiteai",
+    "officialUrl": "https://mastersuiteai.com/",
+    "status": null,
+    "finalUrl": "https://mastersuiteai.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Sound Effects",
+    "productId": "ai-sound-effects",
+    "officialUrl": "https://aisoundeffectgenerator.com",
+    "status": 200,
+    "finalUrl": "https://aisoundeffectgenerator.com/",
+    "title": "AI Sound Effect Generator &amp; Text To Sound Effect",
+    "matchedTokens": [
+      "sound"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Image to Video Converter",
+    "productId": "image-to-video-converter",
+    "officialUrl": "https://img2video.ai/",
+    "status": 200,
+    "finalUrl": "https://imagetovideomaker.com/generator/img2video",
+    "title": "Img2video – Turn Photos into Viral Videos with AI in Seconds",
+    "matchedTokens": [
+      "image",
+      "video"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Refferal Radar",
+    "productId": "refferal-radar",
+    "officialUrl": "https://www.referralsradar.com/",
+    "status": null,
+    "finalUrl": "https://www.referralsradar.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Savvyshot",
+    "productId": "savvyshot",
+    "officialUrl": "https://savvyshot.app/",
+    "status": 200,
+    "finalUrl": "https://savvyshot.app/",
+    "title": "Savvyshot - Screenshot editor &amp; beautifier for Windows/Mac",
+    "matchedTokens": [
+      "savvyshot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Daily AI Writer: Text & Email",
+    "productId": "daily-ai-writer-text-email",
+    "officialUrl": "https://www.dailyaiwriter.com/",
+    "status": 200,
+    "finalUrl": "https://www.dailyaiwriter.com/",
+    "title": "Daily AI Writer: AI Writing, Replies &amp; Writing Coach",
+    "matchedTokens": [
+      "daily",
+      "writer"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ninjarip",
+    "productId": "ninjarip",
+    "officialUrl": "https://ninjarip.com",
+    "status": null,
+    "finalUrl": "https://ninjarip.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cloner",
+    "productId": "cloner",
+    "officialUrl": "https://www.cloner.pro",
+    "status": 200,
+    "finalUrl": "https://www.cloner.pro/",
+    "title": "Cloner.pro - Convert and Analyze Audio Fast",
+    "matchedTokens": [
+      "cloner"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Artiversehub",
+    "productId": "artiversehub",
+    "officialUrl": "https://artiversehub.ai",
+    "status": 200,
+    "finalUrl": "https://artiversehub.ai/",
+    "title": "ArtiverseHub AI: All-in-One AI Image, Video Generation",
+    "matchedTokens": [
+      "artiversehub"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Career Carft AI",
+    "productId": "career-carft-ai",
+    "officialUrl": "https://careercraftai.com",
+    "status": 200,
+    "finalUrl": "https://careercraftai.com/",
+    "title": "Career Craft AI: Effortless job applications, with AI.",
+    "matchedTokens": [
+      "career"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Resellpur",
+    "productId": "resellpur",
+    "officialUrl": "https://resellpur.com",
+    "status": 200,
+    "finalUrl": "https://resellpur.com/",
+    "title": "Resellpur - Buy &amp; Sell second-hand phones, clothes, books &amp; more online.",
+    "matchedTokens": [
+      "resellpur"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Seveum",
+    "productId": "seveum",
+    "officialUrl": "https://seveum.com/",
+    "status": 200,
+    "finalUrl": "https://altersend.com/",
+    "title": "AlterSend - Private P2P File Transfer App, No Size Limits",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  }
+]

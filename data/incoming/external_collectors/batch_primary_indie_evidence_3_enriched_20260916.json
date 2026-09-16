@@ -1,0 +1,947 @@
+[
+  {
+    "id": "ent_gramlab_2025_95f68956e0",
+    "ticker": "GRAMLAB",
+    "name": "Gramlab",
+    "legalEntity": "UNKNOWN",
+    "tagline": "InstagramのClose Friends運用を自動化する買い切り型ツール。 創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。",
+    "sector": "AI_AUTOMATION",
+    "scale": "UNKNOWN",
+    "founder": "François Delporte",
+    "country": "FR",
+    "url": "https://gramlab.io/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "InstagramのClose Friends運用を自動化する買い切り型ツール。",
+    "pipelineStack": "Telegram / Instagram / Linktree",
+    "targetPainWallet": "月額課金を嫌うクリエイター・コーチの導入摩擦。",
+    "tags": [
+      "PRIMARY_AUTHOR_INTERVIEW",
+      "REPORTED_REVENUE",
+      "PROFIT_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 2550000,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16（記事観測日 2025-02-03）",
+      "sourceDoc": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+      "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+      "evidenceLocator": {
+        "type": "html",
+        "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0"
+      },
+      "estimationLogic": "創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。",
+      "revenueLabel": "創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_gramlab_2025_95f68956e0-finance",
+        "type": "SMOKING_GUN",
+        "title": "創業者インタビューの収益・コスト記載",
+        "badge": "本人発言",
+        "evidenceStatus": "REPORTED",
+        "punchline": "創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。",
+        "details": [
+          "創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。",
+          "利益・税・手残りの独立監査は未実施。"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0"
+        },
+        "metrics": [
+          {
+            "label": "報告売上",
+            "value": "2,550,000円",
+            "isHighlight": true
+          },
+          {
+            "label": "利益",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "ent_gramlab_2025_95f68956e0-mechanism",
+        "type": "DIRTY_GENESIS",
+        "title": "本人発言から確認できる収益配管",
+        "badge": "初動・配管",
+        "evidenceStatus": "REPORTED",
+        "punchline": "買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+        "details": [
+          "買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+          "集客経路: Telegram groups、affiliate program、SEO、Instagram DMs"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0"
+        }
+      },
+      {
+        "id": "ent_gramlab_2025_95f68956e0-boundary",
+        "type": "THE_CRIME",
+        "title": "売上・利益・手残りを分離",
+        "badge": "未確認境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "公開インタビューの報告値を利益や個人の手残りへ拡張しない。",
+        "details": [
+          "原価、広告費、税、営業利益、純利益、継続率は未確認。"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0"
+        }
+      },
+      {
+        "id": "ent_gramlab_2025_95f68956e0-official-site",
+        "type": "UNKNOWN_AUDIT",
+        "title": "公式サイトの現行取得確認",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "公式URLから現行ページを取得できた（HTTP 200）。これは提供内容の確認であり、利益の証明ではない。",
+        "details": [
+          "ページタイトル: Gramlab",
+          "meta description: Gramlab helps entrepreneurs, creators, and brands maximize their Instagram story views by automatically adding followers to their Close Friends list. No passwords, no risks — just more visibility, engagement, and sales.",
+          "取得先: https://gramlab.io/",
+          "このカードは公式サイトの到達性・掲載内容の観測であり、売上・原価・利益を確定する財務証拠ではない。"
+        ],
+        "sourceNote": "公式サイト取得確認, 2026-09-16 snapshot",
+        "sourceClass": "PRIMARY",
+        "sourceUrl": "https://gramlab.io/",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "9f666bbcfe75789a4246009afea26bd71dad80b5efe53355929eeae552df21c5"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "Telegram groups",
+        "affiliate program",
+        "SEO",
+        "Instagram DMs"
+      ],
+      "toolStack": [
+        {
+          "name": "Telegram",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        },
+        {
+          "name": "Instagram",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        },
+        {
+          "name": "Linktree",
+          "category": "prospecting",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "月額課金を嫌うクリエイター・コーチの導入摩擦。",
+      "moatType": "DISTRIBUTION",
+      "moatDescription": "買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+      "incumbentDilemma": "既存サービスの制約・競合の反応は記事だけでは未確認。",
+      "secretInsight": "買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+      "initialTraction": [
+        "Telegram groups",
+        "affiliate program",
+        "SEO",
+        "Instagram DMs"
+      ],
+      "actionPlaybook": [
+        "買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+        "公開記載の売上・コスト・利益を別々に照合する。",
+        "未確認項目を推定値へ置換しない。"
+      ],
+      "coldOutreachTemplate": "公開インタビューに記載された運用経路と収益・コストの内訳を確認したい。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "記事観測日 2025-02-03。創業年は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "2026年時点の継続稼働は未確認",
+      "eraContext": "2024–2026年の創業者インタビュー記録。",
+      "currentViabilityAnalysis": "2026年時点の継続稼働は未確認"
+    },
+    "observations": [
+      "創業者インタビュー: https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+      "創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。",
+      "事業: InstagramのClose Friends運用を自動化する買い切り型ツール。",
+      "配管: 買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+      "利益・原価・税・手残りは未確認。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_gramlab_2025_95f68956e0-reported",
+        "category": "REVENUE_PROOF",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。",
+        "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "observedAt": "2025-02-03",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0"
+        }
+      },
+      {
+        "id": "ent_gramlab_2025_95f68956e0-unknown",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "利益・原価・税・手残りの独立確認は未実施。",
+        "sourceUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "observedAt": "2025-02-03",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW"
+      },
+      {
+        "id": "ent_gramlab_2025_95f68956e0-official-site-observed",
+        "category": "TECH_VERIFICATION",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "text": "公式URLの現行ページを取得: HTTP 200 / Gramlab",
+        "sourceUrl": "https://gramlab.io/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "9f666bbcfe75789a4246009afea26bd71dad80b5efe53355929eeae552df21c5"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "InstagramのClose Friends運用を自動化する買い切り型ツール。",
+      "targetCustomer": "月額課金を嫌うクリエイター・コーチの導入摩擦。",
+      "painRelief": "月額課金を嫌うクリエイター・コーチの導入摩擦。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_gramlab_2025_95f68956e0-loot",
+      "targetPrey": "月額課金を嫌うクリエイター・コーチの導入摩擦。",
+      "structuralFlaw": "月額課金を嫌うクリエイター・コーチの導入摩擦。",
+      "stealthEntry": "買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+      "tollGateSetup": "Telegram groups、affiliate program、SEO、Instagram DMs",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "買い切り価格、アカウント規模別価格、Telegramコミュニティ、30%紹介料、SEO、Instagram DMを組み合わせた。",
+        "集客経路を確認: Telegram groups、affiliate program、SEO、Instagram DMs",
+        "利益・原価・継続性を一次資料で照合する。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "利益・原価・税・手残りは独立確認していない。",
+      "記事は本人発言を含むが、財務諸表や決済口座の監査ではない。",
+      "公式サイトの到達性・掲載内容は確認したが、財務数値の一次確認は未実施。"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "REQUIRES_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "本人・創業者インタビューに基づく候補。"
+    },
+    "caseType": "PRIMARY_INDIE_INTERVIEW_CASE",
+    "profileSubject": "François Delporte",
+    "profileBusinessLabel": "Gramlab",
+    "reportedMetrics": [
+      {
+        "original": 17000,
+        "currency": "USD",
+        "amount": 17000,
+        "jpyAmount": 2550000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+        "context": "創業者インタビューは1か月の粗売上17,000 USD、250+ signups、85 paying users、広告費0 USDを記載。利益表現は原文の意味が曖昧なため利益額へ変換しない。"
+      }
+    ],
+    "officialUrl": "https://gramlab.io/",
+    "sourceMetadata": {
+      "provider": "Indie Hackers",
+      "postUrl": "https://www.indiehackers.com/post/how-we-made-17-000-in-one-month-with-a-one-time-payment-saas-no-ads-needed-95f68956e0",
+      "observedAt": "2025-02-03",
+      "rawContentSha256": "358fcd09016a"
+    },
+    "batchId": "batch-primary-indie-evidence-3-20260916"
+  },
+  {
+    "id": "ent_rightblogger_2026_kxuy5zjfn1",
+    "ticker": "RIGHTBLOG",
+    "name": "RightBlogger",
+    "legalEntity": "UNKNOWN",
+    "tagline": "マーケティングチーム向けのブログ自動化プラットフォーム。 創業者インタビューは現在のARR 350,000 USD、50,000+ users、共同創業者2名を記載。利益・原価は未確認。",
+    "sector": "AI_AUTOMATION",
+    "scale": "SMALL_TEAM",
+    "founder": "Ryan Robinson / Andy Feliciotti",
+    "country": "US",
+    "url": "https://rightblogger.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "マーケティングチーム向けのブログ自動化プラットフォーム。",
+    "pipelineStack": "OpenAI API / WordPress",
+    "targetPainWallet": "キーワード調査、下書き、画像、公開に分散した複数SaaSの継ぎはぎ。",
+    "tags": [
+      "PRIMARY_AUTHOR_INTERVIEW",
+      "REPORTED_REVENUE",
+      "PROFIT_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16（記事観測日 2026-07-01）",
+      "sourceDoc": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+      "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+      "evidenceLocator": {
+        "type": "html",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47"
+      },
+      "estimationLogic": "創業者インタビューは現在のARR 350,000 USD、50,000+ users、共同創業者2名を記載。利益・原価は未確認。",
+      "revenueLabel": "創業者インタビューは現在のARR 350,000 USD、50,000+ users、共同創業者2名を記載。利益・原価は未確認。",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "reportedAnnualRevenueSignal": {
+        "amount": 350000,
+        "currency": "USD",
+        "jpyAmount": 52500000,
+        "period": "year",
+        "source": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "verification": "REPORTED_PRIMARY_INTERVIEW"
+      }
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_rightblogger_2026_kxuy5zjfn1-finance",
+        "type": "SMOKING_GUN",
+        "title": "創業者インタビューの収益・コスト記載",
+        "badge": "本人発言",
+        "evidenceStatus": "REPORTED",
+        "punchline": "創業者インタビューは現在のARR 350,000 USD、50,000+ users、共同創業者2名を記載。利益・原価は未確認。",
+        "details": [
+          "創業者インタビューは現在のARR 350,000 USD、50,000+ users、共同創業者2名を記載。利益・原価は未確認。",
+          "利益・税・手残りの独立監査は未実施。"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47"
+        },
+        "metrics": [
+          {
+            "label": "報告売上",
+            "value": "ARRとして報告、月商換算なし",
+            "isHighlight": true
+          },
+          {
+            "label": "利益",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "ent_rightblogger_2026_kxuy5zjfn1-mechanism",
+        "type": "DIRTY_GENESIS",
+        "title": "本人発言から確認できる収益配管",
+        "badge": "初動・配管",
+        "evidenceStatus": "REPORTED",
+        "punchline": "12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+        "details": [
+          "12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+          "集客経路: blog audience、YouTube、SEO、agency"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47"
+        }
+      },
+      {
+        "id": "ent_rightblogger_2026_kxuy5zjfn1-boundary",
+        "type": "THE_CRIME",
+        "title": "売上・利益・手残りを分離",
+        "badge": "未確認境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "公開インタビューの報告値を利益や個人の手残りへ拡張しない。",
+        "details": [
+          "原価、広告費、税、営業利益、純利益、継続率は未確認。"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47"
+        }
+      },
+      {
+        "id": "ent_rightblogger_2026_kxuy5zjfn1-official-site",
+        "type": "UNKNOWN_AUDIT",
+        "title": "公式サイトの現行取得確認",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "公式URLから現行ページを取得できた（HTTP 200）。これは提供内容の確認であり、利益の証明ではない。",
+        "details": [
+          "ページタイトル: RightBlogger: AI Blog Automation for Google & ChatGPT",
+          "meta description: RightBlogger is an AI blog automation tool that researches, writes, publishes, and keeps your site&#x27;s posts ranking on Google and ChatGPT.",
+          "取得先: https://rightblogger.com/",
+          "このカードは公式サイトの到達性・掲載内容の観測であり、売上・原価・利益を確定する財務証拠ではない。"
+        ],
+        "sourceNote": "公式サイト取得確認, 2026-09-16 snapshot",
+        "sourceClass": "PRIMARY",
+        "sourceUrl": "https://rightblogger.com/",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "e3d729517fe33a0f0af160ff275dfcfa0a9d81e01ea5d3636ba0e496d658b2bc"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "blog audience",
+        "YouTube",
+        "SEO",
+        "agency"
+      ],
+      "toolStack": [
+        {
+          "name": "OpenAI API",
+          "category": "AI",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        },
+        {
+          "name": "WordPress",
+          "category": "publishing",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "キーワード調査、下書き、画像、公開に分散した複数SaaSの継ぎはぎ。",
+      "moatType": "DISTRIBUTION",
+      "moatDescription": "12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+      "incumbentDilemma": "既存サービスの制約・競合の反応は記事だけでは未確認。",
+      "secretInsight": "12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+      "initialTraction": [
+        "blog audience",
+        "YouTube",
+        "SEO",
+        "agency"
+      ],
+      "actionPlaybook": [
+        "12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+        "公開記載の売上・コスト・利益を別々に照合する。",
+        "未確認項目を推定値へ置換しない。"
+      ],
+      "coldOutreachTemplate": "公開インタビューに記載された運用経路と収益・コストの内訳を確認したい。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "記事観測日 2026-07-01。創業年は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "2026年インタビュー時点で稼働中",
+      "eraContext": "2024–2026年の創業者インタビュー記録。",
+      "currentViabilityAnalysis": "2026年インタビュー時点で稼働中"
+    },
+    "observations": [
+      "創業者インタビュー: https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+      "創業者インタビューは現在のARR 350,000 USD、50,000+ users、共同創業者2名を記載。利益・原価は未確認。",
+      "事業: マーケティングチーム向けのブログ自動化プラットフォーム。",
+      "配管: 12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+      "利益・原価・税・手残りは未確認。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_rightblogger_2026_kxuy5zjfn1-reported",
+        "category": "REVENUE_PROOF",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "創業者インタビューは現在のARR 350,000 USD、50,000+ users、共同創業者2名を記載。利益・原価は未確認。",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "observedAt": "2026-07-01",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47"
+        }
+      },
+      {
+        "id": "ent_rightblogger_2026_kxuy5zjfn1-unknown",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "利益・原価・税・手残りの独立確認は未実施。",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+        "observedAt": "2026-07-01",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW"
+      },
+      {
+        "id": "ent_rightblogger_2026_kxuy5zjfn1-official-site-observed",
+        "category": "TECH_VERIFICATION",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "text": "公式URLの現行ページを取得: HTTP 200 / RightBlogger: AI Blog Automation for Google & ChatGPT",
+        "sourceUrl": "https://rightblogger.com/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "e3d729517fe33a0f0af160ff275dfcfa0a9d81e01ea5d3636ba0e496d658b2bc"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "マーケティングチーム向けのブログ自動化プラットフォーム。",
+      "targetCustomer": "キーワード調査、下書き、画像、公開に分散した複数SaaSの継ぎはぎ。",
+      "painRelief": "キーワード調査、下書き、画像、公開に分散した複数SaaSの継ぎはぎ。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_rightblogger_2026_kxuy5zjfn1-loot",
+      "targetPrey": "キーワード調査、下書き、画像、公開に分散した複数SaaSの継ぎはぎ。",
+      "structuralFlaw": "キーワード調査、下書き、画像、公開に分散した複数SaaSの継ぎはぎ。",
+      "stealthEntry": "12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+      "tollGateSetup": "blog audience、YouTube、SEO、agency",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "12年超のオーディエンスを先に形成し、既存読者の反復的な要望を一つのワークフローへ束ねた。",
+        "集客経路を確認: blog audience、YouTube、SEO、agency",
+        "利益・原価・継続性を一次資料で照合する。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "利益・原価・税・手残りは独立確認していない。",
+      "記事は本人発言を含むが、財務諸表や決済口座の監査ではない。",
+      "公式サイトの到達性・掲載内容は確認したが、財務数値の一次確認は未実施。"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": true,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "REQUIRES_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "本人・創業者インタビューに基づく候補。"
+    },
+    "caseType": "PRIMARY_INDIE_INTERVIEW_CASE",
+    "profileSubject": "Ryan Robinson / Andy Feliciotti",
+    "profileBusinessLabel": "RightBlogger",
+    "reportedMetrics": [],
+    "officialUrl": "https://rightblogger.com/",
+    "sourceMetadata": {
+      "provider": "Indie Hackers",
+      "postUrl": "https://www.indiehackers.com/post/tech/hitting-29k-mrr-by-building-an-audience-first-KxUy5Zjfn1hJTTGYrl47",
+      "observedAt": "2026-07-01",
+      "rawContentSha256": "c0e1ab9c32e4"
+    },
+    "batchId": "batch-primary-indie-evidence-3-20260916"
+  },
+  {
+    "id": "ent_personalbest_2026_jhx6p14de0",
+    "ticker": "PERSBEST",
+    "name": "Personal Best",
+    "legalEntity": "UNKNOWN",
+    "tagline": "iOS向けのワークアウト記録・コーチングアプリ。 創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。",
+    "sector": "NICHE_SAAS",
+    "scale": "SOLO",
+    "founder": "Shaun Donnelly",
+    "country": "GB",
+    "url": "https://getpersonalbest.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "iOS向けのワークアウト記録・コーチングアプリ。",
+    "pipelineStack": "SwiftUI / Claude Code / App Store Connect",
+    "targetPainWallet": "運動履歴を継続的に見返し、目的に沿った進捗を把握したい利用者。",
+    "tags": [
+      "PRIMARY_AUTHOR_INTERVIEW",
+      "REPORTED_REVENUE",
+      "PROFIT_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 750000,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16（記事観測日 2026-09-11）",
+      "sourceDoc": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+      "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+      "evidenceLocator": {
+        "type": "html",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1"
+      },
+      "estimationLogic": "創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。",
+      "revenueLabel": "創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "ent_personalbest_2026_jhx6p14de0-finance",
+        "type": "SMOKING_GUN",
+        "title": "創業者インタビューの収益・コスト記載",
+        "badge": "本人発言",
+        "evidenceStatus": "REPORTED",
+        "punchline": "創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。",
+        "details": [
+          "創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。",
+          "利益・税・手残りの独立監査は未実施。"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1"
+        },
+        "metrics": [
+          {
+            "label": "報告売上",
+            "value": "750,000円",
+            "isHighlight": true
+          },
+          {
+            "label": "利益",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "ent_personalbest_2026_jhx6p14de0-mechanism",
+        "type": "DIRTY_GENESIS",
+        "title": "本人発言から確認できる収益配管",
+        "badge": "初動・配管",
+        "evidenceStatus": "REPORTED",
+        "punchline": "無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+        "details": [
+          "無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+          "集客経路: App Store featuring、organic discovery、image sharing、community"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1"
+        }
+      },
+      {
+        "id": "ent_personalbest_2026_jhx6p14de0-boundary",
+        "type": "THE_CRIME",
+        "title": "売上・利益・手残りを分離",
+        "badge": "未確認境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "公開インタビューの報告値を利益や個人の手残りへ拡張しない。",
+        "details": [
+          "原価、広告費、税、営業利益、純利益、継続率は未確認。"
+        ],
+        "sourceNote": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1"
+        }
+      },
+      {
+        "id": "ent_personalbest_2026_jhx6p14de0-official-site",
+        "type": "UNKNOWN_AUDIT",
+        "title": "公式サイトの現行取得確認",
+        "evidenceStatus": "VERIFIED",
+        "punchline": "公式URLから現行ページを取得できた（HTTP 200）。これは提供内容の確認であり、利益の証明ではない。",
+        "details": [
+          "ページタイトル: Personal Best | Workout tracker for iPhone, iPad, and Apple Watch",
+          "meta description: Plan, track, and relive your workouts with Personal Best for iPhone, iPad, and Apple Watch.",
+          "取得先: https://getpersonalbest.com/",
+          "このカードは公式サイトの到達性・掲載内容の観測であり、売上・原価・利益を確定する財務証拠ではない。"
+        ],
+        "sourceNote": "公式サイト取得確認, 2026-09-16 snapshot",
+        "sourceClass": "PRIMARY",
+        "sourceUrl": "https://getpersonalbest.com/",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "118a9a5088418e64ee525b37f56f36f1122f326e0ad1bba17fcf8288174ec820"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 1,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "App Store featuring",
+        "organic discovery",
+        "image sharing",
+        "community"
+      ],
+      "toolStack": [
+        {
+          "name": "SwiftUI",
+          "category": "mobile",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        },
+        {
+          "name": "Claude Code",
+          "category": "AI",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        },
+        {
+          "name": "App Store Connect",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された運用経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": false,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "運動履歴を継続的に見返し、目的に沿った進捗を把握したい利用者。",
+      "moatType": "DISTRIBUTION",
+      "moatDescription": "無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+      "incumbentDilemma": "既存サービスの制約・競合の反応は記事だけでは未確認。",
+      "secretInsight": "無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+      "initialTraction": [
+        "App Store featuring",
+        "organic discovery",
+        "image sharing",
+        "community"
+      ],
+      "actionPlaybook": [
+        "無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+        "公開記載の売上・コスト・利益を別々に照合する。",
+        "未確認項目を推定値へ置換しない。"
+      ],
+      "coldOutreachTemplate": "公開インタビューに記載された運用経路と収益・コストの内訳を確認したい。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "記事観測日 2026-09-11。創業年は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+      "viabilityStatus": "ACTIVE_PLAYBOOK",
+      "viabilityLabel": "2026年9月インタビュー時点で稼働中",
+      "eraContext": "2024–2026年の創業者インタビュー記録。",
+      "currentViabilityAnalysis": "2026年9月インタビュー時点で稼働中"
+    },
+    "observations": [
+      "創業者インタビュー: https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+      "創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。",
+      "事業: iOS向けのワークアウト記録・コーチングアプリ。",
+      "配管: 無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+      "利益・原価・税・手残りは未確認。"
+    ],
+    "observationsStream": [
+      {
+        "id": "ent_personalbest_2026_jhx6p14de0-reported",
+        "category": "REVENUE_PROOF",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "observedAt": "2026-09-11",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW",
+        "evidenceLocator": {
+          "type": "html",
+          "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1"
+        }
+      },
+      {
+        "id": "ent_personalbest_2026_jhx6p14de0-unknown",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "利益・原価・税・手残りの独立確認は未実施。",
+        "sourceUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "observedAt": "2026-09-11",
+        "sourceClass": "PRIMARY_AUTHOR_INTERVIEW"
+      },
+      {
+        "id": "ent_personalbest_2026_jhx6p14de0-official-site-observed",
+        "category": "TECH_VERIFICATION",
+        "originType": "observed",
+        "verificationStatus": "SUPPORTED",
+        "text": "公式URLの現行ページを取得: HTTP 200 / Personal Best | Workout tracker for iPhone, iPad, and Apple Watch",
+        "sourceUrl": "https://getpersonalbest.com/",
+        "observedAt": "2026-09-16",
+        "sourceClass": "PRIMARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "118a9a5088418e64ee525b37f56f36f1122f326e0ad1bba17fcf8288174ec820"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "iOS向けのワークアウト記録・コーチングアプリ。",
+      "targetCustomer": "運動履歴を継続的に見返し、目的に沿った進捗を把握したい利用者。",
+      "painRelief": "運動履歴を継続的に見返し、目的に沿った進捗を把握したい利用者。"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_personalbest_2026_jhx6p14de0-loot",
+      "targetPrey": "運動履歴を継続的に見返し、目的に沿った進捗を把握したい利用者。",
+      "structuralFlaw": "運動履歴を継続的に見返し、目的に沿った進捗を把握したい利用者。",
+      "stealthEntry": "無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+      "tollGateSetup": "App Store featuring、organic discovery、image sharing、community",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "無料利用を入口に任意のPro会員へ転換し、サーバーを持たない端末完結構成で限界費用を極小化。App Store掲載と有機流入を活用した。",
+        "集客経路を確認: App Store featuring、organic discovery、image sharing、community",
+        "利益・原価・継続性を一次資料で照合する。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "利益・原価・税・手残りは独立確認していない。",
+      "記事は本人発言を含むが、財務諸表や決済口座の監査ではない。",
+      "公式サイトの到達性・掲載内容は確認したが、財務数値の一次確認は未実施。"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": true,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "REQUIRES_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "本人・創業者インタビューに基づく候補。"
+    },
+    "caseType": "PRIMARY_INDIE_INTERVIEW_CASE",
+    "profileSubject": "Shaun Donnelly",
+    "profileBusinessLabel": "Personal Best",
+    "reportedMetrics": [
+      {
+        "original": 5000,
+        "currency": "USD",
+        "amount": 5000,
+        "jpyAmount": 750000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+        "context": "創業者インタビューは現在5,000 USD MRR、500,000+ downloads、約50,000 MAU、サーバー側コンポーネントなし、限界費用ほぼなしを記載。"
+      }
+    ],
+    "officialUrl": "https://getpersonalbest.com/",
+    "sourceMetadata": {
+      "provider": "Indie Hackers",
+      "postUrl": "https://www.indiehackers.com/post/tech/building-a-5k-mrr-app-while-freelancing-to-keep-the-lights-on-JhX6p14De0nagI0j1Xg1",
+      "observedAt": "2026-09-11",
+      "rawContentSha256": "7f1b93007f51"
+    },
+    "batchId": "batch-primary-indie-evidence-3-20260916"
+  }
+]

@@ -1,0 +1,81 @@
+{
+  "receiptVersion": "make-money-collection-receipt.v1",
+  "batchId": "batch-ebizfacts-profiles-1000-20260916",
+  "snapshot": "2026-09-16",
+  "source": {
+    "provider": "eBiz Facts",
+    "sourceClass": "INDEPENDENT_SECONDARY",
+    "profileIndexPosts": 1663,
+    "candidatePosts": 1309,
+    "selected": 1000,
+    "modifiedYears": {
+      "2024": 215,
+      "2025": 642,
+      "2026": 143
+    }
+  },
+  "artifacts": {
+    "base": {
+      "path": "data/incoming/batch_ebizfacts_profiles_1000_20260916.json",
+      "sha256": "c6fd2a0d0e2f4bbf5e076a9e0484b454df4894a74079faa8a9d272c01843d744"
+    },
+    "baseAudit": {
+      "path": "data/incoming/batch_ebizfacts_profiles_audit_1000_20260916.json",
+      "sha256": "6e3ab4ed6fee7f0a9e4c656995cc58b1a50db9e159568b55352622d1eefad72b"
+    },
+    "officialSiteEnriched": {
+      "path": "data/incoming/batch_ebizfacts_profiles_enriched_1000_20260916.json",
+      "sha256": "1cb501ddf5c869aa2f2bc9bf6a4e0829b316d2463ffb57fbfb086232af9fedd9"
+    },
+    "officialSiteAudit": {
+      "path": "data/incoming/batch_ebizfacts_profiles_official_site_checks_1000_20260916.json",
+      "sha256": "71c613beb8c8c5b654532e1c06b329de7d06ad7c0a2134299f00dc9ec2d9dd7e",
+      "count": 1000,
+      "reachable": 806,
+      "contentObserved": 891
+    },
+    "officialFinancialSignalAudit": {
+      "path": "data/incoming/batch_ebizfacts_profiles_official_financial_signals_1000_20260916.json",
+      "sha256": "9e4085e5f2c7399b0b9d41a3bdda17ba5331f07cc43f18c375672d7b4f2a47e5",
+      "count": 1000,
+      "reachable": 847,
+      "signalObserved": 379
+    },
+    "final": {
+      "path": "data/incoming/batch_ebizfacts_profiles_enriched_financial_signals_1000_20260916.json",
+      "sha256": "44a7ab2ffc5aae19c8d9fcfb52267da8b81fc2caa3f7ed0ea0fb33f5c504a9ab",
+      "count": 1000
+    }
+  },
+  "quality": {
+    "schemaValid": 1000,
+    "schemaInvalid": 0,
+    "uniqueIds": 1000,
+    "uniqueNames": 1000,
+    "uniqueTickers": 1000,
+    "centralCatalogCollisions": 0,
+    "reportedMetricCount": 4310,
+    "currencyConversionMismatches": 0,
+    "pnlMonthlyRevenueCount": 393,
+    "reportedProfitSignalCount": 16,
+    "financialStatus": {
+      "REPORTED": 999,
+      "UNAVAILABLE": 1
+    },
+    "allFinancialValuesUnconfirmed": true
+  },
+  "claimLock": {
+    "agent": "codex-20260916-ebizfacts1000",
+    "batchEntityClaimsMatched": 1000,
+    "agentClaimLinesRetained": 1111,
+    "researchClaimsOutsideCurrentFilteredBatch": 111,
+    "path": "data/CLAIMED_TARGETS.txt"
+  },
+  "boundaries": {
+    "centralCatalogEdited": false,
+    "edinetFinancialsEdited": false,
+    "officialSiteSignalsAreNotFinancialProof": true,
+    "independentProfitAuditCompleted": false,
+    "r2RawEvidenceUploaded": false
+  }
+}

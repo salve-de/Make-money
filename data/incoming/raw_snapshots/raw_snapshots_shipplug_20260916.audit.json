@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "raw-snapshot-audit.v1",
+  "snapshot": "2026-09-16",
+  "requested": 1,
+  "captured": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "ShipPlug (Nick DiNatale)",
+      "entityId": "ent_reported_b8c082b67876cacb5b1c1b32",
+      "requestedUrl": "https://founderreports.com/interview/shipplug/",
+      "sourceId": "src.founderreports.shipplug",
+      "evidenceId": "ev_founderreports_shipplug",
+      "author": "Nick DiNatale",
+      "observedAt": "2026-09-16T00:00:00.000Z",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 210989,
+      "sha256": "79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d",
+      "localPath": "data/incoming/raw_snapshots_shipplug_20260916/ev_founderreports_shipplug_79a2e3c7460f0bf1e9bdfa6e08aa3f7eec6f1d67dae53b52af65fcdf01ccbe1d.html",
+      "fetchedAt": "2026-09-16T01:01:55.306Z"
+    }
+  ]
+}

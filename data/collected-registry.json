@@ -1,5 +1,5555 @@
 [
   {
+    "id": "ent_deepl_be6b54",
+    "name": "DeepL",
+    "normName": "deepl",
+    "ticker": "DEEPLCOM",
+    "domain": "deepl.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_replicate_047db2",
+    "name": "Replicate",
+    "normName": "replicate",
+    "ticker": "REPLICAT",
+    "domain": "replicate.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_granola_2e30c5",
+    "name": "Granola",
+    "normName": "granola",
+    "ticker": "GRANOLAI",
+    "domain": "granola.so",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_mintlify_c8b3bf",
+    "name": "Mintlify",
+    "normName": "mintlify",
+    "ticker": "MINTLIFY",
+    "domain": "mintlify.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_fern_5a0e17",
+    "name": "Fern",
+    "normName": "fern",
+    "ticker": "FERNDEV",
+    "domain": "buildwithfern.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_excalidraw_c7820d",
+    "name": "Excalidraw",
+    "normName": "excalidraw",
+    "ticker": "EXCALIDR",
+    "domain": "excalidraw.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_whimsical_25c003",
+    "name": "Whimsical",
+    "normName": "whimsical",
+    "ticker": "WHIMSICL",
+    "domain": "whimsical.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_obsidian_56c512",
+    "name": "Obsidian",
+    "normName": "obsidian",
+    "ticker": "OBSIDIAN",
+    "domain": "obsidian.md",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_flighty_9f5851",
+    "name": "Flighty",
+    "normName": "flighty",
+    "ticker": "FLIGHTY",
+    "domain": "flightyapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_carrotweather_5a3852",
+    "name": "Carrot Weather",
+    "normName": "carrotweather",
+    "ticker": "CARROTW",
+    "domain": "meetcarrot.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_halide_31f40e",
+    "name": "Halide",
+    "normName": "halide",
+    "ticker": "HALIDEC",
+    "domain": "lux.camera",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_procreate_cfca89",
+    "name": "Procreate",
+    "normName": "procreate",
+    "ticker": "PROCREAT",
+    "domain": "procreate.art",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_nomadsculpt_13ac4b",
+    "name": "Nomad Sculpt",
+    "normName": "nomadsculpt",
+    "ticker": "NOMADSC",
+    "domain": "nomadsculpt.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_shapr3d_3a4d55",
+    "name": "Shapr3D",
+    "normName": "shapr3d",
+    "ticker": "SHAPR3D",
+    "domain": "shapr3d.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_goodnotes_03acde",
+    "name": "Goodnotes",
+    "normName": "goodnotes",
+    "ticker": "GOODNOTE",
+    "domain": "goodnotes.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_typinator_8da29a",
+    "name": "Typinator",
+    "normName": "typinator",
+    "ticker": "TYPINATR",
+    "domain": "ergonis.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_snagit_9c5b48",
+    "name": "Snagit",
+    "normName": "snagit",
+    "ticker": "SNAGITC",
+    "domain": "techsmith.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_pdfexpert_8fb123",
+    "name": "PDF Expert",
+    "normName": "pdfexpert",
+    "ticker": "PDFEXPRT",
+    "domain": "pdfexpert.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_savvycal_5981c3",
+    "name": "SavvyCal",
+    "normName": "savvycal",
+    "ticker": "SAVVYCAL",
+    "domain": "savvycal.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_gmass_209d19",
+    "name": "GMass",
+    "normName": "gmass",
+    "ticker": "GMASSAPP",
+    "domain": "gmass.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_quickmail_28dcb3",
+    "name": "QuickMail",
+    "normName": "quickmail",
+    "ticker": "QUICKML",
+    "domain": "quickmail.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_pabblyconnect_c15690",
+    "name": "Pabbly Connect",
+    "normName": "pabblyconnect",
+    "ticker": "PABBLYCN",
+    "domain": "pabbly.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_clockify_15f2ba",
+    "name": "Clockify",
+    "normName": "clockify",
+    "ticker": "CLOCKIFY",
+    "domain": "clockify.me",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_timing_f7a6c5",
+    "name": "Timing",
+    "normName": "timing",
+    "ticker": "TIMINGAP",
+    "domain": "timingapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_streaks_acc7e1",
+    "name": "Streaks",
+    "normName": "streaks",
+    "ticker": "STREAKAP",
+    "domain": "streaksapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_forest_e6f6f0",
+    "name": "Forest",
+    "normName": "forest",
+    "ticker": "FORESTAP",
+    "domain": "forestapp.cc",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_beeminder_628bd2",
+    "name": "Beeminder",
+    "normName": "beeminder",
+    "ticker": "BEEMINDR",
+    "domain": "beeminder.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_focusmate_755542",
+    "name": "Focusmate",
+    "normName": "focusmate",
+    "ticker": "FOCUSMAT",
+    "domain": "focusmate.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_yodeck_2b386f",
+    "name": "Yodeck",
+    "normName": "yodeck",
+    "ticker": "YODECK",
+    "domain": "yodeck.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_miro_684c78",
+    "name": "Miro",
+    "normName": "miro",
+    "ticker": "MIROHQ",
+    "domain": "miro.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_lucidchart_d34aed",
+    "name": "Lucidchart",
+    "normName": "lucidchart",
+    "ticker": "LUCIDCHT",
+    "domain": "lucidchart.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_pipedrive_4f5160",
+    "name": "Pipedrive",
+    "normName": "pipedrive",
+    "ticker": "PIPEDRIV",
+    "domain": "pipedrive.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_close_eb4b50",
+    "name": "Close",
+    "normName": "close",
+    "ticker": "CLOSECRM",
+    "domain": "close.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_attio_77ce2e",
+    "name": "Attio",
+    "normName": "attio",
+    "ticker": "ATTIOCRM",
+    "domain": "attio.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_apolloio_2bd9aa",
+    "name": "Apollo.io",
+    "normName": "apollo.io",
+    "ticker": "APOLLOIO",
+    "domain": "apollo.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_lusha_690033",
+    "name": "Lusha",
+    "normName": "lusha",
+    "ticker": "LUSHACO",
+    "domain": "lusha.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_clay_1a6c96",
+    "name": "Clay",
+    "normName": "clay",
+    "ticker": "CLAYCOM",
+    "domain": "clay.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_calendly_866f75",
+    "name": "Calendly",
+    "normName": "calendly",
+    "ticker": "CALENDLY",
+    "domain": "calendly.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_helpscout_408af4",
+    "name": "Help Scout",
+    "normName": "helpscout",
+    "ticker": "HELPSCT",
+    "domain": "helpscout.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_vwo_e67705",
+    "name": "VWO",
+    "normName": "vwo",
+    "ticker": "VWOHQX",
+    "domain": "vwo.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_fullstory_2a31a0",
+    "name": "FullStory",
+    "normName": "fullstory",
+    "ticker": "FULLSTRY",
+    "domain": "fullstory.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_logrocket_c8a74f",
+    "name": "LogRocket",
+    "normName": "logrocket",
+    "ticker": "LOGRCKET",
+    "domain": "logrocket.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_sentry_e7c9a8",
+    "name": "Sentry",
+    "normName": "sentry",
+    "ticker": "SENTRYIO",
+    "domain": "sentry.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_n8n_e69a2b",
+    "name": "n8n",
+    "normName": "n8n",
+    "ticker": "N8NIOHQ",
+    "domain": "n8n.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_revenuecat_f6036e",
+    "name": "RevenueCat",
+    "normName": "revenuecat",
+    "ticker": "REVNUCAT",
+    "domain": "revenuecat.com",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_superwall_e01265",
+    "name": "Superwall",
+    "normName": "superwall",
+    "ticker": "SUPRWALL",
+    "domain": "superwall.com",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_mentimeter_c1bd0b",
+    "name": "Mentimeter",
+    "normName": "mentimeter",
+    "ticker": "MENTIMTR",
+    "domain": "mentimeter.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_slido_db564d",
+    "name": "Slido",
+    "normName": "slido",
+    "ticker": "SLIDOCOM",
+    "domain": "slido.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_kahoot_5f2d54",
+    "name": "Kahoot!",
+    "normName": "kahoot!",
+    "ticker": "KAHOOT",
+    "domain": "kahoot.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_sketch_faf612",
+    "name": "Sketch",
+    "normName": "sketch",
+    "ticker": "SKETCHHQ",
+    "domain": "sketch.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_framer_a815dc",
+    "name": "Framer",
+    "normName": "framer",
+    "ticker": "FRAMER",
+    "domain": "framer.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_webflow_c78560",
+    "name": "Webflow",
+    "normName": "webflow",
+    "ticker": "WEBFLOW",
+    "domain": "webflow.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_bubble_a4ae48",
+    "name": "Bubble",
+    "normName": "bubble",
+    "ticker": "BUBBLEIO",
+    "domain": "bubble.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_softr_52871a",
+    "name": "Softr",
+    "normName": "softr",
+    "ticker": "SOFTRHQ",
+    "domain": "softr.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_glide_9187a3",
+    "name": "Glide",
+    "normName": "glide",
+    "ticker": "GLIDEAPP",
+    "domain": "glideapps.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_fontawesome_75b0ed",
+    "name": "Font Awesome",
+    "normName": "fontawesome",
+    "ticker": "FNTAWSM",
+    "domain": "fontawesome.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_freepik_e6fa4d",
+    "name": "Freepik",
+    "normName": "freepik",
+    "ticker": "FREEPIK",
+    "domain": "freepik.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_envato_73ee0f",
+    "name": "Envato",
+    "normName": "envato",
+    "ticker": "ENVATO",
+    "domain": "envato.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp59_a31419",
+    "name": "ユビレジ",
+    "normName": "ユビレジ",
+    "ticker": "UBIREGI",
+    "domain": "ubiregi.com",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_helpfeel_3dffa7",
+    "name": "Helpfeel",
+    "normName": "helpfeel",
+    "ticker": "HELPFEEL",
+    "domain": "helpfeel.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_esaio_e7531c",
+    "name": "esa.io",
+    "normName": "esa.io",
+    "ticker": "ESAIOHQ",
+    "domain": "esa.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_backlog_777660",
+    "name": "Backlog",
+    "normName": "backlog",
+    "ticker": "BACKLOG",
+    "domain": "backlog.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp63_27b23f",
+    "name": "ラクス",
+    "normName": "ラクス",
+    "ticker": "RAKUSCOR",
+    "domain": "rakus.co.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp64_8d1e2f",
+    "name": "レーザーテック",
+    "normName": "レーザーテック",
+    "ticker": "LASERTEC",
+    "domain": "lasertec.co.jp",
+    "sector": "MONOPOLY_MFG",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp65_f9478a",
+    "name": "ハーモニック・ドライブ・システムズ",
+    "normName": "ハーモニックドライブシステムズ",
+    "ticker": "HARMONIC",
+    "domain": "hds.co.jp",
+    "sector": "MONOPOLY_MFG",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp66_f310c5",
+    "name": "シマノ",
+    "normName": "シマノ",
+    "ticker": "SHIMANOC",
+    "domain": "shimano.com",
+    "sector": "MONOPOLY_MFG",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp67_128f3d",
+    "name": "マブチモーター",
+    "normName": "マブチモーター",
+    "ticker": "MABUCHIC",
+    "domain": "mabuchi-motor.co.jp",
+    "sector": "MONOPOLY_MFG",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp68_6d7e3f",
+    "name": "コスモス薬品",
+    "normName": "コスモス薬品",
+    "ticker": "COSMOSYP",
+    "domain": "cosmospc.co.jp",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp69_0e1486",
+    "name": "セリア",
+    "normName": "セリア",
+    "ticker": "SERIA100",
+    "domain": "seria-group.com",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp70_435cad",
+    "name": "ハードオフコーポレーション",
+    "normName": "ハードオフコーポレーション",
+    "ticker": "HARDOFF",
+    "domain": "hardoff.co.jp",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp71_ac28ab",
+    "name": "トレジャー・ファクトリー",
+    "normName": "トレジャーファクトリー",
+    "ticker": "TREASURF",
+    "domain": "treasure-f.com",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp72_2f5342",
+    "name": "コメ兵ホールディングス",
+    "normName": "コメ兵ホールディングス",
+    "ticker": "KOMEHYO",
+    "domain": "komehyoholdings.com",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp73_2a8cda",
+    "name": "エービーシー・マート",
+    "normName": "エービーシーマート",
+    "ticker": "ABCMART",
+    "domain": "abc-mart.net",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_corp74_922c27",
+    "name": "しまむら",
+    "normName": "しまむら",
+    "ticker": "SHIMAMUR",
+    "domain": "shimamura.gr.jp",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_gammaapp_a6b02a",
+    "name": "Gamma App",
+    "normName": "gammaapp",
+    "ticker": "GAMMAAPP",
+    "domain": "gamma.app",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_novelcrafter_fb800c",
+    "name": "Novelcrafter",
+    "normName": "novelcrafter",
+    "ticker": "NOVELCRF",
+    "domain": "novelcrafter.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_heptabase_cdda83",
+    "name": "Heptabase",
+    "normName": "heptabase",
+    "ticker": "HEPTABAS",
+    "domain": "heptabase.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_craftdocs_a27126",
+    "name": "Craft Docs",
+    "normName": "craftdocs",
+    "ticker": "CRAFTDOC",
+    "domain": "craft.do",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_overcast_1c4e22",
+    "name": "Overcast",
+    "normName": "overcast",
+    "ticker": "OVERCAST",
+    "domain": "overcast.fm",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_darkroom_523cef",
+    "name": "Darkroom",
+    "normName": "darkroom",
+    "ticker": "DARKROOM",
+    "domain": "darkroom.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_lumafusion_5c80fc",
+    "name": "LumaFusion",
+    "normName": "lumafusion",
+    "ticker": "LUMAFUSN",
+    "domain": "luma-touch.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_conceptsapp_825ae6",
+    "name": "Concepts App",
+    "normName": "conceptsapp",
+    "ticker": "CONCEPTS",
+    "domain": "concepts.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_textsniper_61ecf8",
+    "name": "TextSniper",
+    "normName": "textsniper",
+    "ticker": "TXTSNIPR",
+    "domain": "textsniper.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_streamyard_dc9faa",
+    "name": "StreamYard",
+    "normName": "streamyard",
+    "ticker": "STRMYARD",
+    "domain": "streamyard.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_ecammlive_9fab51",
+    "name": "Ecamm Live",
+    "normName": "ecammlive",
+    "ticker": "ECAMMLIV",
+    "domain": "ecamm.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_glyphs_d71d14",
+    "name": "Glyphs",
+    "normName": "glyphs",
+    "ticker": "GLYPHSAP",
+    "domain": "glyphsapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_astropad_f1251c",
+    "name": "Astropad",
+    "normName": "astropad",
+    "ticker": "ASTROPAD",
+    "domain": "astropad.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_shortio_20751a",
+    "name": "Short.io",
+    "normName": "short.io",
+    "ticker": "SHORTIO",
+    "domain": "short.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_rebrandly_0c4c69",
+    "name": "Rebrandly",
+    "normName": "rebrandly",
+    "ticker": "REBRANDL",
+    "domain": "rebrandly.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_duetdisplay_a61cea",
+    "name": "Duet Display",
+    "normName": "duetdisplay",
+    "ticker": "DUETDISP",
+    "domain": "duetdisplay.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_camoapp_921376",
+    "name": "Camo App",
+    "normName": "camoapp",
+    "ticker": "CAMOAPPV",
+    "domain": "reincubate.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_restream_2b2375",
+    "name": "Restream",
+    "normName": "restream",
+    "ticker": "RESTREAM",
+    "domain": "restream.io",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_motionarray_e298a7",
+    "name": "Motion Array",
+    "normName": "motionarray",
+    "ticker": "MOTNARRY",
+    "domain": "motionarray.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_icons8_9ec117",
+    "name": "Icons8",
+    "normName": "icons8",
+    "ticker": "ICONS8CO",
+    "domain": "icons8.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_thenounproject_03c579",
+    "name": "The Noun Project",
+    "normName": "thenounproject",
+    "ticker": "NOUNPROJ",
+    "domain": "thenounproject.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_rightfont_bfec98",
+    "name": "RightFont",
+    "normName": "rightfont",
+    "ticker": "RIGHTFNT",
+    "domain": "rightfontapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_screenly_d694a4",
+    "name": "Screenly",
+    "normName": "screenly",
+    "ticker": "SCREENLY",
+    "domain": "screenly.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_toggltrack_0441af",
+    "name": "Toggl Track",
+    "normName": "toggltrack",
+    "ticker": "TOGGLTRK",
+    "domain": "toggl.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_rescuetime_af20ec",
+    "name": "RescueTime",
+    "normName": "rescuetime",
+    "ticker": "RESCUETM",
+    "domain": "rescuetime.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_coldturkey_4d10fe",
+    "name": "Cold Turkey",
+    "normName": "coldturkey",
+    "ticker": "COLDTRKY",
+    "domain": "getcoldturkey.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst100_20260916"
+  },
+  {
+    "id": "ent_instntai_8617befe",
+    "name": "Instantly.ai",
+    "normName": "instantly.ai",
+    "ticker": "INSTNTAI",
+    "domain": "instantly.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_smrtled_d75d602f",
+    "name": "Smartlead.ai",
+    "normName": "smartlead.ai",
+    "ticker": "SMRTLED",
+    "domain": "smartlead.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_lemlist_c5d086ee",
+    "name": "Lemlist",
+    "normName": "lemlist",
+    "ticker": "LEMLIST",
+    "domain": "lemlist.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_hntrio_4014f337",
+    "name": "Hunter.io",
+    "normName": "hunter.io",
+    "ticker": "HNTRIO",
+    "domain": "hunter.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_snovio_1f5b8296",
+    "name": "Snov.io",
+    "normName": "snov.io",
+    "ticker": "SNOVIO",
+    "domain": "snov.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_wdpckr_bfb31c85",
+    "name": "Woodpecker.co",
+    "normName": "woodpecker.co",
+    "ticker": "WDPCKR",
+    "domain": "woodpecker.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_mailshk_3fd7700e",
+    "name": "Mailshake",
+    "normName": "mailshake",
+    "ticker": "MAILSHK",
+    "domain": "mailshake.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_dscrpt_e6b769b8",
+    "name": "Descript",
+    "normName": "descript",
+    "ticker": "DSCRPT",
+    "domain": "descript.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_grainco_d41e2416",
+    "name": "Grain.com",
+    "normName": "grain.com",
+    "ticker": "GRAINCO",
+    "domain": "grain.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_bnynet_8d9243e5",
+    "name": "Bunny.net",
+    "normName": "bunny.net",
+    "ticker": "BNYNET",
+    "domain": "bunny.net",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_bckblz_80420c75",
+    "name": "Backblaze",
+    "normName": "backblaze",
+    "ticker": "BCKBLZ",
+    "domain": "backblaze.com",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_wsbcld_b064d782",
+    "name": "Wasabi Technologies",
+    "normName": "wasabitechnologies",
+    "ticker": "WSBCLD",
+    "domain": "wasabi.com",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_prkbun_6f67dbf5",
+    "name": "Porkbun",
+    "normName": "porkbun",
+    "ticker": "PRKBUN",
+    "domain": "porkbun.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_axmai_1adc46eb",
+    "name": "Axiom.ai",
+    "normName": "axiom.ai",
+    "ticker": "AXMAIX",
+    "domain": "axiom.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_shtson_0ba8ef85",
+    "name": "Sheetson",
+    "normName": "sheetson",
+    "ticker": "SHTSON",
+    "domain": "sheetson.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_sprblg_810121e8",
+    "name": "Superblog",
+    "normName": "superblog",
+    "ticker": "SPRBLG",
+    "domain": "superblog.ai",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_blgstat_84846833",
+    "name": "Blogstatic",
+    "normName": "blogstatic",
+    "ticker": "BLGSTAT",
+    "domain": "blogstatic.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_mgcbrf_124121b2",
+    "name": "MagicBrief",
+    "normName": "magicbrief",
+    "ticker": "MGCBRF",
+    "domain": "magicbrief.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_msgltr_2d5461bb",
+    "name": "Missinglettr",
+    "normName": "missinglettr",
+    "ticker": "MSGLTR",
+    "domain": "missinglettr.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_frmbrc_26eee227",
+    "name": "Formbricks",
+    "normName": "formbricks",
+    "ticker": "FRMBRC",
+    "domain": "formbricks.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_srvcat_31cf201f",
+    "name": "Survicate",
+    "normName": "survicate",
+    "ticker": "SRVCAT",
+    "domain": "survicate.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_prdlan_b13565e2",
+    "name": "Productlane",
+    "normName": "productlane",
+    "ticker": "PRDLAN",
+    "domain": "productlane.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_anckit_2def9ce1",
+    "name": "AnnounceKit",
+    "normName": "announcekit",
+    "ticker": "ANCKIT",
+    "domain": "announcekit.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_opglov_b58833cd",
+    "name": "One Page Love",
+    "normName": "onepagelove",
+    "ticker": "OPGLOV",
+    "domain": "onepagelove.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_spktro_16f48aa6",
+    "name": "SparkToro",
+    "normName": "sparktoro",
+    "ticker": "SPKTRO",
+    "domain": "sparktoro.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_wynter_562c3567",
+    "name": "Wynter",
+    "normName": "wynter",
+    "ticker": "WYNTER",
+    "domain": "wynter.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_usrflw_5a583bfd",
+    "name": "Userflow",
+    "normName": "userflow",
+    "ticker": "USRFLW",
+    "domain": "userflow.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_uptrbt_af2d40c1",
+    "name": "UptimeRobot",
+    "normName": "uptimerobot",
+    "ticker": "UPTRBT",
+    "domain": "uptimerobot.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_signoz_361f8507",
+    "name": "SigNoz",
+    "normName": "signoz",
+    "ticker": "SIGNOZ",
+    "domain": "signoz.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_pktbas_895ab833",
+    "name": "PocketBase",
+    "normName": "pocketbase",
+    "ticker": "PKTBAS",
+    "domain": "pocketbase.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_tlscan_0a15820a",
+    "name": "Tailscan",
+    "normName": "tailscan",
+    "ticker": "TLSCAN",
+    "domain": "tailscan.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_rfrcui_64e924ac",
+    "name": "Refactoring UI",
+    "normName": "refactoringui",
+    "ticker": "RFRCUI",
+    "domain": "refactoringui.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_tnyplt_f2fb3c69",
+    "name": "TinyPilot",
+    "normName": "tinypilot",
+    "ticker": "TNYPLT",
+    "domain": "tinypilotkvm.com",
+    "sector": "MONOPOLY_MFG",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_ktemkr_ea95ea64",
+    "name": "Kitemaker",
+    "normName": "kitemaker",
+    "ticker": "KTEMKR",
+    "domain": "kitemaker.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_sltapp_4ffc56b9",
+    "name": "Slite",
+    "normName": "slite",
+    "ticker": "SLTAPP",
+    "domain": "slite.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_docgpt_8785430a",
+    "name": "DocsGPT",
+    "normName": "docsgpt",
+    "ticker": "DOCGPT",
+    "domain": "docsgpt.cloud",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_chtnod_0f1ccb93",
+    "name": "ChatNode",
+    "normName": "chatnode",
+    "ticker": "CHTNOD",
+    "domain": "chatnode.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_dfyai_1d81e246",
+    "name": "Dify",
+    "normName": "dify",
+    "ticker": "DFYAIX",
+    "domain": "dify.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_flwise_77d72700",
+    "name": "Flowise",
+    "normName": "flowise",
+    "ticker": "FLWISE",
+    "domain": "flowiseai.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_cdsnbx_85654624",
+    "name": "CodeSandbox",
+    "normName": "codesandbox",
+    "ticker": "CDSNBX",
+    "domain": "codesandbox.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_gitpod_8e33bbb6",
+    "name": "GitPod",
+    "normName": "gitpod",
+    "ticker": "GITPOD",
+    "domain": "gitpod.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_rndrco_6f070e32",
+    "name": "Render",
+    "normName": "render",
+    "ticker": "RNDRCO",
+    "domain": "render.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_flyioc_d780d5aa",
+    "name": "Fly.io",
+    "normName": "fly.io",
+    "ticker": "FLYIOC",
+    "domain": "fly.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_kybapp_51caba5b",
+    "name": "Koyeb",
+    "normName": "koyeb",
+    "ticker": "KYBAPP",
+    "domain": "koyeb.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_neondb_2907848c",
+    "name": "Neon",
+    "normName": "neon",
+    "ticker": "NEONDB",
+    "domain": "neon.tech",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_trsodb_9836fd53",
+    "name": "Turso",
+    "normName": "turso",
+    "ticker": "TRSODB",
+    "domain": "turso.tech",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_ingstp_028fe7bb",
+    "name": "Inngest",
+    "normName": "inngest",
+    "ticker": "INGSTP",
+    "domain": "inngest.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_trgdev_c3dcfd24",
+    "name": "Trigger.dev",
+    "normName": "trigger.dev",
+    "ticker": "TRGDEV",
+    "domain": "trigger.dev",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_pshovr_9757d3ef",
+    "name": "Pushover",
+    "normName": "pushover",
+    "ticker": "PSHOVR",
+    "domain": "pushover.net",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_curier_95f3cbcb",
+    "name": "Courier",
+    "normName": "courier",
+    "ticker": "CURIER",
+    "domain": "courier.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_knckap_661c69d1",
+    "name": "Knock",
+    "normName": "knock",
+    "ticker": "KNCKAP",
+    "domain": "knock.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_novuap_e279ca7b",
+    "name": "Novu",
+    "normName": "novu",
+    "ticker": "NOVUAP",
+    "domain": "novu.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_clrkdv_fc79fbdd",
+    "name": "Clerk",
+    "normName": "clerk",
+    "ticker": "CLRKDV",
+    "domain": "clerk.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_kndaut_1b3f1668",
+    "name": "Kinde",
+    "normName": "kinde",
+    "ticker": "KNDAUT",
+    "domain": "kinde.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_sprtkn_62380463",
+    "name": "SuperTokens",
+    "normName": "supertokens",
+    "ticker": "SPRTKN",
+    "domain": "supertokens.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_lgtoio_6b7c794d",
+    "name": "Logto",
+    "normName": "logto",
+    "ticker": "LGTOIO",
+    "domain": "logto.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_prmtio_720f67a2",
+    "name": "Permit.io",
+    "normName": "permit.io",
+    "ticker": "PRMTIO",
+    "domain": "permit.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_crboss_b0469caa",
+    "name": "Cerbos",
+    "normName": "cerbos",
+    "ticker": "CRBOSS",
+    "domain": "cerbos.dev",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_svxweb_35b599ec",
+    "name": "Svix",
+    "normName": "svix",
+    "ticker": "SVXWEB",
+    "domain": "svix.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_hkdeck_3f052686",
+    "name": "Hookdeck",
+    "normName": "hookdeck",
+    "ticker": "HKDECK",
+    "domain": "hookdeck.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_pldcms_93bacb45",
+    "name": "Payload CMS",
+    "normName": "payloadcms",
+    "ticker": "PLDCMS",
+    "domain": "payloadcms.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_stpcms_db6035db",
+    "name": "Strapi",
+    "normName": "strapi",
+    "ticker": "STPCMS",
+    "domain": "strapi.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_drctus_995ae02f",
+    "name": "Directus",
+    "normName": "directus",
+    "ticker": "DRCTUS",
+    "domain": "directus.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_sntyio_16b67116",
+    "name": "Sanity.io",
+    "normName": "sanity.io",
+    "ticker": "SNTYIO",
+    "domain": "sanity.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_dscrse_3a2c3e17",
+    "name": "Discourse",
+    "normName": "discourse",
+    "ticker": "DSCRSE",
+    "domain": "discourse.org",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_prtnag_f27fdc9f",
+    "name": "Proton",
+    "normName": "proton",
+    "ticker": "PRTNAG",
+    "domain": "proton.me",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_tutaml_992d9bcf",
+    "name": "Tuta Mail",
+    "normName": "tutamail",
+    "ticker": "TUTAML",
+    "domain": "tuta.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_stdnte_e4665b85",
+    "name": "Standard Notes",
+    "normName": "standardnotes",
+    "ticker": "STDNTE",
+    "domain": "standardnotes.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_mtbase_79c85040",
+    "name": "Metabase",
+    "normName": "metabase",
+    "ticker": "MTBASE",
+    "domain": "metabase.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_lgtdsh_b83efe92",
+    "name": "Lightdash",
+    "normName": "lightdash",
+    "ticker": "LGTDSH",
+    "domain": "lightdash.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_evdnce_059f5274",
+    "name": "Evidence.dev",
+    "normName": "evidence.dev",
+    "ticker": "EVDNCE",
+    "domain": "evidence.dev",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_fndesk_e62a280f",
+    "name": "fondesk (うるる)",
+    "normName": "fondeskうるる",
+    "ticker": "FNDESK",
+    "domain": "fondesk.jp",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_smargj_4d1bc707",
+    "name": "スマレジ",
+    "normName": "スマレジ",
+    "ticker": "SMARGJ",
+    "domain": "smaregi.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_trtapp_aa29420b",
+    "name": "トレタ",
+    "normName": "トレタ",
+    "ticker": "TRTAPP",
+    "domain": "toreta.in",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_lgless_b5875629",
+    "name": "ロジレス",
+    "normName": "ロジレス",
+    "ticker": "LGLESS",
+    "domain": "logiless.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_shppin_d1129edb",
+    "name": "シッピーノ",
+    "normName": "シッピーノ",
+    "ticker": "SHPPIN",
+    "domain": "shippino.net",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_spcely_2ba2c570",
+    "name": "スペースリー",
+    "normName": "スペースリー",
+    "ticker": "SPCELY",
+    "domain": "spacely.co.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_akruns_10e6cb4b",
+    "name": "Photosynth (Akerun)",
+    "normName": "photosynthakerun",
+    "ticker": "AKRUNS",
+    "domain": "akerun.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_vsqnet_564f8a8f",
+    "name": "ビザスク",
+    "normName": "ビザスク",
+    "ticker": "VSQNET",
+    "domain": "visasq.co.jp",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_infmrt_738ec175",
+    "name": "インフォマート",
+    "normName": "インフォマート",
+    "ticker": "INFMRT",
+    "domain": "infomart.co.jp",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_m3comj_52645bd5",
+    "name": "エムスリー",
+    "normName": "エムスリー",
+    "ticker": "M3COMJ",
+    "domain": "corporate.m3.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_kaipok_d2ffc7ae",
+    "name": "エス・エム・エス (カイポケ)",
+    "normName": "エスエムエスカイポケ",
+    "ticker": "KAIPOK",
+    "domain": "kaipoke.biz",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_jmdcco_16185787",
+    "name": "JMDC",
+    "normName": "jmdc",
+    "ticker": "JMDCCO",
+    "domain": "jmdc.co.jp",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_admhdj_57047a3e",
+    "name": "アイドマ・ホールディングス",
+    "normName": "アイドマホールディングス",
+    "ticker": "ADMHDJ",
+    "domain": "aidma-hd.jp",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_chghdj_da232f4d",
+    "name": "チェンジホールディングス",
+    "normName": "チェンジホールディングス",
+    "ticker": "CHGHDJ",
+    "domain": "change-jp.com",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_usrlcl_fa97a35c",
+    "name": "ユーザーローカル",
+    "normName": "ユーザーローカル",
+    "ticker": "USRLCL",
+    "domain": "userlocal.jp",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_rkmsft_889394a6",
+    "name": "rakumo",
+    "normName": "rakumo",
+    "ticker": "RKMSFT",
+    "domain": "rakumo.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_bllone_122f59d9",
+    "name": "Sansan (Bill One)",
+    "normName": "sansanbillone",
+    "ticker": "BLLONE",
+    "domain": "bill-one.com",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_krtecx_b630545b",
+    "name": "プレイド (KARTE)",
+    "normName": "プレイドkarte",
+    "ticker": "KRTECX",
+    "domain": "karte.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_kntone_b1343e9f",
+    "name": "サイボウズ (kintone)",
+    "normName": "サイボウズkintone",
+    "ticker": "KNTONE",
+    "domain": "kintone.cybozu.co.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_lglont_f51cfeb9",
+    "name": "LegalOn Technologies",
+    "normName": "legalontechnologies",
+    "ticker": "LGLONT",
+    "domain": "legalontech.jp",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_cldsgn_93770e99",
+    "name": "弁護士ドットコム (クラウドサイン)",
+    "normName": "弁護士ドットコムクラウドサイン",
+    "ticker": "CLDSGN",
+    "domain": "cloudsign.jp",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_opnlog_d93d9ec9",
+    "name": "オープンロジ",
+    "normName": "オープンロジ",
+    "ticker": "OPNLOG",
+    "domain": "service.openlogi.com",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_hcbell_6910eb9f",
+    "name": "ハコベル",
+    "normName": "ハコベル",
+    "ticker": "HCBELL",
+    "domain": "hacobell.com",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_rkxlpr_c205bb5d",
+    "name": "ラクスル",
+    "normName": "ラクスル",
+    "ticker": "RKXLPR",
+    "domain": "raksul.com",
+    "sector": "MONOPOLY_MFG",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_iidmed_b2a4c422",
+    "name": "イード",
+    "normName": "イード",
+    "ticker": "IIDMED",
+    "domain": "iid.co.jp",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_atrgrn_5ca7e78a",
+    "name": "アトラエ (Green)",
+    "normName": "アトラエgreen",
+    "ticker": "ATRGRN",
+    "domain": "green-japan.com",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_msvapp_266e7174",
+    "name": "Missive",
+    "normName": "missive",
+    "ticker": "MSVAPP",
+    "domain": "missiveapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_strkcr_4184b62f",
+    "name": "Streak",
+    "normName": "streak",
+    "ticker": "STRKCR",
+    "domain": "streak.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_100_instantly_to_streak"
+  },
+  {
+    "id": "ent_cssscan_8a12f1",
+    "name": "CSS Scan",
+    "normName": "cssscan",
+    "ticker": "CSSCAN",
+    "domain": "getcssscan.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_hoverify_9c23d3",
+    "name": "Hoverify",
+    "normName": "hoverify",
+    "ticker": "HOVERIFY",
+    "domain": "tryhoverify.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_aceternity_6d14e4",
+    "name": "Aceternity UI",
+    "normName": "aceternityui",
+    "ticker": "ACETERN",
+    "domain": "ui.aceternity.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_kapaai_5e25f5",
+    "name": "Kapa.ai",
+    "normName": "kapa.ai",
+    "ticker": "KAPAAI",
+    "domain": "kapa.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_litellm_4f36a6",
+    "name": "LiteLLM",
+    "normName": "litellm",
+    "ticker": "LITELLM",
+    "domain": "litellm.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_instatus_1c69d9",
+    "name": "Instatus",
+    "normName": "instatus",
+    "ticker": "INSTATUS",
+    "domain": "instatus.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_deadmansnitch_0a70e0",
+    "name": "Dead Man's Snitch",
+    "normName": "deadman'ssnitch",
+    "ticker": "DMSNITCH",
+    "domain": "deadmanssnitch.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_honeybadger_9d81f1",
+    "name": "Honeybadger",
+    "normName": "honeybadger",
+    "ticker": "HNYBDGR",
+    "domain": "honeybadger.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_transloadit_7f03b3",
+    "name": "Transloadit",
+    "normName": "transloadit",
+    "ticker": "TRANSLD",
+    "domain": "transloadit.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_vastai_6e14c4",
+    "name": "Vast.ai",
+    "normName": "vast.ai",
+    "ticker": "VASTCOMP",
+    "domain": "vast.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_hetzner_5f25d5",
+    "name": "Hetzner",
+    "normName": "hetzner",
+    "ticker": "HETZNER",
+    "domain": "hetzner.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_vultr_4a36e6",
+    "name": "Vultr",
+    "normName": "vultr",
+    "ticker": "VULTRCLD",
+    "domain": "vultr.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_scraperapi_3c47f7",
+    "name": "ScraperAPI",
+    "normName": "scraperapi",
+    "ticker": "SCRPRAPI",
+    "domain": "scraperapi.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_webshare_2b68d8",
+    "name": "Webshare",
+    "normName": "webshare",
+    "ticker": "WEBSHAR",
+    "domain": "webshare.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_dropcontact_1a57c7",
+    "name": "Dropcontact",
+    "normName": "dropcontact",
+    "ticker": "DROPCONT",
+    "domain": "dropcontact.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_lessannoyingcrm_4a26c1",
+    "name": "Less Annoying CRM",
+    "normName": "lessannoyingcrm",
+    "ticker": "LACRMCO",
+    "domain": "lessannoyingcrm.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_folkcrm_7b15d2",
+    "name": "Folk CRM",
+    "normName": "folkcrm",
+    "ticker": "FOLKCRM",
+    "domain": "folk.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_neverbounce_4c57a5",
+    "name": "NeverBounce",
+    "normName": "neverbounce",
+    "ticker": "NVRBOUNC",
+    "domain": "neverbounce.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_zerobounce_3b68f6",
+    "name": "ZeroBounce",
+    "normName": "zerobounce",
+    "ticker": "ZEROBOUN",
+    "domain": "zerobounce.net",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_bouncer_2c45d3",
+    "name": "Bouncer",
+    "normName": "bouncer",
+    "ticker": "USEBOUNC",
+    "domain": "usebouncer.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_mailerlite_1b34e2",
+    "name": "MailerLite",
+    "normName": "mailerlite",
+    "ticker": "MLERLITE",
+    "domain": "mailerlite.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_emailengine_5a12c1",
+    "name": "EmailEngine",
+    "normName": "emailengine",
+    "ticker": "EMLENGIN",
+    "domain": "emailengine.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_sendy_3f54b2",
+    "name": "Sendy",
+    "normName": "sendy",
+    "ticker": "SENDYAPP",
+    "domain": "sendy.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_doist_9f43b1",
+    "name": "Doist",
+    "normName": "doist",
+    "ticker": "DOISTAPP",
+    "domain": "todoist.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_ticktick_8e32c1",
+    "name": "TickTick",
+    "normName": "ticktick",
+    "ticker": "TCKTICK",
+    "domain": "ticktick.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_things3_7d21b3",
+    "name": "Things 3",
+    "normName": "things3",
+    "ticker": "THINGS3",
+    "domain": "culturedcode.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_scrivener_4b12c3",
+    "name": "Scrivener",
+    "normName": "scrivener",
+    "ticker": "SCRIVNER",
+    "domain": "literatureandlatte.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_ulysses_3c23d1",
+    "name": "Ulysses",
+    "normName": "ulysses",
+    "ticker": "ULYSSES",
+    "domain": "ulysses.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_noteplan_2a34b2",
+    "name": "NotePlan",
+    "normName": "noteplan",
+    "ticker": "NOTEPLAN",
+    "domain": "noteplan.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_mullvad_1f45c2",
+    "name": "Mullvad VPN",
+    "normName": "mullvadvpn",
+    "ticker": "MULLVAD",
+    "domain": "mullvad.net",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_windscribe_8a23d4",
+    "name": "Windscribe",
+    "normName": "windscribe",
+    "ticker": "WNDSCRB",
+    "domain": "windscribe.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_kagi_6a32d1",
+    "name": "Kagi Search",
+    "normName": "kagisearch",
+    "ticker": "KAGISCH",
+    "domain": "kagi.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_duckduckgo_5f23e1",
+    "name": "DuckDuckGo",
+    "normName": "duckduckgo",
+    "ticker": "DUCKGO",
+    "domain": "duckduckgo.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_cleanemail_3b24d1",
+    "name": "Clean Email",
+    "normName": "cleanemail",
+    "ticker": "CLNEMAIL",
+    "domain": "clean.email",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_leavemealone_2a13b4",
+    "name": "Leave Me Alone",
+    "normName": "leavemealone",
+    "ticker": "LVMALONE",
+    "domain": "leavemealone.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_sanebox_9a12c4",
+    "name": "SaneBox",
+    "normName": "sanebox",
+    "ticker": "SANEBOX",
+    "domain": "sanebox.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_auphonic_6f12a2",
+    "name": "Auphonic",
+    "normName": "auphonic",
+    "ticker": "AUPHONIC",
+    "domain": "auphonic.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_cloudinary_5d13b2",
+    "name": "Cloudinary",
+    "normName": "cloudinary",
+    "ticker": "CLDNRYS",
+    "domain": "cloudinary.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_imgix_4c11b1",
+    "name": "Imgix",
+    "normName": "imgix",
+    "ticker": "IMGIXCDN",
+    "domain": "imgix.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_uploadcare_3e21a2",
+    "name": "Uploadcare",
+    "normName": "uploadcare",
+    "ticker": "UPLDCARE",
+    "domain": "uploadcare.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_junip_2d11b2",
+    "name": "Junip",
+    "normName": "junip",
+    "ticker": "JUNIPAPP",
+    "domain": "junip.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_omnisend_1c34a2",
+    "name": "Omnisend",
+    "normName": "omnisend",
+    "ticker": "OMNISEND",
+    "domain": "omnisend.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_gorgias_0b12a1",
+    "name": "Gorgias",
+    "normName": "gorgias",
+    "ticker": "GORGIAS",
+    "domain": "gorgias.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_recharge_8c12a1",
+    "name": "Recharge Payments",
+    "normName": "rechargepayments",
+    "ticker": "RCHRGPMT",
+    "domain": "rechargepayments.com",
+    "sector": "FINTECH_INFRA",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_triplewhale_7d11a1",
+    "name": "Triple Whale",
+    "normName": "triplewhale",
+    "ticker": "TRPLWHL",
+    "domain": "triplewhale.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_elevar_6c11a1",
+    "name": "Elevar",
+    "normName": "elevar",
+    "ticker": "ELEVARTR",
+    "domain": "getelevar.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_postscript_5b11a1",
+    "name": "Postscript",
+    "normName": "postscript",
+    "ticker": "PSTSCRPT",
+    "domain": "postscript.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_tidio_4a11b1",
+    "name": "Tidio",
+    "normName": "tidio",
+    "ticker": "TIDIOCHT",
+    "domain": "tidio.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_rows_1a11b1",
+    "name": "Rows.com",
+    "normName": "rows.com",
+    "ticker": "ROWSSHT",
+    "domain": "rows.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_equals_0a11b1",
+    "name": "Equals.com",
+    "normName": "equals.com",
+    "ticker": "EQUALSS",
+    "domain": "equals.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_gumlet_9f11a1",
+    "name": "Gumlet",
+    "normName": "gumlet",
+    "ticker": "GUMLETST",
+    "domain": "gumlet.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_heygen_8f11a1",
+    "name": "HeyGen",
+    "normName": "heygen",
+    "ticker": "HEYGENAI",
+    "domain": "heygen.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_synthesia_7f11a1",
+    "name": "Synthesia",
+    "normName": "synthesia",
+    "ticker": "SYNTHSIA",
+    "domain": "synthesia.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_did_6e11a1",
+    "name": "D-ID",
+    "normName": "did",
+    "ticker": "DIDVIDEO",
+    "domain": "d-id.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_murfai_5e11a1",
+    "name": "Murf.ai",
+    "normName": "murf.ai",
+    "ticker": "MURFAIVO",
+    "domain": "murf.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_playht_4d11a1",
+    "name": "Play.ht",
+    "normName": "play.ht",
+    "ticker": "PLAYHTAI",
+    "domain": "play.ht",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_wandb_9f41b2",
+    "name": "Weights & Biases",
+    "normName": "weights&biases",
+    "ticker": "WANDBML",
+    "domain": "wandb.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_kaiber_2c41d9",
+    "name": "Kaiber",
+    "normName": "kaiber",
+    "ticker": "KAIBERAI",
+    "domain": "kaiber.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_pika_3d52e1",
+    "name": "Pika Labs",
+    "normName": "pikalabs",
+    "ticker": "PIKALABS",
+    "domain": "pika.art",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_luma_4e63f2",
+    "name": "Luma AI",
+    "normName": "lumaai",
+    "ticker": "LUMAAI3D",
+    "domain": "lumalabs.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_novelai_5f74a3",
+    "name": "NovelAI",
+    "normName": "novelai",
+    "ticker": "NOVELAIT",
+    "domain": "novelai.net",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_langsmith_6a85b4",
+    "name": "LangSmith",
+    "normName": "langsmith",
+    "ticker": "LANGSMTH",
+    "domain": "smith.langchain.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_crushon_7b96c5",
+    "name": "CrushOn.AI",
+    "normName": "crushon.ai",
+    "ticker": "CRUSHON",
+    "domain": "crushon.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_janitor_8c07d6",
+    "name": "JanitorAI",
+    "normName": "janitorai",
+    "ticker": "JANITOR",
+    "domain": "janitorai.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_portkey_9d18e7",
+    "name": "Portkey.ai",
+    "normName": "portkey.ai",
+    "ticker": "PORTKEY",
+    "domain": "portkey.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_humanloop_0e29f8",
+    "name": "Humanloop",
+    "normName": "humanloop",
+    "ticker": "HMNLOOP",
+    "domain": "humanloop.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_promptlayer_1f30a9",
+    "name": "Promptlayer",
+    "normName": "promptlayer",
+    "ticker": "PRMPTLAY",
+    "domain": "promptlayer.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_together_2a41b0",
+    "name": "Together AI",
+    "normName": "togetherai",
+    "ticker": "TOGTHRAI",
+    "domain": "together.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_fireworks_3b52c1",
+    "name": "Fireworks AI",
+    "normName": "fireworksai",
+    "ticker": "FIREWRKS",
+    "domain": "fireworks.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_salad_4c63d2",
+    "name": "Salad Cloud",
+    "normName": "saladcloud",
+    "ticker": "SALADCLD",
+    "domain": "salad.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_codeium_5d74e3",
+    "name": "Codeium",
+    "normName": "codeium",
+    "ticker": "CODEIUM",
+    "domain": "codeium.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_hareruya_6e85f4",
+    "name": "晴れる屋",
+    "normName": "晴れる屋",
+    "ticker": "HARERUYA",
+    "domain": "hareruyamtg.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_otakaraya_7f96a5",
+    "name": "おたからや",
+    "normName": "おたからや",
+    "ticker": "OTAKARAY",
+    "domain": "otakaraya.jp",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_surugaya_8a07b6",
+    "name": "駿河屋",
+    "normName": "駿河屋",
+    "ticker": "SURUGAYA",
+    "domain": "suruga-ya.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_snkrdunk_9b18c7",
+    "name": "スニダン",
+    "normName": "スニダン",
+    "ticker": "SNKRDUNK",
+    "domain": "snkrdunk.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_sumamly_0c29d8",
+    "name": "サマリーポケット",
+    "normName": "サマリーポケット",
+    "ticker": "SUMMALYP",
+    "domain": "pocket.summally.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_board_1d30e9",
+    "name": "Board",
+    "normName": "board",
+    "ticker": "BOARDBIL",
+    "domain": "the-board.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_kibela_3f52a1",
+    "name": "Kibela",
+    "normName": "kibela",
+    "ticker": "KIBELAW",
+    "domain": "kibe.la",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_dlsite_4a63b2",
+    "name": "DLsite",
+    "normName": "dlsite",
+    "ticker": "DLSITEPL",
+    "domain": "dlsite.com",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_fanbox_5b74c3",
+    "name": "FANBOX",
+    "normName": "fanbox",
+    "ticker": "FANBOXPX",
+    "domain": "fanbox.cc",
+    "sector": "LOCAL_SERVICES",
+    "status": "REPORTED",
+    "batchId": "batch_analyst_20260916_exact100"
+  },
+  {
+    "id": "ent_zededit_8b129f10",
+    "name": "Zed Editor",
+    "normName": "zededitor",
+    "ticker": "ZEDEDIT",
+    "domain": "zed.dev",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_towrgit_462d8992",
+    "name": "Tower Git Client",
+    "normName": "towergitclient",
+    "ticker": "TOWRGIT",
+    "domain": "git-tower.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_meducom_2e7a1418",
+    "name": "Medusa.js",
+    "normName": "medusa.js",
+    "ticker": "MEDUCOM",
+    "domain": "medusajs.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_srldbs_76a2fcda",
+    "name": "SurrealDB",
+    "normName": "surrealdb",
+    "ticker": "SRLDBS",
+    "domain": "surrealdb.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_melisrh_fb594691",
+    "name": "Meilisearch",
+    "normName": "meilisearch",
+    "ticker": "MELISRH",
+    "domain": "meilisearch.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_miniost_9e0594a8",
+    "name": "MinIO",
+    "normName": "minio",
+    "ticker": "MINIOST",
+    "domain": "min.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_lclstck_78559c35",
+    "name": "LocalStack",
+    "normName": "localstack",
+    "ticker": "LCLSTCK",
+    "domain": "localstack.cloud",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_ngrokhq_9f45a8df",
+    "name": "Ngrok",
+    "normName": "ngrok",
+    "ticker": "NGROKHQ",
+    "domain": "ngrok.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_zerotier_0098642d",
+    "name": "ZeroTier",
+    "normName": "zerotier",
+    "ticker": "ZEROTIER",
+    "domain": "zerotier.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_headscal_70194a0e",
+    "name": "Headscale",
+    "normName": "headscale",
+    "ticker": "HEADSCAL",
+    "domain": "github.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_twngate_10f98366",
+    "name": "Twingate",
+    "normName": "twingate",
+    "ticker": "TWNGATE",
+    "domain": "twingate.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_mailgun_87096814",
+    "name": "Mailgun",
+    "normName": "mailgun",
+    "ticker": "MAILGUN",
+    "domain": "mailgun.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_emljsap_421e8351",
+    "name": "EmailJS",
+    "normName": "emailjs",
+    "ticker": "EMLJSAP",
+    "domain": "emailjs.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_updowni_bc0277ab",
+    "name": "Updown.io",
+    "normName": "updown.io",
+    "ticker": "UPDOWNI",
+    "domain": "updown.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_flrapph_01d5e738",
+    "name": "FlareApp",
+    "normName": "flareapp",
+    "ticker": "FLRAPPH",
+    "domain": "flareapp.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_bugsnag_6f687186",
+    "name": "Bugsnag",
+    "normName": "bugsnag",
+    "ticker": "BUGSNAG",
+    "domain": "bugsnag.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_appsgnl_a3d26202",
+    "name": "AppSignal",
+    "normName": "appsignal",
+    "ticker": "APPSGNL",
+    "domain": "appsignal.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_tideways_01f0b6c9",
+    "name": "Tideways",
+    "normName": "tideways",
+    "ticker": "TIDEWAYS",
+    "domain": "tideways.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_dscopehq_f5a0db5f",
+    "name": "Descope",
+    "normName": "descope",
+    "ticker": "DSCOPEHQ",
+    "domain": "descope.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_orycorp_ec0a0c33",
+    "name": "Ory",
+    "normName": "ory",
+    "ticker": "ORYCORP",
+    "domain": "ory.sh",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_fsnauth_b2f26ee1",
+    "name": "FusionAuth",
+    "normName": "fusionauth",
+    "ticker": "FSNAUTH",
+    "domain": "fusionauth.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_frntegg_41f044c9",
+    "name": "Frontegg",
+    "normName": "frontegg",
+    "ticker": "FRNTEGG",
+    "domain": "frontegg.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_boxyhqap_3e79fe19",
+    "name": "BoxyHQ",
+    "normName": "boxyhq",
+    "ticker": "BOXYHQAP",
+    "domain": "boxyhq.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_casdoor_1c0a6937",
+    "name": "Casdoor",
+    "normName": "casdoor",
+    "ticker": "CASDOOR",
+    "domain": "casdoor.org",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_hankoauth_18231e3f",
+    "name": "Hanko",
+    "normName": "hanko",
+    "ticker": "HANKOAUTH",
+    "domain": "hanko.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_doodlehq_2bfc09e3",
+    "name": "Doodle",
+    "normName": "doodle",
+    "ticker": "DOODLEHQ",
+    "domain": "doodle.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_ycbmschd_dc6119c5",
+    "name": "YouCanBook.me",
+    "normName": "youcanbook.me",
+    "ticker": "YCBMSCHD",
+    "domain": "youcanbook.me",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_acutschd_3d06fcd1",
+    "name": "Acuity Scheduling",
+    "normName": "acuityscheduling",
+    "ticker": "ACUTSCHD",
+    "domain": "acuityscheduling.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_oncehubh_31a6a81f",
+    "name": "OnceHub",
+    "normName": "oncehub",
+    "ticker": "ONCEHUBH",
+    "domain": "oncehub.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_tidycala_0021e35e",
+    "name": "TidyCal",
+    "normName": "tidycal",
+    "ticker": "TIDYCALA",
+    "domain": "tidycal.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_koalndar_27f24eb5",
+    "name": "Koalendar",
+    "normName": "koalendar",
+    "ticker": "KOALNDAR",
+    "domain": "koalendar.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_smplbook_3f2c2213",
+    "name": "SimplyBook.me",
+    "normName": "simplybook.me",
+    "ticker": "SMPLBOOK",
+    "domain": "simplybook.me",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_apntletq_9684e57c",
+    "name": "Appointlet",
+    "normName": "appointlet",
+    "ticker": "APNTLETQ",
+    "domain": "appointlet.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_setmoreh_4a908e43",
+    "name": "Setmore",
+    "normName": "setmore",
+    "ticker": "SETMOREH",
+    "domain": "setmore.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_rplyiohq_6da94316",
+    "name": "Reply.io",
+    "normName": "reply.io",
+    "ticker": "RPLYIOHQ",
+    "domain": "reply.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_klentyhq_38736c4c",
+    "name": "Klenty",
+    "normName": "klenty",
+    "ticker": "KLENTYHQ",
+    "domain": "klenty.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_slshndy_037739c1",
+    "name": "Saleshandy",
+    "normName": "saleshandy",
+    "ticker": "SLSHNDY",
+    "domain": "saleshandy.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_mixmaxhq_a42906b8",
+    "name": "Mixmax",
+    "normName": "mixmax",
+    "ticker": "MIXMAXHQ",
+    "domain": "mixmax.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_yesware_5f868a7d",
+    "name": "Yesware",
+    "normName": "yesware",
+    "ticker": "YESWARE",
+    "domain": "yesware.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_clrbithq_86349018",
+    "name": "Clearbit",
+    "normName": "clearbit",
+    "ticker": "CLRBITHQ",
+    "domain": "clearbit.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_prxycurl_2e81240f",
+    "name": "Proxycurl",
+    "normName": "proxycurl",
+    "ticker": "PRXYCURL",
+    "domain": "nubela.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_coresgnl_95faf0d3",
+    "name": "CoreSignal",
+    "normName": "coresignal",
+    "ticker": "CORESGNL",
+    "domain": "coresignal.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_bltwith_1cde7656",
+    "name": "BuiltWith",
+    "normName": "builtwith",
+    "ticker": "BLTWITH",
+    "domain": "builtwith.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_wapplyzr_01fd6d4f",
+    "name": "Wappalyzer",
+    "normName": "wappalyzer",
+    "ticker": "WAPPLYZR",
+    "domain": "wappalyzer.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_serpstat_219e6f76",
+    "name": "Serpstat",
+    "normName": "serpstat",
+    "ticker": "SERPSTAT",
+    "domain": "serpstat.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_ubersgst_017e627e",
+    "name": "Ubersuggest",
+    "normName": "ubersuggest",
+    "ticker": "UBERSGST",
+    "domain": "neilpatel.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_kywdtool_c148fe10",
+    "name": "KeywordTool.io",
+    "normName": "keywordtool.io",
+    "ticker": "KYWDTOOL",
+    "domain": "keywordtool.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_answpubl_1f21cfe2",
+    "name": "AnswerThePublic",
+    "normName": "answerthepublic",
+    "ticker": "ANSWPUBL",
+    "domain": "answerthepublic.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_expltpcs_11542dc1",
+    "name": "Exploding Topics",
+    "normName": "explodingtopics",
+    "ticker": "EXPLTPCS",
+    "domain": "explodingtopics.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_trndsvcq_4f8b8a49",
+    "name": "Trends.vc",
+    "normName": "trends.vc",
+    "ticker": "TRNDSVCQ",
+    "domain": "trends.vc",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_pastebot_b29d3a13",
+    "name": "Pastebot",
+    "normName": "pastebot",
+    "ticker": "PASTEBOT",
+    "domain": "tapbots.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_monosnap_3d229afd",
+    "name": "Monosnap",
+    "normName": "monosnap",
+    "ticker": "MONOSNAP",
+    "domain": "monosnap.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_moomwind_11f19266",
+    "name": "Moom",
+    "normName": "moom",
+    "ticker": "MOOMWIND",
+    "domain": "manytricks.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_lassomac_4cc41911",
+    "name": "Lasso Mac",
+    "normName": "lassomac",
+    "ticker": "LASSOMAC",
+    "domain": "thelasso.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_suprdupr_33aafe58",
+    "name": "SuperDuper!",
+    "normName": "superduper!",
+    "ticker": "SUPRDUPR",
+    "domain": "shirt-pocket.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_macktrck_c419422b",
+    "name": "MacTracker",
+    "normName": "mactracker",
+    "ticker": "MACKTRCK",
+    "domain": "mactracker.ca",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_amphetam_c0620433",
+    "name": "Amphetamine Mac",
+    "normName": "amphetaminemac",
+    "ticker": "AMPHETAM",
+    "domain": "apps.apple.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_aldnteap_cfb75ce0",
+    "name": "AlDente Mac",
+    "normName": "aldentemac",
+    "ticker": "ALDNTEAP",
+    "domain": "apphousekitchen.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_loopback_16cfe619",
+    "name": "Loopback",
+    "normName": "loopback",
+    "ticker": "LOOPBACK",
+    "domain": "rogueamoeba.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_pixlmatr_aad0b8bd",
+    "name": "Pixelmator Pro",
+    "normName": "pixelmatorpro",
+    "ticker": "PIXLMATR",
+    "domain": "pixelmator.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_acrnimag_477d2a30",
+    "name": "Acorn Image Editor",
+    "normName": "acornimageeditor",
+    "ticker": "ACRNIMAG",
+    "domain": "flyingmeat.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_affndsgn_704c3810",
+    "name": "Affinity Designer",
+    "normName": "affinitydesigner",
+    "ticker": "AFFNDSGN",
+    "domain": "affinity.serif.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_linrcurv_8d06c038",
+    "name": "Linearity Curve",
+    "normName": "linearitycurve",
+    "ticker": "LINRCURV",
+    "domain": "linearity.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_cardhoph_bd4fe88d",
+    "name": "Cardhop",
+    "normName": "cardhop",
+    "ticker": "CARDHOPH",
+    "domain": "flexibits.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_busycalh_ca575182",
+    "name": "BusyCal",
+    "normName": "busycal",
+    "ticker": "BUSYCALH",
+    "domain": "busymac.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_agendaap_1b649c51",
+    "name": "Agenda App",
+    "normName": "agendaapp",
+    "ticker": "AGENDAAP",
+    "domain": "agenda.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_amplnote_fb634f68",
+    "name": "Amplenote",
+    "normName": "amplenote",
+    "ticker": "AMPLNOTE",
+    "domain": "amplenote.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_vctraihq_a5cc8b99",
+    "name": "Vectorizer.ai",
+    "normName": "vectorizer.ai",
+    "ticker": "VCTRAIHQ",
+    "domain": "vectorizer.ai",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_vctrmgic_42b9c7bc",
+    "name": "Vector Magic",
+    "normName": "vectormagic",
+    "ticker": "VCTRMGIC",
+    "domain": "vectormagic.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_rcrftaiq_4a580c68",
+    "name": "Recraft.ai",
+    "normName": "recraft.ai",
+    "ticker": "RCRFTAIQ",
+    "domain": "recraft.ai",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_brndmark_d1f991ff",
+    "name": "Brandmark.io",
+    "normName": "brandmark.io",
+    "ticker": "BRNDMARK",
+    "domain": "brandmark.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_lookahqg_987abd5c",
+    "name": "Looka",
+    "normName": "looka",
+    "ticker": "LOOKAHQG",
+    "domain": "looka.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_trntsyst_ed5accbb",
+    "name": "Trint",
+    "normName": "trint",
+    "ticker": "TRNTSYST",
+    "domain": "trint.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_sonxaitr_e25138e5",
+    "name": "Sonix.ai",
+    "normName": "sonix.ai",
+    "ticker": "SONXAITR",
+    "domain": "sonix.ai",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_wellsaid_3b6facf9",
+    "name": "WellSaid Labs",
+    "normName": "wellsaidlabs",
+    "ticker": "WELLSAID",
+    "domain": "wellsaidlabs.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_clipdrop_3d01d00f",
+    "name": "Clipdrop",
+    "normName": "clipdrop",
+    "ticker": "CLIPDROP",
+    "domain": "clipdrop.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_remvbgco_5a0de6df",
+    "name": "Remove.bg",
+    "normName": "remove.bg",
+    "ticker": "REMVBGCO",
+    "domain": "remove.bg",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_slazzerq_253fdbd4",
+    "name": "Slazzer",
+    "normName": "slazzer",
+    "ticker": "SLAZZERQ",
+    "domain": "slazzer.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_nghtcafe_6d8d14a0",
+    "name": "NightCafe",
+    "normName": "nightcafe",
+    "ticker": "NGHTCAFE",
+    "domain": "nightcafe.studio",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_octopars_d57b6b49",
+    "name": "Octoparse",
+    "normName": "octoparse",
+    "ticker": "OCTOPARS",
+    "domain": "octoparse.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_parsehub_930654e9",
+    "name": "ParseHub",
+    "normName": "parsehub",
+    "ticker": "PARSEHUB",
+    "domain": "parsehub.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_diffbotq_b1190a91",
+    "name": "Diffbot",
+    "normName": "diffbot",
+    "ticker": "DIFFBOTQ",
+    "domain": "diffbot.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_roborbbt_d82e5345",
+    "name": "RoboRabbit",
+    "normName": "roborabbit",
+    "ticker": "ROBORBBT",
+    "domain": "roborabbit.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_smplscrp_fc461af3",
+    "name": "Simplescraper",
+    "normName": "simplescraper",
+    "ticker": "SMPLSCRP",
+    "domain": "simplescraper.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_cptndata_d2637182",
+    "name": "Captain Data",
+    "normName": "captaindata",
+    "ticker": "CPTNDATA",
+    "domain": "captaindata.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_phtmbstr_9149f298",
+    "name": "Phantombuster",
+    "normName": "phantombuster",
+    "ticker": "PHTMBSTR",
+    "domain": "phantombuster.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_texauhq_a9ac2d48",
+    "name": "TexAu",
+    "normName": "texau",
+    "ticker": "TEXAUHQ",
+    "domain": "texau.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_misocajp_e442c4bb",
+    "name": "Misoca",
+    "normName": "misoca",
+    "ticker": "MISOCAJP",
+    "domain": "misoca.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_makeleap_d38d5247",
+    "name": "MakeLeaps",
+    "normName": "makeleaps",
+    "ticker": "MAKELEAP",
+    "domain": "makeleaps.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_flirbook_77c50962",
+    "name": "flier (フライヤー)",
+    "normName": "flierフライヤー",
+    "ticker": "FLIRBOOK",
+    "domain": "flierinc.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_skebartj_44592dc0",
+    "name": "Skeb",
+    "normName": "skeb",
+    "ticker": "SKEBARTJ",
+    "domain": "skeb.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_fantiajp_4bd02356",
+    "name": "Fantia",
+    "normName": "fantia",
+    "ticker": "FANTIAJP",
+    "domain": "fantia.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_clean_winners_100_20260916"
+  },
+  {
+    "id": "ent_scrapingdog_4a1b8c",
+    "name": "Scrapingdog",
+    "normName": "scrapingdog",
+    "ticker": "SCRPDOG",
+    "domain": "scrapingdog.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_zenrows_9f3d1a",
+    "name": "ZenRows",
+    "normName": "zenrows",
+    "ticker": "ZENROWS",
+    "domain": "zenrows.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_docraptor_7c4a92",
+    "name": "DocRaptor",
+    "normName": "docraptor",
+    "ticker": "DOCRAPTR",
+    "domain": "docraptor.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_pdfshift_5e1f03",
+    "name": "PDFShift",
+    "normName": "pdfshift",
+    "ticker": "PDFSHIFT",
+    "domain": "pdfshift.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_api2pdf_2a9d64",
+    "name": "Api2Pdf",
+    "normName": "api2pdf",
+    "ticker": "API2PDF",
+    "domain": "api2pdf.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_placid_6f0e4b",
+    "name": "Placid",
+    "normName": "placid",
+    "ticker": "PLACID",
+    "domain": "placid.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_abyssale_8c3f15",
+    "name": "Abyssale",
+    "normName": "abyssale",
+    "ticker": "ABYSSALE",
+    "domain": "abyssale.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_robolly_1d7a8e",
+    "name": "Robolly",
+    "normName": "robolly",
+    "ticker": "ROBOLLY",
+    "domain": "robolly.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_apitemplateio_5f9b23",
+    "name": "APITemplate.io",
+    "normName": "apitemplate.io",
+    "ticker": "APITMPL",
+    "domain": "apitemplate.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_formspree_3d9c81",
+    "name": "Formspree",
+    "normName": "formspree",
+    "ticker": "FRMSPREE",
+    "domain": "formspree.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_formspark_4a8b72",
+    "name": "Formspark",
+    "normName": "formspark",
+    "ticker": "FRMSPRK",
+    "domain": "formspark.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_kwesforms_9e2d14",
+    "name": "KwesForms",
+    "normName": "kwesforms",
+    "ticker": "KWESFRM",
+    "domain": "kwesforms.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_cronhub_7d2e05",
+    "name": "CronHub",
+    "normName": "cronhub",
+    "ticker": "CRONHUB",
+    "domain": "cronhub.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_pirschanalytics_8a4f32",
+    "name": "Pirsch Analytics",
+    "normName": "pirschanalytics",
+    "ticker": "PIRSCH",
+    "domain": "pirsch.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_swetrix_1a7e93",
+    "name": "Swetrix",
+    "normName": "swetrix",
+    "ticker": "SWETRIX",
+    "domain": "swetrix.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_aptabase_3f8a61",
+    "name": "Aptabase",
+    "normName": "aptabase",
+    "ticker": "APTABAS",
+    "domain": "aptabase.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_goatcounter_5d2b70",
+    "name": "GoatCounter",
+    "normName": "goatcounter",
+    "ticker": "GOATCNT",
+    "domain": "goatcounter.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_telemetrydeck_4e9b82",
+    "name": "TelemetryDeck",
+    "normName": "telemetrydeck",
+    "ticker": "TLMTRDCK",
+    "domain": "telemetrydeck.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_juneso_7f2a1b",
+    "name": "June.so",
+    "normName": "june.so",
+    "ticker": "JUNESOF",
+    "domain": "june.so",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_logsnag_2e9c40",
+    "name": "LogSnag",
+    "normName": "logsnag",
+    "ticker": "LOGSNAG",
+    "domain": "logsnag.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_statuspal_9b4e13",
+    "name": "Statuspal",
+    "normName": "statuspal",
+    "ticker": "STATUSPAL",
+    "domain": "statuspal.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_pulsetic_3b7a54",
+    "name": "Pulsetic",
+    "normName": "pulsetic",
+    "ticker": "PULSETIC",
+    "domain": "pulsetic.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_postmark_5c8e21",
+    "name": "Postmark",
+    "normName": "postmark",
+    "ticker": "POSTMARK",
+    "domain": "postmarkapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_mailtrap_4d1a90",
+    "name": "Mailtrap",
+    "normName": "mailtrap",
+    "ticker": "MAILTRAP",
+    "domain": "mailtrap.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_sendpulse_3f7b19",
+    "name": "SendPulse",
+    "normName": "sendpulse",
+    "ticker": "SNDPULS",
+    "domain": "sendpulse.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_mailosaur_9c3a81",
+    "name": "Mailosaur",
+    "normName": "mailosaur",
+    "ticker": "MAILOSAR",
+    "domain": "mailosaur.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_seranking_7a2b91",
+    "name": "SE Ranking",
+    "normName": "seranking",
+    "ticker": "SERANK",
+    "domain": "seranking.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_alsoasked_8e1d42",
+    "name": "AlsoAsked",
+    "normName": "alsoasked",
+    "ticker": "ALSOASK",
+    "domain": "alsoasked.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_keywordinsights_5b9e83",
+    "name": "Keyword Insights",
+    "normName": "keywordinsights",
+    "ticker": "KWINSGHT",
+    "domain": "keywordinsights.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_scalenut_6f8b12",
+    "name": "Scalenut",
+    "normName": "scalenut",
+    "ticker": "SCALENUT",
+    "domain": "scalenut.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_fraseio_4c1e95",
+    "name": "Frase.io",
+    "normName": "frase.io",
+    "ticker": "FRASEIO",
+    "domain": "frase.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_meetedgar_7d3b01",
+    "name": "MeetEdgar",
+    "normName": "meetedgar",
+    "ticker": "MEETEDGR",
+    "domain": "meetedgar.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_socialbee_1a9f82",
+    "name": "SocialBee",
+    "normName": "socialbee",
+    "ticker": "SOCLBEE",
+    "domain": "socialbee.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_planoly_3e7a14",
+    "name": "Planoly",
+    "normName": "planoly",
+    "ticker": "PLANOLY",
+    "domain": "planoly.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_postfity_4f2b90",
+    "name": "Postfity",
+    "normName": "postfity",
+    "ticker": "POSTFITY",
+    "domain": "postfity.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_circleboom_5d1a83",
+    "name": "Circleboom",
+    "normName": "circleboom",
+    "ticker": "CRCLBOOM",
+    "domain": "circleboom.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_oneup_3e9a12",
+    "name": "OneUp",
+    "normName": "oneup",
+    "ticker": "ONEUPAPP",
+    "domain": "oneupapp.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_pallyy_5d2a93",
+    "name": "Pallyy",
+    "normName": "pallyy",
+    "ticker": "PALLYY",
+    "domain": "pallyy.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_vistasocial_9a4f21",
+    "name": "Vista Social",
+    "normName": "vistasocial",
+    "ticker": "VSTSOCL",
+    "domain": "vistasocial.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_simplecast_4b8e10",
+    "name": "Simplecast",
+    "normName": "simplecast",
+    "ticker": "SMPLCST",
+    "domain": "simplecast.com",
+    "sector": "CONTENT_MEDIA",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_otterai_7c2b19",
+    "name": "Otter.ai",
+    "normName": "otter.ai",
+    "ticker": "OTTERAI",
+    "domain": "otter.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_firefliesai_4a9b81",
+    "name": "Fireflies.ai",
+    "normName": "fireflies.ai",
+    "ticker": "FIREFLYS",
+    "domain": "fireflies.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_supernormal_2b9a71",
+    "name": "Supernormal",
+    "normName": "supernormal",
+    "ticker": "SPRNRML",
+    "domain": "supernormal.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_tldv_3a8c19",
+    "name": "TL;DV",
+    "normName": "tl;dv",
+    "ticker": "TLDVMEET",
+    "domain": "tldv.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_krisp_1b9d40",
+    "name": "Krisp",
+    "normName": "krisp",
+    "ticker": "KRISPAI",
+    "domain": "krisp.ai",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_tactiq_8a2e19",
+    "name": "Tactiq",
+    "normName": "tactiq",
+    "ticker": "TACTIQ",
+    "domain": "tactiq.io",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_bluedot_3f9b12",
+    "name": "Bluedot",
+    "normName": "bluedot",
+    "ticker": "BLUEDOT",
+    "domain": "bluedothq.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_colossyan_4c8a91",
+    "name": "Colossyan",
+    "normName": "colossyan",
+    "ticker": "COLOSSYN",
+    "domain": "colossyan.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_sudowrite_7e2b10",
+    "name": "Sudowrite",
+    "normName": "sudowrite",
+    "ticker": "SUDOWRT",
+    "domain": "sudowrite.com",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_lexpage_2a8e10",
+    "name": "Lex.page",
+    "normName": "lex.page",
+    "ticker": "LEXPAGE",
+    "domain": "lex.page",
+    "sector": "AI_AUTOMATION",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_gitkraken_9f1a23",
+    "name": "GitKraken",
+    "normName": "gitkraken",
+    "ticker": "GITKRKN",
+    "domain": "gitkraken.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_beyondcompare_7c1b82",
+    "name": "Beyond Compare",
+    "normName": "beyondcompare",
+    "ticker": "BYNDCMP",
+    "domain": "scootersoftware.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_sublimetext_4b9a10",
+    "name": "Sublime Text",
+    "normName": "sublimetext",
+    "ticker": "SUBLMTXT",
+    "domain": "sublimetext.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_transmit_3f2a89",
+    "name": "Transmit",
+    "normName": "transmit",
+    "ticker": "TRNSMIT",
+    "domain": "panic.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_hoppscotch_1a8e94",
+    "name": "Hoppscotch",
+    "normName": "hoppscotch",
+    "ticker": "HOPPSCOT",
+    "domain": "hoppscotch.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_yaak_2e7b91",
+    "name": "Yaak",
+    "normName": "yaak",
+    "ticker": "YAAKREST",
+    "domain": "yaak.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_rectanglepro_8f2a10",
+    "name": "Rectangle Pro",
+    "normName": "rectanglepro",
+    "ticker": "RECTPRO",
+    "domain": "rectangleapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_swishmac_3d8b19",
+    "name": "Swish Mac",
+    "normName": "swishmac",
+    "ticker": "SWISHMAC",
+    "domain": "highlyconfigurable.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_dropshare_4c9b10",
+    "name": "Dropshare",
+    "normName": "dropshare",
+    "ticker": "DROPSHAR",
+    "domain": "dropshare.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_littlesnitch_8a2e10",
+    "name": "Little Snitch",
+    "normName": "littlesnitch",
+    "ticker": "LTLSNITCH",
+    "domain": "obdev.at",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_devonthink_4f1a89",
+    "name": "DEVONthink",
+    "normName": "devonthink",
+    "ticker": "DEVONTHK",
+    "domain": "devontechnologies.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_hazel_6b9a21",
+    "name": "Hazel",
+    "normName": "hazel",
+    "ticker": "HAZELMAC",
+    "domain": "noodlesoft.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_defaultfolderx_4f1b82",
+    "name": "Default Folder X",
+    "normName": "defaultfolderx",
+    "ticker": "DEFFLDRX",
+    "domain": "stclairsoft.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_carboncopycloner_2b8a19",
+    "name": "Carbon Copy Cloner",
+    "normName": "carboncopycloner",
+    "ticker": "CCCBKP",
+    "domain": "bombich.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_arqbackup_5f1a90",
+    "name": "Arq Backup",
+    "normName": "arqbackup",
+    "ticker": "ARQBKP",
+    "domain": "arqbackup.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_keyboardmaestro_8c1b90",
+    "name": "Keyboard Maestro",
+    "normName": "keyboardmaestro",
+    "ticker": "KEYBMAES",
+    "domain": "keyboardmaestro.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_readwise_8e2b10",
+    "name": "Readwise",
+    "normName": "readwise",
+    "ticker": "READWISE",
+    "domain": "readwise.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_wpallimport_6b2e19",
+    "name": "WP All Import",
+    "normName": "wpallimport",
+    "ticker": "WPALLIMP",
+    "domain": "wpallimport.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_gravityforms_7a1e94",
+    "name": "Gravity Forms",
+    "normName": "gravityforms",
+    "ticker": "GRVFORMS",
+    "domain": "gravityforms.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_ninjaforms_8b2a19",
+    "name": "Ninja Forms",
+    "normName": "ninjaforms",
+    "ticker": "NINJAFRM",
+    "domain": "ninjaforms.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_formidableforms_4c9e10",
+    "name": "Formidable Forms",
+    "normName": "formidableforms",
+    "ticker": "FRMIDABL",
+    "domain": "formidableforms.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_memberpress_8b1a90",
+    "name": "MemberPress",
+    "normName": "memberpress",
+    "ticker": "MBRPRESS",
+    "domain": "memberpress.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_paidmembershipspro_3f9b10",
+    "name": "Paid Memberships Pro",
+    "normName": "paidmembershipspro",
+    "ticker": "PMPROX",
+    "domain": "paidmembershipspro.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_cartflows_5f1a82",
+    "name": "CartFlows",
+    "normName": "cartflows",
+    "ticker": "CARTFLOW",
+    "domain": "cartflows.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_bricksbuilder_4e1a82",
+    "name": "Bricks Builder",
+    "normName": "bricksbuilder",
+    "ticker": "BRICKSBL",
+    "domain": "bricksbuilder.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_complianz_3b9e10",
+    "name": "Complianz",
+    "normName": "complianz",
+    "ticker": "CMPLIANZ",
+    "domain": "complianz.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_reallysimplessl_2a9e10",
+    "name": "Really Simple SSL",
+    "normName": "reallysimplessl",
+    "ticker": "RSSSLX",
+    "domain": "really-simple-ssl.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_fluentcrm_7c1e82",
+    "name": "FluentCRM",
+    "normName": "fluentcrm",
+    "ticker": "FLUENTCRM",
+    "domain": "fluentcrm.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_pagefly_3f8b90",
+    "name": "PageFly",
+    "normName": "pagefly",
+    "ticker": "PAGEFLY",
+    "domain": "pagefly.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_gempages_8f1b10",
+    "name": "GemPages",
+    "normName": "gempages",
+    "ticker": "GEMPAGES",
+    "domain": "gempages.net",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_privy_2b1e94",
+    "name": "Privy",
+    "normName": "privy",
+    "ticker": "PRIVYAPP",
+    "domain": "privy.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_keepa_4a9b19",
+    "name": "Keepa",
+    "normName": "keepa",
+    "ticker": "KEEPACOM",
+    "domain": "keepa.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_helium10_9a1e82",
+    "name": "Helium 10",
+    "normName": "helium10",
+    "ticker": "HELIUM10",
+    "domain": "helium10.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_tacticalarbitrage_3f1a89",
+    "name": "Tactical Arbitrage",
+    "normName": "tacticalarbitrage",
+    "ticker": "TACTARB",
+    "domain": "tacticalarbitrage.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_ipdata_7b1a92",
+    "name": "Ipdata",
+    "normName": "ipdata",
+    "ticker": "IPDATACO",
+    "domain": "ipdata.co",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_ipinfo_5c2b19",
+    "name": "IPinfo",
+    "normName": "ipinfo",
+    "ticker": "IPINFOIO",
+    "domain": "ipinfo.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_quadlock_3a9e10",
+    "name": "Quad Lock",
+    "normName": "quadlock",
+    "ticker": "QUADLOCK",
+    "domain": "quadlockcase.com",
+    "sector": "PHYSICAL_ASSET",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_toyokumo_4058t",
+    "name": "トヨクモ",
+    "normName": "トヨクモ",
+    "ticker": "4058TX",
+    "domain": "toyokumo.co.jp",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_100_20260916"
+  },
+  {
+    "id": "ent_soulver_8829a1",
+    "name": "Soulver",
+    "normName": "soulver",
+    "ticker": "SOULVERM",
+    "domain": "soulver.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_kaleidoscope_9918ba",
+    "name": "Kaleidoscope",
+    "normName": "kaleidoscope",
+    "ticker": "KALEIDOS",
+    "domain": "kaleidoscope.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_deltawalker_3318ba",
+    "name": "DeltaWalker",
+    "normName": "deltawalker",
+    "ticker": "DLTAWLKR",
+    "domain": "deltawalker.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_sublimemerge_4418ba",
+    "name": "Sublime Merge",
+    "normName": "sublimemerge",
+    "ticker": "SBLMMERG",
+    "domain": "sublimemerge.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_smartgit_5518ba",
+    "name": "SmartGit",
+    "normName": "smartgit",
+    "ticker": "SMARTGIT",
+    "domain": "syntevo.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_forklift_7718ba",
+    "name": "ForkLift",
+    "normName": "forklift",
+    "ticker": "FORKLIFT",
+    "domain": "binarynights.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_pathfinder_3318ba",
+    "name": "Path Finder",
+    "normName": "pathfinder",
+    "ticker": "PATHFNDR",
+    "domain": "cocoatech.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_commanderone_5518ba",
+    "name": "Commander One",
+    "normName": "commanderone",
+    "ticker": "CMNDRONE",
+    "domain": "mac.eltima.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_menubarx_8818ba",
+    "name": "MenubarX",
+    "normName": "menubarx",
+    "ticker": "MENUBARX",
+    "domain": "menubarx.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_localsend_9918ba",
+    "name": "LocalSend",
+    "normName": "localsend",
+    "ticker": "LOCALSND",
+    "domain": "localsend.org",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_alttab_8818ba",
+    "name": "AltTab",
+    "normName": "alttab",
+    "ticker": "ALTTABMC",
+    "domain": "alt-tab-macos.netlify.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_appcleaner_3318ba",
+    "name": "AppCleaner",
+    "normName": "appcleaner",
+    "ticker": "APPCLEAN",
+    "domain": "freemacsoft.net",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_linearmouse_5518ba",
+    "name": "LinearMouse",
+    "normName": "linearmouse",
+    "ticker": "LINEARM",
+    "domain": "linearmouse.org",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_monitorcontrol_3318ba",
+    "name": "MonitorControl",
+    "normName": "monitorcontrol",
+    "ticker": "MNTRCTRL",
+    "domain": "github.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_hiddenbar_5518ba",
+    "name": "Hidden Bar",
+    "normName": "hiddenbar",
+    "ticker": "HIDDENBR",
+    "domain": "github.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_latest_5518ba",
+    "name": "Latest",
+    "normName": "latest",
+    "ticker": "LATESTM",
+    "domain": "max-schmeling.de",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_typora_5518ba",
+    "name": "Typora",
+    "normName": "typora",
+    "ticker": "TYPORAMC",
+    "domain": "typora.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_dbeaver_5518ba",
+    "name": "DBeaver",
+    "normName": "dbeaver",
+    "ticker": "DBEAVER",
+    "domain": "dbeaver.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_navicat_5518ba",
+    "name": "Navicat",
+    "normName": "navicat",
+    "ticker": "NAVICATD",
+    "domain": "navicat.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_postico2_5518ba",
+    "name": "Postico 2",
+    "normName": "postico2",
+    "ticker": "POSTICO2",
+    "domain": "eggerapps.at",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_studio3t_5518ba",
+    "name": "Studio 3T",
+    "normName": "studio3t",
+    "ticker": "STUDIO3T",
+    "domain": "studio3t.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_lensk8s_5518ba",
+    "name": "Lens Kubernetes",
+    "normName": "lenskubernetes",
+    "ticker": "LENSK8S",
+    "domain": "k8slens.dev",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_termius_5518ba",
+    "name": "Termius",
+    "normName": "termius",
+    "ticker": "TERMIUS",
+    "domain": "termius.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_royaltsx_5518ba",
+    "name": "Royal TSX",
+    "normName": "royaltsx",
+    "ticker": "ROYALTSX",
+    "domain": "royalapps.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_httpie_7718ba",
+    "name": "HTTPie",
+    "normName": "httpie",
+    "ticker": "HTTPIECO",
+    "domain": "httpie.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_apidog_8818ba",
+    "name": "Apidog",
+    "normName": "apidog",
+    "ticker": "APIDOGHQ",
+    "domain": "apidog.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_colima_9918ba",
+    "name": "Colima",
+    "normName": "colima",
+    "ticker": "COLIMAVM",
+    "domain": "github.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_kreya_1118ba",
+    "name": "Kreya",
+    "normName": "kreya",
+    "ticker": "KREYAGUI",
+    "domain": "kreya.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_coteditor_2218ba",
+    "name": "CotEditor",
+    "normName": "coteditor",
+    "ticker": "COTEDITR",
+    "domain": "coteditor.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_vscodium_3318ba",
+    "name": "VSCodium",
+    "normName": "vscodium",
+    "ticker": "VSCODIUM",
+    "domain": "vscodium.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_nimbleway_4418ba",
+    "name": "Nimbleway",
+    "normName": "nimbleway",
+    "ticker": "NIMBLEWY",
+    "domain": "nimbleway.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_rayobyte_5518ba",
+    "name": "Rayobyte",
+    "normName": "rayobyte",
+    "ticker": "RAYOBYTE",
+    "domain": "rayobyte.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_scrapeops_6618ba",
+    "name": "ScrapeOps",
+    "normName": "scrapeops",
+    "ticker": "SCRAPOPS",
+    "domain": "scrapeops.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_scrapingrobot_7718ba",
+    "name": "ScrapingRobot",
+    "normName": "scrapingrobot",
+    "ticker": "SCRAPROB",
+    "domain": "scrapingrobot.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_zenscrape_8818ba",
+    "name": "Zenscrape",
+    "normName": "zenscrape",
+    "ticker": "ZENSCRAM",
+    "domain": "zenscrape.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_proxyseller_9918ba",
+    "name": "Proxy-Seller",
+    "normName": "proxyseller",
+    "ticker": "PROXYSLR",
+    "domain": "proxy-seller.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_stormproxies_1118ba",
+    "name": "Storm Proxies",
+    "normName": "stormproxies",
+    "ticker": "STRMPRXY",
+    "domain": "stormproxies.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_netnut_2218ba",
+    "name": "NetNut",
+    "normName": "netnut",
+    "ticker": "NETNUTIO",
+    "domain": "netnut.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_packetstream_3318ba",
+    "name": "PacketStream",
+    "normName": "packetstream",
+    "ticker": "PACKSTRM",
+    "domain": "packetstream.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_froxy_4418ba",
+    "name": "Froxy",
+    "normName": "froxy",
+    "ticker": "FROXYPRX",
+    "domain": "froxy.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_proxyrack_5518ba",
+    "name": "Proxyrack",
+    "normName": "proxyrack",
+    "ticker": "PROXYRCK",
+    "domain": "proxyrack.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_soax_6618ba",
+    "name": "Soax",
+    "normName": "soax",
+    "ticker": "SOAXPRXY",
+    "domain": "soax.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_pumpfun_7718ba",
+    "name": "Pump.fun",
+    "normName": "pump.fun",
+    "ticker": "PUMPFUN",
+    "domain": "pump.fun",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_photonsol_8818ba",
+    "name": "Photon Sol",
+    "normName": "photonsol",
+    "ticker": "PHOTONSOL",
+    "domain": "photon-sol.tinyastro.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_trojansol_9918ba",
+    "name": "Trojan on Solana",
+    "normName": "trojanonsolana",
+    "ticker": "TROJANSOL",
+    "domain": "trojan.app",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_maestrobots_1118ba",
+    "name": "Maestro Bots",
+    "normName": "maestrobots",
+    "ticker": "MAESTROB",
+    "domain": "maestrobots.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_bananagun_2218ba",
+    "name": "Banana Gun",
+    "normName": "bananagun",
+    "ticker": "BANANAGN",
+    "domain": "bananagun.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_bonkbot_3318ba",
+    "name": "BonkBot",
+    "normName": "bonkbot",
+    "ticker": "BONKBOT",
+    "domain": "bonkbot.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_bullx_4418ba",
+    "name": "BullX",
+    "normName": "bullx",
+    "ticker": "BULLXTRD",
+    "domain": "bullx.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_gmgnai_5518ba",
+    "name": "GMGN.ai",
+    "normName": "gmgn.ai",
+    "ticker": "GMGNAITR",
+    "domain": "gmgn.ai",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_birdeye_6618ba",
+    "name": "Birdeye",
+    "normName": "birdeye",
+    "ticker": "BIRDEYES",
+    "domain": "birdeye.so",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_tokenterminal_7718ba",
+    "name": "Token Terminal",
+    "normName": "tokenterminal",
+    "ticker": "TOKENTERM",
+    "domain": "tokenterminal.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_dune_8818ba",
+    "name": "Dune Analytics",
+    "normName": "duneanalytics",
+    "ticker": "DUNEDATA",
+    "domain": "dune.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_arkham_9918ba",
+    "name": "Arkham Intelligence",
+    "normName": "arkhamintelligence",
+    "ticker": "ARKHAMIN",
+    "domain": "arkhamintelligence.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_coingecko_1118ba",
+    "name": "CoinGecko",
+    "normName": "coingecko",
+    "ticker": "COINGECK",
+    "domain": "coingecko.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_formkeep_2218ba",
+    "name": "FormKeep",
+    "normName": "formkeep",
+    "ticker": "FORMKEEP",
+    "domain": "formkeep.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_feathery_3318ba",
+    "name": "Feathery",
+    "normName": "feathery",
+    "ticker": "FEATHERY",
+    "domain": "feathery.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_cognitoforms_4418ba",
+    "name": "Cognito Forms",
+    "normName": "cognitoforms",
+    "ticker": "COGNITOF",
+    "domain": "cognitoforms.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_123formbuilder_5518ba",
+    "name": "123FormBuilder",
+    "normName": "123formbuilder",
+    "ticker": "123FRMBL",
+    "domain": "123formbuilder.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_dextools_6618ba",
+    "name": "DexTools",
+    "normName": "dextools",
+    "ticker": "DEXTOOLS",
+    "domain": "dextools.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_optix_7718ba",
+    "name": "Optix Coworking",
+    "normName": "optixcoworking",
+    "ticker": "OPTIXAPP",
+    "domain": "optixapp.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_officernd_8818ba",
+    "name": "OfficeRnD",
+    "normName": "officernd",
+    "ticker": "OFFICRND",
+    "domain": "officernd.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_cobot_9918ba",
+    "name": "Cobot",
+    "normName": "cobot",
+    "ticker": "COBOTAPP",
+    "domain": "cobot.me",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_spacebring_1118ba",
+    "name": "Spacebring",
+    "normName": "spacebring",
+    "ticker": "SPACBRNG",
+    "domain": "spacebring.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_nexudus_2218ba",
+    "name": "Nexudus",
+    "normName": "nexudus",
+    "ticker": "NEXUDUSP",
+    "domain": "nexudus.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_coworkify_3318ba",
+    "name": "Coworkify",
+    "normName": "coworkify",
+    "ticker": "COWORKFY",
+    "domain": "coworkify.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_rentecdirect_4418ba",
+    "name": "Rentec Direct",
+    "normName": "rentecdirect",
+    "ticker": "RENTECDR",
+    "domain": "rentecdirect.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_hemlane_5518ba",
+    "name": "Hemlane",
+    "normName": "hemlane",
+    "ticker": "HEMLANEP",
+    "domain": "hemlane.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_rentredi_6618ba",
+    "name": "RentRedi",
+    "normName": "rentredi",
+    "ticker": "RENTREDI",
+    "domain": "rentredi.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_dealcheck_7718ba",
+    "name": "DealCheck",
+    "normName": "dealcheck",
+    "ticker": "DEALCHCK",
+    "domain": "dealcheck.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_yardibreeze_8818ba",
+    "name": "Yardi Breeze",
+    "normName": "yardibreeze",
+    "ticker": "YARDIBRZ",
+    "domain": "yardibreeze.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_halaxy_9918ba",
+    "name": "Halaxy",
+    "normName": "halaxy",
+    "ticker": "HALAXYHQ",
+    "domain": "halaxy.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_practicebetter_1118ba",
+    "name": "Practice Better",
+    "normName": "practicebetter",
+    "ticker": "PRACBETR",
+    "domain": "practicebetter.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_nutritics_2218ba",
+    "name": "Nutritics",
+    "normName": "nutritics",
+    "ticker": "NUTRITCS",
+    "domain": "nutritics.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_fresha_3318ba",
+    "name": "Fresha",
+    "normName": "fresha",
+    "ticker": "FRESHABK",
+    "domain": "fresha.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_vagaro_4418ba",
+    "name": "Vagaro",
+    "normName": "vagaro",
+    "ticker": "VAGAROHQ",
+    "domain": "sales.vagaro.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_mindbody_5518ba",
+    "name": "Mindbody",
+    "normName": "mindbody",
+    "ticker": "MINDBODY",
+    "domain": "mindbodyonline.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_touchbistro_6618ba",
+    "name": "TouchBistro",
+    "normName": "touchbistro",
+    "ticker": "TUCHBSTR",
+    "domain": "touchbistro.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_chownow_7718ba",
+    "name": "ChowNow",
+    "normName": "chownow",
+    "ticker": "CHOWNOWP",
+    "domain": "chownow.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_mockuuups_8818ba",
+    "name": "Mockuuups Studio",
+    "normName": "mockuuupsstudio",
+    "ticker": "MOCKUUPS",
+    "domain": "mockuuups.studio",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_shotsso_9918ba",
+    "name": "Shots.so",
+    "normName": "shots.so",
+    "ticker": "SHOTSSO",
+    "domain": "shots.so",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_cleanmock_1118ba",
+    "name": "Cleanmock",
+    "normName": "cleanmock",
+    "ticker": "CLEANMCK",
+    "domain": "cleanmock.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_kapwing_2218ba",
+    "name": "Kapwing",
+    "normName": "kapwing",
+    "ticker": "KAPWINGC",
+    "domain": "kapwing.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_artlist_3318ba",
+    "name": "Artlist",
+    "normName": "artlist",
+    "ticker": "ARTLISTIO",
+    "domain": "artlist.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_epidemicsound_4418ba",
+    "name": "Epidemic Sound",
+    "normName": "epidemicsound",
+    "ticker": "EPIDEMICS",
+    "domain": "epidemicsound.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_soundstripe_5518ba",
+    "name": "Soundstripe",
+    "normName": "soundstripe",
+    "ticker": "SNDSTRP",
+    "domain": "soundstripe.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_biteable_6618ba",
+    "name": "Biteable",
+    "normName": "biteable",
+    "ticker": "BITEABLE",
+    "domain": "biteable.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_invideo_7718ba",
+    "name": "InVideo",
+    "normName": "invideo",
+    "ticker": "INVIDEOC",
+    "domain": "invideo.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_audiio_8818ba",
+    "name": "Audiio",
+    "normName": "audiio",
+    "ticker": "AUDIIOLC",
+    "domain": "audiio.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_ivpn_1118ba",
+    "name": "IVPN",
+    "normName": "ivpn",
+    "ticker": "IVPNPRO",
+    "domain": "ivpn.net",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_adguarddns_3318ba",
+    "name": "AdGuard DNS",
+    "normName": "adguarddns",
+    "ticker": "ADGUARDD",
+    "domain": "adguard-dns.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_controld_4418ba",
+    "name": "Control D Pro",
+    "normName": "controldpro",
+    "ticker": "CONTROLD",
+    "domain": "controld.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_enpass_5518ba",
+    "name": "Enpass Pro",
+    "normName": "enpasspro",
+    "ticker": "ENPASSPR",
+    "domain": "enpass.io",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_passbolt_6618ba",
+    "name": "Passbolt",
+    "normName": "passbolt",
+    "ticker": "PASSBOLT",
+    "domain": "passbolt.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_airvpn_7718ba",
+    "name": "AirVPN",
+    "normName": "airvpn",
+    "ticker": "AIRVPNIT",
+    "domain": "airvpn.org",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
+    "id": "ent_roboform_8818ba",
+    "name": "RoboForm",
+    "normName": "roboform",
+    "ticker": "ROBOFORM",
+    "domain": "roboform.com",
+    "sector": "NICHE_SAAS",
+    "status": "REPORTED",
+    "batchId": "batch_solo_winners_20260916"
+  },
+  {
     "id": "ent_crayo_ai_02ec59",
     "name": "Crayo AI",
     "normName": "crayoai",

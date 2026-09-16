@@ -1,0 +1,47 @@
+{
+  "receiptVersion": "make-money-collection-receipt.v1",
+  "batchId": "batch-new-1000-final-primary-mubs-20260916",
+  "snapshot": "2026-09-16",
+  "artifact": {
+    "path": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+    "sha256": "f3cf15539b1bf8a8361cba33a5f52d80ef2bc20896af27ce70e2eeee2821e5ae",
+    "count": 1000,
+    "bytes": 21043585
+  },
+  "quality": {
+    "schemaRequiredFieldsMissing": 0,
+    "uniqueIds": 1000,
+    "uniqueNames": 1000,
+    "uniqueTickers": 1000,
+    "forbiddenJargon": 0,
+    "centralCatalogCollisions": 0,
+    "rawStorageReadback": 1000,
+    "explicitProfitMetricSupported": 71,
+    "scale": {
+      "SOLO": 548,
+      "UNKNOWN": 307,
+      "SMALL_TEAM": 145
+    },
+    "arithmeticMismatch": 0,
+    "allRevenueValuesUnconfirmed": true,
+    "allMarginValuesUnconfirmed": true,
+    "primaryLinkedSourceAudit": 8,
+    "pnlPeriodBindingRetainedExplicitProfileMonthly": 419,
+    "pnlPeriodBindingChanged": 125
+  },
+  "claimLock": {
+    "sourceLedger": "data/CLAIMED_TARGETS.txt",
+    "allNamesPresent": true
+  },
+  "foundation": {
+    "bundlePath": "data/incoming/research-bundle_new1000_r2captured1000_20260916.json",
+    "r2PayloadManifestReadback": "1000/1000",
+    "canonicalJournalReadback": "4000/0"
+  },
+  "boundaries": {
+    "centralCatalogEdited": false,
+    "edinetFinancialsEdited": false,
+    "financialValuesIndependentlyAudited": false,
+    "fullIndividualSoloSmallTeamScopeProven": false
+  }
+}

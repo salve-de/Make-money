@@ -1,3 +1,4 @@
+import { legacyText } from '../model/legacy-fields';
 import React, { useState } from 'react';
 import {
   Calendar,
@@ -35,7 +36,7 @@ export function CompanyHeader({
   const isLoss = profit < 0 || isHazardMode;
 
   // 1. 公式サイト外部リンク
-  const rawUrl = entity.websiteUrl || entity.url || (entity as unknown as { website?: string }).website || (entity.essence as unknown as { website?: string })?.website || '';
+  const rawUrl = legacyText(entity, 'websiteUrl') || entity.url || (entity as unknown as { website?: string }).website || (entity.essence as unknown as { website?: string })?.website || '';
   const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
 
   // 2. チーム規模

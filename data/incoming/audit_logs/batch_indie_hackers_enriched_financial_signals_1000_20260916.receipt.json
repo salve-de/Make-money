@@ -1,0 +1,46 @@
+{
+  "receiptVersion": "1.0",
+  "batchId": "batch-indie-hackers-enriched-financial-signals-1000-20260916",
+  "snapshot": "2026-09-16",
+  "entityFile": {
+    "path": "data/incoming/batch_indie_hackers_enriched_financial_signals_1000_20260916.json",
+    "sha256": "8e04a4f919da07a7dbea90ae614697293c0a1013174e428f9d0dd1530d521314",
+    "count": 1000,
+    "schemaValidCount": 1000,
+    "schemaInvalidCount": 0
+  },
+  "source": {
+    "directory": "Indie Hackers Products directory",
+    "sourceClass": "INDEPENDENT_SECONDARY",
+    "reportedRevenueUnit": "USD/month",
+    "conversionRule": "reported USD amount x 150 = JPY; no inverse-rate division",
+    "financialInterpretation": "The directory revenue signal is retained as REPORTED. Profit, COGS, expenses, margins, and net profit remain unconfirmed for every entity."
+  },
+  "officialSiteFinancialSignalCheck": {
+    "auditPath": "data/incoming/batch_indie_hackers_official_financial_signals_1000_20260916.json",
+    "auditSha256": "fb692861dcd6787f684f9b0427b2a98d32c9ec8209203670565525f42ac7266b",
+    "checkedCount": 1000,
+    "reachableCount": 695,
+    "financialKeywordSignalCount": 329,
+    "interpretation": "A keyword or pricing excerpt in an official page is a primary description signal only; it is not independent revenue or profit verification."
+  },
+  "integrity": {
+    "uniqueIds": 1000,
+    "uniqueNames": 1000,
+    "uniqueTickers": 1000,
+    "uniqueDomains": 1000,
+    "centralCatalogCollisionCount": 0,
+    "claimLockMatchedCount": 1000,
+    "centralCatalogCountBeforeAndAfter": 634,
+    "edinetFinancialAreaChanged": false
+  },
+  "publishability": {
+    "status": "PARTIAL",
+    "reason": "Primary financial reconciliation, raw evidence R2 readback, and catalog/UI acceptance are not complete."
+  },
+  "verificationCommands": [
+    "node --import tsx schema validation via parseFinancialEntitiesResiliently",
+    "pnpm lint",
+    "git diff --check"
+  ]
+}

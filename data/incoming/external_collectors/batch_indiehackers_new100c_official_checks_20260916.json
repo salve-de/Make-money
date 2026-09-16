@@ -1,0 +1,1182 @@
+[
+  {
+    "name": "Fame",
+    "productId": "fame",
+    "officialUrl": "https://www.fame.so/",
+    "status": 429,
+    "finalUrl": "https://www.fame.so/",
+    "title": "Vercel Security Checkpoint",
+    "matchedTokens": [
+      "fame"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Infinity",
+    "productId": "infinity",
+    "officialUrl": "https://startinfinity.com",
+    "status": 200,
+    "finalUrl": "https://startinfinity.com/",
+    "title": "🚀 Infinity | Customizable Work Management Platform",
+    "matchedTokens": [
+      "infinity"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ehunt",
+    "productId": "ehunt",
+    "officialUrl": "https://ehunt.ai/en",
+    "status": 200,
+    "finalUrl": "https://ehunt.ai/en",
+    "title": "EHunt: Free All-in-One Etsy SEO &amp; Seller Tool",
+    "matchedTokens": [
+      "ehunt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Turbo Transcription AI",
+    "productId": "turbo-transcription-ai",
+    "officialUrl": "https://turboscription.ai/",
+    "status": 200,
+    "finalUrl": "https://turboscription.ai/",
+    "title": "Audio &amp; Video to Perfect Text, Instantly, Audio &amp; Video to Text - Turboscription",
+    "matchedTokens": [
+      "turbo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "iPNOTE",
+    "productId": "ipnote-2",
+    "officialUrl": "https://ipnote.pro/",
+    "status": null,
+    "finalUrl": "https://ipnote.pro/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Lingflow",
+    "productId": "lingflow",
+    "officialUrl": "https://lingflow.ai/",
+    "status": 200,
+    "finalUrl": "https://lingflow.ai/",
+    "title": "LingFlow - Enterprise AI Document Translation",
+    "matchedTokens": [
+      "lingflow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Contlo",
+    "productId": "contlo-2",
+    "officialUrl": "https://contlo.com/",
+    "status": null,
+    "finalUrl": "https://contlo.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pulse Speech to Text",
+    "productId": "pulse-speech-to-text",
+    "officialUrl": "https://smallest.ai/speech-to-text",
+    "status": 200,
+    "finalUrl": "https://smallest.ai/speech-to-text",
+    "title": "Pulse: World's Fastest Speech-to-Text API - Smallest.ai",
+    "matchedTokens": [
+      "pulse",
+      "speech",
+      "text"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Var80",
+    "productId": "var80",
+    "officialUrl": "https://var80.com/",
+    "status": 200,
+    "finalUrl": "https://var80.com/",
+    "title": "VAR80 for D2C &amp; Shopify Brands | AI Ecommerce Growth",
+    "matchedTokens": [
+      "var80"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Houspire",
+    "productId": "houspire",
+    "officialUrl": "https://www.houspire.ai",
+    "status": 200,
+    "finalUrl": "https://houspire.ai/",
+    "title": "Flat-Fee Interior Design Plans in 72 Hours | Houspire",
+    "matchedTokens": [
+      "houspire"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RPA Tools",
+    "productId": "rpa-tools",
+    "officialUrl": "https://therpatools.com",
+    "status": null,
+    "finalUrl": "https://therpatools.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Noiz AI",
+    "productId": "noiz-ai",
+    "officialUrl": "https://noiz.ai/?utm_source=indiehackers&utm_medium=directory&utm_campaign=2026Apr",
+    "status": 200,
+    "finalUrl": "https://noiz.ai/?utm_source=indiehackers&utm_medium=directory&utm_campaign=2026Apr",
+    "title": "Noiz AI: AI Text to Speech, Voice Clone & Voice Design Tool",
+    "matchedTokens": [
+      "noiz"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Apiframe",
+    "productId": "apiframe-the-midjourney-api",
+    "officialUrl": "https://www.apiframe.pro/?rv=ih",
+    "status": null,
+    "finalUrl": "https://www.apiframe.pro/?rv=ih",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DotYeti.com",
+    "productId": "dotyeti-com",
+    "officialUrl": "https://www.dotyeti.com",
+    "status": 200,
+    "finalUrl": "https://dotyeti.com/",
+    "title": "Boutique Design Subscription for Marketing Teams | DotYeti",
+    "matchedTokens": [
+      "dotyeti"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WatBox",
+    "productId": "watbox",
+    "officialUrl": "https://www.watbox.ai/",
+    "status": 200,
+    "finalUrl": "https://www.watbox.ai/",
+    "title": "Salesforce WhatsApp, SMS &amp; Telephony Integration | WatBox",
+    "matchedTokens": [
+      "watbox"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SurvielX",
+    "productId": "survielx",
+    "officialUrl": "https://surveilx.net/",
+    "status": 200,
+    "finalUrl": "https://surveilx.net/",
+    "title": "External cyber risk reports for modern businesses | Surveil-X",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "babblebots.ai",
+    "productId": "babblebots-ai",
+    "officialUrl": "https://babblebots.ai/",
+    "status": 200,
+    "finalUrl": "https://babblebots.ai/",
+    "title": "Unified AI Platform for Hiring | Babblebots AI",
+    "matchedTokens": [
+      "babblebots"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TxtCart",
+    "productId": "txtcart",
+    "officialUrl": "https://www.txtcartapp.com",
+    "status": 200,
+    "finalUrl": "https://txtcart.ai/",
+    "title": "TxtCart | AI-Native SMS Marketing for Ecommerce",
+    "matchedTokens": [
+      "txtcart"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Converge AI",
+    "productId": "converge-ai",
+    "officialUrl": "https://converge.ai/",
+    "status": 200,
+    "finalUrl": "https://converge.ai/",
+    "title": "Converge.AI — AI-native Suite for Your Whole Business",
+    "matchedTokens": [
+      "converge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Gordon by Mitigata",
+    "productId": "gordon-by-mitigata",
+    "officialUrl": "https://trygordon.ai/",
+    "status": 200,
+    "finalUrl": "https://trygordon.ai/",
+    "title": "Gordon Console — Unified Cyber Risk Platform by Mitigata",
+    "matchedTokens": [
+      "gordon",
+      "mitigata"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Shoorts",
+    "productId": "shoorts",
+    "officialUrl": "https://shoorts.ai",
+    "status": 200,
+    "finalUrl": "https://virvid.ai/",
+    "title": "Virvid | #1 AI Shorts Generator",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Klu",
+    "productId": "klu",
+    "officialUrl": "https://klu.ai",
+    "status": 403,
+    "finalUrl": "https://klu.ai/",
+    "title": "Just a moment...",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Facia.ai",
+    "productId": "facia-ai",
+    "officialUrl": "https://facia.ai/",
+    "status": 200,
+    "finalUrl": "https://facia.ai/",
+    "title": "Facia | Deepfake Detection | Build Trust &amp; Maintain Security",
+    "matchedTokens": [
+      "facia"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VideoSDK",
+    "productId": "videosdk",
+    "officialUrl": "https://www.videosdk.live/",
+    "status": 200,
+    "finalUrl": "https://www.videosdk.live/",
+    "title": "Realtime Voice, Video &amp; AI Agent for Developers – VideoSDK",
+    "matchedTokens": [
+      "videosdk"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "NTMY",
+    "productId": "nice-to-meet-you",
+    "officialUrl": "https://ntmy.io/",
+    "status": 200,
+    "finalUrl": "https://ntmy.io/",
+    "title": "NTMY | Home",
+    "matchedTokens": [
+      "ntmy"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Chum Wellness",
+    "productId": "chum-wellness",
+    "officialUrl": "https://chumwellness.com",
+    "status": 200,
+    "finalUrl": "https://chumwellness.com/",
+    "title": "Therapy &amp; Counselling in Bangladesh | Chum Wellness",
+    "matchedTokens": [
+      "chum",
+      "wellness"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BSwan",
+    "productId": "bswan",
+    "officialUrl": "https://bswan.ai/",
+    "status": 200,
+    "finalUrl": "https://www.bswan.ai/",
+    "title": "AI Voice &amp; Messaging Platform for User Activation &amp; Retention | Bswan",
+    "matchedTokens": [
+      "bswan"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OpenTron",
+    "productId": "opentron",
+    "officialUrl": "https://open-tron-ai.github.io/OpenTron/",
+    "status": 404,
+    "finalUrl": "https://open-tron-ai.github.io/OpenTron/",
+    "title": "Site not found &middot; GitHub Pages",
+    "matchedTokens": [
+      "opentron"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TargetEZ",
+    "productId": "targetez",
+    "officialUrl": "https://en.targetez.com/",
+    "status": 200,
+    "finalUrl": "https://www.targetez.co/",
+    "title": "TargetEZ - Targeting solution for Facebook Ads",
+    "matchedTokens": [
+      "targetez"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Codepip",
+    "productId": "codepip",
+    "officialUrl": "https://codepip.com",
+    "status": 200,
+    "finalUrl": "https://codepip.com/",
+    "title": "Codepip | Learn to code by playing games",
+    "matchedTokens": [
+      "codepip"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Orapa",
+    "productId": "orapa",
+    "officialUrl": "https://orapa.co",
+    "status": null,
+    "finalUrl": "https://orapa.co",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "iPulse AI",
+    "productId": "ipulse-ai",
+    "officialUrl": "https://ipulseai.com",
+    "status": 200,
+    "finalUrl": "https://ipulseai.com/",
+    "title": "Best Stocks &amp; Crypto to Buy Now: AI Rankings | iPulse AI",
+    "matchedTokens": [
+      "ipulse"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Indema",
+    "productId": "indema",
+    "officialUrl": "https://indema.co",
+    "status": null,
+    "finalUrl": "https://indema.co",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Fortpress",
+    "productId": "fortpress",
+    "officialUrl": "https://fortpress.app",
+    "status": null,
+    "finalUrl": "https://fortpress.app",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scribbl.co",
+    "productId": "scribbl-co",
+    "officialUrl": "https://www.scribbl.co/",
+    "status": 200,
+    "finalUrl": "https://scribbl.co/",
+    "title": "Scribbl · An AI notetaker with no bot in the call",
+    "matchedTokens": [
+      "scribbl"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Co Rise",
+    "productId": "co-rise",
+    "officialUrl": "https://www.corise.ai/",
+    "status": 200,
+    "finalUrl": "https://www.corise.ai/",
+    "title": "CoRise AI: Find Co-Founders Supply - Dev Toolkit",
+    "matchedTokens": [
+      "rise"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Avenir",
+    "productId": "avenir-7",
+    "officialUrl": "https://avenir.reym.tech/",
+    "status": null,
+    "finalUrl": "https://avenir.reym.tech/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Touch GIS",
+    "productId": "touch-gis",
+    "officialUrl": "https://www.touchgis.app",
+    "status": 200,
+    "finalUrl": "https://www.touchgis.app/",
+    "title": "Touch GIS - Field Data Collection &amp; Mapping App",
+    "matchedTokens": [
+      "touch"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Vacation Tracker",
+    "productId": "vacation-tracker",
+    "officialUrl": "https://vacationtracker.io/",
+    "status": 200,
+    "finalUrl": "https://vacationtracker.io/",
+    "title": "Vacation Tracker | Leave Management &amp; PTO Software",
+    "matchedTokens": [
+      "vacation",
+      "tracker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BeamJobs",
+    "productId": "beamjobs",
+    "officialUrl": "https://beamjobs.com/",
+    "status": 200,
+    "finalUrl": "https://www.beamjobs.com/",
+    "title": "BeamJobs — AI Resume Tools That Get You Hired",
+    "matchedTokens": [
+      "beamjobs"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Jarni AI",
+    "productId": "jarni-ai",
+    "officialUrl": "https://jarni.ai/",
+    "status": 404,
+    "finalUrl": "https://jarni.ai/",
+    "title": "",
+    "matchedTokens": [
+      "jarni"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "YOLOrekt",
+    "productId": "yolorekt",
+    "officialUrl": "https://yolorekt.com",
+    "status": null,
+    "finalUrl": "https://yolorekt.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Magicsnap",
+    "productId": "magicsnap",
+    "officialUrl": "https://magicsnap.ai",
+    "status": 404,
+    "finalUrl": "https://magicsnap.ai/",
+    "title": "Site Not Found | Framer",
+    "matchedTokens": [
+      "magicsnap"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "onai",
+    "productId": "onai",
+    "officialUrl": "https://onai.studio",
+    "status": 200,
+    "finalUrl": "https://withicarus.com/",
+    "title": "Icarus: AI Product Photos and Model Shoots for Brands",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Secret",
+    "productId": "secret-saas",
+    "officialUrl": "https://www.joinsecret.com",
+    "status": 200,
+    "finalUrl": "https://www.joinsecret.com/",
+    "title": "Software Deals for Startups &amp; Entrepreneurs | Secret",
+    "matchedTokens": [
+      "secret"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nailted",
+    "productId": "nailted",
+    "officialUrl": "https://nailted.com",
+    "status": 200,
+    "finalUrl": "https://nailted.com/",
+    "title": "Leading Performance Management Platform | Nailted",
+    "matchedTokens": [
+      "nailted"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ChooseitAI",
+    "productId": "chooseitai",
+    "officialUrl": "https://chooseitai.com/home",
+    "status": null,
+    "finalUrl": "https://chooseitai.com/home",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Precisa.in",
+    "productId": "precisa-in",
+    "officialUrl": "https://precisa.in/",
+    "status": 200,
+    "finalUrl": "https://precisa.in/",
+    "title": "Precisa - Precisa.in",
+    "matchedTokens": [
+      "precisa"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "bepo",
+    "productId": "bepo-agency",
+    "officialUrl": "https://www.bepohq.com",
+    "status": null,
+    "finalUrl": "https://www.bepohq.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Bumerang Takeaway",
+    "productId": "b-merang",
+    "officialUrl": "https://youbumerang.com",
+    "status": 200,
+    "finalUrl": "https://www.vytal.org/es",
+    "title": "Vytal Global",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Craft Resume Ai",
+    "productId": "craft-resume-ai",
+    "officialUrl": "https://craftresumeai.com",
+    "status": 200,
+    "finalUrl": "https://craftresumeai.com/",
+    "title": "Craft Resume AI — Free AI Resume Builder, CV Maker &amp; ATS Checker",
+    "matchedTokens": [
+      "craft",
+      "resume"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Septimo.io",
+    "productId": "septimo-io-2",
+    "officialUrl": "https://septimo.io",
+    "status": null,
+    "finalUrl": "https://septimo.io",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Saasify",
+    "productId": "saasify",
+    "officialUrl": "https://saasify.sh",
+    "status": 200,
+    "finalUrl": "https://saasify.sh/",
+    "title": "SaaSify - The Complete Resource Hub for Indie SaaS Founders",
+    "matchedTokens": [
+      "saasify"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Checklist",
+    "productId": "checklist",
+    "officialUrl": "https://checklist.getalvis.com/?ref=indiehackers",
+    "status": 200,
+    "finalUrl": "https://checklist.getalvis.com/?ref=indiehackers",
+    "title": "Checklist by Alvis",
+    "matchedTokens": [
+      "checklist"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "NIVA",
+    "productId": "niva",
+    "officialUrl": "https://getniva.ai/",
+    "status": 200,
+    "finalUrl": "https://getniva.ai/",
+    "title": "NIVA AI Chatbot | Turn Website Visitors Into Customers",
+    "matchedTokens": [
+      "niva"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ProparLab",
+    "productId": "proparlab",
+    "officialUrl": "https://proparlab.com/",
+    "status": 200,
+    "finalUrl": "https://proparlab.com/",
+    "title": "Proparlab — Generative Engine Optimization (GEO) Platform",
+    "matchedTokens": [
+      "proparlab"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SellerCenter",
+    "productId": "sellercenter-3",
+    "officialUrl": "https://sellercenter.io/en",
+    "status": 200,
+    "finalUrl": "https://sellercenter.io/en",
+    "title": "All-in-One Dropshipping Tools &amp; Shopify Sales Tracker - SellerCenter",
+    "matchedTokens": [
+      "sellercenter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Codapt",
+    "productId": "codapt",
+    "officialUrl": "https://codapt.ai/",
+    "status": 200,
+    "finalUrl": "https://trysolid.com/",
+    "title": "Build Apps with AI in minutes | Solid",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PhotoG",
+    "productId": "photog-2",
+    "officialUrl": "https://photog.art/",
+    "status": 200,
+    "finalUrl": "https://photog.art/",
+    "title": "photog图像生成 · orandiffusion",
+    "matchedTokens": [
+      "photog"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RoamX",
+    "productId": "roamx",
+    "officialUrl": "https://roamx.co",
+    "status": null,
+    "finalUrl": "https://roamx.co",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PAVE",
+    "productId": "pave",
+    "officialUrl": "https://pave.world",
+    "status": 200,
+    "finalUrl": "https://pave.world/",
+    "title": "",
+    "matchedTokens": [
+      "pave"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OneRingCI",
+    "productId": "oneringci",
+    "officialUrl": "https://www.oneringci.com/",
+    "status": null,
+    "finalUrl": "https://www.oneringci.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Leggings Wholesale ",
+    "productId": "leggings-wholesale",
+    "officialUrl": "https://itsallleggings.com/",
+    "status": 200,
+    "finalUrl": "https://byleggings.com/",
+    "title": "Leggings active wear yoga pants flared bootcut workout fur fleece &ndash; It&#39;s All Leggings",
+    "matchedTokens": [
+      "leggings"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BoldDesk",
+    "productId": "bolddesk",
+    "officialUrl": "https://www.bolddesk.com/",
+    "status": 200,
+    "finalUrl": "https://www.bolddesk.com/",
+    "title": "AI-Powered Help Desk Software, One Flat Price | BoldDesk",
+    "matchedTokens": [
+      "bolddesk"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AidaJet",
+    "productId": "aidajet-2",
+    "officialUrl": "https://jet.aidanow.ai",
+    "status": 200,
+    "finalUrl": "https://jet.aidanow.ai/",
+    "title": "Best AI Newsletter Generator - AI Powered Newsletter Generation And Automation",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Quicka",
+    "productId": "quicka",
+    "officialUrl": "https://www.quicka.co",
+    "status": 200,
+    "finalUrl": "https://www.quicka.co/",
+    "title": "",
+    "matchedTokens": [
+      "quicka"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "visernic",
+    "productId": "visernic",
+    "officialUrl": "https://visernic.com",
+    "status": 200,
+    "finalUrl": "https://visernic.com/",
+    "title": "Visernic | Digital Solutions, Web &amp; App Development",
+    "matchedTokens": [
+      "visernic"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scaler Academy",
+    "productId": "scaler-academy",
+    "officialUrl": "https://www.scaler.com/academy/",
+    "status": 200,
+    "finalUrl": "https://www.scaler.com/academy/",
+    "title": "Software &amp; AI Engineering Course | Scaler Academy",
+    "matchedTokens": [
+      "scaler",
+      "academy"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Get Map Leads",
+    "productId": "get-map-leads",
+    "officialUrl": "https://getmapleads.io",
+    "status": 200,
+    "finalUrl": "https://getmapleads.io/",
+    "title": "Get Map Leads | Google Maps Lead Scraper &amp; CRM for Web Agencies",
+    "matchedTokens": [
+      "leads"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PandaDoc for Developers ",
+    "productId": "pandadoc-for-developers",
+    "officialUrl": "https://www.pandadoc.com/api/",
+    "status": 429,
+    "finalUrl": "https://www.pandadoc.com/api/",
+    "title": "Vercel Security Checkpoint",
+    "matchedTokens": [
+      "pandadoc"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TCube Mass Mail",
+    "productId": "tcube-mass-mail",
+    "officialUrl": "https://massmail.co.in/",
+    "status": 200,
+    "finalUrl": "https://massmail.co.in/",
+    "title": "Welcome to TCubeMail Mass Mail Service!",
+    "matchedTokens": [
+      "tcube",
+      "mass",
+      "mail"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SFESports",
+    "productId": "sfesports",
+    "officialUrl": "https://www.sportsfirst.net/sfesports",
+    "status": 404,
+    "finalUrl": "https://www.sportsfirst.net/sfesports",
+    "title": "404 Error Page | SportsFirst",
+    "matchedTokens": [
+      "sfesports"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Iotellect",
+    "productId": "iotellect",
+    "officialUrl": "https://iotellect.com/home",
+    "status": 200,
+    "finalUrl": "https://iotellect.com/",
+    "title": "Iotellect - Low-Code IIoT Platform & Industrial IoT Software",
+    "matchedTokens": [
+      "iotellect"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Two Way SMS Chat Platform",
+    "productId": "two-way-sms-chat-platform",
+    "officialUrl": "https://teleoss.co/product/two-way-sms-chat-platform/",
+    "status": 200,
+    "finalUrl": "https://teleoss.co/product/two-way-sms-chat-platform/",
+    "title": "Two-Way SMS Chat Platform for Business | TeleOSS",
+    "matchedTokens": [
+      "chat",
+      "platform"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "StoreGrowth",
+    "productId": "storegrowth",
+    "officialUrl": "https://storegrowth.io/",
+    "status": 200,
+    "finalUrl": "https://storepulse.co/plugins/storegrowth/",
+    "title": "Meet StoreGrowth Sales Booster for WooCommerce &amp; WordPress",
+    "matchedTokens": [
+      "storegrowth"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MuseGen",
+    "productId": "musegen",
+    "officialUrl": "https://www.musegen.ai",
+    "status": 200,
+    "finalUrl": "https://www.musegen.ai/",
+    "title": "MuseGen — AI Music Generator from Text or Lyrics",
+    "matchedTokens": [
+      "musegen"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Labellerr",
+    "productId": "labellerr",
+    "officialUrl": "https://www.labellerr.com/",
+    "status": 200,
+    "finalUrl": "https://www.labellerr.com/",
+    "title": "Best Data Labeling &amp; Image Annotation Software - Labellerr",
+    "matchedTokens": [
+      "labellerr"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CPI Burger",
+    "productId": "cpi-burger",
+    "officialUrl": "https://www.cpiburger.com/",
+    "status": null,
+    "finalUrl": "https://www.cpiburger.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Claspo",
+    "productId": "claspo",
+    "officialUrl": "https://claspo.io/",
+    "status": 200,
+    "finalUrl": "https://claspo.io/",
+    "title": "Popup Builder — Free Popups that convert more opt-ins and sales",
+    "matchedTokens": [
+      "claspo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "All Voice Lab",
+    "productId": "all-voice-lab",
+    "officialUrl": "https://www.allvoicelab.com/",
+    "status": 200,
+    "finalUrl": "https://www.allvoicelab.com/",
+    "title": "All Voice Lab: High Fidelity Voice Cloning & Text-to-Speech",
+    "matchedTokens": [
+      "voice"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "youragecalculator",
+    "productId": "youragecalculator",
+    "officialUrl": "https://www.youragecalculator.com/",
+    "status": 200,
+    "finalUrl": "https://www.youragecalculator.com/",
+    "title": "Age Calculator Online - Precise Age Calculation in Years, Months, Days | YourAgeCalculator",
+    "matchedTokens": [
+      "youragecalculator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Offline Dino Runner",
+    "productId": "offline-dino-runner",
+    "officialUrl": "https://offlinedinorunner.com/",
+    "status": 200,
+    "finalUrl": "https://offlinedinorunner.com/",
+    "title": "Offline Dino Runner - Play Chrome T-Rex Dinosaur Game Online Free",
+    "matchedTokens": [
+      "offline",
+      "dino",
+      "runner"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Contagent",
+    "productId": "contagent",
+    "officialUrl": "https://contagent.ai",
+    "status": 404,
+    "finalUrl": "https://contagent.ai/",
+    "title": "",
+    "matchedTokens": [
+      "contagent"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Musley AI",
+    "productId": "musley-ai",
+    "officialUrl": "https://musely.ai/",
+    "status": 200,
+    "finalUrl": "https://musely.ai/",
+    "title": "Musely.ai | The All-in-One AI Creator for Text, Images &amp; Audio",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "InAppStory",
+    "productId": "inappstory",
+    "officialUrl": "https://inappstory.com/?utm_source=indiehackers&utm_medium=referral&utm_campaign=inappstorybio",
+    "status": 200,
+    "finalUrl": "https://inappstory.com/?utm_source=indiehackers&utm_medium=referral&utm_campaign=inappstorybio",
+    "title": "InAppStory | Drive LTV Through In-App Communication",
+    "matchedTokens": [
+      "inappstory"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Refine AI",
+    "productId": "refine-ai",
+    "officialUrl": "https://www.refinehq.ai/",
+    "status": null,
+    "finalUrl": "https://www.refinehq.ai/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Deonde",
+    "productId": "deonde",
+    "officialUrl": "https://deonde.co/",
+    "status": 200,
+    "finalUrl": "https://deonde.co/",
+    "title": "On Demand Food Ordering &amp; Delivery Software Solution | Deonde",
+    "matchedTokens": [
+      "deonde"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Mumara one",
+    "productId": "mumara-one",
+    "officialUrl": "http://Mumara.com",
+    "status": 200,
+    "finalUrl": "https://www.mumara.com/",
+    "title": "Mumara — Email infrastructure that works",
+    "matchedTokens": [
+      "mumara"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Within Health",
+    "productId": "within-health",
+    "officialUrl": "https://seewithin.co",
+    "status": 200,
+    "finalUrl": "https://www.seewithin.co/",
+    "title": "Within Health | Radiology Follow-Ups And More",
+    "matchedTokens": [
+      "within",
+      "health"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Robin",
+    "productId": "robin",
+    "officialUrl": "https://robinapp.co/",
+    "status": 530,
+    "finalUrl": "https://robinapp.co/",
+    "title": "",
+    "matchedTokens": [
+      "robin"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Indie Opportunities",
+    "productId": "opportunities-so",
+    "officialUrl": "https://indieopportunities.com/",
+    "status": null,
+    "finalUrl": "https://indieopportunities.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Remote.Team - сommunicator for remote teams",
+    "productId": "remote-team-ommunicator-for-remote-teams",
+    "officialUrl": "https://remote.team/en/",
+    "status": 200,
+    "finalUrl": "https://remote.team/en/",
+    "title": "Remote.Team — Secure Business Chat. Manage Hundreds of Tasks Daily",
+    "matchedTokens": [
+      "remote",
+      "team",
+      "remote"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Netsol Technologies inc",
+    "productId": "nfs-ascent",
+    "officialUrl": "https://netsoltech.com/",
+    "status": 200,
+    "finalUrl": "https://netsoltech.com/",
+    "title": "NETSOL | Global Leader in Asset Finance &amp; Digital Transformation",
+    "matchedTokens": [
+      "netsol"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Indexpro.app",
+    "productId": "indexpro-app",
+    "officialUrl": "https://www.indexpro.app/",
+    "status": 200,
+    "finalUrl": "https://www.indexpro.app/",
+    "title": "Indexpro | Google Indexing Tool",
+    "matchedTokens": [
+      "indexpro"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Abowire",
+    "productId": "abowire",
+    "officialUrl": "https://abowire.com",
+    "status": null,
+    "finalUrl": "https://abowire.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "monapi.io",
+    "productId": "monapi-io",
+    "officialUrl": "https://www.monapi.io",
+    "status": 200,
+    "finalUrl": "https://www.monapi.io/",
+    "title": "monapi — abuse decision engine",
+    "matchedTokens": [
+      "monapi"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Rytfit.ai",
+    "productId": "rytfit-ai-2",
+    "officialUrl": "https://www.rytfit.ai",
+    "status": 200,
+    "finalUrl": "https://www.rytfit.ai/",
+    "title": "Workforce Management Software | Rytfit.ai",
+    "matchedTokens": [
+      "rytfit"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Uvodo",
+    "productId": "uvodohq",
+    "officialUrl": "http://uvodo.com/",
+    "status": null,
+    "finalUrl": "http://uvodo.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "eSIMo",
+    "productId": "esimo",
+    "officialUrl": "https://www.esimo.io/",
+    "status": 200,
+    "finalUrl": "https://esimo.io/",
+    "title": "eSIMo.io – Best International eSIM Plans with Data &amp; Calling | Global Travel",
+    "matchedTokens": [
+      "esimo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Finezza",
+    "productId": "finezza",
+    "officialUrl": "https://finezza.in/",
+    "status": 200,
+    "finalUrl": "https://finezza.in/",
+    "title": "Complete Lending Lifecycle Management Platform - Finezza",
+    "matchedTokens": [
+      "finezza"
+    ],
+    "checkedAt": "2026-09-16"
+  }
+]

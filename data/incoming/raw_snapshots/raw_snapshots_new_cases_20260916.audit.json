@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "raw-snapshot-audit.v1",
+  "snapshot": "2026-09-16",
+  "requested": 2,
+  "captured": 2,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Anonymous Feedback Widget SaaS (Gr00byandahalf)",
+      "requestedUrl": "https://www.reddit.com/r/SaaS/comments/1mn0eo9/bootstrapped_a_tiny_saas_and_finally_sold_feels/",
+      "sourceId": "src.reddit.saas.1mn0eo9",
+      "evidenceId": "ev_reddit_saas_1mn0eo9",
+      "author": "Gr00byandahalf",
+      "observedAt": "2025-08-11T00:00:00.000Z",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 8469,
+      "sha256": "984f476f751bf07624e3e17611a04abb5ef37078621a3355e737d65edba63e91",
+      "localPath": "data/incoming/raw_snapshots_new_cases_20260916/984f476f751bf07624e3e17611a04abb5ef37078621a3355e737d65edba63e91.html",
+      "fetchedAt": "2026-09-15T23:22:52.143Z"
+    },
+    {
+      "name": "Unlust (anonymous solo B2C app)",
+      "requestedUrl": "https://www.reddit.com/r/EntrepreneurRideAlong/comments/1u23j0i/12_months_24k_one_nearfatal_crash_what_i_learned/",
+      "sourceId": "src.reddit.entrepreneurridealong.1u23j0i",
+      "evidenceId": "ev_reddit_unlust_1u23j0i",
+      "author": "Kind_Guide_1232",
+      "observedAt": "2026-05-01T00:00:00.000Z",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html",
+      "bytes": 8487,
+      "sha256": "633bd68b8a5ef620b5989a071639c4f9ee402bbc45d7c500eb4134c0aa444bdb",
+      "localPath": "data/incoming/raw_snapshots_new_cases_20260916/633bd68b8a5ef620b5989a071639c4f9ee402bbc45d7c500eb4134c0aa444bdb.html",
+      "fetchedAt": "2026-09-15T23:22:52.200Z"
+    }
+  ]
+}

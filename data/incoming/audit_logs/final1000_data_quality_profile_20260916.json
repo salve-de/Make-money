@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "final1000-data-quality-profile.v1",
+  "generatedAt": "2026-09-16T01:04:12.998Z",
+  "grain": "one FinancialEntity per business case; final artifact is a 100-row subset",
+  "inputs": {
+    "inputPath": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+    "finalPath": "data/incoming/batch_final100_subset_of_new1000_20260916.json",
+    "ledgerPath": "data/CLAIMED_TARGETS.txt",
+    "temporalAuditPath": "data/incoming/temporal_success_window_audit_new1000_20260916.json",
+    "inputSha256": "f3cf15539b1bf8a8361cba33a5f52d80ef2bc20896af27ce70e2eeee2821e5ae",
+    "finalSha256": "28a8362b5c557cb3dc69d3a4a7ac94a1c9001a2b55a677b60f5eaae23f4d65c2"
+  },
+  "profile": {
+    "rowCount": 1000,
+    "finalRowCount": 100,
+    "requiredMissing": {
+      "id": 0,
+      "ticker": 0,
+      "name": 0,
+      "tagline": 0,
+      "sector": 0,
+      "scale": 0,
+      "founder": 0,
+      "country": 0,
+      "url": 0,
+      "pnl": 0,
+      "evidenceCards": 0,
+      "operations": 0,
+      "strategy": 0,
+      "temporal": 0,
+      "essence": 0,
+      "lootBlueprint": 0,
+      "observations": 0,
+      "observationsStream": 0
+    },
+    "scaleCounts": {
+      "SOLO": 548,
+      "UNKNOWN": 307,
+      "SMALL_TEAM": 145
+    },
+    "statusCounts": {
+      "REPORTED": 999,
+      "UNAVAILABLE": 1
+    },
+    "sentinelCounts": {
+      "foundedYearZero": 991,
+      "monthlyRevenueZero": 575,
+      "urlNull": 4,
+      "founderUnknown": 0
+    },
+    "rawReadback": 1000,
+    "explicitProfitMetricSupported": 71,
+    "temporalSuccessWindow": {
+      "performanceWindowMention": 51,
+      "profitWindowMention": 2,
+      "revenueWindowMention": 49
+    },
+    "finalNotSubset": 0,
+    "urlInvalid": 0,
+    "idInvalid": 0,
+    "tickerInvalid": 0,
+    "countryInvalid": 0,
+    "scaleInvalid": 0,
+    "statusInvalid": 0,
+    "negativePnl": 0,
+    "arithmeticMismatch": 0,
+    "marginMismatch": 0,
+    "financialFlagsMissing": 0,
+    "noCards": 0,
+    "noObservations": 0,
+    "claimMissing": 0,
+    "forbiddenHits": []
+  },
+  "findings": [
+    {
+      "id": "scale-missingness",
+      "severity": "MEDIUM",
+      "failed": "team scale unknown",
+      "evidence": {
+        "SOLO": 548,
+        "UNKNOWN": 307,
+        "SMALL_TEAM": 145
+      },
+      "risk": "The requested individual/solo/small-team segmentation is not fully supported.",
+      "remediation": "Upgrade only when raw text explicitly states team size; otherwise retain UNKNOWN."
+    },
+    {
+      "id": "profit-support-coverage",
+      "severity": "HIGH",
+      "failed": "explicit profit support incomplete",
+      "evidence": {
+        "explicitProfitMetricSupported": 71,
+        "requested": 1000
+      },
+      "risk": "Revenue reports must not be presented as verified profit.",
+      "remediation": "Keep profit fields unconfirmed and prioritize independent profit evidence."
+    },
+    {
+      "id": "current-window-profit-coverage",
+      "severity": "HIGH",
+      "failed": "2024-2026 profit period not established for all records",
+      "evidence": {
+        "profitWindowMention": 2,
+        "performanceWindowMention": 51,
+        "requested": 1000
+      },
+      "risk": "A 2026 page update is not evidence that the business made profit in the requested period.",
+      "remediation": "Retain the article-period signal separately and verify the remaining cases from first-party records or founder disclosures."
+    }
+  ],
+  "qualityDecision": "USE_WITH_GUARDS",
+  "openQuestions": [
+    "Independent profit and margin verification is not complete for the batch.",
+    "Scale UNKNOWN remains for records without explicit raw team-size evidence.",
+    "記事本体で2024-2026年と利益語が近接するのは2/1000件。"
+  ]
+}

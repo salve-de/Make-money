@@ -1,0 +1,1229 @@
+[
+  {
+    "name": "NexaOFS",
+    "productId": "nexaofs",
+    "officialUrl": "https://www.nexaofs.com/",
+    "status": 200,
+    "finalUrl": "https://www.nexaofs.com/",
+    "title": "Nexa OFS — The AI Financial Operating System",
+    "matchedTokens": [
+      "nexaofs"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VidPickr",
+    "productId": "vidpickr",
+    "officialUrl": "https://vidpickr.com",
+    "status": 200,
+    "finalUrl": "https://vidpickr.com/",
+    "title": "VidPickr — YouTube video downloader, MP3 converter &amp; subtitle ripper",
+    "matchedTokens": [
+      "vidpickr"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "UltraLaunch",
+    "productId": "ultralaunch",
+    "officialUrl": "https://bouncy-professor-6c5.notion.site/UltraLaunch-Pitch-Deck-22297a2aacfe8024a479d299380d54c8",
+    "status": 200,
+    "finalUrl": "https://bouncy-professor-6c5.notion.site/UltraLaunch-Pitch-Deck-22297a2aacfe8024a479d299380d54c8",
+    "title": "Notion",
+    "matchedTokens": [
+      "ultralaunch"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ebook",
+    "productId": "ebook-2",
+    "officialUrl": "https://selar.com/1004984k97",
+    "status": 200,
+    "finalUrl": "https://selar.com/1004984k97",
+    "title": "Buy Cybersecurity Guide for Everyone Protect Your Data and Privacy by Shop Ebooks And Digital Products on Selar | selar",
+    "matchedTokens": [
+      "ebook"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Eventoly",
+    "productId": "eventoly",
+    "officialUrl": "https://eventoly.com",
+    "status": 200,
+    "finalUrl": "https://eventoly.com/",
+    "title": "Eventoly | QR Code Photo Sharing App for Events &amp; Parties",
+    "matchedTokens": [
+      "eventoly"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ChainPulse: Multi-Chain Gas",
+    "productId": "chainpulse-multi-chain-gas",
+    "officialUrl": "https://chainpulse.necta.us",
+    "status": null,
+    "finalUrl": "https://chainpulse.necta.us",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Telegram Grupos",
+    "productId": "telegram-grupos",
+    "officialUrl": "https://www.telegram-grupos.com/",
+    "status": 200,
+    "finalUrl": "https://www.telegram-grupos.com/pt",
+    "title": "2081+ Grupos do Telegram com Link Testado em 2026",
+    "matchedTokens": [
+      "telegram",
+      "grupos"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Spescho",
+    "productId": "spescho",
+    "officialUrl": "https://codecanyon.net/item/spescho-special-school-iep-and-therapy-software/50936367",
+    "status": 403,
+    "finalUrl": "https://codecanyon.net/item/spescho-special-school-iep-and-therapy-software/50936367",
+    "title": "Just a moment...",
+    "matchedTokens": [
+      "spescho"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Deal or No Deal",
+    "productId": "deal-or-no-deal",
+    "officialUrl": "https://dealornodeal.info/",
+    "status": null,
+    "finalUrl": "https://dealornodeal.info/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Icebreaker Questions",
+    "productId": "icebreaker-questions",
+    "officialUrl": "https://icebreakerquestions.co/",
+    "status": 502,
+    "finalUrl": "https://icebreakerquestions.co/",
+    "title": "icebreakerquestions.co | 502: Bad gateway",
+    "matchedTokens": [
+      "icebreaker",
+      "questions"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Red Light Green Light",
+    "productId": "red-light-green-light",
+    "officialUrl": "https://redlightgreenlight.site/",
+    "status": null,
+    "finalUrl": "https://redlightgreenlight.site/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Vibe Code Anywhere - Vicoa",
+    "productId": "vibe-code-anywhere-vicoa",
+    "officialUrl": "https://vibecodeanywhere.com/",
+    "status": 200,
+    "finalUrl": "https://vicoa.ai/",
+    "title": "Vicoa - Run &amp; Manage a Team of AI Agents Anywhere",
+    "matchedTokens": [
+      "anywhere",
+      "vicoa"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AfroTools",
+    "productId": "afrotools",
+    "officialUrl": "https://afrotools.com/",
+    "status": 200,
+    "finalUrl": "https://afrotools.com/",
+    "title": "AfroTools AI - Africa's Practical AI Hub and Free Tool Directory",
+    "matchedTokens": [
+      "afrotools"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "HeyAgent.dev",
+    "productId": "heyagent-dev",
+    "officialUrl": "https://www.heyagent.dev/",
+    "status": null,
+    "finalUrl": "https://www.heyagent.dev/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "NexNotes AI",
+    "productId": "nexnotes-ai",
+    "officialUrl": "https://nexnotes-ai.pages.dev/",
+    "status": 200,
+    "finalUrl": "https://nexnotes-ai.pages.dev/",
+    "title": "NexNotes AI | AI presentations, mind maps, flow charts and more.",
+    "matchedTokens": [
+      "nexnotes"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ReplyFan",
+    "productId": "replyfan",
+    "officialUrl": "https://replyfan.ai",
+    "status": 200,
+    "finalUrl": "https://www.replyfan.ai/",
+    "title": "ReplyFan - Your AI Engagement Secret Weapon",
+    "matchedTokens": [
+      "replyfan"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scheduler",
+    "productId": "scheduler",
+    "officialUrl": "https://automate-meeting.vercel.app/login",
+    "status": 200,
+    "finalUrl": "https://automate-meeting.vercel.app/login",
+    "title": "Scheduler — Scheduling Made Easy",
+    "matchedTokens": [
+      "scheduler"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WHABOT Pro | Automate Sales on WhatsApp",
+    "productId": "whabot-pro-automate-sales-on-whatsapp",
+    "officialUrl": "https://whabot-sigma.vercel.app",
+    "status": 200,
+    "finalUrl": "https://whabot-sigma.vercel.app/",
+    "title": "Whabot Pro: Automatiza tu WhatsApp con Gemini 2.5 Flash AI",
+    "matchedTokens": [
+      "whabot",
+      "whatsapp"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WUI.AI",
+    "productId": "wui-ai",
+    "officialUrl": "https://www.wui.ai/",
+    "status": 200,
+    "finalUrl": "https://www.wui.ai/",
+    "title": "Launch a faceless video channel in minutes",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LiveFaceSwap AI",
+    "productId": "livefaceswap-ai",
+    "officialUrl": "https://livefaceswap.ai",
+    "status": 200,
+    "finalUrl": "https://livefaceswap.ai/",
+    "title": "Live Face Swap for Streaming &amp; Video Calls | Try It Online",
+    "matchedTokens": [
+      "livefaceswap"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Black Friday Deals Directory",
+    "productId": "black-friday-deals-directory",
+    "officialUrl": "https://www.blackfridaydeals.directory/",
+    "status": 200,
+    "finalUrl": "https://www.blackfridaydeals.directory/",
+    "title": "100+ Black Friday Software Deals 2025 | Up to 90% Off",
+    "matchedTokens": [
+      "black",
+      "friday",
+      "deals",
+      "directory"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MamaRap",
+    "productId": "mamarap",
+    "officialUrl": "https://intale.ai/mamarap/",
+    "status": 200,
+    "finalUrl": "https://intale.ai/cgi-sys/suspendedpage.cgi",
+    "title": "",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Manhwa AI",
+    "productId": "manhwa-ai",
+    "officialUrl": "https://www.manhwaai.net/",
+    "status": 200,
+    "finalUrl": "https://www.manhwaai.net/",
+    "title": "AI Manhwa Generator - Create Korean Comics with AI | ManhwaAI",
+    "matchedTokens": [
+      "manhwa"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Omni-Coder",
+    "productId": "omni-coder",
+    "officialUrl": "https://omni-coder-engine.guzelkokarizzet625.chatgpt.site/",
+    "status": 200,
+    "finalUrl": "https://omni-coder-engine.guzelkokarizzet625.chatgpt.site/",
+    "title": "Omni-Coder Engine — Elite AI Developer Programı",
+    "matchedTokens": [
+      "omni",
+      "coder"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RealMarketAPI",
+    "productId": "realmarketapi",
+    "officialUrl": "https://realmarketapi.com?utm_source=indiehackers",
+    "status": 200,
+    "finalUrl": "https://realmarketapi.com/en-US?utm_source=indiehackers",
+    "title": "RealMarketAPI - Realtime Market Data API for Developers",
+    "matchedTokens": [
+      "realmarketapi"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AlcoList",
+    "productId": "alcolist",
+    "officialUrl": "https://alcolist.com/iih",
+    "status": 200,
+    "finalUrl": "https://alcolist.com/",
+    "title": "AlcoList | Alcohol Tracker",
+    "matchedTokens": [
+      "alcolist"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Buildra",
+    "productId": "buildra",
+    "officialUrl": "https://buildra.dev?utm_source=indiehackers&utm_medium=product-page",
+    "status": 200,
+    "finalUrl": "https://buildra.dev/?utm_source=indiehackers&utm_medium=product-page",
+    "title": "Buildra — AI App Builder | Turn Ideas Into Apps in Seconds",
+    "matchedTokens": [
+      "buildra"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "iidatech",
+    "productId": "iidatech",
+    "officialUrl": "https://iidatech.com",
+    "status": null,
+    "finalUrl": "https://iidatech.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Instagram Grid Maker",
+    "productId": "instagram-grid-maker",
+    "officialUrl": "https://instagramgridmaker.org",
+    "status": 200,
+    "finalUrl": "https://www.instagramgridmaker.org/",
+    "title": "Instagram Grid Maker - 100% Free Online Image Splitter",
+    "matchedTokens": [
+      "instagram",
+      "grid",
+      "maker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Logyourtrade",
+    "productId": "logyourtrade",
+    "officialUrl": "https://www.logyourtrade.com/",
+    "status": 200,
+    "finalUrl": "https://www.logyourtrade.com/",
+    "title": "LogYourTrade — Trade Journal &amp; Analytics Platform",
+    "matchedTokens": [
+      "logyourtrade"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "pptsize",
+    "productId": "pptsize",
+    "officialUrl": "https://pptsize.com/en",
+    "status": 200,
+    "finalUrl": "https://pptsize.com/en",
+    "title": "Compress PPT - Reduce PPT File Size - pptsize",
+    "matchedTokens": [
+      "pptsize"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SyncGallery",
+    "productId": "syncgallery",
+    "officialUrl": "https://m-apps.net",
+    "status": 200,
+    "finalUrl": "https://m-apps.net/syncgallery/html/en/index.html",
+    "title": "SyncGallery — Android file sync and backup you control",
+    "matchedTokens": [
+      "syncgallery"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TrackMaster Studios",
+    "productId": "trackmaster-studios",
+    "officialUrl": "https://track-master-77551958.base44.app/",
+    "status": 200,
+    "finalUrl": "https://track-master-77551958.base44.app/",
+    "title": "TrackMaster",
+    "matchedTokens": [
+      "trackmaster"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Transmonkey",
+    "productId": "transmonkey",
+    "officialUrl": "https://www.transmonkey.ai/",
+    "status": 200,
+    "finalUrl": "https://www.transmonkey.ai/",
+    "title": "Translate Document, Image, Video Online with AI | Transmonkey",
+    "matchedTokens": [
+      "transmonkey"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Temp-Emails",
+    "productId": "temp-emails",
+    "officialUrl": "https://temp-emails.org",
+    "status": 200,
+    "finalUrl": "https://temp-emails.org/en",
+    "title": "Temp Mail - Free Temporary Email &amp; Disposable Email Generator - Temp-Emails",
+    "matchedTokens": [
+      "temp",
+      "emails"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pubg Name Generator",
+    "productId": "pubg-name-generator",
+    "officialUrl": "https://thepubgnamegenerator.com/",
+    "status": 200,
+    "finalUrl": "https://thepubgnamegenerator.com/",
+    "title": "Pubg Name Generator ʘ͜ʖʘ🤞🀄♣ (Copy &amp; paste) 2025",
+    "matchedTokens": [
+      "pubg",
+      "name",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Random Pokemon Generator",
+    "productId": "random-pokemon-generator-2",
+    "officialUrl": "https://randompokegen.cc",
+    "status": 200,
+    "finalUrl": "https://randompokegen.cc/",
+    "title": "Random Pokemon Generator | Random Pokemon Generator",
+    "matchedTokens": [
+      "random",
+      "pokemon",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Don't Let Me Code",
+    "productId": "dont-let-me-code",
+    "officialUrl": "https://dontletmecode.vercel.app",
+    "status": 404,
+    "finalUrl": "https://dontletmecode.vercel.app/",
+    "title": "",
+    "matchedTokens": [
+      "code"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Any Rock Identifier",
+    "productId": "any-rock-identifier",
+    "officialUrl": "https://anyrockidentifier.com",
+    "status": 200,
+    "finalUrl": "https://anyrockidentifier.com/",
+    "title": "Rock &amp; Crystal Identifier — Identify Any Stone by Photo",
+    "matchedTokens": [
+      "rock",
+      "identifier"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LalaPass",
+    "productId": "lalapass",
+    "officialUrl": "https://lalapass.co",
+    "status": null,
+    "finalUrl": "https://lalapass.co",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Linkto",
+    "productId": "linkto-3",
+    "officialUrl": "https://lin-k.to",
+    "status": 200,
+    "finalUrl": "https://lin-k.to/",
+    "title": "Linkto — 800+ SaaS Directories &amp; 75+ Launch Sites (Free)",
+    "matchedTokens": [
+      "linkto"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MintShovels",
+    "productId": "gold-shovel-tool-factory",
+    "officialUrl": "https://mintshovels.com",
+    "status": 200,
+    "finalUrl": "https://mintshovels.com/",
+    "title": "MintShovels - Free SEO Audit Tool | No Signup Required",
+    "matchedTokens": [
+      "mintshovels"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Monitory",
+    "productId": "monitory",
+    "officialUrl": "https://monitory.me/",
+    "status": 200,
+    "finalUrl": "https://monitory.me/",
+    "title": "Social Media Profile and Website Change Monitor | Monitory",
+    "matchedTokens": [
+      "monitory"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Survues",
+    "productId": "survues",
+    "officialUrl": "https://survues.netlify.app/",
+    "status": 200,
+    "finalUrl": "https://survues.netlify.app/",
+    "title": "Survues",
+    "matchedTokens": [
+      "survues"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Top SaaS Directories",
+    "productId": "top-saas-directories",
+    "officialUrl": "https://topsaasdirectories.com/",
+    "status": 200,
+    "finalUrl": "https://www.topsaasdirectories.com/",
+    "title": "Top SaaS Directories",
+    "matchedTokens": [
+      "saas",
+      "directories"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Am I Gay Test",
+    "productId": "am-i-gay-test",
+    "officialUrl": "https://amigaytest.info/",
+    "status": 200,
+    "finalUrl": "https://amigaytest.info/",
+    "title": "",
+    "matchedTokens": [
+      "test"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Blades and Buffoonery Codes",
+    "productId": "blades-and-buffoonery-codes",
+    "officialUrl": "https://bladesandbuffoonerycodes.com/",
+    "status": null,
+    "finalUrl": "https://bladesandbuffoonerycodes.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BPD Test",
+    "productId": "bpd-test",
+    "officialUrl": "https://bpdtest.co/",
+    "status": 502,
+    "finalUrl": "https://bpdtest.co/",
+    "title": "bpdtest.co | 502: Bad gateway",
+    "matchedTokens": [
+      "test"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Character Head Canon Generator",
+    "productId": "character-head-canon-generator",
+    "officialUrl": "http://characterheadcanongenerator.co/",
+    "status": 502,
+    "finalUrl": "https://characterheadcanongenerator.co/",
+    "title": "characterheadcanongenerator.co | 502: Bad gateway",
+    "matchedTokens": [
+      "character",
+      "head",
+      "canon",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Compatibility Test",
+    "productId": "compatibility-test",
+    "officialUrl": "https://compatibilitytest.co/",
+    "status": null,
+    "finalUrl": "https://compatibilitytest.co/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Dandy's World Draw Generator",
+    "productId": "dandys-world-draw-generator",
+    "officialUrl": "https://slotmaker.info/",
+    "status": null,
+    "finalUrl": "https://slotmaker.info/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Haikyuu Legends",
+    "productId": "haikyuu-legends",
+    "officialUrl": "https://haikyuulegends.com/",
+    "status": 200,
+    "finalUrl": "https://haikyuulegends.com/",
+    "title": "Volleyball Legends (Formerly Haikyuu Legends) - Codes, Guides & Tips",
+    "matchedTokens": [
+      "haikyuu",
+      "legends"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Incorrect Quotes Generator",
+    "productId": "incorrect-quotes-generator",
+    "officialUrl": "https://incorrectquotesgenerator.co/",
+    "status": 502,
+    "finalUrl": "https://incorrectquotesgenerator.co/",
+    "title": "incorrectquotesgenerator.co | 502: Bad gateway",
+    "matchedTokens": [
+      "incorrect",
+      "quotes",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "kdramatowatch",
+    "productId": "kdramatowatch",
+    "officialUrl": "https://kdramatowatch.net/",
+    "status": null,
+    "finalUrl": "https://kdramatowatch.net/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Likeable Person Test",
+    "productId": "likeable-person-test",
+    "officialUrl": "https://likeablepersontest.co/",
+    "status": 502,
+    "finalUrl": "https://likeablepersontest.co/",
+    "title": "likeablepersontest.co | 502: Bad gateway",
+    "matchedTokens": [
+      "likeable",
+      "person",
+      "test"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LockOver Codes",
+    "productId": "lockover-codes",
+    "officialUrl": "https://lockovercodes.com/",
+    "status": 200,
+    "finalUrl": "https://pkvgames.asia/",
+    "title": "Qiu Qiu: Daftar dan Main di AhliQQ, Situs Pkv Games Dominoqq Resmi!",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Mental Age Test",
+    "productId": "mental-age-test",
+    "officialUrl": "https://mentalagetest.info/",
+    "status": null,
+    "finalUrl": "https://mentalagetest.info/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Movie Collection",
+    "productId": "movie-collection",
+    "officialUrl": "https://moviecollection.co",
+    "status": null,
+    "finalUrl": "https://moviecollection.co",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Playoff Bracket Maker",
+    "productId": "playoff-bracket-maker",
+    "officialUrl": "https://playoffbracketmaker.com/",
+    "status": 200,
+    "finalUrl": "https://playoffbracketmaker.com/",
+    "title": "CHO THUÊ NHÀ QUẬN 2 &#8211; CH",
+    "matchedTokens": [
+      "playoff",
+      "bracket",
+      "maker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Random Animal Generator",
+    "productId": "random-animal-generator",
+    "officialUrl": "https://randomanimalgenerator.co/",
+    "status": 200,
+    "finalUrl": "https://randomanimalgenerator.co/",
+    "title": "Random Animal Generator: Pick 1–99 Animals",
+    "matchedTokens": [
+      "random",
+      "animal",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Random Movie Generator",
+    "productId": "random-movie-generator",
+    "officialUrl": "https://randommoviegenerator.co/",
+    "status": 200,
+    "finalUrl": "https://randommoviegenerator.co/",
+    "title": "Random Movie Generator – Find Your Next Movie Instantly!",
+    "matchedTokens": [
+      "random",
+      "movie",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Random Object Generator",
+    "productId": "random-object-generator",
+    "officialUrl": "https://randomobjectgenerator.co/",
+    "status": 502,
+    "finalUrl": "https://randomobjectgenerator.co/",
+    "title": "randomobjectgenerator.co | 502: Bad gateway",
+    "matchedTokens": [
+      "random",
+      "object",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Rap Name Generator",
+    "productId": "rap-name-generator",
+    "officialUrl": "https://rapnamegenerator.co/",
+    "status": 502,
+    "finalUrl": "https://rapnamegenerator.co/",
+    "title": "rapnamegenerator.co | 502: Bad gateway",
+    "matchedTokens": [
+      "name",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Secret Santa Generator",
+    "productId": "secret-santa-generator",
+    "officialUrl": "https://secretsantagenerator.me/",
+    "status": 502,
+    "finalUrl": "https://secretsantagenerator.me/",
+    "title": "secretsantagenerator.me | 502: Bad gateway",
+    "matchedTokens": [
+      "secret",
+      "santa",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Slot Maker",
+    "productId": "slot-maker",
+    "officialUrl": "https://slotmaker.xyz/",
+    "status": 200,
+    "finalUrl": "https://slotmaker.xyz/",
+    "title": "三毛机场.com官网 | 三毛机场.com加速器",
+    "matchedTokens": [
+      "slot",
+      "maker"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Squid Game X Codes",
+    "productId": "squid-game-x-codes",
+    "officialUrl": "https://squidgamexcodes.com/",
+    "status": null,
+    "finalUrl": "https://squidgamexcodes.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Trauma Test",
+    "productId": "trauma-test",
+    "officialUrl": "https://traumatest.info/",
+    "status": null,
+    "finalUrl": "https://traumatest.info/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Peptide Calculator",
+    "productId": "peptide-calculator-6",
+    "officialUrl": "https://peptidecalculatorz.com/",
+    "status": 200,
+    "finalUrl": "https://peptidecalculatorz.com/",
+    "title": "Peptide Calculator: Accurate Dosage &amp; Reconstitution",
+    "matchedTokens": [
+      "peptide",
+      "calculator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Azccriminal unlimited organization",
+    "productId": "azccriminal-unlimited-organization",
+    "officialUrl": "https://azccriminal.space",
+    "status": 200,
+    "finalUrl": "https://azccriminal.space/",
+    "title": "Azccriminal",
+    "matchedTokens": [
+      "azccriminal"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "decide.it",
+    "productId": "decide-it",
+    "officialUrl": "https://decide-it-nine.vercel.app/",
+    "status": 200,
+    "finalUrl": "https://decide-it-nine.vercel.app/",
+    "title": "decide.it",
+    "matchedTokens": [
+      "decide"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Regalaleya",
+    "productId": "regalaleya",
+    "officialUrl": "https://www.regalaleya.com/",
+    "status": 200,
+    "finalUrl": "https://www.regalaleya.com/",
+    "title": "Regalale Ya",
+    "matchedTokens": [
+      "regalaleya"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Automation Audit: Save 10–20 hrs/week for $47",
+    "productId": "automation-audit-save-10-20-hrs-week-for-47",
+    "officialUrl": "https://forms.gle/NgqgK1g9oZ6uXyPSA",
+    "status": 401,
+    "finalUrl": "https://docs.google.com/forms/d/e/1FAIpQLSdqzUtgvmvkR36uxChKqel2drqxzms5YIIZddW1N_iGejdAnw/viewform?usp=send_form",
+    "title": "",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Claude Code Distribution Framework",
+    "productId": "claude-code-distribution-framework",
+    "officialUrl": "https://beyondfolder.com/distribution",
+    "status": 200,
+    "finalUrl": "https://beyondfolder.com/distribution",
+    "title": "Stop Guessing How to Get Customers | Claude Code Distribution Framework",
+    "matchedTokens": [
+      "claude",
+      "code",
+      "distribution",
+      "framework"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Aiexamanalyzer",
+    "productId": "aiexamanalyzer",
+    "officialUrl": "https://aiexamanalyzer.online/",
+    "status": 200,
+    "finalUrl": "https://aiexamanalyzer.online/",
+    "title": "AI Exam Analyzer",
+    "matchedTokens": [
+      "aiexamanalyzer"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DataLumina",
+    "productId": "datalumina",
+    "officialUrl": "https://teraboxplus.com",
+    "status": 200,
+    "finalUrl": "https://teraboxplus.com/",
+    "title": "Terabox Mod APK v4.6.6 Premium Unlocked, Ads Free ( 2025 )",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "EduGuard",
+    "productId": "eduguard",
+    "officialUrl": "https://eduguard.serveousercontent.com",
+    "status": 502,
+    "finalUrl": "https://eduguard.serveousercontent.com/",
+    "title": "",
+    "matchedTokens": [
+      "eduguard"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FreeForge",
+    "productId": "freeforge",
+    "officialUrl": "https://www.freeaigenerators.net/",
+    "status": 200,
+    "finalUrl": "https://www.freeaigenerators.net/",
+    "title": "Free AI Video Generator – Create AI Videos Online Free",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "GitArsenal",
+    "productId": "gitarsenal",
+    "officialUrl": "https://www.gitarsenal.dev",
+    "status": null,
+    "finalUrl": "https://www.gitarsenal.dev",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VeriWeb3",
+    "productId": "veriweb3",
+    "officialUrl": "https://veriweb3.necta.us",
+    "status": 200,
+    "finalUrl": "https://veriweb3.necta.us/",
+    "title": "VeriWeb3 - The Safe Web3 Contact Manager",
+    "matchedTokens": [
+      "veriweb3"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "URLDN",
+    "productId": "urldn",
+    "officialUrl": "https://www.urldn.com",
+    "status": 200,
+    "finalUrl": "https://www.urldn.com/",
+    "title": "Best Free Short URL Tool | URLdn - Shorten, Track, Share",
+    "matchedTokens": [
+      "urldn"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Chinese Feng Shui Online Calculation Tool",
+    "productId": "chinese-feng-shui-online-calculation-tool-2",
+    "officialUrl": "https://chinesefengshui.net/",
+    "status": 200,
+    "finalUrl": "https://chinesefengshui.net/",
+    "title": "Chinese Feng Shui Online Calculation Tool",
+    "matchedTokens": [
+      "chinese",
+      "feng",
+      "shui",
+      "calculation"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Fifax News",
+    "productId": "fifax-news",
+    "officialUrl": "https://fifaxnews.com",
+    "status": null,
+    "finalUrl": "https://fifaxnews.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FreeCustom.Email",
+    "productId": "freecustom-email",
+    "officialUrl": "https://www.freecustom.email/en",
+    "status": 200,
+    "finalUrl": "https://www.freecustom.email/en",
+    "title": "Temp Mail — Free Temporary Email, No Ads &amp; No Signup",
+    "matchedTokens": [
+      "freecustom",
+      "email"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Get-SMP",
+    "productId": "get-smp",
+    "officialUrl": "https://www.get-smp.com",
+    "status": 200,
+    "finalUrl": "https://www.get-smp.com/",
+    "title": "Find the Best SMP Hair Tattoo Clinics Across the U.S.",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "https://wawooai.com/",
+    "productId": "https-wawooai-com",
+    "officialUrl": "https://wawooai.com/",
+    "status": 200,
+    "finalUrl": "https://wawooai.com/",
+    "title": "Wawoo AI - All-in-One AI Platform | Image, Video &amp; Audio Generation",
+    "matchedTokens": [
+      "https",
+      "wawooai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "InstantAiarticle.blog",
+    "productId": "instantaiarticle-blog",
+    "officialUrl": "https://Instantaiarticle.blog",
+    "status": 200,
+    "finalUrl": "https://instantaiarticle.blog/",
+    "title": "Your domain is expired",
+    "matchedTokens": [
+      "instantaiarticle",
+      "blog"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Invoice DIY",
+    "productId": "invoice-diy",
+    "officialUrl": "https://invoice-diy.com/",
+    "status": 200,
+    "finalUrl": "https://invoice-diy.com/",
+    "title": "Free Invoice Generator Malaysia (LHDN-Ready) — Invoice DIY",
+    "matchedTokens": [
+      "invoice"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "pokerjudge",
+    "productId": "pokerjudge",
+    "officialUrl": "https://pokerjudge.com",
+    "status": 200,
+    "finalUrl": "https://pokerjudge.com/",
+    "title": "Poker Judge — Training, Tools & Hand Review | PokerJudge",
+    "matchedTokens": [
+      "pokerjudge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Watermark Remover",
+    "productId": "watermark-remover-3",
+    "officialUrl": "https://watermarkremover.tech/",
+    "status": 404,
+    "finalUrl": "https://watermarkremover.tech/",
+    "title": "",
+    "matchedTokens": [
+      "watermark",
+      "remover"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Micro SaaS Examples",
+    "productId": "micro-saas-examples",
+    "officialUrl": "https://www.microsaasexamples.com/",
+    "status": 200,
+    "finalUrl": "https://www.microsaasexamples.com/",
+    "title": "Micro SaaS Examples: 500+ profitable micro SaaS ideas",
+    "matchedTokens": [
+      "micro",
+      "saas",
+      "examples"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Naturegrade",
+    "productId": "naturegrade",
+    "officialUrl": "https://naturegrade.carrd.co/",
+    "status": 200,
+    "finalUrl": "https://naturegrade.carrd.co/",
+    "title": "Naturegrade — AI Food Coach &amp; Food Intelligence App",
+    "matchedTokens": [
+      "naturegrade"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FreeDynamicQRCode",
+    "productId": "freedynamicqrcode",
+    "officialUrl": "https://www.freedynamicqrcode.com/",
+    "status": 200,
+    "finalUrl": "https://www.freedynamicqrcode.com/",
+    "title": "Free Dynamic QR Code Generator",
+    "matchedTokens": [
+      "freedynamicqrcode"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Daily Crossword Unlimited",
+    "productId": "daily-crossword-unlimited",
+    "officialUrl": "https://www.dailycrosswordunlimited.com/",
+    "status": 200,
+    "finalUrl": "https://www.dailycrosswordunlimited.com/",
+    "title": "Autonomous U.S. Crossword Puzzle Generation Engine for Sale | Daily Crossword Unlimited",
+    "matchedTokens": [
+      "daily",
+      "crossword",
+      "unlimited"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Age Generator",
+    "productId": "ai-age-generator",
+    "officialUrl": "https://aiagegenerator.com/",
+    "status": 429,
+    "finalUrl": "https://aiagegenerator.com/",
+    "title": "Vercel Security Checkpoint",
+    "matchedTokens": [
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BetaCircle - Get 12 Testers",
+    "productId": "betacircle-get-12-testers",
+    "officialUrl": "http://www.betacircle.app",
+    "status": 200,
+    "finalUrl": "https://www.betacircle.app/",
+    "title": "BetaCircle - Get 12 Android testers for 14 days in Closed Testing",
+    "matchedTokens": [
+      "betacircle",
+      "testers"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Crafiq",
+    "productId": "crafiq",
+    "officialUrl": "https://crafiq.ai/",
+    "status": 200,
+    "finalUrl": "https://crafiq.ai/",
+    "title": "Crafiq - AI Studio for 2D, 3D, Video &amp; Audio Assets",
+    "matchedTokens": [
+      "crafiq"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ImgEdify",
+    "productId": "imgedify",
+    "officialUrl": "https://imgedify.com",
+    "status": 200,
+    "finalUrl": "https://imgedify.com/",
+    "title": "Free Online AI Photo Editor &amp; AI Image Generator | ImgEdify",
+    "matchedTokens": [
+      "imgedify"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Lyria 3 Pro - Premier AI Song & Music Generator",
+    "productId": "lyria-3-pro-2",
+    "officialUrl": "https://lyria3.pro",
+    "status": 200,
+    "finalUrl": "https://lyria3.pro/",
+    "title": "Lyria 3 | Premier AI Song &amp; Music Generator Online",
+    "matchedTokens": [
+      "lyria",
+      "premier",
+      "song",
+      "music",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MakeAIVideo",
+    "productId": "makeaivideo",
+    "officialUrl": "https://makeaivideo.app",
+    "status": 200,
+    "finalUrl": "https://makeaivideo.app/",
+    "title": "MakeAIVideo: Agents, Images, Videos, All in one Creative Studio",
+    "matchedTokens": [
+      "makeaivideo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Musiv",
+    "productId": "musiv-ai-music-video-generator",
+    "officialUrl": "https://musiv.ai",
+    "status": 200,
+    "finalUrl": "https://musiv.ai/",
+    "title": "AI Music Video Generator — Turn Songs Into Cinematic Videos",
+    "matchedTokens": [
+      "musiv"
+    ],
+    "checkedAt": "2026-09-16"
+  }
+]

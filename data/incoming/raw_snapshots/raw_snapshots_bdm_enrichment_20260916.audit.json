@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "raw-snapshot-audit.v1",
+  "snapshot": "2026-09-16",
+  "requested": 1,
+  "captured": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "His Humble Agency Earned $132K Last Year From Lithuania",
+      "entityId": "ent_ebizfacts_benasleonavicius132kseoagencylithuania_180385cd0c40",
+      "requestedUrl": "https://founderreports.com/interview/bdm-business/",
+      "sourceId": "src.founderreports.bdm-business",
+      "evidenceId": "ev_founderreports_bdm-business",
+      "author": "Benas Leonavicius",
+      "observedAt": "2026-09-16T00:00:00.000Z",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 194839,
+      "sha256": "620d68753d6798f11e34dd66e70a97707af498d3b559a30ccb8dcce0a8a7be6c",
+      "localPath": "data/incoming/raw_snapshots_bdm_enrichment_20260916/ev_founderreports_bdm-business_620d68753d6798f11e34dd66e70a97707af498d3b559a30ccb8dcce0a8a7be6c.html",
+      "fetchedAt": "2026-09-16T00:18:48.322Z"
+    }
+  ]
+}

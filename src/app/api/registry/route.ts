@@ -1,55 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { readJsonBody, RequestBodyTooLargeError } from "@/lib/api/input";
+import { checkTargetStatus, addClaimEntry, RegistryEntry } from "@/lib/registry/claim-checker";
+import { execSync } from "node:child_process";
 
-interface RegistryEntry {
-  id: string;
-  name: string;
-  normName: string;
-  ticker?: string;
-  domain?: string;
-  sector?: string;
-  status?: string;
-}
+const MAX_REGISTRY_REQUEST_BYTES = 16 * 1024; // 16KB
 
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const checkQuery = searchParams.get("check") || searchParams.get("q");
 
+    // 単体重複判定クエリ
+    if (checkQuery && typeof checkQuery === "string") {
+      const result = await checkTargetStatus(checkQuery);
+      return NextResponse.json(result);
+    }
+
+    // 全件一覧（超軽量サマリー）
     const registryPath = path.join(process.cwd(), "data", "collected-registry.json");
     const content = await fs.readFile(registryPath, "utf-8");
     const registry: RegistryEntry[] = JSON.parse(content);
 
-    // 単体重複判定クエリ
-    if (checkQuery && typeof checkQuery === "string") {
-      const normQuery = checkQuery.toLowerCase().trim().replace(/[\s\-_・（）()株式会社有限会社]/g, "");
-      const matched = registry.find((item: RegistryEntry) => {
-        if (item.normName === normQuery) return true;
-        if (item.ticker && item.ticker.toLowerCase() === checkQuery.toLowerCase().trim()) return true;
-        if (item.domain && item.domain.toLowerCase() === checkQuery.toLowerCase().trim()) return true;
-        if (item.name && item.name.toLowerCase() === checkQuery.toLowerCase().trim()) return true;
-        return false;
-      });
-
-      if (matched) {
-        return NextResponse.json({
-          status: "EXISTS",
-          exists: true,
-          message: `既に収集済みです: [${matched.name}] (ID: ${matched.id}, Ticker: ${matched.ticker || "N/A"})`,
-          entity: matched,
-        });
-      } else {
-        return NextResponse.json({
-          status: "AVAILABLE",
-          exists: false,
-          message: `未収集です（重複なし）。新規収集可能です: "${checkQuery}"`,
-          query: checkQuery,
-        });
-      }
-    }
-
-    // 全件一覧（超軽量サマリー）
     return NextResponse.json({
       success: true,
       totalCount: registry.length,
@@ -58,7 +31,65 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     console.error("[API /api/registry] Error:", error);
     return NextResponse.json(
-      { error: "Failed to read collected registry", details: String(error) },
+      { error: "Failed to process registry request", details: String(error) },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    let body: Record<string, unknown>;
+    try {
+      body = (await readJsonBody(req, MAX_REGISTRY_REQUEST_BYTES)) as Record<string, unknown>;
+    } catch (err) {
+      if (err instanceof RequestBodyTooLargeError) {
+        return NextResponse.json({ error: "Payload too large" }, { status: 413 });
+      }
+      return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+    }
+
+    const target = typeof body.target === "string" ? body.target.trim() : "";
+    const agentId = typeof body.agentId === "string" ? body.agentId.trim() : "EXTERNAL_API";
+
+    if (!target) {
+      return NextResponse.json({ error: "target field is required" }, { status: 400 });
+    }
+
+    // 重複チェック
+    const check = await checkTargetStatus(target);
+    if (check.exists) {
+      return NextResponse.json({
+        success: false,
+        status: check.status,
+        message: check.reason,
+        entity: check.entity,
+      }, { status: 409 });
+    }
+
+    // 予約ロックを記録
+    await addClaimEntry(target, agentId);
+
+    // R2台帳へ非同期同期（バックグラウンド）
+    try {
+      execSync("node scripts/with-r2-keychain-secrets.mjs npx tsx scripts/pipeline/sync-claims-r2.ts push", {
+        stdio: "ignore",
+      });
+    } catch {
+      // オフライン環境やCIでは無視
+    }
+
+    return NextResponse.json({
+      success: true,
+      status: "CLAIMED",
+      message: `✓ 予約ロック完了: "${target}" を台帳およびR2に記録しました。`,
+      target,
+      agentId,
+    });
+  } catch (error) {
+    console.error("[API POST /api/registry] Error:", error);
+    return NextResponse.json(
+      { error: "Failed to claim target", details: String(error) },
       { status: 500 }
     );
   }

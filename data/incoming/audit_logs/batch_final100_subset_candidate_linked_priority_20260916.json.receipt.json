@@ -1,0 +1,43 @@
+{
+  "receiptVersion": "make-money-collection-receipt.v1",
+  "batchId": "batch-final100-balanced-scale-profit-subset-of-new1000-20260916",
+  "snapshot": "2026-09-16",
+  "selection": {
+    "input": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+    "evidenceAudit": "data/incoming/profit_evidence_quality_audit_new1000_20260916.json",
+    "temporalAudit": "data/incoming/temporal_success_window_audit_new1000_20260916.json",
+    "selectionRule": "SOLO/SMALL_TEAMの規模根拠を維持し、高信頼利益証拠・2024-2026本文期間シグナル・利益/公式カード・利益証拠数・報告収益の順で選定。",
+    "candidateCount": 686
+  },
+  "artifact": {
+    "path": "data/incoming/batch_final100_subset_candidate_linked_priority_20260916.json",
+    "sha256": "399501faed3aefe6efe1acdb817ebd26acd1616ff9ffe391c61e0e9a036518f1",
+    "bytes": 2182568,
+    "count": 100
+  },
+  "quality": {
+    "schemaRequiredFieldsMissing": 0,
+    "uniqueIds": 100,
+    "uniqueNames": 100,
+    "uniqueTickers": 100,
+    "highConfidenceProfitEvidence": 57,
+    "explicitProfitMetricSupported": 59,
+    "officialSiteCards": 81,
+    "scale": {
+      "SOLO": 80,
+      "SMALL_TEAM": 20
+    },
+    "allRevenueValuesUnconfirmed": true,
+    "allMarginValuesUnconfirmed": true
+  },
+  "claimLock": {
+    "sourceLedger": "data/CLAIMED_TARGETS.txt",
+    "allNamesPresent": true
+  },
+  "boundaries": {
+    "centralCatalogEdited": false,
+    "edinetFinancialsEdited": false,
+    "financialValuesIndependentlyAudited": false,
+    "r2RawEvidenceUploaded": false
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "official-financial-signal-manual-review.v1",
+  "generatedAt": "2026-09-16",
+  "interpretation": "公式ページの機械検出を、対象事業との同一性・推計性・本人報告性で手動分類した。REPORTED_PRIMARYは利益の独立監査・期間完全一致を意味しない。",
+  "count": 7,
+  "excludedFromVerifiedProfit": 5,
+  "reportedPrimaryNotIndependentlyAudited": 2,
+  "rows": [
+    {
+      "id": "ent_ebizfacts_nateliasonaiagentfelix177kbusiness_d074e026c8a8",
+      "name": "He Told an AI to Build a Business. It Made $177K.",
+      "requestedUrl": "https://nateliason.com/",
+      "finalUrl": "https://www.nateliason.com/",
+      "checkedAt": "2026-09-16",
+      "evidenceTier": "QUANTIFIED_PROFIT_LANGUAGE_REVIEW",
+      "status": 200,
+      "outcome": "UNRELATED_SITE_CONTENT",
+      "profitEvidenceDisposition": "EXCLUDE",
+      "sourceRole": "official_site_unrelated_program",
+      "reason": "公式URLで検出された利益文言はFounders Schoolの生徒保証であり、対象AI事業の実績ではない。",
+      "observedSignals": [
+        "x27;m currently building Founders School , a 4-year entrepreneurship high school launching in NYC Fall 2026. Tuition is $150K/year, and we guarantee students graduate with $1M in profit from their own businesses, or we refund the tuition. Founders School is the entrepreneurship track"
+      ],
+      "rightsStatus": "metadata_only",
+      "financialValuesUpdated": false
+    },
+    {
+      "id": "ent_ebizfacts_davidbresslerformulabot28myearformulabotgold_24187f0621fd",
+      "name": "$2.8M Per Year Solo Founder: Don't Miss This Gold Rush",
+      "requestedUrl": "https://www.formulabot.com/",
+      "finalUrl": "https://betteranalyst.com/",
+      "checkedAt": "2026-09-16",
+      "evidenceTier": "QUANTIFIED_PROFIT_LANGUAGE_REVIEW",
+      "status": 200,
+      "outcome": "UNRELATED_PRODUCT_DEMO_CONTENT",
+      "profitEvidenceDisposition": "EXCLUDE",
+      "sourceRole": "official_site_demo_content",
+      "reason": "公式URLの利益額はBetterAnalystのデモ表・サンプルデータ内の文言で、対象事業の実績ではない。",
+      "observedSignals": [
+        "mation Clean, standardize, merge, reshape, and organize raw data from multiple sources into analysis-ready formats. Feb $42k Mar 85000 Jan $120k Apr 67,000 Mon Amt Jan $42k Feb $85k Mar $120k Apr $67k Code Transparency See the exact code generated for every request. Verify, learn, an",
+        "mport pandas as pd 2 df = pd.read_csv(&#x27;data.csv&#x27;) 3 df.groupby(&#x27;date&#x27;).sum() SQL 1 SELECT date, SUM(profit) 2 FROM sales 3 GROUP BY 1 ORDER BY 1; R 1 ggplot(df, aes(x, y)) + 2 geom_line() + 3 theme_minimal() AI Agents Create reusable agents that understand your busi",
+        "s &amp; Reports Export to Excel, generate formatted reports, and automate your data workflows. Make me a spreadsheet of profit by state profit_by_state.xlsx Export A B 1 State Profit 2 California $45,200.00 3 New York $38,900.50 4 Texas $32,100.00 5 Florida $28,500.25 Analytics that fi"
+      ],
+      "rightsStatus": "metadata_only",
+      "financialValuesUpdated": false
+    },
+    {
+      "id": "ent_ebizfacts_angelrodriguezyachtrentalarbitrage30kmonth_eb7d684d0563",
+      "name": "$30,000 Per Month Renting Out Underused Assets",
+      "requestedUrl": "https://mail.uncommonprofits.co/p/he-makes-30k-month-renting-boats",
+      "finalUrl": "https://mail.uncommonprofits.co/p/he-makes-30k-month-renting-boats",
+      "checkedAt": "2026-09-16",
+      "evidenceTier": "QUANTIFIED_PROFIT_LANGUAGE_REVIEW",
+      "status": 200,
+      "outcome": "THIRD_PARTY_ESTIMATE",
+      "profitEvidenceDisposition": "EXCLUDE_FROM_VERIFIED_PROFIT",
+      "sourceRole": "third_party_estimate",
+      "reason": "本文自身が正確な利益は公開されていないと記載し、14,000–22,000ドルを推計している。",
+      "observedSignals": [
+        "🚤 He Makes $30K/Month Renting Boats Uncommon Profits Login Subscribe 0 Uncommon Profits Posts 🚤 He Makes $30K/Month Renting Boats 🚤 He Makes $30K/Month Renting Boats It’s like Airbnb, but for boats. And he’s making $30K/month doing it. Tim Richard May 16, 2025 see all my ol",
+        "le doing Airbnb arbitrage… but with boats. That’s when I came across Angel Rodriguez, a former car salesman who built a $30K/month yacht rental business in under a year by financing boats and partnering with owners. He didn’t start with deep pockets. In fact, he maxed out his last bi",
+        "hoping the idea would work. Fast-forward to today? He owns six yachts outright, partners on two more, and has done over $3 million in rentals, primarily through Boatsetter , a platform that works like Airbnb for boats. 👉 In this email: 💰 How much he makes 🛥 How he gets boats 📢 Ho",
+        "ed it up 🚀 How to apply this model to other industries Let’s dive in. 💰 How the Money Works Angel hasn’t shared exact profit numbers publicly, but here’s a rough breakdown based on how the model works: He financed his first yacht for around $5,000/month . He lists it for about $1,800",
+        "/day on Boatsetter. Booked 15–20 days/month = $27,000–$36,000 in revenue Estimated monthly costs: Financing: $5,000 Crew, fuel, insurance, dock fees, cleaning, maintenance: &nbsp; $8,000–$9,000 👉 Total expenses: ~$13,000–$14,000 👉 Estimated profit: ~$14,000–$22,000/month pe"
+      ],
+      "rightsStatus": "metadata_only",
+      "financialValuesUpdated": false
+    },
+    {
+      "id": "ent_ebizfacts_nateliasonkegelapp1kmonthpassiveincomenoupda_3967ed9692bf",
+      "name": "Silly Little Kegel App Earns $1000/Month Passive Income",
+      "requestedUrl": "https://www.nateliason.com/",
+      "finalUrl": "https://www.nateliason.com/",
+      "checkedAt": "2026-09-16",
+      "evidenceTier": "QUANTIFIED_PROFIT_LANGUAGE_REVIEW",
+      "status": 200,
+      "outcome": "UNRELATED_SITE_CONTENT",
+      "profitEvidenceDisposition": "EXCLUDE",
+      "sourceRole": "official_site_unrelated_program",
+      "reason": "公式URLで検出された利益文言はFounders Schoolの生徒保証であり、対象アプリの実績ではない。",
+      "observedSignals": [
+        "x27;m currently building Founders School , a 4-year entrepreneurship high school launching in NYC Fall 2026. Tuition is $150K/year, and we guarantee students graduate with $1M in profit from their own businesses, or we refund the tuition. Founders School is the entrepreneurship track"
+      ],
+      "rightsStatus": "metadata_only",
+      "financialValuesUpdated": false
+    },
+    {
+      "id": "ent_ebizfacts_nathanbarry38millionconvertkitpatience_d742fc007d7c",
+      "name": "This Habit Helped Him Build a $38M/Year Company",
+      "requestedUrl": "https://nathanbarry.com/",
+      "finalUrl": "https://nathanbarry.com/",
+      "checkedAt": "2026-09-16",
+      "evidenceTier": "QUANTIFIED_PROFIT_LANGUAGE_REVIEW",
+      "status": 200,
+      "outcome": "DIRECT_FOUNDER_DISCLOSURE_REPORTED",
+      "profitEvidenceDisposition": "REPORTED_PRIMARY_NOT_INDEPENDENTLY_AUDITED",
+      "sourceRole": "founder_site_disclosure",
+      "reason": "本人サイトの事業概要に年間利益を明記しているが、独立監査・対象期間の完全一致は未確認。",
+      "observedSignals": [
+        "Tim McGraw, and many more. Learn more about how I built my SaaS business 2013 started as side project 100% bootstrapped $45M+ annual recurring revenue $5M+ annual profit 95+ team members across 70 cities $10M+ profit shared with the team I teach everything I know. Become a creator an",
+        "d grow your audience. more recent articles September 10, 2026 &#8211; Podcast $100M YouTube Lawyer Reveals How to Protect Your Channel in 2026 | 145 read more September 3, 2026 &#8211; Podcast How to ACTUALLY Sell a Creator Business | 144 read",
+        "ss Products Designing Web Applications The App Design Handbook Authority Photoshop for Web Design Commit Kit How I Made $19,000 on the App Store While Learning to Code One Year After Quitting My Job Starting The Web App Challenge: From Zero to $5,000/month In 6 Months User Experience Les"
+      ],
+      "rightsStatus": "metadata_only",
+      "financialValuesUpdated": false
+    },
+    {
+      "id": "ent_ebizfacts_davidbresslerformulabot20kmonthaisideproject_82b172314307",
+      "name": "His AI Side Project Went Viral and Earns $20K/Month",
+      "requestedUrl": "https://formulabot.com/",
+      "finalUrl": "https://betteranalyst.com/",
+      "checkedAt": "2026-09-16",
+      "evidenceTier": "QUANTIFIED_PROFIT_LANGUAGE_REVIEW",
+      "status": 200,
+      "outcome": "UNRELATED_PRODUCT_DEMO_CONTENT",
+      "profitEvidenceDisposition": "EXCLUDE",
+      "sourceRole": "official_site_demo_content",
+      "reason": "公式URLの利益額はBetterAnalystのデモ表・サンプルデータ内の文言で、対象AI事業の実績ではない。",
+      "observedSignals": [
+        "mation Clean, standardize, merge, reshape, and organize raw data from multiple sources into analysis-ready formats. Feb $42k Mar 85000 Jan $120k Apr 67,000 Mon Amt Jan $42k Feb $85k Mar $120k Apr $67k Code Transparency See the exact code generated for every request. Verify, learn, an",
+        "mport pandas as pd 2 df = pd.read_csv(&#x27;data.csv&#x27;) 3 df.groupby(&#x27;date&#x27;).sum() SQL 1 SELECT date, SUM(profit) 2 FROM sales 3 GROUP BY 1 ORDER BY 1; R 1 ggplot(df, aes(x, y)) + 2 geom_line() + 3 theme_minimal() AI Agents Create reusable agents that understand your busi",
+        "s &amp; Reports Export to Excel, generate formatted reports, and automate your data workflows. Make me a spreadsheet of profit by state profit_by_state.xlsx Export A B 1 State Profit 2 California $45,200.00 3 New York $38,900.50 4 Texas $32,100.00 5 Florida $28,500.25 Analytics that fi"
+      ],
+      "rightsStatus": "metadata_only",
+      "financialValuesUpdated": false
+    },
+    {
+      "id": "ent_ebizfacts_jamieifincreasingnichesites40kmonth_ba962a559d61",
+      "name": "26-Year-Old Earning $40,000/Month From Niche Sites",
+      "requestedUrl": "https://increasing.com/",
+      "finalUrl": "https://increasing.com/",
+      "checkedAt": "2026-09-16",
+      "evidenceTier": "QUANTIFIED_PROFIT_LANGUAGE_REVIEW",
+      "status": 200,
+      "outcome": "DIRECT_FOUNDER_DISCLOSURE_REPORTED",
+      "profitEvidenceDisposition": "REPORTED_PRIMARY_NOT_INDEPENDENTLY_AUDITED",
+      "sourceRole": "founder_site_disclosure",
+      "reason": "本人サイトがSEO・アフィリエイトでの累計利益を報告しているが、対象記事の月次実績・独立監査は未確認。",
+      "observedSignals": [
+        "e every Thursday afternoon. Subscribe I’ve Been Featured On Hey, I’m Jamie! Here&#8217;s what I&#8217;m known for: Over $1 million in profit from SEO and affiliate marketing since 2020 Investor and equity owner in several fast-growing SaaS startups Founder of AffiliateFinder.ai , an",
+        "rketers and consultants on affiliate + influencer brand growth Ex-marketing lead at Lasso, growing tens of thousands of MRR within a year Investor in the UK’s fastest growing personal finance content website, Up The Gains, and Gains App &#8211; the UK cashback app Spoken at several",
+        "SaaS affiliate program for free, track all clicks and conversions, create custom campaigns, and start growing your SaaS MRR! Find Out More Answer Socrates The free SEO keyword research tool reaching over 1M+ digital marketers per year. Full keyword research, keyword clustering, PAA",
+        "are For SaaS Startups August 28, 2025 TL;DR: Endorsely is a new SaaS affiliate platform that&#8217;s free until you hit $1K/month in affiliate sales, then $39/month. The AI finds &#8230; Read more Increasing.com - helping you make money online with SEO, niche sites and affiliate mar"
+      ],
+      "rightsStatus": "metadata_only",
+      "financialValuesUpdated": false
+    }
+  ]
+}

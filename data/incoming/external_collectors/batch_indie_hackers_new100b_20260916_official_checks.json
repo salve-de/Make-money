@@ -1,0 +1,902 @@
+[
+  {
+    "name": "Pulse AI",
+    "productId": "pulse-ai",
+    "officialUrl": "https://pulseapp.ai/",
+    "status": 200,
+    "finalUrl": "https://pulseapp.ai/",
+    "title": "Pulse — Every chat hides work. We make it visible.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "EntriScan",
+    "productId": "entriscan",
+    "officialUrl": "https://entriscan.com/",
+    "status": 200,
+    "finalUrl": "https://entriscan.com/",
+    "title": "Free QR Code Attendance &amp; Check-In System | EntriScan",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Side School",
+    "productId": "side-school",
+    "officialUrl": "https://www.side.school/",
+    "status": 200,
+    "finalUrl": "https://www.side.school/",
+    "title": "Side School",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Virlo",
+    "productId": "virlo",
+    "officialUrl": "https://virlo.ai",
+    "status": 200,
+    "finalUrl": "https://virlo.ai/",
+    "title": "TikTok Social Listening &amp; Analytics Tool | Virlo",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MeetZero",
+    "productId": "meetzero",
+    "officialUrl": "https://meetzero.ai",
+    "status": 200,
+    "finalUrl": "https://meetzero.ai/",
+    "title": "Zero · Personal AI Concierge on WhatsApp &amp; Telegram",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PPT.AI",
+    "productId": "ppt-ai-2",
+    "officialUrl": "https://ppt.ai",
+    "status": 200,
+    "finalUrl": "https://ppt.ai/",
+    "title": "PPT AI - AI Presentation Maker, Fast and Easy | PPT.AI",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Saleoid",
+    "productId": "saleoid",
+    "officialUrl": "https://saleoid.com/",
+    "status": 200,
+    "finalUrl": "https://saleoid.com/",
+    "title": "Best CRM for Small Businesses | SALEOID",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Cantein",
+    "productId": "cantein",
+    "officialUrl": "http://www.cantein.com/",
+    "status": 200,
+    "finalUrl": "https://cantein.com/",
+    "title": "Cantein — Complete protein from one clean plant &ndash; CANTEIN",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ScalePost",
+    "productId": "scalepost",
+    "officialUrl": "https://www.scalepost.ai",
+    "status": 200,
+    "finalUrl": "https://www.scalepost.ai/",
+    "title": "AI Visibility Measurement for Publishers & Brands | ScalePost",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ViewOps",
+    "productId": "viewops",
+    "officialUrl": "https://www.viewops.com/",
+    "status": 200,
+    "finalUrl": "https://www.viewops.ai/",
+    "title": "ViewOps — The Operational Intelligence Platform for Manufacturing",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PurrMobile",
+    "productId": "purrmobile",
+    "officialUrl": "https://www.purrmobile.com/",
+    "status": 200,
+    "finalUrl": "https://www.purrmobile.com/",
+    "title": "PurrMobile - The Purr-fect Way to Stay Connected",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Operator",
+    "productId": "operator",
+    "officialUrl": "https://nowoperator.com/",
+    "status": 200,
+    "finalUrl": "https://www.nowoperator.com/",
+    "title": "Operator - Book More HVAC Jobs From Your Website",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LocalSite",
+    "productId": "localsite",
+    "officialUrl": "https://localsite.co/",
+    "status": 200,
+    "finalUrl": "https://localsite.co/",
+    "title": "Professional Local Business Services",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SEOscar",
+    "productId": "seoscar",
+    "officialUrl": "https://www.seoscar.io/",
+    "status": 200,
+    "finalUrl": "https://www.seoscar.io/",
+    "title": "SEOscar | Full-Service SEO Platform",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Coldcast",
+    "productId": "coldcast-io",
+    "officialUrl": "https://www.coldcast.io/",
+    "status": 200,
+    "finalUrl": "https://www.coldcast.io/",
+    "title": "Coldcast — Account-Safe LinkedIn Sales Navigator Scraper",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SEOSPS",
+    "productId": "seosps",
+    "officialUrl": "https://www.seosps.com/",
+    "status": 200,
+    "finalUrl": "https://www.seosps.com/",
+    "title": "SEOSPS - AI SEO, AEO, GEO & AIO Automation Tool",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Miraga AI",
+    "productId": "miraga-ai",
+    "officialUrl": "https://www.vmiraga.com",
+    "status": 200,
+    "finalUrl": "https://www.vmiraga.com/",
+    "title": "Miraga AI - The Most Realistic AI Video Generator",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sphot",
+    "productId": "sphot",
+    "officialUrl": "https://sphot.cc",
+    "status": 200,
+    "finalUrl": "https://sphot.cc/",
+    "title": "Chex — Your calls, handled by AI",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Valcr",
+    "productId": "valcr",
+    "officialUrl": "https://www.valcr.site",
+    "status": 200,
+    "finalUrl": "https://www.valcr.site/",
+    "title": "Valcr",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Costloop",
+    "productId": "costloop-2",
+    "officialUrl": "https://costloop.app",
+    "status": 200,
+    "finalUrl": "https://costloop.app/",
+    "title": "CostLoop | SaaS Subscription Tracking &amp; Spend Management for SMBs",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Alion",
+    "productId": "alion",
+    "officialUrl": "https://alion.io",
+    "status": 200,
+    "finalUrl": "https://alion.io/",
+    "title": "Get Hired in AI & Tech: Verified Live Roles, Fit Score, Tailored Resume | Alion",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ERPDrive",
+    "productId": "erpdrive",
+    "officialUrl": "https://erpdrive.in/",
+    "status": 200,
+    "finalUrl": "https://erpdrive.in/",
+    "title": "Manufacturing ERP Software India | ERPDrive - Cloud ERP for SMEs",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CallFrame",
+    "productId": "callframe",
+    "officialUrl": "https://callframe.app",
+    "status": 200,
+    "finalUrl": "https://callframe.app/",
+    "title": "CallFrame — Run Your Entire Business From Your Pocket",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Fameo",
+    "productId": "fameo",
+    "officialUrl": "https://fameo.ai/",
+    "status": 200,
+    "finalUrl": "https://fameo.ai/",
+    "title": "The Ultimate AI Lip Sync Nails Every Word | Fameo",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CoreAI",
+    "productId": "coreai",
+    "officialUrl": "https://ask-coreai.com/",
+    "status": 200,
+    "finalUrl": "https://ask-coreai.com/",
+    "title": "CoreAI - Chat with GPT-5, Claude, Gemini & 300+ AI Models | One App",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BillEasy Inc",
+    "productId": "billeasy-inc",
+    "officialUrl": "https://billeasy.ca/",
+    "status": 200,
+    "finalUrl": "https://billeasy.ca/",
+    "title": "Billeasy Construction Management Software",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Housepaint AI",
+    "productId": "housepaint-ai",
+    "officialUrl": "https://housepaint.ai",
+    "status": 200,
+    "finalUrl": "https://housepaint.ai/",
+    "title": "Preview Before You Paint | Housepaint AI",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Datacrecy",
+    "productId": "datacrecy",
+    "officialUrl": "https://app.datacrecy.com/",
+    "status": 200,
+    "finalUrl": "https://app.datacrecy.com/",
+    "title": "Datacrecy | B2B Lead Finder - 2.5B+ Verified Contacts",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ltrl",
+    "productId": "ltrl",
+    "officialUrl": "https://ltrl.com/",
+    "status": 200,
+    "finalUrl": "https://ltrl.com/",
+    "title": "Ltrl — Health advice from people you trust, all in one place",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Provn",
+    "productId": "provn",
+    "officialUrl": "https://provn.co",
+    "status": 200,
+    "finalUrl": "https://provn.co/",
+    "title": "Provn | Hire and Get Hired on Proof, Not Pedigree",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nometria",
+    "productId": "nometria",
+    "officialUrl": "https://nometria.com",
+    "status": 200,
+    "finalUrl": "https://nometria.com/",
+    "title": "Nometria - Deploy builder apps to real infrastructure",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Mail Boiler",
+    "productId": "mail-boiler",
+    "officialUrl": "https://www.mailboiler.com/",
+    "status": 200,
+    "finalUrl": "https://www.mailboiler.com/",
+    "title": "MailBoiler - Email Verification, Lead Discovery &amp; Outreach Platform",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "fast 3d",
+    "productId": "fast-3d",
+    "officialUrl": "https://fast3d.io",
+    "status": 200,
+    "finalUrl": "https://fast3d.io/",
+    "title": "Fast3D - Create 3D Models with AI in Seconds",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "InteliCarbon",
+    "productId": "intelicarbon",
+    "officialUrl": "https://com.intelicarbon.eu",
+    "status": 200,
+    "finalUrl": "https://com.intelicarbon.eu/",
+    "title": "InteliCarbon | CBAM Carbon Intelligence Platform",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sopa",
+    "productId": "sopa",
+    "officialUrl": "https://heysopa.com/",
+    "status": 200,
+    "finalUrl": "https://www.heysopa.com/",
+    "title": "Sopa — Agencia de SEO y GEO nativa de IA | Google y ChatGPT",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Code Acade",
+    "productId": "code-acade",
+    "officialUrl": "https://codearcade.io/",
+    "status": 200,
+    "finalUrl": "https://codearcade.io/",
+    "title": "Code Arcade",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CodeDreams",
+    "productId": "codedreams",
+    "officialUrl": "https://codedreams.org",
+    "status": 200,
+    "finalUrl": "https://codedreams.org/",
+    "title": "The Best Coding and Computer Science Platform for K-12 Schools",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Zenframe",
+    "productId": "zenframe",
+    "officialUrl": "https://www.zenframe.no",
+    "status": 200,
+    "finalUrl": "https://www.zenframe.no/",
+    "title": "Zenframe Family – Familiens operativsystem | Zenframe",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "StatusBird",
+    "productId": "statusbird",
+    "officialUrl": "https://statusbird.io/",
+    "status": 200,
+    "finalUrl": "https://statusbird.io/",
+    "title": "StatusBird | E-commerce Uptime Monitoring &amp; Downtime Alerts",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LLM Pulse",
+    "productId": "llm-pulse",
+    "officialUrl": "https://llmpulse.ai",
+    "status": 200,
+    "finalUrl": "https://llmpulse.ai/",
+    "title": "LLM Pulse: All-in-One AI Search Visibility &amp; Reputation Platform",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Namaste Tools",
+    "productId": "namaste-tools",
+    "officialUrl": "https://namaste.tools",
+    "status": 200,
+    "finalUrl": "https://www.namaste.tools/",
+    "title": "Namaste Tools | AI Media Tools for Creators and Teams",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PDFData",
+    "productId": "pdfdata",
+    "officialUrl": "https://pdfdata.co/",
+    "status": 200,
+    "finalUrl": "https://pdfdata.co/",
+    "title": "AI Invoice &amp; Receipt Processing for Bookkeepers | PDFData",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sprite-AI",
+    "productId": "sprite-ai",
+    "officialUrl": "https://www.sprite-ai.art/",
+    "status": 200,
+    "finalUrl": "https://www.sprite-ai.art/",
+    "title": "Sprite maker: free AI sprite generator for 2D games",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nana Banana Pro",
+    "productId": "nana-banana-pro",
+    "officialUrl": "https://nanabananapro.net",
+    "status": 200,
+    "finalUrl": "https://nanabananapro.net/",
+    "title": "Nana Banana Pro - AI Image Generator, Nano Banana Pro &amp; GPT Image 2",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OG Pilot",
+    "productId": "og-pilot",
+    "officialUrl": "https://ogpilot.com/",
+    "status": 200,
+    "finalUrl": "https://ogpilot.com/",
+    "title": "The dynamic Open Graph image generator",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "S.C.A.L.A. AI OS",
+    "productId": "s-c-a-l-a-ai-os",
+    "officialUrl": "https://get-scala.com",
+    "status": 200,
+    "finalUrl": "https://get-scala.com/en",
+    "title": "S.C.A.L.A. AI OS — The AI Operating System for Business",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Waitlister",
+    "productId": "waitlister",
+    "officialUrl": "https://waitlister.me/",
+    "status": 200,
+    "finalUrl": "https://waitlister.me/",
+    "title": "Waitlist Software — Build a Pre-Launch Waitlist | Waitlister",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Origami",
+    "productId": "origami-2",
+    "officialUrl": "https://origami.chat",
+    "status": 200,
+    "finalUrl": "https://origami.chat/",
+    "title": "Origami gets customers for you.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FastHeadshot",
+    "productId": "fastheadshot-2",
+    "officialUrl": "https://fastheadshot.com/",
+    "status": 200,
+    "finalUrl": "https://fastheadshot.com/",
+    "title": "AI Professional Headshots in 60 Seconds | FastHeadshot",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Vora IQ",
+    "productId": "vora-iq",
+    "officialUrl": "http://www.Voraiq.com",
+    "status": 200,
+    "finalUrl": "https://www.voraiq.com/",
+    "title": "Vora IQ — Business Building Operating System for Founders",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RamenLegal",
+    "productId": "ramenlegal",
+    "officialUrl": "https://ramen.legal",
+    "status": 200,
+    "finalUrl": "https://ramen.legal/",
+    "title": "Home - RamenLegal",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PlayHop",
+    "productId": "playhop",
+    "officialUrl": "https://playhop.gg/",
+    "status": 200,
+    "finalUrl": "https://playhop.gg/",
+    "title": "Free Online Games at PlayHop - Play Now!",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Page AI",
+    "productId": "page-ai",
+    "officialUrl": "https://pageai.pro",
+    "status": 200,
+    "finalUrl": "https://pageai.pro/",
+    "title": "PageAI - the best AI website builder for professionals",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "previewship",
+    "productId": "previewship",
+    "officialUrl": "https://previewship.com",
+    "status": 200,
+    "finalUrl": "https://previewship.com/",
+    "title": "PreviewShip — Publish HTML &amp; Static Builds Online",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ito",
+    "productId": "ito",
+    "officialUrl": "https://www.ito.ai/",
+    "status": 200,
+    "finalUrl": "https://www.ito.ai/",
+    "title": "Runtime Code Review That Runs Your App on Every PR | Ito",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Shipfit.ai",
+    "productId": "shipfit-ai",
+    "officialUrl": "https://shipfit.ai",
+    "status": 200,
+    "finalUrl": "https://shipfit.ai/",
+    "title": "ShipFit. Kill bad ideas fast. Make good ideas win.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Rakenne",
+    "productId": "rakenne",
+    "officialUrl": "https://rakenne.app/",
+    "status": 200,
+    "finalUrl": "https://rakenne.app/",
+    "title": "Rakenne — AI-Powered Document Workflows",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WizLead",
+    "productId": "wizlead",
+    "officialUrl": "https://wizleads.io/",
+    "status": 200,
+    "finalUrl": "https://wizleads.io/",
+    "title": "B2B Lead Generation Tool - Scrape, Enrich & Verify Leads | WizLeads",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AIODapp",
+    "productId": "aiodapp",
+    "officialUrl": "https://www.aiodapp.com/",
+    "status": 200,
+    "finalUrl": "https://www.aiodapp.com/",
+    "title": "Automatic Discounts for Shopify | AIOD",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pimosa",
+    "productId": "pimosa",
+    "officialUrl": "https://pimosa.app",
+    "status": 200,
+    "finalUrl": "https://pimosa.app/",
+    "title": "Pimosa – Desktop &amp; iPhone Video, Photo, Audio &amp; PDF Tools",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "picmovo",
+    "productId": "picmovo",
+    "officialUrl": "https://picmovo.com/auth",
+    "status": 200,
+    "finalUrl": "https://picmovo.com/auth",
+    "title": "picmovo · AI 影像创作",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "uiori",
+    "productId": "uiori",
+    "officialUrl": "https://uiori.com/",
+    "status": 200,
+    "finalUrl": "https://uiori.com/",
+    "title": "Find Earning Sites That Work in Your Country | uiori",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Meliora",
+    "productId": "meliora",
+    "officialUrl": "http://joinmeliora.com",
+    "status": 200,
+    "finalUrl": "https://joinmeliora.com/",
+    "title": "Meliora™ — Your AI agent gets better every day, automatically",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TheTapTempo",
+    "productId": "thetaptempo",
+    "officialUrl": "https://www.thetaptempo.com/",
+    "status": 200,
+    "finalUrl": "https://www.thetaptempo.com/",
+    "title": "TheTapTempo - Music Tools for Musicians &amp; DJs",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Shift",
+    "productId": "shift-3",
+    "officialUrl": "https://shiftappai.com/",
+    "status": 200,
+    "finalUrl": "https://shiftappai.com/",
+    "title": "Shift",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PawShare",
+    "productId": "pawshare",
+    "officialUrl": "https://pawshareapp.com/",
+    "status": 200,
+    "finalUrl": "https://pawshareapp.com/",
+    "title": "PawShare - Everything Your Dog Needs. All in One App.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sequence-R",
+    "productId": "sequence-r",
+    "officialUrl": "https://sequence-r.com",
+    "status": 200,
+    "finalUrl": "https://sequence-r.com/",
+    "title": "Email Warm Up &amp; Cold Email Outreach Software | Sequence-R",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Tunio",
+    "productId": "tunio",
+    "officialUrl": "https://tunio.ai",
+    "status": 200,
+    "finalUrl": "https://tunio.ai/en",
+    "title": "AI Background Music for Business | Tunio",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Mrrp",
+    "productId": "mrrp",
+    "officialUrl": "https://www.mrrp.app/",
+    "status": 200,
+    "finalUrl": "https://www.mrrp.app/",
+    "title": "Mrrp | The #1 AI-Powered Pet Care App — Health Tracking, Diet & More",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Harper AI",
+    "productId": "harper-ai",
+    "officialUrl": "https://askharper.ai",
+    "status": 200,
+    "finalUrl": "https://askharper.ai/",
+    "title": "Harper | Build Smarter Deals",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Flowmetrics Pro",
+    "productId": "flowmetrics-pro",
+    "officialUrl": "https://www.flowmetricspro.com/",
+    "status": 200,
+    "finalUrl": "https://www.flowmetricspro.com/",
+    "title": "FlowMetrics Pro | All-in-One Workforce Intelligence",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Buttons CLI",
+    "productId": "buttons-cli",
+    "officialUrl": "https://buttonscli.com",
+    "status": 200,
+    "finalUrl": "https://buttonscli.com/",
+    "title": "ButtonsCLI — The terminal on easy mode.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ProjectsAIO",
+    "productId": "projectsaio",
+    "officialUrl": "https://projectsaio.perstoc.ai/",
+    "status": 200,
+    "finalUrl": "https://projectsaio.perstoc.ai/",
+    "title": "ProjectsAIO | Outperform with 5X Results on #1 AI-Driven Project Management Platform",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "EasyApp",
+    "productId": "easyapp",
+    "officialUrl": "https://www.easyapp.site/",
+    "status": 200,
+    "finalUrl": "https://www.easyapp.site/",
+    "title": "EasyApp | SwiftUI Template for Paid iPhone Apps",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Korel",
+    "productId": "korel-2",
+    "officialUrl": "https://www.usekorel.com/",
+    "status": 200,
+    "finalUrl": "https://www.usekorel.com/",
+    "title": "Korel — Authority Distribution Engine for B2B Founders",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PracHub",
+    "productId": "prachub",
+    "officialUrl": "https://prachub.com/",
+    "status": 200,
+    "finalUrl": "https://prachub.com/",
+    "title": "PracHub: Real Interview Questions from Real Candidates",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PlanVista",
+    "productId": "planvista",
+    "officialUrl": "https://planvista.app",
+    "status": 200,
+    "finalUrl": "https://planvista.app/",
+    "title": "PlanVista | Your AI Business Planning Partner",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Image to Photo",
+    "productId": "image-to-photo",
+    "officialUrl": "https://imagetophoto.com",
+    "status": 200,
+    "finalUrl": "https://imagetophoto.com/",
+    "title": "Image to Photo - Turn Any Image into Realistic Photo",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "UmanWrite",
+    "productId": "umanwrite",
+    "officialUrl": "https://umanwrite.com/",
+    "status": 200,
+    "finalUrl": "https://www.umanwrite.com/",
+    "title": "UmanWrite",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "yantrar",
+    "productId": "yantrar",
+    "officialUrl": "https://yantrar.com/",
+    "status": 200,
+    "finalUrl": "https://yantrar.com/",
+    "title": "Yantrar — Next-Gen Drone Technology",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Actioner AI",
+    "productId": "actioner-ai",
+    "officialUrl": "https://actioner.ai/",
+    "status": 200,
+    "finalUrl": "https://actioner.ai/",
+    "title": "Actioner AI — AI Recruitment Platform: Voice & Video Screening, ATS Scan, ID Verification, Polished CVs & Job Search",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Ownly",
+    "productId": "ownly",
+    "officialUrl": "https://ownlyagent.com",
+    "status": 200,
+    "finalUrl": "https://ownlyagent.com/",
+    "title": "Ownly | AI agents that work for you",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Toolbox",
+    "productId": "chatgpt-toolbox",
+    "officialUrl": "https://ai-toolbox.co",
+    "status": 200,
+    "finalUrl": "https://www.ai-toolbox.co/",
+    "title": "AI Toolbox, One Extension for ChatGPT, Claude, Gemini, Grok",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Postion",
+    "productId": "postion-2",
+    "officialUrl": "https://postion.app",
+    "status": 200,
+    "finalUrl": "https://postion.app/en",
+    "title": "Postion - The All-in-One Creator Platform",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Waardian",
+    "productId": "waardian",
+    "officialUrl": "https://www.waardian.com/",
+    "status": 200,
+    "finalUrl": "https://www.waardian.com/",
+    "title": "Waardian – Revolutionizing Smart Living | Smart Society &amp; Real Estate Management",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Kinic",
+    "productId": "kinic",
+    "officialUrl": "https://www.kinic.io/",
+    "status": 200,
+    "finalUrl": "https://www.kinic.io/",
+    "title": "Kinic - One Memory Layer. Every AI Agent.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sage AI",
+    "productId": "sage-ai-3",
+    "officialUrl": "https://sageadvent.com",
+    "status": 200,
+    "finalUrl": "https://www.sageadvent.com/",
+    "title": "Sage AI Agent for Shopify Plus &amp; Enterprise E-commerce Automation",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "COCREATE",
+    "productId": "cocreate",
+    "officialUrl": "https://cocreate.colate.io",
+    "status": 200,
+    "finalUrl": "https://cocreate.colate.io/",
+    "title": "Unified Platform to Build Enterprise-Ready Apps | COCREATE by Colate",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Introd",
+    "productId": "introd",
+    "officialUrl": "https://getintrod.ai/",
+    "status": 200,
+    "finalUrl": "https://getintrod.ai/",
+    "title": "Introd — You’re one introduction away",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "River",
+    "productId": "river",
+    "officialUrl": "https://www.rivergtm.com/",
+    "status": 200,
+    "finalUrl": "https://www.rivergtm.com/",
+    "title": "River | Grow your sales without your headcount.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Quantt",
+    "productId": "quantt",
+    "officialUrl": "https://www.quantt.co.uk",
+    "status": 200,
+    "finalUrl": "https://www.quantt.co.uk/",
+    "title": "Quantt | Learn Quantitative Finance, Mathematics &amp; Technology | Quantt",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SaaStore",
+    "productId": "saastore",
+    "officialUrl": "https://saastore.ai",
+    "status": 200,
+    "finalUrl": "https://saastore.ai/",
+    "title": "SaaStore: Software you can finally trust and afford",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Create UI",
+    "productId": "create-ui",
+    "officialUrl": "https://createui.co?utm_source=indiehackers&utm_medium=directory",
+    "status": 200,
+    "finalUrl": "https://createui.co/?utm_source=indiehackers&utm_medium=directory",
+    "title": "Create UI - Design System &amp; React UI Component Library",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MailStrike",
+    "productId": "mailstrike",
+    "officialUrl": "https://www.mailstrike.ai/",
+    "status": 200,
+    "finalUrl": "https://www.mailstrike.ai/",
+    "title": "MailStrike — AI Email Warmup with Human-Like Personas",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Mindshape",
+    "productId": "mindshape",
+    "officialUrl": "https://mindshape.io",
+    "status": 200,
+    "finalUrl": "https://mindshape.io/",
+    "title": "Free 16-Type Personality, Enneagram &amp; Mental-Health Tests — Mindshape",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AudioUtils",
+    "productId": "audioutils",
+    "officialUrl": "https://audioutils.com",
+    "status": 200,
+    "finalUrl": "https://audioutils.com/",
+    "title": "AudioUtils — Free Online Audio Converter | MP3, WAV, FLAC, OGG",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "logicSupplies",
+    "productId": "logic-supplies",
+    "officialUrl": "https://logiccsupplies.ca/",
+    "status": 200,
+    "finalUrl": "https://logiccsupplies.ca/",
+    "title": "App Fidélité pour Commerces Locaux à Québec | LogicSupplies",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nutaan CRM",
+    "productId": "nutaan-crm",
+    "officialUrl": "https://nutaancrm.com/",
+    "status": 200,
+    "finalUrl": "https://nutaancrm.com/",
+    "title": "Nutaan CRM | One CRM. Every Outbound Channel.",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Vingo",
+    "productId": "vingo",
+    "officialUrl": "https://justvingo.com/",
+    "status": 200,
+    "finalUrl": "https://justvingo.com/",
+    "title": "Vingo: Buy, Sell &amp; Bid on Pre Owned Items",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Alvin AI",
+    "productId": "alvin-ai",
+    "officialUrl": "https://alvin-ai.com/",
+    "status": 200,
+    "finalUrl": "https://alvin-ai.com/",
+    "title": "AI So Easy — AI-Powered Community Platform for Creators",
+    "checkedAt": "2026-09-16"
+  }
+]

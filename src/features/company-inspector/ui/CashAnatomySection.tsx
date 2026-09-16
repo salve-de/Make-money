@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { IncompleteCashSummary } from './IncompleteCashSummary';
 import * as echarts from 'echarts';
 import {
   Banknote,
@@ -57,10 +58,11 @@ export function CashAnatomySection({
   // 複数原価がある場合は「サンキー図」を推奨
   const defaultMode: CashViewMode = actualCogsPct < 20 && opexPct < 20 ? 'WATERFALL' : 'SANKEY';
   const [viewMode, setViewMode] = useState<CashViewMode>(defaultMode);
+  const incompleteInputs = Boolean(entity.pnl.isOperatingProfitUnconfirmed || entity.pnl.isCostsUnconfirmed);
 
   useEffect(() => {
     const el = chartRef.current;
-    if (!el || viewMode === 'TABLE') return;
+    if (!el || viewMode === 'TABLE' || isFinancialUnavailable || incompleteInputs) return;
 
     let myChart = chartInstance.current;
     if (!myChart) {
@@ -183,7 +185,7 @@ export function CashAnatomySection({
           series: [
             {
               type: 'sankey',
-              layout: 'none',
+
               top: 20,
               bottom: 20,
               left: 30,
@@ -303,8 +305,10 @@ export function CashAnatomySection({
 
     return () => {
       resizeObserver.disconnect();
+      myChart?.dispose();
+      if (chartInstance.current === myChart) chartInstance.current = null;
     };
-  }, [viewMode, rev, cogs, totalOpex, profit, isLoss, actualCogsPct, opexPct, actualProfitPct, formatMoney]);
+  }, [viewMode, rev, cogs, totalOpex, profit, isLoss, actualCogsPct, opexPct, actualProfitPct, formatMoney, isFinancialUnavailable, incompleteInputs]);
 
   useEffect(() => {
     return () => {
@@ -321,6 +325,8 @@ export function CashAnatomySection({
       </div>
     );
   }
+
+  if (incompleteInputs) return <IncompleteCashSummary entity={entity} formatMoney={formatMoney} />;
 
   return (
     <section

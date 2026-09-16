@@ -301,13 +301,12 @@ export function autoEnrichEntityBeforeIngest(ent: FinancialEntity): FinancialEnt
   }
 
   // 2. 地雷・破綻ステータスの自動一貫性判定
-  const isHazard = cloned.financialStatus === 'POST_MORTEM' ||
+  const isHazard = cloned.pnl?.financialStatus === 'POST_MORTEM' ||
     cloned.tags?.some((t: string) => /破綻|倒産|粉飾|不正|清算|枯渇|崩壊|撤退|レシーバーシップ/i.test(t)) ||
     cloned.evidenceCards?.some((c) => c && c.type === 'FATAL_BLEED') ||
     /wirecard|celsius|evergrande|petscom|webvan|svb|firstrepublic|convoy|katerra|beepi|wework_landmine|theranos|ftx|fast_postmortem|jasper/i.test(cloned.id);
 
   if (isHazard) {
-    cloned.financialStatus = 'POST_MORTEM';
     if (cloned.pnl) cloned.pnl.financialStatus = 'POST_MORTEM';
     if (!cloned.tags.includes('失敗・撤退の検証')) cloned.tags.push('失敗・撤退の検証');
   }

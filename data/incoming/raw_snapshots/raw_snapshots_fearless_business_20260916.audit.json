@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "raw-snapshot-audit.v1",
+  "snapshot": "2026-09-16",
+  "requested": 1,
+  "captured": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Fearless Business (Robin Waite)",
+      "entityId": "ent_reported_c2bc799c6efdf27bc3263c3b",
+      "requestedUrl": "https://founderreports.com/interview/fearless-business/",
+      "sourceId": "src.founderreports.fearless-business",
+      "evidenceId": "ev_founderreports_fearless-business",
+      "author": "Robin Waite",
+      "observedAt": "2026-09-16T00:00:00.000Z",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 222884,
+      "sha256": "b6e8016ef8bc24f346331187ce3b0e7e9a0972ae92bfd73d6869dbeea7000b22",
+      "localPath": "data/incoming/raw_snapshots_fearless_business_20260916/ev_founderreports_fearless-business_b6e8016ef8bc24f346331187ce3b0e7e9a0972ae92bfd73d6869dbeea7000b22.html",
+      "fetchedAt": "2026-09-16T00:26:23.619Z"
+    }
+  ]
+}

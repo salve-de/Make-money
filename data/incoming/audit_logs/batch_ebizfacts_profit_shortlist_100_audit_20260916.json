@@ -1,0 +1,3893 @@
+[
+  {
+    "rank": 1,
+    "id": "ent_ebizfacts_marchymanicedcoffeecart8kweekend_cb6079cd0595",
+    "name": "$8K in a Weekend From a Gutted Home Depot Cart",
+    "scale": "SMALL_TEAM",
+    "score": 255,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$8,000",
+        "currency": "USD",
+        "amount": 8000,
+        "jpyAmount": 1200000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "net profit in a 2-day event"
+      },
+      {
+        "original": "$8,000",
+        "currency": "USD",
+        "amount": 8000,
+        "jpyAmount": 1200000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "Marc Hyman Iced Coffee Cart Owner $8,000 net profit in a 2-day event Marc Hyman is a 66-year-old California lawyer who doesn't drink coffee. He sells it anyway 👀 He gutted a $600 Husky tool cart from Home Depot, bolted"
+      },
+      {
+        "original": "$8",
+        "currency": "USD",
+        "amount": 8,
+        "jpyAmount": 1200,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ole setup ran under $3,000. His best 2-day event cleared $8,000 net profit 🤑 The economics are lopsided in his favor… ~$3 to make each cup Sells for $8 to $8.50 30 seconds to pour, no employees After 9am, most buyers just want something cold and sweet, he explains – so the coffee itself is almost beside the point 👇 The quality o"
+      },
+      {
+        "original": "$600",
+        "currency": "USD",
+        "amount": 600,
+        "jpyAmount": 90000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "rt Owner $8,000 net profit in a 2-day event Marc Hyman is a 66-year-old California lawyer who doesn't drink coffee. He sells it anyway 👀 He gutted a $600 Husky tool cart from Home Depot, bolted in a nitro tap system, and serves iced coffee at festivals, car shows, and car washes. The whole setup ran under $3,000. His best 2-day eve"
+      },
+      {
+        "original": "$3,000",
+        "currency": "USD",
+        "amount": 3000,
+        "jpyAmount": 450000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ky tool cart from Home Depot, bolted in a nitro tap system, and serves iced coffee at festivals, car shows, and car washes. The whole setup ran under $3,000. His best 2-day event cleared $8,000 net profit 🤑 The economics are lopsided in his favor… ~$3 to make each cup Sells for $8 to $8.50 30 seconds to pour, no employees After 9am,"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 2,
+    "id": "ent_ebizfacts_jansonsmithamazonfbaq2profits_a8077a633703",
+    "name": "£391,000 Revenue On Amazon = How Much Profit?",
+    "scale": "SOLO",
+    "score": 250,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "£391,000",
+        "currency": "GBP",
+        "amount": 391000,
+        "jpyAmount": 74290000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "£391,000 Revenue On Amazon = How Much Profit?"
+      },
+      {
+        "original": "£14,333",
+        "currency": "GBP",
+        "amount": 14333,
+        "jpyAmount": 2723270,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ar… Revenue = £391,000 ($472K) Expenses = £348,000 ($420K) Profit = £43,000 ($52K) Profit Margin = 13% That works out to an average monthly profit of £14,333 ($17.3K) in the quarter &#x1f4b0; Though Jason says in the video that his profits were increasing steadily, with almost half of that £43K coming in the final month of Q2. Most imp"
+      },
+      {
+        "original": "£43,000",
+        "currency": "GBP",
+        "amount": 43000,
+        "jpyAmount": 8170000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "goes on to reveal his numbers selling multiple products on Amazon in Q2 of last year… Revenue = £391,000 ($472K) Expenses = £348,000 ($420K) Profit = £43,000 ($52K) Profit Margin = 13% That works out to an average monthly profit of £14,333 ($17.3K) in the quarter &#x1f4b0; Though Jason says in the video that his profits were increasing"
+      },
+      {
+        "original": "£14,333",
+        "currency": "GBP",
+        "amount": 14333,
+        "jpyAmount": 2723270,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ar… Revenue = £391,000 ($472K) Expenses = £348,000 ($420K) Profit = £43,000 ($52K) Profit Margin = 13% That works out to an average monthly profit of £14,333 ($17.3K) in the quarter &#x1f4b0; Though Jason says in the video that his profits were increasing steadily, with almost half of that £43K coming in the final month of Q2. Most imp"
+      },
+      {
+        "original": "£391,000",
+        "currency": "GBP",
+        "amount": 391000,
+        "jpyAmount": 74290000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ey're talking about is revenue and not profit. Janson goes on to reveal his numbers selling multiple products on Amazon in Q2 of last year… Revenue = £391,000 ($472K) Expenses = £348,000 ($420K) Profit = £43,000 ($52K) Profit Margin = 13% That works out to an average monthly profit of £14,333 ($17.3K) in the quarter &#x1f4b0; Though Jas"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 3,
+    "id": "ent_ebizfacts_sariahhowellmemorymagnets163mcustomphotomagn_b589b02bb06a",
+    "name": "Broke Mom to $1.63M Selling Custom Magnets",
+    "scale": "SMALL_TEAM",
+    "score": 250,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$1,500",
+        "currency": "USD",
+        "amount": 1500,
+        "jpyAmount": 225000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "our wedding? 💍 A 3-hour wedding gig looks something like this… Revenue: $1,200 to $3,000 Total costs: ~$500 (materials, gas, two staff) Net profit: ~$1,500 There are 2.5M weddings per year in the US. Almost none of them have a magnet vendor 👀 I don't think it will ever be oversaturated. Even here around me, there are a ton of people"
+      },
+      {
+        "original": "$0.35",
+        "currency": "USD",
+        "amount": 0.35,
+        "jpyAmount": 53,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "That first month, I think I made a little over $1,000. Not that that's a crazy amount, but to us that was a lot. The numbers are 🤯 Cost per magnet: $0.35 A 9-pack sells for $25 That's ~87% margin on materials alone First full year: $1.63M in revenue, 30–40% net margins – after labor, booth fees, and lower-margin product lines like"
+      },
+      {
+        "original": "$1,200",
+        "currency": "USD",
+        "amount": 1200,
+        "jpyAmount": 180000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "etting married in a couple months. Would you ever consider being a vendor at our wedding? 💍 A 3-hour wedding gig looks something like this… Revenue: $1,200 to $3,000 Total costs: ~$500 (materials, gas, two staff) Net profit: ~$1,500 There are 2.5M weddings per year in the US. Almost none of them have a magnet vendor 👀 I don't think"
+      },
+      {
+        "original": "$3,000",
+        "currency": "USD",
+        "amount": 3000,
+        "jpyAmount": 450000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "ried in a couple months. Would you ever consider being a vendor at our wedding? 💍 A 3-hour wedding gig looks something like this… Revenue: $1,200 to $3,000 Total costs: ~$500 (materials, gas, two staff) Net profit: ~$1,500 There are 2.5M weddings per year in the US. Almost none of them have a magnet vendor 👀 I don't think it will ev"
+      },
+      {
+        "original": "$500",
+        "currency": "USD",
+        "amount": 500,
+        "jpyAmount": 75000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "hs. Would you ever consider being a vendor at our wedding? 💍 A 3-hour wedding gig looks something like this… Revenue: $1,200 to $3,000 Total costs: ~$500 (materials, gas, two staff) Net profit: ~$1,500 There are 2.5M weddings per year in the US. Almost none of them have a magnet vendor 👀 I don't think it will ever be oversaturated"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 4,
+    "id": "ent_ebizfacts_reneesiddellamazonseller1800monthprofit_02321c350254",
+    "name": "Her Part-Time Amazon Business = $1800/Month Profit",
+    "scale": "SOLO",
+    "score": 235,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$1800",
+        "currency": "USD",
+        "amount": 1800,
+        "jpyAmount": 270000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "title",
+        "context": "Her Part-Time Amazon Business = $1800/Month Profit"
+      },
+      {
+        "original": "$1800",
+        "currency": "USD",
+        "amount": 1800,
+        "jpyAmount": 270000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "d a really good month in January but now I've leveled back down to about $12,000 in sales a month. Renee says her net profit on that is 15%, so about $1800 per month 🤑 She doesn't specify exactly what products she's selling, but she hunts around online and in her local area for good bulk deals – especially on “replenishable” product"
+      },
+      {
+        "original": "$12,000",
+        "currency": "USD",
+        "amount": 12000,
+        "jpyAmount": 1800000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "She started up again in July of 2022, and things have gone well since 📈 I had a really good month in January but now I've leveled back down to about $12,000 in sales a month. Renee says her net profit on that is 15%, so about $1800 per month 🤑 She doesn't specify exactly what products she's selling, but she hunts around online and in"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 5,
+    "id": "ent_ebizfacts_nataliesidehustledogwalking1000month_ea86ea0732fc",
+    "name": "This Side Hustle Earns Up To $4000/Month (Zero Qualifications)",
+    "scale": "SOLO",
+    "score": 235,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$2,300",
+        "currency": "USD",
+        "amount": 2300,
+        "jpyAmount": 345000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "revenue is around $9k/month.&nbsp; Monthly profit depends on how much I work in the field. If employees were doing 100% of the work, profit would be ~$2,300 a month. Every field work hour I do myself adds about $35/hr in profit.&nbsp; Not currently doing a ton of field work myself, so this month net profit will likely be around $4k."
+      },
+      {
+        "original": "$4k",
+        "currency": "USD",
+        "amount": 4000,
+        "jpyAmount": 600000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "rk hour I do myself adds about $35/hr in profit.&nbsp; Not currently doing a ton of field work myself, so this month net profit will likely be around $4k."
+      },
+      {
+        "original": "$9k",
+        "currency": "USD",
+        "amount": 9000,
+        "jpyAmount": 1350000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "further 👇 I started my dog walking/pet sitting company in May as a solo operator. 7 months later, I have 3 part-time employees and revenue is around $9k/month.&nbsp; Monthly profit depends on how much I work in the field. If employees were doing 100% of the work, profit would be ~$2,300 a month. Every field work hour I do myself a"
+      },
+      {
+        "original": "$35",
+        "currency": "USD",
+        "amount": 35,
+        "jpyAmount": 5250,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "how much I work in the field. If employees were doing 100% of the work, profit would be ~$2,300 a month. Every field work hour I do myself adds about $35/hr in profit.&nbsp; Not currently doing a ton of field work myself, so this month net profit will likely be around $4k."
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 6,
+    "id": "ent_ebizfacts_erwinlengkeektailscanchromeextension53k_4a82775f9032",
+    "name": "$53,000+ From His 1-Week Chrome Extension",
+    "scale": "UNKNOWN",
+    "score": 225,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$79",
+        "currency": "USD",
+        "amount": 79,
+        "jpyAmount": 11850,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "win shares… The recurring revenue has grown to almost $30k annually, with another $23k in one-off revenue, all with a 95% profit margin. Pricing is a $79/year subscription or a $249 one-time fee. 👨‍💻 The origin story… Two years ago I started building a product called Base Styles as a side project, hoping to make it profitable. Un"
+      },
+      {
+        "original": "$30k",
+        "currency": "USD",
+        "amount": 30000,
+        "jpyAmount": 4500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "rs design and debug websites built with the Tailwind CSS framework 🤓 In a recent interview , Erwin shares… The recurring revenue has grown to almost $30k annually, with another $23k in one-off revenue, all with a 95% profit margin. Pricing is a $79/year subscription or a $249 one-time fee. 👨‍💻 The origin story… Two years ago I st"
+      },
+      {
+        "original": "$23k",
+        "currency": "USD",
+        "amount": 23000,
+        "jpyAmount": 3450000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "built with the Tailwind CSS framework 🤓 In a recent interview , Erwin shares… The recurring revenue has grown to almost $30k annually, with another $23k in one-off revenue, all with a 95% profit margin. Pricing is a $79/year subscription or a $249 one-time fee. 👨‍💻 The origin story… Two years ago I started building a product cal"
+      },
+      {
+        "original": "$79",
+        "currency": "USD",
+        "amount": 79,
+        "jpyAmount": 11850,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "win shares… The recurring revenue has grown to almost $30k annually, with another $23k in one-off revenue, all with a 95% profit margin. Pricing is a $79/year subscription or a $249 one-time fee. 👨‍💻 The origin story… Two years ago I started building a product called Base Styles as a side project, hoping to make it profitable. Un"
+      },
+      {
+        "original": "$249",
+        "currency": "USD",
+        "amount": 249,
+        "jpyAmount": 37350,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "evenue has grown to almost $30k annually, with another $23k in one-off revenue, all with a 95% profit margin. Pricing is a $79/year subscription or a $249 one-time fee. 👨‍💻 The origin story… Two years ago I started building a product called Base Styles as a side project, hoping to make it profitable. Unfortunately, it failed to ga"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 7,
+    "id": "ent_ebizfacts_benasleonavicius132kseoagencylithuania_180385cd0c40",
+    "name": "His Humble Agency Earned $132K Last Year From Lithuania",
+    "scale": "UNKNOWN",
+    "score": 225,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "€106,000",
+        "currency": "EUR",
+        "amount": 106000,
+        "jpyAmount": null,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "During 2024, the business has generated €126,000 ($132,000) in revenue.&nbsp; Benas is doing most of the work himself and has an 80% profit margin = €106,000 ($111,000) profit last year 🤑 Nothing sexy about this business, and if anything you'd think there are a ton of SEO agencies out there already, that the market is saturated. But B"
+      },
+      {
+        "original": "€126,000",
+        "currency": "EUR",
+        "amount": 126000,
+        "jpyAmount": null,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "000 annual revenue From an interview with Benas Leonavicius from 🇱🇹 Lithuania, founder of this SEO agency … During 2024, the business has generated €126,000 ($132,000) in revenue.&nbsp; Benas is doing most of the work himself and has an 80% profit margin = €106,000 ($111,000) profit last year 🤑 Nothing sexy about this business, and i"
+      },
+      {
+        "original": "$132,000",
+        "currency": "USD",
+        "amount": 132000,
+        "jpyAmount": 19800000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "revenue From an interview with Benas Leonavicius from 🇱🇹 Lithuania, founder of this SEO agency … During 2024, the business has generated €126,000 ($132,000) in revenue.&nbsp; Benas is doing most of the work himself and has an 80% profit margin = €106,000 ($111,000) profit last year 🤑 Nothing sexy about this business, and if anything"
+      },
+      {
+        "original": "€106,000",
+        "currency": "EUR",
+        "amount": 106000,
+        "jpyAmount": null,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "During 2024, the business has generated €126,000 ($132,000) in revenue.&nbsp; Benas is doing most of the work himself and has an 80% profit margin = €106,000 ($111,000) profit last year 🤑 Nothing sexy about this business, and if anything you'd think there are a ton of SEO agencies out there already, that the market is saturated. But B"
+      },
+      {
+        "original": "$111,000",
+        "currency": "USD",
+        "amount": 111000,
+        "jpyAmount": 16650000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "24, the business has generated €126,000 ($132,000) in revenue.&nbsp; Benas is doing most of the work himself and has an 80% profit margin = €106,000 ($111,000) profit last year 🤑 Nothing sexy about this business, and if anything you'd think there are a ton of SEO agencies out there already, that the market is saturated. But Benas prove"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 8,
+    "id": "ent_ebizfacts_alexboydbrushworks565kforestrymulchinglandcl_a5677007fee3",
+    "name": "$565K In His First Year Clearing Overgrown Land",
+    "scale": "SOLO",
+    "score": 215,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$6,500",
+        "currency": "USD",
+        "amount": 6500,
+        "jpyAmount": 975000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "h one: $17K. Now doing $54-70K/month… Day rate: ~$2K Average job: $3,100 Gross margins: ~70% Solo operator ceiling: ~$240K/year profit His first job ($6,500) more than covered his entire down payment. Marketing 👉 he straps his phone to his chest while working and posts the transformation videos on YouTube with local keywords (“Cincin"
+      },
+      {
+        "original": "$17K",
+        "currency": "USD",
+        "amount": 17000,
+        "jpyAmount": 2550000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ad never touched a skid steer in his life. He put $5K down on a used one, practiced on his own property, then started taking customers. 🤑 Month one: $17K. Now doing $54-70K/month… Day rate: ~$2K Average job: $3,100 Gross margins: ~70% Solo operator ceiling: ~$240K/year profit His first job ($6,500) more than covered his entire down"
+      },
+      {
+        "original": "$54",
+        "currency": "USD",
+        "amount": 54,
+        "jpyAmount": 8100,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "a skid steer in his life. He put $5K down on a used one, practiced on his own property, then started taking customers. 🤑 Month one: $17K. Now doing $54-70K/month… Day rate: ~$2K Average job: $3,100 Gross margins: ~70% Solo operator ceiling: ~$240K/year profit His first job ($6,500) more than covered his entire down payment. Marke"
+      },
+      {
+        "original": "$2K",
+        "currency": "USD",
+        "amount": 2000,
+        "jpyAmount": 300000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "He put $5K down on a used one, practiced on his own property, then started taking customers. 🤑 Month one: $17K. Now doing $54-70K/month… Day rate: ~$2K Average job: $3,100 Gross margins: ~70% Solo operator ceiling: ~$240K/year profit His first job ($6,500) more than covered his entire down payment. Marketing 👉 he straps his phon"
+      },
+      {
+        "original": "$3,100",
+        "currency": "USD",
+        "amount": 3100,
+        "jpyAmount": 465000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "on a used one, practiced on his own property, then started taking customers. 🤑 Month one: $17K. Now doing $54-70K/month… Day rate: ~$2K Average job: $3,100 Gross margins: ~70% Solo operator ceiling: ~$240K/year profit His first job ($6,500) more than covered his entire down payment. Marketing 👉 he straps his phone to his chest while"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 9,
+    "id": "ent_ebizfacts_congtaihaamazonbusiness100kmonth_35c10a11c1d0",
+    "name": "From Non-English Speaking Waiter to $2 Million in Sales",
+    "scale": "UNKNOWN",
+    "score": 215,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$10K",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "rack to do $2 million in sales this year, having recently hit $100,000 in monthly revenue &#x1f4b0; Note however that his profit margin is only about $10K per month, which is fairly typical when selling on Amazon. Still, it's a life-changing amount of money compared to what Cong was earning as a waiter just a couple years ago &#x1f6"
+      },
+      {
+        "original": "$2 million",
+        "currency": "USD",
+        "amount": 2000000,
+        "jpyAmount": 300000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "o years after starting his Amazon biz, Cong quit his job as a waiter to go full-time on e-commerce. Fast forward to today, and Cong is on track to do $2 million in sales this year, having recently hit $100,000 in monthly revenue &#x1f4b0; Note however that his profit margin is only about $10K per month, which is fairly typical when sellin"
+      },
+      {
+        "original": "$100,000",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "s job as a waiter to go full-time on e-commerce. Fast forward to today, and Cong is on track to do $2 million in sales this year, having recently hit $100,000 in monthly revenue &#x1f4b0; Note however that his profit margin is only about $10K per month, which is fairly typical when selling on Amazon. Still, it's a life-changing amount o"
+      },
+      {
+        "original": "$10K",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "rack to do $2 million in sales this year, having recently hit $100,000 in monthly revenue &#x1f4b0; Note however that his profit margin is only about $10K per month, which is fairly typical when selling on Amazon. Still, it's a life-changing amount of money compared to what Cong was earning as a waiter just a couple years ago &#x1f6"
+      },
+      {
+        "original": "$2 million",
+        "currency": "USD",
+        "amount": 2000000,
+        "jpyAmount": 300000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "o years after starting his Amazon biz, Cong quit his job as a waiter to go full-time on e-commerce. Fast forward to today, and Cong is on track to do $2 million in sales this year, having recently hit $100,000 in monthly revenue &#x1f4b0; Note however that his profit margin is only about $10K per month, which is fairly typical when sellin"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 10,
+    "id": "ent_ebizfacts_chestfreezerrental125monthhunterspassiveinco_06113f31129f",
+    "name": "$125/Month Renting Out Chest Freezer Space to Hunters",
+    "scale": "UNKNOWN",
+    "score": 210,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "up text in november reminding deer hunters their spot is available. thats it Electricity runs about $10–13/month per freezer, so net profit is around $100/month 🤑 Potential to scale this nicely if you're in the right area. A new chest freezer runs $500–900. If you're near hunters or bulk meat buyers, you might already be sitting on"
+      },
+      {
+        "original": "$10",
+        "currency": "USD",
+        "amount": 10,
+        "jpyAmount": 1500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "tal effort… the only real thing i do is send a group text in november reminding deer hunters their spot is available. thats it Electricity runs about $10–13/month per freezer, so net profit is around $100/month 🤑 Potential to scale this nicely if you're in the right area. A new chest freezer runs $500–900. If you're near hunters o"
+      },
+      {
+        "original": "$500",
+        "currency": "USD",
+        "amount": 500,
+        "jpyAmount": 75000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "$10–13/month per freezer, so net profit is around $100/month 🤑 Potential to scale this nicely if you're in the right area. A new chest freezer runs $500–900. If you're near hunters or bulk meat buyers, you might already be sitting on this idea 🤔"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 11,
+    "id": "ent_ebizfacts_laketaupoholeinonechallenge650kyear_7524e0caef7a",
+    "name": "This $650K/Year Business Should Be Everywhere (But It's Not)",
+    "scale": "UNKNOWN",
+    "score": 210,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$200,000",
+        "currency": "USD",
+        "amount": 200000,
+        "jpyAmount": 30000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "if the average customer hits 20 balls for about 20 bucks, it means their topline revenue is about $650,000, and this place is making a net profit of $200,000 to $300,000 per year. These should be all over America. All you need is a wooden kiosk, a floating tea, and some permission. Why not start a business where math is on your side?"
+      },
+      {
+        "original": "$650,000,",
+        "currency": "USD",
+        "amount": 650000,
+        "jpyAmount": 97500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "are. I would bet it’s more like one in 20,000. And if the average customer hits 20 balls for about 20 bucks, it means their topline revenue is about $650,000, and this place is making a net profit of $200,000 to $300,000 per year. These should be all over America. All you need is a wooden kiosk, a floating tea, and some permission. Why"
+      },
+      {
+        "original": "$300,000",
+        "currency": "USD",
+        "amount": 300000,
+        "jpyAmount": 45000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "age customer hits 20 balls for about 20 bucks, it means their topline revenue is about $650,000, and this place is making a net profit of $200,000 to $300,000 per year. These should be all over America. All you need is a wooden kiosk, a floating tea, and some permission. Why not start a business where math is on your side?"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 12,
+    "id": "ent_ebizfacts_oregonwholesale10kmonthresellingcouchesfaceb_bcccce52354b",
+    "name": "$10K/Month Reselling Old Couches From Facebook Marketplace",
+    "scale": "SOLO",
+    "score": 200,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$35K",
+        "currency": "USD",
+        "amount": 35000,
+        "jpyAmount": 5250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "rt of it is offline, but it sounds like $10,000 monthly profit is doable if you live in a decent-sized metropolitan area and execute well 👍 Related… $35K Profit in 15 Months via Facebook Marketplace $500/Day Dropshipping on Facebook"
+      },
+      {
+        "original": "$10,000",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "Oregonwholesale Serial Entrepreneur $10,000 monthly revenue A recent post on Reddit from user Oregonwholesale… Selling used couches from Facebook making 10k a month PROFIT 📝 He writes… Couch flipping has changed my life an"
+      },
+      {
+        "original": "$10,000",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "definitely able to make it work, doing it Solo. So it's not the most scalable business and obviously a big part of it is offline, but it sounds like $10,000 monthly profit is doable if you live in a decent-sized metropolitan area and execute well 👍 Related… $35K Profit in 15 Months via Facebook Marketplace $500/Day Dropshipping on Fa"
+      },
+      {
+        "original": "$500",
+        "currency": "USD",
+        "amount": 500,
+        "jpyAmount": 75000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "nthly profit is doable if you live in a decent-sized metropolitan area and execute well 👍 Related… $35K Profit in 15 Months via Facebook Marketplace $500/Day Dropshipping on Facebook"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 13,
+    "id": "ent_ebizfacts_kiprolandlivesellingliquidation12kmonthwhatn_4e0101f9f7be",
+    "name": "$170/Hr Flipping Liquidation Pallets on Live Streams",
+    "scale": "SOLO",
+    "score": 200,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$12,000",
+        "currency": "USD",
+        "amount": 12000,
+        "jpyAmount": 1800000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$100K",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "leap of faith. I was like, we're probably not going to sell anything. He sold 150 items in under two hours 🤯 Ten months later? $450,000 in revenue, ~$100K profit. He now averages $680 profit per 4-hour stream – roughly $170/hr. The trick is sourcing high perceived value items cheap. He buys returns from major retailers at up to 90%"
+      },
+      {
+        "original": "$680",
+        "currency": "USD",
+        "amount": 680,
+        "jpyAmount": 102000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "re probably not going to sell anything. He sold 150 items in under two hours 🤯 Ten months later? $450,000 in revenue, ~$100K profit. He now averages $680 profit per 4-hour stream – roughly $170/hr. The trick is sourcing high perceived value items cheap. He buys returns from major retailers at up to 90% off through B-Stock … Buy wit"
+      },
+      {
+        "original": "$170",
+        "currency": "USD",
+        "amount": 170,
+        "jpyAmount": 25500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "He sold 150 items in under two hours 🤯 Ten months later? $450,000 in revenue, ~$100K profit. He now averages $680 profit per 4-hour stream – roughly $170/hr. The trick is sourcing high perceived value items cheap. He buys returns from major retailers at up to 90% off through B-Stock … Buy with math, sell with emotion. There's no be"
+      },
+      {
+        "original": "$557K",
+        "currency": "USD",
+        "amount": 557000,
+        "jpyAmount": 83550000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "at up to 90% off through B-Stock … Buy with math, sell with emotion. There's no better example than live selling. He's not alone 👇 Shannon Jean made $557K profit flipping luxury handbags from Costco liquidation auctions solo. Another reseller, Joe Earl, bought 600 pressure washers in 10 months – never used one before – now heading f"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 14,
+    "id": "ent_ebizfacts_ethanashifbmsniperiphoneflippingbot600900mon_d8e5b5dde9ca",
+    "name": "$1000/Month Flipping iPhones With a Free Robot",
+    "scale": "UNKNOWN",
+    "score": 190,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "€600–900",
+        "currency": "EUR",
+        "amount": 600,
+        "jpyAmount": null,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "€690",
+        "currency": "EUR",
+        "amount": 690,
+        "jpyAmount": null,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ad 3 solid iPhone [listing] alerts waiting for me. Over the next few days I bought all three, cleaned them up, resold them, and ended up making about €690 profit after fees . Ethan's bot also monitors two other marketplaces simultaneously: Wallapop and Vinted. He'd seen Discord groups charging hefty monthly fees for similar tools, a"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 15,
+    "id": "ent_ebizfacts_thomashammondretailarbitrage40kmonthamazon_710304c85d0e",
+    "name": "$40K a Month Reselling Walmart Finds While the Kids Are at School",
+    "scale": "SOLO",
+    "score": 190,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$8,000",
+        "currency": "USD",
+        "amount": 8000,
+        "jpyAmount": 1200000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$130",
+        "currency": "USD",
+        "amount": 130,
+        "jpyAmount": 19500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "about $40,000 a month. This is just all me. Just 15 hours a week. After Amazon's cut and cost of goods, that's about $8,000 profit a month – roughly $130/hour 🤑 He's not hunting clearance deals. He rebuys the same ~120 products over and over at full retail, from the 12 Walmarts within 30 minutes of his house. The fat margins come"
+      },
+      {
+        "original": "$40,000",
+        "currency": "USD",
+        "amount": 40000,
+        "jpyAmount": 6000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "In that window he walks the aisles of Walmart, Target and Nike Outlet, buys products off the shelf, and resells them on Amazon 👇 I'm averaging about $40,000 a month. This is just all me. Just 15 hours a week. After Amazon's cut and cost of goods, that's about $8,000 profit a month – roughly $130/hour 🤑 He's not hunting clearance deal"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 16,
+    "id": "ent_ebizfacts_hannahgustafsontinypostsnailmailclub50kmonth_305b5fde263e",
+    "name": "$50K/Month Snail Mail Subscription Club (Zero Paid Ads)",
+    "scale": "UNKNOWN",
+    "score": 180,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$30,000+",
+        "currency": "USD",
+        "amount": 30000,
+        "jpyAmount": 4500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit (6 months in)"
+      },
+      {
+        "original": "$30K",
+        "currency": "USD",
+        "amount": 30000,
+        "jpyAmount": 4500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "retty personal. 🤑 At $11/month per member with about $3 in hard costs per envelope, that's roughly 70% gross margins. Revenue: ~$50K/month. Profit: ~$30K/month. Zero paid advertising. All sorts of niches could work here – art, poetry, local community, fitness, parenting 🤔 Related: Passive Income From Art and Snail Mail (Using Stam"
+      },
+      {
+        "original": "$11",
+        "currency": "USD",
+        "amount": 11,
+        "jpyAmount": 1650,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "card on the other. Two or three stickers. A surprise paper goodie. Handmade tarot cards from a friend. And my letter, usually pretty personal. 🤑 At $11/month per member with about $3 in hard costs per envelope, that's roughly 70% gross margins. Revenue: ~$50K/month. Profit: ~$30K/month. Zero paid advertising. All sorts of niches"
+      },
+      {
+        "original": "$3",
+        "currency": "USD",
+        "amount": 3,
+        "jpyAmount": 450,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "stickers. A surprise paper goodie. Handmade tarot cards from a friend. And my letter, usually pretty personal. 🤑 At $11/month per member with about $3 in hard costs per envelope, that's roughly 70% gross margins. Revenue: ~$50K/month. Profit: ~$30K/month. Zero paid advertising. All sorts of niches could work here – art, poetry,"
+      },
+      {
+        "original": "$50K",
+        "currency": "USD",
+        "amount": 50000,
+        "jpyAmount": 7500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "my letter, usually pretty personal. 🤑 At $11/month per member with about $3 in hard costs per envelope, that's roughly 70% gross margins. Revenue: ~$50K/month. Profit: ~$30K/month. Zero paid advertising. All sorts of niches could work here – art, poetry, local community, fitness, parenting 🤔 Related: Passive Income From Art and S"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 17,
+    "id": "ent_ebizfacts_uguryuruktheitin80kmonthwrongsidemap_dc70400fae4c",
+    "name": "$80K/Month Helping People Born On The Wrong Side of the Map",
+    "scale": "SMALL_TEAM",
+    "score": 180,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$80k",
+        "currency": "USD",
+        "amount": 80000,
+        "jpyAmount": 12000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "Ugur's business has helped 3000+ such people in 150+ countries. We’re a small global team of 11… My business brings about $35k a month in profit and $80k in revenue. This gets me thinking 👇 What is hard for people to do in your country or in another country?&nbsp; Could you create a product or service that makes it easier for them"
+      },
+      {
+        "original": "$35k",
+        "currency": "USD",
+        "amount": 35000,
+        "jpyAmount": 5250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ap into the US marketplace. Ugur's business has helped 3000+ such people in 150+ countries. We’re a small global team of 11… My business brings about $35k a month in profit and $80k in revenue. This gets me thinking 👇 What is hard for people to do in your country or in another country?&nbsp; Could you create a product or service th"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 18,
+    "id": "ent_ebizfacts_luunguyenamazonfba12kmonthlyprofit_6a776445c9e1",
+    "name": "$12,000 Monthly Profit From His Amazon Store",
+    "scale": "UNKNOWN",
+    "score": 170,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$12,000",
+        "currency": "USD",
+        "amount": 12000,
+        "jpyAmount": 1800000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "title",
+        "context": "$12,000 Monthly Profit From His Amazon Store"
+      },
+      {
+        "original": "$800,",
+        "currency": "USD",
+        "amount": 800,
+        "jpyAmount": 120000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "says the minimum net profit margin they aim for is 8%. So his main store should be earning him at least $12K profit per month. Luu started with only $800, raised by donating plasma. He focused on retail arbitrage to start: buying goods in physical stores then reselling them online for a profit. Later he started doing online arbitrag"
+      },
+      {
+        "original": "$800,",
+        "currency": "USD",
+        "amount": 800,
+        "jpyAmount": 120000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "says the minimum net profit margin they aim for is 8%. So his main store should be earning him at least $12K profit per month. Luu started with only $800, raised by donating plasma. He focused on retail arbitrage to start: buying goods in physical stores then reselling them online for a profit. Later he started doing online arbitrag"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 19,
+    "id": "ent_ebizfacts_spencerhaws1millionsellingthinpillowsinterne_86f955898cf8",
+    "name": "$1 Million Selling Thin Pillows on the Internet",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$15,000",
+        "currency": "USD",
+        "amount": 15000,
+        "jpyAmount": 2250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$1 million",
+        "currency": "USD",
+        "amount": 1000000,
+        "jpyAmount": 150000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "Spencer Haws Serial Entrepreneur $15,000 monthly profit 😴 Spencer Haws recently shared the full story of his $1 million pillow business… A few years ago, I was sick of not being able to find thin pillows. I LOVE super thin pillows to sleep on.&nbsp;&nbsp; The thinner the better. I couldn't really f"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 20,
+    "id": "ent_ebizfacts_alexanderllansoclevercubancardswhatnot10kmon_33f89a364ffc",
+    "name": "$10,000+ Per Month Flipping Sports Cards on WhatNot",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$14,522",
+        "currency": "USD",
+        "amount": 14522,
+        "jpyAmount": 2178300,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "marketplace, lots of people on there buying and selling via livestream 👀 Alexander LLansó sells trading cards on WhatNot and reveals that he earned $14,522 profit in March… Looks like Alex started his card flipping business in 2021, sourcing cards from buying lots, collections, unopened boxes, etc. and selling them online. Last year"
+      },
+      {
+        "original": "$65K",
+        "currency": "USD",
+        "amount": 65000,
+        "jpyAmount": 9750000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ng lots, collections, unopened boxes, etc. and selling them online. Last year he quit his job to go all-in and start selling on WhatNot, earned about $65K profit before tax 🤑 He's now earning $10K/mo consistently, looks like his biggest audience is on TikTok ( 61K followers ). On YouTube: his beginner's guide to card flipping on Wh"
+      },
+      {
+        "original": "$10K",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "and selling them online. Last year he quit his job to go all-in and start selling on WhatNot, earned about $65K profit before tax 🤑 He's now earning $10K/mo consistently, looks like his biggest audience is on TikTok ( 61K followers ). On YouTube: his beginner's guide to card flipping on WhatNot… Trending products to sell on WhatNot"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 21,
+    "id": "ent_ebizfacts_vvineyardleadgenlegalfacebookads293ksixmonth_3f0364e9b3ee",
+    "name": "$293K in Six Months with Legal Leads on Facebook Ads",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$161K",
+        "currency": "USD",
+        "amount": 161000,
+        "jpyAmount": 24150000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "then selling the leads to an aggregator, who in turn sells the leads to lawyers. Started with a $10K budget, ended up spending $132K to earn $293K = $161K profit in six months 🤑 Keys to success… The big shift was going Spanish instead of English. English market’s crowded—everyone’s doing it. Spanish had less competition, cheaper ad"
+      },
+      {
+        "original": "$10K",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ents 💬 He's running Facebook ads for legal services, then selling the leads to an aggregator, who in turn sells the leads to lawyers. Started with a $10K budget, ended up spending $132K to earn $293K = $161K profit in six months 🤑 Keys to success… The big shift was going Spanish instead of English. English market’s crowded—everyon"
+      },
+      {
+        "original": "$132K",
+        "currency": "USD",
+        "amount": 132000,
+        "jpyAmount": 19800000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ds for legal services, then selling the leads to an aggregator, who in turn sells the leads to lawyers. Started with a $10K budget, ended up spending $132K to earn $293K = $161K profit in six months 🤑 Keys to success… The big shift was going Spanish instead of English. English market’s crowded—everyone’s doing it. Spanish had less c"
+      },
+      {
+        "original": "$293K",
+        "currency": "USD",
+        "amount": 293000,
+        "jpyAmount": 43950000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ervices, then selling the leads to an aggregator, who in turn sells the leads to lawyers. Started with a $10K budget, ended up spending $132K to earn $293K = $161K profit in six months 🤑 Keys to success… The big shift was going Spanish instead of English. English market’s crowded—everyone’s doing it. Spanish had less competition, ch"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 22,
+    "id": "ent_ebizfacts_pokemoncardflippingebay34kmonth_dc8fe136ffa4",
+    "name": "$3–4K/Month Flipping Pokémon Cards on eBay",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$3,000-4,000",
+        "currency": "USD",
+        "amount": 3000,
+        "jpyAmount": 450000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$150,000",
+        "currency": "USD",
+        "amount": 150000,
+        "jpyAmount": 22500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "visd Pokémon Card Flipper $3,000-4,000 monthly profit A guy on Reddit dug out his childhood Pokémon collection last year. Turns out it's worth around $150,000 now 🤯 But his side hustle isn't selling those cards. It's a repeatable flip he stumbled into… 📝 He writes … I started with selling some personal cards on eBay, then turned into"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 23,
+    "id": "ent_ebizfacts_angelrodriguezyachtrentalarbitrage30kmonth_eb7d684d0563",
+    "name": "$30,000 Per Month Renting Out Underused Assets",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$14,000",
+        "currency": "USD",
+        "amount": 14000,
+        "jpyAmount": 2100000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": ". He lists it for about $1,800/day on Boatsetter… Hit $20K/month by month 3… Booked 15–20 days/month = $27,000–$36,000 in revenue… Estimated profit: ~$14,000–$22,000/month per boat Boatsetter = Airbnb for boats ⛵️ Tim notes that this “rental arbitrage” can work for other things too, such as RVs, dirt bikes, paddle boards, etc. The blue"
+      },
+      {
+        "original": "$5,000",
+        "currency": "USD",
+        "amount": 5000,
+        "jpyAmount": 750000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "an who built a $30K/month yacht rental business in under a year by financing boats and partnering with owners… He financed his first yacht for around $5,000/month. He lists it for about $1,800/day on Boatsetter… Hit $20K/month by month 3… Booked 15–20 days/month = $27,000–$36,000 in revenue… Estimated profit: ~$14,000–$22,000/month pe"
+      },
+      {
+        "original": "$20K",
+        "currency": "USD",
+        "amount": 20000,
+        "jpyAmount": 3000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "financing boats and partnering with owners… He financed his first yacht for around $5,000/month. He lists it for about $1,800/day on Boatsetter… Hit $20K/month by month 3… Booked 15–20 days/month = $27,000–$36,000 in revenue… Estimated profit: ~$14,000–$22,000/month per boat Boatsetter = Airbnb for boats ⛵️ Tim notes that this “ren"
+      },
+      {
+        "original": "$27,000",
+        "currency": "USD",
+        "amount": 27000,
+        "jpyAmount": 4050000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "inanced his first yacht for around $5,000/month. He lists it for about $1,800/day on Boatsetter… Hit $20K/month by month 3… Booked 15–20 days/month = $27,000–$36,000 in revenue… Estimated profit: ~$14,000–$22,000/month per boat Boatsetter = Airbnb for boats ⛵️ Tim notes that this “rental arbitrage” can work for other things too, such a"
+      },
+      {
+        "original": "$36,000",
+        "currency": "USD",
+        "amount": 36000,
+        "jpyAmount": 5400000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "his first yacht for around $5,000/month. He lists it for about $1,800/day on Boatsetter… Hit $20K/month by month 3… Booked 15–20 days/month = $27,000–$36,000 in revenue… Estimated profit: ~$14,000–$22,000/month per boat Boatsetter = Airbnb for boats ⛵️ Tim notes that this “rental arbitrage” can work for other things too, such as RVs, d"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 24,
+    "id": "ent_ebizfacts_deepakmehta35kprofitcouplesideprojects_9de5dd871808",
+    "name": "$35,000 Profit in 2 Years From a Couple of Side Projects",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$35,000",
+        "currency": "USD",
+        "amount": 35000,
+        "jpyAmount": 5250000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "estimated profit"
+      },
+      {
+        "original": "$35,000",
+        "currency": "USD",
+        "amount": 35000,
+        "jpyAmount": 5250000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "title",
+        "context": "$35,000 Profit in 2 Years From a Couple of Side Projects"
+      },
+      {
+        "original": "$35K",
+        "currency": "USD",
+        "amount": 35000,
+        "jpyAmount": 5250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "g for “almost 2x” what he paid. If we assume Deepak bought each product for $5000, he likely earned approx $45,000 via revenue + the eventual sales = $35K profit 💰 A nice ROI for a couple of side projects. (Deepak works full time as PM for a large bank.) This part is key… It took me 1-2 months of research and patience before i foun"
+      },
+      {
+        "original": "$30K",
+        "currency": "USD",
+        "amount": 30000,
+        "jpyAmount": 4500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "got it to $500 MRR pretty quick, sold within 6 months for 3x the original purchase price 🤑 Chartmat was making $300 when acquired, Deepak got it to $30K ARR before selling for “almost 2x” what he paid. If we assume Deepak bought each product for $5000, he likely earned approx $45,000 via revenue + the eventual sales = $35K profit"
+      },
+      {
+        "original": "$45,000",
+        "currency": "USD",
+        "amount": 45000,
+        "jpyAmount": 6750000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ed, Deepak got it to $30K ARR before selling for “almost 2x” what he paid. If we assume Deepak bought each product for $5000, he likely earned approx $45,000 via revenue + the eventual sales = $35K profit 💰 A nice ROI for a couple of side projects. (Deepak works full time as PM for a large bank.) This part is key… It took me 1-2 month"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 25,
+    "id": "ent_ebizfacts_jaredbaumanamazoninfluencerprogram40kyear1_a8bcb2016eec",
+    "name": "$40,000 in Year 1 With a 4-Hour Work Week",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$12K",
+        "currency": "USD",
+        "amount": 12000,
+        "jpyAmount": 1800000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": ", you could branch out and earn more money as a UGC creator for brands 💪 Like these guys… From Struggling Influencer to $8000/Month as a UGC Creator $12K Profit in 1 Month Making Ads for Social Media"
+      },
+      {
+        "original": "$8000",
+        "currency": "USD",
+        "amount": 8000,
+        "jpyAmount": 1200000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "making these kinds of videos, you could branch out and earn more money as a UGC creator for brands 💪 Like these guys… From Struggling Influencer to $8000/Month as a UGC Creator $12K Profit in 1 Month Making Ads for Social Media"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 26,
+    "id": "ent_ebizfacts_cargotrailerrental500monthpassiveincome_f477a31e7b0a",
+    "name": "$500/Month Renting Trailers to Stranded IKEA Shoppers",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$500",
+        "currency": "USD",
+        "amount": 500,
+        "jpyAmount": 75000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "hKettle Trailer Rental Side Hustler $500 monthly profit You buy a huge sectional. It won't fit in your SUV. Store delivery takes three days and costs $100. So you're stuck in the parking lot… One guy turned that exact moment into a side income. 📝 He shared the setup ( archived ) on Reddit… I bought two used 5×8 cargo trailers on ma"
+      },
+      {
+        "original": "$40",
+        "currency": "USD",
+        "amount": 40,
+        "jpyAmount": 6000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": ". A peer-to-peer rental listing does the rest 😎 No meetings, no hitching help – renters get a lockbox code and a how-to PDF 👀 The money 👇 I charge $40/day and during the spring and summer they are booked almost every Friday through Sunday… I am clearing about $500/month in pure profit. All for about 20 minutes a week checking ti"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 27,
+    "id": "ent_ebizfacts_diyadbench500yearpassiveincome_957875ccb094",
+    "name": "$500/Year Passive Income From One DIY Ad Bench",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$500",
+        "currency": "USD",
+        "amount": 500,
+        "jpyAmount": 75000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "profile-card",
+        "context": "annual profit per bench"
+      },
+      {
+        "original": "$5,000",
+        "currency": "USD",
+        "amount": 5000,
+        "jpyAmount": 750000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "r the “rent.” I net $500/year in profit for doing literally nothing once the deal was signed. 🤑 Scale it up… 1 bench = $500/year profit 10 benches = $5,000/year 100 benches… you get the idea It’s not “get rich quick.” It’s “build something once and get paid for a long time.” Worth checking local regulations before you start, but the"
+      },
+      {
+        "original": "$100k",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "Prestigious_Fuel_945 DIY Ad Bench Owner $500 annual profit per bench Prestigious_Fuel_945 writes … I didn’t buy a $100k highway billboard. I went DIY. He found a high-traffic intersection and made a deal with the landowner to place a bench there. Cost him about $70 to build. He stuck a “Your Ad Her"
+      },
+      {
+        "original": "$700",
+        "currency": "USD",
+        "amount": 700,
+        "jpyAmount": 105000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "t him about $70 to build. He stuck a “Your Ad Here” sign on it with his phone number. A local tree service company found the listing. They now pay me $700/year to have their logo on that bench. The math 👇 I pay the landowner $200/year for the “rent.” I net $500/year in profit for doing literally nothing once the deal was signed. 🤑"
+      },
+      {
+        "original": "$200",
+        "currency": "USD",
+        "amount": 200,
+        "jpyAmount": 30000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "e number. A local tree service company found the listing. They now pay me $700/year to have their logo on that bench. The math 👇 I pay the landowner $200/year for the “rent.” I net $500/year in profit for doing literally nothing once the deal was signed. 🤑 Scale it up… 1 bench = $500/year profit 10 benches = $5,000/year 100 benche"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 28,
+    "id": "ent_ebizfacts_mikestuartgaragefloorcoatings60kthirdmonth_fcb6aeb17849",
+    "name": "$60K in His Third Month Coating Garage Floors",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$8",
+        "currency": "USD",
+        "amount": 8,
+        "jpyAmount": 1200,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ho knew the trade. By April they were booked every day… We did $60,000 in revenue in April. We'll do $69,000 this month. Profit over 50%. They charge $8 a square foot and a crew does a garage in a day – $3-4K profit for ten hours' work 🤑 Nine in ten leads come from Facebook ads – 20-second clips of the grinder and the flake going"
+      },
+      {
+        "original": "$60,000",
+        "currency": "USD",
+        "amount": 60000,
+        "jpyAmount": 9000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "knew. One bubbled and had to be ground off and redone, so he partnered with two guys who knew the trade. By April they were booked every day… We did $60,000 in revenue in April. We'll do $69,000 this month. Profit over 50%. They charge $8 a square foot and a crew does a garage in a day – $3-4K profit for ten hours' work 🤑 Nine in ten"
+      },
+      {
+        "original": "$69,000",
+        "currency": "USD",
+        "amount": 69000,
+        "jpyAmount": 10350000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "d off and redone, so he partnered with two guys who knew the trade. By April they were booked every day… We did $60,000 in revenue in April. We'll do $69,000 this month. Profit over 50%. They charge $8 a square foot and a crew does a garage in a day – $3-4K profit for ten hours' work 🤑 Nine in ten leads come from Facebook ads – 20-sec"
+      },
+      {
+        "original": "$3",
+        "currency": "USD",
+        "amount": 3,
+        "jpyAmount": 450,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "y… We did $60,000 in revenue in April. We'll do $69,000 this month. Profit over 50%. They charge $8 a square foot and a crew does a garage in a day – $3-4K profit for ten hours' work 🤑 Nine in ten leads come from Facebook ads – 20-second clips of the grinder and the flake going down, aimed at men over 55. His best ad leads with t"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 29,
+    "id": "ent_ebizfacts_vikashratheeidmurlshortener500mrr_fb91e34cf24a",
+    "name": "Boring Software in Competitive Niche: $500/Month After 2 Months",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$500",
+        "currency": "USD",
+        "amount": 500,
+        "jpyAmount": 75000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "s Conversion… [with a budget of] $8 to $10 per day. That's about $300/month spent on ads, which obviously cuts into profit. But Vikash notes that the $500/month is recurring revenue. So his ROI should increase over time, so long as he can keep customers happy and paying their monthly subscriptions 👍 His advice for others building p"
+      },
+      {
+        "original": "$8",
+        "currency": "USD",
+        "amount": 8,
+        "jpyAmount": 1200,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "HN on YC For #1 Vikash targets keywords like… URL shortener, Link shortener etc. with exact match and campaign goal as Conversion… [with a budget of] $8 to $10 per day. That's about $300/month spent on ads, which obviously cuts into profit. But Vikash notes that the $500/month is recurring revenue. So his ROI should increase over"
+      },
+      {
+        "original": "$10",
+        "currency": "USD",
+        "amount": 10,
+        "jpyAmount": 1500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "YC For #1 Vikash targets keywords like… URL shortener, Link shortener etc. with exact match and campaign goal as Conversion… [with a budget of] $8 to $10 per day. That's about $300/month spent on ads, which obviously cuts into profit. But Vikash notes that the $500/month is recurring revenue. So his ROI should increase over time, s"
+      },
+      {
+        "original": "$300",
+        "currency": "USD",
+        "amount": 300,
+        "jpyAmount": 45000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "eywords like… URL shortener, Link shortener etc. with exact match and campaign goal as Conversion… [with a budget of] $8 to $10 per day. That's about $300/month spent on ads, which obviously cuts into profit. But Vikash notes that the $500/month is recurring revenue. So his ROI should increase over time, so long as he can keep custo"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 30,
+    "id": "ent_ebizfacts_landonhusligwichitalifelocalmedia10kmonth_e4c8e831ad2c",
+    "name": "Earning $10K/Month From His Local Media Side Hustle",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$6000",
+        "currency": "USD",
+        "amount": 6000,
+        "jpyAmount": 900000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "or your area? Other examples 👇 Earning a Living From His Local Newsletters in Only 2 Years This Local Newsletter Earned $52K Last Month (85% Profit) $6000 Per Month From His Tiny Local Food Newsletter $87,000 Last Year, Aiming For $500K by 2027"
+      },
+      {
+        "original": "$52K",
+        "currency": "USD",
+        "amount": 52000,
+        "jpyAmount": 7800000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "wadays. Could you start one for your area? Other examples 👇 Earning a Living From His Local Newsletters in Only 2 Years This Local Newsletter Earned $52K Last Month (85% Profit) $6000 Per Month From His Tiny Local Food Newsletter $87,000 Last Year, Aiming For $500K by 2027"
+      },
+      {
+        "original": "$87,000",
+        "currency": "USD",
+        "amount": 87000,
+        "jpyAmount": 13050000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "m His Local Newsletters in Only 2 Years This Local Newsletter Earned $52K Last Month (85% Profit) $6000 Per Month From His Tiny Local Food Newsletter $87,000 Last Year, Aiming For $500K by 2027"
+      },
+      {
+        "original": "$500K",
+        "currency": "USD",
+        "amount": 500000,
+        "jpyAmount": 75000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "y 2 Years This Local Newsletter Earned $52K Last Month (85% Profit) $6000 Per Month From His Tiny Local Food Newsletter $87,000 Last Year, Aiming For $500K by 2027"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 31,
+    "id": "ent_ebizfacts_elijahamazonsellerreplens21million_125b6f8b18bf",
+    "name": "His 2-Person Business Sold $2.1M on Amazon Last Year",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$300K",
+        "currency": "USD",
+        "amount": 300000,
+        "jpyAmount": 45000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "s. Elijah doesn't say what kind of profit his business is doing, but typical margins with an Amazon FBA business are 10-20%. So he probably pulled in $300K profit last year 🤑 Likely more since they've started doing more fulfillment themselves (ie. FBM instead of FBA). Elijah follows a “replens” model on Amazon, meaning he sources an"
+      },
+      {
+        "original": "$2.1 million",
+        "currency": "USD",
+        "amount": 2100000,
+        "jpyAmount": 315000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "tiple seven figure biz with only one helper… He looks about 30 years old, started selling on Amazon in mid-2020. And he finished 2024 at “right about $2.1 million in sales” 💰 It's just him and one employee, though it sounds like they're working long hours. Elijah doesn't say what kind of profit his business is doing, but typical margins wi"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 32,
+    "id": "ent_ebizfacts_catgoetzephysicalphones789kbluetoothlandline_e3fbb8b2336f",
+    "name": "She's Earned $789K Selling Retro Phones",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$439K",
+        "currency": "USD",
+        "amount": 439000,
+        "jpyAmount": 65850000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "In July 2025, a product video went viral – 8M+ views across Instagram and TikTok 🚀 $120K in sales in three days. 🤑 Full year 2025: ~$789K revenue, ~$439K profit. No loans. No outside investment. The anti-screen wave is growing fast. What product or service could you create to help people unplug? 🤔"
+      },
+      {
+        "original": "$120K",
+        "currency": "USD",
+        "amount": 120000,
+        "jpyAmount": 18000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "audience through her “CatGPT” brand before launching the product. In July 2025, a product video went viral – 8M+ views across Instagram and TikTok 🚀 $120K in sales in three days. 🤑 Full year 2025: ~$789K revenue, ~$439K profit. No loans. No outside investment. The anti-screen wave is growing fast. What product or service could you"
+      },
+      {
+        "original": "$789K",
+        "currency": "USD",
+        "amount": 789000,
+        "jpyAmount": 118350000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ng the product. In July 2025, a product video went viral – 8M+ views across Instagram and TikTok 🚀 $120K in sales in three days. 🤑 Full year 2025: ~$789K revenue, ~$439K profit. No loans. No outside investment. The anti-screen wave is growing fast. What product or service could you create to help people unplug? 🤔"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 33,
+    "id": "ent_ebizfacts_michaelkauffmancatskillcrew52kmonthnewslette_6c9aba40df85",
+    "name": "This Local Newsletter Earned $52K Last Month (85% Profit)",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$52K",
+        "currency": "USD",
+        "amount": 52000,
+        "jpyAmount": 7800000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "title",
+        "context": "This Local Newsletter Earned $52K Last Month (85% Profit)"
+      },
+      {
+        "original": "$52K",
+        "currency": "USD",
+        "amount": 52000,
+        "jpyAmount": 7800000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "the eastern USA 🇺🇸 popular for hiking and such. Michael Kauffman started the newsletter around the end of 2023 and recently tweeted that it earned $52K in January (85% profit). A recent edition of the newsletter 👀 Michael also tweeted recently… You can monetize ANY newsletter without ads. Yesterday I did $3,900 in revenue. $1,60"
+      },
+      {
+        "original": "$3,900",
+        "currency": "USD",
+        "amount": 3900,
+        "jpyAmount": 585000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "nuary (85% profit). A recent edition of the newsletter 👀 Michael also tweeted recently… You can monetize ANY newsletter without ads. Yesterday I did $3,900 in revenue. $1,600 in D2C and $2,300 in B2B. No ads. No cold outreach. No media kits. No CPMs. No CPCs. Just product. Build an audience and validate ideas. Also says in the replie"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 34,
+    "id": "ent_ebizfacts_chriskoernerfacebookpages35kmonthrepostingco_d507aa6dd0f7",
+    "name": "Up To $35K/Month Adding Commentary to Viral Videos on Facebook",
+    "scale": "UNKNOWN",
+    "score": 165,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$10,000+",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$35K",
+        "currency": "USD",
+        "amount": 35000,
+        "jpyAmount": 5250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "Chris Koerner Facebook Content Creator $10,000+ monthly profit Chris Koerner was making $10K–$35K/month in profit on Facebook. The whole operation took about 3 hours a week 🤯 He recently shared … I see a reel or a video on the internet and I add value to it. He finds viral vi"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 35,
+    "id": "ent_ebizfacts_vendingmachines1450month3machinessidehustle_c9483ed545b6",
+    "name": "$1,450/Month Profit From 3 Vending Machines",
+    "scale": "UNKNOWN",
+    "score": 160,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$1,450",
+        "currency": "USD",
+        "amount": 1450,
+        "jpyAmount": 217500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 36,
+    "id": "ent_ebizfacts_comprehensiveyamafterschooleducation100kmont_fef7b1defd46",
+    "name": "Boring Business, Big Money: After School Education For Kids",
+    "scale": "UNKNOWN",
+    "score": 160,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$100,000",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "approximate monthly profit"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 37,
+    "id": "ent_ebizfacts_jakehundley500kprofitevergrowmarketingagency_8f05ff9bc30b",
+    "name": "His Local Marketing Agency = $500K Gross Profit This Year",
+    "scale": "UNKNOWN",
+    "score": 160,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$500,000",
+        "currency": "USD",
+        "amount": 500000,
+        "jpyAmount": 75000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "profile-card",
+        "context": "annual gross profit"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 38,
+    "id": "ent_ebizfacts_asvabstudyguide8790monthrevenueamazonkdp_e735dc6a3e05",
+    "name": "Niche Study Guide Selling on Amazon = $8.7K/Month Profit",
+    "scale": "UNKNOWN",
+    "score": 160,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$8790",
+        "currency": "USD",
+        "amount": 8790,
+        "jpyAmount": 1318500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$8.7K",
+        "currency": "USD",
+        "amount": 8700,
+        "jpyAmount": 1305000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "title",
+        "context": "Niche Study Guide Selling on Amazon = $8.7K/Month Profit"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 39,
+    "id": "ent_ebizfacts_humbleburritooredditsocialmediamanager2500mo_48908ac9b53b",
+    "name": "Social Media Manager: $2500 Monthly Profit After 4 Months",
+    "scale": "UNKNOWN",
+    "score": 160,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$2500",
+        "currency": "USD",
+        "amount": 2500,
+        "jpyAmount": 375000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 40,
+    "id": "ent_ebizfacts_deannacoopergillingham1millionnursingexamboo_db211503051f",
+    "name": "The $1 Million Author Who Didn't Know How To Write",
+    "scale": "UNKNOWN",
+    "score": 160,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$1 Million",
+        "currency": "USD",
+        "amount": 1000000,
+        "jpyAmount": 150000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "profit from 1 book"
+      },
+      {
+        "original": "$1 Million",
+        "currency": "USD",
+        "amount": 1000000,
+        "jpyAmount": 150000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "Deanna Cooper Gillingham Founder of Case Management Institute $1 Million profit from 1 book The $1 Million Author Who Didn't Know How To Write Deanna Cooper Gillingham is a registered nurse who was recently interviewed on the SPI Podcast 🎙️ 10 years a"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 41,
+    "id": "ent_ebizfacts_altruisticwind9167ebayflipping3000month_6cdca2d9e611",
+    "name": "Turning eBay Flips Into a $3,000/Month Side Hustle",
+    "scale": "UNKNOWN",
+    "score": 160,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$3000",
+        "currency": "USD",
+        "amount": 3000,
+        "jpyAmount": 450000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 42,
+    "id": "ent_ebizfacts_carsonjacksonlandflipping8600perdeal_4aa50c7e8af0",
+    "name": "$100K/Month Flipping Land They Never Own",
+    "scale": "UNKNOWN",
+    "score": 155,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$100,000+",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$8,600",
+        "currency": "USD",
+        "amount": 8600,
+        "jpyAmount": 1290000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "pocket the $10K spread. No agent, no money down. A title company closes it and wires them the difference. Across the board our average deal is about $8,600 per deal… we're 90 [to] 95% margins. Their best month: 37 deals and $532,000 in profit 🤯 To start, all you need is a phone. Find empty lots on Zillow, look up the owner on TruePe"
+      },
+      {
+        "original": "$532,000",
+        "currency": "USD",
+        "amount": 532000,
+        "jpyAmount": 79800000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "and wires them the difference. Across the board our average deal is about $8,600 per deal… we're 90 [to] 95% margins. Their best month: 37 deals and $532,000 in profit 🤯 To start, all you need is a phone. Find empty lots on Zillow, look up the owner on TruePeopleSearch, and start cold calling. If you can do one deal a month… you're ma"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 43,
+    "id": "ent_ebizfacts_bigtimepro276kyearscientificpublishingagency_3eb785b5b463",
+    "name": "$276K/Year Helping Scientists Publish Papers",
+    "scale": "UNKNOWN",
+    "score": 155,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$4955",
+        "currency": "USD",
+        "amount": 4955,
+        "jpyAmount": 743250,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "the seller before putting in an offer &#x1f9d0; He notes that the $95K sale price makes a lot more sense once you see that the monthly profit is only $4955. Other notes from Shlomo &#x1f447; – Revenue model: One-time payments (consider a recurring model) – Average ticket size: $840 (targeting academic students, universities, and labo"
+      },
+      {
+        "original": "$95K",
+        "currency": "USD",
+        "amount": 95000,
+        "jpyAmount": 14250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "Shlomo does a good job breaking down the business and offers some questions to ask the seller before putting in an offer &#x1f9d0; He notes that the $95K sale price makes a lot more sense once you see that the monthly profit is only $4955. Other notes from Shlomo &#x1f447; – Revenue model: One-time payments (consider a recurring mo"
+      },
+      {
+        "original": "$840",
+        "currency": "USD",
+        "amount": 840,
+        "jpyAmount": 126000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "onthly profit is only $4955. Other notes from Shlomo &#x1f447; – Revenue model: One-time payments (consider a recurring model) – Average ticket size: $840 (targeting academic students, universities, and laboratories) – Language: The website defaults to Russian, indicating non-English speaking clients I could see this type of busines"
+      },
+      {
+        "original": "$11,600",
+        "currency": "USD",
+        "amount": 11600,
+        "jpyAmount": 1740000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "c community &#x1f9ea; Something you could do maybe? Lots more breakdowns of sites for sale on Shlomo's channel. For example… Outdoor sports website – $11,600 asking price, $450/mo profit… Children educational toys website – $480 reserve price, no profit, 14yo domain… Travel blog – $10,000 asking price, $700/mo profit…"
+      },
+      {
+        "original": "$450",
+        "currency": "USD",
+        "amount": 450,
+        "jpyAmount": 67500,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Something you could do maybe? Lots more breakdowns of sites for sale on Shlomo's channel. For example… Outdoor sports website – $11,600 asking price, $450/mo profit… Children educational toys website – $480 reserve price, no profit, 14yo domain… Travel blog – $10,000 asking price, $700/mo profit…"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 44,
+    "id": "ent_ebizfacts_clairemccannfurnitureflip35kprofit_658d1b53e063",
+    "name": "$35K Profit in 15 Months via Facebook Marketplace",
+    "scale": "UNKNOWN",
+    "score": 155,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$35,000",
+        "currency": "USD",
+        "amount": 35000,
+        "jpyAmount": 5250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "15 months profit"
+      },
+      {
+        "original": "$65",
+        "currency": "USD",
+        "amount": 65,
+        "jpyAmount": 9750,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "niture for profits on marketplaces like Facebook and Craigslist 🪑 Claire's story via a recent interview … When school teacher Claire McCann turned a $65 used table set into $300, she discovered a profitable new side hustle… Just 15 months later, Claire has earned over $35,000 in profits from furniture flipping. Her strategy… tryin"
+      },
+      {
+        "original": "$300,",
+        "currency": "USD",
+        "amount": 300,
+        "jpyAmount": 45000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "rketplaces like Facebook and Craigslist 🪑 Claire's story via a recent interview … When school teacher Claire McCann turned a $65 used table set into $300, she discovered a profitable new side hustle… Just 15 months later, Claire has earned over $35,000 in profits from furniture flipping. Her strategy… trying to purchase inventory fo"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 45,
+    "id": "ent_ebizfacts_hpwalkingtours10kmoprofityoutubechannel_910eec3d03cb",
+    "name": "Faceless Walking Tours YouTube Channel = $10K Per Month",
+    "scale": "UNKNOWN",
+    "score": 155,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$9,659",
+        "currency": "USD",
+        "amount": 9659,
+        "jpyAmount": 1448850,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "monthly profit"
+      },
+      {
+        "original": "$75K",
+        "currency": "USD",
+        "amount": 75000,
+        "jpyAmount": 11250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "mersive travel experience. Monthly profit = $9,659 🤑 Clearly a market for these kinds of videos. Maybe you could start a similar channel. Related 👇 $75K From This Faceless Channel Launched in January AI-Generated YouTube Channel Earning $10K/Month $3000+ Per Month Documenting His Boring Life This Forgotten YouTube Channel Probably"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 46,
+    "id": "ent_ebizfacts_dannyrusteenkickfurther7000passiveincome_8c6591f6b716",
+    "name": "He Earned $7000 Passive Income via This Platform",
+    "scale": "UNKNOWN",
+    "score": 155,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$7000",
+        "currency": "USD",
+        "amount": 7000,
+        "jpyAmount": 1050000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "profit"
+      },
+      {
+        "original": "$7000",
+        "currency": "USD",
+        "amount": 7000,
+        "jpyAmount": 1050000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "Danny Rusteen Investor $7000 profit In a recent video (3:32 mark), Danny Rusteen shares his experience with a site called Kickfurther … I put in $20,000 almost three years ago and I have a balance of $27,000"
+      },
+      {
+        "original": "$20,000",
+        "currency": "USD",
+        "amount": 20000,
+        "jpyAmount": 3000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "Danny Rusteen Investor $7000 profit In a recent video (3:32 mark), Danny Rusteen shares his experience with a site called Kickfurther … I put in $20,000 almost three years ago and I have a balance of $27,000 today. That's a return of 11.67% per year. How Kickfurther works 👇 Let's say I have a great product idea but no money to ma"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 47,
+    "id": "ent_ebizfacts_libertyfoxamazonconnectthedotsbook7670month_ba2c4fdf55b1",
+    "name": "This Simple Kids Book on Amazon Earns $7670 Per Month",
+    "scale": "UNKNOWN",
+    "score": 155,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$2390",
+        "currency": "USD",
+        "amount": 2390,
+        "jpyAmount": 358500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "1 book The book 👉 Connect the Dots for Kids Ages 6-8: 100 Dot to Dot Puzzles Laura shows on YouTube that this book is earning about $7670 revenue / $2390 profit each month… Now imagine if they had five books like this. Maybe not all of them are going to sell this well but even if he makes $1,000 a month x five books… that's a prett"
+      },
+      {
+        "original": "$7670",
+        "currency": "USD",
+        "amount": 7670,
+        "jpyAmount": 1150500,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "hly revenue from 1 book The book 👉 Connect the Dots for Kids Ages 6-8: 100 Dot to Dot Puzzles Laura shows on YouTube that this book is earning about $7670 revenue / $2390 profit each month… Now imagine if they had five books like this. Maybe not all of them are going to sell this well but even if he makes $1,000 a month x five books"
+      },
+      {
+        "original": "$1,000",
+        "currency": "USD",
+        "amount": 1000,
+        "jpyAmount": 150000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "venue / $2390 profit each month… Now imagine if they had five books like this. Maybe not all of them are going to sell this well but even if he makes $1,000 a month x five books… that's a pretty good side income She goes on to show how you can easily create this kind of book using Canva AI 🤖 The hard part is the marketing. Laura reco"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 48,
+    "id": "ent_ebizfacts_aimotivationalkidsbooks110kmonthamazonkdp_d8ac02ba31c5",
+    "name": "$110K/Month From AI-Written Kids' Books",
+    "scale": "UNKNOWN",
+    "score": 150,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$110,000",
+        "currency": "USD",
+        "amount": 110000,
+        "jpyAmount": 16500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "profile-card",
+        "context": "estimated monthly profit"
+      },
+      {
+        "original": "$6.62",
+        "currency": "USD",
+        "amount": 6.62,
+        "jpyAmount": 993,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "kdown ran her whole catalog through a sales estimator 👇 It estimated that this creator is selling 16,700 to over 21,000 copies per month. At roughly $6.62 profit per book after Amazon's fees, that works out to about $110K+/month – and that's before any Kindle ebook royalties 🤯 The whole game is finding a gap. These are “ social-emo"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 49,
+    "id": "ent_ebizfacts_marcloushipfastsawdust500k_61c5a593a793",
+    "name": "$500,000 in 8 Months By Selling His Sawdust",
+    "scale": "SOLO",
+    "score": 120,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$20,000",
+        "currency": "USD",
+        "amount": 20000,
+        "jpyAmount": 3000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "jects from anywhere in the world, making much more money than needed to live comfortably. I wanted freedom. I was living in Bali with my Korean wife, $20,000 in the bank, no audience, and bad coding skills. 💪 That’s when he started shipping… In 6 months, I launched 7 projects without thinking about business, just for fun. I learned mu"
+      },
+      {
+        "original": "$65,000",
+        "currency": "USD",
+        "amount": 65000,
+        "jpyAmount": 9750000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "r. It changed my life. In 2 years: I launched 17 products I grew this newsletter to 7,000 readers I grew a Twitter account to 55K followers I reached $65,000/month at 91% margin and 0 employee And made new inspiring friends 🗓️ His journey started back in 2016… …when I believed I was Mark Zuckerberg. It took 2 years to make my first $1"
+      },
+      {
+        "original": "$65,000",
+        "currency": "USD",
+        "amount": 65000,
+        "jpyAmount": 9750000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "r. It changed my life. In 2 years: I launched 17 products I grew this newsletter to 7,000 readers I grew a Twitter account to 55K followers I reached $65,000/month at 91% margin and 0 employee And made new inspiring friends 🗓️ His journey started back in 2016… …when I believed I was Mark Zuckerberg. It took 2 years to make my first $1"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 50,
+    "id": "ent_ebizfacts_ambarshrivastavacoverdoc10knocodeapp_b9bbde4b09a0",
+    "name": "$10,000 From an AI App Built With No Code",
+    "scale": "SOLO",
+    "score": 75,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$9,920",
+        "currency": "USD",
+        "amount": 9920,
+        "jpyAmount": 1488000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "d language of the job seeker. The numbers 👇 As of June 2024, CoverDoc has 14k total registrations with 16k+ prep documents created… – Total revenue: $9,920 – $1,250 MRR for subscriptions + $200 in PAYG revenue per month – 87%+ profit margin on subscription plan – 35+ mins saved per job application How CoverDoc came to be… As a job se"
+      },
+      {
+        "original": "$1,250",
+        "currency": "USD",
+        "amount": 1250,
+        "jpyAmount": 187500,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "e of the job seeker. The numbers 👇 As of June 2024, CoverDoc has 14k total registrations with 16k+ prep documents created… – Total revenue: $9,920 – $1,250 MRR for subscriptions + $200 in PAYG revenue per month – 87%+ profit margin on subscription plan – 35+ mins saved per job application How CoverDoc came to be… As a job seeker I wa"
+      },
+      {
+        "original": "$200",
+        "currency": "USD",
+        "amount": 200,
+        "jpyAmount": 30000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "s 👇 As of June 2024, CoverDoc has 14k total registrations with 16k+ prep documents created… – Total revenue: $9,920 – $1,250 MRR for subscriptions + $200 in PAYG revenue per month – 87%+ profit margin on subscription plan – 35+ mins saved per job application How CoverDoc came to be… As a job seeker I was frustrated with how long it"
+      },
+      {
+        "original": "$9,920",
+        "currency": "USD",
+        "amount": 9920,
+        "jpyAmount": 1488000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "d language of the job seeker. The numbers 👇 As of June 2024, CoverDoc has 14k total registrations with 16k+ prep documents created… – Total revenue: $9,920 – $1,250 MRR for subscriptions + $200 in PAYG revenue per month – 87%+ profit margin on subscription plan – 35+ mins saved per job application How CoverDoc came to be… As a job se"
+      },
+      {
+        "original": "$1,250",
+        "currency": "USD",
+        "amount": 1250,
+        "jpyAmount": 187500,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "e of the job seeker. The numbers 👇 As of June 2024, CoverDoc has 14k total registrations with 16k+ prep documents created… – Total revenue: $9,920 – $1,250 MRR for subscriptions + $200 in PAYG revenue per month – 87%+ profit margin on subscription plan – 35+ mins saved per job application How CoverDoc came to be… As a job seeker I wa"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 51,
+    "id": "ent_ebizfacts_paulminors90kmonthsoftwareconsulting_ab07e996677f",
+    "name": "$1M/Year Teaching People How To Use Software",
+    "scale": "SOLO",
+    "score": 75,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$14,000",
+        "currency": "USD",
+        "amount": 14000,
+        "jpyAmount": 2100000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ales from consulting and subscription fees… the business is very profitable. My biggest costs are the contractors on my team, which come in at around $14,000 per month…&nbsp; The margin is around 80% [around $70K+/month]. Paul has kept things pretty simple, no crazy business model or fancy marketing hacks. He found something he could d"
+      },
+      {
+        "original": "$70K",
+        "currency": "USD",
+        "amount": 70000,
+        "jpyAmount": 10500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "s very profitable. My biggest costs are the contractors on my team, which come in at around $14,000 per month…&nbsp; The margin is around 80% [around $70K+/month]. Paul has kept things pretty simple, no crazy business model or fancy marketing hacks. He found something he could do well, and has been chipping away at it consistently f"
+      },
+      {
+        "original": "$90,000",
+        "currency": "USD",
+        "amount": 90000,
+        "jpyAmount": 13500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "my listing and get reviews. This was a great way to validate that there was a demand for my expertise. Nowadays… In a typical month, we’ll make about $90,000 in sales from consulting and subscription fees… the business is very profitable. My biggest costs are the contractors on my team, which come in at around $14,000 per month…&nbsp;"
+      },
+      {
+        "original": "$14,000",
+        "currency": "USD",
+        "amount": 14000,
+        "jpyAmount": 2100000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ales from consulting and subscription fees… the business is very profitable. My biggest costs are the contractors on my team, which come in at around $14,000 per month…&nbsp; The margin is around 80% [around $70K+/month]. Paul has kept things pretty simple, no crazy business model or fancy marketing hacks. He found something he could d"
+      },
+      {
+        "original": "$70K",
+        "currency": "USD",
+        "amount": 70000,
+        "jpyAmount": 10500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "s very profitable. My biggest costs are the contractors on my team, which come in at around $14,000 per month…&nbsp; The margin is around 80% [around $70K+/month]. Paul has kept things pretty simple, no crazy business model or fancy marketing hacks. He found something he could do well, and has been chipping away at it consistently f"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 52,
+    "id": "ent_ebizfacts_danieltomportapottyrental43myear_da709eec3eba",
+    "name": "$4.3M/Year From His Low-Tech, AI-Proof Business",
+    "scale": "SOLO",
+    "score": 75,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$160+",
+        "currency": "USD",
+        "amount": 160,
+        "jpyAmount": 24000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ue for my business. Net profit margin: 22% 👇 We've managed to build what I think is a low-tech, AI-proof business. Every toilet on rent adds another $160+/month in recurring revenue. And the beauty of a business nobody wants to touch – literally – is that there's always room for another operator 😎"
+      },
+      {
+        "original": "$60",
+        "currency": "USD",
+        "amount": 60,
+        "jpyAmount": 9000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ross 500+ job sites in the Bay Area. Total income in 2025: $4.3 million 🤑 The bulk comes from long-term construction rentals – each toilet brings in $60/week, and projects can run for years. I like to focus on long-term rentals because it equals guaranteed recurring revenue for my business. Net profit margin: 22% 👇 We've managed"
+      },
+      {
+        "original": "$160+",
+        "currency": "USD",
+        "amount": 160,
+        "jpyAmount": 24000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ue for my business. Net profit margin: 22% 👇 We've managed to build what I think is a low-tech, AI-proof business. Every toilet on rent adds another $160+/month in recurring revenue. And the beauty of a business nobody wants to touch – literally – is that there's always room for another operator 😎"
+      },
+      {
+        "original": "$60",
+        "currency": "USD",
+        "amount": 60,
+        "jpyAmount": 9000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ross 500+ job sites in the Bay Area. Total income in 2025: $4.3 million 🤑 The bulk comes from long-term construction rentals – each toilet brings in $60/week, and projects can run for years. I like to focus on long-term rentals because it equals guaranteed recurring revenue for my business. Net profit margin: 22% 👇 We've managed"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 53,
+    "id": "ent_ebizfacts_felixnortonwowwdigitalagency110kmonth_f8dd37c7a5d9",
+    "name": "Running a $110K/Month Digital Agency in South Africa",
+    "scale": "SOLO",
+    "score": 75,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "co-founder of Woww , a digital marketing agency based in South Africa 🇿🇦 In a recent interview , Felix reveals his business to be earning… Between $100-120k monthly recurring revenue (MRR). We aim for a 20% profit margin. That profit margin makes sense when you consider he has a co-founder and 32 employees. 👀 Felix's background…"
+      },
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "co-founder of Woww , a digital marketing agency based in South Africa 🇿🇦 In a recent interview , Felix reveals his business to be earning… Between $100-120k monthly recurring revenue (MRR). We aim for a 20% profit margin. That profit margin makes sense when you consider he has a co-founder and 32 employees. 👀 Felix's background…"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 54,
+    "id": "ent_ebizfacts_deadchefssociety126kyearsupperclubdinnereven_e2e27abc4aee",
+    "name": "$126K Per Year Hosting Monthly Dinner Parties",
+    "scale": "SMALL_TEAM",
+    "score": 65,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$25K",
+        "currency": "USD",
+        "amount": 25000,
+        "jpyAmount": 3750000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "s. They've never spent a penny on marketing. 🤑 By 2025: 1,099 guests served across 44 restaurants… Average ticket: $115 Revenue: $126K Margin: ~20% ($25K profit, split between two) The model is elegant: restaurants on slow nights are happy to have guaranteed covers. You don't need a kitchen, staff, or inventory – just curation and"
+      },
+      {
+        "original": "$115",
+        "currency": "USD",
+        "amount": 115,
+        "jpyAmount": 17250,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ok food groups and Instagram shares. They've never spent a penny on marketing. 🤑 By 2025: 1,099 guests served across 44 restaurants… Average ticket: $115 Revenue: $126K Margin: ~20% ($25K profit, split between two) The model is elegant: restaurants on slow nights are happy to have guaranteed covers. You don't need a kitchen, staff,"
+      },
+      {
+        "original": "$126K",
+        "currency": "USD",
+        "amount": 126000,
+        "jpyAmount": 18900000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "and Instagram shares. They've never spent a penny on marketing. 🤑 By 2025: 1,099 guests served across 44 restaurants… Average ticket: $115 Revenue: $126K Margin: ~20% ($25K profit, split between two) The model is elegant: restaurants on slow nights are happy to have guaranteed covers. You don't need a kitchen, staff, or inventory –"
+      },
+      {
+        "original": "$25K",
+        "currency": "USD",
+        "amount": 25000,
+        "jpyAmount": 3750000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "s. They've never spent a penny on marketing. 🤑 By 2025: 1,099 guests served across 44 restaurants… Average ticket: $115 Revenue: $126K Margin: ~20% ($25K profit, split between two) The model is elegant: restaurants on slow nights are happy to have guaranteed covers. You don't need a kitchen, staff, or inventory – just curation and"
+      },
+      {
+        "original": "$115",
+        "currency": "USD",
+        "amount": 115,
+        "jpyAmount": 17250,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ok food groups and Instagram shares. They've never spent a penny on marketing. 🤑 By 2025: 1,099 guests served across 44 restaurants… Average ticket: $115 Revenue: $126K Margin: ~20% ($25K profit, split between two) The model is elegant: restaurants on slow nights are happy to have guaranteed covers. You don't need a kitchen, staff,"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 55,
+    "id": "ent_ebizfacts_freddiechattvillagecricketco10kmonth_498aff16aa4c",
+    "name": "£10K/Month Ecom Site For World's 2nd Favorite Sport",
+    "scale": "SMALL_TEAM",
+    "score": 65,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "£97",
+        "currency": "GBP",
+        "amount": 97,
+        "jpyAmount": 18430,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "ding unnecessary costs. They source Kashmir Willow cricket bats . Those usually cost $10-30 a pop in India 🇮🇳 and Village Cricket Co sells them for £97 ($122) to £117 ($147). So it’s safe to assume they operate at a margin of 50% or more. Freddie said in his article that the business does “£10k/month and beyond” in revenue, and i"
+      },
+      {
+        "original": "$122",
+        "currency": "USD",
+        "amount": 122,
+        "jpyAmount": 18300,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "unnecessary costs. They source Kashmir Willow cricket bats . Those usually cost $10-30 a pop in India 🇮🇳 and Village Cricket Co sells them for £97 ($122) to £117 ($147). So it’s safe to assume they operate at a margin of 50% or more. Freddie said in his article that the business does “£10k/month and beyond” in revenue, and it look"
+      },
+      {
+        "original": "£117",
+        "currency": "GBP",
+        "amount": 117,
+        "jpyAmount": 22230,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "ry costs. They source Kashmir Willow cricket bats . Those usually cost $10-30 a pop in India 🇮🇳 and Village Cricket Co sells them for £97 ($122) to £117 ($147). So it’s safe to assume they operate at a margin of 50% or more. Freddie said in his article that the business does “£10k/month and beyond” in revenue, and it looks like th"
+      },
+      {
+        "original": "$147",
+        "currency": "USD",
+        "amount": 147,
+        "jpyAmount": 22050,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "ts. They source Kashmir Willow cricket bats . Those usually cost $10-30 a pop in India 🇮🇳 and Village Cricket Co sells them for £97 ($122) to £117 ($147). So it’s safe to assume they operate at a margin of 50% or more. Freddie said in his article that the business does “£10k/month and beyond” in revenue, and it looks like there's"
+      },
+      {
+        "original": "£97",
+        "currency": "GBP",
+        "amount": 97,
+        "jpyAmount": 18430,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "ding unnecessary costs. They source Kashmir Willow cricket bats . Those usually cost $10-30 a pop in India 🇮🇳 and Village Cricket Co sells them for £97 ($122) to £117 ($147). So it’s safe to assume they operate at a margin of 50% or more. Freddie said in his article that the business does “£10k/month and beyond” in revenue, and i"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 56,
+    "id": "ent_ebizfacts_stevenforrestbullislandbreaks50kmonth_6c78e0a8d18f",
+    "name": "Father & Son Earning $50K/Month Within a Year Doing This",
+    "scale": "SMALL_TEAM",
+    "score": 65,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$70,000",
+        "currency": "USD",
+        "amount": 70000,
+        "jpyAmount": 10500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "d buyers. Madden asked his dad if they could try it themselves, and in October of 2024, the side hustle was born. Amazingly, they've already profited $70,000 in 2025 doing this, and reported $49,000 revenue in May (~39% profit margin) 💰 Which is even more surprising given that TikTok appears to be their main channel – with Steven pres"
+      },
+      {
+        "original": "$49,000",
+        "currency": "USD",
+        "amount": 49000,
+        "jpyAmount": 7350000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "uld try it themselves, and in October of 2024, the side hustle was born. Amazingly, they've already profited $70,000 in 2025 doing this, and reported $49,000 revenue in May (~39% profit margin) 💰 Which is even more surprising given that TikTok appears to be their main channel – with Steven presenting all the videos – and they only hav"
+      },
+      {
+        "original": "$70,000",
+        "currency": "USD",
+        "amount": 70000,
+        "jpyAmount": 10500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "d buyers. Madden asked his dad if they could try it themselves, and in October of 2024, the side hustle was born. Amazingly, they've already profited $70,000 in 2025 doing this, and reported $49,000 revenue in May (~39% profit margin) 💰 Which is even more surprising given that TikTok appears to be their main channel – with Steven pres"
+      },
+      {
+        "original": "$49,000",
+        "currency": "USD",
+        "amount": 49000,
+        "jpyAmount": 7350000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "uld try it themselves, and in October of 2024, the side hustle was born. Amazingly, they've already profited $70,000 in 2025 doing this, and reported $49,000 revenue in May (~39% profit margin) 💰 Which is even more surprising given that TikTok appears to be their main channel – with Steven presenting all the videos – and they only hav"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 57,
+    "id": "ent_ebizfacts_stephensteerssalesconsultant10kmonth_cb28932be84e",
+    "name": "$120K/Year Being The Help He Didn't Have",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$9",
+        "currency": "USD",
+        "amount": 9,
+        "jpyAmount": 1350,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "than 750+ companies from 30 countries” 🌎 In a recent interview , he reveals… Consulting revenue can be streaky at times but it averages out to about $9-10k per month with 70+% profit. Consulting is good business – especially for part time. 🚀 How Stephen got started… I worked as a sales rep at a startup in NYC. I chose to take a"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 58,
+    "id": "ent_ebizfacts_intermittentfastingcalculator400monthnichesi_d17341b55caf",
+    "name": "$400/Month From a Dead-Simple Fasting Calculator",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$400",
+        "currency": "USD",
+        "amount": 400,
+        "jpyAmount": 60000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "tever), and the calculator instantly shows your fasting window and next meal time. No signup, no app to download. Earnings via Google ads… apparently $400/month, mostly passive 🤑 Costs are basically a domain and cheap hosting, so it's nearly all profit. The clever part isn't the calculator. It's the cluster. The site has quietly st"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 59,
+    "id": "ent_ebizfacts_rameshjhawordunscrambler6myearutilitysite_28bc8585ec55",
+    "name": "$6M/Year From a Website That Just Unscrambles Words",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$1M",
+        "currency": "USD",
+        "amount": 1000000,
+        "jpyAmount": 150000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "s of users each month. Revenue via Google display ads. No products, no content, no audience to maintain. Estimates of what it earns range from around $1M to $6M a year , depending on whose ad-rate math you trust. Either way: life-changing money from anagrams 🤯 The wholesome part? Ramesh funds a non-profit and a free public library"
+      },
+      {
+        "original": "$6M",
+        "currency": "USD",
+        "amount": 6000000,
+        "jpyAmount": 900000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ers each month. Revenue via Google display ads. No products, no content, no audience to maintain. Estimates of what it earns range from around $1M to $6M a year , depending on whose ad-rate math you trust. Either way: life-changing money from anagrams 🤯 The wholesome part? Ramesh funds a non-profit and a free public library in his"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 60,
+    "id": "ent_ebizfacts_manasvinikrishnabossasaservice62kmonth_caa7eccc2fbf",
+    "name": "Boss As A Service = $62,500 Per Month",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$25",
+        "currency": "USD",
+        "amount": 25,
+        "jpyAmount": 3750,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "monthly revenue 💬 Robin Vander Heyden tweets about Boss as a Service … Probably the most creative productized service I've seen • Hire a “boss” for $25/mo to keep you accountable • 2500 customers • Solo founder, profitable 2500 customers x $25/mo = $62,500 monthly revenue 💰 (Assuming those are all current customers.) Manasvini K"
+      },
+      {
+        "original": "$62,500",
+        "currency": "USD",
+        "amount": 62500,
+        "jpyAmount": 9375000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "roductized service I've seen • Hire a “boss” for $25/mo to keep you accountable • 2500 customers • Solo founder, profitable 2500 customers x $25/mo = $62,500 monthly revenue 💰 (Assuming those are all current customers.) Manasvini Krishna launched the project back in 2018 . How about doing a niche version of this for 👇 Writers Vibe co"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 61,
+    "id": "ent_ebizfacts_babylonbeesatirewebsite10kmonthfakenews_798bcc6e7e5a",
+    "name": "Fake News Websites Earning $10,000's Per Month",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$40K",
+        "currency": "USD",
+        "amount": 40000,
+        "jpyAmount": 6000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "s. Second 👉 The Hard Times Started as a punk rock satire site, later expanded to politics, video games, etc. 2M+ monthly visitors. Spencer estimates $40K+ per month from ads, sponsorships, merch 💰 I'm thinking there could be a profitable site like this for many a niche. Maybe start with a Facebook page or Instagram account, share"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 62,
+    "id": "ent_ebizfacts_vibecodingagency15k20kmonthhistorystudentaia_42232437918f",
+    "name": "History Major Making $15-20K/Month Building AI Apps",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$200",
+        "currency": "USD",
+        "amount": 200,
+        "jpyAmount": 30000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "00 on AI tools. The workflow 👇 Clients write a brief doc of what they want Find matching designs on Figma or Mobbin Build with AI coding tools Extra $200-300 for App Store submission help On that last part… clients hate submitting ( Helping with that alone could be a profitable business .) Marketing is 100% word of mouth. Clients r"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 63,
+    "id": "ent_ebizfacts_ellendonnellytheasksmallnewsletter100kyear_65d420540973",
+    "name": "She Earns $100K+ Per Year From Only 3400 Subscribers",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$100K",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "fessionals to build a profitable one person business around their unique gifts & talent. Per a recent interview , she has built it into a six-figure ($100K+ per year) coaching and content business in just over 3 years with only 3,400 subscribers 🤯 Why Ellen started The Ask… After a decade as a startup talent expert, I wanted to prov"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 64,
+    "id": "ent_ebizfacts_serhiibaraniukwriting912kmonthexamprep_ead554906ca3",
+    "name": "Solo Founder Earning $12K/Month From Exam Prep Assistant",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$1 Million",
+        "currency": "USD",
+        "amount": 1000000,
+        "jpyAmount": 150000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ould probably vibe code today 🤖 More examples of people earning good money by helping others prep for specific exams… Her 3-Hour Crash Course Earned $1 Million in 7 Months Niche Study Guide Selling on Amazon = $8.7K/Month Profit What exams have you taken in the past? Might be an opportunity to create an app / course / study guide there \ud83e"
+      },
+      {
+        "original": "$8.7K",
+        "currency": "USD",
+        "amount": 8700,
+        "jpyAmount": 1305000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ing good money by helping others prep for specific exams… Her 3-Hour Crash Course Earned $1 Million in 7 Months Niche Study Guide Selling on Amazon = $8.7K/Month Profit What exams have you taken in the past? Might be an opportunity to create an app / course / study guide there 🧐 Or perhaps even start off as a one-on-one tutor."
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 65,
+    "id": "ent_ebizfacts_keilashaheenshadowworkjournal3millionprofit_b2ebbc84f4e1",
+    "name": "Uncertified Author Earns $3 Million in 2 Years (via TikTok)",
+    "scale": "SOLO",
+    "score": 60,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$3 million",
+        "currency": "USD",
+        "amount": 3000000,
+        "jpyAmount": 450000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "estimated profit"
+      },
+      {
+        "original": "$3",
+        "currency": "USD",
+        "amount": 3,
+        "jpyAmount": 450,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "aid the price was $17 (same as the price on Amazon). So they might be experimenting with the pricing. Regardless, let's say Keila earns an average of $3 profit on each book, and 454K = only 45% of her total sales… then her profit since launch would be around $3 million 💰 Two takeaways here… First of all, TikTok is insane for mark"
+      },
+      {
+        "original": "$3 million",
+        "currency": "USD",
+        "amount": 3000000,
+        "jpyAmount": 450000000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "ess, let's say Keila earns an average of $3 profit on each book, and 454K = only 45% of her total sales… then her profit since launch would be around $3 million 💰 Two takeaways here… First of all, TikTok is insane for marketing, especially for products that can get some kind of emotional reaction. Other examples of this… This 1 TikTok Vi"
+      },
+      {
+        "original": "$17",
+        "currency": "USD",
+        "amount": 17,
+        "jpyAmount": 2550,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "profit 💬 Random tweet I stumbled across recently… This is the Shadow Work Journal's sales on TikTok shop between 7pm EST and 11pm EST 2,300 orders x $17 product price = $39,100 in 4 hours Here's the Shadow Work Journal on Amazon , with 2400+ reviews 🤩 Keila Shaheen is the 24-year-old creator of the journal, which was first publis"
+      },
+      {
+        "original": "$3 million",
+        "currency": "USD",
+        "amount": 3000000,
+        "jpyAmount": 450000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Keila Shaheen Creator of the Shadow Work Journal $3 million estimated profit 💬 Random tweet I stumbled across recently… This is the Shadow Work Journal's sales on TikTok shop between 7pm EST and 11pm EST 2,300 orders x $17 product price ="
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 66,
+    "id": "ent_ebizfacts_ryandosertinyaitools3k45days_f7e3ca68be8a",
+    "name": "$3K in 45 Days Selling “Tiny AI Tools” Anyone Could Build",
+    "scale": "UNKNOWN",
+    "score": 55,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$3,000",
+        "currency": "USD",
+        "amount": 3000,
+        "jpyAmount": 450000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "do one task your way, every time. Marketing consultant Ryan Doser packaged ~25 of his own into a $99 bundle, sold it from his site, and cleared over $3,000 in about 45 days – basically all profit 🤑 No paid ads. What stuck with me, from Chris Koerner's writeup … …he didn't build anything new… He just took what he was already doing ev"
+      },
+      {
+        "original": "$99",
+        "currency": "USD",
+        "amount": 99,
+        "jpyAmount": 14850,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Claude Skill , basically: a recipe that makes the AI do one task your way, every time. Marketing consultant Ryan Doser packaged ~25 of his own into a $99 bundle, sold it from his site, and cleared over $3,000 in about 45 days – basically all profit 🤑 No paid ads. What stuck with me, from Chris Koerner's writeup … …he didn't build"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 67,
+    "id": "ent_ebizfacts_crystalstevenremotecleaning33kmonth40profit_340a90feec73",
+    "name": "Earning $33K/Month With Their Outsourced Cleaning Biz",
+    "scale": "SMALL_TEAM",
+    "score": 55,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$33,000",
+        "currency": "USD",
+        "amount": 33000,
+        "jpyAmount": 4950000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "Crystal and Steven Entrepreneurs $33,000 monthly revenue Meet Crystal and Steven, a couple who started a remote cleaning business that earns $33K/month — with a 40% profit margin… Origin story… We literally had zero doll"
+      },
+      {
+        "original": "$33,000",
+        "currency": "USD",
+        "amount": 33000,
+        "jpyAmount": 4950000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "Crystal and Steven Entrepreneurs $33,000 monthly revenue Meet Crystal and Steven, a couple who started a remote cleaning business that earns $33K/month — with a 40% profit margin… Origin story… We literally had zero doll"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 68,
+    "id": "ent_ebizfacts_tahayavuzlucasgiftpersonalizedfather100kmont_9dedb9dcc396",
+    "name": "Father + Son + Personalized Gifts = ​​$100K/Month",
+    "scale": "SMALL_TEAM",
+    "score": 55,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$100,000",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "standard profit margins like 15%… we make personalized items and competition is considerably low, but the profit margins are not huge. So out of that $100,000 monthly revenue, they're profiting $15,000. Which is still pretty good 👍 However, Taha also notes that their growth on Amazon and Etsy has stagnated… We are… decreasing efforts o"
+      },
+      {
+        "original": "$15,000",
+        "currency": "USD",
+        "amount": 15000,
+        "jpyAmount": 2250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "rsonalized items and competition is considerably low, but the profit margins are not huge. So out of that $100,000 monthly revenue, they're profiting $15,000. Which is still pretty good 👍 However, Taha also notes that their growth on Amazon and Etsy has stagnated… We are… decreasing efforts on marketplaces and waiting to attract more"
+      },
+      {
+        "original": "$100,000",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "standard profit margins like 15%… we make personalized items and competition is considerably low, but the profit margins are not huge. So out of that $100,000 monthly revenue, they're profiting $15,000. Which is still pretty good 👍 However, Taha also notes that their growth on Amazon and Etsy has stagnated… We are… decreasing efforts o"
+      },
+      {
+        "original": "$15,000",
+        "currency": "USD",
+        "amount": 15000,
+        "jpyAmount": 2250000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "rsonalized items and competition is considerably low, but the profit margins are not huge. So out of that $100,000 monthly revenue, they're profiting $15,000. Which is still pretty good 👍 However, Taha also notes that their growth on Amazon and Etsy has stagnated… We are… decreasing efforts on marketplaces and waiting to attract more"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 69,
+    "id": "ent_ebizfacts_yandilatinotiktokshop1mmonth12kfollowers_d4563d058e73",
+    "name": "$150K in One Month From TikTok (Only 12K Followers)",
+    "scale": "UNKNOWN",
+    "score": 50,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$150K",
+        "currency": "USD",
+        "amount": 150000,
+        "jpyAmount": 22500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "– an affordable Dyson alternative – are the secret weapon, featured by 5 of the top 10 creators. At ~13% commission, Yandi personally cleared around $150K last month . Pick a proven category, sign up for TikTok Shop affiliate , and start going live 🔥"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 70,
+    "id": "ent_ebizfacts_cayleyelainewelltraveledthriftresellingebayp_7a4684be7d34",
+    "name": "$25K/Month Reselling Thrift Store Items Online",
+    "scale": "SMALL_TEAM",
+    "score": 50,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$4874",
+        "currency": "USD",
+        "amount": 4874,
+        "jpyAmount": 731100,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "she's consistently reporting revenues of $5000 to $8000 each week 💰 Of the $7473 in revenue in the video mentioned above, Cayley's gross profit was $4874 (65%). She says in the video… eBay and Poshmark, those are my two main platforms. I just love tracking my sales every single week to see if what I'm doing is working or maybe not"
+      },
+      {
+        "original": "$5000",
+        "currency": "USD",
+        "amount": 5000,
+        "jpyAmount": 750000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ich give an inside look at her sales from the previous week. Looking at her videos from the past few months, she's consistently reporting revenues of $5000 to $8000 each week 💰 Of the $7473 in revenue in the video mentioned above, Cayley's gross profit was $4874 (65%). She says in the video… eBay and Poshmark, those are my two main"
+      },
+      {
+        "original": "$8000",
+        "currency": "USD",
+        "amount": 8000,
+        "jpyAmount": 1200000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "an inside look at her sales from the previous week. Looking at her videos from the past few months, she's consistently reporting revenues of $5000 to $8000 each week 💰 Of the $7473 in revenue in the video mentioned above, Cayley's gross profit was $4874 (65%). She says in the video… eBay and Poshmark, those are my two main platforms"
+      },
+      {
+        "original": "$7473",
+        "currency": "USD",
+        "amount": 7473,
+        "jpyAmount": 1120950,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "s from the previous week. Looking at her videos from the past few months, she's consistently reporting revenues of $5000 to $8000 each week 💰 Of the $7473 in revenue in the video mentioned above, Cayley's gross profit was $4874 (65%). She says in the video… eBay and Poshmark, those are my two main platforms. I just love tracking my"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 71,
+    "id": "ent_ebizfacts_pennycannyuzairfarooq3000monthcouponsite_27520d37b2aa",
+    "name": "$3000/Month Collecting and Sharing Coupons",
+    "scale": "SMALL_TEAM",
+    "score": 50,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$4",
+        "currency": "USD",
+        "amount": 4,
+        "jpyAmount": 600,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "there's clearly a lot of money to be made in the coupon business. Ever heard of Honey , the coupon-finding browser extension that sold to PayPal for $4 billion? 🤯 So while PennyCanny likely isn't earning much profit for Uzair just yet, there's plenty of potential there. Lastly… We only have a handful of stores on the website (ar"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 72,
+    "id": "ent_ebizfacts_joshsharedpostcards40kyearlocalads_fafbc3b94d47",
+    "name": "$40K/Year Selling Ad Space on Local Postcards",
+    "scale": "SMALL_TEAM",
+    "score": 50,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$2,500",
+        "currency": "USD",
+        "amount": 2500,
+        "jpyAmount": 375000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "etc. He ships the cards to 1000s of local homes via USPS's Every Door Direct Mail tool – no mailing list needed. Unit economics on a 10K-home card 👇 $2,500 postage (25¢/home) $2,300 printing $9,000 to $10,000 in ad sales (16 spots, $350 to $1,000 each) $4,000 to $5,000 profit per card He fills the spots by posting weekly in local Fac"
+      },
+      {
+        "original": "$2,300",
+        "currency": "USD",
+        "amount": 2300,
+        "jpyAmount": 345000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "1000s of local homes via USPS's Every Door Direct Mail tool – no mailing list needed. Unit economics on a 10K-home card 👇 $2,500 postage (25¢/home) $2,300 printing $9,000 to $10,000 in ad sales (16 spots, $350 to $1,000 each) $4,000 to $5,000 profit per card He fills the spots by posting weekly in local Facebook business groups… I p"
+      },
+      {
+        "original": "$9,000",
+        "currency": "USD",
+        "amount": 9000,
+        "jpyAmount": 1350000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "homes via USPS's Every Door Direct Mail tool – no mailing list needed. Unit economics on a 10K-home card 👇 $2,500 postage (25¢/home) $2,300 printing $9,000 to $10,000 in ad sales (16 spots, $350 to $1,000 each) $4,000 to $5,000 profit per card He fills the spots by posting weekly in local Facebook business groups… I probably close 95"
+      },
+      {
+        "original": "$10,000",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "USPS's Every Door Direct Mail tool – no mailing list needed. Unit economics on a 10K-home card 👇 $2,500 postage (25¢/home) $2,300 printing $9,000 to $10,000 in ad sales (16 spots, $350 to $1,000 each) $4,000 to $5,000 profit per card He fills the spots by posting weekly in local Facebook business groups… I probably close 95% of my dea"
+      },
+      {
+        "original": "$350",
+        "currency": "USD",
+        "amount": 350,
+        "jpyAmount": 52500,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ool – no mailing list needed. Unit economics on a 10K-home card 👇 $2,500 postage (25¢/home) $2,300 printing $9,000 to $10,000 in ad sales (16 spots, $350 to $1,000 each) $4,000 to $5,000 profit per card He fills the spots by posting weekly in local Facebook business groups… I probably close 95% of my deals over messenger or text. H"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 73,
+    "id": "ent_ebizfacts_danielthompson800kyeardigitalmarketingagency_22d3be91a10f",
+    "name": "Helping Local Businesses = $800K Per Year",
+    "scale": "SMALL_TEAM",
+    "score": 50,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$800,000",
+        "currency": "USD",
+        "amount": 800000,
+        "jpyAmount": 120000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "marketing solutions for small businesses” … so services like web design, SEO, paid ads, etc. 💬 In a recent interview , Daniel reveals… We generated $800,000 in revenue and ~$150,000 in net profit in 2023. Might not seem like a ton of profit, but that's likely after paying the salaries of the 2 founders, plus they have several employee"
+      },
+      {
+        "original": "$150,000",
+        "currency": "USD",
+        "amount": 150000,
+        "jpyAmount": 22500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "small businesses” … so services like web design, SEO, paid ads, etc. 💬 In a recent interview , Daniel reveals… We generated $800,000 in revenue and ~$150,000 in net profit in 2023. Might not seem like a ton of profit, but that's likely after paying the salaries of the 2 founders, plus they have several employees and contractors. Daniel"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 74,
+    "id": "ent_ebizfacts_aliabdaalyoutubeearningsjanuary2023_086602e08dbb",
+    "name": "His YouTube Business Earned $236,000 in 1 Month",
+    "scale": "SOLO",
+    "score": 50,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "£15,843",
+        "currency": "GBP",
+        "amount": 15843,
+        "jpyAmount": 3010170,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "a life that we love. A few days ago Ali shared his business financials from January. Revenue = £195,177 ($236K) Expenses = £179,334 ($217K) Profit = £15,843 ($19K) I was shocked when I saw those numbers. $236K revenue and only $19K profit?? &#x1f92f; But it seems Ali is intent on building a world-class team… almost half of our £140k o"
+      },
+      {
+        "original": "£195,177",
+        "currency": "GBP",
+        "amount": 195177,
+        "jpyAmount": 37083630,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "d tools that can help us be more productive, and build a life that we love. A few days ago Ali shared his business financials from January. Revenue = £195,177 ($236K) Expenses = £179,334 ($217K) Profit = £15,843 ($19K) I was shocked when I saw those numbers. $236K revenue and only $19K profit?? &#x1f92f; But it seems Ali is intent on bu"
+      },
+      {
+        "original": "$236K",
+        "currency": "USD",
+        "amount": 236000,
+        "jpyAmount": 35400000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "at can help us be more productive, and build a life that we love. A few days ago Ali shared his business financials from January. Revenue = £195,177 ($236K) Expenses = £179,334 ($217K) Profit = £15,843 ($19K) I was shocked when I saw those numbers. $236K revenue and only $19K profit?? &#x1f92f; But it seems Ali is intent on building"
+      },
+      {
+        "original": "£179,334",
+        "currency": "GBP",
+        "amount": 179334,
+        "jpyAmount": 34073460,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "more productive, and build a life that we love. A few days ago Ali shared his business financials from January. Revenue = £195,177 ($236K) Expenses = £179,334 ($217K) Profit = £15,843 ($19K) I was shocked when I saw those numbers. $236K revenue and only $19K profit?? &#x1f92f; But it seems Ali is intent on building a world-class team… a"
+      },
+      {
+        "original": "$217K",
+        "currency": "USD",
+        "amount": 217000,
+        "jpyAmount": 32550000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ctive, and build a life that we love. A few days ago Ali shared his business financials from January. Revenue = £195,177 ($236K) Expenses = £179,334 ($217K) Profit = £15,843 ($19K) I was shocked when I saw those numbers. $236K revenue and only $19K profit?? &#x1f92f; But it seems Ali is intent on building a world-class team… almost h"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 75,
+    "id": "ent_ebizfacts_baltimorebannerlocalnews13million3years_eb13bb8db1bf",
+    "name": "Local News Site: Zero to $13M Revenue in 3 Years",
+    "scale": "SMALL_TEAM",
+    "score": 50,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$87,000",
+        "currency": "USD",
+        "amount": 87000,
+        "jpyAmount": 13050000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "00. So they've got almost 10% of the population already paying for news 😎 From Boise is the bootstrapped version of this, covered a few months back… $87,000 Last Year, Aiming For $500K by 2027 I strongly believe that every city/town/region with a population of 100,000+ will eventually have a profitable local news site / newsletter lik"
+      },
+      {
+        "original": "$500K",
+        "currency": "USD",
+        "amount": 500000,
+        "jpyAmount": 75000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "of the population already paying for news 😎 From Boise is the bootstrapped version of this, covered a few months back… $87,000 Last Year, Aiming For $500K by 2027 I strongly believe that every city/town/region with a population of 100,000+ will eventually have a profitable local news site / newsletter like this 💪 How about starting"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 76,
+    "id": "ent_ebizfacts_mattrobinsonlivetourney3kmonthgolfcourseapp_1e2440de3528",
+    "name": "New Golf Course App Already Earning $3000/Month",
+    "scale": "SMALL_TEAM",
+    "score": 50,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "We’ve been profitable since Day 1 since it doesn’t cost much to run the business. Outside of one-time fees to start the LLC, our expenses are around $100 per month! 😕 Convincing courses to use the product has been tough… Regardless of what software (or no software) a course uses, making a change is a big deal and requires a bit of"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 77,
+    "id": "ent_ebizfacts_danielruscignoclinicsense5millionyearnicheso_b605de6fa628",
+    "name": "This Niche Software Makes $416,000 Per Month",
+    "scale": "SMALL_TEAM",
+    "score": 50,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$5 million",
+        "currency": "USD",
+        "amount": 5000000,
+        "jpyAmount": 750000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "system includes online booking and scheduling, charting, finance, and communication tools. Per a recent interview , the business is currently earning $5 million per year 🤯 or $416K/month… ClinicSense launched 12 years ago and is now a successfully bootstrapped and profitable company with a close-knit and fully remote team of 15… Today we"
+      },
+      {
+        "original": "$416K",
+        "currency": "USD",
+        "amount": 416000,
+        "jpyAmount": 62400000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "king and scheduling, charting, finance, and communication tools. Per a recent interview , the business is currently earning $5 million per year 🤯 or $416K/month… ClinicSense launched 12 years ago and is now a successfully bootstrapped and profitable company with a close-knit and fully remote team of 15… Today we have just over 7,500"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 78,
+    "id": "ent_ebizfacts_erickulrichconectshortformvideoagency12kmont_346a2c60e25a",
+    "name": "$12K/Month Editing Shorts in the Brazilian Countryside",
+    "scale": "SMALL_TEAM",
+    "score": 40,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$2800",
+        "currency": "USD",
+        "amount": 2800,
+        "jpyAmount": 420000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "to the unhappy clients at their old job, offering them a better solution 👍 Also… In January, we kept sending cold DM-s on instagram, and made around $2800 of rev. Profit was a bit low due to the costs like design, videos, and etc. What worked… Cold-Dm a list on instagram / Asking for referrals / Google ads… With the “worked” methods"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 79,
+    "id": "ent_ebizfacts_willmillikenswoopscoop24millionyeardogpoop_d6e2f6b5b26c",
+    "name": "$2.4M Per Year Picking Up Dog Poop",
+    "scale": "UNKNOWN",
+    "score": 40,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$20",
+        "currency": "USD",
+        "amount": 20,
+        "jpyAmount": 3000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ed larger cities, such as Seattle. He sets up yearly contracts with each dog owner to remove the waste in their yard—with some contracts ranging from $20-30K annually. Now the business is earning $200,000 per month with a 30% profit margin 🤑 Startup costs were only $174, and within three months they had 350 customers. If this work"
+      },
+      {
+        "original": "$200,000",
+        "currency": "USD",
+        "amount": 200000,
+        "jpyAmount": 30000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "yearly contracts with each dog owner to remove the waste in their yard—with some contracts ranging from $20-30K annually. Now the business is earning $200,000 per month with a 30% profit margin 🤑 Startup costs were only $174, and within three months they had 350 customers. If this works so well in Seattle, it will surely work well else"
+      },
+      {
+        "original": "$174,",
+        "currency": "USD",
+        "amount": 174,
+        "jpyAmount": 26100,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "with some contracts ranging from $20-30K annually. Now the business is earning $200,000 per month with a 30% profit margin 🤑 Startup costs were only $174, and within three months they had 350 customers. If this works so well in Seattle, it will surely work well elsewhere."
+      },
+      {
+        "original": "$20",
+        "currency": "USD",
+        "amount": 20,
+        "jpyAmount": 3000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ed larger cities, such as Seattle. He sets up yearly contracts with each dog owner to remove the waste in their yard—with some contracts ranging from $20-30K annually. Now the business is earning $200,000 per month with a 30% profit margin 🤑 Startup costs were only $174, and within three months they had 350 customers. If this work"
+      },
+      {
+        "original": "$200,000",
+        "currency": "USD",
+        "amount": 200000,
+        "jpyAmount": 30000000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "yearly contracts with each dog owner to remove the waste in their yard—with some contracts ranging from $20-30K annually. Now the business is earning $200,000 per month with a 30% profit margin 🤑 Startup costs were only $174, and within three months they had 350 customers. If this works so well in Seattle, it will surely work well else"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 80,
+    "id": "ent_ebizfacts_boobooslemonade250k8monthsfreshsqueezed_19df7d42f3f9",
+    "name": "$250K in 8 Months Selling Fresh-Squeezed Lemonade",
+    "scale": "UNKNOWN",
+    "score": 40,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$1,000",
+        "currency": "USD",
+        "amount": 1000,
+        "jpyAmount": 150000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "oughly an 82% margin . Startup was around $1,500, mostly a lemon wedger and a smasher. A good Saturday in Dallas does $2,500 . He also caters events ($1,000–3,000 a pop) and rents the cart out for weddings. His advice for anyone sitting on the idea 👇 Just do it. Stop overthinking it… get a table, get a tent, and then just post up. Mo"
+      },
+      {
+        "original": "$7",
+        "currency": "USD",
+        "amount": 7,
+        "jpyAmount": 1050,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": ", simple syrup, ice and water in a 32oz cup 🍋 Plenty of vendors sell “fresh” lemonade that's really Country Time or Milo's from Walmart, at the same $7. Don's is the real thing… …people aren't stupid… they'll taste ours, they taste theirs 🤑 At $7 a cup that costs him about $1.25, that's roughly an 82% margin . Startup was around"
+      },
+      {
+        "original": "$1.25",
+        "currency": "USD",
+        "amount": 1.25,
+        "jpyAmount": 188,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "om Walmart, at the same $7. Don's is the real thing… …people aren't stupid… they'll taste ours, they taste theirs 🤑 At $7 a cup that costs him about $1.25, that's roughly an 82% margin . Startup was around $1,500, mostly a lemon wedger and a smasher. A good Saturday in Dallas does $2,500 . He also caters events ($1,000–3,000 a pop)"
+      },
+      {
+        "original": "$1,500,",
+        "currency": "USD",
+        "amount": 1500,
+        "jpyAmount": 225000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ple aren't stupid… they'll taste ours, they taste theirs 🤑 At $7 a cup that costs him about $1.25, that's roughly an 82% margin . Startup was around $1,500, mostly a lemon wedger and a smasher. A good Saturday in Dallas does $2,500 . He also caters events ($1,000–3,000 a pop) and rents the cart out for weddings. His advice for anyone"
+      },
+      {
+        "original": "$2,500",
+        "currency": "USD",
+        "amount": 2500,
+        "jpyAmount": 375000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "costs him about $1.25, that's roughly an 82% margin . Startup was around $1,500, mostly a lemon wedger and a smasher. A good Saturday in Dallas does $2,500 . He also caters events ($1,000–3,000 a pop) and rents the cart out for weddings. His advice for anyone sitting on the idea 👇 Just do it. Stop overthinking it… get a table, get a"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 81,
+    "id": "ent_ebizfacts_asiesusayoutubechannel1102month_f04b1bc2f462",
+    "name": "Faceless YouTube Channel Earning $1102/Month",
+    "scale": "UNKNOWN",
+    "score": 40,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$30,600",
+        "currency": "USD",
+        "amount": 30600,
+        "jpyAmount": 4590000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "el $1102 monthly revenue Así es USA is a faceless USA-focused Spanish YouTube and TikTok channel 👀 Recently listed for sale on Flippa, reserve price $30,600… Created in July 2023 and operated from Spain… Over the past 12 months, it generated $13,224 in revenue at a 96% profit margin, with 3.5M views and 15,000 new subscribers… the cha"
+      },
+      {
+        "original": "$13,224",
+        "currency": "USD",
+        "amount": 13224,
+        "jpyAmount": 1983600,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "nel 👀 Recently listed for sale on Flippa, reserve price $30,600… Created in July 2023 and operated from Spain… Over the past 12 months, it generated $13,224 in revenue at a 96% profit margin, with 3.5M views and 15,000 new subscribers… the channel is structurally optimized for passive income and repeatable scaling… Built with a listic"
+      },
+      {
+        "original": "$30,600",
+        "currency": "USD",
+        "amount": 30600,
+        "jpyAmount": 4590000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "el $1102 monthly revenue Así es USA is a faceless USA-focused Spanish YouTube and TikTok channel 👀 Recently listed for sale on Flippa, reserve price $30,600… Created in July 2023 and operated from Spain… Over the past 12 months, it generated $13,224 in revenue at a 96% profit margin, with 3.5M views and 15,000 new subscribers… the cha"
+      },
+      {
+        "original": "$13,224",
+        "currency": "USD",
+        "amount": 13224,
+        "jpyAmount": 1983600,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "nel 👀 Recently listed for sale on Flippa, reserve price $30,600… Created in July 2023 and operated from Spain… Over the past 12 months, it generated $13,224 in revenue at a 96% profit margin, with 3.5M views and 15,000 new subscribers… the channel is structurally optimized for passive income and repeatable scaling… Built with a listic"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 82,
+    "id": "ent_ebizfacts_nicksaraev100kmonthsellingautomations_f4830173809b",
+    "name": "He's Earning $100,000 Per Month Selling Automations",
+    "scale": "UNKNOWN",
+    "score": 40,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$300,000",
+        "currency": "USD",
+        "amount": 300000,
+        "jpyAmount": 45000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "it done, it’s a 1x payment…” You’d probably convert 30% to payment Meanwhile, here's Nick Saraev on YouTube 👇… In the last 3 months I've made almost $300,000 with 94% profit margins using automation and Make.com… I want to cover 5 extremely in-demand high-ROI automations that you can build and sell today for between $1500 and $10,000 a"
+      },
+      {
+        "original": "$300,000",
+        "currency": "USD",
+        "amount": 300000,
+        "jpyAmount": 45000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "it done, it’s a 1x payment…” You’d probably convert 30% to payment Meanwhile, here's Nick Saraev on YouTube 👇… In the last 3 months I've made almost $300,000 with 94% profit margins using automation and Make.com… I want to cover 5 extremely in-demand high-ROI automations that you can build and sell today for between $1500 and $10,000 a"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 83,
+    "id": "ent_ebizfacts_basvanstraatenwebflowcookies11k12months_ea9799a10e82",
+    "name": "His Little Productized Service Earned $11K in 12 Months",
+    "scale": "UNKNOWN",
+    "score": 40,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$11,000",
+        "currency": "USD",
+        "amount": 11000,
+        "jpyAmount": 1650000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "SOPs and trained a VA to handle the implementation. 📈 His “little productized service” has done well… In the last 12 months [it has] made just under $11,000 – with a 90% profit margin. While it only contributes <5% to my annual revenue of all income stream together (freelance work + 2 other small services), it counts as some good pock"
+      },
+      {
+        "original": "$11,000",
+        "currency": "USD",
+        "amount": 11000,
+        "jpyAmount": 1650000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "SOPs and trained a VA to handle the implementation. 📈 His “little productized service” has done well… In the last 12 months [it has] made just under $11,000 – with a 90% profit margin. While it only contributes <5% to my annual revenue of all income stream together (freelance work + 2 other small services), it counts as some good pock"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 84,
+    "id": "ent_ebizfacts_plugaidatingapp190kmonth_7e097c7fe341",
+    "name": "This AI Flirting Assistant Earns $190,000/Month",
+    "scale": "UNKNOWN",
+    "score": 40,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$7",
+        "currency": "USD",
+        "amount": 7,
+        "jpyAmount": 1050,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "orted 80K downloads per month on the App Store according to Sensor Tower (free account required). Vlad also says the premium version of the app costs $7/month, which fits with Plug AI. Apparently the app was listed for sale for $3.5 million and had a 60% profit margin 💰 but the listing is no longer online. This kind of thing does"
+      },
+      {
+        "original": "$3.5 million",
+        "currency": "USD",
+        "amount": 3500000,
+        "jpyAmount": 525000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "account required). Vlad also says the premium version of the app costs $7/month, which fits with Plug AI. Apparently the app was listed for sale for $3.5 million and had a 60% profit margin 💰 but the listing is no longer online. This kind of thing doesn't sound all that complicated to create. They’re likely using OpenAI to read the screen"
+      },
+      {
+        "original": "$7",
+        "currency": "USD",
+        "amount": 7,
+        "jpyAmount": 1050,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "orted 80K downloads per month on the App Store according to Sensor Tower (free account required). Vlad also says the premium version of the app costs $7/month, which fits with Plug AI. Apparently the app was listed for sale for $3.5 million and had a 60% profit margin 💰 but the listing is no longer online. This kind of thing does"
+      },
+      {
+        "original": "$3.5 million",
+        "currency": "USD",
+        "amount": 3500000,
+        "jpyAmount": 525000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "account required). Vlad also says the premium version of the app costs $7/month, which fits with Plug AI. Apparently the app was listed for sale for $3.5 million and had a 60% profit margin 💰 but the listing is no longer online. This kind of thing doesn't sound all that complicated to create. They’re likely using OpenAI to read the screen"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 85,
+    "id": "ent_ebizfacts_iliapirozhenkoperfectwiki25kmonthmicrosoftte_1207ab270e01",
+    "name": "This Marketplace Launched His $25K/Month Business",
+    "scale": "UNKNOWN",
+    "score": 40,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$250,000",
+        "currency": "USD",
+        "amount": 250000,
+        "jpyAmount": 37500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "iki — a SaaS product for creating internal company knowledge bases that works directly within Microsoft Teams… I gradually grew to a steady income of $250,000 a year over five years… Right now, I earn around $25,000 per month [90% profit margin]. He got laid off in 2020 and tried building a translator app for the Zoom Marketplace, then"
+      },
+      {
+        "original": "$25,000",
+        "currency": "USD",
+        "amount": 25000,
+        "jpyAmount": 3750000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ge bases that works directly within Microsoft Teams… I gradually grew to a steady income of $250,000 a year over five years… Right now, I earn around $25,000 per month [90% profit margin]. He got laid off in 2020 and tried building a translator app for the Zoom Marketplace, then the Microsoft Teams Marketplace 🛠️ That app didn't pan o"
+      },
+      {
+        "original": "$250,000",
+        "currency": "USD",
+        "amount": 250000,
+        "jpyAmount": 37500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "iki — a SaaS product for creating internal company knowledge bases that works directly within Microsoft Teams… I gradually grew to a steady income of $250,000 a year over five years… Right now, I earn around $25,000 per month [90% profit margin]. He got laid off in 2020 and tried building a translator app for the Zoom Marketplace, then"
+      },
+      {
+        "original": "$25,000",
+        "currency": "USD",
+        "amount": 25000,
+        "jpyAmount": 3750000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "ge bases that works directly within Microsoft Teams… I gradually grew to a steady income of $250,000 a year over five years… Right now, I earn around $25,000 per month [90% profit margin]. He got laid off in 2020 and tried building a translator app for the Zoom Marketplace, then the Microsoft Teams Marketplace 🛠️ That app didn't pan o"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 86,
+    "id": "ent_ebizfacts_matthewborgeramazon400kyearwholesaleresellin_65e9a4758b00",
+    "name": "$400K a Year on Amazon in a Few Hours a Week",
+    "scale": "UNKNOWN",
+    "score": 30,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$48K",
+        "currency": "USD",
+        "amount": 48000,
+        "jpyAmount": 7200000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "rime delivery… So I can jump on as a FBA seller and sell 10-20% higher than what's on the listing. At ~12% net margin, that $400K works out to around $48K profit 🤑 Want in? Open accounts with a few wholesale distributors, then hunt for listings where nobody's offering fast shipping – there's your gap 😎"
+      },
+      {
+        "original": "$400K",
+        "currency": "USD",
+        "amount": 400000,
+        "jpyAmount": 60000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "en swooping in with fast Prime delivery… So I can jump on as a FBA seller and sell 10-20% higher than what's on the listing. At ~12% net margin, that $400K works out to around $48K profit 🤑 Want in? Open accounts with a few wholesale distributors, then hunt for listings where nobody's offering fast shipping – there's your gap 😎"
+      },
+      {
+        "original": "$48K",
+        "currency": "USD",
+        "amount": 48000,
+        "jpyAmount": 7200000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "rime delivery… So I can jump on as a FBA seller and sell 10-20% higher than what's on the listing. At ~12% net margin, that $400K works out to around $48K profit 🤑 Want in? Open accounts with a few wholesale distributors, then hunt for listings where nobody's offering fast shipping – there's your gap 😎"
+      },
+      {
+        "original": "$400K",
+        "currency": "USD",
+        "amount": 400000,
+        "jpyAmount": 60000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "en swooping in with fast Prime delivery… So I can jump on as a FBA seller and sell 10-20% higher than what's on the listing. At ~12% net margin, that $400K works out to around $48K profit 🤑 Want in? Open accounts with a few wholesale distributors, then hunt for listings where nobody's offering fast shipping – there's your gap 😎"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 87,
+    "id": "ent_ebizfacts_bellalinguinealoft71kmonth_0181e920ab6b",
+    "name": "17-Year-Old's Side Hustle Earns Her $71K/Month",
+    "scale": "UNKNOWN",
+    "score": 30,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$7",
+        "currency": "USD",
+        "amount": 7,
+        "jpyAmount": 1050,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ilable for her pet guinea pigs and started building her own. Given that it's physical products her profit margin is probably 10-20%, but that's still $7-14K per month only two years in 🤑 Maybe there's an opportunity to do something like this for other pets. Cats and dogs would be tough, but pet birds and lizards are just as popul"
+      },
+      {
+        "original": "$7",
+        "currency": "USD",
+        "amount": 7,
+        "jpyAmount": 1050,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ilable for her pet guinea pigs and started building her own. Given that it's physical products her profit margin is probably 10-20%, but that's still $7-14K per month only two years in 🤑 Maybe there's an opportunity to do something like this for other pets. Cats and dogs would be tough, but pet birds and lizards are just as popul"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 88,
+    "id": "ent_ebizfacts_woutermeensjobboards125kyear_22aabb388278",
+    "name": "Earning €125,000/Year From His Job Boards",
+    "scale": "UNKNOWN",
+    "score": 30,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "€125,000",
+        "currency": "EUR",
+        "amount": 125000,
+        "jpyAmount": null,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "Wouter Meens Entrepreneur €125,000 annual revenue 💬 Wouter Meens tweets … Over the past year, my job boards generated around €125,000 in total revenue, with a profit margin of approximately 95%. About 85% of that"
+      },
+      {
+        "original": "€125,000",
+        "currency": "EUR",
+        "amount": 125000,
+        "jpyAmount": null,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "Wouter Meens Entrepreneur €125,000 annual revenue 💬 Wouter Meens tweets … Over the past year, my job boards generated around €125,000 in total revenue, with a profit margin of approximately 95%. About 85% of that"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 89,
+    "id": "ent_ebizfacts_mattsonomastronghauling50kmonthjunkremoval_66c318b875dc",
+    "name": "From a $15/hr Job to $50K/Month Hauling Junk",
+    "scale": "UNKNOWN",
+    "score": 30,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$50K",
+        "currency": "USD",
+        "amount": 50000,
+        "jpyAmount": 7500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "d dropped them off. Realtors became his #1 referral channel. Every estate clearout, every move-out, every hoarder house – they called Matt. 🤑 Today: $50K/month in revenue with 35% profit margins. A straight-forward business that could work in many places."
+      },
+      {
+        "original": "$50K",
+        "currency": "USD",
+        "amount": 50000,
+        "jpyAmount": 7500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "d dropped them off. Realtors became his #1 referral channel. Every estate clearout, every move-out, every hoarder house – they called Matt. 🤑 Today: $50K/month in revenue with 35% profit margins. A straight-forward business that could work in many places."
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 90,
+    "id": "ent_ebizfacts_behdadjamshidicjammarketingmatchmaking430kye_3686aeaf0b2c",
+    "name": "His Match Making Business Earned $430K Last Year",
+    "scale": "UNKNOWN",
+    "score": 30,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$430,000",
+        "currency": "USD",
+        "amount": 430000,
+        "jpyAmount": 64500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "irst 3-4 years in my business, while I also worked my full-time job for stability. This allowed me the freedom to build slowly… Last year, we were at $430,000 in revenue, with a 60% profit margin. Sounds like he's mainly grown the business via LinkedIn, with little focus on other channels… We don't have as much website traffic as I woul"
+      },
+      {
+        "original": "$430,000",
+        "currency": "USD",
+        "amount": 430000,
+        "jpyAmount": 64500000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": "irst 3-4 years in my business, while I also worked my full-time job for stability. This allowed me the freedom to build slowly… Last year, we were at $430,000 in revenue, with a 60% profit margin. Sounds like he's mainly grown the business via LinkedIn, with little focus on other channels… We don't have as much website traffic as I woul"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 91,
+    "id": "ent_ebizfacts_benzeroto100kmonthdropshipping_872f0d1a7121",
+    "name": "Zero to $100K/Month Dropshipping in Only 9 Months",
+    "scale": "UNKNOWN",
+    "score": 30,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$100K",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "YouTube a few months back… That's an interview with Ben, a train driver from the UK. He started 9 months earlier and built a dropshipping business to $100K/month in revenue. He mentions that his niche is clothing, but provides few details beyond that. Profit margin unclear, but sounds good… I was kind of break even… for like 6 months"
+      },
+      {
+        "original": "$100K",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "YouTube a few months back… That's an interview with Ben, a train driver from the UK. He started 9 months earlier and built a dropshipping business to $100K/month in revenue. He mentions that his niche is clothing, but provides few details beyond that. Profit margin unclear, but sounds good… I was kind of break even… for like 6 months"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 92,
+    "id": "ent_ebizfacts_ericsmithautoshorts40kmrraivideo_125b5b55c42e",
+    "name": "Zero to $40K/Month in Less Than 6 Months",
+    "scale": "UNKNOWN",
+    "score": 30,
+    "evidenceType": "REPORTED_MARGIN_CONTEXT",
+    "evidence": [
+      {
+        "original": "$10k",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "reate YouTube Shorts, reel & Tiktok video… How I Make Viral Faceless Youtube Videos for ELI5 Niche… Eric's business expenses … Costs come in at about $10k per month. Biggest part of this are server costs, costs to run AI models, and Fb ads. So he went from $0 to $40k with AutoShorts in less than 6 months, with a 75% profit margin 🚀"
+      },
+      {
+        "original": "$40k",
+        "currency": "USD",
+        "amount": 40000,
+        "jpyAmount": 6000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ss expenses … Costs come in at about $10k per month. Biggest part of this are server costs, costs to run AI models, and Fb ads. So he went from $0 to $40k with AutoShorts in less than 6 months, with a 75% profit margin 🚀 While you could try growing a channel like Steller Sagas with this software, methinks a more reliable way to mak"
+      },
+      {
+        "original": "$10k",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "reate YouTube Shorts, reel & Tiktok video… How I Make Viral Faceless Youtube Videos for ELI5 Niche… Eric's business expenses … Costs come in at about $10k per month. Biggest part of this are server costs, costs to run AI models, and Fb ads. So he went from $0 to $40k with AutoShorts in less than 6 months, with a 75% profit margin 🚀"
+      },
+      {
+        "original": "$40k",
+        "currency": "USD",
+        "amount": 40000,
+        "jpyAmount": 6000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "ss expenses … Costs come in at about $10k per month. Biggest part of this are server costs, costs to run AI models, and Fb ads. So he went from $0 to $40k with AutoShorts in less than 6 months, with a 75% profit margin 🚀 While you could try growing a channel like Steller Sagas with this software, methinks a more reliable way to mak"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 93,
+    "id": "ent_ebizfacts_kamlabdelkader9appsinstagramreels10kmonth_f20f41866125",
+    "name": "$10K/Month Marketing Apps With Faceless Instagram",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$10K",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": ", show a vape next to the phone screen, use curiosity hooks that reveal the app rating the session as “Dangerous” or “Unhealthy”. 150M+ total views. ~$10K MRR at peak 🤑 Another app, HomeGen AI, was basically dead until he switched to face-cam reactions. One video cleared ~3M views and 10K downloads 👀 The key insight: he picks apps"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 94,
+    "id": "ent_ebizfacts_karincapellanballoonpartyrentals128kyearside_c58a953ee971",
+    "name": "$128K/Year Blowing Up Balloons",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$40",
+        "currency": "USD",
+        "amount": 40,
+        "jpyAmount": 6000,
+        "unit": "ANNUAL_PROFIT",
+        "source": "article",
+        "context": ", that's ~$198K/year 🤑 How she got started 👇 Staged DIY balloon setups in her yard for promo photos Listed on Facebook Marketplace First rental was $40 for 20 chairs First balloon job was a loss – charged materials only, no profit That first customer took a chance on me. I wasn't the cheapest, I wasn't the most experienced, but I"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 95,
+    "id": "ent_ebizfacts_dekrpzpartialpropertyrental1700month_f6210031be02",
+    "name": "$1700/Month Monetizing a Small Home (not Airbnb)",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$150",
+        "currency": "USD",
+        "amount": 150,
+        "jpyAmount": 22500,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ven come inside. It’s all about using the spaces I already have—like my driveway, garage, backyard, and pool—and turning them into income streams. 🤑 $150-200/month storing stuff… I cleared out my attic and listed it on Neighbor for storage. People pay me to store their seasonal stuff, boxes, or even furniture. 💰 $400-$600/month re"
+      },
+      {
+        "original": "$400",
+        "currency": "USD",
+        "amount": 400,
+        "jpyAmount": 60000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "toring stuff… I cleared out my attic and listed it on Neighbor for storage. People pay me to store their seasonal stuff, boxes, or even furniture. 💰 $400-$600/month renting out the backyard… I started listing my backyard on Peerspace for small events, photoshoots, and even yoga classes. I charge by the hour 💦 $500-$800/month renti"
+      },
+      {
+        "original": "$600",
+        "currency": "USD",
+        "amount": 600,
+        "jpyAmount": 90000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "g stuff… I cleared out my attic and listed it on Neighbor for storage. People pay me to store their seasonal stuff, boxes, or even furniture. 💰 $400-$600/month renting out the backyard… I started listing my backyard on Peerspace for small events, photoshoots, and even yoga classes. I charge by the hour 💦 $500-$800/month renting ou"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 96,
+    "id": "ent_ebizfacts_polaroidcamerasidehustle200400pernight_f4bb97e0b6ec",
+    "name": "$200-400 Per Night From an Old Polaroid Camera",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$5",
+        "currency": "USD",
+        "amount": 5,
+        "jpyAmount": 750,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "reply… I found an old Polaroid camera when I was cleaning my grandparent's place and walked around downtown and offered to take people's picture for $5.&nbsp; For some reason people love the nostalgia of a Polaroid physical picture. I would make anywhere from $200-400 per night. I could see this being a profitable side hustle in"
+      },
+      {
+        "original": "$200",
+        "currency": "USD",
+        "amount": 200,
+        "jpyAmount": 30000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "d offered to take people's picture for $5.&nbsp; For some reason people love the nostalgia of a Polaroid physical picture. I would make anywhere from $200-400 per night. I could see this being a profitable side hustle in tourist areas. Hang out in front of popular landmarks and offer to take cute photos 📸 The same person says they"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 97,
+    "id": "ent_ebizfacts_aminmemondraftssdesignagency20kmonth_4fb2de033d62",
+    "name": "$20K/Month From a Subscription-Based Design Service",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$20k",
+        "currency": "USD",
+        "amount": 20000,
+        "jpyAmount": 3000000,
+        "unit": "MONTHLY_PROFIT",
+        "source": "article",
+        "context": "business could be a good fit for you. Just note that the margins on such a business aren't usually very high. Amin doesn't mention how much of their $20k monthly revenue is profit, but I suspect it's likely less than 30% 😕 Hiring talent ain't cheap."
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 98,
+    "id": "ent_ebizfacts_heritagenumberplates224kprofitpythonscraper_6a07c51e27d7",
+    "name": "$224K Profit Flipping Number Plates (With a Python Scraper)",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$224,000+",
+        "currency": "USD",
+        "amount": 224000,
+        "jpyAmount": 33600000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "realised profit (AUD)"
+      },
+      {
+        "original": "$196K",
+        "currency": "USD",
+        "amount": 196000,
+        "jpyAmount": 29400000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "cent secondary market sales to find underpriced combos. The results 👇 Bought 9 VIC plates from VicRoads at $12K each ($108K total) – sold for $304K. $196K profit. Best flip: plate 142.000 – bought $12K, sold $50.1K . 318% return. Quick flip: plate 234.345 – bought $30K, sold $43K in under a month. Then a major catalyst hit: VicRoads"
+      },
+      {
+        "original": "$108K",
+        "currency": "USD",
+        "amount": 108000,
+        "jpyAmount": 16200000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "encing asking prices against recent secondary market sales to find underpriced combos. The results 👇 Bought 9 VIC plates from VicRoads at $12K each ($108K total) – sold for $304K. $196K profit. Best flip: plate 142.000 – bought $12K, sold $50.1K . 318% return. Quick flip: plate 234.345 – bought $30K, sold $43K in under a month. Then"
+      },
+      {
+        "original": "$304K",
+        "currency": "USD",
+        "amount": 304000,
+        "jpyAmount": 45600000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "inst recent secondary market sales to find underpriced combos. The results 👇 Bought 9 VIC plates from VicRoads at $12K each ($108K total) – sold for $304K. $196K profit. Best flip: plate 142.000 – bought $12K, sold $50.1K . 318% return. Quick flip: plate 234.345 – bought $30K, sold $43K in under a month. Then a major catalyst hit: V"
+      },
+      {
+        "original": "$12K",
+        "currency": "USD",
+        "amount": 12000,
+        "jpyAmount": 1800000,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "cross-referencing asking prices against recent secondary market sales to find underpriced combos. The results 👇 Bought 9 VIC plates from VicRoads at $12K each ($108K total) – sold for $304K. $196K profit. Best flip: plate 142.000 – bought $12K, sold $50.1K . 318% return. Quick flip: plate 234.345 – bought $30K, sold $43K in under a"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 99,
+    "id": "ent_ebizfacts_colinstroudcreditcardrewardsconsultant231kye_8957032f4ef5",
+    "name": "$231K From a Credit Card Side Hustle Nobody's Touching",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "PROFIT_WORD_CONTEXT",
+    "evidence": [
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "sultant $231,000 in his first year Colin Stroud spent a weekend learning credit card rewards. A year later, he apparently cleared $231,000 – on about $100/mo in software, no ads 🤯 He's a rewards consultant. He sits with small business owners, looks at what they already spend, and rebuilds their card setup to earn 2.5–3% back instea"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  },
+  {
+    "rank": 100,
+    "id": "ent_ebizfacts_nichesitelady3745profitaiblogpost_e46df7a54fe6",
+    "name": "$3745 Profit From an AI-Generated Blog Post",
+    "scale": "UNKNOWN",
+    "score": 25,
+    "evidenceType": "DIRECT_PROFIT_AMOUNT",
+    "evidence": [
+      {
+        "original": "$3745",
+        "currency": "USD",
+        "amount": 3745,
+        "jpyAmount": 561750,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "profit in 30 days"
+      },
+      {
+        "original": "$3,745",
+        "currency": "USD",
+        "amount": 3745,
+        "jpyAmount": 561750,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "optimize the ads] for clicks. 💰 Niche Site Lady's numbers for that one particular blog post in 30 days… $4,840 revenue $1,095 spent on Facebook ads $3,745 profit"
+      },
+      {
+        "original": "$4,840",
+        "currency": "USD",
+        "amount": 4840,
+        "jpyAmount": 726000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "I have to find a new post to try it with. [I optimize the ads] for clicks. 💰 Niche Site Lady's numbers for that one particular blog post in 30 days… $4,840 revenue $1,095 spent on Facebook ads $3,745 profit"
+      },
+      {
+        "original": "$1,095",
+        "currency": "USD",
+        "amount": 1095,
+        "jpyAmount": 164250,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "a new post to try it with. [I optimize the ads] for clicks. 💰 Niche Site Lady's numbers for that one particular blog post in 30 days… $4,840 revenue $1,095 spent on Facebook ads $3,745 profit"
+      },
+      {
+        "original": "$4,840",
+        "currency": "USD",
+        "amount": 4840,
+        "jpyAmount": 726000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Niche Site Lady Online Entrepreneur $3745 profit in 30 days Niche Site Lady tweets … This AI-generated blog post made $4,840 in the past 30 days 🤯 She doesn’t reveal the piece of content, but says it’s a blog in the travel niche. While Niche Site Lady doesn't reveal her true identity, she appears to be"
+      }
+    ],
+    "financialStatus": "REPORTED",
+    "independentAudit": false
+  }
+]

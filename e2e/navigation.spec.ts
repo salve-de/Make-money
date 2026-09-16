@@ -1,6 +1,17 @@
+import { openNotes, selectCompany } from './inspector-actions';
 import { expect, test } from '@playwright/test';
 
-// These routes use checked-in content. Nothing submits AI generation or payment requests.
+// Exercise real controls and redirects without AI generation, payment, or data mutations.
+test.afterEach(async ({ page }, info) => {
+  if (info.status !== info.expectedStatus) {
+    console.log('NAVIGATION_FAILURE_DOM', JSON.stringify({
+      url: page.url(),
+      headings: await page.locator('h1,h2,h3').allTextContents(),
+      buttons: await page.getByRole('button').allTextContents(),
+    }));
+  }
+});
+
 test('search and screener change the company list and reset cleanly', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -13,7 +24,7 @@ test('search and screener change the company list and reset cleanly', async ({ p
   await rows.filter({ hasText: 'Photo AI' }).click();
   await expect(page.getByRole('heading', { level: 2, name: /Photo AI/ })).toBeVisible();
   await search.fill('no-matching-company-architecture-smoke');
-  await expect(rows).toHaveCount(1); // header only
+  await expect(rows).toHaveCount(1);
   await search.fill('');
   await page.getByRole('button', { name: '50軸スクリーニング' }).click();
   await page.getByRole('button', { name: '完全1人 (ソロ)', exact: true }).click();
@@ -29,25 +40,27 @@ test('analyst note survives reload and remains attached to the selected company'
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await page.getByTitle(/考察メモ/).click();
+  await openNotes(page);
   const note = page.locator('#section-notes textarea');
   await note.fill('Smoke note: verify the quoted operating margin before comparison.');
   await page.reload();
-  await page.getByTitle(/考察メモ/).click();
+  await openNotes(page);
   await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await page.getByTitle('次銘柄', { exact: true }).click();
+  await selectCompany(page, 'Photo AI');
   await expect(note).not.toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await page.getByTitle('前銘柄', { exact: true }).click();
+  await selectCompany(page, 'キーエンス (KEYENCE)');
   await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
   expect(errors).toEqual([]);
 });
 
 test('playbook tabs render their datasets and macro redirects back to the same product', async ({ page }) => {
   const errors: string[] = [];
-  page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/playbook');
+  page.on('pageerror', (error) => { errors.push(error.message); console.log('PLAYBOOK_PAGE_ERROR', error.message); });
+  await page.goto('/playbook', { waitUntil: 'networkidle' });
   await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
-  await expect(page.getByRole('heading', { name: /ツール構成と乗り換えの参考例/ })).toBeVisible();
+  // Select the tab explicitly: the assertion concerns its content and click behavior.
+  await page.getByRole('button', { name: /ツール勢力図・乗り換え推移/ }).click();
+  await expect(page.getByRole('heading', { level: 2, name: 'ツール構成と乗り換えの参考例', exact: true })).toBeVisible();
   await expect(page.getByRole('note')).toContainText('参考サンプル・一次証跡未確認');
   await expect(page.getByText('123社 ヘッダー検証済', { exact: true })).toHaveCount(0);
   for (const [tab, heading] of [
@@ -62,6 +75,7 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   await page.goto('/macro');
   await expect(page).toHaveURL(/\/playbook$/);
   await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
+  await page.getByRole('button', { name: /ツール勢力図・乗り換え推移/ }).click();
   await page.getByRole('main').getByText('Photo AI', { exact: true }).first().click();
   await expect(page).toHaveURL(/entity=ent_photoai/);
   await expect(page.getByRole('heading', { level: 2, name: /Photo AI/ })).toBeVisible();
@@ -71,34 +85,27 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   expect(errors).toEqual([]);
 });
 
-test('finder opens and closes an existing company financial sheet', async ({ page }) => {
+test('legacy finder redirects into the usable current ledger rather than a deleted sheet', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/finder');
-  await expect(page.getByRole('button', { name: '企業財務DB', exact: true })).toBeVisible();
-  const search = page.getByPlaceholder('銘柄・手法を検索...');
-  await search.fill('オークション');
-  await expect(page.getByRole('heading', { level: 2, name: /虚栄心オークション/ })).toBeVisible();
-  await search.fill('no-finder-match-smoke');
-  await expect(page.getByText('検索条件に一致するモデルが見つかりません')).toBeVisible();
-  await search.fill('');
-  await page.getByRole('button', { name: '利益率', exact: true }).click();
-  await page.getByRole('button', { name: '企業財務DB', exact: true }).click();
-  await expect(page.getByText('事業詳細・財務構造分析シート', { exact: true })).toBeVisible();
-  await page.getByRole('button', { name: '閉じる', exact: true }).click();
-  await expect(page.getByText('事業詳細・財務構造分析シート', { exact: true })).toHaveCount(0);
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await selectCompany(page, 'Photo AI');
+  await page.getByTitle('閉じる (Esc)', { exact: true }).click();
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toHaveCount(0);
+  await selectCompany(page, 'Photo AI');
   expect(errors).toEqual([]);
 });
 
-
-test('finder navigation reaches the current ledger and signals routes', async ({ page }) => {
+test('legacy finder and macro links still reach their canonical routes', async ({ page }) => {
   await page.goto('/finder');
-  await page.getByRole('button', { name: 'シグナル Signals' }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await page.goto('/macro');
   await expect(page).toHaveURL(/\/playbook$/);
   await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
-  await page.goto('/finder');
-  await page.getByRole('button', { name: '台帳 Explore' }).click();
-  await expect(page).toHaveURL(/mode=LEDGER/);
+  await page.getByRole('link', { name: '← 個別企業台帳 (Ledger)' }).click();
   await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
 });
 
@@ -109,7 +116,7 @@ for (const raw of ['null', '{}', '[null,42,"ent_photoai"]']) {
     await page.addInitScript((raw) => localStorage.setItem('mm_viewed_entity_history_v1', raw), raw);
     await page.goto('/');
     await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
-    await page.getByTitle('次銘柄', { exact: true }).click();
+    await selectCompany(page, 'Photo AI');
     await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toHaveCount(0);
     expect(errors).toEqual([]);
   });

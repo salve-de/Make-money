@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "reported-metric-period-reclassification.v1",
+  "input": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+  "output": "data/incoming/batch_new_1000_final_primary_mubs_20260916.json",
+  "count": 1000,
+  "articleMetrics": 2655,
+  "changed": 0,
+  "changes": []
+}

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "raw-snapshot-audit.v1",
+  "snapshot": "2026-09-16",
+  "requested": 1,
+  "captured": 1,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Ritual Retreats (Max Schneider)",
+      "entityId": "ent_reported_b120e89b7719fc670ca120b2",
+      "requestedUrl": "https://founderreports.com/interview/ritual-retreats/",
+      "sourceId": "src.founderreports.ritual-retreats",
+      "evidenceId": "ev_founderreports_ritual-retreats",
+      "author": "Max Schneider",
+      "observedAt": "2026-09-16T00:00:00.000Z",
+      "status": "CAPTURED",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "bytes": 207788,
+      "sha256": "b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585",
+      "localPath": "data/incoming/raw_snapshots_ritual_retreats_20260916/ev_founderreports_ritual-retreats_b78897a1dac136af9ba4b78862077d4327249d5149aca3248683cf47e04ee585.html",
+      "fetchedAt": "2026-09-16T00:51:13.764Z"
+    }
+  ]
+}

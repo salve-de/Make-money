@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+const batchPath = 'data/incoming/batch_new_1000_final_primary_mubs_20260916.json';
+const batch = JSON.parse(fs.readFileSync(batchPath, 'utf8'));
+const r2 = JSON.parse(fs.readFileSync('data/incoming/raw_snapshots_bdm_enrichment_20260916.r2-result.json', 'utf8')).results[0];
+const entity = batch.find((item) => item.id === 'ent_ebizfacts_benasleonavicius132kseoagencylithuania_180385cd0c40');
+if (!entity) throw new Error('BDM Business entity not found');
+const sources = entity.sourceMetadata.additionalSources ?? [];
+const source = sources.find((item) => item.sourceUrl === 'https://founderreports.com/interview/bdm-business/');
+if (!source) throw new Error('BDM enrichment source not found');
+source.rawContentSha256 = r2.payloadSha256;
+source.rawStorage = { bucket: 'foundation-raw', payloadKey: r2.payloadKey, manifestKey: r2.manifestKey, bytes: r2.payloadBytes, readbackVerified: Boolean(r2.payloadReadback && r2.manifestReadback) };
+fs.writeFileSync(batchPath, `${JSON.stringify(batch, null, 2)}\n`);
+console.log(JSON.stringify({ entityId: entity.id, sourceUrl: source.sourceUrl, readbackVerified: source.rawStorage.readbackVerified, payloadKey: source.rawStorage.payloadKey }, null, 2));

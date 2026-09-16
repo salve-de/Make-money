@@ -1,0 +1,32 @@
+{
+  "receiptVersion": "1.0",
+  "batchId": "batch-indie-hackers-new100-20260916",
+  "snapshot": "2026-09-16",
+  "entityFile": {
+    "path": "data/incoming/batch_indie_hackers_new100_enriched_20260916.json",
+    "sha256": "ca8fbaee21439f26aac1b10c64037ed524bba6d2970202434f1dc12b66ed502e",
+    "count": 100
+  },
+  "source": {
+    "directory": "Indie Hackers Products directory",
+    "sourceClass": "COMMUNITY",
+    "financialInterpretation": "公開月間売上表示は報告値として保存。利益、原価、経費、マージン、純利益は未確認。"
+  },
+  "officialSiteCheck": {
+    "auditPath": "data/incoming/batch_indie_hackers_new100_official_site_checks_20260916.json",
+    "sha256": "179962b72af444df1d506f91df65aecb6908b7e7174c226f89863f9cfb34c386",
+    "checkedCount": 100,
+    "reachableCount": 87,
+    "contentObservedCount": 90
+  },
+  "integrity": {
+    "uniqueIds": 100,
+    "uniqueNames": 100,
+    "uniqueTickers": 100,
+    "uniqueDomains": 100
+  },
+  "publishability": {
+    "status": "PARTIAL",
+    "reason": "公開報告値と公式サイト到達性の候補記録。独立監査済み利益の証明ではない。"
+  }
+}

@@ -1,0 +1,3559 @@
+[
+  {
+    "id": "ent_ebizfacts_thaissaenzprofile_de0baa19c22c",
+    "ticker": "EBDE0BAA19",
+    "name": "From VA to $600K In Only 2 Years",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram」に対し、記事は$600,000 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "LOCAL_SERVICES",
+    "scale": "SMALL_TEAM",
+    "founder": "Thais Saenz",
+    "country": "GLOBAL",
+    "url": "https://www.saenzglobal.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_REVENUE_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/thais-saenz-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "386138d732800b759828bca9a852472b65a7a472c83c72443cee81caf7dc88f0"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $600,000 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "de0baa19c22c-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Founder of Saenz Global",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$600,000 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+          "プロフィール説明: Founder of Saenz Global",
+          "金額記載: $600,000+ / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/thais-saenz-profile/",
+        "sourceUrl": "https://ebizfacts.com/thais-saenz-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "386138d732800b759828bca9a852472b65a7a472c83c72443cee81caf7dc88f0"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$600,000 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "871f095281cb-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$600,000 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: From VA to $600K In Only 2 Years",
+          "プロフィール名: Thais Saenz",
+          "プロフィール説明: Founder of Saenz Global",
+          "金額記載: $600,000+ / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/thais-saenz-profile/",
+        "sourceUrl": "https://ebizfacts.com/thais-saenz-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "386138d732800b759828bca9a852472b65a7a472c83c72443cee81caf7dc88f0"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$600,000+"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "5605b5ed71ab-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+        "details": [
+          "本文要約: As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/thais-saenz-profile/",
+        "sourceUrl": "https://ebizfacts.com/thais-saenz-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "386138d732800b759828bca9a852472b65a7a472c83c72443cee81caf7dc88f0"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link",
+        "Instagram",
+        "TikTok"
+      ],
+      "toolStack": [
+        {
+          "name": "Instagram",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        },
+        {
+          "name": "TikTok",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$600,000 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Founder of Saenz Global」を公式サイト・本人発信で照合する。",
+        "記事記載の$600,000 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: From VA to $600K In Only 2 Years",
+      "記事更新日: 2024-07-20",
+      "記事要約: As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+      "記事記載金額: $600,000 reported money signal（第三者報告値）",
+      "外部リンク候補: https://www.saenzglobal.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "19886cca8d3c-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「From VA to $600K In Only 2 Years」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/thais-saenz-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "386138d732800b759828bca9a852472b65a7a472c83c72443cee81caf7dc88f0"
+        }
+      },
+      {
+        "id": "b1aa387c8e59-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$600,000 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/thais-saenz-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "386138d732800b759828bca9a852472b65a7a472c83c72443cee81caf7dc88f0"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Founder of Saenz Global",
+      "targetCustomer": "As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+      "painRelief": "As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_de0baa19c22c-loot",
+      "targetPrey": "As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+      "structuralFlaw": "記事本文が示す未処理課題: As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram",
+      "stealthEntry": "記事に記載された運用手段: Thais Saenz Founder of Saenz Global $600,000+ revenue in first 2 years As I'm writing this, a company called Saenz Global has a broken website and a combined ~2000 followers on Instagram and TikTok . And yet they apparently earned over $600,000 in revenue in their first 2 years of operations 💰 The company is essentially a small team that provides virtual assistant services for the roofing industry. Founder Thais Sae",
+      "tollGateSetup": "記事が報告する金額区分: $600,000 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Founder of Saenz Global」を一次情報で照合する。",
+        "記事記載の$600,000 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://www.saenzglobal.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Thais Saenz",
+    "profileBusinessLabel": "Founder of Saenz Global",
+    "reportedMetrics": [
+      {
+        "original": "$600,000+",
+        "currency": "USD",
+        "amount": 600000,
+        "jpyAmount": 90000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "revenue in first 2 years"
+      },
+      {
+        "original": "$600K",
+        "currency": "USD",
+        "amount": 600000,
+        "jpyAmount": 90000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "From VA to $600K In Only 2 Years"
+      }
+    ],
+    "officialUrl": "https://www.saenzglobal.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3916099,
+      "slug": "thais-saenz-profile",
+      "publishedAt": "2023-01-16T13:32:34",
+      "modifiedAt": "2024-07-20T14:42:20",
+      "rawContentSha256": "386138d732800b759828bca9a852472b65a7a472c83c72443cee81caf7dc88f0"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_shaanpuriprofile_864db383b603",
+    "ticker": "EB864DB383",
+    "name": "A $10 Million Newsletter In Only 10 Months?",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched」に対し、記事は$10,000,000 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SMALL_TEAM",
+    "founder": "Shaan Puri",
+    "country": "US",
+    "url": "https://www.shaanpuri.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_MONEY_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/shaan-puri-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "432be4abb393d017a27a8ac9695173c56d451b453a543236f5714ba206ebbbf7"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $10,000,000 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "864db383b603-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Serial Entrepreneur",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$10,000,000 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+          "プロフィール説明: Serial Entrepreneur",
+          "金額記載: $10 Million / REPORTED_MONEY_SIGNAL / title",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/shaan-puri-profile/",
+        "sourceUrl": "https://ebizfacts.com/shaan-puri-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432be4abb393d017a27a8ac9695173c56d451b453a543236f5714ba206ebbbf7"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$10,000,000 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "f7d94e3306ea-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$10,000,000 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: A $10 Million Newsletter In Only 10 Months?",
+          "プロフィール名: Shaan Puri",
+          "プロフィール説明: Serial Entrepreneur",
+          "金額記載: $10 Million / REPORTED_MONEY_SIGNAL / title",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/shaan-puri-profile/",
+        "sourceUrl": "https://ebizfacts.com/shaan-puri-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432be4abb393d017a27a8ac9695173c56d451b453a543236f5714ba206ebbbf7"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$10 Million"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "5b646c2cc187-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+        "details": [
+          "本文要約: Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/shaan-puri-profile/",
+        "sourceUrl": "https://ebizfacts.com/shaan-puri-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432be4abb393d017a27a8ac9695173c56d451b453a543236f5714ba206ebbbf7"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link",
+        "YouTube"
+      ],
+      "toolStack": [
+        {
+          "name": "YouTube",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$10,000,000 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Serial Entrepreneur」を公式サイト・本人発信で照合する。",
+        "記事記載の$10,000,000 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: A $10 Million Newsletter In Only 10 Months?",
+      "記事更新日: 2024-07-20",
+      "記事要約: Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+      "記事記載金額: $10,000,000 reported money signal（第三者報告値）",
+      "外部リンク候補: https://www.shaanpuri.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "0e895e8a71e3-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「A $10 Million Newsletter In Only 10 Months?」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/shaan-puri-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432be4abb393d017a27a8ac9695173c56d451b453a543236f5714ba206ebbbf7"
+        }
+      },
+      {
+        "id": "b695d7b8c065-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$10,000,000 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/shaan-puri-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432be4abb393d017a27a8ac9695173c56d451b453a543236f5714ba206ebbbf7"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Serial Entrepreneur",
+      "targetCustomer": "Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+      "painRelief": "Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_864db383b603-loot",
+      "targetPrey": "Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+      "structuralFlaw": "記事本文が示す未処理課題: Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched",
+      "stealthEntry": "記事に記載された運用手段: Shaan Puri Serial Entrepreneur $10+ Million unconfirmed sale price of the Milk Road Shaan Puri is co-host of one of my favorite podcasts: My First Million &#x1f3a7; In February of 2022 he launched a daily crypto newsletter called the Milk Road , and recently announced that he and his co-founder sold it after only 10 months. The Got Acquired wrote up the story, and you can listen to Shaan discuss the sale with the new",
+      "tollGateSetup": "記事が報告する金額区分: $10,000,000 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Serial Entrepreneur」を一次情報で照合する。",
+        "記事記載の$10,000,000 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://www.shaanpuri.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Shaan Puri",
+    "profileBusinessLabel": "Serial Entrepreneur",
+    "reportedMetrics": [
+      {
+        "original": "$10 Million",
+        "currency": "USD",
+        "amount": 10000000,
+        "jpyAmount": 1500000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "A $10 Million Newsletter In Only 10 Months"
+      },
+      {
+        "original": "$1 million",
+        "currency": "USD",
+        "amount": 1000000,
+        "jpyAmount": 150000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "In spring 2022, they put $1 million in a public crypto wallet so Milk Road readers could watch the investment develop in real time"
+      }
+    ],
+    "officialUrl": "https://www.shaanpuri.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915972,
+      "slug": "shaan-puri-profile",
+      "publishedAt": "2023-01-12T16:47:58",
+      "modifiedAt": "2024-07-20T14:48:07",
+      "rawContentSha256": "432be4abb393d017a27a8ac9695173c56d451b453a543236f5714ba206ebbbf7"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_andrewdavisonprofile_d0ed4760095d",
+    "ticker": "EBD0ED4760",
+    "name": "$6500/Month Helping People Use Zapier",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,」に対し、記事は$6,500 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "LOCAL_SERVICES",
+    "scale": "UNKNOWN",
+    "founder": "Andrew Davison",
+    "country": "GLOBAL",
+    "url": "https://www.luhhu.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_MONEY_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/andrew-davison-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "b9f56f3a851bbf29bd4474ac91695ddbf6a4671a7f26e287e8e2612e385bf5ca"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $6,500 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "d0ed4760095d-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Zapier Automation Expert",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$6,500 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+          "プロフィール説明: Zapier Automation Expert",
+          "金額記載: $6,500 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/andrew-davison-profile/",
+        "sourceUrl": "https://ebizfacts.com/andrew-davison-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b9f56f3a851bbf29bd4474ac91695ddbf6a4671a7f26e287e8e2612e385bf5ca"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$6,500 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "459d12cb7d4a-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$6,500 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: $6500/Month Helping People Use Zapier",
+          "プロフィール名: Andrew Davison",
+          "プロフィール説明: Zapier Automation Expert",
+          "金額記載: $6,500 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/andrew-davison-profile/",
+        "sourceUrl": "https://ebizfacts.com/andrew-davison-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b9f56f3a851bbf29bd4474ac91695ddbf6a4671a7f26e287e8e2612e385bf5ca"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$6,500"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "edb14db2a451-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+        "details": [
+          "本文要約: Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/andrew-davison-profile/",
+        "sourceUrl": "https://ebizfacts.com/andrew-davison-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b9f56f3a851bbf29bd4474ac91695ddbf6a4671a7f26e287e8e2612e385bf5ca"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link",
+        "Shopify"
+      ],
+      "toolStack": [
+        {
+          "name": "Shopify",
+          "category": "commerce",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$6,500 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Zapier Automation Expert」を公式サイト・本人発信で照合する。",
+        "記事記載の$6,500 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: $6500/Month Helping People Use Zapier",
+      "記事更新日: 2024-07-20",
+      "記事要約: Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+      "記事記載金額: $6,500 reported money signal（第三者報告値）",
+      "外部リンク候補: https://www.luhhu.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "b263fd147305-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「$6500/Month Helping People Use Zapier」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/andrew-davison-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b9f56f3a851bbf29bd4474ac91695ddbf6a4671a7f26e287e8e2612e385bf5ca"
+        }
+      },
+      {
+        "id": "d43c597c51ed-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$6,500 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/andrew-davison-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "b9f56f3a851bbf29bd4474ac91695ddbf6a4671a7f26e287e8e2612e385bf5ca"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Zapier Automation Expert",
+      "targetCustomer": "Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+      "painRelief": "Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_d0ed4760095d-loot",
+      "targetPrey": "Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+      "structuralFlaw": "記事本文が示す未処理課題: Andrew Davison runs an agency called Luhhu… We’re Zapier experts and we’ll help your business use Zapier to save time,",
+      "stealthEntry": "記事に記載された運用手段: Andrew Davison Zapier Automation Expert $6,500 monthly agency revenue Andrew Davison runs an agency called Luhhu … We’re Zapier experts and we’ll help your business use Zapier to save time, money and sanity. Zapier is a no-code tool that lets you connect different apps and automate a bunch of tasks or processes. For example, you can use it to automatically share an article to your social media accounts once you hit p",
+      "tollGateSetup": "記事が報告する金額区分: $6,500 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Zapier Automation Expert」を一次情報で照合する。",
+        "記事記載の$6,500 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://www.luhhu.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Andrew Davison",
+    "profileBusinessLabel": "Zapier Automation Expert",
+    "reportedMetrics": [
+      {
+        "original": "$6,500",
+        "currency": "USD",
+        "amount": 6500,
+        "jpyAmount": 975000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "monthly agency revenue"
+      }
+    ],
+    "officialUrl": "https://www.luhhu.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915950,
+      "slug": "andrew-davison-profile",
+      "publishedAt": "2023-01-12T16:07:02",
+      "modifiedAt": "2024-07-20T14:42:20",
+      "rawContentSha256": "b9f56f3a851bbf29bd4474ac91695ddbf6a4671a7f26e287e8e2612e385bf5ca"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_kambanthemakerprofile_9342f04d1f2b",
+    "ticker": "EB9342F04D",
+    "name": "4 Years Of Nothing, Now $2000/Month",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes」に対し、記事は$2,000 monthly revenueを報告。利益・手残りは未確認。",
+    "sector": "AI_AUTOMATION",
+    "scale": "UNKNOWN",
+    "founder": "Kamban The Maker",
+    "country": "IN",
+    "url": "https://kambanthemaker.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_REVENUE_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 300000,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/kamban-the-maker-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "156d63d924e10fd653c357a6e16a90ac4cc44618303161619bcfc2f085ec0230"
+      },
+      "estimationLogic": "USD報告月商 2,000 に 150円を掛けて円換算。利益・原価・経費は未確認。",
+      "revenueLabel": "記事記載: $2,000 monthly revenue（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "9342f04d1f2b-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Software Entrepreneur",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$2,000 monthly revenueを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+          "プロフィール説明: Software Entrepreneur",
+          "金額記載: $2000+ / MONTHLY_REVENUE / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kamban-the-maker-profile/",
+        "sourceUrl": "https://ebizfacts.com/kamban-the-maker-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "156d63d924e10fd653c357a6e16a90ac4cc44618303161619bcfc2f085ec0230"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$2,000 monthly revenue",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "58afd8e5e1ce-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$2,000 monthly revenueを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: 4 Years Of Nothing, Now $2000/Month",
+          "プロフィール名: Kamban The Maker",
+          "プロフィール説明: Software Entrepreneur",
+          "金額記載: $2000+ / MONTHLY_REVENUE / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kamban-the-maker-profile/",
+        "sourceUrl": "https://ebizfacts.com/kamban-the-maker-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "156d63d924e10fd653c357a6e16a90ac4cc44618303161619bcfc2f085ec0230"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$2000+"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "9210f7088e46-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+        "details": [
+          "本文要約: The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kamban-the-maker-profile/",
+        "sourceUrl": "https://ebizfacts.com/kamban-the-maker-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "156d63d924e10fd653c357a6e16a90ac4cc44618303161619bcfc2f085ec0230"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link"
+      ],
+      "toolStack": [],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$2,000 monthly revenueは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Software Entrepreneur」を公式サイト・本人発信で照合する。",
+        "記事記載の$2,000 monthly revenueについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: 4 Years Of Nothing, Now $2000/Month",
+      "記事更新日: 2024-07-20",
+      "記事要約: The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+      "記事記載金額: $2,000 monthly revenue（第三者報告値）",
+      "外部リンク候補: https://kambanthemaker.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "c667e1d9ca2b-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「4 Years Of Nothing, Now $2000/Month」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/kamban-the-maker-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "156d63d924e10fd653c357a6e16a90ac4cc44618303161619bcfc2f085ec0230"
+        }
+      },
+      {
+        "id": "388930cd5006-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$2,000 monthly revenueは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/kamban-the-maker-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "156d63d924e10fd653c357a6e16a90ac4cc44618303161619bcfc2f085ec0230"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Software Entrepreneur",
+      "targetCustomer": "The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+      "painRelief": "The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_9342f04d1f2b-loot",
+      "targetPrey": "The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+      "structuralFlaw": "記事本文が示す未処理課題: The product is called Elephas, a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by",
+      "stealthEntry": "記事に記載された運用手段: Kamban The Maker Software Entrepreneur $2000+ monthly recurring revenue from Elephas The product is called Elephas , a personal AI writing assistant. The creator is an &#x1f1ee;&#x1f1f3; Indian guy who goes by Kamban The Maker on Twitter. When he hit the $1000/month mark with Elephas back in November, he tweeted … 4 years of nothing and 5 months of good momentum. That's my story. Last week he hit $2000 in monthly rec",
+      "tollGateSetup": "記事が報告する金額区分: $2,000 monthly revenue。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Software Entrepreneur」を一次情報で照合する。",
+        "記事記載の$2,000 monthly revenueを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://kambanthemaker.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Kamban The Maker",
+    "profileBusinessLabel": "Software Entrepreneur",
+    "reportedMetrics": [
+      {
+        "original": "$2000+",
+        "currency": "USD",
+        "amount": 2000,
+        "jpyAmount": 300000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "profile-card",
+        "context": "monthly recurring revenue from Elephas"
+      },
+      {
+        "original": "$2000",
+        "currency": "USD",
+        "amount": 2000,
+        "jpyAmount": 300000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "4 Years Of Nothing, Now $2000/Month"
+      },
+      {
+        "original": "$1000",
+        "currency": "USD",
+        "amount": 1000,
+        "jpyAmount": 150000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "When he hit the $1000/month mark with Elephas back in November, he tweeted"
+      }
+    ],
+    "officialUrl": "https://kambanthemaker.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915935,
+      "slug": "kamban-the-maker-profile",
+      "publishedAt": "2023-01-12T15:35:08",
+      "modifiedAt": "2024-07-20T14:52:10",
+      "rawContentSha256": "156d63d924e10fd653c357a6e16a90ac4cc44618303161619bcfc2f085ec0230"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_mushfiqsarkerprofile_0f40cc29c965",
+    "ticker": "EB0F40CC29",
+    "name": "Flipping a Website for $238,356 Profit in 2 Years",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in」に対し、記事は$238,356 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "UNKNOWN",
+    "founder": "Mushfiq Sarker",
+    "country": "GLOBAL",
+    "url": "https://thewebsiteflip.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_PROFIT_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 45000,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/mushfiq-sarker-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "432c7cceb9bea786c5928497222fa50c90117ed47cfe6ca1dfaf6317424adcd6"
+      },
+      "estimationLogic": "USD報告月商 300 に 150円を掛けて円換算。利益・原価・経費は未確認。",
+      "revenueLabel": "記事記載: $238,356 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "0f40cc29c965-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Website Flipper",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$238,356 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+          "プロフィール説明: Website Flipper",
+          "金額記載: $238,356 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/mushfiq-sarker-profile/",
+        "sourceUrl": "https://ebizfacts.com/mushfiq-sarker-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432c7cceb9bea786c5928497222fa50c90117ed47cfe6ca1dfaf6317424adcd6"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$238,356 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "4bac83c64daa-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$238,356 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: Flipping a Website for $238,356 Profit in 2 Years",
+          "プロフィール名: Mushfiq Sarker",
+          "プロフィール説明: Website Flipper",
+          "金額記載: $238,356 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/mushfiq-sarker-profile/",
+        "sourceUrl": "https://ebizfacts.com/mushfiq-sarker-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432c7cceb9bea786c5928497222fa50c90117ed47cfe6ca1dfaf6317424adcd6"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$238,356"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "a92d5e9a2e2a-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+        "details": [
+          "本文要約: Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/mushfiq-sarker-profile/",
+        "sourceUrl": "https://ebizfacts.com/mushfiq-sarker-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432c7cceb9bea786c5928497222fa50c90117ed47cfe6ca1dfaf6317424adcd6"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link",
+        "Amazon"
+      ],
+      "toolStack": [
+        {
+          "name": "Amazon",
+          "category": "marketplace",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$238,356 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Website Flipper」を公式サイト・本人発信で照合する。",
+        "記事記載の$238,356 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: Flipping a Website for $238,356 Profit in 2 Years",
+      "記事更新日: 2024-07-20",
+      "記事要約: Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+      "記事記載金額: $238,356 reported money signal（第三者報告値）",
+      "外部リンク候補: https://thewebsiteflip.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "dd60df72e827-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「Flipping a Website for $238,356 Profit in 2 Years」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/mushfiq-sarker-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432c7cceb9bea786c5928497222fa50c90117ed47cfe6ca1dfaf6317424adcd6"
+        }
+      },
+      {
+        "id": "af7622efd956-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$238,356 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/mushfiq-sarker-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "432c7cceb9bea786c5928497222fa50c90117ed47cfe6ca1dfaf6317424adcd6"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Website Flipper",
+      "targetCustomer": "Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+      "painRelief": "Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_0f40cc29c965-loot",
+      "targetPrey": "Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+      "structuralFlaw": "記事本文が示す未処理課題: Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study, he bought a website in",
+      "stealthEntry": "記事に記載された運用手段: Mushfiq Sarker Website Flipper $238,356 profit on one website flip Mushfiq Sarker has been flipping websites since 2008. As detailed in an in-depth case study , he bought a website in the outdoors niche in April 2020. The site was earning $300 per month via the Amazon affiliate program, and Mushfiq bought it for $23,000. By the end of the year , he'd spent another $22,086 on the site – mainly hiring writers to create",
+      "tollGateSetup": "記事が報告する金額区分: $238,356 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Website Flipper」を一次情報で照合する。",
+        "記事記載の$238,356 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://thewebsiteflip.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Mushfiq Sarker",
+    "profileBusinessLabel": "Website Flipper",
+    "reportedMetrics": [
+      {
+        "original": "$238,356",
+        "currency": "USD",
+        "amount": 238356,
+        "jpyAmount": 35753400,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "profit on one website flip"
+      },
+      {
+        "original": "$300",
+        "currency": "USD",
+        "amount": 300,
+        "jpyAmount": 45000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "The site was earning $300 per month via the Amazon affiliate program, and Mushfiq bought it for $23,000"
+      },
+      {
+        "original": "$100,938",
+        "currency": "USD",
+        "amount": 100938,
+        "jpyAmount": 15140700,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "The website generated $100,938 in revenue during ownership and we spent $37,582 to grow it"
+      },
+      {
+        "original": "$23,000",
+        "currency": "USD",
+        "amount": 23000,
+        "jpyAmount": 3450000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "The site was earning $300 per month via the Amazon affiliate program, and Mushfiq bought it for $23,000"
+      },
+      {
+        "original": "$22,086",
+        "currency": "USD",
+        "amount": 22086,
+        "jpyAmount": 3312900,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "By the end of the year , he'd spent another $22,086 on the site – mainly hiring writers to create content – and it had earned him $48,030 in revenue &#x1f60e; So at that point he was at about break-even overall"
+      },
+      {
+        "original": "$48,030",
+        "currency": "USD",
+        "amount": 48030,
+        "jpyAmount": 7204500,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "By the end of the year , he'd spent another $22,086 on the site – mainly hiring writers to create content – and it had earned him $48,030 in revenue &#x1f60e; So at that point he was at about break-even overall"
+      },
+      {
+        "original": "$175,000",
+        "currency": "USD",
+        "amount": 175000,
+        "jpyAmount": 26250000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "In March 2022, we sold this website for $175,000 through our newsletter to a private buyer"
+      },
+      {
+        "original": "$37,582",
+        "currency": "USD",
+        "amount": 37582,
+        "jpyAmount": 5637300,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "The website generated $100,938 in revenue during ownership and we spent $37,582 to grow it"
+      }
+    ],
+    "officialUrl": "https://thewebsiteflip.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915717,
+      "slug": "mushfiq-sarker-profile",
+      "publishedAt": "2023-01-09T15:53:53",
+      "modifiedAt": "2024-07-20T14:48:07",
+      "rawContentSha256": "432c7cceb9bea786c5928497222fa50c90117ed47cfe6ca1dfaf6317424adcd6"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_kailavansumerprofile_39c007919ea8",
+    "ticker": "EB39C00791",
+    "name": "From $14/hr to $100k/year in 3 Years",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in」に対し、記事は$100,000 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "NICHE_SAAS",
+    "scale": "UNKNOWN",
+    "founder": "Kaila VanSumer",
+    "country": "GLOBAL",
+    "url": "https://iwillteachyoutoberich.com/guides/ultimate-guide-to-asking-for-a-raise-and-negotiating-salary/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_MONEY_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-21）",
+      "sourceDoc": "https://ebizfacts.com/kaila-vansumer-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "f872d3e6778c370b0bf5fffdcdb6201a9984fc011dc5f26cd291233bcfe117cc"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $100,000 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true,
+      "reportedAnnualRevenueSignal": {
+        "original": "$14",
+        "currency": "USD",
+        "amount": 14,
+        "jpyAmount": 2100,
+        "unit": "ANNUAL_REVENUE",
+        "source": "article",
+        "context": "Kaila VanSumer Remote Product Designer $100,000 per year Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in just 3 years &#x1f4c8; I got in touch to learn more about her story"
+      }
+    },
+    "evidenceCards": [
+      {
+        "id": "39c007919ea8-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Remote Product Designer",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$100,000 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+          "プロフィール説明: Remote Product Designer",
+          "金額記載: $100,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-21",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kaila-vansumer-profile/",
+        "sourceUrl": "https://ebizfacts.com/kaila-vansumer-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f872d3e6778c370b0bf5fffdcdb6201a9984fc011dc5f26cd291233bcfe117cc"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$100,000 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "358a92e9a041-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$100,000 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: From $14/hr to $100k/year in 3 Years",
+          "プロフィール名: Kaila VanSumer",
+          "プロフィール説明: Remote Product Designer",
+          "金額記載: $100,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-21",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kaila-vansumer-profile/",
+        "sourceUrl": "https://ebizfacts.com/kaila-vansumer-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f872d3e6778c370b0bf5fffdcdb6201a9984fc011dc5f26cd291233bcfe117cc"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$100,000"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "dca7991c41ef-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+        "details": [
+          "本文要約: Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kaila-vansumer-profile/",
+        "sourceUrl": "https://ebizfacts.com/kaila-vansumer-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f872d3e6778c370b0bf5fffdcdb6201a9984fc011dc5f26cd291233bcfe117cc"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link"
+      ],
+      "toolStack": [],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$100,000 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-21",
+        "記事要約: Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Remote Product Designer」を公式サイト・本人発信で照合する。",
+        "記事記載の$100,000 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-21。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-21に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: From $14/hr to $100k/year in 3 Years",
+      "記事更新日: 2024-07-21",
+      "記事要約: Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+      "記事記載金額: $100,000 reported money signal（第三者報告値）",
+      "外部リンク候補: https://iwillteachyoutoberich.com/guides/ultimate-guide-to-asking-for-a-raise-and-negotiating-salary/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "b94007dfd341-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「From $14/hr to $100k/year in 3 Years」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/kaila-vansumer-profile/",
+        "observedAt": "2024-07-21",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f872d3e6778c370b0bf5fffdcdb6201a9984fc011dc5f26cd291233bcfe117cc"
+        }
+      },
+      {
+        "id": "c53e206e47dc-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$100,000 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/kaila-vansumer-profile/",
+        "observedAt": "2024-07-21",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f872d3e6778c370b0bf5fffdcdb6201a9984fc011dc5f26cd291233bcfe117cc"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Remote Product Designer",
+      "targetCustomer": "Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+      "painRelief": "Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_39c007919ea8-loot",
+      "targetPrey": "Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+      "structuralFlaw": "記事本文が示す未処理課題: Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in",
+      "stealthEntry": "記事に記載された運用手段: Kaila VanSumer Remote Product Designer $100,000 per year Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in just 3 years &#x1f4c8; I got in touch to learn more about her story. Turns out she is a self-taught product designer working 100% remotely. Kaila's background… I started out in customer service after earning my Bachelor’s in Psychology. I moved i",
+      "tollGateSetup": "記事が報告する金額区分: $100,000 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Remote Product Designer」を一次情報で照合する。",
+        "記事記載の$100,000 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://iwillteachyoutoberich.com/guides/ultimate-guide-to-asking-for-a-raise-and-negotiating-salary/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Kaila VanSumer",
+    "profileBusinessLabel": "Remote Product Designer",
+    "reportedMetrics": [
+      {
+        "original": "$100,000",
+        "currency": "USD",
+        "amount": 100000,
+        "jpyAmount": 15000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "per year"
+      },
+      {
+        "original": "$14",
+        "currency": "USD",
+        "amount": 14,
+        "jpyAmount": 2100,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "From $14/hr to $100k/year in 3 Years"
+      },
+      {
+        "original": "$14",
+        "currency": "USD",
+        "amount": 14,
+        "jpyAmount": 2100,
+        "unit": "ANNUAL_REVENUE",
+        "source": "article",
+        "context": "Kaila VanSumer Remote Product Designer $100,000 per year Until recently, Kaila VanSumer's Twitter bio noted that she'd gone from earning $14 per hour to $100,000 per year in just 3 years &#x1f4c8; I got in touch to learn more about her story"
+      },
+      {
+        "original": "$19",
+        "currency": "USD",
+        "amount": 19,
+        "jpyAmount": 2850,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "My salary history across 2 companies: $14/hr > $19/hr > $55k > $65k > $90k > $100k (+15% annual bonus) Again, that's within 3 years &#x1f60e; The best resource Kaila recommends for salary negotiation is this guide by Ramit Sethi"
+      },
+      {
+        "original": "$55k",
+        "currency": "USD",
+        "amount": 55000,
+        "jpyAmount": 8250000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "My salary history across 2 companies: $14/hr > $19/hr > $55k > $65k > $90k > $100k (+15% annual bonus) Again, that's within 3 years &#x1f60e; The best resource Kaila recommends for salary negotiation is this guide by Ramit Sethi"
+      },
+      {
+        "original": "$65k",
+        "currency": "USD",
+        "amount": 65000,
+        "jpyAmount": 9750000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "My salary history across 2 companies: $14/hr > $19/hr > $55k > $65k > $90k > $100k (+15% annual bonus) Again, that's within 3 years &#x1f60e; The best resource Kaila recommends for salary negotiation is this guide by Ramit Sethi"
+      },
+      {
+        "original": "$90k",
+        "currency": "USD",
+        "amount": 90000,
+        "jpyAmount": 13500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "My salary history across 2 companies: $14/hr > $19/hr > $55k > $65k > $90k > $100k (+15% annual bonus) Again, that's within 3 years &#x1f60e; The best resource Kaila recommends for salary negotiation is this guide by Ramit Sethi"
+      }
+    ],
+    "officialUrl": "https://iwillteachyoutoberich.com/guides/ultimate-guide-to-asking-for-a-raise-and-negotiating-salary/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915594,
+      "slug": "kaila-vansumer-profile",
+      "publishedAt": "2023-01-06T06:17:20",
+      "modifiedAt": "2024-07-21T14:51:16",
+      "rawContentSha256": "f872d3e6778c370b0bf5fffdcdb6201a9984fc011dc5f26cd291233bcfe117cc"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_cathrinmanningprofile_7311c6c8141d",
+    "ticker": "EB7311C6C8",
+    "name": "From Broke to $391,000/Year on YouTube",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow 」に対し、記事は$391,000 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "LOCAL_SERVICES",
+    "scale": "UNKNOWN",
+    "founder": "Cathrin Manning",
+    "country": "GLOBAL",
+    "url": "https://thecontentbug.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_REVENUE_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2025-01-08）",
+      "sourceDoc": "https://ebizfacts.com/cathrin-manning-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "6c0b6beadc9e31ad1a6a9872c1b6a0f76765d853e990904b0c3e6fb14bb49cd5"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $391,000 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "7311c6c8141d-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: YouTuber",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$391,000 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+          "プロフィール説明: YouTuber",
+          "金額記載: $391,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2025-01-08",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/cathrin-manning-profile/",
+        "sourceUrl": "https://ebizfacts.com/cathrin-manning-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6c0b6beadc9e31ad1a6a9872c1b6a0f76765d853e990904b0c3e6fb14bb49cd5"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$391,000 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "4cf1c6f6cfc1-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$391,000 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: From Broke to $391,000/Year on YouTube",
+          "プロフィール名: Cathrin Manning",
+          "プロフィール説明: YouTuber",
+          "金額記載: $391,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2025-01-08",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/cathrin-manning-profile/",
+        "sourceUrl": "https://ebizfacts.com/cathrin-manning-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6c0b6beadc9e31ad1a6a9872c1b6a0f76765d853e990904b0c3e6fb14bb49cd5"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$391,000"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "5513e572ec6c-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+        "details": [
+          "本文要約: How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/cathrin-manning-profile/",
+        "sourceUrl": "https://ebizfacts.com/cathrin-manning-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6c0b6beadc9e31ad1a6a9872c1b6a0f76765d853e990904b0c3e6fb14bb49cd5"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link",
+        "YouTube"
+      ],
+      "toolStack": [
+        {
+          "name": "YouTube",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$391,000 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2025-01-08",
+        "記事要約: How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「YouTuber」を公式サイト・本人発信で照合する。",
+        "記事記載の$391,000 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2025-01-08。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2025-01-08に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: From Broke to $391,000/Year on YouTube",
+      "記事更新日: 2025-01-08",
+      "記事要約: How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+      "記事記載金額: $391,000 reported money signal（第三者報告値）",
+      "外部リンク候補: https://thecontentbug.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "4f5dfd9917a6-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「From Broke to $391,000/Year on YouTube」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/cathrin-manning-profile/",
+        "observedAt": "2025-01-08",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6c0b6beadc9e31ad1a6a9872c1b6a0f76765d853e990904b0c3e6fb14bb49cd5"
+        }
+      },
+      {
+        "id": "26059111799d-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$391,000 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/cathrin-manning-profile/",
+        "observedAt": "2025-01-08",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6c0b6beadc9e31ad1a6a9872c1b6a0f76765d853e990904b0c3e6fb14bb49cd5"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "YouTuber",
+      "targetCustomer": "How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+      "painRelief": "How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_7311c6c8141d-loot",
+      "targetPrey": "How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+      "structuralFlaw": "記事本文が示す未処理課題: How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their",
+      "stealthEntry": "記事に記載された運用手段: Cathrin Manning YouTuber $391,000 revenue in 2021 How does Cathrin Manning make money online? Cathrin Manning is a vlogger and online entrepreneur. She helps people grow their online audience through her website The Content Bug and her YouTube videos. In her November 2022 video, Catherine explains how she went from having $367.22 in her bank account to making almost 400k a year… If you are a business owner, creator,",
+      "tollGateSetup": "記事が報告する金額区分: $391,000 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「YouTuber」を一次情報で照合する。",
+        "記事記載の$391,000 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://thecontentbug.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Cathrin Manning",
+    "profileBusinessLabel": "YouTuber",
+    "reportedMetrics": [
+      {
+        "original": "$391,000",
+        "currency": "USD",
+        "amount": 391000,
+        "jpyAmount": 58650000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "revenue in 2021"
+      },
+      {
+        "original": "$391,000",
+        "currency": "USD",
+        "amount": 391000,
+        "jpyAmount": 58650000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "From Broke to $391,000/Year on YouTube"
+      },
+      {
+        "original": "$400,000",
+        "currency": "USD",
+        "amount": 400000,
+        "jpyAmount": 60000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "In an April 2022 video, Cathrin reported that she made $400,000 in 2021"
+      },
+      {
+        "original": "$30,236",
+        "currency": "USD",
+        "amount": 30236,
+        "jpyAmount": 4535400,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Affiliate Marketing $125,782 YouTube Ads $113,615 Sponsorships $105,040 Digital Products Sales $30,236 ( Content Calendar Template , Blow It Up Blueprint ) Merchandise Sales $10,457 Advising/Consulting $6,300 (speaking engagements, one-on-one consultations)&nbsp; How did Cathrin Manning get started"
+      },
+      {
+        "original": "$10,457",
+        "currency": "USD",
+        "amount": 10457,
+        "jpyAmount": 1568550,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Affiliate Marketing $125,782 YouTube Ads $113,615 Sponsorships $105,040 Digital Products Sales $30,236 ( Content Calendar Template , Blow It Up Blueprint ) Merchandise Sales $10,457 Advising/Consulting $6,300 (speaking engagements, one-on-one consultations)&nbsp; How did Cathrin Manning get started"
+      },
+      {
+        "original": "$7,666",
+        "currency": "USD",
+        "amount": 7666,
+        "jpyAmount": 1149900,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "&nbsp; Cathrin’s YouTube channel started to grow and by March 2020 she was making $7,666 in revenue"
+      },
+      {
+        "original": "$30,498",
+        "currency": "USD",
+        "amount": 30498,
+        "jpyAmount": 4574700,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Following the same strategies, Cathrin earned $30,498 in March 2021, of which $12,036 came from affiliate marketing alone"
+      },
+      {
+        "original": "$367.22",
+        "currency": "USD",
+        "amount": 367.22,
+        "jpyAmount": 55083,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "In her November 2022 video, Catherine explains how she went from having $367.22 in her bank account to making almost 400k a year"
+      }
+    ],
+    "officialUrl": "https://thecontentbug.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915575,
+      "slug": "cathrin-manning-profile",
+      "publishedAt": "2023-01-05T14:10:50",
+      "modifiedAt": "2025-01-08T09:31:21",
+      "rawContentSha256": "6c0b6beadc9e31ad1a6a9872c1b6a0f76765d853e990904b0c3e6fb14bb49cd5"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_charliechangprofile_ffa8867a8374",
+    "ticker": "EBFFA8867A",
+    "name": "Origins of a $200,000/Month Content Business",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via」に対し、記事は$200,000 monthly revenueを報告。利益・手残りは未確認。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "UNKNOWN",
+    "founder": "Charlie Chang",
+    "country": "GLOBAL",
+    "url": "https://www.charliechang.co/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_REVENUE_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 30000000,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-21）",
+      "sourceDoc": "https://ebizfacts.com/charlie-chang-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "f5784270678504e61e9de26a0a6288f40ca6ee2dbcd3e25f27f6473f24e1b6bb"
+      },
+      "estimationLogic": "USD報告月商 200,000 に 150円を掛けて円換算。利益・原価・経費は未確認。",
+      "revenueLabel": "記事記載: $200,000 monthly revenue（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "ffa8867a8374-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: YouTuber",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$200,000 monthly revenueを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+          "プロフィール説明: YouTuber",
+          "金額記載: $200,000 / MONTHLY_REVENUE / profile-card",
+          "記事更新日: 2024-07-21",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/charlie-chang-profile/",
+        "sourceUrl": "https://ebizfacts.com/charlie-chang-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f5784270678504e61e9de26a0a6288f40ca6ee2dbcd3e25f27f6473f24e1b6bb"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$200,000 monthly revenue",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "069fe3d35a3e-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$200,000 monthly revenueを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: Origins of a $200,000/Month Content Business",
+          "プロフィール名: Charlie Chang",
+          "プロフィール説明: YouTuber",
+          "金額記載: $200,000 / MONTHLY_REVENUE / profile-card",
+          "記事更新日: 2024-07-21",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/charlie-chang-profile/",
+        "sourceUrl": "https://ebizfacts.com/charlie-chang-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f5784270678504e61e9de26a0a6288f40ca6ee2dbcd3e25f27f6473f24e1b6bb"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$200,000"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "a88e3f14ebd7-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+        "details": [
+          "本文要約: As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/charlie-chang-profile/",
+        "sourceUrl": "https://ebizfacts.com/charlie-chang-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f5784270678504e61e9de26a0a6288f40ca6ee2dbcd3e25f27f6473f24e1b6bb"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link",
+        "YouTube",
+        "Instagram",
+        "TikTok"
+      ],
+      "toolStack": [
+        {
+          "name": "YouTube",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        },
+        {
+          "name": "Instagram",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        },
+        {
+          "name": "TikTok",
+          "category": "distribution",
+          "monthlyCost": 0,
+          "isCostUnconfirmed": true,
+          "purpose": "記事本文で言及された集客・供給・制作・決済経路"
+        }
+      ],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$200,000 monthly revenueは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-21",
+        "記事要約: As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「YouTuber」を公式サイト・本人発信で照合する。",
+        "記事記載の$200,000 monthly revenueについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-21。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-21に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: Origins of a $200,000/Month Content Business",
+      "記事更新日: 2024-07-21",
+      "記事要約: As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+      "記事記載金額: $200,000 monthly revenue（第三者報告値）",
+      "外部リンク候補: https://www.charliechang.co/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "3557ca0e9a2e-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「Origins of a $200,000/Month Content Business」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/charlie-chang-profile/",
+        "observedAt": "2024-07-21",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f5784270678504e61e9de26a0a6288f40ca6ee2dbcd3e25f27f6473f24e1b6bb"
+        }
+      },
+      {
+        "id": "f6c4b1fa5735-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$200,000 monthly revenueは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/charlie-chang-profile/",
+        "observedAt": "2024-07-21",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "f5784270678504e61e9de26a0a6288f40ca6ee2dbcd3e25f27f6473f24e1b6bb"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "YouTuber",
+      "targetCustomer": "As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+      "painRelief": "As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_ffa8867a8374-loot",
+      "targetPrey": "As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+      "structuralFlaw": "記事本文が示す未処理課題: As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via",
+      "stealthEntry": "記事に記載された運用手段: Charlie Chang YouTuber $200,000 monthly revenue As of May 2022, Charlie Chang had over 1 million followers online and was earning $200,000 per month 🤯 via five revenue streams… Affiliate marketing = 40% Brand sponsorships = 25% YouTube ads = 25% Online course sales = < 5% Coaching = < 5% The Tilt reports that Charlie started out with no audience in 2018 and started posting daily personal finance videos to YouTube, I",
+      "tollGateSetup": "記事が報告する金額区分: $200,000 monthly revenue。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「YouTuber」を一次情報で照合する。",
+        "記事記載の$200,000 monthly revenueを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://www.charliechang.co/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Charlie Chang",
+    "profileBusinessLabel": "YouTuber",
+    "reportedMetrics": [
+      {
+        "original": "$200,000",
+        "currency": "USD",
+        "amount": 200000,
+        "jpyAmount": 30000000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "profile-card",
+        "context": "monthly revenue"
+      },
+      {
+        "original": "$200,000",
+        "currency": "USD",
+        "amount": 200000,
+        "jpyAmount": 30000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "Origins of a $200,000/Month Content Business"
+      },
+      {
+        "original": "$15.7K",
+        "currency": "USD",
+        "amount": 15700,
+        "jpyAmount": 2355000,
+        "unit": "MONTHLY_REVENUE",
+        "source": "article",
+        "context": "” The next month, he published 19 videos and earned $15.7K in ad revenue on YouTube"
+      },
+      {
+        "original": "$10K",
+        "currency": "USD",
+        "amount": 10000,
+        "jpyAmount": 1500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "One of my videos went viral –&nbsp; earning me $10K in ad revenue and 30"
+      },
+      {
+        "original": "$250",
+        "currency": "USD",
+        "amount": 250,
+        "jpyAmount": 37500,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "In June 2020, he landed his first sponsorship with Foundr, an online education company that paid $250 for him to create a TikTok post"
+      }
+    ],
+    "officialUrl": "https://www.charliechang.co/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915348,
+      "slug": "charlie-chang-profile",
+      "publishedAt": "2023-01-02T15:44:06",
+      "modifiedAt": "2024-07-21T15:47:19",
+      "rawContentSha256": "f5784270678504e61e9de26a0a6288f40ca6ee2dbcd3e25f27f6473f24e1b6bb"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_kristinlarsenprofile_93e3075076df",
+    "ticker": "EB93E30750",
+    "name": "$9500/Month From Her Blog Within 2 Years",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit」に対し、記事は$9,500 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "LOCAL_SERVICES",
+    "scale": "UNKNOWN",
+    "founder": "Kristin Larsen",
+    "country": "GLOBAL",
+    "url": "https://believeinabudget.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_MONEY_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/kristin-larsen-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "6e83f6da0ce7bcfa05fd34819d7b75f453a9346c851f766b8ccdbc4d554bdabd"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $9,500 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "93e3075076df-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Blogger",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$9,500 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+          "プロフィール説明: Blogger",
+          "金額記載: $9,500 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kristin-larsen-profile/",
+        "sourceUrl": "https://ebizfacts.com/kristin-larsen-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6e83f6da0ce7bcfa05fd34819d7b75f453a9346c851f766b8ccdbc4d554bdabd"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$9,500 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "86fbe3179446-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$9,500 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: $9500/Month From Her Blog Within 2 Years",
+          "プロフィール名: Kristin Larsen",
+          "プロフィール説明: Blogger",
+          "金額記載: $9,500 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kristin-larsen-profile/",
+        "sourceUrl": "https://ebizfacts.com/kristin-larsen-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6e83f6da0ce7bcfa05fd34819d7b75f453a9346c851f766b8ccdbc4d554bdabd"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$9,500"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "a2255e5b37ad-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+        "details": [
+          "本文要約: Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/kristin-larsen-profile/",
+        "sourceUrl": "https://ebizfacts.com/kristin-larsen-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6e83f6da0ce7bcfa05fd34819d7b75f453a9346c851f766b8ccdbc4d554bdabd"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link"
+      ],
+      "toolStack": [],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$9,500 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Blogger」を公式サイト・本人発信で照合する。",
+        "記事記載の$9,500 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: $9500/Month From Her Blog Within 2 Years",
+      "記事更新日: 2024-07-20",
+      "記事要約: Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+      "記事記載金額: $9,500 reported money signal（第三者報告値）",
+      "外部リンク候補: https://believeinabudget.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "1a57db7293e2-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「$9500/Month From Her Blog Within 2 Years」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/kristin-larsen-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6e83f6da0ce7bcfa05fd34819d7b75f453a9346c851f766b8ccdbc4d554bdabd"
+        }
+      },
+      {
+        "id": "7b893f78444c-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$9,500 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/kristin-larsen-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "6e83f6da0ce7bcfa05fd34819d7b75f453a9346c851f766b8ccdbc4d554bdabd"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Blogger",
+      "targetCustomer": "Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+      "painRelief": "Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_93e3075076df-loot",
+      "targetPrey": "Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+      "structuralFlaw": "記事本文が示す未処理課題: Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit",
+      "stealthEntry": "記事に記載された運用手段: Kristin Larsen Blogger $9,500 per month Kristin Larsen writes about taking her new blog from zero to $9,500/month in just 20 months, allowing her to quit her day job &#x1f973; She started off blogging about personal finance, then started figuring out how to drive traffic via Pinterest and blogged about that… I wrote a blog post about how my traffic went from 5,000 to 17,000 page views in one month [via Pinterest] and",
+      "tollGateSetup": "記事が報告する金額区分: $9,500 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Blogger」を一次情報で照合する。",
+        "記事記載の$9,500 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://believeinabudget.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Kristin Larsen",
+    "profileBusinessLabel": "Blogger",
+    "reportedMetrics": [
+      {
+        "original": "$9,500",
+        "currency": "USD",
+        "amount": 9500,
+        "jpyAmount": 1425000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "per month"
+      },
+      {
+        "original": "$100",
+        "currency": "USD",
+        "amount": 100,
+        "jpyAmount": 15000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "But she had yet to crack even $100/month in revenue &#x1f629; She decided to help those fellow bloggers as a freelance Pinterest Manager, and that was her first reliable source of income"
+      },
+      {
+        "original": "$9,566",
+        "currency": "USD",
+        "amount": 9566,
+        "jpyAmount": 1434900,
+        "unit": "TOTAL_OR_BEST_PERIOD",
+        "source": "article",
+        "context": "basically the productized version of what she was doing for her freelance clients &#x1f60e; 20 months after starting her blog, she pulled in $9,566 in one month from 5 sources"
+      },
+      {
+        "original": "$3000",
+        "currency": "USD",
+        "amount": 3000,
+        "jpyAmount": 450000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "Kristin's story sounds like an overnight success but she earned literally $0 her first 4 months and less than $3000 her first year, despite putting a ton of work into her blog"
+      }
+    ],
+    "officialUrl": "https://believeinabudget.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915342,
+      "slug": "kristin-larsen-profile",
+      "publishedAt": "2023-01-02T15:31:00",
+      "modifiedAt": "2024-07-20T14:55:45",
+      "rawContentSha256": "6e83f6da0ce7bcfa05fd34819d7b75f453a9346c851f766b8ccdbc4d554bdabd"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_georgiaaustinprofile_25c9f6c09364",
+    "ticker": "EB25C9F6C0",
+    "name": "$90,000 on Fiverr in 1 Month",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr」に対し、記事は$90,000 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "SMALL_TEAM",
+    "founder": "Georgia Austin",
+    "country": "GLOBAL",
+    "url": "https://wizeo.io/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_MONEY_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/georgia-austin-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "c68f78f2ca129eae996c311a1066f4f4a93ad31aaaab9bbe55e422c5546e4f00"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $90,000 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "25c9f6c09364-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Founder & CEO of Wizeo",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$90,000 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+          "プロフィール説明: Founder & CEO of Wizeo",
+          "金額記載: $90,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/georgia-austin-profile/",
+        "sourceUrl": "https://ebizfacts.com/georgia-austin-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "c68f78f2ca129eae996c311a1066f4f4a93ad31aaaab9bbe55e422c5546e4f00"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$90,000 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "9a7046224713-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$90,000 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: $90,000 on Fiverr in 1 Month",
+          "プロフィール名: Georgia Austin",
+          "プロフィール説明: Founder & CEO of Wizeo",
+          "金額記載: $90,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/georgia-austin-profile/",
+        "sourceUrl": "https://ebizfacts.com/georgia-austin-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "c68f78f2ca129eae996c311a1066f4f4a93ad31aaaab9bbe55e422c5546e4f00"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$90,000"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "c16fb2e40521-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+        "details": [
+          "本文要約: Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/georgia-austin-profile/",
+        "sourceUrl": "https://ebizfacts.com/georgia-austin-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "c68f78f2ca129eae996c311a1066f4f4a93ad31aaaab9bbe55e422c5546e4f00"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link"
+      ],
+      "toolStack": [],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$90,000 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Founder & CEO of Wizeo」を公式サイト・本人発信で照合する。",
+        "記事記載の$90,000 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: $90,000 on Fiverr in 1 Month",
+      "記事更新日: 2024-07-20",
+      "記事要約: Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+      "記事記載金額: $90,000 reported money signal（第三者報告値）",
+      "外部リンク候補: https://wizeo.io/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "c37f545bab7e-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「$90,000 on Fiverr in 1 Month」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/georgia-austin-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "c68f78f2ca129eae996c311a1066f4f4a93ad31aaaab9bbe55e422c5546e4f00"
+        }
+      },
+      {
+        "id": "8bbca1f89a97-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$90,000 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/georgia-austin-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "c68f78f2ca129eae996c311a1066f4f4a93ad31aaaab9bbe55e422c5546e4f00"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Founder & CEO of Wizeo",
+      "targetCustomer": "Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+      "painRelief": "Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_25c9f6c09364-loot",
+      "targetPrey": "Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+      "structuralFlaw": "記事本文が示す未処理課題: Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr",
+      "stealthEntry": "記事に記載された運用手段: Georgia Austin Founder & CEO of Wizeo $90,000 one-month revenue via Fiverr Side Hustle Nation had an interview with Georgia Austin early in the year, where she reported earning $90,000 on Fiverr in one month &#x1f92f; Here's Georgia's Fiverr profile . All of her gigs are related to writing content, and past clients include Nike and American Express. Lots of great advice in the interview for getting started on Fiverr",
+      "tollGateSetup": "記事が報告する金額区分: $90,000 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Founder & CEO of Wizeo」を一次情報で照合する。",
+        "記事記載の$90,000 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://wizeo.io/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Georgia Austin",
+    "profileBusinessLabel": "Founder & CEO of Wizeo",
+    "reportedMetrics": [
+      {
+        "original": "$90,000",
+        "currency": "USD",
+        "amount": 90000,
+        "jpyAmount": 13500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "one-month revenue via Fiverr"
+      }
+    ],
+    "officialUrl": "https://wizeo.io/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915273,
+      "slug": "georgia-austin-profile",
+      "publishedAt": "2022-12-30T11:10:01",
+      "modifiedAt": "2024-07-20T14:42:20",
+      "rawContentSha256": "c68f78f2ca129eae996c311a1066f4f4a93ad31aaaab9bbe55e422c5546e4f00"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  },
+  {
+    "id": "ent_ebizfacts_chdanielprofile_6302d3ea0559",
+    "ticker": "EB6302D3EA",
+    "name": "This Unique Blog Earned $200,000 in Year 1",
+    "legalEntity": "UNKNOWN (eBiz Facts公開プロフィールのみ)",
+    "tagline": "「Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or」に対し、記事は$500,000 reported money signalを報告。利益・手残りは未確認。",
+    "sector": "CONTENT_MEDIA",
+    "scale": "UNKNOWN",
+    "founder": "Ch Daniel",
+    "country": "GLOBAL",
+    "url": "https://chdaniel.com/",
+    "verifiedBadge": false,
+    "growthRateYoY": 0,
+    "isGrowthUnconfirmed": true,
+    "architecturePattern": "UNKNOWN (プロフィール記事から実装方式は未確認)",
+    "pipelineStack": "UNKNOWN (プロフィール記事から技術構成は未確認)",
+    "targetPainWallet": "Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+    "tags": [
+      "EBIZFACTS_PROFILE",
+      "INDEPENDENT_SECONDARY_REPORT",
+      "REPORTED_MONEY_SIGNAL",
+      "TEAM_SIZE_UNCONFIRMED"
+    ],
+    "pnl": {
+      "monthlyRevenue": 0,
+      "cogs": 0,
+      "grossProfit": 0,
+      "grossMargin": 0,
+      "operatingExpenses": {
+        "serverAndApi": 0,
+        "advertising": 0,
+        "subcontracting": 0,
+        "toolsAndSaaS": 0,
+        "other": 0
+      },
+      "operatingProfit": 0,
+      "operatingMargin": 0,
+      "estimatedAnnualNetProfit": 0,
+      "financialStatus": "REPORTED",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール（更新日 2024-07-20）",
+      "sourceDoc": "https://ebizfacts.com/ch-daniel-profile/",
+      "sourceClass": "INDEPENDENT_SECONDARY",
+      "evidenceLocator": {
+        "type": "html",
+        "textHash": "3ccc45815d59748b6da2c2c87be5aeaa62241bd3d4b10296f59586691c2ed359"
+      },
+      "estimationLogic": "記事に記載された金額シグナルを原文のまま保存。月商として扱える根拠がないためP&Lの推定はしない。",
+      "revenueLabel": "記事記載: $500,000 reported money signal（第三者プロフィールの報告値。利益の独立確認なし）",
+      "isRevenueUnconfirmed": true,
+      "isOperatingProfitUnconfirmed": true,
+      "isMarginUnconfirmed": true,
+      "isGrossProfitUnconfirmed": true,
+      "isGrossMarginUnconfirmed": true,
+      "isCogsUnconfirmed": true,
+      "isCostsUnconfirmed": true,
+      "isNetProfitUnconfirmed": true
+    },
+    "evidenceCards": [
+      {
+        "id": "6302d3ea0559-loot",
+        "type": "LOOT_BLUEPRINT",
+        "title": "プロフィールが記録する収益源: Serial Entrepreneur",
+        "badge": "第三者プロフィール報告",
+        "evidenceStatus": "REPORTED",
+        "punchline": "$500,000 reported money signalを生む運用方法を記事本文から抽出する。原価と利益の独立確認は未実施。",
+        "details": [
+          "Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+          "プロフィール説明: Serial Entrepreneur",
+          "金額記載: $500,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "codeSnippet": "N/A — 実装コードはプロフィール記事に記載なし。",
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/ch-daniel-profile/",
+        "sourceUrl": "https://ebizfacts.com/ch-daniel-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "3ccc45815d59748b6da2c2c87be5aeaa62241bd3d4b10296f59586691c2ed359"
+        },
+        "metrics": [
+          {
+            "label": "記事記載金額",
+            "value": "$500,000 reported money signal",
+            "isHighlight": true
+          },
+          {
+            "label": "利益・原価",
+            "value": "独立確認なし"
+          }
+        ]
+      },
+      {
+        "id": "cc6151cc49d3-crime",
+        "type": "THE_CRIME",
+        "title": "報告値と実際の手残りを分離",
+        "badge": "財務境界",
+        "evidenceStatus": "REPORTED",
+        "punchline": "記事は$500,000 reported money signalを記載しているが、原価・広告費・税・手残りは記載値だけでは確定できない。",
+        "details": [
+          "記事タイトル: This Unique Blog Earned $200,000 in Year 1",
+          "プロフィール名: Ch Daniel",
+          "プロフィール説明: Serial Entrepreneur",
+          "金額記載: $500,000 / REPORTED_MONEY_SIGNAL / profile-card",
+          "記事更新日: 2024-07-20",
+          "このカードは第三者プロフィールに掲載された報告値であり、財務諸表・決済口座・利益を独立監査した証拠ではない。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/ch-daniel-profile/",
+        "sourceUrl": "https://ebizfacts.com/ch-daniel-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "3ccc45815d59748b6da2c2c87be5aeaa62241bd3d4b10296f59586691c2ed359"
+        },
+        "metrics": [
+          {
+            "label": "原文の金額",
+            "value": "$500,000"
+          },
+          {
+            "label": "手残り",
+            "value": "未確認"
+          }
+        ]
+      },
+      {
+        "id": "eec56fb4c0f0-genesis",
+        "type": "DIRTY_GENESIS",
+        "title": "本文に記載された初動・運用手段",
+        "badge": "本文観測",
+        "evidenceStatus": "REPORTED",
+        "punchline": "Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+        "details": [
+          "本文要約: Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+          "この要約は記事の記載内容であり、再現性・現在の稼働は別途確認が必要。"
+        ],
+        "sourceNote": "eBiz Facts profile, 2026-09-16: https://ebizfacts.com/ch-daniel-profile/",
+        "sourceUrl": "https://ebizfacts.com/ch-daniel-profile/",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "3ccc45815d59748b6da2c2c87be5aeaa62241bd3d4b10296f59586691c2ed359"
+        }
+      }
+    ],
+    "operations": {
+      "teamSize": 0,
+      "initialTeamSize": 0,
+      "currentTeamSize": 0,
+      "weeklyHours": 0,
+      "initialCapitalRequired": 0,
+      "automationLevel": 0,
+      "primaryChannels": [
+        "eBiz Facts profile",
+        "external link"
+      ],
+      "toolStack": [],
+      "isTeamSizeUnconfirmed": true,
+      "isWeeklyHoursUnconfirmed": true,
+      "isCapitalUnconfirmed": true,
+      "isAutomationUnconfirmed": true
+    },
+    "strategy": {
+      "blindspot": "【観測された隙間】Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+      "moatType": "UNKNOWN",
+      "moatDescription": "【防御要因】プロフィール記事だけでは、独自データ・継続率・供給制約などの堀を検証できない。",
+      "incumbentDilemma": "【大手との関係】大手のカニバリゼーションや規約上の死角は記事本文だけでは未確認。",
+      "secretInsight": "【金額の境界】$500,000 reported money signalは第三者記事の報告値であり、営業利益・手残りとは分離して扱う。",
+      "initialTraction": [
+        "eBiz Facts記事更新日: 2024-07-20",
+        "記事要約: Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+        "初期顧客獲得数・経路は未確認"
+      ],
+      "actionPlaybook": [
+        "記事本文の収益源「Serial Entrepreneur」を公式サイト・本人発信で照合する。",
+        "記事記載の$500,000 reported money signalについて、期間・売上/利益区分・原価を分解する。",
+        "確認できない財務項目は推定値に置き換えず、未確認のまま保存する。"
+      ],
+      "coldOutreachTemplate": "記事に記載された収益源について、売上と原価を分けて確認できる公開資料があるか尋ねる。"
+    },
+    "temporal": {
+      "foundedYear": 0,
+      "initialTractionPeriod": "プロフィール記事の更新日 2024-07-20。創業年・初動獲得経路は未確認。",
+      "dataSnapshotPeriod": "2026-09-16 eBiz Facts公開プロフィール取得",
+      "viabilityStatus": "UNKNOWN",
+      "viabilityLabel": "現在の稼働・継続性は未確認",
+      "eraContext": "eBiz Factsが2024-07-20に更新した公開プロフィール。記事掲載は事業の現在稼働や利益を保証しない。",
+      "currentViabilityAnalysis": "記事の報告値と現行の公式情報・利益は別物であり、一次情報での照合が必要。"
+    },
+    "observations": [
+      "eBiz Factsプロフィール記事: This Unique Blog Earned $200,000 in Year 1",
+      "記事更新日: 2024-07-20",
+      "記事要約: Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+      "記事記載金額: $500,000 reported money signal（第三者報告値）",
+      "外部リンク候補: https://chdaniel.com/",
+      "利益、原価、広告費、税、実際の手残りは独立確認していない。"
+    ],
+    "observationsStream": [
+      {
+        "id": "0a9df43f1902-article",
+        "category": "MARKET_DISTORTION",
+        "originType": "reported",
+        "verificationStatus": "SUPPORTED",
+        "text": "eBiz Factsがプロフィール記事「This Unique Blog Earned $200,000 in Year 1」を公開している。",
+        "sourceUrl": "https://ebizfacts.com/ch-daniel-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "3ccc45815d59748b6da2c2c87be5aeaa62241bd3d4b10296f59586691c2ed359"
+        }
+      },
+      {
+        "id": "13f50e5befb2-finance-limit",
+        "category": "RESEARCH_LIMIT",
+        "originType": "observed",
+        "verificationStatus": "UNVERIFIED",
+        "text": "記事記載の$500,000 reported money signalは第三者報告値で、利益・原価・手残りの独立確認は未実施。",
+        "sourceUrl": "https://ebizfacts.com/ch-daniel-profile/",
+        "observedAt": "2024-07-20",
+        "sourceClass": "INDEPENDENT_SECONDARY",
+        "evidenceLocator": {
+          "type": "html",
+          "textHash": "3ccc45815d59748b6da2c2c87be5aeaa62241bd3d4b10296f59586691c2ed359"
+        }
+      }
+    ],
+    "essence": {
+      "whatItDoes": "Serial Entrepreneur",
+      "targetCustomer": "Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+      "painRelief": "Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or"
+    },
+    "lootBlueprint": {
+      "blueprintId": "ent_ebizfacts_6302d3ea0559-loot",
+      "targetPrey": "Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+      "structuralFlaw": "記事本文が示す未処理課題: Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or",
+      "stealthEntry": "記事に記載された運用手段: Ch Daniel Serial Entrepreneur $500,000 approximate annual revenue Legit Check is a website that helps you figure out if luxury items – such as Air Jordan sneakers or Rolex watches – are real or fake &#x1f914; Founder Ch Daniel was 21 years old when he launched the site in 2019, along with his 15-year-old brother. He writes … In our first year, we did $200,000 USD revenue — all using just regular no-code tools. It sta",
+      "tollGateSetup": "記事が報告する金額区分: $500,000 reported money signal。料金・継続率・原価は未確認。",
+      "reproducibilityScore": 0,
+      "moatDurabilityScore": 0,
+      "capitalEfficiencyScore": 0,
+      "executionChecklist": [
+        "記事の収益源「Serial Entrepreneur」を一次情報で照合する。",
+        "記事記載の$500,000 reported money signalを売上・利益・期間に分解する。",
+        "確認できない原価・利益はゼロ実績にせず未確認として扱う。"
+      ]
+    },
+    "publishability": "PARTIAL",
+    "claimBindings": [],
+    "unknownsNotes": [
+      "第三者プロフィールの報告値であり、本人の決済口座・財務諸表による独立確認は未実施。",
+      "原価、広告費、外注費、税、営業利益、純利益、継続性は未確認。",
+      "外部リンクは公式サイトであることを未確認: https://chdaniel.com/"
+    ],
+    "screening": {
+      "winner": null,
+      "initialTeamPass": null,
+      "capitalStatus": "unknown",
+      "qualificationStatus": "CAPTURE_REQUIRES_PRIMARY_FINANCIAL_RECONCILIATION",
+      "backgroundAndScaleCaveat": "eBiz Factsの第三者プロフィールを根拠にした候補。利益・自立性は一次確認前。"
+    },
+    "caseType": "EBIZFACTS_PROFILE_CASE",
+    "profileSubject": "Ch Daniel",
+    "profileBusinessLabel": "Serial Entrepreneur",
+    "reportedMetrics": [
+      {
+        "original": "$500,000",
+        "currency": "USD",
+        "amount": 500000,
+        "jpyAmount": 75000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "profile-card",
+        "context": "approximate annual revenue"
+      },
+      {
+        "original": "$200,000",
+        "currency": "USD",
+        "amount": 200000,
+        "jpyAmount": 30000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "title",
+        "context": "This Unique Blog Earned $200,000 in Year 1"
+      },
+      {
+        "original": "$60",
+        "currency": "USD",
+        "amount": 60,
+        "jpyAmount": 9000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "They also sell certificates of authenticity ($60 a pop) and offer two monthly memberships"
+      },
+      {
+        "original": "$200,000",
+        "currency": "USD",
+        "amount": 200000,
+        "jpyAmount": 30000000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "In our first year, we did $200,000 USD revenue — all using just regular no-code tools"
+      },
+      {
+        "original": "$250,000",
+        "currency": "USD",
+        "amount": 250000,
+        "jpyAmount": 37500000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "ink , a Notion website builder that was on track to earn $250,000 in revenue in its first year &#x1f92f; So now he has two businesses earning him a combined ~$500,000 per year, and it all started with him blogging about fake sneakers"
+      },
+      {
+        "original": "$20",
+        "currency": "USD",
+        "amount": 20,
+        "jpyAmount": 3000,
+        "unit": "REPORTED_MONEY_SIGNAL",
+        "source": "article",
+        "context": "• Wrote some stuff that helped ppl • That kept growing • Realised it's a format ppl need • Helped ppl for free • Made a business around it when we couldn't face demand anymore The business mainly seems to be a custom authentication service that costs $20-50 per item"
+      }
+    ],
+    "officialUrl": "https://chdaniel.com/",
+    "sourceMetadata": {
+      "provider": "eBiz Facts",
+      "postId": 3915217,
+      "slug": "ch-daniel-profile",
+      "publishedAt": "2022-12-26T11:03:00",
+      "modifiedAt": "2024-07-20T14:55:45",
+      "rawContentSha256": "3ccc45815d59748b6da2c2c87be5aeaa62241bd3d4b10296f59586691c2ed359"
+    },
+    "batchId": "batch-ebizfacts-replacements-11-20260916"
+  }
+]

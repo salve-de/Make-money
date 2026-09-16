@@ -1,0 +1,1192 @@
+[
+  {
+    "name": "Wolfpack",
+    "productId": "wolfpack",
+    "officialUrl": "https://wolf-pack.vercel.app/",
+    "status": 200,
+    "finalUrl": "https://wolf-pack.vercel.app/",
+    "title": "Wolf Pack",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Flux AI Pro",
+    "productId": "flux-ai-pro",
+    "officialUrl": "https://fluxai.pro",
+    "status": 200,
+    "finalUrl": "https://fluxai.pro/",
+    "title": "Flux AI Pro - Advanced Flux AI Image &amp; Video Generator",
+    "matchedTokens": [
+      "flux"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nara Insights",
+    "productId": "nara-insights",
+    "officialUrl": "https://narainsights.com/",
+    "status": 200,
+    "finalUrl": "https://narainsights.com/",
+    "title": "Nara Insights — Real-Time Options Flow & Stock Analysis Dashboard",
+    "matchedTokens": [
+      "nara",
+      "insights"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Chic Sale Daily",
+    "productId": "chic-sale-daily",
+    "officialUrl": "https://chicsaledaily.com",
+    "status": null,
+    "finalUrl": "https://chicsaledaily.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Peekaboo",
+    "productId": "peekaboo-2",
+    "officialUrl": "https://www.aipeekaboo.com/",
+    "status": 200,
+    "finalUrl": "https://www.aipeekaboo.com/",
+    "title": "Peekaboo | AI Visibility &amp; Analytics tool for AI SEO.",
+    "matchedTokens": [
+      "peekaboo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "blogsgod",
+    "productId": "blogsgod",
+    "officialUrl": "https://blogsgod.com",
+    "status": null,
+    "finalUrl": "https://blogsgod.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "KI Bild erstellen",
+    "productId": "ki-bild-erstellen",
+    "officialUrl": "https://ki-bild-erstellen.com/",
+    "status": null,
+    "finalUrl": "https://ki-bild-erstellen.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OfferFinder.org",
+    "productId": "offerfinder-org",
+    "officialUrl": "https://offerfinder.org",
+    "status": 200,
+    "finalUrl": "https://offerfinder.org/",
+    "title": "OfferFinder.org - SaaS Deals & Discounts for Small Businesses",
+    "matchedTokens": [
+      "offerfinder"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FindMyAITool.io",
+    "productId": "findmyaitool-io",
+    "officialUrl": "https://findmyaitool.io/",
+    "status": 200,
+    "finalUrl": "https://findmyaitool.io/",
+    "title": "Top AI Tools Directory 2026 - FindMyAITool.io",
+    "matchedTokens": [
+      "findmyaitool"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Seventeen",
+    "productId": "seventeen",
+    "officialUrl": "https://www.seventeenshineservices.com",
+    "status": 200,
+    "finalUrl": "https://www.seventeenshineservices.com/",
+    "title": "Commercial Cleaning in Central Florida | Seventeen Shine Services",
+    "matchedTokens": [
+      "seventeen"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "News Coverage",
+    "productId": "news-coverage",
+    "officialUrl": "https://newscvg.com/download",
+    "status": null,
+    "finalUrl": "https://newscvg.com/download",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Expresso",
+    "productId": "expresso-2",
+    "officialUrl": "https://expresso.easystudio.ai/",
+    "status": null,
+    "finalUrl": "https://expresso.easystudio.ai/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Bear VPN",
+    "productId": "bear-vpn",
+    "officialUrl": "https://bearvpn.com/",
+    "status": 200,
+    "finalUrl": "https://bearvpn.com/",
+    "title": "BearVPN – Free, Fast &amp; Secure VPN for Private Browsing",
+    "matchedTokens": [
+      "bear"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "StartupBolt",
+    "productId": "startupbolt-2",
+    "officialUrl": "https://www.startupbolt.com/",
+    "status": 200,
+    "finalUrl": "https://www.startupbolt.com/",
+    "title": "StartupBolt: Launch Next.js SaaS &amp; Landing Pages Fast",
+    "matchedTokens": [
+      "startupbolt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Migroot",
+    "productId": "migroot",
+    "officialUrl": "https://www.migroot.io/",
+    "status": 200,
+    "finalUrl": "https://www.migroot.io/",
+    "title": "Migroot: Digital Nomad Visa Tracker &amp; Relocation Assistant",
+    "matchedTokens": [
+      "migroot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Tool List Ai",
+    "productId": "tool-list-ai",
+    "officialUrl": "https://toollist.ai/",
+    "status": 200,
+    "finalUrl": "https://toollist.ai/",
+    "title": "AI Tools Directory — Best Free AI Tools List | toollist.ai",
+    "matchedTokens": [
+      "list"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VideoConverter",
+    "productId": "videoconverter",
+    "officialUrl": "https://videoconverter.video",
+    "status": 200,
+    "finalUrl": "https://videoconverter.video/",
+    "title": "Free Online Video Converter - Convert to MP4, AVI &amp; More",
+    "matchedTokens": [
+      "videoconverter"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nimo - Q&A",
+    "productId": "nimo-q-a",
+    "officialUrl": "https://nimoapp.site",
+    "status": 200,
+    "finalUrl": "https://nimoapp.site/",
+    "title": "Nimo - Q&A",
+    "matchedTokens": [
+      "nimo"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "CreateMusicAI",
+    "productId": "createmusicai",
+    "officialUrl": "https://createmusicai.ai/",
+    "status": 200,
+    "finalUrl": "https://createmusicai.ai/",
+    "title": "AI Music Generator | Create Songs, Beats &amp; Music Videos",
+    "matchedTokens": [
+      "createmusicai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Z Image",
+    "productId": "z-image-2",
+    "officialUrl": "https://z-image.net",
+    "status": 200,
+    "finalUrl": "https://z-image.net/",
+    "title": "Z-Image - Efficient AI Image Generation Platform",
+    "matchedTokens": [
+      "image"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "vibeaha",
+    "productId": "vibeaha",
+    "officialUrl": "https://vibeaha.com/",
+    "status": 200,
+    "finalUrl": "https://vibeaha.com/",
+    "title": "AI Image &amp; Video Generator | 21 Models — VibeAha",
+    "matchedTokens": [
+      "vibeaha"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nano Banana 2",
+    "productId": "nano-banana-2-2",
+    "officialUrl": "https://banananano2.io",
+    "status": 200,
+    "finalUrl": "https://banananano2.io/",
+    "title": "Nano Banana 2 - 4K AI Image Generation &amp; Editing Platform",
+    "matchedTokens": [
+      "nano",
+      "banana"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Elev8or",
+    "productId": "elev8or",
+    "officialUrl": "https://www.elev8or.io/",
+    "status": 200,
+    "finalUrl": "https://www.elev8or.io/",
+    "title": "Elev8or | Creator Business Suite",
+    "matchedTokens": [
+      "elev8or"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Influverse",
+    "productId": "influverse",
+    "officialUrl": "https://influverse.ai/",
+    "status": 200,
+    "finalUrl": "https://influverse.ai/",
+    "title": "Influverse AI - Create Content &amp; Put Your Socials on Autopilot",
+    "matchedTokens": [
+      "influverse"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FineVoice",
+    "productId": "finevoice",
+    "officialUrl": "https://finevoice.ai/",
+    "status": 200,
+    "finalUrl": "https://finevoice.ai/",
+    "title": "Free AI Voice Generator – No Sign-up, Instant Creation",
+    "matchedTokens": [
+      "finevoice"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DateTimeWX – Live Time & Weather",
+    "productId": "datetimewx-live-time-weather",
+    "officialUrl": "https://datetimewx.com",
+    "status": 200,
+    "finalUrl": "https://datetimewx.com/",
+    "title": "World Time, Weather, Calendar &amp;amp;amp; Holidays Tools | Time &amp;amp;amp; Date AI",
+    "matchedTokens": [
+      "datetimewx",
+      "time",
+      "weather"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Sora‑2 Video Generator & Watermark Remover",
+    "productId": "sora-2-video-generator-watermark-remover",
+    "officialUrl": "https://soravid.net",
+    "status": null,
+    "finalUrl": "https://soravid.net",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Remotech",
+    "productId": "remotech",
+    "officialUrl": "https://www.remotech.ai/",
+    "status": 200,
+    "finalUrl": "https://www.remotech.ai/",
+    "title": "Remotech - Find remote tech jobs, worldwide.",
+    "matchedTokens": [
+      "remotech"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "NanoBananaTool",
+    "productId": "nanobananatool",
+    "officialUrl": "https://nanobananatool.com",
+    "status": 200,
+    "finalUrl": "https://nanobananatool.com/",
+    "title": "Nano Banana - Text-Driven, High-Fidelity Image Editing",
+    "matchedTokens": [
+      "nanobananatool"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Singify Vocal Remover",
+    "productId": "singify-vocal-remover",
+    "officialUrl": "https://singify.co/vocal-remover?ref=indiehackers",
+    "status": null,
+    "finalUrl": "https://singify.co/vocal-remover?ref=indiehackers",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Twocents",
+    "productId": "twocents-2",
+    "officialUrl": "https://www.twocentsnest.com/",
+    "status": null,
+    "finalUrl": "https://www.twocentsnest.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Linkeme",
+    "productId": "linkeme-2",
+    "officialUrl": "https://linkeme.ai/why",
+    "status": 404,
+    "finalUrl": "https://linkeme.ai/en/why",
+    "title": "Linkeme - AI Personal Branding for LinkedIn",
+    "matchedTokens": [
+      "linkeme"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "E-commerce Toolsuite",
+    "productId": "e-commerce-toolsuite",
+    "officialUrl": "https://www.gopathtomillions.com/p/tools.html",
+    "status": 401,
+    "finalUrl": "https://gopathtomillions.com/p/tools.html",
+    "title": "401 Authorization Required",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TripMaven.org",
+    "productId": "tripmaven-org",
+    "officialUrl": "https://tripmaven.org",
+    "status": 200,
+    "finalUrl": "https://tripmaven.org/",
+    "title": "TripMaven — Your AI-Powered Travel Planner",
+    "matchedTokens": [
+      "tripmaven"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Bookology",
+    "productId": "bookology",
+    "officialUrl": "https://bookology.app/",
+    "status": 200,
+    "finalUrl": "https://bookology.app/",
+    "title": "Bookology: Book Tracker For Book Lovers",
+    "matchedTokens": [
+      "bookology"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BaZi Lab",
+    "productId": "bazi-lab",
+    "officialUrl": "https://www.bazi-lab.com/",
+    "status": 200,
+    "finalUrl": "https://www.bazi-lab.com/",
+    "title": "BaZi Lab - Discover Your Chinese Destiny Chart",
+    "matchedTokens": [
+      "bazi"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ImgEditor AI",
+    "productId": "imgeditor-ai",
+    "officialUrl": "https://imgeditor.ai/",
+    "status": 200,
+    "finalUrl": "https://imgeditor.ai/",
+    "title": "Free AI Image Editor with Prompts | Edit Photos Online",
+    "matchedTokens": [
+      "imgeditor"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Snow Day Predictor",
+    "productId": "snow-day-predictor",
+    "officialUrl": "https://snowdaypredictortool.com/",
+    "status": 200,
+    "finalUrl": "https://snowdaypredictortool.com/",
+    "title": "Snow Day Predictor | Will School Close Tomorrow?",
+    "matchedTokens": [
+      "snow",
+      "predictor"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Which AI Tool",
+    "productId": "which-ai-tool",
+    "officialUrl": "https://www.whichaitool.com",
+    "status": 200,
+    "finalUrl": "https://www.whichaitool.com/",
+    "title": "Which AI Tool...?",
+    "matchedTokens": [
+      "which"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Founders Match",
+    "productId": "founders-match",
+    "officialUrl": "https://FoundersMatch.ai",
+    "status": 200,
+    "finalUrl": "https://foundersmatch.ai/",
+    "title": "FoundersMatch",
+    "matchedTokens": [
+      "founders",
+      "match"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI ShieldNet",
+    "productId": "ai-shieldnet",
+    "officialUrl": "https://ai.prosfinity.com/",
+    "status": null,
+    "finalUrl": "https://ai.prosfinity.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nohighprice",
+    "productId": "nohighprice",
+    "officialUrl": "https://www.nohighprice.com/",
+    "status": null,
+    "finalUrl": "https://www.nohighprice.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WishMerge",
+    "productId": "wishmerge",
+    "officialUrl": "https://wishmerge.com/",
+    "status": 200,
+    "finalUrl": "https://wishmerge.com/",
+    "title": "WishMerge - Create a Wishlist and Get Funded",
+    "matchedTokens": [
+      "wishmerge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Global Power Plug and Voltage Guide",
+    "productId": "global-power-plug-and-voltage-guide",
+    "officialUrl": "https://worldpowerplug.com/",
+    "status": 200,
+    "finalUrl": "https://worldpowerplug.com/",
+    "title": "Global Power Plug and Voltage Guide | WorldPowerPlug.com",
+    "matchedTokens": [
+      "global",
+      "power",
+      "plug",
+      "voltage",
+      "guide"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Gennie",
+    "productId": "gennie",
+    "officialUrl": "https://heygennie.com/",
+    "status": null,
+    "finalUrl": "https://heygennie.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Evntaly",
+    "productId": "evntaly",
+    "officialUrl": "https://evntaly.com",
+    "status": null,
+    "finalUrl": "https://evntaly.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "The Letter Pilot",
+    "productId": "the-letter-pilot",
+    "officialUrl": "https://theletterpilot.com",
+    "status": 200,
+    "finalUrl": "https://theletterpilot.com/",
+    "title": "The Letter Pilot: Send Mail Online",
+    "matchedTokens": [
+      "letter",
+      "pilot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "XSLAR: Online Tasks Management Solution",
+    "productId": "xslar-online-tasks-management-solution",
+    "officialUrl": "https://xslar.com/",
+    "status": null,
+    "finalUrl": "https://xslar.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AIPackshot",
+    "productId": "aipackshot",
+    "officialUrl": "https://aipackshot.com",
+    "status": 200,
+    "finalUrl": "https://aipackshot.com/",
+    "title": "AI Product Photo Generator | AI Packshot",
+    "matchedTokens": [
+      "aipackshot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AgentHunt.io",
+    "productId": "agenthunt-io",
+    "officialUrl": "https://agenthunt.io/",
+    "status": 200,
+    "finalUrl": "https://agenthunt.io/",
+    "title": "AI Agent Hunt-Your Ultimate AI Agents List for 2026",
+    "matchedTokens": [
+      "agenthunt"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "RowebAI",
+    "productId": "rowebai",
+    "officialUrl": "https://rowebai.com",
+    "status": 200,
+    "finalUrl": "https://rowebai.com/",
+    "title": "RowebAI - AI-Powered Website Heatmaps & Session Recording",
+    "matchedTokens": [
+      "rowebai"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BuildMyResume.co",
+    "productId": "buildmyresume-co",
+    "officialUrl": "https://www.buildmyresume.co",
+    "status": null,
+    "finalUrl": "https://www.buildmyresume.co",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TimeoutError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "SocialOrbit",
+    "productId": "socialorbit",
+    "officialUrl": "https://www.socialorbit.app/",
+    "status": 200,
+    "finalUrl": "https://www.socialorbit.app/",
+    "title": "SocialOrbit - AI-Powered Social Media Content Generator",
+    "matchedTokens": [
+      "socialorbit"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "PeekShot",
+    "productId": "peekshot",
+    "officialUrl": "https://peekshot.com/",
+    "status": 200,
+    "finalUrl": "https://peekshot.com/",
+    "title": "PeekShot: Automatically capture &amp; archive website",
+    "matchedTokens": [
+      "peekshot"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ValidateThat!",
+    "productId": "hourlyrate",
+    "officialUrl": "https://validatethat.io",
+    "status": 200,
+    "finalUrl": "https://validatethat.io/",
+    "title": "ValidateThat — Free Card Sorting + UX Research Stack",
+    "matchedTokens": [
+      "validatethat"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "MindVest Atlas",
+    "productId": "mindvest-atlas",
+    "officialUrl": "https://www.mind-vest.io/atlas",
+    "status": 200,
+    "finalUrl": "https://www.mind-vest.io/atlas",
+    "title": "Atlas by MindVest - A hands-free way to invest and trade",
+    "matchedTokens": [
+      "mindvest",
+      "atlas"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Mobius",
+    "productId": "mobius",
+    "officialUrl": "https://www.joinmobius.com",
+    "status": 200,
+    "finalUrl": "https://www.joinmobius.com/",
+    "title": "Mobius — The Operating System for Investment Management",
+    "matchedTokens": [
+      "mobius"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Groas AI",
+    "productId": "groas-ai",
+    "officialUrl": "https://groas.ai/main",
+    "status": 404,
+    "finalUrl": "https://www.groas.com/main",
+    "title": "Not Found",
+    "matchedTokens": [
+      "groas"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Composed",
+    "productId": "composed",
+    "officialUrl": "https://getcomposed.io",
+    "status": 200,
+    "finalUrl": "https://getcomposed.io/",
+    "title": "Composed | Better Dating Messages",
+    "matchedTokens": [
+      "composed"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Forhopp",
+    "productId": "forhopp",
+    "officialUrl": "https://www.forhopp.com",
+    "status": 200,
+    "finalUrl": "https://www.forhopp.com/",
+    "title": "Forhopp | AI Business Operating System for Founders",
+    "matchedTokens": [
+      "forhopp"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AIFlyer",
+    "productId": "aiflyer",
+    "officialUrl": "https://aiflyer.ai",
+    "status": 200,
+    "finalUrl": "https://aiflyer.ai/",
+    "title": "Free AI Flyer Generator - No Credit Card Needed | AIFlyer",
+    "matchedTokens": [
+      "aiflyer"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LLMs.txt Generator",
+    "productId": "llms-txt-generator",
+    "officialUrl": "https://llms.tools/",
+    "status": 200,
+    "finalUrl": "https://llms.tools/",
+    "title": "",
+    "matchedTokens": [
+      "llms"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Hypello",
+    "productId": "hypello",
+    "officialUrl": "https://www.hypello.com/",
+    "status": 200,
+    "finalUrl": "https://www.hypello.com/",
+    "title": "#1 Instagram DM Automation and comment Automation Tool",
+    "matchedTokens": [
+      "hypello"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Interview Monkey",
+    "productId": "interview-monkey",
+    "officialUrl": "https://interviewmonkey.ai/",
+    "status": 200,
+    "finalUrl": "https://interviewmonkey.ai/",
+    "title": "Interview Monkey AI - Your Ultimate AI Interview Prep Tool for coding and system design interviews.",
+    "matchedTokens": [
+      "interview",
+      "monkey"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Centenary Day",
+    "productId": "centenary-day",
+    "officialUrl": "https://centenary.day",
+    "status": 200,
+    "finalUrl": "https://centenary.day/",
+    "title": "Ultimate toolkit for health optimization | Centenary Day",
+    "matchedTokens": [
+      "centenary"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "OnChat",
+    "productId": "onchat",
+    "officialUrl": "https://onchat.ai",
+    "status": 200,
+    "finalUrl": "https://onchat.ai/",
+    "title": "Boost your sales with an AI chatbot for customer support - OnChat",
+    "matchedTokens": [
+      "onchat"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AltTextLab",
+    "productId": "alttextlab",
+    "officialUrl": "https://www.alttextlab.com/",
+    "status": 200,
+    "finalUrl": "https://www.alttextlab.com/",
+    "title": "AI Alt Text Generator for Images | Create Automatic Alt Text | AltTextLab",
+    "matchedTokens": [
+      "alttextlab"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pur Social",
+    "productId": "pur-social",
+    "officialUrl": "https://www.pur.social/",
+    "status": null,
+    "finalUrl": "https://www.pur.social/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Solo Builder Hub",
+    "productId": "solo-builder-hub",
+    "officialUrl": "https://solobuilderhub.com/",
+    "status": null,
+    "finalUrl": "https://solobuilderhub.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "FinalCapsule",
+    "productId": "finalcapsule",
+    "officialUrl": "https://finalcapsule.com",
+    "status": 200,
+    "finalUrl": "https://finalcapsule.com/en",
+    "title": "Send a Last Message After Death: Encrypted Digital Legacy | Final Capsule",
+    "matchedTokens": [
+      "finalcapsule"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "ReelTime AI",
+    "productId": "reeltime-ai",
+    "officialUrl": "https://reeltime-ai.com/",
+    "status": 502,
+    "finalUrl": "https://reeltime-ai.com/",
+    "title": "502 Bad Gateway",
+    "matchedTokens": [
+      "reeltime"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Pearch",
+    "productId": "pearch",
+    "officialUrl": "http://pearch.app",
+    "status": 200,
+    "finalUrl": "https://www.pearch.app/",
+    "title": "Pearch – AI Shopping Assistant",
+    "matchedTokens": [
+      "pearch"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Scarlet Drives",
+    "productId": "scarlet-drives",
+    "officialUrl": "https://drives.scarlet-technology.com",
+    "status": 200,
+    "finalUrl": "https://drives.scarlet-technology.com/",
+    "title": "Scarlet Drives - The Most Secure File Storage",
+    "matchedTokens": [
+      "scarlet",
+      "drives"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Calendro",
+    "productId": "calendro",
+    "officialUrl": "https://calendro.ai/",
+    "status": 200,
+    "finalUrl": "https://calendro.ai/",
+    "title": "Calendro - AI Calendar Sync &amp; Meeting Scheduler",
+    "matchedTokens": [
+      "calendro"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Nextstarter",
+    "productId": "nextstarter",
+    "officialUrl": "https://nextstarter.pro",
+    "status": null,
+    "finalUrl": "https://nextstarter.pro",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Twitch Username Generator",
+    "productId": "twitch-username-generator",
+    "officialUrl": "https://www.mainconverter.com/twitch-username-generator/",
+    "status": 200,
+    "finalUrl": "https://www.mainconverter.com/twitch-username-generator/",
+    "title": "Twitch Username Generator",
+    "matchedTokens": [
+      "twitch",
+      "username",
+      "generator"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TM SIM REGISTRATION",
+    "productId": "tm-sim-registration",
+    "officialUrl": "https://simtmregistration.com/",
+    "status": 200,
+    "finalUrl": "https://simtmregistration.com/",
+    "title": "TM SIM Registration Online | SIM Registration TM 2026",
+    "matchedTokens": [
+      "registration"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "BondBridge",
+    "productId": "bondbridge",
+    "officialUrl": "https://www.bondbridge.online",
+    "status": 402,
+    "finalUrl": "https://www.bondbridge.online/",
+    "title": "",
+    "matchedTokens": [
+      "bondbridge"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Trackflow",
+    "productId": "trackflow",
+    "officialUrl": "https://www.trackflow.dev",
+    "status": 403,
+    "finalUrl": "https://www.trackflow.dev/",
+    "title": "",
+    "matchedTokens": [
+      "trackflow"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "VerifiedEmail",
+    "productId": "verifiedemail",
+    "officialUrl": "https://verified.email/",
+    "status": 200,
+    "finalUrl": "https://verified.email/",
+    "title": "Email Verification, API, Bulk Email List Cleaning | VerifiedEmail",
+    "matchedTokens": [
+      "verifiedemail"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LabAnalyzer",
+    "productId": "labanalyzer",
+    "officialUrl": "https://labanalyzer.org/",
+    "status": 200,
+    "finalUrl": "https://labanalyzer.org/",
+    "title": "LabAnalyzer - AI-Powered Lab Results Analysis",
+    "matchedTokens": [
+      "labanalyzer"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Kalkulator frekwencji Online Warsaw",
+    "productId": "kalkulator-frekwencji-online-warsaw-2",
+    "officialUrl": "https://kalkulatorfrekwencji.com.pl/",
+    "status": 200,
+    "finalUrl": "https://www.rubytuesdaychile.cl/",
+    "title": "VEGAS123 > Slot Online Bola Gacor & Slot88 Maxwin 888 Slots 4D Scatter Hitam Jackpot",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Native Foundation Membership",
+    "productId": "ai-native-foundation-membership",
+    "officialUrl": "https://ainativefoundation.org/",
+    "status": 200,
+    "finalUrl": "https://ainativefoundation.org/",
+    "title": "AI Native Foundation | AI Native Research, Insights &amp; Cases",
+    "matchedTokens": [
+      "native",
+      "foundation"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "HeadShots.fun",
+    "productId": "headshots-fun",
+    "officialUrl": "https://headshots.fun/",
+    "status": 200,
+    "finalUrl": "https://headshots.fun/",
+    "title": "AI Headshot Generator for LinkedIn &amp; Resumes | $2.99",
+    "matchedTokens": [
+      "headshots"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WonderForm",
+    "productId": "wonderform",
+    "officialUrl": "https://wonderform.io",
+    "status": 200,
+    "finalUrl": "https://wonderform.io/",
+    "title": "",
+    "matchedTokens": [
+      "wonderform"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "DiffSentry",
+    "productId": "diffsentry",
+    "officialUrl": "https://diffsentry.dev/",
+    "status": 200,
+    "finalUrl": "https://diffsentry.dev/",
+    "title": "Shopalytics — Etsy Analytics, in the Making",
+    "matchedTokens": [
+      "diffsentry"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "efficalc truss design",
+    "productId": "efficalc-truss-design",
+    "officialUrl": "https://www.trussanalysis.com/app",
+    "status": 200,
+    "finalUrl": "https://www.trussanalysis.com/app",
+    "title": "Advanced Truss Design | TrussAnalysis.com",
+    "matchedTokens": [
+      "truss",
+      "design"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "TalkShift",
+    "productId": "talkshift",
+    "officialUrl": "https://talkshift.app/",
+    "status": 200,
+    "finalUrl": "https://talkshift.app/",
+    "title": "TalkShift — AI Keyboard for Smarter Conversations",
+    "matchedTokens": [
+      "talkshift"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "GEO RANKS",
+    "productId": "geo-ranks",
+    "officialUrl": "https://georanks.app/",
+    "status": 200,
+    "finalUrl": "https://georanks.app/",
+    "title": "GEO Ranks | Generative Engine Optimization & AI Search Visibility",
+    "matchedTokens": [
+      "ranks"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Evento Plus",
+    "productId": "evento-plus",
+    "officialUrl": "https://twoplusa.com/event-management-software/",
+    "status": 200,
+    "finalUrl": "https://twoplusa.com/event-management-software/",
+    "title": "Event Management Software for Venues &amp; Banquet Halls | Evento Plus",
+    "matchedTokens": [
+      "evento",
+      "plus"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Fulfilled",
+    "productId": "fulfilled-2",
+    "officialUrl": "https://www.fulfilledwealth.co/home",
+    "status": 402,
+    "finalUrl": "https://www.fulfilledwealth.co/home",
+    "title": "",
+    "matchedTokens": [
+      "fulfilled"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "LinkSkill AI",
+    "productId": "linkskill-ai",
+    "officialUrl": "https://linkskillai.com",
+    "status": null,
+    "finalUrl": "https://linkskillai.com",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "WalleAgent",
+    "productId": "walleagent",
+    "officialUrl": "https://walleagent.com",
+    "status": 200,
+    "finalUrl": "https://walleagent.com/",
+    "title": "WalleAgent – Turn Social Interactions into Growth with AI",
+    "matchedTokens": [
+      "walleagent"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Z3D",
+    "productId": "z3d-2",
+    "officialUrl": "https://z3d.ai",
+    "status": 200,
+    "finalUrl": "https://www.z3d.ai/en",
+    "title": "Z3D",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Saas Stack Review",
+    "productId": "saas-stack-review",
+    "officialUrl": "https://saasstackreview.com/",
+    "status": null,
+    "finalUrl": "https://saasstackreview.com/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "KontextChat",
+    "productId": "kontextchat",
+    "officialUrl": "https://kontextchat.app/",
+    "status": null,
+    "finalUrl": "https://kontextchat.app/",
+    "title": "",
+    "matchedTokens": [],
+    "error": "TypeError",
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Namekit",
+    "productId": "namekit",
+    "officialUrl": "https://namekit.app",
+    "status": 200,
+    "finalUrl": "https://namekit.app/",
+    "title": "Domain Name Discovery at Scale | Namekit",
+    "matchedTokens": [
+      "namekit"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Anim8ify",
+    "productId": "anim8ify",
+    "officialUrl": "https://metxrstudios.com/",
+    "status": 200,
+    "finalUrl": "https://metxrstudios.com/",
+    "title": "MetXR Studios — Digital Experiences That Move People",
+    "matchedTokens": [],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "AI Baby Dance",
+    "productId": "ai-baby-dance",
+    "officialUrl": "https://aibabydance.com",
+    "status": 200,
+    "finalUrl": "https://aibabydance.com/",
+    "title": "AI Baby Dance Generator - Turn Baby Photos into Dancing Videos",
+    "matchedTokens": [
+      "baby",
+      "dance"
+    ],
+    "checkedAt": "2026-09-16"
+  },
+  {
+    "name": "Auctiqs",
+    "productId": "auctiqs",
+    "officialUrl": "https://auctiqs.com",
+    "status": 200,
+    "finalUrl": "https://auctiqs.com/",
+    "title": "European Online Auction Marketplace",
+    "matchedTokens": [
+      "auctiqs"
+    ],
+    "checkedAt": "2026-09-16"
+  }
+]

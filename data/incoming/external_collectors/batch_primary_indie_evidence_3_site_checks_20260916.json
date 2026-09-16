@@ -1,0 +1,53 @@
+[
+  {
+    "id": "ent_gramlab_2025_95f68956e0",
+    "name": "Gramlab",
+    "requestedUrl": "https://gramlab.io/",
+    "finalUrl": "https://gramlab.io/",
+    "status": 200,
+    "ok": true,
+    "reachable": true,
+    "contentObserved": true,
+    "contentType": "text/html",
+    "title": "Gramlab",
+    "description": "Gramlab helps entrepreneurs, creators, and brands maximize their Instagram story views by automatically adding followers to their Close Friends list. No passwords, no risks — just more visibility, engagement, and sales.",
+    "excerptBytes": 240000,
+    "excerptSha256": "9f666bbcfe75789a4246009afea26bd71dad80b5efe53355929eeae552df21c5",
+    "checkedAt": "2026-09-16T00:00:00+09:00",
+    "durationMs": 318
+  },
+  {
+    "id": "ent_rightblogger_2026_kxuy5zjfn1",
+    "name": "RightBlogger",
+    "requestedUrl": "https://rightblogger.com/",
+    "finalUrl": "https://rightblogger.com/",
+    "status": 200,
+    "ok": true,
+    "reachable": true,
+    "contentObserved": true,
+    "contentType": "text/html; charset=utf-8",
+    "title": "RightBlogger: AI Blog Automation for Google & ChatGPT",
+    "description": "RightBlogger is an AI blog automation tool that researches, writes, publishes, and keeps your site&#x27;s posts ranking on Google and ChatGPT.",
+    "excerptBytes": 184305,
+    "excerptSha256": "e3d729517fe33a0f0af160ff275dfcfa0a9d81e01ea5d3636ba0e496d658b2bc",
+    "checkedAt": "2026-09-16T00:00:00+09:00",
+    "durationMs": 356
+  },
+  {
+    "id": "ent_personalbest_2026_jhx6p14de0",
+    "name": "Personal Best",
+    "requestedUrl": "https://getpersonalbest.com/",
+    "finalUrl": "https://getpersonalbest.com/",
+    "status": 200,
+    "ok": true,
+    "reachable": true,
+    "contentObserved": true,
+    "contentType": "text/html; charset=utf-8",
+    "title": "Personal Best | Workout tracker for iPhone, iPad, and Apple Watch",
+    "description": "Plan, track, and relive your workouts with Personal Best for iPhone, iPad, and Apple Watch.",
+    "excerptBytes": 10311,
+    "excerptSha256": "118a9a5088418e64ee525b37f56f36f1122f326e0ad1bba17fcf8288174ec820",
+    "checkedAt": "2026-09-16T00:00:00+09:00",
+    "durationMs": 573
+  }
+]

@@ -16,9 +16,12 @@ export function PartnersClient({ entities }: PartnersClientProps) {
   const router = useRouter();
   const [copied, setCopied] = useState(false);
   const [partnerId, setPartnerId] = useState('usr_partner');
+  // The server and first client render must agree. Resolve the actual host after hydration.
+  const [baseUrl, setBaseUrl] = useState('https://makemoney-app.pages.dev');
 
   useEffect(() => {
     const timer = setTimeout(() => {
+      setBaseUrl(window.location.origin);
       try {
         const stored = localStorage.getItem('makemoney_partner_id');
         if (stored) {
@@ -35,7 +38,6 @@ export function PartnersClient({ entities }: PartnersClientProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://makemoney-app.pages.dev';
   const referralUrl = `${baseUrl}/?ref=${partnerId}`;
 
   const handleCopy = async () => {

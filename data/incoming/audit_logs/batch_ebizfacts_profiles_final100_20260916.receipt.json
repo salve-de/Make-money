@@ -1,0 +1,56 @@
+{
+  "receiptVersion": "make-money-collection-receipt.v1",
+  "batchId": "batch-ebizfacts-profiles-final100-20260916",
+  "snapshot": "2026-09-16",
+  "selection": {
+    "input": "data/incoming/batch_ebizfacts_profiles_case_playbooks_1000_20260916.json",
+    "selectionRule": "SOLOまたはSMALL_TEAM、プロフィールカードまたはタイトルに結び付く売上/利益シグナル、更新年2024-2026を満たす候補から、利益・売上の明示度、公式URL到達性、更新年、本文量を優先して100件選択。",
+    "candidates": 209,
+    "selected": 100,
+    "scale": {
+      "SOLO": 45,
+      "SMALL_TEAM": 55
+    },
+    "boundPrimaryMetric": {
+      "MONTHLY_PROFIT": 2,
+      "ANNUAL_PROFIT": 1,
+      "MONTHLY_REVENUE": 65,
+      "ANNUAL_REVENUE": 32
+    },
+    "modifiedYears": {
+      "2024": 18,
+      "2025": 67,
+      "2026": 15
+    }
+  },
+  "artifact": {
+    "path": "data/incoming/batch_ebizfacts_profiles_final100_20260916.json",
+    "sha256": "b692b6a9c34e980ab38fb2284787b3b79c1dd7d05593fb656b59e7d01adce9c6",
+    "count": 100
+  },
+  "quality": {
+    "schemaValid": 100,
+    "schemaInvalid": 0,
+    "uniqueIds": 100,
+    "uniqueNames": 100,
+    "uniqueTickers": 100,
+    "centralCatalogCollisions": 0,
+    "currencyConversionChecks": 445,
+    "currencyConversionMismatches": 0,
+    "officialSiteCards": 98,
+    "allFinancialStatusReported": true,
+    "allFinancialValuesUnconfirmed": true
+  },
+  "claimLock": {
+    "agent": "codex-20260916-ebizfacts1000",
+    "batchEntityClaimsMatched": 100,
+    "sourceLedger": "data/CLAIMED_TARGETS.txt"
+  },
+  "boundaries": {
+    "centralCatalogEdited": false,
+    "edinetFinancialsEdited": false,
+    "officialSiteSignalsAreNotFinancialProof": true,
+    "independentProfitAuditCompleted": false,
+    "r2RawEvidenceUploaded": false
+  }
+}
