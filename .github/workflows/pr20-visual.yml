@@ -12,7 +12,8 @@ jobs:
     if: >-
       github.event.pull_request.number == 20 ||
       (github.event.pull_request.base.ref == 'experiment/intuitive-visual-pipeline' &&
-       github.event.pull_request.head.ref == 'refactor/pr20-clean-final')
+       (github.event.pull_request.head.ref == 'refactor/pr20-clean-final' ||
+        github.event.pull_request.head.ref == 'integration/pr20-final-locked-20260917'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
