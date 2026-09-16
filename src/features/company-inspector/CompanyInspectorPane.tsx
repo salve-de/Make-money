@@ -13,6 +13,7 @@ import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
 import { CashAnatomySection } from './ui/CashAnatomySection';
+import { EstimatedCashSummary } from './ui/EstimatedCashSummary';
 import { LootBlueprintSection } from './ui/LootBlueprintSection';
 import type { InspectorViewMode } from './model/section-props';
 
@@ -44,7 +45,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   const searchParams = useSearchParams();
   const targetSection = searchParams?.get('section');
 
-  // セクション直通スクロールジャンプ
   const scrollToSection = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
@@ -52,18 +52,15 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
     }
   };
 
-  // スクロール追従（固定ヘッダーの立体シャドウ強調）
   const handleScroll = () => {
     if (scrollContainerRef.current) {
       setIsScrolled(scrollContainerRef.current.scrollTop > 12);
     }
   };
 
-  // 銘柄切り替え時にスクロールを先頭へリセット
   useEffect(() => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
-      // Synchronize the header with the DOM scroll position reset above.
       setIsScrolled(false);
     }
   }, [entity?.id]);
@@ -119,62 +116,35 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   return (
     <>
-      {/* スマホ時バックドロップ */}
       <div
         onClick={onClose}
         className="fixed inset-0 bg-black/60 backdrop-blur-xs z-30 md:hidden"
       />
 
       <aside className="fixed md:static inset-x-0 bottom-0 max-h-[92vh] md:max-h-none h-full w-full md:flex-1 md:min-w-[480px] bg-[#040507] border-t md:border-t-0 md:border-l border-white/[0.08] z-40 flex flex-col shrink-0 md:shrink select-none overflow-hidden shadow-2xl">
-
-        {/* ========================================================= */}
-        {/* 【上部固定計器盤（PINNED EXECUTIVE HUD）: 冷徹モノトーン ＆ 高密度金融端末】 */}
-        {/* ========================================================= */}
         <CompanyHeader {...sectionProps} />
 
-        {/* ========================================================= */}
-        {/* 【コンテンツゾーン: スクロールトレイ ＆ 金融監査ストリーム】 */}
-        {/* ========================================================= */}
         <div
           ref={scrollContainerRef}
           onScroll={handleScroll}
           className="flex-1 overflow-y-auto p-4 space-y-6 text-xs font-sans bg-[#080B10] relative scroll-smooth [scrollbar-gutter:stable] [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.2)_rgba(8,11,16,1)]"
         >
-
           {mainTab === 'LEDGER' ? (
             <>
-              {/* ========================================================= */}
-              {/* 【本丸】資本主義の裏帳簿：4層キラーピラミッド */}
-              {/* ========================================================= */}
-
-              {/* LAYER 1: 【0秒・脳幹直撃】断罪HUD・エグゼクティブサマリー */}
               <ExecutiveIntuitiveSummary {...sectionProps} />
-
-              {/* LAYER 2: 【3秒・急所解剖】動かぬ証拠 4大急所デッキ */}
               <EvidenceDeckSection {...sectionProps} />
-
-              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー ⇄ 現金の滝 ⇄ P&L明細） */}
-              <CashAnatomySection {...sectionProps} />
-
-              {/* LAYER 4: 【5分・略奪実行】略奪ブループリント ＆ 武器庫 */}
+              {entity.pnl.financialStatus === 'ESTIMATED' ? (
+                <EstimatedCashSummary {...sectionProps} />
+              ) : (
+                <CashAnatomySection {...sectionProps} />
+              )}
               <LootBlueprintSection {...sectionProps} />
             </>
           ) : (
             <>
-              {/* ========================================================= */}
-              {/* 【証拠】検証エビデンス（原本アーカイブ ＆ 全量ログ） */}
-              {/* ========================================================= */}
-
-              {/* 1. 一次情報源・原本アーカイブ */}
               <SourcesSection {...sectionProps} />
-
-              {/* 2. 全量調査ログ・観察ストリーム */}
               <EvidenceStream {...sectionProps} />
-
-              {/* 3. アナリスト考察メモ */}
               <AnalystNotes {...sectionProps} />
-
-              {/* 4. 関連リサーチ */}
               <RelatedResearch {...sectionProps} />
             </>
           )}
