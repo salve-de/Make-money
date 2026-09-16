@@ -15,7 +15,9 @@ import {
 
 export const dynamic = 'force-dynamic';
 const privateHeaders = { 'Cache-Control': 'private, no-store', Vary: 'Authorization' };
-const publicHeaders = { 'Cache-Control': 'public, max-age=30, stale-while-revalidate=300' };
+// Projection reads are safe to cache briefly, but never serve a five-minute stale
+// negative after another administrator has approved the entity.
+const publicHeaders = { 'Cache-Control': 'public, max-age=10, must-revalidate' };
 
 function json(body: unknown, status = 200, headers: HeadersInit = privateHeaders) {
   return NextResponse.json(body, { status, headers });
