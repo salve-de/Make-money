@@ -12,6 +12,10 @@ type CashViewMode = 'WATERFALL' | 'SANKEY' | 'TABLE';
 
 const chartFont = 'Inter, "Noto Sans JP", system-ui, sans-serif';
 
+function percentOf(value: number, revenue: number): number {
+  return revenue > 0 ? Math.round((value / revenue) * 100) : 0;
+}
+
 export function CashAnatomySection({
   entity,
   isHazardMode,
@@ -44,11 +48,10 @@ export function CashAnatomySection({
   const profit = entity.pnl?.operatingProfit ?? 0;
   const grossProfit = rev - cogs;
   const isLoss = profit < 0;
-  const ratio = (value: number) => (rev > 0 ? Math.round((value / rev) * 100) : 0);
-  const actualCogsPct = ratio(cogs);
-  const opexPct = ratio(totalOpex);
-  const actualProfitPct = ratio(profit);
-  const grossProfitPct = ratio(grossProfit);
+  const actualCogsPct = percentOf(cogs, rev);
+  const opexPct = percentOf(totalOpex, rev);
+  const actualProfitPct = percentOf(profit, rev);
+  const grossProfitPct = percentOf(grossProfit, rev);
   const canRenderSankey = grossProfit >= 0;
   const integrity = inspectFinancialIntegrity(entity.pnl);
   const hasConflict = integrity.profitConflict || integrity.grossConflict || integrity.marginConflict;
@@ -64,16 +67,15 @@ export function CashAnatomySection({
     ? 'SANKEY'
     : 'WATERFALL';
   const [viewMode, setViewMode] = useState<CashViewMode>(defaultMode);
-
-  useEffect(() => {
-    if (viewMode === 'SANKEY' && !canRenderSankey) setViewMode('WATERFALL');
-  }, [canRenderSankey, viewMode]);
+  const effectiveViewMode: CashViewMode = viewMode === 'SANKEY' && !canRenderSankey
+    ? 'WATERFALL'
+    : viewMode;
 
   useEffect(() => {
     const el = chartRef.current;
     if (
       !el ||
-      viewMode === 'TABLE' ||
+      effectiveViewMode === 'TABLE' ||
       isFinancialUnavailable ||
       incompleteInputs ||
       hasConflict
@@ -94,15 +96,15 @@ export function CashAnatomySection({
 
       let option: echarts.EChartsOption;
 
-      if (viewMode === 'SANKEY' && canRenderSankey) {
-        const revenueNode = `売上高 100%`;
+      if (effectiveViewMode === 'SANKEY' && canRenderSankey) {
+        const revenueNode = '売上高 100%';
         const cogsNode = `売上原価 ${actualCogsPct}%`;
         const grossNode = `粗利益 ${grossProfitPct}%`;
         const opexNode = `販管費 ${opexPct}%`;
         const profitNode = `営業利益 ${actualProfitPct}%`;
         const lossFundingNode = `営業損失 ${Math.abs(actualProfitPct)}%`;
 
-        const nodes: echarts.SankeySeriesOption['data'] = [
+        const nodes = [
           {
             name: revenueNode,
             itemStyle: { color: '#60a5fa', borderColor: '#93c5fd', borderWidth: 1 }
@@ -137,17 +139,13 @@ export function CashAnatomySection({
             : [])
         ];
 
-        const links: echarts.SankeySeriesOption['links'] = [
-          ...(cogs > 0
-            ? [{ source: revenueNode, target: cogsNode, value: cogs }]
-            : []),
+        const links = [
+          ...(cogs > 0 ? [{ source: revenueNode, target: cogsNode, value: cogs }] : []),
           { source: revenueNode, target: grossNode, value: grossProfit },
           ...(profit >= 0 && totalOpex > 0
             ? [{ source: grossNode, target: opexNode, value: totalOpex }]
             : []),
-          ...(profit > 0
-            ? [{ source: grossNode, target: profitNode, value: profit }]
-            : []),
+          ...(profit > 0 ? [{ source: grossNode, target: profitNode, value: profit }] : []),
           ...(profit < 0 && grossProfit > 0
             ? [{ source: grossNode, target: opexNode, value: grossProfit }]
             : []),
@@ -178,8 +176,7 @@ export function CashAnatomySection({
                 data?: { source?: string; target?: string };
               };
               if (p.dataType === 'edge' && p.data && typeof p.value === 'number') {
-                const pct = ratio(p.value);
-                return `<strong>${p.data.source} → ${p.data.target}</strong><br/>${formatMoney(p.value)} / 売上比 ${pct}%`;
+                return `<strong>${p.data.source} → ${p.data.target}</strong><br/>${formatMoney(p.value)} / 売上比 ${percentOf(p.value, rev)}%`;
               }
               return `<strong>${p.name || ''}</strong>`;
             }
@@ -329,7 +326,7 @@ export function CashAnatomySection({
                 barMaxWidth: 48,
                 label: {
                   show: true,
-                  position: 'outside',
+                  position: 'top',
                   color: '#e2e8f0',
                   fontFamily: chartFont,
                   fontSize: 10,
@@ -374,7 +371,7 @@ export function CashAnatomySection({
       if (chartInstance.current === myChart) chartInstance.current = null;
     };
   }, [
-    viewMode,
+    effectiveViewMode,
     rev,
     cogs,
     grossProfit,
@@ -469,20 +466,20 @@ export function CashAnatomySection({
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <div className="inline-flex rounded-md border border-white/[0.10] bg-[#0b0f15] p-0.5 text-[11px]">
           <ViewButton
-            active={viewMode === 'WATERFALL'}
+            active={effectiveViewMode === 'WATERFALL'}
             onClick={() => setViewMode('WATERFALL')}
             icon={<TrendingDown className="h-3.5 w-3.5" />}
             label="損益ブリッジ"
           />
           <ViewButton
-            active={viewMode === 'SANKEY'}
+            active={effectiveViewMode === 'SANKEY'}
             onClick={() => setViewMode('SANKEY')}
             icon={<GitBranch className="h-3.5 w-3.5" />}
             label="資金フロー"
             disabled={!canRenderSankey}
           />
           <ViewButton
-            active={viewMode === 'TABLE'}
+            active={effectiveViewMode === 'TABLE'}
             onClick={() => setViewMode('TABLE')}
             icon={<Table className="h-3.5 w-3.5" />}
             label="明細"
@@ -493,7 +490,7 @@ export function CashAnatomySection({
         )}
       </div>
 
-      {viewMode === 'TABLE' ? (
+      {effectiveViewMode === 'TABLE' ? (
         <div className="overflow-x-auto rounded-md border border-white/[0.08] bg-[#0b0f15]">
           <table className="w-full min-w-[620px] border-collapse text-left text-xs">
             <thead>
@@ -525,9 +522,7 @@ export function CashAnatomySection({
       )}
 
       <div className="mt-3 flex flex-wrap items-start justify-between gap-2 text-[10px] leading-relaxed text-zinc-500">
-        <p>
-          売上高 {formatMoney(rev)} → 粗利益 {formatMoney(grossProfit)} → 営業利益 {formatMoney(profit)}。
-        </p>
+        <p>売上高 {formatMoney(rev)} → 粗利益 {formatMoney(grossProfit)} → 営業利益 {formatMoney(profit)}。</p>
         <p>営業利益は税引後キャッシュや創業者の手取りではありません。</p>
       </div>
     </section>
@@ -586,7 +581,7 @@ function ViewButton({
         active
           ? 'bg-blue-500/15 text-blue-200'
           : 'text-zinc-400 hover:bg-white/[0.04] hover:text-zinc-200'
-      } disabled:cursor-not-allowed disabled:opacity-35`}
+      } disabled:cursor-not-allowed disabled:opacity-40`}
     >
       {icon}
       <span>{label}</span>
