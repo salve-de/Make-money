@@ -18,6 +18,8 @@ import {
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
 
+const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
+
 function parseApprovedIds(payload: unknown): string[] {
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) throw new Error('Invalid approval overlay');
   const ids = (payload as Record<string, unknown>).entityIds;
@@ -58,9 +60,17 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
 
   // Source research is immutable. Approved IDs are a separate persisted editorial overlay.
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
-  // Only successful projection reads are remembered. An aborted/failed request is
-  // deliberately not marked complete, so the replacement effect retries it.
-  const approvalProjectionCompletedIds = useRef(new Set<string>());
+  const [approvalProjectionEpoch, setApprovalProjectionEpoch] = useState(0);
+  // Negative results expire. Positive approvals are monotonic and live in approvedIds.
+  const negativeApprovalCheckedAt = useRef(new Map<string, number>());
+
+  useEffect(() => {
+    const timer = window.setInterval(
+      () => setApprovalProjectionEpoch((value) => value + 1),
+      NEGATIVE_APPROVAL_RECHECK_MS,
+    );
+    return () => window.clearInterval(timer);
+  }, []);
 
   // R2の完成体候補のみを抽出
   const foundationDisplayRows = useMemo(() => {
@@ -84,7 +94,12 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   }, [coreEntities, foundationEntities, detailedEntities]);
 
   useEffect(() => {
-    const pendingIds = approvalCandidateIds.filter((id) => !approvalProjectionCompletedIds.current.has(id));
+    const now = Date.now();
+    const pendingIds = approvalCandidateIds.filter((id) => {
+      if (approvedIds.has(id)) return false;
+      const lastNegativeCheck = negativeApprovalCheckedAt.current.get(id) ?? 0;
+      return now - lastNegativeCheck >= NEGATIVE_APPROVAL_RECHECK_MS;
+    });
     if (pendingIds.length === 0) return;
 
     const controller = new AbortController();
@@ -99,17 +114,28 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
           });
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const ids = parseApprovedIds(await response.json());
+          const approved = new Set(ids);
           setApprovedIds((current) => {
-            // Merge instead of replace: a slow projection read must never erase an
-            // approval acknowledged while this request was in flight.
+            let changed = false;
             const next = new Set(current);
-            ids.forEach((id) => next.add(id));
-            return next;
+            ids.forEach((id) => {
+              if (!next.has(id)) {
+                next.add(id);
+                changed = true;
+              }
+            });
+            return changed ? next : current;
           });
-          // Commit completion only after this chunk was fetched and parsed. If a
-          // dependency change aborts an in-flight chunk, the replacement effect
-          // still sees it as pending and reissues the bounded projection request.
-          chunk.forEach((id) => approvalProjectionCompletedIds.current.add(id));
+
+          // Only successful reads get a negative timestamp. Aborted/failed chunks
+          // remain immediately eligible for the replacement effect. A negative is
+          // revalidated after the short TTL so another admin's later approval is
+          // discovered without a full page reload.
+          const checkedAt = Date.now();
+          chunk.forEach((id) => {
+            if (approved.has(id)) negativeApprovalCheckedAt.current.delete(id);
+            else negativeApprovalCheckedAt.current.set(id, checkedAt);
+          });
         }
       } catch (error) {
         if ((error as { name?: string })?.name !== 'AbortError') {
@@ -118,7 +144,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
       }
     })();
     return () => controller.abort();
-  }, [approvalCandidateIds]);
+  }, [approvalCandidateIds, approvedIds, approvalProjectionEpoch]);
 
   // 全エンティティの統合
   const entities = useMemo(() => {
