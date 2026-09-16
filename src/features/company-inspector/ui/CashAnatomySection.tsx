@@ -3,12 +3,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { IncompleteCashSummary } from './IncompleteCashSummary';
 import * as echarts from 'echarts';
-import {
-  Banknote,
-  Droplets,
-  Table,
-  TrendingDown
-} from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 type CashViewMode = 'WATERFALL' | 'SANKEY' | 'TABLE';
@@ -329,111 +323,94 @@ export function CashAnatomySection({
   if (incompleteInputs) return <IncompleteCashSummary entity={entity} formatMoney={formatMoney} />;
 
   return (
-    <section
-      id="section-cash-anatomy"
-      className={`rounded-xl border p-4 sm:p-5 shadow-2xl relative overflow-hidden transition-all ${
-        isHazardMode
-          ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-          : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
-      }`}
-    >
-      {/* 背景アンビエント光 */}
-      <div
-        className={`absolute top-0 right-0 w-80 h-48 rounded-full blur-[90px] pointer-events-none ${
-          isHazardMode ? 'bg-red-500/8' : 'bg-emerald-500/8'
-        }`}
-      />
+    <section id="section-cash-anatomy" className="scroll-mt-4">
+      {/* 統合財務アナトミー調書サーフェス */}
+      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      }`}>
+        {/* セクションヘッダー ＆ 切替トグル */}
+        <div className={`flex items-center justify-between px-4 py-2.5 border-b gap-2 flex-wrap ${
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+        }`}>
+          <div className="flex items-center gap-2">
+            <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
+              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+            }`}>
+              FINANCIAL ANATOMY // {isHazardMode ? '致死出血点 ＆ 赤字解剖' : '現金解剖 ＆ 損益レントゲン'}
+            </span>
+          </div>
 
-      {/* セクションヘッダー ＆ 3大ビュートグル */}
-      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10 flex-wrap">
-        <div className="flex items-center gap-2.5">
-          <Banknote className={`w-4 h-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-emerald-400'}`} />
-          <div>
-            <h3
-              className={`text-xs font-mono font-bold tracking-wider uppercase ${
-                isHazardMode ? 'text-red-300' : 'text-zinc-100'
+          {/* 3大切替トグル */}
+          <div className="inline-flex rounded p-0.5 bg-white/[0.04] border border-white/[0.08] font-mono text-[10px]">
+            <button
+              type="button"
+              onClick={() => setViewMode('WATERFALL')}
+              className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
+                viewMode === 'WATERFALL'
+                  ? 'bg-white text-zinc-950 font-semibold'
+                  : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
-              現金の解剖室：通帳着金と原価流出のレントゲン
-            </h3>
+              通帳引き算バー
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('SANKEY')}
+              className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
+                viewMode === 'SANKEY'
+                  ? 'bg-white text-zinc-950 font-semibold'
+                  : 'text-zinc-400 hover:text-zinc-200'
+              }`}
+            >
+              現金の滝 (Sankey)
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('TABLE')}
+              className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${
+                viewMode === 'TABLE'
+                  ? 'bg-white text-zinc-950 font-semibold'
+                  : 'text-zinc-400 hover:text-zinc-200'
+              }`}
+            >
+              損益明細 (P&L)
+            </button>
           </div>
         </div>
 
-        {/* 3大切替トグル */}
-        <div className="inline-flex rounded-lg p-0.5 bg-black/60 border border-white/[0.10] font-mono text-[10px]">
-          <button
-            type="button"
-            onClick={() => setViewMode('WATERFALL')}
-            className={`px-2.5 py-1 rounded transition-all cursor-pointer flex items-center gap-1 ${
-              viewMode === 'WATERFALL'
-                ? 'bg-white text-black font-bold shadow-xs'
-                : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <TrendingDown className="w-3 h-3" />
-            <span>通帳引き算バー</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setViewMode('SANKEY')}
-            className={`px-2.5 py-1 rounded transition-all cursor-pointer flex items-center gap-1 ${
-              viewMode === 'SANKEY'
-                ? 'bg-white text-black font-bold shadow-xs'
-                : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <Droplets className="w-3 h-3" />
-            <span>現金の滝 (Sankey)</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setViewMode('TABLE')}
-            className={`px-2.5 py-1 rounded transition-all cursor-pointer flex items-center gap-1 ${
-              viewMode === 'TABLE'
-                ? 'bg-white text-black font-bold shadow-xs'
-                : 'text-zinc-400 hover:text-zinc-200'
-            }`}
-          >
-            <Table className="w-3 h-3" />
-            <span>損益計算明細 (P&L)</span>
-          </button>
-        </div>
-      </div>
-
-      {/* 4連コアKPIストリップ */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4 font-mono">
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">月商規模</span>
-          <span className="text-sm font-black text-white tabular-nums">{formatMoney(rev)}</span>
-        </div>
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">売上原価 (COGS)</span>
-          <span className="text-sm font-black text-rose-400 tabular-nums">
-            {formatMoney(cogs)}
-            <span className="text-[10px] text-rose-300/80 ml-1 font-normal">({actualCogsPct}%)</span>
-          </span>
-        </div>
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">月間販管費 (Opex)</span>
-          <span className="text-sm font-black text-amber-400 tabular-nums">
-            {formatMoney(totalOpex)}
-            <span className="text-[10px] text-amber-300/80 ml-1 font-normal">({opexPct}%)</span>
-          </span>
-        </div>
-        <div className="bg-[#10141F] p-2.5 rounded-lg border border-white/[0.06]">
-          <span className="text-[10px] text-zinc-400 block font-medium uppercase">純手残り (営業利益)</span>
-          <span
-            className={`text-sm font-black tabular-nums ${
-              isLoss ? 'text-red-400' : 'text-emerald-300'
-            }`}
-          >
-            {formatMoney(profit)}
-            <span className="text-[10px] ml-1 font-bold">
-              ({isLoss ? `-${actualProfitPct}%` : `+${actualProfitPct}%`})
+        {/* 4大KPI水平ストリップ（カードではなく等間隔バー） */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-white/[0.06] border-b border-white/[0.06] bg-white/[0.01]">
+          <div className="p-3">
+            <span className="text-[10px] font-mono text-zinc-400 block uppercase">月商規模</span>
+            <span className="text-sm font-bold font-mono text-zinc-100 tabular-nums">{formatMoney(rev)}</span>
+          </div>
+          <div className="p-3">
+            <span className="text-[10px] font-mono text-zinc-400 block uppercase">売上原価 (COGS)</span>
+            <span className="text-sm font-bold font-mono text-zinc-300 tabular-nums">
+              {formatMoney(cogs)}
+              <span className="text-[10px] text-zinc-500 ml-1 font-normal">({actualCogsPct}%)</span>
             </span>
-          </span>
+          </div>
+          <div className="p-3">
+            <span className="text-[10px] font-mono text-zinc-400 block uppercase">月間販管費 (Opex)</span>
+            <span className="text-sm font-bold font-mono text-zinc-300 tabular-nums">
+              {formatMoney(totalOpex)}
+              <span className="text-[10px] text-zinc-500 ml-1 font-normal">({opexPct}%)</span>
+            </span>
+          </div>
+          <div className="p-3">
+            <span className="text-[10px] font-mono text-zinc-400 block uppercase">営業利益 (純手残り)</span>
+            <span className={`text-sm font-bold font-mono tabular-nums ${isLoss ? 'text-red-400' : 'text-emerald-400'}`}>
+              {formatMoney(profit)}
+              <span className="text-[10px] ml-1">
+                ({isLoss ? `-${actualProfitPct}%` : `+${actualProfitPct}%`})
+              </span>
+            </span>
+          </div>
         </div>
-      </div>
+
+        {/* メイン可視化コンテンツ */}
+        <div className="p-4">
 
       {/* メイン可視化コンテンツ */}
       {viewMode === 'TABLE' ? (
@@ -484,10 +461,12 @@ export function CashAnatomySection({
           </table>
         </div>
       ) : (
-        <div className="w-full h-[260px] bg-[#07090F]/90 rounded-lg border border-white/[0.08] relative overflow-hidden">
+        <div className="w-full h-[260px] bg-[#07090F]/90 rounded border border-white/[0.08] relative overflow-hidden">
           <div ref={chartRef} className="w-full h-full" />
         </div>
       )}
+        </div>
+      </div>
     </section>
   );
 }

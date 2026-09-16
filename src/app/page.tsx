@@ -1,47 +1,14 @@
-import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES } from '@/platform/data/mockLedgerData';
+import { INSTITUTIONAL_ENTITY_ALIASES } from '@/platform/data/mockLedgerData';
 import { publicEntity, publicSummaryEntity } from '@/lib/company-access/public-entity';
-import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
-import { normalizeFinancialEntity } from '@/shared/financial-integrity';
-import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
+import { getCachedEntities } from '@/lib/company-access/static-entities-cache';
 import React, { Suspense } from 'react';
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
 import { TerminalShell } from '../platform/components/layout/TerminalShell';
-import type { FinancialEntity } from '@/platform/types/terminal';
-
-async function getInitialEntities(): Promise<FinancialEntity[]> {
-  try {
-    const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
-    const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
-    const { validEntities, invalidEntities } = parseFinancialEntitiesResiliently(parsed);
-
-    if (invalidEntities.length > 0) {
-      console.error(`[HomePage] CRITICAL: Quarantined ${invalidEntities.length} invalid entities while serving ${validEntities.length} valid entities:`, invalidEntities.slice(0, 5));
-    }
-
-    if (validEntities.length > 0) {
-      const normalized = validEntities
-        .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
-        .map(reconcileFinancialEntity)
-        .map(normalizeFinancialEntity);
-      const keyenceIdx = normalized.findIndex((e) => e.id === 'ent_keyence');
-      if (keyenceIdx > 0) {
-        const [keyence] = normalized.splice(keyenceIdx, 1);
-        normalized.unshift(keyence);
-      }
-      return normalized;
-    }
-  } catch (error) {
-    console.error('[HomePage] Catastrophic failure reading entities-index.json; fallback to static core:', error);
-  }
-  return INSTITUTIONAL_ENTITIES;
-}
 
 
 export default async function Home(props: { searchParams?: Promise<{ entity?: string }> }) {
   const searchParams = props.searchParams ? await props.searchParams : undefined;
   const requestedEntityId = searchParams?.entity;
-  const entities = await getInitialEntities();
+  const entities = await getCachedEntities();
 
   // 1億件スケール耐性: 
   // 1. URLで直接指定されたエンティティ（パーマリンク・テスト時）および初期展開候補（キーエンス等）は完全版をSSR供給。

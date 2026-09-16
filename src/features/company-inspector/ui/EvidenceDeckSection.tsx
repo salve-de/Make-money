@@ -1,58 +1,35 @@
+import React from 'react';
 import { DynamicEvidenceDeck } from '../dynamic-sections/DynamicEvidenceDeck';
-
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function EvidenceDeckSection({ entity, isHazardMode, hasEvidenceCards }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
-  const hasVerifiedCards = entity.evidenceCards?.some((card) => card.evidenceStatus === 'VERIFIED') === true;
-  return <>
-          {/* ========================================================= */}
-          {/* 【動的証拠保全デッキ (DYNAMIC EVIDENCE DECK)】 */}
-          {/* ========================================================= */}
-          {hasEvidenceCards && (
-            <div
-              id="section-evidence"
-              className={`rounded-lg overflow-hidden border shadow-xl ${
-                isHazardMode
-                  ? 'border-red-500/30 bg-[#0E131F]'
-                  : 'border-white/[0.12] bg-[#0E131F]'
-              } scroll-mt-4`}
-            >
-              {/* セクション専用タイトルバー (Level 2: #141A29) */}
-              <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
-                isHazardMode
-                  ? 'bg-red-950/40 border-red-500/30'
-                  : 'bg-[#141A29] border-white/[0.08]'
-              }`}>
-                <div className="flex items-center gap-2.5">
-                  {/* 垂直アクセントバー (視覚の杭) */}
-                  <div className={`w-1 h-3.5 rounded-full ${
-                    isHazardMode
-                      ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]'
-                      : 'bg-zinc-300'
-                  }`} />
-                  <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-300 bg-red-900/40 border-red-500/40'
-                      : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
-                  }`}>
-                    {hasVerifiedCards ? 'FACT' : 'OBSERVATION'}
-                  </span>
-                  <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
-                  }`}>
-                    {isHazardMode ? '失敗・撤退の事実ログ' : '儲けのウラ側 ＆ 現場の証拠ファイル'}
-                  </h3>
-                </div>
-                <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                  {entity.evidenceCards!.length}件の保存済み観測
-                </span>
-              </div>
-              <div className="p-3 bg-[#0E131F]">
-                <DynamicEvidenceDeck cards={entity.evidenceCards!} isHazardMode={isHazardMode} />
-              </div>
-            </div>
-          )}
+  if (!hasEvidenceCards || !entity.evidenceCards || entity.evidenceCards.length === 0) return null;
 
+  return (
+    <section id="section-evidence" className="scroll-mt-4">
+      {/* 統合エビデンス調書サーフェス */}
+      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      }`}>
+        {/* セクションヘッダー */}
+        <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+        }`}>
+          <div className="flex items-center gap-2">
+            <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
+              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+            }`}>
+              EVIDENCE DOSSIER // {isHazardMode ? '破綻・撤退の客観的証拠ログ' : '儲けのウラ側 ＆ 現場観測ログ'}
+            </span>
+          </div>
+          <span className="font-mono text-[10px] text-zinc-400">
+            {entity.evidenceCards.length}件の記録
+          </span>
+        </div>
 
-  </>;
+        {/* 監査行リスト */}
+        <DynamicEvidenceDeck cards={entity.evidenceCards} isHazardMode={isHazardMode} />
+      </div>
+    </section>
+  );
 }

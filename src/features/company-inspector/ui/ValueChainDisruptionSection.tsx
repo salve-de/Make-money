@@ -1,6 +1,6 @@
 import { legacyText } from '../model/legacy-fields';
 import React from 'react';
-import { Layers, ArrowRight, XCircle, CheckCircle2, ShieldAlert, Cpu, Network, Store, Users, Factory, Building2 } from 'lucide-react';
+import { ArrowRight, XCircle, CheckCircle2, ShieldAlert, Cpu, Network, Store, Users, Factory, Building2 } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function ValueChainDisruptionSection({
@@ -81,22 +81,21 @@ export function ValueChainDisruptionSection({
     return (
       <section
         id="section-value-chain"
-        className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden ${
+        className={`rounded-md border p-4 ${
           isHazardMode
-            ? 'bg-[#0A0D14] border-red-500/25'
-            : 'bg-[#0A0D14] border-white/[0.10]'
+            ? 'bg-[#0A0D15] border-red-500/25'
+            : 'bg-[#0A0D15] border-white/[0.08]'
         }`}
       >
-        <div className="flex items-center gap-2.5 mb-4 pb-3 border-b border-white/[0.08]">
-          {isHazardMode ? <ShieldAlert className="w-4 h-4 text-red-400" /> : <Layers className="w-4 h-4 text-zinc-400" />}
-          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${isHazardMode ? 'text-red-300' : 'text-zinc-100'}`}>
-            {isHazardMode ? '産業構造・失敗要因分析' : 'バリューチェーン構造比較'}
+        <div className="flex items-center gap-2 mb-3 pb-2 border-b border-white/[0.06]">
+          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${isHazardMode ? 'text-red-400' : 'text-zinc-400'}`}>
+            VALUE CHAIN ANALYSIS // {isHazardMode ? '産業構造・失敗要因分析' : 'バリューチェーン構造比較'}
           </h3>
-          <span className="ml-auto text-[9px] font-mono text-zinc-500 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
+          <span className="ml-auto text-[9px] font-mono text-zinc-500">
             分析中
           </span>
         </div>
-        <div className="rounded-lg border border-amber-500/20 bg-amber-950/10 p-3 text-xs leading-relaxed text-zinc-300">
+        <div className="rounded border border-white/[0.06] bg-white/[0.01] p-3 text-xs leading-relaxed text-zinc-400">
           この記録について、直販・中間排除・利益転換・顧客データ独占・業界マージンは独立確認できていません。原本と主張の結合後に評価します。
         </div>
       </section>
@@ -104,32 +103,28 @@ export function ValueChainDisruptionSection({
   }
 
   return (
-    <div id="section-value-chain" className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${
+    <div id="section-value-chain" className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
       isHazardMode
-        ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-        : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
+        ? 'border-red-500/30'
+        : 'border-white/[0.08]'
     }`}>
-      {/* 背景アンビエント光 */}
-      <div className={`absolute top-0 right-0 w-80 h-48 rounded-full blur-[90px] pointer-events-none ${
-        isHazardMode ? 'bg-red-500/8' : 'bg-indigo-500/8'
-      }`} />
-
       {/* ヘッダー */}
-      <div className="flex items-center justify-between gap-2 mb-5 pb-3 border-b border-white/[0.08] relative z-10">
-        <div className="flex items-center gap-2.5">
-          <Layers className={`w-4 h-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-indigo-400'}`} />
-          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-300' : 'text-zinc-100'
+      <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
+        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+      }`}>
+        <div className="flex items-center gap-2">
+          <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
+            isHazardMode ? 'text-red-400' : 'text-zinc-400'
           }`}>
-            {isHazardMode ? '産業構造の歪み：逆ザヤ・ユニットエコノミクス破綻の構図' : '産業構造の変革：バリューチェーンの中抜きと直接超過利潤'}
-          </h3>
+            VALUE CHAIN DISRUPTION // {isHazardMode ? '産業構造の歪み ＆ ユニットエコノミクス破綻' : 'バリューチェーン中抜き ＆ 直接超過利潤'}
+          </span>
         </div>
-        <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
-          VALUE CHAIN DISRUPTION
+        <span className="font-mono text-[10px] text-zinc-400">
+          STRUCTURAL ARBITRAGE
         </span>
       </div>
 
-      <div className="space-y-4 relative z-10">
+      <div className="p-4 space-y-4">
         {/* ========================================================= */}
         {/* 1. 従来の業界構造（多重マージン・非効率） */}
         {/* ========================================================= */}

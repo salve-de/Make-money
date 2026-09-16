@@ -7736,6 +7736,36 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - `pnpm lint`: 全3,341社 semantic integrity, storage, boundary, component health 全勝（0 warnings, 0 errors, Exit Code 0）。
   - `pnpm test`: 全53ファイル、全396テスト、test:foundation 11件、test:architecture 16件、test:recovery 6件 すべて 100% PASSED。
 
+---
+
+## Phase 223: 右メイン全セクションのコンサル調書化・カード完全解体＆モダンUI一新（2026-09-17）
+
+### 1. ユーザーからの痛烈な叱責と課題の本質
+- **ユーザー指示**: 「てか 右メインの デザインが 見づらい 一新しろ とにかく見やすくてAIっぽくない 最高のデザインを 探してこい まず」「うーん なんか まだ 変だよね？ カード表示とかあるし 全部直してね」「やっておいて /goal とにかく コンサルっぽく 見やすく 見た人間が わかりやすく かつ デザインは モダンで シンプルで でも ださくない 感じにして」
+- **残存していた病巣の特定**:
+  - `ExecutiveIntuitiveSummary` 以外の各下層セクション（`BusinessSections`, `PlaybookSections`, `LootBlueprintSection`, `ToolsSection`, `EvidenceDeckSection`, `CashAnatomySection`, `FinancialSection`）に、丸角カード（マトリョーシカ入れ子構造）、ネオンアンビエント光（`blur-[90px]`）、派手な丸ぽち・アニメーション、中括弧作文プレフィックス（`【STEP 1】` 等）が残存しており、これらが「AIっぽさ」「ダサさ」の元凶となっていた。
+
+### 2. 断行した外科的処置（マッキンゼー／Sequoia投資検討書・PitchBook式調書への完全統一）
+1. **右メイン全セクションのカード完全解体 ＆ 単一調書サーフェス統合**:
+   - `BusinessSections.tsx`: 4つの独立角丸カード（#10-A〜D）を完全解体。1枚の「STRATEGIC BLUEPRINT」調書（左: メタラベル / 右: 太字要諦＋詳細）に統合。
+   - `PlaybookSections.tsx`: #09〜#13のカード群を解体。PHASE 01（初動）、PHASE 02（監査ログ）、PHASE 03（再現ステップ）、PRO（深層分析）を1枚の調書に整流化。
+   - `LootBlueprintSection.tsx`: ネオン光（`blur-[90px]`）とSTEP 1〜3の小箱カードを解体。3行のクリーンな設計図調書へ。
+   - `ToolsSection.tsx`: カード枠とタイトルバーを解体。インフラ稼働テーブル（Tech Stack Audit）へ。
+   - `EvidenceDeckSection.tsx` & `DynamicEvidenceDeck.tsx`: 二重カード入れ子を解体。フラットな監査行リストへ平坦化。
+   - `CashAnatomySection.tsx`: ネオン光を削除、4大KPIを等間隔バー（`divide-x`）へ変更、損益明細調書へ統一。
+   - `FinancialSection.tsx`: 独立していた運用体制カード（#06）とP&Lカード（#05）を1枚の「FINANCIAL DOSSIER」へ統合。
+   - `VisualPipelineSection.tsx` / `FlywheelEngineDiagram.tsx` / `ValueChainDisruptionSection.tsx`: ネオン光・過剰アニメーションを全廃し、統一された調書サーフェス（`rounded-md`）へ収容。
+   - `TradingViewFinancialChart.tsx` / `RelatedResearch.tsx` / `ExecutiveIntuitiveSummary.tsx`: 統一サーフェス・ミニマルストリップへ調律。
+2. **SSGビルド最適化（3,341件 JSON シングルトンキャッシュ）**:
+   - `src/lib/company-access/static-entities-cache.ts` を配備。各SSGルート（`app/page.tsx`, `app/radar/page.tsx`, `app/playbook/page.tsx` 等）で発生していた重複パースをゼロ化し、ビルド時間の大幅短縮とSSGタイムアウトの根本解消を実現。
+
+### 3. 全数検証 ＆ CI完全通過
+- `pnpm lint`: 全3,341社 semantic integrity, storage, boundary, component health 全勝（0 warnings, 0 errors, Exit Code 0）。
+- `pnpm test`: 全53ファイル、全396テスト 100% PASSED。
+- `pnpm build`: Next.js SSG 25/25 ページビルド成功、有料バンドル境界検査（163 files, 392 sentinels）完全通過。
+- Playwright による実画面スクリーンショット検証にて、カード乱立の完全根絶と格調高いコンサル調書UIの成立を確認済み。
+
+
 
 
 

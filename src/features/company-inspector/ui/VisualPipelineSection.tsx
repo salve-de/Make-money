@@ -215,52 +215,48 @@ export function VisualPipelineSection({
   ];
 
   return (
-    <div id="section-pipeline" className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${
-      isHazardMode
-        ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-        : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
+    <div id="section-pipeline" className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
+      isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
     }`}>
-      {/* 背景アンビエント光 */}
-      <div className={`absolute top-0 right-0 w-80 h-48 rounded-full blur-[90px] pointer-events-none ${
-        isHazardMode ? 'bg-red-500/8' : 'bg-cyan-500/8'
-      }`} />
-
       {/* ヘッダー */}
-      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10">
-        <div className="flex items-center gap-2.5">
-          <Cpu className={`w-4 h-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-cyan-400'}`} />
-          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-300' : 'text-zinc-100'
+      <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
+        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+      }`}>
+        <div className="flex items-center gap-2">
+          <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
+            isHazardMode ? 'text-red-400' : 'text-zinc-400'
           }`}>
-            {isHazardMode ? '資本出血配管図・破綻メカニズム' : 'キャッシュ創出配管図・超過利潤フロー'}
-          </h3>
+            CASH PIPELINE // {isHazardMode ? '資本出血配管図 ＆ 破綻メカニズム' : 'キャッシュ創出配管図 ＆ 利益フロー'}
+          </span>
         </div>
-        <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
-          AUTONOMOUS FLOW
+        <span className="font-mono text-[10px] text-zinc-400">
+          CIRCUIT SCHEMATIC
         </span>
       </div>
 
       {/* 閲覧専用・自動フィット配管キャンバス */}
-      <div className="w-full h-[240px] bg-[#07090F]/90 rounded-xl border border-white/[0.08] relative overflow-hidden shadow-inner pointer-events-none">
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          nodeTypes={nodeTypes}
-          fitView
-          fitViewOptions={{ padding: 0.12 }}
-          nodesDraggable={false}
-          nodesConnectable={false}
-          elementsSelectable={false}
-          panOnDrag={false}
-          zoomOnScroll={false}
-          zoomOnPinch={false}
-          zoomOnDoubleClick={false}
-          preventScrolling={false}
-          proOptions={{ hideAttribution: true }}
-          className="select-none"
-        >
-          <Background color="rgba(255, 255, 255, 0.04)" gap={16} size={1} />
-        </ReactFlow>
+      <div className="p-4">
+        <div className="w-full h-[240px] bg-[#07090F] rounded border border-white/[0.06] relative overflow-hidden pointer-events-none">
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            nodeTypes={nodeTypes}
+            fitView
+            fitViewOptions={{ padding: 0.12 }}
+            nodesDraggable={false}
+            nodesConnectable={false}
+            elementsSelectable={false}
+            panOnDrag={false}
+            zoomOnScroll={false}
+            zoomOnPinch={false}
+            zoomOnDoubleClick={false}
+            preventScrolling={false}
+            proOptions={{ hideAttribution: true }}
+            className="select-none"
+          >
+            <Background color="rgba(255, 255, 255, 0.04)" gap={16} size={1} />
+          </ReactFlow>
+        </div>
       </div>
     </div>
   );

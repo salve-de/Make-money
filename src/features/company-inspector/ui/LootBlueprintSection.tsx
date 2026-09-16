@@ -1,15 +1,8 @@
 'use client';
 
-import { legacyText } from '../model/legacy-fields';
-
 import React from 'react';
-import {
-  CheckCircle2,
-  Crosshair,
-  Terminal,
-  Wrench,
-  Zap
-} from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
+import { legacyText } from '../model/legacy-fields';
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function LootBlueprintSection({
@@ -22,166 +15,174 @@ export function LootBlueprintSection({
   const initialCapital = entity.operations?.isCapitalUnconfirmed ? undefined : entity.operations?.initialCapitalRequired;
 
   return (
-    <section
-      id="section-loot-blueprint"
-      className={`rounded-xl border p-4 sm:p-5 shadow-2xl relative overflow-hidden transition-all ${
-        isHazardMode
-          ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-          : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
-      }`}
-    >
-      {/* 背景アンビエント光 */}
-      <div
-        className={`absolute top-0 right-0 w-80 h-48 rounded-full blur-[90px] pointer-events-none ${
-          isHazardMode ? 'bg-red-500/8' : 'bg-cyan-500/8'
-        }`}
-      />
-
-      {/* セクションヘッダー */}
-      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10">
-        <div className="flex items-center gap-2.5">
-          <Crosshair className={`w-4 h-4 shrink-0 ${isHazardMode ? 'text-red-400' : 'text-cyan-400'}`} />
-          <h3
-            className={`text-xs font-mono font-bold tracking-wider uppercase ${
-              isHazardMode ? 'text-red-300' : 'text-zinc-100'
-            }`}
-          >
-            {isHazardMode ? '致死トラップ検死書・破綻メカニズム' : '略奪転用ブループリント・収益配管設計図'}
-          </h3>
-        </div>
-        <span className="text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08]">
-          LOOT BLUEPRINT
-        </span>
-      </div>
-
-      {/* 3ステップ略奪転用方程式 */}
-      <div className="space-y-3 mb-5">
-        {/* Step 1: 関所強奪 */}
-        <div className="rounded-lg border border-white/[0.08] bg-[#0E131F] p-3.5 space-y-1.5 transition-colors hover:border-white/[0.15]">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] font-black px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-              STEP 1
-            </span>
-            <span className="font-mono text-xs font-bold text-zinc-100">
-              【STEP 1】初動の侵入経路・顧客強奪動線
+    <section id="section-loot-blueprint" className="scroll-mt-4">
+      {/* 統合ブループリント調書サーフェス */}
+      <div className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
+        isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
+      }`}>
+        {/* セクションヘッダー */}
+        <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
+          isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+        }`}>
+          <div className="flex items-center gap-2.5">
+            <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
+              isHazardMode ? 'text-red-400' : 'text-zinc-400'
+            }`}>
+              REPLICATION BLUEPRINT // {isHazardMode ? '致命的破綻の設計図' : '収益配管 ＆ 略奪転用設計図'}
             </span>
           </div>
-          <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-            {loot?.stealthEntry || entity.acquisition?.primaryFunnel || '既存プラットフォームの規約の隙間・競合の不満客を狙い撃ちにして初期トラフィックを横取りする動線。'}
-          </p>
-          {loot?.targetPrey && (
-            <div className="text-[11px] font-mono text-zinc-400 bg-black/40 px-2.5 py-1.5 rounded border border-white/[0.04] flex items-center gap-1.5">
-              <span className="text-amber-400 font-bold">強奪対象の獲物:</span>
-              <span className="text-zinc-200">{loot.targetPrey}</span>
-            </div>
-          )}
+          <span className="font-mono text-[10px] text-zinc-400">
+            SYSTEM BLUEPRINT
+          </span>
         </div>
 
-        {/* Step 2: 格安配管 */}
-        <div className="rounded-lg border border-white/[0.08] bg-[#0E131F] p-3.5 space-y-1.5 transition-colors hover:border-white/[0.15]">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] font-black px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
-              STEP 2
-            </span>
-            <span className="font-mono text-xs font-bold text-zinc-100">
-              【STEP 2】提供方式・原価圧縮配管
-            </span>
-          </div>
-          <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-            {loot?.tollGateSetup || entity.architecturePattern || '既存の無料・格安SaaS/APIを裏側で配管し、自社開発コストをゼロに抑えて粗利80%超を確定させる構造。'}
-          </p>
-          {loot?.structuralFlaw && (
-            <div className="text-[11px] font-mono text-zinc-400 bg-black/40 px-2.5 py-1.5 rounded border border-white/[0.04] flex items-center gap-1.5">
-              <span className="text-cyan-400 font-bold">既存業界の構造的バグ:</span>
-              <span className="text-zinc-200">{loot.structuralFlaw}</span>
-            </div>
-          )}
-        </div>
-
-        {/* Step 3: 自爆死角の盾 */}
-        <div className="rounded-lg border border-white/[0.08] bg-[#0E131F] p-3.5 space-y-1.5 transition-colors hover:border-white/[0.15]">
-          <div className="flex items-center gap-2">
-            <span className="font-mono text-[10px] font-black px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-              STEP 3
-            </span>
-            <span className="font-mono text-xs font-bold text-zinc-100">
-              【STEP 3】参入障壁・大手の自縛死角
-            </span>
-          </div>
-          <p className="text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-            {entity.meta?.incumbentDilemma?.cannibalizationBarrier || legacyText(entity.strategy, 'moat') || '大手が参入すると既存の単価・代理店ネットワークを破壊してしまうため、指をくわえて見逃さざるを得ないカニバリズム死角。'}
-          </p>
-        </div>
-      </div>
-
-      {/* 実行チェックリスト（今夜試せる具体的なアクション） */}
-      {loot?.executionChecklist && loot.executionChecklist.length > 0 && (
-        <div className="mb-5 rounded-lg border border-white/[0.06] bg-[#06080E] p-3.5">
-          <div className="flex items-center gap-1.5 mb-2.5">
-            <Zap className="w-3.5 h-3.5 text-amber-400" />
-            <span className="text-xs font-mono font-bold text-zinc-200 uppercase">
-              高収益再現実行チェックリスト
-            </span>
-          </div>
-          <ul className="space-y-2 font-mono text-xs text-zinc-300">
-            {loot.executionChecklist.map((step, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                <span className="text-zinc-200">{step}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* 武器庫（実際に稼働しているツール ＆ インフラ構成） */}
-      <div className="pt-4 border-t border-white/[0.08]">
-        <div className="flex items-center justify-between gap-2 mb-3">
-          <div className="flex items-center gap-2">
-            <Wrench className="w-3.5 h-3.5 text-zinc-400" />
-            <span className="text-xs font-mono font-bold text-zinc-200 uppercase">
-              稼働システム・ツール構成
-            </span>
-          </div>
-          <div className="flex items-center gap-2 font-mono text-[10px] text-zinc-400">
-            {teamSize !== undefined && (
-              <span>人員規模: <strong className="text-zinc-200">{teamSize > 0 ? `${teamSize}名` : '1人（完全自動化）'}</strong></span>
-            )}
-            {initialCapital && (
-              <span>初期資本: <strong className="text-zinc-200">{initialCapital}</strong></span>
-            )}
-          </div>
-        </div>
-
-        {tools.length > 0 ? (
-          <div className="flex flex-wrap gap-1.5">
-            {tools.map((toolItem, idx) => {
-              const toolName = typeof toolItem === 'string' ? toolItem : (toolItem as { name?: string })?.name || 'ツール未定義';
-              const toolCategory = typeof toolItem === 'object' && toolItem && 'category' in toolItem ? (toolItem as { category?: string }).category : null;
-              const toolPurpose = typeof toolItem === 'object' && toolItem && 'purpose' in toolItem ? (toolItem as { purpose?: string }).purpose : null;
-
-              return (
-                <span
-                  key={idx}
-                  title={toolPurpose || undefined}
-                  className="inline-flex items-center gap-1.5 font-mono text-[11px] px-2.5 py-1 rounded bg-[#101522] border border-white/[0.08] text-zinc-200 hover:border-white/[0.2] transition-colors"
-                >
-                  <Terminal className="w-2.5 h-2.5 text-cyan-400" />
-                  <span>{toolName}</span>
-                  {toolCategory && (
-                    <span className="text-[9px] px-1 py-0.5 rounded bg-white/[0.06] text-zinc-400">
-                      {toolCategory}
-                    </span>
-                  )}
+        {/* 3ステップ略奪転用プロセス（カード入れ子なし・クリーンな3行構成） */}
+        <div className="divide-y divide-white/[0.06]">
+          {/* STEP 01 */}
+          <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
+            <div className="w-full md:w-48 shrink-0 space-y-1">
+              <div className="flex items-center gap-2">
+                <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                  isHazardMode ? 'text-red-400 bg-red-950/40 border border-red-500/30' : 'text-zinc-300 bg-white/[0.06] border border-white/[0.10]'
+                }`}>
+                  STEP 01
                 </span>
-              );
-            })}
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-zinc-300 uppercase">
+                  ENTRY FUNNEL
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-400">
+                {isHazardMode ? '侵入経路・死因の発端' : '初動の侵入経路・顧客動線'}
+              </p>
+            </div>
+            <div className="flex-1 min-w-0 space-y-2">
+              <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+                {loot?.stealthEntry || entity.acquisition?.primaryFunnel || '既存プラットフォームの規約の隙間や不満客を狙い撃ちにして初期トラフィックを横取りする動線。'}
+              </p>
+              {loot?.targetPrey && (
+                <div className="text-[11px] font-mono text-zinc-400 bg-white/[0.02] px-2.5 py-1.5 rounded border border-white/[0.04] flex items-center gap-2">
+                  <span className="text-zinc-300 font-semibold">ターゲット客層:</span>
+                  <span className="text-zinc-200">{loot.targetPrey}</span>
+                </div>
+              )}
+            </div>
           </div>
-        ) : (
-          <div className="text-xs font-mono text-zinc-500 py-1">
-            事例固有のツール構成は未確認。
+
+          {/* STEP 02 */}
+          <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
+            <div className="w-full md:w-48 shrink-0 space-y-1">
+              <div className="flex items-center gap-2">
+                <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                  isHazardMode ? 'text-red-400 bg-red-950/40 border border-red-500/30' : 'text-zinc-300 bg-white/[0.06] border border-white/[0.10]'
+                }`}>
+                  STEP 02
+                </span>
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-zinc-300 uppercase">
+                  MARGIN PIPELINE
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-400">
+                {isHazardMode ? '原価破綻・出血構造' : '提供方式・原価圧縮配管'}
+              </p>
+            </div>
+            <div className="flex-1 min-w-0 space-y-2">
+              <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+                {loot?.tollGateSetup || entity.architecturePattern || '既存のツールやAPIを裏側で配管し、固定費と開発コストを極小化して利益を残す構造。'}
+              </p>
+              {loot?.structuralFlaw && (
+                <div className="text-[11px] font-mono text-zinc-400 bg-white/[0.02] px-2.5 py-1.5 rounded border border-white/[0.04] flex items-center gap-2">
+                  <span className="text-zinc-300 font-semibold">既存業界の構造欠陥:</span>
+                  <span className="text-zinc-200">{loot.structuralFlaw}</span>
+                </div>
+              )}
+            </div>
           </div>
-        )}
+
+          {/* STEP 03 */}
+          <div className="p-4 flex flex-col md:flex-row md:items-start gap-3 md:gap-5 hover:bg-white/[0.01] transition-colors">
+            <div className="w-full md:w-48 shrink-0 space-y-1">
+              <div className="flex items-center gap-2">
+                <span className={`font-mono text-[10px] font-bold px-1.5 py-0.5 rounded ${
+                  isHazardMode ? 'text-red-400 bg-red-950/40 border border-red-500/30' : 'text-zinc-300 bg-white/[0.06] border border-white/[0.10]'
+                }`}>
+                  STEP 03
+                </span>
+                <span className="font-mono text-[11px] font-semibold tracking-wider text-zinc-300 uppercase">
+                  DEFENSE MOAT
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-400">
+                {isHazardMode ? '防壁崩壊の死角' : '参入障壁・大手の自縛死角'}
+              </p>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs text-zinc-300 leading-relaxed font-sans">
+                {entity.meta?.incumbentDilemma?.cannibalizationBarrier || legacyText(entity.strategy, 'moat') || '大手が参入すると既存の単価・商流を自ら破壊してしまうため、指をくわえて見逃さざるを得ないカニバリズム死角。'}
+              </p>
+            </div>
+          </div>
+
+          {/* 実行チェックリスト */}
+          {loot?.executionChecklist && loot.executionChecklist.length > 0 && (
+            <div className="p-4 space-y-2.5 bg-white/[0.01]">
+              <div className="font-mono text-[11px] font-semibold text-zinc-300 uppercase tracking-wider">
+                EXECUTION CHECKLIST // 実行検証チェックリスト
+              </div>
+              <ul className="space-y-1.5">
+                {loot.executionChecklist.map((step, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-zinc-400 shrink-0 mt-0.5" />
+                    <span className="leading-relaxed font-sans flex-1">{step}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* 稼働ツールスタック要約 */}
+          <div className="p-4 space-y-2.5 bg-white/[0.01]">
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="font-mono text-[11px] font-semibold text-zinc-300 uppercase tracking-wider">
+                TECH STACK // 稼働インフラ構成
+              </div>
+              <div className="flex items-center gap-3 font-mono text-[11px] text-zinc-400">
+                {teamSize !== undefined && (
+                  <span>人員: <strong className="text-zinc-200">{teamSize > 0 ? `${teamSize}名` : '1人（自動化）'}</strong></span>
+                )}
+                {initialCapital && (
+                  <span>初期資本: <strong className="text-zinc-200">{initialCapital}</strong></span>
+                )}
+              </div>
+            </div>
+
+            {tools.length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {tools.map((toolItem, idx) => {
+                  const toolName = typeof toolItem === 'string' ? toolItem : (toolItem as { name?: string })?.name || 'ツール未定義';
+                  const toolCategory = typeof toolItem === 'object' && toolItem && 'category' in toolItem ? (toolItem as { category?: string }).category : null;
+
+                  return (
+                    <div
+                      key={idx}
+                      className="inline-flex items-center gap-1.5 font-mono text-[11px] px-2.5 py-1 rounded bg-white/[0.03] border border-white/[0.06] text-zinc-300"
+                    >
+                      <span>{toolName}</span>
+                      {toolCategory && (
+                        <span className="text-[9px] text-zinc-400">
+                          ({toolCategory})
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="text-xs font-mono text-zinc-400">
+                固有のツール構成は未確認。
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
-import { PieChart } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function TradingViewFinancialChart({
@@ -184,26 +183,21 @@ export function TradingViewFinancialChart({
   }, [rev, cogs, serverCost, adCost, subCost, saasCost, profit, isLoss, formatMoney]);
 
   return (
-    <div id="section-tradingview" className="rounded-xl border border-white/[0.10] bg-[#0A0D14] overflow-hidden shadow-xl">
+    <div id="section-tradingview" className="rounded-md border border-white/[0.08] bg-[#0A0D15] overflow-hidden">
       {/* タイトルバー */}
-      <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-white/[0.08] bg-[#0E131F]">
+      <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
+        isLoss ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+      }`}>
         <div className="flex items-center gap-2">
-          <div className={`w-1 h-3.5 rounded-full ${isLoss ? 'bg-red-500' : 'bg-emerald-400'}`} />
-          <span className="font-mono text-[10px] font-bold px-1.5 py-0.5 rounded border border-white/[0.1] text-zinc-300 bg-white/[0.05]">
-            ANATOMY
+          <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
+            isLoss ? 'text-red-400' : 'text-zinc-400'
+          }`}>
+            PROFIT & COST BREAKDOWN // 損益構造レントゲン
           </span>
-          <div className="flex items-center gap-1.5">
-            <PieChart className="w-3.5 h-3.5 text-cyan-400" />
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-white">
-              損益構造レントゲン（PROFIT & COST BREAKDOWN）
-            </h3>
-          </div>
         </div>
         <div className="flex items-center gap-2">
-          <span className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border ${
-            isLoss
-              ? 'text-red-300 bg-red-950/40 border-red-500/30'
-              : 'text-emerald-300 bg-emerald-950/40 border-emerald-500/30'
+          <span className={`text-[10px] font-mono font-bold ${
+            isLoss ? 'text-red-400' : 'text-emerald-400'
           }`}>
             {isLoss ? '赤字出血' : `純手残り率 ${profitPct}%`}
           </span>

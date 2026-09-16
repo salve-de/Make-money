@@ -4,7 +4,6 @@ import { legacyText } from '../model/legacy-fields';
 
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
-import { RotateCw, AlertTriangle } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 function describedGraphNodes(
@@ -230,39 +229,30 @@ export function FlywheelEngineDiagram({
   }, []);
 
   return (
-    <div id="section-flywheel" className={`rounded-xl border p-4 sm:p-6 shadow-2xl relative overflow-hidden transition-all ${
-      isHazardMode
-        ? 'bg-[#0A0D14] border-red-500/25 shadow-[0_0_40px_rgba(239,68,68,0.08)]'
-        : 'bg-[#0A0D14] border-white/[0.10] shadow-[0_0_40px_rgba(0,0,0,0.6)]'
+    <div id="section-flywheel" className={`rounded-md border bg-[#0A0D15] overflow-hidden ${
+      isHazardMode ? 'border-red-500/30' : 'border-white/[0.08]'
     }`}>
-      {/* 背景の微細なアンビエント光 */}
-      <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full blur-[110px] pointer-events-none ${
-        isHazardMode ? 'bg-red-500/10' : 'bg-cyan-500/8'
-      }`} />
-
       {/* ヘッダー */}
-      <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-white/[0.08] relative z-10">
-        <div className="flex items-center gap-2.5">
-          {isHazardMode ? (
-            <AlertTriangle className="w-4 h-4 text-red-400 shrink-0" />
-          ) : (
-            <RotateCw className="w-4 h-4 text-cyan-400 shrink-0 animate-[spin_10s_linear_infinite]" />
-          )}
-          <h3 className={`text-xs font-mono font-bold tracking-wider uppercase ${
-            isHazardMode ? 'text-red-300' : 'text-zinc-100'
+      <div className={`flex items-center justify-between px-4 py-2.5 border-b ${
+        isHazardMode ? 'bg-red-950/25 border-red-500/20' : 'bg-white/[0.02] border-white/[0.06]'
+      }`}>
+        <div className="flex items-center gap-2">
+          <span className={`font-mono text-[11px] font-bold tracking-wider uppercase ${
+            isHazardMode ? 'text-red-400' : 'text-zinc-400'
           }`}>
-            {isHazardMode ? '資本効率の崩壊サイクル (DEATH SPIRAL ANALYSIS)' : '自己強化型成長サイクル：構造的モートのフライホイール (APACHE ECHARTS)'}
-          </h3>
+            FLYWHEEL DYNAMICS // {isHazardMode ? '資本崩壊サイクル (DEATH SPIRAL)' : '自己強化型成長サイクル (FLYWHEEL)'}
+          </span>
         </div>
-        <div className="flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.08]">
-          <span className={`w-1.5 h-1.5 rounded-full ${isHazardMode ? 'bg-red-500 animate-ping' : 'bg-cyan-400 animate-pulse'}`} />
-          <span>360° GRAPH NETWORK</span>
-        </div>
+        <span className="font-mono text-[10px] text-zinc-400">
+          NETWORK GRAPH
+        </span>
       </div>
 
       {/* ECharts グラフコンテナ */}
-      <div className="relative w-full bg-[#07090F]/90 rounded-xl border border-white/[0.08] p-2 shadow-inner">
-        <div ref={chartRef} className="w-full h-[320px]" />
+      <div className="p-4">
+        <div className="relative w-full bg-[#07090F] rounded border border-white/[0.06] p-2">
+          <div ref={chartRef} className="w-full h-[320px]" />
+        </div>
       </div>
     </div>
   );

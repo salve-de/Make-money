@@ -91,7 +91,7 @@ export function ExecutiveIntuitiveSummary({
       {/* ========================================================= */}
       {/* 【PitchBook式 単一テアシード（マトリョーシカ箱の完全解体）】 */}
       {/* ========================================================= */}
-      <div className={`rounded-xl border overflow-hidden shadow-2xl transition-all ${
+      <div className={`rounded-md border overflow-hidden transition-all ${
         isHazardMode
           ? 'border-red-500/30 bg-[#0F0B0E]'
           : 'border-white/[0.08] bg-[#0A0D15]'
