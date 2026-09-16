@@ -3,13 +3,16 @@ import React from 'react';
 import { Building2, Flame } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
-function stripLeadingEntityName(text: string, name?: string, legalEntity?: string): string {
+function stripLeadingEntityName(text: string, name?: string, legalEntity?: string, founder?: string): string {
   if (!text) return '';
   let res = text.trim();
-  const names = [name, legalEntity].filter(Boolean) as string[];
+  const baseName = name ? name.replace(/\s*[\(（].*?[\)）]/g, '').trim() : '';
+  const names = [name, baseName, legalEntity, founder].filter(Boolean) as string[];
   for (const n of names) {
     const escaped = n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    res = res.replace(new RegExp('^' + escaped + '[は|が|の|による]?\\s*[、,]?\\s*', 'u'), '');
+    res = res.replace(new RegExp('^' + escaped + '[は|が|の|による]?\\s*[、:：,]?\\s*', 'u'), '');
+    // 【月商〇〇】の直後に社名があるケースも除去
+    res = res.replace(new RegExp('^(【.*?】)\\s*' + escaped + '\\s*[、:：,]?\\s*', 'u'), '$1 ');
   }
   return res.trim();
 }
@@ -23,7 +26,8 @@ export function ExecutiveIntuitiveSummary({
   const strongHeadline = stripLeadingEntityName(
     entity.tagline || entity.essence?.whatItDoes || '',
     entity.name,
-    entity.legalEntity
+    entity.legalEntity,
+    entity.founder
   );
 
   // 2. 何をやっているのか（事業の正体）
@@ -106,21 +110,31 @@ export function ExecutiveIntuitiveSummary({
         {/* ブロック1: 何をやっているのか */}
         <div className="rounded-xl border border-white/[0.08] bg-[#0A0D14] p-4 flex flex-col justify-between shadow-lg">
           <div>
-            <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
-              <span className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
-              <h3 className="text-xs font-bold text-zinc-200 font-mono tracking-wider uppercase">
-                1. 何をやっているのか（事業の正体）
-              </h3>
+            <div className="flex items-center justify-between gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
+                <h3 className="text-xs font-bold text-zinc-200 font-mono tracking-wider uppercase">
+                  1. 何をやっているのか（事業の正体）
+                </h3>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-950/60 border border-blue-500/30 text-blue-300 shrink-0">
+                {entity.founder ? `主体: ${entity.founder}` : entity.scale === 'SOLO' ? '完全1人運営' : entity.scale === 'SMALL_TEAM' ? '少数精鋭' : entity.scale === 'ENTERPRISE' ? '大企業' : '自立事業者'}
+              </span>
             </div>
-            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3 font-medium">
+            <p className="text-xs sm:text-[13.5px] text-zinc-100 leading-relaxed font-sans mb-3 font-semibold">
               {whatItDoes}
             </p>
-            {targetCustomer && (
-              <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04] space-y-1.5">
-                <div><strong className="text-zinc-400">対象顧客:</strong> {targetCustomer}</div>
+            {(targetCustomer || effectivePain) && (
+              <div className="space-y-1.5 pt-1">
+                {targetCustomer && (
+                  <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
+                    <strong className="text-blue-400 font-mono font-semibold">【誰の財布か（対象客）】:</strong>{' '}
+                    <span className="text-zinc-200">{targetCustomer}</span>
+                  </div>
+                )}
                 {effectivePain && (
-                  <div className="pt-1 border-t border-white/[0.04]">
-                    <strong className="text-amber-400 font-mono font-semibold">直撃ペイン:</strong>{' '}
+                  <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
+                    <strong className="text-amber-400 font-mono font-semibold">【直撃ペイン（客の痛み）】:</strong>{' '}
                     <span className="text-zinc-200">{effectivePain}</span>
                   </div>
                 )}
@@ -138,19 +152,20 @@ export function ExecutiveIntuitiveSummary({
                 {isHazardMode ? '2. なぜ破綻したのか（死因の核心）' : '2. どうやって儲けているのか（儲けのカラクリ）'}
               </h3>
             </div>
-            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3 font-medium">
+            <p className="text-xs sm:text-[13.5px] text-zinc-100 leading-relaxed font-sans mb-3 font-semibold">
               {cleanedMoat || monetization || '独自のビジネスモデルと参入障壁によって競合を排除し超過利潤を確保'}
             </p>
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 pt-1">
               {incumbentDilemma && (
                 <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
-                  <strong className="text-cyan-400 font-mono font-semibold">大手の自縛:</strong>{' '}
+                  <strong className="text-cyan-400 font-mono font-semibold">【大手が真似できない理由】:</strong>{' '}
                   <span className="text-zinc-300">{incumbentDilemma}</span>
                 </div>
               )}
               {monetization && monetization !== cleanedMoat && (
                 <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2 rounded border border-white/[0.04]">
-                  <strong className="text-zinc-400">課金構造:</strong> {monetization}
+                  <strong className="text-emerald-400 font-mono font-semibold">【現金の抜き方（課金構造）】:</strong>{' '}
+                  <span className="text-zinc-300">{monetization}</span>
                 </div>
               )}
             </div>
