@@ -65,11 +65,41 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   const negativeApprovalCheckedAt = useRef(new Map<string, number>());
 
   useEffect(() => {
-    const timer = window.setInterval(
-      () => setApprovalProjectionEpoch((value) => value + 1),
-      NEGATIVE_APPROVAL_RECHECK_MS,
-    );
-    return () => window.clearInterval(timer);
+    let timer: number | null = null;
+
+    const stopPolling = () => {
+      if (timer !== null) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    };
+
+    const startPolling = () => {
+      if (timer !== null || document.visibilityState !== 'visible') return;
+      timer = window.setInterval(
+        () => setApprovalProjectionEpoch((value) => value + 1),
+        NEGATIVE_APPROVAL_RECHECK_MS,
+      );
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState !== 'visible') {
+        stopPolling();
+        return;
+      }
+
+      // A hidden tab may have missed approvals. Reconcile once immediately on
+      // return, then resume the bounded 20-second cadence only while visible.
+      setApprovalProjectionEpoch((value) => value + 1);
+      startPolling();
+    };
+
+    startPolling();
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      stopPolling();
+    };
   }, []);
 
   // R2の完成体候補のみを抽出
