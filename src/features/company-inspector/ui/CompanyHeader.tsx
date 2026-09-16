@@ -5,6 +5,7 @@ import {
   ExternalLink,
   FileText,
   Share2,
+  SlidersHorizontal,
   Star,
   Users,
   X
@@ -25,9 +26,11 @@ export function CompanyHeader({
   isFinancialUnavailable,
   mainTab = 'LEDGER',
   setMainTab,
+  viewMode = 'ALL',
+  setViewMode,
   isBookmarked,
   onToggleBookmark,
-}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'activeTags' | 'onToggleTag' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'mainTab' | 'setMainTab' | 'isBookmarked' | 'onToggleBookmark'>) {
+}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'activeTags' | 'onToggleTag' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'mainTab' | 'setMainTab' | 'viewMode' | 'setViewMode' | 'isBookmarked' | 'onToggleBookmark'>) {
   const [isShareOpen, setIsShareOpen] = useState(false);
 
   const rev = entity.pnl?.monthlyRevenue || 0;
@@ -220,8 +223,9 @@ export function CompanyHeader({
             </div>
           </div>
 
-          {/* 4. メインタブ切替（【本丸】資本主義の裏帳簿 ⇄ 【証拠】検証エビデンス） */}
+          {/* 4. メインタブ切替 ＆ 表示モードセレクター */}
           <div className="flex items-center justify-between bg-[#06080E] px-3 py-1.5 border-t border-white/[0.08] text-[11px] font-mono gap-2 flex-wrap">
+            {/* メインタブ切替 */}
             <div className="inline-flex rounded-lg p-0.5 bg-black/60 border border-white/[0.12] shrink-0">
               <button
                 type="button"
@@ -248,9 +252,42 @@ export function CompanyHeader({
                 <span>【証拠】検証エビデンス</span>
               </button>
             </div>
+
+            {/* 表示モードセレクター（LEDGER時のみアクティブ） */}
+            {mainTab === 'LEDGER' && (
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="text-[10px] text-zinc-400 font-bold uppercase tracking-wider flex items-center gap-1">
+                  <SlidersHorizontal className="w-2.5 h-2.5 text-zinc-400" />
+                  <span className="hidden sm:inline">表示:</span>
+                </span>
+                <div className="inline-flex rounded p-0.5 bg-black/50 border border-white/[0.10]">
+                  {(
+                    [
+                      { id: 'ALL', label: '全量開示' },
+                      { id: 'ESSENCE', label: '急所・要約' },
+                      { id: 'FINANCIAL', label: '財務・原価' },
+                      { id: 'PLAYBOOK', label: '実践手順' },
+                    ] as const
+                  ).map((m) => (
+                    <button
+                      key={m.id}
+                      type="button"
+                      onClick={() => setViewMode && setViewMode(m.id)}
+                      className={`px-2 py-0.5 rounded text-[10px] font-bold transition-all cursor-pointer ${
+                        viewMode === m.id
+                          ? 'bg-white text-black shadow-xs font-black'
+                          : 'text-zinc-400 hover:text-zinc-200'
+                      }`}
+                    >
+                      {m.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
-          {/* 5. 目次ジャンプバー（選択中タブに応じた直通ナビゲーション） */}
+          {/* 5. 目次ジャンプバー（全図表・全セクション直通ナビゲーション） */}
           <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
             {mainTab === 'LEDGER' ? (
               <>
@@ -264,34 +301,74 @@ export function CompanyHeader({
                 </button>
                 <button
                   type="button"
+                  onClick={() => scrollToSection('section-pipeline')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-cyan-400 font-bold">#02</span>
+                  <span>配管図</span>
+                </button>
+                <button
+                  type="button"
                   onClick={() => scrollToSection('section-evidence')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#02</span>
-                  <span>動かぬ証拠</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#03</span>
+                  <span>4大急所</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollToSection('section-cash-anatomy')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#03</span>
-                  <span>現金解剖</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#04</span>
+                  <span>通帳バー</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-sankey')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-emerald-400 font-bold">#05</span>
+                  <span>現金の滝</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-tradingview')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-cyan-400 font-bold">#06</span>
+                  <span>損益チャート</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollToSection('section-financial')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#04</span>
-                  <span>財務損益</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#07</span>
+                  <span>財務P&L</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-flywheel')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-amber-400 font-bold">#08</span>
+                  <span>増殖ループ</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-value-chain')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-purple-400 font-bold">#09</span>
+                  <span>中抜き図</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => scrollToSection('section-essence')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#05</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#10</span>
                   <span>正体・DNA</span>
                 </button>
                 <button
@@ -299,7 +376,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-tools')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#06</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#11</span>
                   <span>現場ツール</span>
                 </button>
                 <button
@@ -307,7 +384,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-loot-blueprint')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#07</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#12</span>
                   <span>略奪武器庫</span>
                 </button>
                 <button
@@ -315,7 +392,7 @@ export function CompanyHeader({
                   onClick={() => scrollToSection('section-playbook')}
                   className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
                 >
-                  <span className="text-[9px] text-zinc-500 font-bold">#08</span>
+                  <span className="text-[9px] text-zinc-500 font-bold">#13</span>
                   <span>再現手順</span>
                 </button>
               </>

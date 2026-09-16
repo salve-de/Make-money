@@ -21,6 +21,8 @@ import { ToolsSection } from './ui/ToolsSection';
 import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
 import { VisualPipelineSection } from './ui/VisualPipelineSection';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
+import { SankeyCashFlowDiagram } from './ui/SankeyCashFlowDiagram';
+import { TradingViewFinancialChart } from './ui/TradingViewFinancialChart';
 import type { InspectorViewMode } from './model/section-props';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
@@ -151,37 +153,74 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {mainTab === 'LEDGER' ? (
             <>
               {/* ========================================================= */}
-              {/* 【本丸】資本主義の裏帳簿：4層キラーピラミッド */}
+              {/* 【本丸】資本主義の裏帳簿：完全統合キラーピラミッド */}
               {/* ========================================================= */}
+
+              {/* 0. 【特集インテリジェンス】深層解剖記事への直通バナー */}
+              <RelatedResearch {...sectionProps} />
 
               {/* LAYER 1: 【0秒・脳幹直撃】断罪HUD・エグゼクティブサマリー */}
               <ExecutiveIntuitiveSummary {...sectionProps} />
 
-              {/* LAYER 2: 【3秒・急所解剖】動かぬ証拠 4大急所デッキ */}
-              <EvidenceDeckSection {...sectionProps} />
+              {/* LAYER 2: 【配管特等席】キャッシュ創出配管図（React Flow回路図） */}
+              {(viewMode === 'ALL' || viewMode === 'ESSENCE' || viewMode === 'PLAYBOOK') && (
+                <VisualPipelineSection {...sectionProps} />
+              )}
 
-              {/* LAYER 3: 【30秒・現金解剖】現金の解剖室（通帳引き算バー ⇄ 現金の滝） */}
-              <CashAnatomySection {...sectionProps} />
+              {/* LAYER 3: 【3秒・急所解剖】動かぬ証拠 4大急所デッキ */}
+              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
+                <EvidenceDeckSection {...sectionProps} />
+              )}
 
-              {/* LAYER 4: 【損益計算書・詳細P&L】財務損益計器盤 ＆ 原価構造 */}
-              <FinancialSection {...sectionProps} />
+              {/* LAYER 4: 【30秒・現金解剖】現金の解剖室（通帳引き算バー） */}
+              {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
+                <CashAnatomySection {...sectionProps} />
+              )}
 
-              {/* LAYER 5: 【事業DNA・ビジネスの正体】#01〜#04 弱者の生存戦略・大企業の死角 */}
-              <BusinessSections {...sectionProps} />
+              {/* LAYER 5: 【図表強化①】現金の滝・損益分岐サンキー図（Apache ECharts） */}
+              {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
+                <SankeyCashFlowDiagram {...sectionProps} />
+              )}
 
-              {/* LAYER 6: 【現場配管・武器庫】#08 利用ツールスタック ＆ 月額原価 */}
-              <ToolsSection {...sectionProps} />
+              {/* LAYER 6: 【図表強化②】損益ストリーム分析（TradingView Lightweight Charts） */}
+              {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
+                <TradingViewFinancialChart {...sectionProps} />
+              )}
 
-              {/* LAYER 7: 【5分・略奪実行】略奪ブループリント ＆ 武器庫 */}
-              <LootBlueprintSection {...sectionProps} />
+              {/* LAYER 7: 【詳細P&L】財務損益計器盤 ＆ 原価構造 */}
+              {(viewMode === 'ALL' || viewMode === 'FINANCIAL') && (
+                <FinancialSection {...sectionProps} />
+              )}
 
-              {/* LAYER 8: 【初動突破・実務プレイブック】#09〜#13 最初の100人獲得 ＆ 再現手順 */}
-              <PlaybookSections {...sectionProps} />
+              {/* LAYER 8: 【図表強化③】自走増殖フライホイール（Apache ECharts 360°円環図） */}
+              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
+                <FlywheelEngineDiagram {...sectionProps} />
+              )}
 
-              {/* LAYER 9: 【構造ダイアグラム】産業構造破壊 ＆ 自走増殖フライホイール */}
-              <VisualPipelineSection {...sectionProps} />
-              <ValueChainDisruptionSection {...sectionProps} />
-              <FlywheelEngineDiagram {...sectionProps} />
+              {/* LAYER 9: 【図表強化④】産業構造の変革（バリューチェーン中抜き対比図） */}
+              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
+                <ValueChainDisruptionSection {...sectionProps} />
+              )}
+
+              {/* LAYER 10: 【事業DNA・ビジネスの正体】#01〜#04 弱者の生存戦略・大企業の死角 */}
+              {(viewMode === 'ALL' || viewMode === 'ESSENCE') && (
+                <BusinessSections {...sectionProps} />
+              )}
+
+              {/* LAYER 11: 【現場配管・武器庫】#08 利用ツールスタック ＆ 月額原価 */}
+              {(viewMode === 'ALL' || viewMode === 'FINANCIAL' || viewMode === 'PLAYBOOK') && (
+                <ToolsSection {...sectionProps} />
+              )}
+
+              {/* LAYER 12: 【5分・略奪実行】略奪ブループリント ＆ 武器庫 */}
+              {(viewMode === 'ALL' || viewMode === 'PLAYBOOK') && (
+                <LootBlueprintSection {...sectionProps} />
+              )}
+
+              {/* LAYER 13: 【初動突破・実務プレイブック】#09〜#13 最初の100人獲得 ＆ 再現手順 */}
+              {(viewMode === 'ALL' || viewMode === 'PLAYBOOK') && (
+                <PlaybookSections {...sectionProps} />
+              )}
             </>
           ) : (
             <>
