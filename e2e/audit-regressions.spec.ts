@@ -4,7 +4,7 @@ test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) =>
   await page.addInitScript(() => localStorage.setItem('kin_pro_unlocked', 'true'));
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByText('UNLOCKED: 機関解錠済')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: '【本丸】資本主義の裏帳簿', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: '分析', exact: true })).toBeVisible();
   const response = await page.request.get('/api/company-analysis?entity_id=ent_photoai');
   expect([401, 403]).toContain(response.status());
 });
@@ -41,11 +41,11 @@ test('unconfirmed financials never present a zero as a measured result', async (
   await page.getByPlaceholder(/銘柄名/).first().fill('Clubhouse');
   await page.getByRole('row').filter({ hasText: 'Clubhouse' }).click();
   await expect(page.getByRole('heading', { name: 'Clubhouse (Alpha Exploration)', exact: true })).toBeVisible();
-  await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認|財務データ未確認|月商・営業利益を裏付ける情報が不足しているため/).first()).toBeVisible();
-  await page.getByRole('button', { name: /現金の解剖室/ }).click();
+  await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認|財務データ.*未確認|月商・営業利益を裏付ける情報が不足しているため/).first()).toBeVisible();
+  await page.getByRole('button', { name: /損益/ }).click();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
-  await expect(financials).toContainText('財務データ未確認');
+  await expect(financials).toContainText(/財務データ.*未確認/);
   await expect(financials.getByRole('table')).toHaveCount(0);
   await expect(financials).not.toContainText('¥0');
 });
