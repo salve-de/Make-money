@@ -2,8 +2,8 @@ import { expect, type Page } from '@playwright/test';
 
 /** Use the visible product controls; keep persistence assertions in each test. */
 export async function openNotes(page: Page) {
-  await page.getByRole('button', { name: '【証拠】検証エビデンス', exact: true }).click();
-  await page.getByRole('button', { name: '考察メモ', exact: true }).click();
+  await page.getByRole('button', { name: '証拠', exact: true }).click();
+  await page.getByRole('button', { name: /^03\s*考察メモ$/ }).click();
   await expect(page.locator('#section-notes textarea')).toBeVisible();
 }
 

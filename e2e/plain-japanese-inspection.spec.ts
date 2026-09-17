@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// Preserve business/evidence coverage on the current four-layer, two-tab inspector.
+// Preserve business/evidence coverage on the evidence-first two-tab inspector.
 const entities = [
   ['ent_lopia_9c', '株式会社ロピア (OIC)', false],
   ['ent_pdf_ai_65', 'PDF.ai', false],
@@ -22,12 +22,14 @@ for (const [id, name, hazard] of entities) {
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
     await expect(page.locator('#section-summary')).toHaveCount(1);
     await expect(page.locator('#section-cash-anatomy')).toHaveCount(1);
+    await expect(page.locator('#section-flywheel')).toHaveCount(1);
+    await expect(page.locator('#section-value-chain')).toHaveCount(1);
     await expect(page.locator('#section-evidence')).toContainText(hazard ? '失敗・撤退の事実ログ' : '儲けのウラ側');
     expect(await page.locator('#section-evidence article').count()).toBeGreaterThanOrEqual(2);
     for (const phrase of ['サバンナOS', 'サバンナ OS', '略奪転用方程式', '身も蓋もない真実', 'カニバリズム障壁']) {
       await expect(page.locator('body')).not.toContainText(phrase);
     }
-    await page.getByRole('button', { name: '【証拠】検証エビデンス', exact: true }).click();
+    await page.getByRole('button', { name: '証拠', exact: true }).click();
     await expect(page.locator('#section-sources')).toHaveCount(1);
     await expect(page.locator('#section-stream')).toHaveCount(1);
     await expect(page.locator('#section-notes textarea')).toHaveCount(1);
