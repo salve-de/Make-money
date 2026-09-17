@@ -22,7 +22,7 @@ for (const [id, name, hazard] of entities) {
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
     await expect(page.locator('#section-summary')).toHaveCount(1);
     await expect(page.locator('#section-cash-anatomy')).toHaveCount(1);
-    await expect(page.locator('#section-flywheel')).toHaveCount(1);
+    await expect(page.locator('#section-flywheel')).toHaveCount(0);
     await expect(page.locator('#section-value-chain')).toHaveCount(1);
     await expect(page.locator('#section-evidence')).toContainText(hazard ? '失敗・撤退の事実ログ' : '儲けのウラ側');
     expect(await page.locator('#section-evidence article').count()).toBeGreaterThanOrEqual(2);
