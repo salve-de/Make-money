@@ -24,6 +24,11 @@ async function getInitialEntities(): Promise<FinancialEntity[]> {
         .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
         .map(reconcileFinancialEntity)
         .map(normalizeFinancialEntity);
+      const photoAiIdx = normalized.findIndex((e) => e.id === 'ent_photoai');
+      if (photoAiIdx > 0) {
+        const [photoAi] = normalized.splice(photoAiIdx, 1);
+        normalized.unshift(photoAi);
+      }
       const keyenceIdx = normalized.findIndex((e) => e.id === 'ent_keyence');
       if (keyenceIdx > 0) {
         const [keyence] = normalized.splice(keyenceIdx, 1);

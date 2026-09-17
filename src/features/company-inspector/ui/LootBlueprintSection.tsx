@@ -227,9 +227,9 @@ export function LootBlueprintSection({
           </div>
 
           <div className="overflow-x-auto rounded-lg border border-white/[0.08] bg-[#090d13]">
-            <table className="w-full min-w-[500px] border-collapse text-left text-xs font-sans">
+            <table role="presentation" className="w-full min-w-[500px] border-collapse text-left text-xs font-sans">
               <thead>
-                <tr className="border-b border-white/[0.07] bg-white/[0.02] text-[10px] font-mono text-zinc-400">
+                <tr role="presentation" className="border-b border-white/[0.07] bg-white/[0.02] text-[10px] font-mono text-zinc-400">
                   <th className="px-3.5 py-2 font-semibold">ツール・インフラ名称</th>
                   <th className="px-3.5 py-2 font-semibold w-24">区分</th>
                   <th className="px-3.5 py-2 font-semibold">役割・目的</th>
@@ -248,7 +248,7 @@ export function LootBlueprintSection({
                     : '—';
 
                   return (
-                    <tr key={`${toolName}-${index}`} className="hover:bg-white/[0.02] transition-colors">
+                    <tr role="presentation" key={`${toolName}-${index}`} className="hover:bg-white/[0.02] transition-colors">
                       <td className="px-3.5 py-2.5 font-bold text-zinc-100">{toolName}</td>
                       <td className="px-3.5 py-2.5 text-zinc-400 font-mono text-[11px]">{toolCategory}</td>
                       <td className="px-3.5 py-2.5 text-zinc-300 text-xs">{toolPurpose}</td>

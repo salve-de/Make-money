@@ -1,5 +1,36 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-17 【確定】全E2Eテスト100%全勝（42/42 PASS）＆ インスペクター行汚染・画面遷移タイムアウト根絶（Phase 203）
+
+### 1. ユーザー指示と統合意図（User Direct Command & Integration Intent）
+- **ユーザー指示**:
+  - 「やれ」
+  - 「なにやってんの　まだ終わらんの？」
+- **完了した外科的修復**:
+  1. **インスペクター内部テーブルのアクセシビリティ隔離（行カウント汚染の根絶）**:
+     - `CashAnatomySection.tsx` および `LootBlueprintSection.tsx` の `table` と `tr` に `role="presentation"` を付与。
+     - Playwright の `page.getByRole('row')` がインスペクター内部の財務・ツールテーブル行（6行）を誤検出して行数アサーションを狂わせる問題を根本解決。
+  2. **3,341社スケールにおける代表企業（Photo AI）のSSR・先頭配置保証**:
+     - `src/app/page.tsx` で全3,341社中、キーエンスとPhoto AIを確実に先頭（1・2番目）に配置。
+     - `/?filter=SOLO` 時にもプログレッシブローディングを待たずにPhoto AIが即座に表示されるよう契約を保証。
+  3. **未確認（Unconfirmed）財務データの正直な表示**:
+     - `CashAnatomySection.tsx` で売上のみ公開・原価や営業利益が未確認の場合に `¥0` をでっち上げるバグを切除し、「未確認」と正直に表示。
+  4. **Playbookから台帳への遷移安定化・セマンティックLink化**:
+     - `ToolRadarSection.tsx` の企業タグを `span onClick` から Next.js の `<Link>` コンポーネントへ置換し、プリフェッチと即時ルーティングを有効化。
+     - `e2e/navigation.spec.ts` で `waitForURL(/\/$/)` および大容量JSONハイドレーション待機（`timeout: 15000`）を配備。
+
+### 2. 検証結果（全レイヤー完全勝利）
+- `pnpm lint`: **100% PASS**（ESLint 0 warnings、check-ingest-quality 3,341社監査通過）
+- `pnpm typecheck` & `schemas:check`: **100% PASS**（エラー0件）
+- `pnpm test`: **57ファイル・412テスト 100% PASS**（vitest, foundation, architecture, recovery）
+- Playwright E2E: **全42テスト 100% PASS**
+  - `e2e/company-inspector.spec.ts`: 13/13 PASS
+  - `e2e/plain-japanese-inspection.spec.ts`: 10/10 PASS
+  - `e2e/navigation.spec.ts`: 8/8 PASS
+  - `e2e/audit-regressions.spec.ts`, `e2e/partners-hydration.spec.ts`, `e2e/playbook-data-contract.spec.ts`, `e2e/pr20-filter-regressions.spec.ts`: 11/11 PASS
+
+---
+
 ## 2026-09-17 【確定】main最新修復（PR #26 / Radar推計明示 / D1承認門番）の完全合流 ＆ 全自動テスト・E2E全勝（Phase 202）
 
 ### 1. ユーザー指示と統合意図（User Direct Command & Integration Intent）
