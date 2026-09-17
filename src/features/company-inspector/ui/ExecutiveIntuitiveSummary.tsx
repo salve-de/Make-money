@@ -1,17 +1,21 @@
-import { legacyText, legacyNumber } from '../model/legacy-fields';
+import { legacyNumber, legacyText } from '../model/legacy-fields';
 import React from 'react';
-import { Building2, Flame } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 function stripLeadingEntityName(text: string, name?: string, legalEntity?: string): string {
   if (!text) return '';
-  let res = text.trim();
+  let result = text.trim();
   const names = [name, legalEntity].filter(Boolean) as string[];
-  for (const n of names) {
-    const escaped = n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    res = res.replace(new RegExp('^' + escaped + '[は|が|の|による]?\\s*[、,]?\\s*', 'u'), '');
+  for (const candidate of names) {
+    const escaped = candidate.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    result = result.replace(new RegExp(`^${escaped}[は|が|の|による]?\\s*[、,]?\\s*`, 'u'), '');
   }
-  return res.trim();
+  return result.trim();
+}
+
+function compact(value: string | null | undefined, fallback: string): string {
+  const normalized = (value || '').replace(/\s+/g, ' ').trim();
+  return normalized || fallback;
 }
 
 export function ExecutiveIntuitiveSummary({
@@ -19,150 +23,103 @@ export function ExecutiveIntuitiveSummary({
   isHazardMode,
   formatMoney,
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'formatMoney'>) {
-  // 1. 最上段の一撃フック（白太字・最大視覚強度）
-  const strongHeadline = stripLeadingEntityName(
-    entity.tagline || entity.essence?.whatItDoes || '',
+  const whatItDoes = compact(
+    entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary'),
+    '事業内容は未確認',
+  );
+  const targetCustomer = compact(entity.essence?.targetCustomer, '対象顧客は未確認');
+  const painRelief = compact(entity.essence?.painRelief || entity.targetPainWallet, '顧客課題は未確認');
+  const monetization = compact(
+    legacyText(entity.essence, 'monetizationWay') || legacyText(entity, 'monetizationWay'),
+    '課金・収益化構造は未確認',
+  );
+  const rawMoat = entity.strategy?.moatDescription
+    || legacyText(entity.strategy, 'moat')
+    || legacyText(entity, 'coreMoatDescription')
+    || entity.architecturePattern;
+  const moat = compact(rawMoat?.replace(/^【.*?】/g, '').trim(), '追随障壁は未確認');
+  const headline = stripLeadingEntityName(
+    entity.tagline || entity.essence?.whatItDoes || whatItDoes,
     entity.name,
-    entity.legalEntity
+    entity.legalEntity,
   );
 
-  // 2. 何をやっているのか（事業の正体）
-  const whatItDoes = entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary') || '特定業界向けソリューションの開発・販売';
-  const targetCustomer = entity.essence?.targetCustomer?.trim() || '';
-  const painRelief = entity.essence?.painRelief?.trim() || entity.targetPainWallet?.trim() || '';
+  const revenueKnown = !entity.pnl.isRevenueUnconfirmed && Number.isFinite(entity.pnl.monthlyRevenue);
+  const profitKnown = !entity.pnl.isOperatingProfitUnconfirmed && Number.isFinite(entity.pnl.operatingProfit);
+  const marginKnown = !entity.pnl.isMarginUnconfirmed && Number.isFinite(entity.pnl.operatingMargin);
+  const teamSize = !entity.operations?.isTeamSizeUnconfirmed
+    ? entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null
+    : null;
 
-  // 3. どうやって儲けているのか（儲けのカラクリ）
-  const monetization = legacyText(entity.essence, 'monetizationWay') || legacyText(entity, 'monetizationWay') || '';
-  const rawMoat = entity.strategy?.moatDescription || legacyText(entity.strategy, 'moat') || legacyText(entity, 'coreMoatDescription') || entity.architecturePattern || '';
-  const cleanedMoat = rawMoat.replace(/^【.*?】/g, '').trim();
+  const metrics = [
+    { label: '月商', value: revenueKnown ? formatMoney(entity.pnl.monthlyRevenue) : '未確認', tone: 'neutral' },
+    {
+      label: '営業利益',
+      value: profitKnown ? formatMoney(entity.pnl.operatingProfit) : '未確認',
+      tone: profitKnown && entity.pnl.operatingProfit < 0 ? 'negative' : profitKnown ? 'positive' : 'neutral',
+    },
+    {
+      label: '営業利益率',
+      value: marginKnown ? `${entity.pnl.operatingMargin.toFixed(1)}%` : '未確認',
+      tone: marginKnown && entity.pnl.operatingMargin < 0 ? 'negative' : marginKnown ? 'positive' : 'neutral',
+    },
+    { label: '組織', value: teamSize ? `${teamSize.toLocaleString()}名` : '未確認', tone: 'neutral' },
+  ] as const;
 
-  // 4. 冷徹な実績数字
-  const monthlyRev = entity.pnl?.monthlyRevenue ? formatMoney(entity.pnl.monthlyRevenue) : null;
-  const monthlyProfit = entity.pnl?.operatingProfit ? formatMoney(entity.pnl.operatingProfit) : null;
-  const margin = entity.pnl?.operatingMargin !== undefined ? `${entity.pnl.operatingMargin.toFixed(1)}%` : null;
-  const teamSize = entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null;
+  const rows = isHazardMode
+    ? [
+        { label: '事業', value: whatItDoes },
+        { label: '顧客', value: targetCustomer },
+        { label: '破綻圧力', value: painRelief },
+        { label: '構造要因', value: moat },
+      ]
+    : [
+        { label: '事業', value: whatItDoes },
+        { label: '顧客 / 痛み', value: `${targetCustomer} / ${painRelief}` },
+        { label: '稼ぎ方', value: monetization },
+        { label: '真似しにくさ', value: moat },
+      ];
 
   return (
-    <div id="section-summary" className="space-y-4 select-text">
-      {/* ========================================================= */}
-      {/* 【最上段：一撃フック（ユーザー指定の絶対デザイン）】 */}
-      {/* ========================================================= */}
-      <div className={`rounded-xl border p-4 sm:p-5 shadow-2xl relative overflow-hidden transition-all ${
-        isHazardMode
-          ? 'bg-gradient-to-r from-red-950/40 via-[#120B0E] to-[#0A0D14] border-red-500/40 shadow-[0_0_30px_rgba(239,68,68,0.08)]'
-          : 'bg-gradient-to-r from-[#0C1322] via-[#0E1626] to-[#080B10] border-cyan-500/40 shadow-[0_0_30px_rgba(6,182,212,0.08)]'
-      }`}>
-        <div className="flex items-start gap-3 relative z-10">
-          <div className="shrink-0 mt-0.5 p-2 rounded-lg bg-white/[0.05] border border-white/[0.1]">
-            {isHazardMode ? (
-              <Flame className="w-5 h-5 text-red-400" />
-            ) : (
-              <Building2 className="w-5 h-5 text-cyan-400" />
-            )}
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className={`text-[11px] font-mono font-bold tracking-wider uppercase px-2 py-0.5 rounded border ${
-                isHazardMode
-                  ? 'text-red-400 bg-red-950/50 border-red-500/30'
-                  : 'text-cyan-300 bg-cyan-950/50 border-cyan-500/30'
-              }`}>
-                {isHazardMode ? '【破綻の正体】' : '【正体】'}
-              </span>
-            </div>
-            <p className="text-sm sm:text-base md:text-lg font-bold text-white leading-snug tracking-wide">
-              {strongHeadline}
-            </p>
-          </div>
+    <section id="section-summary" className="overflow-hidden rounded-lg border border-white/[0.09] bg-[#0e131b] select-text">
+      <div className={`border-l-2 px-4 py-4 sm:px-5 ${isHazardMode ? 'border-red-400' : 'border-blue-400'}`}>
+        <div className={`text-[10px] font-medium tracking-wide ${isHazardMode ? 'text-red-300' : 'text-blue-300'}`}>
+          {isHazardMode ? 'FAILURE THESIS' : 'INVESTMENT THESIS'}
         </div>
+        <p className="mt-1.5 max-w-5xl text-[15px] font-semibold leading-relaxed text-zinc-50 sm:text-base">
+          {headline}
+        </p>
       </div>
 
-      {/* ========================================================= */}
-      {/* 【淡々とした明快な3大ブロック】 */}
-      {/* ========================================================= */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-        {/* ブロック1: 何をやっているのか */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#0A0D14] p-4 flex flex-col justify-between shadow-lg">
-          <div>
-            <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
-              <span className="w-2 h-2 rounded-full bg-blue-400 shrink-0" />
-              <h3 className="text-xs font-bold text-zinc-200 font-mono tracking-wider uppercase">
-                1. 何をやっているのか（事業の正体）
-              </h3>
-            </div>
-            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3">
-              {whatItDoes}
-            </p>
-            {targetCustomer && (
-              <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04] space-y-1">
-                <div><strong className="text-zinc-400">対象顧客:</strong> {targetCustomer}</div>
-                {painRelief && <div><strong className="text-zinc-400">解決ペイン:</strong> {painRelief}</div>}
+      <div className="grid grid-cols-2 border-y border-white/[0.07] bg-[#0b0f15] sm:grid-cols-4">
+        {metrics.map((metric, index) => {
+          const toneClass = metric.tone === 'positive'
+            ? 'text-emerald-300'
+            : metric.tone === 'negative'
+              ? 'text-red-300'
+              : 'text-zinc-100';
+          return (
+            <div
+              key={metric.label}
+              className={`px-3 py-2.5 ${index > 0 ? 'border-l border-white/[0.06]' : ''} ${index >= 2 ? 'border-t border-white/[0.06] sm:border-t-0' : ''}`}
+            >
+              <div className="text-[9px] text-zinc-500">{metric.label}</div>
+              <div className={`mt-0.5 font-mono text-[12px] font-semibold tabular-nums ${toneClass}`}>
+                {metric.value}
               </div>
-            )}
-          </div>
-        </div>
-
-        {/* ブロック2: どうやって儲けているのか（儲けのカラクリ） */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#0A0D14] p-4 flex flex-col justify-between shadow-lg">
-          <div>
-            <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
-              <span className={`w-2 h-2 rounded-full shrink-0 ${isHazardMode ? 'bg-red-400' : 'bg-emerald-400'}`} />
-              <h3 className="text-xs font-bold text-zinc-200 font-mono tracking-wider uppercase">
-                {isHazardMode ? '2. なぜ破綻したのか（死因の核心）' : '2. どうやって儲けているのか（儲けのカラクリ）'}
-              </h3>
             </div>
-            <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-sans mb-3">
-              {cleanedMoat || monetization || '独自のビジネスモデルと参入障壁によって競合を排除し超過利潤を確保'}
-            </p>
-            {monetization && monetization !== cleanedMoat && (
-              <div className="text-[11px] text-zinc-300 bg-white/[0.02] p-2.5 rounded border border-white/[0.04]">
-                <strong className="text-zinc-400">課金構造:</strong> {monetization}
-              </div>
-            )}
-          </div>
-        </div>
+          );
+        })}
       </div>
 
-      {/* ブロック3: 実際の数字（冷徹な通信簿） */}
-      <div className="rounded-xl border border-white/[0.08] bg-[#070A0F] p-3.5 shadow-lg">
-        <div className="flex items-center gap-2 mb-2.5 pb-2 border-b border-white/[0.06]">
-          <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
-          <h3 className="text-[11px] font-bold text-zinc-200 font-mono tracking-wider uppercase">
-            3. 実際の数字（冷徹な通信簿）
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">月商規模</div>
-            <div className="text-xs sm:text-sm font-bold font-mono text-zinc-100 mt-0.5">
-              {monthlyRev || '未公開'}
-            </div>
+      <div className="divide-y divide-white/[0.06] px-4 sm:px-5">
+        {rows.map((row) => (
+          <div key={row.label} className="grid gap-1 py-2.5 sm:grid-cols-[112px_minmax(0,1fr)] sm:gap-4">
+            <div className="text-[10px] font-medium text-zinc-500">{row.label}</div>
+            <div className="text-[12px] leading-relaxed text-zinc-300">{row.value}</div>
           </div>
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">純手残り（営業利益）</div>
-            <div className={`text-xs sm:text-sm font-bold font-mono mt-0.5 ${
-              isHazardMode ? 'text-red-400' : 'text-emerald-400'
-            }`}>
-              {monthlyProfit || '未公開'}
-            </div>
-          </div>
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">利益率</div>
-            <div className={`text-xs sm:text-sm font-bold font-mono mt-0.5 ${
-              isHazardMode ? 'text-red-400' : 'text-emerald-400'
-            }`}>
-              {margin || '未公開'}
-            </div>
-          </div>
-          <div className="bg-white/[0.03] p-2.5 rounded border border-white/[0.05]">
-            <div className="text-[10px] text-zinc-400 font-mono">組織規模</div>
-            <div className="text-xs sm:text-sm font-bold font-mono text-zinc-200 mt-0.5">
-              {teamSize ? `${teamSize.toLocaleString()}名` : '少数精鋭'}
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
