@@ -113,12 +113,17 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
 
   return (
     <>
-      <div
+      <button
+        type="button"
         onClick={onClose}
         className="fixed inset-0 z-30 bg-black/60 backdrop-blur-xs md:hidden"
+        aria-label="企業事例インスペクターを閉じる"
       />
 
-      <aside className="fixed inset-x-0 bottom-0 z-40 flex h-full max-h-[92vh] w-full shrink-0 flex-col overflow-hidden border-t border-white/[0.08] bg-[#090d13] shadow-2xl md:static md:max-h-none md:min-w-[480px] md:flex-1 md:shrink md:border-l md:border-t-0">
+      <aside
+        aria-label={`${entity.name}の企業事例インスペクター`}
+        className="fixed inset-x-0 bottom-0 z-40 flex h-full max-h-[92vh] w-full shrink-0 flex-col overflow-hidden border-t border-white/[0.08] bg-[#090d13] shadow-2xl md:static md:max-h-none md:min-w-[480px] md:flex-1 md:shrink md:border-l md:border-t-0"
+      >
         <CompanyHeader {...sectionProps} />
 
         <div
