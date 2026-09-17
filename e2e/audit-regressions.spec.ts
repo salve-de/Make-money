@@ -42,7 +42,7 @@ test('unconfirmed financials never present a zero as a measured result', async (
   await page.getByRole('row').filter({ hasText: 'Clubhouse' }).click();
   await expect(page.getByRole('heading', { name: 'Clubhouse (Alpha Exploration)', exact: true })).toBeVisible();
   await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認|財務データ.*未確認|月商・営業利益を裏付ける情報が不足しているため/).first()).toBeVisible();
-  await page.getByRole('button', { name: /損益/ }).click();
+  await page.getByRole('button', { name: /^03\s*損益$/ }).click();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
   await expect(financials).toContainText(/財務データ.*未確認/);
