@@ -22,7 +22,7 @@ export function EvidenceDeckSection({
             EVIDENCE DOSSIER
           </div>
           <h3 className="mt-0.5 text-sm font-semibold text-zinc-100">
-            {isHazardMode ? '失敗・撤退の事実ログ' : '根拠を先に見る'}
+            {isHazardMode ? '失敗・撤退の事実ログ' : '儲けのウラ側 ＆ 現場の証拠'}
           </h3>
           <p className="mt-1 text-[11px] text-zinc-500">
             結論だけ一覧し、必要な行だけ開いて詳細を確認します。
