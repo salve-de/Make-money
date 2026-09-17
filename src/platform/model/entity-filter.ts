@@ -6,6 +6,8 @@ export type FilterCandidate = Pick<FinancialEntity, 'id' | 'scale' | 'sector'> &
   operations: Pick<FinancialEntity['operations'], 'isCapitalUnconfirmed' | 'initialCapitalRequired'>;
 };
 
+export type ApprovalCandidate = Pick<FinancialEntity, 'id' | 'tags'>;
+
 type Predicate = (entity: FilterCandidate, bookmarks: ReadonlySet<string>) => boolean;
 const predicates: Record<GridFilterOption, Predicate> = {
   ALL: () => true,
@@ -36,4 +38,11 @@ export function matchesGridFilter(
   bookmarks: ReadonlySet<string>,
 ): boolean {
   return predicates[filter](entity, bookmarks);
+}
+
+/** IDs eligible for the toolbar's "approve displayed" action. */
+export function collectedEntityIds(visibleEntities: readonly ApprovalCandidate[]): string[] {
+  return visibleEntities
+    .filter((entity) => (entity.tags || []).includes('収集事例'))
+    .map((entity) => entity.id);
 }

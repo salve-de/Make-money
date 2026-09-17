@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { GridFilterOption } from '../types/terminal';
 import type { ScreenerFilterState } from '../components/screener/AdvancedScreenerModal';
-import { matchesGridFilter, readEntityFilterQuery } from '../model/entity-filter';
+import { collectedEntityIds, matchesGridFilter, readEntityFilterQuery } from '../model/entity-filter';
 import { approveEntities } from '../api/entity-approval';
 
 interface UseEntityFilterProps {
@@ -107,9 +107,10 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
   }, [onPersistApprovedId, onUpdateDetailedTags]);
 
   const handleApproveEntity = useCallback((id: string) => persistApproval([id]), [persistApproval]);
-  const handleApproveAllCollected = useCallback(() => persistApproval(
-    entities.filter((entity) => (entity.tags || []).includes('収集事例')).map((entity) => entity.id),
-  ), [entities, persistApproval]);
+  const handleApproveAllCollected = useCallback(
+    () => persistApproval(collectedEntityIds(filteredEntities)),
+    [filteredEntities, persistApproval],
+  );
 
   return {
     currentFilter, setCurrentFilter, selectedBatch, setSelectedBatch,

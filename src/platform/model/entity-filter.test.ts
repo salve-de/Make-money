@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { GRID_FILTERS, matchesGridFilter, readEntityFilterQuery, type FilterCandidate } from './entity-filter';
+import {
+  GRID_FILTERS,
+  collectedEntityIds,
+  matchesGridFilter,
+  readEntityFilterQuery,
+  type FilterCandidate,
+} from './entity-filter';
 
 const empty = new Set<string>();
 const candidate: FilterCandidate = {
@@ -36,5 +42,15 @@ describe('PR20 filter behavior contract', () => {
   });
   it.each(['', 'filter=invalid', 'filter=__proto__', 'filter=constructor&batch='])('resets absent/invalid URL values: %s', (query) => {
     expect(readEntityFilterQuery(new URLSearchParams(query))).toEqual({ filter: 'ALL', batch: 'ALL' });
+  });
+  it('approves only collected entities from the rows already visible to the user', () => {
+    const visible = [
+      { id: 'ent_visible_collected', tags: ['収集事例', 'SaaS'] },
+      { id: 'ent_visible_curated', tags: ['SaaS'] },
+    ];
+    expect(collectedEntityIds(visible)).toEqual(['ent_visible_collected']);
+
+    const hiddenElsewhere = { id: 'ent_hidden_collected', tags: ['収集事例'] };
+    expect(collectedEntityIds(visible)).not.toContain(hiddenElsewhere.id);
   });
 });
