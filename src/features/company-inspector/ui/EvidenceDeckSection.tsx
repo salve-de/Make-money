@@ -1,41 +1,30 @@
 import { DynamicEvidenceDeck } from '../dynamic-sections/DynamicEvidenceDeck';
-
+import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
+import { InspectorSectionCard } from './InspectorSectionCard';
 
 export function EvidenceDeckSection({
   entity,
   isHazardMode,
   hasEvidenceCards,
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
-  if (!hasEvidenceCards) return null;
+  const cards = entity.evidenceCards || [];
+  if (!hasEvidenceCards || cards.length === 0) return null;
 
   return (
-    <section
+    <InspectorSectionCard
       id="section-evidence"
-      className={`scroll-mt-4 overflow-hidden rounded-lg border bg-[#0e131b] ${
-        isHazardMode ? 'border-red-500/25' : 'border-white/[0.09]'
-      }`}
+      index="03"
+      categoryEn="EVIDENCE DOSSIER"
+      titleJa={isHazardMode ? '失敗・撤退の事実ログ' : '儲けのウラ側 ＆ 現場の証拠'}
+      badge={
+        <span className="rounded border border-white/[0.10] bg-white/[0.04] px-2 py-0.5 text-zinc-400 font-mono text-[11px]">
+          {cards.length} records
+        </span>
+      }
+      isHazardMode={isHazardMode}
     >
-      <div className="flex flex-wrap items-end justify-between gap-2 border-b border-white/[0.07] px-3.5 py-3">
-        <div>
-          <div className={`text-[10px] font-medium ${isHazardMode ? 'text-red-300' : 'text-blue-300'}`}>
-            EVIDENCE DOSSIER
-          </div>
-          <h3 className="mt-0.5 text-sm font-semibold text-zinc-100">
-            {isHazardMode ? '失敗・撤退の事実ログ' : '儲けのウラ側 ＆ 現場の証拠'}
-          </h3>
-          <p className="mt-1 text-[11px] text-zinc-500">
-            結論だけ一覧し、必要な行だけ開いて詳細を確認します。
-          </p>
-        </div>
-        <div className="font-mono text-[10px] tabular-nums text-zinc-500">
-          {entity.evidenceCards!.length} records
-        </div>
-      </div>
-
-      <div className="p-2">
-        <DynamicEvidenceDeck cards={entity.evidenceCards!} isHazardMode={isHazardMode} />
-      </div>
-    </section>
+      <DynamicEvidenceDeck cards={cards} isHazardMode={isHazardMode} />
+    </InspectorSectionCard>
   );
 }

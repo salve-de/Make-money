@@ -15,7 +15,6 @@ import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
 import { LootBlueprintSection } from './ui/LootBlueprintSection';
 import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
-import { ValueChainDisruptionSection } from './ui/ValueChainDisruptionSection';
 
 export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
   entity,
@@ -133,7 +132,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
           {mainTab === 'LEDGER' ? (
             <>
               <ExecutiveIntuitiveSummary {...sectionProps} />
-              <EvidenceDeckSection {...sectionProps} />
 
               {entity.pnl.financialStatus === 'ESTIMATED' ? (
                 <EstimatedCashSummary {...sectionProps} />
@@ -141,7 +139,7 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 <CashAnatomySection {...sectionProps} />
               )}
 
-              <ValueChainDisruptionSection {...sectionProps} />
+              <EvidenceDeckSection {...sectionProps} />
               <LootBlueprintSection {...sectionProps} />
             </>
           ) : (

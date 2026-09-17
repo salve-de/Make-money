@@ -1,6 +1,7 @@
 import { legacyNumber, legacyText } from '../model/legacy-fields';
 import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
+import { InspectorSectionCard } from './InspectorSectionCard';
 
 function stripLeadingEntityName(text: string, name?: string, legalEntity?: string): string {
   if (!text) return '';
@@ -13,9 +14,13 @@ function stripLeadingEntityName(text: string, name?: string, legalEntity?: strin
   return result.trim();
 }
 
-function compact(value: string | null | undefined, fallback: string): string {
-  const normalized = (value || '').replace(/\s+/g, ' ').trim();
-  return normalized || fallback;
+function cleanValue(value: string | null | undefined): string | null {
+  if (!value) return null;
+  const trimmed = value.trim();
+  if (!trimmed || trimmed === '未確認' || trimmed === 'UNKNOWN' || trimmed.startsWith('未確認：')) {
+    return null;
+  }
+  return trimmed;
 }
 
 export function ExecutiveIntuitiveSummary({
@@ -23,88 +28,143 @@ export function ExecutiveIntuitiveSummary({
   isHazardMode,
   formatMoney,
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'formatMoney'>) {
-  const whatItDoes = compact(
-    entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary'),
-    '事業内容は未確認',
-  );
-  const targetCustomer = compact(entity.essence?.targetCustomer, '対象顧客は未確認');
-  const painRelief = compact(entity.essence?.painRelief || entity.targetPainWallet, '顧客課題は未確認');
-  const monetization = compact(
-    legacyText(entity.essence, 'monetizationWay') || legacyText(entity, 'monetizationWay'),
-    '課金・収益化構造は未確認',
-  );
-  const rawMoat = entity.strategy?.moatDescription
-    || legacyText(entity.strategy, 'moat')
-    || legacyText(entity, 'coreMoatDescription')
-    || entity.architecturePattern;
-  const moat = compact(rawMoat?.replace(/^【.*?】/g, '').trim(), '追随障壁は未確認');
   const headline = stripLeadingEntityName(
-    entity.tagline || entity.essence?.whatItDoes || whatItDoes,
+    entity.tagline || entity.essence?.whatItDoes || '',
     entity.name,
     entity.legalEntity,
   );
 
-  const revenueKnown = !entity.pnl.isRevenueUnconfirmed && Number.isFinite(entity.pnl.monthlyRevenue);
+  const revenueKnown = !entity.pnl.isRevenueUnconfirmed && Number.isFinite(entity.pnl.monthlyRevenue) && entity.pnl.monthlyRevenue > 0;
   const profitKnown = !entity.pnl.isOperatingProfitUnconfirmed && Number.isFinite(entity.pnl.operatingProfit);
   const marginKnown = !entity.pnl.isMarginUnconfirmed && Number.isFinite(entity.pnl.operatingMargin);
   const teamSize = !entity.operations?.isTeamSizeUnconfirmed
     ? entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null
     : null;
 
+  // 4大KPI
   const metrics = [
-    { label: '月商', value: revenueKnown ? formatMoney(entity.pnl.monthlyRevenue) : '未確認', tone: 'neutral' },
     {
-      label: '営業利益',
-      value: profitKnown ? formatMoney(entity.pnl.operatingProfit) : '未確認',
-      tone: profitKnown && entity.pnl.operatingProfit < 0 ? 'negative' : profitKnown ? 'positive' : 'neutral',
+      label: '月商規模',
+      value: revenueKnown ? formatMoney(entity.pnl.monthlyRevenue) : '非公開',
+      tone: revenueKnown ? 'neutral' : 'muted',
+    },
+    {
+      label: '営業利益（純手残り）',
+      value: profitKnown ? formatMoney(entity.pnl.operatingProfit) : '非公開',
+      tone: profitKnown && entity.pnl.operatingProfit < 0 ? 'negative' : profitKnown ? 'positive' : 'muted',
     },
     {
       label: '営業利益率',
-      value: marginKnown ? `${entity.pnl.operatingMargin.toFixed(1)}%` : '未確認',
-      tone: marginKnown && entity.pnl.operatingMargin < 0 ? 'negative' : marginKnown ? 'positive' : 'neutral',
+      value: marginKnown ? `${entity.pnl.operatingMargin.toFixed(1)}%` : '非公開',
+      tone: marginKnown && entity.pnl.operatingMargin < 0 ? 'negative' : marginKnown ? 'positive' : 'muted',
     },
-    { label: '組織', value: teamSize ? `${teamSize.toLocaleString()}名` : '未確認', tone: 'neutral' },
-  ] as const;
+    {
+      label: '組織規模',
+      value: teamSize ? `${teamSize.toLocaleString()}名` : '少数精鋭',
+      tone: 'neutral',
+    },
+  ];
 
-  const rows = isHazardMode
-    ? [
-        { label: '事業', value: whatItDoes },
-        { label: '顧客', value: targetCustomer },
-        { label: '破綻圧力', value: painRelief },
-        { label: '構造要因', value: moat },
-      ]
-    : [
-        { label: '事業', value: whatItDoes },
-        { label: '顧客 / 痛み', value: `${targetCustomer} / ${painRelief}` },
-        { label: '稼ぎ方', value: monetization },
-        { label: '真似しにくさ', value: moat },
-      ];
+  // 重複・未確認を排除した生々しいファクト行
+  const whatItDoes = cleanValue(entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary'));
+  // headlineとwhatItDoesの類似重複排除
+  const isDuplicateWhatItDoes = Boolean(
+    whatItDoes && headline && (
+      whatItDoes.slice(0, 30) === headline.slice(0, 30) ||
+      headline.includes(whatItDoes.slice(0, 30))
+    )
+  );
+
+  const targetPain = cleanValue(entity.targetPainWallet || entity.essence?.painRelief);
+  const targetCustomer = cleanValue(entity.essence?.targetCustomer);
+  const pricingModel = cleanValue(entity.pricing?.model);
+  const pricePoint = cleanValue(entity.pricing?.pricePoint);
+  const psychoTrigger = cleanValue(entity.pricing?.psychologicalTrigger);
+  const incumbentDilemma = cleanValue(
+    entity.meta?.incumbentDilemma?.cannibalizationBarrier ||
+    entity.strategy?.incumbentDilemma ||
+    entity.strategy?.moatDescription ||
+    legacyText(entity.strategy, 'moat')
+  );
+
+  // 表示する有効な項目だけを構築（未確認・カス表示は1つも入れない）
+  const infoRows: Array<{ label: string; value: string }> = [];
+
+  if (whatItDoes && !isDuplicateWhatItDoes) {
+    infoRows.push({ label: '事業内容', value: whatItDoes });
+  }
+
+  if (targetPain) {
+    infoRows.push({
+      label: isHazardMode ? '致命的出血点' : '仕留める痛みの財布',
+      value: targetCustomer ? `${targetCustomer} / ${targetPain}` : targetPain,
+    });
+  } else if (targetCustomer) {
+    infoRows.push({ label: '対象顧客', value: targetCustomer });
+  }
+
+  if (pricingModel || pricePoint || psychoTrigger) {
+    const pricingParts = [
+      pricingModel,
+      pricePoint && `単価: ${pricePoint}`,
+      psychoTrigger && `心理動機: ${psychoTrigger}`,
+    ].filter(Boolean);
+    infoRows.push({
+      label: '課金・値付けの手口',
+      value: pricingParts.join(' / '),
+    });
+  }
+
+  if (incumbentDilemma) {
+    infoRows.push({
+      label: isHazardMode ? '破綻の構造要因' : '大手の死角・障壁',
+      value: incumbentDilemma.replace(/^【.*?】/g, '').trim(),
+    });
+  }
 
   return (
-    <section id="section-summary" className="overflow-hidden rounded-lg border border-white/[0.09] bg-[#0e131b] select-text">
-      <div className={`border-l-2 px-4 py-4 sm:px-5 ${isHazardMode ? 'border-red-400' : 'border-blue-400'}`}>
-        <div className={`text-[10px] font-medium tracking-wide ${isHazardMode ? 'text-red-300' : 'text-blue-300'}`}>
-          {isHazardMode ? 'FAILURE THESIS' : 'INVESTMENT THESIS'}
+    <InspectorSectionCard
+      id="section-summary"
+      index="01"
+      categoryEn={isHazardMode ? 'FAILURE THESIS' : 'INVESTMENT THESIS'}
+      titleJa={isHazardMode ? '破綻要因・死因の核心' : '事業仮説・核心の正体'}
+      isHazardMode={isHazardMode}
+    >
+      {/* 核心の正体（大見出し） */}
+      {headline && (
+        <div className={`p-4 sm:p-5 border-b border-white/[0.07] ${
+          isHazardMode ? 'bg-red-950/20' : 'bg-white/[0.015]'
+        }`}>
+          <div className="flex items-start gap-3">
+            <div className={`w-1 h-5 rounded-full shrink-0 mt-0.5 ${
+              isHazardMode ? 'bg-red-400' : 'bg-cyan-400'
+            }`} />
+            <p className="text-sm sm:text-base font-bold text-white leading-relaxed">
+              {headline}
+            </p>
+          </div>
         </div>
-        <p className="mt-1.5 max-w-5xl text-[15px] font-semibold leading-relaxed text-zinc-50 sm:text-base">
-          {headline}
-        </p>
-      </div>
+      )}
 
-      <div className="grid grid-cols-2 border-y border-white/[0.07] bg-[#0b0f15] sm:grid-cols-4">
+      {/* 4大KPIメトリクスグリッド */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 border-b border-white/[0.07] bg-[#090d13]">
         {metrics.map((metric, index) => {
           const toneClass = metric.tone === 'positive'
-            ? 'text-emerald-300'
+            ? 'text-emerald-400'
             : metric.tone === 'negative'
-              ? 'text-red-300'
-              : 'text-zinc-100';
+              ? 'text-red-400'
+              : metric.tone === 'muted'
+                ? 'text-zinc-500 font-normal'
+                : 'text-zinc-100';
           return (
             <div
               key={metric.label}
-              className={`px-3 py-2.5 ${index > 0 ? 'border-l border-white/[0.06]' : ''} ${index >= 2 ? 'border-t border-white/[0.06] sm:border-t-0' : ''}`}
+              className={`p-3.5 sm:px-4 sm:py-3 ${
+                index > 0 ? 'border-l border-white/[0.06]' : ''
+              } ${index >= 2 ? 'border-t border-white/[0.06] sm:border-t-0' : ''}`}
             >
-              <div className="text-[9px] text-zinc-500">{metric.label}</div>
-              <div className={`mt-0.5 font-mono text-[12px] font-semibold tabular-nums ${toneClass}`}>
+              <div className="text-[11px] font-mono text-zinc-400 font-medium">{metric.label}</div>
+              <div className={`mt-1 font-mono text-sm sm:text-base font-bold tabular-nums ${toneClass}`}>
                 {metric.value}
               </div>
             </div>
@@ -112,14 +172,24 @@ export function ExecutiveIntuitiveSummary({
         })}
       </div>
 
-      <div className="divide-y divide-white/[0.06] px-4 sm:px-5">
-        {rows.map((row) => (
-          <div key={row.label} className="grid gap-1 py-2.5 sm:grid-cols-[112px_minmax(0,1fr)] sm:gap-4">
-            <div className="text-[10px] font-medium text-zinc-500">{row.label}</div>
-            <div className="text-[12px] leading-relaxed text-zinc-300">{row.value}</div>
-          </div>
-        ))}
-      </div>
-    </section>
+      {/* 生々しいファクト行（有効なものだけ表示・未確認ゼロ） */}
+      {infoRows.length > 0 && (
+        <div className="divide-y divide-white/[0.06] px-4 sm:px-5">
+          {infoRows.map((row) => (
+            <div
+              key={row.label}
+              className="grid gap-1.5 py-3 sm:grid-cols-[140px_minmax(0,1fr)] sm:gap-4 items-baseline"
+            >
+              <div className="text-[11px] font-mono font-semibold text-zinc-400">
+                {row.label}
+              </div>
+              <div className="text-xs sm:text-[13px] leading-relaxed text-zinc-200">
+                {row.value}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </InspectorSectionCard>
   );
 }

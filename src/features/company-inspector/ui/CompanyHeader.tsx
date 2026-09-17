@@ -72,10 +72,9 @@ export function CompanyHeader({
 
   const ledgerNav = [
     { id: 'section-summary', label: '要点' },
-    { id: 'section-evidence', label: '根拠' },
     { id: 'section-cash-anatomy', label: '損益' },
-    { id: 'section-value-chain', label: '提供経路' },
-    { id: 'section-loot-blueprint', label: '実行案' }
+    { id: 'section-evidence', label: '根拠' },
+    { id: 'section-loot-blueprint', label: '再現' }
   ];
 
   const auditNav = [
@@ -224,16 +223,18 @@ export function CompanyHeader({
           </div>
         </div>
 
-        <nav className="flex items-center overflow-x-auto bg-[#0b0f15] px-2 text-[10px]" aria-label="事例内ナビゲーション">
+        <nav className="flex items-center overflow-x-auto bg-[#0b0f15] px-3 py-1 text-xs" aria-label="事例内ナビゲーション">
           {(mainTab === 'LEDGER' ? ledgerNav : auditNav).map((item, index) => (
             <button
               key={item.id}
               type="button"
               onClick={() => scrollToSection(item.id)}
-              className="flex shrink-0 items-center gap-1.5 border-b-2 border-transparent px-2.5 py-2 text-zinc-500 transition-colors hover:border-blue-500/45 hover:text-zinc-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-400/80"
+              className="flex shrink-0 items-center gap-1.5 px-3 py-1.5 text-zinc-400 transition-colors hover:text-white rounded hover:bg-white/[0.04] focus-visible:outline-none"
             >
-              <span className="font-mono text-[9px] tabular-nums text-zinc-600">{String(index + 1).padStart(2, '0')}</span>
-              <span>{item.label}</span>
+              <span className="font-mono text-[10px] font-bold text-cyan-400 tabular-nums">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="font-medium text-zinc-300">{item.label}</span>
             </button>
           ))}
         </nav>
