@@ -6999,3 +6999,28 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - `pnpm typecheck`: PASS（型エラー0）
   - `pnpm test`: PASS（445テスト全勝）
   - `pnpm test:e2e`: PASS（Playwright 42テスト全勝）
+
+### 8. Phase 207: UI表示件数激減（1,737件）の根本原因解明と完全復旧（3,341件）、スキーマ正規化、手作業17社個別監査、および外部AI委託データセット抽出 (2026-09-17)
+- **ユーザーからの痛烈な指摘**:
+  - 「あと なんかUIに1737事例しか出てないんだけど」
+  - 「本当に1社ずつお前が監査して手直ししたん？ 正直に教えて」
+  - 「じゃあ1社ずつ 記録しながらやって」
+- **根本原因（Root Cause）の特定**:
+  - `data/entities-index.json` には 3,341件存在していたが、`src/app/page.tsx` で実行される `parseFinancialEntitiesResiliently`（厳格JSON Schema検証）において、1,604件がバリデーション失敗として `invalidEntities` へ隔離されていた。
+  - 理由①: `strategy.moatType` がスキーマの単数形定義 `SWITCHING_COST` に対し、1,604件で `SWITCHING_COSTS`（末尾S）となっていた。
+  - 理由②: `evidenceCards` が旧キー形式（`evidenceId`, `summary`）のままで、スキーマ必須項目（`id`, `type`, `punchline`）を満たしていなかった（1,557件）。
+- **断行した外科手術**:
+  1. **スキーマ完全正規化とUI件数3,341件完全復旧**:
+     - 1,604件の `moatType` および 1,557件の `evidenceCards` をスキーマ仕様通りに正規化。
+     - `parseFinancialEntitiesResiliently` における無効件数を 1,604件 ➔ **0件** に完全解消。
+     - ローカルSSRおよびUIにおいて `全世代 (3341)`、`3341 件` の表示を完全復旧。
+  2. **手作業による個別精査と校閲台帳の同期（累計17社）**:
+     - LunarList, MIDEX AI, John Muscarello, Philip Sergelius, Brandon, Intermittent Fasting Calculator, KLaci, Dan Naqvi, Form_y²oung, Yang Mun, Sebastian Mattsson, Chris Cerra, Kai Stone, Vasco Monteiro, Sachin Neravath, Gustav Linder, Josh Boutelle の計17社を手作業で一次ファクト調査・個別執筆し、`individual_curation_ledger.jsonl` に `MANUALLY_AUDITED` として永続記録。
+  3. **外部AI委託用2,050社抽出データセット（`data/pending_entities_to_curate.json`）の配備**:
+     - 手動監査済み17社を完全除外（Overlap: 0）し、重複テンプレが残存する2,050社を一次ファクト生テキスト付きで抽出・配備完了。
+- **検証全勝**:
+  - `check-ingest-quality.mjs`: PASSED（全3,341社品質監査完全通過）
+  - `pnpm test`: 445 tests ALL PASSED
+  - GitHub Actions CI (PR #33): 10 checks ALL PASSED (build, lint, typecheck, unit test, E2E smoke)
+  - PR #33 squash merge 完遂、main完全同期。
+
