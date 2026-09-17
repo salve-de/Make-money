@@ -71,6 +71,15 @@ export function FlywheelEngineDiagram({
       chartInstance.current = myChart;
     }
 
+    const descriptions: Record<string, string> = {
+      '① 提供価値': node1,
+      '② 継続・切替摩擦': node2,
+      '③ 収益性': node3,
+      '④ 再投資・防御': node4,
+      [isHazardMode ? '悪化ループ仮説' : '強化ループ仮説']:
+        '矢印は検証済みの因果を断定するものではありません。'
+    };
+
     const renderChart = () => {
       if (!el || !myChart || el.clientWidth <= 0 || el.clientHeight <= 0) return;
 
@@ -80,7 +89,12 @@ export function FlywheelEngineDiagram({
       const cy = height / 2;
       const rx = Math.min(width * 0.32, 170);
       const ry = Math.min(height * 0.30, 92);
-      const marginColor = margin !== null && margin < 0 ? '#dc2626' : margin !== null && margin > 0 ? '#22c55e' : '#64748b';
+      const marginColor = margin !== null && margin < 0
+        ? '#dc2626'
+        : margin !== null && margin > 0
+          ? '#22c55e'
+          : '#64748b';
+      const centerName = isHazardMode ? '悪化ループ仮説' : '強化ループ仮説';
 
       const option: echarts.EChartsOption = {
         backgroundColor: 'transparent',
@@ -98,14 +112,14 @@ export function FlywheelEngineDiagram({
           formatter: (params: unknown) => {
             const p = params as {
               dataType?: string;
-              data?: { source?: string; target?: string; name?: string; desc?: string };
+              name?: string;
+              data?: { source?: string; target?: string; name?: string };
             };
             if (p.dataType === 'edge' && p.data) {
               return `<strong>${p.data.source} → ${p.data.target}</strong><br/><span style="color:#94a3b8">因果関係は仮説。根拠カードで確認してください。</span>`;
             }
-            return p.data
-              ? `<strong>${p.data.name || ''}</strong><br/><span style="color:#cbd5e1">${p.data.desc || ''}</span>`
-              : '';
+            const name = p.name || p.data?.name || '';
+            return `<strong>${name}</strong><br/><span style="color:#cbd5e1">${descriptions[name] || ''}</span>`;
           }
         },
         series: [
@@ -126,7 +140,6 @@ export function FlywheelEngineDiagram({
             data: [
               {
                 name: '① 提供価値',
-                desc: node1,
                 x: cx,
                 y: cy - ry,
                 itemStyle: { color: '#2563eb', borderColor: '#60a5fa', borderWidth: 1.5 },
@@ -134,7 +147,6 @@ export function FlywheelEngineDiagram({
               },
               {
                 name: '② 継続・切替摩擦',
-                desc: node2,
                 x: cx + rx,
                 y: cy,
                 itemStyle: { color: '#334155', borderColor: '#94a3b8', borderWidth: 1.5 },
@@ -142,7 +154,6 @@ export function FlywheelEngineDiagram({
               },
               {
                 name: '③ 収益性',
-                desc: node3,
                 x: cx,
                 y: cy + ry,
                 itemStyle: { color: marginColor, borderColor: marginColor, borderWidth: 1.5 },
@@ -150,15 +161,13 @@ export function FlywheelEngineDiagram({
               },
               {
                 name: '④ 再投資・防御',
-                desc: node4,
                 x: cx - rx,
                 y: cy,
                 itemStyle: { color: '#1e3a5f', borderColor: '#60a5fa', borderWidth: 1.5 },
                 label: { position: 'left', distance: 7 }
               },
               {
-                name: isHazardMode ? '悪化ループ仮説' : '強化ループ仮説',
-                desc: '矢印は検証済みの因果を断定するものではありません。',
+                name: centerName,
                 x: cx,
                 y: cy,
                 symbolSize: width < 520 ? 56 : 64,
@@ -218,16 +227,7 @@ export function FlywheelEngineDiagram({
       myChart?.dispose();
       if (chartInstance.current === myChart) chartInstance.current = null;
     };
-  }, [
-    entity.name,
-    hasEnoughEvidence,
-    isHazardMode,
-    margin,
-    node1,
-    node2,
-    node3,
-    node4
-  ]);
+  }, [entity.name, hasEnoughEvidence, isHazardMode, margin, node1, node2, node3, node4]);
 
   useEffect(() => {
     return () => {
