@@ -1,5 +1,30 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-17 【確定】main最新修復（PR #26 / Radar推計明示 / D1承認門番）の完全合流 ＆ 全自動テスト・E2E全勝（Phase 202）
+
+### 1. ユーザー指示と統合意図（User Direct Command & Integration Intent）
+- **ユーザー指示**:
+  - 「これも確認をして（PR #26までのmain修復完了ログ）」
+  - 「何がどうなる 壊れない？」
+  - 「やれ」
+- **統合内容と外科手術**:
+  - `origin/main`（PR #19, #23, #24, #26 マージ済み最新版、コミット `c5de67cd05f0fd0fbc990738ac647760d1bb13dc`）を本ブランチへ完全マージ。
+  - **マージされた堅牢化機能**:
+    1. **Radar推計利益ラベリング**: `src/platform/model/radar-profit-display.ts` により、モデル推計値を「月利実額」ではなく「月利推計 [EST]」と明記し、一次資料未確認時の注記（fail closed）を配備。
+    2. **D1承認の門番**: `src/lib/company-access/approval-candidates.ts` により、実在しないIDやtypo、レビュー対象外IDの不正承認保存を物理遮断。
+    3. **E2E安定化**: パートナーページのhydration待機安定化、直リンク型契約の採用。
+  - **コンフリクトの外科的解消**:
+    - `e2e/audit-regressions.spec.ts` において、`origin/main` の直リンク契約（Photo AI）を採用しつつ、新インスペクターの目次ボタン（`02 損益`）セレクタと厳密に整合させ、一意にクリックできるよう調整。
+
+### 2. 検証結果（全レイヤー100% PASS）
+- `pnpm typecheck` & `schemas:check`: **100% PASS**（エラー0件）
+- `pnpm lint`: **100% PASS**（全3,341社品質ガードレール通過）
+- `pnpm vitest run`: **全57ファイル・412テスト 100% PASS**（新テスト群含む）
+- `pnpm build`: **100% PASS**（Next.js standalone ビルド & Paid-content check passed）
+- Playwright E2E（`e2e/audit-regressions.spec.ts`）: **6/6 100% PASS**
+
+---
+
 ## 2026-09-17 【確定】全3,341事例（20世代）の完全復旧 ＆ 新インスペクター連動・同期完遂（Phase 201）
 
 ### 1. ユーザー指示と事実解明（User Inquiry & Root Cause Resolution）

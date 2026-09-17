@@ -42,7 +42,7 @@ test('unconfirmed financials never present a zero as a measured result', async (
   // a prerequisite for opening a dossier.
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: /損益/ }).click();
+  await page.getByRole('button', { name: /02\s*損益/ }).click();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
   await expect(financials).toContainText(/財務データ.*未確認|推計P&L|非公開/);
