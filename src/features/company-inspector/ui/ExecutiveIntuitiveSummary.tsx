@@ -14,10 +14,34 @@ function stripLeadingEntityName(text: string, name?: string, legalEntity?: strin
   return result.trim();
 }
 
+const BOILERPLATE_PATTERNS = [
+  /業務の属人化、余計な手間、高額な仲介手数料の苦痛を解消し/,
+  /日々の面倒な手作業の繰り返し、属人化によるミスの発生/,
+  /既存の汎用ツールの使いにくさや高額な価格設定に強い不満/,
+  /_SAASの非効率や高コストに不満を持ち/,
+  /_MEDIAの非効率や高コストに不満を持ち/,
+  /_ASSETの非効率や高コストに不満を持ち/,
+  /_INFRAの非効率や高コストに不満を持ち/,
+  /_AUTOMATIONの非効率や高コストに不満を持ち/,
+  /迅速かつ確実に業務を完了させたい企業の現場担当者/,
+  /不要な手作業や複雑な設定を極限まで削ぎ落とすことで、高い利益率を実現する高収益ビジネスモデル/,
+];
+
+function isBoilerplate(text: string): boolean {
+  return BOILERPLATE_PATTERNS.some((pattern) => pattern.test(text));
+}
+
 function cleanValue(value: string | null | undefined): string | null {
   if (!value) return null;
   const trimmed = value.trim();
-  if (!trimmed || trimmed === '未確認' || trimmed === 'UNKNOWN' || trimmed.startsWith('未確認：')) {
+  if (
+    !trimmed ||
+    trimmed === '未確認' ||
+    trimmed === 'UNKNOWN' ||
+    trimmed.startsWith('未確認：') ||
+    trimmed.startsWith('未確認:') ||
+    isBoilerplate(trimmed)
+  ) {
     return null;
   }
   return trimmed;
@@ -43,6 +67,7 @@ function buildExecutiveLead(
   const whatItDoes = cleanValue(entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary'));
   const painRelief = cleanValue(entity.essence?.painRelief);
   const secretInsight = cleanValue(entity.strategy?.secretInsight);
+  const targetPain = cleanValue(entity.targetPainWallet);
 
   // headline と whatItDoes の重複判定（先頭15文字または headline に whatItDoes の核が含まれるか）
   const isWhatItDoesDupe = Boolean(
@@ -65,6 +90,8 @@ function buildExecutiveLead(
     if (!parts.some((p) => p.includes(painRelief.slice(0, 15))) && !headline.includes(painRelief.slice(0, 15))) {
       parts.push(cleanPain);
     }
+  } else if (targetPain && !parts.some((p) => p.includes(targetPain.slice(0, 15))) && !headline.includes(targetPain.slice(0, 15))) {
+    parts.push(targetPain.endsWith('。') ? targetPain : `狙う急所: ${targetPain}。`);
   }
 
   if (secretInsight) {
@@ -72,6 +99,10 @@ function buildExecutiveLead(
     if (!parts.some((p) => p.includes(secretInsight.slice(0, 15))) && !headline.includes(secretInsight.slice(0, 15))) {
       parts.push(cleanSecret);
     }
+  }
+
+  if (parts.length === 0 && targetPain) {
+    parts.push(`狙う急所: ${targetPain}。`);
   }
 
   const combined = parts.join(' ').trim();
