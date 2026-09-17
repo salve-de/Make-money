@@ -1,4 +1,4 @@
-> **2026-09-10 現行契約**: [HANDOFF](../HANDOFF.md)、[既存データからUIへの実行・編集契約](EXISTING_DATA_TO_UI.md)、[Foundation統合契約](https://github.com/salve-de/universal-foundation/blob/main/docs/BUSINESS_RESEARCH_AND_R2_CONTRACT.md)を先に読む。既存情報の結合・再抽出を先に行い、読者価値を増やす不足を追加調査する。全項目の完全性検査はDEEP_RECONCILEDを主張するときに適用し、有益な部分事例を排除しない。保存成功と公開品質は別。以下の旧説明より本契約を優先する。
+> **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。横断契約は [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](./architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)。保存先は [`docs/architecture/STORAGE.md`](./architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
 
 # データ収集契約（Universal Foundation連携）
 

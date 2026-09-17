@@ -423,7 +423,63 @@ export interface FinancialEntity {
   latestDossierHash?: string; // 最新イミュータブルDossierのContent Hash
   sourceRevision?: number; // ソース改訂リビジョン番号（INDEX_STALE検知用）
   claimBindings?: ClaimEvidenceBinding[]; // Claim-to-Evidence Promotion Receipts
+
+  // 【収集世代・チャンク管理】
+  batchId?: string; // 収集チャンク（バッチ）識別子 例: "batch-03-2026-09-14-capitalism100"
 }
+
+export interface IngestBatch {
+  id: string;
+  name: string;
+  shortLabel: string;
+  date: string;
+  description: string;
+}
+
+export const KNOWN_INGEST_BATCHES: IngestBatch[] = [
+  {
+    id: 'batch-06-2026-09-15-codex-bootstrap100',
+    name: '第6期 Codex AIブートストラップ (100社)',
+    shortLabel: '第6期 (Codex AI)',
+    date: '2026-09-15',
+    description: 'Codex収集のAIブートストラップ・マイクロSaaS・高速自走勝者100社（BoltAI, Inkdrop, Memberstack, Typebot等）',
+  },
+  {
+    id: 'batch-05-2026-09-14-recent-winners100',
+    name: '第5期 近年AI・高速ラッパー (100社)',
+    shortLabel: '第5期 (近年AI)',
+    date: '2026-09-14',
+    description: '2022〜2024年創業のAIメディア・動画音声・高速生成ラッパー100社（Crayo AI, MacWhisper, Magnific AI等）',
+  },
+  {
+    id: 'batch-04-2026-09-14-solo-conquerors100',
+    name: '第4期 個人・少数精鋭 (100社)',
+    shortLabel: '第4期 (個人少数)',
+    date: '2026-09-14',
+    description: '持たざる個人・少数精鋭の成り上がり勝ち組100社（Submagic, Taplio, ChatPDF, RoomGPT等）',
+  },
+  {
+    id: 'batch-03-2026-09-14-capitalism100',
+    name: '第3期 資本主義100選 (98社)',
+    shortLabel: '第3期 (資本主義)',
+    date: '2026-09-14',
+    description: '資本主義の裏帳簿100選（TSMC・WeWork破綻検死・PayPal・完全1人SaaS等）',
+  },
+  {
+    id: 'batch-02-2026-09-13-expansion101',
+    name: '第2期 前回収集 (101社)',
+    shortLabel: '第2期 (前回)',
+    date: '2026-09-13',
+    description: 'グローバル高収益事業・一人SaaS・D2C・プロトコル101社',
+  },
+  {
+    id: 'batch-01-core-foundation134',
+    name: '第1期 初期コア (133社)',
+    shortLabel: '第1期 (初期)',
+    date: '2026-09-12',
+    description: 'キーエンス・直販要塞・初期コア台帳133社',
+  },
+];
 
 /**
  * 一覧表示用軽量プロジェクションDTO

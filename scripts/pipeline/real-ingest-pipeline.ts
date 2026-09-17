@@ -25,7 +25,6 @@ async function putStorageObject(bucket: string, key: string, body: string, conte
     return await putR2ObjectCreateOnly({ bucket, key, body, contentType, metadata });
   }
 
-  // ローカル開発・未設定環境でのCASミラー保存（同一のキー階層をローカルに完全再現）
   const localPath = resolve(process.cwd(), `data/r2-local/${bucket}/${key}`);
   await mkdir(dirname(localPath), { recursive: true });
   await writeFile(localPath, body, 'utf8');
@@ -52,7 +51,6 @@ export async function ingestVerifiedEntities(
   console.log(`  INGESTING BATCH [${batchName}]: ${inputs.length} Real-World Entities`);
   console.log(`================================================================\n`);
 
-  // 正規化: FinancialEntity 単体でも IngestEntityInput でも統一
   const normalizedInputs: IngestEntityInput[] = inputs.map(item => {
     if ('entity' in item && item.entity) {
       return item as IngestEntityInput;
@@ -60,17 +58,51 @@ export async function ingestVerifiedEntities(
     return { entity: item as FinancialEntity, rawArtifacts: [] };
   });
 
-  // 0. 収集時点のサニタイズ（禁止造語パージ・タグ正規化）※架空テンプレート捏造は完全廃止
   console.log('--- [0/4] Sanitizing Entities (No synthetic template generation) ---');
   const sanitizedInputs = normalizedInputs.map(({ entity, rawArtifacts }) => ({
     entity: autoEnrichEntityBeforeIngest(entity),
     rawArtifacts: rawArtifacts ?? []
   }));
 
-  // 1. スキーマ & 算術整合性バリデーション
-  console.log('--- [1/4] Validating Schema & Financial Arithmetic Integrity ---');
+  console.log('--- [1/4] Validating Schema, Financial Arithmetic & Zero-Duplication Integrity ---');
+  const existingIndexPath = resolve(process.cwd(), 'data/entities-index.json');
+  const existingCatalog: FinancialEntity[] = JSON.parse(await readFile(existingIndexPath, 'utf8'));
+
+  const normalizeForDedup = (name: string) => name
+    .toLowerCase()
+    .trim()
+    .replace(/\b(inc|llc|corp|corporation|co|ltd|plc|gmbh|holdings)\b/g, '')
+    .replace(/[\s\-_・（）()株式会社有限会社]/g, '');
+
+  const existingIdMap = new Map(existingCatalog.map(e => [e.id.toLowerCase().trim(), e]));
+  const existingNormMap = new Map(existingCatalog.map(e => [normalizeForDedup(e.name), e]));
+  const batchSeenNorms = new Map<string, string>();
+  const batchSeenIds = new Map<string, string>();
+
   for (const { entity: ent } of sanitizedInputs) {
-    // A. スキーマチェック
+    const idLower = ent.id.toLowerCase().trim();
+    const norm = normalizeForDedup(ent.name);
+
+    if (batchSeenIds.has(idLower)) {
+      throw new Error(`[INGEST REJECTED: BATCH DUPLICATE ID] "${ent.name}" has duplicate ID "${ent.id}" within incoming batch.`);
+    }
+    batchSeenIds.set(idLower, ent.name);
+
+    if (norm.length > 2 && batchSeenNorms.has(norm)) {
+      throw new Error(`[INGEST REJECTED: BATCH DUPLICATE NAME] "${ent.name}" duplicates another entity in the same batch: "${batchSeenNorms.get(norm)}".`);
+    }
+    batchSeenNorms.set(norm, ent.name);
+
+    const existingIdConflict = existingIdMap.get(idLower);
+    if (existingIdConflict && existingIdConflict.id !== ent.id) {
+      throw new Error(`[INGEST REJECTED: EXISTING ID DUPLICATE] ID "${ent.id}" conflicts with already collected entity "${existingIdConflict.name}".`);
+    }
+
+    const existingConflict = existingNormMap.get(norm);
+    if (existingConflict && existingConflict.id !== ent.id && ent.pnl?.financialStatus !== 'POST_MORTEM' && !ent.name.includes('検死')) {
+      throw new Error(`[INGEST REJECTED: EXISTING DUPLICATE] "${ent.name}" conflicts with already collected entity "${existingConflict.name}" (ID: ${existingConflict.id}). Collection was a waste of effort.`);
+    }
+
     try {
       parseFinancialEntity(ent);
     } catch (err) {
@@ -78,7 +110,6 @@ export async function ingestVerifiedEntities(
       throw err;
     }
 
-    // B. 算術整合性チェック (1円・0.1%の狂いも許さない)
     const check = inspectFinancialIntegrity(ent.pnl);
     if (check.profitConflict || check.grossConflict || check.marginConflict) {
       const msg = `Arithmetic integrity FAILED for ${ent.name}: ` +
@@ -88,19 +119,35 @@ export async function ingestVerifiedEntities(
       throw new Error(msg);
     }
 
-    // C. 禁止造語パージチェック
     const FORBIDDEN_JARGON = ['サバンナOS', 'サバンナ OS', '略奪転用方程式', 'カニバリズム障壁', '身も蓋もない真実', '特異物証', '地雷検死', '検死開示', 'ホスティング関所', '決済関所'];
     const jsonStr = JSON.stringify(ent);
-    for (const j of FORBIDDEN_JARGON) {
-      if (jsonStr.includes(j)) {
-        throw new Error(`Completeness FAILED for ${ent.name}: contains forbidden internal jargon '${j}'.`);
+    for (const jargon of FORBIDDEN_JARGON) {
+      if (jsonStr.includes(jargon)) {
+        throw new Error(`Completeness FAILED for ${ent.name}: contains forbidden internal jargon '${jargon}'.`);
       }
     }
 
-    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards?.length ?? 0} / OBS: ${ent.observations?.length ?? 0}] PASS`);
+    // Evidence density is not a license to manufacture facts. One real card is
+    // enough to admit a case; missing optional analysis stays explicitly unknown.
+    if (!Array.isArray(ent.evidenceCards) || ent.evidenceCards.length === 0) {
+      throw new Error(`[INGEST REJECTED: ZERO EVIDENCE CARDS] "${ent.name}" needs at least one observed evidence card.`);
+    }
+
+    if (ent.essence && (!ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief)) {
+      throw new Error(`[INGEST REJECTED: INCOMPLETE ESSENCE] "${ent.name}" has a partial essence object. Complete it or omit it as unknown.`);
+    }
+
+    if (ent.essence?.whatItDoes && (
+      ent.essence.whatItDoes.startsWith(`${ent.name}は`)
+      || ent.essence.whatItDoes.startsWith(`${ent.name}が`)
+      || ent.essence.whatItDoes.includes('は、「')
+    )) {
+      throw new Error(`[INGEST REJECTED: REDUNDANT COMPANY NAME IN ESSENCE] "${ent.name}" whatItDoes starts with redundant company name prefix.`);
+    }
+
+    console.log(`  ✓ ${ent.name.padEnd(25)} [REV: ¥${ent.pnl.monthlyRevenue.toLocaleString()} / OPM: ${ent.pnl.operatingMargin}% / CARDS: ${ent.evidenceCards.length} / TOOLS: ${ent.operations.toolStack.length}] PASS`);
   }
 
-  // 2. Cloudflare R2 (foundation-raw) に生データ（Raw Artifacts）をSHA-256 CAS保存
   console.log('\n--- [2/4] Preserving Raw Artifacts to Cloudflare R2 (foundation-raw) ---');
   const rawBucket = getFoundationBucket('raw');
   const rawEvidenceMap = new Map<string, Array<{
@@ -183,8 +230,6 @@ export async function ingestVerifiedEntities(
     }
     rawEvidenceMap.set(ent.id, savedEvidenceList);
 
-    // 厳密な 1:1 Evidence Binding:
-    // Raw CAS 保存によって確定した evidence_id (ev_raw_<sha先頭16桁>) を entity.evidenceCards の ID に直結
     if (savedEvidenceList.length > 0 && ent.evidenceCards && ent.evidenceCards.length > 0) {
       ent.evidenceCards.forEach((card, idx) => {
         const matchingRaw = savedEvidenceList[idx] || savedEvidenceList[0];
@@ -199,7 +244,6 @@ export async function ingestVerifiedEntities(
     }
   }
 
-  // 3. Cloudflare R2 (foundation-lake) にイミュータブル日次ジャーナル保存（Raw参照を同一チェーンで保持）
   console.log('\n--- [3/4] Materializing to Cloudflare R2 (foundation-lake) ---');
   const lakeBucket = getFoundationBucket('lake');
   const dateStr = new Date().toISOString().slice(0, 10).replace(/-/g, '/') + `/${batchName}`;
@@ -240,7 +284,6 @@ export async function ingestVerifiedEntities(
     console.log(`  ✓ R2 LAKE PUT: ${lakeBucket}/${journalKey} [Status: ${writeResult.status}, SHA: ${sha.slice(0, 10)}] (Linked Raw Evidence: ${linkedRawEvidence.length})`);
   }
 
-  // 4. 目録 (data/entities-index.json) に追記・更新
   console.log('\n--- [4/4] Syncing Catalog Index (data/entities-index.json) ---');
   const indexPath = resolve(process.cwd(), 'data/entities-index.json');
   const existing: FinancialEntity[] = JSON.parse(await readFile(indexPath, 'utf8'));
@@ -252,6 +295,11 @@ export async function ingestVerifiedEntities(
 
   await writeFile(indexPath, JSON.stringify(updatedCatalog, null, 2), 'utf8');
   console.log(`  ✓ Catalog synchronized! Total entities: ${updatedCatalog.length} (Added/Updated: ${entities.length})`);
+
+  const { execSync } = await import('node:child_process');
+  execSync('node scripts/sync-registry.mjs', { stdio: 'inherit' });
+  console.log(`  ✓ Deduplication Registry synchronized automatically!`);
+
   console.log(`\n================================================================\n`);
   return updatedCatalog.length;
 }

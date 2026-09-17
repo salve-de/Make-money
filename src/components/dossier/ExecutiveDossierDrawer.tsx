@@ -146,9 +146,6 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
               <CompanyLogo company={company} size="md" />
               <div className="min-w-0 space-y-1">
                 <div className="flex items-center gap-2 flex-wrap font-mono text-[10px]">
-                  <span className="px-1.5 py-0.2 rounded bg-white/[0.06] text-zinc-300 font-bold border border-white/[0.1]">
-                    #{company.ticker}
-                  </span>
                   <span className={`px-1.5 py-0.2 rounded font-bold ${
                     company.verifiedStatus === 'AUDITED_PUBLIC'
                       ? 'bg-emerald-950/80 text-emerald-400 border border-emerald-800/60'
@@ -379,7 +376,7 @@ export const ExecutiveDossierDrawer: React.FC<ExecutiveDossierDrawerProps> = ({
         {/* ── 5. 下部アクションバー ── */}
         <div className="p-3.5 border-t border-white/[0.08] bg-[#0C1018] flex items-center justify-between gap-3 shrink-0">
           <div className="text-[11px] font-mono text-zinc-400">
-            DOSSIER #{company.ticker}
+            DOSSIER: {company.japaneseName}
           </div>
           {onOpenProModal && (
             <button

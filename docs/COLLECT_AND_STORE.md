@@ -1,4 +1,4 @@
-> **2026-09-13 最高運用契約**: ユーザーは長文指示やプロンプトを絶対に書かない。「AGENTS.md見てデータ集めて」の一言で全AIは完全自律稼働せよ。収集の最高正本は [`GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、勝ち組4.1＆地雷組4.2完全体JSON）。スコープは [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md)。保存先は [`architecture/STORAGE.md`](./architecture/STORAGE.md)（原物・保存票・目録の3層メダリオン構造、物理移動ゼロ、EDINET正本領域の完全不可侵）。勝ち組要塞（7〜8割）と地雷組検死（2〜3割）の両輪を底引き網収集し、追加質問・手戻りゼロで自走完遂せよ。
+> **2026-09-14 最高運用契約（ゼロプロンプト宣言）**: ユーザーは長文指示やプロンプトを絶対に書かない。他AIへの委託指示は「GitHubの `docs/DATA_COLLECTION_MASTER_GUIDE.md` （または raw URL）を読め」の1行のみ。何を集めるか・何を気をつけるか・過去の全ミス/フィードバック地雷録の統括正本は [`docs/DATA_COLLECTION_MASTER_GUIDE.md`](./DATA_COLLECTION_MASTER_GUIDE.md)。収集仕様は [`docs/GOLDEN_INGEST_SCHEMA.md`](./GOLDEN_INGEST_SCHEMA.md)（10大属性、円換算P&L、LOOT_BLUEPRINT必須、完全体JSON）。スコープは [`MAKE_MONEY_COLLECTION_SCOPE.md`](./MAKE_MONEY_COLLECTION_SCOPE.md)。保存先は [`architecture/STORAGE.md`](./architecture/STORAGE.md)（3層メダリオン構造、物理移動ゼロ、EDINET完全不可侵）。業種・規模・形態の限定を排し、手堅い実業から検死まで柔軟に自走完遂せよ。
 
 
 # 新規収集・R2保存の入口

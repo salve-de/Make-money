@@ -1,18 +1,64 @@
-import { cleanIntelligenceText } from '@/lib/foundation/text-cleaner';
+import { legacyText } from '../model/legacy-fields';
+import React, { useState } from 'react';
 import {
-Bot,
-Check,
-ChevronLeft,
-ChevronRight,
-Clock,
-ExternalLink,
-Pin,
-X
+  Calendar,
+  ExternalLink,
+  FileText,
+  Share2,
+  Star,
+  Users,
+  X
 } from 'lucide-react';
 
 import type { InspectorSectionProps } from '../model/section-props';
+import { ShareModal } from './ShareModal';
 
-export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, activeTags = [], onToggleTag, analystNote, onOpenSynthesisWithEntity, onApproveEntity, isScrolled, scrollToSection, formatMoney, isHazardMode, isFinancialUnavailable }: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'onPrevEntity' | 'onNextEntity' | 'activeTags' | 'onToggleTag' | 'analystNote' | 'onOpenSynthesisWithEntity' | 'onApproveEntity' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable'>) {
+export function CompanyHeader({
+  entity,
+  onClose,
+  activeTags = [],
+  onToggleTag,
+  isScrolled,
+  scrollToSection,
+  formatMoney,
+  isHazardMode,
+  isFinancialUnavailable,
+  mainTab = 'LEDGER',
+  setMainTab,
+  isBookmarked,
+  onToggleBookmark,
+}: Pick<InspectorSectionProps, 'entity' | 'onClose' | 'activeTags' | 'onToggleTag' | 'isScrolled' | 'scrollToSection' | 'formatMoney' | 'isHazardMode' | 'isFinancialUnavailable' | 'mainTab' | 'setMainTab' | 'isBookmarked' | 'onToggleBookmark'>) {
+  const [isShareOpen, setIsShareOpen] = useState(false);
+
+  const rev = entity.pnl?.monthlyRevenue || 0;
+  const profit = entity.pnl?.operatingProfit ?? 0;
+  const margin = entity.pnl?.operatingMargin ?? (rev > 0 ? Math.round((profit / rev) * 100) : 0);
+  const isLoss = profit < 0 || isHazardMode;
+
+  // 1. 公式サイト外部リンク
+  const rawUrl = legacyText(entity, 'websiteUrl') || entity.url || (entity as unknown as { website?: string }).website || (entity.essence as unknown as { website?: string })?.website || '';
+  const externalUrl = rawUrl && !rawUrl.startsWith('http') ? `https://${rawUrl}` : rawUrl;
+
+  // 2. チーム規模
+  const rawTeam = entity.operations?.teamSize || (entity as unknown as { teamSize?: number | string }).teamSize;
+  const isSolo = entity.tags?.some(t => t.includes('1人') || t.includes('一人') || t.includes('ソロ'));
+  const displayTeam = rawTeam ? (typeof rawTeam === 'number' ? `${rawTeam}人` : String(rawTeam)) : (isSolo ? '1人' : null);
+
+  // 3. 事業継続年数
+  const foundedYear = entity.temporal?.foundedYear;
+  const currentYear = 2026;
+  const trackRecordYears = (foundedYear && foundedYear > 1900 && foundedYear <= currentYear) 
+    ? (currentYear - foundedYear + 1)
+    : null;
+  const displayAge = trackRecordYears ? `稼働${trackRecordYears}年目 (${foundedYear}年〜)` : null;
+
+  // 4. 推定事業価値（年間営業利益の5倍、または売上の2.5倍）
+  const annualProfit = profit * 12;
+  const estValuation = annualProfit > 0 ? annualProfit * 5 : (rev * 12 * 2.5);
+  const valuationText = (!isFinancialUnavailable && estValuation > 0)
+    ? `想定価値: 約${formatMoney(estValuation)} (5x)`
+    : null;
+
   return <>
         <div className={`shrink-0 z-30 bg-[#07090D] border-b relative transition-all duration-150 ${
           isScrolled
@@ -22,91 +68,77 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
           {/* 最上部アクセントライン */}
           <div className="h-[1px] w-full bg-white/[0.15]" />
 
-          {/* 1. タイトル＆主要操作バー（1行統合） */}
+          {/* 1. タイトル＆主要操作バー（1行統合・高密度金融HUD） */}
           <div className="px-3 py-2 flex items-center justify-between gap-2 border-b border-white/[0.04]">
+            {/* 左側：社名・属性・外部リンク */}
             <div className="flex items-center gap-2 min-w-0">
-              <span className="font-mono text-[11px] text-white font-bold shrink-0 bg-white/[0.08] px-1.5 py-0.5 rounded border border-white/[0.12] flex items-center gap-1">
-                <Pin className="w-2.5 h-2.5 text-zinc-400 shrink-0" />
-                <span>{entity.ticker}</span>
-              </span>
               <h2 className="text-xs sm:text-sm font-bold text-white truncate font-sans tracking-tight">
                 {entity.name}
               </h2>
               <span className="text-[10px] text-zinc-400 font-mono hidden md:inline truncate">
                 {entity.legalEntity || entity.founder} ・ {entity.country}
               </span>
-              {entity.opportunityJudgment && (
-                <span className={`hidden sm:inline-flex px-1.5 py-0.2 rounded text-[9px] font-mono font-bold tracking-wider border shrink-0 ${
-                  entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                    ? 'bg-red-950/40 text-red-400 border-red-500/40'
-                    : 'bg-white/[0.08] text-white border-white/[0.16]'
-                }`}>
-                  {entity.opportunityJudgment.verdictLabel}
-                </span>
+
+              {/* ① 公式サイト外部リンク */}
+              {externalUrl && (
+                <a
+                  href={externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white/[0.05] hover:bg-white/[0.12] border border-white/[0.10] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer shrink-0"
+                  title={`${entity.name} の実物公式サイトを開く（新規タブ）`}
+                >
+                  <ExternalLink className="w-2.5 h-2.5 text-cyan-400" />
+                  <span className="hidden sm:inline">公式サイト</span>
+                </a>
               )}
             </div>
 
-            {/* 右側アクション */}
-            <div className="flex items-center gap-1 shrink-0">
-              {/* これはオッケー（承認）ボタン: 収集事例タグがある場合に高輝度エメラルドで表示 */}
-              {entity.tags?.includes('収集事例') && onApproveEntity && (
-                <button
-                  onClick={() => onApproveEntity(entity.id)}
-                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-500/20 hover:bg-emerald-500/35 border border-emerald-500/40 hover:border-emerald-400 text-emerald-300 hover:text-white font-bold text-[11px] font-mono transition-all cursor-pointer shadow-[0_0_12px_rgba(16,185,129,0.2)] hover:shadow-[0_0_16px_rgba(16,185,129,0.4)] mr-1"
-                  title="「収集事例」リストから承認完了として消去し、本台帳に保管します"
+            {/* 右側：推定価値・お気に入り・共有・クローズ */}
+            <div className="flex items-center gap-1.5 shrink-0">
+              {/* ⑥ 推定事業価値 */}
+              {valuationText && (
+                <span
+                  className="hidden lg:inline-flex items-center px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/25 text-amber-300 font-mono text-[10px] font-bold tracking-tight shadow-xs"
+                  title="年間利益の5倍換算による想定M&A事業売却価値"
                 >
-                  <Check className="w-3.5 h-3.5 text-emerald-400 stroke-[2.5]" />
-                  <span>これはオッケー（承認）</span>
+                  {valuationText}
+                </span>
+              )}
+
+              {/* ⑦ お気に入り/保存 */}
+              {onToggleBookmark && (
+                <button
+                  type="button"
+                  onClick={onToggleBookmark}
+                  className={`p-1.5 rounded-md border transition-all cursor-pointer flex items-center gap-1 text-[10px] font-mono ${
+                    isBookmarked
+                      ? 'bg-amber-500/20 border-amber-500/40 text-amber-300 shadow-[0_0_10px_rgba(245,158,11,0.2)]'
+                      : 'bg-white/[0.04] border-white/[0.08] text-zinc-400 hover:text-white hover:bg-white/[0.08]'
+                  }`}
+                  title={isBookmarked ? 'お気に入りから解除' : 'お気に入りに保存'}
+                >
+                  <Star className={`w-3 h-3 ${isBookmarked ? 'fill-amber-400 text-amber-400' : ''}`} />
+                  <span className="hidden sm:inline">{isBookmarked ? '保存済' : '保存'}</span>
                 </button>
               )}
 
-              {/* 銘柄ナビゲーション */}
-              <div className="hidden sm:flex items-center gap-0.5 mr-1 font-mono text-[10px] text-zinc-500">
-                <button
-                  onClick={onPrevEntity}
-                  disabled={!onPrevEntity}
-                  className="p-1 hover:text-white disabled:opacity-20 transition-colors cursor-pointer"
-                  title="前銘柄"
-                >
-                  <ChevronLeft className="w-3.5 h-3.5" />
-                </button>
-                <button
-                  onClick={onNextEntity}
-                  disabled={!onNextEntity}
-                  className="p-1 hover:text-white disabled:opacity-20 transition-colors cursor-pointer"
-                  title="次銘柄"
-                >
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </button>
-              </div>
-
-              {/* AI壁打ちクイック起動 */}
-              {onOpenSynthesisWithEntity && (
-                <button
-                  onClick={() => onOpenSynthesisWithEntity(entity.id)}
-                  className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] text-[10px] font-mono text-zinc-300 hover:text-white transition-colors cursor-pointer mr-1"
-                  title="この銘柄の財務・戦略データでAIと壁打ちする"
-                >
-                  <Bot className="w-3 h-3 text-zinc-300" />
-                  <span className="hidden sm:inline">AI壁打ち</span>
-                </button>
-              )}
-
-              {/* 外部リンク */}
-              <a
-                href={entity.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1 text-zinc-500 hover:text-white transition-colors cursor-pointer"
-                title="公式サイトを開く"
+              {/* ⑧ 共有（ポップアップで各種SNS ＆ URLコピー展開） */}
+              <button
+                type="button"
+                onClick={() => setIsShareOpen(true)}
+                className="p-1.5 rounded-md border bg-white/[0.04] hover:bg-white/[0.10] border-white/[0.08] text-zinc-400 hover:text-white transition-all cursor-pointer flex items-center gap-1 text-[10px] font-mono"
+                title="この裏帳簿を共有"
               >
-                <ExternalLink className="w-3.5 h-3.5" />
-              </a>
+                <Share2 className="w-3 h-3 text-cyan-400" />
+                <span className="hidden sm:inline">共有</span>
+              </button>
 
               {/* クローズボタン */}
               <button
                 onClick={onClose}
-                className="p-1 text-zinc-500 hover:text-white transition-colors cursor-pointer"
+                className="p-1 text-zinc-500 hover:text-white transition-colors cursor-pointer ml-0.5"
                 title="閉じる (Esc)"
               >
                 <X className="w-4 h-4" />
@@ -114,37 +146,46 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
             </div>
           </div>
 
-          {/* 2. タグライン ＆ 4大意思決定ベクトル */}
-          <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 text-[10px] font-mono">
-            <div className="flex items-center gap-2 min-w-0 flex-1 truncate">
-              {entity.opportunityJudgment && (
-                <span className={`sm:hidden px-1.5 py-0.2 rounded font-bold tracking-wider border shrink-0 ${
-                  entity.opportunityJudgment.verdict === 'HAZARD_REJECT'
-                    ? 'bg-red-950/40 text-red-400 border-red-500/40'
-                    : 'bg-white/[0.08] text-white border-white/[0.16]'
-                }`}>
-                  {entity.opportunityJudgment.verdictLabel}
-                </span>
-              )}
-              <span className="text-zinc-300 font-sans truncate" title={cleanIntelligenceText(entity.tagline)}>
-                {cleanIntelligenceText(entity.tagline)}
+          {/* 2. 冷徹な戦闘力 ＆ 運用体力インジケーター（需要・競争を完全置換） */}
+          <div className="px-3 py-1.5 bg-[#05060A] border-b border-white/[0.04] flex items-center justify-between gap-2 text-[10px] font-mono overflow-x-auto scrollbar-none">
+            {/* 左側：月商・手残り・利益率 */}
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="text-zinc-400">月商: <strong className="text-white">{isFinancialUnavailable ? '未確認' : formatMoney(rev)}</strong></span>
+              <span className="text-zinc-700">|</span>
+              <span className="text-zinc-400">純手残り: <strong className={isLoss ? 'text-red-400' : 'text-emerald-300'}>{isFinancialUnavailable ? '未確認' : formatMoney(profit)}</strong></span>
+              <span className={`px-1.5 py-0.2 rounded font-black border ${
+                isLoss
+                  ? 'bg-red-950/40 text-red-300 border-red-500/40'
+                  : 'bg-emerald-950/40 text-emerald-300 border-emerald-500/40'
+              }`}>
+                {isLoss ? '赤字出血' : `利益率 ${margin}%`}
               </span>
             </div>
 
-            {entity.opportunityJudgment && (
-              <div className="hidden sm:flex items-center gap-2 shrink-0 text-zinc-400">
-                <span>需要: <strong className="text-zinc-200">{entity.opportunityJudgment.demandDelta}</strong></span>
-                <span className="text-zinc-700">|</span>
-                <span>競争: <strong className="text-zinc-200">{entity.opportunityJudgment.competitionDelta}</strong></span>
-                <span className="text-zinc-700">|</span>
-                <span>資本: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.capital}</strong></span>
-                <span className="text-zinc-700">|</span>
-                <span>難度: <strong className="text-zinc-200">{entity.opportunityJudgment.entryRequirements.technicalDifficulty}</strong></span>
-              </div>
-            )}
+            {/* 右側：チーム人数・継続年数・一次情報原本アンカー */}
+            <div className="flex items-center gap-2 text-zinc-400 shrink-0">
+              {/* ③ チーム人数 */}
+              {displayTeam && (
+                <span className="flex items-center gap-1">
+                  <Users className="w-2.5 h-2.5 text-cyan-400" />
+                  <span>組織: <strong className="text-zinc-200">{displayTeam}</strong></span>
+                </span>
+              )}
+
+              {/* ④ 事業継続年数 */}
+              {displayAge && (
+                <>
+                  <span className="text-zinc-700 hidden sm:inline">|</span>
+                  <span className="flex items-center gap-1">
+                    <Calendar className="w-2.5 h-2.5 text-zinc-400" />
+                    <span className="hidden sm:inline">継続: </span><strong className="text-zinc-200">{displayAge}</strong>
+                  </span>
+                </>
+              )}
+            </div>
           </div>
 
-          {/* 3. 探索タグ一覧（上部に常時配置） ＆ 時系列インテリジェンス */}
+          {/* 3. 探索タグ一覧（上部に常時配置） */}
           <div className="px-3 py-1.5 flex items-center justify-between gap-2 bg-[#05070B] border-b border-white/[0.04]">
             <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none flex-1">
               {entity.tags && entity.tags.length > 0 && entity.tags.map((tag) => {
@@ -174,85 +215,117 @@ export function CompanyHeader({ entity, onClose, onPrevEntity, onNextEntity, act
                 );
               })}
             </div>
-
-            {entity.temporal && (
-              <div className="flex items-center gap-1.5 font-mono text-[9px] text-zinc-500 shrink-0 pl-2">
-                <Clock className="w-2.5 h-2.5 text-zinc-500" />
-                <span>{entity.temporal.foundedYear > 0 ? `${entity.temporal.foundedYear}年` : '創業年未確認'}</span>
-                <span>・</span>
-                <span className="text-zinc-300 font-semibold">{entity.temporal.viabilityLabel}</span>
-              </div>
-            )}
           </div>
 
-          {/* 4. 金融端末仕様 目次ジャンプバー（ワンクリックで該当セクションへ直通スクロール） */}
-          <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-evidence')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <span>儲けのウラ側</span>
-              {entity.evidenceCards && entity.evidenceCards.length > 0 && (
-                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
-                  {entity.evidenceCards.length}
-                </span>
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-financial')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <span>財務P&L</span>
-              <span className="text-[9px] text-zinc-500 font-normal">
-                {isFinancialUnavailable ? '未確認' : formatMoney(entity.pnl.monthlyRevenue)}
-              </span>
-            </button>
-
-            {!isHazardMode && (
+          {/* 4. メインタブ切替（【本丸】資本主義の裏帳簿 ⇄ 【証拠】検証エビデンス） */}
+          <div className="flex items-center justify-between bg-[#06080E] px-3 py-1.5 border-t border-white/[0.08] text-[11px] font-mono gap-2 flex-wrap">
+            <div className="inline-flex rounded-lg p-0.5 bg-black/60 border border-white/[0.12] shrink-0">
               <button
                 type="button"
-                onClick={() => scrollToSection('section-tools')}
-                className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
+                onClick={() => setMainTab && setMainTab('LEDGER')}
+                className={`px-3 py-1 rounded text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                  mainTab === 'LEDGER'
+                    ? 'bg-white text-black shadow-md font-black'
+                    : 'text-zinc-400 hover:text-zinc-200'
+                }`}
               >
-                <span>使っているツール</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                <span>【本丸】資本主義の裏帳簿</span>
               </button>
+              <button
+                type="button"
+                onClick={() => setMainTab && setMainTab('AUDIT')}
+                className={`px-3 py-1 rounded text-[11px] font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                  mainTab === 'AUDIT'
+                    ? 'bg-white text-black shadow-md font-black'
+                    : 'text-zinc-400 hover:text-zinc-200'
+                }`}
+              >
+                <FileText className="w-3 h-3 text-zinc-400" />
+                <span>【証拠】検証エビデンス</span>
+              </button>
+            </div>
+          </div>
+
+          {/* 5. 目次ジャンプバー（選択中タブに応じた直通ナビゲーション） */}
+          <div className="flex items-center bg-[#090C12] text-[11px] font-mono border-t border-white/[0.08] divide-x divide-white/[0.06] overflow-x-auto scrollbar-none">
+            {mainTab === 'LEDGER' ? (
+              <>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-summary')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#01</span>
+                  <span>断罪HUD</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-evidence')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#02</span>
+                  <span>動かぬ証拠 4大急所</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-cash-anatomy')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#03</span>
+                  <span>現金の解剖室</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-loot-blueprint')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span className="text-[9px] text-zinc-500 font-bold">#04</span>
+                  <span>略奪武器庫</span>
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-sources')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>一次情報源</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-stream')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>全量調査ログ</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-notes')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>考察メモ</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('section-related')}
+                  className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
+                >
+                  <span>関連リサーチ</span>
+                </button>
+              </>
             )}
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-playbook')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04]"
-            >
-              <span>{isHazardMode ? '失敗の原因' : '実践ステップ'}</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-stream')}
-              className="flex-1 py-1.5 px-2 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-            >
-              <span>全量ログ</span>
-              {entity.observationsStream && entity.observationsStream.length > 0 && (
-                <span className="text-[9px] px-1 py-0.2 rounded font-bold bg-white/[0.06] text-zinc-400">
-                  {entity.observationsStream.length}
-                </span>
-              )}
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('section-notes')}
-              className="py-1.5 px-2.5 text-center transition-all cursor-pointer whitespace-nowrap text-zinc-400 hover:text-white hover:bg-white/[0.04] flex items-center justify-center gap-1"
-              title="考察メモ"
-            >
-              <span>メモ</span>
-              {analystNote && <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />}
-            </button>
           </div>
         </div>
 
+        {/* 共有モーダル（各種SNS ＆ 最下部URLコピー） */}
+        <ShareModal
+          isOpen={isShareOpen}
+          onClose={() => setIsShareOpen(false)}
+          entity={entity}
+          formatMoney={formatMoney}
+          isFinancialUnavailable={isFinancialUnavailable}
+        />
   </>;
 }

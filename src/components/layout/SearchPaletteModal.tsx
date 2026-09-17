@@ -146,16 +146,13 @@ export const SearchPaletteModal: React.FC<SearchPaletteModalProps> = ({
                   }`}
                 >
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-7 h-7 rounded bg-zinc-900 border border-white/[0.1] flex items-center justify-center font-mono text-[10px] font-bold text-zinc-300 shrink-0">
-                      {item.ticker.slice(0, 2)}
+                    <div className="w-7 h-7 rounded bg-zinc-900 border border-white/[0.1] flex items-center justify-center text-[10px] font-bold text-zinc-300 shrink-0">
+                      {item.japaneseName.slice(0, 2)}
                     </div>
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-xs text-zinc-100 truncate">
                           {item.japaneseName}
-                        </span>
-                        <span className="text-[10px] font-mono text-zinc-400">
-                          #{item.ticker}
                         </span>
                         <span className="text-[9px] px-1 py-0.2 rounded bg-white/[0.06] text-zinc-400 font-mono">
                           {item.teamSize === 1 ? '1人' : `${item.teamSize}名`}
