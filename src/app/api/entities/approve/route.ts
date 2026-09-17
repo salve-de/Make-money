@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
+import { findInvalidApprovalCandidateIds } from '@/lib/company-access/approval-candidates';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { queryD1 } from '@/lib/storage/d1';
 import {
@@ -15,8 +16,6 @@ import {
 
 export const dynamic = 'force-dynamic';
 const privateHeaders = { 'Cache-Control': 'private, no-store', Vary: 'Authorization' };
-// Projection reads are safe to cache briefly, but never serve a five-minute stale
-// negative after another administrator has approved the entity.
 const publicHeaders = { 'Cache-Control': 'public, max-age=10, must-revalidate' };
 
 function json(body: unknown, status = 200, headers: HeadersInit = privateHeaders) {
@@ -52,10 +51,6 @@ async function requireAdmin(req: NextRequest): Promise<{ uid: string } | null | 
   return roles[0]?.role === 'admin' ? { uid: user.uid } : 'member';
 }
 
-/**
- * Public approval state is queried only for IDs the caller already has. This
- * keeps every D1 read and response bounded as the global approval table grows.
- */
 export async function GET(req: NextRequest) {
   let ids: string[];
   try {
@@ -97,6 +92,12 @@ export async function POST(req: NextRequest) {
     const admin = await requireAdmin(req);
     if (admin === null) return json({ success: false, error: 'Unauthorized' }, 401);
     if (admin === 'member') return json({ success: false, error: 'Admin role required' }, 403);
+
+    const invalidIds = await findInvalidApprovalCandidateIds(ids);
+    if (invalidIds.length > 0) {
+      return json({ success: false, error: 'Entity is not a current approval candidate' }, 409);
+    }
+
     const result = await approveD1Entities(ids, admin.uid);
     return json({
       success: true,
@@ -105,7 +106,7 @@ export async function POST(req: NextRequest) {
       message: `承認完了。${result.approvedCount}件を本番承認台帳へ記録しました。`,
     });
   } catch (error) {
-    console.error('[entities/approve] Production persistence failed:', error);
+    console.error('[entities/approve] Approval write failed:', error);
     return json(
       { success: false, error: error instanceof EntityApprovalStoreError ? error.message : 'Approval unavailable' },
       503,
