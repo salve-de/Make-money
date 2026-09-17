@@ -18,6 +18,11 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(financials).toContainText('売上高');
   await expect(financials).toContainText('営業利益');
   await expect(financials).not.toContainText('純手残り');
+  await expect(financials).not.toContainText('損益ブリッジ');
+  await expect(financials).not.toContainText('資金フロー');
+  await expect(financials).not.toContainText('現金の滝');
+  await expect(financials).not.toContainText('通帳引き算バー');
+  await expect(financials.locator('canvas')).toHaveCount(0);
   await expect(financials).toContainText('¥800.0億');
   await expect(financials).toContainText('¥432.0億');
   await page.getByRole('button', { name: /根拠/ }).click();
@@ -33,16 +38,14 @@ test('company list opens financials and evidence, then closes and reopens the in
   expect(errors).toEqual([]);
 });
 
-test('structure visuals stay evidence-gated and do not surface fabricated margin claims', async ({ page }) => {
+test('value chain stays evidence-gated and flywheel is removed', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
   await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
 
-  await page.getByRole('button', { name: /強化ループ/ }).click();
-  const flywheel = page.locator('#section-flywheel');
-  await expect(flywheel).toBeInViewport();
-  await expect(flywheel).toContainText(/構造仮説|未確定/);
+  await expect(page.locator('#section-flywheel')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /強化ループ/ })).toHaveCount(0);
 
   await page.getByRole('button', { name: /提供経路/ }).click();
   const valueChain = page.locator('#section-value-chain');
