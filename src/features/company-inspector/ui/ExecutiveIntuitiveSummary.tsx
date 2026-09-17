@@ -23,24 +23,53 @@ function cleanValue(value: string | null | undefined): string | null {
   return trimmed;
 }
 
-function buildExecutiveLead(entity: InspectorSectionProps['entity']): string | null {
+function cleanHeadline(text: string, name?: string, legalEntity?: string): string {
+  let result = stripLeadingEntityName(text, name, legalEntity);
+  // 先頭の不対な鉤括弧「の除去（『』の外側の「など）
+  if (
+    result.startsWith('「') &&
+    !result.endsWith('」') &&
+    (result.match(/「/g)?.length || 0) > (result.match(/」/g)?.length || 0)
+  ) {
+    result = result.slice(1);
+  }
+  return result.trim();
+}
+
+function buildExecutiveLead(
+  entity: InspectorSectionProps['entity'],
+  headline: string,
+): string | null {
   const whatItDoes = cleanValue(entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary'));
   const painRelief = cleanValue(entity.essence?.painRelief);
   const secretInsight = cleanValue(entity.strategy?.secretInsight);
 
+  // headline と whatItDoes の重複判定（先頭15文字または headline に whatItDoes の核が含まれるか）
+  const isWhatItDoesDupe = Boolean(
+    headline && whatItDoes && (
+      headline.includes(whatItDoes.slice(0, 15)) ||
+      whatItDoes.includes(headline.slice(0, 15)) ||
+      headline.slice(0, 25) === whatItDoes.slice(0, 25)
+    )
+  );
+
   const parts: string[] = [];
-  if (whatItDoes) {
+
+  // 重複していない場合のみ whatItDoes を追加
+  if (whatItDoes && !isWhatItDoesDupe) {
     parts.push(whatItDoes.endsWith('。') ? whatItDoes : `${whatItDoes}。`);
   }
+
   if (painRelief) {
     const cleanPain = painRelief.endsWith('。') ? painRelief : `${painRelief}。`;
-    if (!whatItDoes || !whatItDoes.includes(painRelief.slice(0, 15))) {
+    if (!parts.some((p) => p.includes(painRelief.slice(0, 15))) && !headline.includes(painRelief.slice(0, 15))) {
       parts.push(cleanPain);
     }
   }
+
   if (secretInsight) {
     const cleanSecret = secretInsight.endsWith('。') ? secretInsight : `${secretInsight}。`;
-    if (!whatItDoes || !whatItDoes.includes(secretInsight.slice(0, 15))) {
+    if (!parts.some((p) => p.includes(secretInsight.slice(0, 15))) && !headline.includes(secretInsight.slice(0, 15))) {
       parts.push(cleanSecret);
     }
   }
@@ -54,13 +83,13 @@ export function ExecutiveIntuitiveSummary({
   isHazardMode,
   formatMoney,
 }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'formatMoney'>) {
-  const headline = stripLeadingEntityName(
+  const headline = cleanHeadline(
     entity.tagline || entity.essence?.whatItDoes || '',
     entity.name,
     entity.legalEntity,
   );
 
-  const leadParagraph = buildExecutiveLead(entity);
+  const leadParagraph = buildExecutiveLead(entity, headline);
 
   const revenueKnown = !entity.pnl.isRevenueUnconfirmed && Number.isFinite(entity.pnl.monthlyRevenue) && entity.pnl.monthlyRevenue > 0;
   const profitKnown = !entity.pnl.isOperatingProfitUnconfirmed && Number.isFinite(entity.pnl.operatingProfit);
