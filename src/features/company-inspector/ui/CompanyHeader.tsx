@@ -74,7 +74,6 @@ export function CompanyHeader({
     { id: 'section-summary', label: '要点' },
     { id: 'section-evidence', label: '根拠' },
     { id: 'section-cash-anatomy', label: '損益' },
-    { id: 'section-flywheel', label: '強化ループ' },
     { id: 'section-value-chain', label: '提供経路' },
     { id: 'section-loot-blueprint', label: '実行案' }
   ];
