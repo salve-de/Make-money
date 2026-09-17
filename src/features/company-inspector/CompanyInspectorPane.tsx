@@ -12,7 +12,6 @@ import { EstimatedCashSummary } from './ui/EstimatedCashSummary';
 import { EvidenceDeckSection } from './ui/EvidenceDeckSection';
 import { EvidenceStream } from './ui/EvidenceStream';
 import { ExecutiveIntuitiveSummary } from './ui/ExecutiveIntuitiveSummary';
-import { FlywheelEngineDiagram } from './ui/FlywheelEngineDiagram';
 import { LootBlueprintSection } from './ui/LootBlueprintSection';
 import { RelatedResearch } from './ui/RelatedResearch';
 import { SourcesSection } from './ui/SourcesSection';
@@ -142,7 +141,6 @@ export const CompanyInspectorPane: React.FC<CompanyInspectorPaneProps> = ({
                 <CashAnatomySection {...sectionProps} />
               )}
 
-              <FlywheelEngineDiagram {...sectionProps} />
               <ValueChainDisruptionSection {...sectionProps} />
               <LootBlueprintSection {...sectionProps} />
             </>
