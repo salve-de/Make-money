@@ -86,6 +86,10 @@ export function CashAnatomySection({
     </div>
   );
 
+  const leadText = isHazardMode
+    ? '見栄の売上成長の裏で、毎月いくらの現金が流出し破綻に至ったかの【致命的出血点（ユニットエコノミクスの崩壊）】を解剖する。'
+    : '見栄の売上ではなく、売上原価および販管費（API・インフラ・広告・外注）を差し引いた後の【創業者個人の手残り現金実額（営業利益）】を解剖する。';
+
   return (
     <InspectorSectionCard
       id="section-cash-anatomy"
@@ -95,6 +99,18 @@ export function CashAnatomySection({
       badge={badgeElement}
       isHazardMode={isHazardMode}
     >
+      {/* セクション・リード文 */}
+      <div className="px-4 py-3 sm:px-5 sm:py-3.5 bg-white/[0.02] border-b border-white/[0.06] text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-sans">
+        <span className={`text-[10px] font-mono uppercase tracking-wider font-bold px-1.5 py-0.5 rounded border mr-2 ${
+          isHazardMode
+            ? 'bg-red-500/10 text-red-300 border-red-500/30'
+            : 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30'
+        }`}>
+          {isHazardMode ? 'BURN RATE / 出血解剖' : 'CASH WATERFALL / 手残り構造'}
+        </span>
+        {leadText}
+      </div>
+
       {/* 4大財務サマリー */}
       <div className="grid grid-cols-2 sm:grid-cols-4 border-b border-white/[0.07] bg-[#090d13]">
         <div className="p-3.5 sm:px-4 sm:py-3">

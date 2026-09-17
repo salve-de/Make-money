@@ -1,5 +1,44 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-17 【確定】企業詳細インスペクターの「エグゼクティブ・リード文」完全配備 ＆ 手元実データ全量活用の4大ブロック確定仕様完遂（Phase 200）
+
+### 1. ユーザー指示と設計方針（User Direct Command & Lead Narrative Genesis）
+- **ユーザー指示**:
+  - 「じゃあやれ リード文は 絶対に必要 それ以外は 任せた」
+- **病巣の解剖**:
+  - タグラインと数字グリッドだけが並び、企業が「何を提供し、誰のどんな激痛を取り除き、なぜ儲かっているのか」という全体像を掴むための**リード文（Executive Briefing Narrative）**が欠落していた。
+  - 手元のデータ資産（全634社）に格納されている強力なデータ（`strategy.initialTraction` 初動3手、`strategy.secretInsight` 核心の洞察、`strategy.blindspot` 業界の盲点、`strategy.incumbentDilemma` 大手の自爆ジレンマなど）が一部コンポーネントで活用されず眠っていた。
+- **設計方針の徹底（プロ金融端末 × 北極星の融合）**:
+  - **エグゼクティブ・リード文の完全配備**:
+    - [01] 要点セクションのトップに、`whatItDoes`（事業内容）＋ `painRelief`（激痛解消）＋ `secretInsight`（裏の急所）を自然かつ格調高く統合したリード文を堂々と配置。専門知識のない経営者でも1秒でビジネスモデルの急所を直感理解できる導線を確立。
+  - **各セクションへのリード文と手元データ全量注入**:
+    - **[01] 要点・核心の正体**: 大見出しタグライン ＋ エグゼクティブ・リード文 ＋ 4大バイタルKPI（月商・利益・利益率・組織規模 ＋ 1人あたり月利・週稼働時間） ＋ 生々しい構造ファクト（痛みの財布、業界の盲点、裏の急所、大手の死角、課金手口）。
+    - **[02] 月次損益計算書 (P&L)**: 「見栄の売上ではなく、原価および販管費内訳を差し引いた後の【創業者個人の手残り現金実額】を解剖する」リード文 ＋ 損益ウォーターフォールテーブル。
+    - **[03] 現場証拠ログ・大手の死角**: 「公式PRの綺麗事を焼き払い、大手が自爆を恐れて手を出せない構造的ジレンマと客観的ログを突きつける」リード文 ＋ 大手自縛構造（INCUMBENT DILEMMA）ハイライトカード ＋ 現場証拠ログ行。
+    - **[04] 再現・略奪設計図**: 「今夜使える不公正なカンニングペーパー」リード文 ＋ 創業者が実際に打った初期の泥臭い事実ログ（INITIAL TRACTION #1〜#3） ＋ 略奪4ステップ ＋ 初動チェックリスト ＋ 実稼働ツール兵器テーブル。
+  - **「未確認」言い訳テキストの完全駆逐**: ヘッダーメトリクス等で未確認と出ていた箇所を「非公開」に統一。
+
+### 2. 物理実装したUIコンポーネント
+1. `src/features/company-inspector/ui/ExecutiveIntuitiveSummary.tsx`: エグゼクティブ・リード文生成ロジック、1人あたり月利計算、盲点・裏の急所・課金手口の全量描画。
+2. `src/features/company-inspector/ui/CashAnatomySection.tsx`: セクション・リード文（CASH WATERFALL / BURN RATE）配備。
+3. `src/features/company-inspector/ui/EvidenceDeckSection.tsx`: セクション・リード文 ＋ 大手自縛ジレンマバナー配備。
+4. `src/features/company-inspector/ui/LootBlueprintSection.tsx`: セクション・リード文 ＋ 創業者の初動突破ログ（INITIAL TRACTION #1〜#3）配備。
+5. `src/features/company-inspector/ui/CompanyHeader.tsx`: 「未確認」の文言を「非公開」に修正。
+
+### 3. テスト・リント・実機Playwright検証
+- `pnpm vitest run`: 全55ファイル・406テスト 100% PASS。
+- `pnpm typecheck` & `schemas:check`: 100% PASS。
+- `pnpm lint`: ESLint 0 warnings、全634社品質ガードレール 100% PASS。
+- Playwright実機ブラウザ検証:
+  - `01_final_thesis_lead.png`: エグゼクティブ・リード文および4大KPIの整然たる表示を確認。
+  - `02_final_financials.png`: P&Lリード文とクリアな損益テーブルを確認。
+  - `03_final_evidence.png`: 証拠リード文と大手自縛ハイライトを確認。
+  - `04_final_playbook.png`: 再現リード文と初期泥臭い事実ログ（INITIAL TRACTION）を確認。
+  - `05_final_wework_hazard.png`: 破綻・検死企業のハザードモードでの教訓リード文を確認。
+  - `06_indie_macwhisper.png`: 個人SaaS（MacWhisper）における買い切り要塞リード文と手残り95%の完璧な表示を確認。
+
+---
+
 ## 2026-09-15 【確定】パートナー規程ページ（`/partners`）の視認性抜本改善 ＆ カードゼロのプロ用スペックレイアウト確立（Phase 199）
 
 ### 1. ユーザー指示と設計方針（User Direct Command & Elimination of Unreadable Wall of Text）

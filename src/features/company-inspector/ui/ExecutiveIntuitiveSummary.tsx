@@ -23,6 +23,32 @@ function cleanValue(value: string | null | undefined): string | null {
   return trimmed;
 }
 
+function buildExecutiveLead(entity: InspectorSectionProps['entity']): string | null {
+  const whatItDoes = cleanValue(entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary'));
+  const painRelief = cleanValue(entity.essence?.painRelief);
+  const secretInsight = cleanValue(entity.strategy?.secretInsight);
+
+  const parts: string[] = [];
+  if (whatItDoes) {
+    parts.push(whatItDoes.endsWith('。') ? whatItDoes : `${whatItDoes}。`);
+  }
+  if (painRelief) {
+    const cleanPain = painRelief.endsWith('。') ? painRelief : `${painRelief}。`;
+    if (!whatItDoes || !whatItDoes.includes(painRelief.slice(0, 15))) {
+      parts.push(cleanPain);
+    }
+  }
+  if (secretInsight) {
+    const cleanSecret = secretInsight.endsWith('。') ? secretInsight : `${secretInsight}。`;
+    if (!whatItDoes || !whatItDoes.includes(secretInsight.slice(0, 15))) {
+      parts.push(cleanSecret);
+    }
+  }
+
+  const combined = parts.join(' ').trim();
+  return combined.length > 0 ? combined : null;
+}
+
 export function ExecutiveIntuitiveSummary({
   entity,
   isHazardMode,
@@ -34,11 +60,18 @@ export function ExecutiveIntuitiveSummary({
     entity.legalEntity,
   );
 
+  const leadParagraph = buildExecutiveLead(entity);
+
   const revenueKnown = !entity.pnl.isRevenueUnconfirmed && Number.isFinite(entity.pnl.monthlyRevenue) && entity.pnl.monthlyRevenue > 0;
   const profitKnown = !entity.pnl.isOperatingProfitUnconfirmed && Number.isFinite(entity.pnl.operatingProfit);
   const marginKnown = !entity.pnl.isMarginUnconfirmed && Number.isFinite(entity.pnl.operatingMargin);
   const teamSize = !entity.operations?.isTeamSizeUnconfirmed
     ? entity.operations?.teamSize || legacyNumber(entity, 'teamSize') || null
+    : null;
+
+  // 1人あたり月利
+  const perCapitaProfit = teamSize && profitKnown && teamSize > 0
+    ? Math.round(entity.pnl.operatingProfit / teamSize)
     : null;
 
   // 4大KPI
@@ -51,6 +84,7 @@ export function ExecutiveIntuitiveSummary({
     {
       label: '営業利益（純手残り）',
       value: profitKnown ? formatMoney(entity.pnl.operatingProfit) : '非公開',
+      sub: perCapitaProfit && perCapitaProfit > 0 ? `月利 ${formatMoney(perCapitaProfit)}/人` : null,
       tone: profitKnown && entity.pnl.operatingProfit < 0 ? 'negative' : profitKnown ? 'positive' : 'muted',
     },
     {
@@ -61,38 +95,27 @@ export function ExecutiveIntuitiveSummary({
     {
       label: '組織規模',
       value: teamSize ? `${teamSize.toLocaleString()}名` : '少数精鋭',
+      sub: entity.operations?.weeklyHours ? `週稼働 ${entity.operations.weeklyHours}h` : null,
       tone: 'neutral',
     },
   ];
 
-  // 重複・未確認を排除した生々しいファクト行
-  const whatItDoes = cleanValue(entity.essence?.whatItDoes || legacyText(entity, 'executiveSummary'));
-  // headlineとwhatItDoesの類似重複排除
-  const isDuplicateWhatItDoes = Boolean(
-    whatItDoes && headline && (
-      whatItDoes.slice(0, 30) === headline.slice(0, 30) ||
-      headline.includes(whatItDoes.slice(0, 30))
-    )
-  );
-
   const targetPain = cleanValue(entity.targetPainWallet || entity.essence?.painRelief);
   const targetCustomer = cleanValue(entity.essence?.targetCustomer);
-  const pricingModel = cleanValue(entity.pricing?.model);
-  const pricePoint = cleanValue(entity.pricing?.pricePoint);
-  const psychoTrigger = cleanValue(entity.pricing?.psychologicalTrigger);
+  const blindspot = cleanValue(entity.strategy?.blindspot);
+  const secretInsight = cleanValue(entity.strategy?.secretInsight);
   const incumbentDilemma = cleanValue(
     entity.meta?.incumbentDilemma?.cannibalizationBarrier ||
     entity.strategy?.incumbentDilemma ||
     entity.strategy?.moatDescription ||
     legacyText(entity.strategy, 'moat')
   );
+  const pricingModel = cleanValue(entity.pricing?.model);
+  const pricePoint = cleanValue(entity.pricing?.pricePoint);
+  const psychoTrigger = cleanValue(entity.pricing?.psychologicalTrigger);
 
   // 表示する有効な項目だけを構築（未確認・カス表示は1つも入れない）
   const infoRows: Array<{ label: string; value: string }> = [];
-
-  if (whatItDoes && !isDuplicateWhatItDoes) {
-    infoRows.push({ label: '事業内容', value: whatItDoes });
-  }
 
   if (targetPain) {
     infoRows.push({
@@ -101,6 +124,27 @@ export function ExecutiveIntuitiveSummary({
     });
   } else if (targetCustomer) {
     infoRows.push({ label: '対象顧客', value: targetCustomer });
+  }
+
+  if (blindspot) {
+    infoRows.push({
+      label: '業界の盲点・欠陥',
+      value: blindspot.replace(/^【.*?】/g, '').trim(),
+    });
+  }
+
+  if (secretInsight && (!leadParagraph || !leadParagraph.includes(secretInsight.slice(0, 20)))) {
+    infoRows.push({
+      label: '儲けの本質・裏の急所',
+      value: secretInsight,
+    });
+  }
+
+  if (incumbentDilemma) {
+    infoRows.push({
+      label: isHazardMode ? '破綻の構造要因' : '大手の死角・障壁',
+      value: incumbentDilemma.replace(/^【.*?】/g, '').trim(),
+    });
   }
 
   if (pricingModel || pricePoint || psychoTrigger) {
@@ -115,13 +159,6 @@ export function ExecutiveIntuitiveSummary({
     });
   }
 
-  if (incumbentDilemma) {
-    infoRows.push({
-      label: isHazardMode ? '破綻の構造要因' : '大手の死角・障壁',
-      value: incumbentDilemma.replace(/^【.*?】/g, '').trim(),
-    });
-  }
-
   return (
     <InspectorSectionCard
       id="section-summary"
@@ -130,7 +167,7 @@ export function ExecutiveIntuitiveSummary({
       titleJa={isHazardMode ? '破綻要因・死因の核心' : '事業仮説・核心の正体'}
       isHazardMode={isHazardMode}
     >
-      {/* 核心の正体（大見出し） */}
+      {/* 核心の正体（大見出しタグライン） */}
       {headline && (
         <div className={`p-4 sm:p-5 border-b border-white/[0.07] ${
           isHazardMode ? 'bg-red-950/20' : 'bg-white/[0.015]'
@@ -143,6 +180,24 @@ export function ExecutiveIntuitiveSummary({
               {headline}
             </p>
           </div>
+        </div>
+      )}
+
+      {/* エグゼクティブ・リード文（読者が1秒で理解できる要約文章） */}
+      {leadParagraph && (
+        <div className="px-4 py-3.5 sm:px-5 sm:py-4 bg-white/[0.02] border-b border-white/[0.06]">
+          <div className="flex items-center gap-2 mb-1.5">
+            <span className={`text-[10px] font-mono uppercase tracking-wider font-bold px-1.5 py-0.5 rounded border ${
+              isHazardMode
+                ? 'bg-red-500/10 text-red-300 border-red-500/30'
+                : 'bg-blue-500/10 text-blue-300 border-blue-500/30'
+            }`}>
+              {isHazardMode ? 'CASE OVERVIEW / 事例の全体像' : 'EXECUTIVE BRIEFING / 事業概要と儲けの急所'}
+            </span>
+          </div>
+          <p className="text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-sans">
+            {leadParagraph}
+          </p>
         </div>
       )}
 
@@ -167,12 +222,17 @@ export function ExecutiveIntuitiveSummary({
               <div className={`mt-1 font-mono text-sm sm:text-base font-bold tabular-nums ${toneClass}`}>
                 {metric.value}
               </div>
+              {metric.sub && (
+                <div className="mt-0.5 text-[10px] font-mono text-zinc-500 tabular-nums">
+                  {metric.sub}
+                </div>
+              )}
             </div>
           );
         })}
       </div>
 
-      {/* 生々しいファクト行（有効なものだけ表示・未確認ゼロ） */}
+      {/* 生々しい構造ファクト行（有効なものだけ表示・未確認ゼロ） */}
       {infoRows.length > 0 && (
         <div className="divide-y divide-white/[0.06] px-4 sm:px-5">
           {infoRows.map((row) => (

@@ -93,6 +93,12 @@ export function LootBlueprintSection({
     </div>
   );
 
+  const leadText = isHazardMode
+    ? '同じ過ちを犯さないための再発防止の実行手順と、損失を回避するための撤退条件。'
+    : '今夜使える不公正なカンニングペーパー。創業者が実際に打った初動のズル、自動で現金を吸い上げる関所配管、現場で稼働している実兵器を完全公開する。';
+
+  const initialTraction = (entity.strategy?.initialTraction || []).filter(Boolean);
+
   return (
     <InspectorSectionCard
       id="section-loot-blueprint"
@@ -102,6 +108,45 @@ export function LootBlueprintSection({
       badge={badgeElement}
       isHazardMode={isHazardMode}
     >
+      {/* セクション・リード文 */}
+      <div className="px-4 py-3 sm:px-5 sm:py-3.5 bg-white/[0.02] border-b border-white/[0.06] text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-sans">
+        <span className={`text-[10px] font-mono uppercase tracking-wider font-bold px-1.5 py-0.5 rounded border mr-2 ${
+          isHazardMode
+            ? 'bg-red-500/10 text-red-300 border-red-500/30'
+            : 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30'
+        }`}>
+          {isHazardMode ? 'LESSONS LEARNED / 敗因と教訓' : 'LOOT BLUEPRINT / 略奪再現手順'}
+        </span>
+        {leadText}
+      </div>
+
+      {/* 初動突破の泥臭い事実ログ（INITIAL TRACTION） */}
+      {initialTraction.length > 0 && (
+        <div className={`p-4 sm:p-5 border-b border-white/[0.07] ${
+          isHazardMode ? 'bg-red-950/15' : 'bg-cyan-950/15'
+        }`}>
+          <div className="mb-2.5 flex items-center gap-2">
+            <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${
+              isHazardMode ? 'text-red-300' : 'text-cyan-300'
+            }`}>
+              {isHazardMode ? 'CRITICAL MISTAKES / 初動で踏み抜いた地雷' : 'INITIAL TRACTION / 創業者が打った初期の泥臭い事実'}
+            </span>
+          </div>
+          <div className="space-y-2">
+            {initialTraction.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-zinc-200 leading-relaxed">
+                <span className={`font-mono text-xs font-bold shrink-0 mt-0.5 ${
+                  isHazardMode ? 'text-red-400' : 'text-cyan-400'
+                }`}>
+                  #{idx + 1}
+                </span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* 再現ステップ（アコーディオン） */}
       {steps.length > 0 && (
         <div className="divide-y divide-white/[0.06]">

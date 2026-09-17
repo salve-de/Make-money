@@ -67,7 +67,7 @@ export function CompanyHeader({
     REPORTED: '報道・取材',
     ESTIMATED: '推定',
     POST_MORTEM: '事後検証',
-    UNAVAILABLE: '未確認'
+    UNAVAILABLE: '非公開'
   }[entity.pnl.financialStatus || 'UNAVAILABLE'];
 
   const ledgerNav = [
@@ -163,15 +163,15 @@ export function CompanyHeader({
         </div>
 
         <div className="flex items-center gap-3 overflow-x-auto border-b border-white/[0.06] bg-[#0d1118] px-3 py-2 text-[10px] sm:px-4">
-          <HeaderMetric label="月商" value={revenueKnown ? formatMoney(rev) : '未確認'} />
+          <HeaderMetric label="月商" value={revenueKnown ? formatMoney(rev) : '非公開'} />
           <HeaderMetric
             label="営業利益"
-            value={profitKnown ? formatMoney(profit) : '未確認'}
+            value={profitKnown ? formatMoney(profit) : '非公開'}
             tone={profitKnown ? (isLoss ? 'red' : 'green') : 'neutral'}
           />
           <HeaderMetric
             label="営業利益率"
-            value={marginKnown ? `${margin > 0 ? '+' : ''}${margin}%` : '未確認'}
+            value={marginKnown ? `${margin > 0 ? '+' : ''}${margin}%` : '非公開'}
             tone={marginKnown ? (margin < 0 ? 'red' : margin > 0 ? 'green' : 'neutral') : 'neutral'}
           />
           {displayTeam && (
