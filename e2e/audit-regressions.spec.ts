@@ -37,9 +37,14 @@ test('opening success without a payment cannot claim confirmation or grant acces
 });
 
 test('unconfirmed financials never present a zero as a measured result', async ({ page }) => {
-  // This regression verifies the financial rendering contract, not whether a
-  // particular entity happens to be present in the first paginated list.
-  await page.goto('/?entity=ent_photoai');
+  // Open the stable Photo AI fixture through the same live ticker interaction a
+  // user uses. URL query state alone is not the inspector-open contract.
+  await page.goto('/');
+  const ticker = page.getByRole('complementary', { name: '台帳の財務サマリー' });
+  const photoAi = ticker.getByText('Photo AI: 月商 未確認 / 営業利益率 未確認', { exact: true }).first();
+  await expect(photoAi).toBeVisible();
+  await photoAi.click();
+
   const dialog = page.getByTestId('company-inspector');
   await expect(dialog).toBeVisible();
   await page.getByRole('button', { name: /現金の解剖室/ }).click();
