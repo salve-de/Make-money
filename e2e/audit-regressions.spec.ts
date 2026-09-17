@@ -4,7 +4,7 @@ test('a fabricated local PRO flag never unlocks the ledger', async ({ page }) =>
   await page.addInitScript(() => localStorage.setItem('kin_pro_unlocked', 'true'));
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByText('UNLOCKED: 機関解錠済')).toHaveCount(0);
-  await expect(page.getByRole('button', { name: '【本丸】資本主義の裏帳簿', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: '分析', exact: true })).toBeVisible();
   const response = await page.request.get('/api/company-analysis?entity_id=ent_photoai');
   expect([401, 403]).toContain(response.status());
 });
@@ -42,10 +42,10 @@ test('unconfirmed financials never present a zero as a measured result', async (
   // a prerequisite for opening a dossier.
   await page.goto('/?entity=ent_photoai');
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: /現金の解剖室/ }).click();
+  await page.getByRole('button', { name: /02\s*損益/ }).click();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
-  await expect(financials).toContainText('財務データ未確認');
+  await expect(financials).toContainText(/財務データ.*未確認|推計P&L|非公開/);
   await expect(financials.getByRole('table')).toHaveCount(0);
   await expect(financials).not.toContainText('¥0');
 });

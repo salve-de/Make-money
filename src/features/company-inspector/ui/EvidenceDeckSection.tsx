@@ -1,57 +1,70 @@
 import { DynamicEvidenceDeck } from '../dynamic-sections/DynamicEvidenceDeck';
-
+import React from 'react';
 import type { InspectorSectionProps } from '../model/section-props';
+import { InspectorSectionCard } from './InspectorSectionCard';
 
-export function EvidenceDeckSection({ entity, isHazardMode, hasEvidenceCards }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
-  return <>
-          {/* ========================================================= */}
-          {/* 【動的証拠保全デッキ (DYNAMIC EVIDENCE DECK)】 */}
-          {/* ========================================================= */}
-          {hasEvidenceCards && (
-            <div
-              id="section-evidence"
-              className={`rounded-lg overflow-hidden border shadow-xl ${
-                isHazardMode
-                  ? 'border-red-500/30 bg-[#0E131F]'
-                  : 'border-white/[0.12] bg-[#0E131F]'
-              } scroll-mt-4`}
-            >
-              {/* セクション専用タイトルバー (Level 2: #141A29) */}
-              <div className={`flex items-center justify-between px-3.5 py-2.5 border-b ${
-                isHazardMode
-                  ? 'bg-red-950/40 border-red-500/30'
-                  : 'bg-[#141A29] border-white/[0.08]'
-              }`}>
-                <div className="flex items-center gap-2.5">
-                  {/* 垂直アクセントバー (視覚の杭) */}
-                  <div className={`w-1 h-3.5 rounded-full ${
-                    isHazardMode
-                      ? 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]'
-                      : 'bg-zinc-300'
-                  }`} />
-                  <span className={`font-mono text-xs font-bold px-1.5 py-0.5 rounded border ${
-                    isHazardMode
-                      ? 'text-red-300 bg-red-900/40 border-red-500/40'
-                      : 'text-zinc-100 bg-white/[0.08] border-white/[0.14]'
-                  }`}>
-                    FACT
-                  </span>
-                  <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
-                    isHazardMode ? 'text-red-200' : 'text-zinc-100'
-                  }`}>
-                    {isHazardMode ? '失敗・撤退の事実ログ' : '儲けのウラ側 ＆ 現場の証拠ファイル'}
-                  </h3>
-                </div>
-                <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
-                  {entity.evidenceCards!.length}件の証拠データ
-                </span>
+export function EvidenceDeckSection({
+  entity,
+  isHazardMode,
+  hasEvidenceCards,
+}: Pick<InspectorSectionProps, 'entity' | 'isHazardMode' | 'hasEvidenceCards'>) {
+  const cards = entity.evidenceCards || [];
+  if (!hasEvidenceCards || cards.length === 0) return null;
+
+  const leadText = isHazardMode
+    ? '巨額調達や見かけの急成長の陰で、現場で実際に何が起きていたのかの客観的事実ログ（検死記録）を検証する。'
+    : '公式PRの綺麗事を焼き払い、大手が自爆を恐れて手を出せない構造的ジレンマと、現場の生々しい客観的事実ログ（一次証拠）を突きつける。';
+
+  const incumbentDilemma = entity.strategy?.incumbentDilemma?.trim();
+  const moatDescription = entity.strategy?.moatDescription?.trim();
+
+  return (
+    <InspectorSectionCard
+      id="section-evidence"
+      index="03"
+      categoryEn="EVIDENCE DOSSIER"
+      titleJa={isHazardMode ? '失敗・撤退の事実ログ' : '儲けのウラ側 ＆ 現場の証拠'}
+      badge={
+        <span className="rounded border border-white/[0.10] bg-white/[0.04] px-2 py-0.5 text-zinc-400 font-mono text-[11px]">
+          {cards.length} records
+        </span>
+      }
+      isHazardMode={isHazardMode}
+    >
+      {/* セクション・リード文 */}
+      <div className="px-4 py-3 sm:px-5 sm:py-3.5 bg-white/[0.02] border-b border-white/[0.06] text-xs sm:text-[13px] text-zinc-300 leading-relaxed font-sans">
+        <span className={`text-[10px] font-mono uppercase tracking-wider font-bold px-1.5 py-0.5 rounded border mr-2 ${
+          isHazardMode
+            ? 'bg-red-500/10 text-red-300 border-red-500/30'
+            : 'bg-amber-500/10 text-amber-300 border-amber-500/30'
+        }`}>
+          {isHazardMode ? 'POST-MORTEM DOSSIER / 検死記録' : 'UNVARNISHED FACTS / 客観証拠'}
+        </span>
+        {leadText}
+      </div>
+
+      {/* 大手の自縛・参入障壁ハイライト（存在する場合） */}
+      {(incumbentDilemma || moatDescription) && (
+        <div className={`p-4 sm:p-5 border-b border-white/[0.07] ${
+          isHazardMode ? 'bg-red-950/20' : 'bg-amber-950/15'
+        }`}>
+          <div className="flex items-start gap-3">
+            <div className={`w-1 h-4 rounded-full shrink-0 mt-1 ${
+              isHazardMode ? 'bg-red-400' : 'bg-amber-400'
+            }`} />
+            <div className="space-y-1 min-w-0">
+              <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400">
+                {isHazardMode ? 'STRUCTURAL FLAW / 破綻の根本原因' : 'INCUMBENT DILEMMA / 大手が真似できない自爆構造'}
               </div>
-              <div className="p-3 bg-[#0E131F]">
-                <DynamicEvidenceDeck cards={entity.evidenceCards!} isHazardMode={isHazardMode} />
-              </div>
+              <p className="text-xs sm:text-[13px] text-zinc-200 leading-relaxed font-medium">
+                {(incumbentDilemma || moatDescription)?.replace(/^【.*?】/g, '').trim()}
+              </p>
             </div>
-          )}
+          </div>
+        </div>
+      )}
 
-
-  </>;
+      <DynamicEvidenceDeck cards={cards} isHazardMode={isHazardMode} />
+    </InspectorSectionCard>
+  );
 }

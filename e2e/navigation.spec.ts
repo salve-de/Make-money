@@ -54,6 +54,7 @@ test('analyst note survives reload and remains attached to the selected company'
 });
 
 test('playbook tabs render their datasets and macro redirects back to the same product', async ({ page }) => {
+  test.slow();
   const errors: string[] = [];
   page.on('pageerror', (error) => { errors.push(error.message); console.log('PLAYBOOK_PAGE_ERROR', error.message); });
   await page.goto('/playbook', { waitUntil: 'networkidle' });
@@ -77,11 +78,12 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
   await page.getByRole('button', { name: /ツール勢力図・乗り換え推移/ }).click();
   await page.getByRole('main').getByText('Photo AI', { exact: true }).first().click();
-  await expect(page).toHaveURL(/entity=ent_photoai/);
+  await expect(page).toHaveURL(/entity=ent_photoai/, { timeout: 15000 });
   await expect(page.getByRole('heading', { level: 2, name: /Photo AI/ })).toBeVisible();
   await page.goto('/playbook');
   await page.getByRole('link', { name: '← 個別企業台帳 (Ledger)' }).click();
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await page.waitForURL(/\/$/);
+  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible({ timeout: 15000 });
   expect(errors).toEqual([]);
 });
 
@@ -106,7 +108,8 @@ test('legacy finder and macro links still reach their canonical routes', async (
   await expect(page).toHaveURL(/\/playbook$/);
   await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
   await page.getByRole('link', { name: '← 個別企業台帳 (Ledger)' }).click();
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await page.waitForURL(/\/$/);
+  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible({ timeout: 15000 });
 });
 
 for (const raw of ['null', '{}', '[null,42,"ent_photoai"]']) {

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import {
   TOOL_CATEGORIES,
   ToolCategoryKey,
@@ -207,13 +208,14 @@ export const ToolRadarSection: React.FC<ToolRadarSectionProps> = ({
                   <div className="text-[10px] font-mono text-zinc-400 mb-1.5">関連企業例・採用未確認（クリックで台帳へ）:</div>
                   <div className="flex flex-wrap gap-1.5">
                     {tool.usedByEntities.map((ent) => (
-                      <span
+                      <Link
                         key={ent.id}
+                        href={`/?entity=${ent.id}&mode=LEDGER`}
                         onClick={() => onSelectEntity?.(ent.id)}
                         className="text-[11px] px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-zinc-300 hover:text-white hover:border-cyan-400/40 cursor-pointer transition-colors"
                       >
                         {ent.name}
-                      </span>
+                      </Link>
                     ))}
                   </div>
                 </div>

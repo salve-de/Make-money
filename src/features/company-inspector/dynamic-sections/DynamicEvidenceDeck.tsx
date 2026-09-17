@@ -1,155 +1,184 @@
 'use client';
 
 import {
-DynamicEvidenceCard,
-DynamicEvidenceCardType,
-EvidenceStatus
+  DynamicEvidenceCard,
+  DynamicEvidenceCardType,
+  EvidenceStatus,
 } from '@/shared/terminal';
-import React from 'react';
+import { ChevronDown, ChevronRight, Code2 } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface DynamicEvidenceDeckProps {
   cards: DynamicEvidenceCard[];
   isHazardMode?: boolean;
 }
 
-// 証拠ステータスバッジのスタイル（冷徹なモノトーン・金融インジケーター）
-function renderEvidenceBadge(status: EvidenceStatus) {
-  switch (status) {
-    case 'VERIFIED':
-      return (
-        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-300">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-          一次確認済
-        </span>
-      );
-    case 'REPORTED':
-      return (
-        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-zinc-400" />
-          創業者公表
-        </span>
-      );
-    case 'ESTIMATED':
-      return (
-        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-500/70" />
-          逆算推計
-        </span>
-      );
-    case 'POST_MORTEM':
-      return (
-        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-red-400">
-          <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
-          撤退・失敗の検証
-        </span>
-      );
-    case 'UNKNOWN':
-      return (
-        <span className="inline-flex items-center gap-1 font-mono text-[10px] text-zinc-500">
-          <span className="w-1.5 h-1.5 rounded-full bg-zinc-700" />
-          未確認
-        </span>
-      );
-  }
-}
-
-// Only data-dependent card kinds use a registry; fixed inspector sections use JSX.
 type EvidenceKind = { label: string; hazardLabel?: string };
+
 export const evidenceRegistry = {
-  THE_CRIME: { label: 'キレイゴト抜きの稼ぎ方', hazardLabel: '失敗した思い込みの前提' },
-  SMOKING_GUN: { label: '現場の動かぬ証拠' },
-  DIRTY_GENESIS: { label: '最初の客を掴んだ泥臭い手口' },
-  ASYMMETRIC_LEVERAGE: { label: '通帳に残る本当の利益' },
-  INCUMBENT_TRAP: { label: '大企業が真似できない理由' },
-  FATAL_BLEED: { label: '会社が潰れた本当の原因' },
-  LOOT_BLUEPRINT: { label: '儲かる仕組みの設計図' },
-  UNKNOWN_AUDIT: { label: '非公開・未確認の情報' },
+  THE_CRIME: { label: '稼ぎの核心', hazardLabel: '失敗前提' },
+  SMOKING_GUN: { label: '現場証拠' },
+  DIRTY_GENESIS: { label: '初期獲得' },
+  ASYMMETRIC_LEVERAGE: { label: '利益構造' },
+  INCUMBENT_TRAP: { label: '競合障壁' },
+  FATAL_BLEED: { label: '破綻要因' },
+  LOOT_BLUEPRINT: { label: '再現設計' },
+  UNKNOWN_AUDIT: { label: '未確認' },
 } satisfies Record<DynamicEvidenceCardType, EvidenceKind>;
 
 function getCardLabel(type: DynamicEvidenceCardType, isHazard?: boolean): string {
   const kind: EvidenceKind = evidenceRegistry[type];
-  return (isHazard && kind.hazardLabel) || kind.label;
+  return (isHazard && kind?.hazardLabel) || kind?.label || '事実証拠';
+}
+
+function statusMeta(status: EvidenceStatus): { label: string; dot: string; text: string } {
+  switch (status) {
+    case 'VERIFIED':
+      return { label: '一次確認済', dot: 'bg-emerald-400', text: 'text-emerald-300' };
+    case 'REPORTED':
+      return { label: '創業者公表', dot: 'bg-zinc-300', text: 'text-zinc-200' };
+    case 'ESTIMATED':
+      return { label: '逆算推計', dot: 'bg-amber-400', text: 'text-amber-300' };
+    case 'POST_MORTEM':
+      return { label: '撤退・失敗の検証', dot: 'bg-red-400', text: 'text-red-300' };
+    case 'UNKNOWN':
+      return { label: '未確認', dot: 'bg-zinc-500', text: 'text-zinc-400' };
+  }
 }
 
 export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
   cards,
   isHazardMode = false,
 }) => {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
   if (!cards || cards.length === 0) return null;
 
   return (
-    <div className="space-y-4">
+    <div className="divide-y divide-white/[0.06]">
       {cards.map((card, idx) => {
+        const rowId = card.id || `card-${idx}`;
+        const expanded = expandedId === rowId;
         const label = getCardLabel(card.type, isHazardMode);
+        const status = statusMeta(card.evidenceStatus);
+        const detailCount = card.details?.length || 0;
+        const metricCount = card.metrics?.length || 0;
+        const hasCode = Boolean(card.codeSnippet);
 
         return (
-          <article
-            key={card.id || `card-${idx}`}
-            className="rounded-lg overflow-hidden border border-white/[0.10] bg-[#111624] shadow-lg transition-colors"
-          >
-            {/* 監査ヘッダー: インデックス ＆ 種別 ＆ タイトル ＆ ステータス (Level 2: #161E2E) */}
-            <div className="flex items-center justify-between gap-2 flex-wrap px-3.5 py-2.5 bg-[#161E2E] border-b border-white/[0.08]">
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="font-mono text-xs font-bold text-zinc-300 bg-white/[0.06] px-1.5 py-0.5 rounded border border-white/[0.10]">
-                  #{String(idx + 1).padStart(2, '0')}
-                </span>
-                <span className={`px-1.5 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider ${
-                  isHazardMode
-                    ? 'text-red-300 bg-red-950/60 border border-red-500/40'
-                    : 'text-zinc-200 bg-white/[0.08] border border-white/[0.14]'
-                }`}>
-                  {label}
-                </span>
-                <span className="font-mono text-[11px] text-zinc-400 tracking-tight truncate">
-                  {card.title}
-                </span>
-              </div>
-              <div className="flex items-center gap-2 shrink-0">
-                {card.badge && (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-mono text-zinc-300 bg-white/[0.04] border border-white/[0.08]">
-                    {card.badge}
-                  </span>
-                )}
-                {renderEvidenceBadge(card.evidenceStatus)}
-              </div>
-            </div>
+          <article key={rowId} className="bg-[#0c1017]">
+            <button
+              type="button"
+              onClick={() => setExpandedId(expanded ? null : rowId)}
+              aria-expanded={expanded}
+              className="grid w-full grid-cols-[36px_minmax(0,1fr)_auto] items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-white/[0.025] focus-visible:outline-none sm:grid-cols-[40px_100px_minmax(0,1fr)_auto]"
+            >
+              {/* 番号 */}
+              <span className="font-mono text-xs tabular-nums text-zinc-400 font-semibold">
+                {String(idx + 1).padStart(2, '0')}
+              </span>
 
-            <div className="p-3.5 space-y-3 bg-[#111624]">
-              {/* 大見出しパンチライン（冷徹な事実結論・脳幹直撃） */}
-              <div className={`text-sm sm:text-base font-black leading-snug font-sans p-3 rounded-lg border-l-4 ${
-                isHazardMode
-                  ? 'text-red-100 border-red-500 bg-red-950/30 shadow-[0_0_16px_rgba(239,68,68,0.12)]'
-                  : 'text-white border-cyan-400 bg-white/[0.04] shadow-[0_0_16px_rgba(6,182,212,0.10)]'
+              {/* 分類バッジ */}
+              <span className={`hidden text-[11px] font-mono font-semibold sm:block ${
+                isHazardMode ? 'text-red-400' : 'text-zinc-300'
               }`}>
-                {card.punchline}
-              </div>
+                {label}
+              </span>
 
-              {/* メトリクスハイライト（存在する場合） (Level 3: #182030) */}
-              {card.metrics && card.metrics.length > 0 && (
-                <div className="p-2.5 bg-[#182030] border border-white/[0.06] rounded-md grid grid-cols-2 sm:grid-cols-4 gap-2 text-center font-mono">
-                  {card.metrics.map((m, mIdx) => (
-                    <div key={mIdx} className="space-y-0.5">
-                      <span className="text-[10px] text-zinc-400 block truncate font-medium">{m.label}</span>
-                      <span className={`text-xs font-bold block truncate tabular-nums ${m.isHighlight ? 'text-emerald-400' : 'text-zinc-100'}`}>
-                        {m.value}
-                      </span>
+              {/* タイトルとパンチライン */}
+              <span className="min-w-0">
+                <span className="flex min-w-0 items-center gap-2">
+                  <span className="truncate text-xs sm:text-[13px] font-bold text-zinc-100">
+                    {card.title}
+                  </span>
+                  {card.badge && (
+                    <span className="hidden shrink-0 rounded border border-white/[0.09] bg-white/[0.03] px-1.5 py-0.5 font-mono text-[10px] text-zinc-400 lg:inline">
+                      {card.badge}
+                    </span>
+                  )}
+                  {hasCode && (
+                    <span className="hidden shrink-0 items-center gap-1 rounded border border-cyan-500/30 bg-cyan-950/40 px-1.5 py-0.5 font-mono text-[10px] text-cyan-300 md:inline-flex">
+                      <Code2 className="w-3 h-3" />
+                      LOGIC
+                    </span>
+                  )}
+                </span>
+                <span className="mt-0.5 block truncate text-[11px] sm:text-xs text-zinc-400" title={card.punchline}>
+                  {card.punchline}
+                </span>
+              </span>
+
+              {/* 右側ステータスと開閉 */}
+              <span className="flex shrink-0 items-center gap-3">
+                <span className="hidden items-center gap-2 font-mono text-[10px] text-zinc-400 md:flex">
+                  {detailCount > 0 && <span>事実 {detailCount}</span>}
+                  {metricCount > 0 && <span>数値 {metricCount}</span>}
+                </span>
+                <span className={`inline-flex items-center gap-1.5 font-mono text-[11px] ${status.text}`}>
+                  <span className={`h-1.5 w-1.5 rounded-full ${status.dot}`} />
+                  {status.label}
+                </span>
+                {expanded ? (
+                  <ChevronDown className="h-4 w-4 text-zinc-400" />
+                ) : (
+                  <ChevronRight className="h-4 w-4 text-zinc-400" />
+                )}
+              </span>
+            </button>
+
+            {/* 展開された詳細 */}
+            {expanded && (
+              <div className="border-t border-white/[0.06] bg-[#090d13] px-4 py-4 sm:pl-[152px] sm:pr-6 space-y-3.5">
+                <p className={`text-xs sm:text-[13px] font-semibold leading-relaxed ${
+                  isHazardMode ? 'text-red-200' : 'text-zinc-100'
+                }`}>
+                  {card.punchline}
+                </p>
+
+                {/* メトリクス */}
+                {card.metrics && card.metrics.length > 0 && (
+                  <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4 rounded-lg border border-white/[0.06] bg-[#0c1017] p-2.5">
+                    {card.metrics.map((metric, metricIndex) => (
+                      <div key={`${metric.label}-${metricIndex}`} className="p-1 min-w-0">
+                        <dt className="truncate text-[10px] font-mono text-zinc-400">{metric.label}</dt>
+                        <dd className={`mt-0.5 truncate font-mono text-xs sm:text-sm font-bold tabular-nums ${
+                          metric.isHighlight ? 'text-emerald-400' : 'text-zinc-100'
+                        }`}>
+                          {metric.value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
+
+                {/* 詳細ファクトリスト */}
+                {card.details && card.details.length > 0 && (
+                  <div className="divide-y divide-white/[0.05]">
+                    {card.details.map((detail, detailIndex) => (
+                      <div key={detailIndex} className="grid grid-cols-[20px_minmax(0,1fr)] gap-2 py-2 text-xs leading-relaxed">
+                        <span className="font-mono tabular-nums text-cyan-400 font-semibold">
+                          {String(detailIndex + 1).padStart(2, '0')}
+                        </span>
+                        <span className="text-zinc-200">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* コードスニペット / ロジック */}
+                {card.codeSnippet && (
+                  <div className="rounded-lg border border-white/[0.08] bg-[#07090e] p-3 overflow-x-auto">
+                    <div className="text-[10px] font-mono text-zinc-400 mb-1.5 flex items-center gap-1.5">
+                      <Code2 className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>現場ロジック / 試算アルゴリズム</span>
                     </div>
-                  ))}
-                </div>
-              )}
-
-              {/* 詳細客観事実の箇条書き */}
-              {card.details && card.details.length > 0 && (
-                <ul className="space-y-1.5 text-xs text-zinc-300 leading-relaxed font-sans pl-1">
-                  {card.details.map((detail, dIdx) => (
-                    <li key={dIdx} className="flex items-start gap-2">
-                      <span className="text-zinc-500 font-mono text-xs shrink-0 mt-0.5">■</span>
-                      <span className="text-zinc-200">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+                    <pre className="font-mono text-[11px] leading-relaxed text-zinc-300">
+                      <code>{card.codeSnippet}</code>
+                    </pre>
+                  </div>
+                )}
+              </div>
+            )}
           </article>
         );
       })}

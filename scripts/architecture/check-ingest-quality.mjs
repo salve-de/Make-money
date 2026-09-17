@@ -21,7 +21,8 @@ const seenTickers = new Map();
 const seenDomains = new Map();
 const SHARED_PLATFORMS = new Set([
   'x.com', 'twitter.com', 'notion.so', 'notion.site', 'gumroad.com', 'substack.com', 'medium.com', 'github.com',
-  'wikipedia.org', 'en.wikipedia.org', 'ja.wikipedia.org', 'sec.gov'
+  'wikipedia.org', 'en.wikipedia.org', 'ja.wikipedia.org', 'sec.gov',
+  'apps.apple.com', 'play.google.com', 'chrome.google.com', 'chromewebstore.google.com'
 ]);
 
 function normalizeEntityName(name) {
@@ -340,6 +341,116 @@ for (const ent of entities) {
   // E. essence (#01) 基本チェック（空欄・未定義による画面崩れを防止、文字数ノルマは課さない）
   if (ent.essence && (!ent.essence.whatItDoes || !ent.essence.targetCustomer || !ent.essence.painRelief)) {
     errors.push(`[DENSITY VIOLATION: Incomplete Essence] ${ent.name} essence has missing properties.`);
+  }
+
+  // F. 収集段階（川上）データ品質ガード（記事タイトル社名・趣味ゴミ・免責テンプレの完全遮断）
+  const name = ent.name || '';
+  if (name.startsWith('Multiple ') || (name.includes('$') && (name.includes('/Month') || name.includes(' a Month') || name.includes('From ')))) {
+    errors.push(`[UPSTREAM VIOLATION: Title As Entity Name] "${ent.name}" is an article title, not a proper entity name.`);
+  }
+
+  const p = ent.pnl;
+  if (p && p.financialStatus !== 'UNAVAILABLE' && p.financialStatus !== 'POST_MORTEM' && !p.isRevenueUnconfirmed) {
+    if (typeof p.monthlyRevenue === 'number' && p.monthlyRevenue < 50000) {
+      errors.push(`[UPSTREAM VIOLATION: Sub-Living Wage Noise] "${ent.name}" monthlyRevenue (${p.monthlyRevenue}) is under 50,000 yen (unviable hobby project).`);
+    }
+  }
+
+  // G. 事故⑬防止：大企業・メガ企業P&Lの個人SaaSダミー破壊を物理遮断 (INCIDENT-2026-09-16-02)
+  const team = ent.operations?.teamSize || ent.operations?.currentTeamSize || 0;
+  if (p && p.financialStatus !== 'UNAVAILABLE' && p.financialStatus !== 'POST_MORTEM' && !p.isRevenueUnconfirmed) {
+    if (team >= 100 && typeof p.monthlyRevenue === 'number' && p.monthlyRevenue < 50000000) {
+      errors.push(`[PNL CORRUPTION DETECTED: Enterprise Revenue Collapse] "${ent.name}" has ${team} employees but monthlyRevenue is only ¥${p.monthlyRevenue.toLocaleString()} (under 50M yen). Enterprise P&L overwrite is strictly prohibited.`);
+    }
+  }
+
+  const rawStr = JSON.stringify(ent);
+  const FORBIDDEN_DISCLAIMERS = ['Indie Hackers表示', '報告値・利益ではない', '掲載タグラインが示す課題', '防御要因は未確認'];
+  for (const d of FORBIDDEN_DISCLAIMERS) {
+    if (rawStr.includes(d)) {
+      errors.push(`[UPSTREAM VIOLATION: Disclaimer Boilerplate] "${ent.name}" contains disclaimer boilerplate text '${d}'.`);
+    }
+  }
+
+  // H. 超重大インシデント防止：英語生ログ丸投げ＆免責プレフィックスの物理遮断 (INCIDENT-2026-09-16-01)
+  const tag = ent.tagline || '';
+  const what = ent.essence?.whatItDoes || '';
+  if (tag.includes('から読む') && (tag.includes('公開説明') || tag.includes('表示値と利益は分離') || tag.includes('財務観測:'))) {
+    errors.push(`[UPSTREAM VIOLATION: Mechanical Disclaimer Tagline] "${ent.name}" tagline has mechanical disclaimer pattern.`);
+  }
+  if (what.startsWith('公開説明に記載された提供内容:') || what.includes('実装詳細と収益性はこの記述だけでは確認できない')) {
+    errors.push(`[UPSTREAM VIOLATION: Mechanical Disclaimer WhatItDoes] "${ent.name}" essence.whatItDoes has mechanical disclaimer pattern.`);
+  }
+  if (tag && !/[ぁ-んァ-ヶ]/.test(tag)) {
+    errors.push(`[UPSTREAM VIOLATION: Raw English Tagline] "${ent.name}" tagline must be localized into Japanese.`);
+  }
+  if (what && !/[ぁ-んァ-ヶ]/.test(what)) {
+    errors.push(`[UPSTREAM VIOLATION: Raw English WhatItDoes] "${ent.name}" essence.whatItDoes must be localized into Japanese.`);
+  }
+
+  // G. 言語・意味論整合性チェック（文字切れ・文法崩壊・去勢テンプレ・業態不一致の完全物理遮断）
+  const pain = ent.targetPainWallet || '';
+  const dilemma = ent.strategy?.incumbentDilemma || '';
+
+  const validAcronyms = ['DBで', 'VPNで', 'APMで', 'SaaSで', 'UIで', 'APIで', 'SDKで', 'LLMで', 'AIで', 'Macで', 'CRMで', 'OSで', 'URLで', 'Kafkaで', 'Storeで', 'VPNの', 'CMSで', 'SEOで', 'B2Bで', 'D2Cで'];
+  if (/[a-zA-Z]{2,15}\s*(で月商|を着金|の痛みを突き)/.test(tag)) {
+    if (!validAcronyms.some(a => tag.includes(a))) {
+      errors.push(`[LINGUISTIC VIOLATION: Truncated English] "${ent.name}" tagline has truncated English word.`);
+    }
+  }
+
+  if (pain.includes('「「') || pain.includes('のが抱える') || pain.includes('が対象とする「')) {
+    errors.push(`[LINGUISTIC VIOLATION: Broken Grammar] "${ent.name}" targetPainWallet has broken parentheses or grammar.`);
+  }
+
+  if (pain.includes('業務停滞でクライアントや上司から詰められる保身恐怖') || pain.includes('手動作業の非効率と外注コストの浪費')) {
+    errors.push(`[LINGUISTIC VIOLATION: Boilerplate Suffix] "${ent.name}" targetPainWallet has castrated boilerplate text.`);
+  }
+
+  const isPhysicalOrContent = ent.sector === 'PHYSICAL_ASSET' || ent.category?.includes('E-commerce') || ent.category?.includes('Newsletter') || ent.name.includes('Arbitrage') || ent.name.includes('Printing');
+  if (isPhysicalOrContent && dilemma.includes('OpenAIやGoogle等の基盤モデル企業')) {
+    errors.push(`[DOMAIN VIOLATION: Irrelevant Incumbent Dilemma] "${ent.name}" (Physical/Content) has AI platform dilemma.`);
+  }
+
+  // H. 深層フィールド意味論・非コピペ整合性チェック（全3,341社の生々しさ・業態適合の完全物理遮断）
+  const clStr = JSON.stringify(ent.lootBlueprint?.executionChecklist || []);
+  if (clStr.includes('初期50社の運用ルーティン') || clStr.includes('既存の格安APIやクラウド基盤')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic ExecutionChecklist] "${ent.name}" has generic SaaS executionChecklist boilerplate.`);
+  }
+
+  const trStr = JSON.stringify(ent.strategy?.initialTraction || []);
+  if (trStr.includes('コミュニティや業界SNSに直接実演デモを投稿') || trStr.includes('初期見込み客へのパーソナライズされた直接提案')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic InitialTraction] "${ent.name}" has generic initialTraction boilerplate.`);
+  }
+
+  const pbStr = JSON.stringify(ent.strategy?.actionPlaybook || []);
+  if (pbStr.includes('クラウドAPIや軽量フレームワークで最小限のMVP') || pbStr.includes('顧客の日常業務に深く組み込ませ、解約不能なストック')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic ActionPlaybook] "${ent.name}" has generic actionPlaybook boilerplate.`);
+  }
+
+  const targetPrey = ent.lootBlueprint?.targetPrey || '';
+  if (targetPrey.includes('特定職種（不動産仲介、士業、EC運営者等）')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic TargetPrey] "${ent.name}" has generic targetPrey boilerplate.`);
+  }
+
+  const structuralFlaw = ent.lootBlueprint?.structuralFlaw || '';
+  if (structuralFlaw.includes('大手エンタープライズSaaSが多機能化・複雑化しすぎて')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic StructuralFlaw] "${ent.name}" has generic structuralFlaw boilerplate.`);
+  }
+
+  const stealthEntry = ent.lootBlueprint?.stealthEntry || '';
+  if (stealthEntry.includes('業界特化のFacebookグループ、Redditサブレディット')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic StealthEntry] "${ent.name}" has generic stealthEntry boilerplate.`);
+  }
+
+  const tollGate = ent.lootBlueprint?.tollGateSetup || '';
+  if (tollGate.includes('月額サブスクリプションまたは利用量課金APIにより、利用企業の業務フローに深く組み込み')) {
+    errors.push(`[DEEP TEMPLATE VIOLATION: Generic TollGate] "${ent.name}" has generic tollGateSetup boilerplate.`);
+  }
+
+  const bsStr = ent.strategy?.blindspot || '';
+  if (isPhysicalOrContent && bsStr.includes('大手ITベンダーが機能過多な大企業向けシステムに注力')) {
+    errors.push(`[DOMAIN VIOLATION: Irrelevant Blindspot] "${ent.name}" (Physical/Content) has IT vendor blindspot.`);
   }
 }
 
