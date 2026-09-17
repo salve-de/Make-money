@@ -1,10 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { NextRequest } from 'next/server';
 import { GET, POST } from './route';
+import { findInvalidApprovalCandidateIds } from '@/lib/company-access/approval-candidates';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { queryD1 } from '@/lib/storage/d1';
 import { approveD1Entities, EntityApprovalStoreError, listD1ApprovedEntityIds } from '@/lib/storage/entity-approvals';
 
+vi.mock('@/lib/company-access/approval-candidates', () => ({ findInvalidApprovalCandidateIds: vi.fn() }));
 vi.mock('@/lib/firebase/server', () => ({ verifyFirebaseIdToken: vi.fn() }));
 vi.mock('@/lib/storage/d1', () => ({ queryD1: vi.fn() }));
 vi.mock('@/lib/storage/entity-approvals', () => ({
@@ -13,6 +15,7 @@ vi.mock('@/lib/storage/entity-approvals', () => ({
   EntityApprovalStoreError: class extends Error { constructor(message: string, readonly status = 503) { super(message); } },
 }));
 
+const candidates = vi.mocked(findInvalidApprovalCandidateIds);
 const d1Store = vi.mocked(approveD1Entities);
 const d1List = vi.mocked(listD1ApprovedEntityIds);
 const verify = vi.mocked(verifyFirebaseIdToken);
@@ -31,6 +34,8 @@ const request = (
 beforeEach(() => {
   vi.stubEnv('NODE_ENV', 'development');
   vi.stubEnv('MAKE_MONEY_LOCAL_EDITOR', '');
+  candidates.mockReset();
+  candidates.mockResolvedValue([]);
   d1Store.mockReset();
   d1List.mockReset();
   verify.mockReset();
@@ -98,6 +103,36 @@ describe('approval API acknowledgement', () => {
     expect(d1Store).not.toHaveBeenCalled();
   });
 
+  it('rejects stale, unknown, or already-unmarked IDs before D1 persistence', async () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    verify.mockResolvedValue({ uid: 'admin-1', claims: {} });
+    roles.mockResolvedValue([{ role: 'admin' }]);
+    candidates.mockResolvedValue(['typo-id']);
+
+    const response = await POST(request({ entityIds: ['valid-id', 'typo-id'] }, 'https://app.example.com/api/entities/approve', {
+      origin: 'https://app.example.com', authorization: 'Bearer valid',
+    }));
+
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ success: false, error: 'Entity is not a current approval candidate' });
+    expect(candidates).toHaveBeenCalledWith(['valid-id', 'typo-id']);
+    expect(d1Store).not.toHaveBeenCalled();
+  });
+
+  it('fails closed when the current catalog cannot be validated', async () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    verify.mockResolvedValue({ uid: 'admin-1', claims: {} });
+    roles.mockResolvedValue([{ role: 'admin' }]);
+    candidates.mockRejectedValue(new Error('catalog unavailable'));
+
+    const response = await POST(request({ entityId: 'a' }, 'https://app.example.com/api/entities/approve', {
+      origin: 'https://app.example.com', authorization: 'Bearer valid',
+    }));
+
+    expect(response.status).toBe(503);
+    expect(d1Store).not.toHaveBeenCalled();
+  });
+
   it('persists and read-back acknowledges an admin production approval in D1', async () => {
     vi.stubEnv('NODE_ENV', 'production');
     verify.mockResolvedValue({ uid: 'admin-1', claims: {} });
@@ -108,6 +143,7 @@ describe('approval API acknowledgement', () => {
     }));
     expect(response.status).toBe(200);
     expect(await response.json()).toMatchObject({ success: true, entityIds: ['a', 'b'], approvedCount: 2 });
+    expect(candidates).toHaveBeenCalledWith(['a', 'b']);
     expect(d1Store).toHaveBeenCalledWith(['a', 'b'], 'admin-1');
   });
 
@@ -124,6 +160,7 @@ describe('approval API acknowledgement', () => {
 
     expect(response.status).toBe(200);
     expect(await response.json()).toMatchObject({ success: true, approvedCount: 800, entityIds });
+    expect(candidates).toHaveBeenCalledWith(entityIds);
     expect(d1Store).toHaveBeenCalledWith(entityIds, 'admin-1');
   });
 

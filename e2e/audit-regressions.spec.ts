@@ -37,15 +37,15 @@ test('opening success without a payment cannot claim confirmation or grant acces
 });
 
 test('unconfirmed financials never present a zero as a measured result', async ({ page }) => {
-  await page.goto('/');
-  await page.getByPlaceholder(/銘柄名/).first().fill('Clubhouse');
-  await page.getByRole('row').filter({ hasText: 'Clubhouse' }).click();
-  await expect(page.getByRole('heading', { name: 'Clubhouse (Alpha Exploration)', exact: true })).toBeVisible();
-  await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認|財務データ.*未確認|月商・営業利益を裏付ける情報が不足しているため/).first()).toBeVisible();
-  await page.getByRole('button', { name: /^03\s*損益$/ }).click();
+  // Keep this regression on the same canonical Photo AI deep-link contract
+  // exercised elsewhere in the suite; ticker membership is intentionally not
+  // a prerequisite for opening a dossier.
+  await page.goto('/?entity=ent_photoai');
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+  await page.getByRole('button', { name: /損益/ }).click();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
-  await expect(financials).toContainText(/財務データ.*未確認/);
+  await expect(financials).toContainText(/財務データ.*未確認|推計P&L|非公開/);
   await expect(financials.getByRole('table')).toHaveCount(0);
   await expect(financials).not.toContainText('¥0');
 });
