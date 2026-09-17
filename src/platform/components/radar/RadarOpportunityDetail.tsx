@@ -14,6 +14,7 @@ import {
   ShieldAlert,
 } from 'lucide-react';
 import type { MarketRadarTrendItem } from '@/platform/data/marketRadarData';
+import { projectRadarPlayerProfit } from '@/platform/model/radar-profit-display';
 
 interface RadarOpportunityDetailProps {
   trend: MarketRadarTrendItem;
@@ -28,6 +29,8 @@ export const RadarOpportunityDetail: React.FC<RadarOpportunityDetailProps> = ({
   handleCopy,
   onSelectEntity,
 }) => {
+  const playerProfit = projectRadarPlayerProfit(trend);
+
   return (
     <div className="space-y-6">
       {/* タイトル＆キーメトリクスヘッダー */}
@@ -165,8 +168,13 @@ export const RadarOpportunityDetail: React.FC<RadarOpportunityDetailProps> = ({
                 <div className="font-bold text-zinc-200 mt-0.5">{trend.gapAndProof.provenPlayer.teamSize}</div>
               </div>
               <div>
-                <div className="text-[10px] text-zinc-500">月利実額</div>
-                <div className="font-bold text-emerald-400 mt-0.5">{trend.gapAndProof.provenPlayer.monthlyProfit}</div>
+                <div className="text-[10px] text-zinc-500 flex items-center justify-center gap-1">
+                  <span>{playerProfit.label}</span>
+                  <span className="rounded border border-amber-500/30 bg-amber-500/10 px-1 text-[8px] text-amber-300">
+                    {playerProfit.badge}
+                  </span>
+                </div>
+                <div className="font-bold text-emerald-400 mt-0.5">{playerProfit.value}</div>
               </div>
               <div>
                 <div className="text-[10px] text-zinc-500">初期回収</div>
@@ -174,6 +182,9 @@ export const RadarOpportunityDetail: React.FC<RadarOpportunityDetailProps> = ({
               </div>
             </div>
 
+            <p className="text-[10px] font-mono text-amber-200/80 leading-relaxed">
+              {playerProfit.basis}
+            </p>
             <p className="text-xs text-zinc-400 leading-relaxed">
               {trend.gapAndProof.provenPlayer.proofSnippet}
             </p>
