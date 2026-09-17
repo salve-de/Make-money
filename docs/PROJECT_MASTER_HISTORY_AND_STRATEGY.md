@@ -1,5 +1,31 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-17 【確定】全3,341事例（20世代）の完全復旧 ＆ 新インスペクター連動・同期完遂（Phase 201）
+
+### 1. ユーザー指示と事実解明（User Inquiry & Root Cause Resolution）
+- **ユーザー指示**:
+  - 「3000事例 くらいあった気がするけど なんで消えた」
+  - 「やれ」
+- **事実解明（根本原因）**:
+  - **データは消えていなかった**: `refactor/100yr-clean-architecture` ブランチに全3,341社（Primary検証、IndieHackers、アナリスト特選、新着ソロT〜W、第1〜6期など計20世代）が無傷で保管されていた。
+  - **表示件数が634社に縮小していた原因**: 直前のUI刷新（PR #25 および本ブランチ）が、3,341社への大規模拡張前の古い地点（634社の時点）から分岐して作業を開始したため、手元の台帳（`data/entities-index.json`）が 634社 の古い状態を参照していた。
+- **復旧・同期作業の内容**:
+  1. `data/entities-index.json`（全3,341社）を `refactor/100yr-clean-architecture` から完全同期。
+  2. `data/collected-registry.json`（3,341社）および `data/CLAIMED_TARGETS.txt`（7,712件）を完全同期。
+  3. `src/shared/terminal.ts` の `KNOWN_INGEST_BATCHES` に全20世代（Primary検証755社、IndieHackers 991社、新着ソロT〜W各100社、アナリスト特選100社等）を完全配備。
+  4. `scripts/architecture/check-ingest-quality.mjs` を最新の3,341社対応ガードレールへ更新。
+
+### 2. 検証・品質結果
+- `pnpm typecheck` & `schemas:check`: 100% PASS。
+- `pnpm lint`: ESLint 0 warnings、全3,341社品質ガードレール（重複ゼロ、ドメイン整合性、算術整合性）100% PASS。
+- `pnpm vitest run`: 全55ファイル・406テスト 100% PASS。
+- Playwright実機ブラウザ検証:
+  - セレクトボックスに `📦 全世代 (3341)` が表示され、各世代（Primary検証、IndieHackers等）のフィルタリングが完全動作することを確認。
+  - 新規復旧企業（Steve Hanov、IndieHackers各社等）をクリックした際、新インスペクター（01要点 ➔ 02損益 ➔ 03根拠 ➔ 04再現）が完全かつ高速に描画されることを確認。
+  - ブラウザコンソールエラー: 0件。
+
+---
+
 ## 2026-09-17 【確定】企業詳細インスペクターの「エグゼクティブ・リード文」完全配備 ＆ 手元実データ全量活用の4大ブロック確定仕様完遂（Phase 200）
 
 ### 1. ユーザー指示と設計方針（User Direct Command & Lead Narrative Genesis）
