@@ -104,7 +104,7 @@ export function LootBlueprintSection({
       id="section-loot-blueprint"
       index="04"
       categoryEn={isHazardMode ? 'FAILURE PLAYBOOK' : 'REPLICATION PLAYBOOK'}
-      titleJa={isHazardMode ? '再発防止の実行順 ＆ 教訓' : '再現・略奪の実行手順'}
+      titleJa={isHazardMode ? '再発防止の実行順 ＆ 教訓' : '参考にするべき箇所（盗むべき急所）'}
       badge={badgeElement}
       isHazardMode={isHazardMode}
     >
@@ -115,7 +115,7 @@ export function LootBlueprintSection({
             ? 'bg-red-500/10 text-red-300 border-red-500/30'
             : 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30'
         }`}>
-          {isHazardMode ? 'LESSONS LEARNED / 敗因と教訓' : 'LOOT BLUEPRINT / 略奪再現手順'}
+          {isHazardMode ? 'LESSONS LEARNED / 敗因と教訓' : 'KEY PLAYBOOK / 参考にするべき急所'}
         </span>
         {leadText}
       </div>

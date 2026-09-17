@@ -180,7 +180,7 @@ export function ExecutiveIntuitiveSummary({
   if (targetPain) {
     infoRows.push({
       label: isHazardMode ? '致命的出血点' : '仕留める痛みの財布',
-      value: targetCustomer ? `${targetCustomer} / ${targetPain}` : targetPain,
+      value: targetPain,
     });
   } else if (targetCustomer) {
     infoRows.push({ label: '対象顧客', value: targetCustomer });
@@ -202,7 +202,7 @@ export function ExecutiveIntuitiveSummary({
 
   if (incumbentDilemma) {
     infoRows.push({
-      label: isHazardMode ? '破綻の構造要因' : '大手の死角・障壁',
+      label: isHazardMode ? '破綻の構造要因' : '競合の死角・参入障壁',
       value: incumbentDilemma.replace(/^【.*?】/g, '').trim(),
     });
   }

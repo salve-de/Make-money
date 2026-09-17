@@ -456,8 +456,7 @@ for (const ent of entities) {
 
 if (errors.length > 0) {
   console.error(`\n❌ [check-ingest-quality] FAILED with ${errors.length} quality violations:`);
-  errors.slice(0, 10).forEach(err => console.error(`  - ${err}`));
-  if (errors.length > 10) console.error(`  ...and ${errors.length - 10} more`);
+  errors.forEach(err => console.error(`  - ${err}`));
   process.exit(1);
 }
 
