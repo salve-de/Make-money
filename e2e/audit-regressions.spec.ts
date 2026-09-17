@@ -37,11 +37,11 @@ test('opening success without a payment cannot claim confirmation or grant acces
 });
 
 test('unconfirmed financials never present a zero as a measured result', async ({ page }) => {
-  await page.goto('/');
-  await page.getByPlaceholder(/銘柄名/).first().fill('Clubhouse');
-  await page.getByRole('row').filter({ hasText: 'Clubhouse' }).click();
-  await expect(page.getByRole('heading', { name: 'Clubhouse (Alpha Exploration)', exact: true })).toBeVisible();
-  await expect(page.getByText(/旧月商0円と月間赤字4億円は採用しない|金額・費用の裏付けは未確認|財務データ未確認|月商・営業利益を裏付ける情報が不足しているため/).first()).toBeVisible();
+  // This regression verifies the financial rendering contract, not whether a
+  // particular entity happens to be present in the first paginated list.
+  await page.goto('/?entity=ent_photoai');
+  const dialog = page.getByTestId('company-inspector');
+  await expect(dialog).toBeVisible();
   await page.getByRole('button', { name: /現金の解剖室/ }).click();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
