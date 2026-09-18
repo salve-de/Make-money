@@ -43,6 +43,10 @@ describe('DELETE /api/user/me', () => {
     const response = await DELETE(request());
 
     expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body).toMatchObject({ success: true, scope: 'application_data' });
+    expect(typeof body.executionResetAt).toBe('string');
+    expect(response.headers.get('set-cookie')).toContain('makemoney_execution_reset=owner-a.');
     const statements = state.batch.mock.calls[0]?.[0] as Array<{ sql: string; params: unknown[] }>;
     expect(statements).toEqual(expect.arrayContaining([
       { sql: 'DELETE FROM execution_projects WHERE user_id = ?', params: ['owner-a'] },
