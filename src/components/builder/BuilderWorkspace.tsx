@@ -85,15 +85,40 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
     setContextLoading(true);
     setError(null);
     try {
-      const response = await fetch(`/api/build/context?ideaId=${encodeURIComponent(ideaId)}`, {
+      let response = await fetch(`/api/build/context?ideaId=${encodeURIComponent(ideaId)}`, {
         headers: authorization,
         cache: 'no-store',
       });
+
+      if (response.status === 404) {
+        let draftIdea: unknown = null;
+        try {
+          const raw = sessionStorage.getItem(`mm_build_idea:${ideaId}`);
+          draftIdea = raw ? JSON.parse(raw) : null;
+        } catch {
+          draftIdea = null;
+        }
+        if (draftIdea) {
+          const prepared = await fetch('/api/build/prepare', {
+            method: 'POST',
+            headers: { ...authorization, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ idea: draftIdea }),
+          });
+          if (prepared.ok) {
+            response = await fetch(`/api/build/context?ideaId=${encodeURIComponent(ideaId)}`, {
+              headers: authorization,
+              cache: 'no-store',
+            });
+          }
+        }
+      }
+
       const data = await responseJson(response);
       if (!response.ok) throw new Error(errorMessage(data, 'Builder context could not be loaded'));
       const typed = data as unknown as BuilderContext;
       setContext(typed);
       setSession(typed.session);
+      try { sessionStorage.removeItem(`mm_build_idea:${ideaId}`); } catch { /* optional local handoff */ }
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'Builder context could not be loaded');
     } finally {
