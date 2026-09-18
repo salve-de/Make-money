@@ -71,7 +71,7 @@ export async function getOwnedBuildSession(userId: string, sessionId: string): P
 
 export async function getPreviewBuildSession(sessionId: string, token: string): Promise<BuildSession | null> {
   const rows = await queryD1(
-    `${SELECT} WHERE id=? AND preview_access_token=? LIMIT 1`,
+    `${SELECT} WHERE id=? AND preview_access_token=? AND updated_at >= datetime('now','-30 minutes') LIMIT 1`,
     [sessionId, token],
     parseSession,
   );
