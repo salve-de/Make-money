@@ -19,7 +19,9 @@ import re
 
 def main():
     print("🚀 [Step 1] Loading incoming entities and base index...")
-    incoming_path = "/Users/satoushinya/Downloads/incoming_curated_entities.json"
+    incoming_path = "data/incoming_curated_entities.json"
+    if not os.path.exists(incoming_path):
+        incoming_path = "/Users/satoushinya/Downloads/incoming_curated_entities.json"
     with open(incoming_path, "r", encoding="utf-8") as f:
         incoming = json.load(f)
 
