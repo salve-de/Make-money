@@ -40,6 +40,9 @@ FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN
 - Local と Cloud が両方ある場合: `updatedAt` が新しい方を優先し、古いクラウド状態で新しいローカル下書きを上書きしない。
 - D1 の所有権はサーバーで検証した UID だけを使用し、クライアントから userId を受け取らない。
 - `DELETE /api/user/me` の application-data 削除では `execution_projects` も同一トランザクションで削除し、readback で残存ゼロを確認する。
+- 退会後に古いlocalStorageから消去済み案件が復活しないよう、退会レスポンスでUID単位のHttpOnly reset markerを設定する。次回GETでreset時刻以前のローカル下書きを破棄し、PUT側もreset以前のtimestampを409で拒否する。
+- クラウド保存中にユーザーが追加編集した場合、古い保存レスポンスで新しいlocal draftを上書きしない。送信時timestampと現在のlocal timestampを比較し、後者が新しければdirty状態を維持する。
+- APIのrequest上限は、共有スキーマ上の最大有効入力（20,000文字メモ、2,000文字顧客欄、URL等）がUTF-8多バイト文字でも保存可能な128KiBに合わせる。
 
 ## First Dollar の定義
 
