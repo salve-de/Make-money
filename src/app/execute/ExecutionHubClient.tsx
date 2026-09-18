@@ -8,6 +8,7 @@ import { useAuth } from '@/context/AuthContext';
 import {
   executionProgress,
   executionStoragePrefix,
+  isExecutionProjectAtOrBefore,
   normalizeExecutionProject,
   type ExecutionProject,
 } from '@/shared/execution';
@@ -23,18 +24,7 @@ export function ExecutionHubClient() {
 
   useEffect(() => {
     if (loading) return;
-    const projects: ExecutionProject[] = [];
-    for (let index = 0; index < window.localStorage.length; index += 1) {
-      const key = window.localStorage.key(index);
-      if (!key?.startsWith(storagePrefix)) continue;
-      try {
-        const raw = window.localStorage.getItem(key);
-        const project = raw ? normalizeExecutionProject(JSON.parse(raw)) : null;
-        if (project) projects.push(project);
-      } catch {
-        // Ignore broken local drafts instead of blocking the whole hub.
-      }
-    }
+    const projects = readScopedExecutionProjects(storagePrefix);
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocalProjects(projects);
   }, [loading, storagePrefix]);
@@ -59,10 +49,13 @@ export function ExecutionHubClient() {
         });
         if (!response.ok) throw new Error('load failed');
         const data: unknown = await response.json();
-        const rawProjects = data && typeof data === 'object' && Array.isArray((data as Record<string, unknown>).projects)
-          ? (data as { projects: unknown[] }).projects
-          : [];
-        const projects = rawProjects.map(normalizeExecutionProject).filter((item): item is ExecutionProject => Boolean(item));
+        const record = data && typeof data === 'object' ? data as Record<string, unknown> : {};
+        const resetAt = typeof record.resetAt === 'string' ? record.resetAt : null;
+        const rawProjects = Array.isArray(record.projects) ? record.projects : [];
+        const projects = rawProjects
+          .map(normalizeExecutionProject)
+          .filter((item): item is ExecutionProject => Boolean(item) && !isExecutionProjectAtOrBefore(item, resetAt));
+        if (resetAt) setLocalProjects(readScopedExecutionProjects(storagePrefix, resetAt));
         setRemoteProjects(projects);
         setRemoteOwnerId(userId);
         setRemoteState('loaded');
@@ -71,7 +64,7 @@ export function ExecutionHubClient() {
       }
     })();
     return () => controller.abort();
-  }, [loading, token, userId]);
+  }, [loading, storagePrefix, token, userId]);
 
   const projects = useMemo(() => {
     const merged = new Map<string, ExecutionProject>();
@@ -182,4 +175,24 @@ function Metric({ label, value }: { label: string; value: string }) {
       <div className="mt-1 font-mono text-lg font-semibold text-zinc-100">{value}</div>
     </div>
   );
+}
+
+function readScopedExecutionProjects(storagePrefix: string, resetAt: string | null = null): ExecutionProject[] {
+  const projects: ExecutionProject[] = [];
+  const staleKeys: string[] = [];
+  for (let index = 0; index < window.localStorage.length; index += 1) {
+    const key = window.localStorage.key(index);
+    if (!key?.startsWith(storagePrefix)) continue;
+    try {
+      const raw = window.localStorage.getItem(key);
+      const project = raw ? normalizeExecutionProject(JSON.parse(raw)) : null;
+      if (!project) continue;
+      if (isExecutionProjectAtOrBefore(project, resetAt)) staleKeys.push(key);
+      else projects.push(project);
+    } catch {
+      // Ignore broken local drafts instead of blocking the whole hub.
+    }
+  }
+  staleKeys.forEach((key) => window.localStorage.removeItem(key));
+  return projects;
 }
