@@ -473,6 +473,7 @@ function StepBody({
   }
 
   if (step === 'SELL') {
+    const checkoutHref = safeHttpUrl(project.checkoutUrl);
     return (
       <div className="mt-3 space-y-3">
         <Field label="実際に支払える決済URL">
@@ -484,9 +485,9 @@ function StepBody({
             className={INPUT_CLASS}
           />
         </Field>
-        {project.checkoutUrl && (
+        {checkoutHref && (
           <a
-            href={project.checkoutUrl}
+            href={checkoutHref}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 text-xs text-emerald-300 hover:text-emerald-200"
@@ -576,4 +577,14 @@ function safeMoney(value: string): number {
   const parsed = Math.round(Number(value));
   if (!Number.isFinite(parsed) || parsed < 0) return 0;
   return Math.min(parsed, 1_000_000_000_000);
+}
+
+function safeHttpUrl(value: string): string | null {
+  if (!value.trim()) return null;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' || url.protocol === 'http:' ? url.toString() : null;
+  } catch {
+    return null;
+  }
 }
