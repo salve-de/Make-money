@@ -174,7 +174,10 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
                     <ArrowRight className="w-3.5 h-3.5 text-zinc-400" />
                   </button>
                   <button
-                    onClick={() => router.push(`/build/${encodeURIComponent(idea.id)}`)}
+                    onClick={() => {
+                      try { sessionStorage.setItem(`mm_build_idea:${idea.id}`, JSON.stringify(idea)); } catch { /* navigation still works for already-persisted ideas */ }
+                      router.push(`/build/${encodeURIComponent(idea.id)}`);
+                    }}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-emerald-500 hover:bg-emerald-400 border border-emerald-400/60 text-xs font-mono font-bold text-zinc-950 transition-colors cursor-pointer"
                   >
                     <Hammer className="w-3.5 h-3.5" />
