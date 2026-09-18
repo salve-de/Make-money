@@ -7,23 +7,25 @@ import { ArrowRight, CircleDollarSign, Database, Rocket } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import {
   executionProgress,
+  executionStoragePrefix,
   normalizeExecutionProject,
   type ExecutionProject,
 } from '@/shared/execution';
 
-const STORAGE_PREFIX = 'makemoney.execution.';
-
 export function ExecutionHubClient() {
-  const { token } = useAuth();
+  const { token, user } = useAuth();
+  const userId = user?.uid ?? null;
+  const storagePrefix = executionStoragePrefix(userId);
   const [localProjects, setLocalProjects] = useState<ExecutionProject[]>([]);
   const [remoteProjects, setRemoteProjects] = useState<ExecutionProject[]>([]);
+  const [remoteOwnerId, setRemoteOwnerId] = useState<string | null>(null);
   const [remoteState, setRemoteState] = useState<'idle' | 'loading' | 'loaded' | 'error'>('idle');
 
   useEffect(() => {
     const projects: ExecutionProject[] = [];
     for (let index = 0; index < window.localStorage.length; index += 1) {
       const key = window.localStorage.key(index);
-      if (!key?.startsWith(STORAGE_PREFIX)) continue;
+      if (!key?.startsWith(storagePrefix)) continue;
       try {
         const raw = window.localStorage.getItem(key);
         const project = raw ? normalizeExecutionProject(JSON.parse(raw)) : null;
@@ -34,7 +36,7 @@ export function ExecutionHubClient() {
     }
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocalProjects(projects);
-  }, []);
+  }, [storagePrefix]);
 
   useEffect(() => {
     if (!token) {
@@ -60,24 +62,26 @@ export function ExecutionHubClient() {
           : [];
         const projects = rawProjects.map(normalizeExecutionProject).filter((item): item is ExecutionProject => Boolean(item));
         setRemoteProjects(projects);
+        setRemoteOwnerId(userId);
         setRemoteState('loaded');
       } catch (error) {
         if ((error as Error).name !== 'AbortError') setRemoteState('error');
       }
     })();
     return () => controller.abort();
-  }, [token]);
+  }, [token, userId]);
 
   const projects = useMemo(() => {
     const merged = new Map<string, ExecutionProject>();
-    [...localProjects, ...remoteProjects].forEach((project) => {
+    const visibleRemoteProjects = remoteOwnerId === userId ? remoteProjects : [];
+    [...localProjects, ...visibleRemoteProjects].forEach((project) => {
       const current = merged.get(project.entityId);
       if (!current || (project.updatedAt || '') >= (current.updatedAt || '')) {
         merged.set(project.entityId, project);
       }
     });
     return [...merged.values()].sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''));
-  }, [localProjects, remoteProjects]);
+  }, [localProjects, remoteOwnerId, remoteProjects, userId]);
 
   const totalRevenue = projects.reduce((sum, project) => sum + project.revenueJpy, 0);
   const firstDollarCount = projects.filter((project) => project.revenueJpy > 0).length;
