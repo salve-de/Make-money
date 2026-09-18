@@ -148,14 +148,21 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
   }, [authorization]);
 
   useEffect(() => {
-    void loadContext();
+    const timer = window.setTimeout(() => void loadContext(), 0);
+    return () => window.clearTimeout(timer);
   }, [loadContext]);
 
   useEffect(() => {
-    if (session?.status === 'ready' && !previewSrc) {
-      void loadPreview(session.id);
-    }
+    if (session?.status !== 'ready' || previewSrc) return;
+    const timer = window.setTimeout(() => void loadPreview(session.id), 0);
+    return () => window.clearTimeout(timer);
   }, [session, previewSrc, loadPreview]);
+
+  useEffect(() => {
+    if (session?.status !== 'generating') return;
+    const timer = window.setTimeout(() => void loadContext(), 2500);
+    return () => window.clearTimeout(timer);
+  }, [session?.status, loadContext]);
 
   const startBuild = async () => {
     if (!authorization || starting) return;
