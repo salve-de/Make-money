@@ -22,6 +22,8 @@ import {
   executionProgress,
   executionStorageKey,
   firstIncompleteStep,
+  isExecutionProjectAtOrBefore,
+  isExecutionProjectNewer,
   normalizeExecutionProject,
   type ExecutionProject,
   type ExecutionStepId,
@@ -154,35 +156,57 @@ function ExecutionWorkspace({
         if (!response.ok) throw new Error('load failed');
         const data: unknown = await response.json();
         if (!data || typeof data !== 'object') throw new Error('invalid load response');
-        const remote = normalizeExecutionProject((data as Record<string, unknown>).project);
+        const record = data as Record<string, unknown>;
+        const resetAt = typeof record.resetAt === 'string' ? record.resetAt : null;
+        const remote = normalizeExecutionProject(record.project);
 
-        const localRaw = window.localStorage.getItem(storageKey);
-        let local: ExecutionProject | null = null;
-        try {
-          local = localRaw ? normalizeExecutionProject(JSON.parse(localRaw)) : null;
-        } catch {
+        let local = readStoredExecutionProject(storageKey);
+        if (isExecutionProjectAtOrBefore(local, resetAt)) {
+          window.localStorage.removeItem(storageKey);
           local = null;
         }
 
         if (local?.updatedAt && (!remote?.updatedAt || local.updatedAt > remote.updatedAt)) {
-          const saved = await persistExecutionProject(token, local, controller.signal);
+          const submitted = local;
+          const saved = await persistExecutionProject(token, submitted, controller.signal);
+          const latest = readStoredExecutionProject(storageKey);
+          if (isExecutionProjectNewer(latest, submitted)) {
+            setProject(latest as ExecutionProject);
+            setSaveState('idle');
+            return;
+          }
           window.localStorage.setItem(storageKey, JSON.stringify(saved));
           setProject(saved);
           setSaveState('saved');
           return;
         }
 
-        if (remote) {
+        if (remote && !isExecutionProjectAtOrBefore(remote, resetAt)) {
           window.localStorage.setItem(storageKey, JSON.stringify(remote));
           setProject(remote);
           setSaveState('saved');
+          return;
+        }
+
+        if (!local) {
+          const fresh = createDefaultProject(entity);
+          window.localStorage.setItem(storageKey, JSON.stringify(fresh));
+          setProject(fresh);
+          setSaveState('local');
         }
       } catch (error) {
-        if ((error as Error).name !== 'AbortError') setSaveState('error');
+        if ((error as Error).name === 'AbortError') return;
+        if (error instanceof ExecutionProjectResetError) {
+          window.localStorage.removeItem(storageKey);
+          setProject(createDefaultProject(entity));
+          setSaveState('local');
+          return;
+        }
+        setSaveState('error');
       }
     })();
     return () => controller.abort();
-  }, [entity.id, storageKey, token]);
+  }, [entity, storageKey, token]);
 
   const updateProject = (patch: Partial<ExecutionProject>) => {
     setProject((previous) => {
@@ -219,12 +243,25 @@ function ExecutionWorkspace({
     }
 
     setSaveState('saving');
+    const submitted = project;
     try {
-      const saved = await persistExecutionProject(token, project);
+      const saved = await persistExecutionProject(token, submitted);
+      const latest = readStoredExecutionProject(storageKey);
+      if (isExecutionProjectNewer(latest, submitted)) {
+        setProject(latest as ExecutionProject);
+        setSaveState('idle');
+        return;
+      }
       window.localStorage.setItem(storageKey, JSON.stringify(saved));
       setProject(saved);
       setSaveState('saved');
-    } catch {
+    } catch (error) {
+      if (error instanceof ExecutionProjectResetError) {
+        window.localStorage.removeItem(storageKey);
+        setProject(createDefaultProject(entity));
+        setSaveState('local');
+        return;
+      }
       setSaveState('error');
     }
   };
@@ -639,6 +676,23 @@ function safeHttpUrl(value: string): string | null {
   }
 }
 
+class ExecutionProjectResetError extends Error {
+  constructor(public readonly resetAt: string | null) {
+    super('Execution project was cleared with account data');
+    this.name = 'ExecutionProjectResetError';
+  }
+}
+
+function readStoredExecutionProject(storageKey: string): ExecutionProject | null {
+  const raw = window.localStorage.getItem(storageKey);
+  if (!raw) return null;
+  try {
+    return normalizeExecutionProject(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+}
+
 async function persistExecutionProject(token: string, project: ExecutionProject, signal?: AbortSignal) {
   const response = await fetch('/api/execution-projects', {
     method: 'PUT',
@@ -649,8 +703,14 @@ async function persistExecutionProject(token: string, project: ExecutionProject,
     body: JSON.stringify(executionRequestBody(project)),
     signal,
   });
+  const data: unknown = await response.json().catch(() => null);
+  if (response.status === 409) {
+    const resetAt = data && typeof data === 'object' && typeof (data as Record<string, unknown>).resetAt === 'string'
+      ? (data as Record<string, string>).resetAt
+      : null;
+    throw new ExecutionProjectResetError(resetAt);
+  }
   if (!response.ok) throw new Error('save failed');
-  const data: unknown = await response.json();
   const saved = data && typeof data === 'object'
     ? normalizeExecutionProject((data as Record<string, unknown>).project)
     : null;
@@ -672,5 +732,6 @@ function executionRequestBody(project: ExecutionProject) {
     checkoutUrl: project.checkoutUrl,
     revenueJpy: project.revenueJpy,
     notes: project.notes,
+    updatedAt: project.updatedAt,
   };
 }
