@@ -72,9 +72,7 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
     try {
       const parsed = normalizeExecutionProject(JSON.parse(raw));
       if (parsed && parsed.entityId === entity.id) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setProject(parsed);
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setSaveState('local');
       }
     } catch {
