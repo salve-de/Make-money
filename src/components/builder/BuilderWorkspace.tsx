@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   CircleDollarSign,
   Code2,
-  ExternalLink,
   LoaderCircle,
   RefreshCcw,
   Rocket,
@@ -360,7 +359,8 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
                   src={previewSrc}
                   title="生成アプリのプレビュー"
                   className="w-full h-full border-0 bg-white"
-                  sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-downloads"
+                  sandbox="allow-forms allow-modals allow-popups allow-scripts allow-downloads"
+                  referrerPolicy="no-referrer"
                 />
                 {previewLoading && (
                   <div className="absolute inset-0 bg-black/30 grid place-items-center pointer-events-none">
