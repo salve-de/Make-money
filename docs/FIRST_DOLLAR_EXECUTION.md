@@ -34,10 +34,12 @@ FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN
 
 ## 保存方式
 
-- 未ログイン: ブラウザの localStorage に即保存。開始時の登録摩擦を作らない。
-- ログイン済み: Firebase ID token で本人確認し、D1 の `execution_projects` に保存。
+- 未ログイン: ブラウザの anonymous scope の localStorage に即保存。開始時の登録摩擦を作らない。
+- ログイン済み: ブラウザ下書きも Firebase UID ごとに分離し、D1 の `execution_projects` も本人所有として保存する。
+- 「ログインして同期」からログインした場合だけ、編集済み anonymous draft を一時 claim として現在のアカウントへ引き継ぎ、anonymous 側から削除する。別アカウントのローカル下書きは読み込まない。
 - Local と Cloud が両方ある場合: `updatedAt` が新しい方を優先し、古いクラウド状態で新しいローカル下書きを上書きしない。
 - D1 の所有権はサーバーで検証した UID だけを使用し、クライアントから userId を受け取らない。
+- `DELETE /api/user/me` の application-data 削除では `execution_projects` も同一トランザクションで削除し、readback で残存ゼロを確認する。
 
 ## First Dollar の定義
 
