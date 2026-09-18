@@ -1,4 +1,7 @@
 export const EXECUTION_STEP_IDS = ['FIND', 'BUILD', 'LIST', 'DISTRIBUTE', 'SELL', 'EARN'] as const;
+export const MAX_EXECUTION_NOTES_LENGTH = 20_000;
+const EXECUTION_STORAGE_ROOT = 'makemoney.execution.';
+const EXECUTION_CLAIM_ROOT = 'makemoney.execution.claim.';
 
 export type ExecutionStepId = (typeof EXECUTION_STEP_IDS)[number];
 
@@ -46,7 +49,7 @@ export function normalizeExecutionProject(value: unknown): ExecutionProject | nu
   if (!isMoney(row.targetPriceJpy) || !isMoney(row.firstDollarTargetJpy) || !isMoney(row.revenueJpy)) return null;
   if (!Array.isArray(row.completedSteps) || row.completedSteps.some((step) => !isExecutionStepId(step))) return null;
   if (!isUrlField(row.buildUrl) || !isUrlField(row.launchUrl) || !isUrlField(row.checkoutUrl)) return null;
-  if (typeof row.notes !== 'string' || row.notes.length > 20_000) return null;
+  if (typeof row.notes !== 'string' || row.notes.length > MAX_EXECUTION_NOTES_LENGTH) return null;
   if (row.updatedAt !== undefined && typeof row.updatedAt !== 'string') return null;
 
   return {
@@ -79,4 +82,17 @@ function isUrlField(value: unknown): value is string {
   } catch {
     return false;
   }
+}
+
+export function executionStoragePrefix(userId: string | null | undefined): string {
+  const scope = userId ? 'user.' + encodeURIComponent(userId) : 'anonymous';
+  return EXECUTION_STORAGE_ROOT + scope + '.';
+}
+
+export function executionStorageKey(entityId: string, userId: string | null | undefined): string {
+  return executionStoragePrefix(userId) + encodeURIComponent(entityId);
+}
+
+export function executionPendingClaimKey(entityId: string): string {
+  return EXECUTION_CLAIM_ROOT + encodeURIComponent(entityId);
 }
