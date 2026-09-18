@@ -3,10 +3,11 @@ import { NextRequest, NextResponse } from 'next/server';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { executeD1, queryD1 } from '@/lib/storage/d1';
+import { readExecutionResetAt } from '@/lib/execution/reset-cookie';
 import { normalizeExecutionProject, type ExecutionProject } from '@/shared/execution';
 
 const headers = { 'Cache-Control': 'private, no-store' };
-const MAX_EXECUTION_REQUEST_BYTES = 64 * 1024;
+const MAX_EXECUTION_REQUEST_BYTES = 128 * 1024;
 const MAX_ENTITY_ID_LENGTH = 200;
 
 export const dynamic = 'force-dynamic';
@@ -71,6 +72,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid entityId' }, { status: 400, headers });
   }
 
+  const resetAt = readExecutionResetAt(req, user.uid);
+
   try {
     if (entityId) {
       const rows = await queryD1(
@@ -78,7 +81,7 @@ export async function GET(req: NextRequest) {
         [user.uid, entityId],
         parseStoredProject,
       );
-      return NextResponse.json({ uid: user.uid, project: rows[0] ?? null }, { headers });
+      return NextResponse.json({ uid: user.uid, project: rows[0] ?? null, resetAt }, { headers });
     }
 
     const projects = await queryD1(
@@ -86,7 +89,7 @@ export async function GET(req: NextRequest) {
       [user.uid],
       parseStoredProject,
     );
-    return NextResponse.json({ uid: user.uid, projects }, { headers });
+    return NextResponse.json({ uid: user.uid, projects, resetAt }, { headers });
   } catch {
     return NextResponse.json({ error: '実行プロジェクトを取得できません' }, { status: 503, headers });
   }
@@ -123,6 +126,7 @@ export async function PUT(req: NextRequest) {
     'checkoutUrl',
     'revenueJpy',
     'notes',
+    'updatedAt',
   ]);
   if (Object.keys(input as Record<string, unknown>).some((key) => !allowedKeys.has(key))) {
     return NextResponse.json({ error: 'Invalid execution project' }, { status: 400, headers });
@@ -131,6 +135,14 @@ export async function PUT(req: NextRequest) {
   const project = normalizeExecutionProject(input);
   if (!project) {
     return NextResponse.json({ error: 'Invalid execution project' }, { status: 400, headers });
+  }
+
+  const resetAt = readExecutionResetAt(req, user.uid);
+  if (resetAt && (!project.updatedAt || project.updatedAt <= resetAt)) {
+    return NextResponse.json(
+      { error: 'Execution project was cleared with account data', resetAt },
+      { status: 409, headers },
+    );
   }
 
   try {
