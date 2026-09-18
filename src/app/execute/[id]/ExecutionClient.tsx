@@ -97,6 +97,18 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
         if (!data || typeof data !== 'object') return;
         const remote = normalizeExecutionProject((data as Record<string, unknown>).project);
         if (!remote) return;
+        const localRaw = window.localStorage.getItem(storageKey);
+        let local: ExecutionProject | null = null;
+        try {
+          local = localRaw ? normalizeExecutionProject(JSON.parse(localRaw)) : null;
+        } catch {
+          local = null;
+        }
+        if (local?.updatedAt && (!remote.updatedAt || local.updatedAt > remote.updatedAt)) {
+          setProject(local);
+          setSaveState('idle');
+          return;
+        }
         window.localStorage.setItem(storageKey, JSON.stringify(remote));
         setProject(remote);
         setSaveState('saved');
