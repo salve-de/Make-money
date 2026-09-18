@@ -4,6 +4,7 @@ import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { consumeRequestRateLimit } from '@/lib/security/rate-limit';
 import { addBuildUsage, getOwnedBuildSession, publicBuildSession } from '@/lib/builder/session';
 import { getV0ApiKey, sendV0Message } from '@/lib/builder/v0';
+import { getBuilderCreditBudget } from '@/lib/builder/budget';
 
 export const dynamic = 'force-dynamic';
 const MAX_BODY_BYTES = 12 * 1024;
@@ -51,6 +52,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Build is not ready for changes' }, { status: 409 });
     }
 
+    const budget = await getBuilderCreditBudget(userId);
+    if (budget.remaining <= 0) {
+      return NextResponse.json({ error: 'Daily builder credit limit reached', code: 'BUILDER_CREDIT_LIMIT', budget }, { status: 429 });
+    }
+
     const apiKey = await getV0ApiKey();
     if (!apiKey) return NextResponse.json({ error: 'Builder provider is not configured', code: 'V0_NOT_CONFIGURED' }, { status: 503 });
 
@@ -64,6 +70,7 @@ export async function POST(request: NextRequest) {
       message: { id: result.messageId, content: result.content },
       generation: result.usage,
       session: publicBuildSession(updated),
+      budget: await getBuilderCreditBudget(userId),
     });
   } catch (error) {
     console.error('[builder/message] failed:', error);
