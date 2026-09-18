@@ -100,42 +100,45 @@ function ExecutionWorkspace({
   const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'local' | 'error'>('idle');
 
   useEffect(() => {
-    if (userId) {
-      const claimRaw = window.sessionStorage.getItem(claimKey);
-      if (claimRaw) {
-        try {
-          const claimed = normalizeExecutionProject(JSON.parse(claimRaw));
-          if (claimed?.entityId === entity.id && claimed.updatedAt) {
-            window.localStorage.setItem(storageKey, JSON.stringify(claimed));
-            window.localStorage.removeItem(executionStorageKey(entity.id, null));
-            window.sessionStorage.removeItem(claimKey);
-            setProject(claimed);
-            setSaveState('idle');
-            return;
+    const timer = window.setTimeout(() => {
+      if (userId) {
+        const claimRaw = window.sessionStorage.getItem(claimKey);
+        if (claimRaw) {
+          try {
+            const claimed = normalizeExecutionProject(JSON.parse(claimRaw));
+            if (claimed?.entityId === entity.id && claimed.updatedAt) {
+              window.localStorage.setItem(storageKey, JSON.stringify(claimed));
+              window.localStorage.removeItem(executionStorageKey(entity.id, null));
+              window.sessionStorage.removeItem(claimKey);
+              setProject(claimed);
+              setSaveState('idle');
+              return;
+            }
+          } catch {
+            // Invalid transient claim is discarded below.
           }
-        } catch {
-          // Invalid transient claim is discarded below.
+          window.sessionStorage.removeItem(claimKey);
         }
-        window.sessionStorage.removeItem(claimKey);
       }
-    }
 
-    const raw = window.localStorage.getItem(storageKey);
-    if (!raw) {
-      window.localStorage.setItem(storageKey, JSON.stringify(createDefaultProject(entity)));
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setSaveState('local');
-      return;
-    }
-    try {
-      const parsed = normalizeExecutionProject(JSON.parse(raw));
-      if (parsed && parsed.entityId === entity.id) {
-        setProject(parsed);
+      const raw = window.localStorage.getItem(storageKey);
+      if (!raw) {
+        window.localStorage.setItem(storageKey, JSON.stringify(createDefaultProject(entity)));
         setSaveState('local');
+        return;
       }
-    } catch {
-      window.localStorage.removeItem(storageKey);
-    }
+      try {
+        const parsed = normalizeExecutionProject(JSON.parse(raw));
+        if (parsed && parsed.entityId === entity.id) {
+          setProject(parsed);
+          setSaveState('local');
+        }
+      } catch {
+        window.localStorage.removeItem(storageKey);
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, [claimKey, entity, storageKey, userId]);
 
   useEffect(() => {
