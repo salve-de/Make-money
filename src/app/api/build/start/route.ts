@@ -13,6 +13,7 @@ import {
   publicBuildSession,
 } from '@/lib/builder/session';
 import { createV0Chat, getV0ApiKey } from '@/lib/builder/v0';
+import { getBuilderCreditBudget } from '@/lib/builder/budget';
 
 export const dynamic = 'force-dynamic';
 const MAX_BODY_BYTES = 8 * 1024;
@@ -61,6 +62,11 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, reused: true, session: publicBuildSession(existing), buildSpec: existing.buildSpec });
     }
 
+    const budget = await getBuilderCreditBudget(userId);
+    if (budget.remaining <= 0) {
+      return NextResponse.json({ error: 'Daily builder credit limit reached', code: 'BUILDER_CREDIT_LIMIT', budget }, { status: 429 });
+    }
+
     const apiKey = await getV0ApiKey();
     const buildSpec = createBuildSpec(idea);
     if (!apiKey) {
@@ -95,6 +101,7 @@ export async function POST(request: NextRequest) {
         session: publicBuildSession(persisted),
         buildSpec,
         generation: { model: result.usage.model, tokensTotal: result.usage.tokensTotal, creditsCost: result.usage.creditsCost },
+        budget: await getBuilderCreditBudget(userId),
       }, { status: 201 });
     } catch (error) {
       await markBuildError(userId, session.id, error instanceof Error ? error.message : 'Provider generation failed').catch(() => undefined);
