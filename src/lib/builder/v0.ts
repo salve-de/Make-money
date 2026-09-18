@@ -197,3 +197,18 @@ export async function ensureV0PreviewHost(apiKey: string, hostname: string): Pro
     body: JSON.stringify({ hosts: [host] }),
   }, 30_000);
 }
+
+
+export async function downloadV0Source(apiKey: string, chatId: string): Promise<Response> {
+  const response = await fetch(`${V0_BASE_URL}/chats/${encodeURIComponent(chatId)}/files/download`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${apiKey}`, Accept: 'application/zip' },
+    cache: 'no-store',
+    signal: AbortSignal.timeout(60_000),
+  });
+  if (!response.ok) {
+    const message = (await response.text()).slice(0, 1000);
+    throw new V0ApiError(message || `v0 source export failed (${response.status})`, response.status);
+  }
+  return response;
+}
