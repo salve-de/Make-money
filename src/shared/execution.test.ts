@@ -7,6 +7,8 @@ import {
   executionStorageKey,
   executionStoragePrefix,
   firstIncompleteStep,
+  isExecutionProjectAtOrBefore,
+  isExecutionProjectNewer,
   normalizeExecutionProject,
   type ExecutionProject,
 } from './execution';
@@ -48,6 +50,15 @@ describe('first dollar execution model', () => {
     expect(executionStorageKey('ent-1', 'user-a')).not.toBe(executionStorageKey('ent-1', 'user-b'));
   });
 
+  it('compares reset and in-flight draft timestamps deterministically', () => {
+    const older = { ...base, updatedAt: '2026-09-18T12:00:00.000Z' };
+    const newer = { ...base, updatedAt: '2026-09-18T12:00:01.000Z' };
+    expect(isExecutionProjectAtOrBefore(older, '2026-09-18T12:00:00.000Z')).toBe(true);
+    expect(isExecutionProjectAtOrBefore(newer, '2026-09-18T12:00:00.000Z')).toBe(false);
+    expect(isExecutionProjectNewer(newer, older)).toBe(true);
+    expect(isExecutionProjectNewer(older, newer)).toBe(false);
+  });
+
   it.each([
     { ...base, entityId: '' },
     { ...base, sourceName: '' },
@@ -57,6 +68,7 @@ describe('first dollar execution model', () => {
     { ...base, buildUrl: 'javascript:alert(1)' },
     { ...base, checkoutUrl: 'data:text/html,bad' },
     { ...base, notes: 'x'.repeat(MAX_EXECUTION_NOTES_LENGTH + 1) },
+    { ...base, updatedAt: 'not-a-date' },
   ])('rejects invalid or unsafe execution state', (value) => {
     expect(normalizeExecutionProject(value)).toBeNull();
   });
