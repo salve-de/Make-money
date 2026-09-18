@@ -72,8 +72,12 @@ export function ExecutionHubClient() {
 
   const projects = useMemo(() => {
     const merged = new Map<string, ExecutionProject>();
-    localProjects.forEach((project) => merged.set(project.entityId, project));
-    remoteProjects.forEach((project) => merged.set(project.entityId, project));
+    [...localProjects, ...remoteProjects].forEach((project) => {
+      const current = merged.get(project.entityId);
+      if (!current || (project.updatedAt || '') >= (current.updatedAt || '')) {
+        merged.set(project.entityId, project);
+      }
+    });
     return [...merged.values()].sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''));
   }, [localProjects, remoteProjects]);
 
