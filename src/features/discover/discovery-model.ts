@@ -66,14 +66,14 @@ const MECHANISMS: Array<{ id: string; label: string; re: RegExp }> = [
     re: /手数料|仲介|中抜き|通行税|marketplace|マーケットプレイス|決済|紹介料|送客|broker|仲介料/iu,
   },
   {
-    id: 'automation',
-    label: '高額な人力を技術で低原価化',
-    re: /AI|自動化|自動|API|省人|効率化|無人|OCR|生成/iu,
-  },
-  {
     id: 'recurring',
     label: '継続課金で積み上げる',
     re: /サブスク|月額|年額|継続課金|subscription|ARR|MRR|リカーリング/iu,
+  },
+  {
+    id: 'automation',
+    label: '高額な人力を技術で低原価化',
+    re: /人力|手作業|省人|無人|自動化|自動納品|外注.{0,12}自動|自動.{0,12}外注|原価.{0,12}(?:削減|低下)|AI.{0,12}(?:代替|置換|自動化)/iu,
   },
   {
     id: 'direct',
@@ -338,14 +338,16 @@ export function deriveDiscoveryDataset(
     list.push(item);
     relatedIndex.set(item.mechanism.id, list);
   }
+  for (const list of relatedIndex.values()) {
+    list.sort((a, b) => b.base - a.base);
+  }
 
   const cases = lightweight
     .map((item): DiscoveryCase => {
       const { entity, result, mechanism, current } = item;
-      const relatedPool = (relatedIndex.get(mechanism.id) || [])
-        .filter((candidate) => candidate.entity.id !== entity.id)
-        .slice()
-        .sort((a, b) => b.base - a.base);
+      const relatedPool = (relatedIndex.get(mechanism.id) || []).filter(
+        (candidate) => candidate.entity.id !== entity.id,
+      );
 
       return {
         id: entity.id,
