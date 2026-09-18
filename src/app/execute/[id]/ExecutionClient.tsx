@@ -25,6 +25,7 @@ import {
 } from '@/shared/execution';
 
 const STORAGE_PREFIX = 'makemoney.execution.';
+const INPUT_CLASS = 'w-full rounded-lg border border-white/[0.1] bg-black/20 px-3 py-2 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-emerald-400/50';
 
 const STEP_LABELS: Record<ExecutionStepId, { label: string; en: string }> = {
   FIND: { label: '勝ち筋を固定', en: 'FIND' },
@@ -381,7 +382,7 @@ function StepBody({
             value={project.offerName}
             onChange={(event) => updateProject({ offerName: event.target.value.slice(0, 300) })}
             placeholder="誰に何を売るか"
-            className="execution-input"
+            className={INPUT_CLASS}
           />
         </Field>
         <Field label="最初の顧客">
@@ -389,7 +390,7 @@ function StepBody({
             value={project.targetCustomer}
             onChange={(event) => updateProject({ targetCustomer: event.target.value.slice(0, 2000) })}
             placeholder="最初に金を払う人"
-            className="execution-input"
+            className={INPUT_CLASS}
           />
         </Field>
         <Hint text={entity.opportunityJudgment?.oneLineReason || entity.strategy.blindspot} />
@@ -406,7 +407,7 @@ function StepBody({
             value={project.buildUrl}
             onChange={(event) => updateProject({ buildUrl: event.target.value.slice(0, 2048) })}
             placeholder="https://..."
-            className="execution-input"
+            className={INPUT_CLASS}
           />
         </Field>
         {firstActions.slice(0, 3).map((action, index) => (
@@ -425,7 +426,7 @@ function StepBody({
             value={project.launchUrl}
             onChange={(event) => updateProject({ launchUrl: event.target.value.slice(0, 2048) })}
             placeholder="https://..."
-            className="execution-input"
+            className={INPUT_CLASS}
           />
         </Field>
         <Field label="販売価格（円）">
@@ -436,7 +437,7 @@ function StepBody({
             value={project.targetPriceJpy || ''}
             onChange={(event) => updateProject({ targetPriceJpy: safeMoney(event.target.value) })}
             placeholder="3000"
-            className="execution-input"
+            className={INPUT_CLASS}
           />
         </Field>
         <Hint text={entity.pricing ? entity.pricing.model + ' / ' + entity.pricing.pricePoint : 'まず1つの価格だけに絞る。'} />
@@ -466,7 +467,7 @@ function StepBody({
             value={project.checkoutUrl}
             onChange={(event) => updateProject({ checkoutUrl: event.target.value.slice(0, 2048) })}
             placeholder="https://..."
-            className="execution-input"
+            className={INPUT_CLASS}
           />
         </Field>
         {project.checkoutUrl && (
@@ -496,7 +497,7 @@ function StepBody({
             value={project.revenueJpy || ''}
             onChange={(event) => updateProject({ revenueJpy: safeMoney(event.target.value) })}
             placeholder="1000"
-            className="execution-input pl-9"
+            className={INPUT_CLASS + ' pl-9'}
           />
         </div>
       </Field>
@@ -508,7 +509,7 @@ function StepBody({
           value={project.firstDollarTargetJpy || ''}
           onChange={(event) => updateProject({ firstDollarTargetJpy: safeMoney(event.target.value) })}
           placeholder="1000"
-          className="execution-input"
+          className={INPUT_CLASS}
         />
       </Field>
       <Hint text="ここは予測ではなく実額だけを入れる。1円でも売上が発生した時点で、情報探索から事業実行へ状態が変わる。" />
