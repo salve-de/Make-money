@@ -6,7 +6,7 @@ import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
-import { deriveDiscoveryDataset } from '@/features/discover/discovery-model';
+import { deriveDiscoveryDataset } from '@/features/discover';
 import { DiscoverClient } from './DiscoverClient';
 
 export const revalidate = 300;
