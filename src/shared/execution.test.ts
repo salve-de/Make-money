@@ -2,7 +2,10 @@ import { describe, expect, it } from 'vitest';
 
 import {
   EXECUTION_STEP_IDS,
+  MAX_EXECUTION_NOTES_LENGTH,
   executionProgress,
+  executionStorageKey,
+  executionStoragePrefix,
   firstIncompleteStep,
   normalizeExecutionProject,
   type ExecutionProject,
@@ -39,6 +42,12 @@ describe('first dollar execution model', () => {
     expect(project?.completedSteps).toEqual(['FIND', 'BUILD']);
   });
 
+  it('scopes browser drafts by authenticated owner', () => {
+    expect(executionStoragePrefix(null)).toBe('makemoney.execution.anonymous.');
+    expect(executionStorageKey('ent-1', 'user-a')).toBe('makemoney.execution.user.user-a.ent-1');
+    expect(executionStorageKey('ent-1', 'user-a')).not.toBe(executionStorageKey('ent-1', 'user-b'));
+  });
+
   it.each([
     { ...base, entityId: '' },
     { ...base, sourceName: '' },
@@ -47,6 +56,7 @@ describe('first dollar execution model', () => {
     { ...base, revenueJpy: Number.NaN },
     { ...base, buildUrl: 'javascript:alert(1)' },
     { ...base, checkoutUrl: 'data:text/html,bad' },
+    { ...base, notes: 'x'.repeat(MAX_EXECUTION_NOTES_LENGTH + 1) },
   ])('rejects invalid or unsafe execution state', (value) => {
     expect(normalizeExecutionProject(value)).toBeNull();
   });
