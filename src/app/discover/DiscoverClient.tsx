@@ -225,7 +225,7 @@ function DetailPane({
   };
 
   return (
-    <div className="h-full flex flex-col bg-[#07080B]">
+    <div data-testid="discover-detail" className="h-full flex flex-col bg-[#07080B]">
       <div className="shrink-0 border-b border-white/[0.07] px-4 sm:px-6 py-4">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
@@ -580,7 +580,7 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
       </div>
 
       <main className="flex-1 min-h-0 flex overflow-hidden">
-        <section className="w-full md:w-[44%] lg:w-[42%] xl:w-[40%] min-w-0 border-r border-white/[0.06] bg-[#07080B] flex flex-col">
+        <section data-testid="discover-list" className="w-full md:w-[44%] lg:w-[42%] xl:w-[40%] min-w-0 border-r border-white/[0.06] bg-[#07080B] flex flex-col">
           <div className="shrink-0 px-3 sm:px-4 py-2 border-b border-white/[0.05] flex items-center justify-between text-[10px] font-mono text-zinc-600">
             <span>
               {query
