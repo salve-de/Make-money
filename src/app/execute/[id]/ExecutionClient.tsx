@@ -58,8 +58,20 @@ function createDefaultProject(entity: FinancialEntity): ExecutionProject {
 }
 
 export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
-  const { user, token, signInWithGoogle } = useAuth();
+  const { user, token, loading, signInWithGoogle } = useAuth();
   const userId = user?.uid ?? null;
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen flex-col bg-[#07080B] text-zinc-100">
+        <GlobalHeader currentSection="EXECUTION" />
+        <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 text-sm text-zinc-500 sm:px-6 lg:px-8">
+          実行状態を読み込み中…
+        </main>
+      </div>
+    );
+  }
+
   return (
     <ExecutionWorkspace
       key={userId ?? 'anonymous'}
@@ -136,11 +148,11 @@ function ExecutionWorkspace({
           cache: 'no-store',
           signal: controller.signal,
         });
-        if (!response.ok) return;
+        if (!response.ok) throw new Error('load failed');
         const data: unknown = await response.json();
-        if (!data || typeof data !== 'object') return;
+        if (!data || typeof data !== 'object') throw new Error('invalid load response');
         const remote = normalizeExecutionProject((data as Record<string, unknown>).project);
-        if (!remote) return;
+
         const localRaw = window.localStorage.getItem(storageKey);
         let local: ExecutionProject | null = null;
         try {
@@ -148,14 +160,20 @@ function ExecutionWorkspace({
         } catch {
           local = null;
         }
-        if (local?.updatedAt && (!remote.updatedAt || local.updatedAt > remote.updatedAt)) {
-          setProject(local);
-          setSaveState('idle');
+
+        if (local?.updatedAt && (!remote?.updatedAt || local.updatedAt > remote.updatedAt)) {
+          const saved = await persistExecutionProject(token, local, controller.signal);
+          window.localStorage.setItem(storageKey, JSON.stringify(saved));
+          setProject(saved);
+          setSaveState('saved');
           return;
         }
-        window.localStorage.setItem(storageKey, JSON.stringify(remote));
-        setProject(remote);
-        setSaveState('saved');
+
+        if (remote) {
+          window.localStorage.setItem(storageKey, JSON.stringify(remote));
+          setProject(remote);
+          setSaveState('saved');
+        }
       } catch (error) {
         if ((error as Error).name !== 'AbortError') setSaveState('error');
       }
@@ -183,6 +201,26 @@ function ExecutionWorkspace({
     }
   };
 
+  const persistProject = async (value: ExecutionProject, signal?: AbortSignal) => {
+    if (!token) throw new Error('Authentication required');
+    const response = await fetch('/api/execution-projects', {
+      method: 'PUT',
+      headers: {
+        Authorization: 'Bearer ' + token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(executionRequestBody(value)),
+      signal,
+    });
+    if (!response.ok) throw new Error('save failed');
+    const data: unknown = await response.json();
+    const saved = data && typeof data === 'object'
+      ? normalizeExecutionProject((data as Record<string, unknown>).project)
+      : null;
+    if (!saved) throw new Error('invalid saved project');
+    return saved;
+  };
+
   const toggleStep = (step: ExecutionStepId) => {
     const completed = new Set(project.completedSteps);
     if (completed.has(step)) completed.delete(step);
@@ -199,36 +237,9 @@ function ExecutionWorkspace({
 
     setSaveState('saving');
     try {
-      const response = await fetch('/api/execution-projects', {
-        method: 'PUT',
-        headers: {
-          Authorization: 'Bearer ' + token,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          entityId: project.entityId,
-          sourceName: project.sourceName,
-          offerName: project.offerName,
-          targetCustomer: project.targetCustomer,
-          targetPriceJpy: project.targetPriceJpy,
-          firstDollarTargetJpy: project.firstDollarTargetJpy,
-          completedSteps: project.completedSteps,
-          buildUrl: project.buildUrl,
-          launchUrl: project.launchUrl,
-          checkoutUrl: project.checkoutUrl,
-          revenueJpy: project.revenueJpy,
-          notes: project.notes,
-        }),
-      });
-      if (!response.ok) throw new Error('save failed');
-      const data: unknown = await response.json();
-      const saved = data && typeof data === 'object'
-        ? normalizeExecutionProject((data as Record<string, unknown>).project)
-        : null;
-      if (saved) {
-        window.localStorage.setItem(storageKey, JSON.stringify(saved));
-        setProject(saved);
-      }
+      const saved = await persistExecutionProject(token, project);
+      window.localStorage.setItem(storageKey, JSON.stringify(saved));
+      setProject(saved);
       setSaveState('saved');
     } catch {
       setSaveState('error');
@@ -643,4 +654,21 @@ function safeHttpUrl(value: string): string | null {
   } catch {
     return null;
   }
+}
+
+function executionRequestBody(project: ExecutionProject) {
+  return {
+    entityId: project.entityId,
+    sourceName: project.sourceName,
+    offerName: project.offerName,
+    targetCustomer: project.targetCustomer,
+    targetPriceJpy: project.targetPriceJpy,
+    firstDollarTargetJpy: project.firstDollarTargetJpy,
+    completedSteps: project.completedSteps,
+    buildUrl: project.buildUrl,
+    launchUrl: project.launchUrl,
+    checkoutUrl: project.checkoutUrl,
+    revenueJpy: project.revenueJpy,
+    notes: project.notes,
+  };
 }
