@@ -50,7 +50,7 @@ export function normalizeExecutionProject(value: unknown): ExecutionProject | nu
   if (!Array.isArray(row.completedSteps) || row.completedSteps.some((step) => !isExecutionStepId(step))) return null;
   if (!isUrlField(row.buildUrl) || !isUrlField(row.launchUrl) || !isUrlField(row.checkoutUrl)) return null;
   if (typeof row.notes !== 'string' || row.notes.length > MAX_EXECUTION_NOTES_LENGTH) return null;
-  if (row.updatedAt !== undefined && typeof row.updatedAt !== 'string') return null;
+  if (row.updatedAt !== undefined && !isIsoDate(row.updatedAt)) return null;
 
   return {
     entityId: row.entityId.trim(),
@@ -71,6 +71,12 @@ export function normalizeExecutionProject(value: unknown): ExecutionProject | nu
 
 function isMoney(value: unknown): value is number {
   return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 && value <= 1_000_000_000_000;
+}
+
+function isIsoDate(value: unknown): value is string {
+  if (typeof value !== 'string' || !value) return false;
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) && new Date(timestamp).toISOString() === value;
 }
 
 function isUrlField(value: unknown): value is string {
