@@ -35,6 +35,7 @@ interface BuilderContext {
   buildSpec: BuildSpec;
   session: PublicBuildSession | null;
   providerConfigured: boolean;
+  budget: { used: number; limit: number; remaining: number };
 }
 
 interface LocalMessage {
@@ -177,8 +178,11 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
       const data = await responseJson(response);
       if (!response.ok) throw new Error(errorMessage(data, 'The app could not be generated'));
       const nextSession = data.session as unknown as PublicBuildSession;
+      const nextBudget = data.budget && typeof data.budget === 'object'
+        ? data.budget as BuilderContext['budget']
+        : null;
       setSession(nextSession);
-      setContext((current) => current ? { ...current, session: nextSession } : current);
+      setContext((current) => current ? { ...current, session: nextSession, ...(nextBudget ? { budget: nextBudget } : {}) } : current);
       if (nextSession.status === 'ready') await loadPreview(nextSession.id);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : 'The app could not be generated');
@@ -207,7 +211,11 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
       const assistant = data.message && typeof data.message === 'object'
         ? data.message as Record<string, unknown>
         : {};
+      const nextBudget = data.budget && typeof data.budget === 'object'
+        ? data.budget as BuilderContext['budget']
+        : null;
       setSession(nextSession);
+      setContext((current) => current && nextBudget ? { ...current, budget: nextBudget, session: nextSession } : current);
       setMessages((current) => [...current, {
         id: typeof assistant.id === 'string' ? assistant.id : `assistant-${Date.now()}`,
         role: 'assistant',
@@ -287,9 +295,12 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
           </div>
         </div>
         <div className="flex items-center gap-3 font-mono text-[10px] text-zinc-500">
+          {context?.budget && (
+            <span className="hidden md:inline">本日残り: <b className="text-zinc-300">{formatCredits(context.budget.remaining)} credits</b></span>
+          )}
           {session && (
             <>
-              <span className="hidden sm:inline">生成原価: <b className="text-zinc-300">{formatCredits(session.creditsCost)} credits</b></span>
+              <span className="hidden sm:inline">この生成: <b className="text-zinc-300">{formatCredits(session.creditsCost)} credits</b></span>
               <span className={`px-2 py-1 rounded border ${isReady ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10' : 'border-white/[0.08] text-zinc-400'}`}>
                 {session.status.toUpperCase()}
               </span>
