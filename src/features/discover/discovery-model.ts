@@ -342,7 +342,7 @@ export function deriveDiscoveryDataset(
     list.sort((a, b) => b.base - a.base);
   }
 
-  const cases = lightweight
+  const allCases = lightweight
     .map((item): DiscoveryCase => {
       const { entity, result, mechanism, current } = item;
       const relatedPool = (relatedIndex.get(mechanism.id) || []).filter(
@@ -379,12 +379,33 @@ export function deriveDiscoveryDataset(
         })),
         scores: lensScores(entity, result.amount, item.base),
       };
-    })
-    .sort((a, b) => b.scores.SURPRISE - a.scores.SURPRISE)
-    .slice(0, Math.max(1, visibleLimit));
+    });
 
-  const highlights = cases
+  const selectedById = new Map<string, DiscoveryCase>();
+  const lensOrder: DiscoveryLens[] = [
+    'SURPRISE',
+    'BIG_CASH',
+    'LOW_CAPITAL',
+    'SOLO',
+    'LOW_WORK',
+    'CURRENT',
+    'FAILURE',
+  ];
+  for (const lens of lensOrder) {
+    allCases
+      .slice()
+      .sort((a, b) => b.scores[lens] - a.scores[lens])
+      .slice(0, Math.max(1, visibleLimit))
+      .forEach((item) => selectedById.set(item.id, item));
+  }
+
+  const cases = Array.from(selectedById.values()).sort(
+    (a, b) => b.scores.SURPRISE - a.scores.SURPRISE,
+  );
+
+  const highlights = allCases
     .filter((item) => !item.isFailure && item.resultAmountJpy !== null && item.resultAmountJpy > 0)
+    .sort((a, b) => b.scores.SURPRISE - a.scores.SURPRISE)
     .slice(0, 3);
 
   return {
