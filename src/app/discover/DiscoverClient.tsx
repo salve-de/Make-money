@@ -18,7 +18,7 @@ import type {
   DiscoveryCase,
   DiscoveryDataset,
   DiscoveryLens,
-} from "@/features/discover/discovery-model";
+} from "@/features/discover";
 
 interface ChatLine {
   role: "user" | "assistant";
