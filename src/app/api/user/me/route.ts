@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { batchD1, executeD1, queryD1 } from '@/lib/storage/d1';
 import { getProEntitlement } from '@/lib/payments/entitlement';
+import { setExecutionResetCookie } from '@/lib/execution/reset-cookie';
 
 export const dynamic = 'force-dynamic';
 const json = (body: unknown, init: { status?: number } = {}) => NextResponse.json(body, { ...init, headers: { 'Cache-Control': 'private, no-store', Vary: 'Authorization' } });
@@ -48,7 +49,10 @@ export async function DELETE(req: NextRequest) {
     if (!remaining || Number(remaining.users) !== 0 || Number(remaining.execution_projects) !== 0) {
       throw new Error('User deletion readback failed');
     }
-    return json({ success: true, scope: 'application_data' });
+    const resetAt = new Date().toISOString();
+    const response = json({ success: true, scope: 'application_data', executionResetAt: resetAt });
+    setExecutionResetCookie(response, req, user.uid, resetAt);
+    return response;
   } catch {
     return json({ error: 'アカウント情報を削除できません' }, { status: 503 });
   }
