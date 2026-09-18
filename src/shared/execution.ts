@@ -18,6 +18,8 @@ export interface ExecutionProject {
   checkoutUrl: string;
   revenueJpy: number;
   notes: string;
+  revision: number;
+  generation: number;
   updatedAt?: string;
 }
 
@@ -50,6 +52,9 @@ export function normalizeExecutionProject(value: unknown): ExecutionProject | nu
   if (!Array.isArray(row.completedSteps) || row.completedSteps.some((step) => !isExecutionStepId(step))) return null;
   if (!isUrlField(row.buildUrl) || !isUrlField(row.launchUrl) || !isUrlField(row.checkoutUrl)) return null;
   if (typeof row.notes !== 'string' || row.notes.length > MAX_EXECUTION_NOTES_LENGTH) return null;
+  const revision = row.revision === undefined ? 0 : row.revision;
+  const generation = row.generation === undefined ? 0 : row.generation;
+  if (!isNonNegativeInteger(revision) || !isNonNegativeInteger(generation)) return null;
   if (row.updatedAt !== undefined && !isIsoDate(row.updatedAt)) return null;
 
   return {
@@ -65,8 +70,14 @@ export function normalizeExecutionProject(value: unknown): ExecutionProject | nu
     checkoutUrl: row.checkoutUrl,
     revenueJpy: row.revenueJpy,
     notes: row.notes,
+    revision,
+    generation,
     updatedAt: typeof row.updatedAt === 'string' ? row.updatedAt : undefined,
   };
+}
+
+function isNonNegativeInteger(value: unknown): value is number {
+  return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
 }
 
 function isMoney(value: unknown): value is number {
@@ -103,20 +114,29 @@ export function executionPendingClaimKey(entityId: string): string {
   return EXECUTION_CLAIM_ROOT + encodeURIComponent(entityId);
 }
 
-export function isExecutionProjectAtOrBefore(
-  project: Pick<ExecutionProject, 'updatedAt'> | null | undefined,
-  resetAt: string | null | undefined,
+export function executionContentEqual(
+  left: ExecutionProject | null | undefined,
+  right: ExecutionProject | null | undefined,
 ): boolean {
-  if (!resetAt) return false;
-  if (!project?.updatedAt) return true;
-  return project.updatedAt <= resetAt;
+  if (!left || !right) return false;
+  return left.entityId === right.entityId
+    && left.sourceName === right.sourceName
+    && left.offerName === right.offerName
+    && left.targetCustomer === right.targetCustomer
+    && left.targetPriceJpy === right.targetPriceJpy
+    && left.firstDollarTargetJpy === right.firstDollarTargetJpy
+    && left.completedSteps.length === right.completedSteps.length
+    && left.completedSteps.every((step, index) => step === right.completedSteps[index])
+    && left.buildUrl === right.buildUrl
+    && left.launchUrl === right.launchUrl
+    && left.checkoutUrl === right.checkoutUrl
+    && left.revenueJpy === right.revenueJpy
+    && left.notes === right.notes;
 }
 
-export function isExecutionProjectNewer(
-  candidate: Pick<ExecutionProject, 'updatedAt'> | null | undefined,
-  baseline: Pick<ExecutionProject, 'updatedAt'> | null | undefined,
+export function isExecutionGenerationCurrent(
+  project: Pick<ExecutionProject, 'generation'> | null | undefined,
+  generation: number,
 ): boolean {
-  if (!candidate?.updatedAt) return false;
-  if (!baseline?.updatedAt) return true;
-  return candidate.updatedAt > baseline.updatedAt;
+  return Boolean(project && project.generation === generation);
 }
