@@ -17,14 +17,16 @@ import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import type { FinancialEntity } from '@/shared/terminal';
 import {
   EXECUTION_STEP_IDS,
+  MAX_EXECUTION_NOTES_LENGTH,
+  executionPendingClaimKey,
   executionProgress,
+  executionStorageKey,
   firstIncompleteStep,
   normalizeExecutionProject,
   type ExecutionProject,
   type ExecutionStepId,
 } from '@/shared/execution';
 
-const STORAGE_PREFIX = 'makemoney.execution.';
 const INPUT_CLASS = 'w-full rounded-lg border border-white/[0.1] bg-black/20 px-3 py-2 text-sm text-zinc-100 outline-none placeholder:text-zinc-600 focus:border-emerald-400/50';
 
 const STEP_LABELS: Record<ExecutionStepId, { label: string; en: string }> = {
@@ -56,12 +58,56 @@ function createDefaultProject(entity: FinancialEntity): ExecutionProject {
 }
 
 export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
-  const storageKey = STORAGE_PREFIX + entity.id;
   const { user, token, signInWithGoogle } = useAuth();
+  const userId = user?.uid ?? null;
+  return (
+    <ExecutionWorkspace
+      key={userId ?? 'anonymous'}
+      entity={entity}
+      userId={userId}
+      token={token}
+      signInWithGoogle={signInWithGoogle}
+    />
+  );
+}
+
+function ExecutionWorkspace({
+  entity,
+  userId,
+  token,
+  signInWithGoogle,
+}: {
+  entity: FinancialEntity;
+  userId: string | null;
+  token: string | null;
+  signInWithGoogle: () => Promise<void>;
+}) {
+  const storageKey = executionStorageKey(entity.id, userId);
+  const claimKey = executionPendingClaimKey(entity.id);
   const [project, setProject] = useState<ExecutionProject>(() => createDefaultProject(entity));
   const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'local' | 'error'>('idle');
 
   useEffect(() => {
+    if (userId) {
+      const claimRaw = window.sessionStorage.getItem(claimKey);
+      if (claimRaw) {
+        try {
+          const claimed = normalizeExecutionProject(JSON.parse(claimRaw));
+          if (claimed?.entityId === entity.id && claimed.updatedAt) {
+            window.localStorage.setItem(storageKey, JSON.stringify(claimed));
+            window.localStorage.removeItem(executionStorageKey(entity.id, null));
+            window.sessionStorage.removeItem(claimKey);
+            setProject(claimed);
+            setSaveState('idle');
+            return;
+          }
+        } catch {
+          // Invalid transient claim is discarded below.
+        }
+        window.sessionStorage.removeItem(claimKey);
+      }
+    }
+
     const raw = window.localStorage.getItem(storageKey);
     if (!raw) {
       window.localStorage.setItem(storageKey, JSON.stringify(createDefaultProject(entity)));
@@ -78,7 +124,7 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
     } catch {
       window.localStorage.removeItem(storageKey);
     }
-  }, [entity, storageKey]);
+  }, [claimKey, entity, storageKey, userId]);
 
   useEffect(() => {
     if (!token) return;
@@ -124,6 +170,17 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
       return next;
     });
     setSaveState(token ? 'idle' : 'local');
+  };
+
+  const signInAndClaim = async () => {
+    if (project.updatedAt) {
+      window.sessionStorage.setItem(claimKey, JSON.stringify(project));
+    }
+    try {
+      await signInWithGoogle();
+    } catch {
+      window.sessionStorage.removeItem(claimKey);
+    }
   };
 
   const toggleStep = (step: ExecutionStepId) => {
@@ -217,10 +274,10 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
           </Link>
 
           <div className="flex items-center gap-2">
-            {!user && (
+            {!userId && (
               <button
                 type="button"
-                onClick={() => void signInWithGoogle()}
+                onClick={() => void signInAndClaim()}
                 className="rounded-md border border-white/[0.1] bg-white/[0.04] px-3 py-2 text-xs text-zinc-300 transition-colors hover:bg-white/[0.08]"
               >
                 ログインして同期
@@ -358,8 +415,9 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
               <textarea
                 id="execution-notes"
                 value={project.notes}
-                onChange={(event) => updateProject({ notes: event.target.value })}
+                onChange={(event) => updateProject({ notes: event.target.value.slice(0, MAX_EXECUTION_NOTES_LENGTH) })}
                 rows={8}
+                maxLength={MAX_EXECUTION_NOTES_LENGTH}
                 placeholder="やること、詰まった点、顧客の反応など"
                 className="mt-3 w-full resize-y rounded-lg border border-white/[0.1] bg-black/20 px-3 py-2 text-xs leading-5 text-zinc-200 outline-none placeholder:text-zinc-600 focus:border-emerald-400/50"
               />
