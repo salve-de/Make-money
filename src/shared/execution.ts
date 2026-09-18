@@ -102,3 +102,21 @@ export function executionStorageKey(entityId: string, userId: string | null | un
 export function executionPendingClaimKey(entityId: string): string {
   return EXECUTION_CLAIM_ROOT + encodeURIComponent(entityId);
 }
+
+export function isExecutionProjectAtOrBefore(
+  project: Pick<ExecutionProject, 'updatedAt'> | null | undefined,
+  resetAt: string | null | undefined,
+): boolean {
+  if (!resetAt) return false;
+  if (!project?.updatedAt) return true;
+  return project.updatedAt <= resetAt;
+}
+
+export function isExecutionProjectNewer(
+  candidate: Pick<ExecutionProject, 'updatedAt'> | null | undefined,
+  baseline: Pick<ExecutionProject, 'updatedAt'> | null | undefined,
+): boolean {
+  if (!candidate?.updatedAt) return false;
+  if (!baseline?.updatedAt) return true;
+  return candidate.updatedAt > baseline.updatedAt;
+}
