@@ -1,11 +1,13 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { SynthesizedIdea } from '../../types/terminal';
 import { 
   Layers, 
   ArrowRight, 
-  RotateCcw
+  RotateCcw,
+  Hammer
 } from 'lucide-react';
 
 interface SynthesisIdeasDossierProps {
@@ -23,6 +25,8 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
   formatMoney,
   handleDrilldownIdea,
 }) => {
+  const router = useRouter();
+
   return (
     <div className="h-full overflow-y-auto p-4 md:p-6 space-y-6 scrollbar-thin scrollbar-thumb-white/10">
       {synthesizedIdeas.length === 0 ? (
@@ -156,18 +160,27 @@ export const SynthesisIdeasDossier: React.FC<SynthesisIdeasDossierProps> = ({
                 </ul>
               </div>
 
-              {/* アクションボタン: 壁打ちに送る */}
-              <div className="pt-2 border-t border-white/[0.04] flex items-center justify-between">
+              {/* アクション: 深掘り or そのままMVP生成 */}
+              <div className="pt-2 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <span className="text-[10px] font-mono text-zinc-500 truncate">
                   着眼点: {idea.userNoteInspiration || '保存銘柄データ'}
                 </span>
-                <button
-                  onClick={() => handleDrilldownIdea(idea)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] text-xs font-mono text-white transition-colors cursor-pointer"
-                >
-                  <span>このアイデアを精査・壁打ちする</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-emerald-400" />
-                </button>
+                <div className="flex items-center gap-2 self-end sm:self-auto">
+                  <button
+                    onClick={() => handleDrilldownIdea(idea)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] text-xs font-mono text-white transition-colors cursor-pointer"
+                  >
+                    <span>精査・壁打ち</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-zinc-400" />
+                  </button>
+                  <button
+                    onClick={() => router.push(`/build/${encodeURIComponent(idea.id)}`)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-emerald-500 hover:bg-emerald-400 border border-emerald-400/60 text-xs font-mono font-bold text-zinc-950 transition-colors cursor-pointer"
+                  >
+                    <Hammer className="w-3.5 h-3.5" />
+                    <span>この事業を作る</span>
+                  </button>
+                </div>
               </div>
             </div>
           ))}
