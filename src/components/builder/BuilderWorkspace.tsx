@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   CircleDollarSign,
   Code2,
+  Download,
   LoaderCircle,
   RefreshCcw,
   Rocket,
@@ -69,6 +70,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
   const [contextLoading, setContextLoading] = useState(false);
   const [starting, setStarting] = useState(false);
   const [sending, setSending] = useState(false);
+  const [exporting, setExporting] = useState(false);
   const [previewLoading, setPreviewLoading] = useState(false);
   const [previewSrc, setPreviewSrc] = useState<string | null>(null);
   const [previewVersion, setPreviewVersion] = useState(0);
@@ -188,6 +190,35 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
       setError(cause instanceof Error ? cause.message : 'The app could not be generated');
     } finally {
       setStarting(false);
+    }
+  };
+
+  const exportSource = async () => {
+    if (!authorization || !session || session.status !== 'ready' || exporting) return;
+    setExporting(true);
+    setError(null);
+    try {
+      const response = await fetch(`/api/build/export?sessionId=${encodeURIComponent(session.id)}`, {
+        headers: authorization,
+        cache: 'no-store',
+      });
+      if (!response.ok) {
+        const data = await responseJson(response);
+        throw new Error(errorMessage(data, 'Source export failed'));
+      }
+      const blob = await response.blob();
+      const href = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = href;
+      link.download = `${(idea?.title || 'make-money-build').replace(/[^a-zA-Z0-9._-]+/g, '-').slice(0, 80) || 'make-money-build'}.zip`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(href);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'Source export failed');
+    } finally {
+      setExporting(false);
     }
   };
 
@@ -382,15 +413,26 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
               LIVE PREVIEW
             </div>
             {isReady && (
-              <button
-                type="button"
-                onClick={() => session && void loadPreview(session.id)}
-                disabled={previewLoading}
-                className="inline-flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 hover:text-white disabled:opacity-40"
-              >
-                <RefreshCcw className={`w-3 h-3 ${previewLoading ? 'animate-spin' : ''}`} />
-                再読込
-              </button>
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => void exportSource()}
+                  disabled={exporting}
+                  className="inline-flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 hover:text-white disabled:opacity-40"
+                >
+                  {exporting ? <LoaderCircle className="w-3 h-3 animate-spin" /> : <Download className="w-3 h-3" />}
+                  ソースZIP
+                </button>
+                <button
+                  type="button"
+                  onClick={() => session && void loadPreview(session.id)}
+                  disabled={previewLoading}
+                  className="inline-flex items-center gap-1.5 text-[10px] font-mono text-zinc-400 hover:text-white disabled:opacity-40"
+                >
+                  <RefreshCcw className={`w-3 h-3 ${previewLoading ? 'animate-spin' : ''}`} />
+                  再読込
+                </button>
+              </div>
             )}
           </div>
 
