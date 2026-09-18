@@ -17,14 +17,14 @@ function normalizedPath(path: string[]): string {
   return `/${path.map((segment) => encodeURIComponent(segment)).join('/')}`;
 }
 
-async function readBoundedBody(request: Request, maxBytes = 2 * 1024 * 1024): Promise<Uint8Array | undefined> {
+async function readBoundedBody(request: Request, maxBytes = 2 * 1024 * 1024): Promise<ArrayBuffer | undefined> {
   if (request.method === 'GET' || request.method === 'HEAD') return undefined;
   const declared = request.headers.get('content-length');
   if (declared !== null) {
     const length = Number(declared);
     if (!Number.isFinite(length) || length < 0 || length > maxBytes) throw new Error('Preview request body exceeds limit');
   }
-  if (!request.body) return new Uint8Array();
+  if (!request.body) return new ArrayBuffer(0);
   const reader = request.body.getReader();
   const chunks: Uint8Array[] = [];
   let total = 0;
@@ -49,7 +49,7 @@ async function readBoundedBody(request: Request, maxBytes = 2 * 1024 * 1024): Pr
     body.set(chunk, offset);
     offset += chunk.byteLength;
   }
-  return body;
+  return body.buffer as ArrayBuffer;
 }
 
 export async function proxyV0PreviewRequest(
