@@ -5,9 +5,10 @@ import {
   executionProgress,
   firstIncompleteStep,
   normalizeExecutionProject,
+  type ExecutionProject,
 } from './execution';
 
-const base = {
+const base: ExecutionProject = {
   entityId: 'ent-1',
   sourceName: 'Example',
   offerName: 'Offer',
