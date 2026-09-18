@@ -44,7 +44,11 @@ function parseTicket(request: NextRequest, sessionId: string): string | null {
 
 async function handler(request: NextRequest, context: RouteContext): Promise<Response> {
   const { sessionId, path = [] } = await context.params;
-  if (!sessionId || sessionId.length > 128 || path.length > 64) return new Response('Bad request', { status: 400 });
+  if (
+    !sessionId || sessionId.length > 128 || path.length > 64
+    || path.some((segment) => segment.length > 256)
+    || path.reduce((total, segment) => total + segment.length, 0) > 4096
+  ) return new Response('Bad request', { status: 400 });
 
   const ticket = parseTicket(request, sessionId);
   if (!ticket) return new Response('Preview authorization required', { status: 401, headers: { 'cache-control': 'private, no-store' } });
