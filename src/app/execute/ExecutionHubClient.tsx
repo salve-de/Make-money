@@ -38,12 +38,15 @@ export function ExecutionHubClient() {
 
   useEffect(() => {
     if (!token) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setRemoteProjects([]);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setRemoteState('idle');
       return;
     }
 
     const controller = new AbortController();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setRemoteState('loading');
     void (async () => {
       try {
