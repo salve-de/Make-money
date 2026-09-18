@@ -101,6 +101,7 @@ wrangler secret put V0_API_KEY
 - `POST /api/build/prepare` — client-only draft ideaを本人のD1へ保存
 - `POST /api/build/start` — Build Specから新規v0 chatを生成
 - `POST /api/build/message` — 同じ生成物を自然言語で修正
+- `GET /api/build/export?sessionId=...` — 本人だけが生成ソースZIPを取得
 - `POST /api/build/preview-ticket` — private preview用HttpOnly ticket
 - `/api/build/preview/[sessionId]/...` — private preview proxy
 - `/build/[ideaId]` — Builder workspace
@@ -109,7 +110,7 @@ wrangler secret put V0_API_KEY
 
 まだ実装していないもの:
 - Vercel/Cloudflareへのユーザー所有本番deployment
-- GitHub export
+- GitHubへの直接push/export（ZIPダウンロードは実装済み）
 - production secret provisioning
 - automatic security/build/E2E gate for generated apps
 - Build Creditsのユーザー課金
