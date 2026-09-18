@@ -7,6 +7,7 @@ import { createBuildSpec, renderBuildPrompt } from '@/lib/builder/spec';
 import {
   createBuildSession,
   getLatestBuildForIdea,
+  getOwnedBuildSession,
   markBuildError,
   markBuildReady,
   publicBuildSession,
@@ -86,8 +87,8 @@ export async function POST(request: NextRequest) {
         metadata: { makeMoneySessionId: session.id, sourceIdeaId: body.ideaId },
       });
       await markBuildReady(userId, session.id, result.chatId, result.usage.creditsCost);
-      const persisted = await getLatestBuildForIdea(userId, body.ideaId);
-      if (!persisted || persisted.id !== session.id) throw new Error('Build session verification failed');
+      const persisted = await getOwnedBuildSession(userId, session.id);
+      if (!persisted) throw new Error('Build session verification failed');
       return NextResponse.json({
         success: true,
         reused: false,
