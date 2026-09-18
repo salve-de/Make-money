@@ -13,7 +13,7 @@ import {
 } from '@/shared/execution';
 
 export function ExecutionHubClient() {
-  const { token, user } = useAuth();
+  const { token, user, loading } = useAuth();
   const userId = user?.uid ?? null;
   const storagePrefix = executionStoragePrefix(userId);
   const [localProjects, setLocalProjects] = useState<ExecutionProject[]>([]);
@@ -22,6 +22,7 @@ export function ExecutionHubClient() {
   const [remoteState, setRemoteState] = useState<'idle' | 'loading' | 'loaded' | 'error'>('idle');
 
   useEffect(() => {
+    if (loading) return;
     const projects: ExecutionProject[] = [];
     for (let index = 0; index < window.localStorage.length; index += 1) {
       const key = window.localStorage.key(index);
@@ -36,9 +37,10 @@ export function ExecutionHubClient() {
     }
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocalProjects(projects);
-  }, [storagePrefix]);
+  }, [loading, storagePrefix]);
 
   useEffect(() => {
+    if (loading) return;
     if (!token) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setRemoteProjects([]);
@@ -69,7 +71,7 @@ export function ExecutionHubClient() {
       }
     })();
     return () => controller.abort();
-  }, [token, userId]);
+  }, [loading, token, userId]);
 
   const projects = useMemo(() => {
     const merged = new Map<string, ExecutionProject>();
@@ -85,6 +87,14 @@ export function ExecutionHubClient() {
 
   const totalRevenue = projects.reduce((sum, project) => sum + project.revenueJpy, 0);
   const firstDollarCount = projects.filter((project) => project.revenueJpy > 0).length;
+
+  if (loading) {
+    return (
+      <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-8 text-sm text-zinc-500 sm:px-6 lg:px-8">
+        実行状態を読み込み中…
+      </main>
+    );
+  }
 
   return (
     <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8">
