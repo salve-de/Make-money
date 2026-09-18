@@ -65,6 +65,7 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
     const raw = window.localStorage.getItem(storageKey);
     if (!raw) {
       window.localStorage.setItem(storageKey, JSON.stringify(createDefaultProject(entity)));
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSaveState('local');
       return;
     }
@@ -107,7 +108,7 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
 
   const updateProject = (patch: Partial<ExecutionProject>) => {
     setProject((previous) => {
-      const next: ExecutionProject = { ...previous, ...patch };
+      const next: ExecutionProject = { ...previous, ...patch, updatedAt: new Date().toISOString() };
       window.localStorage.setItem(storageKey, JSON.stringify(next));
       return next;
     });
