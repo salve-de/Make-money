@@ -4,6 +4,7 @@ import { createBuildSpec } from '@/lib/builder/spec';
 import { loadOwnedIdea } from '@/lib/builder/idea';
 import { getLatestBuildForIdea, publicBuildSession } from '@/lib/builder/session';
 import { getV0ApiKey } from '@/lib/builder/v0';
+import { getBuilderCreditBudget } from '@/lib/builder/budget';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,6 +31,7 @@ export async function GET(request: NextRequest) {
       buildSpec: session?.buildSpec ?? createBuildSpec(idea),
       session: session ? publicBuildSession(session) : null,
       providerConfigured: Boolean(await getV0ApiKey()),
+      budget: await getBuilderCreditBudget(userId),
     });
   } catch (error) {
     console.error('[builder/context] failed:', error);
