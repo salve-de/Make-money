@@ -41,6 +41,7 @@ v0は交換可能な実行providerとして扱う。機会データ・Build Spec
 
 - Make-Moneyが `V0_API_KEY` をserver-side secretとして持ち、生成時のprovider creditsを一旦負担する。
 - `build_sessions.credits_cost` にAPIが返した実消費creditsを累積する。
+- `BUILDER_DAILY_CREDIT_LIMIT` で1ユーザー24時間の実消費creditsに上限をかける。未設定時は5 credits。
 - MVP段階ではユーザーへのcredits販売・請求はまだ実装していない。
 - 本番Hosting、DB、Domain、AI APIなどの継続費をMake-Moneyが無制限に背負う設計にはしない。公開/claim機能を追加する際にユーザー所有へ分離する。
 
@@ -83,7 +84,7 @@ New table: `build_sessions`
 Development:
 
 ```bash
-V0_API_KEY=... pnpm dev
+V0_API_KEY=... BUILDER_DAILY_CREDIT_LIMIT=5 pnpm dev
 ```
 
 Cloudflare production:
