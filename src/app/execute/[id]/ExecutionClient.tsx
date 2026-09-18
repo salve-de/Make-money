@@ -201,26 +201,6 @@ function ExecutionWorkspace({
     }
   };
 
-  const persistProject = async (value: ExecutionProject, signal?: AbortSignal) => {
-    if (!token) throw new Error('Authentication required');
-    const response = await fetch('/api/execution-projects', {
-      method: 'PUT',
-      headers: {
-        Authorization: 'Bearer ' + token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(executionRequestBody(value)),
-      signal,
-    });
-    if (!response.ok) throw new Error('save failed');
-    const data: unknown = await response.json();
-    const saved = data && typeof data === 'object'
-      ? normalizeExecutionProject((data as Record<string, unknown>).project)
-      : null;
-    if (!saved) throw new Error('invalid saved project');
-    return saved;
-  };
-
   const toggleStep = (step: ExecutionStepId) => {
     const completed = new Set(project.completedSteps);
     if (completed.has(step)) completed.delete(step);
@@ -654,6 +634,25 @@ function safeHttpUrl(value: string): string | null {
   } catch {
     return null;
   }
+}
+
+async function persistExecutionProject(token: string, project: ExecutionProject, signal?: AbortSignal) {
+  const response = await fetch('/api/execution-projects', {
+    method: 'PUT',
+    headers: {
+      Authorization: 'Bearer ' + token,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(executionRequestBody(project)),
+    signal,
+  });
+  if (!response.ok) throw new Error('save failed');
+  const data: unknown = await response.json();
+  const saved = data && typeof data === 'object'
+    ? normalizeExecutionProject((data as Record<string, unknown>).project)
+    : null;
+  if (!saved) throw new Error('invalid saved project');
+  return saved;
 }
 
 function executionRequestBody(project: ExecutionProject) {
