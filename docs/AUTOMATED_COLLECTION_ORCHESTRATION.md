@@ -1,14 +1,10 @@
-# DEPRECATED — collection automation moved
+# DEPRECATED — moved to Universal Foundation
 
-Scheduled cross-project collection no longer belongs to the Make-money repository.
+This document is retained only as migration history.
 
 Use:
-
-- repository: `salve-de/universal-foundation`
+- repo: `salve-de/universal-foundation`
 - branch: `automation-research`
-- policy: `staging/automation/collection-policy.v1.json`
-- orchestration: `docs/SCHEDULED_COLLECTION_ORCHESTRATION.md`
+- entrypoint: `docs/scheduled-collection/00_START_HERE.md`
 
-Make-money remains a consumer of Universal Foundation data and may keep product-specific derived views/UI only.
-
-Do not write new BACKFILL / DISCOVERY / MONITOR / EVOLVE / R2 queue artifacts here.
+Do not use Make-Money as the staging destination for reusable scheduled research.
