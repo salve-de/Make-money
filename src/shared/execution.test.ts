@@ -9,6 +9,7 @@ import {
   executionStoragePrefix,
   firstIncompleteStep,
   isExecutionGenerationCurrent,
+  mergeExecutionProjectCopies,
   normalizeExecutionProject,
   type ExecutionProject,
 } from './execution';
@@ -60,6 +61,17 @@ describe('first dollar execution model', () => {
     expect(executionContentEqual(saved, edited)).toBe(false);
     expect(isExecutionGenerationCurrent(saved, 2)).toBe(true);
     expect(isExecutionGenerationCurrent(saved, 3)).toBe(false);
+  });
+
+  it('merges hub copies by revision and only flags genuine stale-local conflicts', () => {
+    const remote2 = { ...base, revision: 2, generation: 0, offerName: 'remote' };
+    const staleSame = { ...remote2, revision: 1 };
+    const staleEdited = { ...remote2, revision: 1, offerName: 'local unsaved' };
+    const sameRevisionEdited = { ...remote2, offerName: 'local unsaved' };
+
+    expect(mergeExecutionProjectCopies(staleSame, remote2)).toEqual({ project: remote2, conflict: false });
+    expect(mergeExecutionProjectCopies(staleEdited, remote2)).toEqual({ project: remote2, conflict: true });
+    expect(mergeExecutionProjectCopies(sameRevisionEdited, remote2)).toEqual({ project: sameRevisionEdited, conflict: false });
   });
 
   it.each([
