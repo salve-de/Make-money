@@ -1,9 +1,11 @@
+import Link from 'next/link';
 import React, { useState } from 'react';
 import {
   ExternalLink,
   FileText,
   Share2,
   Star,
+  Rocket,
   Users,
   X
 } from 'lucide-react';
@@ -123,6 +125,16 @@ export function CompanyHeader({
                 <span className="hidden sm:inline">公式サイト</span>
               </a>
             )}
+
+            <Link
+              href={'/execute/' + encodeURIComponent(entity.id)}
+              onClick={(event) => event.stopPropagation()}
+              className="inline-flex items-center gap-1.5 rounded-md border border-emerald-400/30 bg-emerald-400 px-2.5 py-1.5 text-[10px] font-bold text-zinc-950 transition-colors hover:bg-emerald-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300/80"
+              aria-label={`${entity.name}の稼ぎ方を実行する`}
+            >
+              <Rocket className="h-3 w-3" />
+              <span>この稼ぎ方を実行</span>
+            </Link>
 
             {onToggleBookmark && (
               <button
