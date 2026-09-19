@@ -1,12 +1,12 @@
 {
-  "schema_version": "collection-automation-policy.v1",
-  "status": "DEPRECATED",
-  "deprecated_at": "2026-09-20",
-  "replacement": {
-    "repository": "salve-de/universal-foundation",
+  "schema_version": "deprecated-pointer.v1",
+  "deprecated": true,
+  "moved_at": "2026-09-20",
+  "moved_to": {
+    "repo": "salve-de/universal-foundation",
     "branch": "automation-research",
-    "policy": "staging/automation/collection-policy.v1.json",
-    "orchestration": "docs/SCHEDULED_COLLECTION_ORCHESTRATION.md"
+    "entrypoint": "docs/scheduled-collection/00_START_HERE.md",
+    "policy": "staging/automation/collection-policy.v1.json"
   },
-  "rule": "Do not stage new scheduled collection output in Make-money. Reusable research belongs to Universal Foundation."
+  "note": "Make-Money is a consumer/bootstrap inventory only. Do not stage new reusable scheduled research here."
 }
