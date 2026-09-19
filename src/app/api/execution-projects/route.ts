@@ -86,8 +86,9 @@ export async function GET(req: NextRequest) {
   if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers });
 
   const entityId = req.nextUrl.searchParams.get('entityId')?.trim() || '';
-  if (entityId.length > MAX_ENTITY_ID_LENGTH) {
-    return NextResponse.json({ error: 'Invalid entityId' }, { status: 400, headers });
+  const cursor = req.nextUrl.searchParams.get('cursor')?.trim() || '';
+  if (entityId.length > MAX_ENTITY_ID_LENGTH || cursor.length > MAX_ENTITY_ID_LENGTH) {
+    return NextResponse.json({ error: 'Invalid entityId or cursor' }, { status: 400, headers });
   }
 
   try {
@@ -97,12 +98,18 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ uid: user.uid, project, generation, resetAt }, { headers });
     }
 
-    const projects = await queryD1(
-      SELECT_PROJECT + ' WHERE user_id=? AND generation=? ORDER BY updated_at DESC LIMIT 100',
-      [user.uid, generation],
+    const rows = await queryD1(
+      SELECT_PROJECT
+        + (cursor
+          ? ' WHERE user_id=? AND generation=? AND entity_id>? ORDER BY entity_id ASC LIMIT 101'
+          : ' WHERE user_id=? AND generation=? ORDER BY entity_id ASC LIMIT 101'),
+      cursor ? [user.uid, generation, cursor] : [user.uid, generation],
       parseStoredProject,
     );
-    return NextResponse.json({ uid: user.uid, projects, generation, resetAt }, { headers });
+    const hasMore = rows.length > 100;
+    const projects = rows.slice(0, 100);
+    const nextCursor = hasMore && projects.length ? projects[projects.length - 1].entityId : null;
+    return NextResponse.json({ uid: user.uid, projects, generation, resetAt, hasMore, nextCursor }, { headers });
   } catch {
     return NextResponse.json({ error: '実行プロジェクトを取得できません' }, { status: 503, headers });
   }
