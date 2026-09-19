@@ -1,76 +1,12 @@
 {
   "schema_version": "collection-automation-policy.v1",
-  "updated_at": "2026-09-19",
-  "purpose": "Universal Foundation research staging for current and future products. MAKE MONEY is one consumer, not the storage boundary.",
-  "staging_branch": "automation-research",
-  "source_of_truth": {
-    "collection_docs": [
-      "docs/DATA_COLLECTION_MASTER_GUIDE.md",
-      "docs/MAKE_MONEY_COLLECTION_SCOPE.md"
-    ],
-    "foundation_profile_v2": "salve-de/universal-foundation:registry/collection/business-case.v2.json",
-    "foundation_deep_checklist": "salve-de/universal-foundation:registry/collection/business-case.v1.json",
-    "entity_registry": "data/collected-registry.json",
-    "claim_reservations": "data/CLAIMED_TARGETS.txt"
+  "status": "DEPRECATED",
+  "deprecated_at": "2026-09-20",
+  "replacement": {
+    "repository": "salve-de/universal-foundation",
+    "branch": "automation-research",
+    "policy": "staging/automation/collection-policy.v1.json",
+    "orchestration": "docs/SCHEDULED_COLLECTION_ORCHESTRATION.md"
   },
-  "lanes": {
-    "backfill": {"target_per_run": 25, "path_prefix": "data/automation/backfill"},
-    "discovery": {"target_per_run": 25, "path_prefix": "data/automation/discovery"},
-    "monitor": {"target_per_run": 50, "path_prefix": "data/automation/monitor"},
-    "evolve": {"target_per_run": null, "path_prefix": "data/automation/evolve"},
-    "r2_queue": {"target_per_run": null, "path_prefix": "data/r2-queue"}
-  },
-  "efficiency": {
-    "adaptive_batch_size": true,
-    "max_safe_completed_items_over_nominal_target": true,
-    "deep_research_only_when_valuable": true,
-    "do_not_rescan_all_entities_each_run": true,
-    "priority_order": [
-      "missing critical facts",
-      "stale facts",
-      "weak evidence",
-      "high-value entities",
-      "recent change signals"
-    ]
-  },
-  "rules": [
-    "Fixed fields and the DEEP checklist are minimum search targets, never an allow-list.",
-    "Preserve materially relevant out-of-profile findings as observations.",
-    "Separate Universal facts from product-specific derived analysis.",
-    "Do not coerce missing values to zero.",
-    "Keep reported, observed, estimated, inferred and unknown distinct.",
-    "Keep found, attempted_unavailable, not_attempted, not_applicable and unknown distinct.",
-    "Keep occurred_at, published_at, observed_at and retrieved_at distinct.",
-    "Do not overwrite historical facts with newer values; append new metrics/events/evidence.",
-    "Deduplicate by entity_id, canonical name, aliases and domains before creating new entities.",
-    "Never edit data/entities-index.json from scheduled collection lanes.",
-    "Write one new immutable run artifact per execution.",
-    "Do not store full large raw web bodies in GitHub staging; store compact evidence metadata, extracted facts, source URLs and locators. Raw archival belongs in R2.",
-    "R2/Foundation is the formal source of record after validated ingest."
-  ],
-  "run_artifact": {
-    "file_naming": "data/automation/<lane>/YYYY/MM/DD/YYYYMMDDTHHMMSSZ-<lane>-<run_id>.json",
-    "required_top_level": [
-      "schema_version",
-      "lane",
-      "run_id",
-      "started_at",
-      "finished_at",
-      "policy_version",
-      "inputs",
-      "results",
-      "observations",
-      "coverage",
-      "sources",
-      "r2_status",
-      "errors"
-    ],
-    "r2_status_initial": "PENDING"
-  },
-  "queue_artifact": {
-    "file_naming": "data/r2-queue/YYYY/MM/DD/YYYYMMDDTHHMMSSZ-<run_id>.json",
-    "format": "research-bundle.v1 candidate or array of candidates",
-    "required_state": "VALIDATED_FOR_R2_HANDOFF",
-    "must_include_source_run_refs": true
-  }
+  "rule": "Do not stage new scheduled collection output in Make-money. Reusable research belongs to Universal Foundation."
 }
