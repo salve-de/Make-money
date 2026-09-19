@@ -28,7 +28,7 @@ FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN
 - 実行中一覧: `/execute`
 - 共有モデル: `src/shared/execution.ts`
 - Private API: `/api/execution-projects`
-- D1 migration: `migrations/d1/0008_execution_projects.sql`
+- D1 migrations: `migrations/d1/0008_execution_projects.sql`, `migrations/d1/0009_execution_generations.sql`
 
 既存の `FinancialEntity` にある `essence`, `strategy`, `pricing`, `acquisition`, `lootBlueprint` を読み、ゼロから宿題を作らせるのではなく、元事例で既に判明している勝ち筋・顧客・価格・集客・転用手順を実行画面へ持ち込む。
 
@@ -37,12 +37,13 @@ FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN
 - 未ログイン: ブラウザの anonymous scope の localStorage に即保存。開始時の登録摩擦を作らない。
 - ログイン済み: ブラウザ下書きも Firebase UID ごとに分離し、D1 の `execution_projects` も本人所有として保存する。
 - 「ログインして同期」からログインした場合だけ、編集済み anonymous draft を一時 claim として現在のアカウントへ引き継ぎ、anonymous 側から削除する。別アカウントのローカル下書きは読み込まない。
-- Local と Cloud が両方ある場合: `updatedAt` が新しい方を優先し、古いクラウド状態で新しいローカル下書きを上書きしない。
+- Local と Cloud の優先順位はブラウザ時刻で決めない。D1が発行する `generation`（退会・全消去の世代）と `revision`（案件ごとのCAS版）だけを競合判定に使う。
 - D1 の所有権はサーバーで検証した UID だけを使用し、クライアントから userId を受け取らない。
-- `DELETE /api/user/me` の application-data 削除では `execution_projects` も同一トランザクションで削除し、readback で残存ゼロを確認する。
-- 退会後に古いlocalStorageから消去済み案件が復活しないよう、退会レスポンスでUID単位のHttpOnly reset markerを設定する。次回GETでreset時刻以前のローカル下書きを破棄し、PUT側もreset以前のtimestampを409で拒否する。
-- クラウド保存中にユーザーが追加編集した場合、古い保存レスポンスで新しいlocal draftを上書きしない。送信時timestampと現在のlocal timestampを比較し、後者が新しければdirty状態を維持する。
-- APIのrequest上限は、共有スキーマ上の最大有効入力（20,000文字メモ、2,000文字顧客欄、URL等）がUTF-8多バイト文字でも保存可能な128KiBに合わせる。
+- `DELETE /api/user/me` の application-data 削除では `execution_projects` も同一batchで削除し、同時に `execution_resets` の世代を1つ進める。tombstoneには生UIDではなくSHA-256化owner key、generation、reset時刻だけを残す。
+- 別端末に残った旧世代localStorageは、次回GETで現在generationと不一致なら破棄する。PUTもD1上の現在generationと一致しない旧端末データを409で拒否するため、削除レスポンスが失われても復活しない。
+- 案件保存は `revision` のCompare-And-Swapで行う。同じrevisionから2本のPUTが競合した場合、先に成功した1本だけがrevisionを進め、後着の古いPUTは409になる。
+- クラウド保存中に追加編集された場合は、保存レスポンスと送信時の編集内容を比較し、新しいlocal内容を保持したままserver revisionだけrebaseする。ブラウザ時計は使わない。
+- APIのrequest上限は、共有スキーマ上の最大有効入力がJSONの `\\uXXXX` escapeへ展開される最悪ケースも収まる256KiBとする。
 
 ## First Dollar の定義
 
