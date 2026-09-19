@@ -16,12 +16,13 @@ import {
 } from './text-cleaner';
 
 /**
- * Read-time UI projection only.
+ * Consumer-serving UI projection only.
  *
- * This is deliberately not a Foundation schema and is never written to R2.
- * It turns the records that are already present in a bundle into a small set
- * of useful display signals. Missing facts stay null; this module never fills
- * revenue, margin, price, customers, or other values with defaults.
+ * This is deliberately not a canonical Foundation schema. It may be
+ * materialized under the rebuildable `views/` namespace for fast serving,
+ * while canonical facts remain in their registered Foundation datasets.
+ * Missing facts stay null; this module never fills revenue, margin, price,
+ * customers, or other values with defaults.
  */
 export type FoundationValueTier = 'HIGH_SIGNAL' | 'USEFUL' | 'CANDIDATE';
 
