@@ -8,7 +8,7 @@ import { useAuth } from '@/context/AuthContext';
 import {
   executionProgress,
   executionStoragePrefix,
-  isExecutionProjectAtOrBefore,
+  isExecutionGenerationCurrent,
   normalizeExecutionProject,
   type ExecutionProject,
 } from '@/shared/execution';
@@ -50,12 +50,15 @@ export function ExecutionHubClient() {
         if (!response.ok) throw new Error('load failed');
         const data: unknown = await response.json();
         const record = data && typeof data === 'object' ? data as Record<string, unknown> : {};
-        const resetAt = typeof record.resetAt === 'string' ? record.resetAt : null;
+        const generation = typeof record.generation === 'number' && Number.isSafeInteger(record.generation) && record.generation >= 0
+          ? record.generation
+          : null;
+        if (generation === null) throw new Error('invalid execution generation');
         const rawProjects = Array.isArray(record.projects) ? record.projects : [];
         const projects = rawProjects
           .map(normalizeExecutionProject)
-          .filter((item): item is ExecutionProject => Boolean(item) && !isExecutionProjectAtOrBefore(item, resetAt));
-        if (resetAt) setLocalProjects(readScopedExecutionProjects(storagePrefix, resetAt));
+          .filter((item): item is ExecutionProject => Boolean(item) && isExecutionGenerationCurrent(item, generation));
+        setLocalProjects(readScopedExecutionProjects(storagePrefix, generation));
         setRemoteProjects(projects);
         setRemoteOwnerId(userId);
         setRemoteState('loaded');
@@ -69,13 +72,9 @@ export function ExecutionHubClient() {
   const projects = useMemo(() => {
     const merged = new Map<string, ExecutionProject>();
     const visibleRemoteProjects = remoteOwnerId === userId ? remoteProjects : [];
-    [...localProjects, ...visibleRemoteProjects].forEach((project) => {
-      const current = merged.get(project.entityId);
-      if (!current || (project.updatedAt || '') >= (current.updatedAt || '')) {
-        merged.set(project.entityId, project);
-      }
-    });
-    return [...merged.values()].sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''));
+    visibleRemoteProjects.forEach((project) => merged.set(project.entityId, project));
+    localProjects.forEach((project) => merged.set(project.entityId, project));
+    return [...merged.values()].sort((a, b) => a.sourceName.localeCompare(b.sourceName, 'ja'));
   }, [localProjects, remoteOwnerId, remoteProjects, userId]);
 
   const totalRevenue = projects.reduce((sum, project) => sum + project.revenueJpy, 0);
@@ -177,7 +176,7 @@ function Metric({ label, value }: { label: string; value: string }) {
   );
 }
 
-function readScopedExecutionProjects(storagePrefix: string, resetAt: string | null = null): ExecutionProject[] {
+function readScopedExecutionProjects(storagePrefix: string, generation: number | null = null): ExecutionProject[] {
   const projects: ExecutionProject[] = [];
   const staleKeys: string[] = [];
   for (let index = 0; index < window.localStorage.length; index += 1) {
@@ -187,7 +186,7 @@ function readScopedExecutionProjects(storagePrefix: string, resetAt: string | nu
       const raw = window.localStorage.getItem(key);
       const project = raw ? normalizeExecutionProject(JSON.parse(raw)) : null;
       if (!project) continue;
-      if (isExecutionProjectAtOrBefore(project, resetAt)) staleKeys.push(key);
+      if (generation !== null && !isExecutionGenerationCurrent(project, generation)) staleKeys.push(key);
       else projects.push(project);
     } catch {
       // Ignore broken local drafts instead of blocking the whole hub.
