@@ -8,7 +8,6 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
-  readFoundationBusinessCase,
   readFoundationBusinessCaseCumulative,
   readFoundationHydratedValuePage,
   type FoundationBusinessCase,
