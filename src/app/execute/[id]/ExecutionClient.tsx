@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   Check,
@@ -105,7 +105,7 @@ function ExecutionWorkspace({
   const [project, setProject] = useState<ExecutionProject>(() => createDefaultProject(entity));
   const [saveState, setSaveState] = useState<SaveState>('idle');
 
-  const applySavedProject = (submitted: ExecutionProject, saved: ExecutionProject) => {
+  const applySavedProject = useCallback((submitted: ExecutionProject, saved: ExecutionProject) => {
     const latest = readStoredExecutionProject(storageKey);
     if (latest && !executionContentEqual(latest, submitted)) {
       const rebased: ExecutionProject = {
@@ -122,9 +122,9 @@ function ExecutionWorkspace({
     writeStoredExecutionProject(storageKey, saved);
     setProject(saved);
     setSaveState('saved');
-  };
+  }, [storageKey]);
 
-  const autoPersist = async (candidate: ExecutionProject, signal?: AbortSignal) => {
+  const autoPersist = useCallback(async (candidate: ExecutionProject, signal?: AbortSignal) => {
     setSaveState('saving');
     try {
       const saved = await persistExecutionProject(token as string, candidate, signal);
@@ -146,7 +146,7 @@ function ExecutionWorkspace({
       }
       setSaveState('error');
     }
-  };
+  }, [applySavedProject, entity, storageKey, token]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -257,7 +257,7 @@ function ExecutionWorkspace({
       }
     })();
     return () => controller.abort();
-  }, [claimKey, entity, storageKey, token, userId]);
+  }, [autoPersist, claimKey, entity, storageKey, token, userId]);
 
   const updateProject = (patch: Partial<ExecutionProject>) => {
     setProject((previous) => {
