@@ -140,3 +140,30 @@ export function isExecutionGenerationCurrent(
 ): boolean {
   return Boolean(project && project.generation === generation);
 }
+
+
+export interface ExecutionMergeResult {
+  project: ExecutionProject | null;
+  conflict: boolean;
+}
+
+export function mergeExecutionProjectCopies(
+  local: ExecutionProject | null | undefined,
+  remote: ExecutionProject | null | undefined,
+): ExecutionMergeResult {
+  if (!local && !remote) return { project: null, conflict: false };
+  if (!local) return { project: remote ?? null, conflict: false };
+  if (!remote) return { project: local, conflict: false };
+  if (local.generation !== remote.generation) return { project: remote, conflict: false };
+
+  if (local.revision > remote.revision) return { project: local, conflict: false };
+  if (local.revision === remote.revision) {
+    return executionContentEqual(local, remote)
+      ? { project: remote, conflict: false }
+      : { project: local, conflict: false };
+  }
+
+  return executionContentEqual(local, remote)
+    ? { project: remote, conflict: false }
+    : { project: remote, conflict: true };
+}
