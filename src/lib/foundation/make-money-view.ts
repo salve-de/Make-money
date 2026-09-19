@@ -173,7 +173,7 @@ function mergeById<T extends { id: string }>(older: readonly T[], newer: readonl
   return [...records.values()];
 }
 
-function mergeBusinessCases(
+export function mergeFoundationBusinessCasesForView(
   existing: FoundationBusinessCase,
   incoming: FoundationBusinessCase
 ): FoundationBusinessCase {
@@ -233,7 +233,7 @@ function buildDocument(
   runId: string,
   retrievedAt: string
 ): MakeMoneyViewDocument {
-  const detail = existing ? mergeBusinessCases(existing.detail, incoming) : incoming;
+  const detail = existing ? mergeFoundationBusinessCasesForView(existing.detail, incoming) : incoming;
   const sourceRunIds = uniqueStrings(existing?.source_run_ids, [runId]);
   // The view's aggregate counters reflect the unique source runs accumulated
   // into this projection, not the number of retry attempts.
