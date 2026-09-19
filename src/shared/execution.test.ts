@@ -3,12 +3,12 @@ import { describe, expect, it } from 'vitest';
 import {
   EXECUTION_STEP_IDS,
   MAX_EXECUTION_NOTES_LENGTH,
+  executionContentEqual,
   executionProgress,
   executionStorageKey,
   executionStoragePrefix,
   firstIncompleteStep,
-  isExecutionProjectAtOrBefore,
-  isExecutionProjectNewer,
+  isExecutionGenerationCurrent,
   normalizeExecutionProject,
   type ExecutionProject,
 } from './execution';
@@ -26,6 +26,8 @@ const base: ExecutionProject = {
   checkoutUrl: '',
   revenueJpy: 0,
   notes: '',
+  revision: 0,
+  generation: 0,
 };
 
 describe('first dollar execution model', () => {
@@ -50,13 +52,14 @@ describe('first dollar execution model', () => {
     expect(executionStorageKey('ent-1', 'user-a')).not.toBe(executionStorageKey('ent-1', 'user-b'));
   });
 
-  it('compares reset and in-flight draft timestamps deterministically', () => {
-    const older = { ...base, updatedAt: '2026-09-18T12:00:00.000Z' };
-    const newer = { ...base, updatedAt: '2026-09-18T12:00:01.000Z' };
-    expect(isExecutionProjectAtOrBefore(older, '2026-09-18T12:00:00.000Z')).toBe(true);
-    expect(isExecutionProjectAtOrBefore(newer, '2026-09-18T12:00:00.000Z')).toBe(false);
-    expect(isExecutionProjectNewer(newer, older)).toBe(true);
-    expect(isExecutionProjectNewer(older, newer)).toBe(false);
+  it('compares editable content independently of server revision metadata', () => {
+    const saved = { ...base, revision: 3, generation: 2, updatedAt: '2026-09-18T12:00:00.000Z' };
+    const sameContent = { ...saved, revision: 4, updatedAt: '2026-09-18T12:00:01.000Z' };
+    const edited = { ...sameContent, offerName: 'Changed offer' };
+    expect(executionContentEqual(saved, sameContent)).toBe(true);
+    expect(executionContentEqual(saved, edited)).toBe(false);
+    expect(isExecutionGenerationCurrent(saved, 2)).toBe(true);
+    expect(isExecutionGenerationCurrent(saved, 3)).toBe(false);
   });
 
   it.each([
@@ -69,6 +72,8 @@ describe('first dollar execution model', () => {
     { ...base, checkoutUrl: 'data:text/html,bad' },
     { ...base, notes: 'x'.repeat(MAX_EXECUTION_NOTES_LENGTH + 1) },
     { ...base, updatedAt: 'not-a-date' },
+    { ...base, revision: -1 },
+    { ...base, generation: -1 },
   ])('rejects invalid or unsafe execution state', (value) => {
     expect(normalizeExecutionProject(value)).toBeNull();
   });
