@@ -697,6 +697,30 @@ function collectBundleRecords(bundle: JsonObject, entityId: string, target: Foun
   pushUnique(target.derived, filteredRecords(bundle, 'derived', entityId).map(normalizeDerived).filter((item): item is FoundationDerivedRecord => Boolean(item)));
 }
 
+/**
+ * Build consumer-ready value summaries from one already validated research
+ * bundle without hitting R2. This keeps projection logic identical between
+ * ingestion-time materialization and read-time fallback paths.
+ */
+export function buildFoundationValueSummariesFromBundle(bundleInput: unknown): FoundationValueSummary[] {
+  const bundle = objectValue(bundleInput);
+  if (!bundle || !Array.isArray(bundle.entities)) return [];
+
+  return bundle.entities
+    .map(objectValue)
+    .filter((value): value is JsonObject => Boolean(value))
+    .map(normalizeSummary)
+    .filter((summary): summary is FoundationEntitySummary => Boolean(summary))
+    .map((summary) => {
+      const records = createRecordAccumulator();
+      collectBundleRecords(bundle, summary.id, records);
+      return {
+        ...summary,
+        valueProfile: buildFoundationValueProfile(summary, records),
+      };
+    });
+}
+
 export async function readFoundationBusinessCase(entityId: string): Promise<FoundationBusinessCase | null> {
   if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
   const entityObject = await readJsonObjectWithMetadata(entityKey(entityId));
