@@ -8,6 +8,8 @@
 
 2026-09-12: migration 0004（ニュースレター所有者・匿名解除トークンのハッシュ）と0005（匿名書込みの一時レート制限）を本番D1 `07affd4c-cac4-4998-843c-b5881fccab5e`へ適用した。適用前に全アプリテーブル0行を確認し、事前exportを非公開R2へcreate-only保存した。適用後に「No migrations to apply」、新列・index・`request_rate_limits`表、同表0行を読み戻した。R2保全物は[保存記録](PUBLICATION_RECEIPT.md)を参照。
 
+2026-09-19: First Dollar実行レイヤー用にmigration 0008（`execution_projects`）と0009（server-issued `revision` / `generation`、`execution_resets`）をrepoへ追加した。これはGit上のschema変更であり、この記録だけでは本番D1への適用を意味しない。`execution_projects` はユーザー所有の実行途中データ、`execution_resets` は退会後に別端末の古い下書きが復活することを防ぐ世代tombstoneである。tombstoneの主キーはFirebase UIDそのものではなく一方向SHA-256化した `owner_key` とし、本文・URL・売上・メモ等は保持しない。
+
 2026-09-12: Neon管理APIを読み取り専用で再監査した。接続可能な所有プロジェクトは `Investrader-hub` だけで、Make-MoneyというNeonプロジェクトは存在しなかった。そのDBでMake-Money旧schema名（`businesses`、`business_ideas`、`market_signals`、`saved_items`、`submissions`、`newsletter_subscribers`、`analyst_notes`、`chat_conversations`、`synthesized_ideas`）を照会した結果は0件。`users`等の一般名テーブルには別プロジェクトのデータがあるため、所有境界を証明できないままMake-MoneyのR2へコピーしていない。Neonは引き続きMake-Moneyの実行時保存先にしない。
 
 ## 認証環境の作成状況（2026-09-11）
@@ -24,6 +26,8 @@
 |---|---|---|---|
 | ログイン資格情報 | Firebase Authentication | 認証SDK。サーバーでトークン検証 | パスワードや認証処理を自作しない |
 | ユーザー設定、保存企業、投稿、会話 | プロジェクト専用D1 | 認証済みAPI → 所有者を限定したSQL。構造変更はSQL migration | 更新・検索・整合性制約が必要 |
+| First Dollar実行プロジェクト | プロジェクト専用D1 `execution_projects` | 認証済みAPI。server-issued `generation` と `revision` のCASで保存。匿名開始時だけブラウザlocalStorage | 別端末・同時PUT・ブラウザ時計ずれで新しい編集を失わない |
+| 実行データ削除tombstone | プロジェクト専用D1 `execution_resets` | UIDを直接保存せずSHA-256化した `owner_key` と世代番号・reset時刻だけ保持 | 退会後に他端末の古いlocal draftがD1へ再生成されるのを防ぐ |
 | ニュースレター購読 | プロジェクト専用D1 | 認証済みならUIDを紐付け、匿名なら解除トークンのハッシュだけを保存。解除APIで削除 | メール本文をAPI応答へ返さず、匿名でも本人が削除できる |
 | 決済イベント、購入・返金・利用権 | プロジェクト専用D1 | 署名検証済みStripe webhook → 重複排除・原子的更新 | 二重処理、順序逆転、返金後の権限残存を防ぐ |
 | 課金そのもの | Stripe | サーバーのみ。決済IDをD1で参照 | ブラウザの成功画面やlocalStorageは支払い証明にならない |
@@ -96,7 +100,7 @@ R2は強整合でも、複数レコードをまとめたSQL transactionの代わ
 
 D1には容量等の上限があり、Time Travelにも保持期間があります。長期運用は無制限保存ではなく、計測、世代バックアップ、復元訓練、移行可能性で支えます。[D1上限](https://developers.cloudflare.com/d1/platform/limits/)、[Time Travel](https://developers.cloudflare.com/d1/reference/time-travel/)。復元手順と合成データによる自動演習は [RECOVERY.md](RECOVERY.md) に記載します。本プロジェクトの具体的なRPO/RTO、保持日数、定期バックアップ稼働の確認は未完了です。
 
-アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、`users` 行をD1の一括処理で削除する。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
+アカウント削除は認証済みの `DELETE /api/user/me` で、ブックマーク、メモ、会話、合成アイデア、投稿、紐付いたニュースレター購読、First Dollar実行プロジェクト、`users` 行をD1の一括処理で削除する。同じbatchで `execution_resets` の世代を1つ進める。これにより、削除を実行したブラウザ以外の端末に古いlocalStorageが残っていても、旧generationのPUTをD1が拒否し、削除済み本文を復活させない。`execution_resets` に保持するのは一方向ハッシュ化owner key、generation、reset時刻だけで、実行本文・顧客・URL・売上・メモ・生UIDは保持しない。決済監査に必要な `payment_events` はUIDとfact内のUIDを取り除いて匿名化して残す。レスポンスのscopeは `application_data` で、Firebase Authenticationのアカウント失効・削除までを意味しない。匿名ニュースレターは `DELETE /api/newsletter/subscribe` に一度だけ返した解除トークンを渡して削除する。現在の実装にはユーザー所有R2 objectがないため、添付を追加する場合は所有者キーと削除・バックアップ反映を同じ設計で追加し、孤児objectの定期検査を必須にする。法定保存が必要な決済記録の期間と、その他のデータの具体的な保持日数は運用開始前に決める。
 
 匿名のニュースレター登録と掲載申請には、Cloudflareのクライアント識別子を一方向ハッシュ化したD1の時間窓カウンタを適用する。これは最低限のスパム抑制であり、WAF・Turnstile・分散攻撃への完全な防御を意味しない。実運用の閾値はトラフィックを観測して調整する。
 
