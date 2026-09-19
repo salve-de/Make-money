@@ -18,6 +18,7 @@ export interface ExecutionProject {
   checkoutUrl: string;
   revenueJpy: number;
   notes: string;
+  dirty: boolean;
   revision: number;
   generation: number;
   updatedAt?: string;
@@ -52,9 +53,10 @@ export function normalizeExecutionProject(value: unknown): ExecutionProject | nu
   if (!Array.isArray(row.completedSteps) || row.completedSteps.some((step) => !isExecutionStepId(step))) return null;
   if (!isUrlField(row.buildUrl) || !isUrlField(row.launchUrl) || !isUrlField(row.checkoutUrl)) return null;
   if (typeof row.notes !== 'string' || row.notes.length > MAX_EXECUTION_NOTES_LENGTH) return null;
+  const dirty = row.dirty === undefined ? false : row.dirty;
   const revision = row.revision === undefined ? 0 : row.revision;
   const generation = row.generation === undefined ? 0 : row.generation;
-  if (!isNonNegativeInteger(revision) || !isNonNegativeInteger(generation)) return null;
+  if (typeof dirty !== 'boolean' || !isNonNegativeInteger(revision) || !isNonNegativeInteger(generation)) return null;
   if (row.updatedAt !== undefined && !isIsoDate(row.updatedAt)) return null;
 
   return {
@@ -70,6 +72,7 @@ export function normalizeExecutionProject(value: unknown): ExecutionProject | nu
     checkoutUrl: row.checkoutUrl,
     revenueJpy: row.revenueJpy,
     notes: row.notes,
+    dirty,
     revision,
     generation,
     updatedAt: typeof row.updatedAt === 'string' ? row.updatedAt : undefined,
@@ -91,7 +94,10 @@ function isIsoDate(value: unknown): value is string {
 }
 
 function isUrlField(value: unknown): value is string {
-  if (typeof value !== 'string' || value.length > 2048) return false;
+  return typeof value === 'string' && value.length <= 2048;
+}
+
+export function isValidExecutionHttpUrl(value: string): boolean {
   if (!value.trim()) return true;
   try {
     const url = new URL(value);
@@ -156,13 +162,15 @@ export function mergeExecutionProjectCopies(
   if (!remote) return { project: local, conflict: false };
   if (local.generation !== remote.generation) return { project: remote, conflict: false };
 
-  if (local.revision > remote.revision) return { project: local, conflict: false };
+  if (local.revision > remote.revision) return { project: local, conflict: local.dirty };
   if (local.revision === remote.revision) {
-    return executionContentEqual(local, remote)
-      ? { project: remote, conflict: false }
-      : { project: local, conflict: false };
+    if (executionContentEqual(local, remote)) return { project: remote, conflict: false };
+    return local.dirty
+      ? { project: local, conflict: false }
+      : { project: remote, conflict: false };
   }
 
+  if (!local.dirty) return { project: remote, conflict: false };
   return executionContentEqual(local, remote)
     ? { project: remote, conflict: false }
     : { project: remote, conflict: true };
