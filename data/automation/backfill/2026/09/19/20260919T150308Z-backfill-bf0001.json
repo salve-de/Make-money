@@ -1,0 +1,974 @@
+{
+  "schema_version": "backfill-run.v1",
+  "lane": "backfill",
+  "run_id": "bf0001-20260919T150308Z",
+  "started_at": "2026-09-19T15:01:31Z",
+  "finished_at": "2026-09-19T15:03:08Z",
+  "policy_version": "collection-automation-policy.v1",
+  "inputs": {
+    "policy": "data/automation/collection-policy.v1.json@automation-research",
+    "orchestration": "docs/AUTOMATED_COLLECTION_ORCHESTRATION.md@automation-research",
+    "registry": "data/collected-registry.json@main",
+    "claimed_targets": "data/CLAIMED_TARGETS.txt@main",
+    "foundation_profile": "salve-de/universal-foundation/registry/collection/business-case.v2.json@main",
+    "foundation_deep_checklist": "salve-de/universal-foundation/registry/collection/business-case.v1.json@main",
+    "selection_basis": [
+      "existing registry rows with identity-only/shallow coverage",
+      "high-value or reusable operating-model evidence",
+      "ability to improve missing pricing, revenue, distribution, operations, technology, dependency, and timeline fields with public evidence"
+    ],
+    "selected_entity_ids": [
+      "ent_ebizfacts_stevehanovmultiplesaas10kmonthcheapstack_5425bcdb3286",
+      "ent_ebizfacts_sergeynazarovscreencharm52000macapplifetimed_2808eafdb812",
+      "ent_ebizfacts_philipsergeliusnerdsip3000monthlearningapp_04d68b87aa59",
+      "ent_ebizfacts_petecodesghostwritingfounders10800month_52547c76000c",
+      "ent_ebizfacts_hasaambhattilaunchfast30kmonthamazonresearch_29885fc2b6df",
+      "ent_ebizfacts_orelzilbermanwritestack108kyearsubstacksaas_3a6ee306a069",
+      "ent_ebizfacts_mikestuartgaragefloorcoatings60kthirdmonth_fcb6aeb17849",
+      "ent_ebizfacts_coinsnap400kmonthaicoinidentifierappclones_27de2530f3e3",
+      "ent_ebizfacts_rameshjhawordunscrambler6myearutilitysite_28bc8585ec55",
+      "ent_ebizfacts_willbuttertonatmsidehustle1500month_b2c21669aef2"
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "ent_ebizfacts_stevehanovmultiplesaas10kmonthcheapstack_5425bcdb3286",
+      "entity_name": "Steve Hanov (Micro-SaaS)",
+      "verification_state": "ENRICHED_MULTI_SOURCE",
+      "facts": [
+        {
+          "field": "product",
+          "value": "WebSequenceDiagrams",
+          "fact_type": "observed",
+          "verification": "founder-controlled business site",
+          "source_ref": "src_steve_hanovsolutions"
+        },
+        {
+          "field": "revenue.mrr",
+          "value": 10000,
+          "currency": "USD",
+          "qualifier": "greater_than_or_equal",
+          "period": "monthly recurring revenue",
+          "scope": "WebSequenceDiagrams",
+          "fact_type": "reported",
+          "verification": "founder-controlled business site states $10K+ MRR",
+          "source_ref": "src_steve_hanovsolutions"
+        },
+        {
+          "field": "technology",
+          "value": ["Go", "SQLite", "single VPS"],
+          "scope": "WebSequenceDiagrams",
+          "fact_type": "reported",
+          "verification": "founder-controlled business site",
+          "source_ref": "src_steve_hanovsolutions"
+        },
+        {
+          "field": "hosting_api_costs",
+          "value": 5,
+          "currency": "USD",
+          "period": "monthly",
+          "scope": "WebSequenceDiagrams VPS",
+          "fact_type": "reported",
+          "verification": "founder-controlled business site",
+          "source_ref": "src_steve_hanovsolutions"
+        },
+        {
+          "field": "operations.founder_concentration",
+          "value": "built and run solo for 12 years",
+          "fact_type": "reported",
+          "verification": "founder-controlled business site",
+          "source_ref": "src_steve_hanovsolutions"
+        },
+        {
+          "field": "pricing",
+          "value": {"zwibbler_full_solution_usd": 5999, "zwibbler_graphing_addon_usd": 1999, "license": "perpetual"},
+          "fact_type": "observed",
+          "verification": "live product site",
+          "source_ref": "src_steve_zwibbler"
+        }
+      ],
+      "unresolved": [
+        "Total current MRR across Steve Hanov's entire SaaS portfolio is not authoritatively established in the retained sources.",
+        "Customer counts, churn, CAC, payment fees, and exact take-home profit remain unavailable."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_sergeynazarovscreencharm52000macapplifetimed_2808eafdb812",
+      "entity_name": "Sergey Nazarov (Screen Charm)",
+      "verification_state": "ENRICHED_WITH_VERIFIED_REVENUE",
+      "facts": [
+        {
+          "field": "pricing",
+          "value": 79,
+          "currency": "USD",
+          "billing": "one_time_lifetime",
+          "devices": 3,
+          "refund_days": 14,
+          "observed_at": "2026-09-19T15:03:08Z",
+          "fact_type": "observed",
+          "verification": "official live pricing/terms",
+          "source_ref": "src_screencharm_official"
+        },
+        {
+          "field": "distribution.affiliate_commission",
+          "value": 50,
+          "unit": "percent_of_payment",
+          "fact_type": "observed",
+          "verification": "official site",
+          "source_ref": "src_screencharm_official"
+        },
+        {
+          "field": "revenue.trailing_30d",
+          "value": 3207,
+          "currency": "USD",
+          "period": "last 30 days",
+          "observed_at": "2026-09-19",
+          "fact_type": "observed",
+          "verification": "TrustMRR states Stripe API-key verified",
+          "source_ref": "src_screencharm_trustmrr"
+        },
+        {
+          "field": "revenue.cumulative",
+          "value": 53796,
+          "currency": "USD",
+          "observed_at": "2026-09-15",
+          "fact_type": "observed",
+          "verification": "TrustMRR Stripe-verified snapshot",
+          "source_ref": "src_screencharm_trustmrr"
+        },
+        {
+          "field": "timeline",
+          "value": [
+            {"event": "founded", "date": "2023-07"},
+            {"event": "pivoted_from_chrome_extension_to_native_macos", "date": "2024-12~"},
+            {"event": "paid_version_launched", "date": "2025-04"}
+          ],
+          "fact_type": "reported",
+          "verification": "founder-authored post plus verified-revenue profile",
+          "source_ref": "src_screencharm_founder_post"
+        },
+        {
+          "field": "dependencies.platform",
+          "value": ["macOS 14+", "Apple Silicon"],
+          "fact_type": "observed",
+          "verification": "official site",
+          "source_ref": "src_screencharm_official"
+        }
+      ],
+      "unresolved": [
+        "Current support workload and cloud-sharing infrastructure cost are not disclosed.",
+        "No subscription MRR exists because the current model is lifetime purchase; trailing-30-day sales should not be stored as MRR."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_philipsergeliusnerdsip3000monthlearningapp_04d68b87aa59",
+      "entity_name": "Philip Sergelius (NerdSip)",
+      "verification_state": "ENRICHED_MULTI_SOURCE",
+      "facts": [
+        {
+          "field": "founders",
+          "value": ["Dr. Philip Sergelius", "Dr. Max Hänze"],
+          "fact_type": "observed",
+          "verification": "official about page",
+          "source_ref": "src_nerdsip_about"
+        },
+        {
+          "field": "pricing",
+          "value": {"monthly_eur": 7.99, "annual_eur": 49.99, "trial_days": 7},
+          "observed_at": "2026-09-19T15:03:08Z",
+          "fact_type": "observed",
+          "verification": "official product page",
+          "source_ref": "src_nerdsip_product"
+        },
+        {
+          "field": "timeline.launch",
+          "value": "2026-03",
+          "fact_type": "reported",
+          "verification": "founder interview republished by Indie Hackers",
+          "source_ref": "src_nerdsip_indiehackers"
+        },
+        {
+          "field": "revenue.monthly",
+          "value": 3000,
+          "currency": "USD",
+          "period": "2026-07",
+          "fact_type": "reported",
+          "verification": "founder interview; not independently audited",
+          "source_ref": "src_nerdsip_indiehackers"
+        },
+        {
+          "field": "customers",
+          "value": {"downloads": ">10000", "paying_subscribers": ">100"},
+          "period": "by 2026-07",
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_nerdsip_indiehackers"
+        },
+        {
+          "field": "capital_required",
+          "value": "under $500",
+          "currency": "USD",
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_nerdsip_indiehackers"
+        },
+        {
+          "field": "distribution.current_channel_mix",
+          "value": {"SEO": ">40% of new users", "AI_search_citations": "28%", "TikTok": ">10M views on viral panoramic content"},
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_nerdsip_indiehackers"
+        },
+        {
+          "field": "technology",
+          "value": ["React Native", "Convex", "Google Gemini API"],
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_nerdsip_indiehackers"
+        }
+      ],
+      "unresolved": [
+        "Current September 2026 revenue, churn, gross margin and AI inference cost are not disclosed.",
+        "The exact conversion denominator behind 100+ paying subscribers is not independently verified."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_petecodesghostwritingfounders10800month_52547c76000c",
+      "entity_name": "Pete Codes (Ghostwriter)",
+      "verification_state": "ENRICHED_HISTORICAL_CURRENT_MODEL",
+      "facts": [
+        {
+          "field": "founder_background",
+          "value": "Edinburgh-based founder; full-time entrepreneurship since 2019",
+          "fact_type": "reported",
+          "verification": "founder-owned about page",
+          "source_ref": "src_petecodes_about"
+        },
+        {
+          "field": "product_service_mix",
+          "value": ["X/Twitter ghostwriting", "LinkedIn ghostwriting", "High Signal", "No CS Degree", "SEO services", "newsletter courses"],
+          "fact_type": "observed",
+          "verification": "founder-owned current about page",
+          "source_ref": "src_petecodes_about"
+        },
+        {
+          "field": "revenue.monthly_peak_or_milestone",
+          "value": 10000,
+          "currency": "USD",
+          "period": "2023-07",
+          "qualifier": "first month at or above",
+          "fact_type": "reported",
+          "verification": "founder-owned timeline",
+          "source_ref": "src_petecodes_about"
+        },
+        {
+          "field": "revenue.monthly_range",
+          "value": {"min": 5000, "max": 10000, "currency": "USD"},
+          "period": "reported 2024-10",
+          "fact_type": "reported",
+          "verification": "Indie Hackers founder interview",
+          "source_ref": "src_petecodes_indiehackers"
+        },
+        {
+          "field": "timeline.exit",
+          "value": "Remote Companies sold in 2022-03",
+          "fact_type": "reported",
+          "verification": "founder-owned timeline",
+          "source_ref": "src_petecodes_about"
+        },
+        {
+          "field": "distribution.initial_and_current",
+          "value": ["cold email", "social media", "founder audience"],
+          "fact_type": "reported",
+          "verification": "Indie Hackers interview",
+          "source_ref": "src_petecodes_indiehackers"
+        }
+      ],
+      "unresolved": [
+        "Current 2026 revenue and client count were not found in authoritative public sources.",
+        "The registry title's $10,800 best month is supported only by a secondary syndication snippet in this run and is not promoted above the founder-owned $10K milestone."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_hasaambhattilaunchfast30kmonthamazonresearch_29885fc2b6df",
+      "entity_name": "Hasaam Bhatti (Launch Fast)",
+      "verification_state": "ENRICHED_FOUNDER_INTERVIEW",
+      "facts": [
+        {
+          "field": "revenue.mrr",
+          "value": 30000,
+          "currency": "USD",
+          "period": "2026-06-02 interview",
+          "fact_type": "reported",
+          "verification": "direct founder quotes in Indie Hackers interview",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "timeline.revenue",
+          "value": [
+            {"day": 30, "mrr_usd": 10000},
+            {"day": 60, "mrr_usd_range": [17000, 18000]},
+            {"day": 90, "mrr_usd": 21800},
+            {"date": "2026-06-02", "mrr_usd": 30000}
+          ],
+          "fact_type": "reported",
+          "verification": "direct founder quotes",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "customers",
+          "value": {"active_paying_extension_users": 330},
+          "period": "2026-06-02 interview",
+          "fact_type": "reported",
+          "verification": "direct founder quote",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "pricing",
+          "value": {"starter_monthly_usd": 49, "growth_monthly_usd": 89, "scale_monthly_usd": 199},
+          "period": "2026-06-02 interview/current-at-interview",
+          "fact_type": "reported",
+          "verification": "founder interview; docs changelog corroborates May 2026 pricing",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "distribution.first_customers",
+          "value": "Legacy X partnership; founder traded equity for access to thousands of active Amazon sellers",
+          "fact_type": "reported",
+          "verification": "direct founder quote",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "distribution.current_channels",
+          "value": ["Legacy X partnership", "weekly education sessions", "technical SEO content", "free tools", "Meta ads", "social/outbound experiments"],
+          "fact_type": "reported",
+          "verification": "direct founder interview",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "technology.mvp",
+          "value": ["Cursor", "Vercel", "Supabase", "Resend", "Apify", "TypeScript", "Next.js"],
+          "fact_type": "reported",
+          "verification": "direct founder interview",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "technology.current_direction",
+          "value": ["Cloudflare", "custom crawlers/data layer", "Next.js", "React", "Codex", "Claude Code"],
+          "fact_type": "reported",
+          "verification": "direct founder interview",
+          "source_ref": "src_launchfast_indiehackers"
+        },
+        {
+          "field": "founder_background",
+          "value": "Corporate employee plus operator of two Amazon brands; 10-12 earlier product attempts failed before Launch Fast",
+          "fact_type": "reported",
+          "verification": "direct founder interview",
+          "source_ref": "src_launchfast_indiehackers"
+        }
+      ],
+      "unresolved": [
+        "Legacy X equity percentage/revenue share is undisclosed.",
+        "Current September 2026 MRR is not established by this run; June 2026 $30K MRR is retained as time-scoped history.",
+        "Gross margin, churn, CAC and founder take-home remain unknown."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_orelzilbermanwritestack108kyearsubstacksaas_3a6ee306a069",
+      "entity_name": "Orel Zilberman (WriteStack)",
+      "verification_state": "ENRICHED_CURRENT_PRICING_AND_PLATFORM_RISK",
+      "facts": [
+        {
+          "field": "pricing",
+          "value": {
+            "hobbyist_monthly_usd": 19.99,
+            "standard_monthly_usd": 24.99,
+            "enterprise_monthly_usd": 79.99,
+            "trial_days": 7,
+            "annual_billing_available": true
+          },
+          "observed_at": "2026-09-19T15:03:08Z",
+          "fact_type": "observed",
+          "verification": "official live pricing",
+          "source_ref": "src_writestack_official"
+        },
+        {
+          "field": "revenue.annual",
+          "value": 100000,
+          "currency": "USD",
+          "qualifier": "six_figures_at_or_above",
+          "period": "reported by 2026-04 interview",
+          "fact_type": "reported",
+          "verification": "founder interview/podcast transcript",
+          "source_ref": "src_writestack_interview"
+        },
+        {
+          "field": "founder_background",
+          "value": "Quit a six-figure software job in 2023-08; spent 600+ days on failed attempts/pivots before WriteStack traction",
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_writestack_interview"
+        },
+        {
+          "field": "timeline.pivot",
+          "value": "Initial AI article generator MVP built in two weeks; first real user redirected focus to Substack Notes; product pivoted accordingly",
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_writestack_interview"
+        },
+        {
+          "field": "distribution.first_customers",
+          "value": "hundreds of direct messages and direct user feedback; first paying customer named Casper",
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_writestack_interview"
+        },
+        {
+          "field": "dependencies.platform",
+          "value": "Substack",
+          "fact_type": "observed",
+          "verification": "official product positioning and interview",
+          "source_ref": "src_writestack_official"
+        },
+        {
+          "field": "timeline.platform_risk_event",
+          "value": "When Substack released a native scheduler, founder reported 30-40 unsubscribes over a few days",
+          "fact_type": "reported",
+          "verification": "founder interview",
+          "source_ref": "src_writestack_interview"
+        }
+      ],
+      "unresolved": [
+        "Exact current ARR/MRR, churn and subscriber count are not independently verified.",
+        "Revenue concentration across pricing tiers and platform-policy exposure remain unknown."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_mikestuartgaragefloorcoatings60kthirdmonth_fcb6aeb17849",
+      "entity_name": "Mike Stuart (Old Cap Coatings)",
+      "verification_state": "ENRICHED_DETAILED_UNIT_ECONOMICS",
+      "facts": [
+        {
+          "field": "identity.company",
+          "value": "Old Cap Coatings",
+          "fact_type": "observed",
+          "verification": "official site",
+          "source_ref": "src_oldcap_official"
+        },
+        {
+          "field": "founders",
+          "value": ["Mike Stuart", "Luke Stuart", "Zane Douglas", "Jace Ruffner"],
+          "fact_type": "observed",
+          "verification": "official site",
+          "source_ref": "src_oldcap_official"
+        },
+        {
+          "field": "timeline.founded",
+          "value": 2025,
+          "fact_type": "observed",
+          "verification": "official site",
+          "source_ref": "src_oldcap_official"
+        },
+        {
+          "field": "pricing",
+          "value": {"coating_usd_per_sqft": 8, "garage_item_moving_usd_per_sqft": 1},
+          "observed_at": "2026-09-19T15:03:08Z",
+          "fact_type": "observed",
+          "verification": "official site",
+          "source_ref": "src_oldcap_official"
+        },
+        {
+          "field": "revenue.monthly",
+          "value": 60000,
+          "currency": "USD",
+          "period": "2026-04",
+          "fact_type": "reported",
+          "verification": "founder podcast transcript; not audited",
+          "source_ref": "src_oldcap_podcast_transcript"
+        },
+        {
+          "field": "revenue.next_month_projection",
+          "value": 69000,
+          "currency": "USD",
+          "period": "2026-05 projected at interview",
+          "fact_type": "reported",
+          "verification": "founder podcast transcript; projection not observed actual",
+          "source_ref": "src_oldcap_podcast_transcript"
+        },
+        {
+          "field": "economics.material_cost",
+          "value": 2.06,
+          "currency": "USD",
+          "unit": "per_sqft",
+          "composition": {"core_layers": 1.56, "misc_install_materials_and_shipping": 0.50},
+          "fact_type": "reported",
+          "verification": "founder podcast transcript",
+          "source_ref": "src_oldcap_podcast_transcript"
+        },
+        {
+          "field": "economics.monthly_overhead_ex_labor",
+          "value": 7300,
+          "currency": "USD",
+          "components": ["advertising", "shop", "insurance", "vehicle gas", "other non-labor overhead"],
+          "fact_type": "reported",
+          "verification": "founder podcast transcript",
+          "source_ref": "src_oldcap_podcast_transcript"
+        },
+        {
+          "field": "distribution.current_channels",
+          "value": ["Facebook/Meta ads", "word of mouth", "$200 referral program"],
+          "fact_type": "reported_and_observed",
+          "verification": "podcast plus official site",
+          "source_ref": "src_oldcap_official"
+        }
+      ],
+      "unresolved": [
+        "Labor cost, tax, owner distributions and audited net margin are unknown.",
+        "The $69K May figure was a projection at interview time and must not be stored as realized revenue without later confirmation."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_coinsnap400kmonthaicoinidentifierappclones_27de2530f3e3",
+      "entity_name": "CoinSnap (AI Coin Identifier App)",
+      "verification_state": "ENRICHED_ESTIMATE_SEPARATED_FROM_FACT",
+      "facts": [
+        {
+          "field": "identity.developer",
+          "value": "Next Vision Limited",
+          "fact_type": "observed",
+          "verification": "Apple App Store",
+          "source_ref": "src_coinsnap_appstore"
+        },
+        {
+          "field": "product",
+          "value": "Coin identification, valuation guidance, and collection organization app",
+          "fact_type": "observed",
+          "verification": "Apple App Store",
+          "source_ref": "src_coinsnap_appstore"
+        },
+        {
+          "field": "customers.social_proof",
+          "value": {"app_store_ratings_us": 301000, "rating": 4.7, "category_rank": "#7 Reference"},
+          "observed_at": "2026-09",
+          "fact_type": "observed",
+          "verification": "Apple App Store snapshot",
+          "source_ref": "src_coinsnap_appstore"
+        },
+        {
+          "field": "product.claimed_database_and_accuracy",
+          "value": {"coin_types": ">300000", "recognition_accuracy_percent": 99},
+          "fact_type": "reported",
+          "verification": "developer claims in App Store listing; accuracy not independently validated",
+          "source_ref": "src_coinsnap_appstore"
+        },
+        {
+          "field": "revenue.monthly_estimate",
+          "value": 500000,
+          "currency": "USD",
+          "period": "2026-09",
+          "fact_type": "estimated",
+          "verification": "third-party AppRank estimate, not company-reported actual",
+          "source_ref": "src_coinsnap_apprank"
+        },
+        {
+          "field": "downloads.monthly_estimate",
+          "value": 200000,
+          "period": "2026-09",
+          "fact_type": "estimated",
+          "verification": "third-party AppRank estimate",
+          "source_ref": "src_coinsnap_apprank"
+        }
+      ],
+      "unresolved": [
+        "Actual revenue, paid subscriber count, churn, gross margin and acquisition spend are not publicly verified.",
+        "Third-party revenue estimates vary materially across trackers; $500K/month is retained strictly as an estimate, not reported revenue."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_rameshjhawordunscrambler6myearutilitysite_28bc8585ec55",
+      "entity_name": "Ramesh Jha (WordUnscrambler.me)",
+      "verification_state": "ENRICHED_TRAFFIC_AND_MONETIZATION_WITH_ESTIMATE_WARNING",
+      "facts": [
+        {
+          "field": "timeline.founded",
+          "value": 2014,
+          "context": "weekend project",
+          "fact_type": "reported",
+          "verification": "founder-owned about page",
+          "source_ref": "src_wordunscrambler_about"
+        },
+        {
+          "field": "customers.traffic",
+          "value": "millions of users each month",
+          "fact_type": "reported",
+          "verification": "founder-owned about page",
+          "source_ref": "src_wordunscrambler_about"
+        },
+        {
+          "field": "business_model",
+          "value": "display advertising with intentionally light ad load",
+          "detail": "founder states one to two ad units per page, no sticky units or popups",
+          "fact_type": "reported",
+          "verification": "founder-owned about page",
+          "source_ref": "src_wordunscrambler_about"
+        },
+        {
+          "field": "technology",
+          "value": ["Debian/Ubuntu/Linux", "GNU utilities", "Sinatra", "Rails", "other FOSS"],
+          "fact_type": "reported",
+          "verification": "founder-owned about page",
+          "source_ref": "src_wordunscrambler_about"
+        },
+        {
+          "field": "profit_use",
+          "value": "profits fund Samyak Foundation and Samyak Library in founder's village",
+          "fact_type": "reported",
+          "verification": "founder-owned about page",
+          "source_ref": "src_wordunscrambler_about"
+        },
+        {
+          "field": "revenue.annual_estimate_range",
+          "value": {"min": 1000000, "max": 6000000, "currency": "USD"},
+          "fact_type": "estimated",
+          "verification": "eBizFacts explicitly labels range as estimates depending on ad-rate assumptions",
+          "source_ref": "src_wordunscrambler_ebizfacts"
+        },
+        {
+          "field": "traffic.search_estimate",
+          "value": 3200000,
+          "unit": "search_visits_per_month",
+          "period": "2026-08",
+          "fact_type": "estimated",
+          "verification": "third-party Ahrefs-derived tracker estimate",
+          "source_ref": "src_wordunscrambler_traffic"
+        }
+      ],
+      "unresolved": [
+        "Actual revenue is unknown; the registry's $6M/year label must remain an estimate unless first-party or payment-verified evidence appears.",
+        "Exact pageview denominator, RPM, hosting cost, team size and current net profit are not publicly established."
+      ]
+    },
+    {
+      "entity_id": "ent_ebizfacts_willbuttertonatmsidehustle1500month_b2c21669aef2",
+      "entity_name": "Will Butterton (ATM Route Operator)",
+      "verification_state": "ENRICHED_FOUNDER_INTERVIEW",
+      "facts": [
+        {
+          "field": "identity.company",
+          "value": "Viking Vendors LLC",
+          "fact_type": "reported",
+          "verification": "Side Hustle Nation interview summary",
+          "source_ref": "src_will_sidehustle"
+        },
+        {
+          "field": "operations.asset_count",
+          "value": 5,
+          "unit": "ATMs",
+          "fact_type": "reported",
+          "verification": "Side Hustle Nation interview summary",
+          "source_ref": "src_will_sidehustle"
+        },
+        {
+          "field": "revenue_or_profit.monthly",
+          "value": 1500,
+          "currency": "USD",
+          "period": "2026-05 interview",
+          "label_from_source": "side income",
+          "fact_type": "reported",
+          "verification": "Side Hustle Nation headline/interview summary",
+          "source_ref": "src_will_sidehustle"
+        },
+        {
+          "field": "workload",
+          "value": 1,
+          "unit": "hour_per_week",
+          "fact_type": "reported",
+          "verification": "Side Hustle Nation interview summary",
+          "source_ref": "src_will_sidehustle"
+        },
+        {
+          "field": "founders",
+          "value": "Will Butterton plus childhood friend/business partner",
+          "fact_type": "reported",
+          "verification": "Side Hustle Nation interview summary",
+          "source_ref": "src_will_sidehustle"
+        },
+        {
+          "field": "capital_required.estimate",
+          "value": 5000,
+          "currency": "USD",
+          "unit": "per_machine_including_cash_stock_and_reserves",
+          "fact_type": "estimated",
+          "verification": "secondary analysis derived from Butterton case; retain as estimate only",
+          "source_ref": "src_will_secondary"
+        },
+        {
+          "field": "distribution.location_acquisition",
+          "value": "finding and pitching viable locations is described as the hardest step",
+          "fact_type": "reported",
+          "verification": "interview episode description",
+          "source_ref": "src_will_sidehustle"
+        }
+      ],
+      "unresolved": [
+        "Source language alternates between side income and profit; exact accounting definition of the $1,500/month figure is not established.",
+        "A secondary summary mentions five ATMs plus three vending machines around the same income figure, so ATM-only contribution should be reconciled from the full primary interview before DEEP_RECONCILED status."
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "observation_id": "obs_bf0001_distribution_before_build",
+      "subject_entity_id": "ent_ebizfacts_hasaambhattilaunchfast30kmonthamazonresearch_29885fc2b6df",
+      "type": "material_out_of_profile_insight",
+      "value": "A pre-committed distribution partner materially changed Launch Fast's time-to-revenue: the founder mapped partner workflows before coding, traded equity for access, and launched directly into a trusted audience. The 48-hour build is therefore not an isolated causal explanation for growth.",
+      "fact_type": "inferred_from_reported_sequence",
+      "verification": "supported by direct founder interview",
+      "source_refs": ["src_launchfast_indiehackers"]
+    },
+    {
+      "observation_id": "obs_bf0001_lifetime_sales_not_mrr",
+      "subject_entity_id": "ent_ebizfacts_sergeynazarovscreencharm52000macapplifetimed_2808eafdb812",
+      "type": "metric_semantics",
+      "value": "Screen Charm's lifetime-license model has recurring-looking monthly sales but no subscription MRR. Foundation should preserve trailing-period revenue separately from MRR to avoid semantic corruption.",
+      "fact_type": "inferred",
+      "verification": "official lifetime pricing plus TrustMRR no-active-subscriptions snapshot",
+      "source_refs": ["src_screencharm_official", "src_screencharm_trustmrr"]
+    },
+    {
+      "observation_id": "obs_bf0001_estimate_conflict",
+      "subject_entity_id": "ent_ebizfacts_coinsnap400kmonthaicoinidentifierappclones_27de2530f3e3",
+      "type": "estimate_conflict",
+      "value": "CoinSnap revenue is widely estimated by app-intelligence sites but not publicly verified by the operator. Estimates should remain a separate metric class and must not overwrite company-reported revenue fields.",
+      "fact_type": "observed_methodological_issue",
+      "verification": "multiple third-party estimates differ materially",
+      "source_refs": ["src_coinsnap_apprank", "src_coinsnap_appstore"]
+    },
+    {
+      "observation_id": "obs_bf0001_platform_dependency",
+      "subject_entity_id": "ent_ebizfacts_orelzilbermanwritestack108kyearsubstacksaas_3a6ee306a069",
+      "type": "dependency_risk_event",
+      "value": "Substack shipping a native scheduler produced an immediate reported unsubscribe shock for WriteStack. This is direct evidence that platform feature convergence is a business risk distinct from generic competition.",
+      "fact_type": "reported",
+      "verification": "founder interview",
+      "source_refs": ["src_writestack_interview"]
+    }
+  ],
+  "coverage": {
+    "entities_attempted": 10,
+    "entities_with_material_updates": 10,
+    "entities_with_primary_or_founder_controlled_sources": 9,
+    "entities_with_revenue_or_income_update": 10,
+    "entities_with_pricing_update": 6,
+    "entities_with_distribution_update": 6,
+    "entities_with_technology_update": 5,
+    "entities_with_explicit_unresolved_fields": 10,
+    "deep_reconciled": 0,
+    "completion_label": "ENRICHED_PARTIAL",
+    "note": "Run intentionally stopped at ten well-supported enrichments rather than forcing the nominal 25 with weaker evidence. All ten remain below DEEP_RECONCILED because source inventories and full 91-field reconciliation were not completed."
+  },
+  "sources": [
+    {
+      "source_ref": "src_steve_hanovsolutions",
+      "url": "https://www.hanovsolutions.com/",
+      "publisher": "Steve Hanov / Hanov Solutions",
+      "source_type": "founder_controlled",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_steve_zwibbler",
+      "url": "https://zwibbler.com/",
+      "publisher": "Zwibbler",
+      "source_type": "official_product_site",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_screencharm_official",
+      "url": "https://screencharm.com/",
+      "publisher": "Screen Charm",
+      "source_type": "official_product_site",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_screencharm_trustmrr",
+      "url": "https://trustmrr.com/startup/screen-charm",
+      "publisher": "TrustMRR",
+      "source_type": "third_party_payment_verified_profile",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_screencharm_founder_post",
+      "url": "https://medium.com/@sergeynazarov92/i-built-a-screen-recording-app-made-30k-and-almost-destroyed-my-marriage-9d987dcfaa41",
+      "publisher": "Sergey Nazarov",
+      "source_type": "founder_authored_post",
+      "published_at": "2026-04-24",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_nerdsip_about",
+      "url": "https://nerdsip.com/about/",
+      "publisher": "NerdSip",
+      "source_type": "official_product_site",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_nerdsip_product",
+      "url": "https://nerdsip.com/",
+      "publisher": "NerdSip",
+      "source_type": "official_product_site",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_nerdsip_indiehackers",
+      "url": "https://www.indiehackers.com/post/bootstrapping-brainpower-inside-nerdsips-organic-rise-to-10k-downloads-2f44bb40a4",
+      "publisher": "Indie Hackers",
+      "source_type": "founder_interview_republication",
+      "published_at": "2026-08-11",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_petecodes_about",
+      "url": "https://www.petecodes.io/about/",
+      "publisher": "Pete Codes",
+      "source_type": "founder_controlled",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_petecodes_indiehackers",
+      "url": "https://www.indiehackers.com/post/services/pete-codes-quit-the-worst-job-imaginable-to-build-a-business-to-10k-mo-with-zero-experience-NtHpkHyS3ndCDp976f8B",
+      "publisher": "Indie Hackers",
+      "source_type": "founder_interview",
+      "published_at": "2024-10-03",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_launchfast_indiehackers",
+      "url": "https://www.indiehackers.com/post/tech/building-a-product-in-48-hours-and-hitting-30k-mrr-as-a-non-technical-founder-wWtWIH5tmwASUbxKaLT9",
+      "publisher": "Indie Hackers",
+      "source_type": "direct_founder_interview",
+      "published_at": "2026-06-02",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_writestack_official",
+      "url": "https://www.writestack.io/",
+      "publisher": "WriteStack",
+      "source_type": "official_product_site",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_writestack_interview",
+      "url": "https://newsletter.thesobercreative.com/p/episode-047-from-a-12-hour-gaming",
+      "publisher": "Clear Conversations / The Sober Creative",
+      "source_type": "founder_interview_transcript",
+      "published_at": "2026-04-04",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_oldcap_official",
+      "url": "https://www.oldcapcoatings.com/",
+      "publisher": "Old Cap Coatings",
+      "source_type": "official_business_site",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_oldcap_podcast_transcript",
+      "url": "https://ainotes.us/summary/703",
+      "publisher": "AINotes transcript of The Koerner Office interview",
+      "source_type": "third_party_transcript_of_founder_interview",
+      "published_at": "2026-06-07",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_coinsnap_appstore",
+      "url": "https://apps.apple.com/us/app/coinsnap-coin-identifier/id1634551626",
+      "publisher": "Apple App Store / Next Vision Limited",
+      "source_type": "official_store_listing",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_coinsnap_apprank",
+      "url": "https://apprank.io/coinsnap-coin-identifier",
+      "publisher": "AppRank",
+      "source_type": "third_party_estimate",
+      "published_at": "2026-08~",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_wordunscrambler_about",
+      "url": "https://wordunscrambler.me/about",
+      "publisher": "WordUnscrambler.me / Ramesh Jha",
+      "source_type": "founder_controlled",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_wordunscrambler_ebizfacts",
+      "url": "https://ebizfacts.beehiiv.com/p/ebiz-insider-newsletter-574",
+      "publisher": "eBiz Facts",
+      "source_type": "secondary_estimate_and_case_summary",
+      "published_at": "2026-08~",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_wordunscrambler_traffic",
+      "url": "https://ahrefstop.com/websites/wordunscrambler.me",
+      "publisher": "AhrefsTop",
+      "source_type": "third_party_traffic_estimate",
+      "period": "2026-08",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_will_sidehustle",
+      "url": "https://www.sidehustlenation.com/how-to-start-an-atm-business/",
+      "publisher": "Side Hustle Nation",
+      "source_type": "founder_interview",
+      "published_at": "2026-05-28",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    },
+    {
+      "source_ref": "src_will_secondary",
+      "url": "https://www.ainvest.com/news/atms-outperform-vending-machines-maintenance-high-cash-flow-passive-income-play-2603/",
+      "publisher": "AInvest",
+      "source_type": "secondary_case_analysis",
+      "published_at": "2026-03~",
+      "retrieved_at": "2026-09-19T15:03:08Z",
+      "rights_state": "link_only_no_raw_archival"
+    }
+  ],
+  "r2_status": "PENDING",
+  "errors": [
+    {
+      "type": "coverage_limit",
+      "message": "Nominal target was 25 entities, but this run saved 10 high-confidence enrichments. Expanding to 25 within the run would have required accepting materially weaker source quality or shallow copy-forward research."
+    },
+    {
+      "type": "source_access",
+      "message": "Side Hustle Nation full article returned bot verification on direct open; structured search result and syndicated episode metadata were retained, and ambiguous accounting semantics were explicitly marked unresolved."
+    },
+    {
+      "type": "estimate_quality",
+      "message": "CoinSnap and WordUnscrambler public revenue figures are largely third-party estimates. They were retained only as estimated metrics and not promoted to reported/observed revenue."
+    }
+  ]
+}
