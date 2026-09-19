@@ -12,6 +12,7 @@ import {
   R2ConfigurationError,
   R2ObjectConflictError,
 } from '@/lib/storage/r2';
+import { materializeMakeMoneyViews } from '@/lib/foundation/make-money-view';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 
 export const runtime = 'nodejs';
@@ -63,7 +64,37 @@ export async function POST(request: NextRequest) {
 
   try {
     const report = await ingestFoundationResearch(body);
-    return NextResponse.json({ success: true, ...report });
+    try {
+      const viewProjection = await materializeMakeMoneyViews(body.bundle);
+      return NextResponse.json({
+        success: true,
+        ...report,
+        view_projection: {
+          status: 'PASS',
+          ...viewProjection,
+        },
+      });
+    } catch (projectionError) {
+      // Canonical Foundation writes are create-only and may already have
+      // succeeded. Return a retryable partial failure so the publisher retries;
+      // canonical re-ingest is idempotent and the rebuildable view can then be
+      // materialized without rewriting the source-of-record objects.
+      console.error('Make-Money view projection failed after Foundation ingestion:', projectionError);
+      return NextResponse.json(
+        {
+          success: false,
+          partial: true,
+          ...report,
+          view_projection: {
+            status: 'FAILED',
+            error: projectionError instanceof Error
+              ? projectionError.message
+              : 'Make-Money view projection failed',
+          },
+        },
+        { status: 502 }
+      );
+    }
   } catch (error) {
     console.error('Foundation ingestion failed:', error);
     return NextResponse.json(
