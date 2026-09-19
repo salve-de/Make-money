@@ -754,6 +754,109 @@ export async function putR2ObjectCreateOnly(input: R2ObjectInput): Promise<R2Wri
   };
 }
 
+export interface R2MutableViewWriteResult {
+  status: 'CREATED' | 'UPDATED' | 'UNCHANGED';
+  bucket: string;
+  key: string;
+  bytes: number;
+  sha256: string;
+  readback: {
+    bytes_match: boolean;
+    sha256_match: boolean;
+  };
+}
+
+/**
+ * Rebuildable consumer views only.
+ *
+ * Canonical Foundation objects remain create-only. This helper deliberately
+ * permits replacement only below the `views/` prefix so product-serving
+ * projections can be regenerated when newer facts arrive.
+ */
+export async function putR2MutableView(input: R2ObjectInput): Promise<R2MutableViewWriteResult> {
+  const bucket = input.bucket.trim();
+  const key = input.key.trim();
+  if (!bucket || !key) {
+    throw new R2ConfigurationError('An exact R2 bucket and key are required');
+  }
+  if (bucket === 'universal') {
+    throw new R2ConfigurationError('Legacy universal cannot be a Foundation R2 target');
+  }
+  if (!key.startsWith('views/')) {
+    throw new R2ConfigurationError('Mutable writes are restricted to rebuildable views/ keys');
+  }
+
+  const body = toBytes(input.body);
+  const sha256 = await sha256Hex(body);
+  const backend = await resolveR2Backend(bucket);
+  await assertR2BucketAvailableWithBackend(bucket, backend);
+
+  const existing = await readR2ObjectWithBackend(bucket, key, backend);
+  if (existing) {
+    const existingSha256 = await sha256Hex(existing.body);
+    if (existingSha256 === sha256) {
+      return {
+        status: 'UNCHANGED',
+        bucket,
+        key,
+        bytes: body.byteLength,
+        sha256,
+        readback: { bytes_match: true, sha256_match: true },
+      };
+    }
+  }
+
+  if (backend.kind === 'binding') {
+    await backend.binding.put(key, body, {
+      httpMetadata: { contentType: input.contentType },
+      customMetadata: {
+        ...input.metadata,
+        'foundation-sha256': sha256,
+        'foundation-view-rebuildable': 'true',
+      },
+    });
+  } else {
+    await backend.client.send(
+      new PutObjectCommand({
+        Bucket: bucket,
+        Key: key,
+        Body: body,
+        ContentLength: body.byteLength,
+        ContentType: input.contentType,
+        Metadata: {
+          ...input.metadata,
+          'foundation-sha256': sha256,
+          'foundation-view-rebuildable': 'true',
+        },
+      })
+    );
+  }
+
+  const readback = await readR2ObjectWithBackend(bucket, key, backend);
+  if (!readback) {
+    throw new R2ReadbackVerificationError(bucket, key, 'view object was not found after PutObject');
+  }
+  const readbackSha256 = await sha256Hex(readback.body);
+  const bytesMatch = readback.body.byteLength === body.byteLength;
+  const sha256Match = readbackSha256 === sha256;
+  if (!bytesMatch || !sha256Match) {
+    throw new R2ReadbackVerificationError(
+      bucket,
+      key,
+      `bytes_match=${bytesMatch}, sha256_match=${sha256Match}`
+    );
+  }
+
+  return {
+    status: existing ? 'UPDATED' : 'CREATED',
+    bucket,
+    key,
+    bytes: body.byteLength,
+    sha256,
+    readback: { bytes_match: bytesMatch, sha256_match: sha256Match },
+  };
+}
+
 /**
  * 既存の汎用呼び出しとの互換用。未設定時にモック成功を返さない。
  * Foundation取り込みではputR2ObjectCreateOnlyを直接使う。
