@@ -106,7 +106,7 @@ function ExecutionWorkspace({
   const [project, setProject] = useState<ExecutionProject>(() => createDefaultProject(entity));
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const [conflictProject, setConflictProject] = useState<ExecutionProject | null>(null);
-  const [generationHydrated, setGenerationHydrated] = useState(!token);
+  const [generationHydrated, setGenerationHydrated] = useState(!userId);
 
   const applySavedProject = useCallback((submitted: ExecutionProject, saved: ExecutionProject) => {
     const latest = readStoredExecutionProject(storageKey);
@@ -299,7 +299,7 @@ function ExecutionWorkspace({
   }, [autoPersist, claimKey, entity, storageKey, token, userId]);
 
   const updateProject = (patch: Partial<ExecutionProject>) => {
-    if (token && !generationHydrated) return;
+    if (userId && !generationHydrated) return;
     setProject((previous) => {
       const next: ExecutionProject = { ...previous, ...patch, dirty: true };
       writeStoredExecutionProject(storageKey, next);
@@ -322,7 +322,7 @@ function ExecutionWorkspace({
   };
 
   const toggleStep = (step: ExecutionStepId) => {
-    if (token && !generationHydrated) return;
+    if (userId && !generationHydrated) return;
     const completed = new Set(project.completedSteps);
     if (completed.has(step)) completed.delete(step);
     else completed.add(step);
@@ -405,7 +405,7 @@ function ExecutionWorkspace({
     }
   };
 
-  const editingDisabled = Boolean(token) && !generationHydrated;
+  const editingDisabled = Boolean(userId) && !generationHydrated;
   const progress = executionProgress(project);
   const currentStep = firstIncompleteStep(project);
   const blueprint = entity.lootBlueprint;
