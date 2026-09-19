@@ -11,10 +11,11 @@ import {
   Cpu, 
   Handshake,
   KeyRound,
-  Bookmark
+  Bookmark,
+  Rocket
 } from 'lucide-react';
 
-export type GlobalNavSection = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS' | 'PARTNERS' | 'WELCOME';
+export type GlobalNavSection = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS' | 'EXECUTION' | 'PARTNERS' | 'WELCOME';
 
 interface GlobalHeaderProps {
   currentSection?: GlobalNavSection;
@@ -40,6 +41,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   // 現在のアクティブセクションを特定（props優先、なければURLから推定）
   const activeSection: GlobalNavSection = currentSection || (() => {
     if (pathname === '/partners') return 'PARTNERS';
+    if (pathname?.startsWith('/execute')) return 'EXECUTION';
     if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
     if (pathname?.startsWith('/radar')) return 'RADAR';
     if (pathname === '/welcome') return 'WELCOME';
@@ -81,6 +83,13 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       enLabel: 'Synthesis',
       href: '/?mode=SYNTHESIS',
       icon: Cpu,
+    },
+    {
+      id: 'EXECUTION' as const,
+      label: '実行中',
+      enLabel: 'Execute',
+      href: '/execute',
+      icon: Rocket,
     },
     {
       id: 'PARTNERS' as const,

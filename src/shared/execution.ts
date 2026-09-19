@@ -1,0 +1,177 @@
+export const EXECUTION_STEP_IDS = ['FIND', 'BUILD', 'LIST', 'DISTRIBUTE', 'SELL', 'EARN'] as const;
+export const MAX_EXECUTION_NOTES_LENGTH = 20_000;
+const EXECUTION_STORAGE_ROOT = 'makemoney.execution.';
+const EXECUTION_CLAIM_ROOT = 'makemoney.execution.claim.';
+
+export type ExecutionStepId = (typeof EXECUTION_STEP_IDS)[number];
+
+export interface ExecutionProject {
+  entityId: string;
+  sourceName: string;
+  offerName: string;
+  targetCustomer: string;
+  targetPriceJpy: number;
+  firstDollarTargetJpy: number;
+  completedSteps: ExecutionStepId[];
+  buildUrl: string;
+  launchUrl: string;
+  checkoutUrl: string;
+  revenueJpy: number;
+  notes: string;
+  dirty: boolean;
+  revision: number;
+  generation: number;
+  updatedAt?: string;
+}
+
+export interface ExecutionProjectInput extends Omit<ExecutionProject, 'updatedAt'> {
+  updatedAt?: string;
+}
+
+export function isExecutionStepId(value: unknown): value is ExecutionStepId {
+  return typeof value === 'string' && EXECUTION_STEP_IDS.includes(value as ExecutionStepId);
+}
+
+export function executionProgress(project: Pick<ExecutionProject, 'completedSteps'>): number {
+  const unique = new Set(project.completedSteps.filter(isExecutionStepId));
+  return Math.round((unique.size / EXECUTION_STEP_IDS.length) * 100);
+}
+
+export function firstIncompleteStep(project: Pick<ExecutionProject, 'completedSteps'>): ExecutionStepId | null {
+  const completed = new Set(project.completedSteps.filter(isExecutionStepId));
+  return EXECUTION_STEP_IDS.find((step) => !completed.has(step)) ?? null;
+}
+
+export function normalizeExecutionProject(value: unknown): ExecutionProject | null {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return null;
+  const row = value as Record<string, unknown>;
+  if (typeof row.entityId !== 'string' || !row.entityId.trim() || row.entityId.length > 200) return null;
+  if (typeof row.sourceName !== 'string' || !row.sourceName.trim() || row.sourceName.length > 300) return null;
+  if (typeof row.offerName !== 'string' || row.offerName.length > 300) return null;
+  if (typeof row.targetCustomer !== 'string' || row.targetCustomer.length > 2000) return null;
+  if (!isMoney(row.targetPriceJpy) || !isMoney(row.firstDollarTargetJpy) || !isMoney(row.revenueJpy)) return null;
+  if (!Array.isArray(row.completedSteps) || row.completedSteps.some((step) => !isExecutionStepId(step))) return null;
+  if (!isUrlField(row.buildUrl) || !isUrlField(row.launchUrl) || !isUrlField(row.checkoutUrl)) return null;
+  if (typeof row.notes !== 'string' || row.notes.length > MAX_EXECUTION_NOTES_LENGTH) return null;
+  const dirty = row.dirty === undefined ? false : row.dirty;
+  const revision = row.revision === undefined ? 0 : row.revision;
+  const generation = row.generation === undefined ? 0 : row.generation;
+  if (typeof dirty !== 'boolean' || !isNonNegativeInteger(revision) || !isNonNegativeInteger(generation)) return null;
+  if (row.updatedAt !== undefined && !isIsoDate(row.updatedAt)) return null;
+
+  return {
+    entityId: row.entityId.trim(),
+    sourceName: row.sourceName.trim(),
+    offerName: row.offerName,
+    targetCustomer: row.targetCustomer,
+    targetPriceJpy: row.targetPriceJpy,
+    firstDollarTargetJpy: row.firstDollarTargetJpy,
+    completedSteps: Array.from(new Set(row.completedSteps)),
+    buildUrl: row.buildUrl,
+    launchUrl: row.launchUrl,
+    checkoutUrl: row.checkoutUrl,
+    revenueJpy: row.revenueJpy,
+    notes: row.notes,
+    dirty,
+    revision,
+    generation,
+    updatedAt: typeof row.updatedAt === 'string' ? row.updatedAt : undefined,
+  };
+}
+
+function isNonNegativeInteger(value: unknown): value is number {
+  return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0;
+}
+
+function isMoney(value: unknown): value is number {
+  return typeof value === 'number' && Number.isSafeInteger(value) && value >= 0 && value <= 1_000_000_000_000;
+}
+
+function isIsoDate(value: unknown): value is string {
+  if (typeof value !== 'string' || !value) return false;
+  const timestamp = Date.parse(value);
+  return Number.isFinite(timestamp) && new Date(timestamp).toISOString() === value;
+}
+
+function isUrlField(value: unknown): value is string {
+  return typeof value === 'string' && value.length <= 2048;
+}
+
+export function isValidExecutionHttpUrl(value: string): boolean {
+  if (!value.trim()) return true;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' || url.protocol === 'http:';
+  } catch {
+    return false;
+  }
+}
+
+export function executionStoragePrefix(userId: string | null | undefined): string {
+  const scope = userId ? 'user.' + encodeURIComponent(userId) : 'anonymous';
+  return EXECUTION_STORAGE_ROOT + scope + '.';
+}
+
+export function executionStorageKey(entityId: string, userId: string | null | undefined): string {
+  return executionStoragePrefix(userId) + encodeURIComponent(entityId);
+}
+
+export function executionPendingClaimKey(entityId: string): string {
+  return EXECUTION_CLAIM_ROOT + encodeURIComponent(entityId);
+}
+
+export function executionContentEqual(
+  left: ExecutionProject | null | undefined,
+  right: ExecutionProject | null | undefined,
+): boolean {
+  if (!left || !right) return false;
+  return left.entityId === right.entityId
+    && left.sourceName === right.sourceName
+    && left.offerName === right.offerName
+    && left.targetCustomer === right.targetCustomer
+    && left.targetPriceJpy === right.targetPriceJpy
+    && left.firstDollarTargetJpy === right.firstDollarTargetJpy
+    && left.completedSteps.length === right.completedSteps.length
+    && left.completedSteps.every((step, index) => step === right.completedSteps[index])
+    && left.buildUrl === right.buildUrl
+    && left.launchUrl === right.launchUrl
+    && left.checkoutUrl === right.checkoutUrl
+    && left.revenueJpy === right.revenueJpy
+    && left.notes === right.notes;
+}
+
+export function isExecutionGenerationCurrent(
+  project: Pick<ExecutionProject, 'generation'> | null | undefined,
+  generation: number,
+): boolean {
+  return Boolean(project && project.generation === generation);
+}
+
+
+export interface ExecutionMergeResult {
+  project: ExecutionProject | null;
+  conflict: boolean;
+}
+
+export function mergeExecutionProjectCopies(
+  local: ExecutionProject | null | undefined,
+  remote: ExecutionProject | null | undefined,
+): ExecutionMergeResult {
+  if (!local && !remote) return { project: null, conflict: false };
+  if (!local) return { project: remote ?? null, conflict: false };
+  if (!remote) return { project: local, conflict: false };
+  if (local.generation !== remote.generation) return { project: remote, conflict: false };
+
+  if (local.revision > remote.revision) return { project: local, conflict: local.dirty };
+  if (local.revision === remote.revision) {
+    if (executionContentEqual(local, remote)) return { project: remote, conflict: false };
+    return local.dirty
+      ? { project: local, conflict: false }
+      : { project: remote, conflict: false };
+  }
+
+  if (!local.dirty) return { project: remote, conflict: false };
+  return executionContentEqual(local, remote)
+    ? { project: remote, conflict: false }
+    : { project: remote, conflict: true };
+}
