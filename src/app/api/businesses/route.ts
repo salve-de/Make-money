@@ -9,6 +9,7 @@ import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
   readFoundationBusinessCase,
+  readFoundationBusinessCaseCumulative,
   readFoundationHydratedValuePage,
   type FoundationBusinessCase,
   type FoundationValuePage,
@@ -20,7 +21,6 @@ import { computeDossierContentHash, getDossierStoragePath } from '@/lib/foundati
 import {
   adaptFoundationDetailToFinancialEntity,
   adaptFoundationSummaryToFinancialEntity,
-  isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 import {
   isMakeMoneyViewBackfillComplete,
@@ -210,12 +210,15 @@ export async function GET(request: Request) {
     }
 
     try {
+      const materializedViewReady = await isMakeMoneyViewBackfillComplete();
       const data = await readCached(
         detailCache,
-        entityId,
+        `${materializedViewReady ? 'view' : 'canonical'}:${entityId}`,
         DETAIL_TTL_MS,
         MAX_DETAIL_CACHE_ENTRIES,
-        async () => (await readMakeMoneyViewDetail(entityId)) || readFoundationBusinessCase(entityId)
+        async () => materializedViewReady
+          ? (await readMakeMoneyViewDetail(entityId)) || readFoundationBusinessCaseCumulative(entityId)
+          : readFoundationBusinessCaseCumulative(entityId)
       );
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
@@ -294,7 +297,6 @@ export async function GET(request: Request) {
     // shape so the client can perform the single authoritative adaptation.
     const publishableIds = new Set(
       (page.data || [])
-        .filter(isFoundationDossierReady)
         .filter((summary) => isPublishableEntity(adaptFoundationSummaryToFinancialEntity(summary)))
         .map((summary) => summary.id)
     );
