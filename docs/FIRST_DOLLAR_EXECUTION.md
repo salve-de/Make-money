@@ -46,7 +46,7 @@ FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN
 - クラウド保存中に追加編集された場合は、保存レスポンスと送信時の編集内容を比較し、新しいlocal内容を保持したままserver revisionだけrebaseする。ブラウザ時計は使わない。
 - `/execute` の一覧APIは `entity_id` のkeyset cursorで100件ずつ返し、クライアントが `hasMore=false` まで全ページ取得する。100件を超えても案件数・First Dollar達成数・売上合計を欠落させない。
 - 一覧でクラウドrevisionがローカルより新しい場合、ローカルの `dirty=false` なら単なる古いcacheとして自動更新する。`dirty=true` の未保存差分がある場合だけ「端末下書きとクラウドが競合」と表示し、詳細画面で解決する。
-- ログイン済み画面はserver generationの取得が終わるまで編集操作をdisabledにする。退会直後などgenerationが進んだ直後に、generation 0の仮下書きへ入力して失うraceを作らない。
+- 認証済みidentity（UID）が見えた時点からserver generationの取得が終わるまで編集操作をdisabledにする。token取得待ちの短い時間も含めてロックし、退会直後などgenerationが進んだ直後にgeneration 0の仮下書きへ入力して失うraceを作らない。
 - URL欄は入力途中の `h` / `https://` 等もlocal draftとして保持する。HTTP(S)としての厳格検証はクラウドPUT境界で行い、URL1項目の途中入力で他のフォーム内容まで読み込めなくしない。
 - APIのrequest上限は、共有スキーマ上の最大有効入力がJSONの `\\uXXXX` escapeへ展開される最悪ケースも収まる256KiBとする。
 
