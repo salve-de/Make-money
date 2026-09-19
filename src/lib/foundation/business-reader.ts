@@ -746,10 +746,122 @@ export function buildFoundationValueSummariesFromBundle(bundleInput: unknown): F
   return buildFoundationBusinessCasesFromBundle(bundleInput).map(foundationBusinessCaseToValueSummary);
 }
 
+function mergeFoundationEntitySummary(
+  current: FoundationEntitySummary,
+  candidate: FoundationEntitySummary | null
+): FoundationEntitySummary {
+  if (!candidate) return current;
+
+  const currentTime = current.observedAt ? Date.parse(current.observedAt) : Number.NEGATIVE_INFINITY;
+  const candidateTime = candidate.observedAt ? Date.parse(candidate.observedAt) : Number.NEGATIVE_INFINITY;
+  const candidateIsNewer = candidateTime >= currentTime;
+  const preferred = candidateIsNewer ? candidate : current;
+  const fallback = candidateIsNewer ? current : candidate;
+
+  return {
+    id: current.id,
+    name: preferred.name || fallback.name,
+    entityType: preferred.entityType !== 'unknown' ? preferred.entityType : fallback.entityType,
+    aliases: [...new Set([...current.aliases, ...candidate.aliases])],
+    canonicalIdentifier: preferred.canonicalIdentifier || fallback.canonicalIdentifier,
+    domain: preferred.domain || fallback.domain,
+    status: preferred.status !== 'unknown' ? preferred.status : fallback.status,
+    observedAt: candidateIsNewer ? (candidate.observedAt || current.observedAt) : current.observedAt,
+    evidenceIds: [...new Set([...current.evidenceIds, ...candidate.evidenceIds])],
+  };
+}
+
+function bundleEntitySummary(bundle: JsonObject, entityId: string): FoundationEntitySummary | null {
+  if (!Array.isArray(bundle.entities)) return null;
+  for (const value of bundle.entities) {
+    const record = objectValue(value);
+    if (record && stringValue(record, 'entity_id') === entityId) {
+      return normalizeSummary(record);
+    }
+  }
+  return null;
+}
+
+async function hydrateFoundationEntitiesFromAllBundles(
+  summaries: FoundationEntitySummary[]
+): Promise<FoundationBusinessCase[]> {
+  if (summaries.length === 0) return [];
+
+  const entityIds = new Set(summaries.map((item) => item.id));
+  const summariesById = new Map(summaries.map((item) => [item.id, item]));
+  const recordsById = new Map(
+    summaries.map((item) => [item.id, createRecordAccumulator()])
+  );
+  const bundleObjects = await listBundleObjects();
+
+  for (let index = 0; index < bundleObjects.length; index += BUNDLE_SCAN_BATCH_SIZE) {
+    const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
+    const probes = await Promise.all(batch.map((item) => cachedProbe(item.key)));
+    const candidateKeys = batch
+      .filter((_, batchIndex) => {
+        const probe = probes[batchIndex];
+        if (!probe) return true;
+        for (const entityId of entityIds) {
+          if (probe.knownEntityIds.has(entityId)) return true;
+        }
+        // When the bounded probe did not contain enough structural data to
+        // prove a negative, read the full immutable bundle rather than hide a
+        // valid later update.
+        return !(probe.entitiesArrayPresent || probe.typedArraysComplete);
+      })
+      .map((item) => item.key);
+
+    const bundles = await Promise.all(candidateKeys.map((key) => cachedBundle(key)));
+    for (const bundle of bundles) {
+      if (!bundle) continue;
+      for (const entityId of entityIds) {
+        if (!bundleContainsEntity(bundle, entityId)) continue;
+        collectBundleRecords(bundle, entityId, recordsById.get(entityId)!);
+        const currentSummary = summariesById.get(entityId)!;
+        summariesById.set(
+          entityId,
+          mergeFoundationEntitySummary(currentSummary, bundleEntitySummary(bundle, entityId))
+        );
+      }
+    }
+  }
+
+  return summaries.map((original) => {
+    const summary = summariesById.get(original.id) || original;
+    const records = recordsById.get(original.id) || createRecordAccumulator();
+    return {
+      ...summary,
+      ...records,
+      valueProfile: buildFoundationValueProfile(summary, records),
+      bundlesScanned: bundleObjects.length,
+      bundleObjectsListed: bundleObjects.length,
+      bundleScanComplete: true,
+    };
+  });
+}
+
+/**
+ * Canonical cumulative read used while the serving-view backfill is still in
+ * progress. Unlike the fast common detail path, this deliberately aggregates
+ * every immutable research bundle so later monitoring/backfill facts are not
+ * hidden behind the entity core object's original run ID.
+ */
+export async function readFoundationBusinessCaseCumulative(
+  entityId: string
+): Promise<FoundationBusinessCase | null> {
+  if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
+  const entityObject = await readJsonObjectWithMetadata(entityKey(entityId));
+  const entity = normalizeSummary(entityObject.value || {});
+  if (!entity) return null;
+  const hydrated = await hydrateFoundationEntitiesFromAllBundles([entity]);
+  return hydrated[0] || null;
+}
+
 /**
  * Temporary migration/read-through path used until the materialized
  * Make-Money view has been rebuilt from all existing canonical bundles.
- * It hydrates only the requested entity page, not the entire lake.
+ * One bundle scan hydrates the whole requested entity page, including later
+ * updates created after the entity core object.
  */
 export async function readFoundationHydratedValuePage(options: {
   cursor?: string;
@@ -759,27 +871,9 @@ export async function readFoundationHydratedValuePage(options: {
     options.cursor,
     Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100)
   );
-  const data: FoundationValueSummary[] = [];
-  const batchSize = 16;
-
-  for (let index = 0; index < page.data.length; index += batchSize) {
-    const batch = page.data.slice(index, index + batchSize);
-    const hydrated = await Promise.all(
-      batch.map(async (summary) => {
-        const detail = await readFoundationBusinessCase(summary.id);
-        return detail
-          ? foundationBusinessCaseToValueSummary(detail)
-          : {
-              ...summary,
-              valueProfile: buildFoundationValueProfile(summary, createRecordAccumulator()),
-            };
-      })
-    );
-    data.push(...hydrated);
-  }
-
+  const hydrated = await hydrateFoundationEntitiesFromAllBundles(page.data);
   return {
-    data,
+    data: hydrated.map(foundationBusinessCaseToValueSummary),
     nextCursor: page.nextCursor,
     hasMore: page.hasMore,
   };
