@@ -6,10 +6,15 @@ const state = vi.hoisted(() => ({
   user: { uid: 'owner-a' } as { uid: string } | null,
   query: vi.fn(),
   execute: vi.fn(),
+  generation: { generation: 0, resetAt: null as string | null },
 }));
 
 vi.mock('@/lib/firebase/server', () => ({ verifyFirebaseIdToken: async () => state.user }));
 vi.mock('@/lib/storage/d1', () => ({ queryD1: state.query, executeD1: state.execute }));
+vi.mock('@/lib/execution/generation-store', () => ({
+  executionOwnerKey: (uid: string) => 'owner-key-' + uid,
+  getExecutionGeneration: async () => state.generation,
+}));
 
 import { GET, PUT } from './route';
 
@@ -26,68 +31,90 @@ const validProject = {
   checkoutUrl: 'https://example.com/checkout',
   revenueJpy: 0,
   notes: 'Keep scope tiny',
+  revision: 0,
+  generation: 0,
 };
 
-function req(body?: unknown, auth = true, query = '', cookie?: string) {
+const savedProject = {
+  ...validProject,
+  revision: 1,
+  updatedAt: '2026-09-18T12:00:00.000Z',
+};
+
+function req(body?: unknown, auth = true, query = '') {
   return new NextRequest('http://localhost/api/execution-projects' + query, {
     method: body === undefined ? 'GET' : 'PUT',
-    headers: {
-      ...(auth ? { Authorization: 'Bearer test' } : {}),
-      ...(cookie ? { Cookie: cookie } : {}),
-    },
+    headers: auth ? { Authorization: 'Bearer test' } : {},
     ...(body === undefined ? {} : { body: JSON.stringify(body) }),
   });
 }
 
 beforeEach(() => {
   state.user = { uid: 'owner-a' };
+  state.generation = { generation: 0, resetAt: null };
   state.query.mockReset().mockResolvedValue([]);
   state.execute.mockReset().mockResolvedValue({ changes: 1 });
 });
 
 describe('execution projects', () => {
-  it('reads only the verified owner', async () => {
+  it('reads only the verified owner and current generation', async () => {
     const response = await GET(req(undefined, true, '?entityId=ent-photoai&userId=owner-b'));
     expect(response.status).toBe(200);
     expect(state.query).toHaveBeenCalledWith(
-      expect.stringContaining('WHERE user_id=? AND entity_id=?'),
-      ['owner-a', 'ent-photoai'],
+      expect.stringContaining('WHERE user_id=? AND entity_id=? AND generation=?'),
+      ['owner-a', 'ent-photoai', 0],
       expect.any(Function),
     );
   });
 
-  it('writes only under the verified owner', async () => {
+  it('creates a project under the verified owner with a server revision', async () => {
+    state.query.mockResolvedValue([savedProject]);
     const response = await PUT(req(validProject));
     expect(response.status).toBe(200);
     expect(state.execute).toHaveBeenCalledWith(
-      expect.stringContaining('ON CONFLICT(user_id,entity_id)'),
-      expect.arrayContaining(['owner-a', 'ent-photoai', 'Photo AI']),
+      expect.stringContaining('INSERT OR IGNORE INTO execution_projects'),
+      expect.arrayContaining(['owner-a', 'ent-photoai', 'Photo AI', 0, 'owner-key-owner-a']),
+    );
+    expect(await response.json()).toMatchObject({ generation: 0, project: { revision: 1, generation: 0 } });
+  });
+
+  it('updates only when the submitted revision still matches', async () => {
+    state.query.mockResolvedValue([{ ...savedProject, revision: 2 }]);
+    const response = await PUT(req({ ...savedProject, revision: 1 }));
+    expect(response.status).toBe(200);
+    expect(state.execute).toHaveBeenCalledWith(
+      expect.stringContaining('revision=revision+1'),
+      expect.arrayContaining(['owner-a', 'ent-photoai', 0, 1, 'owner-key-owner-a']),
     );
   });
 
-
-  it('accepts the largest valid multibyte project within the bounded request size', async () => {
-    const response = await PUT(req({
-      ...validProject,
-      targetCustomer: '顧'.repeat(2000),
-      notes: '日'.repeat(MAX_EXECUTION_NOTES_LENGTH),
-    }));
-    expect(response.status).toBe(200);
+  it('rejects stale overlapping saves with the current server project', async () => {
+    state.execute.mockResolvedValue({ changes: 0 });
+    state.query.mockResolvedValue([{ ...savedProject, revision: 2 }]);
+    const response = await PUT(req({ ...savedProject, revision: 1 }));
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ generation: 0, project: { revision: 2 } });
   });
 
-  it('returns account reset time and rejects drafts from before the reset', async () => {
-    const resetAt = '2026-09-18T12:00:00.000Z';
-    const cookie = 'makemoney_execution_reset=owner-a.' + String(Date.parse(resetAt));
-
-    const readResponse = await GET(req(undefined, true, '?entityId=ent-photoai', cookie));
-    expect(await readResponse.json()).toMatchObject({ uid: 'owner-a', resetAt });
-
-    const staleResponse = await PUT(req({
-      ...validProject,
-      updatedAt: '2026-09-18T11:59:59.000Z',
-    }, true, '', cookie));
-    expect(staleResponse.status).toBe(409);
+  it('rejects a draft from an invalidated account generation on every device', async () => {
+    state.generation = { generation: 2, resetAt: '2026-09-18T12:00:00.000Z' };
+    state.query.mockResolvedValue([]);
+    const response = await PUT(req({ ...validProject, generation: 1 }));
+    expect(response.status).toBe(409);
+    expect(await response.json()).toMatchObject({ generation: 2, project: null });
     expect(state.execute).not.toHaveBeenCalled();
+  });
+
+  it('accepts maximum multibyte and JSON-escaped valid fields within the bounded request size', async () => {
+    state.query.mockResolvedValue([savedProject]);
+    const response = await PUT(req({
+      ...validProject,
+      sourceName: '\u0001'.repeat(300),
+      offerName: '\u0002'.repeat(300),
+      targetCustomer: '顧'.repeat(2000),
+      notes: '\u0003'.repeat(MAX_EXECUTION_NOTES_LENGTH),
+    }));
+    expect(response.status).toBe(200);
   });
 
   it('does not touch storage without a verified token', async () => {
@@ -106,13 +133,15 @@ describe('execution projects', () => {
     { ...validProject, completedSteps: ['FIND', 'NOPE'] },
     { ...validProject, revenueJpy: -1 },
     { ...validProject, buildUrl: 'javascript:alert(1)' },
+    { ...validProject, revision: -1 },
+    { ...validProject, generation: -1 },
     { ...validProject, unexpected: true },
   ])('rejects malformed project input', async (value) => {
     expect((await PUT(req(value))).status).toBe(400);
   });
 
-  it('does not acknowledge failed persistence', async () => {
-    state.execute.mockResolvedValue({ changes: 0 });
+  it('does not acknowledge an actual storage failure', async () => {
+    state.execute.mockRejectedValue(new Error('offline'));
     expect((await PUT(req(validProject))).status).toBe(503);
   });
 });
