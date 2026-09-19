@@ -18,7 +18,8 @@ import {
 } from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import type { SynthesizedIdea } from '@/shared/terminal';
-import type { BuildSpec } from '@/lib/builder/spec';
+import { createBuildSpec, type BuildSpec } from '@/lib/builder/spec';
+import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 
 interface PublicBuildSession {
   id: string;
@@ -38,6 +39,38 @@ interface BuilderContext {
   providerConfigured: boolean;
   budget: { used: number; limit: number; remaining: number };
 }
+
+const PUBLIC_DEMO_ID = 'example-idea';
+
+const PUBLIC_DEMO_IDEA: SynthesizedIdea = {
+  id: PUBLIC_DEMO_ID,
+  dimension: 'CONTRARIAN_BLINDSPOT',
+  dimensionLabel: '逆張り・盲点型（公開デモ）',
+  title: '町工場の紙図面をLINEで受ける図面データ化サブスク',
+  targetPainWallet: '紙図面・FAX・写真を探し回る小規模製造業の現場責任者。納期遅延と再入力の手戻りを減らしたい。',
+  structuralArbitrage: '高価な基幹システム導入ではなく、既存のLINE受付と人手確認を組み合わせ、最初の一案件を短時間でデータ化する。',
+  projectedMonthlyProfitJpy: 280000,
+  operatingMargin: 62,
+  requiredTools: [
+    { name: 'LINE公式アカウント', monthlyCostJpy: 5000, purpose: '図面画像の受付と案件通知' },
+    { name: 'OCR / ファイル保管', monthlyCostJpy: 12000, purpose: '画像からの下書き抽出と納品管理' },
+  ],
+  first100TractionPlaybook: [
+    '地域の町工場へサンプル1件を持参し、図面の検索時間を実測する',
+    '月額ではなく最初の10件を納品単位で試してもらう',
+    '紹介元と納期短縮の実測値を記録し、次の提案資料へ反映する',
+  ],
+  sourceEntityIds: [],
+  userNoteInspiration: 'ログインなしで、Build SpecとMVP画面のつながりを確認するための公開デモ。数値は実績ではなく仮説。',
+};
+
+const PUBLIC_DEMO_CONTEXT: BuilderContext = {
+  idea: PUBLIC_DEMO_IDEA,
+  buildSpec: createBuildSpec(PUBLIC_DEMO_IDEA),
+  session: null,
+  providerConfigured: false,
+  budget: { used: 0, limit: 0, remaining: 0 },
+};
 
 interface LocalMessage {
   id: string;
@@ -65,9 +98,12 @@ function formatCredits(value: number): string {
 
 export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
   const { user, loading: authLoading, token, signInWithGoogle } = useAuth();
-  const [context, setContext] = useState<BuilderContext | null>(null);
+  const isPublicDemo = ideaId === PUBLIC_DEMO_ID;
+  const [context, setContext] = useState<BuilderContext | null>(() => (
+    isPublicDemo ? PUBLIC_DEMO_CONTEXT : null
+  ));
   const [session, setSession] = useState<PublicBuildSession | null>(null);
-  const [contextLoading, setContextLoading] = useState(false);
+  const [contextLoading, setContextLoading] = useState(!isPublicDemo);
   const [starting, setStarting] = useState(false);
   const [sending, setSending] = useState(false);
   const [exporting, setExporting] = useState(false);
@@ -84,6 +120,12 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
   );
 
   const loadContext = useCallback(async () => {
+    if (isPublicDemo) {
+      setContext(PUBLIC_DEMO_CONTEXT);
+      setSession(null);
+      setContextLoading(false);
+      return;
+    }
     if (!authorization) return;
     setContextLoading(true);
     setError(null);
@@ -127,10 +169,10 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
     } finally {
       setContextLoading(false);
     }
-  }, [authorization, ideaId]);
+  }, [authorization, ideaId, isPublicDemo]);
 
   const loadPreview = useCallback(async (sessionId: string) => {
-    if (!authorization) return;
+    if (isPublicDemo || !authorization) return;
     setPreviewLoading(true);
     try {
       const response = await fetch('/api/build/preview-ticket', {
@@ -148,7 +190,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
     } finally {
       setPreviewLoading(false);
     }
-  }, [authorization]);
+  }, [authorization, isPublicDemo]);
 
   useEffect(() => {
     const timer = window.setTimeout(() => void loadContext(), 0);
@@ -168,7 +210,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
   }, [session?.status, loadContext]);
 
   const startBuild = async () => {
-    if (!authorization || starting) return;
+    if (isPublicDemo || !authorization || starting) return;
     setStarting(true);
     setError(null);
     try {
@@ -194,7 +236,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
   };
 
   const exportSource = async () => {
-    if (!authorization || !session || session.status !== 'ready' || exporting) return;
+    if (isPublicDemo || !authorization || !session || session.status !== 'ready' || exporting) return;
     setExporting(true);
     setError(null);
     try {
@@ -224,7 +266,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
 
   const sendInstruction = async () => {
     const message = instruction.trim();
-    if (!authorization || !session || session.status !== 'ready' || !message || sending) return;
+    if (isPublicDemo || !authorization || !session || session.status !== 'ready' || !message || sending) return;
     setSending(true);
     setInstruction('');
     setError(null);
@@ -270,31 +312,37 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
 
   if (authLoading) {
     return (
-      <main className="min-h-screen bg-[#07080B] text-zinc-100 grid place-items-center">
-        <LoaderCircle className="w-5 h-5 animate-spin text-emerald-400" />
+      <main className="min-h-screen bg-[#07080B] text-zinc-100 flex flex-col">
+        <GlobalHeader currentSection="BUILDER" />
+        <div className="flex-1 grid place-items-center">
+          <LoaderCircle className="w-5 h-5 animate-spin text-emerald-400" />
+        </div>
       </main>
     );
   }
 
-  if (!user || !token) {
+  if ((!user || !token) && !isPublicDemo) {
     return (
-      <main className="min-h-screen bg-[#07080B] text-zinc-100 grid place-items-center p-6">
-        <div className="w-full max-w-md border border-white/[0.08] bg-[#0D1117] rounded-xl p-6">
-          <div className="w-10 h-10 rounded-lg border border-emerald-500/30 bg-emerald-500/10 grid place-items-center mb-4">
-            <Code2 className="w-5 h-5 text-emerald-400" />
+      <main className="min-h-screen bg-[#07080B] text-zinc-100 flex flex-col">
+        <GlobalHeader currentSection="BUILDER" />
+        <div className="flex-1 grid place-items-center p-6">
+          <div className="w-full max-w-md border border-white/[0.08] bg-[#0D1117] rounded-xl p-6">
+            <div className="w-10 h-10 rounded-lg border border-emerald-500/30 bg-emerald-500/10 grid place-items-center mb-4">
+              <Code2 className="w-5 h-5 text-emerald-400" />
+            </div>
+            <h1 className="text-lg font-bold text-white">作るにはログインが必要です</h1>
+            <p className="text-sm text-zinc-400 mt-2 leading-relaxed">
+              生成したアプリを他のユーザーから分離し、あなたのプロジェクトとして保存するためにログインします。
+            </p>
+            <button
+              type="button"
+              onClick={() => void signInWithGoogle()}
+              className="mt-5 w-full h-10 rounded-lg bg-white text-zinc-950 font-bold text-sm hover:bg-zinc-200 transition-colors"
+            >
+              Googleでログイン
+            </button>
+            <Link href="/" className="mt-3 block text-center text-xs text-zinc-500 hover:text-zinc-300">戻る</Link>
           </div>
-          <h1 className="text-lg font-bold text-white">作るにはログインが必要です</h1>
-          <p className="text-sm text-zinc-400 mt-2 leading-relaxed">
-            生成したアプリを他のユーザーから分離し、あなたのプロジェクトとして保存するためにログインします。
-          </p>
-          <button
-            type="button"
-            onClick={() => void signInWithGoogle()}
-            className="mt-5 w-full h-10 rounded-lg bg-white text-zinc-950 font-bold text-sm hover:bg-zinc-200 transition-colors"
-          >
-            Googleでログイン
-          </button>
-          <Link href="/" className="mt-3 block text-center text-xs text-zinc-500 hover:text-zinc-300">戻る</Link>
         </div>
       </main>
     );
@@ -306,6 +354,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
 
   return (
     <main className="h-screen min-h-[680px] bg-[#07080B] text-zinc-100 flex flex-col overflow-hidden">
+      <GlobalHeader currentSection="BUILDER" />
       <header className="h-14 shrink-0 border-b border-white/[0.08] bg-[#0A0C11] flex items-center justify-between px-4">
         <div className="flex items-center gap-3 min-w-0">
           <Link
@@ -319,6 +368,9 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
             <div className="flex items-center gap-2">
               <span className="font-mono text-[10px] text-emerald-400 font-bold tracking-wider">MAKE-MONEY BUILDER</span>
               <span className="font-mono text-[9px] text-zinc-500 border border-white/[0.08] rounded px-1.5 py-0.5">v0 engine</span>
+              {isPublicDemo && (
+                <span className="font-mono text-[9px] text-cyan-300 border border-cyan-500/25 bg-cyan-500/10 rounded px-1.5 py-0.5">公開デモ / READ ONLY</span>
+              )}
             </div>
             <h1 className="text-sm font-bold text-white truncate max-w-[54vw]">
               {idea?.title || (contextLoading ? 'アイデアを読み込み中…' : 'Build')}
@@ -466,7 +518,11 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
                     市場データから作ったBuild Specを使い、主要導線が触れるWebサービスを生成します。
                     外部ビルダーへ移動せず、この画面にプレビューします。
                   </p>
-                  {!context?.providerConfigured && context && (
+                  {isPublicDemo ? (
+                    <div className="mt-4 text-xs text-cyan-200 border border-cyan-500/20 bg-cyan-500/[0.06] rounded-lg p-3 text-left">
+                      ログインなしで確認できる公開デモです。Build Specと画面構成は閲覧できますが、実生成・修正・ZIP出力は行いません。
+                    </div>
+                  ) : !context?.providerConfigured && context && (
                     <div className="mt-4 text-xs text-amber-300 border border-amber-500/20 bg-amber-500/[0.06] rounded-lg p-3">
                       現在の環境では生成エンジンが未設定です。サーバー側のV0_API_KEY設定後に実生成できます。
                     </div>
@@ -474,11 +530,11 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
                   <button
                     type="button"
                     onClick={() => void startBuild()}
-                    disabled={starting || contextLoading || !context?.providerConfigured}
+                    disabled={isPublicDemo || starting || contextLoading || !context?.providerConfigured}
                     className="mt-5 h-10 px-5 rounded-lg bg-emerald-500 hover:bg-emerald-400 disabled:opacity-30 disabled:cursor-not-allowed text-zinc-950 font-bold text-sm inline-flex items-center gap-2"
                   >
                     {starting ? <LoaderCircle className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
-                    MVPを生成
+                    {isPublicDemo ? '公開デモ（閲覧のみ）' : 'MVPを生成'}
                   </button>
                 </div>
               </div>

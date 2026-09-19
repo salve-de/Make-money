@@ -9,6 +9,7 @@ import {
   Flame, 
   TrendingUp, 
   Cpu, 
+  Code2,
   Handshake,
   KeyRound,
   Bookmark,
@@ -22,6 +23,7 @@ export type GlobalNavSection =
   | 'RADAR'
   | 'ARCHETYPES'
   | 'SYNTHESIS'
+  | 'BUILDER'
   | 'EXECUTION'
   | 'PARTNERS'
   | 'WELCOME';
@@ -52,6 +54,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
     if (pathname === '/partners') return 'PARTNERS';
     if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/execute')) return 'EXECUTION';
+    if (pathname?.startsWith('/build')) return 'BUILDER';
     if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
     if (pathname?.startsWith('/radar')) return 'RADAR';
     if (pathname === '/welcome') return 'WELCOME';
@@ -100,6 +103,13 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       enLabel: 'Synthesis',
       href: '/?mode=SYNTHESIS',
       icon: Cpu,
+    },
+    {
+      id: 'BUILDER' as const,
+      label: 'MVPを作る',
+      enLabel: 'Builder',
+      href: '/build/example-idea',
+      icon: Code2,
     },
     {
       id: 'EXECUTION' as const,

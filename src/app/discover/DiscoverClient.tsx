@@ -10,10 +10,12 @@ import {
   Loader2,
   LogIn,
   MessageSquareText,
+  Rocket,
   Search,
   X,
 } from "lucide-react";
 import { useAuth } from "@/context/AuthContext";
+import { GlobalHeader } from "@/platform/components/navigation/GlobalHeader";
 import type {
   DiscoveryCase,
   DiscoveryDataset,
@@ -426,12 +428,24 @@ function DetailPane({
 
         <section className="px-4 sm:px-6 py-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
           <Link
+            href={`/execute/${encodeURIComponent(item.id)}`}
+            className="inline-flex items-center gap-1.5 rounded border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 font-semibold text-emerald-300 hover:bg-emerald-500/15 hover:text-emerald-200"
+          >
+            <Rocket className="w-3.5 h-3.5" />
+            この事例を実行OSへ
+            <ArrowUpRight className="w-3 h-3" />
+          </Link>
+          <Link
             href={"/?entity=" + encodeURIComponent(item.id) + "&mode=LEDGER"}
             className="inline-flex items-center gap-1.5 text-zinc-300 hover:text-white"
           >
             <Database className="w-3.5 h-3.5" />
             元事例の全データ
             <ExternalLink className="w-3 h-3 text-zinc-600" />
+          </Link>
+          <span className="text-zinc-700">/</span>
+          <Link href="/?mode=SYNTHESIS" className="text-zinc-400 hover:text-white">
+            事業壁打ちで自分の案に落とす
           </Link>
           <span className="text-zinc-700">/</span>
           <span className="text-zinc-500">
@@ -482,22 +496,25 @@ export function DiscoverClient({ dataset }: { dataset: DiscoveryDataset }) {
 
   const choose = (id: string) => {
     setSelectedId(id);
-    setMobileDetailOpen(true);
+    if (typeof window !== "undefined" && window.matchMedia("(max-width: 767px)").matches) {
+      setMobileDetailOpen(true);
+    }
   };
 
   return (
     <div className="h-dvh w-full bg-[#060709] text-zinc-100 overflow-hidden flex flex-col">
+      <GlobalHeader currentSection="DISCOVER" />
       <header className="shrink-0 border-b border-white/[0.07] bg-[#07080B]">
         <div className="h-12 px-3 sm:px-5 flex items-center justify-between gap-4">
-          <Link href="/discover" className="flex items-center gap-2 min-w-0">
+          <div className="flex items-center gap-2 min-w-0">
             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
             <span className="font-mono text-[11px] font-bold tracking-[0.18em] text-white">
-              MAKEMONEY
+              DISCOVER
             </span>
             <span className="text-[10px] font-mono text-zinc-600 hidden sm:inline">
-              / DISCOVER
+              / 決定的な一手
             </span>
-          </Link>
+          </div>
           <div className="flex items-center gap-3 text-[10px] font-mono text-zinc-500">
             <span>{dataset.sourceCount.toLocaleString()}事例を横断</span>
             <Link href="/" className="text-zinc-400 hover:text-white inline-flex items-center gap-1">
