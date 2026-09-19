@@ -56,6 +56,7 @@ function createDefaultProject(entity: FinancialEntity, generation = 0): Executio
     checkoutUrl: '',
     revenueJpy: 0,
     notes: '',
+    dirty: false,
     revision: 0,
     generation,
   };
@@ -105,6 +106,7 @@ function ExecutionWorkspace({
   const [project, setProject] = useState<ExecutionProject>(() => createDefaultProject(entity));
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const [conflictProject, setConflictProject] = useState<ExecutionProject | null>(null);
+  const [generationHydrated, setGenerationHydrated] = useState(!token);
 
   const applySavedProject = useCallback((submitted: ExecutionProject, saved: ExecutionProject) => {
     const latest = readStoredExecutionProject(storageKey);
@@ -114,6 +116,7 @@ function ExecutionWorkspace({
         revision: saved.revision,
         generation: saved.generation,
         updatedAt: saved.updatedAt,
+        dirty: true,
       };
       writeStoredExecutionProject(storageKey, rebased);
       setProject(rebased);
@@ -188,6 +191,7 @@ function ExecutionWorkspace({
           : null;
         if (generation === null) throw new Error('invalid execution generation');
         const remote = normalizeExecutionProject(record.project);
+        setGenerationHydrated(true);
 
         const claim = readSessionExecutionProject(claimKey);
         if (claim?.entityId === entity.id) {
@@ -251,7 +255,7 @@ function ExecutionWorkspace({
         if (!local || !remote) return;
 
         if (local.revision === remote.revision) {
-          if (executionContentEqual(local, remote)) {
+          if (executionContentEqual(local, remote) || !local.dirty) {
             writeStoredExecutionProject(storageKey, remote);
             setProject(remote);
             setConflictProject(null);
@@ -262,11 +266,25 @@ function ExecutionWorkspace({
           return;
         }
 
+        if (local.revision < remote.revision) {
+          if (!local.dirty || executionContentEqual(local, remote)) {
+            writeStoredExecutionProject(storageKey, remote);
+            setProject(remote);
+            setConflictProject(null);
+            setSaveState('saved');
+          } else {
+            setProject(local);
+            setConflictProject(remote);
+            setSaveState('conflict');
+          }
+          return;
+        }
+
         if (executionContentEqual(local, remote)) {
-          writeStoredExecutionProject(storageKey, remote);
-          setProject(remote);
+          writeStoredExecutionProject(storageKey, local);
+          setProject(local);
           setConflictProject(null);
-          setSaveState('saved');
+          setSaveState(local.dirty ? 'idle' : 'saved');
           return;
         }
 
@@ -281,8 +299,9 @@ function ExecutionWorkspace({
   }, [autoPersist, claimKey, entity, storageKey, token, userId]);
 
   const updateProject = (patch: Partial<ExecutionProject>) => {
+    if (token && !generationHydrated) return;
     setProject((previous) => {
-      const next: ExecutionProject = { ...previous, ...patch };
+      const next: ExecutionProject = { ...previous, ...patch, dirty: true };
       writeStoredExecutionProject(storageKey, next);
       return next;
     });
@@ -303,6 +322,7 @@ function ExecutionWorkspace({
   };
 
   const toggleStep = (step: ExecutionStepId) => {
+    if (token && !generationHydrated) return;
     const completed = new Set(project.completedSteps);
     if (completed.has(step)) completed.delete(step);
     else completed.add(step);
@@ -315,7 +335,7 @@ function ExecutionWorkspace({
       setSaveState('local');
       return;
     }
-    if (saveState === 'conflict') return;
+    if (!generationHydrated || saveState === 'conflict') return;
 
     setSaveState('saving');
     const submitted = project;
@@ -358,6 +378,7 @@ function ExecutionWorkspace({
       generation: conflictProject?.generation ?? local.generation,
       revision: conflictProject?.revision ?? 0,
       updatedAt: conflictProject?.updatedAt,
+      dirty: true,
     };
     writeStoredExecutionProject(storageKey, candidate);
     setSaveState('saving');
@@ -384,6 +405,7 @@ function ExecutionWorkspace({
     }
   };
 
+  const editingDisabled = Boolean(token) && !generationHydrated;
   const progress = executionProgress(project);
   const currentStep = firstIncompleteStep(project);
   const blueprint = entity.lootBlueprint;
@@ -435,7 +457,7 @@ function ExecutionWorkspace({
             <button
               type="button"
               onClick={() => void save()}
-              disabled={saveState === 'saving' || saveState === 'conflict'}
+              disabled={editingDisabled || saveState === 'saving' || saveState === 'conflict'}
               className="inline-flex items-center gap-1.5 rounded-md bg-emerald-400 px-3 py-2 text-xs font-bold text-zinc-950 transition-colors hover:bg-emerald-300 disabled:opacity-60"
             >
               <Save className="h-3.5 w-3.5" />
@@ -474,6 +496,12 @@ function ExecutionWorkspace({
             />
           </div>
         </section>
+
+        {editingDisabled && (
+          <section className="rounded-xl border border-blue-400/20 bg-blue-400/[0.05] px-4 py-3 text-xs text-zinc-400">
+            クラウドの保存世代を確認中です。確認が終わるまで編集をロックしています。
+          </section>
+        )}
 
         {saveState === 'conflict' && (
           <section className="rounded-xl border border-amber-400/25 bg-amber-400/[0.06] p-4">
@@ -515,7 +543,7 @@ function ExecutionWorkspace({
           </div>
         </section>
 
-        <div className="grid gap-5 xl:grid-cols-[1.55fr_0.85fr]">
+        <fieldset disabled={editingDisabled} className="grid gap-5 xl:grid-cols-[1.55fr_0.85fr] disabled:opacity-70">
           <section className="space-y-3">
             {EXECUTION_STEP_IDS.map((step, index) => {
               const done = project.completedSteps.includes(step);
@@ -599,7 +627,7 @@ function ExecutionWorkspace({
               />
             </section>
           </aside>
-        </div>
+        </fieldset>
       </main>
     </div>
   );
