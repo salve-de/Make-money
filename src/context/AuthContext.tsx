@@ -25,6 +25,7 @@ interface AuthContextType {
   signUpWithEmail: (email: string, pass: string) => Promise<void>;
   signOut: () => Promise<void>;
   refreshUserStatus: () => Promise<void>;
+  refreshAuthToken: () => Promise<string | null>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -38,6 +39,7 @@ const AuthContext = createContext<AuthContextType>({
   signUpWithEmail: async () => {},
   signOut: async () => {},
   refreshUserStatus: async () => {},
+  refreshAuthToken: async () => null,
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -48,6 +50,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
 
   const statusRequest = useRef(0);
+
+  const refreshAuthToken = async (): Promise<string | null> => {
+    const account = auth?.currentUser;
+    if (!account) {
+      setToken(null);
+      return null;
+    }
+    try {
+      const idToken = await account.getIdToken(true);
+      if (auth?.currentUser?.uid !== account.uid) return null;
+      setToken(idToken);
+      return idToken;
+    } catch (err) {
+      if (auth?.currentUser?.uid === account.uid) setToken(null);
+      console.warn("Auth token refresh error:", err);
+      return null;
+    }
+  };
 
   const refreshUserStatus = async () => {
     const requestId = ++statusRequest.current;
@@ -132,6 +152,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         signUpWithEmail,
         signOut,
         refreshUserStatus,
+        refreshAuthToken,
       }}
     >
       {children}
