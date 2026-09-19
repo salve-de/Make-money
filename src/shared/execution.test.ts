@@ -48,6 +48,11 @@ describe('first dollar execution model', () => {
     expect(project?.completedSteps).toEqual(['FIND', 'BUILD']);
   });
 
+  it('keeps partial URL input as a valid local draft', () => {
+    expect(normalizeExecutionProject({ ...base, buildUrl: 'https://' })?.buildUrl).toBe('https://');
+    expect(normalizeExecutionProject({ ...base, launchUrl: 'h' })?.launchUrl).toBe('h');
+  });
+
   it('scopes browser drafts by authenticated owner', () => {
     expect(executionStoragePrefix(null)).toBe('makemoney.execution.anonymous.');
     expect(executionStorageKey('ent-1', 'user-a')).toBe('makemoney.execution.user.user-a.ent-1');
