@@ -104,6 +104,7 @@ function ExecutionWorkspace({
   const claimKey = executionPendingClaimKey(entity.id);
   const [project, setProject] = useState<ExecutionProject>(() => createDefaultProject(entity));
   const [saveState, setSaveState] = useState<SaveState>('idle');
+  const [conflictProject, setConflictProject] = useState<ExecutionProject | null>(null);
 
   const applySavedProject = useCallback((submitted: ExecutionProject, saved: ExecutionProject) => {
     const latest = readStoredExecutionProject(storageKey);
@@ -116,11 +117,13 @@ function ExecutionWorkspace({
       };
       writeStoredExecutionProject(storageKey, rebased);
       setProject(rebased);
+      setConflictProject(null);
       setSaveState('idle');
       return;
     }
     writeStoredExecutionProject(storageKey, saved);
     setProject(saved);
+    setConflictProject(null);
     setSaveState('saved');
   }, [storageKey]);
 
@@ -137,10 +140,12 @@ function ExecutionWorkspace({
           const fresh = createDefaultProject(entity, error.generation);
           writeStoredExecutionProject(storageKey, fresh);
           setProject(fresh);
+          setConflictProject(null);
           setSaveState('local');
           return;
         }
         setProject(readStoredExecutionProject(storageKey) ?? candidate);
+        setConflictProject(error.project);
         setSaveState('conflict');
         return;
       }
@@ -196,7 +201,17 @@ function ExecutionWorkspace({
           };
           writeStoredExecutionProject(storageKey, claimed);
           setProject(claimed);
-          await autoPersist(claimed, controller.signal);
+          if (!remote) {
+            await autoPersist(claimed, controller.signal);
+          } else if (executionContentEqual(claimed, remote)) {
+            writeStoredExecutionProject(storageKey, remote);
+            setProject(remote);
+            setConflictProject(null);
+            setSaveState('saved');
+          } else {
+            setConflictProject(remote);
+            setSaveState('conflict');
+          }
           return;
         }
 
@@ -209,6 +224,7 @@ function ExecutionWorkspace({
         if (!local && remote) {
           writeStoredExecutionProject(storageKey, remote);
           setProject(remote);
+          setConflictProject(null);
           setSaveState('saved');
           return;
         }
@@ -217,6 +233,7 @@ function ExecutionWorkspace({
           const fresh = createDefaultProject(entity, generation);
           writeStoredExecutionProject(storageKey, fresh);
           setProject(fresh);
+          setConflictProject(null);
           setSaveState('local');
           return;
         }
@@ -225,6 +242,7 @@ function ExecutionWorkspace({
           if (local.revision === 0) await autoPersist(local, controller.signal);
           else {
             setProject(local);
+            setConflictProject(null);
             setSaveState('conflict');
           }
           return;
@@ -236,6 +254,7 @@ function ExecutionWorkspace({
           if (executionContentEqual(local, remote)) {
             writeStoredExecutionProject(storageKey, remote);
             setProject(remote);
+            setConflictProject(null);
             setSaveState('saved');
           } else {
             await autoPersist(local, controller.signal);
@@ -246,11 +265,13 @@ function ExecutionWorkspace({
         if (executionContentEqual(local, remote)) {
           writeStoredExecutionProject(storageKey, remote);
           setProject(remote);
+          setConflictProject(null);
           setSaveState('saved');
           return;
         }
 
         setProject(local);
+        setConflictProject(remote);
         setSaveState('conflict');
       } catch (error) {
         if ((error as Error).name !== 'AbortError') setSaveState('error');
@@ -265,7 +286,9 @@ function ExecutionWorkspace({
       writeStoredExecutionProject(storageKey, next);
       return next;
     });
-    setSaveState((previous) => previous === 'saving' ? 'saving' : token ? 'idle' : 'local');
+    setSaveState((previous) => previous === 'saving' || previous === 'conflict'
+      ? previous
+      : token ? 'idle' : 'local');
   };
 
   const signInAndClaim = async () => {
@@ -292,9 +315,10 @@ function ExecutionWorkspace({
       setSaveState('local');
       return;
     }
+    if (saveState === 'conflict') return;
 
     setSaveState('saving');
-    let submitted = project;
+    const submitted = project;
     try {
       const saved = await persistExecutionProject(token, submitted);
       applySavedProject(submitted, saved);
@@ -303,33 +327,60 @@ function ExecutionWorkspace({
         setSaveState('error');
         return;
       }
-
       if (error.generation !== submitted.generation) {
         window.localStorage.removeItem(storageKey);
         const fresh = createDefaultProject(entity, error.generation);
         writeStoredExecutionProject(storageKey, fresh);
         setProject(fresh);
+        setConflictProject(null);
         setSaveState('local');
         return;
       }
+      setProject(readStoredExecutionProject(storageKey) ?? submitted);
+      setConflictProject(error.project);
+      setSaveState('conflict');
+    }
+  };
 
-      const latestLocal = readStoredExecutionProject(storageKey);
-      const desired = latestLocal ?? submitted;
-      submitted = {
-        ...desired,
-        generation: error.generation,
-        revision: error.project?.revision ?? 0,
-        updatedAt: error.project?.updatedAt,
-      };
-      writeStoredExecutionProject(storageKey, submitted);
+  const acceptCloudConflict = () => {
+    const accepted = conflictProject ?? createDefaultProject(entity, project.generation);
+    writeStoredExecutionProject(storageKey, accepted);
+    setProject(accepted);
+    setConflictProject(null);
+    setSaveState(conflictProject ? 'saved' : 'local');
+  };
 
-      try {
-        const saved = await persistExecutionProject(token, submitted);
-        applySavedProject(submitted, saved);
-      } catch {
-        setProject(readStoredExecutionProject(storageKey) ?? submitted);
+  const overwriteCloudConflict = async () => {
+    if (!token || saveState !== 'conflict') return;
+    const local = readStoredExecutionProject(storageKey) ?? project;
+    const candidate: ExecutionProject = {
+      ...local,
+      generation: conflictProject?.generation ?? local.generation,
+      revision: conflictProject?.revision ?? 0,
+      updatedAt: conflictProject?.updatedAt,
+    };
+    writeStoredExecutionProject(storageKey, candidate);
+    setSaveState('saving');
+    try {
+      const saved = await persistExecutionProject(token, candidate);
+      applySavedProject(candidate, saved);
+    } catch (error) {
+      if (error instanceof ExecutionProjectConflictError) {
+        if (error.generation !== candidate.generation) {
+          window.localStorage.removeItem(storageKey);
+          const fresh = createDefaultProject(entity, error.generation);
+          writeStoredExecutionProject(storageKey, fresh);
+          setProject(fresh);
+          setConflictProject(null);
+          setSaveState('local');
+          return;
+        }
+        setProject(readStoredExecutionProject(storageKey) ?? candidate);
+        setConflictProject(error.project);
         setSaveState('conflict');
+        return;
       }
+      setSaveState('error');
     }
   };
 
@@ -384,7 +435,7 @@ function ExecutionWorkspace({
             <button
               type="button"
               onClick={() => void save()}
-              disabled={saveState === 'saving'}
+              disabled={saveState === 'saving' || saveState === 'conflict'}
               className="inline-flex items-center gap-1.5 rounded-md bg-emerald-400 px-3 py-2 text-xs font-bold text-zinc-950 transition-colors hover:bg-emerald-300 disabled:opacity-60"
             >
               <Save className="h-3.5 w-3.5" />
@@ -423,6 +474,33 @@ function ExecutionWorkspace({
             />
           </div>
         </section>
+
+        {saveState === 'conflict' && (
+          <section className="rounded-xl border border-amber-400/25 bg-amber-400/[0.06] p-4">
+            <div className="text-[10px] font-bold tracking-[0.18em] text-amber-300">SAVE CONFLICT</div>
+            <h2 className="mt-2 text-sm font-semibold text-zinc-100">別端末またはクラウド側にも変更があります</h2>
+            <p className="mt-1 text-xs leading-5 text-zinc-400">
+              勝手に上書きしません。クラウド版を採用するか、この端末の内容で明示的に上書きするかを選んでください。
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={acceptCloudConflict}
+                className="rounded-md border border-white/[0.12] bg-white/[0.04] px-3 py-2 text-xs font-medium text-zinc-200 hover:bg-white/[0.08]"
+              >
+                クラウド版を採用
+              </button>
+              <button
+                type="button"
+                onClick={() => void overwriteCloudConflict()}
+                disabled={!token}
+                className="rounded-md border border-amber-300/30 bg-amber-300 px-3 py-2 text-xs font-bold text-zinc-950 hover:bg-amber-200 disabled:opacity-50"
+              >
+                この端末版で上書き
+              </button>
+            </div>
+          </section>
+        )}
 
         <section className="rounded-xl border border-emerald-400/20 bg-emerald-400/[0.06] p-4">
           <div className="text-[10px] font-bold tracking-[0.18em] text-emerald-300">NEXT ACTION</div>
