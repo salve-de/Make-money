@@ -10,7 +10,7 @@ const state = vi.hoisted(() => ({
 
 vi.mock('@/lib/storage/r2', () => state);
 
-import { readFoundationValuePage } from './business-reader';
+import { buildFoundationValueSummariesFromBundle, readFoundationValuePage } from './business-reader';
 
 describe('Foundation list read path', () => {
   beforeEach(() => {
@@ -50,6 +50,94 @@ describe('Foundation list read path', () => {
     });
     expect(state.listR2Objects).toHaveBeenCalledOnce();
     expect(state.readR2ObjectRange).not.toHaveBeenCalled();
+  });
+
+  it('builds a high-signal serving projection directly from one research bundle', () => {
+    const entityId = 'ent_business_0123456789abcdef0123';
+    const page = buildFoundationValueSummariesFromBundle({
+      schema_version: 'research-bundle.v1',
+      run_id: 'run_projection_test',
+      retrieved_at: '2026-09-20T00:00:00Z',
+      entities: [{
+        entity_id: entityId,
+        entity_type: 'business',
+        canonical_name: 'Projection Test',
+        aliases: [],
+        canonical_identifier: 'projection.test',
+        domain: 'projection.test',
+        status: 'operating',
+        observed_at: '2026-09-20T00:00:00Z',
+        evidence_ids: ['ev_one', 'ev_two'],
+      }],
+      claims: [
+        {
+          claim_id: 'cl_0123456789abcdef01234567',
+          entity_ids: [entityId],
+          statement: 'Projection Test is a SaaS platform for small teams.',
+          origin_type: 'reported',
+          verification_status: 'SUPPORTED',
+          confidence: 0.9,
+          occurred_at: null,
+          evidence_ids: ['ev_one'],
+        },
+        {
+          claim_id: 'cl_1123456789abcdef01234567',
+          entity_ids: [entityId],
+          statement: 'Customers pay to remove a slow manual workflow bottleneck.',
+          origin_type: 'reported',
+          verification_status: 'SUPPORTED',
+          confidence: 0.9,
+          occurred_at: null,
+          evidence_ids: ['ev_two'],
+        },
+        {
+          claim_id: 'cl_2123456789abcdef01234567',
+          entity_ids: [entityId],
+          statement: 'The product grew through referrals and direct distribution.',
+          origin_type: 'reported',
+          verification_status: 'SUPPORTED',
+          confidence: 0.9,
+          occurred_at: '2026-09-01T00:00:00Z',
+          evidence_ids: ['ev_one'],
+        },
+      ],
+      metrics: [{
+        metric_id: 'mt_0123456789abcdef01234567',
+        entity_id: entityId,
+        metric_type: 'MRR',
+        value: 50000,
+        unit: null,
+        currency: 'USD',
+        period_start: null,
+        period_end: null,
+        point_in_time: '2026-09-01T00:00:00Z',
+        basis: 'reported',
+        scope: 'company',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 0.9,
+        evidence_ids: ['ev_one'],
+      }],
+      money_signals: [],
+      events: [{
+        event_id: 'evt_0123456789abcdef01234567',
+        entity_ids: [entityId],
+        event_type: 'launch',
+        occurred_at: '2025-01-01T00:00:00Z',
+        description: 'Launched after an initial customer pilot.',
+        verification_status: 'SUPPORTED',
+        confidence: 0.9,
+        evidence_ids: ['ev_two'],
+      }],
+      relationships: [],
+      observations: [],
+      derived: [],
+    });
+
+    expect(page).toHaveLength(1);
+    expect(page[0]?.valueProfile.tier).toBe('HIGH_SIGNAL');
+    expect(page[0]?.valueProfile.counts.evidence).toBe(2);
+    expect(page[0]?.valueProfile.moneySignal).toContain('MRR');
   });
 
   it('reads a bundle directly from the entity run metadata', async () => {
