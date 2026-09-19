@@ -4,7 +4,7 @@ import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 import { executionOwnerKey, getExecutionGeneration } from '@/lib/execution/generation-store';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { executeD1, queryD1 } from '@/lib/storage/d1';
-import { normalizeExecutionProject, type ExecutionProject } from '@/shared/execution';
+import { isValidExecutionHttpUrl, normalizeExecutionProject, type ExecutionProject } from '@/shared/execution';
 
 const headers = { 'Cache-Control': 'private, no-store' };
 const MAX_EXECUTION_REQUEST_BYTES = 256 * 1024;
@@ -155,7 +155,10 @@ export async function PUT(req: NextRequest) {
   }
 
   const project = normalizeExecutionProject(input);
-  if (!project) return NextResponse.json({ error: 'Invalid execution project' }, { status: 400, headers });
+  if (!project || !isValidExecutionHttpUrl(project.buildUrl) || !isValidExecutionHttpUrl(project.launchUrl)
+    || !isValidExecutionHttpUrl(project.checkoutUrl)) {
+    return NextResponse.json({ error: 'Invalid execution project' }, { status: 400, headers });
+  }
 
   try {
     const ownerKey = executionOwnerKey(user.uid);
