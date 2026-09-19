@@ -1,0 +1,589 @@
+{
+  "schema_version": "collection-monitor-run.v1",
+  "lane": "monitor",
+  "run_id": "mon-20260919T150120Z-a1",
+  "started_at": "2026-09-19T15:01:20Z",
+  "finished_at": "2026-09-19T15:19:30Z",
+  "policy_version": "collection-automation-policy.v1",
+  "inputs": {
+    "repository": "salve-de/Make-money",
+    "registry_ref": "main:data/collected-registry.json",
+    "policy_ref": "automation-research:data/automation/collection-policy.v1.json",
+    "orchestration_ref": "automation-research:docs/AUTOMATED_COLLECTION_ORCHESTRATION.md",
+    "selection_basis": [
+      "revenue/traffic/user metrics likely to move quickly",
+      "new products/features/pricing/business-model signals",
+      "founder/team/ownership changes",
+      "entities with stale or weak public observations"
+    ]
+  },
+  "results": [
+    {
+      "entity_id": "ent_ebizfacts_coinsnap400kmonthaicoinidentifierappclones_27de2530f3e3",
+      "entity_name": "CoinSnap (AI Coin Identifier App)",
+      "change_type": "metric_update",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "estimated_monthly_revenue",
+          "value": 500000,
+          "currency": "USD",
+          "methodology": "third_party_estimate",
+          "verification": "estimated",
+          "observed_at": "2026-09-19",
+          "note": "AppRank reports $500K/month on iOS for Sep 2026; registry identifier encoded an earlier $400K/month figure, so this is a directional +25% estimate rather than a verified accounting figure."
+        },
+        {
+          "field": "ios_ratings",
+          "value": 297482,
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_coinsnap_apprank", "src_coinsnap_appaloma"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_philipsergeliusnerdsip3000monthlearningapp_04d68b87aa59",
+      "entity_name": "NerdSip",
+      "change_type": "traction_and_pricing_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "learners_claimed",
+          "value": 9100,
+          "verification": "reported",
+          "observed_at": "2026-09-19",
+          "note": "Official homepage currently displays 9,100+ learners and 4.7 stars from 380 reviews."
+        },
+        {
+          "field": "pricing",
+          "value": {"monthly_eur": 7.99, "annual_eur": 49.99},
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_nerdsip_home", "src_nerdsip_indiehackers"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_ompatelbigideasdb23kaiusercomplaints_6e3399bfb584",
+      "entity_name": "BigIdeasDB",
+      "change_type": "product_expansion",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "mcp_capability",
+          "value": "30 tools across 11 data sources",
+          "verification": "reported",
+          "published_at": "2026-09-14",
+          "observed_at": "2026-09-19",
+          "note": "Official docs now position a hosted MCP server as a major product surface; Pro membership is required for credentials."
+        },
+        {
+          "field": "research_corpus_claim",
+          "value": "1M+ historical complaints, reviews and discussions",
+          "verification": "reported",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_bigideas_overview", "src_bigideas_mcp"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_orelzilbermanwritestack108kyearsubstacksaas_3a6ee306a069",
+      "entity_name": "WriteStack",
+      "change_type": "traction_and_product_expansion",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "creators_claimed",
+          "value": 3830,
+          "verification": "reported",
+          "observed_at": "2026-09-19",
+          "note": "Official site says loved by 3,830+ Substack creators."
+        },
+        {
+          "field": "new_capability",
+          "value": "MCP tools for Notes workflow",
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_writestack_home"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_sergeynazarovscreencharm52000macapplifetimed_2808eafdb812",
+      "entity_name": "Screen Charm",
+      "change_type": "traction_and_pricing_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "creator_customers_claimed",
+          "value": 700,
+          "verification": "reported",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "pricing",
+          "value": {"one_time_usd": 79, "subscription": false},
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_screencharm_official", "src_screencharm_launch"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_mikestuartgaragefloorcoatings60kthirdmonth_fcb6aeb17849",
+      "entity_name": "Old Cap Coatings",
+      "change_type": "offer_and_team_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "standard_price_per_sqft_usd",
+          "value": 8,
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "garage_item_moving_price_per_sqft_usd",
+          "value": 1,
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "founders",
+          "value": ["Mike Stuart", "Luke Stuart", "Zane Douglas", "Jace Ruffner"],
+          "verification": "reported",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_oldcap_home", "src_oldcap_quote"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_aaronwilburcoachessite15mmembership_2a2338e098e9",
+      "entity_name": "The Coaches Site",
+      "change_type": "traction_and_pricing_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "coaches_claimed",
+          "value": 40000,
+          "verification": "reported",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "paid_membership_price_usd_per_member_month",
+          "value": 12.49,
+          "billing": "annual",
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_coaches_plans", "src_coaches_app"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_rameshjhawordunscrambler6myearutilitysite_28bc8585ec55",
+      "entity_name": "WordUnscrambler.me",
+      "change_type": "traffic_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "estimated_organic_search_visits_monthly",
+          "value": 3200000,
+          "period": "2026-08",
+          "verification": "estimated",
+          "methodology": "third_party_search_traffic_estimate",
+          "note": "Third-party estimate; founder's own About page only states millions of users each month."
+        },
+        {
+          "field": "estimated_search_traffic_value_usd",
+          "value": 136600,
+          "period": "2026-08",
+          "verification": "estimated"
+        }
+      ],
+      "source_refs": ["src_wordunscrambler_traffic", "src_wordunscrambler_about"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_petecodesghostwritingfounders10800month_52547c76000c",
+      "entity_name": "Pete Codes",
+      "change_type": "business_focus_shift",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "current_focus",
+          "value": ["social media ghostwriting", "SEO consulting", "High Signal newsletter", "No CS Degree newsletter"],
+          "verification": "reported",
+          "period": "2026",
+          "observed_at": "2026-09-19",
+          "note": "Founder states 2026 work is mostly ghostwriting and SEO, with No CS Degree newsletter restarted."
+        }
+      ],
+      "source_refs": ["src_petecodes_about", "src_petecodes_author"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_hasaambhattilaunchfast30kmonthamazonresearch_29885fc2b6df",
+      "entity_name": "Launch Fast",
+      "change_type": "pricing_and_product_expansion",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "pricing",
+          "value": {"starter_monthly_usd": 49, "growth_monthly_usd": 89, "scale_monthly_usd": 199},
+          "verification": "reported",
+          "published_at": "2026-05-01"
+        },
+        {
+          "field": "new_free_tools",
+          "value": ["FBA profit calculator", "Super URL generator", "Amazon import duty calculator"],
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "revenue_monthly_usd",
+          "value": 30000,
+          "verification": "reported",
+          "published_at": "2026-07-19",
+          "note": "No newer verified revenue figure found this pass; retained only as a current corroboration, not overwritten."
+        }
+      ],
+      "source_refs": ["src_launchfast_changelog", "src_launchfast_import", "src_launchfast_buildr"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_mikeyoderdronespraying132k24days_bdd012ddfc42",
+      "entity_name": "Mike Yoder / nuWay Ag",
+      "change_type": "business_model_expansion",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "hardware_offer",
+          "value": "2026 nuWay Mega Drone Trailer",
+          "price_usd": 54000,
+          "verification": "observed",
+          "observed_at": "2026-09-19",
+          "note": "Business now visibly monetizes hardware/infrastructure for drone spraying in addition to field operations."
+        },
+        {
+          "field": "training_offer",
+          "value": "Agras Demo Day",
+          "price_usd": 25,
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_nuway_trailer", "src_nuway_demo"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_serhiibaraniukwriting912kmonthexamprep_ead554906ca3",
+      "entity_name": "Writing9",
+      "change_type": "revenue_decline",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "mrr_usd",
+          "value": 5253,
+          "verification": "verified",
+          "verification_method": "TrustMRR Stripe API",
+          "observed_at": "2026-09-18T21:59:00Z",
+          "note": "Registry identifier encodes an earlier ~$12K/month case; current verified MRR is materially lower."
+        },
+        {
+          "field": "active_subscriptions",
+          "value": 556,
+          "verification": "verified",
+          "observed_at": "2026-09-18T21:59:00Z"
+        },
+        {
+          "field": "all_time_revenue_usd",
+          "value": 89987,
+          "verification": "verified",
+          "observed_at": "2026-09-18T21:59:00Z"
+        }
+      ],
+      "source_refs": ["src_writing9_trustmrr", "src_writing9_starterstory"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_piotrkulpinskiopenalternative4976lastmonth_9d572b952247",
+      "entity_name": "OpenAlternative",
+      "change_type": "revenue_growth",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "mrr_usd",
+          "value": 6643,
+          "verification": "verified",
+          "verification_method": "TrustMRR Stripe API",
+          "observed_at": "2026-09-19T08:05:00Z",
+          "note": "Registry identifier encodes $4,976 last month; current verified MRR is about 33.5% higher."
+        },
+        {
+          "field": "active_subscriptions",
+          "value": 26,
+          "verification": "verified",
+          "observed_at": "2026-09-19T08:05:00Z"
+        },
+        {
+          "field": "all_time_revenue_usd",
+          "value": 116071,
+          "verification": "verified",
+          "observed_at": "2026-09-19T08:05:00Z"
+        }
+      ],
+      "source_refs": ["src_openalternative_trustmrr", "src_openalternative_2025"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_davisyouform10kmrrformbuilder_d5047e3971e4",
+      "entity_name": "Youform",
+      "change_type": "scale_and_pricing_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "reported_users",
+          "value": 90000,
+          "verification": "reported_secondary",
+          "observed_at": "2026-09-19",
+          "note": "Recent product tracker reports 90,000+ users and 10M+ responses; treat as secondary until confirmed by first-party telemetry."
+        },
+        {
+          "field": "responses_collected_claimed",
+          "value": 10000000,
+          "verification": "reported_secondary",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "pricing",
+          "value": {"pro_monthly_usd": 29, "business_monthly_usd": 89},
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_youform_pricing", "src_youform_tracker"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_lucarestagnoblacktwistsocialmediascheduler1k_d3540d70f632",
+      "entity_name": "BlackTwist",
+      "change_type": "revenue_growth_and_ownership_change",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "mrr_usd",
+          "value": 2074,
+          "verification": "verified",
+          "verification_method": "TrustMRR LemonSqueezy API",
+          "observed_at": "2026-08-29T04:26:00Z"
+        },
+        {
+          "field": "active_subscriptions",
+          "value": 126,
+          "verification": "verified",
+          "observed_at": "2026-08-29T04:26:00Z"
+        },
+        {
+          "field": "ownership_event",
+          "value": "Luca Restagno bought out his co-founder and is building BlackTwist solo",
+          "verification": "reported",
+          "published_at": "2026-08-18"
+        }
+      ],
+      "source_refs": ["src_blacktwist_trustmrr", "src_blacktwist_founder"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_leraclipwing15800revenue1monthstrategy_23b8b1e993f9",
+      "entity_name": "Clipwing",
+      "change_type": "new_product_launch",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "new_product",
+          "value": "Clipwing Autopilot",
+          "verification": "observed_secondary",
+          "published_at": "2026-08",
+          "observed_at": "2026-09-19",
+          "note": "Autopilot automates turning raw recordings into ready-to-post clips; site liveness observed via Launch Sentinel."
+        }
+      ],
+      "source_refs": ["src_clipwing_autopilot"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_jameslayfieldsamplifyai83kmonth_dd9b4bcfdf48",
+      "entity_name": "Samplify.ai",
+      "change_type": "positioning_and_team_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "positioning",
+          "value": "Software Decision Intelligence for enterprise software buying",
+          "verification": "reported",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "linkedin_company_size_band",
+          "value": "11-50 employees",
+          "verification": "reported_secondary",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "trial_offer",
+          "value": "30-day free proof; no integration or upload required",
+          "verification": "reported",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_samplify_linkedin", "src_samplify_privacy"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_evgeniianikinsocleads12kmonthclonedtool_a7d6907a362e",
+      "entity_name": "SocLeads",
+      "change_type": "pricing_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "pricing",
+          "value": {"free_contacts_per_month": 100, "pro_usd_month": 59, "pro_contacts_per_month": 10000, "business_usd_month": 149, "business_contacts_per_month": 100000},
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_socleads_official", "src_socleads_pricetrack"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_ignacioarriagaacumbamail85kmonthspanishmarke_610e57a69847",
+      "entity_name": "Acumbamail",
+      "change_type": "monetization_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "free_tier",
+          "value": {"emails_per_month": 2000, "subscribers": 250},
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "referral_program",
+          "value": {"commission_percent": 15, "commission_duration_years": 2, "requires_paid_acumbamail_subscription_to_participate": true},
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_acumbamail_pricing", "src_acumbamail_referrals"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_chazyoonmilleddirectorywebsite1millionyear_2cb17c0b9617",
+      "entity_name": "Milled.com",
+      "change_type": "revenue_estimate_refresh",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "estimated_annual_revenue_usd",
+          "value": 1200000,
+          "verification": "estimated",
+          "observed_at": "2026-09-19",
+          "note": "Latka currently estimates $1.2M annual revenue; registry identifier encodes an earlier $1M/year figure. This is not management-reported revenue."
+        },
+        {
+          "field": "estimated_team_size",
+          "value": 1,
+          "verification": "estimated",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_milled_latka", "src_milled_directorygems"]
+    },
+    {
+      "entity_id": "ent_ebizfacts_boobooslemonade250k8monthsfreshsqueezed_19df7d42f3f9",
+      "entity_name": "Boo Boo's Lemonade",
+      "change_type": "offer_repositioning",
+      "change_status": "meaningful_change",
+      "facts": [
+        {
+          "field": "current_primary_offer",
+          "value": "DFW lemonade/limeade catering for weddings, corporate events, private parties and festivals",
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        },
+        {
+          "field": "pricing",
+          "value": {"classic_usd_per_serving": 8, "signature_usd_per_serving": 9, "premium_usd_per_person_unlimited": 11, "small_batch_usd_per_person": 6},
+          "verification": "observed",
+          "observed_at": "2026-09-19"
+        }
+      ],
+      "source_refs": ["src_booboos_home"]
+    }
+  ],
+  "observations": [
+    {
+      "type": "cross_entity_pattern",
+      "value": "MCP/agent interfaces are becoming a product-surface expansion path among indie SaaS cases (BigIdeasDB, WriteStack, BlackTwist).",
+      "verification": "observed",
+      "note": "Keep as an observation; do not promote to a universal field from a single run."
+    },
+    {
+      "type": "cross_entity_pattern",
+      "value": "Several businesses are broadening monetization beyond the original core offer: Launch Fast adds free acquisition tools, nuWay Ag sells high-ticket infrastructure, Boo Boo's Lemonade shifts toward catered events, and Acumbamail maintains a recurring referral channel.",
+      "verification": "observed"
+    }
+  ],
+  "coverage": {
+    "target_per_run": 50,
+    "entities_checked": 26,
+    "meaningful_changes_recorded": 20,
+    "checked_without_new_fact": [
+      {"entity_name": "Raya", "reason": "No sufficiently fresh first-party 2026 metric beyond widely repeated 2025 waitlist/user figures; avoided duplicating stale facts."},
+      {"entity_name": "Testimonial Hero", "reason": "Current package pricing found, but no reliable new revenue/team/acquisition event relative to registry case."},
+      {"entity_name": "Castos", "reason": "Current monetization feature set found, but no reliable fresh revenue/funding/ownership delta in this pass."},
+      {"entity_name": "Loved Before", "reason": "Recent press confirms operations, but no new quantified delta from existing registry case was established."},
+      {"entity_name": "Go Somewhere / Colin Stroud", "reason": "Current site says hundreds of clients, but no dated count or revenue delta suitable for append-only fact creation."},
+      {"entity_name": "Actorle", "reason": "Site/support remains reachable, but no meaningful dated business metric or product event found."}
+    ],
+    "status": "PARTIAL_MAX_SAFE",
+    "note": "Stopped at 26 checks because the run prioritized source-backed change detection and provenance over reaching the nominal 50 with low-confidence or duplicate observations."
+  },
+  "sources": [
+    {"id":"src_coinsnap_apprank","url":"https://apprank.io/coinsnap-coin-identifier-1626","source_type":"third_party_estimate","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_coinsnap_appaloma","url":"https://www.appaloma.com/research/coin-identification","source_type":"third_party_research","published_at":"2026-09-18","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_nerdsip_home","url":"https://nerdsip.com/","source_type":"first_party","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_nerdsip_indiehackers","url":"https://www.indiehackers.com/post/bootstrapping-brainpower-inside-nerdsips-organic-rise-to-10k-downloads-2f44bb40a4","source_type":"founder_interview_secondary","published_at":"2026-08-11","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_bigideas_overview","url":"https://bigideasdb.com/what-is-bigideasdb","source_type":"first_party","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_bigideas_mcp","url":"https://bigideasdb.com/docs/what-is-the-mcp","source_type":"first_party","published_at":"2026-09-14","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_writestack_home","url":"https://www.writestack.io/","source_type":"first_party","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_screencharm_official","url":"https://screencharm.com/screenflow-alternative","source_type":"first_party","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_screencharm_launch","url":"https://whatlaunched.today/ja/launch/screen-charm","source_type":"third_party_launch_tracker","published_at":"2026-09-15","retrieved_at":"2026-09-19T15:04:00Z"},
+    {"id":"src_oldcap_home","url":"https://www.oldcapcoatings.com/","source_type":"first_party","retrieved_at":"2026-09-19T15:07:00Z"},
+    {"id":"src_oldcap_quote","url":"https://quote.oldcapcoatings.com/","source_type":"first_party","retrieved_at":"2026-09-19T15:07:00Z"},
+    {"id":"src_coaches_plans","url":"https://www.thecoachessite.com/plans","source_type":"first_party","retrieved_at":"2026-09-19T15:07:00Z"},
+    {"id":"src_coaches_app","url":"https://www.thecoachessite.com/app","source_type":"first_party","retrieved_at":"2026-09-19T15:07:00Z"},
+    {"id":"src_wordunscrambler_traffic","url":"https://ahrefstop.com/websites/wordunscrambler.me","source_type":"third_party_estimate","period":"2026-08","retrieved_at":"2026-09-19T15:07:00Z"},
+    {"id":"src_wordunscrambler_about","url":"https://wordunscrambler.me/about","source_type":"first_party","retrieved_at":"2026-09-19T15:07:00Z"},
+    {"id":"src_petecodes_about","url":"https://www.petecodes.io/about/","source_type":"first_party","retrieved_at":"2026-09-19T15:07:00Z"},
+    {"id":"src_petecodes_author","url":"https://www.petecodes.io/author/pete/","source_type":"first_party","retrieved_at":"2026-09-19T15:10:00Z"},
+    {"id":"src_launchfast_changelog","url":"https://docs.launchfastlegacyx.com/changelog/new-pricing-and-free-amazon-fba-tools","source_type":"first_party","published_at":"2026-05-01","retrieved_at":"2026-09-19T15:10:00Z"},
+    {"id":"src_launchfast_import","url":"https://launchfastlegacyx.com/tools/amazon-import-duty-calculator","source_type":"first_party","retrieved_at":"2026-09-19T15:10:00Z"},
+    {"id":"src_launchfast_buildr","url":"https://buildr.news/hasaam-bhatti-launch-fast-30k-mrr","source_type":"founder_story_secondary","published_at":"2026-07-19","retrieved_at":"2026-09-19T15:10:00Z"},
+    {"id":"src_nuway_trailer","url":"https://nuwayag.com/products/mega-trailer","source_type":"first_party","retrieved_at":"2026-09-19T15:10:00Z"},
+    {"id":"src_nuway_demo","url":"https://nuwayag.com/products/agras-demo-day","source_type":"first_party","retrieved_at":"2026-09-19T15:10:00Z"},
+    {"id":"src_writing9_trustmrr","url":"https://trustmrr.com/startup/writing9","source_type":"verified_revenue_aggregator","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_writing9_starterstory","url":"https://www.starterstory.com/stories/check-your-ielts-essay-online-correction-and-evaluation-service","source_type":"founder_story_secondary","published_at":"2025-02-16","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_openalternative_trustmrr","url":"https://trustmrr.com/startup/openalternative","source_type":"verified_revenue_aggregator","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_openalternative_2025","url":"https://www.indiehackers.com/post/79k-from-side-projects-in-2025-my-year-in-review-e145b2fa95","source_type":"founder_report_secondary","published_at":"2026-01","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_youform_pricing","url":"https://youform.com/pricing/","source_type":"first_party","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_youform_tracker","url":"https://saastracker.org/products/youform","source_type":"third_party_product_tracker","published_at":"2026-08","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_blacktwist_trustmrr","url":"https://trustmrr.com/startup/blacktwist","source_type":"verified_revenue_aggregator","observed_at":"2026-08-29T04:26:00Z","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_blacktwist_founder","url":"https://www.solopreneurtofreedom.com/","source_type":"founder_first_party_newsletter","published_at":"2026-08-18","retrieved_at":"2026-09-19T15:13:00Z"},
+    {"id":"src_clipwing_autopilot","url":"https://launchsentinel.com/products/clipwing-autopilot","source_type":"third_party_launch_tracker","published_at":"2026-08","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_samplify_linkedin","url":"https://www.linkedin.com/company/samplify-ai","source_type":"company_profile_secondary","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_samplify_privacy","url":"https://samplify.ai/privacy","source_type":"first_party","published_at":"2026-05-08","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_socleads_official","url":"https://socleads.com/tools/lead-gen/online-leads/","source_type":"first_party","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_socleads_pricetrack","url":"https://pricetrack.dev/products/socleads","source_type":"third_party_price_tracker","observed_at":"2026-06-25","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_acumbamail_pricing","url":"https://acumbamail.com/en/pricing/","source_type":"first_party","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_acumbamail_referrals","url":"https://acumbamail.com/en/referrals/","source_type":"first_party","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_milled_latka","url":"https://getlatka.com/companies/milled","source_type":"third_party_estimate","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_milled_directorygems","url":"https://www.directorygems.com/case-study/milled-com","source_type":"third_party_case_study","retrieved_at":"2026-09-19T15:16:00Z"},
+    {"id":"src_booboos_home","url":"https://boobooslemonade.com/","source_type":"first_party","retrieved_at":"2026-09-19T15:07:00Z"}
+  ],
+  "r2_status": "PENDING",
+  "errors": [
+    {
+      "type": "coverage_shortfall",
+      "message": "Nominal target was 50 checks; 26 were completed with 20 source-backed updates. The remaining capacity was not filled with low-confidence/stale web results."
+    }
+  ]
+}
