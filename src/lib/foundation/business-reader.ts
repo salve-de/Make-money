@@ -702,7 +702,7 @@ function collectBundleRecords(bundle: JsonObject, entityId: string, target: Foun
  * bundle without hitting R2. This keeps projection logic identical between
  * ingestion-time materialization and read-time fallback paths.
  */
-export function buildFoundationValueSummariesFromBundle(bundleInput: unknown): FoundationValueSummary[] {
+export function buildFoundationBusinessCasesFromBundle(bundleInput: unknown): FoundationBusinessCase[] {
   const bundle = objectValue(bundleInput);
   if (!bundle || !Array.isArray(bundle.entities)) return [];
 
@@ -716,9 +716,73 @@ export function buildFoundationValueSummariesFromBundle(bundleInput: unknown): F
       collectBundleRecords(bundle, summary.id, records);
       return {
         ...summary,
+        ...records,
         valueProfile: buildFoundationValueProfile(summary, records),
+        bundlesScanned: 1,
+        bundleObjectsListed: 1,
+        bundleScanComplete: true,
       };
     });
+}
+
+export function foundationBusinessCaseToValueSummary(
+  detail: FoundationBusinessCase
+): FoundationValueSummary {
+  return {
+    id: detail.id,
+    name: detail.name,
+    entityType: detail.entityType,
+    aliases: detail.aliases,
+    canonicalIdentifier: detail.canonicalIdentifier,
+    domain: detail.domain,
+    status: detail.status,
+    observedAt: detail.observedAt,
+    evidenceIds: detail.evidenceIds,
+    valueProfile: detail.valueProfile,
+  };
+}
+
+export function buildFoundationValueSummariesFromBundle(bundleInput: unknown): FoundationValueSummary[] {
+  return buildFoundationBusinessCasesFromBundle(bundleInput).map(foundationBusinessCaseToValueSummary);
+}
+
+/**
+ * Temporary migration/read-through path used until the materialized
+ * Make-Money view has been rebuilt from all existing canonical bundles.
+ * It hydrates only the requested entity page, not the entire lake.
+ */
+export async function readFoundationHydratedValuePage(options: {
+  cursor?: string;
+  limit?: number;
+} = {}): Promise<FoundationValuePage> {
+  const page = await readEntityPage(
+    options.cursor,
+    Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100)
+  );
+  const data: FoundationValueSummary[] = [];
+  const batchSize = 16;
+
+  for (let index = 0; index < page.data.length; index += batchSize) {
+    const batch = page.data.slice(index, index + batchSize);
+    const hydrated = await Promise.all(
+      batch.map(async (summary) => {
+        const detail = await readFoundationBusinessCase(summary.id);
+        return detail
+          ? foundationBusinessCaseToValueSummary(detail)
+          : {
+              ...summary,
+              valueProfile: buildFoundationValueProfile(summary, createRecordAccumulator()),
+            };
+      })
+    );
+    data.push(...hydrated);
+  }
+
+  return {
+    data,
+    nextCursor: page.nextCursor,
+    hasMore: page.hasMore,
+  };
 }
 
 export async function readFoundationBusinessCase(entityId: string): Promise<FoundationBusinessCase | null> {
