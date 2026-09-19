@@ -1061,7 +1061,8 @@ async function buildPlannedWrites(
 function decodeJsonObject(body: Uint8Array | string): JsonObject | null {
   try {
     const text = typeof body === 'string' ? body : new TextDecoder().decode(body);
-    return isObject(JSON.parse(text)) ? JSON.parse(text) as JsonObject : null;
+    const parsed: unknown = JSON.parse(text);
+    return isObject(parsed) ? parsed : null;
   } catch {
     return null;
   }
