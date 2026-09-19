@@ -84,3 +84,39 @@ It runs every five minutes and calls this application's ingest endpoint through 
 - view projection failure: canonical write may already exist; retry safely;
 - missing/weak research: remains in Foundation/staging but does not enter the main UI;
 - publisher failures: retried next cron and recorded in R2 attempt receipts.
+
+
+## Existing-data migration
+
+The materialized view is not enabled blindly over an existing lake.
+
+Until the one-time canonical rebuild is complete, `/api/businesses` uses a hydrated canonical Foundation read path. The internal rebuild endpoint:
+
+`POST /api/foundation/views/rebuild`
+
+processes a bounded page of existing immutable research bundles, persists its cursor under:
+
+`views/make-money/v1/_rebuild-state.json`
+
+and resumes on the next publisher cycle. The publisher calls this endpoint every five minutes. Once the state reaches `complete: true`, list reads switch to the fast materialized view.
+
+## Cumulative updates and ordering
+
+Each entity view stores both a summary and the accumulated Foundation business-case detail.
+
+New bundles are merged by stable record IDs into the existing view. Historical claims, metrics, events, observations and evidence therefore remain present when a later monitoring bundle is ingested.
+
+View replacement is protected by R2 ETag compare-and-swap. Concurrent writers retry from the newest persisted view instead of overwriting it.
+
+An older bundle may still contribute historical evidence, but it cannot roll the view back: `projected_at` and latest identity/status selection remain monotonic.
+
+## Existing entity updates
+
+Canonical entity core objects remain create-only. If an incoming bundle references an already-existing entity object with different temporal fields, ingestion compares the durable identity:
+
+- entity ID/type;
+- canonical identifier;
+- domain;
+- canonical name when no stronger durable identifier exists.
+
+If the durable identity is compatible, the existing entity object is retained and new claims/metrics/events/relationships/bundles are appended. A real identity conflict remains fail-closed.
