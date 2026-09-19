@@ -63,7 +63,7 @@ function createDefaultProject(entity: FinancialEntity, generation = 0): Executio
 }
 
 export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
-  const { user, token, loading, signInWithGoogle } = useAuth();
+  const { user, token, loading, signInWithGoogle, refreshAuthToken } = useAuth();
   const userId = user?.uid ?? null;
 
   if (loading) {
@@ -84,6 +84,7 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
       userId={userId}
       token={token}
       signInWithGoogle={signInWithGoogle}
+      refreshAuthToken={refreshAuthToken}
     />
   );
 }
@@ -95,11 +96,13 @@ function ExecutionWorkspace({
   userId,
   token,
   signInWithGoogle,
+  refreshAuthToken,
 }: {
   entity: FinancialEntity;
   userId: string | null;
   token: string | null;
   signInWithGoogle: () => Promise<void>;
+  refreshAuthToken: () => Promise<string | null>;
 }) {
   const storageKey = executionStorageKey(entity.id, userId);
   const claimKey = executionPendingClaimKey(entity.id);
@@ -406,6 +409,16 @@ function ExecutionWorkspace({
     }
   };
 
+  const retryGenerationHydration = async () => {
+    setSaveState('idle');
+    const refreshedToken = await refreshAuthToken();
+    if (!refreshedToken) {
+      setSaveState('error');
+      return;
+    }
+    setHydrationAttempt((attempt) => attempt + 1);
+  };
+
   const editingDisabled = Boolean(userId) && !generationHydrated;
   const progress = executionProgress(project);
   const currentStep = firstIncompleteStep(project);
@@ -509,10 +522,7 @@ function ExecutionWorkspace({
               {saveState === 'error' && (
                 <button
                   type="button"
-                  onClick={() => {
-                    setSaveState('idle');
-                    setHydrationAttempt((attempt) => attempt + 1);
-                  }}
+                  onClick={() => void retryGenerationHydration()}
                   className="rounded-md border border-blue-300/25 bg-blue-300/10 px-3 py-1.5 text-[11px] font-semibold text-blue-200 hover:bg-blue-300/15"
                 >
                   再接続
