@@ -9,7 +9,6 @@ import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
   readFoundationBusinessCase,
-  readFoundationValuePage,
   type FoundationBusinessCase,
   type FoundationValuePage,
 } from '@/lib/foundation/business-reader';
@@ -17,7 +16,12 @@ import { promisify } from 'node:util';
 import { gunzip as gunzipCb } from 'node:zlib';
 import { CloudflareR2BlobStorage } from '@/lib/foundation/immutable-dossier-pipeline';
 import { computeDossierContentHash, getDossierStoragePath } from '@/lib/foundation/dossier-projection';
-import { adaptFoundationDetailToFinancialEntity, adaptFoundationSummaryToFinancialEntity } from '@/lib/foundation/foundation-adapter';
+import {
+  adaptFoundationDetailToFinancialEntity,
+  adaptFoundationSummaryToFinancialEntity,
+  isFoundationDossierReady,
+} from '@/lib/foundation/foundation-adapter';
+import { readMakeMoneyValuePage } from '@/lib/foundation/make-money-view';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import type { FinancialEntity } from '@/platform/types/terminal';
 
@@ -218,7 +222,10 @@ export async function GET(request: Request) {
             return response({
               source: 'foundation_lake',
               dataset_id: foundationDataset('researchBundles').datasetId,
-              data: publicFoundationData(adapted),
+              // Keep the transport contract canonical. The client owns the
+              // Make-Money FinancialEntity adaptation, so it can re-project
+              // newer Foundation fields without changing this API shape.
+              data: publicFoundationData(parsed),
               dossierHash: actualHash,
               sourceRevision: revision,
               isStale: false,
@@ -270,23 +277,47 @@ export async function GET(request: Request) {
       cacheKey,
       PAGE_TTL_MS,
       MAX_PAGE_CACHE_ENTRIES,
-      () => readFoundationValuePage({ cursor, limit })
+      () => readMakeMoneyValuePage({ cursor, limit })
     );
     parseFoundationValuePage(page);
-    const adaptedEntities = (page.data || []).map(adaptFoundationSummaryToFinancialEntity);
-    const publishableData = adaptedEntities.filter(isPublishableEntity);
-    if (publishableData.length > 0 || page.hasMore) {
+
+    // The product view is already a FoundationValuePage. Use FinancialEntity
+    // only as a server-side publication gate, then return the canonical view
+    // shape so the client can perform the single authoritative adaptation.
+    const publishableIds = new Set(
+      (page.data || [])
+        .filter(isFoundationDossierReady)
+        .filter((summary) => isPublishableEntity(adaptFoundationSummaryToFinancialEntity(summary)))
+        .map((summary) => summary.id)
+    );
+    const publishableSummaries = (page.data || []).filter((summary) => publishableIds.has(summary.id));
+
+    if (publishableSummaries.length > 0 || page.hasMore) {
+      if (returnSummaryOnly) {
+        const summaries = publishableSummaries
+          .map(adaptFoundationSummaryToFinancialEntity)
+          .map(publicSummaryEntity);
+        return response({
+          source: 'foundation_lake',
+          projection: 'make-money.v1',
+          count: summaries.length,
+          data: publicFoundationData(summaries),
+          nextCursor: page.nextCursor,
+          hasMore: page.hasMore,
+        });
+      }
+
       return response({
         source: 'foundation_lake',
-        dataset_id: foundationDataset('entities').datasetId,
-        count: publishableData.length,
-        data: publicFoundationData(returnSummaryOnly ? publishableData.map(publicSummaryEntity) : publishableData),
+        projection: 'make-money.v1',
+        count: publishableSummaries.length,
+        data: publicFoundationData(publishableSummaries),
         nextCursor: page.nextCursor,
         hasMore: page.hasMore,
       });
     }
   } catch (error) {
-    logFoundationFailure('[businesses] Foundation entity page read failed; using fallback:', error);
+    logFoundationFailure('[businesses] Make-Money Foundation view read failed; using fallback:', error);
   }
 
   const localEntities = await readLocalEntities();
