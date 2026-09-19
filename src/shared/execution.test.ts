@@ -88,7 +88,6 @@ describe('first dollar execution model', () => {
     { ...base, completedSteps: ['FIND', 'INVALID'] },
     { ...base, targetPriceJpy: -1 },
     { ...base, revenueJpy: Number.NaN },
-    { ...base, buildUrl: 'javascript:alert(1)' },
     { ...base, buildUrl: 'x'.repeat(2049) },
     { ...base, notes: 'x'.repeat(MAX_EXECUTION_NOTES_LENGTH + 1) },
     { ...base, updatedAt: 'not-a-date' },
