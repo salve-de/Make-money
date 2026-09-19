@@ -9,6 +9,7 @@ import {
   executionProgress,
   executionStoragePrefix,
   isExecutionGenerationCurrent,
+  mergeExecutionProjectCopies,
   normalizeExecutionProject,
   type ExecutionProject,
 } from '@/shared/execution';
@@ -42,22 +43,50 @@ export function ExecutionHubClient() {
     setRemoteState('loading');
     void (async () => {
       try {
-        const response = await fetch('/api/execution-projects', {
-          headers: { Authorization: 'Bearer ' + token },
-          cache: 'no-store',
-          signal: controller.signal,
-        });
-        if (!response.ok) throw new Error('load failed');
-        const data: unknown = await response.json();
-        const record = data && typeof data === 'object' ? data as Record<string, unknown> : {};
-        const generation = typeof record.generation === 'number' && Number.isSafeInteger(record.generation) && record.generation >= 0
-          ? record.generation
-          : null;
-        if (generation === null) throw new Error('invalid execution generation');
-        const rawProjects = Array.isArray(record.projects) ? record.projects : [];
-        const projects = rawProjects
-          .map(normalizeExecutionProject)
-          .filter((item): item is ExecutionProject => Boolean(item) && isExecutionGenerationCurrent(item, generation));
+        const projects: ExecutionProject[] = [];
+        const seenCursors = new Set<string>();
+        let cursor: string | null = null;
+        let generation: number | null = null;
+
+        do {
+          const url = cursor
+            ? '/api/execution-projects?cursor=' + encodeURIComponent(cursor)
+            : '/api/execution-projects';
+          const response = await fetch(url, {
+            headers: { Authorization: 'Bearer ' + token },
+            cache: 'no-store',
+            signal: controller.signal,
+          });
+          if (!response.ok) throw new Error('load failed');
+
+          const data: unknown = await response.json();
+          const record = data && typeof data === 'object' ? data as Record<string, unknown> : {};
+          const pageGeneration = typeof record.generation === 'number'
+            && Number.isSafeInteger(record.generation)
+            && record.generation >= 0
+            ? record.generation
+            : null;
+          if (pageGeneration === null) throw new Error('invalid execution generation');
+          if (generation === null) generation = pageGeneration;
+          else if (generation !== pageGeneration) throw new Error('execution generation changed during pagination');
+
+          const rawProjects = Array.isArray(record.projects) ? record.projects : [];
+          projects.push(...rawProjects
+            .map(normalizeExecutionProject)
+            .filter((item): item is ExecutionProject => Boolean(item) && isExecutionGenerationCurrent(item, pageGeneration)));
+
+          const hasMore = record.hasMore === true;
+          const nextCursor = typeof record.nextCursor === 'string' && record.nextCursor ? record.nextCursor : null;
+          if (!hasMore) {
+            cursor = null;
+          } else {
+            if (!nextCursor || seenCursors.has(nextCursor)) throw new Error('invalid execution pagination cursor');
+            seenCursors.add(nextCursor);
+            cursor = nextCursor;
+          }
+        } while (cursor);
+
+        if (generation === null) throw new Error('missing execution generation');
         setLocalProjects(readScopedExecutionProjects(storagePrefix, generation));
         setRemoteProjects(projects);
         setRemoteOwnerId(userId);
@@ -69,12 +98,24 @@ export function ExecutionHubClient() {
     return () => controller.abort();
   }, [loading, storagePrefix, token, userId]);
 
-  const projects = useMemo(() => {
-    const merged = new Map<string, ExecutionProject>();
+  const { projects, conflictIds } = useMemo(() => {
     const visibleRemoteProjects = remoteOwnerId === userId ? remoteProjects : [];
-    visibleRemoteProjects.forEach((project) => merged.set(project.entityId, project));
-    localProjects.forEach((project) => merged.set(project.entityId, project));
-    return [...merged.values()].sort((a, b) => a.sourceName.localeCompare(b.sourceName, 'ja'));
+    const localById = new Map(localProjects.map((project) => [project.entityId, project]));
+    const remoteById = new Map(visibleRemoteProjects.map((project) => [project.entityId, project]));
+    const entityIds = new Set([...localById.keys(), ...remoteById.keys()]);
+    const merged: ExecutionProject[] = [];
+    const conflicts = new Set<string>();
+
+    entityIds.forEach((entityId) => {
+      const result = mergeExecutionProjectCopies(localById.get(entityId), remoteById.get(entityId));
+      if (result.project) merged.push(result.project);
+      if (result.conflict) conflicts.add(entityId);
+    });
+
+    return {
+      projects: merged.sort((a, b) => a.sourceName.localeCompare(b.sourceName, 'ja')),
+      conflictIds: conflicts,
+    };
   }, [localProjects, remoteOwnerId, remoteProjects, userId]);
 
   const totalRevenue = projects.reduce((sum, project) => sum + project.revenueJpy, 0);
@@ -139,6 +180,11 @@ export function ExecutionHubClient() {
                     <h2 className="mt-1 line-clamp-2 text-sm font-semibold text-zinc-100">
                       {project.offerName || '商品をまだ固定していない'}
                     </h2>
+                    {conflictIds.has(project.entityId) && (
+                      <span className="mt-1.5 inline-flex rounded border border-amber-400/25 bg-amber-400/[0.08] px-1.5 py-0.5 text-[9px] font-mono text-amber-300">
+                        端末下書きとクラウドが競合
+                      </span>
+                    )}
                   </div>
                   <ArrowRight className="h-4 w-4 shrink-0 text-zinc-600 transition-transform group-hover:translate-x-0.5 group-hover:text-emerald-300" />
                 </div>
