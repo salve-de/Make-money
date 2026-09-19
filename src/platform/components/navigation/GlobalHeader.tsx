@@ -14,7 +14,7 @@ import {
   Bookmark
 } from 'lucide-react';
 
-export type GlobalNavSection = 'LEDGER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS' | 'PARTNERS' | 'WELCOME';
+export type GlobalNavSection = 'LEDGER' | 'DISCOVER' | 'PLAYBOOK' | 'RADAR' | 'ARCHETYPES' | 'SYNTHESIS' | 'PARTNERS' | 'WELCOME';
 
 interface GlobalHeaderProps {
   currentSection?: GlobalNavSection;
@@ -40,6 +40,7 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
   // 現在のアクティブセクションを特定（props優先、なければURLから推定）
   const activeSection: GlobalNavSection = currentSection || (() => {
     if (pathname === '/partners') return 'PARTNERS';
+    if (pathname?.startsWith('/discover')) return 'DISCOVER';
     if (pathname?.startsWith('/playbook')) return 'PLAYBOOK';
     if (pathname?.startsWith('/radar')) return 'RADAR';
     if (pathname === '/welcome') return 'WELCOME';
@@ -53,6 +54,13 @@ export const GlobalHeader: React.FC<GlobalHeaderProps> = ({
       enLabel: 'Ledger',
       href: '/',
       icon: Database,
+    },
+    {
+      id: 'DISCOVER' as const,
+      label: '発見',
+      enLabel: 'Discover',
+      href: '/discover',
+      icon: Flame,
     },
     {
       id: 'PLAYBOOK' as const,
