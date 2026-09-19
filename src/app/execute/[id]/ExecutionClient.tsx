@@ -18,12 +18,12 @@ import type { FinancialEntity } from '@/shared/terminal';
 import {
   EXECUTION_STEP_IDS,
   MAX_EXECUTION_NOTES_LENGTH,
+  executionContentEqual,
   executionPendingClaimKey,
   executionProgress,
   executionStorageKey,
   firstIncompleteStep,
-  isExecutionProjectAtOrBefore,
-  isExecutionProjectNewer,
+  isExecutionGenerationCurrent,
   normalizeExecutionProject,
   type ExecutionProject,
   type ExecutionStepId,
@@ -40,7 +40,7 @@ const STEP_LABELS: Record<ExecutionStepId, { label: string; en: string }> = {
   EARN: { label: '最初の売上を記録', en: 'EARN' },
 };
 
-function createDefaultProject(entity: FinancialEntity): ExecutionProject {
+function createDefaultProject(entity: FinancialEntity, generation = 0): ExecutionProject {
   const suggestedOffer = (entity.essence?.whatItDoes || entity.tagline || '').slice(0, 300);
   const targetCustomer = (entity.essence?.targetCustomer || entity.targetPainWallet || '').slice(0, 2000);
   return {
@@ -56,6 +56,8 @@ function createDefaultProject(entity: FinancialEntity): ExecutionProject {
     checkoutUrl: '',
     revenueJpy: 0,
     notes: '',
+    revision: 0,
+    generation,
   };
 }
 
@@ -85,6 +87,8 @@ export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
   );
 }
 
+type SaveState = 'idle' | 'saving' | 'saved' | 'local' | 'conflict' | 'error';
+
 function ExecutionWorkspace({
   entity,
   userId,
@@ -99,52 +103,69 @@ function ExecutionWorkspace({
   const storageKey = executionStorageKey(entity.id, userId);
   const claimKey = executionPendingClaimKey(entity.id);
   const [project, setProject] = useState<ExecutionProject>(() => createDefaultProject(entity));
-  const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'local' | 'error'>('idle');
+  const [saveState, setSaveState] = useState<SaveState>('idle');
+
+  const applySavedProject = (submitted: ExecutionProject, saved: ExecutionProject) => {
+    const latest = readStoredExecutionProject(storageKey);
+    if (latest && !executionContentEqual(latest, submitted)) {
+      const rebased: ExecutionProject = {
+        ...latest,
+        revision: saved.revision,
+        generation: saved.generation,
+        updatedAt: saved.updatedAt,
+      };
+      writeStoredExecutionProject(storageKey, rebased);
+      setProject(rebased);
+      setSaveState('idle');
+      return;
+    }
+    writeStoredExecutionProject(storageKey, saved);
+    setProject(saved);
+    setSaveState('saved');
+  };
+
+  const autoPersist = async (candidate: ExecutionProject, signal?: AbortSignal) => {
+    setSaveState('saving');
+    try {
+      const saved = await persistExecutionProject(token as string, candidate, signal);
+      applySavedProject(candidate, saved);
+    } catch (error) {
+      if ((error as Error).name === 'AbortError') return;
+      if (error instanceof ExecutionProjectConflictError) {
+        if (error.generation !== candidate.generation) {
+          window.localStorage.removeItem(storageKey);
+          const fresh = createDefaultProject(entity, error.generation);
+          writeStoredExecutionProject(storageKey, fresh);
+          setProject(fresh);
+          setSaveState('local');
+          return;
+        }
+        setProject(readStoredExecutionProject(storageKey) ?? candidate);
+        setSaveState('conflict');
+        return;
+      }
+      setSaveState('error');
+    }
+  };
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      if (userId) {
-        const claimRaw = window.sessionStorage.getItem(claimKey);
-        if (claimRaw) {
-          try {
-            const claimed = normalizeExecutionProject(JSON.parse(claimRaw));
-            if (claimed?.entityId === entity.id && claimed.updatedAt) {
-              window.localStorage.setItem(storageKey, JSON.stringify(claimed));
-              window.localStorage.removeItem(executionStorageKey(entity.id, null));
-              window.sessionStorage.removeItem(claimKey);
-              setProject(claimed);
-              setSaveState('idle');
-              return;
-            }
-          } catch {
-            // Invalid transient claim is discarded below.
-          }
-          window.sessionStorage.removeItem(claimKey);
-        }
-      }
-
-      const raw = window.localStorage.getItem(storageKey);
-      if (!raw) {
-        window.localStorage.setItem(storageKey, JSON.stringify(createDefaultProject(entity)));
+      const local = readStoredExecutionProject(storageKey);
+      if (local?.entityId === entity.id) {
+        setProject(local);
+        setSaveState(token ? 'idle' : 'local');
+      } else if (!userId) {
+        const fresh = createDefaultProject(entity);
+        writeStoredExecutionProject(storageKey, fresh);
+        setProject(fresh);
         setSaveState('local');
-        return;
-      }
-      try {
-        const parsed = normalizeExecutionProject(JSON.parse(raw));
-        if (parsed && parsed.entityId === entity.id) {
-          setProject(parsed);
-          setSaveState('local');
-        }
-      } catch {
-        window.localStorage.removeItem(storageKey);
       }
     }, 0);
-
     return () => window.clearTimeout(timer);
-  }, [claimKey, entity, storageKey, userId]);
+  }, [entity, storageKey, token, userId]);
 
   useEffect(() => {
-    if (!token) return;
+    if (!token || !userId) return;
     const controller = new AbortController();
     void (async () => {
       try {
@@ -157,68 +178,98 @@ function ExecutionWorkspace({
         const data: unknown = await response.json();
         if (!data || typeof data !== 'object') throw new Error('invalid load response');
         const record = data as Record<string, unknown>;
-        const resetAt = typeof record.resetAt === 'string' ? record.resetAt : null;
+        const generation = typeof record.generation === 'number' && Number.isSafeInteger(record.generation) && record.generation >= 0
+          ? record.generation
+          : null;
+        if (generation === null) throw new Error('invalid execution generation');
         const remote = normalizeExecutionProject(record.project);
 
+        const claim = readSessionExecutionProject(claimKey);
+        if (claim?.entityId === entity.id) {
+          window.sessionStorage.removeItem(claimKey);
+          window.localStorage.removeItem(executionStorageKey(entity.id, null));
+          const claimed: ExecutionProject = {
+            ...claim,
+            generation,
+            revision: remote?.revision ?? 0,
+            updatedAt: remote?.updatedAt,
+          };
+          writeStoredExecutionProject(storageKey, claimed);
+          setProject(claimed);
+          await autoPersist(claimed, controller.signal);
+          return;
+        }
+
         let local = readStoredExecutionProject(storageKey);
-        if (isExecutionProjectAtOrBefore(local, resetAt)) {
+        if (local && !isExecutionGenerationCurrent(local, generation)) {
           window.localStorage.removeItem(storageKey);
           local = null;
         }
 
-        if (local?.updatedAt && (!remote?.updatedAt || local.updatedAt > remote.updatedAt)) {
-          const submitted = local;
-          const saved = await persistExecutionProject(token, submitted, controller.signal);
-          const latest = readStoredExecutionProject(storageKey);
-          if (isExecutionProjectNewer(latest, submitted)) {
-            setProject(latest as ExecutionProject);
-            setSaveState('idle');
-            return;
-          }
-          window.localStorage.setItem(storageKey, JSON.stringify(saved));
-          setProject(saved);
-          setSaveState('saved');
-          return;
-        }
-
-        if (remote && !isExecutionProjectAtOrBefore(remote, resetAt)) {
-          window.localStorage.setItem(storageKey, JSON.stringify(remote));
+        if (!local && remote) {
+          writeStoredExecutionProject(storageKey, remote);
           setProject(remote);
           setSaveState('saved');
           return;
         }
 
-        if (!local) {
-          const fresh = createDefaultProject(entity);
-          window.localStorage.setItem(storageKey, JSON.stringify(fresh));
+        if (!local && !remote) {
+          const fresh = createDefaultProject(entity, generation);
+          writeStoredExecutionProject(storageKey, fresh);
           setProject(fresh);
-          setSaveState('local');
-        }
-      } catch (error) {
-        if ((error as Error).name === 'AbortError') return;
-        if (error instanceof ExecutionProjectResetError) {
-          window.localStorage.removeItem(storageKey);
-          setProject(createDefaultProject(entity));
           setSaveState('local');
           return;
         }
-        setSaveState('error');
+
+        if (local && !remote) {
+          if (local.revision === 0) await autoPersist(local, controller.signal);
+          else {
+            setProject(local);
+            setSaveState('conflict');
+          }
+          return;
+        }
+
+        if (!local || !remote) return;
+
+        if (local.revision === remote.revision) {
+          if (executionContentEqual(local, remote)) {
+            writeStoredExecutionProject(storageKey, remote);
+            setProject(remote);
+            setSaveState('saved');
+          } else {
+            await autoPersist(local, controller.signal);
+          }
+          return;
+        }
+
+        if (executionContentEqual(local, remote)) {
+          writeStoredExecutionProject(storageKey, remote);
+          setProject(remote);
+          setSaveState('saved');
+          return;
+        }
+
+        setProject(local);
+        setSaveState('conflict');
+      } catch (error) {
+        if ((error as Error).name !== 'AbortError') setSaveState('error');
       }
     })();
     return () => controller.abort();
-  }, [entity, storageKey, token]);
+  }, [claimKey, entity, storageKey, token, userId]);
 
   const updateProject = (patch: Partial<ExecutionProject>) => {
     setProject((previous) => {
-      const next: ExecutionProject = { ...previous, ...patch, updatedAt: new Date().toISOString() };
-      window.localStorage.setItem(storageKey, JSON.stringify(next));
+      const next: ExecutionProject = { ...previous, ...patch };
+      writeStoredExecutionProject(storageKey, next);
       return next;
     });
-    setSaveState(token ? 'idle' : 'local');
+    setSaveState((previous) => previous === 'saving' ? 'saving' : token ? 'idle' : 'local');
   };
 
   const signInAndClaim = async () => {
-    if (project.updatedAt) {
+    if (!executionContentEqual(project, createDefaultProject(entity))) {
       window.sessionStorage.setItem(claimKey, JSON.stringify(project));
     }
     try {
@@ -236,33 +287,49 @@ function ExecutionWorkspace({
   };
 
   const save = async () => {
-    window.localStorage.setItem(storageKey, JSON.stringify(project));
+    writeStoredExecutionProject(storageKey, project);
     if (!token) {
       setSaveState('local');
       return;
     }
 
     setSaveState('saving');
-    const submitted = project;
+    let submitted = project;
     try {
       const saved = await persistExecutionProject(token, submitted);
-      const latest = readStoredExecutionProject(storageKey);
-      if (isExecutionProjectNewer(latest, submitted)) {
-        setProject(latest as ExecutionProject);
-        setSaveState('idle');
+      applySavedProject(submitted, saved);
+    } catch (error) {
+      if (!(error instanceof ExecutionProjectConflictError)) {
+        setSaveState('error');
         return;
       }
-      window.localStorage.setItem(storageKey, JSON.stringify(saved));
-      setProject(saved);
-      setSaveState('saved');
-    } catch (error) {
-      if (error instanceof ExecutionProjectResetError) {
+
+      if (error.generation !== submitted.generation) {
         window.localStorage.removeItem(storageKey);
-        setProject(createDefaultProject(entity));
+        const fresh = createDefaultProject(entity, error.generation);
+        writeStoredExecutionProject(storageKey, fresh);
+        setProject(fresh);
         setSaveState('local');
         return;
       }
-      setSaveState('error');
+
+      const latestLocal = readStoredExecutionProject(storageKey);
+      const desired = latestLocal ?? submitted;
+      submitted = {
+        ...desired,
+        generation: error.generation,
+        revision: error.project?.revision ?? 0,
+        updatedAt: error.project?.updatedAt,
+      };
+      writeStoredExecutionProject(storageKey, submitted);
+
+      try {
+        const saved = await persistExecutionProject(token, submitted);
+        applySavedProject(submitted, saved);
+      } catch {
+        setProject(readStoredExecutionProject(storageKey) ?? submitted);
+        setSaveState('conflict');
+      }
     }
   };
 
@@ -351,8 +418,8 @@ function ExecutionWorkspace({
             <Metric label="完了工程" value={String(project.completedSteps.length) + '/6'} />
             <Metric
               label="保存"
-              value={saveState === 'saved' ? 'クラウド' : saveState === 'error' ? '要再保存' : 'この端末'}
-              tone={saveState === 'error' ? 'red' : 'neutral'}
+              value={saveState === 'saved' ? 'クラウド' : saveState === 'conflict' ? '競合あり' : saveState === 'error' ? '要再保存' : 'この端末'}
+              tone={saveState === 'error' || saveState === 'conflict' ? 'red' : 'neutral'}
             />
           </div>
         </section>
@@ -676,10 +743,13 @@ function safeHttpUrl(value: string): string | null {
   }
 }
 
-class ExecutionProjectResetError extends Error {
-  constructor(public readonly resetAt: string | null) {
-    super('Execution project was cleared with account data');
-    this.name = 'ExecutionProjectResetError';
+class ExecutionProjectConflictError extends Error {
+  constructor(
+    public readonly generation: number,
+    public readonly project: ExecutionProject | null,
+  ) {
+    super('Execution project conflict');
+    this.name = 'ExecutionProjectConflictError';
   }
 }
 
@@ -691,6 +761,20 @@ function readStoredExecutionProject(storageKey: string): ExecutionProject | null
   } catch {
     return null;
   }
+}
+
+function readSessionExecutionProject(storageKey: string): ExecutionProject | null {
+  const raw = window.sessionStorage.getItem(storageKey);
+  if (!raw) return null;
+  try {
+    return normalizeExecutionProject(JSON.parse(raw));
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredExecutionProject(storageKey: string, project: ExecutionProject) {
+  window.localStorage.setItem(storageKey, JSON.stringify(project));
 }
 
 async function persistExecutionProject(token: string, project: ExecutionProject, signal?: AbortSignal) {
@@ -705,10 +789,11 @@ async function persistExecutionProject(token: string, project: ExecutionProject,
   });
   const data: unknown = await response.json().catch(() => null);
   if (response.status === 409) {
-    const resetAt = data && typeof data === 'object' && typeof (data as Record<string, unknown>).resetAt === 'string'
-      ? (data as Record<string, string>).resetAt
-      : null;
-    throw new ExecutionProjectResetError(resetAt);
+    const record = data && typeof data === 'object' ? data as Record<string, unknown> : {};
+    const generation = typeof record.generation === 'number' && Number.isSafeInteger(record.generation) && record.generation >= 0
+      ? record.generation
+      : project.generation;
+    throw new ExecutionProjectConflictError(generation, normalizeExecutionProject(record.project));
   }
   if (!response.ok) throw new Error('save failed');
   const saved = data && typeof data === 'object'
@@ -732,6 +817,7 @@ function executionRequestBody(project: ExecutionProject) {
     checkoutUrl: project.checkoutUrl,
     revenueJpy: project.revenueJpy,
     notes: project.notes,
-    updatedAt: project.updatedAt,
+    revision: project.revision,
+    generation: project.generation,
   };
 }
