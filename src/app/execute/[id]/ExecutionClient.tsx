@@ -107,6 +107,7 @@ function ExecutionWorkspace({
   const [saveState, setSaveState] = useState<SaveState>('idle');
   const [conflictProject, setConflictProject] = useState<ExecutionProject | null>(null);
   const [generationHydrated, setGenerationHydrated] = useState(!userId);
+  const [hydrationAttempt, setHydrationAttempt] = useState(0);
 
   const applySavedProject = useCallback((submitted: ExecutionProject, saved: ExecutionProject) => {
     const latest = readStoredExecutionProject(storageKey);
@@ -296,7 +297,7 @@ function ExecutionWorkspace({
       }
     })();
     return () => controller.abort();
-  }, [autoPersist, claimKey, entity, storageKey, token, userId]);
+  }, [autoPersist, claimKey, entity, hydrationAttempt, storageKey, token, userId]);
 
   const updateProject = (patch: Partial<ExecutionProject>) => {
     if (userId && !generationHydrated) return;
@@ -499,7 +500,25 @@ function ExecutionWorkspace({
 
         {editingDisabled && (
           <section className="rounded-xl border border-blue-400/20 bg-blue-400/[0.05] px-4 py-3 text-xs text-zinc-400">
-            クラウドの保存世代を確認中です。確認が終わるまで編集をロックしています。
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <span>
+                {saveState === 'error'
+                  ? 'クラウドの保存世代を確認できませんでした。安全のため編集をロックしています。'
+                  : 'クラウドの保存世代を確認中です。確認が終わるまで編集をロックしています。'}
+              </span>
+              {saveState === 'error' && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSaveState('idle');
+                    setHydrationAttempt((attempt) => attempt + 1);
+                  }}
+                  className="rounded-md border border-blue-300/25 bg-blue-300/10 px-3 py-1.5 text-[11px] font-semibold text-blue-200 hover:bg-blue-300/15"
+                >
+                  再接続
+                </button>
+              )}
+            </div>
           </section>
         )}
 
