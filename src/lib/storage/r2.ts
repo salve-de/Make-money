@@ -94,6 +94,15 @@ export class R2ObjectConflictError extends Error {
   }
 }
 
+export class R2ViewConcurrentModificationError extends Error {
+  readonly code = 'R2_VIEW_CONCURRENT_MODIFICATION';
+
+  constructor(readonly bucket: string, readonly key: string) {
+    super(`R2 rebuildable view changed concurrently: ${bucket}/${key}`);
+    this.name = 'R2ViewConcurrentModificationError';
+  }
+}
+
 export class R2BucketMissingError extends Error {
   readonly code = 'R2_BUCKET_MISSING';
 
@@ -174,7 +183,7 @@ interface R2WorkerBinding {
     key: string,
     value: Uint8Array,
     options?: {
-      onlyIf?: { etagDoesNotMatch?: string };
+      onlyIf?: { etagMatches?: string; etagDoesNotMatch?: string };
       httpMetadata?: { contentType?: string };
       customMetadata?: Record<string, string>;
     }
@@ -760,20 +769,42 @@ export interface R2MutableViewWriteResult {
   key: string;
   bytes: number;
   sha256: string;
+  etag?: string;
   readback: {
     bytes_match: boolean;
     sha256_match: boolean;
   };
 }
 
+export interface R2MutableViewWriteOptions {
+  /**
+   * Optimistic concurrency control.
+   * null means "create only if absent"; a string means "replace only if the
+   * current object still has this ETag".
+   */
+  expectedEtag: string | null;
+}
+
+function stripEtagQuotes(value: string): string {
+  return value.replace(/^"+|"+$/g, '');
+}
+
+function quoteEtag(value: string): string {
+  const clean = stripEtagQuotes(value);
+  return `"${clean}"`;
+}
+
 /**
  * Rebuildable consumer views only.
  *
- * Canonical Foundation objects remain create-only. This helper deliberately
- * permits replacement only below the `views/` prefix so product-serving
- * projections can be regenerated when newer facts arrive.
+ * Canonical Foundation objects remain create-only. Product views may change,
+ * but every replacement is guarded by an ETag compare-and-swap so an older
+ * or concurrent projection cannot silently overwrite a newer one.
  */
-export async function putR2MutableView(input: R2ObjectInput): Promise<R2MutableViewWriteResult> {
+export async function putR2MutableView(
+  input: R2ObjectInput,
+  options: R2MutableViewWriteOptions
+): Promise<R2MutableViewWriteResult> {
   const bucket = input.bucket.trim();
   const key = input.key.trim();
   if (!bucket || !key) {
@@ -801,35 +832,68 @@ export async function putR2MutableView(input: R2ObjectInput): Promise<R2MutableV
         key,
         bytes: body.byteLength,
         sha256,
+        etag: existing.etag,
         readback: { bytes_match: true, sha256_match: true },
       };
     }
   }
 
+  // The caller must have read the exact object version it is replacing.
+  if (options.expectedEtag === null && existing) {
+    throw new R2ViewConcurrentModificationError(bucket, key);
+  }
+  if (
+    options.expectedEtag !== null &&
+    (!existing?.etag || stripEtagQuotes(existing.etag) !== stripEtagQuotes(options.expectedEtag))
+  ) {
+    throw new R2ViewConcurrentModificationError(bucket, key);
+  }
+
   if (backend.kind === 'binding') {
-    await backend.binding.put(key, body, {
-      httpMetadata: { contentType: input.contentType },
-      customMetadata: {
-        ...input.metadata,
-        'foundation-sha256': sha256,
-        'foundation-view-rebuildable': 'true',
-      },
-    });
-  } else {
-    await backend.client.send(
-      new PutObjectCommand({
-        Bucket: bucket,
-        Key: key,
-        Body: body,
-        ContentLength: body.byteLength,
-        ContentType: input.contentType,
-        Metadata: {
+    try {
+      const result = await backend.binding.put(key, body, {
+        onlyIf: options.expectedEtag === null
+          ? { etagDoesNotMatch: '*' }
+          : { etagMatches: stripEtagQuotes(options.expectedEtag) },
+        httpMetadata: { contentType: input.contentType },
+        customMetadata: {
           ...input.metadata,
           'foundation-sha256': sha256,
           'foundation-view-rebuildable': 'true',
         },
-      })
-    );
+      });
+      if (!result) throw new R2ViewConcurrentModificationError(bucket, key);
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError || isConditionalConflict(error)) {
+        throw new R2ViewConcurrentModificationError(bucket, key);
+      }
+      throw error;
+    }
+  } else {
+    try {
+      await backend.client.send(
+        new PutObjectCommand({
+          Bucket: bucket,
+          Key: key,
+          Body: body,
+          ContentLength: body.byteLength,
+          ContentType: input.contentType,
+          ...(options.expectedEtag === null
+            ? { IfNoneMatch: '*' }
+            : { IfMatch: quoteEtag(options.expectedEtag) }),
+          Metadata: {
+            ...input.metadata,
+            'foundation-sha256': sha256,
+            'foundation-view-rebuildable': 'true',
+          },
+        })
+      );
+    } catch (error) {
+      if (isConditionalConflict(error)) {
+        throw new R2ViewConcurrentModificationError(bucket, key);
+      }
+      throw error;
+    }
   }
 
   const readback = await readR2ObjectWithBackend(bucket, key, backend);
@@ -853,6 +917,7 @@ export async function putR2MutableView(input: R2ObjectInput): Promise<R2MutableV
     key,
     bytes: body.byteLength,
     sha256,
+    etag: readback.etag,
     readback: { bytes_match: bytesMatch, sha256_match: sha256Match },
   };
 }
