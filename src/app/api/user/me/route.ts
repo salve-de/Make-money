@@ -34,6 +34,7 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM analyst_notes WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM chat_messages WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM synthesized_ideas WHERE user_id = ?', params: [user.uid] },
+      { sql: 'DELETE FROM build_sessions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM submissions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM newsletter_subscribers WHERE user_id = ?', params: [user.uid] },
       { sql: "UPDATE payment_events SET user_id = NULL, fact = json_remove(fact, '$.userId', '$.user_id') WHERE user_id = ?", params: [user.uid] },
