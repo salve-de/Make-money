@@ -42,7 +42,10 @@ FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN
 - `DELETE /api/user/me` の application-data 削除では `execution_projects` も同一batchで削除し、同時に `execution_resets` の世代を1つ進める。tombstoneには生UIDではなくSHA-256化owner key、generation、reset時刻だけを残す。
 - 別端末に残った旧世代localStorageは、次回GETで現在generationと不一致なら破棄する。PUTもD1上の現在generationと一致しない旧端末データを409で拒否するため、削除レスポンスが失われても復活しない。
 - 案件保存は `revision` のCompare-And-Swapで行う。同じrevisionから2本のPUTが競合した場合、先に成功した1本だけがrevisionを進め、後着の古いPUTは409になる。
+- 409競合は自動上書きしない。画面で「クラウド版を採用」「この端末版で明示上書き」を選ぶまで保留し、別端末の変更を暗黙に潰さない。
 - クラウド保存中に追加編集された場合は、保存レスポンスと送信時の編集内容を比較し、新しいlocal内容を保持したままserver revisionだけrebaseする。ブラウザ時計は使わない。
+- `/execute` の一覧APIは `entity_id` のkeyset cursorで100件ずつ返し、クライアントが `hasMore=false` まで全ページ取得する。100件を超えても案件数・First Dollar達成数・売上合計を欠落させない。
+- 一覧でクラウドrevisionがローカルより新しい場合、集計値は新しいクラウド版を採用する。ローカルに未保存差分もある場合だけ「端末下書きとクラウドが競合」と表示し、詳細画面で解決する。
 - APIのrequest上限は、共有スキーマ上の最大有効入力がJSONの `\\uXXXX` escapeへ展開される最悪ケースも収まる256KiBとする。
 
 ## First Dollar の定義
