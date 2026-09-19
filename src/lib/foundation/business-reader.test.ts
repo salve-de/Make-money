@@ -10,7 +10,7 @@ const state = vi.hoisted(() => ({
 
 vi.mock('@/lib/storage/r2', () => state);
 
-import { buildFoundationValueSummariesFromBundle, readFoundationValuePage } from './business-reader';
+import { buildFoundationValueSummariesFromBundle, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
 
 describe('Foundation list read path', () => {
   beforeEach(() => {
@@ -139,6 +139,108 @@ describe('Foundation list read path', () => {
     expect(page[0]?.valueProfile.counts.evidence).toBe(2);
     expect(page[0]?.valueProfile.moneySignal).toContain('MRR');
   });
+
+  it('aggregates later canonical bundles while the serving-view migration is incomplete', async () => {
+    const entityId = 'ent_demo_abcdef0123456789abcd';
+    const entityKey = `datasets/ds.business.entities.core/v1/entities/${entityId}.json`;
+    const bundleAKey = 'datasets/ds.business.research-bundles.derived/v1/2026/09/01/run_migration_a.json';
+    const bundleBKey = 'datasets/ds.business.research-bundles.derived/v1/2026/09/19/run_migration_b.json';
+
+    const entity = {
+      entity_id: entityId,
+      canonical_name: 'Migration Demo',
+      entity_type: 'business',
+      aliases: [],
+      canonical_identifier: 'migration.example',
+      domain: 'migration.example',
+      status: 'operating',
+      observed_at: '2026-09-01T00:00:00Z',
+      evidence_ids: ['ev_old'],
+    };
+    const bundleA = {
+      schema_version: 'research-bundle.v1',
+      entities: [entity],
+      claims: [{
+        claim_id: 'cl_aaaaaaaaaaaaaaaaaaaaaaaa',
+        entity_ids: [entityId],
+        statement: 'Migration Demo is a SaaS platform for finance teams.',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 0.9,
+        occurred_at: null,
+        evidence_ids: ['ev_old'],
+      }],
+      metrics: [],
+      money_signals: [],
+      events: [],
+      relationships: [],
+      observations: [],
+      derived: [],
+    };
+    const bundleB = {
+      schema_version: 'research-bundle.v1',
+      entities: [{
+        ...entity,
+        observed_at: '2026-09-19T00:00:00Z',
+        evidence_ids: ['ev_new'],
+      }],
+      claims: [],
+      metrics: [{
+        metric_id: 'mt_bbbbbbbbbbbbbbbbbbbbbbbb',
+        entity_id: entityId,
+        metric_type: 'MRR',
+        value: 75000,
+        unit: null,
+        currency: 'USD',
+        period_start: null,
+        period_end: null,
+        point_in_time: '2026-09-19T00:00:00Z',
+        basis: 'reported',
+        scope: 'company',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 0.9,
+        evidence_ids: ['ev_new'],
+      }],
+      money_signals: [],
+      events: [],
+      relationships: [],
+      observations: [],
+      derived: [],
+    };
+    const bodies = new Map([
+      [entityKey, JSON.stringify(entity)],
+      [bundleAKey, JSON.stringify(bundleA)],
+      [bundleBKey, JSON.stringify(bundleB)],
+    ]);
+
+    state.listR2Objects
+      .mockResolvedValueOnce({
+        objects: [{ key: entityKey }],
+        truncated: false,
+      })
+      .mockResolvedValueOnce({
+        objects: [{ key: bundleAKey }, { key: bundleBKey }],
+        truncated: false,
+      });
+    state.getFromR2.mockImplementation(async (key: string) => bodies.get(key) || null);
+    state.readR2ObjectRange.mockImplementation(async (_bucket: string, key: string) => {
+      const body = bodies.get(key);
+      return body
+        ? { exists: true, body: new TextEncoder().encode(body), metadata: {} }
+        : null;
+    });
+
+    const page = await readFoundationHydratedValuePage({ limit: 1 });
+
+    expect(page.data).toHaveLength(1);
+    expect(page.data[0]?.observedAt).toBe('2026-09-19T00:00:00Z');
+    expect(page.data[0]?.valueProfile.counts.claims).toBe(1);
+    expect(page.data[0]?.valueProfile.counts.metrics).toBe(1);
+    expect(page.data[0]?.valueProfile.moneySignal).toContain('MRR');
+    expect(page.data[0]?.evidenceIds).toEqual(expect.arrayContaining(['ev_old', 'ev_new']));
+  });
+
 
   it('reads a bundle directly from the entity run metadata', async () => {
     const entityId = 'ent_demo_0123456789abcdef0123';
