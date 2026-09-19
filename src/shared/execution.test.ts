@@ -27,6 +27,7 @@ const base: ExecutionProject = {
   checkoutUrl: '',
   revenueJpy: 0,
   notes: '',
+  dirty: false,
   revision: 0,
   generation: 0,
 };
@@ -65,11 +66,13 @@ describe('first dollar execution model', () => {
 
   it('merges hub copies by revision and only flags genuine stale-local conflicts', () => {
     const remote2 = { ...base, revision: 2, generation: 0, offerName: 'remote' };
-    const staleSame = { ...remote2, revision: 1 };
-    const staleEdited = { ...remote2, revision: 1, offerName: 'local unsaved' };
-    const sameRevisionEdited = { ...remote2, offerName: 'local unsaved' };
+    const staleSame = { ...remote2, revision: 1, dirty: false };
+    const staleEdited = { ...remote2, revision: 1, dirty: true, offerName: 'local unsaved' };
+    const staleCleanDifferent = { ...remote2, revision: 1, dirty: false, offerName: 'old saved offer' };
+    const sameRevisionEdited = { ...remote2, dirty: true, offerName: 'local unsaved' };
 
     expect(mergeExecutionProjectCopies(staleSame, remote2)).toEqual({ project: remote2, conflict: false });
+    expect(mergeExecutionProjectCopies(staleCleanDifferent, remote2)).toEqual({ project: remote2, conflict: false });
     expect(mergeExecutionProjectCopies(staleEdited, remote2)).toEqual({ project: remote2, conflict: true });
     expect(mergeExecutionProjectCopies(sameRevisionEdited, remote2)).toEqual({ project: sameRevisionEdited, conflict: false });
   });
@@ -81,7 +84,7 @@ describe('first dollar execution model', () => {
     { ...base, targetPriceJpy: -1 },
     { ...base, revenueJpy: Number.NaN },
     { ...base, buildUrl: 'javascript:alert(1)' },
-    { ...base, checkoutUrl: 'data:text/html,bad' },
+    { ...base, buildUrl: 'x'.repeat(2049) },
     { ...base, notes: 'x'.repeat(MAX_EXECUTION_NOTES_LENGTH + 1) },
     { ...base, updatedAt: 'not-a-date' },
     { ...base, revision: -1 },
