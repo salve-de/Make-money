@@ -9,6 +9,7 @@ import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
   readFoundationBusinessCase,
+  readFoundationHydratedValuePage,
   type FoundationBusinessCase,
   type FoundationValuePage,
 } from '@/lib/foundation/business-reader';
@@ -21,7 +22,11 @@ import {
   adaptFoundationSummaryToFinancialEntity,
   isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
-import { readMakeMoneyValuePage } from '@/lib/foundation/make-money-view';
+import {
+  isMakeMoneyViewBackfillComplete,
+  readMakeMoneyValuePage,
+  readMakeMoneyViewDetail,
+} from '@/lib/foundation/make-money-view';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import type { FinancialEntity } from '@/platform/types/terminal';
 
@@ -210,7 +215,7 @@ export async function GET(request: Request) {
         entityId,
         DETAIL_TTL_MS,
         MAX_DETAIL_CACHE_ENTRIES,
-        () => readFoundationBusinessCase(entityId)
+        async () => (await readMakeMoneyViewDetail(entityId)) || readFoundationBusinessCase(entityId)
       );
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
@@ -272,12 +277,15 @@ export async function GET(request: Request) {
   const cacheKey = `${limit}:${cursor || 'first'}`;
 
   try {
+    const materializedViewReady = await isMakeMoneyViewBackfillComplete();
     const page = await readCached(
       pageCache,
-      cacheKey,
+      `${materializedViewReady ? 'view' : 'canonical'}:${cacheKey}`,
       PAGE_TTL_MS,
       MAX_PAGE_CACHE_ENTRIES,
-      () => readMakeMoneyValuePage({ cursor, limit })
+      () => materializedViewReady
+        ? readMakeMoneyValuePage({ cursor, limit })
+        : readFoundationHydratedValuePage({ cursor, limit })
     );
     parseFoundationValuePage(page);
 
@@ -299,7 +307,7 @@ export async function GET(request: Request) {
           .map(publicSummaryEntity);
         return response({
           source: 'foundation_lake',
-          projection: 'make-money.v1',
+          projection: materializedViewReady ? 'make-money.v1' : 'canonical-hydrated-migration',
           count: summaries.length,
           data: publicFoundationData(summaries),
           nextCursor: page.nextCursor,
@@ -309,7 +317,7 @@ export async function GET(request: Request) {
 
       return response({
         source: 'foundation_lake',
-        projection: 'make-money.v1',
+        projection: materializedViewReady ? 'make-money.v1' : 'canonical-hydrated-migration',
         count: publishableSummaries.length,
         data: publicFoundationData(publishableSummaries),
         nextCursor: page.nextCursor,
