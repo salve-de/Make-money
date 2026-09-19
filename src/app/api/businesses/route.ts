@@ -3,6 +3,7 @@ import { findCachedPublishableEntity, readCachedLocalPublishableEntities } from 
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
+import type { FinancialEntity } from '@/platform/types/terminal';
 import {
   readFoundationBusinessCase,
   readFoundationValuePage,
