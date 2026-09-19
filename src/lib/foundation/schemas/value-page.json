@@ -165,7 +165,7 @@
         "USEFUL",
         "CANDIDATE"
       ],
-      "description": "Read-time UI projection only.\n\nThis is deliberately not a Foundation schema and is never written to R2. It turns the records that are already present in a bundle into a small set of useful display signals. Missing facts stay null; this module never fills revenue, margin, price, customers, or other values with defaults."
+      "description": "Consumer-serving UI projection only.\n\nThis is deliberately not a canonical Foundation schema. It may be materialized under the rebuildable \`views/\` namespace for fast serving, while canonical facts remain in their registered Foundation datasets. Missing facts stay null; this module never fills revenue, margin, price, customers, or other values with defaults."
     },
     "FoundationValueCounts": {
       "type": "object",
