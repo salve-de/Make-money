@@ -2,6 +2,7 @@ import {
   getFoundationBucket,
   preflightR2Object,
   putR2ObjectCreateOnly,
+  readR2Object,
   sha256Hex,
   type FoundationBucketRole,
   type R2PreflightResult,
@@ -146,6 +147,7 @@ export type PlannedWritePreflightStatus =
   | 'ABSENT'
   | 'EXISTS_IDENTICAL'
   | 'EXISTS_CONFLICT'
+  | 'EXISTS_COMPATIBLE'
   | 'BUCKET_MISSING';
 
 export interface PlannedWriteObject {
@@ -182,7 +184,7 @@ export interface IngestedObjectReport {
   dataset_id: string | null;
   bucket: string;
   key: string;
-  status: R2WriteResult['status'];
+  status: R2WriteResult['status'] | 'EXISTS_COMPATIBLE';
   bytes: number;
   sha256: string;
   source_evidence_ids: string[];
@@ -199,6 +201,7 @@ export interface FoundationIngestReport {
     planned: number;
     created: number;
     exists_identical: number;
+    exists_compatible: number;
   };
   provider_calls: {
     head_bucket: number;
@@ -1055,6 +1058,46 @@ async function buildPlannedWrites(
   };
 }
 
+function decodeJsonObject(body: Uint8Array | string): JsonObject | null {
+  try {
+    const text = typeof body === 'string' ? body : new TextDecoder().decode(body);
+    return isObject(JSON.parse(text)) ? JSON.parse(text) as JsonObject : null;
+  } catch {
+    return null;
+  }
+}
+
+function normalizedIdentityText(value: string | null): string | null {
+  return value ? value.trim().toLocaleLowerCase().replace(/^https?:\/\//, '').replace(/\/$/, '') : null;
+}
+
+function compatibleStableEntity(existing: JsonObject, incoming: JsonObject): boolean {
+  const existingId = getString(existing, 'entity_id');
+  const incomingId = getString(incoming, 'entity_id');
+  const existingType = getString(existing, 'entity_type');
+  const incomingType = getString(incoming, 'entity_type');
+  if (!existingId || existingId !== incomingId || !existingType || existingType !== incomingType) return false;
+
+  const existingIdentifier = normalizedIdentityText(getString(existing, 'canonical_identifier'));
+  const incomingIdentifier = normalizedIdentityText(getString(incoming, 'canonical_identifier'));
+  if (existingIdentifier && incomingIdentifier && existingIdentifier !== incomingIdentifier) return false;
+
+  const existingDomain = normalizedIdentityText(getString(existing, 'domain'));
+  const incomingDomain = normalizedIdentityText(getString(incoming, 'domain'));
+  if (existingDomain && incomingDomain && existingDomain !== incomingDomain) return false;
+
+  const existingName = normalizedIdentityText(getString(existing, 'canonical_name'));
+  const incomingName = normalizedIdentityText(getString(incoming, 'canonical_name'));
+  const durableMatch = Boolean(
+    (existingIdentifier && incomingIdentifier && existingIdentifier === incomingIdentifier) ||
+    (existingDomain && incomingDomain && existingDomain === incomingDomain)
+  );
+
+  // Name changes are acceptable only when a durable identity key proves this
+  // is the same entity. Without one, fail closed.
+  return existingName === incomingName || durableMatch;
+}
+
 function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
   return status;
 }
@@ -1078,6 +1121,9 @@ export async function ingestFoundationResearch(
   const plan = await buildPlan(bundle, rawEvidence);
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
 
+  const compatibleEntityReads = new Map<number, { bytes: number; sha256: string }>();
+  let compatibilityReadCalls = 0;
+
   for (let index = 0; index < plan.length; index += 1) {
     const item = plan[index];
     const preflight = await preflightR2Object({
@@ -1089,6 +1135,20 @@ export async function ingestFoundationResearch(
     });
     plannedWrites.objects[index].preflight_status = preflightStatus(preflight.status);
     if (preflight.status === 'EXISTS_CONFLICT') {
+      if (item.logicalRole === 'entity') {
+        const existingObject = await readR2Object(item.bucket, item.key);
+        compatibilityReadCalls += 1;
+        const existingEntity = existingObject ? decodeJsonObject(existingObject.body) : null;
+        const incomingEntity = decodeJsonObject(item.body);
+        if (existingObject && existingEntity && incomingEntity && compatibleStableEntity(existingEntity, incomingEntity)) {
+          plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
+          compatibleEntityReads.set(index, {
+            bytes: existingObject.body.byteLength,
+            sha256: await sha256Hex(existingObject.body),
+          });
+          continue;
+        }
+      }
       throw new R2ObjectConflictError(preflight.bucket, preflight.key);
     }
   }
@@ -1096,11 +1156,28 @@ export async function ingestFoundationResearch(
   const results: IngestedObjectReport[] = [];
   const providerCalls = {
     head_bucket: plan.length,
-    get_object: plan.length,
+    get_object: plan.length + compatibilityReadCalls,
     put_object: 0,
   };
 
-  for (const item of plan) {
+  for (let index = 0; index < plan.length; index += 1) {
+    const item = plan[index];
+    const compatible = compatibleEntityReads.get(index);
+    if (compatible) {
+      results.push({
+        logical_role: item.logicalRole,
+        dataset_id: item.datasetId,
+        bucket: item.bucket,
+        key: item.key,
+        status: 'EXISTS_COMPATIBLE',
+        bytes: compatible.bytes,
+        sha256: compatible.sha256,
+        source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
+        readback: { bytes_match: false, sha256_match: false },
+      });
+      continue;
+    }
+
     const result = await putR2ObjectCreateOnly({
       bucket: item.bucket,
       key: item.key,
@@ -1138,6 +1215,7 @@ export async function ingestFoundationResearch(
       planned: plan.length,
       created: results.filter((item) => item.status === 'CREATED').length,
       exists_identical: results.filter((item) => item.status === 'EXISTS_IDENTICAL').length,
+      exists_compatible: results.filter((item) => item.status === 'EXISTS_COMPATIBLE').length,
     },
     provider_calls: providerCalls,
     readback_verified: results.filter(
