@@ -173,7 +173,7 @@ describe('strategy owner isolation and honest persistence', () => {
   });
   it('deletes owned state and anonymizes retained payment facts atomically', async () => {
     state.batch.mockResolvedValue([]);
-    state.query.mockResolvedValue([{ users: 0, execution_projects: 0 }]);
+    state.query.mockResolvedValue([{ users: 0, execution_projects: 0, execution_generation: 1 }]);
     const response = await deleteUser(request(null, false, true));
     expect(response.status).toBe(200);
     expect(await response.json()).toMatchObject({ scope: 'application_data' });
@@ -181,6 +181,7 @@ describe('strategy owner isolation and honest persistence', () => {
       expect.objectContaining({ sql: expect.stringContaining('DELETE FROM bookmarks'), params: ['user-1'] }),
       expect.objectContaining({ sql: expect.stringContaining('DELETE FROM newsletter_subscribers'), params: ['user-1'] }),
       expect.objectContaining({ sql: expect.stringContaining('DELETE FROM execution_projects'), params: ['user-1'] }),
+      expect.objectContaining({ sql: expect.stringContaining('execution_resets') }),
       expect.objectContaining({ sql: expect.stringContaining('json_remove'), params: ['user-1'] }),
       expect.objectContaining({ sql: expect.stringContaining('DELETE FROM users'), params: ['user-1'] }),
     ]));
