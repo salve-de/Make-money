@@ -94,7 +94,8 @@ it('fails closed for a missing bucket and readback corruption', async () => {
   const corrupt = bindingState();
   corrupt.put.mockImplementationOnce(async (key: string) => {
     corrupt.objects.set(key, new TextEncoder().encode('corrupt'));
-    return { size: 7, arrayBuffer: async () => new TextEncoder().encode('corrupt').buffer };
+    corrupt.etags.set(key, 'etag-corrupt');
+    return { size: 7, etag: 'etag-corrupt', arrayBuffer: async () => new TextEncoder().encode('corrupt').buffer };
   });
   await expect(putR2ObjectCreateOnly({ bucket: 'make-money-production-private', key: 'tests/corrupt.json', body: 'expected', contentType: 'text/plain' })).rejects.toBeInstanceOf(R2ReadbackVerificationError);
 });
