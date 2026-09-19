@@ -67,6 +67,40 @@ describe('execution projects', () => {
     );
   });
 
+  it('paginates the execution-project listing without dropping rows', async () => {
+    const rows = Array.from({ length: 101 }, (_, index) => ({
+      ...savedProject,
+      entityId: 'ent-' + String(index).padStart(3, '0'),
+      sourceName: 'Project ' + index,
+    }));
+    state.query.mockResolvedValue(rows);
+
+    const response = await GET(req());
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.projects).toHaveLength(100);
+    expect(body).toMatchObject({ hasMore: true, nextCursor: 'ent-099', generation: 0 });
+    expect(state.query).toHaveBeenCalledWith(
+      expect.stringContaining('ORDER BY entity_id ASC LIMIT 101'),
+      ['owner-a', 0],
+      expect.any(Function),
+    );
+
+    state.query.mockResolvedValue([rows[100]]);
+    const next = await GET(req(undefined, true, '?cursor=ent-099'));
+    expect(await next.json()).toMatchObject({
+      projects: [expect.objectContaining({ entityId: 'ent-100' })],
+      hasMore: false,
+      nextCursor: null,
+    });
+    expect(state.query).toHaveBeenLastCalledWith(
+      expect.stringContaining('entity_id>?'),
+      ['owner-a', 0, 'ent-099'],
+      expect.any(Function),
+    );
+  });
+
   it('creates a project under the verified owner with a server revision', async () => {
     state.query.mockResolvedValue([savedProject]);
     const response = await PUT(req(validProject));
