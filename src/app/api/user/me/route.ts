@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { verifyFirebaseIdToken } from '@/lib/firebase/server';
 import { batchD1, executeD1, queryD1 } from '@/lib/storage/d1';
 import { getProEntitlement } from '@/lib/payments/entitlement';
-import { setExecutionResetCookie } from '@/lib/execution/reset-cookie';
+import { executionOwnerKey } from '@/lib/execution/generation-store';
 
 export const dynamic = 'force-dynamic';
 const json = (body: unknown, init: { status?: number } = {}) => NextResponse.json(body, { ...init, headers: { 'Cache-Control': 'private, no-store', Vary: 'Authorization' } });
 interface UserRow { id: string; email: string; display_name: string | null; role: string }
-interface DeletionReadback { users: number; execution_projects: number }
+interface DeletionReadback { users: number; execution_projects: number; execution_generation: number }
 export async function GET(req: NextRequest) {
   const auth = req.headers.get('authorization');
   const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
@@ -31,6 +31,8 @@ export async function DELETE(req: NextRequest) {
   const user = auth?.startsWith('Bearer ') ? await verifyFirebaseIdToken(auth.slice(7)) : null;
   if (!user) return json({ error: 'Unauthorized' }, { status: 401 });
   try {
+    const resetAt = new Date().toISOString();
+    const ownerKey = executionOwnerKey(user.uid);
     await batchD1([
       { sql: 'DELETE FROM bookmarks WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM analyst_notes WHERE user_id = ?', params: [user.uid] },
@@ -39,20 +41,24 @@ export async function DELETE(req: NextRequest) {
       { sql: 'DELETE FROM submissions WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM newsletter_subscribers WHERE user_id = ?', params: [user.uid] },
       { sql: 'DELETE FROM execution_projects WHERE user_id = ?', params: [user.uid] },
+      { sql: 'INSERT INTO execution_resets(owner_key,generation,reset_at) VALUES(?,1,?) ON CONFLICT(owner_key) DO UPDATE SET generation=generation+1,reset_at=excluded.reset_at', params: [ownerKey, resetAt] },
       { sql: "UPDATE payment_events SET user_id = NULL, fact = json_remove(fact, '$.userId', '$.user_id') WHERE user_id = ?", params: [user.uid] },
       { sql: 'DELETE FROM users WHERE id = ?', params: [user.uid] },
     ]);
     const [remaining] = await queryD1<DeletionReadback>(
-      'SELECT (SELECT COUNT(*) FROM users WHERE id = ?) AS users, (SELECT COUNT(*) FROM execution_projects WHERE user_id = ?) AS execution_projects',
-      [user.uid, user.uid],
+      'SELECT (SELECT COUNT(*) FROM users WHERE id = ?) AS users, (SELECT COUNT(*) FROM execution_projects WHERE user_id = ?) AS execution_projects, (SELECT generation FROM execution_resets WHERE owner_key = ?) AS execution_generation',
+      [user.uid, user.uid, ownerKey],
     );
-    if (!remaining || Number(remaining.users) !== 0 || Number(remaining.execution_projects) !== 0) {
+    if (!remaining || Number(remaining.users) !== 0 || Number(remaining.execution_projects) !== 0
+      || !Number.isSafeInteger(Number(remaining.execution_generation)) || Number(remaining.execution_generation) < 1) {
       throw new Error('User deletion readback failed');
     }
-    const resetAt = new Date().toISOString();
-    const response = json({ success: true, scope: 'application_data', executionResetAt: resetAt });
-    setExecutionResetCookie(response, req, user.uid, resetAt);
-    return response;
+    return json({
+      success: true,
+      scope: 'application_data',
+      executionGeneration: Number(remaining.execution_generation),
+      executionResetAt: resetAt,
+    });
   } catch {
     return json({ error: 'アカウント情報を削除できません' }, { status: 503 });
   }
