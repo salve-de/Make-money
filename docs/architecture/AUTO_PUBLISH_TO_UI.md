@@ -10,7 +10,8 @@ New scheduled research should reach the Make-Money UI without editing static Typ
 ChatGPT scheduled collection
   -> salve-de/universal-foundation@automation-research
   -> staging/r2-queue/.../candidates/*.json
-  -> foundation-r2-queue-publisher (Cloudflare Cron)
+  -> GitHub signed push webhook
+  -> foundation-r2-queue-publisher (Cloudflare Queue consumer)
   -> /api/foundation/ingest (service binding)
   -> canonical Foundation R2 datasets
   -> views/make-money/v1/entities/<entity_id>.json
@@ -75,7 +76,14 @@ The publisher Worker lives in:
 
 `salve-de/universal-foundation/workers/r2-queue-publisher/`
 
-It runs every five minutes and calls this application's ingest endpoint through a Cloudflare service binding named `MAKE_MONEY_APP`.
+It has no Cron Trigger. A signed GitHub `push` webhook for
+`universal-foundation@automation-research` enqueues one reconciliation event.
+The queue consumer then calls this application's ingest endpoint through a
+Cloudflare service binding named `MAKE_MONEY_APP`.
+
+Each event reconciles the current candidate tree, so a later successful push
+also recovers candidates left behind by a previously missed webhook. Large
+backlogs are drained by bounded queue continuations rather than periodic polling.
 
 ## Failure semantics
 
@@ -83,7 +91,8 @@ It runs every five minutes and calls this application's ingest endpoint through 
 - R2 conflict: not published;
 - view projection failure: canonical write may already exist; retry safely;
 - missing/weak research: remains in Foundation/staging but does not enter the main UI;
-- publisher failures: retried next cron and recorded in R2 attempt receipts.
+- transient publisher failures: retried by Cloudflare Queue and recorded in R2 audit Journal entries;
+- no fixed-time polling occurs when there is no GitHub push.
 
 
 ## Existing-data migration
@@ -98,7 +107,7 @@ processes a bounded page of existing immutable research bundles, persists its cu
 
 `views/make-money/v1/_rebuild-state.json`
 
-and resumes on the next publisher cycle. The publisher calls this endpoint every five minutes. Once the state reaches `complete: true`, list reads switch to the fast materialized view.
+and resumes on the next event-driven publisher reconciliation. Backlog continuations keep advancing the rebuild while queued work exists. Once the state reaches `complete: true`, list reads switch to the fast materialized view.
 
 ## Cumulative updates and ordering
 
@@ -156,4 +165,4 @@ When the Entity core later becomes resolvable, Make-Money does not hydrate an un
 
 `views/make-money/v1/_unresolved-hydration-state/<entity_id>.json`
 
-The corresponding bundle projection remains incomplete and keeps the entity in its unresolved retry set until the per-entity cursor reaches the end. Each subsequent publisher/rebuild invocation resumes from that cursor. Resolved markers remain append/audit-visible and are not deleted.
+The corresponding bundle projection remains incomplete and keeps the entity in its unresolved retry set until the per-entity cursor reaches the end. Each subsequent event-driven publisher/rebuild invocation resumes from that cursor. Resolved markers remain append/audit-visible and are not deleted.
