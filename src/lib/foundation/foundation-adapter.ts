@@ -411,7 +411,13 @@ export function adaptFoundationSummaryToFinancialEntity(
     pipelineStack: '技術構成未確認',
     targetPainWallet: cleanIntelligenceText(vp.painSignal || '対象の痛みは未確認'),
     tags,
-    publishability: summary.domain ? 'PUBLISHABLE' : 'RAW',
+    // URL/domain is optional. Publishability is driven by retained evidence,
+    // so offline, anonymous, acquired, or defunct businesses are not rejected
+    // merely because they do not have a current website.
+    publishability:
+      summary.evidenceIds.length > 0 || summary.valueProfile.counts.evidence > 0
+        ? 'PUBLISHABLE'
+        : 'RAW',
   };
 }
 
