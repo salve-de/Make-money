@@ -1533,6 +1533,10 @@ export async function ingestFoundationResearch(
   const rawEvidence = parseRawEvidence(request.raw_evidence, bundle);
   const plan = await buildPlan(bundle, rawEvidence);
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
+  const canonicalBundlePlan = plan.find((item) => item.logicalRole === 'research_bundle');
+  if (!canonicalBundlePlan) {
+    throw new FoundationBundleValidationError(['research bundle planned write is required']);
+  }
 
   const compatibleEntityReads = new Map<number, { bytes: number; sha256: string }>();
   const pendingIdentityClaims: PendingIdentityClaim[] = [];
@@ -1540,6 +1544,8 @@ export async function ingestFoundationResearch(
   let identityAuthorityGetCalls = 0;
   let identityAuthorityPutCalls = 0;
 
+  // Phase 1: complete every canonical preflight first. No identity reservation
+  // is mutated until all canonical objects are known conflict-free.
   for (let index = 0; index < plan.length; index += 1) {
     const item = plan[index];
     const preflight = await preflightR2Object({
@@ -1550,120 +1556,143 @@ export async function ingestFoundationResearch(
       metadata: item.metadata,
     });
     plannedWrites.objects[index].preflight_status = preflightStatus(preflight.status);
-    if (preflight.status === 'EXISTS_CONFLICT') {
-      if (item.logicalRole === 'entity') {
-        const existingObject = await readR2Object(item.bucket, item.key);
-        compatibilityReadCalls += 1;
-        const seedEntity = existingObject ? decodeJsonObject(existingObject.body) : null;
-        const incomingEntity = decodeJsonObject(item.body);
-        const incomingEntityId = incomingEntity ? getString(incomingEntity, 'entity_id') : null;
 
-        let accumulatedEntity = seedEntity;
-        if (incomingEntityId) {
-          // Read committed identity memory only. Do not mutate authority during
-          // preflight: a later canonical conflict/write failure must leave no
-          // durable identity claim behind.
-          const authorityRead = await readStableEntityIdentityAuthority(
-            item.bucket,
-            incomingEntityId
-          );
-          identityAuthorityGetCalls += authorityRead.getCalls;
+    if (preflight.status !== 'EXISTS_CONFLICT') continue;
 
-          const accumulatedView = await readMakeMoneyViewDetail(incomingEntityId);
-          compatibilityReadCalls += 1;
-          accumulatedEntity =
-            authorityRead.authority ||
-            identityRecordFromView(accumulatedView) ||
-            seedEntity;
-        }
-
-        if (
-          existingObject &&
-          accumulatedEntity &&
-          incomingEntity &&
-          compatibleStableEntity(accumulatedEntity, incomingEntity)
-        ) {
-          plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
-          compatibleEntityReads.set(index, {
-            bytes: existingObject.body.byteLength,
-            sha256: await sha256Hex(existingObject.body),
-          });
-          pendingIdentityClaims.push({
-            bucket: item.bucket,
-            seed: accumulatedEntity,
-            incoming: incomingEntity,
-          });
-          continue;
-        }
-      }
+    if (item.logicalRole !== 'entity') {
       throw new R2ObjectConflictError(preflight.bucket, preflight.key);
     }
+
+    const existingObject = await readR2Object(item.bucket, item.key);
+    compatibilityReadCalls += 1;
+    const seedEntity = existingObject ? decodeJsonObject(existingObject.body) : null;
+    const incomingEntity = decodeJsonObject(item.body);
+    const incomingEntityId = incomingEntity ? getString(incomingEntity, 'entity_id') : null;
+    if (!existingObject || !seedEntity || !incomingEntity || !incomingEntityId) {
+      throw new R2ObjectConflictError(preflight.bucket, preflight.key);
+    }
+
+    const authorityRead = await readCommittedEntityIdentityAuthority(
+      item.bucket,
+      incomingEntityId
+    );
+    identityAuthorityGetCalls += authorityRead.getCalls;
+
+    const accumulatedView = await readMakeMoneyViewDetail(incomingEntityId);
+    compatibilityReadCalls += 1;
+    const accumulatedEntity =
+      authorityRead.authority ||
+      identityRecordFromView(accumulatedView) ||
+      seedEntity;
+
+    if (!compatibleStableEntity(accumulatedEntity, incomingEntity)) {
+      throw new R2ObjectConflictError(preflight.bucket, preflight.key);
+    }
+
+    plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
+    compatibleEntityReads.set(index, {
+      bytes: existingObject.body.byteLength,
+      sha256: await sha256Hex(existingObject.body),
+    });
+    pendingIdentityClaims.push({
+      bucket: item.bucket,
+      seed: accumulatedEntity,
+      incoming: incomingEntity,
+    });
+  }
+
+  // Phase 2: reserve all durable identity changes atomically only after every
+  // canonical preflight passed. If any reservation loses a race, release the
+  // reservations already acquired by this run before returning an error.
+  const reservationHandles: EntityIdentityReservationHandle[] = [];
+  try {
+    for (const pending of pendingIdentityClaims) {
+      const reservation = await reserveStableEntityIdentity({
+        bucket: pending.bucket,
+        seed: pending.seed,
+        incoming: pending.incoming,
+        runId: bundle.run_id,
+        updatedAt: getString(pending.incoming, 'observed_at') || bundle.retrieved_at,
+        canonicalBundleKey: canonicalBundlePlan.key,
+      });
+      identityAuthorityGetCalls += reservation.getCalls;
+      identityAuthorityPutCalls += reservation.putCalls;
+      reservationHandles.push(reservation.handle);
+    }
+  } catch (error) {
+    await Promise.all(
+      reservationHandles.map((handle) => releaseStableEntityIdentityReservation(handle))
+    );
+    throw error;
   }
 
   const results: IngestedObjectReport[] = [];
   const providerCalls = {
     head_bucket: plan.length,
     get_object: plan.length + compatibilityReadCalls + identityAuthorityGetCalls,
-    put_object: 0,
+    put_object: identityAuthorityPutCalls,
   };
 
-  for (let index = 0; index < plan.length; index += 1) {
-    const item = plan[index];
-    const compatible = compatibleEntityReads.get(index);
-    if (compatible) {
+  let canonicalWritesSucceeded = false;
+  try {
+    // Phase 3: immutable canonical writes. Identical retries remain idempotent.
+    for (let index = 0; index < plan.length; index += 1) {
+      const item = plan[index];
+      const compatible = compatibleEntityReads.get(index);
+      if (compatible) {
+        results.push({
+          logical_role: item.logicalRole,
+          dataset_id: item.datasetId,
+          bucket: item.bucket,
+          key: item.key,
+          status: 'EXISTS_COMPATIBLE',
+          bytes: compatible.bytes,
+          sha256: compatible.sha256,
+          source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
+          readback: { bytes_match: false, sha256_match: false },
+        });
+        continue;
+      }
+
+      const result = await putR2ObjectCreateOnly({
+        bucket: item.bucket,
+        key: item.key,
+        body: item.body,
+        contentType: item.contentType,
+        metadata: item.metadata,
+      });
       results.push({
         logical_role: item.logicalRole,
         dataset_id: item.datasetId,
-        bucket: item.bucket,
-        key: item.key,
-        status: 'EXISTS_COMPATIBLE',
-        bytes: compatible.bytes,
-        sha256: compatible.sha256,
+        bucket: result.bucket,
+        key: result.key,
+        status: result.status,
+        bytes: result.bytes,
+        sha256: result.sha256,
         source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
-        readback: { bytes_match: false, sha256_match: false },
+        readback: result.readback,
       });
-      continue;
+      providerCalls.head_bucket += result.provider_calls.head_bucket;
+      providerCalls.get_object += result.provider_calls.get_object;
+      providerCalls.put_object += result.provider_calls.put_object;
     }
+    canonicalWritesSucceeded = true;
 
-    const result = await putR2ObjectCreateOnly({
-      bucket: item.bucket,
-      key: item.key,
-      body: item.body,
-      contentType: item.contentType,
-      metadata: item.metadata,
-    });
-    results.push({
-      logical_role: item.logicalRole,
-      dataset_id: item.datasetId,
-      bucket: result.bucket,
-      key: result.key,
-      status: result.status,
-      bytes: result.bytes,
-      sha256: result.sha256,
-      source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
-      readback: result.readback,
-    });
-    providerCalls.head_bucket += result.provider_calls.head_bucket;
-    providerCalls.get_object += result.provider_calls.get_object;
-    providerCalls.put_object += result.provider_calls.put_object;
-  }
-
-  // Only after every canonical create-only write has succeeded do we advance
-  // the mutable identity authority. If this finalization fails, the caller gets
-  // a retryable failure; replay is safe because canonical objects are immutable
-  // and identical writes are idempotent.
-  for (const pending of pendingIdentityClaims) {
-    const identityClaim = await claimStableEntityIdentity({
-      bucket: pending.bucket,
-      seed: pending.seed,
-      incoming: pending.incoming,
-      runId: bundle.run_id,
-      updatedAt: getString(pending.incoming, 'observed_at') || bundle.retrieved_at,
-    });
-    identityAuthorityGetCalls += identityClaim.getCalls;
-    identityAuthorityPutCalls += identityClaim.putCalls;
-    providerCalls.get_object += identityClaim.getCalls;
-    providerCalls.put_object += identityClaim.putCalls;
+    // Phase 4: only committed canonical history may become durable identity
+    // authority. If finalization itself fails, keep the reservation: the next
+    // retry recognizes the already-created canonical bundle and recovers it.
+    for (const handle of reservationHandles) {
+      const finalized = await finalizeStableEntityIdentity(handle);
+      providerCalls.get_object += finalized.getCalls;
+      providerCalls.put_object += finalized.putCalls;
+    }
+  } catch (error) {
+    if (!canonicalWritesSucceeded) {
+      await Promise.all(
+        reservationHandles.map((handle) => releaseStableEntityIdentityReservation(handle))
+      );
+    }
+    throw error;
   }
 
   return {
