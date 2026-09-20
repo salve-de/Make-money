@@ -139,7 +139,7 @@ This prevents a 100-row UI request from turning into an all-lake R2 fan-out.
 
 Immutable Entity core objects are never overwritten. To safely accept later bundles that add durable identity fields, ingestion maintains a rebuildable CAS-protected authority at:
 
-`views/foundation-ingest/v1/entity-identity/<entity_id>.json`
+`views/foundation-ingest/v2/entity-identity/<entity_id>.json`
 
 Before an `EXISTS_COMPATIBLE` entity preflight is allowed to continue, the incoming domain/canonical identifier/name/type must be compatible with the authority and the authority update must win an R2 ETag compare-and-swap.
 
