@@ -12,7 +12,10 @@ import {
   R2ConfigurationError,
   R2ObjectConflictError,
 } from '@/lib/storage/r2';
-import { materializeMakeMoneyViews } from '@/lib/foundation/make-money-view';
+import {
+  canResumeMakeMoneyProjection,
+  materializeMakeMoneyViews,
+} from '@/lib/foundation/make-money-view';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 
 export const runtime = 'nodejs';
@@ -63,7 +66,45 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const report = await ingestFoundationResearch(body);
+    const resumeCheck = body.raw_evidence === undefined
+      ? await canResumeMakeMoneyProjection(body.bundle)
+      : { can_resume: false, run_id: null, get_object_calls: 0 };
+
+    const report = resumeCheck.can_resume
+      ? {
+          run_id: resumeCheck.run_id,
+          write_authorized: true,
+          schema_validation: 'PASS',
+          canonical_ingest: 'ALREADY_COMMITTED',
+          counts: {
+            planned: 0,
+            created: 0,
+            exists_identical: 0,
+            exists_compatible: 0,
+          },
+          provider_calls: {
+            head_bucket: 0,
+            get_object: resumeCheck.get_object_calls,
+            put_object: 0,
+          },
+          readback_verified: 0,
+          mutation_counts: {
+            put_object: 0,
+            copy_object: 0,
+            delete_object: 0,
+            move: 0,
+            rename: 0,
+            overwrite: 0,
+            legacy_universal: 0,
+            bucket_or_config: 0,
+          },
+        }
+      : await ingestFoundationResearch(body);
+
+    if (!resumeCheck.can_resume && resumeCheck.get_object_calls > 0) {
+      report.provider_calls.get_object += resumeCheck.get_object_calls;
+    }
+
     try {
       const viewProjection = await materializeMakeMoneyViews(body.bundle);
       const needsMoreProjection =
@@ -97,10 +138,10 @@ export async function POST(request: NextRequest) {
         },
       });
     } catch (projectionError) {
-      // Canonical Foundation writes are create-only and may already have
-      // succeeded. Return a retryable partial failure so the publisher retries;
-      // canonical re-ingest is idempotent and the rebuildable view can then be
-      // materialized without rewriting the source-of-record objects.
+      // Canonical Foundation writes may already have succeeded. A projection
+      // retry is detected from the persisted projection cursor plus an exact
+      // canonical-bundle byte match, so the next request resumes only the
+      // rebuildable view instead of repeating the full immutable ingest.
       console.error('Make-Money view projection failed after Foundation ingestion:', projectionError);
       return NextResponse.json(
         {
