@@ -316,7 +316,10 @@ export async function canResumeMakeMoneyProjection(
   if (!canonical) {
     return { can_resume: false, run_id: runId, get_object_calls: 2 };
   }
-  if (canonical !== JSON.stringify(bundleInput)) {
+  // Canonical research bundles use the same JSON serialization contract as
+  // ingest.jsonBytes(): JSON.stringify(value) followed by a trailing newline.
+  const expectedCanonical = `${JSON.stringify(bundleInput)}\n`;
+  if (canonical !== expectedCanonical) {
     throw new Error(`Canonical research bundle does not match projection retry for ${runId}`);
   }
 
