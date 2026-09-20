@@ -414,7 +414,7 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
   const progressRead = await readProjectionProgress(bucket, runId, targetIds.length);
   const progress = progressRead.state;
 
-  if (progress.complete) {
+  if (progress.complete && progress.unresolved_entity_ids.length === 0) {
     return {
       source_run_id: runId,
       attempted: 0,
@@ -422,7 +422,7 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
       updated: 0,
       unchanged: 0,
       concurrent_retries: 0,
-      unresolved_entity_ids: progress.unresolved_entity_ids,
+      unresolved_entity_ids: [],
       processed_this_call: 0,
       next_index: progress.next_index,
       total_targets: progress.total_targets,
@@ -435,11 +435,14 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     buildFoundationBusinessCasesFromBundle(bundleInput).map((detail) => [detail.id, detail])
   );
   const startIndex = progress.next_index;
-  const endIndex = Math.min(
-    targetIds.length,
-    startIndex + MAX_ENTITIES_PER_PROJECTION_CALL
-  );
-  const chunkIds = targetIds.slice(startIndex, endIndex);
+  const retryingUnresolved =
+    startIndex >= targetIds.length && progress.unresolved_entity_ids.length > 0;
+  const endIndex = retryingUnresolved
+    ? startIndex
+    : Math.min(targetIds.length, startIndex + MAX_ENTITIES_PER_PROJECTION_CALL);
+  const chunkIds = retryingUnresolved
+    ? progress.unresolved_entity_ids.slice(0, MAX_ENTITIES_PER_PROJECTION_CALL)
+    : targetIds.slice(startIndex, endIndex);
   const unresolved = new Set(progress.unresolved_entity_ids);
 
   const report: MakeMoneyViewMaterializationReport = {
@@ -453,7 +456,7 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     processed_this_call: chunkIds.length,
     next_index: endIndex,
     total_targets: targetIds.length,
-    complete: endIndex >= targetIds.length,
+    complete: false,
     keys: [],
   };
 
@@ -490,13 +493,15 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
   }
 
   report.unresolved_entity_ids = [...unresolved].sort();
+  report.complete =
+    endIndex >= targetIds.length && report.unresolved_entity_ids.length === 0;
 
   const nextProgress: MakeMoneyProjectionProgress = {
     schema_version: PROJECTION_PROGRESS_SCHEMA,
     run_id: runId,
     next_index: endIndex,
     total_targets: targetIds.length,
-    complete: endIndex >= targetIds.length,
+    complete: report.complete,
     unresolved_entity_ids: report.unresolved_entity_ids,
     updated_at: new Date().toISOString(),
   };
@@ -616,7 +621,11 @@ export async function rebuildMakeMoneyViewsPage(limit = 20): Promise<MakeMoneyVi
     const bundle = JSON.parse(text) as unknown;
     const report = await materializeMakeMoneyViews(bundle);
     materializedEntities += report.attempted;
-    if (!report.complete) {
+    // Large bundles pause the page until their initial target scan is fully
+    // chunked. Unresolved external references do not stall the global rebuild;
+    // they remain in per-run progress and are retried by publisher deliveries,
+    // while a later entity-core bundle hydrates all canonical history.
+    if (!report.complete && report.next_index < report.total_targets) {
       pageFullyProcessed = false;
       break;
     }
