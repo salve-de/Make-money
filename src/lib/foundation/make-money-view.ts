@@ -283,6 +283,46 @@ async function readProjectionProgress(
   return { object, state };
 }
 
+export async function canResumeMakeMoneyProjection(
+  bundleInput: unknown
+): Promise<{ can_resume: boolean; run_id: string | null; get_object_calls: number }> {
+  const bundle = objectValue(bundleInput);
+  const runId = bundle ? stringValue(bundle, 'run_id') : null;
+  const retrievedAt = bundle ? stringValue(bundle, 'retrieved_at') : null;
+  if (!runId || !retrievedAt) {
+    return { can_resume: false, run_id: runId, get_object_calls: 0 };
+  }
+
+  const targetIds = [...new Set(foundationEntityIdsFromBundle(bundleInput))].sort();
+  const bucket = await getFoundationBucketAsync('lake');
+  const bundleKey = projectionBundleKey(runId, retrievedAt);
+  const progressObject = await readR2Object(bucket, projectionProgressKey(runId));
+  if (!progressObject) {
+    return { can_resume: false, run_id: runId, get_object_calls: 1 };
+  }
+
+  const progress = parseProjectionProgress(decodeJson(progressObject.body));
+  if (
+    !progress ||
+    progress.run_id !== runId ||
+    progress.bundle_key !== bundleKey ||
+    progress.retrieved_at !== retrievedAt ||
+    progress.total_targets !== targetIds.length
+  ) {
+    throw new Error(`Invalid Make-Money projection progress for ${runId}`);
+  }
+
+  const canonical = await getFromR2(bundleKey, bucket);
+  if (!canonical) {
+    return { can_resume: false, run_id: runId, get_object_calls: 2 };
+  }
+  if (canonical !== JSON.stringify(bundleInput)) {
+    throw new Error(`Canonical research bundle does not match projection retry for ${runId}`);
+  }
+
+  return { can_resume: true, run_id: runId, get_object_calls: 2 };
+}
+
 async function writeProjectionProgress(
   bucket: string,
   runId: string,
