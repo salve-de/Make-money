@@ -13,6 +13,7 @@ import {
 import {
   adaptFoundationSummaryToFinancialEntity,
   adaptFoundationDetailToFinancialEntity,
+  isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
@@ -101,12 +102,21 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
     };
   }, []);
 
-  // Server-side publication rules already decide which Foundation rows are
-  // public. Do not re-apply an information-density threshold in the client:
-  // partial-but-useful records must remain visible and can become richer later.
-  const foundationEntities = useMemo(() => {
-    return foundationRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
+  // Partial Foundation rows remain visible as standalone records. Readiness is
+  // used only when deciding whether a Foundation row may replace an already
+  // curated local dossier with the same identity.
+  const foundationEntries = useMemo(() => {
+    return foundationRows.map((summary) => ({
+      summary,
+      entity: adaptFoundationSummaryToFinancialEntity(summary),
+      readyToReplaceCurated: isFoundationDossierReady(summary),
+    }));
   }, [foundationRows]);
+
+  const foundationEntities = useMemo(
+    () => foundationEntries.map((entry) => entry.entity),
+    [foundationEntries],
+  );
 
   const approvalCandidateIds = useMemo(() => {
     const ids = new Set<string>();
@@ -183,8 +193,12 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   // 全エンティティの統合
   const entities = useMemo(() => {
     const normalize = (s: string) => s.toLowerCase().trim().replace(/[\s\-_・（）()株式会社有限会社]/g, '');
-    const foundationById = new Map(foundationEntities.map((entity) => [entity.id.toLowerCase(), entity]));
-    const foundationByName = new Map(foundationEntities.map((entity) => [normalize(entity.name), entity]));
+    const foundationById = new Map(
+      foundationEntries.map((entry) => [entry.entity.id.toLowerCase(), entry])
+    );
+    const foundationByName = new Map(
+      foundationEntries.map((entry) => [normalize(entry.entity.name), entry])
+    );
     const aliasMatches: Record<string, string> = {
       'aliabdaal': 'aliabdaalcourses',
       'aliabdaalcourses': 'aliabdaal',
@@ -197,8 +211,9 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
     const merged: FinancialEntity[] = [];
     for (const core of coreEntities) {
       const coreName = normalize(core.name);
-      const replacement = foundationById.get(core.id.toLowerCase()) ||
+      const candidate = foundationById.get(core.id.toLowerCase()) ||
         (coreName ? foundationByName.get(coreName) || foundationByName.get(aliasMatches[coreName]) : undefined);
+      const replacement = candidate?.readyToReplaceCurated ? candidate.entity : undefined;
       const entity = replacement ? { ...replacement, batchId: replacement.batchId || core.batchId } : core;
       const normalizedName = normalize(entity.name);
       if (seenIds.has(entity.id.toLowerCase()) || (normalizedName && seenNames.has(normalizedName))) continue;
@@ -217,7 +232,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
     }
 
     return merged.map((item) => approvedIds.has(item.id.toLowerCase()) ? removeCollectionTag(item) : item);
-  }, [coreEntities, foundationEntities, approvedIds]);
+  }, [coreEntities, foundationEntries, foundationEntities, approvedIds]);
 
   // Detailed records use the same persisted overlay as summaries. Keep the raw
   // fetched object intact so changing an approval never mutates source evidence.
