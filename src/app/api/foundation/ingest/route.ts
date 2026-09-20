@@ -66,11 +66,33 @@ export async function POST(request: NextRequest) {
     const report = await ingestFoundationResearch(body);
     try {
       const viewProjection = await materializeMakeMoneyViews(body.bundle);
+      const needsMoreProjection =
+        !viewProjection.complete &&
+        viewProjection.next_index < viewProjection.total_targets;
+
+      if (needsMoreProjection) {
+        return NextResponse.json(
+          {
+            success: false,
+            partial: true,
+            retryable: true,
+            ...report,
+            view_projection: {
+              status: 'PARTIAL',
+              ...viewProjection,
+            },
+          },
+          { status: 202 }
+        );
+      }
+
       return NextResponse.json({
         success: true,
         ...report,
         view_projection: {
-          status: 'PASS',
+          status: viewProjection.unresolved_entity_ids.length > 0
+            ? 'PASS_WITH_UNRESOLVED_REPLAY'
+            : 'PASS',
           ...viewProjection,
         },
       });
