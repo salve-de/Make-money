@@ -1,6 +1,7 @@
 import {
   getFoundationBucket,
   preflightR2Object,
+  putR2MutableView,
   putR2ObjectCreateOnly,
   readR2Object,
   sha256Hex,
@@ -8,6 +9,7 @@ import {
   type R2PreflightResult,
   type R2WriteResult,
   R2ObjectConflictError,
+  R2ViewConcurrentModificationError,
 } from '@/lib/storage/r2';
 
 type JsonObject = Record<string, unknown>;
@@ -1113,6 +1115,140 @@ function identityRecordFromView(detail: Awaited<ReturnType<typeof readMakeMoneyV
   };
 }
 
+
+const ENTITY_IDENTITY_AUTHORITY_PREFIX = 'views/foundation-ingest/v1/entity-identity/';
+const MAX_IDENTITY_CAS_RETRIES = 5;
+
+interface EntityIdentityAuthority extends JsonObject {
+  schema_version: 'foundation-entity-identity-authority.v1';
+  entity_id: string;
+  entity_type: string;
+  canonical_name: string;
+  canonical_identifier: string | null;
+  domain: string | null;
+  source_run_ids: string[];
+  updated_at: string;
+}
+
+function parseIdentityAuthority(value: JsonObject | null): EntityIdentityAuthority | null {
+  if (
+    !value ||
+    value.schema_version !== 'foundation-entity-identity-authority.v1' ||
+    !getString(value, 'entity_id') ||
+    !getString(value, 'entity_type') ||
+    !getString(value, 'canonical_name') ||
+    !(value.canonical_identifier === null || typeof value.canonical_identifier === 'string') ||
+    !(value.domain === null || typeof value.domain === 'string') ||
+    !Array.isArray(value.source_run_ids) ||
+    !value.source_run_ids.every((item) => typeof item === 'string') ||
+    !getString(value, 'updated_at')
+  ) {
+    return null;
+  }
+  return value as EntityIdentityAuthority;
+}
+
+function mergeIdentityAuthority(
+  base: JsonObject,
+  incoming: JsonObject,
+  runId: string,
+  updatedAt: string,
+  priorRunIds: string[] = []
+): EntityIdentityAuthority {
+  const entityId = getString(incoming, 'entity_id') || getString(base, 'entity_id');
+  const entityType = getString(incoming, 'entity_type') || getString(base, 'entity_type');
+  const baseIdentifier = normalizedIdentityText(getString(base, 'canonical_identifier'));
+  const incomingIdentifier = normalizedIdentityText(getString(incoming, 'canonical_identifier'));
+  const baseDomain = normalizedIdentityText(getString(base, 'domain'));
+  const incomingDomain = normalizedIdentityText(getString(incoming, 'domain'));
+  const baseName = getString(base, 'canonical_name');
+  const incomingName = getString(incoming, 'canonical_name');
+
+  if (!entityId || !entityType || !baseName || !incomingName) {
+    throw new FoundationBundleValidationError(['entity identity authority requires stable ID/type/name']);
+  }
+
+  return {
+    schema_version: 'foundation-entity-identity-authority.v1',
+    entity_id: entityId,
+    entity_type: entityType,
+    canonical_name: incomingName,
+    canonical_identifier: incomingIdentifier || baseIdentifier,
+    domain: incomingDomain || baseDomain,
+    source_run_ids: [...new Set([...priorRunIds, runId])],
+    updated_at: updatedAt,
+  };
+}
+
+async function claimStableEntityIdentity(input: {
+  bucket: string;
+  seed: JsonObject;
+  incoming: JsonObject;
+  runId: string;
+  updatedAt: string;
+}): Promise<{ getCalls: number; putCalls: number }> {
+  const entityId = getString(input.incoming, 'entity_id');
+  if (!entityId) throw new FoundationBundleValidationError(['incoming entity_id is required']);
+
+  const key = `${ENTITY_IDENTITY_AUTHORITY_PREFIX}${entityId}.json`;
+  let getCalls = 0;
+  let putCalls = 0;
+
+  for (let attempt = 0; attempt < MAX_IDENTITY_CAS_RETRIES; attempt += 1) {
+    const currentObject = await readR2Object(input.bucket, key);
+    getCalls += 1;
+    const currentJson = currentObject ? decodeJsonObject(currentObject.body) : null;
+    const currentAuthority = currentJson ? parseIdentityAuthority(currentJson) : null;
+    if (currentObject && !currentAuthority) {
+      throw new Error(`Invalid entity identity authority at ${key}`);
+    }
+
+    const authorityBase: JsonObject = currentAuthority || input.seed;
+    if (!compatibleStableEntity(authorityBase, input.incoming)) {
+      throw new R2ObjectConflictError(input.bucket, key);
+    }
+
+    const next = mergeIdentityAuthority(
+      authorityBase,
+      input.incoming,
+      input.runId,
+      input.updatedAt,
+      currentAuthority?.source_run_ids || []
+    );
+
+    if (currentAuthority && JSON.stringify(currentAuthority) === JSON.stringify(next)) {
+      return { getCalls, putCalls };
+    }
+
+    try {
+      const result = await putR2MutableView({
+        bucket: input.bucket,
+        key,
+        body: JSON.stringify(next),
+        contentType: 'application/json',
+        metadata: {
+          'foundation-view-purpose': 'entity-identity-authority',
+          'foundation-entity-id': entityId,
+          'foundation-run-id': input.runId,
+        },
+      }, {
+        expectedEtag: currentObject?.etag ?? null,
+      });
+      // putR2MutableView performs a write only for CREATED/UPDATED.
+      if (result.status !== 'UNCHANGED') putCalls += 1;
+      return { getCalls, putCalls };
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+        putCalls += 1;
+        continue;
+      }
+      throw error;
+    }
+  }
+
+  throw new Error(`Entity identity CAS retries exhausted for ${entityId}`);
+}
+
 function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
   return status;
 }
@@ -1138,6 +1274,8 @@ export async function ingestFoundationResearch(
 
   const compatibleEntityReads = new Map<number, { bytes: number; sha256: string }>();
   let compatibilityReadCalls = 0;
+  let identityAuthorityGetCalls = 0;
+  let identityAuthorityPutCalls = 0;
 
   for (let index = 0; index < plan.length; index += 1) {
     const item = plan[index];
@@ -1174,6 +1312,16 @@ export async function ingestFoundationResearch(
           incomingEntity &&
           compatibleStableEntity(accumulatedEntity, incomingEntity)
         ) {
+          const identityClaim = await claimStableEntityIdentity({
+            bucket: item.bucket,
+            seed: accumulatedEntity,
+            incoming: incomingEntity,
+            runId: bundle.run_id,
+            updatedAt: getString(incomingEntity, 'observed_at') || bundle.retrieved_at,
+          });
+          identityAuthorityGetCalls += identityClaim.getCalls;
+          identityAuthorityPutCalls += identityClaim.putCalls;
+
           plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
           compatibleEntityReads.set(index, {
             bytes: existingObject.body.byteLength,
@@ -1189,8 +1337,8 @@ export async function ingestFoundationResearch(
   const results: IngestedObjectReport[] = [];
   const providerCalls = {
     head_bucket: plan.length,
-    get_object: plan.length + compatibilityReadCalls,
-    put_object: 0,
+    get_object: plan.length + compatibilityReadCalls + identityAuthorityGetCalls,
+    put_object: identityAuthorityPutCalls,
   };
 
   for (let index = 0; index < plan.length; index += 1) {
