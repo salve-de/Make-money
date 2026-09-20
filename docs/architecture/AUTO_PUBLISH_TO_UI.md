@@ -12,7 +12,7 @@ ChatGPT scheduled collection
   -> staging/r2-queue/.../candidates/*.json
   -> GitHub signed push webhook
   -> foundation-r2-queue-publisher (Cloudflare Queue consumer)
-  -> /api/foundation/ingest (service binding)
+  -> /api/foundation/ingest (authenticated HTTPS)
   -> canonical Foundation R2 datasets
   -> views/make-money/v1/entities/<entity_id>.json
   -> /api/businesses
@@ -78,8 +78,10 @@ The publisher Worker lives in:
 
 It has no Cron Trigger. A signed GitHub `push` webhook for
 `universal-foundation@automation-research` enqueues one reconciliation event.
-The queue consumer then calls this application's ingest endpoint through a
-Cloudflare service binding named `MAKE_MONEY_APP`.
+The queue consumer then calls this application's public HTTPS origin with the
+server-only `FOUNDATION_INGEST_TOKEN`. The publisher intentionally does not use
+a Cloudflare Service Binding, so this hop does not require a Service Binding/
+Workers Standard dependency.
 
 Each event reconciles the current candidate tree, so a later successful push
 also recovers candidates left behind by a previously missed webhook. Large
