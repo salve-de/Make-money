@@ -638,12 +638,12 @@ function cachedProbe(key: string): Promise<BundleProbe | null> {
 }
 
 function probeContainsEntity(probe: BundleProbe | null, entityId: string): boolean | null {
-  // A failed range probe is unknown, not a negative match. Reading the
-  // candidate is safer than silently hiding a valid Foundation record.
+  // A failed or partial range probe is unknown, not a negative match. A
+  // record-only enrichment bundle may have an empty/irrelevant entities array
+  // while claims/metrics later in the file still reference this entity.
   if (!probe) return null;
   if (probe.knownEntityIds.has(entityId)) return true;
-  if (probe.entitiesArrayPresent) return false;
-  return probe.typedArraysComplete ? false : null;
+  return probe.entitiesArrayPresent && probe.typedArraysComplete ? false : null;
 }
 
 const bundleCache = new Map<string, Promise<JsonObject | null>>();
@@ -660,10 +660,17 @@ function cachedBundle(key: string): Promise<JsonObject | null> {
   return pending;
 }
 
-async function fetchBundleObjects(): Promise<R2ListObject[]> {
+interface BundleObjectListing {
+  objects: R2ListObject[];
+  complete: boolean;
+}
+
+async function fetchBundleObjects(): Promise<BundleObjectListing> {
   const lakeBucket = await getFoundationBucketAsync(ENTITY_DATASET.bucketRole);
   const objects: R2ListObject[] = [];
   let cursor: string | undefined;
+  let complete = false;
+
   for (let pageNumber = 0; pageNumber < MAX_BUNDLE_LIST_PAGES; pageNumber += 1) {
     const page = await listR2Objects({
       bucket: lakeBucket,
@@ -672,16 +679,23 @@ async function fetchBundleObjects(): Promise<R2ListObject[]> {
       limit: BUNDLE_LIST_LIMIT,
     });
     objects.push(...page.objects.filter((item) => item.key.endsWith('.json')));
-    if (!page.truncated || !page.cursor) break;
+    if (!page.truncated || !page.cursor) {
+      complete = true;
+      break;
+    }
     cursor = page.cursor;
   }
-  return objects.sort((left, right) => right.key.localeCompare(left.key));
+
+  return {
+    objects: objects.sort((left, right) => right.key.localeCompare(left.key)),
+    complete,
+  };
 }
 
-let bundleObjectsPromise: Promise<R2ListObject[]> | undefined;
+let bundleObjectsPromise: Promise<BundleObjectListing> | undefined;
 let bundleObjectsExpiresAt = 0;
 
-function listBundleObjects(): Promise<R2ListObject[]> {
+function listBundleObjects(): Promise<BundleObjectListing> {
   if (!bundleObjectsPromise || bundleObjectsExpiresAt <= Date.now()) {
     bundleObjectsExpiresAt = Date.now() + BUNDLE_LIST_TTL_MS;
     bundleObjectsPromise = fetchBundleObjects().catch((error) => {
@@ -843,7 +857,8 @@ async function hydrateFoundationEntitiesFromAllBundles(
   const recordsById = new Map(
     summaries.map((item) => [item.id, createRecordAccumulator()])
   );
-  const bundleObjects = await listBundleObjects();
+  const bundleListing = await listBundleObjects();
+  const bundleObjects = bundleListing.objects;
 
   for (let index = 0; index < bundleObjects.length; index += BUNDLE_SCAN_BATCH_SIZE) {
     const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
@@ -851,14 +866,13 @@ async function hydrateFoundationEntitiesFromAllBundles(
     const candidateKeys = batch
       .filter((_, batchIndex) => {
         const probe = probes[batchIndex];
-        if (!probe) return true;
+        // Read the full bundle whenever any requested entity is either present
+        // or cannot be ruled out by a complete probe. Partial probes must never
+        // hide record-only enrichment that appears after the byte-range cutoff.
         for (const entityId of entityIds) {
-          if (probe.knownEntityIds.has(entityId)) return true;
+          if (probeContainsEntity(probe, entityId) !== false) return true;
         }
-        // When the bounded probe did not contain enough structural data to
-        // prove a negative, read the full immutable bundle rather than hide a
-        // valid later update.
-        return !(probe.entitiesArrayPresent || probe.typedArraysComplete);
+        return false;
       })
       .map((item) => item.key);
 
@@ -886,7 +900,7 @@ async function hydrateFoundationEntitiesFromAllBundles(
       valueProfile: buildFoundationValueProfile(summary, records),
       bundlesScanned: bundleObjects.length,
       bundleObjectsListed: bundleObjects.length,
-      bundleScanComplete: true,
+      bundleScanComplete: bundleListing.complete,
     };
   });
 }
@@ -960,7 +974,8 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
   // Older entity objects may predate the run-id metadata. Keep a bounded
   // rescue scan for those records, and expose that it was incomplete rather
   // than turning a slow best-effort response into a false complete dossier.
-  const bundleObjects = await listBundleObjects();
+  const bundleListing = await listBundleObjects();
+  const bundleObjects = bundleListing.objects;
   let bundlesScanned = 0;
 
   for (let index = 0; index < Math.min(bundleObjects.length, MAX_FALLBACK_BUNDLE_OBJECTS); index += BUNDLE_SCAN_BATCH_SIZE) {
@@ -982,7 +997,7 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
     valueProfile: buildFoundationValueProfile(entity, records),
     bundlesScanned,
     bundleObjectsListed: bundleObjects.length,
-    bundleScanComplete: bundlesScanned >= bundleObjects.length,
+    bundleScanComplete: bundleListing.complete && bundlesScanned >= bundleObjects.length,
   };
 }
 
