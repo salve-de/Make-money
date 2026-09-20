@@ -1,6 +1,9 @@
 import {
+  buildFoundationBusinessCaseForEntity,
   buildFoundationBusinessCasesFromBundle,
   foundationBusinessCaseToValueSummary,
+  foundationEntityIdsFromBundle,
+  readFoundationEntitySummaryById,
   type FoundationBusinessCase,
   type FoundationValuePage,
   type FoundationValueSummary,
@@ -312,7 +315,22 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     throw new Error('Make-Money view projection requires bundle.run_id and bundle.retrieved_at');
   }
 
-  const cases = buildFoundationBusinessCasesFromBundle(bundleInput);
+  const casesById = new Map(
+    buildFoundationBusinessCasesFromBundle(bundleInput).map((detail) => [detail.id, detail])
+  );
+  for (const entityId of foundationEntityIdsFromBundle(bundleInput)) {
+    if (casesById.has(entityId)) continue;
+    const summary = await readFoundationEntitySummaryById(entityId);
+    if (!summary) {
+      throw new Error(`Referenced Foundation entity core is missing: ${entityId}`);
+    }
+    casesById.set(
+      entityId,
+      buildFoundationBusinessCaseForEntity(bundleInput, summary)
+    );
+  }
+  const cases = [...casesById.values()];
+
   const bucket = await getFoundationBucketAsync('lake');
   const report: MakeMoneyViewMaterializationReport = {
     source_run_id: runId,
