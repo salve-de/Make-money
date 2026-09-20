@@ -50,7 +50,7 @@ export const MobileBottomNavBar: React.FC<MobileBottomNavBarProps> = ({
         <span>市場シグナル</span>
       </button>
 
-      {/* 3. 50軸スクリーナー */}
+      {/* 3. 多条件スクリーナー */}
       <button
         onClick={onOpenScreener}
         className="flex flex-col items-center gap-0.5 py-1 px-3 rounded cursor-pointer text-zinc-400 hover:text-zinc-200 transition-colors relative"
@@ -63,7 +63,7 @@ export const MobileBottomNavBar: React.FC<MobileBottomNavBarProps> = ({
             </span>
           )}
         </div>
-        <span>50軸絞込</span>
+        <span>多条件絞込</span>
       </button>
 
       {/* 4. ブックマーク */}

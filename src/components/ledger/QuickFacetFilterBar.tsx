@@ -55,7 +55,7 @@ export const QuickFacetFilterBar: React.FC<QuickFacetFilterBarProps> = ({
         })}
       </div>
 
-      {/* 右側：50軸スクリーナー起動ボタン */}
+      {/* 右側：多条件スクリーナー起動ボタン */}
       <div className="flex items-center gap-2 shrink-0 pl-2 border-l border-white/[0.08]">
         <button
           onClick={onOpenScreener}
@@ -66,7 +66,7 @@ export const QuickFacetFilterBar: React.FC<QuickFacetFilterBarProps> = ({
           }`}
         >
           <SlidersHorizontal size={12} className={activeScreenerCount > 0 ? 'text-emerald-400' : 'text-zinc-400'} />
-          <span className="hidden xs:inline">50軸スクリーナー</span>
+          <span className="hidden xs:inline">多条件スクリーナー</span>
           <span className="xs:hidden">詳細絞込</span>
           {activeScreenerCount > 0 && (
             <span className="w-4 h-4 rounded-full bg-emerald-500 text-zinc-950 font-mono text-[10px] font-bold flex items-center justify-center">

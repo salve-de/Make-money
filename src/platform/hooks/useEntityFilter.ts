@@ -7,6 +7,10 @@ import type { GridFilterOption } from '../types/terminal';
 import type { ScreenerFilterState } from '../components/screener/AdvancedScreenerModal';
 import { collectedEntityIds, matchesGridFilter, readEntityFilterQuery } from '../model/entity-filter';
 import { approveEntities } from '../api/entity-approval';
+import { useAuth } from '@/context/AuthContext';
+import { DEFAULT_BOOKMARK_IDS, readGuestBookmarkIds, writeGuestBookmarkIds } from './bookmark-storage';
+
+export type BookmarkSyncStatus = 'loading' | 'local' | 'saving' | 'synced' | 'error';
 
 interface UseEntityFilterProps {
   entities: FinancialEntity[];
@@ -17,13 +21,91 @@ interface UseEntityFilterProps {
 
 export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, onUpdateDetailedTags }: UseEntityFilterProps) {
   const searchParams = useSearchParams();
+  const { user, token, loading: authLoading } = useAuth();
   const { filter: filterParam, batch: batchParam } = readEntityFilterQuery(searchParams);
   const [currentFilter, setCurrentFilter] = useState<GridFilterOption>(filterParam);
   const [selectedBatch, setSelectedBatch] = useState<string>(batchParam);
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [screenerFilters, setScreenerFilters] = useState<ScreenerFilterState | null>(null);
-  const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(new Set(['ent_photoai', 'ent_keyence']));
+  const [bookmarkedIds, setBookmarkedIds] = useState<Set<string>>(() => new Set(DEFAULT_BOOKMARK_IDS));
+  const [bookmarkSyncStatus, setBookmarkSyncStatus] = useState<BookmarkSyncStatus>('loading');
+  const bookmarkedIdsRef = useRef(bookmarkedIds);
+  const pendingBookmarkIds = useRef(new Set<string>());
   const approvalInFlight = useRef(false);
+
+  // Auth state is an external subscription; hydrate the bookmark projection only after it settles.
+  /* eslint-disable react-hooks/set-state-in-effect */
+  useEffect(() => {
+    bookmarkedIdsRef.current = bookmarkedIds;
+  }, [bookmarkedIds]);
+
+  useEffect(() => {
+    let cancelled = false;
+    pendingBookmarkIds.current.clear();
+
+    if (authLoading) {
+      setBookmarkSyncStatus('loading');
+      return () => { cancelled = true; };
+    }
+
+    if (!user) {
+      const guestIds = readGuestBookmarkIds();
+      if (!cancelled) {
+        setBookmarkedIds(guestIds);
+        bookmarkedIdsRef.current = guestIds;
+        setBookmarkSyncStatus('local');
+      }
+      return () => { cancelled = true; };
+    }
+
+    if (!token) {
+      const empty = new Set<string>();
+      setBookmarkedIds(empty);
+      bookmarkedIdsRef.current = empty;
+      setBookmarkSyncStatus('loading');
+      return () => { cancelled = true; };
+    }
+
+    setBookmarkSyncStatus('loading');
+    void (async () => {
+      try {
+        const response = await fetch('/api/bookmarks', {
+          headers: { Authorization: `Bearer ${token}` },
+          cache: 'no-store',
+        });
+        const payload: unknown = await response.json();
+        if (!response.ok) {
+          const message = payload && typeof payload === 'object' && 'error' in payload && typeof payload.error === 'string'
+            ? payload.error
+            : '保存済み一覧を取得できません';
+          throw new Error(message);
+        }
+        const rows = payload && typeof payload === 'object' && 'saved' in payload && Array.isArray(payload.saved)
+          ? payload.saved
+          : [];
+        const accountIds = new Set(
+          rows
+            .filter((row): row is { itemType?: unknown; itemId?: unknown } => Boolean(row) && typeof row === 'object')
+            .filter((row) => row.itemType === 'business' && typeof row.itemId === 'string')
+            .map((row) => row.itemId as string),
+        );
+        if (cancelled) return;
+        setBookmarkedIds(accountIds);
+        bookmarkedIdsRef.current = accountIds;
+        setBookmarkSyncStatus('synced');
+      } catch (error) {
+        if (cancelled) return;
+        console.warn('[useEntityFilter] Bookmark sync failed:', error);
+        const empty = new Set<string>();
+        setBookmarkedIds(empty);
+        bookmarkedIdsRef.current = empty;
+        setBookmarkSyncStatus('error');
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, [authLoading, token, user]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   useEffect(() => {
     // Restore existing URL navigation, including Back/Forward and removed parameters.
@@ -39,12 +121,60 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
 
   const handleToggleBookmark = useCallback((id: string, event: React.MouseEvent) => {
     event.stopPropagation();
-    setBookmarkedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id); else next.add(id);
-      return next;
-    });
-  }, []);
+    if (pendingBookmarkIds.current.has(id)) return;
+
+    const previous = new Set(bookmarkedIdsRef.current);
+    const wasSaved = previous.has(id);
+    const next = new Set(previous);
+    if (wasSaved) next.delete(id); else next.add(id);
+    setBookmarkedIds(next);
+    bookmarkedIdsRef.current = next;
+
+    if (!user || !token) {
+      if (writeGuestBookmarkIds(next)) {
+        setBookmarkSyncStatus('local');
+        return;
+      }
+      setBookmarkedIds(previous);
+      bookmarkedIdsRef.current = previous;
+      setBookmarkSyncStatus('error');
+      return;
+    }
+
+    pendingBookmarkIds.current.add(id);
+    setBookmarkSyncStatus('saving');
+    void (async () => {
+      try {
+        const response = await fetch('/api/bookmarks', {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ itemType: 'business', itemId: id }),
+        });
+        const payload: unknown = await response.json();
+        if (!response.ok || !payload || typeof payload !== 'object' || !('saved' in payload) || typeof payload.saved !== 'boolean') {
+          const message = payload && typeof payload === 'object' && 'error' in payload && typeof payload.error === 'string'
+            ? payload.error
+            : '保存状態を更新できません';
+          throw new Error(message);
+        }
+        const saved = payload.saved;
+        const reconciled = new Set(bookmarkedIdsRef.current);
+        if (saved) reconciled.add(id); else reconciled.delete(id);
+        setBookmarkedIds(reconciled);
+        bookmarkedIdsRef.current = reconciled;
+        setBookmarkSyncStatus('synced');
+      } catch (error) {
+        console.warn('[useEntityFilter] Bookmark update failed:', error);
+        const reverted = new Set(bookmarkedIdsRef.current);
+        if (wasSaved) reverted.add(id); else reverted.delete(id);
+        setBookmarkedIds(reverted);
+        bookmarkedIdsRef.current = reverted;
+        setBookmarkSyncStatus('error');
+      } finally {
+        pendingBookmarkIds.current.delete(id);
+      }
+    })();
+  }, [token, user]);
 
   const { availableTags, tagCounts, newlyCollectedCount } = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -115,7 +245,7 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
   return {
     currentFilter, setCurrentFilter, selectedBatch, setSelectedBatch,
     activeTags, setActiveTags, handleToggleTag, screenerFilters, setScreenerFilters,
-    bookmarkedIds, handleToggleBookmark, availableTags, tagCounts,
+    bookmarkedIds, handleToggleBookmark, bookmarkSyncStatus, availableTags, tagCounts,
     newlyCollectedCount, batchCounts, filteredEntities, handleApproveEntity, handleApproveAllCollected,
   };
 }

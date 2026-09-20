@@ -14,6 +14,7 @@ import { GlobalHeader } from '../navigation/GlobalHeader';
 import { MarketTickerStrip } from '../ticker/MarketTickerStrip';
 import { DataGridToolbar } from '../grid/DataGridToolbar';
 import { InstitutionalDataGrid } from '../grid/InstitutionalDataGrid';
+import { NewArrivalsBanner } from '../foundation/NewArrivalsBanner';
 import { CompanyInspectorPane } from '@/features/company-inspector';
 import { TacticalArchetypesView } from '../archetypes/TacticalArchetypesView';
 import { StrategySynthesisView } from '../synthesis/StrategySynthesisView';
@@ -54,6 +55,7 @@ export const TerminalShell: React.FC<{
     macroData,
     foundationHasMore,
     foundationLoading,
+    newArrivalsRelease,
     detailedEntities,
     setDetailedEntities,
     setApprovedIds,
@@ -68,11 +70,13 @@ export const TerminalShell: React.FC<{
     selectedBatch,
     setSelectedBatch,
     activeTags,
+    setActiveTags,
     handleToggleTag,
     screenerFilters,
     setScreenerFilters,
     bookmarkedIds,
     handleToggleBookmark,
+    bookmarkSyncStatus,
     availableTags,
     tagCounts,
     newlyCollectedCount,
@@ -132,6 +136,14 @@ export const TerminalShell: React.FC<{
   const { notes, getNote, saveNote, getSaveStatus } = useAnalystNotes();
   const { isPro: isProUnlocked, role } = useAuth();
   const canApproveEntities = role === 'admin';
+  const openNewArrivals = () => {
+    setWorkspaceMode('LEDGER');
+    setSearchQuery('');
+    setCurrentFilter('ALL');
+    setSelectedBatch('ALL');
+    setScreenerFilters(null);
+    setActiveTags(['新着']);
+  };
 
   return (
     <div className="flex flex-col h-screen w-screen bg-[#07080B] text-zinc-100 overflow-hidden font-sans">
@@ -151,6 +163,7 @@ export const TerminalShell: React.FC<{
         onSelectLocalMode={(mode) => setWorkspaceMode(mode)}
         onOpenPro={() => setIsProModalOpen(true)}
         bookmarkCount={bookmarkedIds.size}
+        bookmarkSyncStatus={bookmarkSyncStatus}
         onSelectBookmark={() => {
           setWorkspaceMode('LEDGER');
           setCurrentFilter((prev) => (prev === 'BOOKMARKED' ? 'ALL' : 'BOOKMARKED'));
@@ -216,6 +229,7 @@ export const TerminalShell: React.FC<{
               ? 'w-full md:w-[440px] lg:w-[480px] xl:w-[520px] shrink-0 border-r border-white/[0.06]'
               : 'flex-1'
           }`}>
+            <NewArrivalsBanner release={newArrivalsRelease} onOpen={openNewArrivals} />
             <DataGridToolbar
               searchQuery={searchQuery}
               onSearchChange={setSearchQuery}
@@ -312,7 +326,7 @@ export const TerminalShell: React.FC<{
         currency={currency}
       />
 
-      {/* 50軸詳細スクリーナーモーダル */}
+      {/* 多条件詳細スクリーナーモーダル */}
       <AdvancedScreenerModal
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}

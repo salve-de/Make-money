@@ -211,7 +211,13 @@ export const ToolRadarSection: React.FC<ToolRadarSectionProps> = ({
                       <Link
                         key={ent.id}
                         href={`/?entity=${ent.id}&mode=LEDGER`}
-                        onClick={() => onSelectEntity?.(ent.id)}
+                        onClick={onSelectEntity ? (event) => {
+                          // Use the shell's selection handler exactly once;
+                          // allowing Link and router.push to race leaves the
+                          // playbook URL unchanged intermittently.
+                          event.preventDefault();
+                          onSelectEntity(ent.id);
+                        } : undefined}
                         className="text-[11px] px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-zinc-300 hover:text-white hover:border-cyan-400/40 cursor-pointer transition-colors"
                       >
                         {ent.name}

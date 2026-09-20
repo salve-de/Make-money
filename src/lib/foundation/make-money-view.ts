@@ -3,6 +3,7 @@ import {
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
   readFoundationEntitySummaryById,
+  readLatestNewArrivalsRelease,
   type FoundationBusinessCase,
   type FoundationValuePage,
   type FoundationValueSummary,
@@ -953,10 +954,22 @@ export async function readMakeMoneyValuePage(options: {
   ).filter((value): value is FoundationValueSummary => Boolean(value));
 
   const nextCursor = page.truncated && page.cursor ? page.cursor : null;
+  const newArrivals = await readLatestNewArrivalsRelease().catch(() => null);
+  if (!options.cursor && newArrivals) {
+    const known = new Set(data.map((item) => item.id));
+    const promoted = await Promise.all(newArrivals.entityIds.slice(0, 500)
+      .filter((id) => !known.has(id))
+      .map(async (id) => {
+        const detail = await readMakeMoneyViewDetail(id).catch(() => null);
+        return detail ? foundationBusinessCaseToValueSummary(detail) : null;
+      }));
+    data.unshift(...promoted.filter((item): item is FoundationValueSummary => Boolean(item)));
+  }
   return {
-    data,
+    data: data.map((item) => ({ ...item, isNew: Boolean(newArrivals?.entityIds.includes(item.id)) })),
     nextCursor,
     hasMore: Boolean(nextCursor),
+    newArrivals,
   };
 }
 

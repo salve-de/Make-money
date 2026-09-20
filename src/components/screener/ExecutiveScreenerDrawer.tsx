@@ -44,7 +44,7 @@ export const ExecutiveScreenerDrawer: React.FC<ExecutiveScreenerDrawerProps> = (
           <div className="flex items-center gap-2">
             <SlidersHorizontal size={14} className="text-emerald-400" />
             <span className="font-bold text-sm text-zinc-100">
-              50軸 金融スクリーナー
+              多条件 金融スクリーナー
             </span>
             <span className="text-[10px] font-mono text-zinc-500">
               INSTITUTIONAL SCREENER

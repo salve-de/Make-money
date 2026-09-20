@@ -71,13 +71,13 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
         <span>事業精査</span>
       </button>
 
-      {/* 50軸スクリーナー */}
+      {/* 多条件スクリーナー */}
       <button
         onClick={onOpenScreener}
         className="flex flex-col items-center justify-center flex-1 py-1 text-[10px] font-mono text-zinc-500 hover:text-white transition-colors"
       >
         <SlidersHorizontal className="w-3.5 h-3.5 mb-0.5" />
-        <span>50軸</span>
+        <span>多条件</span>
       </button>
 
       {/* パートナー (30%還元) */}

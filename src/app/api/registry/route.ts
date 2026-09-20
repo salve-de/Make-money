@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from "node:fs/promises";
-import path from "node:path";
+import collectedRegistry from "../../../../data/collected-registry.json";
+
+export const dynamic = 'force-dynamic';
+
+// Keep the registry in the Worker bundle. Cloudflare Workers do not expose the
+// repository filesystem at request time, while local Next development does.
+// The JSON file is the existing parity-checked read-only registry source.
+const REGISTRY = collectedRegistry as RegistryEntry[];
 
 interface RegistryEntry {
   id: string;
@@ -17,15 +23,11 @@ export async function GET(req: NextRequest) {
     const { searchParams } = new URL(req.url);
     const checkQuery = searchParams.get("check") || searchParams.get("q");
 
-    const registryPath = path.join(process.cwd(), "data", "collected-registry.json");
-    const content = await fs.readFile(registryPath, "utf-8");
-    const registry: RegistryEntry[] = JSON.parse(content);
-
     // 単体重複判定クエリ
     if (checkQuery && typeof checkQuery === "string") {
       const normQuery = checkQuery.toLowerCase().trim().replace(/[\s\-_・（）()株式会社有限会社]/g, "");
-      const matched = registry.find((item: RegistryEntry) => {
-        if (item.normName === normQuery) return true;
+      const matched = REGISTRY.find((item: RegistryEntry) => {
+        if (item.normName === normQuery || item.normName.includes(normQuery)) return true;
         if (item.ticker && item.ticker.toLowerCase() === checkQuery.toLowerCase().trim()) return true;
         if (item.domain && item.domain.toLowerCase() === checkQuery.toLowerCase().trim()) return true;
         if (item.name && item.name.toLowerCase() === checkQuery.toLowerCase().trim()) return true;
@@ -52,13 +54,13 @@ export async function GET(req: NextRequest) {
     // 全件一覧（超軽量サマリー）
     return NextResponse.json({
       success: true,
-      totalCount: registry.length,
-      entities: registry,
+      totalCount: REGISTRY.length,
+      entities: REGISTRY,
     });
   } catch (error) {
     console.error("[API /api/registry] Error:", error);
     return NextResponse.json(
-      { error: "Failed to read collected registry", details: String(error) },
+      { error: "収集レジストリを取得できません" },
       { status: 500 }
     );
   }

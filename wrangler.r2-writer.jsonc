@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "make-money-r2-writer",
+  "main": "r2-writer/worker.ts",
+  "compatibility_date": "2026-09-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "triggers": {
+    "crons": ["20 * * * *"]
+  },
+  "vars": {
+    "FOUNDATION_GITHUB_REPO": "salve-de/universal-foundation",
+    "FOUNDATION_GITHUB_BRANCH": "automation-research",
+    "FOUNDATION_R2_WRITER_ENABLED": "false",
+    "FOUNDATION_R2_WRITER_VERSION": "r2-writer.v2"
+  },
+  "r2_buckets": [
+    { "binding": "FOUNDATION_R2_RAW", "bucket_name": "foundation-raw", "remote": true },
+    { "binding": "FOUNDATION_R2_LAKE", "bucket_name": "foundation-lake", "remote": true },
+    { "binding": "FOUNDATION_R2_RESTRICTED", "bucket_name": "foundation-restricted", "remote": true },
+    { "binding": "FOUNDATION_R2_PUBLIC", "bucket_name": "foundation-public", "remote": true }
+  ]
+}

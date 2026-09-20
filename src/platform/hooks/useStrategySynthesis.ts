@@ -3,6 +3,7 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { FinancialEntity, SynthesizedIdea, StrategyChatMessage } from '../types/terminal';
 import { buildUserInterestProfile, UserInterestProfile } from '../utils/userProfile';
+import { useAuth } from '@/context/AuthContext';
 
 interface UseStrategySynthesisProps {
   allEntities: FinancialEntity[];
@@ -21,6 +22,7 @@ export function useStrategySynthesis({
   currency,
   initialContextEntityId,
 }: UseStrategySynthesisProps) {
+  const { token } = useAuth();
   const [conversationId] = useState<string>(() => `conv_${Date.now()}`);
 
   // ユーザーの保存銘柄 ＆ 閲覧履歴から「好み・関心傾向」を自動プロファイリング
@@ -71,6 +73,7 @@ export function useStrategySynthesis({
   const [chatInput, setChatInput] = useState<string>('');
   const [ideaInput, setIdeaInput] = useState<string>('');
   const [isChatSending, setIsChatSending] = useState<boolean>(false);
+  const [requestError, setRequestError] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -103,10 +106,13 @@ export function useStrategySynthesis({
   const handleSynthesize = async () => {
     if (selectedEntityIds.size === 0) return;
     setIsSynthesizing(true);
+    setRequestError(null);
     try {
+      const headers: HeadersInit = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = `Bearer ${token}`;
       const res = await fetch('/api/strategy-chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({
           action: 'SYNTHESIZE',
           selectedEntityIds: Array.from(selectedEntityIds),
@@ -114,28 +120,32 @@ export function useStrategySynthesis({
           userProfile,
         }),
       });
-      const data = await res.json();
-      if (data.ideas && Array.isArray(data.ideas)) {
-        setSynthesizedIdeas(data.ideas);
-        setActiveConsoleTab('IDEAS');
-        // チャットにも報告を追加
-        setChatMessages((prev) => [
-          ...prev,
-          {
-            id: `msg_${Date.now()}`,
-            role: 'assistant',
-            content: `【多次元アイデア合成完了】\n選択された${selectedEntityIds.size}銘柄の財務構造と、あなたの閲覧・保存傾向（${userProfile.profileSummary.slice(0, 50)}...）を掛け合わせ、3つの別次元アプローチ（本能工夫型／構造胴元型／逆張り型）を抽出しました。「アイデア調書」タブにて損益見込・ツール構成・初動手順を確認してください。`,
-            timestamp: new Date().toISOString(),
-            suggestedActionPrompts: [
-              'この中で一番初期費用が安く初動が速いアイデアはどれか？',
-              '本能工夫型アイデアの初動ゲリラ戦法をさらに具体化せよ',
-              '構造・胴元型モデルで決済手数料を抜く際の法的注意点は？'
-            ]
-          }
-        ]);
+      const data: unknown = await res.json();
+      if (!res.ok) throw new Error(readStrategyError(data, 'アイデア合成に失敗しました'));
+      if (!data || typeof data !== 'object' || !('ideas' in data) || !Array.isArray(data.ideas)) {
+        throw new Error('アイデア合成の応答形式を確認できません');
       }
-    } catch (e) {
-      console.error('Synthesis failed:', e);
+      setSynthesizedIdeas(data.ideas as SynthesizedIdea[]);
+      setActiveConsoleTab('IDEAS');
+      // チャットにも報告を追加
+      setChatMessages((prev) => [
+        ...prev,
+        {
+          id: `msg_${Date.now()}`,
+          role: 'assistant',
+          content: `【多次元アイデア合成完了】\n選択された${selectedEntityIds.size}銘柄の財務構造と、あなたの閲覧・保存傾向（${userProfile.profileSummary.slice(0, 50)}...）を掛け合わせ、3つの別次元アプローチ（本能工夫型／構造胴元型／逆張り型）を抽出しました。「アイデア調書」タブにて損益見込・ツール構成・初動手順を確認してください。`,
+          timestamp: new Date().toISOString(),
+          suggestedActionPrompts: [
+            'この中で一番初期費用が安く初動が速いアイデアはどれか？',
+            '本能工夫型アイデアの初動手順をさらに具体化せよ',
+            '構造・胴元型モデルで決済手数料を抜く際の法的注意点は？'
+          ]
+        }
+      ]);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'アイデア合成に失敗しました';
+      console.error('Synthesis failed:', error);
+      setRequestError(message);
     } finally {
       setIsSynthesizing(false);
     }
@@ -158,11 +168,14 @@ export function useStrategySynthesis({
     setChatMessages((prev) => [...prev, userMsg]);
     setChatInput('');
     setIsChatSending(true);
+    setRequestError(null);
 
     try {
+      const headers: HeadersInit = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = `Bearer ${token}`;
       const res = await fetch('/api/strategy-chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
         body: JSON.stringify({
           action: 'CHAT',
           conversationId,
@@ -173,18 +186,22 @@ export function useStrategySynthesis({
           userProfile,
         }),
       });
-      const data = await res.json();
-      if (data.message) {
-        setChatMessages((prev) => [...prev, data.message]);
+      const data: unknown = await res.json();
+      if (!res.ok) throw new Error(readStrategyError(data, 'アナリストとの通信に失敗しました'));
+      if (!data || typeof data !== 'object' || !('message' in data) || !data.message || typeof data.message !== 'object') {
+        throw new Error('アナリストの応答形式を確認できません');
       }
-    } catch (e) {
-      console.error('Chat error:', e);
+      setChatMessages((prev) => [...prev, data.message as StrategyChatMessage]);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'アナリストとの通信に失敗しました';
+      console.error('Chat error:', error);
+      setRequestError(message);
       setChatMessages((prev) => [
         ...prev,
         {
           id: `err_${Date.now()}`,
           role: 'assistant',
-          content: '【通信エラー】アナリストエンジンとの接続に失敗した。再試行せよ。',
+          content: `【分析エラー】${message}\n接続設定または保存先を確認して、もう一度送信してください。`,
           timestamp: new Date().toISOString(),
         }
       ]);
@@ -225,5 +242,13 @@ export function useStrategySynthesis({
     handleSendMessage,
     handleDrilldownIdea,
     activeEntity,
+    requestError,
   };
+}
+
+function readStrategyError(payload: unknown, fallback: string): string {
+  if (payload && typeof payload === 'object' && 'error' in payload && typeof payload.error === 'string') {
+    return payload.error.slice(0, 240);
+  }
+  return fallback;
 }

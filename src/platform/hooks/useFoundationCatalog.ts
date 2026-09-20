@@ -15,6 +15,7 @@ import {
   adaptFoundationDetailToFinancialEntity,
   isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
+import { getNextNewArrivalsReleaseAt } from '@/lib/foundation/new-arrivals';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
 
@@ -52,6 +53,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
   const [foundationLoading, setFoundationLoading] = useState(false);
+  const [newArrivalsRelease, setNewArrivalsRelease] = useState<FoundationValuePage['newArrivals']>(null);
   const foundationLoadingRef = useRef(false);
   const foundationRequestedCursors = useRef(new Set<string>());
 
@@ -287,6 +289,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
             : '保存済み台帳（外部取得なし）');
       if (page) {
         mergeFoundationRows(page.data, !cursor);
+        setNewArrivalsRelease(page.newArrivals);
         const nextCursor = page.nextCursor && page.nextCursor !== cursor ? page.nextCursor : null;
         setFoundationNextCursor(nextCursor);
         setFoundationHasMore(page.hasMore && Boolean(nextCursor));
@@ -316,14 +319,62 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
   }, [foundationNextCursor, loadFoundationPage]);
 
   useEffect(() => {
-    const controller = new AbortController();
-    void loadFoundationPage(undefined, controller.signal).catch((error) => {
-      if ((error as { name?: string })?.name !== 'AbortError') {
-        setDataSource('保存済み台帳（外部取得に失敗）');
-        console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
+    let cancelled = false;
+    let timer: number | null = null;
+    let activeController: AbortController | null = null;
+
+    const clearRefreshTimer = () => {
+      if (timer !== null) {
+        window.clearTimeout(timer);
+        timer = null;
       }
-    });
-    return () => controller.abort();
+    };
+
+    const scheduleNextEditionRefresh = () => {
+      if (cancelled || document.visibilityState !== 'visible') return;
+      clearRefreshTimer();
+      const nextReleaseAt = getNextNewArrivalsReleaseAt(new Date());
+      // Give the scheduled writer a short propagation/readback margin after
+      // the public boundary. The writer itself still runs hourly.
+      const delay = Math.max(30_000, nextReleaseAt.getTime() - Date.now() + 30_000);
+      timer = window.setTimeout(() => {
+        timer = null;
+        void refresh();
+      }, delay);
+    };
+
+    const refresh = async () => {
+      if (cancelled || document.visibilityState !== 'visible') return;
+      activeController?.abort();
+      const controller = new AbortController();
+      activeController = controller;
+      try {
+        await loadFoundationPage(undefined, controller.signal);
+      } catch (error) {
+        if ((error as { name?: string })?.name !== 'AbortError') {
+          setDataSource('保存済み台帳（外部取得に失敗）');
+          console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
+        }
+      } finally {
+        if (activeController === controller) activeController = null;
+        scheduleNextEditionRefresh();
+      }
+    };
+
+    const handleVisibilityChange = () => {
+      clearRefreshTimer();
+      if (document.visibilityState === 'visible') void refresh();
+    };
+
+    void refresh();
+    scheduleNextEditionRefresh();
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      cancelled = true;
+      clearRefreshTimer();
+      activeController?.abort();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
   }, [loadFoundationPage]);
 
   // オンデマンド詳細読み込み関数
@@ -366,6 +417,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
     macroData,
     foundationHasMore,
     foundationLoading,
+    newArrivalsRelease,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
     approvedIds,

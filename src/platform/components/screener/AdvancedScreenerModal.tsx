@@ -87,7 +87,7 @@ export const AdvancedScreenerModal: React.FC<AdvancedScreenerModalProps> = ({
         {/* ヘッダー */}
         <div className="p-3 border-b border-white/[0.06] bg-[#07080A] flex items-center justify-between">
           <span className="text-xs font-medium text-white font-mono">
-            50軸 詳細スクリーナー
+            多条件 詳細スクリーナー
           </span>
           <button onClick={onClose} className="p-1 text-zinc-500 hover:text-white">
             <X className="w-4 h-4" />

@@ -346,6 +346,7 @@ export async function GET(request: Request) {
         data: publicFoundationData(publishableSummaries),
         nextCursor: page.nextCursor,
         hasMore: page.hasMore,
+        newArrivals: page.newArrivals,
       });
     }
   } catch (error) {
@@ -365,5 +366,6 @@ export async function GET(request: Request) {
     data: transformed,
     nextCursor: null,
     hasMore: false,
+    newArrivals: null,
   });
 }

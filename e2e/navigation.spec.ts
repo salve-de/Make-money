@@ -26,7 +26,7 @@ test('search and screener change the company list and reset cleanly', async ({ p
   await search.fill('no-matching-company-architecture-smoke');
   await expect(rows).toHaveCount(1);
   await search.fill('');
-  await page.getByRole('button', { name: '50軸スクリーニング' }).click();
+  await page.getByRole('button', { name: '多条件スクリーニング' }).click();
   await page.getByRole('button', { name: '完全1人 (ソロ)', exact: true }).click();
   await page.getByRole('button', { name: '条件適用', exact: true }).click();
   await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(1);

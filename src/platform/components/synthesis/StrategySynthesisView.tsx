@@ -48,6 +48,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
     handleSendMessage,
     handleDrilldownIdea,
     activeEntity,
+    requestError,
   } = useStrategySynthesis({
     allEntities,
     bookmarkedIds,
@@ -92,6 +93,7 @@ export const StrategySynthesisView: React.FC<StrategySynthesisViewProps> = ({
         chatInput={chatInput}
         setChatInput={setChatInput}
         messagesEndRef={messagesEndRef}
+        requestError={requestError}
       />
     </div>
   );
