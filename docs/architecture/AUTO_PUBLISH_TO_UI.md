@@ -120,3 +120,27 @@ Canonical entity core objects remain create-only. If an incoming bundle referenc
 - canonical name when no stronger durable identifier exists.
 
 If the durable identity is compatible, the existing entity object is retained and new claims/metrics/events/relationships/bundles are appended. A real identity conflict remains fail-closed.
+
+
+## Migration request-path safety
+
+The one-time serving-view rebuild runs only in the background Publisher path.
+
+Public `/api/businesses` requests do **not** scan the whole canonical research-bundle lake while rebuild is incomplete:
+
+- list pages read whatever `views/make-money/v1/entities/` rows have already been materialized and merge them with the existing local ledger client-side;
+- an existing curated local dossier stays authoritative during the global rebuild;
+- Foundation-only entities become visible as soon as their individual view exists;
+- once the global rebuild state becomes complete, the materialized view is the normal serving layer.
+
+This prevents a 100-row UI request from turning into an all-lake R2 fan-out.
+
+## Atomic entity identity authority
+
+Immutable Entity core objects are never overwritten. To safely accept later bundles that add durable identity fields, ingestion maintains a rebuildable CAS-protected authority at:
+
+`views/foundation-ingest/v1/entity-identity/<entity_id>.json`
+
+Before an `EXISTS_COMPATIBLE` entity preflight is allowed to continue, the incoming domain/canonical identifier/name/type must be compatible with the authority and the authority update must win an R2 ETag compare-and-swap.
+
+This serializes concurrent identity additions such as two different domains racing against an originally blank immutable Entity core. Canonical facts remain immutable; the authority is only a coordination/derived view and can be rebuilt from accepted history.
