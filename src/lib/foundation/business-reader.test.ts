@@ -10,7 +10,7 @@ const state = vi.hoisted(() => ({
 
 vi.mock('@/lib/storage/r2', () => state);
 
-import { buildFoundationBusinessCaseForEntity, buildFoundationValueSummariesFromBundle, foundationEntityIdsFromBundle, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
+import { buildFoundationBusinessCaseForEntity, buildFoundationValueSummariesFromBundle, foundationEntityIdsFromBundle, readFoundationBusinessCaseCumulative, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
 
 describe('Foundation list read path', () => {
   beforeEach(() => {
@@ -428,6 +428,52 @@ describe('Foundation list read path', () => {
     expect(page.data[0]?.evidenceIds).toEqual(expect.arrayContaining(['ev_old', 'ev_new']));
   });
 
+
+  it('marks cumulative hydration incomplete when a listed bundle cannot be read', async () => {
+    vi.resetModules();
+    const reader = await import('./business-reader');
+    const entityId = 'ent_fail_abcdef0123456789abcd';
+    const bundleKey = 'datasets/ds.business.research-bundles.derived/v1/2026/09/20/run_read_failure.json';
+    const entity = {
+      entity_id: entityId,
+      canonical_name: 'Read Failure Demo',
+      entity_type: 'business',
+      aliases: [],
+      canonical_identifier: 'read-failure.example',
+      domain: 'read-failure.example',
+      status: 'operating',
+      observed_at: '2026-09-20T00:00:00Z',
+      evidence_ids: ['ev_base'],
+    };
+
+    state.readR2Object.mockResolvedValue({
+      exists: true,
+      body: new TextEncoder().encode(JSON.stringify(entity)),
+      metadata: {},
+    });
+    state.listR2Objects.mockResolvedValue({
+      objects: [{ key: bundleKey }],
+      truncated: false,
+    });
+    state.readR2ObjectRange.mockResolvedValue({
+      exists: true,
+      body: new TextEncoder().encode(JSON.stringify({
+        schema_version: 'research-bundle.v1',
+        entities: [{ entity_id: entityId }],
+      })),
+      metadata: {},
+    });
+    state.getFromR2.mockImplementation(async (key: string) => {
+      if (key === bundleKey) throw new Error('transient R2 GET failure');
+      return null;
+    });
+
+    const detail = await reader.readFoundationBusinessCaseCumulative(entityId);
+
+    expect(detail).not.toBeNull();
+    expect(detail?.bundleScanComplete).toBe(false);
+    expect(detail?.bundleObjectsListed).toBe(1);
+  });
 
   it('reads a bundle directly from the entity run metadata', async () => {
     const entityId = 'ent_demo_0123456789abcdef0123';
