@@ -347,7 +347,7 @@ export function adaptFoundationSummaryToFinancialEntity(
       punchline: `『${summary.name}』の再現条件は、公開Evidenceから確認できた範囲だけで評価`,
       details: [
         `① 業態: ${sector === 'UNKNOWN' ? '未確認' : sector}。ソフトウェア・店舗・製造などを推測で補完しない。`,
-        `② 課金・販売方式: ${rawMoney ? cleanIntelligenceText(rawMoney) : '未確認'}。サブスクや年払いを前提にしない。`,
+        `② 課金・販売方式: ${rawMoney ? cleanIntelligenceText(rawMoney) : '未確認'}。確認済みの支払・契約形態だけを表示する。`,
         `③ 集客・運営・原価構造: ${cleanIntelligenceText(vp.tractionSignal || vp.mechanismSignal || '未確認')}。追加Evidenceが集まるまで断定しない。`,
       ],
       sourceNote: 'Make-Money アナリスト転用設計（未確認事項は仮定しない）',
