@@ -186,7 +186,8 @@
         "CONTENT_MEDIA",
         "PHYSICAL_ASSET",
         "FINTECH_INFRA",
-        "LOCAL_SERVICES"
+        "LOCAL_SERVICES",
+        "UNKNOWN"
       ]
     },
     "BusinessScale": {
