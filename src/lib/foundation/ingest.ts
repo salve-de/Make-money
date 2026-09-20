@@ -1544,8 +1544,8 @@ export async function ingestFoundationResearch(
   let identityAuthorityGetCalls = 0;
   let identityAuthorityPutCalls = 0;
 
-  // Phase 1: complete every canonical preflight first. No identity reservation
-  // is mutated until all canonical objects are known conflict-free.
+  // 1) Complete all immutable preflight checks without mutating identity
+  // coordination state.
   for (let index = 0; index < plan.length; index += 1) {
     const item = plan[index];
     const preflight = await preflightR2Object({
@@ -1556,7 +1556,6 @@ export async function ingestFoundationResearch(
       metadata: item.metadata,
     });
     plannedWrites.objects[index].preflight_status = preflightStatus(preflight.status);
-
     if (preflight.status !== 'EXISTS_CONFLICT') continue;
 
     if (item.logicalRole !== 'entity') {
@@ -1601,13 +1600,12 @@ export async function ingestFoundationResearch(
     });
   }
 
-  // Phase 2: reserve all durable identity changes atomically only after every
-  // canonical preflight passed. If any reservation loses a race, release the
-  // reservations already acquired by this run before returning an error.
+  // 2) Reserve compatible durable identity additions only after every
+  // canonical preflight has passed. Reservations are not committed identity.
   const reservationHandles: EntityIdentityReservationHandle[] = [];
   try {
     for (const pending of pendingIdentityClaims) {
-      const reservation = await reserveStableEntityIdentity({
+      const reserved = await reserveStableEntityIdentity({
         bucket: pending.bucket,
         seed: pending.seed,
         incoming: pending.incoming,
@@ -1615,9 +1613,9 @@ export async function ingestFoundationResearch(
         updatedAt: getString(pending.incoming, 'observed_at') || bundle.retrieved_at,
         canonicalBundleKey: canonicalBundlePlan.key,
       });
-      identityAuthorityGetCalls += reservation.getCalls;
-      identityAuthorityPutCalls += reservation.putCalls;
-      reservationHandles.push(reservation.handle);
+      reservationHandles.push(reserved.handle);
+      identityAuthorityGetCalls += reserved.getCalls;
+      identityAuthorityPutCalls += reserved.putCalls;
     }
   } catch (error) {
     await Promise.all(
@@ -1635,7 +1633,7 @@ export async function ingestFoundationResearch(
 
   let canonicalWritesSucceeded = false;
   try {
-    // Phase 3: immutable canonical writes. Identical retries remain idempotent.
+    // 3) Commit canonical create-only objects.
     for (let index = 0; index < plan.length; index += 1) {
       const item = plan[index];
       const compatible = compatibleEntityReads.get(index);
@@ -1678,9 +1676,9 @@ export async function ingestFoundationResearch(
     }
     canonicalWritesSucceeded = true;
 
-    // Phase 4: only committed canonical history may become durable identity
-    // authority. If finalization itself fails, keep the reservation: the next
-    // retry recognizes the already-created canonical bundle and recovers it.
+    // 4) Only canonical history that actually committed may advance durable
+    // identity authority. If this step is interrupted, the next retry recovers
+    // the reservation by checking its canonical bundle key.
     for (const handle of reservationHandles) {
       const finalized = await finalizeStableEntityIdentity(handle);
       providerCalls.get_object += finalized.getCalls;
