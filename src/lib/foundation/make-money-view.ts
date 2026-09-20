@@ -1,6 +1,5 @@
 import {
   buildFoundationBusinessCaseForEntity,
-  buildFoundationBusinessCasesFromBundle,
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
   readFoundationBusinessCaseCumulative,
@@ -431,9 +430,6 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     };
   }
 
-  const explicitCases = new Map(
-    buildFoundationBusinessCasesFromBundle(bundleInput).map((detail) => [detail.id, detail])
-  );
   const startIndex = progress.next_index;
   const retryingUnresolved =
     startIndex >= targetIds.length && progress.unresolved_entity_ids.length > 0;
@@ -461,17 +457,14 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
   };
 
   for (const entityId of chunkIds) {
-    let detail = explicitCases.get(entityId) || null;
-    const currentView = await readMakeMoneyViewDetail(entityId);
-
-    if (!detail) {
-      const summary = await readFoundationEntitySummaryById(entityId);
-      if (!summary) {
-        unresolved.add(entityId);
-        continue;
-      }
-      detail = buildFoundationBusinessCaseForEntity(bundleInput, summary);
+    const summary = await readFoundationEntitySummaryById(entityId);
+    if (!summary) {
+      unresolved.add(entityId);
+      continue;
     }
+
+    let detail = buildFoundationBusinessCaseForEntity(bundleInput, summary);
+    const currentView = await readMakeMoneyViewDetail(entityId);
 
     // If this is the first serving view for a now-resolvable entity, hydrate it
     // from all canonical bundles so facts that arrived before the entity core
