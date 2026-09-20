@@ -263,8 +263,13 @@ export async function GET(request: Request) {
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
         if (parsed) {
-          const adapted = adaptFoundationDetailToFinancialEntity(parsed);
-          if (isPublishableEntity(adapted)) {
+          // Use the same publication contract as the list path. Financial
+          // metrics are optional for a partial-but-useful Foundation record;
+          // if the summary is publishable, opening that row must not 404 just
+          // because the detailed financial projection is UNAVAILABLE.
+          const summaryGate = adaptFoundationSummaryToFinancialEntity(parsed);
+          if (isPublishableEntity(summaryGate)) {
+            const adapted = adaptFoundationDetailToFinancialEntity(parsed);
             const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
             const revision = adapted.sourceRevision ?? 1;
             return response({
