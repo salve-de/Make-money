@@ -1249,6 +1249,28 @@ async function claimStableEntityIdentity(input: {
   throw new Error(`Entity identity CAS retries exhausted for ${entityId}`);
 }
 
+async function readStableEntityIdentityAuthority(
+  bucket: string,
+  entityId: string
+): Promise<{ authority: EntityIdentityAuthority | null; getCalls: number }> {
+  const key = `${ENTITY_IDENTITY_AUTHORITY_PREFIX}${entityId}.json`;
+  const object = await readR2Object(bucket, key);
+  if (!object) return { authority: null, getCalls: 1 };
+
+  const parsed = decodeJsonObject(object.body);
+  const authority = parsed ? parseIdentityAuthority(parsed) : null;
+  if (!authority) {
+    throw new Error(`Invalid entity identity authority at ${key}`);
+  }
+  return { authority, getCalls: 1 };
+}
+
+interface PendingIdentityClaim {
+  bucket: string;
+  seed: JsonObject;
+  incoming: JsonObject;
+}
+
 function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
   return status;
 }
@@ -1273,6 +1295,7 @@ export async function ingestFoundationResearch(
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
 
   const compatibleEntityReads = new Map<number, { bytes: number; sha256: string }>();
+  const pendingIdentityClaims: PendingIdentityClaim[] = [];
   let compatibilityReadCalls = 0;
   let identityAuthorityGetCalls = 0;
   let identityAuthorityPutCalls = 0;
@@ -1297,13 +1320,21 @@ export async function ingestFoundationResearch(
 
         let accumulatedEntity = seedEntity;
         if (incomingEntityId) {
-          // The immutable entity core intentionally does not change. Consult
-          // the accumulated product view as the durable identity memory of
-          // prior accepted bundles, so a later conflicting domain/identifier
-          // cannot repeatedly compare against an originally blank core.
+          // Read committed identity memory only. Do not mutate authority during
+          // preflight: a later canonical conflict/write failure must leave no
+          // durable identity claim behind.
+          const authorityRead = await readStableEntityIdentityAuthority(
+            item.bucket,
+            incomingEntityId
+          );
+          identityAuthorityGetCalls += authorityRead.getCalls;
+
           const accumulatedView = await readMakeMoneyViewDetail(incomingEntityId);
           compatibilityReadCalls += 1;
-          accumulatedEntity = identityRecordFromView(accumulatedView) || seedEntity;
+          accumulatedEntity =
+            authorityRead.authority ||
+            identityRecordFromView(accumulatedView) ||
+            seedEntity;
         }
 
         if (
@@ -1312,20 +1343,15 @@ export async function ingestFoundationResearch(
           incomingEntity &&
           compatibleStableEntity(accumulatedEntity, incomingEntity)
         ) {
-          const identityClaim = await claimStableEntityIdentity({
-            bucket: item.bucket,
-            seed: accumulatedEntity,
-            incoming: incomingEntity,
-            runId: bundle.run_id,
-            updatedAt: getString(incomingEntity, 'observed_at') || bundle.retrieved_at,
-          });
-          identityAuthorityGetCalls += identityClaim.getCalls;
-          identityAuthorityPutCalls += identityClaim.putCalls;
-
           plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
           compatibleEntityReads.set(index, {
             bytes: existingObject.body.byteLength,
             sha256: await sha256Hex(existingObject.body),
+          });
+          pendingIdentityClaims.push({
+            bucket: item.bucket,
+            seed: accumulatedEntity,
+            incoming: incomingEntity,
           });
           continue;
         }
@@ -1338,7 +1364,7 @@ export async function ingestFoundationResearch(
   const providerCalls = {
     head_bucket: plan.length,
     get_object: plan.length + compatibilityReadCalls + identityAuthorityGetCalls,
-    put_object: identityAuthorityPutCalls,
+    put_object: 0,
   };
 
   for (let index = 0; index < plan.length; index += 1) {
@@ -1380,6 +1406,24 @@ export async function ingestFoundationResearch(
     providerCalls.head_bucket += result.provider_calls.head_bucket;
     providerCalls.get_object += result.provider_calls.get_object;
     providerCalls.put_object += result.provider_calls.put_object;
+  }
+
+  // Only after every canonical create-only write has succeeded do we advance
+  // the mutable identity authority. If this finalization fails, the caller gets
+  // a retryable failure; replay is safe because canonical objects are immutable
+  // and identical writes are idempotent.
+  for (const pending of pendingIdentityClaims) {
+    const identityClaim = await claimStableEntityIdentity({
+      bucket: pending.bucket,
+      seed: pending.seed,
+      incoming: pending.incoming,
+      runId: bundle.run_id,
+      updatedAt: getString(pending.incoming, 'observed_at') || bundle.retrieved_at,
+    });
+    identityAuthorityGetCalls += identityClaim.getCalls;
+    identityAuthorityPutCalls += identityClaim.putCalls;
+    providerCalls.get_object += identityClaim.getCalls;
+    providerCalls.put_object += identityClaim.putCalls;
   }
 
   return {
