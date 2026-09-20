@@ -1589,6 +1589,55 @@ function preflightStatus(status: R2PreflightResult['status']): PlannedWritePrefl
   return status;
 }
 
+export async function verifyFoundationRawEvidenceAlreadyCommitted(
+  bundleInput: unknown,
+  rawInput?: unknown
+): Promise<{
+  committed: boolean;
+  provider_calls: { head_bucket: number; get_object: number; put_object: 0 };
+}> {
+  const bundle = validateResearchBundle(bundleInput);
+  const rawEvidence = parseRawEvidence(rawInput, bundle);
+  if (rawEvidence.length === 0) {
+    return {
+      committed: true,
+      provider_calls: { head_bucket: 0, get_object: 0, put_object: 0 },
+    };
+  }
+
+  const rawPlan = await rawObjects(rawEvidence, bundle);
+  let checked = 0;
+  for (const item of rawPlan) {
+    const preflight = await preflightR2Object({
+      bucket: item.bucket,
+      key: item.key,
+      body: item.body,
+      contentType: item.contentType,
+      metadata: item.metadata,
+    });
+    checked += 1;
+    if (preflight.status !== 'EXISTS_IDENTICAL') {
+      return {
+        committed: false,
+        provider_calls: {
+          head_bucket: checked,
+          get_object: checked,
+          put_object: 0,
+        },
+      };
+    }
+  }
+
+  return {
+    committed: true,
+    provider_calls: {
+      head_bucket: checked,
+      get_object: checked,
+      put_object: 0,
+    },
+  };
+}
+
 /** Offline validation and immutable write plan; never contacts R2. */
 export async function prepareFoundationResearch(bundleInput: unknown, rawInput?: unknown) {
   const bundle = validateResearchBundle(bundleInput);
