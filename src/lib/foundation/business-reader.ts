@@ -660,6 +660,18 @@ function cachedBundle(key: string): Promise<JsonObject | null> {
   return pending;
 }
 
+async function readBundleStrict(key: string): Promise<JsonObject> {
+  const text = await getFromR2(key, await getFoundationBucketAsync(ENTITY_DATASET.bucketRole));
+  if (text === null) {
+    throw new Error(`Listed canonical research bundle is unavailable: ${key}`);
+  }
+  const parsed = parseObject(text);
+  if (!parsed) {
+    throw new Error(`Canonical research bundle is invalid JSON/object: ${key}`);
+  }
+  return parsed;
+}
+
 interface BundleObjectListing {
   objects: R2ListObject[];
   complete: boolean;
@@ -859,6 +871,7 @@ async function hydrateFoundationEntitiesFromAllBundles(
   );
   const bundleListing = await listBundleObjects();
   const bundleObjects = bundleListing.objects;
+  let hadBundleReadFailure = false;
 
   for (let index = 0; index < bundleObjects.length; index += BUNDLE_SCAN_BATCH_SIZE) {
     const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
@@ -876,9 +889,15 @@ async function hydrateFoundationEntitiesFromAllBundles(
       })
       .map((item) => item.key);
 
-    const bundles = await Promise.all(candidateKeys.map((key) => cachedBundle(key)));
-    for (const bundle of bundles) {
-      if (!bundle) continue;
+    const bundleResults = await Promise.allSettled(
+      candidateKeys.map((key) => readBundleStrict(key))
+    );
+    for (const result of bundleResults) {
+      if (result.status === 'rejected') {
+        hadBundleReadFailure = true;
+        continue;
+      }
+      const bundle = result.value;
       for (const entityId of entityIds) {
         if (!bundleContainsEntity(bundle, entityId)) continue;
         collectBundleRecords(bundle, entityId, recordsById.get(entityId)!);
@@ -900,7 +919,7 @@ async function hydrateFoundationEntitiesFromAllBundles(
       valueProfile: buildFoundationValueProfile(summary, records),
       bundlesScanned: bundleObjects.length,
       bundleObjectsListed: bundleObjects.length,
-      bundleScanComplete: bundleListing.complete,
+      bundleScanComplete: bundleListing.complete && !hadBundleReadFailure,
     };
   });
 }
@@ -977,6 +996,7 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
   const bundleListing = await listBundleObjects();
   const bundleObjects = bundleListing.objects;
   let bundlesScanned = 0;
+  let hadFallbackReadFailure = false;
 
   for (let index = 0; index < Math.min(bundleObjects.length, MAX_FALLBACK_BUNDLE_OBJECTS); index += BUNDLE_SCAN_BATCH_SIZE) {
     const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
@@ -985,9 +1005,17 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
     const candidateKeys = batch
       .filter((_, batchIndex) => probeContainsEntity(probes[batchIndex], entityId) !== false)
       .map((item) => item.key);
-    const bundles = await Promise.all(candidateKeys.map((key) => cachedBundle(key)));
-    for (const bundle of bundles) {
-      if (bundle && bundleContainsEntity(bundle, entityId)) collectBundleRecords(bundle, entityId, records);
+    const bundleResults = await Promise.allSettled(
+      candidateKeys.map((key) => readBundleStrict(key))
+    );
+    for (const result of bundleResults) {
+      if (result.status === 'rejected') {
+        hadFallbackReadFailure = true;
+        continue;
+      }
+      if (bundleContainsEntity(result.value, entityId)) {
+        collectBundleRecords(result.value, entityId, records);
+      }
     }
   }
 
@@ -997,7 +1025,10 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
     valueProfile: buildFoundationValueProfile(entity, records),
     bundlesScanned,
     bundleObjectsListed: bundleObjects.length,
-    bundleScanComplete: bundleListing.complete && bundlesScanned >= bundleObjects.length,
+    bundleScanComplete:
+      bundleListing.complete &&
+      !hadFallbackReadFailure &&
+      bundlesScanned >= bundleObjects.length,
   };
 }
 
