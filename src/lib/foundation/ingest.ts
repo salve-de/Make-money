@@ -1635,7 +1635,6 @@ export async function ingestFoundationResearch(
     put_object: identityAuthorityPutCalls,
   };
 
-  let canonicalWritesSucceeded = false;
   let canonicalBundleCommitted = false;
   try {
     // 3) Commit canonical create-only objects.
@@ -1682,8 +1681,6 @@ export async function ingestFoundationResearch(
       providerCalls.get_object += result.provider_calls.get_object;
       providerCalls.put_object += result.provider_calls.put_object;
     }
-    canonicalWritesSucceeded = true;
-
     // 4) Only canonical history that actually committed may advance durable
     // identity authority. If this step is interrupted, the next retry recovers
     // the reservation by checking its canonical bundle key.
