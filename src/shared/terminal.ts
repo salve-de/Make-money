@@ -9,7 +9,8 @@ export type SectorCategory =
   | 'CONTENT_MEDIA'
   | 'PHYSICAL_ASSET'
   | 'FINTECH_INFRA'
-  | 'LOCAL_SERVICES';
+  | 'LOCAL_SERVICES'
+  | 'UNKNOWN';
 
 export type MoatType =
   | 'COUNTER_POSITIONING'
