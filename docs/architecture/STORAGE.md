@@ -308,6 +308,7 @@ These R2 prefixes are rebuildable serving/control views. They are **not canonica
 | `views/make-money/v1/_rebuild-state.json` | Global serving-view rebuild cursor | CAS-protected control state |
 | `views/make-money/v1/_projection-progress/<run_id>.json` | Per-bundle projection progress | CAS-protected control state |
 | `views/make-money/v1/_unresolved-by-entity/<entity_id>/<run_id>.json` | Deferred record-only references whose entity core was not yet resolvable | CAS-protected replay state |
+| `views/make-money/v1/_unresolved-hydration-state/<entity_id>.json` | Per-entity cursor for bounded replay of large unresolved record-only history | CAS-protected resumable control state |
 | `views/make-money/v1/_unresolved-replay-state.json` | Global unresolved replay cursor | CAS-protected control state |
 | `views/foundation-ingest/v2/entity-identity/<entity_id>.json` | Accumulated durable identity authority used to validate later immutable Entity-core-compatible ingests | CAS-protected derived authority |
 
