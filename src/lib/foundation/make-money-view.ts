@@ -424,7 +424,11 @@ async function hydratePendingHistoryForEntity(
   const pending = await readPendingUnresolvedForEntity(bucket, entityId);
   if (pending.length === 0) return { detail: baseDetail, pending: [] };
 
-  const slices: Array<{ retrievedAt: string; detail: FoundationBusinessCase }> = [];
+  const slices: Array<{
+    retrievedAt: string;
+    detail: FoundationBusinessCase;
+    pending: PendingUnresolvedEntityRecord;
+  }> = [];
   for (const item of pending) {
     const text = await getFromR2(item.record.bundle_key, bucket);
     if (!text) continue;
@@ -434,6 +438,7 @@ async function hydratePendingHistoryForEntity(
     slices.push({
       retrievedAt: item.record.retrieved_at,
       detail: buildFoundationBusinessCaseForEntity(bundle, summary),
+      pending: item,
     });
   }
   slices.sort((left, right) => Date.parse(left.retrievedAt) - Date.parse(right.retrievedAt));
@@ -442,7 +447,7 @@ async function hydratePendingHistoryForEntity(
   for (const slice of slices) {
     detail = mergeFoundationBusinessCasesForView(detail, slice.detail);
   }
-  return { detail, pending };
+  return { detail, pending: slices.map((slice) => slice.pending) };
 }
 
 function parseRebuildState(value: unknown): MakeMoneyViewRebuildState | null {
