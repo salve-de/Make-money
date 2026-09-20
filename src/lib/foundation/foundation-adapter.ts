@@ -57,6 +57,20 @@ function inferSector(text: string): SectorCategory {
   return 'UNKNOWN';
 }
 
+function sectorTagLabel(sector: SectorCategory): string {
+  const labels: Record<SectorCategory, string> = {
+    AI_AUTOMATION: 'AI・自動化',
+    NICHE_SAAS: 'SaaS・ツール',
+    MONOPOLY_MFG: '製造・産業',
+    CONTENT_MEDIA: 'メディア・出版',
+    PHYSICAL_ASSET: '物理資産',
+    FINTECH_INFRA: 'Fintech・決済',
+    LOCAL_SERVICES: 'ローカルサービス',
+    UNKNOWN: '業種未確認',
+  };
+  return labels[sector];
+}
+
 /**
  * 業態やテキストから 4〜8文字の簡潔な日本語「構造の型」バッジを推計
  * 決して長文を返さない
@@ -370,17 +384,7 @@ export function adaptFoundationSummaryToFinancialEntity(
   // タグ構成（捏造を排除）
   const tags: string[] = [];
   if (!isUnconfirmed && monthlyJpy > 0) tags.push('収益確認済');
-  const sectorTag: Record<SectorCategory, string> = {
-    AI_AUTOMATION: 'AI・自動化',
-    NICHE_SAAS: 'SaaS・ツール',
-    MONOPOLY_MFG: '製造・産業',
-    CONTENT_MEDIA: 'メディア・出版',
-    PHYSICAL_ASSET: '物理資産',
-    FINTECH_INFRA: 'Fintech・決済',
-    LOCAL_SERVICES: 'ローカルサービス',
-    UNKNOWN: '業種未確認',
-  };
-  tags.push(sectorTag[sector]);
+  tags.push(sectorTagLabel(sector));
 
   return {
     id: summary.id,
@@ -668,6 +672,7 @@ export function adaptFoundationDetailToFinancialEntity(
 
   // 10. 4〜8文字の日本語型バッジ
   const pattern = inferArchitecturePattern(entity.entityType, `${tagline} ${firstClaim}`);
+  const sector = inferSector(`${entity.entityType} ${tagline} ${firstClaim} ${firstObs}`);
 
   // 11. 盲点と参入障壁（実在ファクトから抽出）
   const revenuePathClaim = claims.find((c) => hasSupportedEvidence(c) && (c.statement.includes('収益化経路') || /monetiz/i.test(c.statement)));
@@ -690,7 +695,7 @@ export function adaptFoundationDetailToFinancialEntity(
   if (!isUnconfirmed && pnl.grossMargin >= 80) {
     tags.add('利益率80%超');
   }
-  tags.add(inferSector(tagline) === 'CONTENT_MEDIA' ? 'メディア・出版' : 'SaaS・ツール');
+  tags.add(sectorTagLabel(sector));
   if (!isUnconfirmed && monthlyJpy > 0) {
     tags.add('収益確認済');
   }
@@ -734,21 +739,16 @@ export function adaptFoundationDetailToFinancialEntity(
     {
       id: `ev_${entity.id}_blueprint`,
       type: 'LOOT_BLUEPRINT',
-      title: '金抜きの実動配管アーティファクト',
-      badge: '現場実動配管',
+      title: '再現条件の確認ポイント',
+      badge: pattern,
       evidenceStatus: 'ESTIMATED',
-      punchline: (() => {
-        const cleanTag = cleanIntelligenceText(tagline).replace(/[。、].*$/, '').trim().slice(0, 25);
-        return cleanTag.length > 5 && !/^[a-zA-Z\s]+$/.test(cleanTag)
-          ? `「${cleanTag}」の仕組みを国内ニッチへ横展開する即戦力モデル`
-          : `『${entity.name}』の${pattern}モデルを国内ニッチへ横展開する設計図`;
-      })(),
+      punchline: `『${entity.name}』の再現条件は、公開Evidenceで確認できた範囲だけで評価`,
       details: [
-        `① 突いた盲点: ${blindspotText.slice(0, 60)}`,
-        `② 収益化の急所: ${cleanMoneyLabel(priceStr)} の定額課金・自動回収配管を構築。`,
-        '③ 乗り換え障壁: 顧客のワークフローと蓄積データを人質化し、チャーンレートを極小化。',
+        `① 業態・顧客課題: ${sector === 'UNKNOWN' ? '業態未確認' : sector}。 ${blindspotText.slice(0, 80)}`,
+        `② 価格・課金・販売方式: ${cleanMoneyLabel(priceStr)}。定額課金・都度販売・卸・店舗販売などはEvidenceがある場合だけ採用。`,
+        `③ 集客・運営・継続条件: ${initialTraction[0] || moatText || '未確認'}。ソフトウェア型のロックインやデータ蓄積を推測で補完しない。`,
       ],
-      sourceNote: 'Make-Money アナリスト転用設計',
+      sourceNote: 'Make-Money アナリスト転用設計（未確認事項は仮定しない）',
     },
   ];
 
@@ -771,7 +771,7 @@ export function adaptFoundationDetailToFinancialEntity(
     name: entity.name,
     legalEntity: entity.canonicalIdentifier || undefined,
     tagline,
-    sector: inferSector(`${entity.entityType} ${tagline}`),
+    sector,
     scale: inferScale(teamSize, monthlyJpy ? (monthlyJpy * 12) / 150 : null),
     founder,
     country: '未確認',
