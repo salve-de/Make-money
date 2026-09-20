@@ -199,6 +199,134 @@ describe('Foundation list read path', () => {
   });
 
 
+  it('does not reject record-only enrichment when the byte-range probe only reaches entities', async () => {
+    vi.resetModules();
+    const reader = await import('./business-reader');
+    const entityId = 'ent_probe_abcdef0123456789abcd';
+    const entityKey = `datasets/ds.business.entities.core/v1/entities/${entityId}.json`;
+    const bundleKey = 'datasets/ds.business.research-bundles.derived/v1/2026/09/20/run_probe_partial.json';
+
+    const entity = {
+      entity_id: entityId,
+      canonical_name: 'Probe Demo',
+      entity_type: 'business',
+      aliases: [],
+      canonical_identifier: 'probe.example',
+      domain: 'probe.example',
+      status: 'operating',
+      observed_at: '2026-09-20T00:00:00Z',
+      evidence_ids: ['ev_probe'],
+    };
+    const bundle = {
+      schema_version: 'research-bundle.v1',
+      entities: [],
+      claims: [],
+      metrics: [{
+        metric_id: 'mt_probeeeeeeeeeeeeeeeeeeeee',
+        entity_id: entityId,
+        metric_type: 'MRR',
+        value: 12345,
+        unit: null,
+        currency: 'USD',
+        period_start: null,
+        period_end: null,
+        point_in_time: '2026-09-20T00:00:00Z',
+        basis: 'reported',
+        scope: 'company',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 0.9,
+        evidence_ids: ['ev_probe'],
+      }],
+      money_signals: [],
+      events: [],
+      relationships: [],
+      observations: [],
+      derived: [],
+    };
+
+    state.listR2Objects
+      .mockResolvedValueOnce({ objects: [{ key: entityKey }], truncated: false })
+      .mockResolvedValueOnce({ objects: [{ key: bundleKey }], truncated: false });
+    state.getFromR2.mockImplementation(async (key: string) => {
+      if (key === entityKey) return JSON.stringify(entity);
+      if (key === bundleKey) return JSON.stringify(bundle);
+      return null;
+    });
+    state.readR2ObjectRange.mockResolvedValue({
+      exists: true,
+      // The bounded probe can fully parse entities=[] but does not reach the
+      // later metric arrays. That is UNKNOWN, not negative proof.
+      body: new TextEncoder().encode('{"schema_version":"research-bundle.v1","entities":[]}'),
+      metadata: {},
+    });
+
+    const page = await reader.readFoundationHydratedValuePage({ limit: 1 });
+
+    expect(page.data).toHaveLength(1);
+    expect(page.data[0]?.valueProfile.counts.metrics).toBe(1);
+    expect(page.data[0]?.valueProfile.moneySignal).toContain('MRR');
+    expect(state.getFromR2).toHaveBeenCalledWith(bundleKey, 'foundation-lake');
+  });
+
+  it('reports cumulative bundle scans incomplete when the listing page cap is reached', async () => {
+    vi.resetModules();
+    const reader = await import('./business-reader');
+    const entityId = 'ent_cap_abcdef0123456789abcdef';
+    const bundleKey = 'datasets/ds.business.research-bundles.derived/v1/2026/09/20/run_cap_test.json';
+    const entity = {
+      entity_id: entityId,
+      canonical_name: 'Cap Demo',
+      entity_type: 'business',
+      aliases: [],
+      canonical_identifier: 'cap.example',
+      domain: 'cap.example',
+      status: 'operating',
+      observed_at: '2026-09-20T00:00:00Z',
+      evidence_ids: ['ev_cap'],
+    };
+    const bundle = {
+      schema_version: 'research-bundle.v1',
+      entities: [entity],
+      claims: [],
+      metrics: [],
+      money_signals: [],
+      events: [],
+      relationships: [],
+      observations: [],
+      derived: [],
+    };
+
+    state.readR2Object.mockResolvedValue({
+      exists: true,
+      body: new TextEncoder().encode(JSON.stringify(entity)),
+      metadata: {},
+    });
+    let listCall = 0;
+    state.listR2Objects.mockImplementation(async () => {
+      listCall += 1;
+      return {
+        objects: listCall === 1 ? [{ key: bundleKey }] : [],
+        truncated: true,
+        cursor: `cursor-${listCall}`,
+      };
+    });
+    state.getFromR2.mockImplementation(async (key: string) => key === bundleKey ? JSON.stringify(bundle) : null);
+    state.readR2ObjectRange.mockResolvedValue({
+      exists: true,
+      body: new TextEncoder().encode(JSON.stringify(bundle)),
+      metadata: {},
+    });
+
+    const detail = await reader.readFoundationBusinessCaseCumulative(entityId);
+
+    expect(detail).not.toBeNull();
+    expect(detail?.bundleObjectsListed).toBe(1);
+    expect(detail?.bundleScanComplete).toBe(false);
+    expect(state.listR2Objects).toHaveBeenCalledTimes(128);
+  });
+
+
   it('aggregates later canonical bundles while the serving-view migration is incomplete', async () => {
     const entityId = 'ent_demo_abcdef0123456789abcd';
     const entityKey = `datasets/ds.business.entities.core/v1/entities/${entityId}.json`;
