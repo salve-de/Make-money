@@ -8,8 +8,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
-  readFoundationBusinessCaseCumulative,
-  readFoundationHydratedValuePage,
+  readFoundationBusinessCase,
   type FoundationBusinessCase,
   type FoundationValuePage,
 } from '@/lib/foundation/business-reader';
@@ -210,14 +209,35 @@ export async function GET(request: Request) {
 
     try {
       const materializedViewReady = await isMakeMoneyViewBackfillComplete();
+
+      // During the one-time rebuild, never run an all-lake request-time scan.
+      // Keep an existing curated local dossier authoritative until the
+      // background Publisher has completed the global materialized view.
+      if (!materializedViewReady) {
+        const curated = await findFallbackEntity(entityId);
+        if (curated) {
+          const actualHash = curated.latestDossierHash || computeDossierContentHash(curated);
+          const revision = curated.sourceRevision ?? 1;
+          return response({
+            source: 'local_fallback',
+            count: 1,
+            data: publicEntity(curated),
+            dossierHash: actualHash,
+            sourceRevision: revision,
+            isStale: false,
+          }, 200, {
+            'X-Dossier-Hash': actualHash,
+            'X-Source-Revision': String(revision),
+          });
+        }
+      }
+
       const data = await readCached(
         detailCache,
-        `${materializedViewReady ? 'view' : 'canonical'}:${entityId}`,
+        `view:${entityId}`,
         DETAIL_TTL_MS,
         MAX_DETAIL_CACHE_ENTRIES,
-        async () => materializedViewReady
-          ? (await readMakeMoneyViewDetail(entityId)) || readFoundationBusinessCaseCumulative(entityId)
-          : readFoundationBusinessCaseCumulative(entityId)
+        async () => (await readMakeMoneyViewDetail(entityId)) || readFoundationBusinessCase(entityId)
       );
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
@@ -282,12 +302,10 @@ export async function GET(request: Request) {
     const materializedViewReady = await isMakeMoneyViewBackfillComplete();
     const page = await readCached(
       pageCache,
-      `${materializedViewReady ? 'view' : 'canonical'}:${cacheKey}`,
+      `view:${cacheKey}`,
       PAGE_TTL_MS,
       MAX_PAGE_CACHE_ENTRIES,
-      () => materializedViewReady
-        ? readMakeMoneyValuePage({ cursor, limit })
-        : readFoundationHydratedValuePage({ cursor, limit })
+      () => readMakeMoneyValuePage({ cursor, limit })
     );
     parseFoundationValuePage(page);
 
@@ -308,7 +326,7 @@ export async function GET(request: Request) {
           .map(publicSummaryEntity);
         return response({
           source: 'foundation_lake',
-          projection: materializedViewReady ? 'make-money.v1' : 'canonical-hydrated-migration',
+          projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
           count: summaries.length,
           data: publicFoundationData(summaries),
           nextCursor: page.nextCursor,
@@ -318,7 +336,7 @@ export async function GET(request: Request) {
 
       return response({
         source: 'foundation_lake',
-        projection: materializedViewReady ? 'make-money.v1' : 'canonical-hydrated-migration',
+        projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
         count: publishableSummaries.length,
         data: publicFoundationData(publishableSummaries),
         nextCursor: page.nextCursor,
