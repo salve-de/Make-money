@@ -132,6 +132,56 @@ describe('Make-Money cumulative Foundation view', () => {
     expect(merged.valueProfile.tier).toBe('HIGH_SIGNAL');
   });
 
+  it('does not let an older bundle overwrite a newer duplicate record ID', () => {
+    const newer = makeCase({
+      observedAt: '2026-09-20T00:00:00Z',
+      evidenceIds: ['ev_new_1'],
+    });
+    newer.metrics = [{
+      id: 'mt_same',
+      metricType: 'MRR',
+      value: 90000,
+      unit: null,
+      currency: 'USD',
+      periodStart: null,
+      periodEnd: null,
+      pointInTime: '2026-09-20T00:00:00Z',
+      basis: 'reported',
+      scope: 'company',
+      originType: 'reported',
+      verificationStatus: 'SUPPORTED',
+      confidence: 0.9,
+      evidenceIds: ['ev_new_1'],
+    }];
+
+    const older = makeCase({
+      observedAt: '2026-08-01T00:00:00Z',
+      evidenceIds: ['ev_old_1'],
+    });
+    older.metrics = [{
+      id: 'mt_same',
+      metricType: 'MRR',
+      value: 10000,
+      unit: null,
+      currency: 'USD',
+      periodStart: null,
+      periodEnd: null,
+      pointInTime: '2026-08-01T00:00:00Z',
+      basis: 'reported',
+      scope: 'company',
+      originType: 'reported',
+      verificationStatus: 'SUPPORTED',
+      confidence: 0.9,
+      evidenceIds: ['ev_old_1'],
+    }];
+
+    const merged = mergeFoundationBusinessCasesForView(newer, older);
+
+    expect(merged.metrics).toHaveLength(1);
+    expect(merged.metrics[0]?.value).toBe(90000);
+    expect(merged.metrics[0]?.pointInTime).toBe('2026-09-20T00:00:00Z');
+  });
+
   it('does not roll identity time backward when an older bundle arrives later', () => {
     const newer = makeCase({
       observedAt: '2026-09-20T00:00:00Z',
