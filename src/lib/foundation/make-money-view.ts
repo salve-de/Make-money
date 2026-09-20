@@ -27,6 +27,7 @@ const MAX_CAS_RETRIES = 5;
 const PROJECTION_PROGRESS_PREFIX = 'views/make-money/v1/_projection-progress/';
 const PROJECTION_PROGRESS_SCHEMA = 'make-money-view-projection-progress.v2';
 const UNRESOLVED_REPLAY_STATE_KEY = 'views/make-money/v1/_unresolved-replay-state.json';
+const UNRESOLVED_ENTITY_PREFIX = 'views/make-money/v1/_unresolved-by-entity/';
 const UNRESOLVED_REPLAY_STATE_SCHEMA = 'make-money-view-unresolved-replay-state.v1';
 const MAX_ENTITIES_PER_PROJECTION_CALL = 25;
 
@@ -65,6 +66,23 @@ interface MakeMoneyUnresolvedReplayState {
   schema_version: typeof UNRESOLVED_REPLAY_STATE_SCHEMA;
   cursor: string | null;
   updated_at: string;
+}
+
+interface MakeMoneyUnresolvedEntityRecord {
+  schema_version: 'make-money-unresolved-entity.v1';
+  entity_id: string;
+  run_id: string;
+  bundle_key: string;
+  retrieved_at: string;
+  status: 'PENDING' | 'RESOLVED';
+  resolved_at: string | null;
+  updated_at: string;
+}
+
+interface PendingUnresolvedEntityRecord {
+  key: string;
+  object: R2ObjectRead;
+  record: MakeMoneyUnresolvedEntityRecord;
 }
 
 export interface MakeMoneyViewMaterializationReport {
@@ -274,6 +292,157 @@ async function writeProjectionProgress(
   }, {
     expectedEtag: prior?.etag ?? null,
   });
+}
+
+function unresolvedEntityPrefix(entityId: string): string {
+  return `${UNRESOLVED_ENTITY_PREFIX}${encodeURIComponent(entityId)}/`;
+}
+
+function unresolvedEntityKey(entityId: string, runId: string): string {
+  return `${unresolvedEntityPrefix(entityId)}${encodeURIComponent(runId)}.json`;
+}
+
+function parseUnresolvedEntityRecord(value: unknown): MakeMoneyUnresolvedEntityRecord | null {
+  const object = objectValue(value);
+  if (
+    !object ||
+    object.schema_version !== 'make-money-unresolved-entity.v1' ||
+    typeof object.entity_id !== 'string' ||
+    typeof object.run_id !== 'string' ||
+    typeof object.bundle_key !== 'string' ||
+    typeof object.retrieved_at !== 'string' ||
+    !(object.status === 'PENDING' || object.status === 'RESOLVED') ||
+    !(object.resolved_at === null || typeof object.resolved_at === 'string') ||
+    typeof object.updated_at !== 'string'
+  ) {
+    return null;
+  }
+  return object as unknown as MakeMoneyUnresolvedEntityRecord;
+}
+
+async function recordUnresolvedEntityReference(input: {
+  bucket: string;
+  entityId: string;
+  runId: string;
+  bundleKey: string;
+  retrievedAt: string;
+}): Promise<void> {
+  const key = unresolvedEntityKey(input.entityId, input.runId);
+  const existing = await readR2Object(input.bucket, key);
+  if (existing) {
+    const parsed = parseUnresolvedEntityRecord(decodeJson(existing.body));
+    if (parsed) return;
+    throw new Error(`Invalid unresolved entity record at ${key}`);
+  }
+
+  const record: MakeMoneyUnresolvedEntityRecord = {
+    schema_version: 'make-money-unresolved-entity.v1',
+    entity_id: input.entityId,
+    run_id: input.runId,
+    bundle_key: input.bundleKey,
+    retrieved_at: input.retrievedAt,
+    status: 'PENDING',
+    resolved_at: null,
+    updated_at: new Date().toISOString(),
+  };
+  await putR2MutableView({
+    bucket: input.bucket,
+    key,
+    body: JSON.stringify(record),
+    contentType: 'application/json',
+    metadata: {
+      'foundation-view-consumer': 'make-money',
+      'foundation-view-unresolved-entity': input.entityId,
+      'foundation-run-id': input.runId,
+    },
+  }, {
+    expectedEtag: null,
+  });
+}
+
+async function readPendingUnresolvedForEntity(
+  bucket: string,
+  entityId: string,
+  limit = 50
+): Promise<PendingUnresolvedEntityRecord[]> {
+  const page = await listR2Objects({
+    bucket,
+    prefix: unresolvedEntityPrefix(entityId),
+    limit: Math.min(Math.max(1, Math.floor(limit)), 100),
+  });
+  const records = await Promise.all(
+    page.objects
+      .filter((item) => item.key.endsWith('.json'))
+      .map(async (item) => {
+        const object = await readR2Object(bucket, item.key);
+        if (!object) return null;
+        try {
+          const record = parseUnresolvedEntityRecord(decodeJson(object.body));
+          if (!record || record.status !== 'PENDING') return null;
+          return { key: item.key, object, record };
+        } catch {
+          return null;
+        }
+      })
+  );
+  return records.filter((item): item is PendingUnresolvedEntityRecord => Boolean(item));
+}
+
+async function markUnresolvedResolved(
+  bucket: string,
+  items: PendingUnresolvedEntityRecord[]
+): Promise<void> {
+  const resolvedAt = new Date().toISOString();
+  for (const item of items) {
+    const next: MakeMoneyUnresolvedEntityRecord = {
+      ...item.record,
+      status: 'RESOLVED',
+      resolved_at: resolvedAt,
+      updated_at: resolvedAt,
+    };
+    await putR2MutableView({
+      bucket,
+      key: item.key,
+      body: JSON.stringify(next),
+      contentType: 'application/json',
+      metadata: {
+        'foundation-view-consumer': 'make-money',
+        'foundation-view-unresolved-entity': item.record.entity_id,
+        'foundation-run-id': item.record.run_id,
+      },
+    }, {
+      expectedEtag: item.object.etag ?? null,
+    });
+  }
+}
+
+async function hydratePendingHistoryForEntity(
+  bucket: string,
+  entityId: string,
+  baseDetail: FoundationBusinessCase
+): Promise<{ detail: FoundationBusinessCase; pending: PendingUnresolvedEntityRecord[] }> {
+  const pending = await readPendingUnresolvedForEntity(bucket, entityId);
+  if (pending.length === 0) return { detail: baseDetail, pending: [] };
+
+  const slices: Array<{ retrievedAt: string; detail: FoundationBusinessCase }> = [];
+  for (const item of pending) {
+    const text = await getFromR2(item.record.bundle_key, bucket);
+    if (!text) continue;
+    const bundle = JSON.parse(text) as unknown;
+    const summary = await readFoundationEntitySummaryById(entityId);
+    if (!summary) continue;
+    slices.push({
+      retrievedAt: item.record.retrieved_at,
+      detail: buildFoundationBusinessCaseForEntity(bundle, summary),
+    });
+  }
+  slices.sort((left, right) => Date.parse(left.retrievedAt) - Date.parse(right.retrievedAt));
+
+  let detail = baseDetail;
+  for (const slice of slices) {
+    detail = mergeFoundationBusinessCasesForView(detail, slice.detail);
+  }
+  return { detail, pending };
 }
 
 function parseRebuildState(value: unknown): MakeMoneyViewRebuildState | null {
@@ -507,10 +676,19 @@ export async function materializeMakeMoneyViews(
     const summary = await readFoundationEntitySummaryById(entityId);
     if (!summary) {
       unresolved.add(entityId);
+      await recordUnresolvedEntityReference({
+        bucket,
+        entityId,
+        runId,
+        bundleKey,
+        retrievedAt,
+      });
       continue;
     }
 
-    const detail = buildFoundationBusinessCaseForEntity(bundleInput, summary);
+    const baseDetail = buildFoundationBusinessCaseForEntity(bundleInput, summary);
+    const hydrated = await hydratePendingHistoryForEntity(bucket, entityId, baseDetail);
+    const detail = hydrated.detail;
 
     report.attempted += 1;
     unresolved.delete(entityId);
@@ -521,6 +699,10 @@ export async function materializeMakeMoneyViews(
     if (result.status === 'CREATED') report.created += 1;
     else if (result.status === 'UPDATED') report.updated += 1;
     else report.unchanged += 1;
+
+    if (hydrated.pending.length > 0) {
+      await markUnresolvedResolved(bucket, hydrated.pending);
+    }
   }
 
   report.unresolved_entity_ids = [...unresolved].sort();
