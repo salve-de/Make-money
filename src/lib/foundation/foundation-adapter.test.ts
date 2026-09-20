@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isFoundationDossierReady } from './foundation-adapter';
+import { adaptFoundationSummaryToFinancialEntity, isFoundationDossierReady } from './foundation-adapter';
 import type { FoundationValueSummary } from './business-reader';
 
 function summary(overrides: Partial<FoundationValueSummary> = {}): FoundationValueSummary {
@@ -51,6 +51,42 @@ describe('Foundation display boundary', () => {
       },
     }))).toBe(true);
   });
+
+  it('publishes evidence-backed Foundation summaries without requiring a domain', () => {
+    const adapted = adaptFoundationSummaryToFinancialEntity(summary({
+      domain: null,
+      canonicalIdentifier: null,
+      evidenceIds: ['ev_offline_business'],
+      valueProfile: {
+        ...summary().valueProfile,
+        counts: {
+          ...summary().valueProfile.counts,
+          evidence: 1,
+        },
+      },
+    }));
+
+    expect(adapted.publishability).toBe('PUBLISHABLE');
+    expect(adapted.url).toBe('');
+  });
+
+  it('keeps evidence-free Foundation summaries raw even when URL is absent', () => {
+    const adapted = adaptFoundationSummaryToFinancialEntity(summary({
+      domain: null,
+      canonicalIdentifier: null,
+      evidenceIds: [],
+      valueProfile: {
+        ...summary().valueProfile,
+        counts: {
+          ...summary().valueProfile.counts,
+          evidence: 0,
+        },
+      },
+    }));
+
+    expect(adapted.publishability).toBe('RAW');
+  });
+
 
   it('does not treat a low-evidence high-signal label as complete', () => {
     expect(isFoundationDossierReady(summary({
