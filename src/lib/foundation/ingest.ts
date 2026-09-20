@@ -1311,11 +1311,15 @@ async function reserveStableEntityIdentity(input: {
     const currentObject = await readR2Object(input.bucket, key);
     getCalls += 1;
     const currentJson = currentObject ? decodeJsonObject(currentObject.body) : null;
-    let authority = currentJson
-      ? parseIdentityAuthority(currentJson)
-      : identityAuthorityFromSeed(input.seed);
-    if (currentObject && !authority) {
-      throw new Error(`Invalid entity identity authority at ${key}`);
+    let authority: EntityIdentityAuthority;
+    if (currentObject) {
+      const parsedAuthority = currentJson ? parseIdentityAuthority(currentJson) : null;
+      if (!parsedAuthority) {
+        throw new Error(`Invalid entity identity authority at ${key}`);
+      }
+      authority = parsedAuthority;
+    } else {
+      authority = identityAuthorityFromSeed(input.seed);
     }
 
     const active = authority.reservation;
