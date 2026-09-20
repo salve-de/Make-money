@@ -10,7 +10,7 @@ const state = vi.hoisted(() => ({
 
 vi.mock('@/lib/storage/r2', () => state);
 
-import { buildFoundationBusinessCaseForEntity, buildFoundationValueSummariesFromBundle, foundationEntityIdsFromBundle, readFoundationBusinessCaseCumulative, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
+import { buildFoundationBusinessCaseForEntity, buildFoundationValueSummariesFromBundle, foundationEntityIdsFromBundle, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
 
 describe('Foundation list read path', () => {
   beforeEach(() => {
