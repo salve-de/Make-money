@@ -362,30 +362,47 @@ async function recordUnresolvedEntityReference(input: {
 
 async function readPendingUnresolvedForEntity(
   bucket: string,
-  entityId: string,
-  limit = 50
+  entityId: string
 ): Promise<PendingUnresolvedEntityRecord[]> {
-  const page = await listR2Objects({
-    bucket,
-    prefix: unresolvedEntityPrefix(entityId),
-    limit: Math.min(Math.max(1, Math.floor(limit)), 100),
-  });
-  const records = await Promise.all(
-    page.objects
-      .filter((item) => item.key.endsWith('.json'))
-      .map(async (item) => {
-        const object = await readR2Object(bucket, item.key);
-        if (!object) return null;
-        try {
-          const record = parseUnresolvedEntityRecord(decodeJson(object.body));
-          if (!record || record.status !== 'PENDING') return null;
-          return { key: item.key, object, record };
-        } catch {
-          return null;
-        }
-      })
-  );
-  return records.filter((item): item is PendingUnresolvedEntityRecord => Boolean(item));
+  const records: PendingUnresolvedEntityRecord[] = [];
+  let cursor: string | undefined;
+  const seenCursors = new Set<string>();
+
+  while (true) {
+    const page = await listR2Objects({
+      bucket,
+      prefix: unresolvedEntityPrefix(entityId),
+      cursor,
+      limit: 100,
+    });
+    const pageRecords = await Promise.all(
+      page.objects
+        .filter((item) => item.key.endsWith('.json'))
+        .map(async (item) => {
+          const object = await readR2Object(bucket, item.key);
+          if (!object) return null;
+          try {
+            const record = parseUnresolvedEntityRecord(decodeJson(object.body));
+            if (!record || record.status !== 'PENDING') return null;
+            return { key: item.key, object, record };
+          } catch {
+            return null;
+          }
+        })
+    );
+    records.push(
+      ...pageRecords.filter((item): item is PendingUnresolvedEntityRecord => Boolean(item))
+    );
+
+    if (!page.truncated || !page.cursor) break;
+    if (seenCursors.has(page.cursor)) {
+      throw new Error(`Unresolved entity pagination cursor repeated for ${entityId}`);
+    }
+    seenCursors.add(page.cursor);
+    cursor = page.cursor;
+  }
+
+  return records;
 }
 
 async function markUnresolvedResolved(
