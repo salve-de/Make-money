@@ -2,7 +2,6 @@ import {
   buildFoundationBusinessCaseForEntity,
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
-  readFoundationBusinessCaseCumulative,
   readFoundationEntitySummaryById,
   type FoundationBusinessCase,
   type FoundationValuePage,
@@ -26,7 +25,9 @@ const REBUILD_STATE_KEY = 'views/make-money/v1/_rebuild-state.json';
 const REBUILD_STATE_SCHEMA = 'make-money-view-rebuild-state.v1';
 const MAX_CAS_RETRIES = 5;
 const PROJECTION_PROGRESS_PREFIX = 'views/make-money/v1/_projection-progress/';
-const PROJECTION_PROGRESS_SCHEMA = 'make-money-view-projection-progress.v1';
+const PROJECTION_PROGRESS_SCHEMA = 'make-money-view-projection-progress.v2';
+const UNRESOLVED_REPLAY_STATE_KEY = 'views/make-money/v1/_unresolved-replay-state.json';
+const UNRESOLVED_REPLAY_STATE_SCHEMA = 'make-money-view-unresolved-replay-state.v1';
 const MAX_ENTITIES_PER_PROJECTION_CALL = 25;
 
 interface MakeMoneyViewDocument {
@@ -51,10 +52,18 @@ interface MakeMoneyViewRebuildState {
 interface MakeMoneyProjectionProgress {
   schema_version: typeof PROJECTION_PROGRESS_SCHEMA;
   run_id: string;
+  bundle_key: string;
+  retrieved_at: string;
   next_index: number;
   total_targets: number;
   complete: boolean;
   unresolved_entity_ids: string[];
+  updated_at: string;
+}
+
+interface MakeMoneyUnresolvedReplayState {
+  schema_version: typeof UNRESOLVED_REPLAY_STATE_SCHEMA;
+  cursor: string | null;
   updated_at: string;
 }
 
@@ -79,6 +88,7 @@ export interface MakeMoneyViewRebuildReport {
   processed_total: number;
   next_cursor: string | null;
   materialized_entities: number;
+  unresolved_replayed: number;
 }
 
 function objectValue(value: unknown): Record<string, unknown> | null {
@@ -172,6 +182,17 @@ function parseViewDocument(value: unknown): MakeMoneyViewDocument | null {
   return object as unknown as MakeMoneyViewDocument;
 }
 
+function projectionBundleKey(runId: string, retrievedAt: string): string {
+  const date = new Date(retrievedAt);
+  if (Number.isNaN(date.getTime())) {
+    throw new Error(`Invalid bundle retrieved_at for projection: ${retrievedAt}`);
+  }
+  const year = String(date.getUTCFullYear()).padStart(4, '0');
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  return `${foundationDataset('researchBundles').prefix}${year}/${month}/${day}/${runId}.json`;
+}
+
 function projectionProgressKey(runId: string): string {
   return `${PROJECTION_PROGRESS_PREFIX}${encodeURIComponent(runId)}.json`;
 }
@@ -182,6 +203,8 @@ function parseProjectionProgress(value: unknown): MakeMoneyProjectionProgress | 
     !object ||
     object.schema_version !== PROJECTION_PROGRESS_SCHEMA ||
     typeof object.run_id !== 'string' ||
+    typeof object.bundle_key !== 'string' ||
+    typeof object.retrieved_at !== 'string' ||
     !Number.isInteger(object.next_index) ||
     !Number.isInteger(object.total_targets) ||
     typeof object.complete !== 'boolean' ||
@@ -197,6 +220,8 @@ function parseProjectionProgress(value: unknown): MakeMoneyProjectionProgress | 
 async function readProjectionProgress(
   bucket: string,
   runId: string,
+  bundleKey: string,
+  retrievedAt: string,
   totalTargets: number
 ): Promise<{ object: R2ObjectRead | null; state: MakeMoneyProjectionProgress }> {
   const object = await readR2Object(bucket, projectionProgressKey(runId));
@@ -206,6 +231,8 @@ async function readProjectionProgress(
       state: {
         schema_version: PROJECTION_PROGRESS_SCHEMA,
         run_id: runId,
+        bundle_key: bundleKey,
+        retrieved_at: retrievedAt,
         next_index: 0,
         total_targets: totalTargets,
         complete: totalTargets === 0,
@@ -216,7 +243,13 @@ async function readProjectionProgress(
   }
 
   const state = parseProjectionProgress(decodeJson(object.body));
-  if (!state || state.run_id !== runId || state.total_targets !== totalTargets) {
+  if (
+    !state ||
+    state.run_id !== runId ||
+    state.bundle_key !== bundleKey ||
+    state.retrieved_at !== retrievedAt ||
+    state.total_targets !== totalTargets
+  ) {
     throw new Error(`Invalid Make-Money projection progress for ${runId}`);
   }
   return { object, state };
@@ -400,7 +433,10 @@ async function writeEntityViewWithCas(
   throw new Error(`Make-Money view CAS retries exhausted for ${key}`);
 }
 
-export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<MakeMoneyViewMaterializationReport> {
+export async function materializeMakeMoneyViews(
+  bundleInput: unknown,
+  maxTargets = MAX_ENTITIES_PER_PROJECTION_CALL
+): Promise<MakeMoneyViewMaterializationReport> {
   const bundle = objectValue(bundleInput);
   const runId = bundle ? stringValue(bundle, 'run_id') : null;
   const retrievedAt = bundle ? stringValue(bundle, 'retrieved_at') : null;
@@ -410,7 +446,14 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
 
   const targetIds = [...new Set(foundationEntityIdsFromBundle(bundleInput))].sort();
   const bucket = await getFoundationBucketAsync('lake');
-  const progressRead = await readProjectionProgress(bucket, runId, targetIds.length);
+  const bundleKey = projectionBundleKey(runId, retrievedAt);
+  const progressRead = await readProjectionProgress(
+    bucket,
+    runId,
+    bundleKey,
+    retrievedAt,
+    targetIds.length
+  );
   const progress = progressRead.state;
 
   if (progress.complete && progress.unresolved_entity_ids.length === 0) {
@@ -430,14 +473,18 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     };
   }
 
+  const boundedMaxTargets = Math.min(
+    Math.max(1, Math.floor(maxTargets)),
+    MAX_ENTITIES_PER_PROJECTION_CALL
+  );
   const startIndex = progress.next_index;
   const retryingUnresolved =
     startIndex >= targetIds.length && progress.unresolved_entity_ids.length > 0;
   const endIndex = retryingUnresolved
     ? startIndex
-    : Math.min(targetIds.length, startIndex + MAX_ENTITIES_PER_PROJECTION_CALL);
+    : Math.min(targetIds.length, startIndex + boundedMaxTargets);
   const chunkIds = retryingUnresolved
-    ? progress.unresolved_entity_ids.slice(0, MAX_ENTITIES_PER_PROJECTION_CALL)
+    ? progress.unresolved_entity_ids.slice(0, boundedMaxTargets)
     : targetIds.slice(startIndex, endIndex);
   const unresolved = new Set(progress.unresolved_entity_ids);
 
@@ -463,16 +510,7 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
       continue;
     }
 
-    let detail = buildFoundationBusinessCaseForEntity(bundleInput, summary);
-    const currentView = await readMakeMoneyViewDetail(entityId);
-
-    // If this is the first serving view for a now-resolvable entity, hydrate it
-    // from all canonical bundles so facts that arrived before the entity core
-    // existed are recovered automatically.
-    if (!currentView) {
-      const cumulative = await readFoundationBusinessCaseCumulative(entityId);
-      if (cumulative) detail = cumulative;
-    }
+    const detail = buildFoundationBusinessCaseForEntity(bundleInput, summary);
 
     report.attempted += 1;
     unresolved.delete(entityId);
@@ -492,6 +530,8 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
   const nextProgress: MakeMoneyProjectionProgress = {
     schema_version: PROJECTION_PROGRESS_SCHEMA,
     run_id: runId,
+    bundle_key: bundleKey,
+    retrieved_at: retrievedAt,
     next_index: endIndex,
     total_targets: targetIds.length,
     complete: report.complete,
