@@ -349,6 +349,14 @@ export async function readFoundationEntityPage(options: {
   return readEntityPage(options.cursor, limit);
 }
 
+export async function readFoundationEntitySummaryById(
+  entityId: string
+): Promise<FoundationEntitySummary | null> {
+  if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
+  const object = await readJsonObjectWithMetadata(entityKey(entityId));
+  return normalizeSummary(object.value || {});
+}
+
 function recordMentionsEntity(value: JsonObject, entityId: string): boolean {
   return stringValue(value, 'entity_id') === entityId ||
     stringArray(value, 'entity_ids').includes(entityId) ||
@@ -581,6 +589,26 @@ function collectMentionedIds(target: Set<string>, values: unknown[] | undefined)
   }
 }
 
+export function foundationEntityIdsFromBundle(bundleInput: unknown): string[] {
+  const bundle = objectValue(bundleInput);
+  if (!bundle) return [];
+
+  const ids = new Set<string>();
+  collectMentionedIds(ids, Array.isArray(bundle.entities) ? bundle.entities : undefined);
+  for (const field of [
+    'claims',
+    'metrics',
+    'money_signals',
+    'events',
+    'relationships',
+    'observations',
+    'derived',
+  ]) {
+    collectMentionedIds(ids, Array.isArray(bundle[field]) ? bundle[field] as unknown[] : undefined);
+  }
+  return [...ids];
+}
+
 function probeFromText(text: string | null): BundleProbe | null {
   if (text === null) return null;
   const entities = parseArrayField(text, 'entities');
@@ -702,6 +730,40 @@ function collectBundleRecords(bundle: JsonObject, entityId: string, target: Foun
  * bundle without hitting R2. This keeps projection logic identical between
  * ingestion-time materialization and read-time fallback paths.
  */
+export function buildFoundationBusinessCaseForEntity(
+  bundleInput: unknown,
+  baseSummary: FoundationEntitySummary
+): FoundationBusinessCase {
+  const bundle = objectValue(bundleInput);
+  if (!bundle) {
+    const records = createRecordAccumulator();
+    return {
+      ...baseSummary,
+      ...records,
+      valueProfile: buildFoundationValueProfile(baseSummary, records),
+      bundlesScanned: 0,
+      bundleObjectsListed: 0,
+      bundleScanComplete: true,
+    };
+  }
+
+  const records = createRecordAccumulator();
+  collectBundleRecords(bundle, baseSummary.id, records);
+  const explicitSummary = bundleEntitySummary(bundle, baseSummary.id);
+  const summary = explicitSummary
+    ? mergeFoundationEntitySummary(baseSummary, explicitSummary)
+    : baseSummary;
+
+  return {
+    ...summary,
+    ...records,
+    valueProfile: buildFoundationValueProfile(summary, records),
+    bundlesScanned: 1,
+    bundleObjectsListed: 1,
+    bundleScanComplete: true,
+  };
+}
+
 export function buildFoundationBusinessCasesFromBundle(bundleInput: unknown): FoundationBusinessCase[] {
   const bundle = objectValue(bundleInput);
   if (!bundle || !Array.isArray(bundle.entities)) return [];
@@ -711,18 +773,7 @@ export function buildFoundationBusinessCasesFromBundle(bundleInput: unknown): Fo
     .filter((value): value is JsonObject => Boolean(value))
     .map(normalizeSummary)
     .filter((summary): summary is FoundationEntitySummary => Boolean(summary))
-    .map((summary) => {
-      const records = createRecordAccumulator();
-      collectBundleRecords(bundle, summary.id, records);
-      return {
-        ...summary,
-        ...records,
-        valueProfile: buildFoundationValueProfile(summary, records),
-        bundlesScanned: 1,
-        bundleObjectsListed: 1,
-        bundleScanComplete: true,
-      };
-    });
+    .map((summary) => buildFoundationBusinessCaseForEntity(bundle, summary));
 }
 
 export function foundationBusinessCaseToValueSummary(
