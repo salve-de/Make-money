@@ -5,6 +5,7 @@ import {
   FoundationBundleValidationError,
   FoundationIngestAuthorizationError,
   ingestFoundationResearch,
+  verifyFoundationRawEvidenceAlreadyCommitted,
   type FoundationIngestRequest,
 } from '@/lib/foundation/ingest';
 import {
@@ -66,11 +67,20 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const resumeCheck = body.raw_evidence === undefined
-      ? await canResumeMakeMoneyProjection(body.bundle)
-      : { can_resume: false, run_id: null, get_object_calls: 0 };
+    if (body.write_authorized !== true) {
+      throw new FoundationIngestAuthorizationError();
+    }
 
-    const report = resumeCheck.can_resume
+    const resumeCheck = await canResumeMakeMoneyProjection(body.bundle);
+    const rawResumeCheck = resumeCheck.can_resume
+      ? await verifyFoundationRawEvidenceAlreadyCommitted(body.bundle, body.raw_evidence)
+      : {
+          committed: false,
+          provider_calls: { head_bucket: 0, get_object: 0, put_object: 0 as const },
+        };
+    const canResume = resumeCheck.can_resume && rawResumeCheck.committed;
+
+    const report = canResume
       ? {
           run_id: resumeCheck.run_id,
           write_authorized: true,
@@ -83,8 +93,9 @@ export async function POST(request: NextRequest) {
             exists_compatible: 0,
           },
           provider_calls: {
-            head_bucket: 0,
-            get_object: resumeCheck.get_object_calls,
+            head_bucket: rawResumeCheck.provider_calls.head_bucket,
+            get_object:
+              resumeCheck.get_object_calls + rawResumeCheck.provider_calls.get_object,
             put_object: 0,
           },
           readback_verified: 0,
@@ -101,8 +112,10 @@ export async function POST(request: NextRequest) {
         }
       : await ingestFoundationResearch(body);
 
-    if (!resumeCheck.can_resume && resumeCheck.get_object_calls > 0) {
-      report.provider_calls.get_object += resumeCheck.get_object_calls;
+    if (!canResume) {
+      report.provider_calls.head_bucket += rawResumeCheck.provider_calls.head_bucket;
+      report.provider_calls.get_object +=
+        resumeCheck.get_object_calls + rawResumeCheck.provider_calls.get_object;
     }
 
     try {
