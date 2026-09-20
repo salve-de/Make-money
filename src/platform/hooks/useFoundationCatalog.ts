@@ -13,7 +13,6 @@ import {
 import {
   adaptFoundationSummaryToFinancialEntity,
   adaptFoundationDetailToFinancialEntity,
-  isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
@@ -102,15 +101,12 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
     };
   }, []);
 
-  // R2の完成体候補のみを抽出
-  const foundationDisplayRows = useMemo(() => {
-    return foundationRows.filter(isFoundationDossierReady);
-  }, [foundationRows]);
-
-  // 公開対象になったR2サマリーを台帳用 FinancialEntity へ変換
+  // Server-side publication rules already decide which Foundation rows are
+  // public. Do not re-apply an information-density threshold in the client:
+  // partial-but-useful records must remain visible and can become richer later.
   const foundationEntities = useMemo(() => {
-    return foundationDisplayRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
-  }, [foundationDisplayRows]);
+    return foundationRows.map((summary) => adaptFoundationSummaryToFinancialEntity(summary));
+  }, [foundationRows]);
 
   const approvalCandidateIds = useMemo(() => {
     const ids = new Set<string>();
