@@ -29,7 +29,10 @@ const PROJECTION_PROGRESS_SCHEMA = 'make-money-view-projection-progress.v2';
 const UNRESOLVED_REPLAY_STATE_KEY = 'views/make-money/v1/_unresolved-replay-state.json';
 const UNRESOLVED_ENTITY_PREFIX = 'views/make-money/v1/_unresolved-by-entity/';
 const UNRESOLVED_REPLAY_STATE_SCHEMA = 'make-money-view-unresolved-replay-state.v1';
+const UNRESOLVED_HYDRATION_STATE_PREFIX = 'views/make-money/v1/_unresolved-hydration-state/';
+const UNRESOLVED_HYDRATION_STATE_SCHEMA = 'make-money-view-unresolved-hydration-state.v1';
 const MAX_ENTITIES_PER_PROJECTION_CALL = 25;
+const MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL = 25;
 
 interface MakeMoneyViewDocument {
   schema_version: typeof MAKE_MONEY_VIEW_SCHEMA;
@@ -76,6 +79,13 @@ interface MakeMoneyUnresolvedEntityRecord {
   retrieved_at: string;
   status: 'PENDING' | 'RESOLVED';
   resolved_at: string | null;
+  updated_at: string;
+}
+
+interface MakeMoneyUnresolvedHydrationState {
+  schema_version: typeof UNRESOLVED_HYDRATION_STATE_SCHEMA;
+  entity_id: string;
+  cursor: string | null;
   updated_at: string;
 }
 
@@ -360,49 +370,121 @@ async function recordUnresolvedEntityReference(input: {
   });
 }
 
-async function readPendingUnresolvedForEntity(
+function unresolvedHydrationStateKey(entityId: string): string {
+  return `${UNRESOLVED_HYDRATION_STATE_PREFIX}${encodeURIComponent(entityId)}.json`;
+}
+
+function parseUnresolvedHydrationState(
+  value: unknown
+): MakeMoneyUnresolvedHydrationState | null {
+  const object = objectValue(value);
+  if (
+    !object ||
+    object.schema_version !== UNRESOLVED_HYDRATION_STATE_SCHEMA ||
+    typeof object.entity_id !== 'string' ||
+    !(object.cursor === null || typeof object.cursor === 'string') ||
+    typeof object.updated_at !== 'string'
+  ) {
+    return null;
+  }
+  return object as unknown as MakeMoneyUnresolvedHydrationState;
+}
+
+async function readUnresolvedHydrationState(
   bucket: string,
   entityId: string
-): Promise<PendingUnresolvedEntityRecord[]> {
-  const records: PendingUnresolvedEntityRecord[] = [];
-  let cursor: string | undefined;
-  const seenCursors = new Set<string>();
-
-  while (true) {
-    const page = await listR2Objects({
-      bucket,
-      prefix: unresolvedEntityPrefix(entityId),
-      cursor,
-      limit: 100,
-    });
-    const pageRecords = await Promise.all(
-      page.objects
-        .filter((item) => item.key.endsWith('.json'))
-        .map(async (item) => {
-          const object = await readR2Object(bucket, item.key);
-          if (!object) return null;
-          try {
-            const record = parseUnresolvedEntityRecord(decodeJson(object.body));
-            if (!record || record.status !== 'PENDING') return null;
-            return { key: item.key, object, record };
-          } catch {
-            return null;
-          }
-        })
-    );
-    records.push(
-      ...pageRecords.filter((item): item is PendingUnresolvedEntityRecord => Boolean(item))
-    );
-
-    if (!page.truncated || !page.cursor) break;
-    if (seenCursors.has(page.cursor)) {
-      throw new Error(`Unresolved entity pagination cursor repeated for ${entityId}`);
-    }
-    seenCursors.add(page.cursor);
-    cursor = page.cursor;
+): Promise<{ object: R2ObjectRead | null; state: MakeMoneyUnresolvedHydrationState }> {
+  const key = unresolvedHydrationStateKey(entityId);
+  const object = await readR2Object(bucket, key);
+  if (!object) {
+    return {
+      object: null,
+      state: {
+        schema_version: UNRESOLVED_HYDRATION_STATE_SCHEMA,
+        entity_id: entityId,
+        cursor: null,
+        updated_at: new Date(0).toISOString(),
+      },
+    };
   }
 
-  return records;
+  const state = parseUnresolvedHydrationState(decodeJson(object.body));
+  if (!state || state.entity_id !== entityId) {
+    throw new Error(`Invalid unresolved hydration state for ${entityId}`);
+  }
+  return { object, state };
+}
+
+async function writeUnresolvedHydrationState(
+  bucket: string,
+  entityId: string,
+  prior: R2ObjectRead | null,
+  cursor: string | null
+): Promise<void> {
+  const state: MakeMoneyUnresolvedHydrationState = {
+    schema_version: UNRESOLVED_HYDRATION_STATE_SCHEMA,
+    entity_id: entityId,
+    cursor,
+    updated_at: new Date().toISOString(),
+  };
+  await putR2MutableView({
+    bucket,
+    key: unresolvedHydrationStateKey(entityId),
+    body: JSON.stringify(state),
+    contentType: 'application/json',
+    metadata: {
+      'foundation-view-consumer': 'make-money',
+      'foundation-view-unresolved-hydration-state': 'true',
+      'foundation-entity-id': entityId,
+    },
+  }, {
+    expectedEtag: prior?.etag ?? null,
+  });
+}
+
+async function readPendingUnresolvedForEntityChunk(
+  bucket: string,
+  entityId: string
+): Promise<{
+  records: PendingUnresolvedEntityRecord[];
+  stateObject: R2ObjectRead | null;
+  nextCursor: string | null;
+  complete: boolean;
+}> {
+  const hydration = await readUnresolvedHydrationState(bucket, entityId);
+  const page = await listR2Objects({
+    bucket,
+    prefix: unresolvedEntityPrefix(entityId),
+    cursor: hydration.state.cursor || undefined,
+    limit: MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL,
+  });
+
+  const pageRecords = await Promise.all(
+    page.objects
+      .filter((item) => item.key.endsWith('.json'))
+      .map(async (item) => {
+        const object = await readR2Object(bucket, item.key);
+        if (!object) {
+          throw new Error(`Unresolved entity record disappeared during hydration: ${item.key}`);
+        }
+        const record = parseUnresolvedEntityRecord(decodeJson(object.body));
+        if (!record) {
+          throw new Error(`Invalid unresolved entity record at ${item.key}`);
+        }
+        if (record.status !== 'PENDING') return null;
+        return { key: item.key, object, record };
+      })
+  );
+
+  const nextCursor = page.truncated && page.cursor ? page.cursor : null;
+  return {
+    records: pageRecords.filter(
+      (item): item is PendingUnresolvedEntityRecord => Boolean(item)
+    ),
+    stateObject: hydration.object,
+    nextCursor,
+    complete: !nextCursor,
+  };
 }
 
 async function markUnresolvedResolved(
@@ -437,21 +519,42 @@ async function hydratePendingHistoryForEntity(
   bucket: string,
   entityId: string,
   baseDetail: FoundationBusinessCase
-): Promise<{ detail: FoundationBusinessCase; pending: PendingUnresolvedEntityRecord[] }> {
-  const pending = await readPendingUnresolvedForEntity(bucket, entityId);
-  if (pending.length === 0) return { detail: baseDetail, pending: [] };
+): Promise<{
+  detail: FoundationBusinessCase;
+  pending: PendingUnresolvedEntityRecord[];
+  stateObject: R2ObjectRead | null;
+  nextCursor: string | null;
+  complete: boolean;
+}> {
+  const chunk = await readPendingUnresolvedForEntityChunk(bucket, entityId);
+  if (chunk.records.length === 0) {
+    return {
+      detail: baseDetail,
+      pending: [],
+      stateObject: chunk.stateObject,
+      nextCursor: chunk.nextCursor,
+      complete: chunk.complete,
+    };
+  }
+
+  const summary = await readFoundationEntitySummaryById(entityId);
+  if (!summary) {
+    throw new Error(`Foundation entity core disappeared during unresolved hydration: ${entityId}`);
+  }
 
   const slices: Array<{
     retrievedAt: string;
     detail: FoundationBusinessCase;
     pending: PendingUnresolvedEntityRecord;
   }> = [];
-  for (const item of pending) {
+  for (const item of chunk.records) {
     const text = await getFromR2(item.record.bundle_key, bucket);
-    if (!text) continue;
+    if (!text) {
+      throw new Error(
+        `Canonical research bundle disappeared during unresolved hydration: ${item.record.bundle_key}`
+      );
+    }
     const bundle = JSON.parse(text) as unknown;
-    const summary = await readFoundationEntitySummaryById(entityId);
-    if (!summary) continue;
     slices.push({
       retrievedAt: item.record.retrieved_at,
       detail: buildFoundationBusinessCaseForEntity(bundle, summary),
@@ -464,7 +567,13 @@ async function hydratePendingHistoryForEntity(
   for (const slice of slices) {
     detail = mergeFoundationBusinessCasesForView(detail, slice.detail);
   }
-  return { detail, pending: slices.map((slice) => slice.pending) };
+  return {
+    detail,
+    pending: slices.map((slice) => slice.pending),
+    stateObject: chunk.stateObject,
+    nextCursor: chunk.nextCursor,
+    complete: chunk.complete,
+  };
 }
 
 function parseRebuildState(value: unknown): MakeMoneyViewRebuildState | null {
@@ -713,7 +822,6 @@ export async function materializeMakeMoneyViews(
     const detail = hydrated.detail;
 
     report.attempted += 1;
-    unresolved.delete(entityId);
     const key = `${MAKE_MONEY_VIEW_PREFIX}${detail.id}.json`;
     const result = await writeEntityViewWithCas(bucket, key, detail, runId, retrievedAt);
     report.keys.push(key);
@@ -725,6 +833,15 @@ export async function materializeMakeMoneyViews(
     if (hydrated.pending.length > 0) {
       await markUnresolvedResolved(bucket, hydrated.pending);
     }
+    await writeUnresolvedHydrationState(
+      bucket,
+      entityId,
+      hydrated.stateObject,
+      hydrated.nextCursor
+    );
+
+    if (hydrated.complete) unresolved.delete(entityId);
+    else unresolved.add(entityId);
   }
 
   report.unresolved_entity_ids = [...unresolved].sort();
