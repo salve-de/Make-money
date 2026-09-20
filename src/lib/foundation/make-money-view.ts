@@ -52,6 +52,7 @@ export interface MakeMoneyViewMaterializationReport {
   updated: number;
   unchanged: number;
   concurrent_retries: number;
+  unresolved_entity_ids: string[];
   keys: string[];
 }
 
@@ -186,13 +187,17 @@ export function mergeFoundationBusinessCasesForView(
   const latest = incomingIsNewer ? incoming : existing;
   const older = incomingIsNewer ? existing : incoming;
 
-  const claims = mergeById(existing.claims, incoming.claims);
-  const metrics = mergeById(existing.metrics, incoming.metrics);
-  const moneySignals = mergeById(existing.moneySignals, incoming.moneySignals);
-  const events = mergeById(existing.events, incoming.events);
-  const relationships = mergeById(existing.relationships, incoming.relationships);
-  const observations = mergeById(existing.observations, incoming.observations);
-  const derived = mergeById(existing.derived, incoming.derived);
+  const [recordOlder, recordNewer] = incomingIsNewer
+    ? [existing, incoming]
+    : [incoming, existing];
+
+  const claims = mergeById(recordOlder.claims, recordNewer.claims);
+  const metrics = mergeById(recordOlder.metrics, recordNewer.metrics);
+  const moneySignals = mergeById(recordOlder.moneySignals, recordNewer.moneySignals);
+  const events = mergeById(recordOlder.events, recordNewer.events);
+  const relationships = mergeById(recordOlder.relationships, recordNewer.relationships);
+  const observations = mergeById(recordOlder.observations, recordNewer.observations);
+  const derived = mergeById(recordOlder.derived, recordNewer.derived);
 
   const entitySummary = {
     id: latest.id,
@@ -318,11 +323,15 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
   const casesById = new Map(
     buildFoundationBusinessCasesFromBundle(bundleInput).map((detail) => [detail.id, detail])
   );
+  const unresolvedEntityIds: string[] = [];
   for (const entityId of foundationEntityIdsFromBundle(bundleInput)) {
     if (casesById.has(entityId)) continue;
     const summary = await readFoundationEntitySummaryById(entityId);
     if (!summary) {
-      throw new Error(`Referenced Foundation entity core is missing: ${entityId}`);
+      // A dangling counterparty/reference must not prevent resolvable entities
+      // in the same canonical bundle from receiving their serving projection.
+      unresolvedEntityIds.push(entityId);
+      continue;
     }
     casesById.set(
       entityId,
@@ -339,6 +348,7 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     updated: 0,
     unchanged: 0,
     concurrent_retries: 0,
+    unresolved_entity_ids: unresolvedEntityIds,
     keys: [],
   };
 
