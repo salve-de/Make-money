@@ -1,16 +1,20 @@
 import {
   getFoundationBucket,
   preflightR2Object,
+  putR2MutableView,
   putR2ObjectCreateOnly,
+  readR2Object,
   sha256Hex,
   type FoundationBucketRole,
   type R2PreflightResult,
   type R2WriteResult,
   R2ObjectConflictError,
+  R2ViewConcurrentModificationError,
 } from '@/lib/storage/r2';
 
 type JsonObject = Record<string, unknown>;
 import { assessCoverage } from './coverage';
+import { readMakeMoneyViewDetail } from './make-money-view';
 
 const PURPOSES = new Set([
   'make_money',
@@ -146,6 +150,7 @@ export type PlannedWritePreflightStatus =
   | 'ABSENT'
   | 'EXISTS_IDENTICAL'
   | 'EXISTS_CONFLICT'
+  | 'EXISTS_COMPATIBLE'
   | 'BUCKET_MISSING';
 
 export interface PlannedWriteObject {
@@ -182,7 +187,7 @@ export interface IngestedObjectReport {
   dataset_id: string | null;
   bucket: string;
   key: string;
-  status: R2WriteResult['status'];
+  status: R2WriteResult['status'] | 'EXISTS_COMPATIBLE';
   bytes: number;
   sha256: string;
   source_evidence_ids: string[];
@@ -199,6 +204,7 @@ export interface FoundationIngestReport {
     planned: number;
     created: number;
     exists_identical: number;
+    exists_compatible: number;
   };
   provider_calls: {
     head_bucket: number;
@@ -1055,8 +1061,581 @@ async function buildPlannedWrites(
   };
 }
 
+function decodeJsonObject(body: Uint8Array | string): JsonObject | null {
+  try {
+    const text = typeof body === 'string' ? body : new TextDecoder().decode(body);
+    const parsed: unknown = JSON.parse(text);
+    return isObject(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+function normalizedIdentityText(value: string | null): string | null {
+  return value ? value.trim().toLocaleLowerCase().replace(/^https?:\/\//, '').replace(/\/$/, '') : null;
+}
+
+function compatibleStableEntity(existing: JsonObject, incoming: JsonObject): boolean {
+  const existingId = getString(existing, 'entity_id');
+  const incomingId = getString(incoming, 'entity_id');
+  const existingType = getString(existing, 'entity_type');
+  const incomingType = getString(incoming, 'entity_type');
+  if (!existingId || existingId !== incomingId || !existingType || existingType !== incomingType) return false;
+
+  const existingIdentifier = normalizedIdentityText(getString(existing, 'canonical_identifier'));
+  const incomingIdentifier = normalizedIdentityText(getString(incoming, 'canonical_identifier'));
+  if (existingIdentifier && incomingIdentifier && existingIdentifier !== incomingIdentifier) return false;
+
+  const existingDomain = normalizedIdentityText(getString(existing, 'domain'));
+  const incomingDomain = normalizedIdentityText(getString(incoming, 'domain'));
+  if (existingDomain && incomingDomain && existingDomain !== incomingDomain) return false;
+
+  const existingName = normalizedIdentityText(getString(existing, 'canonical_name'));
+  const incomingName = normalizedIdentityText(getString(incoming, 'canonical_name'));
+  const durableMatch = Boolean(
+    (existingIdentifier && incomingIdentifier && existingIdentifier === incomingIdentifier) ||
+    (existingDomain && incomingDomain && existingDomain === incomingDomain)
+  );
+
+  // Name changes are acceptable only when a durable identity key proves this
+  // is the same entity. Without one, fail closed.
+  return existingName === incomingName || durableMatch;
+}
+
+function identityRecordFromView(detail: Awaited<ReturnType<typeof readMakeMoneyViewDetail>>): JsonObject | null {
+  if (!detail) return null;
+  return {
+    entity_id: detail.id,
+    entity_type: detail.entityType,
+    canonical_name: detail.name,
+    canonical_identifier: detail.canonicalIdentifier,
+    domain: detail.domain,
+    status: detail.status,
+    observed_at: detail.observedAt,
+  };
+}
+
+
+const ENTITY_IDENTITY_AUTHORITY_PREFIX = 'views/foundation-ingest/v2/entity-identity/';
+const MAX_IDENTITY_CAS_RETRIES = 5;
+const IDENTITY_RESERVATION_TTL_MS = 60 * 60 * 1000;
+const IDENTITY_RESERVATION_RENEW_AFTER_MS = 5 * 60 * 1000;
+
+interface EntityIdentityReservation extends JsonObject {
+  run_id: string;
+  entity_type: string;
+  canonical_name: string;
+  canonical_identifier: string | null;
+  domain: string | null;
+  updated_at: string;
+  canonical_bundle_key: string;
+  created_at: string;
+  expires_at: string;
+}
+
+interface EntityIdentityAuthority extends JsonObject {
+  schema_version: 'foundation-entity-identity-authority.v2';
+  entity_id: string;
+  entity_type: string;
+  canonical_name: string;
+  canonical_identifier: string | null;
+  domain: string | null;
+  source_run_ids: string[];
+  updated_at: string;
+  reservation: EntityIdentityReservation | null;
+}
+
+interface EntityIdentityReservationHandle {
+  bucket: string;
+  key: string;
+  entityId: string;
+  runId: string;
+}
+
+interface PendingIdentityClaim {
+  bucket: string;
+  seed: JsonObject;
+  incoming: JsonObject;
+}
+
+function parseIdentityReservation(value: unknown): EntityIdentityReservation | null {
+  if (!isObject(value)) return null;
+  if (
+    !getString(value, 'run_id') ||
+    !getString(value, 'entity_type') ||
+    !getString(value, 'canonical_name') ||
+    !(value.canonical_identifier === null || typeof value.canonical_identifier === 'string') ||
+    !(value.domain === null || typeof value.domain === 'string') ||
+    !getString(value, 'updated_at') ||
+    !getString(value, 'canonical_bundle_key') ||
+    !getString(value, 'created_at') ||
+    !getString(value, 'expires_at')
+  ) {
+    return null;
+  }
+  return value as EntityIdentityReservation;
+}
+
+function parseIdentityAuthority(value: JsonObject | null): EntityIdentityAuthority | null {
+  if (
+    !value ||
+    value.schema_version !== 'foundation-entity-identity-authority.v2' ||
+    !getString(value, 'entity_id') ||
+    !getString(value, 'entity_type') ||
+    !getString(value, 'canonical_name') ||
+    !(value.canonical_identifier === null || typeof value.canonical_identifier === 'string') ||
+    !(value.domain === null || typeof value.domain === 'string') ||
+    !Array.isArray(value.source_run_ids) ||
+    !value.source_run_ids.every((item) => typeof item === 'string') ||
+    !getString(value, 'updated_at') ||
+    !(value.reservation === null || parseIdentityReservation(value.reservation))
+  ) {
+    return null;
+  }
+  return value as EntityIdentityAuthority;
+}
+
+function identityAuthorityFromSeed(seed: JsonObject): EntityIdentityAuthority {
+  const entityId = getString(seed, 'entity_id');
+  const entityType = getString(seed, 'entity_type');
+  const canonicalName = getString(seed, 'canonical_name');
+  if (!entityId || !entityType || !canonicalName) {
+    throw new FoundationBundleValidationError(['entity identity authority requires stable ID/type/name']);
+  }
+  return {
+    schema_version: 'foundation-entity-identity-authority.v2',
+    entity_id: entityId,
+    entity_type: entityType,
+    canonical_name: canonicalName,
+    canonical_identifier: normalizedIdentityText(getString(seed, 'canonical_identifier')),
+    domain: normalizedIdentityText(getString(seed, 'domain')),
+    source_run_ids: [],
+    updated_at: getString(seed, 'observed_at') || new Date(0).toISOString(),
+    reservation: null,
+  };
+}
+
+function identityAuthorityAsRecord(authority: EntityIdentityAuthority): JsonObject {
+  return {
+    entity_id: authority.entity_id,
+    entity_type: authority.entity_type,
+    canonical_name: authority.canonical_name,
+    canonical_identifier: authority.canonical_identifier,
+    domain: authority.domain,
+  };
+}
+
+function reservationAsRecord(entityId: string, reservation: EntityIdentityReservation): JsonObject {
+  return {
+    entity_id: entityId,
+    entity_type: reservation.entity_type,
+    canonical_name: reservation.canonical_name,
+    canonical_identifier: reservation.canonical_identifier,
+    domain: reservation.domain,
+  };
+}
+
+function reservationExpired(reservation: EntityIdentityReservation, nowMs: number): boolean {
+  const expiresAt = Date.parse(reservation.expires_at);
+  return !Number.isFinite(expiresAt) || expiresAt <= nowMs;
+}
+
+function makeIdentityReservation(input: {
+  incoming: JsonObject;
+  runId: string;
+  updatedAt: string;
+  canonicalBundleKey: string;
+  nowMs: number;
+}): EntityIdentityReservation {
+  const entityType = getString(input.incoming, 'entity_type');
+  const canonicalName = getString(input.incoming, 'canonical_name');
+  if (!entityType || !canonicalName) {
+    throw new FoundationBundleValidationError(['incoming entity identity requires type/name']);
+  }
+  return {
+    run_id: input.runId,
+    entity_type: entityType,
+    canonical_name: canonicalName,
+    canonical_identifier: normalizedIdentityText(getString(input.incoming, 'canonical_identifier')),
+    domain: normalizedIdentityText(getString(input.incoming, 'domain')),
+    updated_at: input.updatedAt,
+    canonical_bundle_key: input.canonicalBundleKey,
+    created_at: new Date(input.nowMs).toISOString(),
+    expires_at: new Date(input.nowMs + IDENTITY_RESERVATION_TTL_MS).toISOString(),
+  };
+}
+
+function authorityWithCommittedReservation(
+  authority: EntityIdentityAuthority,
+  reservation: EntityIdentityReservation
+): EntityIdentityAuthority {
+  const authorityTime = Date.parse(authority.updated_at);
+  const reservationTime = Date.parse(reservation.updated_at);
+  const reservationIsNewer =
+    !Number.isFinite(authorityTime) ||
+    (Number.isFinite(reservationTime) && reservationTime >= authorityTime);
+
+  return {
+    ...authority,
+    // Durable identifier/domain may fill previously unknown values, but an
+    // older delayed bundle must never roll back a newer name/timestamp.
+    canonical_name: reservationIsNewer
+      ? reservation.canonical_name
+      : authority.canonical_name,
+    canonical_identifier: authority.canonical_identifier || reservation.canonical_identifier,
+    domain: authority.domain || reservation.domain,
+    source_run_ids: [...new Set([...authority.source_run_ids, reservation.run_id])],
+    updated_at: reservationIsNewer ? reservation.updated_at : authority.updated_at,
+    reservation: null,
+  };
+}
+
+async function readCommittedEntityIdentityAuthority(
+  bucket: string,
+  entityId: string
+): Promise<{ authority: JsonObject | null; getCalls: number }> {
+  const key = `${ENTITY_IDENTITY_AUTHORITY_PREFIX}${entityId}.json`;
+  const object = await readR2Object(bucket, key);
+  if (!object) return { authority: null, getCalls: 1 };
+  const json = decodeJsonObject(object.body);
+  const parsed = json ? parseIdentityAuthority(json) : null;
+  if (!parsed) throw new Error(`Invalid entity identity authority at ${key}`);
+  return { authority: identityAuthorityAsRecord(parsed), getCalls: 1 };
+}
+
+async function reserveStableEntityIdentity(input: {
+  bucket: string;
+  seed: JsonObject;
+  incoming: JsonObject;
+  runId: string;
+  updatedAt: string;
+  canonicalBundleKey: string;
+}): Promise<{ handle: EntityIdentityReservationHandle; getCalls: number; putCalls: number }> {
+  const entityId = getString(input.incoming, 'entity_id');
+  if (!entityId) throw new FoundationBundleValidationError(['incoming entity_id is required']);
+
+  const key = `${ENTITY_IDENTITY_AUTHORITY_PREFIX}${entityId}.json`;
+  let getCalls = 0;
+  let putCalls = 0;
+
+  for (let attempt = 0; attempt < MAX_IDENTITY_CAS_RETRIES; attempt += 1) {
+    const currentObject = await readR2Object(input.bucket, key);
+    getCalls += 1;
+    const currentJson = currentObject ? decodeJsonObject(currentObject.body) : null;
+    let authority: EntityIdentityAuthority;
+    if (currentObject) {
+      const parsedAuthority = currentJson ? parseIdentityAuthority(currentJson) : null;
+      if (!parsedAuthority) {
+        throw new Error(`Invalid entity identity authority at ${key}`);
+      }
+      authority = parsedAuthority;
+    } else {
+      authority = identityAuthorityFromSeed(input.seed);
+    }
+
+    const active = authority.reservation;
+    if (active && active.run_id !== input.runId) {
+      // If the reserving run already committed its canonical bundle but died
+      // before finalizing this mutable authority, recover that committed
+      // identity first. Otherwise keep the live reservation exclusive until
+      // expiry.
+      const committedBundle = await readR2Object(input.bucket, active.canonical_bundle_key);
+      getCalls += 1;
+      if (committedBundle) {
+        const recovered = authorityWithCommittedReservation(authority, active);
+        try {
+          const result = await putR2MutableView({
+            bucket: input.bucket,
+            key,
+            body: JSON.stringify(recovered),
+            contentType: 'application/json',
+            metadata: {
+              'foundation-view-purpose': 'entity-identity-authority-recovery',
+              'foundation-entity-id': entityId,
+              'foundation-run-id': active.run_id,
+            },
+          }, {
+            expectedEtag: currentObject?.etag ?? null,
+          });
+          if (result.status !== 'UNCHANGED') putCalls += 1;
+          continue;
+        } catch (error) {
+          if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+            putCalls += 1;
+            continue;
+          }
+          throw error;
+        }
+      }
+      if (!reservationExpired(active, Date.now())) {
+        throw new R2ViewConcurrentModificationError(input.bucket, key);
+      }
+      // Expired reservation without a committed canonical bundle may be
+      // safely replaced.
+      authority = { ...authority, reservation: null };
+    }
+
+    const committedRecord = identityAuthorityAsRecord(authority);
+    if (!compatibleStableEntity(committedRecord, input.incoming)) {
+      throw new R2ObjectConflictError(input.bucket, key);
+    }
+
+    if (authority.reservation?.run_id === input.runId) {
+      const reservedRecord = reservationAsRecord(entityId, authority.reservation);
+      if (!compatibleStableEntity(reservedRecord, input.incoming)) {
+        throw new R2ObjectConflictError(input.bucket, key);
+      }
+      return {
+        handle: { bucket: input.bucket, key, entityId, runId: input.runId },
+        getCalls,
+        putCalls,
+      };
+    }
+
+    const next: EntityIdentityAuthority = {
+      ...authority,
+      reservation: makeIdentityReservation({
+        incoming: input.incoming,
+        runId: input.runId,
+        updatedAt: input.updatedAt,
+        canonicalBundleKey: input.canonicalBundleKey,
+        nowMs: Date.now(),
+      }),
+    };
+
+    try {
+      const result = await putR2MutableView({
+        bucket: input.bucket,
+        key,
+        body: JSON.stringify(next),
+        contentType: 'application/json',
+        metadata: {
+          'foundation-view-purpose': 'entity-identity-authority-reservation',
+          'foundation-entity-id': entityId,
+          'foundation-run-id': input.runId,
+        },
+      }, {
+        expectedEtag: currentObject?.etag ?? null,
+      });
+      if (result.status !== 'UNCHANGED') putCalls += 1;
+      return {
+        handle: { bucket: input.bucket, key, entityId, runId: input.runId },
+        getCalls,
+        putCalls,
+      };
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+        putCalls += 1;
+        continue;
+      }
+      throw error;
+    }
+  }
+
+  throw new Error(`Entity identity reservation retries exhausted for ${entityId}`);
+}
+
+async function renewStableEntityIdentityReservation(
+  handle: EntityIdentityReservationHandle
+): Promise<{ getCalls: number; putCalls: number }> {
+  let getCalls = 0;
+  let putCalls = 0;
+
+  for (let attempt = 0; attempt < MAX_IDENTITY_CAS_RETRIES; attempt += 1) {
+    const currentObject = await readR2Object(handle.bucket, handle.key);
+    getCalls += 1;
+    const currentJson = currentObject ? decodeJsonObject(currentObject.body) : null;
+    const authority = currentJson ? parseIdentityAuthority(currentJson) : null;
+    if (!currentObject || !authority) {
+      throw new Error(`Entity identity authority missing during renewal: ${handle.key}`);
+    }
+    if (!authority.reservation) {
+      if (authority.source_run_ids.includes(handle.runId)) return { getCalls, putCalls };
+      throw new Error(`Entity identity reservation missing during renewal: ${handle.key}`);
+    }
+    if (authority.reservation.run_id !== handle.runId) {
+      throw new R2ViewConcurrentModificationError(handle.bucket, handle.key);
+    }
+
+    const nowMs = Date.now();
+    const next: EntityIdentityAuthority = {
+      ...authority,
+      reservation: {
+        ...authority.reservation,
+        expires_at: new Date(nowMs + IDENTITY_RESERVATION_TTL_MS).toISOString(),
+      },
+    };
+
+    try {
+      const result = await putR2MutableView({
+        bucket: handle.bucket,
+        key: handle.key,
+        body: JSON.stringify(next),
+        contentType: 'application/json',
+        metadata: {
+          'foundation-view-purpose': 'entity-identity-authority-renewal',
+          'foundation-entity-id': handle.entityId,
+          'foundation-run-id': handle.runId,
+        },
+      }, {
+        expectedEtag: currentObject.etag ?? null,
+      });
+      if (result.status !== 'UNCHANGED') putCalls += 1;
+      return { getCalls, putCalls };
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+        putCalls += 1;
+        continue;
+      }
+      throw error;
+    }
+  }
+
+  throw new Error(`Entity identity renewal retries exhausted for ${handle.entityId}`);
+}
+
+async function finalizeStableEntityIdentity(
+  handle: EntityIdentityReservationHandle
+): Promise<{ getCalls: number; putCalls: number }> {
+  let getCalls = 0;
+  let putCalls = 0;
+
+  for (let attempt = 0; attempt < MAX_IDENTITY_CAS_RETRIES; attempt += 1) {
+    const currentObject = await readR2Object(handle.bucket, handle.key);
+    getCalls += 1;
+    const currentJson = currentObject ? decodeJsonObject(currentObject.body) : null;
+    const authority = currentJson ? parseIdentityAuthority(currentJson) : null;
+    if (!currentObject || !authority) {
+      throw new Error(`Entity identity authority missing during finalize: ${handle.key}`);
+    }
+
+    if (!authority.reservation) {
+      if (authority.source_run_ids.includes(handle.runId)) return { getCalls, putCalls };
+      throw new Error(`Entity identity reservation missing during finalize: ${handle.key}`);
+    }
+    if (authority.reservation.run_id !== handle.runId) {
+      throw new R2ViewConcurrentModificationError(handle.bucket, handle.key);
+    }
+
+    const next = authorityWithCommittedReservation(authority, authority.reservation);
+    try {
+      const result = await putR2MutableView({
+        bucket: handle.bucket,
+        key: handle.key,
+        body: JSON.stringify(next),
+        contentType: 'application/json',
+        metadata: {
+          'foundation-view-purpose': 'entity-identity-authority',
+          'foundation-entity-id': handle.entityId,
+          'foundation-run-id': handle.runId,
+        },
+      }, {
+        expectedEtag: currentObject.etag ?? null,
+      });
+      if (result.status !== 'UNCHANGED') putCalls += 1;
+      return { getCalls, putCalls };
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+        putCalls += 1;
+        continue;
+      }
+      throw error;
+    }
+  }
+
+  throw new Error(`Entity identity finalize retries exhausted for ${handle.entityId}`);
+}
+
+async function releaseStableEntityIdentityReservation(
+  handle: EntityIdentityReservationHandle
+): Promise<void> {
+  for (let attempt = 0; attempt < MAX_IDENTITY_CAS_RETRIES; attempt += 1) {
+    const currentObject = await readR2Object(handle.bucket, handle.key);
+    if (!currentObject) return;
+    const currentJson = decodeJsonObject(currentObject.body);
+    const authority = currentJson ? parseIdentityAuthority(currentJson) : null;
+    if (!authority) return;
+    if (!authority.reservation || authority.reservation.run_id !== handle.runId) return;
+
+    const next: EntityIdentityAuthority = {
+      ...authority,
+      reservation: null,
+    };
+    try {
+      await putR2MutableView({
+        bucket: handle.bucket,
+        key: handle.key,
+        body: JSON.stringify(next),
+        contentType: 'application/json',
+        metadata: {
+          'foundation-view-purpose': 'entity-identity-authority-release',
+          'foundation-entity-id': handle.entityId,
+          'foundation-run-id': handle.runId,
+        },
+      }, {
+        expectedEtag: currentObject.etag ?? null,
+      });
+      return;
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+        continue;
+      }
+      return;
+    }
+  }
+}
+
 function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
   return status;
+}
+
+export async function verifyFoundationRawEvidenceAlreadyCommitted(
+  bundleInput: unknown,
+  rawInput?: unknown
+): Promise<{
+  committed: boolean;
+  provider_calls: { head_bucket: number; get_object: number; put_object: 0 };
+}> {
+  const bundle = validateResearchBundle(bundleInput);
+  const rawEvidence = parseRawEvidence(rawInput, bundle);
+  if (rawEvidence.length === 0) {
+    return {
+      committed: true,
+      provider_calls: { head_bucket: 0, get_object: 0, put_object: 0 },
+    };
+  }
+
+  const rawPlan = await rawObjects(rawEvidence, bundle);
+  let checked = 0;
+  for (const item of rawPlan) {
+    const preflight = await preflightR2Object({
+      bucket: item.bucket,
+      key: item.key,
+      body: item.body,
+      contentType: item.contentType,
+      metadata: item.metadata,
+    });
+    checked += 1;
+    if (preflight.status !== 'EXISTS_IDENTICAL') {
+      return {
+        committed: false,
+        provider_calls: {
+          head_bucket: checked,
+          get_object: checked,
+          put_object: 0,
+        },
+      };
+    }
+  }
+
+  return {
+    committed: true,
+    provider_calls: {
+      head_bucket: checked,
+      get_object: checked,
+      put_object: 0,
+    },
+  };
 }
 
 /** Offline validation and immutable write plan; never contacts R2. */
@@ -1077,7 +1656,19 @@ export async function ingestFoundationResearch(
   const rawEvidence = parseRawEvidence(request.raw_evidence, bundle);
   const plan = await buildPlan(bundle, rawEvidence);
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
+  const canonicalBundlePlan = plan.find((item) => item.logicalRole === 'research_bundle');
+  if (!canonicalBundlePlan) {
+    throw new FoundationBundleValidationError(['research bundle planned write is required']);
+  }
 
+  const compatibleEntityReads = new Map<number, { bytes: number; sha256: string }>();
+  const pendingIdentityClaims: PendingIdentityClaim[] = [];
+  let compatibilityReadCalls = 0;
+  let identityAuthorityGetCalls = 0;
+  let identityAuthorityPutCalls = 0;
+
+  // 1) Complete all immutable preflight checks without mutating identity
+  // coordination state.
   for (let index = 0; index < plan.length; index += 1) {
     const item = plan[index];
     const preflight = await preflightR2Object({
@@ -1088,40 +1679,157 @@ export async function ingestFoundationResearch(
       metadata: item.metadata,
     });
     plannedWrites.objects[index].preflight_status = preflightStatus(preflight.status);
-    if (preflight.status === 'EXISTS_CONFLICT') {
+    if (preflight.status !== 'EXISTS_CONFLICT') continue;
+
+    if (item.logicalRole !== 'entity') {
       throw new R2ObjectConflictError(preflight.bucket, preflight.key);
     }
+
+    const existingObject = await readR2Object(item.bucket, item.key);
+    compatibilityReadCalls += 1;
+    const seedEntity = existingObject ? decodeJsonObject(existingObject.body) : null;
+    const incomingEntity = decodeJsonObject(item.body);
+    const incomingEntityId = incomingEntity ? getString(incomingEntity, 'entity_id') : null;
+    if (!existingObject || !seedEntity || !incomingEntity || !incomingEntityId) {
+      throw new R2ObjectConflictError(preflight.bucket, preflight.key);
+    }
+
+    const authorityRead = await readCommittedEntityIdentityAuthority(
+      item.bucket,
+      incomingEntityId
+    );
+    identityAuthorityGetCalls += authorityRead.getCalls;
+
+    const accumulatedView = await readMakeMoneyViewDetail(incomingEntityId);
+    compatibilityReadCalls += 1;
+    const accumulatedEntity =
+      authorityRead.authority ||
+      identityRecordFromView(accumulatedView) ||
+      seedEntity;
+
+    if (!compatibleStableEntity(accumulatedEntity, incomingEntity)) {
+      throw new R2ObjectConflictError(preflight.bucket, preflight.key);
+    }
+
+    plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
+    compatibleEntityReads.set(index, {
+      bytes: existingObject.body.byteLength,
+      sha256: await sha256Hex(existingObject.body),
+    });
+    pendingIdentityClaims.push({
+      bucket: item.bucket,
+      seed: accumulatedEntity,
+      incoming: incomingEntity,
+    });
+  }
+
+  // 2) Reserve compatible durable identity additions only after every
+  // canonical preflight has passed. Reservations are not committed identity.
+  const reservationHandles: EntityIdentityReservationHandle[] = [];
+  try {
+    for (const pending of pendingIdentityClaims) {
+      const reserved = await reserveStableEntityIdentity({
+        bucket: pending.bucket,
+        seed: pending.seed,
+        incoming: pending.incoming,
+        runId: bundle.run_id,
+        updatedAt: getString(pending.incoming, 'observed_at') || bundle.retrieved_at,
+        canonicalBundleKey: canonicalBundlePlan.key,
+      });
+      reservationHandles.push(reserved.handle);
+      identityAuthorityGetCalls += reserved.getCalls;
+      identityAuthorityPutCalls += reserved.putCalls;
+    }
+  } catch (error) {
+    await Promise.all(
+      reservationHandles.map((handle) => releaseStableEntityIdentityReservation(handle))
+    );
+    throw error;
   }
 
   const results: IngestedObjectReport[] = [];
   const providerCalls = {
     head_bucket: plan.length,
-    get_object: plan.length,
-    put_object: 0,
+    get_object: plan.length + compatibilityReadCalls + identityAuthorityGetCalls,
+    put_object: identityAuthorityPutCalls,
   };
 
-  for (const item of plan) {
-    const result = await putR2ObjectCreateOnly({
-      bucket: item.bucket,
-      key: item.key,
-      body: item.body,
-      contentType: item.contentType,
-      metadata: item.metadata,
-    });
-    results.push({
-      logical_role: item.logicalRole,
-      dataset_id: item.datasetId,
-      bucket: result.bucket,
-      key: result.key,
-      status: result.status,
-      bytes: result.bytes,
-      sha256: result.sha256,
-      source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
-      readback: result.readback,
-    });
-    providerCalls.head_bucket += result.provider_calls.head_bucket;
-    providerCalls.get_object += result.provider_calls.get_object;
-    providerCalls.put_object += result.provider_calls.put_object;
+  let canonicalBundleCommitted = false;
+  let nextIdentityRenewalAt = Date.now() + IDENTITY_RESERVATION_RENEW_AFTER_MS;
+  try {
+    // 3) Commit canonical create-only objects.
+    for (let index = 0; index < plan.length; index += 1) {
+      if (
+        reservationHandles.length > 0 &&
+        Date.now() >= nextIdentityRenewalAt
+      ) {
+        for (const handle of reservationHandles) {
+          const renewed = await renewStableEntityIdentityReservation(handle);
+          providerCalls.get_object += renewed.getCalls;
+          providerCalls.put_object += renewed.putCalls;
+        }
+        nextIdentityRenewalAt = Date.now() + IDENTITY_RESERVATION_RENEW_AFTER_MS;
+      }
+      const item = plan[index];
+      const compatible = compatibleEntityReads.get(index);
+      if (compatible) {
+        results.push({
+          logical_role: item.logicalRole,
+          dataset_id: item.datasetId,
+          bucket: item.bucket,
+          key: item.key,
+          status: 'EXISTS_COMPATIBLE',
+          bytes: compatible.bytes,
+          sha256: compatible.sha256,
+          source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
+          readback: { bytes_match: false, sha256_match: false },
+        });
+        continue;
+      }
+
+      const result = await putR2ObjectCreateOnly({
+        bucket: item.bucket,
+        key: item.key,
+        body: item.body,
+        contentType: item.contentType,
+        metadata: item.metadata,
+      });
+      results.push({
+        logical_role: item.logicalRole,
+        dataset_id: item.datasetId,
+        bucket: result.bucket,
+        key: result.key,
+        status: result.status,
+        bytes: result.bytes,
+        sha256: result.sha256,
+        source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
+        readback: result.readback,
+      });
+      if (item.logicalRole === 'research_bundle') {
+        canonicalBundleCommitted = true;
+      }
+      providerCalls.head_bucket += result.provider_calls.head_bucket;
+      providerCalls.get_object += result.provider_calls.get_object;
+      providerCalls.put_object += result.provider_calls.put_object;
+    }
+    // 4) Only canonical history that actually committed may advance durable
+    // identity authority. If this step is interrupted, the next retry recovers
+    // the reservation by checking its canonical bundle key.
+    for (const handle of reservationHandles) {
+      const finalized = await finalizeStableEntityIdentity(handle);
+      providerCalls.get_object += finalized.getCalls;
+      providerCalls.put_object += finalized.putCalls;
+    }
+  } catch (error) {
+    // Once the immutable research bundle itself exists, keep the reservation:
+    // a retry can recover/finalize it from that committed canonical history.
+    // Release only when the canonical bundle never committed.
+    if (!canonicalBundleCommitted) {
+      await Promise.all(
+        reservationHandles.map((handle) => releaseStableEntityIdentityReservation(handle))
+      );
+    }
+    throw error;
   }
 
   return {
@@ -1138,6 +1846,7 @@ export async function ingestFoundationResearch(
       planned: plan.length,
       created: results.filter((item) => item.status === 'CREATED').length,
       exists_identical: results.filter((item) => item.status === 'EXISTS_IDENTICAL').length,
+      exists_compatible: results.filter((item) => item.status === 'EXISTS_COMPATIBLE').length,
     },
     provider_calls: providerCalls,
     readback_verified: results.filter(

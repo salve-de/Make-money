@@ -294,3 +294,28 @@ ZERO-FAT CLIENT（仮想ウィンドウ描画、オンデマンドLazy Loading�
 - [監査修正と検証](../BROWSER_AUDIT_REPAIRS.md)
 
 Nodeでの直接起動は明示したD1 REST設定の単文のみを扱います。複数SQLのtransactionが必要な処理はAPP_DB bindingが必須です。RESTで部分成功させるfallbackは行いません。
+
+
+---
+
+## Automatic Foundation serving-view namespaces
+
+These R2 prefixes are rebuildable serving/control views. They are **not canonical Foundation facts** and may be regenerated from immutable accepted history.
+
+| Prefix | Purpose | Mutability |
+|---|---|---|
+| `views/make-money/v1/entities/<entity_id>.json` | Make-Money cumulative serving view per entity | CAS-protected rebuildable view |
+| `views/make-money/v1/_rebuild-state.json` | Global serving-view rebuild cursor | CAS-protected control state |
+| `views/make-money/v1/_projection-progress/<run_id>.json` | Per-bundle projection progress | CAS-protected control state |
+| `views/make-money/v1/_unresolved-by-entity/<entity_id>/<run_id>.json` | Deferred record-only references whose entity core was not yet resolvable | CAS-protected replay state |
+| `views/make-money/v1/_unresolved-hydration-state/<entity_id>.json` | Per-entity cursor for bounded replay of large unresolved record-only history | CAS-protected resumable control state |
+| `views/make-money/v1/_unresolved-replay-state.json` | Global unresolved replay cursor | CAS-protected control state |
+| `views/foundation-ingest/v2/entity-identity/<entity_id>.json` | Accumulated durable identity authority used to validate later immutable Entity-core-compatible ingests | CAS-protected derived authority |
+
+### Identity-authority rule
+
+The canonical immutable Entity object is never overwritten. When later accepted bundles add durable identity information, ingestion compares the incoming identity against the accumulated authority under `views/foundation-ingest/v2/entity-identity/`.
+
+The authority may add previously unknown durable identifiers/domain information, but it must not accept a conflicting known durable identity. It exists only to serialize and validate future compatible immutable writes; it is rebuildable from accepted canonical history.
+
+The operational description is also maintained in `docs/architecture/AUTO_PUBLISH_TO_UI.md`. Both documents must use the same namespace/version.

@@ -4,11 +4,13 @@ vi.mock('../runtime/cloudflare', () => ({ getCloudflareRuntimeEnv: async () => s
 import {
   getFoundationBucketAsync,
   preflightR2Object,
+  putR2MutableView,
   putR2ObjectCreateOnly,
   readR2Object,
   R2BucketMissingError,
   R2ObjectConflictError,
   R2ReadbackVerificationError,
+  R2ViewConcurrentModificationError,
 } from './r2';
 afterEach(() => { state.env = {}; });
 it('resolves the private bucket name from Worker vars instead of a hardcoded former bucket', async () => {
@@ -26,25 +28,40 @@ it('resolves a custom Foundation bucket from the request runtime binding', async
 
 function bindingState() {
   const objects = new Map<string, Uint8Array>();
+  const etags = new Map<string, string>();
+  let revision = 0;
   const list = vi.fn(async () => ({ objects: [] }));
   const head = vi.fn(async (key: string) => {
     const body = objects.get(key);
-    return body ? { size: body.byteLength, httpMetadata: { contentType: 'application/json' } } : null;
+    return body ? { size: body.byteLength, etag: etags.get(key), httpMetadata: { contentType: 'application/json' } } : null;
   });
   const get = vi.fn(async (key: string) => {
     const body = objects.get(key);
     if (!body) return null;
     const copy = body.slice();
-    return { size: copy.byteLength, arrayBuffer: async () => copy.buffer };
+    return { size: copy.byteLength, etag: etags.get(key), arrayBuffer: async () => copy.buffer };
   });
-  const put = vi.fn(async (key: string, value: Uint8Array, options?: { onlyIf?: { etagDoesNotMatch?: string } }) => {
-    if (objects.has(key) && options?.onlyIf?.etagDoesNotMatch === '*') throw Object.assign(new Error('conflict'), { status: 412 });
+  const put = vi.fn(async (
+    key: string,
+    value: Uint8Array,
+    options?: { onlyIf?: { etagMatches?: string; etagDoesNotMatch?: string } }
+  ) => {
+    const currentEtag = etags.get(key);
+    if (objects.has(key) && options?.onlyIf?.etagDoesNotMatch === '*') {
+      throw Object.assign(new Error('conflict'), { status: 412 });
+    }
+    if (options?.onlyIf?.etagMatches && currentEtag !== options.onlyIf.etagMatches) {
+      return null;
+    }
+    revision += 1;
+    const etag = `etag-${revision}`;
     objects.set(key, value.slice());
-    return { size: value.byteLength, arrayBuffer: async () => value.slice().buffer };
+    etags.set(key, etag);
+    return { size: value.byteLength, etag, arrayBuffer: async () => value.slice().buffer };
   });
   const binding = { list, head, get, put };
   state.env = { APP_R2_BUCKET: 'make-money-production-private', APP_R2: binding };
-  return { objects, list, head, get, put };
+  return { objects, etags, list, head, get, put };
 }
 
 it('creates a binding object and verifies byte/hash readback', async () => {
@@ -77,7 +94,43 @@ it('fails closed for a missing bucket and readback corruption', async () => {
   const corrupt = bindingState();
   corrupt.put.mockImplementationOnce(async (key: string) => {
     corrupt.objects.set(key, new TextEncoder().encode('corrupt'));
-    return { size: 7, arrayBuffer: async () => new TextEncoder().encode('corrupt').buffer };
+    corrupt.etags.set(key, 'etag-corrupt');
+    return { size: 7, etag: 'etag-corrupt', arrayBuffer: async () => new TextEncoder().encode('corrupt').buffer };
   });
   await expect(putR2ObjectCreateOnly({ bucket: 'make-money-production-private', key: 'tests/corrupt.json', body: 'expected', contentType: 'text/plain' })).rejects.toBeInstanceOf(R2ReadbackVerificationError);
+});
+
+
+it('CAS-guards mutable product views against stale writers', async () => {
+  const fake = bindingState();
+  const first = await putR2MutableView({
+    bucket: 'make-money-production-private',
+    key: 'views/make-money/v1/entities/ent_demo.json',
+    body: '{"revision":1}',
+    contentType: 'application/json',
+  }, { expectedEtag: null });
+  expect(first.status).toBe('CREATED');
+
+  const snapshot = await readR2Object(
+    'make-money-production-private',
+    'views/make-money/v1/entities/ent_demo.json',
+  );
+  expect(snapshot?.etag).toBeTruthy();
+
+  const second = await putR2MutableView({
+    bucket: 'make-money-production-private',
+    key: 'views/make-money/v1/entities/ent_demo.json',
+    body: '{"revision":2}',
+    contentType: 'application/json',
+  }, { expectedEtag: snapshot!.etag! });
+  expect(second.status).toBe('UPDATED');
+
+  await expect(putR2MutableView({
+    bucket: 'make-money-production-private',
+    key: 'views/make-money/v1/entities/ent_demo.json',
+    body: '{"revision":0}',
+    contentType: 'application/json',
+  }, { expectedEtag: snapshot!.etag! })).rejects.toBeInstanceOf(R2ViewConcurrentModificationError);
+
+  expect(new TextDecoder().decode(fake.objects.get('views/make-money/v1/entities/ent_demo.json'))).toBe('{"revision":2}');
 });

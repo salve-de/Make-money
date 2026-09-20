@@ -172,11 +172,15 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_keyence: { cont
 test('remote revenue-only detail leaves profit unknown and does not invent a waterfall', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  const summary = { id: 'ent_smoke_revenue_only', name: '境界確認企業', entityType: 'company', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: [],
-    valueProfile: { tier: 'USEFUL', score: 40, labels: [], businessSignal: '企業向け契約管理を月額で提供する業務支援サービス', painSignal: null, moneySignal: '$120000 annual revenue', tractionSignal: null, mechanismSignal: null, timeSignal: null,
-      counts: { claims: 0, metrics: 1, moneySignals: 0, events: 0, observations: 0, derived: 0, evidence: 0 } } };
-  const detail = { ...summary, claims: [], metrics: [{ id: 'metric_revenue', metricType: 'monthly_revenue', value: 120000, unit: 'JPY', currency: 'JPY', periodStart: null, periodEnd: null, pointInTime: null, basis: null, scope: null,
-    originType: 'collected', verificationStatus: 'SUPPORTED', confidence: null, evidenceIds: [] }], moneySignals: [], events: [], relationships: [], observations: [], derived: [], bundlesScanned: 0, bundleObjectsListed: 0, bundleScanComplete: true };
+  // This test owns the financial-display boundary, not dossier promotion.
+  // Keep the mocked Foundation row independently display-eligible so a failure
+  // here means the revenue-only detail adapter regressed, rather than the
+  // readiness gate correctly filtering an evidence-free candidate.
+  const summary = { id: 'ent_smoke_revenue_only', name: '境界確認企業', entityType: 'company', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: '2026-09-20T00:00:00Z', evidenceIds: ['ev_smoke_1', 'ev_smoke_2'],
+    valueProfile: { tier: 'HIGH_SIGNAL', score: 80, labels: ['事業', '課題', '価格/財務', '初動/成長', '仕組み'], businessSignal: '企業向け契約管理を月額で提供する業務支援サービス', painSignal: '契約管理の手作業', moneySignal: '¥120000 monthly revenue', tractionSignal: '導入実績あり', mechanismSignal: '業務支援', timeSignal: '2026-09観測',
+      counts: { claims: 1, metrics: 1, moneySignals: 0, events: 0, observations: 1, derived: 0, evidence: 2 } } };
+  const detail = { ...summary, claims: [{ id: 'claim_business', statement: '企業向け契約管理を月額で提供する業務支援サービス', originType: 'reported', verificationStatus: 'SUPPORTED', confidence: 0.9, occurredAt: null, evidenceIds: ['ev_smoke_1'] }], metrics: [{ id: 'metric_revenue', metricType: 'monthly_revenue', value: 120000, unit: 'JPY', currency: 'JPY', periodStart: null, periodEnd: null, pointInTime: '2026-09-20T00:00:00Z', basis: 'reported', scope: 'company',
+    originType: 'reported', verificationStatus: 'SUPPORTED', confidence: 0.9, evidenceIds: ['ev_smoke_2'] }], moneySignals: [], events: [], relationships: [], observations: [{ id: 'obs_smoke', kind: 'BUSINESS_MODEL', text: '契約管理の手作業を減らす業務支援', originType: 'observed', verificationStatus: 'SUPPORTED', observedAt: '2026-09-20T00:00:00Z', collectionTier: 'CORE', collectionChannel: 'web', evidenceIds: ['ev_smoke_1'] }], derived: [], bundlesScanned: 1, bundleObjectsListed: 1, bundleScanComplete: true };
   let detailReturned = false;
   await page.route('**/api/businesses*', (route) => {
     const isDetail = new URL(route.request().url()).searchParams.has('entity_id');

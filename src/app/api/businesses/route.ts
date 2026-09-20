@@ -9,7 +9,6 @@ import { resolve } from 'node:path';
 import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
 import {
   readFoundationBusinessCase,
-  readFoundationValuePage,
   type FoundationBusinessCase,
   type FoundationValuePage,
 } from '@/lib/foundation/business-reader';
@@ -17,7 +16,16 @@ import { promisify } from 'node:util';
 import { gunzip as gunzipCb } from 'node:zlib';
 import { CloudflareR2BlobStorage } from '@/lib/foundation/immutable-dossier-pipeline';
 import { computeDossierContentHash, getDossierStoragePath } from '@/lib/foundation/dossier-projection';
-import { adaptFoundationDetailToFinancialEntity, adaptFoundationSummaryToFinancialEntity } from '@/lib/foundation/foundation-adapter';
+import {
+  adaptFoundationDetailToFinancialEntity,
+  adaptFoundationSummaryToFinancialEntity,
+  isFoundationDossierReady,
+} from '@/lib/foundation/foundation-adapter';
+import {
+  isMakeMoneyViewBackfillComplete,
+  readMakeMoneyValuePage,
+  readMakeMoneyViewDetail,
+} from '@/lib/foundation/make-money-view';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import type { FinancialEntity } from '@/platform/types/terminal';
 
@@ -201,24 +209,55 @@ export async function GET(request: Request) {
     }
 
     try {
+      const stagedView = await readMakeMoneyViewDetail(entityId);
+      const curated = await findFallbackEntity(entityId);
+
+      // List and detail use one replacement rule at every migration stage:
+      // a curated dossier remains authoritative until the Foundation view is
+      // evidence-dense enough to replace it. Foundation-only entities still
+      // open as partial records when they pass the public evidence gate.
+      if (curated && (!stagedView || !isFoundationDossierReady(stagedView))) {
+        const actualHash = curated.latestDossierHash || computeDossierContentHash(curated);
+        const revision = curated.sourceRevision ?? 1;
+        return response({
+          source: 'local_fallback',
+          count: 1,
+          data: publicEntity(curated),
+          dossierHash: actualHash,
+          sourceRevision: revision,
+          isStale: false,
+        }, 200, {
+          'X-Dossier-Hash': actualHash,
+          'X-Source-Revision': String(revision),
+        });
+      }
+
       const data = await readCached(
         detailCache,
-        entityId,
+        `view:${entityId}`,
         DETAIL_TTL_MS,
         MAX_DETAIL_CACHE_ENTRIES,
-        () => readFoundationBusinessCase(entityId)
+        async () => stagedView || readFoundationBusinessCase(entityId)
       );
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
         if (parsed) {
-          const adapted = adaptFoundationDetailToFinancialEntity(parsed);
-          if (isPublishableEntity(adapted)) {
+          // Use the same publication contract as the list path. Financial
+          // metrics are optional for a partial-but-useful Foundation record;
+          // if the summary is publishable, opening that row must not 404 just
+          // because the detailed financial projection is UNAVAILABLE.
+          const summaryGate = adaptFoundationSummaryToFinancialEntity(parsed);
+          if (isPublishableEntity(summaryGate)) {
+            const adapted = adaptFoundationDetailToFinancialEntity(parsed);
             const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
             const revision = adapted.sourceRevision ?? 1;
             return response({
               source: 'foundation_lake',
               dataset_id: foundationDataset('researchBundles').datasetId,
-              data: publicFoundationData(adapted),
+              // Keep the transport contract canonical. The client owns the
+              // Make-Money FinancialEntity adaptation, so it can re-project
+              // newer Foundation fields without changing this API shape.
+              data: publicFoundationData(parsed),
               dossierHash: actualHash,
               sourceRevision: revision,
               isStale: false,
@@ -265,28 +304,52 @@ export async function GET(request: Request) {
   const cacheKey = `${limit}:${cursor || 'first'}`;
 
   try {
+    const materializedViewReady = await isMakeMoneyViewBackfillComplete();
     const page = await readCached(
       pageCache,
-      cacheKey,
+      `view:${cacheKey}`,
       PAGE_TTL_MS,
       MAX_PAGE_CACHE_ENTRIES,
-      () => readFoundationValuePage({ cursor, limit })
+      () => readMakeMoneyValuePage({ cursor, limit })
     );
     parseFoundationValuePage(page);
-    const adaptedEntities = (page.data || []).map(adaptFoundationSummaryToFinancialEntity);
-    const publishableData = adaptedEntities.filter(isPublishableEntity);
-    if (publishableData.length > 0 || page.hasMore) {
+
+    // The product view is already a FoundationValuePage. Use FinancialEntity
+    // only as a server-side publication gate, then return the canonical view
+    // shape so the client can perform the single authoritative adaptation.
+    const publishableIds = new Set(
+      (page.data || [])
+        .filter((summary) => isPublishableEntity(adaptFoundationSummaryToFinancialEntity(summary)))
+        .map((summary) => summary.id)
+    );
+    const publishableSummaries = (page.data || []).filter((summary) => publishableIds.has(summary.id));
+
+    if (publishableSummaries.length > 0 || page.hasMore) {
+      if (returnSummaryOnly) {
+        const summaries = publishableSummaries
+          .map(adaptFoundationSummaryToFinancialEntity)
+          .map(publicSummaryEntity);
+        return response({
+          source: 'foundation_lake',
+          projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
+          count: summaries.length,
+          data: publicFoundationData(summaries),
+          nextCursor: page.nextCursor,
+          hasMore: page.hasMore,
+        });
+      }
+
       return response({
         source: 'foundation_lake',
-        dataset_id: foundationDataset('entities').datasetId,
-        count: publishableData.length,
-        data: publicFoundationData(returnSummaryOnly ? publishableData.map(publicSummaryEntity) : publishableData),
+        projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
+        count: publishableSummaries.length,
+        data: publicFoundationData(publishableSummaries),
         nextCursor: page.nextCursor,
         hasMore: page.hasMore,
       });
     }
   } catch (error) {
-    logFoundationFailure('[businesses] Foundation entity page read failed; using fallback:', error);
+    logFoundationFailure('[businesses] Make-Money Foundation view read failed; using fallback:', error);
   }
 
   const localEntities = await readLocalEntities();

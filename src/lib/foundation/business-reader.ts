@@ -349,6 +349,14 @@ export async function readFoundationEntityPage(options: {
   return readEntityPage(options.cursor, limit);
 }
 
+export async function readFoundationEntitySummaryById(
+  entityId: string
+): Promise<FoundationEntitySummary | null> {
+  if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
+  const object = await readJsonObjectWithMetadata(entityKey(entityId));
+  return normalizeSummary(object.value || {});
+}
+
 function recordMentionsEntity(value: JsonObject, entityId: string): boolean {
   return stringValue(value, 'entity_id') === entityId ||
     stringArray(value, 'entity_ids').includes(entityId) ||
@@ -581,6 +589,26 @@ function collectMentionedIds(target: Set<string>, values: unknown[] | undefined)
   }
 }
 
+export function foundationEntityIdsFromBundle(bundleInput: unknown): string[] {
+  const bundle = objectValue(bundleInput);
+  if (!bundle) return [];
+
+  const ids = new Set<string>();
+  collectMentionedIds(ids, Array.isArray(bundle.entities) ? bundle.entities : undefined);
+  for (const field of [
+    'claims',
+    'metrics',
+    'money_signals',
+    'events',
+    'relationships',
+    'observations',
+    'derived',
+  ]) {
+    collectMentionedIds(ids, Array.isArray(bundle[field]) ? bundle[field] as unknown[] : undefined);
+  }
+  return [...ids];
+}
+
 function probeFromText(text: string | null): BundleProbe | null {
   if (text === null) return null;
   const entities = parseArrayField(text, 'entities');
@@ -610,12 +638,12 @@ function cachedProbe(key: string): Promise<BundleProbe | null> {
 }
 
 function probeContainsEntity(probe: BundleProbe | null, entityId: string): boolean | null {
-  // A failed range probe is unknown, not a negative match. Reading the
-  // candidate is safer than silently hiding a valid Foundation record.
+  // A failed or partial range probe is unknown, not a negative match. A
+  // record-only enrichment bundle may have an empty/irrelevant entities array
+  // while claims/metrics later in the file still reference this entity.
   if (!probe) return null;
   if (probe.knownEntityIds.has(entityId)) return true;
-  if (probe.entitiesArrayPresent) return false;
-  return probe.typedArraysComplete ? false : null;
+  return probe.entitiesArrayPresent && probe.typedArraysComplete ? false : null;
 }
 
 const bundleCache = new Map<string, Promise<JsonObject | null>>();
@@ -632,10 +660,29 @@ function cachedBundle(key: string): Promise<JsonObject | null> {
   return pending;
 }
 
-async function fetchBundleObjects(): Promise<R2ListObject[]> {
+async function readBundleStrict(key: string): Promise<JsonObject> {
+  const text = await getFromR2(key, await getFoundationBucketAsync(ENTITY_DATASET.bucketRole));
+  if (text === null) {
+    throw new Error(`Listed canonical research bundle is unavailable: ${key}`);
+  }
+  const parsed = parseObject(text);
+  if (!parsed) {
+    throw new Error(`Canonical research bundle is invalid JSON/object: ${key}`);
+  }
+  return parsed;
+}
+
+interface BundleObjectListing {
+  objects: R2ListObject[];
+  complete: boolean;
+}
+
+async function fetchBundleObjects(): Promise<BundleObjectListing> {
   const lakeBucket = await getFoundationBucketAsync(ENTITY_DATASET.bucketRole);
   const objects: R2ListObject[] = [];
   let cursor: string | undefined;
+  let complete = false;
+
   for (let pageNumber = 0; pageNumber < MAX_BUNDLE_LIST_PAGES; pageNumber += 1) {
     const page = await listR2Objects({
       bucket: lakeBucket,
@@ -644,16 +691,23 @@ async function fetchBundleObjects(): Promise<R2ListObject[]> {
       limit: BUNDLE_LIST_LIMIT,
     });
     objects.push(...page.objects.filter((item) => item.key.endsWith('.json')));
-    if (!page.truncated || !page.cursor) break;
+    if (!page.truncated || !page.cursor) {
+      complete = true;
+      break;
+    }
     cursor = page.cursor;
   }
-  return objects.sort((left, right) => right.key.localeCompare(left.key));
+
+  return {
+    objects: objects.sort((left, right) => right.key.localeCompare(left.key)),
+    complete,
+  };
 }
 
-let bundleObjectsPromise: Promise<R2ListObject[]> | undefined;
+let bundleObjectsPromise: Promise<BundleObjectListing> | undefined;
 let bundleObjectsExpiresAt = 0;
 
-function listBundleObjects(): Promise<R2ListObject[]> {
+function listBundleObjects(): Promise<BundleObjectListing> {
   if (!bundleObjectsPromise || bundleObjectsExpiresAt <= Date.now()) {
     bundleObjectsExpiresAt = Date.now() + BUNDLE_LIST_TTL_MS;
     bundleObjectsPromise = fetchBundleObjects().catch((error) => {
@@ -697,6 +751,225 @@ function collectBundleRecords(bundle: JsonObject, entityId: string, target: Foun
   pushUnique(target.derived, filteredRecords(bundle, 'derived', entityId).map(normalizeDerived).filter((item): item is FoundationDerivedRecord => Boolean(item)));
 }
 
+/**
+ * Build consumer-ready value summaries from one already validated research
+ * bundle without hitting R2. This keeps projection logic identical between
+ * ingestion-time materialization and read-time fallback paths.
+ */
+export function buildFoundationBusinessCaseForEntity(
+  bundleInput: unknown,
+  baseSummary: FoundationEntitySummary
+): FoundationBusinessCase {
+  const bundle = objectValue(bundleInput);
+  if (!bundle) {
+    const records = createRecordAccumulator();
+    return {
+      ...baseSummary,
+      ...records,
+      valueProfile: buildFoundationValueProfile(baseSummary, records),
+      bundlesScanned: 0,
+      bundleObjectsListed: 0,
+      bundleScanComplete: true,
+    };
+  }
+
+  const records = createRecordAccumulator();
+  collectBundleRecords(bundle, baseSummary.id, records);
+  const explicitSummary = bundleEntitySummary(bundle, baseSummary.id);
+  const bundleRetrievedAt = stringValue(bundle, 'retrieved_at');
+  const summary = explicitSummary
+    ? mergeFoundationEntitySummary(baseSummary, explicitSummary)
+    : {
+        ...baseSummary,
+        // Record-only enrichment bundles have no entity.observed_at. Use the
+        // bundle retrieval time as the ordering clock for this incoming slice
+        // so delayed old bundles cannot win ties against newer enrichment.
+        observedAt: bundleRetrievedAt || baseSummary.observedAt,
+      };
+
+  return {
+    ...summary,
+    ...records,
+    valueProfile: buildFoundationValueProfile(summary, records),
+    bundlesScanned: 1,
+    bundleObjectsListed: 1,
+    bundleScanComplete: true,
+  };
+}
+
+export function buildFoundationBusinessCasesFromBundle(bundleInput: unknown): FoundationBusinessCase[] {
+  const bundle = objectValue(bundleInput);
+  if (!bundle || !Array.isArray(bundle.entities)) return [];
+
+  return bundle.entities
+    .map(objectValue)
+    .filter((value): value is JsonObject => Boolean(value))
+    .map(normalizeSummary)
+    .filter((summary): summary is FoundationEntitySummary => Boolean(summary))
+    .map((summary) => buildFoundationBusinessCaseForEntity(bundle, summary));
+}
+
+export function foundationBusinessCaseToValueSummary(
+  detail: FoundationBusinessCase
+): FoundationValueSummary {
+  return {
+    id: detail.id,
+    name: detail.name,
+    entityType: detail.entityType,
+    aliases: detail.aliases,
+    canonicalIdentifier: detail.canonicalIdentifier,
+    domain: detail.domain,
+    status: detail.status,
+    observedAt: detail.observedAt,
+    evidenceIds: detail.evidenceIds,
+    valueProfile: detail.valueProfile,
+  };
+}
+
+export function buildFoundationValueSummariesFromBundle(bundleInput: unknown): FoundationValueSummary[] {
+  return buildFoundationBusinessCasesFromBundle(bundleInput).map(foundationBusinessCaseToValueSummary);
+}
+
+function mergeFoundationEntitySummary(
+  current: FoundationEntitySummary,
+  candidate: FoundationEntitySummary | null
+): FoundationEntitySummary {
+  if (!candidate) return current;
+
+  const currentTime = current.observedAt ? Date.parse(current.observedAt) : Number.NEGATIVE_INFINITY;
+  const candidateTime = candidate.observedAt ? Date.parse(candidate.observedAt) : Number.NEGATIVE_INFINITY;
+  const candidateIsNewer = candidateTime >= currentTime;
+  const preferred = candidateIsNewer ? candidate : current;
+  const fallback = candidateIsNewer ? current : candidate;
+
+  return {
+    id: current.id,
+    name: preferred.name || fallback.name,
+    entityType: preferred.entityType !== 'unknown' ? preferred.entityType : fallback.entityType,
+    aliases: [...new Set([...current.aliases, ...candidate.aliases])],
+    canonicalIdentifier: preferred.canonicalIdentifier || fallback.canonicalIdentifier,
+    domain: preferred.domain || fallback.domain,
+    status: preferred.status !== 'unknown' ? preferred.status : fallback.status,
+    observedAt: candidateIsNewer ? (candidate.observedAt || current.observedAt) : current.observedAt,
+    evidenceIds: [...new Set([...current.evidenceIds, ...candidate.evidenceIds])],
+  };
+}
+
+function bundleEntitySummary(bundle: JsonObject, entityId: string): FoundationEntitySummary | null {
+  if (!Array.isArray(bundle.entities)) return null;
+  for (const value of bundle.entities) {
+    const record = objectValue(value);
+    if (record && stringValue(record, 'entity_id') === entityId) {
+      return normalizeSummary(record);
+    }
+  }
+  return null;
+}
+
+async function hydrateFoundationEntitiesFromAllBundles(
+  summaries: FoundationEntitySummary[]
+): Promise<FoundationBusinessCase[]> {
+  if (summaries.length === 0) return [];
+
+  const entityIds = new Set(summaries.map((item) => item.id));
+  const summariesById = new Map(summaries.map((item) => [item.id, item]));
+  const recordsById = new Map(
+    summaries.map((item) => [item.id, createRecordAccumulator()])
+  );
+  const bundleListing = await listBundleObjects();
+  const bundleObjects = bundleListing.objects;
+  let hadBundleReadFailure = false;
+
+  for (let index = 0; index < bundleObjects.length; index += BUNDLE_SCAN_BATCH_SIZE) {
+    const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
+    const probes = await Promise.all(batch.map((item) => cachedProbe(item.key)));
+    const candidateKeys = batch
+      .filter((_, batchIndex) => {
+        const probe = probes[batchIndex];
+        // Read the full bundle whenever any requested entity is either present
+        // or cannot be ruled out by a complete probe. Partial probes must never
+        // hide record-only enrichment that appears after the byte-range cutoff.
+        for (const entityId of entityIds) {
+          if (probeContainsEntity(probe, entityId) !== false) return true;
+        }
+        return false;
+      })
+      .map((item) => item.key);
+
+    const bundleResults = await Promise.allSettled(
+      candidateKeys.map((key) => readBundleStrict(key))
+    );
+    for (const result of bundleResults) {
+      if (result.status === 'rejected') {
+        hadBundleReadFailure = true;
+        continue;
+      }
+      const bundle = result.value;
+      for (const entityId of entityIds) {
+        if (!bundleContainsEntity(bundle, entityId)) continue;
+        collectBundleRecords(bundle, entityId, recordsById.get(entityId)!);
+        const currentSummary = summariesById.get(entityId)!;
+        summariesById.set(
+          entityId,
+          mergeFoundationEntitySummary(currentSummary, bundleEntitySummary(bundle, entityId))
+        );
+      }
+    }
+  }
+
+  return summaries.map((original) => {
+    const summary = summariesById.get(original.id) || original;
+    const records = recordsById.get(original.id) || createRecordAccumulator();
+    return {
+      ...summary,
+      ...records,
+      valueProfile: buildFoundationValueProfile(summary, records),
+      bundlesScanned: bundleObjects.length,
+      bundleObjectsListed: bundleObjects.length,
+      bundleScanComplete: bundleListing.complete && !hadBundleReadFailure,
+    };
+  });
+}
+
+/**
+ * Canonical cumulative read used while the serving-view backfill is still in
+ * progress. Unlike the fast common detail path, this deliberately aggregates
+ * every immutable research bundle so later monitoring/backfill facts are not
+ * hidden behind the entity core object's original run ID.
+ */
+export async function readFoundationBusinessCaseCumulative(
+  entityId: string
+): Promise<FoundationBusinessCase | null> {
+  if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
+  const entityObject = await readJsonObjectWithMetadata(entityKey(entityId));
+  const entity = normalizeSummary(entityObject.value || {});
+  if (!entity) return null;
+  const hydrated = await hydrateFoundationEntitiesFromAllBundles([entity]);
+  return hydrated[0] || null;
+}
+
+/**
+ * Temporary migration/read-through path used until the materialized
+ * Make-Money view has been rebuilt from all existing canonical bundles.
+ * One bundle scan hydrates the whole requested entity page, including later
+ * updates created after the entity core object.
+ */
+export async function readFoundationHydratedValuePage(options: {
+  cursor?: string;
+  limit?: number;
+} = {}): Promise<FoundationValuePage> {
+  const page = await readEntityPage(
+    options.cursor,
+    Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100)
+  );
+  const hydrated = await hydrateFoundationEntitiesFromAllBundles(page.data);
+  return {
+    data: hydrated.map(foundationBusinessCaseToValueSummary),
+    nextCursor: page.nextCursor,
+    hasMore: page.hasMore,
+  };
+}
+
 export async function readFoundationBusinessCase(entityId: string): Promise<FoundationBusinessCase | null> {
   if (!/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(entityId)) return null;
   const entityObject = await readJsonObjectWithMetadata(entityKey(entityId));
@@ -727,8 +1000,10 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
   // Older entity objects may predate the run-id metadata. Keep a bounded
   // rescue scan for those records, and expose that it was incomplete rather
   // than turning a slow best-effort response into a false complete dossier.
-  const bundleObjects = await listBundleObjects();
+  const bundleListing = await listBundleObjects();
+  const bundleObjects = bundleListing.objects;
   let bundlesScanned = 0;
+  let hadFallbackReadFailure = false;
 
   for (let index = 0; index < Math.min(bundleObjects.length, MAX_FALLBACK_BUNDLE_OBJECTS); index += BUNDLE_SCAN_BATCH_SIZE) {
     const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
@@ -737,9 +1012,17 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
     const candidateKeys = batch
       .filter((_, batchIndex) => probeContainsEntity(probes[batchIndex], entityId) !== false)
       .map((item) => item.key);
-    const bundles = await Promise.all(candidateKeys.map((key) => cachedBundle(key)));
-    for (const bundle of bundles) {
-      if (bundle && bundleContainsEntity(bundle, entityId)) collectBundleRecords(bundle, entityId, records);
+    const bundleResults = await Promise.allSettled(
+      candidateKeys.map((key) => readBundleStrict(key))
+    );
+    for (const result of bundleResults) {
+      if (result.status === 'rejected') {
+        hadFallbackReadFailure = true;
+        continue;
+      }
+      if (bundleContainsEntity(result.value, entityId)) {
+        collectBundleRecords(result.value, entityId, records);
+      }
     }
   }
 
@@ -749,7 +1032,10 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
     valueProfile: buildFoundationValueProfile(entity, records),
     bundlesScanned,
     bundleObjectsListed: bundleObjects.length,
-    bundleScanComplete: bundlesScanned >= bundleObjects.length,
+    bundleScanComplete:
+      bundleListing.complete &&
+      !hadFallbackReadFailure &&
+      bundlesScanned >= bundleObjects.length,
   };
 }
 
