@@ -833,12 +833,18 @@ export async function materializeMakeMoneyViews(
     if (hydrated.pending.length > 0) {
       await markUnresolvedResolved(bucket, hydrated.pending);
     }
-    await writeUnresolvedHydrationState(
-      bucket,
-      entityId,
-      hydrated.stateObject,
-      hydrated.nextCursor
-    );
+    if (
+      hydrated.stateObject ||
+      hydrated.pending.length > 0 ||
+      hydrated.nextCursor !== null
+    ) {
+      await writeUnresolvedHydrationState(
+        bucket,
+        entityId,
+        hydrated.stateObject,
+        hydrated.nextCursor
+      );
+    }
 
     if (hydrated.complete) unresolved.delete(entityId);
     else unresolved.add(entityId);
