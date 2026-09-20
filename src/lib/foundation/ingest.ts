@@ -12,6 +12,7 @@ import {
 
 type JsonObject = Record<string, unknown>;
 import { assessCoverage } from './coverage';
+import { readMakeMoneyViewDetail } from './make-money-view';
 
 const PURPOSES = new Set([
   'make_money',
@@ -1099,6 +1100,19 @@ function compatibleStableEntity(existing: JsonObject, incoming: JsonObject): boo
   return existingName === incomingName || durableMatch;
 }
 
+function identityRecordFromView(detail: Awaited<ReturnType<typeof readMakeMoneyViewDetail>>): JsonObject | null {
+  if (!detail) return null;
+  return {
+    entity_id: detail.id,
+    entity_type: detail.entityType,
+    canonical_name: detail.name,
+    canonical_identifier: detail.canonicalIdentifier,
+    domain: detail.domain,
+    status: detail.status,
+    observed_at: detail.observedAt,
+  };
+}
+
 function preflightStatus(status: R2PreflightResult['status']): PlannedWritePreflightStatus {
   return status;
 }
@@ -1139,9 +1153,27 @@ export async function ingestFoundationResearch(
       if (item.logicalRole === 'entity') {
         const existingObject = await readR2Object(item.bucket, item.key);
         compatibilityReadCalls += 1;
-        const existingEntity = existingObject ? decodeJsonObject(existingObject.body) : null;
+        const seedEntity = existingObject ? decodeJsonObject(existingObject.body) : null;
         const incomingEntity = decodeJsonObject(item.body);
-        if (existingObject && existingEntity && incomingEntity && compatibleStableEntity(existingEntity, incomingEntity)) {
+        const incomingEntityId = incomingEntity ? getString(incomingEntity, 'entity_id') : null;
+
+        let accumulatedEntity = seedEntity;
+        if (incomingEntityId) {
+          // The immutable entity core intentionally does not change. Consult
+          // the accumulated product view as the durable identity memory of
+          // prior accepted bundles, so a later conflicting domain/identifier
+          // cannot repeatedly compare against an originally blank core.
+          const accumulatedView = await readMakeMoneyViewDetail(incomingEntityId);
+          compatibilityReadCalls += 1;
+          accumulatedEntity = identityRecordFromView(accumulatedView) || seedEntity;
+        }
+
+        if (
+          existingObject &&
+          accumulatedEntity &&
+          incomingEntity &&
+          compatibleStableEntity(accumulatedEntity, incomingEntity)
+        ) {
           plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
           compatibleEntityReads.set(index, {
             bytes: existingObject.body.byteLength,
