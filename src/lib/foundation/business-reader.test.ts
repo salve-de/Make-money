@@ -272,7 +272,7 @@ describe('Foundation list read path', () => {
   it('reports cumulative bundle scans incomplete when the listing page cap is reached', async () => {
     vi.resetModules();
     const reader = await import('./business-reader');
-    const entityId = 'ent_cap_abcdef0123456789abcdef';
+    const entityId = 'ent_cap_abcdef0123456789abcd';
     const bundleKey = 'datasets/ds.business.research-bundles.derived/v1/2026/09/20/run_cap_test.json';
     const entity = {
       entity_id: entityId,
