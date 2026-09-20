@@ -1127,6 +1127,7 @@ interface EntityIdentityReservation extends JsonObject {
   canonical_identifier: string | null;
   domain: string | null;
   updated_at: string;
+  canonical_bundle_key: string;
   created_at: string;
   expires_at: string;
 }
@@ -1150,6 +1151,12 @@ interface EntityIdentityReservationHandle {
   runId: string;
 }
 
+interface PendingIdentityClaim {
+  bucket: string;
+  seed: JsonObject;
+  incoming: JsonObject;
+}
+
 function parseIdentityReservation(value: unknown): EntityIdentityReservation | null {
   if (!isObject(value)) return null;
   if (
@@ -1159,6 +1166,7 @@ function parseIdentityReservation(value: unknown): EntityIdentityReservation | n
     !(value.canonical_identifier === null || typeof value.canonical_identifier === 'string') ||
     !(value.domain === null || typeof value.domain === 'string') ||
     !getString(value, 'updated_at') ||
+    !getString(value, 'canonical_bundle_key') ||
     !getString(value, 'created_at') ||
     !getString(value, 'expires_at')
   ) {
@@ -1216,9 +1224,9 @@ function identityAuthorityAsRecord(authority: EntityIdentityAuthority): JsonObje
   };
 }
 
-function reservationAsRecord(reservation: EntityIdentityReservation): JsonObject {
+function reservationAsRecord(entityId: string, reservation: EntityIdentityReservation): JsonObject {
   return {
-    entity_id: '',
+    entity_id: entityId,
     entity_type: reservation.entity_type,
     canonical_name: reservation.canonical_name,
     canonical_identifier: reservation.canonical_identifier,
@@ -1231,27 +1239,57 @@ function reservationExpired(reservation: EntityIdentityReservation, nowMs: numbe
   return !Number.isFinite(expiresAt) || expiresAt <= nowMs;
 }
 
-function makeIdentityReservation(
-  incoming: JsonObject,
-  runId: string,
-  updatedAt: string,
-  nowMs: number
-): EntityIdentityReservation {
-  const entityType = getString(incoming, 'entity_type');
-  const canonicalName = getString(incoming, 'canonical_name');
+function makeIdentityReservation(input: {
+  incoming: JsonObject;
+  runId: string;
+  updatedAt: string;
+  canonicalBundleKey: string;
+  nowMs: number;
+}): EntityIdentityReservation {
+  const entityType = getString(input.incoming, 'entity_type');
+  const canonicalName = getString(input.incoming, 'canonical_name');
   if (!entityType || !canonicalName) {
     throw new FoundationBundleValidationError(['incoming entity identity requires type/name']);
   }
   return {
-    run_id: runId,
+    run_id: input.runId,
     entity_type: entityType,
     canonical_name: canonicalName,
-    canonical_identifier: normalizedIdentityText(getString(incoming, 'canonical_identifier')),
-    domain: normalizedIdentityText(getString(incoming, 'domain')),
-    updated_at: updatedAt,
-    created_at: new Date(nowMs).toISOString(),
-    expires_at: new Date(nowMs + IDENTITY_RESERVATION_TTL_MS).toISOString(),
+    canonical_identifier: normalizedIdentityText(getString(input.incoming, 'canonical_identifier')),
+    domain: normalizedIdentityText(getString(input.incoming, 'domain')),
+    updated_at: input.updatedAt,
+    canonical_bundle_key: input.canonicalBundleKey,
+    created_at: new Date(input.nowMs).toISOString(),
+    expires_at: new Date(input.nowMs + IDENTITY_RESERVATION_TTL_MS).toISOString(),
   };
+}
+
+function authorityWithCommittedReservation(
+  authority: EntityIdentityAuthority,
+  reservation: EntityIdentityReservation
+): EntityIdentityAuthority {
+  return {
+    ...authority,
+    canonical_name: reservation.canonical_name,
+    canonical_identifier: reservation.canonical_identifier || authority.canonical_identifier,
+    domain: reservation.domain || authority.domain,
+    source_run_ids: [...new Set([...authority.source_run_ids, reservation.run_id])],
+    updated_at: reservation.updated_at,
+    reservation: null,
+  };
+}
+
+async function readCommittedEntityIdentityAuthority(
+  bucket: string,
+  entityId: string
+): Promise<{ authority: JsonObject | null; getCalls: number }> {
+  const key = `${ENTITY_IDENTITY_AUTHORITY_PREFIX}${entityId}.json`;
+  const object = await readR2Object(bucket, key);
+  if (!object) return { authority: null, getCalls: 1 };
+  const json = decodeJsonObject(object.body);
+  const parsed = json ? parseIdentityAuthority(json) : null;
+  if (!parsed) throw new Error(`Invalid entity identity authority at ${key}`);
+  return { authority: identityAuthorityAsRecord(parsed), getCalls: 1 };
 }
 
 async function reserveStableEntityIdentity(input: {
@@ -1260,6 +1298,7 @@ async function reserveStableEntityIdentity(input: {
   incoming: JsonObject;
   runId: string;
   updatedAt: string;
+  canonicalBundleKey: string;
 }): Promise<{ handle: EntityIdentityReservationHandle; getCalls: number; putCalls: number }> {
   const entityId = getString(input.incoming, 'entity_id');
   if (!entityId) throw new FoundationBundleValidationError(['incoming entity_id is required']);
@@ -1272,34 +1311,63 @@ async function reserveStableEntityIdentity(input: {
     const currentObject = await readR2Object(input.bucket, key);
     getCalls += 1;
     const currentJson = currentObject ? decodeJsonObject(currentObject.body) : null;
-    const currentAuthority = currentJson
+    let authority = currentJson
       ? parseIdentityAuthority(currentJson)
       : identityAuthorityFromSeed(input.seed);
-    if (currentObject && !currentAuthority) {
+    if (currentObject && !authority) {
       throw new Error(`Invalid entity identity authority at ${key}`);
     }
 
-    const committedRecord = identityAuthorityAsRecord(currentAuthority);
-    // Add the entity ID for compatibility comparison.
-    committedRecord.entity_id = entityId;
+    const active = authority.reservation;
+    if (active && active.run_id !== input.runId) {
+      // If the reserving run already committed its canonical bundle but died
+      // before finalizing this mutable authority, recover that committed
+      // identity first. Otherwise keep the live reservation exclusive until
+      // expiry.
+      const committedBundle = await readR2Object(input.bucket, active.canonical_bundle_key);
+      getCalls += 1;
+      if (committedBundle) {
+        const recovered = authorityWithCommittedReservation(authority, active);
+        try {
+          const result = await putR2MutableView({
+            bucket: input.bucket,
+            key,
+            body: JSON.stringify(recovered),
+            contentType: 'application/json',
+            metadata: {
+              'foundation-view-purpose': 'entity-identity-authority-recovery',
+              'foundation-entity-id': entityId,
+              'foundation-run-id': active.run_id,
+            },
+          }, {
+            expectedEtag: currentObject?.etag ?? null,
+          });
+          if (result.status !== 'UNCHANGED') putCalls += 1;
+          continue;
+        } catch (error) {
+          if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+            putCalls += 1;
+            continue;
+          }
+          throw error;
+        }
+      }
+      if (!reservationExpired(active, Date.now())) {
+        throw new R2ViewConcurrentModificationError(input.bucket, key);
+      }
+      // Expired reservation without a committed canonical bundle may be
+      // safely replaced.
+      authority = { ...authority, reservation: null };
+    }
+
+    const committedRecord = identityAuthorityAsRecord(authority);
     if (!compatibleStableEntity(committedRecord, input.incoming)) {
       throw new R2ObjectConflictError(input.bucket, key);
     }
 
-    const nowMs = Date.now();
-    const activeReservation = currentAuthority.reservation;
-    if (
-      activeReservation &&
-      activeReservation.run_id !== input.runId &&
-      !reservationExpired(activeReservation, nowMs)
-    ) {
-      throw new R2ViewConcurrentModificationError(input.bucket, key);
-    }
-
-    if (activeReservation?.run_id === input.runId && !reservationExpired(activeReservation, nowMs)) {
-      const reservationRecord = reservationAsRecord(activeReservation);
-      reservationRecord.entity_id = entityId;
-      if (!compatibleStableEntity(reservationRecord, input.incoming)) {
+    if (authority.reservation?.run_id === input.runId) {
+      const reservedRecord = reservationAsRecord(entityId, authority.reservation);
+      if (!compatibleStableEntity(reservedRecord, input.incoming)) {
         throw new R2ObjectConflictError(input.bucket, key);
       }
       return {
@@ -1310,8 +1378,14 @@ async function reserveStableEntityIdentity(input: {
     }
 
     const next: EntityIdentityAuthority = {
-      ...currentAuthority,
-      reservation: makeIdentityReservation(input.incoming, input.runId, input.updatedAt, nowMs),
+      ...authority,
+      reservation: makeIdentityReservation({
+        incoming: input.incoming,
+        runId: input.runId,
+        updatedAt: input.updatedAt,
+        canonicalBundleKey: input.canonicalBundleKey,
+        nowMs: Date.now(),
+      }),
     };
 
     try {
@@ -1369,25 +1443,7 @@ async function finalizeStableEntityIdentity(
       throw new R2ViewConcurrentModificationError(handle.bucket, handle.key);
     }
 
-    const reservation = authority.reservation;
-    const committedRecord = identityAuthorityAsRecord(authority);
-    committedRecord.entity_id = handle.entityId;
-    const reservationRecord = reservationAsRecord(reservation);
-    reservationRecord.entity_id = handle.entityId;
-    if (!compatibleStableEntity(committedRecord, reservationRecord)) {
-      throw new R2ObjectConflictError(handle.bucket, handle.key);
-    }
-
-    const next: EntityIdentityAuthority = {
-      ...authority,
-      canonical_name: reservation.canonical_name,
-      canonical_identifier: reservation.canonical_identifier || authority.canonical_identifier,
-      domain: reservation.domain || authority.domain,
-      source_run_ids: [...new Set([...authority.source_run_ids, handle.runId])],
-      updated_at: reservation.updated_at,
-      reservation: null,
-    };
-
+    const next = authorityWithCommittedReservation(authority, authority.reservation);
     try {
       const result = await putR2MutableView({
         bucket: handle.bucket,
