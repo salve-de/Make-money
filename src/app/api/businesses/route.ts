@@ -19,6 +19,7 @@ import { computeDossierContentHash, getDossierStoragePath } from '@/lib/foundati
 import {
   adaptFoundationDetailToFinancialEntity,
   adaptFoundationSummaryToFinancialEntity,
+  isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 import {
   isMakeMoneyViewBackfillComplete,
@@ -210,10 +211,30 @@ export async function GET(request: Request) {
     try {
       const materializedViewReady = await isMakeMoneyViewBackfillComplete();
 
-      // During the one-time rebuild, never run an all-lake request-time scan.
-      // Keep an existing curated local dossier authoritative until the
-      // background Publisher has completed the global materialized view.
+      // During rebuild, list/detail must use the same replacement rule:
+      // a HIGH_SIGNAL Foundation view may replace a curated local dossier;
+      // otherwise the curated dossier remains authoritative.
       if (!materializedViewReady) {
+        const stagedView = await readMakeMoneyViewDetail(entityId);
+        if (stagedView && isFoundationDossierReady(stagedView)) {
+          const adapted = adaptFoundationDetailToFinancialEntity(stagedView);
+          if (isPublishableEntity(adapted)) {
+            const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
+            const revision = adapted.sourceRevision ?? 1;
+            return response({
+              source: 'foundation_lake',
+              dataset_id: foundationDataset('researchBundles').datasetId,
+              data: publicFoundationData(stagedView),
+              dossierHash: actualHash,
+              sourceRevision: revision,
+              isStale: false,
+            }, 200, {
+              'X-Dossier-Hash': actualHash,
+              'X-Source-Revision': String(revision),
+            });
+          }
+        }
+
         const curated = await findFallbackEntity(entityId);
         if (curated) {
           const actualHash = curated.latestDossierHash || computeDossierContentHash(curated);
