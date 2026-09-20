@@ -144,3 +144,16 @@ Immutable Entity core objects are never overwritten. To safely accept later bund
 Before an `EXISTS_COMPATIBLE` entity preflight is allowed to continue, the incoming domain/canonical identifier/name/type must be compatible with the authority and the authority update must win an R2 ETag compare-and-swap.
 
 This serializes concurrent identity additions such as two different domains racing against an originally blank immutable Entity core. Canonical facts remain immutable; the authority is only a coordination/derived view and can be rebuilt from accepted history.
+
+
+## Bounded unresolved-history hydration
+
+Record-only bundles may arrive before an Entity core. Those references are retained under:
+
+`views/make-money/v1/_unresolved-by-entity/<entity_id>/<run_id>.json`
+
+When the Entity core later becomes resolvable, Make-Money does not hydrate an unbounded history in one Worker request. It processes at most 25 unresolved control records per projection call and persists the next R2 listing cursor under:
+
+`views/make-money/v1/_unresolved-hydration-state/<entity_id>.json`
+
+The corresponding bundle projection remains incomplete and keeps the entity in its unresolved retry set until the per-entity cursor reaches the end. Each subsequent publisher/rebuild invocation resumes from that cursor. Resolved markers remain append/audit-visible and are not deleted.
