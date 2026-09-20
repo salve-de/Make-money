@@ -209,48 +209,27 @@ export async function GET(request: Request) {
     }
 
     try {
-      const materializedViewReady = await isMakeMoneyViewBackfillComplete();
+      const stagedView = await readMakeMoneyViewDetail(entityId);
+      const curated = await findFallbackEntity(entityId);
 
-      // During rebuild, list/detail must use the same replacement rule:
-      // a HIGH_SIGNAL Foundation view may replace a curated local dossier;
-      // otherwise the curated dossier remains authoritative.
-      if (!materializedViewReady) {
-        const stagedView = await readMakeMoneyViewDetail(entityId);
-        if (stagedView && isFoundationDossierReady(stagedView)) {
-          const adapted = adaptFoundationDetailToFinancialEntity(stagedView);
-          if (isPublishableEntity(adapted)) {
-            const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
-            const revision = adapted.sourceRevision ?? 1;
-            return response({
-              source: 'foundation_lake',
-              dataset_id: foundationDataset('researchBundles').datasetId,
-              data: publicFoundationData(stagedView),
-              dossierHash: actualHash,
-              sourceRevision: revision,
-              isStale: false,
-            }, 200, {
-              'X-Dossier-Hash': actualHash,
-              'X-Source-Revision': String(revision),
-            });
-          }
-        }
-
-        const curated = await findFallbackEntity(entityId);
-        if (curated) {
-          const actualHash = curated.latestDossierHash || computeDossierContentHash(curated);
-          const revision = curated.sourceRevision ?? 1;
-          return response({
-            source: 'local_fallback',
-            count: 1,
-            data: publicEntity(curated),
-            dossierHash: actualHash,
-            sourceRevision: revision,
-            isStale: false,
-          }, 200, {
-            'X-Dossier-Hash': actualHash,
-            'X-Source-Revision': String(revision),
-          });
-        }
+      // List and detail use one replacement rule at every migration stage:
+      // a curated dossier remains authoritative until the Foundation view is
+      // evidence-dense enough to replace it. Foundation-only entities still
+      // open as partial records when they pass the public evidence gate.
+      if (curated && (!stagedView || !isFoundationDossierReady(stagedView))) {
+        const actualHash = curated.latestDossierHash || computeDossierContentHash(curated);
+        const revision = curated.sourceRevision ?? 1;
+        return response({
+          source: 'local_fallback',
+          count: 1,
+          data: publicEntity(curated),
+          dossierHash: actualHash,
+          sourceRevision: revision,
+          isStale: false,
+        }, 200, {
+          'X-Dossier-Hash': actualHash,
+          'X-Source-Revision': String(revision),
+        });
       }
 
       const data = await readCached(
@@ -258,7 +237,7 @@ export async function GET(request: Request) {
         `view:${entityId}`,
         DETAIL_TTL_MS,
         MAX_DETAIL_CACHE_ENTRIES,
-        async () => (await readMakeMoneyViewDetail(entityId)) || readFoundationBusinessCase(entityId)
+        async () => stagedView || readFoundationBusinessCase(entityId)
       );
       if (data) {
         const parsed = parseFoundationBusinessCase(data);
