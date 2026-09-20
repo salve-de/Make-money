@@ -590,6 +590,93 @@ export async function readMakeMoneyValuePage(options: {
   };
 }
 
+function parseUnresolvedReplayState(value: unknown): MakeMoneyUnresolvedReplayState | null {
+  const object = objectValue(value);
+  if (
+    !object ||
+    object.schema_version !== UNRESOLVED_REPLAY_STATE_SCHEMA ||
+    !(object.cursor === null || typeof object.cursor === 'string') ||
+    typeof object.updated_at !== 'string'
+  ) {
+    return null;
+  }
+  return object as unknown as MakeMoneyUnresolvedReplayState;
+}
+
+async function readUnresolvedReplayState(
+  bucket: string
+): Promise<{ object: R2ObjectRead | null; state: MakeMoneyUnresolvedReplayState }> {
+  const object = await readR2Object(bucket, UNRESOLVED_REPLAY_STATE_KEY);
+  if (!object) {
+    return {
+      object: null,
+      state: {
+        schema_version: UNRESOLVED_REPLAY_STATE_SCHEMA,
+        cursor: null,
+        updated_at: new Date(0).toISOString(),
+      },
+    };
+  }
+  const state = parseUnresolvedReplayState(decodeJson(object.body));
+  if (!state) throw new Error('Invalid Make-Money unresolved replay state');
+  return { object, state };
+}
+
+async function replayUnresolvedProjectionPage(
+  bucket: string,
+  maxTargets: number
+): Promise<number> {
+  const replay = await readUnresolvedReplayState(bucket);
+  const page = await listR2Objects({
+    bucket,
+    prefix: PROJECTION_PROGRESS_PREFIX,
+    cursor: replay.state.cursor || undefined,
+    limit: 5,
+  });
+
+  let replayed = 0;
+  for (const item of page.objects.filter((candidate) => candidate.key.endsWith('.json'))) {
+    const object = await readR2Object(bucket, item.key);
+    if (!object) continue;
+    let progress: MakeMoneyProjectionProgress | null = null;
+    try {
+      progress = parseProjectionProgress(decodeJson(object.body));
+    } catch {
+      progress = null;
+    }
+    if (!progress || progress.unresolved_entity_ids.length === 0) continue;
+
+    const text = await getFromR2(progress.bundle_key, bucket);
+    if (!text) {
+      throw new Error(`Canonical research bundle disappeared during unresolved replay: ${progress.bundle_key}`);
+    }
+    const bundle = JSON.parse(text) as unknown;
+    const report = await materializeMakeMoneyViews(bundle, maxTargets);
+    replayed += report.attempted;
+  }
+
+  const nextCursor = page.truncated && page.cursor ? page.cursor : null;
+  const nextState: MakeMoneyUnresolvedReplayState = {
+    schema_version: UNRESOLVED_REPLAY_STATE_SCHEMA,
+    cursor: nextCursor,
+    updated_at: new Date().toISOString(),
+  };
+  await putR2MutableView({
+    bucket,
+    key: UNRESOLVED_REPLAY_STATE_KEY,
+    body: JSON.stringify(nextState),
+    contentType: 'application/json',
+    metadata: {
+      'foundation-view-consumer': 'make-money',
+      'foundation-view-unresolved-replay-state': 'true',
+    },
+  }, {
+    expectedEtag: replay.object?.etag ?? null,
+  });
+
+  return replayed;
+}
+
 async function readRebuildStateObject(): Promise<{
   bucket: string;
   object: R2ObjectRead | null;
@@ -625,52 +712,56 @@ export async function isMakeMoneyViewBackfillComplete(): Promise<boolean> {
  * this repeatedly without maintaining external state.
  */
 export async function rebuildMakeMoneyViewsPage(limit = 20): Promise<MakeMoneyViewRebuildReport> {
-  const boundedLimit = Math.min(Math.max(1, Math.floor(limit)), 50);
+  const boundedLimit = Math.min(Math.max(1, Math.floor(limit)), MAX_ENTITIES_PER_PROJECTION_CALL);
   const { bucket, object: stateObject, state } = await readRebuildStateObject();
+
+  // Once the canonical backfill is complete, keep cycling the much smaller
+  // projection-progress ledger so references whose Entity core appeared later
+  // are eventually replayed without rescanning the entire research lake.
   if (state.complete) {
+    const unresolvedReplayed = await replayUnresolvedProjectionPage(bucket, boundedLimit);
     return {
       complete: true,
       processed_this_run: 0,
       processed_total: state.processed_bundles,
       next_cursor: null,
       materialized_entities: 0,
+      unresolved_replayed: unresolvedReplayed,
     };
   }
 
   const dataset = foundationDataset('researchBundles');
+  // One canonical bundle per internal request keeps the R2 subrequest/write
+  // budget bounded. Large bundles continue through their per-run projection
+  // progress on subsequent calls.
   const page = await listR2Objects({
     bucket,
     prefix: dataset.prefix,
     cursor: state.cursor || undefined,
-    limit: boundedLimit,
+    limit: 1,
   });
 
+  const item = page.objects.find((candidate) => candidate.key.endsWith('.json'));
   let processed = 0;
   let materializedEntities = 0;
-  let pageFullyProcessed = true;
-  for (const item of page.objects.filter((candidate) => candidate.key.endsWith('.json'))) {
+  let bundleInitialScanComplete = true;
+
+  if (item) {
     const text = await getFromR2(item.key, bucket);
     if (!text) throw new Error(`Canonical research bundle disappeared during rebuild: ${item.key}`);
     const bundle = JSON.parse(text) as unknown;
-    const report = await materializeMakeMoneyViews(bundle);
+    const report = await materializeMakeMoneyViews(bundle, boundedLimit);
     materializedEntities += report.attempted;
-    // Large bundles pause the page until their initial target scan is fully
-    // chunked. Unresolved external references do not stall the global rebuild;
-    // they remain in per-run progress and are retried by publisher deliveries,
-    // while a later entity-core bundle hydrates all canonical history.
-    if (!report.complete && report.next_index < report.total_targets) {
-      pageFullyProcessed = false;
-      break;
-    }
-    processed += 1;
+    bundleInitialScanComplete = report.next_index >= report.total_targets;
+    if (bundleInitialScanComplete) processed = 1;
   }
 
-  const nextCursor = pageFullyProcessed && page.truncated && page.cursor
+  const nextCursor = bundleInitialScanComplete && page.truncated && page.cursor
     ? page.cursor
-    : (pageFullyProcessed ? null : state.cursor);
+    : (bundleInitialScanComplete ? null : state.cursor);
   const nextState: MakeMoneyViewRebuildState = {
     schema_version: REBUILD_STATE_SCHEMA,
-    complete: pageFullyProcessed && !nextCursor,
+    complete: bundleInitialScanComplete && !nextCursor,
     cursor: nextCursor,
     processed_bundles: state.processed_bundles + processed,
     updated_at: new Date().toISOString(),
@@ -695,5 +786,6 @@ export async function rebuildMakeMoneyViewsPage(limit = 20): Promise<MakeMoneyVi
     processed_total: nextState.processed_bundles,
     next_cursor: nextState.cursor,
     materialized_entities: materializedEntities,
+    unresolved_replayed: 0,
   };
 }
