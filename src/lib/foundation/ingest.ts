@@ -1632,6 +1632,7 @@ export async function ingestFoundationResearch(
   };
 
   let canonicalWritesSucceeded = false;
+  let canonicalBundleCommitted = false;
   try {
     // 3) Commit canonical create-only objects.
     for (let index = 0; index < plan.length; index += 1) {
@@ -1670,6 +1671,9 @@ export async function ingestFoundationResearch(
         source_evidence_ids: [...new Set(item.sourceEvidenceIds)],
         readback: result.readback,
       });
+      if (item.logicalRole === 'research_bundle') {
+        canonicalBundleCommitted = true;
+      }
       providerCalls.head_bucket += result.provider_calls.head_bucket;
       providerCalls.get_object += result.provider_calls.get_object;
       providerCalls.put_object += result.provider_calls.put_object;
@@ -1685,7 +1689,10 @@ export async function ingestFoundationResearch(
       providerCalls.put_object += finalized.putCalls;
     }
   } catch (error) {
-    if (!canonicalWritesSucceeded) {
+    // Once the immutable research bundle itself exists, keep the reservation:
+    // a retry can recover/finalize it from that committed canonical history.
+    // Release only when the canonical bundle never committed.
+    if (!canonicalBundleCommitted) {
       await Promise.all(
         reservationHandles.map((handle) => releaseStableEntityIdentityReservation(handle))
       );
