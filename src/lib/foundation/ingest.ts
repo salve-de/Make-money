@@ -1118,7 +1118,8 @@ function identityRecordFromView(detail: Awaited<ReturnType<typeof readMakeMoneyV
 
 const ENTITY_IDENTITY_AUTHORITY_PREFIX = 'views/foundation-ingest/v2/entity-identity/';
 const MAX_IDENTITY_CAS_RETRIES = 5;
-const IDENTITY_RESERVATION_TTL_MS = 10 * 60 * 1000;
+const IDENTITY_RESERVATION_TTL_MS = 60 * 60 * 1000;
+const IDENTITY_RESERVATION_RENEW_AFTER_MS = 5 * 60 * 1000;
 
 interface EntityIdentityReservation extends JsonObject {
   run_id: string;
@@ -1268,13 +1269,23 @@ function authorityWithCommittedReservation(
   authority: EntityIdentityAuthority,
   reservation: EntityIdentityReservation
 ): EntityIdentityAuthority {
+  const authorityTime = Date.parse(authority.updated_at);
+  const reservationTime = Date.parse(reservation.updated_at);
+  const reservationIsNewer =
+    !Number.isFinite(authorityTime) ||
+    (Number.isFinite(reservationTime) && reservationTime >= authorityTime);
+
   return {
     ...authority,
-    canonical_name: reservation.canonical_name,
-    canonical_identifier: reservation.canonical_identifier || authority.canonical_identifier,
-    domain: reservation.domain || authority.domain,
+    // Durable identifier/domain may fill previously unknown values, but an
+    // older delayed bundle must never roll back a newer name/timestamp.
+    canonical_name: reservationIsNewer
+      ? reservation.canonical_name
+      : authority.canonical_name,
+    canonical_identifier: authority.canonical_identifier || reservation.canonical_identifier,
+    domain: authority.domain || reservation.domain,
     source_run_ids: [...new Set([...authority.source_run_ids, reservation.run_id])],
-    updated_at: reservation.updated_at,
+    updated_at: reservationIsNewer ? reservation.updated_at : authority.updated_at,
     reservation: null,
   };
 }
@@ -1422,6 +1433,65 @@ async function reserveStableEntityIdentity(input: {
   }
 
   throw new Error(`Entity identity reservation retries exhausted for ${entityId}`);
+}
+
+async function renewStableEntityIdentityReservation(
+  handle: EntityIdentityReservationHandle
+): Promise<{ getCalls: number; putCalls: number }> {
+  let getCalls = 0;
+  let putCalls = 0;
+
+  for (let attempt = 0; attempt < MAX_IDENTITY_CAS_RETRIES; attempt += 1) {
+    const currentObject = await readR2Object(handle.bucket, handle.key);
+    getCalls += 1;
+    const currentJson = currentObject ? decodeJsonObject(currentObject.body) : null;
+    const authority = currentJson ? parseIdentityAuthority(currentJson) : null;
+    if (!currentObject || !authority) {
+      throw new Error(`Entity identity authority missing during renewal: ${handle.key}`);
+    }
+    if (!authority.reservation) {
+      if (authority.source_run_ids.includes(handle.runId)) return { getCalls, putCalls };
+      throw new Error(`Entity identity reservation missing during renewal: ${handle.key}`);
+    }
+    if (authority.reservation.run_id !== handle.runId) {
+      throw new R2ViewConcurrentModificationError(handle.bucket, handle.key);
+    }
+
+    const nowMs = Date.now();
+    const next: EntityIdentityAuthority = {
+      ...authority,
+      reservation: {
+        ...authority.reservation,
+        expires_at: new Date(nowMs + IDENTITY_RESERVATION_TTL_MS).toISOString(),
+      },
+    };
+
+    try {
+      const result = await putR2MutableView({
+        bucket: handle.bucket,
+        key: handle.key,
+        body: JSON.stringify(next),
+        contentType: 'application/json',
+        metadata: {
+          'foundation-view-purpose': 'entity-identity-authority-renewal',
+          'foundation-entity-id': handle.entityId,
+          'foundation-run-id': handle.runId,
+        },
+      }, {
+        expectedEtag: currentObject.etag ?? null,
+      });
+      if (result.status !== 'UNCHANGED') putCalls += 1;
+      return { getCalls, putCalls };
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_IDENTITY_CAS_RETRIES) {
+        putCalls += 1;
+        continue;
+      }
+      throw error;
+    }
+  }
+
+  throw new Error(`Entity identity renewal retries exhausted for ${handle.entityId}`);
 }
 
 async function finalizeStableEntityIdentity(
@@ -1636,9 +1706,21 @@ export async function ingestFoundationResearch(
   };
 
   let canonicalBundleCommitted = false;
+  let nextIdentityRenewalAt = Date.now() + IDENTITY_RESERVATION_RENEW_AFTER_MS;
   try {
     // 3) Commit canonical create-only objects.
     for (let index = 0; index < plan.length; index += 1) {
+      if (
+        reservationHandles.length > 0 &&
+        Date.now() >= nextIdentityRenewalAt
+      ) {
+        for (const handle of reservationHandles) {
+          const renewed = await renewStableEntityIdentityReservation(handle);
+          providerCalls.get_object += renewed.getCalls;
+          providerCalls.put_object += renewed.putCalls;
+        }
+        nextIdentityRenewalAt = Date.now() + IDENTITY_RESERVATION_RENEW_AFTER_MS;
+      }
       const item = plan[index];
       const compatible = compatibleEntityReads.get(index);
       if (compatible) {
