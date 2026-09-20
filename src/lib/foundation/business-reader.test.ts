@@ -144,6 +144,7 @@ describe('Foundation list read path', () => {
     const entityId = 'ent_business_fedcba9876543210fedc';
     const bundle = {
       schema_version: 'research-bundle.v1',
+      retrieved_at: '2026-09-20T12:34:56Z',
       entities: [],
       claims: [{
         claim_id: 'cl_cccccccccccccccccccccccc',
@@ -195,6 +196,7 @@ describe('Foundation list read path', () => {
 
     expect(detail.claims).toHaveLength(1);
     expect(detail.metrics).toHaveLength(1);
+    expect(detail.observedAt).toBe('2026-09-20T12:34:56Z');
     expect(detail.valueProfile.moneySignal).toContain('MRR');
   });
 
