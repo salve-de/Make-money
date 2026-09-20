@@ -47,13 +47,14 @@ export function isFoundationDossierReady(summary: FoundationValueSummary): boole
  */
 function inferSector(text: string): SectorCategory {
   const norm = text.toLowerCase();
-  if (norm.includes('ai') || norm.includes('automation') || norm.includes('robot')) return 'AI_AUTOMATION';
-  if (norm.includes('newsletter') || norm.includes('media') || norm.includes('newsroom') || norm.includes('podcast') || norm.includes('publishing') || norm.includes('education')) return 'CONTENT_MEDIA';
-  if (norm.includes('saas') || norm.includes('tool') || norm.includes('platform') || norm.includes('software')) return 'NICHE_SAAS';
-  if (norm.includes('manufacturing') || norm.includes('sensor') || norm.includes('factory')) return 'MONOPOLY_MFG';
-  if (norm.includes('payment') || norm.includes('finance') || norm.includes('fintech') || norm.includes('billing')) return 'FINTECH_INFRA';
-  if (norm.includes('asset') || norm.includes('hardware') || norm.includes('estate')) return 'PHYSICAL_ASSET';
-  return 'NICHE_SAAS';
+  if (/\bai\b|artificial intelligence|automation|robot|人工知能|自動化|ロボット/.test(norm)) return 'AI_AUTOMATION';
+  if (/newsletter|media|newsroom|podcast|publishing|education|出版|メディア|教育/.test(norm)) return 'CONTENT_MEDIA';
+  if (/saas|software|developer tool|browser extension|plugin|ソフトウェア|ツール/.test(norm)) return 'NICHE_SAAS';
+  if (/manufacturing|manufacturer|factory|industrial|machinery|sensor|製造|工場|メーカー|産業機械/.test(norm)) return 'MONOPOLY_MFG';
+  if (/payment|finance|fintech|billing|banking|決済|金融|請求/.test(norm)) return 'FINTECH_INFRA';
+  if (/real estate|property|hardware|physical asset|equipment|不動産|ハードウェア|設備|物理資産/.test(norm)) return 'PHYSICAL_ASSET';
+  if (/retail|store|shop|restaurant|salon|clinic|agency|local service|小売|店舗|飲食|美容|診療|代理店|地域サービス/.test(norm)) return 'LOCAL_SERVICES';
+  return 'UNKNOWN';
 }
 
 /**
@@ -76,9 +77,14 @@ export function inferArchitecturePattern(entityType: string, text?: string): str
   if (/project|task|業務管理|進捗/i.test(combined)) return '業務管理SaaS';
   if (/open-source|oss/i.test(combined)) return 'OSS支援';
   if (/automation|自動化/i.test(combined)) return '業務自動化';
+  if (/manufacturing|manufacturer|factory|industrial|製造|工場|メーカー/i.test(combined)) return '製造事業';
+  if (/retail|store|shop|小売|店舗/i.test(combined)) return '店舗小売';
+  if (/restaurant|food service|飲食/i.test(combined)) return '飲食事業';
+  if (/local service|salon|clinic|agency|サービス|美容|診療|代理店/i.test(combined)) return '地域サービス';
+  if (/hardware|equipment|physical asset|real estate|ハードウェア|設備|不動産/i.test(combined)) return '物理資産型';
   if (/ai|人工知能/i.test(combined)) return 'AI特化SaaS';
   if (/saas|software|ツール|プロダクト/i.test(combined)) return 'B2B SaaS';
-  return '直販サブスク';
+  return '事業型未確認';
 }
 
 /**
@@ -332,22 +338,19 @@ export function adaptFoundationSummaryToFinancialEntity(
     {
       id: `ev_${summary.id}_blueprint`,
       type: 'LOOT_BLUEPRINT',
-      title: '金抜きの実動配管アーティファクト',
-      badge: '現場実動配管',
+      title: '再現条件の確認ポイント',
+      badge: pattern,
       // This is an analyst projection, not evidence about the source entity.
+      // Keep it industry-neutral until pricing, channel and delivery mechanics
+      // are actually observed.
       evidenceStatus: 'ESTIMATED',
-      punchline: (() => {
-        const target = headline.replace(/[。、].*$/, '').trim().slice(0, 25);
-        return target.length > 5 && !/^[a-zA-Z\s]+$/.test(target)
-          ? `「${target}」の仕組みを国内ニッチへ横展開する即戦力モデル`
-          : `『${summary.name}』の${pattern}モデルを国内ニッチへ横展開する即戦力設計図`;
-      })(),
+      punchline: `『${summary.name}』の再現条件は、公開Evidenceから確認できた範囲だけで評価`,
       details: [
-        '① 大手ツールがカバーしきれないニッチ業務フローを特定し、単一特化LPで初期検証。',
-        '② Stripe等の定額サブスクリプションを組み込み、年払い一括割引で前金を回収。',
-        '③ 蓄積データを元に解約不能な業務工夫を構築し、高利益率を固定化。',
+        `① 業態: ${sector === 'UNKNOWN' ? '未確認' : sector}。ソフトウェア・店舗・製造などを推測で補完しない。`,
+        `② 課金・販売方式: ${rawMoney ? cleanIntelligenceText(rawMoney) : '未確認'}。サブスクや年払いを前提にしない。`,
+        `③ 集客・運営・原価構造: ${cleanIntelligenceText(vp.tractionSignal || vp.mechanismSignal || '未確認')}。追加Evidenceが集まるまで断定しない。`,
       ],
-      sourceNote: 'Make-Money アナリスト転用設計',
+      sourceNote: 'Make-Money アナリスト転用設計（未確認事項は仮定しない）',
     },
   ];
 
@@ -366,11 +369,18 @@ export function adaptFoundationSummaryToFinancialEntity(
 
   // タグ構成（捏造を排除）
   const tags: string[] = [];
-  if (!isUnconfirmed && monthlyJpy > 0) {
-    tags.push('収益確認済');
-    tags.push('利益率80%超');
-  }
-  tags.push(sector === 'CONTENT_MEDIA' ? 'メディア・出版' : 'SaaS・ツール');
+  if (!isUnconfirmed && monthlyJpy > 0) tags.push('収益確認済');
+  const sectorTag: Record<SectorCategory, string> = {
+    AI_AUTOMATION: 'AI・自動化',
+    NICHE_SAAS: 'SaaS・ツール',
+    MONOPOLY_MFG: '製造・産業',
+    CONTENT_MEDIA: 'メディア・出版',
+    PHYSICAL_ASSET: '物理資産',
+    FINTECH_INFRA: 'Fintech・決済',
+    LOCAL_SERVICES: 'ローカルサービス',
+    UNKNOWN: '業種未確認',
+  };
+  tags.push(sectorTag[sector]);
 
   return {
     id: summary.id,
@@ -761,7 +771,7 @@ export function adaptFoundationDetailToFinancialEntity(
     name: entity.name,
     legalEntity: entity.canonicalIdentifier || undefined,
     tagline,
-    sector: inferSector(tagline),
+    sector: inferSector(`${entity.entityType} ${tagline}`),
     scale: inferScale(teamSize, monthlyJpy ? (monthlyJpy * 12) / 150 : null),
     founder,
     country: '未確認',
