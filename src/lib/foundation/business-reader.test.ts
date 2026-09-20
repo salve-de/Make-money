@@ -10,7 +10,7 @@ const state = vi.hoisted(() => ({
 
 vi.mock('@/lib/storage/r2', () => state);
 
-import { buildFoundationValueSummariesFromBundle, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
+import { buildFoundationBusinessCaseForEntity, buildFoundationValueSummariesFromBundle, foundationEntityIdsFromBundle, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
 
 describe('Foundation list read path', () => {
   beforeEach(() => {
@@ -139,6 +139,65 @@ describe('Foundation list read path', () => {
     expect(page[0]?.valueProfile.counts.evidence).toBe(2);
     expect(page[0]?.valueProfile.moneySignal).toContain('MRR');
   });
+
+  it('projects record-only enrichment bundles onto referenced existing entities', () => {
+    const entityId = 'ent_business_fedcba9876543210fedc';
+    const bundle = {
+      schema_version: 'research-bundle.v1',
+      entities: [],
+      claims: [{
+        claim_id: 'cl_cccccccccccccccccccccccc',
+        entity_ids: [entityId],
+        statement: 'Existing business added a new paid workflow.',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 0.9,
+        occurred_at: null,
+        evidence_ids: ['ev_enrichment'],
+      }],
+      metrics: [{
+        metric_id: 'mt_dddddddddddddddddddddddd',
+        entity_id: entityId,
+        metric_type: 'MRR',
+        value: 90000,
+        unit: null,
+        currency: 'USD',
+        period_start: null,
+        period_end: null,
+        point_in_time: '2026-09-20T00:00:00Z',
+        basis: 'reported',
+        scope: 'company',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        confidence: 0.9,
+        evidence_ids: ['ev_enrichment'],
+      }],
+      money_signals: [],
+      events: [],
+      relationships: [],
+      observations: [],
+      derived: [],
+    };
+
+    expect(foundationEntityIdsFromBundle(bundle)).toEqual([entityId]);
+
+    const detail = buildFoundationBusinessCaseForEntity(bundle, {
+      id: entityId,
+      name: 'Existing Business',
+      entityType: 'business',
+      aliases: [],
+      canonicalIdentifier: 'existing.example',
+      domain: 'existing.example',
+      status: 'operating',
+      observedAt: '2026-09-01T00:00:00Z',
+      evidenceIds: ['ev_base'],
+    });
+
+    expect(detail.claims).toHaveLength(1);
+    expect(detail.metrics).toHaveLength(1);
+    expect(detail.valueProfile.moneySignal).toContain('MRR');
+  });
+
 
   it('aggregates later canonical bundles while the serving-view migration is incomplete', async () => {
     const entityId = 'ent_demo_abcdef0123456789abcd';
