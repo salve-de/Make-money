@@ -3,6 +3,7 @@ import {
   buildFoundationBusinessCasesFromBundle,
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
+  readFoundationBusinessCaseCumulative,
   readFoundationEntitySummaryById,
   type FoundationBusinessCase,
   type FoundationValuePage,
@@ -25,6 +26,9 @@ const MAKE_MONEY_VIEW_SCHEMA = 'make-money-view.v2';
 const REBUILD_STATE_KEY = 'views/make-money/v1/_rebuild-state.json';
 const REBUILD_STATE_SCHEMA = 'make-money-view-rebuild-state.v1';
 const MAX_CAS_RETRIES = 5;
+const PROJECTION_PROGRESS_PREFIX = 'views/make-money/v1/_projection-progress/';
+const PROJECTION_PROGRESS_SCHEMA = 'make-money-view-projection-progress.v1';
+const MAX_ENTITIES_PER_PROJECTION_CALL = 25;
 
 interface MakeMoneyViewDocument {
   schema_version: typeof MAKE_MONEY_VIEW_SCHEMA;
@@ -45,6 +49,16 @@ interface MakeMoneyViewRebuildState {
   updated_at: string;
 }
 
+interface MakeMoneyProjectionProgress {
+  schema_version: typeof PROJECTION_PROGRESS_SCHEMA;
+  run_id: string;
+  next_index: number;
+  total_targets: number;
+  complete: boolean;
+  unresolved_entity_ids: string[];
+  updated_at: string;
+}
+
 export interface MakeMoneyViewMaterializationReport {
   source_run_id: string;
   attempted: number;
@@ -53,6 +67,10 @@ export interface MakeMoneyViewMaterializationReport {
   unchanged: number;
   concurrent_retries: number;
   unresolved_entity_ids: string[];
+  processed_this_call: number;
+  next_index: number;
+  total_targets: number;
+  complete: boolean;
   keys: string[];
 }
 
@@ -153,6 +171,77 @@ function parseViewDocument(value: unknown): MakeMoneyViewDocument | null {
     return null;
   }
   return object as unknown as MakeMoneyViewDocument;
+}
+
+function projectionProgressKey(runId: string): string {
+  return `${PROJECTION_PROGRESS_PREFIX}${encodeURIComponent(runId)}.json`;
+}
+
+function parseProjectionProgress(value: unknown): MakeMoneyProjectionProgress | null {
+  const object = objectValue(value);
+  if (
+    !object ||
+    object.schema_version !== PROJECTION_PROGRESS_SCHEMA ||
+    typeof object.run_id !== 'string' ||
+    !Number.isInteger(object.next_index) ||
+    !Number.isInteger(object.total_targets) ||
+    typeof object.complete !== 'boolean' ||
+    !Array.isArray(object.unresolved_entity_ids) ||
+    !object.unresolved_entity_ids.every((item) => typeof item === 'string') ||
+    typeof object.updated_at !== 'string'
+  ) {
+    return null;
+  }
+  return object as unknown as MakeMoneyProjectionProgress;
+}
+
+async function readProjectionProgress(
+  bucket: string,
+  runId: string,
+  totalTargets: number
+): Promise<{ object: R2ObjectRead | null; state: MakeMoneyProjectionProgress }> {
+  const object = await readR2Object(bucket, projectionProgressKey(runId));
+  if (!object) {
+    return {
+      object: null,
+      state: {
+        schema_version: PROJECTION_PROGRESS_SCHEMA,
+        run_id: runId,
+        next_index: 0,
+        total_targets: totalTargets,
+        complete: totalTargets === 0,
+        unresolved_entity_ids: [],
+        updated_at: new Date(0).toISOString(),
+      },
+    };
+  }
+
+  const state = parseProjectionProgress(decodeJson(object.body));
+  if (!state || state.run_id !== runId || state.total_targets !== totalTargets) {
+    throw new Error(`Invalid Make-Money projection progress for ${runId}`);
+  }
+  return { object, state };
+}
+
+async function writeProjectionProgress(
+  bucket: string,
+  runId: string,
+  prior: R2ObjectRead | null,
+  state: MakeMoneyProjectionProgress
+): Promise<void> {
+  await putR2MutableView({
+    bucket,
+    key: projectionProgressKey(runId),
+    body: JSON.stringify(state),
+    contentType: 'application/json',
+    metadata: {
+      'foundation-view-consumer': 'make-money',
+      'foundation-view-projection-progress': 'true',
+      'foundation-run-id': runId,
+    },
+  }, {
+    expectedEtag: prior?.etag ?? null,
+  });
 }
 
 function parseRebuildState(value: unknown): MakeMoneyViewRebuildState | null {
@@ -320,39 +409,77 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     throw new Error('Make-Money view projection requires bundle.run_id and bundle.retrieved_at');
   }
 
-  const casesById = new Map(
+  const targetIds = [...new Set(foundationEntityIdsFromBundle(bundleInput))].sort();
+  const bucket = await getFoundationBucketAsync('lake');
+  const progressRead = await readProjectionProgress(bucket, runId, targetIds.length);
+  const progress = progressRead.state;
+
+  if (progress.complete) {
+    return {
+      source_run_id: runId,
+      attempted: 0,
+      created: 0,
+      updated: 0,
+      unchanged: 0,
+      concurrent_retries: 0,
+      unresolved_entity_ids: progress.unresolved_entity_ids,
+      processed_this_call: 0,
+      next_index: progress.next_index,
+      total_targets: progress.total_targets,
+      complete: true,
+      keys: [],
+    };
+  }
+
+  const explicitCases = new Map(
     buildFoundationBusinessCasesFromBundle(bundleInput).map((detail) => [detail.id, detail])
   );
-  const unresolvedEntityIds: string[] = [];
-  for (const entityId of foundationEntityIdsFromBundle(bundleInput)) {
-    if (casesById.has(entityId)) continue;
-    const summary = await readFoundationEntitySummaryById(entityId);
-    if (!summary) {
-      // A dangling counterparty/reference must not prevent resolvable entities
-      // in the same canonical bundle from receiving their serving projection.
-      unresolvedEntityIds.push(entityId);
-      continue;
-    }
-    casesById.set(
-      entityId,
-      buildFoundationBusinessCaseForEntity(bundleInput, summary)
-    );
-  }
-  const cases = [...casesById.values()];
+  const startIndex = progress.next_index;
+  const endIndex = Math.min(
+    targetIds.length,
+    startIndex + MAX_ENTITIES_PER_PROJECTION_CALL
+  );
+  const chunkIds = targetIds.slice(startIndex, endIndex);
+  const unresolved = new Set(progress.unresolved_entity_ids);
 
-  const bucket = await getFoundationBucketAsync('lake');
   const report: MakeMoneyViewMaterializationReport = {
     source_run_id: runId,
-    attempted: cases.length,
+    attempted: 0,
     created: 0,
     updated: 0,
     unchanged: 0,
     concurrent_retries: 0,
-    unresolved_entity_ids: unresolvedEntityIds,
+    unresolved_entity_ids: [],
+    processed_this_call: chunkIds.length,
+    next_index: endIndex,
+    total_targets: targetIds.length,
+    complete: endIndex >= targetIds.length,
     keys: [],
   };
 
-  for (const detail of cases) {
+  for (const entityId of chunkIds) {
+    let detail = explicitCases.get(entityId) || null;
+    const currentView = await readMakeMoneyViewDetail(entityId);
+
+    if (!detail) {
+      const summary = await readFoundationEntitySummaryById(entityId);
+      if (!summary) {
+        unresolved.add(entityId);
+        continue;
+      }
+      detail = buildFoundationBusinessCaseForEntity(bundleInput, summary);
+    }
+
+    // If this is the first serving view for a now-resolvable entity, hydrate it
+    // from all canonical bundles so facts that arrived before the entity core
+    // existed are recovered automatically.
+    if (!currentView) {
+      const cumulative = await readFoundationBusinessCaseCumulative(entityId);
+      if (cumulative) detail = cumulative;
+    }
+
+    report.attempted += 1;
+    unresolved.delete(entityId);
     const key = `${MAKE_MONEY_VIEW_PREFIX}${detail.id}.json`;
     const result = await writeEntityViewWithCas(bucket, key, detail, runId, retrievedAt);
     report.keys.push(key);
@@ -361,6 +488,19 @@ export async function materializeMakeMoneyViews(bundleInput: unknown): Promise<M
     else if (result.status === 'UPDATED') report.updated += 1;
     else report.unchanged += 1;
   }
+
+  report.unresolved_entity_ids = [...unresolved].sort();
+
+  const nextProgress: MakeMoneyProjectionProgress = {
+    schema_version: PROJECTION_PROGRESS_SCHEMA,
+    run_id: runId,
+    next_index: endIndex,
+    total_targets: targetIds.length,
+    complete: endIndex >= targetIds.length,
+    unresolved_entity_ids: report.unresolved_entity_ids,
+    updated_at: new Date().toISOString(),
+  };
+  await writeProjectionProgress(bucket, runId, progressRead.object, nextProgress);
 
   return report;
 }
@@ -469,19 +609,26 @@ export async function rebuildMakeMoneyViewsPage(limit = 20): Promise<MakeMoneyVi
 
   let processed = 0;
   let materializedEntities = 0;
+  let pageFullyProcessed = true;
   for (const item of page.objects.filter((candidate) => candidate.key.endsWith('.json'))) {
     const text = await getFromR2(item.key, bucket);
     if (!text) throw new Error(`Canonical research bundle disappeared during rebuild: ${item.key}`);
     const bundle = JSON.parse(text) as unknown;
     const report = await materializeMakeMoneyViews(bundle);
     materializedEntities += report.attempted;
+    if (!report.complete) {
+      pageFullyProcessed = false;
+      break;
+    }
     processed += 1;
   }
 
-  const nextCursor = page.truncated && page.cursor ? page.cursor : null;
+  const nextCursor = pageFullyProcessed && page.truncated && page.cursor
+    ? page.cursor
+    : (pageFullyProcessed ? null : state.cursor);
   const nextState: MakeMoneyViewRebuildState = {
     schema_version: REBUILD_STATE_SCHEMA,
-    complete: !nextCursor,
+    complete: pageFullyProcessed && !nextCursor,
     cursor: nextCursor,
     processed_bundles: state.processed_bundles + processed,
     updated_at: new Date().toISOString(),
