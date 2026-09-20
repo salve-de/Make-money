@@ -776,9 +776,16 @@ export function buildFoundationBusinessCaseForEntity(
   const records = createRecordAccumulator();
   collectBundleRecords(bundle, baseSummary.id, records);
   const explicitSummary = bundleEntitySummary(bundle, baseSummary.id);
+  const bundleRetrievedAt = stringValue(bundle, 'retrieved_at');
   const summary = explicitSummary
     ? mergeFoundationEntitySummary(baseSummary, explicitSummary)
-    : baseSummary;
+    : {
+        ...baseSummary,
+        // Record-only enrichment bundles have no entity.observed_at. Use the
+        // bundle retrieval time as the ordering clock for this incoming slice
+        // so delayed old bundles cannot win ties against newer enrichment.
+        observedAt: bundleRetrievedAt || baseSummary.observedAt,
+      };
 
   return {
     ...summary,
