@@ -39,7 +39,7 @@ const MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL = 25;
 // A first-page request already reads up to 100 materialized view summaries.
 // Keep the optional new-arrival promotion bounded so one browser request does
 // not fan out into hundreds of extra R2 detail reads and exceed Worker limits.
-const MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE = 25;
+const MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE = 10;
 const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
 const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
 const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
@@ -404,11 +404,46 @@ export async function canResumeMakeMoneyProjection(
   // Canonical research bundles use the same JSON serialization contract as
   // ingest.jsonBytes(): JSON.stringify(value) followed by a trailing newline.
   const expectedCanonical = `${JSON.stringify(bundleInput)}\n`;
-  if (canonical !== expectedCanonical) {
+  if (canonical !== expectedCanonical && !projectionRetryMatchesCanonical(canonical, bundleInput)) {
     throw new Error(`Canonical research bundle does not match projection retry for ${runId}`);
   }
 
   return { can_resume: true, run_id: runId, get_object_calls: 2 };
+}
+
+/**
+ * Projection retries must not replace an immutable canonical bundle. A retry
+ * can, however, arrive from a newer schema serializer that makes previously
+ * omitted optional object fields explicit as null. Treat that representation
+ * difference as compatible while continuing to reject every non-null change.
+ * Array positions (including nulls) remain significant.
+ */
+export function projectionRetryMatchesCanonical(
+  canonicalBody: string,
+  incomingBundle: unknown
+): boolean {
+  try {
+    const canonicalValue = JSON.parse(canonicalBody) as unknown;
+    return JSON.stringify(normalizeProjectionRetryValue(canonicalValue))
+      === JSON.stringify(normalizeProjectionRetryValue(incomingBundle));
+  } catch {
+    return false;
+  }
+}
+
+function normalizeProjectionRetryValue(value: unknown): unknown {
+  if (Array.isArray(value)) {
+    return value.map(normalizeProjectionRetryValue);
+  }
+  if (value && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.entries(value as Record<string, unknown>)
+        .filter(([, entry]) => entry !== null)
+        .sort(([left], [right]) => left.localeCompare(right))
+        .map(([key, entry]) => [key, normalizeProjectionRetryValue(entry)]),
+    );
+  }
+  return value;
 }
 
 async function writeProjectionProgress(
@@ -1209,7 +1244,7 @@ async function readMakeMoneyViewSummary(
 export async function mapServingReads<T, R>(items: readonly T[], read: (item: T) => Promise<R>): Promise<R[]> {
   const results: R[] = new Array(items.length);
   let next = 0;
-  await Promise.all(Array.from({ length: Math.min(8, items.length) }, async () => {
+  await Promise.all(Array.from({ length: Math.min(4, items.length) }, async () => {
     while (next < items.length) {
       const index = next++;
       results[index] = await read(items[index]);

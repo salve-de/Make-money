@@ -40,6 +40,7 @@ const MAX_ENTITY_ID_LENGTH = 200;
 const MAX_R2_CURSOR_LENGTH = 2048;
 const FOUNDATION_SEARCH_OBJECT_PAGE_SIZE = 100;
 const FOUNDATION_VIEW_PREFIX = 'views/make-money/v1/entities/';
+const FOUNDATION_READ_RETRY_DELAY_MS = 150;
 
 type CacheEntry<T> = {
   expiresAt: number;
@@ -245,6 +246,20 @@ async function readCached<T>(
   }
 }
 
+async function retryFoundationRead<T>(loader: () => Promise<T>): Promise<T> {
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      return await loader();
+    } catch (error) {
+      lastError = error;
+      if (attempt === 1) throw error;
+      await new Promise<void>((resolve) => setTimeout(resolve, FOUNDATION_READ_RETRY_DELAY_MS));
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error('Foundation read failed');
+}
+
 function response(body: unknown, status = 200, headers: Record<string, string> = {}): NextResponse {
   return NextResponse.json(body, {
     status,
@@ -446,13 +461,13 @@ export async function GET(request: Request) {
   const cacheKey = `${limit}:${cursor || 'first'}`;
 
   try {
-    const materializedViewReady = await isMakeMoneyViewBackfillComplete();
+    const materializedViewReady = await retryFoundationRead(() => isMakeMoneyViewBackfillComplete());
     const page = await readCached(
       pageCache,
       `view:${cacheKey}`,
       PAGE_TTL_MS,
       MAX_PAGE_CACHE_ENTRIES,
-      () => readMakeMoneyValuePage({ cursor, limit })
+      () => retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }))
     );
     parseFoundationValuePage(page);
 
