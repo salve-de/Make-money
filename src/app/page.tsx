@@ -24,11 +24,12 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   // the inspector can render before the bounded client catalog has loaded.
   // Loading the index module is cheap here; reading the full catalog is not.
   {
-    const [ledgerModule, publicEntityModule, localIndexModule, registryModule] = await Promise.all([
+    const [ledgerModule, publicEntityModule, localIndexModule, registryModule, catalogReleaseModule] = await Promise.all([
       import('@/platform/data/mockLedgerData'),
       import('@/lib/company-access/public-entity'),
       import('@/lib/company-access/local-entity-index'),
       import('../../data/collected-registry.json'),
+      import('@/lib/company-access/catalog-release'),
     ]);
     entityAliases = ledgerModule.INSTITUTIONAL_ENTITY_ALIASES;
     requestedEntityId = requestedEntityParam ? entityAliases[requestedEntityParam] || requestedEntityParam : undefined;
@@ -46,7 +47,7 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
       ? (requestedEntityId ? undefined : 'ent_photoai')
       : requestedEntityId;
     selected = bootstrapEntityId ? await localIndexModule.findCachedPublishableEntity(bootstrapEntityId) : null;
-    if (!productionCatalog && requestedEntityId && !selected) {
+    if (requestedEntityId && !selected && !catalogReleaseModule.hasCatalogReleaseEntity(requestedEntityId)) {
       unavailable = registryModule.default.find((row) => row.id.toLowerCase() === requestedEntityId!.toLowerCase()) ?? null;
     }
   }

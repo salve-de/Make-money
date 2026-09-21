@@ -66,3 +66,10 @@ export async function findReleaseEntity(id: string): Promise<FinancialEntity | n
 export function releaseApprovalCandidateIds(): Set<string> {
   return new Set(manifest.approvalCandidateIds);
 }
+
+/** Check release membership without reading the full dossier from R2. */
+export function hasCatalogReleaseEntity(id: string): boolean {
+  const normalizedId = id.trim().toLowerCase();
+  if (!normalizedId) return false;
+  return Object.keys(manifest.details).some((candidate) => candidate.toLowerCase() === normalizedId);
+}
