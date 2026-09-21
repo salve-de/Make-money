@@ -580,15 +580,19 @@ function joinNormalizedReferenceRecords(queue: ScheduledQueueRun, issues: string
   }
 
   const sourceByIdentity = new Map<string, JsonRecord>();
+  const sourceById = new Map<string, JsonRecord[]>();
   for (const source of sources) {
     const sourceId = text(source.source_id);
     const locator = text(source.canonical_url);
     const identity = sourceId && locator ? `${sourceId}\u0000${locator}` : null;
-    if (!identity || sourceByIdentity.has(identity)) {
+    if (!sourceId || !locator || !identity || sourceByIdentity.has(identity)) {
       issues.push('normalized Source IDs and URLs are missing or duplicated');
       return { rows: [], attempts: [] };
     }
     sourceByIdentity.set(identity, source);
+    const candidates = sourceById.get(sourceId) || [];
+    candidates.push(source);
+    sourceById.set(sourceId, candidates);
   }
 
   const evidenceByRef = new Map<number, JsonRecord>();
@@ -598,11 +602,30 @@ function joinNormalizedReferenceRecords(queue: ScheduledQueueRun, issues: string
     const ref = referenceNumber(item.ref);
     const evidenceId = text(item.evidence_id);
     const sourceId = text(item.source_id);
-    const locator = text(item.source_url);
-    const source = sourceId && locator ? sourceByIdentity.get(`${sourceId}\u0000${locator}`) : null;
+    const candidates = sourceId ? sourceById.get(sourceId) || [] : [];
+    const evidenceLocator = text(item.source_url);
+    let source: JsonRecord | null = null;
     if (!ref || !evidenceId || !/^ev_[a-f0-9]{24}$/.test(evidenceId) || evidenceByRef.has(ref)
-      || evidenceById.has(evidenceId) || !source || !sourceId || !locator) {
+      || evidenceById.has(evidenceId) || !sourceId || candidates.length === 0) {
       issues.push('normalized Evidence refs, IDs, or Source joins are missing, invalid, or duplicated');
+      return { rows: [], attempts: [] };
+    }
+    if (evidenceLocator) {
+      const matches = candidates.filter((candidate) => text(candidate.canonical_url) === evidenceLocator);
+      if (matches.length !== 1) {
+        issues.push(`normalized Evidence[${item.ref}] source_id ${sourceId} has ${matches.length} canonical_url matches for ${evidenceLocator}`);
+        return { rows: [], attempts: [] };
+      }
+      source = matches[0];
+    } else if (candidates.length === 1) {
+      source = candidates[0];
+    } else {
+      issues.push(`normalized Evidence[${item.ref}] source_id ${sourceId} is ambiguous without source_url`);
+      return { rows: [], attempts: [] };
+    }
+    const locator = evidenceLocator || text(source.canonical_url);
+    if (!locator) {
+      issues.push(`normalized Evidence[${item.ref}] has no canonical source locator`);
       return { rows: [], attempts: [] };
     }
     evidenceByRef.set(ref, item);
