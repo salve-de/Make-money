@@ -313,7 +313,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
       let lastError: unknown = null;
       for (let attempt = 0; attempt < 2; attempt += 1) {
         try {
-          const requestSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(15_000)]) : AbortSignal.timeout(15_000);
+          const requestSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(60_000)]) : AbortSignal.timeout(60_000);
           const res = await fetch(`/api/businesses?${params.toString()}`, { signal: requestSignal });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           payload = await res.json();
@@ -486,8 +486,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     foundationTotal,
     dataSource: catalog.error || dataSource,
     macroData,
-    foundationHasMore: foundationHasMore || catalog.hasMore,
-    foundationLoading: foundationLoading || catalog.loading,
+    foundationHasMore: foundationHasMore || catalog.hasMore, foundationLoading, catalogLoading: catalog.loading,
     newArrivalsRelease,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,

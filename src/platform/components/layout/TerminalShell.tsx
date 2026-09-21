@@ -57,6 +57,7 @@ export const TerminalShell: React.FC<{
     macroData,
     foundationHasMore,
     foundationLoading,
+    catalogLoading,
     catalogLoadedCount,
     catalogTotal,
     foundationLoadedCount,
@@ -256,7 +257,7 @@ export const TerminalShell: React.FC<{
             />
             <p className="px-3 py-1 text-[10px] text-zinc-500">
               表示 {filteredEntities.length.toLocaleString()}件 / curated読込済み {catalogLoadedCount.toLocaleString()}件 / 全対象 {catalogTotal === null ? '確認中' : catalogTotal.toLocaleString()}件
-              {' '}・Foundation読込済み {foundationLoadedCount.toLocaleString()}件{foundationTotal === null ? '' : ` / 検索対象 ${foundationTotal.toLocaleString()}件`}{foundationLoading ? ' ・追加取得中' : foundationHasMore ? ' ・追加読み込みあり' : ''}
+              {' '}・Foundation読込済み {foundationLoadedCount.toLocaleString()}件{foundationTotal === null ? '' : ` / 検索対象 ${foundationTotal.toLocaleString()}件`}{foundationLoading || catalogLoading ? ' ・追加取得中' : foundationHasMore ? ' ・追加読み込みあり' : ''}
               {' '}（別経路の件数はcurated総数へ加算しません）
             </p>
 
@@ -272,7 +273,7 @@ export const TerminalShell: React.FC<{
               onToggleTag={handleToggleTag}
               onLoadMore={loadMoreFoundation}
               hasMore={foundationHasMore}
-              isLoadingMore={foundationLoading}
+              isLoadingMore={catalogLoading}
             />
           </div>
         )}
