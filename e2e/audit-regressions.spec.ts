@@ -48,6 +48,10 @@ test('unconfirmed financials never present a zero as a measured result', async (
   await expect(financials).toContainText(/財務データ.*未確認|推計P&L|非公開/);
   await expect(financials.getByRole('table')).toHaveCount(0);
   await expect(financials).not.toContainText('¥0');
+  await page.getByRole('button', { name: '証拠', exact: true }).click();
+  const sources = page.locator('#section-sources');
+  await expect(sources).toContainText('この画面では原本保存を確認できません');
+  await expect(sources).not.toContainText('原本暗号保全済み');
 });
 
 test('an old duplicate entity URL still opens its canonical company', async ({ page }) => {

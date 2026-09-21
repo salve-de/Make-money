@@ -11,6 +11,7 @@ import {
 import type { FinancialEntity } from '@/platform/types/terminal';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
+import { findReleaseEntity, readReleaseSummaries, usesCatalogRelease } from './catalog-release';
 
 interface LocalEntityIndex {
   entities: FinancialEntity[];
@@ -37,10 +38,10 @@ export async function getCachedLocalEntityIndex(): Promise<LocalEntityIndex> {
       .filter(isPublishableEntity)
       .map(normalizeFinancialEntity);
 
-    const keyenceIdx = entities.findIndex((entity) => entity.id === 'ent_keyence');
-    if (keyenceIdx > 0) {
-      const [keyence] = entities.splice(keyenceIdx, 1);
-      entities.unshift(keyence);
+    const featuredIdx = entities.findIndex((entity) => entity.id === 'ent_photoai');
+    if (featuredIdx > 0) {
+      const [featured] = entities.splice(featuredIdx, 1);
+      entities.unshift(featured);
     }
 
     const byId = new Map<string, FinancialEntity>();
@@ -58,10 +59,12 @@ export async function getCachedLocalEntityIndex(): Promise<LocalEntityIndex> {
 }
 
 export async function readCachedLocalPublishableEntities(): Promise<FinancialEntity[]> {
+  if (await usesCatalogRelease()) return readReleaseSummaries();
   return (await getCachedLocalEntityIndex()).entities;
 }
 
 export async function findCachedPublishableEntity(id: string): Promise<FinancialEntity | null> {
+  if (await usesCatalogRelease()) return findReleaseEntity(id);
   const cache = await getCachedLocalEntityIndex();
   const raw = cache.byId.get(id)
     ?? cache.byId.get(id.toLowerCase())

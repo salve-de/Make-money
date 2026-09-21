@@ -6,6 +6,8 @@
 
 ## 採用方式
 
+2026-09-21追加: 既存の採用済み `data/entities-index.json` は、Foundation live viewとは別に、ソースhash固定の非公開catalog releaseとして提供する。詳細は既存immutable dossier path、一覧・Discoverは `views/make-money/catalog-v1/objects/<hash>.json.gz`。本番のローカルfilesystem依存を解消し、一覧は `/api/catalog` から100件単位、検索は配布カタログ全体を対象とする。元JSONと2,050件の保留改修は変更しない。保存・復元境界は [STORAGE.md](architecture/STORAGE.md) を参照。
+
 1. **一覧** — `ds.business.entities.core` の登録済み `entities/` prefix を R2 List の cursor でページングする。1ページ100件、画面側も100件単位で段階描画する。各行には、同じページの対象entityを既存bundleから読み取って作るアプリ内限定の `valueProfile`（事業、課題、価格/財務、初動、仕組み、時系列）を付ける。これは表示時の一時projectionであり、R2に保存しない。
 2. **詳細** — 選択された `entity_id` の entity object を読み、`ds.business.research-bundles.derived` を短い byte range で先に探索する。対象entityの可能性があるbundleだけ本体を読み、claims / metrics / money-signals / events / relationships / observations / derived を重複排除して表示する。
 3. **キャッシュ** — 同じWorker isolate内の短期メモリキャッシュ、ブラウザの短期 `Cache-Control`、bundle一覧・bundle候補のキャッシュを使う。R2へUI用indexを書き戻さない。

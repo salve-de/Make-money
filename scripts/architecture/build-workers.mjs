@@ -6,6 +6,8 @@ import { scanWorkerArtifact } from './check-worker-secrets.mjs';
 
 const { loadEnvConfig } = nextEnv;
 const root = process.cwd();
+const catalogCheck = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/prepare-catalog-release.ts', '--check'], { cwd: root, stdio: 'inherit' });
+if (catalogCheck.status !== 0) process.exit(catalogCheck.status ?? 1);
 const workerArgs = process.argv.slice(2).filter((argument) => argument !== '--');
 const safeBuildEnv = /^(NEXT_PUBLIC_|FIREBASE_PROJECT_ID$)/;
 const sensitiveEnv = /(SECRET|TOKEN|PASSWORD|ACCESS_KEY|PRIVATE_KEY|API_KEY)/i;

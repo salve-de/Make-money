@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { WorkspaceMode } from '../types/terminal';
@@ -39,10 +39,11 @@ export function useSelectedEntityNavigation({
           (e) =>
             e.name.toLowerCase().includes(queryParam.toLowerCase()) ||
             e.ticker.toLowerCase().includes(queryParam.toLowerCase())
-        )?.id || 'ent_keyence'
-      : 'ent_keyence');
+        )?.id || entities[0]?.id || null
+      : entities[0]?.id || null);
 
   const [selectedEntityId, setSelectedEntityId] = useState<string | null>(initialEntityId);
+  const appliedNavigation = useRef<string | null>(null);
 
   // オンデマンド詳細読み込み
   useEffect(() => {
@@ -56,7 +57,10 @@ export function useSelectedEntityNavigation({
 
   // URLパラメータ変更の同期
   useEffect(() => {
+    const navigationKey = JSON.stringify([entityParam, queryParam]);
+    if (appliedNavigation.current === navigationKey) return;
     if (entityParam) {
+      appliedNavigation.current = navigationKey;
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedEntityId(entityAliases[entityParam] || entityParam);
     } else if (queryParam) {
@@ -67,8 +71,11 @@ export function useSelectedEntityNavigation({
           e.strategy.blindspot.toLowerCase().includes(queryParam.toLowerCase())
       );
       if (matched) {
+        appliedNavigation.current = navigationKey;
         setSelectedEntityId(matched.id);
       }
+    } else {
+      appliedNavigation.current = navigationKey;
     }
   }, [entityParam, queryParam, entities, entityAliases]);
 

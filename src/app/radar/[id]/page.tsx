@@ -1,9 +1,5 @@
 import React from 'react';
-import { readFile } from 'fs/promises';
-import { resolve } from 'path';
-import { normalizeFinancialEntity } from '@/shared/financial-integrity';
-import { parseFinancialEntities } from '@/shared/financial-entity-schema';
-import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
+import { readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
 import type { FinancialEntity } from '@/platform/types/terminal';
 import type { SnapshotEntity } from '@/platform/utils/financialSnapshot';
 import {
@@ -21,17 +17,7 @@ export async function generateStaticParams() {
 }
 
 async function getEntities(): Promise<FinancialEntity[]> {
-  try {
-    const localPath = resolve(process.cwd(), 'data/entities-index.json');
-    const content = await readFile(localPath, 'utf8');
-    const parsed = parseFinancialEntities(JSON.parse(content));
-    if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed.map(normalizeFinancialEntity);
-    }
-  } catch (error) {
-    console.warn('[RadarDetailPage] Failed to read entities-index.json, fallback to mock data:', error);
-  }
-  return INSTITUTIONAL_ENTITIES;
+  return readCachedLocalPublishableEntities();
 }
 
 function toTickerEntity(entity: FinancialEntity): SnapshotEntity {

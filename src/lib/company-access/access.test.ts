@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 const state = vi.hoisted(() => ({ status: 403 as 200 | 401 | 403 | 503 }));
 vi.mock('@/lib/payments/entitlement', () => ({ authorizePro: vi.fn(async () => ({ status: state.status, uid: 'test' })) }));
 vi.mock('@/lib/foundation/business-reader', () => ({ readFoundationBusinessCase: vi.fn(async () => null) }));
+vi.mock('@/lib/company-access/local-entity-index', () => ({ findCachedPublishableEntity: vi.fn(async () => null) }));
 import { GET } from '@/app/api/company-analysis/route';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import { publicEntity, publicFoundationData } from './public-entity';

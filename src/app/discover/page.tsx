@@ -8,6 +8,7 @@ import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliati
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import { deriveDiscoveryDataset } from '@/features/discover';
 import { DiscoverClient } from './DiscoverClient';
+import { readReleaseDiscovery, usesCatalogRelease } from '@/lib/company-access/catalog-release';
 
 export const revalidate = 300;
 
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 };
 
 async function getDiscoveryDataset() {
+  if (await usesCatalogRelease()) return readReleaseDiscovery();
   try {
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));

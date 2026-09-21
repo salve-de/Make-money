@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { authorizePro } from '@/lib/payments/entitlement';
 import { findInstitutionalEntity } from '@/platform/data/mockLedgerData';
+import { findCachedPublishableEntity } from '@/lib/company-access/local-entity-index';
 import { readFoundationBusinessCase } from '@/lib/foundation/business-reader';
 import { adaptFoundationDetailToFinancialEntity } from '@/lib/foundation/foundation-adapter';
 import { parseCompanyAnalysis } from '@/lib/company-access/schema';
@@ -15,7 +16,7 @@ export async function GET(request: Request) {
   const id = new URL(request.url).searchParams.get('entity_id');
   if (!id || id.length > 200) return response({ error: 'Invalid entity' }, 400);
   try {
-    let entity = findInstitutionalEntity(id);
+    let entity = await findCachedPublishableEntity(id) ?? findInstitutionalEntity(id);
     if (!entity) {
       const detail = await readFoundationBusinessCase(id);
       if (detail) entity = adaptFoundationDetailToFinancialEntity(detail);

@@ -304,6 +304,18 @@ Nodeでの直接起動は明示したD1 REST設定の単文のみを扱います
 
 ## Automatic Foundation serving-view namespaces
 
+### Accepted checked-in catalog release (2026-09-21)
+
+`data/entities-index.json` remains the accepted legacy source; the deferred 2,050-record revision is not an input. `pnpm catalog:prepare` derives `data/catalog-release.json`, bound to the source SHA-256, without editing source records. `pnpm catalog:publish` writes and reads back immutable private artifacts using the existing create-only R2 adapter:
+
+- Existing dossier contract: `views/make-money/dossier-v1/objects/<shard>/<entity_id>/<hash>.json.gz`.
+- Rebuildable catalog projections: `views/make-money/catalog-v1/objects/<hash>.json.gz` (summaries and Discover dataset).
+- The manifest is pinned in the deployed code, not a mutable R2 root index. Switching code switches the complete release; old artifacts remain recoverable. No canonical Foundation fact, EDINET data, or raw source is rewritten.
+- Preparation applies schema validation, identity aliases, reconciliation and the existing publication gate. Full dossiers remain private and are exposed only through public-field projection or authenticated paid access. Runtime verifies decompressed hashes and schemas.
+- Workers read this release rather than Node filesystem paths. Local development reads the accepted JSON. `/api/catalog` delivers 100 summaries per page and searches the entire accepted catalog. Details are loaded by exact stored hash. Foundation hourly/new-arrival views remain an independent live overlay.
+
+This is a bounded legacy catalog serving path, not a claim of 100-million-record readiness. The checked-in snapshot is rebuilt when accepted data changes; missing fields are not invented or newly approved by publishing.
+
 These R2 prefixes are rebuildable serving/control views. They are **not canonical Foundation facts** and may be regenerated from immutable accepted history.
 
 | Prefix | Purpose | Mutability |

@@ -3,7 +3,6 @@ import { findCachedPublishableEntity, readCachedLocalPublishableEntities } from 
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
 import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
-import type { FinancialEntity } from '@/platform/types/terminal';
 import {
   readFoundationBusinessCase,
   type FoundationBusinessCase,
@@ -24,6 +23,7 @@ import {
   readMakeMoneyViewDetail,
 } from '@/lib/foundation/make-money-view';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
+import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const gunzip = promisify(gunzipCb);
 
@@ -97,6 +97,9 @@ export async function GET(request: Request) {
   if (entityId && entityId.length > MAX_ENTITY_ID_LENGTH) {
     return response({ error: 'Invalid entity' }, 400);
   }
+  if (requestedDossierHash && !/^[a-f0-9]{64}$/.test(requestedDossierHash)) {
+    return response({ error: 'Invalid dossier hash' }, 400);
+  }
 
   if (entityId) {
     if (requestedDossierHash) {
@@ -109,7 +112,8 @@ export async function GET(request: Request) {
           return response({ error: 'Dossier snapshot not found for requested hash', entity_id: entityId, dossier_hash: requestedDossierHash }, 404);
         }
         const decompressed = await gunzip(blob.body);
-        const parsed = JSON.parse(decompressed.toString('utf8')) as FinancialEntity;
+        const parsed = parseFinancialEntity(JSON.parse(decompressed.toString('utf8')));
+        if (parsed.id !== entityId) return response({ error: 'Dossier identity mismatch' }, 409);
 
         // Content Hash (SHA-256) 再計算と厳密照合
         const computedHash = computeDossierContentHash(parsed);
@@ -290,6 +294,11 @@ export async function GET(request: Request) {
     logFoundationFailure('[businesses] Make-Money Foundation view read failed; using fallback:', error);
   }
 
+  // The current UI loads accepted catalog pages independently. Do not send a
+  // redundant multi-megabyte legacy fallback when only Foundation was requested.
+  if (url.searchParams.get('foundationOnly') === 'true') {
+    return response({ error: 'Foundation catalog temporarily unavailable' }, 503);
+  }
   const localEntities = await readCachedLocalPublishableEntities();
   const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES;
   const fallbackEntities = rawEntities.filter(isPublishableEntity);

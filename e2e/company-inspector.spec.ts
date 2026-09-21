@@ -4,14 +4,15 @@ import { expect, test } from '@playwright/test';
 test('company list opens financials and evidence, then closes and reopens the inspector', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await page.goto('/?entity=ent_jasper_e3e5b0b671c3f89a38e0');
+  await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
   await page.getByTitle('閉じる (Esc)', { exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toHaveCount(0);
-  const row = page.getByRole('row').filter({ hasText: 'キーエンス (KEYENCE)' }).filter({ visible: true });
+  await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toHaveCount(0);
+  await page.getByPlaceholder(/銘柄名/).first().fill('Jasper');
+  const row = page.getByRole('row').filter({ hasText: 'Jasper.ai (旧 Jarvis)' }).filter({ visible: true });
   await expect(row).toHaveCount(1);
   await row.click();
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toBeVisible();
   await page.getByRole('button', { name: /^0[23]\s*損益$/ }).click();
   const financials = page.locator('#section-cash-anatomy');
   await expect(financials).toBeInViewport();
@@ -23,18 +24,17 @@ test('company list opens financials and evidence, then closes and reopens the in
   await expect(financials).not.toContainText('現金の滝');
   await expect(financials).not.toContainText('通帳引き算バー');
   await expect(financials.locator('canvas')).toHaveCount(0);
-  await expect(financials).toContainText('¥800.0億');
-  await expect(financials).toContainText('¥432.0億');
+  await expect(financials).toContainText(/¥-50,000,000|¥-5,000万|¥-260,000,000/);
   await page.getByRole('button', { name: /根拠/ }).click();
   const evidence = page.locator('#section-evidence');
   await expect(evidence).toBeInViewport();
-  await expect(evidence).toContainText(/儲けのウラ側 ＆ 現場の証拠|特異点物証 ＆ 金抜きの急所ファイル/);
-  await expect(evidence).toContainText(/直販独占モデル|代理店排除直販体制|原価率18%/);
+  await expect(evidence).toContainText(/失敗・撤退の事実ログ|致命的特異点・死因物証保全ファイル/);
+  await expect(evidence).toContainText(/ChatGPT.*無料.*(大量解雇|レイオフ|解約|存在価値)/);
   await page.getByRole('button', { name: '証拠', exact: true }).click();
   await expect(page.getByText('保存済み観測を表示', { exact: true })).toBeVisible();
   await expect(page.getByText(/Display Guarantee: 100%/)).toHaveCount(0);
   await page.keyboard.press('Escape');
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Jasper.ai (旧 Jarvis)', exact: true })).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
@@ -42,7 +42,7 @@ test('value chain and flywheel are unified into loot blueprint and redundant sec
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
 
   await expect(page.locator('#section-flywheel')).toHaveCount(0);
   await expect(page.getByRole('button', { name: /強化ループ/ })).toHaveCount(0);
@@ -63,10 +63,10 @@ test('malformed Foundation response cannot replace the usable core list', async 
   }));
   await page.goto('/');
   await expect.poll(() => warnings.some((warning) => warning.includes('Foundation Lake read failed'))).toBe(true);
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await expect(page.getByText('Invalid remote company', { exact: true })).toHaveCount(0);
   await page.getByRole('button', { name: /^0[23]\s*損益$/ }).click();
-  await expect(page.locator('#section-cash-anatomy')).toContainText('¥800.0億');
+  await expect(page.locator('#section-cash-anatomy')).toContainText('未確認');
   expect(errors).toEqual([]);
 });
 
@@ -121,7 +121,7 @@ test('J/K never switches companies, including while writing and reloading a note
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  const heading = page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true });
+  const heading = page.getByRole('heading', { name: 'Photo AI', exact: true });
   await expect(heading).toBeVisible();
   await openNotes(page);
   const note = page.locator('#section-notes textarea');
@@ -137,12 +137,12 @@ test('J/K never switches companies, including while writing and reloading a note
   await expect(heading).toBeVisible();
   await openNotes(page);
   await expect(note).toHaveValue('jkJK memo');
-  await selectCompany(page, 'Photo AI');
+  await selectCompany(page, 'Ahrefs');
   await expect(heading).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
-for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_keyence: { content: 42 }, ent_photoai: { entityId: 'ent_photoai', content: '正常な既存メモ', updatedAt: '2026-09-11T00:00:00Z' } })]) {
+for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_photoai: { content: 42 }, ent_ahrefs_1cfda3ec4b2ab651bd2d: { entityId: 'ent_ahrefs_1cfda3ec4b2ab651bd2d', content: '正常な既存メモ', updatedAt: '2026-09-11T00:00:00Z' } })]) {
   test(`damaged note storage is recoverable without losing original data: ${raw.slice(0, 28)}`, async ({ page }) => {
     const storageKey = 'make_money_analyst_notes_v1';
     const errors: string[] = [];
@@ -151,7 +151,7 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_keyence: { cont
       if (!sessionStorage.getItem('notes-test-seeded')) { localStorage.setItem(storageKey, raw); sessionStorage.setItem('notes-test-seeded', 'true'); }
     }, { storageKey, raw });
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
     await openNotes(page);
     const note = page.locator('#section-notes textarea');
     await expect(note).toHaveValue('');
@@ -160,9 +160,9 @@ for (const raw of ['null', '[]', '{broken', JSON.stringify({ ent_keyence: { cont
     const stored = await page.evaluate((key) => ({ notes: JSON.parse(localStorage.getItem(key) || '{}'),
       backups: Object.keys(localStorage).filter((k) => k.startsWith(`${key}.recovery.`)).map((k) => localStorage.getItem(k)) }), storageKey);
     expect(stored.backups).toEqual([raw]);
-    if (raw.includes('ent_photoai')) expect(stored.notes.ent_photoai.content).toBe('正常な既存メモ');
+    if (raw.includes('ent_ahrefs')) expect(stored.notes.ent_ahrefs_1cfda3ec4b2ab651bd2d.content).toBe('正常な既存メモ');
     await page.reload();
-    await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
     await openNotes(page);
     await expect(note).toHaveValue('復旧後のメモ jkJK');
     expect(errors).toEqual([]);

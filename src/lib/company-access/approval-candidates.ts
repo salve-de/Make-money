@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { releaseApprovalCandidateIds, usesCatalogRelease } from './catalog-release';
 
 const REVIEW_TAG = '収集事例';
 const CACHE_TTL_MS = 60_000;
@@ -39,6 +40,7 @@ export function collectApprovalCandidateIds(catalog: unknown): Set<string> {
 }
 
 async function loadApprovalCandidateIds(): Promise<Set<string>> {
+  if (await usesCatalogRelease()) return releaseApprovalCandidateIds();
   const now = Date.now();
   if (candidateCache && candidateCache.expiresAt > now) return candidateCache.ids;
 

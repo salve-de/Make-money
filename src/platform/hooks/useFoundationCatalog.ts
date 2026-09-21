@@ -18,6 +18,8 @@ import {
 import { getNextNewArrivalsReleaseAt } from '@/lib/foundation/new-arrivals';
 import { aggregateMacroIntelligence } from '@/lib/intelligence/macro-aggregator';
 import { MAX_APPROVAL_PROJECTION_IDS } from '@/shared/entity-approval-contract';
+import { useCuratedCatalog } from './useCuratedCatalog';
+import { parseFinancialEntity } from '@/shared/financial-entity-schema';
 
 const NEGATIVE_APPROVAL_RECHECK_MS = 20_000;
 
@@ -45,8 +47,10 @@ function isApprovalCandidate(entity: FinancialEntity): boolean {
   return (entity.tags || []).includes('収集事例');
 }
 
-export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
-  const coreEntities = initialEntities;
+export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQuery = '') {
+  const [catalogFilters, setCatalogFilters] = useState('');
+  const catalog = useCuratedCatalog(initialEntities, searchQuery, catalogFilters);
+  const coreEntities = catalog.entities;
 
   const [dataSource, setDataSource] = useState('取得状態を確認中');
   const [foundationRows, setFoundationRows] = useState<FoundationValueSummary[]>([]);
@@ -271,7 +275,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
     foundationLoadingRef.current = true;
     setFoundationLoading(true);
     try {
-      const params = new URLSearchParams({ limit: '100' });
+      const params = new URLSearchParams({ limit: '100', foundationOnly: 'true' });
       if (cursor) params.set('cursor', cursor);
       const res = await fetch(`/api/businesses?${params.toString()}`, { signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -399,7 +403,9 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
               setDetailedEntities((prev) => ({ ...prev, [targetId]: adapted }));
             }
           } else if (payload.data && typeof payload.data === 'object') {
-            setDetailedEntities((prev) => ({ ...prev, [targetId]: payload.data as FinancialEntity }));
+            const entity = parseFinancialEntity(payload.data);
+            if (entity.id !== targetId) throw new Error('Detail entity identity mismatch');
+            setDetailedEntities((prev) => ({ ...prev, [targetId]: entity }));
           }
         }
       })
@@ -413,16 +419,17 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[]) {
 
   return {
     entities,
-    dataSource,
+    dataSource: catalog.error || dataSource,
     macroData,
-    foundationHasMore,
-    foundationLoading,
+    foundationHasMore: foundationHasMore || catalog.hasMore,
+    foundationLoading: foundationLoading || catalog.loading,
     newArrivalsRelease,
     detailedEntities: visibleDetailedEntities,
     setDetailedEntities,
     approvedIds,
     setApprovedIds,
-    loadMoreFoundation,
+    setCatalogFilters,
+    loadMoreFoundation: () => { loadMoreFoundation(); catalog.loadMore(); },
     fetchEntityDetailOnDemand,
   };
 }
