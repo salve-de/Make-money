@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { parseRevenueToMonthlyJpy, projectProfitMetrics, adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
 import { cleanIntelligenceText, formatHumanMoney } from './text-cleaner';
 import { buildFoundationValueProfile } from './value-projection';
-import type { FoundationMetricSignal, FoundationEntitySummary, FoundationBusinessCase } from './business-reader';
+import type { FoundationMetricSignal, FoundationEntitySummary, FoundationBusinessCase, FoundationMoneySignal } from './business-reader';
 
 const metric = (metricType: string, value: number, overrides: Partial<FoundationMetricSignal> = {}): FoundationMetricSignal => ({
   id: metricType, metricType, value, unit: 'annual', currency: 'JPY', periodStart: '2025-01-01', periodEnd: '2025-12-31', pointInTime: null,
@@ -92,6 +92,38 @@ it('detail adapter selects MRR and keeps zero revenue separate from missing prof
   expect(known.pnl).toMatchObject({ monthlyRevenue: 10000, isRevenueUnconfirmed: false, isMarginUnconfirmed: true, operatingProfit: 0 });
   const zero = adaptFoundationDetailToFinancialEntity({ ...detail, metrics: [metric('mrr', 0, { unit: 'monthly' })] });
   expect(zero.pnl).toMatchObject({ monthlyRevenue: 0, isRevenueUnconfirmed: false, isMarginUnconfirmed: true });
+});
+
+it('preserves an explicit million unit for numeric USD revenue and displays the source magnitude', () => {
+  const summary: FoundationEntitySummary = { id: 'unit-test', name: 'Unit Test', entityType: 'business', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: ['evidence'] };
+  const revenue = metric('annual_revenue', 49.6, { unit: 'million', currency: 'USD' });
+  const empty = { claims: [], metrics: [revenue], moneySignals: [], events: [], relationships: [], observations: [], derived: [] };
+  const detail: FoundationBusinessCase = { ...summary, ...empty, valueProfile: buildFoundationValueProfile(summary, empty), bundlesScanned: 1, bundleObjectsListed: 1, bundleScanComplete: true };
+
+  expect(parseRevenueToMonthlyJpy(revenue.value, revenue.currency, revenue.metricType, revenue.periodStart, revenue.periodEnd, revenue.unit)).toMatchObject({
+    monthlyJpy: 620_000_000,
+    isUnconfirmed: false,
+  });
+  const entity = adaptFoundationDetailToFinancialEntity(detail);
+  expect(entity.pnl).toMatchObject({ monthlyRevenue: 620_000_000, isRevenueUnconfirmed: false });
+  expect(entity.pnl.sourceDoc).toContain('$49.6 million');
+  expect(entity.observationsStream?.find((item) => item.id === 'annual_revenue_metric')?.text).toContain('$49.6 million');
+});
+
+it('keeps a funding amount with its unit visible without promoting it to sales', () => {
+  const summary: FoundationEntitySummary = { id: 'funding-test', name: 'Funding Test', entityType: 'business', aliases: [], canonicalIdentifier: null, domain: null, status: 'active', observedAt: null, evidenceIds: ['evidence'] };
+  const funding: FoundationMoneySignal = {
+    id: 'funding-signal', payerEntityId: null, receiverEntityId: 'funding-test', purpose: 'capital raised',
+    moneyType: 'funding', amount: 49.6, currency: 'USD', unit: 'million', amountLabel: null,
+    periodStart: null, periodEnd: null, pointInTime: null, basis: null, scope: null,
+    originType: 'reported', verificationStatus: 'SUPPORTED', confidence: null, evidenceIds: ['evidence'],
+  };
+  const records = { claims: [], metrics: [], moneySignals: [funding], events: [], relationships: [], observations: [], derived: [] };
+  const detail: FoundationBusinessCase = { ...summary, ...records, valueProfile: buildFoundationValueProfile(summary, records), bundlesScanned: 1, bundleObjectsListed: 1, bundleScanComplete: true };
+  const entity = adaptFoundationDetailToFinancialEntity(detail);
+
+  expect(entity.pnl).toMatchObject({ monthlyRevenue: 0, isRevenueUnconfirmed: true, financialStatus: 'UNAVAILABLE' });
+  expect(entity.observationsStream?.find((item) => item.id === 'funding-signal_money')?.text).toContain('$49.6 million');
 });
 
 it('keeps absent detail facts explicitly unknown instead of inventing an operating profile', () => {

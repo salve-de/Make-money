@@ -65,7 +65,8 @@ export function matchesCatalogQuery(entity: FinancialEntity, query: string, filt
   }
   const normalized = query.trim().toLowerCase();
   if (!normalized) return true;
-  return entity.name.toLowerCase().replace(/\s+/g, '').includes(normalized.replace(/\s+/g, '')) ||
+  return entity.id.toLowerCase().includes(normalized) ||
+    entity.name.toLowerCase().replace(/\s+/g, '').includes(normalized.replace(/\s+/g, '')) ||
     [entity.name, entity.ticker, entity.tagline, entity.founder, entity.strategy?.blindspot, ...(entity.tags ?? [])]
       .some((value) => value?.toLowerCase().includes(normalized));
 }

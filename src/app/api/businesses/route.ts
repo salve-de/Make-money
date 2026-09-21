@@ -7,6 +7,7 @@ import {
   readFoundationBusinessCase,
   type FoundationBusinessCase,
   type FoundationValuePage,
+  type FoundationValueSummary,
 } from '@/lib/foundation/business-reader';
 import { promisify } from 'node:util';
 import { gunzip as gunzipCb } from 'node:zlib';
@@ -24,6 +25,7 @@ import {
 } from '@/lib/foundation/make-money-view';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
 import { parseFinancialEntity } from '@/shared/financial-entity-schema';
+import { getFoundationBucketAsync, listR2Objects, readR2Object } from '@/lib/storage/r2';
 
 const gunzip = promisify(gunzipCb);
 
@@ -36,6 +38,8 @@ const MAX_PAGE_CACHE_ENTRIES = 32;
 const MAX_DETAIL_CACHE_ENTRIES = 128;
 const MAX_ENTITY_ID_LENGTH = 200;
 const MAX_R2_CURSOR_LENGTH = 2048;
+const FOUNDATION_SEARCH_OBJECT_PAGE_SIZE = 100;
+const FOUNDATION_VIEW_PREFIX = 'views/make-money/v1/entities/';
 
 type CacheEntry<T> = {
   expiresAt: number;
@@ -44,6 +48,174 @@ type CacheEntry<T> = {
 
 const pageCache = new Map<string, CacheEntry<FoundationValuePage>>();
 const detailCache = new Map<string, CacheEntry<FoundationBusinessCase>>();
+
+function foundationSummarySearchText(summary: FoundationValueSummary): string {
+  return [
+    summary.id,
+    summary.name,
+    summary.entityType,
+    summary.canonicalIdentifier,
+    summary.domain,
+    summary.status,
+    ...summary.aliases,
+    ...summary.valueProfile.labels,
+    summary.valueProfile.businessSignal,
+    summary.valueProfile.painSignal,
+    summary.valueProfile.moneySignal,
+    summary.valueProfile.tractionSignal,
+    summary.valueProfile.mechanismSignal,
+    summary.valueProfile.timeSignal,
+  ].filter((value): value is string => typeof value === 'string').join(' ').toLowerCase();
+}
+
+function matchesFoundationQuery(summary: FoundationValueSummary, query: string): boolean {
+  return foundationSummarySearchText(summary).includes(query.toLowerCase());
+}
+
+function isStoredEntityIdName(value: string): boolean {
+  return /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(value);
+}
+
+function summaryFromFoundationDetail(detail: FoundationBusinessCase): FoundationValueSummary {
+  return {
+    id: detail.id,
+    name: detail.name,
+    entityType: detail.entityType,
+    aliases: detail.aliases,
+    canonicalIdentifier: detail.canonicalIdentifier,
+    domain: detail.domain,
+    status: detail.status,
+    observedAt: detail.observedAt,
+    evidenceIds: detail.evidenceIds,
+    valueProfile: detail.valueProfile,
+  };
+}
+
+function parseFoundationSearchCursor(cursor: string | undefined): string | undefined {
+  if (!cursor) return undefined;
+  // The client parser historically passes the underlying R2 cursor through
+  // unchanged, while this bounded search route prefixes its own cursor so it
+  // cannot be confused with an ordinary Foundation page cursor. Accept both
+  // forms to preserve the existing read-only cursor contract.
+  const encoded = cursor.startsWith('foundation-search-v1:')
+    ? cursor.slice('foundation-search-v1:'.length)
+    : cursor;
+  if (!encoded) throw new Error('Invalid foundation search cursor');
+  let decoded: string;
+  try {
+    decoded = decodeURIComponent(encoded);
+  } catch {
+    throw new Error('Invalid foundation search cursor');
+  }
+  if (!decoded || decoded.length > MAX_R2_CURSOR_LENGTH) throw new Error('Invalid foundation search cursor');
+  return decoded;
+}
+
+async function readFoundationSearchPage(options: {
+  query: string;
+  cursor?: string;
+  limit: number;
+}): Promise<{
+  data: FoundationValueSummary[];
+  total: number | null;
+  nextCursor: string | null;
+  complete: boolean;
+  newArrivals: FoundationValuePage['newArrivals'];
+}> {
+  const newArrivals: FoundationValuePage['newArrivals'] = null;
+  const matches: FoundationValueSummary[] = [];
+  const seenIds = new Set<string>();
+  const bucket = await getFoundationBucketAsync('lake');
+
+  const objectPage = await listR2Objects({
+    bucket,
+    prefix: FOUNDATION_VIEW_PREFIX,
+    cursor: options.cursor,
+    // The R2 cursor advances by object, not by matching row. Never scan more
+    // objects than this response can return, otherwise matches after the
+    // output slice would be skipped permanently when the cursor advances.
+    limit: Math.min(Math.max(Math.floor(options.limit), 1), FOUNDATION_SEARCH_OBJECT_PAGE_SIZE),
+  });
+  const summaries = await mapBoundedFoundationSearchReads(bucket, objectPage.objects, options.query);
+  for (const summary of summaries) {
+    if (!matchesFoundationQuery(summary, options.query)) continue;
+    if (!isPublishableEntity(adaptFoundationSummaryToFinancialEntity(summary))) continue;
+    if (seenIds.has(summary.id)) continue;
+    seenIds.add(summary.id);
+    matches.push(summary);
+  }
+
+  const data = matches.slice(0, options.limit);
+  return {
+    data,
+    // A search page is intentionally bounded. The UI must not present the
+    // scanned page size as the full Foundation total until a separate index
+    // exists; curated catalog totals remain exact via /api/catalog.
+    total: null,
+    nextCursor: objectPage.truncated && objectPage.cursor
+      ? `foundation-search-v1:${encodeURIComponent(objectPage.cursor)}`
+      : null,
+    complete: !objectPage.truncated,
+    newArrivals,
+  };
+}
+
+async function mapBoundedFoundationSearchReads(
+  bucket: string,
+  objects: Array<{ key: string }>,
+  query: string,
+): Promise<FoundationValueSummary[]> {
+  const results: Array<FoundationValueSummary | null> = new Array(objects.length).fill(null);
+  let nextIndex = 0;
+  await Promise.all(Array.from({ length: Math.min(8, objects.length) }, async () => {
+    while (nextIndex < objects.length) {
+      const index = nextIndex++;
+      const object = await readR2Object(bucket, objects[index].key);
+      if (!object) continue;
+      try {
+        const parsed = JSON.parse(new TextDecoder().decode(object.body)) as { summary?: unknown; detail?: unknown };
+        if (!parsed || typeof parsed !== 'object' || !('summary' in parsed)) continue;
+        const page = parseFoundationValuePage({
+          data: [parsed.summary],
+          nextCursor: null,
+          hasMore: false,
+          newArrivals: null,
+        });
+        let summary = page.data[0] ?? null;
+        if (!summary) continue;
+
+        // Prefer a real name already present in the materialized detail. Older
+        // views can retain canonical_name=storedID in both summary and detail;
+        // those rows need the existing read-time resolver for name searches.
+        if (!matchesFoundationQuery(summary, query) && parsed.detail) {
+          try {
+            const detailPage = parseFoundationValuePage({
+              data: [parsed.detail],
+              nextCursor: null,
+              hasMore: false,
+              newArrivals: null,
+            });
+            const detailSummary = detailPage.data[0];
+            if (detailSummary && matchesFoundationQuery(detailSummary, query)) summary = detailSummary;
+          } catch {
+            // An optional legacy detail projection must not make the summary
+            // row unreadable; the immutable source remains untouched.
+          }
+        }
+
+        if (!matchesFoundationQuery(summary, query) && isStoredEntityIdName(summary.name)) {
+          const readThrough = await readMakeMoneyViewDetail(summary.id).catch(() => null);
+          if (readThrough) summary = summaryFromFoundationDetail(readThrough);
+        }
+        results[index] = summary;
+      } catch {
+        // A malformed or missing materialized row is excluded from search; the
+        // immutable source remains untouched and the next audit can report it.
+      }
+    }
+  }));
+  return results.filter((value): value is FoundationValueSummary => Boolean(value));
+}
 
 async function readCached<T>(
   cache: Map<string, CacheEntry<T>>,
@@ -241,6 +413,35 @@ export async function GET(request: Request) {
   const cursor = url.searchParams.get('cursor') || undefined;
   if (cursor && cursor.length > MAX_R2_CURSOR_LENGTH) {
     return response({ error: 'Invalid cursor' }, 400);
+  }
+  const foundationQuery = (url.searchParams.get('q') || '').trim();
+  if (foundationQuery.length > 200) {
+    return response({ error: 'Invalid foundation query' }, 400);
+  }
+  if (foundationQuery && url.searchParams.get('foundationOnly') === 'true') {
+    try {
+      const materializedViewReady = await isMakeMoneyViewBackfillComplete();
+      const searchCursor = parseFoundationSearchCursor(cursor);
+      const searchPage = await readFoundationSearchPage({
+        query: foundationQuery,
+        cursor: searchCursor,
+        limit,
+      });
+      return response({
+        source: 'foundation_lake',
+        projection: materializedViewReady ? 'make-money.v1' : 'make-money.v1-backfill-in-progress',
+        count: searchPage.data.length,
+        total: searchPage.total,
+        searchComplete: searchPage.complete,
+        data: publicFoundationData(searchPage.data),
+        nextCursor: searchPage.nextCursor,
+        hasMore: Boolean(searchPage.nextCursor),
+        newArrivals: searchPage.newArrivals,
+      });
+    } catch (error) {
+      logFoundationFailure('[businesses] Foundation bounded search failed:', error);
+      return response({ error: 'Foundation catalog temporarily unavailable' }, 503);
+    }
   }
   const cacheKey = `${limit}:${cursor || 'first'}`;
 

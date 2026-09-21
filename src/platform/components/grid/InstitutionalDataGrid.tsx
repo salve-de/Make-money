@@ -7,6 +7,14 @@ import { Bookmark } from 'lucide-react';
 
 const PAGE_SIZE = 250;
 
+export function shouldLoadMoreGridPage(visibleCount: number, entityCount: number, hasMore: boolean): boolean {
+  return visibleCount >= entityCount && hasMore;
+}
+
+export function shouldRenderGridContinuation(visibleCount: number, entityCount: number, hasMore: boolean): boolean {
+  return visibleCount < entityCount || hasMore;
+}
+
 interface InstitutionalDataGridProps {
   entities: FinancialEntity[];
   selectedEntityId: string | null;
@@ -57,7 +65,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting && !isLoadingMore) {
-          if (visibleCount >= entities.length && hasMore && onLoadMore) {
+          if (shouldLoadMoreGridPage(visibleCount, entities.length, hasMore) && onLoadMore) {
             onLoadMore();
             return;
           }
@@ -336,7 +344,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
       )}
 
       {/* 1000件スケール時・無限スクロール感知トリガー */}
-      {(visibleCount < entities.length || hasMore) && (
+      {shouldRenderGridContinuation(visibleCount, entities.length, hasMore) && (
         <div ref={observerTargetRef} className="py-4 text-center text-[10px] text-zinc-500 font-mono">
           {isLoadingMore
             ? `R2から追加取得中... (${entities.length}件)`

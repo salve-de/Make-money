@@ -51,15 +51,27 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
   const [catalogFilters, setCatalogFilters] = useState('');
   const catalog = useCuratedCatalog(initialEntities, searchQuery, catalogFilters);
   const coreEntities = catalog.entities;
+  const latestSearchQuery = useRef(searchQuery);
+  const foundationRequestId = useRef(0);
+  const [foundationSearchQuery, setFoundationSearchQuery] = useState(searchQuery);
+
+  useEffect(() => {
+    latestSearchQuery.current = searchQuery;
+    foundationRequestId.current += 1;
+    const timer = window.setTimeout(() => setFoundationSearchQuery(searchQuery), 250);
+    return () => window.clearTimeout(timer);
+  }, [searchQuery]);
 
   const [dataSource, setDataSource] = useState('取得状態を確認中');
   const [foundationRows, setFoundationRows] = useState<FoundationValueSummary[]>([]);
+  const [foundationTotal, setFoundationTotal] = useState<number | null>(null);
   const [foundationNextCursor, setFoundationNextCursor] = useState<string | null>(null);
   const [foundationHasMore, setFoundationHasMore] = useState(false);
   const [foundationLoading, setFoundationLoading] = useState(false);
   const [newArrivalsRelease, setNewArrivalsRelease] = useState<FoundationValuePage['newArrivals']>(null);
   const foundationLoadingRef = useRef(false);
   const foundationRequestedCursors = useRef(new Set<string>());
+  const foundationLoadedQuery = useRef<string | null>(null);
 
   const [detailedEntities, setDetailedEntities] = useState<Record<string, FinancialEntity>>({});
   const detailFetchInProgress = useRef(new Set<string>());
@@ -270,13 +282,33 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
   }, []);
 
   const loadFoundationPage = useCallback(async (cursor?: string, signal?: AbortSignal): Promise<FoundationValuePage | null> => {
-    if (cursor && foundationLoadingRef.current) return null;
-    if (!cursor) foundationRequestedCursors.current.clear();
+    const queryChanged = foundationLoadedQuery.current !== foundationSearchQuery;
+    const effectiveCursor = queryChanged ? undefined : cursor;
+    if (effectiveCursor && foundationLoadingRef.current) return null;
+    const requestQuery = foundationSearchQuery;
+    const requestId = foundationRequestId.current + 1;
+    foundationRequestId.current = requestId;
+    const isCurrentRequest = () => foundationRequestId.current === requestId &&
+      foundationLoadedQuery.current === requestQuery &&
+      latestSearchQuery.current === requestQuery;
+    if (!effectiveCursor) {
+      foundationLoadedQuery.current = requestQuery;
+      foundationRequestedCursors.current.clear();
+      if (queryChanged) {
+        // A new search must not reuse the previous Foundation page cursor. The
+        // source remains immutable; only this read-through projection is reset.
+        setFoundationRows([]);
+        setFoundationTotal(null);
+        setFoundationNextCursor(null);
+        setFoundationHasMore(false);
+      }
+    }
     foundationLoadingRef.current = true;
     setFoundationLoading(true);
     try {
       const params = new URLSearchParams({ limit: '100', foundationOnly: 'true' });
-      if (cursor) params.set('cursor', cursor);
+      if (requestQuery.trim()) params.set('q', requestQuery.trim());
+      if (effectiveCursor) params.set('cursor', effectiveCursor);
       const res = await fetch(`/api/businesses?${params.toString()}`, { signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const payload: unknown = await res.json();
@@ -284,6 +316,16 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         ? (payload as { source: string }).source
         : undefined;
       const page = parseFoundationPageResponse(payload);
+      // A cursor request from the previous query may finish after the new
+      // query has started. Its rows and cursor must never overwrite the new
+      // query's read-through state.
+      if (!isCurrentRequest() || signal?.aborted) return null;
+      const reportedTotal = payload && typeof payload === 'object' && !Array.isArray(payload)
+        ? (payload as { total?: unknown }).total
+        : undefined;
+      setFoundationTotal(Number.isSafeInteger(reportedTotal) && (reportedTotal as number) >= 0
+        ? reportedTotal as number
+        : null);
       setDataSource(source === 'foundation_lake'
         ? '保存済み台帳 + Foundation R2'
         : source === 'local_fallback'
@@ -292,19 +334,21 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
             ? '保存済み台帳（静的予備）'
             : '保存済み台帳（外部取得なし）');
       if (page) {
-        mergeFoundationRows(page.data, !cursor);
+        mergeFoundationRows(page.data, !effectiveCursor);
         setNewArrivalsRelease(page.newArrivals);
-        const nextCursor = page.nextCursor && page.nextCursor !== cursor ? page.nextCursor : null;
+        const nextCursor = page.nextCursor && page.nextCursor !== effectiveCursor ? page.nextCursor : null;
         setFoundationNextCursor(nextCursor);
         setFoundationHasMore(page.hasMore && Boolean(nextCursor));
         return page;
       }
       return null;
     } finally {
-      foundationLoadingRef.current = false;
-      setFoundationLoading(false);
+      if (isCurrentRequest()) {
+        foundationLoadingRef.current = false;
+        setFoundationLoading(false);
+      }
     }
-  }, [mergeFoundationRows]);
+  }, [foundationSearchQuery, mergeFoundationRows]);
 
   const loadMoreFoundation = useCallback(() => {
     const cursor = foundationNextCursor;
@@ -419,6 +463,10 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
 
   return {
     entities,
+    catalogLoadedCount: catalog.loadedCount,
+    catalogTotal: catalog.totalCount,
+    foundationLoadedCount: foundationRows.length,
+    foundationTotal,
     dataSource: catalog.error || dataSource,
     macroData,
     foundationHasMore: foundationHasMore || catalog.hasMore,
