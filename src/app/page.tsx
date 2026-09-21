@@ -10,7 +10,8 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   // browser owns bounded catalog/Foundation pages, while local development
   // keeps the working-tree index and deep-link fallback below.
   const productionCatalog = process.env.NODE_ENV === 'production';
-  let requestedEntityId = searchParams?.entity;
+  const requestedEntityParam = searchParams?.entity;
+  let requestedEntityId = requestedEntityParam;
   let entityAliases: Record<string, string> = {};
   let entities: FinancialEntity[] = [];
   let selected: FinancialEntity | null = null;
@@ -18,7 +19,10 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   let publicEntity: ((entity: FinancialEntity) => FinancialEntity) | undefined;
   let publicSummaryEntity: ((entity: FinancialEntity) => FinancialEntity) | undefined;
 
-  if (!productionCatalog) {
+  // The production root intentionally skips the full local catalog, but a
+  // requested deep link still needs one server-side entity so the inspector
+  // can render before the bounded client catalog has loaded.
+  if (!productionCatalog || requestedEntityParam) {
     const [ledgerModule, publicEntityModule, localIndexModule, registryModule] = await Promise.all([
       import('@/platform/data/mockLedgerData'),
       import('@/lib/company-access/public-entity'),
@@ -26,10 +30,12 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
       import('../../data/collected-registry.json'),
     ]);
     entityAliases = ledgerModule.INSTITUTIONAL_ENTITY_ALIASES;
-    requestedEntityId = searchParams?.entity ? entityAliases[searchParams.entity] || searchParams.entity : undefined;
+    requestedEntityId = requestedEntityParam ? entityAliases[requestedEntityParam] || requestedEntityParam : undefined;
     publicEntity = publicEntityModule.publicEntity;
     publicSummaryEntity = publicEntityModule.publicSummaryEntity;
-    entities = await localIndexModule.readCachedLocalPublishableEntities();
+    if (!productionCatalog) {
+      entities = await localIndexModule.readCachedLocalPublishableEntities();
+    }
     selected = requestedEntityId ? await localIndexModule.findCachedPublishableEntity(requestedEntityId) : null;
     if (requestedEntityId && !selected) {
       unavailable = registryModule.default.find((row) => row.id.toLowerCase() === requestedEntityId!.toLowerCase()) ?? null;
@@ -44,9 +50,9 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   if (selected && !initial.some((entity) => entity.id === selected.id)) initial.push(selected);
   const optimizedEntities = initial.map((ent) => {
     if (selected?.id === ent.id) {
-      return publicEntity!(selected);
+      return publicEntity ? publicEntity(selected) : selected;
     }
-    return publicSummaryEntity!(ent);
+    return publicSummaryEntity ? publicSummaryEntity(ent) : ent;
   });
 
   return (
