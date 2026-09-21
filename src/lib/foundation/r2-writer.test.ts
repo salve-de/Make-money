@@ -100,6 +100,17 @@ describe('scheduled R2 writer publication contribution', () => {
       'staging/automation/discovery/primary.json',
       'staging/automation/backfill/new.json',
     ]);
+
+    expect(sourceRunPaths({
+      selected_source_paths: {
+        base: 'staging/automation/discovery/base.json',
+        correction: 'staging/automation/discovery/correction.json',
+      },
+      operative_source_path: 'staging/automation/discovery/correction.json',
+    })).toEqual([
+      'staging/automation/discovery/base.json',
+      'staging/automation/discovery/correction.json',
+    ]);
   });
 
   it('writes an immutable new-arrivals contribution with the canonical bundle', async () => {

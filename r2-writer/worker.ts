@@ -202,7 +202,7 @@ function sourceRunPathValues(value: unknown): string[] {
   if (Array.isArray(value)) return value.flatMap(sourceRunPathValues);
   if (typeof value === 'string') return value.trim() ? [value.trim()] : [];
   if (!record(value)) return [];
-  return [value.path, value.source_run_path, value.run_path].flatMap(sourceRunPathValues);
+  return Object.values(value).flatMap(sourceRunPathValues);
 }
 
 export function sourceRunPaths(snapshot: JsonRecord | null): string[] {
@@ -219,6 +219,8 @@ export function sourceRunPaths(snapshot: JsonRecord | null): string[] {
     ...sourceRunPathValues(snapshot.selected_source_runs),
     ...sourceRunPathValues(snapshot.selected_source_run),
     ...sourceRunPathValues(snapshot.selected_source_path),
+    ...sourceRunPathValues(snapshot.selected_source_paths),
+    ...sourceRunPathValues(snapshot.operative_source_path),
     ...sourceRunPathValues(snapshot.primary_source_run),
     ...sourceRunPathValues(snapshot.new_source_run_refs),
     ...sourceRunPathValues(snapshot.source_run_refs),
