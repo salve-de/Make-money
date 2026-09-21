@@ -148,17 +148,37 @@ function rowName(row: JsonRecord, sourceRecords: JsonRecord[] = []): string | nu
   return subject ? text(subject.name) || text(subject.canonical_name) : null;
 }
 
+function isValidCalendarDate(year: number, month: number, day: number): boolean {
+  const calendar = new Date(0);
+  calendar.setUTCFullYear(year, month - 1, day);
+  calendar.setUTCHours(0, 0, 0, 0);
+  return calendar.getUTCFullYear() === year && calendar.getUTCMonth() === month - 1
+    && calendar.getUTCDate() === day;
+}
+
 function isDateTime(value: unknown): value is string {
-  return typeof value === 'string' &&
-    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value) &&
-    !Number.isNaN(Date.parse(value));
+  if (typeof value !== 'string') return false;
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(Z|[+-]\d{2}:\d{2})$/.exec(value);
+  if (!match) return false;
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText, offset] = match;
+  const year = Number(yearText), month = Number(monthText), day = Number(dayText);
+  const hour = Number(hourText), minute = Number(minuteText), second = Number(secondText);
+  const offsetMatch = offset === 'Z' ? null : /[+-](\d{2}):(\d{2})/.exec(offset);
+  return isValidCalendarDate(year, month, day) && hour <= 23 && minute <= 59 && second <= 59
+    && (!offsetMatch || (Number(offsetMatch[1]) <= 23 && Number(offsetMatch[2]) <= 59))
+    && !Number.isNaN(Date.parse(value));
+}
+
+function isDateOnly(value: unknown): value is string {
+  if (typeof value !== 'string') return false;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+  return isValidCalendarDate(Number(match[1]), Number(match[2]), Number(match[3]));
 }
 
 function asDateTime(value: unknown, fallback: string): string {
   if (isDateTime(value)) return value;
-  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00.000Z`))) {
-    return `${value}T00:00:00.000Z`;
-  }
+  if (isDateOnly(value)) return `${value}T00:00:00.000Z`;
   return fallback;
 }
 
