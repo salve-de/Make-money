@@ -27,6 +27,21 @@ it('retains search-extract-only provenance without claiming fetched raw content 
   }
 });
 
+it.each(['result', 'status', 'state'])('normalizes %s consistently for search-only success, rights and notes', async field => {
+  for (const value of ['success_search_extract_only', ' SUCCESS_SEARCH_EXTRACT_ONLY; note ', ' Success_Search_Extract_Only ']) {
+    const input = fixture();
+    input.source_runs[0].source_attempts = [0, 1].map(n => ({ url: `https://example.com/${n}`,
+      [field]: value, rights_state: 'allowed_private_raw', evidence_ids_if_any: [`ev_${String(n).padStart(24, '0')}`] }));
+    const { bundle } = await materializeScheduledR2Handoff(input);
+    const sources = bundle.sources as Record<string, unknown>[];
+    const evidence = bundle.evidence as Record<string, unknown>[];
+    expect(sources.every(row => row.rights_status === 'metadata_only' && String(row.access_notes).includes('Only a search extract'))).toBe(true);
+    expect(evidence.every(row => row.rights_status === 'metadata_only')).toBe(true);
+    for (const row of evidence) expect(row.raw_storage).toMatchObject({ status: 'metadata_only', bucket: null, key: null, content_sha256: null });
+    expect((bundle.claims as Record<string, unknown>[]).every(row => row.verification_status === 'UNVERIFIED')).toBe(true);
+  }
+});
+
 it('routes typed cohort audits without changing individual IDs, evidence or deterministic bundle bytes', async () => {
   const input = fixture(); const original = JSON.stringify(input);
   const actual = await materializeScheduledR2Handoff(input);

@@ -2,6 +2,11 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 14:46 JST review follow-up
+
+- f418cd1 review found status normalization inconsistent between success recognition and search-only rights/notes. Shared result/status/state normalization now handles case, whitespace and semicolon suffix for both; accepted search-only variants force metadata_only even if incoming rights claim raw permission. Raw bytes remain absent and UNVERIFIED stays unchanged.
+- 28 parser tests, typecheck, focused ESLint and diff check passed. Fixed83262f q38 still25/25 schema/count/determinism PASS with unchanged8f32ca89 hash; old q23/q22r1/q20/q35/q36 hashes all unchanged. Follow-up is local only; production v18 remains unmodified.
+
 ## 14:43 JST update — q38 read-only materialization passed
 
 - Hold fix b3a75ed passed independent re-review and partner integrated it into localmain0ea79aa44da62eb844a5bd8ce896cee2d083bf2d; no production Writer deployment.

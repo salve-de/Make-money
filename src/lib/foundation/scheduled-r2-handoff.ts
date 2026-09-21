@@ -359,12 +359,17 @@ function isHttpUrl(value: string): boolean {
   }
 }
 
-function attemptSucceeded(attempt: JsonRecord): boolean {
+function normalizedAttemptStatus(attempt: JsonRecord): string | null {
   const status = text(attempt.result) || text(attempt.status) || text(attempt.state);
+  return status ? status.split(';')[0].trim().toLowerCase() : null;
+}
+
+function attemptSucceeded(attempt: JsonRecord): boolean {
+  const status = normalizedAttemptStatus(attempt);
   // USABLE is the structured collector's metadata-evidence outcome; it
   // does not imply that raw source bytes were fetched or persisted.
   return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_search_extract_only', 'success_via_search_result_after_direct_open_error',
-    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found', 'success_restricted_fulltext', 'found']).has(status.split(';')[0].trim().toLowerCase())
+    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found', 'success_restricted_fulltext', 'found']).has(status)
     : text(attempt.attempt_result) === 'USABLE';
 }
 
@@ -742,12 +747,12 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
           source_type: 'web_source',
           canonical_url: canonicalUrl,
           source_strength: rowQuality.source_strength,
-          rights_status: text(attempt.result)?.toLowerCase() === 'success_search_extract_only' ? 'metadata_only'
+          rights_status: normalizedAttemptStatus(attempt) === 'success_search_extract_only' ? 'metadata_only'
             : text(attempt.rights_state) && RIGHTS_STATUSES.has(String(attempt.rights_state)) ? attempt.rights_state : 'metadata_only',
           rights_policy_id: null,
-          access_notes: text(attempt.result)?.toLowerCase() === 'success_search_extract_only'
+          access_notes: normalizedAttemptStatus(attempt) === 'success_search_extract_only'
             ? 'Only a search extract was observed. Original page content was not fetched or archived; this is not independent fact verification.'
-            : text(attempt.result)?.toLowerCase() === 'success_via_search_result_after_direct_open_error'
+            : normalizedAttemptStatus(attempt) === 'success_via_search_result_after_direct_open_error'
             ? 'Metadata was observed through a search result after direct open failed. Original page content was not fetched or archived.'
             : isHttpUrl(locator)
             ? 'Source body was not copied; metadata-only provenance retained from scheduled staging.'
