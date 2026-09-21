@@ -37,9 +37,16 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
     if (!productionCatalog) {
       entities = await localIndexModule.readCachedLocalPublishableEntities();
     }
-    const bootstrapEntityId = requestedEntityId || (productionCatalog ? 'ent_photoai' : undefined);
+    // A production deep link is resolved by the browser's bounded detail API.
+    // Reading the full R2 dossier during SSR can exceed the Worker CPU limit
+    // for evidence-heavy entities; the client already has an id-aware,
+    // retryable on-demand path. Keep only the lightweight default bootstrap on
+    // the server, and retain the working-tree deep-link behavior in dev.
+    const bootstrapEntityId = productionCatalog
+      ? (requestedEntityId ? undefined : 'ent_photoai')
+      : requestedEntityId;
     selected = bootstrapEntityId ? await localIndexModule.findCachedPublishableEntity(bootstrapEntityId) : null;
-    if (requestedEntityId && !selected) {
+    if (!productionCatalog && requestedEntityId && !selected) {
       unavailable = registryModule.default.find((row) => row.id.toLowerCase() === requestedEntityId!.toLowerCase()) ?? null;
     }
   }
