@@ -322,7 +322,7 @@ export function publicSummaryEntity(entity: FinancialEntity): PublicSummaryEntit
     pricing: entity.pricing,
     acquisition: entity.acquisition,
     essence: entity.essence,
-    hasPremiumAnalysis: Boolean(entity.meta),
+    hasPremiumAnalysis: entity.hasPremiumAnalysis ?? Boolean(entity.meta),
     architecturePattern: entity.architecturePattern ?? '',
     pipelineStack: entity.pipelineStack ?? '',
     targetPainWallet: entity.targetPainWallet ?? '',
@@ -331,7 +331,8 @@ export function publicSummaryEntity(entity: FinancialEntity): PublicSummaryEntit
     opportunityJudgment: entity.opportunityJudgment,
     isBookmarked: entity.isBookmarked,
     publishability: entity.publishability,
-    latestDossierHash: entity.latestDossierHash || `dossier_${entity.id}_v${entity.sourceRevision ?? 1}`,
+    // A made-up identifier is not a stored content hash and causes detail 404s.
+    latestDossierHash: entity.latestDossierHash,
     sourceRevision: entity.sourceRevision ?? 1,
     claimBindings: entity.claimBindings,
     batchId: entity.batchId,

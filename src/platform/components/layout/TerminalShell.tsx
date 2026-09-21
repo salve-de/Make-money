@@ -28,7 +28,9 @@ import { ProModal } from '../../../components/terminal/ProModal';
 export const TerminalShell: React.FC<{
   initialEntities: FinancialEntity[];
   entityAliases: Record<string, string>;
-}> = ({ initialEntities, entityAliases }) => {
+  catalogTags?: string[];
+  catalogBatchIds?: string[];
+}> = ({ initialEntities, entityAliases, catalogTags = [], catalogBatchIds = [] }) => {
   // 1. ワークスペース・モーダル・URL同期フック
   const {
     workspaceMode,
@@ -59,9 +61,10 @@ export const TerminalShell: React.FC<{
     detailedEntities,
     setDetailedEntities,
     setApprovedIds,
+    setCatalogFilters,
     loadMoreFoundation,
     fetchEntityDetailOnDemand,
-  } = useFoundationCatalog(initialEntities);
+  } = useFoundationCatalog(initialEntities, searchQuery);
 
   // 3. 複合フィルタリング・集計・承認フック
   const {
@@ -87,6 +90,7 @@ export const TerminalShell: React.FC<{
   } = useEntityFilter({
     entities,
     searchQuery,
+    onCatalogFiltersChange: setCatalogFilters,
     onPersistApprovedId: (id) => setApprovedIds((prev) => new Set(prev).add(id)),
     onUpdateDetailedTags: (id) => {
       setDetailedEntities((prev) => {
@@ -243,8 +247,9 @@ export const TerminalShell: React.FC<{
               onApproveAllCollected={canApproveEntities ? handleApproveAllCollected : undefined}
               selectedBatch={selectedBatch}
               onSelectBatch={setSelectedBatch}
-              batchCounts={batchCounts}
+              batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
             />
+            <p className="px-3 py-1 text-[10px] text-zinc-500">件数は読込済みの事例です。検索・絞り込みは既存台帳の全件が対象です。新着は追加取得した範囲を含みます。</p>
 
             <InstitutionalDataGrid
               entities={filteredEntities}
@@ -331,7 +336,7 @@ export const TerminalShell: React.FC<{
         isOpen={isScreenerOpen}
         onClose={() => setIsScreenerOpen(false)}
         onApplyFilters={setScreenerFilters}
-        availableTags={availableTags}
+        availableTags={[...new Set([...availableTags, ...catalogTags])]}
         tagCounts={tagCounts}
         initialFilters={screenerFilters}
       />

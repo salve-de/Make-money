@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import type { FinancialEntity } from '@/shared/terminal';
 import type { GridFilterOption } from '../types/terminal';
 import type { ScreenerFilterState } from '../components/screener/AdvancedScreenerModal';
-import { collectedEntityIds, matchesGridFilter, readEntityFilterQuery } from '../model/entity-filter';
+import { collectedEntityIds, matchesCatalogQuery, readEntityFilterQuery } from '../model/entity-filter';
 import { approveEntities } from '../api/entity-approval';
 import { useAuth } from '@/context/AuthContext';
 import { DEFAULT_BOOKMARK_IDS, readGuestBookmarkIds, writeGuestBookmarkIds } from './bookmark-storage';
@@ -17,9 +17,10 @@ interface UseEntityFilterProps {
   searchQuery: string;
   onPersistApprovedId: (id: string) => void;
   onUpdateDetailedTags: (id: string) => void;
+  onCatalogFiltersChange?: (serialized: string) => void;
 }
 
-export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, onUpdateDetailedTags }: UseEntityFilterProps) {
+export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, onUpdateDetailedTags, onCatalogFiltersChange }: UseEntityFilterProps) {
   const searchParams = useSearchParams();
   const { user, token, loading: authLoading } = useAuth();
   const { filter: filterParam, batch: batchParam } = readEntityFilterQuery(searchParams);
@@ -193,30 +194,13 @@ export function useEntityFilter({ entities, searchQuery, onPersistApprovedId, on
     return counts;
   }, [entities]);
 
-  const filteredEntities = useMemo(() => entities.filter((entity) => {
-    if (!matchesGridFilter(entity, currentFilter, bookmarkedIds)) return false;
-    if (selectedBatch !== 'ALL' && entity.batchId !== selectedBatch) return false;
-    if (activeTags.length > 0 && !activeTags.every((tag) => (entity.tags || []).includes(tag))) return false;
-    if (screenerFilters) {
-      if (screenerFilters.scales.length > 0 && !screenerFilters.scales.includes(entity.scale)) return false;
-      if (screenerFilters.minMargin > 0 && entity.pnl.operatingMargin < screenerFilters.minMargin) return false;
-      if (screenerFilters.maxCapital !== null && (entity.operations.isCapitalUnconfirmed || entity.operations.initialCapitalRequired > screenerFilters.maxCapital)) return false;
-      if (screenerFilters.moats.length > 0 && !screenerFilters.moats.includes(entity.strategy.moatType)) return false;
-      if (screenerFilters.selectedTags?.length && !screenerFilters.selectedTags.some((tag) => (entity.tags || []).includes(tag))) return false;
-    }
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase().trim();
-      const compact = query.replace(/\s+/g, '');
-      const matchName = entity.name.toLowerCase().includes(query) || entity.name.toLowerCase().replace(/\s+/g, '').includes(compact);
-      const matchTicker = entity.ticker.toLowerCase().includes(query);
-      const matchTagline = (entity.tagline || '').toLowerCase().includes(query);
-      const matchBlindspot = (entity.strategy?.blindspot || '').toLowerCase().includes(query);
-      const matchFounder = (entity.founder || '').toLowerCase().includes(query);
-      const matchTag = (entity.tags || []).some((tag) => tag.toLowerCase().includes(query));
-      if (!matchName && !matchTicker && !matchTagline && !matchBlindspot && !matchFounder && !matchTag) return false;
-    }
-    return true;
-  }), [entities, currentFilter, selectedBatch, activeTags, screenerFilters, searchQuery, bookmarkedIds]);
+  const catalogFilters = useMemo(() => ({ filter: currentFilter, batch: selectedBatch, tags: activeTags,
+    bookmarks: currentFilter === 'BOOKMARKED' ? [...bookmarkedIds].sort() : [], screener: screenerFilters }),
+  [currentFilter, selectedBatch, activeTags, bookmarkedIds, screenerFilters]);
+  const serializedFilters = JSON.stringify(catalogFilters);
+  useEffect(() => { onCatalogFiltersChange?.(serializedFilters); }, [serializedFilters, onCatalogFiltersChange]);
+  const filteredEntities = useMemo(() => entities.filter((entity) => matchesCatalogQuery(entity, searchQuery, catalogFilters)),
+    [entities, searchQuery, catalogFilters]);
 
   const persistApproval = useCallback(async (ids: string[]) => {
     if (!ids.length || approvalInFlight.current) return;

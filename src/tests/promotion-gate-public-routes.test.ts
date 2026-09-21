@@ -115,12 +115,23 @@ describe('Promotion Enforcement Gate - Public Route Safety', () => {
 
   it('4. Public API route GET /api/businesses with requested dossier_hash strictly returns 404 when not found and does NOT fallback to latest', async () => {
     // 存在するエンティティIDだが、存在しない特定の過去ハッシュを要求した場合
-    const req = new Request('http://localhost:3000/api/businesses?entity_id=ent_keyence&dossier_hash=non_existent_hash_99999');
+    const req = new Request(`http://localhost:3000/api/businesses?entity_id=ent_keyence&dossier_hash=${'0'.repeat(64)}`);
     const res = await GET(req);
     // フォールバックして最新のキーエンスを返すのではなく、CAS契約に基づき厳格404を返すこと
     expect(res.status).toBe(404);
     const body = await res.json();
     expect(body.error).toContain('Dossier snapshot not found for requested hash');
+  });
+
+  it('rejects malformed dossier hashes before storage lookup', async () => {
+    const res = await GET(new Request('http://localhost:3000/api/businesses?entity_id=ent_keyence&dossier_hash=not-a-sha256'));
+    expect(res.status).toBe(400);
+  });
+
+  it('does not return the entire legacy catalog for a Foundation-only request when storage is unavailable', async () => {
+    const res = await GET(new Request('http://localhost:3000/api/businesses?foundationOnly=true'));
+    expect(res.status).toBe(503);
+    expect(await res.json()).toEqual({ error: 'Foundation catalog temporarily unavailable' });
   });
 
   it('5. publicSummaryEntity strictly preserves undefined publishability without elevating to PUBLISHABLE', () => {

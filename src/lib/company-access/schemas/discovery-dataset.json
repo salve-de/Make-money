@@ -1,0 +1,245 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/DiscoveryDataset",
+  "definitions": {
+    "DiscoveryDataset": {
+      "type": "object",
+      "properties": {
+        "sourceCount": {
+          "type": "number"
+        },
+        "visibleCount": {
+          "type": "number"
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DiscoveryCase"
+          }
+        },
+        "mechanisms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "count": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "label",
+              "count"
+            ]
+          }
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/DiscoveryCase"
+          }
+        }
+      },
+      "required": [
+        "sourceCount",
+        "visibleCount",
+        "cases",
+        "mechanisms",
+        "highlights"
+      ]
+    },
+    "DiscoveryCase": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "sector": {
+          "type": "string"
+        },
+        "resultLabel": {
+          "type": "string"
+        },
+        "resultValue": {
+          "type": "string"
+        },
+        "resultAmountJpy": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "startLine": {
+          "type": "string"
+        },
+        "criticalInsight": {
+          "type": "string"
+        },
+        "whyMoneyMoved": {
+          "type": "string"
+        },
+        "leverage": {
+          "type": "string"
+        },
+        "mechanism": {
+          "$ref": "#/definitions/DiscoveryMechanism"
+        },
+        "mechanismCount": {
+          "type": "number"
+        },
+        "currentLabel": {
+          "type": "string"
+        },
+        "currentDetail": {
+          "type": "string"
+        },
+        "isCurrent": {
+          "type": "boolean"
+        },
+        "isFailure": {
+          "type": "boolean"
+        },
+        "isSolo": {
+          "type": "boolean"
+        },
+        "lowCapital": {
+          "type": "boolean"
+        },
+        "lowWork": {
+          "type": "boolean"
+        },
+        "evidenceCount": {
+          "type": "number"
+        },
+        "descriptors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "label",
+              "value"
+            ]
+          }
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "resultValue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "resultValue"
+            ]
+          }
+        },
+        "scores": {
+          "type": "object",
+          "properties": {
+            "SURPRISE": {
+              "type": "number"
+            },
+            "BIG_CASH": {
+              "type": "number"
+            },
+            "LOW_CAPITAL": {
+              "type": "number"
+            },
+            "SOLO": {
+              "type": "number"
+            },
+            "LOW_WORK": {
+              "type": "number"
+            },
+            "CURRENT": {
+              "type": "number"
+            },
+            "FAILURE": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "SURPRISE",
+            "BIG_CASH",
+            "LOW_CAPITAL",
+            "SOLO",
+            "LOW_WORK",
+            "CURRENT",
+            "FAILURE"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "tagline",
+        "sector",
+        "resultLabel",
+        "resultValue",
+        "resultAmountJpy",
+        "startLine",
+        "criticalInsight",
+        "whyMoneyMoved",
+        "leverage",
+        "mechanism",
+        "mechanismCount",
+        "currentLabel",
+        "currentDetail",
+        "isCurrent",
+        "isFailure",
+        "isSolo",
+        "lowCapital",
+        "lowWork",
+        "evidenceCount",
+        "descriptors",
+        "related",
+        "scores"
+      ]
+    },
+    "DiscoveryMechanism": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ]
+    }
+  }
+}

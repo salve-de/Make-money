@@ -23,11 +23,11 @@ test('batch deep links survive reload and removed URL parameters reset', async (
   await page.reload();
   await expect(rows).toHaveCount(1);
   await page.evaluate(() => window.history.pushState(null, '', '/'));
-  await expect(rows.filter({ hasText: 'キーエンス (KEYENCE)' })).toHaveCount(1);
+  await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(1);
   await page.goBack();
   await expect(rows).toHaveCount(1);
   await page.goForward();
-  await expect(rows.filter({ hasText: 'キーエンス (KEYENCE)' })).toHaveCount(1);
+  await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(1);
 });
 
 test('anonymous users never see the editorial bulk approval action', async ({ page }) => {

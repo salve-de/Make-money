@@ -68,3 +68,4 @@ __pycache__/
 # Raw sources cache and master facts cache
 /data/raw_master_facts.json
 /data/raw_sources_cache/
+/.catalog-release/

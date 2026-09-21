@@ -32,7 +32,8 @@ test('search and screener change the company list and reset cleanly', async ({ p
   await expect(rows.filter({ hasText: 'Photo AI' })).toHaveCount(1);
   await expect(rows.filter({ hasText: 'キーエンス (KEYENCE)' })).toHaveCount(0);
   await page.getByTitle('スクリーナー条件を解除', { exact: true }).click();
-  await expect(rows.filter({ hasText: 'キーエンス (KEYENCE)' })).toHaveCount(1);
+  await search.fill('Ahrefs');
+  await expect(rows.filter({ has: page.getByText('Ahrefs', { exact: true }) })).toHaveCount(1);
   expect(errors).toEqual([]);
 });
 
@@ -46,9 +47,9 @@ test('analyst note survives reload and remains attached to the selected company'
   await page.reload();
   await openNotes(page);
   await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await selectCompany(page, 'Photo AI');
+  await selectCompany(page, 'Ahrefs');
   await expect(note).not.toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
-  await selectCompany(page, 'キーエンス (KEYENCE)');
+  await selectCompany(page, 'Photo AI');
   await expect(note).toHaveValue('Smoke note: verify the quoted operating margin before comparison.');
   expect(errors).toEqual([]);
 });
@@ -83,7 +84,7 @@ test('playbook tabs render their datasets and macro redirects back to the same p
   await page.goto('/playbook');
   await page.getByRole('link', { name: '← 個別企業台帳 (Ledger)' }).click();
   await page.waitForURL(/\/$/);
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible({ timeout: 15000 });
   expect(errors).toEqual([]);
 });
 
@@ -92,7 +93,7 @@ test('legacy finder redirects into the usable current ledger rather than a delet
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/finder');
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await selectCompany(page, 'Photo AI');
   await page.getByTitle('閉じる (Esc)', { exact: true }).click();
   await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toHaveCount(0);
@@ -103,13 +104,13 @@ test('legacy finder redirects into the usable current ledger rather than a delet
 test('legacy finder and macro links still reach their canonical routes', async ({ page }) => {
   await page.goto('/finder');
   await expect(page).toHaveURL(/\/$/);
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
   await page.goto('/macro');
   await expect(page).toHaveURL(/\/playbook$/);
   await expect(page.getByRole('heading', { level: 1, name: /事業・ツールの参考プレイブック/ })).toBeVisible();
   await page.getByRole('link', { name: '← 個別企業台帳 (Ledger)' }).click();
   await page.waitForURL(/\/$/);
-  await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible({ timeout: 15000 });
+  await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible({ timeout: 15000 });
 });
 
 for (const raw of ['null', '{}', '[null,42,"ent_photoai"]']) {
@@ -118,9 +119,9 @@ for (const raw of ['null', '{}', '[null,42,"ent_photoai"]']) {
     page.on('pageerror', (error) => errors.push(error.message));
     await page.addInitScript((raw) => localStorage.setItem('mm_viewed_entity_history_v1', raw), raw);
     await page.goto('/');
-    await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toBeVisible();
-    await selectCompany(page, 'Photo AI');
-    await expect(page.getByRole('heading', { name: 'キーエンス (KEYENCE)', exact: true })).toHaveCount(0);
+    await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toBeVisible();
+    await selectCompany(page, 'Ahrefs');
+    await expect(page.getByRole('heading', { name: 'Photo AI', exact: true })).toHaveCount(0);
     expect(errors).toEqual([]);
   });
 }

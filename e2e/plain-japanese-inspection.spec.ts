@@ -19,6 +19,13 @@ for (const [id, name, hazard] of entities) {
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto(`/?entity=${id}`);
+    if (['ent_pdf_ai_65', 'ent_disco_6146_jp', 'ent_keyence'].includes(id)) {
+      await expect(page.getByRole('status')).toContainText(`${name}：詳細の公開確認が完了していない`);
+      await expect(page.getByRole('heading', { name, exact: true })).toHaveCount(0);
+      await expect(page.getByRole('link', { name: `${name}の稼ぎ方を実行する（空の計画から開始）` })).toHaveAttribute('href', `/execute/${id}`);
+      expect(errors).toEqual([]);
+      return;
+    }
     await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
     await expect(page.locator('#section-summary')).toHaveCount(1);
     await expect(page.locator('#section-cash-anatomy')).toHaveCount(1);
