@@ -2,6 +2,22 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 14:33 JST update — reviewed candidate, not deployed
+
+- Actual v18 14:20 q38 receipt at05:20:22.763Z is SKIPPED_NOT_READY, planned/created/readback0. Input has25 normalized_candidates but2 recorded_items explicitly typed R2QueueCandidateBatch/NormalizedCandidateManifest; current parser compares audit rows to individual candidates. No q38 manual save. This remains a separate read-only diagnosis, not fixed by the hold patch.
+- Candidate Writer catches only successfully read/hash-verified immutable mismatches, writes explicit input/version-bound conflict holds and continues. Holds never assert successful save or zero prior writes. Auth/network/readback failures remain failures. Existing holds no longer monopolize pending priority; changed input can be re-evaluated. Many arbitrary holds may still exhaust the40-call budget; no unbounded progress guarantee.
+- Independent review requested tree/content consistency: live GitHub payload.sha must match the tree blob SHA before JSON enters the cache; changed/deleted inputs fail without creating a hold. Hold proof fields/hashes and incomplete/null counters are validated fail-closed.
+- Forty-artifact fixture with3 existing holds reaches2 normal successors in13 GitHub calls. Tests cover mid-read queue/source changes, partial writes before conflict, real post-PUT readback failure, and corrupted holds.
+- l12/m13 preparation helper is NOT wired into Writer. GET-only normalized full plans passed: l12 438=205identical+233absent; m13 332=152identical+180absent; conflicts0, real PUT0. Actual storage is still held.
+- Local627 API acceptance is complete as recorded below. Current candidate only changes code/tests/docs; no additional deployment, R2 write or main integration by this task.
+
+## 14:05 JST update
+
+- Partner completed627-ID local acceptance at05:00:50.042Z: localhost3000,7 list pages,627 details,failed[],strict Foundation source. Representative browser list/detail/six execution steps also passed. All627 APIs are verified, not all627 rendered detail screens individually.
+- Partner localmain0e0441af2c873c6ffc0130038a43ffdaecff5b51 clean includes6297b3b inventory docs. This checkout does not change rootmain.
+- Authorized next step is preparation/dryrun/tests only for l12/m13 null omission; no new R2 writes or deployment yet. A pure helper checks canonical bundle absence, fills only absent unit/amount_label fields, preserves actual strings/empty strings/null and rejects coercion. Existing bundle bytes are returned unchanged without parse/regeneration, and read errors propagate. Worker is not wired to it.
+- Seven helper tests plus17 existing Writer tests, typecheck and focused ESLint passed. Real R2 GET-only full-plan normalized preflight is running. k11 recognition remains a read-only design, not an implemented automatic fallback. Production v18 and14:20 monitoring unchanged.
+
 ## 13:56 JST update
 
 - Fixed40 inventory finalized: 29 saved/projected business runs, 627 distinct entity IDs. Historical 11 original bundles reprojected after exact SHA verification; q32 uses its corrected bundle separately. Manifest `/private/tmp/r2-live-audit.mfgRor/fixed40-acceptance.json` at04:56:08Z sent to partner for one all-ID local API comparison. Local all627 acceptance remains pending.
