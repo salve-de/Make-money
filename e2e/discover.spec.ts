@@ -5,7 +5,8 @@ test("standalone discover page delivers value without requiring setup", async ({
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
 
-  await page.goto("/discover", { waitUntil: "networkidle" });
+  const response = await page.goto("/discover", { waitUntil: "networkidle" });
+  expect(await response?.text()).not.toContain('ent_mixo_84c7e1');
 
   await expect(
     page.getByRole("heading", { level: 1, name: "金を作った「決定的な一手」だけ。" }),

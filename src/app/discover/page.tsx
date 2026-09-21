@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { publicEntity } from '@/lib/company-access/public-entity';
+import { isPublishableEntity, publicEntity } from '@/lib/company-access/public-entity';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
@@ -33,6 +33,7 @@ async function getDiscoveryDataset() {
       const entities = validEntities
         .map(reconcileFinancialEntity)
         .map(normalizeFinancialEntity)
+        .filter(isPublishableEntity)
         .map(publicEntity);
 
       return deriveDiscoveryDataset(entities);
@@ -41,7 +42,7 @@ async function getDiscoveryDataset() {
     console.error('[DiscoverPage] Failed to read entities-index.json; using static core.', error);
   }
 
-  return deriveDiscoveryDataset(INSTITUTIONAL_ENTITIES.map(publicEntity));
+  return deriveDiscoveryDataset(INSTITUTIONAL_ENTITIES.map(reconcileFinancialEntity).map(normalizeFinancialEntity).filter(isPublishableEntity).map(publicEntity));
 }
 
 export default async function DiscoverPage() {

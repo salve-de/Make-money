@@ -73,3 +73,9 @@ pnpm exec eslint r2-writer/worker.ts src/lib/foundation/scheduled-r2-handoff.ts 
 pnpm exec tsc --noEmit --pretty false
 pnpm exec vitest run src/lib/foundation/scheduled-r2-handoff.test.ts
 ```
+# 2026-09-21 統合時の再実行安全性
+
+- writer v4 は journal ID に完全な SHA-256 を使う。旧 journal は削除・上書きしない。
+- 公開便の割当時刻はキューの完了時刻（なければ bundle の取得時刻）に固定し、再実行の壁時計を使わない。
+- 同じ入力の再実行で新規 PUT が0になることを回帰テストで確認する。
+- 既存の成功 receipt は従来どおり再処理しない。旧版の部分成功で衝突する場合も上書きせず、原本と receipt を個別照合する。

@@ -207,7 +207,7 @@ export function BuilderWorkspace({ ideaId }: { ideaId: string }) {
     if (session?.status !== 'generating') return;
     const timer = window.setTimeout(() => void loadContext(), 2500);
     return () => window.clearTimeout(timer);
-  }, [session?.status, loadContext]);
+  }, [session, loadContext]);
 
   const startBuild = async () => {
     if (isPublicDemo || !authorization || starting) return;

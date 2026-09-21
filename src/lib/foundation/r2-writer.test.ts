@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import worker, { queueProcessingOrder, sourceRunPaths } from '../../../r2-writer/worker';
+import { createHash } from 'node:crypto';
+import worker, { journalEntries, publicationAssignedAt, queueProcessingOrder, sourceRunPaths } from '../../../r2-writer/worker';
 
 class MemoryBucket {
   readonly values = new Map<string, Uint8Array>();
@@ -22,6 +23,19 @@ class MemoryBucket {
 }
 
 describe('scheduled R2 writer publication contribution', () => {
+  it('uses a full SHA-256 journal identifier', () => {
+    const row = { entity_id: 'ent_test', canonical_name: '検証' };
+    const [entry] = journalEntries({ run_id: 'run_test', retrieved_at: '2026-09-20T00:00:00Z', entities: [row] });
+    expect(entry.journal_id).toBe('jr_' + createHash('sha256').update(`run_test|entity|ent_test|${JSON.stringify(row)}`).digest('hex'));
+  });
+
+  it('assigns publication from source time, not retry time', () => {
+    const bundle = { retrieved_at: '2026-09-20T00:00:00Z' };
+    expect(publicationAssignedAt(bundle)).toBe('2026-09-20T00:00:00.000Z');
+    expect(publicationAssignedAt(bundle, { finished_at: '2026-09-20T02:00:00Z' }))
+      .toBe('2026-09-20T02:00:00.000Z');
+    expect(() => publicationAssignedAt({})).toThrow('stable source timestamp');
+  });
   it('keeps the newest queue fresh while draining the oldest backlog', () => {
     const paths = [
       'staging/r2-queue/2026/09/20/20260920T010222Z-run_j10.json',
@@ -133,5 +147,13 @@ describe('scheduled R2 writer publication contribution', () => {
       /^views\/make-money\/new-arrivals\/v1\/contributions\/\d{4}\/\d{2}\/\d{2}\/contrib_run_20260920_test\.json$/,
     );
     expect(payload.r2?.objects?.some((item) => item.role === 'new_arrivals_contribution')).toBe(true);
+    const before = [...lake.values.entries()].map(([key, value]) => [key, Array.from(value)]);
+    const retry = await worker.fetch(new Request('https://writer.test/ingest', {
+      method: 'POST', headers: { 'x-foundation-writer-token': 'test-token' },
+      body: JSON.stringify({ write_authorized: true, bundle }),
+    }), env);
+    expect(retry.status).toBe(200);
+    expect((await retry.json() as { r2: { created: number } }).r2.created).toBe(0);
+    expect([...lake.values.entries()].map(([key, value]) => [key, Array.from(value)])).toEqual(before);
   });
 });

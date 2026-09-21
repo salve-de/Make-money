@@ -1,4 +1,5 @@
 import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError, type ScheduledQueueRun, type ScheduledSourceRun } from '../src/lib/foundation/scheduled-r2-handoff';
+import { sha256Sync } from '../src/shared/sha256';
 import {
   buildNewArrivalsContribution,
   newArrivalsContributionKey,
@@ -287,7 +288,7 @@ function journalEntries(bundle: JsonRecord): JsonRecord[] {
     value.filter(record).forEach((row, index) => {
       const recordId = text(row[`${kind === 'money_signal' ? 'money_signal' : kind}_id`]) || `${kind}-${index}`;
       const seed = `${runId}|${kind}|${recordId}|${JSON.stringify(row)}`;
-      const hash = seed.split('').reduce((acc, char) => (Math.imul(acc ^ char.charCodeAt(0), 0x01000193) >>> 0), 0x811c9dc5).toString(16).padStart(8, '0');
+      const hash = sha256Sync(seed);
       const evidence = evidenceIds(row);
       const origin = ['reported', 'observed', 'estimated', 'inferred', 'unknown'].includes(String(row.origin_type)) ? String(row.origin_type) : 'observed';
       const verification = ['SUPPORTED', 'CONFLICTED', 'UNVERIFIED', 'SUPERSEDED', 'RETRACTED'].includes(String(row.verification_status)) ? String(row.verification_status) : 'UNVERIFIED';
@@ -296,7 +297,7 @@ function journalEntries(bundle: JsonRecord): JsonRecord[] {
       const typeValue = text(row[`${kind === 'money_signal' ? 'money_signal' : kind}_type`]) || text(row.predicate) || 'general';
       entries.push({
         schema_version: 'journal-entry.v1',
-        journal_id: `jr_${hash.repeat(3).slice(0, 24)}`,
+        journal_id: `jr_${hash}`,
         subject_refs: subjectRefs(kind, row, bundle),
         observation_type: `foundation.${kind}.${safeType(typeValue)}`,
         payload_schema_ref: null,
@@ -475,6 +476,12 @@ async function preflightAndWrite(objects: PlannedObject[]): Promise<{ results: A
   return { results, provider_calls, readback_verified };
 }
 
+export function publicationAssignedAt(bundle: JsonRecord, queue?: ScheduledQueueRun): string {
+  const timestamp = (queue && queueFinishedAt(queue)) || text(bundle.retrieved_at);
+  if (!timestamp || !Number.isFinite(Date.parse(timestamp))) throw new Error('A stable source timestamp is required');
+  return new Date(timestamp).toISOString();
+}
+
 async function persistBundle(
   bundle: JsonRecord,
   env: WriterEnv,
@@ -485,7 +492,7 @@ async function persistBundle(
     throw new Error('bundle must be research-bundle.v1 with quality.schema_validation=PASS');
   }
   const planned = await plannedObjects(bundle, env, {
-    assignedAt: publication.assignedAt || new Date().toISOString(),
+    assignedAt: publication.assignedAt || publicationAssignedAt(bundle),
     queuePath: publication.queuePath,
   });
   const objects = planned.objects;
@@ -769,7 +776,7 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
     source_metadata_base_url: `https://github.com/${repoName(env)}/blob/${branchName(env)}`,
   });
   if (materialized.included_items === 0) throw new Error('no validated items were materialized for R2');
-  const assignedAt = new Date().toISOString();
+  const assignedAt = publicationAssignedAt(materialized.bundle, queue);
   const r2 = await persistBundle(materialized.bundle, env, { assignedAt, queuePath });
   const receiptPayload: JsonRecord = {
     schema_version: 'r2-writer-receipt.v1',
