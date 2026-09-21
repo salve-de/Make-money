@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { gzipSync } from 'node:zlib';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
-import { decodeCatalogArtifact, usesCatalogRelease } from './catalog-release';
+import { decodeCatalogArtifact, hasCatalogReleaseEntity, usesCatalogRelease } from './catalog-release';
 
 vi.mock('@/lib/runtime/cloudflare', () => ({ getCloudflareRuntimeEnv: vi.fn() }));
 afterEach(() => { vi.unstubAllEnvs(); vi.resetAllMocks(); });
@@ -29,5 +29,9 @@ describe('immutable catalog release', () => {
   });
   it('rejects corrupt compressed content', () => {
     expect(() => decodeCatalogArtifact(new Uint8Array([1, 2, 3]), 'a'.repeat(64))).toThrow();
+  });
+  it('checks release membership without reading an R2 dossier', () => {
+    expect(hasCatalogReleaseEntity('ENT_PHOTOAI')).toBe(true);
+    expect(hasCatalogReleaseEntity('ent_keyence')).toBe(false);
   });
 });

@@ -24,11 +24,12 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   // the inspector can render before the bounded client catalog has loaded.
   // Loading the index module is cheap here; reading the full catalog is not.
   {
-    const [ledgerModule, publicEntityModule, localIndexModule, registryModule] = await Promise.all([
+    const [ledgerModule, publicEntityModule, localIndexModule, registryModule, catalogReleaseModule] = await Promise.all([
       import('@/platform/data/mockLedgerData'),
       import('@/lib/company-access/public-entity'),
       import('@/lib/company-access/local-entity-index'),
       import('../../data/collected-registry.json'),
+      import('@/lib/company-access/catalog-release'),
     ]);
     entityAliases = ledgerModule.INSTITUTIONAL_ENTITY_ALIASES;
     requestedEntityId = requestedEntityParam ? entityAliases[requestedEntityParam] || requestedEntityParam : undefined;
@@ -37,9 +38,27 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
     if (!productionCatalog) {
       entities = await localIndexModule.readCachedLocalPublishableEntities();
     }
-    const bootstrapEntityId = requestedEntityId || (productionCatalog ? 'ent_photoai' : undefined);
-    selected = bootstrapEntityId ? await localIndexModule.findCachedPublishableEntity(bootstrapEntityId) : null;
-    if (requestedEntityId && !selected) {
+    // A production deep link is resolved by the browser's bounded detail API.
+    // Reading the full R2 dossier during SSR can exceed the Worker CPU limit
+    // for evidence-heavy entities; the client already has an id-aware,
+    // retryable on-demand path. Keep only the lightweight default bootstrap on
+    // the server, and retain the working-tree deep-link behavior in dev.
+    const bootstrapEntityId = productionCatalog
+      ? (!requestedEntityId || requestedEntityId === 'ent_photoai' ? 'ent_photoai' : undefined)
+      : requestedEntityId;
+    if (bootstrapEntityId) {
+      try {
+        selected = await localIndexModule.findCachedPublishableEntity(bootstrapEntityId);
+      } catch {
+        // The local E2E server has no R2 binding. Keep the curated institutional
+        // bootstrap available there; production still prefers the release dossier.
+        selected = null;
+      }
+      if (!selected && bootstrapEntityId === 'ent_photoai') {
+        selected = ledgerModule.findInstitutionalEntity(bootstrapEntityId) ?? null;
+      }
+    }
+    if (requestedEntityId && !selected && !catalogReleaseModule.hasCatalogReleaseEntity(requestedEntityId)) {
       unavailable = registryModule.default.find((row) => row.id.toLowerCase() === requestedEntityId!.toLowerCase()) ?? null;
     }
   }
