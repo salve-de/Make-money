@@ -2,6 +2,16 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 12:36 JST update (supersedes status below)
+
+- main 88532eb includes the earlier repair. Coordinating task verified all 171 recovered IDs in local list and detail APIs, source=foundation_lake, failures=0 at 03:24:49Z.
+- Actual 12:20 v15 scheduled q36 receipt finished 03:20:22.774Z, SKIPPED_NOT_READY, writes=0. Its source_run_paths=[] is hardcoded by the skip-receipt builder, not proof that sources were absent.
+- q36 separated audit recorded_items from normalized_candidates. Writer selected audit summaries instead of the full candidates. The repair joins them by explicit ID, rejects ambiguous/mismatched inventories, and recognizes explicit upstream secondary/relay/sponsored/conflict success statuses without promoting verification status.
+- q36 manual recovery: 25 entities, 152 CREATED objects, all 152 byte/SHA-256 readbacks matched. Projection created 25 views, complete=true, unresolved=0. Private receipts: /private/tmp/r2-live-audit.mfgRor/q36.recovery.json and q36.projection.json. These are not scheduled success evidence. Local q36 verification assigned to integration task.
+- Writer v16 deployed: f6cded2a-d936-4891-b1a6-34a74233320e. Existing hourly minute-20 schedule unchanged, enabled=true. No app deployment. 28 focused tests, tsc and deployment dry-run passed.
+- Actual v16 scheduled success remains unverified. q32 original remains unchanged and its correction remains unfinished. Integration task owns derived-view correction code; this task exclusively owns R2 writes.
+- Read-only inventory pinned GitHub 0f77b8a5b2c611d0916d127f77e11fd01c69aaae found other old unmaterialized inputs. The audit CLI does not yet hydrate artifact_path bundles like production (n14 therefore shows a false-negative); do not call that run unrecovered or all historical inputs complete.
+
 ## Current production
 
 - Writer v15, version 0002aa94-3302-4f09-bb1e-a9d090e4324c, deployed around 11:35 JST. Existing writer only; no app deployment by this task.
