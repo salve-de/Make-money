@@ -47,6 +47,8 @@ Full read-only planned-object comparison found l12: 438 planned, 193 identical, 
 
 ## Automatic operation remains unfinished
 
+- q38 parser candidate passed read-only validation at GitHub83262f3880f8c3b2d65bd4cedff61b0f9570a454:25 entities/25 unchanged evidence IDs, schema/count and same-input determinism PASS; bundle SHA2568f32ca890ff22a409f1b94c5b55534e280f5ffa37508e4d3ff0b68a737fad68f (114826bytes). Explicit cohort audit roles are separated; exact search-extract-only status preserves metadata-only/UNVERIFIED. Not deployed or saved; v18 actual failure below remains the production evidence.
+
 - 14:20 v18 actual q38 receipt at05:20:22.763Z: SKIPPED_NOT_READY, R2 planned/created/readback0. Its25 normalized candidates and2 typed batch/manifest audit rows are miscompared by the current parser. This is new-scheduled acceptance evidence, not expansion of fixed40 or a manually recovered run.
 - Undeployed conflict-hold candidate continues after genuine immutable mismatches, validates hold evidence and tree/content SHA consistency, and leaves authentication/connectivity/readback failures as failures. A40-artifact fixture with3 existing holds reaches2 normal successors using13 GitHub calls. Many arbitrary holds are not guaranteed to drain in one invocation.
 - Pure preparation-only null default helper passes l12/m13 full GET-only normalized plans with0 conflicts (205/233 and152/180 identical/absent). No real writes or Worker wiring; both remain storage holds.

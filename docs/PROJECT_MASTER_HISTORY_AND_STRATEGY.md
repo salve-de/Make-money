@@ -7125,3 +7125,9 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Independent review identified mutable-branch/tree races. Content response blob SHA must match the tree snapshot before caching; mid-read updates/deletions fail closed, without writing misleading holds. Forty-artifact/three-existing-hold test reaches two valid successors in13 GitHub calls; arbitrary many holds are not guaranteed within one budget.
 - Added preparation-only absent MoneySignal unit/amount_label to null helper, refusing stored-bundle regeneration and value coercion. Real GET-only l12/m13 complete plans have zero conflicts; no actual save or automatic helper integration yet.
 - Partner local627 list/detail APIs passed at05:00:50.042Z. Actual14:20 v18 q38 remains SKIPPED_NOT_READY/writes0 due batch/manifest audit rows versus25 normalized candidates; that parser issue is separately diagnosed, not fixed here. No new deployment, R2 PUT, remote push or rootmain change by this task.
+
+### 2026-09-21: Typed cohort audit parsing and search-extract provenance
+
+- Separates only explicit batch/manifest audit roles from individual normalized candidates; maintains declared count, unique source identity and existing individual audit joins. Unknown/mixed roles, duplicate audit roles/candidates and absent/mismatched counts fail closed.
+- Recognizes exact success_search_extract_only as metadata observation, not fact verification or full-body acquisition. Existing source URL/evidence matching remains required; unknown/failed statuses reject and UNVERIFIED is retained.
+- Actual q38 at fixed GitHub83262f3880f8c3b2d65bd4cedff61b0f9570a454 materializes25 entities/25 evidence without altering source evidence IDs, matches explicit individual-row route, passes canonical schema and same-input deterministic hash8f32ca890ff22a409f1b94c5b55534e280f5ffa37508e4d3ff0b68a737fad68f. Five old saved-run bundle hashes unchanged. No manual q38 save, no deployment; actual scheduled success still required.

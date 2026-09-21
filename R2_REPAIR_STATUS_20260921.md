@@ -2,6 +2,14 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 14:43 JST update — q38 read-only materialization passed
+
+- Hold fix b3a75ed passed independent re-review and partner integrated it into localmain0ea79aa44da62eb844a5bd8ce896cee2d083bf2d; no production Writer deployment.
+- Separate parser candidate identifies only explicit R2QueueCandidateBatch/NormalizedCandidateManifest audit roles. Mixed/unknown roles, duplicate audit types, absent/duplicate candidate IDs, invalid rows and declared-count mismatch fail closed; existing individual audit joins remain unchanged.
+- Actual q38 also uses exact success_search_extract_only for Allspring. Added that metadata observation outcome without fact-verification promotion or raw-body claims. Unknown/failure outcomes still reject; original UNVERIFIED retained.
+- Read-only GitHub commit83262f3880f8c3b2d65bd4cedff61b0f9570a454 q38:25 entities/25 evidence, source evidence IDs unchanged, identical output to explicit individual-row route, canonical schema PASS, same-input deterministic. Bundle SHA2568f32ca890ff22a409f1b94c5b55534e280f5ffa37508e4d3ff0b68a737fad68f,114826bytes. This is NOT an old-bundle hash comparison because prior q38 parsing failed.
+- Old successful q23/q22r1/q20/q35/q36 bundle SHA regressions all identical. Real R2 PUT0. Actual scheduled q38 still has only the failed v18 receipt; new parser not deployed.
+
 ## 14:33 JST update — reviewed candidate, not deployed
 
 - Actual v18 14:20 q38 receipt at05:20:22.763Z is SKIPPED_NOT_READY, planned/created/readback0. Input has25 normalized_candidates but2 recorded_items explicitly typed R2QueueCandidateBatch/NormalizedCandidateManifest; current parser compares audit rows to individual candidates. No q38 manual save. This remains a separate read-only diagnosis, not fixed by the hold patch.
