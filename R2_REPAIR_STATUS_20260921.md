@@ -2,6 +2,15 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 13:56 JST update
+
+- Fixed40 inventory finalized: 29 saved/projected business runs, 627 distinct entity IDs. Historical 11 original bundles reprojected after exact SHA verification; q32 uses its corrected bundle separately. Manifest `/private/tmp/r2-live-audit.mfgRor/fixed40-acceptance.json` at04:56:08Z sent to partner for one all-ID local API comparison. Local all627 acceptance remains pending.
+- Legacy batch completed: f6/g7/h8/i9/j10/q33, 97 IDs,760 readbacks (472created/288identical), all projections complete. l12/m13 remain incomplete: full GET-only preflight found22 MoneySignal differences, all stored unit:null/amount_label:null versus incoming omitted fields; no business-value changes, no overwrite, no fallback applied.
+- k11 manual history39 remains saved/projected. Normal retry still conflicts at one entity evidence_ids and one bundle warning (Merged91 versus25 after manifest reference deduplication). Current GitHub receipts remain v1/v2 SKIPPED_NOT_READY; future scheduled replay can stop here. Do not confuse manual recovery with automatic stability. No automatic fallback was introduced.
+- Remaining11 artifacts are explicitly classified in `docs/worklogs/R2_FIXED40_ACCEPTANCE_20260921.md`: normalization3, technical conflict2, evidence mapping1, multi-entity identity1, incomplete originals2, audit-only2. Nineteen named NEEDS_RESEARCH cases within saved runs remain upstream holds.
+- Partner reports rootmain c9dc286 clean, strict Foundation API working and visible list/detail/execution UI PASS after local read-transport repair and foreground browser verification. Full627 local acceptance is separate and pending.
+- Production remains v18, existing14:20 JST scheduled proof pending. No new app deployment, Cron, billing change, deletion or GitHub push. No R2 write batch is still running.
+
 ## 13:36 JST update
 
 - Production Writer v18: 9a6e0120-ec49-49d8-afca-bb042cfecd45, enabled=true, existing hourly minute-20 only. d8f8bb3 fixes explicit old artifact manifests, q34r1 audit counters and SUCCESS_RESTRICTED_FULLTEXT metadata without upgrading verification.

@@ -7112,3 +7112,9 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Top-level q34r1 relationship-count correction is treated only as an allowlisted audit counter, not business data. Original queue artifacts stay unchanged.
 - Actual v17 scheduled q37 at 04:20:22Z skipped because SUCCESS_RESTRICTED_FULLTEXT metadata was not recognized. The narrowly added status preserves metadata_only and UNVERIFIED; no source-native paywalled content is fetched. Real q37 now materializes 25 candidates in a read-only check, not a manual or scheduled save.
 - 29 focused tests and typecheck passed; five previously recovered bundle hashes remain identical. The next version still needs its own actual scheduled and local consumption proof.
+
+### 2026-09-21: Fixed40 storage inventory and explicit replay holds
+
+- Completed six additional legacy recovery runs:97 entity IDs,760 readbacks,472 created/288 identical, all serving projections complete. Renewed11 historical projections after canonical bundle hash checks, keeping q32 on its corrected version.
+- Final fixed40 manifest at04:56:08Z identifies29 saved business runs with627 distinct IDs and11 explicitly classified remaining artifacts. Sent the complete ID set to the local-integration task for independent API acceptance; representative UI success is not all-ID proof.
+- Full GET-only checks isolated l12/m13's22 MoneySignal null-versus-omitted conflicts and k11's evidence-link plus candidate-count-warning conflict. Originals remain unchanged, automatic conflict exceptions were not introduced, and normal scheduled replay stability remains unfinished. See `docs/worklogs/R2_FIXED40_ACCEPTANCE_20260921.md`.
