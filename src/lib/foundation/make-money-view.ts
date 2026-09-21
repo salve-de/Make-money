@@ -961,7 +961,17 @@ export async function readMakeMoneyValuePage(options: {
       .filter((id) => !known.has(id))
       .map(async (id) => {
         const detail = await readMakeMoneyViewDetail(id).catch(() => null);
-        return detail ? foundationBusinessCaseToValueSummary(detail) : null;
+        if (detail) return foundationBusinessCaseToValueSummary(detail);
+        // The hourly writer can publish an edition before the product view
+        // is rebuilt. Keep those canonical records visible as partial rows.
+        const entity = await readFoundationEntitySummaryById(id).catch(() => null);
+        return entity ? {
+          ...entity,
+          valueProfile: buildFoundationValueProfile(entity, {
+            claims: [], metrics: [], moneySignals: [], events: [],
+            observations: [], derived: [], relationships: [],
+          }),
+        } : null;
       }));
     data.unshift(...promoted.filter((item): item is FoundationValueSummary => Boolean(item)));
   }
