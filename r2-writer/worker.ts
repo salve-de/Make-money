@@ -1215,8 +1215,11 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
   const tree = await githubTree(env);
   const paths = queueProcessingOrder(tree, queuePaths(tree).filter(path => {
     const base = queueArtifactReceiptPath(path);
-    return Boolean(base && tree.includes(pendingReceiptPath(base, env)) && !tree.includes(retryReceiptPath(base, env))
-      && !tree.some(receipt => receipt.startsWith(conflictHoldPrefix(base, env))));
+    // Conflict holds are keyed by the current input fingerprint. Keep the
+    // queue eligible so processQueuePath can re-fingerprint it: unchanged
+    // inputs return the existing hold without R2 reads, while corrected queue
+    // or dependency content gets a new fingerprint and is re-evaluated.
+    return Boolean(base && tree.includes(pendingReceiptPath(base, env)) && !tree.includes(retryReceiptPath(base, env)));
   }));
   if (!paths.length) return { status: 'NO_QUEUE_ARTIFACT' };
   let skippedPlaceholderQueues = 0;

@@ -681,7 +681,6 @@ function scheduledRowBody(row: JsonObject): JsonObject {
 function parseScheduledSnapshots(bundle: JsonObject, issues: string[]): ScheduledSnapshot[] {
   if (!Array.isArray(bundle.observations)) return [];
   const snapshots: ScheduledSnapshot[] = [];
-  let snapshotIndex = 0;
   for (let observationIndex = 0; observationIndex < bundle.observations.length; observationIndex += 1) {
     const observation = objectValue(bundle.observations[observationIndex]);
     const text = observation ? stringValue(observation, 'text') : null;
@@ -704,8 +703,10 @@ function parseScheduledSnapshots(bundle: JsonObject, issues: string[]): Schedule
       addScheduledIssue(issues, `scheduled snapshot ${observationIndex} is not a JSON object; original snapshot retained`);
       continue;
     }
-    snapshots.push({ row, observation, snapshotIndex });
-    snapshotIndex += 1;
+    // Preserve the original observation position. The writer's explicit-field
+    // IDs use the source queue row index; compacting only scheduled snapshots
+    // would generate different IDs after an unrelated observation is inserted.
+    snapshots.push({ row, observation, snapshotIndex: observationIndex });
   }
   return snapshots;
 }

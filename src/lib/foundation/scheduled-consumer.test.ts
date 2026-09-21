@@ -176,6 +176,24 @@ describe('scheduled R2 consumer read-through (synthetic fixtures)', () => {
     expect(detail.claims).toHaveLength(1);
   });
 
+  it('preserves the original observation index when generating read-through IDs', () => {
+    const bundle = bundleFor(1);
+    const queueObservation = (bundle.observations as Array<Record<string, unknown>>)[0]!;
+    bundle.observations = [
+      { text: 'unrelated observation before the queue row', verification_status: 'SUPPORTED', evidence_ids: [] },
+      queueObservation,
+    ];
+    const row = JSON.parse(String(queueObservation.text).slice('scheduled_r2_queue_row='.length)) as Record<string, unknown>;
+    const entityId = summaryFor(bundle, 0).id;
+    const claim = (row.Claim as Array<Record<string, unknown>>)[0]!;
+    const expectedId = `cl_${sha256Sync(JSON.stringify({
+      run: runId, entity: entityId, row: 1, kind: 'claim', index: 0, item: claim,
+    })).slice(0, 24)}`;
+    const detail = buildFoundationBusinessCaseForEntity(bundle, summaryFor(bundle, 0));
+
+    expect(detail.claims[0]?.id).toBe(expectedId);
+  });
+
   it('holds typed fields and records an issue when stored canonical attribution fails', () => {
     const bundle = bundleFor(1);
     const entity = (bundle.entities as Array<Record<string, unknown>>)[0]!;
