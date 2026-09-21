@@ -34,6 +34,13 @@ test('anonymous users never see the editorial bulk approval action', async ({ pa
   await page.goto('/');
   const collectedInbox = page.getByRole('button', { name: /収集事例/ }).first();
   await expect(collectedInbox).toBeVisible();
+  const filteredPage = page.waitForResponse((response) => {
+    const url = new URL(response.url());
+    if (url.pathname !== '/api/catalog') return false;
+    const filters = JSON.parse(url.searchParams.get('filters') || '{}');
+    return filters.tags?.includes('収集事例');
+  });
   await collectedInbox.click();
+  expect((await filteredPage).status()).toBe(200);
   await expect(page.getByRole('button', { name: /一括承認/ })).toHaveCount(0);
 });

@@ -153,7 +153,8 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
         </div>
 
         {/* 1.5 新着収集事例クイックトグルボタン（未承認事例の専用インボックス） */}
-        {newlyCollectedCount > 0 && (
+        {/* 未読ページに候補があっても入口を失わない。件数は取得済み分だけ。 */}
+        {onToggleTag && (
           <div className="flex items-center gap-1.5 shrink-0">
             <button
               onClick={() => onToggleTag && onToggleTag('収集事例')}
@@ -171,7 +172,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
                   ? 'bg-amber-400 text-black'
                   : 'bg-amber-500/25 text-amber-300'
               }`}>
-                {newlyCollectedCount}
+                取得済み {newlyCollectedCount}
               </span>
             </button>
 
