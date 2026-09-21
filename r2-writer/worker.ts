@@ -1,5 +1,8 @@
 import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError, type ScheduledQueueRun, type ScheduledSourceRun } from '../src/lib/foundation/scheduled-r2-handoff';
+import { auditCorrectionTarget, validateAuditCorrection } from '../src/lib/foundation/queue-audit-correction';
 import { sha256Sync } from '../src/shared/sha256';
+import { withCloudflareRuntimeEnv } from '../src/lib/runtime/cloudflare';
+import { materializeMakeMoneyViews } from '../src/lib/foundation/make-money-view';
 import {
   buildNewArrivalsContribution,
   newArrivalsContributionKey,
@@ -108,6 +111,52 @@ const DATASET = {
 // One queue run can materialize hundreds of immutable R2 objects, so the
 // per-invocation bound is deliberately small and explicit.
 const MAX_QUEUE_RUNS_PER_INVOCATION = 2;
+const githubSessions = new WeakMap<WriterEnv, { calls: number; paths?: Set<string>; cache: Map<string, unknown> }>();
+class RequestBudgetReached extends Error {}
+const r2Budgets = new WeakMap<WriterEnv, { remaining: number }>();
+class R2BudgetReached extends Error {}
+
+async function projectBundleForUI(bundle: JsonRecord, env: WriterEnv) {
+  const budget = r2Budgets.get(env);
+  const binding = env.FOUNDATION_R2_LAKE;
+  // Only this invocation's binding is wrapped. No global environment mutation.
+  const lake = new Proxy(binding, {
+    get(target, key) {
+      const value = Reflect.get(target, key);
+      if (typeof value !== 'function') return value;
+      return (...args: unknown[]) => {
+        if (budget) {
+          if (budget.remaining < 1) throw new R2BudgetReached('R2 projection budget exhausted');
+          budget.remaining -= 1;
+        }
+        return Reflect.apply(value, target, args);
+      };
+    },
+  });
+  const report = await withCloudflareRuntimeEnv({ ...env, FOUNDATION_R2_LAKE: lake }, () => materializeMakeMoneyViews(bundle));
+  return report;
+}
+
+async function projectHistoricalReceipt(env: WriterEnv, queuePath: string, receiptPath: string, receipt: JsonRecord) {
+  const r2 = record(receipt.r2) ? receipt.r2 : {};
+  const objects = Array.isArray(r2.objects) ? r2.objects.filter(record) : [];
+  const bundleObject = objects.find(item => item.role === 'research_bundle');
+  const key = bundleObject && text(bundleObject.key);
+  if (!key || !key.startsWith(`datasets/${DATASET.bundles}/v1/`)) throw new Error('Stored success receipt has no canonical bundle key');
+  const budget = r2Budgets.get(env);
+  if (budget && budget.remaining-- < 1) throw new R2BudgetReached('R2 historical read budget exhausted');
+  const stored = await env.FOUNDATION_R2_LAKE.get(key);
+  if (!stored) throw new Error('Historical success receipt bundle is missing from R2');
+  const bytes = await readBytes(stored);
+  if (await sha256Hex(bytes) !== bundleObject.sha256 || bytes.length !== bundleObject.bytes) throw new Error('Historical bundle readback mismatch');
+  const bundle = JSON.parse(new TextDecoder().decode(bytes)) as JsonRecord;
+  const projection = await projectBundleForUI(bundle, env);
+  if (!projection.complete) return { status: 'DEFERRED_UI_PROJECTION', queue_path: queuePath, view_projection: projection };
+  const path = retryReceiptPath(receiptPath, env);
+  await writeGithubReceipt(env, path, { ...receipt, writer_version: writerVersion(env), finished_at: new Date().toISOString(), view_projection: projection,
+    recovery: { mode: 'existing_canonical_bundle_to_ui', canonical_writes_this_attempt: 0 } });
+  return { status: 'SUCCESS', queue_path: queuePath, receipt_path: path, created: 0, view_projection: projection };
+}
 
 function text(value: unknown): string | null {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
@@ -146,7 +195,13 @@ function sourceRunPathValues(value: unknown): string[] {
 
 export function sourceRunPaths(snapshot: JsonRecord | null): string[] {
   if (!snapshot) return [];
+  const artifactRefs = record(snapshot.source_artifacts) ? snapshot.source_artifacts : {};
+  const selectedArtifactPaths = [snapshot.selected_discovery, snapshot.selected_evolve].flatMap((selection) => {
+    const runId = record(selection) ? text(selection.run_id) : null;
+    return runId ? sourceRunPathValues(artifactRefs[runId]) : [];
+  });
   const candidates = [
+    ...selectedArtifactPaths,
     ...sourceRunPathValues(snapshot.primary_source_runs_selected),
     ...sourceRunPathValues(snapshot.new_completed_heads_seen_before_cutoff),
     ...sourceRunPathValues(snapshot.selected_source_runs),
@@ -155,6 +210,10 @@ export function sourceRunPaths(snapshot: JsonRecord | null): string[] {
     ...sourceRunPathValues(snapshot.primary_source_run),
     ...sourceRunPathValues(snapshot.new_source_run_refs),
     ...sourceRunPathValues(snapshot.source_run_refs),
+    ...sourceRunPathValues(snapshot.source_discovery),
+    ...sourceRunPathValues(snapshot.source_evolve),
+    ...sourceRunPathValues(snapshot.selected_discovery),
+    ...sourceRunPathValues(snapshot.selected_evolve),
   ];
   return candidates.filter((path, index, all) => /^staging\/automation\/(backfill|discovery|monitor|evolve)\//.test(path) && all.indexOf(path) === index);
 }
@@ -418,20 +477,19 @@ async function readBytes(object: R2ObjectLike): Promise<Uint8Array> {
   throw new Error('R2 object did not expose a readable body');
 }
 
-async function preflightAndWrite(objects: PlannedObject[]): Promise<{ results: Array<JsonRecord>; provider_calls: ProviderCounts; readback_verified: number }> {
+async function preflightAndWrite(objects: PlannedObject[], budget = { remaining: Infinity }): Promise<{ results: Array<JsonRecord>; provider_calls: ProviderCounts; readback_verified: number }> {
   const provider_calls: ProviderCounts = { head_bucket: 0, get_object: 0, put_object: 0 };
   const preflight: Array<{ object: PlannedObject; status: 'ABSENT' | 'EXISTS_IDENTICAL' }> = [];
   for (const object of objects) {
-    provider_calls.head_bucket += 1;
-    const existing = await object.bucket.head(object.key);
+    if (budget.remaining < 1) throw new R2BudgetReached('R2 preflight budget exhausted');
+    budget.remaining -= 1;
+    provider_calls.get_object += 1;
+    const existing = await object.bucket.get(object.key);
     if (!existing) {
       preflight.push({ object, status: 'ABSENT' });
       continue;
     }
-    provider_calls.get_object += 1;
-    const existingBody = await object.bucket.get(object.key);
-    if (!existingBody) throw new Error(`R2_PREFLIGHT_READ_MISSING ${object.bucketName}/${object.key}`);
-    const current = await readBytes(existingBody);
+    const current = await readBytes(existing);
     const currentHash = await sha256Hex(current);
     if (current.byteLength !== object.bytes || currentHash !== object.sha256) {
       throw new Error(`R2_OBJECT_CONFLICT ${object.bucketName}/${object.key}`);
@@ -444,6 +502,11 @@ async function preflightAndWrite(objects: PlannedObject[]): Promise<{ results: A
   for (const item of preflight) {
     const object = item.object;
     if (item.status === 'ABSENT') {
+      // Reserve the PUT and its immediate readback together. A later invocation
+      // verifies existing immutable objects and resumes missing ones; never mark
+      // the queue complete while only part of its objects have been written.
+      if (budget.remaining < 2) throw new R2BudgetReached('R2 write budget exhausted; resume missing objects');
+      budget.remaining -= 2;
       provider_calls.put_object += 1;
       const putResult = await object.bucket.put(object.key, object.body, {
         onlyIf: { etagDoesNotMatch: '*' },
@@ -462,13 +525,15 @@ async function preflightAndWrite(objects: PlannedObject[]): Promise<{ results: A
         throw new Error(`R2_CREATE_ONLY_REJECTED ${object.bucketName}/${object.key}`);
       }
     }
-    provider_calls.get_object += 1;
-    const readbackObject = await object.bucket.get(object.key);
-    if (!readbackObject) throw new Error(`R2_READBACK_MISSING ${object.bucketName}/${object.key}`);
-    const readback = await readBytes(readbackObject);
-    const readbackHash = await sha256Hex(readback);
-    if (readback.byteLength !== object.bytes || readbackHash !== object.sha256) {
-      throw new Error(`R2_READBACK_MISMATCH ${object.bucketName}/${object.key}`);
+    if (item.status === 'ABSENT') {
+      provider_calls.get_object += 1;
+      const readbackObject = await object.bucket.get(object.key);
+      if (!readbackObject) throw new Error(`R2_READBACK_MISSING ${object.bucketName}/${object.key}`);
+      const readback = await readBytes(readbackObject);
+      const readbackHash = await sha256Hex(readback);
+      if (readback.byteLength !== object.bytes || readbackHash !== object.sha256) {
+        throw new Error(`R2_READBACK_MISMATCH ${object.bucketName}/${object.key}`);
+      }
     }
     readback_verified += 1;
     results.push({ role: object.role, dataset_id: object.datasetId, bucket: object.bucketName, key: object.key, status: item.status === 'ABSENT' ? 'CREATED' : 'EXISTS_IDENTICAL', bytes: object.bytes, sha256: object.sha256, source_evidence_ids: object.sourceEvidenceIds, readback: { bytes_match: true, sha256_match: true } });
@@ -480,6 +545,49 @@ export function publicationAssignedAt(bundle: JsonRecord, queue?: ScheduledQueue
   const timestamp = (queue && queueFinishedAt(queue)) || text(bundle.retrieved_at);
   if (!timestamp || !Number.isFinite(Date.parse(timestamp))) throw new Error('A stable source timestamp is required');
   return new Date(timestamp).toISOString();
+}
+
+// Large plans must make durable progress even when their preflight alone is
+// bigger than an invocation. Checkpoints are immutable, content-addressed, and
+// only written after every object in that chunk passed create-only readback.
+export async function persistObjectChunks(objects: PlannedObject[], bucket: R2BucketLike, budget: { remaining: number }) {
+  const planHash = await sha256Hex(new TextEncoder().encode(JSON.stringify(objects.map(o => [o.bucketName, o.key, o.bytes, o.sha256]))));
+  const results: JsonRecord[] = [];
+  const provider_calls: ProviderCounts = { head_bucket: 0, get_object: 0, put_object: 0 };
+  let readback_verified = 0;
+  for (let start = 0; start < objects.length; start += 100) {
+    const chunk = objects.slice(start, start + 100);
+    const key = `views/make-money/r2-writer-progress/v1/${planHash}/${start}.json`;
+    if (budget.remaining < 1) throw new R2BudgetReached('R2 checkpoint read budget exhausted');
+    budget.remaining--; provider_calls.get_object++;
+    const saved = await bucket.get(key);
+    let checkpoint: JsonRecord;
+    if (saved) checkpoint = JSON.parse(new TextDecoder().decode(await readBytes(saved)));
+    else {
+      // Reserve a full chunk plus immutable checkpoint PUT/readback. Never
+      // start work that cannot leave a durable continuation point.
+      if (budget.remaining < chunk.length * 3 + 2) throw new R2BudgetReached('R2 chunk budget exhausted; resume at durable checkpoint');
+      const written = await preflightAndWrite(chunk, budget);
+      checkpoint = { schema_version: 'r2-writer-chunk.v1', plan_sha256: planHash, start, results: written.results };
+      const body = new TextEncoder().encode(JSON.stringify(checkpoint));
+      budget.remaining -= 2;
+      provider_calls.get_object += written.provider_calls.get_object + 1;
+      provider_calls.put_object += written.provider_calls.put_object + 1;
+      await bucket.put(key, body, { onlyIf: { etagDoesNotMatch: '*' }, httpMetadata: { contentType: JSON_CONTENT_TYPE } });
+      const readback = await bucket.get(key);
+      if (!readback) throw new Error('R2 checkpoint readback missing');
+      checkpoint = JSON.parse(new TextDecoder().decode(await readBytes(readback)));
+    }
+    const rows = Array.isArray(checkpoint.results) ? checkpoint.results : [];
+    if (checkpoint.schema_version !== 'r2-writer-chunk.v1' || checkpoint.plan_sha256 !== planHash || checkpoint.start !== start || rows.length !== chunk.length ||
+        rows.some((row, i) => !record(row) || row.key !== chunk[i].key || row.bucket !== chunk[i].bucketName || row.bytes !== chunk[i].bytes || row.sha256 !== chunk[i].sha256 ||
+          !['CREATED','EXISTS_IDENTICAL'].includes(String(row.status)) || !record(row.readback) || row.readback.bytes_match !== true || row.readback.sha256_match !== true)) {
+      throw new Error('R2 checkpoint integrity mismatch');
+    }
+    results.push(...rows as JsonRecord[]);
+    readback_verified += rows.length;
+  }
+  return { results, provider_calls, readback_verified };
 }
 
 async function persistBundle(
@@ -497,7 +605,10 @@ async function persistBundle(
   });
   const objects = planned.objects;
   if (!objects.length) throw new Error('bundle produced no R2 objects');
-  const writes = await preflightAndWrite(objects);
+  const budget = r2Budgets.get(env);
+  const writes = budget && objects.length > 200
+    ? await persistObjectChunks(objects, env.FOUNDATION_R2_LAKE, budget)
+    : await preflightAndWrite(objects, budget);
   return {
     planned: objects.length,
     created: writes.results.filter((item) => item.status === 'CREATED').length,
@@ -535,6 +646,11 @@ function writerVersion(env: WriterEnv): string {
 }
 
 async function githubRequest(env: WriterEnv, path: string, init?: RequestInit): Promise<Response> {
+  const session = githubSessions.get(env);
+  if (session) {
+    if (session.calls >= 40) throw new RequestBudgetReached('GitHub request budget reached; continue on next invocation');
+    session.calls += 1;
+  }
   return fetch(`${API_ROOT}${path}`, { ...init, headers: { ...githubHeaders(env), ...(init?.headers || {}) } });
 }
 
@@ -545,6 +661,9 @@ async function githubJson<T>(env: WriterEnv, path: string): Promise<T> {
 }
 
 async function readGithubJson<T>(env: WriterEnv, path: string): Promise<T | null> {
+  const session = githubSessions.get(env);
+  if (session?.cache.has(path)) return session.cache.get(path) as T | null;
+  if (path.startsWith('staging/automation/receipts/r2_writer/') && session?.paths && !session.paths.has(path)) return null;
   const response = await githubRequest(env, `/repos/${repoName(env)}/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(branchName(env))}`);
   if (response.status === 404) return null;
   if (!response.ok) throw new Error(`GitHub content read failed: ${path} (${response.status})`);
@@ -554,7 +673,9 @@ async function readGithubJson<T>(env: WriterEnv, path: string): Promise<T | null
   const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
   const raw = new TextDecoder().decode(bytes);
   try {
-    return JSON.parse(raw) as T;
+    const parsed = JSON.parse(raw) as T;
+    session?.cache.set(path, parsed);
+    return parsed;
   } catch (error) {
     throw new GithubJsonParseError(path, raw.trim() === '<REPLACE_ME>', error);
   }
@@ -584,10 +705,30 @@ async function hydrateCandidateList(env: WriterEnv, value: unknown): Promise<unk
   return hydrated;
 }
 
-async function hydrateQueueCandidates(env: WriterEnv, queue: ScheduledQueueRun): Promise<ScheduledQueueRun> {
+export async function hydrateQueueCandidates(env: WriterEnv, queue: ScheduledQueueRun): Promise<ScheduledQueueRun> {
+  const referenced: JsonRecord[] = [];
+  const seen = new Set<string>();
+  for (const item of Array.isArray(queue.recorded_items) ? queue.recorded_items : []) {
+    const row = record(item) ? item : null;
+    const path = text(row?.artifact_path);
+    if (!row || !path || text(row.state) !== 'VALIDATED_FOR_R2_HANDOFF') continue;
+    if (!/^staging\/r2-queue\/\d{4}\/\d{2}\/\d{2}\/candidates\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\.json$/.test(path)) {
+      throw new ScheduledHandoffMaterializationError(['Invalid candidate artifact path']);
+    }
+    if (seen.has(path)) continue;
+    seen.add(path);
+    const contents = await readGithubJson<unknown>(env, path);
+    if (!Array.isArray(contents) || contents.length === 0 ||
+        contents.some((bundle) => !record(bundle) || bundle.schema_version !== 'research-bundle.v1') ||
+        (typeof row.count === 'number' && row.count !== contents.length)) {
+      throw new ScheduledHandoffMaterializationError(['Candidate artifact missing, invalid, or count mismatch']);
+    }
+    referenced.push(...contents.map((bundle) => ({ state: row.state, bundle_path: path, bundle })));
+  }
+  const existing = await hydrateCandidateList(env, queue.handoff_candidates);
   return {
     ...queue,
-    handoff_candidates: await hydrateCandidateList(env, queue.handoff_candidates),
+    handoff_candidates: [...(Array.isArray(existing) ? existing : []), ...referenced],
     existing_handoff_candidates: await hydrateCandidateList(env, queue.existing_handoff_candidates),
   };
 }
@@ -595,7 +736,10 @@ async function hydrateQueueCandidates(env: WriterEnv, queue: ScheduledQueueRun):
 async function githubTree(env: WriterEnv): Promise<string[]> {
   const response = await githubJson<GithubTreeResponse>(env, `/repos/${repoName(env)}/git/trees/${encodeURIComponent(branchName(env))}?recursive=1`);
   if (response.truncated) throw new Error('GitHub tree response was truncated; refusing to select an incomplete queue');
-  return (response.tree || []).filter((item) => item.type === 'blob' && typeof item.path === 'string').map((item) => item.path as string);
+  const paths = (response.tree || []).filter((item) => item.type === 'blob' && typeof item.path === 'string').map((item) => item.path as string);
+  const session = githubSessions.get(env);
+  if (session) session.paths = new Set(paths);
+  return paths;
 }
 
 function receiptPathForDate(runId: string, parts: { year: string; month: string; day: string }): string {
@@ -642,12 +786,15 @@ async function writeGithubReceipt(env: WriterEnv, path: string, receipt: JsonRec
   });
   if (response.status === 409) {
     const existing = await readGithubJson<JsonRecord>(env, path);
-    if (existing && ['SUCCESS', 'SKIPPED_NOT_READY', 'SKIPPED_PLACEHOLDER'].includes(text(existing.status) || '') && text(existing.queue_run_id) === text(receipt.queue_run_id)) return;
+    if (existing && ['SUCCESS', 'SKIPPED_NOT_READY', 'SKIPPED_PLACEHOLDER', 'AUDIT_CORRECTION_RECORDED'].includes(text(existing.status) || '') && text(existing.queue_run_id) === text(receipt.queue_run_id)) return;
   }
   if (!response.ok) {
     const detail = (await response.text()).slice(0, 500);
     throw new Error(`GitHub receipt write failed: ${response.status}${detail ? ` ${detail}` : ''}`);
   }
+  const session = githubSessions.get(env);
+  session?.paths?.add(path);
+  session?.cache.set(path, receipt);
 }
 
 async function writeSkippedQueueReceipt(
@@ -659,7 +806,7 @@ async function writeSkippedQueueReceipt(
   if (!queue) throw new Error(`queue artifact disappeared while writing skip receipt: ${queuePath}`);
   const baseReceipt = receiptPath(queue, queuePath);
   const existing = await readGithubJson<JsonRecord>(env, baseReceipt);
-  const receipt = existing && text(existing.status) === 'SKIPPED_NOT_READY' ? retryReceiptPath(baseReceipt, env) : baseReceipt;
+  const receipt = retryReceiptPath(baseReceipt, env);
   const retryExisting = receipt === baseReceipt ? existing : await readGithubJson<JsonRecord>(env, receipt);
   if (retryExisting) return { status: 'ALREADY_RECEIPTED', queue_path: queuePath, queue_run_id: queueRunId(queue) };
   await writeGithubReceipt(env, receipt, {
@@ -729,11 +876,25 @@ function queuePaths(paths: string[]): string[] {
  * artifact forward. This prevents a live hourly producer from starving an
  * older backlog while keeping the newest publication fresh.
  */
-export function queueProcessingOrder(paths: string[]): string[] {
+export function queueProcessingOrder(paths: string[], resumePaths: string[] = []): string[] {
   const ordered = queuePaths(paths);
   if (ordered.length < 2) return ordered;
   const newest = ordered[ordered.length - 1];
-  return [newest, ...ordered.slice(0, -1)];
+  const pending = ordered.filter(path => resumePaths.includes(path));
+  return [...pending, ...[newest, ...ordered.slice(0, -1)].filter(path => !pending.includes(path))];
+}
+
+function pendingReceiptPath(base: string, env: WriterEnv): string {
+  return retryReceiptPath(base, env).replace('-retry-', '-pending-');
+}
+
+async function markQueuePending(env: WriterEnv, queuePath: string): Promise<void> {
+  const base = queueArtifactReceiptPath(queuePath);
+  if (!base) throw new Error('Cannot identify pending queue');
+  const path = pendingReceiptPath(base, env);
+  if (githubSessions.get(env)?.paths?.has(path)) return;
+  await writeGithubReceipt(env, path, { schema_version: 'r2-writer-progress.v1', status: 'PENDING', queue_path: queuePath,
+    writer_version: writerVersion(env), recorded_at: new Date().toISOString() });
 }
 
 function tokenMatches(expected: string, supplied: string): boolean {
@@ -749,14 +910,40 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
   const baseReceipt = receiptPath(queue, queuePath);
   const legacyReceipt = legacyReceiptPath(queue);
   const currentReceipt = await readGithubJson<JsonRecord>(env, baseReceipt);
-  if (currentReceipt && text(currentReceipt.status) !== 'SKIPPED_NOT_READY') return { status: 'ALREADY_RECEIPTED', queue_path: queuePath, queue_run_id: queueRunId(queue) };
-  const receipt = currentReceipt && text(currentReceipt.status) === 'SKIPPED_NOT_READY'
-    ? retryReceiptPath(baseReceipt, env)
-    : baseReceipt;
+  if (currentReceipt && text(currentReceipt.status) === 'SUCCESS' && !record(currentReceipt.view_projection)) {
+    return projectHistoricalReceipt(env, queuePath, baseReceipt, currentReceipt);
+  }
+  if (currentReceipt && text(currentReceipt.status) !== 'SKIPPED_NOT_READY') {
+    // Promote even already-projected base receipts to a tree-visible marker.
+    // Otherwise a long successful prefix consumes every invocation's budget.
+    const marker = retryReceiptPath(baseReceipt, env);
+    if (!await readGithubJson<JsonRecord>(env, marker)) await writeGithubReceipt(env, marker, currentReceipt);
+    return { status: 'ALREADY_RECEIPTED', queue_path: queuePath, queue_run_id: queueRunId(queue) };
+  }
+  const receipt = retryReceiptPath(baseReceipt, env);
   const retryReceipt = receipt !== baseReceipt ? await readGithubJson<JsonRecord>(env, receipt) : null;
   if (retryReceipt) return { status: 'ALREADY_RECEIPTED', queue_path: queuePath, queue_run_id: queueRunId(queue) };
+  const correctionTarget = auditCorrectionTarget(queue);
+  if (correctionTarget) {
+    const target = await readGithubJson<ScheduledQueueRun>(env, correctionTarget);
+    if (!target) throw new ScheduledHandoffMaterializationError(['audit correction target is missing']);
+    const corrections = validateAuditCorrection(queue, target);
+    await writeGithubReceipt(env, receipt, {
+      schema_version: 'r2-writer-receipt.v1', status: 'AUDIT_CORRECTION_RECORDED',
+      queue_run_id: queueRunId(queue), queue_path: queuePath, writer_version: writerVersion(env),
+      finished_at: new Date().toISOString(),
+      audit_correction: { target_path: correctionTarget, target_run_id: queueRunId(target), corrections,
+        effect: 'append-only audit counter correction; no source artifact or business data overwritten' },
+      r2: { planned: 0, created: 0, exists_identical: 0, conflicts: 0, readback_verified: 0,
+        provider_calls: { head_bucket: 0, get_object: 0, put_object: 0 },
+        mutation_counts: { put_object: 0, copy_object: 0, delete_object: 0, move: 0, rename: 0, overwrite: 0, legacy_universal: 0, bucket_or_config: 0 },
+        objects: [], new_arrivals: null },
+    });
+    return { status: 'AUDIT_CORRECTION_RECORDED', queue_path: queuePath, receipt_path: receipt };
+  }
   const oldReceipt = legacyReceipt !== baseReceipt ? await readGithubJson<JsonRecord>(env, legacyReceipt) : null;
-  if (oldReceipt) {
+  if (oldReceipt && text(oldReceipt.status) !== 'SKIPPED_NOT_READY') {
+    if (text(oldReceipt.status) === 'SUCCESS' && !record(oldReceipt.view_projection)) return projectHistoricalReceipt(env, queuePath, baseReceipt, oldReceipt);
     // Preserve the historical receipt but normalize its path for operators.
     await writeGithubReceipt(env, receipt, oldReceipt);
     return { status: 'ALREADY_RECEIPTED', queue_path: queuePath, queue_run_id: queueRunId(queue) };
@@ -778,6 +965,8 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
   if (materialized.included_items === 0) throw new Error('no validated items were materialized for R2');
   const assignedAt = publicationAssignedAt(materialized.bundle, queue);
   const r2 = await persistBundle(materialized.bundle, env, { assignedAt, queuePath });
+  const projection = await projectBundleForUI(materialized.bundle, env);
+  if (!projection.complete) return { status: 'DEFERRED_UI_PROJECTION', queue_path: queuePath, view_projection: projection };
   const receiptPayload: JsonRecord = {
     schema_version: 'r2-writer-receipt.v1',
     status: 'SUCCESS',
@@ -786,6 +975,7 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
     source_run_paths: candidatePaths,
     writer_version: writerVersion(env),
     finished_at: new Date().toISOString(),
+    view_projection: projection,
     materialization: {
       included_items: materialized.included_items,
       skipped_items: materialized.skipped_items,
@@ -818,16 +1008,31 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
 
 async function runWriter(env: WriterEnv): Promise<JsonRecord> {
   if (env.FOUNDATION_R2_WRITER_ENABLED !== 'true') return { status: 'DISABLED', reason: 'FOUNDATION_R2_WRITER_ENABLED is not true' };
-  const paths = queueProcessingOrder(await githubTree(env));
+  env = { ...env };
+  githubSessions.set(env, { calls: 0, cache: new Map() });
+  r2Budgets.set(env, { remaining: 900 });
+  const tree = await githubTree(env);
+  const paths = queueProcessingOrder(tree, queuePaths(tree).filter(path => {
+    const base = queueArtifactReceiptPath(path);
+    return Boolean(base && tree.includes(pendingReceiptPath(base, env)) && !tree.includes(retryReceiptPath(base, env)));
+  }));
   if (!paths.length) return { status: 'NO_QUEUE_ARTIFACT' };
   let skippedPlaceholderQueues = 0;
   let skippedInvalidQueues = 0;
   const skippedInvalidQueuePaths: string[] = [];
   let processedQueueRuns = 0;
+  let processedAuditCorrections = 0;
   const processedQueuePaths: string[] = [];
   for (const path of paths) {
     try {
       const artifactReceipt = queueArtifactReceiptPath(path);
+      const runFile = artifactReceipt?.split('/').at(-1);
+      const session = githubSessions.get(env);
+      // A version-specific retry receipt already closes this attempt. Use
+      // the authoritative tree instead of issuing repeated missing-file GETs.
+      if (runFile && [...(session?.paths || [])].some((candidate) =>
+        candidate.startsWith('staging/automation/receipts/r2_writer/') &&
+        candidate.endsWith('/' + retryReceiptPath(runFile, env)))) continue;
       if (artifactReceipt) {
         const placeholderReceipt = await readGithubJson<JsonRecord>(env, artifactReceipt);
         if (placeholderReceipt && text(placeholderReceipt.status) === 'SKIPPED_PLACEHOLDER') {
@@ -837,12 +1042,17 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
       }
       const result = await processQueuePath(env, path);
       if (result.status === 'ALREADY_RECEIPTED') continue;
+      if (result.status === 'AUDIT_CORRECTION_RECORDED') {
+        processedAuditCorrections += 1;
+        continue;
+      }
       if (result.status === 'SUCCESS') {
         processedQueueRuns += 1;
         processedQueuePaths.push(path);
         if (processedQueueRuns >= MAX_QUEUE_RUNS_PER_INVOCATION) {
           return {
-            status: 'SUCCESS',
+            status: skippedInvalidQueues > 0 ? 'PARTIAL' : 'SUCCESS',
+            processed_audit_corrections: processedAuditCorrections,
             processed_queue_runs: processedQueueRuns,
             processed_queue_paths: processedQueuePaths,
             queue_artifact_count: paths.length,
@@ -853,8 +1063,15 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
         }
         continue;
       }
+      if (result.status === 'DEFERRED_UI_PROJECTION') await markQueuePending(env, path);
       return result;
     } catch (error) {
+      if (error instanceof R2BudgetReached) {
+        try { await markQueuePending(env, path); }
+        catch (markerError) { if (!(markerError instanceof RequestBudgetReached)) throw markerError; }
+        return { status: 'DEFERRED_R2_BUDGET', queue_path: path, processed_queue_runs: processedQueueRuns };
+      }
+      if (error instanceof RequestBudgetReached) return { status: 'DEFERRED_REQUEST_BUDGET', queue_path: path, processed_queue_runs: processedQueueRuns };
       if (error instanceof ScheduledHandoffMaterializationError) {
         try {
           await writeSkippedQueueReceipt(env, path, error);
@@ -862,6 +1079,7 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
           skippedInvalidQueuePaths.push(path);
           continue;
         } catch (receiptError) {
+          if (receiptError instanceof RequestBudgetReached) return { status: 'DEFERRED_REQUEST_BUDGET', queue_path: path, processed_queue_runs: processedQueueRuns };
           const detail = receiptError instanceof Error ? receiptError.message : String(receiptError);
           console.error(JSON.stringify({ status: 'FAILED', queue_path: path, error: `unable to write SKIPPED_NOT_READY receipt: ${detail}` }));
           return { status: 'FAILED', queue_path: path, error: `unable to write SKIPPED_NOT_READY receipt: ${detail}` };
@@ -884,7 +1102,9 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
     }
   }
   return {
-    status: processedQueueRuns > 0 || skippedInvalidQueues > 0 ? 'SUCCESS' : 'NO_UNPROCESSED_QUEUE',
+    status: skippedInvalidQueues > 0 ? (processedQueueRuns > 0 ? 'PARTIAL' : 'SKIPPED_NOT_READY')
+      : processedQueueRuns > 0 || processedAuditCorrections > 0 ? 'SUCCESS' : 'NO_UNPROCESSED_QUEUE',
+    processed_audit_corrections: processedAuditCorrections,
     processed_queue_runs: processedQueueRuns,
     processed_queue_paths: processedQueuePaths,
     queue_artifact_count: paths.length,
@@ -928,4 +1148,4 @@ const worker = {
 
 export default worker;
 
-export { journalEntries, materializeScheduledR2Handoff };
+export { journalEntries, materializeScheduledR2Handoff, persistBundle, preflightAndWrite };

@@ -22,6 +22,16 @@ ChatGPT scheduled collection
 
 ## Canonical vs product view
 
+### Scheduled Writer recovery path (2026-09-21)
+
+The existing `make-money-r2-writer` hourly trigger (`20 * * * *`) also consumes scheduled queue artifacts directly from GitHub. This is a separate existing path from the event-driven Publisher, not a new Queue/Cron or Service Binding.
+
+The Writer now requires canonical create-only persistence/readback **and** completion of the same Make-Money serving-view projection before writing a SUCCESS receipt. GitHub requests are bounded per invocation. Completed attempts have version-specific append-only receipts that can be skipped from the Git tree without rereading every historical artifact.
+
+Large object plans resume from immutable 100-object readback checkpoints at `views/make-money/r2-writer-progress/v1/<plan_sha256>/<offset>.json`. The plan hash covers bucket, key, size, and content hash. Checkpoint contents are validated against the exact plan before reuse. A chunk is recorded only after its objects pass byte/hash readback; no canonical objects are overwritten. A later-chunk conflict can leave earlier chunks present, but the run is not successful and no incomplete bundle is projected.
+
+Deferred work gets an append-only versioned PENDING marker in the GitHub writer-receipt directory. It is resumed before newly arriving work, so an hourly stream cannot perpetually displace an unfinished large run. SUCCESS/SKIPPED completion markers close that version's pending attempt. Public API reads do not run this recovery work.
+
 Canonical Foundation objects remain create-only and immutable under the registered datasets.
 
 The Make-Money serving view is explicitly rebuildable:

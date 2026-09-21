@@ -291,8 +291,11 @@ export function adaptFoundationSummaryToFinancialEntity(
   const vp = summary.valueProfile;
   const rawMoney = vp.moneySignal || '';
 
-  // 金額シグナルからの売上推計
-  const revParsed = parseRevenueToMonthlyJpy(rawMoney, null, 'annual');
+  // A funding round, acquisition price, or valuation is not sales revenue.
+  // Keep the money observation visible, but only normalize an explicit revenue
+  // signal as monthly sales. Do not weaken the claim-evidence publication gate.
+  const isRevenueSignal = /revenue|\bsales\b|\bmrr\b|\barr\b|turnover|売上|月商|年商/i.test(rawMoney);
+  const revParsed = parseRevenueToMonthlyJpy(isRevenueSignal ? rawMoney : undefined, null, 'annual');
   const monthlyJpy = revParsed.monthlyJpy;
   const isUnconfirmed = revParsed.isUnconfirmed;
 
