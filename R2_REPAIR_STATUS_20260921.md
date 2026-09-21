@@ -14,6 +14,14 @@ Not complete. Do not equate deployment/materialization with persistence.
 
 ## Current production
 
+### q32 append-only canonical correction at 12:44 JST
+
+- Created a corrected research-bundle under existing registered prefix: `datasets/ds.business.research-bundles.derived/v1/2026/09/21/run_r2queue_20260920T230234Z_q32_evidence_correction_20260921.json`.
+- SHA-256 `b5b5a5e8746fd7cd28545be55abae4b637cf4b01c0f7f02f2ba338eb16b4698d`, 190,213 bytes. One bundle plus 185 Journal records created, all 186 byte/hash readbacks matched.
+- Old bundle was read from R2 and matched fixed original SHA before writing. All entity/claim/metric/money/event/relationship/observation bodies and IDs match except evidence_ids; correct 54 evidence bodies are an identical subset of old 1,350. All old typed objects and original bundle remain untouched.
+- Existing Journal supersedes/notes and bundle quality.warnings preserve original key/hash lineage. No new canonical schema, bucket or root prefix.
+- Consumer view correction and persistent replay guard are being implemented by integration task. Do NOT call existing UI references corrected yet. Old deployed Publisher v4 is still HTTP200/event-driven and may invoke old app projection; deployment/coordination boundary remains to resolve before claiming durable correction.
+
 - Writer v15, version 0002aa94-3302-4f09-bb1e-a9d090e4324c, deployed around 11:35 JST. Existing writer only; no app deployment by this task.
 - Existing cron remains `20 * * * *`, enabled true via deployment override.
 - Next scheduled production run 12:20 JST. Thread heartbeat `r2` is ACTIVE, checks hourly at minute 25. No added Cloudflare cron or billing changes.

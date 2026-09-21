@@ -1,6 +1,8 @@
 import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError, type ScheduledQueueRun, type ScheduledSourceRun } from '../src/lib/foundation/scheduled-r2-handoff';
 import { auditCorrectionTarget, validateAuditCorrection } from '../src/lib/foundation/queue-audit-correction';
 import { sha256Sync } from '../src/shared/sha256';
+import { validateEvidenceLinkCorrection } from '../src/lib/foundation/evidence-link-correction';
+import { validateResearchBundle } from '../src/lib/foundation/ingest';
 import { withCloudflareRuntimeEnv } from '../src/lib/runtime/cloudflare';
 import { materializeMakeMoneyViews } from '../src/lib/foundation/make-money-view';
 import {
@@ -626,6 +628,42 @@ async function persistBundle(
         }
       : null,
   };
+}
+
+/** Append a verified evidence-only correction; never rewrite typed seed objects. */
+export async function persistEvidenceLinkCorrection(input: {
+  originalKey: string; originalSha256: string; corrected: JsonRecord;
+  correctionRunId: string; recordedAt: string;
+}, env: WriterEnv) {
+  if (!/^datasets\/ds\.business\.research-bundles\.derived\/v1\/\d{4}\/\d{2}\/\d{2}\/run_[A-Za-z0-9_.:-]+\.json$/.test(input.originalKey)) throw new Error('Invalid original bundle key');
+  const stored = await env.FOUNDATION_R2_LAKE.get(input.originalKey);
+  if (!stored) throw new Error('Original correction target missing');
+  const originalBytes = await readBytes(stored);
+  if (await sha256Hex(originalBytes) !== input.originalSha256) throw new Error('Original correction target hash mismatch');
+  const original: unknown = JSON.parse(new TextDecoder().decode(originalBytes));
+  if (!record(original) || original.run_id === input.correctionRunId) throw new Error('Correction requires a new run');
+  validateEvidenceLinkCorrection(original, input.corrected);
+  const lineage = `Evidence-link correction of ${input.originalKey}; original_sha256=${input.originalSha256}; immutable originals retained; only evidence associations corrected.`;
+  const quality = record(input.corrected.quality) ? input.corrected.quality : {};
+  const bundle = { ...input.corrected, run_id: input.correctionRunId, retrieved_at: input.recordedAt,
+    quality: { ...quality, warnings: [...stringArray(quality.warnings), lineage] } };
+  validateResearchBundle(bundle);
+  const candidates = [
+    ...typedObjects(bundle, env).filter((item) => item.role === 'research_bundle'),
+    ...journalObjects(bundle, env).map((item) => ({ ...item,
+      payload: { ...(item.payload as JsonRecord), supersedes: [`r2://foundation-lake/${input.originalKey}`], notes: lineage } })),
+  ];
+  const objects: PlannedObject[] = [];
+  for (const candidate of candidates) objects.push({ ...candidate, ...await bodyFromJson(candidate.payload) });
+  const result = await preflightAndWrite(objects);
+  return { mode: 'append_only_evidence_link_correction', original_key: input.originalKey,
+    original_sha256: input.originalSha256, correction_run_id: input.correctionRunId,
+    planned: objects.length, readback_verified: result.readback_verified,
+    created: result.results.filter((row) => row.status === 'CREATED').length,
+    exists_identical: result.results.filter((row) => row.status === 'EXISTS_IDENTICAL').length,
+    objects: result.results, provider_calls: result.provider_calls,
+    mutation_counts: { put_object: result.results.filter((row) => row.status === 'CREATED').length, overwrite: 0, delete_object: 0, move: 0, copy_object: 0 },
+    bundle };
 }
 
 function githubHeaders(env: WriterEnv): HeadersInit {
