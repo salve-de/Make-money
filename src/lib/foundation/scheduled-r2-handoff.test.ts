@@ -116,6 +116,82 @@ it('materializes validated queue rows into a source-backed research bundle', asy
   expect((result.bundle.observations as unknown[]).length).toBe(2);
 });
 
+it('preserves q40 typed money meaning without promoting unknowns or ambiguous relations', async () => {
+  const entityId = 'ent_company_0123456789abcdef0123';
+  const q40EvidenceId = 'ev_abcdefabcdefabcdefabcdefab';
+  const result = await materializeScheduledR2Handoff({
+    queue: {
+      schema_version: 'r2-queue-run.v2',
+      run_id: 'run_r2queue_20260921T070011Z_q40',
+      finished_at: '2026-09-21T07:10:11Z',
+      recorded_items: [{
+        state: 'VALIDATED_FOR_R2_HANDOFF',
+        source_entity_id: entityId,
+        Entity: [{ id: entityId, name: 'LIV Golf, Inc.' }],
+        Source: [{ url: 'https://example.com/q40', rights: 'metadata_only' }],
+        Evidence: [q40EvidenceId],
+        Claim: [{ statement: 'DIP financing is subject to court approval.', verification_status: 'SUPPORTED' }],
+        Metric: [{ metric_type: 'financing_amount', value: 49.6, unit: 'million', currency: 'USD' }],
+        MoneySignal: [{
+          money_type: 'debtor_in_possession_financing',
+          purpose: 'DIP financing commitment',
+          amount: 49.6,
+          currency: 'USD',
+          unit: 'million',
+          verification_status: 'UNVERIFIED',
+          basis: 'subject_to_court_approval',
+        }],
+        Event: [{ event_type: 'financing', description: 'Contemplated financing is not completed.', occurred_at: '2026-02-31T00:00:00Z' }],
+        Relationship: [{ predicate: 'related_to', subject: 123, object: 'court approval' }],
+        Observation: [{ product_derived: true, text: 'Contemplated ownership or exit financing is not a completed fact.' }],
+        quality: { verification_status: 'SUPPORTED', confidence: 0.9 },
+      }],
+    },
+    source_runs: [{ source_attempts: [{ url: 'https://example.com/q40', result: 'success', evidence_ids_if_any: [q40EvidenceId] }] }],
+  });
+
+  expect((result.bundle.entities as Array<Record<string, unknown>>)[0]?.canonical_name).toBe('LIV Golf, Inc.');
+  expect(result.bundle.money_signals).toEqual([expect.objectContaining({
+    amount: 49.6,
+    currency: 'USD',
+    unit: 'million',
+    purpose: 'DIP financing commitment',
+    money_type: 'debtor_in_possession_financing',
+    verification_status: 'UNVERIFIED',
+  })]);
+  expect((result.bundle.money_signals as Array<Record<string, unknown>>).some((item) => item.money_type === 'revenue')).toBe(false);
+  expect(result.bundle.events).toEqual([]);
+  expect(result.bundle.relationships).toEqual([]);
+  expect((result.bundle.entities as Array<Record<string, unknown>>)[0]?.observed_at).toBe('2026-09-21T07:10:11Z');
+  expect(JSON.stringify(result.bundle.observations)).toContain('product_derived');
+  expect(JSON.stringify(result.bundle.quality)).toContain('invalid supplied subject');
+});
+
+it('does not roll invalid calendar dates into retrieval timestamps', async () => {
+  const evidence = 'ev_aaaaaaaaaaaaaaaaaaaaaaaa';
+  const result = await materializeScheduledR2Handoff({
+    queue: {
+      schema_version: 'r2-queue-run.v1',
+      run_id: 'run_invalid_calendar',
+      started_at: '2026-09-21T07:00:11Z',
+      finished_at: '2026-02-31T07:10:11Z',
+      recorded_items: [{
+        name: 'Calendar test',
+        state: 'VALIDATED_FOR_R2_HANDOFF',
+        Source: [{ url: 'https://example.com/calendar' }],
+        Evidence: [evidence],
+        Entity: ['company'],
+        Claim: ['The calendar fallback was observed.'],
+        quality: { verification_status: 'SUPPORTED' },
+      }],
+    },
+    source_runs: [{ source_attempts: [{ url: 'https://example.com/calendar', result: 'success', evidence_ids_if_any: [evidence] }] }],
+  });
+
+  expect(result.bundle.retrieved_at).toBe('2026-09-21T07:00:11Z');
+  expect((result.bundle.entities as Array<Record<string, unknown>>)[0]?.observed_at).toBe('2026-09-21T07:00:11Z');
+});
+
 it('does not promote NEEDS_RESEARCH rows into canonical R2 handoff', async () => {
   const result = await materializeScheduledR2Handoff({
     queue: {
