@@ -19,10 +19,11 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
   let publicEntity: ((entity: FinancialEntity) => FinancialEntity) | undefined;
   let publicSummaryEntity: ((entity: FinancialEntity) => FinancialEntity) | undefined;
 
-  // The production root intentionally skips the full local catalog, but a
-  // requested deep link still needs one server-side entity so the inspector
-  // can render before the bounded client catalog has loaded.
-  if (!productionCatalog || requestedEntityParam) {
+  // The production root intentionally skips the full local catalog, but it
+  // still needs one server-side entity (the default or requested dossier) so
+  // the inspector can render before the bounded client catalog has loaded.
+  // Loading the index module is cheap here; reading the full catalog is not.
+  {
     const [ledgerModule, publicEntityModule, localIndexModule, registryModule] = await Promise.all([
       import('@/platform/data/mockLedgerData'),
       import('@/lib/company-access/public-entity'),
@@ -36,7 +37,8 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
     if (!productionCatalog) {
       entities = await localIndexModule.readCachedLocalPublishableEntities();
     }
-    selected = requestedEntityId ? await localIndexModule.findCachedPublishableEntity(requestedEntityId) : null;
+    const bootstrapEntityId = requestedEntityId || (productionCatalog ? 'ent_photoai' : undefined);
+    selected = bootstrapEntityId ? await localIndexModule.findCachedPublishableEntity(bootstrapEntityId) : null;
     if (requestedEntityId && !selected) {
       unavailable = registryModule.default.find((row) => row.id.toLowerCase() === requestedEntityId!.toLowerCase()) ?? null;
     }
