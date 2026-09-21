@@ -7080,3 +7080,9 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Rechecked all 171 recovered entity IDs in the local list and individually in the detail API: all returned Foundation R2 data, zero failed. Browser verified the actual Amy's Kitchen closure observation and execution workspace.
 - Added a repeatable, read-only receipt-to-local verifier with seven regression cases. Original accepted JSON SHA-256 remains `5b9ecc23f47150534032b4bc1d8a6651938c0d2a978e55b871c36597b1c1ebd4`.
 - The 12:20 writer run was observed but did not save q36: 20 candidates were skipped due to an unsupported handoff/evidence layout. Scheduled-success proof and the historical evidence-link correction remain active R2-task work, not waived completion criteria. No extra app deployment, billing change, v0 activation or 2,050-record revision.
+
+### 2026-09-21: Evidence-only product-view repair candidate
+
+- Added an operator-only, hash-pinned original/corrected bundle repair for the existing v2 serving view. It reconstructs every known contributing run, preserves other history, validates unchanged business facts and CAS-retries concurrent additions. Dry-run writes nothing.
+- Superseded-run/evidence exclusions prevent normal updated projectors from reintroducing the original wrong associations, including references inherited from immutable Entity cores. Canonical originals are never overwritten.
+- This is a tested candidate, not a claim that q32's actual repair or all deployed writers are complete. The R2 owner performs real repair/readback; local UI and scheduled execution need independent acceptance after integration.

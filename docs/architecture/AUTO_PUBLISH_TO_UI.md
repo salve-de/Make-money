@@ -131,6 +131,14 @@ View replacement is protected by R2 ETag compare-and-swap. Concurrent writers re
 
 An older bundle may still contribute historical evidence, but it cannot roll the view back: `projected_at` and latest identity/status selection remain monotonic.
 
+### Evidence-only historical corrections
+
+`repairMakeMoneyViewEvidence` is an operator-only repair, not a public endpoint. It accepts exact original/corrected registered research-bundle keys and SHA-256 hashes. Both immutable bundles must exist and match their hashes. Entity identity and business-record facts must remain unchanged; the corrected entity evidence is a subset of the original. Original observations may not be dropped or rewritten.
+
+The function resolves **every** other contributing run through its existing projection-progress record, rebuilds the entity from accepted bundles with the original run replaced by the corrected run, then CAS-writes/readback-verifies only `views/make-money/v1/entities/<entity_id>.json`. Missing history or concurrent changes fail closed/retry; it never repairs by dropping unknown contributors. `dryRun: true` resolves and validates the complete plan without a write. Histories above 100 other runs require a separate bounded operator plan.
+
+The existing v2 view may contain `excluded_source_run_ids` and `excluded_evidence_ids` as rebuildable control metadata. Updated projectors retain them: replaying the superseded run cannot put its associations back, and evidence inherited from an immutable old Entity core is filtered from subsequent projections. Other runs and their record bodies are retained. Canonical Entity/Claim/Evidence objects remain untouched; the immutable corrected bundle plus Journal lineage and saved repair receipt are needed to repeat the correction after a complete serving-view rebuild/loss. Old deployed projector code does not understand these guards and must not be assumed compatible merely because this source was changed.
+
 ## Existing entity updates
 
 Canonical entity core objects remain create-only. If an incoming bundle references an already-existing entity object with different temporal fields, ingestion compares the durable identity:
