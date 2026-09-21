@@ -124,6 +124,43 @@ it('fails closed on missing other-run history', async () => {
   await expect(repairMakeMoneyViewEvidence(input)).rejects.toThrow('refusing to drop');
   expect(state.writes).not.toHaveBeenCalled();
 });
+it('retains later updates sharing a corrected record ID through reads and normal projection', async () => {
+  const input = setup();
+  const later = bundle('run_later', ['ev_other']);
+  later.claims[0].statement = 'Later independently reported statement';
+  put(`${prefix}run_later.json`, later);
+  await repairMakeMoneyViewEvidence(input);
+  expect((await readMakeMoneyViewDetail('ent_example'))?.claims.find(row => row.id === 'cl_original')?.statement).toBe(later.claims[0].statement);
+  const newest = bundle('run_newest', ['ev_newest']);
+  newest.claims[0].statement = 'Newer statement after repair';
+  await materializeMakeMoneyViews(newest);
+  expect((await readMakeMoneyViewDetail('ent_example'))?.claims.find(row => row.id === 'cl_original')?.statement).toBe(newest.claims[0].statement);
+});
+it('rejects empty mandatory hashes before writing controls', async () => {
+  const input = setup();
+  await expect(repairMakeMoneyViewEvidence({...input, original: {...input.original, sha256: ''}})).rejects.toThrow('mandatory bundle hash');
+  await expect(repairMakeMoneyViewEvidence({...input, corrected: {...input.corrected, sha256: ''}})).rejects.toThrow('mandatory bundle hash');
+  expect(state.writes).not.toHaveBeenCalled();
+});
+it('rejects record-level reassignment even to evidence retained by the entity', async () => {
+  const input = setup();
+  const before = bundle('run_old', ['ev_good', 'ev_second', 'ev_wrong']);
+  before.claims[0].evidence_ids = ['ev_good'];
+  const after = bundle('run_corrected', ['ev_good', 'ev_second']);
+  after.claims[0].evidence_ids = ['ev_second'];
+  input.original = put(input.original.key, before);
+  input.corrected = put(input.corrected.key, after);
+  await expect(repairMakeMoneyViewEvidence(input)).rejects.toThrow('record evidence links');
+  expect(state.writes).not.toHaveBeenCalled();
+});
+it('rejects additional observations rather than allowing new facts through repair', async () => {
+  const input = setup();
+  input.corrected = put(input.corrected.key, {...bundle('run_corrected', ['ev_good']), observations: [
+    {entity_ids: ['ent_example'], observation: 'Invented additional fact', evidence_ids: ['ev_good'], verification_status: 'SUPPORTED'},
+  ]});
+  await expect(repairMakeMoneyViewEvidence(input)).rejects.toThrow('observations');
+  expect(state.writes).not.toHaveBeenCalled();
+});
 it('dry-run resolves every contributing bundle but writes nothing', async () => {
   const result = await repairMakeMoneyViewEvidence({...setup(), dryRun: true});
   expect(result.status).toBe('DRY_RUN');

@@ -46,6 +46,7 @@ interface ViewEvidenceCorrectionControl {
   corrected: { key: string; sha256: string; run_id: string; retrieved_at: string };
   excluded_evidence_ids: string[];
   replaced_record_ids: Record<typeof RECORD_GROUPS[number], string[]>;
+  original_detail: FoundationBusinessCase;
   corrected_detail: FoundationBusinessCase;
 }
 
@@ -238,7 +239,8 @@ async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
   const corrected = objectValue(value?.corrected);
   const records = objectValue(value?.replaced_record_ids);
   if (!value || value.schema_version !== EVIDENCE_CORRECTION_SCHEMA || value.entity_id !== entityId
-    || !original || !corrected || !records || !isBusinessCase(value.corrected_detail)
+    || !original || !corrected || !records || !isBusinessCase(value.corrected_detail) || !isBusinessCase(value.original_detail)
+    || value.original_detail.id !== entityId
     || value.corrected_detail.id !== entityId
     || [original, corrected].some(ref => !stringValue(ref, 'key') || !stringValue(ref, 'run_id') || !/^[a-f0-9]{64}$/.test(String(ref.sha256)))
     || !Number.isFinite(Date.parse(String(corrected.retrieved_at)))
@@ -252,9 +254,9 @@ async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
 function applyEvidenceCorrectionControl(document: MakeMoneyViewDocument, control: ViewEvidenceCorrectionControl): MakeMoneyViewDocument {
   const detail = { ...document.detail };
   for (const group of RECORD_GROUPS) {
-    const replaced = new Set(control.replaced_record_ids[group]);
-    // Each array remains its own record type; only membership is changed.
-    Object.assign(detail, { [group]: detail[group].filter(row => !replaced.has(row.id)) });
+    const originals = new Map(control.original_detail[group].map(row => [row.id, JSON.stringify(row)]));
+    // Replace the exact superseded version, not every future record with its ID.
+    Object.assign(detail, { [group]: detail[group].filter(row => originals.get(row.id) !== JSON.stringify(row)) });
   }
   const excludedEvidence = uniqueStrings(document.excluded_evidence_ids, control.excluded_evidence_ids);
   const corrected = excludeViewEvidence(mergeFoundationBusinessCasesForView(control.corrected_detail, detail), excludedEvidence);
@@ -1019,6 +1021,9 @@ export interface ViewEvidenceCorrectionInput {
 /** Operator-only evidence repair. Reads immutable bundles; CAS-writes only the existing product view. */
 export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionInput) {
   if (!/^ent_[a-zA-Z0-9_.-]+$/.test(input.entityId)) throw new Error('Invalid correction entity ID');
+  if (![input.original?.sha256, input.corrected?.sha256].every(hash => typeof hash === 'string' && /^[a-f0-9]{64}$/.test(hash))) {
+    throw new Error('Invalid mandatory bundle hash');
+  }
   const bucket = await getFoundationBucketAsync('lake');
   const prefix = foundationDataset('researchBundles').prefix;
   const readBundle = async (key: string, expectedHash?: string) => {
@@ -1055,9 +1060,18 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
     const after = newCase[field].map(row => withoutEvidence(row)).sort();
     if (JSON.stringify(before) !== JSON.stringify(after)) throw new Error('Evidence correction changes record facts');
   }
-  const correctedObservations = new Set(newCase.observations.map(row => withoutEvidence(row, true)));
-  if (oldCase.observations.some(row => !correctedObservations.has(withoutEvidence(row, true)))) {
-    throw new Error('Evidence correction drops or changes observations');
+  if (JSON.stringify(oldCase.observations.map(row => withoutEvidence(row, true)).sort())
+    !== JSON.stringify(newCase.observations.map(row => withoutEvidence(row, true)).sort())) {
+    throw new Error('Evidence correction adds, drops or changes observations');
+  }
+  for (const group of RECORD_GROUPS) {
+    for (const row of newCase[group]) {
+      const before = oldCase[group].find(prior => withoutEvidence(prior, group === 'observations') === withoutEvidence(row, group === 'observations'));
+      const links = (record: object, key: string): string[] => (record as Record<string, string[]>)[key] || [];
+      if (!before || ['evidenceIds', 'supportingEvidenceIds'].some(key => links(row, key).some(id => !links(before, key).includes(id)))) {
+        throw new Error('Evidence correction introduces record evidence links');
+      }
+    }
   }
   const excludedIds = oldCase.evidenceIds.filter(id => !newCase.evidenceIds.includes(id));
   if (excludedIds.length === 0) throw new Error('No excessive evidence associations to correct');
@@ -1106,6 +1120,7 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
         excluded_evidence_ids: excludedIds,
         replaced_record_ids: Object.fromEntries(RECORD_GROUPS.map(group => [group, oldCase[group].map(row => row.id)])) as ViewEvidenceCorrectionControl['replaced_record_ids'],
         corrected_detail: newCase,
+        original_detail: oldCase,
       };
       const priorControl = await readEvidenceCorrectionControl(bucket, input.entityId);
       if (priorControl.control && JSON.stringify(priorControl.control) !== JSON.stringify(guard)) {
