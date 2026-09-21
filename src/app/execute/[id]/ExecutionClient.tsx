@@ -14,7 +14,7 @@ import {
 
 import { useAuth } from '@/context/AuthContext';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
-import type { FinancialEntity } from '@/shared/terminal';
+import type { ExecutionSource } from '@/shared/execution-source';
 import {
   EXECUTION_STEP_IDS,
   MAX_EXECUTION_NOTES_LENGTH,
@@ -40,7 +40,7 @@ const STEP_LABELS: Record<ExecutionStepId, { label: string; en: string }> = {
   EARN: { label: '最初の売上を記録', en: 'EARN' },
 };
 
-function createDefaultProject(entity: FinancialEntity, generation = 0): ExecutionProject {
+function createDefaultProject(entity: ExecutionSource, generation = 0): ExecutionProject {
   const suggestedOffer = (entity.essence?.whatItDoes || entity.tagline || '').slice(0, 300);
   const targetCustomer = (entity.essence?.targetCustomer || entity.targetPainWallet || '').slice(0, 2000);
   return {
@@ -62,7 +62,7 @@ function createDefaultProject(entity: FinancialEntity, generation = 0): Executio
   };
 }
 
-export function ExecutionClient({ entity }: { entity: FinancialEntity }) {
+export function ExecutionClient({ entity }: { entity: ExecutionSource }) {
   const { user, token, loading, signInWithGoogle, refreshAuthToken } = useAuth();
   const userId = user?.uid ?? null;
 
@@ -98,7 +98,7 @@ function ExecutionWorkspace({
   signInWithGoogle,
   refreshAuthToken,
 }: {
-  entity: FinancialEntity;
+  entity: ExecutionSource;
   userId: string | null;
   token: string | null;
   signInWithGoogle: () => Promise<void>;
@@ -493,6 +493,9 @@ function ExecutionWorkspace({
               元事例: <strong className="text-zinc-200">{entity.name}</strong>。
               情報を読むだけで終わらせず、FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN を1本で進める。
             </p>
+            {entity.contextUnavailable && <p className="mt-2 text-sm text-amber-300">
+              元事例の詳細を公開確認できないため、未確認の財務・手口は引き継いでいません。事業名だけを起点に、ご自身の計画を入力できます。
+            </p>}
           </div>
 
           <div className="grid grid-cols-2 gap-2 rounded-xl border border-white/[0.08] bg-white/[0.025] p-3">
@@ -671,7 +674,7 @@ function StepBody({
   acquisitionHints,
 }: {
   step: ExecutionStepId;
-  entity: FinancialEntity;
+  entity: ExecutionSource;
   project: ExecutionProject;
   updateProject: (patch: Partial<ExecutionProject>) => void;
   firstActions: string[];
