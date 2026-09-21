@@ -1,6 +1,6 @@
 # R2 handoff repair - 2026-09-21 JST
 
-Status: q39 scheduled storage, local list/detail consumer acceptance, and local main fast-forward integration of consumer commit `e1b60eb` are complete. Browser execute confirmation remains the coordinating task's independent check; this is not a deployment claim.
+Status: q39 scheduled storage, local list/detail consumer acceptance, local main fast-forward integration of consumer commit `e1b60eb`, and coordinating-task browser confirmation are complete. This is not a deployment claim.
 
 ## Latest confirmed state — q39 and local parser handoff
 
@@ -9,6 +9,7 @@ Status: q39 scheduled storage, local list/detail consumer acceptance, and local 
 - Read-only q39 detail verification against root `localhost:3000` at `2026-09-21T07:47:07Z` returned 25/25 HTTP 200, names matched `q39.name-diagnosis.json`, stored IDs were unchanged, typed counts were Claim25/Metric26/Money20/Event25/Relationship1, snapshots25, consumer issues14, and failures0. Timings: total18.08s, p95 0.99s, max3.08s. Evidence: `/private/tmp/r2-live-audit.mfgRor/q39.candidate-api-report.json`.
 - The e1b60eb list path was measured through the seven paginated pages needed to locate q39: all pages HTTP 200, failures0, q39 rows25/25 with non-ID names25/25; per-page6.00–10.48s, total60.88s. Evidence: `/private/tmp/r2-live-audit.mfgRor/q39.candidate-list-pages-report.json`. No list request timed out.
 - Candidate acceptance completed with 6 files/44 targeted tests, `pnpm typecheck` (tsc plus schemas:check), targeted ESLint, full `pnpm lint`, and `git diff --check` passing. The consumer implementation is local read-through only; no deployment or push was performed.
+- Coordinating-task IAB tab17 confirmed `localhost:3000/?entity=ent_company_0abb9196ea4d33196d0f` with the real q39 heading `ECA Texas multifamily portfolio / Elowen Capital`, preserved observation, and financial-unpublished/unknown display; its execute link `/execute/ent_company_0abb9196ea4d33196d0f` rendered the same name and all six steps. The prior stopped tab16 error page is not current evidence.
 - Fixed40 scope is unchanged: 31 saved business runs, 677 distinct IDs, 9 remaining artifacts classified as normalization3 / evidence-mapping1 / subject-identity1 / incomplete-original2 / audit-only2, and 19 named `NEEDS_RESEARCH` holds.
 - Canonical R2 originals remain unchanged. `shasum -a 256 data/entities-index.json` returns the protected SHA `5b9ecc23f47150534032b4bc1d8a6651938c0d2a978e55b871c36597b1c1ebd4`. No deletion, overwrite, new Cron, billing change, production app deployment, GitHub push, or new collection scope was performed.
 

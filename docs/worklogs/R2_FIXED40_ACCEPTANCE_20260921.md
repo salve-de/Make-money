@@ -1,6 +1,6 @@
 # R2 fixed-40 acceptance — 2026-09-21
 
-Status: **q39 scheduled storage, local list/detail consumer acceptance, and local main integration of consumer commit `e1b60eb` complete**. Browser execute confirmation remains the coordinating task's independent check. This records evidence and explicit holds, not a claim that every local screen has passed.
+Status: **q39 scheduled storage, local list/detail consumer acceptance, local main integration of consumer commit `e1b60eb`, and coordinating-task browser confirmation complete**. This records evidence and explicit holds, not a claim that every local screen has passed.
 
 ## Current confirmed state
 
@@ -9,6 +9,7 @@ Status: **q39 scheduled storage, local list/detail consumer acceptance, and loca
 - Root `localhost:3000` read-only q39 detail check at `2026-09-21T07:47:07Z`: 25/25 HTTP 200, `q39.name-diagnosis.json` names25/25, IDs preserved25/25, Claim25/Metric26/Money20/Event25/Relationship1, snapshots25, issues14, failures0. Total18.08s; p95 0.99s; max3.08s. Report: `/private/tmp/r2-live-audit.mfgRor/q39.candidate-api-report.json`.
 - The same e1b60eb list path was measured through seven paginated pages: HTTP 200 on every page, failures0, q39 rows25/25 and non-ID names25/25; per-page6.00–10.48s, total60.88s, no timeout. Report: `/private/tmp/r2-live-audit.mfgRor/q39.candidate-list-pages-report.json`.
 - Consumer acceptance: 6 files/44 targeted tests, `pnpm typecheck` (tsc plus schemas:check), targeted ESLint, full `pnpm lint`, and `git diff --check` passed. No deploy/push or R2 write was performed.
+- Coordinating-task IAB tab17 confirmed the q39 detail heading `ECA Texas multifamily portfolio / Elowen Capital`, preserved observation, and financial-unpublished/unknown display at `localhost:3000/?entity=ent_company_0abb9196ea4d33196d0f`; its execute link rendered the same name and all six steps. The prior stopped tab16 error page is not current evidence.
 - Fixed40 remains unchanged at 31 saved business runs / 677 distinct IDs, with 9 classified remaining artifacts and 19 named `NEEDS_RESEARCH` holds. No new scope was added.
 - Canonical R2 originals were not overwritten or deleted. `shasum -a 256 data/entities-index.json` returns the protected SHA `5b9ecc23f47150534032b4bc1d8a6651938c0d2a978e55b871c36597b1c1ebd4`. No new Cron, billing change, production app deployment, or GitHub push was performed.
 
