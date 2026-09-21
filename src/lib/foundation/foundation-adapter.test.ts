@@ -30,6 +30,13 @@ function summary(overrides: Partial<FoundationValueSummary> = {}): FoundationVal
 }
 
 describe('Foundation display boundary', () => {
+  it.each(['Equityfinancing: equity_financing=25M USD [2026-09-20] ・ 確認済', 'Seriesd: series_D=114M USD ・ 確認済', 'Primaryseriesf: primary_series_f=233000000 USD ・ 確認済', 'Acquisition price: $10M', 'Valuation: $100M'])('does not turn a non-revenue money signal into monthly sales: %s', moneySignal => {
+    const adapted=adaptFoundationSummaryToFinancialEntity(summary({valueProfile:{...summary().valueProfile,moneySignal}}));
+    expect(adapted.pnl.isRevenueUnconfirmed).toBe(true);
+    expect(adapted.pnl.monthlyRevenue).toBe(0);
+    expect(adapted.pnl.sourceDoc).toBeTruthy();
+    expect(adapted.publishability).toBe('PUBLISHABLE');
+  });
   it('keeps candidate summaries out of the main ledger', () => {
     expect(isFoundationDossierReady(summary())).toBe(false);
   });

@@ -1,6 +1,24 @@
 import { describe, expect, it } from 'vitest';
 import type { FoundationBusinessCase } from './business-reader';
-import { mergeFoundationBusinessCasesForView } from './make-money-view';
+import { mapServingReads, mergeFoundationBusinessCasesForView } from './make-money-view';
+
+describe('bounded serving-view reads', () => {
+  it('reads every row in order with at most eight remote reads in flight', async () => {
+    let active = 0; let peak = 0;
+    const inputs = Array.from({ length: 301 }, (_, i) => i);
+    const rows = await mapServingReads(inputs, async i => {
+      active++; peak = Math.max(peak, active);
+      await new Promise(resolve => setTimeout(resolve, i % 3));
+      active--; return i;
+    });
+    expect(rows).toEqual(inputs); expect(peak).toBeLessThanOrEqual(8);
+    expect(active).toBe(0);
+  });
+  it('does not hide read failures or invent empty rows', async () => {
+    await expect(mapServingReads([1], async () => { throw new Error('R2 unavailable'); })).rejects.toThrow('R2 unavailable');
+    expect(await mapServingReads([], async v => v)).toEqual([]);
+  });
+});
 
 function makeCase(input: {
   observedAt: string;

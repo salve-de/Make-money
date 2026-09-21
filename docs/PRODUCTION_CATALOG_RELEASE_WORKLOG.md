@@ -1,5 +1,25 @@
 # Production catalog integration — in progress
 
+## Current scope and evidence — 2026-09-21 11:47 JST
+
+The owner clarified the acceptance path: Web ChatGPT scheduled research -> immutable R2 persistence -> local application reading, browsing and execution. Additional production-app deployment and billing changes are out of scope. v0 activation and the 2,050-record revision remain deferred.
+
+- PR #45 was normally merged as `a85634c5cdd5f95ca83a483ca250ffc9cd8c4775`; root main was fast-forwarded. Final CI lint, typecheck, unit, Workers build and E2E all passed. The earlier pending/failure entries below are historical, not current failures.
+- Before that scope clarification the app was deployed as version `7d86eb96-1452-455d-8b94-11aad6d7144a`, tag `main-a85634c`. All 31 production catalog pages returned 3,085 unique IDs matching the manifest. Later requests exposed intermittent Cloudflare CPU-limit error 1102. Production stability is NOT proven; no additional deployment or plan change is being made for local acceptance.
+- Local root main on port 3000 reads live Foundation R2 through `/api/businesses`. Amy's Kitchen (`ent_company_ccade80e595347e0fbc6`) rendered its evidence-tab text about the Santa Rosa closure and 260 affected jobs. The source run is `run_r2queue_20260920T100142Z_q19`; recovery receipt and completed 22-entity projection were inspected. This is recovered real-source data, not proof of a new automatic scheduled run.
+- Local execution previously reduced R2-only cases to identity-only plans. The follow-up reads the existing serving view, validates its schema and identity, applies the existing publication/public-field boundaries, and carries planning context into execution. Port 3002 browser verification confirms the R2 case reaches the six-step workspace with source context. Unknown facts remain unknown; no research data was modified.
+- Follow-up source tests: seven passed; TypeScript and focused ESLint passed. Full regression and main integration are still required.
+- Concurrent R2 repair (writer scheduling, resumable persistence and financing-vs-revenue adapter) remains separately owned and unintegrated at this checkpoint. Its manual recovery must not be called scheduled success. Preserve the other task's root untracked audit script.
+
+The sections below record the prior implementation chronology.
+
+### Local pipeline follow-up — 11:52 JST
+
+- Integrated R2 task commit `219f83a` as `edcbce3`, preserving main's full SHA journal IDs and source-time publication assignment when resolving overlaps. All 560 unit tests, 11 Foundation tests, 16 architecture tests and six recovery tests passed.
+- A full local readback initially failed on page two with `Network connection lost`. The existing page/new-arrival readers launched up to hundreds of R2 reads concurrently. Both now use an eight-in-flight ordered reader. Five view tests (including 301 ordered reads and failure propagation), TypeScript and focused lint passed.
+- Repeated the actual local API readback at port 3002 after the change: four pages, all 171 IDs from q19/n14/q17/q23/q22r1/q20/q35 recovery receipts matched; zero missing, all responses reported `foundation_lake`. This includes the four financing-only cases previously hidden by the revenue misclassification.
+- PR #46 is the integrated candidate. Its final CI/main promotion and the next scheduled Writer run are still pending. No additional production-app deployment occurred.
+
 Scope: finish the accepted product and one authoritative main. Deferred only: v0 activation and the 2,050-record curation revision. Neither protected source JSON nor its deferred stash was modified.
 
 Branch: `codex/production-catalog-20260921`, worktree `.worktrees/main-consolidation`, based on main `f44c776`. Root main remains unchanged; its unrelated untracked `scripts/audit-scheduled-handoffs.ts` belongs to another task.

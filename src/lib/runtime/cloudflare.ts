@@ -1,10 +1,20 @@
+import { AsyncLocalStorage } from 'node:async_hooks';
+
 type CloudflareRuntimeEnv = Record<string, unknown>;
+const invocationEnv = new AsyncLocalStorage<CloudflareRuntimeEnv>();
+
+/** Reuse server-side storage/projection from a non-OpenNext Worker, per invocation. */
+export function withCloudflareRuntimeEnv<T>(env: CloudflareRuntimeEnv, run: () => T): T {
+  return invocationEnv.run(env, run);
+}
 
 /**
  * OpenNext/Workersの実行時envを取得する。
  * Node.jsで直接起動した場合はCloudflareコンテキストが無いためnullを返す。
  */
 export async function getCloudflareRuntimeEnv(): Promise<CloudflareRuntimeEnv | null> {
+  const scoped = invocationEnv.getStore();
+  if (scoped) return scoped;
   try {
     const { getCloudflareContext } = await import('@opennextjs/cloudflare');
     // Only use context installed by the Worker entrypoint or explicit dev setup.

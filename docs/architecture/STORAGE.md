@@ -323,6 +323,7 @@ These R2 prefixes are rebuildable serving/control views. They are **not canonica
 | `views/make-money/v1/entities/<entity_id>.json` | Make-Money cumulative serving view per entity | CAS-protected rebuildable view |
 | `views/make-money/v1/_rebuild-state.json` | Global serving-view rebuild cursor | CAS-protected control state |
 | `views/make-money/v1/_projection-progress/<run_id>.json` | Per-bundle projection progress | CAS-protected control state |
+| `views/make-money/r2-writer-progress/v1/<plan_sha256>/<offset>.json` | Writer readback receipts for completed 100-object chunks; plan hash includes bucket, key, bytes and content hash | Immutable create-only progress checkpoints; original datasets are never overwritten |
 | `views/make-money/v1/_unresolved-by-entity/<entity_id>/<run_id>.json` | Deferred record-only references whose entity core was not yet resolvable | CAS-protected replay state |
 | `views/make-money/v1/_unresolved-hydration-state/<entity_id>.json` | Per-entity cursor for bounded replay of large unresolved record-only history | CAS-protected resumable control state |
 | `views/make-money/v1/_unresolved-replay-state.json` | Global unresolved replay cursor | CAS-protected control state |
