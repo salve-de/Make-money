@@ -7088,3 +7088,10 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Added an operator-only, hash-pinned original/corrected bundle repair for the existing v2 serving view. It reconstructs every known contributing run, preserves other history, validates unchanged business facts and CAS-retries concurrent additions. Dry-run writes nothing.
 - Superseded-run/evidence exclusions prevent normal updated projectors from reintroducing the original wrong associations, including references inherited from immutable Entity cores. Canonical originals are never overwritten.
 - This is a tested candidate, not a claim that q32's actual repair or all deployed writers are complete. The R2 owner performs real repair/readback; local UI and scheduled execution need independent acceptance after integration.
+
+### 2026-09-21: Independent correction review and local acceptance continuation
+
+- Read-only independent review reproduced three correction-control defects: later same-ID updates were replaced, empty mandatory hashes could produce unreadable controls, and record-level evidence reassignment/additional observations could pass. Apply/deployment was held before any real correction-control writes.
+- Correction now targets exact original record versions, validates mandatory hashes before writes, and requires per-record evidence subsets and equivalent observations. Four regression cases cover the findings. Original/corrected projections remain rebuildable product controls, not new canonical facts.
+- Local receipt verification at 03:56:49Z read all 22 o15 IDs through the list and individual detail API with Foundation R2 source; combined with the previously verified 196 recovered IDs, 218 IDs have local-consumption proof. This does not substitute for genuine scheduled-run success or final-main verification.
+- Scope remains local main and local product. No GitHub push/PR, additional app deployment, v0, or 2,050-record curation adoption is authorized by this entry.
