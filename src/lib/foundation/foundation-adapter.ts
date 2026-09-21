@@ -140,6 +140,16 @@ function hasSupportedEvidence(value: { verificationStatus?: string } | undefined
   return value?.verificationStatus === 'SUPPORTED';
 }
 
+function amountUnitMultiplier(unit: string | null | undefined): number {
+  const normalized = unit?.trim().toLowerCase().replaceAll('_', ' ') || '';
+  if (/\b(?:b|bn|billion)\b|十億/.test(normalized)) return 1_000_000_000;
+  if (/\b(?:m|mm|mn|million)\b|百万/.test(normalized)) return 1_000_000;
+  if (/\b(?:k|thousand)\b|千/.test(normalized)) return 1_000;
+  if (normalized === '億') return 100_000_000;
+  if (normalized === '万') return 10_000;
+  return 1;
+}
+
 /**
  * 金額文字列または数値から日本円月商を推計
  * 「月商」と「年商」を明確に峻別し、12で割る誤算を防止
@@ -151,6 +161,7 @@ export function parseRevenueToMonthlyJpy(
   metricType?: string,
   periodStart?: string | null,
   periodEnd?: string | null,
+  unit?: string | null,
 ): ParsedRevenueResult {
   const unknown: ParsedRevenueResult = { monthlyJpy: 0, isUnconfirmed: true, revenueLabel: '売上非公開' };
   if (value === null || value === undefined || value === '') return unknown;
@@ -172,9 +183,10 @@ export function parseRevenueToMonthlyJpy(
   const cur = currencyMarker ? (/\$|USD/i.test(currencyMarker) ? 'USD' : 'JPY') : (suppliedCurrency || '');
   if (!['JPY', 'USD', '円', '¥', '$'].includes(cur)) return unknown;
   const rate = ['JPY', '円', '¥'].includes(cur) ? 1 : 150;
+  const separateUnitMultiplier = amountUnitMultiplier(unit);
   let amount: number;
   if (typeof value === 'number') {
-    amount = value;
+    amount = value * separateUnitMultiplier;
   } else {
     const hasRevenue = /revenue|arr|mrr|売上|年商|月商|sales|run\s*rate|turnover/i.test(context);
     // Remove observation dates, not four-digit revenue amounts such as $2020.
@@ -196,6 +208,7 @@ export function parseRevenueToMonthlyJpy(
     amount = Number(match[1].replaceAll(',', ''));
     const unit = match[2]?.toLowerCase();
     amount *= unit === '億' ? 100_000_000 : unit === '万' ? 10_000 : unit === 'b' || unit === 'billion' ? 1_000_000_000 : unit === 'm' || unit === 'million' ? 1_000_000 : unit === 'k' || unit === 'thousand' ? 1_000 : 1;
+    if (!unit) amount *= separateUnitMultiplier;
 
   }
   if (!Number.isFinite(amount) || amount < 0) return unknown;
@@ -244,13 +257,13 @@ function isCompatibleFinancialMetric(revenue: FoundationMetricSignal, metric: Fo
 
 /** Project only supported, period-compatible financial records; zero is a value. */
 export function projectProfitMetrics(monthlyRevenue: number, revenue: FoundationMetricSignal | undefined, metrics: FoundationMetricSignal[]) {
-  const hasKnownRevenue = revenue !== undefined && !parseRevenueToMonthlyJpy(revenue.value, revenue.currency, `${revenue.metricType} ${revenue.unit || ''}`, revenue.periodStart, revenue.periodEnd).isUnconfirmed;
+  const hasKnownRevenue = revenue !== undefined && !parseRevenueToMonthlyJpy(revenue.value, revenue.currency, revenue.metricType, revenue.periodStart, revenue.periodEnd, revenue.unit).isUnconfirmed;
   const hasPeriod = hasKnownRevenue && Boolean(revenue?.periodStart && revenue?.periodEnd);
   const compatible = revenue ? metrics.filter(m => hasPeriod && isCompatibleFinancialMetric(revenue, m)) : [];
   const amount = (kind: string): number | undefined => {
     const metric = compatible.find(m => m.metricType.replace(/^(annual|monthly)_/, '') === kind && m.currency === revenue?.currency);
     if (!metric || typeof metric.value !== 'number' || !Number.isFinite(metric.value)) return undefined;
-    const parsed = parseRevenueToMonthlyJpy(Math.abs(metric.value), metric.currency, `${metric.metricType} ${metric.unit || ''}`, metric.periodStart, metric.periodEnd);
+    const parsed = parseRevenueToMonthlyJpy(Math.abs(metric.value), metric.currency, metric.metricType, metric.periodStart, metric.periodEnd, metric.unit);
     return parsed.isUnconfirmed ? undefined : parsed.monthlyJpy * Math.sign(metric.value);
   };
   const margin = (kind: string): number | undefined => {
@@ -467,7 +480,8 @@ export function adaptFoundationDetailToFinancialEntity(
   const hasMetricValue = revMetric?.value !== null && revMetric?.value !== undefined;
   const bestRevValue = hasMetricValue ? revMetric.value : revMoney?.amount;
   const bestRevCurrency = hasMetricValue ? revMetric.currency : revMoney?.currency;
-  const bestRevType = hasMetricValue ? `${revMetric.metricType} ${revMetric.unit || ''}` : `${revMoney?.moneyType || 'revenue'} ${revMoney?.unit || ''}`;
+  const bestRevType = hasMetricValue ? revMetric.metricType : (revMoney?.moneyType || 'revenue');
+  const bestRevUnit = hasMetricValue ? revMetric.unit : revMoney?.unit;
   
   const parsedRev = parseRevenueToMonthlyJpy(
     bestRevValue,
@@ -475,6 +489,7 @@ export function adaptFoundationDetailToFinancialEntity(
     bestRevType,
     revMetric?.periodStart ?? revMoney?.periodStart,
     revMetric?.periodEnd ?? revMoney?.periodEnd,
+    bestRevUnit,
   );
   const monthlyJpy = parsedRev.monthlyJpy;
   const isUnconfirmed = parsedRev.isUnconfirmed;
@@ -537,7 +552,7 @@ export function adaptFoundationDetailToFinancialEntity(
     financialStatus,
     dataSnapshotPeriod: detail.observedAt ? `${detail.observedAt.slice(0, 7)} 観測` : '観測時期未確認',
     sourceDoc: bestRevValue !== null && bestRevValue !== undefined && bestRevValue !== ''
-      ? cleanIntelligenceText(`${bestRevType}: ${bestRevValue} ${bestRevCurrency}`)
+      ? cleanIntelligenceText(`${bestRevType}: ${formatHumanMoney(bestRevValue, bestRevCurrency, bestRevUnit)}`)
       : 'R2観測レイク・公表シグナル',
     estimationLogic: undefined,
   };
