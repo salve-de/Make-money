@@ -1,6 +1,14 @@
 # R2 fixed-40 acceptance — 2026-09-21
 
-Status: **not complete**. This records storage evidence and explicit holds, not a claim that scheduled operation or every local screen has passed.
+Status: **q39 scheduled storage and 25-item API arrival proven; UI acceptance and main integration pending**. This records storage evidence and explicit holds, not a claim that every local screen has passed.
+
+## Current confirmed state
+
+- q39 was saved by the existing scheduled Writer run `run_r2queue_20260921T060537Z_q39`; its read-only receipt/readback artifacts are `/private/tmp/r2-live-audit.mfgRor/q39.scheduled-receipt.json` and `/private/tmp/r2-live-audit.mfgRor/q39.scheduled-readback.json`. No manual q39 PUT was performed.
+- All 25 q39 entities reached the local Foundation API. UI acceptance for q39 and integration into main are owned by coordinating task `01a0c092-3996-7bb0-8261-266be038a37a` and remain pending.
+- Helper `6a3330bb417ea09fe84391714e1272086af67a05` and parser/wiring `5d4cb009963ab715419f0e200aaa9506c5cb47aa` passed targeted Vitest (4 files / 41 tests), ESLint, and `tsc --noEmit --incremental false` locally. These changes are not deployed or pushed by this task.
+- Fixed40 remains unchanged at 31 saved business runs / 677 distinct IDs, with 9 classified remaining artifacts and 19 named `NEEDS_RESEARCH` holds. No new scope was added.
+- Canonical R2 originals were not overwritten or deleted. No new Cron, billing change, production app deployment, or GitHub push/main write was performed.
 
 ## Scope and evidence
 
@@ -45,7 +53,9 @@ Nineteen named research holds inside otherwise saved runs are upstream `NEEDS_RE
 
 The former l12/m13 technical hold is resolved: incoming-only absent unit/amount_label completion gave whole-plan conflicts0. Create-only save verified l12 438 objects (233created205identical), m13 332 (180created152identical), then the same original inputs replayed withcreated0 and all770 readbacks. Existing canonical bytes were not normalized or overwritten. Per-run proof files: `.null-recovery.json`, `.null-replay.json`, `.null-projection.json`.
 
-## Automatic operation remains unfinished
+## Historical scheduled-operation notes
+
+The bullets in this section preserve earlier observations. Phrases such as “Next15:20 real scheduled proof is pending” describe the state before q39 and are not the current status.
 
 - Current Writer v19 e6c4a45e-7e55-453c-a815-efa62fa421cd from89f9166 is deployed, healthenabledtrue, unchanged hourly:20. It includes conflict holds/continuation, cohort/status parser and exact-byte null replay. Next15:20 real scheduled proof is pending. The50 recovery above is manual, not scheduled success.
 
