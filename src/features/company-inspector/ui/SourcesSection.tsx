@@ -1,9 +1,7 @@
 'use client';
 
-import { legacyText } from '../model/legacy-fields';
-
 import React from 'react';
-import { ExternalLink, Database, FileCheck, Globe, ShieldCheck } from 'lucide-react';
+import { ExternalLink, Database, FileCheck, Globe } from 'lucide-react';
 import type { InspectorSectionProps } from '../model/section-props';
 
 export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionProps, 'entity' | 'isHazardMode'>) {
@@ -18,7 +16,6 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
   }
 
   // 決算ステータスや一次検証情報
-  const isEstimated = legacyText(entity.pnl, 'originType') === 'estimated';
   const hasClaims = Array.isArray(entity.claimBindings) && entity.claimBindings.length > 0;
 
   return (
@@ -44,7 +41,7 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
           <h3 className={`font-mono text-xs font-bold uppercase tracking-wider ${
             isHazardMode ? 'text-red-200' : 'text-zinc-100'
           }`}>
-            一次情報源 ＆ エビデンス原本アーカイブ (PRIMARY SOURCES & ARCHIVE)
+            情報源 ＆ 出典ログ (SOURCES & REFERENCES)
           </h3>
         </div>
         <span className="font-mono text-[10px] text-zinc-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.06]">
@@ -94,20 +91,19 @@ export function SourcesSection({ entity, isHazardMode }: Pick<InspectorSectionPr
             </ul>
           ) : (
             <p className="text-xs text-zinc-400 font-mono">
-              公開財務諸表、有価証券報告書、公式アナウンスメントおよび一次市場データから抽出。
+              この事例の出典メモは未登録です。一次情報の確認済みを意味しません。
             </p>
           )}
         </div>
 
-        {/* 3. 暗号保全 ＆ 改ざん不可ステータス */}
+        {/* 出典の記録と原本ファイルの保存証明を混同しない。 */}
         <div className="pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[10px] font-mono text-zinc-400">
           <div className="flex items-center gap-2">
-            <Database className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Cloudflare R2 (foundation-raw) SHA-256 CAS原本暗号保全済み</span>
+            <Database className="w-3 h-3 text-zinc-400 shrink-0" />
+            <span>出典URLの記録と原本ファイルの保存は別です。この画面では原本保存を確認できません。</span>
           </div>
           <div className="flex items-center gap-1.5 text-zinc-400">
-            <ShieldCheck className="w-3 h-3 text-zinc-400" />
-            <span>{hasClaims ? '一次台帳暗号バインド済み' : isEstimated ? '業界標準推計モデル' : '一次観測ログ確認済み'}</span>
+            <span>{hasClaims ? '主張と出典の対応あり' : '主張と出典の対応未登録'}</span>
           </div>
         </div>
       </div>

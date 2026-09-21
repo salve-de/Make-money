@@ -40,6 +40,7 @@ Branch: `codex/production-catalog-20260921`, worktree `.worktrees/main-consolida
 - Keep that filter entry available even with zero loaded candidates; label its count as loaded, not whole-catalog total. The existing anonymous-approval regression also verifies that clicking it requests the filtered catalog successfully. Full CI re-run is required after this fix.
 - Writer health now reports enabled `r2-writer.v13`, changed by the concurrent R2 audit task. This task has not redeployed the writer; coordinate its separate source integration rather than overwriting the live fix with the older main writer.
 - Review identified that `next dev` emulates Cloudflare with production vars. Added an explicit development-mode local-reader guard and tests covering both emulated dev and real production/standalone contexts. The production R2 path is unchanged.
+- Concurrent R2 audit identified a blanket raw-file preservation claim in SourcesSection even for metadata-only evidence. Replaced it and the fabricated missing-source fallback with explicit source-record / original-file-verification boundaries; added an E2E assertion. No source data changed.
 
 1. R2 publication/readback and initial Workers runtime proof completed. Do not republish unchanged artifacts unnecessarily.
 2. Finish/re-run Workers build after final edits, then full E2E and browser verification.
