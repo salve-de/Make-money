@@ -7105,3 +7105,10 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Added an operator-only hash-pinned history recovery; normal scheduled `persistBundle` conflict rejection is unchanged. Every existing core must have identical identity and business attributes, with evidence_ids the only permitted difference. Each differing core requires an explicit SHA pin.
 - Writes only the existing registered run research-bundle and Journal objects with create-only/readback. Fixed typed entity and record keys are not written; receipts explicitly distinguish preserved core objects from byte-identical candidates. No invented entity IDs, overwritten originals, new buckets or prefixes.
 - Four tests cover immutable seed preservation, wrong-hash and changed-fact refusal before PUT, registered write roles and idempotence. Typecheck and focused ESLint pass. k11 created 181 bundle/Journal objects with 181 matching readbacks; its serving projection/local acceptance remain independently required.
+
+### 2026-09-21: Explicit artifact manifests and restricted-source metadata
+
+- Legacy summary-only queues can hydrate exact write-log candidate references, explicit artifact path manifests and directory/file manifests. Validate run/path/repository boundaries, file/aggregate counts and duplicate references; inline complete candidates retain precedence over tentative file-write plans.
+- Top-level q34r1 relationship-count correction is treated only as an allowlisted audit counter, not business data. Original queue artifacts stay unchanged.
+- Actual v17 scheduled q37 at 04:20:22Z skipped because SUCCESS_RESTRICTED_FULLTEXT metadata was not recognized. The narrowly added status preserves metadata_only and UNVERIFIED; no source-native paywalled content is fetched. Real q37 now materializes 25 candidates in a read-only check, not a manual or scheduled save.
+- 29 focused tests and typecheck passed; five previously recovered bundle hashes remain identical. The next version still needs its own actual scheduled and local consumption proof.

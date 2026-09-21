@@ -3,6 +3,7 @@ import { auditCorrectionTarget, validateAuditCorrection } from '../src/lib/found
 import { sha256Sync } from '../src/shared/sha256';
 import { validateEvidenceLinkCorrection } from '../src/lib/foundation/evidence-link-correction';
 import { assertEvidenceOnlyEntityHistory } from '../src/lib/foundation/immutable-entity-history';
+import { candidateArtifactManifest } from '../src/lib/foundation/candidate-artifact-manifest';
 import { validateResearchBundle } from '../src/lib/foundation/ingest';
 import { withCloudflareRuntimeEnv } from '../src/lib/runtime/cloudflare';
 import { materializeMakeMoneyViews } from '../src/lib/foundation/make-money-view';
@@ -795,24 +796,19 @@ async function hydrateCandidateList(env: WriterEnv, value: unknown): Promise<unk
 
 export async function hydrateQueueCandidates(env: WriterEnv, queue: ScheduledQueueRun): Promise<ScheduledQueueRun> {
   const referenced: JsonRecord[] = [];
-  const seen = new Set<string>();
-  for (const item of Array.isArray(queue.recorded_items) ? queue.recorded_items : []) {
-    const row = record(item) ? item : null;
-    const path = text(row?.artifact_path);
-    if (!row || !path || text(row.state) !== 'VALIDATED_FOR_R2_HANDOFF') continue;
-    if (!/^staging\/r2-queue\/\d{4}\/\d{2}\/\d{2}\/candidates\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\.json$/.test(path)) {
-      throw new ScheduledHandoffMaterializationError(['Invalid candidate artifact path']);
-    }
-    if (seen.has(path)) continue;
-    seen.add(path);
+  const manifest = candidateArtifactManifest(queue);
+  for (const { path, count } of manifest.entries) {
     const artifact = await readGithubJson<unknown>(env, path);
     const contents = record(artifact) && artifact.schema_version === 'research-bundle.v1' ? [artifact] : artifact;
     if (!Array.isArray(contents) || contents.length === 0 ||
         contents.some((bundle) => !record(bundle) || bundle.schema_version !== 'research-bundle.v1') ||
-        (typeof row.count === 'number' && row.count !== contents.length)) {
+        (count !== undefined && count !== contents.length)) {
       throw new ScheduledHandoffMaterializationError(['Candidate artifact missing, invalid, or count mismatch']);
     }
-    referenced.push(...contents.map((bundle) => ({ state: row.state, bundle_path: path, bundle })));
+    referenced.push(...contents.map((bundle) => ({ state: 'VALIDATED_FOR_R2_HANDOFF', bundle_path: path, bundle })));
+  }
+  if (manifest.expectedTotal !== undefined && manifest.expectedTotal !== referenced.length) {
+    throw new ScheduledHandoffMaterializationError(['Candidate manifest total count mismatch']);
   }
   const existing = await hydrateCandidateList(env, queue.handoff_candidates);
   return {

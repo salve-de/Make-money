@@ -364,7 +364,7 @@ function attemptSucceeded(attempt: JsonRecord): boolean {
   // USABLE is the structured collector's metadata-evidence outcome; it
   // does not imply that raw source bytes were fetched or persisted.
   return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_via_search_result_after_direct_open_error',
-    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found', 'found']).has(status.split(';')[0].trim().toLowerCase())
+    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found', 'success_restricted_fulltext', 'found']).has(status.split(';')[0].trim().toLowerCase())
     : text(attempt.attempt_result) === 'USABLE';
 }
 
