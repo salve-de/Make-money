@@ -2,6 +2,26 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 15:15 JST — local677 acceptance complete; scheduled proof remains
+
+- Parent additional50 API PASS at06:12:39.745Z:3list pages/50details/failed[], strict Foundation source. No overlap with previous627: total677distinct IDs accepted. Representative l12Pallet andm13ConradKacsik both rendered local detail→actual execute-link click→six steps/FIND...EARN. Not677 individually inspected screens.
+- No recovery batch remains running. v19 is live; next15:20 genuine scheduled new-candidate R2/API/UI proof is the remaining operational acceptance. Source/identity/research holds are explicitly retained and not promoted to complete data.
+
+## 15:12 JST — all50 recovered,677 saved IDs
+
+- recover-null50 batch57915 finishedexit0. l12 25IDs:438readbacks/233created205identical; m13 25IDs:332readbacks/180created152identical. Same original inputs through normal preparation/persist replay bothcreated0 andall770readbacks; both serving projectionscomplete. No immutable overwrites or fallback histories.
+- l12 canonicalSHA19f7dfdedc92527a07e85b1eedfdd99cd8dc70c82f9214595907bea0177ee6dd/135921bytes; m13 b9f3f31c0e09141d98d71f51368f351af56aacb2123f1bfecd9622d865559153/130786bytes. Private `.null-recovery/.null-replay/.null-projection.json` files contain proofs and IDs.
+- Fixed40 ledger regenerated06:11:47.470Z:31 saved business runs/677distinctIDs;9remaining artifacts (normalization3, q18mapping1, q34identity1, original incomplete2, audit-only2). Nineteen named research holds retained. Parent verifying only the additional50 APIs; prior627 PASS remains separate. l12 representativePallet browser detail→execute6steps already independently passed.
+- Livev19 e6c4a45e enabledtrue; next15:20 real scheduled new-candidate proof pending. Tail session14750 writes sanitized scheduled-only events toscheduled-v19.jsonl; oldtail13709 stopped/replaced. Existingheartbeat:25 active and refreshed. No new manualq37+ save.
+
+## 15:02 JST — v19 live, authorized50 recovery running
+
+- Existing Writer v19 deployed from89f9166: e6c4a45e-7e55-453c-a815-efa62fa421cd. Health returnsenabledtrue/versionv19. Cron remains20 * * * *. No website deployment/newcron/push. Prior rollback versionv18=9a6e0120-ec49-49d8-afca-bb042cfecd45.
+- Parent localmain1b7396cf1eef7f291f8e6aafdbab26b25bf7ac5d includes wiring,79tests/tscPASS. Existing627 local API evidence remains valid; added50 local acceptance still pending.
+- Fresh GET-only l12/m13 full plans770 objects passed0conflicts (205/233 and152/180 identical/absent). After deployment ended, started /private/tmp/r2-live-audit.mfgRor/recover-null50.ts --apply (execsession57915). Do not start a duplicate batch. It saves create-only, verifies bytes/hash, reruns same original input to provecreated0/allreadbacks, then projects views.
+- Private receipts are l12/m13.null-recovery.json, .null-replay.json, .null-projection.json. Receipt absence is not zero writes. Only after complete readbacks/replay/view should ledger and local50 acceptance be marked complete.
+- Existing heartbeat r2 ACTIVE/hourly:25 refreshed with current permissions/status;15:20 genuine scheduled new-arrival proof still pending. No q37+ manual pre-save.
+
 ## 14:55 JST — v19 preparation and completion authorization
 
 - User explicitly requested completion; parent released the prior Writer-deploy/50-case-write wait. This task alone may update the existing Writer and recover l12/m13 create-only. No app deployment/newcron/push/overwrite/delete. Next real scheduled run15:20; q37+ manual pre-save remains forbidden.
