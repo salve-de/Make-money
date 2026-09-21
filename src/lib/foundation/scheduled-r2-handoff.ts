@@ -579,15 +579,16 @@ function joinNormalizedReferenceRecords(queue: ScheduledQueueRun, issues: string
     entityByRef.set(ref, entity);
   }
 
-  const sourceByRef = new Map<number, JsonRecord>();
+  const sourceByIdentity = new Map<string, JsonRecord>();
   for (const source of sources) {
-    const ref = referenceNumber(source.ref);
     const sourceId = text(source.source_id);
-    if (!ref || !sourceId || sourceByRef.has(ref)) {
-      issues.push('normalized Source refs or IDs are missing or duplicated');
+    const locator = text(source.canonical_url);
+    const identity = sourceId && locator ? `${sourceId}\u0000${locator}` : null;
+    if (!identity || sourceByIdentity.has(identity)) {
+      issues.push('normalized Source IDs and URLs are missing or duplicated');
       return { rows: [], attempts: [] };
     }
-    sourceByRef.set(ref, source);
+    sourceByIdentity.set(identity, source);
   }
 
   const evidenceByRef = new Map<number, JsonRecord>();
@@ -597,11 +598,10 @@ function joinNormalizedReferenceRecords(queue: ScheduledQueueRun, issues: string
     const ref = referenceNumber(item.ref);
     const evidenceId = text(item.evidence_id);
     const sourceId = text(item.source_id);
-    const source = ref ? sourceByRef.get(ref) : null;
-    const locator = text(item.source_url) || text(source?.canonical_url);
+    const locator = text(item.source_url);
+    const source = sourceId && locator ? sourceByIdentity.get(`${sourceId}\u0000${locator}`) : null;
     if (!ref || !evidenceId || !/^ev_[a-f0-9]{24}$/.test(evidenceId) || evidenceByRef.has(ref)
-      || evidenceById.has(evidenceId) || !source || !sourceId || text(source.source_id) !== sourceId || !locator
-      || (text(source.canonical_url) && text(item.source_url) && text(source.canonical_url) !== text(item.source_url))) {
+      || evidenceById.has(evidenceId) || !source || !sourceId || !locator) {
       issues.push('normalized Evidence refs, IDs, or Source joins are missing, invalid, or duplicated');
       return { rows: [], attempts: [] };
     }

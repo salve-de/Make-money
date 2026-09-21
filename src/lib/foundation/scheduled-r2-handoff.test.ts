@@ -182,7 +182,7 @@ it('joins q42 normalized reference tables by exact entity and evidence refs', as
       }],
       normalized_records: {
         Entity: [{ ref: 1, entity_id: entityId, canonical_name: 'Reference Company', aliases: ['Reference'], domain: 'example.com' }],
-        Source: [{ ref: 1, source_id: 'src.reference', canonical_url: 'https://example.com/report', rights_status: 'metadata_only', source_strength: 'A' }],
+        Source: [{ ref: 99, source_id: 'src.reference', canonical_url: 'https://example.com/report', rights_status: 'metadata_only', source_strength: 'A' }],
         Evidence: [{ ref: 1, evidence_id: evidenceId, upstream_evidence_id: 'ev01', source_id: 'src.reference', source_url: 'https://example.com/report', retrieved_at: '2026-09-21T09:00:00Z', rights_status: 'metadata_only', source_strength: 'A' }],
         Claim: [{ entity_ref: 1, evidence_ref: 1, statement: 'A financing agreement was signed.', origin: 'reported', verification: 'SUPPORTED' }],
         Metric: [{ entity_ref: 1, evidence_ref: 1, metric_type: 'cash_consideration', value: 70, currency: 'USD', unit: 'million', point_in_time: '2026-09-17', origin: 'reported', verification: 'SUPPORTED' }],
