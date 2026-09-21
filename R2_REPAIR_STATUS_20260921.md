@@ -2,6 +2,16 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 13:36 JST update
+
+- Production Writer v18: 9a6e0120-ec49-49d8-afca-bb042cfecd45, enabled=true, existing hourly minute-20 only. d8f8bb3 fixes explicit old artifact manifests, q34r1 audit counters and SUCCESS_RESTRICTED_FULLTEXT metadata without upgrading verification.
+- Actual v17 13:20 scheduled tail outcome=ok but application status=PARTIAL: q37 and a1/b2/c3 skipped, d4/e5 processed existing data. q37 receipt at 04:20:22Z has writes=0 due one restricted-fulltext metadata status. Real q37 now dry-runs25 successfully, but was NOT manually persisted. v18 actual scheduled new-candidate proof awaits the next existing run.
+- q32 all25 control/view readbacks completed, and partner independently verified local API exact per-entity corrected evidence IDs for all25 at04:17:20Z. Prior manual local241 plus q32 acceptance are distinct from k11's pending local acceptance.
+- getPlatformProxy consecutive R2 operations now reproduce EADDRNOTAVAIL. Single GET can still succeed. Recovery uses the existing Keychain wrapper and existing S3 readR2Object/putR2ObjectCreateOnly instead; secrets are never logged. This is a local transport issue, not evidence of corrupted stored data.
+- Fixed legacy recovery batch f6/g7/h8/i9/j10/l12/m13/q33 runs serially using that guarded transport. f6 completed10 entities,98 readbacks,55created/43identical and serving projection. Receipt absence during earlier transport failures was NOT proof of zero writes; idempotent resumed readbacks account for existing partial data.
+- Batch receipts/holds are tracked in /private/tmp/r2-live-audit.mfgRor/legacy-batch-summary.json. All40 inventory remains in progress. Final local list100 verification encountered the same dev-proxy EADDRNOTAVAIL/503; partner owns that reader diagnosis and final integration, not a canonical rewrite.
+- Existing heartbeat r2 updated with current status and stop conditions; unchanged hourly :25 cadence, no added Cloudflare Cron.
+
 ## 13:15 JST update
 
 - Writer v17 deployed: 4dbcab7f-d6a2-45eb-a6ae-29cb1e039a0c, existing hourly minute-20 schedule and enabled=true. No app deployment. Actual 13:20 scheduled new-candidate persistence remains unverified.
