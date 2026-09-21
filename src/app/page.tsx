@@ -44,9 +44,20 @@ export default async function Home(props: { searchParams?: Promise<{ entity?: st
     // retryable on-demand path. Keep only the lightweight default bootstrap on
     // the server, and retain the working-tree deep-link behavior in dev.
     const bootstrapEntityId = productionCatalog
-      ? (requestedEntityId ? undefined : 'ent_photoai')
+      ? (!requestedEntityId || requestedEntityId === 'ent_photoai' ? 'ent_photoai' : undefined)
       : requestedEntityId;
-    selected = bootstrapEntityId ? await localIndexModule.findCachedPublishableEntity(bootstrapEntityId) : null;
+    if (bootstrapEntityId) {
+      try {
+        selected = await localIndexModule.findCachedPublishableEntity(bootstrapEntityId);
+      } catch {
+        // The local E2E server has no R2 binding. Keep the curated institutional
+        // bootstrap available there; production still prefers the release dossier.
+        selected = null;
+      }
+      if (!selected && bootstrapEntityId === 'ent_photoai') {
+        selected = ledgerModule.findInstitutionalEntity(bootstrapEntityId) ?? null;
+      }
+    }
     if (requestedEntityId && !selected && !catalogReleaseModule.hasCatalogReleaseEntity(requestedEntityId)) {
       unavailable = registryModule.default.find((row) => row.id.toLowerCase() === requestedEntityId!.toLowerCase()) ?? null;
     }
