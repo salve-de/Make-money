@@ -57,7 +57,9 @@ export const DynamicEvidenceDeck: React.FC<DynamicEvidenceDeckProps> = ({
   return (
     <div className="divide-y divide-white/[0.06]">
       {cards.map((card, idx) => {
-        const rowId = card.id || `card-${idx}`;
+        // Evidence IDs are source identifiers, not guaranteed to be unique after
+        // multiple read-time projections. Keep the UI key unique per rendered row.
+        const rowId = `${card.id || 'card'}-${idx}`;
         const expanded = expandedId === rowId;
         const label = getCardLabel(card.type, isHazardMode);
         const status = statusMeta(card.evidenceStatus);

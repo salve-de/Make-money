@@ -400,7 +400,11 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         await loadFoundationPage(undefined, controller.signal);
       } catch (error) {
         if ((error as { name?: string })?.name !== 'AbortError') {
-          setDataSource('保存済み台帳（外部取得に失敗）');
+          // Foundation is an optional read-through path. Keep the accepted
+          // curated catalog usable when the local R2/API bridge is temporarily
+          // unavailable, and state the actual boundary instead of presenting
+          // the whole ledger as failed.
+          setDataSource('保存済み台帳（curated継続 / Foundation追加経路は一時利用不可）');
           console.warn('[TerminalShell] Foundation Lake read failed; static UI remains available:', error);
         }
       } finally {

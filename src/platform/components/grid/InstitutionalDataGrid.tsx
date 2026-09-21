@@ -46,6 +46,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
 }) => {
   const [visibleCount, setVisibleCount] = useState<number>(PAGE_SIZE);
   const observerTargetRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // フィルタや検索で entities が変更された場合は表示件数を初期化
   const [previousRows, setPreviousRows] = useState(entities);
@@ -54,14 +55,15 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
     setVisibleCount(PAGE_SIZE);
   }
 
-  // 1000件スケール耐性: 初期100件から段階的にDOM展開するプログレッシブ・ウィンドウイング
+  // 1000件スケール耐性: 初期250件から段階的にDOM展開するプログレッシブ・ウィンドウイング
   const visibleEntities = useMemo(() => {
     return entities.slice(0, visibleCount);
   }, [entities, visibleCount]);
 
   useEffect(() => {
+    const root = scrollContainerRef.current;
     const target = observerTargetRef.current;
-    if (!target) return;
+    if (!root || !target) return;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0]?.isIntersecting && !isLoadingMore) {
@@ -69,10 +71,12 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
             onLoadMore();
             return;
           }
-          setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, entities.length));
+          if (visibleCount < entities.length) {
+            setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, entities.length));
+          }
         }
       },
-      { threshold: 0.1, rootMargin: '300px' }
+      { root, threshold: 0, rootMargin: '600px 0px' }
     );
     observer.observe(target);
     return () => {
@@ -93,7 +97,7 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
   };
 
   return (
-    <div className="flex-1 overflow-y-auto bg-[#07080B] select-none">
+    <div ref={scrollContainerRef} className="min-h-0 flex-1 overflow-y-auto bg-[#07080B] select-none">
       {/* 1. モバイル（390px以下）: 親指最適化フィード */}
       <div className="md:hidden divide-y divide-white/[0.05]">
         {visibleEntities.map((entity) => (
@@ -345,12 +349,28 @@ export const InstitutionalDataGrid: React.FC<InstitutionalDataGridProps> = ({
 
       {/* 1000件スケール時・無限スクロール感知トリガー */}
       {shouldRenderGridContinuation(visibleCount, entities.length, hasMore) && (
-        <div ref={observerTargetRef} className="py-4 text-center text-[10px] text-zinc-500 font-mono">
-          {isLoadingMore
-            ? `R2から追加取得中... (${entities.length}件)`
-            : visibleCount < entities.length
-              ? `表示を追加... (${visibleCount} / ${entities.length}件)`
-              : `R2から追加取得待ち... (${entities.length}件)`}
+        <div ref={observerTargetRef} className="py-4 text-center text-[10px] text-zinc-500 font-mono" aria-live="polite">
+          {isLoadingMore ? (
+            <span>R2から追加取得中...（現在 {entities.length.toLocaleString()}件）</span>
+          ) : visibleCount < entities.length ? (
+            <button
+              type="button"
+              onClick={() => setVisibleCount((prev) => Math.min(prev + PAGE_SIZE, entities.length))}
+              className="rounded border border-white/[0.12] bg-white/[0.04] px-3 py-1.5 text-zinc-300 transition-colors hover:bg-white/[0.08] hover:text-white"
+            >
+              次の{Math.min(PAGE_SIZE, entities.length - visibleCount).toLocaleString()}件を表示
+              <span className="ml-1 text-zinc-500">（{visibleCount.toLocaleString()} / {entities.length.toLocaleString()}件）</span>
+            </button>
+          ) : hasMore && onLoadMore ? (
+            <button
+              type="button"
+              onClick={onLoadMore}
+              className="rounded border border-cyan-500/30 bg-cyan-500/[0.08] px-3 py-1.5 text-cyan-300 transition-colors hover:bg-cyan-500/[0.15] hover:text-cyan-200"
+            >
+              次のデータを読み込む
+              <span className="ml-1 text-cyan-500/80">（現在 {entities.length.toLocaleString()}件）</span>
+            </button>
+          ) : null}
         </div>
       )}
     </div>

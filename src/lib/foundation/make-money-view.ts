@@ -36,6 +36,10 @@ const UNRESOLVED_HYDRATION_STATE_PREFIX = 'views/make-money/v1/_unresolved-hydra
 const UNRESOLVED_HYDRATION_STATE_SCHEMA = 'make-money-view-unresolved-hydration-state.v1';
 const MAX_ENTITIES_PER_PROJECTION_CALL = 25;
 const MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL = 25;
+// A first-page request already reads up to 100 materialized view summaries.
+// Keep the optional new-arrival promotion bounded so one browser request does
+// not fan out into hundreds of extra R2 detail reads and exceed Worker limits.
+const MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE = 25;
 const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
 const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
 const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
@@ -1214,6 +1218,13 @@ export async function mapServingReads<T, R>(items: readonly T[], read: (item: T)
   return results;
 }
 
+export function selectNewArrivalPromotionIds(
+  entityIds: readonly string[],
+  knownIds: ReadonlySet<string>,
+): string[] {
+  return entityIds.filter((id) => !knownIds.has(id)).slice(0, MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE);
+}
+
 export async function readMakeMoneyValuePage(options: {
   cursor?: string;
   limit?: number;
@@ -1238,8 +1249,7 @@ export async function readMakeMoneyValuePage(options: {
   const newArrivals = await readLatestNewArrivalsRelease().catch(() => null);
   if (!options.cursor && newArrivals) {
     const known = new Set(data.map((item) => item.id));
-    const promoted = await mapServingReads(newArrivals.entityIds.slice(0, 500)
-      .filter((id) => !known.has(id)),
+    const promoted = await mapServingReads(selectNewArrivalPromotionIds(newArrivals.entityIds, known),
       async (id) => {
         const detail = await readMakeMoneyViewDetail(id).catch(() => null);
         if (detail) return foundationBusinessCaseToValueSummary(detail);

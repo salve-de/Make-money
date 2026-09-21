@@ -13,7 +13,7 @@ vi.mock('@/lib/storage/r2', () => ({
   getFromR2: vi.fn(), putR2MutableView: vi.fn(),
   R2ViewConcurrentModificationError: class extends Error {},
 }));
-import { readMakeMoneyValuePage } from './make-money-view';
+import { readMakeMoneyValuePage, selectNewArrivalPromotionIds } from './make-money-view';
 
 describe('edition before product-view projection', () => {
   it('keeps canonical new arrivals visible while their product views are pending', async () => {
@@ -33,5 +33,33 @@ describe('edition before product-view projection', () => {
     state.release.mockResolvedValue({ entityIds: ['ent_missing'], count: 1 });
     state.entity.mockResolvedValue(null);
     expect((await readMakeMoneyValuePage()).data).toEqual([]);
+  });
+
+  it('bounds first-page new-arrival promotion to keep R2 reads within Worker limits', async () => {
+    const ids = Array.from({ length: 100 }, (_, index) => `ent_arrival_${index}`);
+    state.release.mockResolvedValue({ entityIds: ids, count: ids.length });
+    state.entity.mockImplementation(async (id: string) => ({
+      id,
+      name: id,
+      entityType: 'business',
+      aliases: [],
+      canonicalIdentifier: null,
+      domain: null,
+      status: 'ACTIVE',
+      observedAt: '2026-09-21T00:00:00Z',
+      evidenceIds: [],
+    }));
+
+    const page = await readMakeMoneyValuePage();
+
+    expect(page.data).toHaveLength(25);
+    expect(state.entity).toHaveBeenCalledTimes(25);
+  });
+
+  it('filters known arrivals before applying the promotion cap', () => {
+    const known = new Set(Array.from({ length: 25 }, (_, index) => `ent_known_${index}`));
+    const entityIds = [...known, 'ent_unprojected_25'];
+
+    expect(selectNewArrivalPromotionIds(entityIds, known)).toEqual(['ent_unprojected_25']);
   });
 });

@@ -19,6 +19,7 @@ interface DataGridToolbarProps {
   selectedBatch?: string;
   onSelectBatch?: (batchId: string) => void;
   batchCounts?: Record<string, number>;
+  catalogTotal?: number | null;
 }
 
 export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
@@ -35,6 +36,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   selectedBatch = 'ALL',
   onSelectBatch,
   batchCounts = {},
+  catalogTotal = null,
 }) => {
   // バッチの選択肢一覧（既知のバッチ＋動的バッチ）
   const batchOptions = React.useMemo(() => {
@@ -65,9 +67,10 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   }, [batchCounts]);
 
   const totalAllBatches = React.useMemo(() => {
+    if (catalogTotal !== null) return catalogTotal;
     const sum = Object.values(batchCounts).reduce((acc, n) => acc + n, 0);
     return sum > 0 ? sum : totalCount;
-  }, [batchCounts, totalCount]);
+  }, [batchCounts, catalogTotal, totalCount]);
 
   // スクリーナーの適用条件数を計算
   const activeScreenerCount = React.useMemo(() => {
@@ -132,7 +135,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
               title="収集世代（チャンク・バージョン）で切り替え"
             >
               <option value="ALL" className="bg-[#0c0d12] text-zinc-200">
-                📦 全世代 ({totalAllBatches})
+                📦 全世代 ({catalogTotal === null ? '確認中' : totalAllBatches.toLocaleString()})
               </option>
               {batchOptions.map((b) => (
                 <option key={b.id} value={b.id} className="bg-[#0c0d12] text-cyan-200">

@@ -131,6 +131,8 @@ export function omitUnreviewedFinancialClaims<T>(value: T): T {
 export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEntity {
   const source = FINANCIAL_RECONCILIATIONS[entity.name];
   if (!source) return reconcileFinancialEvidence(entity);
+  const sourceCardId = `financial-source-${entity.id}`;
+  const sourceObservationId = `financial-source-observation-${entity.id}`;
   // Numeric slots remain for the legacy contract, but no unknown amount is published as a measured zero.
   const pnl: ProfitAndLossStatement = {
     monthlyRevenue: 0, cogs: 0, grossProfit: 0, grossMargin: 0,
@@ -164,7 +166,7 @@ export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEnti
     },
     evidenceCards: [
       {
-        id: `financial-source-${entity.id}`,
+        id: sourceCardId,
         type: 'SMOKING_GUN',
         title: '一次資料で確認できた事実',
         evidenceStatus: 'REPORTED',
@@ -173,11 +175,11 @@ export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEnti
         metrics: source.metrics,
         sourceNote: `${source.period} / 確認日2026-09-11 / ${source.url}`,
       },
-      ...omitUnreviewedFinancialClaims(entity.evidenceCards || []),
+      ...omitUnreviewedFinancialClaims((entity.evidenceCards || []).filter((card) => card.id !== sourceCardId)),
     ],
     observationsStream: [
       {
-        id: `financial-source-observation-${entity.id}`,
+        id: sourceObservationId,
         category: 'RESEARCH_LIMIT',
         categoryLabel: '財務の出典と適用範囲',
         text: `${source.finding} ${source.limitation}`,
@@ -186,7 +188,7 @@ export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEnti
         sourceUrl: source.url,
         observedAt: '2026-09-11',
       },
-      ...(entity.observationsStream || []),
+      ...(entity.observationsStream || []).filter((observation) => observation.id !== sourceObservationId),
     ],
     unknownsNotes: [source.limitation, '旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。'],
   });
