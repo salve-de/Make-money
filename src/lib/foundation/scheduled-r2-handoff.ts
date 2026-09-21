@@ -10,6 +10,7 @@
 type JsonRecord = Record<string, unknown>;
 
 import { DIMENSIONS } from './coverage';
+import { extractScheduledExplicitFields, resolveScheduledEntityName, isScheduledEntityId } from './scheduled-explicit-fields';
 
 const VERIFICATION_STATUSES = new Set(['SUPPORTED', 'CONFLICTED', 'UNVERIFIED', 'SUPERSEDED', 'RETRACTED']);
 const SOURCE_STRENGTHS = new Set(['S', 'A', 'B', 'C', 'D', 'E', 'F', 'UNRATED']);
@@ -130,7 +131,10 @@ function structuredText(value: unknown, key: string): string[] {
 
 function rowName(row: JsonRecord, sourceRecords: JsonRecord[] = []): string | null {
   const explicit = firstText(row.name) || firstText(row.subject) || firstText(row.subject_or_entity_id);
-  if (explicit) return explicit;
+  if (explicit && !isScheduledEntityId(explicit)) return explicit;
+  const resolved = resolveScheduledEntityName(row);
+  if (resolved) return resolved.name;
+  if (explicit && isScheduledEntityId(explicit)) return null;
   const entities = isRecord(row.Entity) ? [row.Entity] : arrayOfRecords(row.Entity);
   const sourceId = text(row.source_entity_id);
   const matchingRecords = sourceId ? sourceRecords.filter((record) => record.entity_id === sourceId) : [];
@@ -679,6 +683,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     events: new Set<string>(), relationships: new Set<string>(),
   };
   const skippedResearchItems: string[] = [];
+  const structuredWarnings: string[] = [];
   let skippedItems = 0;
 
   for (let index = 0; index < rows.length; index += 1) {
@@ -804,7 +809,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     const verification = rowQuality.verification_status;
     const confidence = rowQuality.confidence;
     const origin = verification === 'SUPPORTED' ? 'reported' : 'unknown';
-    const claimText = firstText(row.Claim) || (row.__audit_record ? structuredText(row.Claim, 'text').join('\n') : null);
+    const claimText = firstText(row.Claim);
     if (claimText) {
       const claimId = await id('cl_', `${runId}|claim|${index}|${claimText}`, 24);
       if (!seen.claims.has(claimId)) {
@@ -852,6 +857,14 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
       }
     }
 
+      const explicitFields = extractScheduledExplicitFields(row, { runId: runId || '', entityId, rowIndex: index,
+      observedAt: rowDate, evidenceIds: validEvidenceIds, confidence });
+    claims.push(...explicitFields.claims);
+    metrics.push(...explicitFields.metrics);
+    moneySignals.push(...explicitFields.money_signals);
+    events.push(...explicitFields.events);
+    relationships.push(...explicitFields.relationships);
+    structuredWarnings.push(...explicitFields.issues.map(issue => `${name}: ${issue}; original row snapshot retained`));
     const sourceRecord = sourceRecordForEvidence(sourceRecords, validEvidenceIds[0]);
     const summary = observedSummary(row, sourceRecord);
     observations.push({ origin_type: origin, verification_status: verification, observed_at: rowDate, collection_channel: 'github:universal-foundation/staging/r2-queue', observer: 'scheduled-r2-writer', text: summary, evidence_ids: validEvidenceIds });
@@ -864,6 +877,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
   const queueCoverage = isRecord(queue.coverage) ? queue.coverage : {};
   const qualityWarnings = [
     ...warningStrings(queue),
+    ...structuredWarnings,
     'Materialized from scheduled staging rows; source bodies were metadata-only and were not copied.',
     `Skipped ${skippedResearchItems.length} NEEDS_RESEARCH item(s) from canonical R2 handoff.`,
   ];
