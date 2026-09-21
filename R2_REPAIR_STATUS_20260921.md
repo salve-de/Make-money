@@ -2,6 +2,27 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 13:15 JST update
+
+- Writer v17 deployed: 4dbcab7f-d6a2-45eb-a6ae-29cb1e039a0c, existing hourly minute-20 schedule and enabled=true. No app deployment. Actual 13:20 scheduled new-candidate persistence remains unverified.
+- q32 corrected canonical bundle projected to 25 new views. All 25 dry-runs passed; 25 independent controls and 25 entity views applied with matching byte/hash readbacks. Original canonical records unchanged. Local consumer verification assigned to partner, not claimed here. Final reviewed consumer fixes b01c938/280cf1f included.
+- k11 recovered through hash-pinned bundle/Journal-only history: 181 CREATED/readbacks, existing core reread unchanged, 39-target serving progress complete, no unresolved IDs. Remote proxy emitted two hung-runtime warnings during projection retries; final progress completed, but independent local consumption remains required.
+- p16 local23/23 now verified by partner; local accepted manual recovery total241 before k11/q32 checks.
+- Helper implementation commit cd6bf5a; existing scheduled conflict checks not loosened. Additional old artifact manifest formats f6-j10/l12/m13 are now identified for targeted hydration, not research absence. Fixed 40-queue snapshot is the acceptance scope; do not manually save new arrivals before the real scheduled proof.
+
+## 13:04 JST update (supersedes older status)
+
+- Local consumer task independently verified 218 IDs (previous 171 + q36 25 + o15 22), list and detail source=foundation_lake, zero failures. This is manual-recovery acceptance, not new scheduled-write proof.
+- o15: 22 entities, 90 create-only objects/readbacks, 22 completed views. Three research holds and one blocked governance proposal were not invented as companies.
+- p16: 23 entities, 94 create-only objects/readbacks, 23 completed views; local verification assigned to partner. Two research holds retained.
+- Legacy source/object-evidence/single-artifact fixes committed as bbdbee6. Existing q23/q22r1/q20/q35/q36 materialization hashes unchanged. Partner consumer commits 8201eec and 8d0bb1f locally cherry-picked; 34 focused tests and typecheck passed.
+- Writer v17 configuration and build dry-run are prepared, NOT deployed. Production remains v16. Partner review found three correction-control defects; wait for reviewed fix before q32 apply or Writer deployment.
+- q32 original and corrected canonical bundles both hash-verified. All 25 product views are absent at their exact R2 keys, so correction dry-run stopped without writes. No q32 view/control has been changed. After reviewed fix, project the corrected canonical bundle through the existing projector, dry-run every entity, then apply guarded correction.
+- k11 39-entity schema passed but preflight stopped before PUT: one immutable core entity differs only in evidence_ids. Existing ent_business_07708565692be1d79bd9 must not be overwritten or assigned an invented new ID. Need an existing-contract bundle/Journal history path; currently held, not recovered.
+- q18 still has 20 unresolved evidence locators; source attempts use shared/qualified purpose strings and lack explicit evidence-ID mapping. Do not guess one-to-many associations.
+- v15 d4/e5 SUCCESS receipts also exist, but describe previously stored/projected data, not new candidate writes. The latest q36 scheduled attempt was SKIPPED_NOT_READY. All-history and new scheduled-write acceptance remain unfinished.
+- Private evidence: /private/tmp/r2-live-audit.mfgRor/{o15,p16}.recovery.json, matching projection JSON, q32.view-dryrun.json, k11.entity-conflicts.json. R2 writes exclusively owned by this task; partner owns local API/UI and integration. No GitHub main/push authorization, public app deployment, added Cron, deletion or billing changes.
+
 ## 12:36 JST update (supersedes status below)
 
 - main 88532eb includes the earlier repair. Coordinating task verified all 171 recovered IDs in local list and detail APIs, source=foundation_lake, failures=0 at 03:24:49Z.
