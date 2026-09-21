@@ -52,8 +52,8 @@ describe('edition before product-view projection', () => {
 
     const page = await readMakeMoneyValuePage();
 
-    expect(page.data).toHaveLength(25);
-    expect(state.entity).toHaveBeenCalledTimes(25);
+    expect(page.data).toHaveLength(10);
+    expect(state.entity).toHaveBeenCalledTimes(10);
   });
 
   it('filters known arrivals before applying the promotion cap', () => {

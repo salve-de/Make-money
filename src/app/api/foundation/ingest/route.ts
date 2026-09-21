@@ -17,12 +17,29 @@ import {
   canResumeMakeMoneyProjection,
   materializeMakeMoneyViews,
 } from '@/lib/foundation/make-money-view';
+import { defaultIncomingMoneySignalFields } from '@/lib/foundation/money-signal-null-defaults';
+import { buildNewArrivalsContribution } from '@/lib/foundation/new-arrivals';
+import { persistNewArrivalsContribution } from '@/lib/foundation/new-arrivals-index';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 const MAX_REQUEST_BYTES = 15 * 1024 * 1024;
+
+function bundleEntityIds(bundle: unknown): string[] {
+  if (!bundle || typeof bundle !== 'object' || Array.isArray(bundle)) return [];
+  const entities = (bundle as { entities?: unknown }).entities;
+  if (!Array.isArray(entities)) return [];
+  return [...new Set(
+    entities
+      .map((entity: unknown) => entity && typeof entity === 'object' && !Array.isArray(entity)
+        ? (entity as { entity_id?: unknown }).entity_id
+        : null)
+      .filter((id): id is string => typeof id === 'string' && id.trim().length > 0)
+      .map((id) => id.trim()),
+  )].sort();
+}
 
 function tokenMatches(expected: string, supplied: string): boolean {
   const expectedBytes = Buffer.from(expected, 'utf8');
@@ -71,9 +88,22 @@ export async function POST(request: NextRequest) {
       throw new FoundationIngestAuthorizationError();
     }
 
-    const resumeCheck = await canResumeMakeMoneyProjection(body.bundle);
+    // research-bundle.v1 permits omitted optional money-signal presentation
+    // fields, while the internal ingest validator uses an explicit null
+    // contract. Normalize only the incoming request before validation; never
+    // rewrite an existing canonical R2 object.
+    const preparedBundle = defaultIncomingMoneySignalFields(
+      body.bundle as Record<string, unknown>,
+    ).bundle;
+    const preparedRequest = { ...body, bundle: preparedBundle };
+    const bundle = preparedBundle as {
+      run_id: string;
+      retrieved_at: string;
+      entities?: unknown;
+    };
+    const resumeCheck = await canResumeMakeMoneyProjection(bundle);
     const rawResumeCheck = resumeCheck.can_resume
-      ? await verifyFoundationRawEvidenceAlreadyCommitted(body.bundle, body.raw_evidence)
+      ? await verifyFoundationRawEvidenceAlreadyCommitted(preparedRequest.bundle, preparedRequest.raw_evidence)
       : {
           committed: false,
           provider_calls: { head_bucket: 0, get_object: 0, put_object: 0 as const },
@@ -109,8 +139,8 @@ export async function POST(request: NextRequest) {
             legacy_universal: 0,
             bucket_or_config: 0,
           },
-        }
-      : await ingestFoundationResearch(body);
+      }
+      : await ingestFoundationResearch(preparedRequest);
 
     if (!canResume) {
       report.provider_calls.head_bucket += rawResumeCheck.provider_calls.head_bucket;
@@ -119,7 +149,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      const viewProjection = await materializeMakeMoneyViews(body.bundle);
+      const viewProjection = await materializeMakeMoneyViews(bundle);
       const needsMoreProjection =
         !viewProjection.complete &&
         viewProjection.next_index < viewProjection.total_targets;
@@ -140,9 +170,36 @@ export async function POST(request: NextRequest) {
         );
       }
 
+      // The event-driven Publisher is the authoritative data-plane writer.
+      // Persist the same immutable contribution/index that the legacy hourly
+      // Writer used to create, so the three daily UI editions remain available
+      // after the redundant Writer is disabled. Retries are create-only/CAS
+      // safe and therefore do not duplicate a run.
+      const entityIds = bundleEntityIds(bundle);
+      const contribution = entityIds.length > 0
+        ? buildNewArrivalsContribution({
+            queueRunId: bundle.run_id,
+            entityIds,
+            assignedAt: bundle.retrieved_at,
+          })
+        : null;
+      const newArrivals = contribution
+        ? await persistNewArrivalsContribution(contribution)
+        : null;
+
       return NextResponse.json({
         success: true,
         ...report,
+        new_arrivals: contribution
+          ? {
+              release_id: contribution.release_id,
+              release_at: contribution.release_at,
+              entity_count: contribution.entity_count,
+              contribution_key: newArrivals?.contribution.key || null,
+              contribution_status: newArrivals?.contribution.status || null,
+              index_status: newArrivals?.index.status || null,
+            }
+          : null,
         view_projection: {
           status: viewProjection.unresolved_entity_ids.length > 0
             ? 'PASS_WITH_UNRESOLVED_REPLAY'
