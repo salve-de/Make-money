@@ -61,6 +61,13 @@ function uniqueStrings(values: string[]): string[] {
   return [...new Set(values.filter(Boolean))];
 }
 
+function splitFinancialEvidenceClauses(text: string): string[] {
+  return text
+    .split(/[。！？?!\n;；]+|\.(?=\s+)/)
+    .map((clause) => clause.trim())
+    .filter(Boolean);
+}
+
 /**
  * Detects explicit source limitations and period contradictions without changing
  * the stored evidence or guessing a missing month/year conversion.
@@ -79,24 +86,26 @@ export function inspectFinancialEvidenceConsistency(entity: FinancialEntity): Fi
   const explicitUnknownEvidence: string[] = [];
 
   for (const text of observationTexts) {
-    if (!UNKNOWN_MARKER.test(text)) continue;
-    const hasFinancialUnknownSignal = [
-      REVENUE_SIGNAL,
-      COGS_SIGNAL,
-      OPERATING_COST_SIGNAL,
-      PROFIT_SIGNAL,
-      NET_PROFIT_SIGNAL,
-      TAX_SIGNAL,
-      GROWTH_SIGNAL,
-    ].some((signal) => signal.test(text));
-    if (REVENUE_SIGNAL.test(text)) addDomain(domains, 'revenue');
-    if (COGS_SIGNAL.test(text)) addDomain(domains, 'cogs');
-    if (OPERATING_COST_SIGNAL.test(text)) addDomain(domains, 'operatingCosts');
-    if (PROFIT_SIGNAL.test(text)) addDomain(domains, 'profit');
-    if (NET_PROFIT_SIGNAL.test(text)) addDomain(domains, 'netProfit');
-    if (TAX_SIGNAL.test(text)) addDomain(domains, 'tax');
-    if (GROWTH_SIGNAL.test(text)) addDomain(domains, 'growth');
-    if (hasFinancialUnknownSignal) explicitUnknownEvidence.push(text);
+    for (const clause of splitFinancialEvidenceClauses(text)) {
+      if (!UNKNOWN_MARKER.test(clause)) continue;
+      const hasFinancialUnknownSignal = [
+        REVENUE_SIGNAL,
+        COGS_SIGNAL,
+        OPERATING_COST_SIGNAL,
+        PROFIT_SIGNAL,
+        NET_PROFIT_SIGNAL,
+        TAX_SIGNAL,
+        GROWTH_SIGNAL,
+      ].some((signal) => signal.test(clause));
+      if (REVENUE_SIGNAL.test(clause)) addDomain(domains, 'revenue');
+      if (COGS_SIGNAL.test(clause)) addDomain(domains, 'cogs');
+      if (OPERATING_COST_SIGNAL.test(clause)) addDomain(domains, 'operatingCosts');
+      if (PROFIT_SIGNAL.test(clause)) addDomain(domains, 'profit');
+      if (NET_PROFIT_SIGNAL.test(clause)) addDomain(domains, 'netProfit');
+      if (TAX_SIGNAL.test(clause)) addDomain(domains, 'tax');
+      if (GROWTH_SIGNAL.test(clause)) addDomain(domains, 'growth');
+      if (hasFinancialUnknownSignal) explicitUnknownEvidence.push(clause);
+    }
   }
 
   const annualRevenueEvidence = uniqueStrings([
@@ -162,10 +171,14 @@ export function reconcileFinancialEvidence(entity: FinancialEntity): FinancialEn
   const hasNetProfitUnknown = domains.has('netProfit');
   const hasTaxUnknown = domains.has('tax');
   const hasRevenueUnknown = domains.has('revenue') || audit.revenuePeriodConflict;
-  const hasDerivedProfitUnknown = hasCostsUnknown || hasProfitUnknown || audit.revenuePeriodConflict;
+  const hasDerivedProfitUnknown = hasRevenueUnknown || hasCostsUnknown || hasProfitUnknown;
   const pnl = { ...entity.pnl };
 
   if (hasRevenueUnknown) pnl.isRevenueUnconfirmed = true;
+  if (hasRevenueUnknown) {
+    pnl.isGrossProfitUnconfirmed = true;
+    pnl.isGrossMarginUnconfirmed = true;
+  }
   if (hasCogsUnknown) {
     pnl.isCogsUnconfirmed = true;
     pnl.isGrossProfitUnconfirmed = true;
