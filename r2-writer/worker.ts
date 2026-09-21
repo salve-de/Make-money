@@ -755,7 +755,8 @@ export async function hydrateQueueCandidates(env: WriterEnv, queue: ScheduledQue
     }
     if (seen.has(path)) continue;
     seen.add(path);
-    const contents = await readGithubJson<unknown>(env, path);
+    const artifact = await readGithubJson<unknown>(env, path);
+    const contents = record(artifact) && artifact.schema_version === 'research-bundle.v1' ? [artifact] : artifact;
     if (!Array.isArray(contents) || contents.length === 0 ||
         contents.some((bundle) => !record(bundle) || bundle.schema_version !== 'research-bundle.v1') ||
         (typeof row.count === 'number' && row.count !== contents.length)) {
