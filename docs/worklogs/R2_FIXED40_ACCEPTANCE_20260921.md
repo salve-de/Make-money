@@ -12,7 +12,7 @@ Status: **not complete**. This records storage evidence and explicit holds, not 
 
 ## Storage inventory
 
-The 29 saved business runs represent 627 distinct entity IDs; these are IDs, not a claim of 627 deduplicated real-world companies. Local all-ID acceptance is pending the coordinating task's comparison.
+The 29 saved business runs represent 627 distinct entity IDs; these are IDs, not a claim of 627 deduplicated real-world companies. Local all-ID acceptance passed at 05:00:50.042Z: 7 list pages and all627 details, strict `source=foundation_lake`, no failed IDs. This is API acceptance, not 627 individually inspected browser screens.
 
 | Runs | Saved IDs | Evidence / limitation |
 |---|---:|---|
@@ -47,6 +47,10 @@ Full read-only planned-object comparison found l12: 438 planned, 193 identical, 
 
 ## Automatic operation remains unfinished
 
+- 14:20 v18 actual q38 receipt at05:20:22.763Z: SKIPPED_NOT_READY, R2 planned/created/readback0. Its25 normalized candidates and2 typed batch/manifest audit rows are miscompared by the current parser. This is new-scheduled acceptance evidence, not expansion of fixed40 or a manually recovered run.
+- Undeployed conflict-hold candidate continues after genuine immutable mismatches, validates hold evidence and tree/content SHA consistency, and leaves authentication/connectivity/readback failures as failures. A40-artifact fixture with3 existing holds reaches2 normal successors using13 GitHub calls. Many arbitrary holds are not guaranteed to drain in one invocation.
+- Pure preparation-only null default helper passes l12/m13 full GET-only normalized plans with0 conflicts (205/233 and152/180 identical/absent). No real writes or Worker wiring; both remain storage holds.
+
 - Actual v17 13:20 JST invocation ran, but q37 was `SKIPPED_NOT_READY`, writes zero, because restricted-fulltext metadata status was not recognized. Invocation outcome `ok` did not mean candidate save success.
 - v18 `9a6e0120-ec49-49d8-afca-bb042cfecd45` supports that exact metadata-only status without upgrading verification or fetching restricted content. Real new-candidate scheduled persistence is still unproven. Existing next cron: 14:20 JST.
 - k11 full GET-only preflight: 337 planned, 334 identical, 1 absent, 2 conflicts. One Entity differs only in evidence IDs. The preserved bundle also says `Merged 91...` while current de-duplicated candidate hydration says `Merged 25...` in one warning. Do not mutate the old bundle to erase this distinction.
@@ -56,4 +60,4 @@ Full read-only planned-object comparison found l12: 438 planned, 193 identical, 
 
 ## Local acceptance and ownership
 
-Coordinating task `01a0c092-3996-7bb0-8261-266be038a37a` owns local main integration and list/detail/UI checks. This task owns R2 writes. Partner reports local main `c9dc286` clean, strict Foundation API success and visible list → Amy detail → six execution steps PASS. Its pending full-ID comparison is separate from these representative UI checks. No simultaneous edits to the partner checkout or root main.
+Coordinating task `01a0c092-3996-7bb0-8261-266be038a37a` owns local main integration and list/detail/UI checks. This task owns R2 writes. Partner reports local main `0e0441af2c873c6ffc0130038a43ffdaecff5b51` clean, incorporating the inventory docs. Its627-ID API result is recorded in `docs/LOCAL_MAIN_ACCEPTANCE_20260921.md`; visible list → Amy detail → six execution steps also passed independently. No simultaneous edits to the partner checkout or root main.
