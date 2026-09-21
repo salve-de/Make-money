@@ -34,4 +34,25 @@ describe('edition before product-view projection', () => {
     state.entity.mockResolvedValue(null);
     expect((await readMakeMoneyValuePage()).data).toEqual([]);
   });
+
+  it('bounds first-page new-arrival promotion to keep R2 reads within Worker limits', async () => {
+    const ids = Array.from({ length: 100 }, (_, index) => `ent_arrival_${index}`);
+    state.release.mockResolvedValue({ entityIds: ids, count: ids.length });
+    state.entity.mockImplementation(async (id: string) => ({
+      id,
+      name: id,
+      entityType: 'business',
+      aliases: [],
+      canonicalIdentifier: null,
+      domain: null,
+      status: 'ACTIVE',
+      observedAt: '2026-09-21T00:00:00Z',
+      evidenceIds: [],
+    }));
+
+    const page = await readMakeMoneyValuePage();
+
+    expect(page.data).toHaveLength(25);
+    expect(state.entity).toHaveBeenCalledTimes(25);
+  });
 });

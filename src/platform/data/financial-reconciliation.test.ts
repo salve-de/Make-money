@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest';
-import { FINANCIAL_RECONCILIATIONS, omitUnreviewedFinancialClaims } from './financial-reconciliation';
+import { FINANCIAL_RECONCILIATIONS, omitUnreviewedFinancialClaims, reconcileFinancialEntity } from './financial-reconciliation';
 import { findInstitutionalEntity, INSTITUTIONAL_ENTITIES, SOURCE_INSTITUTIONAL_ENTITIES } from './mockLedgerData';
 
 it('replaces all audited unsupported P&L claims with sourced facts, not invented balanced costs', () => {
@@ -26,6 +26,18 @@ it('keeps the Photo AI peak separate from stable MRR and aggregate profit', () =
   expect(photo.evidenceCards?.[0].punchline).toContain('継続MRRではない');
   expect(photo.evidenceCards?.[0].details?.[0]).toContain('全事業合計');
   expect(JSON.stringify(photo.evidenceCards)).not.toMatch(/zsh\.|77\.3%|82%|1,800万/);
+});
+
+it('keeps read-time financial reconciliation idempotent', () => {
+  const source = SOURCE_INSTITUTIONAL_ENTITIES.find((row) => row.id === 'ent_photoai')!;
+  const reconciledTwice = reconcileFinancialEntity(reconcileFinancialEntity(source));
+  const cardIds = reconciledTwice.evidenceCards?.map((card) => card.id) ?? [];
+  const observationIds = reconciledTwice.observationsStream?.map((observation) => observation.id) ?? [];
+
+  expect(cardIds.filter((id) => id === 'financial-source-ent_photoai')).toHaveLength(1);
+  expect(observationIds.filter((id) => id === 'financial-source-observation-ent_photoai')).toHaveLength(1);
+  expect(new Set(cardIds).size).toBe(cardIds.length);
+  expect(new Set(observationIds).size).toBe(observationIds.length);
 });
 
 it('does not turn company-wide Ali Abdaal revenue or Chubbies EBITDA into course/operating profit', () => {

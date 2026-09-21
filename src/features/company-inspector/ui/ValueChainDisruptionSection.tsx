@@ -143,7 +143,7 @@ export function ValueChainDisruptionSection({
       <div className="mt-3 border-t border-white/[0.06] pt-3 text-[10px] leading-relaxed text-zinc-500">
         <span className="font-medium text-zinc-400">参照根拠:</span>{' '}
         {structuralCards.slice(0, 4).map((card, index) => (
-          <React.Fragment key={card.id}>
+          <React.Fragment key={`${card.id}-${index}`}>
             {index > 0 && ' / '}
             <span>{card.title} [{card.evidenceStatus}]</span>
           </React.Fragment>
