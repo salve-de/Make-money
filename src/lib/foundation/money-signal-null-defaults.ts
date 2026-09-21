@@ -6,7 +6,7 @@ function isRecord(value: unknown): value is JsonRecord {
 }
 
 /**
- * Preparation only; deliberately not wired into the scheduled Writer yet.
+ * Pure preparation; the scheduled Writer supplies its budgeted canonical read.
  * research-bundle.v1 permits omitted unit/amount_label, while ingest.ts requires
  * explicit string|null. Fill only absent fields on a not-yet-stored bundle.
  * No stored bytes, business values, evidence, or other missing fields change.
@@ -26,6 +26,11 @@ export async function prepareUnstoredMoneySignalDefaults(bundle: JsonRecord, rea
   // incoming schema representation appears equivalent. Failures are not absence.
   if (stored !== null) return { status: 'EXISTING_BUNDLE_UNCHANGED' as const, key, stored };
 
+  return { status: 'PREPARED_UNSTORED_BUNDLE' as const, key, ...defaultIncomingMoneySignalFields(bundle) };
+}
+
+/** Only transform the incoming value; never parse or transform stored bytes. */
+export function defaultIncomingMoneySignalFields(bundle: JsonRecord) {
   if (bundle.money_signals !== undefined && !Array.isArray(bundle.money_signals)) {
     throw new Error('money_signals must be an array');
   }
@@ -47,6 +52,6 @@ export async function prepareUnstoredMoneySignalDefaults(bundle: JsonRecord, rea
     if (fields.length) changes.push({ money_signal_id: row.money_signal_id, fields });
     return next;
   });
-  return { status: 'PREPARED_UNSTORED_BUNDLE' as const, key, changes,
+  return { changes,
     bundle: changes.length ? { ...bundle, money_signals: moneySignals } : bundle };
 }
