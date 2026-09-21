@@ -557,6 +557,17 @@ export function adaptFoundationDetailToFinancialEntity(
     });
   }
 
+  for (const [index, issue] of (detail.issues || []).entries()) {
+    observationsStream.push({
+      id: `${detail.id}_consumer_issue_${index}`,
+      category: 'RESEARCH_LIMIT',
+      categoryLabel: '消費時の保留理由',
+      text: cleanIntelligenceText(issue),
+      originType: 'unknown',
+      verificationStatus: 'UNVERIFIED',
+    });
+  }
+
   for (const cl of claims) {
     observationsStream.push({
       id: cl.id,

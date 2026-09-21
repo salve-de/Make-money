@@ -3,6 +3,7 @@ import {
   buildFoundationBusinessCasesFromBundle,
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
+  readFoundationBusinessCase,
   readFoundationEntitySummaryById,
   readLatestNewArrivalsRelease,
   type FoundationBusinessCase,
@@ -204,6 +205,17 @@ function isBusinessCase(value: unknown): value is FoundationBusinessCase {
     Array.isArray(object.observations) &&
     Array.isArray(object.derived)
   );
+}
+
+function isStoredEntityIdName(value: string): boolean {
+  return /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(value);
+}
+
+function needsScheduledReadThrough(value: FoundationValueSummary | FoundationBusinessCase): boolean {
+  if (isStoredEntityIdName(value.name)) return true;
+  const counts = value.valueProfile.counts;
+  return counts.observations > 0 && counts.claims === 0 && counts.metrics === 0 &&
+    counts.moneySignals === 0 && counts.events === 0 && counts.derived === 0;
 }
 
 function decodeJson(body: Uint8Array): unknown {
@@ -731,10 +743,13 @@ export function mergeFoundationBusinessCasesForView(
   const relationships = mergeById(recordOlder.relationships, recordNewer.relationships);
   const observations = mergeById(recordOlder.observations, recordNewer.observations);
   const derived = mergeById(recordOlder.derived, recordNewer.derived);
+  const issues = uniqueStrings(existing.issues, incoming.issues);
 
   const entitySummary = {
     id: latest.id,
-    name: latest.name || older.name,
+    name: !isStoredEntityIdName(latest.name)
+      ? latest.name
+      : (!isStoredEntityIdName(older.name) ? older.name : latest.name || older.name),
     entityType: latest.entityType || older.entityType,
     aliases: uniqueStrings(existing.aliases, incoming.aliases),
     canonicalIdentifier: latest.canonicalIdentifier || older.canonicalIdentifier,
@@ -765,6 +780,7 @@ export function mergeFoundationBusinessCasesForView(
     bundlesScanned: existing.bundlesScanned + incoming.bundlesScanned,
     bundleObjectsListed: existing.bundleObjectsListed + incoming.bundleObjectsListed,
     bundleScanComplete: existing.bundleScanComplete && incoming.bundleScanComplete,
+    ...(issues.length > 0 ? { issues } : {}),
   };
 }
 
@@ -1163,7 +1179,26 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
 
 export async function readMakeMoneyViewDetail(entityId: string): Promise<FoundationBusinessCase | null> {
   const bucket = await getFoundationBucketAsync('lake');
-  return (await readCorrectedViewDocument(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`))?.detail || null;
+  const document = await readCorrectedViewDocument(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`);
+  if (!document) return null;
+  if (!needsScheduledReadThrough(document.detail)) return document.detail;
+  const fallback = await readFoundationBusinessCase(entityId).catch(() => null);
+  return fallback ? mergeFoundationBusinessCasesForView(document.detail, fallback) : document.detail;
+}
+
+async function readMakeMoneyViewSummary(
+  bucket: string,
+  key: string,
+): Promise<FoundationValueSummary | null> {
+  const document = await readCorrectedViewDocument(bucket, key);
+  if (!document) return null;
+  if (!needsScheduledReadThrough(document.summary) && !needsScheduledReadThrough(document.detail)) {
+    return document.summary;
+  }
+  const fallback = await readFoundationBusinessCase(document.detail.id).catch(() => null);
+  return fallback
+    ? foundationBusinessCaseToValueSummary(mergeFoundationBusinessCasesForView(document.detail, fallback))
+    : document.summary;
 }
 
 /** Bound remote R2 reads while retaining input order and failure visibility. */
@@ -1195,10 +1230,8 @@ export async function readMakeMoneyValuePage(options: {
     await mapServingReads(
       page.objects
         .filter((item) => item.key.endsWith('.json')),
-        async (item) => {
-          return (await readCorrectedViewDocument(bucket, item.key))?.summary || null;
-        }
-    )
+        async (item) => readMakeMoneyViewSummary(bucket, item.key)
+      )
   ).filter((value): value is FoundationValueSummary => Boolean(value));
 
   const nextCursor = page.truncated && page.cursor ? page.cursor : null;

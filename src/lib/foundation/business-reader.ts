@@ -17,6 +17,11 @@ import {
   parseNewArrivalsContribution,
   type NewArrivalsRelease,
 } from './new-arrivals';
+import { sha256Sync } from '@/shared/sha256';
+import {
+  extractScheduledExplicitFields,
+  resolveScheduledEntityName,
+} from './scheduled-explicit-fields';
 
 type JsonObject = Record<string, unknown>;
 
@@ -155,6 +160,8 @@ export interface FoundationBusinessCase extends FoundationEntitySummary {
   bundleObjectsListed: number;
   /** False when a legacy bundle fallback stopped at its safety limit. */
   bundleScanComplete: boolean;
+  /** Read-time validation notes; canonical R2 records are never rewritten. */
+  issues?: string[];
 }
 
 export interface FoundationEntityPage {
@@ -188,6 +195,10 @@ const MAX_BUNDLE_CACHE_ENTRIES = 160;
 const BUNDLE_LIST_TTL_MS = 5 * 60 * 1000;
 const NEW_ARRIVALS_LOOKBACK_DAYS = 1;
 const NEW_ARRIVALS_MAX_LIST_PAGES = 4;
+const SCHEDULED_QUEUE_ROW_PREFIX = 'scheduled_r2_queue_row=';
+const MAX_SCHEDULED_QUEUE_ROW_BYTES = 256 * 1024;
+const SCHEDULED_RUN_ID_PATTERN = /^run_[A-Za-z0-9_.:-]+$/;
+const SCHEDULED_ENTITY_ID_PATTERN = /^ent_[a-z0-9]+_[a-f0-9]{20}$/;
 const NEW_ARRIVALS_MAX_CONTRIBUTIONS = 500;
 
 function objectValue(value: unknown): JsonObject | null {
@@ -630,6 +641,304 @@ function normalizeObservation(value: JsonObject): FoundationObservation {
   };
 }
 
+interface ScheduledSnapshot {
+  row: JsonObject;
+  observation: JsonObject;
+  snapshotIndex: number;
+}
+
+interface ScheduledIdentityMatch {
+  snapshot: ScheduledSnapshot;
+  name: string;
+  sourceEntityId: string;
+  valid: boolean;
+}
+
+interface ScheduledReadThrough {
+  name: string | null;
+  records: FoundationRecordAccumulator;
+  issues: string[];
+}
+
+interface ScheduledExplicitFieldResult {
+  claims: JsonObject[];
+  metrics: JsonObject[];
+  money_signals: JsonObject[];
+  events: JsonObject[];
+  relationships: JsonObject[];
+  issues: string[];
+}
+
+function addScheduledIssue(issues: string[], issue: string): void {
+  if (!issues.includes(issue)) issues.push(issue);
+}
+
+function scheduledRowBody(row: JsonObject): JsonObject {
+  const normalized = objectValue(row.normalized);
+  return normalized ? { ...row, ...normalized } : row;
+}
+
+function parseScheduledSnapshots(bundle: JsonObject, issues: string[]): ScheduledSnapshot[] {
+  if (!Array.isArray(bundle.observations)) return [];
+  const snapshots: ScheduledSnapshot[] = [];
+  let snapshotIndex = 0;
+  for (let observationIndex = 0; observationIndex < bundle.observations.length; observationIndex += 1) {
+    const observation = objectValue(bundle.observations[observationIndex]);
+    const text = observation ? stringValue(observation, 'text') : null;
+    if (!observation || !text?.startsWith(SCHEDULED_QUEUE_ROW_PREFIX)) continue;
+
+    const serialized = text.slice(SCHEDULED_QUEUE_ROW_PREFIX.length);
+    if (new TextEncoder().encode(serialized).byteLength > MAX_SCHEDULED_QUEUE_ROW_BYTES) {
+      addScheduledIssue(issues, `scheduled snapshot ${observationIndex} exceeds ${MAX_SCHEDULED_QUEUE_ROW_BYTES} bytes; original snapshot retained`);
+      continue;
+    }
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(serialized);
+    } catch {
+      addScheduledIssue(issues, `scheduled snapshot ${observationIndex} is invalid JSON; original snapshot retained`);
+      continue;
+    }
+    const row = objectValue(parsed);
+    if (!row) {
+      addScheduledIssue(issues, `scheduled snapshot ${observationIndex} is not a JSON object; original snapshot retained`);
+      continue;
+    }
+    snapshots.push({ row, observation, snapshotIndex });
+    snapshotIndex += 1;
+  }
+  return snapshots;
+}
+
+function collectScheduledEvidenceIds(value: unknown, target: Set<string>): void {
+  if (typeof value === 'string') {
+    if (/^ev_[a-f0-9]{24}$/.test(value)) target.add(value);
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectScheduledEvidenceIds(item, target));
+    return;
+  }
+  const object = objectValue(value);
+  if (!object) return;
+  for (const key of ['evidence_id', 'evidence_ids', 'id']) {
+    collectScheduledEvidenceIds(object[key], target);
+  }
+}
+
+function actualScheduledEvidenceIds(bundle: JsonObject): Set<string> {
+  const ids = new Set<string>();
+  if (!Array.isArray(bundle.evidence)) return ids;
+  for (const item of bundle.evidence) {
+    const evidence = objectValue(item);
+    const id = evidence ? stringValue(evidence, 'evidence_id') : null;
+    if (id) ids.add(id);
+  }
+  return ids;
+}
+
+function scheduledEvidenceIds(
+  bundle: JsonObject,
+  row: JsonObject,
+  observation: JsonObject,
+): string[] {
+  const supplied = new Set<string>();
+  const body = scheduledRowBody(row);
+  collectScheduledEvidenceIds(body.Evidence, supplied);
+  collectScheduledEvidenceIds(body.evidence_ids, supplied);
+  collectScheduledEvidenceIds(observation.evidence_ids, supplied);
+  const actual = actualScheduledEvidenceIds(bundle);
+  return [...supplied].filter((id) => actual.has(id));
+}
+
+function scheduledObservedAt(
+  bundle: JsonObject,
+  row: JsonObject,
+  observation: JsonObject,
+  fallback: string | null,
+): string {
+  return stringValue(observation, 'observed_at') ||
+    stringValue(scheduledRowBody(row), 'observed_at') ||
+    stringValue(bundle, 'retrieved_at') ||
+    fallback ||
+    '';
+}
+
+function scheduledConfidence(row: JsonObject): number {
+  const body = scheduledRowBody(row);
+  const quality = objectValue(body.quality);
+  const candidates = [quality?.confidence, body.confidence];
+  const value = candidates.find((candidate): candidate is number =>
+    typeof candidate === 'number' && Number.isFinite(candidate)
+  );
+  return value === undefined ? 0.5 : Math.max(0, Math.min(1, value));
+}
+
+function storedEntityType(entityId: string): string | null {
+  const match = entityId.match(/^ent_(.+)_[a-f0-9]{20}$/);
+  return match?.[1] || null;
+}
+
+function scheduledIdentityMatch(
+  bundle: JsonObject,
+  baseSummary: FoundationEntitySummary,
+  snapshot: ScheduledSnapshot,
+  issues: string[],
+): ScheduledIdentityMatch | null {
+  const runId = stringValue(bundle, 'run_id');
+  if (!runId || !SCHEDULED_RUN_ID_PATTERN.test(runId)) return null;
+
+  const resolved = resolveScheduledEntityName(snapshot.row);
+  if (!resolved || !resolved.sourceEntityId || !SCHEDULED_ENTITY_ID_PATTERN.test(resolved.sourceEntityId)) return null;
+  const type = storedEntityType(baseSummary.id);
+  if (!type) return null;
+
+  const stored = bundleEntitySummary(bundle, baseSummary.id);
+  if (!stored) return null;
+  const candidateNames = [resolved.sourceEntityId, resolved.name];
+  const derivedNames = candidateNames.filter((candidate) =>
+    `ent_${type}_${sha256Sync(`${runId}|entity|${candidate}`).slice(0, 20)}` === baseSummary.id
+  );
+  if (derivedNames.length === 0) return null;
+
+  const valid = derivedNames.length === 1 && derivedNames[0] === stored.name &&
+    `ent_${type}_${sha256Sync(`${runId}|entity|${stored.name}`).slice(0, 20)}` === baseSummary.id;
+  if (!valid) {
+    addScheduledIssue(issues, `scheduled snapshot ${snapshot.snapshotIndex} failed storedID/canonical_name attribution; typed fields held`);
+  }
+  return {
+    snapshot,
+    name: resolved.name,
+    sourceEntityId: resolved.sourceEntityId,
+    valid,
+  };
+}
+
+function scheduledRecordEvidenceIsAllowed(
+  value: JsonObject,
+  evidenceIds: Set<string>,
+): boolean {
+  const nested = stringArray(value, 'evidence_ids');
+  return nested.length > 0 && nested.every((id) => evidenceIds.has(id));
+}
+
+function scheduledRecordReferencesEntity(
+  value: JsonObject,
+  kind: 'claim' | 'metric' | 'money_signal' | 'event' | 'relationship',
+  entityId: string,
+): boolean {
+  if (kind === 'claim' || kind === 'event') return stringArray(value, 'entity_ids').includes(entityId);
+  if (kind === 'metric') return stringValue(value, 'entity_id') === entityId;
+  if (kind === 'relationship') return stringValue(value, 'subject_entity_id') === entityId;
+  const payer = stringValue(value, 'payer_entity_id');
+  const receiver = stringValue(value, 'receiver_entity_id');
+  return (!payer || payer === entityId) && (!receiver || receiver === entityId);
+}
+
+function appendScheduledExplicitFields(
+  target: FoundationRecordAccumulator,
+  fields: ScheduledExplicitFieldResult,
+  entityId: string,
+  evidenceIds: string[],
+  issues: string[],
+): void {
+  fields.issues.forEach((issue) => addScheduledIssue(issues, `scheduled explicit field: ${issue}`));
+  const allowed = new Set(evidenceIds);
+  const append = <T extends { id: string }>(
+    field: keyof ScheduledExplicitFieldResult,
+    values: unknown,
+    kind: 'claim' | 'metric' | 'money_signal' | 'event' | 'relationship',
+    normalize: (value: JsonObject) => T | null,
+    destination: T[],
+  ): void => {
+    if (!Array.isArray(values)) {
+      addScheduledIssue(issues, `scheduled explicit ${String(field)} is not an array; typed fields held`);
+      return;
+    }
+    values.forEach((value, index) => {
+      const record = objectValue(value);
+      if (!record || !scheduledRecordReferencesEntity(record, kind, entityId) ||
+        !scheduledRecordEvidenceIsAllowed(record, allowed)) {
+        addScheduledIssue(issues, `scheduled explicit ${String(field)}[${index}] failed entity/evidence allowlist; typed record held`);
+        return;
+      }
+      const normalized = normalize(record);
+      if (!normalized) {
+        addScheduledIssue(issues, `scheduled explicit ${String(field)}[${index}] failed consumer normalization; typed record held`);
+        return;
+      }
+      pushUnique(destination, [normalized]);
+    });
+  };
+
+  append('claims', fields.claims, 'claim', normalizeClaim, target.claims);
+  append('metrics', fields.metrics, 'metric', normalizeMetric, target.metrics);
+  append('money_signals', fields.money_signals, 'money_signal', normalizeMoneySignal, target.moneySignals);
+  append('events', fields.events, 'event', normalizeEvent, target.events);
+  append('relationships', fields.relationships, 'relationship', normalizeRelationship, target.relationships);
+}
+
+function mergeRecordAccumulators(
+  target: FoundationRecordAccumulator,
+  incoming: FoundationRecordAccumulator,
+): void {
+  pushUnique(target.claims, incoming.claims);
+  pushUnique(target.metrics, incoming.metrics);
+  pushUnique(target.moneySignals, incoming.moneySignals);
+  pushUnique(target.events, incoming.events);
+  pushUnique(target.relationships, incoming.relationships);
+  pushUnique(target.observations, incoming.observations);
+  pushUnique(target.derived, incoming.derived);
+}
+
+function collectScheduledReadThrough(
+  bundle: JsonObject,
+  baseSummary: FoundationEntitySummary,
+): ScheduledReadThrough {
+  const records = createRecordAccumulator();
+  const issues: string[] = [];
+  const snapshots = parseScheduledSnapshots(bundle, issues);
+  const matches = snapshots
+    .map((snapshot) => scheduledIdentityMatch(bundle, baseSummary, snapshot, issues))
+    .filter((match): match is ScheduledIdentityMatch => Boolean(match));
+  const routed = matches.filter((match) => match.snapshot);
+  routed.forEach((match) => pushUnique(records.observations, [normalizeObservation(match.snapshot.observation)]));
+
+  if (routed.length === 0) return { name: null, records, issues };
+  if (routed.length !== 1) {
+    addScheduledIssue(issues, `scheduled entity attribution matched ${routed.length} snapshots; typed fields held`);
+    return { name: null, records, issues };
+  }
+  const match = routed[0];
+  if (!match.valid) return { name: null, records, issues };
+
+  const evidenceIds = scheduledEvidenceIds(bundle, match.snapshot.row, match.snapshot.observation);
+  if (evidenceIds.length === 0) {
+    addScheduledIssue(issues, `scheduled snapshot ${match.snapshot.snapshotIndex} has no canonical evidence allowlist; typed fields held`);
+    return { name: match.name, records, issues };
+  }
+  const runId = stringValue(bundle, 'run_id');
+  const observedAt = scheduledObservedAt(bundle, match.snapshot.row, match.snapshot.observation, baseSummary.observedAt);
+  if (!runId || !observedAt) {
+    addScheduledIssue(issues, `scheduled snapshot ${match.snapshot.snapshotIndex} lacks run/observedAt context; typed fields held`);
+    return { name: match.name, records, issues };
+  }
+  try {
+    const fields = extractScheduledExplicitFields(match.snapshot.row, {
+      runId,
+      entityId: baseSummary.id,
+      rowIndex: match.snapshot.snapshotIndex,
+      observedAt,
+      evidenceIds,
+      confidence: scheduledConfidence(match.snapshot.row),
+    });
+    appendScheduledExplicitFields(records, fields, baseSummary.id, evidenceIds, issues);
+  } catch {
+    addScheduledIssue(issues, `scheduled snapshot ${match.snapshot.snapshotIndex} explicit extraction failed; original snapshot retained`);
+  }
+  return { name: match.name, records, issues };
+}
+
 function normalizeDerived(value: JsonObject): FoundationDerivedRecord | null {
   const id = stringValue(value, 'derived_id');
   if (!id) return null;
@@ -876,9 +1185,11 @@ export function buildFoundationBusinessCaseForEntity(
 
   const records = createRecordAccumulator();
   collectBundleRecords(bundle, baseSummary.id, records);
+  const scheduled = collectScheduledReadThrough(bundle, baseSummary);
+  mergeRecordAccumulators(records, scheduled.records);
   const explicitSummary = bundleEntitySummary(bundle, baseSummary.id);
   const bundleRetrievedAt = stringValue(bundle, 'retrieved_at');
-  const summary = explicitSummary
+  const baseResolvedSummary = explicitSummary
     ? mergeFoundationEntitySummary(baseSummary, explicitSummary)
     : {
         ...baseSummary,
@@ -887,6 +1198,7 @@ export function buildFoundationBusinessCaseForEntity(
         // so delayed old bundles cannot win ties against newer enrichment.
         observedAt: bundleRetrievedAt || baseSummary.observedAt,
       };
+  const summary = scheduled.name ? { ...baseResolvedSummary, name: scheduled.name } : baseResolvedSummary;
 
   return {
     ...summary,
@@ -895,6 +1207,7 @@ export function buildFoundationBusinessCaseForEntity(
     bundlesScanned: 1,
     bundleObjectsListed: 1,
     bundleScanComplete: true,
+    ...(scheduled.issues.length > 0 ? { issues: scheduled.issues } : {}),
   };
 }
 
@@ -977,6 +1290,7 @@ async function hydrateFoundationEntitiesFromAllBundles(
   const recordsById = new Map(
     summaries.map((item) => [item.id, createRecordAccumulator()])
   );
+  const issuesById = new Map(summaries.map((item) => [item.id, [] as string[]]));
   const bundleListing = await listBundleObjects();
   const bundleObjects = bundleListing.objects;
   let hadBundleReadFailure = false;
@@ -1008,12 +1322,15 @@ async function hydrateFoundationEntitiesFromAllBundles(
       const bundle = result.value;
       for (const entityId of entityIds) {
         if (!bundleContainsEntity(bundle, entityId)) continue;
-        collectBundleRecords(bundle, entityId, recordsById.get(entityId)!);
+        const records = recordsById.get(entityId)!;
+        collectBundleRecords(bundle, entityId, records);
         const currentSummary = summariesById.get(entityId)!;
-        summariesById.set(
-          entityId,
-          mergeFoundationEntitySummary(currentSummary, bundleEntitySummary(bundle, entityId))
-        );
+        const scheduled = collectScheduledReadThrough(bundle, currentSummary);
+        mergeRecordAccumulators(records, scheduled.records);
+        const merged = mergeFoundationEntitySummary(currentSummary, bundleEntitySummary(bundle, entityId));
+        summariesById.set(entityId, scheduled.name ? { ...merged, name: scheduled.name } : merged);
+        const issues = issuesById.get(entityId)!;
+        scheduled.issues.forEach((issue) => addScheduledIssue(issues, issue));
       }
     }
   }
@@ -1021,6 +1338,7 @@ async function hydrateFoundationEntitiesFromAllBundles(
   return summaries.map((original) => {
     const summary = summariesById.get(original.id) || original;
     const records = recordsById.get(original.id) || createRecordAccumulator();
+    const issues = issuesById.get(original.id) || [];
     return {
       ...summary,
       ...records,
@@ -1028,6 +1346,7 @@ async function hydrateFoundationEntitiesFromAllBundles(
       bundlesScanned: bundleObjects.length,
       bundleObjectsListed: bundleObjects.length,
       bundleScanComplete: bundleListing.complete && !hadBundleReadFailure,
+      ...(issues.length > 0 ? { issues } : {}),
     };
   });
 }
@@ -1089,13 +1408,17 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
     const bundle = await cachedBundle(key);
     if (bundle && bundleContainsEntity(bundle, entityId)) {
       collectBundleRecords(bundle, entityId, records);
+      const scheduled = collectScheduledReadThrough(bundle, entity);
+      mergeRecordAccumulators(records, scheduled.records);
+      const summary = scheduled.name ? { ...entity, name: scheduled.name } : entity;
       return {
-        ...entity,
+        ...summary,
         ...records,
-        valueProfile: buildFoundationValueProfile(entity, records),
+        valueProfile: buildFoundationValueProfile(summary, records),
         bundlesScanned: 1,
         bundleObjectsListed: 1,
         bundleScanComplete: true,
+        ...(scheduled.issues.length > 0 ? { issues: scheduled.issues } : {}),
       };
     }
   }
@@ -1107,6 +1430,8 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
   const bundleObjects = bundleListing.objects;
   let bundlesScanned = 0;
   let hadFallbackReadFailure = false;
+  const issues: string[] = [];
+  let fallbackSummary = entity;
 
   for (let index = 0; index < Math.min(bundleObjects.length, MAX_FALLBACK_BUNDLE_OBJECTS); index += BUNDLE_SCAN_BATCH_SIZE) {
     const batch = bundleObjects.slice(index, index + BUNDLE_SCAN_BATCH_SIZE);
@@ -1125,20 +1450,25 @@ export async function readFoundationBusinessCase(entityId: string): Promise<Foun
       }
       if (bundleContainsEntity(result.value, entityId)) {
         collectBundleRecords(result.value, entityId, records);
+        const scheduled = collectScheduledReadThrough(result.value, entity);
+        mergeRecordAccumulators(records, scheduled.records);
+        if (scheduled.name) fallbackSummary = { ...fallbackSummary, name: scheduled.name };
+        scheduled.issues.forEach((issue) => addScheduledIssue(issues, issue));
       }
     }
   }
 
   return {
-    ...entity,
+    ...fallbackSummary,
     ...records,
-    valueProfile: buildFoundationValueProfile(entity, records),
+    valueProfile: buildFoundationValueProfile(fallbackSummary, records),
     bundlesScanned,
     bundleObjectsListed: bundleObjects.length,
     bundleScanComplete:
       bundleListing.complete &&
       !hadFallbackReadFailure &&
       bundlesScanned >= bundleObjects.length,
+    ...(issues.length > 0 ? { issues } : {}),
   };
 }
 

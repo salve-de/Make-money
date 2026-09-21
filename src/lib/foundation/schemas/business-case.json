@@ -101,6 +101,13 @@
         "bundleScanComplete": {
           "type": "boolean",
           "description": "False when a legacy bundle fallback stopped at its safety limit."
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Read-time validation notes; canonical R2 records are never rewritten."
         }
       },
       "required": [
