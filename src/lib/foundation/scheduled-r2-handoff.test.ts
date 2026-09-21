@@ -3,6 +3,16 @@ import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError } f
 
 const evidenceId = 'ev_1234567890abcdef12345678';
 
+it('retains explicitly successful restricted-fulltext metadata without upgrading verification', async () => {
+  const locator='Publisher: Example closure report';
+  const result=await materializeScheduledR2Handoff({queue:{run_id:'run_restricted',finished_at:'2026-09-21T04:00:00Z',recorded_items:[
+    {state:'VALIDATED_FOR_R2_HANDOFF',Entity:{name:'Example'},Source:[{url:locator}],Evidence:[{summary:'Metadata only; full text restricted.'}],Claim:'Closure is scheduled, not completed.',quality:{verification_status:'UNVERIFIED'}},
+  ]},source_runs:[{source_attempts:[{url_or_source_id:locator,result:'SUCCESS_RESTRICTED_FULLTEXT',rights_state:'metadata_only'}]}]});
+  expect(result.entity_count).toBe(1);
+  expect(result.bundle.claims).toEqual(expect.arrayContaining([expect.objectContaining({verification_status:'UNVERIFIED'})]));
+  expect(JSON.stringify(result.bundle)).toContain('metadata_only');
+});
+
 it('recovers a legacy locator only through an exact subject or matching source record', async () => {
   const input={queue:{schema_version:'r2-queue-run.v1',run_id:'run_legacy_locator',finished_at:'2026-09-21T03:00:00Z',recorded_items:[
     {name:'Exact Company',state:'VALIDATED_FOR_R2_HANDOFF',Evidence:evidenceId},
