@@ -7139,3 +7139,11 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Connected missing incoming MoneySignal unit/amount_label defaults to scheduled persistence. Existing canonical data stays immutable: only a full byte match between the prepared incoming bundle and stored raw bytes permits replay of that representation; ordinary preflight still re-reads every object and rejects other fact/quality/evidence changes.
 - Tests prove initial create-only save, complete readbacks, same-input replaycreated0, canonical re-read, changed-fact refusal and transport fail-closed. The extra GET consumes the existing R2 budget. v19 configuration prepared with unchanged cron/default enablement policy.
 - User authorized existing Writer update and50 held-case recovery after review; website deployment/newcron/remote push/overwrite/deletion remain prohibited. Preparation is not a claim of actual saved50 or scheduled success.
+
+### 2026-09-21: v19 deployed and50 held cases recovered
+
+- Existing Writer v19 e6c4a45e-7e55-453c-a815-efa62fa421cd deployed from89f9166, healthenabledtrue/hourly:20 unchanged. No application deployment/newcron/push. Rollback referencev18=9a6e0120-ec49-49d8-afca-bb042cfecd45.
+- After deployment ended, authorized l12/m13 create-only recovery saved50IDs with770 exact readbacks (413created357identical). Same-input normal replaycreated0/all770readbacks; both serving projections complete. Original objects unchanged.
+- Fixed40 ledger now31 saved business runs/677distinctIDs and9 explicitly classified remaining artifacts;19 upstream research holds retained. Parent checks only additional50 local APIs. Actual scheduled new-candidate15:20 proof remains pending; manual recovery is not automatic success.
+
+- Parent additional50 local APIs passed06:12:39.745Z (3list pages/50details/failed[], strict Foundation); no overlap with prior627, total677accepted. Representative Pallet/ConradKacsik detail→execute6steps independently passed. No recovery batch remains active. Genuine scheduled R2/API/UI arrival remains to be observed after15:20.
