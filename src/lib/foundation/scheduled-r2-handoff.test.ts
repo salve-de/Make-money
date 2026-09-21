@@ -220,6 +220,75 @@ it('rejects q42 normalized records with an unknown evidence ref', async () => {
   })).rejects.toThrow('references unknown Evidence.ref 999');
 });
 
+it('resolves shared source IDs by URL and allows a missing URL only for one source candidate', async () => {
+  const entityA = 'ent_company_11111111111111111111';
+  const entityB = 'ent_company_22222222222222222222';
+  const evidenceA = 'ev_111111111111111111111111';
+  const evidenceB = 'ev_222222222222222222222222';
+  const result = await materializeScheduledR2Handoff({
+    queue: {
+      run_id: 'run_shared_source_identity', finished_at: '2026-09-21T10:00:00Z',
+      recorded_items: [
+        { state: 'VALIDATED_FOR_R2_HANDOFF', subject_or_entity_id: entityA, canonical_name: 'Shared Source A' },
+        { state: 'VALIDATED_FOR_R2_HANDOFF', subject_or_entity_id: entityB, canonical_name: 'Unique Source B' },
+      ],
+      normalized_records: {
+        Entity: [
+          { ref: 1, entity_id: entityA, canonical_name: 'Shared Source A' },
+          { ref: 2, entity_id: entityB, canonical_name: 'Unique Source B' },
+        ],
+        Source: [
+          { ref: 1, source_id: 'src.shared', canonical_url: 'https://example.com/a' },
+          { ref: 2, source_id: 'src.shared', canonical_url: 'https://example.com/b' },
+          { ref: 3, source_id: 'src.unique', canonical_url: 'https://example.com/unique' },
+        ],
+        Evidence: [
+          { ref: 1, evidence_id: evidenceA, source_id: 'src.shared', source_url: 'https://example.com/a', summary: 'A' },
+          { ref: 2, evidence_id: evidenceB, source_id: 'src.unique', summary: 'B' },
+        ],
+        Claim: [
+          { entity_ref: 1, evidence_ref: 1, statement: 'A is supported.', verification: 'SUPPORTED' },
+          { entity_ref: 2, evidence_ref: 2, statement: 'B is supported.', verification: 'SUPPORTED' },
+        ],
+        Metric: [], MoneySignal: [], Event: [], Relationship: [], Observation: [], Derived: [],
+        quality: [
+          { entity_ref: 1, handoff_quality: 'PASS', verification_status: 'SUPPORTED' },
+          { entity_ref: 2, handoff_quality: 'PASS', verification_status: 'SUPPORTED' },
+        ],
+      },
+    },
+    source_runs: [],
+  });
+
+  expect(result.included_items).toBe(2);
+  expect(result.source_count).toBe(2);
+  expect(result.evidence_count).toBe(2);
+  expect(result.bundle.evidence).toEqual(expect.arrayContaining([
+    expect.objectContaining({ evidence_id: evidenceB, source_url: 'https://example.com/unique' }),
+  ]));
+});
+
+it('rejects missing source_url when a shared source ID remains ambiguous', async () => {
+  await expect(materializeScheduledR2Handoff({
+    queue: {
+      run_id: 'run_ambiguous_source_identity', finished_at: '2026-09-21T10:00:00Z',
+      recorded_items: [{ state: 'VALIDATED_FOR_R2_HANDOFF', subject_or_entity_id: 'ent_company_33333333333333333333', canonical_name: 'Ambiguous Source' }],
+      normalized_records: {
+        Entity: [{ ref: 1, entity_id: 'ent_company_33333333333333333333', canonical_name: 'Ambiguous Source' }],
+        Source: [
+          { ref: 1, source_id: 'src.ambiguous', canonical_url: 'https://example.com/one' },
+          { ref: 2, source_id: 'src.ambiguous', canonical_url: 'https://example.com/two' },
+        ],
+        Evidence: [{ ref: 1, evidence_id: 'ev_333333333333333333333333', source_id: 'src.ambiguous' }],
+        Claim: [{ entity_ref: 1, evidence_ref: 1, statement: 'Ambiguous.', verification: 'SUPPORTED' }],
+        Metric: [], MoneySignal: [], Event: [], Relationship: [], Observation: [], Derived: [],
+        quality: [{ entity_ref: 1, handoff_quality: 'PASS', verification_status: 'SUPPORTED' }],
+      },
+    },
+    source_runs: [],
+  })).rejects.toThrow('source_id src.ambiguous is ambiguous without source_url');
+});
+
 it('does not roll invalid calendar dates into retrieval timestamps', async () => {
   const evidence = 'ev_aaaaaaaaaaaaaaaaaaaaaaaa';
   const result = await materializeScheduledR2Handoff({
