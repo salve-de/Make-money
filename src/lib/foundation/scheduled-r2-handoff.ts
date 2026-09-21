@@ -363,7 +363,7 @@ function attemptSucceeded(attempt: JsonRecord): boolean {
   const status = text(attempt.result) || text(attempt.status) || text(attempt.state);
   // USABLE is the structured collector's metadata-evidence outcome; it
   // does not imply that raw source bytes were fetched or persisted.
-  return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_via_search_result_after_direct_open_error',
+  return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_search_extract_only', 'success_via_search_result_after_direct_open_error',
     'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found', 'success_restricted_fulltext', 'found']).has(status.split(';')[0].trim().toLowerCase())
     : text(attempt.attempt_result) === 'USABLE';
 }
@@ -618,12 +618,31 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
   const sourceRecords = sourceRecordRecords(input.source_runs);
   const normalizedCandidates = arrayOfRecords(queue.normalized_candidates);
   const recordedRows = queueRows(queue.recorded_items);
-  if (normalizedCandidates.length > 0 && normalizedCandidates.length !== recordedRows.length) {
+  // Batch/manifest audit records describe a cohort, not individual businesses.
+  // Only these explicit roles may bypass the existing one-to-one audit join.
+  const cohortAuditTypes = new Set(['R2QueueCandidateBatch', 'NormalizedCandidateManifest']);
+  const cohortAudits = recordedRows.filter(row => cohortAuditTypes.has(text(row.record_type) || ''));
+  const cohortMode = cohortAudits.length > 0;
+  if (cohortMode) {
+    if (cohortAudits.length !== recordedRows.length) issues.push('mixed or unknown cohort audit record types');
+    if (new Set(cohortAudits.map(row => row.record_type)).size !== cohortAudits.length) issues.push('duplicate cohort audit record types');
+    if (!Array.isArray(queue.normalized_candidates) || normalizedCandidates.length === 0
+      || normalizedCandidates.length !== queue.normalized_candidates.length) issues.push('cohort normalized candidates are missing or invalid');
+    const ids = normalizedCandidates.map(row => text(row.source_entity_id));
+    if (ids.some(id => !id) || new Set(ids).size !== ids.length) issues.push('cohort candidate source IDs are missing or duplicated');
+    const declared = queue.throughput?.validated_for_r2_handoff;
+    if (!Number.isSafeInteger(declared) || declared !== normalizedCandidates.length) issues.push('cohort declared validated count differs from candidate count');
+    const selected = queue.input_snapshot?.selected_bundles;
+    if (selected !== undefined && (!Number.isSafeInteger(selected) || selected !== normalizedCandidates.length)) {
+      issues.push('cohort declared selected bundle count differs from candidate count');
+    }
+  }
+  if (!cohortMode && normalizedCandidates.length > 0 && normalizedCandidates.length !== recordedRows.length) {
     issues.push('normalized candidate count differs from audit record count');
   }
   // Some collectors keep audit summaries and structured handoffs separately.
   // Join by explicit identity, never array position or a broad source match.
-  const rows = recordedRows.map((row) => {
+  const rows = (cohortMode ? normalizedCandidates : recordedRows.map((row) => {
     if (normalizedCandidates.length === 0) return row;
     const recordId = text(row.record_id_if_assigned);
     const matches = normalizedCandidates.filter((candidate) => recordId
@@ -634,7 +653,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
       return row;
     }
     return { ...matches[0], __audit_record: row };
-  }).map((row) => isRecord(row.normalized)
+  })).map((row) => isRecord(row.normalized)
     ? { ...row.normalized, ...row, source_entity_id: row.source_entity_id || (isRecord(row.source_run_ref) ? row.source_run_ref.entity_id : undefined) }
     : row);
   if (rows.length === 0) issues.push('queue recorded_items contains no rows');
@@ -723,9 +742,12 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
           source_type: 'web_source',
           canonical_url: canonicalUrl,
           source_strength: rowQuality.source_strength,
-          rights_status: text(attempt.rights_state) && RIGHTS_STATUSES.has(String(attempt.rights_state)) ? attempt.rights_state : 'metadata_only',
+          rights_status: text(attempt.result)?.toLowerCase() === 'success_search_extract_only' ? 'metadata_only'
+            : text(attempt.rights_state) && RIGHTS_STATUSES.has(String(attempt.rights_state)) ? attempt.rights_state : 'metadata_only',
           rights_policy_id: null,
-          access_notes: text(attempt.result)?.toLowerCase() === 'success_via_search_result_after_direct_open_error'
+          access_notes: text(attempt.result)?.toLowerCase() === 'success_search_extract_only'
+            ? 'Only a search extract was observed. Original page content was not fetched or archived; this is not independent fact verification.'
+            : text(attempt.result)?.toLowerCase() === 'success_via_search_result_after_direct_open_error'
             ? 'Metadata was observed through a search result after direct open failed. Original page content was not fetched or archived.'
             : isHttpUrl(locator)
             ? 'Source body was not copied; metadata-only provenance retained from scheduled staging.'
