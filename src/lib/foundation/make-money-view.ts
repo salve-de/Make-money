@@ -1065,12 +1065,23 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
     throw new Error('Evidence correction adds, drops or changes observations');
   }
   for (const group of RECORD_GROUPS) {
-    for (const row of newCase[group]) {
-      const before = oldCase[group].find(prior => withoutEvidence(prior, group === 'observations') === withoutEvidence(row, group === 'observations'));
-      const links = (record: object, key: string): string[] => (record as Record<string, string[]>)[key] || [];
-      if (!before || ['evidenceIds', 'supportingEvidenceIds'].some(key => links(row, key).some(id => !links(before, key).includes(id)))) {
-        throw new Error('Evidence correction introduces record evidence links');
-      }
+    const links = (record: object, key: string): string[] => (record as Record<string, string[]>)[key] || [];
+    const candidates = newCase[group].map(row => oldCase[group].flatMap((prior, index) =>
+      withoutEvidence(prior, group === 'observations') === withoutEvidence(row, group === 'observations')
+        && ['evidenceIds', 'supportingEvidenceIds'].every(key => links(row, key).every(id => links(prior, key).includes(id))) ? [index] : []));
+    // Match observations one-to-one even when their text is identical and
+    // evidence-derived IDs change. Do not reuse one original for two rows.
+    const assigned = new Map<number, number>();
+    const match = (next: number, seen: Set<number>): boolean => candidates[next].some(prior => {
+      if (seen.has(prior)) return false;
+      seen.add(prior);
+      const previous = assigned.get(prior);
+      if (previous !== undefined && !match(previous, seen)) return false;
+      assigned.set(prior, next);
+      return true;
+    });
+    if (candidates.some((_, index) => !match(index, new Set()))) {
+      throw new Error('Evidence correction introduces record evidence links');
     }
   }
   const excludedIds = oldCase.evidenceIds.filter(id => !newCase.evidenceIds.includes(id));
