@@ -2,6 +2,12 @@
 
 Not complete. Do not equate deployment/materialization with persistence.
 
+## 14:55 JST — v19 preparation and completion authorization
+
+- User explicitly requested completion; parent released the prior Writer-deploy/50-case-write wait. This task alone may update the existing Writer and recover l12/m13 create-only. No app deployment/newcron/push/overwrite/delete. Next real scheduled run15:20; q37+ manual pre-save remains forbidden.
+- prepareScheduledBundle now wires the pure helper only for incoming missing MoneySignal unit/amount_label, with its GET charged to the900-operation invocation budget. Existing canonical bytes are never parsed/transformed. Incoming two-field completion is reusable only when its entire serialized bytes equal existing canonical bytes; normal preflight independently re-reads all objects. Other differences remain ordinary conflicts.
+- Initial save followed by same-input replay passes withcreated0/allreadbacks; wrong business value rejects and stored original remains unchanged. Sixfiles50tests and tsc passed. Parent reviewed this boundary without blocking findings. v19 config prepared, not yet deployed; live/health stillv18 enabledtrue.
+
 ## 14:46 JST review follow-up
 
 - f418cd1 review found status normalization inconsistent between success recognition and search-only rights/notes. Shared result/status/state normalization now handles case, whitespace and semicolon suffix for both; accepted search-only variants force metadata_only even if incoming rights claim raw permission. Raw bytes remain absent and UNVERIFIED stays unchanged.

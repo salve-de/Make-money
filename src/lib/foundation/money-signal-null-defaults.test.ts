@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { prepareUnstoredMoneySignalDefaults } from './money-signal-null-defaults';
-import { persistBundle } from '../../../r2-writer/worker';
+import { persistBundle, prepareScheduledBundle } from '../../../r2-writer/worker';
 
 const signal = { money_signal_id: 'ms_1234567890abcdef12345678', amount: '>18000000',
   currency: 'USD', evidence_ids: ['ev_1234567890abcdef12345678'], verification_status: 'UNVERIFIED' };
@@ -9,6 +9,36 @@ const fixture = (row: Record<string, unknown> = signal) => ({ schema_version: 'r
   money_signals: [row], quality: { schema_validation: 'PASS' }, observations: [{ text: 'preserve' }] });
 
 describe('unpersisted MoneySignal null defaults', () => {
+  it('wires unstored defaults into ordinary create-only persistence and readback', async () => {
+    const values = new Map<string, Uint8Array>();
+    const bucket = { head: async () => null, get: async (key: string) => {
+      const value = values.get(key); return value ? { arrayBuffer: async () => value.slice().buffer } : null;
+    }, put: async (key: string, value: Uint8Array) => { expect(values.has(key)).toBe(false); values.set(key, value.slice()); return {}; } };
+    const env = { FOUNDATION_R2_LAKE: bucket, FOUNDATION_R2_RAW: bucket, FOUNDATION_R2_PUBLIC: bucket, FOUNDATION_R2_RESTRICTED: bucket };
+    const input = fixture(), before = JSON.stringify(input);
+    const prepared = await prepareScheduledBundle(input, env);
+    expect(prepared.money_signals).toEqual([{ ...signal, unit: null, amount_label: null }]);
+    const receipt = await persistBundle(prepared, env);
+    expect(receipt.readback_verified).toBe(receipt.planned);
+    expect(JSON.stringify(input)).toBe(before);
+    const stored = [...values].find(([key]) => key.includes('research-bundles.derived'))!;
+    const reads: string[] = [];
+    const oldGet = bucket.get; bucket.get = async key => { reads.push(key); return oldGet(key); };
+    const replay = await prepareScheduledBundle(input, env);
+    const second = await persistBundle(replay, env);
+    expect(second.created).toBe(0); expect(second.readback_verified).toBe(second.planned);
+    expect(reads.filter(key => key === stored[0]).length).toBeGreaterThanOrEqual(2);
+    expect(values.get(stored[0])).toEqual(stored[1]);
+    const changed = fixture({ ...signal, amount: 'different fact' });
+    expect(await prepareScheduledBundle(changed, env)).toBe(changed);
+    await expect(persistBundle(changed, env)).rejects.toThrow('R2_OBJECT_CONFLICT');
+    expect(values.get(stored[0])).toEqual(stored[1]);
+  });
+  it('fails the scheduled preparation on a canonical read error without writing', async () => {
+    const bucket = { head: async () => null, get: async () => { throw Error('R2 read unavailable'); }, put: async () => { throw Error('must not write'); } };
+    await expect(prepareScheduledBundle(fixture(), { FOUNDATION_R2_LAKE: bucket, FOUNDATION_R2_RAW: bucket,
+      FOUNDATION_R2_PUBLIC: bucket, FOUNDATION_R2_RESTRICTED: bucket })).rejects.toThrow('R2 read unavailable');
+  });
   it('adds only two absent fields without mutating the source or values/evidence', async () => {
     const input = fixture(); const before = JSON.stringify(input);
     const result = await prepareUnstoredMoneySignalDefaults(input, async key => {

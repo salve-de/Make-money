@@ -4,6 +4,7 @@ import { sha256Sync } from '../src/shared/sha256';
 import { validateEvidenceLinkCorrection } from '../src/lib/foundation/evidence-link-correction';
 import { assertEvidenceOnlyEntityHistory } from '../src/lib/foundation/immutable-entity-history';
 import { candidateArtifactManifest } from '../src/lib/foundation/candidate-artifact-manifest';
+import { prepareUnstoredMoneySignalDefaults, defaultIncomingMoneySignalFields } from '../src/lib/foundation/money-signal-null-defaults';
 import { validateResearchBundle } from '../src/lib/foundation/ingest';
 import { withCloudflareRuntimeEnv } from '../src/lib/runtime/cloudflare';
 import { materializeMakeMoneyViews } from '../src/lib/foundation/make-money-view';
@@ -1014,6 +1015,29 @@ function conflictHoldPrefix(base: string, env: WriterEnv): string {
   return retryReceiptPath(base, env).replace(/-receipt\.json$/, '-hold-');
 }
 
+export async function prepareScheduledBundle(bundle: JsonRecord, env: WriterEnv): Promise<JsonRecord> {
+  const signals = bundle.money_signals;
+  if (!Array.isArray(signals) || !signals.some(row => record(row)
+    && (!Object.hasOwn(row, 'unit') || !Object.hasOwn(row, 'amount_label')))) return bundle;
+  const result = await prepareUnstoredMoneySignalDefaults(bundle, async key => {
+    const budget = r2Budgets.get(env);
+    if (budget) {
+      if (budget.remaining < 1) throw new R2BudgetReached('R2 normalization read budget exhausted');
+      budget.remaining--;
+    }
+    const stored = await env.FOUNDATION_R2_LAKE.get(key);
+    return stored ? await readBytes(stored) : null;
+  });
+  if (result.status === 'PREPARED_UNSTORED_BUNDLE') return result.bundle;
+  // Transform only incoming fields, never stored bytes. A replay can use the
+  // prepared representation only if its complete bytes match the old canonical
+  // exactly. Ordinary preflight then independently re-reads every object.
+  const incoming = defaultIncomingMoneySignalFields(bundle).bundle;
+  const bytes = jsonBytes(incoming);
+  return bytes.byteLength === result.stored.byteLength && bytes.every((value, index) => value === result.stored[index])
+    ? incoming : bundle;
+}
+
 // Fingerprint only the queue and files this hydration actually depends on.
 // Unrelated commits or receipt writes must not reopen unchanged conflict holds.
 async function queueInputFingerprint(env: WriterEnv, queue: ScheduledQueueRun): Promise<string> {
@@ -1119,6 +1143,7 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
     source_metadata_base_url: `https://github.com/${repoName(env)}/blob/${branchName(env)}`,
   });
   if (materialized.included_items === 0) throw new Error('no validated items were materialized for R2');
+  materialized.bundle = await prepareScheduledBundle(materialized.bundle, env);
   const assignedAt = publicationAssignedAt(materialized.bundle, queue);
   let r2: Awaited<ReturnType<typeof persistBundle>>;
   try {

@@ -7133,3 +7133,9 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Actual q38 at fixed GitHub83262f3880f8c3b2d65bd4cedff61b0f9570a454 materializes25 entities/25 evidence without altering source evidence IDs, matches explicit individual-row route, passes canonical schema and same-input deterministic hash8f32ca890ff22a409f1b94c5b55534e280f5ffa37508e4d3ff0b68a737fad68f. Five old saved-run bundle hashes unchanged. No manual q38 save, no deployment; actual scheduled success still required.
 
 - Independent review follow-up: success and search-only provenance now share result/status/state normalization (case, whitespace, semicolon suffix). All accepted search-extract-only representations force metadata-only even if input rights claim raw permission; raw storage remains absent and UNVERIFIED remains unchanged. No deployment or R2 writes.
+
+### 2026-09-21: Budgeted null-default Writer wiring and strict replay
+
+- Connected missing incoming MoneySignal unit/amount_label defaults to scheduled persistence. Existing canonical data stays immutable: only a full byte match between the prepared incoming bundle and stored raw bytes permits replay of that representation; ordinary preflight still re-reads every object and rejects other fact/quality/evidence changes.
+- Tests prove initial create-only save, complete readbacks, same-input replaycreated0, canonical re-read, changed-fact refusal and transport fail-closed. The extra GET consumes the existing R2 budget. v19 configuration prepared with unchanged cron/default enablement policy.
+- User authorized existing Writer update and50 held-case recovery after review; website deployment/newcron/remote push/overwrite/deletion remain prohibited. Preparation is not a claim of actual saved50 or scheduled success.
