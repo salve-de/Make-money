@@ -3,11 +3,12 @@ import { ScheduledHandoffMaterializationError, type ScheduledQueueRun } from './
 const allowedFields = new Set([
   'coverage.normalized_bundle_coverage.Metric',
   'field_coverage_delta.metric_bundles',
+  'research_log[0].relationships_found_count',
 ]);
 
 export function auditCorrectionTarget(queue: ScheduledQueueRun): string | null {
   if (queue.schema_version !== 'r2-queue-run-correction.v1') return null;
-  const path = queue.input_snapshot?.corrects_path;
+  const path = queue.input_snapshot?.corrects_path ?? queue.corrects_path;
   if (typeof path !== 'string' || !/^staging\/r2-queue\/\d{4}\/\d{2}\/\d{2}\/[^/]+\.json$/.test(path)) {
     throw new ScheduledHandoffMaterializationError(['audit correction target path is invalid']);
   }
@@ -16,10 +17,12 @@ export function auditCorrectionTarget(queue: ScheduledQueueRun): string | null {
 
 /** Validate audit counters only. Never reinterpret these rows as business facts. */
 export function validateAuditCorrection(queue: ScheduledQueueRun, target: ScheduledQueueRun) {
-  if (!auditCorrectionTarget(queue) || queue.input_snapshot?.corrects_run_id !== target.run_id) {
+  if (!auditCorrectionTarget(queue) || (queue.input_snapshot?.corrects_run_id ?? queue.corrects_run_id) !== target.run_id) {
     throw new ScheduledHandoffMaterializationError(['audit correction target run does not match']);
   }
-  const rows = queue.recorded_items;
+  const scalar = queue.correction && typeof queue.correction === 'object' && !Array.isArray(queue.correction)
+    ? queue.correction as Record<string, unknown> : null;
+  const rows = queue.recorded_items ?? (scalar ? [{ ...scalar, type: 'audit_correction', correct_value: scalar.new_value }] : undefined);
   if (!Array.isArray(rows) || rows.length === 0) {
     throw new ScheduledHandoffMaterializationError(['audit correction has no changes']);
   }
@@ -33,7 +36,7 @@ export function validateAuditCorrection(queue: ScheduledQueueRun, target: Schedu
     }
     seen.add(r.field);
     let current: unknown = target;
-    for (const key of r.field.split('.')) {
+    for (const key of r.field.replace('[0]', '.0').split('.')) {
       current = current && typeof current === 'object' ? (current as Record<string, unknown>)[key] : undefined;
     }
     if (current !== r.old_value && current !== r.correct_value) {

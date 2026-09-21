@@ -1,6 +1,11 @@
 import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError, type ScheduledQueueRun, type ScheduledSourceRun } from '../src/lib/foundation/scheduled-r2-handoff';
 import { auditCorrectionTarget, validateAuditCorrection } from '../src/lib/foundation/queue-audit-correction';
 import { sha256Sync } from '../src/shared/sha256';
+import { validateEvidenceLinkCorrection } from '../src/lib/foundation/evidence-link-correction';
+import { assertEvidenceOnlyEntityHistory } from '../src/lib/foundation/immutable-entity-history';
+import { candidateArtifactManifest } from '../src/lib/foundation/candidate-artifact-manifest';
+import { prepareUnstoredMoneySignalDefaults, defaultIncomingMoneySignalFields } from '../src/lib/foundation/money-signal-null-defaults';
+import { validateResearchBundle } from '../src/lib/foundation/ingest';
 import { withCloudflareRuntimeEnv } from '../src/lib/runtime/cloudflare';
 import { materializeMakeMoneyViews } from '../src/lib/foundation/make-money-view';
 import {
@@ -111,10 +116,17 @@ const DATASET = {
 // One queue run can materialize hundreds of immutable R2 objects, so the
 // per-invocation bound is deliberately small and explicit.
 const MAX_QUEUE_RUNS_PER_INVOCATION = 2;
-const githubSessions = new WeakMap<WriterEnv, { calls: number; paths?: Set<string>; cache: Map<string, unknown> }>();
+const githubSessions = new WeakMap<WriterEnv, { calls: number; paths?: Set<string>; blobs?: Map<string, string>; cache: Map<string, unknown> }>();
 class RequestBudgetReached extends Error {}
 const r2Budgets = new WeakMap<WriterEnv, { remaining: number }>();
 class R2BudgetReached extends Error {}
+class ImmutableObjectConflict extends Error {
+  constructor(readonly object: { bucket: string; key: string; expected_sha256: string; observed_sha256: string;
+    expected_bytes: number; observed_bytes: number }) {
+    super(`R2_OBJECT_CONFLICT ${object.bucket}/${object.key}`);
+    this.name = 'ImmutableObjectConflict';
+  }
+}
 
 async function projectBundleForUI(bundle: JsonRecord, env: WriterEnv) {
   const budget = r2Budgets.get(env);
@@ -190,7 +202,7 @@ function sourceRunPathValues(value: unknown): string[] {
   if (Array.isArray(value)) return value.flatMap(sourceRunPathValues);
   if (typeof value === 'string') return value.trim() ? [value.trim()] : [];
   if (!record(value)) return [];
-  return [value.path, value.source_run_path, value.run_path].flatMap(sourceRunPathValues);
+  return Object.values(value).flatMap(sourceRunPathValues);
 }
 
 export function sourceRunPaths(snapshot: JsonRecord | null): string[] {
@@ -207,6 +219,8 @@ export function sourceRunPaths(snapshot: JsonRecord | null): string[] {
     ...sourceRunPathValues(snapshot.selected_source_runs),
     ...sourceRunPathValues(snapshot.selected_source_run),
     ...sourceRunPathValues(snapshot.selected_source_path),
+    ...sourceRunPathValues(snapshot.selected_source_paths),
+    ...sourceRunPathValues(snapshot.operative_source_path),
     ...sourceRunPathValues(snapshot.primary_source_run),
     ...sourceRunPathValues(snapshot.new_source_run_refs),
     ...sourceRunPathValues(snapshot.source_run_refs),
@@ -492,7 +506,9 @@ async function preflightAndWrite(objects: PlannedObject[], budget = { remaining:
     const current = await readBytes(existing);
     const currentHash = await sha256Hex(current);
     if (current.byteLength !== object.bytes || currentHash !== object.sha256) {
-      throw new Error(`R2_OBJECT_CONFLICT ${object.bucketName}/${object.key}`);
+      throw new ImmutableObjectConflict({ bucket: object.bucketName, key: object.key,
+        expected_sha256: object.sha256, observed_sha256: currentHash,
+        expected_bytes: object.bytes, observed_bytes: current.byteLength });
     }
     preflight.push({ object, status: 'EXISTS_IDENTICAL' });
   }
@@ -628,6 +644,91 @@ async function persistBundle(
   };
 }
 
+/** Operator-only history recovery; normal writer conflict rejection is unchanged. */
+export async function persistEntityEvidenceHistory(input: {
+  bundle: JsonRecord; preservedCores: Array<{ entityId: string; sha256: string }>;
+}, env: WriterEnv) {
+  validateResearchBundle(input.bundle);
+  const pins = new Map(input.preservedCores.map(pin => [pin.entityId, pin.sha256]));
+  if (!pins.size || pins.size !== input.preservedCores.length || [...pins.values()].some(hash => !/^[a-f0-9]{64}$/.test(hash))) {
+    throw new Error('Explicit unique immutable core hashes required');
+  }
+  const preserved: JsonRecord[] = [];
+  const entities = typedObjects(input.bundle, env).filter(item => item.role === 'entity');
+  for (const entity of entities) {
+    const incoming = entity.payload as JsonRecord;
+    const id = String(incoming.entity_id);
+    const stored = await entity.bucket.get(entity.key);
+    if (!stored) {
+      if (pins.has(id)) throw new Error('Pinned immutable core missing');
+      continue;
+    }
+    const bytes = await readBytes(stored);
+    const hash = await sha256Hex(bytes);
+    const value: unknown = JSON.parse(new TextDecoder().decode(bytes));
+    if (!record(value)) throw new Error('Invalid immutable entity core');
+    assertEvidenceOnlyEntityHistory(value, incoming);
+    const changed = JSON.stringify(value.evidence_ids) !== JSON.stringify(incoming.evidence_ids);
+    if (changed && !pins.has(id)) throw new Error('Unreviewed immutable evidence conflict');
+    if (pins.has(id) && pins.get(id) !== hash) throw new Error('Pinned immutable core hash mismatch');
+    if (pins.has(id)) {
+      pins.delete(id);
+      preserved.push({ entity_id: id, key: entity.key, sha256: hash, bytes: bytes.byteLength,
+        mode: 'IMMUTABLE_CORE_RETAINED', incoming_evidence_ids: incoming.evidence_ids,
+        stored_evidence_ids: value.evidence_ids });
+    }
+  }
+  if (pins.size) throw new Error('Pinned entity absent from history bundle');
+  // The complete incoming observation survives in registered run-bundle and
+  // Journal keys. Do not write any fixed typed entity/record key here.
+  const candidates = [...typedObjects(input.bundle, env).filter(item => item.role === 'research_bundle'),
+    ...journalObjects(input.bundle, env)];
+  const objects: PlannedObject[] = [];
+  for (const candidate of candidates) objects.push({ ...candidate, ...await bodyFromJson(candidate.payload) });
+  const written = await preflightAndWrite(objects);
+  return { mode: 'manual_bundle_journal_history_only', typed_objects_written: 0,
+    planned: objects.length, created: written.results.filter(row => row.status === 'CREATED').length,
+    exists_identical: written.results.filter(row => row.status === 'EXISTS_IDENTICAL').length,
+    readback_verified: written.readback_verified, preserved_immutable_cores: preserved,
+    objects: written.results, provider_calls: written.provider_calls };
+}
+
+/** Append a verified evidence-only correction; never rewrite typed seed objects. */
+export async function persistEvidenceLinkCorrection(input: {
+  originalKey: string; originalSha256: string; corrected: JsonRecord;
+  correctionRunId: string; recordedAt: string;
+}, env: WriterEnv) {
+  if (!/^datasets\/ds\.business\.research-bundles\.derived\/v1\/\d{4}\/\d{2}\/\d{2}\/run_[A-Za-z0-9_.:-]+\.json$/.test(input.originalKey)) throw new Error('Invalid original bundle key');
+  const stored = await env.FOUNDATION_R2_LAKE.get(input.originalKey);
+  if (!stored) throw new Error('Original correction target missing');
+  const originalBytes = await readBytes(stored);
+  if (await sha256Hex(originalBytes) !== input.originalSha256) throw new Error('Original correction target hash mismatch');
+  const original: unknown = JSON.parse(new TextDecoder().decode(originalBytes));
+  if (!record(original) || original.run_id === input.correctionRunId) throw new Error('Correction requires a new run');
+  validateEvidenceLinkCorrection(original, input.corrected);
+  const lineage = `Evidence-link correction of ${input.originalKey}; original_sha256=${input.originalSha256}; immutable originals retained; only evidence associations corrected.`;
+  const quality = record(input.corrected.quality) ? input.corrected.quality : {};
+  const bundle = { ...input.corrected, run_id: input.correctionRunId, retrieved_at: input.recordedAt,
+    quality: { ...quality, warnings: [...stringArray(quality.warnings), lineage] } };
+  validateResearchBundle(bundle);
+  const candidates = [
+    ...typedObjects(bundle, env).filter((item) => item.role === 'research_bundle'),
+    ...journalObjects(bundle, env).map((item) => ({ ...item,
+      payload: { ...(item.payload as JsonRecord), supersedes: [`r2://foundation-lake/${input.originalKey}`], notes: lineage } })),
+  ];
+  const objects: PlannedObject[] = [];
+  for (const candidate of candidates) objects.push({ ...candidate, ...await bodyFromJson(candidate.payload) });
+  const result = await preflightAndWrite(objects);
+  return { mode: 'append_only_evidence_link_correction', original_key: input.originalKey,
+    original_sha256: input.originalSha256, correction_run_id: input.correctionRunId,
+    planned: objects.length, readback_verified: result.readback_verified,
+    created: result.results.filter((row) => row.status === 'CREATED').length,
+    exists_identical: result.results.filter((row) => row.status === 'EXISTS_IDENTICAL').length,
+    objects: result.results, provider_calls: result.provider_calls,
+    mutation_counts: { put_object: result.results.filter((row) => row.status === 'CREATED').length, overwrite: 0, delete_object: 0, move: 0, copy_object: 0 },
+    bundle };
+}
+
 function githubHeaders(env: WriterEnv): HeadersInit {
   if (!text(env.FOUNDATION_GITHUB_TOKEN)) throw new Error('FOUNDATION_GITHUB_TOKEN is not configured');
   return { Authorization: `Bearer ${env.FOUNDATION_GITHUB_TOKEN}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'make-money-r2-writer' };
@@ -665,9 +766,16 @@ async function readGithubJson<T>(env: WriterEnv, path: string): Promise<T | null
   if (session?.cache.has(path)) return session.cache.get(path) as T | null;
   if (path.startsWith('staging/automation/receipts/r2_writer/') && session?.paths && !session.paths.has(path)) return null;
   const response = await githubRequest(env, `/repos/${repoName(env)}/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(branchName(env))}`);
-  if (response.status === 404) return null;
+  if (response.status === 404) {
+    if (session?.blobs?.has(path)) throw new Error(`GitHub snapshot changed during read: ${path}`);
+    session?.cache.set(path, null); return null;
+  }
   if (!response.ok) throw new Error(`GitHub content read failed: ${path} (${response.status})`);
   const payload = await response.json() as GithubContentResponse;
+  const expectedBlob = session?.blobs?.get(path);
+  if (expectedBlob && payload.sha !== expectedBlob) {
+    throw new Error(`GitHub snapshot changed during read: ${path}`);
+  }
   if (payload.encoding !== 'base64' || !payload.content) throw new Error(`GitHub content is not base64: ${path}`);
   const binary = atob(payload.content.replace(/\s/g, ''));
   const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
@@ -707,23 +815,19 @@ async function hydrateCandidateList(env: WriterEnv, value: unknown): Promise<unk
 
 export async function hydrateQueueCandidates(env: WriterEnv, queue: ScheduledQueueRun): Promise<ScheduledQueueRun> {
   const referenced: JsonRecord[] = [];
-  const seen = new Set<string>();
-  for (const item of Array.isArray(queue.recorded_items) ? queue.recorded_items : []) {
-    const row = record(item) ? item : null;
-    const path = text(row?.artifact_path);
-    if (!row || !path || text(row.state) !== 'VALIDATED_FOR_R2_HANDOFF') continue;
-    if (!/^staging\/r2-queue\/\d{4}\/\d{2}\/\d{2}\/candidates\/[A-Za-z0-9_-]+\/[A-Za-z0-9_.-]+\.json$/.test(path)) {
-      throw new ScheduledHandoffMaterializationError(['Invalid candidate artifact path']);
-    }
-    if (seen.has(path)) continue;
-    seen.add(path);
-    const contents = await readGithubJson<unknown>(env, path);
+  const manifest = candidateArtifactManifest(queue);
+  for (const { path, count } of manifest.entries) {
+    const artifact = await readGithubJson<unknown>(env, path);
+    const contents = record(artifact) && artifact.schema_version === 'research-bundle.v1' ? [artifact] : artifact;
     if (!Array.isArray(contents) || contents.length === 0 ||
         contents.some((bundle) => !record(bundle) || bundle.schema_version !== 'research-bundle.v1') ||
-        (typeof row.count === 'number' && row.count !== contents.length)) {
+        (count !== undefined && count !== contents.length)) {
       throw new ScheduledHandoffMaterializationError(['Candidate artifact missing, invalid, or count mismatch']);
     }
-    referenced.push(...contents.map((bundle) => ({ state: row.state, bundle_path: path, bundle })));
+    referenced.push(...contents.map((bundle) => ({ state: 'VALIDATED_FOR_R2_HANDOFF', bundle_path: path, bundle })));
+  }
+  if (manifest.expectedTotal !== undefined && manifest.expectedTotal !== referenced.length) {
+    throw new ScheduledHandoffMaterializationError(['Candidate manifest total count mismatch']);
   }
   const existing = await hydrateCandidateList(env, queue.handoff_candidates);
   return {
@@ -738,7 +842,12 @@ async function githubTree(env: WriterEnv): Promise<string[]> {
   if (response.truncated) throw new Error('GitHub tree response was truncated; refusing to select an incomplete queue');
   const paths = (response.tree || []).filter((item) => item.type === 'blob' && typeof item.path === 'string').map((item) => item.path as string);
   const session = githubSessions.get(env);
-  if (session) session.paths = new Set(paths);
+  if (session) {
+    session.paths = new Set(paths);
+    session.blobs = new Map((response.tree || []).flatMap(item =>
+      item.type === 'blob' && typeof item.path === 'string' && typeof item.sha === 'string'
+        ? [[item.path, item.sha] as const] : []));
+  }
   return paths;
 }
 
@@ -904,6 +1013,57 @@ function tokenMatches(expected: string, supplied: string): boolean {
   return difference === 0;
 }
 
+function conflictHoldPrefix(base: string, env: WriterEnv): string {
+  return retryReceiptPath(base, env).replace(/-receipt\.json$/, '-hold-');
+}
+
+export async function prepareScheduledBundle(bundle: JsonRecord, env: WriterEnv): Promise<JsonRecord> {
+  const signals = bundle.money_signals;
+  if (!Array.isArray(signals) || !signals.some(row => record(row)
+    && (!Object.hasOwn(row, 'unit') || !Object.hasOwn(row, 'amount_label')))) return bundle;
+  const result = await prepareUnstoredMoneySignalDefaults(bundle, async key => {
+    const budget = r2Budgets.get(env);
+    if (budget) {
+      if (budget.remaining < 1) throw new R2BudgetReached('R2 normalization read budget exhausted');
+      budget.remaining--;
+    }
+    const stored = await env.FOUNDATION_R2_LAKE.get(key);
+    return stored ? await readBytes(stored) : null;
+  });
+  if (result.status === 'PREPARED_UNSTORED_BUNDLE') return result.bundle;
+  // Transform only incoming fields, never stored bytes. A replay can use the
+  // prepared representation only if its complete bytes match the old canonical
+  // exactly. Ordinary preflight then independently re-reads every object.
+  const incoming = defaultIncomingMoneySignalFields(bundle).bundle;
+  const bytes = jsonBytes(incoming);
+  return bytes.byteLength === result.stored.byteLength && bytes.every((value, index) => value === result.stored[index])
+    ? incoming : bundle;
+}
+
+// Fingerprint only the queue and files this hydration actually depends on.
+// Unrelated commits or receipt writes must not reopen unchanged conflict holds.
+async function queueInputFingerprint(env: WriterEnv, queue: ScheduledQueueRun): Promise<string> {
+  const dependencies = new Set(sourceRunPaths(record(queue.input_snapshot) ? queue.input_snapshot : null));
+  for (const entry of candidateArtifactManifest(queue).entries) dependencies.add(entry.path);
+  for (const list of [queue.handoff_candidates, queue.existing_handoff_candidates]) {
+    if (!Array.isArray(list)) continue;
+    for (const candidate of list) {
+      if (record(candidate) && !record(candidate.bundle)) {
+        const path = text(candidate.bundle_path);
+        if (path?.startsWith('staging/')) dependencies.add(path);
+      }
+    }
+  }
+  const versions: Array<[string, string]> = [];
+  for (const path of [...dependencies].sort()) {
+    const blob = githubSessions.get(env)?.blobs?.get(path);
+    // Test/legacy trees can omit blob IDs; exact source JSON is the fallback,
+    // never an inferred success or ignored read failure.
+    versions.push([path, blob || await sha256Hex(jsonBytes(await readGithubJson<unknown>(env, path)))]);
+  }
+  return sha256Hex(jsonBytes({ queue, dependencies: versions }));
+}
+
 async function processQueuePath(env: WriterEnv, queuePath: string): Promise<JsonRecord> {
   const queue = await readGithubJson<ScheduledQueueRun>(env, queuePath);
   if (!queue) throw new Error(`queue artifact disappeared: ${queuePath}`);
@@ -949,6 +1109,28 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
     return { status: 'ALREADY_RECEIPTED', queue_path: queuePath, queue_run_id: queueRunId(queue) };
   }
 
+  const inputFingerprint = await queueInputFingerprint(env, queue);
+  const holdPath = `${conflictHoldPrefix(baseReceipt, env)}${inputFingerprint}-receipt.json`;
+  const priorHold = await readGithubJson<JsonRecord>(env, holdPath);
+  if (priorHold) {
+    const conflict = record(priorHold.conflict) ? priorHold.conflict : null;
+    const heldR2 = record(priorHold.r2) ? priorHold.r2 : null;
+    if (priorHold.schema_version !== 'r2-writer-receipt.v1' || priorHold.status !== 'HELD_IMMUTABLE_CONFLICT'
+      || priorHold.queue_path !== queuePath || priorHold.queue_run_id !== queueRunId(queue)
+      || priorHold.input_sha256 !== inputFingerprint || priorHold.writer_version !== writerVersion(env)
+      || !conflict || !text(conflict.bucket) || !text(conflict.key)
+      || !/^[a-f0-9]{64}$/.test(String(conflict.expected_sha256))
+      || !/^[a-f0-9]{64}$/.test(String(conflict.observed_sha256))
+      || conflict.expected_sha256 === conflict.observed_sha256
+      || !Number.isSafeInteger(conflict.expected_bytes) || Number(conflict.expected_bytes) < 0
+      || !Number.isSafeInteger(conflict.observed_bytes) || Number(conflict.observed_bytes) < 0
+      || !heldR2 || heldR2.complete !== false || heldR2.created !== null || heldR2.readback_verified !== null
+      || heldR2.conflicts !== 1 || heldR2.partial_writes_possible !== true) {
+      throw new Error('Immutable conflict hold receipt integrity mismatch');
+    }
+    return { status: 'HELD_IMMUTABLE_CONFLICT', queue_path: queuePath, receipt_path: holdPath, already_held: true };
+  }
+
   const snapshot = record(queue.input_snapshot) ? queue.input_snapshot : null;
   const candidatePaths = sourceRunPaths(snapshot);
   const sourceRuns: ScheduledSourceRun[] = [];
@@ -963,8 +1145,27 @@ async function processQueuePath(env: WriterEnv, queuePath: string): Promise<Json
     source_metadata_base_url: `https://github.com/${repoName(env)}/blob/${branchName(env)}`,
   });
   if (materialized.included_items === 0) throw new Error('no validated items were materialized for R2');
+  materialized.bundle = await prepareScheduledBundle(materialized.bundle, env);
   const assignedAt = publicationAssignedAt(materialized.bundle, queue);
-  const r2 = await persistBundle(materialized.bundle, env, { assignedAt, queuePath });
+  let r2: Awaited<ReturnType<typeof persistBundle>>;
+  try {
+    r2 = await persistBundle(materialized.bundle, env, { assignedAt, queuePath });
+  } catch (error) {
+    // Only a successfully read and hashed immutable mismatch becomes a hold.
+    // Authentication, connectivity, create-only races and readback failures
+    // retain their normal failure/deferred behavior.
+    if (!(error instanceof ImmutableObjectConflict)) throw error;
+    await writeGithubReceipt(env, holdPath, {
+      schema_version: 'r2-writer-receipt.v1', status: 'HELD_IMMUTABLE_CONFLICT',
+      queue_run_id: queueRunId(queue), queue_path: queuePath, input_sha256: inputFingerprint,
+      source_run_paths: candidatePaths, writer_version: writerVersion(env), finished_at: new Date().toISOString(),
+      conflict: error.object,
+      r2: { complete: false, created: null, readback_verified: null, conflicts: 1, objects: [], new_arrivals: null,
+        partial_writes_possible: true,
+        note: 'Earlier chunks or attempts may exist; this hold is not a successful save or proof of zero writes. Immutable originals and manual recovery are retained.' },
+    });
+    return { status: 'HELD_IMMUTABLE_CONFLICT', queue_path: queuePath, receipt_path: holdPath, already_held: false };
+  }
   const projection = await projectBundleForUI(materialized.bundle, env);
   if (!projection.complete) return { status: 'DEFERRED_UI_PROJECTION', queue_path: queuePath, view_projection: projection };
   const receiptPayload: JsonRecord = {
@@ -1014,6 +1215,10 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
   const tree = await githubTree(env);
   const paths = queueProcessingOrder(tree, queuePaths(tree).filter(path => {
     const base = queueArtifactReceiptPath(path);
+    // Conflict holds are keyed by the current input fingerprint. Keep the
+    // queue eligible so processQueuePath can re-fingerprint it: unchanged
+    // inputs return the existing hold without R2 reads, while corrected queue
+    // or dependency content gets a new fingerprint and is re-evaluated.
     return Boolean(base && tree.includes(pendingReceiptPath(base, env)) && !tree.includes(retryReceiptPath(base, env)));
   }));
   if (!paths.length) return { status: 'NO_QUEUE_ARTIFACT' };
@@ -1023,6 +1228,7 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
   let processedQueueRuns = 0;
   let processedAuditCorrections = 0;
   const processedQueuePaths: string[] = [];
+  const heldConflictQueuePaths: string[] = [];
   for (const path of paths) {
     try {
       const artifactReceipt = queueArtifactReceiptPath(path);
@@ -1042,6 +1248,10 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
       }
       const result = await processQueuePath(env, path);
       if (result.status === 'ALREADY_RECEIPTED') continue;
+      if (result.status === 'HELD_IMMUTABLE_CONFLICT') {
+        heldConflictQueuePaths.push(path);
+        continue;
+      }
       if (result.status === 'AUDIT_CORRECTION_RECORDED') {
         processedAuditCorrections += 1;
         continue;
@@ -1051,7 +1261,8 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
         processedQueuePaths.push(path);
         if (processedQueueRuns >= MAX_QUEUE_RUNS_PER_INVOCATION) {
           return {
-            status: skippedInvalidQueues > 0 ? 'PARTIAL' : 'SUCCESS',
+            status: skippedInvalidQueues > 0 || heldConflictQueuePaths.length > 0 ? 'PARTIAL' : 'SUCCESS',
+            held_conflict_queue_paths: heldConflictQueuePaths,
             processed_audit_corrections: processedAuditCorrections,
             processed_queue_runs: processedQueueRuns,
             processed_queue_paths: processedQueuePaths,
@@ -1102,11 +1313,13 @@ async function runWriter(env: WriterEnv): Promise<JsonRecord> {
     }
   }
   return {
-    status: skippedInvalidQueues > 0 ? (processedQueueRuns > 0 ? 'PARTIAL' : 'SKIPPED_NOT_READY')
+    status: heldConflictQueuePaths.length > 0 ? (processedQueueRuns > 0 ? 'PARTIAL' : 'HELD_IMMUTABLE_CONFLICT')
+      : skippedInvalidQueues > 0 ? (processedQueueRuns > 0 ? 'PARTIAL' : 'SKIPPED_NOT_READY')
       : processedQueueRuns > 0 || processedAuditCorrections > 0 ? 'SUCCESS' : 'NO_UNPROCESSED_QUEUE',
     processed_audit_corrections: processedAuditCorrections,
     processed_queue_runs: processedQueueRuns,
     processed_queue_paths: processedQueuePaths,
+    held_conflict_queue_paths: heldConflictQueuePaths,
     queue_artifact_count: paths.length,
     skipped_placeholder_queues: skippedPlaceholderQueues,
     skipped_invalid_queues: skippedInvalidQueues,

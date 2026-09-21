@@ -1,4 +1,25 @@
-# Production catalog integration — in progress
+# Catalog integration and local acceptance
+
+## Latest verified checkpoint — 2026-09-21 12:25 JST
+
+This section supersedes the historical pending-main statements below. The active acceptance target is scheduled Web ChatGPT research -> R2 -> the local product, not another production-app deployment.
+
+- PR #46 merged normally as `88532eb6a3295c096cac620e6c95ff561bd4eae4`; local root main and origin/main match, with a clean root checkout. GitHub lint/typecheck/unit/build/E2E checks passed before merge.
+- On that main, `pnpm test` passed again: 563 unit tests, 11 Foundation tests, 16 architecture tests and six recovery tests, plus the offline synthetic restoration check.
+- At `2026-09-21T03:24:49.517Z`, all 171 unique IDs from q19/n14/q17/q23/q22r1/q20/q35 manual-recovery receipts appeared across six complete local `/api/businesses` pages. Every one of the 171 individual detail requests returned HTTP 200 and `source=foundation_lake`; zero failed or fell back to checked-in data.
+- The browser at `localhost:3000` opened Amy's Kitchen, rendered the source observation about the Santa Rosa closure and 260 affected jobs, and reached its execution workspace. Unknown financials remained non-public/unknown. No execution input or source record was fabricated.
+- These observations establish local consumption of recovered data. They do **not** establish scheduled persistence, historical-queue reconciliation, or correction of q32's excessive evidence associations. Those remain active work owned by the R2 repair task; its final receipts must be checked separately.
+- v0 activation and the deferred 2,050-record revision remain excluded. No additional app deployment, billing change, original-data overwrite or deletion was performed.
+
+Repeatable read-only local verification (receipt JSON must contain `entity_ids`):
+
+```sh
+node scripts/verify-local-foundation.mjs http://localhost:3000 /absolute/path/to/recovery.receipt.json
+```
+
+Multiple receipts are accepted and IDs are deduplicated. The check rejects non-loopback destinations, redirects, stale cursor loops, checked-in fallbacks, missing list entries and wrong detail identities; detail reads are limited to two in flight. It prints only verification metadata and failed entity IDs, never response bodies. This is consumer verification, not proof that the receipt was produced by an automatic schedule.
+
+## Historical implementation checkpoints
 
 ## Current scope and evidence — 2026-09-21 11:47 JST
 

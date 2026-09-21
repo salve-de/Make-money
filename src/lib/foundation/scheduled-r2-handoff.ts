@@ -10,6 +10,7 @@
 type JsonRecord = Record<string, unknown>;
 
 import { DIMENSIONS } from './coverage';
+import { extractScheduledExplicitFields, resolveScheduledEntityName, isScheduledEntityId } from './scheduled-explicit-fields';
 
 const VERIFICATION_STATUSES = new Set(['SUPPORTED', 'CONFLICTED', 'UNVERIFIED', 'SUPERSEDED', 'RETRACTED']);
 const SOURCE_STRENGTHS = new Set(['S', 'A', 'B', 'C', 'D', 'E', 'F', 'UNRATED']);
@@ -28,6 +29,8 @@ export interface ScheduledQueueRun extends JsonRecord {
   handoff_candidates?: unknown;
   existing_handoff_candidates?: unknown;
   recorded_items?: unknown;
+  normalized_candidates?: unknown;
+  normalized_records?: unknown;
   warnings?: unknown;
   errors?: unknown;
   coverage?: JsonRecord;
@@ -129,7 +132,10 @@ function structuredText(value: unknown, key: string): string[] {
 
 function rowName(row: JsonRecord, sourceRecords: JsonRecord[] = []): string | null {
   const explicit = firstText(row.name) || firstText(row.subject) || firstText(row.subject_or_entity_id);
-  if (explicit) return explicit;
+  if (explicit && !isScheduledEntityId(explicit)) return explicit;
+  const resolved = resolveScheduledEntityName(row);
+  if (resolved) return resolved.name;
+  if (explicit && isScheduledEntityId(explicit)) return null;
   const entities = isRecord(row.Entity) ? [row.Entity] : arrayOfRecords(row.Entity);
   const sourceId = text(row.source_entity_id);
   const matchingRecords = sourceId ? sourceRecords.filter((record) => record.entity_id === sourceId) : [];
@@ -143,17 +149,37 @@ function rowName(row: JsonRecord, sourceRecords: JsonRecord[] = []): string | nu
   return subject ? text(subject.name) || text(subject.canonical_name) : null;
 }
 
+function isValidCalendarDate(year: number, month: number, day: number): boolean {
+  const calendar = new Date(0);
+  calendar.setUTCFullYear(year, month - 1, day);
+  calendar.setUTCHours(0, 0, 0, 0);
+  return calendar.getUTCFullYear() === year && calendar.getUTCMonth() === month - 1
+    && calendar.getUTCDate() === day;
+}
+
 function isDateTime(value: unknown): value is string {
-  return typeof value === 'string' &&
-    /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value) &&
-    !Number.isNaN(Date.parse(value));
+  if (typeof value !== 'string') return false;
+  const match = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(Z|[+-]\d{2}:\d{2})$/.exec(value);
+  if (!match) return false;
+  const [, yearText, monthText, dayText, hourText, minuteText, secondText, offset] = match;
+  const year = Number(yearText), month = Number(monthText), day = Number(dayText);
+  const hour = Number(hourText), minute = Number(minuteText), second = Number(secondText);
+  const offsetMatch = offset === 'Z' ? null : /[+-](\d{2}):(\d{2})/.exec(offset);
+  return isValidCalendarDate(year, month, day) && hour <= 23 && minute <= 59 && second <= 59
+    && (!offsetMatch || (Number(offsetMatch[1]) <= 23 && Number(offsetMatch[2]) <= 59))
+    && !Number.isNaN(Date.parse(value));
+}
+
+function isDateOnly(value: unknown): value is string {
+  if (typeof value !== 'string') return false;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return false;
+  return isValidCalendarDate(Number(match[1]), Number(match[2]), Number(match[3]));
 }
 
 function asDateTime(value: unknown, fallback: string): string {
   if (isDateTime(value)) return value;
-  if (typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00.000Z`))) {
-    return `${value}T00:00:00.000Z`;
-  }
+  if (isDateOnly(value)) return `${value}T00:00:00.000Z`;
   return fallback;
 }
 
@@ -238,6 +264,7 @@ function qualityInfo(value: unknown, fallbackStrength: string): {
 
 function evidenceIds(value: unknown): string[] {
   if (Array.isArray(value)) return [...new Set(value.flatMap((item) => evidenceIds(item)))];
+  if (isRecord(value)) return evidenceIds(value.evidence_id || value.id);
   if (typeof value === 'string') return [...new Set(value.match(/ev_[a-f0-9]{24}/g) || [])];
   return [];
 }
@@ -326,17 +353,20 @@ function attemptsForRow(attempts: JsonRecord[], records: JsonRecord[], row: Json
   // locator through the matching source-run record and its evidence IDs.
   const matchedRecords = records.filter((record) => sourceRecordMatchesRow(record, row));
   const sourceEvidenceIds = new Set(matchedRecords.flatMap((record) => stringValues(record.evidence_ids)));
-  const sourceRefs = new Set(matchedRecords.flatMap((record) => stringValues(record.source_refs)));
+  const sourceRefs = new Set(matchedRecords.flatMap((record) => [record.source_refs, record.source, record.source_url].flatMap(stringValues)));
+  const subjectMatches = attempts.filter((attempt) => attemptSucceeded(attempt) && sourceLocator(attempt) &&
+    [attempt.subject, attempt.purpose].some((subject) => typeof subject === 'string' && normalizedReference(subject) === normalizedReference(rowName(row) || '')));
+  if (subjectMatches.length === 1) return subjectMatches;
   if (sourceEvidenceIds.size === 0 && sourceRefs.size === 0) return [];
   return attempts.filter((attempt) =>
     attemptSucceeded(attempt) &&
     (stringValues(attempt.evidence_ids_if_any).some((evidenceId) => sourceEvidenceIds.has(evidenceId))
-      || stringValues(attempt.source_ref).some((ref) => sourceRefs.has(ref))),
+      || stringValues(sourceLocator(attempt)).some((ref) => sourceRefs.has(ref))),
   );
 }
 
 function sourceLocator(attempt: JsonRecord): string | null {
-  return text(attempt.url_or_source_id) || text(attempt.source_url) || text(attempt.source_ref) || text(attempt.url);
+  return text(attempt.url_or_source_id) || text(attempt.source_url) || text(attempt.source_ref) || text(attempt.url) || text(attempt.source);
 }
 
 function normalizedSourceReference(value: unknown): string | null {
@@ -354,11 +384,17 @@ function isHttpUrl(value: string): boolean {
   }
 }
 
-function attemptSucceeded(attempt: JsonRecord): boolean {
+function normalizedAttemptStatus(attempt: JsonRecord): string | null {
   const status = text(attempt.result) || text(attempt.status) || text(attempt.state);
+  return status ? status.split(';')[0].trim().toLowerCase() : null;
+}
+
+function attemptSucceeded(attempt: JsonRecord): boolean {
+  const status = normalizedAttemptStatus(attempt);
   // USABLE is the structured collector's metadata-evidence outcome; it
   // does not imply that raw source bytes were fetched or persisted.
-  return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_via_search_result_after_direct_open_error']).has(status.toLowerCase())
+  return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_search_extract_only', 'success_via_search_result_after_direct_open_error',
+    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found', 'success_restricted_fulltext', 'found']).has(status)
     : text(attempt.attempt_result) === 'USABLE';
 }
 
@@ -427,6 +463,7 @@ function parsedPair(value: unknown, fallbackType: string): { type: string; detai
 
 function observedSummary(row: JsonRecord, sourceRecord: JsonRecord | null): string {
   return firstText(sourceRecord?.short_summary) || firstText(row.Observation) || firstText(row.Claim)
+    || (row.__audit_record ? structuredText(row.Observation, 'text').join('\n') || structuredText(row.Claim, 'text').join('\n') : null)
     || structuredText(row.Evidence, 'summary').join('\n') || `Staged observation for ${rowName(row) || 'unknown subject'}`;
 }
 
@@ -496,6 +533,221 @@ function directHandoffBundles(queue: ScheduledQueueRun): { bundle: JsonRecord; c
     if (!bundle || (state !== 'VALIDATED_FOR_R2_HANDOFF' && !schemaPass)) return [];
     return [{ bundle, candidate }];
   });
+}
+
+interface NormalizedReferenceJoin {
+  rows: JsonRecord[];
+  attempts: JsonRecord[];
+}
+
+function referenceNumber(value: unknown): number | null {
+  return Number.isSafeInteger(value) && Number(value) > 0 ? Number(value) : null;
+}
+
+function referenceDateTime(value: unknown): string | null {
+  if (isDateTime(value)) return value;
+  return isDateOnly(value) ? `${value}T00:00:00.000Z` : null;
+}
+
+/**
+ * Newer scheduled runs keep one typed table per record kind and join them by
+ * Entity.ref / Evidence.ref. Reconstruct per-entity rows only from exact refs;
+ * never infer a join from array position, name similarity, or aliases.
+ */
+function joinNormalizedReferenceRecords(queue: ScheduledQueueRun, issues: string[]): NormalizedReferenceJoin | null {
+  if (!isRecord(queue.normalized_records)) return null;
+  const normalized = queue.normalized_records;
+  const entities = arrayOfRecords(normalized.Entity);
+  const evidence = arrayOfRecords(normalized.Evidence);
+  const sources = arrayOfRecords(normalized.Source);
+  const recordedRows = queueRows(queue.recorded_items);
+  if (entities.length === 0 || evidence.length === 0 || sources.length === 0 || recordedRows.length === 0) {
+    issues.push('normalized reference tables are incomplete');
+    return { rows: [], attempts: [] };
+  }
+
+  const entityById = new Map<string, JsonRecord>();
+  const entityByRef = new Map<number, JsonRecord>();
+  for (const entity of entities) {
+    const entityId = text(entity.entity_id);
+    const ref = referenceNumber(entity.ref);
+    if (!entityId || !isScheduledEntityId(entityId) || !ref || entityById.has(entityId) || entityByRef.has(ref)) {
+      issues.push('normalized Entity IDs or refs are missing, invalid, or duplicated');
+      return { rows: [], attempts: [] };
+    }
+    entityById.set(entityId, entity);
+    entityByRef.set(ref, entity);
+  }
+
+  const sourceByIdentity = new Map<string, JsonRecord>();
+  const sourceById = new Map<string, JsonRecord[]>();
+  for (const source of sources) {
+    const sourceId = text(source.source_id);
+    const locator = text(source.canonical_url);
+    const identity = sourceId && locator ? `${sourceId}\u0000${locator}` : null;
+    if (!sourceId || !locator || !identity || sourceByIdentity.has(identity)) {
+      issues.push('normalized Source IDs and URLs are missing or duplicated');
+      return { rows: [], attempts: [] };
+    }
+    sourceByIdentity.set(identity, source);
+    const candidates = sourceById.get(sourceId) || [];
+    candidates.push(source);
+    sourceById.set(sourceId, candidates);
+  }
+
+  const evidenceByRef = new Map<number, JsonRecord>();
+  const evidenceById = new Map<string, JsonRecord>();
+  const attempts: JsonRecord[] = [];
+  for (const item of evidence) {
+    const ref = referenceNumber(item.ref);
+    const evidenceId = text(item.evidence_id);
+    const sourceId = text(item.source_id);
+    const candidates = sourceId ? sourceById.get(sourceId) || [] : [];
+    const evidenceLocator = text(item.source_url);
+    let source: JsonRecord | null = null;
+    if (!ref || !evidenceId || !/^ev_[a-f0-9]{24}$/.test(evidenceId) || evidenceByRef.has(ref)
+      || evidenceById.has(evidenceId) || !sourceId || candidates.length === 0) {
+      issues.push('normalized Evidence refs, IDs, or Source joins are missing, invalid, or duplicated');
+      return { rows: [], attempts: [] };
+    }
+    if (evidenceLocator) {
+      const matches = candidates.filter((candidate) => text(candidate.canonical_url) === evidenceLocator);
+      if (matches.length !== 1) {
+        issues.push(`normalized Evidence[${item.ref}] source_id ${sourceId} has ${matches.length} canonical_url matches for ${evidenceLocator}`);
+        return { rows: [], attempts: [] };
+      }
+      source = matches[0];
+    } else if (candidates.length === 1) {
+      source = candidates[0];
+    } else {
+      issues.push(`normalized Evidence[${item.ref}] source_id ${sourceId} is ambiguous without source_url`);
+      return { rows: [], attempts: [] };
+    }
+    const locator = evidenceLocator || text(source.canonical_url);
+    if (!locator) {
+      issues.push(`normalized Evidence[${item.ref}] has no canonical source locator`);
+      return { rows: [], attempts: [] };
+    }
+    evidenceByRef.set(ref, item);
+    evidenceById.set(evidenceId, item);
+    attempts.push({
+      url: locator,
+      result: 'success_metadata_extract',
+      rights_state: text(item.rights_status) || text(source.rights_status) || 'metadata_only',
+      retrieved_at_or_attempted_at: referenceDateTime(item.retrieved_at) || item.retrieved_at,
+      evidence_ids_if_any: [evidenceId],
+      provider_name: source.provider_name,
+      source_type: source.source_type,
+      source_title: item.source_title,
+      publisher_or_speaker: item.publisher_or_speaker,
+      published_at: item.published_at,
+      source_strength: item.source_strength || source.source_strength,
+      rights_policy_id: source.rights_policy_id,
+      access_notes: source.access_notes,
+      summary: item.summary,
+      raw_storage_status: item.raw_storage_status,
+    });
+  }
+
+  const typedNames = ['Claim', 'Metric', 'MoneySignal', 'Event', 'Relationship', 'Observation', 'Derived'] as const;
+  const typed = Object.fromEntries(typedNames.map((name) => [name, arrayOfRecords(normalized[name])])) as Record<typeof typedNames[number], JsonRecord[]>;
+  const qualityRows = arrayOfRecords(normalized.quality);
+  const withEvidence = (item: JsonRecord, field: string): JsonRecord | null => {
+    const evidenceRef = referenceNumber(item.evidence_ref);
+    if (!evidenceRef) {
+      issues.push(`normalized ${field} has no valid evidence_ref`);
+      return null;
+    }
+    const matched = evidenceByRef.get(evidenceRef);
+    const evidenceId = matched ? text(matched.evidence_id) : null;
+    if (!evidenceId) {
+      issues.push(`normalized ${field} references unknown Evidence.ref ${String(evidenceRef)}`);
+      return null;
+    }
+    const rawPointInTime = text(item.point_in_time);
+    const pointInTime = referenceDateTime(item.point_in_time);
+    const rawOccurredAt = text(item.occurred_at);
+    const occurredAt = referenceDateTime(item.occurred_at) || referenceDateTime(firstText(item.temporal_scope)?.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0]);
+    const period = text(item.period);
+    const scopeParts = [
+      text(item.scope),
+      period ? `period=${period}` : null,
+      rawPointInTime && !pointInTime ? `point_in_time=${rawPointInTime}` : null,
+    ].filter((value): value is string => Boolean(value));
+    const payer = field === 'MoneySignal' && isScheduledEntityId(item.payer) ? text(item.payer) : null;
+    const receiver = field === 'MoneySignal' && isScheduledEntityId(item.receiver) ? text(item.receiver) : null;
+    return {
+      ...item,
+      evidence_ids: [evidenceId],
+      ...(item.point_in_time !== undefined ? { point_in_time: pointInTime } : {}),
+      ...(item.occurred_at !== undefined || item.temporal_scope !== undefined ? { occurred_at: occurredAt } : {}),
+      ...(scopeParts.length > 0 ? { scope: scopeParts.join('; ') } : {}),
+      ...(rawOccurredAt && !occurredAt ? { raw_occurred_at: rawOccurredAt } : {}),
+      ...(field === 'MoneySignal' ? { payer_entity_id: payer, receiver_entity_id: receiver } : {}),
+    };
+  };
+
+  const rows: JsonRecord[] = [];
+  const seenEntityIds = new Set<string>();
+  for (const [index, audit] of recordedRows.entries()) {
+    const entityId = text(audit.subject_or_entity_id);
+    const entity = entityId ? entityById.get(entityId) : null;
+    const entityRef = entity ? referenceNumber(entity.ref) : null;
+    const canonicalName = entity ? text(entity.canonical_name) : null;
+    if (!entityId || !entity || !entityRef || !canonicalName || seenEntityIds.has(entityId)) {
+      issues.push(`recorded_items[${index}] does not have one unique normalized Entity join`);
+      continue;
+    }
+    if (text(audit.canonical_name) && text(audit.canonical_name) !== canonicalName) {
+      issues.push(`recorded_items[${index}] canonical_name differs from its normalized Entity`);
+      continue;
+    }
+    seenEntityIds.add(entityId);
+
+    const fields: JsonRecord = {};
+    for (const field of typedNames) {
+      const selected = typed[field].filter((item) => referenceNumber(item.entity_ref) === entityRef);
+      const joined = selected.map((item) => withEvidence(item, field)).filter((item): item is JsonRecord => Boolean(item));
+      fields[field] = joined;
+    }
+    const rowEvidence = arrayOfStrings(audit.evidence_ids);
+    const matchedEvidence = evidence.filter((item) => {
+      const id = text(item.evidence_id);
+      const upstream = text(item.upstream_evidence_id);
+      return Boolean((id && rowEvidence.includes(id)) || (upstream && rowEvidence.includes(upstream)));
+    });
+    const typedEvidenceRefs = typedNames.flatMap((field) => (fields[field] as JsonRecord[])
+      .flatMap((item) => arrayOfStrings(item.evidence_ids)));
+    const evidenceIdsForRow = [...new Set([
+      ...matchedEvidence.map((item) => text(item.evidence_id)).filter((id): id is string => Boolean(id)),
+      ...typedEvidenceRefs,
+    ])];
+    if (evidenceIdsForRow.length === 0 || evidenceIdsForRow.some((id) => !evidenceById.has(id))) {
+      issues.push(`recorded_items[${index}] has no exact normalized Evidence join`);
+      continue;
+    }
+    const quality = qualityRows.filter((item) => referenceNumber(item.entity_ref) === entityRef);
+    if (quality.length !== 1) {
+      issues.push(`recorded_items[${index}] does not have one normalized quality row`);
+      continue;
+    }
+    rows.push({
+      ...audit,
+      source_entity_id: entityId,
+      Entity: [{ ...entity, id: entityId, name: canonicalName }],
+      Evidence: evidenceIdsForRow.map((id) => ({ id })),
+      quality: {
+        ...quality[0],
+        verification_status: text(audit.verification) || 'UNVERIFIED',
+        source_strength: text(matchedEvidence[0]?.source_strength) || 'UNRATED',
+      },
+      ...fields,
+    });
+  }
+  if (rows.length !== recordedRows.length || seenEntityIds.size !== entities.length) {
+    issues.push('normalized reference join did not cover every recorded item and Entity exactly once');
+  }
+  return { rows, attempts };
 }
 
 function uniqueBundleRecords(bundles: JsonRecord[], field: string, idField: string): JsonRecord[] {
@@ -607,9 +859,50 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     return mergeDirectHandoffBundles(queue, input.queue_path, directCandidates);
   }
 
-  const attempts = sourceAttemptRecords(input.source_runs);
+  const normalizedReferenceJoin = joinNormalizedReferenceRecords(queue, issues);
+  const attempts = [
+    ...sourceAttemptRecords(input.source_runs),
+    ...(normalizedReferenceJoin?.attempts || []),
+  ];
   const sourceRecords = sourceRecordRecords(input.source_runs);
-  const rows = queueRows(queue.recorded_items).map((row) => isRecord(row.normalized)
+  const normalizedCandidates = arrayOfRecords(queue.normalized_candidates);
+  const recordedRows = queueRows(queue.recorded_items);
+  // Batch/manifest audit records describe a cohort, not individual businesses.
+  // Only these explicit roles may bypass the existing one-to-one audit join.
+  const cohortAuditTypes = new Set(['R2QueueCandidateBatch', 'NormalizedCandidateManifest']);
+  const cohortAudits = recordedRows.filter(row => cohortAuditTypes.has(text(row.record_type) || ''));
+  const cohortMode = cohortAudits.length > 0;
+  if (cohortMode) {
+    if (cohortAudits.length !== recordedRows.length) issues.push('mixed or unknown cohort audit record types');
+    if (new Set(cohortAudits.map(row => row.record_type)).size !== cohortAudits.length) issues.push('duplicate cohort audit record types');
+    if (!Array.isArray(queue.normalized_candidates) || normalizedCandidates.length === 0
+      || normalizedCandidates.length !== queue.normalized_candidates.length) issues.push('cohort normalized candidates are missing or invalid');
+    const ids = normalizedCandidates.map(row => text(row.source_entity_id));
+    if (ids.some(id => !id) || new Set(ids).size !== ids.length) issues.push('cohort candidate source IDs are missing or duplicated');
+    const declared = queue.throughput?.validated_for_r2_handoff;
+    if (!Number.isSafeInteger(declared) || declared !== normalizedCandidates.length) issues.push('cohort declared validated count differs from candidate count');
+    const selected = queue.input_snapshot?.selected_bundles;
+    if (selected !== undefined && (!Number.isSafeInteger(selected) || selected !== normalizedCandidates.length)) {
+      issues.push('cohort declared selected bundle count differs from candidate count');
+    }
+  }
+  if (!cohortMode && normalizedCandidates.length > 0 && normalizedCandidates.length !== recordedRows.length) {
+    issues.push('normalized candidate count differs from audit record count');
+  }
+  // Some collectors keep audit summaries and structured handoffs separately.
+  // Join by explicit identity, never array position or a broad source match.
+  const rows = normalizedReferenceJoin?.rows || (cohortMode ? normalizedCandidates : recordedRows.map((row) => {
+    if (normalizedCandidates.length === 0) return row;
+    const recordId = text(row.record_id_if_assigned);
+    const matches = normalizedCandidates.filter((candidate) => recordId
+      ? text(candidate.source_entity_id) === recordId
+      : rowName(candidate) === rowName(row));
+    if (matches.length !== 1) {
+      issues.push(`${rowName(row) || recordId || 'queue row'} has ${matches.length} normalized candidate matches`);
+      return row;
+    }
+    return { ...matches[0], __audit_record: row };
+  })).map((row) => isRecord(row.normalized)
     ? { ...row.normalized, ...row, source_entity_id: row.source_entity_id || (isRecord(row.source_run_ref) ? row.source_run_ref.entity_id : undefined) }
     : row);
   if (rows.length === 0) issues.push('queue recorded_items contains no rows');
@@ -630,16 +923,21 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     events: new Set<string>(), relationships: new Set<string>(),
   };
   const skippedResearchItems: string[] = [];
+  const structuredWarnings: string[] = [];
   let skippedItems = 0;
 
   for (let index = 0; index < rows.length; index += 1) {
     const row = rows[index];
+    const state = text(row.state);
+    if (state && state !== 'VALIDATED_FOR_R2_HANDOFF' && state !== 'NEEDS_RESEARCH') {
+      skippedItems += 1;
+      continue;
+    }
     const name = rowName(row, sourceRecords);
     if (!name) {
       issues.push(`recorded_items[${index}] has no name`);
       continue;
     }
-    const state = text(row.state);
     if (state === 'NEEDS_RESEARCH') {
       skippedResearchItems.push(name);
       skippedItems += 1;
@@ -676,7 +974,9 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     const rowQuality = qualityInfo(row.quality, sourceStrength(firstText(row.Source)?.split('|').at(-1)));
     const validEvidenceIds: string[] = [];
     for (const evidenceId of evIds) {
-      const attempt = generatedEvidenceAttempts.get(evidenceId) || attemptForEvidence(attempts, evidenceId);
+      const exactAttempts = evIds.length === 1 ? attemptsForRow(attempts, sourceRecords, row) : [];
+      const attempt = generatedEvidenceAttempts.get(evidenceId) || attemptForEvidence(attempts, evidenceId)
+        || (exactAttempts.length === 1 ? exactAttempts[0] : null);
       const locator = attempt ? sourceLocator(attempt) : null;
       if (!attempt || !locator || !attemptSucceeded(attempt)) {
         issues.push(`${name} evidence ${evidenceId} has no successful source locator`);
@@ -688,17 +988,21 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
       if (!seen.sources.has(sourceId)) {
         sources.push({
           source_id: sourceId,
-          provider_name: providerName(locator),
-          source_type: 'web_source',
+          provider_name: text(attempt.provider_name) || providerName(locator),
+          source_type: text(attempt.source_type) || 'web_source',
           canonical_url: canonicalUrl,
-          source_strength: rowQuality.source_strength,
-          rights_status: text(attempt.rights_state) && RIGHTS_STATUSES.has(String(attempt.rights_state)) ? attempt.rights_state : 'metadata_only',
-          rights_policy_id: null,
-          access_notes: text(attempt.result)?.toLowerCase() === 'success_via_search_result_after_direct_open_error'
+          source_strength: sourceStrength(attempt.source_strength) === 'UNRATED'
+            ? rowQuality.source_strength : sourceStrength(attempt.source_strength),
+          rights_status: normalizedAttemptStatus(attempt) === 'success_search_extract_only' ? 'metadata_only'
+            : text(attempt.rights_state) && RIGHTS_STATUSES.has(String(attempt.rights_state)) ? attempt.rights_state : 'metadata_only',
+          rights_policy_id: text(attempt.rights_policy_id),
+          access_notes: text(attempt.access_notes) || (normalizedAttemptStatus(attempt) === 'success_search_extract_only'
+            ? 'Only a search extract was observed. Original page content was not fetched or archived; this is not independent fact verification.'
+            : normalizedAttemptStatus(attempt) === 'success_via_search_result_after_direct_open_error'
             ? 'Metadata was observed through a search result after direct open failed. Original page content was not fetched or archived.'
             : isHttpUrl(locator)
             ? 'Source body was not copied; metadata-only provenance retained from scheduled staging.'
-            : `Source body was not copied; metadata-only provenance retained from scheduled staging. original_source_locator=${locator}`,
+            : `Source body was not copied; metadata-only provenance retained from scheduled staging. original_source_locator=${locator}`),
         });
         seen.sources.add(sourceId);
       }
@@ -707,16 +1011,17 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
           evidence_id: evidenceId,
           source_id: sourceId,
           source_url: canonicalUrl,
-          source_title: `${name} source (${providerName(locator)})`,
-          source_type: 'web_source',
-          publisher_or_speaker: null,
-          published_at: null,
+          source_title: text(attempt.source_title) || `${name} source (${providerName(locator)})`,
+          source_type: text(attempt.source_type) || 'web_source',
+          publisher_or_speaker: text(attempt.publisher_or_speaker),
+          published_at: referenceDateTime(attempt.published_at),
           retrieved_at: retrieved,
-          source_strength: rowQuality.source_strength,
+          source_strength: sourceStrength(attempt.source_strength) === 'UNRATED'
+            ? rowQuality.source_strength : sourceStrength(attempt.source_strength),
           rights_status: 'metadata_only',
-          rights_policy_id: null,
-          raw_storage: { status: 'metadata_only', bucket: null, key: null, content_type: null, content_sha256: null, bytes: null },
-          summary: observedSummary(row, sourceRecordForEvidence(sourceRecords, evidenceId)),
+          rights_policy_id: text(attempt.rights_policy_id),
+          raw_storage: { status: text(attempt.raw_storage_status) || 'metadata_only', bucket: null, key: null, content_type: null, content_sha256: null, bytes: null },
+          summary: text(attempt.summary) || observedSummary(row, sourceRecordForEvidence(sourceRecords, evidenceId)),
           extracted_facts: [firstText(row.Claim), firstText(row.Metric), firstText(row.MoneySignal), firstText(row.Event), firstText(row.Relationship)].filter((value): value is string => Boolean(value)),
         });
         seen.evidence.add(evidenceId);
@@ -726,8 +1031,13 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     if (validEvidenceIds.length === 0) continue;
 
     const entitySpec = parsedEntitySpec(row.Entity);
-    const entityId = await id(`ent_${entitySpec.entityType}_`, `${runId}|entity|${name}`, 20);
-    const rowDate = extractDate(firstText(row.Event), retrievedAt);
+    const sourceEntityId = text(row.source_entity_id);
+    const entityId = normalizedReferenceJoin && sourceEntityId && isScheduledEntityId(sourceEntityId)
+      ? sourceEntityId
+      : await id(`ent_${entitySpec.entityType}_`, `${runId}|entity|${name}`, 20);
+    const rowDate = extractDate(firstText(row.temporal_scope) || firstText(row.Event), retrievedAt);
+    const selectedEntity = arrayOfRecords(row.Entity).find((item) => (text(item.id) || text(item.entity_id)) === sourceEntityId)
+      || (arrayOfRecords(row.Entity).length === 1 ? arrayOfRecords(row.Entity)[0] : null);
     if (!seen.entities.has(entityId)) {
       entities.push({
         entity_id: entityId,
@@ -735,7 +1045,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
         canonical_name: name,
         aliases: entitySpec.aliases,
         canonical_identifier: null,
-        domain: null,
+        domain: text(selectedEntity?.domain),
         status: 'observed',
         observed_at: rowDate,
         evidence_ids: validEvidenceIds,
@@ -794,6 +1104,14 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
       }
     }
 
+      const explicitFields = extractScheduledExplicitFields(row, { runId: runId || '', entityId, rowIndex: index,
+      observedAt: rowDate, evidenceIds: validEvidenceIds, confidence });
+    claims.push(...explicitFields.claims);
+    metrics.push(...explicitFields.metrics);
+    moneySignals.push(...explicitFields.money_signals);
+    events.push(...explicitFields.events);
+    relationships.push(...explicitFields.relationships);
+    structuredWarnings.push(...explicitFields.issues.map(issue => `${name}: ${issue}; original row snapshot retained`));
     const sourceRecord = sourceRecordForEvidence(sourceRecords, validEvidenceIds[0]);
     const summary = observedSummary(row, sourceRecord);
     observations.push({ origin_type: origin, verification_status: verification, observed_at: rowDate, collection_channel: 'github:universal-foundation/staging/r2-queue', observer: 'scheduled-r2-writer', text: summary, evidence_ids: validEvidenceIds });
@@ -806,6 +1124,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
   const queueCoverage = isRecord(queue.coverage) ? queue.coverage : {};
   const qualityWarnings = [
     ...warningStrings(queue),
+    ...structuredWarnings,
     'Materialized from scheduled staging rows; source bodies were metadata-only and were not copied.',
     `Skipped ${skippedResearchItems.length} NEEDS_RESEARCH item(s) from canonical R2 handoff.`,
   ];

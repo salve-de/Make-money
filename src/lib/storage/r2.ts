@@ -6,7 +6,11 @@ import {
   PutObjectCommand,
   S3Client,
 } from '@aws-sdk/client-s3';
-import { getCloudflareRuntimeEnv, getRuntimeEnvValue } from '../runtime/cloudflare';
+import {
+  getCloudflareRuntimeEnv,
+  getRuntimeEnvValue,
+  hasCloudflareRuntimeEnvScope,
+} from '../runtime/cloudflare';
 
 export type FoundationBucketRole = 'raw' | 'lake' | 'restricted' | 'public';
 
@@ -296,6 +300,29 @@ async function resolveR2Backend(bucket: string): Promise<R2Backend> {
     : { kind: 's3', client: createR2Client() };
 }
 
+/**
+ * Next dev may expose a stale OpenNext preview binding whose proxy has gone
+ * away. When the local process already has the existing S3 credentials,
+ * read-only Foundation access should use the direct R2 endpoint instead.
+ * Worker/scoped runtime reads and every write keep the normal binding-first
+ * resolver above.
+ */
+function resolveR2ReadBackend(bucket: string): Promise<R2Backend> {
+  const isFoundationBucket = (Object.keys(FOUNDATION_BUCKET_DEFAULTS) as FoundationBucketRole[]).some((role) => {
+    const configured = process.env[FOUNDATION_BUCKET_ENV_KEYS[role]]?.trim();
+    return bucket === FOUNDATION_BUCKET_DEFAULTS[role] || (configured && bucket === configured);
+  });
+  if (
+    process.env.NODE_ENV === 'development' &&
+    readCredentials() &&
+    !hasCloudflareRuntimeEnvScope() &&
+    isFoundationBucket
+  ) {
+    return Promise.resolve({ kind: 's3', client: createR2Client() });
+  }
+  return resolveR2Backend(bucket);
+}
+
 function toBytes(body: Uint8Array | string): Uint8Array {
   return typeof body === 'string' ? new TextEncoder().encode(body) : body;
 }
@@ -455,7 +482,7 @@ export async function assertR2BucketAvailable(bucket: string): Promise<void> {
     throw new R2ConfigurationError('Legacy universal cannot be a Foundation R2 target');
   }
 
-  const backend = await resolveR2Backend(normalizedBucket);
+  const backend = await resolveR2ReadBackend(normalizedBucket);
   await assertR2BucketAvailableWithBackend(normalizedBucket, backend);
 }
 
@@ -466,7 +493,7 @@ export async function headR2Object(bucket: string, key: string): Promise<R2Objec
     throw new R2ConfigurationError('An exact R2 bucket and key are required');
   }
 
-  const backend = await resolveR2Backend(normalizedBucket);
+  const backend = await resolveR2ReadBackend(normalizedBucket);
   if (backend.kind === 'binding') {
     try {
       const response = await backend.binding.head(normalizedKey);
@@ -502,7 +529,7 @@ export async function readR2Object(bucket: string, key: string): Promise<R2Objec
     throw new R2ConfigurationError('An exact R2 bucket and key are required');
   }
 
-  const backend = await resolveR2Backend(normalizedBucket);
+  const backend = await resolveR2ReadBackend(normalizedBucket);
   return readR2ObjectWithBackend(normalizedBucket, normalizedKey, backend);
 }
 
@@ -528,7 +555,7 @@ export async function readR2ObjectRange(
     throw new R2ConfigurationError('An exact R2 bucket, key, and valid byte range are required');
   }
 
-  const backend = await resolveR2Backend(normalizedBucket);
+  const backend = await resolveR2ReadBackend(normalizedBucket);
   return readR2ObjectWithBackend(normalizedBucket, normalizedKey, backend, range);
 }
 
@@ -566,7 +593,7 @@ export async function listR2Objects(input: {
     throw new R2ConfigurationError('Legacy universal cannot be a Foundation R2 target');
   }
 
-  const backend = await resolveR2Backend(bucket);
+  const backend = await resolveR2ReadBackend(bucket);
   if (backend.kind === 'binding') {
     try {
       const raw = (await backend.binding.list({

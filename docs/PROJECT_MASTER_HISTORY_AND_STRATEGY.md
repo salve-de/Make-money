@@ -1,5 +1,14 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-21 R2 scheduled q36 handoff repair
+
+- q32 canonical evidence-only correction subsequently appended: one corrected registered research-bundle + 185 Journal records, 186/186 bytes/hash verified. Old bundle and typed objects preserved. Corrected bundle SHA b5b5a5e8746fd7cd28545be55abae4b637cf4b01c0f7f02f2ba338eb16b4698d. Consumer rebuild/replay protection remains separately pending.
+
+- 12:20 actual Writer v15 run skipped q36 because audit summaries were read instead of separate normalized candidates. Corrected explicit-ID joining and preserved secondary/conflicted provenance; no invented facts or immutable overwrites.
+- q36 manual recovery verified 25 entities / 152 new canonical objects by bytes and SHA-256; all 25 serving views projected. Local consumer confirmation is coordinated separately.
+- Existing Writer v16 deployment f6cded2a-d936-4891-b1a6-34a74233320e retains hourly minute-20 trigger. 28 focused tests, typecheck and dry-run passed. No additional public app deployment, billing change, or cron.
+- Not full completion: real v16 scheduled success, q32 append-only correction, and historical queue reconciliation remain open.
+
 ## 2026-09-17 【確定】全3,341社 個別校閲台帳の創設・タグライン純化・UI最適化（Phase 206）
 
 ### 1. ユーザー指示と統合意図（User Direct Command & Integration Intent）
@@ -7066,3 +7075,75 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Manually recovered 171 staged candidates across seven runs; 1,650 canonical objects passed byte/hash readback and seven view projections completed. API inventory matched 167 IDs. Four missing rows exposed funding-as-revenue misclassification; local adapter correction passes the unchanged evidence gate while leaving sales unknown.
 - Focused validation: 53 tests passed, implementation ESLint passed, typecheck passed before final handoff. No canonical overwrite/delete, EDINET mutation, added Cloudflare Cron, or billing change.
 - Not complete: real v15 scheduled success, final local UI integration, and q32's historical evidence over-link correction remain. See `R2_REPAIR_STATUS_20260921.md`; manual recovery is not scheduled-success evidence.
+
+### 2026-09-21: Local main consumer verification after PR #46
+
+- Main `88532eb` contains the accepted product integration. Root main is clean and matches origin/main; PR #46 lint, typecheck, unit, build and E2E checks succeeded before normal merge.
+- Rechecked all 171 recovered entity IDs in the local list and individually in the detail API: all returned Foundation R2 data, zero failed. Browser verified the actual Amy's Kitchen closure observation and execution workspace.
+- Added a repeatable, read-only receipt-to-local verifier with seven regression cases. Original accepted JSON SHA-256 remains `5b9ecc23f47150534032b4bc1d8a6651938c0d2a978e55b871c36597b1c1ebd4`.
+- The 12:20 writer run was observed but did not save q36: 20 candidates were skipped due to an unsupported handoff/evidence layout. Scheduled-success proof and the historical evidence-link correction remain active R2-task work, not waived completion criteria. No extra app deployment, billing change, v0 activation or 2,050-record revision.
+
+### 2026-09-21: Evidence-only product-view repair candidate
+
+- Added an operator-only, hash-pinned original/corrected bundle repair for the existing v2 serving view. It reconstructs every known contributing run, preserves other history, validates unchanged business facts and CAS-retries concurrent additions. Dry-run writes nothing.
+- Superseded-run/evidence exclusions prevent normal updated projectors from reintroducing the original wrong associations, including references inherited from immutable Entity cores. Canonical originals are never overwritten.
+- This is a tested candidate, not a claim that q32's actual repair or all deployed writers are complete. The R2 owner performs real repair/readback; local UI and scheduled execution need independent acceptance after integration.
+
+### 2026-09-21: Independent correction review and local acceptance continuation
+
+- Read-only independent review reproduced three correction-control defects: later same-ID updates were replaced, empty mandatory hashes could produce unreadable controls, and record-level evidence reassignment/additional observations could pass. Apply/deployment was held before any real correction-control writes.
+- Correction now targets exact original record versions, validates mandatory hashes before writes, and requires per-record evidence subsets and equivalent observations. Four regression cases cover the findings. Original/corrected projections remain rebuildable product controls, not new canonical facts.
+- Local receipt verification at 03:56:49Z read all 22 o15 IDs through the list and individual detail API with Foundation R2 source; combined with the previously verified 196 recovered IDs, 218 IDs have local-consumption proof. This does not substitute for genuine scheduled-run success or final-main verification.
+- Scope remains local main and local product. No GitHub push/PR, additional app deployment, v0, or 2,050-record curation adoption is authorized by this entry.
+
+### 2026-09-21: 同文観測のone-to-one補正と独立再review
+
+- 同一本文の観測を元レコードへone-to-oneで対応付け、旧3欠陥と同文観測回帰を解消。14 focused tests・tsc・ESLint・独立再review PASS、追加実欠陥なし。R2 write 0。
+
+### 2026-09-21: Evidence-only immutable core history recovery
+
+- Added an operator-only hash-pinned history recovery; normal scheduled `persistBundle` conflict rejection is unchanged. Every existing core must have identical identity and business attributes, with evidence_ids the only permitted difference. Each differing core requires an explicit SHA pin.
+- Writes only the existing registered run research-bundle and Journal objects with create-only/readback. Fixed typed entity and record keys are not written; receipts explicitly distinguish preserved core objects from byte-identical candidates. No invented entity IDs, overwritten originals, new buckets or prefixes.
+- Four tests cover immutable seed preservation, wrong-hash and changed-fact refusal before PUT, registered write roles and idempotence. Typecheck and focused ESLint pass. k11 created 181 bundle/Journal objects with 181 matching readbacks; its serving projection/local acceptance remain independently required.
+
+### 2026-09-21: Explicit artifact manifests and restricted-source metadata
+
+- Legacy summary-only queues can hydrate exact write-log candidate references, explicit artifact path manifests and directory/file manifests. Validate run/path/repository boundaries, file/aggregate counts and duplicate references; inline complete candidates retain precedence over tentative file-write plans.
+- Top-level q34r1 relationship-count correction is treated only as an allowlisted audit counter, not business data. Original queue artifacts stay unchanged.
+- Actual v17 scheduled q37 at 04:20:22Z skipped because SUCCESS_RESTRICTED_FULLTEXT metadata was not recognized. The narrowly added status preserves metadata_only and UNVERIFIED; no source-native paywalled content is fetched. Real q37 now materializes 25 candidates in a read-only check, not a manual or scheduled save.
+- 29 focused tests and typecheck passed; five previously recovered bundle hashes remain identical. The next version still needs its own actual scheduled and local consumption proof.
+
+### 2026-09-21: Fixed40 storage inventory and explicit replay holds
+
+- Completed six additional legacy recovery runs:97 entity IDs,760 readbacks,472 created/288 identical, all serving projections complete. Renewed11 historical projections after canonical bundle hash checks, keeping q32 on its corrected version.
+- Final fixed40 manifest at04:56:08Z identifies29 saved business runs with627 distinct IDs and11 explicitly classified remaining artifacts. Sent the complete ID set to the local-integration task for independent API acceptance; representative UI success is not all-ID proof.
+- Full GET-only checks isolated l12/m13's22 MoneySignal null-versus-omitted conflicts and k11's evidence-link plus candidate-count-warning conflict. Originals remain unchanged, automatic conflict exceptions were not introduced, and normal scheduled replay stability remains unfinished. See `docs/worklogs/R2_FIXED40_ACCEPTANCE_20260921.md`.
+
+### 2026-09-21: Bounded immutable-conflict holds — review candidate only
+
+- Added typed immutable-conflict holds with queue/dependency/version fingerprints, incomplete/null write counters, evidence validation and continuation to normal successors. Other failures remain failures; old originals and manual recoveries are unchanged. Held pending markers do not monopolize priority; input revisions can reopen evaluation.
+- Independent review identified mutable-branch/tree races. Content response blob SHA must match the tree snapshot before caching; mid-read updates/deletions fail closed, without writing misleading holds. Forty-artifact/three-existing-hold test reaches two valid successors in13 GitHub calls; arbitrary many holds are not guaranteed within one budget.
+- Added preparation-only absent MoneySignal unit/amount_label to null helper, refusing stored-bundle regeneration and value coercion. Real GET-only l12/m13 complete plans have zero conflicts; no actual save or automatic helper integration yet.
+- Partner local627 list/detail APIs passed at05:00:50.042Z. Actual14:20 v18 q38 remains SKIPPED_NOT_READY/writes0 due batch/manifest audit rows versus25 normalized candidates; that parser issue is separately diagnosed, not fixed here. No new deployment, R2 PUT, remote push or rootmain change by this task.
+
+### 2026-09-21: Typed cohort audit parsing and search-extract provenance
+
+- Separates only explicit batch/manifest audit roles from individual normalized candidates; maintains declared count, unique source identity and existing individual audit joins. Unknown/mixed roles, duplicate audit roles/candidates and absent/mismatched counts fail closed.
+- Recognizes exact success_search_extract_only as metadata observation, not fact verification or full-body acquisition. Existing source URL/evidence matching remains required; unknown/failed statuses reject and UNVERIFIED is retained.
+- Actual q38 at fixed GitHub83262f3880f8c3b2d65bd4cedff61b0f9570a454 materializes25 entities/25 evidence without altering source evidence IDs, matches explicit individual-row route, passes canonical schema and same-input deterministic hash8f32ca890ff22a409f1b94c5b55534e280f5ffa37508e4d3ff0b68a737fad68f. Five old saved-run bundle hashes unchanged. No manual q38 save, no deployment; actual scheduled success still required.
+
+- Independent review follow-up: success and search-only provenance now share result/status/state normalization (case, whitespace, semicolon suffix). All accepted search-extract-only representations force metadata-only even if input rights claim raw permission; raw storage remains absent and UNVERIFIED remains unchanged. No deployment or R2 writes.
+
+### 2026-09-21: Budgeted null-default Writer wiring and strict replay
+
+- Connected missing incoming MoneySignal unit/amount_label defaults to scheduled persistence. Existing canonical data stays immutable: only a full byte match between the prepared incoming bundle and stored raw bytes permits replay of that representation; ordinary preflight still re-reads every object and rejects other fact/quality/evidence changes.
+- Tests prove initial create-only save, complete readbacks, same-input replaycreated0, canonical re-read, changed-fact refusal and transport fail-closed. The extra GET consumes the existing R2 budget. v19 configuration prepared with unchanged cron/default enablement policy.
+- User authorized existing Writer update and50 held-case recovery after review; website deployment/newcron/remote push/overwrite/deletion remain prohibited. Preparation is not a claim of actual saved50 or scheduled success.
+
+### 2026-09-21: v19 deployed and50 held cases recovered
+
+- Existing Writer v19 e6c4a45e-7e55-453c-a815-efa62fa421cd deployed from89f9166, healthenabledtrue/hourly:20 unchanged. No application deployment/newcron/push. Rollback referencev18=9a6e0120-ec49-49d8-afca-bb042cfecd45.
+- After deployment ended, authorized l12/m13 create-only recovery saved50IDs with770 exact readbacks (413created357identical). Same-input normal replaycreated0/all770readbacks; both serving projections complete. Original objects unchanged.
+- Fixed40 ledger now31 saved business runs/677distinctIDs and9 explicitly classified remaining artifacts;19 upstream research holds retained. Parent checks only additional50 local APIs. Actual scheduled new-candidate15:20 proof remains pending; manual recovery is not automatic success.
+
+- Parent additional50 local APIs passed06:12:39.745Z (3list pages/50details/failed[], strict Foundation); no overlap with prior627, total677accepted. Representative Pallet/ConradKacsik detail→execute6steps independently passed. No recovery batch remains active. Genuine scheduled R2/API/UI arrival remains to be observed after15:20.

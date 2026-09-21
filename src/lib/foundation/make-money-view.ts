@@ -1,7 +1,9 @@
 import {
   buildFoundationBusinessCaseForEntity,
+  buildFoundationBusinessCasesFromBundle,
   foundationBusinessCaseToValueSummary,
   foundationEntityIdsFromBundle,
+  readFoundationBusinessCase,
   readFoundationEntitySummaryById,
   readLatestNewArrivalsRelease,
   type FoundationBusinessCase,
@@ -34,6 +36,20 @@ const UNRESOLVED_HYDRATION_STATE_PREFIX = 'views/make-money/v1/_unresolved-hydra
 const UNRESOLVED_HYDRATION_STATE_SCHEMA = 'make-money-view-unresolved-hydration-state.v1';
 const MAX_ENTITIES_PER_PROJECTION_CALL = 25;
 const MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL = 25;
+const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
+const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
+const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
+
+interface ViewEvidenceCorrectionControl {
+  schema_version: typeof EVIDENCE_CORRECTION_SCHEMA;
+  entity_id: string;
+  original: { key: string; sha256: string; run_id: string };
+  corrected: { key: string; sha256: string; run_id: string; retrieved_at: string };
+  excluded_evidence_ids: string[];
+  replaced_record_ids: Record<typeof RECORD_GROUPS[number], string[]>;
+  original_detail: FoundationBusinessCase;
+  corrected_detail: FoundationBusinessCase;
+}
 
 interface MakeMoneyViewDocument {
   schema_version: typeof MAKE_MONEY_VIEW_SCHEMA;
@@ -44,6 +60,9 @@ interface MakeMoneyViewDocument {
   projected_at: string;
   summary: FoundationValueSummary;
   detail: FoundationBusinessCase;
+  // Rebuildable control metadata, never a replacement for canonical originals.
+  excluded_source_run_ids?: string[];
+  excluded_evidence_ids?: string[];
 }
 
 interface MakeMoneyViewRebuildState {
@@ -188,6 +207,17 @@ function isBusinessCase(value: unknown): value is FoundationBusinessCase {
   );
 }
 
+function isStoredEntityIdName(value: string): boolean {
+  return /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(value);
+}
+
+function needsScheduledReadThrough(value: FoundationValueSummary | FoundationBusinessCase): boolean {
+  if (isStoredEntityIdName(value.name)) return true;
+  const counts = value.valueProfile.counts;
+  return counts.observations > 0 && counts.claims === 0 && counts.metrics === 0 &&
+    counts.moneySignals === 0 && counts.events === 0 && counts.derived === 0;
+}
+
 function decodeJson(body: Uint8Array): unknown {
   return JSON.parse(new TextDecoder().decode(body));
 }
@@ -205,10 +235,60 @@ function parseViewDocument(value: unknown): MakeMoneyViewDocument | null {
     typeof object.projected_at !== 'string' ||
     !isValueSummary(object.summary) ||
     !isBusinessCase(object.detail)
+    || ['excluded_source_run_ids', 'excluded_evidence_ids'].some((key) => object[key] !== undefined
+      && (!Array.isArray(object[key]) || !(object[key] as unknown[]).every(item => typeof item === 'string')))
   ) {
     return null;
   }
   return object as unknown as MakeMoneyViewDocument;
+}
+
+async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
+  const object = await readR2Object(bucket, `${EVIDENCE_CORRECTION_PREFIX}${entityId}.json`);
+  if (!object) return { object: null, control: null };
+  const value = objectValue(decodeJson(object.body));
+  const original = objectValue(value?.original);
+  const corrected = objectValue(value?.corrected);
+  const records = objectValue(value?.replaced_record_ids);
+  if (!value || value.schema_version !== EVIDENCE_CORRECTION_SCHEMA || value.entity_id !== entityId
+    || !original || !corrected || !records || !isBusinessCase(value.corrected_detail) || !isBusinessCase(value.original_detail)
+    || value.original_detail.id !== entityId
+    || value.corrected_detail.id !== entityId
+    || [original, corrected].some(ref => !stringValue(ref, 'key') || !stringValue(ref, 'run_id') || !/^[a-f0-9]{64}$/.test(String(ref.sha256)))
+    || !Number.isFinite(Date.parse(String(corrected.retrieved_at)))
+    || !Array.isArray(value.excluded_evidence_ids) || !value.excluded_evidence_ids.every(id => typeof id === 'string')
+    || RECORD_GROUPS.some(group => !Array.isArray(records[group]) || !(records[group] as unknown[]).every(id => typeof id === 'string'))) {
+    throw new Error('Invalid persisted evidence correction control');
+  }
+  return { object, control: value as unknown as ViewEvidenceCorrectionControl };
+}
+
+function applyEvidenceCorrectionControl(document: MakeMoneyViewDocument, control: ViewEvidenceCorrectionControl): MakeMoneyViewDocument {
+  const detail = { ...document.detail };
+  for (const group of RECORD_GROUPS) {
+    const originals = new Map(control.original_detail[group].map(row => [row.id, JSON.stringify(row)]));
+    // Replace the exact superseded version, not every future record with its ID.
+    Object.assign(detail, { [group]: detail[group].filter(row => originals.get(row.id) !== JSON.stringify(row)) });
+  }
+  const excludedEvidence = uniqueStrings(document.excluded_evidence_ids, control.excluded_evidence_ids);
+  const corrected = excludeViewEvidence(mergeFoundationBusinessCasesForView(control.corrected_detail, detail), excludedEvidence);
+  const excludedRuns = uniqueStrings(document.excluded_source_run_ids, [control.original.run_id]);
+  const sourceRuns = uniqueStrings(document.source_run_ids.filter(run => !excludedRuns.includes(run)), [control.corrected.run_id]);
+  corrected.bundlesScanned = sourceRuns.length;
+  corrected.bundleObjectsListed = sourceRuns.length;
+  return { ...document, detail: corrected, summary: foundationBusinessCaseToValueSummary(corrected),
+    source_run_ids: sourceRuns, excluded_source_run_ids: excludedRuns, excluded_evidence_ids: excludedEvidence,
+    projected_at: maxIso(document.projected_at, control.corrected.retrieved_at) || document.projected_at,
+    latest_source_run_id: excludedRuns.includes(document.latest_source_run_id) ? control.corrected.run_id : document.latest_source_run_id };
+}
+
+async function readCorrectedViewDocument(bucket: string, key: string): Promise<MakeMoneyViewDocument | null> {
+  const object = await readR2Object(bucket, key);
+  if (!object) return null;
+  const document = parseViewDocument(decodeJson(object.body));
+  if (!document) return null;
+  const { control } = await readEvidenceCorrectionControl(bucket, document.detail.id);
+  return control ? applyEvidenceCorrectionControl(document, control) : document;
 }
 
 function projectionBundleKey(runId: string, retrievedAt: string): string {
@@ -663,10 +743,13 @@ export function mergeFoundationBusinessCasesForView(
   const relationships = mergeById(recordOlder.relationships, recordNewer.relationships);
   const observations = mergeById(recordOlder.observations, recordNewer.observations);
   const derived = mergeById(recordOlder.derived, recordNewer.derived);
+  const issues = uniqueStrings(existing.issues, incoming.issues);
 
   const entitySummary = {
     id: latest.id,
-    name: latest.name || older.name,
+    name: !isStoredEntityIdName(latest.name)
+      ? latest.name
+      : (!isStoredEntityIdName(older.name) ? older.name : latest.name || older.name),
     entityType: latest.entityType || older.entityType,
     aliases: uniqueStrings(existing.aliases, incoming.aliases),
     canonicalIdentifier: latest.canonicalIdentifier || older.canonicalIdentifier,
@@ -697,7 +780,23 @@ export function mergeFoundationBusinessCasesForView(
     bundlesScanned: existing.bundlesScanned + incoming.bundlesScanned,
     bundleObjectsListed: existing.bundleObjectsListed + incoming.bundleObjectsListed,
     bundleScanComplete: existing.bundleScanComplete && incoming.bundleScanComplete,
+    ...(issues.length > 0 ? { issues } : {}),
   };
+}
+
+export function excludeViewEvidence(detail: FoundationBusinessCase, excludedIds: readonly string[]): FoundationBusinessCase {
+  if (excludedIds.length === 0) return detail;
+  const excluded = new Set(excludedIds);
+  const keep = (ids: string[]) => ids.filter(id => !excluded.has(id));
+  const filter = <T extends { evidenceIds: string[] }>(rows: T[]): T[] => rows.map(row => ({ ...row, evidenceIds: keep(row.evidenceIds) }));
+  const next = {
+    ...detail, evidenceIds: keep(detail.evidenceIds),
+    claims: filter(detail.claims), metrics: filter(detail.metrics), moneySignals: filter(detail.moneySignals),
+    events: filter(detail.events), relationships: filter(detail.relationships), observations: filter(detail.observations),
+    derived: detail.derived.map(row => ({ ...row, supportingEvidenceIds: keep(row.supportingEvidenceIds) })),
+  };
+  next.valueProfile = buildFoundationValueProfile(next, next);
+  return next;
 }
 
 function buildDocument(
@@ -706,7 +805,10 @@ function buildDocument(
   runId: string,
   retrievedAt: string
 ): MakeMoneyViewDocument {
-  const detail = existing ? mergeFoundationBusinessCasesForView(existing.detail, incoming) : incoming;
+  const detail = excludeViewEvidence(
+    existing ? mergeFoundationBusinessCasesForView(existing.detail, incoming) : incoming,
+    existing?.excluded_evidence_ids || []
+  );
   const sourceRunIds = uniqueStrings(existing?.source_run_ids, [runId]);
   // The view's aggregate counters reflect the unique source runs accumulated
   // into this projection, not the number of retry attempts.
@@ -729,6 +831,8 @@ function buildDocument(
     projected_at: projectedAt,
     summary: foundationBusinessCaseToValueSummary(detail),
     detail,
+    ...(existing?.excluded_source_run_ids ? { excluded_source_run_ids: existing.excluded_source_run_ids } : {}),
+    ...(existing?.excluded_evidence_ids ? { excluded_evidence_ids: existing.excluded_evidence_ids } : {}),
   };
 }
 
@@ -749,7 +853,16 @@ async function writeEntityViewWithCas(
       }
     }
 
-    const document = buildDocument(existingDocument, incoming, runId, retrievedAt);
+    const { control } = await readEvidenceCorrectionControl(bucket, incoming.id);
+    if (existingDocument && control) existingDocument = applyEvidenceCorrectionControl(existingDocument, control);
+
+    // A delayed replay of an explicitly superseded run must not restore its
+    // wrong associations, even when its canonical core remains immutable.
+    if (existingDocument?.excluded_source_run_ids?.includes(runId)) {
+      return { status: 'UNCHANGED', retries: attempt };
+    }
+    const rawDocument = buildDocument(existingDocument, incoming, runId, retrievedAt);
+    const document = control ? applyEvidenceCorrectionControl(rawDocument, control) : rawDocument;
     try {
       const result = await putR2MutableView({
         bucket,
@@ -914,15 +1027,178 @@ export async function materializeMakeMoneyViews(
   return report;
 }
 
+export interface ViewEvidenceCorrectionInput {
+  entityId: string;
+  original: { key: string; sha256: string };
+  corrected: { key: string; sha256: string };
+  dryRun?: boolean;
+}
+
+/** Operator-only evidence repair. Reads immutable bundles; CAS-writes only the existing product view. */
+export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionInput) {
+  if (!/^ent_[a-zA-Z0-9_.-]+$/.test(input.entityId)) throw new Error('Invalid correction entity ID');
+  if (![input.original?.sha256, input.corrected?.sha256].every(hash => typeof hash === 'string' && /^[a-f0-9]{64}$/.test(hash))) {
+    throw new Error('Invalid mandatory bundle hash');
+  }
+  const bucket = await getFoundationBucketAsync('lake');
+  const prefix = foundationDataset('researchBundles').prefix;
+  const readBundle = async (key: string, expectedHash?: string) => {
+    if (!key.startsWith(prefix) || key.includes('..') || !key.endsWith('.json')) throw new Error('Invalid canonical bundle key');
+    const object = await readR2Object(bucket, key);
+    if (!object) throw new Error('Required canonical bundle is missing');
+    if (expectedHash) {
+      if (!/^[a-f0-9]{64}$/.test(expectedHash)) throw new Error('Invalid bundle hash');
+      const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', new Uint8Array(object.body)))].map(b => b.toString(16).padStart(2, '0')).join('');
+      if (hash !== expectedHash) throw new Error('Canonical bundle hash mismatch');
+    }
+    const value = objectValue(decodeJson(object.body));
+    const runId = value && stringValue(value, 'run_id');
+    const retrievedAt = value && stringValue(value, 'retrieved_at');
+    if (!value || value.schema_version !== 'research-bundle.v1' || !runId || !retrievedAt
+      || projectionBundleKey(runId, retrievedAt) !== key) throw new Error('Canonical bundle identity mismatch');
+    return { value, runId, retrievedAt };
+  };
+  const original = await readBundle(input.original.key, input.original.sha256);
+  const corrected = await readBundle(input.corrected.key, input.corrected.sha256);
+  if (original.runId === corrected.runId) throw new Error('Correction must be a separate immutable run');
+  const oldCase = buildFoundationBusinessCasesFromBundle(original.value).find(row => row.id === input.entityId);
+  const newCase = buildFoundationBusinessCasesFromBundle(corrected.value).find(row => row.id === input.entityId);
+  if (!oldCase || !newCase || oldCase.name !== newCase.name || oldCase.entityType !== newCase.entityType
+    || newCase.evidenceIds.some(id => !oldCase.evidenceIds.includes(id))) throw new Error('Not an evidence-subset correction for this entity');
+  for (const field of ['canonicalIdentifier', 'domain', 'aliases', 'status', 'observedAt'] as const) {
+    if (JSON.stringify(oldCase[field]) !== JSON.stringify(newCase[field])) throw new Error('Correction changes entity facts');
+  }
+  const withoutEvidence = (row: object, omitId = false) => JSON.stringify(Object.fromEntries(
+    Object.entries(row).filter(([key]) => key !== 'evidenceIds' && key !== 'supportingEvidenceIds' && (!omitId || key !== 'id'))
+  ));
+  for (const field of ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'derived'] as const) {
+    const before = oldCase[field].map(row => withoutEvidence(row)).sort();
+    const after = newCase[field].map(row => withoutEvidence(row)).sort();
+    if (JSON.stringify(before) !== JSON.stringify(after)) throw new Error('Evidence correction changes record facts');
+  }
+  if (JSON.stringify(oldCase.observations.map(row => withoutEvidence(row, true)).sort())
+    !== JSON.stringify(newCase.observations.map(row => withoutEvidence(row, true)).sort())) {
+    throw new Error('Evidence correction adds, drops or changes observations');
+  }
+  for (const group of RECORD_GROUPS) {
+    const links = (record: object, key: string): string[] => (record as Record<string, string[]>)[key] || [];
+    const candidates = newCase[group].map(row => oldCase[group].flatMap((prior, index) =>
+      withoutEvidence(prior, group === 'observations') === withoutEvidence(row, group === 'observations')
+        && ['evidenceIds', 'supportingEvidenceIds'].every(key => links(row, key).every(id => links(prior, key).includes(id))) ? [index] : []));
+    // Match observations one-to-one even when their text is identical and
+    // evidence-derived IDs change. Do not reuse one original for two rows.
+    const assigned = new Map<number, number>();
+    const match = (next: number, seen: Set<number>): boolean => candidates[next].some(prior => {
+      if (seen.has(prior)) return false;
+      seen.add(prior);
+      const previous = assigned.get(prior);
+      if (previous !== undefined && !match(previous, seen)) return false;
+      assigned.set(prior, next);
+      return true;
+    });
+    if (candidates.some((_, index) => !match(index, new Set()))) {
+      throw new Error('Evidence correction introduces record evidence links');
+    }
+  }
+  const excludedIds = oldCase.evidenceIds.filter(id => !newCase.evidenceIds.includes(id));
+  if (excludedIds.length === 0) throw new Error('No excessive evidence associations to correct');
+  const key = `${MAKE_MONEY_VIEW_PREFIX}${input.entityId}.json`;
+  for (let attempt = 0; attempt < MAX_CAS_RETRIES; attempt++) {
+    const prior = await readR2Object(bucket, key);
+    const existing = prior && parseViewDocument(decodeJson(prior.body));
+    if (!prior || !existing) throw new Error('Valid prior product view required for correction');
+    if (!existing.source_run_ids.includes(original.runId) && !existing.source_run_ids.includes(corrected.runId)) {
+      throw new Error('Original run is not a contributor to this view');
+    }
+    const excludedRuns = uniqueStrings(existing.excluded_source_run_ids, [original.runId]);
+    const runs = existing.source_run_ids.filter(run => !excludedRuns.includes(run) && run !== corrected.runId);
+    if (runs.length > 100) throw new Error('Correction history requires a bounded operator plan');
+    const history = [corrected];
+    for (const run of runs) {
+      const progressObject = await readR2Object(bucket, projectionProgressKey(run));
+      const progress = progressObject && parseProjectionProgress(decodeJson(progressObject.body));
+      if (!progress || progress.run_id !== run) throw new Error('Other contributing history cannot be resolved; refusing to drop it');
+      const source = await readBundle(progress.bundle_key);
+      if (source.runId !== run) throw new Error('Contributing history run mismatch');
+      history.push(source);
+    }
+    history.sort((left, right) => Date.parse(left.retrievedAt) - Date.parse(right.retrievedAt) || left.runId.localeCompare(right.runId));
+    // Do not seed with immutable Entity-core evidence: it still has the old
+    // over-link. Rebuild each accepted contribution from its own bundle.
+    const summary = { ...newCase, evidenceIds: [] };
+    let rebuilt: MakeMoneyViewDocument | null = null;
+    for (const source of history) {
+      const detail = buildFoundationBusinessCaseForEntity(source.value, summary);
+      rebuilt = buildDocument(rebuilt, detail, source.runId, source.retrievedAt);
+    }
+    if (!rebuilt) throw new Error('Empty correction history');
+    const blockedEvidence = uniqueStrings(existing.excluded_evidence_ids, excludedIds);
+    rebuilt.detail = excludeViewEvidence(rebuilt.detail, blockedEvidence);
+    rebuilt.summary = foundationBusinessCaseToValueSummary(rebuilt.detail);
+    rebuilt.excluded_source_run_ids = excludedRuns;
+    rebuilt.excluded_evidence_ids = blockedEvidence;
+    if (input.dryRun) return { entityId: input.entityId, originalRunId: original.runId, correctedRunId: corrected.runId,
+      retainedRunIds: rebuilt.source_run_ids, excludedEvidenceCount: blockedEvidence.length, status: 'DRY_RUN' as const, retries: attempt };
+    try {
+      const guard: ViewEvidenceCorrectionControl = {
+        schema_version: EVIDENCE_CORRECTION_SCHEMA, entity_id: input.entityId,
+        original: { ...input.original, run_id: original.runId },
+        corrected: { ...input.corrected, run_id: corrected.runId, retrieved_at: corrected.retrievedAt },
+        excluded_evidence_ids: excludedIds,
+        replaced_record_ids: Object.fromEntries(RECORD_GROUPS.map(group => [group, oldCase[group].map(row => row.id)])) as ViewEvidenceCorrectionControl['replaced_record_ids'],
+        corrected_detail: newCase,
+        original_detail: oldCase,
+      };
+      const priorControl = await readEvidenceCorrectionControl(bucket, input.entityId);
+      if (priorControl.control && JSON.stringify(priorControl.control) !== JSON.stringify(guard)) {
+        throw new Error('Different correction already registered; explicit reconciliation required');
+      }
+      // Persist independently before the ordinary view: old deployed projectors
+      // can rewrite that view, but cannot erase the local consumer's correction.
+      const controlResult = await putR2MutableView({ bucket, key: `${EVIDENCE_CORRECTION_PREFIX}${input.entityId}.json`,
+        body: JSON.stringify(guard), contentType: 'application/json',
+        metadata: { 'foundation-view-consumer': 'make-money', 'foundation-entity-id': input.entityId,
+          'foundation-view-evidence-correction': 'true' },
+      }, { expectedEtag: priorControl.object?.etag ?? null });
+      const result = await putR2MutableView({ bucket, key, body: JSON.stringify(rebuilt), contentType: 'application/json',
+        metadata: { 'foundation-view-consumer': 'make-money', 'foundation-view-version': 'v1',
+          'foundation-entity-id': input.entityId, 'foundation-run-id': rebuilt.latest_source_run_id,
+          'foundation-source-run-count': String(rebuilt.source_run_ids.length) },
+      }, { expectedEtag: prior.etag ?? null });
+      return { entityId: input.entityId, originalRunId: original.runId, correctedRunId: corrected.runId,
+        retainedRunIds: rebuilt.source_run_ids, excludedEvidenceCount: blockedEvidence.length,
+        status: result.status, sha256: result.sha256, readback: result.readback,
+        controlReadback: controlResult.readback, retries: attempt };
+    } catch (error) {
+      if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_CAS_RETRIES) continue;
+      throw error;
+    }
+  }
+  throw new Error('Correction CAS retries exhausted');
+}
+
 export async function readMakeMoneyViewDetail(entityId: string): Promise<FoundationBusinessCase | null> {
   const bucket = await getFoundationBucketAsync('lake');
-  const object = await readR2Object(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`);
-  if (!object) return null;
-  try {
-    return parseViewDocument(decodeJson(object.body))?.detail || null;
-  } catch {
-    return null;
+  const document = await readCorrectedViewDocument(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`);
+  if (!document) return null;
+  if (!needsScheduledReadThrough(document.detail)) return document.detail;
+  const fallback = await readFoundationBusinessCase(entityId).catch(() => null);
+  return fallback ? mergeFoundationBusinessCasesForView(document.detail, fallback) : document.detail;
+}
+
+async function readMakeMoneyViewSummary(
+  bucket: string,
+  key: string,
+): Promise<FoundationValueSummary | null> {
+  const document = await readCorrectedViewDocument(bucket, key);
+  if (!document) return null;
+  if (!needsScheduledReadThrough(document.summary) && !needsScheduledReadThrough(document.detail)) {
+    return document.summary;
   }
+  const fallback = await readFoundationBusinessCase(document.detail.id).catch(() => null);
+  return fallback
+    ? foundationBusinessCaseToValueSummary(mergeFoundationBusinessCasesForView(document.detail, fallback))
+    : document.summary;
 }
 
 /** Bound remote R2 reads while retaining input order and failure visibility. */
@@ -954,16 +1230,8 @@ export async function readMakeMoneyValuePage(options: {
     await mapServingReads(
       page.objects
         .filter((item) => item.key.endsWith('.json')),
-        async (item) => {
-          const object = await readR2Object(bucket, item.key);
-          if (!object) return null;
-          try {
-            return parseViewDocument(decodeJson(object.body))?.summary || null;
-          } catch {
-            return null;
-          }
-        }
-    )
+        async (item) => readMakeMoneyViewSummary(bucket, item.key)
+      )
   ).filter((value): value is FoundationValueSummary => Boolean(value));
 
   const nextCursor = page.truncated && page.cursor ? page.cursor : null;

@@ -37,7 +37,7 @@ describe('catalog paging and search', () => {
     const rows = await mocks.read();
     rows[204].name = 'Photo AI';
     rows[204].founder = 'Example Founder';
-    for (const q of ['photoai', 'example founder']) {
+    for (const q of ['photoai', 'example founder', 'ent_204']) {
       const result = await (await GET(new Request(`http://localhost/api/catalog?q=${encodeURIComponent(q)}`))).json();
       expect(result.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_204']);
     }

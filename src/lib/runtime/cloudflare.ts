@@ -3,6 +3,11 @@ import { AsyncLocalStorage } from 'node:async_hooks';
 type CloudflareRuntimeEnv = Record<string, unknown>;
 const invocationEnv = new AsyncLocalStorage<CloudflareRuntimeEnv>();
 
+/** Whether the current call is inside an explicit Worker/runtime scope. */
+export function hasCloudflareRuntimeEnvScope(): boolean {
+  return invocationEnv.getStore() !== undefined;
+}
+
 /** Reuse server-side storage/projection from a non-OpenNext Worker, per invocation. */
 export function withCloudflareRuntimeEnv<T>(env: CloudflareRuntimeEnv, run: () => T): T {
   return invocationEnv.run(env, run);

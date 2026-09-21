@@ -57,6 +57,10 @@ export const TerminalShell: React.FC<{
     macroData,
     foundationHasMore,
     foundationLoading,
+    catalogLoadedCount,
+    catalogTotal,
+    foundationLoadedCount,
+    foundationTotal,
     newArrivalsRelease,
     detailedEntities,
     setDetailedEntities,
@@ -249,7 +253,11 @@ export const TerminalShell: React.FC<{
               onSelectBatch={setSelectedBatch}
               batchCounts={{ ...Object.fromEntries(catalogBatchIds.map((id) => [id, 0])), ...batchCounts }}
             />
-            <p className="px-3 py-1 text-[10px] text-zinc-500">件数は読込済みの事例です。検索・絞り込みは既存台帳の全件が対象です。新着は追加取得した範囲を含みます。</p>
+            <p className="px-3 py-1 text-[10px] text-zinc-500">
+              表示 {filteredEntities.length.toLocaleString()}件 / curated取得 {catalogLoadedCount.toLocaleString()}件 / 全対象 {catalogTotal === null ? '確認中' : catalogTotal.toLocaleString()}件
+              {' '}・Foundation別経路 {foundationLoadedCount.toLocaleString()}件{foundationTotal === null ? '' : ` / 検索対象 ${foundationTotal.toLocaleString()}件`}
+              {' '}（別経路の件数はcurated総数へ加算しません）
+            </p>
 
             <InstitutionalDataGrid
               entities={filteredEntities}

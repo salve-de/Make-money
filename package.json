@@ -5,6 +5,7 @@
   "scripts": {
     "catalog:prepare": "node --import tsx scripts/prepare-catalog-release.ts",
     "catalog:check": "node --import tsx scripts/prepare-catalog-release.ts --check",
+    "catalog:audit": "node --import tsx scripts/audit-catalog-coverage.ts",
     "catalog:publish": "pnpm catalog:prepare && node scripts/with-r2-keychain-secrets.mjs node --import tsx scripts/publish-catalog-release.ts",
     "dev": "next dev",
     "build": "pnpm lint && next build --webpack && node scripts/architecture/check-paid-bundle.mjs",

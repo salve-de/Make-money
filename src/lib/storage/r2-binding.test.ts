@@ -1,6 +1,11 @@
 import { afterEach, expect, it, vi } from 'vitest';
-const state = vi.hoisted(() => ({ env: {} as Record<string, unknown> }));
-vi.mock('../runtime/cloudflare', () => ({ getCloudflareRuntimeEnv: async () => state.env, getRuntimeEnvValue: async (key: string) => state.env[key] }));
+import { S3Client } from '@aws-sdk/client-s3';
+const state = vi.hoisted(() => ({ env: {} as Record<string, unknown>, scoped: false }));
+vi.mock('../runtime/cloudflare', () => ({
+  getCloudflareRuntimeEnv: async () => state.env,
+  getRuntimeEnvValue: async (key: string) => state.env[key],
+  hasCloudflareRuntimeEnvScope: () => state.scoped,
+}));
 import {
   getFoundationBucketAsync,
   preflightR2Object,
@@ -12,7 +17,7 @@ import {
   R2ReadbackVerificationError,
   R2ViewConcurrentModificationError,
 } from './r2';
-afterEach(() => { state.env = {}; });
+afterEach(() => { state.env = {}; state.scoped = false; vi.restoreAllMocks(); vi.unstubAllEnvs(); });
 it('resolves the private bucket name from Worker vars instead of a hardcoded former bucket', async () => {
   const get = vi.fn(async () => ({ arrayBuffer: async () => new TextEncoder().encode('private object').buffer }));
   state.env = { APP_R2_BUCKET: 'make-money-production-private', APP_R2: { get, head: vi.fn(), put: vi.fn(), list: vi.fn() } };
@@ -24,6 +29,92 @@ it('resolves the private bucket name from Worker vars instead of a hardcoded for
 it('resolves a custom Foundation bucket from the request runtime binding', async () => {
   state.env = { FOUNDATION_R2_LAKE_BUCKET: 'custom-foundation-lake' };
   await expect(getFoundationBucketAsync('lake')).resolves.toBe('custom-foundation-lake');
+});
+
+it('uses local S3 credentials for Foundation reads instead of a stale dev preview binding', async () => {
+  vi.stubEnv('NODE_ENV', 'development');
+  vi.stubEnv('CLOUDFLARE_R2_ACCOUNT_ID', 'test-account');
+  vi.stubEnv('CLOUDFLARE_R2_ACCESS_KEY_ID', 'test-access');
+  vi.stubEnv('CLOUDFLARE_R2_SECRET_ACCESS_KEY', 'test-secret');
+  const previewGet = vi.fn(async () => ({ arrayBuffer: async () => new TextEncoder().encode('preview').buffer }));
+  state.env = {
+    FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+    FOUNDATION_R2_LAKE: { head: vi.fn(), get: previewGet, put: vi.fn(), list: vi.fn() },
+  };
+  const s3Send = vi.spyOn(S3Client.prototype, 'send').mockResolvedValue({
+    Body: { transformToByteArray: async () => new TextEncoder().encode('direct-r2') },
+    ContentLength: 9,
+    ContentType: 'application/json',
+  } as never);
+
+  const object = await readR2Object('foundation-lake', 'views/example.json');
+
+  expect(new TextDecoder().decode(object!.body)).toBe('direct-r2');
+  expect(s3Send).toHaveBeenCalledOnce();
+  expect(previewGet).not.toHaveBeenCalled();
+});
+
+it('keeps an explicit Worker runtime scope binding-first in local development', async () => {
+  vi.stubEnv('NODE_ENV', 'development');
+  vi.stubEnv('CLOUDFLARE_R2_ACCOUNT_ID', 'test-account');
+  vi.stubEnv('CLOUDFLARE_R2_ACCESS_KEY_ID', 'test-access');
+  vi.stubEnv('CLOUDFLARE_R2_SECRET_ACCESS_KEY', 'test-secret');
+  state.scoped = true;
+  const previewGet = vi.fn(async () => ({ arrayBuffer: async () => new TextEncoder().encode('scoped-binding').buffer }));
+  state.env = {
+    FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+    FOUNDATION_R2_LAKE: { head: vi.fn(), get: previewGet, put: vi.fn(), list: vi.fn() },
+  };
+  const s3Send = vi.spyOn(S3Client.prototype, 'send');
+
+  const object = await readR2Object('foundation-lake', 'views/scoped.json');
+
+  expect(new TextDecoder().decode(object!.body)).toBe('scoped-binding');
+  expect(previewGet).toHaveBeenCalledOnce();
+  expect(s3Send).not.toHaveBeenCalled();
+});
+
+it('does not redirect non-Foundation private reads to local S3', async () => {
+  vi.stubEnv('NODE_ENV', 'development');
+  vi.stubEnv('CLOUDFLARE_R2_ACCOUNT_ID', 'test-account');
+  vi.stubEnv('CLOUDFLARE_R2_ACCESS_KEY_ID', 'test-access');
+  vi.stubEnv('CLOUDFLARE_R2_SECRET_ACCESS_KEY', 'test-secret');
+  const previewGet = vi.fn(async () => ({ arrayBuffer: async () => new TextEncoder().encode('private-binding').buffer }));
+  state.env = {
+    APP_R2_BUCKET: 'make-money-production-private',
+    APP_R2: { head: vi.fn(), get: previewGet, put: vi.fn(), list: vi.fn() },
+  };
+  const s3Send = vi.spyOn(S3Client.prototype, 'send');
+
+  const object = await readR2Object('make-money-production-private', 'attachments/example');
+
+  expect(new TextDecoder().decode(object!.body)).toBe('private-binding');
+  expect(previewGet).toHaveBeenCalledOnce();
+  expect(s3Send).not.toHaveBeenCalled();
+});
+
+it('keeps binding-first reads when local S3 credentials are absent', async () => {
+  const fake = bindingState();
+  const object = await readR2Object('make-money-production-private', 'attachments/example');
+  expect(object).toBeNull();
+  expect(fake.get).toHaveBeenCalledOnce();
+});
+
+it('keeps local development writes on the existing Worker binding path', async () => {
+  vi.stubEnv('NODE_ENV', 'development');
+  vi.stubEnv('CLOUDFLARE_R2_ACCOUNT_ID', 'test-account');
+  vi.stubEnv('CLOUDFLARE_R2_ACCESS_KEY_ID', 'test-access');
+  vi.stubEnv('CLOUDFLARE_R2_SECRET_ACCESS_KEY', 'test-secret');
+  const fake = bindingState();
+
+  await putR2ObjectCreateOnly({
+    bucket: 'make-money-production-private',
+    key: 'tests/local-development-write.json',
+    body: 'binding-write',
+    contentType: 'text/plain',
+  });
+
+  expect(fake.put).toHaveBeenCalled();
 });
 
 function bindingState() {
