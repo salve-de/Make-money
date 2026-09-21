@@ -1,14 +1,16 @@
 # R2 fixed-40 acceptance — 2026-09-21
 
-Status: **q39 scheduled storage and 25-item API arrival proven; UI acceptance and main integration pending**. This records storage evidence and explicit holds, not a claim that every local screen has passed.
+Status: **q39 scheduled storage, local list/detail consumer acceptance, and local main integration of consumer commit `e1b60eb` complete**. Browser execute confirmation remains the coordinating task's independent check. This records evidence and explicit holds, not a claim that every local screen has passed.
 
 ## Current confirmed state
 
 - q39 was saved by the existing scheduled Writer run `run_r2queue_20260921T060537Z_q39`; its read-only receipt/readback artifacts are `/private/tmp/r2-live-audit.mfgRor/q39.scheduled-receipt.json` and `/private/tmp/r2-live-audit.mfgRor/q39.scheduled-readback.json`. No manual q39 PUT was performed.
-- All 25 q39 entities reached the local Foundation API. UI acceptance for q39 and integration into main are owned by coordinating task `01a0c092-3996-7bb0-8261-266be038a37a` and remain pending.
-- Helper `6a3330bb417ea09fe84391714e1272086af67a05` and parser/wiring `5d4cb009963ab715419f0e200aaa9506c5cb47aa` passed targeted Vitest (4 files / 41 tests), ESLint, and `tsc --noEmit --incremental false` locally. These changes are not deployed or pushed by this task.
+- Root main fast-forwarded cleanly from `b6bad7c43ca6a95b9242cd606202ebf8d6d5b0f9` to consumer commit `e1b60eb5cb40dc601edbc91662dbaeba56aef94c`; both worktrees were clean at that integration point. The source helper/wiring commits `6a3330bb417ea09fe84391714e1272086af67a05` and `5d4cb009963ab715419f0e200aaa9506c5cb47aa` are included through candidate commits `d699133` and `c29155f`.
+- Root `localhost:3000` read-only q39 detail check at `2026-09-21T07:47:07Z`: 25/25 HTTP 200, `q39.name-diagnosis.json` names25/25, IDs preserved25/25, Claim25/Metric26/Money20/Event25/Relationship1, snapshots25, issues14, failures0. Total18.08s; p95 0.99s; max3.08s. Report: `/private/tmp/r2-live-audit.mfgRor/q39.candidate-api-report.json`.
+- The same e1b60eb list path was measured through seven paginated pages: HTTP 200 on every page, failures0, q39 rows25/25 and non-ID names25/25; per-page6.00–10.48s, total60.88s, no timeout. Report: `/private/tmp/r2-live-audit.mfgRor/q39.candidate-list-pages-report.json`.
+- Consumer acceptance: 6 files/44 targeted tests, `pnpm typecheck` (tsc plus schemas:check), targeted ESLint, full `pnpm lint`, and `git diff --check` passed. No deploy/push or R2 write was performed.
 - Fixed40 remains unchanged at 31 saved business runs / 677 distinct IDs, with 9 classified remaining artifacts and 19 named `NEEDS_RESEARCH` holds. No new scope was added.
-- Canonical R2 originals were not overwritten or deleted. No new Cron, billing change, production app deployment, or GitHub push/main write was performed.
+- Canonical R2 originals were not overwritten or deleted. `shasum -a 256 data/entities-index.json` returns the protected SHA `5b9ecc23f47150534032b4bc1d8a6651938c0d2a978e55b871c36597b1c1ebd4`. No new Cron, billing change, production app deployment, or GitHub push was performed.
 
 ## Scope and evidence
 
