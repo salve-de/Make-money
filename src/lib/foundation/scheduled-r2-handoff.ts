@@ -122,6 +122,27 @@ function arrayOfStrings(value: unknown): string[] {
   return Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string' && item.trim().length > 0) : [];
 }
 
+function structuredText(value: unknown, key: string): string[] {
+  if (Array.isArray(value)) return value.flatMap((item) => structuredText(item, key));
+  return isRecord(value) ? stringValues(value[key]) : stringValues(value);
+}
+
+function rowName(row: JsonRecord, sourceRecords: JsonRecord[] = []): string | null {
+  const explicit = firstText(row.name) || firstText(row.subject) || firstText(row.subject_or_entity_id);
+  if (explicit) return explicit;
+  const entities = isRecord(row.Entity) ? [row.Entity] : arrayOfRecords(row.Entity);
+  const sourceId = text(row.source_entity_id);
+  const matchingRecords = sourceId ? sourceRecords.filter((record) => record.entity_id === sourceId) : [];
+  if (matchingRecords.length === 1 && isRecord(matchingRecords[0].identity)) {
+    const canonicalName = text(matchingRecords[0].identity.canonical_name);
+    if (canonicalName) return canonicalName;
+  }
+  const subject = sourceId ? entities.find((entity) => entity.id === sourceId || entity.entity_id === sourceId)
+      || (entities.length === 1 && !text(entities[0].id) && !text(entities[0].entity_id) ? entities[0] : undefined)
+    : entities.length === 1 ? entities[0] : undefined;
+  return subject ? text(subject.name) || text(subject.canonical_name) : null;
+}
+
 function isDateTime(value: unknown): value is string {
   return typeof value === 'string' &&
     /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value) &&
@@ -201,7 +222,7 @@ function qualityInfo(value: unknown, fallbackStrength: string): {
   notes: string[];
 } {
   const parts = typeof value === 'string' ? value.split('|').map((part) => part.trim()).filter(Boolean) : [];
-  const structuredStatus = isRecord(value) && text(value.verification);
+  const structuredStatus = isRecord(value) && (text(value.verification) || text(value.verification_status));
   const status = structuredStatus && VERIFICATION_STATUSES.has(structuredStatus)
     ? structuredStatus
     : parts[0] && VERIFICATION_STATUSES.has(parts[0])
@@ -236,10 +257,12 @@ function sourceLocatorValues(value: unknown): string[] {
 }
 
 function sourceAttemptRecords(sourceRuns: ScheduledSourceRun[]): JsonRecord[] {
-  return sourceRuns.flatMap((run) => arrayOfRecords(run.source_attempts).map((attempt) => ({
+  return sourceRuns.flatMap((run, runIndex) => (Array.isArray(run.source_attempts) ? run.source_attempts : []).flatMap((attempt, attemptIndex) => isRecord(attempt) ? [{
     ...attempt,
+    __source_run_index: runIndex,
+    __source_attempt_index: attemptIndex,
     __source_run_path: text(run.__source_run_path),
-  })));
+  }] : []));
 }
 
 function sourceRecordRecords(sourceRuns: ScheduledSourceRun[]): JsonRecord[] {
@@ -264,6 +287,7 @@ function recordReferenceValues(value: unknown): string[] {
     value.record_id_if_assigned,
     value.name,
     value.canonical_name,
+    value.aliases,
     value.subject,
   ].flatMap(stringValues);
 }
@@ -285,21 +309,29 @@ function sourceRecordMatchesRow(record: JsonRecord, row: JsonRecord): boolean {
 }
 
 function attemptsForRow(attempts: JsonRecord[], records: JsonRecord[], row: JsonRecord): JsonRecord[] {
+  const indexes = stringValues(row.Source).flatMap((value) =>
+    [...value.matchAll(/(?:^|\|)source_attempts\[(\d+)\](?=\||$)/g)].map((match) => Number(match[1])));
+  if (indexes.length > 0) {
+    // An array index is meaningful only within one source run. Never guess
+    // which run was intended when several runs supplied attempts.
+    if (new Set(attempts.map((attempt) => attempt.__source_run_index)).size !== 1) return [];
+    const selected = attempts.filter((attempt) => indexes.includes(Number(attempt.__source_attempt_index)));
+    return selected.length === new Set(indexes).size && selected.every(attemptSucceeded) ? selected : [];
+  }
   const directMatches = attempts.filter((attempt) => attemptMatchesRow(attempt, row));
   if (directMatches.length > 0) return directMatches;
 
   // Older collection lanes kept a generic "source-run bundle" marker in the
   // queue row instead of copying the concrete URL. Recover the concrete
   // locator through the matching source-run record and its evidence IDs.
-  const sourceEvidenceIds = new Set(
-    records
-      .filter((record) => sourceRecordMatchesRow(record, row))
-      .flatMap((record) => evidenceIds(record.evidence_ids)),
-  );
-  if (sourceEvidenceIds.size === 0) return [];
+  const matchedRecords = records.filter((record) => sourceRecordMatchesRow(record, row));
+  const sourceEvidenceIds = new Set(matchedRecords.flatMap((record) => stringValues(record.evidence_ids)));
+  const sourceRefs = new Set(matchedRecords.flatMap((record) => stringValues(record.source_refs)));
+  if (sourceEvidenceIds.size === 0 && sourceRefs.size === 0) return [];
   return attempts.filter((attempt) =>
     attemptSucceeded(attempt) &&
-    evidenceIds(attempt.evidence_ids_if_any).some((evidenceId) => sourceEvidenceIds.has(evidenceId)),
+    (stringValues(attempt.evidence_ids_if_any).some((evidenceId) => sourceEvidenceIds.has(evidenceId))
+      || stringValues(attempt.source_ref).some((ref) => sourceRefs.has(ref))),
   );
 }
 
@@ -324,7 +356,10 @@ function isHttpUrl(value: string): boolean {
 
 function attemptSucceeded(attempt: JsonRecord): boolean {
   const status = text(attempt.result) || text(attempt.status) || text(attempt.state);
-  return status ? new Set(['success', 'retained']).has(status.toLowerCase()) : false;
+  // USABLE is the structured collector's metadata-evidence outcome; it
+  // does not imply that raw source bytes were fetched or persisted.
+  return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_via_search_result_after_direct_open_error']).has(status.toLowerCase())
+    : text(attempt.attempt_result) === 'USABLE';
 }
 
 function attemptMatchesRow(attempt: JsonRecord, row: JsonRecord): boolean {
@@ -332,7 +367,10 @@ function attemptMatchesRow(attempt: JsonRecord, row: JsonRecord): boolean {
   const rowReferences = sourceLocatorValues(row.Source)
     .map(normalizedSourceReference)
     .filter((value): value is string => Boolean(value));
-  if (rowReferences.length === 0) return true;
+  if (rowReferences.length === 0) {
+    const subjectId = text(row.source_entity_id);
+    return Boolean(subjectId && text(attempt.entity_id) === subjectId && sourceLocator(attempt));
+  }
   const locator = sourceLocator(attempt);
   const normalizedLocator = normalizedSourceReference(locator);
   return Boolean(normalizedLocator && rowReferences.includes(normalizedLocator));
@@ -388,7 +426,8 @@ function parsedPair(value: unknown, fallbackType: string): { type: string; detai
 }
 
 function observedSummary(row: JsonRecord, sourceRecord: JsonRecord | null): string {
-  return firstText(sourceRecord?.short_summary) || firstText(row.Observation) || firstText(row.Claim) || `Staged observation for ${firstText(row.name) || firstText(row.subject) || 'unknown subject'}`;
+  return firstText(sourceRecord?.short_summary) || firstText(row.Observation) || firstText(row.Claim)
+    || structuredText(row.Evidence, 'summary').join('\n') || `Staged observation for ${rowName(row) || 'unknown subject'}`;
 }
 
 function rowSnapshot(row: JsonRecord): string {
@@ -570,7 +609,9 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
 
   const attempts = sourceAttemptRecords(input.source_runs);
   const sourceRecords = sourceRecordRecords(input.source_runs);
-  const rows = queueRows(queue.recorded_items);
+  const rows = queueRows(queue.recorded_items).map((row) => isRecord(row.normalized)
+    ? { ...row.normalized, ...row, source_entity_id: row.source_entity_id || (isRecord(row.source_run_ref) ? row.source_run_ref.entity_id : undefined) }
+    : row);
   if (rows.length === 0) issues.push('queue recorded_items contains no rows');
 
   const sourceIdCache = new Map<string, string>();
@@ -593,7 +634,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
 
   for (let index = 0; index < rows.length; index += 1) {
     const row = rows[index];
-    const name = firstText(row.name) || firstText(row.subject) || firstText(row.subject_or_entity_id);
+    const name = rowName(row, sourceRecords);
     if (!name) {
       issues.push(`recorded_items[${index}] has no name`);
       continue;
@@ -612,7 +653,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     const generatedEvidenceAttempts = new Map<string, JsonRecord>();
     const evIds = evidenceIds(row.Evidence);
     if (evIds.length === 0) {
-      const evidenceTexts = stringValues(row.Evidence).filter((value) => !/^ev_[a-f0-9]{24}$/.test(value));
+      const evidenceTexts = structuredText(row.Evidence, 'summary').filter((value) => !/^ev_[a-f0-9]{24}$/.test(value));
       const matchingAttempts = attemptsForRow(attempts, sourceRecords, row);
       if (evidenceTexts.length === 0) {
         issues.push(`${name} has no evidence text or stable evidence_id`);
@@ -653,7 +694,9 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
           source_strength: rowQuality.source_strength,
           rights_status: text(attempt.rights_state) && RIGHTS_STATUSES.has(String(attempt.rights_state)) ? attempt.rights_state : 'metadata_only',
           rights_policy_id: null,
-          access_notes: isHttpUrl(locator)
+          access_notes: text(attempt.result)?.toLowerCase() === 'success_via_search_result_after_direct_open_error'
+            ? 'Metadata was observed through a search result after direct open failed. Original page content was not fetched or archived.'
+            : isHttpUrl(locator)
             ? 'Source body was not copied; metadata-only provenance retained from scheduled staging.'
             : `Source body was not copied; metadata-only provenance retained from scheduled staging. original_source_locator=${locator}`,
         });

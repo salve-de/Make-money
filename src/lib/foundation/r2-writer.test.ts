@@ -22,6 +22,20 @@ class MemoryBucket {
 }
 
 describe('scheduled R2 writer publication contribution', () => {
+  it('resolves only selected run IDs through the artifact map', () => {
+    expect(sourceRunPaths({ selected_discovery: { run_id: 'run_chosen' }, source_artifacts: {
+      run_chosen: 'staging/automation/discovery/chosen.json',
+      run_other: 'staging/automation/discovery/not-selected.json',
+    } })).toEqual(['staging/automation/discovery/chosen.json']);
+  });
+  it('loads explicitly selected legacy discovery and evolve sources only', () => {
+    expect(sourceRunPaths({
+      source_discovery: { path: 'staging/automation/discovery/2026/09/20/run_d.json' },
+      selected_evolve: 'staging/automation/evolve/2026/09/20/run_e.json',
+      source_evolve: '../outside.json',
+      latest_monitor_observed: 'staging/automation/monitor/unselected.json',
+    })).toEqual(['staging/automation/discovery/2026/09/20/run_d.json', 'staging/automation/evolve/2026/09/20/run_e.json']);
+  });
   it('keeps the newest queue fresh while draining the oldest backlog', () => {
     const paths = [
       'staging/r2-queue/2026/09/20/20260920T010222Z-run_j10.json',
@@ -35,6 +49,7 @@ describe('scheduled R2 writer publication contribution', () => {
       'staging/r2-queue/2026/09/20/20260920T010222Z-run_j10.json',
       'staging/r2-queue/2026/09/20/20260920T020224Z-run_k11.json',
     ]);
+    expect(queueProcessingOrder(paths, [paths[1]])).toEqual([paths[1], paths[2], paths[0]]);
   });
 
   it('accepts the plural source-run field emitted by current queue artifacts', () => {

@@ -7060,3 +7060,9 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - `pnpm test`: PASS（445テスト全勝）
   - GitHub Actions CI (PR #37): All 5 checks PASSED (typecheck, unit test, lint, build, E2E smoke)
 
+### 2026-09-21: Scheduled R2 handoff recovery candidate (not final acceptance)
+
+- Keep scheduled collection, immutable R2 storage, and local UI consumption as separate acceptance proofs. Writer v15 adds bounded GitHub/R2 work, content-addressed chunk checkpoints, pending-run priority, and serving-view completion before SUCCESS.
+- Manually recovered 171 staged candidates across seven runs; 1,650 canonical objects passed byte/hash readback and seven view projections completed. API inventory matched 167 IDs. Four missing rows exposed funding-as-revenue misclassification; local adapter correction passes the unchanged evidence gate while leaving sales unknown.
+- Focused validation: 53 tests passed, implementation ESLint passed, typecheck passed before final handoff. No canonical overwrite/delete, EDINET mutation, added Cloudflare Cron, or billing change.
+- Not complete: real v15 scheduled success, final local UI integration, and q32's historical evidence over-link correction remain. See `R2_REPAIR_STATUS_20260921.md`; manual recovery is not scheduled-success evidence.
