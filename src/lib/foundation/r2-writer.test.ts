@@ -38,6 +38,8 @@ describe('scheduled R2 writer publication contribution', () => {
   });
 
   it('accepts the plural source-run field emitted by current queue artifacts', () => {
+    expect(sourceRunPaths({ selected_source_path: 'staging/automation/discovery/selected.json' }))
+      .toEqual(['staging/automation/discovery/selected.json']);
     expect(sourceRunPaths({
       selected_source_runs: [
         'staging/automation/discovery/current.json',

@@ -150,6 +150,7 @@ export function sourceRunPaths(snapshot: JsonRecord | null): string[] {
     ...sourceRunPathValues(snapshot.new_completed_heads_seen_before_cutoff),
     ...sourceRunPathValues(snapshot.selected_source_runs),
     ...sourceRunPathValues(snapshot.selected_source_run),
+    ...sourceRunPathValues(snapshot.selected_source_path),
     ...sourceRunPathValues(snapshot.primary_source_run),
     ...sourceRunPathValues(snapshot.new_source_run_refs),
     ...sourceRunPathValues(snapshot.source_run_refs),
