@@ -22,6 +22,14 @@ type FinancialFlag =
   | 'isOperatingProfitUnconfirmed'
   | 'isMarginUnconfirmed'
   | 'isNetProfitUnconfirmed';
+type EvidenceReferenceKind = 'explicitUnknown' | 'annualRevenue' | 'monthlyRevenue';
+type EvidenceReference = {
+  kind: EvidenceReferenceKind;
+  pointer: string;
+  sha256: string;
+  evidenceIndex: number;
+};
+type FlagChanges = { added: FinancialFlag[]; removed: FinancialFlag[] };
 
 const FINANCIAL_FLAGS: FinancialFlag[] = [
   'isRevenueUnconfirmed',
@@ -39,28 +47,85 @@ const DEFAULT_SOURCE_PATH = resolve(REPOSITORY_ROOT, 'data/entities-index.json')
 const DEFAULT_REPORT_PATH = resolve(REPOSITORY_ROOT, 'reports/financial-reconciliation-2026-09-21.json');
 const PUBLIC_FINANCIAL_SIGNAL = /月商|年商|売上|利益|revenue|arr|mrr|sales|¥|\$|円|億|万/i;
 
-function flagSnapshot(entity: FinancialEntity): Record<FinancialFlag, boolean> {
-  return Object.fromEntries(FINANCIAL_FLAGS.map((field) => [field, Boolean(entity.pnl[field])])) as Record<FinancialFlag, boolean>;
-}
-
 function newlyAddedFlags(before: FinancialEntity, after: FinancialEntity): FinancialFlag[] {
   return FINANCIAL_FLAGS.filter((field) => !before.pnl[field] && Boolean(after.pnl[field]));
 }
 
-function sourceLocators(entity: FinancialEntity): Array<{
-  id?: string;
-  sourceUrl?: string;
-  category?: string;
-  verificationStatus?: string;
-}> {
-  return (entity.observationsStream ?? [])
-    .filter((observation) => observation.sourceUrl || observation.evidenceLocator)
-    .map((observation) => ({
-      id: observation.id,
-      sourceUrl: observation.sourceUrl,
-      category: observation.category,
-      verificationStatus: observation.verificationStatus,
-    }));
+function changedFlags(before: FinancialEntity, after: FinancialEntity): FlagChanges {
+  return {
+    added: FINANCIAL_FLAGS.filter((field) => !before.pnl[field] && Boolean(after.pnl[field])),
+    removed: FINANCIAL_FLAGS.filter((field) => Boolean(before.pnl[field]) && !after.pnl[field]),
+  };
+}
+
+function sha256(value: string): string {
+  return createHash('sha256').update(value).digest('hex');
+}
+
+function hashJson(value: unknown): string {
+  return sha256(JSON.stringify(value));
+}
+
+function reportedMetricText(metric: Record<string, unknown>): string {
+  return [metric.original, metric.context]
+    .filter((value): value is string => typeof value === 'string')
+    .join(' ')
+    .trim();
+}
+
+function evidenceReferences(
+  entity: IndexedEntity,
+  sourceIndex: number,
+  consistency: ReturnType<typeof inspectFinancialEvidenceConsistency>,
+  evidence: string[],
+): EvidenceReference[] {
+  const targets: Array<{ kind: EvidenceReferenceKind; excerpt: string }> = [
+    ...consistency.explicitUnknownEvidence.map((excerpt) => ({ kind: 'explicitUnknown' as const, excerpt })),
+    ...consistency.annualRevenueEvidence.map((excerpt) => ({ kind: 'annualRevenue' as const, excerpt })),
+    ...consistency.monthlyRevenueEvidence.map((excerpt) => ({ kind: 'monthlyRevenue' as const, excerpt })),
+  ];
+  const evidenceIndexes = new Map(evidence.map((excerpt, index) => [excerpt, index]));
+  const references: EvidenceReference[] = [];
+  const seen = new Set<string>();
+  const addReference = (
+    target: { kind: EvidenceReferenceKind; excerpt: string },
+    pointer: string,
+    sourceValue: string,
+    sourceHash = sha256(sourceValue),
+  ): void => {
+    if (!target.excerpt || !sourceValue.includes(target.excerpt)) return;
+    const key = `${target.kind}|${pointer}|${target.excerpt}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    const evidenceIndex = evidenceIndexes.get(target.excerpt);
+    if (evidenceIndex === undefined) return;
+    references.push({ kind: target.kind, pointer, sha256: sourceHash, evidenceIndex });
+  };
+
+  (entity.observations ?? []).forEach((text, observationIndex) => {
+    for (const target of targets) {
+      addReference(target, `#/${sourceIndex}/observations/${observationIndex}`, text);
+    }
+  });
+
+  (entity.observationsStream ?? []).forEach((observation, observationIndex) => {
+    const text = observation.text || '';
+    for (const target of targets) {
+      addReference(target, `#/${sourceIndex}/observationsStream/${observationIndex}/text`, text);
+    }
+  });
+
+  const metrics = Array.isArray(entity.reportedMetrics)
+    ? entity.reportedMetrics.filter((metric): metric is Record<string, unknown> => Boolean(metric && typeof metric === 'object'))
+    : [];
+  metrics.forEach((metric, metricIndex) => {
+    const text = reportedMetricText(metric);
+    for (const target of targets) {
+      addReference(target, `#/${sourceIndex}/reportedMetrics/${metricIndex}`, text, hashJson(metric));
+    }
+  });
+
+  return references;
 }
 
 function publicationExclusionReasons(entity: FinancialEntity): string[] {
@@ -131,7 +196,13 @@ function domainCounts(findings: Array<{ domains: FinancialEvidenceDomain[] }>): 
 }
 
 export interface FinancialReconciliationAuditReport {
-  schemaVersion: 'financial-reconciliation-audit.v1';
+  schemaVersion: 'financial-reconciliation-audit.v2';
+  format: {
+    representation: 'compact-findings';
+    rawEntityCopies: false;
+    evidenceRetained: true;
+    evidenceReferences: 'json-pointer+sha256';
+  };
   source: {
     path: string;
     sha256: string;
@@ -192,18 +263,14 @@ export interface FinancialReconciliationAuditReport {
     name: string;
     domains: FinancialEvidenceDomain[];
     revenuePeriodConflict: boolean;
+    reasons: string[];
     evidence: string[];
-    sourceLocators: Array<{ id?: string; sourceUrl?: string; category?: string; verificationStatus?: string }>;
-    treatment: {
-      action: string[];
-      newlyAddedFlags: FinancialFlag[];
-      numericFieldsPreserved: true;
-      conversionPerformed: false;
-    };
-    beforeFlags: Record<FinancialFlag, boolean>;
-    afterFlags: Record<FinancialFlag, boolean>;
-    numericPnlBefore: ReturnType<typeof numericPnl>;
-    numericPnlAfter: ReturnType<typeof numericPnl>;
+    evidenceReferences: EvidenceReference[];
+    flagChanges: FlagChanges;
+    numericFieldsPreserved: true;
+    numericPnlBeforeSha256: string;
+    numericPnlAfterSha256: string;
+    conversionPerformed: false;
   }>;
 }
 
@@ -217,7 +284,7 @@ export async function buildFinancialReconciliationAudit(sourcePath = DEFAULT_SOU
   const projectedEntities = sourceEntities.map((entity) => normalizeFinancialEntity(reconcileFinancialEntity(entity)));
   const candidates = sourceEntities.map((entity, index) => {
     const consistency = inspectFinancialEvidenceConsistency(entity);
-    return { entity, projected: projectedEntities[index], consistency };
+    return { entity, projected: projectedEntities[index], consistency, sourceIndex: index };
   }).filter(({ consistency }) => consistency.explicitUnknownDomains.length > 0 || consistency.revenuePeriodConflict);
 
   const beforePublished = sourceEntities.filter((entity) => isPublishableEntity(entity)).map((entity) => entity.id);
@@ -238,31 +305,28 @@ export async function buildFinancialReconciliationAudit(sourcePath = DEFAULT_SOU
   const sameExcludedIds = beforeExcludedRecords.every((record) => afterExcludedIds.has(record.id)) &&
     afterExcludedIds.size === beforeExcludedRecords.length;
 
-  const findings = candidates.map(({ entity, projected, consistency }) => {
+  const findings = candidates.map(({ entity, projected, consistency, sourceIndex }) => {
     const addedFlags = newlyAddedFlags(entity, projected);
-    const action = consistency.reasons.length > 0 ? [...consistency.reasons] : ['既存根拠を保持し、未確認フラグのみread-time投影。'];
-    if (addedFlags.length === 0) action.push('既存の未確認フラグが既に立っているため、表示状態を維持。');
+    const reasons = consistency.reasons.length > 0 ? [...consistency.reasons] : ['既存根拠を保持し、未確認フラグのみread-time投影。'];
+    if (addedFlags.length === 0) reasons.push('既存の未確認フラグが既に立っているため、表示状態を維持。');
+    const evidence = [...new Set([
+      ...consistency.explicitUnknownEvidence,
+      ...consistency.annualRevenueEvidence,
+      ...consistency.monthlyRevenueEvidence,
+    ])];
     return {
       id: entity.id,
       name: entity.name,
       domains: consistency.explicitUnknownDomains,
       revenuePeriodConflict: consistency.revenuePeriodConflict,
-      evidence: [
-        ...consistency.explicitUnknownEvidence,
-        ...consistency.annualRevenueEvidence,
-        ...consistency.monthlyRevenueEvidence,
-      ].slice(0, 8),
-      sourceLocators: sourceLocators(entity),
-      treatment: {
-        action,
-        newlyAddedFlags: addedFlags,
-        numericFieldsPreserved: true as const,
-        conversionPerformed: false as const,
-      },
-      beforeFlags: flagSnapshot(entity),
-      afterFlags: flagSnapshot(projected),
-      numericPnlBefore: numericPnl(entity),
-      numericPnlAfter: numericPnl(projected),
+      reasons,
+      evidence,
+      evidenceReferences: evidenceReferences(entity, sourceIndex, consistency, evidence),
+      flagChanges: changedFlags(entity, projected),
+      numericFieldsPreserved: true as const,
+      numericPnlBeforeSha256: hashJson(numericPnl(entity)),
+      numericPnlAfterSha256: hashJson(numericPnl(projected)),
+      conversionPerformed: false as const,
     };
   });
 
@@ -276,7 +340,13 @@ export async function buildFinancialReconciliationAudit(sourcePath = DEFAULT_SOU
   const evidenceCandidatesWithNewFlags = candidates.filter(({ entity, projected }) => newlyAddedFlags(entity, projected).length > 0).length;
 
   return {
-    schemaVersion: 'financial-reconciliation-audit.v1',
+    schemaVersion: 'financial-reconciliation-audit.v2',
+    format: {
+      representation: 'compact-findings',
+      rawEntityCopies: false,
+      evidenceRetained: true,
+      evidenceReferences: 'json-pointer+sha256',
+    },
     source: {
       path: sourcePath.startsWith(`${REPOSITORY_ROOT}/`) ? relative(REPOSITORY_ROOT, sourcePath) : sourcePath,
       sha256: sourceHash,
@@ -336,7 +406,7 @@ async function main(): Promise<void> {
   const writeReport = process.argv.includes('--write-report');
   if (writeReport) {
     await mkdir(dirname(DEFAULT_REPORT_PATH), { recursive: true });
-    await writeFile(DEFAULT_REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+    await writeFile(DEFAULT_REPORT_PATH, `${JSON.stringify(report)}\n`, 'utf8');
   }
   console.log(JSON.stringify({
     source: report.source,
