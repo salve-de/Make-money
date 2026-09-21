@@ -167,6 +167,59 @@ it('preserves q40 typed money meaning without promoting unknowns or ambiguous re
   expect(JSON.stringify(result.bundle.quality)).toContain('invalid supplied subject');
 });
 
+it('joins q42 normalized reference tables by exact entity and evidence refs', async () => {
+  const entityId = 'ent_company_0123456789abcdef0123';
+  const evidenceId = 'ev_b697089169508217c403a0e4';
+  const result = await materializeScheduledR2Handoff({
+    queue: {
+      schema_version: 'r2-queue-run.v2',
+      run_id: 'run_r2queue_reference_tables',
+      finished_at: '2026-09-21T09:20:00Z',
+      recorded_items: [{
+        state: 'VALIDATED_FOR_R2_HANDOFF', subject_or_entity_id: entityId,
+        canonical_name: 'Reference Company', evidence_ids: ['ev01', evidenceId],
+        temporal_scope: '2026-09-17; pending Q4', verification: 'SUPPORTED',
+      }],
+      normalized_records: {
+        Entity: [{ ref: 1, entity_id: entityId, canonical_name: 'Reference Company', aliases: ['Reference'], domain: 'example.com' }],
+        Source: [{ ref: 1, source_id: 'src.reference', canonical_url: 'https://example.com/report', rights_status: 'metadata_only', source_strength: 'A' }],
+        Evidence: [{ ref: 1, evidence_id: evidenceId, upstream_evidence_id: 'ev01', source_id: 'src.reference', source_url: 'https://example.com/report', retrieved_at: '2026-09-21T09:00:00Z', rights_status: 'metadata_only', source_strength: 'A' }],
+        Claim: [{ entity_ref: 1, evidence_ref: 1, statement: 'A financing agreement was signed.', origin: 'reported', verification: 'SUPPORTED' }],
+        Metric: [{ entity_ref: 1, evidence_ref: 1, metric_type: 'cash_consideration', value: 70, currency: 'USD', unit: 'million', point_in_time: '2026-09-17', origin: 'reported', verification: 'SUPPORTED' }],
+        MoneySignal: [{ entity_ref: 1, evidence_ref: 1, money_type: 'equity_financing', purpose: 'equity_financing', amount: 70, currency: 'USD', unit: 'million', receiver: entityId, point_in_time: '2026-09-17', origin: 'reported', verification: 'SUPPORTED' }],
+        Event: [{ entity_ref: 1, evidence_ref: 1, event_type: 'acquisition_agreement', description: 'Agreement signed, approval pending.', temporal_scope: '2026-09-17; pending Q4', origin: 'reported', verification: 'SUPPORTED' }],
+        Relationship: [], Observation: [{ entity_ref: 1, evidence_ref: 1, text: 'Pending approval.', origin: 'reported', verification: 'SUPPORTED' }], Derived: [],
+        quality: [{ entity_ref: 1, handoff_quality: 'PASS', state: 'VALIDATED_FOR_R2_HANDOFF' }],
+      },
+    },
+    source_runs: [],
+  });
+
+  expect(result.included_items).toBe(1);
+  expect(result.bundle.entities).toEqual([expect.objectContaining({ entity_id: entityId, canonical_name: 'Reference Company', domain: 'example.com' })]);
+  expect(result.bundle.metrics).toEqual([expect.objectContaining({ value: 70, currency: 'USD', unit: 'million', point_in_time: '2026-09-17T00:00:00.000Z', evidence_ids: [evidenceId] })]);
+  expect(result.bundle.money_signals).toEqual([expect.objectContaining({ amount: 70, currency: 'USD', unit: 'million', receiver_entity_id: entityId, evidence_ids: [evidenceId] })]);
+  expect(result.bundle.events).toEqual([expect.objectContaining({ occurred_at: '2026-09-17T00:00:00.000Z', evidence_ids: [evidenceId] })]);
+});
+
+it('rejects q42 normalized records with an unknown evidence ref', async () => {
+  await expect(materializeScheduledR2Handoff({
+    queue: {
+      run_id: 'run_bad_reference_tables',
+      recorded_items: [{ state: 'VALIDATED_FOR_R2_HANDOFF', subject_or_entity_id: 'ent_company_0123456789abcdef0123', canonical_name: 'Reference Company', evidence_ids: ['ev_b697089169508217c403a0e4'] }],
+      normalized_records: {
+        Entity: [{ ref: 1, entity_id: 'ent_company_0123456789abcdef0123', canonical_name: 'Reference Company' }],
+        Source: [{ ref: 1, source_id: 'src.reference', canonical_url: 'https://example.com/report' }],
+        Evidence: [{ ref: 1, evidence_id: 'ev_b697089169508217c403a0e4', source_id: 'src.reference', source_url: 'https://example.com/report' }],
+        Claim: [{ entity_ref: 1, evidence_ref: 999, statement: 'Unresolved evidence.', origin: 'reported', verification: 'SUPPORTED' }],
+        Metric: [], MoneySignal: [], Event: [], Relationship: [], Observation: [], Derived: [],
+        quality: [{ entity_ref: 1, handoff_quality: 'PASS' }],
+      },
+    },
+    source_runs: [],
+  })).rejects.toThrow('references unknown Evidence.ref 999');
+});
+
 it('does not roll invalid calendar dates into retrieval timestamps', async () => {
   const evidence = 'ev_aaaaaaaaaaaaaaaaaaaaaaaa';
   const result = await materializeScheduledR2Handoff({
