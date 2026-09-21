@@ -13,6 +13,13 @@ The owner clarified the acceptance path: Web ChatGPT scheduled research -> immut
 
 The sections below record the prior implementation chronology.
 
+### Local pipeline follow-up — 11:52 JST
+
+- Integrated R2 task commit `219f83a` as `edcbce3`, preserving main's full SHA journal IDs and source-time publication assignment when resolving overlaps. All 560 unit tests, 11 Foundation tests, 16 architecture tests and six recovery tests passed.
+- A full local readback initially failed on page two with `Network connection lost`. The existing page/new-arrival readers launched up to hundreds of R2 reads concurrently. Both now use an eight-in-flight ordered reader. Five view tests (including 301 ordered reads and failure propagation), TypeScript and focused lint passed.
+- Repeated the actual local API readback at port 3002 after the change: four pages, all 171 IDs from q19/n14/q17/q23/q22r1/q20/q35 recovery receipts matched; zero missing, all responses reported `foundation_lake`. This includes the four financing-only cases previously hidden by the revenue misclassification.
+- PR #46 is the integrated candidate. Its final CI/main promotion and the next scheduled Writer run are still pending. No additional production-app deployment occurred.
+
 Scope: finish the accepted product and one authoritative main. Deferred only: v0 activation and the 2,050-record curation revision. Neither protected source JSON nor its deferred stash was modified.
 
 Branch: `codex/production-catalog-20260921`, worktree `.worktrees/main-consolidation`, based on main `f44c776`. Root main remains unchanged; its unrelated untracked `scripts/audit-scheduled-handoffs.ts` belongs to another task.

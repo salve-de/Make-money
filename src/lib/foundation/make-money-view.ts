@@ -925,6 +925,19 @@ export async function readMakeMoneyViewDetail(entityId: string): Promise<Foundat
   }
 }
 
+/** Bound remote R2 reads while retaining input order and failure visibility. */
+export async function mapServingReads<T, R>(items: readonly T[], read: (item: T) => Promise<R>): Promise<R[]> {
+  const results: R[] = new Array(items.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(8, items.length) }, async () => {
+    while (next < items.length) {
+      const index = next++;
+      results[index] = await read(items[index]);
+    }
+  }));
+  return results;
+}
+
 export async function readMakeMoneyValuePage(options: {
   cursor?: string;
   limit?: number;
@@ -938,10 +951,10 @@ export async function readMakeMoneyValuePage(options: {
   });
 
   const data = (
-    await Promise.all(
+    await mapServingReads(
       page.objects
-        .filter((item) => item.key.endsWith('.json'))
-        .map(async (item) => {
+        .filter((item) => item.key.endsWith('.json')),
+        async (item) => {
           const object = await readR2Object(bucket, item.key);
           if (!object) return null;
           try {
@@ -949,7 +962,7 @@ export async function readMakeMoneyValuePage(options: {
           } catch {
             return null;
           }
-        })
+        }
     )
   ).filter((value): value is FoundationValueSummary => Boolean(value));
 
@@ -957,9 +970,9 @@ export async function readMakeMoneyValuePage(options: {
   const newArrivals = await readLatestNewArrivalsRelease().catch(() => null);
   if (!options.cursor && newArrivals) {
     const known = new Set(data.map((item) => item.id));
-    const promoted = await Promise.all(newArrivals.entityIds.slice(0, 500)
-      .filter((id) => !known.has(id))
-      .map(async (id) => {
+    const promoted = await mapServingReads(newArrivals.entityIds.slice(0, 500)
+      .filter((id) => !known.has(id)),
+      async (id) => {
         const detail = await readMakeMoneyViewDetail(id).catch(() => null);
         if (detail) return foundationBusinessCaseToValueSummary(detail);
         // The hourly writer can publish an edition before the product view
@@ -972,7 +985,7 @@ export async function readMakeMoneyValuePage(options: {
             observations: [], derived: [], relationships: [],
           }),
         } : null;
-      }));
+      });
     data.unshift(...promoted.filter((item): item is FoundationValueSummary => Boolean(item)));
   }
   return {
