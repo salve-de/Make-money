@@ -13,14 +13,21 @@
 
 The keychain wrapper command is recorded without any credential values. When the document is non-visible, the hook suppresses fetching until the page becomes visible; this is expected behavior, not a defect.
 
+## Latest v19 / 677-ID acceptance
+
+- v19 deployed: `e6c4a45e-7e55-453c-a815-efa62fa421cd`
+- Additional 50 API acceptance: PASS at `2026-09-21T06:12:39.745Z`; `localhost:3000`, `listPages=3`, `detailsVerified=50`, `failedEntityIds=[]`, strict `source=foundation_lake`
+- Previous 627 IDs and additional 50 IDs have zero overlap; total accepted IDs: `677`
+- l12/m13 recovery: 50 saved IDs, `770` readbacks (`413 created` / `357 identical`), same-input replay `created=0` with `770` readbacks, both serving views complete
+- Representative UI acceptance: Pallet and ConradKacsik detail → execute link → 6 steps PASS
+
 ## Evidence boundary
 
 The older `581 + 18 + 16 + 6` suite, `build` at `280cf1f`, and `E2E 45/45` are prior-revision evidence and are kept distinct from the current `c9dc286` acceptance evidence. No full suite or build was rerun for this worklog.
 
 ## Remaining items
 
-- Technical null-representation repair for `l12` / `m13` remains owner dry-run/tests work
-- `k11` automatic retry remains unresolved
-- Actual scheduled run after 14:20 remains unproven
+- Actual scheduled run at 15:20 remains unproven; this is the only remaining operational acceptance item
+- Upstream information-deficiency research holds remain classified and preserved
 
-2050 and v0 are excluded. `ownerR2_REPAIR_STATUS` was not edited.
+2050 and v0 are excluded and unchanged. `R2_REPAIR_STATUS` remains owner-maintained; this update did not edit it.
