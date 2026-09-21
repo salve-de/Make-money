@@ -35,6 +35,19 @@ const UNRESOLVED_HYDRATION_STATE_PREFIX = 'views/make-money/v1/_unresolved-hydra
 const UNRESOLVED_HYDRATION_STATE_SCHEMA = 'make-money-view-unresolved-hydration-state.v1';
 const MAX_ENTITIES_PER_PROJECTION_CALL = 25;
 const MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL = 25;
+const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
+const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
+const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
+
+interface ViewEvidenceCorrectionControl {
+  schema_version: typeof EVIDENCE_CORRECTION_SCHEMA;
+  entity_id: string;
+  original: { key: string; sha256: string; run_id: string };
+  corrected: { key: string; sha256: string; run_id: string; retrieved_at: string };
+  excluded_evidence_ids: string[];
+  replaced_record_ids: Record<typeof RECORD_GROUPS[number], string[]>;
+  corrected_detail: FoundationBusinessCase;
+}
 
 interface MakeMoneyViewDocument {
   schema_version: typeof MAKE_MONEY_VIEW_SCHEMA;
@@ -215,6 +228,53 @@ function parseViewDocument(value: unknown): MakeMoneyViewDocument | null {
     return null;
   }
   return object as unknown as MakeMoneyViewDocument;
+}
+
+async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
+  const object = await readR2Object(bucket, `${EVIDENCE_CORRECTION_PREFIX}${entityId}.json`);
+  if (!object) return { object: null, control: null };
+  const value = objectValue(decodeJson(object.body));
+  const original = objectValue(value?.original);
+  const corrected = objectValue(value?.corrected);
+  const records = objectValue(value?.replaced_record_ids);
+  if (!value || value.schema_version !== EVIDENCE_CORRECTION_SCHEMA || value.entity_id !== entityId
+    || !original || !corrected || !records || !isBusinessCase(value.corrected_detail)
+    || value.corrected_detail.id !== entityId
+    || [original, corrected].some(ref => !stringValue(ref, 'key') || !stringValue(ref, 'run_id') || !/^[a-f0-9]{64}$/.test(String(ref.sha256)))
+    || !Number.isFinite(Date.parse(String(corrected.retrieved_at)))
+    || !Array.isArray(value.excluded_evidence_ids) || !value.excluded_evidence_ids.every(id => typeof id === 'string')
+    || RECORD_GROUPS.some(group => !Array.isArray(records[group]) || !(records[group] as unknown[]).every(id => typeof id === 'string'))) {
+    throw new Error('Invalid persisted evidence correction control');
+  }
+  return { object, control: value as unknown as ViewEvidenceCorrectionControl };
+}
+
+function applyEvidenceCorrectionControl(document: MakeMoneyViewDocument, control: ViewEvidenceCorrectionControl): MakeMoneyViewDocument {
+  const detail = { ...document.detail };
+  for (const group of RECORD_GROUPS) {
+    const replaced = new Set(control.replaced_record_ids[group]);
+    // Each array remains its own record type; only membership is changed.
+    Object.assign(detail, { [group]: detail[group].filter(row => !replaced.has(row.id)) });
+  }
+  const excludedEvidence = uniqueStrings(document.excluded_evidence_ids, control.excluded_evidence_ids);
+  const corrected = excludeViewEvidence(mergeFoundationBusinessCasesForView(control.corrected_detail, detail), excludedEvidence);
+  const excludedRuns = uniqueStrings(document.excluded_source_run_ids, [control.original.run_id]);
+  const sourceRuns = uniqueStrings(document.source_run_ids.filter(run => !excludedRuns.includes(run)), [control.corrected.run_id]);
+  corrected.bundlesScanned = sourceRuns.length;
+  corrected.bundleObjectsListed = sourceRuns.length;
+  return { ...document, detail: corrected, summary: foundationBusinessCaseToValueSummary(corrected),
+    source_run_ids: sourceRuns, excluded_source_run_ids: excludedRuns, excluded_evidence_ids: excludedEvidence,
+    projected_at: maxIso(document.projected_at, control.corrected.retrieved_at) || document.projected_at,
+    latest_source_run_id: excludedRuns.includes(document.latest_source_run_id) ? control.corrected.run_id : document.latest_source_run_id };
+}
+
+async function readCorrectedViewDocument(bucket: string, key: string): Promise<MakeMoneyViewDocument | null> {
+  const object = await readR2Object(bucket, key);
+  if (!object) return null;
+  const document = parseViewDocument(decodeJson(object.body));
+  if (!document) return null;
+  const { control } = await readEvidenceCorrectionControl(bucket, document.detail.id);
+  return control ? applyEvidenceCorrectionControl(document, control) : document;
 }
 
 function projectionBundleKey(runId: string, retrievedAt: string): string {
@@ -775,12 +835,16 @@ async function writeEntityViewWithCas(
       }
     }
 
+    const { control } = await readEvidenceCorrectionControl(bucket, incoming.id);
+    if (existingDocument && control) existingDocument = applyEvidenceCorrectionControl(existingDocument, control);
+
     // A delayed replay of an explicitly superseded run must not restore its
     // wrong associations, even when its canonical core remains immutable.
     if (existingDocument?.excluded_source_run_ids?.includes(runId)) {
       return { status: 'UNCHANGED', retries: attempt };
     }
-    const document = buildDocument(existingDocument, incoming, runId, retrievedAt);
+    const rawDocument = buildDocument(existingDocument, incoming, runId, retrievedAt);
+    const document = control ? applyEvidenceCorrectionControl(rawDocument, control) : rawDocument;
     try {
       const result = await putR2MutableView({
         bucket,
@@ -1035,6 +1099,25 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
     if (input.dryRun) return { entityId: input.entityId, originalRunId: original.runId, correctedRunId: corrected.runId,
       retainedRunIds: rebuilt.source_run_ids, excludedEvidenceCount: blockedEvidence.length, status: 'DRY_RUN' as const, retries: attempt };
     try {
+      const guard: ViewEvidenceCorrectionControl = {
+        schema_version: EVIDENCE_CORRECTION_SCHEMA, entity_id: input.entityId,
+        original: { ...input.original, run_id: original.runId },
+        corrected: { ...input.corrected, run_id: corrected.runId, retrieved_at: corrected.retrievedAt },
+        excluded_evidence_ids: excludedIds,
+        replaced_record_ids: Object.fromEntries(RECORD_GROUPS.map(group => [group, oldCase[group].map(row => row.id)])) as ViewEvidenceCorrectionControl['replaced_record_ids'],
+        corrected_detail: newCase,
+      };
+      const priorControl = await readEvidenceCorrectionControl(bucket, input.entityId);
+      if (priorControl.control && JSON.stringify(priorControl.control) !== JSON.stringify(guard)) {
+        throw new Error('Different correction already registered; explicit reconciliation required');
+      }
+      // Persist independently before the ordinary view: old deployed projectors
+      // can rewrite that view, but cannot erase the local consumer's correction.
+      const controlResult = await putR2MutableView({ bucket, key: `${EVIDENCE_CORRECTION_PREFIX}${input.entityId}.json`,
+        body: JSON.stringify(guard), contentType: 'application/json',
+        metadata: { 'foundation-view-consumer': 'make-money', 'foundation-entity-id': input.entityId,
+          'foundation-view-evidence-correction': 'true' },
+      }, { expectedEtag: priorControl.object?.etag ?? null });
       const result = await putR2MutableView({ bucket, key, body: JSON.stringify(rebuilt), contentType: 'application/json',
         metadata: { 'foundation-view-consumer': 'make-money', 'foundation-view-version': 'v1',
           'foundation-entity-id': input.entityId, 'foundation-run-id': rebuilt.latest_source_run_id,
@@ -1042,7 +1125,8 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
       }, { expectedEtag: prior.etag ?? null });
       return { entityId: input.entityId, originalRunId: original.runId, correctedRunId: corrected.runId,
         retainedRunIds: rebuilt.source_run_ids, excludedEvidenceCount: blockedEvidence.length,
-        status: result.status, sha256: result.sha256, readback: result.readback, retries: attempt };
+        status: result.status, sha256: result.sha256, readback: result.readback,
+        controlReadback: controlResult.readback, retries: attempt };
     } catch (error) {
       if (error instanceof R2ViewConcurrentModificationError && attempt + 1 < MAX_CAS_RETRIES) continue;
       throw error;
@@ -1053,13 +1137,7 @@ export async function repairMakeMoneyViewEvidence(input: ViewEvidenceCorrectionI
 
 export async function readMakeMoneyViewDetail(entityId: string): Promise<FoundationBusinessCase | null> {
   const bucket = await getFoundationBucketAsync('lake');
-  const object = await readR2Object(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`);
-  if (!object) return null;
-  try {
-    return parseViewDocument(decodeJson(object.body))?.detail || null;
-  } catch {
-    return null;
-  }
+  return (await readCorrectedViewDocument(bucket, `${MAKE_MONEY_VIEW_PREFIX}${entityId}.json`))?.detail || null;
 }
 
 /** Bound remote R2 reads while retaining input order and failure visibility. */
@@ -1092,13 +1170,7 @@ export async function readMakeMoneyValuePage(options: {
       page.objects
         .filter((item) => item.key.endsWith('.json')),
         async (item) => {
-          const object = await readR2Object(bucket, item.key);
-          if (!object) return null;
-          try {
-            return parseViewDocument(decodeJson(object.body))?.summary || null;
-          } catch {
-            return null;
-          }
+          return (await readCorrectedViewDocument(bucket, item.key))?.summary || null;
         }
     )
   ).filter((value): value is FoundationValueSummary => Boolean(value));
