@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { beforeEach, expect, it, vi } from 'vitest';
 
-const state = vi.hoisted(() => ({ objects: new Map<string, Uint8Array>(), writes: vi.fn(), core: vi.fn(), race: null as null | (() => void) }));
+const state = vi.hoisted(() => ({ objects: new Map<string, Uint8Array>(), writes: vi.fn(), core: vi.fn(), list: vi.fn(), race: null as null | (() => void) }));
 vi.mock('./business-reader', async original => ({
   ...await original<typeof import('./business-reader')>(), readFoundationEntitySummaryById: state.core,
 }));
@@ -15,7 +15,7 @@ vi.mock('@/lib/storage/r2', () => {
       return body ? { body, exists: true, etag: createHash('sha256').update(body).digest('hex') } : null;
     },
     getFromR2: async (key: string) => state.objects.has(key) ? new TextDecoder().decode(state.objects.get(key)) : null,
-    listR2Objects: async () => ({ objects: [], truncated: false }),
+    listR2Objects: state.list,
     putR2MutableView: async (input: {key: string; body: string}, options: {expectedEtag: string}) => {
       if (state.race) { const race = state.race; state.race = null; race(); throw new Conflict(); }
       const previous = state.objects.get(input.key);
@@ -30,10 +30,11 @@ vi.mock('@/lib/storage/r2', () => {
   };
 });
 import { buildFoundationBusinessCasesFromBundle, foundationBusinessCaseToValueSummary } from './business-reader';
-import { materializeMakeMoneyViews, mergeFoundationBusinessCasesForView, repairMakeMoneyViewEvidence } from './make-money-view';
+import { materializeMakeMoneyViews, mergeFoundationBusinessCasesForView, readMakeMoneyValuePage, readMakeMoneyViewDetail, repairMakeMoneyViewEvidence } from './make-money-view';
 
 const prefix = 'datasets/ds.business.research-bundles.derived/v1/2026/09/21/';
 const viewKey = 'views/make-money/v1/entities/ent_example.json';
+const controlKey = 'views/make-money/v1/_evidence-corrections/ent_example.json';
 const progressKey = (run: string) => `views/make-money/v1/_projection-progress/${run}.json`;
 const at = '2026-09-21T00:00:00Z';
 function bundle(run: string, evidence: string[], claim = 'cl_original') {
@@ -70,7 +71,7 @@ function setup() {
   state.core.mockResolvedValue(oldCase);
   return { entityId: 'ent_example', original: originalRef, corrected: correctedRef };
 }
-beforeEach(() => {state.objects.clear(); state.writes.mockClear(); state.core.mockReset(); state.race = null;});
+beforeEach(() => {state.objects.clear(); state.writes.mockClear(); state.core.mockReset(); state.list.mockReset().mockResolvedValue({objects: [], truncated: false}); state.race = null;});
 
 it('rebuilds the corrected contribution, retains other runs, and never writes canonical originals', async () => {
   const input = setup(); const before = state.objects.get(input.original.key);
@@ -83,8 +84,31 @@ it('rebuilds the corrected contribution, retains other runs, and never writes ca
   expect(view.excluded_source_run_ids).toEqual(['run_old']);
   expect(view.excluded_evidence_ids).toEqual(['ev_wrong']);
   expect(state.objects.get(input.original.key)).toEqual(before);
-  expect(state.writes.mock.calls.every(([key]) => key === viewKey)).toBe(true);
+  expect(state.writes.mock.calls.every(([key]) => key === viewKey || key === controlKey)).toBe(true);
   expect((await repairMakeMoneyViewEvidence(input)).status).toBe('UNCHANGED');
+});
+it('list and detail remain corrected even if an older deployed projector rewrites the ordinary view', async () => {
+  const input = setup(); const oldView = state.objects.get(viewKey)!;
+  await repairMakeMoneyViewEvidence(input);
+  state.objects.set(viewKey, oldView); // Legacy writer does not know the control.
+  const detail = await readMakeMoneyViewDetail('ent_example');
+  expect(detail?.evidenceIds).toEqual(['ev_good', 'ev_other']);
+  expect(detail?.claims.find(row => row.id === 'cl_original')?.evidenceIds).toEqual(['ev_good']);
+  expect(detail?.claims.map(row => row.id)).toContain('cl_other');
+  state.list.mockImplementation(async ({prefix: p}: {prefix: string}) => ({objects: p.endsWith('/entities/') ? [{key: viewKey}] : [], truncated: false}));
+  const page = await readMakeMoneyValuePage();
+  expect(page.data[0].evidenceIds).not.toContain('ev_wrong');
+});
+it('a persisted guard also protects a view recreated after view loss', async () => {
+  const input = setup(); await repairMakeMoneyViewEvidence(input);
+  state.objects.delete(viewKey);
+  await materializeMakeMoneyViews(bundle('run_old', ['ev_good', 'ev_wrong']));
+  expect((await readMakeMoneyViewDetail('ent_example'))?.evidenceIds).not.toContain('ev_wrong');
+  expect(stored(viewKey).source_run_ids).not.toContain('run_old');
+});
+it('invalid correction control fails closed instead of showing uncorrected data', async () => {
+  setup(); put(controlKey, {schema_version: 'invalid'});
+  await expect(readMakeMoneyViewDetail('ent_example')).rejects.toThrow('Invalid persisted');
 });
 it('normal projection cannot reintroduce superseded evidence through a retained immutable entity core', async () => {
   const input = setup(); await repairMakeMoneyViewEvidence(input);
