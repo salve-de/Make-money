@@ -26,5 +26,8 @@ async function getEntities(): Promise<FinancialEntity[]> {
 
 export default async function PartnersPage() {
   const entities = await getEntities();
-  return <PartnersClient entities={entities.map(publicEntity)} />;
+  // The client only renders the first ticker items. Do not serialize the full
+  // catalog into this static page; the detail ledger remains the source for
+  // the complete dataset.
+  return <PartnersClient entities={entities.slice(0, 12).map(publicEntity)} />;
 }

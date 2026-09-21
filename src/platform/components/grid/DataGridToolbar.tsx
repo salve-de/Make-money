@@ -86,7 +86,7 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
   return (
     <div className="bg-[#08090C] border-b border-white/[0.06] px-3 py-2 select-none">
       <div className="flex items-center gap-2 text-xs">
-        {/* 1. 50軸詳細スクリーニングボタン（左端固定：インスペクター開閉時も位置が1ミリもブレない） */}
+        {/* 1. 多条件スクリーニングボタン（左端固定：インスペクター開閉時も位置が1ミリもブレない） */}
         <div className="flex items-center gap-1 shrink-0">
           <button
             onClick={onOpenScreener}
@@ -95,10 +95,10 @@ export const DataGridToolbar: React.FC<DataGridToolbarProps> = ({
                 ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300 font-medium'
                 : 'bg-white/[0.03] hover:bg-white/[0.06] border-white/[0.08] text-zinc-300 hover:text-white'
             }`}
-            title="50軸の条件で詳細スクリーニング"
+            title="複数条件で詳細スクリーニング"
           >
             <SlidersHorizontal className={`w-3 h-3 ${hasActiveScreener ? 'text-emerald-400' : 'text-zinc-400'}`} />
-            <span>50軸スクリーニング</span>
+            <span>多条件スクリーニング</span>
             {hasActiveScreener && (
               <span className="text-[10px] font-mono px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-300 ml-0.5">
                 {activeScreenerCount}

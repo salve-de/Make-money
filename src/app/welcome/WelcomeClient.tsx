@@ -16,6 +16,8 @@ import { useAuth } from '@/context/AuthContext';
 import { GlobalHeader } from '@/platform/components/navigation/GlobalHeader';
 import type { FinancialEntity } from '@/shared/terminal';
 import { financialSnapshot } from '@/platform/utils/financialSnapshot';
+import { WeeklyNewsletterSection } from '@/components/terminal/WeeklyNewsletterSection';
+import { SubmissionForm } from '@/components/terminal/SubmissionForm';
 
 interface WeaponItem {
   code: string;
@@ -524,12 +526,28 @@ export default function WelcomeClient({ entities }: { entities: FinancialEntity[
         </div>
       </section>
 
+      {/* 4.5 読者接点：登録受付と掲載申請 */}
+      <section className="border-t border-white/[0.06] bg-[#07080B] py-16 md:py-24 px-4 md:px-8 space-y-6">
+        <div className="max-w-5xl mx-auto space-y-6">
+          <WeeklyNewsletterSection />
+          <SubmissionForm />
+        </div>
+      </section>
+
       {/* 5. フッターセクション */}
       <footer className="border-t border-white/[0.06] py-10 px-4 md:px-8 text-center text-zinc-600 font-mono text-[11px]">
         <div className="flex flex-wrap items-center justify-center gap-4 mb-3">
           <Link href="/?entity=ent_photoai" className="hover:text-zinc-400 transition-colors">
             TERMINAL
           </Link>
+          <span>•</span>
+          <Link href="/registry" className="hover:text-zinc-400 transition-colors">
+            REGISTRY
+          </Link>
+          <span>•</span>
+          <a href="#submit" className="hover:text-zinc-400 transition-colors">
+            CASE INTAKE
+          </a>
           <span>•</span>
           <button onClick={() => setIsAuthModalOpen(true)} className="hover:text-zinc-400 transition-colors cursor-pointer">
             LOG IN

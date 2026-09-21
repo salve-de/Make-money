@@ -1,12 +1,9 @@
 import { isPublishableEntity, publicEntity, publicFoundationData, publicSummaryEntity } from '@/lib/company-access/public-entity';
-import { normalizeFinancialEntity } from '@/shared/financial-integrity';
-import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
-import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
+import { findCachedPublishableEntity, readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
-import { INSTITUTIONAL_ENTITIES, INSTITUTIONAL_ENTITY_ALIASES, findInstitutionalEntity } from '@/platform/data/mockLedgerData';
+import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
+import type { FinancialEntity } from '@/platform/types/terminal';
 import {
   readFoundationBusinessCase,
   type FoundationBusinessCase,
@@ -27,7 +24,6 @@ import {
   readMakeMoneyViewDetail,
 } from '@/lib/foundation/make-money-view';
 import { foundationDataset } from '@/lib/foundation/dataset-registry';
-import type { FinancialEntity } from '@/platform/types/terminal';
 
 const gunzip = promisify(gunzipCb);
 
@@ -82,65 +78,6 @@ function response(body: unknown, status = 200, headers: Record<string, string> =
     status,
     headers: { 'Cache-Control': CACHE_CONTROL, ...headers },
   });
-}
-
-interface LocalEntitiesCache {
-  entities: FinancialEntity[];
-  byId: Map<string, FinancialEntity>;
-  cachedAt: number;
-}
-
-let localEntitiesCache: LocalEntitiesCache | null = null;
-const LOCAL_CACHE_TTL_MS = 60_000;
-
-async function getLocalEntitiesCached(): Promise<LocalEntitiesCache> {
-  const now = Date.now();
-  if (localEntitiesCache && now - localEntitiesCache.cachedAt < LOCAL_CACHE_TTL_MS) {
-    return localEntitiesCache;
-  }
-
-  try {
-    const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
-    const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
-    const { validEntities } = parseFinancialEntitiesResiliently(parsed);
-    const entities = validEntities
-      .filter((entity) => !INSTITUTIONAL_ENTITY_ALIASES[entity.id])
-      .map(reconcileFinancialEntity)
-      .filter(isPublishableEntity) // 昇格ゲート: 未精錬・却下データは一般公開から物理除外
-      .map(normalizeFinancialEntity);
-
-    const keyenceIdx = entities.findIndex((e) => e.id === 'ent_keyence');
-    if (keyenceIdx > 0) {
-      const [keyence] = entities.splice(keyenceIdx, 1);
-      entities.unshift(keyence);
-    }
-
-    const byId = new Map<string, FinancialEntity>();
-    for (const ent of entities) {
-      byId.set(ent.id, ent);
-    }
-
-    localEntitiesCache = { entities, byId, cachedAt: now };
-    return localEntitiesCache;
-  } catch {
-    return { entities: [], byId: new Map(), cachedAt: now };
-  }
-}
-
-async function readLocalEntities(): Promise<FinancialEntity[]> {
-  const cache = await getLocalEntitiesCached();
-  return cache.entities;
-}
-
-async function findFallbackEntity(id: string): Promise<FinancialEntity | null> {
-  const cache = await getLocalEntitiesCached();
-  const raw = cache.byId.get(id) || findInstitutionalEntity(id) || null;
-  if (!raw) return null;
-  const found = reconcileFinancialEntity(raw);
-  if (!isPublishableEntity(found)) {
-    return null;
-  }
-  return found;
 }
 
 function logFoundationFailure(message: string, error: unknown): void {
@@ -210,7 +147,7 @@ export async function GET(request: Request) {
 
     try {
       const stagedView = await readMakeMoneyViewDetail(entityId);
-      const curated = await findFallbackEntity(entityId);
+      const curated = await findCachedPublishableEntity(entityId);
 
       // List and detail use one replacement rule at every migration stage:
       // a curated dossier remains authoritative until the Foundation view is
@@ -272,7 +209,7 @@ export async function GET(request: Request) {
       logFoundationFailure('[businesses] Foundation detail read failed; using fallback:', error);
     }
 
-    const fallback = await findFallbackEntity(entityId);
+    const fallback = await findCachedPublishableEntity(entityId);
     if (!fallback) {
       return response({ error: 'Entity not found', entity_id: entityId }, 404);
     }
@@ -346,13 +283,14 @@ export async function GET(request: Request) {
         data: publicFoundationData(publishableSummaries),
         nextCursor: page.nextCursor,
         hasMore: page.hasMore,
+        newArrivals: page.newArrivals,
       });
     }
   } catch (error) {
     logFoundationFailure('[businesses] Make-Money Foundation view read failed; using fallback:', error);
   }
 
-  const localEntities = await readLocalEntities();
+  const localEntities = await readCachedLocalPublishableEntities();
   const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES;
   const fallbackEntities = rawEntities.filter(isPublishableEntity);
   const transformed = returnSummaryOnly
@@ -365,5 +303,6 @@ export async function GET(request: Request) {
     data: transformed,
     nextCursor: null,
     hasMore: false,
+    newArrivals: null,
   });
 }

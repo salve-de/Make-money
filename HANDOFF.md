@@ -1,5 +1,8 @@
 # Make-Money 引継ぎ入口（2026-09-13 最新正本）
 
+> **2026-09-19 First Dollar 実行レイヤー追加**: MAKE MONEY は情報DBだけで終わらせず、企業事例から `FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN` を進め、実売上の最初の1円まで追う。企業詳細の `この稼ぎ方を実行` から `/execute/[id]` へ入り、未ログインは端末保存、ログイン時は D1 同期。仕様正本は [docs/FIRST_DOLLAR_EXECUTION.md](docs/FIRST_DOLLAR_EXECUTION.md)。今後の機能判断では Time to First Dollar を主要基準にする。
+
+
 > **【別チャットのAntigravityへの最優先引継ぎ】**:
 > ユーザーは長文指示を絶対に書かない。ユーザーの一言「勝ちの方だけ集めて」「地雷（負け）の方だけ集めて」「データ集めて（デフォルト7:3）」で完全自律稼働せよ。
 > 

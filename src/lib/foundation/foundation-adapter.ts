@@ -383,6 +383,7 @@ export function adaptFoundationSummaryToFinancialEntity(
 
   // タグ構成（捏造を排除）
   const tags: string[] = [];
+  if (summary.isNew) tags.push('新着');
   if (!isUnconfirmed && monthlyJpy > 0) tags.push('収益確認済');
   tags.push(sectorTagLabel(sector));
 

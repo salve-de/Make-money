@@ -23,6 +23,7 @@ interface SynthesisConsolePaneProps {
   chatInput: string;
   setChatInput: (input: string) => void;
   messagesEndRef: React.RefObject<HTMLDivElement | null>;
+  requestError?: string | null;
 }
 
 export const SynthesisConsolePane: React.FC<SynthesisConsolePaneProps> = ({
@@ -42,6 +43,7 @@ export const SynthesisConsolePane: React.FC<SynthesisConsolePaneProps> = ({
   chatInput,
   setChatInput,
   messagesEndRef,
+  requestError,
 }) => {
   return (
     <div className="flex-1 flex flex-col h-full overflow-hidden bg-[#060709]">
@@ -77,6 +79,15 @@ export const SynthesisConsolePane: React.FC<SynthesisConsolePaneProps> = ({
           </div>
         )}
       </div>
+
+      {requestError && (
+        <div
+          role="alert"
+          className="border-b border-rose-500/30 bg-rose-950/30 px-3 py-2 text-[11px] font-mono text-rose-200"
+        >
+          {requestError}
+        </div>
+      )}
 
       {/* 事業アイデア即時検証バー（全タブ共通フロントドア） */}
       <div className="bg-[#090A0F] border-b border-white/[0.08] p-3 shrink-0">

@@ -11,6 +11,8 @@ const state = vi.hoisted(() => ({
 vi.mock('@/lib/storage/r2', () => state);
 
 import { buildFoundationBusinessCaseForEntity, buildFoundationValueSummariesFromBundle, foundationEntityIdsFromBundle, readFoundationHydratedValuePage, readFoundationValuePage } from './business-reader';
+import { readLatestNewArrivalsRelease } from './business-reader';
+import { buildNewArrivalsContribution, newArrivalsContributionKey } from './new-arrivals';
 
 describe('Foundation list read path', () => {
   beforeEach(() => {
@@ -48,7 +50,9 @@ describe('Foundation list read path', () => {
       derived: 0,
       evidence: 1,
     });
-    expect(state.listR2Objects).toHaveBeenCalledOnce();
+    // One entity page plus the bounded current/previous-JST-day publication
+    // view. The publication view must not scan research bundles.
+    expect(state.listR2Objects).toHaveBeenCalledTimes(3);
     expect(state.readR2ObjectRange).not.toHaveBeenCalled();
   });
 
@@ -511,5 +515,79 @@ describe('Foundation list read path', () => {
     );
     expect(state.listR2Objects).not.toHaveBeenCalled();
     expect(state.readR2ObjectRange).not.toHaveBeenCalled();
+  });
+
+  it('exposes the latest released edition and unions its immutable contributions', async () => {
+    const morning = buildNewArrivalsContribution({
+      queueRunId: 'run_morning',
+      entityIds: ['ent_morning'],
+      assignedAt: '2026-09-20T00:00:00.000Z',
+    });
+    const afternoon = buildNewArrivalsContribution({
+      queueRunId: 'run_afternoon',
+      entityIds: ['ent_afternoon', 'ent_shared'],
+      assignedAt: '2026-09-20T05:00:00.001Z',
+    });
+    const objects = [morning, afternoon].map((contribution) => ({ key: newArrivalsContributionKey(contribution) }));
+    state.listR2Objects.mockImplementation(async ({ prefix }: { prefix?: string }) => ({
+      objects: prefix?.includes('2026/09/20') ? objects : [],
+      truncated: false,
+    }));
+    state.getFromR2.mockImplementation(async (key: string) => {
+      const contribution = key.includes('morning') ? morning : key.includes('afternoon') ? afternoon : null;
+      return contribution ? JSON.stringify(contribution) : null;
+    });
+
+    const release = await readLatestNewArrivalsRelease(new Date('2026-09-20T07:00:00.000Z'));
+
+    expect(release).toMatchObject({
+      releaseId: '20260920-15',
+      count: 2,
+      entityIds: ['ent_afternoon', 'ent_shared'],
+      contributionCount: 1,
+    });
+  });
+
+  it('promotes released new-arrival entities into the first page when pagination would hide them', async () => {
+    const contribution = buildNewArrivalsContribution({
+      queueRunId: 'run_new_arrival',
+      entityIds: ['ent_new'],
+      assignedAt: '2026-09-20T00:00:00.000Z',
+    });
+    const contributionKey = newArrivalsContributionKey(contribution);
+
+    state.listR2Objects.mockImplementation(async ({ prefix }: { prefix?: string }) => ({
+      objects: prefix?.includes('/new-arrivals/')
+        ? [{ key: contributionKey }]
+        : [{ key: 'datasets/ds.business.entities.core/v1/entities/ent_old.json' }],
+      truncated: false,
+    }));
+    state.getFromR2.mockImplementation(async (key: string) => {
+      if (key === contributionKey) return JSON.stringify(contribution);
+      if (key.endsWith('/ent_new.json')) {
+        return JSON.stringify({
+          entity_id: 'ent_new',
+          canonical_name: 'New arrival',
+          entity_type: 'company',
+          aliases: [],
+          status: 'observed',
+          observed_at: '2026-09-20T00:00:00.000Z',
+          evidence_ids: ['evidence-new'],
+        });
+      }
+      return JSON.stringify({
+        entity_id: 'ent_old',
+        canonical_name: 'Older entity',
+        entity_type: 'company',
+        aliases: [],
+        status: 'observed',
+        evidence_ids: ['evidence-old'],
+      });
+    });
+
+    const page = await readFoundationValuePage({ limit: 1 });
+
+    expect(page.data[0]).toMatchObject({ id: 'ent_new', name: 'New arrival', isNew: true });
+    expect(page.newArrivals?.entityIds).toEqual(['ent_new']);
   });
 });

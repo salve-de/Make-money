@@ -19,12 +19,23 @@
         },
         "hasMore": {
           "type": "boolean"
+        },
+        "newArrivals": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/NewArrivalsRelease"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       },
       "required": [
         "data",
         "nextCursor",
-        "hasMore"
+        "hasMore",
+        "newArrivals"
       ]
     },
     "FoundationValueSummary": {
@@ -74,6 +85,10 @@
         },
         "valueProfile": {
           "$ref": "#/definitions/FoundationValueProfile"
+        },
+        "isNew": {
+          "type": "boolean",
+          "description": "True when this entity belongs to the latest user-facing publication."
         }
       },
       "required": [
@@ -200,6 +215,40 @@
         "observations",
         "derived",
         "evidence"
+      ]
+    },
+    "NewArrivalsRelease": {
+      "type": "object",
+      "properties": {
+        "releaseId": {
+          "type": "string"
+        },
+        "releaseAt": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "count": {
+          "type": "number"
+        },
+        "entityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contributionCount": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "releaseId",
+        "releaseAt",
+        "label",
+        "count",
+        "entityIds",
+        "contributionCount"
       ]
     }
   }

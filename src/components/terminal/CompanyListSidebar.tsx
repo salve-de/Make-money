@@ -105,10 +105,10 @@ export const CompanyListSidebar: React.FC<CompanyListSidebarProps> = ({
                       ? 'bg-emerald-500 text-zinc-950 border-emerald-400'
                       : 'bg-white/[0.04] text-zinc-300 border-white/[0.08] hover:text-white hover:bg-white/[0.08]'
                   }`}
-                  title="50軸の複合条件で絞り込む"
+                  title="複数条件で絞り込む"
                 >
                   <SlidersHorizontal size={10} />
-                  <span>50軸</span>
+                  <span>多条件</span>
                 </button>
                 <button
                   type="button"

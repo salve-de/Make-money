@@ -2,13 +2,17 @@
 
 import React, { useState } from 'react';
 import { ChevronUp, ChevronDown } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
 
 export const WeeklyNewsletterSection: React.FC = () => {
+  const { token } = useAuth();
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [showSample, setShowSample] = useState(false);
+  const [unsubscribeToken, setUnsubscribeToken] = useState<string | null>(null);
+  const [unsubscribing, setUnsubscribing] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,17 +31,44 @@ export const WeeklyNewsletterSection: React.FC = () => {
         body: JSON.stringify({ email, source: 'web_portal' }),
       });
 
-      const data = await res.json();
+      const data: unknown = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || '購読処理に失敗しました');
+        throw new Error(readNewsletterError(data, '購読処理に失敗しました'));
+      }
+      if (!data || typeof data !== 'object' || !('success' in data) || data.success !== true) {
+        throw new Error('購読受付の応答を確認できませんでした');
       }
 
       setSubscribed(true);
+      setUnsubscribeToken('unsubscribeToken' in data && typeof data.unsubscribeToken === 'string' ? data.unsubscribeToken : null);
       setShowSample(true);
     } catch (err: unknown) {
       setErrorMsg(err instanceof Error ? err.message : '通信エラーが発生しました');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleUnsubscribe = async () => {
+    setUnsubscribing(true);
+    setErrorMsg('');
+    try {
+      const headers: HeadersInit = { 'Content-Type': 'application/json' };
+      if (token) headers.Authorization = `Bearer ${token}`;
+      const res = await fetch('/api/newsletter/subscribe', {
+        method: 'DELETE',
+        headers,
+        body: token ? undefined : JSON.stringify({ unsubscribeToken }),
+      });
+      const data: unknown = await res.json();
+      if (!res.ok) throw new Error(readNewsletterError(data, '購読解除に失敗しました'));
+      setSubscribed(false);
+      setUnsubscribeToken(null);
+      setShowSample(false);
+    } catch (err: unknown) {
+      setErrorMsg(err instanceof Error ? err.message : '購読解除に失敗しました');
+    } finally {
+      setUnsubscribing(false);
     }
   };
 
@@ -50,7 +81,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
               WEEKLY DISPATCH
             </span>
             <span className="text-[11px] font-mono text-zinc-400">
-              毎週月曜 朝8:00 定期配信（完全無料）
+              配信登録（無料）
             </span>
           </div>
 
@@ -59,13 +90,13 @@ export const WeeklyNewsletterSection: React.FC = () => {
           </h2>
 
           <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-            世界中で「先週もっとも高収益を達成したスモールビジネス」と「日本未上陸の構造的機会」を、公的決算書・決済実査データに基づいて1通だけお届けします。推測や煽りを排除した一次情報速報です。
+            保存済みの事業・財務観測を、出典と確認状態を明記して1通にまとめます。未確認の数字は推定・未確認として扱い、登録後もいつでも解除できます。
           </p>
 
           <div className="flex items-center gap-4 text-[11px] font-mono text-zinc-500 pt-1 flex-wrap">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>購読者数 1,420名（起業家・投資家）</span>
+              <span>購読者数は非公開</span>
             </span>
             <span>•</span>
             <span>常時解約可能</span>
@@ -106,8 +137,16 @@ export const WeeklyNewsletterSection: React.FC = () => {
                 <span>購読登録が完了しました</span>
               </div>
               <p className="text-[11px] text-slate-300 leading-relaxed">
-                毎週月曜朝8時に最新の事業財務インサイト速報が届きます。下部に最新号のサンプルレポートを開封しました。
+                登録受付が完了しました。実際の配信開始時期は運用設定により変わります。下部にサンプルレポートを表示しています。
               </p>
+              <button
+                type="button"
+                onClick={handleUnsubscribe}
+                disabled={unsubscribing || (!token && !unsubscribeToken)}
+                className="text-[10px] text-zinc-400 underline hover:text-white disabled:no-underline disabled:opacity-50"
+              >
+                {unsubscribing ? '解除中...' : '購読を解除する'}
+              </button>
             </div>
           )}
         </div>
@@ -145,7 +184,7 @@ export const WeeklyNewsletterSection: React.FC = () => {
               <span className="text-[10px] font-mono text-emerald-400 font-bold">
                 ISSUE #48 / 配信実例（抜粋）
               </span>
-              <span className="text-[10px] font-mono text-slate-500">公的照合済</span>
+              <span className="text-[10px] font-mono text-slate-500">編集サンプル・未検証</span>
             </div>
 
             <div className="space-y-1.5">
@@ -182,3 +221,10 @@ export const WeeklyNewsletterSection: React.FC = () => {
     </section>
   );
 };
+
+function readNewsletterError(payload: unknown, fallback: string): string {
+  if (payload && typeof payload === 'object' && 'error' in payload && typeof payload.error === 'string') {
+    return payload.error.slice(0, 240);
+  }
+  return fallback;
+}

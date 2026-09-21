@@ -49,15 +49,12 @@ async function main() {
   const bundlesRes = await listR2Objects({ bucket: lakeBucket, prefix: 'bundles/', limit: 50 });
   console.log(`  - Bundles (Research Bundles): ${bundlesRes.objects.length} verified`);
 
-  // 3. Inviolability Check: EDINET Boundary
-  console.log('\n[3/4] Verifying Inviolable Boundaries (EDINET Guard)...');
-  const edinetRes = await listR2Objects({ bucket: lakeBucket, prefix: 'data-assets/financials/', limit: 10 });
-  console.log(`  - EDINET Canonical Assets: Preserved intact (${edinetRes.objects.length}+ objects verified in data-assets/financials/)`);
-  for (const e of edinetRes.objects.slice(0, 2)) {
-    console.log(`      [IMMUTABLE] ${e.key} (${e.size} bytes)`);
-  }
-  console.log('  - Mutation / Overwrite Check: PASSED (Create-Only engine strictly forbids Overwrite/Delete)');
-  console.log('  - Physical Relocation: 0 bytes moved (Zero-Divergence / Zero-Migration achieved)');
+  // 3. Boundary note. This script must not pretend that a Foundation bucket
+  // sample proves the state of the legacy Universal/EDINET area.
+  console.log('\n[3/4] Boundary note...');
+  console.log('  - EDINET / universal boundary: NOT VERIFIED by this Foundation-only sample.');
+  console.log('  - Destructive operations: application Create-Only behavior is reported by code tests, not inferred from this listing.');
+  console.log('  - Bucket Lock, Data Access Logs, backup, and restore: NOT VERIFIED here.');
 
   // 4. Audit Layer 3: Catalog & Serving Index
   console.log('\n[4/4] Auditing Layer 3: Catalog (entities-index.json)...');
@@ -74,14 +71,11 @@ async function main() {
 
 
   console.log('\n====================================================');
-  console.log('  AUDIT SUMMARY: 100% PASS - R2 MEDALLION PERFECT');
+  console.log('  AUDIT SUMMARY: STRUCTURAL SAMPLE COMPLETE');
   console.log('====================================================');
-  console.log(`- Layer 1 (Raw):     Immutable CAS blobs + descriptors verified.`);
-  console.log(`- Layer 2 (Lake):    Journal entries + bundles verified (Append-Only).`);
-  console.log(`- Layer 3 (Catalog): ${rawIndex.length} entities in sync with terminal UI.`);
-  console.log('- Inviolability:     EDINET正本領域 is 100% UNTOUCHED and fully isolated.');
-  console.log('- Cost Safety:       Under free tier (Capacity: <0.1 GB / 10 GB free limit).');
-  console.log('- Multi-Agent Guard: Right-Chat & Left-Chat can ingest concurrently without collision.\n');
+  console.log('- Layer 1/2 listing samples and local Catalog parsing completed.');
+  console.log('- This script does not prove 100% integrity, free-tier cost safety, Bucket Lock, access logs, backup, restore, or EDINET state.');
+  console.log('- Run `pnpm r2:100-year:audit` for the strict control-plane-aware verdict.\n');
 }
 
 main().catch((err) => {

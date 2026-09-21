@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
 import { spawnSync } from 'node:child_process';
+import { homedir } from 'node:os';
+import { join } from 'node:path';
 
 const KEYCHAIN_ACCOUNT = 'make-money-foundation-ingest';
+const LOGIN_KEYCHAIN = join(homedir(), 'Library', 'Keychains', 'login.keychain-db');
 const KEYCHAIN_SERVICES = {
   accountId: 'Make-Money/CloudflareR2AccountId',
   accessKeyId: 'Make-Money/CloudflareR2AccessKeyId',
@@ -12,7 +15,7 @@ const KEYCHAIN_SERVICES = {
 function readKeychain(service) {
   const result = spawnSync(
     'security',
-    ['find-generic-password', '-a', KEYCHAIN_ACCOUNT, '-s', service, '-w'],
+    ['find-generic-password', '-a', KEYCHAIN_ACCOUNT, '-s', service, '-w', LOGIN_KEYCHAIN],
     {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],

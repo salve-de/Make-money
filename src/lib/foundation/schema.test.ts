@@ -9,7 +9,7 @@ const summary = {
     counts: { claims: 0, metrics: 0, moneySignals: 0, events: 0, observations: 0, derived: 0, evidence: 0 } },
 };
 it('validates a paged response without coercing pagination or filling absent facts', () => {
-  const input = { source: 'foundation_lake', data: [summary], hasMore: false, nextCursor: null };
+  const input = { source: 'foundation_lake', data: [summary], hasMore: false, nextCursor: null, newArrivals: null };
   expect(parseFoundationPageResponse(input)?.data[0].domain).toBeNull();
   expect(() => parseFoundationPageResponse({ ...input, hasMore: 'false' })).toThrow();
   expect(() => parseFoundationPageResponse({ ...input, data: [{ ...summary, valueProfile: {} }] })).toThrow();

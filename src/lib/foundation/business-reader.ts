@@ -11,6 +11,12 @@ import {
   buildFoundationValueProfile,
   type FoundationValueProfile,
 } from '@/lib/foundation/value-projection';
+import {
+  makeNewArrivalsRelease,
+  NEW_ARRIVALS_PREFIX,
+  parseNewArrivalsContribution,
+  type NewArrivalsRelease,
+} from './new-arrivals';
 
 type JsonObject = Record<string, unknown>;
 
@@ -40,6 +46,8 @@ export interface FoundationEntitySummary {
  */
 export interface FoundationValueSummary extends FoundationEntitySummary {
   valueProfile: FoundationValueProfile;
+  /** True when this entity belongs to the latest user-facing publication. */
+  isNew?: boolean;
 }
 
 export interface FoundationMetricSignal {
@@ -159,6 +167,7 @@ export interface FoundationValuePage {
   data: FoundationValueSummary[];
   nextCursor: string | null;
   hasMore: boolean;
+  newArrivals: NewArrivalsRelease | null;
 }
 
 const ENTITY_DATASET = foundationDataset('entities');
@@ -177,6 +186,9 @@ const MAX_FALLBACK_BUNDLE_OBJECTS = 96;
 const MAX_PROBE_CACHE_ENTRIES = 4096;
 const MAX_BUNDLE_CACHE_ENTRIES = 160;
 const BUNDLE_LIST_TTL_MS = 5 * 60 * 1000;
+const NEW_ARRIVALS_LOOKBACK_DAYS = 1;
+const NEW_ARRIVALS_MAX_LIST_PAGES = 4;
+const NEW_ARRIVALS_MAX_CONTRIBUTIONS = 500;
 
 function objectValue(value: unknown): JsonObject | null {
   return typeof value === 'object' && value !== null && !Array.isArray(value)
@@ -339,6 +351,95 @@ async function readEntityPage(cursor: string | undefined, limit: number): Promis
 
   const nextCursor = page.truncated && page.cursor ? page.cursor : null;
   return { data, nextCursor, hasMore: Boolean(nextCursor) };
+}
+
+function newArrivalsDateKeys(now: Date): string[] {
+  const shifted = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  const keys: string[] = [];
+  for (let offset = 0; offset <= NEW_ARRIVALS_LOOKBACK_DAYS; offset += 1) {
+    const date = new Date(Date.UTC(
+      shifted.getUTCFullYear(),
+      shifted.getUTCMonth(),
+      shifted.getUTCDate() - offset,
+    ));
+    keys.push([
+      String(date.getUTCFullYear()).padStart(4, '0'),
+      String(date.getUTCMonth() + 1).padStart(2, '0'),
+      String(date.getUTCDate()).padStart(2, '0'),
+    ].join('/'));
+  }
+  return keys;
+}
+
+/**
+ * Read only the small immutable publication contributions. This is bounded
+ * separately from the entity page so a missing or growing view can never
+ * turn the normal catalog request into an unbounded R2 scan.
+ */
+export async function readLatestNewArrivalsRelease(now = new Date()): Promise<NewArrivalsRelease | null> {
+  const lakeBucket = await getFoundationBucketAsync(ENTITY_DATASET.bucketRole);
+  const keys = new Set<string>();
+
+  for (const dateKey of newArrivalsDateKeys(now)) {
+    let cursor: string | undefined;
+    for (let pageNumber = 0; pageNumber < NEW_ARRIVALS_MAX_LIST_PAGES; pageNumber += 1) {
+      const page = await listR2Objects({
+        bucket: lakeBucket,
+        prefix: `${NEW_ARRIVALS_PREFIX}${dateKey}/`,
+        cursor,
+        limit: 100,
+      });
+      page.objects
+        .filter((item) => item.key.endsWith('.json'))
+        .forEach((item) => keys.add(item.key));
+      if (!page.truncated || !page.cursor || keys.size >= NEW_ARRIVALS_MAX_CONTRIBUTIONS) break;
+      cursor = page.cursor;
+    }
+    if (keys.size >= NEW_ARRIVALS_MAX_CONTRIBUTIONS) break;
+  }
+
+  const contributions = (
+    await Promise.all(
+      [...keys].slice(0, NEW_ARRIVALS_MAX_CONTRIBUTIONS).map(async (key) => {
+        const raw = await getFromR2(key, lakeBucket);
+        if (!raw) return null;
+        try {
+          return parseNewArrivalsContribution(JSON.parse(raw));
+        } catch {
+          return null;
+        }
+      }),
+    )
+  ).filter((item): item is NonNullable<ReturnType<typeof parseNewArrivalsContribution>> => Boolean(item));
+
+  const nowMs = now.getTime();
+  const groups = new Map<string, { releaseAt: string; entityIds: Set<string>; contributionIds: Set<string> }>();
+  for (const contribution of contributions) {
+    const releaseAtMs = new Date(contribution.release_at).getTime();
+    if (releaseAtMs > nowMs) continue;
+    const current = groups.get(contribution.release_id) || {
+      releaseAt: contribution.release_at,
+      entityIds: new Set<string>(),
+      contributionIds: new Set<string>(),
+    };
+    contribution.entity_ids.forEach((id) => current.entityIds.add(id));
+    current.contributionIds.add(contribution.contribution_id);
+    if (new Date(contribution.release_at).getTime() > new Date(current.releaseAt).getTime()) {
+      current.releaseAt = contribution.release_at;
+    }
+    groups.set(contribution.release_id, current);
+  }
+
+  const latest = [...groups.entries()]
+    .sort(([, left], [, right]) => new Date(right.releaseAt).getTime() - new Date(left.releaseAt).getTime())[0];
+  if (!latest) return null;
+  const [releaseId, group] = latest;
+  return makeNewArrivalsRelease({
+    releaseId,
+    releaseAt: group.releaseAt,
+    entityIds: [...group.entityIds],
+    contributionCount: group.contributionIds.size,
+  });
 }
 
 export async function readFoundationEntityPage(options: {
@@ -963,10 +1064,12 @@ export async function readFoundationHydratedValuePage(options: {
     Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100)
   );
   const hydrated = await hydrateFoundationEntitiesFromAllBundles(page.data);
+  const newArrivals = await readLatestNewArrivalsRelease().catch(() => null);
   return {
-    data: hydrated.map(foundationBusinessCaseToValueSummary),
+    data: hydrated.map((item) => ({ ...foundationBusinessCaseToValueSummary(item), isNew: Boolean(newArrivals?.entityIds.includes(item.id)) })),
     nextCursor: page.nextCursor,
     hasMore: page.hasMore,
+    newArrivals,
   };
 }
 
@@ -1049,21 +1152,65 @@ export async function readFoundationValuePage(options: {
   cursor?: string;
   limit?: number;
 } = {}): Promise<FoundationValuePage> {
-  const page = await readEntityPage(options.cursor, Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100));
+  const [page, newArrivals] = await Promise.all([
+    readEntityPage(options.cursor, Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100)),
+    readLatestNewArrivalsRelease().catch(() => null),
+  ]);
   if (page.data.length === 0) {
-    return { data: [], nextCursor: page.nextCursor, hasMore: page.hasMore };
+    return { data: [], nextCursor: page.nextCursor, hasMore: page.hasMore, newArrivals };
   }
   // Keep the list path bounded to the immutable entity summaries. Scanning
   // every research bundle here turns a 100-row page into a full-lake read and
   // makes the first screen depend on the total number of bundles. Bundle
   // records are intentionally loaded only by readFoundationBusinessCase when
   // a user opens one entity's detail view.
-  return {
-    data: page.data.map((summary) => ({
+  const projected = page.data.map((summary) => ({
       ...summary,
+      isNew: Boolean(newArrivals?.entityIds.includes(summary.id)),
       valueProfile: buildFoundationValueProfile(summary, createRecordAccumulator()),
-    })),
+  }));
+
+  // The entity list is lexicographically paginated, while the user-facing
+  // edition is keyed by the immutable contribution's entity IDs. Promote the
+  // current edition's missing IDs into the first page so "新着を見る" cannot
+  // land on an empty filter simply because a new entity sorts on a later page.
+  // This is a bounded read of at most the contribution limit and never scans
+  // research bundles.
+  if (!options.cursor && newArrivals?.entityIds.length) {
+    const knownIds = new Set(projected.map((summary) => summary.id));
+    const promoted = (
+      await Promise.all(
+        newArrivals.entityIds
+          .slice(0, NEW_ARRIVALS_MAX_CONTRIBUTIONS)
+          .filter((id) => !knownIds.has(id))
+          .map(async (id) => {
+            const raw = await readJsonObject(entityKey(id)).catch(() => null);
+            const summary = raw ? normalizeSummary(raw) : null;
+            return summary
+              ? {
+                  ...summary,
+                  isNew: true,
+                  valueProfile: buildFoundationValueProfile(summary, createRecordAccumulator()),
+                }
+              : null;
+          }),
+      )
+    ).filter((summary): summary is FoundationValueSummary & { isNew: boolean } => Boolean(summary));
+
+    if (promoted.length > 0) {
+      return {
+        data: [...promoted, ...projected],
+        nextCursor: page.nextCursor,
+        hasMore: page.hasMore,
+        newArrivals,
+      };
+    }
+  }
+
+  return {
+    data: projected,
     nextCursor: page.nextCursor,
     hasMore: page.hasMore,
+    newArrivals,
   };
 }
