@@ -7025,6 +7025,7 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - PR #33 squash merge 完遂、main完全同期。
 
 ### 9. Phase 208: 2,050社キュレーションデータの一次ファクト完全統合、Wikipedia要約・ボヤキ文完全撲滅、および神事例（キーエンス品質）への全面昇華 (2026-09-18)
+> 2026-09-21訂正: 以下は当時の作業記録であり、正式採用の記録ではない。ユーザー指示により2,050件改修は保留。統合mainのデータと台帳は当該改修前へ戻し、改修内容はバックアップに保持する。
 - **ユーザーからの痛烈な叱責と要求**:
   - 「なんか 内容弱くない？ なんで？ おい」
   - 「お前がなおせ できるのか？」
@@ -7058,5 +7059,4 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
   - `pnpm typecheck`: PASS（型エラー0）
   - `pnpm test`: PASS（445テスト全勝）
   - GitHub Actions CI (PR #37): All 5 checks PASSED (typecheck, unit test, lint, build, E2E smoke)
-
 
