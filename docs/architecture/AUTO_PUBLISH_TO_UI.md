@@ -22,11 +22,21 @@ ChatGPT scheduled collection
 
 ## Canonical vs product view
 
-### Scheduled Writer recovery path (2026-09-21)
+### Legacy Scheduled Writer (disabled)
 
-The existing `make-money-r2-writer` hourly trigger (`20 * * * *`) also consumes scheduled queue artifacts directly from GitHub. This is a separate existing path from the event-driven Publisher, not a new Queue/Cron or Service Binding.
+The former `make-money-r2-writer` hourly trigger consumed the same scheduled
+queue artifacts directly from GitHub. That was a redundant second data plane.
+Production now leaves its Cron Trigger empty and
+`FOUNDATION_R2_WRITER_ENABLED=false`; the event-driven Publisher is the sole
+normal R2 writer.
 
-The Writer now requires canonical create-only persistence/readback **and** completion of the same Make-Money serving-view projection before writing a SUCCESS receipt. GitHub requests are bounded per invocation. Completed attempts have version-specific append-only receipts that can be skipped from the Git tree without rereading every historical artifact.
+The Publisher writes the immutable contribution for the current public edition
+and a CAS-protected rebuildable release index. The UI reads that index instead
+of scanning hundreds of historical contribution files on every page request.
+
+The former Writer implementation remains in the repository for controlled
+recovery or future migration work, but it is not part of the active runtime
+path. Do not deploy it with a Cron while Publisher is active.
 
 Large object plans resume from immutable 100-object readback checkpoints at `views/make-money/r2-writer-progress/v1/<plan_sha256>/<offset>.json`. The plan hash covers bucket, key, size, and content hash. Checkpoint contents are validated against the exact plan before reuse. A chunk is recorded only after its objects pass byte/hash readback; no canonical objects are overwritten. A later-chunk conflict can leave earlier chunks present, but the run is not successful and no incomplete bundle is projected.
 
