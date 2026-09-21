@@ -161,6 +161,19 @@ it('rejects additional observations rather than allowing new facts through repai
   await expect(repairMakeMoneyViewEvidence(input)).rejects.toThrow('observations');
   expect(state.writes).not.toHaveBeenCalled();
 });
+it('matches repeated observation text one-to-one without rejecting different valid evidence', async () => {
+  const input = setup();
+  const observations = [
+    {entity_ids: ['ent_example'], observation: 'Repeated report', evidence_ids: ['ev_good']},
+    {entity_ids: ['ent_example'], observation: 'Repeated report', evidence_ids: ['ev_other']},
+  ];
+  input.original = put(input.original.key, {...bundle('run_old', ['ev_good', 'ev_other', 'ev_wrong']), observations});
+  input.corrected = put(input.corrected.key, {...bundle('run_corrected', ['ev_good', 'ev_other']), observations});
+  await expect(repairMakeMoneyViewEvidence({...input, dryRun: true})).resolves.toMatchObject({status: 'DRY_RUN'});
+  input.corrected = put(input.corrected.key, {...bundle('run_corrected', ['ev_good', 'ev_other']), observations: [observations[0], observations[0]]});
+  await expect(repairMakeMoneyViewEvidence({...input, dryRun: true})).rejects.toThrow();
+  expect(state.writes).not.toHaveBeenCalled();
+});
 it('dry-run resolves every contributing bundle but writes nothing', async () => {
   const result = await repairMakeMoneyViewEvidence({...setup(), dryRun: true});
   expect(result.status).toBe('DRY_RUN');

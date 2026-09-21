@@ -7095,3 +7095,7 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Correction now targets exact original record versions, validates mandatory hashes before writes, and requires per-record evidence subsets and equivalent observations. Four regression cases cover the findings. Original/corrected projections remain rebuildable product controls, not new canonical facts.
 - Local receipt verification at 03:56:49Z read all 22 o15 IDs through the list and individual detail API with Foundation R2 source; combined with the previously verified 196 recovered IDs, 218 IDs have local-consumption proof. This does not substitute for genuine scheduled-run success or final-main verification.
 - Scope remains local main and local product. No GitHub push/PR, additional app deployment, v0, or 2,050-record curation adoption is authorized by this entry.
+
+### 2026-09-21: 同文観測のone-to-one補正と独立再review
+
+- 同一本文の観測を元レコードへone-to-oneで対応付け、旧3欠陥と同文観測回帰を解消。14 focused tests・tsc・ESLint・独立再review PASS、追加実欠陥なし。R2 write 0。
