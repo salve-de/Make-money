@@ -28,6 +28,7 @@ export interface ScheduledQueueRun extends JsonRecord {
   handoff_candidates?: unknown;
   existing_handoff_candidates?: unknown;
   recorded_items?: unknown;
+  normalized_candidates?: unknown;
   warnings?: unknown;
   errors?: unknown;
   coverage?: JsonRecord;
@@ -358,7 +359,8 @@ function attemptSucceeded(attempt: JsonRecord): boolean {
   const status = text(attempt.result) || text(attempt.status) || text(attempt.state);
   // USABLE is the structured collector's metadata-evidence outcome; it
   // does not imply that raw source bytes were fetched or persisted.
-  return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_via_search_result_after_direct_open_error']).has(status.toLowerCase())
+  return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_via_search_result_after_direct_open_error',
+    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found']).has(status.split(';')[0].trim().toLowerCase())
     : text(attempt.attempt_result) === 'USABLE';
 }
 
@@ -427,6 +429,7 @@ function parsedPair(value: unknown, fallbackType: string): { type: string; detai
 
 function observedSummary(row: JsonRecord, sourceRecord: JsonRecord | null): string {
   return firstText(sourceRecord?.short_summary) || firstText(row.Observation) || firstText(row.Claim)
+    || (row.__audit_record ? structuredText(row.Observation, 'text').join('\n') || structuredText(row.Claim, 'text').join('\n') : null)
     || structuredText(row.Evidence, 'summary').join('\n') || `Staged observation for ${rowName(row) || 'unknown subject'}`;
 }
 
@@ -609,7 +612,25 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
 
   const attempts = sourceAttemptRecords(input.source_runs);
   const sourceRecords = sourceRecordRecords(input.source_runs);
-  const rows = queueRows(queue.recorded_items).map((row) => isRecord(row.normalized)
+  const normalizedCandidates = arrayOfRecords(queue.normalized_candidates);
+  const recordedRows = queueRows(queue.recorded_items);
+  if (normalizedCandidates.length > 0 && normalizedCandidates.length !== recordedRows.length) {
+    issues.push('normalized candidate count differs from audit record count');
+  }
+  // Some collectors keep audit summaries and structured handoffs separately.
+  // Join by explicit identity, never array position or a broad source match.
+  const rows = recordedRows.map((row) => {
+    if (normalizedCandidates.length === 0) return row;
+    const recordId = text(row.record_id_if_assigned);
+    const matches = normalizedCandidates.filter((candidate) => recordId
+      ? text(candidate.source_entity_id) === recordId
+      : rowName(candidate) === rowName(row));
+    if (matches.length !== 1) {
+      issues.push(`${rowName(row) || recordId || 'queue row'} has ${matches.length} normalized candidate matches`);
+      return row;
+    }
+    return { ...matches[0], __audit_record: row };
+  }).map((row) => isRecord(row.normalized)
     ? { ...row.normalized, ...row, source_entity_id: row.source_entity_id || (isRecord(row.source_run_ref) ? row.source_run_ref.entity_id : undefined) }
     : row);
   if (rows.length === 0) issues.push('queue recorded_items contains no rows');
@@ -746,7 +767,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     const verification = rowQuality.verification_status;
     const confidence = rowQuality.confidence;
     const origin = verification === 'SUPPORTED' ? 'reported' : 'unknown';
-    const claimText = firstText(row.Claim);
+    const claimText = firstText(row.Claim) || (row.__audit_record ? structuredText(row.Claim, 'text').join('\n') : null);
     if (claimText) {
       const claimId = await id('cl_', `${runId}|claim|${index}|${claimText}`, 24);
       if (!seen.claims.has(claimId)) {

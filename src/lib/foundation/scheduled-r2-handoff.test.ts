@@ -3,6 +3,28 @@ import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError } f
 
 const evidenceId = 'ev_1234567890abcdef12345678';
 
+it('joins separate normalized candidates by ID instead of treating audit summaries as handoffs', async () => {
+  const candidate = { source_entity_id: 'queue_example', state: 'VALIDATED_FOR_R2_HANDOFF',
+    Entity: [{ name: 'Example Company' }], Source: [{ url: 'https://example.com/report' }],
+    Evidence: [{ id: 'ev_local_01', summary: 'Company announcement.' }],
+    Claim: [{ text: 'Financing announced but not closed.' }],
+    Observation: [{ text: 'Closing remains pending.' }], quality: { verification_status: 'UNVERIFIED' } };
+  const input = { queue: { schema_version: 'r2-queue-run.v1', run_id: 'run_separate',
+    finished_at: '2026-09-21T03:00:00Z',
+    recorded_items: [{ record_id_if_assigned: 'queue_example', subject_or_entity_id: 'Example Company', short_summary: 'Audit only' }],
+    normalized_candidates: [candidate] },
+    source_runs: [{ source_attempts: [{ url: 'https://example.com/report', result: 'SUCCESS' }] }] };
+  const result = await materializeScheduledR2Handoff(input);
+  expect(result.included_items).toBe(1);
+  expect(result.evidence_count).toBe(1);
+  expect(result.bundle.claims).toEqual(expect.arrayContaining([expect.objectContaining({ statement: 'Financing announced but not closed.', verification_status: 'UNVERIFIED' })]));
+  expect(result.bundle.observations).toEqual(expect.arrayContaining([expect.objectContaining({ text: 'Closing remains pending.' })]));
+  const secondary = await materializeScheduledR2Handoff({ ...input, source_runs: [{ source_attempts: [{ url: 'https://example.com/report', result: 'SUCCESS_SECONDARY; primary source unavailable' }] }] });
+  expect(secondary.bundle.claims).toEqual(expect.arrayContaining([expect.objectContaining({ verification_status: 'UNVERIFIED' })]));
+  await expect(materializeScheduledR2Handoff({ ...input, source_runs: [] })).rejects.toThrow('no successful source locator');
+  await expect(materializeScheduledR2Handoff({ ...input, queue: { ...input.queue, normalized_candidates: [candidate, candidate] } })).rejects.toThrow('2 normalized candidate matches');
+});
+
 it('materializes validated queue rows into a source-backed research bundle', async () => {
   const result = await materializeScheduledR2Handoff({
     queue: {

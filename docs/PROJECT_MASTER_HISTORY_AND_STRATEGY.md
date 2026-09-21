@@ -1,5 +1,12 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+## 2026-09-21 R2 scheduled q36 handoff repair
+
+- 12:20 actual Writer v15 run skipped q36 because audit summaries were read instead of separate normalized candidates. Corrected explicit-ID joining and preserved secondary/conflicted provenance; no invented facts or immutable overwrites.
+- q36 manual recovery verified 25 entities / 152 new canonical objects by bytes and SHA-256; all 25 serving views projected. Local consumer confirmation is coordinated separately.
+- Existing Writer v16 deployment f6cded2a-d936-4891-b1a6-34a74233320e retains hourly minute-20 trigger. 28 focused tests, typecheck and dry-run passed. No additional public app deployment, billing change, or cron.
+- Not full completion: real v16 scheduled success, q32 append-only correction, and historical queue reconciliation remain open.
+
 ## 2026-09-17 【確定】全3,341社 個別校閲台帳の創設・タグライン純化・UI最適化（Phase 206）
 
 ### 1. ユーザー指示と統合意図（User Direct Command & Integration Intent）
