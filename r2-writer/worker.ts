@@ -2,6 +2,7 @@ import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError, ty
 import { auditCorrectionTarget, validateAuditCorrection } from '../src/lib/foundation/queue-audit-correction';
 import { sha256Sync } from '../src/shared/sha256';
 import { validateEvidenceLinkCorrection } from '../src/lib/foundation/evidence-link-correction';
+import { assertEvidenceOnlyEntityHistory } from '../src/lib/foundation/immutable-entity-history';
 import { validateResearchBundle } from '../src/lib/foundation/ingest';
 import { withCloudflareRuntimeEnv } from '../src/lib/runtime/cloudflare';
 import { materializeMakeMoneyViews } from '../src/lib/foundation/make-money-view';
@@ -628,6 +629,55 @@ async function persistBundle(
         }
       : null,
   };
+}
+
+/** Operator-only history recovery; normal writer conflict rejection is unchanged. */
+export async function persistEntityEvidenceHistory(input: {
+  bundle: JsonRecord; preservedCores: Array<{ entityId: string; sha256: string }>;
+}, env: WriterEnv) {
+  validateResearchBundle(input.bundle);
+  const pins = new Map(input.preservedCores.map(pin => [pin.entityId, pin.sha256]));
+  if (!pins.size || pins.size !== input.preservedCores.length || [...pins.values()].some(hash => !/^[a-f0-9]{64}$/.test(hash))) {
+    throw new Error('Explicit unique immutable core hashes required');
+  }
+  const preserved: JsonRecord[] = [];
+  const entities = typedObjects(input.bundle, env).filter(item => item.role === 'entity');
+  for (const entity of entities) {
+    const incoming = entity.payload as JsonRecord;
+    const id = String(incoming.entity_id);
+    const stored = await entity.bucket.get(entity.key);
+    if (!stored) {
+      if (pins.has(id)) throw new Error('Pinned immutable core missing');
+      continue;
+    }
+    const bytes = await readBytes(stored);
+    const hash = await sha256Hex(bytes);
+    const value: unknown = JSON.parse(new TextDecoder().decode(bytes));
+    if (!record(value)) throw new Error('Invalid immutable entity core');
+    assertEvidenceOnlyEntityHistory(value, incoming);
+    const changed = JSON.stringify(value.evidence_ids) !== JSON.stringify(incoming.evidence_ids);
+    if (changed && !pins.has(id)) throw new Error('Unreviewed immutable evidence conflict');
+    if (pins.has(id) && pins.get(id) !== hash) throw new Error('Pinned immutable core hash mismatch');
+    if (pins.has(id)) {
+      pins.delete(id);
+      preserved.push({ entity_id: id, key: entity.key, sha256: hash, bytes: bytes.byteLength,
+        mode: 'IMMUTABLE_CORE_RETAINED', incoming_evidence_ids: incoming.evidence_ids,
+        stored_evidence_ids: value.evidence_ids });
+    }
+  }
+  if (pins.size) throw new Error('Pinned entity absent from history bundle');
+  // The complete incoming observation survives in registered run-bundle and
+  // Journal keys. Do not write any fixed typed entity/record key here.
+  const candidates = [...typedObjects(input.bundle, env).filter(item => item.role === 'research_bundle'),
+    ...journalObjects(input.bundle, env)];
+  const objects: PlannedObject[] = [];
+  for (const candidate of candidates) objects.push({ ...candidate, ...await bodyFromJson(candidate.payload) });
+  const written = await preflightAndWrite(objects);
+  return { mode: 'manual_bundle_journal_history_only', typed_objects_written: 0,
+    planned: objects.length, created: written.results.filter(row => row.status === 'CREATED').length,
+    exists_identical: written.results.filter(row => row.status === 'EXISTS_IDENTICAL').length,
+    readback_verified: written.readback_verified, preserved_immutable_cores: preserved,
+    objects: written.results, provider_calls: written.provider_calls };
 }
 
 /** Append a verified evidence-only correction; never rewrite typed seed objects. */

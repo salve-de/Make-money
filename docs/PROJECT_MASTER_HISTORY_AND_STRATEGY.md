@@ -7099,3 +7099,9 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 ### 2026-09-21: 同文観測のone-to-one補正と独立再review
 
 - 同一本文の観測を元レコードへone-to-oneで対応付け、旧3欠陥と同文観測回帰を解消。14 focused tests・tsc・ESLint・独立再review PASS、追加実欠陥なし。R2 write 0。
+
+### 2026-09-21: Evidence-only immutable core history recovery
+
+- Added an operator-only hash-pinned history recovery; normal scheduled `persistBundle` conflict rejection is unchanged. Every existing core must have identical identity and business attributes, with evidence_ids the only permitted difference. Each differing core requires an explicit SHA pin.
+- Writes only the existing registered run research-bundle and Journal objects with create-only/readback. Fixed typed entity and record keys are not written; receipts explicitly distinguish preserved core objects from byte-identical candidates. No invented entity IDs, overwritten originals, new buckets or prefixes.
+- Four tests cover immutable seed preservation, wrong-hash and changed-fact refusal before PUT, registered write roles and idempotence. Typecheck and focused ESLint pass. k11 created 181 bundle/Journal objects with 181 matching readbacks; its serving projection/local acceptance remain independently required.
