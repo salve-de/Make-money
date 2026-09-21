@@ -17,6 +17,9 @@ export async function readReleaseDiscovery(): Promise<DiscoveryDataset> {
 }
 
 export async function usesCatalogRelease(): Promise<boolean> {
+  // next dev installs an emulated Cloudflare context with the production vars.
+  // Local editing must still read the working-tree JSON, not private remote R2.
+  if (process.env.NODE_ENV === 'development') return false;
   const env = await getCloudflareRuntimeEnv();
   return env?.ENVIRONMENT === 'production';
 }
