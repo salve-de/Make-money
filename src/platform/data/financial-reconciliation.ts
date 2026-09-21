@@ -1,4 +1,5 @@
 import type { DynamicEvidenceCard, FinancialEntity, ProfitAndLossStatement } from '@/shared/terminal';
+import { reconcileFinancialEvidence } from '@/shared/financial-integrity';
 
 /** Primary-source readback on 2026-09-11. Original monetary claims remain in SOURCE_INSTITUTIONAL_ENTITIES. */
 export const FINANCIAL_RECONCILIATIONS: Record<string, {
@@ -129,7 +130,7 @@ export function omitUnreviewedFinancialClaims<T>(value: T): T {
 
 export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEntity {
   const source = FINANCIAL_RECONCILIATIONS[entity.name];
-  if (!source) return entity;
+  if (!source) return reconcileFinancialEvidence(entity);
   // Numeric slots remain for the legacy contract, but no unknown amount is published as a measured zero.
   const pnl: ProfitAndLossStatement = {
     monthlyRevenue: 0, cogs: 0, grossProfit: 0, grossMargin: 0,
@@ -143,7 +144,7 @@ export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEnti
     dataSnapshotPeriod: source.period,
     sourceDoc: source.url,
   };
-  return {
+  return reconcileFinancialEvidence({
     ...entity, pnl, verifiedBadge: false, tagline: source.finding,
     growthRateYoY: 0, isGrowthUnconfirmed: true,
     strategy: omitUnreviewedFinancialClaims(entity.strategy),
@@ -188,5 +189,5 @@ export function reconcileFinancialEntity(entity: FinancialEntity): FinancialEnti
       ...(entity.observationsStream || []),
     ],
     unknownsNotes: [source.limitation, '旧財務数値と旧Evidenceは元レコードに保全。再照合していない金額を実績として配信しない。'],
-  };
+  });
 }
