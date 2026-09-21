@@ -7066,3 +7066,10 @@ CI Run 34752768526 は 5 ジョブ All Green で通過したものの、ChatGPT 
 - Manually recovered 171 staged candidates across seven runs; 1,650 canonical objects passed byte/hash readback and seven view projections completed. API inventory matched 167 IDs. Four missing rows exposed funding-as-revenue misclassification; local adapter correction passes the unchanged evidence gate while leaving sales unknown.
 - Focused validation: 53 tests passed, implementation ESLint passed, typecheck passed before final handoff. No canonical overwrite/delete, EDINET mutation, added Cloudflare Cron, or billing change.
 - Not complete: real v15 scheduled success, final local UI integration, and q32's historical evidence over-link correction remain. See `R2_REPAIR_STATUS_20260921.md`; manual recovery is not scheduled-success evidence.
+
+### 2026-09-21: Local main consumer verification after PR #46
+
+- Main `88532eb` contains the accepted product integration. Root main is clean and matches origin/main; PR #46 lint, typecheck, unit, build and E2E checks succeeded before normal merge.
+- Rechecked all 171 recovered entity IDs in the local list and individually in the detail API: all returned Foundation R2 data, zero failed. Browser verified the actual Amy's Kitchen closure observation and execution workspace.
+- Added a repeatable, read-only receipt-to-local verifier with seven regression cases. Original accepted JSON SHA-256 remains `5b9ecc23f47150534032b4bc1d8a6651938c0d2a978e55b871c36597b1c1ebd4`.
+- The 12:20 writer run was observed but did not save q36: 20 candidates were skipped due to an unsupported handoff/evidence layout. Scheduled-success proof and the historical evidence-link correction remain active R2-task work, not waived completion criteria. No extra app deployment, billing change, v0 activation or 2,050-record revision.
