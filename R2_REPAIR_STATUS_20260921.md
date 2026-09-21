@@ -1,8 +1,26 @@
 # R2 handoff repair - 2026-09-21 JST
 
-Not complete. Do not equate deployment/materialization with persistence.
+Status: q39 scheduled storage and 25-item API arrival are proven; UI acceptance and main integration remain with the coordinating task. Do not equate local parser verification with deployment.
 
-## 15:15 JST — local677 acceptance complete; scheduled proof remains
+## Latest confirmed state — q39 and local parser handoff
+
+- The existing scheduled Writer saved q39: `run_r2queue_20260921T060537Z_q39`. The scheduled receipt/readback evidence is retained under `/private/tmp/r2-live-audit.mfgRor/q39.scheduled-receipt.json` and `/private/tmp/r2-live-audit.mfgRor/q39.scheduled-readback.json`; no manual q39 PUT was performed.
+- The 25 q39 entities reached the local Foundation API. UI acceptance for those 25 and integration into main are still pending with coordinating task `01a0c092-3996-7bb0-8261-266be038a37a`.
+- Shared helper commit `6a3330bb417ea09fe84391714e1272086af67a05` and parser/wiring commit `5d4cb009963ab715419f0e200aaa9506c5cb47aa` passed targeted Vitest (4 files / 41 tests), ESLint, and `tsc --noEmit --incremental false` locally. These commits are not deployed or pushed by this task.
+- Fixed40 scope is unchanged: 31 saved business runs, 677 distinct IDs, 9 remaining artifacts classified as normalization3 / evidence-mapping1 / subject-identity1 / incomplete-original2 / audit-only2, and 19 named `NEEDS_RESEARCH` holds.
+- Canonical R2 originals remain unchanged. No deletion, overwrite, new Cron, billing change, production app deployment, GitHub push, or new collection scope was performed.
+
+The time-stamped sections below are historical observations. In particular, “next 15:20 pending” describes the state at that time and is not the current q39 status.
+
+## History — 15:30 JST — actual scheduled arrival proven; q39 name quality remained
+
+- Actual hourly:20 v19 event logged06:23:07.626Z, outcomeok/cron20*, applicationPARTIAL due knowna1/b2/c3 skips; q39 and historicald4 processed. q39 receipt06:23:01.125Z SUCCESS,25entities/25evidence,102CREATED/0identical/102readbacks,25newviewscomplete. No manual q39 PUT.
+- Independent GET-only readback06:25:43.966Z verified all102 object bytes/SHA against receipt and fetched25 views. Canonical bundleSHA408cc220adb06f697d9703da487c441df297ed1544118ddd05f74a3f1ff949dc/150183bytes. Privateq39.scheduled-receipt.json, q39.scheduled-ids.json, q39.scheduled-readback.json andscheduled-v19.jsonl.
+- Parent local25 API PASS06:26:55.468Z (7listpages/25details/failed0/strictFoundation), no overlap with677→702distinct IDs. This proves automatic storage and API arrival, NOT correct names/UI completion.
+- Independent representativeUI exposed all25 q39 canonical_name values are upstream internal IDs despite explicit normalized.Entity.id/name in source. q39.name-diagnosis.json maps all25; example sourceent_company_c2e9ba83a0ae5808c355 named ECA Texas multifamily portfolio / Elowen Capital became storedent_company_0abb9196ea4d33196d0f with sourceID as name. Current localmaterialize hash exactly matches actual stored bundle: parser priority, not later source change.
+- Structured Claim arrays in normalized wrappers also produce0 typed claims because object extraction is gated on __audit_record; other structured types are still in preserved row snapshots, not erased. Exact source data remains inobservations. Name repair and any structured-field scope are under parent coordination; no q39 original overwrite/new manual correction yet. Do NOT end heartbeat or claim full UI completion until this quality issue is handled.
+
+## History — 15:15 JST — local677 acceptance complete; scheduled proof remained
 
 - Parent additional50 API PASS at06:12:39.745Z:3list pages/50details/failed[], strict Foundation source. No overlap with previous627: total677distinct IDs accepted. Representative l12Pallet andm13ConradKacsik both rendered local detail→actual execute-link click→six steps/FIND...EARN. Not677 individually inspected screens.
 - No recovery batch remains running. v19 is live; next15:20 genuine scheduled new-candidate R2/API/UI proof is the remaining operational acceptance. Source/identity/research holds are explicitly retained and not promoted to complete data.
@@ -138,12 +156,9 @@ Not complete. Do not equate deployment/materialization with persistence.
 - 41 writer/runtime tests plus 12 adapter tests passed. tsc --noEmit --incremental false, git diff --check and Wrangler deployment passed before handoff; re-run after integration.
 - Read-only GitHub connector fetch_file works while gh CLI repository API calls currently fail. Private candidate reads were explicitly authorized. Real-data audit inputs are in /private/tmp/r2-live-audit.mfgRor; do not commit them.
 
-## Still required
+## Current remaining boundary
 
-- Verify v15's real scheduled receipts, R2 byte/hash readback, API and local rendered UI for exact candidates. 12:20 JST observation pending. Local site consumption is the agreed integration target; public app publication is not required by the coordinating task.
-- R2 internal-service subrequest limits are separate from external GitHub calls. Chunked continuation is locally verified, but its scheduled production outcome remains unverified.
-- Other historical queue formats/research holds remain. Earlier q32 had excessive evidence associations; repairing the reader does not correct existing stored records. Preserve immutable originals and account for correction explicitly.
-- q32 readback matched its original receipt (1,687,274 bytes; SHA-256 656413b1fd19f49101b9aa1161aec2e80e96a70ef12c13a60e80e036dd3424c4). Correct materialization has 54 evidence records, not 1,350. Existing entities/claims/metrics/money/events/relationships differ only in evidence_ids. Originals remain unchanged; no q32 data repair is claimed.
-- This candidate is prepared for a local integration commit. It is not yet integrated/pushed to main. Original checkout has concurrent work and must not be overwritten. The root's read-only audit script was copied here for tracking without deleting its original.
-- No credential values may be printed. When inspecting tail output, emit only scheduled-event status/logs; omit HTTP request headers and client metadata.
-- Structured evidence metadata was stored; this does not prove original HTML/PDF content was archived. UI's generic raw-CAS badge must not be treated as proof.
+- q39 scheduled R2 persistence and 25-item API arrival are complete evidence. The remaining acceptance is the coordinating task's UI check and main integration; this task does not claim either.
+- Fixed40's 677 IDs, nine classified artifacts, and nineteen research holds remain the fixed acceptance scope. No new queue or candidate scope is being added.
+- q32 and other historical research/evidence holds remain separately accounted for. Repairing the reader does not rewrite existing stored records; canonical originals and prior hashes remain unchanged.
+- The local helper/parser commits are ready for parent integration but are not deployed or pushed. No credential values may be printed, and raw HTML/PDF preservation must not be inferred from metadata-only evidence.
