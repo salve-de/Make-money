@@ -1218,6 +1218,13 @@ export async function mapServingReads<T, R>(items: readonly T[], read: (item: T)
   return results;
 }
 
+export function selectNewArrivalPromotionIds(
+  entityIds: readonly string[],
+  knownIds: ReadonlySet<string>,
+): string[] {
+  return entityIds.filter((id) => !knownIds.has(id)).slice(0, MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE);
+}
+
 export async function readMakeMoneyValuePage(options: {
   cursor?: string;
   limit?: number;
@@ -1242,8 +1249,7 @@ export async function readMakeMoneyValuePage(options: {
   const newArrivals = await readLatestNewArrivalsRelease().catch(() => null);
   if (!options.cursor && newArrivals) {
     const known = new Set(data.map((item) => item.id));
-    const promoted = await mapServingReads(newArrivals.entityIds.slice(0, MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE)
-      .filter((id) => !known.has(id)),
+    const promoted = await mapServingReads(selectNewArrivalPromotionIds(newArrivals.entityIds, known),
       async (id) => {
         const detail = await readMakeMoneyViewDetail(id).catch(() => null);
         if (detail) return foundationBusinessCaseToValueSummary(detail);

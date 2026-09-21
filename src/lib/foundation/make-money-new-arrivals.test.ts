@@ -13,7 +13,7 @@ vi.mock('@/lib/storage/r2', () => ({
   getFromR2: vi.fn(), putR2MutableView: vi.fn(),
   R2ViewConcurrentModificationError: class extends Error {},
 }));
-import { readMakeMoneyValuePage } from './make-money-view';
+import { readMakeMoneyValuePage, selectNewArrivalPromotionIds } from './make-money-view';
 
 describe('edition before product-view projection', () => {
   it('keeps canonical new arrivals visible while their product views are pending', async () => {
@@ -54,5 +54,12 @@ describe('edition before product-view projection', () => {
 
     expect(page.data).toHaveLength(25);
     expect(state.entity).toHaveBeenCalledTimes(25);
+  });
+
+  it('filters known arrivals before applying the promotion cap', () => {
+    const known = new Set(Array.from({ length: 25 }, (_, index) => `ent_known_${index}`));
+    const entityIds = [...known, 'ent_unprojected_25'];
+
+    expect(selectNewArrivalPromotionIds(entityIds, known)).toEqual(['ent_unprojected_25']);
   });
 });
