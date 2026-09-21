@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import type { FoundationBusinessCase } from './business-reader';
-import { mapServingReads, mergeFoundationBusinessCasesForView } from './make-money-view';
+import {
+  mapServingReads,
+  mergeFoundationBusinessCasesForView,
+  projectionRetryMatchesCanonical,
+} from './make-money-view';
 
 describe('bounded serving-view reads', () => {
   it('reads every row in order with at most eight remote reads in flight', async () => {
@@ -17,6 +21,27 @@ describe('bounded serving-view reads', () => {
   it('does not hide read failures or invent empty rows', async () => {
     await expect(mapServingReads([1], async () => { throw new Error('R2 unavailable'); })).rejects.toThrow('R2 unavailable');
     expect(await mapServingReads([], async v => v)).toEqual([]);
+  });
+});
+
+describe('immutable projection retry compatibility', () => {
+  it('accepts omitted versus explicit null optional object fields', () => {
+    const canonical = `${JSON.stringify({
+      run_id: 'run_same',
+      money_signals: [{ amount: 10, currency: 'USD' }],
+    })}\n`;
+    const retry = {
+      run_id: 'run_same',
+      money_signals: [{ amount: 10, currency: 'USD', amount_label: null }],
+    };
+
+    expect(projectionRetryMatchesCanonical(canonical, retry)).toBe(true);
+  });
+
+  it('rejects a changed non-null fact', () => {
+    const canonical = `${JSON.stringify({ run_id: 'run_same', amount: 10 })}\n`;
+
+    expect(projectionRetryMatchesCanonical(canonical, { run_id: 'run_same', amount: 11 })).toBe(false);
   });
 });
 

@@ -17,6 +17,7 @@ import {
   parseNewArrivalsContribution,
   type NewArrivalsRelease,
 } from './new-arrivals';
+import { readIndexedNewArrivalsRelease } from './new-arrivals-index';
 import { sha256Sync } from '@/shared/sha256';
 import {
   extractScheduledExplicitFields,
@@ -388,6 +389,12 @@ function newArrivalsDateKeys(now: Date): string[] {
  * turn the normal catalog request into an unbounded R2 scan.
  */
 export async function readLatestNewArrivalsRelease(now = new Date()): Promise<NewArrivalsRelease | null> {
+  // The normal path is one small rebuildable index read. The contribution
+  // scan below remains only as a migration fallback for history written before
+  // the index existed.
+  const indexed = await readIndexedNewArrivalsRelease(now).catch(() => null);
+  if (indexed) return indexed;
+
   const lakeBucket = await getFoundationBucketAsync(ENTITY_DATASET.bucketRole);
   const keys = new Set<string>();
 

@@ -18,6 +18,11 @@ describe('catalog paging and search', () => {
     expect(last.nextOffset).toBeNull();
     expect(new Set([...first.data, ...second.data, ...last.data].map((row: FinancialEntity) => row.id)).size).toBe(205);
   });
+  it('accepts a smaller client page size for bounded browser responses', async () => {
+    const result = await (await GET(new Request('http://localhost/api/catalog?pageSize=25'))).json();
+    expect(result.data).toHaveLength(25);
+    expect(result.nextOffset).toBe(25);
+  });
   it('searches outside the initial page', async () => {
     const result = await (await GET(new Request('http://localhost/api/catalog?q=Company%20204'))).json();
     expect(result.data.map((row: FinancialEntity) => row.id)).toEqual(['ent_204']);

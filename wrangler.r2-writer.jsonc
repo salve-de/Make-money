@@ -5,13 +5,13 @@
   "compatibility_date": "2026-09-10",
   "compatibility_flags": ["nodejs_compat"],
   "triggers": {
-    "crons": ["20 * * * *"]
+    "crons": []
   },
   "vars": {
     "FOUNDATION_GITHUB_REPO": "salve-de/universal-foundation",
     "FOUNDATION_GITHUB_BRANCH": "automation-research",
     "FOUNDATION_R2_WRITER_ENABLED": "false",
-    "FOUNDATION_R2_WRITER_VERSION": "r2-writer.v19"
+    "FOUNDATION_R2_WRITER_VERSION": "r2-writer.v20"
   },
   "r2_buckets": [
     { "binding": "FOUNDATION_R2_RAW", "bucket_name": "foundation-raw", "remote": true },

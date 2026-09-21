@@ -26,19 +26,40 @@ export function useCuratedCatalog(initial: FinancialEntity[], query: string, fil
     const controller = new AbortController();
     active.current = controller;
     setLoading(true);
-    const params = new URLSearchParams({ offset: String(offset), q: query });
+    // Keep each response comfortably below Worker/browser response limits. The
+    // full catalog remains reachable through repeated cursor pages.
+    const params = new URLSearchParams({ offset: String(offset), pageSize: '10', q: query });
     if (filters) params.set('filters', filters);
     if (offset > 0 && generation) params.set('generation', generation);
     try {
-      const response = await fetch(`/api/catalog?${params}`, { signal: controller.signal });
-      if (response.status === 409) throw new Error('台帳が更新されました。画面を再読み込みしてください');
-      if (!response.ok) throw new Error(`台帳の取得に失敗しました（HTTP ${response.status}）。再読み込みしてください`);
-      const payload = await response.json() as {
+      let payload: {
         data: unknown;
         generation: string;
         nextOffset: number | null;
         total: number;
-      };
+      } | null = null;
+      let lastError: unknown = null;
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          const response = await fetch(`/api/catalog?${params}`, { signal: controller.signal });
+          if (response.status === 409) throw new Error('台帳が更新されました。画面を再読み込みしてください');
+          if (!response.ok) throw new Error(`台帳の取得に失敗しました（HTTP ${response.status}）。再読み込みしてください`);
+          payload = await response.json() as {
+            data: unknown;
+            generation: string;
+            nextOffset: number | null;
+            total: number;
+          };
+          break;
+        } catch (cause) {
+          lastError = cause;
+          if (attempt === 1 || controller.signal.aborted || (cause instanceof Error && cause.message.includes('台帳が更新されました'))) {
+            throw cause;
+          }
+          await new Promise<void>((resolve) => window.setTimeout(resolve, 250));
+        }
+      }
+      if (!payload) throw lastError instanceof Error ? lastError : new Error('Invalid catalog page');
       const data = parseFinancialEntities(payload.data);
       if (
         typeof payload.generation !== 'string' ||

@@ -306,12 +306,25 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
     foundationLoadingRef.current = true;
     setFoundationLoading(true);
     try {
-      const params = new URLSearchParams({ limit: '100', foundationOnly: 'true' });
+      const params = new URLSearchParams({ limit: '25', foundationOnly: 'true' });
       if (requestQuery.trim()) params.set('q', requestQuery.trim());
       if (effectiveCursor) params.set('cursor', effectiveCursor);
-      const res = await fetch(`/api/businesses?${params.toString()}`, { signal });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const payload: unknown = await res.json();
+      let payload: unknown;
+      let lastError: unknown = null;
+      for (let attempt = 0; attempt < 2; attempt += 1) {
+        try {
+          const requestSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(15_000)]) : AbortSignal.timeout(15_000);
+          const res = await fetch(`/api/businesses?${params.toString()}`, { signal: requestSignal });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          payload = await res.json();
+          break;
+        } catch (cause) {
+          lastError = cause;
+          if (attempt === 1 || signal?.aborted) throw cause;
+          await new Promise<void>((resolve) => window.setTimeout(resolve, 350));
+        }
+      }
+      if (payload === undefined) throw lastError instanceof Error ? lastError : new Error('Invalid Foundation page');
       const source = payload && typeof payload === 'object' && !Array.isArray(payload) && typeof (payload as { source?: unknown }).source === 'string'
         ? (payload as { source: string }).source
         : undefined;
