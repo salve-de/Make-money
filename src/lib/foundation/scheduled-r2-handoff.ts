@@ -30,6 +30,7 @@ export interface ScheduledQueueRun extends JsonRecord {
   existing_handoff_candidates?: unknown;
   recorded_items?: unknown;
   normalized_candidates?: unknown;
+  normalized_records?: unknown;
   warnings?: unknown;
   errors?: unknown;
   coverage?: JsonRecord;
@@ -534,6 +535,198 @@ function directHandoffBundles(queue: ScheduledQueueRun): { bundle: JsonRecord; c
   });
 }
 
+interface NormalizedReferenceJoin {
+  rows: JsonRecord[];
+  attempts: JsonRecord[];
+}
+
+function referenceNumber(value: unknown): number | null {
+  return Number.isSafeInteger(value) && Number(value) > 0 ? Number(value) : null;
+}
+
+function referenceDateTime(value: unknown): string | null {
+  if (isDateTime(value)) return value;
+  return isDateOnly(value) ? `${value}T00:00:00.000Z` : null;
+}
+
+/**
+ * Newer scheduled runs keep one typed table per record kind and join them by
+ * Entity.ref / Evidence.ref. Reconstruct per-entity rows only from exact refs;
+ * never infer a join from array position, name similarity, or aliases.
+ */
+function joinNormalizedReferenceRecords(queue: ScheduledQueueRun, issues: string[]): NormalizedReferenceJoin | null {
+  if (!isRecord(queue.normalized_records)) return null;
+  const normalized = queue.normalized_records;
+  const entities = arrayOfRecords(normalized.Entity);
+  const evidence = arrayOfRecords(normalized.Evidence);
+  const sources = arrayOfRecords(normalized.Source);
+  const recordedRows = queueRows(queue.recorded_items);
+  if (entities.length === 0 || evidence.length === 0 || sources.length === 0 || recordedRows.length === 0) {
+    issues.push('normalized reference tables are incomplete');
+    return { rows: [], attempts: [] };
+  }
+
+  const entityById = new Map<string, JsonRecord>();
+  const entityByRef = new Map<number, JsonRecord>();
+  for (const entity of entities) {
+    const entityId = text(entity.entity_id);
+    const ref = referenceNumber(entity.ref);
+    if (!entityId || !isScheduledEntityId(entityId) || !ref || entityById.has(entityId) || entityByRef.has(ref)) {
+      issues.push('normalized Entity IDs or refs are missing, invalid, or duplicated');
+      return { rows: [], attempts: [] };
+    }
+    entityById.set(entityId, entity);
+    entityByRef.set(ref, entity);
+  }
+
+  const sourceByRef = new Map<number, JsonRecord>();
+  for (const source of sources) {
+    const ref = referenceNumber(source.ref);
+    const sourceId = text(source.source_id);
+    if (!ref || !sourceId || sourceByRef.has(ref)) {
+      issues.push('normalized Source refs or IDs are missing or duplicated');
+      return { rows: [], attempts: [] };
+    }
+    sourceByRef.set(ref, source);
+  }
+
+  const evidenceByRef = new Map<number, JsonRecord>();
+  const evidenceById = new Map<string, JsonRecord>();
+  const attempts: JsonRecord[] = [];
+  for (const item of evidence) {
+    const ref = referenceNumber(item.ref);
+    const evidenceId = text(item.evidence_id);
+    const sourceId = text(item.source_id);
+    const source = ref ? sourceByRef.get(ref) : null;
+    const locator = text(item.source_url) || text(source?.canonical_url);
+    if (!ref || !evidenceId || !/^ev_[a-f0-9]{24}$/.test(evidenceId) || evidenceByRef.has(ref)
+      || evidenceById.has(evidenceId) || !source || !sourceId || text(source.source_id) !== sourceId || !locator
+      || (text(source.canonical_url) && text(item.source_url) && text(source.canonical_url) !== text(item.source_url))) {
+      issues.push('normalized Evidence refs, IDs, or Source joins are missing, invalid, or duplicated');
+      return { rows: [], attempts: [] };
+    }
+    evidenceByRef.set(ref, item);
+    evidenceById.set(evidenceId, item);
+    attempts.push({
+      url: locator,
+      result: 'success_metadata_extract',
+      rights_state: text(item.rights_status) || text(source.rights_status) || 'metadata_only',
+      retrieved_at_or_attempted_at: referenceDateTime(item.retrieved_at) || item.retrieved_at,
+      evidence_ids_if_any: [evidenceId],
+      provider_name: source.provider_name,
+      source_type: source.source_type,
+      source_title: item.source_title,
+      publisher_or_speaker: item.publisher_or_speaker,
+      published_at: item.published_at,
+      source_strength: item.source_strength || source.source_strength,
+      rights_policy_id: source.rights_policy_id,
+      access_notes: source.access_notes,
+      summary: item.summary,
+      raw_storage_status: item.raw_storage_status,
+    });
+  }
+
+  const typedNames = ['Claim', 'Metric', 'MoneySignal', 'Event', 'Relationship', 'Observation', 'Derived'] as const;
+  const typed = Object.fromEntries(typedNames.map((name) => [name, arrayOfRecords(normalized[name])])) as Record<typeof typedNames[number], JsonRecord[]>;
+  const qualityRows = arrayOfRecords(normalized.quality);
+  const withEvidence = (item: JsonRecord, field: string): JsonRecord | null => {
+    const evidenceRef = referenceNumber(item.evidence_ref);
+    if (!evidenceRef) {
+      issues.push(`normalized ${field} has no valid evidence_ref`);
+      return null;
+    }
+    const matched = evidenceByRef.get(evidenceRef);
+    const evidenceId = matched ? text(matched.evidence_id) : null;
+    if (!evidenceId) {
+      issues.push(`normalized ${field} references unknown Evidence.ref ${String(evidenceRef)}`);
+      return null;
+    }
+    const rawPointInTime = text(item.point_in_time);
+    const pointInTime = referenceDateTime(item.point_in_time);
+    const rawOccurredAt = text(item.occurred_at);
+    const occurredAt = referenceDateTime(item.occurred_at) || referenceDateTime(firstText(item.temporal_scope)?.match(/\b\d{4}-\d{2}-\d{2}\b/)?.[0]);
+    const period = text(item.period);
+    const scopeParts = [
+      text(item.scope),
+      period ? `period=${period}` : null,
+      rawPointInTime && !pointInTime ? `point_in_time=${rawPointInTime}` : null,
+    ].filter((value): value is string => Boolean(value));
+    const payer = field === 'MoneySignal' && isScheduledEntityId(item.payer) ? text(item.payer) : null;
+    const receiver = field === 'MoneySignal' && isScheduledEntityId(item.receiver) ? text(item.receiver) : null;
+    return {
+      ...item,
+      evidence_ids: [evidenceId],
+      ...(item.point_in_time !== undefined ? { point_in_time: pointInTime } : {}),
+      ...(item.occurred_at !== undefined || item.temporal_scope !== undefined ? { occurred_at: occurredAt } : {}),
+      ...(scopeParts.length > 0 ? { scope: scopeParts.join('; ') } : {}),
+      ...(rawOccurredAt && !occurredAt ? { raw_occurred_at: rawOccurredAt } : {}),
+      ...(field === 'MoneySignal' ? { payer_entity_id: payer, receiver_entity_id: receiver } : {}),
+    };
+  };
+
+  const rows: JsonRecord[] = [];
+  const seenEntityIds = new Set<string>();
+  for (const [index, audit] of recordedRows.entries()) {
+    const entityId = text(audit.subject_or_entity_id);
+    const entity = entityId ? entityById.get(entityId) : null;
+    const entityRef = entity ? referenceNumber(entity.ref) : null;
+    const canonicalName = entity ? text(entity.canonical_name) : null;
+    if (!entityId || !entity || !entityRef || !canonicalName || seenEntityIds.has(entityId)) {
+      issues.push(`recorded_items[${index}] does not have one unique normalized Entity join`);
+      continue;
+    }
+    if (text(audit.canonical_name) && text(audit.canonical_name) !== canonicalName) {
+      issues.push(`recorded_items[${index}] canonical_name differs from its normalized Entity`);
+      continue;
+    }
+    seenEntityIds.add(entityId);
+
+    const fields: JsonRecord = {};
+    for (const field of typedNames) {
+      const selected = typed[field].filter((item) => referenceNumber(item.entity_ref) === entityRef);
+      const joined = selected.map((item) => withEvidence(item, field)).filter((item): item is JsonRecord => Boolean(item));
+      fields[field] = joined;
+    }
+    const rowEvidence = arrayOfStrings(audit.evidence_ids);
+    const matchedEvidence = evidence.filter((item) => {
+      const id = text(item.evidence_id);
+      const upstream = text(item.upstream_evidence_id);
+      return Boolean((id && rowEvidence.includes(id)) || (upstream && rowEvidence.includes(upstream)));
+    });
+    const typedEvidenceRefs = typedNames.flatMap((field) => (fields[field] as JsonRecord[])
+      .flatMap((item) => arrayOfStrings(item.evidence_ids)));
+    const evidenceIdsForRow = [...new Set([
+      ...matchedEvidence.map((item) => text(item.evidence_id)).filter((id): id is string => Boolean(id)),
+      ...typedEvidenceRefs,
+    ])];
+    if (evidenceIdsForRow.length === 0 || evidenceIdsForRow.some((id) => !evidenceById.has(id))) {
+      issues.push(`recorded_items[${index}] has no exact normalized Evidence join`);
+      continue;
+    }
+    const quality = qualityRows.filter((item) => referenceNumber(item.entity_ref) === entityRef);
+    if (quality.length !== 1) {
+      issues.push(`recorded_items[${index}] does not have one normalized quality row`);
+      continue;
+    }
+    rows.push({
+      ...audit,
+      source_entity_id: entityId,
+      Entity: [{ ...entity, id: entityId, name: canonicalName }],
+      Evidence: evidenceIdsForRow.map((id) => ({ id })),
+      quality: {
+        ...quality[0],
+        verification_status: text(audit.verification) || 'UNVERIFIED',
+        source_strength: text(matchedEvidence[0]?.source_strength) || 'UNRATED',
+      },
+      ...fields,
+    });
+  }
+  if (rows.length !== recordedRows.length || seenEntityIds.size !== entities.length) {
+    issues.push('normalized reference join did not cover every recorded item and Entity exactly once');
+  }
+  return { rows, attempts };
+}
+
 function uniqueBundleRecords(bundles: JsonRecord[], field: string, idField: string): JsonRecord[] {
   const seen = new Set<string>();
   const output: JsonRecord[] = [];
@@ -643,7 +836,11 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     return mergeDirectHandoffBundles(queue, input.queue_path, directCandidates);
   }
 
-  const attempts = sourceAttemptRecords(input.source_runs);
+  const normalizedReferenceJoin = joinNormalizedReferenceRecords(queue, issues);
+  const attempts = [
+    ...sourceAttemptRecords(input.source_runs),
+    ...(normalizedReferenceJoin?.attempts || []),
+  ];
   const sourceRecords = sourceRecordRecords(input.source_runs);
   const normalizedCandidates = arrayOfRecords(queue.normalized_candidates);
   const recordedRows = queueRows(queue.recorded_items);
@@ -671,7 +868,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
   }
   // Some collectors keep audit summaries and structured handoffs separately.
   // Join by explicit identity, never array position or a broad source match.
-  const rows = (cohortMode ? normalizedCandidates : recordedRows.map((row) => {
+  const rows = normalizedReferenceJoin?.rows || (cohortMode ? normalizedCandidates : recordedRows.map((row) => {
     if (normalizedCandidates.length === 0) return row;
     const recordId = text(row.record_id_if_assigned);
     const matches = normalizedCandidates.filter((candidate) => recordId
@@ -768,20 +965,21 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
       if (!seen.sources.has(sourceId)) {
         sources.push({
           source_id: sourceId,
-          provider_name: providerName(locator),
-          source_type: 'web_source',
+          provider_name: text(attempt.provider_name) || providerName(locator),
+          source_type: text(attempt.source_type) || 'web_source',
           canonical_url: canonicalUrl,
-          source_strength: rowQuality.source_strength,
+          source_strength: sourceStrength(attempt.source_strength) === 'UNRATED'
+            ? rowQuality.source_strength : sourceStrength(attempt.source_strength),
           rights_status: normalizedAttemptStatus(attempt) === 'success_search_extract_only' ? 'metadata_only'
             : text(attempt.rights_state) && RIGHTS_STATUSES.has(String(attempt.rights_state)) ? attempt.rights_state : 'metadata_only',
-          rights_policy_id: null,
-          access_notes: normalizedAttemptStatus(attempt) === 'success_search_extract_only'
+          rights_policy_id: text(attempt.rights_policy_id),
+          access_notes: text(attempt.access_notes) || (normalizedAttemptStatus(attempt) === 'success_search_extract_only'
             ? 'Only a search extract was observed. Original page content was not fetched or archived; this is not independent fact verification.'
             : normalizedAttemptStatus(attempt) === 'success_via_search_result_after_direct_open_error'
             ? 'Metadata was observed through a search result after direct open failed. Original page content was not fetched or archived.'
             : isHttpUrl(locator)
             ? 'Source body was not copied; metadata-only provenance retained from scheduled staging.'
-            : `Source body was not copied; metadata-only provenance retained from scheduled staging. original_source_locator=${locator}`,
+            : `Source body was not copied; metadata-only provenance retained from scheduled staging. original_source_locator=${locator}`),
         });
         seen.sources.add(sourceId);
       }
@@ -790,16 +988,17 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
           evidence_id: evidenceId,
           source_id: sourceId,
           source_url: canonicalUrl,
-          source_title: `${name} source (${providerName(locator)})`,
-          source_type: 'web_source',
-          publisher_or_speaker: null,
-          published_at: null,
+          source_title: text(attempt.source_title) || `${name} source (${providerName(locator)})`,
+          source_type: text(attempt.source_type) || 'web_source',
+          publisher_or_speaker: text(attempt.publisher_or_speaker),
+          published_at: referenceDateTime(attempt.published_at),
           retrieved_at: retrieved,
-          source_strength: rowQuality.source_strength,
+          source_strength: sourceStrength(attempt.source_strength) === 'UNRATED'
+            ? rowQuality.source_strength : sourceStrength(attempt.source_strength),
           rights_status: 'metadata_only',
-          rights_policy_id: null,
-          raw_storage: { status: 'metadata_only', bucket: null, key: null, content_type: null, content_sha256: null, bytes: null },
-          summary: observedSummary(row, sourceRecordForEvidence(sourceRecords, evidenceId)),
+          rights_policy_id: text(attempt.rights_policy_id),
+          raw_storage: { status: text(attempt.raw_storage_status) || 'metadata_only', bucket: null, key: null, content_type: null, content_sha256: null, bytes: null },
+          summary: text(attempt.summary) || observedSummary(row, sourceRecordForEvidence(sourceRecords, evidenceId)),
           extracted_facts: [firstText(row.Claim), firstText(row.Metric), firstText(row.MoneySignal), firstText(row.Event), firstText(row.Relationship)].filter((value): value is string => Boolean(value)),
         });
         seen.evidence.add(evidenceId);
@@ -809,8 +1008,13 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     if (validEvidenceIds.length === 0) continue;
 
     const entitySpec = parsedEntitySpec(row.Entity);
-    const entityId = await id(`ent_${entitySpec.entityType}_`, `${runId}|entity|${name}`, 20);
-    const rowDate = extractDate(firstText(row.Event), retrievedAt);
+    const sourceEntityId = text(row.source_entity_id);
+    const entityId = normalizedReferenceJoin && sourceEntityId && isScheduledEntityId(sourceEntityId)
+      ? sourceEntityId
+      : await id(`ent_${entitySpec.entityType}_`, `${runId}|entity|${name}`, 20);
+    const rowDate = extractDate(firstText(row.temporal_scope) || firstText(row.Event), retrievedAt);
+    const selectedEntity = arrayOfRecords(row.Entity).find((item) => (text(item.id) || text(item.entity_id)) === sourceEntityId)
+      || (arrayOfRecords(row.Entity).length === 1 ? arrayOfRecords(row.Entity)[0] : null);
     if (!seen.entities.has(entityId)) {
       entities.push({
         entity_id: entityId,
@@ -818,7 +1022,7 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
         canonical_name: name,
         aliases: entitySpec.aliases,
         canonical_identifier: null,
-        domain: null,
+        domain: text(selectedEntity?.domain),
         status: 'observed',
         observed_at: rowDate,
         evidence_ids: validEvidenceIds,
