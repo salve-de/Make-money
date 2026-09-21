@@ -3,6 +3,27 @@ import { materializeScheduledR2Handoff, ScheduledHandoffMaterializationError } f
 
 const evidenceId = 'ev_1234567890abcdef12345678';
 
+it('recovers a legacy locator only through an exact subject or matching source record', async () => {
+  const input={queue:{schema_version:'r2-queue-run.v1',run_id:'run_legacy_locator',finished_at:'2026-09-21T03:00:00Z',recorded_items:[
+    {name:'Exact Company',state:'VALIDATED_FOR_R2_HANDOFF',Evidence:evidenceId},
+  ]},source_runs:[{source_attempts:[{source:'https://example.com/report',purpose:'Exact Company',result:'found'}]}]};
+  expect((await materializeScheduledR2Handoff(input)).included_items).toBe(1);
+  const recordMatch={...input,source_runs:[{source_attempts:[{source:'https://example.com/report',result:'success_metadata_extract'}],recorded_items:[{name:'Exact Company',source:'https://example.com/report'}]}]};
+  expect((await materializeScheduledR2Handoff(recordMatch)).included_items).toBe(1);
+  await expect(materializeScheduledR2Handoff({...input,source_runs:[{source_attempts:[{source:'https://other.com/report',purpose:'Different Company',result:'found'}]}]})).rejects.toThrow('no successful source locator');
+  await expect(materializeScheduledR2Handoff({...input,source_runs:[{source_attempts:[{source:'https://example.com/report',purpose:'Exact Company',result:'failed'}]}]})).rejects.toThrow('no successful source locator');
+});
+
+it('reads object evidence IDs and excludes blocked governance rows before company validation', async () => {
+  const result = await materializeScheduledR2Handoff({queue:{schema_version:'r2-queue-run.v1',run_id:'run_object_evidence',finished_at:'2026-09-21T03:00:00Z',recorded_items:[
+    {state:'VALIDATED_FOR_R2_HANDOFF',Entity:{name:'Example'},Evidence:{id:evidenceId}},
+    {state:'BLOCKED_SCHEMA_GOVERNANCE',Entity:null,Evidence:{id:'not_a_business_fact'}},
+  ]},source_runs:[{source_attempts:[{url:'https://example.com/report',result:'success',evidence_ids_if_any:[evidenceId]}]}]});
+  expect(result.included_items).toBe(1);
+  expect(result.skipped_items).toBe(1);
+  expect(result.evidence_count).toBe(1);
+});
+
 it('joins separate normalized candidates by ID instead of treating audit summaries as handoffs', async () => {
   const candidate = { source_entity_id: 'queue_example', state: 'VALIDATED_FOR_R2_HANDOFF',
     Entity: [{ name: 'Example Company' }], Source: [{ url: 'https://example.com/report' }],

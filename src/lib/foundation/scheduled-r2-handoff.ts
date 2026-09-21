@@ -239,6 +239,7 @@ function qualityInfo(value: unknown, fallbackStrength: string): {
 
 function evidenceIds(value: unknown): string[] {
   if (Array.isArray(value)) return [...new Set(value.flatMap((item) => evidenceIds(item)))];
+  if (isRecord(value)) return evidenceIds(value.evidence_id || value.id);
   if (typeof value === 'string') return [...new Set(value.match(/ev_[a-f0-9]{24}/g) || [])];
   return [];
 }
@@ -327,17 +328,20 @@ function attemptsForRow(attempts: JsonRecord[], records: JsonRecord[], row: Json
   // locator through the matching source-run record and its evidence IDs.
   const matchedRecords = records.filter((record) => sourceRecordMatchesRow(record, row));
   const sourceEvidenceIds = new Set(matchedRecords.flatMap((record) => stringValues(record.evidence_ids)));
-  const sourceRefs = new Set(matchedRecords.flatMap((record) => stringValues(record.source_refs)));
+  const sourceRefs = new Set(matchedRecords.flatMap((record) => [record.source_refs, record.source, record.source_url].flatMap(stringValues)));
+  const subjectMatches = attempts.filter((attempt) => attemptSucceeded(attempt) && sourceLocator(attempt) &&
+    [attempt.subject, attempt.purpose].some((subject) => typeof subject === 'string' && normalizedReference(subject) === normalizedReference(rowName(row) || '')));
+  if (subjectMatches.length === 1) return subjectMatches;
   if (sourceEvidenceIds.size === 0 && sourceRefs.size === 0) return [];
   return attempts.filter((attempt) =>
     attemptSucceeded(attempt) &&
     (stringValues(attempt.evidence_ids_if_any).some((evidenceId) => sourceEvidenceIds.has(evidenceId))
-      || stringValues(attempt.source_ref).some((ref) => sourceRefs.has(ref))),
+      || stringValues(sourceLocator(attempt)).some((ref) => sourceRefs.has(ref))),
   );
 }
 
 function sourceLocator(attempt: JsonRecord): string | null {
-  return text(attempt.url_or_source_id) || text(attempt.source_url) || text(attempt.source_ref) || text(attempt.url);
+  return text(attempt.url_or_source_id) || text(attempt.source_url) || text(attempt.source_ref) || text(attempt.url) || text(attempt.source);
 }
 
 function normalizedSourceReference(value: unknown): string | null {
@@ -360,7 +364,7 @@ function attemptSucceeded(attempt: JsonRecord): boolean {
   // USABLE is the structured collector's metadata-evidence outcome; it
   // does not imply that raw source bytes were fetched or persisted.
   return status ? new Set(['success', 'retained', 'success_metadata_extract', 'success_via_search_result_after_direct_open_error',
-    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found']).has(status.split(';')[0].trim().toLowerCase())
+    'success_secondary', 'success_company_release_relay', 'success_sponsored_company_claim', 'success_conflict_found', 'found']).has(status.split(';')[0].trim().toLowerCase())
     : text(attempt.attempt_result) === 'USABLE';
 }
 
@@ -655,12 +659,16 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
 
   for (let index = 0; index < rows.length; index += 1) {
     const row = rows[index];
+    const state = text(row.state);
+    if (state && state !== 'VALIDATED_FOR_R2_HANDOFF' && state !== 'NEEDS_RESEARCH') {
+      skippedItems += 1;
+      continue;
+    }
     const name = rowName(row, sourceRecords);
     if (!name) {
       issues.push(`recorded_items[${index}] has no name`);
       continue;
     }
-    const state = text(row.state);
     if (state === 'NEEDS_RESEARCH') {
       skippedResearchItems.push(name);
       skippedItems += 1;
@@ -697,7 +705,9 @@ export async function materializeScheduledR2Handoff(input: ScheduledHandoffInput
     const rowQuality = qualityInfo(row.quality, sourceStrength(firstText(row.Source)?.split('|').at(-1)));
     const validEvidenceIds: string[] = [];
     for (const evidenceId of evIds) {
-      const attempt = generatedEvidenceAttempts.get(evidenceId) || attemptForEvidence(attempts, evidenceId);
+      const exactAttempts = evIds.length === 1 ? attemptsForRow(attempts, sourceRecords, row) : [];
+      const attempt = generatedEvidenceAttempts.get(evidenceId) || attemptForEvidence(attempts, evidenceId)
+        || (exactAttempts.length === 1 ? exactAttempts[0] : null);
       const locator = attempt ? sourceLocator(attempt) : null;
       if (!attempt || !locator || !attemptSucceeded(attempt)) {
         issues.push(`${name} evidence ${evidenceId} has no successful source locator`);
