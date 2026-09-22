@@ -228,6 +228,26 @@ function checkFinancialEntity(
   if (pnl) {
     const status = stringValue(pnl.financialStatus);
     if (status === 'UNAVAILABLE') {
+      const compatibilityNumericKeys = [
+        'monthlyRevenue',
+        'cogs',
+        'grossProfit',
+        'grossMargin',
+        'operatingProfit',
+        'operatingMargin',
+        'estimatedAnnualNetProfit',
+      ];
+      const encodedUnknownAsNumber = compatibilityNumericKeys.some(
+        (key) => typeof pnl[key] === 'number',
+      );
+      if (encodedUnknownAsNumber) {
+        violations.push({
+          code: 'UNKNOWN_FINANCIAL_ENCODED_AS_NUMBER',
+          path: `${path}.pnl`,
+          message: 'unknown financials must remain null/UNKNOWN upstream; do not encode missing values as 0 or another numeric placeholder',
+        });
+      }
+
       if (pnl.isRevenueUnconfirmed !== true) {
         violations.push({
           code: 'UNAVAILABLE_REVENUE_NOT_FLAGGED',
