@@ -1,5 +1,38 @@
 # 【最高決定版】キーエンス品質・黄金データ収集仕様書 (Golden Ingest Schema)
 
+
+## 2026-09-22 HARD: 数値・分類・証拠の意味論整合性ゲート（最優先）
+
+> **優先順位**: 本節は本文書内の過去の「推計で埋める」「大枠で分類する」「円へ統一する」等の記述より常に優先する。矛盾時は本節に従う。
+
+1. **数値・単位・通貨を分離して保持する**
+   - 数値は必ず「何の値か」「unit」「currency」「期間/時点」と一体で扱う。
+   - 例: `owner_tenure = 25, unit = "years", currency = null` は **25年** であり、`$25`・`¥25`・価格・売上へ変換してはならない。
+   - `years/months/days/hours/people/users/count/percent/ratio` 等の非金銭unitに currency を付与した生成物は **REJECT**。
+   - 外貨を表示用JPYへ換算する場合でも、source-native の value/unit/currency/period を消さず、換算値は別のderivedフィールドとして保持する。
+
+2. **業種・AI分類を推測で埋めない**
+   - `sector` は明示根拠がある場合のみ確定値を付ける。
+   - 根拠がない、曖昧、単にWeb/AIを使っているだけの場合は `UNKNOWN`。
+   - `AI_AUTOMATION` 等をフォールバック値として自動投入することを禁止する。
+   - 確定sectorには、source/evidenceと `verificationStatus` を紐付ける。
+
+3. **欠損を埋めない・信頼状態を落とさない**
+   - 欠損は `null` / `UNKNOWN` / 未確認状態のまま保持する。
+   - 出典、evidence、`verificationStatus`、既存の `CANDIDATE` / `HIGH_SIGNAL` 等の収集tierを削除・暗黙変換しない。
+   - 推計は、入力値・計算式・仮定・対象期間・根拠が全て明示できる場合に限り `estimated` として別値で作る。欠損を埋める目的の推計は禁止。
+   - 年商を12で割って月商へ変換しない。資金調達を売上へ変換しない。未確認原価から利益を確定生成しない。
+
+4. **完全体JSON生成後に必ずreject型validatorを通す**
+   - 型、value/unit/currency、ID重複、期間、算術、source/evidence、verification、sector根拠を検査する。
+   - 1件でも意味論違反があれば保存・promotion・R2 writerへ渡す前に **REJECT**。
+   - 「保存できた」「JSONとしてvalid」は事実検証成功を意味しない。
+
+5. **非破壊境界**
+   - 既存収集データの上書き・削除・再収集をこの修正の手段にしない。
+   - 2050件 pending/v0、EDINET正本、既存公開便スケジュールは変更しない。
+   - collection/validatorはcanonical R2へ直接PUTしない。R2への昇格は既存の認可済みwriter経路のみ。
+
 > **対象**: 全AIエージェント（Antigravity, Claude, GPT, Cursor）、外部リサーチスクリプト、データ収集サブエージェント  
 > **目的**: どのAI・スクリプトがどこから読んでも「何を集め、どのキー名・型・単位でR2/自社台帳に投入すればよいか」を1秒で直感理解させ、手戻りとデータ欠落を永久にゼロにする。
 
@@ -98,10 +131,10 @@
 | 2 | `ticker` | `string` | `AAA.BBB` | 4〜10文字のシンボル（例: `KEYENCE`, `GYM.SHRK`。なければIDから自動生成可） |
 | 3 | `name` | `string` | 文字列 | 企業・サービス・事業・手口の正式名称 [必須] |
 | 4 | `tagline` | `string` | 日本語1行 | サバンナOS直撃のタグライン（痛みの財布＋手口＋数字） [必須] |
-| 5 | `sector` | `enum` | 7大カテゴリ | `'AI_AUTOMATION'` \| `'NICHE_SAAS'` \| `'MONOPOLY_MFG'` \| `'CONTENT_MEDIA'` \| `'PHYSICAL_ASSET'` \| `'FINTECH_INFRA'` \| `'LOCAL_SERVICES'`（大枠判定で可） |
+| 5 | `sector` | `enum` | 7大カテゴリ + `UNKNOWN` | 明示根拠がある場合のみ分類。根拠がなければ `UNKNOWN`。AI利用だけを理由に `AI_AUTOMATION` へ分類してはならない。 |
 | 6 | `scale` | `enum` | 4大区分 + 未確認 | `'SOLO'` \| `'SMALL_TEAM'` \| `'SCALEUP'` \| `'ENTERPRISE'` \| `'UNKNOWN'` |
 | 7 | `founder` | `string` | 人名・組織名 | 創業者・仕掛け人名（**匿名・不明・組織名いずれも可**） |
-| 8 | `country` | `string` | ISO 2文字 | 国コード（`JP`, `US`, `UK`, `IE` 等。不明なら `JP` または `GLOBAL`） |
+| 8 | `country` | `string` | ISO 2文字または `UNKNOWN` | 明示根拠がある国コードのみ。根拠がなければ `UNKNOWN`。 |
 | 9 | `url` | `string \| null` | URL | 公式サイトURL（**任意・なし可**。サイト消滅、非Web、下請け、オフライン等の場合は `null` または省略） |
 | 10 | `temporal` | `object` | 年代・判定 | 創業年、初動期、観測期、賞味期限判定（取れる範囲で記録） |
 
@@ -121,7 +154,7 @@
 ## 3. 各セクション詳細仕様
 
 ### 3.1 財務ステートメント (`pnl`)
-すべての金額は**「円（JPY）」**で統一。為替はドル円 150円、ポンド円 190円で換算。
+source-native の金額・通貨・単位・期間を原本として保持する。表示用JPY換算が必要な場合だけ、使用レート・時点・式を持つderived値として別途計算し、原通貨値を置き換えない。
 
 ```typescript
 pnl: {
