@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+import { buildCompleteEntity } from './build-complete-entity';
 import { extractDossierFromSignal } from './extractDossier';
 import type { RawSignalLead } from './scoutSignals';
 import { verifyAndIntegrate } from './verifyAndIntegrate';
@@ -85,4 +86,19 @@ test('supported fixture retains explicit sector evidence and passes promotion ga
   assert.deepEqual(entity.sectorEvidence?.sourceUrls, [lead.sourceUrl]);
   assert.equal(entity.pnl.estimatedAnnualNetProfit, 0);
   assert.equal(entity.pnl.isNetProfitUnconfirmed, true);
+});
+
+
+test('legacy annual-revenue generator fails closed instead of dividing by twelve', () => {
+  assert.throws(
+    () => buildCompleteEntity({
+      name: 'Legacy Annual Example',
+      tagline: 'legacy generator test',
+      sector: 'UNKNOWN',
+      annualRevenueRaw: 12000000,
+      grossMarginPct: 50,
+      operatingMarginPct: 20,
+    }),
+    /annualRevenueRaw -> monthlyRevenue conversion is forbidden/,
+  );
 });
