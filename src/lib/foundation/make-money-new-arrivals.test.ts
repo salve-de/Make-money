@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn() }));
+const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn(), readRange: vi.fn() }));
 vi.mock('./business-reader', async (importOriginal) => ({
   ...await importOriginal<typeof import('./business-reader')>(),
   readLatestNewArrivalsRelease: state.release,
@@ -10,6 +10,7 @@ vi.mock('@/lib/storage/r2', () => ({
   getFoundationBucketAsync: vi.fn().mockResolvedValue('lake'),
   listR2Objects: state.list,
   readR2Object: state.read,
+  readR2ObjectRange: state.readRange,
   getFromR2: vi.fn(), putR2MutableView: vi.fn(),
   R2ViewConcurrentModificationError: class extends Error {},
 }));
@@ -21,6 +22,7 @@ beforeEach(() => {
   state.entity.mockReset().mockResolvedValue(null);
   state.list.mockReset().mockResolvedValue({ objects: [], truncated: false, cursor: null });
   state.read.mockReset().mockResolvedValue(null);
+  state.readRange.mockReset().mockImplementation((bucket: string, key: string) => state.read(bucket, key));
 });
 
 function viewDocument(id: string, name: string) {
@@ -112,5 +114,25 @@ describe('edition before product-view projection', () => {
 
     const second = await readMakeMoneyValuePage({ cursor: first.nextCursor || undefined, limit: 2 });
     expect(second.data.map((item) => item.id)).toEqual([laterId]);
+  });
+
+  it('serves a list row from its persisted summary without parsing the detail graph', async () => {
+    const id = 'ent_company_0123456789abcdef0123';
+    const document = viewDocument(id, 'Summary-only company');
+    const summaryOnlyDocument = { ...document, detail: { intentionally: 'not a list payload' } };
+    state.list.mockResolvedValue({
+      objects: [{ key: `views/make-money/v1/entities/${id}.json` }],
+      truncated: false,
+      cursor: null,
+    });
+    state.read.mockImplementation(async (_bucket: string, key: string) => {
+      if (key.includes('/_evidence-corrections/')) return null;
+      return { body: new TextEncoder().encode(JSON.stringify(summaryOnlyDocument)) };
+    });
+
+    const page = await readMakeMoneyValuePage({ limit: 1 });
+
+    expect(page.data).toHaveLength(1);
+    expect(page.data[0]).toMatchObject({ id, name: 'Summary-only company' });
   });
 });
