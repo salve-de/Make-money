@@ -91,10 +91,15 @@ export function verifyAndIntegrate(dossier: ExtractedDossier): FinancialEntity {
     );
   }
 
-  const sectorCandidate = ALLOWED_SECTORS.has(dossier.entity.sector as SectorCategory)
-    ? dossier.entity.sector as SectorCategory
-    : 'UNKNOWN';
-  const sector = sectorCandidate || 'UNKNOWN';
+  const sectorEvidence = dossier.entity.sectorEvidence;
+  const sectorCandidate = sectorEvidence
+    && sectorEvidence.verificationStatus === 'SUPPORTED'
+    && sectorEvidence.sourceUrl?.trim()
+    && sectorEvidence.value === dossier.entity.sector
+    && ALLOWED_SECTORS.has(sectorEvidence.value as SectorCategory)
+      ? sectorEvidence.value as SectorCategory
+      : 'UNKNOWN';
+  const sector = sectorCandidate;
 
   const teamSize = dossier.entity.teamSize;
   const weeklyHours = dossier.operations.weeklyHours;
@@ -218,8 +223,8 @@ export function verifyAndIntegrate(dossier: ExtractedDossier): FinancialEntity {
     entity.sectorEvidence = {
       value: sector,
       verificationStatus: 'SUPPORTED',
-      sourceUrls: [sourceUrl],
-      note: 'Sector value is preserved only from this supported extracted dossier; no default AI classification was applied.',
+      sourceUrls: [sectorEvidence!.sourceUrl],
+      note: sectorEvidence!.note || 'Sector value is preserved from explicit supported classification evidence.',
     };
   }
 
