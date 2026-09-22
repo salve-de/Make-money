@@ -287,6 +287,30 @@ function parseViewDocument(value: unknown): MakeMoneyViewDocument | null {
   return object as unknown as MakeMoneyViewDocument;
 }
 
+/**
+ * List pages only need the persisted summary. Do not parse and validate the
+ * complete historical detail graph for every row: detail is loaded only when
+ * a user opens an entity. This keeps cursor pages bounded even when one
+ * entity has accumulated a large observation/evidence history.
+ */
+function parseViewSummaryDocument(value: unknown): FoundationValueSummary | null {
+  const object = objectValue(value);
+  if (
+    !object ||
+    object.schema_version !== MAKE_MONEY_VIEW_SCHEMA ||
+    object.consumer !== 'make-money' ||
+    object.projection_version !== 'v1' ||
+    !Array.isArray(object.source_run_ids) ||
+    !object.source_run_ids.every((item) => typeof item === 'string') ||
+    typeof object.latest_source_run_id !== 'string' ||
+    typeof object.projected_at !== 'string' ||
+    !isValueSummary(object.summary)
+  ) {
+    return null;
+  }
+  return object.summary;
+}
+
 async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
   const object = await readR2Object(bucket, `${EVIDENCE_CORRECTION_PREFIX}${entityId}.json`);
   if (!object) return { object: null, control: null };
@@ -1269,20 +1293,31 @@ async function readMakeMoneyViewSummary(
   bucket: string,
   key: string,
 ): Promise<FoundationValueSummary | null> {
-  const document = await readCorrectedViewDocument(bucket, key);
-  if (!document) return null;
-  if (!needsScheduledReadThrough(document.summary) && !needsScheduledReadThrough(document.detail)) {
-    return document.summary;
+  const object = await readR2Object(bucket, key);
+  if (!object) return null;
+  const body = decodeJson(object.body);
+  const summary = parseViewSummaryDocument(body);
+  if (!summary) return null;
+
+  // Evidence corrections are rare and require the full detail graph to
+  // reconstruct the corrected summary. Keep that exceptional path intact,
+  // but do not make every ordinary list row pay its cost.
+  const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
+  if (control) {
+    const document = parseViewDocument(body);
+    return document ? applyEvidenceCorrectionControl(document, control).summary : summary;
   }
+
+  if (!needsScheduledReadThrough(summary)) return summary;
   // A list request must stay bounded. The old read-through scanned up to 96
   // immutable research bundles for legacy rows with sparse summaries. That
   // made an otherwise ordinary cursor page capable of hitting the Worker CPU
   // limit (1102). Resolve only the canonical entity identity here; the detail
   // route still performs the full bundle read when the user opens a row.
-  const fallback = await readFoundationEntitySummaryById(document.detail.id).catch(() => null);
+  const fallback = await readFoundationEntitySummaryById(summary.id).catch(() => null);
   return fallback
     ? {
-        ...document.summary,
+        ...summary,
         id: fallback.id,
         name: fallback.name,
         entityType: fallback.entityType,
@@ -1292,7 +1327,7 @@ async function readMakeMoneyViewSummary(
         status: fallback.status,
         observedAt: fallback.observedAt,
       }
-    : document.summary;
+    : summary;
 }
 
 /** Bound remote R2 reads while retaining input order and failure visibility. */

@@ -113,4 +113,24 @@ describe('edition before product-view projection', () => {
     const second = await readMakeMoneyValuePage({ cursor: first.nextCursor || undefined, limit: 2 });
     expect(second.data.map((item) => item.id)).toEqual([laterId]);
   });
+
+  it('serves a list row from its persisted summary without parsing the detail graph', async () => {
+    const id = 'ent_company_0123456789abcdef0123';
+    const document = viewDocument(id, 'Summary-only company');
+    const summaryOnlyDocument = { ...document, detail: { intentionally: 'not a list payload' } };
+    state.list.mockResolvedValue({
+      objects: [{ key: `views/make-money/v1/entities/${id}.json` }],
+      truncated: false,
+      cursor: null,
+    });
+    state.read.mockImplementation(async (_bucket: string, key: string) => {
+      if (key.includes('/_evidence-corrections/')) return null;
+      return { body: new TextEncoder().encode(JSON.stringify(summaryOnlyDocument)) };
+    });
+
+    const page = await readMakeMoneyValuePage({ limit: 1 });
+
+    expect(page.data).toHaveLength(1);
+    expect(page.data[0]).toMatchObject({ id, name: 'Summary-only company' });
+  });
 });
