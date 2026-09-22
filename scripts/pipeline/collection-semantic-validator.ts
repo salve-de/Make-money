@@ -32,6 +32,10 @@ function hasEvidenceReference(value: Record<string, unknown>): boolean {
   const sourceUrls = value.sourceUrls ?? value.source_urls;
   if (Array.isArray(sourceUrls) && sourceUrls.some((item) => typeof item === 'string' && item.trim())) return true;
   if (isObject(value.evidenceLocator) || isObject(value.locator)) return true;
+  const evidenceCards = value.evidenceCards;
+  if (Array.isArray(evidenceCards) && evidenceCards.some((card) =>
+    isObject(card) && (stringValue(card.sourceNote) || stringValue(card.sourceUrl))
+  )) return true;
   return false;
 }
 
