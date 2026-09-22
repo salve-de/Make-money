@@ -61,7 +61,7 @@ export async function ingestVerifiedEntities(
 
   console.log('--- [0/4] Validating collected semantics before any storage mutation ---');
   assertCollectionGeneratedPayload(normalizedInputs.map(({ entity }) => entity), {
-    requireSectorEvidence: false,
+    requireSectorEvidence: true,
     label: `ingest:${batchName}`,
   });
 
