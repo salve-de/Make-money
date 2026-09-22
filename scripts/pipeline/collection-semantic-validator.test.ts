@@ -168,3 +168,23 @@ test('invalid collection tier is rejected rather than silently remapped', () => 
   const payload = unknownSectorEntity({ collectionTier: 'PROMOTED' });
   assert.ok(codes(payload, true).includes('INVALID_COLLECTION_TIER'));
 });
+
+
+test('unknown financials cannot be encoded as numeric zero placeholders', () => {
+  const payload = unknownSectorEntity({
+    pnl: {
+      financialStatus: 'UNAVAILABLE',
+      monthlyRevenue: 0,
+      cogs: 0,
+      grossProfit: 0,
+      grossMargin: 0,
+      operatingProfit: 0,
+      operatingMargin: 0,
+      estimatedAnnualNetProfit: 0,
+      isRevenueUnconfirmed: true,
+      isMarginUnconfirmed: true,
+    },
+  });
+
+  assert.ok(codes(payload).includes('UNKNOWN_FINANCIAL_ENCODED_AS_NUMBER'));
+});
