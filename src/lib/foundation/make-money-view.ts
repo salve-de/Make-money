@@ -18,6 +18,7 @@ import {
   listR2Objects,
   putR2MutableView,
   readR2Object,
+  readR2ObjectRange,
   R2ViewConcurrentModificationError,
   type R2ObjectRead,
 } from '@/lib/storage/r2';
@@ -41,6 +42,10 @@ const MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL = 25;
 // not fan out into hundreds of extra R2 detail reads and exceed Worker limits.
 const MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE = 10;
 const MAKE_MONEY_SERVING_CURSOR_PREFIX = 'make-money-serving-v2:';
+// View documents place the compact summary before the historical detail
+// graph. Read only a bounded prefix for list rows; a malformed/oversized
+// summary is fail-closed rather than falling back to a full graph download.
+const VIEW_SUMMARY_PREFIX_BYTES = 64 * 1024;
 const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
 const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
 const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
@@ -287,28 +292,49 @@ function parseViewDocument(value: unknown): MakeMoneyViewDocument | null {
   return object as unknown as MakeMoneyViewDocument;
 }
 
-/**
- * List pages only need the persisted summary. Do not parse and validate the
- * complete historical detail graph for every row: detail is loaded only when
- * a user opens an entity. This keeps cursor pages bounded even when one
- * entity has accumulated a large observation/evidence history.
- */
-function parseViewSummaryDocument(value: unknown): FoundationValueSummary | null {
-  const object = objectValue(value);
-  if (
-    !object ||
-    object.schema_version !== MAKE_MONEY_VIEW_SCHEMA ||
-    object.consumer !== 'make-money' ||
-    object.projection_version !== 'v1' ||
-    !Array.isArray(object.source_run_ids) ||
-    !object.source_run_ids.every((item) => typeof item === 'string') ||
-    typeof object.latest_source_run_id !== 'string' ||
-    typeof object.projected_at !== 'string' ||
-    !isValueSummary(object.summary)
-  ) {
+function extractJsonObjectAfterKey(source: string, key: string): string | null {
+  const keyIndex = source.indexOf(`"${key}"`);
+  if (keyIndex < 0) return null;
+  const colonIndex = source.indexOf(':', keyIndex + key.length + 2);
+  if (colonIndex < 0) return null;
+  let start = colonIndex + 1;
+  while (/\s/.test(source[start] || '')) start += 1;
+  if (source[start] !== '{') return null;
+
+  let depth = 0;
+  let inString = false;
+  let escaped = false;
+  for (let index = start; index < source.length; index += 1) {
+    const character = source[index];
+    if (inString) {
+      if (escaped) escaped = false;
+      else if (character === '\\') escaped = true;
+      else if (character === '"') inString = false;
+      continue;
+    }
+    if (character === '"') {
+      inString = true;
+      continue;
+    }
+    if (character === '{') depth += 1;
+    else if (character === '}') {
+      depth -= 1;
+      if (depth === 0) return source.slice(start, index + 1);
+    }
+  }
+  return null;
+}
+
+function parseViewSummaryPrefix(body: Uint8Array): FoundationValueSummary | null {
+  const source = new TextDecoder().decode(body);
+  const summaryText = extractJsonObjectAfterKey(source, 'summary');
+  if (!summaryText) return null;
+  try {
+    const summary = JSON.parse(summaryText) as unknown;
+    return isValueSummary(summary) ? summary : null;
+  } catch {
     return null;
   }
-  return object.summary;
 }
 
 async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
@@ -350,12 +376,16 @@ function applyEvidenceCorrectionControl(document: MakeMoneyViewDocument, control
     latest_source_run_id: excludedRuns.includes(document.latest_source_run_id) ? control.corrected.run_id : document.latest_source_run_id };
 }
 
-async function readCorrectedViewDocument(bucket: string, key: string): Promise<MakeMoneyViewDocument | null> {
+async function readCorrectedViewDocument(
+  bucket: string,
+  key: string,
+  knownControl?: ViewEvidenceCorrectionControl,
+): Promise<MakeMoneyViewDocument | null> {
   const object = await readR2Object(bucket, key);
   if (!object) return null;
   const document = parseViewDocument(decodeJson(object.body));
   if (!document) return null;
-  const { control } = await readEvidenceCorrectionControl(bucket, document.detail.id);
+  const control = knownControl || (await readEvidenceCorrectionControl(bucket, document.detail.id)).control;
   return control ? applyEvidenceCorrectionControl(document, control) : document;
 }
 
@@ -1293,10 +1323,9 @@ async function readMakeMoneyViewSummary(
   bucket: string,
   key: string,
 ): Promise<FoundationValueSummary | null> {
-  const object = await readR2Object(bucket, key);
+  const object = await readR2ObjectRange(bucket, key, { offset: 0, length: VIEW_SUMMARY_PREFIX_BYTES });
   if (!object) return null;
-  const body = decodeJson(object.body);
-  const summary = parseViewSummaryDocument(body);
+  const summary = parseViewSummaryPrefix(object.body);
   if (!summary) return null;
 
   // Evidence corrections are rare and require the full detail graph to
@@ -1304,8 +1333,8 @@ async function readMakeMoneyViewSummary(
   // but do not make every ordinary list row pay its cost.
   const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
   if (control) {
-    const document = parseViewDocument(body);
-    return document ? applyEvidenceCorrectionControl(document, control).summary : summary;
+    const document = await readCorrectedViewDocument(bucket, key, control);
+    return document ? document.summary : null;
   }
 
   if (!needsScheduledReadThrough(summary)) return summary;

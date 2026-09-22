@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn() }));
+const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn(), readRange: vi.fn() }));
 vi.mock('./business-reader', async (importOriginal) => ({
   ...await importOriginal<typeof import('./business-reader')>(),
   readLatestNewArrivalsRelease: state.release,
@@ -10,6 +10,7 @@ vi.mock('@/lib/storage/r2', () => ({
   getFoundationBucketAsync: vi.fn().mockResolvedValue('lake'),
   listR2Objects: state.list,
   readR2Object: state.read,
+  readR2ObjectRange: state.readRange,
   getFromR2: vi.fn(), putR2MutableView: vi.fn(),
   R2ViewConcurrentModificationError: class extends Error {},
 }));
@@ -21,6 +22,7 @@ beforeEach(() => {
   state.entity.mockReset().mockResolvedValue(null);
   state.list.mockReset().mockResolvedValue({ objects: [], truncated: false, cursor: null });
   state.read.mockReset().mockResolvedValue(null);
+  state.readRange.mockReset().mockImplementation((bucket: string, key: string) => state.read(bucket, key));
 });
 
 function viewDocument(id: string, name: string) {
