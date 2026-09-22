@@ -1,5 +1,38 @@
 # 全プロジェクト共通：完全自律データ収集 ＆ 100年R2保存プロトコル (Autonomous Ingest & 100-Year R2 Protocol)
 
+
+## 2026-09-22 HARD: 数値・分類・証拠の意味論整合性ゲート（最優先）
+
+> **優先順位**: 本節は本文書内の過去の「推計で埋める」「大枠で分類する」「円へ統一する」等の記述より常に優先する。矛盾時は本節に従う。
+
+1. **数値・単位・通貨を分離して保持する**
+   - 数値は必ず「何の値か」「unit」「currency」「期間/時点」と一体で扱う。
+   - 例: `owner_tenure = 25, unit = "years", currency = null` は **25年** であり、`$25`・`¥25`・価格・売上へ変換してはならない。
+   - `years/months/days/hours/people/users/count/percent/ratio` 等の非金銭unitに currency を付与した生成物は **REJECT**。
+   - 外貨を表示用JPYへ換算する場合でも、source-native の value/unit/currency/period を消さず、換算値は別のderivedフィールドとして保持する。
+
+2. **業種・AI分類を推測で埋めない**
+   - `sector` は明示根拠がある場合のみ確定値を付ける。
+   - 根拠がない、曖昧、単にWeb/AIを使っているだけの場合は `UNKNOWN`。
+   - `AI_AUTOMATION` 等をフォールバック値として自動投入することを禁止する。
+   - 確定sectorには、source/evidenceと `verificationStatus` を紐付ける。
+
+3. **欠損を埋めない・信頼状態を落とさない**
+   - 欠損は `null` / `UNKNOWN` / 未確認状態のまま保持する。
+   - 出典、evidence、`verificationStatus`、既存の `CANDIDATE` / `HIGH_SIGNAL` 等の収集tierを削除・暗黙変換しない。
+   - 推計は、入力値・計算式・仮定・対象期間・根拠が全て明示できる場合に限り `estimated` として別値で作る。欠損を埋める目的の推計は禁止。
+   - 年商を12で割って月商へ変換しない。資金調達を売上へ変換しない。未確認原価から利益を確定生成しない。
+
+4. **完全体JSON生成後に必ずreject型validatorを通す**
+   - 型、value/unit/currency、ID重複、期間、算術、source/evidence、verification、sector根拠を検査する。
+   - 1件でも意味論違反があれば保存・promotion・R2 writerへ渡す前に **REJECT**。
+   - 「保存できた」「JSONとしてvalid」は事実検証成功を意味しない。
+
+5. **非破壊境界**
+   - 既存収集データの上書き・削除・再収集をこの修正の手段にしない。
+   - 2050件 pending/v0、EDINET正本、既存公開便スケジュールは変更しない。
+   - collection/validatorはcanonical R2へ直接PUTしない。R2への昇格は既存の認可済みwriter経路のみ。
+
 > **最高運用契約**: ユーザーは長文プロンプトや追加条件を絶対に書かない。
 > 「AGENTS.md見てデータ集めて」の一言で、全AI（Antigravity, Claude, ChatGPT, Cursor）は一切の追加質問・手戻りなしに完全自律稼働せよ。
 > 本プロトコルは、Make-Money、Investrader、universal-foundation、および今後立ち上がる全プロジェクトにそのまま適用可能な【最高標準契約】である。
@@ -51,7 +84,7 @@
 1. **一言発動（One-Phrase Trigger）**:
    - ユーザーが「AGENTS.md見てデータ集めて」「〇〇のデータ集めてR2に入れて」と一言口にした瞬間、AIは一切の質問（「どの企業にしますか？」「どう保存しますか？」等）を返さず、直ちに底引き網調査とR2保存を開始せよ。
 2. **優等生AI病の完全粉砕**:
-   - 「非公開だから取れない」は即失格。単価×推定アクティブ顧客数×業界原価率（Stripe 2.9%+$0.30、サーバー代、API代等）からP&Lウォーターフォールを科学的に逆算し、`originType: 'estimated'` と計算式を明記せよ。
+   - 非公開情報は `null` / `UNKNOWN` のまま保持する。入力値・計算式・仮定・期間・根拠が揃う場合のみ `originType: 'estimated'` の別派生値を作成してよい。業界原価率やStripe手数料を根拠なく代入してP&Lを完成させてはならない。
 3. **道徳・美談の完全排除**:
    - 創業者の綺麗事（「価値ある発信でファンを増やした」）を焼き払い、Reddit自演、コールドDM爆撃、ToS隙間ハック等の泥臭い初動突破事実ログを抉り出せ。
 4. **【最重要】収集 ＆ UI表示の完全並行原則（後回し・分離の絶対禁止）**:
@@ -90,15 +123,15 @@ AIはユーザーの短い一言から意図を即座に判定し、以下の3�
 2. `ticker`: 4〜10文字のシンボル（例: `KEYENCE`, `GYM.SHRK`, `FAIL.BLEED`。なければIDから自動生成可）
 3. `name`: 正式名称 [必須]
 4. `tagline`: サバンナOS直撃の日本語1行（痛みの財布＋手口＋数字） [必須]
-5. `sector`: 7大業種（`AI_AUTOMATION` / `NICHE_SAAS` / `MONOPOLY_MFG` / `CONTENT_MEDIA` / `PHYSICAL_ASSET` / `FINTECH_INFRA` / `LOCAL_SERVICES` 等の大枠判定）
+5. `sector`: 7大業種 + `UNKNOWN`。明示根拠がある場合のみ分類し、根拠なしの大枠推測・AIフォールバックは禁止。
 6. `scale`: 規模区分（`SOLO` / `SMALL_TEAM` / `SCALEUP` / `ENTERPRISE` / `UNKNOWN`）
 7. `founder`: 創業者・仕掛け人（**実名・組織名・匿名・不明いずれも可**）
-8. `country`: 国コード（ISO 2文字。不明なら `JP` または `GLOBAL`）
+8. `country`: 国コード（ISO 2文字）。明示根拠がなければ `UNKNOWN`。
 9. `url`: 公式サイトURL（**任意・なし可**。サイト消滅、非Web、下請け、オフライン等の場合は `null` または省略）
 10. `temporal`: 時系列・賞味期限インテリジェンス（創業年、初動獲得期、観測期、賞味期限判定等。取れる範囲で記録）
 
 ### P&L因数分解（円換算・Stripe手数料控除・創業者手残り）
-すべての金額は円（JPY）で統一（1ドル=150円、1ポンド=190円換算）：
+source-native の value / unit / currency / period を保持する。表示用JPY換算は別derived値として、使用レート・時点・式を明記して作る：
 - `monthlyRevenue`（月商） / `cogs`（売上原価） / `grossProfit`（粗利益） / `grossMargin`（粗利率%）
 - `operatingExpenses`: `serverAndApi`（推論・サーバー代）, `advertising`（広告費）, `subcontracting`（外注費）, `toolsAndSaaS`（ツール代）, `other`（その他）
 - `operatingProfit`（営業利益） / `operatingMargin`（営業利益率%） / `estimatedAnnualNetProfit`（年間純利益）
