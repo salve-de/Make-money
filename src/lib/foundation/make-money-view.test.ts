@@ -7,7 +7,7 @@ import {
 } from './make-money-view';
 
 describe('bounded serving-view reads', () => {
-  it('reads every row in order with at most eight remote reads in flight', async () => {
+  it('reads every row in order with at most two remote reads in flight', async () => {
     let active = 0; let peak = 0;
     const inputs = Array.from({ length: 301 }, (_, i) => i);
     const rows = await mapServingReads(inputs, async i => {
@@ -15,7 +15,7 @@ describe('bounded serving-view reads', () => {
       await new Promise(resolve => setTimeout(resolve, i % 3));
       active--; return i;
     });
-    expect(rows).toEqual(inputs); expect(peak).toBeLessThanOrEqual(8);
+    expect(rows).toEqual(inputs); expect(peak).toBeLessThanOrEqual(2);
     expect(active).toBe(0);
   });
   it('does not hide read failures or invent empty rows', async () => {

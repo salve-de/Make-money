@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn(), readRange: vi.fn() }));
+const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn(), readRange: vi.fn(), head: vi.fn() }));
 vi.mock('./business-reader', async (importOriginal) => ({
   ...await importOriginal<typeof import('./business-reader')>(),
   readLatestNewArrivalsRelease: state.release,
@@ -9,6 +9,7 @@ vi.mock('./business-reader', async (importOriginal) => ({
 vi.mock('@/lib/storage/r2', () => ({
   getFoundationBucketAsync: vi.fn().mockResolvedValue('lake'),
   listR2Objects: state.list,
+  headR2Object: state.head,
   readR2Object: state.read,
   readR2ObjectRange: state.readRange,
   getFromR2: vi.fn(), putR2MutableView: vi.fn(),
@@ -22,6 +23,7 @@ beforeEach(() => {
   state.entity.mockReset().mockResolvedValue(null);
   state.list.mockReset().mockResolvedValue({ objects: [], truncated: false, cursor: null });
   state.read.mockReset().mockResolvedValue(null);
+  state.head.mockReset().mockResolvedValue({ exists: false });
   state.readRange.mockReset().mockImplementation((bucket: string, key: string) => state.read(bucket, key));
 });
 

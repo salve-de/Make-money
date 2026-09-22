@@ -15,6 +15,7 @@ import { buildFoundationValueProfile } from '@/lib/foundation/value-projection';
 import {
   getFoundationBucketAsync,
   getFromR2,
+  headR2Object,
   listR2Objects,
   putR2MutableView,
   readR2Object,
@@ -45,7 +46,8 @@ const MAKE_MONEY_SERVING_CURSOR_PREFIX = 'make-money-serving-v2:';
 // View documents place the compact summary before the historical detail
 // graph. Read only a bounded prefix for list rows; a malformed/oversized
 // summary is fail-closed rather than falling back to a full graph download.
-const VIEW_SUMMARY_PREFIX_BYTES = 64 * 1024;
+const VIEW_SUMMARY_PREFIX_BYTES = 16 * 1024;
+const VIEW_SUMMARY_FALLBACK_PREFIX_BYTES = 64 * 1024;
 const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
 const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
 const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
@@ -355,6 +357,11 @@ async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
     throw new Error('Invalid persisted evidence correction control');
   }
   return { object, control: value as unknown as ViewEvidenceCorrectionControl };
+}
+
+async function hasEvidenceCorrectionControl(bucket: string, entityId: string): Promise<boolean> {
+  const head = await headR2Object(bucket, `${EVIDENCE_CORRECTION_PREFIX}${entityId}.json`);
+  return head.exists;
 }
 
 function applyEvidenceCorrectionControl(document: MakeMoneyViewDocument, control: ViewEvidenceCorrectionControl): MakeMoneyViewDocument {
@@ -1323,21 +1330,35 @@ async function readMakeMoneyViewSummary(
   bucket: string,
   key: string,
 ): Promise<FoundationValueSummary | null> {
-  const object = await readR2ObjectRange(bucket, key, { offset: 0, length: VIEW_SUMMARY_PREFIX_BYTES });
+  let object = await readR2ObjectRange(bucket, key, { offset: 0, length: VIEW_SUMMARY_PREFIX_BYTES });
   if (!object) return null;
-  const summary = parseViewSummaryPrefix(object.body);
+  let summary = parseViewSummaryPrefix(object.body);
+  if (!summary && VIEW_SUMMARY_FALLBACK_PREFIX_BYTES > VIEW_SUMMARY_PREFIX_BYTES) {
+    // Most summaries fit in the small range. Preserve the old 64 KiB ceiling
+    // for the exceptional large row instead of silently dropping it.
+    object = await readR2ObjectRange(bucket, key, {
+      offset: 0,
+      length: VIEW_SUMMARY_FALLBACK_PREFIX_BYTES,
+    });
+    summary = object ? parseViewSummaryPrefix(object.body) : null;
+  }
   if (!summary) return null;
 
   // Evidence corrections are rare and require the full detail graph to
   // reconstruct the corrected summary. Keep that exceptional path intact,
   // but do not make every ordinary list row pay its cost.
-  const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
-  if (control) {
-    const document = await readCorrectedViewDocument(bucket, key, control);
-    return document ? document.summary : null;
+  if (await hasEvidenceCorrectionControl(bucket, summary.id)) {
+    const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
+    if (control) {
+      const document = await readCorrectedViewDocument(bucket, key, control);
+      return document ? document.summary : null;
+    }
   }
 
-  if (!needsScheduledReadThrough(summary)) return summary;
+  // A normal persisted summary already contains its display identity. Only
+  // repair legacy rows whose name is still the generated entity ID; the
+  // observation-only fallback was an unnecessary extra R2 read per page.
+  if (!isStoredEntityIdName(summary.name)) return summary;
   // A list request must stay bounded. The old read-through scanned up to 96
   // immutable research bundles for legacy rows with sparse summaries. That
   // made an otherwise ordinary cursor page capable of hitting the Worker CPU
@@ -1363,7 +1384,7 @@ async function readMakeMoneyViewSummary(
 export async function mapServingReads<T, R>(items: readonly T[], read: (item: T) => Promise<R>): Promise<R[]> {
   const results: R[] = new Array(items.length);
   let next = 0;
-  await Promise.all(Array.from({ length: Math.min(4, items.length) }, async () => {
+  await Promise.all(Array.from({ length: Math.min(2, items.length) }, async () => {
     while (next < items.length) {
       const index = next++;
       results[index] = await read(items[index]);
