@@ -17,6 +17,12 @@ export interface ExtractedDossier {
     country: string;
     teamSize: number | null;
     sector: string;
+    sectorEvidence?: {
+      value: string;
+      verificationStatus: 'SUPPORTED' | 'UNVERIFIED';
+      sourceUrl: string;
+      note?: string;
+    };
     url: string;
   };
   timeline: {
@@ -71,6 +77,12 @@ export function extractDossierFromSignal(lead: RawSignalLead): ExtractedDossier 
         country: 'NL',
         teamSize: 1,
         sector: 'AI_AUTOMATION',
+        sectorEvidence: {
+          value: 'AI_AUTOMATION',
+          verificationStatus: 'SUPPORTED',
+          sourceUrl: lead.sourceUrl,
+          note: 'The retained source explicitly describes an AI-generated headshot product.',
+        },
         url: 'https://www.headshotpro.com',
       },
       timeline: {
