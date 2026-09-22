@@ -188,3 +188,26 @@ test('unknown financials cannot be encoded as numeric zero placeholders', () => 
 
   assert.ok(codes(payload).includes('UNKNOWN_FINANCIAL_ENCODED_AS_NUMBER'));
 });
+
+
+test('direct owner_tenure key requires explicit years/months unit and currency=null', () => {
+  const good = {
+    owner_tenure: 25,
+    unit: 'years',
+    currency: null,
+  };
+  assert.deepEqual(validateCollectionGeneratedPayload(good), []);
+
+  const missingCurrency = {
+    owner_tenure: 25,
+    unit: 'years',
+  };
+  assert.ok(codes(missingCurrency).includes('TENURE_CURRENCY_MISSING'));
+
+  const wrongUnit = {
+    owner_tenure: 25,
+    unit: 'USD',
+    currency: null,
+  };
+  assert.ok(codes(wrongUnit).includes('TENURE_UNIT_MISMATCH'));
+});
