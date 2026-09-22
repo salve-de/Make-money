@@ -49,7 +49,8 @@
     "test:recovery": "python3 scripts/architecture/verify-d1-recovery.py && python3 -m unittest discover -s scripts/architecture -p 'test_*.py'",
     "workers:build": "node scripts/architecture/build-workers.mjs",
     "bundle:workers": "pnpm workers:build -- --skipNextBuild",
-    "test:collection-semantic": "node --import tsx --test scripts/pipeline/collection-semantic-validator.test.ts"
+    "test:collection-semantic": "node --import tsx --test scripts/pipeline/collection-semantic-validator.test.ts",
+    "collection:validate": "node --import tsx scripts/pipeline/validate-collection-generated.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",
