@@ -225,19 +225,75 @@ function isValueSummary(value: unknown): value is FoundationValueSummary {
   const object = objectValue(value);
   const profile = objectValue(object?.valueProfile);
   const counts = objectValue(profile?.counts);
+  const stringArray = (candidate: unknown): candidate is string[] =>
+    Array.isArray(candidate) && candidate.every((item) => typeof item === 'string');
+  const nullableString = (candidate: unknown): boolean => candidate === null || typeof candidate === 'string';
+  const signal = (candidate: unknown): boolean => candidate === null || typeof candidate === 'string';
   return Boolean(
     object &&
     stringValue(object, 'id') &&
     stringValue(object, 'name') &&
     stringValue(object, 'entityType') &&
-    Array.isArray(object.aliases) &&
-    Array.isArray(object.evidenceIds) &&
+    stringArray(object.aliases) &&
+    nullableString(object.canonicalIdentifier) &&
+    nullableString(object.domain) &&
+    stringValue(object, 'status') &&
+    nullableString(object.observedAt) &&
+    stringArray(object.evidenceIds) &&
     profile &&
-    typeof profile.score === 'number' &&
-    typeof profile.tier === 'string' &&
-    Array.isArray(profile.labels) &&
-    counts
+    Number.isFinite(profile.score) &&
+    (profile.tier === 'HIGH_SIGNAL' || profile.tier === 'USEFUL' || profile.tier === 'CANDIDATE') &&
+    stringArray(profile.labels) &&
+    signal(profile.businessSignal) &&
+    signal(profile.painSignal) &&
+    signal(profile.moneySignal) &&
+    signal(profile.tractionSignal) &&
+    signal(profile.mechanismSignal) &&
+    signal(profile.timeSignal) &&
+    counts &&
+    ['claims', 'metrics', 'moneySignals', 'events', 'observations', 'derived', 'evidence']
+      .every((key) => Number.isInteger(counts[key]) && Number(counts[key]) >= 0) &&
+    (object.isNew === undefined || typeof object.isNew === 'boolean')
   );
+}
+
+function isNewArrivalsRelease(value: unknown): boolean {
+  const object = objectValue(value);
+  return Boolean(
+    object &&
+    stringValue(object, 'releaseId') &&
+    stringValue(object, 'releaseAt') &&
+    stringValue(object, 'label') &&
+    Number.isInteger(object.count) &&
+    Number(object.count) >= 0 &&
+    Array.isArray(object.entityIds) &&
+    object.entityIds.every((id) => typeof id === 'string') &&
+    Number.isInteger(object.contributionCount) &&
+    Number(object.contributionCount) >= 0
+  );
+}
+
+/**
+ * Validate the already-projected serving page without recursively copying and
+ * interpreting the whole page through the general JSON-schema engine.
+ *
+ * The R2 boundary is still fail-closed: each row is checked by
+ * readMakeMoneyViewSummary(), and this guard checks the page envelope plus all
+ * fields used by the public list path. The full schema parser remains in place
+ * for externally supplied/search payloads and detail responses.
+ */
+export function assertMakeMoneyValuePage(value: unknown): asserts value is FoundationValuePage {
+  const object = objectValue(value);
+  if (
+    !object ||
+    !Array.isArray(object.data) ||
+    !object.data.every(isValueSummary) ||
+    !(object.nextCursor === null || typeof object.nextCursor === 'string') ||
+    typeof object.hasMore !== 'boolean' ||
+    !(object.newArrivals === null || isNewArrivalsRelease(object.newArrivals))
+  ) {
+    throw new Error('Invalid Foundation serving page');
+  }
 }
 
 function isBusinessCase(value: unknown): value is FoundationBusinessCase {

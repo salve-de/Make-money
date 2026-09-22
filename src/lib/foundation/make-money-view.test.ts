@@ -1,10 +1,32 @@
 import { describe, expect, it } from 'vitest';
 import type { FoundationBusinessCase } from './business-reader';
 import {
+  assertMakeMoneyValuePage,
   mapServingReads,
   mergeFoundationBusinessCasesForView,
   projectionRetryMatchesCanonical,
 } from './make-money-view';
+
+describe('serving page guard', () => {
+  it('accepts the bounded page envelope used by the list route', () => {
+    expect(() => assertMakeMoneyValuePage({
+      data: [{
+        id: 'ent_company_0123456789abcdef0123', name: 'Example', entityType: 'company',
+        aliases: [], canonicalIdentifier: null, domain: null, status: 'ACTIVE', observedAt: null,
+        evidenceIds: [], valueProfile: {
+          tier: 'CANDIDATE', score: 0, labels: [], businessSignal: null, painSignal: null,
+          moneySignal: null, tractionSignal: null, mechanismSignal: null, timeSignal: null,
+          counts: { claims: 0, metrics: 0, moneySignals: 0, events: 0, observations: 0, derived: 0, evidence: 0 },
+        },
+      }], nextCursor: null, hasMore: false, newArrivals: null,
+    })).not.toThrow();
+  });
+
+  it('rejects a malformed serving row before publication', () => {
+    expect(() => assertMakeMoneyValuePage({ data: [{ id: 'broken' }], nextCursor: null, hasMore: false, newArrivals: null }))
+      .toThrow('Invalid Foundation serving page');
+  });
+});
 
 describe('bounded serving-view reads', () => {
   it('reads every row in order with at most two remote reads in flight', async () => {

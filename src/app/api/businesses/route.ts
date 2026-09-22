@@ -19,6 +19,7 @@ import {
   isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 import {
+  assertMakeMoneyValuePage,
   isMakeMoneyViewBackfillComplete,
   readMakeMoneyValuePage,
   readMakeMoneyViewDetail,
@@ -461,7 +462,7 @@ export async function GET(request: Request) {
     // should release every page after its response; R2 range reads are cheap
     // enough that reliability is more important than a first-page cache hit.
     const page = await retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }));
-    parseFoundationValuePage(page);
+    assertMakeMoneyValuePage(page);
 
     // The product view is already a FoundationValuePage. Use FinancialEntity
     // only as a server-side publication gate, then return the canonical view
