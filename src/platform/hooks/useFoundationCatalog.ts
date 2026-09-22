@@ -301,6 +301,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
         setFoundationTotal(null);
         setFoundationNextCursor(null);
         setFoundationHasMore(false);
+        setNewArrivalsRelease(null);
       }
     }
     foundationLoadingRef.current = true;
@@ -348,7 +349,7 @@ export function useFoundationCatalog(initialEntities: FinancialEntity[], searchQ
             : '保存済み台帳（外部取得なし）');
       if (page) {
         mergeFoundationRows(page.data, !effectiveCursor);
-        setNewArrivalsRelease(page.newArrivals);
+        if (page.newArrivals || !effectiveCursor) setNewArrivalsRelease(page.newArrivals);
         const nextCursor = page.nextCursor && page.nextCursor !== effectiveCursor ? page.nextCursor : null;
         setFoundationNextCursor(nextCursor);
         setFoundationHasMore(page.hasMore && Boolean(nextCursor));

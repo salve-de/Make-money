@@ -40,6 +40,7 @@ const MAX_UNRESOLVED_HISTORY_PER_ENTITY_CALL = 25;
 // Keep the optional new-arrival promotion bounded so one browser request does
 // not fan out into hundreds of extra R2 detail reads and exceed Worker limits.
 const MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE = 10;
+const MAKE_MONEY_SERVING_CURSOR_PREFIX = 'make-money-serving-v2:';
 const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
 const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
 const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
@@ -162,6 +163,45 @@ function uniqueStrings(...groups: Array<readonly string[] | undefined>): string[
     }
   }
   return [...values];
+}
+
+type MakeMoneyServingCursor = {
+  r2Cursor: string;
+  excludedIds: string[];
+};
+
+/**
+ * The first page may promote a newly published entity ahead of its lexical R2
+ * position. Carry those promoted IDs in the opaque application cursor so the
+ * same entity is not emitted again when the underlying R2 cursor reaches it.
+ * Raw R2 cursors remain accepted for backwards compatibility with old tabs.
+ */
+function parseMakeMoneyServingCursor(value: string | undefined): MakeMoneyServingCursor {
+  if (!value || !value.startsWith(MAKE_MONEY_SERVING_CURSOR_PREFIX)) {
+    return { r2Cursor: value || '', excludedIds: [] };
+  }
+  try {
+    const parsed = JSON.parse(decodeURIComponent(value.slice(MAKE_MONEY_SERVING_CURSOR_PREFIX.length))) as {
+      r2?: unknown;
+      excluded?: unknown;
+    };
+    if (
+      typeof parsed.r2 !== 'string' ||
+      !parsed.r2 ||
+      !Array.isArray(parsed.excluded) ||
+      !parsed.excluded.every((id) => typeof id === 'string' && id.length <= 200)
+    ) throw new Error('Invalid Make-Money serving cursor');
+    return { r2Cursor: parsed.r2, excludedIds: uniqueStrings(parsed.excluded) };
+  } catch {
+    throw new Error('Invalid Make-Money serving cursor');
+  }
+}
+
+function encodeMakeMoneyServingCursor(r2Cursor: string, excludedIds: readonly string[]): string {
+  return `${MAKE_MONEY_SERVING_CURSOR_PREFIX}${encodeURIComponent(JSON.stringify({
+    r2: r2Cursor,
+    excluded: uniqueStrings(excludedIds).slice(0, MAX_NEW_ARRIVAL_PROMOTIONS_PER_PAGE),
+  }))}`;
 }
 
 function maxIso(left: string | null | undefined, right: string | null | undefined): string | null {
@@ -1234,9 +1274,24 @@ async function readMakeMoneyViewSummary(
   if (!needsScheduledReadThrough(document.summary) && !needsScheduledReadThrough(document.detail)) {
     return document.summary;
   }
-  const fallback = await readFoundationBusinessCase(document.detail.id).catch(() => null);
+  // A list request must stay bounded. The old read-through scanned up to 96
+  // immutable research bundles for legacy rows with sparse summaries. That
+  // made an otherwise ordinary cursor page capable of hitting the Worker CPU
+  // limit (1102). Resolve only the canonical entity identity here; the detail
+  // route still performs the full bundle read when the user opens a row.
+  const fallback = await readFoundationEntitySummaryById(document.detail.id).catch(() => null);
   return fallback
-    ? foundationBusinessCaseToValueSummary(mergeFoundationBusinessCasesForView(document.detail, fallback))
+    ? {
+        ...document.summary,
+        id: fallback.id,
+        name: fallback.name,
+        entityType: fallback.entityType,
+        aliases: fallback.aliases,
+        canonicalIdentifier: fallback.canonicalIdentifier,
+        domain: fallback.domain,
+        status: fallback.status,
+        observedAt: fallback.observedAt,
+      }
     : document.summary;
 }
 
@@ -1264,11 +1319,12 @@ export async function readMakeMoneyValuePage(options: {
   cursor?: string;
   limit?: number;
 } = {}): Promise<FoundationValuePage> {
+  const servingCursor = parseMakeMoneyServingCursor(options.cursor);
   const bucket = await getFoundationBucketAsync('lake');
   const page = await listR2Objects({
     bucket,
     prefix: MAKE_MONEY_VIEW_PREFIX,
-    cursor: options.cursor,
+    cursor: servingCursor.r2Cursor || undefined,
     limit: Math.min(Math.max(1, Math.floor(options.limit ?? 100)), 100),
   });
 
@@ -1278,11 +1334,17 @@ export async function readMakeMoneyValuePage(options: {
         .filter((item) => item.key.endsWith('.json')),
         async (item) => readMakeMoneyViewSummary(bucket, item.key)
       )
-  ).filter((value): value is FoundationValueSummary => Boolean(value));
+  ).filter((value): value is FoundationValueSummary => Boolean(value))
+    .filter((value) => !servingCursor.excludedIds.includes(value.id));
 
-  const nextCursor = page.truncated && page.cursor ? page.cursor : null;
-  const newArrivals = await readLatestNewArrivalsRelease().catch(() => null);
-  if (!options.cursor && newArrivals) {
+  // New-arrival metadata is only needed for the first page. Avoid re-reading
+  // the release index on every cursor page; it adds an unnecessary R2 read to
+  // the hottest list path and can turn long scrolling sessions into CPU 1102s.
+  const newArrivals = servingCursor.r2Cursor
+    ? null
+    : await readLatestNewArrivalsRelease().catch(() => null);
+  let promotedIds: string[] = [];
+  if (!servingCursor.r2Cursor && newArrivals) {
     const known = new Set(data.map((item) => item.id));
     const promoted = await mapServingReads(selectNewArrivalPromotionIds(newArrivals.entityIds, known),
       async (id) => {
@@ -1297,10 +1359,15 @@ export async function readMakeMoneyValuePage(options: {
             claims: [], metrics: [], moneySignals: [], events: [],
             observations: [], derived: [], relationships: [],
           }),
-        } : null;
-      });
-    data.unshift(...promoted.filter((item): item is FoundationValueSummary => Boolean(item)));
+      } : null;
+    });
+    const validPromoted = promoted.filter((item): item is FoundationValueSummary => Boolean(item));
+    promotedIds = validPromoted.map((item) => item.id);
+    data.unshift(...validPromoted);
   }
+  const nextCursor = page.truncated && page.cursor
+    ? encodeMakeMoneyServingCursor(page.cursor, uniqueStrings(servingCursor.excludedIds, promotedIds))
+    : null;
   return {
     data: data.map((item) => ({ ...item, isNew: Boolean(newArrivals?.entityIds.includes(item.id)) })),
     nextCursor,
