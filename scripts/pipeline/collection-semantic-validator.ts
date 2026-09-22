@@ -53,6 +53,7 @@ function walkSemanticTuples(
 
   const semanticName = [
     parentKey,
+    ...Object.keys(value).filter((key) => TENURE_KEY.test(key)),
     stringValue(value.metric_type),
     stringValue(value.metricType),
     stringValue(value.money_type),
@@ -83,14 +84,26 @@ function walkSemanticTuples(
   }
 
   if (TENURE_KEY.test(semanticName)) {
-    if (unit && !/^(years?|yrs?|months?)$/i.test(unit)) {
+    if (!Object.prototype.hasOwnProperty.call(value, 'unit') || !unit) {
+      violations.push({
+        code: 'TENURE_UNIT_MISSING',
+        path: `${path}.unit`,
+        message: 'tenure/duration must preserve an explicit time unit such as years or months',
+      });
+    } else if (!/^(years?|yrs?|months?)$/i.test(unit)) {
       violations.push({
         code: 'TENURE_UNIT_MISMATCH',
         path: `${path}.unit`,
         message: `tenure/duration value must retain a time unit, got "${unit}"`,
       });
     }
-    if (currency !== null && currency !== '') {
+    if (!Object.prototype.hasOwnProperty.call(value, 'currency')) {
+      violations.push({
+        code: 'TENURE_CURRENCY_MISSING',
+        path: `${path}.currency`,
+        message: 'tenure/duration must preserve currency explicitly as null',
+      });
+    } else if (currency !== null && currency !== '') {
       violations.push({
         code: 'TENURE_CURRENCY_CORRUPTION',
         path: `${path}.currency`,
