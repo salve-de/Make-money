@@ -29,6 +29,8 @@ function hasEvidenceReference(value: Record<string, unknown>): boolean {
   if (Array.isArray(evidenceIds) && evidenceIds.some((item) => typeof item === 'string' && item.trim())) return true;
   if (stringValue(value.evidenceId) || stringValue(value.evidence_id)) return true;
   if (stringValue(value.sourceUrl) || stringValue(value.source_url) || stringValue(value.sourceDoc)) return true;
+  const sourceUrls = value.sourceUrls ?? value.source_urls;
+  if (Array.isArray(sourceUrls) && sourceUrls.some((item) => typeof item === 'string' && item.trim())) return true;
   if (isObject(value.evidenceLocator) || isObject(value.locator)) return true;
   return false;
 }
