@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { gzipSync } from 'node:zlib';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { getCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
-import { decodeCatalogArtifact, usesCatalogRelease } from './catalog-release';
+import { decodeCatalogArtifact, parseCatalogSummaryRows, usesCatalogRelease } from './catalog-release';
 
 vi.mock('@/lib/runtime/cloudflare', () => ({ getCloudflareRuntimeEnv: vi.fn() }));
 afterEach(() => { vi.unstubAllEnvs(); vi.resetAllMocks(); });
@@ -29,5 +29,24 @@ describe('immutable catalog release', () => {
   });
   it('rejects corrupt compressed content', () => {
     expect(() => decodeCatalogArtifact(new Uint8Array([1, 2, 3]), 'a'.repeat(64))).toThrow();
+  });
+  it('keeps the production summary boundary cheap but fail-closed', () => {
+    const row = {
+      id: 'ent_example',
+      name: 'Example',
+      ticker: 'EXAMPLE',
+      tagline: 'Example summary',
+      sector: 'AI_AUTOMATION',
+      scale: 'SOLO',
+      founder: 'Example Founder',
+      pnl: { operatingMargin: 20 },
+      operations: { initialCapitalRequired: 0 },
+      strategy: { blindspot: 'Example blindspot', moatType: 'UNKNOWN' },
+      tags: [],
+    };
+    expect(parseCatalogSummaryRows([row], 1)).toEqual([row]);
+    expect(() => parseCatalogSummaryRows([{ ...row, id: 'ent_example' }, row], 2)).toThrow('Duplicate');
+    expect(() => parseCatalogSummaryRows([{ ...row, operations: {} }], 1)).toThrow('row');
+    expect(() => parseCatalogSummaryRows([{ ...row, tags: [1] }], 1)).toThrow('row');
   });
 });
