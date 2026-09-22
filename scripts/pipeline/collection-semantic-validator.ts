@@ -286,7 +286,7 @@ function checkFinancialEntity(
       && typeof pnl.operatingProfit === 'number'
       && isObject(pnl.operatingExpenses)
     ) {
-      const opex = Object.values(pnl.operatingExpenses).reduce(
+      const opex = Object.values(pnl.operatingExpenses).reduce<number>(
         (sum, value) => sum + (typeof value === 'number' ? value : 0),
         0,
       );
