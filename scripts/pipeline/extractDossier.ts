@@ -10,6 +10,7 @@ import { RawSignalLead } from './scoutSignals';
 
 export interface ExtractedDossier {
   leadId: string;
+  collectionTier?: 'CANDIDATE' | 'HIGH_SIGNAL';
   entity: {
     name: string;
     founder: string;
