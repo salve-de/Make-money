@@ -66,6 +66,10 @@ function autoGitSync(count: number) {
 }
 
 export async function runAutonomousDaemon() {
+  throw new Error(
+    '[COLLECTION PIPELINE DISABLED] autonomous-ingest-daemon uses legacy numeric placeholders for unknown financials. Preserve incomplete leads as CANDIDATE/null/UNKNOWN in the current Foundation collection path; do not promote them through this legacy daemon.',
+  );
+
   console.log('================================================================');
   console.log('  MAKEMONEY 100-HOUR AUTONOMOUS INGESTION DAEMON (WORKER)');
   console.log('================================================================');
