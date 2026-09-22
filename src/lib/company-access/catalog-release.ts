@@ -68,13 +68,21 @@ export function parseCatalogSummaryRows(value: unknown, expectedCount: number): 
       || typeof row.name !== 'string'
       || row.name.length === 0
       || typeof row.ticker !== 'string'
+      || typeof row.tagline !== 'string'
+      || typeof row.sector !== 'string'
+      || typeof row.scale !== 'string'
+      || (row.founder !== undefined && typeof row.founder !== 'string')
       || !isRecord(row.pnl)
       || typeof row.pnl.operatingMargin !== 'number'
       || !isRecord(row.operations)
       || typeof row.operations.initialCapitalRequired !== 'number'
+      || (row.operations.isCapitalUnconfirmed !== undefined && typeof row.operations.isCapitalUnconfirmed !== 'boolean')
       || !isRecord(row.strategy)
       || typeof row.strategy.moatType !== 'string'
-      || !Array.isArray(row.tags)) {
+      || typeof row.strategy.blindspot !== 'string'
+      || !Array.isArray(row.tags)
+      || !row.tags.every((tag) => typeof tag === 'string')
+      || (row.batchId !== undefined && typeof row.batchId !== 'string')) {
       throw new Error(`Invalid catalog summary row at index ${index}`);
     }
     if (ids.has(row.id)) throw new Error(`Duplicate catalog summary id: ${row.id}`);

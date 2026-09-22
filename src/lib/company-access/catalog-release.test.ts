@@ -35,13 +35,18 @@ describe('immutable catalog release', () => {
       id: 'ent_example',
       name: 'Example',
       ticker: 'EXAMPLE',
+      tagline: 'Example summary',
+      sector: 'AI_AUTOMATION',
+      scale: 'SOLO',
+      founder: 'Example Founder',
       pnl: { operatingMargin: 20 },
       operations: { initialCapitalRequired: 0 },
-      strategy: { moatType: 'UNKNOWN' },
+      strategy: { blindspot: 'Example blindspot', moatType: 'UNKNOWN' },
       tags: [],
     };
     expect(parseCatalogSummaryRows([row], 1)).toEqual([row]);
     expect(() => parseCatalogSummaryRows([{ ...row, id: 'ent_example' }, row], 2)).toThrow('Duplicate');
     expect(() => parseCatalogSummaryRows([{ ...row, operations: {} }], 1)).toThrow('row');
+    expect(() => parseCatalogSummaryRows([{ ...row, tags: [1] }], 1)).toThrow('row');
   });
 });
