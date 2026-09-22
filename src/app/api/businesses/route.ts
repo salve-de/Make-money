@@ -462,13 +462,20 @@ export async function GET(request: Request) {
 
   try {
     const materializedViewReady = await retryFoundationRead(() => isMakeMoneyViewBackfillComplete());
-    const page = await readCached(
-      pageCache,
-      `view:${cacheKey}`,
-      PAGE_TTL_MS,
-      MAX_PAGE_CACHE_ENTRIES,
-      () => retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }))
-    );
+    // A cursor represents a one-way scroll position. Caching every page in a
+    // long session retains the entire catalog in one Worker isolate and can
+    // trigger 1102s even when each individual R2 read is bounded. Only keep
+    // the first page hot; subsequent pages are cheap range reads and should be
+    // released after the response.
+    const page = cursor
+      ? await retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }))
+      : await readCached(
+          pageCache,
+          `view:${cacheKey}`,
+          PAGE_TTL_MS,
+          MAX_PAGE_CACHE_ENTRIES,
+          () => retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }))
+        );
     parseFoundationValuePage(page);
 
     // The product view is already a FoundationValuePage. Use FinancialEntity
