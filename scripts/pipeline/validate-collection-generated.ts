@@ -1,5 +1,6 @@
 import { readFile } from 'node:fs/promises';
 
+import { parseFinancialEntity } from '../../src/shared/financial-entity-schema';
 import { assertCollectionGeneratedPayload } from './collection-semantic-validator';
 
 async function readStdin(): Promise<string> {
@@ -21,12 +22,28 @@ async function main() {
   }
 
   const payload = JSON.parse(raw);
+  const items = Array.isArray(payload) ? payload : [payload];
+
+  // Generated Make-Money collection outputs are FinancialEntity objects.
+  // Type/schema validation happens before semantic validation and before any
+  // persistence. Do not coerce or repair invalid input here.
+  for (const [index, item] of items.entries()) {
+    try {
+      parseFinancialEntity(item);
+    } catch (error) {
+      throw new Error(
+        '[COLLECTION TYPE VALIDATION FAILED] item ' + index + ': '
+        + (error instanceof Error ? error.message : String(error)),
+      );
+    }
+  }
+
   assertCollectionGeneratedPayload(payload, {
     requireSectorEvidence: true,
     label: file ? 'file:' + file : 'stdin-generated-json',
   });
 
-  const count = Array.isArray(payload) ? payload.length : 1;
+  const count = items.length;
   console.log('[collection-semantic-validator] PASS: ' + count + ' generated item(s)');
 }
 
