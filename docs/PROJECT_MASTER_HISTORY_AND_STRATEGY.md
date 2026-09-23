@@ -1,5 +1,161 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
+
+## 2026-09-24 【設計確定・PR #39実装中】Opportunity Builder創設 — 「金脈を見る」から「その場で事業を作る」への進化（Phase 209）
+
+### 1. 発端 — 情報端末だけでは最後の価値を外部へ渡してしまう
+- **ユーザーの問題提起**:
+  - Make-Moneyで良いアイデア・金脈を発掘したあと、「じゃあそのままBoltやLovableで作れないか」「Make-Money内で作れるのか」「作った商品をそのまま売れるのか」という問いが出た。
+  - つまりユーザーが求めていたのはノーコードツール一覧ではなく、**発見 → 制作 → 公開 → 販売までMake-Moneyが握れるか**の検討だった。
+- **見つかった構造的欠落**:
+  - 従来のMake-Moneyは「何が儲かっているか」「何を作るべきか」を強くできても、ユーザーが「これを自分でも作ろう」と思った瞬間から先は外部サービスへ丸投げだった。
+  - その瞬間は、ユーザーの行動意欲・購買意欲が最も高い。そこで外部へ遷移させると、Make-Moneyは情報DBのままで止まり、プロジェクト・生成履歴・課金・将来の売上データを外部へ渡す。
+- **最終判断**:
+  - Builderは「便利なAIコード生成」ではなく、Make-Moneyを**資本主義の裏帳簿 → 事業実行OS**へ進化させる実行レイヤーとして追加する。
+
+### 2. 検討した方式と不採用理由
+1. **Bolt / Lovableへ外部遷移**
+   - 最も簡単だが、ユーザーがMake-Moneyを離れ、外部アカウント・外部課金・外部プロジェクトへ移る。
+   - **主導線として不採用**。将来の任意Export / Affiliate出口としてのみ残す。
+2. **Make-MoneyがBolt/Lovable通常アカウントを1つ持ち全員に共有**
+   - アカウント共有・第三者再提供の規約リスク、認証共有、provider依存が大きい。
+   - **不採用**。
+3. **v0 Platform APIを裏側から利用**
+   - 第三者組込み用APIとして使え、ユーザーをMake-Money内に残せる。
+   - Build Spec・認証・原価・UIをMake-Money側が所有し、providerを交換可能にできる。
+   - **MVP本命として採用**。
+4. **Bolt OSS / bolt.diy + WebContainerで完全自社Builder**
+   - 長期的には最有力。ブラウザ内ランタイムまで含めて自社化できる。
+   - ただし実装量と商用WebContainerライセンスがあるため、「本当に使われるか」の前に作ると過剰投資。
+   - **第二段階候補**。
+5. **FlutterFlow / Bubble / Replit等**
+   - モバイルや外部Export先としては候補だが、Web中心MVPの第一生成providerにはしない。
+
+### 3. 確定した責務分離
+- **Make-Money = 頭脳 + 市場**
+  - Opportunityデータ
+  - 成功・失敗・P&L・競合
+  - Build Spec
+  - Builder UI
+  - 認証・所有者対応
+  - 生成原価
+  - Marketplace
+  - 実売上の還流データ
+- **v0等 = 工場**
+  - ソースコード生成
+  - 生成中ランタイム
+  - Preview
+- **Vercel / Cloudflare等 = 将来の本番インフラ**
+- **Stripe / Stripe Connect = 将来の決済・seller分配**
+- **ユーザー = 作る対象の選択、修正、価格決定、本番公開後の継続インフラ費**
+
+この分離により、v0/Bolt/Lovableの流行が変わってもMake-Moneyの価値は残る。
+
+### 4. 所有権と費用の原則
+- ユーザーが持つべきもの:
+  - 生成ソース
+  - 本番Hosting / DB / Domain
+  - 顧客データ
+  - 商品・事業
+  - Marketplace売上（手数料控除後）
+- Make-Moneyが持つもの:
+  - Opportunityデータ
+  - Build Spec生成ロジック
+  - orchestration
+  - Marketplace
+  - 生成利用実績
+  - 規約と同意の範囲での匿名化・集計成果データ
+- 生成時:
+  - Make-Moneyがserver-side provider契約を持ち、一旦原価を払う。
+  - 将来はPRO / Build Creditsで回収。
+- 本番公開後:
+  - Hosting、DB、Domain、AI API等の継続原価は原則ユーザー所有へ移す。
+  - 成功するほどMake-Moneyの原価が無限増する構造は採らない。
+
+### 5. 実装したMVP（PR #39）
+- 独自アイデア調書に **「この事業を作る」** を追加。
+- /build/[ideaId] にMake-Money Builderを新設。
+- OpportunityからBuild Specを自動生成。
+- server-side V0_API_KEY でv0 Platform APIを呼び出し。
+- Firebase認証済みUID単位でD1 build_sessions に所有関係を保存。
+- v0 APIが返す実creditsを累積保存。
+- BUILDER_DAILY_CREDIT_LIMIT で1ユーザー24時間のprovider creditsをサーバー側制限。
+- v0 preview tokenをブラウザへ露出せず、HttpOnly ticket + private preview proxyで表示。
+- 生成コードをsandbox iframeに隔離。
+- root-relative asset / API requestsもPreviewへ戻すproxyを追加。
+- preview body / pathをbounded化し、未信頼生成物からのDoS面を縮小。
+- Preview ticketをserver-sideでも30分失効。
+- 同一生成物へ自然言語で追加修正可能。
+- 本人だけが生成ソース一式をZIP取得可能。
+- 退会時にBuilderメタデータもD1から削除。
+- v0 API contract / preview credential isolation / Build Specのテストを追加。
+- 詳細正本: [docs/OPPORTUNITY_BUILDER.md](./OPPORTUNITY_BUILDER.md)
+
+### 6. 「何が作れるか」の現実的な境界
+- 主戦場:
+  - LP
+  - Directory / Comparison
+  - Calculator / Utility
+  - AI micro tool
+  - CRUD SaaS
+  - 会員制サイト
+  - Dashboard
+  - Stripe型課金SaaS
+  - Booking
+  - 小規模EC
+  - B2B internal tool
+  - 軽量Marketplace MVP
+- 注意:
+  - AI Builderは0→70〜80%を高速化するが、本番品質の最後にはAuth権限、Secrets、Webhook、二重決済、監視、Backup、Privacy、Security、E2Eが残る。
+  - したがって将来の公開導線は **BUILD → TEST → SECURITY GATE → PAYMENT GATE → DEPLOY → MONITOR** とする。
+
+### 7. 最終収益構造への接続
+Builderを入れることでMake-Moneyの収益出口は以下へ拡張する。
+1. PRO
+2. Build Credits
+3. 外部Builder Affiliate
+4. Hosting / Domain / SaaS紹介
+5. Marketplace販売手数料
+6. Stripe Connect型Platform fee
+7. 育った事業のM&A仲介
+8. 実際に「何が作られ、何が売れたか」の成果データAPI
+
+最終フライホイール:
+
+~~~
+金脈発見
+ ↓
+Build
+ ↓
+Launch
+ ↓
+Sell
+ ↓
+実売上
+ ↓
+Make-Moneyへ成果データ還流
+ ↓
+Opportunity判定精度が上がる
+ ↓
+さらにBuildされる
+~~~
+
+### 8. 未完了・明確な次段階
+PR #39時点では以下はまだ未実装であり、「完成済み」と扱わない。
+- ユーザー自身のVercel / Cloudflareへのproduction claim / transfer
+- GitHubへの直接push（ZIP Exportは実装済み）
+- 生成アプリへのproduction secret provisioning
+- generated appに対する自動Build / Security / E2E gate
+- Build Credits課金
+- Marketplace出品
+- Stripe Connect seller onboarding / split payment
+- SaaS / source / template / 事業M&Aの販売フロー
+- Build → Publish → Sell → Revenue feedbackの完全閉ループ
+
+また、PR実装環境には V0_API_KEY が無いため、実課金v0生成を行ったとは主張しない。API契約・型・認証・preview proxyは現行API形に合わせて実装・テストし、実生成はsecret投入後の実機確認を完了条件とする。
+
+---
+
 ## 2026-09-17 【確定】全3,341社 個別校閲台帳の創設・タグライン純化・UI最適化（Phase 206）
 
 ### 1. ユーザー指示と統合意図（User Direct Command & Integration Intent）
