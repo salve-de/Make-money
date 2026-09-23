@@ -1,6 +1,123 @@
 # PROJECT MASTER HISTORY & STRATEGY WHITE PAPER
 
 
+## 2026-09-24 【最重要補正】運営利益North Star・Marketplace供給・Affiliate/Partner Origin成長装置の再統合（Phase 210）
+
+### 1. 補正理由
+直前の整理で、Make-Money全体の最重要KPIを「Time to First Dollar」と扱い、Builderの主目的を「ユーザーを売上達成へ導くこと」に寄せすぎた。
+
+これは過去のMake-money × SellRelay統合戦略とユーザー意図を取り違えていた。
+
+### 2. 確定した最上位KPI
+1. **Operator Profit / Operator Revenue**
+2. **User Scale / Retention / Usage**
+3. **Marketplace / Affiliate / Distribution economics**
+4. **First Dollar / User revenue**
+
+ユーザーのFirst Dollarは有用なquality signalだが、運営のNorth Starではない。
+
+### 3. ユーザー行動前提
+大多数のユーザーは実際には起業・制作まで進まず、成功事例・Opportunity・次の金脈を探し続ける。
+
+したがって:
+- 行動しない閲覧者 = 失敗ユーザーではない
+- 再訪・探索 = Retention Engine
+- PRO / ads / affiliate / future conversionの母集団
+
+と定義する。
+
+### 4. Builderの目的補正
+Builderを簡単にする主要な事業目的は、**Marketplace supplyを増やすこと**。
+
+~~~
+Opportunity
+↓
+簡単Build
+↓
+Make-Moneyへ掲載
+↓
+他ユーザーが紹介
+↓
+Verified Sale
+↓
+Seller収益 + Partner報酬 + Platform Fee
+~~~
+
+さらにMake-Money外で作った既存SaaS / App / Web service等も掲載対象とする。
+
+### 5. Affiliate Distributionの再統合
+過去SellRelay正本に存在する以下をMake-Moneyの成長戦略へ戻す。
+
+- Product Ownerが商品掲載
+- 他ユーザーが固有Referral Link取得
+- 外部Buyerへ紹介
+- Verified Sale時にDirect Commission
+- Make-Money / SellRelayにPlatform Fee
+
+### 6. Partner Origin Commission
+過去SellRelayで既に確定していた構造:
+
+~~~
+A invites B
+B promotes Product
+External Buyer makes Verified Sale
+↓
+B = Direct Partner Commission
+A = Partner Origin Commission
+Platform = Fee
+Seller = remainder
+~~~
+
+Networkは A→B→C→D と連鎖可能だが、1件のSaleについてOrigin報酬を受けるのは販売者を直接紹介した1人だけ。
+
+- recruitmentだけでは報酬0
+- signup bountyなし
+- 無限階層なし
+- second+ level overrideなし
+- team/downline volumeなし
+- rank volumeなし
+
+過去SellRelay Pilot仮説:
+- Direct 25%
+- Origin 2.5%
+- Platform 3.5%
+- Seller remainder 69%（Originあり）
+- Origin期間12か月
+
+これらの率は本番確定値ではない。
+
+### 7. 成長フライホイール
+~~~
+大量のMoney Opportunity閲覧
+↓
+一部がBuild / Product掲載
+↓
+Marketplace在庫増
+↓
+紹介報酬を求めるPromoterが集まる
+↓
+外部へReferral拡散
+↓
+Buyer / 新規ユーザー流入
+↓
+Promoterが別Promoterを紹介
+↓
+Origin Commission動機でNetwork拡大
+↓
+Sale増加
+↓
+Operator Platform Fee増加
+↓
+さらに商品・Promoter・閲覧者増加
+↺
+~~~
+
+### 8. 正本
+[docs/OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md](./OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md)
+
+---
+
+
 ## 2026-09-24 【設計確定・main実装済み】Opportunity Builder創設 — 「金脈を見る」から「その場で事業を作る」への進化（Phase 209）
 
 ### 1. 発端 — 情報端末だけでは最後の価値を外部へ渡してしまう
