@@ -1,5 +1,7 @@
 # Make-Money 引継ぎ入口（2026-09-24 最新正本）
 
+> **2026-09-19 First Dollar 実行レイヤー追加**: MAKE MONEY は情報DBだけで終わらせず、企業事例から `FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN` を進め、実売上の最初の1円まで追う。企業詳細の `この稼ぎ方を実行` から `/execute/[id]` へ入り、未ログインは端末保存、ログイン時は D1 同期。仕様正本は [docs/FIRST_DOLLAR_EXECUTION.md](docs/FIRST_DOLLAR_EXECUTION.md)。今後の機能判断では Time to First Dollar を主要基準にする。
+
 > **【別チャットのAntigravityへの最優先引継ぎ】**:
 > ユーザーは長文指示を絶対に書かない。ユーザーの一言「勝ちの方だけ集めて」「地雷（負け）の方だけ集めて」「データ集めて（デフォルト7:3）」で完全自律稼働せよ。
 > 
@@ -83,12 +85,12 @@
    - Layer 3: 目録 ➔ `data/entities-index.json`（単一目録で1行JOIN、UI直結）
    - **【絶対不可侵】**: `universal/data-assets/financials/`（EDINET正本領域）には1文字たりとも書き込むな・触れるな。
 4. **横断自律収集契約**: [`docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md`](docs/architecture/AUTONOMOUS_DATA_INGEST_PROTOCOL.md)
+   - **R2容量・料金の完全安全性**: 毎月10GB・100万回Class Aまで完全無料。1社最大1MBのため、1万社集めても月額0円（完全無料）。破産リスクゼロ。
 5. **Opportunity Builder意思決定・実装正本**: [`docs/OPPORTUNITY_BUILDER.md`](docs/OPPORTUNITY_BUILDER.md)
    - なぜ外部Bolt/Lovable遷移を主導線にしないか
    - Make-Money / provider / user の責務、料金、所有権
    - v0 API MVP、private preview、credits上限、source ZIP
    - 将来のPublish / Marketplace / Stripe Connect / M&A / 成果データ還流
-   - **R2容量・料金の完全安全性**: 毎月10GB・100万回Class Aまで完全無料。1社最大1MBのため、1万社集めても月額0円（完全無料）。破産リスクゼロ。
 
 - **勝ち組（業種・規模不問、構造的勝者）**: キーエンス（直販製造業）、Gymshark（D2Cアパレル）、マニー（ニッチ独占医療器具）、ShipFast（SaaSボイラープレート）、Carrd（軽量LPインフラ）、Formula Bot（業務痛みの財布）等
 - **地雷組検死（業種・規模不問、巨額炎上・即死・規約変更死）**: Humane Ai Pin（過熱即死ハードウェア）、Fast（180億調達・月商60万即死フィンテック）、Quibi（2,000億炎上短尺動画）等
