@@ -23,6 +23,36 @@
 3. **どうやって俺たちが儲けるか**: 「マネーの関所（交差点）」＝稼ぎたい人間が必ず通る道に居座り、全方位から通行税を吸い上げる。
 
 
+### 【最重要KPI順位 — 2026-09-24確定】
+1. **運営がいくら儲けたか（Operator Profit / Operator Revenue）**
+2. **どれだけ多くのユーザーが、何度も使うか（Scale / Retention / Usage）**
+3. **Marketplace / Affiliate / Distributionがどれだけเงินจริงを動かすか**
+4. **ユーザーのFirst Dollar等の個別成果**
+
+大多数のユーザーは実際には事業を始めず、「もっと良いアイデア」「次に儲かるもの」を探し続ける。それ自体がMake-MoneyのRetention Engineであり、PRO・広告・Affiliate・将来転換の母集団になる。
+
+Builderを簡単にする主要目的は、全員を起業家にするためではない。**一部の行動者が簡単にProductを作り、Make-Moneyへ掲載し、他ユーザーがAffiliateとして紹介できる商品供給を増やすため**。
+
+さらに、過去SellRelayで確定したPartner Originを接続する:
+
+~~~
+AがBをMake-Moneyへ紹介
+↓
+Bが商品を紹介
+↓
+外部BuyerがVerified Sale
+↓
+B = Direct Commission
+A = Origin Commission
+Make-Money = Platform Fee
+Seller = remainder
+~~~
+
+ネットワークはA→B→C→Dと連鎖できるが、1件のSaleでOrigin報酬を得るのは販売者の直接紹介元1人だけ。Signupや招待人数だけでは報酬を出さない。
+
+正本: [docs/OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md](./docs/OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md)
+
+
 ### 【新規実行レイヤー】Opportunity → Build → Sell
 Make-Moneyは「儲かる事例を読む場所」だけでは終わらない。ユーザーがデータを見て**「これを自分でも作りたい」**と思った瞬間を外部サービスへ渡さず、そのまま事業化まで繋ぐ。
 
