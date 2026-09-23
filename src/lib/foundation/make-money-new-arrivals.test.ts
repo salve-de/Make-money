@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn(), readRange: vi.fn() }));
+const state = vi.hoisted(() => ({ release: vi.fn(), entity: vi.fn(), list: vi.fn(), read: vi.fn(), readRange: vi.fn(), head: vi.fn() }));
 vi.mock('./business-reader', async (importOriginal) => ({
   ...await importOriginal<typeof import('./business-reader')>(),
   readLatestNewArrivalsRelease: state.release,
@@ -9,6 +9,7 @@ vi.mock('./business-reader', async (importOriginal) => ({
 vi.mock('@/lib/storage/r2', () => ({
   getFoundationBucketAsync: vi.fn().mockResolvedValue('lake'),
   listR2Objects: state.list,
+  headR2Object: state.head,
   readR2Object: state.read,
   readR2ObjectRange: state.readRange,
   getFromR2: vi.fn(), putR2MutableView: vi.fn(),
@@ -22,7 +23,13 @@ beforeEach(() => {
   state.entity.mockReset().mockResolvedValue(null);
   state.list.mockReset().mockResolvedValue({ objects: [], truncated: false, cursor: null });
   state.read.mockReset().mockResolvedValue(null);
-  state.readRange.mockReset().mockImplementation((bucket: string, key: string) => state.read(bucket, key));
+  state.head.mockReset().mockResolvedValue({ exists: false });
+  state.readRange.mockReset().mockImplementation(async (bucket: string, key: string, options: { offset?: number; length?: number }) => {
+    const object = await state.read(bucket, key);
+    if (!object || options?.length === undefined) return object;
+    const offset = options.offset || 0;
+    return { ...object, body: object.body.slice(offset, offset + options.length) };
+  });
 });
 
 function viewDocument(id: string, name: string) {
@@ -59,6 +66,38 @@ describe('edition before product-view projection', () => {
   it('does not invent a row when both canonical record and view are missing', async () => {
     state.release.mockResolvedValue({ entityIds: ['ent_missing'], count: 1 });
     state.entity.mockResolvedValue(null);
+    expect((await readMakeMoneyValuePage()).data).toEqual([]);
+  });
+
+  it('keeps a valid row when its summary exceeds the bounded range prefixes', async () => {
+    const id = 'ent_large_summary';
+    const document = viewDocument(id, 'Large summary business');
+    document.summary.aliases = Array.from({ length: 12_000 }, (_, index) => `alias-${index}`);
+    state.list.mockResolvedValue({
+      objects: [{ key: `views/make-money/v1/entities/${id}.json` }],
+      truncated: false,
+      cursor: null,
+    });
+    state.read.mockResolvedValue({ body: new TextEncoder().encode(JSON.stringify(document)) });
+
+    const page = await readMakeMoneyValuePage();
+
+    expect(page.data).toHaveLength(1);
+    expect(page.data[0].id).toBe(id);
+    expect(page.data[0].aliases).toHaveLength(12_000);
+  });
+
+  it('rejects a summary from an incompatible view envelope', async () => {
+    const id = 'ent_incompatible_view';
+    const document = viewDocument(id, 'Incompatible business');
+    document.schema_version = 'make-money-view.v0' as typeof document.schema_version;
+    state.list.mockResolvedValue({
+      objects: [{ key: `views/make-money/v1/entities/${id}.json` }],
+      truncated: false,
+      cursor: null,
+    });
+    state.read.mockResolvedValue({ body: new TextEncoder().encode(JSON.stringify(document)) });
+
     expect((await readMakeMoneyValuePage()).data).toEqual([]);
   });
 

@@ -19,6 +19,7 @@ import {
   isFoundationDossierReady,
 } from '@/lib/foundation/foundation-adapter';
 import {
+  assertMakeMoneyValuePage,
   isMakeMoneyViewBackfillComplete,
   readMakeMoneyValuePage,
   readMakeMoneyViewDetail,
@@ -32,9 +33,7 @@ const gunzip = promisify(gunzipCb);
 export const dynamic = 'force-dynamic';
 
 const CACHE_CONTROL = 'private, max-age=30, stale-while-revalidate=300';
-const PAGE_TTL_MS = 30_000;
 const DETAIL_TTL_MS = 60_000;
-const MAX_PAGE_CACHE_ENTRIES = 32;
 const MAX_DETAIL_CACHE_ENTRIES = 128;
 const MAX_ENTITY_ID_LENGTH = 200;
 const MAX_R2_CURSOR_LENGTH = 2048;
@@ -47,7 +46,6 @@ type CacheEntry<T> = {
   value: T | Promise<T>;
 };
 
-const pageCache = new Map<string, CacheEntry<FoundationValuePage>>();
 const detailCache = new Map<string, CacheEntry<FoundationBusinessCase>>();
 
 function foundationSummarySearchText(summary: FoundationValueSummary): string {
@@ -458,25 +456,13 @@ export async function GET(request: Request) {
       return response({ error: 'Foundation catalog temporarily unavailable' }, 503);
     }
   }
-  const cacheKey = `${limit}:${cursor || 'first'}`;
-
   try {
     const materializedViewReady = await retryFoundationRead(() => isMakeMoneyViewBackfillComplete());
-    // A cursor represents a one-way scroll position. Caching every page in a
-    // long session retains the entire catalog in one Worker isolate and can
-    // trigger 1102s even when each individual R2 read is bounded. Only keep
-    // the first page hot; subsequent pages are cheap range reads and should be
-    // released after the response.
-    const page = cursor
-      ? await retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }))
-      : await readCached(
-          pageCache,
-          `view:${cacheKey}`,
-          PAGE_TTL_MS,
-          MAX_PAGE_CACHE_ENTRIES,
-          () => retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }))
-        );
-    parseFoundationValuePage(page);
+    // Do not retain catalog pages in a Worker isolate. A long browser scroll
+    // should release every page after its response; R2 range reads are cheap
+    // enough that reliability is more important than a first-page cache hit.
+    const page = await retryFoundationRead(() => readMakeMoneyValuePage({ cursor, limit }));
+    assertMakeMoneyValuePage(page);
 
     // The product view is already a FoundationValuePage. Use FinancialEntity
     // only as a server-side publication gate, then return the canonical view

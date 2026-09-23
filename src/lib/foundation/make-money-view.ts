@@ -15,6 +15,7 @@ import { buildFoundationValueProfile } from '@/lib/foundation/value-projection';
 import {
   getFoundationBucketAsync,
   getFromR2,
+  headR2Object,
   listR2Objects,
   putR2MutableView,
   readR2Object,
@@ -45,7 +46,8 @@ const MAKE_MONEY_SERVING_CURSOR_PREFIX = 'make-money-serving-v2:';
 // View documents place the compact summary before the historical detail
 // graph. Read only a bounded prefix for list rows; a malformed/oversized
 // summary is fail-closed rather than falling back to a full graph download.
-const VIEW_SUMMARY_PREFIX_BYTES = 64 * 1024;
+const VIEW_SUMMARY_PREFIX_BYTES = 16 * 1024;
+const VIEW_SUMMARY_FALLBACK_PREFIX_BYTES = 64 * 1024;
 const EVIDENCE_CORRECTION_PREFIX = 'views/make-money/v1/_evidence-corrections/';
 const EVIDENCE_CORRECTION_SCHEMA = 'make-money-view-evidence-correction.v1';
 const RECORD_GROUPS = ['claims', 'metrics', 'moneySignals', 'events', 'relationships', 'observations', 'derived'] as const;
@@ -223,19 +225,75 @@ function isValueSummary(value: unknown): value is FoundationValueSummary {
   const object = objectValue(value);
   const profile = objectValue(object?.valueProfile);
   const counts = objectValue(profile?.counts);
+  const stringArray = (candidate: unknown): candidate is string[] =>
+    Array.isArray(candidate) && candidate.every((item) => typeof item === 'string');
+  const nullableString = (candidate: unknown): boolean => candidate === null || typeof candidate === 'string';
+  const signal = (candidate: unknown): boolean => candidate === null || typeof candidate === 'string';
   return Boolean(
     object &&
     stringValue(object, 'id') &&
     stringValue(object, 'name') &&
     stringValue(object, 'entityType') &&
-    Array.isArray(object.aliases) &&
-    Array.isArray(object.evidenceIds) &&
+    stringArray(object.aliases) &&
+    nullableString(object.canonicalIdentifier) &&
+    nullableString(object.domain) &&
+    stringValue(object, 'status') &&
+    nullableString(object.observedAt) &&
+    stringArray(object.evidenceIds) &&
     profile &&
-    typeof profile.score === 'number' &&
-    typeof profile.tier === 'string' &&
-    Array.isArray(profile.labels) &&
-    counts
+    Number.isFinite(profile.score) &&
+    (profile.tier === 'HIGH_SIGNAL' || profile.tier === 'USEFUL' || profile.tier === 'CANDIDATE') &&
+    stringArray(profile.labels) &&
+    signal(profile.businessSignal) &&
+    signal(profile.painSignal) &&
+    signal(profile.moneySignal) &&
+    signal(profile.tractionSignal) &&
+    signal(profile.mechanismSignal) &&
+    signal(profile.timeSignal) &&
+    counts &&
+    ['claims', 'metrics', 'moneySignals', 'events', 'observations', 'derived', 'evidence']
+      .every((key) => Number.isInteger(counts[key]) && Number(counts[key]) >= 0) &&
+    (object.isNew === undefined || typeof object.isNew === 'boolean')
   );
+}
+
+function isNewArrivalsRelease(value: unknown): boolean {
+  const object = objectValue(value);
+  return Boolean(
+    object &&
+    stringValue(object, 'releaseId') &&
+    stringValue(object, 'releaseAt') &&
+    stringValue(object, 'label') &&
+    Number.isInteger(object.count) &&
+    Number(object.count) >= 0 &&
+    Array.isArray(object.entityIds) &&
+    object.entityIds.every((id) => typeof id === 'string') &&
+    Number.isInteger(object.contributionCount) &&
+    Number(object.contributionCount) >= 0
+  );
+}
+
+/**
+ * Validate the already-projected serving page without recursively copying and
+ * interpreting the whole page through the general JSON-schema engine.
+ *
+ * The R2 boundary is still fail-closed: each row is checked by
+ * readMakeMoneyViewSummary(), and this guard checks the page envelope plus all
+ * fields used by the public list path. The full schema parser remains in place
+ * for externally supplied/search payloads and detail responses.
+ */
+export function assertMakeMoneyValuePage(value: unknown): asserts value is FoundationValuePage {
+  const object = objectValue(value);
+  if (
+    !object ||
+    !Array.isArray(object.data) ||
+    !object.data.every(isValueSummary) ||
+    !(object.nextCursor === null || typeof object.nextCursor === 'string') ||
+    typeof object.hasMore !== 'boolean' ||
+    !(object.newArrivals === null || isNewArrivalsRelease(object.newArrivals))
+  ) {
+    throw new Error('Invalid Foundation serving page');
+  }
 }
 
 function isBusinessCase(value: unknown): value is FoundationBusinessCase {
@@ -325,8 +383,60 @@ function extractJsonObjectAfterKey(source: string, key: string): string | null {
   return null;
 }
 
+function readJsonStringAt(source: string, start: number): { value: string; end: number } | null {
+  if (source[start] !== '"') return null;
+  let escaped = false;
+  for (let index = start + 1; index < source.length; index += 1) {
+    const character = source[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (character === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (character !== '"') continue;
+    try {
+      return { value: JSON.parse(source.slice(start, index + 1)) as string, end: index };
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
+function extractTopLevelStringProperty(source: string, key: string): string | null {
+  let depth = 0;
+  for (let index = 0; index < source.length; index += 1) {
+    const character = source[index];
+    if (character === '"') {
+      const parsedKey = readJsonStringAt(source, index);
+      if (!parsedKey) return null;
+      let next = parsedKey.end + 1;
+      while (/\s/.test(source[next] || '')) next += 1;
+      if (depth === 1 && parsedKey.value === key && source[next] === ':') {
+        next += 1;
+        while (/\s/.test(source[next] || '')) next += 1;
+        const parsedValue = readJsonStringAt(source, next);
+        return parsedValue?.value || null;
+      }
+      index = parsedKey.end;
+      continue;
+    }
+    if (character === '{') depth += 1;
+    else if (character === '}') depth = Math.max(0, depth - 1);
+  }
+  return null;
+}
+
 function parseViewSummaryPrefix(body: Uint8Array): FoundationValueSummary | null {
   const source = new TextDecoder().decode(body);
+  if (
+    extractTopLevelStringProperty(source, 'schema_version') !== MAKE_MONEY_VIEW_SCHEMA ||
+    extractTopLevelStringProperty(source, 'consumer') !== 'make-money' ||
+    extractTopLevelStringProperty(source, 'projection_version') !== 'v1'
+  ) return null;
   const summaryText = extractJsonObjectAfterKey(source, 'summary');
   if (!summaryText) return null;
   try {
@@ -355,6 +465,11 @@ async function readEvidenceCorrectionControl(bucket: string, entityId: string) {
     throw new Error('Invalid persisted evidence correction control');
   }
   return { object, control: value as unknown as ViewEvidenceCorrectionControl };
+}
+
+async function hasEvidenceCorrectionControl(bucket: string, entityId: string): Promise<boolean> {
+  const head = await headR2Object(bucket, `${EVIDENCE_CORRECTION_PREFIX}${entityId}.json`);
+  return head.exists;
 }
 
 function applyEvidenceCorrectionControl(document: MakeMoneyViewDocument, control: ViewEvidenceCorrectionControl): MakeMoneyViewDocument {
@@ -1323,21 +1438,43 @@ async function readMakeMoneyViewSummary(
   bucket: string,
   key: string,
 ): Promise<FoundationValueSummary | null> {
-  const object = await readR2ObjectRange(bucket, key, { offset: 0, length: VIEW_SUMMARY_PREFIX_BYTES });
+  let object = await readR2ObjectRange(bucket, key, { offset: 0, length: VIEW_SUMMARY_PREFIX_BYTES });
   if (!object) return null;
-  const summary = parseViewSummaryPrefix(object.body);
+  let summary = parseViewSummaryPrefix(object.body);
+  if (!summary && VIEW_SUMMARY_FALLBACK_PREFIX_BYTES > VIEW_SUMMARY_PREFIX_BYTES) {
+    // Most summaries fit in the small range. Preserve the old 64 KiB ceiling
+    // for the exceptional large row instead of silently dropping it.
+    object = await readR2ObjectRange(bucket, key, {
+      offset: 0,
+      length: VIEW_SUMMARY_FALLBACK_PREFIX_BYTES,
+    });
+    summary = object ? parseViewSummaryPrefix(object.body) : null;
+  }
+  if (!summary) {
+    // A valid summary can grow beyond the bounded prefix as source runs and
+    // evidence IDs accumulate. Read the complete document only for this rare
+    // exceptional path so valid rows are not silently skipped by the cursor.
+    const full = await readR2Object(bucket, key);
+    const document = full ? parseViewDocument(decodeJson(full.body)) : null;
+    summary = document?.summary || null;
+  }
   if (!summary) return null;
 
   // Evidence corrections are rare and require the full detail graph to
   // reconstruct the corrected summary. Keep that exceptional path intact,
   // but do not make every ordinary list row pay its cost.
-  const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
-  if (control) {
-    const document = await readCorrectedViewDocument(bucket, key, control);
-    return document ? document.summary : null;
+  if (await hasEvidenceCorrectionControl(bucket, summary.id)) {
+    const { control } = await readEvidenceCorrectionControl(bucket, summary.id);
+    if (control) {
+      const document = await readCorrectedViewDocument(bucket, key, control);
+      return document ? document.summary : null;
+    }
   }
 
-  if (!needsScheduledReadThrough(summary)) return summary;
+  // A normal persisted summary already contains its display identity. Only
+  // repair legacy rows whose name is still the generated entity ID; the
+  // observation-only fallback was an unnecessary extra R2 read per page.
+  if (!isStoredEntityIdName(summary.name)) return summary;
   // A list request must stay bounded. The old read-through scanned up to 96
   // immutable research bundles for legacy rows with sparse summaries. That
   // made an otherwise ordinary cursor page capable of hitting the Worker CPU
@@ -1363,7 +1500,7 @@ async function readMakeMoneyViewSummary(
 export async function mapServingReads<T, R>(items: readonly T[], read: (item: T) => Promise<R>): Promise<R[]> {
   const results: R[] = new Array(items.length);
   let next = 0;
-  await Promise.all(Array.from({ length: Math.min(4, items.length) }, async () => {
+  await Promise.all(Array.from({ length: Math.min(2, items.length) }, async () => {
     while (next < items.length) {
       const index = next++;
       results[index] = await read(items[index]);

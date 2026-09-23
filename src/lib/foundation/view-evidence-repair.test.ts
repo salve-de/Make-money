@@ -14,6 +14,7 @@ vi.mock('@/lib/storage/r2', () => {
       const body = state.objects.get(key);
       return body ? { body, exists: true, etag: createHash('sha256').update(body).digest('hex') } : null;
     },
+    headR2Object: async (_bucket: string, key: string) => ({ exists: state.objects.has(key) }),
     readR2ObjectRange: async (_bucket: string, key: string) => {
       const body = state.objects.get(key);
       return body ? { body, exists: true, etag: createHash('sha256').update(body).digest('hex') } : null;
