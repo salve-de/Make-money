@@ -1,5 +1,8 @@
 # Make-Money 引継ぎ入口（2026-09-24 最新正本）
 
+
+> **2026-09-24 最重要KPI補正**: Make-Money全体のNorth StarはTime to First Dollarではない。**最優先は運営がいくら儲けたか（Operator Profit / Revenue）、次に利用者数・再訪・利用量**。大多数は事業を始めず良いOpportunityを探し続けるため、その探索Retention自体を価値として扱う。Builderは主にMarketplace supplyを増やすために簡単化し、Make-Money内/外で作ったProductを掲載 → 他ユーザーがAffiliate紹介 → Verified Sale → Platform Feeへ繋ぐ。さらにSellRelayで確定済みのPartner Origin（AがBを連れてきて、BがVerified Saleを作った時だけAにも1段Origin Commission）を成長装置として接続する。無限多段・signup報酬ではない。正本: [docs/OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md](docs/OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md)。
+
 > **2026-09-19 First Dollar 実行レイヤー追加**: MAKE MONEY は情報DBだけで終わらせず、企業事例から `FIND → BUILD → LIST → DISTRIBUTE → SELL → EARN` を進め、実売上の最初の1円まで追う。企業詳細の `この稼ぎ方を実行` から `/execute/[id]` へ入り、未ログインは端末保存、ログイン時は D1 同期。仕様正本は [docs/FIRST_DOLLAR_EXECUTION.md](docs/FIRST_DOLLAR_EXECUTION.md)。今後の機能判断では Time to First Dollar を主要基準にする。
 
 > **【別チャットのAntigravityへの最優先引継ぎ】**:
