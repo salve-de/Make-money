@@ -1,5 +1,8 @@
 # Opportunity Builder MVP
 
+
+> **2026-09-24 目的補正**: Builderの主目的は「全ユーザーをFirst Dollarへ到達させること」ではない。Make-Money全体の最上位目的は**運営利益の最大化**であり、BuilderはそのためにMarketplaceへ載せられるProduct supplyを増やす **Supply Acquisition Engine** として位置づける。作ったProductをMake-Moneyへ掲載し、他ユーザーがAffiliateとして紹介し、Verified SaleごとにPlatform Feeが生まれる構造を作る。Make-Money外で作ったProductも掲載対象にする。詳細は [Operator Revenue & Growth Flywheel](./OPERATOR_REVENUE_AND_GROWTH_FLYWHEEL.md) を正本とする。
+
 > **正本の役割**: この文書は、Opportunity Builderについて「何を実装したか」だけでなく、**なぜこの構成にしたのか、何を捨てたのか、誰が何を所有・負担するのか、どこまでをMake-Moneyが握るのか**までを残す意思決定正本である。将来v0/Bolt/Lovable等の実装providerが変わっても、この判断軸は維持する。
 
 ## 0. 発端 — 「儲かる情報を見せて終わり」では弱い
