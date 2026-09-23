@@ -1,81 +1,238 @@
 /**
- * KIN-KOROKU データ収集パイプライン - STAGE 3: VERIFY & SYNTHESIS
- * 抽出されたDossierレコードの出典・信頼度を格付けし、台帳スキーマ（FinancialEntity）へ正規化統合する。
- * 
- * 準拠: docs/DATA_COLLECTION_CONTRACT.md (3. Make-Moneyの表示要件 / 4. 更新ルール)
- * 準拠: PROJECT_CHARTER.md (Ⅱ. データ収集パイプライン 4. VERIFICATION / 5. SYNTHESIS)
+ * KIN-KOROKU data collection pipeline - STAGE 3: VERIFY & SYNTHESIS
+ *
+ * This stage is a promotion gate. It must never manufacture missing facts.
  */
 
-import { ExtractedDossier } from './extractDossier';
-import { FinancialEntity } from '../../src/platform/types/terminal';
+import type { ExtractedDossier } from './extractDossier';
+import type { FinancialEntity, SectorCategory } from '../../src/platform/types/terminal';
+import { assertCollectionGeneratedPayload } from './collection-semantic-validator';
+
+const ALLOWED_SECTORS = new Set<SectorCategory>([
+  'AI_AUTOMATION',
+  'NICHE_SAAS',
+  'MONOPOLY_MFG',
+  'CONTENT_MEDIA',
+  'PHYSICAL_ASSET',
+  'FINTECH_INFRA',
+  'LOCAL_SERVICES',
+  'UNKNOWN',
+]);
+
+type CollectionMeta = {
+  verificationStatus: 'SUPPORTED';
+  collectionTier?: 'CANDIDATE' | 'HIGH_SIGNAL';
+  sectorEvidence?: {
+    value: SectorCategory;
+    verificationStatus: 'SUPPORTED';
+    sourceUrls: string[];
+    note: string;
+  };
+};
+
+function finiteNumber(value: number | null, label: string): number {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    throw new Error(`[COLLECTION REJECTED: MISSING FACT] ${label} is not supportably known; keep it null/UNKNOWN upstream instead of fabricating a number.`);
+  }
+  return value;
+}
+
+function knownText(value: string | null | undefined): string {
+  const text = typeof value === 'string' ? value.trim() : '';
+  return text && text !== 'UNKNOWN' ? text : 'UNKNOWN';
+}
+
+function scaleFromTeamSize(teamSize: number | null): FinancialEntity['scale'] {
+  if (teamSize === null || !Number.isFinite(teamSize) || teamSize < 1) return 'UNKNOWN';
+  if (teamSize === 1) return 'SOLO';
+  if (teamSize <= 10) return 'SMALL_TEAM';
+  if (teamSize <= 50) return 'SCALEUP';
+  return 'ENTERPRISE';
+}
 
 /**
- * 抽出データを最終的な台帳エンティティ形式へバリデーション・正規化する
+ * Promote a supported ExtractedDossier into FinancialEntity without inventing
+ * sector, costs, profit, growth, tools, or operational facts.
  */
 export function verifyAndIntegrate(dossier: ExtractedDossier): FinancialEntity {
-  console.log(`[STAGE 3: VERIFY & SYNTHESIS] 検証中: ${dossier.entity.name}...`);
-  
-  // 出典と信頼度の判定 (DATA_COLLECTION_CONTRACT.md 準拠)
-  const isVerified = dossier.evidenceVerification.verificationStatus === 'SUPPORTED';
-  console.log(`[STAGE 3: VERIFY & SYNTHESIS] 信頼格付け: ${dossier.evidenceVerification.reliabilityRating} (検証状態: ${isVerified ? 'VERIFIED' : 'UNVERIFIED'})`);
+  console.log(`[STAGE 3: VERIFY & SYNTHESIS] validating: ${dossier.entity.name}...`);
 
-  const entity: FinancialEntity = {
+  if (dossier.evidenceVerification.verificationStatus !== 'SUPPORTED') {
+    throw new Error(
+      `[COLLECTION REJECTED: UNVERIFIED DOSSIER] ${dossier.entity.name} remains CANDIDATE/UNVERIFIED; do not synthesize a publishable entity.`,
+    );
+  }
+
+  if (!dossier.evidenceVerification.sourceUrl?.trim()) {
+    throw new Error(
+      `[COLLECTION REJECTED: MISSING SOURCE] ${dossier.entity.name} has no source URL for supported promotion.`,
+    );
+  }
+
+  if (dossier.evidenceVerification.reliabilityRating === 'ESTIMATED') {
+    throw new Error(
+      `[COLLECTION REJECTED: ESTIMATE WITHOUT METHOD] ${dossier.entity.name} carries ESTIMATED values but ExtractedDossier has no inputs/formula/assumptions contract. Keep it upstream until methodology is explicit.`,
+    );
+  }
+
+  const monthlyRevenue = finiteNumber(dossier.moneyFlow.monthlyRevenueJpy, 'moneyFlow.monthlyRevenueJpy');
+  const grossMargin = finiteNumber(dossier.moneyFlow.grossMarginPercent, 'moneyFlow.grossMarginPercent');
+  const operatingProfit = finiteNumber(dossier.moneyFlow.operatingProfitJpy, 'moneyFlow.operatingProfitJpy');
+
+  if (monthlyRevenue < 0) throw new Error('[COLLECTION REJECTED] monthly revenue cannot be negative.');
+  if (grossMargin < 0 || grossMargin > 100) throw new Error('[COLLECTION REJECTED] gross margin must be 0..100.');
+
+  const grossProfit = Math.round(monthlyRevenue * (grossMargin / 100));
+  const cogs = monthlyRevenue - grossProfit;
+  const residualOperatingExpenses = grossProfit - operatingProfit;
+  if (residualOperatingExpenses < 0) {
+    throw new Error(
+      `[COLLECTION REJECTED: ARITHMETIC] ${dossier.entity.name} operatingProfit exceeds grossProfit; source values are internally inconsistent.`,
+    );
+  }
+
+  const sectorEvidence = dossier.entity.sectorEvidence;
+  const sectorCandidate = sectorEvidence
+    && sectorEvidence.verificationStatus === 'SUPPORTED'
+    && sectorEvidence.sourceUrl?.trim()
+    && sectorEvidence.value === dossier.entity.sector
+    && ALLOWED_SECTORS.has(sectorEvidence.value as SectorCategory)
+      ? sectorEvidence.value as SectorCategory
+      : 'UNKNOWN';
+  const sector = sectorCandidate;
+
+  const teamSize = dossier.entity.teamSize;
+  const weeklyHours = dossier.operations.weeklyHours;
+  const automationLevel = dossier.operations.automationLevelPercent;
+  const sourceUrl = dossier.evidenceVerification.sourceUrl;
+  const sourceStatus = dossier.evidenceVerification.reliabilityRating === 'OBSERVED' ? 'REPORTED' : 'REPORTED';
+  const capturedAt = dossier.evidenceVerification.capturedAt || new Date().toISOString();
+
+  const evidenceCardId = `ev_${dossier.leadId.replace(/[^a-zA-Z0-9_-]/g, '_')}_source`;
+
+  const baseEntity: FinancialEntity = {
     id: `ent_generated_${dossier.leadId}`,
-    ticker: dossier.entity.name.toUpperCase().slice(0, 8),
+    ticker: dossier.entity.name.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8) || 'UNKNOWN',
     name: dossier.entity.name,
-    tagline: `【${dossier.evidenceVerification.reliabilityRating}】${dossier.exposureAudit.guerrillaTraction.slice(0, 45)}...`,
-    sector: (dossier.entity.sector as FinancialEntity['sector']) || 'AI_AUTOMATION',
-    scale: dossier.entity.teamSize === 1 ? 'SOLO' : 'SMALL_TEAM',
-    founder: dossier.entity.founder,
-    country: dossier.entity.country,
-    url: dossier.entity.url,
-    verifiedBadge: isVerified,
-    growthRateYoY: 100.0,
-    architecturePattern: dossier.moneyFlow.pricingModel,
-    pipelineStack: dossier.operations.toolStack.map(t => t.name).join(' × ') || 'N/A',
-    targetPainWallet: dossier.moneyFlow.payer,
-    tags: [dossier.entity.sector, dossier.entity.teamSize === 1 ? '完全1人' : '少数精鋭', '検証中リード'],
+    tagline: knownText(dossier.exposureAudit.guerrillaTraction) !== 'UNKNOWN'
+      ? knownText(dossier.exposureAudit.guerrillaTraction)
+      : `${dossier.entity.name}: supported source captured; business details remain partially unknown.`,
+    sector,
+    scale: scaleFromTeamSize(teamSize),
+    founder: knownText(dossier.entity.founder),
+    country: knownText(dossier.entity.country),
+    url: dossier.entity.url || sourceUrl,
+    verifiedBadge: true,
+    growthRateYoY: 0,
+    isGrowthUnconfirmed: true,
+    architecturePattern: knownText(dossier.moneyFlow.pricingModel),
+    pipelineStack: dossier.operations.toolStack.length
+      ? dossier.operations.toolStack.map((tool) => tool.name).join(' × ')
+      : 'UNKNOWN',
+    targetPainWallet: knownText(dossier.moneyFlow.payer),
+    tags: ['検証済み収集'],
     pnl: {
-      monthlyRevenue: dossier.moneyFlow.monthlyRevenueJpy,
-      cogs: Math.round(dossier.moneyFlow.monthlyRevenueJpy * (1 - dossier.moneyFlow.grossMarginPercent / 100)),
-      grossProfit: Math.round(dossier.moneyFlow.monthlyRevenueJpy * (dossier.moneyFlow.grossMarginPercent / 100)),
-      grossMargin: dossier.moneyFlow.grossMarginPercent,
+      monthlyRevenue,
+      cogs,
+      grossProfit,
+      grossMargin,
       operatingExpenses: {
-        serverAndApi: Math.round(dossier.moneyFlow.monthlyRevenueJpy * 0.1),
-        advertising: Math.round(dossier.moneyFlow.monthlyRevenueJpy * 0.05),
-        subcontracting: Math.round(dossier.moneyFlow.monthlyRevenueJpy * 0.05),
-        toolsAndSaaS: Math.round(dossier.moneyFlow.monthlyRevenueJpy * 0.02),
-        other: Math.round(dossier.moneyFlow.monthlyRevenueJpy * 0.08),
+        serverAndApi: 0,
+        advertising: 0,
+        subcontracting: 0,
+        toolsAndSaaS: 0,
+        other: residualOperatingExpenses,
       },
-      operatingProfit: dossier.moneyFlow.operatingProfitJpy,
-      operatingMargin: Math.round((dossier.moneyFlow.operatingProfitJpy / dossier.moneyFlow.monthlyRevenueJpy) * 100),
-      estimatedAnnualNetProfit: dossier.moneyFlow.operatingProfitJpy * 12,
+      operatingProfit,
+      operatingMargin: monthlyRevenue > 0
+        ? Number(((operatingProfit / monthlyRevenue) * 100).toFixed(2))
+        : 0,
+      estimatedAnnualNetProfit: 0,
+      isNetProfitUnconfirmed: true,
+      isCostsUnconfirmed: true,
+      financialStatus: 'REPORTED',
+      dataSnapshotPeriod: `observed_at=${capturedAt}`,
+      sourceDoc: sourceUrl,
     },
     operations: {
-      teamSize: dossier.entity.teamSize,
-      weeklyHours: dossier.operations.weeklyHours,
+      teamSize: teamSize ?? 0,
+      isTeamSizeUnconfirmed: teamSize === null,
+      weeklyHours: weeklyHours ?? 0,
+      isWeeklyHoursUnconfirmed: weeklyHours === null,
       initialCapitalRequired: 0,
-      automationLevel: dossier.operations.automationLevelPercent,
-      primaryChannels: ['SEO', 'Direct Outreach', 'Viral Loops'],
-      toolStack: dossier.operations.toolStack.map(t => ({
-        name: t.name,
-        category: t.category,
-        monthlyCost: t.monthlyCostJpy,
+      isCapitalUnconfirmed: true,
+      automationLevel: automationLevel ?? 0,
+      isAutomationUnconfirmed: automationLevel === null,
+      primaryChannels: [],
+      toolStack: dossier.operations.toolStack.map((tool) => ({
+        name: tool.name,
+        category: tool.category,
+        monthlyCost: tool.monthlyCostJpy,
+        purpose: 'source-extracted tool relationship',
       })),
     },
     strategy: {
-      blindspot: dossier.exposureAudit.platformGlitch,
-      moatType: 'PROCESS_POWER',
-      moatDescription: dossier.exposureAudit.hiddenStackCost,
-      initialTraction: [dossier.exposureAudit.guerrillaTraction],
-      actionPlaybook: [
-        `Step 1: ${dossier.exposureAudit.guerrillaTraction.slice(0, 30)}...`,
-        `Step 2: ${dossier.exposureAudit.platformGlitch.slice(0, 30)}...`,
-      ],
+      blindspot: knownText(dossier.exposureAudit.platformGlitch),
+      moatType: 'UNKNOWN',
+      moatDescription: 'UNKNOWN',
+      initialTraction: knownText(dossier.exposureAudit.guerrillaTraction) === 'UNKNOWN'
+        ? []
+        : [dossier.exposureAudit.guerrillaTraction],
+      actionPlaybook: [],
     },
-    exposureAudit: dossier.exposureAudit,
+    evidenceCards: [
+      {
+        id: evidenceCardId,
+        type: 'SMOKING_GUN',
+        title: `${dossier.entity.name} source evidence`,
+        badge: '収集元',
+        evidenceStatus: sourceStatus,
+        punchline: knownText(dossier.exposureAudit.guerrillaTraction),
+        details: [
+          `sourcePlatform: ${knownText(dossier.evidenceVerification.sourcePlatform)}`,
+          `verificationStatus: ${dossier.evidenceVerification.verificationStatus}`,
+          `capturedAt: ${capturedAt}`,
+        ],
+        sourceNote: sourceUrl,
+      },
+    ],
+    observationsStream: [
+      {
+        id: evidenceCardId,
+        category: 'TECH_VERIFICATION',
+        categoryLabel: '収集元と確認状態',
+        text: `Supported source retained for ${dossier.entity.name}; unknown fields were not filled by inference.`,
+        originType: 'reported',
+        verificationStatus: 'SUPPORTED',
+        sourceUrl,
+        observedAt: capturedAt,
+      },
+    ],
+    unknownsNotes: [
+      'Annual net profit is unknown; no monthly-to-annual or operating-profit-to-net-profit conversion was performed.',
+      'Operating expense component split is unknown; only the arithmetic residual is retained in compatibility field other.',
+      ...(sector === 'UNKNOWN' ? ['Sector classification is UNKNOWN because no explicit supported classification was retained.'] : []),
+    ],
+    publishability: 'PARTIAL',
   };
 
-  console.log(`[STAGE 3: VERIFY & SYNTHESIS] 正常統合完了: ${entity.id} (${entity.name})`);
+  const entity = baseEntity as FinancialEntity & CollectionMeta;
+  entity.verificationStatus = 'SUPPORTED';
+  if (dossier.collectionTier) entity.collectionTier = dossier.collectionTier;
+  if (sector !== 'UNKNOWN') {
+    entity.sectorEvidence = {
+      value: sector,
+      verificationStatus: 'SUPPORTED',
+      sourceUrls: [sectorEvidence!.sourceUrl],
+      note: sectorEvidence!.note || 'Sector value is preserved from explicit supported classification evidence.',
+    };
+  }
+
+  assertCollectionGeneratedPayload(entity, {
+    requireSectorEvidence: true,
+    label: `verifyAndIntegrate:${dossier.leadId}`,
+  });
+
+  console.log(`[STAGE 3: VERIFY & SYNTHESIS] promotion passed: ${entity.id} (${entity.name})`);
   return entity;
 }

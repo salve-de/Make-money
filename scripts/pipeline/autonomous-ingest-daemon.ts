@@ -66,6 +66,10 @@ function autoGitSync(count: number) {
 }
 
 export async function runAutonomousDaemon() {
+  throw new Error(
+    '[COLLECTION PIPELINE DISABLED] autonomous-ingest-daemon uses legacy numeric placeholders for unknown financials. Preserve incomplete leads as CANDIDATE/null/UNKNOWN in the current Foundation collection path; do not promote them through this legacy daemon.',
+  );
+
   console.log('================================================================');
   console.log('  MAKEMONEY 100-HOUR AUTONOMOUS INGESTION DAEMON (WORKER)');
   console.log('================================================================');
@@ -161,7 +165,7 @@ export async function runAutonomousDaemon() {
             name: target.name,
             legalEntity: 'UNKNOWN',
             tagline: extractedDesc !== 'UNKNOWN' ? extractedDesc : extractedTitle,
-            sector: target.sector,
+            sector: 'UNKNOWN',
             scale: 'UNKNOWN',
             founder: 'UNKNOWN',
             country: target.country,
@@ -200,7 +204,7 @@ export async function runAutonomousDaemon() {
                 punchline: extractedDesc,
                 details: [
                   `対象企業: ${target.name} (${target.ticker})`,
-                  `事業ドメイン: ${target.sector}`,
+                  `事業ドメイン: UNKNOWN（一次情報から明示分類できるまで保留）`,
                   `一次情報ソース: ${target.url}`,
                   `原本SHA-256 CASダイジェスト: ${rawSha}`
                 ],
@@ -262,7 +266,7 @@ export async function runAutonomousDaemon() {
             architecturePattern: '未確認',
             pipelineStack: '未確認',
             targetPainWallet: '未確認',
-            tags: ['収集事例', target.sector],
+            tags: ['収集事例'],
             publishability: 'PARTIAL'
           },
           rawArtifacts: [rawArtifact]

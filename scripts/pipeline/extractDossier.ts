@@ -10,12 +10,19 @@ import { RawSignalLead } from './scoutSignals';
 
 export interface ExtractedDossier {
   leadId: string;
+  collectionTier?: 'CANDIDATE' | 'HIGH_SIGNAL';
   entity: {
     name: string;
     founder: string;
     country: string;
-    teamSize: number;
+    teamSize: number | null;
     sector: string;
+    sectorEvidence?: {
+      value: string;
+      verificationStatus: 'SUPPORTED' | 'UNVERIFIED';
+      sourceUrl: string;
+      note?: string;
+    };
     url: string;
   };
   timeline: {
@@ -26,15 +33,15 @@ export interface ExtractedDossier {
   moneyFlow: {
     payer: string;
     receiver: string;
-    monthlyRevenueJpy: number;
-    grossMarginPercent: number;
-    operatingProfitJpy: number;
+    monthlyRevenueJpy: number | null;
+    grossMarginPercent: number | null;
+    operatingProfitJpy: number | null;
     pricingModel: string;
     pricePoint: string;
   };
   operations: {
-    weeklyHours: number;
-    automationLevelPercent: number;
+    weeklyHours: number | null;
+    automationLevelPercent: number | null;
     toolStack: { name: string; category: string; monthlyCostJpy: number }[];
   };
   // 資本主義の裏帳簿：客観的事実の暴露（暴露と指南の絶対境界線に準拠）
@@ -70,6 +77,12 @@ export function extractDossierFromSignal(lead: RawSignalLead): ExtractedDossier 
         country: 'NL',
         teamSize: 1,
         sector: 'AI_AUTOMATION',
+        sectorEvidence: {
+          value: 'AI_AUTOMATION',
+          verificationStatus: 'SUPPORTED',
+          sourceUrl: lead.sourceUrl,
+          note: 'The retained source explicitly describes an AI-generated headshot product.',
+        },
         url: 'https://www.headshotpro.com',
       },
       timeline: {
@@ -110,37 +123,41 @@ export function extractDossierFromSignal(lead: RawSignalLead): ExtractedDossier 
     };
   }
 
-  // デフォルト抽出スタブ
+  // デフォルト抽出: 根拠のない数値・業種・組織規模は生成しない。
+  // 欠損は UNKNOWN/null のまま保持し、verifyAndIntegrate のpromotion gateで
+  // 証拠不足の完全体化を拒否する。
   return {
     leadId: lead.id,
     entity: {
-      name: lead.extractedKeywords[0] || 'Unknown Business',
-      founder: lead.authorOrHandle,
-      country: 'GLOBAL',
-      teamSize: lead.initialSignals.teamSize || 1,
-      sector: 'AI_AUTOMATION',
+      name: lead.extractedKeywords[0] || 'UNKNOWN',
+      founder: lead.authorOrHandle || 'UNKNOWN',
+      country: 'UNKNOWN',
+      teamSize: lead.initialSignals.teamSize ?? null,
+      sector: 'UNKNOWN',
       url: lead.sourceUrl,
     },
     timeline: {},
     moneyFlow: {
-      payer: 'End Customers',
-      receiver: lead.authorOrHandle,
-      monthlyRevenueJpy: 15000000,
-      grossMarginPercent: 80.0,
-      operatingProfitJpy: 12000000,
-      pricingModel: lead.initialSignals.businessModel || 'Direct Sale',
-      pricePoint: 'N/A',
+      payer: 'UNKNOWN',
+      receiver: lead.authorOrHandle || 'UNKNOWN',
+      monthlyRevenueJpy: null,
+      grossMarginPercent: null,
+      operatingProfitJpy: null,
+      pricingModel: lead.initialSignals.businessModel || 'UNKNOWN',
+      pricePoint: 'UNKNOWN',
     },
     operations: {
-      weeklyHours: 20,
-      automationLevelPercent: 85,
+      weeklyHours: null,
+      automationLevelPercent: null,
       toolStack: [],
     },
     exposureAudit: {
-      guerrillaTraction: `初期の顧客獲得シグナル: ${lead.rawText.slice(0, 100)}...`,
-      platformGlitch: lead.initialSignals.glitchOrLoophole || '未分析のプラットフォーム歪み',
-      pivotSnapshot: 'ピボット履歴の深層リサーチ待ち',
-      hiddenStackCost: '裏ツールスタックの精査待ち',
+      guerrillaTraction: lead.rawText
+        ? `収集済みシグナル: ${lead.rawText.slice(0, 160)}`
+        : 'UNKNOWN',
+      platformGlitch: lead.initialSignals.glitchOrLoophole || 'UNKNOWN',
+      pivotSnapshot: 'UNKNOWN',
+      hiddenStackCost: 'UNKNOWN',
     },
     evidenceVerification: {
       sourceUrl: lead.sourceUrl,

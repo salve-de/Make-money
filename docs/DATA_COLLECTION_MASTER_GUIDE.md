@@ -1,5 +1,38 @@
 # 【最高正本】資本主義の裏帳簿：完全自律データ収集マスターガイド ＆ 歴代事故・フィードバック全集 (Data Collection Master Guide & Post-Mortem Ledger)
 
+
+## 2026-09-22 HARD: 数値・分類・証拠の意味論整合性ゲート（最優先）
+
+> **優先順位**: 本節は本文書内の過去の「推計で埋める」「大枠で分類する」「円へ統一する」等の記述より常に優先する。矛盾時は本節に従う。
+
+1. **数値・単位・通貨を分離して保持する**
+   - 数値は必ず「何の値か」「unit」「currency」「期間/時点」と一体で扱う。
+   - 例: `owner_tenure = 25, unit = "years", currency = null` は **25年** であり、`$25`・`¥25`・価格・売上へ変換してはならない。
+   - `years/months/days/hours/people/users/count/percent/ratio` 等の非金銭unitに currency を付与した生成物は **REJECT**。
+   - 外貨を表示用JPYへ換算する場合でも、source-native の value/unit/currency/period を消さず、換算値は別のderivedフィールドとして保持する。
+
+2. **業種・AI分類を推測で埋めない**
+   - `sector` は明示根拠がある場合のみ確定値を付ける。
+   - 根拠がない、曖昧、単にWeb/AIを使っているだけの場合は `UNKNOWN`。
+   - `AI_AUTOMATION` 等をフォールバック値として自動投入することを禁止する。
+   - 確定sectorには、source/evidenceと `verificationStatus` を紐付ける。
+
+3. **欠損を埋めない・信頼状態を落とさない**
+   - 欠損は `null` / `UNKNOWN` / 未確認状態のまま保持する。
+   - 出典、evidence、`verificationStatus`、既存の `CANDIDATE` / `HIGH_SIGNAL` 等の収集tierを削除・暗黙変換しない。
+   - 推計は、入力値・計算式・仮定・対象期間・根拠が全て明示できる場合に限り `estimated` として別値で作る。欠損を埋める目的の推計は禁止。
+   - 年商を12で割って月商へ変換しない。資金調達を売上へ変換しない。未確認原価から利益を確定生成しない。
+
+4. **完全体JSON生成後に必ずreject型validatorを通す**
+   - 型、value/unit/currency、ID重複、期間、算術、source/evidence、verification、sector根拠を検査する。
+   - 1件でも意味論違反があれば保存・promotion・R2 writerへ渡す前に **REJECT**。
+   - 「保存できた」「JSONとしてvalid」は事実検証成功を意味しない。
+
+5. **非破壊境界**
+   - 既存収集データの上書き・削除・再収集をこの修正の手段にしない。
+   - 2050件 pending/v0、EDINET正本、既存公開便スケジュールは変更しない。
+   - collection/validatorはcanonical R2へ直接PUTしない。R2への昇格は既存の認可済みwriter経路のみ。
+
 > **最高運用契約（ゼロプロンプト宣言）**:
 > **ユーザーは長文のプロンプトや前提条件を絶対に書かない。**
 > ユーザーが他AI（ChatGPT, Claude, Cursor, Antigravity等）に投げる指示は、以下の**「1行」**のみである：
@@ -87,7 +120,7 @@
 ### 2. 「落ちてない・探してもないなら仕方ない原則」（捏造・ループの厳禁）
 - ネット上に公開されていない一次情報（詳細なツール代内訳等）は、**「落ちていないのだから仕方がない」**。
 - 無理に深追いして調査の手を止めたり、クローラーを無限ループさせて自爆することは厳禁。
-- 業界相場・ビジネス構造から合理的に推計（`originType: "estimated"`）して堂々と埋め、前に進め。取れないものは `null` や `UNKNOWN` のままで誠実に受容せよ。
+- 推計は、入力値・計算式・仮定・期間・根拠を明示できる場合だけ `originType: "estimated"` の別値として保持する。条件が揃わないものは `null` / `UNKNOWN` のまま前に進め。欠損を埋めるための推計は禁止する。
 
 ### 3. SaaSバイアスの完全根絶
 - オフライン事業（スーパー、外食、製造、クリニック等）に `Stripe Billing` や `Vercel` などのSaaSツールを安易に設定する手抜きを永久に禁止する。

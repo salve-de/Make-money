@@ -55,6 +55,17 @@ function sanitizeJargon(text: string): string {
 }
 
 export function buildCompleteEntity(input: RawEntityInput): FinancialEntity {
+  // Legacy generator contract is intentionally fail-closed. Its input only
+  // provides annualRevenueRaw and historically divided it by 12 to manufacture
+  // monthlyRevenue. The 2026-09-22 collection contract forbids that period
+  // coercion. Use a source-native collector that retains value/unit/currency/
+  // period separately, then pass the generated JSON through the semantic gate.
+  if (typeof input.annualRevenueRaw === 'number') {
+    throw new Error(
+      '[COLLECTION GENERATOR DISABLED] buildCompleteEntity annualRevenueRaw -> monthlyRevenue conversion is forbidden. Preserve the annual observation and collect an independently evidenced monthly value instead.',
+    );
+  }
+
   const year = input.snapshotYear || new Date().getFullYear();
   const cur = input.currency || 'USD';
   const fx = getHistoricalFxRate(cur, year);

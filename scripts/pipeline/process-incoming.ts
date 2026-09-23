@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { execSync } from 'node:child_process';
 import { ingestVerifiedEntities } from './real-ingest-pipeline';
+import { assertCollectionGeneratedPayload } from './collection-semantic-validator';
 import type { FinancialEntity } from '../../src/platform/types/terminal';
 
 const INCOMING_DIR = resolve(process.cwd(), 'data/incoming');
@@ -43,7 +44,12 @@ async function main() {
       const parsed = JSON.parse(rawContent);
       const batchEntities: FinancialEntity[] = Array.isArray(parsed) ? parsed : [parsed];
 
-      console.log(`[PARSED] ${batchEntities.length} entities in ${file}. Running ingest pipeline...`);
+      assertCollectionGeneratedPayload(batchEntities, {
+        requireSectorEvidence: true,
+        label: `incoming:${file}`,
+      });
+
+      console.log(`[PARSED] ${batchEntities.length} entities in ${file}. Semantic guard passed. Running ingest pipeline...`);
       await ingestVerifiedEntities(batchEntities, file.replace(/\.json$/, ''));
 
       // 処理成功 ➔ processed/ へ移動

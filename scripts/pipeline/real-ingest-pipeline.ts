@@ -6,6 +6,7 @@ import { inspectFinancialIntegrity } from '../../src/shared/financial-integrity'
 import type { FinancialEntity } from '../../src/platform/types/terminal';
 
 import { autoEnrichEntityBeforeIngest } from './auto-enrich-entity';
+import { assertCollectionGeneratedPayload } from './collection-semantic-validator';
 
 export interface RawArtifact {
   content: string | Buffer;
@@ -56,6 +57,12 @@ export async function ingestVerifiedEntities(
       return item as IngestEntityInput;
     }
     return { entity: item as FinancialEntity, rawArtifacts: [] };
+  });
+
+  console.log('--- [0/4] Validating collected semantics before any storage mutation ---');
+  assertCollectionGeneratedPayload(normalizedInputs.map(({ entity }) => entity), {
+    requireSectorEvidence: true,
+    label: `ingest:${batchName}`,
   });
 
   console.log('--- [0/4] Sanitizing Entities (No synthetic template generation) ---');

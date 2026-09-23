@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import { execFileSync } from 'node:child_process';
 import { part1 } from './data-part1.mjs';
 import { part2 } from './data-part2.mjs';
 import { part3 } from './data-part3.mjs';
@@ -284,13 +285,25 @@ if (uniqueTollGates.size < 95) {
   throw new Error(`tollGateSetup diversity too low: ${uniqueTollGates.size}`);
 }
 
-// 成果物の保存
+// 成果物の保存前に意味論validatorを必ず通す。
+const serializedEntities = JSON.stringify(fullEntities, null, 2);
+const validatorCli = path.resolve(process.cwd(), 'scripts/pipeline/validate-collection-generated.ts');
+execFileSync(
+  process.execPath,
+  ['--import', 'tsx', validatorCli],
+  {
+    input: serializedEntities,
+    stdio: ['pipe', 'inherit', 'inherit'],
+  },
+);
+console.log('[PASS] Collection semantic validator accepted generated JSON before persistence.');
+
 const outDir = path.resolve(process.cwd(), 'data/incoming');
 if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });
 }
 const outPath = path.join(outDir, 'batch_solo_winners_20260915.json');
-fs.writeFileSync(outPath, JSON.stringify(fullEntities, null, 2), 'utf8');
+fs.writeFileSync(outPath, serializedEntities, 'utf8');
 console.log(`[SAVED] Successfully wrote ${fullEntities.length} entities to: ${outPath}`);
 
 // CLAIMED_TARGETS.txt の更新（未掲載のもののみ追記）

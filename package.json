@@ -38,7 +38,7 @@
     "dedup:check": "node scripts/check-dedup.mjs",
     "prompt:collect": "node scripts/generate-collection-prompt.mjs",
     "typecheck": "next typegen && tsc --noEmit && pnpm schemas:check",
-    "test": "vitest run && pnpm test:foundation && pnpm test:architecture && pnpm test:recovery",
+    "test": "vitest run && pnpm test:foundation && pnpm test:collection-semantic && pnpm test:architecture && pnpm test:recovery",
     "test:architecture": "node --test scripts/architecture/check-deploy-config.test.mjs scripts/architecture/check-worker-secrets.test.mjs scripts/architecture/check-api-input.test.mjs scripts/architecture/check-runtime-schema.test.mjs scripts/architecture/check-index-safety.test.mjs scripts/architecture/ingest-hazard-guard.test.mjs",
     "test:foundation": "node --import tsx --test scripts/*.test.ts",
     "test:e2e": "playwright test",
@@ -48,7 +48,9 @@
     "db:migrate:remote": "wrangler d1 migrations apply APP_DB --remote",
     "test:recovery": "python3 scripts/architecture/verify-d1-recovery.py && python3 -m unittest discover -s scripts/architecture -p 'test_*.py'",
     "workers:build": "node scripts/architecture/build-workers.mjs",
-    "bundle:workers": "pnpm workers:build -- --skipNextBuild"
+    "bundle:workers": "pnpm workers:build -- --skipNextBuild",
+    "test:collection-semantic": "node --import tsx --test scripts/pipeline/collection-semantic-validator.test.ts scripts/pipeline/collection-generation-guard.test.ts",
+    "collection:validate": "node --import tsx scripts/pipeline/validate-collection-generated.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1127.0",
