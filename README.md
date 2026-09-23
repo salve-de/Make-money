@@ -22,6 +22,41 @@
 2. **読者に何を与えるか**: 「不公正なカンニングペーパー（攻略本）」＝努力を強要せず、今夜使えるズル（武器）を1秒で渡す。
 3. **どうやって俺たちが儲けるか**: 「マネーの関所（交差点）」＝稼ぎたい人間が必ず通る道に居座り、全方位から通行税を吸い上げる。
 
+
+### 【新規実行レイヤー】Opportunity → Build → Sell
+Make-Moneyは「儲かる事例を読む場所」だけでは終わらない。ユーザーがデータを見て**「これを自分でも作りたい」**と思った瞬間を外部サービスへ渡さず、そのまま事業化まで繋ぐ。
+
+~~~
+金脈・成功/失敗データ
+  ↓
+独自アイデア
+  ↓
+［この事業を作る］
+  ↓
+Make-MoneyがBuild Spec化
+  ↓
+Make-Money Builder
+  ↓
+生成provider（現MVP: v0 Platform API）
+  ↓
+Preview / 修正 / ソースExport
+  ↓
+将来: Publish
+  ↓
+将来: Marketplaceで販売
+  ↓
+売上・成功率をOpportunity DBへ還流
+~~~
+
+**重要な設計判断**:
+- Bolt / Lovableへユーザーを強制遷移させる方式は主導線にしない。外部遷移すると、Make-Moneyが生んだ購買・行動意欲、生成履歴、将来の売上データを外部へ渡すため。
+- Make-Moneyが通常のBolt/Lovableアカウントを全利用者へ共有する方式も採用しない。
+- 現MVPは、第三者組込み向けのv0 Platform APIを**交換可能な生成工場**として利用する。
+- 将来的にはBolt OSS / bolt.diy + WebContainer等による自社Builder化も可能だが、需要検証前の過剰投資を避けるため第二段階とする。
+- Make-Moneyが握るのは**何を作るべきかを決めるデータ、Build Spec、ユーザー関係、Marketplace、実売上データ**。生成AIそのものには依存しない。
+- 生成ソース・本番Hosting・DB・Domain・顧客データ・商品/事業は原則ユーザー所有へ寄せる。本番継続原価までMake-Moneyが無制限に負担しない。
+- 詳細な経緯・採用/不採用理由・費用/所有権・実装境界は [docs/OPPORTUNITY_BUILDER.md](./docs/OPPORTUNITY_BUILDER.md) を正本とする。
+
 ### 【優等生AI（ChatGPT / Gemini）の完全無力化 ＆ 4大禁忌データの独占】
 世の優等生AIやビジネス書は「社会的価値・顧客への誠実さ」という道徳と綺麗事（セーフティの呪い）に縛られ、現実の資本主義で金が動く生々しい事実を1ミリも出力できない。本プラットフォームは、優等生が口封じされている【4大禁忌データ】を独占提供する。
 
@@ -264,7 +299,7 @@ WORLD (世界中のノイズ・一次情報)
 
 ---
 
-## 5. 戦略変遷・意思決定全史（Phase 0 〜 Phase 30）
+## 5. 戦略変遷・意思決定全史（Phase 0 〜 Phase 209）
 
 本プロジェクトがどのような試行錯誤と自己否定を経て現在の絶対体系に至ったかの全記録：
 
@@ -301,8 +336,9 @@ WORLD (世界中のノイズ・一次情報)
 * [`PROJECT_CHARTER.md`](./PROJECT_CHARTER.md): プロジェクト最高憲章・人間本質包括解剖白書・データパイプライン
 * [`CLAUDE.md`](./CLAUDE.md): AIエージェント最高運用プロトコル・禁止事項
 * [`AGENTS.md`](./AGENTS.md): リポジトリ全体に対するエージェント行動規範
-* [`docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md`](./docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md): 戦略マスター白書・意思決定全史（Phase 0〜30）
+* [`docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md`](./docs/PROJECT_MASTER_HISTORY_AND_STRATEGY.md): 戦略マスター白書・意思決定全史（Phase 0〜209）
 * [`docs/DATA_COLLECTION_CONTRACT.md`](./docs/DATA_COLLECTION_CONTRACT.md): データ収集・検証契約規律
+* [docs/OPPORTUNITY_BUILDER.md](./docs/OPPORTUNITY_BUILDER.md): Opportunity Builder実行レイヤーの設計正本、意思決定史、費用・所有権・provider境界
 
 ---
 
