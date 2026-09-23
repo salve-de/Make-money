@@ -383,8 +383,60 @@ function extractJsonObjectAfterKey(source: string, key: string): string | null {
   return null;
 }
 
+function readJsonStringAt(source: string, start: number): { value: string; end: number } | null {
+  if (source[start] !== '"') return null;
+  let escaped = false;
+  for (let index = start + 1; index < source.length; index += 1) {
+    const character = source[index];
+    if (escaped) {
+      escaped = false;
+      continue;
+    }
+    if (character === '\\') {
+      escaped = true;
+      continue;
+    }
+    if (character !== '"') continue;
+    try {
+      return { value: JSON.parse(source.slice(start, index + 1)) as string, end: index };
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
+function extractTopLevelStringProperty(source: string, key: string): string | null {
+  let depth = 0;
+  for (let index = 0; index < source.length; index += 1) {
+    const character = source[index];
+    if (character === '"') {
+      const parsedKey = readJsonStringAt(source, index);
+      if (!parsedKey) return null;
+      let next = parsedKey.end + 1;
+      while (/\s/.test(source[next] || '')) next += 1;
+      if (depth === 1 && parsedKey.value === key && source[next] === ':') {
+        next += 1;
+        while (/\s/.test(source[next] || '')) next += 1;
+        const parsedValue = readJsonStringAt(source, next);
+        return parsedValue?.value || null;
+      }
+      index = parsedKey.end;
+      continue;
+    }
+    if (character === '{') depth += 1;
+    else if (character === '}') depth = Math.max(0, depth - 1);
+  }
+  return null;
+}
+
 function parseViewSummaryPrefix(body: Uint8Array): FoundationValueSummary | null {
   const source = new TextDecoder().decode(body);
+  if (
+    extractTopLevelStringProperty(source, 'schema_version') !== MAKE_MONEY_VIEW_SCHEMA ||
+    extractTopLevelStringProperty(source, 'consumer') !== 'make-money' ||
+    extractTopLevelStringProperty(source, 'projection_version') !== 'v1'
+  ) return null;
   const summaryText = extractJsonObjectAfterKey(source, 'summary');
   if (!summaryText) return null;
   try {
@@ -1397,6 +1449,14 @@ async function readMakeMoneyViewSummary(
       length: VIEW_SUMMARY_FALLBACK_PREFIX_BYTES,
     });
     summary = object ? parseViewSummaryPrefix(object.body) : null;
+  }
+  if (!summary) {
+    // A valid summary can grow beyond the bounded prefix as source runs and
+    // evidence IDs accumulate. Read the complete document only for this rare
+    // exceptional path so valid rows are not silently skipped by the cursor.
+    const full = await readR2Object(bucket, key);
+    const document = full ? parseViewDocument(decodeJson(full.body)) : null;
+    summary = document?.summary || null;
   }
   if (!summary) return null;
 
