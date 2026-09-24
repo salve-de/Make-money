@@ -11,7 +11,7 @@ Sparkles,
 Zap
 } from 'lucide-react';
 import React from 'react';
-import { StructuredObservationData } from './StructuredObservationData';
+import { StructuredObservationData } from '@/shared/components/StructuredObservationData';
 
 interface UniversalIntelligenceStreamProps {
   entity: FinancialEntity;
