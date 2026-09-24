@@ -563,15 +563,20 @@ export function adaptFoundationDetailToFinancialEntity(
 
   for (const obs of observations) {
     const readable = readableObservationText(obs.text);
-    if (!readable) continue;
+    const hasStructuredPayload = obs.payload !== null && obs.payload !== undefined;
+    if (!readable && !hasStructuredPayload) continue;
     observationsStream.push({
       id: obs.id,
       category: 'MARKET_DISTORTION',
       categoryLabel: '現場観測事実',
-      text: cleanIntelligenceText(readable),
+      text: cleanIntelligenceText(readable || obs.kind || '構造化観測データ'),
       originType: normalizeObservationOrigin(obs.originType),
       verificationStatus: normalizeObservationStatus(obs.verificationStatus),
       observedAt: obs.observedAt || undefined,
+      observationType: obs.kind || undefined,
+      payloadSchemaRef: obs.payloadSchemaRef || undefined,
+      observer: obs.observer || undefined,
+      ...(hasStructuredPayload ? { payload: obs.payload } : {}),
     });
   }
 
