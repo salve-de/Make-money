@@ -1,6 +1,5 @@
 import { createHash } from 'node:crypto';
-import Ajv2020 from 'ajv/dist/2020.js';
-import addFormats from 'ajv-formats';
+import { Validator, type Schema } from '@cfworker/json-schema';
 import researchBundleSchema from './schemas/research-bundle.v1.schema.json';
 import typedRecordSetSchema from './schemas/typed-record-set.v1.schema.json';
 import collectionRunSchema from './schemas/collection-run.v1.schema.json';
@@ -12,7 +11,7 @@ import { defaultIncomingMoneySignalFields } from './money-signal-null-defaults';
 type JsonObject = Record<string, unknown>;
 
 export const TYPED_SOURCE_REPOSITORY = 'salve-de/universal-foundation';
-export const TYPED_PROJECTOR_VERSION = 'r2-queue-mapper-v4';
+export const TYPED_PROJECTOR_VERSION = 'r2-queue-mapper-v6';
 export const TYPED_COVERAGE_ASSESSMENT = 'UNASSESSED' as const;
 
 export interface FoundationTypedSourceDescriptor {
@@ -62,14 +61,26 @@ export class FoundationTypedIngestValidationError extends Error {
   }
 }
 
-const ajv = new Ajv2020({ allErrors: true, strict: false });
-addFormats(ajv);
-ajv.addSchema(researchBundleSchema);
-ajv.addSchema(evidenceCaptureRequestSchema);
-ajv.addSchema(workItemSchema);
-const validateTypedRecordSet = ajv.compile(typedRecordSetSchema);
-const validateCollectionRun = ajv.compile(collectionRunSchema);
-const validateResearchBundleSchema = ajv.compile(researchBundleSchema);
+const validateTypedRecordSet = new Validator(
+  typedRecordSetSchema as Schema,
+  '2020-12',
+  false,
+);
+validateTypedRecordSet.addSchema(researchBundleSchema as Schema);
+
+const validateCollectionRun = new Validator(
+  collectionRunSchema as Schema,
+  '2020-12',
+  false,
+);
+validateCollectionRun.addSchema(evidenceCaptureRequestSchema as Schema);
+validateCollectionRun.addSchema(workItemSchema as Schema);
+
+const validateResearchBundleSchema = new Validator(
+  researchBundleSchema as Schema,
+  '2020-12',
+  false,
+);
 
 function isObject(value: unknown): value is JsonObject {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -81,11 +92,108 @@ function stringValue(value: JsonObject, key: string): string | null {
 }
 
 function schemaErrors(
-  validator: { errors?: Array<{ instancePath?: string; message?: string }> | null },
+  validator: Validator,
+  input: unknown,
 ): string[] {
-  return (validator.errors || [])
+  const result = validator.validate(input);
+  if (result.valid) return [];
+  return result.errors
     .slice(0, 20)
-    .map((error) => `${error.instancePath || '/'} ${error.message || 'invalid'}`);
+    .map((error) => `${error.instanceLocation || '#'} ${error.keyword || 'invalid'}`);
+}
+
+function stringArray(value: JsonObject, key: string): string[] {
+  const candidate = value[key];
+  return Array.isArray(candidate)
+    ? candidate.filter((item): item is string => typeof item === 'string' && item.trim().length > 0)
+    : [];
+}
+
+function collectKnownEntityIds(
+  value: unknown,
+  knownEntityIds: ReadonlySet<string>,
+  output: Set<string>,
+  depth = 0,
+): void {
+  if (depth > 8) return;
+  if (typeof value === 'string') {
+    if (knownEntityIds.has(value)) output.add(value);
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) collectKnownEntityIds(item, knownEntityIds, output, depth + 1);
+    return;
+  }
+  if (!isObject(value)) return;
+  for (const child of Object.values(value)) {
+    collectKnownEntityIds(child, knownEntityIds, output, depth + 1);
+  }
+}
+
+function collectPayloadStrings(value: unknown, output: string[], depth = 0): void {
+  if (depth > 8) return;
+  if (typeof value === 'string') {
+    const normalized = value.trim();
+    if (normalized) output.push(normalized);
+    return;
+  }
+  if (Array.isArray(value)) {
+    for (const item of value) collectPayloadStrings(item, output, depth + 1);
+    return;
+  }
+  if (!isObject(value)) return;
+  for (const child of Object.values(value)) {
+    collectPayloadStrings(child, output, depth + 1);
+  }
+}
+
+function entityMentionTokens(entity: JsonObject): string[] {
+  const candidates = [
+    stringValue(entity, 'canonical_name'),
+    ...stringArray(entity, 'aliases'),
+  ];
+  return [...new Set(
+    candidates
+      .filter((item): item is string => Boolean(item))
+      .map((item) => item.trim().toLocaleLowerCase())
+      .filter((item) => item.length >= 4),
+  )];
+}
+
+function observationEntityIds(
+  observation: JsonObject,
+  typedRecordSet: JsonObject,
+  entities: JsonObject[],
+): string[] {
+  const knownEntityIds = new Set(
+    entities
+      .map((entity) => stringValue(entity, 'entity_id'))
+      .filter((entityId): entityId is string => Boolean(entityId)),
+  );
+  if (knownEntityIds.size === 0) return [];
+
+  const resolved = new Set<string>();
+  collectKnownEntityIds(observation.payload, knownEntityIds, resolved);
+  if (resolved.size > 0) return [...resolved].sort();
+
+  const payloadStrings: string[] = [];
+  collectPayloadStrings(observation.payload, payloadStrings);
+  const payloadText = payloadStrings.join('\n').toLocaleLowerCase();
+  if (payloadText) {
+    for (const entity of entities) {
+      const entityId = stringValue(entity, 'entity_id');
+      if (!entityId) continue;
+      if (entityMentionTokens(entity).some((token) => payloadText.includes(token))) {
+        resolved.add(entityId);
+      }
+    }
+  }
+  if (resolved.size > 0) return [...resolved].sort();
+
+  const subjectRef = stringValue(typedRecordSet, 'subject_ref');
+  if (subjectRef && knownEntityIds.has(subjectRef)) return [subjectRef];
+
+  return knownEntityIds.size === 1 ? [...knownEntityIds] : [];
 }
 
 function parseJsonObject(text: string, reasonCode: 'SOURCE_JSON_INVALID' | 'REQUEST_INVALID', label: string): JsonObject {
@@ -185,6 +293,9 @@ export function projectTypedRecordSetV4(
     );
   }
 
+  const entities = Array.isArray(typedRecordSet.entities)
+    ? typedRecordSet.entities.filter(isObject)
+    : [];
   const typedObservations = Array.isArray(typedRecordSet.observations)
     ? typedRecordSet.observations.filter(isObject)
     : [];
@@ -206,8 +317,10 @@ export function projectTypedRecordSetV4(
       const observationChannel =
         stringValue(observation, 'collection_channel') || collectionChannel;
       const observer = stringValue(observation, 'observer') || agentName;
+      const entityIds = observationEntityIds(observation, typedRecordSet, entities);
       return {
         ...cloneJson(observation),
+        ...(entityIds.length > 0 ? { entity_ids: entityIds } : {}),
         collection_channel: observationChannel,
         observer,
         text: humanObservationText(observation),
@@ -229,7 +342,7 @@ export function projectTypedRecordSetV4(
     retrieved_at: retrievedAt,
     sources: cloneJson(Array.isArray(typedRecordSet.sources) ? typedRecordSet.sources : []),
     evidence: cloneJson(Array.isArray(typedRecordSet.evidence) ? typedRecordSet.evidence : []),
-    entities: cloneJson(Array.isArray(typedRecordSet.entities) ? typedRecordSet.entities : []),
+    entities: cloneJson(entities),
     claims: cloneJson(Array.isArray(typedRecordSet.claims) ? typedRecordSet.claims : []),
     metrics: cloneJson(Array.isArray(typedRecordSet.metrics) ? typedRecordSet.metrics : []),
     money_signals: cloneJson(Array.isArray(typedRecordSet.money_signals) ? typedRecordSet.money_signals : []),
@@ -250,8 +363,9 @@ export function projectTypedRecordSetV4(
 
   const normalizedBundle = defaultIncomingMoneySignalFields(bundle).bundle;
 
-  if (!validateResearchBundleSchema(normalizedBundle)) {
-    const issues = schemaErrors(validateResearchBundleSchema);
+  const projectionIssues = schemaErrors(validateResearchBundleSchema, normalizedBundle);
+  if (projectionIssues.length > 0) {
+    const issues = projectionIssues;
     throw new FoundationTypedIngestValidationError(
       'PROJECTION_SCHEMA_INVALID',
       `projected research-bundle.v1 is invalid: ${issues.join('; ')}`,
@@ -328,8 +442,9 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'typed_record_set_text',
   );
-  if (!validateTypedRecordSet(typedRecordSet)) {
-    const issues = schemaErrors(validateTypedRecordSet);
+  const typedRecordSetIssues = schemaErrors(validateTypedRecordSet, typedRecordSet);
+  if (typedRecordSetIssues.length > 0) {
+    const issues = typedRecordSetIssues;
     throw new FoundationTypedIngestValidationError(
       'SOURCE_SCHEMA_INVALID',
       `typed-record-set.v1 schema validation failed: ${issues.join('; ')}`,
@@ -342,8 +457,9 @@ export function prepareFoundationTypedIngest(
     'SOURCE_JSON_INVALID',
     'source_artifact_text',
   );
-  if (!validateCollectionRun(sourceArtifact)) {
-    const issues = schemaErrors(validateCollectionRun);
+  const collectionRunIssues = schemaErrors(validateCollectionRun, sourceArtifact);
+  if (collectionRunIssues.length > 0) {
+    const issues = collectionRunIssues;
     throw new FoundationTypedIngestValidationError(
       'SOURCE_SCHEMA_INVALID',
       `collection-run.v1 schema validation failed: ${issues.join('; ')}`,
