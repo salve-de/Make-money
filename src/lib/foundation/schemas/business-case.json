@@ -548,19 +548,7 @@
             "null"
           ]
         },
-        "observer": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "payloadSchemaRef": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "payload": {},
+        "publicPayload": {},
         "evidenceIds": {
           "type": "array",
           "items": {
@@ -575,8 +563,6 @@
         "originType",
         "verificationStatus",
         "observedAt",
-        "collectionTier",
-        "collectionChannel",
         "evidenceIds"
       ]
     },
