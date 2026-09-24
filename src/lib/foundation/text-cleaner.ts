@@ -304,6 +304,22 @@ const TERM_TRANSLATIONS: Array<[RegExp, string]> = [
 /**
  * 英語のメトリクスキーを直感的な日本語ラベルへ変換
  */
+function compactStructuredValue(value: unknown, depth = 0): string {
+  if (value === null) return 'null';
+  if (typeof value === 'string') return value;
+  if (typeof value === 'number' || typeof value === 'boolean') return String(value);
+  if (Array.isArray(value)) {
+    const items = value.slice(0, 8).map((item) => compactStructuredValue(item, depth + 1));
+    return `[${items.join(', ')}${value.length > 8 ? ', …' : ''}]`;
+  }
+  if (!value || typeof value !== 'object') return '';
+  if (depth >= 2) return '{…}';
+  const entries = Object.entries(value as Record<string, unknown>).slice(0, 12);
+  return entries
+    .map(([key, child]) => `${key.replaceAll('_', ' ')}: ${compactStructuredValue(child, depth + 1)}`)
+    .join(' / ');
+}
+
 export function readableObservationText(text: string | null | undefined): string | null {
   if (!text) return null;
   const trimmed = text.trim();
@@ -313,10 +329,19 @@ export function readableObservationText(text: string | null | undefined): string
   try {
     const parsed = JSON.parse(trimmed) as unknown;
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
-    const payload = (parsed as Record<string, unknown>).payload;
+    const record = parsed as Record<string, unknown>;
+    if (
+      record.observation_type === 'transport.typed_record_set_v1' ||
+      record.transport_typed_record_set_v1
+    ) return null;
+
+    const payload = record.payload;
     if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return null;
     const summary = (payload as Record<string, unknown>).summary;
-    return typeof summary === 'string' && summary.trim() ? summary.trim() : null;
+    if (typeof summary === 'string' && summary.trim()) return summary.trim();
+
+    const fallback = compactStructuredValue(payload).trim();
+    return fallback ? fallback.slice(0, 1800) : null;
   } catch {
     return null;
   }
