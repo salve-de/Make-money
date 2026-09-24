@@ -1130,19 +1130,13 @@
         "observationType": {
           "type": "string"
         },
-        "payloadSchemaRef": {
-          "type": "string"
-        },
-        "observer": {
-          "type": "string"
-        },
-        "payload": {},
         "sourceClass": {
           "$ref": "#/definitions/SourceClass"
         },
         "evidenceLocator": {
           "$ref": "#/definitions/EvidenceLocator"
-        }
+        },
+        "publicPayload": {}
       },
       "required": [
         "text"
