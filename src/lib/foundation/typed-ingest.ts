@@ -4,6 +4,7 @@ import addFormats from 'ajv-formats';
 import researchBundleSchema from './schemas/research-bundle.v1.schema.json';
 import typedRecordSetSchema from './schemas/typed-record-set.v1.schema.json';
 import { sha256Sync } from '@/shared/sha256';
+import { defaultIncomingMoneySignalFields } from './money-signal-null-defaults';
 
 type JsonObject = Record<string, unknown>;
 
@@ -241,7 +242,9 @@ export function projectTypedRecordSetV4(
     },
   };
 
-  if (!validateResearchBundleSchema(bundle)) {
+  const normalizedBundle = defaultIncomingMoneySignalFields(bundle).bundle;
+
+  if (!validateResearchBundleSchema(normalizedBundle)) {
     const issues = schemaErrors(validateResearchBundleSchema);
     throw new FoundationTypedIngestValidationError(
       'PROJECTION_SCHEMA_INVALID',
@@ -250,7 +253,7 @@ export function projectTypedRecordSetV4(
     );
   }
 
-  return bundle;
+  return normalizedBundle;
 }
 
 function validateSourceDescriptor(source: unknown): FoundationTypedSourceDescriptor {
