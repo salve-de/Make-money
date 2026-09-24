@@ -144,15 +144,17 @@ describe('commercial publication rights gate', () => {
 
   it('fails closed for an unknown numeric field even with approved Evidence', () => {
     const input = bundle('rights.e-stat.v1');
-    input.observations[0].payload = {
+    const observation = input.observations[0] as unknown as Record<string, unknown>;
+    observation.payload = {
       account_number: 123456789012,
       currency: 'USD',
     };
 
     const projected = buildCommercialPublicFactProjection(input);
     expect(projected.bundle).not.toBeNull();
-    expect(projected.bundle?.observations).toHaveLength(1);
-    expect(projected.bundle?.observations[0].public_payload).toEqual({
+    const observations = projected.bundle?.observations as Array<Record<string, unknown>>;
+    expect(observations).toHaveLength(1);
+    expect(observations[0].public_payload).toEqual({
       currency: 'USD',
     });
 
@@ -163,7 +165,8 @@ describe('commercial publication rights gate', () => {
 
   it('drops an Observation when only unknown fields remain after type projection', () => {
     const input = bundle('rights.e-stat.v1');
-    input.observations[0].payload = {
+    const observation = input.observations[0] as unknown as Record<string, unknown>;
+    observation.payload = {
       account_number: 123456789012,
     };
 
@@ -174,8 +177,9 @@ describe('commercial publication rights gate', () => {
 
   it('fails closed for an unregistered Observation type', () => {
     const input = bundle('rights.e-stat.v1');
-    input.observations[0].observation_type = 'business_model.future_unknown';
-    input.observations[0].payload = {
+    const observation = input.observations[0] as unknown as Record<string, unknown>;
+    observation.observation_type = 'business_model.future_unknown';
+    observation.payload = {
       amount: 999,
       currency: 'USD',
     };
