@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/journal-entry.v1.schema.json",
+  "title": "Universal Foundation Journal Entry v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "journal_id",
+    "subject_refs",
+    "observation_type",
+    "payload",
+    "text_original",
+    "origin_type",
+    "verification_status",
+    "confidence",
+    "source_availability",
+    "observed_at",
+    "recorded_at",
+    "provenance",
+    "evidence_ids",
+    "supersedes",
+    "superseded_by",
+    "tags"
+  ],
+  "properties": {
+    "schema_version": { "const": "journal-entry.v1" },
+    "journal_id": { "type": "string", "minLength": 8, "maxLength": 256 },
+    "subject_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "observation_type": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "payload_schema_ref": { "type": ["string", "null"] },
+    "payload": {},
+    "text_original": { "type": ["string", "null"] },
+    "origin_type": {
+      "enum": ["reported", "observed", "estimated", "inferred", "unknown"]
+    },
+    "verification_status": {
+      "enum": ["SUPPORTED", "CONFLICTED", "UNVERIFIED", "SUPERSEDED", "RETRACTED"]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "source_availability": {
+      "enum": ["source_backed", "source_unavailable", "source_not_yet_checked", "not_applicable"]
+    },
+    "valid_time": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "point_in_time": { "$ref": "#/$defs/nullableDateTime" },
+        "valid_from": { "$ref": "#/$defs/nullableDateTime" },
+        "valid_to": { "$ref": "#/$defs/nullableDateTime" },
+        "period_start": { "$ref": "#/$defs/nullableDateTime" },
+        "period_end": { "$ref": "#/$defs/nullableDateTime" }
+      }
+    },
+    "observed_at": { "$ref": "#/$defs/dateTime" },
+    "recorded_at": { "$ref": "#/$defs/dateTime" },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["run_id", "collector", "collection_channel", "purpose"],
+      "properties": {
+        "run_id": { "type": ["string", "null"] },
+        "collector": { "type": "string", "minLength": 1 },
+        "collection_channel": { "type": "string", "minLength": 1 },
+        "purpose": { "type": ["string", "null"] },
+        "source_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "source_locator": { "type": ["string", "null"] },
+        "parser_or_transform_version": { "type": ["string", "null"] }
+      }
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "supersedes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "superseded_by": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "typed_projection_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "rights_status": {
+      "type": ["string", "null"],
+      "enum": ["allowed_private_raw", "restricted_private_raw", "metadata_only", "blocked", "pending_review", null]
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    },
+    "notes": { "type": ["string", "null"] }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "verification_status": { "const": "SUPPORTED" } },
+        "required": ["verification_status"]
+      },
+      "then": {
+        "properties": { "evidence_ids": { "minItems": 1 } }
+      }
+    }
+  ],
+  "$defs": {
+    "dateTime": { "type": "string", "format": "date-time" },
+    "nullableDateTime": {
+      "anyOf": [
+        { "$ref": "#/$defs/dateTime" },
+        { "type": "null" }
+      ]
+    }
+  }
+}
