@@ -20,7 +20,6 @@ import {
   canResumeMakeMoneyProjection,
   materializeMakeMoneyViews,
 } from '@/lib/foundation/make-money-view';
-import { defaultIncomingMoneySignalFields } from '@/lib/foundation/money-signal-null-defaults';
 import { buildNewArrivalsContribution } from '@/lib/foundation/new-arrivals';
 import { persistNewArrivalsContribution } from '@/lib/foundation/new-arrivals-index';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
@@ -89,10 +88,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const prepared = prepareFoundationTypedIngest(body);
-    const normalized = defaultIncomingMoneySignalFields(
-      prepared.bundle as Record<string, unknown>,
-    ).bundle;
-    const bundle = normalized as {
+    const bundle = prepared.bundle as {
       run_id: string;
       retrieved_at: string;
       entities?: unknown;
@@ -133,7 +129,7 @@ export async function POST(request: NextRequest) {
       : await ingestFoundationResearch(
           {
             write_authorized: true,
-            bundle: normalized,
+            bundle: prepared.bundle,
           },
           {
             makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
