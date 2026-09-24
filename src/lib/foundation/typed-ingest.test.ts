@@ -121,7 +121,16 @@ function sourceArtifact() {
     schema_version: 'collection-run.v1',
     lane: 'DISCOVERY',
     run_id: sourceRunId,
+    started_at: '2026-09-24T00:00:00Z',
+    finished_at: '2026-09-24T00:01:00Z',
+    contract_ref: 'registry/collection/collection-os.v3.json',
+    input_snapshot: {},
+    source_attempts: [],
     recorded_items: [{ subject_ref: subjectRef }],
+    coverage_delta: {},
+    audit: {},
+    checkpoint: {},
+    final_status: 'SUCCESS',
   };
 }
 
