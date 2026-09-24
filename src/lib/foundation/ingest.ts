@@ -617,7 +617,14 @@ function validateDerived(records: JsonObject[], issues: string[]): void {
   });
 }
 
-export function validateResearchBundle(input: unknown): ResearchBundle {
+export interface FoundationBundleValidationOptions {
+  makeMoneyCoverage?: 'REQUIRED' | 'UNASSESSED_TYPED_PROJECTION';
+}
+
+export function validateResearchBundle(
+  input: unknown,
+  options: FoundationBundleValidationOptions = {},
+): ResearchBundle {
   const issues: string[] = [];
   if (!isObject(input)) {
     throw new FoundationBundleValidationError(['bundle must be a JSON object']);
@@ -691,7 +698,12 @@ export function validateResearchBundle(input: unknown): ResearchBundle {
     throw new FoundationBundleValidationError(issues);
   }
 
-  if (input.purpose === 'make_money') assessCoverage(input);
+  if (
+    input.purpose === 'make_money' &&
+    options.makeMoneyCoverage !== 'UNASSESSED_TYPED_PROJECTION'
+  ) {
+    assessCoverage(input);
+  }
 
   return input as ResearchBundle;
 }
@@ -1646,13 +1658,14 @@ export async function prepareFoundationResearch(bundleInput: unknown, rawInput?:
 }
 
 export async function ingestFoundationResearch(
-  request: FoundationIngestRequest
+  request: FoundationIngestRequest,
+  options: FoundationBundleValidationOptions = {},
 ): Promise<FoundationIngestReport> {
   if (!isObject(request) || request.write_authorized !== true) {
     throw new FoundationIngestAuthorizationError();
   }
 
-  const bundle = validateResearchBundle(request.bundle);
+  const bundle = validateResearchBundle(request.bundle, options);
   const rawEvidence = parseRawEvidence(request.raw_evidence, bundle);
   const plan = await buildPlan(bundle, rawEvidence);
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
