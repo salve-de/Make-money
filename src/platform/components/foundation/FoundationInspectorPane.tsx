@@ -176,6 +176,9 @@ function RawEvent({ item }: { item: FoundationEvent }) {
 function RawObservation({ item }: { item: FoundationObservation }) {
   const statusInfo = humanizeVerificationStatus(item.verificationStatus);
   const cleanText = cleanIntelligenceText(item.text);
+  const structuredPayload = item.payload === null || item.payload === undefined
+    ? null
+    : JSON.stringify(item.payload, null, 2);
   return (
     <div className="rounded border border-white/[0.06] bg-white/[0.02] p-2.5">
       <div className="flex flex-wrap items-center gap-1">
@@ -184,6 +187,23 @@ function RawObservation({ item }: { item: FoundationObservation }) {
         <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>
       </div>
       <div className="mt-2 font-sans text-[11px] leading-relaxed text-zinc-300">{cleanText}</div>
+      {structuredPayload && (
+        <details className="mt-2 border-t border-white/[0.06] pt-2">
+          <summary className="cursor-pointer font-mono text-[9px] tracking-wide text-cyan-300/80">
+            STRUCTURED PAYLOAD
+          </summary>
+          <pre className="mt-2 max-h-80 overflow-auto whitespace-pre-wrap break-words font-mono text-[9px] leading-relaxed text-zinc-400">
+            {structuredPayload}
+          </pre>
+          {(item.payloadSchemaRef || item.observer) && (
+            <div className="mt-1 font-mono text-[8px] text-zinc-600">
+              {item.payloadSchemaRef ? `schema ${item.payloadSchemaRef}` : ''}
+              {item.payloadSchemaRef && item.observer ? ' ・ ' : ''}
+              {item.observer ? `observer ${item.observer}` : ''}
+            </div>
+          )}
+        </details>
+      )}
       <div className="mt-1.5 font-mono text-[9px] text-zinc-600">{dateValue(item.observedAt)} ・ 根拠 {item.evidenceIds.length}件</div>
     </div>
   );
