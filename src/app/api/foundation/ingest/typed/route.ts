@@ -137,11 +137,11 @@ export async function POST(request: NextRequest) {
 
     try {
       const viewProjection = await materializeMakeMoneyViews(bundle);
-      const needsMoreProjection =
-        !viewProjection.complete &&
-        viewProjection.next_index < viewProjection.total_targets;
+      const projectionComplete =
+        viewProjection.complete &&
+        viewProjection.unresolved_entity_ids.length === 0;
 
-      if (needsMoreProjection) {
+      if (!projectionComplete) {
         return NextResponse.json(
           {
             success: false,
@@ -153,7 +153,9 @@ export async function POST(request: NextRequest) {
             source: prepared.source,
             ...report,
             view_projection: {
-              status: 'PARTIAL',
+              status: viewProjection.next_index < viewProjection.total_targets
+                ? 'PARTIAL'
+                : 'UNRESOLVED',
               ...viewProjection,
             },
           },
@@ -191,9 +193,7 @@ export async function POST(request: NextRequest) {
             }
           : null,
         view_projection: {
-          status: viewProjection.unresolved_entity_ids.length > 0
-            ? 'PASS_WITH_UNRESOLVED_REPLAY'
-            : 'PASS',
+          status: 'PASS',
           ...viewProjection,
         },
       });
