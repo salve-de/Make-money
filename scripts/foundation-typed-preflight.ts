@@ -96,7 +96,10 @@ export async function buildMakeMoneyReplayStatePreflight(adapters: {
       queue_mutations: 0,
       rebuild_state: rebuildState,
       unresolved_replay_state: unresolvedReplayState,
-      next_projection_progress: [],
+      pages_scanned: 0,
+      projection_progress_objects_scanned: 0,
+      listing_complete: true,
+      listing_error: null,
       pending_unresolved_runs: [],
       state: 'GLOBAL_BACKFILL_PENDING',
       blocks_reconcile: true,
@@ -104,23 +107,62 @@ export async function buildMakeMoneyReplayStatePreflight(adapters: {
     };
   }
 
-  const cursor =
+  const initialCursor =
     unresolvedReplayState && typeof unresolvedReplayState.cursor === 'string'
       ? unresolvedReplayState.cursor
       : undefined;
-  const page = await listObjects({
-    bucket,
-    prefix: PROJECTION_PROGRESS_PREFIX,
-    cursor,
-    limit: 5,
-  });
-
+  const seenCursors = new Set<string>();
   const progressRows: Array<Record<string, unknown>> = [];
-  for (const item of page.objects.filter((candidate) => candidate.key.endsWith('.json'))) {
-    const object = await readObject(bucket, item.key);
-    if (!object) continue;
-    const parsed = decodeJsonObject(object.body);
-    if (parsed) progressRows.push(parsed);
+  const auditErrors: string[] = [];
+  let cursor = initialCursor;
+  let pagesScanned = 0;
+  let objectsScanned = 0;
+  const maxPages = 10_000;
+
+  while (true) {
+    if (pagesScanned >= maxPages) {
+      auditErrors.push('projection_progress_listing_page_limit_exceeded');
+      break;
+    }
+    if (cursor) {
+      if (seenCursors.has(cursor)) {
+        auditErrors.push('projection_progress_cursor_cycle');
+        break;
+      }
+      seenCursors.add(cursor);
+    }
+
+    const page = await listObjects({
+      bucket,
+      prefix: PROJECTION_PROGRESS_PREFIX,
+      ...(cursor ? { cursor } : {}),
+      // Match the production replay page size exactly, then keep following the
+      // opaque cursor until the full ledger has been audited.
+      limit: 5,
+    });
+    pagesScanned += 1;
+
+    for (const item of page.objects.filter((candidate) => candidate.key.endsWith('.json'))) {
+      objectsScanned += 1;
+      const object = await readObject(bucket, item.key);
+      if (!object) {
+        auditErrors.push(`projection_progress_disappeared:${item.key}`);
+        continue;
+      }
+      const parsed = decodeJsonObject(object.body);
+      if (!parsed) {
+        auditErrors.push(`projection_progress_invalid_json:${item.key}`);
+        continue;
+      }
+      progressRows.push(parsed);
+    }
+
+    if (!page.truncated) break;
+    if (!page.cursor) {
+      auditErrors.push('projection_progress_truncated_without_cursor');
+      break;
+    }
+    cursor = page.cursor;
   }
 
   const pending = progressRows
@@ -131,9 +173,19 @@ export async function buildMakeMoneyReplayStatePreflight(adapters: {
     .map((row) => ({
       run_id: typeof row.run_id === 'string' ? row.run_id : null,
       unresolved_entity_ids: Array.isArray(row.unresolved_entity_ids)
-        ? row.unresolved_entity_ids.filter((id): id is string => typeof id === 'string' && id.trim().length > 0)
+        ? row.unresolved_entity_ids.filter(
+            (id): id is string => typeof id === 'string' && id.trim().length > 0,
+          )
         : [],
     }));
+
+  const listingComplete = auditErrors.length === 0;
+  const blocksReconcile = !listingComplete || pending.length > 0;
+  const state = !listingComplete
+    ? 'UNRESOLVED_REPLAY_AUDIT_INCOMPLETE'
+    : pending.length > 0
+      ? 'UNRESOLVED_REPLAY_PENDING'
+      : 'NO_PENDING_UNRESOLVED_REPLAY';
 
   return {
     schema_version: 'make-money-replay-production-preflight.v1',
@@ -142,14 +194,16 @@ export async function buildMakeMoneyReplayStatePreflight(adapters: {
     queue_mutations: 0,
     rebuild_state: rebuildState,
     unresolved_replay_state: unresolvedReplayState,
-    next_projection_progress: progressRows,
-    next_page_truncated: page.truncated,
-    next_page_cursor: page.cursor || null,
+    pages_scanned: pagesScanned,
+    projection_progress_objects_scanned: objectsScanned,
+    listing_complete: listingComplete,
+    listing_error: auditErrors.length > 0 ? [...new Set(auditErrors)] : null,
     pending_unresolved_runs: pending,
-    state: pending.length > 0
-      ? 'UNRESOLVED_REPLAY_PENDING'
-      : 'NO_PENDING_UNRESOLVED_REPLAY',
-    blocks_reconcile: pending.length > 0,
+    state,
+    blocks_reconcile: blocksReconcile,
+    // Production updates the replay control cursor/timestamp whenever the
+    // complete-backfill branch runs. This is informational only when the full
+    // ledger audit proved there is no unresolved work.
     control_state_update_expected: true,
   };
 }
