@@ -1,0 +1,206 @@
+{
+  "schema_version": "typed-record-set.v1",
+  "source_run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+  "source_artifact": {
+    "path": "staging/automation/discovery/2026/09/22/20260922T110700Z-discovery-run_discovery_20260922T105724Z_44a9978146ce.json",
+    "blob_sha": "e582c876c280ef271f59aeeb38eb683f0a3f68db",
+    "lane": "DISCOVERY"
+  },
+  "purpose": "make_money",
+  "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+  "subject": {
+    "query": "Spott AI-native ATS CRM for recruitment agencies",
+    "candidate_name": "Spott",
+    "candidate_domain": "spott.io",
+    "notes": "New partial DISCOVERY case; deeper business mechanics delegated to BACKFILL and current Series A confirmation delegated to VERIFY_RECONCILE."
+  },
+  "provenance": {
+    "retrieved_at": "2026-09-22T11:04:53Z",
+    "recorded_at": "2026-09-22T11:08:23Z",
+    "collection_channel": "web_search_and_open",
+    "agent": {
+      "name": "OpenAI ChatGPT scheduled collection",
+      "model": "GPT-5.6 Sol",
+      "version": null
+    },
+    "rights_reviewed_at": "2026-09-22T11:05:00Z"
+  },
+  "sources": [
+    {
+      "source_id": "src.spott_company",
+      "provider_name": "Spott",
+      "source_type": "first_party_company_article",
+      "canonical_url": "https://spott.io/resources/spott-raises-3-2m-to-launch-first-ai-native-platform-for-recruitment-firms",
+      "source_strength": "UNRATED",
+      "rights_status": "metadata_only",
+      "rights_policy_id": null,
+      "access_notes": "Public company resource page retrieved successfully in this run; raw retention was not assumed."
+    },
+    {
+      "source_id": "src.eu_startups",
+      "provider_name": "EU-Startups",
+      "source_type": "secondary_reporting_search_result",
+      "canonical_url": "https://www.eu-startups.com/2026/09/leuven-based-spott-raises-e18-3-million-to-build-the-ai-native-operating-system-for-recruitment-agencies/",
+      "source_strength": "UNRATED",
+      "rights_status": "metadata_only",
+      "rights_policy_id": null,
+      "access_notes": "Fresh search-result content was retrieved on 2026-09-22; direct page open returned a cache miss, so only retrieved result content is represented."
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "ev_8675601a4c327fed49604632",
+      "source_id": "src.spott_company",
+      "source_url": "https://spott.io/resources/spott-raises-3-2m-to-launch-first-ai-native-platform-for-recruitment-firms",
+      "source_title": "Spott raises $3.2M to launch first AI-native platform for recruitment firms",
+      "source_type": "first_party_company_article",
+      "publisher_or_speaker": "Spott",
+      "published_at": null,
+      "retrieved_at": "2026-09-22T11:04:53Z",
+      "source_strength": "UNRATED",
+      "rights_status": "metadata_only",
+      "rights_policy_id": null,
+      "raw_storage": {
+        "status": "metadata_only",
+        "bucket": null,
+        "key": null,
+        "content_sha256": null,
+        "content_type": "text/html",
+        "bytes": null
+      },
+      "summary": "Spott's company resource describes a recruitment-agency platform built as an integrated AI-native ATS/CRM rather than a collection of disconnected point tools.",
+      "extracted_facts": [
+        "Spott says it was founded in November 2024.",
+        "The company describes one platform combining ATS, CRM, analytics and AI agents for recruitment firms.",
+        "The company says workflows include candidate matching, outreach, interview scheduling, transcript processing, pipeline management, reporting and business-development support.",
+        "The company article reports a $3.2 million seed round led by Base10 with participation from Y Combinator, True Equity and Fortino Capital."
+      ]
+    },
+    {
+      "evidence_id": "ev_2917671870359b6877f1f6e9",
+      "source_id": "src.eu_startups",
+      "source_url": "https://www.eu-startups.com/2026/09/leuven-based-spott-raises-e18-3-million-to-build-the-ai-native-operating-system-for-recruitment-agencies/",
+      "source_title": "Leuven-based Spott raises €18.3 million to build the AI-native operating system for recruitment agencies",
+      "source_type": "secondary_reporting_search_result",
+      "publisher_or_speaker": "EU-Startups",
+      "published_at": null,
+      "retrieved_at": "2026-09-22T11:04:53Z",
+      "source_strength": "UNRATED",
+      "rights_status": "metadata_only",
+      "rights_policy_id": null,
+      "raw_storage": {
+        "status": "metadata_only",
+        "bucket": null,
+        "key": null,
+        "content_sha256": null,
+        "content_type": "text/html",
+        "bytes": null
+      },
+      "summary": "Fresh EU-Startups search-result content reports Spott raised €18.3 million ($21 million) in a Series A led by Balderton Capital, with Base10 Partners, Y Combinator and Fortino participating.",
+      "extracted_facts": [
+        "EU-Startups reports a €18.3 million ($21 million) Series A for Spott.",
+        "EU-Startups reports Balderton Capital as lead investor and Base10 Partners, Y Combinator and Fortino as participants.",
+        "EU-Startups describes Spott as a Leuven-based AI-native ATS and CRM platform for recruitment agencies."
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "ent_organization_2fb9960a8a1bcfd297a2",
+      "entity_type": "organization",
+      "canonical_name": "Spott",
+      "aliases": ["Spott"],
+      "canonical_identifier": null,
+      "domain": "spott.io",
+      "status": null,
+      "observed_at": "2026-09-22T11:04:53Z",
+      "evidence_ids": [
+        "ev_8675601a4c327fed49604632",
+        "ev_2917671870359b6877f1f6e9"
+      ]
+    }
+  ],
+  "claims": [],
+  "metrics": [],
+  "money_signals": [],
+  "events": [],
+  "relationships": [],
+  "observations": [
+    {
+      "observation_id": "obs_2fedeb50a97e891bd200c479",
+      "observation_type": "business_model.ai_native_recruitment_system_of_record",
+      "origin_type": "reported",
+      "verification_status": "SUPPORTED",
+      "observed_at": "2026-09-22T11:04:53Z",
+      "collection_channel": "web",
+      "observer": "DISCOVERY",
+      "evidence_ids": ["ev_8675601a4c327fed49604632"],
+      "payload_schema_ref": null,
+      "payload": {
+        "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+        "summary": "Spott's first-party description positions one AI-native ATS/CRM as the recruitment agency's operating layer, consolidating candidate data, matching, outreach, scheduling, transcript processing, pipeline management, reporting and business development instead of adding a single AI point solution.",
+        "mechanism_components_reported": [
+          "ATS and CRM core",
+          "AI agents embedded across workflows",
+          "candidate matching and semantic search",
+          "multi-channel outreach",
+          "interview scheduling and transcript processing",
+          "pipeline and reporting workflows",
+          "business-development support"
+        ]
+      }
+    },
+    {
+      "observation_id": "obs_e90c0e24759e2b53146a5455",
+      "observation_type": "financing.series_a_reported",
+      "origin_type": "reported",
+      "verification_status": "UNVERIFIED",
+      "observed_at": "2026-09-22T11:04:53Z",
+      "collection_channel": "web_search",
+      "observer": "DISCOVERY",
+      "evidence_ids": ["ev_2917671870359b6877f1f6e9"],
+      "payload_schema_ref": null,
+      "payload": {
+        "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+        "round": "Series A",
+        "amount_reported": 18.3,
+        "currency_reported": "EUR",
+        "usd_equivalent_as_reported": 21,
+        "usd_equivalent_unit": "million USD",
+        "lead_investor_as_reported": "Balderton Capital",
+        "participants_as_reported": ["Base10 Partners", "Y Combinator", "Fortino"],
+        "verification_note": "Retained as reported secondary evidence only; independent confirmation is delegated to VERIFY_RECONCILE."
+      }
+    }
+  ],
+  "quality": {
+    "mapping_status": "REQUIRES_BUNDLE_V2",
+    "unknowns": [
+      {
+        "dimension": "business_economics",
+        "note": "Current pricing, payer structure, customer-segment economics, unit economics, retention/switching and distribution mix were not deep-completed in DISCOVERY."
+      },
+      {
+        "dimension": "series_a_independent_confirmation",
+        "note": "The current Series A amount and investor set are retained from secondary reporting and are not independently verified in this lane."
+      }
+    ],
+    "conflicts": [],
+    "warnings": [
+      "Two directly opened pages returned cache-miss failures and one secondary page was available only through fresh search-result content; those source attempts remain retryable after the run's next_retry_at.",
+      "Structured observation payloads are preserved in the semantic sidecar; a transport projection must not flatten or discard them."
+    ],
+    "schema_validation": "NOT_RUN"
+  },
+  "extensions": {
+    "foundation.discovery.v1": {
+      "completion_label": "CAPTURED_PARTIAL",
+      "consumed_work_id": "wrk_4e67b797c707c8458c16fa5300a5db86",
+      "delegated_work_ids": [
+        "wrk_215443970514e3bb7432be604f92ce62",
+        "wrk_1f39ff4c9acb951898b944c78c5ec94f"
+      ],
+      "raw_capture_completion_claimed": false
+    }
+  }
+}
