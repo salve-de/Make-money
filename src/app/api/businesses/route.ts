@@ -5,10 +5,8 @@ import {
   publicFoundationData,
   publicSummaryEntity,
 } from '@/lib/company-access/public-entity';
-import { findCachedPublishableEntity, readCachedLocalPublishableEntities } from '@/lib/company-access/local-entity-index';
 import { parseFoundationBusinessCase, parseFoundationValuePage } from '@/lib/foundation/schema';
 import { NextResponse } from 'next/server';
-import { INSTITUTIONAL_ENTITIES } from '@/platform/data/mockLedgerData';
 import {
   type FoundationBusinessCase,
   type FoundationValuePage,
@@ -278,11 +276,47 @@ function logFoundationFailure(message: string, error: unknown): void {
   }
 }
 
+async function findCuratedPublishableEntity(entityId: string) {
+  const { findCachedPublishableEntity } = await import('@/lib/company-access/local-entity-index');
+  return findCachedPublishableEntity(entityId);
+}
+
+async function readCuratedFallbackEntities() {
+  const { readCachedLocalPublishableEntities } = await import('@/lib/company-access/local-entity-index');
+  const localEntities = await readCachedLocalPublishableEntities();
+  if (localEntities.length > 0) {
+    return { source: 'local_fallback' as const, entities: localEntities };
+  }
+  const { INSTITUTIONAL_ENTITIES } = await import('@/platform/data/mockLedgerData');
+  return { source: 'static_fallback' as const, entities: INSTITUTIONAL_ENTITIES };
+}
+
+function foundationDetailResponse(parsed: FoundationBusinessCase): NextResponse | null {
+  const summaryGate = adaptFoundationSummaryToFinancialEntity(parsed);
+  if (!isPublishableEntity(summaryGate)) return null;
+
+  const adapted = adaptFoundationDetailToFinancialEntity(parsed);
+  const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
+  const revision = adapted.sourceRevision ?? 1;
+  return response({
+    source: 'foundation_lake',
+    dataset_id: foundationDataset('researchBundles').datasetId,
+    data: publicFoundationData(publicFoundationBusinessCase(parsed)),
+    dossierHash: actualHash,
+    sourceRevision: revision,
+    isStale: false,
+  }, 200, {
+    'X-Dossier-Hash': actualHash,
+    'X-Source-Revision': String(revision),
+  });
+}
+
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const entityId = url.searchParams.get('entity_id') || url.searchParams.get('entityId');
   const requestedDossierHash = url.searchParams.get('dossier_hash') || url.searchParams.get('dossierHash');
   const returnSummaryOnly = url.searchParams.get('summary') === 'true';
+  const foundationOnly = url.searchParams.get('foundationOnly') === 'true';
 
   if (entityId && entityId.length > MAX_ENTITY_ID_LENGTH) {
     return response({ error: 'Invalid entity' }, 400);
@@ -339,94 +373,72 @@ export async function GET(request: Request) {
       }
     }
 
+    let stagedView: FoundationBusinessCase | null = null;
     try {
-      const stagedView = await readMakeMoneyViewDetail(entityId);
-      const curated = await findCachedPublishableEntity(entityId);
-
-      // List and detail use one replacement rule at every migration stage:
-      // a curated dossier remains authoritative until the Foundation view is
-      // evidence-dense enough to replace it. Foundation-only entities still
-      // open as partial records when they pass the public evidence gate.
-      if (curated && (!stagedView || !isFoundationDossierReady(stagedView))) {
-        const actualHash = curated.latestDossierHash || computeDossierContentHash(curated);
-        const revision = curated.sourceRevision ?? 1;
-        return response({
-          source: 'local_fallback',
-          count: 1,
-          data: publicEntity(curated),
-          dossierHash: actualHash,
-          sourceRevision: revision,
-          isStale: false,
-        }, 200, {
-          'X-Dossier-Hash': actualHash,
-          'X-Source-Revision': String(revision),
-        });
-      }
-
-      // Public API detail reads must never fall through to private canonical
-      // Foundation bundles. Only the rights-gated Make-Money materialized view
-      // is eligible here; curated legacy fallback remains separately gated.
-      const data = stagedView
-        ? await readCached(
-            detailCache,
-            `view:${entityId}`,
-            DETAIL_TTL_MS,
-            MAX_DETAIL_CACHE_ENTRIES,
-            async () => stagedView,
-          )
-        : null;
-      if (data) {
-        const parsed = parseFoundationBusinessCase(data);
-        if (parsed) {
-          // Use the same publication contract as the list path. Financial
-          // metrics are optional for a partial-but-useful Foundation record;
-          // if the summary is publishable, opening that row must not 404 just
-          // because the detailed financial projection is UNAVAILABLE.
-          const summaryGate = adaptFoundationSummaryToFinancialEntity(parsed);
-          if (isPublishableEntity(summaryGate)) {
-            const adapted = adaptFoundationDetailToFinancialEntity(parsed);
-            const actualHash = adapted.latestDossierHash || computeDossierContentHash(adapted);
-            const revision = adapted.sourceRevision ?? 1;
-            return response({
-              source: 'foundation_lake',
-              dataset_id: foundationDataset('researchBundles').datasetId,
-              // Keep the transport contract canonical. The client owns the
-              // Make-Money FinancialEntity adaptation, so it can re-project
-              // newer Foundation fields without changing this API shape.
-              data: publicFoundationData(publicFoundationBusinessCase(parsed)),
-              dossierHash: actualHash,
-              sourceRevision: revision,
-              isStale: false,
-            }, 200, {
-              'X-Dossier-Hash': actualHash,
-              'X-Source-Revision': String(revision),
-            });
-          }
-        }
-      }
+      stagedView = await readMakeMoneyViewDetail(entityId);
     } catch (error) {
-      logFoundationFailure('[businesses] Foundation detail read failed; using fallback:', error);
+      logFoundationFailure('[businesses] Foundation detail read failed:', error);
+      if (foundationOnly) {
+        return response({ error: 'Foundation detail temporarily unavailable', entity_id: entityId }, 503);
+      }
     }
 
-    const fallback = await findCachedPublishableEntity(entityId);
-    if (!fallback) {
-      return response({ error: 'Entity not found', entity_id: entityId }, 404);
+    const data = stagedView
+      ? await readCached(
+          detailCache,
+          `view:${entityId}`,
+          DETAIL_TTL_MS,
+          MAX_DETAIL_CACHE_ENTRIES,
+          async () => stagedView as FoundationBusinessCase,
+        )
+      : null;
+    const parsedFoundation = data ? parseFoundationBusinessCase(data) : null;
+
+    // Foundation-only detail is the hot path for collected cases. It must not
+    // load the multi-megabyte curated catalog/static fallback graph into a cold
+    // Worker isolate. The rights-gated materialized view is the only authority.
+    if (foundationOnly) {
+      if (!parsedFoundation) {
+        return response({ error: 'Entity not found', entity_id: entityId }, 404);
+      }
+      return foundationDetailResponse(parsedFoundation)
+        || response({ error: 'Entity not publishable', entity_id: entityId }, 404);
     }
 
-    const actualHash = fallback.latestDossierHash || computeDossierContentHash(fallback);
-    const revision = fallback.sourceRevision ?? 1;
+    // Preserve the existing replacement rule without paying curated lookup
+    // cost when the Foundation dossier is already ready to replace it.
+    if (parsedFoundation && isFoundationDossierReady(parsedFoundation)) {
+      const ready = foundationDetailResponse(parsedFoundation);
+      if (ready) return ready;
+    }
 
-    return response({
-      source: 'local_fallback',
-      count: 1,
-      data: publicEntity(fallback),
-      dossierHash: actualHash,
-      sourceRevision: revision,
-      isStale: false,
-    }, 200, {
-      'X-Dossier-Hash': actualHash,
-      'X-Source-Revision': String(revision),
-    });
+    // Load the curated graph only when it can still win the precedence rule,
+    // and perform at most one curated lookup per request.
+    const curated = await findCuratedPublishableEntity(entityId);
+    if (curated) {
+      const actualHash = curated.latestDossierHash || computeDossierContentHash(curated);
+      const revision = curated.sourceRevision ?? 1;
+      return response({
+        source: 'local_fallback',
+        count: 1,
+        data: publicEntity(curated),
+        dossierHash: actualHash,
+        sourceRevision: revision,
+        isStale: false,
+      }, 200, {
+        'X-Dossier-Hash': actualHash,
+        'X-Source-Revision': String(revision),
+      });
+    }
+
+    // Foundation-only entities remain usable even when their dossier is still
+    // partial, provided the public publication gate accepts the materialized view.
+    if (parsedFoundation) {
+      const partial = foundationDetailResponse(parsedFoundation);
+      if (partial) return partial;
+    }
+
+    return response({ error: 'Entity not found', entity_id: entityId }, 404);
   }
 
   const requestedLimit = Number(url.searchParams.get('limit') || '100');
@@ -441,7 +453,7 @@ export async function GET(request: Request) {
   if (foundationQuery.length > 200) {
     return response({ error: 'Invalid foundation query' }, 400);
   }
-  if (foundationQuery && url.searchParams.get('foundationOnly') === 'true') {
+  if (foundationQuery && foundationOnly) {
     try {
       const materializedViewReady = await isMakeMoneyViewBackfillComplete();
       const searchCursor = parseFoundationSearchCursor(cursor);
@@ -515,18 +527,17 @@ export async function GET(request: Request) {
 
   // The current UI loads accepted catalog pages independently. Do not send a
   // redundant multi-megabyte legacy fallback when only Foundation was requested.
-  if (url.searchParams.get('foundationOnly') === 'true') {
+  if (foundationOnly) {
     return response({ error: 'Foundation catalog temporarily unavailable' }, 503);
   }
-  const localEntities = await readCachedLocalPublishableEntities();
-  const rawEntities = localEntities.length > 0 ? localEntities : INSTITUTIONAL_ENTITIES;
-  const fallbackEntities = rawEntities.filter(isPublishableEntity);
+  const curatedFallback = await readCuratedFallbackEntities();
+  const fallbackEntities = curatedFallback.entities.filter(isPublishableEntity);
   const transformed = returnSummaryOnly
     ? fallbackEntities.map(publicSummaryEntity)
     : fallbackEntities.map(publicEntity);
 
   return response({
-    source: localEntities.length > 0 ? 'local_fallback' : 'static_fallback',
+    source: curatedFallback.source,
     count: fallbackEntities.length,
     data: transformed,
     nextCursor: null,
