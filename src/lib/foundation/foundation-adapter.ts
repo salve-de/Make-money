@@ -24,6 +24,10 @@ import {
 import { sha256Sync } from '@/shared/sha256';
 import { resolveFoundationEvidence } from './evidence-store';
 import {
+  canAdmitPublicPayload,
+  sanitizePublicObservationPayload,
+} from './public-observation';
+import {
   cleanIntelligenceText,
   cleanMetricLabel,
   formatHumanMoney,
@@ -561,10 +565,15 @@ export function adaptFoundationDetailToFinancialEntity(
   // 6. Layer 3: 万能救済ストリーム（UniversalObservations）の構築
   const observationsStream: UniversalObservation[] = [];
 
+  let publicPayloadBytes = 0;
   for (const obs of observations) {
     const readable = readableObservationText(obs.text);
-    const hasStructuredPayload = obs.payload !== null && obs.payload !== undefined;
-    if (!readable && !hasStructuredPayload) continue;
+    const publicPayload = sanitizePublicObservationPayload(obs.publicPayload);
+    const canCarryPublicPayload = Boolean(
+      publicPayload &&
+      canAdmitPublicPayload(publicPayloadBytes, publicPayload.bytes)
+    );
+    if (!readable && !canCarryPublicPayload) continue;
     observationsStream.push({
       id: obs.id,
       category: 'MARKET_DISTORTION',
@@ -574,10 +583,9 @@ export function adaptFoundationDetailToFinancialEntity(
       verificationStatus: normalizeObservationStatus(obs.verificationStatus),
       observedAt: obs.observedAt || undefined,
       observationType: obs.kind || undefined,
-      payloadSchemaRef: obs.payloadSchemaRef || undefined,
-      observer: obs.observer || undefined,
-      ...(hasStructuredPayload ? { payload: obs.payload } : {}),
+      ...(canCarryPublicPayload ? { publicPayload: publicPayload!.value } : {}),
     });
+    if (canCarryPublicPayload) publicPayloadBytes += publicPayload!.bytes;
   }
 
   for (const [index, issue] of (detail.issues || []).entries()) {
