@@ -137,14 +137,18 @@ export async function POST(request: NextRequest) {
 
     try {
       const viewProjection = await materializeMakeMoneyViews(bundle);
-      const needsMoreProjection =
-        !viewProjection.complete &&
-        viewProjection.next_index < viewProjection.total_targets;
+      const publicationReady =
+        viewProjection.complete === true &&
+        viewProjection.next_index >= viewProjection.total_targets &&
+        viewProjection.unresolved_entity_ids.length === 0;
 
-      if (needsMoreProjection) {
+      if (!publicationReady) {
         return NextResponse.json(
           {
-            success: false,
+            // Canonical ingestion may be complete while UI projection is not.
+            // Publisher completion must key off publication_ready, not success.
+            success: true,
+            publication_ready: false,
             partial: true,
             retryable: true,
             input_kind: 'typed_sidecar',
@@ -152,8 +156,12 @@ export async function POST(request: NextRequest) {
             coverage_assessment: prepared.coverageAssessment,
             source: prepared.source,
             ...report,
+            new_arrivals: null,
             view_projection: {
-              status: 'PARTIAL',
+              status:
+                viewProjection.next_index < viewProjection.total_targets
+                  ? 'PARTIAL'
+                  : 'PENDING_UNRESOLVED_REPLAY',
               ...viewProjection,
             },
           },
@@ -175,6 +183,7 @@ export async function POST(request: NextRequest) {
 
       return NextResponse.json({
         success: true,
+        publication_ready: true,
         input_kind: 'typed_sidecar',
         mapper_version: prepared.mapperVersion,
         coverage_assessment: prepared.coverageAssessment,
@@ -202,6 +211,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
+          publication_ready: false,
           partial: true,
           retryable: true,
           input_kind: 'typed_sidecar',
