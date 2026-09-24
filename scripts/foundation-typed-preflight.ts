@@ -4,7 +4,10 @@ import {
   prepareFoundationTypedIngest,
   type FoundationTypedIngestRequest,
 } from '../src/lib/foundation/typed-ingest';
-import { prepareFoundationTypedProjectionResearch } from '../src/lib/foundation/ingest';
+import {
+  prepareFoundationResearch,
+  prepareFoundationTypedProjectionResearch,
+} from '../src/lib/foundation/ingest';
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -68,6 +71,7 @@ export async function buildTypedProductionPreflight(request: FoundationTypedInge
     r2_mutations: 0,
     queue_mutations: 0,
     source: prepared.source,
+    request_write_authorized: request.write_authorized === true,
     mapper_version: prepared.mapperVersion,
     coverage_assessment: prepared.coverageAssessment,
     run_id: (prepared.bundle as { run_id?: unknown }).run_id,
@@ -90,16 +94,52 @@ export async function buildTypedProductionPreflight(request: FoundationTypedInge
   };
 }
 
+
+export async function buildBundleProductionPreflight(bundle: unknown) {
+  const plannedWrites = await prepareFoundationResearch(bundle);
+  const countsByRole = plannedWrites.objects.reduce<Record<string, number>>((acc, item) => {
+    acc[item.logical_role] = (acc[item.logical_role] || 0) + 1;
+    return acc;
+  }, {});
+  return {
+    schema_version: 'foundation-bundle-production-preflight.v1',
+    mode: 'READ_ONLY_OFFLINE',
+    r2_provider_calls: 0,
+    r2_mutations: 0,
+    queue_mutations: 0,
+    run_id: bundle && typeof bundle === 'object' && !Array.isArray(bundle)
+      ? (bundle as { run_id?: unknown }).run_id
+      : null,
+    planned_write_count: plannedWrites.objects.length,
+    planned_write_counts_by_role: countsByRole,
+    planned_writes: plannedWrites,
+    invariants: {
+      write_authorized: plannedWrites.write_authorized,
+      all_create_only: plannedWrites.objects.every((item) => item.create_only === true),
+      copy_object_forbidden: plannedWrites.forbidden_operations.includes('CopyObject'),
+      delete_object_forbidden: plannedWrites.forbidden_operations.includes('DeleteObject'),
+      move_forbidden: plannedWrites.forbidden_operations.includes('Move'),
+      rename_forbidden: plannedWrites.forbidden_operations.includes('Rename'),
+      overwrite_forbidden: plannedWrites.forbidden_operations.includes('Overwrite'),
+      legacy_mutation_forbidden: plannedWrites.forbidden_operations.includes('LegacyUniversalMutation'),
+    },
+  };
+}
+
 async function main() {
-  const inputPath = process.argv[2];
+  const args = process.argv.slice(2);
+  const bundleMode = args[0] === '--bundle';
+  const inputPath = bundleMode ? args[1] : args[0];
   if (!inputPath) {
-    console.error('Usage: pnpm foundation:typed:preflight <typed-ingest-request.json>');
+    console.error('Usage: pnpm foundation:typed:preflight [--bundle] <input.json>');
     process.exitCode = 2;
     return;
   }
 
-  const request = JSON.parse(readFileSync(resolve(inputPath), 'utf8')) as FoundationTypedIngestRequest;
-  const report = await buildTypedProductionPreflight(request);
+  const input = JSON.parse(readFileSync(resolve(inputPath), 'utf8'));
+  const report = bundleMode
+    ? await buildBundleProductionPreflight(input)
+    : await buildTypedProductionPreflight(input as FoundationTypedIngestRequest);
   process.stdout.write(`${JSON.stringify(report, null, 2)}\n`);
 }
 
