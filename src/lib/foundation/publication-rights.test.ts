@@ -108,10 +108,86 @@ describe('commercial publication rights gate', () => {
     }
   });
 
-  it('holds evidence with no registered public rights policy', () => {
-    const assessment = assessCommercialPublicProjection(bundle(null));
+  it('holds an unknown source when no approved registry identity can resolve it', () => {
+    const input = bundle(null, 'pending_review', 'SUPPORTED', 'src.test.primary', 'https://example.com/report');
+    const assessment = assessCommercialPublicProjection(input);
     expect(assessment.status).toBe('RIGHTS_HELD');
-    expect(assessment.reasons).toContain('evidence lacks rights_policy_id');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+    expect(assessment.reasons).toContain(
+      'evidence source has no uniquely resolved approved rights policy',
+    );
+  });
+
+  it('resolves null pending_review rights only from an exact approved registry source identity', () => {
+    const input = bundle(null, 'pending_review', 'SUPPORTED', 'src.local.estat.dataset');
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('ALLOWED');
+    expect(assessment.allowedEvidenceIds).toEqual(['ev_1234567890abcdef12345678']);
+
+    const projected = buildCommercialPublicFactProjection(input);
+    expect(projected.bundle).not.toBeNull();
+    expect(projected.bundle?.claims).toHaveLength(1);
+  });
+
+  it('never registry-resolves a blocked source/evidence', () => {
+    const assessment = assessCommercialPublicProjection(
+      bundle(null, 'blocked', 'SUPPORTED', 'src.local.estat.dataset'),
+    );
+    expect(assessment.status).toBe('RIGHTS_HELD');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+    expect(assessment.reasons).toContain('rights_status is blocked');
+  });
+
+  it('keeps explicit approved facts eligible across private-raw capture statuses', () => {
+    for (const status of ['allowed_private_raw', 'restricted_private_raw']) {
+      const input = bundle('rights.e-stat.v1', status);
+      const assessment = assessCommercialPublicProjection(input);
+      expect(assessment.status).toBe('ALLOWED');
+      expect(assessment.allowedEvidenceIds).toEqual(['ev_1234567890abcdef12345678']);
+    }
+  });
+
+  it('fails closed when the same source_id appears more than once', () => {
+    const input = bundle(null, 'pending_review', 'SUPPORTED', 'src.local.estat.dataset');
+    input.sources.push({
+      ...input.sources[0],
+      provider_name: 'Conflicting duplicate',
+      canonical_url: 'https://example.com/not-estat',
+      rights_status: 'blocked',
+    });
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('RIGHTS_HELD');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+  });
+
+  it('does not resolve by official host alone when provider identity is different', () => {
+    const input = bundle(null, 'pending_review', 'SUPPORTED', 'src.local.estat.dataset');
+    input.sources[0].provider_name = 'Unreviewed mirror';
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('RIGHTS_HELD');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+  });
+
+  it('does not resolve a source type outside the approved registry contract', () => {
+    const input = bundle(null, 'pending_review', 'SUPPORTED', 'src.local.estat.dataset');
+    input.sources[0].source_type = 'secondary_reporting';
+    input.evidence[0].source_type = 'secondary_reporting';
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('RIGHTS_HELD');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+  });
+
+  it('uses a data-driven approved Observation contract registry', async () => {
+    const registry = (await import('../../../data/foundation-public-observation-contracts.json')).default;
+    expect(registry.schema_version).toBe('make-money-public-observation-contracts.v1');
+    const revenue = registry.contracts.find(
+      (contract) => contract.observation_type === 'business_model.revenue_signal',
+    );
+    expect(revenue?.status).toBe('approved');
+    expect(revenue?.fields).toEqual([
+      { source_path: ['amount'], kind: 'finite_number', required: true },
+      { source_path: ['currency'], kind: 'currency_code', required: true },
+    ]);
   });
 
   it('admits an approved Observation only as an explicit fact-only public DTO', () => {
@@ -243,13 +319,13 @@ describe('commercial publication rights gate', () => {
     expect(projected.bundle?.observations).toEqual([]);
   });
 
-  it('holds a policy/source mismatch even when the policy itself is approved', () => {
+  it('holds a conflicting explicit policy/source identity instead of falling back to registry inference', () => {
     const projected = buildCommercialPublicFactProjection(
       bundle('rights.e-stat.v1', 'metadata_only', 'SUPPORTED', 'src.not-e-stat'),
     );
     expect(projected.bundle).toBeNull();
     expect(projected.assessment.status).toBe('RIGHTS_HELD');
-    expect(projected.assessment.reasons).toContain('evidence/source rights policy mismatch');
+    expect(projected.assessment.allowedEvidenceIds).toEqual([]);
   });
 
   it('holds an approved policy when the source URL is outside its registered host scope', () => {

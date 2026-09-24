@@ -172,3 +172,28 @@ Runtime admission requires all of:
 - Source.canonical_url and Evidence.source_url inside the snapshot's approved host suffixes.
 
 Adding another automatic public source therefore requires an auditable Universal Foundation registry change plus an explicit Make-Money snapshot update; arbitrary bundle-supplied policy IDs cannot grant publication.
+
+
+## Registry-driven publication follow-up — 2026-09-25
+
+Read-only audit of Universal Foundation main `c271502e34c6772759c02048ca690403da51fcf1` found 179 typed sidecars under `staging/automation/typed-records`. A full blob recount confirmed:
+- sources: 608; `rights_policy_id` non-null: 0;
+- evidence: 614; `rights_policy_id` non-null: 0;
+- source rights_status: pending_review 542 / metadata_only 64 / blocked 2;
+- evidence rights_status: pending_review 547 / metadata_only 65 / blocked 2;
+- observations: 633;
+- `business_model.revenue_signal`: 0.
+
+Independent QA additionally counted 582 distinct Observation types. The exact distinct-type union is not used as a publication permission signal.
+
+Implication: PR #75's tested producer/API/UI path does not by itself make current Web ChatGPT output publishable. Waiting for another run is not sufficient while collection-side rights fields remain unresolved and arbitrary Observation types have no public contract.
+
+Publication authority is therefore separated from collector output:
+1. Collector/VERIFY rights fields remain immutable provenance hints, not authority.
+2. A commit-pinned reviewed source/rights snapshot may resolve a null policy only when provider identity, approved source type and official host all match exactly and uniquely.
+3. `blocked`, conflicting explicit policies, unknown providers/types/hosts, ambiguous matches and unknown statuses remain held.
+4. No raw sidecar is rewritten when registry resolution succeeds.
+5. Standard fact families (claims/metrics/money_signals/events/relationships) remain eligible only after Evidence rights pass.
+6. Observation payloads require an approved data-driven public Observation contract. Unknown types and unknown fields remain private. Adding a reviewed contract changes registry data, not executable projection logic.
+
+This follow-up does not approve any new provider, does not retroactively rewrite existing sidecars, and does not write production R2/Queue.

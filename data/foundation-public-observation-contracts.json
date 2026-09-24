@@ -1,0 +1,27 @@
+{
+  "schema_version": "make-money-public-observation-contracts.v1",
+  "contracts": [
+    {
+      "contract_id": "public-observation.business_model.revenue_signal.v1",
+      "status": "approved",
+      "observation_type": "business_model.revenue_signal",
+      "fields": [
+        {
+          "source_path": [
+            "amount"
+          ],
+          "kind": "finite_number",
+          "required": true
+        },
+        {
+          "source_path": [
+            "currency"
+          ],
+          "kind": "currency_code",
+          "required": true
+        }
+      ],
+      "notes": "Fact-only public projection. Unknown fields are ignored; missing or invalid required fields drop the Observation."
+    }
+  ]
+}

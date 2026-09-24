@@ -23,7 +23,12 @@
           "rights.e-stat.v1"
         ],
         "path": "registry/sources/source.e-stat.v1.json",
-        "blob_sha": "65b2acbf79da2e9b00a339dddeea943fdb60a948"
+        "blob_sha": "65b2acbf79da2e9b00a339dddeea943fdb60a948",
+        "provider_name": "e-Stat",
+        "source_types": [
+          "official_statistics",
+          "api"
+        ]
       },
       "allowed_host_suffixes": [
         "e-stat.go.jp"
@@ -48,7 +53,12 @@
           "rights.bls.v1"
         ],
         "path": "registry/sources/source.bls-api.v1.json",
-        "blob_sha": "c3e13bf705a0819f4f209d1bca022b3f04d0014e"
+        "blob_sha": "c3e13bf705a0819f4f209d1bca022b3f04d0014e",
+        "provider_name": "BLS Public Data API",
+        "source_types": [
+          "official_statistics",
+          "api"
+        ]
       },
       "allowed_host_suffixes": [
         "bls.gov"

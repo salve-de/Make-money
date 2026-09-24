@@ -51,6 +51,8 @@ describe('mapper v6 + commercial publication rights integration', () => {
     expect(result.assessment.status).toBe('RIGHTS_HELD');
     expect(result.assessment.allowedEvidenceIds).toEqual([]);
     expect(result.assessment.heldEvidenceIds).toHaveLength(3);
-    expect(result.assessment.reasons).toContain('evidence lacks rights_policy_id');
+    expect(result.assessment.reasons).toContain(
+      'evidence source has no uniquely resolved approved rights policy',
+    );
   });
 });
