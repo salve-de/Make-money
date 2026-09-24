@@ -61,7 +61,7 @@ function sanitizeValue(value: unknown, depth: number): unknown {
 export function sanitizePublicObservationPayload(
   value: unknown,
 ): SanitizedPublicPayload | null {
-  if (value === undefined) return null;
+  if (value === undefined || value === null) return null;
   try {
     const sanitized = sanitizeValue(value, 0);
     const serialized = JSON.stringify(sanitized);
