@@ -25,6 +25,7 @@ export interface AutoPublicFactPolicy {
   providerName: string;
   allowedSourceTypes: string[];
   allowedHostSuffixes: string[];
+  allowedPathPrefixes: string[];
 }
 
 export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
@@ -46,6 +47,10 @@ export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>(
         providerName: record.source.provider_name,
         allowedSourceTypes: [...record.source.source_types],
         allowedHostSuffixes: [...record.allowed_host_suffixes],
+        allowedPathPrefixes: 'allowed_path_prefixes' in record &&
+          Array.isArray(record.allowed_path_prefixes)
+          ? [...record.allowed_path_prefixes]
+          : [],
       },
     ]),
 );
@@ -64,11 +69,15 @@ function urlMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean
   const raw = text(value);
   if (!raw) return false;
   try {
-    const hostname = new URL(raw).hostname.toLowerCase().replace(/\.$/, '');
-    return policy.allowedHostSuffixes.some((suffix) => {
+    const url = new URL(raw);
+    const hostname = url.hostname.toLowerCase().replace(/\.$/, '');
+    const hostAllowed = policy.allowedHostSuffixes.some((suffix) => {
       const normalized = suffix.toLowerCase().replace(/^\./, '');
       return hostname === normalized || hostname.endsWith(`.${normalized}`);
     });
+    if (!hostAllowed) return false;
+    return policy.allowedPathPrefixes.length === 0 ||
+      policy.allowedPathPrefixes.some((prefix) => url.pathname.startsWith(prefix));
   } catch {
     return false;
   }
@@ -83,12 +92,28 @@ function stringArray(value: unknown): string[] {
 type PublicObservationFieldRule = {
   sourcePath: readonly string[];
   publicPath?: readonly string[];
-  kind: 'finite_number' | 'currency_code' | 'boolean';
+  kind: 'finite_number' | 'percentage' | 'currency_code' | 'boolean';
   required?: boolean;
+};
+
+type PublicObservationDisplayFactRule = {
+  publicPath: readonly string[];
+  label: string;
+  suffix?: string;
+};
+
+type PublicObservationDisplayPolicy = {
+  title: string;
+  subject: string;
+  note?: string;
+  sourceLabel: string;
+  facts: readonly PublicObservationDisplayFactRule[];
 };
 
 type PublicObservationTypePolicy = {
   fields: readonly PublicObservationFieldRule[];
+  allowedPolicyIds: readonly string[];
+  display?: PublicObservationDisplayPolicy;
 };
 
 function publicObservationPolicies(): Readonly<Record<string, PublicObservationTypePolicy>> {
@@ -108,8 +133,40 @@ function publicObservationPolicies(): Readonly<Record<string, PublicObservationT
       ...(field.required ? { required: true } : {}),
     })) as PublicObservationFieldRule[];
     if (fields.length === 0) continue;
+    const displayInput = 'display' in contract && contract.display
+      ? contract.display as {
+          title: string;
+          subject: string;
+          note?: string;
+          source_label: string;
+          facts: Array<{ public_path: string[]; label: string; suffix?: string }>;
+        }
+      : null;
+    const display = displayInput &&
+      typeof displayInput.title === 'string' && displayInput.title.length <= 120 &&
+      typeof displayInput.subject === 'string' && displayInput.subject.length <= 240 &&
+      typeof displayInput.source_label === 'string' && displayInput.source_label.length <= 80 &&
+      (!displayInput.note || displayInput.note.length <= 320) &&
+      Array.isArray(displayInput.facts) && displayInput.facts.length > 0 && displayInput.facts.length <= 16
+      ? Object.freeze({
+          title: displayInput.title,
+          subject: displayInput.subject,
+          ...(displayInput.note ? { note: displayInput.note } : {}),
+          sourceLabel: displayInput.source_label,
+          facts: Object.freeze(displayInput.facts.map((fact) => Object.freeze({
+            publicPath: Object.freeze([...fact.public_path]),
+            label: fact.label,
+            ...(fact.suffix ? { suffix: fact.suffix } : {}),
+          }))),
+        })
+      : undefined;
+    const allowedPolicyIds = 'allowed_policy_ids' in contract && Array.isArray(contract.allowed_policy_ids)
+      ? contract.allowed_policy_ids.filter((value): value is string => typeof value === 'string' && value.length > 0)
+      : [];
     result[contract.observation_type] = Object.freeze({
       fields: Object.freeze(fields.map((field) => Object.freeze(field))),
+      allowedPolicyIds: Object.freeze([...allowedPolicyIds]),
+      ...(display ? { display } : {}),
     });
   }
   return Object.freeze(result);
@@ -160,6 +217,11 @@ function projectPublicObservationField(
   if (kind === 'finite_number') {
     return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
   }
+  if (kind === 'percentage') {
+    return typeof value === 'number' && Number.isFinite(value) && value >= 0 && value <= 100
+      ? value
+      : undefined;
+  }
   if (kind === 'boolean') {
     return typeof value === 'boolean' ? value : undefined;
   }
@@ -196,6 +258,37 @@ function buildPublicObservationPayload(
   return bytes <= PUBLIC_OBSERVATION_MAX_BYTES ? publicPayload : null;
 }
 
+function buildPublicObservationDisplay(
+  observationType: string,
+  publicPayload: JsonObject,
+  sourceUrls: string[],
+): JsonObject | null {
+  const display = PUBLIC_OBSERVATION_TYPE_POLICIES[observationType]?.display;
+  if (!display) return null;
+  const facts = display.facts.map((fact) => {
+    const value = readPath(publicPayload, fact.publicPath);
+    if (
+      !(typeof value === 'number' && Number.isFinite(value)) &&
+      typeof value !== 'boolean' &&
+      !(typeof value === 'string' && value.length <= 80)
+    ) return null;
+    return {
+      label: fact.label,
+      value,
+      ...(fact.suffix ? { suffix: fact.suffix } : {}),
+    };
+  }).filter((fact) => fact !== null);
+  if (facts.length === 0) return null;
+  return {
+    title: display.title,
+    subject: display.subject,
+    ...(display.note ? { note: display.note } : {}),
+    facts,
+    source_label: display.sourceLabel,
+    source_urls: [...new Set(sourceUrls)].slice(0, 8),
+  };
+}
+
 function compactPublicObservationText(
   observationType: string,
   publicPayload: JsonObject,
@@ -212,16 +305,31 @@ function compactPublicObservationText(
 function buildCommercialPublicObservation(
   value: JsonObject,
   allowed: Set<string>,
+  sourceUrlByEvidenceId: ReadonlyMap<string, string>,
+  policyIdByEvidenceId: ReadonlyMap<string, string>,
 ): JsonObject | null {
   if (!recordUsesOnlyAllowedEvidence(value, allowed)) return null;
 
   const observationId = text(value.observation_id);
   const observationType = text(value.observation_type);
+  const contract = observationType ? PUBLIC_OBSERVATION_TYPE_POLICIES[observationType] : undefined;
   const originType = text(value.origin_type);
   const observedAt = text(value.observed_at);
   const evidenceIds = stringArray(value.evidence_ids);
+  if (
+    contract?.allowedPolicyIds.length &&
+    evidenceIds.some((id) => !contract.allowedPolicyIds.includes(policyIdByEvidenceId.get(id) || ''))
+  ) return null;
+
   const publicPayload = observationType
     ? buildPublicObservationPayload(observationType, value.payload)
+    : null;
+  const publicDisplay = observationType && publicPayload
+    ? buildPublicObservationDisplay(
+        observationType,
+        publicPayload,
+        evidenceIds.map((id) => sourceUrlByEvidenceId.get(id)).filter((url): url is string => Boolean(url)),
+      )
     : null;
 
   if (
@@ -240,8 +348,11 @@ function buildCommercialPublicObservation(
     verification_status: 'SUPPORTED',
     observed_at: observedAt,
     evidence_ids: evidenceIds,
-    text: compactPublicObservationText(observationType, publicPayload),
+    text: publicDisplay && typeof publicDisplay.title === 'string'
+      ? publicDisplay.title
+      : compactPublicObservationText(observationType, publicPayload),
     public_payload: publicPayload,
+    ...(publicDisplay ? { public_display: publicDisplay } : {}),
   };
 
   const entityId = text(value.entity_id);
@@ -461,6 +572,22 @@ export function buildCommercialPublicFactProjection(
       return Boolean(id && allowed.has(id));
     })
     .map((value) => JSON.parse(JSON.stringify(value)) as JsonObject);
+  const sourceUrlByEvidenceId = new Map(
+    evidence
+      .map((value) => [text(value.evidence_id), text(value.source_url)] as const)
+      .filter((pair): pair is readonly [string, string] => Boolean(pair[0] && pair[1])),
+  );
+  const resolvedPolicies = resolveSourcePolicies(bundle);
+  const policyIdByEvidenceId = new Map(
+    evidence
+      .map((value) => {
+        const evidenceId = text(value.evidence_id);
+        const sourceId = text(value.source_id);
+        const policyId = sourceId ? resolvedPolicies.get(sourceId)?.policyId || null : null;
+        return [evidenceId, policyId] as const;
+      })
+      .filter((pair): pair is readonly [string, string] => Boolean(pair[0] && pair[1])),
+  );
   const allowedSourceIds = new Set(
     evidence.map((value) => text(value.source_id)).filter((value): value is string => Boolean(value)),
   );
@@ -490,7 +617,12 @@ export function buildCommercialPublicFactProjection(
   const observations = (Array.isArray(bundle.observations) ? bundle.observations : [])
     .map(objectValue)
     .filter((value): value is JsonObject => Boolean(value))
-    .map((value) => buildCommercialPublicObservation(value, allowed))
+    .map((value) => buildCommercialPublicObservation(
+      value,
+      allowed,
+      sourceUrlByEvidenceId,
+      policyIdByEvidenceId,
+    ))
     .filter((value): value is JsonObject => Boolean(value));
 
   const factualCount =

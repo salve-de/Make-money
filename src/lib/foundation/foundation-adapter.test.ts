@@ -170,6 +170,13 @@ describe('Foundation display boundary', () => {
           currency: 'USD',
           nested: { must_survive: true },
         },
+        publicDisplay: {
+          title: 'Reviewed fact',
+          subject: 'Reviewed subject',
+          facts: [{ label: 'Amount', value: 123000000 }],
+          sourceLabel: 'Official source',
+          sourceUrls: ['https://example.com/source'],
+        },
         evidenceIds: ['ev_structured'],
       }],
       derived: [],
@@ -187,6 +194,11 @@ describe('Foundation display boundary', () => {
         currency: 'USD',
         nested: { must_survive: true },
       },
+      publicDisplay: expect.objectContaining({
+        title: 'Reviewed fact',
+        sourceLabel: 'Official source',
+        sourceUrls: ['https://example.com/source'],
+      }),
     }));
     const structured = adapted.observationsStream?.find((item) => item.id === 'obs_structured');
     expect(structured).not.toHaveProperty('payload');

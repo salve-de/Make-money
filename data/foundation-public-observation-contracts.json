@@ -22,6 +22,61 @@
         }
       ],
       "notes": "Fact-only public projection. Unknown fields are ignored; missing or invalid required fields drop the Observation."
+    },
+    {
+      "contract_id": "public-observation.starwood_apollo.minority_equity_recapitalization.v1",
+      "status": "approved",
+      "observation_type": "starwood_apollo.minority_equity_recapitalization.v1",
+      "fields": [
+        {
+          "source_path": [
+            "apollo_investment",
+            "equity_interest_percent"
+          ],
+          "public_path": [
+            "apollo_equity_interest_percent"
+          ],
+          "kind": "percentage",
+          "required": true
+        },
+        {
+          "source_path": [
+            "starwood_position",
+            "equity_interest_percent"
+          ],
+          "public_path": [
+            "starwood_equity_interest_percent"
+          ],
+          "kind": "percentage",
+          "required": true
+        }
+      ],
+      "notes": "SEC EDGAR fact-only contract. Publishes only the two reported ownership percentages. Source-native amount, prose, accounting text, legal descriptions and all unknown fields remain private.",
+      "display": {
+        "title": "Starwood affordable-housing JV ownership",
+        "subject": "Ownership split in the Starwood SREIT affordable-housing joint venture",
+        "note": "The 41.5% interest is reported for funds managed by and affiliates of Apollo Global Management; it is not presented as a direct corporate holding of Apollo Global Management.",
+        "facts": [
+          {
+            "public_path": [
+              "apollo_equity_interest_percent"
+            ],
+            "label": "Apollo-managed funds / affiliates",
+            "suffix": "%"
+          },
+          {
+            "public_path": [
+              "starwood_equity_interest_percent"
+            ],
+            "label": "Starwood SREIT",
+            "suffix": "%"
+          }
+        ],
+        "source_label": "SEC filing"
+      },
+      "allowed_policy_ids": [
+        "rights.sec-edgar-public-facts.v1"
+      ]
     }
   ]
 }

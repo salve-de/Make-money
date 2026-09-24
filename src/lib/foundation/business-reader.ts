@@ -127,6 +127,21 @@ export interface FoundationRelationship {
   evidenceIds: string[];
 }
 
+export interface FoundationObservationPublicFact {
+  label: string;
+  value: string | number | boolean;
+  suffix?: string;
+}
+
+export interface FoundationObservationPublicDisplay {
+  title: string;
+  subject: string;
+  note?: string;
+  facts: FoundationObservationPublicFact[];
+  sourceLabel: string;
+  sourceUrls: string[];
+}
+
 export interface FoundationObservation {
   id: string;
   kind: string | null;
@@ -138,6 +153,8 @@ export interface FoundationObservation {
   collectionChannel?: string | null;
   // Explicitly public, bounded structured payload. Raw payload is never read here.
   publicPayload?: unknown;
+  // Reviewed display metadata emitted by the public projection only.
+  publicDisplay?: FoundationObservationPublicDisplay;
   evidenceIds: string[];
 }
 
@@ -639,9 +656,75 @@ function fallbackRecordId(prefix: string, value: JsonObject): string {
   return `${prefix}-${(hash >>> 0).toString(16).padStart(8, '0')}`;
 }
 
+function normalizePublicObservationDisplay(
+  value: unknown,
+): FoundationObservationPublicDisplay | undefined {
+  const input = objectValue(value);
+  if (!input) return undefined;
+  const title = stringValue(input, 'title');
+  const subject = stringValue(input, 'subject');
+  const note = stringValue(input, 'note');
+  const sourceLabel = stringValue(input, 'source_label') || stringValue(input, 'sourceLabel');
+  const rawFacts = Array.isArray(input.facts) ? input.facts : [];
+  const rawUrls = Array.isArray(input.source_urls) ? input.source_urls : (
+    Array.isArray(input.sourceUrls) ? input.sourceUrls : []
+  );
+  if (
+    !title || title.length > 120 ||
+    !subject || subject.length > 240 ||
+    (note && note.length > 320) ||
+    !sourceLabel || sourceLabel.length > 80 ||
+    rawFacts.length === 0 || rawFacts.length > 16 ||
+    rawUrls.length === 0 || rawUrls.length > 8
+  ) return undefined;
+
+  const facts: FoundationObservationPublicFact[] = [];
+  for (const item of rawFacts) {
+    const fact = objectValue(item);
+    if (!fact) return undefined;
+    const label = stringValue(fact, 'label');
+    const suffix = stringValue(fact, 'suffix');
+    const valueCandidate = fact.value;
+    const validValue =
+      (typeof valueCandidate === 'number' && Number.isFinite(valueCandidate)) ||
+      typeof valueCandidate === 'boolean' ||
+      (typeof valueCandidate === 'string' && valueCandidate.length <= 80);
+    if (!label || label.length > 80 || (suffix && suffix.length > 16) || !validValue) return undefined;
+    facts.push({
+      label,
+      value: valueCandidate as string | number | boolean,
+      ...(suffix ? { suffix } : {}),
+    });
+  }
+
+  const sourceUrls: string[] = [];
+  for (const item of rawUrls) {
+    if (typeof item !== 'string' || item.length > 2048) return undefined;
+    try {
+      const parsed = new URL(item);
+      if (parsed.protocol !== 'https:') return undefined;
+      sourceUrls.push(parsed.toString());
+    } catch {
+      return undefined;
+    }
+  }
+
+  return {
+    title,
+    subject,
+    ...(note ? { note } : {}),
+    facts,
+    sourceLabel,
+    sourceUrls: [...new Set(sourceUrls)],
+  };
+}
+
 function normalizeObservation(value: JsonObject): FoundationObservation {
   const publicPayloadInput = value.public_payload ?? value.publicPayload;
   const publicPayload = sanitizePublicObservationPayload(publicPayloadInput);
+  const publicDisplay = normalizePublicObservationDisplay(
+    value.public_display ?? value.publicDisplay,
+  );
   return {
     id: stringValue(value, 'observation_id') || stringValue(value, 'id') || fallbackRecordId('observation', value),
     kind: stringValue(value, 'observation_type') || stringValue(value, 'kind'),
@@ -652,6 +735,7 @@ function normalizeObservation(value: JsonObject): FoundationObservation {
     collectionTier: stringValue(value, 'collection_tier'),
     collectionChannel: stringValue(value, 'collection_channel'),
     ...(publicPayload ? { publicPayload: publicPayload.value } : {}),
+    ...(publicDisplay ? { publicDisplay } : {}),
     evidenceIds: stringArray(value, 'evidence_ids'),
   };
 }
