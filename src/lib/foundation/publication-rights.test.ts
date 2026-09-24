@@ -138,6 +138,28 @@ describe('commercial publication rights gate', () => {
     expect(assessment.reasons).toContain('rights_status is blocked');
   });
 
+  it('keeps explicit approved facts eligible across private-raw capture statuses', () => {
+    for (const status of ['allowed_private_raw', 'restricted_private_raw']) {
+      const input = bundle('rights.e-stat.v1', status);
+      const assessment = assessCommercialPublicProjection(input);
+      expect(assessment.status).toBe('ALLOWED');
+      expect(assessment.allowedEvidenceIds).toEqual(['ev_1234567890abcdef12345678']);
+    }
+  });
+
+  it('fails closed when the same source_id appears more than once', () => {
+    const input = bundle(null, 'pending_review', 'SUPPORTED', 'src.local.estat.dataset');
+    input.sources.push({
+      ...input.sources[0],
+      provider_name: 'Conflicting duplicate',
+      canonical_url: 'https://example.com/not-estat',
+      rights_status: 'blocked',
+    });
+    const assessment = assessCommercialPublicProjection(input);
+    expect(assessment.status).toBe('RIGHTS_HELD');
+    expect(assessment.allowedEvidenceIds).toEqual([]);
+  });
+
   it('does not resolve by official host alone when provider identity is different', () => {
     const input = bundle(null, 'pending_review', 'SUPPORTED', 'src.local.estat.dataset');
     input.sources[0].provider_name = 'Unreviewed mirror';
