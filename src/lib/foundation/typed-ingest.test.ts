@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { validateResearchBundle } from './ingest';
+import { validateResearchBundle, validateTypedProjectionBundle } from './ingest';
 import {
   FoundationTypedIngestValidationError,
   TYPED_PROJECTOR_VERSION,
@@ -158,9 +158,7 @@ describe('typed sidecar ingest projection', () => {
     const prepared = prepareFoundationTypedIngest(requestFor(sidecar(), sourceArtifact()));
 
     expect(() => validateResearchBundle(prepared.bundle)).toThrow(/collection_coverage/);
-    expect(() => validateResearchBundle(prepared.bundle, {
-      makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
-    })).not.toThrow();
+    expect(() => validateTypedProjectionBundle(prepared.bundle)).not.toThrow();
   });
 
   it('fails closed when the supplied sidecar bytes do not match the Git blob SHA', () => {
