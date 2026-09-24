@@ -320,21 +320,31 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
         (item: { kind?: string }) => item.kind === 'business_model.revenue_signal',
       );
       expect(structuredObservation).toMatchObject({
-        observer: 'DISCOVERY',
-        payloadSchemaRef: 'urn:test:typed-e2e:v1',
-        payload: {
-          amount: 123000000,
-          currency: 'USD',
-          structured_only_field: {
-            must_survive_transport: true,
-          },
-        },
+        kind: 'business_model.revenue_signal',
+        text: 'Official report states annual revenue of $123 million.',
       });
+      expect(structuredObservation).not.toHaveProperty('payload');
+      expect(structuredObservation).not.toHaveProperty('publicPayload');
+      expect(structuredObservation).not.toHaveProperty('observer');
+      expect(structuredObservation).not.toHaveProperty('payloadSchemaRef');
+      expect(detailText).not.toContain('must_survive_transport');
+      expect(detailText).not.toContain('urn:test:typed-e2e:v1');
+      expect(detailText).not.toContain('DISCOVERY');
       expect(
         detail.data.observations.some(
           (item: { kind?: string }) => item.kind === 'transport.typed_record_set_v1',
         ),
       ).toBe(false);
+
+      const canonicalObject = await r2.get(firstCanonical[0]);
+      expect(canonicalObject).toBeTruthy();
+      const canonicalBody = canonicalObject
+        ? new Uint8Array(await canonicalObject.arrayBuffer())
+        : new Uint8Array();
+      const canonicalText = new TextDecoder().decode(canonicalBody);
+      expect(canonicalText).toContain('must_survive_transport');
+      expect(canonicalText).toContain('urn:test:typed-e2e:v1');
+      expect(canonicalText).toContain('DISCOVERY');
 
       const listResponse = await getBusinesses(
         new Request('http://localhost/api/businesses?foundationOnly=true&limit=100'),
