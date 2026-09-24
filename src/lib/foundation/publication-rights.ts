@@ -17,9 +17,14 @@ export interface CommercialPublicProjectionAssessment {
  * intentionally NOT auto-admitted here. They can be added only after the
  * exact condition can be proven mechanically.
  */
-export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, string>([
-  ['rights.e-stat.v1', 'src.e-stat'],
-  ['rights.bls.v1', 'src.bls-api'],
+export interface AutoPublicFactPolicy {
+  sourceId: string;
+  allowedHostSuffixes: string[];
+}
+
+export const AUTO_PUBLIC_FACT_POLICIES = new Map<string, AutoPublicFactPolicy>([
+  ['rights.e-stat.v1', { sourceId: 'src.e-stat', allowedHostSuffixes: ['e-stat.go.jp'] }],
+  ['rights.bls.v1', { sourceId: 'src.bls-api', allowedHostSuffixes: ['bls.gov'] }],
 ]);
 
 function objectValue(value: unknown): JsonObject | null {
@@ -30,6 +35,20 @@ function objectValue(value: unknown): JsonObject | null {
 
 function text(value: unknown): string | null {
   return typeof value === 'string' && value.trim() ? value.trim() : null;
+}
+
+function urlMatchesPolicy(value: unknown, policy: AutoPublicFactPolicy): boolean {
+  const raw = text(value);
+  if (!raw) return false;
+  try {
+    const hostname = new URL(raw).hostname.toLowerCase().replace(/\.$/, '');
+    return policy.allowedHostSuffixes.some((suffix) => {
+      const normalized = suffix.toLowerCase().replace(/^\./, '');
+      return hostname === normalized || hostname.endsWith(`.${normalized}`);
+    });
+  } catch {
+    return false;
+  }
 }
 
 function stringArray(value: unknown): string[] {
@@ -50,8 +69,14 @@ function sourcePolicyMap(bundle: JsonObject): Map<string, string> {
     if (!source) continue;
     const sourceId = text(source.source_id);
     const policyId = text(source.rights_policy_id);
-    const expectedSourceId = policyId ? AUTO_PUBLIC_FACT_POLICIES.get(policyId) : undefined;
-    if (sourceId && policyId && expectedSourceId === sourceId) {
+    const policy = policyId ? AUTO_PUBLIC_FACT_POLICIES.get(policyId) : undefined;
+    if (
+      sourceId &&
+      policyId &&
+      policy &&
+      policy.sourceId === sourceId &&
+      urlMatchesPolicy(source.canonical_url, policy)
+    ) {
       result.set(sourceId, policyId);
     }
   }
@@ -90,7 +115,8 @@ export function assessCommercialPublicProjection(
       Boolean(sourceId) &&
       Boolean(policyId) &&
       policyBySource.get(sourceId!) === policyId &&
-      AUTO_PUBLIC_FACT_POLICIES.get(policyId!) === sourceId &&
+      AUTO_PUBLIC_FACT_POLICIES.get(policyId!)?.sourceId === sourceId &&
+      urlMatchesPolicy(row.source_url, AUTO_PUBLIC_FACT_POLICIES.get(policyId!)!) &&
       storageStatus !== 'pending_review' &&
       storageStatus !== 'blocked';
 
@@ -101,8 +127,14 @@ export function assessCommercialPublicProjection(
       if (!policyId) reasons.add('evidence lacks rights_policy_id');
       else if (!AUTO_PUBLIC_FACT_POLICIES.has(policyId)) {
         reasons.add(`policy is not auto-approved for commercial fact display: ${policyId}`);
-      } else if (!sourceId || policyBySource.get(sourceId) !== policyId) {
+      } else if (
+        !sourceId ||
+        policyBySource.get(sourceId) !== policyId ||
+        AUTO_PUBLIC_FACT_POLICIES.get(policyId)?.sourceId !== sourceId
+      ) {
         reasons.add('evidence/source rights policy mismatch');
+      } else if (!urlMatchesPolicy(row.source_url, AUTO_PUBLIC_FACT_POLICIES.get(policyId)!)) {
+        reasons.add('evidence URL is outside the registered policy host scope');
       } else {
         reasons.add(`rights_status does not permit public projection: ${storageStatus || 'unknown'}`);
       }

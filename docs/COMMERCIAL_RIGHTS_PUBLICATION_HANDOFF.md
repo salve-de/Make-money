@@ -120,3 +120,8 @@ PR #67 code review found three P1 concerns:
 3. record-only enrichment — fixed by allowing SUPPORTED rights-cleared facts to project even when `entities=[]`; target IDs are derived from factual record references and the projector hydrates canonical identity.
 
 The public API canonical read-through bypass found during CI repair is also closed.
+
+
+### Policy identity hardening
+
+The automatic allowlist now binds `policy-ID -> source-ID -> official-host suffix`. Both Source.canonical_url and Evidence.source_url must fall inside the registered host scope. A collector cannot pass a restricted page by labeling it `src.e-stat` and attaching `rights.e-stat.v1`.

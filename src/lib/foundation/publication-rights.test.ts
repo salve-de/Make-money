@@ -9,6 +9,7 @@ function bundle(
   status = 'metadata_only',
   verification = 'SUPPORTED',
   sourceId = 'src.e-stat',
+  sourceUrl = 'https://www.e-stat.go.jp/',
 ) {
   return {
     schema_version: 'research-bundle.v1',
@@ -21,7 +22,7 @@ function bundle(
       source_id: sourceId,
       provider_name: 'e-Stat',
       source_type: 'official_statistics',
-      canonical_url: 'https://www.e-stat.go.jp/',
+      canonical_url: sourceUrl,
       source_strength: 'S',
       rights_status: status,
       rights_policy_id: policyId,
@@ -29,7 +30,7 @@ function bundle(
     evidence: [{
       evidence_id: 'ev_1234567890abcdef12345678',
       source_id: sourceId,
-      source_url: 'https://www.e-stat.go.jp/',
+      source_url: sourceUrl,
       source_title: 'Official stats',
       source_type: 'official_statistics',
       publisher_or_speaker: 'e-Stat',
@@ -100,6 +101,14 @@ describe('commercial publication rights gate', () => {
     expect(projected.bundle).toBeNull();
     expect(projected.assessment.status).toBe('RIGHTS_HELD');
     expect(projected.assessment.reasons).toContain('evidence/source rights policy mismatch');
+  });
+
+  it('holds an approved policy when the source URL is outside its registered host scope', () => {
+    const projected = buildCommercialPublicFactProjection(
+      bundle('rights.e-stat.v1', 'metadata_only', 'SUPPORTED', 'src.e-stat', 'https://example.com/fake'),
+    );
+    expect(projected.bundle).toBeNull();
+    expect(projected.assessment.status).toBe('RIGHTS_HELD');
   });
 
   it('does not auto-admit a conditional/restricted provider policy', () => {
