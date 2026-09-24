@@ -553,6 +553,33 @@
           "items": {
             "type": "string"
           }
+        },
+        "observationType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payloadSchemaRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payload": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "structuredData": {
+          "type": "object"
         }
       },
       "required": [
