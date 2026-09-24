@@ -73,6 +73,85 @@ test('typed completion identity is stable per path/blob/projector', async () => 
   assert.match(first, /^derived\/publisher-typed-complete\/v1\/[a-f0-9]{64}\.json$/);
 });
 
+test('terminal typed ingest rejection is recognized only for immutable 422 HOLD responses', () => {
+  assert.equal(
+    __test.isTerminalTypedIngestReject({
+      response: { status: 422 },
+      payload: { terminal: true, reason_code: 'SOURCE_SCHEMA_INVALID' },
+    }),
+    true
+  );
+  assert.equal(
+    __test.isTerminalTypedIngestReject({
+      response: { status: 422 },
+      payload: { terminal: false },
+    }),
+    false
+  );
+  assert.equal(
+    __test.isTerminalTypedIngestReject({
+      response: { status: 503 },
+      payload: { terminal: true },
+    }),
+    false
+  );
+});
+
+test('typed HOLD marker is create-only, read-back verified, and idempotent', async () => {
+  const store = new Map();
+  const bucket = {
+    async get(key) {
+      const bytes = store.get(key);
+      if (!bytes) return null;
+      return {
+        size: bytes.byteLength,
+        async text() {
+          return new TextDecoder().decode(bytes);
+        },
+        async arrayBuffer() {
+          return bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
+        },
+      };
+    },
+    async put(key, value, options = {}) {
+      if (options?.onlyIf?.etagDoesNotMatch === '*' && store.has(key)) return null;
+      const bytes = value instanceof Uint8Array ? value.slice() : new Uint8Array(value);
+      store.set(key, bytes);
+      return { size: bytes.byteLength };
+    },
+  };
+  const telemetry = __test.createTelemetry();
+  const env = {
+    GITHUB_OWNER: 'salve-de',
+    GITHUB_REPO: 'universal-foundation',
+    FOUNDATION_R2_LAKE: bucket,
+  };
+  const file = {
+    path: 'staging/automation/typed-records/DISCOVERY/2026/09/24/run_x/test-typed-record-set-v1.json',
+    sha: 'a'.repeat(40),
+  };
+  const input = {
+    file,
+    sourceCommitSha: 'b'.repeat(40),
+    reasonCode: 'SOURCE_SCHEMA_INVALID',
+    reason: 'typed sidecar failed immutable schema validation',
+    details: { issues: ['/quality invalid'] },
+  };
+
+  const first = await __test.writeTypedInputHold(env, telemetry, input);
+  assert.equal(first.status, 'CREATED');
+  assert.equal(store.size, 1);
+
+  const readback = await __test.readTypedInputHold(env, file, telemetry);
+  assert.equal(readback.value.status, 'HOLD');
+  assert.equal(readback.value.reason_code, 'SOURCE_SCHEMA_INVALID');
+  assert.equal(readback.value.typed_record_set_blob_sha, file.sha);
+
+  const second = await __test.writeTypedInputHold(env, telemetry, input);
+  assert.equal(second.status, 'EXISTS_IDENTICAL');
+  assert.equal(store.size, 1);
+});
+
 test('candidate quarantine identity is stable per path and blob SHA', async () => {
   const file = {
     path: 'staging/r2-queue/candidates/v2/run/candidate.json',
