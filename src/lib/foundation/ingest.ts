@@ -617,11 +617,11 @@ function validateDerived(records: JsonObject[], issues: string[]): void {
   });
 }
 
-export interface FoundationBundleValidationOptions {
+interface FoundationBundleValidationOptions {
   makeMoneyCoverage?: 'REQUIRED' | 'UNASSESSED_TYPED_PROJECTION';
 }
 
-export function validateResearchBundle(
+function validateResearchBundleWithOptions(
   input: unknown,
   options: FoundationBundleValidationOptions = {},
 ): ResearchBundle {
@@ -706,6 +706,16 @@ export function validateResearchBundle(
   }
 
   return input as ResearchBundle;
+}
+
+export function validateResearchBundle(input: unknown): ResearchBundle {
+  return validateResearchBundleWithOptions(input);
+}
+
+export function validateTypedProjectionBundle(input: unknown): ResearchBundle {
+  return validateResearchBundleWithOptions(input, {
+    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+  });
 }
 
 function dateParts(value: string): { year: string; month: string; day: string } {
@@ -1657,15 +1667,15 @@ export async function prepareFoundationResearch(bundleInput: unknown, rawInput?:
   return buildPlannedWrites(await buildPlan(bundle, raw), bundle.run_id, false);
 }
 
-export async function ingestFoundationResearch(
+async function ingestFoundationResearchWithOptions(
   request: FoundationIngestRequest,
-  options: FoundationBundleValidationOptions = {},
+  options: FoundationBundleValidationOptions,
 ): Promise<FoundationIngestReport> {
   if (!isObject(request) || request.write_authorized !== true) {
     throw new FoundationIngestAuthorizationError();
   }
 
-  const bundle = validateResearchBundle(request.bundle, options);
+  const bundle = validateResearchBundleWithOptions(request.bundle, options);
   const rawEvidence = parseRawEvidence(request.raw_evidence, bundle);
   const plan = await buildPlan(bundle, rawEvidence);
   const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, true);
@@ -1876,4 +1886,18 @@ export async function ingestFoundationResearch(
       bucket_or_config: 0,
     },
   };
+}
+
+export async function ingestFoundationResearch(
+  request: FoundationIngestRequest
+): Promise<FoundationIngestReport> {
+  return ingestFoundationResearchWithOptions(request, {});
+}
+
+export async function ingestFoundationTypedProjection(
+  request: FoundationIngestRequest
+): Promise<FoundationIngestReport> {
+  return ingestFoundationResearchWithOptions(request, {
+    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+  });
 }
