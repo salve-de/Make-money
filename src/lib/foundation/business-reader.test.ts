@@ -590,4 +590,79 @@ describe('Foundation list read path', () => {
     expect(page.data[0]).toMatchObject({ id: 'ent_new', name: 'New arrival', isNew: true });
     expect(page.newArrivals?.entityIds).toEqual(['ent_new']);
   });
+
+  it('preserves structured observation payloads and unknown fields in the consumer view', () => {
+    const entityId = 'ent_business_aaaaaaaaaaaaaaaaaaaa';
+    const detail = buildFoundationBusinessCaseForEntity({
+      schema_version: 'research-bundle.v1',
+      run_id: 'run_structured_observation',
+      retrieved_at: '2026-09-25T00:00:00Z',
+      entities: [{
+        entity_id: entityId,
+        entity_type: 'business',
+        canonical_name: 'Structured Observation Co',
+        aliases: [],
+        canonical_identifier: null,
+        domain: null,
+        status: 'operating',
+        observed_at: '2026-09-25T00:00:00Z',
+        evidence_ids: ['ev_structured'],
+      }],
+      claims: [],
+      metrics: [],
+      money_signals: [],
+      events: [],
+      relationships: [],
+      observations: [{
+        observation_id: 'obs_aaaaaaaaaaaaaaaaaaaaaaaa',
+        observation_type: 'future.schema.signal',
+        entity_ids: [entityId],
+        text: 'Structured observation summary',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        observed_at: '2026-09-25T00:00:00Z',
+        collection_channel: 'web',
+        observer: 'DISCOVERY',
+        evidence_ids: ['ev_structured'],
+        payload_schema_ref: 'urn:test:future-signal:v9',
+        payload: {
+          nested: { survives: true },
+          amount: 123,
+        },
+        future_top_level_field: {
+          retained_without_reader_upgrade: true,
+        },
+      }],
+      derived: [],
+    }, {
+      id: entityId,
+      name: 'Structured Observation Co',
+      entityType: 'business',
+      aliases: [],
+      canonicalIdentifier: null,
+      domain: null,
+      status: 'operating',
+      observedAt: '2026-09-25T00:00:00Z',
+      evidenceIds: ['ev_structured'],
+    });
+
+    expect(detail.observations).toHaveLength(1);
+    expect(detail.observations[0]).toMatchObject({
+      observationType: 'future.schema.signal',
+      payloadSchemaRef: 'urn:test:future-signal:v9',
+      observer: 'DISCOVERY',
+      collectionChannel: 'web',
+      payload: {
+        nested: { survives: true },
+        amount: 123,
+      },
+    });
+    expect(
+      detail.observations[0].structuredData.future_top_level_field,
+    ).toEqual({ retained_without_reader_upgrade: true });
+    expect(
+      (detail.observations[0].structuredData.payload as Record<string, unknown>).nested,
+    ).toEqual({ survives: true });
+  });
+
 });
