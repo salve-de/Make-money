@@ -8,7 +8,7 @@ import { withCloudflareRuntimeEnv } from '@/lib/runtime/cloudflare';
 import { gitBlobSha1 } from './typed-ingest';
 import { adaptFoundationDetailToFinancialEntity } from './foundation-adapter';
 import type { FoundationBusinessCase } from './business-reader';
-import { UniversalIntelligenceStream } from '@/features/company-inspector/ui/UniversalIntelligenceStream';
+import { UniversalIntelligenceStream } from '@/features/company-inspector';
 
 type StoredObject = {
   body: Uint8Array;
