@@ -290,6 +290,12 @@ export interface UniversalObservation {
   sourceUrl?: string;
   observedAt?: string;
   author?: string;
+  /** Typed Observation identity preserved through the active inspector path. */
+  observationType?: string;
+  payloadSchemaRef?: string;
+  observer?: string;
+  /** JSON-safe structured semantic payload; transport sidecars stay private. */
+  payload?: unknown;
   sourceClass?: SourceClass; // 出典の独立性
   evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }
