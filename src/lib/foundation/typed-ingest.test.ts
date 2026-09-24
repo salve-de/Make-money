@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { validateResearchBundle } from './ingest';
 import {
   FoundationTypedIngestValidationError,
   TYPED_PROJECTOR_VERSION,
@@ -142,6 +143,15 @@ describe('typed sidecar ingest projection', () => {
     expect(observations[0].transport_typed_record_set_v1).toEqual(first.typedRecordSet);
     expect(observations[1].text).toBe('Human-readable summary from the typed observation.');
     expect((first.bundle.quality as Record<string, unknown>).schema_validation).toBe('PASS');
+  });
+
+  it('keeps the legacy coverage gate closed and allows only the internal typed coverage mode', () => {
+    const prepared = prepareFoundationTypedIngest(requestFor(sidecar(), sourceArtifact()));
+
+    expect(() => validateResearchBundle(prepared.bundle)).toThrow(/collection_coverage/);
+    expect(() => validateResearchBundle(prepared.bundle, {
+      makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+    })).not.toThrow();
   });
 
   it('fails closed when the supplied sidecar bytes do not match the Git blob SHA', () => {
