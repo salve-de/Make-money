@@ -1611,6 +1611,107 @@ function preflightStatus(status: R2PreflightResult['status']): PlannedWritePrefl
   return status;
 }
 
+async function preflightFoundationResearchWithOptions(
+  bundleInput: unknown,
+  options: FoundationBundleValidationOptions,
+): Promise<{
+  planned_writes: PlannedWritesManifest;
+  safe_to_write: boolean;
+  conflicts: Array<{ bucket: string; key: string; logical_role: string }>;
+  compatible_entities: string[];
+  read_only: true;
+}> {
+  const bundle = validateResearchBundleWithOptions(bundleInput, options);
+  const plan = await buildPlan(bundle, []);
+  const plannedWrites = await buildPlannedWrites(plan, bundle.run_id, false);
+  const conflicts: Array<{ bucket: string; key: string; logical_role: string }> = [];
+  const compatibleEntities: string[] = [];
+
+  for (let index = 0; index < plan.length; index += 1) {
+    const item = plan[index];
+    const preflight = await preflightR2Object({
+      bucket: item.bucket,
+      key: item.key,
+      body: item.body,
+      contentType: item.contentType,
+      metadata: item.metadata,
+    });
+    plannedWrites.objects[index].preflight_status = preflightStatus(preflight.status);
+    if (preflight.status !== 'EXISTS_CONFLICT') continue;
+
+    if (item.logicalRole !== 'entity') {
+      conflicts.push({
+        bucket: item.bucket,
+        key: item.key,
+        logical_role: item.logicalRole,
+      });
+      continue;
+    }
+
+    const existingObject = await readR2Object(item.bucket, item.key);
+    const seedEntity = existingObject ? decodeJsonObject(existingObject.body) : null;
+    const incomingEntity = decodeJsonObject(item.body);
+    const incomingEntityId = incomingEntity ? getString(incomingEntity, 'entity_id') : null;
+    if (!existingObject || !seedEntity || !incomingEntity || !incomingEntityId) {
+      conflicts.push({
+        bucket: item.bucket,
+        key: item.key,
+        logical_role: item.logicalRole,
+      });
+      continue;
+    }
+
+    const authorityRead = await readCommittedEntityIdentityAuthority(
+      item.bucket,
+      incomingEntityId,
+    );
+    const accumulatedView = await readMakeMoneyViewDetail(incomingEntityId);
+    const accumulatedEntity =
+      authorityRead.authority ||
+      identityRecordFromView(accumulatedView) ||
+      seedEntity;
+
+    if (!compatibleStableEntity(accumulatedEntity, incomingEntity)) {
+      conflicts.push({
+        bucket: item.bucket,
+        key: item.key,
+        logical_role: item.logicalRole,
+      });
+      continue;
+    }
+
+    plannedWrites.objects[index].preflight_status = 'EXISTS_COMPATIBLE';
+    compatibleEntities.push(incomingEntityId);
+  }
+
+  return {
+    planned_writes: plannedWrites,
+    safe_to_write: conflicts.length === 0,
+    conflicts,
+    compatible_entities: [...new Set(compatibleEntities)].sort(),
+    read_only: true,
+  };
+}
+
+/**
+ * Read-only production R2 preflight for an ordinary research bundle.
+ * This performs the same immutable-object/entity-compatibility checks as ingest
+ * but never reserves identity state and never writes R2.
+ */
+export async function preflightFoundationResearch(bundleInput: unknown) {
+  return preflightFoundationResearchWithOptions(bundleInput, {});
+}
+
+/**
+ * Read-only production R2 preflight for the typed-sidecar projection path.
+ * Keeps the dedicated UNASSESSED coverage boundary and never mutates R2.
+ */
+export async function preflightFoundationTypedProjectionResearch(bundleInput: unknown) {
+  return preflightFoundationResearchWithOptions(bundleInput, {
+    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+  });
+}
+
 export async function verifyFoundationRawEvidenceAlreadyCommitted(
   bundleInput: unknown,
   rawInput?: unknown
@@ -1665,6 +1766,19 @@ export async function prepareFoundationResearch(bundleInput: unknown, rawInput?:
   const bundle = validateResearchBundle(bundleInput);
   const raw = parseRawEvidence(rawInput, bundle);
   return buildPlannedWrites(await buildPlan(bundle, raw), bundle.run_id, false);
+}
+
+/**
+ * Offline plan for a bundle produced by the typed-sidecar projector.
+ * Uses the exact production buildPlan/buildPlannedWrites path while preserving
+ * the typed-only UNASSESSED coverage boundary. Never contacts R2 and never
+ * authorizes a write.
+ */
+export async function prepareFoundationTypedProjectionResearch(bundleInput: unknown) {
+  const bundle = validateResearchBundleWithOptions(bundleInput, {
+    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+  });
+  return buildPlannedWrites(await buildPlan(bundle, []), bundle.run_id, false);
 }
 
 async function ingestFoundationResearchWithOptions(

@@ -548,6 +548,19 @@
             "null"
           ]
         },
+        "observer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payloadSchemaRef": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "payload": {},
         "evidenceIds": {
           "type": "array",
           "items": {

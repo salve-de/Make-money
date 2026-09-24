@@ -135,6 +135,9 @@ export interface FoundationObservation {
   observedAt: string | null;
   collectionTier: string | null;
   collectionChannel: string | null;
+  observer?: string | null;
+  payloadSchemaRef?: string | null;
+  payload?: unknown;
   evidenceIds: string[];
 }
 
@@ -635,15 +638,21 @@ function fallbackRecordId(prefix: string, value: JsonObject): string {
 }
 
 function normalizeObservation(value: JsonObject): FoundationObservation {
+  const payload = value.payload === undefined
+    ? null
+    : JSON.parse(JSON.stringify(value.payload));
   return {
     id: stringValue(value, 'observation_id') || stringValue(value, 'id') || fallbackRecordId('observation', value),
-    kind: stringValue(value, 'kind'),
+    kind: stringValue(value, 'observation_type') || stringValue(value, 'kind'),
     text: stringValue(value, 'text') || '観測内容未確認',
     originType: stringValue(value, 'origin_type') || 'unknown',
     verificationStatus: verificationStatus(value),
     observedAt: stringValue(value, 'observed_at'),
     collectionTier: stringValue(value, 'collection_tier'),
     collectionChannel: stringValue(value, 'collection_channel'),
+    observer: stringValue(value, 'observer'),
+    payloadSchemaRef: stringValue(value, 'payload_schema_ref'),
+    payload,
     evidenceIds: stringArray(value, 'evidence_ids'),
   };
 }
