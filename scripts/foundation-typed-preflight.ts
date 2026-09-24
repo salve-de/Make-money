@@ -107,14 +107,17 @@ export async function buildMakeMoneyReplayStatePreflight(adapters: {
     };
   }
 
-  const initialCursor =
+  const productionReplayCursor =
     unresolvedReplayState && typeof unresolvedReplayState.cursor === 'string'
       ? unresolvedReplayState.cursor
-      : undefined;
+      : null;
   const seenCursors = new Set<string>();
   const progressRows: Array<Record<string, unknown>> = [];
   const auditErrors: string[] = [];
-  let cursor = initialCursor;
+  // Safety audit is intentionally stronger than one production replay step:
+  // start at the prefix origin and follow every cursor so pending unresolved
+  // work anywhere in the circular replay ledger is visible before publication.
+  let cursor: string | undefined;
   let pagesScanned = 0;
   let objectsScanned = 0;
   const maxPages = 10_000;
@@ -194,6 +197,7 @@ export async function buildMakeMoneyReplayStatePreflight(adapters: {
     queue_mutations: 0,
     rebuild_state: rebuildState,
     unresolved_replay_state: unresolvedReplayState,
+    production_replay_cursor: productionReplayCursor,
     pages_scanned: pagesScanned,
     projection_progress_objects_scanned: objectsScanned,
     listing_complete: listingComplete,
