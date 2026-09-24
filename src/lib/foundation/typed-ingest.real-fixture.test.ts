@@ -15,11 +15,11 @@ const artifactBlob = 'f420ff3c53deb5f63e1294e1c53b4739f9383ef3';
 describe('real scheduled Web ChatGPT typed sidecar fixture', () => {
   it('accepts the exact immutable bytes and preserves structured semantics losslessly', () => {
     const typedText = readFileSync(
-      new URL('./fixtures/real-gentherm-modine-typed-record-set-v1.json', import.meta.url),
+      'src/lib/foundation/fixtures/real-gentherm-modine-typed-record-set-v1.json',
       'utf8',
     );
     const artifactText = readFileSync(
-      new URL('./fixtures/real-gentherm-modine-collection-run-v1.json', import.meta.url),
+      'src/lib/foundation/fixtures/real-gentherm-modine-collection-run-v1.json',
       'utf8',
     );
 
