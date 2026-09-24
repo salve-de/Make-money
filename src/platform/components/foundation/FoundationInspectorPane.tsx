@@ -22,6 +22,7 @@ import {
   cleanIntelligenceText,
   formatHumanMoney,
 } from '@/lib/foundation/text-cleaner';
+import { StructuredObservationData } from '@/features/company-inspector/ui/StructuredObservationData';
 
 interface FoundationInspectorPaneProps {
   entity: FoundationBusinessCase | null;
@@ -184,7 +185,14 @@ function RawObservation({ item }: { item: FoundationObservation }) {
         <Badge tone={statusInfo.tone}>{statusInfo.label}</Badge>
       </div>
       <div className="mt-2 font-sans text-[11px] leading-relaxed text-zinc-300">{cleanText}</div>
-      <div className="mt-1.5 font-mono text-[9px] text-zinc-600">{dateValue(item.observedAt)} ・ 根拠 {item.evidenceIds.length}件</div>
+      <div className="mt-1.5 font-mono text-[9px] text-zinc-600">
+        {dateValue(item.observedAt)} ・ 根拠 {item.evidenceIds.length}件
+        {item.collectionChannel ? ` ・ ${item.collectionChannel}` : ''}
+      </div>
+      <StructuredObservationData
+        value={item.structuredData}
+        schemaRef={item.payloadSchemaRef}
+      />
     </div>
   );
 }
