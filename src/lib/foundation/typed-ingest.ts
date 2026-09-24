@@ -283,7 +283,9 @@ export function projectTypedRecordSetV4(
   const typedEntities = Array.isArray(typedRecordSet.entities)
     ? typedRecordSet.entities.filter(isObject)
     : [];
-  const caseEntity = caseEntityForTypedSubject(typedRecordSet, subjectRef, recordedAt);
+  const caseEntity = typedEntities.length > 1
+    ? caseEntityForTypedSubject(typedRecordSet, subjectRef, recordedAt)
+    : null;
   const projectedEntities = caseEntity ? [...typedEntities, caseEntity] : typedEntities;
   const caseEntityId = caseEntity ? stringValue(caseEntity, 'entity_id') : null;
 
