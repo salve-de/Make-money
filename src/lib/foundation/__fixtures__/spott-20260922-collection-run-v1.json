@@ -1,0 +1,310 @@
+{
+  "schema_version": "collection-run.v1",
+  "lane": "DISCOVERY",
+  "run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+  "started_at": "2026-09-22T10:57:24Z",
+  "finished_at": "2026-09-22T11:07:00Z",
+  "contract_ref": "main@docs/COLLECTION_OS_V3.md + docs/COLLECTION_OPERATIONS_V1.md + docs/EVIDENCE_CAPTURE_AND_COVERAGE.md + registry/collection/typed-record-output.v1.json + schemas/foundation/typed-record-set.v1.schema.json",
+  "input_snapshot": {
+    "canonical_ref": "main",
+    "write_ref": "automation-research",
+    "canonical_blob_shas": {
+      "docs/COLLECTION_OS_V3.md": "ab8b4337cd88a826a80530e8f9725aed74f6b30a",
+      "docs/COLLECTION_OPERATIONS_V1.md": "ce26ed7ea731315ae8c2beab5200aedcabf84465",
+      "docs/EVIDENCE_CAPTURE_AND_COVERAGE.md": "c9e2489d5e19b9d247efbaed214e70b6ab605f48",
+      "registry/collection/collection-os.v3.json": "081fcd8e35b60570f4f9b96af766bafd6fb6cfd0",
+      "registry/collection/typed-record-output.v1.json": "03f77326c7dff74b8e625f1cf4ced6e99a7e3fb9",
+      "schemas/foundation/typed-record-set.v1.schema.json": "110b0fd5592b60e7ce3fe51dae40ca43f4569870",
+      "schemas/foundation/collection-run.v1.schema.json": "2ff63489f19f1646ed4ebd000b25f2d9f5863c80",
+      "schemas/foundation/work-item.v1.schema.json": "1bd0df701472d3a9677ab479590bcdd6e5936990",
+      "schemas/foundation/work-claim.v1.schema.json": "d6a799e26bc1fc9f3f5043e877268f456eb6688b",
+      "schemas/foundation/evidence-capture-request.v1.schema.json": "ef5031adde2567851dd49f76cd3fd8f7f9250d47",
+      "registry/collection/r2-queue-mapper.v2.json": "c92a1e405153e529d98ea9998cf668b8071e4372"
+    },
+    "work_id": "wrk_4e67b797c707c8458c16fa5300a5db86",
+    "claim_id": "clm_5f224612c8a6c9095697ebb9e9ab279e",
+    "selection_result": "normal_lane_selection",
+    "priority_order_checked": [
+      "retry_due",
+      "explicit_follow_up",
+      "coverage_priority",
+      "normal_lane_selection"
+    ],
+    "coverage_audit": "staging/automation/coverage-audit/2026/09/22/20260922T032518Z-coverage-audit-coverage-audit-20260922T032518Z-v1.json",
+    "prior_receipt_state": "DISCOVERY work through the 05:00Z cohort is consumed; the later typed-contract bootstrap BLOCKED run consumed no work and the missing canonical contract files now exist on main.",
+    "dedupe_state": "Exact-name Spott was absent from the recent DISCOVERY artifacts inspected and from an exact repository search of the Make-money consumer seed. No identity merge was inferred from name alone.",
+    "source_reuse_check": "Recent DISCOVERY source_attempts/evidence inspected for the selected subject contained no Spott or spott.io source; no fresh reusable Evidence for this subject was found in the inspected cohort."
+  },
+  "source_attempts": [
+    {
+      "fetch_key": "a6c88454a348558600726d4da22a7dc230f3e164e77b8db2b9ca3c28afc3de1c",
+      "source_id": "src.spott_company",
+      "canonical_url": "https://spott.io/resources/spott-raises-3-2m-to-launch-first-ai-native-platform-for-recruitment-firms",
+      "purpose": "identity, product architecture and origin context",
+      "attempted_at": "2026-09-22T11:04:53Z",
+      "result": "SUCCESS",
+      "failure_class": null,
+      "retryable": false,
+      "attempt_number": 1,
+      "next_retry_at": null,
+      "terminal_reason": null,
+      "reused_evidence_ids": [],
+      "evidence_ids": ["ev_8675601a4c327fed49604632"],
+      "volatility_class": "LOW"
+    },
+    {
+      "fetch_key": "a3aa9ed2cd276c8610d45a7a513ed4fe5b0eb3a743e1f3a293d87058c6c30977",
+      "source_id": "src.tech_eu",
+      "canonical_url": "https://tech.eu/2026/09/22/spott-secures-21m-series-a-to-expand-its-ai-platform-for-recruitment-agencies/",
+      "purpose": "current Series A reporting",
+      "attempted_at": "2026-09-22T11:04:53Z",
+      "result": "FAILED",
+      "failure_class": "TRANSIENT_NETWORK",
+      "retryable": true,
+      "attempt_number": 1,
+      "next_retry_at": "2026-09-22T12:05:00Z",
+      "terminal_reason": null,
+      "reused_evidence_ids": [],
+      "evidence_ids": [],
+      "volatility_class": "EVENT_DRIVEN",
+      "provider_error_summary": "Web page open returned cache miss; no article body was admitted as Evidence."
+    },
+    {
+      "fetch_key": "fb2b78057aa9e69ad7565298ba61ef28147d4633b8e21713a915af8126a5248a",
+      "source_id": "src.spott_company",
+      "canonical_url": "https://spott.io/resources/spott-oneup-sales-integration",
+      "purpose": "integration and operating-workflow corroboration",
+      "attempted_at": "2026-09-22T11:04:53Z",
+      "result": "FAILED",
+      "failure_class": "TRANSIENT_NETWORK",
+      "retryable": true,
+      "attempt_number": 1,
+      "next_retry_at": "2026-09-22T12:05:00Z",
+      "terminal_reason": null,
+      "reused_evidence_ids": [],
+      "evidence_ids": [],
+      "volatility_class": "LOW",
+      "provider_error_summary": "Web page open returned cache miss; no article body was admitted as Evidence."
+    },
+    {
+      "fetch_key": "97b0359dc3e14a7bde6d21e38dd1515976055726755422b60e018bc7a98160d5",
+      "source_id": "src.eu_startups",
+      "canonical_url": "https://www.eu-startups.com/2026/09/leuven-based-spott-raises-e18-3-million-to-build-the-ai-native-operating-system-for-recruitment-agencies/",
+      "purpose": "current Series A amount, lead investor and current company description",
+      "attempted_at": "2026-09-22T11:04:53Z",
+      "result": "PARTIAL_SEARCH_RESULT_ONLY",
+      "failure_class": "TRANSIENT_NETWORK",
+      "retryable": true,
+      "attempt_number": 1,
+      "next_retry_at": "2026-09-22T12:05:00Z",
+      "terminal_reason": null,
+      "reused_evidence_ids": [],
+      "evidence_ids": ["ev_2917671870359b6877f1f6e9"],
+      "volatility_class": "EVENT_DRIVEN",
+      "provider_error_summary": "Fresh search result text was retrieved, but direct page open returned cache miss; only the retrieved search-result content is admitted."
+    }
+  ],
+  "recorded_items": [
+    {
+      "record_type": "Entity",
+      "record_id": "ent_organization_2fb9960a8a1bcfd297a2",
+      "canonical_name": "Spott",
+      "domain": "spott.io",
+      "completion_label": "CAPTURED_PARTIAL",
+      "evidence_ids": [
+        "ev_8675601a4c327fed49604632",
+        "ev_2917671870359b6877f1f6e9"
+      ]
+    },
+    {
+      "record_type": "Observation",
+      "observation_type": "business_model.ai_native_recruitment_system_of_record",
+      "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+      "summary": "Spott positions a single AI-native ATS/CRM as the operating system for recruitment agencies, combining candidate data, matching, outreach, scheduling, transcripts, pipeline management and business-development workflows rather than selling a single point AI tool."
+    },
+    {
+      "record_type": "Observation",
+      "observation_type": "financing.series_a_reported",
+      "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+      "summary": "A fresh secondary source reports EUR 18.3M (USD 21M) Series A led by Balderton Capital; this is retained as reported/unverified and delegated to VERIFY_RECONCILE rather than independently verified here."
+    }
+  ],
+  "observations": [
+    {
+      "observation_type": "business_model.ai_native_recruitment_system_of_record",
+      "payload": {
+        "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+        "origin_type": "reported",
+        "verification_state": "SUPPORTED",
+        "summary": "The company describes an integrated ATS/CRM with AI embedded across matching, outreach, scheduling, transcript processing, pipelines, reporting and business development, explicitly positioned against fragmented point solutions.",
+        "evidence_ids": ["ev_8675601a4c327fed49604632"]
+      }
+    },
+    {
+      "observation_type": "financing.series_a_reported",
+      "payload": {
+        "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+        "origin_type": "reported",
+        "verification_state": "UNVERIFIED",
+        "amount_reported": 18.3,
+        "currency_reported": "EUR",
+        "usd_equivalent_as_reported": 21,
+        "usd_equivalent_unit": "million USD",
+        "round": "Series A",
+        "lead_investor_as_reported": "Balderton Capital",
+        "evidence_ids": ["ev_2917671870359b6877f1f6e9"]
+      }
+    }
+  ],
+  "coverage_delta": {
+    "new_entities_captured": 1,
+    "subjects_processed": 1,
+    "source_attempts_success": 1,
+    "source_attempts_partial": 1,
+    "source_attempts_failed": 2,
+    "evidence_capture_requests_created": 4,
+    "backfill_work_items_emitted": 1,
+    "verify_reconcile_work_items_emitted": 1,
+    "monitor_work_items_emitted": 0
+  },
+  "unknowns": [
+    "Current pricing, payer structure, customer-segment economics, retention/switching, unit economics and distribution mix were not deep-completed in DISCOVERY and are delegated to BACKFILL.",
+    "The EUR 18.3M / USD 21M Series A and lead investor are currently retained from secondary reporting and were not independently verified in this lane.",
+    "Direct article-body retrieval for Tech.eu, the Spott OneUp integration page and EU-Startups was unavailable during this run; the two failed attempts are retryable after the recorded next_retry_at."
+  ],
+  "conflicts": [],
+  "audit": {
+    "protected_boundaries_mutated": false,
+    "protected_boundaries": [
+      "Make-Money 2050 pending",
+      "v0",
+      "EDINET canonical/originals",
+      "existing raw originals"
+    ],
+    "direct_r2_write": false,
+    "r2_candidate_write": false,
+    "consumer_repo_write": false,
+    "raw_capture_completion_claimed": false,
+    "write_scope": "append/create-only automation-research staging only",
+    "typed_sidecar_order": "Run artifact is written first; sidecar identity is bound only after GitHub run-artifact readback."
+  },
+  "checkpoint": {
+    "work_id": "wrk_4e67b797c707c8458c16fa5300a5db86",
+    "claim_id": "clm_5f224612c8a6c9095697ebb9e9ab279e",
+    "lease_until": "2026-09-22T12:27:24Z",
+    "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+    "next_actions": [
+      "BACKFILL consumes wrk_215443970514e3bb7432be604f92ce62 for missing business mechanics.",
+      "VERIFY_RECONCILE consumes wrk_1f39ff4c9acb951898b944c78c5ec94f for the reported Series A financing claim.",
+      "Retry the transient direct-page source attempts only after next_retry_at or reuse a fresh successful capture if one appears first."
+    ]
+  },
+  "final_status": "PARTIAL",
+  "evidence_capture_requests": [
+    {
+      "schema_version": "evidence-capture-request.v1",
+      "request_id": "req_6e8be40ea4e73e1868ace9f9ef01c85a",
+      "originating_run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+      "evidence_id": "ev_8675601a4c327fed49604632",
+      "source_id": "src.spott_company",
+      "request_url": "https://spott.io/resources/spott-raises-3-2m-to-launch-first-ai-native-platform-for-recruitment-firms",
+      "canonical_url": "https://spott.io/resources/spott-raises-3-2m-to-launch-first-ai-native-platform-for-recruitment-firms",
+      "capture_mode": "metadata_only",
+      "requested_at": "2026-09-22T11:05:00Z",
+      "rights_state": "metadata_only",
+      "rights_policy_id": null,
+      "expected_content_type": "text/html",
+      "locator": {"title": "Spott raises $3.2M to launch first AI-native platform for recruitment firms"},
+      "excerpt_digest": null
+    },
+    {
+      "schema_version": "evidence-capture-request.v1",
+      "request_id": "req_f1efbbd2eb6a86b49ff94a4cf3a51eba",
+      "originating_run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+      "evidence_id": "ev_db2cb1c20a638c517cc68c30",
+      "source_id": "src.tech_eu",
+      "request_url": "https://tech.eu/2026/09/22/spott-secures-21m-series-a-to-expand-its-ai-platform-for-recruitment-agencies/",
+      "canonical_url": "https://tech.eu/2026/09/22/spott-secures-21m-series-a-to-expand-its-ai-platform-for-recruitment-agencies/",
+      "capture_mode": "metadata_only",
+      "requested_at": "2026-09-22T11:05:00Z",
+      "rights_state": "metadata_only",
+      "rights_policy_id": null,
+      "expected_content_type": "text/html",
+      "locator": {"title": "Spott secures $21m Series A to expand its AI platform for recruitment agencies", "attempt_state": "web_open_cache_miss"},
+      "excerpt_digest": null
+    },
+    {
+      "schema_version": "evidence-capture-request.v1",
+      "request_id": "req_91aa5c600865af1d49e1b4c33b015403",
+      "originating_run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+      "evidence_id": "ev_4e31a0d543deafb799cb873b",
+      "source_id": "src.spott_company",
+      "request_url": "https://spott.io/resources/spott-oneup-sales-integration",
+      "canonical_url": "https://spott.io/resources/spott-oneup-sales-integration",
+      "capture_mode": "metadata_only",
+      "requested_at": "2026-09-22T11:05:00Z",
+      "rights_state": "metadata_only",
+      "rights_policy_id": null,
+      "expected_content_type": "text/html",
+      "locator": {"title": "Spott and OneUp Sales integration", "attempt_state": "web_open_cache_miss"},
+      "excerpt_digest": null
+    },
+    {
+      "schema_version": "evidence-capture-request.v1",
+      "request_id": "req_2ef6d96c6a75470dce8ba8bb2782a58d",
+      "originating_run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+      "evidence_id": "ev_2917671870359b6877f1f6e9",
+      "source_id": "src.eu_startups",
+      "request_url": "https://www.eu-startups.com/2026/09/leuven-based-spott-raises-e18-3-million-to-build-the-ai-native-operating-system-for-recruitment-agencies/",
+      "canonical_url": "https://www.eu-startups.com/2026/09/leuven-based-spott-raises-e18-3-million-to-build-the-ai-native-operating-system-for-recruitment-agencies/",
+      "capture_mode": "metadata_only",
+      "requested_at": "2026-09-22T11:05:00Z",
+      "rights_state": "metadata_only",
+      "rights_policy_id": null,
+      "expected_content_type": "text/html",
+      "locator": {"title": "Leuven-based Spott raises €18.3 million to build the AI-native operating system for recruitment agencies", "attempt_state": "search_result_retrieved_page_open_cache_miss"},
+      "excerpt_digest": null
+    }
+  ],
+  "consumed_work_ids": ["wrk_4e67b797c707c8458c16fa5300a5db86"],
+  "emitted_work_items": [
+    {
+      "schema_version": "collection-work-item.v1",
+      "work_id": "wrk_215443970514e3bb7432be604f92ce62",
+      "work_fingerprint": "215443970514e3bb7432be604f92ce62ca85ad3d6134465886bb4a3df6634e06",
+      "recommended_lane": "BACKFILL",
+      "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+      "objective_type": "COMPLETE_BUSINESS_MECHANICS",
+      "objective": {"constraint": "Use targeted sources; do not repeat fresh DISCOVERY evidence.", "dimensions": ["payer", "pricing", "customer_segments", "distribution", "unit_economics", "retention_or_switching", "current_traction"]},
+      "rule_version": "collection-operations-v1",
+      "input_watermark": "run_discovery_20260922T105724Z_44a9978146ce",
+      "created_at": "2026-09-22T11:05:00Z",
+      "not_before": null,
+      "priority": 82,
+      "selection_reason": "DISCOVERY captured Spott as a new partial case; deeper buyer, pricing, distribution, economics and traction work belongs in BACKFILL rather than broadening the discovery run.",
+      "source_scope": ["first_party", "customer_or_partner", "reputable_secondary"],
+      "freshness_requirement": "Reuse current DISCOVERY evidence where sufficient; fetch only missing mechanics or fresher traction dimensions.",
+      "originating_run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+      "depends_on_work_ids": []
+    },
+    {
+      "schema_version": "collection-work-item.v1",
+      "work_id": "wrk_1f39ff4c9acb951898b944c78c5ec94f",
+      "work_fingerprint": "1f39ff4c9acb951898b944c78c5ec94f08d376c8f5574cf9fca18135e65eb492",
+      "recommended_lane": "VERIFY_RECONCILE",
+      "subject_ref": "ent_organization_2fb9960a8a1bcfd297a2",
+      "objective_type": "VERIFY_SERIES_A_FINANCING",
+      "objective": {"claim": "Spott raised EUR 18.3M (USD 21M) Series A led by Balderton Capital on/around 2026-09-22.", "issue": "Current evidence is secondary reporting; seek first-party company/investor or authoritative financing confirmation without broad profile research."},
+      "rule_version": "collection-operations-v1",
+      "input_watermark": "run_discovery_20260922T105724Z_44a9978146ce",
+      "created_at": "2026-09-22T11:05:00Z",
+      "not_before": null,
+      "priority": 90,
+      "selection_reason": "The current Series A amount and lead investor are material financing facts reported by current secondary evidence; DISCOVERY preserves them as unverified context and delegates independent confirmation.",
+      "source_scope": ["first_party_company", "lead_investor", "authoritative_financing_source"],
+      "freshness_requirement": "Use evidence current to the 2026-09-22 Series A announcement; do not broaden into a general company profile.",
+      "originating_run_id": "run_discovery_20260922T105724Z_44a9978146ce",
+      "depends_on_work_ids": []
+    }
+  ]
+}
