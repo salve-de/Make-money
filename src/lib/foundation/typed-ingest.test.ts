@@ -155,11 +155,13 @@ describe('typed sidecar ingest projection', () => {
   });
 
   it('defaults an entity-valued subject_ref to that entity in a multi-entity sidecar', () => {
-    const typed = sidecar() as any;
+    const typed = sidecar();
     const subjectEntityId = typed.entities[0].entity_id;
     typed.subject_ref = subjectEntityId;
-    typed.subject = { query: 'Subject entity test' };
-    typed.observations[0].payload = { note: 'No explicit entity ID in payload.' };
+    typed.subject.query = 'Subject entity test';
+    typed.subject.candidate_name = '';
+    typed.subject.candidate_domain = '';
+    typed.observations[0].payload.subject_ref = '';
     typed.entities.push({
       ...typed.entities[0],
       entity_id: 'ent_organization_abcdef1234567890abcd',
