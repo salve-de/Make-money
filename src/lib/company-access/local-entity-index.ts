@@ -3,11 +3,6 @@ import { resolve } from 'node:path';
 
 import { isPublishableEntity } from '@/lib/company-access/public-entity';
 import { reconcileFinancialEntity } from '@/platform/data/financial-reconciliation';
-import {
-  INSTITUTIONAL_ENTITIES,
-  INSTITUTIONAL_ENTITY_ALIASES,
-  findInstitutionalEntity,
-} from '@/platform/data/mockLedgerData';
 import type { FinancialEntity } from '@/platform/types/terminal';
 import { parseFinancialEntitiesResiliently } from '@/shared/financial-entity-schema';
 import { normalizeFinancialEntity } from '@/shared/financial-integrity';
@@ -29,6 +24,7 @@ export async function getCachedLocalEntityIndex(): Promise<LocalEntityIndex> {
   }
 
   try {
+    const { INSTITUTIONAL_ENTITY_ALIASES } = await import('@/platform/data/mockLedgerData');
     const localIndexPath = resolve(process.cwd(), 'data/entities-index.json');
     const parsed: unknown = JSON.parse(await readFile(localIndexPath, 'utf8'));
     const { validEntities } = parseFinancialEntitiesResiliently(parsed);
@@ -66,11 +62,15 @@ export async function readCachedLocalPublishableEntities(): Promise<FinancialEnt
 export async function findCachedPublishableEntity(id: string): Promise<FinancialEntity | null> {
   if (await usesCatalogRelease()) return findReleaseEntity(id);
   const cache = await getCachedLocalEntityIndex();
-  const raw = cache.byId.get(id)
+  let raw = cache.byId.get(id)
     ?? cache.byId.get(id.toLowerCase())
-    ?? findInstitutionalEntity(id)
-    ?? INSTITUTIONAL_ENTITIES.find((entity) => entity.id.toLowerCase() === id.toLowerCase())
     ?? null;
+  if (!raw) {
+    const { findInstitutionalEntity, INSTITUTIONAL_ENTITIES } = await import('@/platform/data/mockLedgerData');
+    raw = findInstitutionalEntity(id)
+      ?? INSTITUTIONAL_ENTITIES.find((entity) => entity.id.toLowerCase() === id.toLowerCase())
+      ?? null;
+  }
   if (!raw) return null;
 
   const entity = normalizeFinancialEntity(reconcileFinancialEntity(raw));
