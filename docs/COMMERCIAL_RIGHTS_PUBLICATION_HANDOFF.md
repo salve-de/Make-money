@@ -125,3 +125,8 @@ The public API canonical read-through bypass found during CI repair is also clos
 ### Policy identity hardening
 
 The automatic allowlist now binds `policy-ID -> source-ID -> official-host suffix`. Both Source.canonical_url and Evidence.source_url must fall inside the registered host scope. A collector cannot pass a restricted page by labeling it `src.e-stat` and attaching `rights.e-stat.v1`.
+
+
+### Regression coverage
+
+Added mixed-rights retry E2E: one immutable canonical bundle contains one approved entity/fact and one held entity/fact. The first call may materialize only the approved target; the second identical call must resume the filtered projection against the original canonical bundle without rewriting canonical R2 or exposing the held target.

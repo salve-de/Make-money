@@ -273,6 +273,85 @@ function requestFor(
   };
 }
 
+function requestForMixedRights() {
+  const artifactText = JSON.stringify(sourceArtifact());
+  const typed = typedRecordSet('SUPPORTED', true);
+  const heldEvidenceId = 'ev_aaaaaaaaaaaaaaaaaaaaaaaa';
+  const heldEntityId = 'ent_organization_aaaaaaaaaaaaaaaaaaaa';
+
+  typed.sources.push({
+    source_id: 'src.test.restricted',
+    provider_name: 'Restricted discovery source',
+    source_type: 'secondary_reporting',
+    canonical_url: 'https://example.org/restricted',
+    source_strength: 'B',
+    rights_status: 'pending_review',
+    rights_policy_id: null,
+    access_notes: null,
+  });
+  typed.evidence.push({
+    evidence_id: heldEvidenceId,
+    source_id: 'src.test.restricted',
+    source_url: 'https://example.org/restricted',
+    source_title: 'Restricted discovery report',
+    source_type: 'secondary_reporting',
+    publisher_or_speaker: 'Restricted Publisher',
+    published_at: '2026-09-24T13:00:00Z',
+    retrieved_at: '2026-09-24T13:29:00Z',
+    source_strength: 'B',
+    rights_status: 'pending_review',
+    rights_policy_id: null,
+    raw_storage: {
+      status: 'metadata_only',
+      bucket: null,
+      key: null,
+      content_sha256: null,
+      content_type: null,
+      bytes: null,
+    },
+    summary: 'This source must remain private.',
+    extracted_facts: ['Private-only discovery fact.'],
+  });
+  typed.entities.push({
+    entity_id: heldEntityId,
+    entity_type: 'organization',
+    canonical_name: 'Held Entity',
+    aliases: ['Held Entity'],
+    canonical_identifier: null,
+    domain: 'example.org',
+    status: 'active',
+    observed_at: '2026-09-24T13:29:00Z',
+    evidence_ids: [heldEvidenceId],
+  });
+  typed.claims.push({
+    claim_id: 'cl_aaaaaaaaaaaaaaaaaaaaaaaa',
+    entity_ids: [heldEntityId],
+    statement: 'Held Entity has a private-only discovery fact.',
+    origin_type: 'reported',
+    verification_status: 'SUPPORTED',
+    confidence: 1,
+    occurred_at: '2026-09-24T13:00:00Z',
+    evidence_ids: [heldEvidenceId],
+  });
+
+  typed.source_artifact.blob_sha = gitBlobSha1(artifactText);
+  const typedText = JSON.stringify(typed);
+  return {
+    write_authorized: true as const,
+    source: {
+      repository: 'salve-de/universal-foundation',
+      source_ref: 'main',
+      source_commit_sha: 'a'.repeat(40),
+      typed_record_set_path: typedPath,
+      typed_record_set_blob_sha: gitBlobSha1(typedText),
+      source_artifact_path: artifactPath,
+      source_artifact_blob_sha: typed.source_artifact.blob_sha,
+    },
+    typed_record_set_text: typedText,
+    source_artifact_text: artifactText,
+  };
+}
+
 function canonicalKeys(r2: MemoryR2): string[] {
   return r2.keys().filter((key) =>
     key.startsWith('datasets/ds.business.research-bundles.derived/v1/'));
@@ -361,6 +440,34 @@ describe('typed sidecar end-to-end through MemoryR2 and serving API', () => {
       expect(second.status).toBe(200);
       expect(secondBody.success).toBe(true);
       expect(canonicalKeys(r2)).toEqual(firstCanonical);
+    });
+  });
+
+  it('filters mixed-rights targets and resumes against the original canonical bundle', async () => {
+    const r2 = new MemoryR2();
+    const heldEntityId = 'ent_organization_aaaaaaaaaaaaaaaaaaaa';
+    await withCloudflareRuntimeEnv({
+      FOUNDATION_INGEST_TOKEN: 'typed-e2e-token',
+      FOUNDATION_R2_LAKE_BUCKET: 'foundation-lake',
+      FOUNDATION_R2_LAKE: r2,
+    }, async () => {
+      const first = await postTyped(requestForMixedRights());
+      const firstBody = await first.json();
+      expect(first.status).toBe(200);
+      expect(firstBody.success).toBe(true);
+      expect(firstBody.view_projection.status).toMatch(/^PASS/);
+      expect(r2.keys()).toContain(`views/make-money/v1/entities/${entityId}.json`);
+      expect(r2.keys()).not.toContain(`views/make-money/v1/entities/${heldEntityId}.json`);
+      const canonicalAfterFirst = canonicalKeys(r2);
+      expect(canonicalAfterFirst).toHaveLength(1);
+
+      const second = await postTyped(requestForMixedRights());
+      const secondBody = await second.json();
+      expect(second.status).toBe(200);
+      expect(secondBody.success).toBe(true);
+      expect(secondBody.canonical_ingest).toBe('ALREADY_COMMITTED');
+      expect(canonicalKeys(r2)).toEqual(canonicalAfterFirst);
+      expect(r2.keys()).not.toContain(`views/make-money/v1/entities/${heldEntityId}.json`);
     });
   });
 
