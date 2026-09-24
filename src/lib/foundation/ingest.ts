@@ -1667,6 +1667,19 @@ export async function prepareFoundationResearch(bundleInput: unknown, rawInput?:
   return buildPlannedWrites(await buildPlan(bundle, raw), bundle.run_id, false);
 }
 
+/**
+ * Offline plan for a bundle produced by the typed-sidecar projector.
+ * Uses the exact production buildPlan/buildPlannedWrites path while preserving
+ * the typed-only UNASSESSED coverage boundary. Never contacts R2 and never
+ * authorizes a write.
+ */
+export async function prepareFoundationTypedProjectionResearch(bundleInput: unknown) {
+  const bundle = validateResearchBundleWithOptions(bundleInput, {
+    makeMoneyCoverage: 'UNASSESSED_TYPED_PROJECTION',
+  });
+  return buildPlannedWrites(await buildPlan(bundle, []), bundle.run_id, false);
+}
+
 async function ingestFoundationResearchWithOptions(
   request: FoundationIngestRequest,
   options: FoundationBundleValidationOptions,
