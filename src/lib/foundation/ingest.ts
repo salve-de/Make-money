@@ -1,3 +1,5 @@
+import Ajv2020 from 'ajv/dist/2020.js';
+import plannedWritesSchema from './schemas/planned-writes.v1.schema.json';
 import {
   getFoundationBucket,
   preflightR2Object,
@@ -240,6 +242,19 @@ export class FoundationIngestAuthorizationError extends Error {
     super('write_authorized=true is required for Foundation ingestion');
     this.name = 'FoundationIngestAuthorizationError';
   }
+}
+
+const plannedWritesAjv = new Ajv2020({ allErrors: true, strict: false });
+const validatePlannedWritesManifestSchema = plannedWritesAjv.compile(plannedWritesSchema);
+
+function assertPlannedWritesManifestSchema(value: unknown): void {
+  if (validatePlannedWritesManifestSchema(value)) return;
+  const issues = (validatePlannedWritesManifestSchema.errors || [])
+    .slice(0, 20)
+    .map((error) => `${error.instancePath || '/'} ${error.message || 'invalid'}`);
+  throw new FoundationBundleValidationError([
+    `planned-writes.v1 schema validation failed: ${issues.join('; ')}`,
+  ]);
 }
 
 interface PlannedFoundationObject {
@@ -1067,7 +1082,7 @@ async function buildPlannedWrites(
     });
   }
 
-  return {
+  const manifest: PlannedWritesManifest = {
     schema_version: 'planned-writes.v1',
     run_id: runId,
     write_authorized: writeAuthorized,
@@ -1081,6 +1096,8 @@ async function buildPlannedWrites(
       'LegacyUniversalMutation',
     ],
   };
+  assertPlannedWritesManifestSchema(manifest);
+  return manifest;
 }
 
 function decodeJsonObject(body: Uint8Array | string): JsonObject | null {
