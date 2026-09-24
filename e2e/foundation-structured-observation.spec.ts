@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page, type Route } from '@playwright/test';
 
 const entityId = 'ent_structured_0123456789abcdef0123';
 
@@ -52,8 +52,8 @@ function detail(observation: Record<string, unknown>) {
   };
 }
 
-async function routeFoundation(page: Parameters<typeof test>[0] extends never ? never : any, detailBody: unknown) {
-  await page.route('**/api/businesses*', (route: any) => {
+async function routeFoundation(page: Page, detailBody: unknown) {
+  await page.route('**/api/businesses*', (route: Route) => {
     const url = new URL(route.request().url());
     const isDetail = url.searchParams.get('entity_id') === entityId;
     return route.fulfill({
@@ -64,14 +64,14 @@ async function routeFoundation(page: Parameters<typeof test>[0] extends never ? 
         : { source: 'foundation_lake', data: [summary()], hasMore: false, nextCursor: null }),
     });
   });
-  await page.route('**/api/entities/approve*', (route: any) => route.fulfill({
+  await page.route('**/api/entities/approve*', (route: Route) => route.fulfill({
     status: 200,
     contentType: 'application/json',
     body: JSON.stringify({ entityIds: [] }),
   }));
 }
 
-async function openEvidence(page: any) {
+async function openEvidence(page: Page) {
   await page.goto(`/?entity=${entityId}`);
   await expect(page.getByRole('heading', { name: 'Structured Foundation Demo', exact: true })).toBeVisible();
   await page.getByRole('button', { name: '証拠', exact: true }).click();
