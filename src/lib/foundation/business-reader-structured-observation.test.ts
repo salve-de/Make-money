@@ -19,6 +19,30 @@ describe('structured Foundation observations', () => {
         observed_at: '2026-09-24T13:29:00Z',
         evidence_ids: ['ev_1234567890abcdef12345678'],
       }],
+      sources: [{
+        source_id: 'src.test.official',
+        provider_name: 'Structured Demo',
+        source_type: 'official_release',
+        canonical_url: 'https://example.com/report',
+        source_strength: 'A',
+        rights_status: 'metadata_only',
+        rights_policy_id: 'rights.test.v1',
+      }],
+      evidence: [{
+        evidence_id: 'ev_1234567890abcdef12345678',
+        source_id: 'src.test.official',
+        source_url: 'https://example.com/report',
+        source_title: 'Structured Demo report',
+        source_type: 'official_release',
+        publisher_or_speaker: 'Structured Demo',
+        published_at: '2026-09-24T13:00:00Z',
+        retrieved_at: '2026-09-24T13:29:00Z',
+        source_strength: 'A',
+        rights_status: 'metadata_only',
+        rights_policy_id: 'rights.test.v1',
+        summary: 'Official structured evidence.',
+        extracted_facts: ['Revenue was reported.'],
+      }],
       claims: [],
       metrics: [],
       money_signals: [],
@@ -45,6 +69,12 @@ describe('structured Foundation observations', () => {
         },
       }],
       derived: [],
+      quality: {
+        unknowns: ['margin remains unknown'],
+        conflicts: ['revenue timing differs across disclosures'],
+        warnings: ['verify next filing'],
+        schema_validation: 'PASS',
+      },
     }, {
       id: entityId,
       name: 'Structured Demo',
@@ -69,6 +99,23 @@ describe('structured Foundation observations', () => {
           arbitrary_future_field: true,
         },
       },
+    });
+    expect(detail.sources).toEqual([expect.objectContaining({
+      id: 'src.test.official',
+      providerName: 'Structured Demo',
+      rightsPolicyId: 'rights.test.v1',
+    })]);
+    expect(detail.evidence).toEqual([expect.objectContaining({
+      id: 'ev_1234567890abcdef12345678',
+      sourceId: 'src.test.official',
+      summary: 'Official structured evidence.',
+      extractedFacts: ['Revenue was reported.'],
+    })]);
+    expect(detail.quality).toEqual({
+      unknowns: ['margin remains unknown'],
+      conflicts: ['revenue timing differs across disclosures'],
+      warnings: ['verify next filing'],
+      schemaValidation: 'PASS',
     });
   });
 });
