@@ -1,6 +1,6 @@
 # Commercial Rights / Public Publication Handoff
 
-Updated: 2026-09-24 JST
+Updated: 2026-09-25 JST
 
 ## Final objective
 
@@ -28,26 +28,40 @@ A source being public, searchable, or stored as `metadata_only` does not authori
 - Public UI must not expose source article text, screenshots/media, or free-form source-derived summaries merely because canonical research contains them.
 - Existing 3,085 released records require a separate retrospective rights audit.
 
-## Current implementation
+## Current implementation / current main
 
-Branch: `rights-publication-gate-20260924`
+Authoritative Make-Money state is now **main**, not the old PR #67 branch.
 
-New module:
+Integrated:
+- Universal Foundation PR #40 — granular commercial/public rights policy model — merged.
+- Universal Foundation PR #41 — stable provider source registry linked to rights policies — merged.
+- Make-Money PR #78 — rights-safe Public Fact / Observation consumer path — merged as `59a5723863c61d1e3b60ced90d74a8301b60ede7`.
+- PR #78 head `42ea0c869c964918f4afe38b674401eaa3c49aa9` Quality CI — **SUCCESS**.
+- Make-Money PR #67 — **closed as superseded by #78/main**; do not merge the old branch over main.
+
+Current public-publication architecture on main:
+1. full validated research may remain in canonical/private Foundation storage;
+2. public materialization is rebuilt through current rights rules, not copied from private canonical data;
+3. unknown/unapproved rights remain `RIGHTS_HELD`;
+4. source admission is pinned to the Universal Foundation rights/source registry snapshot and validates provider/source type/host/path scope;
+5. standard facts require rights-cleared Evidence;
+6. structured Observation payloads require an approved data-driven public Observation contract; unknown types/fields remain private;
+7. VERIFY_RECONCILE Public Fact v1 candidates use a dedicated fail-closed contract;
+8. record-only enrichment may reuse identity only from already-public identity state, never private-canonical identity as a publication fallback;
+9. list/detail/rebuild/unresolved replay use the same public projection boundary;
+10. held data does not enter New Arrivals or user-facing Foundation views.
+
+Current key files:
 - `src/lib/foundation/publication-rights.ts`
+- `src/lib/foundation/public-fact.ts`
+- `data/foundation-public-rights-snapshot.json`
+- `data/foundation-public-observation-contracts.json`
+- `src/app/api/foundation/ingest/typed/route.ts`
+- `src/app/api/foundation/ingest/route.ts`
+- `src/lib/foundation/make-money-view.ts`
+- `src/app/api/businesses/route.ts`
 
-Behavior:
-1. full validated bundle still goes to canonical/private Foundation R2;
-2. public projection requires an explicit registered `rights_policy_id`;
-3. only policies explicitly safe for automatic commercial fact display are auto-admitted;
-4. records must be `SUPPORTED` and depend only on allowed Evidence;
-5. free-form `observations` and `derived` text are excluded from the public fact projection;
-6. if nothing survives, API returns canonical success with `view_projection.status=RIGHTS_HELD`;
-7. held bundles do not enter Make-Money view or New Arrivals.
-
-Starter auto-approved policies are deliberately narrow: `rights.e-stat.v1` and `rights.bls.v1`. Conditional policies (Gビズインフォ, EIA, Eurostat, Companies House) remain held until their exception/attribution conditions can be mechanically proven per record/dataset.
-
-The policy SSOT is the paired Universal Foundation branch/file:
-`salve-de/universal-foundation/docs/COMMERCIAL_RIGHTS_PUBLICATION_HANDOFF.md`
+The policy/source SSOT remains Universal Foundation `main`.
 
 ## Why this design
 
@@ -68,31 +82,59 @@ This release predates the new granular rights gate. It must be audited separatel
 
 ## Work status
 
-- [x] External official terms review.
+Completed:
+- [x] External official terms review for representative allowed/restricted source families.
 - [x] Current scheduled typed-sidecar rights audit.
-- [x] Universal Foundation granular rights schema + provider starter policies.
-- [x] Canonical/private vs public projection architecture decided.
-- [x] Add fail-closed fact-only rights projection to typed ingest route.
-- [x] Add the same public gate to legacy Foundation ingest route.
-- [x] Add unit tests for missing policy, approved policy, conditional policy and UNVERIFIED facts.
-- [ ] Run Make-Money test/type/build checks and repair any failures. Current PR #67 CI history: first run exposed the expected legacy E2E assumption; second run proved the RIGHTS_HELD path but found two fixture/code typos (old constant name and claim ID prefix). Both are fixed in the next commit; rerun pending.
-- [x] Run and document the preliminary 3,085-record registry/lineage audit.
-- [ ] Run the per-dossier R2 Evidence/public-rights audit.
-- [ ] Quarantine/exclude existing catalog records that cannot prove a public rights basis.
-- [ ] Prove one real typed sidecar can ingest canonically while public view is RIGHTS_HELD.
-- [ ] Prove one approved-policy fixture reaches the public projection.
-- [ ] Open/merge paired PRs.
-- [ ] Verify production API/UI after deployment.
-- [ ] Keep this file updated after every material step.
+- [x] Universal Foundation granular rights schema.
+- [x] Universal Foundation provider source registry.
+- [x] Canonical/private research vs public product publication separation.
+- [x] Fail-closed rights gate on normal typed ingest and legacy ingest.
+- [x] Public API private-canonical read-through bypass closed.
+- [x] Mixed-rights retry bookkeeping fixed and regression-tested.
+- [x] Record-only enrichment publication behavior fixed and regression-tested.
+- [x] Policy/source/URL spoofing hardened with pinned registry + source/provider/type/host/path checks.
+- [x] Public Observation DTO contracts added; unknown payload fields/types stay private.
+- [x] VERIFY_RECONCILE Public Fact v1 consumer path added with fail-closed type registry.
+- [x] Make-Money Quality CI passed on the merged #78 implementation.
+- [x] Preliminary 3,085-record registry/lineage audit documented.
+- [x] Production R2 commercial-rights audit command implemented.
+
+Still required before claiming legacy catalog/publication is fully cleared:
+- [ ] Execute `pnpm foundation:rights:audit` on the configured Mac with actual R2 credentials.
+- [ ] Commit an immutable dated summary of that real R2 audit.
+- [ ] For legacy/current public records classified `INTERNAL_ONLY` or unresolved `NEEDS_RIGHTS_REVIEW`, remove/rebuild the **public projection only**; do not delete canonical research merely because publication is held.
+- [ ] Re-source important held facts from approved official/API/registry sources where possible.
+- [ ] Deploy the merged main build through the existing production process when authorized.
+- [ ] Verify production R2 readback -> API -> UI does not expose pending/blocked/private material.
+- [ ] Update this file with the production evidence.
+
+Important: collection schedules/prompts were not changed as a shortcut for rights.
 
 ## Resume instruction
 
-Another chat/agent must:
-1. read this file;
-2. read the paired Universal Foundation handoff;
-3. inspect branch/PR `rights-publication-gate-20260924`;
-4. continue from the first unchecked item;
-5. append concrete test/audit/PR evidence here before stopping.
+Another chat/agent must begin here:
+
+1. Read this file and `HANDOFF.md`.
+2. Treat Make-Money `main` as authoritative; **do not revive/merge old PR #67**.
+3. Confirm Universal Foundation `main` still contains the paired rights/source registries.
+4. The first unfinished operational step is:
+   ```bash
+   pnpm foundation:rights:audit
+   ```
+   Run it on the user's configured Mac where the existing Keychain R2 credentials are available.
+5. Inspect `reports/runtime/commercial-rights-r2-audit-latest.json`.
+6. Commit a dated immutable audit summary with exact counts and affected entity IDs.
+7. Only then decide which existing public projections must be quarantined/rebuilt.
+8. Never infer `SAFE` merely from lineage, public accessibility, `metadata_only`, or ChatGPT-generated text.
+9. Do not alter collection schedules/prompts to solve rights.
+10. Before stopping, append exact SHA/PR/test/audit evidence to this file.
+
+Current integrated reference points:
+- Make-Money main merge: `59a5723863c61d1e3b60ced90d74a8301b60ede7` (#78)
+- #78 Quality CI: SUCCESS on head `42ea0c869c964918f4afe38b674401eaa3c49aa9`
+- Universal Foundation rights PR #40: merged
+- Universal Foundation source-registry PR #41: merged
+- Make-Money PR #67: closed/superseded
 
 
 ## Preliminary 3,085-record audit evidence
