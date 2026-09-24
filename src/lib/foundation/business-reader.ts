@@ -135,9 +135,9 @@ export interface FoundationObservation {
   observedAt: string | null;
   collectionTier: string | null;
   collectionChannel: string | null;
-  observer: string | null;
-  payloadSchemaRef: string | null;
-  payload: unknown;
+  observer?: string | null;
+  payloadSchemaRef?: string | null;
+  payload?: unknown;
   evidenceIds: string[];
 }
 
