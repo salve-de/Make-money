@@ -221,6 +221,7 @@ function observationEntityIds(
   observation: JsonObject,
   entities: JsonObject[],
   caseEntityId: string | null,
+  subjectEntityId: string | null,
 ): string[] {
   const available = new Set(
     entities
@@ -239,6 +240,9 @@ function observationEntityIds(
     }
   }
 
+  if (associated.size === 0 && subjectEntityId && available.has(subjectEntityId)) {
+    associated.add(subjectEntityId);
+  }
   if (associated.size === 0 && caseEntityId && available.has(caseEntityId)) {
     associated.add(caseEntityId);
   }
@@ -283,6 +287,9 @@ export function projectTypedRecordSetV4(
   const typedEntities = Array.isArray(typedRecordSet.entities)
     ? typedRecordSet.entities.filter(isObject)
     : [];
+  const subjectEntityId = /^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(subjectRef)
+    ? subjectRef
+    : null;
   const caseEntity = typedEntities.length > 1
     ? caseEntityForTypedSubject(typedRecordSet, subjectRef, recordedAt)
     : null;
@@ -306,7 +313,12 @@ export function projectTypedRecordSetV4(
       const observationChannel =
         stringValue(observation, 'collection_channel') || collectionChannel;
       const observer = stringValue(observation, 'observer') || agentName;
-      const entityIds = observationEntityIds(observation, projectedEntities, caseEntityId);
+      const entityIds = observationEntityIds(
+        observation,
+        projectedEntities,
+        caseEntityId,
+        subjectEntityId,
+      );
       return {
         ...cloneJson(observation),
         ...(entityIds.length > 0 ? { entity_ids: entityIds } : {}),
