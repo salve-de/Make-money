@@ -572,6 +572,14 @@ export function adaptFoundationDetailToFinancialEntity(
       originType: normalizeObservationOrigin(obs.originType),
       verificationStatus: normalizeObservationStatus(obs.verificationStatus),
       observedAt: obs.observedAt || undefined,
+      author: obs.observer || undefined,
+      observationType: obs.observationType || obs.kind || undefined,
+      collectionTier: obs.collectionTier || undefined,
+      collectionChannel: obs.collectionChannel || undefined,
+      payloadSchemaRef: obs.payloadSchemaRef || undefined,
+      payload: obs.payload || undefined,
+      structuredData: obs.structuredData,
+      evidenceIds: obs.evidenceIds,
     });
   }
 

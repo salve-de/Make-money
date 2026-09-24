@@ -129,12 +129,22 @@ export interface FoundationRelationship {
 export interface FoundationObservation {
   id: string;
   kind: string | null;
+  observationType?: string | null;
   text: string;
   originType: string;
   verificationStatus: FoundationVerificationStatus;
   observedAt: string | null;
   collectionTier: string | null;
   collectionChannel: string | null;
+  observer?: string | null;
+  payloadSchemaRef?: string | null;
+  payload?: Record<string, unknown> | null;
+  /**
+   * Lossless consumer projection of the original observation object.
+   * Canonical ownership remains in Foundation R2; this field exists so
+   * product views never silently discard unknown/future observation fields.
+   */
+  structuredData?: Record<string, unknown>;
   evidenceIds: string[];
 }
 
@@ -635,15 +645,21 @@ function fallbackRecordId(prefix: string, value: JsonObject): string {
 }
 
 function normalizeObservation(value: JsonObject): FoundationObservation {
+  const payload = objectValue(value.payload);
   return {
     id: stringValue(value, 'observation_id') || stringValue(value, 'id') || fallbackRecordId('observation', value),
-    kind: stringValue(value, 'kind'),
+    kind: stringValue(value, 'kind') || stringValue(value, 'observation_type'),
+    observationType: stringValue(value, 'observation_type'),
     text: stringValue(value, 'text') || '観測内容未確認',
     originType: stringValue(value, 'origin_type') || 'unknown',
     verificationStatus: verificationStatus(value),
     observedAt: stringValue(value, 'observed_at'),
     collectionTier: stringValue(value, 'collection_tier'),
     collectionChannel: stringValue(value, 'collection_channel'),
+    observer: stringValue(value, 'observer'),
+    payloadSchemaRef: stringValue(value, 'payload_schema_ref'),
+    payload: payload ? JSON.parse(JSON.stringify(payload)) as Record<string, unknown> : null,
+    structuredData: JSON.parse(JSON.stringify(value)) as Record<string, unknown>,
     evidenceIds: stringArray(value, 'evidence_ids'),
   };
 }

@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/salve-de/universal-foundation/schemas/foundation/planned-writes.v1.schema.json",
+  "title": "Universal Foundation Planned Writes Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "write_authorized",
+    "objects",
+    "forbidden_operations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "planned-writes.v1"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "write_authorized": {
+      "type": "boolean"
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "logical_role",
+          "dataset_id",
+          "bucket",
+          "key",
+          "content_sha256",
+          "bytes",
+          "content_type",
+          "create_only",
+          "source_evidence_ids"
+        ],
+        "properties": {
+          "logical_role": {
+            "type": "string",
+            "enum": [
+              "raw_payload",
+              "raw_manifest",
+              "restricted_payload",
+              "restricted_manifest",
+              "journal_entry",
+              "r2_descriptor",
+              "entity",
+              "claim",
+              "metric",
+              "money_signal",
+              "event",
+              "relationship",
+              "research_bundle",
+              "derived_intelligence"
+            ]
+          },
+          "dataset_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "bucket": {
+            "type": "string",
+            "minLength": 1
+          },
+          "key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "content_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "create_only": {
+            "const": true
+          },
+          "source_evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "local_path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "preflight_status": {
+            "type": "string",
+            "enum": [
+              "NOT_CHECKED",
+              "ABSENT",
+              "EXISTS_IDENTICAL",
+              "EXISTS_COMPATIBLE",
+              "EXISTS_CONFLICT",
+              "BUCKET_MISSING"
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "preflight_status": {
+                  "const": "EXISTS_COMPATIBLE"
+                }
+              },
+              "required": [
+                "preflight_status"
+              ]
+            },
+            "then": {
+              "properties": {
+                "logical_role": {
+                  "const": "entity"
+                }
+              },
+              "required": [
+                "logical_role"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "forbidden_operations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "CopyObject",
+          "DeleteObject",
+          "Move",
+          "Rename",
+          "Overwrite",
+          "BucketCreate",
+          "LifecycleChange",
+          "EnvChange",
+          "ConfigChange",
+          "BucketPolicyChange",
+          "LegacyUniversalMutation"
+        ]
+      },
+      "allOf": [
+        {
+          "contains": {
+            "const": "CopyObject"
+          }
+        },
+        {
+          "contains": {
+            "const": "DeleteObject"
+          }
+        },
+        {
+          "contains": {
+            "const": "Move"
+          }
+        },
+        {
+          "contains": {
+            "const": "Rename"
+          }
+        },
+        {
+          "contains": {
+            "const": "Overwrite"
+          }
+        },
+        {
+          "contains": {
+            "const": "LegacyUniversalMutation"
+          }
+        }
+      ]
+    }
+  }
+}

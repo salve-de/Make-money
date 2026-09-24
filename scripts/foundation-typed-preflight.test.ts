@@ -1,0 +1,390 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import { readFileSync } from 'node:fs';
+import {
+  gitBlobSha1,
+  prepareFoundationTypedIngest,
+} from '../src/lib/foundation/typed-ingest';
+import {
+  buildBatchRemoteProductionPreflight,
+  buildBundleProductionPreflight,
+  buildMakeMoneyReplayStatePreflight,
+  buildTypedProductionPreflight,
+} from './foundation-typed-preflight';
+
+const typedPath =
+  'staging/automation/typed-records/DISCOVERY/2026/09/24/run_discovery_1e74e968e095440244da1b9d01171d3f/gentherm-modine-performance-technologies-rmt-2026-typed-record-set-v1.json';
+const artifactPath =
+  'staging/automation/discovery/2026/09/24/20260924T221200JST-discovery-run_discovery_1e74e968e095440244da1b9d01171d3f.json';
+
+function request() {
+  const typedText = readFileSync(
+    'src/lib/foundation/fixtures/real-gentherm-modine-typed-record-set-v1.json',
+    'utf8',
+  );
+  const artifactText = readFileSync(
+    'src/lib/foundation/fixtures/real-gentherm-modine-collection-run-v1.json',
+    'utf8',
+  );
+  return {
+    write_authorized: true as const,
+    source: {
+      repository: 'salve-de/universal-foundation',
+      source_ref: 'main',
+      source_commit_sha: 'a85596d6e7de6aba66047df383724577055c2fad',
+      typed_record_set_path: typedPath,
+      typed_record_set_blob_sha: gitBlobSha1(typedText),
+      source_artifact_path: artifactPath,
+      source_artifact_blob_sha: gitBlobSha1(artifactText),
+    },
+    typed_record_set_text: typedText,
+    source_artifact_text: artifactText,
+  };
+}
+
+test('offline typed production preflight uses the exact production planner without touching R2', async () => {
+  const input = request();
+  assert.equal(input.write_authorized, true);
+  const report = await buildTypedProductionPreflight(input);
+
+  assert.equal(report.schema_version, 'foundation-typed-production-preflight.v1');
+  assert.equal(report.mode, 'READ_ONLY_OFFLINE');
+  assert.equal(report.r2_provider_calls, 0);
+  assert.equal(report.r2_mutations, 0);
+  assert.equal(report.queue_mutations, 0);
+  assert.equal(report.coverage_assessment, 'UNASSESSED');
+  assert.equal(report.request_write_authorized, true);
+
+  assert.equal(report.planned_writes.write_authorized, false);
+  assert.equal(report.planned_write_count, 5);
+  assert.deepEqual(report.planned_write_counts_by_role, {
+    entity: 4,
+    research_bundle: 1,
+  });
+  assert.equal(report.invariants.all_create_only, true);
+  assert.equal(report.invariants.copy_object_forbidden, true);
+  assert.equal(report.invariants.delete_object_forbidden, true);
+  assert.equal(report.invariants.move_forbidden, true);
+  assert.equal(report.invariants.rename_forbidden, true);
+  assert.equal(report.invariants.overwrite_forbidden, true);
+  assert.equal(report.invariants.legacy_mutation_forbidden, true);
+
+  const canonical = report.planned_writes.objects.find(
+    (item) => item.logical_role === 'research_bundle',
+  );
+  assert.ok(canonical);
+  assert.match(
+    canonical.key,
+    new RegExp(`^datasets/ds\\.business\\.research-bundles\\.derived/v1/2026/09/24/${report.run_id}\\.json$`),
+  );
+  assert.equal(canonical.create_only, true);
+  assert.equal(canonical.preflight_status, 'NOT_CHECKED');
+
+  assert.equal(report.entity_ids.length, 4);
+  assert.ok(report.public_rights_structure.policy_reference_blockers.length > 0);
+});
+
+
+test('generic bundle production preflight uses exact legacy planner without R2 or Queue mutations', async () => {
+  const input = request();
+  const prepared = prepareFoundationTypedIngest(input);
+  const legacyBundle = {
+    ...prepared.bundle,
+    purpose: 'general_research',
+  };
+  const report = await buildBundleProductionPreflight(legacyBundle);
+
+  assert.equal(report.schema_version, 'foundation-bundle-production-preflight.v1');
+  assert.equal(report.mode, 'READ_ONLY_OFFLINE');
+  assert.equal(report.r2_provider_calls, 0);
+  assert.equal(report.r2_mutations, 0);
+  assert.equal(report.queue_mutations, 0);
+  assert.equal(report.planned_writes.write_authorized, false);
+  assert.equal(report.planned_write_count, 5);
+  assert.deepEqual(report.planned_write_counts_by_role, {
+    entity: 4,
+    research_bundle: 1,
+  });
+  assert.equal(report.invariants.all_create_only, true);
+  assert.equal(report.invariants.overwrite_forbidden, true);
+  assert.equal(report.invariants.legacy_mutation_forbidden, true);
+});
+
+
+function fakeObject(value: unknown) {
+  const body = new TextEncoder().encode(JSON.stringify(value));
+  return {
+    exists: true as const,
+    body,
+    size: body.byteLength,
+  };
+}
+
+test('replay preflight does not block when rebuild is complete and next progress page has no unresolved IDs', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: null,
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: null,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_projection-progress/run_a.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_a',
+      unresolved_entity_ids: [],
+    })],
+  ]);
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async () => ({
+      objects: [{ key: 'views/make-money/v1/_projection-progress/run_a.json' }],
+      truncated: false,
+    }),
+  });
+
+  assert.equal(report.state, 'NO_PENDING_UNRESOLVED_REPLAY');
+  assert.equal(report.blocks_reconcile, false);
+  assert.equal(report.listing_complete, true);
+  assert.equal(report.pages_scanned, 1);
+  assert.equal(report.projection_progress_objects_scanned, 1);
+  assert.equal(report.control_state_update_expected, true);
+  assert.deepEqual(report.pending_unresolved_runs, []);
+  assert.equal(report.r2_mutations, 0);
+  assert.equal(report.queue_mutations, 0);
+});
+
+test('replay preflight blocks only when the actual next replay page contains unresolved IDs', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: 'cursor-1',
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: 'cursor-1',
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_projection-progress/run_b.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_b',
+      unresolved_entity_ids: ['ent_organization_1234567890abcdef1234'],
+    })],
+  ]);
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async (input) => {
+      assert.ok(input);
+      assert.equal(input.cursor, 'cursor-1');
+      assert.equal(input.limit, 5);
+      return {
+        objects: [{ key: 'views/make-money/v1/_projection-progress/run_b.json' }],
+        truncated: false,
+      };
+    },
+  });
+
+  assert.equal(report.state, 'UNRESOLVED_REPLAY_PENDING');
+  assert.equal(report.blocks_reconcile, true);
+  assert.deepEqual(report.pending_unresolved_runs, [{
+    run_id: 'run_b',
+    unresolved_entity_ids: ['ent_organization_1234567890abcdef1234'],
+  }]);
+});
+
+
+test('replay preflight follows truncated cursors and catches unresolved IDs on later pages', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: null,
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: null,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_projection-progress/run_a.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_a',
+      unresolved_entity_ids: [],
+    })],
+    ['views/make-money/v1/_projection-progress/run_c.json', fakeObject({
+      schema_version: 'make-money-view-projection-progress.v2',
+      run_id: 'run_c',
+      unresolved_entity_ids: ['ent_organization_abcdefabcdefabcdefabcd'],
+    })],
+  ]);
+  let calls = 0;
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async (input) => {
+      calls += 1;
+      assert.ok(input);
+      assert.equal(input.limit, 5);
+      if (calls === 1) {
+        assert.equal(input.cursor, undefined);
+        return {
+          objects: [{ key: 'views/make-money/v1/_projection-progress/run_a.json' }],
+          truncated: true,
+          cursor: 'next-1',
+        };
+      }
+      assert.equal(input.cursor, 'next-1');
+      return {
+        objects: [{ key: 'views/make-money/v1/_projection-progress/run_c.json' }],
+        truncated: false,
+      };
+    },
+  });
+
+  assert.equal(calls, 2);
+  assert.equal(report.listing_complete, true);
+  assert.equal(report.pages_scanned, 2);
+  assert.equal(report.state, 'UNRESOLVED_REPLAY_PENDING');
+  assert.equal(report.blocks_reconcile, true);
+  assert.deepEqual(report.pending_unresolved_runs, [{
+    run_id: 'run_c',
+    unresolved_entity_ids: ['ent_organization_abcdefabcdefabcdefabcd'],
+  }]);
+});
+
+test('replay preflight fails closed when R2 says truncated but omits the continuation cursor', async () => {
+  const objects = new Map<string, ReturnType<typeof fakeObject>>([
+    ['views/make-money/v1/_rebuild-state.json', fakeObject({
+      schema_version: 'make-money-view-rebuild-state.v1',
+      complete: true,
+      cursor: null,
+      processed_bundles: 42,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+    ['views/make-money/v1/_unresolved-replay-state.json', fakeObject({
+      schema_version: 'make-money-view-unresolved-replay-state.v1',
+      cursor: null,
+      updated_at: '2026-09-25T00:00:00Z',
+    })],
+  ]);
+
+  const report = await buildMakeMoneyReplayStatePreflight({
+    getBucket: () => 'foundation-lake',
+    readObject: async (_bucket, key) => objects.get(key) || null,
+    listObjects: async () => ({
+      objects: [],
+      truncated: true,
+    }),
+  });
+
+  assert.equal(report.listing_complete, false);
+  assert.equal(report.state, 'UNRESOLVED_REPLAY_AUDIT_INCOMPLETE');
+  assert.equal(report.blocks_reconcile, true);
+  assert.deepEqual(report.listing_error, [
+    'projection_progress_truncated_without_cursor',
+  ]);
+});
+
+
+test('batch remote preflight aggregates the whole backlog without writes', async () => {
+  const report = await buildBatchRemoteProductionPreflight(
+    {
+      typed_requests: [
+        { id: 'typed-a', request: { a: 1 } },
+        { id: 'typed-b', request: { b: 2 } },
+      ],
+      legacy_bundles: [
+        { id: 'legacy-a', bundle: { run_id: 'run_legacy_a' } },
+      ],
+    },
+    {
+      typed: async (value: unknown) => {
+        const marker = value && typeof value === 'object' && !Array.isArray(value)
+          ? Object.keys(value as Record<string, unknown>)[0]
+          : 'unknown';
+        return {
+          planned_writes: {
+            objects: [{
+              preflight_status: marker === 'b' ? 'EXISTS_CONFLICT' : 'ABSENT',
+            }],
+          },
+          safe_to_write: marker !== 'b',
+          conflicts: marker === 'b' ? [{ key: 'conflict' }] : [],
+        } as never;
+      },
+      bundle: async () => ({
+        planned_writes: {
+          objects: [{ preflight_status: 'EXISTS_IDENTICAL' }],
+        },
+        safe_to_write: true,
+        conflicts: [],
+      } as never),
+    },
+  );
+
+  assert.equal(report.mode, 'READ_ONLY_REMOTE_R2');
+  assert.equal(report.r2_mutations, 0);
+  assert.equal(report.queue_mutations, 0);
+  assert.equal(report.typed_count, 2);
+  assert.equal(report.legacy_count, 1);
+  assert.equal(report.typed_failed, 0);
+  assert.equal(report.legacy_failed, 0);
+  assert.equal(report.conflict_entry_count, 1);
+  assert.equal(report.safe_to_write_all, false);
+  assert.deepEqual(report.planned_write_status_counts, {
+    ABSENT: 1,
+    EXISTS_CONFLICT: 1,
+    EXISTS_IDENTICAL: 1,
+  });
+  assert.deepEqual(report.typed.map((row) => row.id), ['typed-a', 'typed-b']);
+  assert.deepEqual(report.legacy.map((row) => row.id), ['legacy-a']);
+});
+
+test('batch remote preflight fails closed on one malformed entry without stopping the audit', async () => {
+  const report = await buildBatchRemoteProductionPreflight(
+    {
+      typed_requests: [
+        { id: 'typed-ok', request: { ok: true } },
+        { id: 'typed-bad', request: { bad: true } },
+      ],
+    },
+    {
+      typed: async (value: unknown) => {
+        if (
+          value &&
+          typeof value === 'object' &&
+          !Array.isArray(value) &&
+          'bad' in value
+        ) {
+          throw new Error('invalid typed input');
+        }
+        return {
+          planned_writes: { objects: [] },
+          safe_to_write: true,
+          conflicts: [],
+        } as never;
+      },
+    },
+  );
+
+  assert.equal(report.typed_count, 2);
+  assert.equal(report.typed_failed, 1);
+  assert.equal(report.safe_to_write_all, false);
+  assert.equal(report.typed[0].ok, true);
+  assert.equal(report.typed[1].ok, false);
+  assert.equal(report.typed[1].error, 'invalid typed input');
+});

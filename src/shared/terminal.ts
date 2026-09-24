@@ -290,6 +290,18 @@ export interface UniversalObservation {
   sourceUrl?: string;
   observedAt?: string;
   author?: string;
+  observationType?: string;
+  collectionTier?: string;
+  collectionChannel?: string;
+  payloadSchemaRef?: string;
+  payload?: Record<string, unknown>;
+  /**
+   * Lossless product-view copy of the source observation. This keeps
+   * unknown/future typed-sidecar fields inspectable without hard-coding a new
+   * UI model for every observation schema.
+   */
+  structuredData?: Record<string, unknown>;
+  evidenceIds?: string[];
   sourceClass?: SourceClass; // 出典の独立性
   evidenceLocator?: EvidenceLocator; // 原本内の厳密な位置
 }

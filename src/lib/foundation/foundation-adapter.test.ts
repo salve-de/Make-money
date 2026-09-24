@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { adaptFoundationSummaryToFinancialEntity, isFoundationDossierReady } from './foundation-adapter';
-import type { FoundationValueSummary } from './business-reader';
+import {
+  adaptFoundationDetailToFinancialEntity,
+  adaptFoundationSummaryToFinancialEntity,
+  isFoundationDossierReady,
+} from './foundation-adapter';
+import {
+  buildFoundationBusinessCaseForEntity,
+  type FoundationValueSummary,
+} from './business-reader';
 
 function summary(overrides: Partial<FoundationValueSummary> = {}): FoundationValueSummary {
   return {
@@ -145,4 +152,78 @@ describe('Foundation display boundary', () => {
       },
     }))).toBe(false);
   });
+
+  it('carries structured Foundation observations into the universal intelligence stream', () => {
+    const entityId = 'ent_business_bbbbbbbbbbbbbbbbbbbb';
+    const detail = buildFoundationBusinessCaseForEntity({
+      schema_version: 'research-bundle.v1',
+      run_id: 'run_adapter_structured',
+      retrieved_at: '2026-09-25T00:00:00Z',
+      entities: [{
+        entity_id: entityId,
+        entity_type: 'business',
+        canonical_name: 'Adapter Structured Co',
+        aliases: [],
+        canonical_identifier: null,
+        domain: null,
+        status: 'operating',
+        observed_at: '2026-09-25T00:00:00Z',
+        evidence_ids: ['ev_adapter'],
+      }],
+      claims: [],
+      metrics: [],
+      money_signals: [],
+      events: [],
+      relationships: [],
+      observations: [{
+        observation_id: 'obs_bbbbbbbbbbbbbbbbbbbbbbbb',
+        observation_type: 'future.adapter.signal',
+        entity_ids: [entityId],
+        text: 'Adapter structured observation',
+        origin_type: 'reported',
+        verification_status: 'SUPPORTED',
+        observed_at: '2026-09-25T00:00:00Z',
+        collection_channel: 'web',
+        observer: 'DISCOVERY',
+        evidence_ids: ['ev_adapter'],
+        payload_schema_ref: 'urn:test:adapter:v1',
+        payload: {
+          nested: { visible: true },
+        },
+        unknown_future_field: {
+          still_visible: true,
+        },
+      }],
+      derived: [],
+    }, {
+      id: entityId,
+      name: 'Adapter Structured Co',
+      entityType: 'business',
+      aliases: [],
+      canonicalIdentifier: null,
+      domain: null,
+      status: 'operating',
+      observedAt: '2026-09-25T00:00:00Z',
+      evidenceIds: ['ev_adapter'],
+    });
+
+    const adapted = adaptFoundationDetailToFinancialEntity(detail);
+    const observation = adapted.observationsStream?.find(
+      (item) => item.id === 'obs_bbbbbbbbbbbbbbbbbbbbbbbb',
+    );
+    expect(observation).toBeTruthy();
+    expect(observation).toMatchObject({
+      observationType: 'future.adapter.signal',
+      collectionChannel: 'web',
+      payloadSchemaRef: 'urn:test:adapter:v1',
+      payload: {
+        nested: { visible: true },
+      },
+      evidenceIds: ['ev_adapter'],
+    });
+    expect(observation?.structuredData?.unknown_future_field).toEqual({
+      still_visible: true,
+    });
+  });
+
 });
