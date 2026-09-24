@@ -122,7 +122,7 @@ function assertSafeRepoPath(value: unknown, label: string): asserts value is str
 export function gitBlobSha1(text: string): string {
   const bytes = Buffer.from(text, 'utf8');
   return createHash('sha1')
-    .update(Buffer.from(`blob ${bytes.byteLength}\\0`, 'utf8'))
+    .update(Buffer.from(`blob ${bytes.byteLength}\0`, 'utf8'))
     .update(bytes)
     .digest('hex');
 }
