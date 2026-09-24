@@ -87,7 +87,11 @@ test('offline typed production preflight uses the exact production planner witho
 test('generic bundle production preflight uses exact legacy planner without R2 or Queue mutations', async () => {
   const input = request();
   const prepared = prepareFoundationTypedIngest(input);
-  const report = await buildBundleProductionPreflight(prepared.bundle);
+  const legacyBundle = {
+    ...prepared.bundle,
+    purpose: 'general_research',
+  };
+  const report = await buildBundleProductionPreflight(legacyBundle);
 
   assert.equal(report.schema_version, 'foundation-bundle-production-preflight.v1');
   assert.equal(report.mode, 'READ_ONLY_OFFLINE');
@@ -178,6 +182,7 @@ test('replay preflight blocks only when the actual next replay page contains unr
     getBucket: () => 'foundation-lake',
     readObject: async (_bucket, key) => objects.get(key) || null,
     listObjects: async (input) => {
+      assert.ok(input);
       assert.equal(input.cursor, 'cursor-1');
       assert.equal(input.limit, 5);
       return {
