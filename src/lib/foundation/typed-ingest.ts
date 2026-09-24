@@ -183,7 +183,45 @@ function explicitEntityIds(value: JsonObject): string[] {
   return [...ids];
 }
 
-function observationEntityIds(observation: JsonObject, entities: JsonObject[]): string[] {
+function caseEntityForTypedSubject(
+  typedRecordSet: JsonObject,
+  subjectRef: string,
+  recordedAt: string,
+): JsonObject | null {
+  if (/^ent_[a-z0-9]+_[a-f0-9]{20}$/.test(subjectRef)) return null;
+  const subject = isObject(typedRecordSet.subject) ? typedRecordSet.subject : {};
+  const canonicalName =
+    stringValue(subject, 'candidate_name') ||
+    stringValue(subject, 'query') ||
+    subjectRef;
+  const evidenceIds = new Set<string>();
+  const observations = Array.isArray(typedRecordSet.observations)
+    ? typedRecordSet.observations.filter(isObject)
+    : [];
+  for (const observation of observations) {
+    const ids = Array.isArray(observation.evidence_ids)
+      ? observation.evidence_ids.filter((value): value is string => typeof value === 'string')
+      : [];
+    ids.forEach((id) => evidenceIds.add(id));
+  }
+  return {
+    entity_id: `ent_case_${sha256Sync(`case|${subjectRef}|${TYPED_PROJECTOR_VERSION}`).slice(0, 20)}`,
+    entity_type: 'case',
+    canonical_name: canonicalName,
+    aliases: [],
+    canonical_identifier: subjectRef,
+    domain: stringValue(subject, 'candidate_domain'),
+    status: null,
+    observed_at: recordedAt,
+    evidence_ids: [...evidenceIds].sort(),
+  };
+}
+
+function observationEntityIds(
+  observation: JsonObject,
+  entities: JsonObject[],
+  caseEntityId: string | null,
+): string[] {
   const available = new Set(
     entities
       .map((entity) => stringValue(entity, 'entity_id'))
@@ -201,21 +239,9 @@ function observationEntityIds(observation: JsonObject, entities: JsonObject[]): 
     }
   }
 
-  const evidenceIds = new Set(
-    Array.isArray(observation.evidence_ids)
-      ? observation.evidence_ids.filter((value): value is string => typeof value === 'string')
-      : [],
-  );
-  if (evidenceIds.size > 0) {
-    for (const entity of entities) {
-      const entityId = stringValue(entity, 'entity_id');
-      const entityEvidence = Array.isArray(entity.evidence_ids)
-        ? entity.evidence_ids.filter((value): value is string => typeof value === 'string')
-        : [];
-      if (entityId && entityEvidence.some((id) => evidenceIds.has(id))) associated.add(entityId);
-    }
+  if (associated.size === 0 && caseEntityId && available.has(caseEntityId)) {
+    associated.add(caseEntityId);
   }
-
   if (associated.size === 0 && available.size === 1) {
     associated.add([...available][0]);
   }
@@ -257,6 +283,9 @@ export function projectTypedRecordSetV4(
   const typedEntities = Array.isArray(typedRecordSet.entities)
     ? typedRecordSet.entities.filter(isObject)
     : [];
+  const caseEntity = caseEntityForTypedSubject(typedRecordSet, subjectRef, recordedAt);
+  const projectedEntities = caseEntity ? [...typedEntities, caseEntity] : typedEntities;
+  const caseEntityId = caseEntity ? stringValue(caseEntity, 'entity_id') : null;
 
   const observations: JsonObject[] = [
     {
@@ -275,7 +304,7 @@ export function projectTypedRecordSetV4(
       const observationChannel =
         stringValue(observation, 'collection_channel') || collectionChannel;
       const observer = stringValue(observation, 'observer') || agentName;
-      const entityIds = observationEntityIds(observation, typedEntities);
+      const entityIds = observationEntityIds(observation, projectedEntities, caseEntityId);
       return {
         ...cloneJson(observation),
         ...(entityIds.length > 0 ? { entity_ids: entityIds } : {}),
@@ -300,7 +329,7 @@ export function projectTypedRecordSetV4(
     retrieved_at: retrievedAt,
     sources: cloneJson(Array.isArray(typedRecordSet.sources) ? typedRecordSet.sources : []),
     evidence: cloneJson(Array.isArray(typedRecordSet.evidence) ? typedRecordSet.evidence : []),
-    entities: cloneJson(Array.isArray(typedRecordSet.entities) ? typedRecordSet.entities : []),
+    entities: cloneJson(projectedEntities),
     claims: cloneJson(Array.isArray(typedRecordSet.claims) ? typedRecordSet.claims : []),
     metrics: cloneJson(Array.isArray(typedRecordSet.metrics) ? typedRecordSet.metrics : []),
     money_signals: cloneJson(Array.isArray(typedRecordSet.money_signals) ? typedRecordSet.money_signals : []),
