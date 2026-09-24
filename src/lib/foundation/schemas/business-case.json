@@ -548,6 +548,7 @@
             "null"
           ]
         },
+        "publicPayload": {},
         "evidenceIds": {
           "type": "array",
           "items": {
@@ -562,8 +563,6 @@
         "originType",
         "verificationStatus",
         "observedAt",
-        "collectionTier",
-        "collectionChannel",
         "evidenceIds"
       ]
     },
