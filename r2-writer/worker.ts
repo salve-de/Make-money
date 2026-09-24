@@ -7,7 +7,10 @@ import { candidateArtifactManifest } from '../src/lib/foundation/candidate-artif
 import { prepareUnstoredMoneySignalDefaults, defaultIncomingMoneySignalFields } from '../src/lib/foundation/money-signal-null-defaults';
 import { validateResearchBundle } from '../src/lib/foundation/ingest';
 import { withCloudflareRuntimeEnv } from '../src/lib/runtime/cloudflare';
-import { materializeMakeMoneyViews } from '../src/lib/foundation/make-money-view';
+import {
+  buildMakeMoneyPublicProjection,
+  materializeMakeMoneyViews,
+} from '../src/lib/foundation/make-money-view';
 import {
   buildNewArrivalsContribution,
   newArrivalsContributionKey,
@@ -128,7 +131,7 @@ class ImmutableObjectConflict extends Error {
   }
 }
 
-async function projectBundleForUI(bundle: JsonRecord, env: WriterEnv) {
+export async function projectBundleForUI(bundle: JsonRecord, env: WriterEnv) {
   const budget = r2Budgets.get(env);
   const binding = env.FOUNDATION_R2_LAKE;
   // Only this invocation's binding is wrapped. No global environment mutation.
@@ -145,8 +148,38 @@ async function projectBundleForUI(bundle: JsonRecord, env: WriterEnv) {
       };
     },
   });
-  const report = await withCloudflareRuntimeEnv({ ...env, FOUNDATION_R2_LAKE: lake }, () => materializeMakeMoneyViews(bundle));
-  return report;
+
+  return withCloudflareRuntimeEnv(
+    { ...env, FOUNDATION_R2_LAKE: lake },
+    async () => {
+      const publicProjection = await buildMakeMoneyPublicProjection(bundle);
+      if (!publicProjection.bundle) {
+        return {
+          status: 'RIGHTS_HELD' as const,
+          source_run_id: text(bundle.run_id) || 'unknown',
+          attempted: 0,
+          created: 0,
+          updated: 0,
+          unchanged: 0,
+          concurrent_retries: 0,
+          unresolved_entity_ids: [],
+          processed_this_call: 0,
+          next_index: 0,
+          total_targets: 0,
+          complete: true,
+          keys: [],
+          commercial_publication: publicProjection.assessment,
+        };
+      }
+
+      const report = await materializeMakeMoneyViews(publicProjection.bundle);
+      return {
+        status: report.complete ? 'PASS' as const : 'PARTIAL' as const,
+        ...report,
+        commercial_publication: publicProjection.assessment,
+      };
+    },
+  );
 }
 
 async function projectHistoricalReceipt(env: WriterEnv, queuePath: string, receiptPath: string, receipt: JsonRecord) {

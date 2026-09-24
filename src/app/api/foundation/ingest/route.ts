@@ -14,6 +14,7 @@ import {
   R2ObjectConflictError,
 } from '@/lib/storage/r2';
 import {
+  buildMakeMoneyPublicProjection,
   canResumeMakeMoneyProjection,
   materializeMakeMoneyViews,
 } from '@/lib/foundation/make-money-view';
@@ -21,7 +22,6 @@ import { defaultIncomingMoneySignalFields } from '@/lib/foundation/money-signal-
 import { buildNewArrivalsContribution } from '@/lib/foundation/new-arrivals';
 import { persistNewArrivalsContribution } from '@/lib/foundation/new-arrivals-index';
 import { readJsonBody, RequestBodyTooLargeError } from '@/lib/api/input';
-import { buildCommercialPublicFactProjection } from '@/lib/foundation/publication-rights';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
       retrieved_at: string;
       entities?: unknown;
     };
-    const publicProjection = buildCommercialPublicFactProjection(preparedBundle);
+    const publicProjection = await buildMakeMoneyPublicProjection(preparedBundle);
     const publicBundle = publicProjection.bundle as {
       run_id: string;
       retrieved_at: string;

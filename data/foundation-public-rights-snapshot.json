@@ -1,8 +1,8 @@
 {
   "schema_version": "make-money-public-rights-snapshot.v1",
   "source_repository": "salve-de/universal-foundation",
-  "source_commit_sha": "dd53262fb24ea51a824a9c14b8d4c939fed820a4",
-  "generated_at": "2026-09-24T15:22:00Z",
+  "source_commit_sha": "5722eec358e2aa40294eb7b6e54f119b9776cc85",
+  "generated_at": "2026-09-24T22:20:56Z",
   "records": [
     {
       "policy": {
@@ -62,6 +62,38 @@
       },
       "allowed_host_suffixes": [
         "bls.gov"
+      ]
+    },
+    {
+      "policy": {
+        "policy_id": "rights.sec-edgar-public-facts.v1",
+        "source_id": "src.sec-edgar",
+        "status": "approved",
+        "commercial_use": "allowed",
+        "public_fact_display": "allowed",
+        "reviewed_at": "2026-09-25T04:18:00+09:00",
+        "path": "registry/rights/policy.sec-edgar-public-facts.v1.json",
+        "blob_sha": "f33fbbcb5355a1fdf9e77eaf043ac0900089d101"
+      },
+      "source": {
+        "source_id": "src.sec-edgar",
+        "status": "active",
+        "provider_url": "https://www.sec.gov/",
+        "rights_policy_ids": [
+          "rights.sec-edgar-public-facts.v1"
+        ],
+        "path": "registry/sources/source.sec-edgar.v1.json",
+        "blob_sha": "6485f52aba515940a2f513d81703f1b0e0025034",
+        "provider_name": "U.S. Securities and Exchange Commission",
+        "source_types": [
+          "regulatory_filing"
+        ]
+      },
+      "allowed_host_suffixes": [
+        "sec.gov"
+      ],
+      "allowed_path_prefixes": [
+        "/Archives/edgar/"
       ]
     }
   ]
