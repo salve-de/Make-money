@@ -75,103 +75,103 @@ function stringArray(value: unknown): string[] {
     : [];
 }
 
-const PUBLIC_OBSERVATION_STRING_FIELDS = new Set([
-  'currency',
-  'unit',
-  'basis',
-  'scope',
-  'status',
-  'category',
-  'code',
-  'country',
-  'region',
-  'market',
-  'segment',
-  'period',
-  'period_start',
-  'period_end',
-  'point_in_time',
-  'as_of',
-  'date',
-  'year',
-  'month',
-  'quarter',
-  'frequency',
-]);
+type PublicObservationFieldRule = {
+  sourcePath: readonly string[];
+  publicPath?: readonly string[];
+  kind: 'finite_number' | 'currency_code' | 'boolean';
+};
 
-const PUBLIC_OBSERVATION_MAX_DEPTH = 4;
-const PUBLIC_OBSERVATION_MAX_KEYS = 64;
-const PUBLIC_OBSERVATION_MAX_ARRAY_ITEMS = 50;
-const PUBLIC_OBSERVATION_MAX_STRING_LENGTH = 80;
+type PublicObservationTypePolicy = {
+  fields: readonly PublicObservationFieldRule[];
+};
+
+/**
+ * Public Observation DTOs are schema-projected, never payload-sanitized.
+ *
+ * Rights approval proves the source/evidence may support commercial public
+ * facts. It does not prove that every arbitrary field in an Observation
+ * payload is itself a public fact. Only fields explicitly registered for the
+ * exact Observation type may cross this boundary.
+ *
+ * Additions to this registry require their own review/test. Unknown
+ * Observation types and unknown fields fail closed.
+ */
+export const PUBLIC_OBSERVATION_TYPE_POLICIES: Readonly<
+  Record<string, PublicObservationTypePolicy>
+> = Object.freeze({
+  'business_model.revenue_signal': Object.freeze({
+    fields: Object.freeze([
+      Object.freeze({ sourcePath: Object.freeze(['amount']), kind: 'finite_number' as const }),
+      Object.freeze({ sourcePath: Object.freeze(['currency']), kind: 'currency_code' as const }),
+    ]),
+  }),
+});
+
 const PUBLIC_OBSERVATION_MAX_BYTES = 12 * 1024;
-const PUBLIC_OBSERVATION_INTERNAL_FIELD =
-  /(^|_)(raw|secret|private|internal|transport|observer|prompt|schema|source|url|uri|html|markdown|content|text|summary|description|title|excerpt|quote|transcript)(_|$)/i;
 
-function normalizedFieldName(value: string): string {
-  return value
-    .replace(/([a-z0-9])([A-Z])/g, '$1_$2')
-    .replace(/[-\s]+/g, '_')
-    .toLowerCase();
+function readPath(input: JsonObject, path: readonly string[]): unknown {
+  let current: unknown = input;
+  for (const segment of path) {
+    const object = objectValue(current);
+    if (!object || !Object.prototype.hasOwnProperty.call(object, segment)) return undefined;
+    current = object[segment];
+  }
+  return current;
 }
 
-function publicObservationString(key: string, value: string): string | undefined {
-  const normalized = normalizedFieldName(key);
-  if (!PUBLIC_OBSERVATION_STRING_FIELDS.has(normalized)) return undefined;
-  const trimmed = value.trim();
-  if (
-    !trimmed ||
-    trimmed.length > PUBLIC_OBSERVATION_MAX_STRING_LENGTH ||
-    /[\r\n\t]/.test(trimmed) ||
-    /[.!?。！？]/.test(trimmed)
-  ) return undefined;
-  if (normalized === 'currency' && !/^[A-Za-z0-9._+-]{2,12}$/.test(trimmed)) return undefined;
-  return trimmed;
+function writePath(target: JsonObject, path: readonly string[], value: unknown): void {
+  if (path.length === 0) return;
+  let current = target;
+  for (let index = 0; index < path.length - 1; index += 1) {
+    const segment = path[index];
+    const next = objectValue(current[segment]);
+    if (next) {
+      current = next;
+      continue;
+    }
+    const created: JsonObject = {};
+    current[segment] = created;
+    current = created;
+  }
+  current[path[path.length - 1]] = value;
 }
 
-function projectPublicObservationValue(
+function projectPublicObservationField(
   value: unknown,
-  key: string,
-  depth: number,
+  kind: PublicObservationFieldRule['kind'],
 ): unknown | undefined {
-  const normalized = normalizedFieldName(key);
-  if (
-    normalized === 'public_payload' ||
-    PUBLIC_OBSERVATION_INTERNAL_FIELD.test(normalized)
-  ) return undefined;
-
-  if (value === null) return null;
-  if (typeof value === 'boolean') return value;
-  if (typeof value === 'number') return Number.isFinite(value) ? value : undefined;
-  if (typeof value === 'string') return publicObservationString(key, value);
-  if (depth >= PUBLIC_OBSERVATION_MAX_DEPTH) return undefined;
-
-  if (Array.isArray(value)) {
-    if (value.length > PUBLIC_OBSERVATION_MAX_ARRAY_ITEMS) return undefined;
-    const projected = value
-      .map((item) => projectPublicObservationValue(item, key, depth + 1))
-      .filter((item) => item !== undefined);
-    return projected.length > 0 ? projected : undefined;
+  if (kind === 'finite_number') {
+    return typeof value === 'number' && Number.isFinite(value) ? value : undefined;
   }
-
-  const object = objectValue(value);
-  if (!object) return undefined;
-  const entries = Object.entries(object);
-  if (entries.length > PUBLIC_OBSERVATION_MAX_KEYS) return undefined;
-
-  const projected: JsonObject = {};
-  for (const [childKey, childValue] of entries) {
-    const publicValue = projectPublicObservationValue(childValue, childKey, depth + 1);
-    if (publicValue !== undefined) projected[childKey] = publicValue;
+  if (kind === 'boolean') {
+    return typeof value === 'boolean' ? value : undefined;
   }
-  return Object.keys(projected).length > 0 ? projected : undefined;
+  if (kind === 'currency_code') {
+    if (typeof value !== 'string' || value !== value.trim()) return undefined;
+    return /^[A-Z0-9]{2,12}$/.test(value) ? value : undefined;
+  }
+  return undefined;
 }
 
-function buildPublicObservationPayload(value: unknown): JsonObject | null {
+function buildPublicObservationPayload(
+  observationType: string,
+  value: unknown,
+): JsonObject | null {
+  const policy = PUBLIC_OBSERVATION_TYPE_POLICIES[observationType];
   const input = objectValue(value);
-  if (!input) return null;
-  const projected = projectPublicObservationValue(input, 'payload', 0);
-  const publicPayload = objectValue(projected);
-  if (!publicPayload || Object.keys(publicPayload).length === 0) return null;
+  if (!policy || !input) return null;
+
+  const publicPayload: JsonObject = {};
+  for (const field of policy.fields) {
+    const projected = projectPublicObservationField(
+      readPath(input, field.sourcePath),
+      field.kind,
+    );
+    if (projected === undefined) continue;
+    writePath(publicPayload, field.publicPath || field.sourcePath, projected);
+  }
+
+  if (Object.keys(publicPayload).length === 0) return null;
   const bytes = new TextEncoder().encode(JSON.stringify(publicPayload)).byteLength;
   return bytes <= PUBLIC_OBSERVATION_MAX_BYTES ? publicPayload : null;
 }
@@ -200,7 +200,9 @@ function buildCommercialPublicObservation(
   const originType = text(value.origin_type);
   const observedAt = text(value.observed_at);
   const evidenceIds = stringArray(value.evidence_ids);
-  const publicPayload = buildPublicObservationPayload(value.payload);
+  const publicPayload = observationType
+    ? buildPublicObservationPayload(observationType, value.payload)
+    : null;
 
   if (
     !observationId ||
@@ -352,6 +354,8 @@ function filterRecords(
  * - requires an explicitly auto-approved registered rights policy;
  * - requires SUPPORTED records backed only by approved Evidence;
  * - emits Observation only as a newly built fact-only public DTO;
+ * - an exact Observation-type/field registry decides which structured values may cross;
+ * - unknown Observation types/fields fail closed, including unknown numeric fields;
  * - never copies raw payload, collector metadata, source prose, or derived text;
  * - never treats metadata_only as publication permission by itself.
  */
